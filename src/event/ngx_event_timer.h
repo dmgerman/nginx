@@ -37,9 +37,19 @@ file|<ngx_event.h>
 end_include
 
 begin_function_decl
-name|ngx_event_t
+name|int
+name|ngx_event_timer_init
+parameter_list|(
+name|ngx_log_t
 modifier|*
-name|ngx_event_init_timer
+name|log
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_event_timer_done
 parameter_list|(
 name|ngx_log_t
 modifier|*

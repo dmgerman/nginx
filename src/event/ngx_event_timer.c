@@ -41,22 +41,6 @@ directive|include
 file|<ngx_event_timer.h>
 end_include
 
-begin_comment
-comment|/* STUB */
-end_comment
-
-begin_define
-DECL|macro|NGX_TIMER_QUEUE_NUM
-define|#
-directive|define
-name|NGX_TIMER_QUEUE_NUM
-value|5
-end_define
-
-begin_comment
-comment|/* should be per-thread */
-end_comment
-
 begin_decl_stmt
 DECL|variable|ngx_timer_queue
 specifier|static
@@ -74,10 +58,6 @@ name|ngx_timer_cur_queue
 decl_stmt|;
 end_decl_stmt
 
-begin_comment
-comment|/* */
-end_comment
-
 begin_decl_stmt
 DECL|variable|ngx_timer_queue_num
 specifier|static
@@ -87,10 +67,9 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_event_init_timer (ngx_log_t * log)
-name|ngx_event_t
-modifier|*
-name|ngx_event_init_timer
+DECL|function|ngx_event_timer_init (ngx_log_t * log)
+name|int
+name|ngx_event_timer_init
 parameter_list|(
 name|ngx_log_t
 modifier|*
@@ -100,9 +79,22 @@ block|{
 name|int
 name|i
 decl_stmt|;
+name|ngx_event_conf_t
+modifier|*
+name|ecf
+decl_stmt|;
+name|ecf
+operator|=
+name|ngx_event_get_conf
+argument_list|(
+name|ngx_event_module_ctx
+argument_list|)
+expr_stmt|;
 name|ngx_timer_queue_num
 operator|=
-name|NGX_TIMER_QUEUE_NUM
+name|ecf
+operator|->
+name|timer_queues
 expr_stmt|;
 name|ngx_timer_cur_queue
 operator|=
@@ -124,7 +116,7 @@ argument_list|,
 name|log
 argument_list|)
 argument_list|,
-name|NULL
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 for|for
@@ -169,8 +161,27 @@ index|]
 expr_stmt|;
 block|}
 return|return
-name|ngx_timer_queue
+name|NGX_OK
 return|;
+empty_stmt|;
+block|}
+end_function
+
+begin_function
+DECL|function|ngx_event_timer_done (ngx_log_t * log)
+name|void
+name|ngx_event_timer_done
+parameter_list|(
+name|ngx_log_t
+modifier|*
+name|log
+parameter_list|)
+block|{
+name|ngx_free
+argument_list|(
+name|ngx_timer_queue
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 
@@ -524,6 +535,12 @@ name|ngx_del_timer
 argument_list|(
 name|ev
 argument_list|)
+expr_stmt|;
+name|ev
+operator|->
+name|timer_set
+operator|=
+literal|0
 expr_stmt|;
 if|if
 condition|(

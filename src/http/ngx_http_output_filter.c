@@ -133,6 +133,10 @@ argument_list|(
 literal|"output_buffer"
 argument_list|)
 block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
+name|NGX_HTTP_SRV_CONF
+operator||
 name|NGX_HTTP_LOC_CONF
 operator||
 name|NGX_CONF_TAKE1
@@ -179,15 +183,21 @@ name|NGX_HTTP_MODULE
 block|,
 name|NULL
 block|,
-comment|/* create server config */
+comment|/* create main configuration */
 name|NULL
 block|,
-comment|/* init server config */
+comment|/* init main configuration */
+name|NULL
+block|,
+comment|/* create server configuration */
+name|NULL
+block|,
+comment|/* merge server configuration */
 name|ngx_http_output_filter_create_conf
 block|,
-comment|/* create location config */
+comment|/* create location configuration */
 name|ngx_http_output_filter_merge_conf
-comment|/* merge location config */
+comment|/* merge location configuration */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -1426,7 +1436,7 @@ operator|*
 operator|)
 name|child
 decl_stmt|;
-name|ngx_conf_size_merge
+name|ngx_conf_merge_size_value
 argument_list|(
 name|conf
 operator|->

@@ -93,6 +93,8 @@ expr_stmt|;
 name|ngx_event_flags
 operator|=
 name|NGX_HAVE_AIO_EVENT
+operator||
+name|NGX_USE_AIO_EVENT
 expr_stmt|;
 name|ngx_write_chain_proc
 operator|=

@@ -85,24 +85,31 @@ end_function_decl
 
 begin_decl_stmt
 DECL|variable|ngx_http_header_filter_module_ctx
+specifier|static
 name|ngx_http_module_t
 name|ngx_http_header_filter_module_ctx
 init|=
 block|{
+name|NGX_HTTP_MODULE
+block|,
 name|NULL
 block|,
-comment|/* create server config */
+comment|/* create main configuration */
 name|NULL
 block|,
-comment|/* init server config */
+comment|/* init main configuration */
 name|NULL
 block|,
-comment|/* create location config */
+comment|/* create server configuration */
 name|NULL
 block|,
-comment|/* merge location config */
+comment|/* merge server configuration */
 name|NULL
-comment|/* init filters */
+block|,
+comment|/* create location configuration */
+name|NULL
+block|,
+comment|/* merge location configuration */
 block|}
 decl_stmt|;
 end_decl_stmt

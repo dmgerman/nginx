@@ -158,15 +158,21 @@ name|NGX_HTTP_MODULE
 block|,
 name|NULL
 block|,
-comment|/* create server config */
+comment|/* create main configuration */
 name|NULL
 block|,
-comment|/* init server config */
+comment|/* init main configuration */
+name|NULL
+block|,
+comment|/* create server configuration */
+name|NULL
+block|,
+comment|/* merge server configuration */
 name|ngx_http_write_filter_create_conf
 block|,
-comment|/* create location config */
+comment|/* create location configuration */
 name|ngx_http_write_filter_merge_conf
-comment|/* merge location config */
+comment|/* merge location configuration */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -239,10 +245,6 @@ name|conf
 decl_stmt|;
 name|ctx
 operator|=
-operator|(
-name|ngx_http_write_filter_ctx_t
-operator|*
-operator|)
 name|ngx_http_get_module_ctx
 argument_list|(
 name|r
@@ -545,10 +547,6 @@ block|}
 block|}
 name|conf
 operator|=
-operator|(
-name|ngx_http_write_filter_conf_t
-operator|*
-operator|)
 name|ngx_http_get_module_loc_conf
 argument_list|(
 name|r
@@ -615,6 +613,24 @@ return|return
 name|NGX_AGAIN
 return|;
 block|}
+if|#
+directive|if
+literal|1
+name|chain
+operator|=
+name|ngx_write_chain
+argument_list|(
+name|r
+operator|->
+name|connection
+argument_list|,
+name|ctx
+operator|->
+name|out
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|chain
 operator|=
 name|ngx_write_chain
@@ -630,6 +646,8 @@ argument_list|,
 name|flush
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 if|#
 directive|if
 operator|(
@@ -751,23 +769,15 @@ name|ngx_http_write_filter_conf_t
 modifier|*
 name|prev
 init|=
-operator|(
-name|ngx_http_write_filter_conf_t
-operator|*
-operator|)
 name|parent
 decl_stmt|;
 name|ngx_http_write_filter_conf_t
 modifier|*
 name|conf
 init|=
-operator|(
-name|ngx_http_write_filter_conf_t
-operator|*
-operator|)
 name|child
 decl_stmt|;
-name|ngx_conf_size_merge
+name|ngx_conf_merge_size_value
 argument_list|(
 name|conf
 operator|->

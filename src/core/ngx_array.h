@@ -25,12 +25,12 @@ file|<ngx_alloc.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b56a0020108
+DECL|struct|__anon29ceea300108
 typedef|typedef
 struct|struct
 block|{
 DECL|member|elts
-name|char
+name|void
 modifier|*
 name|elts
 decl_stmt|;

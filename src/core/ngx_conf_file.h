@@ -270,7 +270,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon294acca40108
+DECL|struct|__anon29ea34e80108
 typedef|typedef
 struct|struct
 block|{
@@ -311,7 +311,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294acca40208
+DECL|struct|__anon29ea34e80208
 typedef|typedef
 struct|struct
 block|{
@@ -416,42 +416,86 @@ struct|;
 end_struct
 
 begin_define
-DECL|macro|ngx_conf_merge (conf,prev,default)
+DECL|macro|ngx_get_conf (module)
 define|#
 directive|define
-name|ngx_conf_merge
+name|ngx_get_conf
 parameter_list|(
-name|conf
-parameter_list|,
-name|prev
-parameter_list|,
-define|default)                                  \     if (conf == NGX_CONF_UNSET) {                                            \         conf = (prev == NGX_CONF_UNSET) ? default : prev;                    \     }
+name|module
+parameter_list|)
+value|ngx_conf_ctx[module.index]
 end_define
 
 begin_define
-DECL|macro|ngx_conf_msec_merge (conf,prev,default)
+DECL|macro|ngx_conf_init_value (conf,default)
 define|#
 directive|define
-name|ngx_conf_msec_merge
+name|ngx_conf_init_value
 parameter_list|(
 name|conf
 parameter_list|,
-name|prev
-parameter_list|,
-define|default)                             \     if (conf == (ngx_msec_t) NGX_CONF_UNSET) {                               \         conf = (prev == (ngx_msec_t) NGX_CONF_UNSET) ? default : prev;       \     }
+define|default)                                   \     if (conf == NGX_CONF_UNSET) {                                            \         conf = default;                                                      \     }
 end_define
 
 begin_define
-DECL|macro|ngx_conf_size_merge (conf,prev,default)
+DECL|macro|ngx_conf_init_size_value (conf,default)
 define|#
 directive|define
-name|ngx_conf_size_merge
+name|ngx_conf_init_size_value
+parameter_list|(
+name|conf
+parameter_list|,
+define|default)                              \     if (conf == NGX_CONF_UNSET) {                                            \         conf = default;                                                      \     }
+end_define
+
+begin_define
+DECL|macro|ngx_conf_init_msec_value (conf,default)
+define|#
+directive|define
+name|ngx_conf_init_msec_value
+parameter_list|(
+name|conf
+parameter_list|,
+define|default)                              \     if (conf == NGX_CONF_UNSET) {                                            \         conf = default;                                                      \     }
+end_define
+
+begin_define
+DECL|macro|ngx_conf_merge_value (conf,prev,default)
+define|#
+directive|define
+name|ngx_conf_merge_value
 parameter_list|(
 name|conf
 parameter_list|,
 name|prev
 parameter_list|,
-define|default)                             \     if (conf == (size_t) NGX_CONF_UNSET) {                                   \         conf = (prev == (size_t) NGX_CONF_UNSET) ? default : prev;           \     }
+define|default)                            \     if (conf == NGX_CONF_UNSET) {                                            \         conf = (prev == NGX_CONF_UNSET) ? default : prev;                    \     }
+end_define
+
+begin_define
+DECL|macro|ngx_conf_merge_msec_value (conf,prev,default)
+define|#
+directive|define
+name|ngx_conf_merge_msec_value
+parameter_list|(
+name|conf
+parameter_list|,
+name|prev
+parameter_list|,
+define|default)                       \     if (conf == (ngx_msec_t) NGX_CONF_UNSET) {                               \         conf = (prev == (ngx_msec_t) NGX_CONF_UNSET) ? default : prev;       \     }
+end_define
+
+begin_define
+DECL|macro|ngx_conf_merge_size_value (conf,prev,default)
+define|#
+directive|define
+name|ngx_conf_merge_size_value
+parameter_list|(
+name|conf
+parameter_list|,
+name|prev
+parameter_list|,
+define|default)                       \     if (conf == (size_t) NGX_CONF_UNSET) {                                   \         conf = (prev == (size_t) NGX_CONF_UNSET) ? default : prev;           \     }
 end_define
 
 begin_define
@@ -607,6 +651,17 @@ name|ngx_module_t
 modifier|*
 name|ngx_modules
 index|[]
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|void
+modifier|*
+modifier|*
+modifier|*
+modifier|*
+name|ngx_conf_ctx
 decl_stmt|;
 end_decl_stmt
 

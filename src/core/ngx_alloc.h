@@ -216,6 +216,14 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_define
+DECL|macro|ngx_free
+define|#
+directive|define
+name|ngx_free
+value|free
+end_define
+
 begin_endif
 endif|#
 directive|endif

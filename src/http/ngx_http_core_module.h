@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b3e566c0108
+DECL|struct|__anon27db52d40108
 typedef|typedef
 struct|struct
 block|{
@@ -67,18 +67,43 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3e566c0208
+DECL|struct|__anon27db52d40208
 typedef|typedef
 struct|struct
 block|{
+DECL|member|post_accept_timeout
+name|int
+name|post_accept_timeout
+decl_stmt|;
+DECL|member|connection_pool_size
+name|int
+name|connection_pool_size
+decl_stmt|;
 DECL|member|request_pool_size
 name|int
 name|request_pool_size
+decl_stmt|;
+DECL|member|client_header_timeout
+name|int
+name|client_header_timeout
 decl_stmt|;
 DECL|member|client_header_buffer_size
 name|int
 name|client_header_buffer_size
 decl_stmt|;
+DECL|member|large_client_header
+name|int
+name|large_client_header
+decl_stmt|;
+DECL|member|url_in_error_log
+name|int
+name|url_in_error_log
+decl_stmt|;
+DECL|member|servers
+name|ngx_array_t
+name|servers
+decl_stmt|;
+comment|/* array of ngx_http_core_srv_conf_t */
 DECL|typedef|ngx_http_core_main_conf_t
 block|}
 name|ngx_http_core_main_conf_t
@@ -86,7 +111,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3e566c0308
+DECL|struct|__anon27db52d40308
 typedef|typedef
 struct|struct
 block|{
@@ -94,7 +119,7 @@ DECL|member|locations
 name|ngx_array_t
 name|locations
 decl_stmt|;
-comment|/* array of ngx_http_core_loc_conf_t */
+comment|/* array of ngx_http_core_loc_conf_t,                                   used in the translation handler                                   and in the merge phase */
 DECL|member|listen
 name|ngx_array_t
 name|listen
@@ -122,7 +147,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2b3e566c0408
+DECL|struct|__anon27db52d40408
 typedef|typedef
 struct|struct
 block|{
@@ -142,7 +167,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3e566c0508
+DECL|struct|__anon27db52d40508
 typedef|typedef
 struct|struct
 block|{
@@ -184,7 +209,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2b3e566c0608
+DECL|struct|__anon27db52d40608
 typedef|typedef
 struct|struct
 block|{
@@ -227,7 +252,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon2b3e566c0708
+DECL|struct|__anon27db52d40708
 typedef|typedef
 struct|struct
 block|{
@@ -246,7 +271,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3e566c0808
+DECL|struct|__anon27db52d40808
 typedef|typedef
 struct|struct
 block|{
@@ -261,7 +286,7 @@ modifier|*
 modifier|*
 name|loc_conf
 decl_stmt|;
-comment|/* pointer to modules loc_conf,                                   used in translation handler */
+comment|/* pointer to the modules' loc_conf */
 DECL|member|handler
 name|int
 function_decl|(

@@ -12,6 +12,12 @@ directive|define
 name|_NGX_RECV_H_INCLUDED_
 end_define
 
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
 begin_include
 include|#
 directive|include
@@ -19,7 +25,6 @@ file|<errno.h>
 end_include
 
 begin_define
-DECL|macro|ngx_recv (fd,buf,size,flags)
 define|#
 directive|define
 name|ngx_recv
@@ -34,6 +39,11 @@ name|flags
 parameter_list|)
 value|recv(fd, buf, size, flags)
 end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_endif
 endif|#

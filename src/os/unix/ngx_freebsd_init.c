@@ -53,6 +53,23 @@ name|ngx_freebsd_sendfile_nbytes_bug
 decl_stmt|;
 end_decl_stmt
 
+begin_decl_stmt
+DECL|variable|ngx_os_io
+name|ngx_os_io_t
+name|ngx_os_io
+init|=
+block|{
+name|ngx_unix_recv
+block|,
+name|NULL
+block|,
+name|NULL
+block|,
+name|ngx_freebsd_write_chain
+block|}
+decl_stmt|;
+end_decl_stmt
+
 begin_function
 DECL|function|ngx_os_init (ngx_log_t * log)
 name|int
@@ -363,7 +380,10 @@ name|ngx_freebsd_net_inet_tcp_sendspace
 argument_list|)
 expr_stmt|;
 return|return
-name|NGX_OK
+name|ngx_unix_init
+argument_list|(
+name|log
+argument_list|)
 return|;
 block|}
 end_function

@@ -84,7 +84,7 @@ name|conf
 decl_stmt|,
 modifier|*
 modifier|*
-name|pconf
+name|confp
 decl_stmt|;
 name|ngx_str_t
 modifier|*
@@ -744,7 +744,7 @@ operator|->
 name|ctx
 condition|)
 block|{
-name|pconf
+name|confp
 operator|=
 operator|*
 operator|(
@@ -768,12 +768,12 @@ operator|)
 expr_stmt|;
 if|if
 condition|(
-name|pconf
+name|confp
 condition|)
 block|{
 name|conf
 operator|=
-name|pconf
+name|confp
 index|[
 operator|*
 operator|(

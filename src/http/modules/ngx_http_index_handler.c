@@ -195,15 +195,21 @@ name|NGX_HTTP_MODULE
 block|,
 name|NULL
 block|,
-comment|/* create server config */
+comment|/* create main configuration */
 name|NULL
 block|,
-comment|/* init server config */
+comment|/* init main configuration */
+name|NULL
+block|,
+comment|/* create server configuration */
+name|NULL
+block|,
+comment|/* merge server configuration */
 name|ngx_http_index_create_conf
 block|,
-comment|/* create location config */
+comment|/* create location configration */
 name|ngx_http_index_merge_conf
-comment|/* merge location config */
+comment|/* merge location configration */
 block|}
 decl_stmt|;
 end_decl_stmt

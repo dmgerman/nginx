@@ -24,18 +24,6 @@ directive|include
 file|<ngx_log.h>
 end_include
 
-begin_include
-include|#
-directive|include
-file|<ngx_hunk.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_connection.h>
-end_include
-
 begin_function_decl
 name|int
 name|ngx_os_init
@@ -46,13 +34,6 @@ name|log
 parameter_list|)
 function_decl|;
 end_function_decl
-
-begin_decl_stmt
-specifier|extern
-name|ngx_os_io_t
-name|ngx_os_io
-decl_stmt|;
-end_decl_stmt
 
 begin_endif
 endif|#
