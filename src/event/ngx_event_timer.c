@@ -68,6 +68,14 @@ name|ngx_timer_hash_size
 decl_stmt|;
 end_decl_stmt
 
+begin_decl_stmt
+DECL|variable|ngx_timer_cur_queue
+specifier|static
+name|int
+name|ngx_timer_cur_queue
+decl_stmt|;
+end_decl_stmt
+
 begin_function
 DECL|function|ngx_event_init_timer (ngx_log_t * log)
 name|int
@@ -84,6 +92,10 @@ decl_stmt|;
 name|ngx_timer_hash_size
 operator|=
 name|NGX_TIMER_HASH_SIZE
+expr_stmt|;
+name|ngx_timer_cur_queue
+operator|=
+literal|0
 expr_stmt|;
 name|ngx_test_null
 argument_list|(
@@ -164,9 +176,6 @@ name|ngx_msec_t
 name|timer
 parameter_list|)
 block|{
-name|int
-name|n
-decl_stmt|;
 name|ngx_event_t
 modifier|*
 name|e
@@ -224,12 +233,6 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|n
-operator|=
-name|timer
-operator|%
-name|ngx_timer_hash_size
-expr_stmt|;
 if|#
 directive|if
 operator|(
@@ -240,7 +243,7 @@ argument_list|(
 argument|ev->log
 argument_list|,
 literal|"timer slot: %d"
-argument|_ n
+argument|_ ngx_timer_cur_queue
 argument_list|)
 empty_stmt|;
 endif|#
@@ -251,7 +254,7 @@ name|e
 operator|=
 name|ngx_timer_queue
 index|[
-name|n
+name|ngx_timer_cur_queue
 index|]
 operator|.
 name|timer_next
@@ -261,7 +264,7 @@ operator|!=
 operator|&
 name|ngx_timer_queue
 index|[
-name|n
+name|ngx_timer_cur_queue
 index|]
 operator|&&
 name|timer
@@ -282,6 +285,21 @@ operator|-=
 name|e
 operator|->
 name|timer_delta
+expr_stmt|;
+block|}
+name|ngx_timer_cur_queue
+operator|++
+expr_stmt|;
+if|if
+condition|(
+name|ngx_timer_cur_queue
+operator|>=
+name|ngx_timer_hash_size
+condition|)
+block|{
+name|ngx_timer_cur_queue
+operator|=
+literal|0
 expr_stmt|;
 block|}
 name|ev
