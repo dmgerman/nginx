@@ -778,6 +778,8 @@ name|in_cidr
 operator|->
 name|mask
 operator|=
+name|htonl
+argument_list|(
 operator|(
 name|ngx_uint_t
 operator|)
@@ -794,6 +796,7 @@ name|m
 operator|)
 operator|)
 operator|)
+argument_list|)
 expr_stmt|;
 return|return
 name|NGX_OK

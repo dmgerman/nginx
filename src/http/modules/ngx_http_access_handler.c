@@ -22,7 +22,7 @@ comment|/* AF_INET only */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2b3f99f90108
+DECL|struct|__anon2c03d0a80108
 typedef|typedef
 struct|struct
 block|{
@@ -45,7 +45,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3f99f90208
+DECL|struct|__anon2c03d0a80208
 typedef|typedef
 struct|struct
 block|{
@@ -345,6 +345,41 @@ name|i
 operator|++
 control|)
 block|{
+name|ngx_log_debug3
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"%08X %08X %08X"
+argument_list|,
+name|addr_in
+operator|->
+name|sin_addr
+operator|.
+name|s_addr
+argument_list|,
+name|rule
+index|[
+name|i
+index|]
+operator|.
+name|mask
+argument_list|,
+name|rule
+index|[
+name|i
+index|]
+operator|.
+name|addr
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|(
