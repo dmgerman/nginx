@@ -209,6 +209,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ERR
 argument_list|,
+name|ev
+operator|->
 name|log
 argument_list|,
 name|ngx_socket_errno
