@@ -194,7 +194,7 @@ block|}
 name|r
 operator|->
 name|headers_out
-operator|->
+operator|.
 name|status
 operator|=
 name|NGX_HTTP_OK
@@ -202,7 +202,7 @@ expr_stmt|;
 name|r
 operator|->
 name|headers_out
-operator|->
+operator|.
 name|content_length
 operator|=
 name|ngx_file_size
@@ -212,7 +212,7 @@ operator|->
 name|fileinfo
 argument_list|)
 expr_stmt|;
-comment|/*     r->headers_out->last_modified = ngx_file_mtime(r->fileinfo); */
+comment|/*     r->headers_out.last_modified = ngx_file_mtime(r->fileinfo); */
 comment|/* STUB */
 if|if
 condition|(
@@ -237,7 +237,7 @@ condition|)
 name|r
 operator|->
 name|headers_out
-operator|->
+operator|.
 name|content_type
 operator|=
 literal|"text/html; charset=koi8-r"
@@ -258,7 +258,7 @@ condition|)
 name|r
 operator|->
 name|headers_out
-operator|->
+operator|.
 name|content_type
 operator|=
 literal|"image/gif"
@@ -279,7 +279,7 @@ condition|)
 name|r
 operator|->
 name|headers_out
-operator|->
+operator|.
 name|content_type
 operator|=
 literal|"image/jpeg"
@@ -300,7 +300,7 @@ condition|)
 name|r
 operator|->
 name|headers_out
-operator|->
+operator|.
 name|content_type
 operator|=
 literal|"application/pdf"
@@ -311,7 +311,7 @@ block|{
 name|r
 operator|->
 name|headers_out
-operator|->
+operator|.
 name|content_type
 operator|=
 literal|"text/html; charset=koi8-r"

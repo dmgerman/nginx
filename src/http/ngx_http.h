@@ -27,6 +27,18 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_string.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_table.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_hunk.h>
 end_include
 
@@ -209,7 +221,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon29771b4e0108
+DECL|struct|__anon2baed0710108
 typedef|typedef
 struct|struct
 block|{
@@ -257,7 +269,67 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29771b4e0208
+DECL|struct|__anon2baed0710208
+typedef|typedef
+struct|struct
+block|{
+DECL|member|len
+name|int
+name|len
+decl_stmt|;
+DECL|member|data
+name|char
+modifier|*
+name|data
+decl_stmt|;
+DECL|member|offset
+name|int
+name|offset
+decl_stmt|;
+DECL|typedef|ngx_http_header_t
+block|}
+name|ngx_http_header_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2baed0710308
+typedef|typedef
+struct|struct
+block|{
+DECL|member|host
+name|ngx_table_elt_t
+modifier|*
+name|host
+decl_stmt|;
+DECL|member|connection
+name|ngx_table_elt_t
+modifier|*
+name|connection
+decl_stmt|;
+DECL|member|user_agent
+name|ngx_table_elt_t
+modifier|*
+name|user_agent
+decl_stmt|;
+DECL|member|accept_encoding
+name|ngx_table_elt_t
+modifier|*
+name|accept_encoding
+decl_stmt|;
+DECL|member|headers
+name|ngx_table_t
+modifier|*
+name|headers
+decl_stmt|;
+DECL|typedef|ngx_http_headers_in_t
+block|}
+name|ngx_http_headers_in_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2baed0710408
 typedef|typedef
 struct|struct
 block|{
@@ -368,10 +440,12 @@ name|ngx_hunk_t
 modifier|*
 name|header_in
 decl_stmt|;
-comment|/*     ngx_http_headers_in_t *headers_in; */
+DECL|member|headers_in
+name|ngx_http_headers_in_t
+name|headers_in
+decl_stmt|;
 DECL|member|headers_out
 name|ngx_http_headers_out_t
-modifier|*
 name|headers_out
 decl_stmt|;
 DECL|member|filename_len
@@ -579,7 +653,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29771b4e0308
+DECL|struct|__anon2baed0710508
 typedef|typedef
 struct|struct
 block|{
@@ -605,7 +679,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29771b4e0408
+DECL|struct|__anon2baed0710608
 typedef|typedef
 struct|struct
 block|{
@@ -721,21 +795,21 @@ value|r->ctx[module.index]
 end_define
 
 begin_define
-DECL|macro|ngx_http_create_ctx (r,ctx,module,size)
+DECL|macro|ngx_http_create_ctx (r,cx,module,size)
 define|#
 directive|define
 name|ngx_http_create_ctx
 parameter_list|(
 name|r
 parameter_list|,
-name|ctx
+name|cx
 parameter_list|,
 name|module
 parameter_list|,
 name|size
 parameter_list|)
 define|\
-value|do {                                                              \                ngx_test_null(ctx, ngx_pcalloc(r->pool, size), NGX_ERROR);     \                r->ctx[module.index] = ctx;                                    \             } while (0)
+value|do {                                                              \                ngx_test_null(cx, ngx_pcalloc(r->pool, size), NGX_ERROR);      \                r->ctx[module.index] = cx;                                     \             } while (0)
 end_define
 
 begin_comment

@@ -18,6 +18,26 @@ directive|include
 file|<ngx_config.h>
 end_include
 
+begin_typedef
+DECL|struct|__anon2b072b4c0108
+typedef|typedef
+struct|struct
+block|{
+DECL|member|len
+name|int
+name|len
+decl_stmt|;
+DECL|member|data
+name|char
+modifier|*
+name|data
+decl_stmt|;
+DECL|typedef|ngx_str_t
+block|}
+name|ngx_str_t
+typedef|;
+end_typedef
+
 begin_if
 if|#
 directive|if

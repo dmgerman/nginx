@@ -425,7 +425,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_FILE_AIO
+name|NGX_FILE_AIO_READ
 operator|)
 if|if
 condition|(
@@ -890,7 +890,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_FILE_AIO
+name|NGX_FILE_AIO_READ
 operator|)
 if|if
 condition|(
@@ -1233,7 +1233,7 @@ return|;
 if|#
 directive|if
 operator|(
-name|NGX_FILE_AIO
+name|NGX_FILE_AIO_READ
 operator|)
 block|}
 if|else if

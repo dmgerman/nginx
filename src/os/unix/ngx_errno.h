@@ -57,6 +57,14 @@ value|EWOULDBLOCK
 end_define
 
 begin_define
+DECL|macro|NGX_EINPROGRESS
+define|#
+directive|define
+name|NGX_EINPROGRESS
+value|EINPROGRESS
+end_define
+
+begin_define
 DECL|macro|NGX_EADDRINUSE
 define|#
 directive|define

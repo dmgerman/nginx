@@ -33,7 +33,20 @@ begin_function_decl
 specifier|static
 name|void
 modifier|*
-name|ngx_http_core_create_conf
+name|ngx_http_core_create_srv_conf
+parameter_list|(
+name|ngx_pool_t
+modifier|*
+name|pool
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
+name|void
+modifier|*
+name|ngx_http_core_create_loc_conf
 parameter_list|(
 name|ngx_pool_t
 modifier|*
@@ -59,10 +72,10 @@ init|=
 block|{
 name|NGX_HTTP_MODULE
 block|,
-name|NULL
+name|ngx_http_core_create_srv_conf
 block|,
 comment|/* create server config */
-name|ngx_http_core_create_conf
+name|ngx_http_core_create_loc_conf
 block|,
 comment|/* create location config */
 name|ngx_http_core_commands
@@ -92,7 +105,7 @@ name|ngx_conf_set_time_slot
 block|,
 name|offsetof
 argument_list|(
-name|ngx_http_core_conf_t
+name|ngx_http_core_loc_conf_t
 argument_list|,
 name|send_timeout
 argument_list|)
@@ -112,18 +125,18 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_http_core_create_conf (ngx_pool_t * pool)
+DECL|function|ngx_http_core_create_srv_conf (ngx_pool_t * pool)
 specifier|static
 name|void
 modifier|*
-name|ngx_http_core_create_conf
+name|ngx_http_core_create_srv_conf
 parameter_list|(
 name|ngx_pool_t
 modifier|*
 name|pool
 parameter_list|)
 block|{
-name|ngx_http_core_conf_t
+name|ngx_http_core_srv_conf_t
 modifier|*
 name|conf
 decl_stmt|;
@@ -137,7 +150,46 @@ name|pool
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|ngx_http_core_conf_t
+name|ngx_http_core_srv_conf_t
+argument_list|)
+argument_list|)
+argument_list|,
+name|NULL
+argument_list|)
+expr_stmt|;
+return|return
+name|conf
+return|;
+block|}
+end_function
+
+begin_function
+DECL|function|ngx_http_core_create_loc_conf (ngx_pool_t * pool)
+specifier|static
+name|void
+modifier|*
+name|ngx_http_core_create_loc_conf
+parameter_list|(
+name|ngx_pool_t
+modifier|*
+name|pool
+parameter_list|)
+block|{
+name|ngx_http_core_loc_conf_t
+modifier|*
+name|conf
+decl_stmt|;
+name|ngx_test_null
+argument_list|(
+name|conf
+argument_list|,
+name|ngx_pcalloc
+argument_list|(
+name|pool
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|ngx_http_core_loc_conf_t
 argument_list|)
 argument_list|)
 argument_list|,
@@ -155,6 +207,18 @@ name|conf
 return|;
 block|}
 end_function
+
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
+begin_endif
+unit|static void *ngx_http_core_create_conf(ngx_pool_t *pool) {      ngx_test_null(conf, ngx_palloc(pool, sizeof(ngx_http_core_conf_t)), NULL);      ngx_test_null(conf->srv, ngx_http_core_create_srv_conf_t(pool), NULL);     ngx_test_null(conf->loc, ngx_http_core_create_loc_conf_t(pool), NULL);     conf->parent =      conf->next = NULL; }
+endif|#
+directive|endif
+end_endif
 
 end_unit
 

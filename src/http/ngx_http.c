@@ -152,13 +152,13 @@ name|ngx_http_server
 operator|.
 name|doc_root
 operator|=
-literal|"/home/is/work/xml/site-1.0.0/html"
+literal|"/home/is/dox/"
 expr_stmt|;
 name|ngx_http_server
 operator|.
 name|doc_root
 operator|=
-literal|"/home/is/dox/"
+literal|"/home/is/work/xml/site-1.0.0/html"
 expr_stmt|;
 endif|#
 directive|endif
