@@ -52,15 +52,27 @@ name|int
 name|n
 parameter_list|)
 block|{
-name|ssize_t
+name|int
 name|rc
+decl_stmt|;
+name|size_t
+name|sent
 decl_stmt|;
 name|ngx_err_t
 name|err
 decl_stmt|;
+name|ngx_log_debug
+argument_list|(
+name|c
+operator|->
+name|log
+argument_list|,
+literal|"WSASend() start"
+argument_list|)
+expr_stmt|;
 name|rc
 operator|=
-name|writev
+name|WSASend
 argument_list|(
 name|c
 operator|->
@@ -69,6 +81,24 @@ argument_list|,
 name|iovec
 argument_list|,
 name|n
+argument_list|,
+operator|&
+name|sent
+argument_list|,
+literal|0
+argument_list|,
+name|NULL
+argument_list|,
+name|NULL
+argument_list|)
+expr_stmt|;
+name|ngx_log_debug
+argument_list|(
+name|c
+operator|->
+name|log
+argument_list|,
+literal|"WSASend() done"
 argument_list|)
 expr_stmt|;
 if|if
@@ -100,7 +130,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"sendv() eagain"
+literal|"WSASend() eagain"
 argument_list|)
 expr_stmt|;
 return|return
@@ -117,7 +147,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"sendv() failed"
+literal|"WSASend() failed"
 argument_list|)
 expr_stmt|;
 return|return
@@ -125,7 +155,7 @@ name|NGX_ERROR
 return|;
 block|}
 return|return
-name|rc
+name|sent
 return|;
 block|}
 end_function

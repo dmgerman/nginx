@@ -42,7 +42,7 @@ name|pos
 operator|.
 name|mem
 decl_stmt|;
-DECL|enum|__anon27ce31850103
+DECL|enum|__anon297cae3e0103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -119,7 +119,7 @@ name|p
 operator|++
 expr_stmt|;
 comment|/* printf("\nstate: %d, pos: %x, end: %x, char: '%c' buf: %s",        state, p, r->header_in->last, ch, p); */
-comment|/* GCC compiles switch as jump table */
+comment|/* GCC 2.95.2 and VC 6.0 compiles switch as jump table */
 switch|switch
 condition|(
 name|state
@@ -1111,7 +1111,7 @@ name|pos
 operator|.
 name|mem
 decl_stmt|;
-DECL|enum|__anon27ce31850203
+DECL|enum|__anon297cae3e0203
 enum|enum
 block|{
 DECL|enumerator|sw_start

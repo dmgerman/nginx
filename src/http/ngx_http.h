@@ -187,41 +187,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon28ec52d00108
-typedef|typedef
-struct|struct
-block|{
-DECL|member|ctx
-name|void
-modifier|*
-name|ctx
-decl_stmt|;
-comment|/* STUB */
-DECL|typedef|ngx_http_module_t
-block|}
-name|ngx_http_module_t
-typedef|;
-end_typedef
-
-begin_comment
-comment|/* STUB */
-end_comment
-
-begin_define
-DECL|macro|ngx_get_module_ctx (r,module)
-define|#
-directive|define
-name|ngx_get_module_ctx
-parameter_list|(
-name|r
-parameter_list|,
-name|module
-parameter_list|)
-value|(module)->ctx
-end_define
-
-begin_typedef
-DECL|struct|__anon28ec52d00208
+DECL|struct|__anon292ae4300108
 typedef|typedef
 struct|struct
 block|{
@@ -258,7 +224,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ec52d00308
+DECL|struct|__anon292ae4300208
 typedef|typedef
 struct|struct
 block|{
@@ -289,7 +255,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ec52d00408
+DECL|struct|__anon292ae4300308
 typedef|typedef
 struct|struct
 block|{
@@ -371,6 +337,24 @@ decl_stmt|;
 DECL|member|fd
 name|ngx_fd_t
 name|fd
+decl_stmt|;
+DECL|member|ctx
+name|void
+modifier|*
+modifier|*
+name|ctx
+decl_stmt|;
+DECL|member|loc_conf
+name|void
+modifier|*
+modifier|*
+name|loc_conf
+decl_stmt|;
+DECL|member|srv_conf
+name|void
+modifier|*
+modifier|*
+name|srv_conf
 decl_stmt|;
 DECL|member|pool
 name|ngx_pool_t
@@ -553,7 +537,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28ec52d00508
+DECL|struct|__anon292ae4300408
 typedef|typedef
 struct|struct
 block|{
@@ -577,6 +561,59 @@ block|}
 name|ngx_http_log_ctx_t
 typedef|;
 end_typedef
+
+begin_typedef
+DECL|struct|__anon292ae4300508
+typedef|typedef
+struct|struct
+block|{
+DECL|member|index
+name|int
+name|index
+decl_stmt|;
+DECL|typedef|ngx_http_module_t
+block|}
+name|ngx_http_module_t
+typedef|;
+end_typedef
+
+begin_define
+DECL|macro|NGX_HTTP_MODULE
+define|#
+directive|define
+name|NGX_HTTP_MODULE
+value|0
+end_define
+
+begin_define
+DECL|macro|ngx_get_module_loc_conf (r,module)
+define|#
+directive|define
+name|ngx_get_module_loc_conf
+parameter_list|(
+name|r
+parameter_list|,
+name|module
+parameter_list|)
+value|r->loc_conf[module.index]
+end_define
+
+begin_define
+DECL|macro|ngx_get_module_ctx (r,module)
+define|#
+directive|define
+name|ngx_get_module_ctx
+parameter_list|(
+name|r
+parameter_list|,
+name|module
+parameter_list|)
+value|r->ctx[module.index]
+end_define
+
+begin_comment
+comment|/* STUB */
+end_comment
 
 begin_define
 DECL|macro|NGX_INDEX

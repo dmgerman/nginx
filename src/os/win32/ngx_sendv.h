@@ -18,6 +18,12 @@ directive|include
 file|<ngx_config.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_connection.h>
+end_include
+
 begin_typedef
 DECL|typedef|ngx_iovec_t
 typedef|typedef
@@ -42,22 +48,23 @@ name|ngx_iov_len
 value|len
 end_define
 
-begin_define
-DECL|macro|ngx_sendv (s,iovec,n,sent)
-define|#
-directive|define
+begin_function_decl
+name|ssize_t
 name|ngx_sendv
 parameter_list|(
-name|s
+name|ngx_connection_t
+modifier|*
+name|c
 parameter_list|,
+name|ngx_iovec_t
+modifier|*
 name|iovec
 parameter_list|,
+name|int
 name|n
-parameter_list|,
-name|sent
 parameter_list|)
-value|WSASend(s, iovec, n, sent, 0, NULL, NULL)
-end_define
+function_decl|;
+end_function_decl
 
 begin_endif
 endif|#

@@ -134,6 +134,12 @@ endif|#
 directive|endif
 name|ngx_http_server
 operator|.
+name|doc_root
+operator|=
+literal|"html"
+expr_stmt|;
+name|ngx_http_server
+operator|.
 name|doc_root_len
 operator|=
 name|strlen

@@ -555,6 +555,14 @@ argument_list|)
 expr_stmt|;
 end_expr_stmt
 
+begin_expr_stmt
+name|fflush
+argument_list|(
+name|stderr
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+
 begin_if
 unit|}
 if|#

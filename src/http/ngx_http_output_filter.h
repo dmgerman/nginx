@@ -15,7 +15,13 @@ end_define
 begin_include
 include|#
 directive|include
-file|<ngx_core.h>
+file|<ngx_hunk.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_http.h>
 end_include
 
 begin_define
@@ -35,7 +41,22 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon28a4d6380108
+DECL|struct|__anon29b3464d0108
+typedef|typedef
+struct|struct
+block|{
+DECL|member|hunk_size
+name|size_t
+name|hunk_size
+decl_stmt|;
+DECL|typedef|ngx_http_output_filter_conf_t
+block|}
+name|ngx_http_output_filter_conf_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon29b3464d0208
 typedef|typedef
 struct|struct
 block|{
@@ -69,10 +90,6 @@ DECL|member|out
 name|ngx_chain_t
 name|out
 decl_stmt|;
-DECL|member|hunk_size
-name|size_t
-name|hunk_size
-decl_stmt|;
 DECL|member|last
 name|unsigned
 name|last
@@ -82,6 +99,21 @@ block|}
 name|ngx_http_output_filter_ctx_t
 typedef|;
 end_typedef
+
+begin_function_decl
+name|int
+name|ngx_http_output_filter
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_hunk_t
+modifier|*
+name|hunk
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_endif
 endif|#

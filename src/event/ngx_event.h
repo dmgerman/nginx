@@ -263,7 +263,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2c15c1d30103
+DECL|enum|__anon27a084380103
 typedef|typedef
 enum|enum
 block|{
@@ -299,7 +299,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c15c1d30208
+DECL|struct|__anon27a084380208
 typedef|typedef
 struct|struct
 block|{
@@ -446,6 +446,19 @@ directive|define
 name|HAVE_CLEAR_EVENT
 value|1
 end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_if
+if|#
+directive|if
+operator|(
+name|HAVE_CLEAR_EVENT
+operator|)
+end_if
 
 begin_define
 DECL|macro|NGX_CLEAR_EVENT

@@ -21,7 +21,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_socket.h>
+file|<ngx_connection.h>
 end_include
 
 begin_typedef
@@ -53,8 +53,9 @@ begin_function_decl
 name|ssize_t
 name|ngx_sendv
 parameter_list|(
-name|ngx_socket_t
-name|s
+name|ngx_connection_t
+modifier|*
+name|c
 parameter_list|,
 name|ngx_iovec_t
 modifier|*
@@ -62,10 +63,6 @@ name|iovec
 parameter_list|,
 name|int
 name|n
-parameter_list|,
-name|size_t
-modifier|*
-name|sent
 parameter_list|)
 function_decl|;
 end_function_decl

@@ -61,8 +61,10 @@ if|if
 condition|(
 name|n
 operator|==
-name|NGX_ERROR
+operator|-
+literal|1
 condition|)
+block|{
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ERR
@@ -76,6 +78,10 @@ argument_list|,
 literal|"read() failed"
 argument_list|)
 expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
 return|return
 name|n
 return|;
