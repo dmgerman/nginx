@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b5723d60108
+DECL|struct|__anon279630f20108
 typedef|typedef
 struct|struct
 block|{
@@ -200,7 +200,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b5723d60203
+DECL|enum|__anon279630f20203
 typedef|typedef
 enum|enum
 block|{
@@ -224,7 +224,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b5723d60303
+DECL|enum|__anon279630f20303
 typedef|typedef
 enum|enum
 block|{
@@ -337,7 +337,7 @@ modifier|*
 name|buffer
 decl_stmt|;
 DECL|member|number
-name|ngx_int_t
+name|ngx_uint_t
 name|number
 decl_stmt|;
 DECL|member|log_error

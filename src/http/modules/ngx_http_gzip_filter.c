@@ -24,7 +24,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2be7d0450108
+DECL|struct|__anon29f23f150108
 typedef|typedef
 struct|struct
 block|{
@@ -143,7 +143,7 @@ value|0x0200
 end_define
 
 begin_typedef
-DECL|struct|__anon2be7d0450208
+DECL|struct|__anon29f23f150208
 typedef|typedef
 struct|struct
 block|{
@@ -264,7 +264,7 @@ end_typedef
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_gzip_proxied
 parameter_list|(
 name|ngx_http_request_t
@@ -348,7 +348,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_gzip_pre_conf
 parameter_list|(
 name|ngx_conf_t
@@ -360,7 +360,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_gzip_filter_init
 parameter_list|(
 name|ngx_cycle_t
@@ -1090,7 +1090,7 @@ end_decl_stmt
 begin_function
 DECL|function|ngx_http_gzip_header_filter (ngx_http_request_t * r)
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_gzip_header_filter
 parameter_list|(
 name|ngx_http_request_t
@@ -1311,7 +1311,7 @@ name|r
 operator|->
 name|headers_in
 operator|.
-name|user_agent
+name|msie4
 operator|&&
 name|r
 operator|->
@@ -1320,21 +1320,6 @@ operator|.
 name|len
 operator|>
 literal|200
-operator|&&
-name|ngx_strstr
-argument_list|(
-name|r
-operator|->
-name|headers_in
-operator|.
-name|user_agent
-operator|->
-name|value
-operator|.
-name|data
-argument_list|,
-literal|"MSIE 4"
-argument_list|)
 condition|)
 block|{
 return|return
@@ -1530,7 +1515,7 @@ end_function
 begin_function
 DECL|function|ngx_http_gzip_proxied (ngx_http_request_t * r,ngx_http_gzip_conf_t * conf)
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_gzip_proxied
 parameter_list|(
 name|ngx_http_request_t
@@ -1851,7 +1836,7 @@ end_function
 begin_function
 DECL|function|ngx_http_gzip_body_filter (ngx_http_request_t * r,ngx_chain_t * in)
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_gzip_body_filter
 parameter_list|(
 name|ngx_http_request_t
@@ -3979,7 +3964,10 @@ name|NGX_INT32_LEN
 operator|+
 literal|4
 argument_list|,
-literal|"%d.%02d"
+literal|"%"
+name|NGX_UINT_T_FMT
+literal|".%02"
+name|NGX_UINT_T_FMT
 argument_list|,
 name|zint
 argument_list|,
@@ -4053,7 +4041,7 @@ end_function
 begin_function
 DECL|function|ngx_http_gzip_pre_conf (ngx_conf_t * cf)
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_gzip_pre_conf
 parameter_list|(
 name|ngx_conf_t
@@ -4148,7 +4136,7 @@ end_function
 begin_function
 DECL|function|ngx_http_gzip_filter_init (ngx_cycle_t * cycle)
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_gzip_filter_init
 parameter_list|(
 name|ngx_cycle_t
@@ -4242,19 +4230,25 @@ name|conf
 operator|->
 name|wbits
 operator|=
-name|NGX_CONF_UNSET_UINT
+operator|(
+name|size_t
+operator|)
+name|NGX_CONF_UNSET
 expr_stmt|;
 name|conf
 operator|->
 name|memlevel
 operator|=
-name|NGX_CONF_UNSET_UINT
+operator|(
+name|size_t
+operator|)
+name|NGX_CONF_UNSET
 expr_stmt|;
 name|conf
 operator|->
 name|min_length
 operator|=
-name|NGX_CONF_UNSET_UINT
+name|NGX_CONF_UNSET
 expr_stmt|;
 return|return
 name|conf

@@ -57,7 +57,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2bb0d6600108
+DECL|struct|__anon298f73890108
 typedef|typedef
 struct|struct
 block|{
@@ -86,7 +86,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2bb0d6600208
+DECL|struct|__anon298f73890208
 typedef|typedef
 struct|struct
 block|{
@@ -431,12 +431,12 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bb0d6600308
+DECL|struct|__anon298f73890308
 typedef|typedef
 struct|struct
 block|{
 DECL|member|add
-name|int
+name|ngx_int_t
 function_decl|(
 modifier|*
 name|add
@@ -454,7 +454,7 @@ name|flags
 parameter_list|)
 function_decl|;
 DECL|member|del
-name|int
+name|ngx_int_t
 function_decl|(
 modifier|*
 name|del
@@ -472,7 +472,7 @@ name|flags
 parameter_list|)
 function_decl|;
 DECL|member|enable
-name|int
+name|ngx_int_t
 function_decl|(
 modifier|*
 name|enable
@@ -490,7 +490,7 @@ name|flags
 parameter_list|)
 function_decl|;
 DECL|member|disable
-name|int
+name|ngx_int_t
 function_decl|(
 modifier|*
 name|disable
@@ -508,7 +508,7 @@ name|flags
 parameter_list|)
 function_decl|;
 DECL|member|add_conn
-name|int
+name|ngx_int_t
 function_decl|(
 modifier|*
 name|add_conn
@@ -520,7 +520,7 @@ name|c
 parameter_list|)
 function_decl|;
 DECL|member|del_conn
-name|int
+name|ngx_int_t
 function_decl|(
 modifier|*
 name|del_conn
@@ -535,7 +535,7 @@ name|flags
 parameter_list|)
 function_decl|;
 DECL|member|process
-name|int
+name|ngx_int_t
 function_decl|(
 modifier|*
 name|process
@@ -547,7 +547,7 @@ name|cycle
 parameter_list|)
 function_decl|;
 DECL|member|init
-name|int
+name|ngx_int_t
 function_decl|(
 modifier|*
 name|init
@@ -692,18 +692,6 @@ value|0x00000100
 end_define
 
 begin_comment
-comment|/*  * The alternative event method after the rt signals queue overflow.  */
-end_comment
-
-begin_define
-DECL|macro|NGX_OVERFLOW_EVENT
-define|#
-directive|define
-name|NGX_OVERFLOW_EVENT
-value|0x00000200
-end_define
-
-begin_comment
 comment|/*  * No need to add or delete the event filters - overlapped, aio_read,  * aioread, io_submit.  */
 end_comment
 
@@ -712,7 +700,7 @@ DECL|macro|NGX_USE_AIO_EVENT
 define|#
 directive|define
 name|NGX_USE_AIO_EVENT
-value|0x00000400
+value|0x00000200
 end_define
 
 begin_comment
@@ -724,7 +712,7 @@ DECL|macro|NGX_USE_IOCP_EVENT
 define|#
 directive|define
 name|NGX_USE_IOCP_EVENT
-value|0x00000800
+value|0x00000400
 end_define
 
 begin_comment
@@ -1234,7 +1222,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon2bb0d6600408
+DECL|struct|__anon298f73890408
 typedef|typedef
 struct|struct
 block|{
@@ -1243,7 +1231,7 @@ name|ngx_uint_t
 name|connections
 decl_stmt|;
 DECL|member|use
-name|ngx_int_t
+name|ngx_uint_t
 name|use
 decl_stmt|;
 DECL|member|multi_accept
@@ -1281,7 +1269,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb0d6600508
+DECL|struct|__anon298f73890508
 typedef|typedef
 struct|struct
 block|{

@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b7965a20108
+DECL|struct|__anon2950b08b0108
 typedef|typedef
 struct|struct
 block|{
@@ -42,7 +42,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7965a20208
+DECL|struct|__anon2950b08b0208
 typedef|typedef
 struct|struct
 block|{
@@ -125,7 +125,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_index_init
 parameter_list|(
 name|ngx_cycle_t
@@ -320,7 +320,7 @@ end_comment
 
 begin_function
 DECL|function|ngx_http_index_handler (ngx_http_request_t * r)
-name|int
+name|ngx_int_t
 name|ngx_http_index_handler
 parameter_list|(
 name|ngx_http_request_t
@@ -1765,7 +1765,7 @@ end_function
 begin_function
 DECL|function|ngx_http_index_init (ngx_cycle_t * cycle)
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_index_init
 parameter_list|(
 name|ngx_cycle_t

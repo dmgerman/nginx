@@ -377,7 +377,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon2b4dadd00103
+DECL|enum|__anon292d63910103
 typedef|typedef
 enum|enum
 block|{
@@ -398,7 +398,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b4dadd00203
+DECL|enum|__anon292d63910203
 typedef|typedef
 enum|enum
 block|{
@@ -437,7 +437,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4dadd00308
+DECL|struct|__anon292d63910308
 typedef|typedef
 struct|struct
 block|{
@@ -456,7 +456,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4dadd00408
+DECL|struct|__anon292d63910408
 typedef|typedef
 struct|struct
 block|{
@@ -555,6 +555,14 @@ DECL|member|keep_alive_n
 name|ssize_t
 name|keep_alive_n
 decl_stmt|;
+DECL|member|msie
+name|unsigned
+name|msie
+decl_stmt|;
+DECL|member|msie4
+name|unsigned
+name|msie4
+decl_stmt|;
 DECL|typedef|ngx_http_headers_in_t
 block|}
 name|ngx_http_headers_in_t
@@ -562,7 +570,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4dadd00508
+DECL|struct|__anon292d63910508
 typedef|typedef
 struct|struct
 block|{
@@ -585,7 +593,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4dadd00608
+DECL|struct|__anon292d63910608
 typedef|typedef
 struct|struct
 block|{
@@ -689,7 +697,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4dadd00708
+DECL|struct|__anon292d63910708
 typedef|typedef
 struct|struct
 block|{
@@ -740,10 +748,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon2b4dadd0080a
+DECL|union|__anon292d6391080a
 union|union
 block|{
-DECL|struct|__anon2b4dadd00908
+DECL|struct|__anon292d63910908
 struct|struct
 block|{
 DECL|member|fd
@@ -759,7 +767,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon2b4dadd00a08
+DECL|struct|__anon292d63910a08
 struct|struct
 block|{
 DECL|member|hash
@@ -799,7 +807,7 @@ end_struct
 begin_typedef
 DECL|typedef|ngx_http_handler_pt
 typedef|typedef
-name|int
+name|ngx_int_t
 function_decl|(
 modifier|*
 name|ngx_http_handler_pt

@@ -67,7 +67,7 @@ end_decl_stmt
 
 begin_function_decl
 DECL|variable|ngx_http_top_header_filter
-name|int
+name|ngx_int_t
 function_decl|(
 modifier|*
 name|ngx_http_top_header_filter
@@ -82,7 +82,7 @@ end_function_decl
 
 begin_function_decl
 DECL|variable|ngx_http_top_body_filter
-name|int
+name|ngx_int_t
 function_decl|(
 modifier|*
 name|ngx_http_top_body_filter

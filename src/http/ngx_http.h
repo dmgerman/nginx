@@ -98,7 +98,7 @@ file|<ngx_http_core_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28a25a4c0108
+DECL|struct|__anon2a45f85d0108
 typedef|typedef
 struct|struct
 block|{
@@ -236,7 +236,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|int
+name|ngx_int_t
 name|ngx_http_parse_request_line
 parameter_list|(
 name|ngx_http_request_t
@@ -247,7 +247,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|int
+name|ngx_int_t
 name|ngx_http_parse_complex_uri
 parameter_list|(
 name|ngx_http_request_t
@@ -258,7 +258,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|int
+name|ngx_int_t
 name|ngx_http_parse_header_line
 parameter_list|(
 name|ngx_http_request_t
@@ -273,7 +273,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|int
+name|ngx_int_t
 name|ngx_http_find_server_conf
 parameter_list|(
 name|ngx_http_request_t
@@ -331,7 +331,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|int
+name|ngx_int_t
 name|ngx_http_send_last
 parameter_list|(
 name|ngx_http_request_t
@@ -378,7 +378,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|int
+name|ngx_int_t
 name|ngx_http_send_header
 parameter_list|(
 name|ngx_http_request_t
@@ -389,7 +389,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|int
+name|ngx_int_t
 name|ngx_http_special_response_handler
 parameter_list|(
 name|ngx_http_request_t
@@ -447,7 +447,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|int
+name|ngx_int_t
 name|ngx_http_discard_body
 parameter_list|(
 name|ngx_http_request_t
@@ -478,12 +478,26 @@ name|ngx_http_total_sent
 decl_stmt|;
 end_decl_stmt
 
+begin_decl_stmt
+specifier|extern
+name|ngx_http_output_header_filter_pt
+name|ngx_http_top_header_filter
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_http_output_body_filter_pt
+name|ngx_http_top_body_filter
+decl_stmt|;
+end_decl_stmt
+
 begin_comment
 comment|/* STUB */
 end_comment
 
 begin_function_decl
-name|int
+name|ngx_int_t
 name|ngx_http_log_handler
 parameter_list|(
 name|ngx_http_request_t

@@ -292,7 +292,7 @@ end_function
 
 begin_function
 DECL|function|ngx_chain_add_copy (ngx_pool_t * pool,ngx_chain_t ** chain,ngx_chain_t * in)
-name|int
+name|ngx_int_t
 name|ngx_chain_add_copy
 parameter_list|(
 name|ngx_pool_t

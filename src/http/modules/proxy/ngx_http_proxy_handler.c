@@ -25,7 +25,7 @@ end_include
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_proxy_handler
 parameter_list|(
 name|ngx_http_request_t
@@ -97,7 +97,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_proxy_pre_conf
 parameter_list|(
 name|ngx_conf_t
@@ -1380,7 +1380,7 @@ end_decl_stmt
 begin_function
 DECL|function|ngx_http_proxy_handler (ngx_http_request_t * r)
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_proxy_handler
 parameter_list|(
 name|ngx_http_request_t
@@ -3183,7 +3183,8 @@ name|buf
 argument_list|,
 literal|4
 argument_list|,
-literal|"%d"
+literal|"%"
+name|NGX_UINT_T_FMT
 argument_list|,
 name|p
 operator|->
@@ -3508,7 +3509,7 @@ end_function
 begin_function
 DECL|function|ngx_http_proxy_pre_conf (ngx_conf_t * cf)
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_proxy_pre_conf
 parameter_list|(
 name|ngx_conf_t

@@ -331,7 +331,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c2b65ec0108
+DECL|struct|__anon28e9542a0108
 typedef|typedef
 struct|struct
 block|{
@@ -370,7 +370,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2b65ec0208
+DECL|struct|__anon28e9542a0208
 typedef|typedef
 struct|struct
 block|{
@@ -439,7 +439,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2b65ec0308
+DECL|struct|__anon28e9542a0308
 typedef|typedef
 struct|struct
 block|{
@@ -623,7 +623,7 @@ value|if (chain) {                                                     \        
 end_define
 
 begin_function_decl
-name|int
+name|ngx_int_t
 name|ngx_output_chain
 parameter_list|(
 name|ngx_output_chain_ctx_t
@@ -638,7 +638,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|int
+name|ngx_int_t
 name|ngx_chain_writer
 parameter_list|(
 name|void
@@ -653,7 +653,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|int
+name|ngx_int_t
 name|ngx_chain_add_copy
 parameter_list|(
 name|ngx_pool_t

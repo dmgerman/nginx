@@ -24,7 +24,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b73b08b0108
+DECL|struct|__anon2a2ed75b0108
 typedef|typedef
 struct|struct
 block|{
@@ -39,7 +39,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b73b08b0208
+DECL|struct|__anon2a2ed75b0208
 typedef|typedef
 struct|struct
 block|{
@@ -90,7 +90,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_write_filter_init
 parameter_list|(
 name|ngx_cycle_t
@@ -229,7 +229,7 @@ end_decl_stmt
 
 begin_function
 DECL|function|ngx_http_write_filter (ngx_http_request_t * r,ngx_chain_t * in)
-name|int
+name|ngx_int_t
 name|ngx_http_write_filter
 parameter_list|(
 name|ngx_http_request_t
@@ -767,7 +767,7 @@ end_function
 begin_function
 DECL|function|ngx_http_write_filter_init (ngx_cycle_t * cycle)
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_write_filter_init
 parameter_list|(
 name|ngx_cycle_t

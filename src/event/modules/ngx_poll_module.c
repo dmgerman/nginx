@@ -23,7 +23,7 @@ end_include
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_poll_init
 parameter_list|(
 name|ngx_cycle_t
@@ -47,7 +47,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_poll_add_event
 parameter_list|(
 name|ngx_event_t
@@ -65,7 +65,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_poll_del_event
 parameter_list|(
 name|ngx_event_t
@@ -82,7 +82,8 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|int
+specifier|static
+name|ngx_int_t
 name|ngx_poll_process_events
 parameter_list|(
 name|ngx_cycle_t
@@ -221,7 +222,7 @@ end_decl_stmt
 begin_function
 DECL|function|ngx_poll_init (ngx_cycle_t * cycle)
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_poll_init
 parameter_list|(
 name|ngx_cycle_t
@@ -390,7 +391,7 @@ end_function
 begin_function
 DECL|function|ngx_poll_add_event (ngx_event_t * ev,int event,u_int flags)
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_poll_add_event
 parameter_list|(
 name|ngx_event_t
@@ -638,7 +639,7 @@ end_function
 begin_function
 DECL|function|ngx_poll_del_event (ngx_event_t * ev,int event,u_int flags)
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_poll_del_event
 parameter_list|(
 name|ngx_event_t
@@ -1061,7 +1062,8 @@ end_function
 
 begin_function
 DECL|function|ngx_poll_process_events (ngx_cycle_t * cycle)
-name|int
+specifier|static
+name|ngx_int_t
 name|ngx_poll_process_events
 parameter_list|(
 name|ngx_cycle_t
@@ -1112,24 +1114,6 @@ name|struct
 name|timeval
 name|tv
 decl_stmt|;
-if|if
-condition|(
-name|ngx_event_flags
-operator|&
-name|NGX_OVERFLOW_EVENT
-condition|)
-block|{
-name|timer
-operator|=
-literal|0
-expr_stmt|;
-name|expire
-operator|=
-literal|0
-expr_stmt|;
-block|}
-else|else
-block|{
 for|for
 control|(
 init|;
@@ -1195,7 +1179,6 @@ name|expire
 operator|=
 literal|1
 expr_stmt|;
-block|}
 block|}
 name|ngx_old_elapsed_msec
 operator|=
@@ -1522,31 +1505,6 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-block|}
-if|if
-condition|(
-operator|(
-name|ngx_event_flags
-operator|&
-name|NGX_OVERFLOW_EVENT
-operator|)
-operator|&&
-name|timer
-operator|==
-literal|0
-operator|&&
-name|ready
-operator|==
-literal|0
-condition|)
-block|{
-comment|/* the overflowed rt signals queue has been drained */
-name|ngx_accept_mutex_unlock
-argument_list|()
-expr_stmt|;
-return|return
-name|NGX_OK
-return|;
 block|}
 if|if
 condition|(

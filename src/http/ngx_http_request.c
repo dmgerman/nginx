@@ -73,7 +73,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_process_request_header
 parameter_list|(
 name|ngx_http_request_t
@@ -121,7 +121,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_read_discarded_body
 parameter_list|(
 name|ngx_http_request_t
@@ -3851,6 +3851,10 @@ modifier|*
 name|r
 parameter_list|)
 block|{
+name|u_char
+modifier|*
+name|ua
+decl_stmt|;
 name|size_t
 name|len
 decl_stmt|;
@@ -4352,6 +4356,105 @@ name|value
 operator|.
 name|len
 argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+if|if
+condition|(
+name|r
+operator|->
+name|headers_in
+operator|.
+name|user_agent
+condition|)
+block|{
+comment|/*          * check some widespread browsers while the headers are still          * in CPU cache          */
+name|ua
+operator|=
+name|ngx_strstr
+argument_list|(
+name|r
+operator|->
+name|headers_in
+operator|.
+name|user_agent
+operator|->
+name|value
+operator|.
+name|data
+argument_list|,
+literal|"MSIE"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|ua
+operator|&&
+name|ua
+operator|+
+literal|8
+operator|<
+name|r
+operator|->
+name|headers_in
+operator|.
+name|user_agent
+operator|->
+name|value
+operator|.
+name|data
+operator|+
+name|r
+operator|->
+name|headers_in
+operator|.
+name|user_agent
+operator|->
+name|value
+operator|.
+name|len
+condition|)
+block|{
+name|r
+operator|->
+name|headers_in
+operator|.
+name|msie
+operator|=
+literal|1
+expr_stmt|;
+if|if
+condition|(
+name|ua
+index|[
+literal|4
+index|]
+operator|==
+literal|' '
+operator|&&
+name|ua
+index|[
+literal|5
+index|]
+operator|==
+literal|'4'
+operator|&&
+name|ua
+index|[
+literal|6
+index|]
+operator|==
+literal|'.'
+condition|)
+block|{
+name|r
+operator|->
+name|headers_in
+operator|.
+name|msie4
+operator|=
+literal|1
 expr_stmt|;
 block|}
 block|}
@@ -5101,7 +5204,7 @@ end_function
 
 begin_function
 DECL|function|ngx_http_discard_body (ngx_http_request_t * r)
-name|int
+name|ngx_int_t
 name|ngx_http_discard_body
 parameter_list|(
 name|ngx_http_request_t
@@ -5359,7 +5462,7 @@ end_function
 begin_function
 DECL|function|ngx_http_read_discarded_body (ngx_http_request_t * r)
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_read_discarded_body
 parameter_list|(
 name|ngx_http_request_t
@@ -6703,7 +6806,7 @@ end_function
 
 begin_function
 DECL|function|ngx_http_send_last (ngx_http_request_t * r)
-name|int
+name|ngx_int_t
 name|ngx_http_send_last
 parameter_list|(
 name|ngx_http_request_t

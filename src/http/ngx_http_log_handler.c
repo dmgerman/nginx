@@ -305,7 +305,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_log_pre_conf
 parameter_list|(
 name|ngx_conf_t
@@ -406,7 +406,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_log_parse_format
 parameter_list|(
 name|ngx_conf_t
@@ -704,7 +704,7 @@ end_decl_stmt
 
 begin_function
 DECL|function|ngx_http_log_handler (ngx_http_request_t * r)
-name|int
+name|ngx_int_t
 name|ngx_http_log_handler
 parameter_list|(
 name|ngx_http_request_t
@@ -1212,11 +1212,12 @@ operator|*
 operator|)
 name|buf
 argument_list|,
-name|NGX_INT32_LEN
+name|NGX_INT_T_LEN
 operator|+
 literal|1
 argument_list|,
-literal|"%u"
+literal|"%"
+name|NGX_UINT_T_FMT
 argument_list|,
 name|r
 operator|->
@@ -1404,7 +1405,8 @@ name|buf
 argument_list|,
 literal|4
 argument_list|,
-literal|"%d"
+literal|"%"
+name|NGX_UINT_T_FMT
 argument_list|,
 name|r
 operator|->
@@ -2948,7 +2950,7 @@ end_function
 begin_function
 DECL|function|ngx_http_log_pre_conf (ngx_conf_t * cf)
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_log_pre_conf
 parameter_list|(
 name|ngx_conf_t

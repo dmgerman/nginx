@@ -2195,7 +2195,7 @@ name|ecf
 operator|->
 name|use
 operator|!=
-name|NGX_CONF_UNSET
+name|NGX_CONF_UNSET_UINT
 condition|)
 block|{
 return|return
@@ -2757,7 +2757,7 @@ argument_list|,
 name|DEFAULT_CONNECTIONS
 argument_list|)
 expr_stmt|;
-name|ngx_conf_init_value
+name|ngx_conf_init_unsigned_value
 argument_list|(
 name|ecf
 operator|->
@@ -2795,7 +2795,7 @@ argument_list|,
 name|DEFAULT_CONNECTIONS
 argument_list|)
 expr_stmt|;
-name|ngx_conf_init_value
+name|ngx_conf_init_unsigned_value
 argument_list|(
 name|ecf
 operator|->
@@ -2833,7 +2833,7 @@ argument_list|,
 name|DEFAULT_CONNECTIONS
 argument_list|)
 expr_stmt|;
-name|ngx_conf_init_value
+name|ngx_conf_init_unsigned_value
 argument_list|(
 name|ecf
 operator|->
@@ -2875,7 +2875,7 @@ argument_list|,
 name|DEFAULT_CONNECTIONS
 argument_list|)
 expr_stmt|;
-name|ngx_conf_init_value
+name|ngx_conf_init_unsigned_value
 argument_list|(
 name|ecf
 operator|->
@@ -2937,7 +2937,7 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-name|ngx_conf_init_value
+name|ngx_conf_init_unsigned_value
 argument_list|(
 name|ecf
 operator|->
@@ -3074,7 +3074,7 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
-name|ngx_conf_init_value
+name|ngx_conf_unsigned_init_value
 argument_list|(
 name|ecf
 operator|->
@@ -3083,7 +3083,7 @@ argument_list|,
 name|DEFAULT_CONNECTIONS
 argument_list|)
 expr_stmt|;
-name|ngx_conf_init_value
+name|ngx_conf_unsigned_init_value
 argument_list|(
 name|ecf
 operator|->

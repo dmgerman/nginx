@@ -28,7 +28,7 @@ end_define
 begin_function_decl
 name|ngx_inline
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_output_chain_need_to_copy
 parameter_list|(
 name|ngx_output_chain_ctx_t
@@ -63,7 +63,7 @@ end_function_decl
 
 begin_function
 DECL|function|ngx_output_chain (ngx_output_chain_ctx_t * ctx,ngx_chain_t * in)
-name|int
+name|ngx_int_t
 name|ngx_output_chain
 parameter_list|(
 name|ngx_output_chain_ctx_t
@@ -635,10 +635,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_output_chain_need_to_copy (ngx_output_chain_ctx_t * ctx,ngx_buf_t * buf)
 name|ngx_inline
 specifier|static
-name|int
+name|ngx_int_t
+DECL|function|ngx_output_chain_need_to_copy (ngx_output_chain_ctx_t * ctx,ngx_buf_t * buf)
 name|ngx_output_chain_need_to_copy
 parameter_list|(
 name|ngx_output_chain_ctx_t

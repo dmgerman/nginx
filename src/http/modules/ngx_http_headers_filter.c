@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2af2b0100108
+DECL|struct|__anon2c2669840108
 typedef|typedef
 struct|struct
 block|{
@@ -58,7 +58,7 @@ end_define
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_headers_filter_init
 parameter_list|(
 name|ngx_cycle_t
@@ -227,7 +227,7 @@ end_decl_stmt
 begin_function
 DECL|function|ngx_http_headers_filter (ngx_http_request_t * r)
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_headers_filter
 parameter_list|(
 name|ngx_http_request_t
@@ -682,7 +682,7 @@ end_function
 begin_function
 DECL|function|ngx_http_headers_filter_init (ngx_cycle_t * cycle)
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_headers_filter_init
 parameter_list|(
 name|ngx_cycle_t

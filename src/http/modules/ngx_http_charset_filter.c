@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b41bab10108
+DECL|struct|__anon2b8b0efa0108
 typedef|typedef
 struct|struct
 block|{
@@ -43,7 +43,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b41bab10208
+DECL|struct|__anon2b8b0efa0208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b41bab10308
+DECL|struct|__anon2b8b0efa0308
 typedef|typedef
 struct|struct
 block|{
@@ -93,7 +93,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b41bab10408
+DECL|struct|__anon2b8b0efa0408
 typedef|typedef
 struct|struct
 block|{
@@ -120,7 +120,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b41bab10508
+DECL|struct|__anon2b8b0efa0508
 typedef|typedef
 struct|struct
 block|{
@@ -532,7 +532,7 @@ end_decl_stmt
 begin_function
 DECL|function|ngx_http_charset_header_filter (ngx_http_request_t * r)
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_charset_header_filter
 parameter_list|(
 name|ngx_http_request_t
@@ -780,7 +780,7 @@ end_function
 begin_function
 DECL|function|ngx_http_charset_body_filter (ngx_http_request_t * r,ngx_chain_t * in)
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_charset_body_filter
 parameter_list|(
 name|ngx_http_request_t

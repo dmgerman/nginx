@@ -393,11 +393,11 @@ struct|struct
 name|ngx_module_s
 block|{
 DECL|member|ctx_index
-name|int
+name|ngx_uint_t
 name|ctx_index
 decl_stmt|;
 DECL|member|index
-name|int
+name|ngx_uint_t
 name|index
 decl_stmt|;
 DECL|member|ctx
@@ -411,11 +411,11 @@ modifier|*
 name|commands
 decl_stmt|;
 DECL|member|type
-name|int
+name|ngx_uint_t
 name|type
 decl_stmt|;
 DECL|member|init_module
-name|int
+name|ngx_int_t
 function_decl|(
 modifier|*
 name|init_module
@@ -427,7 +427,7 @@ name|cycle
 parameter_list|)
 function_decl|;
 DECL|member|init_process
-name|int
+name|ngx_int_t
 function_decl|(
 modifier|*
 name|init_process
@@ -441,7 +441,7 @@ function_decl|;
 if|#
 directive|if
 literal|0
-block|int           (*init_thread)(ngx_cycle_t *cycle);
+block|ngx_int_t     (*init_thread)(ngx_cycle_t *cycle);
 endif|#
 directive|endif
 block|}
@@ -449,7 +449,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2932c8ec0108
+DECL|struct|__anon29e46cfc0108
 typedef|typedef
 struct|struct
 block|{
@@ -494,7 +494,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2932c8ec0208
+DECL|struct|__anon29e46cfc0208
 typedef|typedef
 struct|struct
 block|{
@@ -508,7 +508,7 @@ modifier|*
 name|buffer
 decl_stmt|;
 DECL|member|line
-name|int
+name|ngx_uint_t
 name|line
 decl_stmt|;
 DECL|typedef|ngx_conf_file_t
@@ -583,11 +583,11 @@ modifier|*
 name|ctx
 decl_stmt|;
 DECL|member|module_type
-name|int
+name|ngx_uint_t
 name|module_type
 decl_stmt|;
 DECL|member|cmd_type
-name|int
+name|ngx_uint_t
 name|cmd_type
 decl_stmt|;
 DECL|member|handler
@@ -629,7 +629,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2932c8ec0308
+DECL|struct|__anon29e46cfc0308
 typedef|typedef
 struct|struct
 block|{
@@ -644,7 +644,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2932c8ec0408
+DECL|struct|__anon29e46cfc0408
 typedef|typedef
 struct|struct
 block|{
@@ -667,7 +667,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2932c8ec0508
+DECL|struct|__anon29e46cfc0508
 typedef|typedef
 struct|struct
 block|{
@@ -694,7 +694,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2932c8ec0608
+DECL|struct|__anon29e46cfc0608
 typedef|typedef
 struct|struct
 block|{

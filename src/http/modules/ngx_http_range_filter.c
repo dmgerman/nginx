@@ -22,7 +22,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon2ab04b740108
+DECL|struct|__anon299078ab0108
 typedef|typedef
 struct|struct
 block|{
@@ -1367,44 +1367,22 @@ name|len
 operator|=
 name|ngx_snprintf
 argument_list|(
-operator|(
-name|char
-operator|*
-operator|)
-name|ctx
-operator|->
-name|boundary_header
-operator|.
-name|data
+argument|(char *) ctx->boundary_header.data
 argument_list|,
-name|len
+argument|len
 argument_list|,
-name|CRLF
-literal|"--%010u"
-name|CRLF
+argument|CRLF
+literal|"--%010"
+argument|NGX_UINT_T_FMT CRLF
 literal|"Content-Type: %s; charset=%s"
-name|CRLF
+argument|CRLF
 literal|"Content-Range: bytes "
 argument_list|,
-name|boundary
+argument|boundary
 argument_list|,
-name|r
-operator|->
-name|headers_out
-operator|.
-name|content_type
-operator|->
-name|value
-operator|.
-name|data
+argument|r->headers_out.content_type->value.data
 argument_list|,
-name|r
-operator|->
-name|headers_out
-operator|.
-name|charset
-operator|.
-name|data
+argument|r->headers_out.charset.data
 argument_list|)
 expr_stmt|;
 name|r
@@ -1428,36 +1406,20 @@ name|len
 operator|=
 name|ngx_snprintf
 argument_list|(
-operator|(
-name|char
-operator|*
-operator|)
-name|ctx
-operator|->
-name|boundary_header
-operator|.
-name|data
+argument|(char *) ctx->boundary_header.data
 argument_list|,
-name|len
+argument|len
 argument_list|,
-name|CRLF
-literal|"--%010u"
-name|CRLF
+argument|CRLF
+literal|"--%010"
+argument|NGX_UINT_T_FMT CRLF
 literal|"Content-Type: %s"
-name|CRLF
+argument|CRLF
 literal|"Content-Range: bytes "
 argument_list|,
-name|boundary
+argument|boundary
 argument_list|,
-name|r
-operator|->
-name|headers_out
-operator|.
-name|content_type
-operator|->
-name|value
-operator|.
-name|data
+argument|r->headers_out.content_type->value.data
 argument_list|)
 expr_stmt|;
 block|}
@@ -1522,7 +1484,8 @@ literal|10
 operator|+
 literal|1
 argument_list|,
-literal|"multipart/byteranges; boundary=%010u"
+literal|"multipart/byteranges; boundary=%010"
+name|NGX_UINT_T_FMT
 argument_list|,
 name|boundary
 argument_list|)

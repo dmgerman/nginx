@@ -462,7 +462,7 @@ end_decl_stmt
 
 begin_function
 DECL|function|ngx_http_special_response_handler (ngx_http_request_t * r,int error)
-name|int
+name|ngx_int_t
 name|ngx_http_special_response_handler
 parameter_list|(
 name|ngx_http_request_t
@@ -480,6 +480,8 @@ name|ngx_uint_t
 name|err
 decl_stmt|,
 name|i
+decl_stmt|,
+name|msie_padding
 decl_stmt|;
 name|ngx_buf_t
 modifier|*
@@ -776,6 +778,10 @@ expr_stmt|;
 break|break;
 block|}
 block|}
+name|msie_padding
+operator|=
+literal|0
+expr_stmt|;
 if|if
 condition|(
 name|error_pages
@@ -814,6 +820,12 @@ name|msie_padding
 operator|&&
 name|r
 operator|->
+name|headers_in
+operator|.
+name|msie
+operator|&&
+name|r
+operator|->
 name|http_version
 operator|>=
 name|NGX_HTTP_VERSION_10
@@ -838,6 +850,10 @@ argument_list|(
 name|msie_stub
 argument_list|)
 operator|-
+literal|1
+expr_stmt|;
+name|msie_padding
+operator|=
 literal|1
 expr_stmt|;
 block|}
@@ -1166,23 +1182,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|clcf
-operator|->
 name|msie_padding
-operator|&&
-name|r
-operator|->
-name|http_version
-operator|>=
-name|NGX_HTTP_VERSION_10
-operator|&&
-name|error
-operator|>=
-name|NGX_HTTP_BAD_REQUEST
-operator|&&
-name|error
-operator|!=
-name|NGX_HTTP_REQUEST_URI_TOO_LARGE
 condition|)
 block|{
 if|if
