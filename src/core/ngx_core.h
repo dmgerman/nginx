@@ -238,6 +238,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_radix_tree.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_times.h>
 end_include
 

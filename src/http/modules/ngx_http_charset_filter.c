@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2986634b0108
+DECL|struct|__anon27ce70410108
 typedef|typedef
 struct|struct
 block|{
@@ -43,7 +43,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2986634b0208
+DECL|struct|__anon27ce70410208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2986634b0308
+DECL|struct|__anon27ce70410308
 typedef|typedef
 struct|struct
 block|{
@@ -93,7 +93,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2986634b0408
+DECL|struct|__anon27ce70410408
 typedef|typedef
 struct|struct
 block|{
@@ -120,7 +120,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2986634b0508
+DECL|struct|__anon27ce70410508
 typedef|typedef
 struct|struct
 block|{
@@ -1310,6 +1310,9 @@ index|[
 name|i
 index|]
 operator|=
+operator|(
+name|char
+operator|)
 name|i
 expr_stmt|;
 name|table
@@ -1319,6 +1322,9 @@ index|[
 name|i
 index|]
 operator|=
+operator|(
+name|char
+operator|)
 name|i
 expr_stmt|;
 block|}
@@ -1416,12 +1422,6 @@ modifier|*
 name|conf
 parameter_list|)
 block|{
-name|ngx_http_charset_main_conf_t
-modifier|*
-name|mcf
-init|=
-name|conf
-decl_stmt|;
 name|ngx_int_t
 name|src
 decl_stmt|,
@@ -1586,6 +1586,9 @@ index|[
 name|src
 index|]
 operator|=
+operator|(
+name|char
+operator|)
 name|dst
 expr_stmt|;
 name|table
@@ -1595,6 +1598,9 @@ index|[
 name|dst
 index|]
 operator|=
+operator|(
+name|char
+operator|)
 name|src
 expr_stmt|;
 return|return
@@ -2046,9 +2052,6 @@ decl_stmt|;
 name|ngx_http_charset_t
 modifier|*
 name|charset
-decl_stmt|,
-modifier|*
-name|c
 decl_stmt|;
 name|ngx_http_charset_tables_t
 modifier|*
@@ -2488,24 +2491,6 @@ if|if
 condition|(
 name|conf
 operator|->
-name|default_charset
-operator|==
-name|NGX_CONF_UNSET
-condition|)
-block|{
-name|conf
-operator|->
-name|default_charset
-operator|=
-name|prev
-operator|->
-name|default_charset
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|conf
-operator|->
 name|source_charset
 operator|==
 name|NGX_CONF_UNSET
@@ -2520,6 +2505,21 @@ operator|->
 name|source_charset
 expr_stmt|;
 block|}
+name|ngx_conf_merge_value
+argument_list|(
+name|conf
+operator|->
+name|default_charset
+argument_list|,
+name|prev
+operator|->
+name|default_charset
+argument_list|,
+name|conf
+operator|->
+name|source_charset
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_CONF_OK
 return|;
