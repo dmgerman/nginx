@@ -341,7 +341,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2999e0d20108
+DECL|struct|__anon2bbb83bd0108
 typedef|typedef
 struct|struct
 block|{
@@ -360,10 +360,16 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2999e0d20208
+DECL|struct|__anon2bbb83bd0208
 typedef|typedef
 struct|struct
 block|{
+DECL|member|headers
+name|ngx_table_t
+modifier|*
+name|headers
+decl_stmt|;
+comment|/* it must be first field */
 DECL|member|host
 name|ngx_table_elt_t
 modifier|*
@@ -420,11 +426,6 @@ DECL|member|keep_alive_n
 name|ssize_t
 name|keep_alive_n
 decl_stmt|;
-DECL|member|headers
-name|ngx_table_t
-modifier|*
-name|headers
-decl_stmt|;
 DECL|typedef|ngx_http_headers_in_t
 block|}
 name|ngx_http_headers_in_t
@@ -432,7 +433,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2999e0d20308
+DECL|struct|__anon2bbb83bd0308
 typedef|typedef
 struct|struct
 block|{
@@ -483,7 +484,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2999e0d20408
+DECL|struct|__anon2bbb83bd0408
 typedef|typedef
 struct|struct
 block|{
@@ -506,10 +507,16 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2999e0d20508
+DECL|struct|__anon2bbb83bd0508
 typedef|typedef
 struct|struct
 block|{
+DECL|member|headers
+name|ngx_table_t
+modifier|*
+name|headers
+decl_stmt|;
+comment|/* it must be first field */
 DECL|member|status
 name|int
 name|status
@@ -570,11 +577,6 @@ decl_stmt|;
 DECL|member|ranges
 name|ngx_array_t
 name|ranges
-decl_stmt|;
-DECL|member|headers
-name|ngx_table_t
-modifier|*
-name|headers
 decl_stmt|;
 DECL|member|content_length_n
 name|off_t
@@ -953,6 +955,22 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+
+begin_decl_stmt
+specifier|extern
+name|ngx_http_header_t
+name|ngx_http_headers_in
+index|[]
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_http_header_t
+name|ngx_http_headers_out
+index|[]
+decl_stmt|;
+end_decl_stmt
 
 begin_endif
 endif|#

@@ -874,7 +874,37 @@ name|NGX_CONNECT_ERROR
 return|;
 block|}
 block|}
-comment|/* TODO: epoll, aio, iocp */
+if|if
+condition|(
+name|ngx_event_flags
+operator|&
+name|NGX_USE_AIO_EVENT
+condition|)
+block|{
+comment|/* aio, iocp */
+name|rev
+operator|->
+name|ready
+operator|=
+literal|1
+expr_stmt|;
+if|#
+directive|if
+literal|1
+comment|/* TODO: NGX_EINPROGRESS */
+name|wev
+operator|->
+name|ready
+operator|=
+literal|1
+expr_stmt|;
+return|return
+name|NGX_OK
+return|;
+endif|#
+directive|endif
+block|}
+comment|/* TODO: epoll */
 if|if
 condition|(
 name|ngx_event_flags

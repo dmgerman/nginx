@@ -525,6 +525,8 @@ condition|(
 name|ngx_handle_read_event
 argument_list|(
 name|rev
+argument_list|,
+literal|0
 argument_list|)
 operator|==
 name|NGX_ERROR

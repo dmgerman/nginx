@@ -133,6 +133,13 @@ name|int
 name|do_write
 parameter_list|)
 block|{
+name|ngx_event_t
+modifier|*
+name|rev
+decl_stmt|,
+modifier|*
+name|wev
+decl_stmt|;
 for|for
 control|(
 init|;
@@ -205,15 +212,29 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|ngx_handle_read_event
-argument_list|(
+name|rev
+operator|=
 name|p
 operator|->
 name|upstream
 operator|->
 name|read
+expr_stmt|;
+if|if
+condition|(
+name|ngx_handle_read_event
+argument_list|(
+name|rev
+argument_list|,
+operator|(
+name|rev
+operator|->
+name|eof
+operator|||
+name|rev
+operator|->
+name|error
+operator|)
 argument_list|)
 operator|==
 name|NGX_ERROR
@@ -225,16 +246,38 @@ return|;
 block|}
 if|if
 condition|(
-name|ngx_handle_write_event
+name|rev
+operator|->
+name|active
+condition|)
+block|{
+name|ngx_add_timer
 argument_list|(
+name|rev
+argument_list|,
+name|p
+operator|->
+name|read_timeout
+argument_list|)
+expr_stmt|;
+block|}
+name|wev
+operator|=
 name|p
 operator|->
 name|downstream
 operator|->
 name|write
+expr_stmt|;
+if|if
+condition|(
+name|ngx_handle_write_event
+argument_list|(
+name|wev
 argument_list|,
-comment|/* TODO: lowat */
-literal|0
+name|p
+operator|->
+name|send_lowat
 argument_list|)
 operator|==
 name|NGX_ERROR
@@ -243,6 +286,23 @@ block|{
 return|return
 name|NGX_ABORT
 return|;
+block|}
+if|if
+condition|(
+name|wev
+operator|->
+name|active
+condition|)
+block|{
+name|ngx_add_timer
+argument_list|(
+name|wev
+argument_list|,
+name|p
+operator|->
+name|send_timeout
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|NGX_OK
@@ -512,7 +572,6 @@ name|read
 operator|->
 name|kq_errno
 argument_list|,
-comment|/* TODO: ngx_readv_chain_n */
 literal|"readv() failed"
 argument_list|)
 expr_stmt|;
@@ -768,14 +827,6 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
-name|ngx_log_debug
-argument_list|(
-argument|p->log
-argument_list|,
-literal|"HUNK_FREE: %d"
-argument|_ chain->hunk->num
-argument_list|)
-empty_stmt|;
 name|n
 operator|=
 name|ngx_recv_chain
@@ -1330,14 +1381,6 @@ operator|->
 name|hunk
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug
-argument_list|(
-argument|p->log
-argument_list|,
-literal|"HUNK OUT: %d %x"
-argument|_ cl->hunk->num _ cl->hunk->type
-argument_list|)
-empty_stmt|;
 block|}
 if|else if
 condition|(
@@ -1402,14 +1445,6 @@ name|in
 operator|->
 name|next
 expr_stmt|;
-name|ngx_log_debug
-argument_list|(
-argument|p->log
-argument_list|,
-literal|"HUNK IN: %d"
-argument|_ cl->hunk->num
-argument_list|)
-empty_stmt|;
 block|}
 else|else
 block|{

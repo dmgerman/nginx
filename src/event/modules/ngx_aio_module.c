@@ -134,7 +134,7 @@ init|=
 block|{
 name|ngx_aio_read
 block|,
-name|NULL
+name|ngx_aio_read_chain
 block|,
 name|ngx_aio_write
 block|,

@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2afd76410108
+DECL|struct|__anon297b86c90108
 typedef|typedef
 struct|struct
 block|{
@@ -164,17 +164,23 @@ name|instance
 range|:
 literal|1
 decl_stmt|;
-comment|/*      * event was passed or would be passed to a kernel;      * the posted aio operation.      */
+comment|/*      * the event was passed or would be passed to a kernel;      * aio mode: 1 - the posted aio operation,      *           0 - the complete aio operation or no aio operation.      */
 DECL|member|active
 name|unsigned
 name|active
 range|:
 literal|1
 decl_stmt|;
-comment|/* ready event; the complete aio operation */
+comment|/*      * the ready event;      * in aio mode "ready" is always set - it makes things simple      * to learn whether the aio operation complete use aio_complete flag      */
 DECL|member|ready
 name|unsigned
 name|ready
+range|:
+literal|1
+decl_stmt|;
+DECL|member|aio_complete
+name|unsigned
+name|aio_complete
 range|:
 literal|1
 decl_stmt|;
@@ -321,7 +327,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2afd76410208
+DECL|struct|__anon297b86c90208
 typedef|typedef
 struct|struct
 block|{
@@ -933,7 +939,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon2afd76410308
+DECL|struct|__anon297b86c90308
 typedef|typedef
 struct|struct
 block|{
@@ -956,7 +962,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2afd76410408
+DECL|struct|__anon297b86c90408
 typedef|typedef
 struct|struct
 block|{
@@ -1115,7 +1121,7 @@ directive|endif
 end_endif
 
 begin_function
-DECL|function|ngx_handle_read_event (ngx_event_t * rev)
+DECL|function|ngx_handle_read_event (ngx_event_t * rev,int close)
 name|ngx_inline
 specifier|static
 name|int
@@ -1124,24 +1130,11 @@ parameter_list|(
 name|ngx_event_t
 modifier|*
 name|rev
+parameter_list|,
+name|int
+name|close
 parameter_list|)
 block|{
-if|if
-condition|(
-name|ngx_event_flags
-operator|&
-operator|(
-name|NGX_USE_AIO_EVENT
-operator||
-name|NGX_USE_EDGE_EVENT
-operator|)
-condition|)
-block|{
-comment|/* aio, iocp, epoll */
-return|return
-name|NGX_OK
-return|;
-block|}
 if|if
 condition|(
 name|ngx_event_flags
@@ -1186,6 +1179,13 @@ return|return
 name|NGX_OK
 return|;
 block|}
+if|else if
+condition|(
+name|ngx_event_flags
+operator|&
+name|NGX_USE_LEVEL_EVENT
+condition|)
+block|{
 comment|/* select, poll, /dev/poll */
 if|if
 condition|(
@@ -1233,9 +1233,7 @@ name|rev
 operator|->
 name|ready
 operator|||
-name|rev
-operator|->
-name|eof
+name|close
 operator|)
 condition|)
 block|{
@@ -1247,9 +1245,7 @@ name|rev
 argument_list|,
 name|NGX_READ_EVENT
 argument_list|,
-name|rev
-operator|->
-name|eof
+name|close
 condition|?
 name|NGX_CLOSE_EVENT
 else|:
@@ -1267,6 +1263,8 @@ return|return
 name|NGX_OK
 return|;
 block|}
+block|}
+comment|/* aio, iocp, epoll, rt signals */
 return|return
 name|NGX_OK
 return|;
@@ -1386,22 +1384,6 @@ if|if
 condition|(
 name|ngx_event_flags
 operator|&
-operator|(
-name|NGX_USE_AIO_EVENT
-operator||
-name|NGX_USE_EDGE_EVENT
-operator|)
-condition|)
-block|{
-comment|/* aio, iocp, epoll */
-return|return
-name|NGX_OK
-return|;
-block|}
-if|if
-condition|(
-name|ngx_event_flags
-operator|&
 name|NGX_USE_CLEAR_EVENT
 condition|)
 block|{
@@ -1464,6 +1446,13 @@ return|return
 name|NGX_OK
 return|;
 block|}
+if|else if
+condition|(
+name|ngx_event_flags
+operator|&
+name|NGX_USE_LEVEL_EVENT
+condition|)
+block|{
 comment|/* select, poll, /dev/poll */
 if|if
 condition|(
@@ -1533,6 +1522,8 @@ return|return
 name|NGX_OK
 return|;
 block|}
+block|}
+comment|/* aio, iocp, epoll, rt signals */
 return|return
 name|NGX_OK
 return|;

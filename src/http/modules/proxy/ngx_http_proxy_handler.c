@@ -2424,6 +2424,24 @@ block|{
 comment|/* rc == NGX_OK */
 if|if
 condition|(
+name|c
+operator|->
+name|read
+operator|->
+name|ready
+condition|)
+block|{
+comment|/* post aio operation */
+name|ngx_http_proxy_process_upstream_status_line
+argument_list|(
+name|c
+operator|->
+name|read
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|ngx_handle_level_write_event
 argument_list|(
 name|c
@@ -3638,8 +3656,8 @@ name|ngx_log_debug
 argument_list|(
 argument|c->log
 argument_list|,
-literal|"HTTP proxy header: '%s: %s'"
-argument|_                           h->key.data _ h->value.data
+literal|"HTTP proxy header: %08X '%s: %s'"
+argument|_                           h _ h->key.data _ h->value.data
 argument_list|)
 empty_stmt|;
 continue|continue;
@@ -3794,13 +3812,6 @@ operator|>
 literal|0
 condition|)
 block|{
-if|#
-directive|if
-literal|0
-comment|/* TODO THINK */
-block_content|rev->ready = 0;
-endif|#
-directive|endif
 return|return
 name|n
 return|;
@@ -3857,6 +3868,8 @@ condition|(
 name|ngx_handle_read_event
 argument_list|(
 name|rev
+argument_list|,
+literal|0
 argument_list|)
 operator|==
 name|NGX_ERROR
@@ -3948,7 +3961,7 @@ modifier|*
 name|ch
 decl_stmt|,
 modifier|*
-name|ph
+name|h
 decl_stmt|;
 name|ngx_event_pipe_t
 modifier|*
@@ -3957,6 +3970,10 @@ decl_stmt|;
 name|ngx_http_request_t
 modifier|*
 name|r
+decl_stmt|;
+name|ngx_http_core_loc_conf_t
+modifier|*
+name|clcf
 decl_stmt|;
 name|r
 operator|=
@@ -3992,12 +4009,8 @@ operator|=
 name|NULL
 expr_stmt|;
 comment|/* copy an upstream header to r->headers_out */
-name|ph
+name|h
 operator|=
-operator|(
-name|ngx_table_elt_t
-operator|*
-operator|)
 name|p
 operator|->
 name|headers_in
@@ -4029,7 +4042,7 @@ block|{
 if|if
 condition|(
 operator|&
-name|ph
+name|h
 index|[
 name|i
 index|]
@@ -4053,7 +4066,7 @@ block|{
 if|if
 condition|(
 operator|&
-name|ph
+name|h
 index|[
 name|i
 index|]
@@ -4065,7 +4078,7 @@ operator|.
 name|date
 operator|||
 operator|&
-name|ph
+name|h
 index|[
 name|i
 index|]
@@ -4082,7 +4095,7 @@ block|}
 if|if
 condition|(
 operator|&
-name|ph
+name|h
 index|[
 name|i
 index|]
@@ -4107,7 +4120,7 @@ block|}
 if|if
 condition|(
 operator|&
-name|ph
+name|h
 index|[
 name|i
 index|]
@@ -4126,7 +4139,7 @@ operator|.
 name|content_type
 operator|=
 operator|&
-name|ph
+name|h
 index|[
 name|i
 index|]
@@ -4175,7 +4188,7 @@ block|}
 operator|*
 name|ch
 operator|=
-name|ph
+name|h
 index|[
 name|i
 index|]
@@ -4184,7 +4197,7 @@ comment|/*          * ngx_http_header_filter() output the following headers     
 if|if
 condition|(
 operator|&
-name|ph
+name|h
 index|[
 name|i
 index|]
@@ -4209,7 +4222,7 @@ block|}
 if|if
 condition|(
 operator|&
-name|ph
+name|h
 index|[
 name|i
 index|]
@@ -4234,7 +4247,7 @@ block|}
 if|if
 condition|(
 operator|&
-name|ph
+name|h
 index|[
 name|i
 index|]
@@ -4629,6 +4642,41 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
+name|clcf
+operator|=
+name|ngx_http_get_module_loc_conf
+argument_list|(
+name|r
+argument_list|,
+name|ngx_http_core_module
+argument_list|)
+expr_stmt|;
+name|ep
+operator|->
+name|read_timeout
+operator|=
+name|p
+operator|->
+name|lcf
+operator|->
+name|read_timeout
+expr_stmt|;
+name|ep
+operator|->
+name|send_timeout
+operator|=
+name|clcf
+operator|->
+name|send_timeout
+expr_stmt|;
+name|ep
+operator|->
+name|send_lowat
+operator|=
+name|clcf
+operator|->
+name|send_lowat
+expr_stmt|;
 name|p
 operator|->
 name|event_pipe
@@ -5036,7 +5084,7 @@ name|char
 modifier|*
 name|pos
 decl_stmt|;
-DECL|enum|__anon2c2333d10103
+DECL|enum|__anon2b42db0a0103
 enum|enum
 block|{
 DECL|enumerator|sw_start

@@ -341,10 +341,15 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
-comment|/* 9 is for "HTTP/1.x ", 2 is for trailing "\r\n"        and 2 is for end of header */
+comment|/* 2 is for trailing "\r\n" and 2 is for "\r\n" in the end of header */
 name|len
 operator|=
-literal|9
+sizeof|sizeof
+argument_list|(
+literal|"HTTP/1.x "
+argument_list|)
+operator|-
+literal|1
 operator|+
 literal|2
 operator|+
@@ -611,10 +616,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|/* "Date: ... \r\n" */
 name|len
 operator|+=
-literal|37
+sizeof|sizeof
+argument_list|(
+literal|"Date: Mon, 28 Sep 1970 00:00:00 GMT"
+name|CRLF
+argument_list|)
+operator|-
+literal|1
 expr_stmt|;
 block|}
 if|if
@@ -638,7 +648,12 @@ condition|)
 block|{
 name|len
 operator|+=
-literal|15
+sizeof|sizeof
+argument_list|(
+literal|"Content-Range: "
+argument_list|)
+operator|-
+literal|1
 operator|+
 name|r
 operator|->
@@ -675,10 +690,16 @@ operator|>=
 literal|0
 condition|)
 block|{
-comment|/* "Content-Length: ... \r\n", 2^64 is 20 characters */
+comment|/* 2^64 */
 name|len
 operator|+=
-literal|48
+sizeof|sizeof
+argument_list|(
+literal|"Content-Length: 18446744073709551616"
+name|CRLF
+argument_list|)
+operator|-
+literal|1
 expr_stmt|;
 block|}
 block|}
@@ -715,7 +736,12 @@ literal|0
 expr_stmt|;
 name|len
 operator|+=
-literal|14
+sizeof|sizeof
+argument_list|(
+literal|"Content-Type: "
+argument_list|)
+operator|-
+literal|1
 operator|+
 name|r
 operator|->
@@ -740,10 +766,14 @@ operator|.
 name|len
 condition|)
 block|{
-comment|/* "; charset= ... " */
 name|len
 operator|+=
-literal|10
+sizeof|sizeof
+argument_list|(
+literal|"; charset="
+argument_list|)
+operator|-
+literal|1
 operator|+
 name|r
 operator|->
@@ -837,10 +867,15 @@ name|len
 operator|=
 literal|0
 expr_stmt|;
-comment|/* "Location: http:// ... \r\n" */
 name|len
 operator|+=
-literal|17
+sizeof|sizeof
+argument_list|(
+literal|"Location: http://"
+argument_list|)
+operator|-
+literal|1
+operator|,
 operator|+
 name|r
 operator|->
@@ -935,10 +970,15 @@ operator|-
 literal|1
 condition|)
 block|{
-comment|/* "Last-Modified: ... \r\n" */
 name|len
 operator|+=
-literal|46
+sizeof|sizeof
+argument_list|(
+literal|"Last-Modified: Mon, 28 Sep 1970 00:00:00 GMT"
+name|CRLF
+argument_list|)
+operator|-
+literal|1
 expr_stmt|;
 block|}
 if|if
@@ -948,10 +988,15 @@ operator|->
 name|chunked
 condition|)
 block|{
-comment|/* "Transfer-Encoding: chunked\r\n" */
 name|len
 operator|+=
-literal|28
+sizeof|sizeof
+argument_list|(
+literal|"Transfer-Encoding: chunked"
+name|CRLF
+argument_list|)
+operator|-
+literal|1
 expr_stmt|;
 block|}
 if|if
@@ -961,26 +1006,32 @@ operator|->
 name|keepalive
 condition|)
 block|{
-comment|/* "Connection: keep-alive\r\n" */
 name|len
 operator|+=
-literal|24
+sizeof|sizeof
+argument_list|(
+literal|"Connection: keep-alive"
+name|CRLF
+argument_list|)
+operator|-
+literal|1
 expr_stmt|;
 block|}
 else|else
 block|{
-comment|/* "Connection: close\r\n" */
 name|len
 operator|+=
-literal|19
+sizeof|sizeof
+argument_list|(
+literal|"Connection: closed"
+name|CRLF
+argument_list|)
+operator|-
+literal|1
 expr_stmt|;
 block|}
 name|header
 operator|=
-operator|(
-name|ngx_table_elt_t
-operator|*
-operator|)
 name|r
 operator|->
 name|headers_out
@@ -1083,7 +1134,12 @@ name|last
 argument_list|,
 literal|"HTTP/1.1 "
 argument_list|,
-literal|9
+sizeof|sizeof
+argument_list|(
+literal|"HTTP/1.x "
+argument_list|)
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 comment|/* status line */
@@ -1251,7 +1307,12 @@ name|last
 argument_list|,
 literal|"Date: "
 argument_list|,
-literal|6
+sizeof|sizeof
+argument_list|(
+literal|"Date: "
+argument_list|)
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 name|h
@@ -1322,7 +1383,12 @@ name|last
 argument_list|,
 literal|"Content-Range: "
 argument_list|,
-literal|15
+sizeof|sizeof
+argument_list|(
+literal|"Content-Range: "
+argument_list|)
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 name|h
@@ -1408,7 +1474,9 @@ name|ngx_snprintf
 argument_list|(
 argument|h->last
 argument_list|,
-literal|49
+argument|sizeof(
+literal|"Content-Length: 18446744073709551616"
+argument|CRLF)
 argument_list|,
 literal|"Content-Length: "
 argument|OFF_FMT CRLF
@@ -1449,7 +1517,12 @@ name|last
 argument_list|,
 literal|"Content-Type: "
 argument_list|,
-literal|14
+sizeof|sizeof
+argument_list|(
+literal|"Content-Type: "
+argument_list|)
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 name|h
@@ -1506,7 +1579,12 @@ name|last
 argument_list|,
 literal|"; charset="
 argument_list|,
-literal|10
+sizeof|sizeof
+argument_list|(
+literal|"; charset="
+argument_list|)
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 name|h
@@ -1589,7 +1667,12 @@ name|last
 argument_list|,
 literal|"Content-Encoding: "
 argument_list|,
-literal|18
+sizeof|sizeof
+argument_list|(
+literal|"Content-Encoding: "
+argument_list|)
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 name|h
@@ -1690,7 +1773,12 @@ name|last
 argument_list|,
 literal|"Location: http://"
 argument_list|,
-literal|17
+sizeof|sizeof
+argument_list|(
+literal|"Location: http://"
+argument_list|)
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 name|h
@@ -1844,7 +1932,12 @@ name|last
 argument_list|,
 literal|"Last-Modified: "
 argument_list|,
-literal|15
+sizeof|sizeof
+argument_list|(
+literal|"Last-Modified: "
+argument_list|)
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 name|h
@@ -1905,7 +1998,13 @@ argument_list|,
 literal|"Transfer-Encoding: chunked"
 name|CRLF
 argument_list|,
-literal|28
+sizeof|sizeof
+argument_list|(
+literal|"Transfer-Encoding: chunked"
+name|CRLF
+argument_list|)
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
@@ -1929,7 +2028,13 @@ argument_list|,
 literal|"Connection: keep-alive"
 name|CRLF
 argument_list|,
-literal|24
+sizeof|sizeof
+argument_list|(
+literal|"Connection: keep-alive"
+name|CRLF
+argument_list|)
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
@@ -1948,7 +2053,13 @@ argument_list|,
 literal|"Connection: close"
 name|CRLF
 argument_list|,
-literal|19
+sizeof|sizeof
+argument_list|(
+literal|"Connection: close"
+name|CRLF
+argument_list|)
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 block|}

@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c03dbb80108
+DECL|struct|__anon27d98b730108
 typedef|typedef
 struct|struct
 block|{
@@ -1819,7 +1819,7 @@ name|EVFILT_AIO
 case|:
 name|ev
 operator|->
-name|ready
+name|aio_complete
 operator|=
 literal|1
 expr_stmt|;

@@ -37,7 +37,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c8243790108
+DECL|struct|__anon2988b8e80108
 typedef|typedef
 struct|struct
 block|{
@@ -73,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c8243790208
+DECL|struct|__anon2988b8e80208
 typedef|typedef
 struct|struct
 block|{
@@ -147,10 +147,16 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c8243790308
+DECL|struct|__anon2988b8e80308
 typedef|typedef
 struct|struct
 block|{
+DECL|member|headers
+name|ngx_table_t
+modifier|*
+name|headers
+decl_stmt|;
+comment|/* it must be first field */
 DECL|member|date
 name|ngx_table_elt_t
 modifier|*
@@ -189,11 +195,6 @@ decl_stmt|;
 DECL|member|content_length_n
 name|off_t
 name|content_length_n
-decl_stmt|;
-DECL|member|headers
-name|ngx_table_t
-modifier|*
-name|headers
 decl_stmt|;
 DECL|typedef|ngx_http_proxy_headers_in_t
 block|}
