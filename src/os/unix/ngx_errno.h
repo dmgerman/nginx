@@ -49,6 +49,14 @@ value|EINTR
 end_define
 
 begin_define
+DECL|macro|NGX_EACCESS
+define|#
+directive|define
+name|NGX_EACCESS
+value|EACCESS
+end_define
+
+begin_define
 DECL|macro|NGX_ENOTDIR
 define|#
 directive|define

@@ -62,6 +62,14 @@ value|ERROR_FILE_NOT_FOUND
 end_define
 
 begin_define
+DECL|macro|NGX_EACCESS
+define|#
+directive|define
+name|NGX_EACCESS
+value|ERROR_ACCESS_DENIED
+end_define
+
+begin_define
 DECL|macro|NGX_EAGAIN
 define|#
 directive|define

@@ -494,6 +494,15 @@ name|cmd
 operator|->
 name|type
 operator|&
+name|NGX_CONF_ANY
+operator|)
+operator|&&
+operator|!
+operator|(
+name|cmd
+operator|->
+name|type
+operator|&
 name|argument_number
 index|[
 name|cf
