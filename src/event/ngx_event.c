@@ -1714,7 +1714,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|HAVE_DEFERRED_ACCEPT
+name|NGX_HAVE_DEFERRED_ACCEPT
 operator|)
 name|rev
 operator|->
@@ -3179,12 +3179,12 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|HAVE_EPOLL
+name|NGX_HAVE_EPOLL
 operator|)
 operator|&&
 operator|!
 operator|(
-name|TEST_BUILD_EPOLL
+name|NGX_TEST_BUILD_EPOLL
 operator|)
 name|fd
 operator|=
@@ -3238,7 +3238,7 @@ directive|endif
 if|#
 directive|if
 operator|(
-name|HAVE_RTSIG
+name|NGX_HAVE_RTSIG
 operator|)
 if|if
 condition|(
@@ -3266,7 +3266,7 @@ directive|endif
 if|#
 directive|if
 operator|(
-name|HAVE_DEVPOLL
+name|NGX_HAVE_DEVPOLL
 operator|)
 name|connections
 operator|=
@@ -3282,7 +3282,7 @@ directive|endif
 if|#
 directive|if
 operator|(
-name|HAVE_KQUEUE
+name|NGX_HAVE_KQUEUE
 operator|)
 name|connections
 operator|=
@@ -3298,7 +3298,7 @@ directive|endif
 if|#
 directive|if
 operator|(
-name|HAVE_SELECT
+name|NGX_HAVE_SELECT
 operator|)
 if|if
 condition|(

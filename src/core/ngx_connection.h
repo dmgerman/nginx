@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c40c7240108
+DECL|struct|__anon2756f9210108
 typedef|typedef
 struct|struct
 block|{
@@ -175,7 +175,7 @@ comment|/* shared between threads or processes */
 if|#
 directive|if
 operator|(
-name|HAVE_DEFERRED_ACCEPT
+name|NGX_HAVE_DEFERRED_ACCEPT
 operator|)
 DECL|member|deferred_accept
 name|unsigned
@@ -198,7 +198,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c40c7240203
+DECL|enum|__anon2756f9210203
 typedef|typedef
 enum|enum
 block|{
@@ -222,7 +222,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c40c7240303
+DECL|enum|__anon2756f9210303
 typedef|typedef
 enum|enum
 block|{
@@ -335,7 +335,7 @@ directive|endif
 if|#
 directive|if
 operator|(
-name|HAVE_IOCP
+name|NGX_HAVE_IOCP
 operator|)
 DECL|member|local_sockaddr
 name|struct
@@ -416,7 +416,7 @@ decl_stmt|;
 if|#
 directive|if
 operator|(
-name|HAVE_IOCP
+name|NGX_HAVE_IOCP
 operator|)
 DECL|member|accept_context_updated
 name|unsigned

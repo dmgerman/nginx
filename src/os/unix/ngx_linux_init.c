@@ -57,7 +57,7 @@ block|,
 if|#
 directive|if
 operator|(
-name|HAVE_SENDFILE
+name|NGX_HAVE_SENDFILE
 operator|)
 name|ngx_linux_sendfile_chain
 block|,

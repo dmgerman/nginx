@@ -254,7 +254,7 @@ operator|&&
 operator|(
 name|ngx_event_flags
 operator|&
-name|NGX_HAVE_KQUEUE_EVENT
+name|NGX_USE_KQUEUE_EVENT
 operator|)
 operator|)
 operator|)

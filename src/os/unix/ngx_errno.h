@@ -262,9 +262,9 @@ begin_if
 if|#
 directive|if
 operator|(
-name|HAVE_STRERROR_R
+name|NGX_HAVE_STRERROR_R
 operator|||
-name|HAVE_GNU_STRERROR_R
+name|NGX_HAVE_GNU_STRERROR_R
 operator|)
 end_if
 

@@ -509,7 +509,7 @@ block|}
 if|#
 directive|if
 operator|(
-name|HAVE_WRITE_ZEROCOPY
+name|NGX_HAVE_WRITE_ZEROCOPY
 operator|)
 if|if
 condition|(

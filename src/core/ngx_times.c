@@ -648,7 +648,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|HAVE_GETTIMEZONE
+name|NGX_HAVE_GETTIMEZONE
 operator|)
 name|ngx_gmtoff
 operator|=
@@ -670,7 +670,7 @@ expr_stmt|;
 elif|#
 directive|elif
 operator|(
-name|HAVE_GMTOFF
+name|NGX_HAVE_GMTOFF
 operator|)
 name|ngx_localtime
 argument_list|(

@@ -277,7 +277,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|HAVE_POLL
+name|NGX_HAVE_POLL
 operator|)
 end_if
 
@@ -296,7 +296,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|HAVE_AIO
+name|NGX_HAVE_AIO
 operator|)
 end_if
 
@@ -315,7 +315,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|HAVE_KQUEUE
+name|NGX_HAVE_KQUEUE
 operator|)
 end_if
 
@@ -338,14 +338,14 @@ name|SO_ACCEPTFILTER
 operator|&&
 operator|!
 name|defined
-name|HAVE_DEFERRED_ACCEPT
+name|NGX_HAVE_DEFERRED_ACCEPT
 end_if
 
 begin_define
-DECL|macro|HAVE_DEFERRED_ACCEPT
+DECL|macro|NGX_HAVE_DEFERRED_ACCEPT
 define|#
 directive|define
-name|HAVE_DEFERRED_ACCEPT
+name|NGX_HAVE_DEFERRED_ACCEPT
 value|1
 end_define
 
@@ -424,14 +424,14 @@ end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|HAVE_INHERITED_NONBLOCK
+name|NGX_HAVE_INHERITED_NONBLOCK
 end_ifndef
 
 begin_define
-DECL|macro|HAVE_INHERITED_NONBLOCK
+DECL|macro|NGX_HAVE_INHERITED_NONBLOCK
 define|#
 directive|define
-name|HAVE_INHERITED_NONBLOCK
+name|NGX_HAVE_INHERITED_NONBLOCK
 value|1
 end_define
 

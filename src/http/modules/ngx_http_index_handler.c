@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b424ea90108
+DECL|struct|__anon2aeb9b0e0108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b424ea90208
+DECL|struct|__anon2aeb9b0e0208
 typedef|typedef
 struct|struct
 block|{
@@ -68,16 +68,15 @@ name|ngx_str_t
 name|redirect
 decl_stmt|;
 DECL|member|cache
-name|ngx_http_cache_t
+name|ngx_http_cache_entry_t
 modifier|*
 name|cache
 decl_stmt|;
 DECL|member|tested
-name|unsigned
+name|ngx_uint_t
 name|tested
-range|:
-literal|1
 decl_stmt|;
+comment|/* unsigned  tested:1 */
 DECL|typedef|ngx_http_index_ctx_t
 block|}
 name|ngx_http_index_ctx_t

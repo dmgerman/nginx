@@ -41,7 +41,7 @@ file|<openssl/err.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2755e4110108
+DECL|struct|__anon27c5e4120108
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ value|NGX_OK
 end_define
 
 begin_function_decl
-name|ngx_int_t
+name|ssize_t
 name|ngx_ssl_recv
 parameter_list|(
 name|ngx_connection_t

@@ -40,12 +40,12 @@ begin_if
 if|#
 directive|if
 operator|(
-name|HAVE_IOCP
+name|NGX_HAVE_IOCP
 operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon28a269200108
+DECL|struct|__anon289197f30108
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28a269200208
+DECL|struct|__anon289197f30208
 typedef|typedef
 struct|struct
 block|{
@@ -246,7 +246,7 @@ directive|endif
 if|#
 directive|if
 operator|(
-name|HAVE_KQUEUE
+name|NGX_HAVE_KQUEUE
 operator|)
 DECL|member|kq_vnode
 name|unsigned
@@ -265,11 +265,11 @@ comment|/*      * kqueue only:      *   accept:     number of sockets that wait 
 if|#
 directive|if
 operator|(
-name|HAVE_KQUEUE
+name|NGX_HAVE_KQUEUE
 operator|)
 operator|||
 operator|(
-name|HAVE_IOCP
+name|NGX_HAVE_IOCP
 operator|)
 DECL|member|available
 name|int
@@ -293,12 +293,12 @@ decl_stmt|;
 if|#
 directive|if
 operator|(
-name|HAVE_AIO
+name|NGX_HAVE_AIO
 operator|)
 if|#
 directive|if
 operator|(
-name|HAVE_IOCP
+name|NGX_HAVE_IOCP
 operator|)
 DECL|member|ovlp
 name|ngx_event_ovlp_t
@@ -387,7 +387,7 @@ decl_stmt|;
 if|#
 directive|if
 operator|(
-name|HAVE_KQUEUE
+name|NGX_HAVE_KQUEUE
 operator|)
 comment|/* the pending errno reported by kqueue */
 DECL|member|posted_errno
@@ -399,11 +399,11 @@ directive|endif
 if|#
 directive|if
 operator|(
-name|HAVE_KQUEUE
+name|NGX_HAVE_KQUEUE
 operator|)
 operator|||
 operator|(
-name|HAVE_IOCP
+name|NGX_HAVE_IOCP
 operator|)
 DECL|member|posted_available
 name|int
@@ -465,7 +465,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28a269200308
+DECL|struct|__anon289197f30308
 typedef|typedef
 struct|struct
 block|{
@@ -741,7 +741,7 @@ value|0x00000100
 end_define
 
 begin_comment
-comment|/*  * Need to add socket or handle only once - i/o completion port.  * It also requires HAVE_AIO and NGX_USE_AIO_EVENT to be set.  */
+comment|/*  * Need to add socket or handle only once - i/o completion port.  * It also requires NGX_HAVE_AIO and NGX_USE_AIO_EVENT to be set.  */
 end_comment
 
 begin_define
@@ -796,7 +796,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|HAVE_KQUEUE
+name|NGX_HAVE_KQUEUE
 operator|)
 end_if
 
@@ -904,7 +904,7 @@ begin_elif
 elif|#
 directive|elif
 operator|(
-name|HAVE_DEVPOLL
+name|NGX_HAVE_DEVPOLL
 operator|)
 end_elif
 
@@ -944,7 +944,7 @@ begin_elif
 elif|#
 directive|elif
 operator|(
-name|HAVE_EPOLL
+name|NGX_HAVE_EPOLL
 operator|)
 end_elif
 
@@ -1010,7 +1010,7 @@ begin_elif
 elif|#
 directive|elif
 operator|(
-name|HAVE_POLL
+name|NGX_HAVE_POLL
 operator|)
 end_elif
 
@@ -1093,14 +1093,14 @@ directive|endif
 end_endif
 
 begin_comment
-comment|/* HAVE_KQUEUE */
+comment|/* NGX_HAVE_KQUEUE */
 end_comment
 
 begin_if
 if|#
 directive|if
 operator|(
-name|HAVE_IOCP
+name|NGX_HAVE_IOCP
 operator|)
 end_if
 
@@ -1283,7 +1283,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon28a269200408
+DECL|struct|__anon289197f30408
 typedef|typedef
 struct|struct
 block|{
@@ -1330,7 +1330,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a269200508
+DECL|struct|__anon289197f30508
 typedef|typedef
 struct|struct
 block|{

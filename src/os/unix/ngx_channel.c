@@ -61,9 +61,9 @@ decl_stmt|;
 if|#
 directive|if
 operator|(
-name|HAVE_MSGHDR_MSG_CONTROL
+name|NGX_HAVE_MSGHDR_MSG_CONTROL
 operator|)
-DECL|union|__anon2b9b718c010a
+DECL|union|__anon2b98add8010a
 union|union
 block|{
 DECL|member|cm
@@ -369,9 +369,9 @@ decl_stmt|;
 if|#
 directive|if
 operator|(
-name|HAVE_MSGHDR_MSG_CONTROL
+name|NGX_HAVE_MSGHDR_MSG_CONTROL
 operator|)
-DECL|union|__anon2b9b718c020a
+DECL|union|__anon2b98add8020a
 union|union
 block|{
 DECL|member|cm
@@ -451,7 +451,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|HAVE_MSGHDR_MSG_CONTROL
+name|NGX_HAVE_MSGHDR_MSG_CONTROL
 operator|)
 name|msg
 operator|.
@@ -600,7 +600,7 @@ block|}
 if|#
 directive|if
 operator|(
-name|HAVE_MSGHDR_MSG_CONTROL
+name|NGX_HAVE_MSGHDR_MSG_CONTROL
 operator|)
 if|if
 condition|(

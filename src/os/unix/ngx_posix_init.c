@@ -124,7 +124,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon2c61101d0108
+DECL|struct|__anon27659e8a0108
 typedef|typedef
 struct|struct
 block|{
@@ -457,7 +457,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|HAVE_INHERITED_NONBLOCK
+name|NGX_HAVE_INHERITED_NONBLOCK
 operator|)
 name|ngx_inherited_nonblocking
 operator|=

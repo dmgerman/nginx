@@ -445,7 +445,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|main (int argc,char * const * argv,char * const * envp)
+DECL|function|main (int argc,char * const * argv)
 name|int
 name|main
 parameter_list|(
@@ -457,12 +457,6 @@ modifier|*
 specifier|const
 modifier|*
 name|argv
-parameter_list|,
-name|char
-modifier|*
-specifier|const
-modifier|*
-name|envp
 parameter_list|)
 block|{
 name|ngx_int_t

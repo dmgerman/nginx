@@ -19,7 +19,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|NGX_STRERROR_R
+name|NGX_HAVE_STRERROR_R
 operator|)
 end_if
 
@@ -96,7 +96,7 @@ begin_elif
 elif|#
 directive|elif
 operator|(
-name|NGX_GNU_STRERROR_R
+name|NGX_HAVE_GNU_STRERROR_R
 operator|)
 end_elif
 

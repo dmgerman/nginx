@@ -25,7 +25,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|TEST_BUILD_DEVPOLL
+name|NGX_TEST_BUILD_DEVPOLL
 operator|)
 end_if
 
@@ -78,7 +78,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2a0fd7680108
+DECL|struct|__anon2ba483510108
 typedef|typedef
 struct|struct
 block|{

@@ -394,7 +394,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|HAVE_KQUEUE
+name|NGX_HAVE_KQUEUE
 operator|)
 name|ev
 operator|->
@@ -443,7 +443,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|HAVE_KQUEUE
+name|NGX_HAVE_KQUEUE
 operator|)
 name|ev
 operator|->

@@ -1706,7 +1706,7 @@ operator|&
 operator|(
 name|NGX_USE_CLEAR_EVENT
 operator||
-name|NGX_HAVE_KQUEUE_EVENT
+name|NGX_USE_KQUEUE_EVENT
 operator|)
 operator|)
 operator|&&

@@ -60,7 +60,7 @@ block|,
 if|#
 directive|if
 operator|(
-name|HAVE_SENDFILE
+name|NGX_HAVE_SENDFILE
 operator|)
 name|ngx_solaris_sendfilev_chain
 block|,

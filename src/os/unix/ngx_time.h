@@ -177,7 +177,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|HAVE_GMTOFF
+name|NGX_HAVE_GMTOFF
 operator|)
 end_if
 

@@ -8313,7 +8313,7 @@ elif|#
 directive|elif
 operator|!
 operator|(
-name|HAVE_SO_SNDLOWAT
+name|NGX_HAVE_SO_SNDLOWAT
 operator|)
 name|ngx_conf_log_error
 argument_list|(

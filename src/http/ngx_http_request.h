@@ -417,7 +417,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon278aaa890103
+DECL|enum|__anon27eb46820103
 typedef|typedef
 enum|enum
 block|{
@@ -438,7 +438,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon278aaa890203
+DECL|enum|__anon27eb46820203
 typedef|typedef
 enum|enum
 block|{
@@ -477,7 +477,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278aaa890308
+DECL|struct|__anon27eb46820308
 typedef|typedef
 struct|struct
 block|{
@@ -496,7 +496,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278aaa890408
+DECL|struct|__anon27eb46820408
 typedef|typedef
 struct|struct
 block|{
@@ -645,7 +645,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278aaa890508
+DECL|struct|__anon27eb46820508
 typedef|typedef
 struct|struct
 block|{
@@ -668,7 +668,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278aaa890608
+DECL|struct|__anon27eb46820608
 typedef|typedef
 struct|struct
 block|{
@@ -771,7 +771,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278aaa890708
+DECL|struct|__anon27eb46820708
 typedef|typedef
 struct|struct
 block|{
@@ -822,10 +822,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon278aaa89080a
+DECL|union|__anon27eb4682080a
 union|union
 block|{
-DECL|struct|__anon278aaa890908
+DECL|struct|__anon27eb46820908
 struct|struct
 block|{
 DECL|member|fd
@@ -841,7 +841,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon278aaa890a08
+DECL|struct|__anon27eb46820a08
 struct|struct
 block|{
 DECL|member|hash
@@ -850,7 +850,7 @@ modifier|*
 name|hash
 decl_stmt|;
 DECL|member|cache
-name|ngx_http_cache_t
+name|ngx_http_cache_entry_t
 modifier|*
 name|cache
 decl_stmt|;
@@ -879,7 +879,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon278aaa890b08
+DECL|struct|__anon27eb46820b08
 typedef|typedef
 struct|struct
 block|{
@@ -975,7 +975,7 @@ modifier|*
 name|loc_conf
 decl_stmt|;
 DECL|member|cache
-name|ngx_http_cache_t
+name|ngx_http_cache_entry_t
 modifier|*
 name|cache
 decl_stmt|;

@@ -529,11 +529,19 @@ value|sizeof("-2147483648") - 1
 end_define
 
 begin_define
-DECL|macro|NGX_WIN_NT
+DECL|macro|OFF_T_MAX_VALUE
 define|#
 directive|define
-name|NGX_WIN_NT
-value|200000
+name|OFF_T_MAX_VALUE
+value|9223372036854775807
+end_define
+
+begin_define
+DECL|macro|NGX_HAVE_LITTLE_ENDIAN
+define|#
+directive|define
+name|NGX_HAVE_LITTLE_ENDIAN
+value|1
 end_define
 
 begin_define
@@ -544,17 +552,25 @@ name|NGX_THREADS
 value|1
 end_define
 
+begin_define
+DECL|macro|NGX_WIN_NT
+define|#
+directive|define
+name|NGX_WIN_NT
+value|200000
+end_define
+
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|HAVE_INHERITED_NONBLOCK
+name|NGX_HAVE_INHERITED_NONBLOCK
 end_ifndef
 
 begin_define
-DECL|macro|HAVE_INHERITED_NONBLOCK
+DECL|macro|NGX_HAVE_INHERITED_NONBLOCK
 define|#
 directive|define
-name|HAVE_INHERITED_NONBLOCK
+name|NGX_HAVE_INHERITED_NONBLOCK
 value|1
 end_define
 
@@ -566,22 +582,22 @@ end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|HAVE_WIN32_TRANSMITPACKETS
+name|NGX_HAVE_WIN32_TRANSMITPACKETS
 end_ifndef
 
 begin_define
-DECL|macro|HAVE_WIN32_TRANSMITPACKETS
+DECL|macro|NGX_HAVE_WIN32_TRANSMITPACKETS
 define|#
 directive|define
-name|HAVE_WIN32_TRANSMITPACKETS
+name|NGX_HAVE_WIN32_TRANSMITPACKETS
 value|1
 end_define
 
 begin_define
-DECL|macro|HAVE_WIN32_TRANSMITFILE
+DECL|macro|NGX_HAVE_WIN32_TRANSMITFILE
 define|#
 directive|define
-name|HAVE_WIN32_TRANSMITFILE
+name|NGX_HAVE_WIN32_TRANSMITFILE
 value|0
 end_define
 
@@ -593,14 +609,14 @@ end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|HAVE_WIN32_TRANSMITFILE
+name|NGX_HAVE_WIN32_TRANSMITFILE
 end_ifndef
 
 begin_define
-DECL|macro|HAVE_WIN32_TRANSMITFILE
+DECL|macro|NGX_HAVE_WIN32_TRANSMITFILE
 define|#
 directive|define
-name|HAVE_WIN32_TRANSMITFILE
+name|NGX_HAVE_WIN32_TRANSMITFILE
 value|1
 end_define
 
@@ -613,19 +629,19 @@ begin_if
 if|#
 directive|if
 operator|(
-name|HAVE_WIN32_TRANSMITPACKETS
+name|NGX_HAVE_WIN32_TRANSMITPACKETS
 operator|)
 operator|||
 operator|(
-name|HAVE_WIN32_TRANSMITFILE
+name|NGX_HAVE_WIN32_TRANSMITFILE
 operator|)
 end_if
 
 begin_define
-DECL|macro|HAVE_SENDFILE
+DECL|macro|NGX_HAVE_SENDFILE
 define|#
 directive|define
-name|HAVE_SENDFILE
+name|NGX_HAVE_SENDFILE
 value|1
 end_define
 
@@ -633,26 +649,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-
-begin_define
-DECL|macro|OFF_T_MAX_VALUE
-define|#
-directive|define
-name|OFF_T_MAX_VALUE
-value|9223372036854775807
-end_define
-
-begin_comment
-comment|/* STUB */
-end_comment
-
-begin_define
-DECL|macro|HAVE_LITTLE_ENDIAN
-define|#
-directive|define
-name|HAVE_LITTLE_ENDIAN
-value|1
-end_define
 
 begin_endif
 endif|#

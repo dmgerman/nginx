@@ -23,7 +23,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|HAVE_FIONBIO
+name|NGX_HAVE_FIONBIO
 operator|)
 end_if
 

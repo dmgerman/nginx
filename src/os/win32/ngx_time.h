@@ -181,10 +181,10 @@ value|Sleep
 end_define
 
 begin_define
-DECL|macro|HAVE_GETTIMEZONE
+DECL|macro|NGX_HAVE_GETTIMEZONE
 define|#
 directive|define
-name|HAVE_GETTIMEZONE
+name|NGX_HAVE_GETTIMEZONE
 value|1
 end_define
 

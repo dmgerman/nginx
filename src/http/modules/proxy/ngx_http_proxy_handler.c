@@ -1830,7 +1830,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|HAVE_KQUEUE
+name|NGX_HAVE_KQUEUE
 operator|)
 if|if
 condition|(
@@ -2395,9 +2395,9 @@ literal|0
 if|#
 directive|if
 operator|(
-name|HAVE_KQUEUE
+name|NGX_HAVE_KQUEUE
 operator|)
-block_content|if ((ngx_event_flags& NGX_HAVE_KQUEUE_EVENT)&& rev->kq_eof) {         ngx_http_busy_unlock(p->lcf->busy_lock,&p->busy_lock);          ngx_del_timer(rev);          ngx_log_error(NGX_LOG_ERR, c->log, rev->kq_errno,                       "client() closed connection");          if (ngx_del_event(rev, NGX_READ_EVENT, NGX_CLOSE_EVENT) == NGX_ERROR) {             ngx_http_proxy_finalize_request(p, NGX_HTTP_INTERNAL_SERVER_ERROR);             return;         }          ngx_http_proxy_finalize_request(p, NGX_HTTP_CLIENT_CLOSED_REQUEST);         return;     }
+block_content|if ((ngx_event_flags& NGX_USE_KQUEUE_EVENT)&& rev->kq_eof) {         ngx_http_busy_unlock(p->lcf->busy_lock,&p->busy_lock);          ngx_del_timer(rev);          ngx_log_error(NGX_LOG_ERR, c->log, rev->kq_errno,                       "client() closed connection");          if (ngx_del_event(rev, NGX_READ_EVENT, NGX_CLOSE_EVENT) == NGX_ERROR) {             ngx_http_proxy_finalize_request(p, NGX_HTTP_INTERNAL_SERVER_ERROR);             return;         }          ngx_http_proxy_finalize_request(p, NGX_HTTP_CLIENT_CLOSED_REQUEST);         return;     }
 endif|#
 directive|endif
 endif|#
@@ -6616,7 +6616,7 @@ elif|#
 directive|elif
 operator|!
 operator|(
-name|HAVE_SO_SNDLOWAT
+name|NGX_HAVE_SO_SNDLOWAT
 operator|)
 name|ngx_conf_log_error
 argument_list|(

@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon299dfd820108
+DECL|struct|__anon2ba5e2a30108
 typedef|typedef
 struct|struct
 block|{
@@ -791,7 +791,7 @@ name|NGX_USE_ONESHOT_EVENT
 if|#
 directive|if
 operator|(
-name|HAVE_CLEAR_EVENT
+name|NGX_HAVE_CLEAR_EVENT
 operator|)
 operator||
 name|NGX_USE_CLEAR_EVENT

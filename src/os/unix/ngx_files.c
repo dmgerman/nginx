@@ -64,7 +64,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_PREAD
+name|NGX_HAVE_PREAD
 operator|)
 name|n
 operator|=
@@ -271,7 +271,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_PWRITE
+name|NGX_HAVE_PWRITE
 operator|)
 name|n
 operator|=

@@ -25,7 +25,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|TEST_BUILD_RTSIG
+name|NGX_TEST_BUILD_RTSIG
 operator|)
 end_if
 
@@ -110,7 +110,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2745a2840108
+DECL|struct|__anon292d8d740108
 typedef|typedef
 struct|struct
 block|{
@@ -948,7 +948,7 @@ block|}
 if|#
 directive|if
 operator|(
-name|HAVE_ONESIGFD
+name|NGX_HAVE_ONESIGFD
 operator|)
 if|if
 condition|(

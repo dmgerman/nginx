@@ -25,7 +25,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|HAVE_KQUEUE
+name|NGX_HAVE_KQUEUE
 operator|)
 end_if
 
@@ -563,7 +563,7 @@ directive|else
 end_else
 
 begin_comment
-comment|/* ! NAVE_KQUEUE */
+comment|/* ! NGX_HAVE_KQUEUE */
 end_comment
 
 begin_function
@@ -936,7 +936,7 @@ directive|endif
 end_endif
 
 begin_comment
-comment|/* NAVE_KQUEUE */
+comment|/* NGX_HAVE_KQUEUE */
 end_comment
 
 end_unit

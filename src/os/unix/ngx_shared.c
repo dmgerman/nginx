@@ -19,7 +19,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|HAVE_MAP_ANON
+name|NGX_HAVE_MAP_ANON
 operator|)
 end_if
 
@@ -97,7 +97,7 @@ begin_elif
 elif|#
 directive|elif
 operator|(
-name|HAVE_MAP_DEVZERO
+name|NGX_HAVE_MAP_DEVZERO
 operator|)
 end_elif
 
@@ -231,7 +231,7 @@ begin_elif
 elif|#
 directive|elif
 operator|(
-name|HAVE_SYSVSHM
+name|NGX_HAVE_SYSVSHM
 operator|)
 end_elif
 

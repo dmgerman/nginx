@@ -302,6 +302,14 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_define
+DECL|macro|NGX_SENDFILE_LIMIT
+define|#
+directive|define
+name|NGX_SENDFILE_LIMIT
+value|(NGX_MAX_UINT32_VALUE + 1)
+end_define
+
 begin_endif
 endif|#
 directive|endif
@@ -311,7 +319,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|HAVE_POLL
+name|NGX_HAVE_POLL
 operator|)
 end_if
 
@@ -330,7 +338,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|HAVE_EPOLL
+name|NGX_HAVE_EPOLL
 operator|)
 end_if
 
@@ -345,10 +353,6 @@ endif|#
 directive|endif
 end_endif
 
-begin_comment
-comment|/* HAVE_EPOLL */
-end_comment
-
 begin_if
 if|#
 directive|if
@@ -357,14 +361,14 @@ name|TCP_DEFER_ACCEPT
 operator|&&
 operator|!
 name|defined
-name|HAVE_DEFERRED_ACCEPT
+name|NGX_HAVE_DEFERRED_ACCEPT
 end_if
 
 begin_define
-DECL|macro|HAVE_DEFERRED_ACCEPT
+DECL|macro|NGX_HAVE_DEFERRED_ACCEPT
 define|#
 directive|define
-name|HAVE_DEFERRED_ACCEPT
+name|NGX_HAVE_DEFERRED_ACCEPT
 value|1
 end_define
 
@@ -376,14 +380,14 @@ end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|HAVE_INHERITED_NONBLOCK
+name|NGX_HAVE_INHERITED_NONBLOCK
 end_ifndef
 
 begin_define
-DECL|macro|HAVE_INHERITED_NONBLOCK
+DECL|macro|NGX_HAVE_INHERITED_NONBLOCK
 define|#
 directive|define
-name|HAVE_INHERITED_NONBLOCK
+name|NGX_HAVE_INHERITED_NONBLOCK
 value|0
 end_define
 
@@ -395,14 +399,14 @@ end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|HAVE_SELECT_CHANGE_TIMEOUT
+name|NGX_HAVE_SELECT_CHANGE_TIMEOUT
 end_ifndef
 
 begin_define
-DECL|macro|HAVE_SELECT_CHANGE_TIMEOUT
+DECL|macro|NGX_HAVE_SELECT_CHANGE_TIMEOUT
 define|#
 directive|define
-name|HAVE_SELECT_CHANGE_TIMEOUT
+name|NGX_HAVE_SELECT_CHANGE_TIMEOUT
 value|1
 end_define
 

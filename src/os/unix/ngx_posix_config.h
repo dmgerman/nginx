@@ -332,7 +332,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|HAVE_POLL
+name|NGX_HAVE_POLL
 operator|)
 end_if
 
@@ -351,7 +351,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|HAVE_KQUEUE
+name|NGX_HAVE_KQUEUE
 operator|)
 end_if
 
@@ -370,7 +370,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|HAVE_DEVPOLL
+name|NGX_HAVE_DEVPOLL
 operator|)
 end_if
 

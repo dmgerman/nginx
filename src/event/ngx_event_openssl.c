@@ -23,7 +23,7 @@ end_include
 
 begin_function_decl
 specifier|static
-name|ngx_int_t
+name|ssize_t
 name|ngx_ssl_write
 parameter_list|(
 name|ngx_connection_t
@@ -233,7 +233,7 @@ end_function
 
 begin_function
 DECL|function|ngx_ssl_recv (ngx_connection_t * c,u_char * buf,size_t size)
-name|ngx_int_t
+name|ssize_t
 name|ngx_ssl_recv
 parameter_list|(
 name|ngx_connection_t
@@ -961,7 +961,7 @@ end_function
 begin_function
 DECL|function|ngx_ssl_write (ngx_connection_t * c,u_char * data,size_t size)
 specifier|static
-name|ngx_int_t
+name|ssize_t
 name|ngx_ssl_write
 parameter_list|(
 name|ngx_connection_t

@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2942b8480108
+DECL|struct|__anon2b3764040108
 typedef|typedef
 struct|struct
 block|{
@@ -81,7 +81,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2942b8480208
+DECL|struct|__anon2b3764040208
 typedef|typedef
 struct|struct
 block|{
@@ -172,7 +172,7 @@ value|0x0200
 end_define
 
 begin_typedef
-DECL|struct|__anon2942b8480308
+DECL|struct|__anon2b3764040308
 typedef|typedef
 struct|struct
 block|{
@@ -1073,7 +1073,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|HAVE_LITTLE_ENDIAN
+name|NGX_HAVE_LITTLE_ENDIAN
 operator|)
 end_if
 
@@ -1100,7 +1100,7 @@ directive|else
 end_else
 
 begin_comment
-comment|/* HAVE_BIG_ENDIAN */
+comment|/* NGX_HAVE_BIG_ENDIAN */
 end_comment
 
 begin_struct
@@ -2019,7 +2019,8 @@ decl_stmt|,
 name|wbits
 decl_stmt|,
 name|memlevel
-decl_stmt|,
+decl_stmt|;
+name|ngx_int_t
 name|last
 decl_stmt|;
 name|struct
@@ -2141,7 +2142,7 @@ operator|--
 expr_stmt|;
 block|}
 block|}
-comment|/*          * We preallocate a memory for zlib in one buffer (200K-400K), this          * dicreases a number of malloc() and free() calls and also probably          * dicreases a number of syscalls (sbrk() or so).          * Besides we free this memory as soon as the gzipping will complete          * and do not wait while a whole response will be sent to a client.          *          * 8K is for zlib deflate_state, it takes          *  * 5816 bytes on x86 and sparc64 (32-bit mode)          *  * 5920 bytes on amd64 and sparc64          */
+comment|/*          * We preallocate a memory for zlib in one buffer (200K-400K), this          * dicreases a number of malloc() and free() calls and also probably          * dicreases a number of syscalls (sbrk() and so on).          * Besides we free this memory as soon as the gzipping will complete          * and do not wait while a whole response will be sent to a client.          *          * 8K is for zlib deflate_state, it takes          *  * 5816 bytes on x86 and sparc64 (32-bit mode)          *  * 5920 bytes on amd64 and sparc64          */
 name|ctx
 operator|->
 name|allocated
@@ -2362,20 +2363,34 @@ name|next
 operator|=
 name|NULL
 expr_stmt|;
-name|ctx
-operator|->
-name|out
-operator|=
+comment|/*          * We pass the gzheader to the next filter now to avoid its linking          * to the ctx->busy chain.  zlib does not usually output the compressed          * data in the initial iterations, so the gzheader that was linked          * to the ctx->busy chain would be flushed by ngx_http_write_filter().          */
+if|if
+condition|(
+name|ngx_http_next_body_filter
+argument_list|(
+name|r
+argument_list|,
 name|cl
-expr_stmt|;
+argument_list|)
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+return|return
+name|ngx_http_gzip_error
+argument_list|(
+name|ctx
+argument_list|)
+return|;
+block|}
 name|ctx
 operator|->
 name|last_out
 operator|=
 operator|&
-name|cl
+name|ctx
 operator|->
-name|next
+name|out
 expr_stmt|;
 name|ctx
 operator|->
@@ -3498,7 +3513,7 @@ block|}
 if|#
 directive|if
 operator|(
-name|HAVE_LITTLE_ENDIAN
+name|NGX_HAVE_LITTLE_ENDIAN
 operator|)
 name|trailer
 operator|->
@@ -3745,6 +3760,11 @@ condition|(
 name|last
 operator|==
 name|NGX_AGAIN
+operator|&&
+operator|!
+name|ctx
+operator|->
+name|done
 condition|)
 block|{
 return|return
@@ -4205,6 +4225,13 @@ operator|->
 name|zstream
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|ctx
+operator|->
+name|preallocated
+condition|)
+block|{
 name|ngx_pfree
 argument_list|(
 name|ctx
@@ -4218,6 +4245,7 @@ operator|->
 name|preallocated
 argument_list|)
 expr_stmt|;
+block|}
 name|ctx
 operator|->
 name|zstream

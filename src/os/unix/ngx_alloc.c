@@ -138,7 +138,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|HAVE_POSIX_MEMALIGN
+name|NGX_HAVE_POSIX_MEMALIGN
 operator|)
 end_if
 
@@ -220,7 +220,7 @@ begin_elif
 elif|#
 directive|elif
 operator|(
-name|HAVE_MEMALIGN
+name|NGX_HAVE_MEMALIGN
 operator|)
 end_elif
 

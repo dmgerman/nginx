@@ -25,7 +25,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|TEST_BUILD_EPOLL
+name|NGX_TEST_BUILD_EPOLL
 operator|)
 end_if
 
@@ -327,7 +327,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon27e85c9c0108
+DECL|struct|__anon2930119e0108
 typedef|typedef
 struct|struct
 block|{
@@ -786,7 +786,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|HAVE_CLEAR_EVENT
+name|NGX_HAVE_CLEAR_EVENT
 operator|)
 name|ngx_event_flags
 operator|=

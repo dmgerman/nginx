@@ -28,7 +28,7 @@ block|{
 if|#
 directive|if
 operator|(
-name|HAVE_LOCALTIME_R
+name|NGX_HAVE_LOCALTIME_R
 operator|)
 name|time_t
 name|now

@@ -197,7 +197,7 @@ value|0
 end_define
 
 begin_typedef
-DECL|struct|__anon2bae01140108
+DECL|struct|__anon2b3e356e0108
 typedef|typedef
 struct|struct
 block|{
@@ -217,17 +217,13 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bae01140208
+DECL|struct|__anon2b3e356e0208
 typedef|typedef
 struct|struct
 block|{
 DECL|member|cond
 name|pthread_cond_t
 name|cond
-decl_stmt|;
-DECL|member|tid
-name|ngx_tid_t
-name|tid
 decl_stmt|;
 DECL|member|log
 name|ngx_log_t
@@ -326,7 +322,7 @@ value|volatile
 end_define
 
 begin_typedef
-DECL|struct|__anon2bae01140308
+DECL|struct|__anon2b3e356e0308
 typedef|typedef
 struct|struct
 block|{

@@ -1060,7 +1060,7 @@ decl_stmt|;
 if|#
 directive|if
 operator|(
-name|HAVE_SELECT_CHANGE_TIMEOUT
+name|NGX_HAVE_SELECT_CHANGE_TIMEOUT
 operator|)
 specifier|static
 name|ngx_epoch_msec_t
@@ -1503,7 +1503,7 @@ block|}
 if|#
 directive|if
 operator|(
-name|HAVE_SELECT_CHANGE_TIMEOUT
+name|NGX_HAVE_SELECT_CHANGE_TIMEOUT
 operator|)
 if|if
 condition|(
@@ -1679,7 +1679,7 @@ block|}
 block|}
 else|#
 directive|else
-comment|/* !(HAVE_SELECT_CHANGE_TIMEOUT) */
+comment|/* !(NGX_HAVE_SELECT_CHANGE_TIMEOUT) */
 name|ngx_gettimeofday
 argument_list|(
 operator|&
@@ -1782,7 +1782,7 @@ block|}
 block|}
 endif|#
 directive|endif
-comment|/* HAVE_SELECT_CHANGE_TIMEOUT */
+comment|/* NGX_HAVE_SELECT_CHANGE_TIMEOUT */
 name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
