@@ -32,6 +32,14 @@ name|NGX_THREADS
 operator|)
 end_if
 
+begin_define
+DECL|macro|ngx_thread_volatile
+define|#
+directive|define
+name|ngx_thread_volatile
+value|volatile
+end_define
+
 begin_if
 if|#
 directive|if
@@ -121,7 +129,7 @@ value|0x80000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2ad0aeb90108
+DECL|struct|__anon293d2a500108
 typedef|typedef
 specifier|volatile
 struct|struct
@@ -405,6 +413,13 @@ end_else
 begin_comment
 comment|/* !NGX_THREADS */
 end_comment
+
+begin_define
+DECL|macro|ngx_thread_volatile
+define|#
+directive|define
+name|ngx_thread_volatile
+end_define
 
 begin_define
 DECL|macro|ngx_log_tid

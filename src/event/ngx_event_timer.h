@@ -103,7 +103,7 @@ end_endif
 
 begin_decl_stmt
 specifier|extern
-specifier|volatile
+name|ngx_thread_volatile
 name|ngx_rbtree_t
 modifier|*
 name|ngx_event_timer_rbtree
