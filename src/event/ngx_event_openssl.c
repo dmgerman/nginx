@@ -439,6 +439,10 @@ return|;
 block|}
 end_function
 
+begin_comment
+comment|/*  * OpenSSL has no SSL_writev() so we copy several bufs into our 16K buffer  * before SSL_write() call to decrease a SSL overhead.  *  * Besides for protocols such as HTTP it is possible to always buffer  * the output to decrease a SSL overhead some more.  */
+end_comment
+
 begin_function
 DECL|function|ngx_ssl_send_chain (ngx_connection_t * c,ngx_chain_t * in,off_t limit)
 name|ngx_chain_t
@@ -462,6 +466,8 @@ name|n
 decl_stmt|;
 name|ngx_uint_t
 name|flush
+decl_stmt|,
+name|last
 decl_stmt|;
 name|ssize_t
 name|send
@@ -490,13 +496,6 @@ name|next
 operator|==
 name|NULL
 operator|&&
-operator|!
-name|c
-operator|->
-name|ssl
-operator|->
-name|buffer
-operator|&&
 name|buf
 operator|->
 name|pos
@@ -504,9 +503,16 @@ operator|==
 name|buf
 operator|->
 name|last
+operator|&&
+operator|!
+name|c
+operator|->
+name|ssl
+operator|->
+name|buffer
 condition|)
 block|{
-comment|/*          * the optimized path without a copy if there is the single incoming          * buf, we do not need to buffer output and our buffer is empty          */
+comment|/*          * we avoid a buffer copy if the incoming buf is a single,          * our buffer is empty, and we do not need to buffer the output          */
 name|n
 operator|=
 name|ngx_ssl_write
@@ -535,17 +541,25 @@ expr_stmt|;
 if|if
 condition|(
 name|n
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+return|return
+name|NGX_CHAIN_ERROR
+return|;
+block|}
+if|if
+condition|(
+name|n
 operator|<
 literal|0
 condition|)
 block|{
-return|return
-operator|(
-name|ngx_chain_t
-operator|*
-operator|)
 name|n
-return|;
+operator|=
+literal|0
+expr_stmt|;
 block|}
 name|in
 operator|->
@@ -564,6 +578,18 @@ operator|=
 literal|0
 expr_stmt|;
 name|flush
+operator|=
+operator|(
+name|in
+operator|==
+name|NULL
+operator|)
+condition|?
+literal|1
+else|:
+literal|0
+expr_stmt|;
+name|last
 operator|=
 operator|(
 name|in
@@ -607,6 +633,10 @@ name|flush
 operator|=
 literal|1
 expr_stmt|;
+name|last
+operator|=
+literal|1
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -618,6 +648,12 @@ name|buf
 argument_list|)
 condition|)
 block|{
+name|in
+operator|=
+name|in
+operator|->
+name|next
+expr_stmt|;
 continue|continue;
 block|}
 name|size
@@ -658,7 +694,7 @@ operator|->
 name|last
 expr_stmt|;
 block|}
-comment|/*              * TODO: the taking in->buf->flush into account can be              *       implemented using the limit              */
+comment|/*              * TODO: the taking in->buf->flush into account can be              *       implemented using the limit on the higher level              */
 if|if
 condition|(
 name|send
@@ -758,17 +794,17 @@ name|pos
 expr_stmt|;
 if|if
 condition|(
+operator|!
 name|flush
-operator|||
+operator|&&
 name|buf
 operator|->
 name|last
-operator|==
+operator|<
 name|buf
 operator|->
 name|end
-operator|||
-operator|!
+operator|&&
 name|c
 operator|->
 name|ssl
@@ -776,6 +812,8 @@ operator|->
 name|buffer
 condition|)
 block|{
+break|break;
+block|}
 name|n
 operator|=
 name|ngx_ssl_write
@@ -789,11 +827,15 @@ argument_list|,
 name|size
 argument_list|)
 expr_stmt|;
-block|}
-else|else
+if|if
+condition|(
+name|n
+operator|==
+name|NGX_ERROR
+condition|)
 block|{
 return|return
-name|NGX_CHAIN_AGAIN
+name|NGX_CHAIN_ERROR
 return|;
 block|}
 if|if
@@ -803,13 +845,10 @@ operator|<
 literal|0
 condition|)
 block|{
-return|return
-operator|(
-name|ngx_chain_t
-operator|*
-operator|)
 name|n
-return|;
+operator|=
+literal|0
+expr_stmt|;
 block|}
 name|buf
 operator|->
@@ -895,6 +934,9 @@ name|pos
 operator|==
 name|buf
 operator|->
+name|last
+operator|||
+operator|!
 name|last
 condition|)
 block|{
