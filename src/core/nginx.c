@@ -260,13 +260,6 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_connection_counter
-name|ngx_atomic_t
-name|ngx_connection_counter
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
 DECL|variable|ngx_process
 name|ngx_int_t
 name|ngx_process

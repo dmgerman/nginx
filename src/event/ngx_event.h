@@ -57,7 +57,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2c70ca6e0108
+DECL|struct|__anon2ac541910108
 typedef|typedef
 struct|struct
 block|{
@@ -86,7 +86,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c70ca6e0208
+DECL|struct|__anon2ac541910208
 typedef|typedef
 struct|struct
 block|{
@@ -424,7 +424,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c70ca6e0308
+DECL|struct|__anon2ac541910308
 typedef|typedef
 struct|struct
 block|{
@@ -1215,7 +1215,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon2c70ca6e0408
+DECL|struct|__anon2ac541910408
 typedef|typedef
 struct|struct
 block|{
@@ -1262,7 +1262,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c70ca6e0508
+DECL|struct|__anon2ac541910508
 typedef|typedef
 struct|struct
 block|{
@@ -1310,6 +1310,14 @@ block|}
 name|ngx_event_module_t
 typedef|;
 end_typedef
+
+begin_decl_stmt
+specifier|extern
+name|ngx_atomic_t
+modifier|*
+name|ngx_connection_counter
+decl_stmt|;
+end_decl_stmt
 
 begin_decl_stmt
 specifier|extern

@@ -24,7 +24,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29bff6c50108
+DECL|struct|__anon2c9631cc0108
 typedef|typedef
 struct|struct
 block|{
@@ -1112,7 +1112,6 @@ name|number
 operator|=
 name|ngx_atomic_inc
 argument_list|(
-operator|&
 name|ngx_connection_counter
 argument_list|)
 expr_stmt|;
