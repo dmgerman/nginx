@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ae4096c0108
+DECL|struct|__anon2911ceb00108
 typedef|typedef
 struct|struct
 block|{
@@ -1585,10 +1585,24 @@ return|;
 block|}
 if|#
 directive|if
+literal|1
+if|if
+condition|(
+name|ngx_accept_mutex_held
+operator|==
 literal|0
-block_content|if (ngx_accept_mutex_held == 0&& timer == 0) {
+operator|&&
+name|timer
+operator|==
+literal|0
+condition|)
+block|{
 comment|/* STUB */
-block_content|timer = 500;         }
+name|timer
+operator|=
+literal|500
+expr_stmt|;
+block|}
 endif|#
 directive|endif
 block|}

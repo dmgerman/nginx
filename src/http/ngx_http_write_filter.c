@@ -24,7 +24,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a3ab8050108
+DECL|struct|__anon2744a0290108
 typedef|typedef
 struct|struct
 block|{
@@ -39,7 +39,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3ab8050208
+DECL|struct|__anon2744a0290208
 typedef|typedef
 struct|struct
 block|{
@@ -222,7 +222,7 @@ name|ngx_http_write_filter_init
 block|,
 comment|/* init module */
 name|NULL
-comment|/* init child */
+comment|/* init process */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -311,6 +311,8 @@ expr_stmt|;
 block|}
 name|size
 operator|=
+literal|0
+expr_stmt|;
 name|flush
 operator|=
 literal|0

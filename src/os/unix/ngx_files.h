@@ -139,19 +139,19 @@ name|ngx_delete_file_n
 value|"unlink()"
 end_define
 
-begin_define
-DECL|macro|ngx_open_tempfile (name,persistent)
-define|#
-directive|define
+begin_function_decl
+name|int
 name|ngx_open_tempfile
 parameter_list|(
+name|u_char
+modifier|*
 name|name
 parameter_list|,
+name|ngx_uint_t
 name|persistent
 parameter_list|)
-define|\
-value|open((const char *) name, O_CREAT|O_EXCL|O_RDWR, 0600)
-end_define
+function_decl|;
+end_function_decl
 
 begin_define
 DECL|macro|ngx_open_tempfile_n

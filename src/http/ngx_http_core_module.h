@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b3184750108
+DECL|struct|__anon2957d5470108
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b3184750203
+DECL|enum|__anon2957d5470203
 typedef|typedef
 enum|enum
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3184750308
+DECL|struct|__anon2957d5470308
 typedef|typedef
 struct|struct
 block|{
@@ -112,7 +112,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3184750408
+DECL|struct|__anon2957d5470408
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3184750508
+DECL|struct|__anon2957d5470508
 typedef|typedef
 struct|struct
 block|{
@@ -199,7 +199,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2b3184750608
+DECL|struct|__anon2957d5470608
 typedef|typedef
 struct|struct
 block|{
@@ -223,7 +223,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3184750708
+DECL|struct|__anon2957d5470708
 typedef|typedef
 struct|struct
 block|{
@@ -255,7 +255,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3184750808
+DECL|struct|__anon2957d5470808
 typedef|typedef
 struct|struct
 block|{
@@ -298,7 +298,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon2b3184750908
+DECL|struct|__anon2957d5470908
 typedef|typedef
 struct|struct
 block|{
@@ -317,7 +317,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3184750a08
+DECL|struct|__anon2957d5470a08
 typedef|typedef
 struct|struct
 block|{
@@ -336,7 +336,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3184750b08
+DECL|struct|__anon2957d5470b08
 typedef|typedef
 struct|struct
 block|{
@@ -393,6 +393,11 @@ name|size_t
 name|discarded_buffer_size
 decl_stmt|;
 comment|/* discarded_buffer_size */
+DECL|member|client_body_buffer_size
+name|size_t
+name|client_body_buffer_size
+decl_stmt|;
+comment|/* client_body_buffer_size */
 DECL|member|client_body_timeout
 name|ngx_msec_t
 name|client_body_timeout

@@ -943,6 +943,14 @@ condition|)
 block|{
 return|return;
 block|}
+name|ngx_accept_mutex_held
+operator|=
+literal|0
+expr_stmt|;
+name|ngx_accept_mutex
+operator|=
+name|NULL
+expr_stmt|;
 name|ls
 operator|=
 name|cycle

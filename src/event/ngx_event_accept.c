@@ -24,7 +24,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2af453010108
+DECL|struct|__anon27e65ff30108
 typedef|typedef
 struct|struct
 block|{
@@ -61,29 +61,6 @@ name|len
 parameter_list|)
 function_decl|;
 end_function_decl
-
-begin_decl_stmt
-DECL|variable|ngx_accept_mutex_ptr
-name|ngx_atomic_t
-modifier|*
-name|ngx_accept_mutex_ptr
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-DECL|variable|ngx_accept_mutex
-name|ngx_atomic_t
-modifier|*
-name|ngx_accept_mutex
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-DECL|variable|ngx_accept_mutex_held
-name|ngx_uint_t
-name|ngx_accept_mutex_held
-decl_stmt|;
-end_decl_stmt
 
 begin_function
 DECL|function|ngx_event_accept (ngx_event_t * ev)
