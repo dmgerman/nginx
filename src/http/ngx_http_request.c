@@ -693,7 +693,7 @@ operator|>
 literal|1
 condition|)
 block|{
-comment|/*          * there're the several addresses on this port and one of them          * is "*:port" so getsockname() is needed to determine          * the server address.          * AcceptEx() already gave this address.          */
+comment|/*          * There're the several addresses on this port and one of them          * is "*:port" so getsockname() is needed to determine          * the server address.          * AcceptEx() already gave this address.          */
 if|#
 directive|if
 operator|(
@@ -1611,7 +1611,6 @@ name|r
 operator|->
 name|request_start
 expr_stmt|;
-comment|/* if the large client headers are enabled then            we need to copy a request line */
 if|if
 condition|(
 name|cscf
@@ -1619,6 +1618,7 @@ operator|->
 name|large_client_header
 condition|)
 block|{
+comment|/*             * if the large client headers are enabled then             * we need to copy a request line             */
 name|r
 operator|->
 name|request_line
@@ -1715,7 +1715,6 @@ operator|=
 literal|'\0'
 expr_stmt|;
 block|}
-comment|/* copy URI extention if it exists */
 if|if
 condition|(
 name|r
@@ -1723,6 +1722,7 @@ operator|->
 name|uri_ext
 condition|)
 block|{
+comment|/* copy URI extention */
 if|if
 condition|(
 name|r
@@ -1827,7 +1827,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* copy URI arguments if they exist */
 if|if
 condition|(
 name|r
@@ -1843,6 +1842,7 @@ operator|->
 name|args_start
 condition|)
 block|{
+comment|/* copy URI arguments */
 name|r
 operator|->
 name|args
@@ -2168,7 +2168,7 @@ operator|->
 name|end
 condition|)
 block|{
-comment|/*          * If it's a pipelined request and a request line is not complete          * then we need to copy it to the start of the r->header_in hunk.          * We need to copy it here only if the large client headers          * are enabled otherwise a request line had been already copied          * to the start of the r->header_in hunk in ngx_http_set_keepalive().          */
+comment|/*          * If it's a pipelined request and a request line is not complete          * then we have to copy it to the start of the r->header_in hunk.          * We have to copy it here only if the large client headers          * are enabled otherwise a request line had been already copied          * to the start of the r->header_in hunk in ngx_http_set_keepalive().          */
 name|cscf
 operator|=
 name|ngx_http_get_module_srv_conf

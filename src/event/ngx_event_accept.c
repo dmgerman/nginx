@@ -349,7 +349,7 @@ literal|0
 argument_list|,
 literal|"accept() on %s returned socket #%d while "
 literal|"only %d connections was configured, "
-literal|"sleeping for 1 second"
+literal|"closing the connection"
 argument_list|,
 name|ls
 operator|->
@@ -390,11 +390,7 @@ literal|"failed"
 argument_list|)
 expr_stmt|;
 block|}
-name|ngx_msleep
-argument_list|(
-literal|1000
-argument_list|)
-expr_stmt|;
+comment|/* TODO: disable temporary accept() event */
 name|ngx_destroy_pool
 argument_list|(
 name|pool
@@ -944,12 +940,19 @@ argument_list|(
 name|c
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|if (ngx_event_flags& NGX_HAVE_KQUEUE_EVENT) {             ev->available--;         }
-endif|#
-directive|endif
+if|if
+condition|(
+name|ngx_event_flags
+operator|&
+name|NGX_HAVE_KQUEUE_EVENT
+condition|)
+block|{
+name|ev
+operator|->
+name|available
+operator|--
+expr_stmt|;
+block|}
 name|accepted
 operator|++
 expr_stmt|;
