@@ -112,7 +112,7 @@ argument_list|,
 literal|"log handler"
 argument_list|)
 expr_stmt|;
-comment|/* %a, 20:%c, 22:%d, 3:%s, 20:%b, 5*" ", "2/1: "\r\n" */
+comment|/* 10:%con, 22:%date, 2:%"%r", 3:%status, 20:%bytes, 5*" ", 2/1: "\r\n" */
 if|#
 directive|if
 operator|(
@@ -120,18 +120,17 @@ name|WIN32
 operator|)
 name|len
 operator|=
-literal|2
-operator|+
-literal|20
+literal|10
 operator|+
 literal|22
+operator|+
+literal|2
 operator|+
 literal|3
 operator|+
 literal|20
 operator|+
 literal|5
-operator|+
 operator|+
 literal|2
 expr_stmt|;
@@ -139,18 +138,17 @@ else|#
 directive|else
 name|len
 operator|=
-literal|2
-operator|+
-literal|20
+literal|10
 operator|+
 literal|22
+operator|+
+literal|2
 operator|+
 literal|3
 operator|+
 literal|20
 operator|+
 literal|5
-operator|+
 operator|+
 literal|1
 expr_stmt|;
@@ -392,7 +390,7 @@ name|p
 argument_list|,
 literal|21
 argument_list|,
-name|QD_FMT
+name|OFF_FMT
 argument_list|,
 name|r
 operator|->

@@ -50,6 +50,14 @@ name|QX_FMT
 value|"%I64x"
 end_define
 
+begin_define
+DECL|macro|OFF_FMT
+define|#
+directive|define
+name|OFF_FMT
+value|"%I64d"
+end_define
+
 begin_endif
 endif|#
 directive|endif
