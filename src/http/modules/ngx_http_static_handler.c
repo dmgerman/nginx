@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27cf67050108
+DECL|struct|__anon2b14aa590108
 typedef|typedef
 struct|struct
 block|{
@@ -252,10 +252,6 @@ name|file_cleanup
 decl_stmt|,
 modifier|*
 name|redirect_cleanup
-decl_stmt|;
-name|ngx_http_log_ctx_t
-modifier|*
-name|ctx
 decl_stmt|;
 name|ngx_http_core_loc_conf_t
 modifier|*
@@ -1915,13 +1911,7 @@ return|;
 block|}
 endif|#
 directive|endif
-name|ctx
-operator|=
 name|log
-operator|->
-name|data
-expr_stmt|;
-name|ctx
 operator|->
 name|action
 operator|=

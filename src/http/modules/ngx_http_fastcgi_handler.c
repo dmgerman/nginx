@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29a2b2fb0108
+DECL|struct|__anon288d0db30108
 typedef|typedef
 struct|struct
 block|{
@@ -65,7 +65,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a2b2fb0208
+DECL|struct|__anon288d0db30208
 typedef|typedef
 struct|struct
 block|{
@@ -112,7 +112,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a2b2fb0308
+DECL|struct|__anon288d0db30308
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29a2b2fb0403
+DECL|enum|__anon288d0db30403
 typedef|typedef
 enum|enum
 block|{
@@ -169,7 +169,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a2b2fb0508
+DECL|struct|__anon288d0db30508
 typedef|typedef
 struct|struct
 block|{
@@ -379,7 +379,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon29a2b2fb0608
+DECL|struct|__anon288d0db30608
 typedef|typedef
 struct|struct
 block|{
@@ -422,7 +422,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a2b2fb0708
+DECL|struct|__anon288d0db30708
 typedef|typedef
 struct|struct
 block|{
@@ -7800,6 +7800,10 @@ decl_stmt|;
 name|ngx_buf_t
 modifier|*
 name|b
+decl_stmt|,
+modifier|*
+modifier|*
+name|prev
 decl_stmt|;
 name|ngx_str_t
 name|line
@@ -7849,6 +7853,13 @@ expr_stmt|;
 name|b
 operator|=
 name|NULL
+expr_stmt|;
+name|prev
+operator|=
+operator|&
+name|buf
+operator|->
+name|shadow
 expr_stmt|;
 name|f
 operator|->
@@ -8266,9 +8277,19 @@ name|pos
 expr_stmt|;
 name|b
 operator|->
-name|shadow
+name|start
 operator|=
 name|buf
+operator|->
+name|start
+expr_stmt|;
+name|b
+operator|->
+name|end
+operator|=
+name|buf
+operator|->
+name|end
 expr_stmt|;
 name|b
 operator|->
@@ -8290,11 +8311,17 @@ name|recycled
 operator|=
 literal|1
 expr_stmt|;
-name|buf
-operator|->
-name|shadow
+operator|*
+name|prev
 operator|=
 name|b
+expr_stmt|;
+name|prev
+operator|=
+operator|&
+name|b
+operator|->
+name|shadow
 expr_stmt|;
 if|if
 condition|(
@@ -8326,6 +8353,15 @@ operator|->
 name|next
 operator|=
 name|NULL
+expr_stmt|;
+comment|/* STUB */
+name|b
+operator|->
+name|num
+operator|=
+name|buf
+operator|->
+name|num
 expr_stmt|;
 name|ngx_log_debug1
 argument_list|(
@@ -8490,10 +8526,36 @@ condition|)
 block|{
 name|b
 operator|->
+name|shadow
+operator|=
+name|buf
+expr_stmt|;
+name|b
+operator|->
 name|last_shadow
 operator|=
 literal|1
 expr_stmt|;
+return|return
+name|NGX_OK
+return|;
+block|}
+comment|/* there is no data record in the buf, add it to free chain */
+if|if
+condition|(
+name|ngx_event_pipe_add_free_buf
+argument_list|(
+name|p
+argument_list|,
+name|buf
+argument_list|)
+operator|!=
+name|NGX_OK
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
 block|}
 return|return
 name|NGX_OK

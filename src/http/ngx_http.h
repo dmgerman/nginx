@@ -159,16 +159,6 @@ DECL|struct|ngx_http_log_ctx_s
 struct|struct
 name|ngx_http_log_ctx_s
 block|{
-DECL|member|connection
-name|ngx_uint_t
-name|connection
-decl_stmt|;
-comment|/*      * we declare "action" as "char *" because the actions are usually      * the static strings and in the "u_char *" case we have to override      * all the time their types      */
-DECL|member|action
-name|char
-modifier|*
-name|action
-decl_stmt|;
 DECL|member|client
 name|ngx_str_t
 modifier|*

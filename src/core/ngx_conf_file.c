@@ -431,12 +431,6 @@ name|cf
 argument_list|)
 expr_stmt|;
 comment|/*          * ngx_conf_read_token() may return          *    NGX_ERROR             there is error          *    NGX_OK                the token terminated by ";" was found          *    NGX_CONF_BLOCK_START  the token terminated by "{" was found          *    NGX_CONF_BLOCK_DONE   the "}" was found          *    NGX_CONF_FILE_DONE    the configuration file is done          */
-if|#
-directive|if
-literal|0
-block_content|ngx_log_debug(cf->log, "token %d" _ rc);
-endif|#
-directive|endif
 if|if
 condition|(
 name|rc
@@ -670,12 +664,6 @@ name|found
 operator|=
 literal|1
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|ngx_log_debug(cf->log, "command '%s'" _ cmd->name.data);
-endif|#
-directive|endif
 comment|/* is the directive's location right ? */
 if|if
 condition|(
@@ -1174,12 +1162,6 @@ argument_list|,
 name|conf
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|ngx_log_debug(cf->log, "rv: %d" _ rv);
-endif|#
-directive|endif
 if|if
 condition|(
 name|rv
@@ -1472,12 +1454,6 @@ name|b
 operator|->
 name|pos
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|ngx_log_debug(cf->log, "TOKEN START");
-endif|#
-directive|endif
 for|for
 control|(
 init|;
@@ -1649,12 +1625,6 @@ operator|->
 name|pos
 operator|++
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|ngx_log_debug(cf->log, "%d:%d:%d:%d:%d '%c'" _               last_space _ need_space _               quoted _ s_quoted _ d_quoted _ ch);
-endif|#
-directive|endif
 if|if
 condition|(
 name|ch
@@ -2278,12 +2248,6 @@ name|len
 operator|=
 name|len
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|ngx_log_debug(cf->log, "FOUND %d:'%s'" _ word->len _ word->data);
-endif|#
-directive|endif
 if|if
 condition|(
 name|ch

@@ -516,7 +516,7 @@ name|log
 expr_stmt|;
 name|u
 operator|->
-name|saved_ctx
+name|saved_log_ctx
 operator|=
 name|r
 operator|->
@@ -528,7 +528,7 @@ name|data
 expr_stmt|;
 name|u
 operator|->
-name|saved_handler
+name|saved_log_handler
 operator|=
 name|r
 operator|->
@@ -763,6 +763,37 @@ operator|->
 name|write
 argument_list|)
 expr_stmt|;
+name|c
+operator|=
+name|ev
+operator|->
+name|data
+expr_stmt|;
+name|r
+operator|=
+name|c
+operator|->
+name|data
+expr_stmt|;
+name|u
+operator|=
+name|r
+operator|->
+name|upstream
+expr_stmt|;
+if|if
+condition|(
+name|u
+operator|->
+name|peer
+operator|.
+name|connection
+operator|==
+name|NULL
+condition|)
+block|{
+return|return;
+block|}
 if|#
 directive|if
 operator|(
@@ -805,24 +836,6 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
-name|c
-operator|=
-name|ev
-operator|->
-name|data
-expr_stmt|;
-name|r
-operator|=
-name|c
-operator|->
-name|data
-expr_stmt|;
-name|u
-operator|=
-name|r
-operator|->
-name|upstream
-expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -907,12 +920,6 @@ return|return;
 block|}
 endif|#
 directive|endif
-name|c
-operator|=
-name|ev
-operator|->
-name|data
-expr_stmt|;
 name|n
 operator|=
 name|recv
@@ -952,18 +959,6 @@ condition|)
 block|{
 return|return;
 block|}
-name|r
-operator|=
-name|c
-operator|->
-name|data
-expr_stmt|;
-name|u
-operator|=
-name|r
-operator|->
-name|upstream
-expr_stmt|;
 if|if
 condition|(
 operator|(
@@ -1149,21 +1144,11 @@ name|ngx_connection_t
 modifier|*
 name|c
 decl_stmt|;
-name|ngx_http_log_ctx_t
-modifier|*
-name|ctx
-decl_stmt|;
-name|ctx
-operator|=
 name|r
 operator|->
 name|connection
 operator|->
 name|log
-operator|->
-name|data
-expr_stmt|;
-name|ctx
 operator|->
 name|action
 operator|=
@@ -1801,10 +1786,6 @@ name|ngx_connection_t
 modifier|*
 name|c
 decl_stmt|;
-name|ngx_http_log_ctx_t
-modifier|*
-name|ctx
-decl_stmt|;
 name|c
 operator|=
 name|u
@@ -1881,15 +1862,9 @@ return|return;
 block|}
 endif|#
 directive|endif
-name|ctx
-operator|=
 name|c
 operator|->
 name|log
-operator|->
-name|data
-expr_stmt|;
-name|ctx
 operator|->
 name|action
 operator|=
@@ -2155,10 +2130,6 @@ name|ngx_http_request_t
 modifier|*
 name|r
 decl_stmt|;
-name|ngx_http_log_ctx_t
-modifier|*
-name|ctx
-decl_stmt|;
 name|ngx_http_upstream_t
 modifier|*
 name|u
@@ -2201,15 +2172,9 @@ operator|->
 name|timedout
 condition|)
 block|{
-name|ctx
-operator|=
 name|c
 operator|->
 name|log
-operator|->
-name|data
-expr_stmt|;
-name|ctx
 operator|->
 name|action
 operator|=
@@ -2295,10 +2260,6 @@ name|ngx_http_request_t
 modifier|*
 name|r
 decl_stmt|;
-name|ngx_http_log_ctx_t
-modifier|*
-name|ctx
-decl_stmt|;
 name|ngx_http_upstream_t
 modifier|*
 name|u
@@ -2331,18 +2292,12 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http upstream process handler"
+literal|"http upstream process header"
 argument_list|)
 expr_stmt|;
-name|ctx
-operator|=
 name|c
 operator|->
 name|log
-operator|->
-name|data
-expr_stmt|;
-name|ctx
 operator|->
 name|action
 operator|=
@@ -2452,7 +2407,7 @@ name|u
 operator|->
 name|header_in
 operator|.
-name|last
+name|start
 operator|+
 name|u
 operator|->
@@ -3349,10 +3304,6 @@ name|ngx_http_request_t
 modifier|*
 name|r
 decl_stmt|;
-name|ngx_http_log_ctx_t
-modifier|*
-name|ctx
-decl_stmt|;
 name|ngx_http_upstream_t
 modifier|*
 name|u
@@ -3379,14 +3330,6 @@ name|r
 operator|->
 name|upstream
 expr_stmt|;
-name|ctx
-operator|=
-name|ev
-operator|->
-name|log
-operator|->
-name|data
-expr_stmt|;
 if|if
 condition|(
 name|ev
@@ -3398,16 +3341,18 @@ name|ngx_log_debug0
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-name|ev
+name|c
 operator|->
 name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http proxy process downstream"
+literal|"http upstream process downstream"
 argument_list|)
 expr_stmt|;
-name|ctx
+name|c
+operator|->
+name|log
 operator|->
 name|action
 operator|=
@@ -3420,20 +3365,22 @@ name|ngx_log_debug0
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-name|ev
+name|c
 operator|->
 name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http proxy process upstream"
+literal|"http upstream process upstream"
 argument_list|)
 expr_stmt|;
-name|ctx
+name|c
+operator|->
+name|log
 operator|->
 name|action
 operator|=
-literal|"reading upstream body"
+literal|"reading upstream"
 expr_stmt|;
 block|}
 name|p
@@ -3658,13 +3605,13 @@ name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-name|ev
+name|c
 operator|->
 name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http proxy upstream exit: %p"
+literal|"http upstream exit: %p"
 argument_list|,
 name|p
 operator|->
@@ -3700,13 +3647,13 @@ name|ngx_log_debug0
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-name|ev
+name|c
 operator|->
 name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http proxy downstream error"
+literal|"http upstream downstream error"
 argument_list|)
 expr_stmt|;
 if|if
@@ -3989,7 +3936,7 @@ name|r
 argument_list|,
 name|u
 argument_list|,
-name|ngx_http_proxy_send_cached_response
+name|ngx_http_send_cached_response
 argument_list|(
 name|r
 argument_list|)
@@ -4087,7 +4034,7 @@ name|ngx_int_t
 name|rc
 parameter_list|)
 block|{
-name|ngx_log_debug0
+name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
@@ -4099,7 +4046,9 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"finalize http upstream request"
+literal|"finalize http upstream request: %i"
+argument_list|,
+name|rc
 argument_list|)
 expr_stmt|;
 name|u
@@ -4153,6 +4102,14 @@ name|connection
 argument_list|)
 expr_stmt|;
 block|}
+name|u
+operator|->
+name|peer
+operator|.
+name|connection
+operator|=
+name|NULL
+expr_stmt|;
 if|if
 condition|(
 name|u
@@ -4179,7 +4136,7 @@ if|if
 condition|(
 name|u
 operator|->
-name|saved_ctx
+name|saved_log_ctx
 condition|)
 block|{
 name|r
@@ -4192,7 +4149,7 @@ name|data
 operator|=
 name|u
 operator|->
-name|saved_ctx
+name|saved_log_ctx
 expr_stmt|;
 name|r
 operator|->
@@ -4204,7 +4161,7 @@ name|handler
 operator|=
 name|u
 operator|->
-name|saved_handler
+name|saved_log_handler
 expr_stmt|;
 block|}
 if|if
@@ -4245,7 +4202,7 @@ block|}
 if|#
 directive|if
 literal|0
-block_content|if (u->cache) {         ngx_log_debug1(NGX_LOG_DEBUG_HTTP, r->connection->log, 0,                        "http proxy cache fd: %d",                        u->cache->ctx.file.fd);     }
+block_content|if (u->cache) {         ngx_log_debug1(NGX_LOG_DEBUG_HTTP, r->connection->log, 0,                        "http upstream cache fd: %d",                        u->cache->ctx.file.fd);     }
 endif|#
 directive|endif
 if|if
@@ -4280,6 +4237,16 @@ block_content|} else if (u->cache) {         r->file.fd = u->cache->ctx.file.fd;
 endif|#
 directive|endif
 block|}
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+operator|->
+name|action
+operator|=
+literal|"sending to client"
+expr_stmt|;
 if|if
 condition|(
 name|rc
@@ -4498,14 +4465,14 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_upstream_log_error (void * data,u_char * buf,size_t len)
+DECL|function|ngx_http_upstream_log_error (ngx_log_t * log,u_char * buf,size_t len)
 name|u_char
 modifier|*
 name|ngx_http_upstream_log_error
 parameter_list|(
-name|void
+name|ngx_log_t
 modifier|*
-name|data
+name|log
 parameter_list|,
 name|u_char
 modifier|*
@@ -4515,12 +4482,6 @@ name|size_t
 name|len
 parameter_list|)
 block|{
-name|ngx_http_log_ctx_t
-modifier|*
-name|ctx
-init|=
-name|data
-decl_stmt|;
 name|u_char
 modifier|*
 name|p
@@ -4530,6 +4491,10 @@ name|escape
 decl_stmt|;
 name|ngx_str_t
 name|uri
+decl_stmt|;
+name|ngx_http_log_ctx_t
+modifier|*
+name|ctx
 decl_stmt|;
 name|ngx_http_request_t
 modifier|*
@@ -4543,6 +4508,12 @@ name|ngx_peer_connection_t
 modifier|*
 name|peer
 decl_stmt|;
+name|ctx
+operator|=
+name|log
+operator|->
+name|data
+expr_stmt|;
 name|r
 operator|=
 name|ctx
@@ -4572,7 +4543,7 @@ name|len
 argument_list|,
 literal|" while %s, client: %V, URL: %V, upstream: %V%V%s%V"
 argument_list|,
-name|ctx
+name|log
 operator|->
 name|action
 argument_list|,

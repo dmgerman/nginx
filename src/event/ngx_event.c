@@ -850,7 +850,7 @@ return|return
 name|NGX_OK
 return|;
 block|}
-comment|/* TODO: 128 is cache line size */
+comment|/* TODO: adjust cache line size, 128 is P4 cache line size */
 name|size
 operator|=
 literal|128

@@ -259,9 +259,9 @@ name|u_char
 modifier|*
 name|ngx_http_log_error
 parameter_list|(
-name|void
+name|ngx_log_t
 modifier|*
-name|data
+name|log
 parameter_list|,
 name|u_char
 modifier|*
@@ -612,14 +612,6 @@ return|return;
 block|}
 name|ctx
 operator|->
-name|connection
-operator|=
-name|c
-operator|->
-name|number
-expr_stmt|;
-name|ctx
-operator|->
 name|client
 operator|=
 operator|&
@@ -629,15 +621,27 @@ name|addr_text
 expr_stmt|;
 name|ctx
 operator|->
-name|action
-operator|=
-literal|"reading client request line"
-expr_stmt|;
-name|ctx
-operator|->
 name|request
 operator|=
 name|NULL
+expr_stmt|;
+name|c
+operator|->
+name|log
+operator|->
+name|connection
+operator|=
+name|c
+operator|->
+name|number
+expr_stmt|;
+name|c
+operator|->
+name|log
+operator|->
+name|handler
+operator|=
+name|ngx_http_log_error
 expr_stmt|;
 name|c
 operator|->
@@ -651,9 +655,9 @@ name|c
 operator|->
 name|log
 operator|->
-name|handler
+name|action
 operator|=
-name|ngx_http_log_error
+literal|"reading client request line"
 expr_stmt|;
 name|c
 operator|->
@@ -2740,7 +2744,9 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|ctx
+name|c
+operator|->
+name|log
 operator|->
 name|action
 operator|=
@@ -4805,8 +4811,9 @@ operator|->
 name|headers_in
 operator|.
 name|content_length_n
-operator|<=
-literal|0
+operator|==
+operator|-
+literal|1
 condition|)
 block|{
 return|return
@@ -7101,10 +7108,6 @@ name|ngx_http_connection_t
 modifier|*
 name|hc
 decl_stmt|;
-name|ngx_http_log_ctx_t
-modifier|*
-name|ctx
-decl_stmt|;
 name|ngx_http_core_srv_conf_t
 modifier|*
 name|cscf
@@ -7138,15 +7141,9 @@ argument_list|,
 literal|"set http keepalive handler"
 argument_list|)
 expr_stmt|;
-name|ctx
-operator|=
 name|c
 operator|->
 name|log
-operator|->
-name|data
-expr_stmt|;
-name|ctx
 operator|->
 name|action
 operator|=
@@ -7414,7 +7411,9 @@ name|pipeline
 operator|=
 literal|1
 expr_stmt|;
-name|ctx
+name|c
+operator|->
+name|log
 operator|->
 name|action
 operator|=
@@ -7726,7 +7725,9 @@ return|return;
 block|}
 block|}
 block|}
-name|ctx
+name|c
+operator|->
+name|log
 operator|->
 name|action
 operator|=
@@ -7800,10 +7801,11 @@ name|clcf
 operator|->
 name|tcp_nodelay
 operator|&&
-operator|!
 name|c
 operator|->
 name|tcp_nodelay
+operator|==
+name|NGX_TCP_NODELAY_UNSET
 condition|)
 block|{
 name|ngx_log_debug0
@@ -7869,7 +7871,7 @@ name|c
 operator|->
 name|tcp_nodelay
 operator|=
-literal|1
+name|NGX_TCP_NODELAY_SET
 expr_stmt|;
 block|}
 if|#
@@ -7920,10 +7922,6 @@ name|ngx_connection_t
 modifier|*
 name|c
 decl_stmt|;
-name|ngx_http_log_ctx_t
-modifier|*
-name|ctx
-decl_stmt|;
 name|ngx_http_connection_t
 modifier|*
 name|hc
@@ -7961,18 +7959,6 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|ctx
-operator|=
-operator|(
-name|ngx_http_log_ctx_t
-operator|*
-operator|)
-name|rev
-operator|->
-name|log
-operator|->
-name|data
-expr_stmt|;
 if|#
 directive|if
 operator|(
@@ -7992,7 +7978,7 @@ operator|->
 name|pending_eof
 condition|)
 block|{
-name|rev
+name|c
 operator|->
 name|log
 operator|->
@@ -8015,9 +8001,10 @@ argument_list|,
 literal|"kevent() reported that client %V closed "
 literal|"keepalive connection"
 argument_list|,
-name|ctx
+operator|&
+name|c
 operator|->
-name|client
+name|addr_text
 argument_list|)
 expr_stmt|;
 if|#
@@ -8210,7 +8197,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|rev
+name|c
 operator|->
 name|log
 operator|->
@@ -8237,9 +8224,10 @@ name|ngx_socket_errno
 argument_list|,
 literal|"client %V closed keepalive connection"
 argument_list|,
-name|ctx
+operator|&
+name|c
 operator|->
-name|client
+name|addr_text
 argument_list|)
 expr_stmt|;
 name|ngx_http_close_connection
@@ -8255,7 +8243,7 @@ name|last
 operator|+=
 name|n
 expr_stmt|;
-name|rev
+name|c
 operator|->
 name|log
 operator|->
@@ -8263,7 +8251,9 @@ name|handler
 operator|=
 name|ngx_http_log_error
 expr_stmt|;
-name|ctx
+name|c
+operator|->
+name|log
 operator|->
 name|action
 operator|=
@@ -10013,15 +10003,15 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_log_error (void * data,u_char * buf,size_t len)
+DECL|function|ngx_http_log_error (ngx_log_t * log,u_char * buf,size_t len)
 specifier|static
 name|u_char
 modifier|*
 name|ngx_http_log_error
 parameter_list|(
-name|void
+name|ngx_log_t
 modifier|*
-name|data
+name|log
 parameter_list|,
 name|u_char
 modifier|*
@@ -10031,23 +10021,27 @@ name|size_t
 name|len
 parameter_list|)
 block|{
-name|ngx_http_log_ctx_t
-modifier|*
-name|ctx
-init|=
-name|data
-decl_stmt|;
 name|u_char
 modifier|*
 name|p
+decl_stmt|;
+name|ngx_http_log_ctx_t
+modifier|*
+name|ctx
 decl_stmt|;
 name|p
 operator|=
 name|buf
 expr_stmt|;
+name|ctx
+operator|=
+name|log
+operator|->
+name|data
+expr_stmt|;
 if|if
 condition|(
-name|ctx
+name|log
 operator|->
 name|action
 condition|)
@@ -10062,7 +10056,7 @@ name|len
 argument_list|,
 literal|" while %s"
 argument_list|,
-name|ctx
+name|log
 operator|->
 name|action
 argument_list|)

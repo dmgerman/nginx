@@ -327,6 +327,21 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_function_decl
+name|ngx_int_t
+name|ngx_event_pipe_add_free_buf
+parameter_list|(
+name|ngx_event_pipe_t
+modifier|*
+name|p
+parameter_list|,
+name|ngx_buf_t
+modifier|*
+name|b
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_endif
 endif|#
 directive|endif

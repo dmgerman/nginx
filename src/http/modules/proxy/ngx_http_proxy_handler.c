@@ -2850,14 +2850,14 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_proxy_log_error (void * data,u_char * buf,size_t len)
+DECL|function|ngx_http_proxy_log_error (ngx_log_t * log,u_char * buf,size_t len)
 name|u_char
 modifier|*
 name|ngx_http_proxy_log_error
 parameter_list|(
-name|void
+name|ngx_log_t
 modifier|*
-name|data
+name|log
 parameter_list|,
 name|u_char
 modifier|*
@@ -2867,12 +2867,6 @@ name|size_t
 name|len
 parameter_list|)
 block|{
-name|ngx_http_proxy_log_ctx_t
-modifier|*
-name|ctx
-init|=
-name|data
-decl_stmt|;
 name|u_char
 modifier|*
 name|p
@@ -2891,10 +2885,20 @@ name|ngx_peer_connection_t
 modifier|*
 name|peer
 decl_stmt|;
+name|ngx_http_proxy_log_ctx_t
+modifier|*
+name|ctx
+decl_stmt|;
 name|ngx_http_proxy_upstream_conf_t
 modifier|*
 name|uc
 decl_stmt|;
+name|ctx
+operator|=
+name|log
+operator|->
+name|data
+expr_stmt|;
 name|r
 operator|=
 name|ctx

@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ae6f89a0108
+DECL|struct|__anon28dd710b0108
 typedef|typedef
 struct|struct
 block|{
@@ -194,7 +194,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2ae6f89a0203
+DECL|enum|__anon28dd710b0203
 typedef|typedef
 enum|enum
 block|{
@@ -218,16 +218,31 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2ae6f89a0303
+DECL|enum|__anon28dd710b0303
 typedef|typedef
 enum|enum
 block|{
-DECL|enumerator|NGX_TCP_NOPUSH_DISABLED
-name|NGX_TCP_NOPUSH_DISABLED
+DECL|enumerator|NGX_TCP_NODELAY_UNSET
+name|NGX_TCP_NODELAY_UNSET
 init|=
-operator|-
-literal|1
+literal|0
 block|,
+DECL|enumerator|NGX_TCP_NODELAY_SET
+name|NGX_TCP_NODELAY_SET
+block|,
+DECL|enumerator|NGX_TCP_NODELAY_DISABLED
+name|NGX_TCP_NODELAY_DISABLED
+DECL|typedef|ngx_connection_tcp_nodelay_e
+block|}
+name|ngx_connection_tcp_nodelay_e
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|enum|__anon28dd710b0403
+typedef|typedef
+enum|enum
+block|{
 DECL|enumerator|NGX_TCP_NOPUSH_UNSET
 name|NGX_TCP_NOPUSH_UNSET
 init|=
@@ -235,6 +250,9 @@ literal|0
 block|,
 DECL|enumerator|NGX_TCP_NOPUSH_SET
 name|NGX_TCP_NOPUSH_SET
+block|,
+DECL|enumerator|NGX_TCP_NOPUSH_DISABLED
+name|NGX_TCP_NOPUSH_DISABLED
 DECL|typedef|ngx_connection_tcp_nopush_e
 block|}
 name|ngx_connection_tcp_nopush_e
@@ -401,14 +419,16 @@ DECL|member|tcp_nodelay
 name|unsigned
 name|tcp_nodelay
 range|:
-literal|1
+literal|2
 decl_stmt|;
+comment|/* ngx_connection_tcp_nodelay_e */
 DECL|member|tcp_nopush
-name|signed
+name|unsigned
 name|tcp_nopush
 range|:
 literal|2
 decl_stmt|;
+comment|/* ngx_connection_tcp_nopush_e */
 if|#
 directive|if
 operator|(

@@ -357,19 +357,7 @@ if|if
 condition|(
 name|log
 operator|->
-name|data
-operator|&&
-operator|*
-operator|(
-name|int
-operator|*
-operator|)
-name|log
-operator|->
-name|data
-operator|!=
-operator|-
-literal|1
+name|connection
 condition|)
 block|{
 name|p
@@ -378,19 +366,20 @@ name|ngx_sprintf
 argument_list|(
 name|p
 argument_list|,
-literal|"*%ud "
+literal|"*%ui "
 argument_list|,
-operator|*
-operator|(
-name|u_int
-operator|*
-operator|)
 name|log
 operator|->
-name|data
+name|connection
 argument_list|)
 expr_stmt|;
 block|}
+if|#
+directive|if
+literal|0
+block_content|if (log->data&& *(int *) log->data != -1) {         p = ngx_sprintf(p, "*%ud ", *(u_int *) log->data);     }
+endif|#
+directive|endif
 if|#
 directive|if
 operator|(
@@ -596,8 +585,6 @@ operator|->
 name|handler
 argument_list|(
 name|log
-operator|->
-name|data
 argument_list|,
 name|p
 argument_list|,

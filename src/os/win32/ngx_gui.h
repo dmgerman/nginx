@@ -28,29 +28,11 @@ directive|include
 file|<ngx_core.h>
 end_include
 
-begin_define
-DECL|macro|NGX_WM_TRAY
-define|#
-directive|define
-name|NGX_WM_TRAY
-value|WM_USER
-end_define
-
-begin_define
-DECL|macro|NGX_WM_EXIT
-define|#
-directive|define
-name|NGX_WM_EXIT
-value|WM_USER + 1
-end_define
-
-begin_define
-DECL|macro|NGX_WM_ABOUT
-define|#
-directive|define
-name|NGX_WM_ABOUT
-value|WM_USER + 2
-end_define
+begin_include
+include|#
+directive|include
+file|<ngx_gui_resources.h>
+end_include
 
 begin_function_decl
 name|void

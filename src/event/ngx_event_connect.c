@@ -27,16 +27,6 @@ directive|include
 file|<ngx_event_connect.h>
 end_include
 
-begin_include
-include|#
-directive|include
-file|<nginx.h>
-end_include
-
-begin_comment
-comment|/* AF_INET only */
-end_comment
-
 begin_function
 DECL|function|ngx_event_connect_peer (ngx_peer_connection_t * pc)
 name|ngx_int_t
@@ -957,6 +947,30 @@ name|pc
 operator|->
 name|log_error
 expr_stmt|;
+if|if
+condition|(
+name|peer
+operator|->
+name|sockaddr
+operator|->
+name|sa_family
+operator|!=
+name|AF_INET
+condition|)
+block|{
+name|c
+operator|->
+name|tcp_nopush
+operator|=
+name|NGX_TCP_NOPUSH_DISABLED
+expr_stmt|;
+name|c
+operator|->
+name|tcp_nodelay
+operator|=
+name|NGX_TCP_NODELAY_DISABLED
+expr_stmt|;
+block|}
 name|pc
 operator|->
 name|connection
@@ -1175,6 +1189,12 @@ literal|0
 argument_list|,
 literal|"connected"
 argument_list|)
+expr_stmt|;
+name|wev
+operator|->
+name|ready
+operator|=
+literal|1
 expr_stmt|;
 return|return
 name|NGX_OK

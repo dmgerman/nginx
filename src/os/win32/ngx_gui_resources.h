@@ -6,38 +6,44 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|_NGINX_H_INCLUDED_
+name|_NGX_GUI_RESOURCES_H_INCLUDED_
 end_ifndef
 
 begin_define
-DECL|macro|_NGINX_H_INCLUDED_
+DECL|macro|_NGX_GUI_RESOURCES_H_INCLUDED_
 define|#
 directive|define
-name|_NGINX_H_INCLUDED_
+name|_NGX_GUI_RESOURCES_H_INCLUDED_
+end_define
+
+begin_include
+include|#
+directive|include
+file|<winuser.h>
+end_include
+
+begin_define
+DECL|macro|NGX_WM_TRAY
+define|#
+directive|define
+name|NGX_WM_TRAY
+value|WM_USER
 end_define
 
 begin_define
-DECL|macro|NGINX_VER
+DECL|macro|NGX_WM_EXIT
 define|#
 directive|define
-name|NGINX_VER
-value|"nginx/0.1.16"
+name|NGX_WM_EXIT
+value|WM_USER + 1
 end_define
 
 begin_define
-DECL|macro|NGINX_VAR
+DECL|macro|NGX_WM_ABOUT
 define|#
 directive|define
-name|NGINX_VAR
-value|"NGINX"
-end_define
-
-begin_define
-DECL|macro|NGX_NEWPID_EXT
-define|#
-directive|define
-name|NGX_NEWPID_EXT
-value|".newbin"
+name|NGX_WM_ABOUT
+value|WM_USER + 2
 end_define
 
 begin_endif
@@ -46,7 +52,7 @@ directive|endif
 end_endif
 
 begin_comment
-comment|/* _NGINX_H_INCLUDED_ */
+comment|/* _NGX_GUI_RESOURCES_H_INCLUDED_ */
 end_comment
 
 end_unit

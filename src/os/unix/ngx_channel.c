@@ -63,7 +63,7 @@ directive|if
 operator|(
 name|NGX_HAVE_MSGHDR_MSG_CONTROL
 operator|)
-DECL|union|__anon29afa4d3010a
+DECL|union|__anon2b91ddfe010a
 union|union
 block|{
 DECL|member|cm
@@ -176,6 +176,12 @@ operator|->
 name|fd
 expr_stmt|;
 block|}
+name|msg
+operator|.
+name|msg_flags
+operator|=
+literal|0
+expr_stmt|;
 else|#
 directive|else
 if|if
@@ -272,12 +278,6 @@ operator|.
 name|msg_iovlen
 operator|=
 literal|1
-expr_stmt|;
-name|msg
-operator|.
-name|msg_flags
-operator|=
-literal|0
 expr_stmt|;
 name|n
 operator|=
@@ -377,7 +377,7 @@ directive|if
 operator|(
 name|NGX_HAVE_MSGHDR_MSG_CONTROL
 operator|)
-DECL|union|__anon29afa4d3020a
+DECL|union|__anon2b91ddfe020a
 union|union
 block|{
 DECL|member|cm

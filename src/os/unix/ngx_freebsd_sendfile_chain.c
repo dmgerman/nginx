@@ -1101,10 +1101,11 @@ name|NGX_CHAIN_ERROR
 return|;
 block|}
 block|}
+comment|/*              * sendfile() in FreeBSD 3.x-4.x may return value>= 0              * on success, although only 0 is documented              */
 if|if
 condition|(
 name|rc
-operator|==
+operator|>=
 literal|0
 operator|&&
 name|sent
@@ -1112,7 +1113,7 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|/*                  * rc and sent equal to zero when someone has truncated                  * the file, so the offset became beyond the end of the file                  */
+comment|/*                  * if rc is OK and sent equal to zero, then someone                  * has truncated the file, so the offset became beyond                  * the end of the file                  */
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
