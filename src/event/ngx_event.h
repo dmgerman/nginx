@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon27b648280108
+DECL|struct|__anon29cde3630108
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +70,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|enum|__anon27b648280203
+DECL|enum|__anon29cde3630203
 typedef|typedef
 enum|enum
 block|{
@@ -396,7 +396,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27b648280308
+DECL|struct|__anon29cde3630308
 typedef|typedef
 struct|struct
 block|{
@@ -582,7 +582,7 @@ value|0x00000004
 end_define
 
 begin_comment
-comment|/*  * The event filter has kqueue features - the eof flag, errno,  * available data, etc  */
+comment|/*  * The event filter has kqueue features - the eof flag, errno,  * available data, etc.  */
 end_comment
 
 begin_define
@@ -1086,7 +1086,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon27b648280408
+DECL|struct|__anon29cde3630408
 typedef|typedef
 struct|struct
 block|{
@@ -1114,7 +1114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b648280508
+DECL|struct|__anon29cde3630508
 typedef|typedef
 struct|struct
 block|{

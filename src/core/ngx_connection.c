@@ -290,12 +290,18 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+comment|/* STUB: autoconf& set sin_len in ls[i].sockaddr in ngx_http.c */
+if|#
+directive|if
+name|__FreeBSD__
 name|addr_in
 operator|->
 name|sin_len
 operator|=
 literal|0
 expr_stmt|;
+endif|#
+directive|endif
 name|ls
 index|[
 name|i

@@ -221,13 +221,25 @@ end_include
 begin_include
 include|#
 directive|include
-file|<dirent.h>
+file|<pwd.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<grp.h>
 end_include
 
 begin_include
 include|#
 directive|include
 file|<netdb.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<dirent.h>
 end_include
 
 begin_ifndef
@@ -367,6 +379,16 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_define
+DECL|macro|ngx_setproctitle (title)
+define|#
+directive|define
+name|ngx_setproctitle
+parameter_list|(
+name|title
+parameter_list|)
+end_define
 
 begin_endif
 endif|#

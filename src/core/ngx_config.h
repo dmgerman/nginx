@@ -206,18 +206,6 @@ name|PTR_FMT
 value|"%08X"
 end_define
 
-begin_comment
-comment|/* STUB: autoconf */
-end_comment
-
-begin_define
-DECL|macro|ngx_setproctitle
-define|#
-directive|define
-name|ngx_setproctitle
-value|setproctitle
-end_define
-
 begin_include
 include|#
 directive|include

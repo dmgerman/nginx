@@ -137,19 +137,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<dirent.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<arpa/inet.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<netdb.h>
 end_include
 
 begin_include
@@ -162,6 +150,18 @@ begin_include
 include|#
 directive|include
 file|<grp.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<netdb.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<dirent.h>
 end_include
 
 begin_include
@@ -373,6 +373,18 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_comment
+comment|/* STUB: autoconf */
+end_comment
+
+begin_define
+DECL|macro|ngx_setproctitle
+define|#
+directive|define
+name|ngx_setproctitle
+value|setproctitle
+end_define
 
 begin_comment
 comment|/* STUB */

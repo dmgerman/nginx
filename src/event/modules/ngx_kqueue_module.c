@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28922fb50108
+DECL|struct|__anon27f8ce750108
 typedef|typedef
 struct|struct
 block|{
@@ -2110,91 +2110,22 @@ return|;
 block|}
 end_function
 
-begin_function
-DECL|function|ngx_kqueue_thread_handler (ngx_event_t * ev,ngx_log_t * log)
-specifier|static
-name|void
-name|ngx_kqueue_thread_handler
-parameter_list|(
-name|ngx_event_t
-modifier|*
-name|ev
-parameter_list|,
-name|ngx_log_t
-modifier|*
-name|log
-parameter_list|)
-block|{
-name|ngx_int_t
-name|instance
-decl_stmt|;
-name|instance
-operator|=
-operator|(
-name|uintptr_t
-operator|)
-name|ev
-operator|&
-literal|1
-expr_stmt|;
-name|ev
-operator|=
-operator|(
-name|ngx_event_t
-operator|*
-operator|)
-operator|(
-operator|(
-name|uintptr_t
-operator|)
-name|ev
-operator|&
-operator|(
-name|uintptr_t
-operator|)
-operator|~
-literal|1
-operator|)
-expr_stmt|;
-if|if
-condition|(
-name|ev
-operator|->
-name|active
-operator|&&
-name|ev
-operator|->
-name|instance
-operator|==
-name|instance
-condition|)
-block|{
-name|ev
-operator|->
-name|event_handler
-argument_list|(
-name|ev
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
-comment|/*      * it's a stale event from a file descriptor      * that was just closed in this iteration      */
-name|ngx_log_debug1
-argument_list|(
-name|NGX_LOG_DEBUG_EVENT
-argument_list|,
-name|log
-argument_list|,
+begin_if
+if|#
+directive|if
 literal|0
-argument_list|,
-literal|"kevent: stale event "
-name|PTR_FMT
-argument_list|,
-name|ev
-argument_list|)
-expr_stmt|;
-block|}
-end_function
+end_if
+
+begin_comment
+unit|static void ngx_kqueue_thread_handler(ngx_event_t *ev, ngx_log_t *log) {     ngx_int_t  instance;      instance = (uintptr_t) ev& 1;     ev = (ngx_event_t *) ((uintptr_t) ev& (uintptr_t) ~1);      if (ev->active&& ev->instance == instance) {         ev->event_handler(ev);         return;     }
+comment|/*      * it's a stale event from a file descriptor      * that was just closed in this iteration      */
+end_comment
+
+begin_endif
+unit|ngx_log_debug1(NGX_LOG_DEBUG_EVENT, log, 0,                    "kevent: stale event " PTR_FMT, ev);  }
+endif|#
+directive|endif
+end_endif
 
 begin_function
 DECL|function|ngx_kqueue_create_conf (ngx_cycle_t * cycle)
