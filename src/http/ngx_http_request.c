@@ -7003,7 +7003,7 @@ operator|->
 name|buffer
 condition|)
 block|{
-comment|/*              * If the large header buffers were allocated while the previous              * request processing then we do not use c->buffer for              * the pipelined request (see ngx_http_init_request()).              *               * Now we would move the large header buffers to the free list.              */
+comment|/* move the large header buffers to the free list */
 name|cscf
 operator|=
 name|ngx_http_get_module_srv_conf
@@ -7244,7 +7244,6 @@ name|pipeline
 operator|=
 literal|0
 expr_stmt|;
-comment|/*      * To keep a memory footprint as small as possible for an idle      * keepalive connection we try to free the ngx_http_request_t and      * c->buffer's memory if they were allocated outside the c->pool.      * The large header buffers are always allocated outside the c->pool and      * are freed too.      */
 if|if
 condition|(
 name|ngx_pfree
@@ -7288,7 +7287,6 @@ operator|==
 name|NGX_OK
 condition|)
 block|{
-comment|/*          * the special note for ngx_http_keepalive_handler() that          * c->buffer's memory was freed          */
 name|b
 operator|->
 name|pos
@@ -7595,7 +7593,7 @@ block|}
 if|#
 directive|if
 literal|0
-comment|/* if ngx_http_request_t was freed then we need some other place */
+comment|/* if "keepalive_buffers off" then we need some other place */
 block_content|r->http_state = NGX_HTTP_KEEPALIVE_STATE;
 endif|#
 directive|endif
@@ -7773,7 +7771,6 @@ operator|==
 name|NULL
 condition|)
 block|{
-comment|/*          * The c->buffer's memory was freed by ngx_http_set_keepalive().          * However, the c->buffer->start and c->buffer->end were not changed          * to keep the buffer size.          */
 if|if
 condition|(
 operator|!
