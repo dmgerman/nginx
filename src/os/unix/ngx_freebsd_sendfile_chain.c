@@ -819,7 +819,9 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"sendfile() sent only %qd bytes"
+literal|"sendfile() sent only "
+name|OFF_T_FMT
+literal|" bytes"
 argument_list|,
 name|sent
 argument_list|)

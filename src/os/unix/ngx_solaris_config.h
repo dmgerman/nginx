@@ -145,6 +145,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<sys/sendfile.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<sys/systeminfo.h>
 end_include
 

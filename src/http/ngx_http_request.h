@@ -353,7 +353,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon28906c610108
+DECL|struct|__anon2910a3790108
 typedef|typedef
 struct|struct
 block|{
@@ -372,7 +372,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28906c610208
+DECL|struct|__anon2910a3790208
 typedef|typedef
 struct|struct
 block|{
@@ -455,7 +455,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28906c610308
+DECL|struct|__anon2910a3790308
 typedef|typedef
 struct|struct
 block|{
@@ -506,7 +506,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28906c610408
+DECL|struct|__anon2910a3790408
 typedef|typedef
 struct|struct
 block|{
@@ -529,7 +529,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28906c610508
+DECL|struct|__anon2910a3790508
 typedef|typedef
 struct|struct
 block|{
@@ -624,15 +624,6 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|typedef|ngx_http_request_t
-typedef|typedef
-name|struct
-name|ngx_http_request_s
-name|ngx_http_request_t
-typedef|;
-end_typedef
-
-begin_typedef
 DECL|typedef|ngx_http_handler_pt
 typedef|typedef
 name|int
@@ -681,6 +672,11 @@ name|void
 modifier|*
 modifier|*
 name|loc_conf
+decl_stmt|;
+DECL|member|cache
+name|ngx_http_cache_t
+modifier|*
+name|cache
 decl_stmt|;
 DECL|member|file
 name|ngx_file_t

@@ -30,6 +30,21 @@ directive|include
 file|<ngx_garbage_collector.h>
 end_include
 
+begin_typedef
+DECL|typedef|ngx_http_request_t
+typedef|typedef
+name|struct
+name|ngx_http_request_s
+name|ngx_http_request_t
+typedef|;
+end_typedef
+
+begin_include
+include|#
+directive|include
+file|<ngx_http_cache.h>
+end_include
+
 begin_include
 include|#
 directive|include
@@ -40,12 +55,6 @@ begin_include
 include|#
 directive|include
 file|<ngx_http_config.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_http_cache.h>
 end_include
 
 begin_include
@@ -73,7 +82,7 @@ file|<ngx_http_core_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27fcbc350108
+DECL|struct|__anon2a442ca30108
 typedef|typedef
 struct|struct
 block|{
