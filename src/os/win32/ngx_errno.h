@@ -41,6 +41,17 @@ value|GetLastError()
 end_define
 
 begin_define
+DECL|macro|ngx_set_errno (err)
+define|#
+directive|define
+name|ngx_set_errno
+parameter_list|(
+name|err
+parameter_list|)
+value|SetLastError(err)
+end_define
+
+begin_define
 DECL|macro|ngx_socket_errno
 define|#
 directive|define
@@ -129,6 +140,30 @@ define|#
 directive|define
 name|NGX_ETIMEDOUT
 value|WSAETIMEDOUT
+end_define
+
+begin_define
+DECL|macro|NGX_ENOMOREFILES
+define|#
+directive|define
+name|NGX_ENOMOREFILES
+value|ERROR_NO_MORE_FILES
+end_define
+
+begin_define
+DECL|macro|NGX_EALREADY
+define|#
+directive|define
+name|NGX_EALREADY
+value|WSAEALREADY
+end_define
+
+begin_define
+DECL|macro|NGX_EINVAL
+define|#
+directive|define
+name|NGX_EINVAL
+value|WSAEINVAL
 end_define
 
 begin_function_decl

@@ -2184,12 +2184,20 @@ operator|=
 operator|-
 literal|1
 expr_stmt|;
-name|ls
-operator|->
-name|nonblocking
-operator|=
-literal|1
-expr_stmt|;
+if|#
+directive|if
+literal|0
+if|#
+directive|if
+literal|0
+block_content|ls->nonblocking = 1;
+else|#
+directive|else
+block_content|ls->nonblocking = 0;
+endif|#
+directive|endif
+endif|#
+directive|endif
 name|ls
 operator|->
 name|handler

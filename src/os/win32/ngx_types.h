@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f6dbac0108
+DECL|struct|__anon279312b30108
 typedef|typedef
 struct|struct
 block|{
@@ -57,21 +57,21 @@ DECL|member|dir
 name|HANDLE
 name|dir
 decl_stmt|;
-DECL|member|de
+DECL|member|fd
 name|WIN32_FIND_DATA
-name|de
+name|fd
+decl_stmt|;
+DECL|member|info_valid
+name|unsigned
+name|info_valid
+decl_stmt|;
+DECL|member|ready
+name|unsigned
+name|ready
 decl_stmt|;
 DECL|typedef|ngx_dir_t
 block|}
 name|ngx_dir_t
-typedef|;
-end_typedef
-
-begin_typedef
-DECL|typedef|ngx_dirent_t
-typedef|typedef
-name|WIN32_FIND_DATA
-name|ngx_dirent_t
 typedef|;
 end_typedef
 

@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27a2cbb30108
+DECL|struct|__anon277dbbcc0108
 typedef|typedef
 struct|struct
 block|{
@@ -1874,7 +1874,7 @@ argument|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"unknown kevent filter %d"
+literal|"unexpected kevent filter %d"
 argument|_ event_list[i].filter
 argument_list|)
 empty_stmt|;

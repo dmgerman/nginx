@@ -109,7 +109,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29fec0940108
+DECL|struct|__anon2c6ac18f0108
 typedef|typedef
 struct|struct
 block|{
@@ -237,6 +237,21 @@ name|buf
 parameter_list|,
 name|size_t
 name|size
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ssize_t
+name|ngx_wsarecv_chain
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|,
+name|ngx_chain_t
+modifier|*
+name|chain
 parameter_list|)
 function_decl|;
 end_function_decl

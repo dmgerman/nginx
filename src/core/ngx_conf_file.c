@@ -209,7 +209,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|ngx_stat_fd
+name|ngx_fd_info
 argument_list|(
 name|fd
 argument_list|,
@@ -237,7 +237,7 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-name|ngx_stat_fd_n
+name|ngx_fd_info_n
 literal|" %s failed"
 argument_list|,
 name|filename
@@ -1280,7 +1280,6 @@ name|offset
 operator|>=
 name|ngx_file_size
 argument_list|(
-operator|(
 operator|&
 name|cf
 operator|->
@@ -1289,7 +1288,6 @@ operator|->
 name|file
 operator|.
 name|info
-operator|)
 argument_list|)
 condition|)
 block|{

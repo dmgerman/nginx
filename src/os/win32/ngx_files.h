@@ -87,6 +87,14 @@ value|0
 end_define
 
 begin_define
+DECL|macro|STDERR_FILENO
+define|#
+directive|define
+name|STDERR_FILENO
+value|(HANDLE) 2
+end_define
+
+begin_define
 DECL|macro|ngx_open_file (name,access,create)
 define|#
 directive|define
@@ -210,9 +218,41 @@ name|ngx_close_file_n
 value|"CloseHandle()"
 end_define
 
+begin_define
+DECL|macro|ngx_delete_file
+define|#
+directive|define
+name|ngx_delete_file
+value|DeleteFile
+end_define
+
+begin_define
+DECL|macro|ngx_delete_file_n
+define|#
+directive|define
+name|ngx_delete_file_n
+value|"DeleteFile()"
+end_define
+
+begin_define
+DECL|macro|ngx_rename_file
+define|#
+directive|define
+name|ngx_rename_file
+value|MoveFile
+end_define
+
+begin_define
+DECL|macro|ngx_rename_file_n
+define|#
+directive|define
+name|ngx_rename_file_n
+value|"MoveFile()"
+end_define
+
 begin_function_decl
 name|int
-name|ngx_rename_file
+name|ngx_win32_rename_file
 parameter_list|(
 name|ngx_str_t
 modifier|*
@@ -229,36 +269,9 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
-begin_define
-DECL|macro|ngx_rename_file_n
-define|#
-directive|define
-name|ngx_rename_file_n
-value|"MoveFile()"
-end_define
-
-begin_define
-DECL|macro|ngx_mkdir (name)
-define|#
-directive|define
-name|ngx_mkdir
-parameter_list|(
-name|name
-parameter_list|)
-value|CreateDirectory(name, NULL)
-end_define
-
-begin_define
-DECL|macro|ngx_mkdir_n
-define|#
-directive|define
-name|ngx_mkdir_n
-value|"CreateDirectory()"
-end_define
-
 begin_function_decl
 name|int
-name|ngx_file_type
+name|ngx_file_info
 parameter_list|(
 name|char
 modifier|*
@@ -272,18 +285,18 @@ function_decl|;
 end_function_decl
 
 begin_define
-DECL|macro|ngx_file_type_n
+DECL|macro|ngx_file_info_n
 define|#
 directive|define
-name|ngx_file_type_n
+name|ngx_file_info_n
 value|"GetFileAttributesEx()"
 end_define
 
 begin_define
-DECL|macro|ngx_stat_fd (fd,fi)
+DECL|macro|ngx_fd_info (fd,fi)
 define|#
 directive|define
-name|ngx_stat_fd
+name|ngx_fd_info
 parameter_list|(
 name|fd
 parameter_list|,
@@ -293,10 +306,10 @@ value|GetFileInformationByHandle(fd, fi)
 end_define
 
 begin_define
-DECL|macro|ngx_stat_fd_n
+DECL|macro|ngx_fd_info_n
 define|#
 directive|define
-name|ngx_stat_fd_n
+name|ngx_fd_info_n
 value|"GetFileInformationByHandle"
 end_define
 
@@ -308,7 +321,7 @@ name|ngx_is_dir
 parameter_list|(
 name|fi
 parameter_list|)
-value|(fi.dwFileAttributes& FILE_ATTRIBUTE_DIRECTORY)
+value|((fi)->dwFileAttributes& FILE_ATTRIBUTE_DIRECTORY)
 end_define
 
 begin_define
@@ -319,7 +332,7 @@ name|ngx_is_file
 parameter_list|(
 name|fi
 parameter_list|)
-value|!(fi.dwFileAttributes& FILE_ATTRIBUTE_DIRECTORY)
+value|!((fi)->dwFileAttributes& FILE_ATTRIBUTE_DIRECTORY)
 end_define
 
 begin_define
@@ -331,7 +344,7 @@ parameter_list|(
 name|fi
 parameter_list|)
 define|\
-value|(((off_t) fi.nFileSizeHigh<< 32) | fi.nFileSizeLow)
+value|(((off_t) (fi)->nFileSizeHigh<< 32) | (fi)->nFileSizeLow)
 end_define
 
 begin_define
@@ -342,7 +355,7 @@ name|ngx_file_uniq
 parameter_list|(
 name|fi
 parameter_list|)
-value|(*(ngx_file_uniq_t *)&fi.nFileIndexHigh)
+value|(*(ngx_file_uniq_t *)&(fi)->nFileIndexHigh)
 end_define
 
 begin_comment
@@ -358,7 +371,214 @@ parameter_list|(
 name|fi
 parameter_list|)
 define|\
-value|(time_t) (((((unsigned __int64) fi.ftLastWriteTime.dwHighDateTime<< 32) \                                  | fi.ftLastWriteTime.dwLowDateTime)        \                                           - 116444736000000000) / 10000000)
+value|(time_t) (((((unsigned __int64) (fi)->ftLastWriteTime.dwHighDateTime<< 32) \                                | (fi)->ftLastWriteTime.dwLowDateTime)        \                                           - 116444736000000000) / 10000000)
+end_define
+
+begin_define
+DECL|macro|NGX_DIR_MASK
+define|#
+directive|define
+name|NGX_DIR_MASK
+value|"/*"
+end_define
+
+begin_define
+DECL|macro|NGX_DIR_MASK_LEN
+define|#
+directive|define
+name|NGX_DIR_MASK_LEN
+value|2
+end_define
+
+begin_function_decl
+name|int
+name|ngx_open_dir
+parameter_list|(
+name|ngx_str_t
+modifier|*
+name|name
+parameter_list|,
+name|ngx_dir_t
+modifier|*
+name|dir
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_define
+DECL|macro|ngx_open_dir_n
+define|#
+directive|define
+name|ngx_open_dir_n
+value|"FindFirstFile()"
+end_define
+
+begin_function_decl
+name|int
+name|ngx_read_dir
+parameter_list|(
+name|ngx_dir_t
+modifier|*
+name|dir
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_define
+DECL|macro|ngx_read_dir_n
+define|#
+directive|define
+name|ngx_read_dir_n
+value|"FindNextFile()"
+end_define
+
+begin_define
+DECL|macro|ngx_close_dir (d)
+define|#
+directive|define
+name|ngx_close_dir
+parameter_list|(
+name|d
+parameter_list|)
+value|FindClose((d)->dir)
+end_define
+
+begin_define
+DECL|macro|ngx_close_dir_n
+define|#
+directive|define
+name|ngx_close_dir_n
+value|"FindClose()"
+end_define
+
+begin_define
+DECL|macro|ngx_create_dir (name)
+define|#
+directive|define
+name|ngx_create_dir
+parameter_list|(
+name|name
+parameter_list|)
+value|CreateDirectory(name, NULL)
+end_define
+
+begin_define
+DECL|macro|ngx_create_dir_n
+define|#
+directive|define
+name|ngx_create_dir_n
+value|"CreateDirectory()"
+end_define
+
+begin_define
+DECL|macro|ngx_delete_dir
+define|#
+directive|define
+name|ngx_delete_dir
+value|RemoveDirectory
+end_define
+
+begin_define
+DECL|macro|ngx_delete_dir_n
+define|#
+directive|define
+name|ngx_delete_dir_n
+value|"RemoveDirectory()"
+end_define
+
+begin_define
+DECL|macro|ngx_de_name (dir)
+define|#
+directive|define
+name|ngx_de_name
+parameter_list|(
+name|dir
+parameter_list|)
+value|(dir)->fd.cFileName
+end_define
+
+begin_define
+DECL|macro|ngx_de_namelen (dir)
+define|#
+directive|define
+name|ngx_de_namelen
+parameter_list|(
+name|dir
+parameter_list|)
+value|ngx_strlen((dir)->fd.cFileName)
+end_define
+
+begin_define
+DECL|macro|ngx_de_info (name,dir)
+define|#
+directive|define
+name|ngx_de_info
+parameter_list|(
+name|name
+parameter_list|,
+name|dir
+parameter_list|)
+value|NGX_OK
+end_define
+
+begin_define
+DECL|macro|ngx_de_info_n
+define|#
+directive|define
+name|ngx_de_info_n
+value|"dummy()"
+end_define
+
+begin_define
+DECL|macro|ngx_de_is_dir (dir)
+define|#
+directive|define
+name|ngx_de_is_dir
+parameter_list|(
+name|dir
+parameter_list|)
+define|\
+value|((dir)->fd.dwFileAttributes& FILE_ATTRIBUTE_DIRECTORY)
+end_define
+
+begin_define
+DECL|macro|ngx_de_is_file (dir)
+define|#
+directive|define
+name|ngx_de_is_file
+parameter_list|(
+name|dir
+parameter_list|)
+define|\
+value|!((dir)->fd.dwFileAttributes& FILE_ATTRIBUTE_DIRECTORY)
+end_define
+
+begin_define
+DECL|macro|ngx_de_size (dir)
+define|#
+directive|define
+name|ngx_de_size
+parameter_list|(
+name|dir
+parameter_list|)
+define|\
+value|(((off_t) (dir)->fd.nFileSizeHigh<< 32) | (dir)->fd.nFileSizeLow)
+end_define
+
+begin_comment
+comment|/* 116444736000000000 is commented in src/os/win32/ngx_time.c */
+end_comment
+
+begin_define
+DECL|macro|ngx_de_mtime (dir)
+define|#
+directive|define
+name|ngx_de_mtime
+parameter_list|(
+name|dir
+parameter_list|)
+define|\
+value|(time_t) (((((unsigned __int64)                                  \                            (dir)->fd.ftLastWriteTime.dwHighDateTime<< 32)    \                             | (dir)->fd.ftLastWriteTime.dwLowDateTime)        \                                           - 116444736000000000) / 10000000)
 end_define
 
 begin_function_decl
@@ -432,14 +652,6 @@ name|pool
 parameter_list|)
 function_decl|;
 end_function_decl
-
-begin_define
-DECL|macro|STDERR_FILENO
-define|#
-directive|define
-name|STDERR_FILENO
-value|(HANDLE) 2
-end_define
 
 begin_endif
 endif|#

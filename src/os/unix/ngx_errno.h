@@ -121,6 +121,14 @@ value|ECANCELED
 end_define
 
 begin_define
+DECL|macro|NGX_ENOMOREFILES
+define|#
+directive|define
+name|NGX_ENOMOREFILES
+value|0
+end_define
+
+begin_define
 DECL|macro|ngx_errno
 define|#
 directive|define
@@ -134,6 +142,17 @@ define|#
 directive|define
 name|ngx_socket_errno
 value|errno
+end_define
+
+begin_define
+DECL|macro|ngx_set_errno (err)
+define|#
+directive|define
+name|ngx_set_errno
+parameter_list|(
+name|err
+parameter_list|)
+value|errno = err
 end_define
 
 begin_define

@@ -42,7 +42,7 @@ init|=
 block|{
 name|ngx_wsarecv
 block|,
-name|NULL
+name|ngx_wsarecv_chain
 block|,
 name|NULL
 block|,

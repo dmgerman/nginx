@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|enum|__anon27ca8d930103
+DECL|enum|__anon287137ae0103
 typedef|typedef
 enum|enum
 block|{
@@ -91,7 +91,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ca8d930208
+DECL|struct|__anon287137ae0208
 typedef|typedef
 struct|struct
 block|{
@@ -391,12 +391,6 @@ end_else
 begin_comment
 comment|/* NO VARIADIC MACROS */
 end_comment
-
-begin_include
-include|#
-directive|include
-file|<stdarg.h>
-end_include
 
 begin_if
 if|#

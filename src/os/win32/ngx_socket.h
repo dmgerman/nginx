@@ -62,9 +62,36 @@ name|proto
 parameter_list|,
 name|flags
 parameter_list|)
+value|socket(af, type, proto)
+end_define
+
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
+begin_define
+define|#
+directive|define
+name|ngx_socket
+parameter_list|(
+name|af
+parameter_list|,
+name|type
+parameter_list|,
+name|proto
+parameter_list|,
+name|flags
+parameter_list|)
 define|\
 value|WSASocket(af, type, proto, NULL, 0, flags)
 end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_define
 DECL|macro|ngx_socket_n
@@ -164,11 +191,13 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_tcp_push (s)
+DECL|function|ngx_tcp_push (ngx_socket_t s)
+specifier|static
 name|ngx_inline
 name|int
 name|ngx_tcp_push
 parameter_list|(
+name|ngx_socket_t
 name|s
 parameter_list|)
 block|{

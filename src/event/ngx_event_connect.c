@@ -771,6 +771,14 @@ name|AF_INET
 expr_stmt|;
 name|addr
 operator|.
+name|sin_port
+operator|=
+name|peer
+operator|->
+name|port
+expr_stmt|;
+name|addr
+operator|.
 name|sin_addr
 operator|.
 name|s_addr
@@ -778,14 +786,6 @@ operator|=
 name|peer
 operator|->
 name|addr
-expr_stmt|;
-name|addr
-operator|.
-name|sin_port
-operator|=
-name|peer
-operator|->
-name|port
 expr_stmt|;
 name|ngx_log_debug
 argument_list|(
@@ -828,11 +828,16 @@ name|err
 operator|=
 name|ngx_socket_errno
 expr_stmt|;
+comment|/* Winsock returns WSAEWOULDBLOCK */
 if|if
 condition|(
 name|err
 operator|!=
 name|NGX_EINPROGRESS
+operator|&&
+name|err
+operator|!=
+name|NGX_EAGAIN
 condition|)
 block|{
 name|ngx_log_error
@@ -949,7 +954,7 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-comment|/*          * aio allows to post operation on non-connected socket          * at least in FreeBSD          *           * TODO: check in Win32, etc. As workaround we can use NGX_ONESHOT_EVENT          */
+comment|/*          * aio allows to post operation on non-connected socket          * at least in FreeBSD.          * NT does not support it.          *           * TODO: check in Win32, etc. As workaround we can use NGX_ONESHOT_EVENT          */
 name|rev
 operator|->
 name|ready

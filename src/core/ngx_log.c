@@ -239,7 +239,7 @@ directive|if
 operator|(
 name|WIN32
 operator|)
-name|u_int
+name|u_long
 name|written
 decl_stmt|;
 endif|#

@@ -109,7 +109,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2a05cc3c0108
+DECL|struct|__anon2bb20b440108
 typedef|typedef
 struct|struct
 block|{
@@ -374,11 +374,12 @@ return|return
 literal|1
 return|;
 block|}
-name|stub_init
-argument_list|(
-name|log
-argument_list|)
-expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|stub_init(log);
+endif|#
+directive|endif
 name|ngx_max_module
 operator|=
 literal|0
@@ -910,9 +911,6 @@ expr_stmt|;
 break|break;
 block|}
 block|}
-return|return
-literal|0
-return|;
 block|}
 end_function
 
@@ -2432,6 +2430,9 @@ name|dumb
 operator|.
 name|fd
 operator|=
+operator|(
+name|ngx_socket_t
+operator|)
 operator|-
 literal|1
 expr_stmt|;
@@ -2537,6 +2538,17 @@ name|reuseaddr
 operator|=
 literal|1
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_SUPPRESS_WARN
+operator|)
+name|failed
+operator|=
+literal|0
+expr_stmt|;
+endif|#
+directive|endif
 comment|/* TODO: times configurable */
 for|for
 control|(
@@ -2767,12 +2779,12 @@ block|}
 comment|/* TODO: close on exit */
 if|if
 condition|(
-name|ls
-index|[
-name|i
-index|]
-operator|.
-name|nonblocking
+operator|!
+operator|(
+name|ngx_event_flags
+operator|&
+name|NGX_USE_AIO_EVENT
+operator|)
 condition|)
 block|{
 if|if
@@ -2812,6 +2824,12 @@ name|NGX_ERROR
 return|;
 block|}
 block|}
+if|#
+directive|if
+literal|0
+block_content|if (ls[i].nonblocking) {                 if (ngx_nonblocking(s) == -1) {                     ngx_log_error(NGX_LOG_EMERG, log, ngx_socket_errno,                                   ngx_nonblocking_n " %s failed",                                   ls[i].addr_text.data);                     return NGX_ERROR;                 }             }
+endif|#
+directive|endif
 if|if
 condition|(
 name|bind

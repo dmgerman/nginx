@@ -370,7 +370,7 @@ name|NGX_ENOENT
 if|#
 directive|if
 operator|(
-name|WIN32_NEED_TEST
+name|WIN32
 operator|)
 operator|&&
 name|err
@@ -674,7 +674,7 @@ argument_list|)
 empty_stmt|;
 if|if
 condition|(
-name|ngx_mkdir
+name|ngx_create_dir
 argument_list|(
 name|file
 operator|->
@@ -707,7 +707,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-name|ngx_mkdir_n
+name|ngx_create_dir_n
 literal|" \"%s\" failed"
 argument_list|,
 name|file

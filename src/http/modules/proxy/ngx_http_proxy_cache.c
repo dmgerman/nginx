@@ -1523,7 +1523,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|ngx_stat_fd
+name|ngx_fd_info
 argument_list|(
 name|p
 operator|->
@@ -1564,7 +1564,7 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-name|ngx_stat_fd_n
+name|ngx_fd_info_n
 literal|" \"%s\" failed"
 argument_list|,
 name|p
@@ -1762,7 +1762,6 @@ name|ctx
 argument_list|,
 name|ngx_file_uniq
 argument_list|(
-operator|(
 operator|&
 name|p
 operator|->
@@ -1773,7 +1772,6 @@ operator|.
 name|file
 operator|.
 name|info
-operator|)
 argument_list|)
 argument_list|)
 expr_stmt|;

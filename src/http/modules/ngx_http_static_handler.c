@@ -415,7 +415,7 @@ block|{
 comment|/*          * there is no way to open a file or a directory in Win9X with          * one syscall because Win9X has no FILE_FLAG_BACKUP_SEMANTICS flag          * so we need to check its type before the opening          */
 if|if
 condition|(
-name|ngx_file_type
+name|ngx_file_info
 argument_list|(
 name|r
 operator|->
@@ -452,7 +452,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-name|ngx_file_type_n
+name|ngx_file_info_n
 literal|" \"%s\" failed"
 argument_list|,
 name|r
@@ -501,6 +501,7 @@ if|if
 condition|(
 name|ngx_is_dir
 argument_list|(
+operator|&
 name|r
 operator|->
 name|file
@@ -754,7 +755,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|ngx_stat_fd
+name|ngx_fd_info
 argument_list|(
 name|r
 operator|->
@@ -785,7 +786,7 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-name|ngx_stat_fd_n
+name|ngx_fd_info_n
 literal|" \"%s\" failed"
 argument_list|,
 name|r
@@ -861,14 +862,12 @@ if|if
 condition|(
 name|ngx_is_dir
 argument_list|(
-operator|(
 operator|&
 name|r
 operator|->
 name|file
 operator|.
 name|info
-operator|)
 argument_list|)
 condition|)
 block|{
@@ -1038,14 +1037,12 @@ condition|(
 operator|!
 name|ngx_is_file
 argument_list|(
-operator|(
 operator|&
 name|r
 operator|->
 name|file
 operator|.
 name|info
-operator|)
 argument_list|)
 condition|)
 block|{
@@ -1323,7 +1320,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|ngx_stat_fd
+name|ngx_fd_info
 argument_list|(
 name|r
 operator|->
@@ -1354,7 +1351,7 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-name|ngx_stat_fd_n
+name|ngx_fd_info_n
 literal|" %s failed"
 argument_list|,
 name|r
@@ -1432,14 +1429,12 @@ name|content_length_n
 operator|=
 name|ngx_file_size
 argument_list|(
-operator|(
 operator|&
 name|r
 operator|->
 name|file
 operator|.
 name|info
-operator|)
 argument_list|)
 expr_stmt|;
 name|r
@@ -1450,14 +1445,12 @@ name|last_modified_time
 operator|=
 name|ngx_file_mtime
 argument_list|(
-operator|(
 operator|&
 name|r
 operator|->
 name|file
 operator|.
 name|info
-operator|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -1823,14 +1816,12 @@ name|file_last
 operator|=
 name|ngx_file_size
 argument_list|(
-operator|(
 operator|&
 name|r
 operator|->
 name|file
 operator|.
 name|info
-operator|)
 argument_list|)
 expr_stmt|;
 name|h

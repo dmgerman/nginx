@@ -249,18 +249,11 @@ function_decl|;
 end_function_decl
 
 begin_define
-DECL|macro|ngx_rename_file (from,to,pool)
+DECL|macro|ngx_rename_file
 define|#
 directive|define
 name|ngx_rename_file
-parameter_list|(
-name|from
-parameter_list|,
-name|to
-parameter_list|,
-name|pool
-parameter_list|)
-value|rename(from->data, to->data)
+value|rename
 end_define
 
 begin_define
@@ -272,12 +265,124 @@ value|"rename"
 end_define
 
 begin_define
-DECL|macro|ngx_open_dir
+DECL|macro|ngx_file_info (file,sb)
 define|#
 directive|define
-name|ngx_open_dir
-value|opendir
+name|ngx_file_info
+parameter_list|(
+name|file
+parameter_list|,
+name|sb
+parameter_list|)
+value|stat(file, sb)
 end_define
+
+begin_define
+DECL|macro|ngx_file_info_n
+define|#
+directive|define
+name|ngx_file_info_n
+value|"stat()"
+end_define
+
+begin_define
+DECL|macro|ngx_fd_info (fd,sb)
+define|#
+directive|define
+name|ngx_fd_info
+parameter_list|(
+name|fd
+parameter_list|,
+name|sb
+parameter_list|)
+value|fstat(fd, sb)
+end_define
+
+begin_define
+DECL|macro|ngx_fd_info_n
+define|#
+directive|define
+name|ngx_fd_info_n
+value|"fstat()"
+end_define
+
+begin_define
+DECL|macro|ngx_is_dir (sb)
+define|#
+directive|define
+name|ngx_is_dir
+parameter_list|(
+name|sb
+parameter_list|)
+value|(S_ISDIR((sb)->st_mode))
+end_define
+
+begin_define
+DECL|macro|ngx_is_file (sb)
+define|#
+directive|define
+name|ngx_is_file
+parameter_list|(
+name|sb
+parameter_list|)
+value|(S_ISREG((sb)->st_mode))
+end_define
+
+begin_define
+DECL|macro|ngx_file_size (sb)
+define|#
+directive|define
+name|ngx_file_size
+parameter_list|(
+name|sb
+parameter_list|)
+value|(sb)->st_size
+end_define
+
+begin_define
+DECL|macro|ngx_file_mtime (sb)
+define|#
+directive|define
+name|ngx_file_mtime
+parameter_list|(
+name|sb
+parameter_list|)
+value|(sb)->st_mtime
+end_define
+
+begin_define
+DECL|macro|ngx_file_uniq (sb)
+define|#
+directive|define
+name|ngx_file_uniq
+parameter_list|(
+name|sb
+parameter_list|)
+value|(sb)->st_ino
+end_define
+
+begin_define
+DECL|macro|NGX_DIR_MASK_LEN
+define|#
+directive|define
+name|NGX_DIR_MASK_LEN
+value|0
+end_define
+
+begin_function_decl
+name|int
+name|ngx_open_dir
+parameter_list|(
+name|ngx_str_t
+modifier|*
+name|name
+parameter_list|,
+name|ngx_dir_t
+modifier|*
+name|dir
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_define
 DECL|macro|ngx_open_dir_n
@@ -288,11 +393,34 @@ value|"opendir()"
 end_define
 
 begin_define
-DECL|macro|ngx_read_dir
+DECL|macro|ngx_close_dir (d)
+define|#
+directive|define
+name|ngx_close_dir
+parameter_list|(
+name|d
+parameter_list|)
+value|closedir((d)->dir)
+end_define
+
+begin_define
+DECL|macro|ngx_close_dir_n
+define|#
+directive|define
+name|ngx_close_dir_n
+value|"closedir()"
+end_define
+
+begin_define
+DECL|macro|ngx_read_dir (d)
 define|#
 directive|define
 name|ngx_read_dir
-value|readdir
+parameter_list|(
+name|d
+parameter_list|)
+define|\
+value|(((d)->de = readdir((d)->dir)) ? NGX_OK : NGX_ERROR)
 end_define
 
 begin_define
@@ -304,10 +432,10 @@ value|"readdir()"
 end_define
 
 begin_define
-DECL|macro|ngx_mkdir (name)
+DECL|macro|ngx_create_dir (name)
 define|#
 directive|define
-name|ngx_mkdir
+name|ngx_create_dir
 parameter_list|(
 name|name
 parameter_list|)
@@ -315,10 +443,10 @@ value|mkdir(name, 0700)
 end_define
 
 begin_define
-DECL|macro|ngx_mkdir_n
+DECL|macro|ngx_create_dir_n
 define|#
 directive|define
-name|ngx_mkdir_n
+name|ngx_create_dir_n
 value|"mkdir()"
 end_define
 
@@ -339,100 +467,117 @@ value|"rmdir()"
 end_define
 
 begin_define
-DECL|macro|ngx_file_type (file,sb)
+DECL|macro|ngx_de_name (dir)
 define|#
 directive|define
-name|ngx_file_type
+name|ngx_de_name
 parameter_list|(
-name|file
-parameter_list|,
-name|sb
+name|dir
 parameter_list|)
-value|stat(file, sb)
+value|(dir)->de->d_name
+end_define
+
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|__FreeBSD__
+end_ifdef
+
+begin_define
+DECL|macro|ngx_de_namelen (dir)
+define|#
+directive|define
+name|ngx_de_namelen
+parameter_list|(
+name|dir
+parameter_list|)
+value|(dir)->de->d_namlen
+end_define
+
+begin_else
+else|#
+directive|else
+end_else
+
+begin_define
+DECL|macro|ngx_de_namelen (dir)
+define|#
+directive|define
+name|ngx_de_namelen
+parameter_list|(
+name|dir
+parameter_list|)
+value|ngx_strlen((dir)->de->d_name)
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_define
+DECL|macro|ngx_de_info (name,dir)
+define|#
+directive|define
+name|ngx_de_info
+parameter_list|(
+name|name
+parameter_list|,
+name|dir
+parameter_list|)
+value|stat(name,&(dir)->info)
 end_define
 
 begin_define
-DECL|macro|ngx_file_type_n
+DECL|macro|ngx_de_info_n
 define|#
 directive|define
-name|ngx_file_type_n
+name|ngx_de_info_n
 value|"stat()"
 end_define
 
 begin_define
-DECL|macro|ngx_stat_fd (fd,sb)
+DECL|macro|ngx_de_is_dir (dir)
 define|#
 directive|define
-name|ngx_stat_fd
+name|ngx_de_is_dir
 parameter_list|(
-name|fd
-parameter_list|,
-name|sb
+name|dir
 parameter_list|)
-value|fstat(fd, sb)
+value|(S_ISDIR((dir)->info.st_mode))
 end_define
 
 begin_define
-DECL|macro|ngx_stat_fd_n
+DECL|macro|ngx_de_is_file (dir)
 define|#
 directive|define
-name|ngx_stat_fd_n
-value|"fstat()"
+name|ngx_de_is_file
+parameter_list|(
+name|dir
+parameter_list|)
+value|(S_ISREG((dir)->info.st_mode))
 end_define
 
 begin_define
-DECL|macro|ngx_is_dir (sb)
+DECL|macro|ngx_de_size (dir)
 define|#
 directive|define
-name|ngx_is_dir
+name|ngx_de_size
 parameter_list|(
-name|sb
+name|dir
 parameter_list|)
-value|(S_ISDIR(sb->st_mode))
+value|(dir)->info.st_size
 end_define
 
 begin_define
-DECL|macro|ngx_is_file (sb)
+DECL|macro|ngx_de_mtime (dir)
 define|#
 directive|define
-name|ngx_is_file
+name|ngx_de_mtime
 parameter_list|(
-name|sb
+name|dir
 parameter_list|)
-value|(S_ISREG(sb->st_mode))
-end_define
-
-begin_define
-DECL|macro|ngx_file_size (sb)
-define|#
-directive|define
-name|ngx_file_size
-parameter_list|(
-name|sb
-parameter_list|)
-value|sb->st_size
-end_define
-
-begin_define
-DECL|macro|ngx_file_mtime (sb)
-define|#
-directive|define
-name|ngx_file_mtime
-parameter_list|(
-name|sb
-parameter_list|)
-value|sb->st_mtime
-end_define
-
-begin_define
-DECL|macro|ngx_file_uniq (sb)
-define|#
-directive|define
-name|ngx_file_uniq
-parameter_list|(
-name|sb
-parameter_list|)
-value|sb->st_ino
+value|(dir)->info.st_mtime
 end_define
 
 begin_endif

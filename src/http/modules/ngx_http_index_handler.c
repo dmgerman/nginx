@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b7b23410108
+DECL|struct|__anon29d585d40108
 typedef|typedef
 struct|struct
 block|{
@@ -37,7 +37,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7b23410208
+DECL|struct|__anon29d585d40208
 typedef|typedef
 struct|struct
 block|{
@@ -984,7 +984,7 @@ argument_list|)
 empty_stmt|;
 if|if
 condition|(
-name|ngx_file_type
+name|ngx_file_info
 argument_list|(
 name|r
 operator|->
@@ -1055,7 +1055,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-name|ngx_file_type_n
+name|ngx_file_info_n
 literal|" %s failed"
 argument_list|,
 name|r
@@ -1090,14 +1090,12 @@ if|if
 condition|(
 name|ngx_is_dir
 argument_list|(
-operator|(
 operator|&
 name|r
 operator|->
 name|file
 operator|.
 name|info
-operator|)
 argument_list|)
 condition|)
 block|{

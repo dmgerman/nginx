@@ -17,6 +17,7 @@ end_include
 
 begin_decl_stmt
 DECL|variable|wsa_errors
+specifier|static
 name|ngx_str_t
 name|wsa_errors
 index|[]
@@ -68,7 +69,76 @@ name|ngx_string
 argument_list|(
 literal|"Resource temporarily unavailable"
 argument_list|)
+block|,
 comment|/* 10035 */
+name|ngx_null_string
+block|,
+comment|/* 10036 */
+name|ngx_null_string
+block|,
+comment|/* 10037 */
+name|ngx_null_string
+block|,
+comment|/* 10038 */
+name|ngx_null_string
+block|,
+comment|/* 10039 */
+name|ngx_null_string
+block|,
+comment|/* 10040 */
+name|ngx_null_string
+block|,
+comment|/* 10041 */
+name|ngx_null_string
+block|,
+comment|/* 10042 */
+name|ngx_null_string
+block|,
+comment|/* 10043 */
+name|ngx_null_string
+block|,
+comment|/* 10044 */
+name|ngx_null_string
+block|,
+comment|/* 10045 */
+name|ngx_null_string
+block|,
+comment|/* 10046 */
+name|ngx_null_string
+block|,
+comment|/* 10047 */
+name|ngx_null_string
+block|,
+comment|/* 10048 */
+name|ngx_null_string
+block|,
+comment|/* 10049 */
+name|ngx_null_string
+block|,
+comment|/* 10050 */
+name|ngx_null_string
+block|,
+comment|/* 10051 */
+name|ngx_null_string
+block|,
+comment|/* 10052 */
+name|ngx_null_string
+block|,
+comment|/* 10053 */
+name|ngx_null_string
+block|,
+comment|/* 10054 */
+name|ngx_null_string
+block|,
+comment|/* 10055 */
+name|ngx_null_string
+block|,
+comment|/* 10056 */
+name|ngx_string
+argument_list|(
+literal|"Socket is not connected"
+argument_list|)
+comment|/* 10057 */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -158,8 +228,8 @@ operator|>=
 literal|0
 operator|&&
 name|n
-operator|<
-literal|14
+operator|<=
+literal|35
 condition|)
 block|{
 name|len

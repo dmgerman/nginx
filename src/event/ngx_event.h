@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon28b19f290108
+DECL|struct|__anon278d071f0108
 typedef|typedef
 struct|struct
 block|{
@@ -340,7 +340,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28b19f290208
+DECL|struct|__anon278d071f0208
 typedef|typedef
 struct|struct
 block|{
@@ -821,6 +821,14 @@ name|NGX_IOCP_IO
 value|1
 end_define
 
+begin_define
+DECL|macro|NGX_IOCP_CONNECT
+define|#
+directive|define
+name|NGX_IOCP_CONNECT
+value|2
+end_define
+
 begin_endif
 endif|#
 directive|endif
@@ -952,7 +960,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon28b19f290308
+DECL|struct|__anon278d071f0308
 typedef|typedef
 struct|struct
 block|{
@@ -975,7 +983,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b19f290408
+DECL|struct|__anon278d071f0408
 typedef|typedef
 struct|struct
 block|{

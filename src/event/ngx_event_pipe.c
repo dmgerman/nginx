@@ -2408,6 +2408,15 @@ name|ngx_chain_t
 modifier|*
 name|cl
 decl_stmt|;
+name|ngx_log_debug
+argument_list|(
+name|p
+operator|->
+name|log
+argument_list|,
+literal|"COPY"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|hunk
