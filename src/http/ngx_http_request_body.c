@@ -237,10 +237,6 @@ operator|->
 name|pool
 argument_list|,
 name|size
-argument_list|,
-literal|0
-argument_list|,
-literal|0
 argument_list|)
 argument_list|,
 name|NGX_HTTP_INTERNAL_SERVER_ERROR

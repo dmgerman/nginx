@@ -102,11 +102,12 @@ block|}
 comment|/* we can post the single aio operation only */
 if|if
 condition|(
+operator|!
 name|c
 operator|->
 name|write
 operator|->
-name|active
+name|ready
 condition|)
 block|{
 return|return

@@ -418,10 +418,6 @@ operator|->
 name|pool
 argument_list|,
 name|size
-argument_list|,
-literal|0
-argument_list|,
-literal|0
 argument_list|)
 argument_list|,
 name|NGX_ERROR
@@ -1032,9 +1028,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_chain_write (void * data,ngx_chain_t * in)
+DECL|function|ngx_chain_writer (void * data,ngx_chain_t * in)
 name|int
-name|ngx_chain_write
+name|ngx_chain_writer
 parameter_list|(
 name|void
 modifier|*
@@ -1045,7 +1041,7 @@ modifier|*
 name|in
 parameter_list|)
 block|{
-name|ngx_chain_write_ctx_t
+name|ngx_chain_writer_ctx_t
 modifier|*
 name|ctx
 init|=

@@ -152,6 +152,12 @@ name|cachable
 range|:
 literal|1
 decl_stmt|;
+DECL|member|single_buf
+name|unsigned
+name|single_buf
+range|:
+literal|1
+decl_stmt|;
 DECL|member|upstream_done
 name|unsigned
 name|upstream_done

@@ -78,9 +78,10 @@ name|read
 expr_stmt|;
 if|if
 condition|(
+operator|!
 name|rev
 operator|->
-name|active
+name|ready
 condition|)
 block|{
 name|ngx_log_error
@@ -100,12 +101,28 @@ return|return
 name|NGX_AGAIN
 return|;
 block|}
+name|ngx_log_debug
+argument_list|(
+argument|rev->log
+argument_list|,
+literal|"rev->complete: %d"
+argument|_ rev->complete
+argument_list|)
+empty_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|rev->log
+argument_list|,
+literal|"aio size: %d"
+argument|_ size
+argument_list|)
+empty_stmt|;
 if|if
 condition|(
 operator|!
 name|rev
 operator|->
-name|aio_complete
+name|complete
 condition|)
 block|{
 name|ngx_memzero
@@ -226,23 +243,28 @@ return|;
 block|}
 name|ngx_log_debug
 argument_list|(
-name|rev
-operator|->
-name|log
+argument|rev->log
 argument_list|,
-literal|"aio_read: OK"
+literal|"aio_read: #%d OK"
+argument|_ c->fd
 argument_list|)
-expr_stmt|;
+empty_stmt|;
 name|rev
 operator|->
 name|active
 operator|=
 literal|1
 expr_stmt|;
+name|rev
+operator|->
+name|ready
+operator|=
+literal|0
+expr_stmt|;
 block|}
 name|rev
 operator|->
-name|aio_complete
+name|complete
 operator|=
 literal|0
 expr_stmt|;
@@ -303,10 +325,9 @@ condition|)
 block|{
 if|if
 condition|(
-operator|!
 name|rev
 operator|->
-name|active
+name|ready
 condition|)
 block|{
 name|ngx_log_error
@@ -321,6 +342,12 @@ name|n
 argument_list|,
 literal|"aio_read() still in progress"
 argument_list|)
+expr_stmt|;
+name|rev
+operator|->
+name|ready
+operator|=
+literal|0
 expr_stmt|;
 block|}
 return|return
@@ -345,6 +372,12 @@ operator|->
 name|error
 operator|=
 literal|1
+expr_stmt|;
+name|rev
+operator|->
+name|ready
+operator|=
+literal|0
 expr_stmt|;
 return|return
 name|NGX_ERROR
@@ -387,22 +420,22 @@ name|error
 operator|=
 literal|1
 expr_stmt|;
+name|rev
+operator|->
+name|ready
+operator|=
+literal|0
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
 block|}
-name|rev
-operator|->
-name|active
-operator|=
-literal|0
-expr_stmt|;
 name|ngx_log_debug
 argument_list|(
 argument|rev->log
 argument_list|,
-literal|"aio_read: %d"
-argument|_ n
+literal|"aio_read: #%d %d"
+argument|_ c->fd _ n
 argument_list|)
 empty_stmt|;
 if|if
@@ -418,7 +451,28 @@ name|eof
 operator|=
 literal|1
 expr_stmt|;
+name|rev
+operator|->
+name|ready
+operator|=
+literal|0
+expr_stmt|;
 block|}
+else|else
+block|{
+name|rev
+operator|->
+name|ready
+operator|=
+literal|1
+expr_stmt|;
+block|}
+name|rev
+operator|->
+name|active
+operator|=
+literal|0
+expr_stmt|;
 return|return
 name|n
 return|;

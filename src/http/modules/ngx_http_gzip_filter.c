@@ -24,7 +24,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29b013bf0108
+DECL|struct|__anon295b578e0108
 typedef|typedef
 struct|struct
 block|{
@@ -59,7 +59,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b013bf0208
+DECL|struct|__anon295b578e0208
 typedef|typedef
 struct|struct
 block|{
@@ -832,10 +832,6 @@ name|request
 operator|=
 name|r
 expr_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
 name|r
 operator|->
 name|headers_out
@@ -851,7 +847,16 @@ name|headers_out
 argument_list|,
 name|ngx_http_headers_out
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_encoding
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -1029,6 +1034,10 @@ name|ngx_http_gzip_conf_t
 modifier|*
 name|conf
 decl_stmt|;
+if|if
+condition|(
+operator|!
+operator|(
 name|ctx
 operator|=
 name|ngx_http_get_module_ctx
@@ -1037,12 +1046,7 @@ name|r
 argument_list|,
 name|ngx_http_gzip_filter_module
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|ctx
-operator|==
-name|NULL
+operator|)
 condition|)
 block|{
 return|return
@@ -1644,10 +1648,6 @@ operator|->
 name|bufs
 operator|.
 name|size
-argument_list|,
-literal|0
-argument_list|,
-literal|0
 argument_list|)
 argument_list|,
 name|ngx_http_gzip_error
@@ -2111,10 +2111,6 @@ operator|->
 name|pool
 argument_list|,
 literal|8
-argument_list|,
-literal|0
-argument_list|,
-literal|0
 argument_list|)
 argument_list|,
 name|ngx_http_gzip_error

@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon297b86c90108
+DECL|struct|__anon289b0c930108
 typedef|typedef
 struct|struct
 block|{
@@ -164,23 +164,24 @@ name|instance
 range|:
 literal|1
 decl_stmt|;
-comment|/*      * the event was passed or would be passed to a kernel;      * aio mode: 1 - the posted aio operation,      *           0 - the complete aio operation or no aio operation.      */
+comment|/*      * the event was passed or would be passed to a kernel;      * in aio mode - operation was posted.      */
 DECL|member|active
 name|unsigned
 name|active
 range|:
 literal|1
 decl_stmt|;
-comment|/*      * the ready event;      * in aio mode "ready" is always set - it makes things simple      * to learn whether the aio operation complete use aio_complete flag      */
+comment|/* the ready event; in aio mode 0 means that no operation can be posted */
 DECL|member|ready
 name|unsigned
 name|ready
 range|:
 literal|1
 decl_stmt|;
-DECL|member|aio_complete
+comment|/* aio operation is complete */
+DECL|member|complete
 name|unsigned
-name|aio_complete
+name|complete
 range|:
 literal|1
 decl_stmt|;
@@ -238,11 +239,27 @@ name|deferred_accept
 range|:
 literal|1
 decl_stmt|;
+comment|/* TODO: aio_eof and kq_eof can be the single pending_eof */
+comment|/* the pending eof in aio chain operation */
+DECL|member|aio_eof
+name|unsigned
+name|aio_eof
+range|:
+literal|1
+decl_stmt|;
+comment|/* the pending eof reported by kqueue */
+DECL|member|kq_eof
+name|unsigned
+name|kq_eof
+range|:
+literal|1
+decl_stmt|;
 if|#
 directive|if
 operator|(
 name|WIN32
 operator|)
+comment|/* setsockopt(SO_UPDATE_ACCEPT_CONTEXT) was succesfull */
 DECL|member|accept_context_updated
 name|unsigned
 name|accept_context_updated
@@ -256,12 +273,7 @@ directive|if
 operator|(
 name|HAVE_KQUEUE
 operator|)
-DECL|member|kq_eof
-name|unsigned
-name|kq_eof
-range|:
-literal|1
-decl_stmt|;
+comment|/* the pending errno reported by kqueue */
 DECL|member|kq_errno
 name|int
 name|kq_errno
@@ -327,7 +339,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon297b86c90208
+DECL|struct|__anon289b0c930208
 typedef|typedef
 struct|struct
 block|{
@@ -939,7 +951,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon297b86c90308
+DECL|struct|__anon289b0c930308
 typedef|typedef
 struct|struct
 block|{
@@ -962,7 +974,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297b86c90408
+DECL|struct|__anon289b0c930408
 typedef|typedef
 struct|struct
 block|{

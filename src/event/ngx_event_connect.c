@@ -882,16 +882,16 @@ name|NGX_USE_AIO_EVENT
 condition|)
 block|{
 comment|/* aio, iocp */
+if|#
+directive|if
+literal|1
+comment|/* TODO: NGX_EINPROGRESS */
 name|rev
 operator|->
 name|ready
 operator|=
 literal|1
 expr_stmt|;
-if|#
-directive|if
-literal|1
-comment|/* TODO: NGX_EINPROGRESS */
 name|wev
 operator|->
 name|ready

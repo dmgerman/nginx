@@ -209,18 +209,6 @@ modifier|*
 name|end
 decl_stmt|;
 comment|/* end of hunk */
-DECL|member|pre_start
-name|char
-modifier|*
-name|pre_start
-decl_stmt|;
-comment|/* start of pre-allocated hunk */
-DECL|member|post_end
-name|char
-modifier|*
-name|post_end
-decl_stmt|;
-comment|/* end of post-allocated hunk */
 DECL|member|tag
 name|ngx_hunk_tag_t
 name|tag
@@ -273,7 +261,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2ad412910108
+DECL|struct|__anon2a1907210108
 typedef|typedef
 struct|struct
 block|{
@@ -312,7 +300,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad412910208
+DECL|struct|__anon2a1907210208
 typedef|typedef
 struct|struct
 block|{
@@ -381,7 +369,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad412910308
+DECL|struct|__anon2a1907210308
 typedef|typedef
 struct|struct
 block|{
@@ -406,9 +394,9 @@ name|ngx_pool_t
 modifier|*
 name|pool
 decl_stmt|;
-DECL|typedef|ngx_chain_write_ctx_t
+DECL|typedef|ngx_chain_writer_ctx_t
 block|}
-name|ngx_chain_write_ctx_t
+name|ngx_chain_writer_ctx_t
 typedef|;
 end_typedef
 
@@ -471,12 +459,6 @@ name|pool
 parameter_list|,
 name|int
 name|size
-parameter_list|,
-name|int
-name|before
-parameter_list|,
-name|int
-name|after
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -565,7 +547,7 @@ end_function_decl
 
 begin_function_decl
 name|int
-name|ngx_chain_write
+name|ngx_chain_writer
 parameter_list|(
 name|void
 modifier|*

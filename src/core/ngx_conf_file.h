@@ -449,7 +449,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2781a7f60108
+DECL|struct|__anon2a4e29bd0108
 typedef|typedef
 struct|struct
 block|{
@@ -584,7 +584,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2781a7f60208
+DECL|struct|__anon2a4e29bd0208
 typedef|typedef
 struct|struct
 block|{
@@ -599,7 +599,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2781a7f60308
+DECL|struct|__anon2a4e29bd0308
 typedef|typedef
 struct|struct
 block|{
@@ -618,6 +618,25 @@ decl_stmt|;
 DECL|typedef|ngx_conf_num_bounds_t
 block|}
 name|ngx_conf_num_bounds_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2a4e29bd0408
+typedef|typedef
+struct|struct
+block|{
+DECL|member|name
+name|ngx_str_t
+name|name
+decl_stmt|;
+DECL|member|mask
+name|int
+name|mask
+decl_stmt|;
+DECL|typedef|ngx_conf_bitmask_t
+block|}
+name|ngx_conf_bitmask_t
 typedef|;
 end_typedef
 
@@ -766,6 +785,19 @@ name|default_size
 parameter_list|)
 define|\
 value|if (conf.num == 0) {                                                     \         if (prev.num) {                                                      \             conf.num = prev.num;                                             \             conf.size = prev.size;                                           \         } else {                                                             \             conf.num = default_num;                                          \             conf.size = default_size;                                        \         }                                                                    \     }
+end_define
+
+begin_define
+DECL|macro|ngx_conf_merge_bitmask_value (conf,prev,default)
+define|#
+directive|define
+name|ngx_conf_merge_bitmask_value
+parameter_list|(
+name|conf
+parameter_list|,
+name|prev
+parameter_list|,
+define|default)                    \     if (conf == 0) {                                                         \         conf = (prev == 0) ? default : prev;                                 \     }
 end_define
 
 begin_define
@@ -958,6 +990,26 @@ begin_function_decl
 name|char
 modifier|*
 name|ngx_conf_set_bufs_slot
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_command_t
+modifier|*
+name|cmd
+parameter_list|,
+name|void
+modifier|*
+name|conf
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|char
+modifier|*
+name|ngx_conf_set_bitmask_slot
 parameter_list|(
 name|ngx_conf_t
 modifier|*

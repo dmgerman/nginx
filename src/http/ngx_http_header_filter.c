@@ -1036,10 +1036,6 @@ operator|->
 name|pool
 argument_list|,
 name|len
-argument_list|,
-literal|0
-argument_list|,
-literal|0
 argument_list|)
 argument_list|,
 name|NGX_ERROR
