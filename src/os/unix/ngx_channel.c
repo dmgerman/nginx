@@ -63,7 +63,7 @@ directive|if
 operator|(
 name|HAVE_MSGHDR_MSG_CONTROL
 operator|)
-DECL|union|__anon2794216c010a
+DECL|union|__anon2b9b718c010a
 union|union
 block|{
 DECL|member|cm
@@ -371,7 +371,7 @@ directive|if
 operator|(
 name|HAVE_MSGHDR_MSG_CONTROL
 operator|)
-DECL|union|__anon2794216c020a
+DECL|union|__anon2b9b718c020a
 union|union
 block|{
 DECL|member|cm
@@ -1102,7 +1102,7 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"close() failed"
+literal|"close() channel failed"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1128,7 +1128,7 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"close() failed"
+literal|"close() channel failed"
 argument_list|)
 expr_stmt|;
 block|}

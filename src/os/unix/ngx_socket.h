@@ -226,7 +226,7 @@ DECL|macro|ngx_close_socket_n
 define|#
 directive|define
 name|ngx_close_socket_n
-value|"close()"
+value|"close() socket"
 end_define
 
 begin_endif
