@@ -37,7 +37,7 @@ file|<ngx_event_connect.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a1f0f130108
+DECL|struct|__anon28b6a1770108
 typedef|typedef
 struct|struct
 block|{
@@ -57,7 +57,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a1f0f130203
+DECL|enum|__anon28b6a1770203
 typedef|typedef
 enum|enum
 block|{
@@ -75,7 +75,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1f0f130308
+DECL|struct|__anon28b6a1770308
 typedef|typedef
 struct|struct
 block|{
@@ -274,11 +274,27 @@ comment|/* "IMAP" */
 end_comment
 
 begin_define
-DECL|macro|NGX_IMAP_CONF
+DECL|macro|NGX_IMAP_SRV_CONF
 define|#
 directive|define
-name|NGX_IMAP_CONF
+name|NGX_IMAP_SRV_CONF
 value|0x02000000
+end_define
+
+begin_define
+DECL|macro|NGX_IMAP_IMAP_CONF
+define|#
+directive|define
+name|NGX_IMAP_IMAP_CONF
+value|0x04000000
+end_define
+
+begin_define
+DECL|macro|NGX_IMAP_POP3_CONF
+define|#
+directive|define
+name|NGX_IMAP_POP3_CONF
+value|0x08000000
 end_define
 
 begin_function_decl

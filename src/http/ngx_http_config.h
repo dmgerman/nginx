@@ -25,7 +25,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b7974ed0108
+DECL|struct|__anon289259ee0108
 typedef|typedef
 struct|struct
 block|{
@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7974ed0208
+DECL|struct|__anon289259ee0208
 typedef|typedef
 struct|struct
 block|{
@@ -275,7 +275,7 @@ value|r->loc_conf[module.ctx_index]
 end_define
 
 begin_comment
-comment|/*  * ngx_http_conf_get_module_srv_conf() and ngx_http_conf_get_module_loc_conf()  * msut not be used because at the merge phase cf->ctx points to http{}'s ctx  */
+comment|/*  * ngx_http_conf_get_module_srv_conf() and ngx_http_conf_get_module_loc_conf()  * must not be used at the merge phase because cf->ctx points to http{}'s ctx  */
 end_comment
 
 begin_define
