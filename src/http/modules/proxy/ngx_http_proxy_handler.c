@@ -505,15 +505,17 @@ modifier|*
 name|r
 parameter_list|)
 block|{
-name|r
-operator|->
-name|handler
-operator|=
-name|ngx_http_proxy_handler
-expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|r->handler = ngx_http_proxy_handler;     return NGX_OK;
+else|#
+directive|else
 return|return
-name|NGX_OK
+name|NGX_DECLINED
 return|;
+endif|#
+directive|endif
 block|}
 end_function
 
@@ -3766,7 +3768,7 @@ name|char
 modifier|*
 name|pos
 decl_stmt|;
-DECL|enum|__anon2b5716ec0103
+DECL|enum|__anon275afc060103
 enum|enum
 block|{
 DECL|enumerator|sw_start

@@ -12,65 +12,6 @@ directive|define
 name|_NGX_HTTP_REQUEST_H_INCLUDED_
 end_define
 
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-
-begin_include
-include|#
-directive|include
-file|<ngx_config.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_types.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_string.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_table.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_hunk.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_files.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_connection.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_conf_file.h>
-end_include
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
 begin_define
 DECL|macro|NGX_HTTP_VERSION_9
 define|#
@@ -132,6 +73,14 @@ DECL|macro|NGX_HTTP_CONN_KEEP_ALIVE
 define|#
 directive|define
 name|NGX_HTTP_CONN_KEEP_ALIVE
+value|1
+end_define
+
+begin_define
+DECL|macro|NGX_NONE
+define|#
+directive|define
+name|NGX_NONE
 value|1
 end_define
 
@@ -368,7 +317,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2c5fde960108
+DECL|struct|__anon28b121d90108
 typedef|typedef
 struct|struct
 block|{
@@ -387,7 +336,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5fde960208
+DECL|struct|__anon28b121d90208
 typedef|typedef
 struct|struct
 block|{
@@ -446,7 +395,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5fde960308
+DECL|struct|__anon28b121d90308
 typedef|typedef
 struct|struct
 block|{
@@ -497,7 +446,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5fde960408
+DECL|struct|__anon28b121d90408
 typedef|typedef
 struct|struct
 block|{
@@ -520,7 +469,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5fde960508
+DECL|struct|__anon28b121d90508
 typedef|typedef
 struct|struct
 block|{

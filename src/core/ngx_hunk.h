@@ -250,6 +250,25 @@ block|}
 struct|;
 end_struct
 
+begin_typedef
+DECL|struct|__anon27b1c4c20108
+typedef|typedef
+struct|struct
+block|{
+DECL|member|num
+name|int
+name|num
+decl_stmt|;
+DECL|member|size
+name|ssize_t
+name|size
+decl_stmt|;
+DECL|typedef|ngx_bufs_t
+block|}
+name|ngx_bufs_t
+typedef|;
+end_typedef
+
 begin_define
 DECL|macro|NGX_CHAIN_ERROR
 define|#

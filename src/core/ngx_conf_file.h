@@ -385,7 +385,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27b9e76d0108
+DECL|struct|__anon2c055fcf0108
 typedef|typedef
 struct|struct
 block|{
@@ -604,6 +604,24 @@ define|default)                        \     if (conf.len == 0) {               
 end_define
 
 begin_define
+DECL|macro|ngx_conf_merge_bufs_value (conf,prev,default_num,default_size)
+define|#
+directive|define
+name|ngx_conf_merge_bufs_value
+parameter_list|(
+name|conf
+parameter_list|,
+name|prev
+parameter_list|,
+name|default_num
+parameter_list|,
+name|default_size
+parameter_list|)
+define|\
+value|if (conf.num == 0) {                                                     \         if (prev.num) {                                                      \             conf.num = prev.num;                                             \             conf.size = prev.size;                                           \         } else {                                                             \             conf.num = default_num;                                          \             conf.size = default_size;                                        \         }                                                                    \     }
+end_define
+
+begin_define
 DECL|macro|addressof (addr)
 define|#
 directive|define
@@ -773,6 +791,26 @@ begin_function_decl
 name|char
 modifier|*
 name|ngx_conf_set_time_slot
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_command_t
+modifier|*
+name|cmd
+parameter_list|,
+name|void
+modifier|*
+name|conf
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|char
+modifier|*
+name|ngx_conf_set_bufs_slot
 parameter_list|(
 name|ngx_conf_t
 modifier|*
