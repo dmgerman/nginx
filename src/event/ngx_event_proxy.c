@@ -433,7 +433,7 @@ literal|"file hunk: %08X"
 argument|_ chain->hunk _               chain->hunk->end - chain->hunk->last
 argument_list|)
 empty_stmt|;
-comment|/* if the hunks is not needed to be saved in a cache and                a downstream is ready then write the hunks to a downstream */
+comment|/* if the hunks are not needed to be saved in a cache and                a downstream is ready then write the hunks to a downstream */
 block|}
 if|else if
 condition|(

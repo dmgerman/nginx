@@ -672,6 +672,12 @@ name|write
 operator|=
 name|wev
 expr_stmt|;
+name|wev
+operator|->
+name|write
+operator|=
+literal|1
+expr_stmt|;
 name|rev
 operator|->
 name|instance
