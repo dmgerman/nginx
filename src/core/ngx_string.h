@@ -19,7 +19,7 @@ file|<ngx_config.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon296b46570108
+DECL|struct|__anon2b0a67a50108
 typedef|typedef
 struct|struct
 block|{
@@ -116,6 +116,14 @@ define|#
 directive|define
 name|ngx_memzero
 value|bzero
+end_define
+
+begin_define
+DECL|macro|ngx_strcasecmp
+define|#
+directive|define
+name|ngx_strcasecmp
+value|strcasecmp
 end_define
 
 begin_define

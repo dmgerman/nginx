@@ -254,7 +254,7 @@ expr|main
 operator|:
 name|r
 argument_list|,
-name|ngx_http_write_filter_module_ctx
+name|ngx_http_write_filter_module
 argument_list|)
 expr_stmt|;
 if|if
@@ -270,7 +270,7 @@ name|r
 argument_list|,
 name|ctx
 argument_list|,
-name|ngx_http_write_filter_module_ctx
+name|ngx_http_write_filter_module
 argument_list|,
 sizeof|sizeof
 argument_list|(
@@ -542,7 +542,7 @@ expr|main
 operator|:
 name|r
 argument_list|,
-name|ngx_http_write_filter_module_ctx
+name|ngx_http_write_filter_module
 argument_list|)
 expr_stmt|;
 if|#

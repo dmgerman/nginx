@@ -34,6 +34,15 @@ name|time_t
 typedef|;
 end_typedef
 
+begin_typedef
+DECL|typedef|u_int32_t
+typedef|typedef
+name|unsigned
+name|__int32
+name|u_int32_t
+typedef|;
+end_typedef
+
 begin_define
 DECL|macro|QD_FMT
 define|#

@@ -161,6 +161,19 @@ DECL|macro|NGX_CORE_MODULE_TYPE
 comment|/* "CORE" */
 end_comment
 
+begin_define
+DECL|macro|NGX_CONF_MODULE_TYPE
+define|#
+directive|define
+name|NGX_CONF_MODULE_TYPE
+value|0x464E4f43
+end_define
+
+begin_comment
+DECL|macro|NGX_CONF_MODULE_TYPE
+comment|/* "CONF" */
+end_comment
+
 begin_typedef
 DECL|typedef|ngx_conf_t
 typedef|typedef
@@ -226,7 +239,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b96b7c10108
+DECL|struct|__anon2bc0827b0108
 typedef|typedef
 struct|struct
 block|{
@@ -267,7 +280,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b96b7c10208
+DECL|struct|__anon2bc0827b0208
 typedef|typedef
 struct|struct
 block|{

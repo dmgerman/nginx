@@ -407,7 +407,7 @@ index|]
 operator|->
 name|type
 operator|!=
-name|NULL
+name|NGX_CONF_MODULE_TYPE
 operator|&&
 name|ngx_modules
 index|[

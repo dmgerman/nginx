@@ -495,7 +495,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|strcasecmp
+name|ngx_strcasecmp
 argument_list|(
 name|r
 operator|->
@@ -536,7 +536,7 @@ expr_stmt|;
 block|}
 if|else if
 condition|(
-name|strcasecmp
+name|ngx_strcasecmp
 argument_list|(
 name|r
 operator|->
@@ -577,7 +577,7 @@ expr_stmt|;
 block|}
 if|else if
 condition|(
-name|strcasecmp
+name|ngx_strcasecmp
 argument_list|(
 name|r
 operator|->
@@ -618,7 +618,7 @@ expr_stmt|;
 block|}
 if|else if
 condition|(
-name|strcasecmp
+name|ngx_strcasecmp
 argument_list|(
 name|r
 operator|->

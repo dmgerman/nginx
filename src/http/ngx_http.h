@@ -205,6 +205,14 @@ value|400
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_FORBIDDEN
+define|#
+directive|define
+name|NGX_HTTP_FORBIDDEN
+value|403
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_NOT_FOUND
 define|#
 directive|define
@@ -245,7 +253,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2c6474d50108
+DECL|struct|__anon2c701df60108
 typedef|typedef
 struct|struct
 block|{
@@ -293,7 +301,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6474d50208
+DECL|struct|__anon2c701df60208
 typedef|typedef
 struct|struct
 block|{
@@ -317,7 +325,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6474d50308
+DECL|struct|__anon2c701df60308
 typedef|typedef
 struct|struct
 block|{
@@ -358,7 +366,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6474d50408
+DECL|struct|__anon2c701df60408
 typedef|typedef
 struct|struct
 block|{
@@ -446,12 +454,6 @@ DECL|member|file
 name|ngx_file_t
 name|file
 decl_stmt|;
-if|#
-directive|if
-literal|0
-block|ngx_str_t   filename;     ngx_file_info_t fileinfo;     ngx_fd_t  fd;     int    filename_len;
-endif|#
-directive|endif
 DECL|member|ctx
 name|void
 modifier|*
@@ -555,6 +557,10 @@ name|char
 modifier|*
 name|discarded_buffer
 decl_stmt|;
+DECL|member|path
+name|ngx_str_t
+name|path
+decl_stmt|;
 DECL|member|keepalive
 name|unsigned
 name|keepalive
@@ -605,6 +611,12 @@ range|:
 literal|1
 decl_stmt|;
 comment|/* URI with "/." or with "//" (WIN32) */
+DECL|member|path_not_found
+name|unsigned
+name|path_not_found
+range|:
+literal|1
+decl_stmt|;
 DECL|member|state
 name|int
 name|state
@@ -676,7 +688,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c6474d50508
+DECL|struct|__anon2c701df60508
 typedef|typedef
 struct|struct
 block|{
@@ -699,6 +711,22 @@ DECL|typedef|ngx_http_log_ctx_t
 block|}
 name|ngx_http_log_ctx_t
 typedef|;
+end_typedef
+
+begin_typedef
+DECL|typedef|ngx_http_handler_pt
+typedef|typedef
+name|int
+function_decl|(
+modifier|*
+name|ngx_http_handler_pt
+function_decl|)
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|)
+function_decl|;
 end_typedef
 
 begin_typedef
@@ -738,7 +766,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6474d50608
+DECL|struct|__anon2c701df60608
 typedef|typedef
 struct|struct
 block|{
@@ -1086,6 +1114,13 @@ begin_decl_stmt
 specifier|extern
 name|int
 name|ngx_http_lingering_time
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_array_t
+name|ngx_http_index_handlers
 decl_stmt|;
 end_decl_stmt
 

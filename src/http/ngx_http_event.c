@@ -2230,7 +2230,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|strcasecmp
+name|ngx_strcasecmp
 argument_list|(
 name|headers_in
 index|[

@@ -66,6 +66,24 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|error_403_page
+specifier|static
+name|char
+name|error_403_page
+index|[]
+init|=
+literal|"<html>"
+name|CRLF
+literal|"<head><title>403 Forbidden</title></head>"
+name|CRLF
+literal|"<body bgcolor=\"white\">"
+name|CRLF
+literal|"<center><h1>403 Forbidden</h1></center>"
+name|CRLF
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|error_404_page
 specifier|static
 name|char
@@ -145,12 +163,16 @@ block|}
 block|,
 comment|/* 402 */
 block|{
-literal|0
+sizeof|sizeof
+argument_list|(
+name|error_403_page
+argument_list|)
+operator|-
+literal|1
 block|,
-name|NULL
+name|error_403_page
 block|}
 block|,
-comment|/* 403 */
 block|{
 sizeof|sizeof
 argument_list|(
