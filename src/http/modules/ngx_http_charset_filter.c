@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b8b0efa0108
+DECL|struct|__anon27cba80f0108
 typedef|typedef
 struct|struct
 block|{
@@ -43,7 +43,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8b0efa0208
+DECL|struct|__anon27cba80f0208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8b0efa0308
+DECL|struct|__anon27cba80f0308
 typedef|typedef
 struct|struct
 block|{
@@ -93,7 +93,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8b0efa0408
+DECL|struct|__anon27cba80f0408
 typedef|typedef
 struct|struct
 block|{
@@ -120,7 +120,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8b0efa0508
+DECL|struct|__anon27cba80f0508
 typedef|typedef
 struct|struct
 block|{
@@ -605,7 +605,17 @@ operator|.
 name|content_type
 operator|==
 name|NULL
-operator|||
+condition|)
+block|{
+return|return
+name|ngx_http_next_header_filter
+argument_list|(
+name|r
+argument_list|)
+return|;
+block|}
+if|if
+condition|(
 name|ngx_strncasecmp
 argument_list|(
 name|r
@@ -624,7 +634,36 @@ literal|5
 argument_list|)
 operator|!=
 literal|0
-operator|||
+operator|&&
+name|ngx_strncasecmp
+argument_list|(
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_type
+operator|->
+name|value
+operator|.
+name|data
+argument_list|,
+literal|"application/x-javascript"
+argument_list|,
+literal|24
+argument_list|)
+operator|!=
+literal|0
+condition|)
+block|{
+return|return
+name|ngx_http_next_header_filter
+argument_list|(
+name|r
+argument_list|)
+return|;
+block|}
+if|if
+condition|(
 name|ngx_strstr
 argument_list|(
 name|r

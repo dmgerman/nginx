@@ -78,7 +78,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b54c1720108
+DECL|struct|__anon2aeb05af0108
 typedef|typedef
 struct|struct
 block|{
@@ -1616,6 +1616,9 @@ name|ngx_elapsed_msec
 expr_stmt|;
 name|ngx_elapsed_msec
 operator|=
+operator|(
+name|ngx_epoch_msec_t
+operator|)
 name|tv
 operator|.
 name|tv_sec

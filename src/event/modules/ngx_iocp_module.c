@@ -796,6 +796,9 @@ name|ngx_elapsed_msec
 expr_stmt|;
 name|ngx_elapsed_msec
 operator|=
+operator|(
+name|ngx_epoch_msec_t
+operator|)
 name|tv
 operator|.
 name|tv_sec

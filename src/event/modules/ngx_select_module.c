@@ -1565,6 +1565,9 @@ literal|1000
 expr_stmt|;
 name|ngx_elapsed_msec
 operator|=
+operator|(
+name|ngx_epoch_msec_t
+operator|)
 name|tv
 operator|.
 name|tv_sec
@@ -1629,6 +1632,9 @@ argument_list|)
 expr_stmt|;
 name|ngx_elapsed_msec
 operator|=
+operator|(
+name|ngx_epoch_msec_t
+operator|)
 name|tv
 operator|.
 name|tv_sec
