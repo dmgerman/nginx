@@ -97,7 +97,7 @@ literal|1
 expr_stmt|;
 asm|__asm__
 specifier|volatile
-asm|(          NGX_SMP_LOCK     "   xaddl  %0, %1;   "      : "=q" (old) : "m" (*value));
+asm|(          NGX_SMP_LOCK     "   xaddl  %0, %1;   "      : "+q" (old) : "m" (*value));
 return|return
 name|old
 return|;
@@ -129,7 +129,7 @@ literal|1
 expr_stmt|;
 asm|__asm__
 specifier|volatile
-asm|(          NGX_SMP_LOCK     "   xaddl  %0, %1;   "      : "=q" (old) : "m" (*value));
+asm|(          NGX_SMP_LOCK     "   xaddl  %0, %1;   "      : "+q" (old) : "m" (*value));
 return|return
 name|old
 return|;

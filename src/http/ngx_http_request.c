@@ -244,6 +244,7 @@ block|,
 literal|"client %s sent HTTP/1.1 request without \"Host\" header, URL: %s"
 block|,
 literal|"client %s sent invalid \"Content-Length\" header, URL: %s"
+block|,
 literal|"client %s sent POST method without \"Content-Length\" header, URL: %s"
 block|}
 decl_stmt|;
