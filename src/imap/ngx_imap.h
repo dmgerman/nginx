@@ -37,7 +37,7 @@ file|<ngx_event_connect.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29a34e1e0108
+DECL|struct|__anon2a2c02b00108
 typedef|typedef
 struct|struct
 block|{
@@ -57,7 +57,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29a34e1e0203
+DECL|enum|__anon2a2c02b00203
 typedef|typedef
 enum|enum
 block|{
@@ -75,7 +75,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a34e1e0308
+DECL|struct|__anon2a2c02b00308
 typedef|typedef
 struct|struct
 block|{
@@ -102,6 +102,14 @@ DECL|member|proxy
 name|ngx_imap_proxy_ctx_t
 modifier|*
 name|proxy
+decl_stmt|;
+DECL|member|login
+name|ngx_str_t
+name|login
+decl_stmt|;
+DECL|member|passwd
+name|ngx_str_t
+name|passwd
 decl_stmt|;
 DECL|member|command
 name|ngx_uint_t

@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2acea3670108
+DECL|struct|__anon2a34f7a70108
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +70,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2acea3670208
+DECL|struct|__anon2a34f7a70208
 typedef|typedef
 struct|struct
 block|{
@@ -461,7 +461,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2acea3670308
+DECL|struct|__anon2a34f7a70308
 typedef|typedef
 struct|struct
 block|{
@@ -641,7 +641,7 @@ value|0x00000001
 end_define
 
 begin_comment
-comment|/*  * The event filter is deleted after a notification without an additional  * syscall - select, poll, kqueue, epoll.  */
+comment|/*  * The event filter is deleted after a notification without an additional  * syscall - select, poll, kqueue, epoll, Solaris 10's event ports.  */
 end_comment
 
 begin_define
@@ -1279,7 +1279,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon2acea3670408
+DECL|struct|__anon2a34f7a70408
 typedef|typedef
 struct|struct
 block|{
@@ -1326,7 +1326,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2acea3670508
+DECL|struct|__anon2a34f7a70508
 typedef|typedef
 struct|struct
 block|{

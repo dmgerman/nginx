@@ -46,7 +46,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon294162d30103
+DECL|enum|__anon28a328840103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -470,6 +470,8 @@ operator|->
 name|len
 operator|=
 name|p
+operator|-
+literal|1
 operator|-
 name|s
 operator|->
