@@ -53,6 +53,29 @@ block|}
 decl_stmt|;
 end_decl_stmt
 
+begin_typedef
+DECL|struct|__anon2bb5362e0108
+typedef|typedef
+struct|struct
+block|{
+DECL|member|wServicePackMinor
+name|WORD
+name|wServicePackMinor
+decl_stmt|;
+DECL|member|wSuiteMask
+name|WORD
+name|wSuiteMask
+decl_stmt|;
+DECL|member|wProductType
+name|BYTE
+name|wProductType
+decl_stmt|;
+DECL|typedef|ngx_osviex_stub_t
+block|}
+name|ngx_osviex_stub_t
+typedef|;
+end_typedef
+
 begin_comment
 comment|/* Should these pointers be per protocol ? */
 end_comment
@@ -132,6 +155,10 @@ name|wsd
 decl_stmt|;
 name|OSVERSIONINFOEX
 name|osvi
+decl_stmt|;
+name|ngx_osviex_stub_t
+modifier|*
+name|osviex_stub
 decl_stmt|;
 comment|/* get Windows version */
 name|ngx_memzero
@@ -251,6 +278,18 @@ name|osvi
 operator|.
 name|wServicePackMinor
 expr_stmt|;
+comment|/*          * the MSVC 6.0 SP2 defines wSuiteMask and wProductType          * as WORD wReserved[2]          */
+name|osviex_stub
+operator|=
+operator|(
+name|ngx_osviex_stub_t
+operator|*
+operator|)
+operator|&
+name|osvi
+operator|.
+name|wServicePackMinor
+expr_stmt|;
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_INFO
@@ -271,27 +310,15 @@ name|osvi
 operator|.
 name|szCSDVersion
 argument_list|,
-name|osvi
-operator|.
-name|wReserved
-index|[
-literal|0
-index|]
+name|osviex_stub
+operator|->
+name|wSuiteMask
 argument_list|,
-name|osvi
-operator|.
-name|wReserved
-index|[
-literal|1
-index|]
+name|osviex_stub
+operator|->
+name|wProductType
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|ngx_log_error(NGX_LOG_INFO, log, 0,                       "OS: %u build:%u, \"%s\", suite:%x, type:%u",                       ngx_win32_version, osvi.dwBuildNumber, osvi.szCSDVersion,                       osvi.wSuiteMask, osvi.wProductType);
-endif|#
-directive|endif
 block|}
 else|else
 block|{
@@ -403,6 +430,17 @@ argument_list|)
 expr_stmt|;
 return|return
 name|NGX_ERROR
+return|;
+block|}
+if|if
+condition|(
+name|ngx_win32_version
+operator|<
+name|NGX_WIN_NT
+condition|)
+block|{
+return|return
+name|NGX_OK
 return|;
 block|}
 comment|/* get AcceptEx(), GetAcceptExSockAddrs() and TransmitFile() addresses */

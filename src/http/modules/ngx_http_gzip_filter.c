@@ -24,7 +24,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27bc84830108
+DECL|struct|__anon2a0517790108
 typedef|typedef
 struct|struct
 block|{
@@ -59,7 +59,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27bc84830208
+DECL|struct|__anon2a0517790208
 typedef|typedef
 struct|struct
 block|{
@@ -2692,16 +2692,10 @@ modifier|*
 name|address
 parameter_list|)
 block|{
-name|ngx_http_gzip_ctx_t
-modifier|*
-name|ctx
-init|=
-name|opaque
-decl_stmt|;
 if|#
 directive|if
 literal|0
-block_content|ngx_log_debug1(NGX_LOG_DEBUG_HTTP, ctx->request->connection->log, 0,                    "gzip free: %X", address);
+block_content|ngx_http_gzip_ctx_t *ctx = opaque;      ngx_log_debug1(NGX_LOG_DEBUG_HTTP, ctx->request->connection->log, 0,                    "gzip free: %X", address);
 endif|#
 directive|endif
 block|}

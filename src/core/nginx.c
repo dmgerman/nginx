@@ -57,11 +57,6 @@ parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
-parameter_list|,
-name|char
-modifier|*
-modifier|*
-name|envp
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -382,7 +377,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|main (int argc,char * const * argv,char ** envp)
+DECL|function|main (int argc,char * const * argv)
 name|int
 name|main
 parameter_list|(
@@ -394,11 +389,6 @@ modifier|*
 specifier|const
 modifier|*
 name|argv
-parameter_list|,
-name|char
-modifier|*
-modifier|*
-name|envp
 parameter_list|)
 block|{
 name|ngx_int_t
@@ -499,6 +489,13 @@ operator|=
 operator|&
 name|init_cycle
 expr_stmt|;
+if|#
+directive|if
+literal|0
+comment|/* STUB */
+block_content|log->log_level = NGX_LOG_DEBUG_ALL;
+endif|#
+directive|endif
 name|ngx_memzero
 argument_list|(
 operator|&
@@ -632,8 +629,6 @@ name|ngx_add_inherited_sockets
 argument_list|(
 operator|&
 name|init_cycle
-argument_list|,
-name|envp
 argument_list|)
 operator|==
 name|NGX_ERROR
@@ -1060,7 +1055,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_add_inherited_sockets (ngx_cycle_t * cycle,char ** envp)
+DECL|function|ngx_add_inherited_sockets (ngx_cycle_t * cycle)
 specifier|static
 name|ngx_int_t
 name|ngx_add_inherited_sockets
@@ -1068,11 +1063,6 @@ parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
-parameter_list|,
-name|char
-modifier|*
-modifier|*
-name|envp
 parameter_list|)
 block|{
 name|char
@@ -1081,6 +1071,9 @@ name|p
 decl_stmt|,
 modifier|*
 name|v
+decl_stmt|,
+modifier|*
+name|inherited
 decl_stmt|;
 name|ngx_socket_t
 name|s
@@ -1089,33 +1082,23 @@ name|ngx_listening_t
 modifier|*
 name|ls
 decl_stmt|;
-for|for
-control|(
-comment|/* void */
-init|;
-operator|*
-name|envp
-condition|;
-name|envp
-operator|++
-control|)
-block|{
+name|inherited
+operator|=
+name|getenv
+argument_list|(
+name|NGINX_VAR
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
-name|ngx_strncmp
-argument_list|(
-operator|*
-name|envp
-argument_list|,
-name|NGINX_VAR
-argument_list|,
-name|NGINX_VAR_LEN
-argument_list|)
-operator|!=
-literal|0
+name|inherited
+operator|==
+name|NULL
 condition|)
 block|{
-continue|continue;
+return|return
+name|NGX_OK
+return|;
 block|}
 name|ngx_log_error
 argument_list|(
@@ -1129,8 +1112,7 @@ literal|0
 argument_list|,
 literal|"using inherited sockets from \"%s\""
 argument_list|,
-operator|*
-name|envp
+name|inherited
 argument_list|)
 expr_stmt|;
 name|ngx_init_array
@@ -1157,10 +1139,7 @@ for|for
 control|(
 name|p
 operator|=
-operator|*
-name|envp
-operator|+
-name|NGINX_VAR_LEN
+name|inherited
 operator|,
 name|v
 operator|=
@@ -1214,8 +1193,9 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"invalid socket number \"%s\" "
-literal|"in NGINX enviroment variable, "
+literal|"invalid socket number \"%s\" in "
+name|NGINX_VAR
+literal|" enviroment variable, "
 literal|"ignoring the rest of the variable"
 argument_list|,
 name|v
@@ -1266,10 +1246,6 @@ name|ngx_set_inherited_sockets
 argument_list|(
 name|cycle
 argument_list|)
-return|;
-block|}
-return|return
-name|NGX_OK
 return|;
 block|}
 end_function
@@ -1341,7 +1317,10 @@ name|var
 operator|=
 name|ngx_alloc
 argument_list|(
-name|NGINX_VAR_LEN
+sizeof|sizeof
+argument_list|(
+name|NGINX_VAR
+argument_list|)
 operator|+
 name|cycle
 operator|->
@@ -1355,7 +1334,7 @@ operator|+
 literal|1
 operator|)
 operator|+
-literal|1
+literal|2
 argument_list|,
 name|cycle
 operator|->
@@ -1369,8 +1348,12 @@ argument_list|(
 name|var
 argument_list|,
 name|NGINX_VAR
+literal|"="
 argument_list|,
-name|NGINX_VAR_LEN
+sizeof|sizeof
+argument_list|(
+name|NGINX_VAR
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|ls
@@ -1420,6 +1403,21 @@ name|fd
 argument_list|)
 expr_stmt|;
 block|}
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_CORE
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"inherited: %s"
+argument_list|,
+name|var
+argument_list|)
+expr_stmt|;
 name|env
 index|[
 literal|0

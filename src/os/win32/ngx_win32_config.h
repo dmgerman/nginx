@@ -34,28 +34,8 @@ directive|define
 name|WIN32_LEAN_AND_MEAN
 end_define
 
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|__WATCOMC__
-end_ifdef
-
-begin_pragma
-pragma|#
-directive|pragma
-name|disable_message
-name|(
-name|107
-name|)
-end_pragma
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
 begin_comment
-comment|/*  * we need to include windows.h explicity before winsock2.h because  * warning 4201 is enabled in windows.h  */
+comment|/*  * we need to include windows.h explicity before winsock2.h because  * the warning 4201 is enabled in windows.h  */
 end_comment
 
 begin_include
@@ -162,6 +142,12 @@ begin_comment
 comment|/* STUB */
 end_comment
 
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
 begin_pragma
 pragma|#
 directive|pragma
@@ -178,29 +164,19 @@ endif|#
 directive|endif
 end_endif
 
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_ifdef
 ifdef|#
 directive|ifdef
 name|__WATCOMC__
 end_ifdef
 
-begin_pragma
-pragma|#
-directive|pragma
-name|enable_message
-name|(
-name|107
-name|)
-end_pragma
-
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-
 begin_comment
-comment|/* Symbol 'ngx_rbtree_min' has been defined, but not referenced */
+comment|/* disable "Symbol 'ngx_rbtree_min' has been defined, but not referenced" */
 end_comment
 
 begin_pragma
@@ -209,24 +185,6 @@ directive|pragma
 name|disable_message
 name|(
 name|202
-name|)
-end_pragma
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_comment
-comment|/* No prototype found for 'stricmp' */
-end_comment
-
-begin_pragma
-pragma|#
-directive|pragma
-name|disable_message
-name|(
-name|301
 name|)
 end_pragma
 

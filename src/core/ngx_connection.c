@@ -427,7 +427,8 @@ for|for
 control|(
 name|tries
 operator|=
-literal|10
+comment|/* STUB */
+literal|1
 init|;
 name|tries
 condition|;

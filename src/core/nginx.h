@@ -57,15 +57,7 @@ DECL|macro|NGINX_VAR
 define|#
 directive|define
 name|NGINX_VAR
-value|"NGINX="
-end_define
-
-begin_define
-DECL|macro|NGINX_VAR_LEN
-define|#
-directive|define
-name|NGINX_VAR_LEN
-value|(sizeof(NGINX_VAR) - 1)
+value|"NGINX"
 end_define
 
 begin_decl_stmt

@@ -966,7 +966,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"iocp event handler: %08x"
+literal|"iocp event handler: "
 name|PTR_FMT
 argument_list|,
 name|ev

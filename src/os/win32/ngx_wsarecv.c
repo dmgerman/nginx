@@ -287,7 +287,7 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
-name|rev
+name|c
 operator|->
 name|log
 argument_list|,
