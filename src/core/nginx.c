@@ -84,7 +84,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon296b3dd00108
+DECL|struct|__anon2880065d0108
 typedef|typedef
 struct|struct
 block|{
@@ -294,6 +294,8 @@ decl_stmt|;
 name|ngx_cycle_t
 modifier|*
 name|cycle
+decl_stmt|,
+name|init_cycle
 decl_stmt|;
 name|ngx_open_file_t
 modifier|*
@@ -341,13 +343,43 @@ expr_stmt|;
 name|ngx_time_init
 argument_list|()
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|HAVE_PCRE
+operator|)
 name|ngx_regex_init
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 name|log
 operator|=
 name|ngx_log_init_errlog
 argument_list|()
+expr_stmt|;
+comment|/* init_cycle->log is required for signal handlers */
+name|ngx_memzero
+argument_list|(
+operator|&
+name|init_cycle
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|ngx_cycle_t
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|init_cycle
+operator|.
+name|log
+operator|=
+name|log
+expr_stmt|;
+name|ngx_cycle
+operator|=
+operator|&
+name|init_cycle
 expr_stmt|;
 if|if
 condition|(
@@ -866,7 +898,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"rotating logs"
+literal|"reopen logs"
 argument_list|)
 expr_stmt|;
 name|file

@@ -69,20 +69,12 @@ operator|=
 operator|&
 name|ngx_event_timer_sentinel
 expr_stmt|;
-name|ngx_event_timer_sentinel
-operator|.
-name|right
-operator|=
-operator|&
-name|ngx_event_timer_sentinel
-expr_stmt|;
-name|ngx_event_timer_sentinel
-operator|.
-name|parent
-operator|=
-operator|&
-name|ngx_event_timer_sentinel
-expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|ngx_event_timer_sentinel.right =&ngx_event_timer_sentinel;     ngx_event_timer_sentinel.parent =&ngx_event_timer_sentinel;
+endif|#
+directive|endif
 return|return
 name|NGX_OK
 return|;

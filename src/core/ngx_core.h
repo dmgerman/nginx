@@ -105,6 +105,12 @@ end_typedef
 begin_include
 include|#
 directive|include
+file|<ngx_atomic.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_time.h>
 end_include
 
@@ -192,11 +198,24 @@ directive|include
 file|<ngx_crc.h>
 end_include
 
+begin_if
+if|#
+directive|if
+operator|(
+name|HAVE_PCRE
+operator|)
+end_if
+
 begin_include
 include|#
 directive|include
 file|<ngx_regex.h>
 end_include
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_include
 include|#
