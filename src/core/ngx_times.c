@@ -392,6 +392,9 @@ argument_list|)
 expr_stmt|;
 name|ngx_start_msec
 operator|=
+operator|(
+name|ngx_epoch_msec_t
+operator|)
 name|tv
 operator|.
 name|tv_sec

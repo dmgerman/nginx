@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c47ec1b0108
+DECL|struct|__anon2c65e1350108
 typedef|typedef
 struct|struct
 block|{
@@ -2110,6 +2110,9 @@ name|ngx_elapsed_msec
 expr_stmt|;
 name|ngx_elapsed_msec
 operator|=
+operator|(
+name|ngx_epoch_msec_t
+operator|)
 name|tv
 operator|.
 name|tv_sec
@@ -2123,6 +2126,21 @@ operator|/
 literal|1000
 operator|-
 name|ngx_start_msec
+expr_stmt|;
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"elapsed: %qd"
+argument_list|,
+name|ngx_elapsed_msec
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
