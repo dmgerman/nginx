@@ -275,7 +275,7 @@ modifier|*
 name|ce
 decl_stmt|,
 modifier|*
-name|pe
+name|le
 decl_stmt|;
 name|ngx_http_output_filter_ctx_t
 modifier|*
@@ -401,7 +401,7 @@ condition|(
 name|hunk
 condition|)
 block|{
-comment|/* the output of the only hunk is common case so we have            special chain entry ctx->in for it */
+comment|/* the output of the only hunk is common case so we have            the special chain entry ctx->in for it */
 if|if
 condition|(
 name|ctx
@@ -663,7 +663,7 @@ directive|if
 operator|(
 name|NGX_SUPPRESS_WARN
 operator|)
-name|pe
+name|le
 operator|=
 name|NULL
 expr_stmt|;
@@ -704,7 +704,7 @@ condition|)
 block|{
 break|break;
 block|}
-name|pe
+name|le
 operator|=
 name|ce
 expr_stmt|;
@@ -749,7 +749,7 @@ name|incoming
 operator|=
 name|ce
 expr_stmt|;
-name|pe
+name|le
 operator|->
 name|next
 operator|=
