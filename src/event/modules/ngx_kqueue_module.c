@@ -259,6 +259,20 @@ name|u_int
 name|flags
 parameter_list|)
 block|{
+name|ev
+operator|->
+name|oneshot
+operator|=
+operator|(
+name|flags
+operator|&
+name|NGX_ONESHOT_EVENT
+operator|)
+condition|?
+literal|1
+else|:
+literal|0
+expr_stmt|;
 return|return
 name|ngx_kqueue_set_event
 argument_list|(
@@ -929,6 +943,17 @@ if|if
 condition|(
 name|ev
 operator|->
+name|oneshot
+condition|)
+name|ngx_del_timer
+argument_list|(
+name|ev
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|ev
+operator|->
 name|event_handler
 argument_list|(
 name|ev
@@ -988,6 +1013,17 @@ argument|ev->log
 argument_list|,
 literal|"set timer: %d"
 argument|_ timer
+argument_list|)
+empty_stmt|;
+name|ngx_assert
+argument_list|(
+argument|(!ev->timer_next&& !ev->timer_prev)
+argument_list|,
+argument|return
+argument_list|,
+argument|ev->log
+argument_list|,
+literal|"timer already set"
 argument_list|)
 empty_stmt|;
 for|for

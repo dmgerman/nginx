@@ -18,6 +18,14 @@ directive|include
 file|<ngx_config.h>
 end_include
 
+begin_define
+DECL|macro|NGX_WRITE_SHUTDOWN
+define|#
+directive|define
+name|NGX_WRITE_SHUTDOWN
+value|SHUT_WR
+end_define
+
 begin_typedef
 DECL|typedef|ngx_socket_t
 typedef|typedef
@@ -75,6 +83,22 @@ define|#
 directive|define
 name|ngx_nonblocking_n
 value|"fcntl(O_NONBLOCK)"
+end_define
+
+begin_define
+DECL|macro|ngx_shutdown_socket
+define|#
+directive|define
+name|ngx_shutdown_socket
+value|shutdown
+end_define
+
+begin_define
+DECL|macro|ngx_shutdown_socket_n
+define|#
+directive|define
+name|ngx_shutdown_socket_n
+value|"shutdown()"
 end_define
 
 begin_define

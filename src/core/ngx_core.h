@@ -29,6 +29,14 @@ value|-1
 end_define
 
 begin_define
+DECL|macro|NGX_DONE
+define|#
+directive|define
+name|NGX_DONE
+value|NGX_ERROR
+end_define
+
+begin_define
 DECL|macro|NGX_AGAIN
 define|#
 directive|define

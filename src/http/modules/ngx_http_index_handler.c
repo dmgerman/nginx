@@ -577,6 +577,8 @@ sizeof|sizeof
 argument_list|(
 name|NGX_HTTP_INDEX
 argument_list|)
+operator|+
+literal|1
 expr_stmt|;
 block|}
 return|return
@@ -647,6 +649,8 @@ name|strlen
 argument_list|(
 name|value
 argument_list|)
+operator|+
+literal|1
 expr_stmt|;
 if|if
 condition|(

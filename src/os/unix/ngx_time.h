@@ -122,6 +122,19 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_comment
+comment|/* STUB */
+end_comment
+
+begin_define
+DECL|macro|ngx_time ()
+define|#
+directive|define
+name|ngx_time
+parameter_list|()
+value|time(NULL)
+end_define
+
 begin_endif
 endif|#
 directive|endif
