@@ -370,6 +370,35 @@ value|(time_t) (((((unsigned __int64) (fi)->ftLastWriteTime.dwHighDateTime<< 32)
 end_define
 
 begin_define
+DECL|macro|ngx_getcwd (buf,size)
+define|#
+directive|define
+name|ngx_getcwd
+parameter_list|(
+name|buf
+parameter_list|,
+name|size
+parameter_list|)
+value|GetCurrentDirectory(size, buf)
+end_define
+
+begin_define
+DECL|macro|ngx_getcwd_n
+define|#
+directive|define
+name|ngx_getcwd_n
+value|"GetCurrentDirectory()"
+end_define
+
+begin_define
+DECL|macro|NGX_MAX_PATH
+define|#
+directive|define
+name|NGX_MAX_PATH
+value|MAX_PATH
+end_define
+
+begin_define
 DECL|macro|NGX_DIR_MASK
 define|#
 directive|define

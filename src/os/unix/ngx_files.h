@@ -355,6 +355,35 @@ value|(sb)->st_ino
 end_define
 
 begin_define
+DECL|macro|ngx_getcwd (buf,size)
+define|#
+directive|define
+name|ngx_getcwd
+parameter_list|(
+name|buf
+parameter_list|,
+name|size
+parameter_list|)
+value|(getcwd(buf, size) != NULL)
+end_define
+
+begin_define
+DECL|macro|ngx_getcwd_n
+define|#
+directive|define
+name|ngx_getcwd_n
+value|"getcwd()"
+end_define
+
+begin_define
+DECL|macro|NGX_MAX_PATH
+define|#
+directive|define
+name|NGX_MAX_PATH
+value|PATH_MAX
+end_define
+
+begin_define
 DECL|macro|NGX_DIR_MASK_LEN
 define|#
 directive|define

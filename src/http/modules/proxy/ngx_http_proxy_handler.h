@@ -49,7 +49,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|enum|__anon2ad83a0e0103
+DECL|enum|__anon2ad85d930103
 typedef|typedef
 enum|enum
 block|{
@@ -85,7 +85,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2ad83a0e0203
+DECL|enum|__anon2ad85d930203
 typedef|typedef
 enum|enum
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad83a0e0308
+DECL|struct|__anon2ad85d930308
 typedef|typedef
 struct|struct
 block|{
@@ -164,7 +164,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad83a0e0408
+DECL|struct|__anon2ad85d930408
 typedef|typedef
 struct|struct
 block|{
@@ -284,7 +284,7 @@ comment|/*  * "EXPR/10/5/- 200/EXP/60 4"  * "MISS/-/-/B 503/-/- -"  * "EXPR/10/2
 end_comment
 
 begin_typedef
-DECL|struct|__anon2ad83a0e0508
+DECL|struct|__anon2ad85d930508
 typedef|typedef
 struct|struct
 block|{
@@ -332,7 +332,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad83a0e0608
+DECL|struct|__anon2ad85d930608
 typedef|typedef
 struct|struct
 block|{
@@ -401,6 +401,11 @@ name|ngx_table_elt_t
 modifier|*
 name|accept_ranges
 decl_stmt|;
+DECL|member|x_pad
+name|ngx_table_elt_t
+modifier|*
+name|x_pad
+decl_stmt|;
 DECL|member|content_length_n
 name|off_t
 name|content_length_n
@@ -412,7 +417,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad83a0e0708
+DECL|struct|__anon2ad85d930708
 typedef|typedef
 struct|struct
 block|{
@@ -439,7 +444,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad83a0e0808
+DECL|struct|__anon2ad85d930808
 typedef|typedef
 struct|struct
 block|{
@@ -623,7 +628,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2ad83a0e0908
+DECL|struct|__anon2ad85d930908
 typedef|typedef
 struct|struct
 block|{
