@@ -2350,6 +2350,8 @@ argument_list|,
 name|NGX_FILE_RDWR
 argument_list|,
 name|NGX_FILE_CREATE_OR_OPEN
+operator||
+name|NGX_FILE_TRUNCATE
 argument_list|)
 expr_stmt|;
 if|if

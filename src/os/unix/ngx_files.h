@@ -97,6 +97,14 @@ value|0
 end_define
 
 begin_define
+DECL|macro|NGX_FILE_TRUNCATE
+define|#
+directive|define
+name|NGX_FILE_TRUNCATE
+value|O_TRUNC
+end_define
+
+begin_define
 DECL|macro|NGX_FILE_APPEND
 define|#
 directive|define
