@@ -196,6 +196,60 @@ name|ngx_tm_wday_t
 value|int
 end_define
 
+begin_if
+if|#
+directive|if
+operator|(
+name|SOLARIS
+operator|)
+end_if
+
+begin_define
+DECL|macro|HAVE_TIMEZONE
+define|#
+directive|define
+name|HAVE_TIMEZONE
+value|1
+end_define
+
+begin_define
+DECL|macro|ngx_timezone ()
+define|#
+directive|define
+name|ngx_timezone
+parameter_list|()
+value|(-((daylight) ? altzone : timezone) / 60)
+end_define
+
+begin_elif
+elif|#
+directive|elif
+name|defined
+name|__linux__
+end_elif
+
+begin_define
+DECL|macro|HAVE_TIMEZONE
+define|#
+directive|define
+name|HAVE_TIMEZONE
+value|1
+end_define
+
+begin_define
+DECL|macro|ngx_timezone ()
+define|#
+directive|define
+name|ngx_timezone
+parameter_list|()
+value|(- timezone / 60 + daylight * 60)
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_function_decl
 name|void
 name|ngx_localtime

@@ -76,6 +76,19 @@ modifier|*
 name|ctx
 parameter_list|)
 block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"master mode is not supported"
+argument_list|)
+expr_stmt|;
 name|exit
 argument_list|(
 literal|2

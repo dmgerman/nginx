@@ -184,6 +184,23 @@ name|ngx_msleep
 value|Sleep
 end_define
 
+begin_define
+DECL|macro|HAVE_TIMEZONE
+define|#
+directive|define
+name|HAVE_TIMEZONE
+value|1
+end_define
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_timezone
+parameter_list|(
+name|void
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_function_decl
 name|void
 name|ngx_gettimeofday

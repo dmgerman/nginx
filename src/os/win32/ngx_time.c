@@ -89,5 +89,40 @@ expr_stmt|;
 block|}
 end_function
 
+begin_function
+DECL|function|ngx_timezone (void)
+name|ngx_int_t
+name|ngx_timezone
+parameter_list|(
+name|void
+parameter_list|)
+block|{
+name|TIME_ZONE_INFORMATION
+name|tz
+decl_stmt|;
+if|if
+condition|(
+name|GetTimeZoneInformation
+argument_list|(
+operator|&
+name|tz
+argument_list|)
+operator|!=
+name|TIME_ZONE_ID_INVALID
+condition|)
+block|{
+return|return
+operator|-
+name|tz
+operator|.
+name|Bias
+return|;
+block|}
+return|return
+literal|0
+return|;
+block|}
+end_function
+
 end_unit
 
