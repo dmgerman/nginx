@@ -24,8 +24,14 @@ directive|include
 file|<ngx_core.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_http.h>
+end_include
+
 begin_typedef
-DECL|struct|__anon28902b200108
+DECL|struct|__anon2788f2810108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +58,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28902b200208
+DECL|struct|__anon2788f2810208
 typedef|typedef
 struct|struct
 block|{
@@ -78,7 +84,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28902b200308
+DECL|struct|__anon2788f2810308
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +138,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28902b200408
+DECL|struct|__anon2788f2810408
 typedef|typedef
 struct|struct
 block|{

@@ -3558,7 +3558,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"value must be more than %d"
+literal|"value must be equal or more than %d"
 argument_list|,
 name|bounds
 operator|->
