@@ -383,6 +383,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<sys/mman.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<sys/wait.h>
 end_include
 
@@ -719,14 +725,12 @@ operator|||
 name|__FreeBSD_version
 operator|==
 literal|460001
-end_if
-
-begin_expr
+expr|\
 operator|||
 name|__FreeBSD_version
 operator|>=
 literal|500029
-end_expr
+end_if
 
 begin_if
 if|#
@@ -737,6 +741,12 @@ operator|==
 literal|2
 operator|)
 end_if
+
+begin_undef
+undef|#
+directive|undef
+name|HAVE_FREEBSD_SENDFILE_NBYTES_BUG
+end_undef
 
 begin_define
 DECL|macro|HAVE_FREEBSD_SENDFILE_NBYTES_BUG

@@ -19,7 +19,7 @@ file|<ngx_config.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27c865610108
+DECL|struct|__anon2bc3ffa20108
 typedef|typedef
 struct|struct
 block|{
@@ -245,6 +245,24 @@ parameter_list|,
 name|char
 modifier|*
 name|src
+parameter_list|,
+name|size_t
+name|n
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|int
+name|ngx_rstrncmp
+parameter_list|(
+name|char
+modifier|*
+name|s1
+parameter_list|,
+name|char
+modifier|*
+name|s2
 parameter_list|,
 name|size_t
 name|n

@@ -265,7 +265,7 @@ name|NGX_HTTP_MAIN_CONF
 operator||
 name|NGX_CONF_TAKE1
 block|,
-name|ngx_conf_set_time_slot
+name|ngx_conf_set_msec_slot
 block|,
 literal|0
 block|,
@@ -325,7 +325,7 @@ name|NGX_HTTP_MAIN_CONF
 operator||
 name|NGX_CONF_TAKE1
 block|,
-name|ngx_conf_set_time_slot
+name|ngx_conf_set_msec_slot
 block|,
 literal|0
 block|,
@@ -465,7 +465,7 @@ name|NGX_HTTP_LOC_CONF
 operator||
 name|NGX_CONF_TAKE1
 block|,
-name|ngx_conf_set_time_slot
+name|ngx_conf_set_msec_slot
 block|,
 name|NGX_HTTP_LOC_CONF_OFFSET
 block|,
@@ -487,7 +487,7 @@ name|NGX_HTTP_LOC_CONF
 operator||
 name|NGX_CONF_TAKE1
 block|,
-name|ngx_conf_set_time_slot
+name|ngx_conf_set_msec_slot
 block|,
 name|NGX_HTTP_LOC_CONF_OFFSET
 block|,
@@ -509,7 +509,7 @@ name|NGX_HTTP_LOC_CONF
 operator||
 name|NGX_CONF_TAKE1
 block|,
-name|ngx_conf_set_time_slot
+name|ngx_conf_set_msec_slot
 block|,
 name|NGX_HTTP_LOC_CONF_OFFSET
 block|,
@@ -1001,7 +1001,7 @@ continue|continue;
 block|}
 name|rc
 operator|=
-name|ngx_strncmp
+name|ngx_rstrncmp
 argument_list|(
 name|r
 operator|->

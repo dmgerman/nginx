@@ -252,7 +252,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a8f12e30108
+DECL|struct|__anon294225d10108
 typedef|typedef
 struct|struct
 block|{
@@ -293,7 +293,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a8f12e30208
+DECL|struct|__anon294225d10208
 typedef|typedef
 struct|struct
 block|{
@@ -469,6 +469,26 @@ begin_function_decl
 name|char
 modifier|*
 name|ngx_conf_set_size_slot
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_command_t
+modifier|*
+name|cmd
+parameter_list|,
+name|char
+modifier|*
+name|conf
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|char
+modifier|*
+name|ngx_conf_set_msec_slot
 parameter_list|(
 name|ngx_conf_t
 modifier|*
