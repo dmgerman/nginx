@@ -53,7 +53,7 @@ value|21
 end_define
 
 begin_typedef
-DECL|struct|__anon28a80fb80108
+DECL|struct|__anon29b6326c0108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a80fb80208
+DECL|struct|__anon29b6326c0208
 typedef|typedef
 struct|struct
 block|{
@@ -134,7 +134,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a80fb80308
+DECL|struct|__anon29b6326c0308
 typedef|typedef
 struct|struct
 block|{
@@ -170,7 +170,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a80fb80408
+DECL|struct|__anon29b6326c0408
 typedef|typedef
 struct|struct
 block|{
@@ -206,7 +206,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a80fb80508
+DECL|struct|__anon29b6326c0508
 typedef|typedef
 struct|struct
 block|{
@@ -260,9 +260,9 @@ DECL|member|max_temp_file_size
 name|int
 name|max_temp_file_size
 decl_stmt|;
-DECL|member|file_block_size
+DECL|member|temp_file_write_size
 name|int
-name|file_block_size
+name|temp_file_write_size
 decl_stmt|;
 DECL|member|temp_path
 name|ngx_path_t
@@ -543,7 +543,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28a80fb80608
+DECL|struct|__anon29b6326c0608
 typedef|typedef
 struct|struct
 block|{

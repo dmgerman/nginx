@@ -92,7 +92,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon27c559ad0108
+DECL|struct|__anon2790d0920108
 typedef|typedef
 struct|struct
 block|{
@@ -281,6 +281,12 @@ name|timer_set
 range|:
 literal|1
 decl_stmt|;
+DECL|member|delayed
+name|unsigned
+name|delayed
+range|:
+literal|1
+decl_stmt|;
 DECL|member|process
 name|unsigned
 name|process
@@ -393,7 +399,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon27c559ad0203
+DECL|enum|__anon2790d0920203
 typedef|typedef
 enum|enum
 block|{
@@ -462,7 +468,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c559ad0308
+DECL|struct|__anon2790d0920308
 typedef|typedef
 struct|struct
 block|{

@@ -122,6 +122,35 @@ init|;
 condition|;
 control|)
 block|{
+comment|/* use the pre-read hunks if they exist */
+if|if
+condition|(
+name|p
+operator|->
+name|preread_hunks
+condition|)
+block|{
+name|chain
+operator|=
+name|p
+operator|->
+name|preread_hunks
+expr_stmt|;
+name|p
+operator|->
+name|preread_hunks
+operator|=
+name|NULL
+expr_stmt|;
+name|n
+operator|=
+name|p
+operator|->
+name|preread_size
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|/* use the free hunks if they exist */
 if|if
 condition|(
@@ -260,7 +289,34 @@ literal|"shadow hunk: %08X"
 argument|_ chain->hunk _               chain->hunk->end - chain->hunk->last
 argument_list|)
 empty_stmt|;
-comment|/* if it's allowed then save the incoming hunks to a temporary file,            move the saved hunks to a shadow chain,            and add the file hunks to an outgoing chain */
+comment|/* if the hunks is not needed to be saved in a cache and                a downstream is ready then write the hunks to a downstream */
+block|}
+if|else if
+condition|(
+name|p
+operator|->
+name|cachable
+operator|==
+literal|0
+operator|&&
+name|p
+operator|->
+name|downstream
+operator|->
+name|write
+operator|->
+name|ready
+condition|)
+block|{
+name|rc
+operator|=
+name|ngx_event_proxy_write_to_downstream
+argument_list|(
+name|p
+argument_list|)
+expr_stmt|;
+continue|continue;
+comment|/* if it's allowed then save the incoming hunks                to a temporary file, move the saved hunks to a shadow chain,                and add the file hunks to an outgoing chain */
 block|}
 if|else if
 condition|(
@@ -270,7 +326,7 @@ name|temp_offset
 operator|<
 name|p
 operator|->
-name|max_temp_size
+name|max_temp_file_size
 condition|)
 block|{
 name|rc
@@ -350,6 +406,7 @@ argument_list|,
 name|chain
 argument_list|)
 expr_stmt|;
+block|}
 name|ngx_log_debug
 argument_list|(
 argument|p->log
@@ -426,9 +483,7 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-return|return
-name|NGX_AGAIN
-return|;
+break|break;
 block|}
 if|if
 condition|(
@@ -714,6 +769,8 @@ operator|->
 name|type
 operator||=
 name|NGX_HUNK_LAST_SHADOW
+operator||
+name|NGX_HUNK_RECYCLED
 expr_stmt|;
 name|entry
 operator|->
@@ -1155,7 +1212,7 @@ name|out_hunks
 operator|&&
 name|p
 operator|->
-name|client
+name|downstream
 operator|->
 name|write
 operator|->
@@ -1164,7 +1221,7 @@ condition|)
 block|{
 name|rc
 operator|=
-name|ngx_event_proxy_write_to_client
+name|ngx_event_proxy_write_to_downstream
 argument_list|(
 name|p
 argument_list|)
@@ -1185,7 +1242,7 @@ operator|)
 operator|&&
 name|p
 operator|->
-name|client
+name|downstream
 operator|->
 name|write
 operator|->
@@ -1194,7 +1251,7 @@ condition|)
 block|{
 name|rc
 operator|=
-name|ngx_event_proxy_write_to_client
+name|ngx_event_proxy_write_to_downstream
 argument_list|(
 name|p
 argument_list|)
@@ -1283,9 +1340,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_event_proxy_write_to_client (ngx_event_proxy_t * p)
+DECL|function|ngx_event_proxy_write_to_downstream (ngx_event_proxy_t * p)
 name|int
-name|ngx_event_proxy_write_to_client
+name|ngx_event_proxy_write_to_downstream
 parameter_list|(
 name|ngx_event_proxy_t
 modifier|*
@@ -1309,7 +1366,7 @@ name|p
 operator|->
 name|log
 argument_list|,
-literal|"write to client"
+literal|"write to downstream"
 argument_list|)
 expr_stmt|;
 name|h
@@ -1951,7 +2008,7 @@ name|size
 operator|>=
 name|p
 operator|->
-name|file_block_size
+name|temp_file_write_size
 condition|)
 block|{
 break|break;
@@ -2174,6 +2231,12 @@ operator|&
 name|NGX_HUNK_LAST_SHADOW
 condition|)
 block|{
+if|#
+directive|if
+literal|0
+block_content|h->shadow->last = h->shadow->pos;
+else|#
+directive|else
 name|h
 operator|->
 name|shadow
@@ -2185,7 +2248,15 @@ operator|->
 name|shadow
 operator|->
 name|pos
+operator|=
+name|h
+operator|->
+name|shadow
+operator|->
+name|start
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 if|if
 condition|(
@@ -2401,6 +2472,8 @@ operator|->
 name|type
 operator||=
 name|NGX_HUNK_LAST_SHADOW
+operator||
+name|NGX_HUNK_RECYCLED
 expr_stmt|;
 name|entry
 operator|->
