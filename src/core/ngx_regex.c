@@ -210,6 +210,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/* ensure that there is no current pool */
+name|ngx_pcre_pool
+operator|=
+name|NULL
+expr_stmt|;
 return|return
 name|re
 return|;
@@ -299,6 +304,11 @@ name|size_t
 name|size
 parameter_list|)
 block|{
+if|if
+condition|(
+name|ngx_pcre_pool
+condition|)
+block|{
 return|return
 name|ngx_palloc
 argument_list|(
@@ -306,6 +316,10 @@ name|ngx_pcre_pool
 argument_list|,
 name|size
 argument_list|)
+return|;
+block|}
+return|return
+name|NULL
 return|;
 block|}
 end_function

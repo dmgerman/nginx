@@ -350,7 +350,7 @@ modifier|*
 name|http_headers
 parameter_list|)
 block|{
-name|char
+name|void
 modifier|*
 name|prev
 decl_stmt|;
@@ -372,12 +372,6 @@ name|new
 decl_stmt|;
 name|headers
 operator|=
-operator|*
-operator|(
-name|ngx_table_t
-operator|*
-operator|*
-operator|)
 name|header
 expr_stmt|;
 name|prev

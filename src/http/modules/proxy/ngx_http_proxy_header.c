@@ -78,7 +78,7 @@ operator|=
 name|headers_in
 operator|->
 name|headers
-operator|->
+operator|.
 name|elts
 expr_stmt|;
 for|for
@@ -92,7 +92,7 @@ operator|<
 name|headers_in
 operator|->
 name|headers
-operator|->
+operator|.
 name|nelts
 condition|;
 name|i
@@ -412,6 +412,10 @@ name|u_char
 modifier|*
 name|last
 decl_stmt|;
+name|ngx_table_elt_t
+modifier|*
+name|location
+decl_stmt|;
 name|ngx_http_request_t
 modifier|*
 name|r
@@ -434,10 +438,6 @@ name|lcf
 operator|->
 name|upstream
 expr_stmt|;
-name|r
-operator|->
-name|headers_out
-operator|.
 name|location
 operator|=
 name|ngx_http_add_header
@@ -452,10 +452,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|r
-operator|->
-name|headers_out
-operator|.
 name|location
 operator|==
 name|NULL
@@ -465,6 +461,13 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+comment|/*      * we do not set r->headers_out.location to avoid the handling      * the local redirects without a host name by ngx_http_header_filter()      */
+if|#
+directive|if
+literal|0
+block_content|r->headers_out.location = location;
+endif|#
+directive|endif
 if|if
 condition|(
 name|uc
@@ -504,10 +507,6 @@ literal|0
 condition|)
 block|{
 operator|*
-name|r
-operator|->
-name|headers_out
-operator|.
 name|location
 operator|=
 operator|*
@@ -518,10 +517,6 @@ name|NGX_OK
 return|;
 block|}
 comment|/* TODO: proxy_reverse */
-name|r
-operator|->
-name|headers_out
-operator|.
 name|location
 operator|->
 name|value
@@ -550,10 +545,10 @@ operator|)
 operator|+
 literal|1
 expr_stmt|;
-name|r
-operator|->
-name|headers_out
-operator|.
+if|if
+condition|(
+operator|!
+operator|(
 name|location
 operator|->
 name|value
@@ -566,30 +561,13 @@ name|r
 operator|->
 name|pool
 argument_list|,
-name|r
-operator|->
-name|headers_out
-operator|.
 name|location
 operator|->
 name|value
 operator|.
 name|len
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|r
-operator|->
-name|headers_out
-operator|.
-name|location
-operator|->
-name|value
-operator|.
-name|data
-operator|==
-name|NULL
+operator|)
 condition|)
 block|{
 return|return
@@ -600,10 +578,6 @@ name|last
 operator|=
 name|ngx_cpymem
 argument_list|(
-name|r
-operator|->
-name|headers_out
-operator|.
 name|location
 operator|->
 name|value

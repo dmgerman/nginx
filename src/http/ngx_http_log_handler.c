@@ -1819,7 +1819,7 @@ operator|->
 name|headers_in
 operator|.
 name|headers
-operator|->
+operator|.
 name|elts
 expr_stmt|;
 for|for
@@ -1835,7 +1835,7 @@ operator|->
 name|headers_in
 operator|.
 name|headers
-operator|->
+operator|.
 name|nelts
 condition|;
 name|i
@@ -2810,7 +2810,7 @@ operator|->
 name|headers_out
 operator|.
 name|headers
-operator|->
+operator|.
 name|elts
 expr_stmt|;
 for|for
@@ -2826,7 +2826,7 @@ operator|->
 name|headers_out
 operator|.
 name|headers
-operator|->
+operator|.
 name|nelts
 condition|;
 name|i

@@ -392,8 +392,8 @@ end_decl_stmt
 
 begin_function
 DECL|function|ngx_tcp_push (ngx_socket_t s)
-specifier|static
 name|ngx_inline
+specifier|static
 name|int
 name|ngx_tcp_push
 parameter_list|(

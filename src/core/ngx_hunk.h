@@ -269,7 +269,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2ad154c90108
+DECL|struct|__anon2c70efd60108
 typedef|typedef
 struct|struct
 block|{
@@ -308,7 +308,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad154c90208
+DECL|struct|__anon2c70efd60208
 typedef|typedef
 struct|struct
 block|{
@@ -365,10 +365,10 @@ DECL|member|output_filter
 name|ngx_output_chain_filter_pt
 name|output_filter
 decl_stmt|;
-DECL|member|output_ctx
+DECL|member|filter_ctx
 name|void
 modifier|*
-name|output_ctx
+name|filter_ctx
 decl_stmt|;
 DECL|typedef|ngx_output_chain_ctx_t
 block|}
@@ -377,7 +377,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad154c90308
+DECL|struct|__anon2c70efd60308
 typedef|typedef
 struct|struct
 block|{

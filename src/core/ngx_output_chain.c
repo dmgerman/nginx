@@ -120,7 +120,7 @@ name|output_filter
 argument_list|(
 name|ctx
 operator|->
-name|output_ctx
+name|filter_ctx
 argument_list|,
 name|in
 argument_list|)
@@ -154,7 +154,7 @@ name|output_filter
 argument_list|(
 name|ctx
 operator|->
-name|output_ctx
+name|filter_ctx
 argument_list|,
 name|in
 argument_list|)
@@ -594,7 +594,7 @@ name|output_filter
 argument_list|(
 name|ctx
 operator|->
-name|output_ctx
+name|filter_ctx
 argument_list|,
 name|out
 argument_list|)

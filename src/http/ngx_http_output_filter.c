@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b8155bb0108
+DECL|struct|__anon2c468c710108
 typedef|typedef
 struct|struct
 block|{
@@ -309,7 +309,7 @@ name|ngx_http_top_body_filter
 expr_stmt|;
 name|ctx
 operator|->
-name|output_ctx
+name|filter_ctx
 operator|=
 name|r
 expr_stmt|;

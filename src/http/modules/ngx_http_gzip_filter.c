@@ -24,7 +24,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ae992d30108
+DECL|struct|__anon29c4ea600108
 typedef|typedef
 struct|struct
 block|{
@@ -59,7 +59,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae992d30208
+DECL|struct|__anon29c4ea600208
 typedef|typedef
 struct|struct
 block|{
@@ -118,7 +118,7 @@ modifier|*
 name|free_mem
 decl_stmt|;
 DECL|member|allocated
-name|int
+name|ngx_uint_t
 name|allocated
 decl_stmt|;
 DECL|member|flush
@@ -2535,12 +2535,12 @@ name|ctx
 init|=
 name|opaque
 decl_stmt|;
-name|int
-name|alloc
-decl_stmt|;
 name|void
 modifier|*
 name|p
+decl_stmt|;
+name|ngx_uint_t
+name|alloc
 decl_stmt|;
 name|alloc
 operator|=
@@ -2612,7 +2612,8 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"gzip alloc: n:%d s:%d a:%d p:%08X"
+literal|"gzip alloc: n:%d s:%d a:%d p:"
+name|PTR_FMT
 argument_list|,
 name|items
 argument_list|,

@@ -173,14 +173,6 @@ value|17
 end_define
 
 begin_define
-DECL|macro|NGX_HTTP_PARSE_ENTITY_TOO_LARGE
-define|#
-directive|define
-name|NGX_HTTP_PARSE_ENTITY_TOO_LARGE
-value|18
-end_define
-
-begin_define
 DECL|macro|NGX_HTTP_OK
 define|#
 directive|define
@@ -345,7 +337,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon2a279b7b0103
+DECL|enum|__anon2c4b2c4f0103
 typedef|typedef
 enum|enum
 block|{
@@ -384,7 +376,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a279b7b0208
+DECL|struct|__anon2c4b2c4f0208
 typedef|typedef
 struct|struct
 block|{
@@ -403,13 +395,12 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a279b7b0308
+DECL|struct|__anon2c4b2c4f0308
 typedef|typedef
 struct|struct
 block|{
 DECL|member|headers
 name|ngx_table_t
-modifier|*
 name|headers
 decl_stmt|;
 comment|/* it must be first field */
@@ -505,7 +496,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a279b7b0408
+DECL|struct|__anon2c4b2c4f0408
 typedef|typedef
 struct|struct
 block|{
@@ -556,7 +547,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a279b7b0508
+DECL|struct|__anon2c4b2c4f0508
 typedef|typedef
 struct|struct
 block|{
@@ -579,13 +570,12 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a279b7b0608
+DECL|struct|__anon2c4b2c4f0608
 typedef|typedef
 struct|struct
 block|{
 DECL|member|headers
 name|ngx_table_t
-modifier|*
 name|headers
 decl_stmt|;
 comment|/* it must be first field */
@@ -678,10 +668,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon2a279b7b070a
+DECL|union|__anon2c4b2c4f070a
 union|union
 block|{
-DECL|struct|__anon2a279b7b0808
+DECL|struct|__anon2c4b2c4f0808
 struct|struct
 block|{
 DECL|member|fd
@@ -697,7 +687,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon2a279b7b0908
+DECL|struct|__anon2c4b2c4f0908
 struct|struct
 block|{
 DECL|member|hash
@@ -1043,12 +1033,12 @@ name|lingering_close
 range|:
 literal|1
 decl_stmt|;
-if|#
-directive|if
-literal|0
-block|unsigned             closed:1;
-endif|#
-directive|endif
+DECL|member|closed
+name|unsigned
+name|closed
+range|:
+literal|1
+decl_stmt|;
 comment|/* TODO: use the filter flags or the separate bits ???? */
 DECL|member|filter
 name|u_int
