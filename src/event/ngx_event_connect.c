@@ -949,7 +949,7 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-comment|/*          * aio allows to post operation on non-connected socket          * at least in FreeBSD          *           * TODO: check in Win32, etc.          */
+comment|/*          * aio allows to post operation on non-connected socket          * at least in FreeBSD          *           * TODO: check in Win32, etc. As workaround we can use NGX_ONESHOT_EVENT          */
 name|rev
 operator|->
 name|ready

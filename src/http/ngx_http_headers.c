@@ -298,8 +298,6 @@ name|int
 name|i
 decl_stmt|,
 name|j
-decl_stmt|,
-name|nelts
 decl_stmt|;
 name|char
 modifier|*
@@ -331,12 +329,6 @@ operator|=
 name|headers
 operator|->
 name|elts
-expr_stmt|;
-name|nelts
-operator|=
-name|headers
-operator|->
-name|nelts
 expr_stmt|;
 if|if
 condition|(
@@ -383,7 +375,11 @@ literal|0
 argument_list|,
 literal|"header table is small, %d elements"
 argument_list|,
+name|headers
+operator|->
 name|nelts
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 name|h
@@ -400,7 +396,11 @@ literal|0
 init|;
 name|i
 operator|<
+name|headers
+operator|->
 name|nelts
+operator|-
+literal|1
 condition|;
 name|i
 operator|++

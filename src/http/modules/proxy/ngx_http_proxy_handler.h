@@ -37,7 +37,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2988b8e80108
+DECL|struct|__anon2c42d2800108
 typedef|typedef
 struct|struct
 block|{
@@ -73,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2988b8e80208
+DECL|struct|__anon2c42d2800208
 typedef|typedef
 struct|struct
 block|{
@@ -147,7 +147,27 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2988b8e80308
+DECL|struct|__anon2c42d2800308
+typedef|typedef
+struct|struct
+block|{
+DECL|member|status
+name|int
+name|status
+decl_stmt|;
+DECL|member|peer
+name|ngx_str_t
+modifier|*
+name|peer
+decl_stmt|;
+DECL|typedef|ngx_http_proxy_state_t
+block|}
+name|ngx_http_proxy_state_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2c42d2800408
 typedef|typedef
 struct|struct
 block|{
@@ -321,6 +341,11 @@ DECL|member|state
 name|int
 name|state
 decl_stmt|;
+DECL|member|states
+name|ngx_array_t
+name|states
+decl_stmt|;
+comment|/* of ngx_http_proxy_state_t */
 DECL|member|action
 name|char
 modifier|*

@@ -498,6 +498,7 @@ block|}
 if|#
 directive|if
 literal|0
+comment|/* TODO: learn SO_SNDBUF (to use in zerocopy) via kqueue's EV_CLEAR event */
 block_content|c->write->ready = 0;     c->write->event_handler = ngx_http_dummy;      if (ngx_handle_write_event(c->write, 0) == NGX_ERROR) {         ngx_http_close_connection(c);         return;     }
 endif|#
 directive|endif
