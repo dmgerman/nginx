@@ -24,12 +24,16 @@ directive|include
 file|<ngx_log.h>
 end_include
 
+begin_comment
+comment|/* NGX_MAX_ALLOC_FROM_POOL should be (PAGE_SIZE - 1), i.e. 4095 on x86.    On FreeBSD 5.x it allows to use zero copy send.    On Windows NT it decreases number of locked pages in kernel.  */
+end_comment
+
 begin_define
 DECL|macro|NGX_MAX_ALLOC_FROM_POOL
 define|#
 directive|define
 name|NGX_MAX_ALLOC_FROM_POOL
-value|(8192 - sizeof(ngx_pool_t))
+value|4095
 end_define
 
 begin_define
