@@ -965,7 +965,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_log_create_errlog (ngx_cycle_t * cycle)
+DECL|function|ngx_log_create_errlog (ngx_cycle_t * cycle,ngx_str_t * name)
 name|ngx_log_t
 modifier|*
 name|ngx_log_create_errlog
@@ -973,6 +973,10 @@ parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|name
 parameter_list|)
 block|{
 name|ngx_log_t
@@ -1023,6 +1027,21 @@ name|fd
 operator|=
 name|NGX_INVALID_FILE
 expr_stmt|;
+if|if
+condition|(
+name|name
+condition|)
+block|{
+name|log
+operator|->
+name|file
+operator|->
+name|name
+operator|=
+operator|*
+name|name
+expr_stmt|;
+block|}
 return|return
 name|log
 return|;

@@ -117,6 +117,12 @@ end_typedef
 begin_include
 include|#
 directive|include
+file|<ngx_string.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_log.h>
 end_include
 
@@ -124,12 +130,6 @@ begin_include
 include|#
 directive|include
 file|<ngx_alloc.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_string.h>
 end_include
 
 begin_include

@@ -489,6 +489,14 @@ name|event_list
 operator|=
 name|NULL
 expr_stmt|;
+name|event_index
+operator|=
+name|NULL
+expr_stmt|;
+name|ready_index
+operator|=
+name|NULL
+expr_stmt|;
 block|}
 end_function
 

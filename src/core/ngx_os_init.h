@@ -109,7 +109,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b5eb8e80108
+DECL|struct|__anon2a443b780108
 typedef|typedef
 struct|struct
 block|{
@@ -204,6 +204,31 @@ name|log
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_if
+if|#
+directive|if
+operator|!
+operator|(
+name|WIN32
+operator|)
+end_if
+
+begin_function_decl
+name|int
+name|ngx_daemon
+parameter_list|(
+name|ngx_log_t
+modifier|*
+name|log
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_decl_stmt
 specifier|extern

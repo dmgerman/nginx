@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|enum|__anon2b798e840103
+DECL|enum|__anon2a3b10330103
 typedef|typedef
 enum|enum
 block|{
@@ -68,7 +68,7 @@ comment|/*     "[%time] [%level] %pid#%tid: %message:(%errno)%errstr, while %act
 end_comment
 
 begin_typedef
-DECL|struct|__anon2b798e840208
+DECL|struct|__anon2a3b10330208
 typedef|typedef
 struct|struct
 block|{
@@ -588,6 +588,10 @@ parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|name
 parameter_list|)
 function_decl|;
 end_function_decl
