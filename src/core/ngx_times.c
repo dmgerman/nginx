@@ -11,6 +11,28 @@ directive|include
 file|<ngx_core.h>
 end_include
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_THREADS
+operator|)
+end_if
+
+begin_decl_stmt
+DECL|variable|ngx_time_mutex
+specifier|static
+name|ngx_mutex_t
+modifier|*
+name|ngx_time_mutex
+decl_stmt|;
+end_decl_stmt
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_decl_stmt
 DECL|variable|ngx_cached_time
 name|time_t
@@ -251,17 +273,44 @@ operator|.
 name|tv_sec
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_THREADS0
+operator|)
+if|if
+condition|(
+operator|!
+operator|(
+name|ngx_time_mutex
+operator|=
+name|ngx_mutex_init
+argument_list|(
+name|log
+argument_list|,
+name|NGX_MUTEX_LIGHT
+argument_list|)
+expr|;
+return|return
+literal|0
+return|;
 block|}
 end_function
 
-begin_function
-DECL|function|ngx_time_update (time_t s)
-name|void
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_macro
+unit|}   void
 name|ngx_time_update
-parameter_list|(
-name|time_t
-name|s
-parameter_list|)
+argument_list|(
+argument|time_t s
+argument_list|)
+end_macro
+
+begin_block
 block|{
 name|ngx_tm_t
 name|tm
@@ -275,6 +324,25 @@ condition|)
 block|{
 return|return;
 block|}
+if|#
+directive|if
+operator|(
+name|NGX_THREADS0
+operator|)
+if|if
+condition|(
+name|ngx_mutex_trylock
+argument_list|(
+name|ngx_time_mutex
+argument_list|)
+operator|!=
+name|NGX_OK
+condition|)
+block|{
+return|return;
+block|}
+endif|#
+directive|endif
 name|ngx_cached_time
 operator|=
 name|s
@@ -436,11 +504,22 @@ operator|.
 name|ngx_tm_sec
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_THREADS0
+operator|)
+name|ngx_mutex_unlock
+argument_list|(
+name|ngx_time_mutex
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
-end_function
+end_block
 
 begin_function
-DECL|function|ngx_http_time (char * buf,time_t t)
 name|size_t
 name|ngx_http_time
 parameter_list|(
@@ -516,7 +595,6 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_gmtime (time_t t,ngx_tm_t * tp)
 name|void
 name|ngx_gmtime
 parameter_list|(

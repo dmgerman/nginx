@@ -355,12 +355,13 @@ operator|-
 name|len
 argument_list|,
 name|PID_T_FMT
-literal|"#%d: "
+literal|"#"
+name|TID_T_FMT
+literal|": "
 argument_list|,
-name|ngx_pid
+name|ngx_log_pid
 argument_list|,
-comment|/* STUB */
-literal|0
+name|ngx_log_tid
 argument_list|)
 expr_stmt|;
 if|if

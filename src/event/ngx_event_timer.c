@@ -21,6 +21,28 @@ begin_comment
 comment|/*  * TODO: in multithreaded enviroment all timer operations must be  * protected by the single mutex  */
 end_comment
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_THREADS
+operator|)
+end_if
+
+begin_decl_stmt
+DECL|variable|ngx_event_timer_mutex
+specifier|static
+name|ngx_mutex_t
+modifier|*
+name|ngx_event_timer_mutex
+decl_stmt|;
+end_decl_stmt
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_decl_stmt
 DECL|variable|ngx_event_timer_rbtree
 name|ngx_rbtree_t

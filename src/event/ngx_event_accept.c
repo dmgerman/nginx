@@ -24,7 +24,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a43e2830108
+DECL|struct|__anon28ecdfd10108
 typedef|typedef
 struct|struct
 block|{
@@ -1045,13 +1045,16 @@ name|log
 operator|=
 name|log
 expr_stmt|;
-comment|/*          * TODO: MT: - atomic increment (x86: lock xadd)          *             or protection by critical section or mutex          *          * TODO: MP: - allocated in a shared memory          *           - atomic increment (x86: lock xadd)          *             or protection by critical section or mutex          */
+comment|/*          * TODO: MT: - atomic increment (x86: lock xadd)          *             or protection by critical section or light mutex          *          * TODO: MP: - allocated in a shared memory          *           - atomic increment (x86: lock xadd)          *             or protection by critical section or light mutex          */
 name|c
 operator|->
 name|number
 operator|=
+name|ngx_atomic_inc
+argument_list|(
+operator|&
 name|ngx_connection_counter
-operator|++
+argument_list|)
 expr_stmt|;
 name|ngx_log_debug2
 argument_list|(
@@ -1063,7 +1066,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"accept: %d, %d"
+literal|"accept: fd:%d c:%d"
 argument_list|,
 name|s
 argument_list|,
@@ -1170,7 +1173,6 @@ operator|->
 name|available
 condition|)
 do|;
-return|return;
 block|}
 end_function
 

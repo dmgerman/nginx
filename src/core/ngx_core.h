@@ -135,6 +135,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_thread.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_string.h>
 end_include
 
