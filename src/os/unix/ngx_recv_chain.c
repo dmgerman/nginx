@@ -43,7 +43,7 @@ modifier|*
 name|ce
 parameter_list|)
 block|{
-name|int
+name|ssize_t
 name|n
 decl_stmt|;
 name|struct

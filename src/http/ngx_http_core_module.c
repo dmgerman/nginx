@@ -1690,7 +1690,7 @@ name|err
 argument_list|,
 literal|"ngx_http_core_translate_handler: "
 name|ngx_file_type_n
-literal|" %s failed"
+literal|" \"%s\" failed"
 argument_list|,
 name|r
 operator|->
@@ -1716,7 +1716,7 @@ if|else if
 condition|(
 name|err
 operator|==
-name|ERROR_PATH_NOT_FOUND
+name|NGX_ENOTDIR
 condition|)
 block|{
 return|return
@@ -1803,7 +1803,7 @@ name|ngx_errno
 argument_list|,
 literal|"ngx_http_core_handler: "
 name|ngx_open_file_n
-literal|" %s failed"
+literal|" \"%s\" failed"
 argument_list|,
 name|r
 operator|->
@@ -1824,24 +1824,6 @@ block|{
 return|return
 name|NGX_HTTP_NOT_FOUND
 return|;
-if|#
-directive|if
-operator|(
-name|WIN32
-operator|)
-block|}
-if|else if
-condition|(
-name|err
-operator|==
-name|ERROR_PATH_NOT_FOUND
-condition|)
-block|{
-return|return
-name|NGX_HTTP_NOT_FOUND
-return|;
-else|#
-directive|else
 block|}
 if|else if
 condition|(
@@ -1853,8 +1835,6 @@ block|{
 return|return
 name|NGX_HTTP_NOT_FOUND
 return|;
-endif|#
-directive|endif
 block|}
 if|else if
 condition|(
@@ -1919,7 +1899,7 @@ name|ngx_errno
 argument_list|,
 literal|"ngx_http_core_handler: "
 name|ngx_stat_fd_n
-literal|" %s failed"
+literal|" \"%s\" failed"
 argument_list|,
 name|r
 operator|->
@@ -1958,7 +1938,7 @@ name|ngx_errno
 argument_list|,
 literal|"ngx_http_core_handler: "
 name|ngx_close_file_n
-literal|" %s failed"
+literal|" \"%s\" failed"
 argument_list|,
 name|r
 operator|->
@@ -2039,7 +2019,7 @@ name|ngx_errno
 argument_list|,
 literal|"ngx_http_core_handler: "
 name|ngx_close_file_n
-literal|" %s failed"
+literal|" \"%s\" failed"
 argument_list|,
 name|r
 operator|->
@@ -2287,7 +2267,7 @@ name|r
 operator|->
 name|path_err
 argument_list|,
-literal|"%s is not found"
+literal|"\"%s\" is not found"
 argument_list|,
 name|r
 operator|->
@@ -2318,7 +2298,7 @@ name|r
 operator|->
 name|path_err
 argument_list|,
-literal|"%s is forbidden"
+literal|"\"%s\" is forbidden"
 argument_list|,
 name|r
 operator|->
@@ -2360,7 +2340,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"directory index of %s is forbidden"
+literal|"directory index of \"%s\" is forbidden"
 argument_list|,
 name|r
 operator|->
@@ -2546,7 +2526,15 @@ argument_list|,
 name|ngx_errno
 argument_list|,
 name|ngx_close_file_n
-literal|" failed"
+literal|" \"%s\" failed"
+argument_list|,
+name|r
+operator|->
+name|file
+operator|.
+name|name
+operator|.
+name|data
 argument_list|)
 expr_stmt|;
 block|}

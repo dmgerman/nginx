@@ -154,16 +154,6 @@ DECL|struct|ngx_hunk_s
 struct|struct
 name|ngx_hunk_s
 block|{
-if|#
-directive|if
-literal|0
-block|union {         char    *mem;
-comment|/* start of current data */
-block|off_t    file;        } pos;     union {         char    *mem;
-comment|/* end of current data */
-block|off_t    file;        } last;
-endif|#
-directive|endif
 DECL|member|pos
 name|char
 modifier|*
@@ -218,6 +208,11 @@ DECL|member|file
 name|ngx_file_t
 modifier|*
 name|file
+decl_stmt|;
+DECL|member|shadow
+name|ngx_hunk_t
+modifier|*
+name|shadow
 decl_stmt|;
 block|}
 struct|;

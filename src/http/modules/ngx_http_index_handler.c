@@ -230,7 +230,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_comment
-comment|/*    Try to open first index file before the test of the directory existence    because the valid requests should be many more then invalid ones.    If open() failed then stat() should be more quickly because some data    is already cached in the kernel.  Besides Win32 has ERROR_PATH_NOT_FOUND    and Unix has ENOTDIR error (although it less helpfull). */
+comment|/*    Try to open first index file before the test of the directory existence    because the valid requests should be many more then invalid ones.    If open() failed then stat() should be more quickly because some data    is already cached in the kernel.    Besides Win32 has ERROR_PATH_NOT_FOUND (NGX_ENOTDIR) and    Unix has ENOTDIR error (although it less helpfull). */
 end_comment
 
 begin_function
@@ -531,20 +531,6 @@ argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-operator|(
-name|WIN32
-operator|)
-if|if
-condition|(
-name|err
-operator|==
-name|ERROR_PATH_NOT_FOUND
-condition|)
-block|{
-else|#
-directive|else
 if|if
 condition|(
 name|err
@@ -552,8 +538,6 @@ operator|==
 name|NGX_ENOTDIR
 condition|)
 block|{
-endif|#
-directive|endif
 name|r
 operator|->
 name|path_not_found
@@ -785,6 +769,9 @@ return|return
 name|NGX_DECLINED
 return|;
 block|}
+end_function
+
+begin_function
 DECL|function|ngx_http_index_test_dir (ngx_http_request_t * r)
 specifier|static
 name|int
@@ -968,6 +955,9 @@ name|NGX_HTTP_NOT_FOUND
 return|;
 block|}
 block|}
+end_function
+
+begin_function
 DECL|function|ngx_http_index_init (ngx_pool_t * pool)
 specifier|static
 name|int
@@ -1004,6 +994,9 @@ return|return
 name|NGX_OK
 return|;
 block|}
+end_function
+
+begin_function
 DECL|function|ngx_http_index_create_conf (ngx_pool_t * pool)
 specifier|static
 name|void
@@ -1061,7 +1054,13 @@ return|return
 name|conf
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/* STUB */
+end_comment
+
+begin_function
 DECL|function|ngx_http_index_merge_conf (ngx_pool_t * p,void * parent,void * child)
 specifier|static
 name|char
@@ -1156,12 +1155,21 @@ return|return
 name|NULL
 return|;
 block|}
+end_function
+
+begin_if
 if|#
 directive|if
 literal|0
-block_content|static char *ngx_http_index_merge_conf(ngx_pool_t *p, void *parent, void *child) {     ngx_http_index_conf_t *prev = (ngx_http_index_conf_t *) parent;     ngx_http_index_conf_t *conf = (ngx_http_index_conf_t *) child;     ngx_str_t  *index;      if (conf->max_index_len == 0) {         if (prev->max_index_len != 0) {             return prev;         }          ngx_test_null(index, ngx_push_array(conf->indices), NULL);         index->len = sizeof(NGX_HTTP_INDEX) - 1;         index->data = NGX_HTTP_INDEX;         conf->max_index_len = sizeof(NGX_HTTP_INDEX);     }      return conf; }
+end_if
+
+begin_endif
+unit|static char *ngx_http_index_merge_conf(ngx_pool_t *p, void *parent, void *child) {     ngx_http_index_conf_t *prev = (ngx_http_index_conf_t *) parent;     ngx_http_index_conf_t *conf = (ngx_http_index_conf_t *) child;     ngx_str_t  *index;      if (conf->max_index_len == 0) {         if (prev->max_index_len != 0) {             return prev;         }          ngx_test_null(index, ngx_push_array(conf->indices), NULL);         index->len = sizeof(NGX_HTTP_INDEX) - 1;         index->data = NGX_HTTP_INDEX;         conf->max_index_len = sizeof(NGX_HTTP_INDEX);     }      return conf; }
 endif|#
 directive|endif
+end_endif
+
+begin_function
 DECL|function|ngx_http_index_set_index (ngx_conf_t * cf,ngx_command_t * cmd,char * conf)
 specifier|static
 name|char

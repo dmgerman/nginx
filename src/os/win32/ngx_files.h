@@ -88,6 +88,20 @@ comment|/*                        NULL, OPEN_EXISTING, 0, NULL) */
 end_comment
 
 begin_define
+DECL|macro|ngx_open_tempfile (name,persistent)
+define|#
+directive|define
+name|ngx_open_tempfile
+parameter_list|(
+name|name
+parameter_list|,
+name|persistent
+parameter_list|)
+define|\
+value|CreateFile(name,                                                \                     GENERIC_READ|GENERIC_WRITE,                             \                     FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_SHARE_DELETE,     \                     NULL,                                                   \                     CREATE_NEW,                                             \                     persistent ? 0:                                         \                         FILE_ATTRIBUTE_TEMPORARY|FILE_FLAG_DELETE_ON_CLOSE, \                     NULL);
+end_define
+
+begin_define
 DECL|macro|ngx_open_file_n
 define|#
 directive|define
@@ -117,6 +131,25 @@ define|#
 directive|define
 name|ngx_close_file_n
 value|"CloseHandle()"
+end_define
+
+begin_define
+DECL|macro|ngx_mkdir (name)
+define|#
+directive|define
+name|ngx_mkdir
+parameter_list|(
+name|name
+parameter_list|)
+value|CreateDirectory(name, NULL)
+end_define
+
+begin_define
+DECL|macro|ngx_mkdir_n
+define|#
+directive|define
+name|ngx_mkdir_n
+value|"CreateDirectory()"
 end_define
 
 begin_function_decl

@@ -57,6 +57,14 @@ value|EACCES
 end_define
 
 begin_define
+DECL|macro|NGX_EEXIST
+define|#
+directive|define
+name|NGX_EEXIST
+value|EEXIST
+end_define
+
+begin_define
 DECL|macro|NGX_ENOTDIR
 define|#
 directive|define

@@ -335,7 +335,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2b2720740108
+DECL|struct|__anon29b3557e0108
 typedef|typedef
 struct|struct
 block|{
@@ -354,7 +354,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2720740208
+DECL|struct|__anon29b3557e0208
 typedef|typedef
 struct|struct
 block|{
@@ -399,7 +399,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2720740308
+DECL|struct|__anon29b3557e0308
 typedef|typedef
 struct|struct
 block|{
@@ -620,6 +620,12 @@ name|proxy
 range|:
 literal|1
 decl_stmt|;
+DECL|member|cachable
+name|unsigned
+name|cachable
+range|:
+literal|1
+decl_stmt|;
 DECL|member|pipeline
 name|unsigned
 name|pipeline
@@ -769,7 +775,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b2720740408
+DECL|struct|__anon29b3557e0408
 typedef|typedef
 struct|struct
 block|{

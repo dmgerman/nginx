@@ -763,6 +763,10 @@ operator|=
 name|in
 init|;
 name|ce
+operator|&&
+name|sent
+operator|>
+literal|0
 condition|;
 name|ce
 operator|=

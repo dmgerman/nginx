@@ -70,6 +70,22 @@ value|ERROR_ACCESS_DENIED
 end_define
 
 begin_define
+DECL|macro|NGX_EEXIST
+define|#
+directive|define
+name|NGX_EEXIST
+value|ERROR_FILE_EXISTS
+end_define
+
+begin_define
+DECL|macro|NGX_ENOTDIR
+define|#
+directive|define
+name|NGX_ENOTDIR
+value|ERROR_PATH_NOT_FOUND
+end_define
+
+begin_define
 DECL|macro|NGX_EAGAIN
 define|#
 directive|define
