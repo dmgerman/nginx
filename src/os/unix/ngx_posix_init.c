@@ -36,7 +36,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon2b92ab640108
+DECL|struct|__anon2c6c77260108
 typedef|typedef
 struct|struct
 block|{
@@ -106,13 +106,13 @@ block|,
 block|{
 name|ngx_signal_value
 argument_list|(
-name|NGX_PAUSE_SIGNAL
+name|NGX_NOACCEPT_SIGNAL
 argument_list|)
 block|,
 literal|"SIG"
 name|ngx_value
 argument_list|(
-name|NGX_PAUSE_SIGNAL
+name|NGX_NOACCEPT_SIGNAL
 argument_list|)
 block|,
 name|ngx_signal_handler
@@ -398,6 +398,10 @@ name|ngx_signal_t
 modifier|*
 name|sig
 decl_stmt|;
+name|ngx_signal
+operator|=
+literal|1
+expr_stmt|;
 name|err
 operator|=
 name|ngx_errno
@@ -455,12 +459,6 @@ block|{
 case|case
 name|NGX_PROCESS_MASTER
 case|:
-case|case
-name|NGX_PROCESS_QUITING
-case|:
-case|case
-name|NGX_PROCESS_PAUSED
-case|:
 switch|switch
 condition|(
 name|signo
@@ -487,6 +485,9 @@ argument_list|(
 name|NGX_TERMINATE_SIGNAL
 argument_list|)
 case|:
+case|case
+name|SIGINT
+case|:
 name|ngx_terminate
 operator|=
 literal|1
@@ -499,16 +500,16 @@ break|break;
 case|case
 name|ngx_signal_value
 argument_list|(
-name|NGX_PAUSE_SIGNAL
+name|NGX_NOACCEPT_SIGNAL
 argument_list|)
 case|:
-name|ngx_pause
+name|ngx_noaccept
 operator|=
 literal|1
 expr_stmt|;
 name|action
 operator|=
-literal|", pausing"
+literal|", stop the accepting connections"
 expr_stmt|;
 break|break;
 case|case
@@ -595,6 +596,9 @@ argument_list|(
 name|NGX_TERMINATE_SIGNAL
 argument_list|)
 case|:
+case|case
+name|SIGINT
+case|:
 name|ngx_terminate
 operator|=
 literal|1
@@ -625,7 +629,7 @@ case|:
 case|case
 name|ngx_signal_value
 argument_list|(
-name|NGX_PAUSE_SIGNAL
+name|NGX_NOACCEPT_SIGNAL
 argument_list|)
 case|:
 case|case

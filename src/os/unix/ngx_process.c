@@ -46,7 +46,7 @@ end_decl_stmt
 
 begin_function
 DECL|function|ngx_spawn_process (ngx_cycle_t * cycle,ngx_spawn_proc_pt proc,void * data,char * name,ngx_int_t respawn)
-name|ngx_int_t
+name|ngx_pid_t
 name|ngx_spawn_process
 parameter_list|(
 name|ngx_cycle_t
@@ -282,7 +282,7 @@ operator|=
 literal|0
 expr_stmt|;
 return|return
-name|NGX_OK
+name|pid
 return|;
 block|}
 name|ngx_processes
@@ -422,7 +422,7 @@ name|NGX_ERROR
 return|;
 block|}
 return|return
-name|NGX_OK
+name|pid
 return|;
 block|}
 end_function

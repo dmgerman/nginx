@@ -283,11 +283,11 @@ value|TERM
 end_define
 
 begin_define
-DECL|macro|NGX_PAUSE_SIGNAL
+DECL|macro|NGX_NOACCEPT_SIGNAL
 define|#
 directive|define
-name|NGX_PAUSE_SIGNAL
-value|INT
+name|NGX_NOACCEPT_SIGNAL
+value|ABRT
 end_define
 
 begin_define

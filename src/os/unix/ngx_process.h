@@ -41,7 +41,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e3bbb50108
+DECL|struct|__anon2ae2a9e20108
 typedef|typedef
 struct|struct
 block|{
@@ -104,7 +104,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e3bbb50208
+DECL|struct|__anon2ae2a9e20208
 typedef|typedef
 struct|struct
 block|{
@@ -163,22 +163,6 @@ value|2
 end_define
 
 begin_define
-DECL|macro|NGX_PROCESS_QUITING
-define|#
-directive|define
-name|NGX_PROCESS_QUITING
-value|3
-end_define
-
-begin_define
-DECL|macro|NGX_PROCESS_PAUSED
-define|#
-directive|define
-name|NGX_PROCESS_PAUSED
-value|4
-end_define
-
-begin_define
 DECL|macro|NGX_MAX_PROCESSES
 define|#
 directive|define
@@ -187,18 +171,18 @@ value|1024
 end_define
 
 begin_define
-DECL|macro|NGX_PROCESS_RESPAWN
-define|#
-directive|define
-name|NGX_PROCESS_RESPAWN
-value|-1
-end_define
-
-begin_define
 DECL|macro|NGX_PROCESS_NORESPAWN
 define|#
 directive|define
 name|NGX_PROCESS_NORESPAWN
+value|-1
+end_define
+
+begin_define
+DECL|macro|NGX_PROCESS_RESPAWN
+define|#
+directive|define
+name|NGX_PROCESS_RESPAWN
 value|-2
 end_define
 
@@ -219,7 +203,7 @@ value|getpid
 end_define
 
 begin_function_decl
-name|ngx_int_t
+name|ngx_pid_t
 name|ngx_spawn_process
 parameter_list|(
 name|ngx_cycle_t
