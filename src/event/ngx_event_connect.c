@@ -27,9 +27,17 @@ directive|include
 file|<ngx_event_connect.h>
 end_include
 
+begin_define
+DECL|macro|NGX_RESOLVER_BUFSIZE
+define|#
+directive|define
+name|NGX_RESOLVER_BUFSIZE
+value|8192
+end_define
+
 begin_function
-DECL|function|ngx_event_connect_peer (ngx_peer_connection_t * pc)
 name|ngx_int_t
+DECL|function|ngx_event_connect_peer (ngx_peer_connection_t * pc)
 name|ngx_event_connect_peer
 parameter_list|(
 name|ngx_peer_connection_t
@@ -1118,42 +1126,15 @@ argument_list|,
 literal|"connect() failed"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|ngx_close_socket
-argument_list|(
-name|s
-argument_list|)
-operator|==
-operator|-
-literal|1
-condition|)
-block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_ALERT
-argument_list|,
-name|pc
-operator|->
-name|log
-argument_list|,
-name|ngx_socket_errno
-argument_list|,
-name|ngx_close_socket_n
-literal|" failed"
-argument_list|)
-expr_stmt|;
-block|}
-name|c
-operator|->
-name|fd
-operator|=
-operator|(
-name|ngx_socket_t
-operator|)
-operator|-
-literal|1
-expr_stmt|;
+if|#
+directive|if
+literal|0
+undef|#
+directive|undef
+name|sun
+block_content|{             struct sockaddr_un  *sun;              sun = (struct sockaddr_un *) peer->sockaddr;              ngx_log_error(NGX_LOG_ALERT, pc->log, 0,                           "\"%s\", f:%d, l:%uz",                           sun->sun_path, sun->sun_family, peer->socklen);             }
+endif|#
+directive|endif
 return|return
 name|NGX_CONNECT_ERROR
 return|;
@@ -1248,37 +1229,11 @@ name|ngx_blocking_n
 literal|" failed"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|ngx_close_socket
-argument_list|(
-name|s
-argument_list|)
-operator|==
-operator|-
-literal|1
-condition|)
-block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_ALERT
-argument_list|,
-name|pc
-operator|->
-name|log
-argument_list|,
-name|ngx_socket_errno
-argument_list|,
-name|ngx_close_socket_n
-literal|" failed"
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 name|NGX_ERROR
 return|;
 block|}
-comment|/*          * FreeBSD aio allows to post operation on non-connected socket.          * NT does not support it.          *           * TODO: check in Win32, etc. As workaround we can use NGX_ONESHOT_EVENT          */
+comment|/*          * FreeBSD's aio allows to post an operation on non-connected socket.          * NT does not support it.          *           * TODO: check in Win32, etc. As workaround we can use NGX_ONESHOT_EVENT          */
 name|rev
 operator|->
 name|ready
@@ -1391,8 +1346,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_event_connect_peer_failed (ngx_peer_connection_t * pc)
 name|void
+DECL|function|ngx_event_connect_peer_failed (ngx_peer_connection_t * pc)
 name|ngx_event_connect_peer_failed
 parameter_list|(
 name|ngx_peer_connection_t
@@ -1469,7 +1424,6 @@ operator|->
 name|tries
 operator|--
 expr_stmt|;
-return|return;
 block|}
 end_function
 

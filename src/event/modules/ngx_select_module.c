@@ -1414,6 +1414,9 @@ name|work_write_fd_set
 operator|=
 name|master_write_fd_set
 expr_stmt|;
+if|#
+directive|if
+literal|1
 name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
@@ -1424,6 +1427,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
+comment|/*                     * (void *) disables "dereferencing type-punned                     * pointer will break strict-aliasing rules                     */
 literal|"select read fd_set: %08Xd"
 argument_list|,
 operator|*
@@ -1431,10 +1435,16 @@ operator|(
 name|int
 operator|*
 operator|)
+operator|(
+name|void
+operator|*
+operator|)
 operator|&
 name|work_read_fd_set
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 if|#
 directive|if
 operator|(

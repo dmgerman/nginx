@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2aff7c470108
+DECL|struct|__anon299813960108
 typedef|typedef
 struct|struct
 block|{
@@ -337,6 +337,8 @@ argument_list|(
 name|cf
 operator|->
 name|pool
+argument_list|,
+literal|8
 argument_list|)
 operator|)
 condition|)

@@ -47,7 +47,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bef4eed0108
+DECL|struct|__anon28ed7b6c0108
 typedef|typedef
 struct|struct
 block|{
@@ -66,7 +66,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bef4eed0208
+DECL|struct|__anon28ed7b6c0208
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bef4eed0308
+DECL|struct|__anon28ed7b6c0308
 typedef|typedef
 struct|struct
 block|{
@@ -153,6 +153,12 @@ name|redirect
 range|:
 literal|1
 decl_stmt|;
+DECL|member|break_cycle
+name|uintptr_t
+name|break_cycle
+range|:
+literal|1
+decl_stmt|;
 DECL|member|name
 name|ngx_str_t
 name|name
@@ -164,7 +170,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bef4eed0408
+DECL|struct|__anon28ed7b6c0408
 typedef|typedef
 struct|struct
 block|{
@@ -198,7 +204,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bef4eed0508
+DECL|struct|__anon28ed7b6c0508
 typedef|typedef
 struct|struct
 block|{
@@ -217,7 +223,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bef4eed0608
+DECL|struct|__anon28ed7b6c0608
 typedef|typedef
 struct|struct
 block|{
@@ -236,7 +242,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bef4eed0708
+DECL|struct|__anon28ed7b6c0708
 typedef|typedef
 struct|struct
 block|{
@@ -259,7 +265,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bef4eed0808
+DECL|struct|__anon28ed7b6c0808
 typedef|typedef
 struct|struct
 block|{
@@ -284,7 +290,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bef4eed0908
+DECL|struct|__anon28ed7b6c0908
 typedef|typedef
 struct|struct
 block|{
@@ -517,26 +523,25 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
-begin_decl_stmt
+begin_function_decl
 specifier|static
 name|void
 modifier|*
 name|ngx_http_rewrite_add_code
-argument_list|(
+parameter_list|(
 name|ngx_array_t
-operator|*
+modifier|*
 name|codes
-argument_list|,
+parameter_list|,
 name|size_t
 name|size
-argument_list|,
-name|u_char
-operator|*
-operator|*
-expr|main
-argument_list|)
-decl_stmt|;
-end_decl_stmt
+parameter_list|,
+name|void
+modifier|*
+name|code
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_decl_stmt
 DECL|variable|ngx_http_rewrite_commands
@@ -753,9 +758,9 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_http_rewrite_handler (ngx_http_request_t * r)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_rewrite_handler (ngx_http_request_t * r)
 name|ngx_http_rewrite_handler
 parameter_list|(
 name|ngx_http_request_t
@@ -1009,9 +1014,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_rewrite_regex_start_code (ngx_http_rewrite_engine_t * e)
 specifier|static
 name|void
+DECL|function|ngx_http_rewrite_regex_start_code (ngx_http_rewrite_engine_t * e)
 name|ngx_http_rewrite_regex_start_code
 parameter_list|(
 name|ngx_http_rewrite_engine_t
@@ -1307,12 +1312,21 @@ operator|->
 name|uri
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|code
+operator|->
+name|break_cycle
+condition|)
+block|{
 name|r
 operator|->
 name|uri_changed
 operator|=
 literal|1
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|rc
@@ -1499,9 +1513,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_rewrite_regex_end_code (ngx_http_rewrite_engine_t * e)
 specifier|static
 name|void
+DECL|function|ngx_http_rewrite_regex_end_code (ngx_http_rewrite_engine_t * e)
 name|ngx_http_rewrite_regex_end_code
 parameter_list|(
 name|ngx_http_rewrite_engine_t
@@ -1674,7 +1688,7 @@ operator|->
 name|pos
 operator|++
 operator|=
-literal|'&'
+literal|'?'
 expr_stmt|;
 name|e
 operator|->
@@ -1940,9 +1954,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_rewrite_copy_capture_code (ngx_http_rewrite_engine_t * e)
 specifier|static
 name|void
+DECL|function|ngx_http_rewrite_copy_capture_code (ngx_http_rewrite_engine_t * e)
 name|ngx_http_rewrite_copy_capture_code
 parameter_list|(
 name|ngx_http_rewrite_engine_t
@@ -2132,9 +2146,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_rewrite_copy_code (ngx_http_rewrite_engine_t * e)
 specifier|static
 name|void
+DECL|function|ngx_http_rewrite_copy_code (ngx_http_rewrite_engine_t * e)
 name|ngx_http_rewrite_copy_code
 parameter_list|(
 name|ngx_http_rewrite_engine_t
@@ -2240,9 +2254,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_rewrite_start_args_code (ngx_http_rewrite_engine_t * e)
 specifier|static
 name|void
+DECL|function|ngx_http_rewrite_start_args_code (ngx_http_rewrite_engine_t * e)
 name|ngx_http_rewrite_start_args_code
 parameter_list|(
 name|ngx_http_rewrite_engine_t
@@ -2288,9 +2302,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_rewrite_return_code (ngx_http_rewrite_engine_t * e)
 specifier|static
 name|void
+DECL|function|ngx_http_rewrite_return_code (ngx_http_rewrite_engine_t * e)
 name|ngx_http_rewrite_return_code
 parameter_list|(
 name|ngx_http_rewrite_engine_t
@@ -2338,9 +2352,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_rewrite_if_code (ngx_http_rewrite_engine_t * e)
 specifier|static
 name|void
+DECL|function|ngx_http_rewrite_if_code (ngx_http_rewrite_engine_t * e)
 name|ngx_http_rewrite_if_code
 parameter_list|(
 name|ngx_http_rewrite_engine_t
@@ -2446,9 +2460,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_rewrite_var_code (ngx_http_rewrite_engine_t * e)
 specifier|static
 name|void
+DECL|function|ngx_http_rewrite_var_code (ngx_http_rewrite_engine_t * e)
 name|ngx_http_rewrite_var_code
 parameter_list|(
 name|ngx_http_rewrite_engine_t
@@ -2570,9 +2584,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_rewrite_invalid_referer_code (ngx_http_rewrite_engine_t * e)
 specifier|static
 name|void
+DECL|function|ngx_http_rewrite_invalid_referer_code (ngx_http_rewrite_engine_t * e)
 name|ngx_http_rewrite_invalid_referer_code
 parameter_list|(
 name|ngx_http_rewrite_engine_t
@@ -2984,9 +2998,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_rewrite_nop_code (ngx_http_rewrite_engine_t * e)
 specifier|static
 name|void
+DECL|function|ngx_http_rewrite_nop_code (ngx_http_rewrite_engine_t * e)
 name|ngx_http_rewrite_nop_code
 parameter_list|(
 name|ngx_http_rewrite_engine_t
@@ -3007,9 +3021,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_rewrite_init (ngx_cycle_t * cycle)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_rewrite_init (ngx_cycle_t * cycle)
 name|ngx_http_rewrite_init
 parameter_list|(
 name|ngx_cycle_t
@@ -3072,10 +3086,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_rewrite_create_loc_conf (ngx_conf_t * cf)
 specifier|static
 name|void
 modifier|*
+DECL|function|ngx_http_rewrite_create_loc_conf (ngx_conf_t * cf)
 name|ngx_http_rewrite_create_loc_conf
 parameter_list|(
 name|ngx_conf_t
@@ -3136,10 +3150,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_rewrite_merge_loc_conf (ngx_conf_t * cf,void * parent,void * child)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_rewrite_merge_loc_conf (ngx_conf_t * cf,void * parent,void * child)
 name|ngx_http_rewrite_merge_loc_conf
 parameter_list|(
 name|ngx_conf_t
@@ -3519,10 +3533,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_rewrite (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_rewrite (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_http_rewrite
 parameter_list|(
 name|ngx_conf_t
@@ -3833,6 +3847,34 @@ index|]
 operator|.
 name|data
 argument_list|,
+literal|"break"
+argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+name|regex
+operator|->
+name|break_cycle
+operator|=
+literal|1
+expr_stmt|;
+name|last
+operator|=
+literal|1
+expr_stmt|;
+block|}
+if|else if
+condition|(
+name|ngx_strcmp
+argument_list|(
+name|value
+index|[
+literal|3
+index|]
+operator|.
+name|data
+argument_list|,
 literal|"redirect"
 argument_list|)
 operator|==
@@ -4009,11 +4051,6 @@ argument_list|(
 name|ngx_http_rewrite_copy_capture_code_t
 argument_list|)
 argument_list|,
-operator|(
-name|u_char
-operator|*
-operator|*
-operator|)
 operator|&
 name|regex
 argument_list|)
@@ -4145,11 +4182,6 @@ argument_list|(
 name|uintptr_t
 argument_list|)
 argument_list|,
-operator|(
-name|u_char
-operator|*
-operator|*
-operator|)
 operator|&
 name|regex
 argument_list|)
@@ -4325,11 +4357,6 @@ argument_list|)
 operator|+
 name|size
 argument_list|,
-operator|(
-name|u_char
-operator|*
-operator|*
-operator|)
 operator|&
 name|regex
 argument_list|)
@@ -4473,11 +4500,6 @@ argument_list|(
 name|ngx_http_rewrite_regex_end_code_t
 argument_list|)
 argument_list|,
-operator|(
-name|u_char
-operator|*
-operator|*
-operator|)
 operator|&
 name|regex
 argument_list|)
@@ -4541,11 +4563,6 @@ argument_list|(
 name|uintptr_t
 argument_list|)
 argument_list|,
-operator|(
-name|u_char
-operator|*
-operator|*
-operator|)
 operator|&
 name|regex
 argument_list|)
@@ -4603,10 +4620,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_rewrite_return (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_rewrite_return (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_http_rewrite_return
 parameter_list|(
 name|ngx_conf_t
@@ -4733,10 +4750,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_rewrite_if (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_rewrite_if (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_http_rewrite_if
 parameter_list|(
 name|ngx_conf_t
@@ -5654,10 +5671,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_rewrite_valid_referers (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_rewrite_valid_referers (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_http_rewrite_valid_referers
 parameter_list|(
 name|ngx_conf_t
@@ -6160,10 +6177,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_rewrite_start_code (ngx_pool_t * pool,ngx_array_t ** codes,size_t size)
 specifier|static
 name|void
 modifier|*
+DECL|function|ngx_http_rewrite_start_code (ngx_pool_t * pool,ngx_array_t ** codes,size_t size)
 name|ngx_http_rewrite_start_code
 parameter_list|(
 name|ngx_pool_t
@@ -6222,29 +6239,32 @@ return|;
 block|}
 end_function
 
-begin_decl_stmt
-DECL|function|ngx_http_rewrite_add_code (ngx_array_t * codes,size_t size,u_char ** main)
+begin_function
 specifier|static
 name|void
 modifier|*
+DECL|function|ngx_http_rewrite_add_code (ngx_array_t * codes,size_t size,void * code)
 name|ngx_http_rewrite_add_code
-argument_list|(
+parameter_list|(
 name|ngx_array_t
-operator|*
+modifier|*
 name|codes
-argument_list|,
+parameter_list|,
 name|size_t
 name|size
-argument_list|,
-name|u_char
-operator|*
-operator|*
-expr|main
-argument_list|)
+parameter_list|,
+name|void
+modifier|*
+name|code
+parameter_list|)
 block|{
 name|u_char
 modifier|*
 name|elts
+decl_stmt|,
+modifier|*
+modifier|*
+name|p
 decl_stmt|;
 name|void
 modifier|*
@@ -6284,8 +6304,12 @@ operator|->
 name|elts
 condition|)
 block|{
+name|p
+operator|=
+name|code
+expr_stmt|;
 operator|*
-expr|main
+name|p
 operator|+=
 operator|(
 name|u_char
@@ -6302,7 +6326,7 @@ return|return
 name|new
 return|;
 block|}
-end_decl_stmt
+end_function
 
 end_unit
 

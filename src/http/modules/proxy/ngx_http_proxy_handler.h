@@ -53,7 +53,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|enum|__anon2b3b7b550103
+DECL|enum|__anon2b9f67ea0103
 typedef|typedef
 enum|enum
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b3b7b550203
+DECL|enum|__anon2b9f67ea0203
 typedef|typedef
 enum|enum
 block|{
@@ -122,7 +122,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3b7b550308
+DECL|struct|__anon2b9f67ea0308
 typedef|typedef
 struct|struct
 block|{
@@ -173,7 +173,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3b7b550408
+DECL|struct|__anon2b9f67ea0408
 typedef|typedef
 struct|struct
 block|{
@@ -277,6 +277,7 @@ name|temp_path
 decl_stmt|;
 DECL|member|x_vars
 name|ngx_array_t
+modifier|*
 name|x_vars
 decl_stmt|;
 DECL|member|busy_lock
@@ -305,7 +306,7 @@ comment|/*  * "EXPR/10/5/- 200/EXP/60 4"  * "MISS/-/-/B 503/-/- -"  * "EXPR/10/2
 end_comment
 
 begin_typedef
-DECL|struct|__anon2b3b7b550508
+DECL|struct|__anon2b9f67ea0508
 typedef|typedef
 struct|struct
 block|{
@@ -353,7 +354,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3b7b550608
+DECL|struct|__anon2b9f67ea0608
 typedef|typedef
 struct|struct
 block|{
@@ -456,7 +457,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3b7b550708
+DECL|struct|__anon2b9f67ea0708
 typedef|typedef
 struct|struct
 block|{
@@ -483,7 +484,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3b7b550808
+DECL|struct|__anon2b9f67ea0808
 typedef|typedef
 struct|struct
 block|{
@@ -667,7 +668,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b3b7b550908
+DECL|struct|__anon2b9f67ea0908
 typedef|typedef
 struct|struct
 block|{

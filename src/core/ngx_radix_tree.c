@@ -29,16 +29,26 @@ function_decl|;
 end_function_decl
 
 begin_function
-DECL|function|ngx_radix_tree_create (ngx_pool_t * pool)
 name|ngx_radix_tree_t
 modifier|*
+DECL|function|ngx_radix_tree_create (ngx_pool_t * pool,ngx_uint_t preallocate)
 name|ngx_radix_tree_create
 parameter_list|(
 name|ngx_pool_t
 modifier|*
 name|pool
+parameter_list|,
+name|ngx_uint_t
+name|preallocate
 parameter_list|)
 block|{
+name|uint32_t
+name|key
+decl_stmt|,
+name|mask
+decl_stmt|,
+name|inc
+decl_stmt|;
 name|ngx_radix_tree_t
 modifier|*
 name|tree
@@ -140,6 +150,70 @@ name|value
 operator|=
 name|NGX_RADIX_NO_VALUE
 expr_stmt|;
+comment|/*      * We preallocate the first nodes: 0, 1, 00, 01, 10, 11, 000, 001, etc.,      * to increase the TLB hits even if for the first lookup iterations.      * On the 32-bit platforms the 7 preallocated bits takes continuous 4K,      * 8 - 8K, 9 - 16K, etc.      */
+name|mask
+operator|=
+literal|0
+expr_stmt|;
+name|inc
+operator|=
+literal|0x80000000
+expr_stmt|;
+while|while
+condition|(
+name|preallocate
+operator|--
+condition|)
+block|{
+name|key
+operator|=
+literal|0
+expr_stmt|;
+name|mask
+operator|>>=
+literal|1
+expr_stmt|;
+name|mask
+operator||=
+literal|0x80000000
+expr_stmt|;
+do|do
+block|{
+if|if
+condition|(
+name|ngx_radix32tree_insert
+argument_list|(
+name|tree
+argument_list|,
+name|key
+argument_list|,
+name|mask
+argument_list|,
+name|NGX_RADIX_NO_VALUE
+argument_list|)
+operator|!=
+name|NGX_OK
+condition|)
+block|{
+return|return
+name|NULL
+return|;
+block|}
+name|key
+operator|+=
+name|inc
+expr_stmt|;
+block|}
+do|while
+condition|(
+name|key
+condition|)
+do|;
+name|inc
+operator|>>=
+literal|1
+expr_stmt|;
+block|}
 return|return
 name|tree
 return|;
@@ -147,8 +221,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_radix32tree_insert (ngx_radix_tree_t * tree,uint32_t key,uint32_t mask,uintptr_t value)
 name|ngx_int_t
+DECL|function|ngx_radix32tree_insert (ngx_radix_tree_t * tree,uint32_t key,uint32_t mask,uintptr_t value)
 name|ngx_radix32tree_insert
 parameter_list|(
 name|ngx_radix_tree_t
@@ -360,8 +434,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_radix32tree_delete (ngx_radix_tree_t * tree,uint32_t key,uint32_t mask)
 name|ngx_int_t
+DECL|function|ngx_radix32tree_delete (ngx_radix_tree_t * tree,uint32_t key,uint32_t mask)
 name|ngx_radix32tree_delete
 parameter_list|(
 name|ngx_radix_tree_t
@@ -566,8 +640,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_radix32tree_find (ngx_radix_tree_t * tree,uint32_t key)
 name|uintptr_t
+DECL|function|ngx_radix32tree_find (ngx_radix_tree_t * tree,uint32_t key)
 name|ngx_radix32tree_find
 parameter_list|(
 name|ngx_radix_tree_t
@@ -658,10 +732,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_radix_alloc (ngx_radix_tree_t * tree)
 specifier|static
 name|void
 modifier|*
+DECL|function|ngx_radix_alloc (ngx_radix_tree_t * tree)
 name|ngx_radix_alloc
 parameter_list|(
 name|ngx_radix_tree_t

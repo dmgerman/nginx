@@ -1529,8 +1529,8 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_http_handler (ngx_http_request_t * r)
 name|void
+DECL|function|ngx_http_handler (ngx_http_request_t * r)
 name|ngx_http_handler
 parameter_list|(
 name|ngx_http_request_t
@@ -1712,14 +1712,13 @@ argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_core_phase_event_handler (ngx_event_t * ev)
 specifier|static
 name|void
+DECL|function|ngx_http_core_phase_event_handler (ngx_event_t * ev)
 name|ngx_http_core_phase_event_handler
 parameter_list|(
 name|ngx_event_t
@@ -1765,14 +1764,13 @@ argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_core_run_phases (ngx_http_request_t * r)
 specifier|static
 name|void
+DECL|function|ngx_http_core_run_phases (ngx_http_request_t * r)
 name|ngx_http_core_run_phases
 parameter_list|(
 name|ngx_http_request_t
@@ -2195,13 +2193,12 @@ argument_list|,
 name|NGX_HTTP_NOT_FOUND
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_find_location_config (ngx_http_request_t * r)
 name|ngx_int_t
+DECL|function|ngx_http_find_location_config (ngx_http_request_t * r)
 name|ngx_http_find_location_config
 parameter_list|(
 name|ngx_http_request_t
@@ -2537,9 +2534,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_core_find_location (ngx_http_request_t * r,ngx_array_t * locations,size_t len)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_core_find_location (ngx_http_request_t * r,ngx_array_t * locations,size_t len)
 name|ngx_http_core_find_location
 parameter_list|(
 name|ngx_http_request_t
@@ -3137,8 +3134,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_set_content_type (ngx_http_request_t * r)
 name|ngx_int_t
+DECL|function|ngx_http_set_content_type (ngx_http_request_t * r)
 name|ngx_http_set_content_type
 parameter_list|(
 name|ngx_http_request_t
@@ -3587,8 +3584,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_send_header (ngx_http_request_t * r)
 name|ngx_int_t
+DECL|function|ngx_http_send_header (ngx_http_request_t * r)
 name|ngx_http_send_header
 parameter_list|(
 name|ngx_http_request_t
@@ -3636,10 +3633,7 @@ literal|0
 expr_stmt|;
 block|}
 return|return
-call|(
-modifier|*
 name|ngx_http_top_header_filter
-call|)
 argument_list|(
 name|r
 argument_list|)
@@ -3648,8 +3642,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_output_filter (ngx_http_request_t * r,ngx_chain_t * in)
 name|ngx_int_t
+DECL|function|ngx_http_output_filter (ngx_http_request_t * r,ngx_chain_t * in)
 name|ngx_http_output_filter
 parameter_list|(
 name|ngx_http_request_t
@@ -3695,7 +3689,7 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
-comment|/* NGX_ERROR could be returned by any filter */
+comment|/* NGX_ERROR may be returned by any filter */
 name|r
 operator|->
 name|connection
@@ -3714,8 +3708,8 @@ block|}
 end_function
 
 begin_function
+name|ngx_int_t
 DECL|function|ngx_http_redirect (ngx_http_request_t * r,int redirect)
-name|int
 name|ngx_http_redirect
 parameter_list|(
 name|ngx_http_request_t
@@ -3742,8 +3736,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_set_exten (ngx_http_request_t * r)
 name|ngx_int_t
+DECL|function|ngx_http_set_exten (ngx_http_request_t * r)
 name|ngx_http_set_exten
 parameter_list|(
 name|ngx_http_request_t
@@ -3937,8 +3931,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_internal_redirect (ngx_http_request_t * r,ngx_str_t * uri,ngx_str_t * args)
 name|ngx_int_t
+DECL|function|ngx_http_internal_redirect (ngx_http_request_t * r,ngx_str_t * uri,ngx_str_t * args)
 name|ngx_http_internal_redirect
 parameter_list|(
 name|ngx_http_request_t
@@ -3954,6 +3948,10 @@ modifier|*
 name|args
 parameter_list|)
 block|{
+name|ngx_http_core_srv_conf_t
+modifier|*
+name|cscf
+decl_stmt|;
 name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
@@ -4012,7 +4010,7 @@ operator|->
 name|err_ctx
 condition|)
 block|{
-comment|/* allocate the new modules contexts */
+comment|/* allocate the new module's contexts */
 name|r
 operator|->
 name|ctx
@@ -4065,6 +4063,25 @@ name|ngx_http_max_module
 argument_list|)
 expr_stmt|;
 block|}
+name|cscf
+operator|=
+name|ngx_http_get_module_srv_conf
+argument_list|(
+name|r
+argument_list|,
+name|ngx_http_core_module
+argument_list|)
+expr_stmt|;
+name|r
+operator|->
+name|loc_conf
+operator|=
+name|cscf
+operator|->
+name|ctx
+operator|->
+name|loc_conf
+expr_stmt|;
 name|r
 operator|->
 name|phase
@@ -4105,15 +4122,15 @@ comment|/* STUB: test the delay http handler */
 end_comment
 
 begin_endif
-unit|int ngx_http_delay_handler(ngx_http_request_t *r) {     static int  on;      if (on++ == 0) {         ngx_log_debug0(NGX_LOG_DEBUG_HTTP, r->connection->log, 0,                        "http set delay");         ngx_add_timer(r->connection->write, 10000);         return NGX_AGAIN;     }      r->connection->write->timedout = 0;     ngx_log_debug0(NGX_LOG_DEBUG_HTTP, r->connection->log, 0,                    "http reset delay");     return NGX_DECLINED; }
+unit|ngx_int_t ngx_http_delay_handler(ngx_http_request_t *r) {     static int  on;      if (on++ == 0) {         ngx_log_debug0(NGX_LOG_DEBUG_HTTP, r->connection->log, 0,                        "http set delay");         ngx_add_timer(r->connection->write, 10000);         return NGX_AGAIN;     }      r->connection->write->timedout = 0;     ngx_log_debug0(NGX_LOG_DEBUG_HTTP, r->connection->log, 0,                    "http reset delay");     return NGX_DECLINED; }
 endif|#
 directive|endif
 end_endif
 
 begin_function
-DECL|function|ngx_http_add_variable (ngx_conf_t * cf)
 name|ngx_http_variable_t
 modifier|*
+DECL|function|ngx_http_add_variable (ngx_conf_t * cf)
 name|ngx_http_add_variable
 parameter_list|(
 name|ngx_conf_t
@@ -4217,9 +4234,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_get_variable (ngx_http_request_t * r,ngx_uint_t index)
 name|ngx_http_variable_value_t
 modifier|*
+DECL|function|ngx_http_get_variable (ngx_http_request_t * r,ngx_uint_t index)
 name|ngx_http_get_variable
 parameter_list|(
 name|ngx_http_request_t
@@ -4318,10 +4335,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_core_server (ngx_conf_t * cf,ngx_command_t * cmd,void * dummy)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_core_server (ngx_conf_t * cf,ngx_command_t * cmd,void * dummy)
 name|ngx_http_core_server
 parameter_list|(
 name|ngx_conf_t
@@ -4344,12 +4361,16 @@ name|char
 modifier|*
 name|rv
 decl_stmt|;
-name|ngx_http_module_t
+name|void
 modifier|*
-name|module
+name|mconf
 decl_stmt|;
 name|ngx_conf_t
 name|save
+decl_stmt|;
+name|ngx_http_module_t
+modifier|*
+name|module
 decl_stmt|;
 name|ngx_http_conf_ctx_t
 modifier|*
@@ -4357,10 +4378,6 @@ name|ctx
 decl_stmt|,
 modifier|*
 name|http_ctx
-decl_stmt|;
-name|ngx_http_core_main_conf_t
-modifier|*
-name|cmcf
 decl_stmt|;
 name|ngx_http_core_srv_conf_t
 modifier|*
@@ -4370,10 +4387,16 @@ modifier|*
 modifier|*
 name|cscfp
 decl_stmt|;
-name|ngx_test_null
-argument_list|(
+name|ngx_http_core_main_conf_t
+modifier|*
+name|cmcf
+decl_stmt|;
+if|if
+condition|(
+operator|!
+operator|(
 name|ctx
-argument_list|,
+operator|=
 name|ngx_pcalloc
 argument_list|(
 name|cf
@@ -4385,10 +4408,13 @@ argument_list|(
 name|ngx_http_conf_ctx_t
 argument_list|)
 argument_list|)
-argument_list|,
+operator|)
+condition|)
+block|{
+return|return
 name|NGX_CONF_ERROR
-argument_list|)
-expr_stmt|;
+return|;
+block|}
 name|http_ctx
 operator|=
 name|cf
@@ -4404,12 +4430,10 @@ operator|->
 name|main_conf
 expr_stmt|;
 comment|/* the server{}'s srv_conf */
-name|ngx_test_null
-argument_list|(
 name|ctx
 operator|->
 name|srv_conf
-argument_list|,
+operator|=
 name|ngx_pcalloc
 argument_list|(
 name|cf
@@ -4424,17 +4448,25 @@ argument_list|)
 operator|*
 name|ngx_http_max_module
 argument_list|)
-argument_list|,
-name|NGX_CONF_ERROR
-argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|ctx
+operator|->
+name|srv_conf
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
 comment|/* the server{}'s loc_conf */
-name|ngx_test_null
-argument_list|(
 name|ctx
 operator|->
 name|loc_conf
-argument_list|,
+operator|=
 name|ngx_pcalloc
 argument_list|(
 name|cf
@@ -4449,10 +4481,20 @@ argument_list|)
 operator|*
 name|ngx_http_max_module
 argument_list|)
-argument_list|,
-name|NGX_CONF_ERROR
-argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|ctx
+operator|->
+name|loc_conf
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
 for|for
 control|(
 name|m
@@ -4498,8 +4540,25 @@ operator|->
 name|create_srv_conf
 condition|)
 block|{
-name|ngx_test_null
+if|if
+condition|(
+operator|!
+operator|(
+name|mconf
+operator|=
+name|module
+operator|->
+name|create_srv_conf
 argument_list|(
+name|cf
+argument_list|)
+operator|)
+condition|)
+block|{
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
 name|ctx
 operator|->
 name|srv_conf
@@ -4511,16 +4570,8 @@ index|]
 operator|->
 name|ctx_index
 index|]
-argument_list|,
-name|module
-operator|->
-name|create_srv_conf
-argument_list|(
-name|cf
-argument_list|)
-argument_list|,
-name|NGX_CONF_ERROR
-argument_list|)
+operator|=
+name|mconf
 expr_stmt|;
 block|}
 if|if
@@ -4530,8 +4581,25 @@ operator|->
 name|create_loc_conf
 condition|)
 block|{
-name|ngx_test_null
+if|if
+condition|(
+operator|!
+operator|(
+name|mconf
+operator|=
+name|module
+operator|->
+name|create_loc_conf
 argument_list|(
+name|cf
+argument_list|)
+operator|)
+condition|)
+block|{
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
 name|ctx
 operator|->
 name|loc_conf
@@ -4543,20 +4611,12 @@ index|]
 operator|->
 name|ctx_index
 index|]
-argument_list|,
-name|module
-operator|->
-name|create_loc_conf
-argument_list|(
-name|cf
-argument_list|)
-argument_list|,
-name|NGX_CONF_ERROR
-argument_list|)
+operator|=
+name|mconf
 expr_stmt|;
 block|}
 block|}
-comment|/* create links of the srv_conf's */
+comment|/* the server configuration context */
 name|cscf
 operator|=
 name|ctx
@@ -4585,21 +4645,26 @@ operator|.
 name|ctx_index
 index|]
 expr_stmt|;
-name|ngx_test_null
-argument_list|(
+if|if
+condition|(
+operator|!
+operator|(
 name|cscfp
-argument_list|,
-name|ngx_push_array
+operator|=
+name|ngx_array_push
 argument_list|(
 operator|&
 name|cmcf
 operator|->
 name|servers
 argument_list|)
-argument_list|,
+operator|)
+condition|)
+block|{
+return|return
 name|NGX_CONF_ERROR
-argument_list|)
-expr_stmt|;
+return|;
+block|}
 operator|*
 name|cscfp
 operator|=
@@ -4681,10 +4746,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_core_location (ngx_conf_t * cf,ngx_command_t * cmd,void * dummy)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_core_location (ngx_conf_t * cf,ngx_command_t * cmd,void * dummy)
 name|ngx_http_core_location
 parameter_list|(
 name|ngx_conf_t
@@ -5300,7 +5365,7 @@ operator|!
 operator|(
 name|clcfp
 operator|=
-name|ngx_push_array
+name|ngx_array_push
 argument_list|(
 operator|&
 name|cscf
@@ -5581,9 +5646,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_core_cmp_locations (const void * one,const void * two)
 specifier|static
 name|int
+DECL|function|ngx_http_core_cmp_locations (const void * one,const void * two)
 name|ngx_http_core_cmp_locations
 parameter_list|(
 specifier|const
@@ -5779,10 +5844,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_core_types (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_core_types (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_http_core_types
 parameter_list|(
 name|ngx_conf_t
@@ -5843,10 +5908,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_core_type (ngx_conf_t * cf,ngx_command_t * dummy,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_core_type (ngx_conf_t * cf,ngx_command_t * dummy,void * conf)
 name|ngx_http_core_type
 parameter_list|(
 name|ngx_conf_t
@@ -6054,10 +6119,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_core_create_main_conf (ngx_conf_t * cf)
 specifier|static
 name|void
 modifier|*
+DECL|function|ngx_http_core_create_main_conf (ngx_conf_t * cf)
 name|ngx_http_core_create_main_conf
 parameter_list|(
 name|ngx_conf_t
@@ -6141,10 +6206,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_core_init_main_conf (ngx_conf_t * cf,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_core_init_main_conf (ngx_conf_t * cf,void * conf)
 name|ngx_http_core_init_main_conf
 parameter_list|(
 name|ngx_conf_t
@@ -6201,10 +6266,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_core_create_srv_conf (ngx_conf_t * cf)
 specifier|static
 name|void
 modifier|*
+DECL|function|ngx_http_core_create_srv_conf (ngx_conf_t * cf)
 name|ngx_http_core_create_srv_conf
 parameter_list|(
 name|ngx_conf_t
@@ -6216,10 +6281,12 @@ name|ngx_http_core_srv_conf_t
 modifier|*
 name|cscf
 decl_stmt|;
-name|ngx_test_null
-argument_list|(
+if|if
+condition|(
+operator|!
+operator|(
 name|cscf
-argument_list|,
+operator|=
 name|ngx_pcalloc
 argument_list|(
 name|cf
@@ -6231,13 +6298,19 @@ argument_list|(
 name|ngx_http_core_srv_conf_t
 argument_list|)
 argument_list|)
-argument_list|,
+operator|)
+condition|)
+block|{
+return|return
 name|NGX_CONF_ERROR
-argument_list|)
-expr_stmt|;
-comment|/*      *      * set by ngx_pcalloc():      *     conf->client_large_buffers.num = 0;      */
-name|ngx_init_array
+return|;
+block|}
+comment|/*      * set by ngx_pcalloc():      *      *     conf->client_large_buffers.num = 0;      */
+if|if
+condition|(
+name|ngx_array_init
 argument_list|(
+operator|&
 name|cscf
 operator|->
 name|locations
@@ -6253,12 +6326,20 @@ argument_list|(
 name|void
 operator|*
 argument_list|)
-argument_list|,
-name|NGX_CONF_ERROR
 argument_list|)
-expr_stmt|;
-name|ngx_init_array
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
+if|if
+condition|(
+name|ngx_array_init
 argument_list|(
+operator|&
 name|cscf
 operator|->
 name|listen
@@ -6273,12 +6354,20 @@ sizeof|sizeof
 argument_list|(
 name|ngx_http_listen_t
 argument_list|)
-argument_list|,
-name|NGX_CONF_ERROR
 argument_list|)
-expr_stmt|;
-name|ngx_init_array
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
+if|if
+condition|(
+name|ngx_array_init
 argument_list|(
+operator|&
 name|cscf
 operator|->
 name|server_names
@@ -6293,10 +6382,15 @@ sizeof|sizeof
 argument_list|(
 name|ngx_http_server_name_t
 argument_list|)
-argument_list|,
-name|NGX_CONF_ERROR
 argument_list|)
-expr_stmt|;
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
 name|cscf
 operator|->
 name|connection_pool_size
@@ -6340,10 +6434,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_core_merge_srv_conf (ngx_conf_t * cf,void * parent,void * child)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_core_merge_srv_conf (ngx_conf_t * cf,void * parent,void * child)
 name|ngx_http_core_merge_srv_conf
 parameter_list|(
 name|ngx_conf_t
@@ -6373,11 +6467,11 @@ name|child
 decl_stmt|;
 name|ngx_http_listen_t
 modifier|*
-name|l
+name|ls
 decl_stmt|;
 name|ngx_http_server_name_t
 modifier|*
-name|n
+name|sn
 decl_stmt|;
 name|ngx_http_core_main_conf_t
 modifier|*
@@ -6395,22 +6489,27 @@ operator|==
 literal|0
 condition|)
 block|{
-name|ngx_test_null
-argument_list|(
-name|l
-argument_list|,
-name|ngx_push_array
+if|if
+condition|(
+operator|!
+operator|(
+name|ls
+operator|=
+name|ngx_array_push
 argument_list|(
 operator|&
 name|conf
 operator|->
 name|listen
 argument_list|)
-argument_list|,
+operator|)
+condition|)
+block|{
+return|return
 name|NGX_CONF_ERROR
-argument_list|)
-expr_stmt|;
-name|l
+return|;
+block|}
+name|ls
 operator|->
 name|addr
 operator|=
@@ -6421,7 +6520,7 @@ directive|if
 operator|(
 name|NGX_WIN32
 operator|)
-name|l
+name|ls
 operator|->
 name|port
 operator|=
@@ -6430,7 +6529,7 @@ expr_stmt|;
 else|#
 directive|else
 comment|/* STUB: getuid() should be cached */
-name|l
+name|ls
 operator|->
 name|port
 operator|=
@@ -6447,7 +6546,7 @@ literal|8000
 expr_stmt|;
 endif|#
 directive|endif
-name|l
+name|ls
 operator|->
 name|family
 operator|=
@@ -6465,29 +6564,36 @@ operator|==
 literal|0
 condition|)
 block|{
-name|ngx_test_null
-argument_list|(
-name|n
-argument_list|,
-name|ngx_push_array
+if|if
+condition|(
+operator|!
+operator|(
+name|sn
+operator|=
+name|ngx_array_push
 argument_list|(
 operator|&
 name|conf
 operator|->
 name|server_names
 argument_list|)
-argument_list|,
+operator|)
+condition|)
+block|{
+return|return
 name|NGX_CONF_ERROR
-argument_list|)
-expr_stmt|;
-name|ngx_test_null
-argument_list|(
-name|n
+return|;
+block|}
+if|if
+condition|(
+operator|!
+operator|(
+name|sn
 operator|->
 name|name
 operator|.
 name|data
-argument_list|,
+operator|=
 name|ngx_palloc
 argument_list|(
 name|cf
@@ -6496,10 +6602,13 @@ name|pool
 argument_list|,
 name|NGX_MAXHOSTNAMELEN
 argument_list|)
-argument_list|,
+operator|)
+condition|)
+block|{
+return|return
 name|NGX_CONF_ERROR
-argument_list|)
-expr_stmt|;
+return|;
+block|}
 if|if
 condition|(
 name|gethostname
@@ -6508,7 +6617,7 @@ operator|(
 name|char
 operator|*
 operator|)
-name|n
+name|sn
 operator|->
 name|name
 operator|.
@@ -6536,7 +6645,7 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
-name|n
+name|sn
 operator|->
 name|name
 operator|.
@@ -6544,20 +6653,20 @@ name|len
 operator|=
 name|ngx_strlen
 argument_list|(
-name|n
+name|sn
 operator|->
 name|name
 operator|.
 name|data
 argument_list|)
 expr_stmt|;
-name|n
+name|sn
 operator|->
 name|core_srv_conf
 operator|=
 name|conf
 expr_stmt|;
-name|n
+name|sn
 operator|->
 name|wildcard
 operator|=
@@ -6578,7 +6687,7 @@ name|cmcf
 operator|->
 name|max_server_name_len
 operator|<
-name|n
+name|sn
 operator|->
 name|name
 operator|.
@@ -6589,7 +6698,7 @@ name|cmcf
 operator|->
 name|max_server_name_len
 operator|=
-name|n
+name|sn
 operator|->
 name|name
 operator|.
@@ -6726,10 +6835,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_core_create_loc_conf (ngx_conf_t * cf)
 specifier|static
 name|void
 modifier|*
+DECL|function|ngx_http_core_create_loc_conf (ngx_conf_t * cf)
 name|ngx_http_core_create_loc_conf
 parameter_list|(
 name|ngx_conf_t
@@ -6741,10 +6850,12 @@ name|ngx_http_core_loc_conf_t
 modifier|*
 name|lcf
 decl_stmt|;
-name|ngx_test_null
-argument_list|(
+if|if
+condition|(
+operator|!
+operator|(
 name|lcf
-argument_list|,
+operator|=
 name|ngx_pcalloc
 argument_list|(
 name|cf
@@ -6756,10 +6867,13 @@ argument_list|(
 name|ngx_http_core_loc_conf_t
 argument_list|)
 argument_list|)
-argument_list|,
+operator|)
+condition|)
+block|{
+return|return
 name|NGX_CONF_ERROR
-argument_list|)
-expr_stmt|;
+return|;
+block|}
 comment|/*      * set by ngx_pcalloc():      *      *     lcf->root.len = 0;      *     lcf->root.data = NULL;      *     lcf->types = NULL;      *     lcf->default_type.len = 0;      *     lcf->default_type.data = NULL;      *     lcf->err_log = NULL;      *     lcf->error_pages = NULL;      *     lcf->client_body_path = NULL;      *     lcf->regex = NULL;      *     lcf->exact_match = 0;      *     lcf->auto_redirect = 0;      *     lcf->alias = 0;      */
 name|lcf
 operator|->
@@ -6864,10 +6978,10 @@ block|}
 end_function
 
 begin_decl_stmt
-DECL|variable|default_types
+DECL|variable|ngx_http_core_default_types
 specifier|static
 name|ngx_http_type_t
-name|default_types
+name|ngx_http_core_default_types
 index|[]
 init|=
 block|{
@@ -6917,10 +7031,10 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_http_core_merge_loc_conf (ngx_conf_t * cf,void * parent,void * child)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_core_merge_loc_conf (ngx_conf_t * cf,void * parent,void * child)
 name|ngx_http_core_merge_loc_conf
 parameter_list|(
 name|ngx_conf_t
@@ -6948,14 +7062,15 @@ name|conf
 init|=
 name|child
 decl_stmt|;
-name|int
-name|i
-decl_stmt|,
+name|uint32_t
 name|key
+decl_stmt|;
+name|ngx_uint_t
+name|i
 decl_stmt|;
 name|ngx_http_type_t
 modifier|*
-name|t
+name|type
 decl_stmt|;
 name|ngx_conf_merge_str_value
 argument_list|(
@@ -7018,12 +7133,10 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|ngx_test_null
-argument_list|(
 name|conf
 operator|->
 name|types
-argument_list|,
+operator|=
 name|ngx_palloc
 argument_list|(
 name|cf
@@ -7037,10 +7150,20 @@ argument_list|(
 name|ngx_array_t
 argument_list|)
 argument_list|)
-argument_list|,
-name|NGX_CONF_ERROR
-argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|conf
+operator|->
+name|types
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
 for|for
 control|(
 name|i
@@ -7055,8 +7178,11 @@ name|i
 operator|++
 control|)
 block|{
-name|ngx_init_array
+if|if
+condition|(
+name|ngx_array_init
 argument_list|(
+operator|&
 name|conf
 operator|->
 name|types
@@ -7074,10 +7200,15 @@ sizeof|sizeof
 argument_list|(
 name|ngx_http_type_t
 argument_list|)
-argument_list|,
-name|NGX_CONF_ERROR
 argument_list|)
-expr_stmt|;
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
 block|}
 for|for
 control|(
@@ -7085,7 +7216,7 @@ name|i
 operator|=
 literal|0
 init|;
-name|default_types
+name|ngx_http_core_default_types
 index|[
 name|i
 index|]
@@ -7102,7 +7233,7 @@ name|ngx_http_types_hash_key
 argument_list|(
 name|key
 argument_list|,
-name|default_types
+name|ngx_http_core_default_types
 index|[
 name|i
 index|]
@@ -7110,11 +7241,13 @@ operator|.
 name|exten
 argument_list|)
 expr_stmt|;
-name|ngx_test_null
-argument_list|(
-name|t
-argument_list|,
-name|ngx_push_array
+if|if
+condition|(
+operator|!
+operator|(
+name|type
+operator|=
+name|ngx_array_push
 argument_list|(
 operator|&
 name|conf
@@ -7124,69 +7257,20 @@ index|[
 name|key
 index|]
 argument_list|)
-argument_list|,
+operator|)
+condition|)
+block|{
+return|return
 name|NGX_CONF_ERROR
-argument_list|)
-expr_stmt|;
-name|t
-operator|->
-name|exten
-operator|.
-name|len
+return|;
+block|}
+operator|*
+name|type
 operator|=
-name|default_types
+name|ngx_http_core_default_types
 index|[
 name|i
 index|]
-operator|.
-name|exten
-operator|.
-name|len
-expr_stmt|;
-name|t
-operator|->
-name|exten
-operator|.
-name|data
-operator|=
-name|default_types
-index|[
-name|i
-index|]
-operator|.
-name|exten
-operator|.
-name|data
-expr_stmt|;
-name|t
-operator|->
-name|type
-operator|.
-name|len
-operator|=
-name|default_types
-index|[
-name|i
-index|]
-operator|.
-name|type
-operator|.
-name|len
-expr_stmt|;
-name|t
-operator|->
-name|type
-operator|.
-name|data
-operator|=
-name|default_types
-index|[
-name|i
-index|]
-operator|.
-name|type
-operator|.
-name|data
 expr_stmt|;
 block|}
 block|}
@@ -7530,10 +7614,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_core_listen (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_core_listen (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_http_core_listen
 parameter_list|(
 name|ngx_conf_t
@@ -7938,10 +8022,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_core_server_name (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_core_server_name (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_http_core_server_name
 parameter_list|(
 name|ngx_conf_t
@@ -8181,10 +8265,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_core_root (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_core_root (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_http_core_root
 parameter_list|(
 name|ngx_conf_t
@@ -8366,10 +8450,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_core_error_page (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_core_error_page (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_http_core_error_page
 parameter_list|(
 name|ngx_conf_t
@@ -8391,7 +8475,7 @@ name|lcf
 init|=
 name|conf
 decl_stmt|;
-name|int
+name|ngx_int_t
 name|overwrite
 decl_stmt|;
 name|ngx_uint_t
@@ -8420,13 +8504,13 @@ name|lcf
 operator|->
 name|error_pages
 operator|=
-name|ngx_create_array
+name|ngx_array_create
 argument_list|(
 name|cf
 operator|->
 name|pool
 argument_list|,
-literal|5
+literal|4
 argument_list|,
 sizeof|sizeof
 argument_list|(
@@ -8604,7 +8688,7 @@ operator|!
 operator|(
 name|err
 operator|=
-name|ngx_push_array
+name|ngx_array_push
 argument_list|(
 name|lcf
 operator|->
@@ -8733,10 +8817,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_core_keepalive (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_core_keepalive (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_http_core_keepalive
 parameter_list|(
 name|ngx_conf_t
@@ -8893,10 +8977,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_core_error_log (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_core_error_log (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_http_core_error_log
 parameter_list|(
 name|ngx_conf_t
@@ -8957,10 +9041,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_core_lowat_check (ngx_conf_t * cf,void * post,void * data)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_core_lowat_check (ngx_conf_t * cf,void * post,void * data)
 name|ngx_http_core_lowat_check
 parameter_list|(
 name|ngx_conf_t

@@ -127,7 +127,7 @@ end_decl_stmt
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_conf_read_token
 parameter_list|(
 name|ngx_conf_t
@@ -1363,7 +1363,7 @@ end_function
 begin_function
 DECL|function|ngx_conf_read_token (ngx_conf_t * cf)
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_conf_read_token
 parameter_list|(
 name|ngx_conf_t
@@ -1499,6 +1499,51 @@ name|info
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|cf
+operator|->
+name|args
+operator|->
+name|nelts
+operator|>
+literal|0
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"unexpected end of file in %s:%d, "
+literal|"expecting \";\" or \"}\""
+argument_list|,
+name|cf
+operator|->
+name|conf_file
+operator|->
+name|file
+operator|.
+name|name
+operator|.
+name|data
+argument_list|,
+name|cf
+operator|->
+name|conf_file
+operator|->
+name|line
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
 return|return
 name|NGX_CONF_FILE_DONE
 return|;
@@ -1739,7 +1784,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"unexpected '%c' in %s:%d"
+literal|"unexpected \"%c\" in %s:%d"
 argument_list|,
 name|ch
 argument_list|,
@@ -1830,7 +1875,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"unexpected '%c' in %s:%d"
+literal|"unexpected \"%c\" in %s:%d"
 argument_list|,
 name|ch
 argument_list|,
@@ -1893,7 +1938,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"unexpected '}' in %s:%d"
+literal|"unexpected \"}\" in %s:%d"
 argument_list|,
 name|cf
 operator|->

@@ -4155,8 +4155,22 @@ name|NGX_CONF_OK
 return|;
 block|}
 block|}
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"unknown log format \"%V\""
+argument_list|,
+operator|&
+name|name
+argument_list|)
+expr_stmt|;
 return|return
-name|NGX_CONF_OK
+name|NGX_CONF_ERROR
 return|;
 block|}
 end_function

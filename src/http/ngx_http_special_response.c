@@ -491,15 +491,15 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_http_special_response_handler (ngx_http_request_t * r,int error)
 name|ngx_int_t
+DECL|function|ngx_http_special_response_handler (ngx_http_request_t * r,ngx_int_t error)
 name|ngx_http_special_response_handler
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|int
+name|ngx_int_t
 name|error
 parameter_list|)
 block|{

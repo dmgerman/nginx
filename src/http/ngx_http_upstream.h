@@ -117,7 +117,7 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon2795e2020108
+DECL|struct|__anon289cb2520108
 typedef|typedef
 struct|struct
 block|{
@@ -149,7 +149,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2795e2020208
+DECL|struct|__anon289cb2520208
 typedef|typedef
 struct|struct
 block|{
@@ -192,6 +192,10 @@ decl_stmt|;
 DECL|member|bufs
 name|ngx_bufs_t
 name|bufs
+decl_stmt|;
+DECL|member|redirect_errors
+name|ngx_flag_t
+name|redirect_errors
 decl_stmt|;
 DECL|member|x_powered_by
 name|ngx_flag_t
@@ -365,29 +369,6 @@ decl_stmt|;
 DECL|member|saved_log_handler
 name|ngx_log_handler_pt
 name|saved_log_handler
-decl_stmt|;
-comment|/* used to parse an upstream HTTP header */
-DECL|member|status
-name|ngx_uint_t
-name|status
-decl_stmt|;
-DECL|member|status_start
-name|u_char
-modifier|*
-name|status_start
-decl_stmt|;
-DECL|member|status_end
-name|u_char
-modifier|*
-name|status_end
-decl_stmt|;
-DECL|member|status_count
-name|ngx_uint_t
-name|status_count
-decl_stmt|;
-DECL|member|parse_state
-name|ngx_uint_t
-name|parse_state
 decl_stmt|;
 DECL|member|state
 name|ngx_http_upstream_state_t

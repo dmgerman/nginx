@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c61f0e70108
+DECL|struct|__anon290e1b0f0108
 typedef|typedef
 struct|struct
 block|{
@@ -55,6 +55,7 @@ name|index
 decl_stmt|;
 DECL|member|vars
 name|ngx_array_t
+modifier|*
 name|vars
 decl_stmt|;
 DECL|member|location
@@ -69,7 +70,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c61f0e70208
+DECL|struct|__anon290e1b0f0208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +117,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c61f0e70308
+DECL|struct|__anon290e1b0f0308
 typedef|typedef
 struct|struct
 block|{
@@ -131,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c61f0e70403
+DECL|enum|__anon290e1b0f0403
 typedef|typedef
 enum|enum
 block|{
@@ -173,7 +174,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c61f0e70508
+DECL|struct|__anon290e1b0f0508
 typedef|typedef
 struct|struct
 block|{
@@ -311,6 +312,14 @@ value|0x1000
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_FASTCGI_DOCUMENT_ROOT
+define|#
+directive|define
+name|NGX_HTTP_FASTCGI_DOCUMENT_ROOT
+value|0x2000
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_FASTCGI_RESPONDER
 define|#
 directive|define
@@ -383,7 +392,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2c61f0e70608
+DECL|struct|__anon290e1b0f0608
 typedef|typedef
 struct|struct
 block|{
@@ -426,7 +435,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c61f0e70708
+DECL|struct|__anon290e1b0f0708
 typedef|typedef
 struct|struct
 block|{
@@ -965,6 +974,15 @@ name|NGX_HTTP_FASTCGI_REQUEST_URI
 block|}
 block|,
 block|{
+name|ngx_string
+argument_list|(
+literal|"document_root"
+argument_list|)
+block|,
+name|NGX_HTTP_FASTCGI_DOCUMENT_ROOT
+block|}
+block|,
+block|{
 name|ngx_null_string
 block|,
 literal|0
@@ -1172,6 +1190,36 @@ argument_list|,
 name|upstream
 operator|.
 name|header_buffer_size
+argument_list|)
+block|,
+name|NULL
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"fastcgi_redirect_errors"
+argument_list|)
+block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
+name|NGX_HTTP_SRV_CONF
+operator||
+name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_CONF_FLAG
+block|,
+name|ngx_conf_set_flag_slot
+block|,
+name|NGX_HTTP_LOC_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+name|ngx_http_fastcgi_loc_conf_t
+argument_list|,
+name|upstream
+operator|.
+name|redirect_errors
 argument_list|)
 block|,
 name|NULL
@@ -1537,9 +1585,9 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_http_fastcgi_handler (ngx_http_request_t * r)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_fastcgi_handler (ngx_http_request_t * r)
 name|ngx_http_fastcgi_handler
 parameter_list|(
 name|ngx_http_request_t
@@ -1835,9 +1883,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_fastcgi_create_request (ngx_http_request_t * r)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_fastcgi_create_request (ngx_http_request_t * r)
 name|ngx_http_fastcgi_create_request
 parameter_list|(
 name|ngx_http_request_t
@@ -1913,6 +1961,10 @@ decl_stmt|;
 name|ngx_http_variable_value_t
 modifier|*
 name|value
+decl_stmt|;
+name|ngx_http_core_loc_conf_t
+modifier|*
+name|clcf
 decl_stmt|;
 name|ngx_http_core_main_conf_t
 modifier|*
@@ -2053,6 +2105,25 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+if|#
+directive|if
+operator|(
+name|NGX_SUPPRESS_WARN
+operator|)
+name|clcf
+operator|=
+name|NULL
+expr_stmt|;
+name|var
+operator|=
+name|NULL
+expr_stmt|;
+name|vindex
+operator|=
+name|NULL
+expr_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|r
@@ -2426,6 +2497,58 @@ name|flcf
 operator|->
 name|params
 operator|&
+name|NGX_HTTP_FASTCGI_DOCUMENT_ROOT
+condition|)
+block|{
+name|clcf
+operator|=
+name|ngx_http_get_module_loc_conf
+argument_list|(
+name|r
+argument_list|,
+name|ngx_http_core_module
+argument_list|)
+expr_stmt|;
+name|len
+operator|+=
+literal|1
+operator|+
+operator|(
+operator|(
+name|clcf
+operator|->
+name|root
+operator|.
+name|len
+operator|>
+literal|127
+operator|)
+condition|?
+literal|4
+else|:
+literal|1
+operator|)
+operator|+
+sizeof|sizeof
+argument_list|(
+literal|"DOCUMENT_ROOT"
+argument_list|)
+operator|-
+literal|1
+operator|+
+name|clcf
+operator|->
+name|root
+operator|.
+name|len
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|flcf
+operator|->
+name|params
+operator|&
 name|NGX_HTTP_FASTCGI_SCRIPT_NAME
 condition|)
 block|{
@@ -2692,6 +2815,13 @@ operator|-
 literal|1
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|flcf
+operator|->
+name|vars
+condition|)
+block|{
 name|cmcf
 operator|=
 name|ngx_http_get_module_main_conf
@@ -2714,7 +2844,7 @@ operator|=
 name|flcf
 operator|->
 name|vars
-operator|.
+operator|->
 name|elts
 expr_stmt|;
 for|for
@@ -2728,7 +2858,7 @@ operator|<
 name|flcf
 operator|->
 name|vars
-operator|.
+operator|->
 name|nelts
 condition|;
 name|i
@@ -2788,6 +2918,7 @@ name|text
 operator|.
 name|len
 expr_stmt|;
+block|}
 block|}
 block|}
 name|part
@@ -4521,6 +4652,174 @@ name|flcf
 operator|->
 name|params
 operator|&
+name|NGX_HTTP_FASTCGI_DOCUMENT_ROOT
+condition|)
+block|{
+operator|*
+name|b
+operator|->
+name|last
+operator|++
+operator|=
+sizeof|sizeof
+argument_list|(
+literal|"DOCUMENT_ROOT"
+argument_list|)
+operator|-
+literal|1
+expr_stmt|;
+name|len
+operator|=
+name|clcf
+operator|->
+name|root
+operator|.
+name|len
+expr_stmt|;
+if|if
+condition|(
+name|len
+operator|>
+literal|127
+condition|)
+block|{
+operator|*
+name|b
+operator|->
+name|last
+operator|++
+operator|=
+operator|(
+name|u_char
+operator|)
+operator|(
+operator|(
+operator|(
+name|len
+operator|>>
+literal|24
+operator|)
+operator|&
+literal|0x7f
+operator|)
+operator||
+literal|0x80
+operator|)
+expr_stmt|;
+operator|*
+name|b
+operator|->
+name|last
+operator|++
+operator|=
+operator|(
+name|u_char
+operator|)
+operator|(
+operator|(
+name|len
+operator|>>
+literal|16
+operator|)
+operator|&
+literal|0xff
+operator|)
+expr_stmt|;
+operator|*
+name|b
+operator|->
+name|last
+operator|++
+operator|=
+operator|(
+name|u_char
+operator|)
+operator|(
+operator|(
+name|len
+operator|>>
+literal|8
+operator|)
+operator|&
+literal|0xff
+operator|)
+expr_stmt|;
+operator|*
+name|b
+operator|->
+name|last
+operator|++
+operator|=
+operator|(
+name|u_char
+operator|)
+operator|(
+name|len
+operator|&
+literal|0xff
+operator|)
+expr_stmt|;
+block|}
+else|else
+block|{
+operator|*
+name|b
+operator|->
+name|last
+operator|++
+operator|=
+operator|(
+name|u_char
+operator|)
+name|len
+expr_stmt|;
+block|}
+name|b
+operator|->
+name|last
+operator|=
+name|ngx_cpymem
+argument_list|(
+name|b
+operator|->
+name|last
+argument_list|,
+literal|"DOCUMENT_ROOT"
+argument_list|,
+sizeof|sizeof
+argument_list|(
+literal|"DOCUMENT_ROOT"
+argument_list|)
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+name|b
+operator|->
+name|last
+operator|=
+name|ngx_cpymem
+argument_list|(
+name|b
+operator|->
+name|last
+argument_list|,
+name|clcf
+operator|->
+name|root
+operator|.
+name|data
+argument_list|,
+name|len
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|flcf
+operator|->
+name|params
+operator|&
 name|NGX_HTTP_FASTCGI_SCRIPT_NAME
 condition|)
 block|{
@@ -5378,6 +5677,13 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|flcf
+operator|->
+name|vars
+condition|)
+block|{
 for|for
 control|(
 name|i
@@ -5389,7 +5695,7 @@ operator|<
 name|flcf
 operator|->
 name|vars
-operator|.
+operator|->
 name|nelts
 condition|;
 name|i
@@ -5523,6 +5829,7 @@ operator|.
 name|len
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|part
 operator|=
@@ -6564,9 +6871,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_fastcgi_reinit_request (ngx_http_request_t * r)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_fastcgi_reinit_request (ngx_http_request_t * r)
 name|ngx_http_fastcgi_reinit_request
 parameter_list|(
 name|ngx_http_request_t
@@ -7777,9 +8084,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_fastcgi_send_header (ngx_http_request_t * r)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_fastcgi_send_header (ngx_http_request_t * r)
 name|ngx_http_fastcgi_send_header
 parameter_list|(
 name|ngx_http_request_t
@@ -8087,9 +8394,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_fastcgi_input_filter (ngx_event_pipe_t * p,ngx_buf_t * buf)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_fastcgi_input_filter (ngx_event_pipe_t * p,ngx_buf_t * buf)
 name|ngx_http_fastcgi_input_filter
 parameter_list|(
 name|ngx_event_pipe_t
@@ -8871,9 +9178,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_fastcgi_process_record (ngx_http_request_t * r,ngx_http_fastcgi_ctx_t * f)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_fastcgi_process_record (ngx_http_request_t * r,ngx_http_fastcgi_ctx_t * f)
 name|ngx_http_fastcgi_process_record
 parameter_list|(
 name|ngx_http_request_t
@@ -9246,9 +9553,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_fastcgi_abort_request (ngx_http_request_t * r)
 specifier|static
 name|void
+DECL|function|ngx_http_fastcgi_abort_request (ngx_http_request_t * r)
 name|ngx_http_fastcgi_abort_request
 parameter_list|(
 name|ngx_http_request_t
@@ -9276,9 +9583,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_fastcgi_finalize_request (ngx_http_request_t * r,ngx_int_t rc)
 specifier|static
 name|void
+DECL|function|ngx_http_fastcgi_finalize_request (ngx_http_request_t * r,ngx_int_t rc)
 name|ngx_http_fastcgi_finalize_request
 parameter_list|(
 name|ngx_http_request_t
@@ -9309,10 +9616,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_fastcgi_pass (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_fastcgi_pass (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_http_fastcgi_pass
 parameter_list|(
 name|ngx_conf_t
@@ -9595,10 +9902,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_fastcgi_set_var (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_fastcgi_set_var (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_http_fastcgi_set_var
 parameter_list|(
 name|ngx_conf_t
@@ -9643,21 +9950,16 @@ condition|(
 name|lcf
 operator|->
 name|vars
-operator|.
-name|elts
 operator|==
 name|NULL
 condition|)
 block|{
-if|if
-condition|(
-name|ngx_array_init
-argument_list|(
-operator|&
 name|lcf
 operator|->
 name|vars
-argument_list|,
+operator|=
+name|ngx_array_create
+argument_list|(
 name|cf
 operator|->
 name|pool
@@ -9670,8 +9972,14 @@ name|ngx_http_variable_t
 operator|*
 argument_list|)
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|lcf
+operator|->
+name|vars
 operator|==
-name|NGX_ERROR
+name|NULL
 condition|)
 block|{
 return|return
@@ -9754,7 +10062,6 @@ name|index
 operator|=
 name|ngx_array_push
 argument_list|(
-operator|&
 name|lcf
 operator|->
 name|vars
@@ -9805,10 +10112,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_fastcgi_lowat_check (ngx_conf_t * cf,void * post,void * data)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_fastcgi_lowat_check (ngx_conf_t * cf,void * post,void * data)
 name|ngx_http_fastcgi_lowat_check
 parameter_list|(
 name|ngx_conf_t
@@ -9898,10 +10205,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_fastcgi_create_loc_conf (ngx_conf_t * cf)
 specifier|static
 name|void
 modifier|*
+DECL|function|ngx_http_fastcgi_create_loc_conf (ngx_conf_t * cf)
 name|ngx_http_fastcgi_create_loc_conf
 parameter_list|(
 name|ngx_conf_t
@@ -10006,6 +10313,14 @@ name|conf
 operator|->
 name|upstream
 operator|.
+name|redirect_errors
+operator|=
+name|NGX_CONF_UNSET
+expr_stmt|;
+name|conf
+operator|->
+name|upstream
+operator|.
 name|x_powered_by
 operator|=
 name|NGX_CONF_UNSET
@@ -10026,10 +10341,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_fastcgi_merge_loc_conf (ngx_conf_t * cf,void * parent,void * child)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_fastcgi_merge_loc_conf (ngx_conf_t * cf,void * parent,void * child)
 name|ngx_http_fastcgi_merge_loc_conf
 parameter_list|(
 name|ngx_conf_t
@@ -10126,6 +10441,23 @@ operator|.
 name|read_timeout
 argument_list|,
 literal|60000
+argument_list|)
+expr_stmt|;
+name|ngx_conf_merge_msec_value
+argument_list|(
+name|conf
+operator|->
+name|upstream
+operator|.
+name|redirect_errors
+argument_list|,
+name|prev
+operator|->
+name|upstream
+operator|.
+name|redirect_errors
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_msec_value
@@ -10642,6 +10974,24 @@ argument_list|,
 literal|""
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|conf
+operator|->
+name|vars
+operator|==
+name|NULL
+condition|)
+block|{
+name|conf
+operator|->
+name|vars
+operator|=
+name|prev
+operator|->
+name|vars
+expr_stmt|;
+block|}
 return|return
 name|NGX_CONF_OK
 return|;

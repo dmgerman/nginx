@@ -533,7 +533,7 @@ operator|++
 expr_stmt|;
 endif|#
 directive|endif
-comment|/* set a blocking mode for aio and non-blocking mode for the others */
+comment|/* set a blocking mode for aio and non-blocking mode for others */
 if|if
 condition|(
 name|ngx_inherited_nonblocking

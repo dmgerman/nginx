@@ -348,8 +348,8 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_http_upstream_init (ngx_http_request_t * r)
 name|void
+DECL|function|ngx_http_upstream_init (ngx_http_request_t * r)
 name|ngx_http_upstream_init
 parameter_list|(
 name|ngx_http_request_t
@@ -712,9 +712,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_upstream_check_broken_connection (ngx_event_t * ev)
 specifier|static
 name|void
+DECL|function|ngx_http_upstream_check_broken_connection (ngx_event_t * ev)
 name|ngx_http_upstream_check_broken_connection
 parameter_list|(
 name|ngx_event_t
@@ -1123,9 +1123,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_upstream_connect (ngx_http_request_t * r,ngx_http_upstream_t * u)
 specifier|static
 name|void
+DECL|function|ngx_http_upstream_connect (ngx_http_request_t * r,ngx_http_upstream_t * u)
 name|ngx_http_upstream_connect
 parameter_list|(
 name|ngx_http_request_t
@@ -1559,9 +1559,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_upstream_reinit (ngx_http_request_t * r,ngx_http_upstream_t * u)
 specifier|static
 name|void
+DECL|function|ngx_http_upstream_reinit (ngx_http_request_t * r,ngx_http_upstream_t * u)
 name|ngx_http_upstream_reinit
 parameter_list|(
 name|ngx_http_request_t
@@ -1749,25 +1749,13 @@ name|ngx_http_upstream_state_t
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|u
-operator|->
-name|status
-operator|=
-literal|0
-expr_stmt|;
-name|u
-operator|->
-name|status_count
-operator|=
-literal|0
-expr_stmt|;
 block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_upstream_send_request (ngx_http_request_t * r,ngx_http_upstream_t * u)
 specifier|static
 name|void
+DECL|function|ngx_http_upstream_send_request (ngx_http_request_t * r,ngx_http_upstream_t * u)
 name|ngx_http_upstream_send_request
 parameter_list|(
 name|ngx_http_request_t
@@ -2112,9 +2100,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_upstream_send_request_handler (ngx_event_t * wev)
 specifier|static
 name|void
+DECL|function|ngx_http_upstream_send_request_handler (ngx_event_t * wev)
 name|ngx_http_upstream_send_request_handler
 parameter_list|(
 name|ngx_event_t
@@ -2236,9 +2224,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_upstream_process_header (ngx_event_t * rev)
 specifier|static
 name|void
+DECL|function|ngx_http_upstream_process_header (ngx_event_t * rev)
 name|ngx_http_upstream_process_header
 parameter_list|(
 name|ngx_event_t
@@ -2252,6 +2240,9 @@ decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
+name|ngx_uint_t
+name|i
+decl_stmt|;
 name|ngx_connection_t
 modifier|*
 name|c
@@ -2263,6 +2254,14 @@ decl_stmt|;
 name|ngx_http_upstream_t
 modifier|*
 name|u
+decl_stmt|;
+name|ngx_http_err_page_t
+modifier|*
+name|err_page
+decl_stmt|;
+name|ngx_http_core_loc_conf_t
+modifier|*
+name|clcf
 decl_stmt|;
 name|c
 operator|=
@@ -2711,6 +2710,108 @@ expr_stmt|;
 return|return;
 block|}
 comment|/* rc == NGX_OK */
+if|if
+condition|(
+name|r
+operator|->
+name|headers_out
+operator|.
+name|status
+operator|>=
+name|NGX_HTTP_BAD_REQUEST
+operator|&&
+name|u
+operator|->
+name|conf
+operator|->
+name|redirect_errors
+operator|&&
+name|r
+operator|->
+name|err_ctx
+operator|==
+name|NULL
+condition|)
+block|{
+name|clcf
+operator|=
+name|ngx_http_get_module_loc_conf
+argument_list|(
+name|r
+argument_list|,
+name|ngx_http_core_module
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|clcf
+operator|->
+name|error_pages
+condition|)
+block|{
+name|err_page
+operator|=
+name|clcf
+operator|->
+name|error_pages
+operator|->
+name|elts
+expr_stmt|;
+for|for
+control|(
+name|i
+operator|=
+literal|0
+init|;
+name|i
+operator|<
+name|clcf
+operator|->
+name|error_pages
+operator|->
+name|nelts
+condition|;
+name|i
+operator|++
+control|)
+block|{
+if|if
+condition|(
+name|err_page
+index|[
+name|i
+index|]
+operator|.
+name|status
+operator|==
+operator|(
+name|ngx_int_t
+operator|)
+name|r
+operator|->
+name|headers_out
+operator|.
+name|status
+condition|)
+block|{
+name|ngx_http_upstream_finalize_request
+argument_list|(
+name|r
+argument_list|,
+name|u
+argument_list|,
+name|r
+operator|->
+name|headers_out
+operator|.
+name|status
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+block|}
+block|}
+block|}
 name|ngx_http_upstream_send_response
 argument_list|(
 name|r
@@ -2722,9 +2823,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_upstream_send_response (ngx_http_request_t * r,ngx_http_upstream_t * u)
 specifier|static
 name|void
+DECL|function|ngx_http_upstream_send_response (ngx_http_request_t * r,ngx_http_upstream_t * u)
 name|ngx_http_upstream_send_response
 parameter_list|(
 name|ngx_http_request_t
@@ -3297,9 +3398,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_upstream_process_body (ngx_event_t * ev)
 specifier|static
 name|void
+DECL|function|ngx_http_upstream_process_body (ngx_event_t * ev)
 name|ngx_http_upstream_process_body
 parameter_list|(
 name|ngx_event_t
@@ -3696,9 +3797,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_upstream_dummy_handler (ngx_event_t * wev)
 specifier|static
 name|void
+DECL|function|ngx_http_upstream_dummy_handler (ngx_event_t * wev)
 name|ngx_http_upstream_dummy_handler
 parameter_list|(
 name|ngx_event_t
@@ -3723,9 +3824,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_upstream_next (ngx_http_request_t * r,ngx_http_upstream_t * u,ngx_uint_t ft_type)
 specifier|static
 name|void
+DECL|function|ngx_http_upstream_next (ngx_http_request_t * r,ngx_http_upstream_t * u,ngx_uint_t ft_type)
 name|ngx_http_upstream_next
 parameter_list|(
 name|ngx_http_request_t
@@ -4028,9 +4129,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_upstream_finalize_request (ngx_http_request_t * r,ngx_http_upstream_t * u,ngx_int_t rc)
 specifier|static
 name|void
+DECL|function|ngx_http_upstream_finalize_request (ngx_http_request_t * r,ngx_http_upstream_t * u,ngx_int_t rc)
 name|ngx_http_upstream_finalize_request
 parameter_list|(
 name|ngx_http_request_t
@@ -4290,9 +4391,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_upstream_log_status_getlen (ngx_http_request_t * r,uintptr_t data)
 specifier|static
 name|size_t
+DECL|function|ngx_http_upstream_log_status_getlen (ngx_http_request_t * r,uintptr_t data)
 name|ngx_http_upstream_log_status_getlen
 parameter_list|(
 name|ngx_http_request_t
@@ -4333,10 +4434,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_upstream_log_status (ngx_http_request_t * r,u_char * buf,ngx_http_log_op_t * op)
 specifier|static
 name|u_char
 modifier|*
+DECL|function|ngx_http_upstream_log_status (ngx_http_request_t * r,u_char * buf,ngx_http_log_op_t * op)
 name|ngx_http_upstream_log_status
 parameter_list|(
 name|ngx_http_request_t
@@ -4476,9 +4577,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_upstream_log_error (ngx_log_t * log,u_char * buf,size_t len)
 name|u_char
 modifier|*
+DECL|function|ngx_http_upstream_log_error (ngx_log_t * log,u_char * buf,size_t len)
 name|ngx_http_upstream_log_error
 parameter_list|(
 name|ngx_log_t
@@ -4943,9 +5044,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_upstream_add_log_formats (ngx_conf_t * cf)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_upstream_add_log_formats (ngx_conf_t * cf)
 name|ngx_http_upstream_add_log_formats
 parameter_list|(
 name|ngx_conf_t
