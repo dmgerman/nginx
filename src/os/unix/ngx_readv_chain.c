@@ -75,6 +75,7 @@ argument_list|,
 name|NGX_ERROR
 argument_list|)
 expr_stmt|;
+comment|/* TODO: coalesce the neighbouring chain entries */
 while|while
 condition|(
 name|entry
