@@ -132,6 +132,25 @@ begin_if
 if|#
 directive|if
 operator|(
+name|HAVE_AIO
+operator|)
+end_if
+
+begin_include
+include|#
+directive|include
+file|<ngx_aio_module.h>
+end_include
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_if
+if|#
+directive|if
+operator|(
 name|HAVE_IOCP
 operator|)
 end_if
@@ -258,6 +277,15 @@ directive|endif
 if|#
 directive|if
 operator|(
+name|HAVE_AIO
+operator|)
+function_decl|ngx_aio_init
+operator|,
+endif|#
+directive|endif
+if|#
+directive|if
+operator|(
 name|HAVE_IOCP
 operator|)
 function_decl|ngx_iocp_init
@@ -338,6 +366,12 @@ if|#
 directive|if
 literal|0
 block_content|ngx_event_type = NGX_DEVPOLL_EVENT_N;
+endif|#
+directive|endif
+if|#
+directive|if
+literal|0
+block_content|ngx_event_type = NGX_AIO_EVENT_N;
 endif|#
 directive|endif
 if|#

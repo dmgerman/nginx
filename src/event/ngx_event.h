@@ -80,7 +80,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2c1e45390108
+DECL|struct|__anon27e6e72c0108
 typedef|typedef
 struct|struct
 block|{
@@ -357,7 +357,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2c1e45390203
+DECL|enum|__anon27e6e72c0203
 typedef|typedef
 enum|enum
 block|{
@@ -399,6 +399,16 @@ directive|endif
 if|#
 directive|if
 operator|(
+name|HAVE_AIO
+operator|)
+DECL|enumerator|NGX_AIO_EVENT_N
+name|NGX_AIO_EVENT_N
+block|,
+endif|#
+directive|endif
+if|#
+directive|if
+operator|(
 name|HAVE_IOCP
 operator|)
 DECL|enumerator|NGX_IOCP_EVENT_N
@@ -416,7 +426,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1e45390308
+DECL|struct|__anon27e6e72c0308
 typedef|typedef
 struct|struct
 block|{

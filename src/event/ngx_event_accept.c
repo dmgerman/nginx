@@ -742,6 +742,7 @@ directive|elif
 operator|(
 name|HAVE_KQUEUE
 operator|)
+comment|/*         if (ngx_event_type == NGX_HAVE_AIO_EVENT  or NGX_HAVE_KQUEUE_EVENT) { */
 if|if
 condition|(
 name|ngx_event_type

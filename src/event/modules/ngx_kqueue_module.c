@@ -352,6 +352,10 @@ directive|endif
 operator||
 name|NGX_HAVE_KQUEUE_EVENT
 expr_stmt|;
+name|ngx_write_chain_proc
+operator|=
+name|ngx_freebsd_write_chain
+expr_stmt|;
 endif|#
 directive|endif
 endif|#

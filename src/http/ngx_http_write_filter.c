@@ -26,6 +26,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_connection.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_event_write.h>
 end_include
 
@@ -340,7 +346,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_DEBUG_WRITE_FILTER0
+name|NGX_DEBUG_WRITE_FILTER
 operator|)
 name|ngx_log_debug
 argument_list|(
@@ -471,7 +477,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_DEBUG_WRITE_FILTER0
+name|NGX_DEBUG_WRITE_FILTER
 operator|)
 name|ngx_log_debug
 argument_list|(
@@ -546,7 +552,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_DEBUG_WRITE_FILTER0
+name|NGX_DEBUG_WRITE_FILTER
 operator|)
 name|ngx_log_debug
 argument_list|(
@@ -581,7 +587,7 @@ return|;
 block|}
 name|chain
 operator|=
-name|ngx_event_write
+name|ngx_write_chain
 argument_list|(
 name|r
 operator|->

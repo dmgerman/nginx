@@ -338,6 +338,7 @@ literal|"%d %d"
 argument|_                           ims _ r->headers_out.last_modified_time
 argument_list|)
 empty_stmt|;
+comment|/* I think that the date equality is correcter */
 if|if
 condition|(
 name|ims
@@ -345,7 +346,7 @@ operator|!=
 name|NGX_ERROR
 operator|&&
 name|ims
-operator|>=
+operator|==
 name|r
 operator|->
 name|headers_out
