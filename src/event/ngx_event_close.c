@@ -8,6 +8,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_core.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_types.h>
 end_include
 
@@ -38,7 +44,7 @@ name|rc
 decl_stmt|;
 name|ngx_connection_t
 modifier|*
-name|cn
+name|c
 init|=
 operator|(
 name|ngx_connection_t
@@ -50,18 +56,24 @@ name|data
 decl_stmt|;
 name|ngx_assert
 argument_list|(
-argument|(cn->fd != -
+argument|(c->fd != -
 literal|1
 argument|)
 argument_list|,
-argument|return -
-literal|1
+argument|return NGX_ERROR
 argument_list|,
-argument|ev->log
+argument|c->log
 argument_list|,
 literal|"ngx_event_close: already closed"
 argument_list|)
 empty_stmt|;
+name|ngx_destroy_pool
+argument_list|(
+name|c
+operator|->
+name|pool
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|(
@@ -69,7 +81,7 @@ name|rc
 operator|=
 name|ngx_close_socket
 argument_list|(
-name|cn
+name|c
 operator|->
 name|fd
 argument_list|)
@@ -82,7 +94,7 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ERR
 argument_list|,
-name|ev
+name|c
 operator|->
 name|log
 argument_list|,
@@ -93,7 +105,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|cn
+name|c
 operator|->
 name|read
 operator|->
@@ -101,7 +113,7 @@ name|next
 condition|)
 name|ngx_del_event
 argument_list|(
-name|cn
+name|c
 operator|->
 name|read
 argument_list|,
@@ -110,7 +122,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|cn
+name|c
 operator|->
 name|write
 operator|->
@@ -118,14 +130,14 @@ name|next
 condition|)
 name|ngx_del_event
 argument_list|(
-name|cn
+name|c
 operator|->
 name|write
 argument_list|,
 name|NGX_WRITE_EVENT
 argument_list|)
 expr_stmt|;
-name|cn
+name|c
 operator|->
 name|fd
 operator|=

@@ -36,13 +36,13 @@ file|<ngx_connection.h>
 end_include
 
 begin_function
-DECL|function|ngx_event_recv_core (ngx_event_t * ev,char * buf,size_t size)
+DECL|function|ngx_event_recv_core (ngx_connection_t * c,char * buf,size_t size)
 name|int
 name|ngx_event_recv_core
 parameter_list|(
-name|ngx_event_t
+name|ngx_connection_t
 modifier|*
-name|ev
+name|c
 parameter_list|,
 name|char
 modifier|*
@@ -58,23 +58,11 @@ decl_stmt|;
 name|ngx_err_t
 name|err
 decl_stmt|;
-name|ngx_connection_t
-modifier|*
-name|c
-decl_stmt|;
-name|c
-operator|=
-operator|(
-name|ngx_connection_t
-operator|*
-operator|)
-name|ev
-operator|->
-name|data
-expr_stmt|;
 if|if
 condition|(
-name|ev
+name|c
+operator|->
+name|read
 operator|->
 name|timedout
 condition|)
@@ -88,7 +76,7 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ERR
 argument_list|,
-name|ev
+name|c
 operator|->
 name|log
 argument_list|,
@@ -108,10 +96,10 @@ name|HAVE_KQUEUE
 operator|)
 name|ngx_log_debug
 argument_list|(
-argument|ev->log
+argument|c->log
 argument_list|,
 literal|"ngx_event_recv: eof:%d, avail:%d, err:%d"
-argument|_                   ev->eof _ ev->available _ ev->error
+argument|_                   c->read->eof _ c->read->available _ c->read->error
 argument_list|)
 empty_stmt|;
 if|#
@@ -130,11 +118,15 @@ endif|#
 directive|endif
 if|if
 condition|(
-name|ev
+name|c
+operator|->
+name|read
 operator|->
 name|eof
 operator|&&
-name|ev
+name|c
+operator|->
+name|read
 operator|->
 name|available
 operator|==
@@ -143,7 +135,9 @@ condition|)
 block|{
 if|if
 condition|(
-name|ev
+name|c
+operator|->
+name|read
 operator|->
 name|error
 condition|)
@@ -152,11 +146,13 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ERR
 argument_list|,
-name|ev
+name|c
 operator|->
 name|log
 argument_list|,
-name|ev
+name|c
+operator|->
+name|read
 operator|->
 name|error
 argument_list|,
@@ -211,7 +207,7 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_INFO
 argument_list|,
-name|ev
+name|c
 operator|->
 name|log
 argument_list|,
@@ -228,7 +224,7 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ERR
 argument_list|,
-name|ev
+name|c
 operator|->
 name|log
 argument_list|,
@@ -260,7 +256,9 @@ name|NGX_KQUEUE_EVENT
 condition|)
 endif|#
 directive|endif
-name|ev
+name|c
+operator|->
+name|read
 operator|->
 name|available
 operator|-=

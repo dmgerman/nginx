@@ -151,7 +151,8 @@ name|size_t
 name|addr_textlen
 decl_stmt|;
 DECL|member|post_accept_timeout
-name|time_t
+name|unsigned
+name|int
 name|post_accept_timeout
 decl_stmt|;
 block|}

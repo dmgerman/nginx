@@ -27,6 +27,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_hunk.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_file.h>
 end_include
 
@@ -35,38 +41,6 @@ include|#
 directive|include
 file|<ngx_connection.h>
 end_include
-
-begin_define
-DECL|macro|NGX_SYS_ERROR
-define|#
-directive|define
-name|NGX_SYS_ERROR
-value|-1
-end_define
-
-begin_define
-DECL|macro|NGX_HTTP_INVALID_METHOD
-define|#
-directive|define
-name|NGX_HTTP_INVALID_METHOD
-value|-2
-end_define
-
-begin_define
-DECL|macro|NGX_HTTP_INVALID_REQUEST
-define|#
-directive|define
-name|NGX_HTTP_INVALID_REQUEST
-value|-3
-end_define
-
-begin_define
-DECL|macro|NGX_HTTP_INVALID_HEADER
-define|#
-directive|define
-name|NGX_HTTP_INVALID_HEADER
-value|-4
-end_define
 
 begin_define
 DECL|macro|NGX_HTTP_GET
@@ -109,11 +83,43 @@ value|1
 end_define
 
 begin_define
-DECL|macro|NGX_OK
+DECL|macro|NGX_HTTP_HEADER_DONE
 define|#
 directive|define
-name|NGX_OK
-value|0
+name|NGX_HTTP_HEADER_DONE
+value|1
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_INVALID_METHOD
+define|#
+directive|define
+name|NGX_HTTP_INVALID_METHOD
+value|10
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_INVALID_REQUEST
+define|#
+directive|define
+name|NGX_HTTP_INVALID_REQUEST
+value|11
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_INVALID_HEAD
+define|#
+directive|define
+name|NGX_HTTP_INVALID_HEAD
+value|12
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_INVALID_HEADER
+define|#
+directive|define
+name|NGX_HTTP_INVALID_HEADER
+value|13
 end_define
 
 begin_define
@@ -130,6 +136,14 @@ define|#
 directive|define
 name|NGX_HTTP_MOVED_PERMANENTLY
 value|302
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_BAD_REQUEST
+define|#
+directive|define
+name|NGX_HTTP_BAD_REQUEST
+value|400
 end_define
 
 begin_define
@@ -165,7 +179,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon290d2efc0108
+DECL|struct|__anon29f71d130108
 typedef|typedef
 struct|struct
 block|{
@@ -199,7 +213,7 @@ value|(module)->ctx
 end_define
 
 begin_typedef
-DECL|struct|__anon290d2efc0208
+DECL|struct|__anon29f71d130208
 typedef|typedef
 struct|struct
 block|{
@@ -216,6 +230,11 @@ DECL|member|buff_size
 name|size_t
 name|buff_size
 decl_stmt|;
+DECL|member|header_timeout
+name|unsigned
+name|int
+name|header_timeout
+decl_stmt|;
 DECL|typedef|ngx_http_server_t
 block|}
 name|ngx_http_server_t
@@ -223,7 +242,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290d2efc0308
+DECL|struct|__anon29f71d130308
 typedef|typedef
 struct|struct
 block|{
@@ -254,7 +273,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290d2efc0408
+DECL|struct|__anon29f71d130408
 typedef|typedef
 struct|struct
 block|{
@@ -337,6 +356,17 @@ DECL|member|fd
 name|ngx_fd_t
 name|fd
 decl_stmt|;
+DECL|member|pool
+name|ngx_pool_t
+modifier|*
+name|pool
+decl_stmt|;
+DECL|member|header_in
+name|ngx_hunk_t
+modifier|*
+name|header_in
+decl_stmt|;
+comment|/*     ngx_http_headers_in_t *headers_in; */
 DECL|member|headers_out
 name|ngx_http_headers_out_t
 modifier|*
@@ -398,19 +428,15 @@ name|ngx_http_server_t
 modifier|*
 name|server
 decl_stmt|;
-DECL|member|buff
-name|ngx_buff_t
-modifier|*
-name|buff
-decl_stmt|;
-DECL|member|pool
-name|ngx_pool_t
-modifier|*
-name|pool
-decl_stmt|;
 DECL|member|filter
 name|int
 name|filter
+decl_stmt|;
+DECL|member|header_timeout
+name|unsigned
+name|header_timeout
+range|:
+literal|1
 decl_stmt|;
 DECL|member|header_only
 name|unsigned
@@ -496,7 +522,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon290d2efc0508
+DECL|struct|__anon29f71d130508
 typedef|typedef
 struct|struct
 block|{

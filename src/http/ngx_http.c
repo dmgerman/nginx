@@ -83,6 +83,12 @@ name|ls
 decl_stmt|;
 name|ngx_http_server
 operator|.
+name|header_timeout
+operator|=
+literal|20000
+expr_stmt|;
+name|ngx_http_server
+operator|.
 name|buff_size
 operator|=
 literal|1024

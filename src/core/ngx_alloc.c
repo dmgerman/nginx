@@ -67,6 +67,14 @@ argument_list|,
 name|size
 argument_list|)
 expr_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|log
+argument_list|,
+literal|"malloc: %x"
+argument|_ p
+argument_list|)
+empty_stmt|;
 return|return
 name|p
 return|;

@@ -146,7 +146,7 @@ DECL|struct|ngx_hunk_s
 struct|struct
 name|ngx_hunk_s
 block|{
-DECL|union|__anon27611973010a
+DECL|union|__anon2a2ae1d1010a
 union|union
 block|{
 DECL|member|mem
@@ -163,7 +163,7 @@ DECL|member|pos
 block|}
 name|pos
 union|;
-DECL|union|__anon27611973020a
+DECL|union|__anon2a2ae1d1020a
 union|union
 block|{
 DECL|member|mem
@@ -247,6 +247,24 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+
+begin_define
+DECL|macro|ngx_create_temp_hunk (pool,size,before,after)
+define|#
+directive|define
+name|ngx_create_temp_hunk
+parameter_list|(
+name|pool
+parameter_list|,
+name|size
+parameter_list|,
+name|before
+parameter_list|,
+name|after
+parameter_list|)
+define|\
+value|ngx_get_hunk(pool, size, before, after)
+end_define
 
 begin_define
 DECL|macro|ngx_add_hunk_to_chain (chain,h,pool,error)
