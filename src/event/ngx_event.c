@@ -907,6 +907,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|ngx_accept_mutex_ptr
+operator|&&
 name|ccf
 operator|->
 name|worker_processes
