@@ -200,11 +200,11 @@ operator|)
 end_if
 
 begin_decl_stmt
-DECL|function|ngx_log_error_core (int level,ngx_log_t * log,ngx_err_t err,const char * fmt,...)
+DECL|function|ngx_log_error_core (ngx_uint_t level,ngx_log_t * log,ngx_err_t err,const char * fmt,...)
 name|void
 name|ngx_log_error_core
 argument_list|(
-name|int
+name|ngx_uint_t
 name|level
 argument_list|,
 name|ngx_log_t
@@ -226,7 +226,7 @@ directive|else
 name|void
 name|ngx_log_error_core
 argument_list|(
-name|int
+name|ngx_uint_t
 name|level
 argument_list|,
 name|ngx_log_t
@@ -835,11 +835,11 @@ operator|)
 end_if
 
 begin_function
-DECL|function|ngx_log_error (int level,ngx_log_t * log,ngx_err_t err,const char * fmt,...)
+DECL|function|ngx_log_error (ngx_uint_t level,ngx_log_t * log,ngx_err_t err,const char * fmt,...)
 name|void
 name|ngx_log_error
 parameter_list|(
-name|int
+name|ngx_uint_t
 name|level
 parameter_list|,
 name|ngx_log_t

@@ -105,14 +105,29 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug4
 argument_list|(
-argument|c->log
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
-literal|"WSARecv: %d:%d"
-argument|_ rc _ bytes
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"WSARecv: fd:%d rc:%d %d of %d"
+argument_list|,
+name|c
+operator|->
+name|fd
+argument_list|,
+name|rc
+argument_list|,
+name|bytes
+argument_list|,
+name|size
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 name|rev
 operator|=
 name|c
@@ -144,9 +159,9 @@ operator|==
 name|WSAEWOULDBLOCK
 condition|)
 block|{
-name|ngx_log_error
+name|ngx_log_debug0
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
 name|c
 operator|->
@@ -154,7 +169,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"WSARecv() EAGAIN"
+literal|"WSARecv() not ready"
 argument_list|)
 expr_stmt|;
 return|return
@@ -167,13 +182,9 @@ name|error
 operator|=
 literal|1
 expr_stmt|;
-name|ngx_log_error
+name|ngx_connection_error
 argument_list|(
-name|NGX_LOG_CRIT
-argument_list|,
 name|c
-operator|->
-name|log
 argument_list|,
 name|err
 argument_list|,
@@ -284,21 +295,30 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"SECOND WSA POST"
+literal|"second wsa post"
 argument_list|)
 expr_stmt|;
 return|return
 name|NGX_AGAIN
 return|;
 block|}
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|c->log
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"rev->complete: %d"
-argument|_ rev->complete
+argument_list|,
+name|rev
+operator|->
+name|complete
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|rev
@@ -328,13 +348,9 @@ operator|.
 name|error
 condition|)
 block|{
-name|ngx_log_error
+name|ngx_connection_error
 argument_list|(
-name|NGX_LOG_ERR
-argument_list|,
 name|c
-operator|->
-name|log
 argument_list|,
 name|rev
 operator|->
@@ -382,13 +398,9 @@ operator|==
 literal|0
 condition|)
 block|{
-name|ngx_log_error
+name|ngx_connection_error
 argument_list|(
-name|NGX_LOG_CRIT
-argument_list|,
 name|c
-operator|->
-name|log
 argument_list|,
 name|ngx_socket_errno
 argument_list|,
@@ -478,14 +490,29 @@ name|complete
 operator|=
 literal|0
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug4
 argument_list|(
-argument|c->log
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
-literal|"WSARecv: %d:%d"
-argument|_ rc _ bytes
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"WSARecv: fd:%d rc:%d %d of %d"
+argument_list|,
+name|c
+operator|->
+name|fd
+argument_list|,
+name|rc
+argument_list|,
+name|bytes
+argument_list|,
+name|size
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|rc
@@ -521,13 +548,9 @@ name|error
 operator|=
 literal|1
 expr_stmt|;
-name|ngx_log_error
+name|ngx_connection_error
 argument_list|(
-name|NGX_LOG_CRIT
-argument_list|,
 name|c
-operator|->
-name|log
 argument_list|,
 name|err
 argument_list|,

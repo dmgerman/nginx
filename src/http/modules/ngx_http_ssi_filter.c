@@ -74,7 +74,7 @@ value|5
 end_define
 
 begin_typedef
-DECL|struct|__anon2bf5496f0108
+DECL|struct|__anon2b1d76c70108
 typedef|typedef
 struct|struct
 block|{
@@ -93,17 +93,22 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf5496f0208
+DECL|struct|__anon2b1d76c70208
 typedef|typedef
 struct|struct
-block|{ }
+block|{
+DECL|member|dummy
+name|int
+name|dummy
+decl_stmt|;
 DECL|typedef|ngx_http_ssi_command_t
+block|}
 name|ngx_http_ssi_command_t
 typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf5496f0308
+DECL|struct|__anon2b1d76c70308
 typedef|typedef
 struct|struct
 block|{
@@ -196,7 +201,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf5496f0408
+DECL|struct|__anon2b1d76c70408
 typedef|typedef
 struct|struct
 block|{
@@ -215,7 +220,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2bf5496f0503
+DECL|enum|__anon2b1d76c70503
 typedef|typedef
 enum|enum
 block|{

@@ -21,25 +21,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_types.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_alloc.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_hunk.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_file.h>
+file|<ngx_core.h>
 end_include
 
 begin_define

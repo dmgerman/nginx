@@ -255,7 +255,7 @@ begin_function_decl
 name|void
 name|ngx_log_error_core
 parameter_list|(
-name|int
+name|ngx_uint_t
 name|level
 parameter_list|,
 name|ngx_log_t
@@ -315,7 +315,7 @@ begin_function_decl
 name|void
 name|ngx_log_error_core
 parameter_list|(
-name|int
+name|ngx_uint_t
 name|level
 parameter_list|,
 name|ngx_log_t
@@ -360,7 +360,7 @@ begin_function_decl
 name|void
 name|ngx_log_error
 parameter_list|(
-name|int
+name|ngx_uint_t
 name|level
 parameter_list|,
 name|ngx_log_t
@@ -384,7 +384,7 @@ begin_function_decl
 name|void
 name|ngx_log_error_core
 parameter_list|(
-name|int
+name|ngx_uint_t
 name|level
 parameter_list|,
 name|ngx_log_t

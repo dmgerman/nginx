@@ -180,7 +180,7 @@ name|ngx_atomic_inc
 parameter_list|(
 name|x
 parameter_list|)
-value|x++;
+value|(*(x))++;
 end_define
 
 begin_define
@@ -191,7 +191,7 @@ name|ngx_atomic_dec
 parameter_list|(
 name|x
 parameter_list|)
-value|x--;
+value|(*(x))--;
 end_define
 
 begin_define

@@ -103,6 +103,14 @@ value|ERROR_PATH_NOT_FOUND
 end_define
 
 begin_define
+DECL|macro|NGX_EPIPE
+define|#
+directive|define
+name|NGX_EPIPE
+value|EPIPE
+end_define
+
+begin_define
 DECL|macro|NGX_EAGAIN
 define|#
 directive|define
@@ -127,11 +135,27 @@ value|WSAEADDRINUSE
 end_define
 
 begin_define
+DECL|macro|NGX_ECONNABORTED
+define|#
+directive|define
+name|NGX_ECONNABORTED
+value|WSAECONNABORTED
+end_define
+
+begin_define
 DECL|macro|NGX_ECONNRESET
 define|#
 directive|define
 name|NGX_ECONNRESET
-value|ECONNRESET
+value|WSAECONNRESET
+end_define
+
+begin_define
+DECL|macro|NGX_ENOTCONN
+define|#
+directive|define
+name|NGX_ENOTCONN
+value|WSAENOTCONN
 end_define
 
 begin_define

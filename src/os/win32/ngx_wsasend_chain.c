@@ -254,9 +254,9 @@ operator|==
 name|WSAEWOULDBLOCK
 condition|)
 block|{
-name|ngx_log_error
+name|ngx_log_debug0
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
 name|c
 operator|->
@@ -264,7 +264,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"WSASend() EAGAIN"
+literal|"WSASend() not ready"
 argument_list|)
 expr_stmt|;
 name|wev
@@ -285,13 +285,9 @@ name|error
 operator|=
 literal|1
 expr_stmt|;
-name|ngx_log_error
+name|ngx_connection_error
 argument_list|(
-name|NGX_LOG_CRIT
-argument_list|,
 name|c
-operator|->
-name|log
 argument_list|,
 name|err
 argument_list|,
@@ -313,7 +309,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"WSASend(): %d"
+literal|"WSASend: %d"
 argument_list|,
 name|sent
 argument_list|)
@@ -729,13 +725,9 @@ name|error
 operator|=
 literal|1
 expr_stmt|;
-name|ngx_log_error
+name|ngx_connection_error
 argument_list|(
-name|NGX_LOG_CRIT
-argument_list|,
 name|c
-operator|->
-name|log
 argument_list|,
 name|err
 argument_list|,
@@ -797,13 +789,9 @@ operator|.
 name|error
 condition|)
 block|{
-name|ngx_log_error
+name|ngx_connection_error
 argument_list|(
-name|NGX_LOG_ERR
-argument_list|,
 name|c
-operator|->
-name|log
 argument_list|,
 name|wev
 operator|->
@@ -854,13 +842,9 @@ operator|==
 literal|0
 condition|)
 block|{
-name|ngx_log_error
+name|ngx_connection_error
 argument_list|(
-name|NGX_LOG_CRIT
-argument_list|,
 name|c
-operator|->
-name|log
 argument_list|,
 name|ngx_socket_errno
 argument_list|,
@@ -883,7 +867,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"WSASend(): %d"
+literal|"WSASend: %d"
 argument_list|,
 name|sent
 argument_list|)

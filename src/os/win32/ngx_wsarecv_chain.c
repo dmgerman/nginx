@@ -203,14 +203,27 @@ operator|->
 name|next
 expr_stmt|;
 block|}
-name|ngx_log_debug
+name|ngx_log_debug2
 argument_list|(
-argument|c->log
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"WSARecv: %d:%d"
-argument|_ io.nelts _ wsabuf->len
+argument_list|,
+name|io
+operator|.
+name|nelts
+argument_list|,
+name|wsabuf
+operator|->
+name|len
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 name|rc
 operator|=
 name|WSARecv
@@ -269,9 +282,9 @@ operator|==
 name|WSAEWOULDBLOCK
 condition|)
 block|{
-name|ngx_log_error
+name|ngx_log_debug0
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
 name|c
 operator|->
@@ -279,7 +292,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"WSARecv() EAGAIN"
+literal|"WSARecv() not ready"
 argument_list|)
 expr_stmt|;
 return|return
@@ -292,13 +305,9 @@ name|error
 operator|=
 literal|1
 expr_stmt|;
-name|ngx_log_error
+name|ngx_connection_error
 argument_list|(
-name|NGX_LOG_CRIT
-argument_list|,
 name|c
-operator|->
-name|log
 argument_list|,
 name|err
 argument_list|,

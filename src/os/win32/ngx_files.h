@@ -87,14 +87,6 @@ value|0
 end_define
 
 begin_define
-DECL|macro|STDERR_FILENO
-define|#
-directive|define
-name|STDERR_FILENO
-value|(HANDLE) 2
-end_define
-
-begin_define
 DECL|macro|ngx_open_file (name,access,create)
 define|#
 directive|define

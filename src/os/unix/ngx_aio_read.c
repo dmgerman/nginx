@@ -94,7 +94,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"SECOND AIO POST"
+literal|"second aio post"
 argument_list|)
 expr_stmt|;
 return|return

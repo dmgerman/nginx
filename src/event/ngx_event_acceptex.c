@@ -346,15 +346,26 @@ operator|->
 name|flags
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug2
 argument_list|(
-argument|ls->log
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
-argument|ngx_socket_n
-literal|": %d:%d"
-argument|_ s _ ls->flags
+name|ls
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+name|ngx_socket_n
+literal|" s:%d fl:%d"
+argument_list|,
+name|s
+argument_list|,
+name|ls
+operator|->
+name|flags
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|s

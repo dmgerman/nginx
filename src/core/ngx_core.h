@@ -141,6 +141,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_user.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_string.h>
 end_include
 
@@ -245,6 +251,12 @@ begin_include
 include|#
 directive|include
 file|<ngx_cycle.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_process_cycle.h>
 end_include
 
 begin_include

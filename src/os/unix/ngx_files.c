@@ -11,30 +11,6 @@ directive|include
 file|<ngx_core.h>
 end_include
 
-begin_include
-include|#
-directive|include
-file|<ngx_hunk.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_array.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_file.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_files.h>
-end_include
-
 begin_function
 DECL|function|ngx_read_file (ngx_file_t * file,char * buf,size_t size,off_t offset)
 name|ssize_t

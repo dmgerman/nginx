@@ -21,14 +21,6 @@ value|1
 end_define
 
 begin_define
-DECL|macro|NGX_WIN_NT
-define|#
-directive|define
-name|NGX_WIN_NT
-value|200000
-end_define
-
-begin_define
 DECL|macro|STRICT
 define|#
 directive|define
@@ -166,6 +158,12 @@ endif|#
 directive|endif
 end_endif
 
+begin_include
+include|#
+directive|include
+file|<ngx_auto_config.h>
+end_include
+
 begin_define
 DECL|macro|ngx_inline
 define|#
@@ -177,18 +175,26 @@ end_define
 begin_if
 if|#
 directive|if
-literal|0
+literal|1
 end_if
 
-begin_comment
-comment|/* owc have not __int32 */
-end_comment
+begin_typedef
+DECL|typedef|uint32_t
+typedef|typedef
+name|unsigned
+name|__int32
+name|uint32_t
+typedef|;
+end_typedef
 
 begin_else
-unit|typedef unsigned __int32  uint32_t;
 else|#
 directive|else
 end_else
+
+begin_comment
+comment|/* OWC has not __int32 */
+end_comment
 
 begin_typedef
 DECL|typedef|uint32_t
@@ -261,6 +267,14 @@ name|in_addr_t
 typedef|;
 end_typedef
 
+begin_typedef
+DECL|typedef|sig_atomic_t
+typedef|typedef
+name|int
+name|sig_atomic_t
+typedef|;
+end_typedef
+
 begin_define
 DECL|macro|OFF_T_FMT
 define|#
@@ -299,6 +313,22 @@ define|#
 directive|define
 name|TIME_T_FMT
 value|"%lu"
+end_define
+
+begin_define
+DECL|macro|PTR_FMT
+define|#
+directive|define
+name|PTR_FMT
+value|"%08X"
+end_define
+
+begin_define
+DECL|macro|NGX_WIN_NT
+define|#
+directive|define
+name|NGX_WIN_NT
+value|200000
 end_define
 
 begin_ifndef

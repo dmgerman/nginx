@@ -1564,6 +1564,24 @@ condition|(
 name|err
 condition|)
 block|{
+if|#
+directive|if
+operator|(
+name|WIN32
+operator|)
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|log
+argument_list|,
+name|err
+argument_list|,
+literal|"select() failed"
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|ngx_log_error
 argument_list|(
 operator|(
@@ -1583,6 +1601,8 @@ argument_list|,
 literal|"select() failed"
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 return|return
 name|NGX_ERROR
 return|;

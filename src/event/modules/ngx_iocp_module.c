@@ -1,6 +1,6 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_comment
-comment|/*  * Copyright (C) 2002-2003 Igor Sysoev, http://sysoev.ru  */
+comment|/*  * Copyright (C) 2002-2004 Igor Sysoev, http://sysoev.ru/en/  */
 end_comment
 
 begin_include
@@ -29,7 +29,7 @@ end_include
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_iocp_init
 parameter_list|(
 name|ngx_cycle_t
@@ -53,7 +53,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_iocp_add_event
 parameter_list|(
 name|ngx_event_t
@@ -71,7 +71,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_iocp_del_connection
 parameter_list|(
 name|ngx_connection_t
@@ -86,7 +86,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_iocp_process_events
 parameter_list|(
 name|ngx_log_t
@@ -328,7 +328,7 @@ end_decl_stmt
 begin_function
 DECL|function|ngx_iocp_init (ngx_cycle_t * cycle)
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_iocp_init
 parameter_list|(
 name|ngx_cycle_t
@@ -398,20 +398,6 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-if|if
-condition|(
-name|ngx_event_timer_init
-argument_list|(
-name|cycle
-argument_list|)
-operator|==
-name|NGX_ERROR
-condition|)
-block|{
-return|return
-name|NGX_ERROR
-return|;
-block|}
 name|ngx_io
 operator|=
 name|ngx_iocp_io
@@ -474,18 +460,13 @@ name|iocp
 operator|=
 name|NULL
 expr_stmt|;
-name|ngx_event_timer_done
-argument_list|(
-name|cycle
-argument_list|)
-expr_stmt|;
 block|}
 end_function
 
 begin_function
 DECL|function|ngx_iocp_add_event (ngx_event_t * ev,int event,u_int key)
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_iocp_add_event
 parameter_list|(
 name|ngx_event_t
@@ -529,14 +510,31 @@ name|active
 operator|=
 literal|1
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug3
 argument_list|(
-argument|ev->log
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
-literal|"iocp add: %d, %d:%08x"
-argument|_ c->fd _ key _&ev->ovlp
+name|ev
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"iocp add: fd:%d k:%d ov:"
+name|PTR_FMT
+argument_list|,
+name|c
+operator|->
+name|fd
+argument_list|,
+name|key
+argument_list|,
+operator|&
+name|ev
+operator|->
+name|ovlp
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|CreateIoCompletionPort
@@ -584,7 +582,7 @@ end_function
 begin_function
 DECL|function|ngx_iocp_del_connection (ngx_connection_t * c,u_int flags)
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_iocp_del_connection
 parameter_list|(
 name|ngx_connection_t
@@ -636,7 +634,7 @@ end_function
 begin_function
 DECL|function|ngx_iocp_process_events (ngx_log_t * log)
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_iocp_process_events
 parameter_list|(
 name|ngx_log_t
@@ -679,51 +677,35 @@ operator|=
 name|ngx_event_find_timer
 argument_list|()
 expr_stmt|;
+name|ngx_old_elapsed_msec
+operator|=
+name|ngx_elapsed_msec
+expr_stmt|;
 if|if
 condition|(
 name|timer
+operator|==
+literal|0
 condition|)
-block|{
-name|ngx_gettimeofday
-argument_list|(
-operator|&
-name|tv
-argument_list|)
-expr_stmt|;
-name|delta
-operator|=
-name|tv
-operator|.
-name|tv_sec
-operator|*
-literal|1000
-operator|+
-name|tv
-operator|.
-name|tv_usec
-operator|/
-literal|1000
-expr_stmt|;
-block|}
-else|else
 block|{
 name|timer
 operator|=
 name|INFINITE
 expr_stmt|;
-name|delta
-operator|=
-literal|0
-expr_stmt|;
 block|}
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|log
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"iocp timer: %d"
-argument|_ timer
+argument_list|,
+name|timer
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 name|rc
 operator|=
 name|GetQueuedCompletionStatus
@@ -749,14 +731,6 @@ argument_list|,
 name|timer
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug
-argument_list|(
-argument|log
-argument_list|,
-literal|"iocp: %d, %d, %d:%08x"
-argument|_ rc _ bytes _ key _ ovlp
-argument_list|)
-empty_stmt|;
 if|if
 condition|(
 name|rc
@@ -782,33 +756,38 @@ operator|&
 name|tv
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|ngx_cached_time
-operator|!=
-name|tv
-operator|.
-name|tv_sec
-condition|)
-block|{
-name|ngx_cached_time
-operator|=
-name|tv
-operator|.
-name|tv_sec
-expr_stmt|;
 name|ngx_time_update
-argument_list|()
+argument_list|(
+name|tv
+operator|.
+name|tv_sec
+argument_list|)
 expr_stmt|;
-block|}
-if|if
-condition|(
-name|timer
-operator|!=
-name|INFINITE
-condition|)
-block|{
+name|ngx_log_debug4
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"iocp: %d b:%d k:%d ov:"
+name|PTR_FMT
+argument_list|,
+name|rc
+argument_list|,
+name|bytes
+argument_list|,
+name|key
+argument_list|,
+name|ovlp
+argument_list|)
+expr_stmt|;
 name|delta
+operator|=
+name|ngx_elapsed_msec
+expr_stmt|;
+name|ngx_elapsed_msec
 operator|=
 name|tv
 operator|.
@@ -822,17 +801,8 @@ name|tv_usec
 operator|/
 literal|1000
 operator|-
-name|delta
+name|ngx_start_msec
 expr_stmt|;
-name|ngx_event_expire_timers
-argument_list|(
-operator|(
-name|ngx_msec_t
-operator|)
-name|delta
-argument_list|)
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|err
@@ -880,6 +850,38 @@ block|}
 block|}
 if|if
 condition|(
+name|timer
+operator|!=
+name|INFINITE
+condition|)
+block|{
+name|delta
+operator|=
+name|ngx_elapsed_msec
+operator|-
+name|delta
+expr_stmt|;
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"iocp timer: %d, delta: %d"
+argument_list|,
+name|timer
+argument_list|,
+operator|(
+name|int
+operator|)
+name|delta
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|ovlp
 condition|)
 block|{
@@ -889,14 +891,20 @@ name|ovlp
 operator|->
 name|event
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|log
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
-literal|"iocp ev: %08x"
-argument|_ ev
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"iocp event:"
+name|PTR_FMT
+argument_list|,
+name|ev
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 switch|switch
 condition|(
 name|key
@@ -950,19 +958,45 @@ name|available
 operator|=
 name|bytes
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|log
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
-literal|"iocp ev handler: %08x"
-argument|_ ev->event_handler
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"iocp event handler: %08x"
+name|PTR_FMT
+argument_list|,
+name|ev
+operator|->
+name|event_handler
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 name|ev
 operator|->
 name|event_handler
 argument_list|(
 name|ev
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|timer
+operator|!=
+name|INFINITE
+operator|&&
+name|delta
+condition|)
+block|{
+name|ngx_event_expire_timers
+argument_list|(
+operator|(
+name|ngx_msec_t
+operator|)
+name|delta
 argument_list|)
 expr_stmt|;
 block|}
