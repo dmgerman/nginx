@@ -4328,6 +4328,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|ngx_terminate
+operator|&&
+operator|!
+name|ngx_quit
+operator|&&
 name|r
 operator|->
 name|keepalive
@@ -4346,6 +4352,7 @@ argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 if|else if
 condition|(
@@ -4365,9 +4372,8 @@ argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
-else|else
-block|{
 name|ngx_http_close_request
 argument_list|(
 name|r
@@ -4382,8 +4388,6 @@ operator|->
 name|connection
 argument_list|)
 expr_stmt|;
-block|}
-return|return;
 block|}
 end_function
 

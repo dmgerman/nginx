@@ -42,44 +42,11 @@ name|NGX_TIMER_RESOLUTION
 value|1
 end_define
 
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-
-begin_endif
-unit|int  ngx_event_timer_init(void);
-endif|#
-directive|endif
-end_endif
-
-begin_comment
-comment|/* STUB */
-end_comment
-
-begin_function_decl
-name|int
-name|ngx_event_timer_init
-parameter_list|(
-name|ngx_cycle_t
-modifier|*
-name|cycle
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_comment
-comment|/* STUB */
-end_comment
-
 begin_function_decl
 name|void
-name|ngx_event_timer_done
+name|ngx_event_timer_init
 parameter_list|(
-name|ngx_cycle_t
-modifier|*
-name|cycle
+name|void
 parameter_list|)
 function_decl|;
 end_function_decl

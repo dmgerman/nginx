@@ -37,13 +37,11 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_event_timer_init (ngx_cycle_t * cycle)
-name|int
+DECL|function|ngx_event_timer_init (void)
+name|void
 name|ngx_event_timer_init
 parameter_list|(
-name|ngx_cycle_t
-modifier|*
-name|cycle
+name|void
 parameter_list|)
 block|{
 if|if
@@ -51,37 +49,13 @@ condition|(
 name|ngx_event_timer_rbtree
 condition|)
 block|{
-return|return
-name|NGX_OK
-return|;
+return|return;
 block|}
 name|ngx_event_timer_rbtree
 operator|=
 operator|&
 name|ngx_event_timer_sentinel
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|ngx_event_timer_sentinel.left =&ngx_event_timer_sentinel;     ngx_event_timer_sentinel.right =&ngx_event_timer_sentinel;     ngx_event_timer_sentinel.parent =&ngx_event_timer_sentinel;
-endif|#
-directive|endif
-return|return
-name|NGX_OK
-return|;
-block|}
-end_function
-
-begin_function
-DECL|function|ngx_event_timer_done (ngx_cycle_t * cycle)
-name|void
-name|ngx_event_timer_done
-parameter_list|(
-name|ngx_cycle_t
-modifier|*
-name|cycle
-parameter_list|)
-block|{
 block|}
 end_function
 

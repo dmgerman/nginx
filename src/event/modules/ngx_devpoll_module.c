@@ -78,7 +78,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c4cca6e0108
+DECL|struct|__anon2bf8c3340108
 typedef|typedef
 struct|struct
 block|{
@@ -693,20 +693,6 @@ name|dpcf
 operator|->
 name|events
 expr_stmt|;
-if|if
-condition|(
-name|ngx_event_timer_init
-argument_list|(
-name|cycle
-argument_list|)
-operator|==
-name|NGX_ERROR
-condition|)
-block|{
-return|return
-name|NGX_ERROR
-return|;
-block|}
 name|ngx_io
 operator|=
 name|ngx_os_io
@@ -767,11 +753,6 @@ name|dp
 operator|=
 operator|-
 literal|1
-expr_stmt|;
-name|ngx_event_timer_done
-argument_list|(
-name|cycle
-argument_list|)
 expr_stmt|;
 name|ngx_free
 argument_list|(

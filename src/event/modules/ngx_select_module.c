@@ -1,6 +1,6 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_comment
-comment|/*  * Copyright (C) 2002-2003 Igor Sysoev, http://sysoev.ru  */
+comment|/*  * Copyright (C) 2002-2004 Igor Sysoev, http://sysoev.ru/en/  */
 end_comment
 
 begin_include
@@ -452,20 +452,6 @@ name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|ngx_event_timer_init
-argument_list|(
-name|cycle
-argument_list|)
-operator|==
-name|NGX_ERROR
-condition|)
-block|{
-return|return
-name|NGX_ERROR
-return|;
-block|}
 name|ngx_io
 operator|=
 name|ngx_os_io
@@ -519,11 +505,6 @@ modifier|*
 name|cycle
 parameter_list|)
 block|{
-name|ngx_event_timer_done
-argument_list|(
-name|cycle
-argument_list|)
-expr_stmt|;
 name|ngx_free
 argument_list|(
 name|event_index
@@ -1095,6 +1076,10 @@ name|timer
 operator|=
 name|ngx_event_find_timer
 argument_list|()
+expr_stmt|;
+name|ngx_old_elapsed_msec
+operator|=
+name|ngx_elapsed_msec
 expr_stmt|;
 if|if
 condition|(
