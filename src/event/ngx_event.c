@@ -175,7 +175,7 @@ begin_elif
 unit|ngx_event_type_e     ngx_event_type = NGX_SELECT_EVENT;
 elif|#
 directive|elif
-literal|0
+literal|1
 end_elif
 
 begin_decl_stmt
@@ -273,6 +273,13 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_decl_stmt
+DECL|variable|ngx_event_flags
+name|int
+name|ngx_event_flags
+decl_stmt|;
+end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_event_actions

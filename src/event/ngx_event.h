@@ -221,6 +221,12 @@ name|blocked
 range|:
 literal|1
 decl_stmt|;
+DECL|member|timer_set
+name|unsigned
+name|timer_set
+range|:
+literal|1
+decl_stmt|;
 DECL|member|process
 name|unsigned
 name|process
@@ -269,12 +275,28 @@ name|error
 decl_stmt|;
 endif|#
 directive|endif
+if|#
+directive|if
+literal|0
+block|void            *thr_ctx;
+comment|/* event thread context if $(CC) doesn't                                    understand __thread declaration                                    and pthread_getspecific() is too costly */
+if|#
+directive|if
+operator|(
+name|NGX_EVENT_T_PADDING
+operator|)
+block|int              padding[NGX_EVENT_T_PADDING];
+comment|/* event should not cross                                                        cache line in SMP */
+endif|#
+directive|endif
+endif|#
+directive|endif
 block|}
 struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon27c74b0f0103
+DECL|enum|__anon2ad3cd4f0103
 typedef|typedef
 enum|enum
 block|{
@@ -320,7 +342,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c74b0f0208
+DECL|struct|__anon2ad3cd4f0208
 typedef|typedef
 struct|struct
 block|{
@@ -414,7 +436,55 @@ typedef|;
 end_typedef
 
 begin_comment
-comment|/* NGX_LEVEL_EVENT (default)  select, poll, /dev/poll, kqueue                                 requires to read whole data NGX_ONESHOT_EVENT          select, poll, /dev/poll(*), kqueue, epoll(*)                            (*) - additional syscall NGX_CLEAR_EVENT            kqueue, epoll NGX_AIO_EVENT              overlapped, aio_read, aioread                                 no need to add or delete events  NGX_CLOSE_EVENT            kqueue: kqueue deletes events for file that closed                            /dev/poll: need to flush events before closing */
+comment|/* Event filter requires to read/write the whole data -    select, poll, /dev/poll, kqueue. */
+end_comment
+
+begin_define
+DECL|macro|NGX_HAVE_LEVEL_EVENT
+define|#
+directive|define
+name|NGX_HAVE_LEVEL_EVENT
+value|1
+end_define
+
+begin_comment
+comment|/* Event filter deleted after notification - select, poll, kqueue.    /dev/poll, epoll implemetned with additional syscall */
+end_comment
+
+begin_define
+DECL|macro|NGX_HAVE_ONESHOT_EVENT
+define|#
+directive|define
+name|NGX_HAVE_ONESHOT_EVENT
+value|2
+end_define
+
+begin_comment
+comment|/* Event filter notify only changes - kqueue, epoll */
+end_comment
+
+begin_define
+DECL|macro|NGX_HAVE_CLEAR_EVENT
+define|#
+directive|define
+name|NGX_HAVE_CLEAR_EVENT
+value|4
+end_define
+
+begin_comment
+comment|/* No nedd to add or delete event filters - overlapped, aio_read, aioread */
+end_comment
+
+begin_define
+DECL|macro|NGX_HAVE_AIO_EVENT
+define|#
+directive|define
+name|NGX_HAVE_AIO_EVENT
+value|8
+end_define
+
+begin_comment
+comment|/* Event filter is deleted before closing file. Has no meaning for select, poll.    kqueue:     kqueue deletes event filters for file that closed                so we need only to delete filters in user-level batch array    /dev/poll:  we need to flush POLLREMOVE event before closing file    epoll:      ??? */
 end_comment
 
 begin_define
@@ -838,6 +908,13 @@ begin_decl_stmt
 specifier|extern
 name|ngx_event_type_e
 name|ngx_event_type
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|int
+name|ngx_event_flags
 decl_stmt|;
 end_decl_stmt
 
