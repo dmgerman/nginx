@@ -62,12 +62,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_event_accept.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<ngx_select_module.h>
 end_include
 

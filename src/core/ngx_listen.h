@@ -43,7 +43,7 @@ file|<ngx_connection.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28a8198d0108
+DECL|struct|__anon29d594f30108
 typedef|typedef
 struct|struct
 block|{
@@ -93,7 +93,7 @@ name|flags
 decl_stmt|;
 comment|/* Winsock2 flags */
 DECL|member|handler
-name|int
+name|void
 function_decl|(
 modifier|*
 name|handler

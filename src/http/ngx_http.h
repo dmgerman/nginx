@@ -343,7 +343,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2ac2ca1b0108
+DECL|struct|__anon2b73bb850108
 typedef|typedef
 struct|struct
 block|{
@@ -362,7 +362,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac2ca1b0208
+DECL|struct|__anon2b73bb850208
 typedef|typedef
 struct|struct
 block|{
@@ -416,7 +416,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac2ca1b0308
+DECL|struct|__anon2b73bb850308
 typedef|typedef
 struct|struct
 block|{
@@ -467,7 +467,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac2ca1b0408
+DECL|struct|__anon2b73bb850408
 typedef|typedef
 struct|struct
 block|{
@@ -844,7 +844,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2ac2ca1b0508
+DECL|struct|__anon2b73bb850508
 typedef|typedef
 struct|struct
 block|{
@@ -1033,6 +1033,56 @@ parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_http_finalize_request
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|int
+name|error
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_http_set_write_handler
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_http_close_request
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|int
+name|error
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_http_close_connection
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
 parameter_list|)
 function_decl|;
 end_function_decl

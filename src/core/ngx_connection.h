@@ -114,7 +114,7 @@ name|off_t
 name|sent
 decl_stmt|;
 DECL|member|handler
-name|int
+name|void
 function_decl|(
 modifier|*
 name|handler

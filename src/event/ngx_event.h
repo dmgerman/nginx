@@ -92,7 +92,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2bd4bb2e0108
+DECL|struct|__anon2c0126820108
 typedef|typedef
 struct|struct
 block|{
@@ -131,7 +131,7 @@ modifier|*
 name|data
 decl_stmt|;
 DECL|member|event_handler
-name|int
+name|void
 function_decl|(
 modifier|*
 name|event_handler
@@ -142,18 +142,12 @@ modifier|*
 name|ev
 parameter_list|)
 function_decl|;
-DECL|member|close_handler
-name|int
-function_decl|(
-modifier|*
-name|close_handler
-function_decl|)
-parameter_list|(
-name|ngx_event_t
-modifier|*
-name|ev
-parameter_list|)
-function_decl|;
+if|#
+directive|if
+literal|0
+block|int            (*close_handler)(ngx_event_t *ev);
+endif|#
+directive|endif
 DECL|member|context
 name|void
 modifier|*
@@ -181,18 +175,12 @@ modifier|*
 name|next
 decl_stmt|;
 comment|/*                                            */
-DECL|member|timer_handler
-name|int
-function_decl|(
-modifier|*
-name|timer_handler
-function_decl|)
-parameter_list|(
-name|ngx_event_t
-modifier|*
-name|ev
-parameter_list|)
-function_decl|;
+if|#
+directive|if
+literal|0
+block|int            (*timer_handler)(ngx_event_t *ev);
+endif|#
+directive|endif
 DECL|member|timer_prev
 name|ngx_event_t
 modifier|*
@@ -400,7 +388,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2bd4bb2e0203
+DECL|enum|__anon2c0126820203
 typedef|typedef
 enum|enum
 block|{
@@ -469,7 +457,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd4bb2e0308
+DECL|struct|__anon2c0126820308
 typedef|typedef
 struct|struct
 block|{
@@ -611,7 +599,7 @@ value|8
 end_define
 
 begin_comment
-comment|/* The event filter supports low water mark - kqueue's NOTE_LOWAT.    Early kqueue implementations have no NOTE_LOWAT so we need a separate flag */
+comment|/* The event filter supports low water mark - kqueue's NOTE_LOWAT.    kqueue in FreeBSD 4.1-4.2 has no NOTE_LOWAT so we need a separate flag */
 end_comment
 
 begin_define
@@ -1182,6 +1170,17 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_function_decl
+name|void
+name|ngx_event_accept
+parameter_list|(
+name|ngx_event_t
+modifier|*
+name|ev
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_function_decl
 name|ssize_t

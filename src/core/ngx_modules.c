@@ -89,9 +89,7 @@ comment|/*&ngx_http_ssi_filter_module, */
 operator|&
 name|ngx_http_index_module
 block|,
-operator|&
-name|ngx_http_proxy_module
-block|,
+comment|/*&ngx_http_proxy_module, */
 name|NULL
 block|}
 decl_stmt|;
