@@ -24,7 +24,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b0bdbc80108
+DECL|struct|__anon2af4f4c90108
 typedef|typedef
 struct|struct
 block|{
@@ -39,7 +39,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0bdbc80208
+DECL|struct|__anon2af4f4c90208
 typedef|typedef
 struct|struct
 block|{
@@ -254,6 +254,9 @@ modifier|*
 name|cl
 decl_stmt|,
 modifier|*
+name|ln
+decl_stmt|,
+modifier|*
 modifier|*
 name|ll
 decl_stmt|,
@@ -402,13 +405,15 @@ block|}
 comment|/* add the new chain to the existent one */
 for|for
 control|(
-comment|/* void */
-init|;
-name|in
-condition|;
-name|in
+name|ln
 operator|=
 name|in
+init|;
+name|ln
+condition|;
+name|ln
+operator|=
+name|ln
 operator|->
 name|next
 control|)
@@ -417,7 +422,7 @@ name|ngx_alloc_link_and_set_hunk
 argument_list|(
 name|cl
 argument_list|,
-name|in
+name|ln
 operator|->
 name|hunk
 argument_list|,
@@ -527,7 +532,7 @@ argument_list|,
 name|ngx_http_write_filter_module
 argument_list|)
 expr_stmt|;
-comment|/*      * avoid the output if there is no last hunk, no flush point and      * the size of the hunks is smaller than "postpone_output" directive      */
+comment|/*      * avoid the output if there is no last hunk, no flush point,      * there are the incoming hunks and the size of all hunks      * is smaller than "postpone_output" directive      */
 if|if
 condition|(
 operator|!
@@ -536,6 +541,8 @@ operator|&&
 name|flush
 operator|==
 literal|0
+operator|&&
+name|in
 operator|&&
 name|size
 operator|<
@@ -573,6 +580,21 @@ operator|==
 literal|0
 condition|)
 block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"the http output chain is empty"
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_OK
 return|;
