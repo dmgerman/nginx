@@ -57,7 +57,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2bc2c9870108
+DECL|struct|__anon2c70ca6e0108
 typedef|typedef
 struct|struct
 block|{
@@ -86,7 +86,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2bc2c9870208
+DECL|struct|__anon2c70ca6e0208
 typedef|typedef
 struct|struct
 block|{
@@ -424,7 +424,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bc2c9870308
+DECL|struct|__anon2c70ca6e0308
 typedef|typedef
 struct|struct
 block|{
@@ -1215,7 +1215,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon2bc2c9870408
+DECL|struct|__anon2c70ca6e0408
 typedef|typedef
 struct|struct
 block|{
@@ -1244,6 +1244,17 @@ name|u_char
 modifier|*
 name|name
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_DEBUG
+operator|)
+DECL|member|debug_connection
+name|ngx_array_t
+name|debug_connection
+decl_stmt|;
+endif|#
+directive|endif
 DECL|typedef|ngx_event_conf_t
 block|}
 name|ngx_event_conf_t
@@ -1251,7 +1262,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc2c9870508
+DECL|struct|__anon2c70ca6e0508
 typedef|typedef
 struct|struct
 block|{

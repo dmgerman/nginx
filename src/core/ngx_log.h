@@ -145,11 +145,19 @@ value|NGX_LOG_DEBUG_HTTP
 end_define
 
 begin_define
+DECL|macro|NGX_LOG_DEBUG_CONNECTION
+define|#
+directive|define
+name|NGX_LOG_DEBUG_CONNECTION
+value|0x80000000
+end_define
+
+begin_define
 DECL|macro|NGX_LOG_DEBUG_ALL
 define|#
 directive|define
 name|NGX_LOG_DEBUG_ALL
-value|0xfffffff0
+value|0x7ffffff0
 end_define
 
 begin_comment
