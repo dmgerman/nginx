@@ -1095,9 +1095,22 @@ argument_list|)
 expr_stmt|;
 if|#
 directive|if
-literal|0
+literal|1
 comment|/* STUB */
-block_content|log->log_level = NGX_LOG_DEBUG;
+name|log
+operator|->
+name|log_level
+operator|=
+name|NGX_LOG_DEBUG
+operator||
+name|NGX_LOG_DEBUG_CORE
+operator||
+name|NGX_LOG_DEBUG_ALLOC
+operator||
+name|NGX_LOG_DEBUG_EVENT
+operator||
+name|NGX_LOG_DEBUG_HTTP
+expr_stmt|;
 endif|#
 directive|endif
 return|return

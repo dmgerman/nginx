@@ -41,13 +41,17 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f6cdde0108
+DECL|struct|__anon27e9a23a0108
 typedef|typedef
 struct|struct
 block|{
 DECL|member|pid
 name|ngx_pid_t
 name|pid
+decl_stmt|;
+DECL|member|signal
+name|int
+name|signal
 decl_stmt|;
 DECL|member|status
 name|int
@@ -79,12 +83,6 @@ name|detached
 range|:
 literal|1
 decl_stmt|;
-DECL|member|signal
-name|unsigned
-name|signal
-range|:
-literal|1
-decl_stmt|;
 DECL|member|exiting
 name|unsigned
 name|exiting
@@ -104,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f6cdde0208
+DECL|struct|__anon27e9a23a0208
 typedef|typedef
 struct|struct
 block|{
@@ -238,20 +236,6 @@ parameter_list|,
 name|ngx_exec_ctx_t
 modifier|*
 name|ctx
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-name|void
-name|ngx_signal_processes
-parameter_list|(
-name|ngx_cycle_t
-modifier|*
-name|cycle
-parameter_list|,
-name|ngx_int_t
-name|signo
 parameter_list|)
 function_decl|;
 end_function_decl

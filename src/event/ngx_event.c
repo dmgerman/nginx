@@ -1648,6 +1648,8 @@ operator|->
 name|cycle
 operator|->
 name|old_cycle
+operator|->
+name|conf_ctx
 condition|)
 block|{
 name|old_ecf
