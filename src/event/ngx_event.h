@@ -29,7 +29,7 @@ DECL|macro|NGX_INVALID_INDEX
 define|#
 directive|define
 name|NGX_INVALID_INDEX
-value|0x80000000
+value|0xd0d0d0d0
 end_define
 
 begin_if
@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon27e6ee620108
+DECL|struct|__anon298853c00108
 typedef|typedef
 struct|struct
 block|{
@@ -103,8 +103,7 @@ modifier|*
 name|action
 decl_stmt|;
 DECL|member|index
-name|unsigned
-name|int
+name|u_int
 name|index
 decl_stmt|;
 comment|/* queue in mutex(), aio_read(), aio_write()  */
@@ -343,7 +342,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27e6ee620208
+DECL|struct|__anon298853c00208
 typedef|typedef
 struct|struct
 block|{
@@ -613,7 +612,7 @@ value|1
 end_define
 
 begin_comment
-comment|/* this flag has meaning only for kqueue */
+comment|/* these flags have a meaning only for kqueue */
 end_comment
 
 begin_define
@@ -621,6 +620,14 @@ DECL|macro|NGX_LOWAT_EVENT
 define|#
 directive|define
 name|NGX_LOWAT_EVENT
+value|0
+end_define
+
+begin_define
+DECL|macro|NGX_DISABLE_EVENT
+define|#
+directive|define
+name|NGX_DISABLE_EVENT
 value|0
 end_define
 
@@ -702,6 +709,20 @@ define|#
 directive|define
 name|NGX_CLEAR_EVENT
 value|EV_CLEAR
+end_define
+
+begin_undef
+undef|#
+directive|undef
+name|NGX_DISABLE_EVENT
+end_undef
+
+begin_define
+DECL|macro|NGX_DISABLE_EVENT
+define|#
+directive|define
+name|NGX_DISABLE_EVENT
+value|EV_DISABLE
 end_define
 
 begin_elif
@@ -989,7 +1010,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon27e6ee620308
+DECL|struct|__anon298853c00308
 typedef|typedef
 struct|struct
 block|{
@@ -1012,7 +1033,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e6ee620408
+DECL|struct|__anon298853c00408
 typedef|typedef
 struct|struct
 block|{
@@ -1171,7 +1192,7 @@ directive|endif
 end_endif
 
 begin_function
-DECL|function|ngx_handle_read_event (ngx_event_t * rev,int flags)
+DECL|function|ngx_handle_read_event (ngx_event_t * rev,u_int flags)
 name|ngx_inline
 specifier|static
 name|int
@@ -1181,7 +1202,7 @@ name|ngx_event_t
 modifier|*
 name|rev
 parameter_list|,
-name|int
+name|u_int
 name|flags
 parameter_list|)
 block|{
@@ -1416,7 +1437,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_handle_write_event (ngx_event_t * wev,int flags)
+DECL|function|ngx_handle_write_event (ngx_event_t * wev,u_int flags)
 name|ngx_inline
 specifier|static
 name|int
@@ -1426,7 +1447,7 @@ name|ngx_event_t
 modifier|*
 name|wev
 parameter_list|,
-name|int
+name|u_int
 name|flags
 parameter_list|)
 block|{

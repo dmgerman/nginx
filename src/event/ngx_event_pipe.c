@@ -133,7 +133,7 @@ name|int
 name|do_write
 parameter_list|)
 block|{
-name|int
+name|u_int
 name|flags
 decl_stmt|;
 name|ngx_event_t

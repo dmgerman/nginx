@@ -2872,6 +2872,9 @@ name|locations
 operator|.
 name|elts
 argument_list|,
+operator|(
+name|size_t
+operator|)
 name|cscf
 operator|->
 name|locations

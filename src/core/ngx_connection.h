@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27593fab0108
+DECL|struct|__anon274f88ef0108
 typedef|typedef
 struct|struct
 block|{
@@ -109,11 +109,11 @@ name|int
 name|backlog
 decl_stmt|;
 DECL|member|pool_size
-name|int
+name|size_t
 name|pool_size
 decl_stmt|;
 DECL|member|post_accept_buffer_size
-name|int
+name|size_t
 name|post_accept_buffer_size
 decl_stmt|;
 comment|/* should be here because                                                   of the AcceptEx() preread */

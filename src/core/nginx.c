@@ -109,7 +109,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b936ee60108
+DECL|struct|__anon2953bacb0108
 typedef|typedef
 struct|struct
 block|{

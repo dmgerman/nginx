@@ -78,7 +78,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon297f01940108
+DECL|struct|__anon2c4cca6e0108
 typedef|typedef
 struct|struct
 block|{
@@ -425,7 +425,7 @@ modifier|*
 name|cycle
 parameter_list|)
 block|{
-name|int
+name|size_t
 name|n
 decl_stmt|;
 name|ngx_devpoll_conf_t
@@ -528,6 +528,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|(
+name|size_t
+operator|)
 name|write
 argument_list|(
 name|dp
@@ -1081,7 +1084,7 @@ name|u_int
 name|flags
 parameter_list|)
 block|{
-name|int
+name|size_t
 name|n
 decl_stmt|;
 name|ngx_connection_t
@@ -1141,6 +1144,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|(
+name|size_t
+operator|)
 name|write
 argument_list|(
 name|dp
@@ -1239,6 +1245,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|(
+name|size_t
+operator|)
 name|write
 argument_list|(
 name|dp
@@ -1292,11 +1301,12 @@ block|{
 name|int
 name|events
 decl_stmt|,
-name|n
-decl_stmt|,
 name|i
 decl_stmt|,
 name|j
+decl_stmt|;
+name|size_t
+name|n
 decl_stmt|;
 name|ngx_msec_t
 name|timer
@@ -1359,6 +1369,9 @@ else|else
 block|{
 name|timer
 operator|=
+operator|(
+name|ngx_msec_t
+operator|)
 name|INFTIM
 expr_stmt|;
 name|delta
@@ -1398,6 +1411,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|(
+name|size_t
+operator|)
 name|write
 argument_list|(
 name|dp

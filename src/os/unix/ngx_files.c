@@ -524,6 +524,10 @@ name|hunk
 operator|->
 name|pos
 argument_list|,
+operator|(
+name|size_t
+operator|)
+operator|(
 name|cl
 operator|->
 name|hunk
@@ -535,6 +539,7 @@ operator|->
 name|hunk
 operator|->
 name|pos
+operator|)
 argument_list|,
 name|offset
 argument_list|)

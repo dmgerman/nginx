@@ -52,7 +52,7 @@ name|sent
 decl_stmt|,
 name|fprev
 decl_stmt|;
-name|ssize_t
+name|size_t
 name|hsize
 decl_stmt|,
 name|fsize

@@ -1312,11 +1312,16 @@ name|start
 argument_list|,
 name|start
 argument_list|,
+operator|(
+name|size_t
+operator|)
+operator|(
 name|h
 operator|->
 name|pos
 operator|-
 name|start
+operator|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1343,6 +1348,10 @@ operator|-
 name|start
 operator|)
 argument_list|,
+operator|(
+name|size_t
+operator|)
+operator|(
 name|h
 operator|->
 name|end
@@ -1358,6 +1367,7 @@ operator|->
 name|pos
 operator|-
 name|start
+operator|)
 operator|)
 operator|)
 argument_list|,
@@ -1890,6 +1900,10 @@ name|cf
 operator|->
 name|pool
 argument_list|,
+operator|(
+name|size_t
+operator|)
+operator|(
 name|h
 operator|->
 name|pos
@@ -1897,6 +1911,7 @@ operator|-
 name|start
 operator|+
 literal|1
+operator|)
 argument_list|)
 argument_list|,
 name|NGX_ERROR

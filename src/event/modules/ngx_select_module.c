@@ -187,7 +187,7 @@ end_endif
 begin_decl_stmt
 DECL|variable|nevents
 specifier|static
-name|u_int
+name|int
 name|nevents
 decl_stmt|;
 end_decl_stmt
@@ -975,6 +975,9 @@ name|ev
 operator|->
 name|index
 operator|<
+operator|(
+name|u_int
+operator|)
 operator|--
 name|nevents
 condition|)
@@ -1035,14 +1038,13 @@ name|log
 parameter_list|)
 block|{
 name|int
-name|ready
-decl_stmt|,
-name|found
-decl_stmt|;
-name|u_int
 name|i
 decl_stmt|,
+name|ready
+decl_stmt|,
 name|nready
+decl_stmt|,
+name|found
 decl_stmt|;
 name|ngx_err_t
 name|err

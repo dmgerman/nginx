@@ -40,7 +40,7 @@ name|char
 modifier|*
 name|pos
 decl_stmt|;
-DECL|enum|__anon2c41e7a80103
+DECL|enum|__anon2a34f0550103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -507,6 +507,11 @@ return|return
 name|NGX_HTTP_PROXY_PARSE_NO_HEADER
 return|;
 block|}
+break|break;
+comment|/* suppress warning */
+case|case
+name|sw_done
+case|:
 break|break;
 block|}
 block|}

@@ -55,7 +55,7 @@ name|ngx_hunk_t
 modifier|*
 name|src
 parameter_list|,
-name|int
+name|u_int
 name|sendfile
 parameter_list|)
 function_decl|;
@@ -81,10 +81,9 @@ decl_stmt|,
 name|last
 decl_stmt|;
 name|size_t
-name|hsize
-decl_stmt|;
-name|ssize_t
 name|size
+decl_stmt|,
+name|hsize
 decl_stmt|;
 name|ngx_chain_t
 modifier|*
@@ -741,7 +740,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_output_chain_copy_hunk (ngx_hunk_t * dst,ngx_hunk_t * src,int sendfile)
+DECL|function|ngx_output_chain_copy_hunk (ngx_hunk_t * dst,ngx_hunk_t * src,u_int sendfile)
 specifier|static
 name|int
 name|ngx_output_chain_copy_hunk
@@ -754,14 +753,15 @@ name|ngx_hunk_t
 modifier|*
 name|src
 parameter_list|,
-name|int
+name|u_int
 name|sendfile
 parameter_list|)
 block|{
+name|size_t
+name|size
+decl_stmt|;
 name|ssize_t
 name|n
-decl_stmt|,
-name|size
 decl_stmt|;
 name|size
 operator|=
@@ -774,6 +774,9 @@ if|if
 condition|(
 name|size
 operator|>
+operator|(
+name|size_t
+operator|)
 operator|(
 name|dst
 operator|->
@@ -941,6 +944,9 @@ endif|#
 directive|endif
 if|if
 condition|(
+operator|(
+name|size_t
+operator|)
 name|n
 operator|!=
 name|size

@@ -182,12 +182,13 @@ parameter_list|)
 block|{
 name|int
 name|rc
-decl_stmt|,
-name|len
 decl_stmt|;
 name|char
 modifier|*
 name|last
+decl_stmt|;
+name|size_t
+name|len
 decl_stmt|;
 name|ngx_err_t
 name|err

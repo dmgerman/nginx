@@ -170,13 +170,23 @@ name|i386
 operator|)
 end_if
 
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
 begin_define
-DECL|macro|OFF_FMT
 define|#
 directive|define
 name|OFF_FMT
 value|"%lld"
 end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_define
 DECL|macro|SIZE_FMT
@@ -203,13 +213,23 @@ begin_comment
 comment|/* amd64, alpha, sparc64, ia64 */
 end_comment
 
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
 begin_define
-DECL|macro|OFF_FMT
 define|#
 directive|define
 name|OFF_FMT
 value|"%ld"
 end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_define
 DECL|macro|SIZE_FMT

@@ -34,7 +34,7 @@ name|char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2c3fb7f00103
+DECL|enum|__anon28d4762c0103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1136,6 +1136,11 @@ name|NGX_HTTP_PARSE_INVALID_REQUEST
 return|;
 block|}
 break|break;
+comment|/* suppress warning */
+case|case
+name|sw_done
+case|:
+break|break;
 block|}
 block|}
 name|r
@@ -1252,7 +1257,7 @@ name|char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2c3fb7f00203
+DECL|enum|__anon28d4762c0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1764,6 +1769,14 @@ return|return
 name|NGX_HTTP_PARSE_INVALID_HEADER
 return|;
 block|}
+break|break;
+comment|/* suppress warning */
+case|case
+name|sw_done
+case|:
+case|case
+name|sw_header_done
+case|:
 break|break;
 block|}
 block|}

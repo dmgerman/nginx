@@ -12,7 +12,7 @@ file|<ngx_core.h>
 end_include
 
 begin_function
-DECL|function|ngx_create_temp_hunk (ngx_pool_t * pool,int size)
+DECL|function|ngx_create_temp_hunk (ngx_pool_t * pool,size_t size)
 name|ngx_hunk_t
 modifier|*
 name|ngx_create_temp_hunk
@@ -21,7 +21,7 @@ name|ngx_pool_t
 modifier|*
 name|pool
 parameter_list|,
-name|int
+name|size_t
 name|size
 parameter_list|)
 block|{

@@ -41,7 +41,8 @@ name|int
 name|rc
 decl_stmt|,
 name|instance
-decl_stmt|,
+decl_stmt|;
+name|u_int
 name|event
 decl_stmt|;
 name|time_t
