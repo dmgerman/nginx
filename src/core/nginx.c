@@ -84,7 +84,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon29903d3e0108
+DECL|struct|__anon2afcf0560108
 typedef|typedef
 struct|struct
 block|{
@@ -1136,6 +1136,10 @@ operator|=
 name|fd
 expr_stmt|;
 block|}
+name|rotate
+operator|=
+literal|0
+expr_stmt|;
 block|}
 if|if
 condition|(
