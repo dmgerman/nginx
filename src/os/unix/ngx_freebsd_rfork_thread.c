@@ -15,6 +15,13 @@ begin_comment
 comment|/*  * The threads implementation uses the rfork(RFPROC|RFTHREAD|RFMEM)  * to create threads.  All threads use the stacks of the same size mmap()ed  * below the main stack.  Thus the stack pointer is used to determine  * the current thread id.  *  * The mutex implementation uses the ngx_atomic_cmp_set() operation  * to acquire mutex and the SysV semaphore to wait on a mutex or to wake up  * the waiting threads.  *  * The condition variable implementation uses the SysV semaphore set of two  * semaphores. The first is used by the CV mutex, and the second is used  * by CV itself.  *  * This threads implementation currently works on i486 and amd64  * platforms only.  */
 end_comment
 
+begin_decl_stmt
+DECL|variable|ngx_threaded
+name|ngx_int_t
+name|ngx_threaded
+decl_stmt|;
+end_decl_stmt
+
 begin_function_decl
 specifier|static
 specifier|inline
@@ -811,6 +818,10 @@ name|__isthreaded
 operator|=
 literal|1
 expr_stmt|;
+name|ngx_threaded
+operator|=
+literal|1
+expr_stmt|;
 return|return
 name|NGX_OK
 return|;
@@ -1214,6 +1225,16 @@ name|struct
 name|sembuf
 name|op
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|ngx_threaded
+condition|)
+block|{
+return|return
+name|NGX_OK
+return|;
+block|}
 if|#
 directive|if
 operator|(
@@ -1654,6 +1675,16 @@ name|struct
 name|sembuf
 name|op
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|ngx_threaded
+condition|)
+block|{
+return|return
+name|NGX_OK
+return|;
+block|}
 name|old
 operator|=
 name|m

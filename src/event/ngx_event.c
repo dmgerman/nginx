@@ -259,6 +259,14 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_posted_events
+name|ngx_event_t
+modifier|*
+name|ngx_posted_events
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|events_name
 specifier|static
 name|ngx_str_t

@@ -121,7 +121,7 @@ value|0x80000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2b0d1e7c0108
+DECL|struct|__anon2bff69350108
 typedef|typedef
 specifier|volatile
 struct|struct
@@ -307,6 +307,13 @@ name|m
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_decl_stmt
+specifier|extern
+name|ngx_int_t
+name|ngx_threaded
+decl_stmt|;
+end_decl_stmt
 
 begin_else
 else|#

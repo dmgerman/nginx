@@ -352,11 +352,6 @@ name|NGX_THREADS
 operator|)
 if|if
 condition|(
-name|ngx_time_mutex
-condition|)
-block|{
-if|if
-condition|(
 name|ngx_mutex_trylock
 argument_list|(
 name|ngx_time_mutex
@@ -366,7 +361,6 @@ name|NGX_OK
 condition|)
 block|{
 return|return;
-block|}
 block|}
 endif|#
 directive|endif
@@ -536,17 +530,11 @@ directive|if
 operator|(
 name|NGX_THREADS
 operator|)
-if|if
-condition|(
-name|ngx_time_mutex
-condition|)
-block|{
 name|ngx_mutex_unlock
 argument_list|(
 name|ngx_time_mutex
 argument_list|)
 expr_stmt|;
-block|}
 endif|#
 directive|endif
 block|}

@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon28c1364e0108
+DECL|struct|__anon27f11ead0108
 typedef|typedef
 struct|struct
 block|{
@@ -96,12 +96,7 @@ DECL|member|index
 name|u_int
 name|index
 decl_stmt|;
-comment|/* queue in mutex(), aio_read(), aio_write()  */
-DECL|member|prev
-name|ngx_event_t
-modifier|*
-name|prev
-decl_stmt|;
+comment|/* the link of the posted queue or the event mutecies queues */
 DECL|member|next
 name|ngx_event_t
 modifier|*
@@ -364,7 +359,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28c1364e0208
+DECL|struct|__anon27f11ead0208
 typedef|typedef
 struct|struct
 block|{
@@ -1143,7 +1138,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon28c1364e0308
+DECL|struct|__anon27f11ead0308
 typedef|typedef
 struct|struct
 block|{
@@ -1171,7 +1166,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c1364e0408
+DECL|struct|__anon27f11ead0408
 typedef|typedef
 struct|struct
 block|{
@@ -1219,6 +1214,14 @@ block|}
 name|ngx_event_module_t
 typedef|;
 end_typedef
+
+begin_decl_stmt
+specifier|extern
+name|ngx_event_t
+modifier|*
+name|ngx_posted_events
+decl_stmt|;
+end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
