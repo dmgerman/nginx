@@ -182,6 +182,16 @@ end_include
 begin_include
 include|#
 directive|include
+file|<netinet/tcp.h>
+end_include
+
+begin_comment
+comment|/* TCP_NODELAY, TCP_CORK */
+end_comment
+
+begin_include
+include|#
+directive|include
 file|<arpa/inet.h>
 end_include
 
@@ -212,16 +222,6 @@ include|#
 directive|include
 file|<sys/sysctl.h>
 end_include
-
-begin_include
-include|#
-directive|include
-file|<netinet/tcp.h>
-end_include
-
-begin_comment
-comment|/* TCP_CORK */
-end_comment
 
 begin_include
 include|#
@@ -435,15 +435,32 @@ endif|#
 directive|endif
 end_endif
 
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|NGX_SETPROCTITLE_USES_ENV
+end_ifndef
+
 begin_define
-DECL|macro|ngx_setproctitle (title)
+DECL|macro|NGX_SETPROCTITLE_USES_ENV
 define|#
 directive|define
-name|ngx_setproctitle
-parameter_list|(
-name|title
-parameter_list|)
+name|NGX_SETPROCTITLE_USES_ENV
+value|1
 end_define
+
+begin_define
+DECL|macro|NGX_SETPROCTITLE_PAD
+define|#
+directive|define
+name|NGX_SETPROCTITLE_PAD
+value|'\0'
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_endif
 endif|#

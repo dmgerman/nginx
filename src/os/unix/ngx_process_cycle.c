@@ -80,10 +80,6 @@ parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
-parameter_list|,
-name|ngx_master_ctx_t
-modifier|*
-name|ctx
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -322,17 +318,13 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_master_process_cycle (ngx_cycle_t * cycle,ngx_master_ctx_t * ctx)
+DECL|function|ngx_master_process_cycle (ngx_cycle_t * cycle)
 name|void
 name|ngx_master_process_cycle
 parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
-parameter_list|,
-name|ngx_master_ctx_t
-modifier|*
-name|ctx
 parameter_list|)
 block|{
 name|char
@@ -525,9 +517,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|ctx
-operator|->
-name|argc
+name|ngx_argc
 condition|;
 name|i
 operator|++
@@ -537,9 +527,7 @@ name|size
 operator|+=
 name|ngx_strlen
 argument_list|(
-name|ctx
-operator|->
-name|argv
+name|ngx_argv
 index|[
 name|i
 index|]
@@ -583,9 +571,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|ctx
-operator|->
-name|argc
+name|ngx_argc
 condition|;
 name|i
 operator|++
@@ -607,9 +593,7 @@ operator|(
 name|u_char
 operator|*
 operator|)
-name|ctx
-operator|->
-name|argv
+name|ngx_argv
 index|[
 name|i
 index|]
@@ -852,8 +836,6 @@ block|{
 name|ngx_master_exit
 argument_list|(
 name|cycle
-argument_list|,
-name|ctx
 argument_list|)
 expr_stmt|;
 block|}
@@ -1177,9 +1159,7 @@ name|ngx_exec_new_binary
 argument_list|(
 name|cycle
 argument_list|,
-name|ctx
-operator|->
-name|argv
+name|ngx_argv
 argument_list|)
 expr_stmt|;
 block|}
@@ -1212,28 +1192,18 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_single_process_cycle (ngx_cycle_t * cycle,ngx_master_ctx_t * ctx)
+DECL|function|ngx_single_process_cycle (ngx_cycle_t * cycle)
 name|void
 name|ngx_single_process_cycle
 parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
-parameter_list|,
-name|ngx_master_ctx_t
-modifier|*
-name|ctx
 parameter_list|)
 block|{
 name|ngx_uint_t
 name|i
 decl_stmt|;
-if|#
-directive|if
-literal|0
-block_content|ngx_setproctitle("single worker process");
-endif|#
-directive|endif
 name|ngx_init_temp_number
 argument_list|()
 expr_stmt|;
@@ -1320,8 +1290,6 @@ block|{
 name|ngx_master_exit
 argument_list|(
 name|cycle
-argument_list|,
-name|ctx
 argument_list|)
 expr_stmt|;
 block|}
@@ -2592,7 +2560,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_master_exit (ngx_cycle_t * cycle,ngx_master_ctx_t * ctx)
+DECL|function|ngx_master_exit (ngx_cycle_t * cycle)
 specifier|static
 name|void
 name|ngx_master_exit
@@ -2600,10 +2568,6 @@ parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
-parameter_list|,
-name|ngx_master_ctx_t
-modifier|*
-name|ctx
 parameter_list|)
 block|{
 name|ngx_delete_pidfile

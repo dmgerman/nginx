@@ -15,6 +15,31 @@ directive|include
 file|<ngx_core.h>
 end_include
 
+begin_decl_stmt
+DECL|variable|ngx_argc
+name|int
+name|ngx_argc
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_argv
+name|char
+modifier|*
+modifier|*
+name|ngx_argv
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_os_argv
+name|char
+modifier|*
+modifier|*
+name|ngx_os_argv
+decl_stmt|;
+end_decl_stmt
+
 begin_function
 DECL|function|ngx_execute (ngx_cycle_t * cycle,ngx_exec_ctx_t * ctx)
 name|ngx_pid_t

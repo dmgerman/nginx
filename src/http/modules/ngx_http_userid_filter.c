@@ -66,7 +66,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon2bebb8460108
+DECL|struct|__anon2aee7ee80108
 typedef|typedef
 struct|struct
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bebb8460208
+DECL|struct|__anon2aee7ee80208
 typedef|typedef
 struct|struct
 block|{
@@ -1187,10 +1187,10 @@ condition|(
 name|ngx_decode_base64
 argument_list|(
 operator|&
-name|src
+name|dst
 argument_list|,
 operator|&
-name|dst
+name|src
 argument_list|)
 operator|==
 name|NGX_ERROR
@@ -1728,10 +1728,10 @@ expr_stmt|;
 name|ngx_encode_base64
 argument_list|(
 operator|&
-name|src
+name|dst
 argument_list|,
 operator|&
-name|dst
+name|src
 argument_list|)
 expr_stmt|;
 name|p

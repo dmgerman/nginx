@@ -176,8 +176,16 @@ block|{
 return|return
 name|ngx_cpystrn
 argument_list|(
+operator|(
+name|u_char
+operator|*
+operator|)
 name|errstr
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 name|str
 argument_list|,
 name|size

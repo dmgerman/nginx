@@ -1702,14 +1702,6 @@ operator|)
 name|size
 condition|)
 block|{
-name|dst
-operator|->
-name|write
-operator|->
-name|available
-operator|=
-literal|0
-expr_stmt|;
 if|if
 condition|(
 name|ngx_handle_write_event
@@ -1718,7 +1710,8 @@ name|dst
 operator|->
 name|write
 argument_list|,
-name|NGX_LOWAT_EVENT
+comment|/* TODO: LOWAT */
+literal|0
 argument_list|)
 operator|==
 name|NGX_ERROR

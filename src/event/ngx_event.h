@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2a221a340108
+DECL|struct|__anon2796b2920108
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2a221a340208
+DECL|struct|__anon2796b2920208
 typedef|typedef
 struct|struct
 block|{
@@ -465,7 +465,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a221a340308
+DECL|struct|__anon2796b2920308
 typedef|typedef
 struct|struct
 block|{
@@ -580,7 +580,7 @@ modifier|*
 name|cycle
 parameter_list|,
 name|ngx_uint_t
-name|try
+name|nowait
 parameter_list|)
 function_decl|;
 DECL|member|process_events
@@ -1283,7 +1283,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2a221a340408
+DECL|struct|__anon2796b2920408
 typedef|typedef
 struct|struct
 block|{
@@ -1330,7 +1330,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a221a340508
+DECL|struct|__anon2796b2920508
 typedef|typedef
 struct|struct
 block|{
@@ -1604,6 +1604,20 @@ endif|#
 directive|endif
 end_endif
 
+begin_function_decl
+name|ngx_int_t
+name|ngx_send_lowat
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|,
+name|size_t
+name|lowat
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_comment
 comment|/* used in ngx_log_debugX() */
 end_comment
@@ -1678,7 +1692,7 @@ operator|&
 name|NGX_USE_CLEAR_EVENT
 condition|)
 block|{
-comment|/* kqueue */
+comment|/* kqueue, epoll */
 if|if
 condition|(
 operator|!
@@ -1800,7 +1814,7 @@ name|NGX_OK
 return|;
 block|}
 block|}
-comment|/* aio, iocp, epoll, rtsig */
+comment|/* aio, iocp, rtsig */
 return|return
 name|NGX_OK
 return|;
@@ -1902,7 +1916,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_handle_write_event (ngx_event_t * wev,u_int flags)
+DECL|function|ngx_handle_write_event (ngx_event_t * wev,size_t lowat)
 name|ngx_inline
 specifier|static
 name|int
@@ -1912,10 +1926,42 @@ name|ngx_event_t
 modifier|*
 name|wev
 parameter_list|,
-name|u_int
-name|flags
+name|size_t
+name|lowat
 parameter_list|)
 block|{
+name|ngx_connection_t
+modifier|*
+name|c
+decl_stmt|;
+if|if
+condition|(
+name|lowat
+condition|)
+block|{
+name|c
+operator|=
+name|wev
+operator|->
+name|data
+expr_stmt|;
+if|if
+condition|(
+name|ngx_send_lowat
+argument_list|(
+name|c
+argument_list|,
+name|lowat
+argument_list|)
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+block|}
 if|if
 condition|(
 name|ngx_event_flags
@@ -1923,7 +1969,7 @@ operator|&
 name|NGX_USE_CLEAR_EVENT
 condition|)
 block|{
-comment|/* kqueue */
+comment|/* kqueue, epoll */
 if|if
 condition|(
 operator|!
@@ -1947,7 +1993,13 @@ name|NGX_WRITE_EVENT
 argument_list|,
 name|NGX_CLEAR_EVENT
 operator||
-name|flags
+operator|(
+name|lowat
+condition|?
+name|NGX_LOWAT_EVENT
+else|:
+literal|0
+operator|)
 argument_list|)
 operator|==
 name|NGX_ERROR
@@ -2039,7 +2091,7 @@ name|NGX_OK
 return|;
 block|}
 block|}
-comment|/* aio, iocp, epoll, rtsig */
+comment|/* aio, iocp, rtsig */
 return|return
 name|NGX_OK
 return|;

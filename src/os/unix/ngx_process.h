@@ -45,7 +45,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b179bfc0108
+DECL|struct|__anon2af573550108
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b179bfc0208
+DECL|struct|__anon2af573550208
 typedef|typedef
 struct|struct
 block|{
@@ -262,6 +262,31 @@ name|ngx_sched_yield
 parameter_list|()
 value|sched_yield()
 end_define
+
+begin_decl_stmt
+specifier|extern
+name|int
+name|ngx_argc
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|char
+modifier|*
+modifier|*
+name|ngx_argv
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|char
+modifier|*
+modifier|*
+name|ngx_os_argv
+decl_stmt|;
+end_decl_stmt
 
 begin_decl_stmt
 specifier|extern

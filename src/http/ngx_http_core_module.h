@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27a48c150108
+DECL|struct|__anon28dc6c5b0108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27a48c150203
+DECL|enum|__anon28dc6c5b0203
 typedef|typedef
 enum|enum
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a48c150308
+DECL|struct|__anon28dc6c5b0308
 typedef|typedef
 struct|struct
 block|{
@@ -119,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a48c150408
+DECL|struct|__anon28dc6c5b0408
 typedef|typedef
 struct|struct
 block|{
@@ -150,7 +150,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a48c150508
+DECL|struct|__anon28dc6c5b0508
 typedef|typedef
 struct|struct
 block|{
@@ -214,7 +214,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon27a48c150608
+DECL|struct|__anon28dc6c5b0608
 typedef|typedef
 struct|struct
 block|{
@@ -238,7 +238,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a48c150708
+DECL|struct|__anon28dc6c5b0708
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +270,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a48c150808
+DECL|struct|__anon28dc6c5b0808
 typedef|typedef
 struct|struct
 block|{
@@ -313,7 +313,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon27a48c150908
+DECL|struct|__anon28dc6c5b0908
 typedef|typedef
 struct|struct
 block|{
@@ -332,7 +332,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a48c150a08
+DECL|struct|__anon28dc6c5b0a08
 typedef|typedef
 struct|struct
 block|{
@@ -498,6 +498,11 @@ name|ngx_flag_t
 name|tcp_nopush
 decl_stmt|;
 comment|/* tcp_nopush */
+DECL|member|tcp_nodelay
+name|ngx_flag_t
+name|tcp_nodelay
+decl_stmt|;
+comment|/* tcp_nodelay */
 DECL|member|reset_timedout_connection
 name|ngx_flag_t
 name|reset_timedout_connection

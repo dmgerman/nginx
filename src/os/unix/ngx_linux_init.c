@@ -88,7 +88,8 @@ name|name
 index|[
 literal|2
 index|]
-decl_stmt|,
+decl_stmt|;
+name|size_t
 name|len
 decl_stmt|;
 name|name
@@ -276,6 +277,11 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+name|ngx_init_setproctitle
+argument_list|(
+name|log
+argument_list|)
+expr_stmt|;
 return|return
 name|ngx_posix_init
 argument_list|(

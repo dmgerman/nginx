@@ -41,7 +41,7 @@ value|ngx_pid
 end_define
 
 begin_typedef
-DECL|struct|__anon28fd23910108
+DECL|struct|__anon2c98423d0108
 typedef|typedef
 struct|struct
 block|{
@@ -122,6 +122,31 @@ name|ngx_sched_yield
 parameter_list|()
 value|Sleep(0)
 end_define
+
+begin_decl_stmt
+specifier|extern
+name|int
+name|ngx_argc
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|char
+modifier|*
+modifier|*
+name|ngx_argv
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|char
+modifier|*
+modifier|*
+name|ngx_os_argv
+decl_stmt|;
+end_decl_stmt
 
 begin_decl_stmt
 specifier|extern

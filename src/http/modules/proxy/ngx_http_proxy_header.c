@@ -623,13 +623,6 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-comment|/*      * we do not set r->headers_out.location to avoid the handling      * the local redirects without a host name by ngx_http_header_filter()      */
-if|#
-directive|if
-literal|0
-block_content|r->headers_out.location = location;
-endif|#
-directive|endif
 if|if
 condition|(
 name|uc
@@ -668,6 +661,7 @@ operator|!=
 literal|0
 condition|)
 block|{
+comment|/*         * we do not set r->headers_out.location here to avoid the handling         * the local redirects without a host name by ngx_http_header_filter()         */
 operator|*
 name|location
 operator|=
@@ -679,6 +673,30 @@ name|NGX_OK
 return|;
 block|}
 comment|/* TODO: proxy_reverse */
+name|r
+operator|->
+name|headers_out
+operator|.
+name|location
+operator|=
+name|location
+expr_stmt|;
+name|location
+operator|->
+name|key
+operator|.
+name|len
+operator|=
+literal|0
+expr_stmt|;
+name|location
+operator|->
+name|key
+operator|.
+name|data
+operator|=
+name|NULL
+expr_stmt|;
 name|location
 operator|->
 name|value

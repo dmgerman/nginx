@@ -44,7 +44,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon2abc56960103
+DECL|enum|__anon27d4657e0103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -801,12 +801,23 @@ break|break;
 case|case
 literal|'.'
 case|:
+name|r
+operator|->
+name|complex_uri
+operator|=
+literal|1
+expr_stmt|;
+name|state
+operator|=
+name|sw_uri
+expr_stmt|;
+break|break;
 case|case
 literal|'%'
 case|:
 name|r
 operator|->
-name|complex_uri
+name|quoted_uri
 operator|=
 literal|1
 expr_stmt|;
@@ -945,7 +956,7 @@ literal|'%'
 case|:
 name|r
 operator|->
-name|complex_uri
+name|quoted_uri
 operator|=
 literal|1
 expr_stmt|;
@@ -1504,7 +1515,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2abc56960203
+DECL|enum|__anon27d4657e0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1777,7 +1788,7 @@ condition|)
 block|{
 break|break;
 block|}
-comment|/* IIS can send duplicate "HTTP/1.1 ..." lines */
+comment|/* IIS may send the duplicate "HTTP/1.1 ..." lines */
 if|if
 condition|(
 name|ch
@@ -2139,7 +2150,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2abc56960303
+DECL|enum|__anon27d4657e0303
 enum|enum
 block|{
 DECL|enumerator|sw_usual

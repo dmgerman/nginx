@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28a6f7240108
+DECL|struct|__anon29d4fe430108
 typedef|typedef
 struct|struct
 block|{
@@ -288,6 +288,8 @@ operator|->
 name|sendfile
 operator|=
 name|r
+operator|->
+name|connection
 operator|->
 name|sendfile
 expr_stmt|;

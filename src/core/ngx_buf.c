@@ -576,6 +576,15 @@ operator|)
 operator|->
 name|buf
 operator|->
+name|start
+expr_stmt|;
+operator|(
+operator|*
+name|busy
+operator|)
+operator|->
+name|buf
+operator|->
 name|last
 operator|=
 operator|(

@@ -44,7 +44,7 @@ name|u_char
 modifier|*
 name|pos
 decl_stmt|;
-DECL|enum|__anon2a215ed80103
+DECL|enum|__anon290160bb0103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -427,6 +427,15 @@ block|{
 case|case
 literal|' '
 case|:
+name|state
+operator|=
+name|sw_status_text
+expr_stmt|;
+break|break;
+case|case
+literal|'.'
+case|:
+comment|/* IIS may send 403.1, 403.2, etc */
 name|state
 operator|=
 name|sw_status_text

@@ -110,7 +110,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon289b76c60108
+DECL|struct|__anon27506b6f0108
 typedef|typedef
 struct|struct
 block|{
@@ -530,24 +530,6 @@ name|ngx_rtsig_conf_t
 modifier|*
 name|rtscf
 decl_stmt|;
-if|if
-condition|(
-name|ngx_poll_module_ctx
-operator|.
-name|actions
-operator|.
-name|init
-argument_list|(
-name|cycle
-argument_list|)
-operator|==
-name|NGX_ERROR
-condition|)
-block|{
-return|return
-name|NGX_ERROR
-return|;
-block|}
 name|rtscf
 operator|=
 name|ngx_event_get_conf
@@ -702,14 +684,14 @@ modifier|*
 name|cycle
 parameter_list|)
 block|{
-name|ngx_poll_module_ctx
-operator|.
-name|actions
-operator|.
-name|done
+name|ngx_free
 argument_list|(
-name|cycle
+name|overflow_list
 argument_list|)
+expr_stmt|;
+name|overflow_list
+operator|=
+name|NULL
 expr_stmt|;
 block|}
 end_function
@@ -2802,7 +2784,7 @@ condition|(
 name|ngx_linux_rtsig_max
 condition|)
 block|{
-comment|/*                  * Check the current rt queue length to prevent                  * the new overflow.                  *                  * Learn the /proc/sys/kernel/rtsig-max value because                  * it can be changed sisnce the last checking.                  */
+comment|/*                  * Check the current rt queue length to prevent                  * the new overflow.                  *                  * Learn the /proc/sys/kernel/rtsig-max value because                  * it can be changed since the last checking.                  */
 name|name
 index|[
 literal|0

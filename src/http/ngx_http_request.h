@@ -417,7 +417,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon29ad10500103
+DECL|enum|__anon2be86bba0103
 typedef|typedef
 enum|enum
 block|{
@@ -438,7 +438,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29ad10500203
+DECL|enum|__anon2be86bba0203
 typedef|typedef
 enum|enum
 block|{
@@ -477,7 +477,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ad10500308
+DECL|struct|__anon2be86bba0308
 typedef|typedef
 struct|struct
 block|{
@@ -496,7 +496,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ad10500408
+DECL|struct|__anon2be86bba0408
 typedef|typedef
 struct|struct
 block|{
@@ -635,7 +635,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ad10500508
+DECL|struct|__anon2be86bba0508
 typedef|typedef
 struct|struct
 block|{
@@ -658,7 +658,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ad10500608
+DECL|struct|__anon2be86bba0608
 typedef|typedef
 struct|struct
 block|{
@@ -761,7 +761,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ad10500708
+DECL|struct|__anon2be86bba0708
 typedef|typedef
 struct|struct
 block|{
@@ -812,10 +812,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon29ad1050080a
+DECL|union|__anon2be86bba080a
 union|union
 block|{
-DECL|struct|__anon29ad10500908
+DECL|struct|__anon2be86bba0908
 struct|struct
 block|{
 DECL|member|fd
@@ -831,7 +831,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon29ad10500a08
+DECL|struct|__anon2be86bba0a08
 struct|struct
 block|{
 DECL|member|hash
@@ -869,7 +869,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29ad10500b08
+DECL|struct|__anon2be86bba0b08
 typedef|typedef
 struct|struct
 block|{
@@ -1123,10 +1123,17 @@ comment|/* URI is not started with '/' - "GET http://" */
 block|unsigned             unusual_uri:1;
 endif|#
 directive|endif
-comment|/* URI with "/.", "%" and on Win32 with "//" */
+comment|/* URI with "/." and on Win32 with "//" */
 DECL|member|complex_uri
 name|unsigned
 name|complex_uri
+range|:
+literal|1
+decl_stmt|;
+comment|/* URI with "%" */
+DECL|member|quoted_uri
+name|unsigned
+name|quoted_uri
 range|:
 literal|1
 decl_stmt|;
@@ -1163,13 +1170,6 @@ directive|endif
 DECL|member|pipeline
 name|unsigned
 name|pipeline
-range|:
-literal|1
-decl_stmt|;
-comment|/* can we use sendfile ? */
-DECL|member|sendfile
-name|unsigned
-name|sendfile
 range|:
 literal|1
 decl_stmt|;

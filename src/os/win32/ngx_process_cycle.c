@@ -95,17 +95,13 @@ directive|endif
 end_endif
 
 begin_function
-DECL|function|ngx_master_process_cycle (ngx_cycle_t * cycle,ngx_master_ctx_t * ctx)
+DECL|function|ngx_master_process_cycle (ngx_cycle_t * cycle)
 name|void
 name|ngx_master_process_cycle
 parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
-parameter_list|,
-name|ngx_master_ctx_t
-modifier|*
-name|ctx
 parameter_list|)
 block|{
 name|ngx_log_error
@@ -130,17 +126,13 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_single_process_cycle (ngx_cycle_t * cycle,ngx_master_ctx_t * ctx)
+DECL|function|ngx_single_process_cycle (ngx_cycle_t * cycle)
 name|void
 name|ngx_single_process_cycle
 parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
-parameter_list|,
-name|ngx_master_ctx_t
-modifier|*
-name|ctx
 parameter_list|)
 block|{
 name|ngx_int_t

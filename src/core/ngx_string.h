@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b2782330108
+DECL|struct|__anon28b900190108
 typedef|typedef
 struct|struct
 block|{
@@ -251,6 +251,21 @@ parameter_list|)
 value|memset(buf, 0, n)
 end_define
 
+begin_define
+DECL|macro|ngx_memset (buf,c,n)
+define|#
+directive|define
+name|ngx_memset
+parameter_list|(
+name|buf
+parameter_list|,
+name|c
+parameter_list|,
+name|n
+parameter_list|)
+value|memset(buf, c, n)
+end_define
+
 begin_comment
 comment|/* msvc and icc compile memcpy() to the inline "rep movs" */
 end_comment
@@ -405,11 +420,11 @@ name|ngx_encode_base64
 parameter_list|(
 name|ngx_str_t
 modifier|*
-name|src
+name|dst
 parameter_list|,
 name|ngx_str_t
 modifier|*
-name|dst
+name|src
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -420,11 +435,29 @@ name|ngx_decode_base64
 parameter_list|(
 name|ngx_str_t
 modifier|*
-name|src
+name|dst
 parameter_list|,
 name|ngx_str_t
 modifier|*
+name|src
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_escape_uri
+parameter_list|(
+name|u_char
+modifier|*
 name|dst
+parameter_list|,
+name|u_char
+modifier|*
+name|src
+parameter_list|,
+name|size_t
+name|size
 parameter_list|)
 function_decl|;
 end_function_decl

@@ -301,6 +301,31 @@ return|return
 name|n
 return|;
 block|}
+if|if
+condition|(
+operator|!
+name|SSL_is_init_finished
+argument_list|(
+name|c
+operator|->
+name|ssl
+operator|->
+name|ssl
+argument_list|)
+condition|)
+block|{
+name|handshake
+operator|=
+literal|"in SSL handshake"
+expr_stmt|;
+block|}
+else|else
+block|{
+name|handshake
+operator|=
+literal|""
+expr_stmt|;
+block|}
 name|sslerr
 operator|=
 name|SSL_get_error
@@ -383,31 +408,6 @@ literal|0
 block_content|return NGX_AGAIN;
 endif|#
 directive|endif
-block|}
-if|if
-condition|(
-operator|!
-name|SSL_is_init_finished
-argument_list|(
-name|c
-operator|->
-name|ssl
-operator|->
-name|ssl
-argument_list|)
-condition|)
-block|{
-name|handshake
-operator|=
-literal|"in SSL handshake"
-expr_stmt|;
-block|}
-else|else
-block|{
-name|handshake
-operator|=
-literal|""
-expr_stmt|;
 block|}
 name|c
 operator|->
@@ -976,6 +976,10 @@ decl_stmt|;
 name|ngx_err_t
 name|err
 decl_stmt|;
+name|char
+modifier|*
+name|handshake
+decl_stmt|;
 name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
@@ -1098,6 +1102,31 @@ operator|==
 name|SSL_ERROR_WANT_READ
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|SSL_is_init_finished
+argument_list|(
+name|c
+operator|->
+name|ssl
+operator|->
+name|ssl
+argument_list|)
+condition|)
+block|{
+name|handshake
+operator|=
+literal|"in SSL handshake"
+expr_stmt|;
+block|}
+else|else
+block|{
+name|handshake
+operator|=
+literal|""
+expr_stmt|;
+block|}
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
@@ -1119,9 +1148,10 @@ return|;
 if|#
 directive|if
 literal|0
-block_content|return NGX_AGAIN;     }
+block_content|return NGX_AGAIN;
 endif|#
 directive|endif
+block|}
 name|c
 operator|->
 name|ssl
@@ -1147,6 +1177,9 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+end_function
+
+begin_function
 DECL|function|ngx_ssl_shutdown (ngx_connection_t * c)
 name|ngx_int_t
 name|ngx_ssl_shutdown
@@ -1428,6 +1461,9 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+end_function
+
+begin_function
 DECL|function|ngx_ssl_error (ngx_uint_t level,ngx_log_t * log,ngx_err_t err,char * fmt,...)
 name|void
 name|ngx_ssl_error
