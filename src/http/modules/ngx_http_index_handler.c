@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29311e420108
+DECL|struct|__anon28a1e5ca0108
 typedef|typedef
 struct|struct
 block|{
@@ -42,16 +42,16 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29311e420208
+DECL|struct|__anon28a1e5ca0208
 typedef|typedef
 struct|struct
 block|{
 DECL|member|index
-name|ngx_int_t
+name|ngx_uint_t
 name|index
 decl_stmt|;
 DECL|member|last
-name|char
+name|u_char
 modifier|*
 name|last
 decl_stmt|;
@@ -328,7 +328,7 @@ modifier|*
 name|r
 parameter_list|)
 block|{
-name|char
+name|u_char
 modifier|*
 name|name
 decl_stmt|;
@@ -654,7 +654,7 @@ name|len
 operator|=
 name|clcf
 operator|->
-name|doc_root
+name|root
 operator|.
 name|len
 operator|+
@@ -709,13 +709,13 @@ name|data
 argument_list|,
 name|clcf
 operator|->
-name|doc_root
+name|root
 operator|.
 name|data
 argument_list|,
 name|clcf
 operator|->
-name|doc_root
+name|root
 operator|.
 name|len
 argument_list|)
@@ -1125,7 +1125,7 @@ name|len
 operator|=
 name|clcf
 operator|->
-name|doc_root
+name|root
 operator|.
 name|len
 operator|+
@@ -1878,7 +1878,7 @@ name|conf
 init|=
 name|child
 decl_stmt|;
-name|int
+name|ngx_uint_t
 name|i
 decl_stmt|;
 name|ngx_str_t
@@ -2115,7 +2115,7 @@ name|ilcf
 init|=
 name|conf
 decl_stmt|;
-name|int
+name|ngx_uint_t
 name|i
 decl_stmt|;
 name|ngx_str_t

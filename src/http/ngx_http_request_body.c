@@ -36,15 +36,15 @@ function_decl|;
 end_function_decl
 
 begin_function
-DECL|function|ngx_http_read_client_request_body (ngx_http_request_t * r,int request_buffer_size)
-name|int
+DECL|function|ngx_http_read_client_request_body (ngx_http_request_t * r,size_t request_buffer_size)
+name|ngx_int_t
 name|ngx_http_read_client_request_body
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|int
+name|size_t
 name|request_buffer_size
 parameter_list|)
 block|{
@@ -329,10 +329,11 @@ modifier|*
 name|rev
 parameter_list|)
 block|{
+name|size_t
+name|size
+decl_stmt|;
 name|ssize_t
 name|n
-decl_stmt|,
-name|size
 decl_stmt|;
 name|ngx_hunk_t
 modifier|*

@@ -766,6 +766,10 @@ operator|->
 name|oneshot
 operator|=
 operator|(
+name|u_char
+operator|)
+operator|(
+operator|(
 name|flags
 operator|&
 name|NGX_ONESHOT_EVENT
@@ -774,6 +778,7 @@ condition|?
 literal|1
 else|:
 literal|0
+operator|)
 expr_stmt|;
 name|event_index
 index|[

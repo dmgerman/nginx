@@ -69,7 +69,7 @@ begin_function_decl
 name|size_t
 name|ngx_http_time
 parameter_list|(
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,

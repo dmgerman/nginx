@@ -1461,7 +1461,7 @@ modifier|*
 name|ctx
 parameter_list|)
 block|{
-name|char
+name|u_char
 modifier|*
 name|name
 decl_stmt|;
@@ -1561,7 +1561,7 @@ block|{
 name|sigset_t
 name|set
 decl_stmt|;
-name|ngx_int_t
+name|ngx_uint_t
 name|i
 decl_stmt|;
 name|ngx_listening_t

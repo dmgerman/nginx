@@ -524,7 +524,7 @@ modifier|*
 name|rev
 parameter_list|)
 block|{
-name|ngx_int_t
+name|ngx_uint_t
 name|i
 decl_stmt|;
 name|socklen_t
@@ -792,14 +792,6 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-if|#
-directive|if
-operator|(
-name|WIN32
-operator|)
-block|}
-endif|#
-directive|endif
 name|r
 operator|->
 name|in_addr
@@ -810,6 +802,14 @@ name|sin_addr
 operator|.
 name|s_addr
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|WIN32
+operator|)
+block|}
+endif|#
+directive|endif
 comment|/* the last in_port->addrs address is "*" */
 for|for
 control|(
@@ -1288,7 +1288,7 @@ modifier|*
 name|rev
 parameter_list|)
 block|{
-name|char
+name|u_char
 modifier|*
 name|p
 decl_stmt|;
@@ -2143,6 +2143,10 @@ name|args
 operator|.
 name|data
 else|:
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|""
 argument_list|)
 expr_stmt|;
@@ -2170,6 +2174,10 @@ name|exten
 operator|.
 name|data
 else|:
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|""
 argument_list|)
 expr_stmt|;
@@ -3202,7 +3210,7 @@ operator|==
 name|NGX_HTTP_PARSE_INVALID_HEADER
 condition|)
 block|{
-name|char
+name|u_char
 modifier|*
 name|p
 decl_stmt|;
@@ -3663,7 +3671,7 @@ block|{
 name|size_t
 name|len
 decl_stmt|;
-name|ngx_int_t
+name|ngx_uint_t
 name|i
 decl_stmt|;
 name|ngx_http_server_name_t
@@ -5177,6 +5185,9 @@ if|if
 condition|(
 name|size
 operator|>
+operator|(
+name|ssize_t
+operator|)
 name|clcf
 operator|->
 name|discarded_buffer_size
@@ -5184,6 +5195,9 @@ condition|)
 block|{
 name|size
 operator|=
+operator|(
+name|ssize_t
+operator|)
 name|clcf
 operator|->
 name|discarded_buffer_size
@@ -6226,6 +6240,9 @@ name|header_in
 operator|->
 name|last
 operator|>=
+operator|(
+name|ssize_t
+operator|)
 name|clcf
 operator|->
 name|discarded_buffer_size
@@ -6479,7 +6496,7 @@ name|int
 name|error
 parameter_list|)
 block|{
-name|ngx_int_t
+name|ngx_uint_t
 name|i
 decl_stmt|;
 name|ngx_log_t
@@ -6972,6 +6989,9 @@ name|c
 operator|->
 name|fd
 operator|=
+operator|(
+name|ngx_socket_t
+operator|)
 operator|-
 literal|1
 expr_stmt|;

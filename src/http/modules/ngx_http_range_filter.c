@@ -22,7 +22,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon291c7e610108
+DECL|struct|__anon2b41bb4e0108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ end_typedef
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_range_filter_init
 parameter_list|(
 name|ngx_cycle_t
@@ -126,7 +126,7 @@ end_decl_stmt
 begin_function
 DECL|function|ngx_http_range_header_filter (ngx_http_request_t * r)
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_range_header_filter
 parameter_list|(
 name|ngx_http_request_t
@@ -136,18 +136,20 @@ parameter_list|)
 block|{
 name|ngx_int_t
 name|rc
-decl_stmt|,
+decl_stmt|;
+name|ngx_uint_t
 name|boundary
 decl_stmt|,
 name|suffix
 decl_stmt|,
-name|len
-decl_stmt|,
 name|i
 decl_stmt|;
-name|char
+name|u_char
 modifier|*
 name|p
+decl_stmt|;
+name|size_t
+name|len
 decl_stmt|;
 name|off_t
 name|start
@@ -896,6 +898,10 @@ name|len
 operator|=
 name|ngx_snprintf
 argument_list|(
+operator|(
+name|char
+operator|*
+operator|)
 name|r
 operator|->
 name|headers_out
@@ -1092,6 +1098,10 @@ name|len
 operator|=
 name|ngx_snprintf
 argument_list|(
+operator|(
+name|char
+operator|*
+operator|)
 name|r
 operator|->
 name|headers_out
@@ -1277,6 +1287,10 @@ name|len
 operator|=
 name|ngx_snprintf
 argument_list|(
+operator|(
+name|char
+operator|*
+operator|)
 name|ctx
 operator|->
 name|boundary_header
@@ -1334,6 +1348,10 @@ name|len
 operator|=
 name|ngx_snprintf
 argument_list|(
+operator|(
+name|char
+operator|*
+operator|)
 name|ctx
 operator|->
 name|boundary_header
@@ -1404,6 +1422,10 @@ name|len
 operator|=
 name|ngx_snprintf
 argument_list|(
+operator|(
+name|char
+operator|*
+operator|)
 name|r
 operator|->
 name|headers_out
@@ -1509,7 +1531,7 @@ name|len
 operator|=
 name|ngx_snprintf
 argument_list|(
-argument|range[i].content_range.data
+argument|(char *) range[i].content_range.data
 argument_list|,
 literal|20
 argument|+
@@ -1604,7 +1626,7 @@ end_function
 begin_function
 DECL|function|ngx_http_range_body_filter (ngx_http_request_t * r,ngx_chain_t * in)
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_range_body_filter
 parameter_list|(
 name|ngx_http_request_t
@@ -1616,7 +1638,7 @@ modifier|*
 name|in
 parameter_list|)
 block|{
-name|int
+name|ngx_uint_t
 name|i
 decl_stmt|;
 name|ngx_hunk_t
@@ -2158,7 +2180,7 @@ end_function
 begin_function
 DECL|function|ngx_http_range_filter_init (ngx_cycle_t * cycle)
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_range_filter_init
 parameter_list|(
 name|ngx_cycle_t

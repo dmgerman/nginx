@@ -34,7 +34,7 @@ modifier|*
 name|cycle
 parameter_list|)
 block|{
-name|ngx_int_t
+name|ngx_uint_t
 name|i
 decl_stmt|;
 name|ngx_listening_t
@@ -378,7 +378,7 @@ modifier|*
 name|cycle
 parameter_list|)
 block|{
-name|ngx_int_t
+name|ngx_uint_t
 name|tries
 decl_stmt|,
 name|failed
@@ -428,7 +428,7 @@ control|(
 name|tries
 operator|=
 comment|/* STUB */
-literal|1
+literal|5
 init|;
 name|tries
 condition|;
@@ -924,7 +924,7 @@ modifier|*
 name|cycle
 parameter_list|)
 block|{
-name|ngx_int_t
+name|ngx_uint_t
 name|i
 decl_stmt|;
 name|ngx_socket_t
@@ -1054,6 +1054,9 @@ index|]
 operator|.
 name|fd
 operator|=
+operator|(
+name|ngx_socket_t
+operator|)
 operator|-
 literal|1
 expr_stmt|;

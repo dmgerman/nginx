@@ -195,7 +195,7 @@ modifier|*
 name|in
 parameter_list|)
 block|{
-name|char
+name|u_char
 modifier|*
 name|chunk
 decl_stmt|;
@@ -359,7 +359,7 @@ name|len
 operator|=
 name|ngx_snprintf
 argument_list|(
-argument|chunk
+argument|(char *) chunk
 argument_list|,
 literal|11
 argument_list|,

@@ -13,7 +13,7 @@ end_include
 
 begin_function
 DECL|function|ngx_parse_size (ngx_str_t * line)
-name|int
+name|ngx_int_t
 name|ngx_parse_size
 parameter_list|(
 name|ngx_str_t
@@ -21,16 +21,16 @@ modifier|*
 name|line
 parameter_list|)
 block|{
-name|int
-name|scale
-decl_stmt|,
-name|size
-decl_stmt|;
-name|char
+name|u_char
 name|last
 decl_stmt|;
 name|size_t
 name|len
+decl_stmt|;
+name|ngx_int_t
+name|scale
+decl_stmt|,
+name|size
 decl_stmt|;
 name|len
 operator|=
@@ -123,40 +123,40 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_parse_time (ngx_str_t * line,int sec)
-name|int
+DECL|function|ngx_parse_time (ngx_str_t * line,ngx_int_t sec)
+name|ngx_int_t
 name|ngx_parse_time
 parameter_list|(
 name|ngx_str_t
 modifier|*
 name|line
 parameter_list|,
-name|int
+name|ngx_int_t
 name|sec
 parameter_list|)
 block|{
-name|int
+name|size_t
+name|len
+decl_stmt|;
+name|u_char
+modifier|*
+name|start
+decl_stmt|,
+name|last
+decl_stmt|;
+name|ngx_int_t
 name|value
 decl_stmt|,
 name|total
 decl_stmt|,
 name|scale
 decl_stmt|;
-name|u_int
+name|ngx_uint_t
 name|max
 decl_stmt|,
 name|i
 decl_stmt|;
-name|size_t
-name|len
-decl_stmt|;
-name|char
-modifier|*
-name|start
-decl_stmt|,
-name|last
-decl_stmt|;
-DECL|enum|__anon2b78689b0103
+DECL|enum|__anon279879080103
 enum|enum
 block|{
 DECL|enumerator|st_start

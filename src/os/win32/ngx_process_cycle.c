@@ -24,7 +24,33 @@ literal|0
 end_if
 
 begin_endif
-unit|ngx_int_t     ngx_process; ngx_pid_t     ngx_pid; ngx_pid_t     ngx_new_binary; ngx_int_t     ngx_inherited;  sig_atomic_t  ngx_reap; sig_atomic_t  ngx_timer; sig_atomic_t  ngx_terminate; sig_atomic_t  ngx_quit; sig_atomic_t  ngx_noaccept; sig_atomic_t  ngx_reconfigure; sig_atomic_t  ngx_reopen; sig_atomic_t  ngx_change_binary;
+unit|ngx_int_t     ngx_process; ngx_pid_t     ngx_pid; ngx_pid_t     ngx_new_binary; ngx_int_t     ngx_inherited;  sig_atomic_t  ngx_reap; sig_atomic_t  ngx_timer;
+endif|#
+directive|endif
+end_endif
+
+begin_decl_stmt
+DECL|variable|ngx_terminate
+name|sig_atomic_t
+name|ngx_terminate
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_quit
+name|sig_atomic_t
+name|ngx_quit
+decl_stmt|;
+end_decl_stmt
+
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
+begin_endif
+unit|sig_atomic_t  ngx_noaccept; sig_atomic_t  ngx_reconfigure; sig_atomic_t  ngx_reopen; sig_atomic_t  ngx_change_binary;
 endif|#
 directive|endif
 end_endif

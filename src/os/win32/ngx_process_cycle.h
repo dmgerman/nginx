@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bf16e4a0108
+DECL|struct|__anon29e650810108
 typedef|typedef
 struct|struct
 block|{
@@ -34,7 +34,7 @@ name|ngx_file_t
 name|pid
 decl_stmt|;
 DECL|member|name
-name|char
+name|u_char
 modifier|*
 name|name
 decl_stmt|;

@@ -338,7 +338,7 @@ DECL|macro|LF
 define|#
 directive|define
 name|LF
-value|10
+value|(u_char) 10
 end_define
 
 begin_define
@@ -346,7 +346,7 @@ DECL|macro|CR
 define|#
 directive|define
 name|CR
-value|13
+value|(u_char) 13
 end_define
 
 begin_define

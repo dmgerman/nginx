@@ -39,7 +39,7 @@ modifier|*
 name|chain
 parameter_list|)
 block|{
-name|char
+name|u_char
 modifier|*
 name|prev
 decl_stmt|;
@@ -264,6 +264,10 @@ name|iov
 operator|->
 name|iov_base
 operator|=
+operator|(
+name|void
+operator|*
+operator|)
 name|chain
 operator|->
 name|hunk

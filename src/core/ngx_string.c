@@ -12,16 +12,16 @@ file|<ngx_core.h>
 end_include
 
 begin_function
-DECL|function|ngx_cpystrn (char * dst,char * src,size_t n)
-name|char
+DECL|function|ngx_cpystrn (u_char * dst,u_char * src,size_t n)
+name|u_char
 modifier|*
 name|ngx_cpystrn
 parameter_list|(
-name|char
+name|u_char
 modifier|*
 name|dst
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|src
 parameter_list|,
@@ -85,15 +85,15 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_rstrncmp (char * s1,char * s2,size_t n)
-name|int
+DECL|function|ngx_rstrncmp (u_char * s1,u_char * s2,size_t n)
+name|ngx_int_t
 name|ngx_rstrncmp
 parameter_list|(
-name|char
+name|u_char
 modifier|*
 name|s1
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|s2
 parameter_list|,
@@ -135,17 +135,11 @@ index|]
 condition|)
 block|{
 return|return
-operator|(
-name|u_char
-operator|)
 name|s1
 index|[
 name|n
 index|]
 operator|-
-operator|(
-name|u_char
-operator|)
 name|s2
 index|[
 name|n
@@ -171,11 +165,11 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_atoi (char * line,size_t n)
-name|int
+DECL|function|ngx_atoi (u_char * line,size_t n)
+name|ngx_int_t
 name|ngx_atoi
 parameter_list|(
-name|char
+name|u_char
 modifier|*
 name|line
 parameter_list|,
@@ -183,7 +177,7 @@ name|size_t
 name|n
 parameter_list|)
 block|{
-name|int
+name|ngx_int_t
 name|value
 decl_stmt|;
 if|if
@@ -262,11 +256,11 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_md5_text (char * text,u_char * md5)
+DECL|function|ngx_md5_text (u_char * text,u_char * md5)
 name|void
 name|ngx_md5_text
 parameter_list|(
-name|char
+name|u_char
 modifier|*
 name|text
 parameter_list|,
@@ -279,7 +273,7 @@ name|int
 name|i
 decl_stmt|;
 specifier|static
-name|char
+name|u_char
 name|hex
 index|[]
 init|=

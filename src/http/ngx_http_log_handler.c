@@ -25,7 +25,7 @@ end_include
 
 begin_function_decl
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_log_addr
 parameter_list|(
@@ -33,7 +33,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -45,7 +45,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_log_connection
 parameter_list|(
@@ -53,7 +53,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -65,7 +65,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_log_pipe
 parameter_list|(
@@ -73,7 +73,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -85,7 +85,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_log_time
 parameter_list|(
@@ -93,7 +93,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -105,7 +105,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_log_request
 parameter_list|(
@@ -113,7 +113,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -125,7 +125,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_log_status
 parameter_list|(
@@ -133,7 +133,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -145,7 +145,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_log_length
 parameter_list|(
@@ -153,7 +153,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -165,7 +165,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_log_apache_length
 parameter_list|(
@@ -173,7 +173,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -185,7 +185,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_log_header_in
 parameter_list|(
@@ -193,7 +193,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -205,7 +205,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_log_connection_header_out
 parameter_list|(
@@ -213,7 +213,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -225,7 +225,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_log_transfer_encoding_header_out
 parameter_list|(
@@ -233,7 +233,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -245,7 +245,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_log_unknown_header_in
 parameter_list|(
@@ -253,7 +253,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -265,7 +265,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_log_header_out
 parameter_list|(
@@ -273,7 +273,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -285,7 +285,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_log_unknown_header_out
 parameter_list|(
@@ -293,7 +293,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -712,15 +712,15 @@ modifier|*
 name|r
 parameter_list|)
 block|{
-name|int
+name|ngx_uint_t
 name|i
 decl_stmt|,
 name|l
 decl_stmt|;
-name|u_int
+name|uintptr_t
 name|data
 decl_stmt|;
-name|char
+name|u_char
 modifier|*
 name|line
 decl_stmt|,
@@ -985,9 +985,14 @@ operator|*
 name|p
 operator|++
 operator|=
+operator|(
+name|char
+operator|)
+operator|(
 name|data
 operator|&
 literal|0xff
+operator|)
 expr_stmt|;
 name|data
 operator|>>=
@@ -1134,9 +1139,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_log_addr (ngx_http_request_t * r,char * buf,uintptr_t data)
+DECL|function|ngx_http_log_addr (ngx_http_request_t * r,u_char * buf,uintptr_t data)
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_log_addr
 parameter_list|(
@@ -1144,7 +1149,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -1178,9 +1183,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_log_connection (ngx_http_request_t * r,char * buf,uintptr_t data)
+DECL|function|ngx_http_log_connection (ngx_http_request_t * r,u_char * buf,uintptr_t data)
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_log_connection
 parameter_list|(
@@ -1188,7 +1193,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -1201,6 +1206,10 @@ name|buf
 operator|+
 name|ngx_snprintf
 argument_list|(
+operator|(
+name|char
+operator|*
+operator|)
 name|buf
 argument_list|,
 name|NGX_INT32_LEN
@@ -1220,9 +1229,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_log_pipe (ngx_http_request_t * r,char * buf,uintptr_t data)
+DECL|function|ngx_http_log_pipe (ngx_http_request_t * r,u_char * buf,uintptr_t data)
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_log_pipe
 parameter_list|(
@@ -1230,7 +1239,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -1268,9 +1277,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_log_time (ngx_http_request_t * r,char * buf,uintptr_t data)
+DECL|function|ngx_http_log_time (ngx_http_request_t * r,u_char * buf,uintptr_t data)
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_log_time
 parameter_list|(
@@ -1278,7 +1287,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -1304,9 +1313,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_log_request (ngx_http_request_t * r,char * buf,uintptr_t data)
+DECL|function|ngx_http_log_request (ngx_http_request_t * r,u_char * buf,uintptr_t data)
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_log_request
 parameter_list|(
@@ -1314,7 +1323,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -1332,7 +1341,7 @@ block|{
 comment|/* find the request line length */
 return|return
 operator|(
-name|char
+name|u_char
 operator|*
 operator|)
 name|r
@@ -1364,9 +1373,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_log_status (ngx_http_request_t * r,char * buf,uintptr_t data)
+DECL|function|ngx_http_log_status (ngx_http_request_t * r,u_char * buf,uintptr_t data)
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_log_status
 parameter_list|(
@@ -1374,7 +1383,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -1387,6 +1396,10 @@ name|buf
 operator|+
 name|ngx_snprintf
 argument_list|(
+operator|(
+name|char
+operator|*
+operator|)
 name|buf
 argument_list|,
 literal|4
@@ -1412,9 +1425,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_log_length (ngx_http_request_t * r,char * buf,uintptr_t data)
+DECL|function|ngx_http_log_length (ngx_http_request_t * r,u_char * buf,uintptr_t data)
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_log_length
 parameter_list|(
@@ -1422,7 +1435,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -1435,6 +1448,10 @@ name|buf
 operator|+
 name|ngx_snprintf
 argument_list|(
+operator|(
+name|char
+operator|*
+operator|)
 name|buf
 argument_list|,
 name|NGX_OFF_T_LEN
@@ -1454,9 +1471,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_log_apache_length (ngx_http_request_t * r,char * buf,uintptr_t data)
+DECL|function|ngx_http_log_apache_length (ngx_http_request_t * r,u_char * buf,uintptr_t data)
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_log_apache_length
 parameter_list|(
@@ -1464,7 +1481,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -1477,6 +1494,10 @@ name|buf
 operator|+
 name|ngx_snprintf
 argument_list|(
+operator|(
+name|char
+operator|*
+operator|)
 name|buf
 argument_list|,
 name|NGX_OFF_T_LEN
@@ -1500,9 +1521,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_log_header_in (ngx_http_request_t * r,char * buf,uintptr_t data)
+DECL|function|ngx_http_log_header_in (ngx_http_request_t * r,u_char * buf,uintptr_t data)
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_log_header_in
 parameter_list|(
@@ -1510,7 +1531,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -1518,7 +1539,7 @@ name|uintptr_t
 name|data
 parameter_list|)
 block|{
-name|int
+name|ngx_uint_t
 name|i
 decl_stmt|;
 name|ngx_str_t
@@ -1594,7 +1615,7 @@ block|{
 comment|/* find the header length */
 return|return
 operator|(
-name|char
+name|u_char
 operator|*
 operator|)
 name|h
@@ -1754,9 +1775,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_log_unknown_header_in (ngx_http_request_t * r,char * buf,uintptr_t data)
+DECL|function|ngx_http_log_unknown_header_in (ngx_http_request_t * r,u_char * buf,uintptr_t data)
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_log_unknown_header_in
 parameter_list|(
@@ -1764,7 +1785,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -1772,7 +1793,7 @@ name|uintptr_t
 name|data
 parameter_list|)
 block|{
-name|int
+name|ngx_uint_t
 name|i
 decl_stmt|;
 name|ngx_str_t
@@ -1874,7 +1895,7 @@ block|{
 comment|/* find the header length */
 return|return
 operator|(
-name|char
+name|u_char
 operator|*
 operator|)
 name|h
@@ -1934,9 +1955,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_log_header_out (ngx_http_request_t * r,char * buf,uintptr_t data)
+DECL|function|ngx_http_log_header_out (ngx_http_request_t * r,u_char * buf,uintptr_t data)
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_log_header_out
 parameter_list|(
@@ -1944,7 +1965,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -1952,7 +1973,7 @@ name|uintptr_t
 name|data
 parameter_list|)
 block|{
-name|int
+name|ngx_uint_t
 name|i
 decl_stmt|;
 name|ngx_str_t
@@ -2049,7 +2070,7 @@ condition|)
 block|{
 return|return
 operator|(
-name|char
+name|u_char
 operator|*
 operator|)
 name|ngx_cached_http_time
@@ -2093,7 +2114,7 @@ condition|)
 block|{
 return|return
 operator|(
-name|char
+name|u_char
 operator|*
 operator|)
 operator|(
@@ -2172,7 +2193,7 @@ condition|)
 block|{
 return|return
 operator|(
-name|char
+name|u_char
 operator|*
 operator|)
 name|NGX_OFF_T_LEN
@@ -2183,6 +2204,10 @@ name|buf
 operator|+
 name|ngx_snprintf
 argument_list|(
+operator|(
+name|char
+operator|*
+operator|)
 name|buf
 argument_list|,
 name|NGX_OFF_T_LEN
@@ -2249,7 +2274,7 @@ condition|)
 block|{
 return|return
 operator|(
-name|char
+name|u_char
 operator|*
 operator|)
 sizeof|sizeof
@@ -2302,7 +2327,7 @@ block|{
 comment|/* find the header length */
 return|return
 operator|(
-name|char
+name|u_char
 operator|*
 operator|)
 name|h
@@ -2558,9 +2583,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_log_connection_header_out (ngx_http_request_t * r,char * buf,uintptr_t data)
+DECL|function|ngx_http_log_connection_header_out (ngx_http_request_t * r,u_char * buf,uintptr_t data)
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_log_connection_header_out
 parameter_list|(
@@ -2568,7 +2593,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -2585,7 +2610,7 @@ condition|)
 block|{
 return|return
 operator|(
-name|char
+name|u_char
 operator|*
 operator|)
 operator|(
@@ -2656,9 +2681,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_log_transfer_encoding_header_out (ngx_http_request_t * r,char * buf,uintptr_t data)
+DECL|function|ngx_http_log_transfer_encoding_header_out (ngx_http_request_t * r,u_char * buf,uintptr_t data)
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_log_transfer_encoding_header_out
 parameter_list|(
@@ -2666,7 +2691,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -2683,7 +2708,7 @@ condition|)
 block|{
 return|return
 operator|(
-name|char
+name|u_char
 operator|*
 operator|)
 operator|(
@@ -2741,9 +2766,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_log_unknown_header_out (ngx_http_request_t * r,char * buf,uintptr_t data)
+DECL|function|ngx_http_log_unknown_header_out (ngx_http_request_t * r,u_char * buf,uintptr_t data)
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_log_unknown_header_out
 parameter_list|(
@@ -2751,7 +2776,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -2759,7 +2784,7 @@ name|uintptr_t
 name|data
 parameter_list|)
 block|{
-name|int
+name|ngx_uint_t
 name|i
 decl_stmt|;
 name|ngx_str_t
@@ -2861,7 +2886,7 @@ block|{
 comment|/* find the header length */
 return|return
 operator|(
-name|char
+name|u_char
 operator|*
 operator|)
 name|h
@@ -3400,7 +3425,7 @@ name|llcf
 init|=
 name|conf
 decl_stmt|;
-name|int
+name|ngx_uint_t
 name|i
 decl_stmt|;
 name|ngx_str_t
@@ -3669,14 +3694,14 @@ name|lmcf
 init|=
 name|conf
 decl_stmt|;
-name|int
+name|ngx_uint_t
 name|s
 decl_stmt|,
 name|f
 decl_stmt|,
 name|invalid
 decl_stmt|;
-name|char
+name|u_char
 modifier|*
 name|data
 decl_stmt|,
@@ -4369,7 +4394,7 @@ argument_list|(
 name|NULL
 argument_list|,
 operator|(
-name|char
+name|u_char
 operator|*
 operator|)
 name|op

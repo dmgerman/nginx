@@ -23,32 +23,6 @@ directive|include
 file|<nginx.h>
 end_include
 
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-
-begin_if
-unit|typedef struct {      ngx_flag_t  daemon;      ngx_flag_t  master;      ngx_flag_t  worker_reopen;      uid_t       user;      gid_t       group;      ngx_str_t   pid;      ngx_str_t   newpid; } ngx_core_conf_t;   typedef struct {      ngx_file_t    pid;      char         *name;      int           argc;      char *const  *argv; } ngx_master_ctx_t;   static void ngx_master_process_cycle(ngx_cycle_t *cycle, ngx_master_ctx_t *ctx); static void ngx_master_exit(ngx_cycle_t *cycle, ngx_master_ctx_t *ctx); static void ngx_worker_process_cycle(ngx_cycle_t *cycle, void *data);
-if|#
-directive|if
-operator|(
-name|NGX_THREADS
-operator|)
-end_if
-
-begin_endif
-unit|static int ngx_worker_thread_cycle(void *data);
-endif|#
-directive|endif
-end_endif
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
 begin_function_decl
 specifier|static
 name|ngx_int_t
@@ -364,7 +338,7 @@ operator|)
 name|size_t
 name|len
 decl_stmt|;
-name|char
+name|u_char
 name|pid
 index|[
 comment|/* STUB */
@@ -814,6 +788,10 @@ name|len
 operator|=
 name|ngx_snprintf
 argument_list|(
+operator|(
+name|char
+operator|*
+operator|)
 name|pid
 argument_list|,
 comment|/* STUB */
@@ -1009,7 +987,7 @@ modifier|*
 name|cycle
 parameter_list|)
 block|{
-name|char
+name|u_char
 modifier|*
 name|p
 decl_stmt|,
@@ -1028,6 +1006,10 @@ name|ls
 decl_stmt|;
 name|inherited
 operator|=
+operator|(
+name|u_char
+operator|*
+operator|)
 name|getenv
 argument_list|(
 name|NGINX_VAR
@@ -1223,7 +1205,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-name|ngx_int_t
+name|ngx_uint_t
 name|i
 decl_stmt|;
 name|ngx_pid_t
@@ -1287,6 +1269,10 @@ argument_list|)
 expr_stmt|;
 name|p
 operator|=
+operator|(
+name|char
+operator|*
+operator|)
 name|ngx_cpymem
 argument_list|(
 name|var
@@ -1505,6 +1491,10 @@ name|conf_file
 operator|.
 name|data
 operator|=
+operator|(
+name|u_char
+operator|*
+operator|)
 name|ctx
 operator|->
 name|argv
@@ -1825,6 +1815,11 @@ name|pwd
 operator|=
 name|getpwnam
 argument_list|(
+operator|(
+specifier|const
+name|char
+operator|*
+operator|)
 name|value
 index|[
 literal|1
@@ -1889,6 +1884,11 @@ name|grp
 operator|=
 name|getgrnam
 argument_list|(
+operator|(
+specifier|const
+name|char
+operator|*
+operator|)
 name|value
 index|[
 literal|2

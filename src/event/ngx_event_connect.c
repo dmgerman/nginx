@@ -45,7 +45,8 @@ parameter_list|)
 block|{
 name|int
 name|rc
-decl_stmt|,
+decl_stmt|;
+name|ngx_uint_t
 name|instance
 decl_stmt|;
 name|u_int
@@ -707,6 +708,9 @@ name|rev
 operator|->
 name|instance
 operator|=
+operator|(
+name|u_char
+operator|)
 operator|!
 name|instance
 expr_stmt|;
@@ -714,6 +718,9 @@ name|wev
 operator|->
 name|instance
 operator|=
+operator|(
+name|u_char
+operator|)
 operator|!
 name|instance
 expr_stmt|;
@@ -811,6 +818,9 @@ name|addr
 operator|.
 name|sin_port
 operator|=
+operator|(
+name|u_short
+operator|)
 name|peer
 operator|->
 name|port
@@ -928,6 +938,9 @@ name|c
 operator|->
 name|fd
 operator|=
+operator|(
+name|ngx_socket_t
+operator|)
 operator|-
 literal|1
 expr_stmt|;

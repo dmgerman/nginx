@@ -24,12 +24,12 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bbc440a0108
+DECL|struct|__anon2a3ab8050108
 typedef|typedef
 struct|struct
 block|{
 DECL|member|postpone_output
-name|ssize_t
+name|size_t
 name|postpone_output
 decl_stmt|;
 DECL|typedef|ngx_http_write_filter_conf_t
@@ -39,7 +39,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bbc440a0208
+DECL|struct|__anon2a3ab8050208
 typedef|typedef
 struct|struct
 block|{
@@ -675,7 +675,7 @@ name|conf
 operator|->
 name|postpone_output
 operator|=
-name|NGX_CONF_UNSET
+name|NGX_CONF_UNSET_SIZE
 expr_stmt|;
 return|return
 name|conf

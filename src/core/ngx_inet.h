@@ -24,7 +24,7 @@ name|sockaddr
 modifier|*
 name|addr
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|text
 parameter_list|,
@@ -41,11 +41,11 @@ parameter_list|(
 name|int
 name|family
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|addr
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|text
 parameter_list|,

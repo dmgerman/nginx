@@ -107,6 +107,11 @@ name|re
 operator|=
 name|pcre_compile
 argument_list|(
+operator|(
+specifier|const
+name|char
+operator|*
+operator|)
 name|pattern
 operator|->
 name|data
@@ -146,6 +151,10 @@ condition|)
 block|{
 name|ngx_snprintf
 argument_list|(
+operator|(
+name|char
+operator|*
+operator|)
 name|err
 operator|->
 name|data
@@ -170,6 +179,10 @@ else|else
 block|{
 name|ngx_snprintf
 argument_list|(
+operator|(
+name|char
+operator|*
+operator|)
 name|err
 operator|->
 name|data
@@ -235,6 +248,11 @@ name|re
 argument_list|,
 name|NULL
 argument_list|,
+operator|(
+specifier|const
+name|char
+operator|*
+operator|)
 name|s
 operator|->
 name|data

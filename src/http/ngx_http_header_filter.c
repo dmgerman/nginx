@@ -296,16 +296,17 @@ modifier|*
 name|r
 parameter_list|)
 block|{
-name|int
+name|u_char
+modifier|*
+name|p
+decl_stmt|;
+name|size_t
 name|len
-decl_stmt|,
+decl_stmt|;
+name|ngx_uint_t
 name|status
 decl_stmt|,
 name|i
-decl_stmt|;
-name|char
-modifier|*
-name|p
 decl_stmt|;
 name|ngx_hunk_t
 modifier|*
@@ -1316,7 +1317,7 @@ name|last
 operator|+=
 name|ngx_snprintf
 argument_list|(
-argument|h->last
+argument|(char *) h->last
 argument_list|,
 argument|sizeof(
 literal|"Content-Length: "

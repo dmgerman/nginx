@@ -109,7 +109,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon299ca99b0108
+DECL|struct|__anon2756af650108
 typedef|typedef
 struct|struct
 block|{
@@ -124,7 +124,7 @@ name|ngx_connection_t
 modifier|*
 name|c
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -159,7 +159,7 @@ name|ngx_connection_t
 modifier|*
 name|c
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -253,7 +253,7 @@ name|ngx_connection_t
 modifier|*
 name|c
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,

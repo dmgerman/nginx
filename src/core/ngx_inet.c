@@ -16,7 +16,7 @@ comment|/* AF_INET only */
 end_comment
 
 begin_function
-DECL|function|ngx_sock_ntop (int family,struct sockaddr * addr,char * text,size_t len)
+DECL|function|ngx_sock_ntop (int family,struct sockaddr * addr,u_char * text,size_t len)
 name|size_t
 name|ngx_sock_ntop
 parameter_list|(
@@ -28,7 +28,7 @@ name|sockaddr
 modifier|*
 name|addr
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|text
 parameter_list|,
@@ -36,7 +36,7 @@ name|size_t
 name|len
 parameter_list|)
 block|{
-name|char
+name|u_char
 modifier|*
 name|p
 decl_stmt|;
@@ -68,7 +68,7 @@ expr_stmt|;
 name|p
 operator|=
 operator|(
-name|char
+name|u_char
 operator|*
 operator|)
 operator|&
@@ -79,6 +79,10 @@ expr_stmt|;
 return|return
 name|ngx_snprintf
 argument_list|(
+operator|(
+name|char
+operator|*
+operator|)
 name|text
 argument_list|,
 name|len
@@ -91,37 +95,21 @@ name|len
 argument_list|,
 literal|"%u.%u.%u.%u"
 argument_list|,
-operator|(
-name|unsigned
-name|char
-operator|)
 name|p
 index|[
 literal|0
 index|]
 argument_list|,
-operator|(
-name|unsigned
-name|char
-operator|)
 name|p
 index|[
 literal|1
 index|]
 argument_list|,
-operator|(
-name|unsigned
-name|char
-operator|)
 name|p
 index|[
 literal|2
 index|]
 argument_list|,
-operator|(
-name|unsigned
-name|char
-operator|)
 name|p
 index|[
 literal|3
@@ -132,18 +120,18 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_inet_ntop (int family,char * addr,char * text,size_t len)
+DECL|function|ngx_inet_ntop (int family,u_char * addr,u_char * text,size_t len)
 name|size_t
 name|ngx_inet_ntop
 parameter_list|(
 name|int
 name|family
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|addr
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|text
 parameter_list|,
@@ -165,6 +153,10 @@ block|}
 return|return
 name|ngx_snprintf
 argument_list|(
+operator|(
+name|char
+operator|*
+operator|)
 name|text
 argument_list|,
 name|len
@@ -177,37 +169,21 @@ name|len
 argument_list|,
 literal|"%u.%u.%u.%u"
 argument_list|,
-operator|(
-name|unsigned
-name|char
-operator|)
 name|addr
 index|[
 literal|0
 index|]
 argument_list|,
-operator|(
-name|unsigned
-name|char
-operator|)
 name|addr
 index|[
 literal|1
 index|]
 argument_list|,
-operator|(
-name|unsigned
-name|char
-operator|)
 name|addr
 index|[
 literal|2
 index|]
 argument_list|,
-operator|(
-name|unsigned
-name|char
-operator|)
 name|addr
 index|[
 literal|3

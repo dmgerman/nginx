@@ -1323,7 +1323,7 @@ modifier|*
 name|log
 parameter_list|)
 block|{
-name|ngx_int_t
+name|ngx_uint_t
 name|i
 decl_stmt|,
 name|n

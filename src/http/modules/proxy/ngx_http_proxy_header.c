@@ -53,7 +53,7 @@ modifier|*
 name|headers_in
 parameter_list|)
 block|{
-name|int
+name|ngx_uint_t
 name|i
 decl_stmt|;
 name|ngx_table_elt_t
@@ -408,7 +408,7 @@ modifier|*
 name|loc
 parameter_list|)
 block|{
-name|char
+name|u_char
 modifier|*
 name|last
 decl_stmt|;

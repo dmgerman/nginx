@@ -24,13 +24,17 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ae79a660108
+DECL|struct|__anon2be5d1a40108
 typedef|typedef
 struct|struct
 block|{
 DECL|member|enable
-name|int
+name|ngx_flag_t
 name|enable
+decl_stmt|;
+DECL|member|no_buffer
+name|ngx_flag_t
+name|no_buffer
 decl_stmt|;
 DECL|member|bufs
 name|ngx_bufs_t
@@ -41,16 +45,12 @@ name|int
 name|level
 decl_stmt|;
 DECL|member|wbits
-name|ssize_t
+name|int
 name|wbits
 decl_stmt|;
 DECL|member|memlevel
-name|ssize_t
-name|memlevel
-decl_stmt|;
-DECL|member|no_buffer
 name|int
-name|no_buffer
+name|memlevel
 decl_stmt|;
 DECL|typedef|ngx_http_gzip_conf_t
 block|}
@@ -59,7 +59,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae79a660208
+DECL|struct|__anon2be5d1a40208
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ name|size_t
 name|zout
 decl_stmt|;
 DECL|member|crc32
-name|u_int
+name|uint32_t
 name|crc32
 decl_stmt|;
 DECL|member|zstream
@@ -216,7 +216,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_gzip_log_ratio
 parameter_list|(
@@ -224,7 +224,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -692,11 +692,11 @@ struct|struct
 name|gztrailer
 block|{
 DECL|member|crc32
-name|u_int
+name|uint32_t
 name|crc32
 decl_stmt|;
 DECL|member|zlen
-name|u_int
+name|uint32_t
 name|zlen
 decl_stmt|;
 block|}
@@ -1371,10 +1371,6 @@ name|h
 operator|->
 name|pos
 operator|=
-operator|(
-name|char
-operator|*
-operator|)
 name|gzheader
 expr_stmt|;
 name|h
@@ -1940,10 +1936,6 @@ name|in_hunk
 operator|->
 name|pos
 operator|=
-operator|(
-name|char
-operator|*
-operator|)
 name|ctx
 operator|->
 name|zstream
@@ -1956,10 +1948,6 @@ name|out_hunk
 operator|->
 name|last
 operator|=
-operator|(
-name|char
-operator|*
-operator|)
 name|ctx
 operator|->
 name|zstream
@@ -2702,9 +2690,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_gzip_log_ratio (ngx_http_request_t * r,char * buf,uintptr_t data)
+DECL|function|ngx_http_gzip_log_ratio (ngx_http_request_t * r,u_char * buf,uintptr_t data)
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_gzip_log_ratio
 parameter_list|(
@@ -2712,7 +2700,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -2720,7 +2708,7 @@ name|uintptr_t
 name|data
 parameter_list|)
 block|{
-name|u_int
+name|ngx_uint_t
 name|zint
 decl_stmt|,
 name|zfrac
@@ -2765,12 +2753,16 @@ block|}
 if|#
 directive|if
 literal|0
-block_content|return buf + ngx_snprintf(buf, NGX_INT32_LEN + 4, "%.2f",                               (float) ctx->zin / ctx->zout);
+block_content|return buf + ngx_snprintf((char *) buf, NGX_INT32_LEN + 4, "%.2f",                               (float) ctx->zin / ctx->zout);
 endif|#
 directive|endif
 comment|/* we prefer do not use FPU */
 name|zint
 operator|=
+operator|(
+name|ngx_uint_t
+operator|)
+operator|(
 name|ctx
 operator|->
 name|zin
@@ -2778,9 +2770,14 @@ operator|/
 name|ctx
 operator|->
 name|zout
+operator|)
 expr_stmt|;
 name|zfrac
 operator|=
+operator|(
+name|ngx_uint_t
+operator|)
+operator|(
 operator|(
 name|ctx
 operator|->
@@ -2794,6 +2791,7 @@ name|zout
 operator|)
 operator|%
 literal|100
+operator|)
 expr_stmt|;
 if|if
 condition|(
@@ -2836,6 +2834,10 @@ name|buf
 operator|+
 name|ngx_snprintf
 argument_list|(
+operator|(
+name|char
+operator|*
+operator|)
 name|buf
 argument_list|,
 name|NGX_INT32_LEN
@@ -3076,13 +3078,13 @@ name|enable
 operator|=
 name|NGX_CONF_UNSET
 expr_stmt|;
-comment|/* conf->bufs.num = 0; */
 name|conf
 operator|->
 name|no_buffer
 operator|=
 name|NGX_CONF_UNSET
 expr_stmt|;
+comment|/* conf->bufs.num = 0; */
 name|conf
 operator|->
 name|level
@@ -3181,7 +3183,7 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-name|ngx_conf_merge_size_value
+name|ngx_conf_merge_value
 argument_list|(
 name|conf
 operator|->
@@ -3194,7 +3196,7 @@ argument_list|,
 name|MAX_WBITS
 argument_list|)
 expr_stmt|;
-name|ngx_conf_merge_size_value
+name|ngx_conf_merge_value
 argument_list|(
 name|conf
 operator|->

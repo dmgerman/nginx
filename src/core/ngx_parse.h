@@ -33,7 +33,7 @@ value|-2
 end_define
 
 begin_function_decl
-name|int
+name|ngx_int_t
 name|ngx_parse_size
 parameter_list|(
 name|ngx_str_t
@@ -44,14 +44,14 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|int
+name|ngx_int_t
 name|ngx_parse_time
 parameter_list|(
 name|ngx_str_t
 modifier|*
 name|line
 parameter_list|,
-name|int
+name|ngx_int_t
 name|sec
 parameter_list|)
 function_decl|;

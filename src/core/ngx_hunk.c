@@ -142,10 +142,10 @@ modifier|*
 name|bufs
 parameter_list|)
 block|{
-name|int
+name|ngx_int_t
 name|i
 decl_stmt|;
-name|char
+name|u_char
 modifier|*
 name|p
 decl_stmt|;

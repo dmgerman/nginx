@@ -562,11 +562,11 @@ modifier|*
 name|p
 parameter_list|)
 block|{
-name|int
-name|i
-decl_stmt|;
 name|size_t
 name|len
+decl_stmt|;
+name|ngx_uint_t
+name|i
 decl_stmt|;
 name|ngx_hunk_t
 modifier|*

@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b13c1360108
+DECL|struct|__anon2bcd78a70108
 typedef|typedef
 struct|struct
 block|{
@@ -34,7 +34,7 @@ name|size_t
 name|len
 decl_stmt|;
 DECL|member|data
-name|char
+name|u_char
 modifier|*
 name|data
 decl_stmt|;
@@ -52,7 +52,7 @@ name|ngx_string
 parameter_list|(
 name|str
 parameter_list|)
-value|{ sizeof(str) - 1, str }
+value|{ sizeof(str) - 1, (u_char *) str }
 end_define
 
 begin_define
@@ -109,19 +109,33 @@ directive|else
 end_else
 
 begin_define
-DECL|macro|ngx_strncasecmp
+DECL|macro|ngx_strncasecmp (s1,s2,n)
 define|#
 directive|define
 name|ngx_strncasecmp
-value|strncasecmp
+parameter_list|(
+name|s1
+parameter_list|,
+name|s2
+parameter_list|,
+name|n
+parameter_list|)
+define|\
+value|strncasecmp((const char *) s1, (const char *) s2, n)
 end_define
 
 begin_define
-DECL|macro|ngx_strcasecmp
+DECL|macro|ngx_strcasecmp (s1,s2)
 define|#
 directive|define
 name|ngx_strcasecmp
-value|strcasecmp
+parameter_list|(
+name|s1
+parameter_list|,
+name|s2
+parameter_list|)
+define|\
+value|strcasecmp((const char *) s1, (const char *) s2)
 end_define
 
 begin_define
@@ -146,11 +160,19 @@ directive|endif
 end_endif
 
 begin_define
-DECL|macro|ngx_strncmp
+DECL|macro|ngx_strncmp (s1,s2,n)
 define|#
 directive|define
 name|ngx_strncmp
-value|strncmp
+parameter_list|(
+name|s1
+parameter_list|,
+name|s2
+parameter_list|,
+name|n
+parameter_list|)
+define|\
+value|strncmp((const char *) s1, (const char *) s2, n)
 end_define
 
 begin_comment
@@ -158,27 +180,40 @@ comment|/* msvc and icc compile strcmp() to inline loop */
 end_comment
 
 begin_define
-DECL|macro|ngx_strcmp
+DECL|macro|ngx_strcmp (s1,s2)
 define|#
 directive|define
 name|ngx_strcmp
-value|strcmp
+parameter_list|(
+name|s1
+parameter_list|,
+name|s2
+parameter_list|)
+value|strcmp((const char *) s1, (const char *) s2)
 end_define
 
 begin_define
-DECL|macro|ngx_strstr
+DECL|macro|ngx_strstr (s1,s2)
 define|#
 directive|define
 name|ngx_strstr
-value|strstr
+parameter_list|(
+name|s1
+parameter_list|,
+name|s2
+parameter_list|)
+value|strstr((const char *) s1, (const char *) s2)
 end_define
 
 begin_define
-DECL|macro|ngx_strlen
+DECL|macro|ngx_strlen (s)
 define|#
 directive|define
 name|ngx_strlen
-value|strlen
+parameter_list|(
+name|s
+parameter_list|)
+value|strlen((const char *) s)
 end_define
 
 begin_comment
@@ -229,7 +264,7 @@ name|src
 parameter_list|,
 name|n
 parameter_list|)
-value|((char *) memcpy(dst, src, n)) + n
+value|((u_char *) memcpy(dst, src, n)) + n
 end_define
 
 begin_comment
@@ -245,15 +280,15 @@ value|memcmp
 end_define
 
 begin_function_decl
-name|char
+name|u_char
 modifier|*
 name|ngx_cpystrn
 parameter_list|(
-name|char
+name|u_char
 modifier|*
 name|dst
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|src
 parameter_list|,
@@ -264,14 +299,14 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|int
+name|ngx_int_t
 name|ngx_rstrncmp
 parameter_list|(
-name|char
+name|u_char
 modifier|*
 name|s1
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|s2
 parameter_list|,
@@ -282,10 +317,10 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|int
+name|ngx_int_t
 name|ngx_atoi
 parameter_list|(
-name|char
+name|u_char
 modifier|*
 name|line
 parameter_list|,
@@ -299,7 +334,7 @@ begin_function_decl
 name|void
 name|ngx_md5_text
 parameter_list|(
-name|char
+name|u_char
 modifier|*
 name|text
 parameter_list|,

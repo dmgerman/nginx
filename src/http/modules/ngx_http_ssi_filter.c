@@ -74,16 +74,16 @@ value|5
 end_define
 
 begin_typedef
-DECL|struct|__anon2b1d76c70108
+DECL|struct|__anon2bbf41020108
 typedef|typedef
 struct|struct
 block|{
 DECL|member|enable
-name|int
+name|ngx_flag_t
 name|enable
 decl_stmt|;
 DECL|member|value_len
-name|ssize_t
+name|size_t
 name|value_len
 decl_stmt|;
 DECL|typedef|ngx_http_ssi_conf_t
@@ -93,7 +93,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1d76c70208
+DECL|struct|__anon2bbf41020208
 typedef|typedef
 struct|struct
 block|{
@@ -108,7 +108,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1d76c70308
+DECL|struct|__anon2bbf41020308
 typedef|typedef
 struct|struct
 block|{
@@ -118,17 +118,17 @@ modifier|*
 name|buf
 decl_stmt|;
 DECL|member|start
-name|char
+name|u_char
 modifier|*
 name|start
 decl_stmt|;
 DECL|member|last
-name|char
+name|u_char
 modifier|*
 name|last
 decl_stmt|;
 DECL|member|pos
-name|char
+name|u_char
 modifier|*
 name|pos
 decl_stmt|;
@@ -167,7 +167,7 @@ modifier|*
 name|busy
 decl_stmt|;
 DECL|member|state
-name|int
+name|ngx_uint_t
 name|state
 decl_stmt|;
 DECL|member|saved
@@ -201,7 +201,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1d76c70408
+DECL|struct|__anon2bbf41020408
 typedef|typedef
 struct|struct
 block|{
@@ -220,7 +220,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b1d76c70503
+DECL|enum|__anon2bbf41020503
 typedef|typedef
 enum|enum
 block|{
@@ -3025,9 +3025,6 @@ break|break;
 default|default:
 if|if
 condition|(
-operator|(
-name|ssize_t
-operator|)
 name|ctx
 operator|->
 name|param
@@ -3090,9 +3087,6 @@ name|ssi_double_quoted_value_quote_state
 case|:
 if|if
 condition|(
-operator|(
-name|ssize_t
-operator|)
 name|ctx
 operator|->
 name|param
@@ -3180,9 +3174,6 @@ break|break;
 default|default:
 if|if
 condition|(
-operator|(
-name|ssize_t
-operator|)
 name|ctx
 operator|->
 name|param
@@ -3245,9 +3236,6 @@ name|ssi_quoted_value_quote_state
 case|:
 if|if
 condition|(
-operator|(
-name|ssize_t
-operator|)
 name|ctx
 operator|->
 name|param
@@ -3585,7 +3573,7 @@ name|conf
 operator|->
 name|value_len
 operator|=
-name|NGX_CONF_UNSET
+name|NGX_CONF_UNSET_SIZE
 expr_stmt|;
 return|return
 name|conf

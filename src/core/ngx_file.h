@@ -116,7 +116,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c8041bf0108
+DECL|struct|__anon29d68d190108
 typedef|typedef
 struct|struct
 block|{
@@ -230,10 +230,10 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|int
+name|ngx_uint_t
 name|ngx_next_temp_number
 parameter_list|(
-name|int
+name|ngx_uint_t
 name|collision
 parameter_list|)
 function_decl|;

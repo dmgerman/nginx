@@ -37,7 +37,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_proxy_log_proxy_state
 parameter_list|(
@@ -45,7 +45,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -57,7 +57,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_proxy_log_cache_state
 parameter_list|(
@@ -65,7 +65,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -77,7 +77,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_proxy_log_reason
 parameter_list|(
@@ -85,7 +85,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -695,6 +695,10 @@ argument_list|,
 name|temp_path
 argument_list|)
 block|,
+operator|(
+name|void
+operator|*
+operator|)
 name|ngx_garbage_collector_temp_handler
 block|}
 block|,
@@ -2503,6 +2507,9 @@ name|c
 operator|->
 name|fd
 operator|=
+operator|(
+name|ngx_socket_t
+operator|)
 operator|-
 literal|1
 expr_stmt|;
@@ -2655,6 +2662,10 @@ name|args
 operator|.
 name|data
 else|:
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|""
 argument_list|)
 return|;
@@ -2662,9 +2673,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_proxy_log_proxy_state (ngx_http_request_t * r,char * buf,uintptr_t data)
+DECL|function|ngx_http_proxy_log_proxy_state (ngx_http_request_t * r,u_char * buf,uintptr_t data)
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_proxy_log_proxy_state
 parameter_list|(
@@ -2672,7 +2683,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -2795,6 +2806,10 @@ name|buf
 operator|+=
 name|ngx_snprintf
 argument_list|(
+operator|(
+name|char
+operator|*
+operator|)
 name|buf
 argument_list|,
 name|NGX_TIME_T_LEN
@@ -2839,6 +2854,10 @@ name|buf
 operator|+=
 name|ngx_snprintf
 argument_list|(
+operator|(
+name|char
+operator|*
+operator|)
 name|buf
 argument_list|,
 name|NGX_TIME_T_LEN
@@ -2895,6 +2914,10 @@ name|buf
 operator|+=
 name|ngx_snprintf
 argument_list|(
+operator|(
+name|char
+operator|*
+operator|)
 name|buf
 argument_list|,
 literal|4
@@ -2999,6 +3022,10 @@ name|buf
 operator|+=
 name|ngx_snprintf
 argument_list|(
+operator|(
+name|char
+operator|*
+operator|)
 name|buf
 argument_list|,
 name|NGX_TIME_T_LEN
@@ -3032,9 +3059,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_proxy_log_cache_state (ngx_http_request_t * r,char * buf,uintptr_t data)
+DECL|function|ngx_http_proxy_log_cache_state (ngx_http_request_t * r,u_char * buf,uintptr_t data)
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_proxy_log_cache_state
 parameter_list|(
@@ -3042,7 +3069,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -3125,9 +3152,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_proxy_log_reason (ngx_http_request_t * r,char * buf,uintptr_t data)
+DECL|function|ngx_http_proxy_log_reason (ngx_http_request_t * r,u_char * buf,uintptr_t data)
 specifier|static
-name|char
+name|u_char
 modifier|*
 name|ngx_http_proxy_log_reason
 parameter_list|(
@@ -3135,7 +3162,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -3352,19 +3379,19 @@ name|conf
 operator|->
 name|request_buffer_size
 operator|=
-name|NGX_CONF_UNSET
+name|NGX_CONF_UNSET_SIZE
 expr_stmt|;
 name|conf
 operator|->
 name|connect_timeout
 operator|=
-name|NGX_CONF_UNSET
+name|NGX_CONF_UNSET_MSEC
 expr_stmt|;
 name|conf
 operator|->
 name|send_timeout
 operator|=
-name|NGX_CONF_UNSET
+name|NGX_CONF_UNSET_MSEC
 expr_stmt|;
 name|conf
 operator|->
@@ -3388,19 +3415,19 @@ name|conf
 operator|->
 name|header_buffer_size
 operator|=
-name|NGX_CONF_UNSET
+name|NGX_CONF_UNSET_SIZE
 expr_stmt|;
 name|conf
 operator|->
 name|read_timeout
 operator|=
-name|NGX_CONF_UNSET
+name|NGX_CONF_UNSET_MSEC
 expr_stmt|;
 name|conf
 operator|->
 name|busy_buffers_size
 operator|=
-name|NGX_CONF_UNSET
+name|NGX_CONF_UNSET_SIZE
 expr_stmt|;
 comment|/*      * "proxy_max_temp_file_size" is hardcoded to 1G for reverse proxy,      * it should be configurable in the generic proxy      */
 name|conf
@@ -3417,7 +3444,7 @@ name|conf
 operator|->
 name|temp_file_write_size
 operator|=
-name|NGX_CONF_UNSET
+name|NGX_CONF_UNSET_SIZE
 expr_stmt|;
 comment|/* "proxy_cyclic_temp_file" is disabled */
 name|conf
@@ -3957,7 +3984,7 @@ name|lcf
 init|=
 name|conf
 decl_stmt|;
-name|int
+name|ngx_uint_t
 name|i
 decl_stmt|,
 name|len
@@ -3965,7 +3992,8 @@ decl_stmt|;
 name|char
 modifier|*
 name|err
-decl_stmt|,
+decl_stmt|;
+name|u_char
 modifier|*
 name|host
 decl_stmt|;
@@ -4211,6 +4239,10 @@ name|addr
 operator|=
 name|inet_addr
 argument_list|(
+operator|(
+name|char
+operator|*
+operator|)
 name|host
 argument_list|)
 expr_stmt|;
@@ -4225,6 +4257,10 @@ name|h
 operator|=
 name|gethostbyname
 argument_list|(
+operator|(
+name|char
+operator|*
+operator|)
 name|host
 argument_list|)
 expr_stmt|;
@@ -4468,7 +4504,7 @@ argument_list|(
 name|AF_INET
 argument_list|,
 operator|(
-name|char
+name|u_char
 operator|*
 operator|)
 operator|&

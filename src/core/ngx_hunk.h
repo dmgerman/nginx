@@ -184,12 +184,12 @@ struct|struct
 name|ngx_hunk_s
 block|{
 DECL|member|pos
-name|char
+name|u_char
 modifier|*
 name|pos
 decl_stmt|;
 DECL|member|last
-name|char
+name|u_char
 modifier|*
 name|last
 decl_stmt|;
@@ -206,13 +206,13 @@ name|int
 name|type
 decl_stmt|;
 DECL|member|start
-name|char
+name|u_char
 modifier|*
 name|start
 decl_stmt|;
 comment|/* start of hunk */
 DECL|member|end
-name|char
+name|u_char
 modifier|*
 name|end
 decl_stmt|;
@@ -269,12 +269,12 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a04b0450108
+DECL|struct|__anon2ad154c90108
 typedef|typedef
 struct|struct
 block|{
 DECL|member|num
-name|int
+name|ngx_int_t
 name|num
 decl_stmt|;
 DECL|member|size
@@ -308,7 +308,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a04b0450208
+DECL|struct|__anon2ad154c90208
 typedef|typedef
 struct|struct
 block|{
@@ -350,7 +350,7 @@ modifier|*
 name|pool
 decl_stmt|;
 DECL|member|hunks
-name|int
+name|ngx_int_t
 name|hunks
 decl_stmt|;
 DECL|member|bufs
@@ -377,7 +377,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a04b0450308
+DECL|struct|__anon2ad154c90308
 typedef|typedef
 struct|struct
 block|{

@@ -337,7 +337,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon29fbc2120103
+DECL|enum|__anon2b6f58530103
 typedef|typedef
 enum|enum
 block|{
@@ -376,7 +376,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fbc2120208
+DECL|struct|__anon2b6f58530208
 typedef|typedef
 struct|struct
 block|{
@@ -385,7 +385,7 @@ name|ngx_str_t
 name|name
 decl_stmt|;
 DECL|member|offset
-name|int
+name|ngx_uint_t
 name|offset
 decl_stmt|;
 DECL|typedef|ngx_http_header_t
@@ -395,7 +395,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fbc2120308
+DECL|struct|__anon2b6f58530308
 typedef|typedef
 struct|struct
 block|{
@@ -497,7 +497,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fbc2120408
+DECL|struct|__anon2b6f58530408
 typedef|typedef
 struct|struct
 block|{
@@ -537,7 +537,7 @@ name|off_t
 name|offset
 decl_stmt|;
 DECL|member|header_in_pos
-name|char
+name|u_char
 modifier|*
 name|header_in_pos
 decl_stmt|;
@@ -548,7 +548,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fbc2120508
+DECL|struct|__anon2b6f58530508
 typedef|typedef
 struct|struct
 block|{
@@ -571,7 +571,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fbc2120608
+DECL|struct|__anon2b6f58530608
 typedef|typedef
 struct|struct
 block|{
@@ -647,7 +647,7 @@ name|off_t
 name|content_length_n
 decl_stmt|;
 DECL|member|etag
-name|char
+name|u_char
 modifier|*
 name|etag
 decl_stmt|;
@@ -670,10 +670,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon29fbc212070a
+DECL|union|__anon2b6f5853070a
 union|union
 block|{
-DECL|struct|__anon29fbc2120808
+DECL|struct|__anon2b6f58530808
 struct|struct
 block|{
 DECL|member|fd
@@ -681,7 +681,7 @@ name|ngx_fd_t
 name|fd
 decl_stmt|;
 DECL|member|name
-name|char
+name|u_char
 modifier|*
 name|name
 decl_stmt|;
@@ -689,7 +689,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon29fbc2120908
+DECL|struct|__anon2b6f58530908
 struct|struct
 block|{
 DECL|member|hash
@@ -813,19 +813,19 @@ name|time_t
 name|lingering_time
 decl_stmt|;
 DECL|member|method
-name|int
+name|ngx_uint_t
 name|method
 decl_stmt|;
 DECL|member|http_version
-name|int
+name|ngx_uint_t
 name|http_version
 decl_stmt|;
 DECL|member|http_major
-name|int
+name|ngx_uint_t
 name|http_major
 decl_stmt|;
 DECL|member|http_minor
-name|int
+name|ngx_uint_t
 name|http_minor
 decl_stmt|;
 DECL|member|request_line
@@ -854,11 +854,11 @@ modifier|*
 decl|main
 decl_stmt|;
 DECL|member|in_addr
-name|u_int
+name|uint32_t
 name|in_addr
 decl_stmt|;
 DECL|member|port
-name|int
+name|ngx_uint_t
 name|port
 decl_stmt|;
 DECL|member|port_name
@@ -878,11 +878,11 @@ modifier|*
 name|virtual_names
 decl_stmt|;
 DECL|member|phase
-name|int
+name|ngx_uint_t
 name|phase
 decl_stmt|;
 DECL|member|phase_handler
-name|int
+name|ngx_int_t
 name|phase_handler
 decl_stmt|;
 DECL|member|content_handler
@@ -905,7 +905,7 @@ modifier|*
 name|request_body_hunk
 decl_stmt|;
 DECL|member|request_body_len
-name|int
+name|size_t
 name|request_body_len
 decl_stmt|;
 DECL|member|request_body_handler
@@ -934,7 +934,7 @@ name|size_t
 name|header_size
 decl_stmt|;
 DECL|member|discarded_buffer
-name|char
+name|u_char
 modifier|*
 name|discarded_buffer
 decl_stmt|;
@@ -945,7 +945,7 @@ modifier|*
 name|err_ctx
 decl_stmt|;
 DECL|member|err_status
-name|int
+name|ngx_uint_t
 name|err_status
 decl_stmt|;
 DECL|member|http_state
@@ -1041,63 +1041,63 @@ literal|0
 block|unsigned             closed:1;
 endif|#
 directive|endif
-comment|/* TODO: use filter or bits ???? */
+comment|/* TODO: use the filter flags or the separate bits ???? */
 DECL|member|filter
-name|int
+name|u_int
 name|filter
 decl_stmt|;
 comment|/* used to parse HTTP headers */
 DECL|member|state
-name|int
+name|ngx_int_t
 name|state
 decl_stmt|;
 DECL|member|uri_start
-name|char
+name|u_char
 modifier|*
 name|uri_start
 decl_stmt|;
 DECL|member|uri_end
-name|char
+name|u_char
 modifier|*
 name|uri_end
 decl_stmt|;
 DECL|member|uri_ext
-name|char
+name|u_char
 modifier|*
 name|uri_ext
 decl_stmt|;
 DECL|member|args_start
-name|char
+name|u_char
 modifier|*
 name|args_start
 decl_stmt|;
 DECL|member|request_start
-name|char
+name|u_char
 modifier|*
 name|request_start
 decl_stmt|;
 DECL|member|request_end
-name|char
+name|u_char
 modifier|*
 name|request_end
 decl_stmt|;
 DECL|member|header_name_start
-name|char
+name|u_char
 modifier|*
 name|header_name_start
 decl_stmt|;
 DECL|member|header_name_end
-name|char
+name|u_char
 modifier|*
 name|header_name_end
 decl_stmt|;
 DECL|member|header_start
-name|char
+name|u_char
 modifier|*
 name|header_start
 decl_stmt|;
 DECL|member|header_end
-name|char
+name|u_char
 modifier|*
 name|header_end
 decl_stmt|;

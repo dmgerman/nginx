@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_comment
-comment|/*  * Although FreeBSD sendfile() allows to pass a header and a trailer  * it never sends a header with a part of the file in one packet until  * FreeBSD 5.2-STABLE.  Besides over the fast ethernet connection sendfile()  * can send the partially filled packets, i.e. the 8 file pages can be sent  * as 11 full 1460-bytes packets, then one incomplete 324-bytes packet, and  * then again 11 full 1460-bytes packets.  *  * So we use the TCP_NOPUSH option (similar to Linux's TCP_CORK)  * to postpone the sending - it not only sends a header and the first part  * of the file in one packet but also sends file pages in the full packets.  *  * But until FreeBSD 4.5 the turning TCP_NOPUSH off does not flush a pending  * data that less than MSS so that data can be sent with 5 second delay.  * So we do not use TCP_NOPUSH on FreeBSD prior to 4.5 although it can be used  * for non-keepalive HTTP connections.  */
+comment|/*  * Although FreeBSD sendfile() allows to pass a header and a trailer  * it never sends a header with a part of the file in one packet until  * FreeBSD 5.2-STABLE.  Besides over the fast ethernet connection sendfile()  * can send the partially filled packets, i.e. the 8 file pages can be sent  * as the 11 full 1460-bytes packets, then one incomplete 324-bytes packet,  * and then again the 11 full 1460-bytes packets.  *  * So we use the TCP_NOPUSH option (similar to Linux's TCP_CORK)  * to postpone the sending - it not only sends a header and the first part  * of the file in one packet but also sends file pages in the full packets.  *  * But until FreeBSD 4.5 the turning TCP_NOPUSH off does not flush a pending  * data that less than MSS so that data can be sent with 5 second delay.  * So we do not use TCP_NOPUSH on FreeBSD prior to 4.5 although it can be used  * for non-keepalive HTTP connections.  */
 end_comment
 
 begin_function
@@ -43,7 +43,7 @@ block|{
 name|int
 name|rc
 decl_stmt|;
-name|char
+name|u_char
 modifier|*
 name|prev
 decl_stmt|;
@@ -322,6 +322,10 @@ name|iov
 operator|->
 name|iov_base
 operator|=
+operator|(
+name|void
+operator|*
+operator|)
 name|cl
 operator|->
 name|hunk
@@ -600,6 +604,10 @@ name|iov
 operator|->
 name|iov_base
 operator|=
+operator|(
+name|void
+operator|*
+operator|)
 name|cl
 operator|->
 name|hunk

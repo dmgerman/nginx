@@ -43,7 +43,7 @@ block|{
 name|int
 name|rc
 decl_stmt|;
-name|char
+name|u_char
 modifier|*
 name|prev
 decl_stmt|;
@@ -254,6 +254,10 @@ name|iov
 operator|->
 name|iov_base
 operator|=
+operator|(
+name|void
+operator|*
+operator|)
 name|cl
 operator|->
 name|hunk

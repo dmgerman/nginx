@@ -33,14 +33,14 @@ modifier|*
 name|p
 parameter_list|)
 block|{
-name|char
+name|u_char
 name|ch
 decl_stmt|;
-name|char
+name|u_char
 modifier|*
 name|pos
 decl_stmt|;
-DECL|enum|__anon2a34f0550103
+DECL|enum|__anon27920a9d0103
 enum|enum
 block|{
 DECL|enumerator|sw_start

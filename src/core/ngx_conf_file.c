@@ -1149,7 +1149,7 @@ modifier|*
 name|cf
 parameter_list|)
 block|{
-name|char
+name|u_char
 modifier|*
 name|start
 decl_stmt|,
@@ -2076,7 +2076,7 @@ modifier|*
 name|name
 parameter_list|)
 block|{
-name|int
+name|ngx_uint_t
 name|i
 decl_stmt|;
 name|ngx_open_file_t
@@ -2850,7 +2850,7 @@ name|p
 init|=
 name|conf
 decl_stmt|;
-name|ssize_t
+name|size_t
 modifier|*
 name|sp
 decl_stmt|;
@@ -2865,7 +2865,7 @@ decl_stmt|;
 name|sp
 operator|=
 operator|(
-name|ssize_t
+name|size_t
 operator|*
 operator|)
 operator|(
@@ -2881,7 +2881,7 @@ condition|(
 operator|*
 name|sp
 operator|!=
-name|NGX_CONF_UNSET
+name|NGX_CONF_UNSET_SIZE
 condition|)
 block|{
 return|return
@@ -2917,6 +2917,9 @@ condition|(
 operator|*
 name|sp
 operator|==
+operator|(
+name|size_t
+operator|)
 name|NGX_ERROR
 condition|)
 block|{
@@ -3012,10 +3015,7 @@ condition|(
 operator|*
 name|msp
 operator|!=
-operator|(
-name|ngx_msec_t
-operator|)
-name|NGX_CONF_UNSET
+name|NGX_CONF_UNSET_MSEC
 condition|)
 block|{
 return|return
@@ -3431,7 +3431,7 @@ name|p
 init|=
 name|conf
 decl_stmt|;
-name|ngx_int_t
+name|ngx_uint_t
 modifier|*
 name|np
 decl_stmt|,
@@ -3450,7 +3450,7 @@ decl_stmt|;
 name|np
 operator|=
 operator|(
-name|ngx_int_t
+name|ngx_uint_t
 operator|*
 operator|)
 operator|(

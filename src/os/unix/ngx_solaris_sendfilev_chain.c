@@ -39,7 +39,7 @@ block|{
 name|int
 name|fd
 decl_stmt|;
-name|char
+name|u_char
 modifier|*
 name|prev
 decl_stmt|;

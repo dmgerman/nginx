@@ -124,6 +124,32 @@ name|)
 end_pragma
 
 begin_comment
+comment|/* disable some "-W4" level warnings */
+end_comment
+
+begin_pragma
+pragma|#
+directive|pragma
+name|warning
+name|(
+name|disable
+name|:
+name|4054
+name|)
+end_pragma
+
+begin_pragma
+pragma|#
+directive|pragma
+name|warning
+name|(
+name|disable
+name|:
+name|4055
+name|)
+end_pragma
+
+begin_comment
 comment|/* unreferenced formal parameter */
 end_comment
 
@@ -138,16 +164,6 @@ name|4100
 name|)
 end_pragma
 
-begin_comment
-comment|/* STUB */
-end_comment
-
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-
 begin_pragma
 pragma|#
 directive|pragma
@@ -159,10 +175,38 @@ name|4127
 name|)
 end_pragma
 
-begin_endif
-endif|#
-directive|endif
-end_endif
+begin_pragma
+pragma|#
+directive|pragma
+name|warning
+name|(
+name|disable
+name|:
+name|4214
+name|)
+end_pragma
+
+begin_pragma
+pragma|#
+directive|pragma
+name|warning
+name|(
+name|disable
+name|:
+name|4702
+name|)
+end_pragma
+
+begin_pragma
+pragma|#
+directive|pragma
+name|warning
+name|(
+name|disable
+name|:
+name|4706
+name|)
+end_pragma
 
 begin_endif
 endif|#

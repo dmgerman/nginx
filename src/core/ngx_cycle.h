@@ -60,7 +60,7 @@ name|ngx_array_t
 name|pathes
 decl_stmt|;
 DECL|member|connection_n
-name|int
+name|ngx_uint_t
 name|connection_n
 decl_stmt|;
 DECL|member|connections
@@ -92,7 +92,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b8854bd0108
+DECL|struct|__anon2b0958320108
 typedef|typedef
 struct|struct
 block|{

@@ -35,7 +35,7 @@ modifier|*
 name|elts
 decl_stmt|;
 DECL|member|nelts
-name|int
+name|ngx_uint_t
 name|nelts
 decl_stmt|;
 DECL|member|size
@@ -43,7 +43,7 @@ name|size_t
 name|size
 decl_stmt|;
 DECL|member|nalloc
-name|int
+name|ngx_uint_t
 name|nalloc
 decl_stmt|;
 DECL|member|pool
@@ -64,7 +64,7 @@ name|ngx_pool_t
 modifier|*
 name|p
 parameter_list|,
-name|int
+name|ngx_uint_t
 name|n
 parameter_list|,
 name|size_t

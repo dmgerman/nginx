@@ -12,7 +12,7 @@ file|<ngx_core.h>
 end_include
 
 begin_function
-DECL|function|ngx_read_file (ngx_file_t * file,char * buf,size_t size,off_t offset)
+DECL|function|ngx_read_file (ngx_file_t * file,u_char * buf,size_t size,off_t offset)
 name|ssize_t
 name|ngx_read_file
 parameter_list|(
@@ -20,7 +20,7 @@ name|ngx_file_t
 modifier|*
 name|file
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -220,7 +220,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_write_file (ngx_file_t * file,char * buf,size_t size,off_t offset)
+DECL|function|ngx_write_file (ngx_file_t * file,u_char * buf,size_t size,off_t offset)
 name|ssize_t
 name|ngx_write_file
 parameter_list|(
@@ -228,7 +228,7 @@ name|ngx_file_t
 modifier|*
 name|file
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -480,7 +480,7 @@ modifier|*
 name|pool
 parameter_list|)
 block|{
-name|char
+name|u_char
 modifier|*
 name|prev
 decl_stmt|;
@@ -625,6 +625,10 @@ name|iov
 operator|->
 name|iov_base
 operator|=
+operator|(
+name|void
+operator|*
+operator|)
 name|cl
 operator|->
 name|hunk
@@ -698,6 +702,10 @@ name|ngx_write_file
 argument_list|(
 name|file
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 name|iov
 index|[
 literal|0
@@ -877,6 +885,11 @@ name|dir
 operator|=
 name|opendir
 argument_list|(
+operator|(
+specifier|const
+name|char
+operator|*
+operator|)
 name|name
 operator|->
 name|data

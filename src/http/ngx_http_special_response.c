@@ -26,7 +26,7 @@ end_include
 begin_decl_stmt
 DECL|variable|error_tail
 specifier|static
-name|char
+name|u_char
 name|error_tail
 index|[]
 init|=
@@ -44,7 +44,7 @@ end_decl_stmt
 begin_decl_stmt
 DECL|variable|msie_stub
 specifier|static
-name|char
+name|u_char
 name|msie_stub
 index|[]
 init|=
@@ -464,10 +464,11 @@ name|int
 name|error
 parameter_list|)
 block|{
-name|int
-name|err
-decl_stmt|,
+name|ngx_int_t
 name|rc
+decl_stmt|;
+name|ngx_uint_t
+name|err
 decl_stmt|,
 name|i
 decl_stmt|;

@@ -25,7 +25,7 @@ DECL|macro|NGINX_CONF
 define|#
 directive|define
 name|NGINX_CONF
-value|"nginx.conf"
+value|(u_char *) "nginx.conf"
 end_define
 
 begin_define

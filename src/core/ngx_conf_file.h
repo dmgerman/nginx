@@ -205,6 +205,22 @@ value|-1
 end_define
 
 begin_define
+DECL|macro|NGX_CONF_UNSET_SIZE
+define|#
+directive|define
+name|NGX_CONF_UNSET_SIZE
+value|(size_t) -1
+end_define
+
+begin_define
+DECL|macro|NGX_CONF_UNSET_MSEC
+define|#
+directive|define
+name|NGX_CONF_UNSET_MSEC
+value|(ngx_msec_t) -1
+end_define
+
+begin_define
 DECL|macro|NGX_CONF_OK
 define|#
 directive|define
@@ -425,7 +441,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c790f2a0108
+DECL|struct|__anon27e3bab60108
 typedef|typedef
 struct|struct
 block|{
@@ -560,7 +576,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c790f2a0208
+DECL|struct|__anon27e3bab60208
 typedef|typedef
 struct|struct
 block|{
@@ -575,7 +591,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c790f2a0308
+DECL|struct|__anon27e3bab60308
 typedef|typedef
 struct|struct
 block|{
@@ -606,7 +622,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2c790f2a0408
+DECL|struct|__anon27e3bab60408
 typedef|typedef
 struct|struct
 block|{
@@ -735,7 +751,7 @@ name|conf
 parameter_list|,
 name|prev
 parameter_list|,
-define|default)                       \     if (conf == (ngx_msec_t) NGX_CONF_UNSET) {                               \         conf = (prev == (ngx_msec_t) NGX_CONF_UNSET) ? default : prev;       \     }
+define|default)                       \     if (conf == NGX_CONF_UNSET_MSEC) {                                       \         conf = (prev == NGX_CONF_UNSET_MSEC) ? default : prev;               \     }
 end_define
 
 begin_define
@@ -761,7 +777,7 @@ name|conf
 parameter_list|,
 name|prev
 parameter_list|,
-define|default)                       \     if (conf == (ssize_t) NGX_CONF_UNSET) {                                  \         conf = (prev == (ssize_t) NGX_CONF_UNSET) ? default : prev;          \     }
+define|default)                       \     if (conf == NGX_CONF_UNSET_SIZE) {                                       \         conf = (prev == NGX_CONF_UNSET_SIZE) ? default : prev;               \     }
 end_define
 
 begin_define

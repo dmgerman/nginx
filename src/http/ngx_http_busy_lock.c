@@ -745,7 +745,7 @@ name|p
 init|=
 name|conf
 decl_stmt|;
-name|int
+name|ngx_uint_t
 name|i
 decl_stmt|,
 name|dup

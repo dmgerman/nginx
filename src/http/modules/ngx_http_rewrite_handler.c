@@ -42,7 +42,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2bdeea9e0108
+DECL|struct|__anon2c787cab0108
 typedef|typedef
 struct|struct
 block|{
@@ -65,7 +65,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bdeea9e0208
+DECL|struct|__anon2c787cab0208
 typedef|typedef
 struct|struct
 block|{
@@ -107,7 +107,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bdeea9e0308
+DECL|struct|__anon2c787cab0308
 typedef|typedef
 struct|struct
 block|{
@@ -278,7 +278,7 @@ name|int
 modifier|*
 name|matches
 decl_stmt|;
-name|char
+name|u_char
 modifier|*
 name|p
 decl_stmt|;
@@ -290,12 +290,13 @@ name|data
 decl_stmt|;
 name|ngx_int_t
 name|rc
-decl_stmt|,
+decl_stmt|;
+name|ngx_uint_t
 name|i
 decl_stmt|,
-name|n
-decl_stmt|,
 name|m
+decl_stmt|,
+name|n
 decl_stmt|;
 name|ngx_str_t
 name|uri
@@ -573,6 +574,9 @@ literal|1
 init|;
 name|n
 operator|<
+operator|(
+name|ngx_uint_t
+operator|)
 name|rc
 condition|;
 name|n
@@ -705,9 +709,14 @@ operator|*
 name|p
 operator|++
 operator|=
+operator|(
+name|char
+operator|)
+operator|(
 name|data
 operator|&
 literal|0xff
+operator|)
 expr_stmt|;
 name|data
 operator|>>=
@@ -972,7 +981,7 @@ name|scf
 init|=
 name|conf
 decl_stmt|;
-name|char
+name|u_char
 modifier|*
 name|data
 decl_stmt|,
@@ -999,7 +1008,7 @@ name|ngx_http_rewrite_rule_t
 modifier|*
 name|rule
 decl_stmt|;
-name|char
+name|u_char
 name|errstr
 index|[
 name|NGX_MAX_CONF_ERRSTR

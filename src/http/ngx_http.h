@@ -104,7 +104,7 @@ file|<ngx_http_core_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29c87d9a0108
+DECL|struct|__anon29980de40108
 typedef|typedef
 struct|struct
 block|{
@@ -113,17 +113,17 @@ name|u_int
 name|connection
 decl_stmt|;
 DECL|member|action
-name|char
+name|u_char
 modifier|*
 name|action
 decl_stmt|;
 DECL|member|client
-name|char
+name|u_char
 modifier|*
 name|client
 decl_stmt|;
 DECL|member|url
-name|char
+name|u_char
 modifier|*
 name|url
 decl_stmt|;
@@ -372,14 +372,14 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|int
+name|ngx_int_t
 name|ngx_http_read_client_request_body
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|int
+name|size_t
 name|request_buffer_size
 parameter_list|)
 function_decl|;
@@ -414,7 +414,7 @@ begin_function_decl
 name|time_t
 name|ngx_http_parse_time
 parameter_list|(
-name|char
+name|u_char
 modifier|*
 name|value
 parameter_list|,

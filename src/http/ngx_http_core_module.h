@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon294347b10108
+DECL|struct|__anon2997c9d50108
 typedef|typedef
 struct|struct
 block|{
@@ -47,11 +47,6 @@ DECL|member|family
 name|int
 name|family
 decl_stmt|;
-DECL|member|flags
-name|int
-name|flags
-decl_stmt|;
-comment|/* 'default' */
 DECL|member|file_name
 name|ngx_str_t
 name|file_name
@@ -60,6 +55,12 @@ DECL|member|line
 name|int
 name|line
 decl_stmt|;
+DECL|member|default_server
+name|unsigned
+name|default_server
+range|:
+literal|1
+decl_stmt|;
 DECL|typedef|ngx_http_listen_t
 block|}
 name|ngx_http_listen_t
@@ -67,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon294347b10203
+DECL|enum|__anon2997c9d50203
 typedef|typedef
 enum|enum
 block|{
@@ -91,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294347b10308
+DECL|struct|__anon2997c9d50308
 typedef|typedef
 struct|struct
 block|{
@@ -100,7 +101,7 @@ name|ngx_array_t
 name|handlers
 decl_stmt|;
 DECL|member|type
-name|int
+name|ngx_int_t
 name|type
 decl_stmt|;
 comment|/* NGX_OK, NGX_DECLINED */
@@ -111,7 +112,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294347b10408
+DECL|struct|__anon2997c9d50408
 typedef|typedef
 struct|struct
 block|{
@@ -138,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294347b10508
+DECL|struct|__anon2997c9d50508
 typedef|typedef
 struct|struct
 block|{
@@ -163,28 +164,28 @@ modifier|*
 name|ctx
 decl_stmt|;
 comment|/* server ctx */
-DECL|member|post_accept_timeout
-name|ngx_msec_t
-name|post_accept_timeout
-decl_stmt|;
 DECL|member|connection_pool_size
-name|ssize_t
+name|size_t
 name|connection_pool_size
 decl_stmt|;
 DECL|member|request_pool_size
-name|ssize_t
+name|size_t
 name|request_pool_size
+decl_stmt|;
+DECL|member|client_header_buffer_size
+name|size_t
+name|client_header_buffer_size
+decl_stmt|;
+DECL|member|post_accept_timeout
+name|ngx_msec_t
+name|post_accept_timeout
 decl_stmt|;
 DECL|member|client_header_timeout
 name|ngx_msec_t
 name|client_header_timeout
 decl_stmt|;
-DECL|member|client_header_buffer_size
-name|ssize_t
-name|client_header_buffer_size
-decl_stmt|;
 DECL|member|large_client_header
-name|int
+name|ngx_flag_t
 name|large_client_header
 decl_stmt|;
 DECL|typedef|ngx_http_core_srv_conf_t
@@ -198,7 +199,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon294347b10608
+DECL|struct|__anon2997c9d50608
 typedef|typedef
 struct|struct
 block|{
@@ -222,7 +223,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294347b10708
+DECL|struct|__anon2997c9d50708
 typedef|typedef
 struct|struct
 block|{
@@ -241,9 +242,11 @@ modifier|*
 name|core_srv_conf
 decl_stmt|;
 comment|/* default server conf                                                   for this address:port */
-DECL|member|flags
-name|int
-name|flags
+DECL|member|default_server
+name|unsigned
+name|default_server
+range|:
+literal|1
 decl_stmt|;
 DECL|typedef|ngx_http_in_addr_t
 block|}
@@ -251,20 +254,8 @@ name|ngx_http_in_addr_t
 typedef|;
 end_typedef
 
-begin_comment
-comment|/* ngx_http_in_addr_t's flags */
-end_comment
-
-begin_define
-DECL|macro|NGX_HTTP_DEFAULT_SERVER
-define|#
-directive|define
-name|NGX_HTTP_DEFAULT_SERVER
-value|1
-end_define
-
 begin_typedef
-DECL|struct|__anon294347b10808
+DECL|struct|__anon2997c9d50808
 typedef|typedef
 struct|struct
 block|{
@@ -307,7 +298,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon294347b10908
+DECL|struct|__anon2997c9d50908
 typedef|typedef
 struct|struct
 block|{
@@ -326,7 +317,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294347b10a08
+DECL|struct|__anon2997c9d50a08
 typedef|typedef
 struct|struct
 block|{
@@ -345,7 +336,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294347b10b08
+DECL|struct|__anon2997c9d50b08
 typedef|typedef
 struct|struct
 block|{
@@ -373,11 +364,11 @@ modifier|*
 name|r
 parameter_list|)
 function_decl|;
-DECL|member|doc_root
+DECL|member|root
 name|ngx_str_t
-name|doc_root
+name|root
 decl_stmt|;
-comment|/* root */
+comment|/* root, alias */
 DECL|member|types
 name|ngx_array_t
 modifier|*
@@ -387,36 +378,26 @@ DECL|member|default_type
 name|ngx_str_t
 name|default_type
 decl_stmt|;
+DECL|member|send_lowat
+name|size_t
+name|send_lowat
+decl_stmt|;
+comment|/* send_lowat */
+DECL|member|discarded_buffer_size
+name|size_t
+name|discarded_buffer_size
+decl_stmt|;
+comment|/* discarded_buffer_size */
 DECL|member|client_body_timeout
 name|ngx_msec_t
 name|client_body_timeout
 decl_stmt|;
 comment|/* client_body_timeout */
-DECL|member|sendfile
-name|int
-name|sendfile
-decl_stmt|;
-comment|/* sendfile */
-DECL|member|tcp_nopush
-name|int
-name|tcp_nopush
-decl_stmt|;
-comment|/* tcp_nopush */
 DECL|member|send_timeout
 name|ngx_msec_t
 name|send_timeout
 decl_stmt|;
 comment|/* send_timeout */
-DECL|member|send_lowat
-name|ssize_t
-name|send_lowat
-decl_stmt|;
-comment|/* send_lowat */
-DECL|member|discarded_buffer_size
-name|ssize_t
-name|discarded_buffer_size
-decl_stmt|;
-comment|/* discarded_buffer_size */
 DECL|member|keepalive_timeout
 name|ngx_msec_t
 name|keepalive_timeout
@@ -432,8 +413,18 @@ name|ngx_msec_t
 name|lingering_timeout
 decl_stmt|;
 comment|/* lingering_timeout */
+DECL|member|sendfile
+name|ngx_flag_t
+name|sendfile
+decl_stmt|;
+comment|/* sendfile */
+DECL|member|tcp_nopush
+name|ngx_flag_t
+name|tcp_nopush
+decl_stmt|;
+comment|/* tcp_nopush */
 DECL|member|msie_padding
-name|int
+name|ngx_flag_t
 name|msie_padding
 decl_stmt|;
 comment|/* msie_padding */
@@ -469,6 +460,12 @@ decl_stmt|;
 DECL|member|auto_redirect
 name|unsigned
 name|auto_redirect
+range|:
+literal|1
+decl_stmt|;
+DECL|member|alias
+name|unsigned
+name|alias
 range|:
 literal|1
 decl_stmt|;

@@ -53,11 +53,11 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_http_parse_time (char * value,size_t len)
+DECL|function|ngx_http_parse_time (u_char * value,size_t len)
 name|time_t
 name|ngx_http_parse_time
 parameter_list|(
-name|char
+name|u_char
 modifier|*
 name|value
 parameter_list|,
@@ -65,7 +65,7 @@ name|size_t
 name|len
 parameter_list|)
 block|{
-name|char
+name|u_char
 modifier|*
 name|p
 decl_stmt|,
@@ -85,7 +85,7 @@ name|min
 decl_stmt|,
 name|sec
 decl_stmt|;
-DECL|enum|__anon2bf180080103
+DECL|enum|__anon29996e350103
 enum|enum
 block|{
 DECL|enumerator|no

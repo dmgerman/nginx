@@ -14,7 +14,7 @@ end_include
 begin_decl_stmt
 DECL|variable|ngx_temp_number
 specifier|static
-name|int
+name|ngx_uint_t
 name|ngx_temp_number
 decl_stmt|;
 end_decl_stmt
@@ -22,7 +22,7 @@ end_decl_stmt
 begin_decl_stmt
 DECL|variable|ngx_random
 specifier|static
-name|int
+name|ngx_uint_t
 name|ngx_random
 decl_stmt|;
 end_decl_stmt
@@ -258,6 +258,11 @@ control|)
 block|{
 name|ngx_snprintf
 argument_list|(
+operator|(
+name|char
+operator|*
+operator|)
+operator|(
 name|file
 operator|->
 name|name
@@ -275,6 +280,7 @@ operator|+
 name|path
 operator|->
 name|len
+operator|)
 argument_list|,
 literal|11
 argument_list|,
@@ -800,11 +806,11 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_next_temp_number (int collision)
-name|int
+DECL|function|ngx_next_temp_number (ngx_uint_t collision)
+name|ngx_uint_t
 name|ngx_next_temp_number
 parameter_list|(
-name|int
+name|ngx_uint_t
 name|collision
 parameter_list|)
 block|{
@@ -850,12 +856,13 @@ name|p
 init|=
 name|conf
 decl_stmt|;
-name|int
+name|ngx_int_t
+name|level
+decl_stmt|;
+name|ngx_uint_t
 name|i
 decl_stmt|,
 name|n
-decl_stmt|,
-name|level
 decl_stmt|;
 name|ngx_str_t
 modifier|*

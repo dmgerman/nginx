@@ -526,11 +526,12 @@ modifier|*
 name|cycle
 parameter_list|)
 block|{
-name|int
+name|ngx_uint_t
 name|m
 decl_stmt|,
 name|i
-decl_stmt|,
+decl_stmt|;
+name|ngx_socket_t
 name|fd
 decl_stmt|;
 name|ngx_event_t
@@ -768,6 +769,9 @@ index|]
 operator|.
 name|fd
 operator|=
+operator|(
+name|ngx_socket_t
+operator|)
 operator|-
 literal|1
 expr_stmt|;
@@ -1112,6 +1116,9 @@ index|]
 operator|.
 name|fd
 operator|=
+operator|(
+name|ngx_socket_t
+operator|)
 operator|-
 literal|1
 expr_stmt|;

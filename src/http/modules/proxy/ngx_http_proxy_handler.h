@@ -49,7 +49,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|enum|__anon297d304c0103
+DECL|enum|__anon28e587390103
 typedef|typedef
 enum|enum
 block|{
@@ -85,7 +85,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon297d304c0203
+DECL|enum|__anon28e587390203
 typedef|typedef
 enum|enum
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297d304c0308
+DECL|struct|__anon28e587390308
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ modifier|*
 name|location
 decl_stmt|;
 DECL|member|port
-name|int
+name|ngx_int_t
 name|port
 decl_stmt|;
 DECL|member|default_port
@@ -164,13 +164,29 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297d304c0408
+DECL|struct|__anon28e587390408
 typedef|typedef
 struct|struct
 block|{
 DECL|member|request_buffer_size
-name|ssize_t
+name|size_t
 name|request_buffer_size
+decl_stmt|;
+DECL|member|header_buffer_size
+name|size_t
+name|header_buffer_size
+decl_stmt|;
+DECL|member|busy_buffers_size
+name|size_t
+name|busy_buffers_size
+decl_stmt|;
+DECL|member|max_temp_file_size
+name|size_t
+name|max_temp_file_size
+decl_stmt|;
+DECL|member|temp_file_write_size
+name|size_t
+name|temp_file_write_size
 decl_stmt|;
 DECL|member|connect_timeout
 name|ngx_msec_t
@@ -180,29 +196,29 @@ DECL|member|send_timeout
 name|ngx_msec_t
 name|send_timeout
 decl_stmt|;
-DECL|member|header_buffer_size
-name|ssize_t
-name|header_buffer_size
-decl_stmt|;
 DECL|member|read_timeout
 name|ngx_msec_t
 name|read_timeout
 decl_stmt|;
+DECL|member|default_expires
+name|time_t
+name|default_expires
+decl_stmt|;
+DECL|member|lm_factor
+name|ngx_int_t
+name|lm_factor
+decl_stmt|;
+DECL|member|next_upstream
+name|ngx_uint_t
+name|next_upstream
+decl_stmt|;
+DECL|member|use_stale
+name|ngx_uint_t
+name|use_stale
+decl_stmt|;
 DECL|member|bufs
 name|ngx_bufs_t
 name|bufs
-decl_stmt|;
-DECL|member|busy_buffers_size
-name|ssize_t
-name|busy_buffers_size
-decl_stmt|;
-DECL|member|max_temp_file_size
-name|ssize_t
-name|max_temp_file_size
-decl_stmt|;
-DECL|member|temp_file_write_size
-name|ssize_t
-name|temp_file_write_size
 decl_stmt|;
 DECL|member|cyclic_temp_file
 name|ngx_flag_t
@@ -235,22 +251,6 @@ decl_stmt|;
 DECL|member|ignore_expires
 name|ngx_flag_t
 name|ignore_expires
-decl_stmt|;
-DECL|member|lm_factor
-name|int
-name|lm_factor
-decl_stmt|;
-DECL|member|default_expires
-name|time_t
-name|default_expires
-decl_stmt|;
-DECL|member|next_upstream
-name|u_int
-name|next_upstream
-decl_stmt|;
-DECL|member|use_stale
-name|u_int
-name|use_stale
 decl_stmt|;
 DECL|member|cache_path
 name|ngx_path_t
@@ -288,7 +288,7 @@ comment|/*  * "EXPR/10/5/- 200/EXP/60 4"  * "MISS/-/-/B 503/-/- -"  * "EXPR/10/2
 end_comment
 
 begin_typedef
-DECL|struct|__anon297d304c0508
+DECL|struct|__anon28e587390508
 typedef|typedef
 struct|struct
 block|{
@@ -305,11 +305,11 @@ name|time_t
 name|bl_time
 decl_stmt|;
 DECL|member|bl_state
-name|int
+name|ngx_uint_t
 name|bl_state
 decl_stmt|;
 DECL|member|status
-name|int
+name|ngx_uint_t
 name|status
 decl_stmt|;
 DECL|member|reason
@@ -336,7 +336,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297d304c0608
+DECL|struct|__anon28e587390608
 typedef|typedef
 struct|struct
 block|{
@@ -412,7 +412,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297d304c0708
+DECL|struct|__anon28e587390708
 typedef|typedef
 struct|struct
 block|{
@@ -421,7 +421,7 @@ name|ngx_http_cache_ctx_t
 name|ctx
 decl_stmt|;
 DECL|member|status
-name|int
+name|ngx_uint_t
 name|status
 decl_stmt|;
 DECL|member|status_line
@@ -439,7 +439,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297d304c0808
+DECL|struct|__anon28e587390808
 typedef|typedef
 struct|struct
 block|{
@@ -448,7 +448,7 @@ name|ngx_peer_connection_t
 name|peer
 decl_stmt|;
 DECL|member|status
-name|int
+name|ngx_uint_t
 name|status
 decl_stmt|;
 DECL|member|status_line
@@ -456,7 +456,7 @@ name|ngx_str_t
 name|status_line
 decl_stmt|;
 DECL|member|method
-name|int
+name|ngx_uint_t
 name|method
 decl_stmt|;
 DECL|member|output_chain_ctx
@@ -572,25 +572,25 @@ literal|1
 decl_stmt|;
 comment|/* used to parse an upstream HTTP header */
 DECL|member|status
-name|int
+name|ngx_uint_t
 name|status
 decl_stmt|;
 DECL|member|status_start
-name|char
+name|u_char
 modifier|*
 name|status_start
 decl_stmt|;
 DECL|member|status_end
-name|char
+name|u_char
 modifier|*
 name|status_end
 decl_stmt|;
 DECL|member|status_count
-name|int
+name|ngx_uint_t
 name|status_count
 decl_stmt|;
 DECL|member|parse_state
-name|int
+name|ngx_uint_t
 name|parse_state
 decl_stmt|;
 DECL|member|state
@@ -604,7 +604,7 @@ name|states
 decl_stmt|;
 comment|/* of ngx_http_proxy_state_t */
 DECL|member|action
-name|char
+name|u_char
 modifier|*
 name|action
 decl_stmt|;
@@ -622,12 +622,12 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon297d304c0908
+DECL|struct|__anon28e587390908
 typedef|typedef
 struct|struct
 block|{
 DECL|member|connection
-name|u_int
+name|ngx_uint_t
 name|connection
 decl_stmt|;
 DECL|member|proxy

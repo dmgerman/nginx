@@ -99,7 +99,7 @@ parameter_list|,
 name|create
 parameter_list|)
 define|\
-value|CreateFile(name, access,                                        \                        FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_SHARE_DELETE,  \                        NULL, create, FILE_FLAG_BACKUP_SEMANTICS, NULL)
+value|CreateFile((const char *) name, access,                         \                        FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_SHARE_DELETE,  \                        NULL, create, FILE_FLAG_BACKUP_SEMANTICS, NULL)
 end_define
 
 begin_comment
@@ -183,7 +183,7 @@ parameter_list|,
 name|persistent
 parameter_list|)
 define|\
-value|CreateFile(name,                                                \                     GENERIC_READ|GENERIC_WRITE,                             \                     FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_SHARE_DELETE,     \                     NULL,                                                   \                     CREATE_NEW,                                             \                     persistent ? 0:                                         \                         FILE_ATTRIBUTE_TEMPORARY|FILE_FLAG_DELETE_ON_CLOSE, \                     NULL);
+value|CreateFile((const char *) name,                                 \                     GENERIC_READ|GENERIC_WRITE,                             \                     FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_SHARE_DELETE,     \                     NULL,                                                   \                     CREATE_NEW,                                             \                     persistent ? 0:                                         \                         FILE_ATTRIBUTE_TEMPORARY|FILE_FLAG_DELETE_ON_CLOSE, \                     NULL);
 end_define
 
 begin_define
@@ -581,7 +581,7 @@ name|ngx_file_t
 modifier|*
 name|file
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -610,7 +610,7 @@ name|ngx_file_t
 modifier|*
 name|file
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,

@@ -99,7 +99,7 @@ modifier|*
 name|old_cycle
 parameter_list|)
 block|{
-name|ngx_int_t
+name|ngx_uint_t
 name|i
 decl_stmt|,
 name|n
@@ -1900,7 +1900,7 @@ block|{
 name|ngx_fd_t
 name|fd
 decl_stmt|;
-name|ngx_int_t
+name|ngx_uint_t
 name|i
 decl_stmt|;
 name|ngx_open_file_t
@@ -2123,6 +2123,11 @@ if|if
 condition|(
 name|chown
 argument_list|(
+operator|(
+specifier|const
+name|char
+operator|*
+operator|)
 name|file
 index|[
 name|i
@@ -2379,7 +2384,7 @@ modifier|*
 name|ev
 parameter_list|)
 block|{
-name|int
+name|ngx_uint_t
 name|i
 decl_stmt|,
 name|n
@@ -2495,6 +2500,9 @@ index|]
 operator|.
 name|fd
 operator|!=
+operator|(
+name|ngx_socket_t
+operator|)
 operator|-
 literal|1
 condition|)

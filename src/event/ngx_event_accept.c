@@ -24,7 +24,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28ecdfd10108
+DECL|struct|__anon2ba55e080108
 typedef|typedef
 struct|struct
 block|{
@@ -33,7 +33,7 @@ name|int
 name|flag
 decl_stmt|;
 DECL|member|name
-name|char
+name|u_char
 modifier|*
 name|name
 decl_stmt|;
@@ -72,7 +72,7 @@ modifier|*
 name|ev
 parameter_list|)
 block|{
-name|int
+name|ngx_uint_t
 name|instance
 decl_stmt|,
 name|accepted
@@ -906,6 +906,9 @@ name|rev
 operator|->
 name|instance
 operator|=
+operator|(
+name|u_char
+operator|)
 operator|!
 name|instance
 expr_stmt|;
@@ -913,6 +916,9 @@ name|wev
 operator|->
 name|instance
 operator|=
+operator|(
+name|u_char
+operator|)
 operator|!
 name|instance
 expr_stmt|;

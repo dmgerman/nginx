@@ -53,7 +53,7 @@ parameter_list|,
 name|create
 parameter_list|)
 define|\
-value|open(name, access|create, 0644)
+value|open((const char *) name, access|create, 0644)
 end_define
 
 begin_define
@@ -121,11 +121,14 @@ value|"close()"
 end_define
 
 begin_define
-DECL|macro|ngx_delete_file
+DECL|macro|ngx_delete_file (name)
 define|#
 directive|define
 name|ngx_delete_file
-value|unlink
+parameter_list|(
+name|name
+parameter_list|)
+value|unlink((const char *) name)
 end_define
 
 begin_define
@@ -147,7 +150,7 @@ parameter_list|,
 name|persistent
 parameter_list|)
 define|\
-value|open(name, O_CREAT|O_EXCL|O_RDWR, 0600)
+value|open((const char *) name, O_CREAT|O_EXCL|O_RDWR, 0600)
 end_define
 
 begin_define
@@ -166,7 +169,7 @@ name|ngx_file_t
 modifier|*
 name|file
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -195,7 +198,7 @@ name|ngx_file_t
 modifier|*
 name|file
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -256,7 +259,7 @@ name|file
 parameter_list|,
 name|sb
 parameter_list|)
-value|stat(file, sb)
+value|stat((const char *) file, sb)
 end_define
 
 begin_define
@@ -421,7 +424,7 @@ name|ngx_create_dir
 parameter_list|(
 name|name
 parameter_list|)
-value|mkdir(name, 0700)
+value|mkdir((const char *) name, 0700)
 end_define
 
 begin_define
@@ -433,11 +436,14 @@ value|"mkdir()"
 end_define
 
 begin_define
-DECL|macro|ngx_delete_dir
+DECL|macro|ngx_delete_dir (name)
 define|#
 directive|define
 name|ngx_delete_dir
-value|rmdir
+parameter_list|(
+name|name
+parameter_list|)
+value|rmdir((const char *) name)
 end_define
 
 begin_define
@@ -507,7 +513,7 @@ name|name
 parameter_list|,
 name|dir
 parameter_list|)
-value|stat(name,&(dir)->info)
+value|stat((const char *) name,&(dir)->info)
 end_define
 
 begin_define

@@ -12,7 +12,7 @@ file|<ngx_core.h>
 end_include
 
 begin_function
-DECL|function|ngx_read_file (ngx_file_t * file,char * buf,size_t size,off_t offset)
+DECL|function|ngx_read_file (ngx_file_t * file,u_char * buf,size_t size,off_t offset)
 name|ssize_t
 name|ngx_read_file
 parameter_list|(
@@ -20,7 +20,7 @@ name|ngx_file_t
 modifier|*
 name|file
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -34,7 +34,7 @@ block|{
 name|long
 name|high_offset
 decl_stmt|;
-name|DWORD
+name|u_long
 name|n
 decl_stmt|;
 name|ngx_err_t
@@ -63,7 +63,7 @@ operator|!=
 name|offset
 condition|)
 block|{
-comment|/*              * the maximum file size on FAT16 is 2G, but on FAT32 it's 4G so we              * need to use high_offset because a single offset is signed value              */
+comment|/*              * the maximum file size on FAT16 is 2G, but on FAT32              * the size is 4G so we need to use high_offset              * because a single offset is signed value              */
 name|high_offset
 operator|=
 operator|(
@@ -152,7 +152,7 @@ operator|.
 name|Offset
 operator|=
 operator|(
-name|DWORD
+name|u_long
 operator|)
 name|offset
 expr_stmt|;
@@ -161,7 +161,7 @@ operator|.
 name|OffsetHigh
 operator|=
 operator|(
-name|DWORD
+name|u_long
 operator|)
 operator|(
 name|offset
@@ -232,7 +232,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_write_file (ngx_file_t * file,char * buf,size_t size,off_t offset)
+DECL|function|ngx_write_file (ngx_file_t * file,u_char * buf,size_t size,off_t offset)
 name|ssize_t
 name|ngx_write_file
 parameter_list|(
@@ -240,7 +240,7 @@ name|ngx_file_t
 modifier|*
 name|file
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -254,7 +254,7 @@ block|{
 name|long
 name|high_offset
 decl_stmt|;
-name|DWORD
+name|u_long
 name|n
 decl_stmt|;
 name|ngx_err_t
@@ -283,7 +283,7 @@ operator|!=
 name|offset
 condition|)
 block|{
-comment|/*              * the maximum file size on FAT16 is 2G, but on FAT32 it's 4G so we              * need to use high_offset because a single offset is signed value              */
+comment|/*              * the maximum file size on FAT16 is 2G, but on FAT32              * the size is 4G so we need to use high_offset              * because a single offset is signed value              */
 name|high_offset
 operator|=
 operator|(
@@ -372,7 +372,7 @@ operator|.
 name|Offset
 operator|=
 operator|(
-name|DWORD
+name|u_long
 operator|)
 name|offset
 expr_stmt|;
@@ -381,7 +381,7 @@ operator|.
 name|OffsetHigh
 operator|=
 operator|(
-name|DWORD
+name|u_long
 operator|)
 operator|(
 name|offset
