@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon299d18400108
+DECL|struct|__anon28ff484f0108
 typedef|typedef
 struct|struct
 block|{
@@ -2152,12 +2152,6 @@ operator|~
 literal|1
 operator|)
 expr_stmt|;
-name|ev
-operator|->
-name|returned_instance
-operator|=
-name|instance
-expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -2191,6 +2185,12 @@ argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
+name|ev
+operator|->
+name|returned_instance
+operator|=
+name|instance
+expr_stmt|;
 if|if
 condition|(
 name|ev

@@ -109,7 +109,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c4b90030108
+DECL|struct|__anon27da6faa0108
 typedef|typedef
 struct|struct
 block|{
@@ -301,6 +301,13 @@ begin_decl_stmt
 specifier|extern
 name|ngx_os_io_t
 name|ngx_os_io
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|int
+name|ngx_ncpu
 decl_stmt|;
 end_decl_stmt
 

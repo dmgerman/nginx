@@ -12,6 +12,13 @@ file|<ngx_core.h>
 end_include
 
 begin_decl_stmt
+DECL|variable|ngx_ncpu
+name|int
+name|ngx_ncpu
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_max_sockets
 name|int
 name|ngx_max_sockets
@@ -87,7 +94,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon2b16639e0108
+DECL|struct|__anon275f885f0108
 typedef|typedef
 struct|struct
 block|{
@@ -292,6 +299,18 @@ operator|=
 name|getpagesize
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|ngx_ncpu
+operator|==
+literal|0
+condition|)
+block|{
+name|ngx_ncpu
+operator|=
+literal|1
+expr_stmt|;
+block|}
 for|for
 control|(
 name|sig

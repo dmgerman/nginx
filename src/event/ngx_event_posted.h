@@ -30,6 +30,58 @@ directive|include
 file|<ngx_event.h>
 end_include
 
+begin_typedef
+DECL|typedef|ngx_posted_event_t
+typedef|typedef
+name|struct
+name|ngx_posted_events_s
+name|ngx_posted_event_t
+typedef|;
+end_typedef
+
+begin_struct
+DECL|struct|ngx_posted_events_s
+struct|struct
+name|ngx_posted_events_s
+block|{
+DECL|member|event
+name|ngx_event_t
+modifier|*
+name|event
+decl_stmt|;
+DECL|member|next
+name|ngx_posted_event_t
+modifier|*
+name|next
+decl_stmt|;
+DECL|member|instance
+name|unsigned
+name|instance
+range|:
+literal|1
+decl_stmt|;
+DECL|member|ready
+name|unsigned
+name|ready
+range|:
+literal|1
+decl_stmt|;
+DECL|member|timedout
+name|unsigned
+name|timedout
+range|:
+literal|1
+decl_stmt|;
+DECL|member|complete
+name|unsigned
+name|complete
+range|:
+literal|1
+decl_stmt|;
+block|}
+struct|;
+end_struct
+
 begin_define
 DECL|macro|ngx_post_event (ev)
 define|#
@@ -41,6 +93,14 @@ parameter_list|)
 define|\
 value|if (!ev->posted) {                                                \                 ev->next = (ngx_event_t *) ngx_posted_events;                 \                 ngx_posted_events = ev;                                       \                 ev->posted = 1;                                               \             }
 end_define
+
+begin_comment
+comment|/* \    ngx_log_debug3(NGX_LOG_DEBUG_CORE, ngx_cycle->log, 0, \                "POST: %08X %08X %08X", ngx_posted_events, \                (ngx_posted_events ? ngx_posted_events->next: 0), \                ((ngx_posted_events&& ngx_posted_events->next) ? \                                ngx_posted_events->next->next: 0)); \ \ */
+end_comment
+
+begin_comment
+comment|/* \ { int i; ngx_event_t *e;\   e = (ngx_event_t *) ngx_posted_events; \ for (i = 0; e&& i< 10; e = e->next, i++) { \    ngx_log_debug2(NGX_LOG_DEBUG_CORE, ngx_cycle->log, 0, \                   "POST: %d %08X", i, e);\ }} \ \ */
+end_comment
 
 begin_function_decl
 name|void

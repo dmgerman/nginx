@@ -37,7 +37,7 @@ value|ngx_pid
 end_define
 
 begin_typedef
-DECL|struct|__anon2c6c08530108
+DECL|struct|__anon297da0a80108
 typedef|typedef
 struct|struct
 block|{
@@ -109,6 +109,15 @@ name|ctx
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_define
+DECL|macro|ngx_sched_yeld ()
+define|#
+directive|define
+name|ngx_sched_yeld
+parameter_list|()
+value|Sleep(0)
+end_define
 
 begin_decl_stmt
 specifier|extern

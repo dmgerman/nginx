@@ -19,6 +19,13 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_ncpu
+name|int
+name|ngx_ncpu
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_max_sockets
 name|int
 name|ngx_max_sockets
@@ -54,7 +61,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2b0a4c980108
+DECL|struct|__anon2c6c556f0108
 typedef|typedef
 struct|struct
 block|{
@@ -412,6 +419,12 @@ operator|=
 name|si
 operator|.
 name|dwPageSize
+expr_stmt|;
+name|ngx_ncpu
+operator|=
+name|si
+operator|.
+name|dwNumberOfProcessors
 expr_stmt|;
 comment|/* init Winsock */
 if|if
