@@ -91,9 +91,13 @@ block|{
 name|uint32_t
 name|old
 decl_stmt|;
+name|old
+operator|=
+literal|1
+expr_stmt|;
 asm|__asm__
 specifier|volatile
-asm|(      "   movl   $1, %0;   "         NGX_SMP_LOCK     "   xaddl  %0, %1;   "      : "=a" (old) : "m" (*value));
+asm|(          NGX_SMP_LOCK     "   xaddl  %0, %1;   "      : "=q" (old) : "m" (*value));
 return|return
 name|old
 return|;
@@ -115,9 +119,17 @@ block|{
 name|uint32_t
 name|old
 decl_stmt|;
+name|old
+operator|=
+operator|(
+name|uint32_t
+operator|)
+operator|-
+literal|1
+expr_stmt|;
 asm|__asm__
 specifier|volatile
-asm|(      "   movl   $-1, %0;  "         NGX_SMP_LOCK     "   xaddl  %0, %1;   "      : "=a" (old) : "m" (*value));
+asm|(          NGX_SMP_LOCK     "   xaddl  %0, %1;   "      : "=q" (old) : "m" (*value));
 return|return
 name|old
 return|;
@@ -147,7 +159,7 @@ name|res
 decl_stmt|;
 asm|__asm__
 specifier|volatile
-asm|(          NGX_SMP_LOCK     "   cmpxchgl  %3, %1;   "     "   setz      %%al;     "     "   movzbl    %%al, %0; "      : "=a" (res) : "m" (*lock), "a" (old), "q" (set));
+asm|(          NGX_SMP_LOCK     "   cmpxchgl  %3, %1;   "     "   setz      %%al;     "     "   movzbl    %%al, %0; "      : "+a" (res) : "m" (*lock), "a" (old), "q" (set));
 return|return
 name|res
 return|;

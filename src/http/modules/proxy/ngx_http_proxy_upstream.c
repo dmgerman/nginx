@@ -312,9 +312,17 @@ block|{
 name|int
 name|rc
 decl_stmt|;
+name|ngx_temp_file_t
+modifier|*
+name|tf
+decl_stmt|;
 name|ngx_http_request_t
 modifier|*
 name|r
+decl_stmt|;
+name|ngx_http_request_body_t
+modifier|*
+name|rb
 decl_stmt|;
 name|ngx_http_proxy_upstream_t
 modifier|*
@@ -400,6 +408,36 @@ name|method
 expr_stmt|;
 if|if
 condition|(
+operator|!
+operator|(
+name|rb
+operator|=
+name|ngx_pcalloc
+argument_list|(
+name|r
+operator|->
+name|pool
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|ngx_http_request_body_t
+argument_list|)
+argument_list|)
+operator|)
+condition|)
+block|{
+return|return
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
+return|;
+block|}
+name|r
+operator|->
+name|request_body
+operator|=
+name|rb
+expr_stmt|;
+if|if
+condition|(
 name|r
 operator|->
 name|headers_in
@@ -413,9 +451,7 @@ if|if
 condition|(
 operator|!
 operator|(
-name|r
-operator|->
-name|temp_file
+name|tf
 operator|=
 name|ngx_pcalloc
 argument_list|(
@@ -435,9 +471,7 @@ return|return
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
 block|}
-name|r
-operator|->
-name|temp_file
+name|tf
 operator|->
 name|file
 operator|.
@@ -445,9 +479,7 @@ name|fd
 operator|=
 name|NGX_INVALID_FILE
 expr_stmt|;
-name|r
-operator|->
-name|temp_file
+name|tf
 operator|->
 name|file
 operator|.
@@ -459,9 +491,7 @@ name|connection
 operator|->
 name|log
 expr_stmt|;
-name|r
-operator|->
-name|temp_file
+name|tf
 operator|->
 name|path
 operator|=
@@ -471,9 +501,7 @@ name|lcf
 operator|->
 name|temp_path
 expr_stmt|;
-name|r
-operator|->
-name|temp_file
+name|tf
 operator|->
 name|pool
 operator|=
@@ -481,39 +509,49 @@ name|r
 operator|->
 name|pool
 expr_stmt|;
-name|r
-operator|->
-name|temp_file
+name|tf
 operator|->
 name|warn
 operator|=
-literal|"a client request body is buffered "
-literal|"to a temporary file"
+literal|"a client request body is buffered to a temporary file"
 expr_stmt|;
-comment|/* r->temp_file->persistent = 0; */
-name|r
+comment|/* tf->persistent = 0; */
+name|rb
 operator|->
-name|request_body_handler
+name|buf_size
+operator|=
+name|p
+operator|->
+name|lcf
+operator|->
+name|request_buffer_size
+expr_stmt|;
+name|rb
+operator|->
+name|handler
 operator|=
 name|ngx_http_proxy_init_upstream
 expr_stmt|;
-name|r
+name|rb
 operator|->
 name|data
 operator|=
 name|p
+expr_stmt|;
+comment|/* rb->bufs = NULL; */
+comment|/* rb->buf = NULL; */
+comment|/* rb->rest = 0; */
+name|rb
+operator|->
+name|temp_file
+operator|=
+name|tf
 expr_stmt|;
 name|rc
 operator|=
 name|ngx_http_read_client_request_body
 argument_list|(
 name|r
-argument_list|,
-name|p
-operator|->
-name|lcf
-operator|->
-name|request_buffer_size
 argument_list|)
 expr_stmt|;
 if|if
@@ -532,10 +570,6 @@ condition|(
 name|rc
 operator|>=
 name|NGX_HTTP_SPECIAL_RESPONSE
-operator|||
-name|rc
-operator|==
-name|NGX_ERROR
 condition|)
 block|{
 return|return
@@ -672,6 +706,12 @@ operator|->
 name|lcf
 operator|->
 name|preserve_host
+operator|&&
+name|r
+operator|->
+name|headers_in
+operator|.
+name|host
 condition|)
 block|{
 name|len
@@ -1976,7 +2016,9 @@ if|if
 condition|(
 name|r
 operator|->
-name|request_hunks
+name|request_body
+operator|->
+name|bufs
 condition|)
 block|{
 name|cl
@@ -1985,12 +2027,16 @@ name|next
 operator|=
 name|r
 operator|->
-name|request_hunks
+name|request_body
+operator|->
+name|bufs
 expr_stmt|;
 block|}
 name|r
 operator|->
-name|request_hunks
+name|request_body
+operator|->
+name|bufs
 operator|=
 name|cl
 expr_stmt|;
@@ -2226,6 +2272,12 @@ name|r
 operator|->
 name|pool
 expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|if (p->lcf->busy_lock&& p->busy_lock == NULL) {
+else|#
+directive|else
 if|if
 condition|(
 name|p
@@ -2240,6 +2292,8 @@ operator|->
 name|busy_locked
 condition|)
 block|{
+endif|#
+directive|endif
 name|ngx_http_proxy_upstream_busy_lock
 argument_list|(
 name|p
@@ -2276,14 +2330,6 @@ name|ngx_output_chain_ctx_t
 modifier|*
 name|output
 decl_stmt|;
-name|output
-operator|=
-name|p
-operator|->
-name|upstream
-operator|->
-name|output_chain_ctx
-expr_stmt|;
 comment|/* reinit the request chain */
 for|for
 control|(
@@ -2293,7 +2339,9 @@ name|p
 operator|->
 name|request
 operator|->
-name|request_hunks
+name|request_body
+operator|->
+name|bufs
 init|;
 name|cl
 condition|;
@@ -2326,6 +2374,14 @@ literal|0
 expr_stmt|;
 block|}
 comment|/* reinit the ngx_output_chain() context */
+name|output
+operator|=
+name|p
+operator|->
+name|upstream
+operator|->
+name|output_chain_ctx
+expr_stmt|;
 name|output
 operator|->
 name|hunk
@@ -2468,6 +2524,43 @@ literal|0
 expr_stmt|;
 block|}
 end_function
+
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
+begin_comment
+unit|void ngx_http_proxy_upstream_busy_lock(ngx_http_proxy_ctx_t *p) {     ngx_int_t  rc;      rc = ngx_event_busy_lock(p->lcf->busy_lock, p->busy_lock);      if (rc == NGX_AGAIN) {         return;     }      if (rc == NGX_OK) {         ngx_http_proxy_connect(p);         return;     }      if (rc == NGX_ERROR) {         p->state->status = NGX_HTTP_INTERNAL_SERVER_ERROR;         ngx_http_proxy_finalize_request(p, NGX_HTTP_INTERNAL_SERVER_ERROR);         return;     }
+comment|/* rc == NGX_BUSY */
+end_comment
+
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_CACHE
+operator|)
+end_if
+
+begin_endif
+unit|if (p->busy_lock->timer) {         ft_type = NGX_HTTP_PROXY_FT_MAX_WAITING;     } else {         ft_type = NGX_HTTP_PROXY_FT_BUSY_LOCK;     }      if (p->stale&& (p->lcf->use_stale& ft_type)) {         ngx_http_proxy_finalize_request(p,                                         ngx_http_proxy_send_cached_response(p));         return;     }
+endif|#
+directive|endif
+end_endif
+
+begin_endif
+unit|p->state->status = NGX_HTTP_SERVICE_UNAVAILABLE;     ngx_http_proxy_finalize_request(p, NGX_HTTP_SERVICE_UNAVAILABLE); }
+endif|#
+directive|endif
+end_endif
+
+begin_if
+if|#
+directive|if
+literal|1
+end_if
 
 begin_function
 DECL|function|ngx_http_proxy_upstream_busy_lock (ngx_http_proxy_ctx_t * p)
@@ -2652,6 +2745,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_function
 DECL|function|ngx_http_proxy_connect (ngx_http_proxy_ctx_t * p)
@@ -2910,7 +3008,9 @@ if|if
 condition|(
 name|r
 operator|->
-name|request_body_hunk
+name|request_body
+operator|->
+name|buf
 condition|)
 block|{
 if|if
@@ -2947,7 +3047,9 @@ name|hunk
 operator|=
 name|r
 operator|->
-name|request_body_hunk
+name|request_body
+operator|->
+name|buf
 expr_stmt|;
 name|output
 operator|->
@@ -2965,13 +3067,17 @@ literal|1
 expr_stmt|;
 name|r
 operator|->
-name|request_body_hunk
+name|request_body
+operator|->
+name|buf
 operator|->
 name|pos
 operator|=
 name|r
 operator|->
-name|request_body_hunk
+name|request_body
+operator|->
+name|buf
 operator|->
 name|start
 expr_stmt|;
@@ -3145,7 +3251,9 @@ name|p
 operator|->
 name|request
 operator|->
-name|request_hunks
+name|request_body
+operator|->
+name|bufs
 argument_list|)
 expr_stmt|;
 if|if

@@ -951,6 +951,24 @@ operator|.
 name|nelts
 argument_list|)
 expr_stmt|;
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"writev: %d of "
+name|SIZE_T_FMT
+argument_list|,
+name|rc
+argument_list|,
+name|hsize
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|rc
@@ -1031,22 +1049,6 @@ condition|?
 name|rc
 else|:
 literal|0
-expr_stmt|;
-name|ngx_log_debug1
-argument_list|(
-name|NGX_LOG_DEBUG_EVENT
-argument_list|,
-name|c
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"writev: "
-name|OFF_T_FMT
-argument_list|,
-name|sent
-argument_list|)
 expr_stmt|;
 block|}
 name|c

@@ -58,7 +58,7 @@ function_decl|;
 end_function_decl
 
 begin_comment
-comment|/*  * NGX_OK:     the busy lock is held  * NGX_BUSY:   there are many the busy locks or many the waiting locks  * NGX_AGAIN:  the all busy locks are held but we will wait the specified time  * NGX_ERROR:  there was error while the mutex locking  */
+comment|/*  * NGX_OK:     the busy lock is held  * NGX_AGAIN:  the all busy locks are held but we will wait the specified time  * NGX_BUSY:   ctx->timer == 0: there are many the busy locks  *             ctx->timer != 0: there are many the waiting locks  * NGX_ERROR:  an error occured while the mutex locking  */
 end_comment
 
 begin_function

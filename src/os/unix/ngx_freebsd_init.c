@@ -113,7 +113,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon277953e40108
+DECL|struct|__anon2c6de0290108
 typedef|typedef
 struct|struct
 block|{
@@ -392,6 +392,26 @@ name|version
 operator|=
 name|ngx_freebsd_kern_osreldate
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|__DragonFly_version
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"kern.osreldate: %d, built on %d"
+argument_list|,
+name|version
+argument_list|,
+name|__DragonFly_version
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_INFO
@@ -407,6 +427,8 @@ argument_list|,
 name|__FreeBSD_version
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 if|#
 directive|if
 operator|(

@@ -387,10 +387,6 @@ block|{
 break|break;
 block|}
 block|}
-name|pool
-operator|=
-name|NULL
-expr_stmt|;
 block|}
 end_function
 

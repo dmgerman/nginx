@@ -104,7 +104,7 @@ file|<ngx_http_core_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29f77cbc0108
+DECL|struct|__anon2a50c3d10108
 typedef|typedef
 struct|struct
 block|{
@@ -379,9 +379,6 @@ parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
-parameter_list|,
-name|size_t
-name|request_buffer_size
 parameter_list|)
 function_decl|;
 end_function_decl

@@ -2325,7 +2325,6 @@ expr_stmt|;
 name|errstr
 index|[
 name|len
-operator|++
 index|]
 operator|=
 literal|'\0'
