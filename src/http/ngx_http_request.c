@@ -3526,12 +3526,13 @@ operator|>
 literal|0
 condition|)
 block|{
-name|rev
-operator|->
-name|ready
-operator|=
+if|#
+directive|if
 literal|0
-expr_stmt|;
+comment|/* TODO: THINK - AIO ??? */
+block_content|rev->ready = 0;
+endif|#
+directive|endif
 return|return
 name|n
 return|;
