@@ -22,6 +22,16 @@ begin_comment
 comment|/*    auto_conf    ngx_inline inline __inline __inline__ */
 end_comment
 
+begin_comment
+comment|/* STUB */
+end_comment
+
+begin_undef
+undef|#
+directive|undef
+name|FD_SETSIZE
+end_undef
+
 begin_define
 DECL|macro|FD_SETSIZE
 define|#
@@ -383,6 +393,31 @@ include|#
 directive|include
 file|<arpa/inet.h>
 end_include
+
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|HAVE_POLL
+end_ifndef
+
+begin_define
+DECL|macro|HAVE_POLL
+define|#
+directive|define
+name|HAVE_POLL
+value|1
+end_define
+
+begin_include
+include|#
+directive|include
+file|<poll.h>
+end_include
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_define
 DECL|macro|ngx_inline

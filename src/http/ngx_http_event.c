@@ -1,8 +1,4 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
-begin_comment
-comment|/*    TODO: Win32 inet_ntoa          ngx_inet_ntop */
-end_comment
-
 begin_include
 include|#
 directive|include

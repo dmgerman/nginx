@@ -116,6 +116,7 @@ modifier|*
 name|action
 decl_stmt|;
 DECL|member|index
+name|unsigned
 name|int
 name|index
 decl_stmt|;
@@ -267,7 +268,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon27cc02c60103
+DECL|enum|__anon2bfa9c910103
 typedef|typedef
 enum|enum
 block|{
@@ -303,7 +304,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27cc02c60208
+DECL|struct|__anon2bfa9c910208
 typedef|typedef
 struct|struct
 block|{
@@ -487,6 +488,46 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_elif
+elif|#
+directive|elif
+operator|(
+name|HAVE_POLL
+operator|)
+end_elif
+
+begin_define
+DECL|macro|NGX_READ_EVENT
+define|#
+directive|define
+name|NGX_READ_EVENT
+value|POLLIN
+end_define
+
+begin_define
+DECL|macro|NGX_WRITE_EVENT
+define|#
+directive|define
+name|NGX_WRITE_EVENT
+value|POLLOUT
+end_define
+
+begin_define
+DECL|macro|NGX_LEVEL_EVENT
+define|#
+directive|define
+name|NGX_LEVEL_EVENT
+value|0
+end_define
+
+begin_define
+DECL|macro|NGX_ONESHOT_EVENT
+define|#
+directive|define
+name|NGX_ONESHOT_EVENT
+value|1
+end_define
 
 begin_else
 else|#

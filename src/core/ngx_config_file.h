@@ -94,8 +94,24 @@ name|NGX_CONF_UNSET
 value|-1
 end_define
 
+begin_define
+DECL|macro|NGX_BLOCK_DONE
+define|#
+directive|define
+name|NGX_BLOCK_DONE
+value|1
+end_define
+
+begin_define
+DECL|macro|NGX_FILE_DONE
+define|#
+directive|define
+name|NGX_FILE_DONE
+value|2
+end_define
+
 begin_typedef
-DECL|struct|__anon2c97d0440108
+DECL|struct|__anon2bd41bec0108
 typedef|typedef
 struct|struct
 block|{
@@ -179,7 +195,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c97d0440208
+DECL|struct|__anon2bd41bec0208
 typedef|typedef
 struct|struct
 block|{

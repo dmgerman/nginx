@@ -2,14 +2,14 @@ begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|_NGX_SELECT_MODULE_H_INCLUDED_
+name|_NGX_POLL_MODULE_H_INCLUDED_
 end_ifndef
 
 begin_define
-DECL|macro|_NGX_SELECT_MODULE_H_INCLUDED_
+DECL|macro|_NGX_POLL_MODULE_H_INCLUDED_
 define|#
 directive|define
-name|_NGX_SELECT_MODULE_H_INCLUDED_
+name|_NGX_POLL_MODULE_H_INCLUDED_
 end_define
 
 begin_include
@@ -32,7 +32,7 @@ end_include
 
 begin_function_decl
 name|int
-name|ngx_select_init
+name|ngx_poll_init
 parameter_list|(
 name|int
 name|max_connections
@@ -46,7 +46,7 @@ end_function_decl
 
 begin_function_decl
 name|int
-name|ngx_select_add_event
+name|ngx_poll_add_event
 parameter_list|(
 name|ngx_event_t
 modifier|*
@@ -63,7 +63,7 @@ end_function_decl
 
 begin_function_decl
 name|int
-name|ngx_select_del_event
+name|ngx_poll_del_event
 parameter_list|(
 name|ngx_event_t
 modifier|*
@@ -80,7 +80,7 @@ end_function_decl
 
 begin_function_decl
 name|void
-name|ngx_select_add_timer
+name|ngx_poll_add_timer
 parameter_list|(
 name|ngx_event_t
 modifier|*
@@ -94,7 +94,7 @@ end_function_decl
 
 begin_function_decl
 name|int
-name|ngx_select_process_events
+name|ngx_poll_process_events
 parameter_list|(
 name|ngx_log_t
 modifier|*
@@ -109,7 +109,7 @@ directive|endif
 end_endif
 
 begin_comment
-comment|/* _NGX_SELECT_MODULE_H_INCLUDED_ */
+comment|/* _NGX_POLL_MODULE_H_INCLUDED_ */
 end_comment
 
 end_unit

@@ -165,25 +165,6 @@ begin_comment
 comment|/* */
 end_comment
 
-begin_function_decl
-specifier|static
-name|fd_set
-modifier|*
-name|ngx_select_get_fd_set
-parameter_list|(
-name|ngx_socket_t
-name|fd
-parameter_list|,
-name|int
-name|event
-parameter_list|,
-name|ngx_log_t
-modifier|*
-name|log
-parameter_list|)
-function_decl|;
-end_function_decl
-
 begin_function
 DECL|function|ngx_select_init (int max_connections,ngx_log_t * log)
 name|int
