@@ -48,6 +48,19 @@ name|ngx_http_cleanup_t
 typedef|;
 end_typedef
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_CACHE
+operator|)
+end_if
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_include
 include|#
 directive|include
@@ -91,7 +104,7 @@ file|<ngx_http_core_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a28c0fd0108
+DECL|struct|__anon29c87d9a0108
 typedef|typedef
 struct|struct
 block|{

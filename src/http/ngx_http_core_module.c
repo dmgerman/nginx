@@ -1014,6 +1014,11 @@ block|,
 name|NULL
 block|}
 block|,
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_CACHE
+operator|)
 block|{
 name|ngx_string
 argument_list|(
@@ -1042,6 +1047,8 @@ block|,
 name|NULL
 block|}
 block|,
+endif|#
+directive|endif
 name|ngx_null_command
 block|}
 decl_stmt|;

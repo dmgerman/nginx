@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c35069c0108
+DECL|struct|__anon2b735f340108
 typedef|typedef
 struct|struct
 block|{
@@ -99,6 +99,11 @@ name|ngx_http_static_commands
 index|[]
 init|=
 block|{
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_CACHE
+operator|)
 block|{
 name|ngx_string
 argument_list|(
@@ -127,6 +132,8 @@ block|,
 name|NULL
 block|}
 block|,
+endif|#
+directive|endif
 name|ngx_null_command
 block|}
 decl_stmt|;
@@ -327,6 +334,11 @@ return|return
 name|rc
 return|;
 block|}
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_CACHE
+operator|)
 comment|/*      * there is a valid cached open file, i.e by the index handler,      * and it should be already registered in r->cleanup      */
 if|if
 condition|(
@@ -349,6 +361,8 @@ name|r
 argument_list|)
 return|;
 block|}
+endif|#
+directive|endif
 name|log
 operator|=
 name|r
@@ -565,6 +579,11 @@ operator|=
 name|NULL
 expr_stmt|;
 block|}
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_CACHE
+operator|)
 comment|/* look up an open files cache */
 if|if
 condition|(
@@ -737,6 +756,8 @@ operator|=
 name|NULL
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 comment|/* open file */
 if|#
 directive|if
@@ -1165,6 +1186,11 @@ name|value
 operator|=
 name|location
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_CACHE
+operator|)
 if|if
 condition|(
 name|slcf
@@ -1349,6 +1375,8 @@ literal|0
 expr_stmt|;
 block|}
 block|}
+endif|#
+directive|endif
 return|return
 name|NGX_HTTP_MOVED_PERMANENTLY
 return|;
@@ -1418,6 +1446,11 @@ return|;
 block|}
 endif|#
 directive|endif
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_CACHE
+operator|)
 if|if
 condition|(
 name|clcf
@@ -1664,6 +1697,8 @@ name|r
 argument_list|)
 return|;
 block|}
+endif|#
+directive|endif
 name|ctx
 operator|=
 name|log

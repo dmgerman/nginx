@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a17cf060108
+DECL|struct|__anon29c510460108
 typedef|typedef
 struct|struct
 block|{
@@ -42,7 +42,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a17cf060208
+DECL|struct|__anon29c510460208
 typedef|typedef
 struct|struct
 block|{
@@ -217,6 +217,11 @@ block|,
 name|NULL
 block|}
 block|,
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_CACHE
+operator|)
 block|{
 name|ngx_string
 argument_list|(
@@ -245,6 +250,8 @@ block|,
 name|NULL
 block|}
 block|,
+endif|#
+directive|endif
 name|ngx_null_command
 block|}
 decl_stmt|;
@@ -443,6 +450,11 @@ argument_list|,
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_CACHE
+operator|)
 if|if
 condition|(
 name|ilcf
@@ -629,15 +641,8 @@ argument_list|)
 return|;
 block|}
 block|}
-else|else
-block|{
-name|ctx
-operator|->
-name|cache
-operator|=
-name|NULL
-expr_stmt|;
-block|}
+endif|#
+directive|endif
 name|len
 operator|=
 name|clcf
@@ -1134,6 +1139,11 @@ name|len
 expr_stmt|;
 block|}
 comment|/**/
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_CACHE
+operator|)
 if|if
 condition|(
 name|ilcf
@@ -1361,6 +1371,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+endif|#
+directive|endif
 return|return
 name|ngx_http_internal_redirect
 argument_list|(

@@ -337,7 +337,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon2aac09f20103
+DECL|enum|__anon29fbc2120103
 typedef|typedef
 enum|enum
 block|{
@@ -376,7 +376,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aac09f20208
+DECL|struct|__anon29fbc2120208
 typedef|typedef
 struct|struct
 block|{
@@ -395,7 +395,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aac09f20308
+DECL|struct|__anon29fbc2120308
 typedef|typedef
 struct|struct
 block|{
@@ -435,16 +435,23 @@ name|ngx_table_elt_t
 modifier|*
 name|content_length
 decl_stmt|;
-DECL|member|accept_encoding
-name|ngx_table_elt_t
-modifier|*
-name|accept_encoding
-decl_stmt|;
 DECL|member|range
 name|ngx_table_elt_t
 modifier|*
 name|range
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_GZIP
+operator|)
+DECL|member|accept_encoding
+name|ngx_table_elt_t
+modifier|*
+name|accept_encoding
+decl_stmt|;
+endif|#
+directive|endif
 DECL|member|authorization
 name|ngx_table_elt_t
 modifier|*
@@ -455,6 +462,18 @@ name|ngx_table_elt_t
 modifier|*
 name|keep_alive
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_PROXY
+operator|)
+DECL|member|x_forwarded_for
+name|ngx_table_elt_t
+modifier|*
+name|x_forwarded_for
+decl_stmt|;
+endif|#
+directive|endif
 DECL|member|host_name_len
 name|size_t
 name|host_name_len
@@ -478,7 +497,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aac09f20408
+DECL|struct|__anon29fbc2120408
 typedef|typedef
 struct|struct
 block|{
@@ -529,7 +548,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aac09f20508
+DECL|struct|__anon29fbc2120508
 typedef|typedef
 struct|struct
 block|{
@@ -552,7 +571,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aac09f20608
+DECL|struct|__anon29fbc2120608
 typedef|typedef
 struct|struct
 block|{
@@ -651,10 +670,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon2aac09f2070a
+DECL|union|__anon29fbc212070a
 union|union
 block|{
-DECL|struct|__anon2aac09f20808
+DECL|struct|__anon29fbc2120808
 struct|struct
 block|{
 DECL|member|fd
@@ -670,7 +689,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon2aac09f20908
+DECL|struct|__anon29fbc2120908
 struct|struct
 block|{
 DECL|member|hash

@@ -49,7 +49,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|enum|__anon2c26f9e10103
+DECL|enum|__anon2b430cec0103
 typedef|typedef
 enum|enum
 block|{
@@ -85,7 +85,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c26f9e10203
+DECL|enum|__anon2b430cec0203
 typedef|typedef
 enum|enum
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c26f9e10308
+DECL|struct|__anon2b430cec0308
 typedef|typedef
 struct|struct
 block|{
@@ -158,7 +158,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c26f9e10408
+DECL|struct|__anon2b430cec0408
 typedef|typedef
 struct|struct
 block|{
@@ -199,23 +199,31 @@ name|ssize_t
 name|temp_file_write_size
 decl_stmt|;
 DECL|member|cyclic_temp_file
-name|int
+name|ngx_flag_t
 name|cyclic_temp_file
 decl_stmt|;
 DECL|member|cache
-name|int
+name|ngx_flag_t
 name|cache
 decl_stmt|;
+DECL|member|set_x_real_ip
+name|ngx_flag_t
+name|set_x_real_ip
+decl_stmt|;
+DECL|member|add_x_forwarded_for
+name|ngx_flag_t
+name|add_x_forwarded_for
+decl_stmt|;
 DECL|member|pass_server
-name|int
+name|ngx_flag_t
 name|pass_server
 decl_stmt|;
 DECL|member|pass_x_accel_expires
-name|int
+name|ngx_flag_t
 name|pass_x_accel_expires
 decl_stmt|;
 DECL|member|ignore_expires
-name|int
+name|ngx_flag_t
 name|ignore_expires
 decl_stmt|;
 DECL|member|lm_factor
@@ -227,11 +235,11 @@ name|time_t
 name|default_expires
 decl_stmt|;
 DECL|member|next_upstream
-name|int
+name|u_int
 name|next_upstream
 decl_stmt|;
 DECL|member|use_stale
-name|int
+name|u_int
 name|use_stale
 decl_stmt|;
 DECL|member|cache_path
@@ -270,7 +278,7 @@ comment|/*  * "EXPR/10/5/- 200/EXP/60 4"  * "MISS/-/-/B 503/-/- -"  * "EXPR/10/2
 end_comment
 
 begin_typedef
-DECL|struct|__anon2c26f9e10508
+DECL|struct|__anon2b430cec0508
 typedef|typedef
 struct|struct
 block|{
@@ -318,7 +326,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c26f9e10608
+DECL|struct|__anon2b430cec0608
 typedef|typedef
 struct|struct
 block|{
@@ -394,7 +402,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c26f9e10708
+DECL|struct|__anon2b430cec0708
 typedef|typedef
 struct|struct
 block|{
@@ -421,7 +429,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c26f9e10808
+DECL|struct|__anon2b430cec0808
 typedef|typedef
 struct|struct
 block|{
@@ -604,7 +612,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c26f9e10908
+DECL|struct|__anon2b430cec0908
 typedef|typedef
 struct|struct
 block|{
@@ -636,7 +644,7 @@ DECL|macro|NGX_HTTP_PROXY_FT_ERROR
 define|#
 directive|define
 name|NGX_HTTP_PROXY_FT_ERROR
-value|2
+value|0x02
 end_define
 
 begin_define
@@ -644,7 +652,7 @@ DECL|macro|NGX_HTTP_PROXY_FT_TIMEOUT
 define|#
 directive|define
 name|NGX_HTTP_PROXY_FT_TIMEOUT
-value|4
+value|0x04
 end_define
 
 begin_define
@@ -652,7 +660,7 @@ DECL|macro|NGX_HTTP_PROXY_FT_INVALID_HEADER
 define|#
 directive|define
 name|NGX_HTTP_PROXY_FT_INVALID_HEADER
-value|8
+value|0x08
 end_define
 
 begin_define
@@ -660,7 +668,7 @@ DECL|macro|NGX_HTTP_PROXY_FT_HTTP_500
 define|#
 directive|define
 name|NGX_HTTP_PROXY_FT_HTTP_500
-value|16
+value|0x10
 end_define
 
 begin_define
@@ -668,7 +676,7 @@ DECL|macro|NGX_HTTP_PROXY_FT_HTTP_404
 define|#
 directive|define
 name|NGX_HTTP_PROXY_FT_HTTP_404
-value|32
+value|0x20
 end_define
 
 begin_define
@@ -676,7 +684,7 @@ DECL|macro|NGX_HTTP_PROXY_FT_BUSY_LOCK
 define|#
 directive|define
 name|NGX_HTTP_PROXY_FT_BUSY_LOCK
-value|64
+value|0x40
 end_define
 
 begin_define
@@ -684,7 +692,7 @@ DECL|macro|NGX_HTTP_PROXY_FT_MAX_WAITING
 define|#
 directive|define
 name|NGX_HTTP_PROXY_FT_MAX_WAITING
-value|128
+value|0x80
 end_define
 
 begin_function_decl
@@ -697,6 +705,14 @@ name|p
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_FILE_CACHE
+operator|)
+end_if
 
 begin_function_decl
 name|int
@@ -744,6 +760,22 @@ end_function_decl
 
 begin_function_decl
 name|void
+name|ngx_http_proxy_cache_busy_lock
+parameter_list|(
+name|ngx_http_proxy_ctx_t
+modifier|*
+name|p
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_function_decl
+name|void
 name|ngx_http_proxy_check_broken_connection
 parameter_list|(
 name|ngx_event_t
@@ -760,17 +792,6 @@ parameter_list|(
 name|ngx_event_t
 modifier|*
 name|rev
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-name|void
-name|ngx_http_proxy_cache_busy_lock
-parameter_list|(
-name|ngx_http_proxy_ctx_t
-modifier|*
-name|p
 parameter_list|)
 function_decl|;
 end_function_decl

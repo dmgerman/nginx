@@ -6601,6 +6601,11 @@ condition|)
 block|{
 continue|continue;
 block|}
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_CACHE
+operator|)
 if|if
 condition|(
 name|cleanup
@@ -6640,6 +6645,8 @@ argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
+endif|#
+directive|endif
 name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
