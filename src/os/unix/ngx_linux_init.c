@@ -231,7 +231,7 @@ name|len
 operator|=
 sizeof|sizeof
 argument_list|(
-name|rtsig_max
+name|ngx_linux_rtsig_max
 argument_list|)
 expr_stmt|;
 if|if
