@@ -57,7 +57,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon293727d00108
+DECL|struct|__anon2bc834440108
 typedef|typedef
 struct|struct
 block|{
@@ -86,7 +86,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon293727d00208
+DECL|struct|__anon2bc834440208
 typedef|typedef
 struct|struct
 block|{
@@ -186,6 +186,13 @@ name|instance
 range|:
 literal|1
 decl_stmt|;
+DECL|member|returned_instance
+name|unsigned
+name|char
+name|returned_instance
+range|:
+literal|1
+decl_stmt|;
 comment|/*      * the event was passed or would be passed to a kernel;      * in aio mode - operation was posted.      */
 DECL|member|active
 name|unsigned
@@ -201,6 +208,13 @@ name|disabled
 range|:
 literal|1
 decl_stmt|;
+DECL|member|posted
+name|unsigned
+name|char
+name|posted
+range|:
+literal|1
+decl_stmt|;
 comment|/* the ready event; in aio mode 0 means that no operation can be posted */
 DECL|member|ready
 name|unsigned
@@ -212,7 +226,7 @@ decl_stmt|;
 comment|/* aio operation is complete */
 DECL|member|complete
 name|unsigned
-name|char
+name|short
 name|complete
 range|:
 literal|1
@@ -263,6 +277,13 @@ DECL|member|unexpected_eof
 name|unsigned
 name|short
 name|unexpected_eof
+range|:
+literal|1
+decl_stmt|;
+DECL|member|accept
+name|unsigned
+name|short
+name|accept
 range|:
 literal|1
 decl_stmt|;
@@ -396,7 +417,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon293727d00308
+DECL|struct|__anon2bc834440308
 typedef|typedef
 struct|struct
 block|{
@@ -506,9 +527,9 @@ modifier|*
 name|process
 function_decl|)
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 function_decl|;
 DECL|member|init
@@ -1175,7 +1196,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon293727d00408
+DECL|struct|__anon2bc834440408
 typedef|typedef
 struct|struct
 block|{
@@ -1203,7 +1224,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293727d00508
+DECL|struct|__anon2bc834440508
 typedef|typedef
 struct|struct
 block|{
@@ -1284,6 +1305,21 @@ end_endif
 
 begin_decl_stmt
 specifier|extern
+name|ngx_atomic_t
+modifier|*
+name|ngx_accept_mutex
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_uint_t
+name|ngx_accept_token
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
 name|int
 name|ngx_event_flags
 decl_stmt|;
@@ -1324,6 +1360,39 @@ parameter_list|(
 name|ngx_event_t
 modifier|*
 name|ev
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_trylock_accept_mutex
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_disable_accept_events
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_enable_accept_events
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
 parameter_list|)
 function_decl|;
 end_function_decl

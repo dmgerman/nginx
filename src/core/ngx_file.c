@@ -298,8 +298,22 @@ argument_list|)
 expr_stmt|;
 if|#
 directive|if
-literal|0
-block_content|file->fd = ngx_open_tempfile(file->name.data, persistent);
+literal|1
+name|file
+operator|->
+name|fd
+operator|=
+name|ngx_open_tempfile
+argument_list|(
+name|file
+operator|->
+name|name
+operator|.
+name|data
+argument_list|,
+name|persistent
+argument_list|)
+expr_stmt|;
 else|#
 directive|else
 name|file

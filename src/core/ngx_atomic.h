@@ -93,7 +93,7 @@ name|old
 decl_stmt|;
 asm|__asm__
 specifier|volatile
-asm|(          NGX_SMP_LOCK     "   xaddl  %0, %2;   "      : "=q" (old) : "0" (1), "m" (*value));
+asm|(          NGX_SMP_LOCK     "   xaddl  %0, %2;   "     "   incl   %0;       "      : "=q" (old) : "0" (1), "m" (*value));
 return|return
 name|old
 return|;
@@ -117,7 +117,7 @@ name|old
 decl_stmt|;
 asm|__asm__
 specifier|volatile
-asm|(          NGX_SMP_LOCK     "   xaddl  %0, %1;   "      : "=q" (old) : "0" (-1), "m" (*value));
+asm|(          NGX_SMP_LOCK     "   xaddl  %0, %1;   "     "   decl   %0;       "      : "=q" (old) : "0" (-1), "m" (*value));
 return|return
 name|old
 return|;
@@ -153,6 +153,52 @@ name|res
 return|;
 block|}
 end_function
+
+begin_elif
+elif|#
+directive|elif
+operator|(
+name|WIN32
+operator|)
+end_elif
+
+begin_define
+DECL|macro|ngx_atomic_inc (x)
+define|#
+directive|define
+name|ngx_atomic_inc
+parameter_list|(
+name|x
+parameter_list|)
+value|InterlockedIncrement
+end_define
+
+begin_define
+DECL|macro|ngx_atomic_dec (x)
+define|#
+directive|define
+name|ngx_atomic_dec
+parameter_list|(
+name|x
+parameter_list|)
+value|InterlockedDecrement
+end_define
+
+begin_define
+DECL|macro|ngx_atomic_cmp_set (lock,old,set)
+define|#
+directive|define
+name|ngx_atomic_cmp_set
+parameter_list|(
+name|lock
+parameter_list|,
+name|old
+parameter_list|,
+name|set
+parameter_list|)
+define|\
+value|InterlockedCompareExchange(lock, set, old)
+end_define
 
 begin_else
 else|#
