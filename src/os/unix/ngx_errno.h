@@ -177,23 +177,32 @@ end_define
 begin_if
 if|#
 directive|if
-literal|0
+operator|(
+name|HAVE_STRERROR_R
+operator|)
 end_if
 
-begin_define
-define|#
-directive|define
-name|ngx_strerror
+begin_function_decl
+name|ngx_int_t
+name|ngx_strerror_r
 parameter_list|(
+name|int
 name|err
+parameter_list|,
+name|char
+modifier|*
+name|errstr
+parameter_list|,
+name|size_t
+name|size
 parameter_list|)
-value|strerror(err)
-end_define
+function_decl|;
+end_function_decl
 
-begin_endif
-endif|#
-directive|endif
-end_endif
+begin_else
+else|#
+directive|else
+end_else
 
 begin_define
 DECL|macro|ngx_strerror_r (err,errstr,size)
@@ -210,6 +219,11 @@ parameter_list|)
 define|\
 value|ngx_cpystrn(errstr, strerror(err), size) - (errstr)
 end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_endif
 endif|#

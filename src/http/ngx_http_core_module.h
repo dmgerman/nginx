@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon274d754f0108
+DECL|struct|__anon2c011d7f0108
 typedef|typedef
 struct|struct
 block|{
@@ -67,7 +67,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon274d754f0203
+DECL|enum|__anon2c011d7f0203
 typedef|typedef
 enum|enum
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon274d754f0308
+DECL|struct|__anon2c011d7f0308
 typedef|typedef
 struct|struct
 block|{
@@ -111,7 +111,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon274d754f0408
+DECL|struct|__anon2c011d7f0408
 typedef|typedef
 struct|struct
 block|{
@@ -138,7 +138,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon274d754f0508
+DECL|struct|__anon2c011d7f0508
 typedef|typedef
 struct|struct
 block|{
@@ -198,7 +198,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon274d754f0608
+DECL|struct|__anon2c011d7f0608
 typedef|typedef
 struct|struct
 block|{
@@ -222,7 +222,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon274d754f0708
+DECL|struct|__anon2c011d7f0708
 typedef|typedef
 struct|struct
 block|{
@@ -264,7 +264,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon274d754f0808
+DECL|struct|__anon2c011d7f0808
 typedef|typedef
 struct|struct
 block|{
@@ -307,7 +307,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon274d754f0908
+DECL|struct|__anon2c011d7f0908
 typedef|typedef
 struct|struct
 block|{
@@ -326,7 +326,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon274d754f0a08
+DECL|struct|__anon2c011d7f0a08
 typedef|typedef
 struct|struct
 block|{
@@ -345,7 +345,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon274d754f0b08
+DECL|struct|__anon2c011d7f0b08
 typedef|typedef
 struct|struct
 block|{
@@ -443,11 +443,18 @@ name|ngx_http_cache_hash_t
 modifier|*
 name|open_files
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|HAVE_PCRE
+operator|)
 DECL|member|regex
 name|ngx_regex_t
 modifier|*
 name|regex
 decl_stmt|;
+endif|#
+directive|endif
 DECL|member|exact_match
 name|unsigned
 name|exact_match

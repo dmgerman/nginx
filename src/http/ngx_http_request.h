@@ -353,7 +353,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2ae360e80108
+DECL|struct|__anon27db11250108
 typedef|typedef
 struct|struct
 block|{
@@ -372,7 +372,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae360e80208
+DECL|struct|__anon27db11250208
 typedef|typedef
 struct|struct
 block|{
@@ -455,7 +455,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae360e80308
+DECL|struct|__anon27db11250308
 typedef|typedef
 struct|struct
 block|{
@@ -506,7 +506,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae360e80408
+DECL|struct|__anon27db11250408
 typedef|typedef
 struct|struct
 block|{
@@ -529,7 +529,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae360e80508
+DECL|struct|__anon27db11250508
 typedef|typedef
 struct|struct
 block|{
@@ -628,10 +628,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon2ae360e8060a
+DECL|union|__anon27db1125060a
 union|union
 block|{
-DECL|struct|__anon2ae360e80708
+DECL|struct|__anon27db11250708
 struct|struct
 block|{
 DECL|member|fd
@@ -647,7 +647,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon2ae360e80808
+DECL|struct|__anon27db11250808
 struct|struct
 block|{
 DECL|member|hash
@@ -886,6 +886,10 @@ decl_stmt|;
 DECL|member|cleanup
 name|ngx_array_t
 name|cleanup
+decl_stmt|;
+DECL|member|header_size
+name|size_t
+name|header_size
 decl_stmt|;
 DECL|member|discarded_buffer
 name|char

@@ -297,12 +297,6 @@ name|ngx_cached_err_log_time
 operator|.
 name|len
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|ngx_localtime(&tm);     len = ngx_snprintf(errstr, sizeof(errstr), "%4d/%02d/%02d %02d:%02d:%02d",                        tm.ngx_tm_year, tm.ngx_tm_mon, tm.ngx_tm_mday,                        tm.ngx_tm_hour, tm.ngx_tm_min, tm.ngx_tm_sec);
-endif|#
-directive|endif
 name|len
 operator|+=
 name|ngx_snprintf

@@ -1763,17 +1763,9 @@ control|)
 block|{
 if|#
 directive|if
-literal|1
-name|ngx_log_debug
-argument_list|(
-argument|r->connection->log
-argument_list|,
-literal|"trans: %s: %d"
-argument|_               clcfp[i]->name.data _ clcfp[i]->exact_match
-argument_list|)
-empty_stmt|;
-endif|#
-directive|endif
+operator|(
+name|HAVE_PCRE
+operator|)
 if|if
 condition|(
 name|clcfp
@@ -1786,6 +1778,43 @@ condition|)
 block|{
 break|break;
 block|}
+endif|#
+directive|endif
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"find location: %s\"%s\""
+argument_list|,
+name|clcfp
+index|[
+name|i
+index|]
+operator|->
+name|exact_match
+condition|?
+literal|"= "
+else|:
+literal|""
+argument_list|,
+name|clcfp
+index|[
+name|i
+index|]
+operator|->
+name|name
+operator|.
+name|data
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|clcfp
@@ -2003,6 +2032,11 @@ break|break;
 block|}
 block|}
 block|}
+if|#
+directive|if
+operator|(
+name|HAVE_PCRE
+operator|)
 if|if
 condition|(
 operator|!
@@ -2029,19 +2063,6 @@ name|i
 operator|++
 control|)
 block|{
-if|#
-directive|if
-literal|1
-name|ngx_log_debug
-argument_list|(
-argument|r->connection->log
-argument_list|,
-literal|"trans: %s: %d"
-argument|_               clcfp[i]->name.data _ clcfp[i]->exact_match
-argument_list|)
-empty_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 operator|!
@@ -2055,6 +2076,50 @@ condition|)
 block|{
 continue|continue;
 block|}
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"find location: %s\"%s\""
+argument_list|,
+name|clcfp
+index|[
+name|i
+index|]
+operator|->
+name|exact_match
+condition|?
+literal|"= "
+else|:
+name|clcfp
+index|[
+name|i
+index|]
+operator|->
+name|regex
+condition|?
+literal|"~ "
+else|:
+literal|""
+argument_list|,
+name|clcfp
+index|[
+name|i
+index|]
+operator|->
+name|name
+operator|.
+name|data
+argument_list|)
+expr_stmt|;
 name|rc
 operator|=
 name|ngx_regex_exec
@@ -2177,6 +2242,9 @@ expr_stmt|;
 break|break;
 block|}
 block|}
+endif|#
+directive|endif
+comment|/* HAVE_PCRE */
 name|clcf
 operator|=
 name|ngx_http_get_module_loc_conf
@@ -2250,12 +2318,6 @@ return|return
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
 block|}
-if|#
-directive|if
-literal|0
-block_content|r->headers_out.location->key.len = 8;         r->headers_out.location->key.data = "Location";
-endif|#
-directive|endif
 name|r
 operator|->
 name|headers_out
@@ -2711,14 +2773,25 @@ block|{
 name|int
 name|i
 decl_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|r->connection->log
+name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-literal|"internal redirect: '%s'"
-argument|_ uri->data
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"internal redirect: \"%s\""
+argument_list|,
+name|uri
+operator|->
+name|data
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 name|r
 operator|->
 name|uri
@@ -3574,6 +3647,11 @@ decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|HAVE_PCRE
+operator|)
 if|if
 condition|(
 name|first
@@ -3607,6 +3685,8 @@ return|return
 literal|0
 return|;
 block|}
+endif|#
+directive|endif
 name|rc
 operator|=
 name|ngx_strcmp
@@ -4040,6 +4120,11 @@ literal|'*'
 operator|)
 condition|)
 block|{
+if|#
+directive|if
+operator|(
+name|HAVE_PCRE
+operator|)
 name|err
 operator|.
 name|len
@@ -4139,6 +4224,32 @@ index|]
 operator|.
 name|data
 expr_stmt|;
+else|#
+directive|else
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"the using of the regex \"%s\" "
+literal|"requires PCRE library"
+argument_list|,
+name|value
+index|[
+literal|2
+index|]
+operator|.
+name|data
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CONF_ERROR
+return|;
+endif|#
+directive|endif
 block|}
 else|else
 block|{

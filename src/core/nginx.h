@@ -28,6 +28,14 @@ name|NGINX_CONF
 value|"nginx.conf"
 end_define
 
+begin_define
+DECL|macro|NGINX_PID
+define|#
+directive|define
+name|NGINX_PID
+value|"nginx.pid"
+end_define
+
 begin_decl_stmt
 specifier|extern
 name|int

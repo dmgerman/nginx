@@ -19,7 +19,7 @@ end_include
 
 begin_function
 DECL|function|ngx_http_parse_request_line (ngx_http_request_t * r)
-name|int
+name|ngx_int_t
 name|ngx_http_parse_request_line
 parameter_list|(
 name|ngx_http_request_t
@@ -33,7 +33,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2b577aec0103
+DECL|enum|__anon299b772a0103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1228,7 +1228,7 @@ end_function
 
 begin_function
 DECL|function|ngx_http_parse_header_line (ngx_http_request_t * r,ngx_hunk_t * h)
-name|int
+name|ngx_int_t
 name|ngx_http_parse_header_line
 parameter_list|(
 name|ngx_http_request_t
@@ -1248,7 +1248,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2b577aec0203
+DECL|enum|__anon299b772a0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1828,7 +1828,7 @@ end_function
 
 begin_function
 DECL|function|ngx_http_parse_complex_uri (ngx_http_request_t * r)
-name|int
+name|ngx_int_t
 name|ngx_http_parse_complex_uri
 parameter_list|(
 name|ngx_http_request_t
@@ -1849,7 +1849,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2b577aec0303
+DECL|enum|__anon299b772a0303
 enum|enum
 block|{
 DECL|enumerator|sw_usual

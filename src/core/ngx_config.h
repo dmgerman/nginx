@@ -167,7 +167,7 @@ DECL|macro|PTR_FMT
 define|#
 directive|define
 name|PTR_FMT
-value|"%X"
+value|"%08X"
 end_define
 
 begin_include
@@ -262,6 +262,22 @@ define|#
 directive|define
 name|NGX_ROTATE_SIGNAL
 value|USR1
+end_define
+
+begin_define
+DECL|macro|NGX_SHUTDOWN_SIGNAL
+define|#
+directive|define
+name|NGX_SHUTDOWN_SIGNAL
+value|TERM
+end_define
+
+begin_define
+DECL|macro|NGX_INTERRUPT_SIGNAL
+define|#
+directive|define
+name|NGX_INTERRUPT_SIGNAL
+value|INT
 end_define
 
 begin_endif
