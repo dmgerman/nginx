@@ -295,7 +295,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a408af20108
+DECL|struct|__anon2953bcf20108
 typedef|typedef
 struct|struct
 block|{
@@ -419,6 +419,17 @@ parameter_list|(
 name|conf
 parameter_list|,
 define|default)                                   \     if (conf == NGX_CONF_UNSET) {                                            \         conf = default;                                                      \     }
+end_define
+
+begin_define
+DECL|macro|ngx_conf_init_unsigned_value (conf,default)
+define|#
+directive|define
+name|ngx_conf_init_unsigned_value
+parameter_list|(
+name|conf
+parameter_list|,
+define|default)                          \     if (conf == (unsigned) NGX_CONF_UNSET) {                                 \         conf = default;                                                      \     }
 end_define
 
 begin_define

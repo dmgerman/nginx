@@ -1587,6 +1587,14 @@ name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
 block|}
 block|}
+name|ngx_log_debug
+argument_list|(
+argument|r->connection->log
+argument_list|,
+literal|"FILE: %d"
+argument|_ r->file.fd
+argument_list|)
+empty_stmt|;
 if|if
 condition|(
 operator|!

@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|enum|__anon2bc8ed2e0103
+DECL|enum|__anon29028e9c0103
 typedef|typedef
 enum|enum
 block|{
@@ -68,7 +68,7 @@ comment|/*     "[%time] [%level] %pid#%tid: %message:(%errno)%errstr, while %act
 end_comment
 
 begin_typedef
-DECL|struct|__anon2bc8ed2e0208
+DECL|struct|__anon29028e9c0208
 typedef|typedef
 struct|struct
 block|{
@@ -104,18 +104,14 @@ name|size_t
 name|len
 parameter_list|)
 function_decl|;
+if|#
+directive|if
+literal|0
 comment|/* STUB */
-DECL|member|action
-name|char
-modifier|*
-name|action
-decl_stmt|;
-DECL|member|context
-name|char
-modifier|*
-name|context
-decl_stmt|;
+block|char     *action;     char     *context;
 comment|/* */
+endif|#
+directive|endif
 DECL|typedef|ngx_log_t
 block|}
 name|ngx_log_t
@@ -548,6 +544,32 @@ end_endif
 begin_comment
 comment|/* VARIADIC MACROS */
 end_comment
+
+begin_define
+DECL|macro|ngx_log_alloc_log (pool,log)
+define|#
+directive|define
+name|ngx_log_alloc_log
+parameter_list|(
+name|pool
+parameter_list|,
+name|log
+parameter_list|)
+value|ngx_palloc(pool, log, sizeof(ngx_log_t))
+end_define
+
+begin_define
+DECL|macro|ngx_log_copy_log (new,old)
+define|#
+directive|define
+name|ngx_log_copy_log
+parameter_list|(
+name|new
+parameter_list|,
+name|old
+parameter_list|)
+value|ngx_memcpy(new, old, sizeof(ngx_log_t))
+end_define
 
 begin_function_decl
 name|ngx_log_t

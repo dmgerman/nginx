@@ -226,19 +226,6 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|event_name
-specifier|static
-name|ngx_str_t
-name|event_name
-init|=
-name|ngx_string
-argument_list|(
-literal|"event"
-argument_list|)
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
 DECL|variable|ngx_events_commands
 specifier|static
 name|ngx_command_t
@@ -293,6 +280,19 @@ comment|/* module type */
 name|NULL
 comment|/* init module */
 block|}
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|event_name
+specifier|static
+name|ngx_str_t
+name|event_name
+init|=
+name|ngx_string
+argument_list|(
+literal|"event"
+argument_list|)
 decl_stmt|;
 end_decl_stmt
 

@@ -1,6 +1,6 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_comment
-comment|/*  * small file in malloc()ed memory, mmap()ed file, file descriptor only,  * file access time only (to estimate can pages pages still be in memory),  * translated URI (ngx_http_index_hanlder),  * compiled script (ngx_http_ssi_filter).  */
+comment|/*  * small file in malloc()ed memory, mmap()ed file, file descriptor only,  * file access time only (to estimate could pages still be in memory),  * translated URI (ngx_http_index_hanlder),  * compiled script (ngx_http_ssi_filter).  */
 end_comment
 
 begin_define
@@ -32,7 +32,11 @@ value|0x00000004
 end_define
 
 begin_comment
-comment|/* complied script */
+comment|/* 301 location "/dir" -> "dir/" in ngx_http_core_handler */
+end_comment
+
+begin_comment
+comment|/* compiled script in ngx_http_ssi_filter  */
 end_comment
 
 begin_define
@@ -52,7 +56,7 @@ value|0xFFFF0000
 end_define
 
 begin_typedef
-DECL|struct|__anon2bcf8cec0408
+DECL|struct|__anon2894daad0408
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +101,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bcf8cec0508
+DECL|struct|__anon2894daad0508
 typedef|typedef
 struct|struct
 block|{
@@ -121,7 +125,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bcf8cec0608
+DECL|struct|__anon2894daad0608
 typedef|typedef
 struct|struct
 block|{

@@ -928,6 +928,7 @@ condition|(
 name|failed
 condition|)
 block|{
+comment|/* TODO: configurable */
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_EMERG
