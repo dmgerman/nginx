@@ -2,7 +2,7 @@ begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_include
 include|#
 directive|include
-file|<windows.h>
+file|<ngx_config.h>
 end_include
 
 begin_include

@@ -78,7 +78,13 @@ block|,
 comment|/* create server config */
 name|NULL
 block|,
+comment|/* init server config */
+name|NULL
+block|,
 comment|/* create location config */
+name|NULL
+block|,
+comment|/* merge location config */
 name|NULL
 block|,
 comment|/* translate handler */

@@ -245,7 +245,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2894e7570108
+DECL|struct|__anon2ae68b890108
 typedef|typedef
 struct|struct
 block|{
@@ -293,7 +293,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2894e7570208
+DECL|struct|__anon2ae68b890208
 typedef|typedef
 struct|struct
 block|{
@@ -317,7 +317,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2894e7570308
+DECL|struct|__anon2ae68b890308
 typedef|typedef
 struct|struct
 block|{
@@ -358,7 +358,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2894e7570408
+DECL|struct|__anon2ae68b890408
 typedef|typedef
 struct|struct
 block|{
@@ -681,7 +681,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2894e7570508
+DECL|struct|__anon2ae68b890508
 typedef|typedef
 struct|struct
 block|{
@@ -743,7 +743,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2894e7570608
+DECL|struct|__anon2ae68b890608
 typedef|typedef
 struct|struct
 block|{
@@ -764,6 +764,23 @@ modifier|*
 name|p
 parameter_list|)
 function_decl|;
+DECL|member|init_srv_conf
+name|void
+modifier|*
+function_decl|(
+modifier|*
+name|init_srv_conf
+function_decl|)
+parameter_list|(
+name|ngx_pool_t
+modifier|*
+name|p
+parameter_list|,
+name|void
+modifier|*
+name|conf
+parameter_list|)
+function_decl|;
 DECL|member|create_loc_conf
 name|void
 modifier|*
@@ -775,6 +792,27 @@ parameter_list|(
 name|ngx_pool_t
 modifier|*
 name|p
+parameter_list|)
+function_decl|;
+DECL|member|merge_loc_conf
+name|void
+modifier|*
+function_decl|(
+modifier|*
+name|merge_loc_conf
+function_decl|)
+parameter_list|(
+name|ngx_pool_t
+modifier|*
+name|p
+parameter_list|,
+name|void
+modifier|*
+name|prev
+parameter_list|,
+name|void
+modifier|*
+name|conf
 parameter_list|)
 function_decl|;
 DECL|member|translate_handler

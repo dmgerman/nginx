@@ -136,51 +136,17 @@ name|ngx_http_max_module
 decl_stmt|;
 end_decl_stmt
 
-begin_decl_stmt
-DECL|variable|ngx_http_core_commands
-specifier|static
-name|ngx_command_t
-name|ngx_http_core_commands
-index|[]
-init|=
-block|{
-block|{
-name|ngx_string
-argument_list|(
-literal|"send_timeout"
-argument_list|)
-block|,
-name|NGX_CONF_TAKE1
-block|,
-name|ngx_conf_set_time_slot
-block|,
-name|NGX_HTTP_LOC_CONF
-block|,
-name|offsetof
-argument_list|(
-argument|ngx_http_core_loc_conf_t
-argument_list|,
-argument|send_timeout
-argument_list|)
-block|}
-block|,
-block|{
-name|ngx_string
-argument_list|(
-literal|""
-argument_list|)
-block|,
+begin_if
+if|#
+directive|if
 literal|0
-block|,
-name|NULL
-block|,
-literal|0
-block|,
-literal|0
-block|}
-block|}
-decl_stmt|;
-end_decl_stmt
+end_if
+
+begin_endif
+unit|static ngx_command_t ngx_http_core_commands[] = {      {ngx_string("send_timeout"),      NGX_CONF_TAKE1,       ngx_conf_set_time_slot,      NGX_HTTP_LOC_CONF,      offsetof(ngx_http_core_loc_conf_t, send_timeout)},      {ngx_string(""), 0, NULL, 0, 0} };
+endif|#
+directive|endif
+end_endif
 
 begin_decl_stmt
 DECL|variable|ngx_http_core_module_ctx
@@ -193,9 +159,15 @@ block|,
 name|ngx_http_core_create_srv_conf
 block|,
 comment|/* create server config */
+name|NULL
+block|,
+comment|/* init server config */
 name|ngx_http_core_create_loc_conf
 block|,
 comment|/* create location config */
+name|NULL
+block|,
+comment|/* merge location config */
 name|ngx_http_core_translate_handler
 block|,
 comment|/* translate handler */
@@ -215,27 +187,37 @@ block|}
 decl_stmt|;
 end_decl_stmt
 
-begin_decl_stmt
-DECL|variable|ngx_http_core_module
-name|ngx_module_t
-name|ngx_http_core_module
-init|=
-block|{
-operator|&
-name|ngx_http_core_module_ctx
-block|,
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
+begin_comment
+unit|ngx_module_t  ngx_http_core_module = {&ngx_http_core_module_ctx,
 comment|/* module context */
-name|ngx_http_core_commands
-block|,
+end_comment
+
+begin_comment
+unit|ngx_http_core_commands,
 comment|/* module directives */
-name|NGX_HTTP_MODULE_TYPE
-block|,
+end_comment
+
+begin_comment
+unit|NGX_HTTP_MODULE_TYPE,
 comment|/* module type */
-name|NULL
+end_comment
+
+begin_comment
+unit|NULL
 comment|/* init module */
-block|}
-decl_stmt|;
-end_decl_stmt
+end_comment
+
+begin_endif
+unit|};
+endif|#
+directive|endif
+end_endif
 
 begin_function
 DECL|function|ngx_http_handler (ngx_http_request_t * r)
@@ -1158,12 +1140,6 @@ operator|!=
 name|NGX_INVALID_FILE
 condition|)
 block|{
-comment|/* STUB WIN32 */
-if|#
-directive|if
-operator|(
-name|WIN32
-operator|)
 if|if
 condition|(
 name|ngx_close_file
@@ -1175,26 +1151,9 @@ operator|.
 name|fd
 argument_list|)
 operator|==
-literal|0
+name|NGX_FILE_ERROR
 condition|)
-else|#
-directive|else
-if|if
-condition|(
-name|ngx_close_file
-argument_list|(
-name|r
-operator|->
-name|file
-operator|.
-name|fd
-argument_list|)
-operator|==
-operator|-
-literal|1
-condition|)
-endif|#
-directive|endif
+block|{
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ERR
@@ -1211,6 +1170,7 @@ name|ngx_close_file_n
 literal|" failed"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/*     if (r->logging)         ngx_http_log_request(r); */
 name|ngx_destroy_pool
@@ -1327,18 +1287,6 @@ return|;
 block|}
 end_function
 
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-
-begin_endif
-unit|{"http", ngx_http_enter_container, 0,      NGX_GLOBAL_CONF, NGX_CONF_CONTAINER},      {"server", ngx_http_enter_server_container, 0,      NGX_HTTP_CONF, NGX_CONF_CONTAINER],      {"location", ngx_http_enter_location_container, 0,      NGX_HTTP_SRV_CONF, NGX_CONF_CONTAINER|NGX_CONF_TAKE1}   int ngx_http_enter_container() {      create_srv_conf(null_srv_conf)      create_loc_conf(null_loc_conf) }  int ngx_http_exit_container() {      nothing ? }   int ngx_http_enter_server_container() {      create_srv_conf()      create_loc_conf(NULL) }  int ngx_http_exit_server_container() {      merge_srv_conf(srv_conf, null_srv_conf)      merge_loc_conf(loc_conf, null_loc_conf)       iterate check_loc_conf_is_set and merge_loc_conf() }  int ngx_http_enter_location_container() {      create_loc_conf(loc)       push to array }  int ngx_http_exit_location_container() { }
-endif|#
-directive|endif
-end_endif
-
 begin_function
 DECL|function|ngx_http_core_create_srv_conf (ngx_pool_t * pool)
 specifier|static
@@ -1423,18 +1371,6 @@ name|conf
 return|;
 block|}
 end_function
-
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-
-begin_endif
-unit|static void *ngx_http_core_create_conf(ngx_pool_t *pool) {      ngx_test_null(conf, ngx_palloc(pool, sizeof(ngx_http_core_conf_t)), NULL);      ngx_test_null(conf->srv, ngx_http_core_create_srv_conf_t(pool), NULL);     ngx_test_null(conf->loc, ngx_http_core_create_loc_conf_t(pool), NULL);     conf->parent =      conf->next = NULL; }
-endif|#
-directive|endif
-end_endif
 
 end_unit
 

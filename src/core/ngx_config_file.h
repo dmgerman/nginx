@@ -124,6 +124,14 @@ name|NGX_CONF_FILE_DONE
 value|2
 end_define
 
+begin_define
+DECL|macro|NGX_CONF_ERROR
+define|#
+directive|define
+name|NGX_CONF_ERROR
+value|(char *) -1
+end_define
+
 begin_typedef
 DECL|typedef|ngx_conf_t
 typedef|typedef
@@ -189,7 +197,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b4dd6fe0108
+DECL|struct|__anon299d42a20108
 typedef|typedef
 struct|struct
 block|{
@@ -226,7 +234,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4dd6fe0208
+DECL|struct|__anon299d42a20208
 typedef|typedef
 struct|struct
 block|{

@@ -25,7 +25,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon298b4bbb0108
+DECL|struct|__anon2c42d5c00108
 typedef|typedef
 struct|struct
 block|{
@@ -40,6 +40,11 @@ name|void
 modifier|*
 modifier|*
 name|loc_conf
+decl_stmt|;
+DECL|member|locations
+name|ngx_array_t
+modifier|*
+name|locations
 decl_stmt|;
 DECL|typedef|ngx_http_conf_ctx_t
 block|}
