@@ -321,13 +321,6 @@ name|ngx_inherited
 decl_stmt|;
 end_decl_stmt
 
-begin_decl_stmt
-DECL|variable|ngx_test_config
-name|ngx_uint_t
-name|ngx_test_config
-decl_stmt|;
-end_decl_stmt
-
 begin_function
 DECL|function|main (int argc,char * const * argv)
 name|int
@@ -589,6 +582,19 @@ condition|(
 name|ngx_test_config
 condition|)
 block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"config syntax is ok"
+argument_list|)
+expr_stmt|;
 return|return
 literal|0
 return|;
@@ -680,6 +686,13 @@ return|;
 block|}
 endif|#
 directive|endif
+if|if
+condition|(
+name|ngx_process
+operator|==
+name|NGX_PROCESS_MASTER
+condition|)
+block|{
 name|ngx_master_process_cycle
 argument_list|(
 name|cycle
@@ -688,6 +701,18 @@ operator|&
 name|ctx
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|ngx_single_process_cycle
+argument_list|(
+name|cycle
+argument_list|,
+operator|&
+name|ctx
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 literal|0
 return|;

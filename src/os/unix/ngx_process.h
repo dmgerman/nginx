@@ -41,7 +41,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298a6adc0108
+DECL|struct|__anon29cf09f30108
 typedef|typedef
 struct|struct
 block|{
@@ -73,6 +73,12 @@ name|respawn
 range|:
 literal|1
 decl_stmt|;
+DECL|member|just_respawn
+name|unsigned
+name|just_respawn
+range|:
+literal|1
+decl_stmt|;
 DECL|member|detached
 name|unsigned
 name|detached
@@ -98,7 +104,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298a6adc0208
+DECL|struct|__anon29cf09f30208
 typedef|typedef
 struct|struct
 block|{
@@ -157,11 +163,19 @@ value|-2
 end_define
 
 begin_define
+DECL|macro|NGX_PROCESS_JUST_RESPAWN
+define|#
+directive|define
+name|NGX_PROCESS_JUST_RESPAWN
+value|-3
+end_define
+
+begin_define
 DECL|macro|NGX_PROCESS_DETACHED
 define|#
 directive|define
 name|NGX_PROCESS_DETACHED
-value|-3
+value|-4
 end_define
 
 begin_define
@@ -216,17 +230,6 @@ parameter_list|,
 name|ngx_exec_ctx_t
 modifier|*
 name|ctx
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-name|void
-name|ngx_respawn_processes
-parameter_list|(
-name|ngx_cycle_t
-modifier|*
-name|cycle
 parameter_list|)
 function_decl|;
 end_function_decl

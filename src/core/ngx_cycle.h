@@ -97,7 +97,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b52b25e0108
+DECL|struct|__anon29e4ed620108
 typedef|typedef
 struct|struct
 block|{
@@ -224,6 +224,13 @@ begin_decl_stmt
 specifier|extern
 name|ngx_module_t
 name|ngx_core_module
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_uint_t
+name|ngx_test_config
 decl_stmt|;
 end_decl_stmt
 

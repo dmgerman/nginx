@@ -1165,9 +1165,14 @@ argument_list|)
 expr_stmt|;
 name|ngx_event_expire_timers
 argument_list|(
+operator|(
+name|ngx_msec_t
+operator|)
+operator|(
 name|ngx_elapsed_msec
 operator|-
 name|ngx_old_elapsed_msec
+operator|)
 argument_list|)
 expr_stmt|;
 block|}

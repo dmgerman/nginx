@@ -109,7 +109,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c2f2a3b0108
+DECL|struct|__anon295bc44e0108
 typedef|typedef
 struct|struct
 block|{
@@ -910,9 +910,14 @@ argument_list|)
 expr_stmt|;
 name|ngx_event_expire_timers
 argument_list|(
+operator|(
+name|ngx_msec_t
+operator|)
+operator|(
 name|ngx_elapsed_msec
 operator|-
 name|ngx_old_elapsed_msec
+operator|)
 argument_list|)
 expr_stmt|;
 block|}

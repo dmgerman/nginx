@@ -62,6 +62,13 @@ name|ngx_cleaner_event
 decl_stmt|;
 end_decl_stmt
 
+begin_decl_stmt
+DECL|variable|ngx_test_config
+name|ngx_uint_t
+name|ngx_test_config
+decl_stmt|;
+end_decl_stmt
+
 begin_comment
 comment|/* STUB NAME */
 end_comment
@@ -1383,6 +1390,9 @@ block|}
 block|}
 if|if
 condition|(
+operator|!
+name|ngx_test_config
+operator|&&
 operator|!
 name|failed
 condition|)

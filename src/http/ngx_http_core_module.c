@@ -5866,7 +5866,7 @@ name|cf
 operator|->
 name|cycle
 operator|->
-name|log
+name|new_log
 expr_stmt|;
 block|}
 block|}
