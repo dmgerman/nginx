@@ -18,6 +18,20 @@ directive|include
 file|<ngx_config.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_core.h>
+end_include
+
+begin_typedef
+DECL|typedef|ngx_epoch_msec_t
+typedef|typedef
+name|uint64_t
+name|ngx_epoch_msec_t
+typedef|;
+end_typedef
+
 begin_typedef
 DECL|typedef|ngx_msec_t
 typedef|typedef
@@ -31,7 +45,7 @@ DECL|macro|NGX_MAX_MSEC
 define|#
 directive|define
 name|NGX_MAX_MSEC
-value|(u_int) -1
+value|(ngx_msec_t) -1
 end_define
 
 begin_typedef
@@ -99,17 +113,6 @@ name|ngx_tm_wday
 value|tm_wday
 end_define
 
-begin_define
-DECL|macro|ngx_msleep (ms)
-define|#
-directive|define
-name|ngx_msleep
-parameter_list|(
-name|ms
-parameter_list|)
-value|usleep(ms * 1000)
-end_define
-
 begin_function_decl
 name|void
 name|ngx_localtime
@@ -121,21 +124,27 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
-begin_function_decl
-name|ngx_msec_t
-name|ngx_msec
+begin_define
+DECL|macro|ngx_gettimeofday (tp)
+define|#
+directive|define
+name|ngx_gettimeofday
 parameter_list|(
-name|void
+name|tp
 parameter_list|)
-function_decl|;
-end_function_decl
+value|gettimeofday(tp, NULL);
+end_define
 
-begin_function_decl
-name|time_t
-name|ngx_time
-parameter_list|()
-function_decl|;
-end_function_decl
+begin_define
+DECL|macro|ngx_msleep (ms)
+define|#
+directive|define
+name|ngx_msleep
+parameter_list|(
+name|ms
+parameter_list|)
+value|usleep(ms * 1000)
+end_define
 
 begin_decl_stmt
 specifier|extern

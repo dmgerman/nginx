@@ -85,7 +85,7 @@ name|min
 decl_stmt|,
 name|sec
 decl_stmt|;
-DECL|enum|__anon28828fea0103
+DECL|enum|__anon290e0e2b0103
 enum|enum
 block|{
 DECL|enumerator|no
@@ -1234,7 +1234,7 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-comment|/* shift new year to 1st March, needed for Gauss's formula */
+comment|/* shift new year to March 1, needed for Gauss's formula */
 if|if
 condition|(
 operator|--
@@ -1280,7 +1280,7 @@ operator|+
 name|day
 operator|-
 literal|31
-comment|/* 719527 days are between 1 March 1 BC and 1 March 1970,               31 and 28 days in Jan and Feb 1970  */
+comment|/*             * 719527 days are between March 1, 1 BC and March 1, 1970,             * 31 and 28 days in January and February 1970             */
 operator|-
 literal|719527
 operator|+

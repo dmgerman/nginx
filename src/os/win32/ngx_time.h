@@ -25,10 +25,17 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
+DECL|typedef|ngx_epoch_msec_t
+typedef|typedef
+name|uint64_t
+name|ngx_epoch_msec_t
+typedef|;
+end_typedef
+
+begin_typedef
 DECL|typedef|ngx_msec_t
 typedef|typedef
-name|unsigned
-name|int
+name|u_int
 name|ngx_msec_t
 typedef|;
 end_typedef
@@ -38,7 +45,7 @@ DECL|macro|NGX_MAX_MSEC
 define|#
 directive|define
 name|NGX_MAX_MSEC
-value|~0
+value|(ngx_msec_t) -1
 end_define
 
 begin_typedef
@@ -129,26 +136,34 @@ name|ngx_localtime
 value|GetLocalTime
 end_define
 
-begin_define
-DECL|macro|ngx_msec
-define|#
-directive|define
-name|ngx_msec
-value|GetTickCount
-end_define
+begin_struct
+DECL|struct|timeval
+struct|struct
+name|timeval
+block|{
+DECL|member|tv_sec
+name|long
+name|tv_sec
+decl_stmt|;
+DECL|member|tv_usec
+name|long
+name|tv_usec
+decl_stmt|;
+block|}
+struct|;
+end_struct
 
-begin_comment
-comment|/* STUB */
-end_comment
-
-begin_define
-DECL|macro|ngx_time ()
-define|#
-directive|define
-name|ngx_time
-parameter_list|()
-value|time(NULL)
-end_define
+begin_function_decl
+name|void
+name|ngx_gettimeofday
+parameter_list|(
+name|struct
+name|timeval
+modifier|*
+name|tp
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_endif
 endif|#

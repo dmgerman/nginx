@@ -932,8 +932,6 @@ name|i
 decl_stmt|;
 name|ngx_msec_t
 name|timer
-decl_stmt|,
-name|delta
 decl_stmt|;
 name|ngx_err_t
 name|err
@@ -947,9 +945,16 @@ name|ngx_event_t
 modifier|*
 name|ev
 decl_stmt|;
+name|ngx_epoch_msec_t
+name|delta
+decl_stmt|;
 name|ngx_connection_t
 modifier|*
 name|c
+decl_stmt|;
+name|struct
+name|timeval
+name|tv
 decl_stmt|;
 name|timer
 operator|=
@@ -961,10 +966,25 @@ condition|(
 name|timer
 condition|)
 block|{
+name|ngx_gettimeofday
+argument_list|(
+operator|&
+name|tv
+argument_list|)
+expr_stmt|;
 name|delta
 operator|=
-name|ngx_msec
-argument_list|()
+name|tv
+operator|.
+name|tv_sec
+operator|*
+literal|1000
+operator|+
+name|tv
+operator|.
+name|tv_usec
+operator|/
+literal|1000
 expr_stmt|;
 block|}
 else|else
@@ -1055,7 +1075,31 @@ literal|"poll ready %d"
 argument|_ ready
 argument_list|)
 empty_stmt|;
-comment|/* TODO: time */
+name|ngx_gettimeofday
+argument_list|(
+operator|&
+name|tv
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|ngx_cached_time
+operator|!=
+name|tv
+operator|.
+name|tv_sec
+condition|)
+block|{
+name|ngx_cached_time
+operator|=
+name|tv
+operator|.
+name|tv_sec
+expr_stmt|;
+name|ngx_time_update
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 operator|(
@@ -1068,8 +1112,17 @@ condition|)
 block|{
 name|delta
 operator|=
-name|ngx_msec
-argument_list|()
+name|tv
+operator|.
+name|tv_sec
+operator|*
+literal|1000
+operator|+
+name|tv
+operator|.
+name|tv_usec
+operator|/
+literal|1000
 operator|-
 name|delta
 expr_stmt|;
@@ -1083,13 +1136,16 @@ argument_list|(
 argument|log
 argument_list|,
 literal|"poll timer: %d, delta: %d"
-argument|_ timer _ delta
+argument|_ timer _ (int) delta
 argument_list|)
 empty_stmt|;
 endif|#
 directive|endif
 name|ngx_event_expire_timers
 argument_list|(
+operator|(
+name|ngx_msec_t
+operator|)
 name|delta
 argument_list|)
 expr_stmt|;
@@ -1128,7 +1184,7 @@ argument_list|(
 argument|log
 argument_list|,
 literal|"poll timer: %d, delta: %d"
-argument|_ timer _ delta
+argument|_ timer _ (int) delta
 argument_list|)
 empty_stmt|;
 endif|#

@@ -78,7 +78,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2a57ecca0108
+DECL|struct|__anon297f01940108
 typedef|typedef
 struct|struct
 block|{
@@ -1300,8 +1300,6 @@ name|j
 decl_stmt|;
 name|ngx_msec_t
 name|timer
-decl_stmt|,
-name|delta
 decl_stmt|;
 name|ngx_err_t
 name|err
@@ -1310,6 +1308,9 @@ name|ngx_cycle_t
 modifier|*
 modifier|*
 name|cycle
+decl_stmt|;
+name|ngx_epoch_msec_t
+name|delta
 decl_stmt|;
 name|ngx_connection_t
 modifier|*
@@ -1333,12 +1334,10 @@ condition|(
 name|timer
 condition|)
 block|{
-name|gettimeofday
+name|ngx_gettimeofday
 argument_list|(
 operator|&
 name|tv
-argument_list|,
-name|NULL
 argument_list|)
 expr_stmt|;
 name|delta
@@ -1481,12 +1480,10 @@ name|nchanges
 operator|=
 literal|0
 expr_stmt|;
-name|gettimeofday
+name|ngx_gettimeofday
 argument_list|(
 operator|&
 name|tv
-argument_list|,
-name|NULL
 argument_list|)
 expr_stmt|;
 if|if
@@ -1544,13 +1541,16 @@ argument_list|(
 argument|log
 argument_list|,
 literal|"devpoll timer: %d, delta: %d"
-argument|_ timer _ delta
+argument|_ timer _ (int)delta
 argument_list|)
 empty_stmt|;
 endif|#
 directive|endif
 name|ngx_event_expire_timers
 argument_list|(
+operator|(
+name|ngx_msec_t
+operator|)
 name|delta
 argument_list|)
 expr_stmt|;
@@ -1589,7 +1589,7 @@ argument_list|(
 argument|log
 argument_list|,
 literal|"devpoll timer: %d, delta: %d"
-argument|_ timer _ delta
+argument|_ timer _ (int)delta
 argument_list|)
 empty_stmt|;
 endif|#

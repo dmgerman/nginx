@@ -296,7 +296,7 @@ value|(*(ngx_file_uniq_t *)&fi.nFileIndexHigh)
 end_define
 
 begin_comment
-comment|/* There are 134774 days between 1 Jan 1970 and 1 Jan 1601,    11644473600 seconds or 11644473600,000,000,0 100-nanosecond intervals */
+comment|/* 116444736000000000 is commented in src/os/win32/ngx_time.c */
 end_comment
 
 begin_define

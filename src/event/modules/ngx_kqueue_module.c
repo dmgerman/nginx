@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2745c4ae0108
+DECL|struct|__anon27a2cbb30108
 typedef|typedef
 struct|struct
 block|{
@@ -1315,12 +1315,13 @@ name|err
 decl_stmt|;
 name|ngx_msec_t
 name|timer
-decl_stmt|,
-name|delta
 decl_stmt|;
 name|ngx_event_t
 modifier|*
 name|ev
+decl_stmt|;
+name|ngx_epoch_msec_t
+name|delta
 decl_stmt|;
 name|struct
 name|timeval
@@ -1368,12 +1369,10 @@ operator|=
 operator|&
 name|ts
 expr_stmt|;
-name|gettimeofday
+name|ngx_gettimeofday
 argument_list|(
 operator|&
 name|tv
-argument_list|,
-name|NULL
 argument_list|)
 expr_stmt|;
 name|delta
@@ -1393,10 +1392,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|timer
-operator|=
-literal|0
-expr_stmt|;
 name|delta
 operator|=
 literal|0
@@ -1462,12 +1457,10 @@ name|nchanges
 operator|=
 literal|0
 expr_stmt|;
-name|gettimeofday
+name|ngx_gettimeofday
 argument_list|(
 operator|&
 name|tv
-argument_list|,
-name|NULL
 argument_list|)
 expr_stmt|;
 if|if
@@ -1520,7 +1513,7 @@ argument_list|(
 argument|log
 argument_list|,
 literal|"kevent timer: %d, delta: %d"
-argument|_ timer _ delta
+argument|_ timer _ (int) delta
 argument_list|)
 empty_stmt|;
 endif|#
@@ -1528,6 +1521,9 @@ directive|endif
 comment|/*          * The expired timers must be handled before a processing of the events          * because the new timers can be added during a processing          */
 name|ngx_event_expire_timers
 argument_list|(
+operator|(
+name|ngx_msec_t
+operator|)
 name|delta
 argument_list|)
 expr_stmt|;
@@ -1566,7 +1562,7 @@ argument_list|(
 argument|log
 argument_list|,
 literal|"kevent timer: %d, delta: %d"
-argument|_ timer _ delta
+argument|_ timer _ (int) delta
 argument_list|)
 empty_stmt|;
 endif|#

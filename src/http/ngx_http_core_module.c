@@ -1835,7 +1835,7 @@ if|if
 condition|(
 name|r
 operator|->
-name|err_status
+name|err_ctx
 condition|)
 block|{
 name|r
@@ -2170,32 +2170,14 @@ block|{
 break|break;
 block|}
 block|}
-comment|/* clear the modules contexts */
 if|if
 condition|(
 name|r
 operator|->
-name|error_page
+name|err_ctx
 condition|)
 block|{
-name|r
-operator|->
-name|err_status
-operator|=
-name|r
-operator|->
-name|headers_out
-operator|.
-name|status
-expr_stmt|;
-name|r
-operator|->
-name|err_ctx
-operator|=
-name|r
-operator|->
-name|ctx
-expr_stmt|;
+comment|/* allocate the new modules contexts */
 name|r
 operator|->
 name|ctx
@@ -2231,6 +2213,7 @@ block|}
 block|}
 else|else
 block|{
+comment|/* clear the modules contexts */
 name|ngx_memzero
 argument_list|(
 name|r
