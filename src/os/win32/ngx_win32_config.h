@@ -172,11 +172,11 @@ name|ngx_inline
 value|__inline
 end_define
 
-begin_if
-if|#
-directive|if
-literal|1
-end_if
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|_MSC_VER
+end_ifdef
 
 begin_typedef
 DECL|typedef|uint32_t
@@ -193,7 +193,7 @@ directive|else
 end_else
 
 begin_comment
-comment|/* OWC has not __int32 */
+comment|/* __WATCOMC__ */
 end_comment
 
 begin_typedef

@@ -129,7 +129,7 @@ value|0x80000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2c3f56000108
+DECL|struct|__anon2bb46aab0108
 typedef|typedef
 specifier|volatile
 struct|struct
@@ -152,6 +152,30 @@ block|}
 name|ngx_mutex_t
 typedef|;
 end_typedef
+
+begin_define
+DECL|macro|ngx_thread_sigmask (how,set,oset)
+define|#
+directive|define
+name|ngx_thread_sigmask
+parameter_list|(
+name|how
+parameter_list|,
+name|set
+parameter_list|,
+name|oset
+parameter_list|)
+define|\
+value|(sigprocmask(how, set, oset) == -1) ? ngx_errno : 0
+end_define
+
+begin_define
+DECL|macro|ngx_thread_sigmask_n
+define|#
+directive|define
+name|ngx_thread_sigmask_n
+value|"sigprocmask()"
+end_define
 
 begin_decl_stmt
 specifier|extern
@@ -264,6 +288,22 @@ define|#
 directive|define
 name|ngx_log_tid
 value|ngx_thread_self()
+end_define
+
+begin_define
+DECL|macro|ngx_thread_sigmask
+define|#
+directive|define
+name|ngx_thread_sigmask
+value|pthread_sigmask
+end_define
+
+begin_define
+DECL|macro|ngx_thread_sigmask_n
+define|#
+directive|define
+name|ngx_thread_sigmask_n
+value|"pthread_sigmask()"
 end_define
 
 begin_endif

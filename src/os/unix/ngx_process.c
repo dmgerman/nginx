@@ -14,7 +14,7 @@ end_include
 begin_function_decl
 specifier|static
 name|void
-name|ngx_exec_proc
+name|ngx_execute_proc
 parameter_list|(
 name|ngx_cycle_t
 modifier|*
@@ -68,21 +68,9 @@ name|ngx_int_t
 name|respawn
 parameter_list|)
 block|{
-if|#
-directive|if
-literal|0
-block_content|sigset_t   set, oset;
-endif|#
-directive|endif
 name|ngx_pid_t
 name|pid
 decl_stmt|;
-if|#
-directive|if
-literal|0
-block_content|if (respawn< 0) {         sigemptyset(&set);         sigaddset(&set, SIGCHLD);         if (sigprocmask(SIG_BLOCK,&set,&oset) == -1) {             ngx_log_error(NGX_LOG_ALERT, cycle->log, ngx_errno,                           "sigprocmask() failed while spawning %s", name);             return NGX_ERROR;         }     }
-endif|#
-directive|endif
 name|pid
 operator|=
 name|fork
@@ -111,25 +99,6 @@ argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
-block|}
-if|if
-condition|(
-name|pid
-operator|==
-operator|-
-literal|1
-operator|||
-name|pid
-operator|==
-literal|0
-condition|)
-block|{
-if|#
-directive|if
-literal|0
-block_content|if (sigprocmask(SIG_SETMASK,&oset,&set) == -1) {             ngx_log_error(NGX_LOG_ALERT, cycle->log, ngx_errno,                           "sigprocmask() failed while spawning %s", name);             return NGX_ERROR;         }
-endif|#
-directive|endif
 block|}
 switch|switch
 condition|(
@@ -300,12 +269,6 @@ expr_stmt|;
 name|ngx_last_process
 operator|++
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|if (sigprocmask(SIG_SETMASK,&oset,&set) == -1) {         ngx_log_error(NGX_LOG_ALERT, cycle->log, ngx_errno,                       "sigprocmask() failed while spawning %s", name);         return NGX_ERROR;     }
-endif|#
-directive|endif
 return|return
 name|pid
 return|;
@@ -313,9 +276,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_exec (ngx_cycle_t * cycle,ngx_exec_ctx_t * ctx)
+DECL|function|ngx_execute (ngx_cycle_t * cycle,ngx_exec_ctx_t * ctx)
 name|ngx_pid_t
-name|ngx_exec
+name|ngx_execute
 parameter_list|(
 name|ngx_cycle_t
 modifier|*
@@ -331,7 +294,7 @@ name|ngx_spawn_process
 argument_list|(
 name|cycle
 argument_list|,
-name|ngx_exec_proc
+name|ngx_execute_proc
 argument_list|,
 name|ctx
 argument_list|,
@@ -346,10 +309,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_exec_proc (ngx_cycle_t * cycle,void * data)
+DECL|function|ngx_execute_proc (ngx_cycle_t * cycle,void * data)
 specifier|static
 name|void
-name|ngx_exec_proc
+name|ngx_execute_proc
 parameter_list|(
 name|ngx_cycle_t
 modifier|*
@@ -416,31 +379,6 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
-
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-
-begin_if
-unit|void ngx_signal_processes(ngx_cycle_t *cycle) {     ngx_uint_t  i;      for (i = 0; i< ngx_last_process; i++) {          if (ngx_processes[i].signal0 == 0) {             continue;         }
-if|#
-directive|if
-literal|0
-end_if
-
-begin_endif
-unit|if (ngx_processes[i].exited) {             if (i != --ngx_last_process) {                 ngx_processes[i--] = ngx_processes[ngx_last_process];             }             continue;         }
-endif|#
-directive|endif
-end_endif
-
-begin_endif
-unit|ngx_log_debug2(NGX_LOG_DEBUG_CORE, cycle->log, 0,                        "kill (" PID_T_FMT ", %d)" ,                        ngx_processes[i].pid, ngx_processes[i].signal0);          if (kill(ngx_processes[i].pid, ngx_processes[i].signal0) == -1) {             ngx_log_error(NGX_LOG_ALERT, cycle->log, ngx_errno,                           "kill(%d, %d) failed",                           ngx_processes[i].pid, ngx_processes[i].signal0);             continue;         }          if (ngx_processes[i].signal0 != ngx_signal_value(NGX_REOPEN_SIGNAL)) {             ngx_processes[i].exiting = 1;         }     } }
-endif|#
-directive|endif
-end_endif
 
 begin_function
 DECL|function|ngx_respawn_processes (ngx_cycle_t * cycle)

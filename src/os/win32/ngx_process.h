@@ -37,7 +37,7 @@ value|ngx_pid
 end_define
 
 begin_typedef
-DECL|struct|__anon2877cee80108
+DECL|struct|__anon2c6c08530108
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ end_define
 
 begin_function_decl
 name|ngx_pid_t
-name|ngx_exec
+name|ngx_execute
 parameter_list|(
 name|ngx_cycle_t
 modifier|*
