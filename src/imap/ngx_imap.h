@@ -37,7 +37,7 @@ file|<ngx_event_connect.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27dc60a40108
+DECL|struct|__anon29a34e1e0108
 typedef|typedef
 struct|struct
 block|{
@@ -57,7 +57,25 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27dc60a40208
+DECL|enum|__anon29a34e1e0203
+typedef|typedef
+enum|enum
+block|{
+DECL|enumerator|ngx_pop3_start
+name|ngx_pop3_start
+init|=
+literal|0
+block|,
+DECL|enumerator|ngx_pop3_user
+name|ngx_pop3_user
+DECL|typedef|ngx_imap_state_e
+block|}
+name|ngx_imap_state_e
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon29a34e1e0308
 typedef|typedef
 struct|struct
 block|{
@@ -75,6 +93,10 @@ DECL|member|buffer
 name|ngx_buf_t
 modifier|*
 name|buffer
+decl_stmt|;
+DECL|member|imap_state
+name|ngx_imap_state_e
+name|imap_state
 decl_stmt|;
 DECL|member|proxy
 name|ngx_imap_proxy_ctx_t
