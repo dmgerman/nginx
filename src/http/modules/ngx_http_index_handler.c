@@ -248,7 +248,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_comment
-comment|/*    Try to open first index file before the test of the directory existence    because the valid requests should be many more then invalid ones.    If open() is failed then stat() should be more quickly because some data    is already cached in the kernel.  Besides Win32 has ERROR_PATH_NOT_FOUND    and Unix has ENOTDIR error (although it less helpfull). */
+comment|/*    Try to open first index file before the test of the directory existence    because the valid requests should be many more then invalid ones.    If open() failed then stat() should be more quickly because some data    is already cached in the kernel.  Besides Win32 has ERROR_PATH_NOT_FOUND    and Unix has ENOTDIR error (although it less helpfull). */
 end_comment
 
 begin_function
