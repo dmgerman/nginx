@@ -1593,7 +1593,9 @@ return|;
 block|}
 if|if
 condition|(
-name|ngx_master
+name|ngx_process
+operator|==
+name|NGX_PROCESS_MASTER
 condition|)
 block|{
 name|ngx_destroy_pool

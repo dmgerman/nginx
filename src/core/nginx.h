@@ -69,14 +69,7 @@ end_decl_stmt
 begin_decl_stmt
 specifier|extern
 name|ngx_int_t
-name|ngx_master
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-specifier|extern
-name|ngx_int_t
-name|ngx_single
+name|ngx_process
 decl_stmt|;
 end_decl_stmt
 

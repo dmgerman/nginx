@@ -44,6 +44,28 @@ index|]
 decl_stmt|;
 end_decl_stmt
 
+begin_decl_stmt
+DECL|variable|ngx_sigmask
+name|sigset_t
+name|ngx_sigmask
+decl_stmt|;
+end_decl_stmt
+
+begin_function
+DECL|function|ngx_wait_events ()
+name|void
+name|ngx_wait_events
+parameter_list|()
+block|{
+name|sigsuspend
+argument_list|(
+operator|&
+name|ngx_sigmask
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+
 begin_function
 DECL|function|ngx_spawn_process (ngx_cycle_t * cycle,ngx_spawn_proc_pt proc,void * data,char * name,ngx_int_t respawn)
 name|ngx_int_t

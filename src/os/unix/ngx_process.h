@@ -41,7 +41,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ee20770108
+DECL|struct|__anon29f330f10108
 typedef|typedef
 struct|struct
 block|{
@@ -98,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ee20770208
+DECL|struct|__anon29f330f10208
 typedef|typedef
 struct|struct
 block|{
@@ -133,11 +133,27 @@ typedef|;
 end_typedef
 
 begin_define
-DECL|macro|ngx_getpid
+DECL|macro|NGX_PROCESS_SINGLE
 define|#
 directive|define
-name|ngx_getpid
-value|getpid
+name|NGX_PROCESS_SINGLE
+value|0
+end_define
+
+begin_define
+DECL|macro|NGX_PROCESS_MASTER
+define|#
+directive|define
+name|NGX_PROCESS_MASTER
+value|1
+end_define
+
+begin_define
+DECL|macro|NGX_PROCESS_WORKER
+define|#
+directive|define
+name|NGX_PROCESS_WORKER
+value|2
 end_define
 
 begin_define
@@ -170,6 +186,14 @@ define|#
 directive|define
 name|NGX_PROCESS_DETACHED
 value|-3
+end_define
+
+begin_define
+DECL|macro|ngx_getpid
+define|#
+directive|define
+name|ngx_getpid
+value|getpid
 end_define
 
 begin_function_decl
