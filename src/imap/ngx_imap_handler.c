@@ -80,7 +80,7 @@ name|c
 parameter_list|)
 block|{
 name|ngx_int_t
-name|rc
+name|n
 decl_stmt|;
 name|ngx_log_debug0
 argument_list|(
@@ -101,7 +101,7 @@ name|log_error
 operator|=
 name|NGX_ERROR_INFO
 expr_stmt|;
-name|rc
+name|n
 operator|=
 name|ngx_send
 argument_list|(
@@ -119,7 +119,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|rc
+name|n
 operator|==
 name|NGX_ERROR
 condition|)
