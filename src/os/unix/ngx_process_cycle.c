@@ -3919,7 +3919,7 @@ name|cycle
 operator|->
 name|log
 argument_list|,
-name|ngx_errno
+literal|0
 argument_list|,
 literal|"thread "
 name|TID_T_FMT

@@ -94,6 +94,21 @@ name|ngx_log_tid
 value|(int) ngx_thread_self()
 end_define
 
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|__FreeBSD__
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|NGX_LINUXTHREADS
+argument_list|)
+end_if
+
 begin_define
 DECL|macro|TID_T_FMT
 define|#
@@ -101,6 +116,24 @@ directive|define
 name|TID_T_FMT
 value|PTR_FMT
 end_define
+
+begin_else
+else|#
+directive|else
+end_else
+
+begin_define
+DECL|macro|TID_T_FMT
+define|#
+directive|define
+name|TID_T_FMT
+value|"%d"
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_typedef
 DECL|typedef|ngx_tls_key_t
@@ -162,7 +195,7 @@ value|0
 end_define
 
 begin_typedef
-DECL|struct|__anon2bef03200108
+DECL|struct|__anon2be67f4e0108
 typedef|typedef
 struct|struct
 block|{
@@ -182,7 +215,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bef03200208
+DECL|struct|__anon2be67f4e0208
 typedef|typedef
 struct|struct
 block|{
@@ -291,7 +324,7 @@ value|volatile
 end_define
 
 begin_typedef
-DECL|struct|__anon2bef03200308
+DECL|struct|__anon2be67f4e0308
 typedef|typedef
 struct|struct
 block|{

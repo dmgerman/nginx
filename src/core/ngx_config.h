@@ -195,6 +195,35 @@ name|NGX_RECONFIGURE_SIGNAL
 value|HUP
 end_define
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_LINUXTHREADS
+operator|)
+end_if
+
+begin_define
+DECL|macro|NGX_REOPEN_SIGNAL
+define|#
+directive|define
+name|NGX_REOPEN_SIGNAL
+value|INFO
+end_define
+
+begin_define
+DECL|macro|NGX_CHANGEBIN_SIGNAL
+define|#
+directive|define
+name|NGX_CHANGEBIN_SIGNAL
+value|XCPU
+end_define
+
+begin_else
+else|#
+directive|else
+end_else
+
 begin_define
 DECL|macro|NGX_REOPEN_SIGNAL
 define|#
@@ -210,6 +239,11 @@ directive|define
 name|NGX_CHANGEBIN_SIGNAL
 value|USR2
 end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_endif
 endif|#
