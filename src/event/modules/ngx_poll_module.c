@@ -82,7 +82,6 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-specifier|static
 name|int
 name|ngx_poll_process_events
 parameter_list|(
@@ -1069,7 +1068,6 @@ end_function
 
 begin_function
 DECL|function|ngx_poll_process_events (ngx_log_t * log)
-specifier|static
 name|int
 name|ngx_poll_process_events
 parameter_list|(
@@ -1116,14 +1114,24 @@ name|struct
 name|timeval
 name|tv
 decl_stmt|;
+if|if
+condition|(
+name|ngx_event_flags
+operator|&
+name|NGX_OVERFLOW_EVENT
+condition|)
+block|{
+name|timer
+operator|=
+literal|0
+expr_stmt|;
+block|}
+else|else
+block|{
 name|timer
 operator|=
 name|ngx_event_find_timer
 argument_list|()
-expr_stmt|;
-name|ngx_old_elapsed_msec
-operator|=
-name|ngx_elapsed_msec
 expr_stmt|;
 if|if
 condition|(
@@ -1140,6 +1148,11 @@ operator|)
 name|INFTIM
 expr_stmt|;
 block|}
+block|}
+name|ngx_old_elapsed_msec
+operator|=
+name|ngx_elapsed_msec
+expr_stmt|;
 if|#
 directive|if
 operator|(
@@ -1374,6 +1387,22 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+block|}
+if|if
+condition|(
+name|timer
+operator|==
+literal|0
+operator|&&
+name|ready
+operator|==
+literal|0
+condition|)
+block|{
+comment|/* the overflowed rt signals queue has been drained */
+return|return
+name|NGX_OK
+return|;
 block|}
 name|nready
 operator|=
@@ -1933,7 +1962,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|NGX_OK
+name|nready
 return|;
 block|}
 end_function

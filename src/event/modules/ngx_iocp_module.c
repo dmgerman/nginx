@@ -77,6 +77,9 @@ parameter_list|(
 name|ngx_connection_t
 modifier|*
 name|c
+parameter_list|,
+name|u_int
+name|flags
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -579,7 +582,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_iocp_del_connection (ngx_connection_t * c)
+DECL|function|ngx_iocp_del_connection (ngx_connection_t * c,u_int flags)
 specifier|static
 name|int
 name|ngx_iocp_del_connection
@@ -587,6 +590,9 @@ parameter_list|(
 name|ngx_connection_t
 modifier|*
 name|c
+parameter_list|,
+name|u_int
+name|flags
 parameter_list|)
 block|{
 if|if

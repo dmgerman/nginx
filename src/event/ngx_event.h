@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2bb797dc0108
+DECL|struct|__anon2bc364660108
 typedef|typedef
 struct|struct
 block|{
@@ -364,7 +364,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bb797dc0208
+DECL|struct|__anon2bc364660208
 typedef|typedef
 struct|struct
 block|{
@@ -462,6 +462,9 @@ parameter_list|(
 name|ngx_connection_t
 modifier|*
 name|c
+parameter_list|,
+name|u_int
+name|flags
 parameter_list|)
 function_decl|;
 DECL|member|process
@@ -598,6 +601,18 @@ value|0x00000040
 end_define
 
 begin_comment
+comment|/*  * The alternative event method after the rt signals queue overflow.  */
+end_comment
+
+begin_define
+DECL|macro|NGX_OVERFLOW_EVENT
+define|#
+directive|define
+name|NGX_OVERFLOW_EVENT
+value|0x00000080
+end_define
+
+begin_comment
 comment|/*  * No need to add or delete the event filters - overlapped, aio_read,  * aioread, io_submit.  */
 end_comment
 
@@ -606,7 +621,7 @@ DECL|macro|NGX_USE_AIO_EVENT
 define|#
 directive|define
 name|NGX_USE_AIO_EVENT
-value|0x00000080
+value|0x00000100
 end_define
 
 begin_comment
@@ -618,7 +633,7 @@ DECL|macro|NGX_USE_IOCP_EVENT
 define|#
 directive|define
 name|NGX_USE_IOCP_EVENT
-value|0x00000100
+value|0x00000200
 end_define
 
 begin_comment
@@ -1120,7 +1135,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon2bb797dc0308
+DECL|struct|__anon2bc364660308
 typedef|typedef
 struct|struct
 block|{
@@ -1148,7 +1163,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb797dc0408
+DECL|struct|__anon2bc364660408
 typedef|typedef
 struct|struct
 block|{
