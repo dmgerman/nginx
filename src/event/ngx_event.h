@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon278d071f0108
+DECL|struct|__anon27e6ee620108
 typedef|typedef
 struct|struct
 block|{
@@ -141,11 +141,26 @@ name|ngx_log_t
 modifier|*
 name|log
 decl_stmt|;
-comment|/*      * kqueue only:      *   accept:     number of sockets that wait to be accepted      *   read:       bytes to read      *   write:      available space in buffer      *      * otherwise:      *   accept:     1 if accept many, 0 otherwise      */
+comment|/*      * kqueue only:      *   accept:     number of sockets that wait to be accepted      *   read:       bytes to read when event is ready      *               or lowat when event is set with NGX_LOWAT_EVENT flag      *   write:      available space in buffer when event is ready      *               or lowat when event is set with NGX_LOWAT_EVENT flag      *      * otherwise:      *   accept:     1 if accept many, 0 otherwise      */
+if|#
+directive|if
+operator|(
+name|HAVE_KQUEUE
+operator|)
 DECL|member|available
 name|int
 name|available
 decl_stmt|;
+else|#
+directive|else
+DECL|member|available
+name|unsigned
+name|available
+range|:
+literal|1
+decl_stmt|;
+endif|#
+directive|endif
 DECL|member|oneshot
 name|unsigned
 name|oneshot
@@ -284,18 +299,6 @@ directive|endif
 if|#
 directive|if
 operator|(
-name|HAVE_LOWAT_EVENT
-operator|)
-comment|/* kqueue's NOTE_LOWAT */
-DECL|member|lowat
-name|int
-name|lowat
-decl_stmt|;
-endif|#
-directive|endif
-if|#
-directive|if
-operator|(
 name|HAVE_AIO
 operator|)
 if|#
@@ -340,7 +343,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon278d071f0208
+DECL|struct|__anon27e6ee620208
 typedef|typedef
 struct|struct
 block|{
@@ -609,6 +612,18 @@ name|NGX_CLOSE_EVENT
 value|1
 end_define
 
+begin_comment
+comment|/* this flag has meaning only for kqueue */
+end_comment
+
+begin_define
+DECL|macro|NGX_LOWAT_EVENT
+define|#
+directive|define
+name|NGX_LOWAT_EVENT
+value|0
+end_define
+
 begin_if
 if|#
 directive|if
@@ -634,7 +649,7 @@ value|EVFILT_WRITE
 end_define
 
 begin_comment
-comment|/*  * NGX_CLOSE_EVENT is the module flag and it would not go into a kernel  * so we need to choose the value that would not interfere with any existent  * and future flags.  kqueue has such values - EV_FLAG1, EV_EOF and EV_ERROR.  * They are reserved and cleared on a kernel entrance.  */
+comment|/*  * NGX_CLOSE_EVENT and NGX_LOWAT_EVENT are the module flags and they would  * not go into a kernel so we need to choose the value that would not interfere  * with any existent and future kqueue flags.  kqueue has such values -  * EV_FLAG1, EV_EOF and EV_ERROR.  They are reserved and cleared on a kernel  * entrance.  */
 end_comment
 
 begin_undef
@@ -648,6 +663,20 @@ DECL|macro|NGX_CLOSE_EVENT
 define|#
 directive|define
 name|NGX_CLOSE_EVENT
+value|EV_EOF
+end_define
+
+begin_undef
+undef|#
+directive|undef
+name|NGX_LOWAT_EVENT
+end_undef
+
+begin_define
+DECL|macro|NGX_LOWAT_EVENT
+define|#
+directive|define
+name|NGX_LOWAT_EVENT
 value|EV_FLAG1
 end_define
 
@@ -960,7 +989,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon278d071f0308
+DECL|struct|__anon27e6ee620308
 typedef|typedef
 struct|struct
 block|{
@@ -983,7 +1012,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278d071f0408
+DECL|struct|__anon27e6ee620408
 typedef|typedef
 struct|struct
 block|{
@@ -1142,7 +1171,7 @@ directive|endif
 end_endif
 
 begin_function
-DECL|function|ngx_handle_read_event (ngx_event_t * rev,int close)
+DECL|function|ngx_handle_read_event (ngx_event_t * rev,int flags)
 name|ngx_inline
 specifier|static
 name|int
@@ -1153,7 +1182,7 @@ modifier|*
 name|rev
 parameter_list|,
 name|int
-name|close
+name|flags
 parameter_list|)
 block|{
 if|if
@@ -1254,7 +1283,11 @@ name|rev
 operator|->
 name|ready
 operator|||
-name|close
+operator|(
+name|flags
+operator|&
+name|NGX_CLOSE_EVENT
+operator|)
 operator|)
 condition|)
 block|{
@@ -1266,11 +1299,7 @@ name|rev
 argument_list|,
 name|NGX_READ_EVENT
 argument_list|,
-name|close
-condition|?
-name|NGX_CLOSE_EVENT
-else|:
-literal|0
+name|flags
 argument_list|)
 operator|==
 name|NGX_ERROR
@@ -1387,7 +1416,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_handle_write_event (ngx_event_t * wev,int lowat)
+DECL|function|ngx_handle_write_event (ngx_event_t * wev,int flags)
 name|ngx_inline
 specifier|static
 name|int
@@ -1398,7 +1427,7 @@ modifier|*
 name|wev
 parameter_list|,
 name|int
-name|lowat
+name|flags
 parameter_list|)
 block|{
 if|if
@@ -1409,28 +1438,6 @@ name|NGX_USE_CLEAR_EVENT
 condition|)
 block|{
 comment|/* kqueue */
-if|#
-directive|if
-operator|(
-name|HAVE_LOWAT_EVENT
-operator|)
-comment|/* kqueue's NOTE_LOWAT */
-if|if
-condition|(
-name|ngx_event_flags
-operator|&
-name|NGX_HAVE_LOWAT_EVENT
-condition|)
-block|{
-name|wev
-operator|->
-name|lowat
-operator|=
-name|lowat
-expr_stmt|;
-block|}
-endif|#
-directive|endif
 if|if
 condition|(
 operator|!
@@ -1453,6 +1460,8 @@ argument_list|,
 name|NGX_WRITE_EVENT
 argument_list|,
 name|NGX_CLEAR_EVENT
+operator||
+name|flags
 argument_list|)
 operator|==
 name|NGX_ERROR

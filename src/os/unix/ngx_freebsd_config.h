@@ -185,6 +185,10 @@ endif|#
 directive|endif
 end_endif
 
+begin_comment
+comment|/* TODO: autoconf ??? */
+end_comment
+
 begin_if
 if|#
 directive|if
@@ -209,6 +213,10 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_comment
+comment|/* TODO: autoconf */
+end_comment
 
 begin_if
 if|#
@@ -285,7 +293,7 @@ DECL|macro|TIME_FMT
 define|#
 directive|define
 name|TIME_FMT
-value|"%lu"
+value|"%ld"
 end_define
 
 begin_define
@@ -460,7 +468,7 @@ DECL|macro|HAVE_PREAD
 define|#
 directive|define
 name|HAVE_PREAD
-value|1
+value|0
 end_define
 
 begin_define
@@ -468,7 +476,7 @@ DECL|macro|HAVE_PWRITE
 define|#
 directive|define
 name|HAVE_PWRITE
-value|1
+value|0
 end_define
 
 begin_define

@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon277dbbcc0108
+DECL|struct|__anon2bd02bb20108
 typedef|typedef
 struct|struct
 block|{
@@ -1200,17 +1200,9 @@ name|HAVE_LOWAT_EVENT
 operator|)
 if|if
 condition|(
-operator|(
 name|flags
 operator|&
-name|EV_ADD
-operator|)
-operator|&&
-name|ev
-operator|->
-name|lowat
-operator|>
-literal|0
+name|NGX_LOWAT_EVENT
 condition|)
 block|{
 name|change_list
@@ -1231,7 +1223,7 @@ name|data
 operator|=
 name|ev
 operator|->
-name|lowat
+name|available
 expr_stmt|;
 block|}
 else|else

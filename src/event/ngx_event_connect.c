@@ -1042,6 +1042,15 @@ return|return
 name|NGX_AGAIN
 return|;
 block|}
+name|ngx_log_debug
+argument_list|(
+name|pc
+operator|->
+name|log
+argument_list|,
+literal|"CONNECTED"
+argument_list|)
+expr_stmt|;
 name|wev
 operator|->
 name|ready

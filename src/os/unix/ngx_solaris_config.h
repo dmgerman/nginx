@@ -191,7 +191,7 @@ DECL|macro|TIME_FMT
 define|#
 directive|define
 name|TIME_FMT
-value|"%lu"
+value|"%ld"
 end_define
 
 begin_define

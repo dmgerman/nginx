@@ -371,6 +371,15 @@ block|{
 if|if
 condition|(
 name|bl
+operator|==
+name|NULL
+condition|)
+block|{
+return|return;
+block|}
+if|if
+condition|(
+name|bl
 operator|->
 name|md5
 condition|)
