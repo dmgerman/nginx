@@ -22,7 +22,7 @@ comment|/* AF_INET only */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2c2bebf90108
+DECL|struct|__anon2b3f99f90108
 typedef|typedef
 struct|struct
 block|{
@@ -45,7 +45,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2bebf90208
+DECL|struct|__anon2b3f99f90208
 typedef|typedef
 struct|struct
 block|{
@@ -794,20 +794,10 @@ name|ngx_http_handler_pt
 modifier|*
 name|h
 decl_stmt|;
-name|ngx_http_conf_ctx_t
-modifier|*
-name|ctx
-decl_stmt|;
 name|ngx_http_core_main_conf_t
 modifier|*
 name|cmcf
 decl_stmt|;
-if|#
-directive|if
-literal|0
-block_content|ctx = (ngx_http_conf_ctx_t *) cycle->conf_ctx[ngx_http_module.index];     cmcf = ctx->main_conf[ngx_http_core_module.ctx_index];
-endif|#
-directive|endif
 name|cmcf
 operator|=
 name|ngx_http_cycle_get_module_main_conf

@@ -636,7 +636,9 @@ expr_stmt|;
 block|}
 name|n
 operator|=
-name|ngx_recv
+name|c
+operator|->
+name|recv
 argument_list|(
 name|c
 argument_list|,

@@ -42,7 +42,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon29fd67380108
+DECL|struct|__anon2965ba1d0108
 typedef|typedef
 struct|struct
 block|{
@@ -65,7 +65,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fd67380208
+DECL|struct|__anon2965ba1d0208
 typedef|typedef
 struct|struct
 block|{
@@ -111,7 +111,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fd67380308
+DECL|struct|__anon2965ba1d0308
 typedef|typedef
 struct|struct
 block|{
@@ -1775,39 +1775,18 @@ name|ngx_http_handler_pt
 modifier|*
 name|h
 decl_stmt|;
-name|ngx_http_conf_ctx_t
-modifier|*
-name|ctx
-decl_stmt|;
 name|ngx_http_core_main_conf_t
 modifier|*
 name|cmcf
 decl_stmt|;
-name|ctx
-operator|=
-operator|(
-name|ngx_http_conf_ctx_t
-operator|*
-operator|)
-name|cycle
-operator|->
-name|conf_ctx
-index|[
-name|ngx_http_module
-operator|.
-name|index
-index|]
-expr_stmt|;
 name|cmcf
 operator|=
-name|ctx
-operator|->
-name|main_conf
-index|[
+name|ngx_http_cycle_get_module_main_conf
+argument_list|(
+name|cycle
+argument_list|,
 name|ngx_http_core_module
-operator|.
-name|ctx_index
-index|]
+argument_list|)
 expr_stmt|;
 name|h
 operator|=

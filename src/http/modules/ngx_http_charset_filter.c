@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27cba80f0108
+DECL|struct|__anon27bd08680108
 typedef|typedef
 struct|struct
 block|{
@@ -43,7 +43,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27cba80f0208
+DECL|struct|__anon27bd08680208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27cba80f0308
+DECL|struct|__anon27bd08680308
 typedef|typedef
 struct|struct
 block|{
@@ -93,7 +93,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27cba80f0408
+DECL|struct|__anon27bd08680408
 typedef|typedef
 struct|struct
 block|{
@@ -120,7 +120,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27cba80f0508
+DECL|struct|__anon27bd08680508
 typedef|typedef
 struct|struct
 block|{
@@ -1686,10 +1686,6 @@ name|ngx_http_charset_t
 modifier|*
 name|charset
 decl_stmt|;
-name|ngx_http_conf_ctx_t
-modifier|*
-name|ctx
-decl_stmt|;
 name|ngx_http_charset_main_conf_t
 modifier|*
 name|mcf
@@ -1720,22 +1716,14 @@ return|return
 literal|"is duplicate"
 return|;
 block|}
-name|ctx
-operator|=
-name|cf
-operator|->
-name|ctx
-expr_stmt|;
 name|mcf
 operator|=
-name|ctx
-operator|->
-name|main_conf
-index|[
+name|ngx_http_conf_get_module_main_conf
+argument_list|(
+name|cf
+argument_list|,
 name|ngx_http_charset_filter_module
-operator|.
-name|ctx_index
-index|]
+argument_list|)
 expr_stmt|;
 name|value
 operator|=

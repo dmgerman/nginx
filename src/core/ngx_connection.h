@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b9efc180108
+DECL|struct|__anon27501c270108
 typedef|typedef
 struct|struct
 block|{
@@ -200,7 +200,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b9efc180203
+DECL|enum|__anon27501c270203
 typedef|typedef
 enum|enum
 block|{
@@ -224,7 +224,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b9efc180303
+DECL|enum|__anon27501c270303
 typedef|typedef
 enum|enum
 block|{
@@ -270,6 +270,14 @@ decl_stmt|;
 DECL|member|fd
 name|ngx_socket_t
 name|fd
+decl_stmt|;
+DECL|member|recv
+name|ngx_recv_pt
+name|recv
+decl_stmt|;
+DECL|member|send_chain
+name|ngx_send_chain_pt
+name|send_chain
 decl_stmt|;
 DECL|member|listening
 name|ngx_listening_t
@@ -416,6 +424,27 @@ directive|endif
 block|}
 struct|;
 end_struct
+
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|ngx_ssl_set_nosendshut
+end_ifndef
+
+begin_define
+DECL|macro|ngx_ssl_set_nosendshut (ssl)
+define|#
+directive|define
+name|ngx_ssl_set_nosendshut
+parameter_list|(
+name|ssl
+parameter_list|)
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_function_decl
 name|ngx_int_t

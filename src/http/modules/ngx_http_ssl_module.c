@@ -392,6 +392,10 @@ name|conf
 operator|->
 name|ssl_ctx
 argument_list|,
+operator|(
+name|char
+operator|*
+operator|)
 name|conf
 operator|->
 name|certificate
@@ -435,6 +439,10 @@ name|conf
 operator|->
 name|ssl_ctx
 argument_list|,
+operator|(
+name|char
+operator|*
+operator|)
 name|conf
 operator|->
 name|certificate_key

@@ -252,11 +252,13 @@ index|[]
 init|=
 literal|"<html>"
 name|CRLF
-literal|"<head><title>The plain HTTP request was sent to HTTPS port</title></head>"
+literal|"<head><title>400 The plain HTTP request was sent to HTTPS port</title></head>"
 name|CRLF
 literal|"<body bgcolor=\"white\">"
 name|CRLF
-literal|"<center><h1>The plain HTTP request was sent to HTTPS por</h1></center>"
+literal|"<center><h1>400 Bad Request</h1></center>"
+name|CRLF
+literal|"<center>The plain HTTP request was sent to HTTPS port</center>"
 name|CRLF
 decl_stmt|;
 end_decl_stmt
@@ -443,7 +445,7 @@ argument_list|)
 block|,
 name|ngx_string
 argument_list|(
-name|error_400_page
+name|error_497_page
 argument_list|)
 block|,
 comment|/* 497, http to https */
