@@ -262,6 +262,24 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|error_501_page
+specifier|static
+name|char
+name|error_501_page
+index|[]
+init|=
+literal|"<html>"
+name|CRLF
+literal|"<head><title>501 Method Not Implemented</title></head>"
+name|CRLF
+literal|"<body bgcolor=\"white\">"
+name|CRLF
+literal|"<center><h1>500 Method Not Implemented</h1></center>"
+name|CRLF
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|error_502_page
 specifier|static
 name|char
@@ -410,9 +428,11 @@ argument_list|(
 name|error_500_page
 argument_list|)
 block|,
-name|ngx_null_string
+name|ngx_string
+argument_list|(
+name|error_501_page
+argument_list|)
 block|,
-comment|/* 501 */
 name|ngx_string
 argument_list|(
 name|error_502_page
