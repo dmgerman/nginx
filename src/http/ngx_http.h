@@ -71,11 +71,27 @@ file|<ngx_event_timer.h>
 end_include
 
 begin_define
+DECL|macro|NGX_HTTP_VERSION_9
+define|#
+directive|define
+name|NGX_HTTP_VERSION_9
+value|9
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_VERSION_10
 define|#
 directive|define
 name|NGX_HTTP_VERSION_10
 value|1000
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_VERSION_11
+define|#
+directive|define
+name|NGX_HTTP_VERSION_11
+value|1001
 end_define
 
 begin_define
@@ -164,6 +180,22 @@ define|#
 directive|define
 name|NGX_HTTP_PARSE_INVALID_HEADER
 value|14
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_PARSE_TOO_LONG_HEADER
+define|#
+directive|define
+name|NGX_HTTP_PARSE_TOO_LONG_HEADER
+value|15
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_PARSE_NO_HOST_HEADER
+define|#
+directive|define
+name|NGX_HTTP_PARSE_NO_HOST_HEADER
+value|16
 end_define
 
 begin_define
@@ -263,7 +295,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon29af9c390108
+DECL|struct|__anon276028360108
 typedef|typedef
 struct|struct
 block|{
@@ -311,7 +343,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29af9c390208
+DECL|struct|__anon276028360208
 typedef|typedef
 struct|struct
 block|{
@@ -335,7 +367,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29af9c390308
+DECL|struct|__anon276028360308
 typedef|typedef
 struct|struct
 block|{
@@ -380,7 +412,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29af9c390408
+DECL|struct|__anon276028360408
 typedef|typedef
 struct|struct
 block|{
@@ -729,7 +761,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29af9c390508
+DECL|struct|__anon276028360508
 typedef|typedef
 struct|struct
 block|{
@@ -807,7 +839,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29af9c390608
+DECL|struct|__anon276028360608
 typedef|typedef
 struct|struct
 block|{
@@ -1230,6 +1262,13 @@ end_decl_stmt
 begin_decl_stmt
 specifier|extern
 name|int
+name|ngx_http_large_client_header
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|int
 name|ngx_http_discarded_buffer_size
 decl_stmt|;
 end_decl_stmt
@@ -1245,6 +1284,13 @@ begin_decl_stmt
 specifier|extern
 name|int
 name|ngx_http_lingering_time
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|int
+name|ngx_http_url_in_error_log
 decl_stmt|;
 end_decl_stmt
 

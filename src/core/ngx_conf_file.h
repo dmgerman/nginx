@@ -109,6 +109,14 @@ value|0x020000
 end_define
 
 begin_define
+DECL|macro|NGX_CONF_FLAG
+define|#
+directive|define
+name|NGX_CONF_FLAG
+value|0x040000
+end_define
+
+begin_define
 DECL|macro|NGX_CONF_UNSET
 define|#
 directive|define
@@ -239,7 +247,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a1e93c70108
+DECL|struct|__anon28febb400108
 typedef|typedef
 struct|struct
 block|{
@@ -280,7 +288,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1e93c70208
+DECL|struct|__anon28febb400208
 typedef|typedef
 struct|struct
 block|{
@@ -385,6 +393,17 @@ parameter_list|,
 define|default)                             \     if (conf == (size_t) NGX_CONF_UNSET) {                                   \         conf = (prev == (size_t) NGX_CONF_UNSET) ? default : prev;           \     }
 end_define
 
+begin_define
+DECL|macro|addressof (addr)
+define|#
+directive|define
+name|addressof
+parameter_list|(
+name|addr
+parameter_list|)
+value|((int)&addr)
+end_define
+
 begin_function_decl
 name|char
 modifier|*
@@ -397,6 +416,26 @@ parameter_list|,
 name|ngx_str_t
 modifier|*
 name|filename
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|char
+modifier|*
+name|ngx_conf_set_flag_slot
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_command_t
+modifier|*
+name|cmd
+parameter_list|,
+name|char
+modifier|*
+name|conf
 parameter_list|)
 function_decl|;
 end_function_decl

@@ -748,6 +748,7 @@ operator|=
 operator|&
 name|ngx_event_acceptex
 expr_stmt|;
+comment|/* LOOK: we call ngx_iocp_add_event() also                in ngx_event_post_acceptex() */
 if|if
 condition|(
 name|ngx_iocp_add_event

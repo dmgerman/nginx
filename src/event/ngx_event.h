@@ -54,6 +54,18 @@ directive|include
 file|<ngx_array.h>
 end_include
 
+begin_comment
+comment|/* STUB */
+end_comment
+
+begin_define
+DECL|macro|NGX_LOWAT
+define|#
+directive|define
+name|NGX_LOWAT
+value|10000
+end_define
+
 begin_define
 DECL|macro|NGX_INVALID_INDEX
 define|#
@@ -80,7 +92,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon27e6e72c0108
+DECL|struct|__anon274e7ecf0108
 typedef|typedef
 struct|struct
 block|{
@@ -314,6 +326,18 @@ directive|endif
 if|#
 directive|if
 operator|(
+name|HAVE_LOWAT_EVENT
+operator|)
+comment|/* kqueue's NOTE_LOWAT */
+DECL|member|lowat
+name|int
+name|lowat
+decl_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
+operator|(
 name|HAVE_AIO
 operator|)
 if|#
@@ -357,7 +381,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon27e6e72c0203
+DECL|enum|__anon274e7ecf0203
 typedef|typedef
 enum|enum
 block|{
@@ -426,7 +450,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e6e72c0308
+DECL|struct|__anon274e7ecf0308
 typedef|typedef
 struct|struct
 block|{
@@ -568,7 +592,19 @@ value|8
 end_define
 
 begin_comment
-comment|/* Event filter notifies only changes (edgesi) but not initial level - epoll */
+comment|/* Event filter supports low water mark - kqueue's NOTE_LOWAT,    early kqueue implementations have no NOTE_LOWAT so we need separate flag */
+end_comment
+
+begin_define
+DECL|macro|NGX_HAVE_LOWAT_EVENT
+define|#
+directive|define
+name|NGX_HAVE_LOWAT_EVENT
+value|16
+end_define
+
+begin_comment
+comment|/* Event filter notifies only changes (edges) but not initial level - epoll */
 end_comment
 
 begin_define
@@ -576,7 +612,7 @@ DECL|macro|NGX_HAVE_EDGE_EVENT
 define|#
 directive|define
 name|NGX_HAVE_EDGE_EVENT
-value|16
+value|32
 end_define
 
 begin_comment
@@ -588,7 +624,7 @@ DECL|macro|NGX_HAVE_SIGIO_EVENT
 define|#
 directive|define
 name|NGX_HAVE_SIGIO_EVENT
-value|32
+value|64
 end_define
 
 begin_comment
@@ -600,7 +636,7 @@ DECL|macro|NGX_HAVE_AIO_EVENT
 define|#
 directive|define
 name|NGX_HAVE_AIO_EVENT
-value|64
+value|128
 end_define
 
 begin_comment
@@ -612,7 +648,7 @@ DECL|macro|NGX_HAVE_IOCP_EVENT
 define|#
 directive|define
 name|NGX_HAVE_IOCP_EVENT
-value|128
+value|256
 end_define
 
 begin_comment

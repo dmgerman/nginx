@@ -109,7 +109,7 @@ DECL|variable|ngx_http_post_accept_timeout
 name|int
 name|ngx_http_post_accept_timeout
 init|=
-literal|10000
+literal|30000
 decl_stmt|;
 end_decl_stmt
 
@@ -136,7 +136,7 @@ DECL|variable|ngx_http_client_header_timeout
 name|int
 name|ngx_http_client_header_timeout
 init|=
-literal|20000
+literal|60000
 decl_stmt|;
 end_decl_stmt
 
@@ -146,6 +146,24 @@ name|int
 name|ngx_http_client_header_buffer_size
 init|=
 literal|1024
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_http_large_client_header
+name|int
+name|ngx_http_large_client_header
+init|=
+literal|1
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_http_url_in_error_log
+name|int
+name|ngx_http_url_in_error_log
+init|=
+literal|1
 decl_stmt|;
 end_decl_stmt
 
