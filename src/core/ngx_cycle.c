@@ -1206,18 +1206,10 @@ block|}
 block|}
 if|#
 directive|if
+operator|!
 operator|(
 name|WIN32
 operator|)
-if|#
-directive|if
-literal|0
-comment|/* TODO: TEST */
-block_content|fprintf(stderr, "BEFORE\n");     CloseHandle(GetStdHandle(STD_ERROR_HANDLE));     SetStdHandle(STD_ERROR_HANDLE, cycle->log->file->fd); fprintf(stderr, "AFTER\n");
-endif|#
-directive|endif
-else|#
-directive|else
 if|if
 condition|(
 name|dup2
@@ -2334,33 +2326,10 @@ expr_stmt|;
 block|}
 if|#
 directive|if
+operator|!
 operator|(
 name|WIN32
 operator|)
-comment|/* TODO: TEST */
-name|CloseHandle
-argument_list|(
-name|GetStdHandle
-argument_list|(
-name|STD_ERROR_HANDLE
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|SetStdHandle
-argument_list|(
-name|STD_ERROR_HANDLE
-argument_list|,
-name|cycle
-operator|->
-name|log
-operator|->
-name|file
-operator|->
-name|fd
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
 if|if
 condition|(
 name|dup2

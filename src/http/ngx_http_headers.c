@@ -128,6 +128,11 @@ literal|0
 block|{ ngx_string("If-Range"), offsetof(ngx_http_headers_in_t, if_range) },
 endif|#
 directive|endif
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_GZIP
+operator|)
 block|{
 name|ngx_string
 argument_list|(
@@ -142,6 +147,8 @@ argument|accept_encoding
 argument_list|)
 block|}
 block|,
+endif|#
+directive|endif
 block|{
 name|ngx_string
 argument_list|(
