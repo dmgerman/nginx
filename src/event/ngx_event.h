@@ -92,7 +92,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon27cc68e30108
+DECL|struct|__anon2be2caf60108
 typedef|typedef
 struct|struct
 block|{
@@ -227,12 +227,6 @@ comment|/*   read:   bytes to read                   */
 comment|/*   write:  available space in buffer       */
 comment|/* otherwise:                                */
 comment|/*   accept: 1 if accept many, 0 otherwise   */
-DECL|member|level
-name|unsigned
-name|level
-range|:
-literal|1
-decl_stmt|;
 DECL|member|oneshot
 name|unsigned
 name|oneshot
@@ -290,6 +284,12 @@ decl_stmt|;
 DECL|member|read_discarded
 name|unsigned
 name|read_discarded
+range|:
+literal|1
+decl_stmt|;
+DECL|member|ignore_econnreset
+name|unsigned
+name|ignore_econnreset
 range|:
 literal|1
 decl_stmt|;
@@ -387,7 +387,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon27cc68e30203
+DECL|enum|__anon2be2caf60203
 typedef|typedef
 enum|enum
 block|{
@@ -456,7 +456,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27cc68e30308
+DECL|struct|__anon2be2caf60308
 typedef|typedef
 struct|struct
 block|{
@@ -562,7 +562,7 @@ value|1
 end_define
 
 begin_comment
-comment|/* Event filter is deleted after notification - select, poll, kqueue.    Using /dev/poll, epoll it can be implemented with additional syscall */
+comment|/* Event filter is deleted after notification - select, poll, kqueue.    Using /dev/poll it can be implemented with additional syscall */
 end_comment
 
 begin_define
@@ -598,7 +598,7 @@ value|8
 end_define
 
 begin_comment
-comment|/* Event filter supports low water mark - kqueue's NOTE_LOWAT,    early kqueue implementations have no NOTE_LOWAT so we need separate flag */
+comment|/* Event filter supports low water mark - kqueue's NOTE_LOWAT,    early kqueue implementations have no NOTE_LOWAT so we need a separate flag */
 end_comment
 
 begin_define
@@ -606,7 +606,7 @@ DECL|macro|NGX_HAVE_LOWAT_EVENT
 define|#
 directive|define
 name|NGX_HAVE_LOWAT_EVENT
-value|16
+value|0x00000010
 end_define
 
 begin_comment
@@ -618,7 +618,7 @@ DECL|macro|NGX_HAVE_EDGE_EVENT
 define|#
 directive|define
 name|NGX_HAVE_EDGE_EVENT
-value|32
+value|0x00000020
 end_define
 
 begin_comment
@@ -630,7 +630,7 @@ DECL|macro|NGX_HAVE_SIGIO_EVENT
 define|#
 directive|define
 name|NGX_HAVE_SIGIO_EVENT
-value|64
+value|0x00000040
 end_define
 
 begin_comment
@@ -642,11 +642,11 @@ DECL|macro|NGX_HAVE_AIO_EVENT
 define|#
 directive|define
 name|NGX_HAVE_AIO_EVENT
-value|128
+value|0x00000080
 end_define
 
 begin_comment
-comment|/* Need to add socket or halde only once - i/o completion port.    It also requires to set HAVE_AIO_EVENT and NGX_HAVE_AIO_EVENT */
+comment|/* Need to add socket or handle only once - i/o completion port.    It also requires HAVE_AIO_EVENT and NGX_HAVE_AIO_EVENT to be set */
 end_comment
 
 begin_define
@@ -654,7 +654,15 @@ DECL|macro|NGX_HAVE_IOCP_EVENT
 define|#
 directive|define
 name|NGX_HAVE_IOCP_EVENT
-value|256
+value|0x00000100
+end_define
+
+begin_define
+DECL|macro|NGX_USE_LEVEL_EVENT
+define|#
+directive|define
+name|NGX_USE_LEVEL_EVENT
+value|0x00010000
 end_define
 
 begin_comment

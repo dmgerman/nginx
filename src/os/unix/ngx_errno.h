@@ -89,6 +89,14 @@ value|EADDRINUSE
 end_define
 
 begin_define
+DECL|macro|NGX_ECONNRESET
+define|#
+directive|define
+name|NGX_ECONNRESET
+value|ECONNRESET
+end_define
+
+begin_define
 DECL|macro|NGX_ETIMEDOUT
 define|#
 directive|define

@@ -47,7 +47,7 @@ value|21
 end_define
 
 begin_typedef
-DECL|struct|__anon28ae62a30108
+DECL|struct|__anon290965700108
 typedef|typedef
 struct|struct
 block|{
@@ -58,6 +58,21 @@ decl_stmt|;
 DECL|typedef|ngx_http_proxy_headers_in_t
 block|}
 name|ngx_http_proxy_headers_in_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon290965700208
+typedef|typedef
+struct|struct
+block|{
+DECL|member|large_header
+name|int
+name|large_header
+decl_stmt|;
+DECL|typedef|ngx_http_proxy_loc_conf_t
+block|}
+name|ngx_http_proxy_loc_conf_t
 typedef|;
 end_typedef
 
@@ -91,6 +106,11 @@ decl_stmt|;
 DECL|member|hunk_n
 name|int
 name|hunk_n
+decl_stmt|;
+DECL|member|connection
+name|ngx_connection_t
+modifier|*
+name|connection
 decl_stmt|;
 DECL|member|headers_in
 name|ngx_http_proxy_headers_in_t
@@ -146,10 +166,29 @@ end_struct
 
 begin_decl_stmt
 specifier|extern
-name|ngx_http_module_t
+name|ngx_module_t
 name|ngx_http_proxy_module
 decl_stmt|;
 end_decl_stmt
+
+begin_function_decl
+specifier|static
+name|int
+name|ngx_http_proxy_error
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_http_proxy_ctx_t
+modifier|*
+name|p
+parameter_list|,
+name|int
+name|error
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_endif
 endif|#

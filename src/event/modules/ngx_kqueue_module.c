@@ -347,6 +347,10 @@ name|HAVE_CLEAR_EVENT
 operator|)
 operator||
 name|NGX_HAVE_CLEAR_EVENT
+else|#
+directive|else
+operator||
+name|NGX_USE_LEVEL_EVENT
 endif|#
 directive|endif
 if|#

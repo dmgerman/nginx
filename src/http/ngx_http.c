@@ -167,32 +167,6 @@ literal|1
 decl_stmt|;
 end_decl_stmt
 
-begin_comment
-comment|/* STUB: per location */
-end_comment
-
-begin_decl_stmt
-DECL|variable|ngx_http_lingering_timeout
-name|int
-name|ngx_http_lingering_timeout
-init|=
-literal|5000
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-DECL|variable|ngx_http_lingering_time
-name|int
-name|ngx_http_lingering_time
-init|=
-literal|30
-decl_stmt|;
-end_decl_stmt
-
-begin_comment
-comment|/**/
-end_comment
-
 begin_decl_stmt
 DECL|variable|ngx_http_index_handlers
 name|ngx_array_t

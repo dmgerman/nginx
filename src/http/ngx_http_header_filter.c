@@ -154,71 +154,113 @@ argument_list|(
 literal|"200 OK"
 argument_list|)
 block|,
-if|#
-directive|if
-literal|0
-block|{ 6,  "200 OK" },
-endif|#
-directive|endif
-block|{
-literal|21
-block|,
+name|ngx_string
+argument_list|(
 literal|"301 Moved Permanently"
-block|}
+argument_list|)
 block|,
-block|{
-literal|21
-block|,
+name|ngx_string
+argument_list|(
 literal|"302 Moved Temporarily"
-block|}
+argument_list|)
 block|,
-block|{
-literal|0
+name|ngx_null_string
 block|,
-name|NULL
-block|}
-block|,
-block|{
-literal|16
-block|,
+comment|/* 303 */
+name|ngx_string
+argument_list|(
 literal|"304 Not Modified"
-block|}
+argument_list|)
 block|,
-block|{
-literal|15
-block|,
+name|ngx_string
+argument_list|(
 literal|"400 Bad Request"
-block|}
+argument_list|)
 block|,
-block|{
-literal|0
+name|ngx_null_string
 block|,
-name|NULL
-block|}
+comment|/* 401 */
+name|ngx_null_string
 block|,
-block|{
-literal|0
-block|,
-name|NULL
-block|}
-block|,
-block|{
-literal|13
-block|,
+comment|/* 402 */
+name|ngx_string
+argument_list|(
 literal|"403 Forbidden"
-block|}
+argument_list|)
 block|,
-block|{
-literal|13
-block|,
+name|ngx_string
+argument_list|(
 literal|"404 Not Found"
-block|}
+argument_list|)
 block|,
-block|{
-literal|25
+name|ngx_null_string
 block|,
+comment|/* 405 */
+name|ngx_null_string
+block|,
+comment|/* 406 */
+name|ngx_null_string
+block|,
+comment|/* 407 */
+name|ngx_string
+argument_list|(
+literal|"408 Request Time-out"
+argument_list|)
+block|,
+name|ngx_null_string
+block|,
+comment|/* 409 */
+name|ngx_null_string
+block|,
+comment|/* 410 */
+name|ngx_string
+argument_list|(
+literal|"411 Length Required"
+argument_list|)
+block|,
+name|ngx_null_string
+block|,
+comment|/* 412 */
+name|ngx_string
+argument_list|(
+literal|"413 Request Entity Too Large"
+argument_list|)
+block|,
+name|ngx_null_string
+block|,
+comment|/* "414 Request-URI Too Large" but we never send it                          because we treat such requests as HTTP/0.9 requests                          and send only the body without the header */
+name|ngx_null_string
+block|,
+comment|/* 415 */
+name|ngx_string
+argument_list|(
+literal|"416 Requested Range Not Satisfiable"
+argument_list|)
+block|,
+name|ngx_string
+argument_list|(
 literal|"500 Internal Server Error"
-block|}
+argument_list|)
+block|,
+name|ngx_string
+argument_list|(
+literal|"501 Method Not Implemented"
+argument_list|)
+block|,
+name|ngx_string
+argument_list|(
+literal|"502 Bad Gateway"
+argument_list|)
+block|,
+name|ngx_string
+argument_list|(
+literal|"503 Service Temporarily Unavailable"
+argument_list|)
+block|,
+name|ngx_string
+argument_list|(
+literal|"504 Gateway Time-out"
+argument_list|)
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -516,7 +558,7 @@ literal|1
 operator|+
 literal|4
 operator|+
-literal|5
+literal|17
 expr_stmt|;
 block|}
 name|len
@@ -844,8 +886,6 @@ argument_list|(
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 argument_list|,
 literal|"HTTP/1.1 "
 argument_list|,
@@ -855,8 +895,6 @@ expr_stmt|;
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 operator|+=
 literal|9
 expr_stmt|;
@@ -877,8 +915,6 @@ argument_list|(
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 argument_list|,
 name|r
 operator|->
@@ -900,8 +936,6 @@ expr_stmt|;
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 operator|+=
 name|r
 operator|->
@@ -919,8 +953,6 @@ argument_list|(
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 argument_list|,
 name|http_codes
 index|[
@@ -940,8 +972,6 @@ expr_stmt|;
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 operator|+=
 name|http_codes
 index|[
@@ -956,8 +986,6 @@ operator|(
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 operator|++
 operator|)
 operator|=
@@ -968,8 +996,6 @@ operator|(
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 operator|++
 operator|)
 operator|=
@@ -1002,8 +1028,6 @@ argument_list|(
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 argument_list|,
 name|server_string
 argument_list|,
@@ -1018,8 +1042,6 @@ expr_stmt|;
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 operator|+=
 sizeof|sizeof
 argument_list|(
@@ -1056,8 +1078,6 @@ argument_list|(
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 argument_list|,
 literal|"Date: "
 argument_list|,
@@ -1067,24 +1087,18 @@ expr_stmt|;
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 operator|+=
 literal|6
 expr_stmt|;
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 operator|+=
 name|ngx_http_get_time
 argument_list|(
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 argument_list|,
 name|time
 argument_list|(
@@ -1097,8 +1111,6 @@ operator|(
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 operator|++
 operator|)
 operator|=
@@ -1109,8 +1121,6 @@ operator|(
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 operator|++
 operator|)
 operator|=
@@ -1132,12 +1142,10 @@ block|{
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 operator|+=
 name|ngx_snprintf
 argument_list|(
-argument|h->last.mem
+argument|h->last
 argument_list|,
 literal|49
 argument_list|,
@@ -1151,7 +1159,7 @@ block|}
 if|#
 directive|if
 literal|0
-block_content|if (r->headers_out.content_type.len) {         ngx_memcpy(h->last.mem, "Content-Type: ", 14);         h->last.mem += 14;         ngx_memcpy(h->last.mem, r->headers_out.content_type.data,                    r->headers_out.content_type.len);         h->last.mem += r->headers_out.content_type.len;         *(h->last.mem++) = CR; *(h->last.mem++) = LF;     }
+block_content|if (r->headers_out.content_type.len) {         ngx_memcpy(h->last, "Content-Type: ", 14);         h->last += 14;         ngx_memcpy(h->last, r->headers_out.content_type.data,                    r->headers_out.content_type.len);         h->last += r->headers_out.content_type.len;         *(h->last++) = CR; *(h->last++) = LF;     }
 endif|#
 directive|endif
 if|if
@@ -1190,8 +1198,6 @@ argument_list|(
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 argument_list|,
 literal|"Last-Modified: "
 argument_list|,
@@ -1201,24 +1207,18 @@ expr_stmt|;
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 operator|+=
 literal|15
 expr_stmt|;
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 operator|+=
 name|ngx_http_get_time
 argument_list|(
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 argument_list|,
 name|r
 operator|->
@@ -1232,8 +1232,6 @@ operator|(
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 operator|++
 operator|)
 operator|=
@@ -1244,8 +1242,6 @@ operator|(
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 operator|++
 operator|)
 operator|=
@@ -1266,8 +1262,6 @@ argument_list|(
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 argument_list|,
 literal|"Connection: close"
 name|CRLF
@@ -1278,8 +1272,6 @@ expr_stmt|;
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 operator|+=
 literal|19
 expr_stmt|;
@@ -1291,8 +1283,6 @@ argument_list|(
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 argument_list|,
 literal|"Connection: keep-alive"
 name|CRLF
@@ -1303,8 +1293,6 @@ expr_stmt|;
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 operator|+=
 literal|24
 expr_stmt|;
@@ -1350,8 +1338,6 @@ argument_list|(
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 argument_list|,
 name|header
 index|[
@@ -1375,8 +1361,6 @@ expr_stmt|;
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 operator|+=
 name|header
 index|[
@@ -1392,8 +1376,6 @@ operator|(
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 operator|++
 operator|)
 operator|=
@@ -1404,8 +1386,6 @@ operator|(
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 operator|++
 operator|)
 operator|=
@@ -1416,8 +1396,6 @@ argument_list|(
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 argument_list|,
 name|header
 index|[
@@ -1441,8 +1419,6 @@ expr_stmt|;
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 operator|+=
 name|header
 index|[
@@ -1458,8 +1434,6 @@ operator|(
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 operator|++
 operator|)
 operator|=
@@ -1470,8 +1444,6 @@ operator|(
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 operator|++
 operator|)
 operator|=
@@ -1484,8 +1456,6 @@ operator|(
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 operator|)
 operator|=
 literal|'\0'
@@ -1495,7 +1465,7 @@ argument_list|(
 argument|r->connection->log
 argument_list|,
 literal|"%s\n"
-argument|_ h->pos.mem
+argument|_ h->pos
 argument_list|)
 empty_stmt|;
 comment|/**/
@@ -1505,8 +1475,6 @@ operator|(
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 operator|++
 operator|)
 operator|=
@@ -1517,8 +1485,6 @@ operator|(
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 operator|++
 operator|)
 operator|=

@@ -19,7 +19,7 @@ file|<ngx_config.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bf58cf60108
+DECL|struct|__anon2c7342670108
 typedef|typedef
 struct|struct
 block|{
@@ -47,6 +47,14 @@ parameter_list|(
 name|str
 parameter_list|)
 value|{ sizeof(str) - 1, str }
+end_define
+
+begin_define
+DECL|macro|ngx_null_string
+define|#
+directive|define
+name|ngx_null_string
+value|{ 0, NULL }
 end_define
 
 begin_if

@@ -41,11 +41,19 @@ comment|/* hunk type */
 end_comment
 
 begin_comment
-comment|/* temp means that hunk's content can be changed */
+comment|/* the hunk is in memory */
 end_comment
 
+begin_define
+DECL|macro|NGX_HUNK_IN_MEMORY
+define|#
+directive|define
+name|NGX_HUNK_IN_MEMORY
+value|0x0001
+end_define
+
 begin_comment
-comment|/* other type means that hunk's content can not be changed */
+comment|/* the hunk's content can be changed */
 end_comment
 
 begin_define
@@ -53,31 +61,51 @@ DECL|macro|NGX_HUNK_TEMP
 define|#
 directive|define
 name|NGX_HUNK_TEMP
-value|0x0001
+value|0x0002
 end_define
+
+begin_comment
+comment|/* the hunk's content is in cache and can not be changed */
+end_comment
 
 begin_define
 DECL|macro|NGX_HUNK_MEMORY
 define|#
 directive|define
 name|NGX_HUNK_MEMORY
-value|0x0002
+value|0x0004
 end_define
+
+begin_comment
+comment|/* the hunk's content is mmap()ed and can not be changed */
+end_comment
 
 begin_define
 DECL|macro|NGX_HUNK_MMAP
 define|#
 directive|define
 name|NGX_HUNK_MMAP
-value|0x0004
+value|0x0008
 end_define
+
+begin_define
+DECL|macro|NGX_HUNK_RECYCLED
+define|#
+directive|define
+name|NGX_HUNK_RECYCLED
+value|0x0010
+end_define
+
+begin_comment
+comment|/* the hunk is in file */
+end_comment
 
 begin_define
 DECL|macro|NGX_HUNK_FILE
 define|#
 directive|define
 name|NGX_HUNK_FILE
-value|0x0008
+value|0x0100
 end_define
 
 begin_comment
@@ -97,7 +125,7 @@ DECL|macro|NGX_HUNK_FLUSH
 define|#
 directive|define
 name|NGX_HUNK_FLUSH
-value|0x0100
+value|0x1000
 end_define
 
 begin_comment
@@ -109,45 +137,7 @@ DECL|macro|NGX_HUNK_LAST
 define|#
 directive|define
 name|NGX_HUNK_LAST
-value|0x0200
-end_define
-
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-
-begin_comment
-comment|/* can be used with NGX_HUNK_LAST only */
-end_comment
-
-begin_define
-define|#
-directive|define
-name|NGX_HUNK_SHUTDOWN
-value|0x0400 /
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_define
-DECL|macro|NGX_HUNK_RECYCLED
-define|#
-directive|define
-name|NGX_HUNK_RECYCLED
-value|0x0800
-end_define
-
-begin_define
-DECL|macro|NGX_HUNK_IN_MEMORY
-define|#
-directive|define
-name|NGX_HUNK_IN_MEMORY
-value|(NGX_HUNK_TEMP|NGX_HUNK_MEMORY|NGX_HUNK_MMAP)
+value|0x2000
 end_define
 
 begin_typedef
@@ -164,40 +154,34 @@ DECL|struct|ngx_hunk_s
 struct|struct
 name|ngx_hunk_s
 block|{
-DECL|union|__anon28a40e70010a
-union|union
-block|{
-DECL|member|mem
-name|char
-modifier|*
-name|mem
-decl_stmt|;
+if|#
+directive|if
+literal|0
+block|union {         char    *mem;
 comment|/* start of current data */
-DECL|member|file
-name|off_t
-name|file
-decl_stmt|;
+block|off_t    file;        } pos;     union {         char    *mem;
+comment|/* end of current data */
+block|off_t    file;        } last;
+endif|#
+directive|endif
 DECL|member|pos
-block|}
-name|pos
-union|;
-DECL|union|__anon28a40e70020a
-union|union
-block|{
-DECL|member|mem
 name|char
 modifier|*
-name|mem
-decl_stmt|;
-comment|/* end of current data */
-DECL|member|file
-name|off_t
-name|file
+name|pos
 decl_stmt|;
 DECL|member|last
-block|}
+name|char
+modifier|*
 name|last
-union|;
+decl_stmt|;
+DECL|member|file_pos
+name|off_t
+name|file_pos
+decl_stmt|;
+DECL|member|file_last
+name|off_t
+name|file_last
+decl_stmt|;
 DECL|member|type
 name|int
 name|type
@@ -273,6 +257,18 @@ define|#
 directive|define
 name|NGX_CHAIN_ERROR
 value|(ngx_chain_t *) NGX_ERROR
+end_define
+
+begin_define
+DECL|macro|ngx_hunk_in_memory_only (h)
+define|#
+directive|define
+name|ngx_hunk_in_memory_only
+parameter_list|(
+name|h
+parameter_list|)
+define|\
+value|((h->type& (NGX_HUNK_IN_MEMORY|NGX_HUNK_FILE)) == NGX_HUNK_IN_MEMORY)
 end_define
 
 begin_function_decl

@@ -108,6 +108,24 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|error_414_page
+specifier|static
+name|char
+name|error_414_page
+index|[]
+init|=
+literal|"<html>"
+name|CRLF
+literal|"<head><title>414 Request-URI Too Large</title></head>"
+name|CRLF
+literal|"<body bgcolor=\"white\">"
+name|CRLF
+literal|"<center><h1>414 Request-URI Too Large</h1></center>"
+name|CRLF
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|error_500_page
 specifier|static
 name|char
@@ -209,6 +227,80 @@ name|error_404_page
 block|}
 block|,
 block|{
+literal|0
+block|,
+name|NULL
+block|}
+block|,
+comment|/* 405 */
+block|{
+literal|0
+block|,
+name|NULL
+block|}
+block|,
+comment|/* 406 */
+block|{
+literal|0
+block|,
+name|NULL
+block|}
+block|,
+comment|/* 407 */
+block|{
+literal|0
+block|,
+name|NULL
+block|}
+block|,
+comment|/* 408 */
+block|{
+literal|0
+block|,
+name|NULL
+block|}
+block|,
+comment|/* 409 */
+block|{
+literal|0
+block|,
+name|NULL
+block|}
+block|,
+comment|/* 410 */
+block|{
+literal|0
+block|,
+name|NULL
+block|}
+block|,
+comment|/* 411 */
+block|{
+literal|0
+block|,
+name|NULL
+block|}
+block|,
+comment|/* 412 */
+block|{
+literal|0
+block|,
+name|NULL
+block|}
+block|,
+comment|/* 413 */
+block|{
+sizeof|sizeof
+argument_list|(
+name|error_414_page
+argument_list|)
+operator|-
+literal|1
+block|,
+name|error_414_page
+block|}
+block|,
+block|{
 sizeof|sizeof
 argument_list|(
 name|error_500_page
@@ -294,7 +386,7 @@ name|NGX_HTTP_INTERNAL_SERVER_ERROR
 operator|+
 literal|4
 operator|+
-literal|5
+literal|15
 expr_stmt|;
 if|if
 condition|(
@@ -391,12 +483,12 @@ operator|->
 name|type
 operator|=
 name|NGX_HUNK_MEMORY
+operator||
+name|NGX_HUNK_IN_MEMORY
 expr_stmt|;
 name|message
 operator|->
 name|pos
-operator|.
-name|mem
 operator|=
 name|error_pages
 index|[
@@ -408,8 +500,6 @@ expr_stmt|;
 name|message
 operator|->
 name|last
-operator|.
-name|mem
 operator|=
 name|error_pages
 index|[
@@ -467,20 +557,18 @@ operator|=
 name|NGX_HUNK_MEMORY
 operator||
 name|NGX_HUNK_LAST
+operator||
+name|NGX_HUNK_IN_MEMORY
 expr_stmt|;
 name|tail
 operator|->
 name|pos
-operator|.
-name|mem
 operator|=
 name|error_tail
 expr_stmt|;
 name|tail
 operator|->
 name|last
-operator|.
-name|mem
 operator|=
 name|error_tail
 operator|+

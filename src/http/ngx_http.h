@@ -279,6 +279,38 @@ value|500
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_NOT_IMPLEMENTED
+define|#
+directive|define
+name|NGX_HTTP_NOT_IMPLEMENTED
+value|501
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_BAD_GATEWAY
+define|#
+directive|define
+name|NGX_HTTP_BAD_GATEWAY
+value|502
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_SERVICE_UNAVAILABLE
+define|#
+directive|define
+name|NGX_HTTP_SERVICE_UNAVAILABLE
+value|503
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_GATEWAY_TIME_OUT
+define|#
+directive|define
+name|NGX_HTTP_GATEWAY_TIME_OUT
+value|504
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_STATIC_HANDLER
 define|#
 directive|define
@@ -295,55 +327,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2bae39610108
-typedef|typedef
-struct|struct
-block|{
-DECL|member|doc_root
-name|char
-modifier|*
-name|doc_root
-decl_stmt|;
-DECL|member|doc_root_len
-name|size_t
-name|doc_root_len
-decl_stmt|;
-DECL|member|connection_pool_size
-name|size_t
-name|connection_pool_size
-decl_stmt|;
-DECL|member|request_pool_size
-name|size_t
-name|request_pool_size
-decl_stmt|;
-DECL|member|header_buffer_size
-name|size_t
-name|header_buffer_size
-decl_stmt|;
-DECL|member|discarded_buffer_size
-name|size_t
-name|discarded_buffer_size
-decl_stmt|;
-DECL|member|header_timeout
-name|ngx_msec_t
-name|header_timeout
-decl_stmt|;
-DECL|member|lingering_timeout
-name|ngx_msec_t
-name|lingering_timeout
-decl_stmt|;
-DECL|member|lingering_time
-name|time_t
-name|lingering_time
-decl_stmt|;
-DECL|typedef|ngx_http_server_t
-block|}
-name|ngx_http_server_t
-typedef|;
-end_typedef
-
-begin_typedef
-DECL|struct|__anon2bae39610208
+DECL|struct|__anon28d8bce10108
 typedef|typedef
 struct|struct
 block|{
@@ -367,7 +351,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bae39610308
+DECL|struct|__anon28d8bce10208
 typedef|typedef
 struct|struct
 block|{
@@ -412,7 +396,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bae39610408
+DECL|struct|__anon28d8bce10308
 typedef|typedef
 struct|struct
 block|{
@@ -772,7 +756,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bae39610508
+DECL|struct|__anon28d8bce10408
 typedef|typedef
 struct|struct
 block|{
@@ -850,7 +834,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bae39610608
+DECL|struct|__anon28d8bce10508
 typedef|typedef
 struct|struct
 block|{
@@ -1057,7 +1041,7 @@ value|r->ctx[module.index]
 end_define
 
 begin_define
-DECL|macro|ngx_http_create_ctx (r,cx,module,size)
+DECL|macro|ngx_http_create_ctx (r,cx,module,size,error)
 define|#
 directive|define
 name|ngx_http_create_ctx
@@ -1069,9 +1053,11 @@ parameter_list|,
 name|module
 parameter_list|,
 name|size
+parameter_list|,
+name|error
 parameter_list|)
 define|\
-value|do {                                                              \                 ngx_test_null(cx, ngx_pcalloc(r->pool, size), NGX_ERROR);     \                 r->ctx[module.index] = cx;                                    \             } while (0)
+value|do {                                                              \                 ngx_test_null(cx, ngx_pcalloc(r->pool, size), error);         \                 r->ctx[module.index] = cx;                                    \             } while (0)
 end_define
 
 begin_comment
@@ -1281,20 +1267,6 @@ begin_decl_stmt
 specifier|extern
 name|int
 name|ngx_http_discarded_buffer_size
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-specifier|extern
-name|int
-name|ngx_http_lingering_timeout
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-specifier|extern
-name|int
-name|ngx_http_lingering_time
 decl_stmt|;
 end_decl_stmt
 

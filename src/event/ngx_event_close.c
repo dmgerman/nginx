@@ -70,7 +70,7 @@ name|ngx_log_debug
 argument_list|(
 argument|c->log
 argument_list|,
-literal|"CLOSE: %d"
+literal|"close connection: %d"
 argument|_ c->fd
 argument_list|)
 empty_stmt|;
@@ -87,13 +87,15 @@ argument_list|,
 literal|"ngx_event_close: already closed"
 argument_list|)
 empty_stmt|;
-name|ngx_destroy_pool
-argument_list|(
+if|if
+condition|(
 name|c
 operator|->
-name|pool
-argument_list|)
-expr_stmt|;
+name|read
+operator|->
+name|timer_set
+condition|)
+block|{
 name|ngx_del_timer
 argument_list|(
 name|c
@@ -101,6 +103,24 @@ operator|->
 name|read
 argument_list|)
 expr_stmt|;
+name|c
+operator|->
+name|read
+operator|->
+name|timer_set
+operator|=
+literal|0
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|c
+operator|->
+name|write
+operator|->
+name|timer_set
+condition|)
+block|{
 name|ngx_del_timer
 argument_list|(
 name|c
@@ -108,6 +128,15 @@ operator|->
 name|write
 argument_list|)
 expr_stmt|;
+name|c
+operator|->
+name|write
+operator|->
+name|timer_set
+operator|=
+literal|0
+expr_stmt|;
+block|}
 name|ngx_del_event
 argument_list|(
 name|c
@@ -165,6 +194,13 @@ name|fd
 operator|=
 operator|-
 literal|1
+expr_stmt|;
+name|ngx_destroy_pool
+argument_list|(
+name|c
+operator|->
+name|pool
+argument_list|)
 expr_stmt|;
 return|return
 name|rc

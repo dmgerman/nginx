@@ -925,8 +925,6 @@ operator|=
 name|h
 operator|->
 name|pos
-operator|.
-name|mem
 expr_stmt|;
 if|#
 directive|if
@@ -945,14 +943,10 @@ condition|(
 name|h
 operator|->
 name|pos
-operator|.
-name|mem
 operator|>=
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 condition|)
 block|{
 if|if
@@ -986,8 +980,6 @@ condition|(
 name|h
 operator|->
 name|pos
-operator|.
-name|mem
 operator|-
 name|start
 condition|)
@@ -1003,8 +995,6 @@ argument_list|,
 name|h
 operator|->
 name|pos
-operator|.
-name|mem
 operator|-
 name|start
 argument_list|)
@@ -1029,8 +1019,6 @@ operator|(
 name|h
 operator|->
 name|pos
-operator|.
-name|mem
 operator|-
 name|start
 operator|)
@@ -1048,8 +1036,6 @@ operator|(
 name|h
 operator|->
 name|pos
-operator|.
-name|mem
 operator|-
 name|start
 operator|)
@@ -1078,8 +1064,6 @@ block|}
 name|h
 operator|->
 name|pos
-operator|.
-name|mem
 operator|=
 name|h
 operator|->
@@ -1089,8 +1073,6 @@ operator|(
 name|h
 operator|->
 name|pos
-operator|.
-name|mem
 operator|-
 name|start
 operator|)
@@ -1104,14 +1086,10 @@ expr_stmt|;
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 operator|=
 name|h
 operator|->
 name|pos
-operator|.
-name|mem
 operator|+
 name|n
 expr_stmt|;
@@ -1122,8 +1100,6 @@ operator|*
 name|h
 operator|->
 name|pos
-operator|.
-name|mem
 operator|++
 expr_stmt|;
 if|#
@@ -1259,8 +1235,6 @@ operator|=
 name|h
 operator|->
 name|pos
-operator|.
-name|mem
 operator|-
 literal|1
 expr_stmt|;
@@ -1568,8 +1542,6 @@ argument_list|,
 name|h
 operator|->
 name|pos
-operator|.
-name|mem
 operator|-
 name|start
 operator|+
@@ -1600,8 +1572,6 @@ operator|<
 name|h
 operator|->
 name|pos
-operator|.
-name|mem
 operator|-
 literal|1
 condition|;

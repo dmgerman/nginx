@@ -32,6 +32,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_conf_file.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_event_write.h>
 end_include
 
@@ -39,6 +45,18 @@ begin_include
 include|#
 directive|include
 file|<ngx_http.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_http_config.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_http_core_module.h>
 end_include
 
 begin_include
@@ -54,9 +72,111 @@ file|<ngx_http_event_proxy_handler.h>
 end_include
 
 begin_decl_stmt
+DECL|variable|ngx_http_proxy_commands
+specifier|static
+name|ngx_command_t
+name|ngx_http_proxy_commands
+index|[]
+init|=
+block|{
+block|{
+name|ngx_string
+argument_list|(
+literal|"proxy_large_header"
+argument_list|)
+block|,
+name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_CONF_TAKE1
+block|,
+name|ngx_conf_set_flag_slot
+block|,
+name|NGX_HTTP_LOC_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+argument|ngx_http_proxy_loc_conf_t
+argument_list|,
+argument|large_header
+argument_list|)
+block|}
+block|,
+block|{
+name|ngx_null_string
+block|,
+literal|0
+block|,
+name|NULL
+block|,
+literal|0
+block|,
+literal|0
+block|}
+block|}
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_http_proxy_module_ctx
+specifier|static
 name|ngx_http_module_t
 name|ngx_http_proxy_module_ctx
+init|=
+block|{
+name|NGX_HTTP_MODULE
+block|,
+name|NULL
+block|,
+comment|/* create server config */
+name|NULL
+block|,
+comment|/* init server config */
+name|NULL
+block|,
+comment|/* create location config */
+name|NULL
+block|,
+comment|/* merge location config */
+name|NULL
+block|,
+comment|/* translate handler */
+name|NULL
+block|,
+comment|/* output header filter */
+name|NULL
+block|,
+comment|/* next output header filter */
+name|NULL
+block|,
+comment|/* output body filter */
+name|NULL
+comment|/* next output body filter */
+block|}
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_http_proxy_module
+name|ngx_module_t
+name|ngx_http_proxy_module
+init|=
+block|{
+literal|0
+block|,
+comment|/* module index */
+operator|&
+name|ngx_http_proxy_module_ctx
+block|,
+comment|/* module context */
+name|ngx_http_proxy_commands
+block|,
+comment|/* module directives */
+name|NGX_HTTP_MODULE_TYPE
+block|,
+comment|/* module type */
+name|NULL
+comment|/* init module */
+block|}
 decl_stmt|;
 end_decl_stmt
 
@@ -98,6 +218,18 @@ begin_function_decl
 specifier|static
 name|int
 name|ngx_http_proxy_send_request
+parameter_list|(
+name|ngx_event_t
+modifier|*
+name|ev
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
+name|int
+name|ngx_http_proxy_init_response
 parameter_list|(
 name|ngx_event_t
 modifier|*
@@ -240,6 +372,8 @@ sizeof|sizeof
 argument_list|(
 name|ngx_http_proxy_ctx_t
 argument_list|)
+argument_list|,
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 block|}
@@ -258,7 +392,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_ERROR
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
 block|}
 name|p
@@ -350,6 +484,7 @@ modifier|*
 name|header
 decl_stmt|;
 comment|/* 2 is for "\r\n" after request line        and 2 is for "\r\n" at the header end */
+comment|/* STUB: "method p->url HTTP/1.0" length */
 name|len
 operator|=
 name|r
@@ -362,6 +497,7 @@ literal|2
 operator|+
 literal|2
 expr_stmt|;
+comment|/* TODO: Host length */
 comment|/* "Connection: close\r\n" */
 name|len
 operator|+=
@@ -503,13 +639,12 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
+comment|/* STUB: "method p->url HTTP/1.0" */
 name|ngx_memcpy
 argument_list|(
 name|hunk
 operator|->
 name|last
-operator|.
-name|mem
 argument_list|,
 name|r
 operator|->
@@ -527,8 +662,6 @@ expr_stmt|;
 name|hunk
 operator|->
 name|last
-operator|.
-name|mem
 operator|+=
 name|r
 operator|->
@@ -541,8 +674,6 @@ operator|(
 name|hunk
 operator|->
 name|last
-operator|.
-name|mem
 operator|++
 operator|)
 operator|=
@@ -553,20 +684,17 @@ operator|(
 name|hunk
 operator|->
 name|last
-operator|.
-name|mem
 operator|++
 operator|)
 operator|=
 name|LF
 expr_stmt|;
+comment|/* TODO: Host header */
 name|ngx_memcpy
 argument_list|(
 name|hunk
 operator|->
 name|last
-operator|.
-name|mem
 argument_list|,
 name|conn_close
 argument_list|,
@@ -581,8 +709,6 @@ expr_stmt|;
 name|hunk
 operator|->
 name|last
-operator|.
-name|mem
 operator|+=
 sizeof|sizeof
 argument_list|(
@@ -650,8 +776,6 @@ argument_list|(
 name|hunk
 operator|->
 name|last
-operator|.
-name|mem
 argument_list|,
 name|header
 index|[
@@ -675,8 +799,6 @@ expr_stmt|;
 name|hunk
 operator|->
 name|last
-operator|.
-name|mem
 operator|+=
 name|header
 index|[
@@ -692,8 +814,6 @@ operator|(
 name|hunk
 operator|->
 name|last
-operator|.
-name|mem
 operator|++
 operator|)
 operator|=
@@ -704,8 +824,6 @@ operator|(
 name|hunk
 operator|->
 name|last
-operator|.
-name|mem
 operator|++
 operator|)
 operator|=
@@ -716,8 +834,6 @@ argument_list|(
 name|hunk
 operator|->
 name|last
-operator|.
-name|mem
 argument_list|,
 name|header
 index|[
@@ -741,8 +857,6 @@ expr_stmt|;
 name|hunk
 operator|->
 name|last
-operator|.
-name|mem
 operator|+=
 name|header
 index|[
@@ -758,8 +872,6 @@ operator|(
 name|hunk
 operator|->
 name|last
-operator|.
-name|mem
 operator|++
 operator|)
 operator|=
@@ -770,8 +882,6 @@ operator|(
 name|hunk
 operator|->
 name|last
-operator|.
-name|mem
 operator|++
 operator|)
 operator|=
@@ -792,8 +902,6 @@ operator|(
 name|hunk
 operator|->
 name|last
-operator|.
-name|mem
 operator|++
 operator|)
 operator|=
@@ -804,8 +912,6 @@ operator|(
 name|hunk
 operator|->
 name|last
-operator|.
-name|mem
 operator|++
 operator|)
 operator|=
@@ -817,8 +923,6 @@ operator|(
 name|hunk
 operator|->
 name|last
-operator|.
-name|mem
 operator|++
 operator|)
 operator|=
@@ -829,7 +933,7 @@ argument_list|(
 argument|r->connection->log
 argument_list|,
 literal|"PROXY:\n'%s'"
-argument|_ hunk->pos.mem
+argument|_ hunk->pos
 argument_list|)
 empty_stmt|;
 return|return
@@ -860,6 +964,8 @@ parameter_list|)
 block|{
 name|int
 name|rc
+decl_stmt|,
+name|event
 decl_stmt|;
 name|ngx_err_t
 name|err
@@ -941,13 +1047,13 @@ literal|" failed"
 argument_list|)
 expr_stmt|;
 return|return
-name|NGX_ERROR
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
 block|}
 if|#
 directive|if
 literal|0
-block_content|if (rcvbuf) {         if (setsockopt(sock, SOL_SOCKET, SO_RCVBUF,                        (const void *)&rcvbuf, sizeof(int)) == -1) {             ngx_log_error(NGX_LOG_ALERT, c->log, ngx_socket_errno,                           "setsockopt(SO_RCVBUF) failed");              if (ngx_close_socket(s) == -1) {                 ngx_log_error(NGX_LOG_ALERT, c->log, ngx_socket_errno,                               ngx_close_socket_n " failed");             }              return NGX_ERROR;         }     }
+block_content|if (rcvbuf) {         if (setsockopt(sock, SOL_SOCKET, SO_RCVBUF,                        (const void *)&rcvbuf, sizeof(int)) == -1) {             ngx_log_error(NGX_LOG_ALERT, c->log, ngx_socket_errno,                           "setsockopt(SO_RCVBUF) failed");              if (ngx_close_socket(s) == -1) {                 ngx_log_error(NGX_LOG_ALERT, c->log, ngx_socket_errno,                               ngx_close_socket_n " failed");             }              return NGX_HTTP_INTERNAL_SERVER_ERROR;         }     }
 endif|#
 directive|endif
 if|if
@@ -1002,7 +1108,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|NGX_ERROR
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
 block|}
 name|rc
@@ -1084,7 +1190,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|NGX_ERROR
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
 block|}
 block|}
@@ -1217,7 +1323,7 @@ operator|->
 name|log
 argument_list|)
 argument_list|,
-name|NGX_ERROR
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 name|wev
@@ -1230,12 +1336,12 @@ name|rev
 operator|->
 name|event_handler
 operator|=
-name|ngx_http_proxy_read_response_header
+name|ngx_http_proxy_init_response
 expr_stmt|;
 if|#
 directive|if
 operator|(
-name|HAVE_CLEAR_EVENT
+name|USE_KQUEUE
 operator|)
 if|if
 condition|(
@@ -1251,8 +1357,46 @@ operator|!=
 name|NGX_OK
 condition|)
 block|{
+return|return
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
+return|;
+block|}
 else|#
 directive|else
+if|#
+directive|if
+operator|(
+name|HAVE_CLEAR_EVENT
+operator|)
+comment|/* kqueue */
+if|if
+condition|(
+name|ngx_event_flags
+operator|&
+name|NGX_HAVE_CLEAR_EVENT
+condition|)
+block|{
+name|event
+operator|=
+name|NGX_CLEAR_EVENT
+expr_stmt|;
+block|}
+else|else
+block|{
+name|event
+operator|=
+name|NGX_LEVEL_EVENT
+expr_stmt|;
+block|}
+else|#
+directive|else
+comment|/* select, poll, /dev/poll */
+name|event
+operator|=
+name|NGX_LEVEL_EVENT
+expr_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|ngx_add_event
@@ -1261,18 +1405,21 @@ name|rev
 argument_list|,
 name|NGX_READ_EVENT
 argument_list|,
-name|NGX_LEVEL_EVENT
+name|event
 argument_list|)
 operator|!=
 name|NGX_OK
 condition|)
 block|{
-endif|#
-directive|endif
 return|return
-name|NGX_ERROR
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
 block|}
+endif|#
+directive|endif
+comment|/* USE_KQUEUE */
+comment|/* TODO: aio, iocp */
+comment|/* The connection is in a progress */
 if|if
 condition|(
 name|rc
@@ -1281,7 +1428,9 @@ operator|-
 literal|1
 condition|)
 block|{
-return|return
+comment|/* TODO: oneshot */
+if|if
+condition|(
 name|ngx_add_event
 argument_list|(
 name|wev
@@ -1290,7 +1439,14 @@ name|NGX_WRITE_EVENT
 argument_list|,
 name|NGX_ONESHOT_EVENT
 argument_list|)
+operator|!=
+name|NGX_OK
+condition|)
+block|{
+return|return
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
+block|}
 block|}
 name|wev
 operator|->
@@ -1311,6 +1467,9 @@ name|wev
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 DECL|function|ngx_http_proxy_send_request (ngx_event_t * ev)
 specifier|static
 name|int
@@ -1372,7 +1531,7 @@ argument_list|)
 expr_stmt|;
 name|chain
 operator|=
-name|ngx_event_write
+name|ngx_write_chain
 argument_list|(
 name|c
 argument_list|,
@@ -1409,10 +1568,13 @@ return|return
 name|NGX_WAITING
 return|;
 block|}
-DECL|function|ngx_http_proxy_read_response_header (ngx_event_t * ev)
+end_function
+
+begin_function
+DECL|function|ngx_http_proxy_init_response (ngx_event_t * ev)
 specifier|static
 name|int
-name|ngx_http_proxy_read_response_header
+name|ngx_http_proxy_init_response
 parameter_list|(
 name|ngx_event_t
 modifier|*
@@ -1439,17 +1601,6 @@ name|ngx_http_proxy_ctx_t
 modifier|*
 name|p
 decl_stmt|;
-if|if
-condition|(
-name|ev
-operator|->
-name|timedout
-condition|)
-block|{
-return|return
-name|NGX_ERROR
-return|;
-block|}
 name|c
 operator|=
 operator|(
@@ -1470,6 +1621,24 @@ name|c
 operator|->
 name|data
 expr_stmt|;
+if|if
+condition|(
+name|ev
+operator|->
+name|timedout
+condition|)
+block|{
+return|return
+name|ngx_http_proxy_error
+argument_list|(
+name|r
+argument_list|,
+name|p
+argument_list|,
+name|NGX_HTTP_GATEWAY_TIME_OUT
+argument_list|)
+return|;
+block|}
 name|p
 operator|=
 operator|(
@@ -1483,15 +1652,6 @@ argument_list|,
 name|ngx_http_proxy_module_ctx
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|p
-operator|->
-name|header_in
-operator|==
-name|NULL
-condition|)
-block|{
 name|ngx_test_null
 argument_list|(
 name|p
@@ -1513,7 +1673,14 @@ argument_list|,
 literal|0
 argument_list|)
 argument_list|,
-name|NGX_ERROR
+name|ngx_http_proxy_error
+argument_list|(
+name|r
+argument_list|,
+name|p
+argument_list|,
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|p
@@ -1523,6 +1690,8 @@ operator|->
 name|type
 operator|=
 name|NGX_HUNK_MEMORY
+operator||
+name|NGX_HUNK_IN_MEMORY
 expr_stmt|;
 name|ngx_test_null
 argument_list|(
@@ -1542,7 +1711,14 @@ name|ngx_http_proxy_headers_in_t
 argument_list|)
 argument_list|)
 argument_list|,
-name|NGX_ERROR
+name|ngx_http_proxy_error
+argument_list|(
+name|r
+argument_list|,
+name|p
+argument_list|,
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|ngx_init_array
@@ -1565,7 +1741,14 @@ name|ngx_hunk_t
 operator|*
 argument_list|)
 argument_list|,
-name|NGX_ERROR
+name|ngx_http_proxy_error
+argument_list|(
+name|r
+argument_list|,
+name|p
+argument_list|,
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|ngx_test_null
@@ -1596,7 +1779,130 @@ name|state_handler
 operator|=
 name|ngx_http_proxy_process_status_line
 expr_stmt|;
+return|return
+name|ngx_http_proxy_read_response_header
+argument_list|(
+name|ev
+argument_list|)
+return|;
 block|}
+end_function
+
+begin_function
+DECL|function|ngx_http_proxy_read_response_header (ngx_event_t * ev)
+specifier|static
+name|int
+name|ngx_http_proxy_read_response_header
+parameter_list|(
+name|ngx_event_t
+modifier|*
+name|ev
+parameter_list|)
+block|{
+name|int
+name|n
+decl_stmt|;
+name|ngx_hunk_t
+modifier|*
+modifier|*
+name|ph
+decl_stmt|;
+name|ngx_connection_t
+modifier|*
+name|c
+decl_stmt|;
+name|ngx_http_request_t
+modifier|*
+name|r
+decl_stmt|;
+name|ngx_http_proxy_ctx_t
+modifier|*
+name|p
+decl_stmt|;
+name|ngx_http_proxy_loc_conf_t
+modifier|*
+name|lcf
+decl_stmt|;
+name|c
+operator|=
+operator|(
+name|ngx_connection_t
+operator|*
+operator|)
+name|ev
+operator|->
+name|data
+expr_stmt|;
+name|r
+operator|=
+operator|(
+name|ngx_http_request_t
+operator|*
+operator|)
+name|c
+operator|->
+name|data
+expr_stmt|;
+name|p
+operator|=
+operator|(
+name|ngx_http_proxy_ctx_t
+operator|*
+operator|)
+name|ngx_http_get_module_ctx
+argument_list|(
+name|r
+argument_list|,
+name|ngx_http_proxy_module
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|ev
+operator|->
+name|timedout
+condition|)
+block|{
+return|return
+name|ngx_http_proxy_error
+argument_list|(
+name|r
+argument_list|,
+name|p
+argument_list|,
+name|NGX_HTTP_GATEWAY_TIME_OUT
+argument_list|)
+return|;
+block|}
+name|lcf
+operator|=
+operator|(
+name|ngx_http_proxy_loc_conf_t
+operator|*
+operator|)
+name|ngx_http_get_module_loc_conf
+argument_list|(
+name|r
+argument_list|,
+name|ngx_http_proxy_module
+argument_list|)
+expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|do {         n = ngx_event_recv(c, p->header_in->last,                            p->header_in->end - p->header_in->last;          if (n == NGX_AGAIN) {             if (ev->timer_set) {                 ngx_del_timer(ev);             } else {                 ev->timer_set = 1;             }              ngx_add_timer(ev, lcf->timeout);             return NGX_AGAIN;         }          if (n == NGX_ERROR) {             ngx_http_proxy_close_request(r, p);             return ngx_http_error(r, NGX_HTTP_BAD_GATEWAY);         }          ngx_log_debug(c->log, "http proxy read %d" _ n);          if (n == 0) {             ngx_log_error(NGX_LOG_INFO, c->log, 0,                           "client has prematurely closed connection");             ngx_http_proxy_close_request(r, p);         }          p->header_in->last += n;          if (lcf->large_header&& p->header_in->end == p->header_in->last) {             again = 1;         } else {             again = 0;         }
+if|#
+directive|if
+operator|(
+name|HAVE_AIO_EVENT
+operator|)
+comment|/* aio, iocp */
+block_content|if (ngx_event_flags& NGX_HAVE_AIO_EVENT) {             again = 1;         }
+endif|#
+directive|endif
+block_content|} while (rc == NGX_AGAIN&& again);
+endif|#
+directive|endif
 name|n
 operator|=
 name|ngx_event_recv
@@ -1608,8 +1914,6 @@ operator|->
 name|header_in
 operator|->
 name|last
-operator|.
-name|mem
 argument_list|,
 name|p
 operator|->
@@ -1622,8 +1926,6 @@ operator|->
 name|header_in
 operator|->
 name|last
-operator|.
-name|mem
 argument_list|)
 expr_stmt|;
 name|ngx_log_debug
@@ -1639,8 +1941,6 @@ operator|->
 name|header_in
 operator|->
 name|last
-operator|.
-name|mem
 operator|+=
 name|n
 expr_stmt|;
@@ -1651,8 +1951,6 @@ operator|->
 name|header_in
 operator|->
 name|last
-operator|.
-name|mem
 operator|=
 literal|'\0'
 expr_stmt|;
@@ -1661,7 +1959,7 @@ argument_list|(
 argument|c->log
 argument_list|,
 literal|"PROXY:\n'%s'"
-argument|_ p->header_in->pos.mem
+argument|_ p->header_in->pos
 argument_list|)
 empty_stmt|;
 comment|/**/
@@ -1743,8 +2041,6 @@ operator|->
 name|header_in
 operator|->
 name|last
-operator|.
-name|mem
 operator|==
 literal|0
 condition|)
@@ -1760,6 +2056,9 @@ return|return
 name|NGX_WAITING
 return|;
 block|}
+end_function
+
+begin_function
 DECL|function|ngx_http_proxy_process_status_line (ngx_http_request_t * r,ngx_http_proxy_ctx_t * p)
 specifier|static
 name|int
@@ -1828,8 +2127,6 @@ operator|->
 name|header_in
 operator|->
 name|last
-operator|.
-name|mem
 operator|>=
 name|p
 operator|->
@@ -1859,12 +2156,21 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+end_function
+
+begin_if
 if|#
 directive|if
 literal|0
-block_content|static int ngx_http_proxy_process_response_header(ngx_http_request_t *r,                                                   ngx_http_proxy_ctx_t *p) {     return NGX_OK; }
+end_if
+
+begin_endif
+unit|static int ngx_http_proxy_process_response_header(ngx_http_request_t *r,                                                   ngx_http_proxy_ctx_t *p) {     return NGX_OK; }
 endif|#
 directive|endif
+end_endif
+
+begin_function
 DECL|function|ngx_http_proxy_read_response_body (ngx_event_t * ev)
 specifier|static
 name|int
@@ -1995,8 +2301,6 @@ operator|-
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 expr_stmt|;
 block|}
 else|else
@@ -2119,6 +2423,8 @@ operator|->
 name|type
 operator|=
 name|NGX_HUNK_MEMORY
+operator||
+name|NGX_HUNK_IN_MEMORY
 expr_stmt|;
 operator|*
 name|ph
@@ -2138,8 +2444,6 @@ operator|=
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 expr_stmt|;
 name|size
 operator|=
@@ -2150,8 +2454,6 @@ operator|-
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 expr_stmt|;
 block|}
 else|else
@@ -2214,8 +2516,6 @@ block|}
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 operator|+=
 name|n
 expr_stmt|;
@@ -2228,16 +2528,12 @@ operator|-
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 expr_stmt|;
 comment|/* STUB */
 operator|*
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 operator|=
 literal|'\0'
 expr_stmt|;
@@ -2246,7 +2542,7 @@ argument_list|(
 argument|c->log
 argument_list|,
 literal|"PROXY:\n'%s'"
-argument|_ h->pos.mem
+argument|_ h->pos
 argument_list|)
 empty_stmt|;
 comment|/**/
@@ -2317,6 +2613,9 @@ return|return
 name|NGX_WAITING
 return|;
 block|}
+end_function
+
+begin_function
 DECL|function|ngx_http_proxy_write_to_client (ngx_event_t * ev)
 specifier|static
 name|int
@@ -2453,6 +2752,47 @@ return|return
 name|NGX_OK
 return|;
 block|}
+end_function
+
+begin_function
+DECL|function|ngx_http_proxy_error (ngx_http_request_t * r,ngx_http_proxy_ctx_t * p,int error)
+specifier|static
+name|int
+name|ngx_http_proxy_error
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_http_proxy_ctx_t
+modifier|*
+name|p
+parameter_list|,
+name|int
+name|error
+parameter_list|)
+block|{
+name|ngx_event_close_connection
+argument_list|(
+name|p
+operator|->
+name|connection
+operator|->
+name|read
+argument_list|)
+expr_stmt|;
+return|return
+name|ngx_http_error
+argument_list|(
+name|r
+argument_list|,
+name|error
+argument_list|)
+return|;
+block|}
+end_function
+
+begin_function
 DECL|function|ngx_read_http_proxy_status_line (ngx_http_proxy_ctx_t * ctx)
 specifier|static
 name|int
@@ -2470,7 +2810,7 @@ name|char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon27b11bf80103
+DECL|enum|__anon293056730103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2520,8 +2860,6 @@ operator|->
 name|header_in
 operator|->
 name|pos
-operator|.
-name|mem
 expr_stmt|;
 while|while
 condition|(
@@ -2532,8 +2870,6 @@ operator|->
 name|header_in
 operator|->
 name|last
-operator|.
-name|mem
 operator|&&
 name|state
 operator|<
@@ -2546,12 +2882,6 @@ operator|*
 name|p
 operator|++
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|fprintf(stderr, "state: %d, pos: %x, end: %x, char: '%c', status: %d\n",         state, p, ctx->header_in->last.mem, ch, ctx->status);
-endif|#
-directive|endif
 switch|switch
 condition|(
 name|state
@@ -2572,8 +2902,6 @@ operator|->
 name|header_in
 operator|->
 name|last
-operator|.
-name|mem
 condition|)
 block|{
 return|return
@@ -2907,8 +3235,6 @@ operator|->
 name|header_in
 operator|->
 name|pos
-operator|.
-name|mem
 operator|=
 name|p
 expr_stmt|;

@@ -34,7 +34,7 @@ name|char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2b57addb0103
+DECL|enum|__anon2b7acd0e0103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -96,8 +96,6 @@ operator|->
 name|header_in
 operator|->
 name|pos
-operator|.
-name|mem
 expr_stmt|;
 while|while
 condition|(
@@ -108,8 +106,6 @@ operator|->
 name|header_in
 operator|->
 name|last
-operator|.
-name|mem
 operator|&&
 name|state
 operator|<
@@ -122,7 +118,6 @@ operator|*
 name|p
 operator|++
 expr_stmt|;
-comment|/* printf("\nstate: %d, pos: %x, end: %x, char: '%c' buf: %s",        state, p, r->header_in->last, ch, p); */
 comment|/* GCC 2.95.2 and VC 6.0 compile this switch as jump table */
 switch|switch
 condition|(
@@ -160,8 +155,6 @@ operator|->
 name|header_in
 operator|->
 name|last
-operator|.
-name|mem
 condition|)
 block|{
 return|return
@@ -214,8 +207,6 @@ operator|->
 name|header_in
 operator|->
 name|last
-operator|.
-name|mem
 condition|)
 block|{
 return|return
@@ -277,8 +268,6 @@ operator|->
 name|header_in
 operator|->
 name|last
-operator|.
-name|mem
 condition|)
 block|{
 return|return
@@ -782,8 +771,6 @@ operator|->
 name|header_in
 operator|->
 name|last
-operator|.
-name|mem
 condition|)
 block|{
 name|r
@@ -797,8 +784,6 @@ operator|->
 name|header_in
 operator|->
 name|pos
-operator|.
-name|mem
 operator|=
 name|p
 operator|-
@@ -1060,8 +1045,6 @@ operator|->
 name|header_in
 operator|->
 name|pos
-operator|.
-name|mem
 operator|=
 name|p
 expr_stmt|;
@@ -1174,7 +1157,7 @@ name|char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2b57addb0203
+DECL|enum|__anon2b7acd0e0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1219,8 +1202,6 @@ operator|=
 name|h
 operator|->
 name|pos
-operator|.
-name|mem
 expr_stmt|;
 while|while
 condition|(
@@ -1229,8 +1210,6 @@ operator|<
 name|h
 operator|->
 name|last
-operator|.
-name|mem
 operator|&&
 name|state
 operator|<
@@ -1243,7 +1222,6 @@ operator|*
 name|p
 operator|++
 expr_stmt|;
-comment|/* printf("\nstate: %d, pos: %x, end: %x, char: '%c' buf: %s",        state, p, h->last.mem, ch, p); */
 switch|switch
 condition|(
 name|state
@@ -1634,8 +1612,6 @@ block|}
 name|h
 operator|->
 name|pos
-operator|.
-name|mem
 operator|=
 name|p
 expr_stmt|;
