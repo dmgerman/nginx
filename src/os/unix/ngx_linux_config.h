@@ -307,7 +307,7 @@ DECL|macro|NGX_SENDFILE_LIMIT
 define|#
 directive|define
 name|NGX_SENDFILE_LIMIT
-value|(NGX_MAX_UINT32_VALUE + 1)
+value|0x80000000
 end_define
 
 begin_endif

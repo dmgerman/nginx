@@ -44,7 +44,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon2b72fefa0103
+DECL|enum|__anon2a0fb2790103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1553,7 +1553,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2b72fefa0203
+DECL|enum|__anon2a0fb2790203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2188,7 +2188,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2b72fefa0303
+DECL|enum|__anon2a0fb2790303
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -2272,7 +2272,7 @@ expr_stmt|;
 while|while
 condition|(
 name|p
-operator|<
+operator|<=
 name|r
 operator|->
 name|uri_end
