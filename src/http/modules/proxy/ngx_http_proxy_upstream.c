@@ -3146,7 +3146,7 @@ name|output
 operator|->
 name|free
 operator|->
-name|buf
+name|next
 operator|=
 name|NULL
 expr_stmt|;
