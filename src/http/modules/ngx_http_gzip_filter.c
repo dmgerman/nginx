@@ -24,7 +24,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b93432b0108
+DECL|struct|__anon297564db0108
 typedef|typedef
 struct|struct
 block|{
@@ -59,7 +59,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b93432b0208
+DECL|struct|__anon297564db0208
 typedef|typedef
 struct|struct
 block|{
@@ -256,13 +256,13 @@ name|ngx_conf_t
 modifier|*
 name|cf
 parameter_list|,
-name|ngx_command_t
+name|void
 modifier|*
-name|cmd
+name|post
 parameter_list|,
 name|void
 modifier|*
-name|conf
+name|data
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -277,13 +277,13 @@ name|ngx_conf_t
 modifier|*
 name|cf
 parameter_list|,
-name|ngx_command_t
+name|void
 modifier|*
-name|cmd
+name|post
 parameter_list|,
 name|void
 modifier|*
-name|conf
+name|data
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -291,8 +291,36 @@ end_function_decl
 begin_decl_stmt
 DECL|variable|ngx_http_gzip_comp_level_bounds
 specifier|static
-name|ngx_conf_bounds_t
+name|ngx_conf_num_bounds_t
 name|ngx_http_gzip_comp_level_bounds
+init|=
+block|{
+name|ngx_conf_check_num_bounds
+block|,
+literal|1
+block|,
+literal|9
+block|}
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_http_gzip_set_window_p
+specifier|static
+name|ngx_conf_post_handler_pt
+name|ngx_http_gzip_set_window_p
+init|=
+name|ngx_http_gzip_set_window
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_http_gzip_set_hash_p
+specifier|static
+name|ngx_conf_post_handler_pt
+name|ngx_http_gzip_set_hash_p
+init|=
+name|ngx_http_gzip_set_hash
 decl_stmt|;
 end_decl_stmt
 
@@ -403,7 +431,7 @@ name|NGX_HTTP_LOC_CONF
 operator||
 name|NGX_CONF_TAKE1
 block|,
-name|ngx_http_gzip_set_window
+name|ngx_conf_set_size_slot
 block|,
 name|NGX_HTTP_LOC_CONF_OFFSET
 block|,
@@ -414,7 +442,8 @@ argument_list|,
 name|wbits
 argument_list|)
 block|,
-name|NULL
+operator|&
+name|ngx_http_gzip_set_window_p
 block|}
 block|,
 block|{
@@ -431,7 +460,7 @@ name|NGX_HTTP_LOC_CONF
 operator||
 name|NGX_CONF_TAKE1
 block|,
-name|ngx_http_gzip_set_hash
+name|ngx_conf_set_size_slot
 block|,
 name|NGX_HTTP_LOC_CONF_OFFSET
 block|,
@@ -442,7 +471,8 @@ argument_list|,
 name|memlevel
 argument_list|)
 block|,
-name|NULL
+operator|&
+name|ngx_http_gzip_set_hash_p
 block|}
 block|,
 block|{
@@ -530,26 +560,6 @@ block|,
 comment|/* init module */
 name|NULL
 comment|/* init child */
-block|}
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-DECL|variable|ngx_http_gzip_comp_level_bounds
-specifier|static
-name|ngx_conf_bounds_t
-name|ngx_http_gzip_comp_level_bounds
-init|=
-block|{
-name|ngx_conf_check_num_bounds
-block|,
-block|{
-block|{
-literal|1
-block|,
-literal|9
-block|}
-block|}
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -1079,7 +1089,7 @@ operator|--
 expr_stmt|;
 block|}
 block|}
-comment|/*          * We preallocate a memory for zlib in one hunk (200K-400K), this          * dicreases number of malloc() and free() calls and probably          * syscalls.          * Besides we free() this memory as soon as the gzipping will complete          * and do not wait while a whole response will be sent to a client.          *          * 8K is for zlib deflate_state (~6K).          *          * TODO: 64-bit, round to PAGE_SIZE, autoconf of deflate_state size          */
+comment|/*          * We preallocate a memory for zlib in one hunk (200K-400K), this          * dicreases a number of malloc() and free() calls and also probably          * dicreases a number of syscalls.          * Besides we free() this memory as soon as the gzipping will complete          * and do not wait while a whole response will be sent to a client.          *          * 8K is for zlib deflate_state (~6K).          *          * TODO: 64-bit, round to PAGE_SIZE, autoconf of deflate_state size          */
 name|ctx
 operator|->
 name|allocated
@@ -2781,7 +2791,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_gzip_set_window (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
+DECL|function|ngx_http_gzip_set_window (ngx_conf_t * cf,void * post,void * data)
 specifier|static
 name|char
 modifier|*
@@ -2791,50 +2801,26 @@ name|ngx_conf_t
 modifier|*
 name|cf
 parameter_list|,
-name|ngx_command_t
+name|void
 modifier|*
-name|cmd
+name|post
 parameter_list|,
 name|void
 modifier|*
-name|conf
+name|data
 parameter_list|)
 block|{
-name|ngx_http_gzip_conf_t
+name|int
 modifier|*
-name|lcf
+name|np
 init|=
-name|conf
+name|data
 decl_stmt|;
 name|int
 name|wbits
 decl_stmt|,
 name|wsize
 decl_stmt|;
-name|char
-modifier|*
-name|rv
-decl_stmt|;
-name|rv
-operator|=
-name|ngx_conf_set_size_slot
-argument_list|(
-name|cf
-argument_list|,
-name|cmd
-argument_list|,
-name|conf
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|rv
-condition|)
-block|{
-return|return
-name|rv
-return|;
-block|}
 name|ngx_conf_log_error
 argument_list|(
 name|NGX_LOG_INFO
@@ -2845,9 +2831,8 @@ literal|0
 argument_list|,
 literal|"WBITS: %d"
 argument_list|,
-name|lcf
-operator|->
-name|wbits
+operator|*
+name|np
 argument_list|)
 expr_stmt|;
 name|wbits
@@ -2875,14 +2860,12 @@ if|if
 condition|(
 name|wsize
 operator|==
-name|lcf
-operator|->
-name|wbits
+operator|*
+name|np
 condition|)
 block|{
-name|lcf
-operator|->
-name|wbits
+operator|*
+name|np
 operator|=
 name|wbits
 expr_stmt|;
@@ -2896,9 +2879,8 @@ literal|0
 argument_list|,
 literal|"WBITS: %d"
 argument_list|,
-name|lcf
-operator|->
-name|wbits
+operator|*
+name|np
 argument_list|)
 expr_stmt|;
 return|return
@@ -2916,7 +2898,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_gzip_set_hash (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
+DECL|function|ngx_http_gzip_set_hash (ngx_conf_t * cf,void * post,void * data)
 specifier|static
 name|char
 modifier|*
@@ -2926,50 +2908,26 @@ name|ngx_conf_t
 modifier|*
 name|cf
 parameter_list|,
-name|ngx_command_t
+name|void
 modifier|*
-name|cmd
+name|post
 parameter_list|,
 name|void
 modifier|*
-name|conf
+name|data
 parameter_list|)
 block|{
-name|ngx_http_gzip_conf_t
+name|int
 modifier|*
-name|lcf
+name|np
 init|=
-name|conf
+name|data
 decl_stmt|;
 name|int
 name|memlevel
 decl_stmt|,
 name|hsize
 decl_stmt|;
-name|char
-modifier|*
-name|rv
-decl_stmt|;
-name|rv
-operator|=
-name|ngx_conf_set_size_slot
-argument_list|(
-name|cf
-argument_list|,
-name|cmd
-argument_list|,
-name|conf
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|rv
-condition|)
-block|{
-return|return
-name|rv
-return|;
-block|}
 name|ngx_conf_log_error
 argument_list|(
 name|NGX_LOG_INFO
@@ -2980,9 +2938,8 @@ literal|0
 argument_list|,
 literal|"MEMLEVEL: %d"
 argument_list|,
-name|lcf
-operator|->
-name|memlevel
+operator|*
+name|np
 argument_list|)
 expr_stmt|;
 name|memlevel
@@ -3010,14 +2967,12 @@ if|if
 condition|(
 name|hsize
 operator|==
-name|lcf
-operator|->
-name|memlevel
+operator|*
+name|np
 condition|)
 block|{
-name|lcf
-operator|->
-name|memlevel
+operator|*
+name|np
 operator|=
 name|memlevel
 expr_stmt|;
@@ -3031,9 +2986,8 @@ literal|0
 argument_list|,
 literal|"MEMLEVEL: %d"
 argument_list|,
-name|lcf
-operator|->
-name|memlevel
+operator|*
+name|np
 argument_list|)
 expr_stmt|;
 return|return

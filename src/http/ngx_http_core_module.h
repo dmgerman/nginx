@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2987bc010108
+DECL|struct|__anon29d8f7280108
 typedef|typedef
 struct|struct
 block|{
@@ -67,7 +67,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2987bc010208
+DECL|struct|__anon29d8f7280208
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2987bc010308
+DECL|struct|__anon29d8f7280308
 typedef|typedef
 struct|struct
 block|{
@@ -142,7 +142,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2987bc010408
+DECL|struct|__anon29d8f7280408
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +202,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2987bc010508
+DECL|struct|__anon29d8f7280508
 typedef|typedef
 struct|struct
 block|{
@@ -226,7 +226,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2987bc010608
+DECL|struct|__anon29d8f7280608
 typedef|typedef
 struct|struct
 block|{
@@ -268,7 +268,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2987bc010708
+DECL|struct|__anon29d8f7280708
 typedef|typedef
 struct|struct
 block|{
@@ -311,7 +311,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon2987bc010808
+DECL|struct|__anon29d8f7280808
 typedef|typedef
 struct|struct
 block|{
@@ -330,7 +330,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2987bc010908
+DECL|struct|__anon29d8f7280908
 typedef|typedef
 struct|struct
 block|{
@@ -407,6 +407,11 @@ name|ngx_msec_t
 name|lingering_timeout
 decl_stmt|;
 comment|/* lingering_timeout */
+DECL|member|msie_padding
+name|int
+name|msie_padding
+decl_stmt|;
+comment|/* msie_padding */
 DECL|member|err_log
 name|ngx_log_t
 modifier|*

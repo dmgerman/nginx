@@ -424,6 +424,10 @@ decl_stmt|,
 modifier|*
 name|cl
 decl_stmt|;
+name|ngx_http_core_loc_conf_t
+modifier|*
+name|clcf
+decl_stmt|;
 name|r
 operator|->
 name|headers_out
@@ -848,10 +852,20 @@ argument_list|,
 name|cl
 argument_list|)
 expr_stmt|;
+name|clcf
+operator|=
+name|ngx_http_get_module_loc_conf
+argument_list|(
+name|r
+argument_list|,
+name|ngx_http_core_module
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
-comment|/* STUB: "msie_padding on/off" */
-literal|1
+name|clcf
+operator|->
+name|msie_padding
 operator|&&
 name|r
 operator|->

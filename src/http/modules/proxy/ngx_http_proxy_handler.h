@@ -37,7 +37,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b0e6d0f0108
+DECL|struct|__anon2a1e0ab50108
 typedef|typedef
 struct|struct
 block|{
@@ -73,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0e6d0f0208
+DECL|struct|__anon2a1e0ab50208
 typedef|typedef
 struct|struct
 block|{
@@ -135,7 +135,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0e6d0f0308
+DECL|struct|__anon2a1e0ab50308
 typedef|typedef
 struct|struct
 block|{
@@ -260,10 +260,6 @@ decl_stmt|;
 DECL|member|location_len
 name|int
 name|location_len
-decl_stmt|;
-DECL|member|host_header
-name|ngx_str_t
-name|host_header
 decl_stmt|;
 DECL|member|event_pipe
 name|ngx_event_pipe_t
