@@ -494,6 +494,10 @@ name|ngx_table_elt_t
 modifier|*
 name|header
 decl_stmt|;
+name|ngx_http_core_loc_conf_t
+modifier|*
+name|clcf
+decl_stmt|;
 if|if
 condition|(
 name|r
@@ -1105,6 +1109,15 @@ operator|-
 literal|1
 expr_stmt|;
 block|}
+name|clcf
+operator|=
+name|ngx_http_get_module_loc_conf
+argument_list|(
+name|r
+argument_list|,
+name|ngx_http_core_module
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|r
@@ -1122,6 +1135,42 @@ argument_list|)
 operator|-
 literal|1
 expr_stmt|;
+comment|/*          * MSIE and Opera ignore the "Keep-Alive: timeout=<N>" header.          * MSIE keeps the connection alive for about 60-65 seconds.          * Opera keeps the connection alive very long.          * Mozilla keeps the connection alive for N plus about 1-10 seconds.          * Konqueror keeps the connection alive for about N seconds.          */
+if|if
+condition|(
+name|clcf
+operator|->
+name|keepalive_header
+operator|&&
+operator|(
+name|r
+operator|->
+name|headers_in
+operator|.
+name|gecko
+operator|||
+name|r
+operator|->
+name|headers_in
+operator|.
+name|konqueror
+operator|)
+condition|)
+block|{
+name|len
+operator|+=
+sizeof|sizeof
+argument_list|(
+literal|"Keep-Alive: timeout="
+argument_list|)
+operator|-
+literal|1
+operator|+
+name|TIME_T_LEN
+operator|+
+literal|2
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -1202,12 +1251,6 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-if|#
-directive|if
-literal|0
-block_content|header = r->headers_out.headers.elts;     for (i = 0; i< r->headers_out.headers.nelts; i++) {
-endif|#
-directive|endif
 if|if
 condition|(
 name|header
@@ -2083,6 +2126,47 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|clcf
+operator|->
+name|keepalive_header
+operator|&&
+operator|(
+name|r
+operator|->
+name|headers_in
+operator|.
+name|gecko
+operator|||
+name|r
+operator|->
+name|headers_in
+operator|.
+name|konqueror
+operator|)
+condition|)
+block|{
+name|b
+operator|->
+name|last
+operator|+=
+name|ngx_snprintf
+argument_list|(
+argument|(char *) b->last
+argument_list|,
+argument|sizeof(
+literal|"Keep-Alive: timeout="
+argument|) + TIME_T_LEN +
+literal|2
+argument_list|,
+literal|"Keep-Alive: timeout="
+argument|TIME_T_FMT CRLF
+argument_list|,
+argument|clcf->keepalive_header
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -2175,12 +2259,6 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-if|#
-directive|if
-literal|0
-block_content|for (i = 0; i< r->headers_out.headers.nelts; i++) {
-endif|#
-directive|endif
 if|if
 condition|(
 name|header

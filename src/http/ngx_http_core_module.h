@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c6b515c0108
+DECL|struct|__anon292c90670108
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c6b515c0203
+DECL|enum|__anon292c90670203
 typedef|typedef
 enum|enum
 block|{
@@ -95,7 +95,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6b515c0308
+DECL|struct|__anon292c90670308
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6b515c0408
+DECL|struct|__anon292c90670408
 typedef|typedef
 struct|struct
 block|{
@@ -146,7 +146,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6b515c0508
+DECL|struct|__anon292c90670508
 typedef|typedef
 struct|struct
 block|{
@@ -210,7 +210,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2c6b515c0608
+DECL|struct|__anon292c90670608
 typedef|typedef
 struct|struct
 block|{
@@ -234,7 +234,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6b515c0708
+DECL|struct|__anon292c90670708
 typedef|typedef
 struct|struct
 block|{
@@ -266,7 +266,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6b515c0808
+DECL|struct|__anon292c90670808
 typedef|typedef
 struct|struct
 block|{
@@ -309,7 +309,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon2c6b515c0908
+DECL|struct|__anon292c90670908
 typedef|typedef
 struct|struct
 block|{
@@ -328,7 +328,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6b515c0a08
+DECL|struct|__anon292c90670a08
 typedef|typedef
 struct|struct
 block|{
@@ -472,6 +472,11 @@ comment|/* send_timeout */
 DECL|member|keepalive_timeout
 name|ngx_msec_t
 name|keepalive_timeout
+decl_stmt|;
+comment|/* keepalive_timeout */
+DECL|member|keepalive_header
+name|time_t
+name|keepalive_header
 decl_stmt|;
 comment|/* keepalive_timeout */
 DECL|member|lingering_time
