@@ -103,12 +103,17 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
 begin_comment
 comment|/* DEBUG */
 end_comment
 
 begin_define
-DECL|macro|POLLREMOVE
 define|#
 directive|define
 name|POLLREMOVE
@@ -116,12 +121,17 @@ value|0x0800
 end_define
 
 begin_define
-DECL|macro|DP_POLL
 define|#
 directive|define
 name|DP_POLL
-value|1
+value|0xD001
 end_define
+
+begin_endif
+unit|struct dvpoll {     struct pollfd* dp_fds;     int dp_nfds;     int dp_timeout; };
+endif|#
+directive|endif
+end_endif
 
 begin_endif
 endif|#

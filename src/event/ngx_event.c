@@ -94,6 +94,25 @@ begin_if
 if|#
 directive|if
 operator|(
+name|HAVE_DEVPOLL
+operator|)
+end_if
+
+begin_include
+include|#
+directive|include
+file|<ngx_devpoll_module.h>
+end_include
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_if
+if|#
+directive|if
+operator|(
 name|HAVE_KQUEUE
 operator|)
 end_if
@@ -156,7 +175,7 @@ begin_elif
 unit|ngx_event_type_e     ngx_event_type = NGX_SELECT_EVENT;
 elif|#
 directive|elif
-literal|1
+literal|0
 end_elif
 
 begin_decl_stmt
@@ -191,7 +210,7 @@ begin_elif
 elif|#
 directive|elif
 operator|(
-name|HAVE_POLL
+name|HAVE_DEVPOLL
 operator|)
 end_elif
 
@@ -201,8 +220,23 @@ directive|if
 literal|0
 end_if
 
-begin_else
+begin_elif
 unit|ngx_event_type_e     ngx_event_type = NGX_SELECT_EVENT;
+elif|#
+directive|elif
+literal|0
+end_elif
+
+begin_decl_stmt
+DECL|variable|ngx_event_type
+name|ngx_event_type_e
+name|ngx_event_type
+init|=
+name|NGX_POLL_EVENT
+decl_stmt|;
+end_decl_stmt
+
+begin_else
 else|#
 directive|else
 end_else
@@ -212,7 +246,7 @@ DECL|variable|ngx_event_type
 name|ngx_event_type_e
 name|ngx_event_type
 init|=
-name|NGX_POLL_EVENT
+name|NGX_DEVPOLL_EVENT
 decl_stmt|;
 end_decl_stmt
 
@@ -278,6 +312,15 @@ operator|(
 name|HAVE_POLL
 operator|)
 function_decl|ngx_poll_init
+operator|,
+endif|#
+directive|endif
+if|#
+directive|if
+operator|(
+name|HAVE_DEVPOLL
+operator|)
+function_decl|ngx_devpoll_init
 operator|,
 endif|#
 directive|endif

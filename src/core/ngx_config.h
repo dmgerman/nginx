@@ -433,6 +433,29 @@ endif|#
 directive|endif
 end_endif
 
+begin_if
+if|#
+directive|if
+operator|(
+name|HAVE_DEVPOLL
+operator|)
+end_if
+
+begin_include
+include|#
+directive|include
+file|<sys/devpoll.h>
+end_include
+
+begin_comment
+comment|/* Solaris, HP/UX */
+end_comment
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_define
 DECL|macro|ngx_inline
 define|#

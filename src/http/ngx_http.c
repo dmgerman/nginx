@@ -166,6 +166,12 @@ name|doc_root
 operator|=
 literal|"/spool/test/lperltk"
 expr_stmt|;
+name|ngx_http_server
+operator|.
+name|doc_root
+operator|=
+literal|"/home/is/dox/ora/lperltk"
+expr_stmt|;
 endif|#
 directive|endif
 name|ngx_http_server

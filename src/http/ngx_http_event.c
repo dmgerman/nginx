@@ -2897,11 +2897,12 @@ operator|->
 name|lingering_close
 condition|)
 block|{
+return|return
 name|ngx_http_set_lingering_close
 argument_list|(
 name|r
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 else|else
 block|{

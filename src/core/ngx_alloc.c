@@ -60,6 +60,7 @@ name|p
 operator|==
 name|NULL
 condition|)
+block|{
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_EMERG
@@ -73,6 +74,12 @@ argument_list|,
 name|size
 argument_list|)
 expr_stmt|;
+block|}
+if|#
+directive|if
+operator|(
+name|NGX_DEBUG_ALLOC
+operator|)
 name|ngx_log_debug
 argument_list|(
 argument|log
@@ -81,6 +88,8 @@ literal|"malloc: %08x:%d"
 argument|_ p _ size
 argument_list|)
 empty_stmt|;
+endif|#
+directive|endif
 return|return
 name|p
 return|;
@@ -118,6 +127,7 @@ if|if
 condition|(
 name|p
 condition|)
+block|{
 name|ngx_memzero
 argument_list|(
 name|p
@@ -125,6 +135,7 @@ argument_list|,
 name|size
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|p
 return|;
@@ -252,6 +263,11 @@ operator|->
 name|next
 control|)
 block|{
+if|#
+directive|if
+operator|(
+name|NGX_DEBUG_ALLOC
+operator|)
 name|ngx_log_debug
 argument_list|(
 argument|pool->log
@@ -260,6 +276,8 @@ literal|"free: %08x"
 argument|_ l->alloc
 argument_list|)
 empty_stmt|;
+endif|#
+directive|endif
 name|free
 argument_list|(
 name|l
@@ -293,6 +311,11 @@ operator|->
 name|next
 control|)
 block|{
+if|#
+directive|if
+operator|(
+name|NGX_DEBUG_ALLOC
+operator|)
 name|ngx_log_debug
 argument_list|(
 argument|pool->log
@@ -301,6 +324,8 @@ literal|"free: %08x"
 argument|_ p
 argument_list|)
 empty_stmt|;
+endif|#
+directive|endif
 name|free
 argument_list|(
 name|p
@@ -312,7 +337,9 @@ name|n
 operator|==
 name|NULL
 condition|)
+block|{
 break|break;
+block|}
 block|}
 block|}
 end_function
@@ -438,7 +465,9 @@ name|n
 operator|==
 name|NULL
 condition|)
+block|{
 break|break;
+block|}
 block|}
 comment|/* alloc new pool block */
 name|ngx_test_null
@@ -549,7 +578,9 @@ name|next
 operator|==
 name|NULL
 condition|)
+block|{
 break|break;
+block|}
 block|}
 block|}
 if|if
@@ -671,6 +702,7 @@ if|if
 condition|(
 name|p
 condition|)
+block|{
 name|ngx_memzero
 argument_list|(
 name|p
@@ -678,6 +710,7 @@ argument_list|,
 name|size
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|p
 return|;

@@ -1317,8 +1317,9 @@ name|conf
 operator|->
 name|send_timeout
 operator|=
-name|NGX_CONF_UNSET
+literal|10
 expr_stmt|;
+comment|/*     conf->send_timeout = NGX_CONF_UNSET; */
 return|return
 name|conf
 return|;

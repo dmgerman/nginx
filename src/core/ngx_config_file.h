@@ -111,7 +111,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2bd41bec0108
+DECL|struct|__anon27b327c70108
 typedef|typedef
 struct|struct
 block|{
@@ -195,7 +195,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bd41bec0208
+DECL|struct|__anon27b327c70208
 typedef|typedef
 struct|struct
 block|{
@@ -235,6 +235,17 @@ block|}
 name|ngx_command_t
 typedef|;
 end_typedef
+
+begin_function_decl
+name|int
+name|ngx_conf_read_token
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_function_decl
 name|char

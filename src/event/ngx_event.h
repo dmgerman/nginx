@@ -197,6 +197,12 @@ name|write
 range|:
 literal|1
 decl_stmt|;
+DECL|member|active
+name|unsigned
+name|active
+range|:
+literal|1
+decl_stmt|;
 DECL|member|ready
 name|unsigned
 name|ready
@@ -268,7 +274,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2c00e8ad0103
+DECL|enum|__anon2c6578b50103
 typedef|typedef
 enum|enum
 block|{
@@ -290,6 +296,16 @@ directive|endif
 if|#
 directive|if
 operator|(
+name|HAVE_DEVPOLL
+operator|)
+DECL|enumerator|NGX_DEVPOLL_EVENT
+name|NGX_DEVPOLL_EVENT
+block|,
+endif|#
+directive|endif
+if|#
+directive|if
+operator|(
 name|HAVE_KQUEUE
 operator|)
 DECL|enumerator|NGX_KQUEUE_EVENT
@@ -304,7 +320,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c00e8ad0208
+DECL|struct|__anon2c6578b50208
 typedef|typedef
 struct|struct
 block|{
@@ -494,6 +510,10 @@ elif|#
 directive|elif
 operator|(
 name|HAVE_POLL
+operator|)
+operator|||
+operator|(
+name|HAVE_DEVPOLL
 operator|)
 end_elif
 
@@ -691,9 +711,9 @@ end_endif
 
 begin_function
 DECL|function|ngx_del_timer (ngx_event_t * ev)
+name|ngx_inline
 specifier|static
 name|void
-name|ngx_inline
 name|ngx_del_timer
 parameter_list|(
 name|ngx_event_t
@@ -704,8 +724,9 @@ block|{
 if|#
 directive|if
 operator|(
-name|NGX_DEBUG
+name|NGX_DEBUG_EVENT
 operator|)
+comment|/* STUB - we can not cast (ngx_connection_t *) here */
 name|ngx_log_debug
 argument_list|(
 name|ev
