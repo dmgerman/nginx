@@ -1,4 +1,8 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
+begin_comment
+comment|/*  * Copyright (C) 2002-2004 Igor Sysoev  */
+end_comment
+
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -23,141 +27,6 @@ include|#
 directive|include
 file|<ngx_core.h>
 end_include
-
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-
-begin_comment
-comment|/* the buf type */
-end_comment
-
-begin_comment
-comment|/* the buf's content is in memory */
-end_comment
-
-begin_define
-define|#
-directive|define
-name|NGX_HUNK_IN_MEMORY
-value|0x0001
-end_define
-
-begin_comment
-comment|/* the buf's content can be changed */
-end_comment
-
-begin_define
-define|#
-directive|define
-name|NGX_HUNK_TEMP
-value|0x0002
-end_define
-
-begin_comment
-comment|/* the buf's content is in cache and can not be changed */
-end_comment
-
-begin_define
-define|#
-directive|define
-name|NGX_HUNK_MEMORY
-value|0x0004
-end_define
-
-begin_define
-define|#
-directive|define
-name|NGX_HUNK_MMAP
-value|0x0008
-end_define
-
-begin_comment
-comment|/* the buf's content is recycled */
-end_comment
-
-begin_define
-define|#
-directive|define
-name|NGX_HUNK_RECYCLED
-value|0x0010
-end_define
-
-begin_comment
-comment|/* the buf's content is in a file */
-end_comment
-
-begin_define
-define|#
-directive|define
-name|NGX_HUNK_FILE
-value|0x0020
-end_define
-
-begin_define
-define|#
-directive|define
-name|NGX_HUNK_STORAGE
-value|(NGX_HUNK_IN_MEMORY                            \                                |NGX_HUNK_TEMP|NGX_HUNK_MEMORY|NGX_HUNK_MMAP  \                                |NGX_HUNK_RECYCLED|NGX_HUNK_FILE)
-end_define
-
-begin_comment
-comment|/* the buf flags */
-end_comment
-
-begin_comment
-comment|/* in thread state flush means to write the buf completely before return */
-end_comment
-
-begin_comment
-comment|/* in event state flush means to start to write the buf */
-end_comment
-
-begin_define
-define|#
-directive|define
-name|NGX_HUNK_FLUSH
-value|0x0100
-end_define
-
-begin_comment
-comment|/* the last buf */
-end_comment
-
-begin_define
-define|#
-directive|define
-name|NGX_HUNK_LAST
-value|0x0200
-end_define
-
-begin_define
-define|#
-directive|define
-name|NGX_HUNK_PREREAD
-value|0x2000
-end_define
-
-begin_define
-define|#
-directive|define
-name|NGX_HUNK_LAST_SHADOW
-value|0x4000
-end_define
-
-begin_define
-define|#
-directive|define
-name|NGX_HUNK_TEMP_FILE
-value|0x8000
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
 
 begin_typedef
 DECL|typedef|ngx_buf_tag_t
@@ -230,21 +99,21 @@ name|ngx_buf_t
 modifier|*
 name|shadow
 decl_stmt|;
-comment|/* the buf's content can be changed */
+comment|/* the buf's content could be changed */
 DECL|member|temporary
 name|unsigned
 name|temporary
 range|:
 literal|1
 decl_stmt|;
-comment|/*      * the buf's content is in a memory cache or in a read only memory      * and can not be changed      */
+comment|/*      * the buf's content is in a memory cache or in a read only memory      * and must not be changed      */
 DECL|member|memory
 name|unsigned
 name|memory
 range|:
 literal|1
 decl_stmt|;
-comment|/* the buf's content is mmap()ed and can not be changed */
+comment|/* the buf's content is mmap()ed and must not be changed */
 DECL|member|mmap
 name|unsigned
 name|mmap
@@ -331,7 +200,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b947bae0108
+DECL|struct|__anon27b7dc1f0108
 typedef|typedef
 struct|struct
 block|{
@@ -370,7 +239,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b947bae0208
+DECL|struct|__anon27b7dc1f0208
 typedef|typedef
 struct|struct
 block|{
@@ -439,7 +308,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b947bae0308
+DECL|struct|__anon27b7dc1f0308
 typedef|typedef
 struct|struct
 block|{

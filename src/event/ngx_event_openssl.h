@@ -1,4 +1,8 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
+begin_comment
+comment|/*  * Copyright (C) 2002-2004 Igor Sysoev  */
+end_comment
+
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -37,7 +41,7 @@ file|<openssl/err.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bc9f51d0108
+DECL|struct|__anon2c4f87f50108
 typedef|typedef
 struct|struct
 block|{

@@ -1,4 +1,8 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
+begin_comment
+comment|/*  * Copyright (C) 2002-2004 Igor Sysoev  */
+end_comment
+
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -457,7 +461,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon288f0b9d0108
+DECL|struct|__anon2af22b260108
 typedef|typedef
 struct|struct
 block|{
@@ -502,7 +506,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288f0b9d0208
+DECL|struct|__anon2af22b260208
 typedef|typedef
 struct|struct
 block|{
@@ -637,7 +641,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288f0b9d0308
+DECL|struct|__anon2af22b260308
 typedef|typedef
 struct|struct
 block|{
@@ -652,7 +656,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288f0b9d0408
+DECL|struct|__anon2af22b260408
 typedef|typedef
 struct|struct
 block|{
@@ -675,7 +679,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288f0b9d0508
+DECL|struct|__anon2af22b260508
 typedef|typedef
 struct|struct
 block|{
@@ -702,7 +706,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon288f0b9d0608
+DECL|struct|__anon2af22b260608
 typedef|typedef
 struct|struct
 block|{

@@ -1,4 +1,8 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
+begin_comment
+comment|/*  * Copyright (C) 2002-2004 Igor Sysoev  */
+end_comment
+
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -25,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon291a26410108
+DECL|struct|__anon28c79b790108
 typedef|typedef
 struct|struct
 block|{
@@ -206,7 +210,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon291a26410203
+DECL|enum|__anon28c79b790203
 typedef|typedef
 enum|enum
 block|{
@@ -230,7 +234,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon291a26410303
+DECL|enum|__anon28c79b790303
 typedef|typedef
 enum|enum
 block|{

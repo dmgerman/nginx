@@ -1,4 +1,8 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
+begin_comment
+comment|/*  * Copyright (C) 2002-2004 Igor Sysoev  */
+end_comment
+
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -77,7 +81,7 @@ empty_stmt|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2729750108
+DECL|struct|__anon2b5090630108
 typedef|typedef
 struct|struct
 block|{

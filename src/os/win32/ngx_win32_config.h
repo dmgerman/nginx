@@ -1,4 +1,8 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
+begin_comment
+comment|/*  * Copyright (C) 2002-2004 Igor Sysoev  */
+end_comment
+
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -35,7 +39,7 @@ name|WIN32_LEAN_AND_MEAN
 end_define
 
 begin_comment
-comment|/*  * we need to include windows.h explicity before winsock2.h because  * the warning 4201 is enabled in windows.h  */
+comment|/*  * we need to include<windows.h> explicity before<winsock2.h> because  * the warning 4201 is enabled in<windows.h>  */
 end_comment
 
 begin_include

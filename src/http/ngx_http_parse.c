@@ -1,4 +1,8 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
+begin_comment
+comment|/*  * Copyright (C) 2002-2004 Igor Sysoev  */
+end_comment
+
 begin_include
 include|#
 directive|include
@@ -40,7 +44,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon275e6b620103
+DECL|enum|__anon2aa2c39a0103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -147,7 +151,7 @@ operator|*
 name|p
 operator|++
 expr_stmt|;
-comment|/* gcc 2.95.2 and vc 6.0 compile this switch as an jump table */
+comment|/* gcc 2.95.2 and msvc 6.0 compile this switch as an jump table */
 switch|switch
 condition|(
 name|state
@@ -1500,7 +1504,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon275e6b620203
+DECL|enum|__anon2aa2c39a0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2135,7 +2139,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon275e6b620303
+DECL|enum|__anon2aa2c39a0303
 enum|enum
 block|{
 DECL|enumerator|sw_usual

@@ -1,4 +1,8 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
+begin_comment
+comment|/*  * Copyright (C) 2002-2004 Igor Sysoev  */
+end_comment
+
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -421,7 +425,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon289b53350103
+DECL|enum|__anon293e63170103
 typedef|typedef
 enum|enum
 block|{
@@ -442,7 +446,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon289b53350203
+DECL|enum|__anon293e63170203
 typedef|typedef
 enum|enum
 block|{
@@ -481,7 +485,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289b53350308
+DECL|struct|__anon293e63170308
 typedef|typedef
 struct|struct
 block|{
@@ -500,7 +504,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289b53350408
+DECL|struct|__anon293e63170408
 typedef|typedef
 struct|struct
 block|{
@@ -639,7 +643,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289b53350508
+DECL|struct|__anon293e63170508
 typedef|typedef
 struct|struct
 block|{
@@ -662,7 +666,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289b53350608
+DECL|struct|__anon293e63170608
 typedef|typedef
 struct|struct
 block|{
@@ -765,7 +769,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289b53350708
+DECL|struct|__anon293e63170708
 typedef|typedef
 struct|struct
 block|{
@@ -816,10 +820,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon289b5335080a
+DECL|union|__anon293e6317080a
 union|union
 block|{
-DECL|struct|__anon289b53350908
+DECL|struct|__anon293e63170908
 struct|struct
 block|{
 DECL|member|fd
@@ -835,7 +839,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon289b53350a08
+DECL|struct|__anon293e63170a08
 struct|struct
 block|{
 DECL|member|hash
@@ -873,7 +877,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon289b53350b08
+DECL|struct|__anon293e63170b08
 typedef|typedef
 struct|struct
 block|{

@@ -1,4 +1,8 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
+begin_comment
+comment|/*  * Copyright (C) 2002-2004 Igor Sysoev  */
+end_comment
+
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -63,7 +67,7 @@ value|free
 end_define
 
 begin_comment
-comment|/*  * Linux has memalign() or posix_memalign()  * Solaris has memalign()  * FreeBSD has not memalign() or posix_memalign() but its malloc() alignes  * allocations bigger than page size at page boundary.  */
+comment|/*  * Linux has memalign() or posix_memalign()  * Solaris has memalign()  * FreeBSD has not memalign() or posix_memalign() but its malloc() alignes  * allocations bigger than page size at the page boundary.  */
 end_comment
 
 begin_if

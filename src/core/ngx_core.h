@@ -1,4 +1,8 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
+begin_comment
+comment|/*  * Copyright (C) 2002-2004 Igor Sysoev  */
+end_comment
+
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -424,18 +428,6 @@ directive|define
 name|CRLF
 value|"\x0d\x0a"
 end_define
-
-begin_define
-DECL|macro|NGX_MAXHOSTNAMELEN
-define|#
-directive|define
-name|NGX_MAXHOSTNAMELEN
-value|64
-end_define
-
-begin_comment
-comment|/* #define NGX_MAXHOSTNAMELEN MAXHOSTNAMELEN */
-end_comment
 
 begin_endif
 endif|#

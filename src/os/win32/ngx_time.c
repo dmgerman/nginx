@@ -1,4 +1,8 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
+begin_comment
+comment|/*  * Copyright (C) 2002-2004 Igor Sysoev  */
+end_comment
+
 begin_include
 include|#
 directive|include
@@ -34,7 +38,7 @@ operator|&
 name|ft
 argument_list|)
 expr_stmt|;
-comment|/*      * A file time is a 64-bit value that represents the number      * of 100-nanosecond intervals that have elapsed since      * 12:00 A.M. January 1, 1601 (UTC).      *      * Between January 1, 1970 (Epoch) and January 1, 1601 there were      * 134744 days,      * 11644473600 seconds or      * 11644473600,000,000,0 100-nanosecond intervals.      *      * See also MSKB Q167296.      */
+comment|/*      * A file time is a 64-bit value that represents the number      * of 100-nanosecond intervals that have elapsed since      * January 1, 1601 12:00 A.M. UTC.      *      * Between January 1, 1970 (Epoch) and January 1, 1601 there were      * 134744 days,      * 11644473600 seconds or      * 11644473600,000,000,0 100-nanosecond intervals.      *      * See also MSKB Q167296.      */
 name|intervals
 operator|=
 operator|(

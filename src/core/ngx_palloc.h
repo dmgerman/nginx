@@ -1,4 +1,8 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
+begin_comment
+comment|/*  * Copyright (C) 2002-2004 Igor Sysoev  */
+end_comment
+
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -25,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_comment
-comment|/*  * NGX_MAX_ALLOC_FROM_POOL should be (ngx_page_size - 1), i.e. 4095 on x86.  * On FreeBSD 5.x it allows to use zero copy send.  * On Windows NT it decreases a number of locked pages in a kernel.  */
+comment|/*  * NGX_MAX_ALLOC_FROM_POOL should be (ngx_page_size - 1), i.e. 4095 on x86.  * On FreeBSD 5.x it allows to use the zero copy sending.  * On Windows NT it decreases a number of locked pages in a kernel.  */
 end_comment
 
 begin_define

@@ -1,4 +1,8 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
+begin_comment
+comment|/*  * Copyright (C) 2002-2004 Igor Sysoev  */
+end_comment
+
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -25,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a3cba580108
+DECL|struct|__anon2c0c0e700108
 typedef|typedef
 struct|struct
 block|{
@@ -231,7 +235,7 @@ value|strlen((const char *) s)
 end_define
 
 begin_comment
-comment|/*  * msvc and icc compile memset() to inline "rep stos"  * while ZeroMemory and bzero are calls.  *  * icc can also inline mov's of a zeroed register for small blocks.  */
+comment|/*  * msvc and icc compile memset() to the inline "rep stos"  * while ZeroMemory() and bzero() are the calls.  * icc may also inline several mov's of a zeroed register for small blocks.  */
 end_comment
 
 begin_define
@@ -248,7 +252,7 @@ value|memset(buf, 0, n)
 end_define
 
 begin_comment
-comment|/* msvc and icc compile memcpy() to inline "rep movs" */
+comment|/* msvc and icc compile memcpy() to the inline "rep movs" */
 end_comment
 
 begin_define
@@ -282,7 +286,7 @@ value|((u_char *) memcpy(dst, src, n)) + n
 end_define
 
 begin_comment
-comment|/* msvc and icc compile memcmp() to inline loop */
+comment|/* msvc and icc compile memcmp() to the inline loop */
 end_comment
 
 begin_define

@@ -1,4 +1,8 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
+begin_comment
+comment|/*  * Copyright (C) 2002-2004 Igor Sysoev  */
+end_comment
+
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -85,7 +89,7 @@ value|0x80000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2afc2a6d0108
+DECL|struct|__anon27e027380108
 typedef|typedef
 specifier|volatile
 struct|struct
@@ -118,7 +122,7 @@ value|64
 end_define
 
 begin_typedef
-DECL|struct|__anon2afc2a6d0208
+DECL|struct|__anon27e027380208
 typedef|typedef
 struct|struct
 block|{

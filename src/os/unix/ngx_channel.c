@@ -1,4 +1,8 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
+begin_comment
+comment|/*  * Copyright (C) 2002-2004 Igor Sysoev  */
+end_comment
+
 begin_include
 include|#
 directive|include
@@ -59,7 +63,7 @@ directive|if
 operator|(
 name|HAVE_MSGHDR_MSG_CONTROL
 operator|)
-DECL|union|__anon2b76ffbe010a
+DECL|union|__anon2b1e62cd010a
 union|union
 block|{
 DECL|member|cm
@@ -367,7 +371,7 @@ directive|if
 operator|(
 name|HAVE_MSGHDR_MSG_CONTROL
 operator|)
-DECL|union|__anon2b76ffbe020a
+DECL|union|__anon2b1e62cd020a
 union|union
 block|{
 DECL|member|cm

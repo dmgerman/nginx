@@ -1,4 +1,8 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
+begin_comment
+comment|/*  * Copyright (C) 2002-2004 Igor Sysoev  */
+end_comment
+
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -13,7 +17,7 @@ name|_NGX_HTTP_SCRIPT_H_INCLUDED_
 end_define
 
 begin_typedef
-DECL|struct|__anon2c1670b90108
+DECL|struct|__anon28c219d40108
 typedef|typedef
 struct|struct
 block|{

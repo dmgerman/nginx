@@ -1,4 +1,8 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
+begin_comment
+comment|/*  * Copyright (C) 2002-2004 Igor Sysoev  */
+end_comment
+
 begin_include
 include|#
 directive|include
@@ -49,7 +53,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_comment
-comment|/*  * In the threaded mode only one thread updates cached time and strings  * and these operations are protected by the mutex.  The reading of the cached  * time and strings is not protected by the mutex.  To avoid the race  * conditions for non-atomic values we use the NGX_TIME_SLOTS slots to store  * time value and strings.  Thus thread may get the corrupted values only  * if it is preempted while copying and then it is not scheduled to run  * more than NGX_TIME_SLOTS seconds.  */
+comment|/*  * In the threaded mode only one thread updates the cached time and strings  * and these operations are protected by the mutex.  The reading of the cached  * time and strings is not protected by the mutex.  To avoid the race  * conditions for non-atomic values we use the NGX_TIME_SLOTS slots to store  * time value and strings.  Thus thread may get the corrupted values only  * if it is preempted while copying and then it is not scheduled to run  * more than NGX_TIME_SLOTS seconds.  */
 end_comment
 
 begin_if

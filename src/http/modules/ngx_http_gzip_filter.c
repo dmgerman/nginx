@@ -1,4 +1,8 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
+begin_comment
+comment|/*  * Copyright (C) 2002-2004 Igor Sysoev  */
+end_comment
+
 begin_include
 include|#
 directive|include
@@ -24,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2acdba9b0108
+DECL|struct|__anon2bdf2ca00108
 typedef|typedef
 struct|struct
 block|{
@@ -143,7 +147,7 @@ value|0x0200
 end_define
 
 begin_typedef
-DECL|struct|__anon2acdba9b0208
+DECL|struct|__anon2bdf2ca00208
 typedef|typedef
 struct|struct
 block|{

@@ -1,4 +1,8 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
+begin_comment
+comment|/*  * Copyright (C) 2002-2004 Igor Sysoev  */
+end_comment
+
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -46,7 +50,7 @@ name|len
 operator|--
 control|)
 block|{
-comment|/*          * gcc 2.95.2 x86 and icc 7.1.006 compile that operator          *                                into the single rol opcode.          * msvc 6.0sp2 compiles it into four opcodes.          */
+comment|/*          * gcc 2.95.2 x86 and icc 7.1.006 compile that operator          *                                into the single "rol" opcode.          * msvc 6.0sp2 compiles it into four opcodes.          */
 name|sum
 operator|=
 name|sum

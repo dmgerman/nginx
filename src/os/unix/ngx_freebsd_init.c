@@ -1,4 +1,8 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
+begin_comment
+comment|/*  * Copyright (C) 2002-2004 Igor Sysoev  */
+end_comment
+
 begin_include
 include|#
 directive|include
@@ -12,7 +16,7 @@ file|<ngx_core.h>
 end_include
 
 begin_comment
-comment|/* FreeBSD 3.4 at least */
+comment|/* FreeBSD 3.0 at least */
 end_comment
 
 begin_decl_stmt
@@ -50,16 +54,31 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_freebsd_net_inet_tcp_sendspace
+name|int
+name|ngx_freebsd_net_inet_tcp_sendspace
+decl_stmt|;
+end_decl_stmt
+
+begin_comment
+comment|/* FreeBSD 4.9 */
+end_comment
+
+begin_decl_stmt
 DECL|variable|ngx_freebsd_machdep_hlt_logical_cpus
 name|int
 name|ngx_freebsd_machdep_hlt_logical_cpus
 decl_stmt|;
 end_decl_stmt
 
+begin_comment
+comment|/* FreeBSD 5.0 */
+end_comment
+
 begin_decl_stmt
-DECL|variable|ngx_freebsd_net_inet_tcp_sendspace
+DECL|variable|ngx_freebsd_kern_ipc_zero_copy_send
 name|int
-name|ngx_freebsd_net_inet_tcp_sendspace
+name|ngx_freebsd_kern_ipc_zero_copy_send
 decl_stmt|;
 end_decl_stmt
 
@@ -74,17 +93,6 @@ begin_decl_stmt
 DECL|variable|ngx_freebsd_use_tcp_nopush
 name|int
 name|ngx_freebsd_use_tcp_nopush
-decl_stmt|;
-end_decl_stmt
-
-begin_comment
-comment|/* FreeBSD 5.0 */
-end_comment
-
-begin_decl_stmt
-DECL|variable|ngx_freebsd_kern_ipc_zero_copy_send
-name|int
-name|ngx_freebsd_kern_ipc_zero_copy_send
 decl_stmt|;
 end_decl_stmt
 
@@ -120,7 +128,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2c81f8aa0108
+DECL|struct|__anon2c2c69270108
 typedef|typedef
 struct|struct
 block|{

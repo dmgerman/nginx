@@ -1,4 +1,8 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
+begin_comment
+comment|/*  * Copyright (C) 2002-2004 Igor Sysoev  */
+end_comment
+
 begin_include
 include|#
 directive|include
@@ -18,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27bd08680108
+DECL|struct|__anon2abadf350108
 typedef|typedef
 struct|struct
 block|{
@@ -43,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27bd08680208
+DECL|struct|__anon2abadf350208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +76,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27bd08680308
+DECL|struct|__anon2abadf350308
 typedef|typedef
 struct|struct
 block|{
@@ -93,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27bd08680408
+DECL|struct|__anon2abadf350408
 typedef|typedef
 struct|struct
 block|{
@@ -120,7 +124,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27bd08680508
+DECL|struct|__anon2abadf350508
 typedef|typedef
 struct|struct
 block|{

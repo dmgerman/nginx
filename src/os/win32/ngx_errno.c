@@ -1,6 +1,10 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_comment
-comment|/*    TODO:      add WSA error messages for NT and 98      test for English only messages */
+comment|/*  * Copyright (C) 2002-2004 Igor Sysoev  */
+end_comment
+
+begin_comment
+comment|/*  * TODO:  *   add WSA error messages for NT and 98  *   test for English only messages  */
 end_comment
 
 begin_include

@@ -1,4 +1,8 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
+begin_comment
+comment|/*  * Copyright (C) 2002-2004 Igor Sysoev  */
+end_comment
+
 begin_include
 include|#
 directive|include
@@ -62,7 +66,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon2baba7ec0108
+DECL|struct|__anon28b482100108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baba7ec0208
+DECL|struct|__anon28b482100208
 typedef|typedef
 struct|struct
 block|{
