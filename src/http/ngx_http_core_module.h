@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29e80a960108
+DECL|struct|__anon2ab328470108
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29e80a960203
+DECL|enum|__anon2ab328470203
 typedef|typedef
 enum|enum
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e80a960308
+DECL|struct|__anon2ab328470308
 typedef|typedef
 struct|struct
 block|{
@@ -112,7 +112,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e80a960408
+DECL|struct|__anon2ab328470408
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e80a960508
+DECL|struct|__anon2ab328470508
 typedef|typedef
 struct|struct
 block|{
@@ -203,7 +203,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon29e80a960608
+DECL|struct|__anon2ab328470608
 typedef|typedef
 struct|struct
 block|{
@@ -227,7 +227,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e80a960708
+DECL|struct|__anon2ab328470708
 typedef|typedef
 struct|struct
 block|{
@@ -259,7 +259,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e80a960808
+DECL|struct|__anon2ab328470808
 typedef|typedef
 struct|struct
 block|{
@@ -302,7 +302,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon29e80a960908
+DECL|struct|__anon2ab328470908
 typedef|typedef
 struct|struct
 block|{
@@ -321,7 +321,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e80a960a08
+DECL|struct|__anon2ab328470a08
 typedef|typedef
 struct|struct
 block|{
@@ -344,7 +344,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e80a960b08
+DECL|struct|__anon2ab328470b08
 typedef|typedef
 struct|struct
 block|{
@@ -441,6 +441,11 @@ name|ngx_flag_t
 name|tcp_nopush
 decl_stmt|;
 comment|/* tcp_nopush */
+DECL|member|reset_timedout_connection
+name|ngx_flag_t
+name|reset_timedout_connection
+decl_stmt|;
+comment|/* reset_timedout_connection */
 DECL|member|msie_padding
 name|ngx_flag_t
 name|msie_padding
@@ -581,6 +586,86 @@ name|args
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_typedef
+DECL|typedef|ngx_http_output_header_filter_pt
+typedef|typedef
+name|int
+function_decl|(
+modifier|*
+name|ngx_http_output_header_filter_pt
+function_decl|)
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|)
+function_decl|;
+end_typedef
+
+begin_typedef
+DECL|typedef|ngx_http_output_body_filter_pt
+typedef|typedef
+name|int
+function_decl|(
+modifier|*
+name|ngx_http_output_body_filter_pt
+function_decl|)
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_chain_t
+modifier|*
+name|chain
+parameter_list|)
+function_decl|;
+end_typedef
+
+begin_function_decl
+name|int
+name|ngx_http_output_filter
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_chain_t
+modifier|*
+name|chain
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|int
+name|ngx_http_write_filter
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_chain_t
+modifier|*
+name|chain
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_decl_stmt
+specifier|extern
+name|ngx_http_output_header_filter_pt
+name|ngx_http_top_header_filter
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_http_output_body_filter_pt
+name|ngx_http_top_body_filter
+decl_stmt|;
+end_decl_stmt
 
 begin_endif
 endif|#

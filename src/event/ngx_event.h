@@ -57,7 +57,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon28c696d70108
+DECL|struct|__anon279071340108
 typedef|typedef
 struct|struct
 block|{
@@ -86,7 +86,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28c696d70208
+DECL|struct|__anon279071340208
 typedef|typedef
 struct|struct
 block|{
@@ -301,6 +301,13 @@ name|deferred_accept
 range|:
 literal|1
 decl_stmt|;
+DECL|member|overflow
+name|unsigned
+name|short
+name|overflow
+range|:
+literal|1
+decl_stmt|;
 comment|/* TODO: aio_eof and kq_eof can be the single pending_eof */
 comment|/* the pending eof in aio chain operation */
 DECL|member|aio_eof
@@ -424,7 +431,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28c696d70308
+DECL|struct|__anon279071340308
 typedef|typedef
 struct|struct
 block|{
@@ -677,10 +684,10 @@ comment|/*  * No need to add or delete the event filters - rt signals.  */
 end_comment
 
 begin_define
-DECL|macro|NGX_USE_SIGIO_EVENT
+DECL|macro|NGX_USE_RTSIG_EVENT
 define|#
 directive|define
-name|NGX_USE_SIGIO_EVENT
+name|NGX_USE_RTSIG_EVENT
 value|0x00000100
 end_define
 
@@ -1227,7 +1234,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon28c696d70408
+DECL|struct|__anon279071340408
 typedef|typedef
 struct|struct
 block|{
@@ -1274,7 +1281,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c696d70508
+DECL|struct|__anon279071340508
 typedef|typedef
 struct|struct
 block|{

@@ -1002,7 +1002,7 @@ if|if
 condition|(
 name|ngx_event_flags
 operator|&
-name|NGX_USE_SIGIO_EVENT
+name|NGX_USE_RTSIG_EVENT
 condition|)
 block|{
 if|if

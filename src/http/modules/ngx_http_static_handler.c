@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b17f2ef0108
+DECL|struct|__anon2be4a1ac0108
 typedef|typedef
 struct|struct
 block|{
@@ -1928,9 +1928,9 @@ return|;
 block|}
 name|r
 operator|->
-name|filter
-operator||=
-name|NGX_HTTP_FILTER_ALLOW_RANGES
+name|filter_allow_ranges
+operator|=
+literal|1
 expr_stmt|;
 name|rc
 operator|=

@@ -171,6 +171,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_palloc.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_buf.h>
 end_include
 

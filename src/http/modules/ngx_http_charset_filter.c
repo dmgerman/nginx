@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28da4a7e0108
+DECL|struct|__anon2b41bab10108
 typedef|typedef
 struct|struct
 block|{
@@ -43,7 +43,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28da4a7e0208
+DECL|struct|__anon2b41bab10208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28da4a7e0308
+DECL|struct|__anon2b41bab10308
 typedef|typedef
 struct|struct
 block|{
@@ -93,7 +93,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28da4a7e0408
+DECL|struct|__anon2b41bab10408
 typedef|typedef
 struct|struct
 block|{
@@ -120,7 +120,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28da4a7e0508
+DECL|struct|__anon2b41bab10508
 typedef|typedef
 struct|struct
 block|{
@@ -764,9 +764,9 @@ argument_list|)
 expr_stmt|;
 name|r
 operator|->
-name|filter
-operator||=
-name|NGX_HTTP_FILTER_NEED_IN_MEMORY
+name|filter_need_in_memory
+operator|=
+literal|1
 expr_stmt|;
 return|return
 name|ngx_http_next_header_filter

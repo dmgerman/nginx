@@ -2,14 +2,14 @@ begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|_NGX_ALLOC_H_INCLUDED_
+name|_NGX_PALLOC_H_INCLUDED_
 end_ifndef
 
 begin_define
-DECL|macro|_NGX_ALLOC_H_INCLUDED_
+DECL|macro|_NGX_PALLOC_H_INCLUDED_
 define|#
 directive|define
-name|_NGX_ALLOC_H_INCLUDED_
+name|_NGX_PALLOC_H_INCLUDED_
 end_define
 
 begin_include
@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_comment
-comment|/*  * NGX_MAX_ALLOC_FROM_POOL should be (NGX_PAGE_SIZE - 1), i.e. 4095 on x86.  * On FreeBSD 5.x it allows to use zero copy send.  * On Windows NT it decreases a number of locked pages in a kernel.  */
+comment|/*  * NGX_MAX_ALLOC_FROM_POOL should be (ngx_page_size - 1), i.e. 4095 on x86.  * On FreeBSD 5.x it allows to use zero copy send.  * On Windows NT it decreases a number of locked pages in a kernel.  */
 end_comment
 
 begin_define
@@ -33,7 +33,7 @@ DECL|macro|NGX_MAX_ALLOC_FROM_POOL
 define|#
 directive|define
 name|NGX_MAX_ALLOC_FROM_POOL
-value|4095
+value|(ngx_pagesize - 1)
 end_define
 
 begin_define
@@ -231,21 +231,13 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
-begin_define
-DECL|macro|ngx_free
-define|#
-directive|define
-name|ngx_free
-value|free
-end_define
-
 begin_endif
 endif|#
 directive|endif
 end_endif
 
 begin_comment
-comment|/* _NGX_ALLOC_H_INCLUDED_ */
+comment|/* _NGX_PALLOC_H_INCLUDED_ */
 end_comment
 
 end_unit

@@ -24,7 +24,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b1d5f300108
+DECL|struct|__anon2b2117670108
 typedef|typedef
 struct|struct
 block|{
@@ -143,7 +143,7 @@ operator|&
 operator|(
 name|NGX_USE_EDGE_EVENT
 operator||
-name|NGX_USE_SIGIO_EVENT
+name|NGX_USE_RTSIG_EVENT
 operator|)
 condition|)
 block|{
@@ -227,7 +227,7 @@ operator|==
 name|NULL
 condition|)
 block|{
-comment|/*              * Create the pool before accept() to avoid copy the sockaddr.              * Although accept() can fail it's an uncommon case              * and besides the pool can be got from the free pool list              */
+comment|/*              * Create the pool before accept() to avoid the copying of              * the sockaddr.  Although accept() can fail it is uncommon              * case and besides the pool can be got from the free pool list              */
 if|if
 condition|(
 operator|!
@@ -348,7 +348,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-comment|/* -1 disable logging the connection number */
+comment|/* -1 disables the connection number logging */
 name|ctx
 operator|->
 name|flag
@@ -430,7 +430,7 @@ operator|&
 operator|(
 name|NGX_USE_EDGE_EVENT
 operator||
-name|NGX_USE_SIGIO_EVENT
+name|NGX_USE_RTSIG_EVENT
 operator|)
 operator|)
 condition|)
@@ -680,7 +680,11 @@ operator|!
 operator|(
 name|ngx_event_flags
 operator|&
+operator|(
 name|NGX_USE_AIO_EVENT
+operator||
+name|NGX_USE_RTSIG_EVENT
+operator|)
 operator|)
 condition|)
 block|{
@@ -1054,11 +1058,11 @@ name|NGX_USE_AIO_EVENT
 operator||
 name|NGX_USE_EDGE_EVENT
 operator||
-name|NGX_USE_SIGIO_EVENT
+name|NGX_USE_RTSIG_EVENT
 operator|)
 condition|)
 block|{
-comment|/* aio, iocp, sigio, epoll */
+comment|/* epoll, rtsig, aio, iocp */
 name|rev
 operator|->
 name|ready
@@ -1472,12 +1476,12 @@ name|i
 operator|++
 control|)
 block|{
-comment|/*          * we do not need to handle the Winsock sockets here (divde a socket          * number by 4) because this function would never called          * in the Winsock environment          */
+comment|/*          * we do not need to handle the Winsock sockets here (divide a socket          * number by 4) because this function would never called          * in the Winsock environment          */
 if|if
 condition|(
 name|ngx_event_flags
 operator|&
-name|NGX_USE_SIGIO_EVENT
+name|NGX_USE_RTSIG_EVENT
 condition|)
 block|{
 if|if
@@ -1588,12 +1592,12 @@ name|i
 operator|++
 control|)
 block|{
-comment|/*          * we do not need to handle the Winsock sockets here (divde a socket          * number by 4) because this function would never called          * in the Winsock environment          */
+comment|/*          * we do not need to handle the Winsock sockets here (divide a socket          * number by 4) because this function would never called          * in the Winsock environment          */
 if|if
 condition|(
 name|ngx_event_flags
 operator|&
-name|NGX_USE_SIGIO_EVENT
+name|NGX_USE_RTSIG_EVENT
 condition|)
 block|{
 if|if

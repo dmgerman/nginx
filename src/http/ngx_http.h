@@ -88,12 +88,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_http_filter.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<ngx_http_log_handler.h>
 end_include
 
@@ -104,7 +98,7 @@ file|<ngx_http_core_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27b10ccb0108
+DECL|struct|__anon28a25a4c0108
 typedef|typedef
 struct|struct
 block|{

@@ -218,7 +218,7 @@ define|#
 directive|define
 name|ngx_timezone
 parameter_list|()
-value|(-((daylight) ? altzone : timezone) / 60)
+value|(- (daylight ? altzone : timezone) / 60)
 end_define
 
 begin_elif

@@ -22,7 +22,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon2b7b5d930108
+DECL|struct|__anon2ab04b740108
 typedef|typedef
 struct|struct
 block|{
@@ -261,13 +261,9 @@ operator|-
 literal|1
 operator|||
 operator|!
-operator|(
 name|r
 operator|->
-name|filter
-operator|&
-name|NGX_HTTP_FILTER_ALLOW_RANGES
-operator|)
+name|filter_allow_ranges
 condition|)
 block|{
 return|return

@@ -39,9 +39,6 @@ DECL|variable|rz_size
 specifier|static
 name|size_t
 name|rz_size
-init|=
-comment|/* STUB: PAGE_SIZE */
-literal|4096
 decl_stmt|;
 end_decl_stmt
 
@@ -646,6 +643,10 @@ name|NGX_ERROR
 return|;
 block|}
 comment|/* the main thread stack red zone */
+name|rz_size
+operator|=
+name|ngx_pagesize
+expr_stmt|;
 name|red_zone
 operator|=
 name|ngx_freebsd_kern_usrstack

@@ -377,7 +377,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon2a8e2d9d0103
+DECL|enum|__anon2b4dadd00103
 typedef|typedef
 enum|enum
 block|{
@@ -398,7 +398,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a8e2d9d0203
+DECL|enum|__anon2b4dadd00203
 typedef|typedef
 enum|enum
 block|{
@@ -437,7 +437,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a8e2d9d0308
+DECL|struct|__anon2b4dadd00308
 typedef|typedef
 struct|struct
 block|{
@@ -456,7 +456,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a8e2d9d0408
+DECL|struct|__anon2b4dadd00408
 typedef|typedef
 struct|struct
 block|{
@@ -562,7 +562,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a8e2d9d0508
+DECL|struct|__anon2b4dadd00508
 typedef|typedef
 struct|struct
 block|{
@@ -585,7 +585,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a8e2d9d0608
+DECL|struct|__anon2b4dadd00608
 typedef|typedef
 struct|struct
 block|{
@@ -689,7 +689,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a8e2d9d0708
+DECL|struct|__anon2b4dadd00708
 typedef|typedef
 struct|struct
 block|{
@@ -740,10 +740,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon2a8e2d9d080a
+DECL|union|__anon2b4dadd0080a
 union|union
 block|{
-DECL|struct|__anon2a8e2d9d0908
+DECL|struct|__anon2b4dadd00908
 struct|struct
 block|{
 DECL|member|fd
@@ -759,7 +759,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon2a8e2d9d0a08
+DECL|struct|__anon2b4dadd00a08
 struct|struct
 block|{
 DECL|member|hash
@@ -1080,10 +1080,29 @@ name|closed
 range|:
 literal|1
 decl_stmt|;
-comment|/* TODO: use the filter flags or the separate bits ???? */
-DECL|member|filter
-name|u_int
-name|filter
+DECL|member|filter_need_in_memory
+name|unsigned
+name|filter_need_in_memory
+range|:
+literal|1
+decl_stmt|;
+DECL|member|filter_ssi_need_in_memory
+name|unsigned
+name|filter_ssi_need_in_memory
+range|:
+literal|1
+decl_stmt|;
+DECL|member|filter_need_temporary
+name|unsigned
+name|filter_need_temporary
+range|:
+literal|1
+decl_stmt|;
+DECL|member|filter_allow_ranges
+name|unsigned
+name|filter_allow_ranges
+range|:
+literal|1
 decl_stmt|;
 comment|/* used to parse HTTP headers */
 DECL|member|state

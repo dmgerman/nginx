@@ -54,7 +54,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2bb5362e0108
+DECL|struct|__anon2b0a4c980108
 typedef|typedef
 struct|struct
 block|{
@@ -152,6 +152,9 @@ name|s
 decl_stmt|;
 name|WSADATA
 name|wsd
+decl_stmt|;
+name|SYSTEM_INFO
+name|si
 decl_stmt|;
 name|OSVERSIONINFOEX
 name|osvi
@@ -398,6 +401,18 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|GetSystemInfo
+argument_list|(
+operator|&
+name|si
+argument_list|)
+expr_stmt|;
+name|ngx_pagesize
+operator|=
+name|si
+operator|.
+name|dwPageSize
+expr_stmt|;
 comment|/* init Winsock */
 if|if
 condition|(

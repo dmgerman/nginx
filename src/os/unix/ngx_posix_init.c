@@ -36,7 +36,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon277b858d0108
+DECL|struct|__anon2c60f24a0108
 typedef|typedef
 struct|struct
 block|{
@@ -228,6 +228,11 @@ name|struct
 name|sigaction
 name|sa
 decl_stmt|;
+name|ngx_pagesize
+operator|=
+name|getpagesize
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 name|sig

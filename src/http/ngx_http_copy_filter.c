@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2abaf2390108
+DECL|struct|__anon2c5c1cd40108
 typedef|typedef
 struct|struct
 block|{
@@ -293,9 +293,7 @@ name|need_in_memory
 operator|=
 name|r
 operator|->
-name|filter
-operator|&
-name|NGX_HTTP_FILTER_NEED_IN_MEMORY
+name|filter_need_in_memory
 expr_stmt|;
 name|ctx
 operator|->
@@ -303,9 +301,7 @@ name|need_in_temp
 operator|=
 name|r
 operator|->
-name|filter
-operator|&
-name|NGX_HTTP_FILTER_NEED_TEMP
+name|filter_need_temporary
 expr_stmt|;
 name|ctx
 operator|->

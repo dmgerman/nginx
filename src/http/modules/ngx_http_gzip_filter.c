@@ -24,7 +24,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b5155f00108
+DECL|struct|__anon279796a80108
 typedef|typedef
 struct|struct
 block|{
@@ -143,7 +143,7 @@ value|0x0200
 end_define
 
 begin_typedef
-DECL|struct|__anon2b5155f00208
+DECL|struct|__anon279796a80208
 typedef|typedef
 struct|struct
 block|{
@@ -1514,9 +1514,9 @@ expr_stmt|;
 block|}
 name|r
 operator|->
-name|filter
-operator||=
-name|NGX_HTTP_FILTER_NEED_IN_MEMORY
+name|filter_need_in_memory
+operator|=
+literal|1
 expr_stmt|;
 return|return
 name|ngx_http_next_header_filter
@@ -1991,7 +1991,7 @@ operator|--
 expr_stmt|;
 block|}
 block|}
-comment|/*          * We preallocate a memory for zlib in one buffer (200K-400K), this          * dicreases a number of malloc() and free() calls and also probably          * dicreases a number of syscalls (sbrk() or so).          * Besides we free() this memory as soon as the gzipping will complete          * and do not wait while a whole response will be sent to a client.          *          * 8K is for zlib deflate_state (~6K).          *          * TODO: 64-bit, round to PAGE_SIZE, autoconf of deflate_state size          */
+comment|/*          * We preallocate a memory for zlib in one buffer (200K-400K), this          * dicreases a number of malloc() and free() calls and also probably          * dicreases a number of syscalls (sbrk() or so).          * Besides we free this memory as soon as the gzipping will complete          * and do not wait while a whole response will be sent to a client.          *          * 8K is for zlib deflate_state (~6K).          *          * TODO: 64-bit, autoconf of deflate_state size          */
 name|ctx
 operator|->
 name|allocated
@@ -3553,18 +3553,23 @@ operator|!=
 literal|0
 condition|)
 block|{
-comment|/* we allocate 8K for zlib deflate_state (~6K) */
-comment|/* TODO: PAGE_SIZE */
+comment|/*          * allocate the zlib deflate_state, it takes about 6K on x86,          * we allocate 8K          */
 name|alloc
 operator|=
 operator|(
 name|alloc
 operator|+
-literal|4095
+name|ngx_pagesize
+operator|-
+literal|1
 operator|)
 operator|&
 operator|~
-literal|4095
+operator|(
+name|ngx_pagesize
+operator|-
+literal|1
+operator|)
 expr_stmt|;
 block|}
 if|if
@@ -4189,8 +4194,7 @@ name|bufs
 argument_list|,
 literal|4
 argument_list|,
-comment|/* STUB: PAGE_SIZE */
-literal|4096
+name|ngx_pagesize
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_unsigned_value
