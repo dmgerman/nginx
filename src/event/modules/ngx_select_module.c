@@ -2188,6 +2188,21 @@ argument_list|,
 name|ngx_event_core_module
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|ecf
+operator|->
+name|use
+operator|!=
+name|ngx_select_module
+operator|.
+name|ctx_index
+condition|)
+block|{
+return|return
+name|NGX_CONF_OK
+return|;
+block|}
 comment|/* disable warning: the default FD_SETSIZE is 1024U in FreeBSD 5.x */
 if|if
 condition|(

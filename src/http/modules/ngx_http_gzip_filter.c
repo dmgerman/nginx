@@ -24,7 +24,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon291355520108
+DECL|struct|__anon29ac9bbf0108
 typedef|typedef
 struct|struct
 block|{
@@ -143,7 +143,7 @@ value|0x0200
 end_define
 
 begin_typedef
-DECL|struct|__anon291355520208
+DECL|struct|__anon29ac9bbf0208
 typedef|typedef
 struct|struct
 block|{
@@ -1225,7 +1225,7 @@ name|data
 argument_list|,
 literal|"text/html"
 argument_list|,
-literal|5
+literal|9
 argument_list|)
 operator|!=
 literal|0
@@ -1718,8 +1718,6 @@ name|data
 argument_list|,
 literal|"no-cache"
 argument_list|)
-operator|==
-name|NULL
 condition|)
 block|{
 return|return
@@ -1750,8 +1748,6 @@ name|data
 argument_list|,
 literal|"no-store"
 argument_list|)
-operator|==
-name|NULL
 condition|)
 block|{
 return|return
@@ -1782,8 +1778,6 @@ name|data
 argument_list|,
 literal|"private"
 argument_list|)
-operator|==
-name|NULL
 condition|)
 block|{
 return|return
