@@ -467,11 +467,14 @@ if|if
 condition|(
 name|ngx_file_uniq
 argument_list|(
+operator|(
+operator|&
 name|ctx
 operator|->
 name|file
 operator|.
 name|info
+operator|)
 argument_list|)
 operator|==
 name|uniq

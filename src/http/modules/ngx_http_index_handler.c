@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27dfe0330108
+DECL|struct|__anon2b7b23410108
 typedef|typedef
 struct|struct
 block|{
@@ -37,7 +37,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27dfe0330208
+DECL|struct|__anon2b7b23410208
 typedef|typedef
 struct|struct
 block|{
@@ -1090,11 +1090,14 @@ if|if
 condition|(
 name|ngx_is_dir
 argument_list|(
+operator|(
+operator|&
 name|r
 operator|->
 name|file
 operator|.
 name|info
+operator|)
 argument_list|)
 condition|)
 block|{

@@ -139,6 +139,22 @@ value|"close()"
 end_define
 
 begin_define
+DECL|macro|ngx_delete_file
+define|#
+directive|define
+name|ngx_delete_file
+value|unlink
+end_define
+
+begin_define
+DECL|macro|ngx_delete_file_n
+define|#
+directive|define
+name|ngx_delete_file_n
+value|"unlink()"
+end_define
+
+begin_define
 DECL|macro|ngx_open_tempfile (name,persistent)
 define|#
 directive|define
@@ -256,6 +272,38 @@ value|"rename"
 end_define
 
 begin_define
+DECL|macro|ngx_open_dir
+define|#
+directive|define
+name|ngx_open_dir
+value|opendir
+end_define
+
+begin_define
+DECL|macro|ngx_open_dir_n
+define|#
+directive|define
+name|ngx_open_dir_n
+value|"opendir()"
+end_define
+
+begin_define
+DECL|macro|ngx_read_dir
+define|#
+directive|define
+name|ngx_read_dir
+value|readdir
+end_define
+
+begin_define
+DECL|macro|ngx_read_dir_n
+define|#
+directive|define
+name|ngx_read_dir_n
+value|"readdir()"
+end_define
+
+begin_define
 DECL|macro|ngx_mkdir (name)
 define|#
 directive|define
@@ -272,6 +320,22 @@ define|#
 directive|define
 name|ngx_mkdir_n
 value|"mkdir()"
+end_define
+
+begin_define
+DECL|macro|ngx_delete_dir
+define|#
+directive|define
+name|ngx_delete_dir
+value|rmdir
+end_define
+
+begin_define
+DECL|macro|ngx_delete_dir_n
+define|#
+directive|define
+name|ngx_delete_dir_n
+value|"rmdir()"
 end_define
 
 begin_define
@@ -324,7 +388,7 @@ name|ngx_is_dir
 parameter_list|(
 name|sb
 parameter_list|)
-value|(S_ISDIR(sb.st_mode))
+value|(S_ISDIR(sb->st_mode))
 end_define
 
 begin_define
@@ -335,7 +399,7 @@ name|ngx_is_file
 parameter_list|(
 name|sb
 parameter_list|)
-value|(S_ISREG(sb.st_mode))
+value|(S_ISREG(sb->st_mode))
 end_define
 
 begin_define
@@ -346,7 +410,7 @@ name|ngx_file_size
 parameter_list|(
 name|sb
 parameter_list|)
-value|sb.st_size
+value|sb->st_size
 end_define
 
 begin_define
@@ -357,7 +421,7 @@ name|ngx_file_mtime
 parameter_list|(
 name|sb
 parameter_list|)
-value|sb.st_mtime
+value|sb->st_mtime
 end_define
 
 begin_define
@@ -368,7 +432,7 @@ name|ngx_file_uniq
 parameter_list|(
 name|sb
 parameter_list|)
-value|sb.st_ino
+value|sb->st_ino
 end_define
 
 begin_endif

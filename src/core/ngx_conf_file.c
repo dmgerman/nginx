@@ -1280,6 +1280,8 @@ name|offset
 operator|>=
 name|ngx_file_size
 argument_list|(
+operator|(
+operator|&
 name|cf
 operator|->
 name|conf_file
@@ -1287,6 +1289,7 @@ operator|->
 name|file
 operator|.
 name|info
+operator|)
 argument_list|)
 condition|)
 block|{

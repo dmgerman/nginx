@@ -1762,6 +1762,8 @@ name|ctx
 argument_list|,
 name|ngx_file_uniq
 argument_list|(
+operator|(
+operator|&
 name|p
 operator|->
 name|cache
@@ -1771,6 +1773,7 @@ operator|.
 name|file
 operator|.
 name|info
+operator|)
 argument_list|)
 argument_list|)
 expr_stmt|;

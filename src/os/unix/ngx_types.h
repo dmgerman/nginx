@@ -18,18 +18,6 @@ directive|include
 file|<ngx_config.h>
 end_include
 
-begin_include
-include|#
-directive|include
-file|<sys/types.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<sys/stat.h>
-end_include
-
 begin_typedef
 DECL|typedef|ngx_fd_t
 typedef|typedef
@@ -52,6 +40,23 @@ DECL|typedef|ngx_file_uniq_t
 typedef|typedef
 name|ino_t
 name|ngx_file_uniq_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|typedef|ngx_dir_t
+typedef|typedef
+name|DIR
+name|ngx_dir_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|typedef|ngx_dirent_t
+typedef|typedef
+name|struct
+name|dirent
+name|ngx_dirent_t
 typedef|;
 end_typedef
 

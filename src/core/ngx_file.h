@@ -60,8 +60,16 @@ block|}
 struct|;
 end_struct
 
+begin_define
+DECL|macro|NGX_MAX_PATH_LEVEL
+define|#
+directive|define
+name|NGX_MAX_PATH_LEVEL
+value|3
+end_define
+
 begin_typedef
-DECL|struct|__anon2b8a8f8a0108
+DECL|struct|__anon2c0836b30108
 typedef|typedef
 struct|struct
 block|{
@@ -87,7 +95,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8a8f8a0208
+DECL|struct|__anon2c0836b30208
 typedef|typedef
 struct|struct
 block|{

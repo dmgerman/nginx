@@ -276,7 +276,7 @@ DECL|macro|ngx_file_type_n
 define|#
 directive|define
 name|ngx_file_type_n
-value|"GetFileAttributes"
+value|"GetFileAttributesEx()"
 end_define
 
 begin_define

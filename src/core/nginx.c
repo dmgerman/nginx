@@ -23,6 +23,21 @@ directive|include
 file|<nginx.h>
 end_include
 
+begin_comment
+comment|/* STUB */
+end_comment
+
+begin_function_decl
+name|void
+name|stub_init
+parameter_list|(
+name|ngx_log_t
+modifier|*
+name|log
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_function_decl
 specifier|static
 name|ngx_cycle_t
@@ -94,7 +109,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c92f9d60108
+DECL|struct|__anon2a05cc3c0108
 typedef|typedef
 struct|struct
 block|{
@@ -359,6 +374,11 @@ return|return
 literal|1
 return|;
 block|}
+name|stub_init
+argument_list|(
+name|log
+argument_list|)
+expr_stmt|;
 name|ngx_max_module
 operator|=
 literal|0

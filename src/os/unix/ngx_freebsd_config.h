@@ -67,6 +67,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<sys/stat.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<sys/time.h>
 end_include
 
@@ -121,6 +127,12 @@ end_include
 begin_comment
 comment|/* TCP_NOPUSH */
 end_comment
+
+begin_include
+include|#
+directive|include
+file|<dirent.h>
+end_include
 
 begin_include
 include|#
