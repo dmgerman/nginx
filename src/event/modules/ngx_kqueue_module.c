@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27f8ce750108
+DECL|struct|__anon2b9b2e230108
 typedef|typedef
 struct|struct
 block|{
@@ -1469,9 +1469,10 @@ modifier|*
 name|log
 parameter_list|)
 block|{
-name|ngx_int_t
+name|int
 name|events
-decl_stmt|,
+decl_stmt|;
+name|ngx_int_t
 name|instance
 decl_stmt|,
 name|i
@@ -1539,19 +1540,9 @@ operator|=
 operator|&
 name|ts
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|ngx_gettimeofday(&tv);         delta = tv.tv_sec * 1000 + tv.tv_usec / 1000;
-endif|#
-directive|endif
 block|}
 else|else
 block|{
-name|delta
-operator|=
-literal|0
-expr_stmt|;
 name|tp
 operator|=
 name|NULL
@@ -1617,15 +1608,17 @@ operator|&
 name|tv
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|1
+name|ngx_time_update
+argument_list|(
+name|tv
+operator|.
+name|tv_sec
+argument_list|)
+expr_stmt|;
 name|delta
 operator|=
 name|ngx_elapsed_msec
 expr_stmt|;
-endif|#
-directive|endif
 name|ngx_elapsed_msec
 operator|=
 name|tv
@@ -1642,13 +1635,6 @@ literal|1000
 operator|-
 name|ngx_start_msec
 expr_stmt|;
-name|ngx_time_update
-argument_list|(
-name|tv
-operator|.
-name|tv_sec
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|timer
@@ -1659,6 +1645,24 @@ operator|=
 name|ngx_elapsed_msec
 operator|-
 name|delta
+expr_stmt|;
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"kevent timer: %d, delta: %d"
+argument_list|,
+name|timer
+argument_list|,
+operator|(
+name|int
+operator|)
+name|delta
+argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -1686,24 +1690,6 @@ name|NGX_ERROR
 return|;
 block|}
 block|}
-name|ngx_log_debug2
-argument_list|(
-name|NGX_LOG_DEBUG_EVENT
-argument_list|,
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"kevent timer: %d, delta: %d"
-argument_list|,
-name|timer
-argument_list|,
-operator|(
-name|int
-operator|)
-name|delta
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|err
@@ -2109,23 +2095,6 @@ name|NGX_OK
 return|;
 block|}
 end_function
-
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-
-begin_comment
-unit|static void ngx_kqueue_thread_handler(ngx_event_t *ev, ngx_log_t *log) {     ngx_int_t  instance;      instance = (uintptr_t) ev& 1;     ev = (ngx_event_t *) ((uintptr_t) ev& (uintptr_t) ~1);      if (ev->active&& ev->instance == instance) {         ev->event_handler(ev);         return;     }
-comment|/*      * it's a stale event from a file descriptor      * that was just closed in this iteration      */
-end_comment
-
-begin_endif
-unit|ngx_log_debug1(NGX_LOG_DEBUG_EVENT, log, 0,                    "kevent: stale event " PTR_FMT, ev);  }
-endif|#
-directive|endif
-end_endif
 
 begin_function
 DECL|function|ngx_kqueue_create_conf (ngx_cycle_t * cycle)

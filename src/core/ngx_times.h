@@ -87,27 +87,6 @@ end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
-name|ngx_epoch_msec_t
-name|ngx_elapsed_msec
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-specifier|extern
-name|ngx_epoch_msec_t
-name|ngx_old_elapsed_msec
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-specifier|extern
-name|ngx_epoch_msec_t
-name|ngx_start_msec
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-specifier|extern
 name|ngx_str_t
 name|ngx_cached_err_log_time
 decl_stmt|;
@@ -124,6 +103,35 @@ begin_decl_stmt
 specifier|extern
 name|ngx_str_t
 name|ngx_cached_http_log_time
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_epoch_msec_t
+name|ngx_start_msec
+decl_stmt|;
+end_decl_stmt
+
+begin_comment
+comment|/*  * msecs elapsed since ngx_start_msec in the current event cycle,  * used in ngx_event_add_timer() and ngx_event_find_timer()  */
+end_comment
+
+begin_decl_stmt
+specifier|extern
+name|ngx_epoch_msec_t
+name|ngx_elapsed_msec
+decl_stmt|;
+end_decl_stmt
+
+begin_comment
+comment|/*  * msecs elapsed since ngx_start_msec in the previous event cycle,  * used in ngx_event_expire_timers()  */
+end_comment
+
+begin_decl_stmt
+specifier|extern
+name|ngx_epoch_msec_t
+name|ngx_old_elapsed_msec
 decl_stmt|;
 end_decl_stmt
 

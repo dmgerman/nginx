@@ -567,9 +567,12 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
-return|return
-name|NGX_ERROR
-return|;
+comment|/* fatal */
+name|exit
+argument_list|(
+literal|2
+argument_list|)
+expr_stmt|;
 block|}
 break|break;
 block|}
