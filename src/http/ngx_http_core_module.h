@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a35a7410108
+DECL|struct|__anon2b3a8d6d0108
 typedef|typedef
 struct|struct
 block|{
@@ -52,10 +52,9 @@ name|int
 name|flags
 decl_stmt|;
 comment|/* 'default' */
-DECL|member|conf_file
-name|ngx_conf_file_t
-modifier|*
-name|conf_file
+DECL|member|file_name
+name|ngx_str_t
+name|file_name
 decl_stmt|;
 DECL|member|line
 name|int
@@ -68,7 +67,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a35a7410208
+DECL|struct|__anon2b3a8d6d0208
 typedef|typedef
 struct|struct
 block|{
@@ -92,34 +91,19 @@ name|ngx_http_conf_ctx_t
 modifier|*
 name|ctx
 decl_stmt|;
+comment|/* server ctx */
 DECL|typedef|ngx_http_core_srv_conf_t
 block|}
 name|ngx_http_core_srv_conf_t
 typedef|;
 end_typedef
 
-begin_typedef
-DECL|struct|__anon2a35a7410308
-typedef|typedef
-struct|struct
-block|{
-DECL|member|name
-name|ngx_str_t
-name|name
-decl_stmt|;
-DECL|member|core_srv_conf
-name|ngx_http_core_srv_conf_t
-modifier|*
-name|core_srv_conf
-decl_stmt|;
-DECL|typedef|ngx_http_server_name_t
-block|}
-name|ngx_http_server_name_t
-typedef|;
-end_typedef
+begin_comment
+comment|/* list of structures to find core_srv_conf quickly at run time */
+end_comment
 
 begin_typedef
-DECL|struct|__anon2a35a7410408
+DECL|struct|__anon2b3a8d6d0308
 typedef|typedef
 struct|struct
 block|{
@@ -131,6 +115,7 @@ DECL|member|addr
 name|ngx_array_t
 name|addr
 decl_stmt|;
+comment|/* array of ngx_http_in_addr_t */
 DECL|typedef|ngx_http_in_port_t
 block|}
 name|ngx_http_in_port_t
@@ -138,7 +123,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a35a7410508
+DECL|struct|__anon2b3a8d6d0408
 typedef|typedef
 struct|struct
 block|{
@@ -150,14 +135,16 @@ DECL|member|names
 name|ngx_array_t
 name|names
 decl_stmt|;
-DECL|member|flags
-name|int
-name|flags
-decl_stmt|;
+comment|/* array of ngx_http_server_name_t */
 DECL|member|core_srv_conf
 name|ngx_http_core_srv_conf_t
 modifier|*
 name|core_srv_conf
+decl_stmt|;
+comment|/* default server conf                                                   for this address:port */
+DECL|member|flags
+name|int
+name|flags
 decl_stmt|;
 DECL|typedef|ngx_http_in_addr_t
 block|}
@@ -174,7 +161,28 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2a35a7410608
+DECL|struct|__anon2b3a8d6d0508
+typedef|typedef
+struct|struct
+block|{
+DECL|member|name
+name|ngx_str_t
+name|name
+decl_stmt|;
+DECL|member|core_srv_conf
+name|ngx_http_core_srv_conf_t
+modifier|*
+name|core_srv_conf
+decl_stmt|;
+comment|/* virtual name server conf */
+DECL|typedef|ngx_http_server_name_t
+block|}
+name|ngx_http_server_name_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2b3a8d6d0608
 typedef|typedef
 struct|struct
 block|{

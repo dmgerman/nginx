@@ -935,11 +935,7 @@ index|[
 name|l
 index|]
 operator|.
-name|conf_file
-operator|->
-name|file
-operator|.
-name|name
+name|file_name
 operator|.
 name|data
 argument_list|,
@@ -1761,8 +1757,6 @@ name|in_port
 index|[
 name|p
 index|]
-operator|.
-name|addr
 expr_stmt|;
 if|if
 condition|(
