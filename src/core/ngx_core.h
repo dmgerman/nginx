@@ -365,13 +365,7 @@ end_if
 begin_include
 include|#
 directive|include
-file|<openssl/ssl.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<openssl/err.h>
+file|<ngx_event_openssl.h>
 end_include
 
 begin_endif

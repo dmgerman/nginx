@@ -425,6 +425,18 @@ operator|=
 name|ngx_getpid
 argument_list|()
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_OPENSSL
+operator|)
+name|ngx_ssl_init
+argument_list|(
+name|log
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 comment|/* init_cycle->log is required for signal handlers and ngx_getopt() */
 name|ngx_memzero
 argument_list|(

@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29b63a1b0108
+DECL|struct|__anon28dbaaf80108
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29b63a1b0203
+DECL|enum|__anon28dbaaf80203
 typedef|typedef
 enum|enum
 block|{
@@ -95,7 +95,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b63a1b0308
+DECL|struct|__anon28dbaaf80308
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b63a1b0408
+DECL|struct|__anon28dbaaf80408
 typedef|typedef
 struct|struct
 block|{
@@ -146,31 +146,39 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b63a1b0508
+DECL|struct|__anon28dbaaf80508
 typedef|typedef
 struct|struct
 block|{
+DECL|member|recv
+name|ngx_recv_pt
+name|recv
+decl_stmt|;
+DECL|member|send_chain
+name|ngx_send_chain_pt
+name|send_chain
+decl_stmt|;
+comment|/*      * array of ngx_http_core_loc_conf_t, used in the translation handler      * and in the merge phase      */
 DECL|member|locations
 name|ngx_array_t
 name|locations
 decl_stmt|;
-comment|/* array of ngx_http_core_loc_conf_t,                                   used in the translation handler                                   and in the merge phase */
+comment|/* "listen", array of ngx_http_listen_t */
 DECL|member|listen
 name|ngx_array_t
 name|listen
 decl_stmt|;
-comment|/* 'listen', array of ngx_http_listen_t */
+comment|/* "server_name", array of ngx_http_server_name_t */
 DECL|member|server_names
 name|ngx_array_t
 name|server_names
 decl_stmt|;
-comment|/* 'server_name',                                   array of ngx_http_server_name_t */
+comment|/* server ctx */
 DECL|member|ctx
 name|ngx_http_conf_ctx_t
 modifier|*
 name|ctx
 decl_stmt|;
-comment|/* server ctx */
 DECL|member|connection_pool_size
 name|size_t
 name|connection_pool_size
@@ -210,7 +218,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon29b63a1b0608
+DECL|struct|__anon28dbaaf80608
 typedef|typedef
 struct|struct
 block|{
@@ -234,7 +242,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b63a1b0708
+DECL|struct|__anon28dbaaf80708
 typedef|typedef
 struct|struct
 block|{
@@ -266,7 +274,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b63a1b0808
+DECL|struct|__anon28dbaaf80808
 typedef|typedef
 struct|struct
 block|{
@@ -309,7 +317,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon29b63a1b0908
+DECL|struct|__anon28dbaaf80908
 typedef|typedef
 struct|struct
 block|{
@@ -328,7 +336,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b63a1b0a08
+DECL|struct|__anon28dbaaf80a08
 typedef|typedef
 struct|struct
 block|{
@@ -351,7 +359,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b63a1b0b08
+DECL|struct|__anon28dbaaf80b08
 typedef|typedef
 struct|struct
 block|{

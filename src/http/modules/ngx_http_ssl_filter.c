@@ -17,6 +17,18 @@ directive|include
 file|<ngx_http.h>
 end_include
 
+begin_comment
+comment|/* STUB */
+end_comment
+
+begin_define
+DECL|macro|NGX_SSL_ERROR
+define|#
+directive|define
+name|NGX_SSL_ERROR
+value|-11
+end_define
+
 begin_define
 DECL|macro|NGX_DEFLAUT_CERTIFICATE
 define|#
@@ -32,50 +44,6 @@ directive|define
 name|NGX_DEFLAUT_CERTIFICATE_KEY
 value|"cert.pem"
 end_define
-
-begin_typedef
-DECL|struct|__anon2ad6489b0108
-typedef|typedef
-struct|struct
-block|{
-DECL|member|enable
-name|ngx_flag_t
-name|enable
-decl_stmt|;
-DECL|member|certificate
-name|ngx_str_t
-name|certificate
-decl_stmt|;
-DECL|member|certificate_key
-name|ngx_str_t
-name|certificate_key
-decl_stmt|;
-DECL|member|ssl_ctx
-name|SSL_CTX
-modifier|*
-name|ssl_ctx
-decl_stmt|;
-DECL|typedef|ngx_http_ssl_srv_conf_t
-block|}
-name|ngx_http_ssl_srv_conf_t
-typedef|;
-end_typedef
-
-begin_typedef
-DECL|struct|__anon2ad6489b0208
-typedef|typedef
-struct|struct
-block|{
-DECL|member|ssl
-name|SSL
-modifier|*
-name|ssl
-decl_stmt|;
-DECL|typedef|ngx_http_ssl_ctx_t
-block|}
-name|ngx_http_ssl_ctx_t
-typedef|;
-end_typedef
 
 begin_function_decl
 specifier|static
@@ -150,7 +118,7 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|ngx_int_t
-name|ngx_http_ssl_filter_init
+name|ngx_http_ssl_init_process
 parameter_list|(
 name|ngx_cycle_t
 modifier|*
@@ -170,11 +138,9 @@ block|{
 block|{
 name|ngx_string
 argument_list|(
-literal|"ssl_"
+literal|"ssl"
 argument_list|)
 block|,
-name|NGX_HTTP_MAIN_CONF
-operator||
 name|NGX_HTTP_SRV_CONF
 operator||
 name|NGX_CONF_FLAG
@@ -199,8 +165,6 @@ argument_list|(
 literal|"ssl_certificate"
 argument_list|)
 block|,
-name|NGX_HTTP_MAIN_CONF
-operator||
 name|NGX_HTTP_SRV_CONF
 operator||
 name|NGX_CONF_TAKE1
@@ -225,8 +189,6 @@ argument_list|(
 literal|"ssl_certificate_key"
 argument_list|)
 block|,
-name|NGX_HTTP_MAIN_CONF
-operator||
 name|NGX_HTTP_SRV_CONF
 operator||
 name|NGX_CONF_TAKE1
@@ -294,16 +256,16 @@ operator|&
 name|ngx_http_ssl_filter_module_ctx
 block|,
 comment|/* module context */
-name|NULL
+name|ngx_http_charset_filter_commands
 block|,
 comment|/* module directives */
 name|NGX_HTTP_MODULE
 block|,
 comment|/* module type */
-name|ngx_http_ssl_filter_init
+name|NULL
 block|,
 comment|/* init module */
-name|NULL
+name|ngx_http_ssl_init_process
 comment|/* init process */
 block|}
 decl_stmt|;
@@ -332,10 +294,6 @@ decl_stmt|;
 name|SSL
 modifier|*
 name|ssl
-decl_stmt|;
-name|ngx_http_ssl_ctx_t
-modifier|*
-name|ctx
 decl_stmt|;
 name|ngx_http_log_ctx_t
 modifier|*
@@ -1375,6 +1333,19 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|conf
+operator|->
+name|enable
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+name|NGX_CONF_OK
+return|;
+block|}
 name|ngx_conf_merge_str_value
 argument_list|(
 name|conf
@@ -1401,14 +1372,6 @@ argument_list|,
 name|NGX_DEFLAUT_CERTIFICATE_KEY
 argument_list|)
 expr_stmt|;
-comment|/* STUB: where to move ??? */
-name|SSL_library_init
-argument_list|()
-expr_stmt|;
-name|SSL_load_error_strings
-argument_list|()
-expr_stmt|;
-comment|/* TODO: inherit ssl_ctx */
 comment|/* TODO: configure methods */
 name|conf
 operator|->
@@ -1476,7 +1439,13 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"SSL_CTX_use_certificate_file() failed"
+literal|"SSL_CTX_use_certificate_file(\"%s\") failed"
+argument_list|,
+name|conf
+operator|->
+name|certificate
+operator|.
+name|data
 argument_list|)
 expr_stmt|;
 return|return
@@ -1513,7 +1482,13 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"SSL_CTX_use_PrivateKey_file() failed"
+literal|"SSL_CTX_use_PrivateKey_file(\"%s\") failed"
+argument_list|,
+name|conf
+operator|->
+name|certificate_key
+operator|.
+name|data
 argument_list|)
 expr_stmt|;
 return|return
@@ -1527,22 +1502,107 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_ssl_filter_init (ngx_cycle_t * cycle)
+DECL|function|ngx_http_ssl_init_process (ngx_cycle_t * cycle)
 specifier|static
 name|ngx_int_t
-name|ngx_http_ssl_filter_init
+name|ngx_http_ssl_init_process
 parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
 parameter_list|)
 block|{
+name|ngx_uint_t
+name|i
+decl_stmt|;
+name|ngx_http_ssl_srv_conf_t
+modifier|*
+name|sscf
+decl_stmt|;
+name|ngx_http_core_srv_conf_t
+modifier|*
+modifier|*
+name|cscfp
+decl_stmt|;
+name|ngx_http_core_main_conf_t
+modifier|*
+name|cmcf
+decl_stmt|;
+name|cmcf
+operator|=
+name|ngx_http_cycle_get_module_main_conf
+argument_list|(
+name|cycle
+argument_list|,
+name|ngx_http_core_module
+argument_list|)
+expr_stmt|;
+name|cscfp
+operator|=
+name|cmcf
+operator|->
+name|servers
+operator|.
+name|elts
+expr_stmt|;
+for|for
+control|(
+name|i
+operator|=
+literal|0
+init|;
+name|i
+operator|<
+name|cmcf
+operator|->
+name|servers
+operator|.
+name|nelts
+condition|;
+name|i
+operator|++
+control|)
+block|{
+name|sscf
+operator|=
+name|cscfp
+index|[
+name|i
+index|]
+operator|->
+name|ctx
+operator|->
+name|srv_conf
+index|[
+name|ngx_http_ssl_filter_module
+operator|.
+name|ctx_index
+index|]
+expr_stmt|;
+if|if
+condition|(
+name|sscf
+operator|->
+name|enable
+condition|)
+block|{
+name|cscfp
+index|[
+name|i
+index|]
+operator|->
+name|recv
+operator|=
+name|ngx_ssl_recv
+expr_stmt|;
 if|#
 directive|if
 literal|0
-block_content|ngx_http_next_header_filter = ngx_http_top_header_filter;     ngx_http_top_header_filter = ngx_http_ssl_header_filter;      ngx_http_next_body_filter = ngx_http_top_body_filter;     ngx_http_top_body_filter = ngx_http_ssl_body_filter;
+block_content|cscfp[i]->send_chain = ngx_ssl_send_chain;
 endif|#
 directive|endif
+block|}
+block|}
 return|return
 name|NGX_OK
 return|;

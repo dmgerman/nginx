@@ -3370,7 +3370,7 @@ return|;
 block|}
 name|lmcf
 operator|=
-name|ngx_http_conf_module_main_conf
+name|ngx_http_conf_get_module_main_conf
 argument_list|(
 name|cf
 argument_list|,
@@ -3500,7 +3500,7 @@ name|elts
 expr_stmt|;
 name|lmcf
 operator|=
-name|ngx_http_conf_module_main_conf
+name|ngx_http_conf_get_module_main_conf
 argument_list|(
 name|cf
 argument_list|,

@@ -25,7 +25,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b3bffe00108
+DECL|struct|__anon2b926bb60108
 typedef|typedef
 struct|struct
 block|{
@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3bffe00208
+DECL|struct|__anon2b926bb60208
 typedef|typedef
 struct|struct
 block|{
@@ -275,10 +275,10 @@ value|r->loc_conf[module.ctx_index]
 end_define
 
 begin_define
-DECL|macro|ngx_http_conf_module_main_conf (cf,module)
+DECL|macro|ngx_http_conf_get_module_main_conf (cf,module)
 define|#
 directive|define
-name|ngx_http_conf_module_main_conf
+name|ngx_http_conf_get_module_main_conf
 parameter_list|(
 name|cf
 parameter_list|,
@@ -286,6 +286,34 @@ name|module
 parameter_list|)
 define|\
 value|((ngx_http_conf_ctx_t *) cf->ctx)->main_conf[module.ctx_index]
+end_define
+
+begin_define
+DECL|macro|ngx_http_conf_get_module_srv_conf (cf,module)
+define|#
+directive|define
+name|ngx_http_conf_get_module_srv_conf
+parameter_list|(
+name|cf
+parameter_list|,
+name|module
+parameter_list|)
+define|\
+value|ngx_http_conf_get_module_srv_conf_could_not_be_implemented()
+end_define
+
+begin_define
+DECL|macro|ngx_http_cycle_get_module_main_conf (cycle,module)
+define|#
+directive|define
+name|ngx_http_cycle_get_module_main_conf
+parameter_list|(
+name|cycle
+parameter_list|,
+name|module
+parameter_list|)
+define|\
+value|((ngx_http_conf_ctx_t *)                                               \            cycle->conf_ctx[ngx_http_module.index])->main_conf[module.ctx_index]
 end_define
 
 begin_endif
