@@ -565,10 +565,7 @@ name|ctx
 operator|->
 name|loc_conf
 index|[
-name|ngx_modules
-index|[
-name|i
-index|]
+name|module
 operator|->
 name|index
 index|]
