@@ -49,7 +49,7 @@ file|<ngx_http_core_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29bbe6bf0108
+DECL|struct|__anon29c649020108
 typedef|typedef
 struct|struct
 block|{
@@ -284,6 +284,17 @@ end_function_decl
 begin_function_decl
 name|void
 name|ngx_http_set_write_handler
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|int
+name|ngx_http_send_last
 parameter_list|(
 name|ngx_http_request_t
 modifier|*

@@ -24,7 +24,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bc334cd0108
+DECL|struct|__anon291fad210108
 typedef|typedef
 struct|struct
 block|{
@@ -39,7 +39,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc334cd0208
+DECL|struct|__anon291fad210208
 typedef|typedef
 struct|struct
 block|{
@@ -561,7 +561,7 @@ argument_list|)
 empty_stmt|;
 endif|#
 directive|endif
-comment|/* avoid the output if there is no last hunk, no flush point and        size of the hunks is smaller then "buffer_output" */
+comment|/*      * avoid the output if there is no last hunk, no flush point and      * size of the hunks is smaller then "buffer_output"      */
 if|if
 condition|(
 operator|!
@@ -584,6 +584,15 @@ return|;
 block|}
 if|if
 condition|(
+operator|!
+name|r
+operator|->
+name|connection
+operator|->
+name|write
+operator|->
+name|ready
+operator|||
 name|r
 operator|->
 name|connection

@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a2ab0b00108
+DECL|struct|__anon2b3149f50108
 typedef|typedef
 struct|struct
 block|{
@@ -33,7 +33,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2ab0b00208
+DECL|struct|__anon2b3149f50208
 typedef|typedef
 struct|struct
 block|{
@@ -244,7 +244,7 @@ parameter_list|,
 name|hunk
 parameter_list|)
 define|\
-value|(((r->filter& NGX_HTTP_FILTER_NEED_IN_MEMORY)                \&& (hunk->type& NGX_HUNK_IN_MEMORY) == 0)                 \              || ((r->filter& NGX_HTTP_FILTER_NEED_TEMP)                  \&& (hunk->type& (NGX_HUNK_MEMORY|NGX_HUNK_MMAP))))
+value|(!ngx_hunk_special(hunk)                                      \&& (((r->filter& NGX_HTTP_FILTER_NEED_IN_MEMORY)            \&& (hunk->type& NGX_HUNK_IN_MEMORY) == 0)             \                  || ((r->filter& NGX_HTTP_FILTER_NEED_TEMP)              \&& (hunk->type& (NGX_HUNK_MEMORY|NGX_HUNK_MMAP)))))
 end_define
 
 begin_function
@@ -796,6 +796,7 @@ name|hunk
 operator|=
 name|NULL
 expr_stmt|;
+break|break;
 block|}
 if|if
 condition|(

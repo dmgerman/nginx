@@ -138,7 +138,8 @@ name|headers_out
 operator|.
 name|last_modified_time
 operator|==
-name|NULL
+operator|-
+literal|1
 condition|)
 block|{
 return|return
@@ -181,7 +182,7 @@ literal|"%d %d"
 argument|_                   ims _ r->headers_out.last_modified_time
 argument_list|)
 empty_stmt|;
-comment|/* I think that the date equality is correcter */
+comment|/* I think that the equality of the dates is correcter */
 if|if
 condition|(
 name|ims

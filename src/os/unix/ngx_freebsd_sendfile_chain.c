@@ -14,11 +14,17 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_event.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_freebsd_init.h>
 end_include
 
 begin_comment
-comment|/*    sendfile() often sends 4K pages over ethernet in 3 packets: 2x1460 and 1176    or in 6 packets: 5x1460 and 892.  Besides although sendfile() allows    to pass the header and the trailer it never sends the header or the trailer    with the part of the file in one packet.  So we use TCP_NOPUSH (similar    to Linux's TCP_CORK) to postpone the sending - it not only sends the header    and the first part of the file in one packet but also sends 4K pages    in the full packets.     Until FreeBSD 4.5 the turning TCP_NOPUSH off does not not flush    the pending data that less than MSS and the data sent with 5 second delay.    So we use TCP_NOPUSH on FreeBSD prior to 4.5 only if the connection    is not needed not keepalive. */
+comment|/*  * sendfile() often sends 4K pages over ethernet in 3 packets: 2x1460 and 1176  * or in 6 packets: 5x1460 and 892.  Besides although sendfile() allows  * to pass the header and the trailer it never sends the header or the trailer  * with the part of the file in one packet.  So we use TCP_NOPUSH (similar  * to Linux's TCP_CORK) to postpone the sending - it not only sends the header  * and the first part of the file in one packet but also sends 4K pages  * in the full packets.  *  * Until FreeBSD 4.5 the turning TCP_NOPUSH off does not not flush  * the pending data that less than MSS and the data sent with 5 second delay.  * So we use TCP_NOPUSH on FreeBSD prior to 4.5 only if the connection  * is not needed to be keepalive.  */
 end_comment
 
 begin_function
@@ -144,16 +150,12 @@ name|NGX_CHAIN_ERROR
 argument_list|)
 expr_stmt|;
 comment|/* create the header iovec */
-if|if
-condition|(
-name|ngx_hunk_in_memory_only
-argument_list|(
-name|ce
-operator|->
-name|hunk
-argument_list|)
-condition|)
-block|{
+if|#
+directive|if
+literal|0
+block_content|if (ngx_hunk_in_memory_only(ce->hunk) || ngx_hunk_special(ce->hunk)) {
+endif|#
+directive|endif
 name|prev
 operator|=
 name|NULL
@@ -163,10 +165,34 @@ operator|=
 name|NULL
 expr_stmt|;
 comment|/* create the iovec and coalesce the neighbouring chain entries */
-while|while
-condition|(
+for|for
+control|(
+comment|/* void */
+init|;
 name|ce
-operator|&&
+condition|;
+name|ce
+operator|=
+name|ce
+operator|->
+name|next
+control|)
+block|{
+if|if
+condition|(
+name|ngx_hunk_special
+argument_list|(
+name|ce
+operator|->
+name|hunk
+argument_list|)
+condition|)
+block|{
+continue|continue;
+block|}
+if|if
+condition|(
+operator|!
 name|ngx_hunk_in_memory_only
 argument_list|(
 name|ce
@@ -175,6 +201,8 @@ name|hunk
 argument_list|)
 condition|)
 block|{
+break|break;
+block|}
 if|if
 condition|(
 name|prev
@@ -275,14 +303,13 @@ name|hunk
 operator|->
 name|pos
 expr_stmt|;
-name|ce
-operator|=
-name|ce
-operator|->
-name|next
-expr_stmt|;
 block|}
-block|}
+if|#
+directive|if
+literal|0
+block_content|}
+endif|#
+directive|endif
 comment|/* TODO: coalesce the neighbouring file hunks */
 if|if
 condition|(
@@ -313,18 +340,12 @@ name|next
 expr_stmt|;
 block|}
 comment|/* create the trailer iovec */
-if|if
-condition|(
-name|ce
-operator|&&
-name|ngx_hunk_in_memory_only
-argument_list|(
-name|ce
-operator|->
-name|hunk
-argument_list|)
-condition|)
-block|{
+if|#
+directive|if
+literal|0
+block_content|if (ce&& (ngx_hunk_in_memory_only(ce->hunk)                 || ngx_hunk_special(ce->hunk)))         {
+endif|#
+directive|endif
 name|prev
 operator|=
 name|NULL
@@ -334,10 +355,34 @@ operator|=
 name|NULL
 expr_stmt|;
 comment|/* create the iovec and coalesce the neighbouring chain entries */
-while|while
-condition|(
+for|for
+control|(
+comment|/* void */
+init|;
 name|ce
-operator|&&
+condition|;
+name|ce
+operator|=
+name|ce
+operator|->
+name|next
+control|)
+block|{
+if|if
+condition|(
+name|ngx_hunk_special
+argument_list|(
+name|ce
+operator|->
+name|hunk
+argument_list|)
+condition|)
+block|{
+continue|continue;
+block|}
+if|if
+condition|(
+operator|!
 name|ngx_hunk_in_memory_only
 argument_list|(
 name|ce
@@ -346,6 +391,8 @@ name|hunk
 argument_list|)
 condition|)
 block|{
+break|break;
+block|}
 if|if
 condition|(
 name|prev
@@ -432,14 +479,13 @@ operator|->
 name|last
 expr_stmt|;
 block|}
-name|ce
-operator|=
-name|ce
-operator|->
-name|next
-expr_stmt|;
 block|}
-block|}
+if|#
+directive|if
+literal|0
+block_content|}
+endif|#
+directive|endif
 name|tail
 operator|=
 name|ce
@@ -696,6 +742,11 @@ directive|endif
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|hsize
+condition|)
+block|{
 name|rc
 operator|=
 name|writev
@@ -821,6 +872,14 @@ argument_list|)
 empty_stmt|;
 endif|#
 directive|endif
+block|}
+else|else
+block|{
+name|sent
+operator|=
+literal|0
+expr_stmt|;
+block|}
 block|}
 name|c
 operator|->
@@ -1023,6 +1082,20 @@ operator|||
 name|eintr
 condition|)
 do|;
+if|if
+condition|(
+name|ce
+condition|)
+block|{
+name|c
+operator|->
+name|write
+operator|->
+name|ready
+operator|=
+literal|0
+expr_stmt|;
+block|}
 return|return
 name|ce
 return|;

@@ -251,7 +251,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27b1c4c20108
+DECL|struct|__anon2a2b5c280108
 typedef|typedef
 struct|struct
 block|{
@@ -287,6 +287,22 @@ name|h
 parameter_list|)
 define|\
 value|((h->type& (NGX_HUNK_IN_MEMORY|NGX_HUNK_FILE)) == NGX_HUNK_IN_MEMORY)
+end_define
+
+begin_comment
+comment|/*     ((h->type& (NGX_HUNK_TEMP|NGX_HUNK_MEMORY|NGX_HUNK_MMAP|NGX_HUNK_FILE)) \                   == (h->type& (NGX_HUNK_TEMP|NGX_HUNK_MEMORY|NGX_HUNK_MMAP)))  */
+end_comment
+
+begin_define
+DECL|macro|ngx_hunk_special (h)
+define|#
+directive|define
+name|ngx_hunk_special
+parameter_list|(
+name|h
+parameter_list|)
+define|\
+value|(h->type == (h->type& (NGX_HUNK_FLUSH|NGX_HUNK_LAST)))
 end_define
 
 begin_function_decl
