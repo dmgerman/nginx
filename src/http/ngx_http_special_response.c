@@ -102,6 +102,24 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|error_500_page
+specifier|static
+name|char
+name|error_500_page
+index|[]
+init|=
+literal|"<html>"
+name|CRLF
+literal|"<head><title>500 Internal Server Error</title></head>"
+name|CRLF
+literal|"<body bgcolor=\"white\">"
+name|CRLF
+literal|"<center><h1>500 Internal Server Error</h1></center>"
+name|CRLF
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|error_pages
 specifier|static
 name|ngx_str_t
@@ -185,11 +203,15 @@ name|error_404_page
 block|}
 block|,
 block|{
-literal|0
+sizeof|sizeof
+argument_list|(
+name|error_500_page
+argument_list|)
+operator|-
+literal|1
 block|,
-name|NULL
+name|error_500_page
 block|}
-comment|/* 500 */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -262,6 +284,8 @@ expr_stmt|;
 else|else
 name|err
 operator|=
+name|error
+operator|-
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 operator|+
 literal|4

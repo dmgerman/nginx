@@ -923,6 +923,11 @@ argument_list|)
 empty_stmt|;
 endif|#
 directive|endif
+if|if
+condition|(
+name|nchanges
+condition|)
+block|{
 name|n
 operator|=
 name|nchanges
@@ -961,6 +966,7 @@ expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
+block|}
 block|}
 name|dvp
 operator|.

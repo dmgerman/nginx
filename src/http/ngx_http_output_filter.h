@@ -39,15 +39,23 @@ value|1
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_FILTER_SSI_NEED_IN_MEMORY
+define|#
+directive|define
+name|NGX_HTTP_FILTER_SSI_NEED_IN_MEMORY
+value|2
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_FILTER_NEED_TEMP
 define|#
 directive|define
 name|NGX_HTTP_FILTER_NEED_TEMP
-value|2
+value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2976ad250108
+DECL|struct|__anon2c0c17890108
 typedef|typedef
 struct|struct
 block|{
@@ -62,7 +70,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2976ad250208
+DECL|struct|__anon2c0c17890208
 typedef|typedef
 struct|struct
 block|{

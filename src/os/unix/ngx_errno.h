@@ -49,11 +49,11 @@ value|EINTR
 end_define
 
 begin_define
-DECL|macro|NGX_EACCESS
+DECL|macro|NGX_EACCES
 define|#
 directive|define
-name|NGX_EACCESS
-value|EACCESS
+name|NGX_EACCES
+value|EACCES
 end_define
 
 begin_define

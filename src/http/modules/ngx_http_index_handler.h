@@ -39,7 +39,7 @@ value|"index.html"
 end_define
 
 begin_typedef
-DECL|struct|__anon2b8b48ad0108
+DECL|struct|__anon28da5f320108
 typedef|typedef
 struct|struct
 block|{
@@ -51,10 +51,6 @@ decl_stmt|;
 DECL|member|max_index_len
 name|size_t
 name|max_index_len
-decl_stmt|;
-DECL|member|test_dir
-name|int
-name|test_dir
 decl_stmt|;
 DECL|typedef|ngx_http_index_conf_t
 block|}

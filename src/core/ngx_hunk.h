@@ -112,17 +112,27 @@ name|NGX_HUNK_LAST
 value|0x0200
 end_define
 
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
 begin_comment
 comment|/* can be used with NGX_HUNK_LAST only */
 end_comment
 
 begin_define
-DECL|macro|NGX_HUNK_SHUTDOWN
 define|#
 directive|define
 name|NGX_HUNK_SHUTDOWN
-value|0x0400
+value|0x0400 /
 end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_define
 DECL|macro|NGX_HUNK_RECYCLED
@@ -154,7 +164,7 @@ DECL|struct|ngx_hunk_s
 struct|struct
 name|ngx_hunk_s
 block|{
-DECL|union|__anon2a17f7f1010a
+DECL|union|__anon27f1cd78010a
 union|union
 block|{
 DECL|member|mem
@@ -171,7 +181,7 @@ DECL|member|pos
 block|}
 name|pos
 union|;
-DECL|union|__anon2a17f7f1020a
+DECL|union|__anon27f1cd78020a
 union|union
 block|{
 DECL|member|mem

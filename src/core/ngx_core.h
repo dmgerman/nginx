@@ -60,6 +60,18 @@ name|NGX_DECLINED
 value|-4
 end_define
 
+begin_define
+DECL|macro|NGX_MAXHOSTNAMELEN
+define|#
+directive|define
+name|NGX_MAXHOSTNAMELEN
+value|32
+end_define
+
+begin_comment
+comment|/* #define NGX_MAXHOSTNAMELEN MAXHOSTNAMELEN */
+end_comment
+
 begin_endif
 endif|#
 directive|endif

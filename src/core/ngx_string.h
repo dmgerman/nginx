@@ -19,7 +19,7 @@ file|<ngx_config.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b0a67a50108
+DECL|struct|__anon2b4ad2bb0108
 typedef|typedef
 struct|struct
 block|{
@@ -90,6 +90,14 @@ value|strcmp
 end_define
 
 begin_define
+DECL|macro|ngx_strlen
+define|#
+directive|define
+name|ngx_strlen
+value|strlen
+end_define
+
+begin_define
 DECL|macro|ngx_snprintf
 define|#
 directive|define
@@ -140,6 +148,14 @@ define|#
 directive|define
 name|ngx_strcmp
 value|strcmp
+end_define
+
+begin_define
+DECL|macro|ngx_strlen
+define|#
+directive|define
+name|ngx_strlen
+value|strlen
 end_define
 
 begin_define

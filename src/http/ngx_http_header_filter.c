@@ -382,12 +382,6 @@ name|len
 operator|=
 literal|0
 expr_stmt|;
-name|r
-operator|->
-name|header_only
-operator|=
-literal|1
-expr_stmt|;
 block|}
 block|}
 block|}
@@ -459,6 +453,12 @@ name|status
 operator|-
 name|NGX_HTTP_MOVED_PERMANENTLY
 operator|+
+literal|1
+expr_stmt|;
+name|r
+operator|->
+name|header_only
+operator|=
 literal|1
 expr_stmt|;
 block|}

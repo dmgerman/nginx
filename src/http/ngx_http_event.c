@@ -814,6 +814,12 @@ name|ev
 operator|->
 name|data
 expr_stmt|;
+name|c
+operator|->
+name|sent
+operator|=
+literal|0
+expr_stmt|;
 name|ngx_test_null
 argument_list|(
 name|r
@@ -2655,12 +2661,6 @@ operator|)
 name|c
 operator|->
 name|data
-expr_stmt|;
-name|c
-operator|->
-name|sent
-operator|=
-literal|0
 expr_stmt|;
 name|rc
 operator|=
