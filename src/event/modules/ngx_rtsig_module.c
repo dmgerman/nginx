@@ -103,7 +103,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon279e22520108
+DECL|struct|__anon2a3ca8540108
 typedef|typedef
 struct|struct
 block|{
@@ -2611,6 +2611,15 @@ name|read
 expr_stmt|;
 if|if
 condition|(
+name|rev
+operator|->
+name|active
+operator|&&
+name|rev
+operator|->
+name|event_handler
+operator|&&
+operator|(
 name|overflow_list
 index|[
 name|i
@@ -2626,6 +2635,7 @@ operator||
 name|POLLHUP
 operator||
 name|POLLNVAL
+operator|)
 operator|)
 condition|)
 block|{
@@ -2674,6 +2684,15 @@ name|write
 expr_stmt|;
 if|if
 condition|(
+name|wev
+operator|->
+name|active
+operator|&&
+name|wev
+operator|->
+name|event_handler
+operator|&&
+operator|(
 name|overflow_list
 index|[
 name|i
@@ -2689,6 +2708,7 @@ operator||
 name|POLLHUP
 operator||
 name|POLLNVAL
+operator|)
 operator|)
 condition|)
 block|{
