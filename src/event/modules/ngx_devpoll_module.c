@@ -78,7 +78,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon279fb4b20108
+DECL|struct|__anon27a0e2290108
 typedef|typedef
 struct|struct
 block|{
@@ -995,6 +995,17 @@ operator|==
 name|NGX_READ_EVENT
 condition|)
 block|{
+if|if
+condition|(
+name|ev
+operator|->
+name|accept
+condition|)
+block|{
+return|return
+name|NGX_OK
+return|;
+block|}
 name|e
 operator|=
 name|c
