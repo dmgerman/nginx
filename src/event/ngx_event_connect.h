@@ -31,7 +31,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c25e0f40108
+DECL|struct|__anon2a42ba050108
 typedef|typedef
 struct|struct
 block|{
@@ -47,9 +47,9 @@ DECL|member|port
 name|int
 name|port
 decl_stmt|;
-DECL|member|addr_port_name
+DECL|member|addr_port_text
 name|ngx_str_t
-name|addr_port_name
+name|addr_port_text
 decl_stmt|;
 DECL|member|fails
 name|int
@@ -66,7 +66,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c25e0f40208
+DECL|struct|__anon2a42ba050208
 typedef|typedef
 struct|struct
 block|{
@@ -106,7 +106,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c25e0f40308
+DECL|struct|__anon2a42ba050308
 typedef|typedef
 struct|struct
 block|{
@@ -127,6 +127,10 @@ DECL|member|connection
 name|ngx_connection_t
 modifier|*
 name|connection
+decl_stmt|;
+DECL|member|rcvbuf
+name|int
+name|rcvbuf
 decl_stmt|;
 DECL|member|cached
 name|unsigned

@@ -1780,7 +1780,7 @@ argument_list|,
 name|ngx_event_core_module
 argument_list|)
 expr_stmt|;
-comment|/* disable warnings: the default FD_SETSIZE is 1024U in FreeBSD 5.x */
+comment|/* disable warning: the default FD_SETSIZE is 1024U in FreeBSD 5.x */
 if|if
 condition|(
 operator|(

@@ -252,7 +252,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-comment|/* disable warnings: Win32 SOCKET is u_int while UNIX socket is int */
+comment|/* disable warning: Win32 SOCKET is u_int while UNIX socket is int */
 if|if
 condition|(
 operator|(
