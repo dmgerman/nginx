@@ -33,16 +33,8 @@ decl_stmt|;
 name|char
 modifier|*
 name|p
-init|=
-name|r
-operator|->
-name|header_in
-operator|->
-name|pos
-operator|.
-name|mem
 decl_stmt|;
-DECL|enum|__anon2bbc56400103
+DECL|enum|__anon27a080390103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -90,11 +82,23 @@ DECL|enumerator|sw_done
 name|sw_done
 block|}
 name|state
-init|=
+enum|;
+name|state
+operator|=
 name|r
 operator|->
 name|state
-enum|;
+expr_stmt|;
+name|p
+operator|=
+name|r
+operator|->
+name|header_in
+operator|->
+name|pos
+operator|.
+name|mem
+expr_stmt|;
 while|while
 condition|(
 name|p
@@ -740,7 +744,7 @@ name|NGX_HTTP_PARSE_INVALID_REQUEST
 return|;
 block|}
 break|break;
-comment|/* TTP/ */
+comment|/* "TTP/" */
 case|case
 name|sw_http_version
 case|:
@@ -1108,6 +1112,48 @@ block|}
 block|}
 end_function
 
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
+begin_comment
+unit|int ngx_read_http_response_line(ngx_http_request_t *r) {     char   c, ch;     char  *p;     enum  {         sw_start = 0,         sw_done     } state;      state = r->state;     p = r->header_in->pos.mem;      while (p< r->header_in->last.mem&& state< sw_done) {         ch = *p++;
+comment|/* printf("\nstate: %d, pos: %x, end: %x, char: '%c' buf: %s",        state, p, r->header_in->last, ch, p); */
+end_comment
+
+begin_comment
+unit|switch (state) {
+comment|/* "HTTP/" */
+end_comment
+
+begin_comment
+unit|case sw_start:             if (p + 3>= r->header_in->last.mem)                 return NGX_AGAIN;              if (ch != 'H' || *p != 'T' || *(p + 1) != 'T' || *(p + 2) != 'P'                           || *(p + 3) != '/')                 return NGX_HTTP_PARSE_NO_HEADER;              p += 4;             state = sw_first_major_digit;             break;
+comment|/* first digit of major HTTP version */
+end_comment
+
+begin_comment
+unit|case sw_first_major_digit:             if (ch< '1' || ch> '9')                 return NGX_HTTP_PARSE_NO_HEADER;              state = sw_major_digit;             break;
+comment|/* major HTTP version or dot */
+end_comment
+
+begin_comment
+unit|case sw_major_digit:             if (ch == '.') {                 state = sw_first_minor_digit;                 break;             }              if (ch< '0' || ch> '9')                 return NGX_HTTP_PARSE_NO_HEADER;              break;
+comment|/* first digit of minor HTTP version */
+end_comment
+
+begin_comment
+unit|case sw_first_minor_digit:             if (ch< '0' || ch> '9')                 return NGX_HTTP_PARSE_NO_HEADER;              state = sw_minor_digit;             break;
+comment|/* minor HTTP version or end of request line */
+end_comment
+
+begin_endif
+unit|case sw_minor_digit:             if (ch == ' ') {                 state = sw_code;                 break;             }              if (ch< '0' || ch> '9')                 return NGX_HTTP_PARSE_NO_HEADER;              break;         }     } }
+endif|#
+directive|endif
+end_endif
+
 begin_function
 DECL|function|ngx_read_http_header_line (ngx_http_request_t * r)
 name|int
@@ -1126,16 +1172,8 @@ decl_stmt|;
 name|char
 modifier|*
 name|p
-init|=
-name|r
-operator|->
-name|header_in
-operator|->
-name|pos
-operator|.
-name|mem
 decl_stmt|;
-DECL|enum|__anon2bbc56400203
+DECL|enum|__anon27a080390203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1168,11 +1206,23 @@ DECL|enumerator|sw_header_done
 name|sw_header_done
 block|}
 name|state
-init|=
+enum|;
+name|state
+operator|=
 name|r
 operator|->
 name|state
-enum|;
+expr_stmt|;
+name|p
+operator|=
+name|r
+operator|->
+name|header_in
+operator|->
+name|pos
+operator|.
+name|mem
+expr_stmt|;
 while|while
 condition|(
 name|p
