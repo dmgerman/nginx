@@ -88,7 +88,7 @@ comment|/* STUB */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2b0ce1e80108
+DECL|struct|__anon2978c22f0108
 typedef|typedef
 struct|struct
 block|{
@@ -2007,7 +2007,8 @@ condition|(
 name|p
 operator|->
 name|tries
-comment|/* STUB !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+operator|>
+literal|1
 operator|&&
 operator|(
 name|rc
@@ -5293,9 +5294,30 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|rc
-operator|==
-name|NGX_OK
+name|p
+operator|->
+name|event_proxy
+operator|->
+name|fatal_error
+condition|)
+block|{
+return|return
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
+return|;
+block|}
+if|if
+condition|(
+name|p
+operator|->
+name|event_proxy
+operator|->
+name|upstream_eof
+operator|&&
+name|p
+operator|->
+name|event_proxy
+operator|->
+name|upstream_error
 condition|)
 block|{
 name|rc
@@ -5478,7 +5500,7 @@ name|char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2b0ce1e80203
+DECL|enum|__anon2978c22f0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
