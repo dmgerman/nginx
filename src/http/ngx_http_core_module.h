@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2997c9d50108
+DECL|struct|__anon2b3184750108
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2997c9d50203
+DECL|enum|__anon2b3184750203
 typedef|typedef
 enum|enum
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2997c9d50308
+DECL|struct|__anon2b3184750308
 typedef|typedef
 struct|struct
 block|{
@@ -112,7 +112,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2997c9d50408
+DECL|struct|__anon2b3184750408
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2997c9d50508
+DECL|struct|__anon2b3184750508
 typedef|typedef
 struct|struct
 block|{
@@ -199,7 +199,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2997c9d50608
+DECL|struct|__anon2b3184750608
 typedef|typedef
 struct|struct
 block|{
@@ -223,7 +223,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2997c9d50708
+DECL|struct|__anon2b3184750708
 typedef|typedef
 struct|struct
 block|{
@@ -255,7 +255,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2997c9d50808
+DECL|struct|__anon2b3184750808
 typedef|typedef
 struct|struct
 block|{
@@ -298,7 +298,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon2997c9d50908
+DECL|struct|__anon2b3184750908
 typedef|typedef
 struct|struct
 block|{
@@ -317,7 +317,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2997c9d50a08
+DECL|struct|__anon2b3184750a08
 typedef|typedef
 struct|struct
 block|{
@@ -336,7 +336,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2997c9d50b08
+DECL|struct|__anon2b3184750b08
 typedef|typedef
 struct|struct
 block|{
@@ -378,6 +378,11 @@ DECL|member|default_type
 name|ngx_str_t
 name|default_type
 decl_stmt|;
+DECL|member|client_max_body_size
+name|size_t
+name|client_max_body_size
+decl_stmt|;
+comment|/* client_max_body_size */
 DECL|member|send_lowat
 name|size_t
 name|send_lowat

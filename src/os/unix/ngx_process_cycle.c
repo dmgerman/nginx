@@ -202,6 +202,13 @@ name|ngx_core_conf_t
 modifier|*
 name|ccf
 decl_stmt|;
+if|if
+condition|(
+name|ngx_process
+operator|==
+name|NGX_PROCESS_MASTER
+condition|)
+block|{
 name|sigemptyset
 argument_list|(
 operator|&
@@ -334,6 +341,7 @@ operator|&
 name|set
 argument_list|)
 expr_stmt|;
+block|}
 name|ngx_setproctitle
 argument_list|(
 literal|"master process"

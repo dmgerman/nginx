@@ -530,12 +530,16 @@ block|}
 if|if
 condition|(
 name|rc
+operator|>=
+name|NGX_HTTP_SPECIAL_RESPONSE
+operator|||
+name|rc
 operator|==
 name|NGX_ERROR
 condition|)
 block|{
 return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|rc
 return|;
 block|}
 block|}
@@ -6076,7 +6080,7 @@ operator|->
 name|upstream_error
 condition|)
 block|{
-name|ngx_log_debug0
+name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
@@ -6086,7 +6090,12 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http proxy upstream exit"
+literal|"http proxy upstream exit: "
+name|PTR_FMT
+argument_list|,
+name|ep
+operator|->
+name|out
 argument_list|)
 expr_stmt|;
 name|ngx_http_busy_unlock

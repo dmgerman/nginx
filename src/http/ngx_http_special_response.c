@@ -572,12 +572,6 @@ block|{
 case|case
 name|NGX_HTTP_BAD_REQUEST
 case|:
-case|case
-name|NGX_HTTP_REQUEST_URI_TOO_LARGE
-case|:
-case|case
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
-case|:
 name|r
 operator|->
 name|lingering_close

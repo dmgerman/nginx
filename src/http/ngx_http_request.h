@@ -173,6 +173,14 @@ value|17
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_PARSE_ENTITY_TOO_LARGE
+define|#
+directive|define
+name|NGX_HTTP_PARSE_ENTITY_TOO_LARGE
+value|18
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_OK
 define|#
 directive|define
@@ -337,7 +345,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon2b6f58530103
+DECL|enum|__anon2a279b7b0103
 typedef|typedef
 enum|enum
 block|{
@@ -376,7 +384,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b6f58530208
+DECL|struct|__anon2a279b7b0208
 typedef|typedef
 struct|struct
 block|{
@@ -395,7 +403,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b6f58530308
+DECL|struct|__anon2a279b7b0308
 typedef|typedef
 struct|struct
 block|{
@@ -497,7 +505,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b6f58530408
+DECL|struct|__anon2a279b7b0408
 typedef|typedef
 struct|struct
 block|{
@@ -548,7 +556,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b6f58530508
+DECL|struct|__anon2a279b7b0508
 typedef|typedef
 struct|struct
 block|{
@@ -571,7 +579,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b6f58530608
+DECL|struct|__anon2a279b7b0608
 typedef|typedef
 struct|struct
 block|{
@@ -670,10 +678,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon2b6f5853070a
+DECL|union|__anon2a279b7b070a
 union|union
 block|{
-DECL|struct|__anon2b6f58530808
+DECL|struct|__anon2a279b7b0808
 struct|struct
 block|{
 DECL|member|fd
@@ -689,7 +697,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon2b6f58530908
+DECL|struct|__anon2a279b7b0908
 struct|struct
 block|{
 DECL|member|hash
