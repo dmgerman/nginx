@@ -159,7 +159,7 @@ condition|(
 operator|(
 name|ngx_event_flags
 operator|&
-name|NGX_HAVE_KQUEUE_EVENT
+name|NGX_USE_KQUEUE_EVENT
 operator|)
 operator|&&
 name|wev
@@ -471,7 +471,6 @@ operator|+=
 name|size
 expr_stmt|;
 block|}
-comment|/* get the file buf */
 if|if
 condition|(
 name|cl
@@ -653,10 +652,8 @@ name|iov
 operator|=
 name|NULL
 expr_stmt|;
-for|for
-control|(
-comment|/* void */
-init|;
+while|while
+condition|(
 name|cl
 operator|&&
 name|header
@@ -668,13 +665,7 @@ operator|&&
 name|send
 operator|<
 name|limit
-condition|;
-name|cl
-operator|=
-name|cl
-operator|->
-name|next
-control|)
+condition|)
 block|{
 if|if
 condition|(
@@ -686,6 +677,12 @@ name|buf
 argument_list|)
 condition|)
 block|{
+name|cl
+operator|=
+name|cl
+operator|->
+name|next
+expr_stmt|;
 continue|continue;
 block|}
 if|if
@@ -803,6 +800,12 @@ expr_stmt|;
 name|send
 operator|+=
 name|size
+expr_stmt|;
+name|cl
+operator|=
+name|cl
+operator|->
+name|next
 expr_stmt|;
 block|}
 block|}
@@ -1061,6 +1064,43 @@ return|return
 name|NGX_CHAIN_ERROR
 return|;
 block|}
+block|}
+if|if
+condition|(
+name|rc
+operator|==
+literal|0
+operator|&&
+name|sent
+operator|==
+literal|0
+condition|)
+block|{
+comment|/*                  * rc and sent are equals to zero when someone has truncated                  * the file, so the offset became beyond the end of the file                  */
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"sendfile() reported that \"%s\" was truncated"
+argument_list|,
+name|file
+operator|->
+name|file
+operator|->
+name|name
+operator|.
+name|data
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CHAIN_ERROR
+return|;
 block|}
 name|ngx_log_debug4
 argument_list|(

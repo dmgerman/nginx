@@ -45,7 +45,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af573550108
+DECL|struct|__anon287de25c0108
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af573550208
+DECL|struct|__anon287de25c0208
 typedef|typedef
 struct|struct
 block|{
@@ -254,6 +254,14 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_SCHED_YIELD
+operator|)
+end_if
+
 begin_define
 DECL|macro|ngx_sched_yield ()
 define|#
@@ -262,6 +270,25 @@ name|ngx_sched_yield
 parameter_list|()
 value|sched_yield()
 end_define
+
+begin_else
+else|#
+directive|else
+end_else
+
+begin_define
+DECL|macro|ngx_sched_yield ()
+define|#
+directive|define
+name|ngx_sched_yield
+parameter_list|()
+value|usleep(1)
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_decl_stmt
 specifier|extern

@@ -373,6 +373,14 @@ operator|==
 name|SSL_ERROR_WANT_READ
 condition|)
 block|{
+name|c
+operator|->
+name|read
+operator|->
+name|ready
+operator|=
+literal|0
+expr_stmt|;
 return|return
 name|NGX_AGAIN
 return|;

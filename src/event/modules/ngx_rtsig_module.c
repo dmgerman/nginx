@@ -110,7 +110,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon27506b6f0108
+DECL|struct|__anon2bbfaf990108
 typedef|typedef
 struct|struct
 block|{
@@ -665,7 +665,7 @@ name|ngx_event_flags
 operator|=
 name|NGX_USE_RTSIG_EVENT
 operator||
-name|NGX_HAVE_GREEDY_EVENT
+name|NGX_USE_GREEDY_EVENT
 expr_stmt|;
 return|return
 name|NGX_OK

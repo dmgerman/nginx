@@ -206,7 +206,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|SOLARIS
+name|NGX_SOLARIS
 operator|)
 end_if
 
@@ -219,6 +219,22 @@ parameter_list|(
 name|isdst
 parameter_list|)
 value|(- (isdst ? altzone : timezone) / 60)
+end_define
+
+begin_else
+else|#
+directive|else
+end_else
+
+begin_define
+DECL|macro|ngx_timezone (isdst)
+define|#
+directive|define
+name|ngx_timezone
+parameter_list|(
+name|isdst
+parameter_list|)
+value|(- (isdst ? timezone + 3600 : timezone) / 60)
 end_define
 
 begin_endif

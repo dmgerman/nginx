@@ -101,16 +101,14 @@ end_define
 begin_if
 if|#
 directive|if
-name|defined
-argument_list|(
-name|__FreeBSD__
-argument_list|)
+operator|(
+name|NGX_FREEBSD
+operator|)
 operator|&&
 operator|!
-name|defined
-argument_list|(
+operator|(
 name|NGX_LINUXTHREADS
-argument_list|)
+operator|)
 end_if
 
 begin_define
@@ -199,7 +197,7 @@ value|0
 end_define
 
 begin_typedef
-DECL|struct|__anon27eeb3640108
+DECL|struct|__anon2c593dbf0108
 typedef|typedef
 struct|struct
 block|{
@@ -219,7 +217,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27eeb3640208
+DECL|struct|__anon2c593dbf0208
 typedef|typedef
 struct|struct
 block|{
@@ -328,7 +326,7 @@ value|volatile
 end_define
 
 begin_typedef
-DECL|struct|__anon27eeb3640308
+DECL|struct|__anon2c593dbf0308
 typedef|typedef
 struct|struct
 block|{

@@ -317,7 +317,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|HAVE_PCRE
+name|NGX_PCRE
 operator|)
 end_if
 

@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon275d3b270108
+DECL|struct|__anon2908cd600108
 typedef|typedef
 struct|struct
 block|{
@@ -644,6 +644,7 @@ operator|+
 literal|2
 expr_stmt|;
 comment|/* "\r\n" */
+comment|/* BUG: cmcf->max_server_name_len and "*.domain.tld" */
 if|if
 condition|(
 name|r

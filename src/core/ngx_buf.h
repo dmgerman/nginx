@@ -69,10 +69,6 @@ DECL|member|file_last
 name|off_t
 name|file_last
 decl_stmt|;
-DECL|member|type
-name|int
-name|type
-decl_stmt|;
 DECL|member|start
 name|u_char
 modifier|*
@@ -200,7 +196,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bde85ca0108
+DECL|struct|__anon2b68e5c30108
 typedef|typedef
 struct|struct
 block|{
@@ -239,7 +235,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bde85ca0208
+DECL|struct|__anon2b68e5c30208
 typedef|typedef
 struct|struct
 block|{
@@ -308,7 +304,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bde85ca0308
+DECL|struct|__anon2b68e5c30308
 typedef|typedef
 struct|struct
 block|{

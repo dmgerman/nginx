@@ -17,14 +17,6 @@ name|_NGX_SOLARIS_CONFIG_H_INCLUDED_
 end_define
 
 begin_define
-DECL|macro|SOLARIS
-define|#
-directive|define
-name|SOLARIS
-value|1
-end_define
-
-begin_define
 DECL|macro|_REENTRANT
 define|#
 directive|define
@@ -129,18 +121,18 @@ end_include
 begin_include
 include|#
 directive|include
-file|<sys/uio.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<sys/filio.h>
 end_include
 
 begin_comment
 comment|/* FIONBIO */
 end_comment
+
+begin_include
+include|#
+directive|include
+file|<sys/uio.h>
+end_include
 
 begin_include
 include|#

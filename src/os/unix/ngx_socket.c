@@ -92,11 +92,13 @@ endif|#
 directive|endif
 end_endif
 
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|__FreeBSD__
-end_ifdef
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_FREEBSD
+operator|)
+end_if
 
 begin_function
 DECL|function|ngx_tcp_nopush (ngx_socket_t s)
@@ -185,7 +187,9 @@ end_function
 begin_elif
 elif|#
 directive|elif
-name|__linux__
+operator|(
+name|NGX_LINUX
+operator|)
 end_elif
 
 begin_function

@@ -250,15 +250,15 @@ begin_if
 if|#
 directive|if
 operator|(
-name|HAVE_GCC_VARIADIC_MACROS
+name|NGX_HAVE_GCC_VARIADIC_MACROS
 operator|)
 end_if
 
 begin_define
-DECL|macro|HAVE_VARIADIC_MACROS
+DECL|macro|NGX_HAVE_VARIADIC_MACROS
 define|#
 directive|define
-name|HAVE_VARIADIC_MACROS
+name|NGX_HAVE_VARIADIC_MACROS
 value|1
 end_define
 
@@ -311,15 +311,15 @@ begin_elif
 elif|#
 directive|elif
 operator|(
-name|HAVE_C99_VARIADIC_MACROS
+name|NGX_HAVE_C99_VARIADIC_MACROS
 operator|)
 end_elif
 
 begin_define
-DECL|macro|HAVE_VARIADIC_MACROS
+DECL|macro|NGX_HAVE_VARIADIC_MACROS
 define|#
 directive|define
-name|HAVE_VARIADIC_MACROS
+name|NGX_HAVE_VARIADIC_MACROS
 value|1
 end_define
 
@@ -377,10 +377,10 @@ comment|/* NO VARIADIC MACROS */
 end_comment
 
 begin_define
-DECL|macro|HAVE_VARIADIC_MACROS
+DECL|macro|NGX_HAVE_VARIADIC_MACROS
 define|#
 directive|define
-name|HAVE_VARIADIC_MACROS
+name|NGX_HAVE_VARIADIC_MACROS
 value|0
 end_define
 
@@ -497,7 +497,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|HAVE_VARIADIC_MACROS
+name|NGX_HAVE_VARIADIC_MACROS
 operator|)
 end_if
 

@@ -864,7 +864,8 @@ end_function
 
 begin_function
 DECL|function|ngx_http_time (u_char * buf,time_t t)
-name|size_t
+name|u_char
+modifier|*
 name|ngx_http_time
 parameter_list|(
 name|u_char
@@ -874,6 +875,12 @@ parameter_list|,
 name|time_t
 name|t
 parameter_list|)
+if|#
+directive|if
+literal|0
+function|size_t ngx_http_time(u_char *buf, time_t t)
+endif|#
+directive|endif
 block|{
 name|ngx_tm_t
 name|tm
@@ -887,18 +894,9 @@ name|tm
 argument_list|)
 expr_stmt|;
 return|return
-name|ngx_snprintf
+name|ngx_sprintf
 argument_list|(
-operator|(
-name|char
-operator|*
-operator|)
 name|buf
-argument_list|,
-sizeof|sizeof
-argument_list|(
-literal|"Mon, 28 Sep 1970 06:00:00 GMT"
-argument_list|)
 argument_list|,
 literal|"%s, %02d %s %4d %02d:%02d:%02d GMT"
 argument_list|,
@@ -939,12 +937,19 @@ operator|.
 name|ngx_tm_sec
 argument_list|)
 return|;
+if|#
+directive|if
+literal|0
+block_content|return ngx_snprintf((char *) buf, sizeof("Mon, 28 Sep 1970 06:00:00 GMT"),                                       "%s, %02d %s %4d %02d:%02d:%02d GMT",                                       week[tm.ngx_tm_wday],                                       tm.ngx_tm_mday,                                       months[tm.ngx_tm_mon - 1],                                       tm.ngx_tm_year,                                       tm.ngx_tm_hour,                                       tm.ngx_tm_min,                                       tm.ngx_tm_sec);
+endif|#
+directive|endif
 block|}
 end_function
 
 begin_function
 DECL|function|ngx_http_cookie_time (u_char * buf,time_t t)
-name|size_t
+name|u_char
+modifier|*
 name|ngx_http_cookie_time
 parameter_list|(
 name|u_char
@@ -954,6 +959,12 @@ parameter_list|,
 name|time_t
 name|t
 parameter_list|)
+if|#
+directive|if
+literal|0
+function|size_t ngx_http_cookie_time(u_char *buf, time_t t)
+endif|#
+directive|endif
 block|{
 name|ngx_tm_t
 name|tm
@@ -967,85 +978,21 @@ name|tm
 argument_list|)
 expr_stmt|;
 comment|/*      * Netscape 3.x does not understand 4-digit years at all and      * 2-digit years more than "37"      */
-if|if
-condition|(
+return|return
+name|ngx_sprintf
+argument_list|(
+name|buf
+argument_list|,
+operator|(
 name|tm
 operator|.
 name|ngx_tm_year
 operator|>
 literal|2037
-condition|)
-block|{
-return|return
-name|ngx_snprintf
-argument_list|(
-operator|(
-name|char
-operator|*
 operator|)
-name|buf
-argument_list|,
-sizeof|sizeof
-argument_list|(
-literal|"Mon, 28-Sep-1970 06:00:00 GMT"
-argument_list|)
-argument_list|,
+condition|?
 literal|"%s, %02d-%s-%d %02d:%02d:%02d GMT"
-argument_list|,
-name|week
-index|[
-name|tm
-operator|.
-name|ngx_tm_wday
-index|]
-argument_list|,
-name|tm
-operator|.
-name|ngx_tm_mday
-argument_list|,
-name|months
-index|[
-name|tm
-operator|.
-name|ngx_tm_mon
-operator|-
-literal|1
-index|]
-argument_list|,
-name|tm
-operator|.
-name|ngx_tm_year
-argument_list|,
-name|tm
-operator|.
-name|ngx_tm_hour
-argument_list|,
-name|tm
-operator|.
-name|ngx_tm_min
-argument_list|,
-name|tm
-operator|.
-name|ngx_tm_sec
-argument_list|)
-return|;
-block|}
-else|else
-block|{
-return|return
-name|ngx_snprintf
-argument_list|(
-operator|(
-name|char
-operator|*
-operator|)
-name|buf
-argument_list|,
-sizeof|sizeof
-argument_list|(
-literal|"Mon, 28-Sep-70 06:00:00 GMT"
-argument_list|)
-argument_list|,
+else|:
 literal|"%s, %02d-%s-%02d %02d:%02d:%02d GMT"
 argument_list|,
 name|week
@@ -1068,6 +1015,18 @@ operator|-
 literal|1
 index|]
 argument_list|,
+operator|(
+name|tm
+operator|.
+name|ngx_tm_year
+operator|>
+literal|2037
+operator|)
+condition|?
+name|tm
+operator|.
+name|ngx_tm_year
+else|:
 name|tm
 operator|.
 name|ngx_tm_year
@@ -1087,7 +1046,12 @@ operator|.
 name|ngx_tm_sec
 argument_list|)
 return|;
-block|}
+if|#
+directive|if
+literal|0
+block_content|if (tm.ngx_tm_year> 2037) {         return ngx_snprintf((char *) buf,                                       sizeof("Mon, 28-Sep-1970 06:00:00 GMT"),                                       "%s, %02d-%s-%d %02d:%02d:%02d GMT",                                       week[tm.ngx_tm_wday],                                       tm.ngx_tm_mday,                                       months[tm.ngx_tm_mon - 1],                                       tm.ngx_tm_year,                                       tm.ngx_tm_hour,                                       tm.ngx_tm_min,                                       tm.ngx_tm_sec);     } else {         return ngx_snprintf((char *) buf,                                       sizeof("Mon, 28-Sep-70 06:00:00 GMT"),                                       "%s, %02d-%s-%02d %02d:%02d:%02d GMT",                                       week[tm.ngx_tm_wday],                                       tm.ngx_tm_mday,                                       months[tm.ngx_tm_mon - 1],                                       tm.ngx_tm_year % 100,                                       tm.ngx_tm_hour,                                       tm.ngx_tm_min,                                       tm.ngx_tm_sec);     }
+endif|#
+directive|endif
 block|}
 end_function
 

@@ -209,7 +209,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|HAVE_VARIADIC_MACROS
+name|NGX_HAVE_VARIADIC_MACROS
 operator|)
 end_if
 
@@ -275,7 +275,7 @@ decl_stmt|;
 if|#
 directive|if
 operator|(
-name|HAVE_VARIADIC_MACROS
+name|NGX_HAVE_VARIADIC_MACROS
 operator|)
 name|va_list
 name|args
@@ -425,7 +425,7 @@ block|}
 if|#
 directive|if
 operator|(
-name|HAVE_VARIADIC_MACROS
+name|NGX_HAVE_VARIADIC_MACROS
 operator|)
 name|va_start
 argument_list|(
@@ -844,7 +844,7 @@ if|#
 directive|if
 operator|!
 operator|(
-name|HAVE_VARIADIC_MACROS
+name|NGX_HAVE_VARIADIC_MACROS
 operator|)
 end_if
 
@@ -1090,7 +1090,7 @@ name|ngx_log
 operator|.
 name|log_level
 operator|=
-name|NGX_LOG_ERR
+name|NGX_LOG_NOTICE
 expr_stmt|;
 return|return
 operator|&

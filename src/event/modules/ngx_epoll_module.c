@@ -327,7 +327,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2a421d6e0108
+DECL|struct|__anon2b4a7b4e0108
 typedef|typedef
 struct|struct
 block|{
@@ -799,7 +799,7 @@ name|NGX_USE_LEVEL_EVENT
 endif|#
 directive|endif
 operator||
-name|NGX_HAVE_GREEDY_EVENT
+name|NGX_USE_GREEDY_EVENT
 operator||
 name|NGX_USE_EPOLL_EVENT
 expr_stmt|;

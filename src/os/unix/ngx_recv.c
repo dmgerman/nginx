@@ -66,7 +66,7 @@ if|if
 condition|(
 name|ngx_event_flags
 operator|&
-name|NGX_HAVE_KQUEUE_EVENT
+name|NGX_USE_KQUEUE_EVENT
 condition|)
 block|{
 name|ngx_log_debug3
@@ -241,7 +241,7 @@ if|if
 condition|(
 name|ngx_event_flags
 operator|&
-name|NGX_HAVE_KQUEUE_EVENT
+name|NGX_USE_KQUEUE_EVENT
 condition|)
 block|{
 name|rev
@@ -536,7 +536,7 @@ operator|!
 operator|(
 name|ngx_event_flags
 operator|&
-name|NGX_HAVE_GREEDY_EVENT
+name|NGX_USE_GREEDY_EVENT
 operator|)
 condition|)
 block|{

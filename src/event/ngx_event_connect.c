@@ -1199,6 +1199,21 @@ operator|&
 name|NGX_USE_AIO_EVENT
 condition|)
 block|{
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|pc
+operator|->
+name|log
+argument_list|,
+name|ngx_socket_errno
+argument_list|,
+literal|"connect(): %d"
+argument_list|,
+name|rc
+argument_list|)
+expr_stmt|;
 comment|/* aio, iocp */
 if|if
 condition|(
@@ -1255,7 +1270,7 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-comment|/*          * aio allows to post operation on non-connected socket          * at least in FreeBSD.          * NT does not support it.          *           * TODO: check in Win32, etc. As workaround we can use NGX_ONESHOT_EVENT          */
+comment|/*          * FreeBSD aio allows to post operation on non-connected socket.          * NT does not support it.          *           * TODO: check in Win32, etc. As workaround we can use NGX_ONESHOT_EVENT          */
 name|rev
 operator|->
 name|ready

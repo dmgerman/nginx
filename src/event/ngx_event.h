@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2796b2920108
+DECL|struct|__anon295551050108
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2796b2920208
+DECL|struct|__anon295551050208
 typedef|typedef
 struct|struct
 block|{
@@ -465,7 +465,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2796b2920308
+DECL|struct|__anon295551050308
 typedef|typedef
 struct|struct
 block|{
@@ -673,10 +673,10 @@ comment|/*  * The event filter has kqueue features - the eof flag, errno,  * ava
 end_comment
 
 begin_define
-DECL|macro|NGX_HAVE_KQUEUE_EVENT
+DECL|macro|NGX_USE_KQUEUE_EVENT
 define|#
 directive|define
-name|NGX_HAVE_KQUEUE_EVENT
+name|NGX_USE_KQUEUE_EVENT
 value|0x00000008
 end_define
 
@@ -685,10 +685,10 @@ comment|/*  * The event filter supports low water mark - kqueue's NOTE_LOWAT.  *
 end_comment
 
 begin_define
-DECL|macro|NGX_HAVE_LOWAT_EVENT
+DECL|macro|NGX_USE_LOWAT_EVENT
 define|#
 directive|define
-name|NGX_HAVE_LOWAT_EVENT
+name|NGX_USE_LOWAT_EVENT
 value|0x00000010
 end_define
 
@@ -697,10 +697,10 @@ comment|/*  * The event filter requires to do i/o operation until EAGAIN -  * ep
 end_comment
 
 begin_define
-DECL|macro|NGX_HAVE_GREEDY_EVENT
+DECL|macro|NGX_USE_GREEDY_EVENT
 define|#
 directive|define
-name|NGX_HAVE_GREEDY_EVENT
+name|NGX_USE_GREEDY_EVENT
 value|0x00000020
 end_define
 
@@ -1283,7 +1283,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2796b2920408
+DECL|struct|__anon295551050408
 typedef|typedef
 struct|struct
 block|{
@@ -1330,7 +1330,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2796b2920508
+DECL|struct|__anon295551050508
 typedef|typedef
 struct|struct
 block|{
@@ -1941,6 +1941,10 @@ condition|)
 block|{
 name|c
 operator|=
+operator|(
+name|ngx_connection_t
+operator|*
+operator|)
 name|wev
 operator|->
 name|data

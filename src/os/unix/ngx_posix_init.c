@@ -90,6 +90,24 @@ return|;
 block|}
 end_function
 
+begin_function
+DECL|function|ngx_os_status (ngx_log_t * log)
+name|void
+name|ngx_os_status
+parameter_list|(
+name|ngx_log_t
+modifier|*
+name|log
+parameter_list|)
+block|{
+name|ngx_posix_status
+argument_list|(
+name|log
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+
 begin_endif
 endif|#
 directive|endif
@@ -106,7 +124,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon2906c7170108
+DECL|struct|__anon29ea73d10108
 typedef|typedef
 struct|struct
 block|{

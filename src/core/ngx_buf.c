@@ -456,7 +456,9 @@ operator|=
 operator|*
 name|busy
 init|;
-comment|/* void */
+name|tl
+operator|->
+name|next
 condition|;
 name|tl
 operator|=
@@ -465,15 +467,9 @@ operator|->
 name|next
 control|)
 block|{
-if|if
-condition|(
-name|tl
-operator|->
-name|next
-operator|==
-name|NULL
-condition|)
-block|{
+comment|/* void */
+empty_stmt|;
+block|}
 name|tl
 operator|->
 name|next
@@ -481,9 +477,6 @@ operator|=
 operator|*
 name|out
 expr_stmt|;
-break|break;
-block|}
-block|}
 block|}
 operator|*
 name|out

@@ -28,7 +28,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28fea2130108
+DECL|struct|__anon28d47eb40108
 typedef|typedef
 struct|struct
 block|{
@@ -496,6 +496,9 @@ argument_list|,
 literal|"the http output chain is empty"
 argument_list|)
 expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
 block|}
 return|return
 name|NGX_OK

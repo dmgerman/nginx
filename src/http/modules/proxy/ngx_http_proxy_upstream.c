@@ -3472,27 +3472,18 @@ block|}
 comment|/* rc == NGX_OK */
 if|#
 directive|if
-literal|1
+literal|0
 comment|/* test only, see below about "post aio operation" */
-if|if
-condition|(
-name|c
-operator|->
-name|read
-operator|->
-name|ready
-condition|)
-block|{
+block_content|if (c->read->ready) {
 comment|/* post aio operation */
-name|ngx_http_proxy_process_upstream_status_line
-argument_list|(
-name|c
-operator|->
-name|read
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
+block_content|ngx_http_proxy_process_upstream_status_line(c->read);
+if|#
+directive|if
+literal|0
+block_content|return;
+endif|#
+directive|endif
+block_content|}
 endif|#
 directive|endif
 name|ngx_http_proxy_send_request
@@ -3554,7 +3545,7 @@ condition|(
 operator|(
 name|ngx_event_flags
 operator|&
-name|NGX_HAVE_KQUEUE_EVENT
+name|NGX_USE_KQUEUE_EVENT
 operator|)
 operator|&&
 operator|!
@@ -3784,11 +3775,27 @@ argument_list|)
 expr_stmt|;
 if|#
 directive|if
-literal|0
-block_content|if (c->read->ready) {
+literal|1
+if|if
+condition|(
+name|c
+operator|->
+name|read
+operator|->
+name|ready
+condition|)
+block|{
 comment|/* post aio operation */
 comment|/*          * although we can post aio operation just in the end          * of ngx_http_proxy_connect() CHECK IT !!!          * it's better to do here because we postpone header buffer allocation          */
-block_content|ngx_http_proxy_process_upstream_status_line(c->read);         return;     }
+name|ngx_http_proxy_process_upstream_status_line
+argument_list|(
+name|c
+operator|->
+name|read
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 endif|#
 directive|endif
 name|c

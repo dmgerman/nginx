@@ -1131,7 +1131,7 @@ block|}
 if|#
 directive|if
 operator|(
-name|SOLARIS
+name|NGX_SOLARIS
 operator|)
 comment|/*              * Solaris always calls the signal handler for each exited process              * despite waitpid() may be already called for this process              */
 if|if

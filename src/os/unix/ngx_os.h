@@ -203,7 +203,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4dc7dc0108
+DECL|struct|__anon2ab3227c0108
 typedef|typedef
 struct|struct
 block|{
@@ -412,11 +412,13 @@ name|ngx_stderr_fileno
 value|STDERR_FILENO
 end_define
 
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|__FreeBSD__
-end_ifdef
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_FREEBSD
+operator|)
+end_if
 
 begin_include
 include|#
@@ -424,16 +426,13 @@ directive|include
 file|<ngx_freebsd.h>
 end_include
 
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|__linux__
-end_ifdef
+begin_elif
+elif|#
+directive|elif
+operator|(
+name|NGX_LINUX
+operator|)
+end_elif
 
 begin_include
 include|#
@@ -441,16 +440,13 @@ directive|include
 file|<ngx_linux.h>
 end_include
 
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|SOLARIS
-end_ifdef
+begin_elif
+elif|#
+directive|elif
+operator|(
+name|NGX_SOLARIS
+operator|)
+end_elif
 
 begin_include
 include|#

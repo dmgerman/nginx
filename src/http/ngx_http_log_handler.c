@@ -1249,22 +1249,11 @@ name|data
 parameter_list|)
 block|{
 return|return
-name|buf
-operator|+
-name|ngx_snprintf
+name|ngx_sprintf
 argument_list|(
-operator|(
-name|char
-operator|*
-operator|)
 name|buf
 argument_list|,
-name|NGX_INT_T_LEN
-operator|+
-literal|1
-argument_list|,
-literal|"%"
-name|NGX_UINT_T_FMT
+literal|"%ui"
 argument_list|,
 name|r
 operator|->
@@ -1273,6 +1262,12 @@ operator|->
 name|number
 argument_list|)
 return|;
+if|#
+directive|if
+literal|0
+block_content|return buf + ngx_snprintf((char *) buf, NGX_INT_T_LEN + 1,                               "%" NGX_UINT_T_FMT,                               r->connection->number);
+endif|#
+directive|endif
 block|}
 end_function
 
@@ -1390,21 +1385,11 @@ name|tv
 argument_list|)
 expr_stmt|;
 return|return
-name|buf
-operator|+
-name|ngx_snprintf
+name|ngx_sprintf
 argument_list|(
-operator|(
-name|char
-operator|*
-operator|)
 name|buf
 argument_list|,
-name|TIME_T_LEN
-operator|+
-literal|5
-argument_list|,
-literal|"%ld.%03ld"
+literal|"%l.%03l"
 argument_list|,
 name|tv
 operator|.
@@ -1417,6 +1402,12 @@ operator|/
 literal|1000
 argument_list|)
 return|;
+if|#
+directive|if
+literal|0
+block_content|return buf + ngx_snprintf((char *) buf, TIME_T_LEN + 5, "%ld.%03ld",                               tv.tv_sec, tv.tv_usec / 1000);
+endif|#
+directive|endif
 block|}
 end_function
 
@@ -1500,20 +1491,11 @@ name|data
 parameter_list|)
 block|{
 return|return
-name|buf
-operator|+
-name|ngx_snprintf
+name|ngx_sprintf
 argument_list|(
-operator|(
-name|char
-operator|*
-operator|)
 name|buf
 argument_list|,
-literal|4
-argument_list|,
-literal|"%"
-name|NGX_UINT_T_FMT
+literal|"%ui"
 argument_list|,
 name|r
 operator|->
@@ -1530,6 +1512,12 @@ operator|.
 name|status
 argument_list|)
 return|;
+if|#
+directive|if
+literal|0
+block_content|return buf + ngx_snprintf((char *) buf, 4, "%" NGX_UINT_T_FMT,                         r->err_status ? r->err_status : r->headers_out.status);
+endif|#
+directive|endif
 block|}
 end_function
 
@@ -1553,21 +1541,11 @@ name|data
 parameter_list|)
 block|{
 return|return
-name|buf
-operator|+
-name|ngx_snprintf
+name|ngx_sprintf
 argument_list|(
-operator|(
-name|char
-operator|*
-operator|)
 name|buf
 argument_list|,
-name|NGX_OFF_T_LEN
-operator|+
-literal|1
-argument_list|,
-name|OFF_T_FMT
+literal|"%O"
 argument_list|,
 name|r
 operator|->
@@ -1576,6 +1554,12 @@ operator|->
 name|sent
 argument_list|)
 return|;
+if|#
+directive|if
+literal|0
+block_content|return buf + ngx_snprintf((char *) buf, NGX_OFF_T_LEN + 1, OFF_T_FMT,                               r->connection->sent);
+endif|#
+directive|endif
 block|}
 end_function
 
@@ -1599,21 +1583,11 @@ name|data
 parameter_list|)
 block|{
 return|return
-name|buf
-operator|+
-name|ngx_snprintf
+name|ngx_sprintf
 argument_list|(
-operator|(
-name|char
-operator|*
-operator|)
 name|buf
 argument_list|,
-name|NGX_OFF_T_LEN
-operator|+
-literal|1
-argument_list|,
-name|OFF_T_FMT
+literal|"%O"
 argument_list|,
 name|r
 operator|->
@@ -1626,6 +1600,12 @@ operator|->
 name|header_size
 argument_list|)
 return|;
+if|#
+directive|if
+literal|0
+block_content|return buf + ngx_snprintf((char *) buf, NGX_OFF_T_LEN + 1, OFF_T_FMT,                               r->connection->sent - r->header_size);
+endif|#
+directive|endif
 block|}
 end_function
 
@@ -2435,8 +2415,6 @@ literal|1
 return|;
 block|}
 return|return
-name|buf
-operator|+
 name|ngx_http_time
 argument_list|(
 name|buf

@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon289334f60108
+DECL|struct|__anon2a34ff5c0108
 typedef|typedef
 struct|struct
 block|{
@@ -81,7 +81,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289334f60208
+DECL|struct|__anon2a34ff5c0208
 typedef|typedef
 struct|struct
 block|{
@@ -172,7 +172,7 @@ value|0x0200
 end_define
 
 begin_typedef
-DECL|struct|__anon289334f60308
+DECL|struct|__anon2a34ff5c0308
 typedef|typedef
 struct|struct
 block|{
@@ -3998,12 +3998,6 @@ operator|+
 literal|1
 return|;
 block|}
-if|#
-directive|if
-literal|0
-block_content|return buf + ngx_snprintf((char *) buf, NGX_INT32_LEN + 4, "%.2f",                               (float) ctx->zin / ctx->zout);
-endif|#
-directive|endif
 comment|/* we prefer do not use the FPU */
 name|zint
 operator|=
@@ -4060,9 +4054,12 @@ operator|>
 literal|4
 condition|)
 block|{
+comment|/* the rounding, e.g., 2.125 to 2.13 */
+name|zfrac
+operator|++
+expr_stmt|;
 if|if
 condition|(
-operator|++
 name|zfrac
 operator|>
 literal|99
@@ -4078,30 +4075,23 @@ expr_stmt|;
 block|}
 block|}
 return|return
-name|buf
-operator|+
-name|ngx_snprintf
+name|ngx_sprintf
 argument_list|(
-operator|(
-name|char
-operator|*
-operator|)
 name|buf
 argument_list|,
-name|NGX_INT32_LEN
-operator|+
-literal|4
-argument_list|,
-literal|"%"
-name|NGX_UINT_T_FMT
-literal|".%02"
-name|NGX_UINT_T_FMT
+literal|"%ui.%02ui"
 argument_list|,
 name|zint
 argument_list|,
 name|zfrac
 argument_list|)
 return|;
+if|#
+directive|if
+literal|0
+block_content|return buf + ngx_snprintf((char *) buf, NGX_INT32_LEN + 4,                               "%" NGX_UINT_T_FMT ".%02" NGX_UINT_T_FMT,                               zint, zfrac);
+endif|#
+directive|endif
 block|}
 end_function
 

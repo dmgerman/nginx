@@ -264,7 +264,7 @@ decl_stmt|;
 if|#
 directive|if
 operator|(
-name|SOLARIS
+name|NGX_SOLARIS
 operator|)
 name|ngx_int_t
 name|i
@@ -328,7 +328,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|SOLARIS
+name|NGX_SOLARIS
 operator|)
 name|size
 operator|=

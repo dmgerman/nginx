@@ -4906,6 +4906,101 @@ name|i
 operator|++
 control|)
 block|{
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"server name: %s"
+argument_list|,
+name|name
+index|[
+name|i
+index|]
+operator|.
+name|name
+operator|.
+name|data
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|name
+index|[
+name|i
+index|]
+operator|.
+name|wildcard
+condition|)
+block|{
+if|if
+condition|(
+name|r
+operator|->
+name|headers_in
+operator|.
+name|host_name_len
+operator|<=
+name|name
+index|[
+name|i
+index|]
+operator|.
+name|name
+operator|.
+name|len
+condition|)
+block|{
+continue|continue;
+block|}
+if|if
+condition|(
+name|ngx_rstrncasecmp
+argument_list|(
+name|r
+operator|->
+name|headers_in
+operator|.
+name|host
+operator|->
+name|value
+operator|.
+name|data
+argument_list|,
+name|name
+index|[
+name|i
+index|]
+operator|.
+name|name
+operator|.
+name|data
+argument_list|,
+name|name
+index|[
+name|i
+index|]
+operator|.
+name|name
+operator|.
+name|len
+argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+continue|continue;
+block|}
+block|}
+else|else
+block|{
 if|if
 condition|(
 name|r
@@ -4949,16 +5044,22 @@ name|name
 operator|.
 name|data
 argument_list|,
-name|r
-operator|->
-name|headers_in
+name|name
+index|[
+name|i
+index|]
 operator|.
-name|host_name_len
+name|name
+operator|.
+name|len
 argument_list|)
-operator|==
+operator|!=
 literal|0
 condition|)
 block|{
+continue|continue;
+block|}
+block|}
 name|r
 operator|->
 name|srv_conf
@@ -5056,7 +5157,6 @@ name|log_level
 expr_stmt|;
 block|}
 break|break;
-block|}
 block|}
 if|if
 condition|(
@@ -6968,7 +7068,7 @@ operator|->
 name|buffer
 condition|)
 block|{
-comment|/* move the large header buffers to the free list */
+comment|/*              * If the large header buffers were allocated while the previous              * request processing then we do not use c->buffer for              * the pipelined request (see ngx_http_init_request()).              *               * Now we would move the large header buffers to the free list.              */
 name|cscf
 operator|=
 name|ngx_http_get_module_srv_conf
@@ -7209,6 +7309,7 @@ name|pipeline
 operator|=
 literal|0
 expr_stmt|;
+comment|/*      * To keep a memory footprint as small as possible for an idle      * keepalive connection we try to free the ngx_http_request_t and      * c->buffer's memory if they were allocated outside the c->pool.      * The large header buffers are always allocated outside the c->pool and      * are freed too.      */
 if|if
 condition|(
 name|ngx_pfree
@@ -7252,6 +7353,7 @@ operator|==
 name|NGX_OK
 condition|)
 block|{
+comment|/*          * the special note for ngx_http_keepalive_handler() that          * c->buffer's memory was freed          */
 name|b
 operator|->
 name|pos
@@ -7449,7 +7551,7 @@ if|if
 condition|(
 name|ngx_event_flags
 operator|&
-name|NGX_HAVE_KQUEUE_EVENT
+name|NGX_USE_KQUEUE_EVENT
 condition|)
 block|{
 if|if
@@ -7643,7 +7745,7 @@ block|}
 if|#
 directive|if
 literal|0
-comment|/* if "keepalive_buffers off" then we need some other place */
+comment|/* if ngx_http_request_t was freed then we need some other place */
 block_content|r->http_state = NGX_HTTP_KEEPALIVE_STATE;
 endif|#
 directive|endif
@@ -7750,7 +7852,7 @@ if|if
 condition|(
 name|ngx_event_flags
 operator|&
-name|NGX_HAVE_KQUEUE_EVENT
+name|NGX_USE_KQUEUE_EVENT
 condition|)
 block|{
 if|if
@@ -7821,6 +7923,7 @@ operator|==
 name|NULL
 condition|)
 block|{
+comment|/*          * The c->buffer's memory was freed by ngx_http_set_keepalive().          * However, the c->buffer->start and c->buffer->end were not changed          * to keep the buffer size.          */
 if|if
 condition|(
 operator|!
@@ -8119,7 +8222,7 @@ if|if
 condition|(
 name|ngx_event_flags
 operator|&
-name|NGX_HAVE_KQUEUE_EVENT
+name|NGX_USE_KQUEUE_EVENT
 condition|)
 block|{
 if|if

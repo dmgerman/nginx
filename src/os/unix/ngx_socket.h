@@ -156,11 +156,13 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|__linux__
-end_ifdef
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_LINUX
+operator|)
+end_if
 
 begin_define
 DECL|macro|ngx_tcp_nopush_n

@@ -1635,22 +1635,29 @@ block|{
 name|b
 operator|->
 name|last
-operator|+=
-name|ngx_snprintf
+operator|=
+name|ngx_sprintf
 argument_list|(
-argument|(char *) b->last
+name|b
+operator|->
+name|last
 argument_list|,
-argument|sizeof(
-literal|"Content-Length: "
-argument|) + NGX_OFF_T_LEN +
-literal|2
+literal|"Content-Length: %O"
+name|CRLF
 argument_list|,
-literal|"Content-Length: "
-argument|OFF_T_FMT CRLF
-argument_list|,
-argument|r->headers_out.content_length_n
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_length_n
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|b->last += ngx_snprintf((char *) b->last,                                 sizeof("Content-Length: ") + NGX_OFF_T_LEN + 2,                                 "Content-Length: " OFF_T_FMT CRLF,                                 r->headers_out.content_length_n);
+endif|#
+directive|endif
 block|}
 block|}
 if|if
@@ -2094,7 +2101,7 @@ expr_stmt|;
 name|b
 operator|->
 name|last
-operator|+=
+operator|=
 name|ngx_http_time
 argument_list|(
 name|b
@@ -2212,22 +2219,27 @@ block|{
 name|b
 operator|->
 name|last
-operator|+=
-name|ngx_snprintf
+operator|=
+name|ngx_sprintf
 argument_list|(
-argument|(char *) b->last
+name|b
+operator|->
+name|last
 argument_list|,
-argument|sizeof(
-literal|"Keep-Alive: timeout="
-argument|) + TIME_T_LEN +
-literal|2
+literal|"Keep-Alive: timeout=%T"
+name|CRLF
 argument_list|,
-literal|"Keep-Alive: timeout="
-argument|TIME_T_FMT CRLF
-argument_list|,
-argument|clcf->keepalive_header
+name|clcf
+operator|->
+name|keepalive_header
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|b->last += ngx_snprintf((char *) b->last,                             sizeof("Keep-Alive: timeout=") + TIME_T_LEN + 2,                             "Keep-Alive: timeout=" TIME_T_FMT CRLF,                             clcf->keepalive_header);
+endif|#
+directive|endif
 block|}
 block|}
 else|else

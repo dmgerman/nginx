@@ -308,7 +308,7 @@ begin_function_decl
 specifier|static
 name|char
 modifier|*
-name|ngx_set_listen
+name|ngx_http_listen
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -756,11 +756,11 @@ else|#
 directive|else
 name|NGX_HTTP_SRV_CONF
 operator||
-name|NGX_CONF_TAKE1
+name|NGX_CONF_TAKE12
 block|,
 endif|#
 directive|endif
-name|ngx_set_listen
+name|ngx_http_listen
 block|,
 name|NGX_HTTP_SRV_CONF_OFFSET
 block|,
@@ -2480,7 +2480,7 @@ block|{
 if|#
 directive|if
 operator|(
-name|HAVE_PCRE
+name|NGX_PCRE
 operator|)
 if|if
 condition|(
@@ -2798,7 +2798,7 @@ block|}
 if|#
 directive|if
 operator|(
-name|HAVE_PCRE
+name|NGX_PCRE
 operator|)
 comment|/* regex matches */
 for|for
@@ -2944,7 +2944,7 @@ return|;
 block|}
 endif|#
 directive|endif
-comment|/* HAVE_PCRE */
+comment|/* NGX_PCRE */
 return|return
 name|NGX_OK
 return|;
@@ -4199,7 +4199,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|HAVE_PCRE
+name|NGX_PCRE
 operator|)
 if|if
 condition|(
@@ -4338,7 +4338,7 @@ decl_stmt|;
 if|#
 directive|if
 operator|(
-name|HAVE_PCRE
+name|NGX_PCRE
 operator|)
 name|ngx_str_t
 name|err
@@ -4675,7 +4675,7 @@ block|{
 if|#
 directive|if
 operator|(
-name|HAVE_PCRE
+name|NGX_PCRE
 operator|)
 name|err
 operator|.
@@ -4940,7 +4940,7 @@ block|}
 if|#
 directive|if
 operator|(
-name|HAVE_PCRE
+name|NGX_PCRE
 operator|)
 if|if
 condition|(
@@ -5853,12 +5853,12 @@ name|core_srv_conf
 operator|=
 name|conf
 expr_stmt|;
-if|#
-directive|if
+name|n
+operator|->
+name|wildcard
+operator|=
 literal|0
-block_content|ctx = (ngx_http_conf_ctx_t *)                                     cf->cycle->conf_ctx[ngx_http_module.index];         cmcf = ctx->main_conf[ngx_http_core_module.ctx_index];
-endif|#
-directive|endif
+expr_stmt|;
 name|cmcf
 operator|=
 name|ngx_http_conf_get_module_main_conf
@@ -6803,11 +6803,11 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_set_listen (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
+DECL|function|ngx_http_listen (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 specifier|static
 name|char
 modifier|*
-name|ngx_set_listen
+name|ngx_http_listen
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -7253,14 +7253,7 @@ name|ngx_http_core_main_conf_t
 modifier|*
 name|cmcf
 decl_stmt|;
-comment|/* TODO: several names */
 comment|/* TODO: warn about duplicate 'server_name' directives */
-if|#
-directive|if
-literal|0
-block_content|ctx = (ngx_http_conf_ctx_t *) cf->cycle->conf_ctx[ngx_http_module.index];     cmcf = ctx->main_conf[ngx_http_core_module.ctx_index];
-endif|#
-directive|endif
 name|cmcf
 operator|=
 name|ngx_http_conf_get_module_main_conf
@@ -7337,21 +7330,26 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
-name|ngx_test_null
-argument_list|(
+if|if
+condition|(
+operator|!
+operator|(
 name|sn
-argument_list|,
-name|ngx_push_array
+operator|=
+name|ngx_array_push
 argument_list|(
 operator|&
 name|scf
 operator|->
 name|server_names
 argument_list|)
-argument_list|,
+operator|)
+condition|)
+block|{
+return|return
 name|NGX_CONF_ERROR
-argument_list|)
-expr_stmt|;
+return|;
+block|}
 name|sn
 operator|->
 name|name
@@ -7384,6 +7382,50 @@ name|core_srv_conf
 operator|=
 name|scf
 expr_stmt|;
+if|if
+condition|(
+name|sn
+operator|->
+name|name
+operator|.
+name|data
+index|[
+literal|0
+index|]
+operator|==
+literal|'*'
+condition|)
+block|{
+name|sn
+operator|->
+name|name
+operator|.
+name|len
+operator|--
+expr_stmt|;
+name|sn
+operator|->
+name|name
+operator|.
+name|data
+operator|++
+expr_stmt|;
+name|sn
+operator|->
+name|wildcard
+operator|=
+literal|1
+expr_stmt|;
+block|}
+else|else
+block|{
+name|sn
+operator|->
+name|wildcard
+operator|=
+literal|0
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|cmcf
@@ -8225,7 +8267,9 @@ name|data
 decl_stmt|;
 if|#
 directive|if
-name|__FreeBSD__
+operator|(
+name|NGX_FREEBSD
+operator|)
 if|if
 condition|(
 operator|*

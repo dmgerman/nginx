@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29eca5700108
+DECL|struct|__anon2b8bd1d50108
 typedef|typedef
 struct|struct
 block|{
@@ -37,9 +37,10 @@ name|ngx_str_t
 name|name
 decl_stmt|;
 DECL|member|server
-name|unsigned
+name|ngx_uint_t
 name|server
 decl_stmt|;
+comment|/* unsigned     server:1; */
 DECL|typedef|ngx_http_charset_t
 block|}
 name|ngx_http_charset_t
@@ -47,7 +48,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29eca5700208
+DECL|struct|__anon2b8bd1d50208
 typedef|typedef
 struct|struct
 block|{
@@ -76,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29eca5700308
+DECL|struct|__anon2b8bd1d50308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29eca5700408
+DECL|struct|__anon2b8bd1d50408
 typedef|typedef
 struct|struct
 block|{
@@ -124,7 +125,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29eca5700508
+DECL|struct|__anon2b8bd1d50508
 typedef|typedef
 struct|struct
 block|{
@@ -144,7 +145,7 @@ end_typedef
 
 begin_function_decl
 specifier|static
-name|void
+name|ngx_uint_t
 name|ngx_charset_recode
 parameter_list|(
 name|ngx_buf_t
@@ -965,7 +966,7 @@ end_function
 begin_function
 DECL|function|ngx_charset_recode (ngx_buf_t * b,char * table)
 specifier|static
-name|void
+name|ngx_uint_t
 name|ngx_charset_recode
 parameter_list|(
 name|ngx_buf_t
@@ -980,9 +981,14 @@ block|{
 name|u_char
 modifier|*
 name|p
-decl_stmt|,
-name|c
 decl_stmt|;
+name|ngx_uint_t
+name|change
+decl_stmt|;
+name|change
+operator|=
+literal|0
+expr_stmt|;
 for|for
 control|(
 name|p
@@ -1001,20 +1007,62 @@ name|p
 operator|++
 control|)
 block|{
-name|c
-operator|=
+if|if
+condition|(
 operator|*
 name|p
+operator|!=
+name|table
+index|[
+operator|*
+name|p
+index|]
+condition|)
+block|{
+name|change
+operator|=
+literal|1
 expr_stmt|;
+break|break;
+block|}
+block|}
+if|if
+condition|(
+name|change
+condition|)
+block|{
+while|while
+condition|(
+name|p
+operator|<
+name|b
+operator|->
+name|last
+condition|)
+block|{
 operator|*
 name|p
 operator|=
 name|table
 index|[
-name|c
+operator|*
+name|p
 index|]
 expr_stmt|;
+name|p
+operator|++
+expr_stmt|;
 block|}
+name|b
+operator|->
+name|in_file
+operator|=
+literal|0
+expr_stmt|;
+block|}
+return|return
+name|change
+return|;
 block|}
 end_function
 
@@ -1923,10 +1971,22 @@ return|;
 block|}
 name|c
 operator|->
+name|tables
+operator|=
+name|NULL
+expr_stmt|;
+name|c
+operator|->
 name|name
 operator|=
 operator|*
 name|name
+expr_stmt|;
+name|c
+operator|->
+name|server
+operator|=
+literal|0
 expr_stmt|;
 return|return
 name|i

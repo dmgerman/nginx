@@ -111,7 +111,7 @@ decl_stmt|;
 if|#
 directive|if
 operator|(
-name|HAVE_SENDFILE64
+name|NGX_HAVE_SENDFILE64
 operator|)
 name|off_t
 name|offset
@@ -644,7 +644,7 @@ block|{
 if|#
 directive|if
 operator|(
-name|HAVE_SENDFILE64
+name|NGX_HAVE_SENDFILE64
 operator|)
 name|offset
 operator|=

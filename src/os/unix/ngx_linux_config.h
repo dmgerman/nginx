@@ -16,6 +16,12 @@ directive|define
 name|_NGX_LINUX_CONFIG_H_INCLUDED_
 end_define
 
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|_GNU_SOURCE
+end_ifndef
+
 begin_define
 DECL|macro|_GNU_SOURCE
 define|#
@@ -28,19 +34,17 @@ DECL|macro|_GNU_SOURCE
 comment|/* pread(), pwrite(), gethostname() */
 end_comment
 
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_define
 DECL|macro|_FILE_OFFSET_BITS
 define|#
 directive|define
 name|_FILE_OFFSET_BITS
 value|64
-end_define
-
-begin_define
-DECL|macro|_LARGEFILE_SOURCE
-define|#
-directive|define
-name|_LARGEFILE_SOURCE
 end_define
 
 begin_include
@@ -233,7 +237,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|HAVE_PRCTL
+name|NGX_HAVE_SYS_PRCTL_H
 operator|)
 end_if
 
@@ -252,7 +256,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|HAVE_SENDFILE64
+name|NGX_HAVE_SENDFILE64
 operator|)
 end_if
 

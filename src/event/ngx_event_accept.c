@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a292ea00108
+DECL|struct|__anon291b86580108
 typedef|typedef
 struct|struct
 block|{
@@ -171,7 +171,7 @@ operator|!
 operator|(
 name|ngx_event_flags
 operator|&
-name|NGX_HAVE_KQUEUE_EVENT
+name|NGX_USE_KQUEUE_EVENT
 operator|)
 condition|)
 block|{
@@ -477,7 +477,7 @@ if|if
 condition|(
 name|ngx_event_flags
 operator|&
-name|NGX_HAVE_KQUEUE_EVENT
+name|NGX_USE_KQUEUE_EVENT
 condition|)
 block|{
 name|ev
@@ -1418,7 +1418,7 @@ if|if
 condition|(
 name|ngx_event_flags
 operator|&
-name|NGX_HAVE_KQUEUE_EVENT
+name|NGX_USE_KQUEUE_EVENT
 condition|)
 block|{
 name|ev

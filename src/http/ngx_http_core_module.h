@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28dc6c5b0108
+DECL|struct|__anon2961fef70108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28dc6c5b0203
+DECL|enum|__anon2961fef70203
 typedef|typedef
 enum|enum
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28dc6c5b0308
+DECL|struct|__anon2961fef70308
 typedef|typedef
 struct|struct
 block|{
@@ -119,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28dc6c5b0408
+DECL|struct|__anon2961fef70408
 typedef|typedef
 struct|struct
 block|{
@@ -150,7 +150,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28dc6c5b0508
+DECL|struct|__anon2961fef70508
 typedef|typedef
 struct|struct
 block|{
@@ -214,7 +214,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon28dc6c5b0608
+DECL|struct|__anon2961fef70608
 typedef|typedef
 struct|struct
 block|{
@@ -238,7 +238,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28dc6c5b0708
+DECL|struct|__anon2961fef70708
 typedef|typedef
 struct|struct
 block|{
@@ -258,11 +258,10 @@ name|core_srv_conf
 decl_stmt|;
 comment|/* default server conf                                                   for this address:port */
 DECL|member|default_server
-name|unsigned
+name|ngx_uint_t
 name|default_server
-range|:
-literal|1
 decl_stmt|;
+comment|/* unsigned  default_server:1; */
 DECL|typedef|ngx_http_in_addr_t
 block|}
 name|ngx_http_in_addr_t
@@ -270,7 +269,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28dc6c5b0808
+DECL|struct|__anon2961fef70808
 typedef|typedef
 struct|struct
 block|{
@@ -284,6 +283,11 @@ modifier|*
 name|core_srv_conf
 decl_stmt|;
 comment|/* virtual name server conf */
+DECL|member|wildcard
+name|ngx_uint_t
+name|wildcard
+decl_stmt|;
+comment|/*unsigned  wildcard:1; */
 DECL|typedef|ngx_http_server_name_t
 block|}
 name|ngx_http_server_name_t
@@ -313,7 +317,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon28dc6c5b0908
+DECL|struct|__anon2961fef70908
 typedef|typedef
 struct|struct
 block|{
@@ -332,7 +336,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28dc6c5b0a08
+DECL|struct|__anon2961fef70a08
 typedef|typedef
 struct|struct
 block|{
@@ -376,7 +380,7 @@ comment|/* location name */
 if|#
 directive|if
 operator|(
-name|HAVE_PCRE
+name|NGX_PCRE
 operator|)
 DECL|member|regex
 name|ngx_regex_t

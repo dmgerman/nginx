@@ -26,7 +26,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon29148d390108
+DECL|struct|__anon2757ee620108
 typedef|typedef
 struct|struct
 block|{
@@ -1000,12 +1000,8 @@ name|value
 operator|.
 name|len
 operator|=
-name|ngx_snprintf
+name|ngx_sprintf
 argument_list|(
-operator|(
-name|char
-operator|*
-operator|)
 name|r
 operator|->
 name|headers_out
@@ -1016,14 +1012,7 @@ name|value
 operator|.
 name|data
 argument_list|,
-literal|8
-operator|+
-literal|20
-operator|+
-literal|1
-argument_list|,
-literal|"bytes */"
-name|OFF_T_FMT
+literal|"bytes */%O"
 argument_list|,
 name|r
 operator|->
@@ -1031,7 +1020,23 @@ name|headers_out
 operator|.
 name|content_length_n
 argument_list|)
+operator|-
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_range
+operator|->
+name|value
+operator|.
+name|data
 expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|ngx_snprintf((char *) r->headers_out.content_range->value.data,                              8 + 20 + 1, "bytes */" OFF_T_FMT,                              r->headers_out.content_length_n);
+endif|#
+directive|endif
 name|r
 operator|->
 name|headers_out
@@ -1209,12 +1214,8 @@ name|value
 operator|.
 name|len
 operator|=
-name|ngx_snprintf
+name|ngx_sprintf
 argument_list|(
-operator|(
-name|char
-operator|*
-operator|)
 name|r
 operator|->
 name|headers_out
@@ -1225,26 +1226,7 @@ name|value
 operator|.
 name|data
 argument_list|,
-literal|6
-operator|+
-literal|20
-operator|+
-literal|1
-operator|+
-literal|20
-operator|+
-literal|1
-operator|+
-literal|20
-operator|+
-literal|1
-argument_list|,
-literal|"bytes "
-name|OFF_T_FMT
-literal|"-"
-name|OFF_T_FMT
-literal|"/"
-name|OFF_T_FMT
+literal|"bytes %O-%O/%O"
 argument_list|,
 name|range
 operator|->
@@ -1262,7 +1244,23 @@ name|headers_out
 operator|.
 name|content_length_n
 argument_list|)
+operator|-
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_range
+operator|->
+name|value
+operator|.
+name|data
 expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|ngx_snprintf((char *)                                 r->headers_out.content_range->value.data,                                 6 + 20 + 1 + 20 + 1 + 20 + 1,                                 "bytes " OFF_T_FMT "-" OFF_T_FMT "/" OFF_T_FMT,                                 range->start, range->end - 1,                                 r->headers_out.content_length_n);
+endif|#
+directive|endif
 name|r
 operator|->
 name|headers_out
@@ -1398,26 +1396,54 @@ name|boundary_header
 operator|.
 name|len
 operator|=
-name|ngx_snprintf
+name|ngx_sprintf
 argument_list|(
-argument|(char *) ctx->boundary_header.data
+name|ctx
+operator|->
+name|boundary_header
+operator|.
+name|data
 argument_list|,
-argument|len
-argument_list|,
-argument|CRLF
-literal|"--%010"
-argument|NGX_UINT_T_FMT CRLF
+name|CRLF
+literal|"--%010ui"
+name|CRLF
 literal|"Content-Type: %s; charset=%s"
-argument|CRLF
+name|CRLF
 literal|"Content-Range: bytes "
 argument_list|,
-argument|boundary
+name|boundary
 argument_list|,
-argument|r->headers_out.content_type->value.data
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_type
+operator|->
+name|value
+operator|.
+name|data
 argument_list|,
-argument|r->headers_out.charset.data
+name|r
+operator|->
+name|headers_out
+operator|.
+name|charset
+operator|.
+name|data
 argument_list|)
+operator|-
+name|ctx
+operator|->
+name|boundary_header
+operator|.
+name|data
 expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|ngx_snprintf((char *) ctx->boundary_header.data, len,                                       CRLF "--%010" NGX_UINT_T_FMT CRLF                                       "Content-Type: %s; charset=%s" CRLF                                       "Content-Range: bytes ",                                       boundary,                                       r->headers_out.content_type->value.data,                                       r->headers_out.charset.data);
+endif|#
+directive|endif
 name|r
 operator|->
 name|headers_out
@@ -1437,24 +1463,46 @@ name|boundary_header
 operator|.
 name|len
 operator|=
-name|ngx_snprintf
+name|ngx_sprintf
 argument_list|(
-argument|(char *) ctx->boundary_header.data
+name|ctx
+operator|->
+name|boundary_header
+operator|.
+name|data
 argument_list|,
-argument|len
-argument_list|,
-argument|CRLF
-literal|"--%010"
-argument|NGX_UINT_T_FMT CRLF
+name|CRLF
+literal|"--%010ui"
+name|CRLF
 literal|"Content-Type: %s"
-argument|CRLF
+name|CRLF
 literal|"Content-Range: bytes "
 argument_list|,
-argument|boundary
+name|boundary
 argument_list|,
-argument|r->headers_out.content_type->value.data
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_type
+operator|->
+name|value
+operator|.
+name|data
 argument_list|)
+operator|-
+name|ctx
+operator|->
+name|boundary_header
+operator|.
+name|data
 expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|ngx_snprintf((char *) ctx->boundary_header.data, len,                                       CRLF "--%010" NGX_UINT_T_FMT CRLF                                       "Content-Type: %s" CRLF                                       "Content-Range: bytes ",                                       boundary,                                       r->headers_out.content_type->value.data);
+endif|#
+directive|endif
 block|}
 name|ngx_test_null
 argument_list|(
@@ -1495,12 +1543,8 @@ name|value
 operator|.
 name|len
 operator|=
-name|ngx_snprintf
+name|ngx_sprintf
 argument_list|(
-operator|(
-name|char
-operator|*
-operator|)
 name|r
 operator|->
 name|headers_out
@@ -1511,18 +1555,27 @@ name|value
 operator|.
 name|data
 argument_list|,
-literal|31
-operator|+
-literal|10
-operator|+
-literal|1
-argument_list|,
-literal|"multipart/byteranges; boundary=%010"
-name|NGX_UINT_T_FMT
+literal|"multipart/byteranges; boundary=%010ui"
 argument_list|,
 name|boundary
 argument_list|)
+operator|-
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_type
+operator|->
+name|value
+operator|.
+name|data
 expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|ngx_snprintf((char *)                                    r->headers_out.content_type->value.data,                                    31 + 10 + 1,                                    "multipart/byteranges; boundary=%010"                                    NGX_UINT_T_FMT,                                    boundary);
+endif|#
+directive|endif
 comment|/* the size of the last boundary CRLF "--0123456789--" CRLF */
 name|len
 operator|=
@@ -1605,27 +1658,12 @@ name|content_range
 operator|.
 name|len
 operator|=
-name|ngx_snprintf
+name|ngx_sprintf
 argument_list|(
-argument|(char *) range[i].content_range.data
+argument|range[i].content_range.data
 argument_list|,
-literal|20
-argument|+
-literal|1
-argument|+
-literal|20
-argument|+
-literal|1
-argument|+
-literal|20
-argument|+
-literal|5
-argument_list|,
-argument|OFF_T_FMT
-literal|"-"
-argument|OFF_T_FMT
-literal|"/"
-argument|OFF_T_FMT CRLF CRLF
+literal|"%O-%O/%O"
+argument|CRLF CRLF
 argument_list|,
 argument|range[i].start
 argument_list|,
@@ -1634,7 +1672,22 @@ literal|1
 argument_list|,
 argument|r->headers_out.content_length_n
 argument_list|)
+operator|-
+name|range
+index|[
+name|i
+index|]
+operator|.
+name|content_range
+operator|.
+name|data
 expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|ngx_snprintf((char *) range[i].content_range.data,                                20 + 1 + 20 + 1 + 20 + 5,                                OFF_T_FMT "-" OFF_T_FMT "/" OFF_T_FMT CRLF CRLF,                                range[i].start, range[i].end - 1,                                r->headers_out.content_length_n);
+endif|#
+directive|endif
 name|len
 operator|+=
 name|ctx

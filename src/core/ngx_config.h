@@ -16,6 +16,12 @@ directive|define
 name|_NGX_CONFIG_H_INCLUDED_
 end_define
 
+begin_include
+include|#
+directive|include
+file|<ngx_auto_headers.h>
+end_include
+
 begin_if
 if|#
 directive|if
@@ -51,8 +57,9 @@ end_endif
 begin_if
 if|#
 directive|if
-name|defined
-name|__FreeBSD__
+operator|(
+name|NGX_FREEBSD
+operator|)
 end_if
 
 begin_include
@@ -64,8 +71,9 @@ end_include
 begin_elif
 elif|#
 directive|elif
-name|defined
-name|__linux__
+operator|(
+name|NGX_LINUX
+operator|)
 end_elif
 
 begin_include
@@ -74,22 +82,11 @@ directive|include
 file|<ngx_linux_config.h>
 end_include
 
-begin_comment
-comment|/* Solaris */
-end_comment
-
 begin_elif
 elif|#
 directive|elif
-name|defined
-name|sun
-operator|&&
 operator|(
-name|defined
-name|__svr4__
-operator|||
-name|defined
-name|__SVR4
+name|NGX_SOLARIS
 operator|)
 end_elif
 
@@ -102,8 +99,9 @@ end_include
 begin_elif
 elif|#
 directive|elif
-name|defined
-name|_WIN32
+operator|(
+name|NGX_WIN32
+operator|)
 end_elif
 
 begin_include
@@ -118,7 +116,7 @@ directive|else
 end_else
 
 begin_comment
-comment|/* posix */
+comment|/* POSIX */
 end_comment
 
 begin_include
@@ -410,11 +408,19 @@ name|NGX_OFF_T_LEN
 value|sizeof("-9223372036854775808") - 1
 end_define
 
+begin_define
+DECL|macro|NGX_MAX_INT_LEN
+define|#
+directive|define
+name|NGX_MAX_INT_LEN
+value|(sizeof("-9223372036854775808") - 1)
+end_define
+
 begin_if
 if|#
 directive|if
 operator|(
-name|SOLARIS
+name|NGX_SOLARIS
 operator|)
 end_if
 

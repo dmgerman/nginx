@@ -825,6 +825,12 @@ name|cmd_type
 operator|=
 name|NGX_MAIN_CONF
 expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|log->log_level = NGX_LOG_DEBUG_ALL;
+endif|#
+directive|endif
 if|if
 condition|(
 name|ngx_conf_parse
@@ -1093,12 +1099,6 @@ operator||
 name|NGX_FILE_APPEND
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|log->log_level = NGX_LOG_DEBUG_ALL;
-endif|#
-directive|endif
 name|ngx_log_debug3
 argument_list|(
 name|NGX_LOG_DEBUG_CORE
@@ -1562,7 +1562,7 @@ index|[
 name|n
 index|]
 operator|.
-name|new
+name|open
 operator|=
 literal|1
 expr_stmt|;
@@ -1602,7 +1602,7 @@ index|[
 name|i
 index|]
 operator|.
-name|new
+name|open
 operator|=
 literal|1
 expr_stmt|;
@@ -1823,7 +1823,7 @@ index|[
 name|i
 index|]
 operator|.
-name|new
+name|open
 condition|)
 block|{
 continue|continue;

@@ -116,6 +116,16 @@ directive|ifdef
 name|_MSC_VER
 end_ifdef
 
+begin_comment
+comment|/* the end of the precompiled headers */
+end_comment
+
+begin_pragma
+pragma|#
+directive|pragma
+name|hdrstop
+end_pragma
+
 begin_pragma
 pragma|#
 directive|pragma

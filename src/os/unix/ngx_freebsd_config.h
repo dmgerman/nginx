@@ -101,18 +101,18 @@ end_include
 begin_include
 include|#
 directive|include
-file|<sys/uio.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<sys/filio.h>
 end_include
 
 begin_comment
 comment|/* FIONBIO */
 end_comment
+
+begin_include
+include|#
+directive|include
+file|<sys/uio.h>
+end_include
 
 begin_include
 include|#
@@ -206,14 +206,6 @@ directive|include
 file|<sys/sysctl.h>
 end_include
 
-begin_if
-if|#
-directive|if
-name|__FreeBSD_version
-operator|<
-literal|400017
-end_if
-
 begin_include
 include|#
 directive|include
@@ -223,6 +215,14 @@ end_include
 begin_comment
 comment|/* ALIGN() */
 end_comment
+
+begin_if
+if|#
+directive|if
+name|__FreeBSD_version
+operator|<
+literal|400017
+end_if
 
 begin_comment
 comment|/* FreeBSD 3.x has no CMSG_SPACE() at all and has the broken CMSG_DATA() */

@@ -66,7 +66,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon2aee7ee80108
+DECL|struct|__anon2b78c8d00108
 typedef|typedef
 struct|struct
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aee7ee80208
+DECL|struct|__anon2b78c8d00208
 typedef|typedef
 struct|struct
 block|{
@@ -1790,7 +1790,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 name|p
-operator|+=
+operator|=
 name|ngx_http_cookie_time
 argument_list|(
 name|p

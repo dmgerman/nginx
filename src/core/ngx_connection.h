@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27e766a20108
+DECL|struct|__anon2940ed030108
 typedef|typedef
 struct|struct
 block|{
@@ -126,9 +126,9 @@ name|time_t
 name|post_accept_timeout
 decl_stmt|;
 comment|/* should be here because                                                   of the deferred accept */
-DECL|member|new
+DECL|member|open
 name|unsigned
-name|new
+name|open
 range|:
 literal|1
 decl_stmt|;
@@ -210,7 +210,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27e766a20203
+DECL|enum|__anon2940ed030203
 typedef|typedef
 enum|enum
 block|{
@@ -234,7 +234,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27e766a20303
+DECL|enum|__anon2940ed030303
 typedef|typedef
 enum|enum
 block|{
