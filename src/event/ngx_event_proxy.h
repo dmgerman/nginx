@@ -159,12 +159,6 @@ name|cachable
 range|:
 literal|1
 decl_stmt|;
-DECL|member|fatal_error
-name|unsigned
-name|fatal_error
-range|:
-literal|1
-decl_stmt|;
 DECL|member|block_upstream
 name|unsigned
 name|block_upstream

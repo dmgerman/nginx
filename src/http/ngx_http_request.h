@@ -317,7 +317,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon28b121d90108
+DECL|struct|__anon290235230108
 typedef|typedef
 struct|struct
 block|{
@@ -336,7 +336,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b121d90208
+DECL|struct|__anon290235230208
 typedef|typedef
 struct|struct
 block|{
@@ -395,7 +395,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b121d90308
+DECL|struct|__anon290235230308
 typedef|typedef
 struct|struct
 block|{
@@ -446,7 +446,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b121d90408
+DECL|struct|__anon290235230408
 typedef|typedef
 struct|struct
 block|{
@@ -469,7 +469,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b121d90508
+DECL|struct|__anon290235230508
 typedef|typedef
 struct|struct
 block|{
@@ -566,6 +566,22 @@ name|ngx_http_request_t
 typedef|;
 end_typedef
 
+begin_typedef
+DECL|typedef|ngx_http_handler_pt
+typedef|typedef
+name|int
+function_decl|(
+modifier|*
+name|ngx_http_handler_pt
+function_decl|)
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|)
+function_decl|;
+end_typedef
+
 begin_struct
 DECL|struct|ngx_http_request_s
 struct|struct
@@ -627,18 +643,6 @@ DECL|member|headers_out
 name|ngx_http_headers_out_t
 name|headers_out
 decl_stmt|;
-DECL|member|handler
-name|int
-function_decl|(
-modifier|*
-name|handler
-function_decl|)
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|)
-function_decl|;
 DECL|member|lingering_time
 name|time_t
 name|lingering_time
@@ -707,6 +711,18 @@ DECL|member|virtual_names
 name|ngx_array_t
 modifier|*
 name|virtual_names
+decl_stmt|;
+DECL|member|phase
+name|int
+name|phase
+decl_stmt|;
+DECL|member|phase_handler
+name|int
+name|phase_handler
+decl_stmt|;
+DECL|member|content_handler
+name|ngx_http_handler_pt
+name|content_handler
 decl_stmt|;
 DECL|member|discarded_buffer
 name|char
@@ -780,6 +796,12 @@ decl_stmt|;
 DECL|member|lingering_close
 name|unsigned
 name|lingering_close
+range|:
+literal|1
+decl_stmt|;
+DECL|member|closed
+name|unsigned
+name|closed
 range|:
 literal|1
 decl_stmt|;

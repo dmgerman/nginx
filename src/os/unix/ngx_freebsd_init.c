@@ -58,9 +58,9 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_freebsd_tcp_nopush_flush
+DECL|variable|ngx_freebsd_use_tcp_nopush
 name|int
-name|ngx_freebsd_tcp_nopush_flush
+name|ngx_freebsd_use_tcp_nopush
 decl_stmt|;
 end_decl_stmt
 
@@ -97,7 +97,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2c0a73c90108
+DECL|struct|__anon2c24d06e0108
 typedef|typedef
 struct|struct
 block|{
@@ -418,7 +418,7 @@ operator|>=
 literal|500017
 condition|)
 block|{
-name|ngx_freebsd_tcp_nopush_flush
+name|ngx_freebsd_use_tcp_nopush
 operator|=
 literal|1
 expr_stmt|;

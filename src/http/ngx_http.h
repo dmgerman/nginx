@@ -49,7 +49,7 @@ file|<ngx_http_core_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29c649020108
+DECL|struct|__anon27b480540108
 typedef|typedef
 struct|struct
 block|{
@@ -72,22 +72,6 @@ DECL|typedef|ngx_http_log_ctx_t
 block|}
 name|ngx_http_log_ctx_t
 typedef|;
-end_typedef
-
-begin_typedef
-DECL|typedef|ngx_http_handler_pt
-typedef|typedef
-name|int
-function_decl|(
-modifier|*
-name|ngx_http_handler_pt
-function_decl|)
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|)
-function_decl|;
 end_typedef
 
 begin_typedef
@@ -283,11 +267,11 @@ end_function_decl
 
 begin_function_decl
 name|void
-name|ngx_http_set_write_handler
+name|ngx_http_writer
 parameter_list|(
-name|ngx_http_request_t
+name|ngx_event_t
 modifier|*
-name|r
+name|wev
 parameter_list|)
 function_decl|;
 end_function_decl

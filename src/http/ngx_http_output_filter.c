@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b3149f50108
+DECL|struct|__anon2c88e6ee0108
 typedef|typedef
 struct|struct
 block|{
@@ -33,7 +33,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3149f50208
+DECL|struct|__anon2c88e6ee0208
 typedef|typedef
 struct|struct
 block|{
@@ -796,7 +796,17 @@ name|hunk
 operator|=
 name|NULL
 expr_stmt|;
+if|if
+condition|(
+name|ctx
+operator|->
+name|free
+operator|==
+name|NULL
+condition|)
+block|{
 break|break;
+block|}
 block|}
 if|if
 condition|(

@@ -3768,7 +3768,7 @@ name|char
 modifier|*
 name|pos
 decl_stmt|;
-DECL|enum|__anon275afc060103
+DECL|enum|__anon29bd98030103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -4740,7 +4740,12 @@ argument_list|(
 operator|&
 name|cmcf
 operator|->
-name|translate_handlers
+name|phases
+index|[
+name|NGX_HTTP_TRANSLATE_PHASE
+index|]
+operator|.
+name|handlers
 argument_list|)
 argument_list|,
 name|NGX_ERROR

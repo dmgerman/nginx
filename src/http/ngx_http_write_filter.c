@@ -24,7 +24,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon291fad210108
+DECL|struct|__anon29cc7edc0108
 typedef|typedef
 struct|struct
 block|{
@@ -39,7 +39,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291fad210208
+DECL|struct|__anon29cc7edc0208
 typedef|typedef
 struct|struct
 block|{
@@ -604,6 +604,17 @@ condition|)
 block|{
 return|return
 name|NGX_AGAIN
+return|;
+block|}
+if|if
+condition|(
+name|size
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+name|NGX_OK
 return|;
 block|}
 name|chain

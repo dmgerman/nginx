@@ -123,13 +123,6 @@ end_decl_stmt
 begin_decl_stmt
 specifier|extern
 name|int
-name|ngx_freebsd_tcp_nopush_flush
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-specifier|extern
-name|int
 name|ngx_freebsd_kern_ipc_zero_copy_send
 decl_stmt|;
 end_decl_stmt
@@ -137,7 +130,7 @@ end_decl_stmt
 begin_decl_stmt
 specifier|extern
 name|int
-name|ngx_freebsd_tcp_nopush_flush
+name|ngx_freebsd_use_tcp_nopush
 decl_stmt|;
 end_decl_stmt
 

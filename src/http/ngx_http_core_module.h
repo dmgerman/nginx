@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon298fc42d0108
+DECL|struct|__anon2987bc010108
 typedef|typedef
 struct|struct
 block|{
@@ -67,7 +67,55 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298fc42d0208
+DECL|struct|__anon2987bc010208
+typedef|typedef
+struct|struct
+block|{
+DECL|member|handlers
+name|ngx_array_t
+name|handlers
+decl_stmt|;
+DECL|member|type
+name|int
+name|type
+decl_stmt|;
+comment|/* NGX_OK, NGX_DECLINED */
+DECL|member|post_handler
+name|ngx_http_handler_pt
+name|post_handler
+decl_stmt|;
+DECL|typedef|ngx_http_phase_t
+block|}
+name|ngx_http_phase_t
+typedef|;
+end_typedef
+
+begin_define
+DECL|macro|NGX_HTTP_REWRITE_PHASE
+define|#
+directive|define
+name|NGX_HTTP_REWRITE_PHASE
+value|0
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_TRANSLATE_PHASE
+define|#
+directive|define
+name|NGX_HTTP_TRANSLATE_PHASE
+value|1
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_LAST_PHASE
+define|#
+directive|define
+name|NGX_HTTP_LAST_PHASE
+value|2
+end_define
+
+begin_typedef
+DECL|struct|__anon2987bc010308
 typedef|typedef
 struct|struct
 block|{
@@ -76,9 +124,12 @@ name|ngx_array_t
 name|servers
 decl_stmt|;
 comment|/* array of ngx_http_core_srv_conf_t */
-DECL|member|translate_handlers
-name|ngx_array_t
-name|translate_handlers
+DECL|member|phases
+name|ngx_http_phase_t
+name|phases
+index|[
+name|NGX_HTTP_LAST_PHASE
+index|]
 decl_stmt|;
 DECL|member|index_handlers
 name|ngx_array_t
@@ -91,7 +142,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298fc42d0308
+DECL|struct|__anon2987bc010408
 typedef|typedef
 struct|struct
 block|{
@@ -151,7 +202,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon298fc42d0408
+DECL|struct|__anon2987bc010508
 typedef|typedef
 struct|struct
 block|{
@@ -175,7 +226,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298fc42d0508
+DECL|struct|__anon2987bc010608
 typedef|typedef
 struct|struct
 block|{
@@ -217,7 +268,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon298fc42d0608
+DECL|struct|__anon2987bc010708
 typedef|typedef
 struct|struct
 block|{
@@ -260,7 +311,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon298fc42d0708
+DECL|struct|__anon2987bc010808
 typedef|typedef
 struct|struct
 block|{
@@ -279,7 +330,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298fc42d0808
+DECL|struct|__anon2987bc010908
 typedef|typedef
 struct|struct
 block|{
@@ -423,6 +474,17 @@ name|int
 name|ngx_http_max_module
 decl_stmt|;
 end_decl_stmt
+
+begin_function_decl
+name|int
+name|ngx_http_find_location_config
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_function_decl
 name|int

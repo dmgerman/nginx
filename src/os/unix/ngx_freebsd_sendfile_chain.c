@@ -24,7 +24,7 @@ file|<ngx_freebsd_init.h>
 end_include
 
 begin_comment
-comment|/*  * sendfile() often sends 4K pages over ethernet in 3 packets: 2x1460 and 1176  * or in 6 packets: 5x1460 and 892.  Besides although sendfile() allows  * to pass the header and the trailer it never sends the header or the trailer  * with the part of the file in one packet.  So we use TCP_NOPUSH (similar  * to Linux's TCP_CORK) to postpone the sending - it not only sends the header  * and the first part of the file in one packet but also sends 4K pages  * in the full packets.  *  * Until FreeBSD 4.5 the turning TCP_NOPUSH off does not not flush  * the pending data that less than MSS and the data sent with 5 second delay.  * So we use TCP_NOPUSH on FreeBSD prior to 4.5 only if the connection  * is not needed to be keepalive.  */
+comment|/*  * sendfile() often sends 4K pages over ethernet in 3 packets: 2x1460 and 1176  * or in 6 packets: 5x1460 and 892.  Besides although sendfile() allows  * to pass the header and the trailer it never sends the header or the trailer  * with the part of the file in one packet.  So we use TCP_NOPUSH (similar  * to Linux's TCP_CORK) to postpone the sending - it not only sends the header  * and the first part of the file in one packet but also sends 4K pages  * in the full packets.  *  * Until FreeBSD 4.5 the turning TCP_NOPUSH off does not flush  * the pending data that less than MSS so the data is sent with 5 second delay.  * We do not use TCP_NOPUSH on FreeBSD prior to 4.5 although it can be used  * for non-keepalive HTTP connections.  */
 end_comment
 
 begin_function
@@ -46,8 +46,6 @@ name|int
 name|rc
 decl_stmt|,
 name|eintr
-decl_stmt|,
-name|tcp_nopush
 decl_stmt|;
 name|char
 modifier|*
@@ -89,10 +87,6 @@ decl_stmt|,
 modifier|*
 name|tail
 decl_stmt|;
-name|tcp_nopush
-operator|=
-literal|0
-expr_stmt|;
 do|do
 block|{
 name|ce
@@ -149,13 +143,7 @@ argument_list|,
 name|NGX_CHAIN_ERROR
 argument_list|)
 expr_stmt|;
-comment|/* create the header iovec */
-if|#
-directive|if
-literal|0
-block_content|if (ngx_hunk_in_memory_only(ce->hunk) || ngx_hunk_special(ce->hunk)) {
-endif|#
-directive|endif
+comment|/* create the iovec and coalesce the neighbouring chain entries */
 name|prev
 operator|=
 name|NULL
@@ -164,10 +152,11 @@ name|iov
 operator|=
 name|NULL
 expr_stmt|;
-comment|/* create the iovec and coalesce the neighbouring chain entries */
 for|for
 control|(
-comment|/* void */
+name|ce
+operator|=
+name|in
 init|;
 name|ce
 condition|;
@@ -304,12 +293,6 @@ operator|->
 name|pos
 expr_stmt|;
 block|}
-if|#
-directive|if
-literal|0
-block_content|}
-endif|#
-directive|endif
 comment|/* TODO: coalesce the neighbouring file hunks */
 if|if
 condition|(
@@ -339,13 +322,7 @@ operator|->
 name|next
 expr_stmt|;
 block|}
-comment|/* create the trailer iovec */
-if|#
-directive|if
-literal|0
-block_content|if (ce&& (ngx_hunk_in_memory_only(ce->hunk)                 || ngx_hunk_special(ce->hunk)))         {
-endif|#
-directive|endif
+comment|/* create the iovec and coalesce the neighbouring chain entries */
 name|prev
 operator|=
 name|NULL
@@ -354,7 +331,6 @@ name|iov
 operator|=
 name|NULL
 expr_stmt|;
-comment|/* create the iovec and coalesce the neighbouring chain entries */
 for|for
 control|(
 comment|/* void */
@@ -480,12 +456,6 @@ name|last
 expr_stmt|;
 block|}
 block|}
-if|#
-directive|if
-literal|0
-block_content|}
-endif|#
-directive|endif
 name|tail
 operator|=
 name|ce
@@ -497,14 +467,12 @@ condition|)
 block|{
 if|if
 condition|(
+name|ngx_freebsd_use_tcp_nopush
+operator|&&
 operator|!
 name|c
 operator|->
 name|tcp_nopush
-operator|&&
-name|c
-operator|->
-name|tcp_nopush_enabled
 condition|)
 block|{
 name|c
@@ -513,9 +481,14 @@ name|tcp_nopush
 operator|=
 literal|1
 expr_stmt|;
-name|tcp_nopush
-operator|=
-literal|1
+name|ngx_log_debug
+argument_list|(
+name|c
+operator|->
+name|log
+argument_list|,
+literal|"NOPUSH"
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -547,15 +520,6 @@ return|return
 name|NGX_CHAIN_ERROR
 return|;
 block|}
-name|ngx_log_debug
-argument_list|(
-name|c
-operator|->
-name|log
-argument_list|,
-literal|"NOPUSH"
-argument_list|)
-expr_stmt|;
 block|}
 name|hdtr
 operator|.
@@ -742,11 +706,6 @@ directive|endif
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|hsize
-condition|)
-block|{
 name|rc
 operator|=
 name|writev
@@ -872,14 +831,6 @@ argument_list|)
 empty_stmt|;
 endif|#
 directive|endif
-block|}
-else|else
-block|{
-name|sent
-operator|=
-literal|0
-expr_stmt|;
-block|}
 block|}
 name|c
 operator|->

@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon295a1e270108
+DECL|struct|__anon28ec706d0108
 typedef|typedef
 struct|struct
 block|{
@@ -325,12 +325,6 @@ decl_stmt|;
 DECL|member|tcp_nopush
 name|unsigned
 name|tcp_nopush
-range|:
-literal|1
-decl_stmt|;
-DECL|member|tcp_nopush_enabled
-name|unsigned
-name|tcp_nopush_enabled
 range|:
 literal|1
 decl_stmt|;
