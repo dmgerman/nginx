@@ -2569,6 +2569,7 @@ operator|==
 literal|0
 condition|)
 block|{
+comment|/* pid file name is the same */
 return|return
 name|NGX_OK
 return|;

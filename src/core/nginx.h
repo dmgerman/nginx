@@ -17,7 +17,7 @@ DECL|macro|NGINX_VER
 define|#
 directive|define
 name|NGINX_VER
-value|"nginx/0.0.12"
+value|"nginx/0.1.0"
 end_define
 
 begin_define
