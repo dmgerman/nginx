@@ -31,10 +31,15 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b0d190c0108
+DECL|struct|__anon29e9461a0108
 typedef|typedef
 struct|struct
 block|{
+DECL|member|busy_mask
+name|u_char
+modifier|*
+name|busy_mask
+decl_stmt|;
 DECL|member|busy
 name|char
 modifier|*
@@ -61,7 +66,7 @@ name|int
 name|max_conn
 decl_stmt|;
 DECL|member|timeout
-name|int
+name|time_t
 name|timeout
 decl_stmt|;
 comment|/* ngx_mutex_t  mutex; */
@@ -70,6 +75,21 @@ block|}
 name|ngx_http_busy_lock_t
 typedef|;
 end_typedef
+
+begin_function_decl
+name|int
+name|ngx_http_busy_lock
+parameter_list|(
+name|ngx_http_busy_lock_t
+modifier|*
+name|bl
+parameter_list|,
+name|u_char
+modifier|*
+name|md5
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_function_decl
 name|char

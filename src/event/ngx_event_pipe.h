@@ -222,6 +222,10 @@ DECL|member|busy_size
 name|size_t
 name|busy_size
 decl_stmt|;
+DECL|member|read_length
+name|off_t
+name|read_length
+decl_stmt|;
 DECL|member|max_temp_file_size
 name|off_t
 name|max_temp_file_size

@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon291541eb0108
+DECL|struct|__anon28b19f290108
 typedef|typedef
 struct|struct
 block|{
@@ -340,7 +340,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon291541eb0208
+DECL|struct|__anon28b19f290208
 typedef|typedef
 struct|struct
 block|{
@@ -952,7 +952,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon291541eb0308
+DECL|struct|__anon28b19f290308
 typedef|typedef
 struct|struct
 block|{
@@ -975,7 +975,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291541eb0408
+DECL|struct|__anon28b19f290408
 typedef|typedef
 struct|struct
 block|{

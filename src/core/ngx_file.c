@@ -520,7 +520,7 @@ name|ngx_log_debug
 argument_list|(
 argument|file->log
 argument_list|,
-literal|"temp: %s"
+literal|"hashed path: %s"
 argument|_ file->name.data
 argument_list|)
 empty_stmt|;
@@ -577,7 +577,7 @@ name|ngx_log_debug
 argument_list|(
 argument|file->log
 argument_list|,
-literal|"temp: %s"
+literal|"hashed path: %s"
 argument|_ file->name.data
 argument_list|)
 empty_stmt|;

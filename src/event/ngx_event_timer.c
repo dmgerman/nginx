@@ -680,12 +680,6 @@ argument_list|(
 name|ev
 argument_list|)
 expr_stmt|;
-name|ev
-operator|->
-name|timer_set
-operator|=
-literal|0
-expr_stmt|;
 if|if
 condition|(
 name|ev

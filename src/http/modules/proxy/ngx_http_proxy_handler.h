@@ -49,7 +49,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|enum|__anon2c1da7320103
+DECL|enum|__anon29da0e8f0103
 typedef|typedef
 enum|enum
 block|{
@@ -85,7 +85,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c1da7320203
+DECL|enum|__anon29da0e8f0203
 typedef|typedef
 enum|enum
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1da7320308
+DECL|struct|__anon29da0e8f0308
 typedef|typedef
 struct|struct
 block|{
@@ -158,7 +158,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1da7320408
+DECL|struct|__anon29da0e8f0408
 typedef|typedef
 struct|struct
 block|{
@@ -266,7 +266,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1da7320508
+DECL|struct|__anon29da0e8f0508
 typedef|typedef
 struct|struct
 block|{
@@ -294,7 +294,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1da7320608
+DECL|struct|__anon29da0e8f0608
 typedef|typedef
 struct|struct
 block|{
@@ -365,7 +365,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1da7320708
+DECL|struct|__anon29da0e8f0708
 typedef|typedef
 struct|struct
 block|{
@@ -392,7 +392,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1da7320808
+DECL|struct|__anon29da0e8f0808
 typedef|typedef
 struct|struct
 block|{
@@ -470,6 +470,10 @@ DECL|member|header_in
 name|ngx_hunk_t
 modifier|*
 name|header_in
+decl_stmt|;
+DECL|member|busy_lock_time
+name|time_t
+name|busy_lock_time
 decl_stmt|;
 DECL|member|accel
 name|unsigned
@@ -713,9 +717,9 @@ begin_function_decl
 name|void
 name|ngx_http_proxy_close_connection
 parameter_list|(
-name|ngx_connection_t
+name|ngx_http_proxy_ctx_t
 modifier|*
-name|c
+name|p
 parameter_list|)
 function_decl|;
 end_function_decl

@@ -193,7 +193,7 @@ operator|&
 name|md5
 argument_list|)
 expr_stmt|;
-name|ngx_print_md5
+name|ngx_md5_text
 argument_list|(
 name|ctx
 operator|->
@@ -224,12 +224,6 @@ operator|->
 name|md5
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|MD5End(&md5,            ctx->file.name.data + ctx->path->name.len + 1 + ctx->path->len);
-endif|#
-directive|endif
 name|ngx_log_debug
 argument_list|(
 argument|r->connection->log
@@ -555,6 +549,17 @@ name|ngx_time
 argument_list|()
 condition|)
 block|{
+name|ngx_log_debug
+argument_list|(
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|"EXPIRED"
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_HTTP_CACHE_STALE
 return|;

@@ -262,9 +262,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_print_md5 (char * text,u_char * md5)
+DECL|function|ngx_md5_text (char * text,u_char * md5)
 name|void
-name|ngx_print_md5
+name|ngx_md5_text
 parameter_list|(
 name|char
 modifier|*
@@ -275,13 +275,14 @@ modifier|*
 name|md5
 parameter_list|)
 block|{
+comment|/* STUB */
 name|ngx_snprintf
 argument_list|(
 name|text
 argument_list|,
 literal|33
 argument_list|,
-literal|"%0x%0x%0x%0x%0x%0x%0x%0x%0x%0x%0x%0x%0x%0x%0x%0x"
+literal|"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x"
 argument_list|,
 name|md5
 index|[
