@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c2b54150108
+DECL|struct|__anon27e038dc0108
 typedef|typedef
 struct|struct
 block|{
@@ -333,6 +333,20 @@ end_function_decl
 begin_function_decl
 name|ngx_int_t
 name|ngx_atoi
+parameter_list|(
+name|u_char
+modifier|*
+name|line
+parameter_list|,
+name|size_t
+name|n
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_hextoi
 parameter_list|(
 name|u_char
 modifier|*
