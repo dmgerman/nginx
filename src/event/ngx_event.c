@@ -159,7 +159,7 @@ begin_function_decl
 specifier|static
 name|char
 modifier|*
-name|ngx_event_set_type
+name|ngx_event_use
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -391,14 +391,14 @@ block|,
 block|{
 name|ngx_string
 argument_list|(
-literal|"type"
+literal|"use"
 argument_list|)
 block|,
 name|NGX_EVENT_CONF
 operator||
 name|NGX_CONF_TAKE1
 block|,
-name|ngx_event_set_type
+name|ngx_event_use
 block|,
 literal|0
 block|,
@@ -581,7 +581,7 @@ argument_list|(
 argument|log
 argument_list|,
 literal|"TYPE: %d"
-argument|_ ecf->type
+argument|_ ecf->use
 argument_list|)
 empty_stmt|;
 for|for
@@ -630,7 +630,7 @@ name|index
 operator|==
 name|ecf
 operator|->
-name|type
+name|use
 condition|)
 block|{
 if|if
@@ -1477,11 +1477,11 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_event_set_type (ngx_conf_t * cf,ngx_command_t * cmd,char * conf)
+DECL|function|ngx_event_use (ngx_conf_t * cf,ngx_command_t * cmd,char * conf)
 specifier|static
 name|char
 modifier|*
-name|ngx_event_set_type
+name|ngx_event_use
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -1521,13 +1521,13 @@ if|if
 condition|(
 name|ecf
 operator|->
-name|type
+name|use
 operator|!=
 name|NGX_CONF_UNSET
 condition|)
 block|{
 return|return
-literal|"duplicate event type"
+literal|"is duplicate"
 return|;
 block|}
 name|args
@@ -1615,7 +1615,7 @@ condition|)
 block|{
 name|ecf
 operator|->
-name|type
+name|use
 operator|=
 name|module
 operator|->
@@ -1680,7 +1680,7 @@ name|NGX_CONF_UNSET
 expr_stmt|;
 name|ecf
 operator|->
-name|type
+name|use
 operator|=
 name|NGX_CONF_UNSET
 expr_stmt|;
@@ -1736,7 +1736,7 @@ name|ngx_conf_init_value
 argument_list|(
 name|ecf
 operator|->
-name|type
+name|use
 argument_list|,
 name|ngx_kqueue_module_ctx
 operator|.
@@ -1761,7 +1761,7 @@ name|ngx_conf_init_value
 argument_list|(
 name|ecf
 operator|->
-name|type
+name|use
 argument_list|,
 name|ngx_devpoll_module_ctx
 operator|.
@@ -1790,7 +1790,7 @@ name|ngx_conf_init_value
 argument_list|(
 name|ecf
 operator|->
-name|type
+name|use
 argument_list|,
 name|ngx_select_module_ctx
 operator|.

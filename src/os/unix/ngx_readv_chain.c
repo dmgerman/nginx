@@ -11,28 +11,10 @@ directive|include
 file|<ngx_core.h>
 end_include
 
-begin_include
-include|#
-directive|include
-file|<ngx_errno.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_log.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_connection.h>
-end_include
-
 begin_function
-DECL|function|ngx_recv_chain (ngx_connection_t * c,ngx_chain_t * entry)
+DECL|function|ngx_readv_chain (ngx_connection_t * c,ngx_chain_t * entry)
 name|ssize_t
-name|ngx_recv_chain
+name|ngx_readv_chain
 parameter_list|(
 name|ngx_connection_t
 modifier|*

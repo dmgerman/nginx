@@ -30,9 +30,13 @@ directive|include
 file|<sys/sysctl.h>
 end_include
 
+begin_comment
+comment|/* STUB */
+end_comment
+
 begin_function_decl
 name|int
-name|ngx_unix_init
+name|ngx_posix_init
 parameter_list|(
 name|ngx_log_t
 modifier|*
@@ -58,6 +62,25 @@ name|size
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_function_decl
+name|ssize_t
+name|ngx_readv_chain
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|,
+name|ngx_chain_t
+modifier|*
+name|entry
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_comment
+comment|/* */
+end_comment
 
 begin_decl_stmt
 specifier|extern

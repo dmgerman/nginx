@@ -6,14 +6,14 @@ file|<ngx_socket.h>
 end_include
 
 begin_comment
-comment|/* ioctl(FIONBIO) set blocking mode with one syscall only while    fcntl(F_SETFL, ~O_NONBLOCK) need to know previous state    using fcntl(F_GETFL).    On FreeBSD both are syscall */
+comment|/*    ioctl(FIONBIO) set blocking mode with one syscall only while    fcntl(F_SETFL, ~O_NONBLOCK) need to know previous state    using fcntl(F_GETFL).     ioctl() and fcntl() are syscalls on FreeBSD, Solaris 7/8 and Linux */
 end_comment
 
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|__FreeBSD__
-end_ifdef
+begin_if
+if|#
+directive|if
+literal|1
+end_if
 
 begin_function
 DECL|function|ngx_nonblocking (ngx_socket_t s)

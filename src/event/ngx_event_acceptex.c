@@ -123,6 +123,15 @@ return|return
 name|NGX_OK
 return|;
 block|}
+if|#
+directive|if
+literal|0
+comment|/* can we do SO_UPDATE_ACCEPT_CONTEXT just before shutdown() ???        or AcceptEx's context will be lost ??? */
+comment|/* SO_UPDATE_ACCEPT_CONTEXT is required for shutdown() to work */
+block_content|if (setsockopt(context->accept_socket, SOL_SOCKET,                     SO_UPDATE_ACCEPT_CONTEXT, (char *)&nsd,                      sizeof(nsd))) {           ap_log_error(APLOG_MARK, APLOG_ERR, WSAGetLastError(), server_conf,                        "setsockopt(SO_UPDATE_ACCEPT_CONTEXT) failed.");
+comment|/* non fatal - we can not only do lingering close */
+endif|#
+directive|endif
 name|getacceptexsockaddrs
 argument_list|(
 name|c

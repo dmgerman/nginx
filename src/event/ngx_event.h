@@ -118,7 +118,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2a18edeb0108
+DECL|struct|__anon278453f40108
 typedef|typedef
 struct|struct
 block|{
@@ -420,7 +420,7 @@ literal|1
 end_if
 
 begin_typedef
-DECL|enum|__anon2a18edeb0203
+DECL|enum|__anon278453f40203
 typedef|typedef
 enum|enum
 block|{
@@ -494,7 +494,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2a18edeb0308
+DECL|struct|__anon278453f40308
 typedef|typedef
 struct|struct
 block|{
@@ -1303,7 +1303,7 @@ value|0
 end_define
 
 begin_typedef
-DECL|struct|__anon2a18edeb0408
+DECL|struct|__anon278453f40408
 typedef|typedef
 struct|struct
 block|{
@@ -1315,9 +1315,9 @@ DECL|member|timer_queues
 name|int
 name|timer_queues
 decl_stmt|;
-DECL|member|type
+DECL|member|use
 name|int
-name|type
+name|use
 decl_stmt|;
 DECL|typedef|ngx_event_conf_t
 block|}
@@ -1326,7 +1326,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a18edeb0508
+DECL|struct|__anon278453f40508
 typedef|typedef
 struct|struct
 block|{

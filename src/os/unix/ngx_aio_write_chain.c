@@ -14,43 +14,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_types.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_alloc.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_array.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_hunk.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_connection.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_sendv.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_sendfile.h>
+file|<ngx_aio.h>
 end_include
 
 begin_function
@@ -109,7 +73,7 @@ argument_list|(
 argument|c->log
 argument_list|,
 literal|"aio_write ce: %x"
-argument|_ ce->hunk->pos.mem
+argument|_ ce->hunk->pos
 argument_list|)
 empty_stmt|;
 name|buf
@@ -121,8 +85,6 @@ operator|->
 name|hunk
 operator|->
 name|pos
-operator|.
-name|mem
 expr_stmt|;
 name|size
 operator|=
@@ -140,8 +102,6 @@ operator|->
 name|hunk
 operator|->
 name|pos
-operator|.
-name|mem
 condition|)
 block|{
 name|size
@@ -151,16 +111,12 @@ operator|->
 name|hunk
 operator|->
 name|last
-operator|.
-name|mem
 operator|-
 name|ce
 operator|->
 name|hunk
 operator|->
 name|pos
-operator|.
-name|mem
 expr_stmt|;
 name|prev
 operator|=
@@ -169,8 +125,6 @@ operator|->
 name|hunk
 operator|->
 name|last
-operator|.
-name|mem
 expr_stmt|;
 name|ce
 operator|=
@@ -181,7 +135,7 @@ expr_stmt|;
 block|}
 name|rc
 operator|=
-name|ngx_event_aio_write
+name|ngx_aio_write
 argument_list|(
 name|c
 argument_list|,
@@ -277,7 +231,7 @@ argument_list|(
 argument|c->log
 argument_list|,
 literal|"write chain: %x %qx %qd"
-argument|_                       ce->hunk->type _                       ce->hunk->pos.file _                       ce->hunk->last.file - ce->hunk->pos.file
+argument|_                       ce->hunk->type _                       ce->hunk->file_pos _                       ce->hunk->file_last - ce->hunk->file_pos
 argument_list|)
 empty_stmt|;
 endif|#
@@ -290,17 +244,13 @@ name|ce
 operator|->
 name|hunk
 operator|->
-name|last
-operator|.
-name|file
+name|file_last
 operator|-
 name|ce
 operator|->
 name|hunk
 operator|->
-name|pos
-operator|.
-name|file
+name|file_pos
 condition|)
 block|{
 name|sent
@@ -309,33 +259,25 @@ name|ce
 operator|->
 name|hunk
 operator|->
-name|last
-operator|.
-name|file
+name|file_last
 operator|-
 name|ce
 operator|->
 name|hunk
 operator|->
-name|pos
-operator|.
-name|file
+name|file_pos
 expr_stmt|;
 name|ce
 operator|->
 name|hunk
 operator|->
-name|pos
-operator|.
-name|file
+name|file_pos
 operator|=
 name|ce
 operator|->
 name|hunk
 operator|->
-name|last
-operator|.
-name|file
+name|file_last
 expr_stmt|;
 if|#
 directive|if
@@ -347,7 +289,7 @@ argument_list|(
 argument|c->log
 argument_list|,
 literal|"write chain done: %qx %qd"
-argument|_                           ce->hunk->pos.file _ sent
+argument|_                           ce->hunk->file_pos _ sent
 argument_list|)
 empty_stmt|;
 endif|#
@@ -358,9 +300,7 @@ name|ce
 operator|->
 name|hunk
 operator|->
-name|pos
-operator|.
-name|file
+name|file_pos
 operator|+=
 name|sent
 expr_stmt|;
@@ -374,7 +314,7 @@ argument_list|(
 argument|c->log
 argument_list|,
 literal|"write chain rest: %qx %qd"
-argument|_                       ce->hunk->pos.file _                       ce->hunk->last.file - ce->hunk->pos.file
+argument|_                       ce->hunk->file_pos _                       ce->hunk->file_last - ce->hunk->file_pos
 argument_list|)
 empty_stmt|;
 endif|#

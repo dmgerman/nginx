@@ -325,7 +325,6 @@ name|ngx_kqueue_init
 block|,
 comment|/* init the events */
 name|ngx_kqueue_done
-block|,
 comment|/* done the events */
 block|}
 block|}
@@ -1495,6 +1494,22 @@ index|]
 operator|.
 name|udata
 expr_stmt|;
+switch|switch
+condition|(
+name|event_list
+index|[
+name|i
+index|]
+operator|.
+name|filter
+condition|)
+block|{
+case|case
+name|EVFILT_READ
+case|:
+case|case
+name|EVFILT_WRITE
+case|:
 name|instance
 operator|=
 operator|(
@@ -1520,7 +1535,7 @@ operator|~
 literal|1
 operator|)
 expr_stmt|;
-comment|/* It's a stale event from a file descriptor            that was just closed in this iteration */
+comment|/* It's a stale event from a file descriptor                that was just closed in this iteration */
 if|if
 condition|(
 name|ev
@@ -1545,22 +1560,6 @@ argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
-switch|switch
-condition|(
-name|event_list
-index|[
-name|i
-index|]
-operator|.
-name|filter
-condition|)
-block|{
-case|case
-name|EVFILT_READ
-case|:
-case|case
-name|EVFILT_WRITE
-case|:
 name|ev
 operator|->
 name|available

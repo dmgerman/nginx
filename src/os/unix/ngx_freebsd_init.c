@@ -61,11 +61,15 @@ init|=
 block|{
 name|ngx_unix_recv
 block|,
-name|NULL
+name|ngx_readv_chain
 block|,
 name|NULL
 block|,
 name|ngx_freebsd_write_chain
+block|,
+name|NGX_HAVE_SENDFILE
+operator||
+name|NGX_HAVE_ZEROCOPY
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -380,7 +384,7 @@ name|ngx_freebsd_net_inet_tcp_sendspace
 argument_list|)
 expr_stmt|;
 return|return
-name|ngx_unix_init
+name|ngx_posix_init
 argument_list|(
 name|log
 argument_list|)

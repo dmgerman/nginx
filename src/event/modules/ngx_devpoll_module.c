@@ -31,7 +31,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|TEST_DEVPOLL
+name|TEST_BUILD_DEVPOLL
 operator|)
 end_if
 
@@ -84,7 +84,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c6b55f50108
+DECL|struct|__anon2c521cd80108
 typedef|typedef
 struct|struct
 block|{

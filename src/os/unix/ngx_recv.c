@@ -85,7 +85,7 @@ name|ngx_log_debug
 argument_list|(
 argument|c->log
 argument_list|,
-literal|"ngx_recv: eof:%d, avail:%d, err:%d"
+literal|"recv: eof:%d, avail:%d, err:%d"
 argument|_                       ev->eof _ ev->available _ ev->error
 argument_list|)
 empty_stmt|;
@@ -169,7 +169,7 @@ name|ngx_log_debug
 argument_list|(
 argument|c->log
 argument_list|,
-literal|"ngx_recv: read:%d:%d"
+literal|"recv: read:%d:%d"
 argument|_ n _ size
 argument_list|)
 empty_stmt|;
@@ -205,6 +205,14 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|c->log
+argument_list|,
+literal|"recv: read:%d:%d"
+argument|_ n _ size
+argument_list|)
+empty_stmt|;
 if|if
 condition|(
 name|n
