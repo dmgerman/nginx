@@ -454,6 +454,10 @@ endif|#
 directive|endif
 end_endif
 
+begin_comment
+comment|/* FreeBSD sendfile */
+end_comment
+
 begin_if
 if|#
 directive|if
@@ -504,6 +508,14 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_comment
+comment|/* FreeBSD sendfile */
+end_comment
+
+begin_comment
+comment|/* FreeBSD sendfile nbytes bug */
+end_comment
 
 begin_if
 if|#
@@ -559,6 +571,10 @@ endif|#
 directive|endif
 end_endif
 
+begin_comment
+comment|/* FreeBSD sendfile nbytes bug */
+end_comment
+
 begin_if
 if|#
 directive|if
@@ -579,6 +595,10 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_comment
+comment|/* FreeBSD kqueue */
+end_comment
 
 begin_if
 if|#
@@ -628,6 +648,10 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_comment
+comment|/* FreeBSD kqueue */
+end_comment
 
 begin_endif
 endif|#

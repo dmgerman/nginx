@@ -5,6 +5,14 @@ directive|include
 file|<ngx_config.h>
 end_include
 
+begin_if
+if|#
+directive|if
+operator|(
+name|HAVE_FREEBSD_SENDFILE
+operator|)
+end_if
+
 begin_include
 include|#
 directive|include
@@ -54,16 +62,8 @@ file|<ngx_sendfile.h>
 end_include
 
 begin_comment
-comment|/*   TODO:     FreeBSD:        check sent if errno == EINTR then should return right sent. */
+comment|/*   CHECK:        check sent if errno == EINTR then should return right sent. */
 end_comment
-
-begin_if
-if|#
-directive|if
-operator|(
-name|HAVE_FREEBSD_SENDFILE
-operator|)
-end_if
 
 begin_function
 DECL|function|ngx_sendfile (ngx_socket_t s,ngx_iovec_t * headers,int hdr_cnt,ngx_fd_t fd,off_t offset,size_t nbytes,ngx_iovec_t * trailers,int trl_cnt,off_t * sent,ngx_log_t * log)

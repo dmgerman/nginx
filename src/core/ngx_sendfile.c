@@ -5,6 +5,15 @@ directive|include
 file|<ngx_config.h>
 end_include
 
+begin_if
+if|#
+directive|if
+operator|!
+operator|(
+name|HAVE_SENDFILE
+operator|)
+end_if
+
 begin_include
 include|#
 directive|include
@@ -85,6 +94,11 @@ name|NGX_ERROR
 return|;
 block|}
 end_function
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 end_unit
 

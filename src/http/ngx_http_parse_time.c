@@ -85,7 +85,7 @@ name|min
 decl_stmt|,
 name|sec
 decl_stmt|;
-DECL|enum|__anon28efcec60103
+DECL|enum|__anon2af5e2ba0103
 enum|enum
 block|{
 DECL|enumerator|no
@@ -1191,7 +1191,7 @@ operator|-=
 literal|1
 expr_stmt|;
 block|}
-comment|/* Gauss's formula for days from 1 March 1 BC */
+comment|/* Gauss's formula for Grigorian days from 1 March 1 BC */
 return|return
 operator|(
 literal|365

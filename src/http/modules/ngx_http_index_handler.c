@@ -121,7 +121,7 @@ literal|"index"
 block|,
 name|ngx_http_index_set_index
 block|,
-name|NULL
+literal|0
 block|,
 name|NGX_HTTP_LOC_CONF
 block|,
