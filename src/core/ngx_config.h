@@ -102,24 +102,6 @@ name|defined
 name|_WIN32
 end_elif
 
-begin_comment
-comment|/* STUB to allocate a big ngx_connections */
-end_comment
-
-begin_undef
-undef|#
-directive|undef
-name|FD_SETSIZE
-end_undef
-
-begin_define
-DECL|macro|FD_SETSIZE
-define|#
-directive|define
-name|FD_SETSIZE
-value|1024
-end_define
-
 begin_include
 include|#
 directive|include
@@ -138,7 +120,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<ngx_auto_config.h>
+file|<ngx_posix_config.h>
 end_include
 
 begin_endif

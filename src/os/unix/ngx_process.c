@@ -34,6 +34,13 @@ function_decl|;
 end_function_decl
 
 begin_decl_stmt
+DECL|variable|ngx_current_slot
+name|ngx_int_t
+name|ngx_current_slot
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_last_process
 name|ngx_int_t
 name|ngx_last_process
@@ -242,6 +249,10 @@ name|channel
 index|[
 literal|1
 index|]
+expr_stmt|;
+name|ngx_current_slot
+operator|=
+name|s
 expr_stmt|;
 name|pid
 operator|=

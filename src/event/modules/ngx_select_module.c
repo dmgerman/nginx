@@ -2305,6 +2305,12 @@ name|NGX_CONF_OK
 return|;
 block|}
 comment|/* disable warning: the default FD_SETSIZE is 1024U in FreeBSD 5.x */
+if|#
+directive|if
+operator|!
+operator|(
+name|WIN32
+operator|)
 if|if
 condition|(
 operator|(
@@ -2339,6 +2345,8 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
+endif|#
+directive|endif
 return|return
 name|NGX_CONF_OK
 return|;

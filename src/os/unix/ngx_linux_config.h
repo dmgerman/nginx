@@ -42,7 +42,25 @@ end_define
 begin_include
 include|#
 directive|include
+file|<sys/types.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<sys/time.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<unistd.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<stdarg.h>
 end_include
 
 begin_include
@@ -58,31 +76,19 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<stdlib.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<stdarg.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<stdio.h>
 end_include
 
 begin_include
 include|#
 directive|include
-file|<errno.h>
+file|<stdlib.h>
 end_include
 
 begin_include
 include|#
 directive|include
-file|<fcntl.h>
+file|<errno.h>
 end_include
 
 begin_include
@@ -100,31 +106,19 @@ end_include
 begin_include
 include|#
 directive|include
-file|<limits.h>
+file|<pwd.h>
 end_include
 
 begin_include
 include|#
 directive|include
-file|<time.h>
+file|<grp.h>
 end_include
 
 begin_include
 include|#
 directive|include
-file|<sys/types.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<sys/time.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<sys/select.h>
+file|<dirent.h>
 end_include
 
 begin_include
@@ -136,19 +130,13 @@ end_include
 begin_include
 include|#
 directive|include
-file|<sys/ioctl.h>
+file|<sys/stat.h>
 end_include
 
 begin_include
 include|#
 directive|include
-file|<sys/resource.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<sys/sysctl.h>
+file|<fcntl.h>
 end_include
 
 begin_include
@@ -166,6 +154,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<sys/resource.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<sys/socket.h>
 end_include
 
@@ -178,29 +172,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<netinet/tcp.h>
-end_include
-
-begin_comment
-comment|/* TCP_CORK */
-end_comment
-
-begin_include
-include|#
-directive|include
 file|<arpa/inet.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<pwd.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<grp.h>
 end_include
 
 begin_include
@@ -212,8 +184,57 @@ end_include
 begin_include
 include|#
 directive|include
-file|<dirent.h>
+file|<time.h>
 end_include
+
+begin_comment
+comment|/* tzset() */
+end_comment
+
+begin_include
+include|#
+directive|include
+file|<sys/ioctl.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<sys/sysctl.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<netinet/tcp.h>
+end_include
+
+begin_comment
+comment|/* TCP_CORK */
+end_comment
+
+begin_comment
+comment|/* Linux has no<sys/filio.h> so autoconfigure does not find FIONBIO */
+end_comment
+
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|HAVE_FIONBIO
+end_ifndef
+
+begin_define
+DECL|macro|HAVE_FIONBIO
+define|#
+directive|define
+name|HAVE_FIONBIO
+value|1
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_include
 include|#
@@ -401,25 +422,6 @@ define|#
 directive|define
 name|HAVE_INHERITED_NONBLOCK
 value|0
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|HAVE_FIONBIO
-end_ifndef
-
-begin_define
-DECL|macro|HAVE_FIONBIO
-define|#
-directive|define
-name|HAVE_FIONBIO
-value|1
 end_define
 
 begin_endif

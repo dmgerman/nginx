@@ -2,43 +2,15 @@ begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|_NGX_SOLARIS_CONFIG_H_INCLUDED_
+name|_NGX_POSIX_CONFIG_H_INCLUDED_
 end_ifndef
 
 begin_define
-DECL|macro|_NGX_SOLARIS_CONFIG_H_INCLUDED_
+DECL|macro|_NGX_POSIX_CONFIG_H_INCLUDED_
 define|#
 directive|define
-name|_NGX_SOLARIS_CONFIG_H_INCLUDED_
+name|_NGX_POSIX_CONFIG_H_INCLUDED_
 end_define
-
-begin_define
-DECL|macro|SOLARIS
-define|#
-directive|define
-name|SOLARIS
-value|1
-end_define
-
-begin_define
-DECL|macro|_REENTRANT
-define|#
-directive|define
-name|_REENTRANT
-end_define
-
-begin_define
-DECL|macro|_FILE_OFFSET_BITS
-define|#
-directive|define
-name|_FILE_OFFSET_BITS
-value|64
-end_define
-
-begin_comment
-DECL|macro|_FILE_OFFSET_BITS
-comment|/* must be before<sys/types.h> */
-end_comment
 
 begin_include
 include|#
@@ -195,34 +167,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<sys/sendfile.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<sys/systeminfo.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<limits.h>
-end_include
-
-begin_comment
-comment|/* IOV_MAX */
-end_comment
-
-begin_include
-include|#
-directive|include
-file|<inttypes.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<ngx_auto_config.h>
 end_include
 
@@ -283,69 +227,6 @@ endif|#
 directive|endif
 end_endif
 
-begin_if
-if|#
-directive|if
-operator|(
-name|HAVE_AIO
-operator|)
-end_if
-
-begin_include
-include|#
-directive|include
-file|<aio.h>
-end_include
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_if
-if|#
-directive|if
-operator|(
-name|HAVE_DEVPOLL
-operator|)
-end_if
-
-begin_include
-include|#
-directive|include
-file|<sys/ioctl.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<sys/devpoll.h>
-end_include
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|HAVE_INHERITED_NONBLOCK
-end_ifndef
-
-begin_define
-DECL|macro|HAVE_INHERITED_NONBLOCK
-define|#
-directive|define
-name|HAVE_INHERITED_NONBLOCK
-value|1
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
 begin_define
 DECL|macro|ngx_setproctitle (title)
 define|#
@@ -356,15 +237,11 @@ name|title
 parameter_list|)
 end_define
 
-begin_comment
-comment|/* STUB */
-end_comment
-
 begin_define
-DECL|macro|HAVE_LITTLE_ENDIAN
+DECL|macro|NGX_POSIX_IO
 define|#
 directive|define
-name|HAVE_LITTLE_ENDIAN
+name|NGX_POSIX_IO
 value|1
 end_define
 
@@ -374,7 +251,7 @@ directive|endif
 end_endif
 
 begin_comment
-comment|/* _NGX_SOLARIS_CONFIG_H_INCLUDED_ */
+comment|/* _NGX_POSIX_CONFIG_H_INCLUDED_ */
 end_comment
 
 end_unit

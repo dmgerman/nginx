@@ -15,7 +15,25 @@ end_define
 begin_include
 include|#
 directive|include
+file|<sys/types.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<sys/time.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<unistd.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<stdarg.h>
 end_include
 
 begin_include
@@ -31,31 +49,19 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<stdlib.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<stdarg.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<stdio.h>
 end_include
 
 begin_include
 include|#
 directive|include
-file|<errno.h>
+file|<stdlib.h>
 end_include
 
 begin_include
 include|#
 directive|include
-file|<fcntl.h>
+file|<errno.h>
 end_include
 
 begin_include
@@ -73,25 +79,19 @@ end_include
 begin_include
 include|#
 directive|include
-file|<limits.h>
+file|<pwd.h>
 end_include
 
 begin_include
 include|#
 directive|include
-file|<sys/types.h>
+file|<grp.h>
 end_include
 
 begin_include
 include|#
 directive|include
-file|<sys/stat.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<sys/time.h>
+file|<dirent.h>
 end_include
 
 begin_include
@@ -103,19 +103,23 @@ end_include
 begin_include
 include|#
 directive|include
-file|<sys/ioctl.h>
+file|<sys/filio.h>
+end_include
+
+begin_comment
+comment|/* FIONBIO */
+end_comment
+
+begin_include
+include|#
+directive|include
+file|<sys/stat.h>
 end_include
 
 begin_include
 include|#
 directive|include
-file|<sys/resource.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<sys/sysctl.h>
+file|<fcntl.h>
 end_include
 
 begin_include
@@ -133,6 +137,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<sys/resource.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<sys/socket.h>
 end_include
 
@@ -145,29 +155,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<netinet/tcp.h>
-end_include
-
-begin_comment
-comment|/* TCP_NOPUSH */
-end_comment
-
-begin_include
-include|#
-directive|include
 file|<arpa/inet.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<pwd.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<grp.h>
 end_include
 
 begin_include
@@ -179,17 +167,11 @@ end_include
 begin_include
 include|#
 directive|include
-file|<dirent.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<libutil.h>
 end_include
 
 begin_comment
-comment|/* setproctitle() brefore 4.1 */
+comment|/* setproctitle() before 4.1 */
 end_comment
 
 begin_include
@@ -197,6 +179,22 @@ include|#
 directive|include
 file|<osreldate.h>
 end_include
+
+begin_include
+include|#
+directive|include
+file|<sys/sysctl.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<netinet/tcp.h>
+end_include
+
+begin_comment
+comment|/* TCP_NOPUSH */
+end_comment
 
 begin_include
 include|#
@@ -448,25 +446,6 @@ DECL|macro|HAVE_INHERITED_NONBLOCK
 define|#
 directive|define
 name|HAVE_INHERITED_NONBLOCK
-value|1
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|HAVE_FIONBIO
-end_ifndef
-
-begin_define
-DECL|macro|HAVE_FIONBIO
-define|#
-directive|define
-name|HAVE_FIONBIO
 value|1
 end_define
 
