@@ -3224,11 +3224,6 @@ condition|(
 operator|*
 name|p
 operator|==
-name|CR
-operator|||
-operator|*
-name|p
-operator|==
 name|LF
 condition|)
 block|{
