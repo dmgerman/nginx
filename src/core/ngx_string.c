@@ -346,10 +346,11 @@ operator|*
 literal|16
 operator|+
 operator|(
-operator|*
-name|line
+name|ch
 operator|-
 literal|'A'
+operator|+
+literal|10
 operator|)
 expr_stmt|;
 continue|continue;
@@ -372,10 +373,11 @@ operator|*
 literal|16
 operator|+
 operator|(
-operator|*
-name|line
+name|ch
 operator|-
 literal|'a'
+operator|+
+literal|10
 operator|)
 expr_stmt|;
 continue|continue;

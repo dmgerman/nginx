@@ -3658,7 +3658,7 @@ modifier|*
 name|module
 decl_stmt|;
 name|ngx_conf_t
-name|pcf
+name|pvcf
 decl_stmt|;
 name|ngx_http_conf_ctx_t
 modifier|*
@@ -3919,17 +3919,11 @@ operator|=
 name|cscf
 expr_stmt|;
 comment|/* parse inside server{} */
-name|pcf
+name|pvcf
 operator|=
 operator|*
 name|cf
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|pctx = cf->ctx;
-endif|#
-directive|endif
 name|cf
 operator|->
 name|ctx
@@ -3954,7 +3948,7 @@ expr_stmt|;
 operator|*
 name|cf
 operator|=
-name|pcf
+name|pvcf
 expr_stmt|;
 if|if
 condition|(
