@@ -18,7 +18,7 @@ file|<ngx_event.h>
 end_include
 
 begin_function
-DECL|function|ngx_readv_chain (ngx_connection_t * c,ngx_chain_t * entry)
+DECL|function|ngx_readv_chain (ngx_connection_t * c,ngx_chain_t * chain)
 name|ssize_t
 name|ngx_readv_chain
 parameter_list|(
@@ -28,7 +28,7 @@ name|c
 parameter_list|,
 name|ngx_chain_t
 modifier|*
-name|entry
+name|chain
 parameter_list|)
 block|{
 name|ssize_t
@@ -78,7 +78,7 @@ expr_stmt|;
 comment|/* TODO: coalesce the neighbouring chain entries */
 while|while
 condition|(
-name|entry
+name|chain
 condition|)
 block|{
 name|ngx_test_null
@@ -98,7 +98,7 @@ name|iov
 operator|->
 name|iov_base
 operator|=
-name|entry
+name|chain
 operator|->
 name|hunk
 operator|->
@@ -108,21 +108,21 @@ name|iov
 operator|->
 name|iov_len
 operator|=
-name|entry
+name|chain
 operator|->
 name|hunk
 operator|->
 name|end
 operator|-
-name|entry
+name|chain
 operator|->
 name|hunk
 operator|->
 name|last
 expr_stmt|;
-name|entry
+name|chain
 operator|=
-name|entry
+name|chain
 operator|->
 name|next
 expr_stmt|;
@@ -155,12 +155,6 @@ argument_list|,
 name|io
 operator|.
 name|nelts
-argument_list|)
-expr_stmt|;
-name|ngx_destroy_array
-argument_list|(
-operator|&
-name|io
 argument_list|)
 expr_stmt|;
 if|if

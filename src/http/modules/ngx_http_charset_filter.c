@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon296893480108
+DECL|struct|__anon2badc99a0108
 typedef|typedef
 struct|struct
 block|{
@@ -174,21 +174,13 @@ block|}
 decl_stmt|;
 end_decl_stmt
 
-begin_function_decl
-DECL|variable|next_header_filter
+begin_decl_stmt
+DECL|variable|ngx_http_next_header_filter
 specifier|static
-name|int
-function_decl|(
-modifier|*
-name|next_header_filter
-function_decl|)
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|)
-function_decl|;
-end_function_decl
+name|ngx_http_output_header_filter_pt
+name|ngx_http_next_header_filter
+decl_stmt|;
+end_decl_stmt
 
 begin_if
 if|#
@@ -197,7 +189,7 @@ literal|0
 end_if
 
 begin_endif
-unit|static int (*next_body_filter) (ngx_http_request_t *r, ngx_chain_t *ch);
+unit|static ngx_http_output_body_filter_pt    ngx_http_next_body_filter;
 endif|#
 directive|endif
 end_endif
@@ -265,7 +257,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|next_header_filter
+name|ngx_http_next_header_filter
 argument_list|(
 name|r
 argument_list|)
@@ -299,7 +291,7 @@ operator|==
 name|NGX_HTTP_MOVED_TEMPORARILY
 condition|)
 block|{
-comment|/* do not set charset for the redirect because NN 4.x uses this            charset instead of the next page charset */
+comment|/*          * do not set charset for the redirect because NN 4.x uses this          * charset instead of the next page charset          */
 name|r
 operator|->
 name|headers_out
@@ -336,7 +328,7 @@ name|default_charset
 expr_stmt|;
 block|}
 return|return
-name|next_header_filter
+name|ngx_http_next_header_filter
 argument_list|(
 name|r
 argument_list|)
@@ -351,7 +343,7 @@ literal|0
 end_if
 
 begin_endif
-unit|static int ngx_http_charset_body_filter(ngx_http_request_t *r, ngx_chain_t *in) {     ngx_log_debug(r->connection->log, "CHARSET BODY");     return next_body_filter(r, in); }
+unit|static int ngx_http_charset_body_filter(ngx_http_request_t *r, ngx_chain_t *in) {     ngx_log_debug(r->connection->log, "CHARSET BODY");     return ngx_http_next_body_filter(r, in); }
 endif|#
 directive|endif
 end_endif
@@ -367,7 +359,7 @@ modifier|*
 name|cycle
 parameter_list|)
 block|{
-name|next_header_filter
+name|ngx_http_next_header_filter
 operator|=
 name|ngx_http_top_header_filter
 expr_stmt|;
@@ -378,7 +370,7 @@ expr_stmt|;
 if|#
 directive|if
 literal|0
-block_content|next_body_filter = ngx_http_top_body_filter;     ngx_http_top_body_filter = ngx_http_charset_body_filter;
+block_content|ngx_http_next_body_filter = ngx_http_top_body_filter;     ngx_http_top_body_filter = ngx_http_charset_body_filter;
 endif|#
 directive|endif
 return|return

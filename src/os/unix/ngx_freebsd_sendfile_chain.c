@@ -88,7 +88,7 @@ name|file
 decl_stmt|;
 name|ngx_chain_t
 modifier|*
-name|ce
+name|cl
 decl_stmt|,
 modifier|*
 name|tail
@@ -109,7 +109,7 @@ return|;
 block|}
 do|do
 block|{
-name|ce
+name|cl
 operator|=
 name|in
 expr_stmt|;
@@ -171,7 +171,7 @@ argument_list|,
 name|NGX_CHAIN_ERROR
 argument_list|)
 expr_stmt|;
-comment|/* create the iovec and coalesce the neighbouring chain entries */
+comment|/* create the header iovec and coalesce the neighbouring hunks */
 name|prev
 operator|=
 name|NULL
@@ -182,15 +182,15 @@ name|NULL
 expr_stmt|;
 for|for
 control|(
-name|ce
+name|cl
 operator|=
 name|in
 init|;
-name|ce
+name|cl
 condition|;
-name|ce
+name|cl
 operator|=
-name|ce
+name|cl
 operator|->
 name|next
 control|)
@@ -199,7 +199,7 @@ if|if
 condition|(
 name|ngx_hunk_special
 argument_list|(
-name|ce
+name|cl
 operator|->
 name|hunk
 argument_list|)
@@ -212,7 +212,7 @@ condition|(
 operator|!
 name|ngx_hunk_in_memory_only
 argument_list|(
-name|ce
+name|cl
 operator|->
 name|hunk
 argument_list|)
@@ -224,7 +224,7 @@ if|if
 condition|(
 name|prev
 operator|==
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
@@ -235,13 +235,13 @@ name|iov
 operator|->
 name|iov_len
 operator|+=
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
 name|last
 operator|-
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
@@ -249,7 +249,7 @@ name|pos
 expr_stmt|;
 name|prev
 operator|=
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
@@ -275,7 +275,7 @@ name|iov
 operator|->
 name|iov_base
 operator|=
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
@@ -285,13 +285,13 @@ name|iov
 operator|->
 name|iov_len
 operator|=
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
 name|last
 operator|-
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
@@ -299,7 +299,7 @@ name|pos
 expr_stmt|;
 name|prev
 operator|=
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
@@ -308,13 +308,13 @@ expr_stmt|;
 block|}
 name|hsize
 operator|+=
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
 name|last
 operator|-
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
@@ -324,10 +324,10 @@ block|}
 comment|/* get the file hunk */
 if|if
 condition|(
-name|ce
+name|cl
 operator|&&
 operator|(
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
@@ -339,7 +339,7 @@ condition|)
 block|{
 name|file
 operator|=
-name|ce
+name|cl
 operator|->
 name|hunk
 expr_stmt|;
@@ -364,19 +364,19 @@ name|file
 operator|->
 name|file_last
 expr_stmt|;
-name|ce
+name|cl
 operator|=
-name|ce
+name|cl
 operator|->
 name|next
 expr_stmt|;
 comment|/* coalesce the neighbouring file hunks */
 while|while
 condition|(
-name|ce
+name|cl
 operator|&&
 operator|(
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
@@ -394,7 +394,7 @@ name|file
 operator|->
 name|fd
 operator|!=
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
@@ -404,7 +404,7 @@ name|fd
 operator|||
 name|fprev
 operator|!=
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
@@ -419,13 +419,13 @@ operator|(
 name|size_t
 operator|)
 operator|(
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
 name|file_last
 operator|-
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
@@ -434,21 +434,21 @@ operator|)
 expr_stmt|;
 name|fprev
 operator|=
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
 name|file_last
 expr_stmt|;
-name|ce
+name|cl
 operator|=
-name|ce
+name|cl
 operator|->
 name|next
 expr_stmt|;
 block|}
 block|}
-comment|/* create the iovec and coalesce the neighbouring chain entries */
+comment|/* create the tailer iovec and coalesce the neighbouring hunks */
 name|prev
 operator|=
 name|NULL
@@ -461,11 +461,11 @@ for|for
 control|(
 comment|/* void */
 init|;
-name|ce
+name|cl
 condition|;
-name|ce
+name|cl
 operator|=
-name|ce
+name|cl
 operator|->
 name|next
 control|)
@@ -474,7 +474,7 @@ if|if
 condition|(
 name|ngx_hunk_special
 argument_list|(
-name|ce
+name|cl
 operator|->
 name|hunk
 argument_list|)
@@ -487,7 +487,7 @@ condition|(
 operator|!
 name|ngx_hunk_in_memory_only
 argument_list|(
-name|ce
+name|cl
 operator|->
 name|hunk
 argument_list|)
@@ -499,7 +499,7 @@ if|if
 condition|(
 name|prev
 operator|==
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
@@ -510,13 +510,13 @@ name|iov
 operator|->
 name|iov_len
 operator|+=
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
 name|last
 operator|-
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
@@ -524,7 +524,7 @@ name|pos
 expr_stmt|;
 name|prev
 operator|=
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
@@ -550,7 +550,7 @@ name|iov
 operator|->
 name|iov_base
 operator|=
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
@@ -560,13 +560,13 @@ name|iov
 operator|->
 name|iov_len
 operator|=
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
 name|last
 operator|-
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
@@ -574,7 +574,7 @@ name|pos
 expr_stmt|;
 name|prev
 operator|=
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
@@ -585,7 +585,7 @@ block|}
 comment|/*          * the tail is the rest of the chain that exceeded          * a single sendfile() capability          */
 name|tail
 operator|=
-name|ce
+name|cl
 expr_stmt|;
 if|if
 condition|(
@@ -690,7 +690,7 @@ name|trailer
 operator|.
 name|nelts
 expr_stmt|;
-comment|/*              * the old sendfile() "nbytes bug":              * http://www.freebsd.org/cgi/query-pr.cgi?pr=33771              */
+comment|/*              * the "nbytes bug" of the old sendfile() syscall:              * http://www.freebsd.org/cgi/query-pr.cgi?pr=33771              */
 if|if
 condition|(
 name|ngx_freebsd_sendfile_nbytes_bug
@@ -969,15 +969,15 @@ name|sent
 expr_stmt|;
 for|for
 control|(
-name|ce
+name|cl
 operator|=
 name|in
 init|;
-name|ce
+name|cl
 condition|;
-name|ce
+name|cl
 operator|=
-name|ce
+name|cl
 operator|->
 name|next
 control|)
@@ -986,7 +986,7 @@ if|if
 condition|(
 name|ngx_hunk_special
 argument_list|(
-name|ce
+name|cl
 operator|->
 name|hunk
 argument_list|)
@@ -1007,7 +1007,7 @@ name|size
 operator|=
 name|ngx_hunk_size
 argument_list|(
-name|ce
+name|cl
 operator|->
 name|hunk
 argument_list|)
@@ -1025,7 +1025,7 @@ name|size
 expr_stmt|;
 if|if
 condition|(
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
@@ -1034,13 +1034,13 @@ operator|&
 name|NGX_HUNK_IN_MEMORY
 condition|)
 block|{
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
 name|pos
 operator|=
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
@@ -1049,7 +1049,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
@@ -1058,13 +1058,13 @@ operator|&
 name|NGX_HUNK_FILE
 condition|)
 block|{
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
 name|file_pos
 operator|=
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
@@ -1075,7 +1075,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
@@ -1084,7 +1084,7 @@ operator|&
 name|NGX_HUNK_IN_MEMORY
 condition|)
 block|{
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
@@ -1095,7 +1095,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
@@ -1104,7 +1104,7 @@ operator|&
 name|NGX_HUNK_FILE
 condition|)
 block|{
-name|ce
+name|cl
 operator|->
 name|hunk
 operator|->
@@ -1117,14 +1117,14 @@ break|break;
 block|}
 name|in
 operator|=
-name|ce
+name|cl
 expr_stmt|;
 if|if
 condition|(
 name|eagain
 condition|)
 block|{
-comment|/*              * sendfile() can return EAGAIN even if it has sent              * a whole file part and successive sendfile() would              * return EAGAIN right away and would not send anything.              */
+comment|/*              * sendfile() can return EAGAIN even if it has sent              * a whole file part and successive sendfile() would              * return EAGAIN right away and would not send anything              */
 name|c
 operator|->
 name|write

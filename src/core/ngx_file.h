@@ -61,7 +61,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c518e260108
+DECL|struct|__anon276ee19d0108
 typedef|typedef
 struct|struct
 block|{
@@ -154,6 +154,50 @@ name|collision
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_function_decl
+name|char
+modifier|*
+name|ngx_conf_set_path_slot
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_command_t
+modifier|*
+name|cmd
+parameter_list|,
+name|void
+modifier|*
+name|conf
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_define
+DECL|macro|ngx_conf_merge_path_value (conf,prev,path,l1,l2,l3,pool)
+define|#
+directive|define
+name|ngx_conf_merge_path_value
+parameter_list|(
+name|conf
+parameter_list|,
+name|prev
+parameter_list|,
+name|path
+parameter_list|,
+name|l1
+parameter_list|,
+name|l2
+parameter_list|,
+name|l3
+parameter_list|,
+name|pool
+parameter_list|)
+define|\
+value|if (conf == NULL) {                                                      \         if (prev == NULL) {                                                  \             ngx_test_null(conf, ngx_palloc(pool, sizeof(ngx_path_t)), NULL); \             conf->name.len = sizeof(path) - 1;                               \             conf->name.data = path;                                          \             conf->level[0] = l1;                                             \             conf->level[1] = l2;                                             \             conf->level[2] = l3;                                             \             conf->len = l1 + l2 + l3 + l1 ? 1:0 + l2 ? 1:0 + l3 ? 1:0;       \         } else {                                                             \             conf = prev;                                                     \         }                                                                    \     }
+end_define
 
 begin_endif
 endif|#

@@ -206,9 +206,9 @@ DECL|member|tag
 name|ngx_hunk_tag_t
 name|tag
 decl_stmt|;
-DECL|member|max_busy_len
+DECL|member|busy_size
 name|size_t
-name|max_busy_len
+name|busy_size
 decl_stmt|;
 DECL|member|temp_offset
 name|off_t

@@ -37,7 +37,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ad51b570108
+DECL|struct|__anon2b0e6d0f0108
 typedef|typedef
 struct|struct
 block|{
@@ -73,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad51b570208
+DECL|struct|__anon2b0e6d0f0208
 typedef|typedef
 struct|struct
 block|{
@@ -85,9 +85,9 @@ DECL|member|send_timeout
 name|ngx_msec_t
 name|send_timeout
 decl_stmt|;
-DECL|member|header_size
+DECL|member|header_buffer_size
 name|ssize_t
-name|header_size
+name|header_buffer_size
 decl_stmt|;
 DECL|member|read_timeout
 name|ngx_msec_t
@@ -97,24 +97,22 @@ DECL|member|bufs
 name|ngx_bufs_t
 name|bufs
 decl_stmt|;
-comment|/* STUB names */
-DECL|member|max_busy_len
-name|int
-name|max_busy_len
+DECL|member|busy_buffers_size
+name|ssize_t
+name|busy_buffers_size
 decl_stmt|;
 DECL|member|max_temp_file_size
-name|int
+name|ssize_t
 name|max_temp_file_size
 decl_stmt|;
 DECL|member|temp_file_write_size
-name|int
+name|ssize_t
 name|temp_file_write_size
 decl_stmt|;
 DECL|member|cyclic_temp_file
 name|int
 name|cyclic_temp_file
 decl_stmt|;
-comment|/* */
 DECL|member|temp_path
 name|ngx_path_t
 modifier|*
@@ -137,7 +135,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad51b570308
+DECL|struct|__anon2b0e6d0f0308
 typedef|typedef
 struct|struct
 block|{

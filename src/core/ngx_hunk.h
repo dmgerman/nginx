@@ -273,7 +273,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29065eb00108
+DECL|struct|__anon2b8d39600108
 typedef|typedef
 struct|struct
 block|{
@@ -383,10 +383,10 @@ value|ngx_pcalloc(pool, sizeof(ngx_hunk_t))
 end_define
 
 begin_define
-DECL|macro|ngx_alloc_chain_entry (pool)
+DECL|macro|ngx_alloc_chain_link (pool)
 define|#
 directive|define
-name|ngx_alloc_chain_entry
+name|ngx_alloc_chain_link
 parameter_list|(
 name|pool
 parameter_list|)
@@ -394,10 +394,10 @@ value|ngx_palloc(pool, sizeof(ngx_chain_t))
 end_define
 
 begin_define
-DECL|macro|ngx_add_hunk_to_chain (chain,h,pool,error)
+DECL|macro|ngx_alloc_link_and_set_hunk (chain,h,pool,error)
 define|#
 directive|define
-name|ngx_add_hunk_to_chain
+name|ngx_alloc_link_and_set_hunk
 parameter_list|(
 name|chain
 parameter_list|,
@@ -408,31 +408,23 @@ parameter_list|,
 name|error
 parameter_list|)
 define|\
-value|do {                                                             \                 ngx_test_null(chain, ngx_alloc_chain_entry(pool), error);    \                 chain->hunk = h;                                             \                 chain->next = NULL;                                          \             } while (0);
+value|do {                                                             \                 ngx_test_null(chain, ngx_alloc_chain_link(pool), error);     \                 chain->hunk = h;                                             \                 chain->next = NULL;                                          \             } while (0);
 end_define
 
 begin_define
-DECL|macro|ngx_alloc_ce_and_set_hunk
+DECL|macro|ngx_chain_add_link (chain,last,cl)
 define|#
 directive|define
-name|ngx_alloc_ce_and_set_hunk
-value|ngx_add_hunk_to_chain
-end_define
-
-begin_define
-DECL|macro|ngx_chain_add_ce (chain,last,ce)
-define|#
-directive|define
-name|ngx_chain_add_ce
+name|ngx_chain_add_link
 parameter_list|(
 name|chain
 parameter_list|,
 name|last
 parameter_list|,
-name|ce
+name|cl
 parameter_list|)
 define|\
-value|if (chain) {                                                     \                 *last = ce;                                                  \             } else {                                                         \                 chain = ce;                                                  \             }                                                                \             last =&ce->next
+value|if (chain) {                                                     \                 *last = cl;                                                  \             } else {                                                         \                 chain = cl;                                                  \             }                                                                \             last =&cl->next
 end_define
 
 begin_function_decl
@@ -446,7 +438,7 @@ parameter_list|,
 name|ngx_chain_t
 modifier|*
 modifier|*
-name|ch
+name|chain
 parameter_list|,
 name|ngx_chain_t
 modifier|*

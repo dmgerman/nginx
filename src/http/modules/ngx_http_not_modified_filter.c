@@ -84,21 +84,13 @@ block|}
 decl_stmt|;
 end_decl_stmt
 
-begin_function_decl
-DECL|variable|next_header_filter
+begin_decl_stmt
+DECL|variable|ngx_http_next_header_filter
 specifier|static
-name|int
-function_decl|(
-modifier|*
-name|next_header_filter
-function_decl|)
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|)
-function_decl|;
-end_function_decl
+name|ngx_http_output_header_filter_pt
+name|ngx_http_next_header_filter
+decl_stmt|;
+end_decl_stmt
 
 begin_function
 DECL|function|ngx_http_not_modified_header_filter (ngx_http_request_t * r)
@@ -143,7 +135,7 @@ literal|1
 condition|)
 block|{
 return|return
-name|next_header_filter
+name|ngx_http_next_header_filter
 argument_list|(
 name|r
 argument_list|)
@@ -182,7 +174,7 @@ literal|"%d %d"
 argument|_                   ims _ r->headers_out.last_modified_time
 argument_list|)
 empty_stmt|;
-comment|/* I think that the equality of the dates is correcter */
+comment|/*      * I think that the equality of the dates is correcter      */
 if|if
 condition|(
 name|ims
@@ -257,7 +249,7 @@ literal|0
 expr_stmt|;
 block|}
 return|return
-name|next_header_filter
+name|ngx_http_next_header_filter
 argument_list|(
 name|r
 argument_list|)
@@ -276,7 +268,7 @@ modifier|*
 name|cycle
 parameter_list|)
 block|{
-name|next_header_filter
+name|ngx_http_next_header_filter
 operator|=
 name|ngx_http_top_header_filter
 expr_stmt|;

@@ -984,6 +984,8 @@ if|#
 directive|if
 literal|0
 comment|/* TEST STUB */
+block_content|r->http_version = NGX_HTTP_VERSION_10;
+comment|/* TEST STUB */
 block_content|r->keepalive = 0;
 endif|#
 directive|endif
