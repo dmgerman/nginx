@@ -2501,7 +2501,7 @@ operator|!
 operator|(
 name|file
 operator|=
-name|ngx_push_list
+name|ngx_list_push
 argument_list|(
 operator|&
 name|cycle

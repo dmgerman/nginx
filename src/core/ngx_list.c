@@ -12,10 +12,10 @@ file|<ngx_core.h>
 end_include
 
 begin_function
-DECL|function|ngx_push_list (ngx_list_t * l)
+DECL|function|ngx_list_push (ngx_list_t * l)
 name|void
 modifier|*
-name|ngx_push_list
+name|ngx_list_push
 parameter_list|(
 name|ngx_list_t
 modifier|*

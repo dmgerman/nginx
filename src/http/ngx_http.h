@@ -127,7 +127,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon298804310108
+DECL|struct|__anon2886fc9e0108
 typedef|typedef
 struct|struct
 block|{
@@ -420,22 +420,6 @@ name|buf
 parameter_list|,
 name|time_t
 name|t
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-name|ngx_table_elt_t
-modifier|*
-name|ngx_http_add_header
-parameter_list|(
-name|void
-modifier|*
-name|header
-parameter_list|,
-name|ngx_http_header_t
-modifier|*
-name|http_headers
 parameter_list|)
 function_decl|;
 end_function_decl

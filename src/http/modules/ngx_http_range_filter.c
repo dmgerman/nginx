@@ -22,7 +22,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon2bc3c6940108
+DECL|struct|__anon2acc267d0108
 typedef|typedef
 struct|struct
 block|{
@@ -321,7 +321,7 @@ name|headers_out
 operator|.
 name|accept_ranges
 operator|=
-name|ngx_push_list
+name|ngx_list_push
 argument_list|(
 operator|&
 name|r
@@ -886,7 +886,7 @@ name|headers_out
 operator|.
 name|content_range
 operator|=
-name|ngx_push_list
+name|ngx_list_push
 argument_list|(
 operator|&
 name|r
@@ -1100,7 +1100,7 @@ name|headers_out
 operator|.
 name|content_range
 operator|=
-name|ngx_push_list
+name|ngx_list_push
 argument_list|(
 operator|&
 name|r

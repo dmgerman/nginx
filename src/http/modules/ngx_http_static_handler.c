@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon288fe2dc0108
+DECL|struct|__anon297deb610108
 typedef|typedef
 struct|struct
 block|{
@@ -1354,17 +1354,13 @@ name|last
 operator|=
 literal|'\0'
 expr_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
 name|r
 operator|->
 name|headers_out
 operator|.
 name|location
 operator|=
-name|ngx_push_list
+name|ngx_list_push
 argument_list|(
 operator|&
 name|r
@@ -1373,7 +1369,16 @@ name|headers_out
 operator|.
 name|headers
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|r
+operator|->
+name|headers_out
+operator|.
+name|location
+operator|==
+name|NULL
 condition|)
 block|{
 return|return

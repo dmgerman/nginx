@@ -436,7 +436,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|ngx_init_list
+name|ngx_list_init
 argument_list|(
 operator|&
 name|cycle

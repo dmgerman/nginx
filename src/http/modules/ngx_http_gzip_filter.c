@@ -24,7 +24,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bce9d6d0108
+DECL|struct|__anon2b17f0f30108
 typedef|typedef
 struct|struct
 block|{
@@ -143,7 +143,7 @@ value|0x0200
 end_define
 
 begin_typedef
-DECL|struct|__anon2bce9d6d0208
+DECL|struct|__anon2b17f0f30208
 typedef|typedef
 struct|struct
 block|{
@@ -1357,7 +1357,7 @@ name|headers_out
 operator|.
 name|content_encoding
 operator|=
-name|ngx_push_list
+name|ngx_list_push
 argument_list|(
 operator|&
 name|r

@@ -49,7 +49,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|enum|__anon2ae2f4720103
+DECL|enum|__anon27eb26c60103
 typedef|typedef
 enum|enum
 block|{
@@ -85,7 +85,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2ae2f4720203
+DECL|enum|__anon27eb26c60203
 typedef|typedef
 enum|enum
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae2f4720308
+DECL|struct|__anon27eb26c60308
 typedef|typedef
 struct|struct
 block|{
@@ -164,7 +164,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae2f4720408
+DECL|struct|__anon27eb26c60408
 typedef|typedef
 struct|struct
 block|{
@@ -284,7 +284,7 @@ comment|/*  * "EXPR/10/5/- 200/EXP/60 4"  * "MISS/-/-/B 503/-/- -"  * "EXPR/10/2
 end_comment
 
 begin_typedef
-DECL|struct|__anon2ae2f4720508
+DECL|struct|__anon27eb26c60508
 typedef|typedef
 struct|struct
 block|{
@@ -332,15 +332,21 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae2f4720608
+DECL|struct|__anon27eb26c60608
 typedef|typedef
 struct|struct
 block|{
 DECL|member|headers
-name|ngx_table_t
+name|ngx_list_t
 name|headers
 decl_stmt|;
+if|#
+directive|if
+literal|0
+block|ngx_table_t                      headers;
 comment|/* it must be first field */
+endif|#
+directive|endif
 DECL|member|date
 name|ngx_table_elt_t
 modifier|*
@@ -417,7 +423,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae2f4720708
+DECL|struct|__anon27eb26c60708
 typedef|typedef
 struct|struct
 block|{
@@ -444,7 +450,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae2f4720808
+DECL|struct|__anon27eb26c60808
 typedef|typedef
 struct|struct
 block|{
@@ -628,7 +634,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2ae2f4720908
+DECL|struct|__anon27eb26c60908
 typedef|typedef
 struct|struct
 block|{

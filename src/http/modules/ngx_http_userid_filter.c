@@ -62,7 +62,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon2b7aa0fd0108
+DECL|struct|__anon273d10170108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7aa0fd0208
+DECL|struct|__anon273d10170208
 typedef|typedef
 struct|struct
 block|{
@@ -1923,7 +1923,7 @@ operator|!
 operator|(
 name|set_cookie
 operator|=
-name|ngx_push_list
+name|ngx_list_push
 argument_list|(
 operator|&
 name|r

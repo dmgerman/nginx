@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28a73b290108
+DECL|struct|__anon2b68ea780108
 typedef|typedef
 struct|struct
 block|{
@@ -291,7 +291,7 @@ operator|!
 operator|(
 name|expires
 operator|=
-name|ngx_push_list
+name|ngx_list_push
 argument_list|(
 operator|&
 name|r
@@ -321,7 +321,7 @@ operator|!
 operator|(
 name|cc
 operator|=
-name|ngx_push_list
+name|ngx_list_push
 argument_list|(
 operator|&
 name|r

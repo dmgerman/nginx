@@ -405,7 +405,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon2798fc900103
+DECL|enum|__anon27c740d00103
 typedef|typedef
 enum|enum
 block|{
@@ -426,7 +426,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2798fc900203
+DECL|enum|__anon27c740d00203
 typedef|typedef
 enum|enum
 block|{
@@ -465,7 +465,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2798fc900308
+DECL|struct|__anon27c740d00308
 typedef|typedef
 struct|struct
 block|{
@@ -484,7 +484,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2798fc900408
+DECL|struct|__anon27c740d00408
 typedef|typedef
 struct|struct
 block|{
@@ -601,7 +601,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2798fc900508
+DECL|struct|__anon27c740d00508
 typedef|typedef
 struct|struct
 block|{
@@ -624,7 +624,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2798fc900608
+DECL|struct|__anon27c740d00608
 typedef|typedef
 struct|struct
 block|{
@@ -632,13 +632,6 @@ DECL|member|headers
 name|ngx_list_t
 name|headers
 decl_stmt|;
-if|#
-directive|if
-literal|0
-block|ngx_table_t       headers;
-comment|/* it must be first field */
-endif|#
-directive|endif
 DECL|member|status
 name|ngx_uint_t
 name|status
@@ -734,7 +727,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2798fc900708
+DECL|struct|__anon27c740d00708
 typedef|typedef
 struct|struct
 block|{
@@ -785,10 +778,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon2798fc90080a
+DECL|union|__anon27c740d0080a
 union|union
 block|{
-DECL|struct|__anon2798fc900908
+DECL|struct|__anon27c740d00908
 struct|struct
 block|{
 DECL|member|fd
@@ -804,7 +797,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon2798fc900a08
+DECL|struct|__anon27c740d00a08
 struct|struct
 block|{
 DECL|member|hash
