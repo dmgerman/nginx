@@ -327,7 +327,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon279364290108
+DECL|struct|__anon2b7781f00108
 typedef|typedef
 struct|struct
 block|{
@@ -1404,6 +1404,23 @@ if|if
 condition|(
 name|timer
 operator|==
+operator|-
+literal|1
+condition|)
+block|{
+name|timer
+operator|=
+literal|0
+expr_stmt|;
+name|expire
+operator|=
+literal|1
+expr_stmt|;
+block|}
+if|else if
+condition|(
+name|timer
+operator|==
 literal|0
 condition|)
 block|{
@@ -1452,9 +1469,16 @@ name|ngx_accept_mutex_held
 operator|==
 literal|0
 operator|&&
+operator|(
+name|timer
+operator|==
+operator|-
+literal|1
+operator|||
 name|timer
 operator|>
 name|ngx_accept_mutex_delay
+operator|)
 condition|)
 block|{
 name|timer

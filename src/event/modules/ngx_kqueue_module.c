@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28a73dfc0108
+DECL|struct|__anon288923b20108
 typedef|typedef
 struct|struct
 block|{
@@ -1611,6 +1611,32 @@ expr_stmt|;
 block|}
 block|}
 if|if
+condition|(
+name|timer
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+name|ts
+operator|.
+name|tv_sec
+operator|=
+literal|0
+expr_stmt|;
+name|ts
+operator|.
+name|tv_nsec
+operator|=
+literal|0
+expr_stmt|;
+name|tp
+operator|=
+operator|&
+name|ts
+expr_stmt|;
+block|}
+if|else if
 condition|(
 name|timer
 condition|)

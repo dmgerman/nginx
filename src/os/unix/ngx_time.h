@@ -35,7 +35,7 @@ end_typedef
 begin_typedef
 DECL|typedef|ngx_msec_t
 typedef|typedef
-name|u_int
+name|ngx_int_t
 name|ngx_msec_t
 typedef|;
 end_typedef

@@ -100,24 +100,6 @@ condition|)
 block|{
 return|return;
 block|}
-name|ngx_log_debug1
-argument_list|(
-name|NGX_LOG_DEBUG_EVENT
-argument_list|,
-name|cycle
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"posted event handler "
-name|PTR_FMT
-argument_list|,
-name|ev
-operator|->
-name|event_handler
-argument_list|)
-expr_stmt|;
 name|ngx_posted_events
 operator|=
 name|ev

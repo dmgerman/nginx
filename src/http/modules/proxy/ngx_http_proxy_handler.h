@@ -49,7 +49,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|enum|__anon2c3c14880103
+DECL|enum|__anon2ad83a0e0103
 typedef|typedef
 enum|enum
 block|{
@@ -85,7 +85,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c3c14880203
+DECL|enum|__anon2ad83a0e0203
 typedef|typedef
 enum|enum
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3c14880308
+DECL|struct|__anon2ad83a0e0308
 typedef|typedef
 struct|struct
 block|{
@@ -164,7 +164,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3c14880408
+DECL|struct|__anon2ad83a0e0408
 typedef|typedef
 struct|struct
 block|{
@@ -284,7 +284,7 @@ comment|/*  * "EXPR/10/5/- 200/EXP/60 4"  * "MISS/-/-/B 503/-/- -"  * "EXPR/10/2
 end_comment
 
 begin_typedef
-DECL|struct|__anon2c3c14880508
+DECL|struct|__anon2ad83a0e0508
 typedef|typedef
 struct|struct
 block|{
@@ -332,7 +332,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3c14880608
+DECL|struct|__anon2ad83a0e0608
 typedef|typedef
 struct|struct
 block|{
@@ -360,6 +360,11 @@ DECL|member|cache_control
 name|ngx_table_elt_t
 modifier|*
 name|cache_control
+decl_stmt|;
+DECL|member|etag
+name|ngx_table_elt_t
+modifier|*
+name|etag
 decl_stmt|;
 DECL|member|x_accel_expires
 name|ngx_table_elt_t
@@ -407,7 +412,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3c14880708
+DECL|struct|__anon2ad83a0e0708
 typedef|typedef
 struct|struct
 block|{
@@ -434,7 +439,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3c14880808
+DECL|struct|__anon2ad83a0e0808
 typedef|typedef
 struct|struct
 block|{
@@ -618,7 +623,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c3c14880908
+DECL|struct|__anon2ad83a0e0908
 typedef|typedef
 struct|struct
 block|{

@@ -345,7 +345,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon2bf45b340103
+DECL|enum|__anon2c25a0060103
 typedef|typedef
 enum|enum
 block|{
@@ -384,7 +384,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf45b340208
+DECL|struct|__anon2c25a0060208
 typedef|typedef
 struct|struct
 block|{
@@ -403,7 +403,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf45b340308
+DECL|struct|__anon2c25a0060308
 typedef|typedef
 struct|struct
 block|{
@@ -509,7 +509,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf45b340408
+DECL|struct|__anon2c25a0060408
 typedef|typedef
 struct|struct
 block|{
@@ -532,7 +532,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf45b340508
+DECL|struct|__anon2c25a0060508
 typedef|typedef
 struct|struct
 block|{
@@ -594,6 +594,21 @@ name|ngx_table_elt_t
 modifier|*
 name|accept_ranges
 decl_stmt|;
+DECL|member|expires
+name|ngx_table_elt_t
+modifier|*
+name|expires
+decl_stmt|;
+DECL|member|cache_control
+name|ngx_table_elt_t
+modifier|*
+name|cache_control
+decl_stmt|;
+DECL|member|etag
+name|ngx_table_elt_t
+modifier|*
+name|etag
+decl_stmt|;
 DECL|member|charset
 name|ngx_str_t
 name|charset
@@ -605,11 +620,6 @@ decl_stmt|;
 DECL|member|content_length_n
 name|off_t
 name|content_length_n
-decl_stmt|;
-DECL|member|etag
-name|u_char
-modifier|*
-name|etag
 decl_stmt|;
 DECL|member|date_time
 name|time_t
@@ -626,7 +636,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf45b340608
+DECL|struct|__anon2c25a0060608
 typedef|typedef
 struct|struct
 block|{
@@ -677,10 +687,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon2bf45b34070a
+DECL|union|__anon2c25a006070a
 union|union
 block|{
-DECL|struct|__anon2bf45b340808
+DECL|struct|__anon2c25a0060808
 struct|struct
 block|{
 DECL|member|fd
@@ -696,7 +706,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon2bf45b340908
+DECL|struct|__anon2c25a0060908
 struct|struct
 block|{
 DECL|member|hash

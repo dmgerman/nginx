@@ -1984,14 +1984,9 @@ if|if
 condition|(
 name|ngx_event_flags
 operator|&
-operator|(
 name|NGX_USE_CLEAR_EVENT
-operator||
-name|NGX_HAVE_KQUEUE_EVENT
-operator|)
 condition|)
 block|{
-comment|/* kqueue allows to detect when client closes prematurely connection */
 name|r
 operator|->
 name|connection
@@ -3160,26 +3155,6 @@ operator|->
 name|lcf
 operator|->
 name|connect_timeout
-argument_list|)
-expr_stmt|;
-name|ngx_log_debug1
-argument_list|(
-name|NGX_LOG_DEBUG_HTTP
-argument_list|,
-name|c
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"http proxy connect handler: "
-name|PTR_FMT
-argument_list|,
-name|c
-operator|->
-name|write
-operator|->
-name|event_handler
 argument_list|)
 expr_stmt|;
 return|return;

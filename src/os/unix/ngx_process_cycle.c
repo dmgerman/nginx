@@ -450,7 +450,7 @@ name|NGX_PROCESS_RESPAWN
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*              * we have to limit the maximum life time of the worker processes              * by 1 month because our millisecond event timer is limited              * by 49 days on 32-bit platforms              */
+comment|/*              * we have to limit the maximum life time of the worker processes              * by 10 days because our millisecond event timer is limited              * by 24 days on 32-bit platforms              */
 name|itv
 operator|.
 name|it_interval
@@ -473,7 +473,7 @@ name|it_value
 operator|.
 name|tv_sec
 operator|=
-literal|30
+literal|10
 operator|*
 literal|24
 operator|*

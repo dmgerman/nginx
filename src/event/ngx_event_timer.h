@@ -39,7 +39,7 @@ value|(ngx_msec_t) -1
 end_define
 
 begin_comment
-comment|/*  * 32 bit timer key value resolution  *  * 1 msec - 49 days  * 10 msec - 1 years 4 months  * 50 msec - 6 years 10 months  * 100 msec - 13 years 8 months  */
+comment|/*  * 32 bit timer key value resolution  *  * 1 msec - 24 days  * 10 msec - 8 months  * 50 msec - 3 years 5 months  * 100 msec - 6 years 10 months  */
 end_comment
 
 begin_define

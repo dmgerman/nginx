@@ -131,6 +131,9 @@ parameter_list|(
 name|void
 parameter_list|)
 block|{
+name|ngx_msec_t
+name|timer
+decl_stmt|;
 name|ngx_rbtree_t
 modifier|*
 name|node
@@ -180,7 +183,8 @@ argument_list|(
 name|ngx_event_timer_mutex
 argument_list|)
 expr_stmt|;
-return|return
+name|timer
+operator|=
 operator|(
 name|ngx_msec_t
 operator|)
@@ -197,13 +201,23 @@ name|NGX_TIMER_RESOLUTION
 operator|*
 name|NGX_TIMER_RESOLUTION
 operator|)
-return|;
+expr_stmt|;
 if|#
 directive|if
 literal|0
 block_content|(node->key * NGX_TIMER_RESOLUTION - ngx_elapsed_msec);
 endif|#
 directive|endif
+return|return
+name|timer
+operator|>
+literal|0
+condition|?
+name|timer
+else|:
+operator|-
+literal|1
+return|;
 block|}
 end_function
 
