@@ -1718,7 +1718,7 @@ modifier|*
 name|p
 parameter_list|)
 block|{
-name|size_t
+name|off_t
 name|bsize
 decl_stmt|;
 name|ngx_uint_t
@@ -1998,7 +1998,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"pipe write busy: %uz"
+literal|"pipe write busy: %O"
 argument_list|,
 name|bsize
 argument_list|)

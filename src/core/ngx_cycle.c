@@ -228,10 +228,6 @@ name|ngx_core_conf_t
 modifier|*
 name|ccf
 decl_stmt|;
-name|ngx_event_conf_t
-modifier|*
-name|ecf
-decl_stmt|;
 name|ngx_core_module_t
 modifier|*
 name|module
@@ -2090,34 +2086,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-name|ecf
-operator|=
-name|ngx_event_get_conf
-argument_list|(
-name|cycle
-operator|->
-name|conf_ctx
-argument_list|,
-name|ngx_event_core_module
-argument_list|)
-expr_stmt|;
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_INFO
-argument_list|,
-name|cycle
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"using the \"%s\" event method"
-argument_list|,
-name|ecf
-operator|->
-name|name
-argument_list|)
-expr_stmt|;
 comment|/* close and delete stuff that lefts from an old cycle */
 comment|/* close the unneeded listening sockets */
 name|ls

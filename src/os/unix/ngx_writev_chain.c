@@ -61,7 +61,7 @@ decl_stmt|;
 name|off_t
 name|send
 decl_stmt|,
-name|sprev
+name|prev_send
 decl_stmt|;
 name|ngx_uint_t
 name|eintr
@@ -155,6 +155,27 @@ return|;
 block|}
 endif|#
 directive|endif
+comment|/* the maximum limit size is the maximum size_t value - the page size */
+if|if
+condition|(
+name|limit
+operator|==
+literal|0
+operator|||
+name|limit
+operator|>
+name|MAX_SIZE_T_VALUE
+operator|-
+name|ngx_pagesize
+condition|)
+block|{
+name|limit
+operator|=
+name|MAX_SIZE_T_VALUE
+operator|-
+name|ngx_pagesize
+expr_stmt|;
+block|}
 name|send
 operator|=
 literal|0
@@ -211,7 +232,7 @@ name|eintr
 operator|=
 literal|0
 expr_stmt|;
-name|sprev
+name|prev_send
 operator|=
 name|send
 expr_stmt|;
@@ -500,7 +521,7 @@ if|if
 condition|(
 name|send
 operator|-
-name|sprev
+name|prev_send
 operator|==
 name|sent
 condition|)

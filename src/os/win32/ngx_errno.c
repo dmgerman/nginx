@@ -100,9 +100,13 @@ comment|/* 10040 */
 name|ngx_null_string
 block|,
 comment|/* 10041 */
-name|ngx_null_string
+comment|/* WSAENOPROTOOPT 10042 */
+name|ngx_string
+argument_list|(
+literal|"An unknown, invalid, or unsupported option or level was "
+literal|"specified in a getsockopt or setsockopt call"
+argument_list|)
 block|,
-comment|/* 10042 */
 name|ngx_null_string
 block|,
 comment|/* 10043 */

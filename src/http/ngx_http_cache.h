@@ -47,7 +47,7 @@ value|3
 end_define
 
 begin_typedef
-DECL|struct|__anon29d515d50108
+DECL|struct|__anon29fffafd0108
 typedef|typedef
 struct|struct
 block|{
@@ -130,7 +130,7 @@ DECL|member|updated
 name|time_t
 name|updated
 decl_stmt|;
-DECL|union|__anon29d515d5020a
+DECL|union|__anon29fffafd020a
 union|union
 block|{
 DECL|member|size
@@ -152,7 +152,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d515d50308
+DECL|struct|__anon29fffafd0308
 typedef|typedef
 struct|struct
 block|{
@@ -206,7 +206,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon29d515d50408
+DECL|struct|__anon29fffafd0408
 typedef|typedef
 struct|struct
 block|{
@@ -254,7 +254,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d515d50508
+DECL|struct|__anon29fffafd0508
 typedef|typedef
 struct|struct
 block|{
@@ -334,6 +334,25 @@ decl_stmt|;
 DECL|typedef|ngx_http_cache_t
 block|}
 name|ngx_http_cache_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon29fffafd0608
+typedef|typedef
+struct|struct
+block|{
+DECL|member|path
+name|ngx_path_t
+name|path
+decl_stmt|;
+DECL|member|key
+name|ngx_str_t
+name|key
+decl_stmt|;
+DECL|typedef|ngx_http_cache_ctx_t
+block|}
+name|ngx_http_cache_ctx_t
 typedef|;
 end_typedef
 

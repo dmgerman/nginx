@@ -130,6 +130,25 @@ endif|#
 directive|endif
 end_endif
 
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|NGX_HAVE_SO_SNDLOWAT
+end_ifndef
+
+begin_define
+DECL|macro|NGX_HAVE_SO_SNDLOWAT
+define|#
+directive|define
+name|NGX_HAVE_SO_SNDLOWAT
+value|1
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_if
 if|#
 directive|if

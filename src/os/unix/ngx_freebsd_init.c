@@ -128,7 +128,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon29068e130108
+DECL|struct|__anon29c08c890108
 typedef|typedef
 struct|struct
 block|{
@@ -656,6 +656,10 @@ operator|=
 name|ngx_freebsd_hw_ncpu
 expr_stmt|;
 block|}
+name|ngx_tcp_nodelay_and_tcp_nopush
+operator|=
+literal|1
+expr_stmt|;
 return|return
 name|ngx_posix_init
 argument_list|(

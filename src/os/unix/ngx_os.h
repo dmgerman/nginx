@@ -135,7 +135,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c290130108
+DECL|struct|__anon2b3781cf0108
 typedef|typedef
 struct|struct
 block|{
@@ -331,8 +331,15 @@ end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
-name|ngx_int_t
+name|ngx_uint_t
 name|ngx_inherited_nonblocking
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_uint_t
+name|ngx_tcp_nodelay_and_tcp_nopush
 decl_stmt|;
 end_decl_stmt
 

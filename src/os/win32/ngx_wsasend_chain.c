@@ -61,7 +61,7 @@ name|sent
 decl_stmt|,
 name|send
 decl_stmt|,
-name|sprev
+name|prev_send
 decl_stmt|;
 name|ngx_uint_t
 name|complete
@@ -106,6 +106,27 @@ block|{
 return|return
 name|in
 return|;
+block|}
+comment|/* the maximum limit size is the maximum u_long value - the page size */
+if|if
+condition|(
+name|limit
+operator|==
+literal|0
+operator|||
+name|limit
+operator|>
+name|NGX_MAX_UINT32_VALUE
+operator|-
+name|ngx_pagesize
+condition|)
+block|{
+name|limit
+operator|=
+name|NGX_MAX_UINT32_VALUE
+operator|-
+name|ngx_pagesize
+expr_stmt|;
 block|}
 name|send
 operator|=
@@ -159,7 +180,7 @@ name|wsabuf
 operator|=
 name|NULL
 expr_stmt|;
-name|sprev
+name|prev_send
 operator|=
 name|send
 expr_stmt|;
@@ -442,7 +463,7 @@ if|if
 condition|(
 name|send
 operator|-
-name|sprev
+name|prev_send
 operator|==
 name|sent
 condition|)
@@ -611,10 +632,9 @@ name|u_char
 modifier|*
 name|prev
 decl_stmt|;
-name|size_t
-name|size
-decl_stmt|;
 name|u_long
+name|size
+decl_stmt|,
 name|send
 decl_stmt|,
 name|sent
@@ -689,6 +709,27 @@ name|complete
 condition|)
 block|{
 comment|/* post the overlapped WSASend() */
+comment|/* the maximum limit size is the maximum u_long value - the page size */
+if|if
+condition|(
+name|limit
+operator|==
+literal|0
+operator|||
+name|limit
+operator|>
+name|NGX_MAX_UINT32_VALUE
+operator|-
+name|ngx_pagesize
+condition|)
+block|{
+name|limit
+operator|=
+name|NGX_MAX_UINT32_VALUE
+operator|-
+name|ngx_pagesize
+expr_stmt|;
+block|}
 comment|/*          * WSABUFs must be 4-byte aligned otherwise          * WSASend() will return undocumented WSAEINVAL error.          */
 name|vec
 operator|.

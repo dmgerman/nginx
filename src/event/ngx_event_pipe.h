@@ -233,7 +233,7 @@ name|ngx_buf_tag_t
 name|tag
 decl_stmt|;
 DECL|member|busy_size
-name|size_t
+name|ssize_t
 name|busy_size
 decl_stmt|;
 DECL|member|read_length

@@ -28,7 +28,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon278fc9730108
+DECL|struct|__anon2bbd309c0108
 typedef|typedef
 struct|struct
 block|{
@@ -600,12 +600,6 @@ argument_list|,
 name|clcf
 operator|->
 name|limit_rate
-condition|?
-name|clcf
-operator|->
-name|limit_rate
-else|:
-name|OFF_T_MAX_VALUE
 argument_list|)
 expr_stmt|;
 name|ngx_log_debug1

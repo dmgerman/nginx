@@ -121,7 +121,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29e7342d0108
+DECL|struct|__anon2a0454090108
 typedef|typedef
 struct|struct
 block|{
@@ -140,6 +140,15 @@ decl_stmt|;
 DECL|member|debug_points
 name|ngx_int_t
 name|debug_points
+decl_stmt|;
+DECL|member|priority
+name|int
+name|priority
+decl_stmt|;
+DECL|member|username
+name|char
+modifier|*
+name|username
 decl_stmt|;
 DECL|member|user
 name|ngx_uid_t
@@ -179,7 +188,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e7342d0208
+DECL|struct|__anon2a0454090208
 typedef|typedef
 struct|struct
 block|{

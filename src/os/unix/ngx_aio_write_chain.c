@@ -72,6 +72,27 @@ name|ngx_chain_t
 modifier|*
 name|cl
 decl_stmt|;
+comment|/* the maximum limit size is the maximum size_t value - the page size */
+if|if
+condition|(
+name|limit
+operator|==
+literal|0
+operator|||
+name|limit
+operator|>
+name|MAX_SIZE_T_VALUE
+operator|-
+name|ngx_pagesize
+condition|)
+block|{
+name|limit
+operator|=
+name|MAX_SIZE_T_VALUE
+operator|-
+name|ngx_pagesize
+expr_stmt|;
+block|}
 name|send
 operator|=
 literal|0

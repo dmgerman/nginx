@@ -41,7 +41,7 @@ file|<openssl/err.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27c5e4120108
+DECL|struct|__anon2c7f9a400108
 typedef|typedef
 struct|struct
 block|{
@@ -55,9 +55,13 @@ name|ngx_buf_t
 modifier|*
 name|buf
 decl_stmt|;
-DECL|member|saved_handler
+DECL|member|saved_read_handler
 name|ngx_event_handler_pt
-name|saved_handler
+name|saved_read_handler
+decl_stmt|;
+DECL|member|saved_write_handler
+name|ngx_event_handler_pt
+name|saved_write_handler
 decl_stmt|;
 DECL|member|buffer
 name|unsigned
@@ -74,6 +78,12 @@ decl_stmt|;
 DECL|member|no_send_shut
 name|unsigned
 name|no_send_shut
+range|:
+literal|1
+decl_stmt|;
+DECL|member|shutdown_set
+name|unsigned
+name|shutdown_set
 range|:
 literal|1
 decl_stmt|;
@@ -217,18 +227,6 @@ modifier|...
 parameter_list|)
 function_decl|;
 end_function_decl
-
-begin_define
-DECL|macro|ngx_ssl_set_nosendshut (ssl)
-define|#
-directive|define
-name|ngx_ssl_set_nosendshut
-parameter_list|(
-name|ssl
-parameter_list|)
-define|\
-value|if (ssl) {                                                       \                 ssl->no_send_shut = 1;                                       \             }
-end_define
 
 begin_endif
 endif|#

@@ -53,6 +53,13 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_tcp_nodelay_and_tcp_nopush
+name|ngx_uint_t
+name|ngx_tcp_nodelay_and_tcp_nopush
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_stderr_fileno
 name|ngx_fd_t
 name|ngx_stderr_fileno
@@ -79,7 +86,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon27c1cc7c0108
+DECL|struct|__anon2b7794530108
 typedef|typedef
 struct|struct
 block|{

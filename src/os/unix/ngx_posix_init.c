@@ -31,8 +31,15 @@ end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_inherited_nonblocking
-name|ngx_int_t
+name|ngx_uint_t
 name|ngx_inherited_nonblocking
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_tcp_nodelay_and_tcp_nopush
+name|ngx_uint_t
+name|ngx_tcp_nodelay_and_tcp_nopush
 decl_stmt|;
 end_decl_stmt
 
@@ -124,7 +131,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon27659e8a0108
+DECL|struct|__anon2c1083370108
 typedef|typedef
 struct|struct
 block|{

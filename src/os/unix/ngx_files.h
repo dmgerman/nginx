@@ -556,7 +556,7 @@ name|name
 parameter_list|,
 name|dir
 parameter_list|)
-value|stat((const char *) name,&(dir)->info)
+value|lstat((const char *) name,&(dir)->info)
 end_define
 
 begin_define
