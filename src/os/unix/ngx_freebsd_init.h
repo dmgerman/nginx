@@ -27,18 +27,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_log.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_os_init.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<sys/sysctl.h>
 end_include
 

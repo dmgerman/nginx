@@ -46,7 +46,7 @@ literal|1
 case|:
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_ALERT
+name|NGX_LOG_EMERG
 argument_list|,
 name|log
 argument_list|,
@@ -80,7 +80,7 @@ condition|)
 block|{
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_ALERT
+name|NGX_LOG_EMERG
 argument_list|,
 name|log
 argument_list|,
@@ -113,7 +113,7 @@ literal|1
 case|:
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_ALERT
+name|NGX_LOG_EMERG
 argument_list|,
 name|log
 argument_list|,
@@ -146,7 +146,7 @@ expr_stmt|;
 if|#
 directive|if
 literal|0
-block_content|fd = open("/dev/null", O_RDWR);     if (fd == -1) {         ngx_log_error(NGX_LOG_ALERT, log, errno, "open(\"/dev/null\") failed");         return NGX_ERROR;     }      if (dup2(fd, STDIN_FILENO) == -1) {         ngx_log_error(NGX_LOG_ALERT, log, errno, "dup2(STDIN) failed");         return NGX_ERROR;     }      if (dup2(fd, STDOUT_FILENO) == -1) {         ngx_log_error(NGX_LOG_ALERT, log, errno, "dup2(STDOUT) failed");         return NGX_ERROR;     }      if (dup2(fd, STDERR_FILENO) == -1) {         ngx_log_error(NGX_LOG_ALERT, log, errno, "dup2(STDERR) failed");         return NGX_ERROR;     }      if (fd> STDERR_FILENO) {         if (close(fd) == -1) {             ngx_log_error(NGX_LOG_ALERT, log, errno, "close() failed");             return NGX_ERROR;         }     }
+block_content|fd = open("/dev/null", O_RDWR);     if (fd == -1) {         ngx_log_error(NGX_LOG_EMERG, log, errno, "open(\"/dev/null\") failed");         return NGX_ERROR;     }      if (dup2(fd, STDIN_FILENO) == -1) {         ngx_log_error(NGX_LOG_EMERG, log, errno, "dup2(STDIN) failed");         return NGX_ERROR;     }      if (dup2(fd, STDOUT_FILENO) == -1) {         ngx_log_error(NGX_LOG_EMERG, log, errno, "dup2(STDOUT) failed");         return NGX_ERROR;     }      if (dup2(fd, STDERR_FILENO) == -1) {         ngx_log_error(NGX_LOG_EMERG, log, errno, "dup2(STDERR) failed");         return NGX_ERROR;     }      if (fd> STDERR_FILENO) {         if (close(fd) == -1) {             ngx_log_error(NGX_LOG_EMERG, log, errno, "close() failed");             return NGX_ERROR;         }     }
 endif|#
 directive|endif
 return|return

@@ -465,6 +465,11 @@ directive|if
 operator|(
 name|HAVE_DEVPOLL
 operator|)
+operator|&&
+operator|!
+operator|(
+name|TEST_DEVPOLL
+operator|)
 end_if
 
 begin_include

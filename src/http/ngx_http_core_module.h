@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27db52d40108
+DECL|struct|__anon2991ad870108
 typedef|typedef
 struct|struct
 block|{
@@ -67,7 +67,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27db52d40208
+DECL|struct|__anon2991ad870208
 typedef|typedef
 struct|struct
 block|{
@@ -111,7 +111,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27db52d40308
+DECL|struct|__anon2991ad870308
 typedef|typedef
 struct|struct
 block|{
@@ -147,7 +147,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon27db52d40408
+DECL|struct|__anon2991ad870408
 typedef|typedef
 struct|struct
 block|{
@@ -167,7 +167,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27db52d40508
+DECL|struct|__anon2991ad870508
 typedef|typedef
 struct|struct
 block|{
@@ -209,7 +209,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon27db52d40608
+DECL|struct|__anon2991ad870608
 typedef|typedef
 struct|struct
 block|{
@@ -248,11 +248,11 @@ parameter_list|,
 name|ext
 parameter_list|)
 define|\
-value|{                                                                   \             uint n;                                                         \             for (key = 0, n = 0; n< ext.len; n++) {                        \                 key += ext.data[n];                                         \             }                                                               \             key %= NGX_HTTP_TYPES_HASH_PRIME;                               \         }
+value|{                                                                   \             u_int n;                                                        \             for (key = 0, n = 0; n< ext.len; n++) {                        \                 key += ext.data[n];                                         \             }                                                               \             key %= NGX_HTTP_TYPES_HASH_PRIME;                               \         }
 end_define
 
 begin_typedef
-DECL|struct|__anon27db52d40708
+DECL|struct|__anon2991ad870708
 typedef|typedef
 struct|struct
 block|{
@@ -271,7 +271,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27db52d40808
+DECL|struct|__anon2991ad870808
 typedef|typedef
 struct|struct
 block|{

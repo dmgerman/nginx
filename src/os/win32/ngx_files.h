@@ -102,6 +102,14 @@ value|CreateFile(name,                                                \         
 end_define
 
 begin_define
+DECL|macro|ngx_open_tempfile_n
+define|#
+directive|define
+name|ngx_open_tempfile_n
+value|"CreateFile()"
+end_define
+
+begin_define
 DECL|macro|ngx_open_file_n
 define|#
 directive|define

@@ -3365,11 +3365,6 @@ parameter_list|)
 block|{
 name|int
 name|rc
-decl_stmt|,
-name|event
-decl_stmt|;
-name|ngx_msec_t
-name|timeout
 decl_stmt|;
 name|ngx_event_t
 modifier|*
@@ -3743,9 +3738,6 @@ parameter_list|)
 block|{
 name|int
 name|rc
-decl_stmt|;
-name|ngx_msec_t
-name|timeout
 decl_stmt|;
 name|ngx_event_t
 modifier|*

@@ -119,6 +119,7 @@ endif|#
 directive|endif
 do|do
 block|{
+comment|/* Create the pool before accept() to avoid copy the sockaddr.            Although accept() can fail it's uncommon case            and the pool can be got from the free pool list */
 name|pool
 operator|=
 name|ngx_create_pool

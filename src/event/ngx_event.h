@@ -21,6 +21,18 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_core.h>
+end_include
+
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
+begin_include
+include|#
+directive|include
 file|<ngx_types.h>
 end_include
 
@@ -60,6 +72,11 @@ directive|include
 file|<ngx_conf_file.h>
 end_include
 
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_comment
 comment|/* STUB */
 end_comment
@@ -80,14 +97,17 @@ name|NGX_INVALID_INDEX
 value|0x80000000
 end_define
 
-begin_typedef
-DECL|typedef|ngx_event_t
-typedef|typedef
-name|struct
-name|ngx_event_s
-name|ngx_event_t
-typedef|;
-end_typedef
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
+begin_endif
+unit|typedef struct ngx_event_s       ngx_event_t;
+endif|#
+directive|endif
+end_endif
 
 begin_if
 if|#
@@ -98,7 +118,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon29a447a00108
+DECL|struct|__anon2a18edeb0108
 typedef|typedef
 struct|struct
 block|{
@@ -393,8 +413,14 @@ block|}
 struct|;
 end_struct
 
+begin_if
+if|#
+directive|if
+literal|1
+end_if
+
 begin_typedef
-DECL|enum|__anon29a447a00203
+DECL|enum|__anon2a18edeb0203
 typedef|typedef
 enum|enum
 block|{
@@ -462,8 +488,13 @@ name|ngx_event_type_e
 typedef|;
 end_typedef
 
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_typedef
-DECL|struct|__anon29a447a00308
+DECL|struct|__anon2a18edeb0308
 typedef|typedef
 struct|struct
 block|{
@@ -614,7 +645,7 @@ DECL|macro|NGX_HAVE_LEVEL_EVENT
 define|#
 directive|define
 name|NGX_HAVE_LEVEL_EVENT
-value|1
+value|0x00000001
 end_define
 
 begin_comment
@@ -626,7 +657,7 @@ DECL|macro|NGX_HAVE_ONESHOT_EVENT
 define|#
 directive|define
 name|NGX_HAVE_ONESHOT_EVENT
-value|2
+value|0x00000002
 end_define
 
 begin_comment
@@ -638,7 +669,7 @@ DECL|macro|NGX_HAVE_CLEAR_EVENT
 define|#
 directive|define
 name|NGX_HAVE_CLEAR_EVENT
-value|4
+value|0x00000004
 end_define
 
 begin_comment
@@ -650,7 +681,7 @@ DECL|macro|NGX_HAVE_KQUEUE_EVENT
 define|#
 directive|define
 name|NGX_HAVE_KQUEUE_EVENT
-value|8
+value|0x00000008
 end_define
 
 begin_comment
@@ -763,22 +794,6 @@ define|#
 directive|define
 name|NGX_WRITE_EVENT
 value|EVFILT_WRITE
-end_define
-
-begin_define
-DECL|macro|NGX_ENABLE_EVENT
-define|#
-directive|define
-name|NGX_ENABLE_EVENT
-value|EV_ENABLE
-end_define
-
-begin_define
-DECL|macro|NGX_DISABLE_EVENT
-define|#
-directive|define
-name|NGX_DISABLE_EVENT
-value|EV_DISABLE
 end_define
 
 begin_comment
@@ -931,6 +946,30 @@ end_endif
 begin_comment
 comment|/* HAVE_KQUEUE */
 end_comment
+
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|NGX_CLEAR_EVENT
+end_ifndef
+
+begin_define
+DECL|macro|NGX_CLEAR_EVENT
+define|#
+directive|define
+name|NGX_CLEAR_EVENT
+value|0
+end_define
+
+begin_comment
+DECL|macro|NGX_CLEAR_EVENT
+comment|/* dummy */
+end_comment
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_if
 if|#
@@ -1264,7 +1303,7 @@ value|0
 end_define
 
 begin_typedef
-DECL|struct|__anon29a447a00408
+DECL|struct|__anon2a18edeb0408
 typedef|typedef
 struct|struct
 block|{
@@ -1272,13 +1311,13 @@ DECL|member|connections
 name|int
 name|connections
 decl_stmt|;
-DECL|member|type
-name|int
-name|type
-decl_stmt|;
 DECL|member|timer_queues
 name|int
 name|timer_queues
+decl_stmt|;
+DECL|member|type
+name|int
+name|type
 decl_stmt|;
 DECL|typedef|ngx_event_conf_t
 block|}
@@ -1287,7 +1326,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a447a00508
+DECL|struct|__anon2a18edeb0508
 typedef|typedef
 struct|struct
 block|{

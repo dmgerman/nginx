@@ -131,6 +131,10 @@ name|pool
 expr_stmt|;
 if|if
 condition|(
+operator|(
+name|char
+operator|*
+operator|)
 name|a
 operator|->
 name|elts
@@ -236,6 +240,10 @@ expr_stmt|;
 comment|/* array allocation is the last in the pool */
 if|if
 condition|(
+operator|(
+name|char
+operator|*
+operator|)
 name|a
 operator|->
 name|elts
@@ -342,6 +350,10 @@ block|}
 block|}
 name|elt
 operator|=
+operator|(
+name|char
+operator|*
+operator|)
 name|a
 operator|->
 name|elts

@@ -2318,6 +2318,10 @@ operator|=
 name|inport
 expr_stmt|;
 comment|/* prepare for the next cycle */
+operator|(
+name|char
+operator|*
+operator|)
 name|in_port
 index|[
 name|p

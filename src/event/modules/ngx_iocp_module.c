@@ -511,26 +511,13 @@ literal|"iocp ev: %08x"
 argument|_ ev->event_handler
 argument_list|)
 empty_stmt|;
-if|if
-condition|(
 name|ev
 operator|->
 name|event_handler
 argument_list|(
 name|ev
 argument_list|)
-operator|==
-name|NGX_ERROR
-condition|)
-block|{
-name|ev
-operator|->
-name|close_handler
-argument_list|(
-name|ev
-argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 name|NGX_OK

@@ -15,12 +15,6 @@ end_define
 begin_include
 include|#
 directive|include
-file|<ngx_file.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<ngx_log.h>
 end_include
 
@@ -82,7 +76,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29d365fb0108
+DECL|struct|__anon2c46ac330108
 typedef|typedef
 struct|struct
 block|{

@@ -39,6 +39,36 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_errno.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_process.h>
+end_include
+
+begin_typedef
+DECL|typedef|ngx_connection_t
+typedef|typedef
+name|struct
+name|ngx_connection_s
+name|ngx_connection_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|typedef|ngx_event_t
+typedef|typedef
+name|struct
+name|ngx_event_s
+name|ngx_event_t
+typedef|;
+end_typedef
+
+begin_include
+include|#
+directive|include
 file|<ngx_log.h>
 end_include
 
@@ -81,13 +111,13 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_connection.h>
+file|<ngx_os_init.h>
 end_include
 
 begin_include
 include|#
 directive|include
-file|<ngx_os_init.h>
+file|<ngx_connection.h>
 end_include
 
 begin_define
@@ -149,6 +179,17 @@ end_define
 begin_comment
 comment|/* #define NGX_MAXHOSTNAMELEN MAXHOSTNAMELEN */
 end_comment
+
+begin_comment
+comment|/* STUB */
+end_comment
+
+begin_decl_stmt
+specifier|extern
+name|ngx_log_t
+name|ngx_log
+decl_stmt|;
+end_decl_stmt
 
 begin_endif
 endif|#

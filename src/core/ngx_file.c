@@ -73,8 +73,6 @@ name|persistent
 parameter_list|)
 block|{
 name|int
-name|i
-decl_stmt|,
 name|num
 decl_stmt|;
 name|ngx_err_t
@@ -164,7 +162,7 @@ init|;
 condition|;
 control|)
 block|{
-name|snprintf
+name|ngx_snprintf
 argument_list|(
 name|file
 operator|->

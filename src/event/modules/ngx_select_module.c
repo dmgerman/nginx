@@ -456,6 +456,11 @@ modifier|*
 name|log
 parameter_list|)
 block|{
+name|ngx_event_timer_done
+argument_list|(
+name|log
+argument_list|)
+expr_stmt|;
 name|ngx_free
 argument_list|(
 name|event_index
@@ -645,6 +650,7 @@ name|event
 operator|==
 name|NGX_READ_EVENT
 condition|)
+block|{
 name|FD_SET
 argument_list|(
 name|c
@@ -655,12 +661,14 @@ operator|&
 name|master_read_fd_set
 argument_list|)
 expr_stmt|;
+block|}
 if|else if
 condition|(
 name|event
 operator|==
 name|NGX_WRITE_EVENT
 condition|)
+block|{
 name|FD_SET
 argument_list|(
 name|c
@@ -671,6 +679,7 @@ operator|&
 name|master_write_fd_set
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|max_fd
@@ -684,12 +693,14 @@ name|c
 operator|->
 name|fd
 condition|)
+block|{
 name|max_fd
 operator|=
 name|c
 operator|->
 name|fd
 expr_stmt|;
+block|}
 endif|#
 directive|endif
 name|ev
@@ -769,9 +780,11 @@ name|index
 operator|==
 name|NGX_INVALID_INDEX
 condition|)
+block|{
 return|return
 name|NGX_OK
 return|;
+block|}
 if|#
 directive|if
 operator|(
@@ -842,6 +855,7 @@ name|event
 operator|==
 name|NGX_READ_EVENT
 condition|)
+block|{
 name|FD_CLR
 argument_list|(
 name|c
@@ -852,12 +866,14 @@ operator|&
 name|master_read_fd_set
 argument_list|)
 expr_stmt|;
+block|}
 if|else if
 condition|(
 name|event
 operator|==
 name|NGX_WRITE_EVENT
 condition|)
+block|{
 name|FD_CLR
 argument_list|(
 name|c
@@ -868,6 +884,7 @@ operator|&
 name|master_write_fd_set
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|max_fd
@@ -876,11 +893,13 @@ name|c
 operator|->
 name|fd
 condition|)
+block|{
 name|max_fd
 operator|=
 operator|-
 literal|1
 expr_stmt|;
+block|}
 endif|#
 directive|endif
 if|if
@@ -1091,12 +1110,14 @@ name|c
 operator|->
 name|fd
 condition|)
+block|{
 name|max_fd
 operator|=
 name|c
 operator|->
 name|fd
 expr_stmt|;
+block|}
 block|}
 if|#
 directive|if
@@ -1519,6 +1540,7 @@ name|ev
 operator|->
 name|write
 condition|)
+block|{
 name|ngx_select_del_event
 argument_list|(
 name|ev
@@ -1528,7 +1550,9 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 name|ngx_select_del_event
 argument_list|(
 name|ev
@@ -1538,6 +1562,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|ev
 operator|->

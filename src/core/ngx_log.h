@@ -25,14 +25,17 @@ file|<ngx_errno.h>
 end_include
 
 begin_typedef
-DECL|enum|__anon297996f50103
+DECL|enum|__anon2a32b3fd0103
 typedef|typedef
 enum|enum
 block|{
-DECL|enumerator|NGX_LOG_EMERG
-name|NGX_LOG_EMERG
+DECL|enumerator|NGX_LOG_STDERR
+name|NGX_LOG_STDERR
 init|=
 literal|0
+block|,
+DECL|enumerator|NGX_LOG_EMERG
+name|NGX_LOG_EMERG
 block|,
 DECL|enumerator|NGX_LOG_ALERT
 name|NGX_LOG_ALERT
@@ -65,7 +68,7 @@ comment|/*     "[%time] [%level] %pid#%tid: %message:(%errno)%errstr, while %act
 end_comment
 
 begin_typedef
-DECL|struct|__anon297996f50208
+DECL|struct|__anon2a32b3fd0208
 typedef|typedef
 struct|struct
 block|{
