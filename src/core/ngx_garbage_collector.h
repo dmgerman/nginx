@@ -81,7 +81,25 @@ struct|;
 end_struct
 
 begin_function_decl
+name|ngx_int_t
+name|ngx_collect_garbage
+parameter_list|(
+name|ngx_gc_t
+modifier|*
+name|ctx
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|dname
+parameter_list|,
 name|int
+name|level
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
 name|ngx_garbage_collector_temp_handler
 parameter_list|(
 name|ngx_gc_t

@@ -131,8 +131,8 @@ end_decl_stmt
 
 begin_function
 DECL|function|ngx_event_del_timer (ngx_event_t * ev)
-name|ngx_inline
 specifier|static
+name|ngx_inline
 name|void
 name|ngx_event_del_timer
 parameter_list|(
@@ -241,8 +241,8 @@ end_function
 
 begin_function
 DECL|function|ngx_event_add_timer (ngx_event_t * ev,ngx_msec_t timer)
-name|ngx_inline
 specifier|static
+name|ngx_inline
 name|void
 name|ngx_event_add_timer
 parameter_list|(

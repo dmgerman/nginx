@@ -90,12 +90,30 @@ name|NGX_EACCES
 value|ERROR_ACCESS_DENIED
 end_define
 
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
+begin_define
+define|#
+directive|define
+name|NGX_EEXIST
+value|ERROR_FILE_EXISTS
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_define
 DECL|macro|NGX_EEXIST
 define|#
 directive|define
 name|NGX_EEXIST
-value|ERROR_FILE_EXISTS
+value|ERROR_ALREADY_EXISTS
 end_define
 
 begin_define

@@ -77,6 +77,7 @@ value|(n1->color = n2->color)
 end_define
 
 begin_function_decl
+specifier|static
 name|ngx_inline
 name|void
 name|ngx_rbtree_left_rotate
@@ -98,6 +99,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
+specifier|static
 name|ngx_inline
 name|void
 name|ngx_rbtree_right_rotate
@@ -1280,6 +1282,7 @@ end_function
 
 begin_function
 DECL|function|ngx_rbtree_left_rotate (ngx_rbtree_t ** root,ngx_rbtree_t * sentinel,ngx_rbtree_t * node)
+specifier|static
 name|ngx_inline
 name|void
 name|ngx_rbtree_left_rotate
@@ -1404,6 +1407,7 @@ end_function
 
 begin_function
 DECL|function|ngx_rbtree_right_rotate (ngx_rbtree_t ** root,ngx_rbtree_t * sentinel,ngx_rbtree_t * node)
+specifier|static
 name|ngx_inline
 name|void
 name|ngx_rbtree_right_rotate

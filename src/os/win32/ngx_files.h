@@ -159,7 +159,7 @@ value|0
 end_define
 
 begin_function_decl
-name|int
+name|ngx_int_t
 name|ngx_file_append_mode
 parameter_list|(
 name|ngx_fd_t
@@ -250,7 +250,7 @@ value|"MoveFile()"
 end_define
 
 begin_function_decl
-name|int
+name|ngx_int_t
 name|ngx_win32_rename_file
 parameter_list|(
 name|ngx_str_t
@@ -269,7 +269,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|int
+name|ngx_int_t
 name|ngx_file_info
 parameter_list|(
 name|u_char
@@ -419,7 +419,7 @@ value|2
 end_define
 
 begin_function_decl
-name|int
+name|ngx_int_t
 name|ngx_open_dir
 parameter_list|(
 name|ngx_str_t
@@ -442,7 +442,7 @@ value|"FindFirstFile()"
 end_define
 
 begin_function_decl
-name|int
+name|ngx_int_t
 name|ngx_read_dir
 parameter_list|(
 name|ngx_dir_t

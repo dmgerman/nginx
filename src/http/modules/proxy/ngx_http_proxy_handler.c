@@ -771,6 +771,34 @@ block|,
 block|{
 name|ngx_string
 argument_list|(
+literal|"proxy_max_temp_file_size"
+argument_list|)
+block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
+name|NGX_HTTP_SRV_CONF
+operator||
+name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_CONF_TAKE1
+block|,
+name|ngx_conf_set_size_slot
+block|,
+name|NGX_HTTP_LOC_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+name|ngx_http_proxy_loc_conf_t
+argument_list|,
+name|max_temp_file_size
+argument_list|)
+block|,
+name|NULL
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
 literal|"proxy_temp_file_write_size"
 argument_list|)
 block|,
@@ -4167,16 +4195,11 @@ name|busy_buffers_size
 operator|=
 name|NGX_CONF_UNSET_SIZE
 expr_stmt|;
-comment|/*      * "proxy_max_temp_file_size" is hardcoded to 1G for reverse proxy,      * it should be configurable in the generic proxy      */
 name|conf
 operator|->
 name|max_temp_file_size
 operator|=
-literal|1024
-operator|*
-literal|1024
-operator|*
-literal|1024
+name|NGX_CONF_UNSET_SIZE
 expr_stmt|;
 name|conf
 operator|->
@@ -4630,17 +4653,32 @@ operator|==
 name|NGX_CONF_UNSET_SIZE
 condition|)
 block|{
+comment|/*          * "proxy_max_temp_file_size" is set to 1G for reverse proxy,          * it should be much less in the generic proxy          */
 name|conf
 operator|->
 name|max_temp_file_size
 operator|=
-literal|2
+literal|1024
 operator|*
-name|size
+literal|1024
+operator|*
+literal|1024
 expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|conf->max_temp_file_size = 2 * size;
+endif|#
+directive|endif
 block|}
 if|else if
 condition|(
+name|conf
+operator|->
+name|max_temp_file_size
+operator|!=
+literal|0
+operator|&&
 name|conf
 operator|->
 name|max_temp_file_size
@@ -4656,7 +4694,8 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"\"proxy_max_temp_file_size\" must be equal or bigger than "
+literal|"\"proxy_max_temp_file_size\" must be equal to zero to disable "
+literal|"the temporary files usage or must be equal or bigger than "
 literal|"maximum of the value of \"proxy_header_buffer_size\" and "
 literal|"one of the \"proxy_buffers\""
 argument_list|)

@@ -487,7 +487,7 @@ end_function
 
 begin_function
 DECL|function|ngx_open_tempfile (u_char * name,ngx_uint_t persistent)
-name|int
+name|ngx_fd_t
 name|ngx_open_tempfile
 parameter_list|(
 name|u_char
@@ -1006,7 +1006,7 @@ end_function
 
 begin_function
 DECL|function|ngx_open_dir (ngx_str_t * name,ngx_dir_t * dir)
-name|int
+name|ngx_int_t
 name|ngx_open_dir
 parameter_list|(
 name|ngx_str_t

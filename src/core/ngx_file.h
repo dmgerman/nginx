@@ -102,11 +102,11 @@ name|ngx_str_t
 name|name
 decl_stmt|;
 DECL|member|len
-name|u_int
+name|ngx_uint_t
 name|len
 decl_stmt|;
 DECL|member|level
-name|u_int
+name|ngx_uint_t
 name|level
 index|[
 literal|3
@@ -116,12 +116,21 @@ DECL|member|gc_handler
 name|ngx_gc_handler_pt
 name|gc_handler
 decl_stmt|;
+DECL|member|conf_file
+name|u_char
+modifier|*
+name|conf_file
+decl_stmt|;
+DECL|member|line
+name|ngx_uint_t
+name|line
+decl_stmt|;
 block|}
 struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a230aaa0108
+DECL|struct|__anon2c13ef7d0108
 typedef|typedef
 struct|struct
 block|{
@@ -161,7 +170,7 @@ typedef|;
 end_typedef
 
 begin_function_decl
-name|int
+name|ssize_t
 name|ngx_write_chain_to_temp_file
 parameter_list|(
 name|ngx_temp_file_t
@@ -176,7 +185,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|int
+name|ngx_int_t
 name|ngx_create_temp_file
 parameter_list|(
 name|ngx_file_t
@@ -213,7 +222,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|int
+name|ngx_int_t
 name|ngx_create_path
 parameter_list|(
 name|ngx_file_t
@@ -223,6 +232,20 @@ parameter_list|,
 name|ngx_path_t
 modifier|*
 name|path
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_create_pathes
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|,
+name|ngx_uid_t
+name|user
 parameter_list|)
 function_decl|;
 end_function_decl

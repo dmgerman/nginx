@@ -1355,11 +1355,6 @@ if|if
 condition|(
 name|ngx_close_socket
 argument_list|(
-name|ls
-index|[
-name|i
-index|]
-operator|.
 name|fd
 argument_list|)
 operator|==

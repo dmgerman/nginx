@@ -22,8 +22,8 @@ end_comment
 
 begin_function
 DECL|function|ngx_crc (char * data,size_t len)
-name|ngx_inline
 specifier|static
+name|ngx_inline
 name|uint32_t
 name|ngx_crc
 parameter_list|(

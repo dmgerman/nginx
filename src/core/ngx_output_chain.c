@@ -30,8 +30,8 @@ value|1
 end_define
 
 begin_function_decl
-name|ngx_inline
 specifier|static
+name|ngx_inline
 name|ngx_int_t
 name|ngx_output_chain_need_to_copy
 parameter_list|(
@@ -707,8 +707,8 @@ block|}
 end_function
 
 begin_function
-name|ngx_inline
 specifier|static
+name|ngx_inline
 name|ngx_int_t
 DECL|function|ngx_output_chain_need_to_copy (ngx_output_chain_ctx_t * ctx,ngx_buf_t * buf)
 name|ngx_output_chain_need_to_copy

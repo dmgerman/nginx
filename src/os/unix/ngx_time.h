@@ -275,6 +275,17 @@ parameter_list|)
 value|usleep(ms * 1000)
 end_define
 
+begin_define
+DECL|macro|ngx_sleep (s)
+define|#
+directive|define
+name|ngx_sleep
+parameter_list|(
+name|s
+parameter_list|)
+value|sleep(s)
+end_define
+
 begin_endif
 endif|#
 directive|endif

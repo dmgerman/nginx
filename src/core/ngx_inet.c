@@ -21,8 +21,8 @@ end_comment
 
 begin_function
 DECL|function|ngx_sprint_uchar (u_char * text,u_char c,size_t len)
-name|ngx_inline
 specifier|static
+name|ngx_inline
 name|size_t
 name|ngx_sprint_uchar
 parameter_list|(

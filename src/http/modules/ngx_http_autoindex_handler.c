@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28d19ddf0108
+DECL|struct|__anon2be21ae10108
 typedef|typedef
 struct|struct
 block|{
@@ -65,7 +65,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28d19ddf0208
+DECL|struct|__anon2be21ae10208
 typedef|typedef
 struct|struct
 block|{
@@ -1461,16 +1461,21 @@ name|NGX_HTTP_AUTOINDEX_NAME_LEN
 operator|+
 sizeof|sizeof
 argument_list|(
+literal|"&gt;"
+argument_list|)
+operator|-
+literal|2
+operator|+
+sizeof|sizeof
+argument_list|(
 literal|"</a>"
 argument_list|)
 operator|-
 literal|1
 operator|+
-literal|1
-operator|+
 sizeof|sizeof
 argument_list|(
-literal|"28-Sep-1970 12:00 "
+literal|" 28-Sep-1970 12:00 "
 argument_list|)
 operator|-
 literal|1

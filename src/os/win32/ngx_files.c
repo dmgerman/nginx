@@ -600,7 +600,7 @@ end_function
 
 begin_function
 DECL|function|ngx_win32_rename_file (ngx_str_t * from,ngx_str_t * to,ngx_pool_t * pool)
-name|int
+name|ngx_int_t
 name|ngx_win32_rename_file
 parameter_list|(
 name|ngx_str_t
@@ -862,7 +862,7 @@ literal|0
 end_if
 
 begin_comment
-unit|int ngx_file_info(char *file, ngx_file_info_t *sb) {     WIN32_FILE_ATTRIBUTE_DATA  fa;
+unit|ngx_int_t ngx_file_info(char *file, ngx_file_info_t *sb) {     WIN32_FILE_ATTRIBUTE_DATA  fa;
 comment|/* NT4 and Win98 */
 end_comment
 
@@ -874,7 +874,7 @@ end_endif
 
 begin_function
 DECL|function|ngx_file_info (u_char * file,ngx_file_info_t * sb)
-name|int
+name|ngx_int_t
 name|ngx_file_info
 parameter_list|(
 name|u_char
@@ -922,7 +922,7 @@ end_function
 
 begin_function
 DECL|function|ngx_open_dir (ngx_str_t * name,ngx_dir_t * dir)
-name|int
+name|ngx_int_t
 name|ngx_open_dir
 parameter_list|(
 name|ngx_str_t
@@ -1005,7 +1005,7 @@ end_function
 
 begin_function
 DECL|function|ngx_read_dir (ngx_dir_t * dir)
-name|int
+name|ngx_int_t
 name|ngx_read_dir
 parameter_list|(
 name|ngx_dir_t
@@ -1059,13 +1059,19 @@ end_function
 
 begin_function
 DECL|function|ngx_file_append_mode (ngx_fd_t fd)
-name|int
+name|ngx_int_t
 name|ngx_file_append_mode
 parameter_list|(
 name|ngx_fd_t
 name|fd
 parameter_list|)
 block|{
+if|#
+directive|if
+literal|0
+block_content|if (LockFile(fd, 0, 0, 0xffffffff, 0xffffffff) == 0) {         return NGX_ERROR;     }
+endif|#
+directive|endif
 if|if
 condition|(
 name|SetFilePointer
@@ -1094,6 +1100,12 @@ name|NGX_ERROR
 return|;
 block|}
 block|}
+if|#
+directive|if
+literal|0
+block_content|if (UnlockFile(fd, 0, 0, 0xffffffff, 0xffffffff) == 0) {         return NGX_ERROR;     }
+endif|#
+directive|endif
 return|return
 name|NGX_OK
 return|;

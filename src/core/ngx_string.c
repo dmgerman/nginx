@@ -415,6 +415,17 @@ operator|++
 expr_stmt|;
 continue|continue;
 case|case
+literal|'m'
+case|:
+name|width
+operator|=
+name|NGX_INT_T_LEN
+expr_stmt|;
+name|fmt
+operator|++
+expr_stmt|;
+continue|continue;
+case|case
 literal|'X'
 case|:
 name|hexadecimal

@@ -197,6 +197,14 @@ value|EHOSTUNREACH
 end_define
 
 begin_define
+DECL|macro|NGX_ENOSYS
+define|#
+directive|define
+name|NGX_ENOSYS
+value|ENOSYS
+end_define
+
+begin_define
 DECL|macro|NGX_ECANCELED
 define|#
 directive|define

@@ -147,7 +147,7 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"open(/dev/zero) failed"
+literal|"open(\"/dev/zero\") failed"
 argument_list|)
 expr_stmt|;
 return|return
@@ -217,7 +217,7 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"close() failed"
+literal|"close(\"/dev/zero\") failed"
 argument_list|)
 expr_stmt|;
 block|}

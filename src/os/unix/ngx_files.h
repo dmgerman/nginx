@@ -152,7 +152,7 @@ value|"unlink()"
 end_define
 
 begin_function_decl
-name|int
+name|ngx_fd_t
 name|ngx_open_tempfile
 parameter_list|(
 name|u_char
@@ -396,7 +396,7 @@ value|0
 end_define
 
 begin_function_decl
-name|int
+name|ngx_int_t
 name|ngx_open_dir
 parameter_list|(
 name|ngx_str_t

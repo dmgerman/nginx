@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon275068930108
+DECL|struct|__anon28a269200108
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon275068930208
+DECL|struct|__anon28a269200208
 typedef|typedef
 struct|struct
 block|{
@@ -465,7 +465,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon275068930308
+DECL|struct|__anon28a269200308
 typedef|typedef
 struct|struct
 block|{
@@ -1283,7 +1283,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon275068930408
+DECL|struct|__anon28a269200408
 typedef|typedef
 struct|struct
 block|{
@@ -1330,7 +1330,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275068930508
+DECL|struct|__anon28a269200508
 typedef|typedef
 struct|struct
 block|{
@@ -1672,9 +1672,9 @@ end_endif
 
 begin_function
 DECL|function|ngx_handle_read_event (ngx_event_t * rev,u_int flags)
-name|ngx_inline
 specifier|static
-name|int
+name|ngx_inline
+name|ngx_int_t
 name|ngx_handle_read_event
 parameter_list|(
 name|ngx_event_t
@@ -1823,9 +1823,9 @@ end_function
 
 begin_function
 DECL|function|ngx_handle_level_read_event (ngx_event_t * rev)
-name|ngx_inline
 specifier|static
-name|int
+name|ngx_inline
+name|ngx_int_t
 name|ngx_handle_level_read_event
 parameter_list|(
 name|ngx_event_t
@@ -1917,9 +1917,9 @@ end_function
 
 begin_function
 DECL|function|ngx_handle_write_event (ngx_event_t * wev,size_t lowat)
-name|ngx_inline
 specifier|static
-name|int
+name|ngx_inline
+name|ngx_int_t
 name|ngx_handle_write_event
 parameter_list|(
 name|ngx_event_t
@@ -2104,9 +2104,9 @@ end_function
 
 begin_function
 DECL|function|ngx_handle_level_write_event (ngx_event_t * wev)
-name|ngx_inline
 specifier|static
-name|int
+name|ngx_inline
+name|ngx_int_t
 name|ngx_handle_level_write_event
 parameter_list|(
 name|ngx_event_t

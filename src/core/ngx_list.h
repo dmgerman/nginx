@@ -61,7 +61,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29b12f3d0108
+DECL|struct|__anon28816b310108
 typedef|typedef
 struct|struct
 block|{
@@ -95,8 +95,8 @@ end_typedef
 
 begin_function
 DECL|function|ngx_list_init (ngx_list_t * list,ngx_pool_t * pool,ngx_uint_t n,size_t size)
-name|ngx_inline
 specifier|static
+name|ngx_inline
 name|ngx_int_t
 name|ngx_list_init
 parameter_list|(

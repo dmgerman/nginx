@@ -26,7 +26,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon2c4fb8e90108
+DECL|struct|__anon29a30a620108
 typedef|typedef
 struct|struct
 block|{
@@ -1350,6 +1350,9 @@ return|;
 block|}
 name|boundary
 operator|=
+operator|(
+name|uint32_t
+operator|)
 name|ngx_next_temp_number
 argument_list|(
 literal|0

@@ -102,8 +102,8 @@ end_function_decl
 
 begin_function
 DECL|function|ngx_array_init (ngx_array_t * array,ngx_pool_t * pool,ngx_uint_t n,size_t size)
-name|ngx_inline
 specifier|static
+name|ngx_inline
 name|ngx_int_t
 name|ngx_array_init
 parameter_list|(

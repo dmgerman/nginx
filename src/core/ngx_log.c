@@ -697,6 +697,12 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|if (WriteFile(log->file->fd, errstr, len,&written, NULL) == 0) {         ngx_message_box("nginx", MB_OK, ngx_errno, "WriteFile() failed");     }
+endif|#
+directive|endif
 else|#
 directive|else
 if|if

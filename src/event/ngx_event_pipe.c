@@ -64,8 +64,8 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|ngx_inline
 specifier|static
+name|ngx_inline
 name|void
 name|ngx_event_pipe_remove_shadow_links
 parameter_list|(
@@ -77,8 +77,8 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|ngx_inline
 specifier|static
+name|ngx_inline
 name|void
 name|ngx_event_pipe_free_shadow_raw_buf
 parameter_list|(
@@ -95,8 +95,8 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|ngx_inline
 specifier|static
+name|ngx_inline
 name|void
 name|ngx_event_pipe_add_free_buf
 parameter_list|(
@@ -3120,8 +3120,8 @@ end_function
 
 begin_function
 DECL|function|ngx_event_pipe_remove_shadow_links (ngx_buf_t * buf)
-name|ngx_inline
 specifier|static
+name|ngx_inline
 name|void
 name|ngx_event_pipe_remove_shadow_links
 parameter_list|(
@@ -3224,8 +3224,8 @@ end_function
 
 begin_function
 DECL|function|ngx_event_pipe_free_shadow_raw_buf (ngx_chain_t ** free,ngx_buf_t * buf)
-name|ngx_inline
 specifier|static
+name|ngx_inline
 name|void
 name|ngx_event_pipe_free_shadow_raw_buf
 parameter_list|(
@@ -3346,8 +3346,8 @@ end_function
 
 begin_function
 DECL|function|ngx_event_pipe_add_free_buf (ngx_chain_t ** chain,ngx_chain_t * cl)
-name|ngx_inline
 specifier|static
+name|ngx_inline
 name|void
 name|ngx_event_pipe_add_free_buf
 parameter_list|(
