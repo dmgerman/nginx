@@ -403,14 +403,27 @@ return|return
 name|NGX_OK
 return|;
 block|}
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|p->log
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
-literal|"read upstream: %d"
-argument|_ p->upstream->read->ready
+name|p
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"pipe read upstream: %d"
+argument_list|,
+name|p
+operator|->
+name|upstream
+operator|->
+name|read
+operator|->
+name|ready
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 for|for
 control|(
 init|;
@@ -486,14 +499,21 @@ name|p
 operator|->
 name|preread_size
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|p->log
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
-literal|"preread: %d"
-argument|_ n
+name|p
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"pipe preread: %d"
+argument_list|,
+name|n
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -751,13 +771,17 @@ name|upstream_blocked
 operator|=
 literal|1
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug0
 argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
 name|p
 operator|->
 name|log
 argument_list|,
-literal|"downstream ready"
+literal|0
+argument_list|,
+literal|"pipe downstream ready"
 argument_list|)
 expr_stmt|;
 break|break;
@@ -787,14 +811,25 @@ argument_list|(
 name|p
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|p->log
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
-literal|"temp offset: %d"
-argument|_ p->temp_file->offset
+name|p
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"pipe temp offset: %d"
+argument_list|,
+name|p
+operator|->
+name|temp_file
+operator|->
+name|offset
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|rc
@@ -903,13 +938,17 @@ block|}
 else|else
 block|{
 comment|/* if there're no hunks to read in then disable a level event */
-name|ngx_log_debug
+name|ngx_log_debug0
 argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
 name|p
 operator|->
 name|log
 argument_list|,
-literal|"no hunks to read in"
+literal|0
+argument_list|,
+literal|"no pipe hunks to read in"
 argument_list|)
 expr_stmt|;
 break|break;
@@ -925,14 +964,21 @@ argument_list|,
 name|chain
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|p->log
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
-literal|"recv_chain: %d"
-argument|_ n
+name|p
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"pipe recv chain: %d"
+argument_list|,
+name|n
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|p
@@ -1311,14 +1357,27 @@ decl_stmt|,
 modifier|*
 name|tl
 decl_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|p->log
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
-literal|"write downstream: %d"
-argument|_ p->downstream->write->ready
+name|p
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"pipe write downstream: %d"
+argument_list|,
+name|p
+operator|->
+name|downstream
+operator|->
+name|write
+operator|->
+name|ready
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 for|for
 control|(
 init|;
@@ -1644,14 +1703,21 @@ operator|==
 name|NULL
 condition|)
 block|{
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|p->log
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
-literal|"no hunks to write BUSY: %d"
-argument|_ to_write
+name|p
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"pipe busy hunk data: %d"
+argument_list|,
+name|to_write
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -1978,14 +2044,25 @@ name|ll
 operator|=
 name|NULL
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|p->log
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
-literal|"offset: %d"
-argument|_ p->temp_file->offset
+name|p
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"pipe offset: %d"
+argument_list|,
+name|p
+operator|->
+name|temp_file
+operator|->
+name|offset
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 do|do
 block|{
 name|hsize
@@ -2002,14 +2079,21 @@ name|hunk
 operator|->
 name|pos
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|p->log
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
-literal|"hunk size: %d"
-argument|_ hsize
+name|p
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"pipe hunk size: %d"
+argument_list|,
+name|hsize
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 operator|(
@@ -2064,14 +2148,21 @@ condition|(
 name|cl
 condition|)
 do|;
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|p->log
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|p
+operator|->
+name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"size: %d"
-argument|_ size
+argument_list|,
+name|size
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|cl
@@ -2511,14 +2602,23 @@ argument_list|,
 name|NGX_ERROR
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|p->log
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
-literal|"HUNK %d"
-argument|_ h->num
+name|p
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"hunk #%d"
+argument_list|,
+name|h
+operator|->
+name|num
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 name|ngx_chain_add_link
 argument_list|(
 name|p

@@ -58,14 +58,30 @@ block|{
 name|ssize_t
 name|n
 decl_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug4
 argument_list|(
-argument|file->log
+name|NGX_LOG_DEBUG_CORE
 argument_list|,
-literal|"read: %d, %x, %d, "
-argument|OFF_T_FMT _                   file->fd _ buf _ size _ offset
+name|file
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"read: %d, %X, %d, "
+name|OFF_T_FMT
+argument_list|,
+name|file
+operator|->
+name|fd
+argument_list|,
+name|buf
+argument_list|,
+name|size
+argument_list|,
+name|offset
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|#
 directive|if
 operator|(
@@ -104,7 +120,13 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"pread() failed"
+literal|"pread() failed, file \"%s\""
+argument_list|,
+name|file
+operator|->
+name|name
+operator|.
+name|data
 argument_list|)
 expr_stmt|;
 return|return

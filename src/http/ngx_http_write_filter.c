@@ -24,13 +24,13 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon299fbca00108
+DECL|struct|__anon2bbc440a0108
 typedef|typedef
 struct|struct
 block|{
-DECL|member|buffer_output
+DECL|member|postpone_output
 name|ssize_t
-name|buffer_output
+name|postpone_output
 decl_stmt|;
 DECL|typedef|ngx_http_write_filter_conf_t
 block|}
@@ -39,7 +39,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299fbca00208
+DECL|struct|__anon2bbc440a0208
 typedef|typedef
 struct|struct
 block|{
@@ -108,6 +108,7 @@ name|ngx_http_write_filter_commands
 index|[]
 init|=
 block|{
+comment|/* STUB */
 block|{
 name|ngx_string
 argument_list|(
@@ -130,7 +131,35 @@ name|offsetof
 argument_list|(
 name|ngx_http_write_filter_conf_t
 argument_list|,
-name|buffer_output
+name|postpone_output
+argument_list|)
+block|,
+name|NULL
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"postpone_output"
+argument_list|)
+block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
+name|NGX_HTTP_SRV_CONF
+operator||
+name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_CONF_TAKE1
+block|,
+name|ngx_conf_set_size_slot
+block|,
+name|NGX_HTTP_LOC_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+name|ngx_http_write_filter_conf_t
+argument_list|,
+name|postpone_output
 argument_list|)
 block|,
 name|NULL
@@ -455,21 +484,30 @@ literal|1
 expr_stmt|;
 block|}
 block|}
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG_WRITE_FILTER
-operator|)
-name|ngx_log_debug
+name|ngx_log_debug3
 argument_list|(
-argument|r->connection->log
+name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-literal|"write filter: last:%d flush:%qd size:%qd"
-argument|_                   last _ flush _ size
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http write filter: l:%d f:"
+name|OFF_T_FMT
+literal|" s:"
+name|OFF_T_FMT
+argument_list|,
+name|last
+argument_list|,
+name|flush
+argument_list|,
+name|size
 argument_list|)
-empty_stmt|;
-endif|#
-directive|endif
+expr_stmt|;
 name|conf
 operator|=
 name|ngx_http_get_module_loc_conf
@@ -487,7 +525,7 @@ argument_list|,
 name|ngx_http_write_filter_module
 argument_list|)
 expr_stmt|;
-comment|/*      * avoid the output if there is no last hunk, no flush point and      * the size of the hunks is smaller than "buffer_output" directive      */
+comment|/*      * avoid the output if there is no last hunk, no flush point and      * the size of the hunks is smaller than "postpone_output" directive      */
 if|if
 condition|(
 operator|!
@@ -501,7 +539,7 @@ name|size
 operator|<
 name|conf
 operator|->
-name|buffer_output
+name|postpone_output
 condition|)
 block|{
 return|return
@@ -547,21 +585,23 @@ operator|->
 name|out
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG_WRITE_FILTER
-operator|)
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|r->connection->log
+name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-literal|"write filter %x"
-argument|_ chain
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http write filter %X"
+argument_list|,
+name|chain
 argument_list|)
-empty_stmt|;
-endif|#
-directive|endif
+expr_stmt|;
 if|if
 condition|(
 name|chain
@@ -633,7 +673,7 @@ argument_list|)
 expr_stmt|;
 name|conf
 operator|->
-name|buffer_output
+name|postpone_output
 operator|=
 name|NGX_CONF_UNSET
 expr_stmt|;
@@ -679,11 +719,11 @@ name|ngx_conf_merge_size_value
 argument_list|(
 name|conf
 operator|->
-name|buffer_output
+name|postpone_output
 argument_list|,
 name|prev
 operator|->
-name|buffer_output
+name|postpone_output
 argument_list|,
 literal|1460
 argument_list|)

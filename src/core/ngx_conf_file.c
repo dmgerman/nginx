@@ -2204,11 +2204,11 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_conf_log_error (int level,ngx_conf_t * cf,ngx_err_t err,char * fmt,...)
+DECL|function|ngx_conf_log_error (ngx_uint_t level,ngx_conf_t * cf,ngx_err_t err,char * fmt,...)
 name|void
 name|ngx_conf_log_error
 parameter_list|(
-name|int
+name|ngx_uint_t
 name|level
 parameter_list|,
 name|ngx_conf_t

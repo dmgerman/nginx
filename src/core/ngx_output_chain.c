@@ -901,22 +901,6 @@ if|if
 condition|(
 name|n
 operator|==
-literal|0
-condition|)
-block|{
-name|ngx_log_debug
-argument_list|(
-argument|src->file->log
-argument_list|,
-literal|"READ: %qd:%qd %X:%X %X:%X"
-argument|_               src->file_pos _ src->file_last _               dst->pos _ dst->last _ dst->start _ dst->end
-argument_list|)
-empty_stmt|;
-block|}
-if|if
-condition|(
-name|n
-operator|==
 name|NGX_ERROR
 condition|)
 block|{

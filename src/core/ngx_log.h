@@ -133,7 +133,7 @@ DECL|macro|NGX_LOG_DEBUG_FIRST
 define|#
 directive|define
 name|NGX_LOG_DEBUG_FIRST
-value|NGX_LOG_DEBUG
+value|NGX_LOG_DEBUG_CORE
 end_define
 
 begin_define
@@ -149,7 +149,7 @@ DECL|macro|NGX_LOG_DEBUG_ALL
 define|#
 directive|define
 name|NGX_LOG_DEBUG_ALL
-value|0xfffffff8
+value|0xfffffff0
 end_define
 
 begin_comment
@@ -185,7 +185,7 @@ struct|struct
 name|ngx_log_s
 block|{
 DECL|member|log_level
-name|int
+name|ngx_uint_t
 name|log_level
 decl_stmt|;
 DECL|member|file
@@ -212,14 +212,6 @@ define|#
 directive|define
 name|MAX_ERROR_STR
 value|2048
-end_define
-
-begin_define
-DECL|macro|_
-define|#
-directive|define
-name|_
-value|,
 end_define
 
 begin_comment
@@ -257,71 +249,6 @@ modifier|...
 parameter_list|)
 define|\
 value|if (log->log_level>= level) ngx_log_error_core(level, log, args)
-end_define
-
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG
-operator|)
-end_if
-
-begin_define
-DECL|macro|ngx_log_debug (log,args...)
-define|#
-directive|define
-name|ngx_log_debug
-parameter_list|(
-name|log
-parameter_list|,
-name|args
-modifier|...
-parameter_list|)
-define|\
-value|if (log->log_level& NGX_LOG_DEBUG) \         ngx_log_error_core(NGX_LOG_DEBUG, log, 0, args)
-end_define
-
-begin_else
-else|#
-directive|else
-end_else
-
-begin_define
-DECL|macro|ngx_log_debug (log,args...)
-define|#
-directive|define
-name|ngx_log_debug
-parameter_list|(
-name|log
-parameter_list|,
-name|args
-modifier|...
-parameter_list|)
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_define
-DECL|macro|ngx_assert (assert,fallback,log,args...)
-define|#
-directive|define
-name|ngx_assert
-parameter_list|(
-name|assert
-parameter_list|,
-name|fallback
-parameter_list|,
-name|log
-parameter_list|,
-name|args
-modifier|...
-parameter_list|)
-define|\
-value|if (!(assert)) { \             if (log->log_level>= NGX_LOG_ALERT) \                 ngx_log_error_core(NGX_LOG_ALERT, log, 0, args); \             fallback; \         }
 end_define
 
 begin_function_decl
@@ -384,68 +311,6 @@ define|\
 value|if (log->log_level>= level) ngx_log_error_core(level, log, __VA_ARGS__)
 end_define
 
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG
-operator|)
-end_if
-
-begin_define
-DECL|macro|ngx_log_debug (log,...)
-define|#
-directive|define
-name|ngx_log_debug
-parameter_list|(
-name|log
-parameter_list|,
-modifier|...
-parameter_list|)
-define|\
-value|if (log->log_level == NGX_LOG_DEBUG) \         ngx_log_error_core(NGX_LOG_DEBUG, log, 0, __VA_ARGS__)
-end_define
-
-begin_else
-else|#
-directive|else
-end_else
-
-begin_define
-DECL|macro|ngx_log_debug (log,...)
-define|#
-directive|define
-name|ngx_log_debug
-parameter_list|(
-name|log
-parameter_list|,
-modifier|...
-parameter_list|)
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_define
-DECL|macro|ngx_assert (assert,fallback,log,...)
-define|#
-directive|define
-name|ngx_assert
-parameter_list|(
-name|assert
-parameter_list|,
-name|fallback
-parameter_list|,
-name|log
-parameter_list|,
-modifier|...
-parameter_list|)
-define|\
-value|if (!(assert)) { \             if (log->log_level>= NGX_LOG_ALERT) \                 ngx_log_error_core(NGX_LOG_ALERT, log, 0, __VA_ARGS__); \             fallback; \         }
-end_define
-
 begin_function_decl
 name|void
 name|ngx_log_error_core
@@ -489,68 +354,6 @@ define|#
 directive|define
 name|HAVE_VARIADIC_MACROS
 value|0
-end_define
-
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG
-operator|)
-end_if
-
-begin_define
-DECL|macro|ngx_log_debug (log,text)
-define|#
-directive|define
-name|ngx_log_debug
-parameter_list|(
-name|log
-parameter_list|,
-name|text
-parameter_list|)
-define|\
-value|if (log->log_level == NGX_LOG_DEBUG) \         ngx_log_debug_core(log, 0, text)
-end_define
-
-begin_else
-else|#
-directive|else
-end_else
-
-begin_define
-DECL|macro|ngx_log_debug (log,text)
-define|#
-directive|define
-name|ngx_log_debug
-parameter_list|(
-name|log
-parameter_list|,
-name|text
-parameter_list|)
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_define
-DECL|macro|ngx_assert (assert,fallback,log,text)
-define|#
-directive|define
-name|ngx_assert
-parameter_list|(
-name|assert
-parameter_list|,
-name|fallback
-parameter_list|,
-name|log
-parameter_list|,
-name|text
-parameter_list|)
-define|\
-value|if (!(assert)) { \             if (log->log_level>= NGX_LOG_ALERT) \                 ngx_assert_core(log, text); \             fallback; \         }
 end_define
 
 begin_function_decl

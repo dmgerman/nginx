@@ -1077,7 +1077,7 @@ modifier|*
 name|text
 parameter_list|)
 block|{
-name|ngx_int_t
+name|ngx_uint_t
 name|level
 decl_stmt|;
 if|if
@@ -1119,6 +1119,9 @@ operator|->
 name|log_error
 condition|)
 block|{
+case|case
+name|NGX_ERROR_IGNORE_ECONNRESET
+case|:
 case|case
 name|NGX_ERROR_INFO
 case|:

@@ -178,14 +178,21 @@ argument_list|,
 name|size
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|c->log
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"aio_read: %d"
-argument|_ n
+argument_list|,
+name|n
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|n
@@ -265,14 +272,21 @@ operator|+=
 name|n
 expr_stmt|;
 block|}
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|c->log
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"aio_read total: %d"
-argument|_ total
+argument_list|,
+name|total
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 block|}
 return|return
 name|total

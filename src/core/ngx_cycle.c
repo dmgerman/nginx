@@ -2399,9 +2399,13 @@ name|log
 operator|=
 name|log
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug0
 argument_list|(
+name|NGX_LOG_DEBUG_CORE
+argument_list|,
 name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"clean old cycles"
 argument_list|)
@@ -2489,14 +2493,19 @@ name|found
 operator|=
 literal|1
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|log
+name|NGX_LOG_DEBUG_CORE
 argument_list|,
-literal|"live fd: %d"
-argument|_ n
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"live fd:%d"
+argument_list|,
+name|n
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 break|break;
 block|}
 block|}
@@ -2511,14 +2520,19 @@ literal|1
 expr_stmt|;
 continue|continue;
 block|}
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|log
+name|NGX_LOG_DEBUG_CORE
+argument_list|,
+name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"clean old cycle: %d"
-argument|_ i
+argument_list|,
+name|i
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 name|ngx_destroy_pool
 argument_list|(
 name|cycle
@@ -2537,26 +2551,24 @@ operator|=
 name|NULL
 expr_stmt|;
 block|}
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|log
+name|NGX_LOG_DEBUG_CORE
+argument_list|,
+name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"old cycles status: %d"
-argument|_ live
+argument_list|,
+name|live
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|live
 condition|)
 block|{
-name|ngx_log_debug
-argument_list|(
-name|log
-argument_list|,
-literal|"TIMER"
-argument_list|)
-expr_stmt|;
 name|ngx_add_timer
 argument_list|(
 name|ev

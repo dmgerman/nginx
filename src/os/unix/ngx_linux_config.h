@@ -203,18 +203,6 @@ directive|include
 file|<dirent.h>
 end_include
 
-begin_comment
-comment|/* Linux has a broken strerror_r() */
-end_comment
-
-begin_define
-DECL|macro|HAVE_STRERROR_R
-define|#
-directive|define
-name|HAVE_STRERROR_R
-value|0
-end_define
-
 begin_include
 include|#
 directive|include

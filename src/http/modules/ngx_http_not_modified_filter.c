@@ -169,14 +169,29 @@ operator|.
 name|len
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug2
 argument_list|(
-argument|r->connection->log
+name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-literal|"%d %d"
-argument|_                   ims _ r->headers_out.last_modified_time
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http ims:%d lm:%d"
+argument_list|,
+name|ims
+argument_list|,
+name|r
+operator|->
+name|headers_out
+operator|.
+name|last_modified_time
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 comment|/*      * I think that the equality of the dates is correcter      */
 if|if
 condition|(

@@ -425,7 +425,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27a5f3da0108
+DECL|struct|__anon2c790f2a0108
 typedef|typedef
 struct|struct
 block|{
@@ -560,7 +560,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a5f3da0208
+DECL|struct|__anon2c790f2a0208
 typedef|typedef
 struct|struct
 block|{
@@ -575,7 +575,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a5f3da0308
+DECL|struct|__anon2c790f2a0308
 typedef|typedef
 struct|struct
 block|{
@@ -606,7 +606,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon27a5f3da0408
+DECL|struct|__anon2c790f2a0408
 typedef|typedef
 struct|struct
 block|{
@@ -855,7 +855,7 @@ begin_function_decl
 name|void
 name|ngx_conf_log_error
 parameter_list|(
-name|int
+name|ngx_uint_t
 name|level
 parameter_list|,
 name|ngx_conf_t

@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27cdd1360108
+DECL|struct|__anon2c35069c0108
 typedef|typedef
 struct|struct
 block|{
@@ -214,7 +214,8 @@ name|fd
 decl_stmt|;
 name|ngx_int_t
 name|rc
-decl_stmt|,
+decl_stmt|;
+name|ngx_uint_t
 name|level
 decl_stmt|;
 name|ngx_str_t

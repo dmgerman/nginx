@@ -23,6 +23,12 @@ directive|include
 file|<ngx_event_connect.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<nginx.h>
+end_include
+
 begin_comment
 comment|/* AF_INET only */
 end_comment
@@ -747,6 +753,14 @@ name|connection
 operator|=
 name|c
 expr_stmt|;
+comment|/*      * TODO: MT: - atomic increment (x86: lock xadd)      *             or protection by critical section or mutex      *      * TODO: MP: - allocated in a shared memory      *           - atomic increment (x86: lock xadd)      *             or protection by critical section or mutex      */
+name|c
+operator|->
+name|number
+operator|=
+name|ngx_connection_counter
+operator|++
+expr_stmt|;
 if|if
 condition|(
 name|ngx_add_conn
@@ -803,14 +817,25 @@ name|peer
 operator|->
 name|addr
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|pc->log
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
-literal|"CONNECT: %s"
-argument|_ peer->addr_port_text.data
+name|pc
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"connect to %s"
+argument_list|,
+name|peer
+operator|->
+name|addr_port_text
+operator|.
+name|data
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 name|rc
 operator|=
 name|connect
@@ -1058,13 +1083,17 @@ return|return
 name|NGX_AGAIN
 return|;
 block|}
-name|ngx_log_debug
+name|ngx_log_debug0
 argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
 name|pc
 operator|->
 name|log
 argument_list|,
-literal|"CONNECTED"
+literal|0
+argument_list|,
+literal|"connected"
 argument_list|)
 expr_stmt|;
 name|wev

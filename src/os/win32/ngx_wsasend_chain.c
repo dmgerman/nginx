@@ -303,21 +303,21 @@ name|NGX_CHAIN_ERROR
 return|;
 block|}
 block|}
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG_WRITE_CHAIN
-operator|)
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|c->log
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"WSASend(): %d"
-argument|_ sent
+argument_list|,
+name|sent
 argument_list|)
-empty_stmt|;
-endif|#
-directive|endif
+expr_stmt|;
 name|c
 operator|->
 name|sent
@@ -873,21 +873,21 @@ return|;
 block|}
 block|}
 block|}
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG_WRITE_CHAIN
-operator|)
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|c->log
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"WSASend(): %d"
-argument|_ sent
+argument_list|,
+name|sent
 argument_list|)
-empty_stmt|;
-endif|#
-directive|endif
+expr_stmt|;
 name|c
 operator|->
 name|sent
@@ -1052,23 +1052,8 @@ unit|sent = 0;             }         }      } else {         if (ngx_event_flags
 comment|/* the overlapped WSASend() completed */
 end_comment
 
-begin_if
-unit|if (wev->ovlp.error) {                 ngx_log_error(NGX_LOG_ERR, c->log, wev->ovlp.error,                               "WSASend() failed");                 return NGX_CHAIN_ERROR;             }              sent = wev->available;         }     }
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG_WRITE_CHAIN
-operator|)
-end_if
-
 begin_endif
-unit|ngx_log_debug(c->log, "WSASend(): %d" _ sent);
-endif|#
-directive|endif
-end_endif
-
-begin_endif
-unit|c->sent += sent;      for (ce = in; ce&& sent> 0; ce = ce->next) {          size = ce->hunk->last - ce->hunk->pos;          if (sent>= size) {             sent -= size;              if (ce->hunk->type& NGX_HUNK_IN_MEMORY) {                 ce->hunk->pos = ce->hunk->last;             }              continue;         }          if (ce->hunk->type& NGX_HUNK_IN_MEMORY) {             ce->hunk->pos += sent;         }          break;     }      return ce; }
+unit|if (wev->ovlp.error) {                 ngx_log_error(NGX_LOG_ERR, c->log, wev->ovlp.error,                               "WSASend() failed");                 return NGX_CHAIN_ERROR;             }              sent = wev->available;         }     }      ngx_log_debug(c->log, "WSASend(): %d" _ sent);      c->sent += sent;      for (ce = in; ce&& sent> 0; ce = ce->next) {          size = ce->hunk->last - ce->hunk->pos;          if (sent>= size) {             sent -= size;              if (ce->hunk->type& NGX_HUNK_IN_MEMORY) {                 ce->hunk->pos = ce->hunk->last;             }              continue;         }          if (ce->hunk->type& NGX_HUNK_IN_MEMORY) {             ce->hunk->pos += sent;         }          break;     }      return ce; }
 endif|#
 directive|endif
 end_endif

@@ -327,14 +327,23 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|file->log
+name|NGX_LOG_DEBUG_CORE
 argument_list|,
-literal|"temp fd: %d"
-argument|_ file->fd
+name|file
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"temp fd:%d"
+argument_list|,
+name|file
+operator|->
+name|fd
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|file
@@ -523,14 +532,6 @@ condition|)
 block|{
 break|break;
 block|}
-name|ngx_log_debug
-argument_list|(
-argument|file->log
-argument_list|,
-literal|"hashed path: %s"
-argument|_ file->name.data
-argument_list|)
-empty_stmt|;
 name|name
 operator|-=
 name|level
@@ -580,14 +581,25 @@ operator|+
 literal|1
 expr_stmt|;
 block|}
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|file->log
+name|NGX_LOG_DEBUG_CORE
+argument_list|,
+name|file
+operator|->
+name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"hashed path: %s"
-argument|_ file->name.data
+argument_list|,
+name|file
+operator|->
+name|name
+operator|.
+name|data
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 block|}
 end_function
 
@@ -671,14 +683,25 @@ index|]
 operator|=
 literal|'\0'
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|file->log
+name|NGX_LOG_DEBUG_CORE
 argument_list|,
-literal|"temp: %s"
-argument|_ file->name.data
+name|file
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"temp file: \"%s\""
+argument_list|,
+name|file
+operator|->
+name|name
+operator|.
+name|data
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|ngx_create_dir

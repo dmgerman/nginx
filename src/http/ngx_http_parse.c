@@ -33,7 +33,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2beda47e0103
+DECL|enum|__anon2b5269cd0103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1248,7 +1248,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2beda47e0203
+DECL|enum|__anon2b5269cd0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1873,7 +1873,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2beda47e0303
+DECL|enum|__anon2b5269cd0303
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -1965,14 +1965,30 @@ operator|+
 literal|1
 condition|)
 block|{
-name|ngx_log_debug
+name|ngx_log_debug4
 argument_list|(
-argument|r->connection->log
+name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-literal|"S: %d UN: '%x:%c', URI: '%c'"
-argument|_               state _ ch _ ch _ *u
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"s:%d in:'%x:%c', out:'%c'"
+argument_list|,
+name|state
+argument_list|,
+name|ch
+argument_list|,
+name|ch
+argument_list|,
+operator|*
+name|u
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 switch|switch
 condition|(
 name|state

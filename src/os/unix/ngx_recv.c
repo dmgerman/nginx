@@ -346,7 +346,7 @@ name|ngx_log_debug0
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
-name|rev
+name|c
 operator|->
 name|log
 argument_list|,
@@ -550,7 +550,7 @@ name|ngx_log_debug0
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
-name|rev
+name|c
 operator|->
 name|log
 argument_list|,

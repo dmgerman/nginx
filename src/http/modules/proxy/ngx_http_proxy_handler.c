@@ -1544,11 +1544,15 @@ name|ngx_http_proxy_ctx_t
 modifier|*
 name|p
 decl_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug0
 argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
 name|wev
 operator|->
 name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"http proxy check client"
 argument_list|)
@@ -1634,7 +1638,8 @@ name|wev
 operator|->
 name|kq_errno
 argument_list|,
-literal|"client closed prematurely connection, "
+literal|"kevent() reported that client have closed "
+literal|"prematurely connection, "
 literal|"so upstream connection is closed too"
 argument_list|)
 expr_stmt|;
@@ -1659,7 +1664,8 @@ name|wev
 operator|->
 name|kq_errno
 argument_list|,
-literal|"client closed prematurely connection"
+literal|"kevent() reported that client have closed "
+literal|"prematurely connection"
 argument_list|)
 expr_stmt|;
 if|if
@@ -1717,13 +1723,17 @@ name|ngx_http_proxy_ctx_t
 modifier|*
 name|p
 decl_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug0
 argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
 name|rev
 operator|->
 name|log
 argument_list|,
-literal|"busy lock"
+literal|0
+argument_list|,
+literal|"http proxy busy lock"
 argument_list|)
 expr_stmt|;
 name|c
@@ -1848,16 +1858,20 @@ expr_stmt|;
 block|}
 return|return;
 block|}
-name|ngx_log_debug
+name|ngx_log_debug0
 argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
 name|rev
 operator|->
 name|log
 argument_list|,
-literal|"client sent while busy lock"
+literal|0
+argument_list|,
+literal|"http proxy: client sent while busy lock"
 argument_list|)
 expr_stmt|;
-comment|/*      * TODO: kevent() notify about error, otherwise we need to      * call ngx_peek(): recv(MSG_PEEK) to get errno. THINK about aio      * if there's no error we need to disable event.      */
+comment|/*      * TODO: kevent() notify about error, otherwise we need to      * call ngx_peek(): recv(MSG_PEEK) to get errno. THINK about aio.      * if there's no error we need to disable event.      */
 if|#
 directive|if
 literal|0
@@ -1897,13 +1911,17 @@ name|p
 operator|->
 name|request
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug0
 argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
 name|r
 operator|->
 name|connection
 operator|->
 name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"finalize http proxy request"
 argument_list|)
@@ -1996,14 +2014,33 @@ operator|->
 name|event_pipe
 condition|)
 block|{
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|r->connection->log
+name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-literal|"TEMP FD: %d"
-argument|_               p->upstream->event_pipe->temp_file->file.fd
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http proxy temp fd: %d"
+argument_list|,
+name|p
+operator|->
+name|upstream
+operator|->
+name|event_pipe
+operator|->
+name|temp_file
+operator|->
+name|file
+operator|.
+name|fd
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -2012,14 +2049,31 @@ operator|->
 name|cache
 condition|)
 block|{
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|r->connection->log
+name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-literal|"CACHE FD: %d"
-argument|_ p->cache->ctx.file.fd
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http proxy cache fd: %d"
+argument_list|,
+name|p
+operator|->
+name|cache
+operator|->
+name|ctx
+operator|.
+name|file
+operator|.
+name|fd
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -2161,14 +2215,23 @@ name|busy
 operator|--
 expr_stmt|;
 block|}
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|c->log
+name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-literal|"proxy close connection: %d"
-argument|_ c->fd
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http proxy close connection: %d"
+argument_list|,
+name|c
+operator|->
+name|fd
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|c

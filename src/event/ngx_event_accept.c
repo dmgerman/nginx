@@ -23,6 +23,26 @@ directive|include
 file|<nginx.h>
 end_include
 
+begin_typedef
+DECL|struct|__anon296e99450108
+typedef|typedef
+struct|struct
+block|{
+DECL|member|flag
+name|int
+name|flag
+decl_stmt|;
+DECL|member|name
+name|char
+modifier|*
+name|name
+decl_stmt|;
+DECL|typedef|ngx_accept_log_ctx_t
+block|}
+name|ngx_accept_log_ctx_t
+typedef|;
+end_typedef
+
 begin_function_decl
 specifier|static
 name|size_t
@@ -97,6 +117,10 @@ name|ngx_event_conf_t
 modifier|*
 name|ecf
 decl_stmt|;
+name|ngx_accept_log_ctx_t
+modifier|*
+name|ctx
+decl_stmt|;
 name|ecf
 operator|=
 name|ngx_event_get_conf
@@ -151,14 +175,31 @@ name|ev
 operator|->
 name|data
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug2
 argument_list|(
-argument|ev->log
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
-literal|"accept on %s ready: %d"
-argument|_                   ls->listening->addr_text.data _                   ev->available
+name|ev
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"accept on %s, ready: %d"
+argument_list|,
+name|ls
+operator|->
+name|listening
+operator|->
+name|addr_text
+operator|.
+name|data
+argument_list|,
+name|ev
+operator|->
+name|available
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 name|ev
 operator|->
 name|ready
@@ -278,9 +319,42 @@ name|log
 operator|=
 name|log
 expr_stmt|;
-name|log
+if|if
+condition|(
+operator|!
+operator|(
+name|ctx
+operator|=
+name|ngx_palloc
+argument_list|(
+name|pool
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|ngx_accept_log_ctx_t
+argument_list|)
+argument_list|)
+operator|)
+condition|)
+block|{
+name|ngx_destroy_pool
+argument_list|(
+name|pool
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+comment|/* -1 disable logging the connection number */
+name|ctx
 operator|->
-name|data
+name|flag
+operator|=
+operator|-
+literal|1
+expr_stmt|;
+name|ctx
+operator|->
+name|name
 operator|=
 name|ls
 operator|->
@@ -289,6 +363,12 @@ operator|->
 name|addr_text
 operator|.
 name|data
+expr_stmt|;
+name|log
+operator|->
+name|data
+operator|=
+name|ctx
 expr_stmt|;
 name|log
 operator|->
@@ -950,7 +1030,7 @@ name|log
 operator|=
 name|log
 expr_stmt|;
-comment|/*          * In the multithreaded model the connection counter is updated by          * the main thread only that accept()s connections.          *          * TODO: MP: - allocated in a shared memory          *           - atomic increment (x86: lock xadd)          *             or protection by critical section or mutex          */
+comment|/*          * TODO: MT: - atomic increment (x86: lock xadd)          *             or protection by critical section or mutex          *          * TODO: MP: - allocated in a shared memory          *           - atomic increment (x86: lock xadd)          *             or protection by critical section or mutex          */
 name|c
 operator|->
 name|number
@@ -1097,9 +1177,9 @@ name|size_t
 name|len
 parameter_list|)
 block|{
-name|char
+name|ngx_accept_log_ctx_t
 modifier|*
-name|sock
+name|ctx
 init|=
 name|data
 decl_stmt|;
@@ -1112,7 +1192,9 @@ name|len
 argument_list|,
 literal|" while accept() on %s"
 argument_list|,
-name|sock
+name|ctx
+operator|->
+name|name
 argument_list|)
 return|;
 block|}

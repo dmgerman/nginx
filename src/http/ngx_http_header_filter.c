@@ -2027,7 +2027,11 @@ operator|=
 name|LF
 expr_stmt|;
 block|}
-comment|/* STUB */
+if|#
+directive|if
+operator|(
+name|NGX_DEBUG
+operator|)
 operator|*
 operator|(
 name|h
@@ -2037,15 +2041,27 @@ operator|)
 operator|=
 literal|'\0'
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|r->connection->log
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"%s\n"
-argument|_ h->pos
+argument_list|,
+name|h
+operator|->
+name|pos
 argument_list|)
-empty_stmt|;
-comment|/**/
+expr_stmt|;
+endif|#
+directive|endif
 comment|/* the end of HTTP header */
 operator|*
 operator|(

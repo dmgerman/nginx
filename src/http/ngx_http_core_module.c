@@ -1294,11 +1294,15 @@ name|c
 operator|->
 name|data
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug0
 argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
 name|ev
 operator|->
 name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"phase event handler"
 argument_list|)
@@ -2757,49 +2761,6 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_error (ngx_http_request_t * r,int error)
-name|int
-name|ngx_http_error
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|,
-name|int
-name|error
-parameter_list|)
-block|{
-comment|/* STUB */
-name|ngx_log_debug
-argument_list|(
-argument|r->connection->log
-argument_list|,
-literal|"http error: %d"
-argument|_ error
-argument_list|)
-empty_stmt|;
-comment|/* log request */
-name|ngx_http_special_response_handler
-argument_list|(
-name|r
-argument_list|,
-name|error
-argument_list|)
-expr_stmt|;
-name|ngx_http_close_request
-argument_list|(
-name|r
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
-return|return
-name|NGX_OK
-return|;
-block|}
-end_function
-
-begin_function
 DECL|function|ngx_http_set_exten (ngx_http_request_t * r)
 name|ngx_int_t
 name|ngx_http_set_exten
@@ -3200,15 +3161,19 @@ operator|==
 literal|0
 condition|)
 block|{
-name|ngx_log_debug
+name|ngx_log_debug0
 argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
 name|r
 operator|->
 name|connection
 operator|->
 name|log
 argument_list|,
-literal|"SET http delay"
+literal|0
+argument_list|,
+literal|"http set delay"
 argument_list|)
 expr_stmt|;
 name|ngx_add_timer
@@ -3236,15 +3201,19 @@ name|timedout
 operator|=
 literal|0
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug0
 argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
 name|r
 operator|->
 name|connection
 operator|->
 name|log
 argument_list|,
-literal|"RESET http delay"
+literal|0
+argument_list|,
+literal|"http reset delay"
 argument_list|)
 expr_stmt|;
 return|return

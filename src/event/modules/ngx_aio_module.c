@@ -432,14 +432,21 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|c->log
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"aio_cancel: %d"
-argument|_ rc
+argument_list|,
+name|rc
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|rc

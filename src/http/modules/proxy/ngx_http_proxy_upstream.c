@@ -1189,14 +1189,39 @@ operator|)
 operator|=
 name|LF
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug2
 argument_list|(
-argument|r->connection->log
+name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-literal|"proxy: '%s: %s'"
-argument|_                       header[i].key.data _ header[i].value.data
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http proxy header: \"%s: %s\""
+argument_list|,
+name|header
+index|[
+name|i
+index|]
+operator|.
+name|key
+operator|.
+name|data
+argument_list|,
+name|header
+index|[
+name|i
+index|]
+operator|.
+name|value
+operator|.
+name|data
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 block|}
 comment|/* add "\r\n" at the header end */
 operator|*
@@ -1219,7 +1244,11 @@ operator|)
 operator|=
 name|LF
 expr_stmt|;
-comment|/* STUB */
+if|#
+directive|if
+operator|(
+name|NGX_DEBUG
+operator|)
 operator|*
 operator|(
 name|h
@@ -1229,14 +1258,27 @@ operator|)
 operator|=
 literal|'\0'
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|r->connection->log
+name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-literal|"PROXY:\n'%s'"
-argument|_ h->pos
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http proxy header:\n\"%s\""
+argument_list|,
+name|h
+operator|->
+name|pos
 argument_list|)
-empty_stmt|;
+expr_stmt|;
+endif|#
+directive|endif
 return|return
 name|chain
 return|;
@@ -1286,14 +1328,29 @@ name|p
 operator|->
 name|request
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|r->connection->log
+name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-literal|"timer_set: %d"
-argument|_               r->connection->read->timer_set
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http proxy set timer: %d"
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|read
+operator|->
+name|timer_set
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|r
@@ -2877,13 +2934,17 @@ modifier|*
 name|wev
 parameter_list|)
 block|{
-name|ngx_log_debug
+name|ngx_log_debug0
 argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
 name|wev
 operator|->
 name|log
 argument_list|,
-literal|"dummy handler"
+literal|0
+argument_list|,
+literal|"http proxy dummy handler"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2932,11 +2993,15 @@ name|action
 operator|=
 literal|"reading upstream status line"
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug0
 argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
 name|rev
 operator|->
 name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"http proxy process status line"
 argument_list|)
@@ -3465,14 +3530,33 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug2
 argument_list|(
-argument|rev->log
+name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-literal|"http proxy status %d '%s'"
-argument|_                   p->upstream->status _ p->upstream->status_line.data
+name|rev
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http proxy status %d \"%s\""
+argument_list|,
+name|p
+operator|->
+name|upstream
+operator|->
+name|status
+argument_list|,
+name|p
+operator|->
+name|upstream
+operator|->
+name|status_line
+operator|.
+name|data
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|p
@@ -3595,11 +3679,15 @@ name|action
 operator|=
 literal|"reading upstream headers"
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug0
 argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
 name|rev
 operator|->
 name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"http proxy process header line"
 argument_list|)
@@ -3984,14 +4072,31 @@ expr_stmt|;
 break|break;
 block|}
 block|}
-name|ngx_log_debug
+name|ngx_log_debug2
 argument_list|(
-argument|c->log
+name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-literal|"HTTP proxy header: '%s: %s'"
-argument|_                           h->key.data _ h->value.data
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http proxy header: \"%s: %s\""
+argument_list|,
+name|h
+operator|->
+name|key
+operator|.
+name|data
+argument_list|,
+name|h
+operator|->
+name|value
+operator|.
+name|data
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 continue|continue;
 block|}
 if|else if
@@ -4002,13 +4107,17 @@ name|NGX_HTTP_PARSE_HEADER_DONE
 condition|)
 block|{
 comment|/* a whole header has been parsed successfully */
-name|ngx_log_debug
+name|ngx_log_debug0
 argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
 name|c
 operator|->
 name|log
 argument_list|,
-literal|"HTTP header done"
+literal|0
+argument_list|,
+literal|"http proxy header done"
 argument_list|)
 expr_stmt|;
 comment|/* TODO: hook to process the upstream header */
@@ -5143,11 +5252,15 @@ operator|->
 name|write
 condition|)
 block|{
-name|ngx_log_debug
+name|ngx_log_debug0
 argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
 name|ev
 operator|->
 name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"http proxy process downstream"
 argument_list|)
@@ -5176,11 +5289,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|ngx_log_debug
+name|ngx_log_debug0
 argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
 name|ev
 operator|->
 name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"http proxy process upstream"
 argument_list|)
@@ -5412,11 +5529,15 @@ operator|->
 name|upstream_error
 condition|)
 block|{
-name|ngx_log_debug
+name|ngx_log_debug0
 argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
 name|ev
 operator|->
 name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"http proxy upstream exit"
 argument_list|)
@@ -5452,11 +5573,15 @@ operator|->
 name|downstream_error
 condition|)
 block|{
-name|ngx_log_debug
+name|ngx_log_debug0
 argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
 name|ev
 operator|->
 name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"http proxy downstream error"
 argument_list|)
@@ -5486,12 +5611,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-if|#
-directive|if
-literal|0
-block_content|if (ep->downstream_done) {         ngx_log_debug(ev->log, "http proxy downstream done");         ngx_http_proxy_finalize_request(p, 0);         return;     }      if (ep->downstream_error) {         ngx_log_debug(ev->log, "http proxy downstream error");         if (!p->cachable&& p->upstream->peer.connection) {             ngx_http_proxy_close_connection(p);         }           if (p->upstream->peer.connection == NULL) {             ngx_http_close_request(r);         }     }
-endif|#
-directive|endif
 block|}
 end_function
 
@@ -5512,14 +5631,25 @@ block|{
 name|int
 name|status
 decl_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|p->request->connection->log
+name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-literal|"next upstream: %d"
-argument|_ ft_type
+name|p
+operator|->
+name|request
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http proxy next upstream: %d"
+argument_list|,
+name|ft_type
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 name|ngx_http_busy_unlock
 argument_list|(
 name|p

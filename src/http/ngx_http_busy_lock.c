@@ -219,14 +219,31 @@ argument_list|,
 name|lock
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug3
 argument_list|(
-argument|bc->event->log
+name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-literal|"BUSYLOCK: %d %d:%d"
-argument|_               rc _ bl->waiting _ bl->max_waiting
+name|bc
+operator|->
+name|event
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http busylock: %d w:%d mw::%d"
+argument_list|,
+name|rc
+argument_list|,
+name|bl
+operator|->
+name|waiting
+argument_list|,
+name|bl
+operator|->
+name|max_waiting
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|rc

@@ -207,14 +207,27 @@ name|len
 operator|=
 literal|0
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug2
 argument_list|(
-argument|ctx->log
+name|NGX_LOG_DEBUG_CORE
 argument_list|,
-literal|"dir '%s':%d"
-argument|_ dname->data _ dname->len
+name|ctx
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"gc dir \"%s\":%d"
+argument_list|,
+name|dname
+operator|->
+name|data
+argument_list|,
+name|dname
+operator|->
+name|len
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|ngx_open_dir
@@ -323,14 +336,27 @@ operator|&
 name|dir
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug2
 argument_list|(
-argument|ctx->log
+name|NGX_LOG_DEBUG_CORE
 argument_list|,
-literal|"name '%s':%d"
-argument|_ ngx_de_name(&dir) _ len
+name|ctx
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"gc name \"%s\":%d"
+argument_list|,
+name|ngx_de_name
+argument_list|(
+operator|&
+name|dir
 argument_list|)
-empty_stmt|;
+argument_list|,
+name|len
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|len
@@ -510,14 +536,23 @@ name|buf
 operator|.
 name|data
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|ctx->log
+name|NGX_LOG_DEBUG_CORE
 argument_list|,
-literal|"path %s"
-argument|_ fname.data
+name|ctx
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"gc path: \"%s\""
+argument_list|,
+name|fname
+operator|.
+name|data
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -571,14 +606,23 @@ name|dir
 argument_list|)
 condition|)
 block|{
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|ctx->log
+name|NGX_LOG_DEBUG_CORE
 argument_list|,
-literal|"enter %s"
-argument|_ fname.data
+name|ctx
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"gc enter dir \"%s\""
+argument_list|,
+name|fname
+operator|.
+name|data
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|level
@@ -734,14 +778,23 @@ name|dir
 argument_list|)
 condition|)
 block|{
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|ctx->log
+name|NGX_LOG_DEBUG_CORE
 argument_list|,
-literal|"file %s"
-argument|_ fname.data
+name|ctx
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"gc file \"%s\""
+argument_list|,
+name|fname
+operator|.
+name|data
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|level
@@ -980,7 +1033,7 @@ modifier|*
 name|dir
 parameter_list|)
 block|{
-comment|/*      * we use mtime only and do not use atime because:      *    on NTFS access time has a resolution of 1 hour,      *    on NT FAT access time has a resolution of 1 day,      *    Unices have mount option "noatime"      */
+comment|/*      * We use mtime only and do not use atime because:      *    on NTFS access time has a resolution of 1 hour,      *    on NT FAT access time has a resolution of 1 day,      *    Unices have the mount option "noatime".      */
 if|if
 condition|(
 name|ngx_cached_time

@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon289dfc510108
+DECL|struct|__anon294347b10108
 typedef|typedef
 struct|struct
 block|{
@@ -67,7 +67,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon289dfc510203
+DECL|enum|__anon294347b10203
 typedef|typedef
 enum|enum
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289dfc510308
+DECL|struct|__anon294347b10308
 typedef|typedef
 struct|struct
 block|{
@@ -111,7 +111,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289dfc510408
+DECL|struct|__anon294347b10408
 typedef|typedef
 struct|struct
 block|{
@@ -138,7 +138,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289dfc510508
+DECL|struct|__anon294347b10508
 typedef|typedef
 struct|struct
 block|{
@@ -198,7 +198,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon289dfc510608
+DECL|struct|__anon294347b10608
 typedef|typedef
 struct|struct
 block|{
@@ -222,7 +222,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289dfc510708
+DECL|struct|__anon294347b10708
 typedef|typedef
 struct|struct
 block|{
@@ -264,7 +264,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon289dfc510808
+DECL|struct|__anon294347b10808
 typedef|typedef
 struct|struct
 block|{
@@ -307,7 +307,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon289dfc510908
+DECL|struct|__anon294347b10908
 typedef|typedef
 struct|struct
 block|{
@@ -326,7 +326,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289dfc510a08
+DECL|struct|__anon294347b10a08
 typedef|typedef
 struct|struct
 block|{
@@ -345,7 +345,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289dfc510b08
+DECL|struct|__anon294347b10b08
 typedef|typedef
 struct|struct
 block|{
@@ -563,20 +563,6 @@ parameter_list|,
 name|ngx_str_t
 modifier|*
 name|args
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-name|int
-name|ngx_http_error
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|,
-name|int
-name|error
 parameter_list|)
 function_decl|;
 end_function_decl

@@ -101,22 +101,38 @@ return|return
 name|NGX_AGAIN
 return|;
 block|}
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|c->log
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"rev->complete: %d"
-argument|_ rev->complete
+argument_list|,
+name|rev
+operator|->
+name|complete
 argument_list|)
-empty_stmt|;
-name|ngx_log_debug
+expr_stmt|;
+name|ngx_log_debug1
 argument_list|(
-argument|c->log
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"aio size: %d"
-argument|_ size
+argument_list|,
+name|size
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -241,14 +257,23 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|c->log
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"aio_read: #%d OK"
-argument|_ c->fd
+argument_list|,
+name|c
+operator|->
+name|fd
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 name|rev
 operator|->
 name|active
@@ -430,14 +455,25 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-name|ngx_log_debug
+name|ngx_log_debug2
 argument_list|(
-argument|rev->log
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|rev
+operator|->
+name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"aio_read: #%d %d"
-argument|_ c->fd _ n
+argument_list|,
+name|c
+operator|->
+name|fd
+argument_list|,
+name|n
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|n

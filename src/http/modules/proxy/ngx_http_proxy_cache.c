@@ -995,14 +995,31 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug2
 argument_list|(
-argument|r->connection->log
+name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-literal|"http cache status %d '%s'"
-argument|_                    c->status _ c->status_line.data
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http cache status %d \"%s\""
+argument_list|,
+name|c
+operator|->
+name|status
+argument_list|,
+name|c
+operator|->
+name|status_line
+operator|.
+name|data
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 comment|/* TODO: ngx_init_table */
 name|c
 operator|->
@@ -1296,14 +1313,33 @@ expr_stmt|;
 break|break;
 block|}
 block|}
-name|ngx_log_debug
+name|ngx_log_debug2
 argument_list|(
-argument|r->connection->log
+name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-literal|"HTTP cache header: '%s: %s'"
-argument|_                           h->key.data _ h->value.data
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http cache header: \"%s: %s\""
+argument_list|,
+name|h
+operator|->
+name|key
+operator|.
+name|data
+argument_list|,
+name|h
+operator|->
+name|value
+operator|.
+name|data
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 continue|continue;
 block|}
 if|else if
@@ -1314,15 +1350,19 @@ name|NGX_HTTP_PARSE_HEADER_DONE
 condition|)
 block|{
 comment|/* a whole header has been parsed successfully */
-name|ngx_log_debug
+name|ngx_log_debug0
 argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
 name|r
 operator|->
 name|connection
 operator|->
 name|log
 argument_list|,
-literal|"HTTP header done"
+literal|0
+argument_list|,
+literal|"http cache header done"
 argument_list|)
 expr_stmt|;
 name|c
@@ -1452,14 +1492,25 @@ operator|->
 name|try_busy_lock
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|p->request->connection->log
+name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-literal|"LOCK CACHABLE: %d"
-argument|_ rc
+name|p
+operator|->
+name|request
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http cache busy lock cachable: %d"
+argument_list|,
+name|rc
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|rc
@@ -1907,14 +1958,39 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|ngx_log_debug
+name|ngx_log_debug2
 argument_list|(
-argument|p->request->connection->log
+name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-literal|"OLD: %d, NEW: %d"
-argument|_               p->cache->ctx.file.fd _ ctx->file.fd
+name|p
+operator|->
+name|request
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http cache old fd:%d, new fd:%d"
+argument_list|,
+name|p
+operator|->
+name|cache
+operator|->
+name|ctx
+operator|.
+name|file
+operator|.
+name|fd
+argument_list|,
+name|ctx
+operator|->
+name|file
+operator|.
+name|fd
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|p
@@ -3186,16 +3262,38 @@ name|upstream
 operator|->
 name|event_pipe
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug2
 argument_list|(
-argument|p->request->connection->log
+name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-literal|"LEN: "
-argument|OFF_T_FMT
-literal|", "
-argument|OFF_T_FMT _               p->cache->ctx.length _ ep->read_length
+name|p
+operator|->
+name|request
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http cache update len: "
+name|OFF_T_FMT
+literal|":"
+name|OFF_T_FMT
+argument_list|,
+name|p
+operator|->
+name|cache
+operator|->
+name|ctx
+operator|.
+name|length
+argument_list|,
+name|ep
+operator|->
+name|read_length
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|p

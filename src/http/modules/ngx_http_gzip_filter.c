@@ -24,7 +24,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28e730b60108
+DECL|struct|__anon2c7e9a790108
 typedef|typedef
 struct|struct
 block|{
@@ -59,7 +59,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e730b60208
+DECL|struct|__anon2c7e9a790208
 typedef|typedef
 struct|struct
 block|{
@@ -1797,14 +1797,49 @@ operator|.
 name|size
 expr_stmt|;
 block|}
-name|ngx_log_debug
+name|ngx_log_debug5
 argument_list|(
-argument|r->connection->log
+name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-literal|"deflate(): %08x %08x %d %d %d"
-argument|_               ctx->zstream.next_in _ ctx->zstream.next_out _               ctx->zstream.avail_in _ ctx->zstream.avail_out _ ctx->flush
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"deflate in: ni:%X no:%X ai:%d ao:%d fl:%d"
+argument_list|,
+name|ctx
+operator|->
+name|zstream
+operator|.
+name|next_in
+argument_list|,
+name|ctx
+operator|->
+name|zstream
+operator|.
+name|next_out
+argument_list|,
+name|ctx
+operator|->
+name|zstream
+operator|.
+name|avail_in
+argument_list|,
+name|ctx
+operator|->
+name|zstream
+operator|.
+name|avail_out
+argument_list|,
+name|ctx
+operator|->
+name|flush
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 name|rc
 operator|=
 name|deflate
@@ -1858,14 +1893,47 @@ name|ctx
 argument_list|)
 return|;
 block|}
-name|ngx_log_debug
+name|ngx_log_debug5
 argument_list|(
-argument|r->connection->log
+name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-literal|"DEFLATE(): %08x %08x %d %d %d"
-argument|_               ctx->zstream.next_in _ ctx->zstream.next_out _               ctx->zstream.avail_in _ ctx->zstream.avail_out _ rc
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"deflate out: ni:%X no:%X ai:%d ao:%d rc:%d"
+argument_list|,
+name|ctx
+operator|->
+name|zstream
+operator|.
+name|next_in
+argument_list|,
+name|ctx
+operator|->
+name|zstream
+operator|.
+name|next_out
+argument_list|,
+name|ctx
+operator|->
+name|zstream
+operator|.
+name|avail_in
+argument_list|,
+name|ctx
+operator|->
+name|zstream
+operator|.
+name|avail_out
+argument_list|,
+name|rc
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 name|ctx
 operator|->
 name|in_hunk
@@ -2534,19 +2602,31 @@ name|allocated
 operator|-=
 name|alloc
 expr_stmt|;
-if|#
-directive|if
-literal|1
-name|ngx_log_debug
+name|ngx_log_debug4
 argument_list|(
-argument|ctx->request->connection->log
+name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-literal|"ALLOC: %d:%d:%d:%08X"
-argument|_                       items _ size _ alloc _ p
+name|ctx
+operator|->
+name|request
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"gzip alloc: n:%d s:%d a:%d p:%08X"
+argument_list|,
+name|items
+argument_list|,
+name|size
+argument_list|,
+name|alloc
+argument_list|,
+name|p
 argument_list|)
-empty_stmt|;
-endif|#
-directive|endif
+expr_stmt|;
 return|return
 name|p
 return|;
@@ -2621,7 +2701,7 @@ decl_stmt|;
 if|#
 directive|if
 literal|0
-block_content|ngx_log_debug(ctx->request->connection->log, "FREE: %08X" _ address);
+block_content|ngx_log_debug1(NGX_LOG_DEBUG_HTTP, ctx->request->connection->log, 0,                    "gzip free: %X", address);
 endif|#
 directive|endif
 block|}

@@ -254,16 +254,51 @@ operator|->
 name|md5
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug2
 argument_list|(
-argument|r->connection->log
+name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-literal|"URL: %s, md5: %s"
-argument|_ ctx->key.data _               ctx->file.name.data + ctx->path->name.len +
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"file cache uri: %s, md5: %s"
+argument_list|,
+name|ctx
+operator|->
+name|key
+operator|.
+name|data
+argument_list|,
+name|ctx
+operator|->
+name|file
+operator|.
+name|name
+operator|.
+name|data
+operator|+
+name|ctx
+operator|->
+name|path
+operator|->
+name|name
+operator|.
+name|len
+operator|+
 literal|1
-argument|+ ctx->path->len
+operator|+
+name|ctx
+operator|->
+name|path
+operator|->
+name|len
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 name|ngx_create_hashed_filename
 argument_list|(
 operator|&
@@ -276,14 +311,29 @@ operator|->
 name|path
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|r->connection->log
+name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-literal|"FILE: %s"
-argument|_ ctx->file.name.data
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"file cache name: %s"
+argument_list|,
+name|ctx
+operator|->
+name|file
+operator|.
+name|name
+operator|.
+name|data
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 comment|/* TODO: look open files cache */
 return|return
 name|ngx_http_cache_open_file
@@ -773,13 +823,17 @@ name|ngx_time
 argument_list|()
 condition|)
 block|{
-name|ngx_log_debug
+name|ngx_log_debug0
 argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
 name|ctx
 operator|->
 name|log
 argument_list|,
-literal|"EXPIRED"
+literal|0
+argument_list|,
+literal|"http file cache expired"
 argument_list|)
 expr_stmt|;
 return|return

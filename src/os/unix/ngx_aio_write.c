@@ -88,14 +88,23 @@ return|return
 name|NGX_AGAIN
 return|;
 block|}
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|wev->log
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|wev
+operator|->
+name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"aio: wev->complete: %d"
-argument|_ wev->complete
+argument_list|,
+name|wev
+operator|->
+name|complete
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -214,11 +223,15 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-name|ngx_log_debug
+name|ngx_log_debug0
 argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
 name|wev
 operator|->
 name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"aio_write: OK"
 argument_list|)
@@ -456,14 +469,21 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|wev->log
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|wev
+operator|->
+name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"aio_write: %d"
-argument|_ n
+argument_list|,
+name|n
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 name|wev
 operator|->
 name|active

@@ -84,6 +84,51 @@ return|return
 name|in
 return|;
 block|}
+if|#
+directive|if
+operator|(
+name|HAVE_KQUEUE
+operator|)
+if|if
+condition|(
+operator|(
+name|ngx_event_flags
+operator|&
+name|NGX_HAVE_KQUEUE_EVENT
+operator|)
+operator|&&
+name|wev
+operator|->
+name|kq_eof
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+name|wev
+operator|->
+name|kq_errno
+argument_list|,
+literal|"kevent() reported about an closed connection"
+argument_list|)
+expr_stmt|;
+name|wev
+operator|->
+name|error
+operator|=
+literal|1
+expr_stmt|;
+return|return
+name|NGX_CHAIN_ERROR
+return|;
+block|}
+endif|#
+directive|endif
 name|ngx_init_array
 argument_list|(
 name|io
@@ -254,23 +299,13 @@ condition|(
 name|err
 operator|==
 name|NGX_EAGAIN
+operator|||
+name|err
+operator|==
+name|NGX_EINTR
 condition|)
 block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_INFO
-argument_list|,
-name|c
-operator|->
-name|log
-argument_list|,
-name|err
-argument_list|,
-literal|"writev() EAGAIN"
-argument_list|)
-expr_stmt|;
-block|}
-if|else if
+if|if
 condition|(
 name|err
 operator|==
@@ -281,9 +316,10 @@ name|eintr
 operator|=
 literal|1
 expr_stmt|;
-name|ngx_log_error
+block|}
+name|ngx_log_debug0
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
 name|c
 operator|->
@@ -291,7 +327,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"writev() EINTR"
+literal|"writev() not ready"
 argument_list|)
 expr_stmt|;
 block|}
@@ -303,13 +339,9 @@ name|error
 operator|=
 literal|1
 expr_stmt|;
-name|ngx_log_error
+name|ngx_connection_error
 argument_list|(
-name|NGX_LOG_CRIT
-argument_list|,
 name|c
-operator|->
-name|log
 argument_list|,
 name|err
 argument_list|,
@@ -331,21 +363,22 @@ name|n
 else|:
 literal|0
 expr_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG_WRITE_CHAIN
-operator|)
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|c->log
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"writev: "
-argument|OFF_T_FMT  _ sent
+name|OFF_T_FMT
+argument_list|,
+name|sent
 argument_list|)
-empty_stmt|;
-endif|#
-directive|endif
+expr_stmt|;
 name|c
 operator|->
 name|sent
@@ -385,14 +418,6 @@ name|hunk
 operator|->
 name|pos
 expr_stmt|;
-name|ngx_log_debug
-argument_list|(
-argument|c->log
-argument_list|,
-literal|"SIZE: %d"
-argument|_ size
-argument_list|)
-empty_stmt|;
 if|if
 condition|(
 name|sent

@@ -449,7 +449,7 @@ name|event_handler
 operator|=
 name|ngx_http_init_request
 expr_stmt|;
-comment|/* STUB: epoll */
+comment|/* STUB: epoll edge */
 name|c
 operator|->
 name|write
@@ -5372,6 +5372,18 @@ name|c
 operator|->
 name|buffer
 expr_stmt|;
+name|wev
+operator|=
+name|c
+operator|->
+name|write
+expr_stmt|;
+name|wev
+operator|->
+name|event_handler
+operator|=
+name|ngx_http_empty_handler
+expr_stmt|;
 if|if
 condition|(
 name|h
@@ -5498,18 +5510,6 @@ operator|->
 name|event_handler
 operator|=
 name|ngx_http_keepalive_handler
-expr_stmt|;
-name|wev
-operator|=
-name|c
-operator|->
-name|write
-expr_stmt|;
-name|wev
-operator|->
-name|event_handler
-operator|=
-name|ngx_http_empty_handler
 expr_stmt|;
 if|if
 condition|(
@@ -6798,7 +6798,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"close connection: %d"
+literal|"close http connection: %d"
 argument_list|,
 name|c
 operator|->

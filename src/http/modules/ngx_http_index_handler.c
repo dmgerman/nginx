@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon274c69180108
+DECL|struct|__anon2a17cf060108
 typedef|typedef
 struct|struct
 block|{
@@ -42,7 +42,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon274c69180208
+DECL|struct|__anon2a17cf060208
 typedef|typedef
 struct|struct
 block|{
@@ -1431,14 +1431,27 @@ index|]
 operator|=
 literal|'\0'
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|r->connection->log
+name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-literal|"IS_DIR: %s"
-argument|_ ctx->path.data
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http check dir: \"%s\""
+argument_list|,
+name|ctx
+operator|->
+name|path
+operator|.
+name|data
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|ngx_file_info

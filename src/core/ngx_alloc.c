@@ -56,21 +56,21 @@ name|size
 argument_list|)
 expr_stmt|;
 block|}
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG_ALLOC
-operator|)
-name|ngx_log_debug
+name|ngx_log_debug2
 argument_list|(
-argument|log
+name|NGX_LOG_DEBUG_ALLOC
+argument_list|,
+name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"malloc: %08x:%d"
-argument|_ p _ size
+argument_list|,
+name|p
+argument_list|,
+name|size
 argument_list|)
-empty_stmt|;
-endif|#
-directive|endif
+expr_stmt|;
 return|return
 name|p
 return|;
@@ -249,21 +249,23 @@ operator|->
 name|next
 control|)
 block|{
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG_ALLOC
-operator|)
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|pool->log
+name|NGX_LOG_DEBUG_ALLOC
+argument_list|,
+name|pool
+operator|->
+name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"free: %08x"
-argument|_ l->alloc
+argument_list|,
+name|l
+operator|->
+name|alloc
 argument_list|)
-empty_stmt|;
-endif|#
-directive|endif
+expr_stmt|;
 if|if
 condition|(
 name|l
@@ -280,12 +282,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/*      * we could allocate pool->log from this pool      * so we can not use this log while free()ing the pool      */
 if|#
 directive|if
 operator|(
-name|NGX_DEBUG_ALLOC
+name|NGX_DEBUG
 operator|)
+comment|/*      * we could allocate the pool->log from this pool      * so we can not use this log while the free()ing the pool      */
 for|for
 control|(
 name|p
@@ -311,14 +313,21 @@ operator|->
 name|next
 control|)
 block|{
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|pool->log
+name|NGX_LOG_DEBUG_ALLOC
+argument_list|,
+name|pool
+operator|->
+name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"free: %08x"
-argument|_ p
+argument_list|,
+name|p
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|n
@@ -752,21 +761,23 @@ operator|->
 name|alloc
 condition|)
 block|{
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG_ALLOC
-operator|)
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|pool->log
+name|NGX_LOG_DEBUG_ALLOC
+argument_list|,
+name|pool
+operator|->
+name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"free: %08x"
-argument|_ l->alloc
+argument_list|,
+name|l
+operator|->
+name|alloc
 argument_list|)
-empty_stmt|;
-endif|#
-directive|endif
+expr_stmt|;
 name|free
 argument_list|(
 name|l
