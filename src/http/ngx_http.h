@@ -67,7 +67,7 @@ file|<ngx_http_core_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28b21f2e0108
+DECL|struct|__anon2abf475e0108
 typedef|typedef
 struct|struct
 block|{
@@ -103,6 +103,20 @@ parameter_list|,
 name|module
 parameter_list|)
 value|r->ctx[module.ctx_index]
+end_define
+
+begin_define
+DECL|macro|ngx_http_get_module_err_ctx (r,module)
+define|#
+directive|define
+name|ngx_http_get_module_err_ctx
+parameter_list|(
+name|r
+parameter_list|,
+name|module
+parameter_list|)
+define|\
+value|(r->err_ctx ? r->err_ctx[module.ctx_index] : r->ctx[module.ctx_index])
 end_define
 
 begin_define

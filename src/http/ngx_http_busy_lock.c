@@ -355,9 +355,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_busy_unlock_cachable (ngx_http_busy_lock_t * bl,ngx_http_busy_lock_ctx_t * bc)
+DECL|function|ngx_http_busy_unlock (ngx_http_busy_lock_t * bl,ngx_http_busy_lock_ctx_t * bc)
 name|void
-name|ngx_http_busy_unlock_cachable
+name|ngx_http_busy_unlock
 parameter_list|(
 name|ngx_http_busy_lock_t
 modifier|*
@@ -367,6 +367,13 @@ name|ngx_http_busy_lock_ctx_t
 modifier|*
 name|bc
 parameter_list|)
+block|{
+if|if
+condition|(
+name|bl
+operator|->
+name|md5
+condition|)
 block|{
 name|bl
 operator|->
@@ -397,6 +404,7 @@ operator|->
 name|cachable
 operator|--
 expr_stmt|;
+block|}
 name|bl
 operator|->
 name|busy

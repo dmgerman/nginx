@@ -1,6 +1,6 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_comment
-comment|/*  * Copyright (C) 2002-2003 Igor Sysoev, http://sysoev.ru  */
+comment|/*  * Copyright (C) 2002-2003 Igor Sysoev, http://sysoev.ru/en/  */
 end_comment
 
 begin_include
@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2afcfe7c0108
+DECL|struct|__anon2745c4ae0108
 typedef|typedef
 struct|struct
 block|{
@@ -1462,11 +1462,6 @@ name|nchanges
 operator|=
 literal|0
 expr_stmt|;
-if|if
-condition|(
-name|timer
-condition|)
-block|{
 name|gettimeofday
 argument_list|(
 operator|&
@@ -1475,6 +1470,30 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|ngx_cached_time
+operator|!=
+name|tv
+operator|.
+name|tv_sec
+condition|)
+block|{
+name|ngx_cached_time
+operator|=
+name|tv
+operator|.
+name|tv_sec
+expr_stmt|;
+name|ngx_time_update
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|timer
+condition|)
+block|{
 name|delta
 operator|=
 name|tv
@@ -1506,7 +1525,7 @@ argument_list|)
 empty_stmt|;
 endif|#
 directive|endif
-comment|/* The expired timers must be handled before a processing of the events            because the new timers can be added during a processing */
+comment|/*          * The expired timers must be handled before a processing of the events          * because the new timers can be added during a processing          */
 name|ngx_event_expire_timers
 argument_list|(
 name|delta
@@ -1730,7 +1749,7 @@ operator|~
 literal|1
 operator|)
 expr_stmt|;
-comment|/* It's a stale event from a file descriptor                that was just closed in this iteration */
+comment|/*              * it's a stale event from a file descriptor              * that was just closed in this iteration              */
 if|if
 condition|(
 name|ev

@@ -341,7 +341,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2bacc2460108
+DECL|struct|__anon2af5c6650108
 typedef|typedef
 struct|struct
 block|{
@@ -360,7 +360,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bacc2460208
+DECL|struct|__anon2af5c6650208
 typedef|typedef
 struct|struct
 block|{
@@ -443,7 +443,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bacc2460308
+DECL|struct|__anon2af5c6650308
 typedef|typedef
 struct|struct
 block|{
@@ -494,7 +494,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bacc2460408
+DECL|struct|__anon2af5c6650408
 typedef|typedef
 struct|struct
 block|{
@@ -517,7 +517,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bacc2460508
+DECL|struct|__anon2af5c6650508
 typedef|typedef
 struct|struct
 block|{
@@ -826,6 +826,16 @@ DECL|member|discarded_buffer
 name|char
 modifier|*
 name|discarded_buffer
+decl_stmt|;
+DECL|member|err_ctx
+name|void
+modifier|*
+modifier|*
+name|err_ctx
+decl_stmt|;
+DECL|member|err_status
+name|int
+name|err_status
 decl_stmt|;
 comment|/* URI is not started with '/' - "GET http://" */
 DECL|member|unusual_uri

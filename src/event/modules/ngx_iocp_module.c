@@ -731,6 +731,7 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+comment|/* TODO: timer */
 if|if
 condition|(
 name|timer

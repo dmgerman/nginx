@@ -2212,7 +2212,7 @@ name|p
 decl_stmt|;
 name|p
 operator|=
-name|ngx_http_get_module_ctx
+name|ngx_http_get_module_err_ctx
 argument_list|(
 name|r
 argument_list|,
@@ -2301,7 +2301,7 @@ operator|*
 name|buf
 operator|++
 operator|=
-literal|'X'
+literal|'_'
 expr_stmt|;
 operator|*
 name|buf
@@ -2313,7 +2313,19 @@ operator|*
 name|buf
 operator|++
 operator|=
-literal|'X'
+literal|'_'
+expr_stmt|;
+operator|*
+name|buf
+operator|++
+operator|=
+literal|'/'
+expr_stmt|;
+operator|*
+name|buf
+operator|++
+operator|=
+literal|'_'
 expr_stmt|;
 operator|*
 name|buf
@@ -2463,6 +2475,18 @@ name|expires
 argument_list|)
 expr_stmt|;
 block|}
+operator|*
+name|buf
+operator|++
+operator|=
+literal|' '
+expr_stmt|;
+operator|*
+name|buf
+operator|++
+operator|=
+literal|'_'
+expr_stmt|;
 return|return
 name|buf
 return|;
@@ -2494,7 +2518,7 @@ name|p
 decl_stmt|;
 name|p
 operator|=
-name|ngx_http_get_module_ctx
+name|ngx_http_get_module_err_ctx
 argument_list|(
 name|r
 argument_list|,
@@ -2587,7 +2611,7 @@ name|p
 decl_stmt|;
 name|p
 operator|=
-name|ngx_http_get_module_ctx
+name|ngx_http_get_module_err_ctx
 argument_list|(
 name|r
 argument_list|,

@@ -37,7 +37,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29d2bb550108
+DECL|struct|__anon28da8a510108
 typedef|typedef
 struct|struct
 block|{
@@ -83,7 +83,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d2bb550208
+DECL|struct|__anon28da8a510208
 typedef|typedef
 struct|struct
 block|{
@@ -158,7 +158,7 @@ end_function_decl
 
 begin_function_decl
 name|void
-name|ngx_http_busy_unlock_cachable
+name|ngx_http_busy_unlock
 parameter_list|(
 name|ngx_http_busy_lock_t
 modifier|*

@@ -130,18 +130,19 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
-begin_comment
-comment|/* STUB */
-end_comment
-
-begin_define
-DECL|macro|ngx_time ()
-define|#
-directive|define
+begin_function_decl
+name|time_t
 name|ngx_time
 parameter_list|()
-value|time(NULL)
-end_define
+function_decl|;
+end_function_decl
+
+begin_decl_stmt
+specifier|extern
+name|time_t
+name|ngx_cached_time
+decl_stmt|;
+end_decl_stmt
 
 begin_endif
 endif|#

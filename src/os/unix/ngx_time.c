@@ -8,7 +8,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_time.h>
+file|<ngx_core.h>
 end_include
 
 begin_function
@@ -21,18 +21,10 @@ modifier|*
 name|tm
 parameter_list|)
 block|{
-name|time_t
-name|clock
-init|=
-name|time
-argument_list|(
-name|NULL
-argument_list|)
-decl_stmt|;
 name|localtime_r
 argument_list|(
 operator|&
-name|clock
+name|ngx_cached_time
 argument_list|,
 name|tm
 argument_list|)
