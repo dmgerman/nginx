@@ -24,7 +24,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2be7f2af0108
+DECL|struct|__anon27c0940e0108
 typedef|typedef
 struct|struct
 block|{
@@ -63,7 +63,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be7f2af0208
+DECL|struct|__anon27c0940e0208
 typedef|typedef
 struct|struct
 block|{
@@ -1056,8 +1056,6 @@ name|ngx_uint_t
 name|i
 decl_stmt|,
 name|live
-decl_stmt|,
-name|sent
 decl_stmt|;
 name|ngx_msec_t
 name|delay
@@ -1066,10 +1064,6 @@ name|ngx_core_conf_t
 modifier|*
 name|ccf
 decl_stmt|;
-name|delay
-operator|=
-literal|125
-expr_stmt|;
 name|sigemptyset
 argument_list|(
 operator|&
@@ -1186,6 +1180,11 @@ literal|"sigprocmask() failed"
 argument_list|)
 expr_stmt|;
 block|}
+name|ngx_setproctitle
+argument_list|(
+literal|"master process"
+argument_list|)
+expr_stmt|;
 name|ngx_signal
 operator|=
 literal|0
@@ -1194,11 +1193,11 @@ name|ngx_new_binary
 operator|=
 literal|0
 expr_stmt|;
-name|signo
+name|delay
 operator|=
 literal|0
 expr_stmt|;
-name|sent
+name|signo
 operator|=
 literal|0
 expr_stmt|;
@@ -1343,7 +1342,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|sent
+name|delay
 condition|)
 block|{
 name|ngx_log_debug0
@@ -1356,7 +1355,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"sent signal cycle"
+literal|"temination cycle"
 argument_list|)
 expr_stmt|;
 if|if
@@ -1397,18 +1396,10 @@ operator|!
 name|ngx_signal
 condition|)
 block|{
-if|if
-condition|(
-name|delay
-operator|<
-literal|15000
-condition|)
-block|{
 name|delay
 operator|*=
 literal|2
 expr_stmt|;
-block|}
 name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
@@ -1831,17 +1822,6 @@ literal|1
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
-operator|!
-name|live
-condition|)
-block|{
-name|sent
-operator|=
-literal|0
-expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
@@ -1871,8 +1851,20 @@ block|{
 if|if
 condition|(
 name|delay
+operator|==
+literal|0
+condition|)
+block|{
+name|delay
+operator|=
+literal|50
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|delay
 operator|>
-literal|10000
+literal|1000
 condition|)
 block|{
 name|signo
@@ -2047,6 +2039,19 @@ expr_stmt|;
 name|ngx_reopen_files
 argument_list|(
 name|cycle
+argument_list|,
+name|ccf
+operator|->
+name|worker_reopen
+operator|>
+literal|0
+condition|?
+name|ccf
+operator|->
+name|user
+else|:
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
@@ -2116,10 +2121,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|delay
-operator|=
-literal|125
-expr_stmt|;
 name|signo
 operator|=
 literal|0
@@ -2249,10 +2250,6 @@ name|NGX_REOPEN_SIGNAL
 argument_list|)
 condition|)
 block|{
-name|sent
-operator|=
-literal|1
-expr_stmt|;
 name|ngx_processes
 index|[
 name|i
@@ -2718,6 +2715,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|ngx_setproctitle
+argument_list|(
+literal|"worker process"
+argument_list|)
+expr_stmt|;
 comment|/* TODO: threads: start ngx_worker_thread_cycle() */
 for|for
 control|(
@@ -2787,6 +2789,11 @@ argument_list|,
 literal|"gracefully shutdowning"
 argument_list|)
 expr_stmt|;
+name|ngx_setproctitle
+argument_list|(
+literal|"worker process is shutdowning"
+argument_list|)
+expr_stmt|;
 break|break;
 block|}
 if|if
@@ -2810,6 +2817,9 @@ expr_stmt|;
 name|ngx_reopen_files
 argument_list|(
 name|cycle
+argument_list|,
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 name|ngx_reopen

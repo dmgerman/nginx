@@ -112,6 +112,9 @@ parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
+parameter_list|,
+name|uid_t
+name|user
 parameter_list|)
 function_decl|;
 end_function_decl
