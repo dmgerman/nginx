@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b32654b0108
+DECL|struct|__anon2948f0170108
 typedef|typedef
 struct|struct
 block|{
@@ -200,7 +200,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b32654b0203
+DECL|enum|__anon2948f0170203
 typedef|typedef
 enum|enum
 block|{
@@ -224,7 +224,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b32654b0303
+DECL|enum|__anon2948f0170303
 typedef|typedef
 enum|enum
 block|{
@@ -314,6 +314,18 @@ DECL|member|addr_text
 name|ngx_str_t
 name|addr_text
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_OPENSSL
+operator|)
+DECL|member|ssl
+name|SSL
+modifier|*
+name|ssl
+decl_stmt|;
+endif|#
+directive|endif
 if|#
 directive|if
 operator|(

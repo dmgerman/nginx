@@ -111,7 +111,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|NGX_HTTP_SSL
+name|NGX_OPENSSL
 operator|)
 end_if
 
@@ -127,7 +127,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c716b850108
+DECL|struct|__anon2b8b96be0108
 typedef|typedef
 struct|struct
 block|{
