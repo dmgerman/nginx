@@ -103,7 +103,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c6311c90108
+DECL|struct|__anon28c38ba90108
 typedef|typedef
 struct|struct
 block|{
@@ -2017,12 +2017,18 @@ name|rtsig_nr
 decl_stmt|;
 name|ngx_uint_t
 name|i
+decl_stmt|,
+name|n
 decl_stmt|;
 name|ngx_connection_t
 modifier|*
 name|c
 decl_stmt|;
 comment|/* TODO: old cylces */
+name|n
+operator|=
+literal|0
+expr_stmt|;
 name|c
 operator|=
 name|cycle
@@ -2085,6 +2091,9 @@ operator|->
 name|event_handler
 condition|)
 block|{
+name|n
+operator|++
+expr_stmt|;
 name|c
 index|[
 name|i
@@ -2174,6 +2183,9 @@ operator|->
 name|event_handler
 condition|)
 block|{
+name|n
+operator|++
+expr_stmt|;
 name|c
 index|[
 name|i
@@ -2244,10 +2256,10 @@ block|}
 block|}
 if|if
 condition|(
-name|i
+name|n
 operator|&&
 operator|(
-name|i
+name|n
 operator|%
 literal|100
 operator|==
@@ -2255,7 +2267,7 @@ literal|0
 operator|)
 condition|)
 block|{
-comment|/*              * Check the current rt queue length to prevent the new overflow.              *              * Learn the /proc/sys/kernel/rtsig-max value because              * it can be changed sisnce the last checking              */
+comment|/*              * Check the current rt queue length to prevent the new overflow.              *              * Learn the /proc/sys/kernel/rtsig-max value because              * it can be changed sisnce the last checking.              */
 name|name
 index|[
 literal|0
@@ -2384,7 +2396,7 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-comment|/*              * drain rt signal queue if the /proc/sys/kernel/rtsig-nr              * is bigger then "/proc/sys/kernel/rtsig-max / 4"              */
+comment|/*              * drain rt signal queue if the /proc/sys/kernel/rtsig-nr              * is bigger than "/proc/sys/kernel/rtsig-max / 4"              */
 if|if
 condition|(
 name|rtsig_max
@@ -2394,6 +2406,23 @@ operator|<
 name|rtsig_nr
 condition|)
 block|{
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"rtsig queue state: %d/%d"
+argument_list|,
+name|rtsig_nr
+argument_list|,
+name|rtsig_max
+argument_list|)
+expr_stmt|;
 while|while
 condition|(
 name|ngx_rtsig_process_events

@@ -24,7 +24,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b2117670108
+DECL|struct|__anon274bda020108
 typedef|typedef
 struct|struct
 block|{
@@ -1082,6 +1082,22 @@ operator|->
 name|ready
 operator|=
 literal|1
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|rev
+operator|->
+name|ready
+condition|)
+block|{
+name|rev
+operator|->
+name|returned_instance
+operator|=
+name|rev
+operator|->
+name|instance
 expr_stmt|;
 block|}
 name|c
