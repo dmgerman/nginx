@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2b284aba0108
+DECL|struct|__anon278fb6110108
 typedef|typedef
 struct|struct
 block|{
@@ -92,16 +92,6 @@ modifier|*
 name|ev
 parameter_list|)
 function_decl|;
-DECL|member|context
-name|void
-modifier|*
-name|context
-decl_stmt|;
-DECL|member|action
-name|char
-modifier|*
-name|action
-decl_stmt|;
 DECL|member|index
 name|u_int
 name|index
@@ -348,7 +338,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b284aba0208
+DECL|struct|__anon278fb6110208
 typedef|typedef
 struct|struct
 block|{
@@ -1038,7 +1028,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon2b284aba0308
+DECL|struct|__anon278fb6110308
 typedef|typedef
 struct|struct
 block|{
@@ -1061,7 +1051,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b284aba0408
+DECL|struct|__anon278fb6110408
 typedef|typedef
 struct|struct
 block|{

@@ -43,7 +43,7 @@ value|3
 end_define
 
 begin_typedef
-DECL|struct|__anon27e902410108
+DECL|struct|__anon2b68abf10108
 typedef|typedef
 struct|struct
 block|{
@@ -126,7 +126,7 @@ DECL|member|updated
 name|time_t
 name|updated
 decl_stmt|;
-DECL|union|__anon27e90241020a
+DECL|union|__anon2b68abf1020a
 union|union
 block|{
 DECL|member|size
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e902410308
+DECL|struct|__anon2b68abf10308
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +202,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon27e902410408
+DECL|struct|__anon2b68abf10408
 typedef|typedef
 struct|struct
 block|{
@@ -239,7 +239,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e902410508
+DECL|struct|__anon2b68abf10508
 typedef|typedef
 struct|struct
 block|{
@@ -419,6 +419,21 @@ parameter_list|,
 name|ngx_log_t
 modifier|*
 name|log
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_http_cache_lock
+parameter_list|(
+name|ngx_http_cache_hash_t
+modifier|*
+name|hash
+parameter_list|,
+name|ngx_http_cache_t
+modifier|*
+name|cache
 parameter_list|)
 function_decl|;
 end_function_decl

@@ -208,6 +208,12 @@ operator|==
 literal|0
 condition|)
 block|{
+if|#
+directive|if
+literal|0
+block_content|if (c[i].expired) {                 ngx_mutex_unlock(&hash->mutex);                 return (void *) NGX_AGAIN;             }
+endif|#
+directive|endif
 name|c
 index|[
 name|i
@@ -215,14 +221,6 @@ index|]
 operator|.
 name|refs
 operator|++
-expr_stmt|;
-name|ngx_mutex_unlock
-argument_list|(
-operator|&
-name|hash
-operator|->
-name|mutex
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -270,6 +268,14 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
+name|ngx_mutex_unlock
+argument_list|(
+operator|&
+name|hash
+operator|->
+name|mutex
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|cleanup
@@ -1070,6 +1076,31 @@ block|}
 end_function
 
 begin_function
+DECL|function|ngx_http_cache_lock (ngx_http_cache_hash_t * hash,ngx_http_cache_t * cache)
+name|void
+name|ngx_http_cache_lock
+parameter_list|(
+name|ngx_http_cache_hash_t
+modifier|*
+name|hash
+parameter_list|,
+name|ngx_http_cache_t
+modifier|*
+name|cache
+parameter_list|)
+block|{
+name|ngx_mutex_lock
+argument_list|(
+operator|&
+name|hash
+operator|->
+name|mutex
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+
+begin_function
 DECL|function|ngx_http_cache_unlock (ngx_http_cache_hash_t * hash,ngx_http_cache_t * cache,ngx_log_t * log)
 name|void
 name|ngx_http_cache_unlock
@@ -1143,7 +1174,7 @@ literal|0
 end_if
 
 begin_endif
-unit|ngx_add_file_event(ngx_fd_t, ngx_event_handler_pt *handler, void *data) {     ngx_event_t  *ev;      ev =&ngx_cycle->read_events[fd];     ngx_memzero(ev, sizeof(ngx_event_t);      ev->data = data;     ev->event_handler = ngx_http_cache_invalidate;      return ngx_add_event(ev, NGX_VNODE_EVENT, 0); }   void ngx_http_cache_invalidate(ngx_event_t *ev) {     ngx_http_cache_ctx_t  *ctx;      ctx = ev->data;      ngx_http_cache_lock(&ctx->hash->mutex);      if (ctx->cache->refs == 0)         ngx_http_cache_free(ctx->cache, NULL, NULL, ctx->log);      } else {         ctx->cache->deleted = 1;     }      ngx_http_cache_unlock(&ctx->hash->mutex); }
+unit|ngx_http_cache_add_file_event(ngx_http_cache_hash_t *hash,                               ngx_http_cache_t *cache) {     ngx_event_t                 *ev;     ngx_http_cache_event_ctx_t  *ctx;      ev =&ngx_cycle->read_events[fd];     ngx_memzero(ev, sizeof(ngx_event_t);      ev->data = data;     ev->event_handler = ngx_http_cache_invalidate;      return ngx_add_event(ev, NGX_VNODE_EVENT, 0); }   void ngx_http_cache_invalidate(ngx_event_t *ev) {     ngx_http_cache_event_ctx_t  *ctx;      ctx = ev->data;      ngx_http_cache_lock(&ctx->hash->mutex);      if (ctx->cache->refs == 0)         ngx_http_cache_free(ctx->cache, NULL, NULL, ctx->log);      } else {         ctx->cache->deleted = 1;     }      ngx_http_cache_unlock(&ctx->hash->mutex); }
 endif|#
 directive|endif
 end_endif

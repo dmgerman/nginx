@@ -731,6 +731,10 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+name|sent
+operator|=
+literal|0
+expr_stmt|;
 name|rc
 operator|=
 name|sendfile
