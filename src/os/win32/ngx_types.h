@@ -19,6 +19,15 @@ file|<ngx_config.h>
 end_include
 
 begin_typedef
+DECL|typedef|u_int32_t
+typedef|typedef
+name|unsigned
+name|__int32
+name|u_int32_t
+typedef|;
+end_typedef
+
+begin_typedef
 DECL|typedef|ssize_t
 typedef|typedef
 name|int
@@ -35,11 +44,27 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|typedef|u_int32_t
+DECL|typedef|ngx_fd_t
+typedef|typedef
+name|HANDLE
+name|ngx_fd_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|typedef|off_t
 typedef|typedef
 name|unsigned
-name|__int32
-name|u_int32_t
+name|__int64
+name|off_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|typedef|ngx_file_info_t
+typedef|typedef
+name|BY_HANDLE_FILE_INFORMATION
+name|ngx_file_info_t
 typedef|;
 end_typedef
 

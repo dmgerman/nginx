@@ -15,7 +15,7 @@ end_define
 begin_include
 include|#
 directive|include
-file|<ngx_files.h>
+file|<ngx_file.h>
 end_include
 
 begin_include

@@ -26,6 +26,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_inet.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_http.h>
 end_include
 
@@ -1610,6 +1616,10 @@ name|ngx_inet_ntop
 argument_list|(
 name|AF_INET
 argument_list|,
+operator|(
+name|char
+operator|*
+operator|)
 operator|&
 name|in_addr
 index|[
@@ -1744,6 +1754,12 @@ name|log
 expr_stmt|;
 name|ls
 operator|->
+name|pool_size
+operator|=
+name|ngx_http_connection_pool_size
+expr_stmt|;
+name|ls
+operator|->
 name|ctx
 operator|=
 name|ctx
@@ -1857,6 +1873,10 @@ name|ngx_inet_ntop
 argument_list|(
 name|AF_INET
 argument_list|,
+operator|(
+name|char
+operator|*
+operator|)
 operator|&
 name|in_addr
 index|[

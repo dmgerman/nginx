@@ -15,17 +15,17 @@ end_define
 begin_include
 include|#
 directive|include
-file|<ngx_errno.h>
+file|<ngx_types.h>
 end_include
 
 begin_include
 include|#
 directive|include
-file|<ngx_files.h>
+file|<ngx_errno.h>
 end_include
 
 begin_typedef
-DECL|enum|__anon2c6e1a880103
+DECL|enum|__anon297996f50103
 typedef|typedef
 enum|enum
 block|{
@@ -65,7 +65,7 @@ comment|/*     "[%time] [%level] %pid#%tid: %message:(%errno)%errstr, while %act
 end_comment
 
 begin_typedef
-DECL|struct|__anon2c6e1a880208
+DECL|struct|__anon297996f50208
 typedef|typedef
 struct|struct
 block|{

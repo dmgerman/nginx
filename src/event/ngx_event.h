@@ -296,7 +296,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon28a6edad0103
+DECL|enum|__anon2c32fcd40103
 typedef|typedef
 enum|enum
 block|{
@@ -342,7 +342,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a6edad0208
+DECL|struct|__anon2c32fcd40208
 typedef|typedef
 struct|struct
 block|{
@@ -448,7 +448,7 @@ value|1
 end_define
 
 begin_comment
-comment|/* Event filter deleted after notification - select, poll, kqueue.    /dev/poll, epoll implemetned with additional syscall */
+comment|/* Event filter is deleted after notification - select, poll, kqueue.    Using /dev/poll, epoll it can be implemented with additional syscall */
 end_comment
 
 begin_define
@@ -460,7 +460,7 @@ value|2
 end_define
 
 begin_comment
-comment|/* Event filter notify only changes - kqueue, epoll */
+comment|/* Event filter notifies only changes and initial level - kqueue */
 end_comment
 
 begin_define
@@ -472,7 +472,19 @@ value|4
 end_define
 
 begin_comment
-comment|/* No nedd to add or delete event filters - overlapped, aio_read, aioread */
+comment|/* Event filter notifies only changes (edgesi) but not initial level - epoll */
+end_comment
+
+begin_define
+DECL|macro|NGX_HAVE_EDGE_EVENT
+define|#
+directive|define
+name|NGX_HAVE_EDGE_EVENT
+value|8
+end_define
+
+begin_comment
+comment|/* No need to add or delete event filters - overlapped, aio_read, aioread */
 end_comment
 
 begin_define
@@ -480,7 +492,7 @@ DECL|macro|NGX_HAVE_AIO_EVENT
 define|#
 directive|define
 name|NGX_HAVE_AIO_EVENT
-value|8
+value|16
 end_define
 
 begin_comment

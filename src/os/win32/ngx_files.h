@@ -18,6 +18,18 @@ directive|include
 file|<ngx_config.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_types.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_file.h>
+end_include
+
 begin_comment
 comment|/* INVALID_FILE_ATTRIBUTES specified but never defined at least in VC6SP2 */
 end_comment
@@ -41,14 +53,6 @@ endif|#
 directive|endif
 end_endif
 
-begin_typedef
-DECL|typedef|ngx_fd_t
-typedef|typedef
-name|HANDLE
-name|ngx_fd_t
-typedef|;
-end_typedef
-
 begin_define
 DECL|macro|NGX_INVALID_FILE
 define|#
@@ -64,23 +68,6 @@ directive|define
 name|NGX_FILE_ERROR
 value|0
 end_define
-
-begin_typedef
-DECL|typedef|off_t
-typedef|typedef
-name|unsigned
-name|__int64
-name|off_t
-typedef|;
-end_typedef
-
-begin_typedef
-DECL|typedef|ngx_file_info_t
-typedef|typedef
-name|BY_HANDLE_FILE_INFORMATION
-name|ngx_file_info_t
-typedef|;
-end_typedef
 
 begin_define
 DECL|macro|ngx_open_file (name,flags)
@@ -225,6 +212,27 @@ parameter_list|)
 define|\
 value|(time_t) (((((unsigned __int64) fi.ftLastWriteTime.dwHighDateTime<< 32) \                                  | fi.ftLastWriteTime.dwLowDateTime)        \                                           - 116444736000000000) / 10000000)
 end_define
+
+begin_function_decl
+name|ssize_t
+name|ngx_read_file
+parameter_list|(
+name|ngx_file_t
+modifier|*
+name|file
+parameter_list|,
+name|char
+modifier|*
+name|buf
+parameter_list|,
+name|size_t
+name|size
+parameter_list|,
+name|off_t
+name|offset
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_define
 DECL|macro|ngx_read_file_n

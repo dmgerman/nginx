@@ -407,6 +407,17 @@ name|status_line
 operator|.
 name|len
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_SUPPRESS_WARN
+operator|)
+name|status
+operator|=
+name|NGX_INVALID_ARRAY_INDEX
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 else|else
 block|{
@@ -1123,22 +1134,14 @@ name|mem
 operator|+=
 name|ngx_snprintf
 argument_list|(
-name|h
-operator|->
-name|last
-operator|.
-name|mem
+argument|h->last.mem
 argument_list|,
 literal|49
 argument_list|,
-literal|"Content-Length: %u"
-name|CRLF
+literal|"Content-Length: "
+argument|OFF_FMT CRLF
 argument_list|,
-name|r
-operator|->
-name|headers_out
-operator|.
-name|content_length
+argument|r->headers_out.content_length
 argument_list|)
 expr_stmt|;
 block|}

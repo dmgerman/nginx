@@ -17,17 +17,18 @@ directive|include
 file|<ngx_types.h>
 end_include
 
-begin_macro
+begin_function
 DECL|function|ngx_http_get_time (char * buf,time_t t)
+name|size_t
 name|ngx_http_get_time
-argument_list|(
-argument|char *buf
-argument_list|,
-argument|time_t t
-argument_list|)
-end_macro
-
-begin_block
+parameter_list|(
+name|char
+modifier|*
+name|buf
+parameter_list|,
+name|time_t
+name|t
+parameter_list|)
 block|{
 name|struct
 name|tm
@@ -55,7 +56,7 @@ name|tp
 argument_list|)
 return|;
 block|}
-end_block
+end_function
 
 end_unit
 

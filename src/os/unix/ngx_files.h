@@ -15,22 +15,20 @@ end_define
 begin_include
 include|#
 directive|include
-file|<sys/types.h>
+file|<ngx_config.h>
 end_include
 
 begin_include
 include|#
 directive|include
-file|<sys/stat.h>
+file|<ngx_types.h>
 end_include
 
-begin_typedef
-DECL|typedef|ngx_fd_t
-typedef|typedef
-name|int
-name|ngx_fd_t
-typedef|;
-end_typedef
+begin_include
+include|#
+directive|include
+file|<ngx_file.h>
+end_include
 
 begin_define
 DECL|macro|NGX_INVALID_FILE
@@ -47,15 +45,6 @@ directive|define
 name|NGX_FILE_ERROR
 value|-1
 end_define
-
-begin_typedef
-DECL|typedef|ngx_file_info_t
-typedef|typedef
-name|struct
-name|stat
-name|ngx_file_info_t
-typedef|;
-end_typedef
 
 begin_define
 DECL|macro|ngx_open_file
@@ -88,6 +77,27 @@ directive|define
 name|ngx_close_file_n
 value|"close()"
 end_define
+
+begin_function_decl
+name|ssize_t
+name|ngx_read_file
+parameter_list|(
+name|ngx_file_t
+modifier|*
+name|file
+parameter_list|,
+name|char
+modifier|*
+name|buf
+parameter_list|,
+name|size_t
+name|size
+parameter_list|,
+name|off_t
+name|offset
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_define
 DECL|macro|ngx_read_file_n

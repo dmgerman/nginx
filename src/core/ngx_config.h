@@ -71,6 +71,18 @@ parameter_list|)
 value|(char *) (((NGX_ALIGN_TYPE) p + NGX_ALIGN)& ~NGX_ALIGN)
 end_define
 
+begin_comment
+comment|/* Platform specific: array[NGX_INVALID_ARRAY_INDEX] should cause SIGSEGV */
+end_comment
+
+begin_define
+DECL|macro|NGX_INVALID_ARRAY_INDEX
+define|#
+directive|define
+name|NGX_INVALID_ARRAY_INDEX
+value|0x80000000
+end_define
+
 begin_ifdef
 ifdef|#
 directive|ifdef

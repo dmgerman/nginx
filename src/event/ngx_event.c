@@ -659,6 +659,17 @@ index|]
 operator|.
 name|log
 expr_stmt|;
+name|c
+operator|->
+name|pool_size
+operator|=
+name|s
+index|[
+name|i
+index|]
+operator|.
+name|pool_size
+expr_stmt|;
 name|ngx_test_null
 argument_list|(
 argument|ev->log

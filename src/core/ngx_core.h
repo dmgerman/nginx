@@ -61,6 +61,14 @@ value|-4
 end_define
 
 begin_define
+DECL|macro|NGX_ALERT
+define|#
+directive|define
+name|NGX_ALERT
+value|-5
+end_define
+
+begin_define
 DECL|macro|NGX_MAXHOSTNAMELEN
 define|#
 directive|define

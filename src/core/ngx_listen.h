@@ -43,7 +43,7 @@ file|<ngx_connection.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29558c6c0108
+DECL|struct|__anon296313180108
 typedef|typedef
 struct|struct
 block|{
@@ -121,6 +121,10 @@ DECL|member|log
 name|ngx_log_t
 modifier|*
 name|log
+decl_stmt|;
+DECL|member|pool_size
+name|int
+name|pool_size
 decl_stmt|;
 DECL|member|backlog
 name|int
