@@ -41,7 +41,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c761cf0108
+DECL|struct|__anon2c0a02630108
 typedef|typedef
 struct|struct
 block|{
@@ -98,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c761cf0208
+DECL|struct|__anon2c0a02630208
 typedef|typedef
 struct|struct
 block|{
@@ -157,11 +157,19 @@ value|2
 end_define
 
 begin_define
-DECL|macro|NGX_PROCESS_MASTER_QUIT
+DECL|macro|NGX_PROCESS_QUITING
 define|#
 directive|define
-name|NGX_PROCESS_MASTER_QUIT
+name|NGX_PROCESS_QUITING
 value|3
+end_define
+
+begin_define
+DECL|macro|NGX_PROCESS_PAUSED
+define|#
+directive|define
+name|NGX_PROCESS_PAUSED
+value|4
 end_define
 
 begin_define
@@ -253,7 +261,7 @@ modifier|*
 name|cycle
 parameter_list|,
 name|ngx_int_t
-name|signal
+name|signo
 parameter_list|)
 function_decl|;
 end_function_decl

@@ -552,7 +552,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_signal_processes (ngx_cycle_t * cycle,ngx_int_t signal)
+DECL|function|ngx_signal_processes (ngx_cycle_t * cycle,ngx_int_t signo)
 name|void
 name|ngx_signal_processes
 parameter_list|(
@@ -561,7 +561,7 @@ modifier|*
 name|cycle
 parameter_list|,
 name|ngx_int_t
-name|signal
+name|signo
 parameter_list|)
 block|{
 name|ngx_uint_t
@@ -593,38 +593,12 @@ condition|)
 block|{
 continue|continue;
 block|}
-if|if
-condition|(
-name|ngx_processes
-index|[
-name|i
-index|]
-operator|.
-name|exited
-condition|)
-block|{
-if|if
-condition|(
-name|i
-operator|!=
-operator|--
-name|ngx_last_process
-condition|)
-block|{
-name|ngx_processes
-index|[
-name|i
-operator|--
-index|]
-operator|=
-name|ngx_processes
-index|[
-name|ngx_last_process
-index|]
-expr_stmt|;
-block|}
-continue|continue;
-block|}
+if|#
+directive|if
+literal|0
+block_content|if (ngx_processes[i].exited) {             if (i != --ngx_last_process) {                 ngx_processes[i--] = ngx_processes[ngx_last_process];             }             continue;         }
+endif|#
+directive|endif
 name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_CORE
@@ -646,7 +620,7 @@ index|]
 operator|.
 name|pid
 argument_list|,
-name|signal
+name|signo
 argument_list|)
 expr_stmt|;
 if|if
@@ -660,7 +634,7 @@ index|]
 operator|.
 name|pid
 argument_list|,
-name|signal
+name|signo
 argument_list|)
 operator|==
 operator|-
@@ -686,14 +660,14 @@ index|]
 operator|.
 name|pid
 argument_list|,
-name|signal
+name|signo
 argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
 if|if
 condition|(
-name|signal
+name|signo
 operator|!=
 name|ngx_signal_value
 argument_list|(
@@ -744,6 +718,13 @@ control|)
 block|{
 if|if
 condition|(
+name|ngx_processes
+index|[
+name|i
+index|]
+operator|.
+name|exiting
+operator|||
 operator|!
 name|ngx_processes
 index|[
@@ -996,17 +977,6 @@ name|status
 operator|=
 name|status
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|ngx_processes
-index|[
-name|i
-index|]
-operator|.
-name|exiting
-condition|)
-block|{
 name|ngx_processes
 index|[
 name|i
@@ -1016,7 +986,6 @@ name|exited
 operator|=
 literal|1
 expr_stmt|;
-block|}
 name|process
 operator|=
 name|ngx_processes

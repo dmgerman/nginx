@@ -267,22 +267,6 @@ comment|/* TODO: #ifndef */
 end_comment
 
 begin_define
-DECL|macro|NGX_RECONFIGURE_SIGNAL
-define|#
-directive|define
-name|NGX_RECONFIGURE_SIGNAL
-value|HUP
-end_define
-
-begin_define
-DECL|macro|NGX_REOPEN_SIGNAL
-define|#
-directive|define
-name|NGX_REOPEN_SIGNAL
-value|USR1
-end_define
-
-begin_define
 DECL|macro|NGX_SHUTDOWN_SIGNAL
 define|#
 directive|define
@@ -299,11 +283,27 @@ value|TERM
 end_define
 
 begin_define
-DECL|macro|NGX_INTERRUPT_SIGNAL
+DECL|macro|NGX_PAUSE_SIGNAL
 define|#
 directive|define
-name|NGX_INTERRUPT_SIGNAL
+name|NGX_PAUSE_SIGNAL
 value|INT
+end_define
+
+begin_define
+DECL|macro|NGX_RECONFIGURE_SIGNAL
+define|#
+directive|define
+name|NGX_RECONFIGURE_SIGNAL
+value|HUP
+end_define
+
+begin_define
+DECL|macro|NGX_REOPEN_SIGNAL
+define|#
+directive|define
+name|NGX_REOPEN_SIGNAL
+value|USR1
 end_define
 
 begin_define
