@@ -649,17 +649,6 @@ return|return
 name|rc
 return|;
 block|}
-name|ngx_log_debug
-argument_list|(
-name|r
-operator|->
-name|connection
-operator|->
-name|log
-argument_list|,
-literal|"HERE"
-argument_list|)
-expr_stmt|;
 comment|/* NGX_OK */
 comment|/* set our hunk free */
 name|ctx

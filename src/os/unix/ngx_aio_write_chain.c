@@ -68,14 +68,6 @@ condition|(
 name|ce
 condition|)
 block|{
-name|ngx_log_debug
-argument_list|(
-argument|c->log
-argument_list|,
-literal|"aio_write ce: %x"
-argument|_ ce->hunk->pos
-argument_list|)
-empty_stmt|;
 name|buf
 operator|=
 name|prev
@@ -144,6 +136,11 @@ argument_list|,
 name|size
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_DEBUG_WRITE_CHAIN
+operator|)
 name|ngx_log_debug
 argument_list|(
 argument|c->log
@@ -152,6 +149,8 @@ literal|"aio_write rc: %d"
 argument|_ rc
 argument_list|)
 empty_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|rc
@@ -221,21 +220,6 @@ operator|->
 name|next
 control|)
 block|{
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG_WRITE_CHAIN
-operator|)
-name|ngx_log_debug
-argument_list|(
-argument|c->log
-argument_list|,
-literal|"write chain: %x %qx %qd"
-argument|_                       ce->hunk->type _                       ce->hunk->file_pos _                       ce->hunk->file_last - ce->hunk->file_pos
-argument_list|)
-empty_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 name|sent
@@ -244,13 +228,13 @@ name|ce
 operator|->
 name|hunk
 operator|->
-name|file_last
+name|last
 operator|-
 name|ce
 operator|->
 name|hunk
 operator|->
-name|file_pos
+name|pos
 condition|)
 block|{
 name|sent
@@ -259,66 +243,36 @@ name|ce
 operator|->
 name|hunk
 operator|->
-name|file_last
+name|last
 operator|-
 name|ce
 operator|->
 name|hunk
 operator|->
-name|file_pos
+name|pos
 expr_stmt|;
 name|ce
 operator|->
 name|hunk
 operator|->
-name|file_pos
+name|pos
 operator|=
 name|ce
 operator|->
 name|hunk
 operator|->
-name|file_last
+name|last
 expr_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG_WRITE_CHAIN
-operator|)
-name|ngx_log_debug
-argument_list|(
-argument|c->log
-argument_list|,
-literal|"write chain done: %qx %qd"
-argument|_                           ce->hunk->file_pos _ sent
-argument_list|)
-empty_stmt|;
-endif|#
-directive|endif
 continue|continue;
 block|}
 name|ce
 operator|->
 name|hunk
 operator|->
-name|file_pos
+name|pos
 operator|+=
 name|sent
 expr_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG_WRITE_CHAIN
-operator|)
-name|ngx_log_debug
-argument_list|(
-argument|c->log
-argument_list|,
-literal|"write chain rest: %qx %qd"
-argument|_                       ce->hunk->file_pos _                       ce->hunk->file_last - ce->hunk->file_pos
-argument_list|)
-empty_stmt|;
-endif|#
-directive|endif
 break|break;
 block|}
 return|return

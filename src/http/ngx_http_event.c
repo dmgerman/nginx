@@ -423,6 +423,10 @@ name|ngx_http_log_ctx_t
 modifier|*
 name|lcx
 decl_stmt|;
+name|ngx_http_conf_ctx_t
+modifier|*
+name|ctx
+decl_stmt|;
 name|c
 operator|->
 name|addr_text
@@ -691,9 +695,9 @@ name|ngx_http_conf_ctx_t
 modifier|*
 name|ctx
 decl_stmt|;
-name|ngx_http_core_main_conf_t
+name|ngx_http_core_srv_conf_t
 modifier|*
-name|cmcf
+name|cscf
 decl_stmt|;
 name|c
 operator|=
@@ -707,10 +711,21 @@ name|c
 operator|->
 name|ctx
 expr_stmt|;
-name|cmcf
+name|cscf
 operator|=
-name|ngx_http_get_module_main_conf
+name|ngx_http_get_module_srv_conf
 argument_list|(
+name|ctx
+argument_list|,
+name|ngx_http_core_module_ctx
+argument_list|)
+expr_stmt|;
+name|cscf
+operator|=
+name|ngx_http_get_module_srv_conf
+argument_list|(
+name|cscf
+operator|->
 name|ctx
 argument_list|,
 name|ngx_http_core_module_ctx
@@ -735,7 +750,7 @@ name|c
 operator|->
 name|pool
 argument_list|,
-name|cmcf
+name|cscf
 operator|->
 name|client_header_buffer_size
 argument_list|,
@@ -795,7 +810,7 @@ name|pool
 operator|=
 name|ngx_create_pool
 argument_list|(
-name|cmcf
+name|cscf
 operator|->
 name|request_pool_size
 argument_list|,
@@ -1040,9 +1055,9 @@ name|ngx_http_log_ctx_t
 modifier|*
 name|lcx
 decl_stmt|;
-name|ngx_http_core_main_conf_t
+name|ngx_http_core_srv_conf_t
 modifier|*
-name|cmcf
+name|cscf
 decl_stmt|;
 name|c
 operator|=
@@ -1121,9 +1136,9 @@ name|NGX_OK
 condition|)
 block|{
 comment|/* the request line has been parsed successfully */
-name|cmcf
+name|cscf
 operator|=
-name|ngx_http_get_module_main_conf
+name|ngx_http_get_module_srv_conf
 argument_list|(
 name|r
 argument_list|,
@@ -1138,7 +1153,7 @@ name|http_version
 operator|>=
 name|NGX_HTTP_VERSION_10
 operator|&&
-name|cmcf
+name|cscf
 operator|->
 name|large_client_header
 operator|==
@@ -1388,7 +1403,7 @@ expr_stmt|;
 comment|/* if the large client headers are enabled then            we need to copy a request line */
 if|if
 condition|(
-name|cmcf
+name|cscf
 operator|->
 name|large_client_header
 condition|)
@@ -1891,7 +1906,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|cmcf
+name|cscf
 operator|->
 name|large_client_header
 operator|&&
@@ -1981,9 +1996,9 @@ name|end
 condition|)
 block|{
 comment|/* If it's a pipelined request and a request line is not complete            then we need to copy it to the start of the r->header_in hunk.            We need to copy it here only if the large client headers            are enabled otherwise a request line had been already copied            to the start of the r->header_in hunk in ngx_http_set_keepalive() */
-name|cmcf
+name|cscf
 operator|=
-name|ngx_http_get_module_main_conf
+name|ngx_http_get_module_srv_conf
 argument_list|(
 name|r
 argument_list|,
@@ -1992,7 +2007,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|cmcf
+name|cscf
 operator|->
 name|large_client_header
 condition|)
@@ -2190,9 +2205,9 @@ name|ngx_http_log_ctx_t
 modifier|*
 name|ctx
 decl_stmt|;
-name|ngx_http_core_main_conf_t
+name|ngx_http_core_srv_conf_t
 modifier|*
-name|cmcf
+name|cscf
 decl_stmt|;
 name|c
 operator|=
@@ -2354,9 +2369,9 @@ operator|->
 name|header_start
 expr_stmt|;
 comment|/* if the large client headers are enabled then                we need to copy the header name and value */
-name|cmcf
+name|cscf
 operator|=
-name|ngx_http_get_module_main_conf
+name|ngx_http_get_module_srv_conf
 argument_list|(
 name|r
 argument_list|,
@@ -2365,7 +2380,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|cmcf
+name|cscf
 operator|->
 name|large_client_header
 condition|)
@@ -2644,7 +2659,7 @@ argument_list|)
 empty_stmt|;
 if|if
 condition|(
-name|cmcf
+name|cscf
 operator|->
 name|large_client_header
 operator|&&
@@ -2941,7 +2956,7 @@ name|end
 condition|)
 block|{
 comment|/* if the large client headers are enabled then                 we need to compact r->header_in hunk */
-name|cmcf
+name|cscf
 operator|=
 name|ngx_http_get_module_main_conf
 argument_list|(
@@ -2952,7 +2967,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|cmcf
+name|cscf
 operator|->
 name|large_client_header
 condition|)
@@ -3104,9 +3119,9 @@ name|ngx_event_t
 modifier|*
 name|rev
 decl_stmt|;
-name|ngx_http_core_main_conf_t
+name|ngx_http_core_srv_conf_t
 modifier|*
-name|cmcf
+name|cscf
 decl_stmt|;
 name|n
 operator|=
@@ -3205,9 +3220,9 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
-name|cmcf
+name|cscf
 operator|=
-name|ngx_http_get_module_main_conf
+name|ngx_http_get_module_srv_conf
 argument_list|(
 name|r
 argument_list|,
@@ -3218,7 +3233,7 @@ name|ngx_add_timer
 argument_list|(
 name|rev
 argument_list|,
-name|cmcf
+name|cscf
 operator|->
 name|client_header_timeout
 argument_list|)
@@ -4540,9 +4555,9 @@ name|ngx_http_log_ctx_t
 modifier|*
 name|ctx
 decl_stmt|;
-name|ngx_http_core_main_conf_t
+name|ngx_http_core_srv_conf_t
 modifier|*
-name|cmcf
+name|cscf
 decl_stmt|;
 name|ngx_http_core_loc_conf_t
 modifier|*
@@ -4713,9 +4728,9 @@ name|last
 condition|)
 block|{
 comment|/* We do not know here whether a pipelined request is complete            so if the large client headers are not enabled            we need to copy the data to the start of c->buffer.            This copy should be rare because clients that support            pipelined requests (Mozilla 1.x, Opera 6.x) are still rare */
-name|cmcf
+name|cscf
 operator|=
-name|ngx_http_get_module_main_conf
+name|ngx_http_get_module_srv_conf
 argument_list|(
 name|r
 argument_list|,
@@ -4725,7 +4740,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|cmcf
+name|cscf
 operator|->
 name|large_client_header
 condition|)

@@ -94,7 +94,7 @@ literal|0
 end_if
 
 begin_comment
-unit|typedef struct {     int busy;     u_int_64 msec;     time_t sec;     tm;     http_time_len;     http_time[n];     };  volatile *ngx_time_p;  ngx_time() {     p = ngx_time_p; }  ngx_update_time() {     u_int64   msec;     struct timeval  tv;      gettimeofday(&tv, NULL);      msec = (unsigned long) tv.tv_sec * 1000 + tv.tv_usec / 1000;     p = ngx_time_p;
+unit|typedef struct {     int busy;     u_int_64 msec;     time_t sec;     tm;     http_time_len;     http_time[n]; };  volatile *ngx_time_p;  ngx_time() {     p = ngx_time_p; }  ngx_update_time() {     u_int64   msec;     struct timeval  tv;      gettimeofday(&tv, NULL);      msec = (unsigned long) tv.tv_sec * 1000 + tv.tv_usec / 1000;     p = ngx_time_p;
 comment|/* minimum can be for example 0, 10, 50 or 100 ms */
 end_comment
 

@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon296915630108
+DECL|struct|__anon27cac7f70108
 typedef|typedef
 struct|struct
 block|{
@@ -67,37 +67,17 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296915630208
+DECL|struct|__anon27cac7f70208
 typedef|typedef
 struct|struct
 block|{
-DECL|member|post_accept_timeout
-name|int
-name|post_accept_timeout
-decl_stmt|;
 DECL|member|connection_pool_size
 name|int
 name|connection_pool_size
 decl_stmt|;
-DECL|member|request_pool_size
+DECL|member|post_accept_timeout
 name|int
-name|request_pool_size
-decl_stmt|;
-DECL|member|client_header_timeout
-name|int
-name|client_header_timeout
-decl_stmt|;
-DECL|member|client_header_buffer_size
-name|int
-name|client_header_buffer_size
-decl_stmt|;
-DECL|member|large_client_header
-name|int
-name|large_client_header
-decl_stmt|;
-DECL|member|url_in_error_log
-name|int
-name|url_in_error_log
+name|post_accept_timeout
 decl_stmt|;
 DECL|member|servers
 name|ngx_array_t
@@ -111,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296915630308
+DECL|struct|__anon27cac7f70308
 typedef|typedef
 struct|struct
 block|{
@@ -136,6 +116,22 @@ modifier|*
 name|ctx
 decl_stmt|;
 comment|/* server ctx */
+DECL|member|request_pool_size
+name|size_t
+name|request_pool_size
+decl_stmt|;
+DECL|member|client_header_timeout
+name|ngx_msec_t
+name|client_header_timeout
+decl_stmt|;
+DECL|member|client_header_buffer_size
+name|size_t
+name|client_header_buffer_size
+decl_stmt|;
+DECL|member|large_client_header
+name|int
+name|large_client_header
+decl_stmt|;
 DECL|typedef|ngx_http_core_srv_conf_t
 block|}
 name|ngx_http_core_srv_conf_t
@@ -147,7 +143,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon296915630408
+DECL|struct|__anon27cac7f70408
 typedef|typedef
 struct|struct
 block|{
@@ -167,7 +163,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296915630508
+DECL|struct|__anon27cac7f70508
 typedef|typedef
 struct|struct
 block|{
@@ -209,7 +205,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon296915630608
+DECL|struct|__anon27cac7f70608
 typedef|typedef
 struct|struct
 block|{
@@ -252,7 +248,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon296915630708
+DECL|struct|__anon27cac7f70708
 typedef|typedef
 struct|struct
 block|{
@@ -271,7 +267,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296915630808
+DECL|struct|__anon27cac7f70808
 typedef|typedef
 struct|struct
 block|{

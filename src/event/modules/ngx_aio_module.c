@@ -315,7 +315,7 @@ block|}
 end_function
 
 begin_comment
-comment|/* The event adding and deleteing are needed for the listening sockets */
+comment|/* The event adding and deleting are needed for the listening sockets */
 end_comment
 
 begin_function
@@ -407,14 +407,22 @@ operator|->
 name|read
 operator|->
 name|active
-operator|||
+operator|==
+literal|0
+operator|&&
 name|c
 operator|->
 name|write
 operator|->
 name|active
+operator|==
+literal|0
 condition|)
 block|{
+return|return
+name|NGX_OK
+return|;
+block|}
 name|rc
 operator|=
 name|aio_cancel
@@ -426,6 +434,77 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|c->log
+argument_list|,
+literal|"aio_cancel: %d"
+argument|_ rc
+argument_list|)
+empty_stmt|;
+if|if
+condition|(
+name|rc
+operator|==
+name|AIO_CANCELED
+condition|)
+block|{
+name|c
+operator|->
+name|read
+operator|->
+name|active
+operator|=
+name|c
+operator|->
+name|write
+operator|->
+name|active
+operator|=
+literal|0
+expr_stmt|;
+return|return
+name|NGX_OK
+return|;
+block|}
+if|if
+condition|(
+name|rc
+operator|==
+name|AIO_ALLDONE
+condition|)
+block|{
+name|c
+operator|->
+name|read
+operator|->
+name|active
+operator|=
+name|c
+operator|->
+name|write
+operator|->
+name|active
+operator|=
+literal|0
+expr_stmt|;
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"aio_cancel() returned AIO_ALLDONE"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_OK
+return|;
+block|}
 if|if
 condition|(
 name|rc
@@ -436,7 +515,7 @@ condition|)
 block|{
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_CRIT
+name|NGX_LOG_ALERT
 argument_list|,
 name|c
 operator|->
@@ -451,27 +530,30 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-name|ngx_log_debug
+if|if
+condition|(
+name|rc
+operator|==
+name|AIO_NOTCANCELED
+condition|)
+block|{
+name|ngx_log_error
 argument_list|(
-argument|c->log
+name|NGX_LOG_ALERT
 argument_list|,
-literal|"aio_cancel: %d"
-argument|_ rc
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"aio_cancel() returned AIO_NOTCANCELED"
 argument_list|)
-empty_stmt|;
-if|#
-directive|if
-literal|0
-block_content|rc = aio_error(&c->read->aiocb);         if (rc == -1) {             ngx_log_error(NGX_LOG_CRIT, c->log, ngx_errno,                           "aio_error() failed");             return NGX_ERROR;         }          ngx_log_debug(c->log, "aio_error: %d" _ rc);
-endif|#
-directive|endif
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
 block|}
-if|#
-directive|if
-literal|0
-block_content|if (c->write->active) {         rc = aio_cancel(c->fd,&c->write->aiocb);         if (rc == -1) {             ngx_log_error(NGX_LOG_CRIT, c->log, ngx_errno,                           "aio_cancel() failed");             return NGX_ERROR;         }          ngx_log_debug(c->log, "aio_cancel: %d" _ rc);          rc = aio_error(&c->read->aiocb);         if (rc == -1) {             ngx_log_error(NGX_LOG_CRIT, c->log, ngx_errno,                           "aio_error() failed");             return NGX_ERROR;         }          ngx_log_debug(c->log, "aio_error: %d" _ rc);     }
-endif|#
-directive|endif
 return|return
 name|NGX_OK
 return|;
@@ -506,6 +588,10 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_comment
+comment|/* HAVE_KQUEUE */
+end_comment
 
 begin_if
 if|#
