@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon278cf9730108
+DECL|struct|__anon28a28f070108
 typedef|typedef
 struct|struct
 block|{
@@ -70,14 +70,6 @@ operator|(
 name|WIN32
 operator|)
 end_if
-
-begin_define
-DECL|macro|ngx_memzero
-define|#
-directive|define
-name|ngx_memzero
-value|ZeroMemory
-end_define
 
 begin_define
 DECL|macro|ngx_strncasecmp
@@ -141,14 +133,6 @@ directive|else
 end_else
 
 begin_define
-DECL|macro|ngx_memzero
-define|#
-directive|define
-name|ngx_memzero
-value|bzero
-end_define
-
-begin_define
 DECL|macro|ngx_strncasecmp
 define|#
 directive|define
@@ -209,6 +193,27 @@ endif|#
 directive|endif
 end_endif
 
+begin_comment
+comment|/*  * msvc and icc compile memset() to inline "rep stos"  * while ZeroMemory and bzero are calls.  */
+end_comment
+
+begin_define
+DECL|macro|ngx_memzero (buf,n)
+define|#
+directive|define
+name|ngx_memzero
+parameter_list|(
+name|buf
+parameter_list|,
+name|n
+parameter_list|)
+value|memset(buf, n, 0)
+end_define
+
+begin_comment
+comment|/* msvc and icc compile memcpy() to inline "rep movs" */
+end_comment
+
 begin_define
 DECL|macro|ngx_memcpy (dst,src,n)
 define|#
@@ -237,6 +242,18 @@ parameter_list|,
 name|n
 parameter_list|)
 value|((char *) memcpy(dst, src, n)) + n
+end_define
+
+begin_comment
+comment|/* msvc and icc compile memcmp() to inline loop */
+end_comment
+
+begin_define
+DECL|macro|ngx_memcmp
+define|#
+directive|define
+name|ngx_memcmp
+value|memcmp
 end_define
 
 begin_function_decl

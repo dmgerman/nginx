@@ -295,7 +295,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b96b3d90108
+DECL|struct|__anon298ef35d0108
 typedef|typedef
 struct|struct
 block|{
@@ -336,7 +336,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b96b3d90208
+DECL|struct|__anon298ef35d0208
 typedef|typedef
 struct|struct
 block|{
@@ -354,9 +354,15 @@ DECL|member|listening
 name|ngx_array_t
 name|listening
 decl_stmt|;
-DECL|member|files
+DECL|member|open_files
 name|ngx_array_t
-name|files
+name|open_files
+decl_stmt|;
+DECL|member|one_process
+name|unsigned
+name|one_process
+range|:
+literal|1
 decl_stmt|;
 DECL|typedef|ngx_cycle_t
 block|}
@@ -403,6 +409,11 @@ DECL|member|args
 name|ngx_array_t
 modifier|*
 name|args
+decl_stmt|;
+DECL|member|cycle
+name|ngx_cycle_t
+modifier|*
+name|cycle
 decl_stmt|;
 DECL|member|pool
 name|ngx_pool_t

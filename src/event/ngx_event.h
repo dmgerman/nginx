@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon29654add0108
+DECL|struct|__anon2925aa5d0108
 typedef|typedef
 struct|struct
 block|{
@@ -349,7 +349,7 @@ literal|1
 end_if
 
 begin_typedef
-DECL|enum|__anon29654add0203
+DECL|enum|__anon2925aa5d0203
 typedef|typedef
 enum|enum
 block|{
@@ -423,7 +423,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29654add0308
+DECL|struct|__anon2925aa5d0308
 typedef|typedef
 struct|struct
 block|{
@@ -1256,7 +1256,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon29654add0408
+DECL|struct|__anon2925aa5d0408
 typedef|typedef
 struct|struct
 block|{
@@ -1279,7 +1279,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29654add0508
+DECL|struct|__anon2925aa5d0508
 typedef|typedef
 struct|struct
 block|{
@@ -1338,7 +1338,7 @@ end_decl_stmt
 begin_decl_stmt
 specifier|extern
 name|ngx_module_t
-name|ngx_event_module
+name|ngx_event_core_module
 decl_stmt|;
 end_decl_stmt
 

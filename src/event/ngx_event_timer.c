@@ -67,7 +67,7 @@ name|ecf
 operator|=
 name|ngx_event_get_conf
 argument_list|(
-name|ngx_event_module
+name|ngx_event_core_module
 argument_list|)
 expr_stmt|;
 if|if

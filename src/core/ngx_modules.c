@@ -28,7 +28,7 @@ end_decl_stmt
 begin_decl_stmt
 specifier|extern
 name|ngx_module_t
-name|ngx_event_module
+name|ngx_event_core_module
 decl_stmt|;
 end_decl_stmt
 
@@ -235,7 +235,7 @@ operator|&
 name|ngx_events_module
 block|,
 operator|&
-name|ngx_event_module
+name|ngx_event_core_module
 block|,
 operator|&
 name|ngx_select_module

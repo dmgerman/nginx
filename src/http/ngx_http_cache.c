@@ -56,7 +56,7 @@ value|0xFFFF0000
 end_define
 
 begin_typedef
-DECL|struct|__anon2894daad0408
+DECL|struct|__anon296840ed0408
 typedef|typedef
 struct|struct
 block|{
@@ -101,7 +101,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2894daad0508
+DECL|struct|__anon296840ed0508
 typedef|typedef
 struct|struct
 block|{
@@ -125,7 +125,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2894daad0608
+DECL|struct|__anon296840ed0608
 typedef|typedef
 struct|struct
 block|{
@@ -338,7 +338,7 @@ name|len
 operator|--
 control|)
 block|{
-comment|/*          * gcc 2.95.2 x86 compiles that operator into the single rol opcode.          * msvc 6.0sp2 compiles it into four opcodes.          */
+comment|/*          * gcc 2.95.2 x86 and icc 7.1.006 compile that operator          * into the single rol opcode.          * msvc 6.0sp2 compiles it into four opcodes.          */
 name|sum
 operator|=
 name|sum

@@ -301,7 +301,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"OS: %u build:%u, %s, suite:%x, type:%u"
+literal|"OS: %u build:%u, \"%s\", suite:%x, type:%u"
 argument_list|,
 name|ngx_win32_version
 argument_list|,
@@ -331,9 +331,61 @@ expr_stmt|;
 if|#
 directive|if
 literal|0
-block_content|ngx_log_error(NGX_LOG_INFO, log, 0,                       "OS: %u build:%u, %s, suite:%x, type:%u",                       ngx_win32_version, osvi.dwBuildNumber, osvi.szCSDVersion,                       osvi.wSuiteMask, osvi.wProductType);
+block_content|ngx_log_error(NGX_LOG_INFO, log, 0,                       "OS: %u build:%u, \"%s\", suite:%x, type:%u",                       ngx_win32_version, osvi.dwBuildNumber, osvi.szCSDVersion,                       osvi.wSuiteMask, osvi.wProductType);
 endif|#
 directive|endif
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|osvi
+operator|.
+name|dwPlatformId
+operator|==
+literal|1
+condition|)
+block|{
+comment|/* Win9x build */
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"OS: %u build:%u.%u.%u, \"%s\""
+argument_list|,
+name|ngx_win32_version
+argument_list|,
+name|osvi
+operator|.
+name|dwBuildNumber
+operator|>>
+literal|24
+argument_list|,
+operator|(
+name|osvi
+operator|.
+name|dwBuildNumber
+operator|>>
+literal|16
+operator|)
+operator|&
+literal|0xff
+argument_list|,
+name|osvi
+operator|.
+name|dwBuildNumber
+operator|&
+literal|0xffff
+argument_list|,
+name|osvi
+operator|.
+name|szCSDVersion
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -345,7 +397,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"OS: %u build:%u, %s"
+literal|"OS: %u build:%u, \"%s\""
 argument_list|,
 name|ngx_win32_version
 argument_list|,
@@ -358,6 +410,7 @@ operator|.
 name|szCSDVersion
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/* init Winsock */
 if|if

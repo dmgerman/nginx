@@ -284,23 +284,23 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|event_name
+DECL|variable|event_core_name
 specifier|static
 name|ngx_str_t
-name|event_name
+name|event_core_name
 init|=
 name|ngx_string
 argument_list|(
-literal|"event"
+literal|"event_core"
 argument_list|)
 decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_event_commands
+DECL|variable|ngx_event_core_commands
 specifier|static
 name|ngx_command_t
-name|ngx_event_commands
+name|ngx_event_core_commands
 index|[]
 init|=
 block|{
@@ -377,13 +377,13 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_event_module_ctx
+DECL|variable|ngx_event_core_module_ctx
 name|ngx_event_module_t
-name|ngx_event_module_ctx
+name|ngx_event_core_module_ctx
 init|=
 block|{
 operator|&
-name|event_name
+name|event_core_name
 block|,
 name|ngx_event_create_conf
 block|,
@@ -415,18 +415,18 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_event_module
+DECL|variable|ngx_event_core_module
 name|ngx_module_t
-name|ngx_event_module
+name|ngx_event_core_module
 init|=
 block|{
 name|NGX_MODULE
 block|,
 operator|&
-name|ngx_event_module_ctx
+name|ngx_event_core_module_ctx
 block|,
 comment|/* module context */
-name|ngx_event_commands
+name|ngx_event_core_commands
 block|,
 comment|/* module directives */
 name|NGX_EVENT_MODULE
@@ -501,7 +501,7 @@ name|ecf
 operator|=
 name|ngx_event_get_conf
 argument_list|(
-name|ngx_event_module
+name|ngx_event_core_module
 argument_list|)
 expr_stmt|;
 name|ngx_log_debug
