@@ -129,7 +129,7 @@ value|0x80000000
 end_define
 
 begin_typedef
-DECL|struct|__anon293d2a500108
+DECL|struct|__anon2c3f56000108
 typedef|typedef
 specifier|volatile
 struct|struct
@@ -445,6 +445,7 @@ name|ngx_mutex_lock
 parameter_list|(
 name|m
 parameter_list|)
+value|NGX_OK
 end_define
 
 begin_define

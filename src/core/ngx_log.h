@@ -461,7 +461,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|HAVE_VARIADIC_MACROS
+name|NGX_DEBUG
 operator|)
 end_if
 
@@ -469,7 +469,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|NGX_DEBUG
+name|HAVE_VARIADIC_MACROS
 operator|)
 end_if
 
@@ -491,40 +491,6 @@ define|\
 value|if (log->log_level& level) \         ngx_log_error_core(NGX_LOG_DEBUG, log, err, fmt)
 end_define
 
-begin_else
-else|#
-directive|else
-end_else
-
-begin_define
-DECL|macro|ngx_log_debug0 (level,log,err,fmt)
-define|#
-directive|define
-name|ngx_log_debug0
-parameter_list|(
-name|level
-parameter_list|,
-name|log
-parameter_list|,
-name|err
-parameter_list|,
-name|fmt
-parameter_list|)
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG
-operator|)
-end_if
-
 begin_define
 DECL|macro|ngx_log_debug1 (level,log,err,fmt,arg1)
 define|#
@@ -544,42 +510,6 @@ parameter_list|)
 define|\
 value|if (log->log_level& level) \         ngx_log_error_core(NGX_LOG_DEBUG, log, err, fmt, arg1)
 end_define
-
-begin_else
-else|#
-directive|else
-end_else
-
-begin_define
-DECL|macro|ngx_log_debug1 (level,log,err,fmt,arg1)
-define|#
-directive|define
-name|ngx_log_debug1
-parameter_list|(
-name|level
-parameter_list|,
-name|log
-parameter_list|,
-name|err
-parameter_list|,
-name|fmt
-parameter_list|,
-name|arg1
-parameter_list|)
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG
-operator|)
-end_if
 
 begin_define
 DECL|macro|ngx_log_debug2 (level,log,err,fmt,arg1,arg2)
@@ -602,44 +532,6 @@ parameter_list|)
 define|\
 value|if (log->log_level& level) \         ngx_log_error_core(NGX_LOG_DEBUG, log, err, fmt, arg1, arg2)
 end_define
-
-begin_else
-else|#
-directive|else
-end_else
-
-begin_define
-DECL|macro|ngx_log_debug2 (level,log,err,fmt,arg1,arg2)
-define|#
-directive|define
-name|ngx_log_debug2
-parameter_list|(
-name|level
-parameter_list|,
-name|log
-parameter_list|,
-name|err
-parameter_list|,
-name|fmt
-parameter_list|,
-name|arg1
-parameter_list|,
-name|arg2
-parameter_list|)
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG
-operator|)
-end_if
 
 begin_define
 DECL|macro|ngx_log_debug3 (level,log,err,fmt,arg1,arg2,arg3)
@@ -664,46 +556,6 @@ parameter_list|)
 define|\
 value|if (log->log_level& level) \         ngx_log_error_core(NGX_LOG_DEBUG, log, err, fmt, arg1, arg2, arg3)
 end_define
-
-begin_else
-else|#
-directive|else
-end_else
-
-begin_define
-DECL|macro|ngx_log_debug3 (level,log,err,fmt,arg1,arg2,arg3)
-define|#
-directive|define
-name|ngx_log_debug3
-parameter_list|(
-name|level
-parameter_list|,
-name|log
-parameter_list|,
-name|err
-parameter_list|,
-name|fmt
-parameter_list|,
-name|arg1
-parameter_list|,
-name|arg2
-parameter_list|,
-name|arg3
-parameter_list|)
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG
-operator|)
-end_if
 
 begin_define
 DECL|macro|ngx_log_debug4 (level,log,err,fmt,arg1,arg2,arg3,arg4)
@@ -730,48 +582,6 @@ parameter_list|)
 define|\
 value|if (log->log_level& level) \         ngx_log_error_core(NGX_LOG_DEBUG, log, err, fmt, arg1, arg2, arg3, arg4)
 end_define
-
-begin_else
-else|#
-directive|else
-end_else
-
-begin_define
-DECL|macro|ngx_log_debug4 (level,log,err,fmt,arg1,arg2,arg3,arg4)
-define|#
-directive|define
-name|ngx_log_debug4
-parameter_list|(
-name|level
-parameter_list|,
-name|log
-parameter_list|,
-name|err
-parameter_list|,
-name|fmt
-parameter_list|,
-name|arg1
-parameter_list|,
-name|arg2
-parameter_list|,
-name|arg3
-parameter_list|,
-name|arg4
-parameter_list|)
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG
-operator|)
-end_if
 
 begin_define
 DECL|macro|ngx_log_debug5 (level,log,err,fmt,arg1,arg2,arg3,arg4,arg5)
@@ -800,50 +610,6 @@ parameter_list|)
 define|\
 value|if (log->log_level& level) \         ngx_log_error_core(NGX_LOG_DEBUG, log, err, fmt, \                            arg1, arg2, arg3, arg4, arg5)
 end_define
-
-begin_else
-else|#
-directive|else
-end_else
-
-begin_define
-DECL|macro|ngx_log_debug5 (level,log,err,fmt,arg1,arg2,arg3,arg4,arg5)
-define|#
-directive|define
-name|ngx_log_debug5
-parameter_list|(
-name|level
-parameter_list|,
-name|log
-parameter_list|,
-name|err
-parameter_list|,
-name|fmt
-parameter_list|,
-name|arg1
-parameter_list|,
-name|arg2
-parameter_list|,
-name|arg3
-parameter_list|,
-name|arg4
-parameter_list|,
-name|arg5
-parameter_list|)
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG
-operator|)
-end_if
 
 begin_define
 DECL|macro|ngx_log_debug6 (level,log,err,fmt,arg1,arg2,arg3,arg4,arg5,arg6)
@@ -880,59 +646,9 @@ else|#
 directive|else
 end_else
 
-begin_define
-DECL|macro|ngx_log_debug6 (level,log,err,fmt,arg1,arg2,arg3,arg4,arg5,arg6)
-define|#
-directive|define
-name|ngx_log_debug6
-parameter_list|(
-name|level
-parameter_list|,
-name|log
-parameter_list|,
-name|err
-parameter_list|,
-name|fmt
-parameter_list|,
-name|arg1
-parameter_list|,
-name|arg2
-parameter_list|,
-name|arg3
-parameter_list|,
-name|arg4
-parameter_list|,
-name|arg5
-parameter_list|,
-name|arg6
-parameter_list|)
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_comment
-comment|/*********************************/
-end_comment
-
-begin_else
-else|#
-directive|else
-end_else
-
 begin_comment
 comment|/* NO VARIADIC MACROS */
 end_comment
-
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG
-operator|)
-end_if
 
 begin_define
 DECL|macro|ngx_log_debug0 (level,log,err,fmt)
@@ -951,40 +667,6 @@ parameter_list|)
 define|\
 value|if (log->log_level& level) \         ngx_log_debug_core(log, err, fmt)
 end_define
-
-begin_else
-else|#
-directive|else
-end_else
-
-begin_define
-DECL|macro|ngx_log_debug0 (level,log,err,fmt)
-define|#
-directive|define
-name|ngx_log_debug0
-parameter_list|(
-name|level
-parameter_list|,
-name|log
-parameter_list|,
-name|err
-parameter_list|,
-name|fmt
-parameter_list|)
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG
-operator|)
-end_if
 
 begin_define
 DECL|macro|ngx_log_debug1 (level,log,err,fmt,arg1)
@@ -1005,42 +687,6 @@ parameter_list|)
 define|\
 value|if (log->log_level& level) \         ngx_log_debug_core(log, err, fmt, arg1)
 end_define
-
-begin_else
-else|#
-directive|else
-end_else
-
-begin_define
-DECL|macro|ngx_log_debug1 (level,log,err,fmt,arg1)
-define|#
-directive|define
-name|ngx_log_debug1
-parameter_list|(
-name|level
-parameter_list|,
-name|log
-parameter_list|,
-name|err
-parameter_list|,
-name|fmt
-parameter_list|,
-name|arg1
-parameter_list|)
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG
-operator|)
-end_if
 
 begin_define
 DECL|macro|ngx_log_debug2 (level,log,err,fmt,arg1,arg2)
@@ -1063,44 +709,6 @@ parameter_list|)
 define|\
 value|if (log->log_level& level) \         ngx_log_debug_core(log, err, fmt, arg1, arg2)
 end_define
-
-begin_else
-else|#
-directive|else
-end_else
-
-begin_define
-DECL|macro|ngx_log_debug2 (level,log,err,fmt,arg1,arg2)
-define|#
-directive|define
-name|ngx_log_debug2
-parameter_list|(
-name|level
-parameter_list|,
-name|log
-parameter_list|,
-name|err
-parameter_list|,
-name|fmt
-parameter_list|,
-name|arg1
-parameter_list|,
-name|arg2
-parameter_list|)
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG
-operator|)
-end_if
 
 begin_define
 DECL|macro|ngx_log_debug3 (level,log,err,fmt,arg1,arg2,arg3)
@@ -1125,46 +733,6 @@ parameter_list|)
 define|\
 value|if (log->log_level& level) \         ngx_log_debug_core(log, err, fmt, arg1, arg2, arg3)
 end_define
-
-begin_else
-else|#
-directive|else
-end_else
-
-begin_define
-DECL|macro|ngx_log_debug3 (level,log,err,fmt,arg1,arg2,arg3)
-define|#
-directive|define
-name|ngx_log_debug3
-parameter_list|(
-name|level
-parameter_list|,
-name|log
-parameter_list|,
-name|err
-parameter_list|,
-name|fmt
-parameter_list|,
-name|arg1
-parameter_list|,
-name|arg2
-parameter_list|,
-name|arg3
-parameter_list|)
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG
-operator|)
-end_if
 
 begin_define
 DECL|macro|ngx_log_debug4 (level,log,err,fmt,arg1,arg2,arg3,arg4)
@@ -1191,48 +759,6 @@ parameter_list|)
 define|\
 value|if (log->log_level& level) \         ngx_log_debug_core(log, err, fmt, arg1, arg2, arg3, arg4)
 end_define
-
-begin_else
-else|#
-directive|else
-end_else
-
-begin_define
-DECL|macro|ngx_log_debug4 (level,log,err,fmt,arg1,arg2,arg3,arg4)
-define|#
-directive|define
-name|ngx_log_debug4
-parameter_list|(
-name|level
-parameter_list|,
-name|log
-parameter_list|,
-name|err
-parameter_list|,
-name|fmt
-parameter_list|,
-name|arg1
-parameter_list|,
-name|arg2
-parameter_list|,
-name|arg3
-parameter_list|,
-name|arg4
-parameter_list|)
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG
-operator|)
-end_if
 
 begin_define
 DECL|macro|ngx_log_debug5 (level,log,err,fmt,arg1,arg2,arg3,arg4,arg5)
@@ -1261,50 +787,6 @@ parameter_list|)
 define|\
 value|if (log->log_level& level) \         ngx_log_debug_core(log, err, fmt, arg1, arg2, arg3, arg4, arg5)
 end_define
-
-begin_else
-else|#
-directive|else
-end_else
-
-begin_define
-DECL|macro|ngx_log_debug5 (level,log,err,fmt,arg1,arg2,arg3,arg4,arg5)
-define|#
-directive|define
-name|ngx_log_debug5
-parameter_list|(
-name|level
-parameter_list|,
-name|log
-parameter_list|,
-name|err
-parameter_list|,
-name|fmt
-parameter_list|,
-name|arg1
-parameter_list|,
-name|arg2
-parameter_list|,
-name|arg3
-parameter_list|,
-name|arg4
-parameter_list|,
-name|arg5
-parameter_list|)
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG
-operator|)
-end_if
 
 begin_define
 DECL|macro|ngx_log_debug6 (level,log,err,fmt,arg1,arg2,arg3,arg4,arg5,arg6)
@@ -1336,10 +818,145 @@ define|\
 value|if (log->log_level& level) \         ngx_log_debug_core(log, err, fmt, arg1, arg2, arg3, arg4, arg5, arg6)
 end_define
 
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_else
 else|#
 directive|else
 end_else
+
+begin_comment
+comment|/* NO NGX_DEBUG */
+end_comment
+
+begin_define
+DECL|macro|ngx_log_debug0 (level,log,err,fmt)
+define|#
+directive|define
+name|ngx_log_debug0
+parameter_list|(
+name|level
+parameter_list|,
+name|log
+parameter_list|,
+name|err
+parameter_list|,
+name|fmt
+parameter_list|)
+end_define
+
+begin_define
+DECL|macro|ngx_log_debug1 (level,log,err,fmt,arg1)
+define|#
+directive|define
+name|ngx_log_debug1
+parameter_list|(
+name|level
+parameter_list|,
+name|log
+parameter_list|,
+name|err
+parameter_list|,
+name|fmt
+parameter_list|,
+name|arg1
+parameter_list|)
+end_define
+
+begin_define
+DECL|macro|ngx_log_debug2 (level,log,err,fmt,arg1,arg2)
+define|#
+directive|define
+name|ngx_log_debug2
+parameter_list|(
+name|level
+parameter_list|,
+name|log
+parameter_list|,
+name|err
+parameter_list|,
+name|fmt
+parameter_list|,
+name|arg1
+parameter_list|,
+name|arg2
+parameter_list|)
+end_define
+
+begin_define
+DECL|macro|ngx_log_debug3 (level,log,err,fmt,arg1,arg2,arg3)
+define|#
+directive|define
+name|ngx_log_debug3
+parameter_list|(
+name|level
+parameter_list|,
+name|log
+parameter_list|,
+name|err
+parameter_list|,
+name|fmt
+parameter_list|,
+name|arg1
+parameter_list|,
+name|arg2
+parameter_list|,
+name|arg3
+parameter_list|)
+end_define
+
+begin_define
+DECL|macro|ngx_log_debug4 (level,log,err,fmt,arg1,arg2,arg3,arg4)
+define|#
+directive|define
+name|ngx_log_debug4
+parameter_list|(
+name|level
+parameter_list|,
+name|log
+parameter_list|,
+name|err
+parameter_list|,
+name|fmt
+parameter_list|,
+name|arg1
+parameter_list|,
+name|arg2
+parameter_list|,
+name|arg3
+parameter_list|,
+name|arg4
+parameter_list|)
+end_define
+
+begin_define
+DECL|macro|ngx_log_debug5 (level,log,err,fmt,arg1,arg2,arg3,arg4,arg5)
+define|#
+directive|define
+name|ngx_log_debug5
+parameter_list|(
+name|level
+parameter_list|,
+name|log
+parameter_list|,
+name|err
+parameter_list|,
+name|fmt
+parameter_list|,
+name|arg1
+parameter_list|,
+name|arg2
+parameter_list|,
+name|arg3
+parameter_list|,
+name|arg4
+parameter_list|,
+name|arg5
+parameter_list|)
+end_define
 
 begin_define
 DECL|macro|ngx_log_debug6 (level,log,err,fmt,arg1,arg2,arg3,arg4,arg5,arg6)
@@ -1368,11 +985,6 @@ parameter_list|,
 name|arg6
 parameter_list|)
 end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
 
 begin_endif
 endif|#

@@ -68,6 +68,12 @@ name|locked
 range|:
 literal|1
 decl_stmt|;
+DECL|member|waiting
+name|unsigned
+name|waiting
+range|:
+literal|1
+decl_stmt|;
 DECL|member|cache_updated
 name|unsigned
 name|cache_updated
@@ -93,7 +99,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28ca13a80108
+DECL|struct|__anon29b2d3ce0108
 typedef|typedef
 struct|struct
 block|{
