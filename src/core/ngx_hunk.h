@@ -96,7 +96,29 @@ name|NGX_HUNK_FILE
 value|0x0100
 end_define
 
+begin_define
+DECL|macro|NGX_HUNK_STORAGE
+define|#
+directive|define
+name|NGX_HUNK_STORAGE
+value|(NGX_HUNK_IN_MEMORY
+end_define
+
+begin_expr_stmt
+operator||
+name|NGX_HUNK_TEMP
+operator||
+name|NGX_HUNK_MEMORY
+operator||
+name|NGX_HUNK_MMAP
+operator||
+name|NGX_HUNK_RECYCLED
+operator||
+name|NGX_HUNK_FILE
+end_expr_stmt
+
 begin_comment
+unit|)
 comment|/* hunk flags */
 end_comment
 
