@@ -449,6 +449,15 @@ name|log_error
 operator|=
 name|NGX_ERROR_INFO
 expr_stmt|;
+comment|/* STUB: epoll */
+name|c
+operator|->
+name|write
+operator|->
+name|event_handler
+operator|=
+name|ngx_http_empty_handler
+expr_stmt|;
 if|if
 condition|(
 name|rev
@@ -694,7 +703,7 @@ operator|>
 literal|1
 condition|)
 block|{
-comment|/*          * There're the several addresses on this port and one of them          * is "*:port" so getsockname() is needed to determine          * the server address.          * AcceptEx() already gave this address.          */
+comment|/*          * There are the several addresses on this port and one of them          * is "*:port" so getsockname() is needed to determine          * the server address.          * AcceptEx() already gave this address.          */
 if|#
 directive|if
 operator|(
@@ -4313,7 +4322,7 @@ name|read
 operator|->
 name|kq_errno
 argument_list|,
-literal|"kevent reported about closed connection by client"
+literal|"kevent() reported about an closed connection"
 argument_list|)
 expr_stmt|;
 endif|#

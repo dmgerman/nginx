@@ -5725,7 +5725,7 @@ name|prev
 operator|->
 name|client_body_timeout
 argument_list|,
-literal|10000
+literal|60000
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_value
@@ -5764,7 +5764,7 @@ name|prev
 operator|->
 name|send_timeout
 argument_list|,
-literal|10000
+literal|60000
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_size_value

@@ -24,7 +24,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c1b03860108
+DECL|struct|__anon2951840e0108
 typedef|typedef
 struct|struct
 block|{
@@ -63,7 +63,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1b03860208
+DECL|struct|__anon2951840e0208
 typedef|typedef
 struct|struct
 block|{
@@ -1744,7 +1744,12 @@ operator|.
 name|name
 argument_list|)
 expr_stmt|;
+continue|continue;
 block|}
+name|live
+operator|=
+literal|1
+expr_stmt|;
 continue|continue;
 block|}
 if|if
@@ -1989,7 +1994,7 @@ condition|(
 name|ccf
 operator|->
 name|worker_reopen
-operator|>
+operator|!=
 literal|0
 condition|)
 block|{
@@ -2054,13 +2059,16 @@ argument_list|,
 name|ccf
 operator|->
 name|worker_reopen
-operator|>
+operator|!=
 literal|0
 condition|?
 name|ccf
 operator|->
 name|user
 else|:
+operator|(
+name|uid_t
+operator|)
 operator|-
 literal|1
 argument_list|)
@@ -2531,6 +2539,47 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|#
+directive|if
+operator|(
+name|HAVE_PR_SET_DUMPABLE
+operator|)
+comment|/* allow coredump after setuid() in Linux 2.4.x */
+if|if
+condition|(
+name|prctl
+argument_list|(
+name|PR_SET_DUMPABLE
+argument_list|,
+literal|1
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|)
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|,
+name|ngx_errno
+argument_list|,
+literal|"prctl(PR_SET_DUMPABLE) failed"
+argument_list|)
+expr_stmt|;
+block|}
+endif|#
+directive|endif
 name|sigemptyset
 argument_list|(
 operator|&

@@ -15,7 +15,7 @@ end_define
 begin_if
 if|#
 directive|if
-literal|1
+literal|0
 end_if
 
 begin_comment
@@ -29,7 +29,6 @@ name|FD_SETSIZE
 end_undef
 
 begin_define
-DECL|macro|FD_SETSIZE
 define|#
 directive|define
 name|FD_SETSIZE

@@ -568,13 +568,12 @@ else|else
 block|{
 if|if
 condition|(
+operator|!
 operator|(
 name|ngx_event_flags
 operator|&
 name|NGX_USE_AIO_EVENT
 operator|)
-operator|==
-literal|0
 condition|)
 block|{
 if|if

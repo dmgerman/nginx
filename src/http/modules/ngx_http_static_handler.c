@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b9234370108
+DECL|struct|__anon27cdd1360108
 typedef|typedef
 struct|struct
 block|{
@@ -326,7 +326,7 @@ return|return
 name|rc
 return|;
 block|}
-comment|/*      * there is a valid cached open file, i.e by index handler,      * and it must be already registered in r->cleanup      */
+comment|/*      * there is a valid cached open file, i.e by the index handler,      * and it should be already registered in r->cleanup      */
 if|if
 condition|(
 name|r
@@ -365,13 +365,11 @@ argument_list|,
 name|ngx_http_core_module
 argument_list|)
 expr_stmt|;
-comment|/*      * make a file name      * 2 bytes is for a trailing '/' in a possible redirect and for '\0'      */
-name|ngx_test_null
-argument_list|(
+comment|/*      * make a file name, reserve 2 bytes for a trailing '/'      * in a possible redirect and for the last '\0'      */
 name|name
 operator|.
 name|data
-argument_list|,
+operator|=
 name|ngx_palloc
 argument_list|(
 name|r
@@ -392,10 +390,20 @@ name|len
 operator|+
 literal|2
 argument_list|)
-argument_list|,
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
-argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|name
+operator|.
+name|data
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
+return|;
+block|}
 name|location
 operator|.
 name|data

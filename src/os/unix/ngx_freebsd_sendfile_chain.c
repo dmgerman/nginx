@@ -18,7 +18,7 @@ file|<ngx_event.h>
 end_include
 
 begin_comment
-comment|/*  * FreeBSD's sendfile() often sends 4K pages over ethernet in 3 packets: 2x1460  * and 1176 or in 6 packets: 5x1460 and 892.  Besides although sendfile()  * allows to pass the header and the trailer it never sends the header or  * the trailer with the part of the file in one packet.  So we use TCP_NOPUSH  * (similar to Linux's TCP_CORK) to postpone the sending - it not only sends  * the header and the first part of the file in one packet but also sends  * 4K pages in the full packets.  *  * Until FreeBSD 4.5 the turning TCP_NOPUSH off does not flush a pending  * data that less than MSS so that data can be sent with 5 second delay.  * We do not use TCP_NOPUSH on FreeBSD prior to 4.5 although it can be used  * for non-keepalive HTTP connections.  */
+comment|/*  * Although FreeBSD sendfile() allows to pass a header and a trailer  * it never sends a header with a part of the file in one packet until  * FreeBSD 5.2-STABLE.  Besides over the fast ethernet connection sendfile()  * can send the partially filled packets, i.e. the 8 file pages can be sent  * as 11 full 1460-bytes packets, then one incomplete 324-bytes packet, and  * then again 11 full 1460-bytes packets.  *  * So we use the TCP_NOPUSH option (similar to Linux's TCP_CORK)  * to postpone the sending - it not only sends a header and the first part  * of the file in one packet but also sends file pages in the full packets.  *  * But until FreeBSD 4.5 the turning TCP_NOPUSH off does not flush a pending  * data that less than MSS so that data can be sent with 5 second delay.  * So we do not use TCP_NOPUSH on FreeBSD prior to 4.5 although it can be used  * for non-keepalive HTTP connections.  */
 end_comment
 
 begin_function
@@ -59,8 +59,6 @@ name|ngx_int_t
 name|eintr
 decl_stmt|,
 name|eagain
-decl_stmt|,
-name|level
 decl_stmt|;
 name|struct
 name|iovec
@@ -142,7 +140,7 @@ name|wev
 operator|->
 name|kq_errno
 argument_list|,
-literal|"kevent() reported about closed connection"
+literal|"kevent() reported about an closed connection"
 argument_list|)
 expr_stmt|;
 name|wev
@@ -178,10 +176,6 @@ expr_stmt|;
 name|eagain
 operator|=
 literal|0
-expr_stmt|;
-name|level
-operator|=
-name|NGX_LOG_CRIT
 expr_stmt|;
 name|ngx_init_array
 argument_list|(
@@ -637,6 +631,53 @@ operator|==
 literal|0
 condition|)
 block|{
+if|if
+condition|(
+name|ngx_tcp_nopush
+argument_list|(
+name|c
+operator|->
+name|fd
+argument_list|)
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+name|err
+operator|=
+name|ngx_errno
+expr_stmt|;
+comment|/*                      * there is a tiny chance to be interrupted, however                      * we continue a processing without the TCP_NOPUSH                      */
+if|if
+condition|(
+name|err
+operator|!=
+name|NGX_EINTR
+condition|)
+block|{
+name|wev
+operator|->
+name|error
+operator|=
+literal|1
+expr_stmt|;
+name|ngx_connection_error
+argument_list|(
+name|c
+argument_list|,
+name|err
+argument_list|,
+name|ngx_tcp_nopush_n
+literal|" failed"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CHAIN_ERROR
+return|;
+block|}
+block|}
+else|else
+block|{
 name|c
 operator|->
 name|tcp_nopush
@@ -656,35 +697,6 @@ argument_list|,
 literal|"tcp_nopush"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|ngx_tcp_nopush
-argument_list|(
-name|c
-operator|->
-name|fd
-argument_list|)
-operator|==
-name|NGX_ERROR
-condition|)
-block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_CRIT
-argument_list|,
-name|c
-operator|->
-name|log
-argument_list|,
-name|ngx_errno
-argument_list|,
-name|ngx_tcp_nopush_n
-literal|" failed"
-argument_list|)
-expr_stmt|;
-return|return
-name|NGX_CHAIN_ERROR
-return|;
 block|}
 block|}
 name|hdtr
@@ -793,6 +805,17 @@ if|if
 condition|(
 name|err
 operator|==
+name|NGX_EAGAIN
+operator|||
+name|err
+operator|==
+name|NGX_EINTR
+condition|)
+block|{
+if|if
+condition|(
+name|err
+operator|==
 name|NGX_EINTR
 condition|)
 block|{
@@ -801,45 +824,13 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
-if|else if
-condition|(
-name|err
-operator|==
-name|NGX_EAGAIN
-condition|)
+else|else
 block|{
 name|eagain
 operator|=
 literal|1
 expr_stmt|;
 block|}
-if|else if
-condition|(
-name|err
-operator|==
-name|NGX_EPIPE
-operator|||
-name|err
-operator|==
-name|NGX_ENOTCONN
-condition|)
-block|{
-name|level
-operator|=
-name|NGX_LOG_INFO
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|err
-operator|==
-name|NGX_EAGAIN
-operator|||
-name|err
-operator|==
-name|NGX_EINTR
-condition|)
-block|{
 name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
@@ -866,31 +857,15 @@ name|error
 operator|=
 literal|1
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|ngx_log_error(level, c->log, err,                                   "sendfile() failed");
-else|#
-directive|else
-name|ngx_log_error
+name|ngx_connection_error
 argument_list|(
-name|level
-argument_list|,
 name|c
-operator|->
-name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"sendfile(#%d) failed"
-argument_list|,
-name|c
-operator|->
-name|fd
+literal|"sendfile() failed"
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 return|return
 name|NGX_CHAIN_ERROR
 return|;
@@ -961,6 +936,17 @@ if|if
 condition|(
 name|err
 operator|==
+name|NGX_EAGAIN
+operator|||
+name|err
+operator|==
+name|NGX_EINTR
+condition|)
+block|{
+if|if
+condition|(
+name|err
+operator|==
 name|NGX_EINTR
 condition|)
 block|{
@@ -969,29 +955,6 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
-if|else if
-condition|(
-name|err
-operator|==
-name|NGX_EPIPE
-condition|)
-block|{
-name|level
-operator|=
-name|NGX_LOG_INFO
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|err
-operator|==
-name|NGX_EAGAIN
-operator|||
-name|err
-operator|==
-name|NGX_EINTR
-condition|)
-block|{
 name|ngx_log_debug0
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
@@ -1014,13 +977,9 @@ name|error
 operator|=
 literal|1
 expr_stmt|;
-name|ngx_log_error
+name|ngx_connection_error
 argument_list|(
-name|level
-argument_list|,
 name|c
-operator|->
-name|log
 argument_list|,
 name|err
 argument_list|,
@@ -1222,7 +1181,7 @@ condition|(
 name|eagain
 condition|)
 block|{
-comment|/*              * sendfile() can return EAGAIN even if it has sent              * a whole file part and successive sendfile() would              * return EAGAIN right away and would not send anything              */
+comment|/*              * sendfile() can return EAGAIN even if it has sent              * a whole file part but the successive sendfile() call would              * return EAGAIN right away and would not send anything.              * We use it as a hint.              */
 name|wev
 operator|->
 name|ready

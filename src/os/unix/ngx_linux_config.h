@@ -197,11 +197,42 @@ directive|include
 file|<dirent.h>
 end_include
 
+begin_comment
+comment|/* Linux has a broken strerror_r() */
+end_comment
+
+begin_define
+DECL|macro|HAVE_STRERROR_R
+define|#
+directive|define
+name|HAVE_STRERROR_R
+value|0
+end_define
+
 begin_include
 include|#
 directive|include
 file|<ngx_auto_config.h>
 end_include
+
+begin_if
+if|#
+directive|if
+operator|(
+name|HAVE_PRCTL
+operator|)
+end_if
+
+begin_include
+include|#
+directive|include
+file|<sys/prctl.h>
+end_include
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_if
 if|#
@@ -363,7 +394,7 @@ DECL|macro|HAVE_INHERITED_NONBLOCK
 define|#
 directive|define
 name|HAVE_INHERITED_NONBLOCK
-value|1
+value|0
 end_define
 
 begin_endif

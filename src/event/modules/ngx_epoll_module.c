@@ -327,7 +327,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b0bfd1a0108
+DECL|struct|__anon29b59b770108
 typedef|typedef
 struct|struct
 block|{
@@ -896,6 +896,8 @@ operator|.
 name|events
 operator|=
 name|event
+operator||
+name|EPOLLET
 expr_stmt|;
 name|ee
 operator|.
@@ -930,7 +932,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"epoll add event: fd:%d ev:%04X"
+literal|"epoll add event: fd:%d ev:%08X"
 argument_list|,
 name|c
 operator|->
@@ -1039,7 +1041,7 @@ name|ptr
 operator|=
 name|NULL
 expr_stmt|;
-name|ngx_log_debug2
+name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
@@ -1049,15 +1051,11 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"epoll del event: fd:%d ev:%04X"
+literal|"epoll del event: fd:%d"
 argument_list|,
 name|c
 operator|->
 name|fd
-argument_list|,
-name|ee
-operator|.
-name|events
 argument_list|)
 expr_stmt|;
 if|if
@@ -1135,6 +1133,8 @@ operator|=
 name|EPOLLIN
 operator||
 name|EPOLLOUT
+operator||
+name|EPOLLET
 expr_stmt|;
 name|ee
 operator|.
@@ -1169,7 +1169,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"epoll add connection: fd:%d ev:%04X"
+literal|"epoll add connection: fd:%d ev:%08X"
 argument_list|,
 name|c
 operator|->
@@ -1639,15 +1639,15 @@ name|EPOLLHUP
 operator|)
 condition|)
 block|{
-name|ngx_log_error
+name|ngx_log_debug2
 argument_list|(
-name|NGX_LOG_ALERT
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
 name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"epoll_wait() error on fd:%d ev:%d"
+literal|"epoll_wait() error on fd:%d ev:%04X"
 argument_list|,
 name|c
 operator|->

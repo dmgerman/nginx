@@ -1269,7 +1269,7 @@ literal|1000
 operator|-
 name|ngx_start_msec
 expr_stmt|;
-name|ngx_log_debug1
+name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
@@ -1277,9 +1277,11 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"poll ready %d"
+literal|"poll ready %d of %d"
 argument_list|,
 name|ready
+argument_list|,
+name|nevents
 argument_list|)
 expr_stmt|;
 if|if

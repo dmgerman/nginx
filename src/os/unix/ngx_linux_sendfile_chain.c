@@ -18,7 +18,7 @@ file|<ngx_event.h>
 end_include
 
 begin_comment
-comment|/*  * On Linux up to 2.4.21 sendfile() (syscall #187) works with 32-bit  * offsets only and the including<sys/sendfile.h> breaks the compiling if  * off_t is 64 bit wide.  So we use own sendfile() definition where offset  * parameter is int32_t and use sendfile() with the file parts below 2G.  *  * Linux 2.4.21 has a new sendfile64() syscall #239.  */
+comment|/*  * On Linux up to 2.4.21 sendfile() (syscall #187) works with 32-bit  * offsets only and the including<sys/sendfile.h> breaks the compiling  * if off_t is 64 bit wide.  So we use own sendfile() definition where offset  * parameter is int32_t and use sendfile() with the file parts below 2G.  *  * Linux 2.4.21 has a new sendfile64() syscall #239.  */
 end_comment
 
 begin_function
@@ -303,6 +303,53 @@ operator|&
 name|NGX_HUNK_FILE
 condition|)
 block|{
+if|if
+condition|(
+name|ngx_tcp_nopush
+argument_list|(
+name|c
+operator|->
+name|fd
+argument_list|)
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+name|err
+operator|=
+name|ngx_errno
+expr_stmt|;
+comment|/*                  * there is a tiny chance to be interrupted, however                  * we continue a processing without the TCP_CORK                  */
+if|if
+condition|(
+name|err
+operator|!=
+name|NGX_EINTR
+condition|)
+block|{
+name|wev
+operator|->
+name|error
+operator|=
+literal|1
+expr_stmt|;
+name|ngx_connection_error
+argument_list|(
+name|c
+argument_list|,
+name|err
+argument_list|,
+name|ngx_tcp_nopush_n
+literal|" failed"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CHAIN_ERROR
+return|;
+block|}
+block|}
+else|else
+block|{
 name|c
 operator|->
 name|tcp_nopush
@@ -322,35 +369,6 @@ argument_list|,
 literal|"tcp_nopush"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|ngx_tcp_nopush
-argument_list|(
-name|c
-operator|->
-name|fd
-argument_list|)
-operator|==
-name|NGX_ERROR
-condition|)
-block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_CRIT
-argument_list|,
-name|c
-operator|->
-name|log
-argument_list|,
-name|ngx_errno
-argument_list|,
-name|ngx_tcp_nopush_n
-literal|" failed"
-argument_list|)
-expr_stmt|;
-return|return
-name|NGX_CHAIN_ERROR
-return|;
 block|}
 block|}
 if|if
@@ -555,23 +573,13 @@ condition|(
 name|err
 operator|==
 name|NGX_EAGAIN
+operator|||
+name|err
+operator|==
+name|NGX_EINTR
 condition|)
 block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_INFO
-argument_list|,
-name|c
-operator|->
-name|log
-argument_list|,
-name|err
-argument_list|,
-literal|"sendfile() EAGAIN"
-argument_list|)
-expr_stmt|;
-block|}
-if|else if
+if|if
 condition|(
 name|err
 operator|==
@@ -582,9 +590,10 @@ name|eintr
 operator|=
 literal|1
 expr_stmt|;
-name|ngx_log_error
+block|}
+name|ngx_log_debug0
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
 name|c
 operator|->
@@ -592,19 +601,21 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"sendfile() EINTR"
+literal|"sendfile() is not ready"
 argument_list|)
 expr_stmt|;
 block|}
 else|else
 block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_CRIT
-argument_list|,
-name|c
+name|wev
 operator|->
-name|log
+name|error
+operator|=
+literal|1
+expr_stmt|;
+name|ngx_connection_error
+argument_list|(
+name|c
 argument_list|,
 name|err
 argument_list|,
@@ -626,23 +637,31 @@ name|rc
 else|:
 literal|0
 expr_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG_WRITE_CHAIN
-operator|)
-name|ngx_log_debug
+name|ngx_log_debug4
 argument_list|(
-argument|c->log
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"sendfile: %d, @"
-argument|OFF_T_FMT
+name|OFF_T_FMT
 literal|" %d:%d"
-argument|_                           rc _ file->file_pos _ sent _ fsize
+argument_list|,
+name|rc
+argument_list|,
+name|file
+operator|->
+name|file_pos
+argument_list|,
+name|sent
+argument_list|,
+name|fsize
 argument_list|)
-empty_stmt|;
-endif|#
-directive|endif
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -680,23 +699,13 @@ condition|(
 name|err
 operator|==
 name|NGX_EAGAIN
+operator|||
+name|err
+operator|==
+name|NGX_EINTR
 condition|)
 block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_INFO
-argument_list|,
-name|c
-operator|->
-name|log
-argument_list|,
-name|err
-argument_list|,
-literal|"writev() EAGAIN"
-argument_list|)
-expr_stmt|;
-block|}
-if|else if
+if|if
 condition|(
 name|err
 operator|==
@@ -707,9 +716,10 @@ name|eintr
 operator|=
 literal|1
 expr_stmt|;
-name|ngx_log_error
+block|}
+name|ngx_log_debug0
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
 name|c
 operator|->
@@ -717,19 +727,21 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"writev() EINTR"
+literal|"writev() not ready"
 argument_list|)
 expr_stmt|;
 block|}
 else|else
 block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_CRIT
-argument_list|,
-name|c
+name|wev
 operator|->
-name|log
+name|error
+operator|=
+literal|1
+expr_stmt|;
+name|ngx_connection_error
+argument_list|(
+name|c
 argument_list|,
 name|err
 argument_list|,
@@ -751,21 +763,21 @@ name|rc
 else|:
 literal|0
 expr_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG_WRITE_CHAIN
-operator|)
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|c->log
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"writev: %d"
-argument|_ sent
+argument_list|,
+name|sent
 argument_list|)
-empty_stmt|;
-endif|#
-directive|endif
+expr_stmt|;
 block|}
 name|c
 operator|->
