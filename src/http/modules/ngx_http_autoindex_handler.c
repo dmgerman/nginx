@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c953ee30108
+DECL|struct|__anon298959f20108
 typedef|typedef
 struct|struct
 block|{
@@ -65,7 +65,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c953ee30208
+DECL|struct|__anon298959f20208
 typedef|typedef
 struct|struct
 block|{
@@ -264,7 +264,7 @@ name|ngx_http_autoindex_init
 block|,
 comment|/* init module */
 name|NULL
-comment|/* init child */
+comment|/* init process */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -312,9 +312,9 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_http_autoindex_handler (ngx_http_request_t * r)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_autoindex_handler (ngx_http_request_t * r)
 name|ngx_http_autoindex_handler
 parameter_list|(
 name|ngx_http_request_t
@@ -510,6 +510,8 @@ operator|.
 name|len
 operator|+
 name|NGX_DIR_MASK_LEN
+operator|+
+literal|1
 operator|-
 name|clcf
 operator|->
@@ -581,6 +583,8 @@ operator|->
 name|name
 operator|.
 name|len
+operator|+
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
@@ -2374,9 +2378,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_autoindex_cmp_entries (const void * one,const void * two)
 specifier|static
 name|int
+DECL|function|ngx_http_autoindex_cmp_entries (const void * one,const void * two)
 name|ngx_http_autoindex_cmp_entries
 parameter_list|(
 specifier|const
@@ -2474,15 +2478,15 @@ literal|0
 end_if
 
 begin_endif
-unit|static ngx_buf_t *ngx_http_autoindex_alloc(ngx_http_autoindex_ctx_t *ctx,                                            size_t size) {     ngx_chain_t  *cl;      if (ctx->buf) {          if ((size_t) (ctx->buf->end - ctx->buf->last)>= size) {             return ctx->buf;         }          ctx->size += ctx->buf->last - ctx->buf->pos;     }      if (!(ctx->buf = ngx_create_temp_buf(ctx->pool, ctx->alloc_size))) {         return NULL;     }      if (!(cl = ngx_alloc_chain_link(ctx->pool))) {         return NULL;     }      cl->buf = ctx->buf;     cl->next = NULL;      *ctx->last_out = cl;     ctx->last_out =&cl->next;      return ctx->buf; }
+unit|static ngx_buf_t * ngx_http_autoindex_alloc(ngx_http_autoindex_ctx_t *ctx, size_t size) {     ngx_chain_t  *cl;      if (ctx->buf) {          if ((size_t) (ctx->buf->end - ctx->buf->last)>= size) {             return ctx->buf;         }          ctx->size += ctx->buf->last - ctx->buf->pos;     }      if (!(ctx->buf = ngx_create_temp_buf(ctx->pool, ctx->alloc_size))) {         return NULL;     }      if (!(cl = ngx_alloc_chain_link(ctx->pool))) {         return NULL;     }      cl->buf = ctx->buf;     cl->next = NULL;      *ctx->last_out = cl;     ctx->last_out =&cl->next;      return ctx->buf; }
 endif|#
 directive|endif
 end_endif
 
 begin_function
-DECL|function|ngx_http_autoindex_error (ngx_http_request_t * r,ngx_dir_t * dir,u_char * name)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_autoindex_error (ngx_http_request_t * r,ngx_dir_t * dir,u_char * name)
 name|ngx_http_autoindex_error
 parameter_list|(
 name|ngx_http_request_t
@@ -2534,9 +2538,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_autoindex_init (ngx_cycle_t * cycle)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_autoindex_init (ngx_cycle_t * cycle)
 name|ngx_http_autoindex_init
 parameter_list|(
 name|ngx_cycle_t
@@ -2599,10 +2603,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_autoindex_create_loc_conf (ngx_conf_t * cf)
 specifier|static
 name|void
 modifier|*
+DECL|function|ngx_http_autoindex_create_loc_conf (ngx_conf_t * cf)
 name|ngx_http_autoindex_create_loc_conf
 parameter_list|(
 name|ngx_conf_t
@@ -2652,10 +2656,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_autoindex_merge_loc_conf (ngx_conf_t * cf,void * parent,void * child)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_autoindex_merge_loc_conf (ngx_conf_t * cf,void * parent,void * child)
 name|ngx_http_autoindex_merge_loc_conf
 parameter_list|(
 name|ngx_conf_t

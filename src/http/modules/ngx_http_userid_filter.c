@@ -66,7 +66,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon2c3385b50108
+DECL|struct|__anon27d3e9270108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3385b50208
+DECL|struct|__anon27d3e9270208
 typedef|typedef
 struct|struct
 block|{
@@ -300,6 +300,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
+specifier|static
 name|char
 modifier|*
 name|ngx_http_userid_domain
@@ -320,6 +321,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
+specifier|static
 name|char
 modifier|*
 name|ngx_http_userid_path
@@ -340,6 +342,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
+specifier|static
 name|char
 modifier|*
 name|ngx_http_userid_expires
@@ -360,6 +363,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
+specifier|static
 name|char
 modifier|*
 name|ngx_http_userid_p3p
@@ -819,9 +823,9 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_http_userid_filter (ngx_http_request_t * r)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_userid_filter (ngx_http_request_t * r)
 name|ngx_http_userid_filter
 parameter_list|(
 name|ngx_http_request_t
@@ -865,20 +869,38 @@ name|r
 argument_list|)
 return|;
 block|}
-name|ngx_http_create_ctx
+name|ctx
+operator|=
+name|ngx_pcalloc
+argument_list|(
+name|r
+operator|->
+name|pool
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|ngx_http_userid_ctx_t
+argument_list|)
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|ctx
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+name|ngx_http_set_ctx
 argument_list|(
 name|r
 argument_list|,
 name|ctx
 argument_list|,
 name|ngx_http_userid_filter_module
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|ngx_http_userid_ctx_t
-argument_list|)
-argument_list|,
-name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 name|rc
@@ -960,9 +982,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_userid_get_uid (ngx_http_request_t * r,ngx_http_userid_ctx_t * ctx,ngx_http_userid_conf_t * conf)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_userid_get_uid (ngx_http_request_t * r,ngx_http_userid_ctx_t * ctx,ngx_http_userid_conf_t * conf)
 name|ngx_http_userid_get_uid
 parameter_list|(
 name|ngx_http_request_t
@@ -1395,9 +1417,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_userid_set_uid (ngx_http_request_t * r,ngx_http_userid_ctx_t * ctx,ngx_http_userid_conf_t * conf)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_userid_set_uid (ngx_http_request_t * r,ngx_http_userid_ctx_t * ctx,ngx_http_userid_conf_t * conf)
 name|ngx_http_userid_set_uid
 parameter_list|(
 name|ngx_http_request_t
@@ -1746,10 +1768,6 @@ operator|.
 name|len
 expr_stmt|;
 block|}
-if|if
-condition|(
-operator|!
-operator|(
 name|cookie
 operator|=
 name|ngx_palloc
@@ -1760,7 +1778,12 @@ name|pool
 argument_list|,
 name|len
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|cookie
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -1943,10 +1966,6 @@ operator|.
 name|len
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
 name|set_cookie
 operator|=
 name|ngx_list_push
@@ -1958,7 +1977,12 @@ name|headers_out
 operator|.
 name|headers
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|set_cookie
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -2043,10 +2067,6 @@ return|return
 name|NGX_OK
 return|;
 block|}
-if|if
-condition|(
-operator|!
-operator|(
 name|p3p
 operator|=
 name|ngx_list_push
@@ -2058,7 +2078,12 @@ name|headers_out
 operator|.
 name|headers
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|p3p
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -2105,9 +2130,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_userid_log_uid_got_getlen (ngx_http_request_t * r,uintptr_t data)
 specifier|static
 name|size_t
+DECL|function|ngx_http_userid_log_uid_got_getlen (ngx_http_request_t * r,uintptr_t data)
 name|ngx_http_userid_log_uid_got_getlen
 parameter_list|(
 name|ngx_http_request_t
@@ -2179,10 +2204,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_userid_log_uid_got (ngx_http_request_t * r,u_char * buf,ngx_http_log_op_t * op)
 specifier|static
 name|u_char
 modifier|*
+DECL|function|ngx_http_userid_log_uid_got (ngx_http_request_t * r,u_char * buf,ngx_http_log_op_t * op)
 name|ngx_http_userid_log_uid_got
 parameter_list|(
 name|ngx_http_request_t
@@ -2316,9 +2341,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_userid_log_uid_set_getlen (ngx_http_request_t * r,uintptr_t data)
 specifier|static
 name|size_t
+DECL|function|ngx_http_userid_log_uid_set_getlen (ngx_http_request_t * r,uintptr_t data)
 name|ngx_http_userid_log_uid_set_getlen
 parameter_list|(
 name|ngx_http_request_t
@@ -2390,10 +2415,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_userid_log_uid_set (ngx_http_request_t * r,u_char * buf,ngx_http_log_op_t * op)
 specifier|static
 name|u_char
 modifier|*
+DECL|function|ngx_http_userid_log_uid_set (ngx_http_request_t * r,u_char * buf,ngx_http_log_op_t * op)
 name|ngx_http_userid_log_uid_set
 parameter_list|(
 name|ngx_http_request_t
@@ -2527,9 +2552,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_userid_add_log_formats (ngx_conf_t * cf)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_userid_add_log_formats (ngx_conf_t * cf)
 name|ngx_http_userid_add_log_formats
 parameter_list|(
 name|ngx_conf_t
@@ -2618,9 +2643,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_userid_init (ngx_cycle_t * cycle)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_userid_init (ngx_cycle_t * cycle)
 name|ngx_http_userid_init
 parameter_list|(
 name|ngx_cycle_t
@@ -2643,10 +2668,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_userid_create_conf (ngx_conf_t * cf)
 specifier|static
 name|void
 modifier|*
+DECL|function|ngx_http_userid_create_conf (ngx_conf_t * cf)
 name|ngx_http_userid_create_conf
 parameter_list|(
 name|ngx_conf_t
@@ -2658,10 +2683,6 @@ name|ngx_http_userid_conf_t
 modifier|*
 name|conf
 decl_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
 name|conf
 operator|=
 name|ngx_pcalloc
@@ -2675,7 +2696,12 @@ argument_list|(
 name|ngx_http_userid_conf_t
 argument_list|)
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|conf
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -2708,10 +2734,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_userid_merge_conf (ngx_conf_t * cf,void * parent,void * child)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_userid_merge_conf (ngx_conf_t * cf,void * parent,void * child)
 name|ngx_http_userid_merge_conf
 parameter_list|(
 name|ngx_conf_t
@@ -2837,9 +2863,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_userid_domain (ngx_conf_t * cf,void * post,void * data)
+specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_userid_domain (ngx_conf_t * cf,void * post,void * data)
 name|ngx_http_userid_domain
 parameter_list|(
 name|ngx_conf_t
@@ -2908,10 +2935,6 @@ return|return
 name|NGX_CONF_OK
 return|;
 block|}
-if|if
-condition|(
-operator|!
-operator|(
 name|new
 operator|=
 name|ngx_palloc
@@ -2931,7 +2954,12 @@ name|domain
 operator|->
 name|len
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|new
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -2993,9 +3021,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_userid_path (ngx_conf_t * cf,void * post,void * data)
+specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_userid_path (ngx_conf_t * cf,void * post,void * data)
 name|ngx_http_userid_path
 parameter_list|(
 name|ngx_conf_t
@@ -3024,10 +3053,6 @@ decl_stmt|,
 modifier|*
 name|new
 decl_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
 name|new
 operator|=
 name|ngx_palloc
@@ -3047,7 +3072,12 @@ name|path
 operator|->
 name|len
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|new
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -3109,9 +3139,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_userid_expires (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
+specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_userid_expires (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_http_userid_expires
 parameter_list|(
 name|ngx_conf_t
@@ -3260,9 +3291,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_userid_p3p (ngx_conf_t * cf,void * post,void * data)
+specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_userid_p3p (ngx_conf_t * cf,void * post,void * data)
 name|ngx_http_userid_p3p
 parameter_list|(
 name|ngx_conf_t

@@ -28,7 +28,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2773d7a70108
+DECL|struct|__anon2929ccfe0108
 typedef|typedef
 struct|struct
 block|{
@@ -127,15 +127,15 @@ modifier|*
 name|in
 parameter_list|)
 block|{
-name|int
-name|last
-decl_stmt|;
 name|off_t
 name|size
 decl_stmt|,
-name|flush
-decl_stmt|,
 name|sent
+decl_stmt|;
+name|ngx_uint_t
+name|last
+decl_stmt|,
+name|flush
 decl_stmt|;
 name|ngx_chain_t
 modifier|*
@@ -446,7 +446,7 @@ condition|)
 block|{
 name|flush
 operator|=
-name|size
+literal|1
 expr_stmt|;
 block|}
 if|if
@@ -717,7 +717,7 @@ condition|)
 block|{
 name|flush
 operator|=
-name|size
+literal|1
 expr_stmt|;
 block|}
 if|if
@@ -756,7 +756,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http write filter: l:%d f:%O s:%O"
+literal|"http write filter: l:%d f:%d s:%O"
 argument_list|,
 name|last
 argument_list|,
@@ -788,9 +788,8 @@ condition|(
 operator|!
 name|last
 operator|&&
+operator|!
 name|flush
-operator|==
-literal|0
 operator|&&
 name|in
 operator|&&
@@ -838,6 +837,32 @@ condition|(
 name|last
 condition|)
 block|{
+return|return
+name|NGX_OK
+return|;
+block|}
+if|if
+condition|(
+name|flush
+condition|)
+block|{
+while|while
+condition|(
+operator|(
+name|ctx
+operator|->
+name|out
+operator|=
+name|ctx
+operator|->
+name|out
+operator|->
+name|next
+operator|)
+condition|)
+block|{
+comment|/* void */
+block|}
 return|return
 name|NGX_OK
 return|;

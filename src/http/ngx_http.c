@@ -269,16 +269,16 @@ name|NULL
 block|,
 comment|/* init module */
 name|NULL
-comment|/* init child */
+comment|/* init process */
 block|}
 decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_http_block (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_block (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_http_block
 parameter_list|(
 name|ngx_conf_t
@@ -3027,9 +3027,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_cmp_server_names (const void * one,const void * two)
 specifier|static
 name|int
+DECL|function|ngx_cmp_server_names (const void * one,const void * two)
 name|ngx_cmp_server_names
 parameter_list|(
 specifier|const
@@ -3087,9 +3087,9 @@ comment|/*  * add the server address, the server names and the server core modul
 end_comment
 
 begin_function
-DECL|function|ngx_http_add_address (ngx_conf_t * cf,ngx_http_in_port_t * in_port,ngx_http_listen_t * lscf,ngx_http_core_srv_conf_t * cscf)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_add_address (ngx_conf_t * cf,ngx_http_in_port_t * in_port,ngx_http_listen_t * lscf,ngx_http_core_srv_conf_t * cscf)
 name|ngx_http_add_address
 parameter_list|(
 name|ngx_conf_t
@@ -3283,9 +3283,9 @@ comment|/*  * add the server names and the server core module  * configurations 
 end_comment
 
 begin_function
-DECL|function|ngx_http_add_names (ngx_conf_t * cf,ngx_http_in_addr_t * in_addr,ngx_http_core_srv_conf_t * cscf)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_add_names (ngx_conf_t * cf,ngx_http_in_addr_t * in_addr,ngx_http_core_srv_conf_t * cscf)
 name|ngx_http_add_names
 parameter_list|(
 name|ngx_conf_t
@@ -3555,10 +3555,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_merge_locations (ngx_conf_t * cf,ngx_array_t * locations,void ** loc_conf,ngx_http_module_t * module,ngx_uint_t ctx_index)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_merge_locations (ngx_conf_t * cf,ngx_array_t * locations,void ** loc_conf,ngx_http_module_t * module,ngx_uint_t ctx_index)
 name|ngx_http_merge_locations
 parameter_list|(
 name|ngx_conf_t

@@ -3211,7 +3211,7 @@ name|cycle
 operator|->
 name|pool
 argument_list|,
-literal|5
+literal|4
 argument_list|,
 sizeof|sizeof
 argument_list|(

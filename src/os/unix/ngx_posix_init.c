@@ -80,7 +80,7 @@ end_decl_stmt
 
 begin_function
 DECL|function|ngx_os_init (ngx_log_t * log)
-name|int
+name|ngx_int_t
 name|ngx_os_init
 parameter_list|(
 name|ngx_log_t
@@ -131,7 +131,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon2921521f0108
+DECL|struct|__anon2909f5010108
 typedef|typedef
 struct|struct
 block|{
@@ -917,7 +917,7 @@ end_function
 
 begin_function
 DECL|function|ngx_posix_post_conf_init (ngx_log_t * log)
-name|int
+name|ngx_int_t
 name|ngx_posix_post_conf_init
 parameter_list|(
 name|ngx_log_t

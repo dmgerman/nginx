@@ -105,7 +105,7 @@ name|ngx_http_header_filter_init
 block|,
 comment|/* init module */
 name|NULL
-comment|/* init child */
+comment|/* init process */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -156,34 +156,25 @@ argument_list|(
 literal|"206 Partial Content"
 argument_list|)
 block|,
-name|ngx_null_string
-block|,
+comment|/* ngx_null_string, */
 comment|/* "207 Multi-Status" */
-if|#
-directive|if
-literal|0
-block|ngx_null_string,
+DECL|macro|NGX_HTTP_LEVEL_200
+define|#
+directive|define
+name|NGX_HTTP_LEVEL_200
+value|7
+comment|/* ngx_null_string, */
 comment|/* "300 Multiple Choices" */
-endif|#
-directive|endif
 name|ngx_string
 argument_list|(
 literal|"301 Moved Permanently"
 argument_list|)
 block|,
-if|#
-directive|if
-literal|0
-block|ngx_string("302 Moved Temporarily"),
-else|#
-directive|else
 name|ngx_string
 argument_list|(
-literal|"302 Found"
+literal|"302 Moved Temporarily"
 argument_list|)
 block|,
-endif|#
-directive|endif
 name|ngx_null_string
 block|,
 comment|/* "303 See Other" */
@@ -192,6 +183,17 @@ argument_list|(
 literal|"304 Not Modified"
 argument_list|)
 block|,
+comment|/* ngx_null_string, */
+comment|/* "305 Use Proxy" */
+comment|/* ngx_null_string, */
+comment|/* "306 unused" */
+comment|/* ngx_null_string, */
+comment|/* "307 Temporary Redirect" */
+DECL|macro|NGX_HTTP_LEVEL_300
+define|#
+directive|define
+name|NGX_HTTP_LEVEL_300
+value|4
 name|ngx_string
 argument_list|(
 literal|"400 Bad Request"
@@ -202,9 +204,11 @@ argument_list|(
 literal|"401 Unauthorized"
 argument_list|)
 block|,
-name|ngx_null_string
+name|ngx_string
+argument_list|(
+literal|"402 Payment Required"
+argument_list|)
 block|,
-comment|/* "402 Payment Required" */
 name|ngx_string
 argument_list|(
 literal|"403 Forbidden"
@@ -220,9 +224,11 @@ argument_list|(
 literal|"405 Not Allowed"
 argument_list|)
 block|,
-name|ngx_null_string
+name|ngx_string
+argument_list|(
+literal|"406 Not Acceptable"
+argument_list|)
 block|,
-comment|/* "406 Not Acceptable" */
 name|ngx_null_string
 block|,
 comment|/* "407 Proxy Authentication Required" */
@@ -234,9 +240,11 @@ block|,
 name|ngx_null_string
 block|,
 comment|/* "409 Conflict" */
-name|ngx_null_string
+name|ngx_string
+argument_list|(
+literal|"410 Gone"
+argument_list|)
 block|,
-comment|/* "410 Gone" */
 name|ngx_string
 argument_list|(
 literal|"411 Length Required"
@@ -252,7 +260,7 @@ argument_list|)
 block|,
 name|ngx_null_string
 block|,
-comment|/* "414 Request-URI Too Large" but we never send it                        * because we treat such requests as the HTTP/0.9                        * requests and send only a body without a header                        */
+comment|/* "414 Request-URI Too Large", but we never send it                        * because we treat such requests as the HTTP/0.9                        * requests and send only a body without a header                        */
 name|ngx_null_string
 block|,
 comment|/* "415 Unsupported Media Type" */
@@ -261,6 +269,27 @@ argument_list|(
 literal|"416 Requested Range Not Satisfiable"
 argument_list|)
 block|,
+comment|/* ngx_null_string, */
+comment|/* "417 Expectation Failed" */
+comment|/* ngx_null_string, */
+comment|/* "418 unused" */
+comment|/* ngx_null_string, */
+comment|/* "419 unused" */
+comment|/* ngx_null_string, */
+comment|/* "420 unused" */
+comment|/* ngx_null_string, */
+comment|/* "421 unused" */
+comment|/* ngx_null_string, */
+comment|/* "422 Unprocessable Entity" */
+comment|/* ngx_null_string, */
+comment|/* "423 Locked" */
+comment|/* ngx_null_string, */
+comment|/* "424 Failed Dependency" */
+DECL|macro|NGX_HTTP_LEVEL_400
+define|#
+directive|define
+name|NGX_HTTP_LEVEL_400
+value|17
 name|ngx_string
 argument_list|(
 literal|"500 Internal Server Error"
@@ -285,6 +314,18 @@ name|ngx_string
 argument_list|(
 literal|"504 Gateway Time-out"
 argument_list|)
+comment|/* ngx_null_string, */
+comment|/* "505 HTTP Version Not Supported" */
+comment|/* ngx_null_string, */
+comment|/* "506 Variant Also Negotiates" */
+comment|/* ngx_null_string, */
+comment|/* "507 Insufficient Storage" */
+comment|/* ngx_null_string, */
+comment|/* "508 unused" */
+comment|/* ngx_null_string, */
+comment|/* "509 unused" */
+comment|/* ngx_null_string, */
+comment|/* "510 Not Extended" */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -694,7 +735,7 @@ name|status
 operator|-
 name|NGX_HTTP_MOVED_PERMANENTLY
 operator|+
-literal|8
+name|NGX_HTTP_LEVEL_200
 expr_stmt|;
 if|if
 condition|(
@@ -737,9 +778,9 @@ name|status
 operator|-
 name|NGX_HTTP_BAD_REQUEST
 operator|+
-literal|8
+name|NGX_HTTP_LEVEL_200
 operator|+
-literal|4
+name|NGX_HTTP_LEVEL_300
 expr_stmt|;
 block|}
 else|else
@@ -755,11 +796,11 @@ name|status
 operator|-
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 operator|+
-literal|8
+name|NGX_HTTP_LEVEL_200
 operator|+
-literal|4
+name|NGX_HTTP_LEVEL_300
 operator|+
-literal|17
+name|NGX_HTTP_LEVEL_400
 expr_stmt|;
 block|}
 name|len

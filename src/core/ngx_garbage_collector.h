@@ -28,7 +28,7 @@ end_typedef
 begin_typedef
 DECL|typedef|ngx_gc_handler_pt
 typedef|typedef
-name|int
+name|ngx_int_t
 function_decl|(
 modifier|*
 name|ngx_gc_handler_pt
@@ -92,7 +92,7 @@ name|ngx_str_t
 modifier|*
 name|dname
 parameter_list|,
-name|int
+name|ngx_int_t
 name|level
 parameter_list|)
 function_decl|;

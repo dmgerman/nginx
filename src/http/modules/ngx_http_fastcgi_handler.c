@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b4b0c9b0108
+DECL|struct|__anon2b1f97ff0108
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +70,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4b0c9b0208
+DECL|struct|__anon2b1f97ff0208
 typedef|typedef
 struct|struct
 block|{
@@ -117,7 +117,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4b0c9b0308
+DECL|struct|__anon2b1f97ff0308
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b4b0c9b0403
+DECL|enum|__anon2b1f97ff0403
 typedef|typedef
 enum|enum
 block|{
@@ -174,7 +174,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4b0c9b0508
+DECL|struct|__anon2b1f97ff0508
 typedef|typedef
 struct|struct
 block|{
@@ -412,7 +412,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2b4b0c9b0608
+DECL|struct|__anon2b1f97ff0608
 typedef|typedef
 struct|struct
 block|{
@@ -455,7 +455,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4b0c9b0708
+DECL|struct|__anon2b1f97ff0708
 typedef|typedef
 struct|struct
 block|{
@@ -3076,7 +3076,7 @@ operator|!
 operator|(
 name|value
 operator|=
-name|ngx_http_get_variable
+name|ngx_http_get_indexed_variable
 argument_list|(
 name|r
 argument_list|,
@@ -6206,7 +6206,7 @@ operator|!
 operator|(
 name|value
 operator|=
-name|ngx_http_get_variable
+name|ngx_http_get_indexed_variable
 argument_list|(
 name|r
 argument_list|,

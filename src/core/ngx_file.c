@@ -791,9 +791,11 @@ end_function
 
 begin_function
 name|void
-DECL|function|ngx_init_temp_number ()
+DECL|function|ngx_init_temp_number (void)
 name|ngx_init_temp_number
-parameter_list|()
+parameter_list|(
+name|void
+parameter_list|)
 block|{
 name|ngx_temp_number
 operator|=

@@ -140,7 +140,7 @@ comment|/* disable some "-W4" level warnings */
 end_comment
 
 begin_comment
-comment|/* disable warnings about some 'type cast */
+comment|/* 'type cast': from function pointer to data pointer */
 end_comment
 
 begin_pragma
@@ -153,6 +153,10 @@ name|:
 name|4054
 name|)
 end_pragma
+
+begin_comment
+comment|/* 'type cast': from data pointer to function pointer */
+end_comment
 
 begin_pragma
 pragma|#
@@ -226,7 +230,7 @@ name|)
 end_pragma
 
 begin_comment
-comment|/* disable "function 'ngx_handle_write_event' not inlined" */
+comment|/* function 'ngx_handle_write_event' not inlined */
 end_comment
 
 begin_pragma
@@ -265,7 +269,7 @@ name|)
 end_pragma
 
 begin_comment
-comment|/* disable "Symbol 'ngx_rbtree_min' has been defined, but not referenced" */
+comment|/* symbol 'ngx_rbtree_min' has been defined, but not referenced */
 end_comment
 
 begin_pragma
@@ -298,32 +302,8 @@ directive|pragma
 name|hdrstop
 end_pragma
 
-begin_pragma
-pragma|#
-directive|pragma
-name|warn
-name|-
-name|8027
-end_pragma
-
-begin_pragma
-pragma|#
-directive|pragma
-name|warn
-name|-
-name|8057
-end_pragma
-
-begin_pragma
-pragma|#
-directive|pragma
-name|warn
-name|-
-name|8060
-end_pragma
-
 begin_comment
-comment|/* STUB */
+comment|/*  * 'fd' is assigned a value that is never used in function ngx_event_init_conf  */
 end_comment
 
 begin_pragma
@@ -334,6 +314,10 @@ name|-
 name|8004
 end_pragma
 
+begin_comment
+comment|/* condition is always false */
+end_comment
+
 begin_pragma
 pragma|#
 directive|pragma
@@ -342,13 +326,45 @@ name|-
 name|8008
 end_pragma
 
+begin_comment
+comment|/* functions containing (for|while|some if) are not expanded inline */
+end_comment
+
 begin_pragma
 pragma|#
 directive|pragma
 name|warn
 name|-
-name|8065
+name|8027
 end_pragma
+
+begin_comment
+comment|/* unreferenced formal parameter */
+end_comment
+
+begin_pragma
+pragma|#
+directive|pragma
+name|warn
+name|-
+name|8057
+end_pragma
+
+begin_comment
+comment|/* assignment within conditional expression */
+end_comment
+
+begin_pragma
+pragma|#
+directive|pragma
+name|warn
+name|-
+name|8060
+end_pragma
+
+begin_comment
+comment|/* unreachable code */
+end_comment
 
 begin_pragma
 pragma|#
@@ -356,14 +372,6 @@ directive|pragma
 name|warn
 name|-
 name|8066
-end_pragma
-
-begin_pragma
-pragma|#
-directive|pragma
-name|warn
-name|-
-name|8075
 end_pragma
 
 begin_endif
@@ -414,7 +422,7 @@ directive|else
 end_else
 
 begin_comment
-comment|/* __WATCOMC__ */
+comment|/* __WATCOMC__ and __BORLANDC__ */
 end_comment
 
 begin_typedef

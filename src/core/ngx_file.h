@@ -76,8 +76,6 @@ decl_stmt|;
 DECL|member|valid_info
 name|ngx_uint_t
 name|valid_info
-range|:
-literal|1
 decl_stmt|;
 comment|/* unsigned  valid_info:1; */
 block|}
@@ -130,7 +128,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28cb05de0108
+DECL|struct|__anon2b69d0190108
 typedef|typedef
 struct|struct
 block|{
@@ -269,7 +267,9 @@ end_function_decl
 begin_function_decl
 name|void
 name|ngx_init_temp_number
-parameter_list|()
+parameter_list|(
+name|void
+parameter_list|)
 function_decl|;
 end_function_decl
 

@@ -327,7 +327,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b92c8570108
+DECL|struct|__anon29555d810108
 typedef|typedef
 struct|struct
 block|{
@@ -343,7 +343,7 @@ end_typedef
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_epoll_init
 parameter_list|(
 name|ngx_cycle_t
@@ -367,7 +367,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_epoll_add_event
 parameter_list|(
 name|ngx_event_t
@@ -385,7 +385,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_epoll_del_event
 parameter_list|(
 name|ngx_event_t
@@ -403,7 +403,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_epoll_add_connection
 parameter_list|(
 name|ngx_connection_t
@@ -415,7 +415,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_epoll_del_connection
 parameter_list|(
 name|ngx_connection_t
@@ -430,7 +430,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_epoll_process_events
 parameter_list|(
 name|ngx_cycle_t
@@ -628,9 +628,9 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_epoll_init (ngx_cycle_t * cycle)
 specifier|static
-name|int
+name|ngx_int_t
+DECL|function|ngx_epoll_init (ngx_cycle_t * cycle)
 name|ngx_epoll_init
 parameter_list|(
 name|ngx_cycle_t
@@ -810,9 +810,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_epoll_done (ngx_cycle_t * cycle)
 specifier|static
 name|void
+DECL|function|ngx_epoll_done (ngx_cycle_t * cycle)
 name|ngx_epoll_done
 parameter_list|(
 name|ngx_cycle_t
@@ -867,9 +867,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_epoll_add_event (ngx_event_t * ev,int event,u_int flags)
 specifier|static
-name|int
+name|ngx_int_t
+DECL|function|ngx_epoll_add_event (ngx_event_t * ev,int event,u_int flags)
 name|ngx_epoll_add_event
 parameter_list|(
 name|ngx_event_t
@@ -1104,9 +1104,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_epoll_del_event (ngx_event_t * ev,int event,u_int flags)
 specifier|static
-name|int
+name|ngx_int_t
+DECL|function|ngx_epoll_del_event (ngx_event_t * ev,int event,u_int flags)
 name|ngx_epoll_del_event
 parameter_list|(
 name|ngx_event_t
@@ -1328,9 +1328,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_epoll_add_connection (ngx_connection_t * c)
 specifier|static
-name|int
+name|ngx_int_t
+DECL|function|ngx_epoll_add_connection (ngx_connection_t * c)
 name|ngx_epoll_add_connection
 parameter_list|(
 name|ngx_connection_t
@@ -1454,9 +1454,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_epoll_del_connection (ngx_connection_t * c,u_int flags)
 specifier|static
-name|int
+name|ngx_int_t
+DECL|function|ngx_epoll_del_connection (ngx_connection_t * c,u_int flags)
 name|ngx_epoll_del_connection
 parameter_list|(
 name|ngx_connection_t
@@ -1603,8 +1603,9 @@ block|}
 end_function
 
 begin_function
+specifier|static
+name|ngx_int_t
 DECL|function|ngx_epoll_process_events (ngx_cycle_t * cycle)
-name|int
 name|ngx_epoll_process_events
 parameter_list|(
 name|ngx_cycle_t
@@ -2598,10 +2599,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_epoll_create_conf (ngx_cycle_t * cycle)
 specifier|static
 name|void
 modifier|*
+DECL|function|ngx_epoll_create_conf (ngx_cycle_t * cycle)
 name|ngx_epoll_create_conf
 parameter_list|(
 name|ngx_cycle_t
@@ -2645,10 +2646,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_epoll_init_conf (ngx_cycle_t * cycle,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_epoll_init_conf (ngx_cycle_t * cycle,void * conf)
 name|ngx_epoll_init_conf
 parameter_list|(
 name|ngx_cycle_t

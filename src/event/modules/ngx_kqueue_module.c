@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon299af6480108
+DECL|struct|__anon2b1e126a0108
 typedef|typedef
 struct|struct
 block|{
@@ -438,9 +438,9 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_kqueue_init (ngx_cycle_t * cycle)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_kqueue_init (ngx_cycle_t * cycle)
 name|ngx_kqueue_init
 parameter_list|(
 name|ngx_cycle_t
@@ -820,9 +820,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_kqueue_done (ngx_cycle_t * cycle)
 specifier|static
 name|void
+DECL|function|ngx_kqueue_done (ngx_cycle_t * cycle)
 name|ngx_kqueue_done
 parameter_list|(
 name|ngx_cycle_t
@@ -924,9 +924,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_kqueue_add_event (ngx_event_t * ev,int event,u_int flags)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_kqueue_add_event (ngx_event_t * ev,int event,u_int flags)
 name|ngx_kqueue_add_event
 parameter_list|(
 name|ngx_event_t
@@ -1200,9 +1200,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_kqueue_del_event (ngx_event_t * ev,int event,u_int flags)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_kqueue_del_event (ngx_event_t * ev,int event,u_int flags)
 name|ngx_kqueue_del_event
 parameter_list|(
 name|ngx_event_t
@@ -1445,9 +1445,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_kqueue_set_event (ngx_event_t * ev,int filter,u_int flags)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_kqueue_set_event (ngx_event_t * ev,int filter,u_int flags)
 name|ngx_kqueue_set_event
 parameter_list|(
 name|ngx_event_t
@@ -1746,9 +1746,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_kqueue_process_events (ngx_cycle_t * cycle)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_kqueue_process_events (ngx_cycle_t * cycle)
 name|ngx_kqueue_process_events
 parameter_list|(
 name|ngx_cycle_t
@@ -2818,9 +2818,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_kqueue_process_changes (ngx_cycle_t * cycle,ngx_uint_t try)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_kqueue_process_changes (ngx_cycle_t * cycle,ngx_uint_t try)
 name|ngx_kqueue_process_changes
 parameter_list|(
 name|ngx_cycle_t
@@ -3037,10 +3037,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_kqueue_dump_event (ngx_log_t * log,struct kevent * kev)
 specifier|static
 name|ngx_inline
 name|void
+DECL|function|ngx_kqueue_dump_event (ngx_log_t * log,struct kevent * kev)
 name|ngx_kqueue_dump_event
 parameter_list|(
 name|ngx_log_t
@@ -3112,10 +3112,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_kqueue_create_conf (ngx_cycle_t * cycle)
 specifier|static
 name|void
 modifier|*
+DECL|function|ngx_kqueue_create_conf (ngx_cycle_t * cycle)
 name|ngx_kqueue_create_conf
 parameter_list|(
 name|ngx_cycle_t
@@ -3165,10 +3165,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_kqueue_init_conf (ngx_cycle_t * cycle,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_kqueue_init_conf (ngx_cycle_t * cycle,void * conf)
 name|ngx_kqueue_init_conf
 parameter_list|(
 name|ngx_cycle_t

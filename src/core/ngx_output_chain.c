@@ -105,8 +105,8 @@ function_decl|;
 end_function_decl
 
 begin_function
-DECL|function|ngx_output_chain (ngx_output_chain_ctx_t * ctx,ngx_chain_t * in)
 name|ngx_int_t
+DECL|function|ngx_output_chain (ngx_output_chain_ctx_t * ctx,ngx_chain_t * in)
 name|ngx_output_chain
 parameter_list|(
 name|ngx_output_chain_ctx_t
@@ -265,10 +265,6 @@ name|NGX_ERROR
 return|;
 block|}
 block|}
-name|last
-operator|=
-name|NGX_NONE
-expr_stmt|;
 name|out
 operator|=
 name|NULL
@@ -277,6 +273,10 @@ name|last_out
 operator|=
 operator|&
 name|out
+expr_stmt|;
+name|last
+operator|=
+name|NGX_NONE
 expr_stmt|;
 for|for
 control|(
@@ -993,9 +993,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_output_chain_add_copy (ngx_pool_t * pool,ngx_chain_t ** chain,ngx_chain_t * in)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_output_chain_add_copy (ngx_pool_t * pool,ngx_chain_t ** chain,ngx_chain_t * in)
 name|ngx_output_chain_add_copy
 parameter_list|(
 name|ngx_pool_t
@@ -1252,9 +1252,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_output_chain_copy_buf (ngx_buf_t * dst,ngx_buf_t * src,ngx_uint_t sendfile)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_output_chain_copy_buf (ngx_buf_t * dst,ngx_buf_t * src,ngx_uint_t sendfile)
 name|ngx_output_chain_copy_buf
 parameter_list|(
 name|ngx_buf_t
@@ -1647,8 +1647,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_chain_writer (void * data,ngx_chain_t * in)
 name|ngx_int_t
+DECL|function|ngx_chain_writer (void * data,ngx_chain_t * in)
 name|ngx_chain_writer
 parameter_list|(
 name|void

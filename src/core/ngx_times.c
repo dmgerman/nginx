@@ -307,10 +307,12 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_time_init ()
+DECL|function|ngx_time_init (void)
 name|void
 name|ngx_time_init
-parameter_list|()
+parameter_list|(
+name|void
+parameter_list|)
 block|{
 name|struct
 name|timeval

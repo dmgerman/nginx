@@ -110,7 +110,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon288198160108
+DECL|struct|__anon2a345e8a0108
 typedef|typedef
 struct|struct
 block|{
@@ -516,9 +516,9 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_rtsig_init (ngx_cycle_t * cycle)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_rtsig_init (ngx_cycle_t * cycle)
 name|ngx_rtsig_init
 parameter_list|(
 name|ngx_cycle_t
@@ -674,9 +674,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_rtsig_done (ngx_cycle_t * cycle)
 specifier|static
 name|void
+DECL|function|ngx_rtsig_done (ngx_cycle_t * cycle)
 name|ngx_rtsig_done
 parameter_list|(
 name|ngx_cycle_t
@@ -697,9 +697,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_rtsig_add_connection (ngx_connection_t * c)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_rtsig_add_connection (ngx_connection_t * c)
 name|ngx_rtsig_add_connection
 parameter_list|(
 name|ngx_connection_t
@@ -1009,9 +1009,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_rtsig_del_connection (ngx_connection_t * c,u_int flags)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_rtsig_del_connection (ngx_connection_t * c,u_int flags)
 name|ngx_rtsig_del_connection
 parameter_list|(
 name|ngx_connection_t
@@ -1177,8 +1177,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_rtsig_process_events (ngx_cycle_t * cycle)
+specifier|static
 name|ngx_int_t
+DECL|function|ngx_rtsig_process_events (ngx_cycle_t * cycle)
 name|ngx_rtsig_process_events
 parameter_list|(
 name|ngx_cycle_t
@@ -2278,9 +2279,9 @@ comment|/* TODO: old cylces */
 end_comment
 
 begin_function
-DECL|function|ngx_rtsig_process_overflow (ngx_cycle_t * cycle)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_rtsig_process_overflow (ngx_cycle_t * cycle)
 name|ngx_rtsig_process_overflow
 parameter_list|(
 name|ngx_cycle_t
@@ -3020,10 +3021,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_rtsig_create_conf (ngx_cycle_t * cycle)
 specifier|static
 name|void
 modifier|*
+DECL|function|ngx_rtsig_create_conf (ngx_cycle_t * cycle)
 name|ngx_rtsig_create_conf
 parameter_list|(
 name|ngx_cycle_t
@@ -3085,10 +3086,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_rtsig_init_conf (ngx_cycle_t * cycle,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_rtsig_init_conf (ngx_cycle_t * cycle,void * conf)
 name|ngx_rtsig_init_conf
 parameter_list|(
 name|ngx_cycle_t
@@ -3152,10 +3153,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_check_ngx_overflow_threshold_bounds (ngx_conf_t * cf,void * post,void * data)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_check_ngx_overflow_threshold_bounds (ngx_conf_t * cf,void * post,void * data)
 name|ngx_check_ngx_overflow_threshold_bounds
 parameter_list|(
 name|ngx_conf_t

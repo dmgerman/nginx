@@ -487,8 +487,8 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|main (int argc,char * const * argv)
 name|int
+DECL|function|main (int argc,char * const * argv)
 name|main
 parameter_list|(
 name|int
@@ -926,9 +926,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_add_inherited_sockets (ngx_cycle_t * cycle)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_add_inherited_sockets (ngx_cycle_t * cycle)
 name|ngx_add_inherited_sockets
 parameter_list|(
 name|ngx_cycle_t
@@ -1626,9 +1626,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_save_argv (ngx_cycle_t * cycle,int argc,char * const * argv)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_save_argv (ngx_cycle_t * cycle,int argc,char * const * argv)
 name|ngx_save_argv
 parameter_list|(
 name|ngx_cycle_t
@@ -1801,10 +1801,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_core_module_create_conf (ngx_cycle_t * cycle)
 specifier|static
 name|void
 modifier|*
+DECL|function|ngx_core_module_create_conf (ngx_cycle_t * cycle)
 name|ngx_core_module_create_conf
 parameter_list|(
 name|ngx_cycle_t
@@ -1909,10 +1909,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_core_module_init_conf (ngx_cycle_t * cycle,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_core_module_init_conf (ngx_cycle_t * cycle,void * conf)
 name|ngx_core_module_init_conf
 parameter_list|(
 name|ngx_cycle_t
@@ -2273,10 +2273,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_set_user (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_set_user (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_set_user
 parameter_list|(
 name|ngx_conf_t
@@ -2539,10 +2539,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_set_priority (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_set_priority (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_set_priority
 parameter_list|(
 name|ngx_conf_t

@@ -49,10 +49,12 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_regex_init ()
+DECL|function|ngx_regex_init (void)
 name|void
 name|ngx_regex_init
-parameter_list|()
+parameter_list|(
+name|void
+parameter_list|)
 block|{
 name|pcre_malloc
 operator|=

@@ -853,11 +853,13 @@ directive|endif
 end_endif
 
 begin_function
-DECL|function|ngx_log_init ()
+DECL|function|ngx_log_init (void)
 name|ngx_log_t
 modifier|*
 name|ngx_log_init
-parameter_list|()
+parameter_list|(
+name|void
+parameter_list|)
 block|{
 name|ngx_log
 operator|.

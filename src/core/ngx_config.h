@@ -391,10 +391,6 @@ name|NGX_SOLARIS
 operator|)
 end_if
 
-begin_comment
-comment|/* TODO: auto_conf */
-end_comment
-
 begin_define
 DECL|macro|NGX_ALIGN
 define|#
@@ -402,24 +398,6 @@ directive|define
 name|NGX_ALIGN
 value|(_MAX_ALIGNMENT - 1)
 end_define
-
-begin_comment
-DECL|macro|NGX_ALIGN
-comment|/* platform word */
-end_comment
-
-begin_define
-DECL|macro|NGX_ALIGN_CAST
-define|#
-directive|define
-name|NGX_ALIGN_CAST
-value|(unsigned long)
-end_define
-
-begin_comment
-DECL|macro|NGX_ALIGN_CAST
-comment|/* size of the pointer */
-end_comment
 
 begin_else
 else|#
@@ -443,19 +421,6 @@ DECL|macro|NGX_ALIGN
 comment|/* platform word */
 end_comment
 
-begin_define
-DECL|macro|NGX_ALIGN_CAST
-define|#
-directive|define
-name|NGX_ALIGN_CAST
-value|(unsigned long)
-end_define
-
-begin_comment
-DECL|macro|NGX_ALIGN_CAST
-comment|/* size of the pointer */
-end_comment
-
 begin_endif
 endif|#
 directive|endif
@@ -469,7 +434,7 @@ name|ngx_align
 parameter_list|(
 name|p
 parameter_list|)
-value|(u_char *) ((NGX_ALIGN_CAST p + NGX_ALIGN)& ~NGX_ALIGN)
+value|(u_char *) (((uintptr_t) p + NGX_ALIGN)& ~NGX_ALIGN)
 end_define
 
 begin_comment

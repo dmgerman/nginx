@@ -48,7 +48,7 @@ end_endif
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_aio_init
 parameter_list|(
 name|ngx_cycle_t
@@ -72,7 +72,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_aio_add_event
 parameter_list|(
 name|ngx_event_t
@@ -90,7 +90,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_aio_del_event
 parameter_list|(
 name|ngx_event_t
@@ -108,7 +108,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_aio_del_connection
 parameter_list|(
 name|ngx_connection_t
@@ -123,7 +123,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_aio_process_events
 parameter_list|(
 name|ngx_cycle_t
@@ -251,9 +251,9 @@ operator|)
 end_if
 
 begin_function
-DECL|function|ngx_aio_init (ngx_cycle_t * cycle)
 specifier|static
-name|int
+name|ngx_int_t
+DECL|function|ngx_aio_init (ngx_cycle_t * cycle)
 name|ngx_aio_init
 parameter_list|(
 name|ngx_cycle_t
@@ -300,9 +300,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_aio_done (ngx_cycle_t * cycle)
 specifier|static
 name|void
+DECL|function|ngx_aio_done (ngx_cycle_t * cycle)
 name|ngx_aio_done
 parameter_list|(
 name|ngx_cycle_t
@@ -323,13 +323,13 @@ block|}
 end_function
 
 begin_comment
-comment|/* The event adding and deleting are needed for the listening sockets */
+comment|/* the event adding and deleting are needed for the listening sockets */
 end_comment
 
 begin_function
-DECL|function|ngx_aio_add_event (ngx_event_t * ev,int event,u_int flags)
 specifier|static
-name|int
+name|ngx_int_t
+DECL|function|ngx_aio_add_event (ngx_event_t * ev,int event,u_int flags)
 name|ngx_aio_add_event
 parameter_list|(
 name|ngx_event_t
@@ -361,9 +361,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_aio_del_event (ngx_event_t * ev,int event,u_int flags)
 specifier|static
-name|int
+name|ngx_int_t
+DECL|function|ngx_aio_del_event (ngx_event_t * ev,int event,u_int flags)
 name|ngx_aio_del_event
 parameter_list|(
 name|ngx_event_t
@@ -395,9 +395,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_aio_del_connection (ngx_connection_t * c,u_int flags)
 specifier|static
-name|int
+name|ngx_int_t
+DECL|function|ngx_aio_del_connection (ngx_connection_t * c,u_int flags)
 name|ngx_aio_del_connection
 parameter_list|(
 name|ngx_connection_t
@@ -590,9 +590,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_aio_process_events (ngx_cycle_t * cycle)
 specifier|static
-name|int
+name|ngx_int_t
+DECL|function|ngx_aio_process_events (ngx_cycle_t * cycle)
 name|ngx_aio_process_events
 parameter_list|(
 name|ngx_cycle_t

@@ -135,6 +135,12 @@ directive|include
 file|<ngx_http_core_module.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_http_variables.h>
+end_include
+
 begin_if
 if|#
 directive|if
@@ -183,7 +189,7 @@ name|r
 parameter_list|,
 name|module
 parameter_list|)
-value|r->ctx[module.ctx_index]
+value|(r)->ctx[module.ctx_index]
 end_define
 
 begin_define
@@ -197,7 +203,7 @@ parameter_list|,
 name|module
 parameter_list|)
 define|\
-value|(r->err_ctx ? r->err_ctx[module.ctx_index] : r->ctx[module.ctx_index])
+value|((r)->err_ctx ? (r)->err_ctx[module.ctx_index] : (r)->ctx[module.ctx_index])
 end_define
 
 begin_comment
@@ -240,7 +246,6 @@ name|c
 parameter_list|,
 name|module
 parameter_list|)
-define|\
 value|r->ctx[module.ctx_index] = c;
 end_define
 
@@ -254,7 +259,6 @@ name|r
 parameter_list|,
 name|module
 parameter_list|)
-define|\
 value|r->ctx[module.ctx_index] = NULL;
 end_define
 
@@ -437,7 +441,7 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|int
+name|ngx_int_t
 name|error
 parameter_list|)
 function_decl|;

@@ -26,7 +26,7 @@ comment|/* AF_INET only */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2c6bd6320108
+DECL|struct|__anon2a53a7350108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6bd6320208
+DECL|struct|__anon2a53a7350208
 typedef|typedef
 struct|struct
 block|{
@@ -505,7 +505,7 @@ name|cf
 operator|->
 name|pool
 argument_list|,
-literal|5
+literal|4
 argument_list|,
 sizeof|sizeof
 argument_list|(

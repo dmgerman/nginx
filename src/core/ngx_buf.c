@@ -16,9 +16,9 @@ file|<ngx_core.h>
 end_include
 
 begin_function
-DECL|function|ngx_create_temp_buf (ngx_pool_t * pool,size_t size)
 name|ngx_buf_t
 modifier|*
+DECL|function|ngx_create_temp_buf (ngx_pool_t * pool,size_t size)
 name|ngx_create_temp_buf
 parameter_list|(
 name|ngx_pool_t
@@ -71,6 +71,7 @@ return|return
 name|NULL
 return|;
 block|}
+comment|/*      * set by ngx_calloc_buf():      *      *     b->file_pos = 0;      *     b->file_last = 0;      *     b->file = NULL;      *     b->shadow = NULL;      *     b->tag = 0;      *      */
 name|b
 operator|->
 name|pos
@@ -103,7 +104,6 @@ name|temporary
 operator|=
 literal|1
 expr_stmt|;
-comment|/*      b->file_pos = 0;     b->file_last = 0;      b->file = NULL;     b->shadow = NULL;      b->tag = 0;       */
 return|return
 name|b
 return|;
@@ -111,9 +111,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_create_chain_of_bufs (ngx_pool_t * pool,ngx_bufs_t * bufs)
 name|ngx_chain_t
 modifier|*
+DECL|function|ngx_create_chain_of_bufs (ngx_pool_t * pool,ngx_bufs_t * bufs)
 name|ngx_create_chain_of_bufs
 parameter_list|(
 name|ngx_pool_t
@@ -210,6 +210,7 @@ return|return
 name|NULL
 return|;
 block|}
+comment|/*          * set by ngx_calloc_buf():          *          *     b->file_pos = 0;          *     b->file_last = 0;          *     b->file = NULL;          *     b->shadow = NULL;          *     b->tag = 0;          *          */
 name|b
 operator|->
 name|pos
@@ -246,7 +247,6 @@ name|end
 operator|=
 name|p
 expr_stmt|;
-comment|/*         b->file_pos = 0;         b->file_last = 0;          b->file = NULL;         b->shadow = NULL;         b->tag = 0;         */
 if|if
 condition|(
 operator|!
@@ -295,8 +295,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_chain_add_copy (ngx_pool_t * pool,ngx_chain_t ** chain,ngx_chain_t * in)
 name|ngx_int_t
+DECL|function|ngx_chain_add_copy (ngx_pool_t * pool,ngx_chain_t ** chain,ngx_chain_t * in)
 name|ngx_chain_add_copy
 parameter_list|(
 name|ngx_pool_t
@@ -405,8 +405,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_chain_update_chains (ngx_chain_t ** free,ngx_chain_t ** busy,ngx_chain_t ** out,ngx_buf_tag_t tag)
 name|void
+DECL|function|ngx_chain_update_chains (ngx_chain_t ** free,ngx_chain_t ** busy,ngx_chain_t ** out,ngx_buf_tag_t tag)
 name|ngx_chain_update_chains
 parameter_list|(
 name|ngx_chain_t
@@ -430,7 +430,7 @@ parameter_list|)
 block|{
 name|ngx_chain_t
 modifier|*
-name|tl
+name|cl
 decl_stmt|;
 if|if
 condition|(
@@ -451,26 +451,25 @@ else|else
 block|{
 for|for
 control|(
-name|tl
+name|cl
 operator|=
 operator|*
 name|busy
 init|;
-name|tl
+name|cl
 operator|->
 name|next
 condition|;
-name|tl
+name|cl
 operator|=
-name|tl
+name|cl
 operator|->
 name|next
 control|)
 block|{
 comment|/* void */
-empty_stmt|;
 block|}
-name|tl
+name|cl
 operator|->
 name|next
 operator|=
@@ -589,7 +588,7 @@ name|buf
 operator|->
 name|start
 expr_stmt|;
-name|tl
+name|cl
 operator|=
 operator|*
 name|busy
@@ -597,14 +596,11 @@ expr_stmt|;
 operator|*
 name|busy
 operator|=
-operator|(
-operator|*
-name|busy
-operator|)
+name|cl
 operator|->
 name|next
 expr_stmt|;
-name|tl
+name|cl
 operator|->
 name|next
 operator|=
@@ -614,7 +610,7 @@ expr_stmt|;
 operator|*
 name|free
 operator|=
-name|tl
+name|cl
 expr_stmt|;
 block|}
 block|}

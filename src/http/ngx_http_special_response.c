@@ -122,6 +122,42 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|error_401_page
+specifier|static
+name|char
+name|error_401_page
+index|[]
+init|=
+literal|"<html>"
+name|CRLF
+literal|"<head><title>401 Unauthorized</title></head>"
+name|CRLF
+literal|"<body bgcolor=\"white\">"
+name|CRLF
+literal|"<center><h1>401 Unauthorized</h1></center>"
+name|CRLF
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|error_402_page
+specifier|static
+name|char
+name|error_402_page
+index|[]
+init|=
+literal|"<html>"
+name|CRLF
+literal|"<head><title>402 Payment Required</title></head>"
+name|CRLF
+literal|"<body bgcolor=\"white\">"
+name|CRLF
+literal|"<center><h1>402 Payment Required</h1></center>"
+name|CRLF
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|error_403_page
 specifier|static
 name|char
@@ -176,6 +212,24 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|error_406_page
+specifier|static
+name|char
+name|error_406_page
+index|[]
+init|=
+literal|"<html>"
+name|CRLF
+literal|"<head><title>406 Not Acceptable</title></head>"
+name|CRLF
+literal|"<body bgcolor=\"white\">"
+name|CRLF
+literal|"<center><h1>406 Not Acceptable</h1></center>"
+name|CRLF
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|error_408_page
 specifier|static
 name|char
@@ -189,6 +243,24 @@ name|CRLF
 literal|"<body bgcolor=\"white\">"
 name|CRLF
 literal|"<center><h1>408 Request Time-out</h1></center>"
+name|CRLF
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|error_410_page
+specifier|static
+name|char
+name|error_410_page
+index|[]
+init|=
+literal|"<html>"
+name|CRLF
+literal|"<head><title>410 Gone</title></head>"
+name|CRLF
+literal|"<body bgcolor=\"white\">"
+name|CRLF
+literal|"<center><h1>410 Gone</h1></center>"
 name|CRLF
 decl_stmt|;
 end_decl_stmt
@@ -380,17 +452,26 @@ block|,
 name|ngx_null_string
 block|,
 comment|/* 303 */
+DECL|macro|NGX_HTTP_LEVEL_300
+define|#
+directive|define
+name|NGX_HTTP_LEVEL_300
+value|3
 name|ngx_string
 argument_list|(
 name|error_400_page
 argument_list|)
 block|,
-name|ngx_null_string
+name|ngx_string
+argument_list|(
+name|error_401_page
+argument_list|)
 block|,
-comment|/* 401 */
-name|ngx_null_string
+name|ngx_string
+argument_list|(
+name|error_402_page
+argument_list|)
 block|,
-comment|/* 402 */
 name|ngx_string
 argument_list|(
 name|error_403_page
@@ -406,9 +487,11 @@ argument_list|(
 name|error_405_page
 argument_list|)
 block|,
-name|ngx_null_string
+name|ngx_string
+argument_list|(
+name|error_406_page
+argument_list|)
 block|,
-comment|/* 406 */
 name|ngx_null_string
 block|,
 comment|/* 407 */
@@ -420,9 +503,11 @@ block|,
 name|ngx_null_string
 block|,
 comment|/* 409 */
-name|ngx_null_string
+name|ngx_string
+argument_list|(
+name|error_410_page
+argument_list|)
 block|,
-comment|/* 410 */
 name|ngx_null_string
 block|,
 comment|/* 411 */
@@ -447,6 +532,11 @@ argument_list|(
 name|error_416_page
 argument_list|)
 block|,
+DECL|macro|NGX_HTTP_LEVEL_400
+define|#
+directive|define
+name|NGX_HTTP_LEVEL_400
+value|17
 name|ngx_string
 argument_list|(
 name|error_497_page
@@ -461,7 +551,7 @@ block|,
 comment|/* 498, invalid host name */
 name|ngx_null_string
 block|,
-comment|/* 499, client closed connection */
+comment|/* 499, client had closed connection */
 name|ngx_string
 argument_list|(
 name|error_500_page
@@ -775,7 +865,7 @@ name|error
 operator|-
 name|NGX_HTTP_BAD_REQUEST
 operator|+
-literal|3
+name|NGX_HTTP_LEVEL_300
 expr_stmt|;
 block|}
 else|else
@@ -787,9 +877,9 @@ name|error
 operator|-
 name|NGX_HTTP_NGX_CODES
 operator|+
-literal|3
+name|NGX_HTTP_LEVEL_300
 operator|+
-literal|17
+name|NGX_HTTP_LEVEL_400
 expr_stmt|;
 switch|switch
 condition|(

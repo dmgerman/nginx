@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c08944c0108
+DECL|struct|__anon27d5320f0108
 typedef|typedef
 struct|struct
 block|{
@@ -195,7 +195,7 @@ name|ngx_http_static_init
 block|,
 comment|/* init module */
 name|NULL
-comment|/* init child */
+comment|/* init process */
 block|}
 decl_stmt|;
 end_decl_stmt

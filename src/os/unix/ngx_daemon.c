@@ -17,7 +17,7 @@ end_include
 
 begin_function
 DECL|function|ngx_daemon (ngx_log_t * log)
-name|int
+name|ngx_int_t
 name|ngx_daemon
 parameter_list|(
 name|ngx_log_t

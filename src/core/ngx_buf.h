@@ -196,7 +196,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29f702430108
+DECL|struct|__anon2b71b8ff0108
 typedef|typedef
 struct|struct
 block|{
@@ -235,7 +235,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f702430208
+DECL|struct|__anon2b71b8ff0208
 typedef|typedef
 struct|struct
 block|{
@@ -304,7 +304,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f702430308
+DECL|struct|__anon2b71b8ff0308
 typedef|typedef
 struct|struct
 block|{
@@ -390,7 +390,7 @@ parameter_list|(
 name|b
 parameter_list|)
 define|\
-value|(ngx_buf_in_memory(b) ? (off_t) (b->last - b->pos):                  \                                 (b->file_last - b->file_pos))
+value|(ngx_buf_in_memory(b) ? (off_t) (b->last - b->pos):                      \                             (b->file_last - b->file_pos))
 end_define
 
 begin_function_decl
@@ -472,7 +472,7 @@ parameter_list|,
 name|error
 parameter_list|)
 define|\
-value|do {                                                             \                 ngx_test_null(chain, ngx_alloc_chain_link(pool), error);     \                 chain->buf = b;                                              \                 chain->next = NULL;                                          \             } while (0);
+value|do {                                                                     \         ngx_test_null(chain, ngx_alloc_chain_link(pool), error);             \         chain->buf = b;                                                      \         chain->next = NULL;                                                  \     } while (0);
 end_define
 
 begin_define
@@ -488,7 +488,7 @@ parameter_list|,
 name|cl
 parameter_list|)
 define|\
-value|if (chain) {                                                     \                 *last = cl;                                                  \             } else {                                                         \                 chain = cl;                                                  \             }                                                                \             last =&cl->next
+value|if (chain) {                                                             \         *last = cl;                                                          \     } else {                                                                 \         chain = cl;                                                          \     }                                                                        \     last =&cl->next
 end_define
 
 begin_function_decl

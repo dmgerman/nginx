@@ -26,7 +26,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon27b722fc0108
+DECL|struct|__anon2c89f1180108
 typedef|typedef
 struct|struct
 block|{
@@ -118,7 +118,7 @@ name|ngx_http_range_header_filter_init
 block|,
 comment|/* init module */
 name|NULL
-comment|/* init child */
+comment|/* init process */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -177,7 +177,7 @@ name|ngx_http_range_body_filter_init
 block|,
 comment|/* init module */
 name|NULL
-comment|/* init child */
+comment|/* init process */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -443,7 +443,7 @@ name|r
 operator|->
 name|pool
 argument_list|,
-literal|5
+literal|2
 argument_list|,
 sizeof|sizeof
 argument_list|(

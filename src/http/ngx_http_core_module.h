@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon277ca44f0108
+DECL|struct|__anon2b7ee0ac0108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon277ca44f0203
+DECL|enum|__anon2b7ee0ac0203
 typedef|typedef
 enum|enum
 block|{
@@ -99,86 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277ca44f0308
-typedef|typedef
-struct|struct
-block|{
-DECL|member|value
-name|ngx_uint_t
-name|value
-decl_stmt|;
-DECL|member|text
-name|ngx_str_t
-name|text
-decl_stmt|;
-DECL|typedef|ngx_http_variable_value_t
-block|}
-name|ngx_http_variable_value_t
-typedef|;
-end_typedef
-
-begin_typedef
-DECL|typedef|ngx_http_variable_t
-typedef|typedef
-name|struct
-name|ngx_http_variable_s
-name|ngx_http_variable_t
-typedef|;
-end_typedef
-
-begin_typedef
-typedef|typedef
-name|ngx_http_variable_value_t
-DECL|typedef|ngx_http_get_variable_pt
-modifier|*
-function_decl|(
-modifier|*
-name|ngx_http_get_variable_pt
-function_decl|)
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|,
-name|void
-modifier|*
-name|var
-parameter_list|)
-function_decl|;
-end_typedef
-
-begin_struct
-DECL|struct|ngx_http_variable_s
-struct|struct
-name|ngx_http_variable_s
-block|{
-DECL|member|name
-name|ngx_str_t
-name|name
-decl_stmt|;
-DECL|member|index
-name|ngx_uint_t
-name|index
-decl_stmt|;
-DECL|member|handler
-name|ngx_http_get_variable_pt
-name|handler
-decl_stmt|;
-DECL|member|data
-name|void
-modifier|*
-name|data
-decl_stmt|;
-DECL|member|uses
-name|ngx_uint_t
-name|uses
-decl_stmt|;
-block|}
-struct|;
-end_struct
-
-begin_typedef
-DECL|struct|__anon277ca44f0408
+DECL|struct|__anon2b7ee0ac0308
 typedef|typedef
 struct|struct
 block|{
@@ -198,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277ca44f0508
+DECL|struct|__anon2b7ee0ac0408
 typedef|typedef
 struct|struct
 block|{
@@ -242,7 +163,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277ca44f0608
+DECL|struct|__anon2b7ee0ac0508
 typedef|typedef
 struct|struct
 block|{
@@ -306,7 +227,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon277ca44f0708
+DECL|struct|__anon2b7ee0ac0608
 typedef|typedef
 struct|struct
 block|{
@@ -370,7 +291,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon277ca44f0808
+DECL|struct|__anon2b7ee0ac0708
 typedef|typedef
 struct|struct
 block|{
@@ -436,7 +357,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon277ca44f0908
+DECL|struct|__anon2b7ee0ac0808
 typedef|typedef
 struct|struct
 block|{
@@ -455,7 +376,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277ca44f0a08
+DECL|struct|__anon2b7ee0ac0908
 typedef|typedef
 struct|struct
 block|{
@@ -750,33 +671,6 @@ parameter_list|,
 name|ngx_str_t
 modifier|*
 name|args
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-name|ngx_http_variable_t
-modifier|*
-name|ngx_http_add_variable
-parameter_list|(
-name|ngx_conf_t
-modifier|*
-name|cf
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-name|ngx_http_variable_value_t
-modifier|*
-name|ngx_http_get_variable
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|,
-name|ngx_uint_t
-name|index
 parameter_list|)
 function_decl|;
 end_function_decl

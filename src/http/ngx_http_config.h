@@ -29,7 +29,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29b6cf3c0108
+DECL|struct|__anon294a11ea0108
 typedef|typedef
 struct|struct
 block|{
@@ -58,7 +58,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b6cf3c0208
+DECL|struct|__anon294a11ea0208
 typedef|typedef
 struct|struct
 block|{
@@ -273,7 +273,8 @@ name|r
 parameter_list|,
 name|module
 parameter_list|)
-value|r->main_conf[module.ctx_index]
+define|\
+value|(r)->main_conf[module.ctx_index]
 end_define
 
 begin_define
@@ -286,7 +287,7 @@ name|r
 parameter_list|,
 name|module
 parameter_list|)
-value|r->srv_conf[module.ctx_index]
+value|(r)->srv_conf[module.ctx_index]
 end_define
 
 begin_define
@@ -299,7 +300,7 @@ name|r
 parameter_list|,
 name|module
 parameter_list|)
-value|r->loc_conf[module.ctx_index]
+value|(r)->loc_conf[module.ctx_index]
 end_define
 
 begin_comment

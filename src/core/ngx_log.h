@@ -1111,7 +1111,9 @@ begin_function_decl
 name|ngx_log_t
 modifier|*
 name|ngx_log_init
-parameter_list|()
+parameter_list|(
+name|void
+parameter_list|)
 function_decl|;
 end_function_decl
 

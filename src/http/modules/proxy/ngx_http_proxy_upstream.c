@@ -1053,7 +1053,7 @@ operator|!
 operator|(
 name|value
 operator|=
-name|ngx_http_get_variable
+name|ngx_http_get_indexed_variable
 argument_list|(
 name|r
 argument_list|,
@@ -2237,7 +2237,7 @@ operator|!
 operator|(
 name|value
 operator|=
-name|ngx_http_get_variable
+name|ngx_http_get_indexed_variable
 argument_list|(
 name|r
 argument_list|,

@@ -31,7 +31,9 @@ end_include
 begin_function_decl
 name|void
 name|ngx_time_init
-parameter_list|()
+parameter_list|(
+name|void
+parameter_list|)
 function_decl|;
 end_function_decl
 

@@ -22,7 +22,7 @@ file|<ngx_garbage_collector.h>
 end_include
 
 begin_function
-DECL|function|ngx_collect_garbage (ngx_gc_t * ctx,ngx_str_t * dname,int level)
+DECL|function|ngx_collect_garbage (ngx_gc_t * ctx,ngx_str_t * dname,ngx_int_t level)
 name|ngx_int_t
 name|ngx_collect_garbage
 parameter_list|(
@@ -34,7 +34,7 @@ name|ngx_str_t
 modifier|*
 name|dname
 parameter_list|,
-name|int
+name|ngx_int_t
 name|level
 parameter_list|)
 block|{

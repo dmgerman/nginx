@@ -240,9 +240,9 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_poll_init (ngx_cycle_t * cycle)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_poll_init (ngx_cycle_t * cycle)
 name|ngx_poll_init
 parameter_list|(
 name|ngx_cycle_t
@@ -374,9 +374,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_poll_done (ngx_cycle_t * cycle)
 specifier|static
 name|void
+DECL|function|ngx_poll_done (ngx_cycle_t * cycle)
 name|ngx_poll_done
 parameter_list|(
 name|ngx_cycle_t
@@ -409,9 +409,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_poll_add_event (ngx_event_t * ev,int event,u_int flags)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_poll_add_event (ngx_event_t * ev,int event,u_int flags)
 name|ngx_poll_add_event
 parameter_list|(
 name|ngx_event_t
@@ -657,9 +657,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_poll_del_event (ngx_event_t * ev,int event,u_int flags)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_poll_del_event (ngx_event_t * ev,int event,u_int flags)
 name|ngx_poll_del_event
 parameter_list|(
 name|ngx_event_t
@@ -1075,9 +1075,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_poll_process_events (ngx_cycle_t * cycle)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_poll_process_events (ngx_cycle_t * cycle)
 name|ngx_poll_process_events
 parameter_list|(
 name|ngx_cycle_t
@@ -2241,10 +2241,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_poll_init_conf (ngx_cycle_t * cycle,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_poll_init_conf (ngx_cycle_t * cycle,void * conf)
 name|ngx_poll_init_conf
 parameter_list|(
 name|ngx_cycle_t
