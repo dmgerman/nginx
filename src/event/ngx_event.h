@@ -57,7 +57,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon28d1aee40108
+DECL|struct|__anon29ec34f60108
 typedef|typedef
 struct|struct
 block|{
@@ -86,7 +86,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28d1aee40208
+DECL|struct|__anon29ec34f60208
 typedef|typedef
 struct|struct
 block|{
@@ -229,12 +229,6 @@ decl_stmt|;
 DECL|member|deferred_accept
 name|unsigned
 name|deferred_accept
-range|:
-literal|1
-decl_stmt|;
-DECL|member|overflow
-name|unsigned
-name|overflow
 range|:
 literal|1
 decl_stmt|;
@@ -476,7 +470,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28d1aee40308
+DECL|struct|__anon29ec34f60308
 typedef|typedef
 struct|struct
 block|{
@@ -1267,7 +1261,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon28d1aee40408
+DECL|struct|__anon29ec34f60408
 typedef|typedef
 struct|struct
 block|{
@@ -1314,7 +1308,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28d1aee40508
+DECL|struct|__anon29ec34f60508
 typedef|typedef
 struct|struct
 block|{

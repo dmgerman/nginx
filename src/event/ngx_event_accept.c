@@ -24,7 +24,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27457ff90108
+DECL|struct|__anon28fda9500108
 typedef|typedef
 struct|struct
 block|{
@@ -875,6 +875,40 @@ name|wev
 operator|->
 name|returned_instance
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_THREADS
+operator|)
+if|if
+condition|(
+operator|*
+operator|(
+name|rev
+operator|->
+name|lock
+operator|)
+condition|)
+block|{
+name|ngx_spinlock
+argument_list|(
+name|rev
+operator|->
+name|lock
+argument_list|,
+literal|1000
+argument_list|)
+expr_stmt|;
+name|ngx_unlock
+argument_list|(
+name|rev
+operator|->
+name|lock
+argument_list|)
+expr_stmt|;
+block|}
+endif|#
+directive|endif
 name|ngx_memzero
 argument_list|(
 name|rev
@@ -905,7 +939,6 @@ name|ngx_connection_t
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|/* ngx_memzero(c) does ngx_unlock(&c->lock); */
 name|c
 operator|->
 name|pool

@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon293601050108
+DECL|struct|__anon2b4e11f20108
 typedef|typedef
 struct|struct
 block|{
@@ -649,8 +649,6 @@ operator||
 name|NGX_HAVE_LOWAT_EVENT
 endif|#
 directive|endif
-operator||
-name|NGX_HAVE_INSTANCE_EVENT
 operator||
 name|NGX_HAVE_KQUEUE_EVENT
 expr_stmt|;
@@ -1598,7 +1596,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_THREADS0
+name|NGX_THREADS
 operator|)
 if|if
 condition|(
@@ -2209,12 +2207,6 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-name|ev
-operator|->
-name|returned_instance
-operator|=
-name|instance
-expr_stmt|;
 if|#
 directive|if
 operator|(
@@ -2239,7 +2231,7 @@ expr_stmt|;
 name|ev
 operator|->
 name|posted_available
-operator|+=
+operator|=
 name|event_list
 index|[
 name|i

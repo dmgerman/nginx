@@ -39,7 +39,7 @@ value|-10
 end_define
 
 begin_typedef
-DECL|struct|__anon28a3b7510108
+DECL|struct|__anon27a13dc80108
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a3b7510208
+DECL|struct|__anon27a13dc80208
 typedef|typedef
 struct|struct
 block|{
@@ -119,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a3b7510308
+DECL|struct|__anon27a13dc80308
 typedef|typedef
 struct|struct
 block|{
@@ -141,6 +141,18 @@ name|ngx_connection_t
 modifier|*
 name|connection
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_THREADS
+operator|)
+DECL|member|lock
+name|ngx_atomic_t
+modifier|*
+name|lock
+decl_stmt|;
+endif|#
+directive|endif
 DECL|member|rcvbuf
 name|int
 name|rcvbuf

@@ -2526,6 +2526,9 @@ modifier|*
 name|cv
 parameter_list|)
 block|{
+name|ngx_err_t
+name|err
+decl_stmt|;
 name|ngx_log_debug3
 argument_list|(
 name|NGX_LOG_DEBUG_CORE
@@ -2570,6 +2573,10 @@ operator|-
 literal|1
 condition|)
 block|{
+name|err
+operator|=
+name|ngx_errno
+expr_stmt|;
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
@@ -2578,7 +2585,7 @@ name|cv
 operator|->
 name|log
 argument_list|,
-name|ngx_errno
+name|err
 argument_list|,
 literal|"kill() failed while signaling condition variable "
 name|PTR_FMT
@@ -2586,6 +2593,21 @@ argument_list|,
 name|cv
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|err
+operator|==
+name|NGX_ESRCH
+condition|)
+block|{
+name|cv
+operator|->
+name|tid
+operator|=
+operator|-
+literal|1
+expr_stmt|;
+block|}
 return|return
 name|NGX_ERROR
 return|;
