@@ -348,7 +348,9 @@ operator|&
 name|ngx_http_index_module
 block|,
 comment|/*&ngx_http_static_module, */
-comment|/*&ngx_http_proxy_module, */
+operator|&
+name|ngx_http_proxy_module
+block|,
 operator|&
 name|ngx_http_log_module
 block|,

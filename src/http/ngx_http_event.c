@@ -1379,7 +1379,7 @@ return|return;
 block|}
 name|rc
 operator|=
-name|ngx_parse_http_request_line
+name|ngx_http_parse_request_line
 argument_list|(
 name|r
 argument_list|)
@@ -2603,7 +2603,7 @@ block|}
 block|}
 name|rc
 operator|=
-name|ngx_parse_http_header_line
+name|ngx_http_parse_header_line
 argument_list|(
 name|r
 argument_list|,

@@ -18,9 +18,9 @@ file|<ngx_http.h>
 end_include
 
 begin_function
-DECL|function|ngx_parse_http_request_line (ngx_http_request_t * r)
+DECL|function|ngx_http_parse_request_line (ngx_http_request_t * r)
 name|int
-name|ngx_parse_http_request_line
+name|ngx_http_parse_request_line
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
@@ -34,7 +34,7 @@ name|char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2c41ad9c0103
+DECL|enum|__anon2c3fb7f00103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1230,9 +1230,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_parse_http_header_line (ngx_http_request_t * r,ngx_hunk_t * h)
+DECL|function|ngx_http_parse_header_line (ngx_http_request_t * r,ngx_hunk_t * h)
 name|int
-name|ngx_parse_http_header_line
+name|ngx_http_parse_header_line
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
@@ -1252,7 +1252,7 @@ name|char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2c41ad9c0203
+DECL|enum|__anon2c3fb7f00203
 enum|enum
 block|{
 DECL|enumerator|sw_start
