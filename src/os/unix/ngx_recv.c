@@ -82,7 +82,7 @@ argument_list|(
 argument|c->log
 argument_list|,
 literal|"recv: eof:%d, avail:%d, err:%d"
-argument|_                       rev->eof _ rev->available _ rev->error
+argument|_                       rev->kq_eof _ rev->available _ rev->kq_errno
 argument_list|)
 empty_stmt|;
 if|if
@@ -98,7 +98,7 @@ if|if
 condition|(
 name|rev
 operator|->
-name|eof
+name|kq_eof
 condition|)
 block|{
 name|rev
@@ -107,18 +107,30 @@ name|ready
 operator|=
 literal|0
 expr_stmt|;
+name|rev
+operator|->
+name|eof
+operator|=
+literal|1
+expr_stmt|;
 if|if
 condition|(
 name|rev
 operator|->
-name|error
+name|kq_errno
 condition|)
 block|{
+name|rev
+operator|->
+name|error
+operator|=
+literal|1
+expr_stmt|;
 name|ngx_set_socket_errno
 argument_list|(
 name|rev
 operator|->
-name|error
+name|kq_errno
 argument_list|)
 expr_stmt|;
 return|return
@@ -128,7 +140,7 @@ name|rev
 argument_list|,
 name|rev
 operator|->
-name|error
+name|kq_errno
 argument_list|)
 return|;
 block|}
@@ -189,6 +201,7 @@ name|available
 operator|-=
 name|n
 expr_stmt|;
+comment|/*                  * rev->available can be negative here because some additional                  * bytes can be received between kevent() and recv()                  */
 if|if
 condition|(
 name|rev
@@ -203,7 +216,7 @@ condition|(
 operator|!
 name|rev
 operator|->
-name|eof
+name|kq_eof
 condition|)
 block|{
 name|rev
@@ -251,6 +264,20 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|n
+operator|==
+literal|0
+condition|)
+block|{
+name|rev
+operator|->
+name|eof
+operator|=
+literal|1
+expr_stmt|;
+block|}
 return|return
 name|n
 return|;
@@ -260,6 +287,12 @@ operator|->
 name|ready
 operator|=
 literal|0
+expr_stmt|;
+name|rev
+operator|->
+name|error
+operator|=
+literal|1
 expr_stmt|;
 name|n
 operator|=
@@ -372,6 +405,20 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|n
+operator|==
+literal|0
+condition|)
+block|{
+name|rev
+operator|->
+name|eof
+operator|=
+literal|1
+expr_stmt|;
+block|}
 return|return
 name|n
 return|;
@@ -381,6 +428,12 @@ operator|->
 name|ready
 operator|=
 literal|0
+expr_stmt|;
+name|rev
+operator|->
+name|error
+operator|=
+literal|1
 expr_stmt|;
 name|n
 operator|=

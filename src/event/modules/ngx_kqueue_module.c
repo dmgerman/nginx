@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29cfa6ed0108
+DECL|struct|__anon2c03dbb80108
 typedef|typedef
 struct|struct
 block|{
@@ -1767,13 +1767,13 @@ condition|)
 block|{
 name|ev
 operator|->
-name|eof
+name|kq_eof
 operator|=
 literal|1
 expr_stmt|;
 name|ev
 operator|->
-name|error
+name|kq_errno
 operator|=
 name|event_list
 index|[

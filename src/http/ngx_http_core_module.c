@@ -701,7 +701,7 @@ name|NGX_HTTP_SRV_CONF
 operator||
 name|NGX_HTTP_LOC_CONF
 operator||
-name|NGX_CONF_TAKE1
+name|NGX_CONF_FLAG
 block|,
 name|ngx_conf_set_flag_slot
 block|,
@@ -841,7 +841,7 @@ name|NGX_HTTP_SRV_CONF
 operator||
 name|NGX_HTTP_LOC_CONF
 operator||
-name|NGX_CONF_TAKE1
+name|NGX_CONF_FLAG
 block|,
 name|ngx_conf_set_flag_slot
 block|,

@@ -37,7 +37,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon296eee840108
+DECL|struct|__anon2c8243790108
 typedef|typedef
 struct|struct
 block|{
@@ -73,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296eee840208
+DECL|struct|__anon2c8243790208
 typedef|typedef
 struct|struct
 block|{
@@ -117,6 +117,10 @@ DECL|member|cyclic_temp_file
 name|int
 name|cyclic_temp_file
 decl_stmt|;
+DECL|member|pass_server
+name|int
+name|pass_server
+decl_stmt|;
 DECL|member|next_upstream
 name|int
 name|next_upstream
@@ -143,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296eee840308
+DECL|struct|__anon2c8243790308
 typedef|typedef
 struct|struct
 block|{
