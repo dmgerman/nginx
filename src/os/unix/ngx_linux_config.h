@@ -380,6 +380,29 @@ endif|#
 directive|endif
 end_endif
 
+begin_comment
+comment|/*   * SuSE 8.2 supports epoll's EPOLLET but misses it in<sys/epoll.h>  */
+end_comment
+
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|EPOLLET
+end_ifndef
+
+begin_define
+DECL|macro|EPOLLET
+define|#
+directive|define
+name|EPOLLET
+value|0x80000000
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_define
 DECL|macro|ngx_setproctitle (title)
 define|#

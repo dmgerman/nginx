@@ -54,8 +54,6 @@ decl_stmt|,
 name|sent
 decl_stmt|;
 name|ngx_int_t
-name|use_cork
-decl_stmt|,
 name|eintr
 decl_stmt|;
 name|struct

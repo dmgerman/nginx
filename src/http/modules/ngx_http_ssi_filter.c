@@ -74,7 +74,7 @@ value|5
 end_define
 
 begin_typedef
-DECL|struct|__anon291422ed0108
+DECL|struct|__anon2bf5496f0108
 typedef|typedef
 struct|struct
 block|{
@@ -93,7 +93,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291422ed0208
+DECL|struct|__anon2bf5496f0208
 typedef|typedef
 struct|struct
 block|{ }
@@ -103,7 +103,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291422ed0308
+DECL|struct|__anon2bf5496f0308
 typedef|typedef
 struct|struct
 block|{
@@ -196,7 +196,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291422ed0408
+DECL|struct|__anon2bf5496f0408
 typedef|typedef
 struct|struct
 block|{
@@ -215,7 +215,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon291422ed0503
+DECL|enum|__anon2bf5496f0503
 typedef|typedef
 enum|enum
 block|{
@@ -609,6 +609,42 @@ operator|!
 name|conf
 operator|->
 name|enable
+condition|)
+block|{
+return|return
+name|ngx_http_next_header_filter
+argument_list|(
+name|r
+argument_list|)
+return|;
+block|}
+comment|/* TODO: "text/html" -> custom types */
+if|if
+condition|(
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_type
+operator|&&
+name|ngx_strncasecmp
+argument_list|(
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_type
+operator|->
+name|value
+operator|.
+name|data
+argument_list|,
+literal|"text/html"
+argument_list|,
+literal|5
+argument_list|)
+operator|!=
+literal|0
 condition|)
 block|{
 return|return

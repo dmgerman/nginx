@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b88b7290108
+DECL|struct|__anon29d336480108
 typedef|typedef
 struct|struct
 block|{
@@ -1924,7 +1924,7 @@ operator|!=
 name|instance
 condition|)
 block|{
-comment|/*                  * it's a stale event from a file descriptor                  * that was just closed in this iteration                  */
+comment|/*                  * the stale event from a file descriptor                  * that was just closed in this iteration                  */
 name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT

@@ -862,14 +862,6 @@ operator|=
 name|ngx_connection_counter
 operator|++
 expr_stmt|;
-name|ngx_log_debug
-argument_list|(
-argument|ev->log
-argument_list|,
-literal|"LOG: %x"
-argument|_ ev->log->log_level
-argument_list|)
-empty_stmt|;
 name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
