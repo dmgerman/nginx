@@ -146,7 +146,14 @@ decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
-name|uint32_t
+name|ngx_buf_t
+modifier|*
+name|b
+decl_stmt|;
+name|ngx_chain_t
+name|out
+decl_stmt|;
+name|ngx_atomic_int_t
 name|ap
 decl_stmt|,
 name|hn
@@ -158,13 +165,6 @@ decl_stmt|,
 name|rd
 decl_stmt|,
 name|wr
-decl_stmt|;
-name|ngx_buf_t
-modifier|*
-name|b
-decl_stmt|;
-name|ngx_chain_t
-name|out
 decl_stmt|;
 if|if
 condition|(
@@ -346,7 +346,7 @@ argument_list|(
 literal|"Active connections:  \n"
 argument_list|)
 operator|+
-name|NGX_INT32_LEN
+name|NGX_ATOMIC_T_LEN
 operator|+
 sizeof|sizeof
 argument_list|(
@@ -359,7 +359,7 @@ literal|6
 operator|+
 literal|3
 operator|*
-name|NGX_INT32_LEN
+name|NGX_ATOMIC_T_LEN
 operator|+
 sizeof|sizeof
 argument_list|(
@@ -368,7 +368,7 @@ argument_list|)
 operator|+
 literal|3
 operator|*
-name|NGX_INT32_LEN
+name|NGX_ATOMIC_T_LEN
 expr_stmt|;
 if|if
 condition|(
@@ -411,7 +411,7 @@ expr_stmt|;
 name|hn
 operator|=
 operator|*
-name|ngx_connection_counter
+name|ngx_stat_handled
 expr_stmt|;
 name|ac
 operator|=
@@ -443,7 +443,7 @@ name|b
 operator|->
 name|last
 argument_list|,
-literal|"Active connections: %D \n"
+literal|"Active connections: %A \n"
 argument_list|,
 name|ac
 argument_list|)
@@ -478,7 +478,7 @@ name|b
 operator|->
 name|last
 argument_list|,
-literal|" %D %D %D \n"
+literal|" %A %A %A \n"
 argument_list|,
 name|ap
 argument_list|,
@@ -497,7 +497,7 @@ name|b
 operator|->
 name|last
 argument_list|,
-literal|"Reading: %D Writing: %D Waiting: %d \n"
+literal|"Reading: %A Writing: %A Waiting: %A \n"
 argument_list|,
 name|rd
 argument_list|,

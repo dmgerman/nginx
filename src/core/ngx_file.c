@@ -18,7 +18,7 @@ end_include
 begin_decl_stmt
 DECL|variable|ngx_temp_number
 specifier|static
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 name|ngx_temp_number
 decl_stmt|;
 end_decl_stmt
@@ -26,7 +26,7 @@ end_decl_stmt
 begin_decl_stmt
 DECL|variable|ngx_random
 specifier|static
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 name|ngx_random
 decl_stmt|;
 end_decl_stmt
@@ -173,7 +173,7 @@ block|{
 name|ngx_err_t
 name|err
 decl_stmt|;
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 name|n
 decl_stmt|;
 name|file
@@ -807,7 +807,7 @@ block|}
 end_function
 
 begin_function
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 DECL|function|ngx_next_temp_number (ngx_uint_t collision)
 name|ngx_next_temp_number
 parameter_list|(

@@ -26,7 +26,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon27ceb85e0108
+DECL|struct|__anon27b722fc0108
 typedef|typedef
 struct|struct
 block|{
@@ -229,7 +229,7 @@ name|suffix
 decl_stmt|,
 name|i
 decl_stmt|;
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 name|boundary
 decl_stmt|;
 name|ngx_table_elt_t

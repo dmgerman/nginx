@@ -47,8 +47,16 @@ end_define
 begin_typedef
 DECL|typedef|ngx_atomic_int_t
 typedef|typedef
-name|uint32_t
+name|int32_t
 name|ngx_atomic_int_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|typedef|ngx_atomic_uint_t
+typedef|typedef
+name|uint32_t
+name|ngx_atomic_uint_t
 typedef|;
 end_typedef
 
@@ -56,7 +64,7 @@ begin_typedef
 DECL|typedef|ngx_atomic_t
 typedef|typedef
 specifier|volatile
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 name|ngx_atomic_t
 typedef|;
 end_typedef
@@ -103,13 +111,13 @@ directive|endif
 end_endif
 
 begin_comment
-comment|/*  * the "=q" is any of the %eax, %ebx, %ecx, or %edx registers.  * the '"0" (1)' parameter preloads 1 into %0.  * the "cc" means that flags were changed.  */
+comment|/*  * the "=q" is any of the %eax, %ebx, %ecx, or %edx registers.  * the '"0" (1)' parameter preloads 1 into %0.  * the "cc" means that flags were changed.  *  * "xadd  r, [m]":  *  *     temp = [m];  *     [m] += r;  *     r = temp;  */
 end_comment
 
 begin_function
 specifier|static
 name|ngx_inline
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 DECL|function|ngx_atomic_inc (ngx_atomic_t * value)
 name|ngx_atomic_inc
 parameter_list|(
@@ -118,7 +126,7 @@ modifier|*
 name|value
 parameter_list|)
 block|{
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 name|old
 decl_stmt|;
 asm|__asm__
@@ -133,7 +141,7 @@ end_function
 begin_function
 specifier|static
 name|ngx_inline
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 DECL|function|ngx_atomic_dec (ngx_atomic_t * value)
 name|ngx_atomic_dec
 parameter_list|(
@@ -142,7 +150,7 @@ modifier|*
 name|value
 parameter_list|)
 block|{
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 name|old
 decl_stmt|;
 asm|__asm__
@@ -155,28 +163,28 @@ block|}
 end_function
 
 begin_comment
-comment|/*  * the "q" is any of the %eax, %ebx, %ecx, or %edx registers.  * the "=a" and "a" are the %eax register.  Although we can return result  * in any register, we use %eax because it is used in cmpxchg anyway.  *  * "cmpxchg  r, [m]":  *  *   if (eax == [m]) {  *       zf = 1;  *       [m] = r;  *   } else {  *       zf = 0;  *       eax = [m];  *   }  */
+comment|/*  * the "q" is any of the %eax, %ebx, %ecx, or %edx registers.  * the "=a" and "a" are the %eax register.  Although we can return result  * in any register, we use %eax because it is used in cmpxchg anyway.  *  * "cmpxchg  r, [m]":  *  *     if (eax == [m]) {  *         zf = 1;  *         [m] = r;  *     } else {  *         zf = 0;  *         eax = [m];  *     }  */
 end_comment
 
 begin_function
 specifier|static
 name|ngx_inline
-name|ngx_atomic_int_t
-DECL|function|ngx_atomic_cmp_set (ngx_atomic_t * lock,ngx_atomic_int_t old,ngx_atomic_int_t set)
+name|ngx_atomic_uint_t
+DECL|function|ngx_atomic_cmp_set (ngx_atomic_t * lock,ngx_atomic_uint_t old,ngx_atomic_uint_t set)
 name|ngx_atomic_cmp_set
 parameter_list|(
 name|ngx_atomic_t
 modifier|*
 name|lock
 parameter_list|,
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 name|old
 parameter_list|,
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 name|set
 parameter_list|)
 block|{
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 name|res
 decl_stmt|;
 asm|__asm__
@@ -213,10 +221,18 @@ typedef|;
 end_typedef
 
 begin_typedef
+DECL|typedef|ngx_atomic_uint_t
+typedef|typedef
+name|uint64_t
+name|ngx_atomic_uint_t
+typedef|;
+end_typedef
+
+begin_typedef
 DECL|typedef|ngx_atomic_t
 typedef|typedef
 specifier|volatile
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 name|ngx_atomic_t
 typedef|;
 end_typedef
@@ -265,7 +281,7 @@ end_endif
 begin_function
 specifier|static
 name|ngx_inline
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 DECL|function|ngx_atomic_inc (ngx_atomic_t * value)
 name|ngx_atomic_inc
 parameter_list|(
@@ -274,7 +290,7 @@ modifier|*
 name|value
 parameter_list|)
 block|{
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 name|old
 decl_stmt|;
 asm|__asm__
@@ -293,7 +309,7 @@ end_comment
 begin_function
 specifier|static
 name|ngx_inline
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 DECL|function|ngx_atomic_dec (ngx_atomic_t * value)
 name|ngx_atomic_dec
 parameter_list|(
@@ -302,7 +318,7 @@ modifier|*
 name|value
 parameter_list|)
 block|{
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 name|old
 decl_stmt|;
 asm|__asm__
@@ -321,22 +337,22 @@ end_comment
 begin_function
 specifier|static
 name|ngx_inline
-name|ngx_atomic_int_t
-DECL|function|ngx_atomic_cmp_set (ngx_atomic_t * lock,ngx_atomic_int_t old,ngx_atomic_int_t set)
+name|ngx_atomic_uint_t
+DECL|function|ngx_atomic_cmp_set (ngx_atomic_t * lock,ngx_atomic_uint_t old,ngx_atomic_uint_t set)
 name|ngx_atomic_cmp_set
 parameter_list|(
 name|ngx_atomic_t
 modifier|*
 name|lock
 parameter_list|,
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 name|old
 parameter_list|,
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 name|set
 parameter_list|)
 block|{
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 name|res
 decl_stmt|;
 asm|__asm__
@@ -377,8 +393,16 @@ end_if
 begin_typedef
 DECL|typedef|ngx_atomic_int_t
 typedef|typedef
-name|uint64_t
+name|int64_t
 name|ngx_atomic_int_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|typedef|ngx_atomic_uint_t
+typedef|typedef
+name|uint64_t
+name|ngx_atomic_uint_t
 typedef|;
 end_typedef
 
@@ -406,8 +430,16 @@ end_else
 begin_typedef
 DECL|typedef|ngx_atomic_int_t
 typedef|typedef
-name|uint32_t
+name|int32_t
 name|ngx_atomic_int_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|typedef|ngx_atomic_uint_t
+typedef|typedef
+name|uint32_t
+name|ngx_atomic_uint_t
 typedef|;
 end_typedef
 
@@ -436,7 +468,7 @@ begin_typedef
 DECL|typedef|ngx_atomic_t
 typedef|typedef
 specifier|volatile
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 name|ngx_atomic_t
 typedef|;
 end_typedef
@@ -448,7 +480,7 @@ end_comment
 begin_function
 specifier|static
 name|ngx_inline
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 DECL|function|ngx_atomic_inc (ngx_atomic_t * value)
 name|ngx_atomic_inc
 parameter_list|(
@@ -457,7 +489,7 @@ modifier|*
 name|value
 parameter_list|)
 block|{
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 name|old
 decl_stmt|,
 name|new
@@ -510,7 +542,7 @@ end_function
 begin_function
 specifier|static
 name|ngx_inline
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 DECL|function|ngx_atomic_dec (ngx_atomic_t * value)
 name|ngx_atomic_dec
 parameter_list|(
@@ -519,7 +551,7 @@ modifier|*
 name|value
 parameter_list|)
 block|{
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 name|old
 decl_stmt|,
 name|new
@@ -572,18 +604,18 @@ end_function
 begin_function
 specifier|static
 name|ngx_inline
-name|ngx_atomic_int_t
-DECL|function|ngx_atomic_cmp_set (ngx_atomic_t * lock,ngx_atomic_int_t old,ngx_atomic_int_t set)
+name|ngx_atomic_uint_t
+DECL|function|ngx_atomic_cmp_set (ngx_atomic_t * lock,ngx_atomic_uint_t old,ngx_atomic_uint_t set)
 name|ngx_atomic_cmp_set
 parameter_list|(
 name|ngx_atomic_t
 modifier|*
 name|lock
 parameter_list|,
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 name|old
 parameter_list|,
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 name|set
 parameter_list|)
 block|{
@@ -629,8 +661,16 @@ end_if
 begin_typedef
 DECL|typedef|ngx_atomic_int_t
 typedef|typedef
-name|uint64_t
+name|int64_t
 name|ngx_atomic_int_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|typedef|ngx_atomic_uint_t
+typedef|typedef
+name|uint64_t
+name|ngx_atomic_uint_t
 typedef|;
 end_typedef
 
@@ -647,6 +687,22 @@ else|#
 directive|else
 end_else
 
+begin_typedef
+DECL|typedef|ngx_atomic_int_t
+typedef|typedef
+name|int32_t
+name|ngx_atomic_int_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|typedef|ngx_atomic_uint_t
+typedef|typedef
+name|uint32_t
+name|ngx_atomic_uint_t
+typedef|;
+end_typedef
+
 begin_define
 DECL|macro|NGX_ATOMIC_T_LEN
 define|#
@@ -654,14 +710,6 @@ directive|define
 name|NGX_ATOMIC_T_LEN
 value|sizeof("-2147483648") - 1
 end_define
-
-begin_typedef
-DECL|typedef|ngx_atomic_int_t
-typedef|typedef
-name|uint32_t
-name|ngx_atomic_int_t
-typedef|;
-end_typedef
 
 begin_endif
 endif|#
@@ -672,7 +720,7 @@ begin_typedef
 DECL|typedef|ngx_atomic_t
 typedef|typedef
 specifier|volatile
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 name|ngx_atomic_t
 typedef|;
 end_typedef
@@ -684,7 +732,7 @@ end_comment
 begin_function
 specifier|static
 name|ngx_inline
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 DECL|function|ngx_atomic_inc (ngx_atomic_t * value)
 name|ngx_atomic_inc
 parameter_list|(
@@ -693,7 +741,7 @@ modifier|*
 name|value
 parameter_list|)
 block|{
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 name|res
 decl_stmt|;
 asm|__asm__
@@ -718,7 +766,7 @@ end_function
 begin_function
 specifier|static
 name|ngx_inline
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 DECL|function|ngx_atomic_dec (ngx_atomic_t * value)
 name|ngx_atomic_dec
 parameter_list|(
@@ -727,7 +775,7 @@ modifier|*
 name|value
 parameter_list|)
 block|{
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 name|res
 decl_stmt|;
 asm|__asm__
@@ -752,22 +800,22 @@ end_function
 begin_function
 specifier|static
 name|ngx_inline
-name|ngx_atomic_int_t
-DECL|function|ngx_atomic_cmp_set (ngx_atomic_t * lock,ngx_atomic_int_t old,ngx_atomic_int_t set)
+name|ngx_atomic_uint_t
+DECL|function|ngx_atomic_cmp_set (ngx_atomic_t * lock,ngx_atomic_uint_t old,ngx_atomic_uint_t set)
 name|ngx_atomic_cmp_set
 parameter_list|(
 name|ngx_atomic_t
 modifier|*
 name|lock
 parameter_list|,
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 name|old
 parameter_list|,
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 name|set
 parameter_list|)
 block|{
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 name|res
 decl_stmt|,
 name|temp
@@ -813,8 +861,16 @@ end_define
 begin_typedef
 DECL|typedef|ngx_atomic_int_t
 typedef|typedef
-name|uint32_t
+name|int32_t
 name|ngx_atomic_int_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|typedef|ngx_atomic_uint_t
+typedef|typedef
+name|uint32_t
+name|ngx_atomic_uint_t
 typedef|;
 end_typedef
 
@@ -822,7 +878,7 @@ begin_typedef
 DECL|typedef|ngx_atomic_t
 typedef|typedef
 specifier|volatile
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 name|ngx_atomic_t
 typedef|;
 end_typedef
@@ -852,18 +908,18 @@ end_define
 begin_function
 specifier|static
 name|ngx_inline
-name|ngx_atomic_int_t
-DECL|function|ngx_atomic_cmp_set (ngx_atomic_t * lock,ngx_atomic_int_t old,ngx_atomic_int_t set)
+name|ngx_atomic_uint_t
+DECL|function|ngx_atomic_cmp_set (ngx_atomic_t * lock,ngx_atomic_uint_t old,ngx_atomic_uint_t set)
 name|ngx_atomic_cmp_set
 parameter_list|(
 name|ngx_atomic_t
 modifier|*
 name|lock
 parameter_list|,
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 name|old
 parameter_list|,
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 name|set
 parameter_list|)
 block|{

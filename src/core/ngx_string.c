@@ -148,7 +148,7 @@ block|}
 end_function
 
 begin_comment
-comment|/*  * supported formats:  *    %[0][width][x][X]O        off_t  *    %[0][width]T              time_t  *    %[0][width][u][x|X]z      ssize_t/size_t  *    %[0][width][u][x|X]d      int/u_int  *    %[0][width][u][x|X]l      long  *    %[0][width|m][u][x|X]i    ngx_int_t/ngx_uint_t  *    %[0][width][u][x|X]D      int32_t/uint32_t  *    %[0][width][u][x|X]L      int64_t/uint64_t  *    %[0][width|m][u][x|X]A    ngx_atomic_int_t  *    %P                        ngx_pid_t  *    %r                        rlim_t  *    %p                        pointer  *    %V                        pointer to ngx_str_t  *    %s                        null-terminated string  *    %Z                        '\0'  *    %c                        char  *    %%                        %  *  *  TODO:  *    %M                        ngx_msec_t  *  *  reserved:  *    %t                        ptrdiff_t  *    %S                        null-teminated wchar string  *    %C                        wchar  */
+comment|/*  * supported formats:  *    %[0][width][x][X]O        off_t  *    %[0][width]T              time_t  *    %[0][width][u][x|X]z      ssize_t/size_t  *    %[0][width][u][x|X]d      int/u_int  *    %[0][width][u][x|X]l      long  *    %[0][width|m][u][x|X]i    ngx_int_t/ngx_uint_t  *    %[0][width][u][x|X]D      int32_t/uint32_t  *    %[0][width][u][x|X]L      int64_t/uint64_t  *    %[0][width|m][u][x|X]A    ngx_atomic_int_t/ngx_atomic_uint_t  *    %P                        ngx_pid_t  *    %r                        rlim_t  *    %p                        pointer  *    %V                        pointer to ngx_str_t  *    %s                        null-terminated string  *    %Z                        '\0'  *    %c                        char  *    %%                        %  *  *  TODO:  *    %M                        ngx_msec_t  *  *  reserved:  *    %t                        ptrdiff_t  *    %S                        null-teminated wchar string  *    %C                        wchar  */
 end_comment
 
 begin_function
@@ -943,7 +943,7 @@ name|va_arg
 argument_list|(
 name|args
 argument_list|,
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 argument_list|)
 expr_stmt|;
 block|}

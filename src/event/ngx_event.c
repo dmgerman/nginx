@@ -327,6 +327,24 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_stat_handled0
+name|ngx_atomic_t
+name|ngx_stat_handled0
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_stat_handled
+name|ngx_atomic_t
+modifier|*
+name|ngx_stat_handled
+init|=
+operator|&
+name|ngx_stat_handled0
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_stat_requests0
 name|ngx_atomic_t
 name|ngx_stat_requests0
@@ -394,7 +412,7 @@ modifier|*
 name|ngx_stat_writing
 init|=
 operator|&
-name|ngx_stat_reading0
+name|ngx_stat_writing0
 decl_stmt|;
 end_decl_stmt
 
@@ -870,6 +888,9 @@ literal|128
 comment|/* ngx_stat_accepted */
 operator|+
 literal|128
+comment|/* ngx_stat_handled */
+operator|+
+literal|128
 comment|/* ngx_stat_requests */
 operator|+
 literal|128
@@ -943,7 +964,7 @@ operator|*
 literal|128
 operator|)
 expr_stmt|;
-name|ngx_stat_requests
+name|ngx_stat_handled
 operator|=
 operator|(
 name|ngx_atomic_t
@@ -957,7 +978,7 @@ operator|*
 literal|128
 operator|)
 expr_stmt|;
-name|ngx_stat_active
+name|ngx_stat_requests
 operator|=
 operator|(
 name|ngx_atomic_t
@@ -971,7 +992,7 @@ operator|*
 literal|128
 operator|)
 expr_stmt|;
-name|ngx_stat_reading
+name|ngx_stat_active
 operator|=
 operator|(
 name|ngx_atomic_t
@@ -985,7 +1006,7 @@ operator|*
 literal|128
 operator|)
 expr_stmt|;
-name|ngx_stat_writing
+name|ngx_stat_reading
 operator|=
 operator|(
 name|ngx_atomic_t
@@ -995,6 +1016,20 @@ operator|(
 name|shared
 operator|+
 literal|6
+operator|*
+literal|128
+operator|)
+expr_stmt|;
+name|ngx_stat_writing
+operator|=
+operator|(
+name|ngx_atomic_t
+operator|*
+operator|)
+operator|(
+name|shared
+operator|+
+literal|7
 operator|*
 literal|128
 operator|)

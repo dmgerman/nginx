@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27b19e500108
+DECL|struct|__anon29aa25780108
 typedef|typedef
 struct|struct
 block|{
@@ -194,7 +194,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27b19e500203
+DECL|enum|__anon29aa25780203
 typedef|typedef
 enum|enum
 block|{
@@ -218,7 +218,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27b19e500303
+DECL|enum|__anon29aa25780303
 typedef|typedef
 enum|enum
 block|{
@@ -239,7 +239,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27b19e500403
+DECL|enum|__anon29aa25780403
 typedef|typedef
 enum|enum
 block|{
@@ -369,7 +369,7 @@ modifier|*
 name|buffer
 decl_stmt|;
 DECL|member|number
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 name|number
 decl_stmt|;
 DECL|member|log_error
