@@ -59,6 +59,8 @@ name|ngx_int_t
 name|eintr
 decl_stmt|,
 name|eagain
+decl_stmt|,
+name|level
 decl_stmt|;
 name|struct
 name|iovec
@@ -176,6 +178,10 @@ expr_stmt|;
 name|eagain
 operator|=
 literal|0
+expr_stmt|;
+name|level
+operator|=
+name|NGX_LOG_CRIT
 expr_stmt|;
 name|ngx_init_array
 argument_list|(
@@ -794,7 +800,7 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
-if|if
+if|else if
 condition|(
 name|err
 operator|==
@@ -804,6 +810,18 @@ block|{
 name|eagain
 operator|=
 literal|1
+expr_stmt|;
+block|}
+if|else if
+condition|(
+name|err
+operator|==
+name|NGX_EPIPE
+condition|)
+block|{
+name|level
+operator|=
+name|NGX_LOG_INFO
 expr_stmt|;
 block|}
 if|if
@@ -845,7 +863,7 @@ literal|1
 expr_stmt|;
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_CRIT
+name|level
 argument_list|,
 name|c
 operator|->
@@ -934,6 +952,18 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
+if|else if
+condition|(
+name|err
+operator|==
+name|NGX_EPIPE
+condition|)
+block|{
+name|level
+operator|=
+name|NGX_LOG_INFO
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|err
@@ -969,7 +999,7 @@ literal|1
 expr_stmt|;
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_CRIT
+name|level
 argument_list|,
 name|c
 operator|->

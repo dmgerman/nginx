@@ -84,7 +84,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon2880065d0108
+DECL|struct|__anon29903d3e0108
 typedef|typedef
 struct|struct
 block|{
@@ -829,6 +829,12 @@ condition|(
 name|done
 condition|)
 block|{
+if|#
+directive|if
+operator|!
+operator|(
+name|WIN32
+operator|)
 if|if
 condition|(
 name|ngx_delete_file
@@ -864,6 +870,8 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_INFO
@@ -1207,9 +1215,6 @@ name|n
 decl_stmt|,
 name|failed
 decl_stmt|;
-name|ngx_fd_t
-name|fd
-decl_stmt|;
 name|ngx_str_t
 name|conf_file
 decl_stmt|;
@@ -1227,6 +1232,9 @@ decl_stmt|,
 modifier|*
 modifier|*
 name|old
+decl_stmt|;
+name|ngx_socket_t
+name|fd
 decl_stmt|;
 name|ngx_core_conf_t
 modifier|*
@@ -2118,6 +2126,9 @@ if|if
 condition|(
 name|fd
 operator|>=
+operator|(
+name|ngx_socket_t
+operator|)
 name|cycle
 operator|->
 name|connection_n

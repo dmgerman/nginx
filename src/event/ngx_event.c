@@ -32,6 +32,13 @@ name|ngx_select_module
 decl_stmt|;
 end_decl_stmt
 
+begin_decl_stmt
+specifier|extern
+name|ngx_event_module_t
+name|ngx_select_module_ctx
+decl_stmt|;
+end_decl_stmt
+
 begin_if
 if|#
 directive|if

@@ -49,11 +49,27 @@ value|EINTR
 end_define
 
 begin_define
+DECL|macro|NGX_ECHILD
+define|#
+directive|define
+name|NGX_ECHILD
+value|ECHILD
+end_define
+
+begin_define
 DECL|macro|NGX_EACCES
 define|#
 directive|define
 name|NGX_EACCES
 value|EACCES
+end_define
+
+begin_define
+DECL|macro|NGX_EBUSY
+define|#
+directive|define
+name|NGX_EBUSY
+value|EBUSY
 end_define
 
 begin_define
@@ -70,6 +86,14 @@ define|#
 directive|define
 name|NGX_ENOTDIR
 value|ENOTDIR
+end_define
+
+begin_define
+DECL|macro|NGX_EPIPE
+define|#
+directive|define
+name|NGX_EPIPE
+value|EPIPE
 end_define
 
 begin_define
@@ -118,14 +142,6 @@ define|#
 directive|define
 name|NGX_ECANCELED
 value|ECANCELED
-end_define
-
-begin_define
-DECL|macro|NGX_ECHILD
-define|#
-directive|define
-name|NGX_ECHILD
-value|ECHILD
 end_define
 
 begin_define

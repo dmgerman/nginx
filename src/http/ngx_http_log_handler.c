@@ -2515,6 +2515,9 @@ name|op
 operator|->
 name|data
 operator|=
+operator|(
+name|uintptr_t
+operator|)
 name|NULL
 expr_stmt|;
 return|return
@@ -2560,6 +2563,9 @@ name|op
 operator|->
 name|data
 operator|=
+operator|(
+name|uintptr_t
+operator|)
 name|NULL
 expr_stmt|;
 return|return

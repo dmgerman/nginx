@@ -33,7 +33,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon299b772a0103
+DECL|enum|__anon29ff94740103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1248,7 +1248,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon299b772a0203
+DECL|enum|__anon29ff94740203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1399,6 +1399,14 @@ condition|(
 name|ch
 operator|==
 literal|'-'
+operator|||
+name|ch
+operator|==
+literal|'_'
+operator|||
+name|ch
+operator|==
+literal|'~'
 condition|)
 block|{
 break|break;
@@ -1470,6 +1478,14 @@ condition|(
 name|ch
 operator|==
 literal|'-'
+operator|||
+name|ch
+operator|==
+literal|'_'
+operator|||
+name|ch
+operator|==
+literal|'~'
 condition|)
 block|{
 break|break;
@@ -1849,7 +1865,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon299b772a0303
+DECL|enum|__anon29ff94740303
 enum|enum
 block|{
 DECL|enumerator|sw_usual

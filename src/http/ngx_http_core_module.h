@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c011d7f0108
+DECL|struct|__anon299b68670108
 typedef|typedef
 struct|struct
 block|{
@@ -67,7 +67,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c011d7f0203
+DECL|enum|__anon299b68670203
 typedef|typedef
 enum|enum
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c011d7f0308
+DECL|struct|__anon299b68670308
 typedef|typedef
 struct|struct
 block|{
@@ -111,7 +111,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c011d7f0408
+DECL|struct|__anon299b68670408
 typedef|typedef
 struct|struct
 block|{
@@ -138,7 +138,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c011d7f0508
+DECL|struct|__anon299b68670508
 typedef|typedef
 struct|struct
 block|{
@@ -198,7 +198,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2c011d7f0608
+DECL|struct|__anon299b68670608
 typedef|typedef
 struct|struct
 block|{
@@ -222,7 +222,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c011d7f0708
+DECL|struct|__anon299b68670708
 typedef|typedef
 struct|struct
 block|{
@@ -264,7 +264,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2c011d7f0808
+DECL|struct|__anon299b68670808
 typedef|typedef
 struct|struct
 block|{
@@ -307,7 +307,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon2c011d7f0908
+DECL|struct|__anon299b68670908
 typedef|typedef
 struct|struct
 block|{
@@ -326,7 +326,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c011d7f0a08
+DECL|struct|__anon299b68670a08
 typedef|typedef
 struct|struct
 block|{
@@ -345,7 +345,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c011d7f0b08
+DECL|struct|__anon299b68670b08
 typedef|typedef
 struct|struct
 block|{
@@ -524,6 +524,17 @@ end_function_decl
 begin_function_decl
 name|ngx_int_t
 name|ngx_http_set_content_type
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_http_set_exten
 parameter_list|(
 name|ngx_http_request_t
 modifier|*

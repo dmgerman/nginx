@@ -125,6 +125,14 @@ value|(NGX_CONF_TAKE1|NGX_CONF_TAKE3)
 end_define
 
 begin_define
+DECL|macro|NGX_CONF_TAKE23
+define|#
+directive|define
+name|NGX_CONF_TAKE23
+value|(NGX_CONF_TAKE2|NGX_CONF_TAKE3)
+end_define
+
+begin_define
 DECL|macro|NGX_CONF_TAKE1234
 define|#
 directive|define
@@ -485,7 +493,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon277304900108
+DECL|struct|__anon2b78a66c0108
 typedef|typedef
 struct|struct
 block|{
@@ -620,7 +628,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277304900208
+DECL|struct|__anon2b78a66c0208
 typedef|typedef
 struct|struct
 block|{
@@ -635,7 +643,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277304900308
+DECL|struct|__anon2b78a66c0308
 typedef|typedef
 struct|struct
 block|{
@@ -666,7 +674,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon277304900408
+DECL|struct|__anon2b78a66c0408
 typedef|typedef
 struct|struct
 block|{

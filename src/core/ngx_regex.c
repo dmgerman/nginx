@@ -204,7 +204,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_regex_exec (ngx_regex_t * re,ngx_str_t * s)
+DECL|function|ngx_regex_exec (ngx_regex_t * re,ngx_str_t * s,int * matches,ngx_int_t size)
 name|ngx_int_t
 name|ngx_regex_exec
 parameter_list|(
@@ -215,6 +215,13 @@ parameter_list|,
 name|ngx_str_t
 modifier|*
 name|s
+parameter_list|,
+name|int
+modifier|*
+name|matches
+parameter_list|,
+name|ngx_int_t
+name|size
 parameter_list|)
 block|{
 name|int
@@ -240,9 +247,9 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
-name|NULL
+name|matches
 argument_list|,
-literal|0
+name|size
 argument_list|)
 expr_stmt|;
 if|if

@@ -87,6 +87,13 @@ parameter_list|,
 name|ngx_str_t
 modifier|*
 name|s
+parameter_list|,
+name|int
+modifier|*
+name|matches
+parameter_list|,
+name|ngx_int_t
+name|size
 parameter_list|)
 function_decl|;
 end_function_decl

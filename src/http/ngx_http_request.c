@@ -634,6 +634,12 @@ expr_stmt|;
 return|return;
 block|}
 block|}
+name|r
+operator|->
+name|http_state
+operator|=
+name|NGX_HTTP_INITING_REQUEST_STATE
+expr_stmt|;
 comment|/* find the server configuration for the address:port */
 comment|/* AF_INET only */
 name|in_port
@@ -6777,6 +6783,12 @@ name|fd
 operator|=
 operator|-
 literal|1
+expr_stmt|;
+name|c
+operator|->
+name|data
+operator|=
+name|NULL
 expr_stmt|;
 name|ngx_destroy_pool
 argument_list|(

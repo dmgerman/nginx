@@ -336,24 +336,47 @@ name|NGX_HTTP_GATEWAY_TIME_OUT
 value|504
 end_define
 
-begin_define
-DECL|macro|NGX_HTTP_STATIC_HANDLER
-define|#
-directive|define
-name|NGX_HTTP_STATIC_HANDLER
-value|0
-end_define
-
-begin_define
-DECL|macro|NGX_HTTP_DIRECTORY_HANDLER
-define|#
-directive|define
-name|NGX_HTTP_DIRECTORY_HANDLER
-value|1
-end_define
+begin_typedef
+DECL|enum|__anon2b4241630103
+typedef|typedef
+enum|enum
+block|{
+DECL|enumerator|NGX_HTTP_INITING_REQUEST_STATE
+name|NGX_HTTP_INITING_REQUEST_STATE
+init|=
+literal|0
+block|,
+DECL|enumerator|NGX_HTTP_READING_REQUEST_STATE
+name|NGX_HTTP_READING_REQUEST_STATE
+block|,
+DECL|enumerator|NGX_HTTP_PROCESS_REQUEST_STATE
+name|NGX_HTTP_PROCESS_REQUEST_STATE
+block|,
+DECL|enumerator|NGX_HTTP_CONNECT_UPSTREAM_STATE
+name|NGX_HTTP_CONNECT_UPSTREAM_STATE
+block|,
+DECL|enumerator|NGX_HTTP_WRITING_UPSTREAM_STATE
+name|NGX_HTTP_WRITING_UPSTREAM_STATE
+block|,
+DECL|enumerator|NGX_HTTP_READING_UPSTREAM_STATE
+name|NGX_HTTP_READING_UPSTREAM_STATE
+block|,
+DECL|enumerator|NGX_HTTP_WRITING_REQUEST_STATE
+name|NGX_HTTP_WRITING_REQUEST_STATE
+block|,
+DECL|enumerator|NGX_HTTP_LINGERING_CLOSE_STATE
+name|NGX_HTTP_LINGERING_CLOSE_STATE
+block|,
+DECL|enumerator|NGX_HTTP_KEEPALIVE_STATE
+name|NGX_HTTP_KEEPALIVE_STATE
+DECL|typedef|ngx_http_state_e
+block|}
+name|ngx_http_state_e
+typedef|;
+end_typedef
 
 begin_typedef
-DECL|struct|__anon27db11250108
+DECL|struct|__anon2b4241630208
 typedef|typedef
 struct|struct
 block|{
@@ -372,7 +395,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27db11250208
+DECL|struct|__anon2b4241630308
 typedef|typedef
 struct|struct
 block|{
@@ -455,7 +478,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27db11250308
+DECL|struct|__anon2b4241630408
 typedef|typedef
 struct|struct
 block|{
@@ -506,7 +529,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27db11250408
+DECL|struct|__anon2b4241630508
 typedef|typedef
 struct|struct
 block|{
@@ -529,7 +552,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27db11250508
+DECL|struct|__anon2b4241630608
 typedef|typedef
 struct|struct
 block|{
@@ -628,10 +651,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon27db1125060a
+DECL|union|__anon2b424163070a
 union|union
 block|{
-DECL|struct|__anon27db11250708
+DECL|struct|__anon2b4241630808
 struct|struct
 block|{
 DECL|member|fd
@@ -647,7 +670,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon27db11250808
+DECL|struct|__anon2b4241630908
 struct|struct
 block|{
 DECL|member|hash
@@ -905,6 +928,12 @@ decl_stmt|;
 DECL|member|err_status
 name|int
 name|err_status
+decl_stmt|;
+DECL|member|http_state
+name|unsigned
+name|http_state
+range|:
+literal|4
 decl_stmt|;
 comment|/* URI is not started with '/' - "GET http://" */
 DECL|member|unusual_uri
