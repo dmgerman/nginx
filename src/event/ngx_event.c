@@ -39,8 +39,8 @@ end_define
 
 begin_decl_stmt
 specifier|extern
-name|ngx_event_module_t
-name|ngx_select_module_ctx
+name|ngx_module_t
+name|ngx_select_module
 decl_stmt|;
 end_decl_stmt
 

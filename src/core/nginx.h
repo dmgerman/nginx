@@ -20,6 +20,14 @@ name|NGINX_VER
 value|"nginx/0.0.1"
 end_define
 
+begin_define
+DECL|macro|NGINX_CONF
+define|#
+directive|define
+name|NGINX_CONF
+value|"nginx.conf"
+end_define
+
 begin_decl_stmt
 specifier|extern
 name|int

@@ -391,7 +391,7 @@ name|len
 operator|=
 sizeof|sizeof
 argument_list|(
-literal|"nginx.conf"
+name|NGINX_CONF
 argument_list|)
 operator|-
 literal|1
@@ -400,7 +400,7 @@ name|conf_file
 operator|.
 name|data
 operator|=
-literal|"nginx.conf"
+name|NGINX_CONF
 expr_stmt|;
 if|if
 condition|(

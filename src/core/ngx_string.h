@@ -19,7 +19,7 @@ file|<ngx_config.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2899347f0108
+DECL|struct|__anon2c300cd80108
 typedef|typedef
 struct|struct
 block|{
@@ -283,6 +283,14 @@ name|n
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_define
+DECL|macro|ngx_qsort
+define|#
+directive|define
+name|ngx_qsort
+value|qsort
+end_define
 
 begin_define
 DECL|macro|ngx_value_helper (n)

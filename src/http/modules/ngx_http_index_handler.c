@@ -196,7 +196,7 @@ modifier|*
 name|file
 decl_stmt|;
 name|ngx_str_t
-name|loc
+name|redirect
 decl_stmt|,
 modifier|*
 name|index
@@ -267,11 +267,11 @@ argument_list|,
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
-name|loc
+name|redirect
 operator|.
 name|data
 operator|=
-name|ngx_cpystrn
+name|ngx_cpymem
 argument_list|(
 name|r
 operator|->
@@ -290,15 +290,13 @@ operator|->
 name|doc_root
 operator|.
 name|len
-operator|+
-literal|1
 argument_list|)
 expr_stmt|;
 name|file
 operator|=
 name|ngx_cpystrn
 argument_list|(
-name|loc
+name|redirect
 operator|.
 name|data
 argument_list|,
@@ -337,10 +335,6 @@ literal|1
 expr_stmt|;
 name|index
 operator|=
-operator|(
-name|ngx_str_t
-operator|*
-operator|)
 name|icf
 operator|->
 name|indices
@@ -616,7 +610,7 @@ index|]
 operator|.
 name|len
 expr_stmt|;
-name|loc
+name|redirect
 operator|.
 name|len
 operator|=
@@ -627,7 +621,7 @@ index|]
 operator|.
 name|len
 expr_stmt|;
-name|loc
+name|redirect
 operator|.
 name|data
 operator|=
@@ -641,7 +635,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|loc
+name|redirect
 operator|.
 name|len
 operator|=
@@ -686,29 +680,15 @@ operator|.
 name|len
 expr_stmt|;
 block|}
-comment|/* STUB */
-name|r
-operator|->
-name|exten
-operator|.
-name|len
-operator|=
-literal|4
-expr_stmt|;
-name|r
-operator|->
-name|exten
-operator|.
-name|data
-operator|=
-literal|"html"
-expr_stmt|;
 return|return
 name|ngx_http_internal_redirect
 argument_list|(
 name|r
 argument_list|,
-name|loc
+operator|&
+name|redirect
+argument_list|,
+name|NULL
 argument_list|)
 return|;
 block|}
@@ -847,7 +827,6 @@ name|r
 operator|->
 name|path_err
 argument_list|,
-literal|"ngx_http_index_test_dir: "
 name|ngx_file_type_n
 literal|" %s failed"
 argument_list|,
@@ -1232,7 +1211,7 @@ block|}
 end_function
 
 begin_comment
-comment|/* TODO: check duplicate indices */
+comment|/* TODO: warn about duplicate indices */
 end_comment
 
 begin_function
@@ -1357,8 +1336,29 @@ operator|==
 literal|0
 condition|)
 block|{
+name|ngx_snprintf
+argument_list|(
+name|ngx_conf_errstr
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|ngx_conf_errstr
+argument_list|)
+operator|-
+literal|1
+argument_list|,
+literal|"index \"%s\" is invalid"
+argument_list|,
+name|value
+index|[
+literal|1
+index|]
+operator|.
+name|data
+argument_list|)
+expr_stmt|;
 return|return
-literal|"is invalid"
+name|ngx_conf_errstr
 return|;
 block|}
 name|ngx_test_null
@@ -1424,7 +1424,7 @@ expr_stmt|;
 block|}
 block|}
 return|return
-name|NULL
+name|NGX_CONF_OK
 return|;
 block|}
 end_function

@@ -106,7 +106,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2a9f755e0108
+DECL|struct|__anon2bb465650108
 typedef|typedef
 struct|struct
 block|{
@@ -314,19 +314,12 @@ name|unexpected_eof
 range|:
 literal|1
 decl_stmt|;
-if|#
-directive|if
-operator|(
-name|HAVE_DEFERRED_ACCEPT
-operator|)
 DECL|member|deferred_accept
 name|unsigned
 name|deferred_accept
 range|:
 literal|1
 decl_stmt|;
-endif|#
-directive|endif
 if|#
 directive|if
 operator|(
@@ -408,7 +401,7 @@ literal|1
 end_if
 
 begin_typedef
-DECL|enum|__anon2a9f755e0203
+DECL|enum|__anon2bb465650203
 typedef|typedef
 enum|enum
 block|{
@@ -482,7 +475,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2a9f755e0308
+DECL|struct|__anon2bb465650308
 typedef|typedef
 struct|struct
 block|{
@@ -1076,6 +1069,14 @@ value|ngx_event_actions.del
 end_define
 
 begin_define
+DECL|macro|ngx_add_conn
+define|#
+directive|define
+name|ngx_add_conn
+value|ngx_event_actions.add_conn
+end_define
+
+begin_define
 DECL|macro|ngx_del_conn
 define|#
 directive|define
@@ -1291,7 +1292,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon2a9f755e0408
+DECL|struct|__anon2bb465650408
 typedef|typedef
 struct|struct
 block|{
@@ -1314,7 +1315,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a9f755e0508
+DECL|struct|__anon2bb465650508
 typedef|typedef
 struct|struct
 block|{

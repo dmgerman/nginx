@@ -139,6 +139,12 @@ directive|include
 file|<arpa/inet.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<netdb.h>
+end_include
+
 begin_typedef
 DECL|typedef|u_int
 typedef|typedef

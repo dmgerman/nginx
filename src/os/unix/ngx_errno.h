@@ -148,6 +148,17 @@ value|errno = err
 end_define
 
 begin_define
+DECL|macro|ngx_strerror (err)
+define|#
+directive|define
+name|ngx_strerror
+parameter_list|(
+name|err
+parameter_list|)
+value|strerror(err)
+end_define
+
+begin_define
 DECL|macro|ngx_strerror_r (err,errstr,size)
 define|#
 directive|define
