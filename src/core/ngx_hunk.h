@@ -140,6 +140,14 @@ name|NGX_HUNK_LAST
 value|0x2000
 end_define
 
+begin_define
+DECL|macro|NGX_HUNK_LAST_SHADOW
+define|#
+directive|define
+name|NGX_HUNK_LAST_SHADOW
+value|0x4000
+end_define
+
 begin_typedef
 DECL|typedef|ngx_hunk_t
 typedef|typedef
@@ -288,6 +296,32 @@ function_decl|;
 end_function_decl
 
 begin_define
+DECL|macro|ngx_alloc_hunk (pool)
+define|#
+directive|define
+name|ngx_alloc_hunk
+parameter_list|(
+name|pool
+parameter_list|)
+value|ngx_palloc(pool, sizeof(ngx_hunk_t))
+end_define
+
+begin_define
+DECL|macro|ngx_alloc_chain_entry (pool)
+define|#
+directive|define
+name|ngx_alloc_chain_entry
+parameter_list|(
+name|pool
+parameter_list|)
+value|ngx_palloc(pool, sizeof(ngx_chain_t))
+end_define
+
+begin_comment
+comment|/* STUB */
+end_comment
+
+begin_define
 DECL|macro|ngx_create_chain_entry (pool)
 define|#
 directive|define
@@ -297,6 +331,10 @@ name|pool
 parameter_list|)
 value|ngx_palloc(pool, sizeof(ngx_chain_t))
 end_define
+
+begin_comment
+comment|/**/
+end_comment
 
 begin_define
 DECL|macro|ngx_add_hunk_to_chain (chain,h,pool,error)

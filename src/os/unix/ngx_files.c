@@ -62,8 +62,8 @@ name|ngx_log_debug
 argument_list|(
 argument|file->log
 argument_list|,
-literal|"read: %x, %d, %qd"
-argument|_ buf _ size _ offset
+literal|"read: %d, %x, %d, %qd"
+argument|_                   file->fd _ buf _ size _ offset
 argument_list|)
 empty_stmt|;
 name|n

@@ -569,8 +569,8 @@ name|ngx_log_debug
 argument_list|(
 argument|r->connection->log
 argument_list|,
-literal|"write filter: last:%d flush:%d"
-argument|_                   last _ flush
+literal|"write filter: last:%d flush:%qd size:%qd"
+argument|_                   last _ flush _ size
 argument_list|)
 empty_stmt|;
 endif|#
@@ -702,6 +702,14 @@ name|buffer_output
 operator|=
 name|NGX_CONF_UNSET
 expr_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|pool->log
+argument_list|,
+literal|"write conf %08X %08X"
+argument|_ conf _ conf->buffer_output
+argument_list|)
+empty_stmt|;
 return|return
 name|conf
 return|;
@@ -761,6 +769,14 @@ argument_list|,
 literal|1460
 argument_list|)
 expr_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|pool->log
+argument_list|,
+literal|"write merge %08X %08X %08X"
+argument|_ prev _ conf _ conf->buffer_output
+argument_list|)
+empty_stmt|;
 return|return
 name|NULL
 return|;

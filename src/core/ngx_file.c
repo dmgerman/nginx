@@ -167,7 +167,7 @@ name|len
 argument_list|,
 literal|11
 argument_list|,
-literal|"%010d"
+literal|"%010u"
 argument_list|,
 name|num
 argument_list|)
@@ -210,6 +210,14 @@ argument_list|,
 name|persistent
 argument_list|)
 expr_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|file->log
+argument_list|,
+literal|"temp fd: %d"
+argument|_ file->fd
+argument_list|)
+empty_stmt|;
 if|if
 condition|(
 name|file
@@ -235,7 +243,13 @@ name|NGX_EEXIST
 condition|)
 block|{
 name|num
-operator|*=
+operator|=
+operator|(
+name|num
+operator|+
+literal|1
+operator|)
+operator|*
 name|step
 expr_stmt|;
 continue|continue;

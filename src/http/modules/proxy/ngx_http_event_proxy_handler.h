@@ -27,6 +27,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_event_proxy.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_http.h>
 end_include
 
@@ -47,7 +53,7 @@ value|21
 end_define
 
 begin_typedef
-DECL|struct|__anon27bb61cb0108
+DECL|struct|__anon27b937ea0108
 typedef|typedef
 struct|struct
 block|{
@@ -93,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27bb61cb0208
+DECL|struct|__anon27b937ea0208
 typedef|typedef
 struct|struct
 block|{
@@ -128,7 +134,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27bb61cb0308
+DECL|struct|__anon27b937ea0308
 typedef|typedef
 struct|struct
 block|{
@@ -164,7 +170,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27bb61cb0408
+DECL|struct|__anon27b937ea0408
 typedef|typedef
 struct|struct
 block|{
@@ -200,7 +206,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27bb61cb0508
+DECL|struct|__anon27b937ea0508
 typedef|typedef
 struct|struct
 block|{
@@ -249,6 +255,10 @@ decl_stmt|;
 DECL|member|max_block_size
 name|int
 name|max_block_size
+decl_stmt|;
+DECL|member|file_block_size
+name|int
+name|file_block_size
 decl_stmt|;
 DECL|member|temp_path
 name|ngx_path_t
@@ -312,6 +322,11 @@ DECL|struct|ngx_http_proxy_ctx_s
 struct|struct
 name|ngx_http_proxy_ctx_s
 block|{
+DECL|member|event_proxy
+name|ngx_event_proxy_t
+modifier|*
+name|event_proxy
+decl_stmt|;
 DECL|member|in_hunks
 name|ngx_chain_t
 modifier|*
@@ -321,6 +336,11 @@ DECL|member|last_in_hunk
 name|ngx_chain_t
 modifier|*
 name|last_in_hunk
+decl_stmt|;
+DECL|member|shadow_hunks
+name|ngx_chain_t
+modifier|*
+name|shadow_hunks
 decl_stmt|;
 DECL|member|out_hunks
 name|ngx_chain_t
@@ -519,7 +539,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27bb61cb0608
+DECL|struct|__anon27b937ea0608
 typedef|typedef
 struct|struct
 block|{

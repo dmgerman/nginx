@@ -92,7 +92,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2bc320070108
+DECL|struct|__anon27c559ad0108
 typedef|typedef
 struct|struct
 block|{
@@ -393,7 +393,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2bc320070203
+DECL|enum|__anon27c559ad0203
 typedef|typedef
 enum|enum
 block|{
@@ -462,7 +462,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc320070308
+DECL|struct|__anon27c559ad0308
 typedef|typedef
 struct|struct
 block|{
@@ -669,6 +669,14 @@ define|#
 directive|define
 name|NGX_USE_LEVEL_EVENT
 value|0x00010000
+end_define
+
+begin_define
+DECL|macro|NGX_USE_AIO_EVENT
+define|#
+directive|define
+name|NGX_USE_AIO_EVENT
+value|0x00020000
 end_define
 
 begin_comment

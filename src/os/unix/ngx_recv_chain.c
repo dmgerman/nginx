@@ -112,13 +112,13 @@ name|ce
 operator|->
 name|hunk
 operator|->
-name|last
+name|end
 operator|-
 name|ce
 operator|->
 name|hunk
 operator|->
-name|pos
+name|last
 expr_stmt|;
 name|ce
 operator|=
@@ -127,6 +127,14 @@ operator|->
 name|next
 expr_stmt|;
 block|}
+name|ngx_log_debug
+argument_list|(
+argument|c->log
+argument_list|,
+literal|"recv: %d:%d"
+argument|_ io.nelts _ iov->iov_len
+argument_list|)
+empty_stmt|;
 name|n
 operator|=
 name|readv
@@ -170,6 +178,10 @@ operator|->
 name|ready
 operator|=
 literal|0
+expr_stmt|;
+name|err
+operator|=
+name|ngx_errno
 expr_stmt|;
 if|if
 condition|(

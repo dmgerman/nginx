@@ -101,7 +101,7 @@ parameter_list|,
 name|persistent
 parameter_list|)
 define|\
-value|open(name, O_CREAT|O_EXCL|O_WRONLY, 0600)
+value|open(name, O_CREAT|O_EXCL|O_RDWR, 0600)
 end_define
 
 begin_define

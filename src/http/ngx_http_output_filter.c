@@ -1154,11 +1154,13 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+operator|(
 name|src
 operator|->
 name|type
 operator|&
 name|NGX_HUNK_LAST
+operator|)
 operator|&&
 name|src
 operator|->
@@ -1280,11 +1282,13 @@ name|n
 expr_stmt|;
 if|if
 condition|(
+operator|(
 name|src
 operator|->
 name|type
 operator|&
 name|NGX_HUNK_LAST
+operator|)
 operator|&&
 name|src
 operator|->

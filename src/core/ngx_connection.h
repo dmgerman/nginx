@@ -260,6 +260,21 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
+name|ssize_t
+name|ngx_recv_chain
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|,
+name|ngx_chain_t
+modifier|*
+name|ce
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
 name|ngx_chain_t
 modifier|*
 name|ngx_write_chain

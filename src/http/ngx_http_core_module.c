@@ -3108,6 +3108,17 @@ name|NGX_CONF_ERROR
 return|;
 block|}
 block|}
+name|ngx_log_debug
+argument_list|(
+name|cf
+operator|->
+name|pool
+operator|->
+name|log
+argument_list|,
+literal|"main merge"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|module
@@ -3151,6 +3162,17 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
+name|ngx_log_debug
+argument_list|(
+name|cf
+operator|->
+name|pool
+operator|->
+name|log
+argument_list|,
+literal|"server merge"
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|j
@@ -3209,6 +3231,17 @@ name|NGX_CONF_ERROR
 return|;
 block|}
 block|}
+name|ngx_log_debug
+argument_list|(
+name|cf
+operator|->
+name|pool
+operator|->
+name|log
+argument_list|,
+literal|"server merge done"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 return|return
