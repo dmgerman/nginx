@@ -1653,11 +1653,7 @@ index|]
 operator|.
 name|revents
 operator|&
-operator|(
-name|POLLERR
-operator||
 name|POLLNVAL
-operator|)
 condition|)
 block|{
 name|ngx_log_error

@@ -24,7 +24,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b4074130108
+DECL|struct|__anon2a10ef820108
 typedef|typedef
 struct|struct
 block|{
@@ -143,7 +143,7 @@ value|0x0200
 end_define
 
 begin_typedef
-DECL|struct|__anon2b4074130208
+DECL|struct|__anon2a10ef820208
 typedef|typedef
 struct|struct
 block|{
@@ -2844,12 +2844,15 @@ operator|->
 name|pos
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|if (!ctx->redo) {                 ctx->in_hunk->pos = ctx->zstream.next_in;                 ctx->out_hunk->last = ctx->zstream.next_out;             }
-else|#
-directive|else
+if|if
+condition|(
+name|ctx
+operator|->
+name|zstream
+operator|.
+name|next_in
+condition|)
+block|{
 name|ctx
 operator|->
 name|in_hunk
@@ -2862,6 +2865,27 @@ name|zstream
 operator|.
 name|next_in
 expr_stmt|;
+if|if
+condition|(
+name|ctx
+operator|->
+name|zstream
+operator|.
+name|avail_in
+operator|==
+literal|0
+condition|)
+block|{
+name|ctx
+operator|->
+name|zstream
+operator|.
+name|next_in
+operator|=
+name|NULL
+expr_stmt|;
+block|}
+block|}
 name|ctx
 operator|->
 name|out_hunk
@@ -2874,8 +2898,6 @@ name|zstream
 operator|.
 name|next_out
 expr_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 name|ctx
@@ -3002,14 +3024,11 @@ break|break;
 block|}
 if|if
 condition|(
-name|ctx
-operator|->
-name|flush
+name|rc
 operator|==
-name|Z_FINISH
+name|Z_STREAM_END
 condition|)
 block|{
-comment|/* rc == Z_STREAM_END */
 name|ctx
 operator|->
 name|zin
@@ -3085,12 +3104,6 @@ name|ctx
 operator|->
 name|preallocated
 argument_list|)
-expr_stmt|;
-name|ctx
-operator|->
-name|flush
-operator|=
-name|Z_NO_FLUSH
 expr_stmt|;
 name|ngx_alloc_link_and_set_hunk
 argument_list|(
@@ -3427,12 +3440,6 @@ return|return
 name|last
 return|;
 block|}
-if|#
-directive|if
-literal|0
-block_content|if (ctx->out == NULL&& last != NGX_NONE) {             return last;         }
-endif|#
-directive|endif
 name|last
 operator|=
 name|ngx_http_next_body_filter
@@ -3491,6 +3498,17 @@ name|ctx
 operator|->
 name|out
 expr_stmt|;
+if|if
+condition|(
+name|ctx
+operator|->
+name|done
+condition|)
+block|{
+return|return
+name|last
+return|;
+block|}
 block|}
 block|}
 end_function

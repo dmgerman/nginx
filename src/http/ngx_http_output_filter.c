@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b1e0cd50108
+DECL|struct|__anon28d12bef0108
 typedef|typedef
 struct|struct
 block|{
@@ -190,6 +190,21 @@ name|ngx_http_output_filter_conf_t
 modifier|*
 name|conf
 decl_stmt|;
+if|if
+condition|(
+name|r
+operator|->
+name|connection
+operator|->
+name|write
+operator|->
+name|error
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
 name|ctx
 operator|=
 name|ngx_http_get_module_ctx

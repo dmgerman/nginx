@@ -1336,11 +1336,12 @@ block|{
 name|ngx_uint_t
 name|i
 decl_stmt|;
-name|ngx_setproctitle
-argument_list|(
-literal|"single worker process"
-argument_list|)
-expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|ngx_setproctitle("single worker process");
+endif|#
+directive|endif
 name|ngx_init_temp_number
 argument_list|()
 expr_stmt|;
