@@ -118,6 +118,17 @@ name|ngx_event_timer_sentinel
 decl_stmt|;
 end_decl_stmt
 
+begin_define
+DECL|macro|ngx_event_ident (p)
+define|#
+directive|define
+name|ngx_event_ident
+parameter_list|(
+name|p
+parameter_list|)
+value|((ngx_connection_t *) (p))->fd
+end_define
+
 begin_function
 DECL|function|ngx_event_del_timer (ngx_event_t * ev)
 name|ngx_inline
@@ -130,7 +141,7 @@ modifier|*
 name|ev
 parameter_list|)
 block|{
-name|ngx_log_debug1
+name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
@@ -140,7 +151,14 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"event timer del: %d"
+literal|"event timer del: %d: %d"
+argument_list|,
+name|ngx_event_ident
+argument_list|(
+name|ev
+operator|->
+name|data
+argument_list|)
 argument_list|,
 name|ev
 operator|->
@@ -165,6 +183,31 @@ operator|->
 name|rbtree_key
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_DEBUG
+operator|)
+name|ev
+operator|->
+name|rbtree_left
+operator|=
+name|NULL
+expr_stmt|;
+name|ev
+operator|->
+name|rbtree_right
+operator|=
+name|NULL
+expr_stmt|;
+name|ev
+operator|->
+name|rbtree_parent
+operator|=
+name|NULL
+expr_stmt|;
+endif|#
+directive|endif
 name|ev
 operator|->
 name|timer_set
@@ -227,7 +270,7 @@ literal|0
 block_content|(ngx_elapsed_msec + timer) / NGX_TIMER_RESOLUTION;
 endif|#
 directive|endif
-name|ngx_log_debug1
+name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
@@ -237,7 +280,14 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"event timer add: %d"
+literal|"event timer add: %d: %d"
+argument_list|,
+name|ngx_event_ident
+argument_list|(
+name|ev
+operator|->
+name|data
+argument_list|)
 argument_list|,
 name|ev
 operator|->

@@ -130,7 +130,7 @@ condition|)
 block|{
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_ERR
+name|NGX_LOG_INFO
 argument_list|,
 name|c
 operator|->
@@ -636,13 +636,17 @@ name|tcp_nopush
 operator|=
 literal|1
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug0
 argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
 name|c
 operator|->
 name|log
 argument_list|,
-literal|"NOPUSH"
+literal|0
+argument_list|,
+literal|"tcp_nopush"
 argument_list|)
 expr_stmt|;
 if|if
@@ -813,9 +817,9 @@ operator|==
 name|NGX_EINTR
 condition|)
 block|{
-name|ngx_log_error
+name|ngx_log_debug1
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
 name|c
 operator|->
@@ -857,21 +861,35 @@ name|NGX_CHAIN_ERROR
 return|;
 block|}
 block|}
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG_WRITE_CHAIN
-operator|)
-name|ngx_log_debug
+name|ngx_log_debug4
 argument_list|(
-argument|c->log
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
-literal|"sendfile: %d, @%qd %qd:%d"
-argument|_                           rc _ file->file_pos _ sent _ fsize + hsize
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"sendfile: %d, @"
+name|OFF_T_FMT
+literal|" "
+name|OFF_T_FMT
+literal|":%d"
+argument_list|,
+name|rc
+argument_list|,
+name|file
+operator|->
+name|file_pos
+argument_list|,
+name|sent
+argument_list|,
+name|fsize
+operator|+
+name|hsize
 argument_list|)
-empty_stmt|;
-endif|#
-directive|endif
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -908,27 +926,6 @@ if|if
 condition|(
 name|err
 operator|==
-name|NGX_EAGAIN
-condition|)
-block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_INFO
-argument_list|,
-name|c
-operator|->
-name|log
-argument_list|,
-name|err
-argument_list|,
-literal|"writev() EAGAIN"
-argument_list|)
-expr_stmt|;
-block|}
-if|else if
-condition|(
-name|err
-operator|==
 name|NGX_EINTR
 condition|)
 block|{
@@ -936,9 +933,21 @@ name|eintr
 operator|=
 literal|1
 expr_stmt|;
-name|ngx_log_error
+block|}
+if|if
+condition|(
+name|err
+operator|==
+name|NGX_EAGAIN
+operator|||
+name|err
+operator|==
+name|NGX_EINTR
+condition|)
+block|{
+name|ngx_log_debug0
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
 name|c
 operator|->
@@ -946,7 +955,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"writev() EINTR"
+literal|"writev() not ready"
 argument_list|)
 expr_stmt|;
 block|}
@@ -986,21 +995,22 @@ name|rc
 else|:
 literal|0
 expr_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG_WRITE_CHAIN
-operator|)
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|c->log
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
-literal|"writev: %qd"
-argument|_ sent
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"writev: "
+name|OFF_T_FMT
+argument_list|,
+name|sent
 argument_list|)
-empty_stmt|;
-endif|#
-directive|endif
+expr_stmt|;
 block|}
 name|c
 operator|->
