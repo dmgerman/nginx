@@ -323,7 +323,8 @@ name|len
 operator|-
 literal|1
 argument_list|,
-literal|"%d#%d: "
+name|PID_FMT
+literal|"#%d: "
 argument_list|,
 name|ngx_getpid
 argument_list|()

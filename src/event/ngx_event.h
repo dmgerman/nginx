@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon27b3d1150108
+DECL|struct|__anon29654add0108
 typedef|typedef
 struct|struct
 block|{
@@ -349,7 +349,7 @@ literal|1
 end_if
 
 begin_typedef
-DECL|enum|__anon27b3d1150203
+DECL|enum|__anon29654add0203
 typedef|typedef
 enum|enum
 block|{
@@ -423,7 +423,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon27b3d1150308
+DECL|struct|__anon29654add0308
 typedef|typedef
 struct|struct
 block|{
@@ -1038,31 +1038,6 @@ directive|if
 literal|0
 end_if
 
-begin_define
-define|#
-directive|define
-name|ngx_add_timer
-value|ngx_event_actions.timer
-end_define
-
-begin_else
-else|#
-directive|else
-end_else
-
-begin_define
-DECL|macro|ngx_add_timer
-define|#
-directive|define
-name|ngx_add_timer
-value|ngx_event_add_timer
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
 begin_if
 if|#
 directive|if
@@ -1072,7 +1047,6 @@ operator|)
 end_if
 
 begin_define
-DECL|macro|ngx_event_recv
 define|#
 directive|define
 name|ngx_event_recv
@@ -1088,7 +1062,6 @@ operator|)
 end_elif
 
 begin_define
-DECL|macro|ngx_event_recv
 define|#
 directive|define
 name|ngx_event_recv
@@ -1101,7 +1074,6 @@ directive|else
 end_else
 
 begin_define
-DECL|macro|ngx_event_recv
 define|#
 directive|define
 name|ngx_event_recv
@@ -1109,7 +1081,6 @@ value|ngx_io.recv
 end_define
 
 begin_define
-DECL|macro|ngx_write_chain
 define|#
 directive|define
 name|ngx_write_chain
@@ -1125,6 +1096,47 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_comment
+comment|/* ***************************** */
+end_comment
+
+begin_define
+DECL|macro|ngx_recv
+define|#
+directive|define
+name|ngx_recv
+value|ngx_io.recv
+end_define
+
+begin_define
+DECL|macro|ngx_write_chain
+define|#
+directive|define
+name|ngx_write_chain
+value|ngx_io.send_chain
+end_define
+
+begin_define
+DECL|macro|ngx_add_timer
+define|#
+directive|define
+name|ngx_add_timer
+value|ngx_event_add_timer
+end_define
+
+begin_define
+DECL|macro|ngx_del_timer
+define|#
+directive|define
+name|ngx_del_timer
+value|ngx_event_del_timer
+end_define
 
 begin_if
 if|#
@@ -1155,13 +1167,9 @@ endif|#
 directive|endif
 end_endif
 
-begin_define
-DECL|macro|ngx_del_timer
-define|#
-directive|define
-name|ngx_del_timer
-value|ngx_event_del_timer
-end_define
+begin_comment
+comment|/* ***************************** */
+end_comment
 
 begin_decl_stmt
 specifier|extern
@@ -1222,6 +1230,10 @@ endif|#
 directive|endif
 end_endif
 
+begin_comment
+comment|/* ***************************** */
+end_comment
+
 begin_define
 DECL|macro|NGX_EVENT_MODULE
 define|#
@@ -1244,7 +1256,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon27b3d1150408
+DECL|struct|__anon29654add0408
 typedef|typedef
 struct|struct
 block|{
@@ -1267,7 +1279,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b3d1150508
+DECL|struct|__anon29654add0508
 typedef|typedef
 struct|struct
 block|{
@@ -1353,6 +1365,48 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_if
+if|#
+directive|if
+operator|(
+name|WIN32
+operator|)
+end_if
+
+begin_function_decl
+name|void
+name|ngx_event_acceptex
+parameter_list|(
+name|ngx_event_t
+modifier|*
+name|ev
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|int
+name|ngx_event_post_acceptex
+parameter_list|(
+name|ngx_listening_t
+modifier|*
+name|ls
+parameter_list|,
+name|int
+name|n
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_comment
+comment|/* ***************************** */
+end_comment
+
 begin_function_decl
 name|ssize_t
 name|ngx_event_recv_core
@@ -1412,11 +1466,38 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_comment
+comment|/* ***************************** */
+end_comment
+
 begin_include
 include|#
 directive|include
 file|<ngx_event_timer.h>
 end_include
+
+begin_if
+if|#
+directive|if
+operator|(
+name|WIN32
+operator|)
+end_if
+
+begin_include
+include|#
+directive|include
+file|<ngx_iocp_module.h>
+end_include
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_comment
+comment|/* ***************************** */
+end_comment
 
 begin_endif
 endif|#

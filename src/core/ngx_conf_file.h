@@ -295,7 +295,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28a621a30108
+DECL|struct|__anon2a408af20108
 typedef|typedef
 struct|struct
 block|{
@@ -479,7 +479,7 @@ name|conf
 parameter_list|,
 name|prev
 parameter_list|,
-define|default)                       \     if (conf == (size_t) NGX_CONF_UNSET) {                                   \         conf = (prev == (size_t) NGX_CONF_UNSET) ? default : prev;           \     }
+define|default)                       \     if (conf == (ssize_t) NGX_CONF_UNSET) {                                   \         conf = (prev == (ssize_t) NGX_CONF_UNSET) ? default : prev;           \     }
 end_define
 
 begin_define

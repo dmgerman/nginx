@@ -11,10 +11,68 @@ directive|include
 file|<ngx_core.h>
 end_include
 
+begin_comment
+comment|/* STUB */
+end_comment
+
+begin_function_decl
+name|ssize_t
+name|ngx_wsarecv
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|,
+name|char
+modifier|*
+name|buf
+parameter_list|,
+name|size_t
+name|size
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_chain_t
+modifier|*
+name|ngx_wsasend_chain
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|,
+name|ngx_chain_t
+modifier|*
+name|in
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_comment
+comment|/* */
+end_comment
+
+begin_decl_stmt
+DECL|variable|ngx_win32_version
+name|int
+name|ngx_win32_version
+decl_stmt|;
+end_decl_stmt
+
 begin_decl_stmt
 DECL|variable|ngx_max_sockets
 name|int
 name|ngx_max_sockets
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_inherited_nonblocking
+name|int
+name|ngx_inherited_nonblocking
+init|=
+literal|1
 decl_stmt|;
 end_decl_stmt
 
@@ -30,7 +88,9 @@ name|NULL
 block|,
 name|NULL
 block|,
-name|NULL
+name|ngx_wsasend_chain
+block|,
+literal|0
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -101,7 +161,7 @@ name|log
 parameter_list|)
 block|{
 name|u_int
-name|sp
+name|osviex
 decl_stmt|;
 name|DWORD
 name|bytes
@@ -116,7 +176,7 @@ name|OSVERSIONINFOEX
 name|osvi
 decl_stmt|;
 comment|/* get Windows version */
-name|ZeroMemory
+name|ngx_memzero
 argument_list|(
 operator|&
 name|osvi
@@ -178,6 +238,7 @@ argument_list|)
 operator|==
 literal|0
 condition|)
+block|{
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_EMERG
@@ -194,46 +255,39 @@ name|NGX_ERROR
 return|;
 block|}
 block|}
-end_function
-
-begin_comment
-comment|/*      *  Windows 95       1400      *  Windows 98       1410      *  Windows ME       1490      *  Windows NT 3.51  2351      *  Windows NT 4.0   2400      *  Windows 2000     2500      *  Windows XP       2501      *  Windows 2003     2502      */
-end_comment
-
-begin_expr_stmt
+comment|/*      *  Windows 95           140000      *  Windows 98           141000      *  Windows ME           149000      *  Windows NT 3.51      235100      *  Windows NT 4.0       240000      *  Windows NT 4.0 SP5   240050      *  Windows 2000         250000      *  Windows XP           250100      *  Windows 2003         250200      */
 name|ngx_win32_version
 operator|=
 name|osvi
 operator|.
 name|dwPlatformId
 operator|*
-literal|1000
+literal|100000
 operator|+
 name|osvi
 operator|.
 name|dwMajorVersion
 operator|*
-literal|100
+literal|10000
 operator|+
 name|osvi
 operator|.
 name|dwMinorVersion
+operator|*
+literal|100
 expr_stmt|;
-end_expr_stmt
-
-begin_if_stmt
 if|if
 condition|(
 name|osviex
 condition|)
 block|{
-name|sp
-operator|=
+name|ngx_win32_version
+operator|+=
 name|osvi
 operator|.
 name|wServicePackMajor
 operator|*
-literal|100
+literal|10
 operator|+
 name|osvi
 operator|.
@@ -247,7 +301,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"OS: %u build:%u, %s, SP:%u, suite:%x, type:%u"
+literal|"OS: %u build:%u, %s, suite:%x, type:%u"
 argument_list|,
 name|ngx_win32_version
 argument_list|,
@@ -259,17 +313,27 @@ name|osvi
 operator|.
 name|szCSDVersion
 argument_list|,
-name|sp
+name|osvi
+operator|.
+name|wReserved
+index|[
+literal|0
+index|]
 argument_list|,
 name|osvi
 operator|.
-name|wSuiteMask
-argument_list|,
-name|osvi
-operator|.
-name|wProductType
+name|wReserved
+index|[
+literal|1
+index|]
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|ngx_log_error(NGX_LOG_INFO, log, 0,                       "OS: %u build:%u, %s, suite:%x, type:%u",                       ngx_win32_version, osvi.dwBuildNumber, osvi.szCSDVersion,                       osvi.wSuiteMask, osvi.wProductType);
+endif|#
+directive|endif
 block|}
 else|else
 block|{
@@ -295,13 +359,7 @@ name|szCSDVersion
 argument_list|)
 expr_stmt|;
 block|}
-end_if_stmt
-
-begin_comment
 comment|/* init Winsock */
-end_comment
-
-begin_if_stmt
 if|if
 condition|(
 name|WSAStartup
@@ -335,13 +393,7 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-end_if_stmt
-
-begin_comment
 comment|/* get AcceptEx(), GetAcceptExSockAddrs() and TransmitFile() addresses */
-end_comment
-
-begin_expr_stmt
 name|s
 operator|=
 name|ngx_socket
@@ -355,9 +407,6 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-end_expr_stmt
-
-begin_if_stmt
 if|if
 condition|(
 name|s
@@ -382,9 +431,6 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-end_if_stmt
-
-begin_if_stmt
 if|if
 condition|(
 name|WSAIoctl
@@ -437,9 +483,6 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-end_if_stmt
-
-begin_if_stmt
 if|if
 condition|(
 name|WSAIoctl
@@ -492,9 +535,6 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-end_if_stmt
-
-begin_if_stmt
 if|if
 condition|(
 name|WSAIoctl
@@ -547,9 +587,6 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-end_if_stmt
-
-begin_if_stmt
 if|if
 condition|(
 name|ngx_close_socket
@@ -574,14 +611,11 @@ literal|" failed"
 argument_list|)
 expr_stmt|;
 block|}
-end_if_stmt
-
-begin_return
 return|return
 name|NGX_OK
 return|;
-end_return
+block|}
+end_function
 
-unit|}
 end_unit
 

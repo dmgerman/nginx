@@ -21,13 +21,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_log.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_connection.h>
+file|<ngx_core.h>
 end_include
 
 begin_include
@@ -108,27 +102,22 @@ directive|if
 operator|(
 name|NGX_DEBUG_EVENT
 operator|)
-comment|/* STUB - we can not cast (ngx_connection_t *) here */
-name|ngx_log_debug
-argument_list|(
-name|ev
-operator|->
-name|log
-argument_list|,
-literal|"del timer: %d"
-name|_
-operator|*
-operator|(
-name|int
-operator|*
-operator|)
-operator|(
+name|ngx_connection_t
+modifier|*
+name|c
+init|=
 name|ev
 operator|->
 name|data
-operator|)
+decl_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|ev->log
+argument_list|,
+literal|"del timer: %d"
+argument|_ c->fd
 argument_list|)
-expr_stmt|;
+empty_stmt|;
 endif|#
 directive|endif
 if|if

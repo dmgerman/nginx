@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bcd1f140108
+DECL|struct|__anon2a0928b20108
 typedef|typedef
 struct|struct
 block|{
@@ -67,18 +67,10 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bcd1f140208
+DECL|struct|__anon2a0928b20208
 typedef|typedef
 struct|struct
 block|{
-DECL|member|connection_pool_size
-name|int
-name|connection_pool_size
-decl_stmt|;
-DECL|member|post_accept_timeout
-name|int
-name|post_accept_timeout
-decl_stmt|;
 DECL|member|servers
 name|ngx_array_t
 name|servers
@@ -91,7 +83,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bcd1f140308
+DECL|struct|__anon2a0928b20308
 typedef|typedef
 struct|struct
 block|{
@@ -116,6 +108,14 @@ modifier|*
 name|ctx
 decl_stmt|;
 comment|/* server ctx */
+DECL|member|post_accept_timeout
+name|ngx_msec_t
+name|post_accept_timeout
+decl_stmt|;
+DECL|member|connection_pool_size
+name|ssize_t
+name|connection_pool_size
+decl_stmt|;
 DECL|member|request_pool_size
 name|size_t
 name|request_pool_size
@@ -143,7 +143,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2bcd1f140408
+DECL|struct|__anon2a0928b20408
 typedef|typedef
 struct|struct
 block|{
@@ -167,7 +167,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bcd1f140508
+DECL|struct|__anon2a0928b20508
 typedef|typedef
 struct|struct
 block|{
@@ -209,7 +209,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2bcd1f140608
+DECL|struct|__anon2a0928b20608
 typedef|typedef
 struct|struct
 block|{
@@ -252,7 +252,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon2bcd1f140708
+DECL|struct|__anon2a0928b20708
 typedef|typedef
 struct|struct
 block|{
@@ -271,7 +271,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bcd1f140808
+DECL|struct|__anon2a0928b20808
 typedef|typedef
 struct|struct
 block|{

@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b1c310c0108
+DECL|struct|__anon298e6f890108
 typedef|typedef
 struct|struct
 block|{
@@ -275,6 +275,17 @@ argument_list|,
 name|NGX_ERROR
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_SUPPRESS_WARN
+operator|)
+name|range
+operator|=
+name|NULL
+expr_stmt|;
+endif|#
+directive|endif
 name|rc
 operator|=
 literal|0

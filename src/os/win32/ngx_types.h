@@ -98,6 +98,14 @@ name|OFF_FMT
 value|"%I64d"
 end_define
 
+begin_define
+DECL|macro|PID_FMT
+define|#
+directive|define
+name|PID_FMT
+value|"%d"
+end_define
+
 begin_endif
 endif|#
 directive|endif

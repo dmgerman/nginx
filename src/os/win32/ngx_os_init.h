@@ -35,6 +35,24 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_function_decl
+name|ssize_t
+name|ngx_wsarecv
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|,
+name|char
+modifier|*
+name|buf
+parameter_list|,
+name|size_t
+name|size
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_endif
 endif|#
 directive|endif

@@ -11,6 +11,12 @@ directive|include
 file|<ngx_core.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_event.h>
+end_include
+
 begin_function
 DECL|function|ngx_readv_chain (ngx_connection_t * c,ngx_chain_t * entry)
 name|ssize_t

@@ -168,6 +168,14 @@ name|OFF_FMT
 value|"%lld"
 end_define
 
+begin_define
+DECL|macro|PID_FMT
+define|#
+directive|define
+name|PID_FMT
+value|"%ld"
+end_define
+
 begin_ifndef
 ifndef|#
 directive|ifndef

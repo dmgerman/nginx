@@ -14,7 +14,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_listen.h>
+file|<ngx_event.h>
 end_include
 
 begin_include
@@ -211,7 +211,7 @@ literal|10
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|ngx_listen_t
+name|ngx_listening_t
 argument_list|)
 argument_list|,
 literal|1
@@ -461,7 +461,7 @@ decl_stmt|;
 name|ngx_socket_t
 name|s
 decl_stmt|;
-name|ngx_listen_t
+name|ngx_listening_t
 modifier|*
 name|ls
 decl_stmt|;
@@ -488,10 +488,6 @@ expr_stmt|;
 comment|/* for each listening socket */
 name|ls
 operator|=
-operator|(
-name|ngx_listen_t
-operator|*
-operator|)
 name|ngx_listening_sockets
 operator|.
 name|elts
@@ -612,6 +608,41 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+if|#
+directive|if
+operator|(
+name|WIN32
+operator|)
+comment|/*              * Winsock assignes a socket number divisible by 4              * so to find a connection we divide a socket number by 4.              */
+if|if
+condition|(
+name|s
+operator|%
+literal|4
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|ls
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+name|ngx_socket_n
+literal|" created socket %d"
+argument_list|,
+name|s
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
+endif|#
+directive|endif
 if|if
 condition|(
 name|setsockopt

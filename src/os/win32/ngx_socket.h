@@ -171,6 +171,29 @@ name|transmitfile
 decl_stmt|;
 end_decl_stmt
 
+begin_function
+DECL|function|ngx_tcp_push (s)
+name|ngx_inline
+name|int
+name|ngx_tcp_push
+parameter_list|(
+name|s
+parameter_list|)
+block|{
+return|return
+literal|0
+return|;
+block|}
+end_function
+
+begin_define
+DECL|macro|ngx_tcp_push_n
+define|#
+directive|define
+name|ngx_tcp_push_n
+value|"tcp_push()"
+end_define
+
 begin_endif
 endif|#
 directive|endif

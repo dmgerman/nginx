@@ -18,12 +18,12 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28a0c48d0108
+DECL|struct|__anon2a42aa0b0108
 typedef|typedef
 struct|struct
 block|{
 DECL|member|hunk_size
-name|size_t
+name|ssize_t
 name|hunk_size
 decl_stmt|;
 DECL|typedef|ngx_http_output_filter_conf_t
@@ -33,7 +33,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a0c48d0208
+DECL|struct|__anon2a42aa0b0208
 typedef|typedef
 struct|struct
 block|{

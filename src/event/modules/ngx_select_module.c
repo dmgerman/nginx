@@ -1615,8 +1615,12 @@ argument_list|(
 name|ngx_event_module
 argument_list|)
 expr_stmt|;
+comment|/* the default FD_SETSIZE is 1024U in FreeBSD 5.x */
 if|if
 condition|(
+operator|(
+name|unsigned
+operator|)
 name|ecf
 operator|->
 name|connections

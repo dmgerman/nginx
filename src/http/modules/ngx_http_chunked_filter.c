@@ -394,14 +394,13 @@ name|len
 operator|=
 name|ngx_snprintf
 argument_list|(
-name|chunk
+argument|chunk
 argument_list|,
 literal|11
 argument_list|,
-literal|"%x"
-name|CRLF
+argument|SIZEX_FMT CRLF
 argument_list|,
-name|size
+argument|size
 argument_list|)
 expr_stmt|;
 name|ngx_test_null
