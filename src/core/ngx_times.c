@@ -67,7 +67,7 @@ block|}
 end_function
 
 begin_comment
-comment|/* TODO: remove strftime() */
+comment|/* TODO:  *   cache ngx_tm_t  *   write own gmtime()  *   remove strftime()  *   we can remove localtime_r  */
 end_comment
 
 begin_function

@@ -638,6 +638,10 @@ name|ngx_event_t
 modifier|*
 name|ev
 decl_stmt|;
+name|struct
+name|timeval
+name|tv
+decl_stmt|;
 name|ngx_epoch_msec_t
 name|delta
 decl_stmt|;

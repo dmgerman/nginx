@@ -186,6 +186,14 @@ name|PID_FMT
 value|"%d"
 end_define
 
+begin_define
+DECL|macro|TIME_FMT
+define|#
+directive|define
+name|TIME_FMT
+value|"%lu"
+end_define
+
 begin_comment
 comment|/* STUB */
 end_comment

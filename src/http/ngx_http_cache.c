@@ -23,6 +23,47 @@ directive|include
 file|<md5.h>
 end_include
 
+begin_comment
+comment|/* STUB */
+end_comment
+
+begin_if
+if|#
+directive|if
+operator|(
+name|WIN32
+operator|)
+end_if
+
+begin_define
+DECL|macro|MD5Init
+define|#
+directive|define
+name|MD5Init
+value|MD5_Init
+end_define
+
+begin_define
+DECL|macro|MD5Update
+define|#
+directive|define
+name|MD5Update
+value|MD5_Update
+end_define
+
+begin_define
+DECL|macro|MD5Final
+define|#
+directive|define
+name|MD5Final
+value|MD5_Final
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_function
 DECL|function|ngx_http_cache_get_file (ngx_http_request_t * r,ngx_http_cache_ctx_t * ctx)
 name|int

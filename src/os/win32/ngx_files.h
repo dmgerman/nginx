@@ -187,6 +187,26 @@ name|ngx_close_file_n
 value|"CloseHandle()"
 end_define
 
+begin_comment
+comment|/* STUB */
+end_comment
+
+begin_define
+DECL|macro|ngx_rename_file
+define|#
+directive|define
+name|ngx_rename_file
+value|MoveFile
+end_define
+
+begin_define
+DECL|macro|ngx_rename_file_n
+define|#
+directive|define
+name|ngx_rename_file_n
+value|"MoveFile()"
+end_define
+
 begin_define
 DECL|macro|ngx_mkdir (name)
 define|#

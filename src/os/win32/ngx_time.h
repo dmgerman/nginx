@@ -136,23 +136,6 @@ name|ngx_localtime
 value|GetLocalTime
 end_define
 
-begin_struct
-DECL|struct|timeval
-struct|struct
-name|timeval
-block|{
-DECL|member|tv_sec
-name|long
-name|tv_sec
-decl_stmt|;
-DECL|member|tv_usec
-name|long
-name|tv_usec
-decl_stmt|;
-block|}
-struct|;
-end_struct
-
 begin_function_decl
 name|void
 name|ngx_gettimeofday
