@@ -24,7 +24,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon297364530108
+DECL|struct|__anon29b013bf0108
 typedef|typedef
 struct|struct
 block|{
@@ -59,7 +59,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297364530208
+DECL|struct|__anon29b013bf0208
 typedef|typedef
 struct|struct
 block|{
@@ -868,7 +868,12 @@ name|key
 operator|.
 name|len
 operator|=
-literal|0
+sizeof|sizeof
+argument_list|(
+literal|"Content-Encoding"
+argument_list|)
+operator|-
+literal|1
 expr_stmt|;
 name|r
 operator|->
@@ -880,7 +885,7 @@ name|key
 operator|.
 name|data
 operator|=
-name|NULL
+literal|"Content-Encoding"
 expr_stmt|;
 name|r
 operator|->
