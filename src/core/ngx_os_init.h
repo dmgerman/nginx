@@ -109,7 +109,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b9e29570108
+DECL|struct|__anon2b5eb8e80108
 typedef|typedef
 struct|struct
 block|{
@@ -223,6 +223,20 @@ begin_decl_stmt
 specifier|extern
 name|int
 name|ngx_inherited_nonblocking
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|int
+name|restart
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|int
+name|rotate
 decl_stmt|;
 end_decl_stmt
 
