@@ -345,7 +345,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon27a566b40103
+DECL|enum|__anon2bf45b340103
 typedef|typedef
 enum|enum
 block|{
@@ -384,7 +384,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a566b40208
+DECL|struct|__anon2bf45b340208
 typedef|typedef
 struct|struct
 block|{
@@ -403,7 +403,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a566b40308
+DECL|struct|__anon2bf45b340308
 typedef|typedef
 struct|struct
 block|{
@@ -509,7 +509,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a566b40408
+DECL|struct|__anon2bf45b340408
 typedef|typedef
 struct|struct
 block|{
@@ -532,7 +532,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a566b40508
+DECL|struct|__anon2bf45b340508
 typedef|typedef
 struct|struct
 block|{
@@ -626,7 +626,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a566b40608
+DECL|struct|__anon2bf45b340608
 typedef|typedef
 struct|struct
 block|{
@@ -677,10 +677,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon27a566b4070a
+DECL|union|__anon2bf45b34070a
 union|union
 block|{
-DECL|struct|__anon27a566b40808
+DECL|struct|__anon2bf45b340808
 struct|struct
 block|{
 DECL|member|fd
@@ -696,7 +696,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon27a566b40908
+DECL|struct|__anon2bf45b340908
 struct|struct
 block|{
 DECL|member|hash
@@ -861,6 +861,10 @@ DECL|member|unparsed_uri
 name|ngx_str_t
 name|unparsed_uri
 decl_stmt|;
+DECL|member|method_name
+name|ngx_str_t
+name|method_name
+decl_stmt|;
 DECL|member|main
 name|ngx_http_request_t
 modifier|*
@@ -932,13 +936,13 @@ name|http_state
 range|:
 literal|4
 decl_stmt|;
+if|#
+directive|if
+literal|0
 comment|/* URI is not started with '/' - "GET http://" */
-DECL|member|unusual_uri
-name|unsigned
-name|unusual_uri
-range|:
-literal|1
-decl_stmt|;
+block|unsigned             unusual_uri:1;
+endif|#
+directive|endif
 comment|/* URI with "/.", "%" and on Win32 with "//" */
 DECL|member|complex_uri
 name|unsigned
@@ -1058,6 +1062,41 @@ DECL|member|request_end
 name|u_char
 modifier|*
 name|request_end
+decl_stmt|;
+DECL|member|method_end
+name|u_char
+modifier|*
+name|method_end
+decl_stmt|;
+DECL|member|schema_start
+name|u_char
+modifier|*
+name|schema_start
+decl_stmt|;
+DECL|member|schema_end
+name|u_char
+modifier|*
+name|schema_end
+decl_stmt|;
+DECL|member|host_start
+name|u_char
+modifier|*
+name|host_start
+decl_stmt|;
+DECL|member|host_end
+name|u_char
+modifier|*
+name|host_end
+decl_stmt|;
+DECL|member|port_start
+name|u_char
+modifier|*
+name|port_start
+decl_stmt|;
+DECL|member|port_end
+name|u_char
+modifier|*
+name|port_end
 decl_stmt|;
 DECL|member|header_name_start
 name|u_char

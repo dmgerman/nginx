@@ -248,6 +248,10 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|ngx_process
+operator|==
+name|NGX_PROCESS_WORKER
+operator|||
 name|cycle
 operator|->
 name|old_cycle
@@ -1689,7 +1693,7 @@ operator|-
 literal|1
 condition|)
 block|{
-comment|/*              * the disabled event, a workaround for our possible bug, see below              */
+comment|/*              * the disabled event, a workaround for our possible bug,              * see the comment below              */
 continue|continue;
 block|}
 name|c

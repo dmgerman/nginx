@@ -22,7 +22,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon2c53fdd10108
+DECL|struct|__anon2c999dcf0108
 typedef|typedef
 struct|struct
 block|{
@@ -200,6 +200,24 @@ operator|->
 name|filter
 operator|&
 name|NGX_HTTP_FILTER_NEED_IN_MEMORY
+operator|||
+operator|(
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_encoding
+operator|&&
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_encoding
+operator|->
+name|value
+operator|.
+name|len
+operator|)
 condition|)
 block|{
 return|return

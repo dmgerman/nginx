@@ -197,6 +197,14 @@ value|-1
 end_define
 
 begin_define
+DECL|macro|NGX_CONF_UNSET_UINT
+define|#
+directive|define
+name|NGX_CONF_UNSET_UINT
+value|(ngx_uint_t) -1
+end_define
+
+begin_define
 DECL|macro|NGX_CONF_UNSET_SIZE
 define|#
 directive|define
@@ -433,7 +441,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b3f7afb0108
+DECL|struct|__anon2bd9e6ff0108
 typedef|typedef
 struct|struct
 block|{
@@ -478,7 +486,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3f7afb0208
+DECL|struct|__anon2bd9e6ff0208
 typedef|typedef
 struct|struct
 block|{
@@ -613,7 +621,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3f7afb0308
+DECL|struct|__anon2bd9e6ff0308
 typedef|typedef
 struct|struct
 block|{
@@ -628,7 +636,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3f7afb0408
+DECL|struct|__anon2bd9e6ff0408
 typedef|typedef
 struct|struct
 block|{
@@ -650,6 +658,25 @@ name|ngx_conf_num_bounds_t
 typedef|;
 end_typedef
 
+begin_typedef
+DECL|struct|__anon2bd9e6ff0508
+typedef|typedef
+struct|struct
+block|{
+DECL|member|name
+name|ngx_str_t
+name|name
+decl_stmt|;
+DECL|member|value
+name|ngx_uint_t
+name|value
+decl_stmt|;
+DECL|typedef|ngx_conf_enum_t
+block|}
+name|ngx_conf_enum_t
+typedef|;
+end_typedef
+
 begin_define
 DECL|macro|NGX_CONF_BITMASK_SET
 define|#
@@ -659,7 +686,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2b3f7afb0508
+DECL|struct|__anon2bd9e6ff0608
 typedef|typedef
 struct|struct
 block|{
@@ -668,7 +695,7 @@ name|ngx_str_t
 name|name
 decl_stmt|;
 DECL|member|mask
-name|int
+name|ngx_uint_t
 name|mask
 decl_stmt|;
 DECL|typedef|ngx_conf_bitmask_t
@@ -776,6 +803,19 @@ parameter_list|,
 name|prev
 parameter_list|,
 define|default)                            \     if (conf == NGX_CONF_UNSET) {                                            \         conf = (prev == NGX_CONF_UNSET) ? default : prev;                    \     }
+end_define
+
+begin_define
+DECL|macro|ngx_conf_merge_unsigned_value (conf,prev,default)
+define|#
+directive|define
+name|ngx_conf_merge_unsigned_value
+parameter_list|(
+name|conf
+parameter_list|,
+name|prev
+parameter_list|,
+define|default)                   \     if (conf == NGX_CONF_UNSET_UINT) {                                       \         conf = (prev == NGX_CONF_UNSET_UINT) ? default : prev;               \     }
 end_define
 
 begin_define
@@ -1071,6 +1111,26 @@ begin_function_decl
 name|char
 modifier|*
 name|ngx_conf_set_bufs_slot
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_command_t
+modifier|*
+name|cmd
+parameter_list|,
+name|void
+modifier|*
+name|conf
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|char
+modifier|*
+name|ngx_conf_set_enum_slot
 parameter_list|(
 name|ngx_conf_t
 modifier|*

@@ -358,24 +358,6 @@ name|ctx
 decl_stmt|;
 if|#
 directive|if
-operator|!
-operator|(
-name|WIN32
-operator|)
-name|size_t
-name|len
-decl_stmt|;
-name|u_char
-name|pid
-index|[
-comment|/* STUB */
-literal|10
-index|]
-decl_stmt|;
-endif|#
-directive|endif
-if|#
-directive|if
 name|__FreeBSD__
 name|ngx_debug_init
 argument_list|()
@@ -434,13 +416,6 @@ operator|=
 operator|&
 name|init_cycle
 expr_stmt|;
-if|#
-directive|if
-literal|0
-comment|/* STUB */
-block_content|log->log_level = NGX_LOG_DEBUG_ALL;
-endif|#
-directive|endif
 name|ngx_memzero
 argument_list|(
 operator|&
