@@ -12,10 +12,16 @@ directive|define
 name|_NGX_CONFIG_H_INCLUDED_
 end_define
 
+begin_include
+include|#
+directive|include
+file|<ngx_auto_config.h>
+end_include
+
 begin_if
 if|#
 directive|if
-literal|0
+literal|1
 end_if
 
 begin_comment
@@ -29,6 +35,7 @@ name|FD_SETSIZE
 end_undef
 
 begin_define
+DECL|macro|FD_SETSIZE
 define|#
 directive|define
 name|FD_SETSIZE
@@ -205,12 +212,6 @@ directive|define
 name|PTR_FMT
 value|"%08X"
 end_define
-
-begin_include
-include|#
-directive|include
-file|<ngx_auto_config.h>
-end_include
 
 begin_ifndef
 ifndef|#

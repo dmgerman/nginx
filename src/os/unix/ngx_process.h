@@ -41,17 +41,13 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e9a23a0108
+DECL|struct|__anon2b8915dd0108
 typedef|typedef
 struct|struct
 block|{
 DECL|member|pid
 name|ngx_pid_t
 name|pid
-decl_stmt|;
-DECL|member|signal
-name|int
-name|signal
 decl_stmt|;
 DECL|member|status
 name|int
@@ -102,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e9a23a0208
+DECL|struct|__anon2b8915dd0208
 typedef|typedef
 struct|struct
 block|{

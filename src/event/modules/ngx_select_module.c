@@ -1383,6 +1383,13 @@ operator|&
 name|tv
 argument_list|)
 expr_stmt|;
+name|ngx_time_update
+argument_list|(
+name|tv
+operator|.
+name|tv_sec
+argument_list|)
+expr_stmt|;
 name|deltas
 operator|=
 name|tv
@@ -1390,13 +1397,6 @@ operator|.
 name|tv_usec
 operator|/
 literal|1000
-expr_stmt|;
-name|ngx_time_update
-argument_list|(
-name|tv
-operator|.
-name|tv_sec
-argument_list|)
 expr_stmt|;
 block|}
 name|ngx_log_debug2
@@ -1420,6 +1420,10 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|delta
+operator|=
+literal|0
+expr_stmt|;
 name|ngx_gettimeofday
 argument_list|(
 operator|&
@@ -1905,13 +1909,26 @@ operator|>
 name|FD_SETSIZE
 condition|)
 block|{
-return|return
-literal|"maximum number of connections "
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"the maximum number of files "
 literal|"supported by select() is "
 name|ngx_value
 argument_list|(
 name|FD_SETSIZE
 argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CONF_ERROR
 return|;
 block|}
 return|return

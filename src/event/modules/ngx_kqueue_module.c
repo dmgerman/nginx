@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29d336480108
+DECL|struct|__anon2bb6cb940108
 typedef|typedef
 struct|struct
 block|{
@@ -1613,6 +1613,19 @@ argument_list|(
 name|tv
 operator|.
 name|tv_sec
+argument_list|)
+expr_stmt|;
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"kevent events: %d"
+argument_list|,
+name|events
 argument_list|)
 expr_stmt|;
 name|delta

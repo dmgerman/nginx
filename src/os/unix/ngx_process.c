@@ -360,15 +360,6 @@ index|[
 name|ngx_last_process
 index|]
 operator|.
-name|signal
-operator|=
-literal|0
-expr_stmt|;
-name|ngx_processes
-index|[
-name|ngx_last_process
-index|]
-operator|.
 name|exited
 operator|=
 literal|0

@@ -238,7 +238,7 @@ argument_list|(
 argument|c->log
 argument_list|,
 literal|"aio_write sent: "
-argument|OFF_FMT _ c->sent
+argument|OFF_T_FMT _ c->sent
 argument_list|)
 empty_stmt|;
 endif|#

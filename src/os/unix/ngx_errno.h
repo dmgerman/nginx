@@ -121,6 +121,14 @@ value|EADDRINUSE
 end_define
 
 begin_define
+DECL|macro|NGX_ECONNABORTED
+define|#
+directive|define
+name|NGX_ECONNABORTED
+value|ECONNABORTED
+end_define
+
+begin_define
 DECL|macro|NGX_ECONNRESET
 define|#
 directive|define

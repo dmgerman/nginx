@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon29cde3630108
+DECL|struct|__anon276c7b4f0108
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +70,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|enum|__anon29cde3630203
+DECL|enum|__anon276c7b4f0203
 typedef|typedef
 enum|enum
 block|{
@@ -396,7 +396,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29cde3630308
+DECL|struct|__anon276c7b4f0308
 typedef|typedef
 struct|struct
 block|{
@@ -1086,7 +1086,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon29cde3630408
+DECL|struct|__anon276c7b4f0408
 typedef|typedef
 struct|struct
 block|{
@@ -1094,13 +1094,13 @@ DECL|member|connections
 name|int
 name|connections
 decl_stmt|;
-DECL|member|timer_queues
-name|int
-name|timer_queues
-decl_stmt|;
 DECL|member|use
 name|int
 name|use
+decl_stmt|;
+DECL|member|multi_accept
+name|ngx_flag_t
+name|multi_accept
 decl_stmt|;
 DECL|member|name
 name|char
@@ -1114,7 +1114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29cde3630508
+DECL|struct|__anon276c7b4f0508
 typedef|typedef
 struct|struct
 block|{

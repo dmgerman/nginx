@@ -1494,6 +1494,8 @@ operator||
 name|POLLERR
 operator||
 name|POLLHUP
+operator||
+name|POLLNVAL
 operator|)
 condition|)
 block|{
@@ -1527,6 +1529,8 @@ operator||
 name|POLLERR
 operator||
 name|POLLHUP
+operator||
+name|POLLNVAL
 operator|)
 condition|)
 block|{
