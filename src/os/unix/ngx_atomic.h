@@ -274,7 +274,7 @@ name|uint32_t
 name|res
 init|=
 operator|(
-name|u_int32_t
+name|uint32_t
 operator|)
 name|set
 decl_stmt|;
