@@ -700,6 +700,8 @@ operator|->
 name|master
 operator|==
 literal|0
+operator|||
+name|ngx_accept_mutex_ptr
 condition|)
 block|{
 return|return
@@ -799,6 +801,26 @@ name|shared
 operator|+
 literal|128
 operator|)
+expr_stmt|;
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"counter: "
+name|PTR_FMT
+literal|", %d"
+argument_list|,
+name|ngx_connection_counter
+argument_list|,
+operator|*
+name|ngx_connection_counter
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif

@@ -24,7 +24,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29257e1a0108
+DECL|struct|__anon297ce9eb0108
 typedef|typedef
 struct|struct
 block|{
@@ -143,7 +143,7 @@ value|0x0200
 end_define
 
 begin_typedef
-DECL|struct|__anon29257e1a0208
+DECL|struct|__anon297ce9eb0208
 typedef|typedef
 struct|struct
 block|{
@@ -3250,12 +3250,6 @@ name|done
 operator|=
 literal|1
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|ngx_http_delete_ctx(r, ngx_http_gzip_filter_module);
-endif|#
-directive|endif
 break|break;
 block|}
 if|if

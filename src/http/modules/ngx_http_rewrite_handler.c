@@ -42,7 +42,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2c787cab0108
+DECL|struct|__anon294759c20108
 typedef|typedef
 struct|struct
 block|{
@@ -65,7 +65,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c787cab0208
+DECL|struct|__anon294759c20208
 typedef|typedef
 struct|struct
 block|{
@@ -107,7 +107,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c787cab0308
+DECL|struct|__anon294759c20308
 typedef|typedef
 struct|struct
 block|{
@@ -116,10 +116,8 @@ name|ngx_array_t
 name|rules
 decl_stmt|;
 DECL|member|log
-name|unsigned
+name|ngx_flag_t
 name|log
-range|:
-literal|1
 decl_stmt|;
 DECL|typedef|ngx_http_rewrite_srv_conf_t
 block|}
@@ -131,11 +129,32 @@ begin_function_decl
 specifier|static
 name|void
 modifier|*
-name|ngx_http_rewrite_create_loc_conf
+name|ngx_http_rewrite_create_srv_conf
 parameter_list|(
 name|ngx_conf_t
 modifier|*
 name|cf
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
+name|char
+modifier|*
+name|ngx_http_rewrite_merge_srv_conf
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|void
+modifier|*
+name|parent
+parameter_list|,
+name|void
+modifier|*
+name|child
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -200,6 +219,30 @@ block|,
 name|NULL
 block|}
 block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"rewrite_log"
+argument_list|)
+block|,
+name|NGX_HTTP_SRV_CONF
+operator||
+name|NGX_CONF_TAKE1
+block|,
+name|ngx_conf_set_flag_slot
+block|,
+name|NGX_HTTP_SRV_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+name|ngx_http_rewrite_srv_conf_t
+argument_list|,
+name|log
+argument_list|)
+block|,
+name|NULL
+block|}
+block|,
 name|ngx_null_command
 block|}
 decl_stmt|;
@@ -220,10 +263,10 @@ comment|/* create main configuration */
 name|NULL
 block|,
 comment|/* init main configuration */
-name|ngx_http_rewrite_create_loc_conf
+name|ngx_http_rewrite_create_srv_conf
 block|,
 comment|/* create server configuration */
-name|NULL
+name|ngx_http_rewrite_merge_srv_conf
 block|,
 comment|/* merge server configuration */
 name|NULL
@@ -884,11 +927,11 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_rewrite_create_loc_conf (ngx_conf_t * cf)
+DECL|function|ngx_http_rewrite_create_srv_conf (ngx_conf_t * cf)
 specifier|static
 name|void
 modifier|*
-name|ngx_http_rewrite_create_loc_conf
+name|ngx_http_rewrite_create_srv_conf
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -947,10 +990,61 @@ name|conf
 operator|->
 name|log
 operator|=
-literal|1
+name|NGX_CONF_UNSET
 expr_stmt|;
 return|return
 name|conf
+return|;
+block|}
+end_function
+
+begin_function
+DECL|function|ngx_http_rewrite_merge_srv_conf (ngx_conf_t * cf,void * parent,void * child)
+specifier|static
+name|char
+modifier|*
+name|ngx_http_rewrite_merge_srv_conf
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|void
+modifier|*
+name|parent
+parameter_list|,
+name|void
+modifier|*
+name|child
+parameter_list|)
+block|{
+name|ngx_http_rewrite_srv_conf_t
+modifier|*
+name|prev
+init|=
+name|parent
+decl_stmt|;
+name|ngx_http_rewrite_srv_conf_t
+modifier|*
+name|conf
+init|=
+name|child
+decl_stmt|;
+name|ngx_conf_merge_value
+argument_list|(
+name|conf
+operator|->
+name|log
+argument_list|,
+name|prev
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CONF_OK
 return|;
 block|}
 end_function
