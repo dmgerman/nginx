@@ -81,6 +81,17 @@ value|errno
 end_define
 
 begin_define
+DECL|macro|ngx_set_socket_errno (err)
+define|#
+directive|define
+name|ngx_set_socket_errno
+parameter_list|(
+name|err
+parameter_list|)
+value|errno = err
+end_define
+
+begin_define
 DECL|macro|ngx_strerror_r (err,errstr,size)
 define|#
 directive|define

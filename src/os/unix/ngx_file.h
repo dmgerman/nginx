@@ -54,7 +54,23 @@ DECL|macro|ngx_open_file_n
 define|#
 directive|define
 name|ngx_open_file_n
-value|"open"
+value|"open()"
+end_define
+
+begin_define
+DECL|macro|ngx_read_file
+define|#
+directive|define
+name|ngx_read_file
+value|read
+end_define
+
+begin_define
+DECL|macro|ngx_read_file_n
+define|#
+directive|define
+name|ngx_read_file_n
+value|"read()"
 end_define
 
 begin_define
@@ -83,7 +99,7 @@ DECL|macro|ngx_file_type_n
 define|#
 directive|define
 name|ngx_file_type_n
-value|"stat"
+value|"stat()"
 end_define
 
 begin_define
@@ -104,7 +120,7 @@ DECL|macro|ngx_stat_fd_n
 define|#
 directive|define
 name|ngx_stat_fd_n
-value|"fstat"
+value|"fstat()"
 end_define
 
 begin_define

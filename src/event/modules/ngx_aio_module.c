@@ -13,8 +13,9 @@ name|unmask
 name|signal
 name|listen
 name|via
-name|signal
+name|SIGIO
 decl_stmt|;
+comment|/* BUG: SIGIO can be delivered before aio_*() */
 name|aio_suspend
 argument_list|()
 operator|/
@@ -23,7 +24,8 @@ argument_list|()
 operator|/
 name|aio_waitcomplete
 argument_list|()
-expr_stmt|;
+name|with
+name|timeout
 name|mask
 name|signal
 if|if
@@ -59,7 +61,7 @@ parameter_list|)
 block|{
 name|unmask
 name|signal
-comment|/* BUG: signal can be delivered before select() */
+comment|/* BUG: AIO signal can be delivered before select() */
 name|select
 argument_list|(
 name|listen
