@@ -202,10 +202,19 @@ modifier|*
 name|cycle
 parameter_list|)
 block|{
+name|ngx_tls_t
+modifier|*
+name|tls
+decl_stmt|;
 name|ngx_event_t
 modifier|*
 name|ev
 decl_stmt|;
+name|tls
+operator|=
+name|ngx_thread_get_tls
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 init|;
@@ -398,6 +407,12 @@ argument_list|(
 name|ngx_posted_events_mutex
 argument_list|)
 expr_stmt|;
+name|tls
+operator|->
+name|event
+operator|=
+name|ev
+expr_stmt|;
 name|ev
 operator|->
 name|event_handler
@@ -434,6 +449,23 @@ name|lock
 argument_list|)
 expr_stmt|;
 block|}
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"posted event "
+name|PTR_FMT
+literal|" is done"
+argument_list|,
+name|ev
+argument_list|)
+expr_stmt|;
 break|break;
 block|}
 block|}

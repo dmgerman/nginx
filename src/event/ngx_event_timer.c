@@ -237,6 +237,19 @@ name|ngx_rbtree_t
 modifier|*
 name|node
 decl_stmt|;
+if|if
+condition|(
+name|timer
+operator|<
+literal|0
+condition|)
+block|{
+comment|/* avoid the endless loop if the time goes backward for some reason */
+name|timer
+operator|=
+literal|0
+expr_stmt|;
+block|}
 for|for
 control|(
 init|;
@@ -338,6 +351,23 @@ literal|0
 condition|)
 block|{
 comment|/*                  * We can not change the timer of the event that is been                  * handling by another thread.  And we can not easy walk                  * the rbtree to find a next expired timer so we exit the loop.                  * However it should be rare case when the event that is                  * been handling has expired timer.                  */
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|ev
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"event "
+name|PTR_FMT
+literal|" is busy in expire timers"
+argument_list|,
+name|ev
+argument_list|)
+expr_stmt|;
 break|break;
 block|}
 endif|#

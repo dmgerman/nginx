@@ -68,6 +68,52 @@ name|TID_T_FMT
 value|PID_T_FMT
 end_define
 
+begin_decl_stmt
+specifier|extern
+name|void
+modifier|*
+modifier|*
+name|ngx_tls
+decl_stmt|;
+end_decl_stmt
+
+begin_define
+DECL|macro|ngx_thread_create_tls ()
+define|#
+directive|define
+name|ngx_thread_create_tls
+parameter_list|()
+value|0
+end_define
+
+begin_define
+DECL|macro|ngx_thread_create_tls_n
+define|#
+directive|define
+name|ngx_thread_create_tls_n
+value|""
+end_define
+
+begin_define
+DECL|macro|ngx_thread_get_tls ()
+define|#
+directive|define
+name|ngx_thread_get_tls
+parameter_list|()
+value|ngx_tls[ngx_gettid()]
+end_define
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_thread_set_tls
+parameter_list|(
+name|void
+modifier|*
+name|value
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_define
 DECL|macro|NGX_MUTEX_LIGHT
 define|#
@@ -85,7 +131,7 @@ value|0x80000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2aac6b0b0108
+DECL|struct|__anon27a6539a0108
 typedef|typedef
 specifier|volatile
 struct|struct
@@ -118,7 +164,7 @@ value|64
 end_define
 
 begin_typedef
-DECL|struct|__anon2aac6b0b0208
+DECL|struct|__anon27a6539a0208
 typedef|typedef
 struct|struct
 block|{

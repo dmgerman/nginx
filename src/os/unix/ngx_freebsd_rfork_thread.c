@@ -89,6 +89,20 @@ DECL|variable|tids
 comment|/* the threads tids array */
 end_comment
 
+begin_decl_stmt
+DECL|variable|ngx_tls
+name|void
+modifier|*
+modifier|*
+name|ngx_tls
+decl_stmt|;
+end_decl_stmt
+
+begin_comment
+DECL|variable|ngx_tls
+comment|/* the threads tls's array */
+end_comment
+
 begin_comment
 comment|/* the thread-safe libc errno */
 end_comment
@@ -790,7 +804,7 @@ literal|"red zone address was changed"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* create the threads errno array */
+comment|/* create the threads errno's array */
 if|if
 condition|(
 operator|!
@@ -817,7 +831,7 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-comment|/* create the threads tid array */
+comment|/* create the threads tids array */
 if|if
 condition|(
 operator|!
@@ -855,6 +869,38 @@ index|]
 operator|=
 name|ngx_pid
 expr_stmt|;
+comment|/* create the threads tls's array */
+if|if
+condition|(
+operator|!
+operator|(
+name|ngx_tls
+operator|=
+name|ngx_calloc
+argument_list|(
+operator|(
+name|n
+operator|+
+literal|1
+operator|)
+operator|*
+sizeof|sizeof
+argument_list|(
+name|void
+operator|*
+argument_list|)
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|)
+operator|)
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
 name|nthreads
 operator|=
 literal|1
@@ -923,6 +969,30 @@ name|tids
 index|[
 name|tid
 index|]
+return|;
+block|}
+end_function
+
+begin_function
+DECL|function|ngx_thread_set_tls (void * value)
+name|ngx_int_t
+name|ngx_thread_set_tls
+parameter_list|(
+name|void
+modifier|*
+name|value
+parameter_list|)
+block|{
+name|ngx_tls
+index|[
+name|ngx_gettid
+argument_list|()
+index|]
+operator|=
+name|value
+expr_stmt|;
+return|return
+name|NGX_OK
 return|;
 block|}
 end_function
@@ -1218,7 +1288,7 @@ condition|)
 block|{
 name|ngx_log_debug2
 argument_list|(
-name|NGX_LOG_DEBUG_CORE
+name|NGX_LOG_DEBUG_MUTEX
 argument_list|,
 name|m
 operator|->
@@ -1242,7 +1312,7 @@ else|else
 block|{
 name|ngx_log_debug2
 argument_list|(
-name|NGX_LOG_DEBUG_CORE
+name|NGX_LOG_DEBUG_MUTEX
 argument_list|,
 name|m
 operator|->
@@ -1344,7 +1414,7 @@ continue|continue;
 block|}
 name|ngx_log_debug2
 argument_list|(
-name|NGX_LOG_DEBUG_CORE
+name|NGX_LOG_DEBUG_MUTEX
 argument_list|,
 name|m
 operator|->
@@ -1427,7 +1497,7 @@ condition|)
 block|{
 name|ngx_log_debug2
 argument_list|(
-name|NGX_LOG_DEBUG_CORE
+name|NGX_LOG_DEBUG_MUTEX
 argument_list|,
 name|m
 operator|->
@@ -1507,7 +1577,7 @@ return|;
 block|}
 name|ngx_log_debug2
 argument_list|(
-name|NGX_LOG_DEBUG_CORE
+name|NGX_LOG_DEBUG_MUTEX
 argument_list|,
 name|m
 operator|->
@@ -1588,7 +1658,7 @@ condition|)
 block|{
 name|ngx_log_debug1
 argument_list|(
-name|NGX_LOG_DEBUG_CORE
+name|NGX_LOG_DEBUG_MUTEX
 argument_list|,
 name|m
 operator|->
@@ -1621,7 +1691,7 @@ block|}
 block|}
 name|ngx_log_debug2
 argument_list|(
-name|NGX_LOG_DEBUG_CORE
+name|NGX_LOG_DEBUG_MUTEX
 argument_list|,
 name|m
 operator|->
@@ -1717,7 +1787,7 @@ comment|/* free the mutex */
 if|#
 directive|if
 literal|0
-block_content|ngx_log_debug2(NGX_LOG_DEBUG_CORE, m->log, 0,                    "unlock mutex " PTR_FMT " lock:%X", m, old);
+block_content|ngx_log_debug2(NGX_LOG_DEBUG_MUTEX, m->log, 0,                    "unlock mutex " PTR_FMT " lock:%X", m, old);
 endif|#
 directive|endif
 for|for
@@ -1769,7 +1839,7 @@ condition|)
 block|{
 name|ngx_log_debug1
 argument_list|(
-name|NGX_LOG_DEBUG_CORE
+name|NGX_LOG_DEBUG_MUTEX
 argument_list|,
 name|m
 operator|->
@@ -1845,7 +1915,7 @@ block|{
 comment|/* wake up the thread that waits on semaphore */
 name|ngx_log_debug1
 argument_list|(
-name|NGX_LOG_DEBUG_CORE
+name|NGX_LOG_DEBUG_MUTEX
 argument_list|,
 name|m
 operator|->
@@ -1927,7 +1997,7 @@ expr_stmt|;
 block|}
 name|ngx_log_debug1
 argument_list|(
-name|NGX_LOG_DEBUG_CORE
+name|NGX_LOG_DEBUG_MUTEX
 argument_list|,
 name|m
 operator|->

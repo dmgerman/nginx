@@ -24,7 +24,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28fda9500108
+DECL|struct|__anon2780e4a70108
 typedef|typedef
 struct|struct
 block|{
@@ -890,6 +890,23 @@ name|lock
 operator|)
 condition|)
 block|{
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|ev
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"spinlock event "
+name|PTR_FMT
+literal|" in accept"
+argument_list|,
+name|rev
+argument_list|)
+expr_stmt|;
 name|ngx_spinlock
 argument_list|(
 name|rev

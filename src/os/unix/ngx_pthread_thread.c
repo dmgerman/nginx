@@ -427,7 +427,7 @@ return|;
 block|}
 name|ngx_log_debug1
 argument_list|(
-name|NGX_LOG_DEBUG_CORE
+name|NGX_LOG_DEBUG_MUTEX
 argument_list|,
 name|m
 operator|->
@@ -481,7 +481,7 @@ return|;
 block|}
 name|ngx_log_debug1
 argument_list|(
-name|NGX_LOG_DEBUG_CORE
+name|NGX_LOG_DEBUG_MUTEX
 argument_list|,
 name|m
 operator|->
@@ -527,7 +527,7 @@ return|;
 block|}
 name|ngx_log_debug1
 argument_list|(
-name|NGX_LOG_DEBUG_CORE
+name|NGX_LOG_DEBUG_MUTEX
 argument_list|,
 name|m
 operator|->
@@ -581,7 +581,7 @@ return|;
 block|}
 name|ngx_log_debug1
 argument_list|(
-name|NGX_LOG_DEBUG_CORE
+name|NGX_LOG_DEBUG_MUTEX
 argument_list|,
 name|m
 operator|->
@@ -627,7 +627,7 @@ return|;
 block|}
 name|ngx_log_debug1
 argument_list|(
-name|NGX_LOG_DEBUG_CORE
+name|NGX_LOG_DEBUG_MUTEX
 argument_list|,
 name|m
 operator|->
@@ -681,7 +681,7 @@ return|;
 block|}
 name|ngx_log_debug1
 argument_list|(
-name|NGX_LOG_DEBUG_CORE
+name|NGX_LOG_DEBUG_MUTEX
 argument_list|,
 name|m
 operator|->
@@ -942,7 +942,7 @@ argument_list|)
 expr_stmt|;
 name|ngx_log_debug1
 argument_list|(
-name|NGX_LOG_DEBUG_CORE
+name|NGX_LOG_DEBUG_MUTEX
 argument_list|,
 name|m
 operator|->

@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28a7ec260108
+DECL|struct|__anon2b4e11f20108
 typedef|typedef
 struct|struct
 block|{
@@ -1596,7 +1596,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_THREADS0
+name|NGX_THREADS
 operator|)
 if|if
 condition|(

@@ -190,6 +190,8 @@ literal|"debug_core"
 block|,
 literal|"debug_alloc"
 block|,
+literal|"debug_mutex"
+block|,
 literal|"debug_event"
 block|,
 literal|"debug_http"
@@ -1096,13 +1098,6 @@ name|log_level
 operator|=
 name|NGX_LOG_INFO
 expr_stmt|;
-if|#
-directive|if
-literal|0
-comment|/* STUB */
-block_content|ngx_log.log_level = NGX_LOG_DEBUG;
-endif|#
-directive|endif
 return|return
 operator|&
 name|ngx_log
@@ -1198,13 +1193,6 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-comment|/* STUB */
-block_content|log->log_level = NGX_LOG_DEBUG | NGX_LOG_DEBUG_CORE | NGX_LOG_DEBUG_ALLOC | NGX_LOG_DEBUG_EVENT | NGX_LOG_DEBUG_HTTP;
-endif|#
-directive|endif
 return|return
 name|log
 return|;

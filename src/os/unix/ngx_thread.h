@@ -118,6 +118,43 @@ value|PTR_FMT
 end_define
 
 begin_define
+DECL|macro|ngx_thread_create_tls ()
+define|#
+directive|define
+name|ngx_thread_create_tls
+parameter_list|()
+value|pthread_key_create(0, NULL)
+end_define
+
+begin_define
+DECL|macro|ngx_thread_create_tls_n
+define|#
+directive|define
+name|ngx_thread_create_tls_n
+value|"pthread_key_create(0, NULL)"
+end_define
+
+begin_define
+DECL|macro|ngx_thread_get_tls ()
+define|#
+directive|define
+name|ngx_thread_get_tls
+parameter_list|()
+value|pthread_getspecific(0)
+end_define
+
+begin_define
+DECL|macro|ngx_thread_set_tls (v)
+define|#
+directive|define
+name|ngx_thread_set_tls
+parameter_list|(
+name|v
+parameter_list|)
+value|pthread_setspecific(0, v)
+end_define
+
+begin_define
 DECL|macro|NGX_MUTEX_LIGHT
 define|#
 directive|define
@@ -126,7 +163,7 @@ value|0
 end_define
 
 begin_typedef
-DECL|struct|__anon27de16020108
+DECL|struct|__anon288d2b730108
 typedef|typedef
 struct|struct
 block|{
@@ -146,7 +183,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27de16020208
+DECL|struct|__anon288d2b730208
 typedef|typedef
 struct|struct
 block|{
@@ -255,7 +292,7 @@ value|volatile
 end_define
 
 begin_typedef
-DECL|struct|__anon27de16020308
+DECL|struct|__anon288d2b730308
 typedef|typedef
 struct|struct
 block|{
@@ -527,6 +564,22 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_typedef
+DECL|struct|__anon288d2b730408
+typedef|typedef
+struct|struct
+block|{
+DECL|member|event
+name|ngx_event_t
+modifier|*
+name|event
+decl_stmt|;
+DECL|typedef|ngx_tls_t
+block|}
+name|ngx_tls_t
+typedef|;
+end_typedef
 
 begin_endif
 endif|#
