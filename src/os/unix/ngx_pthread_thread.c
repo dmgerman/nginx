@@ -41,7 +41,7 @@ end_decl_stmt
 
 begin_function
 DECL|function|ngx_create_thread (ngx_tid_t * tid,void * (* func)(void * arg),void * arg,ngx_log_t * log)
-name|int
+name|ngx_err_t
 name|ngx_create_thread
 parameter_list|(
 name|ngx_tid_t
@@ -87,7 +87,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"no more than %d threads can be created"
+literal|"no more than %ui threads can be created"
 argument_list|,
 name|max_threads
 argument_list|)
@@ -141,7 +141,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"thread is created: "
-name|TID_T_FMT
+name|NGX_TID_T_FMT
 argument_list|,
 operator|*
 name|tid
@@ -256,7 +256,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_mutex_init (ngx_log_t * log,uint flags)
+DECL|function|ngx_mutex_init (ngx_log_t * log,ngx_uint_t flags)
 name|ngx_mutex_t
 modifier|*
 name|ngx_mutex_init
@@ -265,7 +265,7 @@ name|ngx_log_t
 modifier|*
 name|log
 parameter_list|,
-name|uint
+name|ngx_uint_t
 name|flags
 parameter_list|)
 block|{
@@ -386,9 +386,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"pthread_mutex_destroy("
-name|PTR_FMT
-literal|") failed"
+literal|"pthread_mutex_destroy(%p) failed"
 argument_list|,
 name|m
 argument_list|)
@@ -435,8 +433,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"lock mutex "
-name|PTR_FMT
+literal|"lock mutex %p"
 argument_list|,
 name|m
 argument_list|)
@@ -468,9 +465,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"pthread_mutex_lock("
-name|PTR_FMT
-literal|") failed"
+literal|"pthread_mutex_lock(%p) failed"
 argument_list|,
 name|m
 argument_list|)
@@ -489,9 +484,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"mutex "
-name|PTR_FMT
-literal|" is locked"
+literal|"mutex %p is locked"
 argument_list|,
 name|m
 argument_list|)
@@ -535,8 +528,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"try lock mutex "
-name|PTR_FMT
+literal|"try lock mutex %p"
 argument_list|,
 name|m
 argument_list|)
@@ -579,9 +571,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"pthread_mutex_trylock("
-name|PTR_FMT
-literal|") failed"
+literal|"pthread_mutex_trylock(%p) failed"
 argument_list|,
 name|m
 argument_list|)
@@ -600,9 +590,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"mutex "
-name|PTR_FMT
-literal|" is locked"
+literal|"mutex %p is locked"
 argument_list|,
 name|m
 argument_list|)
@@ -646,8 +634,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"unlock mutex "
-name|PTR_FMT
+literal|"unlock mutex %p"
 argument_list|,
 name|m
 argument_list|)
@@ -679,9 +666,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"pthread_mutex_unlock("
-name|PTR_FMT
-literal|") failed"
+literal|"pthread_mutex_unlock(%p) failed"
 argument_list|,
 name|m
 argument_list|)
@@ -700,9 +685,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"mutex "
-name|PTR_FMT
-literal|" is unlocked"
+literal|"mutex %p is unlocked"
 argument_list|,
 name|m
 argument_list|)
@@ -841,9 +824,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"pthread_cond_destroy("
-name|PTR_FMT
-literal|") failed"
+literal|"pthread_cond_destroy(%p) failed"
 argument_list|,
 name|cv
 argument_list|)
@@ -884,9 +865,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"cv "
-name|PTR_FMT
-literal|" wait"
+literal|"cv %p wait"
 argument_list|,
 name|cv
 argument_list|)
@@ -923,9 +902,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"pthread_cond_wait("
-name|PTR_FMT
-literal|") failed"
+literal|"pthread_cond_wait(%p) failed"
 argument_list|,
 name|cv
 argument_list|)
@@ -944,9 +921,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"cv "
-name|PTR_FMT
-literal|" is waked up"
+literal|"cv %p is waked up"
 argument_list|,
 name|cv
 argument_list|)
@@ -961,9 +936,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"mutex "
-name|PTR_FMT
-literal|" is locked"
+literal|"mutex %p is locked"
 argument_list|,
 name|m
 argument_list|)
@@ -997,9 +970,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"cv "
-name|PTR_FMT
-literal|" to signal"
+literal|"cv %p to signal"
 argument_list|,
 name|cv
 argument_list|)
@@ -1031,9 +1002,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"pthread_cond_signal("
-name|PTR_FMT
-literal|") failed"
+literal|"pthread_cond_signal(%p) failed"
 argument_list|,
 name|cv
 argument_list|)
@@ -1052,9 +1021,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"cv "
-name|PTR_FMT
-literal|" is signaled"
+literal|"cv %p is signaled"
 argument_list|,
 name|cv
 argument_list|)

@@ -124,7 +124,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon29ea73d10108
+DECL|struct|__anon2c61101d0108
 typedef|typedef
 struct|struct
 block|{
@@ -495,10 +495,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"getrlimit(RLIMIT_NOFILE): "
-name|RLIM_T_FMT
-literal|":"
-name|RLIM_T_FMT
+literal|"getrlimit(RLIMIT_NOFILE): %r:%r"
 argument_list|,
 name|rlmt
 operator|.

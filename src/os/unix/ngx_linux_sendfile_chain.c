@@ -776,9 +776,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"sendfile: %d, @"
-name|OFF_T_FMT
-literal|" %d:%d"
+literal|"sendfile: %d, @%O %z:%uz"
 argument_list|,
 name|rc
 argument_list|,
@@ -902,7 +900,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"writev: %d"
+literal|"writev: %z"
 argument_list|,
 name|sent
 argument_list|)

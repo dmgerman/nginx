@@ -131,7 +131,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2a1cdf7f0108
+DECL|struct|__anon2bb6f47f0108
 typedef|typedef
 struct|struct
 block|{
@@ -146,14 +146,14 @@ modifier|*
 name|action
 decl_stmt|;
 DECL|member|client
-name|u_char
+name|ngx_str_t
 modifier|*
 name|client
 decl_stmt|;
-DECL|member|url
-name|u_char
+DECL|member|request
+name|ngx_http_request_t
 modifier|*
-name|url
+name|request
 decl_stmt|;
 DECL|typedef|ngx_http_log_ctx_t
 block|}

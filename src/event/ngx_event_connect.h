@@ -43,7 +43,7 @@ value|-10
 end_define
 
 begin_typedef
-DECL|struct|__anon28c7f2d10108
+DECL|struct|__anon27b3db9a0108
 typedef|typedef
 struct|struct
 block|{
@@ -78,7 +78,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c7f2d10208
+DECL|struct|__anon27b3db9a0208
 typedef|typedef
 struct|struct
 block|{
@@ -123,7 +123,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c7f2d10308
+DECL|struct|__anon27b3db9a0308
 typedef|typedef
 struct|struct
 block|{
@@ -186,7 +186,7 @@ typedef|;
 end_typedef
 
 begin_function_decl
-name|int
+name|ngx_int_t
 name|ngx_event_connect_peer
 parameter_list|(
 name|ngx_peer_connection_t

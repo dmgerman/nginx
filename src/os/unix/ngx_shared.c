@@ -78,9 +78,7 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"mmap(MAP_ANON|MAP_SHARED, "
-name|SIZE_T_FMT
-literal|") failed"
+literal|"mmap(MAP_ANON|MAP_SHARED, %uz) failed"
 argument_list|,
 name|size
 argument_list|)
@@ -190,9 +188,7 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"mmap(/dev/zero, MAP_SHARED, "
-name|SIZE_T_FMT
-literal|") failed"
+literal|"mmap(/dev/zero, MAP_SHARED, %uz) failed"
 argument_list|,
 name|size
 argument_list|)
@@ -305,9 +301,7 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"shmget("
-name|SIZE_T_FMT
-literal|") failed"
+literal|"shmget(%uz) failed"
 argument_list|,
 name|size
 argument_list|)

@@ -57,7 +57,7 @@ operator|<
 name|NGX_WIN_NT
 condition|)
 block|{
-comment|/*          * in Win9X the overlapped pointer must be NULL          * so we need to use SetFilePointer() to set the offset          */
+comment|/*          * under Win9X the overlapped pointer must be NULL          * so we have to use SetFilePointer() to set the offset          */
 if|if
 condition|(
 name|file
@@ -67,7 +67,7 @@ operator|!=
 name|offset
 condition|)
 block|{
-comment|/*              * the maximum file size on FAT16 is 2G, but on FAT32              * the size is 4G so we need to use high_offset              * because a single offset is signed value              */
+comment|/*              * the maximum file size on the FAT16 is 2G, but on the FAT32              * the size is 4G so we have to use the high_offset              * because a single offset is signed value              */
 name|high_offset
 operator|=
 operator|(
@@ -277,7 +277,7 @@ operator|<
 name|NGX_WIN_NT
 condition|)
 block|{
-comment|/*          * in Win9X the overlapped pointer must be NULL          * so we need to use SetFilePointer() to set the offset          */
+comment|/*          * under Win9X the overlapped pointer must be NULL          * so we have to use SetFilePointer() to set the offset          */
 if|if
 condition|(
 name|file
@@ -287,7 +287,7 @@ operator|!=
 name|offset
 condition|)
 block|{
-comment|/*              * the maximum file size on FAT16 is 2G, but on FAT32              * the size is 4G so we need to use high_offset              * because a single offset is signed value              */
+comment|/*              * the maximum file size on the FAT16 is 2G, but on the FAT32              * the size is 4G so we have to use high_offset              * because a single offset is signed value              */
 name|high_offset
 operator|=
 operator|(
@@ -687,28 +687,13 @@ argument_list|(
 name|collision
 argument_list|)
 expr_stmt|;
-name|ngx_snprintf
+name|ngx_sprintf
 argument_list|(
-operator|(
-name|char
-operator|*
-operator|)
 name|name
 operator|+
 name|to
 operator|->
 name|len
-argument_list|,
-literal|1
-operator|+
-literal|10
-operator|+
-literal|1
-operator|+
-sizeof|sizeof
-argument_list|(
-literal|"DELETE"
-argument_list|)
 argument_list|,
 literal|".%010u.DELETE"
 argument_list|,

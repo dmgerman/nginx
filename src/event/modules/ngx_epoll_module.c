@@ -327,7 +327,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b4a7b4e0108
+DECL|struct|__anon27e85c9c0108
 typedef|typedef
 struct|struct
 block|{
@@ -1025,7 +1025,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"epoll add event: fd:%d op:%d ev:%08X"
+literal|"epoll add event: fd:%d op:%d ev:%08XD"
 argument_list|,
 name|c
 operator|->
@@ -1260,7 +1260,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"epoll del event: fd:%d op:%d ev:%08X"
+literal|"epoll del event: fd:%d op:%d ev:%08XD"
 argument_list|,
 name|c
 operator|->
@@ -1386,7 +1386,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"epoll add connection: fd:%d ev:%08X"
+literal|"epoll add connection: fd:%d ev:%08XD"
 argument_list|,
 name|c
 operator|->
@@ -2160,8 +2160,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"epoll: stale event "
-name|PTR_FMT
+literal|"epoll: stale event %p"
 argument_list|,
 name|c
 argument_list|)
@@ -2197,8 +2196,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"epoll: fd:%d ev:%04X d:"
-name|PTR_FMT
+literal|"epoll: fd:%d ev:%04XD d:%p"
 argument_list|,
 name|c
 operator|->
@@ -2243,7 +2241,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"epoll_wait() error on fd:%d ev:%04X"
+literal|"epoll_wait() error on fd:%d ev:%04XD"
 argument_list|,
 name|c
 operator|->
@@ -2287,7 +2285,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"strange epoll_wait() events fd:%d ev:%04X"
+literal|"strange epoll_wait() events fd:%d ev:%04XD"
 argument_list|,
 name|c
 operator|->

@@ -135,7 +135,7 @@ if|#
 directive|if
 operator|!
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
 end_if
 
@@ -306,22 +306,6 @@ name|NGX_INT_T_LEN
 value|sizeof("-2147483648") - 1
 end_define
 
-begin_define
-DECL|macro|NGX_INT_T_FMT
-define|#
-directive|define
-name|NGX_INT_T_FMT
-value|"d"
-end_define
-
-begin_define
-DECL|macro|NGX_UINT_T_FMT
-define|#
-directive|define
-name|NGX_UINT_T_FMT
-value|"u"
-end_define
-
 begin_else
 else|#
 directive|else
@@ -357,22 +341,6 @@ define|#
 directive|define
 name|NGX_INT_T_LEN
 value|sizeof("-9223372036854775808") - 1
-end_define
-
-begin_define
-DECL|macro|NGX_INT_T_FMT
-define|#
-directive|define
-name|NGX_INT_T_FMT
-value|"lld"
-end_define
-
-begin_define
-DECL|macro|NGX_UINT_T_FMT
-define|#
-directive|define
-name|NGX_UINT_T_FMT
-value|"llu"
 end_define
 
 begin_endif
@@ -593,6 +561,50 @@ end_define
 begin_comment
 comment|/* #define NGX_MAXHOSTNAMELEN MAXHOSTNAMELEN */
 end_comment
+
+begin_if
+if|#
+directive|if
+operator|(
+operator|(
+name|__GNU__
+operator|==
+literal|2
+operator|)
+operator|&&
+operator|(
+name|__GNUC_MINOR__
+operator|<
+literal|8
+operator|)
+operator|)
+end_if
+
+begin_define
+DECL|macro|NGX_MAX_UINT32_VALUE
+define|#
+directive|define
+name|NGX_MAX_UINT32_VALUE
+value|0xffffffffLL
+end_define
+
+begin_else
+else|#
+directive|else
+end_else
+
+begin_define
+DECL|macro|NGX_MAX_UINT32_VALUE
+define|#
+directive|define
+name|NGX_MAX_UINT32_VALUE
+value|0xffffffff
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_endif
 endif|#

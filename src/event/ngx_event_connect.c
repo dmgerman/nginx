@@ -39,7 +39,7 @@ end_comment
 
 begin_function
 DECL|function|ngx_event_connect_peer (ngx_peer_connection_t * pc)
-name|int
+name|ngx_int_t
 name|ngx_event_connect_peer
 parameter_list|(
 name|ngx_peer_connection_t
@@ -398,8 +398,6 @@ argument_list|,
 name|SOCK_STREAM
 argument_list|,
 name|IPPROTO_IP
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 if|if
@@ -642,7 +640,7 @@ block|}
 if|#
 directive|if
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
 comment|/*      * Winsock assignes a socket number divisible by 4      * so to find a connection we divide a socket number by 4.      */
 if|if
@@ -1049,13 +1047,12 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"connect to %s, #%d"
+literal|"connect to %V, #%d"
 argument_list|,
+operator|&
 name|peer
 operator|->
 name|addr_port_text
-operator|.
-name|data
 argument_list|,
 name|c
 operator|->

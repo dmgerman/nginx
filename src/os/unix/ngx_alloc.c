@@ -61,9 +61,7 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"malloc() "
-name|SIZE_T_FMT
-literal|" bytes failed"
+literal|"malloc() %uz bytes failed"
 argument_list|,
 name|size
 argument_list|)
@@ -77,10 +75,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"malloc: "
-name|PTR_FMT
-literal|":"
-name|SIZE_T_FMT
+literal|"malloc: %p:%uz"
 argument_list|,
 name|p
 argument_list|,
@@ -192,11 +187,7 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"posix_memalign() "
-name|SIZE_T_FMT
-literal|" bytes aligned to "
-name|SIZE_T_FMT
-literal|" failed"
+literal|"posix_memalign() %uz bytes aligned to %uz failed"
 argument_list|,
 name|size
 argument_list|,
@@ -212,10 +203,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"posix_memalign: "
-name|PTR_FMT
-literal|":"
-name|SIZE_T_FMT
+literal|"posix_memalign: %p:%uz"
 argument_list|,
 name|p
 argument_list|,
@@ -280,11 +268,7 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"memalign() "
-name|SIZE_T_FMT
-literal|" bytes aligned to "
-name|SIZE_T_FMT
-literal|" failed"
+literal|"memalign() %uz bytes aligned to %uz failed"
 argument_list|,
 name|size
 argument_list|,
@@ -300,10 +284,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"memalign: "
-name|PTR_FMT
-literal|":"
-name|SIZE_T_FMT
+literal|"memalign: %p:%uz"
 argument_list|,
 name|p
 argument_list|,

@@ -78,7 +78,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2a443e4e0108
+DECL|struct|__anon2a0fd7680108
 typedef|typedef
 struct|struct
 block|{
@@ -853,7 +853,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"devpoll add event: fd:%d ev:%04X"
+literal|"devpoll add event: fd:%d ev:%04Xd"
 argument_list|,
 name|c
 operator|->
@@ -945,7 +945,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"devpoll del event: fd:%d ev:%04X"
+literal|"devpoll del event: fd:%d ev:%04Xd"
 argument_list|,
 name|c
 operator|->
@@ -1087,7 +1087,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"devpoll fd:%d ev:%04X fl:%04X"
+literal|"devpoll fd:%d ev:%04Xd fl:%04Xd"
 argument_list|,
 name|c
 operator|->
@@ -1893,7 +1893,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"devpoll: fd:%d, ev:%04X, rev:%04X"
+literal|"devpoll: fd:%d, ev:%04Xd, rev:%04Xd"
 argument_list|,
 name|event_list
 index|[
@@ -1945,7 +1945,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"ioctl(DP_POLL) error fd:%d ev:%04X rev:%04X"
+literal|"ioctl(DP_POLL) error fd:%d ev:%04Xd rev:%04Xd"
 argument_list|,
 name|event_list
 index|[
@@ -2004,7 +2004,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"strange ioctl(DP_POLL) events "
-literal|"fd:%d ev:%04X rev:%04X"
+literal|"fd:%d ev:%04Xd rev:%04Xd"
 argument_list|,
 name|event_list
 index|[

@@ -48,8 +48,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"read: %d, %X, %d, "
-name|OFF_T_FMT
+literal|"read: %d, %p, %uz, %O"
 argument_list|,
 name|file
 operator|->
@@ -246,6 +245,29 @@ block|{
 name|ssize_t
 name|n
 decl_stmt|;
+name|ngx_log_debug4
+argument_list|(
+name|NGX_LOG_DEBUG_CORE
+argument_list|,
+name|file
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"write: %d, %p, %uz, %O"
+argument_list|,
+name|file
+operator|->
+name|fd
+argument_list|,
+name|buf
+argument_list|,
+name|size
+argument_list|,
+name|offset
+argument_list|)
+expr_stmt|;
 if|#
 directive|if
 operator|(
@@ -311,7 +333,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"pwrite() has written only %d of %d"
+literal|"pwrite() has written only %z of %uz"
 argument_list|,
 name|n
 argument_list|,
@@ -432,7 +454,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"write() has written only %d of %d"
+literal|"write() has written only %z of %uz"
 argument_list|,
 name|n
 argument_list|,
@@ -527,6 +549,14 @@ return|;
 block|}
 end_function
 
+begin_define
+DECL|macro|NGX_IOVS
+define|#
+directive|define
+name|NGX_IOVS
+value|8
+end_define
+
 begin_function
 DECL|function|ngx_write_chain_to_file (ngx_file_t * file,ngx_chain_t * cl,off_t offset,ngx_pool_t * pool)
 name|ssize_t
@@ -558,18 +588,23 @@ decl_stmt|;
 name|ssize_t
 name|n
 decl_stmt|;
-name|struct
-name|iovec
-modifier|*
-name|iov
-decl_stmt|;
 name|ngx_err_t
 name|err
 decl_stmt|;
 name|ngx_array_t
-name|io
+name|vec
 decl_stmt|;
-comment|/* use pwrite() if there's the only buf in a chain */
+name|struct
+name|iovec
+modifier|*
+name|iov
+decl_stmt|,
+name|iovs
+index|[
+name|NGX_IOVS
+index|]
+decl_stmt|;
+comment|/* use pwrite() if there is the only buf in a chain */
 if|if
 condition|(
 name|cl
@@ -611,6 +646,36 @@ name|offset
 argument_list|)
 return|;
 block|}
+name|vec
+operator|.
+name|elts
+operator|=
+name|iovs
+expr_stmt|;
+name|vec
+operator|.
+name|size
+operator|=
+sizeof|sizeof
+argument_list|(
+expr|struct
+name|iovec
+argument_list|)
+expr_stmt|;
+name|vec
+operator|.
+name|nalloc
+operator|=
+name|NGX_IOVS
+expr_stmt|;
+name|vec
+operator|.
+name|pool
+operator|=
+name|pool
+expr_stmt|;
+do|do
+block|{
 name|prev
 operator|=
 name|NULL
@@ -623,27 +688,22 @@ name|size
 operator|=
 literal|0
 expr_stmt|;
-name|ngx_init_array
-argument_list|(
-name|io
-argument_list|,
-name|pool
-argument_list|,
-literal|10
-argument_list|,
-sizeof|sizeof
-argument_list|(
-expr|struct
-name|iovec
-argument_list|)
-argument_list|,
-name|NGX_ERROR
-argument_list|)
+name|vec
+operator|.
+name|nelts
+operator|=
+literal|0
 expr_stmt|;
 comment|/* create the iovec and coalesce the neighbouring bufs */
 while|while
 condition|(
 name|cl
+operator|&&
+name|vec
+operator|.
+name|nelts
+operator|<
+name|IOV_MAX
 condition|)
 block|{
 if|if
@@ -676,19 +736,24 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|ngx_test_null
-argument_list|(
+if|if
+condition|(
+operator|!
+operator|(
 name|iov
-argument_list|,
-name|ngx_push_array
+operator|=
+name|ngx_array_push
 argument_list|(
 operator|&
-name|io
+name|vec
 argument_list|)
-argument_list|,
+operator|)
+condition|)
+block|{
+return|return
 name|NGX_ERROR
-argument_list|)
-expr_stmt|;
+return|;
+block|}
 name|iov
 operator|->
 name|iov_base
@@ -749,10 +814,10 @@ operator|->
 name|next
 expr_stmt|;
 block|}
-comment|/* use pwrite() if there's the only iovec buffer */
+comment|/* use pwrite() if there is the only iovec buffer */
 if|if
 condition|(
-name|io
+name|vec
 operator|.
 name|nelts
 operator|==
@@ -761,7 +826,7 @@ condition|)
 block|{
 name|iov
 operator|=
-name|io
+name|vec
 operator|.
 name|elts
 expr_stmt|;
@@ -850,11 +915,11 @@ name|file
 operator|->
 name|fd
 argument_list|,
-name|io
+name|vec
 operator|.
 name|elts
 argument_list|,
-name|io
+name|vec
 operator|.
 name|nelts
 argument_list|)
@@ -904,7 +969,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"writev() has written only %d of %d"
+literal|"writev() has written only %z of %uz"
 argument_list|,
 name|n
 argument_list|,
@@ -927,6 +992,12 @@ name|offset
 operator|+=
 name|n
 expr_stmt|;
+block|}
+do|while
+condition|(
+name|cl
+condition|)
+do|;
 return|return
 name|n
 return|;

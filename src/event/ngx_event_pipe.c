@@ -361,12 +361,13 @@ modifier|*
 name|p
 parameter_list|)
 block|{
-name|int
+name|ssize_t
 name|n
 decl_stmt|,
-name|rc
-decl_stmt|,
 name|size
+decl_stmt|;
+name|ngx_int_t
+name|rc
 decl_stmt|;
 name|ngx_buf_t
 modifier|*
@@ -501,7 +502,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"pipe preread: %d"
+literal|"pipe preread: %z"
 argument_list|,
 name|n
 argument_list|)
@@ -820,7 +821,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"pipe temp offset: %d"
+literal|"pipe temp offset: %O"
 argument_list|,
 name|p
 operator|->
@@ -973,7 +974,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"pipe recv chain: %d"
+literal|"pipe recv chain: %z"
 argument_list|,
 name|n
 argument_list|)
@@ -1249,11 +1250,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"pipe buf busy "
-name|PTR_FMT
-literal|", pos "
-name|PTR_FMT
-literal|", size: %d"
+literal|"pipe buf busy %p, pos %p, size: %z"
 argument_list|,
 name|cl
 operator|->
@@ -1323,14 +1320,8 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"pipe buf out shadow "
-name|PTR_FMT
-literal|", pos "
-name|PTR_FMT
-literal|", size: %d "
-literal|"file: "
-name|OFF_T_FMT
-literal|", size: %d"
+literal|"pipe buf out shadow %p, pos %p, size: %z "
+literal|"file: %O, size: %z"
 argument_list|,
 name|cl
 operator|->
@@ -1395,9 +1386,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"pipe buf out file "
-name|OFF_T_FMT
-literal|", size: %d"
+literal|"pipe buf out file %O, size: %z"
 argument_list|,
 name|cl
 operator|->
@@ -1431,11 +1420,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"pipe buf out "
-name|PTR_FMT
-literal|", pos "
-name|PTR_FMT
-literal|", size: %d"
+literal|"pipe buf out %p, pos %p, size: %z"
 argument_list|,
 name|cl
 operator|->
@@ -1491,11 +1476,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"pipe buf in "
-name|PTR_FMT
-literal|", pos "
-name|PTR_FMT
-literal|", size: %d"
+literal|"pipe buf in %p, pos %p, size: %z"
 argument_list|,
 name|cl
 operator|->
@@ -1550,11 +1531,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"pipe buf free "
-name|PTR_FMT
-literal|", last "
-name|PTR_FMT
-literal|", size: %d"
+literal|"pipe buf free %p, last %p, size: %z"
 argument_list|,
 name|cl
 operator|->
@@ -2021,8 +1998,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"pipe write busy: "
-name|SIZE_T_FMT
+literal|"pipe write busy: %uz"
 argument_list|,
 name|bsize
 argument_list|)
@@ -2193,9 +2169,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"pipe write: out:"
-name|PTR_FMT
-literal|", f:%d"
+literal|"pipe write: out:%p, f:%d"
 argument_list|,
 name|out
 argument_list|,
@@ -2525,7 +2499,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"pipe offset: %d"
+literal|"pipe offset: %O"
 argument_list|,
 name|p
 operator|->
@@ -2560,11 +2534,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"pipe buf "
-name|PTR_FMT
-literal|", pos "
-name|PTR_FMT
-literal|", size: %d"
+literal|"pipe buf %p, pos %p, size: %z"
 argument_list|,
 name|cl
 operator|->
@@ -2645,7 +2615,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"size: %d"
+literal|"size: %z"
 argument_list|,
 name|size
 argument_list|)

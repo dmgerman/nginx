@@ -211,13 +211,14 @@ value|WSAEINVAL
 end_define
 
 begin_function_decl
-name|int
+name|u_char
+modifier|*
 name|ngx_strerror_r
 parameter_list|(
 name|ngx_err_t
 name|err
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|errstr
 parameter_list|,

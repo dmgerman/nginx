@@ -28,6 +28,22 @@ directive|include
 file|<ngx_core.h>
 end_include
 
+begin_define
+DECL|macro|NGX_DEBUG_POINTS_STOP
+define|#
+directive|define
+name|NGX_DEBUG_POINTS_STOP
+value|1
+end_define
+
+begin_define
+DECL|macro|NGX_DEBUG_POINTS_ABORT
+define|#
+directive|define
+name|NGX_DEBUG_POINTS_ABORT
+value|2
+end_define
+
 begin_struct
 DECL|struct|ngx_cycle_s
 struct|struct
@@ -105,7 +121,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon294457740108
+DECL|struct|__anon29e7342d0108
 typedef|typedef
 struct|struct
 block|{
@@ -120,6 +136,10 @@ decl_stmt|;
 DECL|member|worker_processes
 name|ngx_int_t
 name|worker_processes
+decl_stmt|;
+DECL|member|debug_points
+name|ngx_int_t
+name|debug_points
 decl_stmt|;
 DECL|member|user
 name|ngx_uid_t
@@ -159,7 +179,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294457740208
+DECL|struct|__anon29e7342d0208
 typedef|typedef
 struct|struct
 block|{

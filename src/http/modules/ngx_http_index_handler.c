@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28c8e55a0108
+DECL|struct|__anon2b424ea90108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c8e55a0208
+DECL|struct|__anon2b424ea90208
 typedef|typedef
 struct|struct
 block|{
@@ -501,8 +501,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http index cache get: "
-name|PTR_FMT
+literal|"http index cache get: %p"
 argument_list|,
 name|ctx
 operator|->
@@ -1101,7 +1100,7 @@ argument_list|,
 name|err
 argument_list|,
 name|ngx_open_file_n
-literal|" %s failed"
+literal|" \"%s\" failed"
 argument_list|,
 name|name
 argument_list|)
@@ -1195,7 +1194,7 @@ argument_list|,
 name|err
 argument_list|,
 name|ngx_open_file_n
-literal|" %s failed"
+literal|" \"%s\" failed"
 argument_list|,
 name|name
 argument_list|)
@@ -1570,8 +1569,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http index cache alloc: "
-name|PTR_FMT
+literal|"http index cache alloc: %p"
 argument_list|,
 name|ctx
 operator|->
@@ -1807,7 +1805,7 @@ argument_list|,
 name|err
 argument_list|,
 name|ngx_file_info_n
-literal|" %s failed"
+literal|" \"%s\" failed"
 argument_list|,
 name|ctx
 operator|->
@@ -2409,21 +2407,19 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"first index \"%s\" in \"%s\" directive "
+literal|"first index \"%V\" in \"%V\" directive "
 literal|"must not be absolute"
 argument_list|,
+operator|&
 name|value
 index|[
 literal|1
 index|]
-operator|.
-name|data
 argument_list|,
+operator|&
 name|cmd
 operator|->
 name|name
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 return|return
@@ -2468,20 +2464,18 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"index \"%s\" in \"%s\" directive is invalid"
+literal|"index \"%V\" in \"%V\" directive is invalid"
 argument_list|,
+operator|&
 name|value
 index|[
 literal|1
 index|]
-operator|.
-name|data
 argument_list|,
+operator|&
 name|cmd
 operator|->
 name|name
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 return|return

@@ -86,7 +86,7 @@ name|ngx_http_not_modified_filter_init
 block|,
 comment|/* init module */
 name|NULL
-comment|/* init child */
+comment|/* init process */
 block|}
 decl_stmt|;
 end_decl_stmt

@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2afb026b0108
+DECL|struct|__anon2c64cf130108
 typedef|typedef
 struct|struct
 block|{
@@ -71,7 +71,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
 end_if
 
@@ -103,22 +103,6 @@ name|s2
 parameter_list|)
 define|\
 value|stricmp((const char *) s1, (const char *) s2)
-end_define
-
-begin_define
-DECL|macro|ngx_snprintf
-define|#
-directive|define
-name|ngx_snprintf
-value|_snprintf
-end_define
-
-begin_define
-DECL|macro|ngx_vsnprintf
-define|#
-directive|define
-name|ngx_vsnprintf
-value|_vsnprintf
 end_define
 
 begin_else
@@ -156,22 +140,6 @@ define|\
 value|strcasecmp((const char *) s1, (const char *) s2)
 end_define
 
-begin_define
-DECL|macro|ngx_snprintf
-define|#
-directive|define
-name|ngx_snprintf
-value|snprintf
-end_define
-
-begin_define
-DECL|macro|ngx_vsnprintf
-define|#
-directive|define
-name|ngx_vsnprintf
-value|vsnprintf
-end_define
-
 begin_endif
 endif|#
 directive|endif
@@ -189,7 +157,6 @@ name|s2
 parameter_list|,
 name|n
 parameter_list|)
-define|\
 value|strncmp((const char *) s1, (const char *) s2, n)
 end_define
 
@@ -340,11 +307,57 @@ name|u_char
 modifier|*
 name|buf
 parameter_list|,
+specifier|const
 name|char
 modifier|*
 name|fmt
 parameter_list|,
 modifier|...
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|u_char
+modifier|*
+name|ngx_snprintf
+parameter_list|(
+name|u_char
+modifier|*
+name|buf
+parameter_list|,
+name|size_t
+name|max
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|fmt
+parameter_list|,
+modifier|...
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|u_char
+modifier|*
+name|ngx_vsnprintf
+parameter_list|(
+name|u_char
+modifier|*
+name|buf
+parameter_list|,
+name|size_t
+name|max
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|fmt
+parameter_list|,
+name|va_list
+name|args
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -480,8 +493,24 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_define
+DECL|macro|NGX_ESCAPE_URI
+define|#
+directive|define
+name|NGX_ESCAPE_URI
+value|0
+end_define
+
+begin_define
+DECL|macro|NGX_ESCAPE_HTML
+define|#
+directive|define
+name|NGX_ESCAPE_HTML
+value|1
+end_define
+
 begin_function_decl
-name|ngx_int_t
+name|ngx_uint_t
 name|ngx_escape_uri
 parameter_list|(
 name|u_char
@@ -494,6 +523,9 @@ name|src
 parameter_list|,
 name|size_t
 name|size
+parameter_list|,
+name|ngx_uint_t
+name|type
 parameter_list|)
 function_decl|;
 end_function_decl

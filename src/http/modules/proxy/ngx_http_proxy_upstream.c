@@ -198,7 +198,7 @@ name|ngx_http_proxy_ctx_t
 modifier|*
 name|p
 parameter_list|,
-name|int
+name|ngx_uint_t
 name|ft_type
 parameter_list|)
 function_decl|;
@@ -738,6 +738,8 @@ operator|->
 name|location
 operator|->
 name|len
+argument_list|,
+name|NGX_ESCAPE_URI
 argument_list|)
 expr_stmt|;
 block|}
@@ -1316,6 +1318,8 @@ operator|->
 name|location
 operator|->
 name|len
+argument_list|,
+name|NGX_ESCAPE_URI
 argument_list|)
 expr_stmt|;
 name|b
@@ -2366,25 +2370,23 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http proxy header: \"%s: %s\""
+literal|"http proxy header: \"%V: %V\""
 argument_list|,
+operator|&
 name|header
 index|[
 name|i
 index|]
 operator|.
 name|key
-operator|.
-name|data
 argument_list|,
+operator|&
 name|header
 index|[
 name|i
 index|]
 operator|.
 name|value
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 block|}
@@ -3379,7 +3381,7 @@ modifier|*
 name|p
 parameter_list|)
 block|{
-name|int
+name|ngx_int_t
 name|rc
 decl_stmt|;
 name|ngx_connection_t
@@ -3440,7 +3442,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http proxy connect: %d"
+literal|"http proxy connect: %i"
 argument_list|,
 name|rc
 argument_list|)
@@ -3542,6 +3544,16 @@ operator|->
 name|event_handler
 operator|=
 name|ngx_http_proxy_process_upstream_status_line
+expr_stmt|;
+name|c
+operator|->
+name|sendfile
+operator|=
+name|r
+operator|->
+name|connection
+operator|->
+name|sendfile
 expr_stmt|;
 name|c
 operator|->
@@ -4902,7 +4914,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http proxy status %d \"%s\""
+literal|"http proxy status %ui \"%V\""
 argument_list|,
 name|p
 operator|->
@@ -4910,13 +4922,12 @@ name|upstream
 operator|->
 name|status
 argument_list|,
+operator|&
 name|p
 operator|->
 name|upstream
 operator|->
 name|status_line
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 comment|/* init or reinit the p->upstream->headers_in.headers table */
@@ -5526,19 +5537,17 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http proxy header: \"%s: %s\""
+literal|"http proxy header: \"%V: %V\""
 argument_list|,
+operator|&
 name|h
 operator|->
 name|key
-operator|.
-name|data
 argument_list|,
+operator|&
 name|h
 operator|->
 name|value
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 continue|continue;
@@ -7018,8 +7027,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http proxy upstream exit: "
-name|PTR_FMT
+literal|"http proxy upstream exit: %p"
 argument_list|,
 name|ep
 operator|->
@@ -7099,7 +7107,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_proxy_next_upstream (ngx_http_proxy_ctx_t * p,int ft_type)
+DECL|function|ngx_http_proxy_next_upstream (ngx_http_proxy_ctx_t * p,ngx_uint_t ft_type)
 specifier|static
 name|void
 name|ngx_http_proxy_next_upstream
@@ -7108,11 +7116,11 @@ name|ngx_http_proxy_ctx_t
 modifier|*
 name|p
 parameter_list|,
-name|int
+name|ngx_uint_t
 name|ft_type
 parameter_list|)
 block|{
-name|int
+name|ngx_uint_t
 name|status
 decl_stmt|;
 name|ngx_log_debug1
@@ -7129,7 +7137,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http proxy next upstream: %d"
+literal|"http proxy next upstream: %ui"
 argument_list|,
 name|ft_type
 argument_list|)

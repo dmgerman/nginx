@@ -65,11 +65,11 @@ value|0
 end_define
 
 begin_define
-DECL|macro|TID_T_FMT
+DECL|macro|NGX_TID_T_FMT
 define|#
 directive|define
-name|TID_T_FMT
-value|PID_T_FMT
+name|NGX_TID_T_FMT
+value|"%P"
 end_define
 
 begin_define
@@ -89,7 +89,7 @@ value|0x80000000
 end_define
 
 begin_typedef
-DECL|struct|__anon28a561b60108
+DECL|struct|__anon298e16580108
 typedef|typedef
 specifier|volatile
 struct|struct
@@ -122,7 +122,7 @@ value|64
 end_define
 
 begin_typedef
-DECL|struct|__anon28a561b60208
+DECL|struct|__anon298e16580208
 typedef|typedef
 struct|struct
 block|{
@@ -302,7 +302,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function_decl
-name|ngx_int_t
+name|ngx_err_t
 name|ngx_thread_key_create
 parameter_list|(
 name|ngx_tls_key_t
@@ -321,7 +321,7 @@ value|"the tls key creation"
 end_define
 
 begin_function_decl
-name|ngx_int_t
+name|ngx_err_t
 name|ngx_thread_set_tls
 parameter_list|(
 name|ngx_tls_key_t

@@ -33,10 +33,6 @@ directive|include
 file|<nginx.h>
 end_include
 
-begin_comment
-comment|/* STUB */
-end_comment
-
 begin_define
 DECL|macro|NGX_HTTP_LOCATION_EXACT
 define|#
@@ -1454,7 +1450,7 @@ parameter_list|)
 block|{
 name|ngx_http_log_ctx_t
 modifier|*
-name|lcx
+name|ctx
 decl_stmt|;
 name|r
 operator|->
@@ -1464,7 +1460,7 @@ name|unexpected_eof
 operator|=
 literal|0
 expr_stmt|;
-name|lcx
+name|ctx
 operator|=
 name|r
 operator|->
@@ -1474,7 +1470,7 @@ name|log
 operator|->
 name|data
 expr_stmt|;
-name|lcx
+name|ctx
 operator|->
 name|action
 operator|=
@@ -2252,10 +2248,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http cl: "
-name|SIZE_T_FMT
-literal|" max: "
-name|SIZE_T_FMT
+literal|"http cl:%z max:%uz"
 argument_list|,
 name|r
 operator|->
@@ -2309,9 +2302,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"client intented to send too large body: "
-name|SIZE_T_FMT
-literal|" bytes"
+literal|"client intented to send too large body: %z bytes"
 argument_list|,
 name|r
 operator|->
@@ -2508,7 +2499,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"find location: %s\"%s\""
+literal|"find location: %s\"%V\""
 argument_list|,
 name|clcfp
 index|[
@@ -2521,14 +2512,13 @@ literal|"= "
 else|:
 literal|""
 argument_list|,
+operator|&
 name|clcfp
 index|[
 name|i
 index|]
 operator|->
 name|name
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 if|if
@@ -2840,16 +2830,15 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"find location: ~ \"%s\""
+literal|"find location: ~ \"%V\""
 argument_list|,
+operator|&
 name|clcfp
 index|[
 name|i
 index|]
 operator|->
 name|name
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 name|n
@@ -2902,24 +2891,22 @@ argument_list|,
 literal|0
 argument_list|,
 name|ngx_regex_exec_n
-literal|" failed: %d on \"%s\" using \"%s\""
+literal|" failed: %d on \"%V\" using \"%V\""
 argument_list|,
 name|n
 argument_list|,
+operator|&
 name|r
 operator|->
 name|uri
-operator|.
-name|data
 argument_list|,
+operator|&
 name|clcfp
 index|[
 name|i
 index|]
 operator|->
 name|name
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 return|return
@@ -3595,32 +3582,17 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"internal redirect: \"%s\""
+literal|"internal redirect: \"%V\""
 argument_list|,
 name|uri
-operator|->
-name|data
 argument_list|)
 expr_stmt|;
 name|r
 operator|->
 name|uri
-operator|.
-name|len
 operator|=
+operator|*
 name|uri
-operator|->
-name|len
-expr_stmt|;
-name|r
-operator|->
-name|uri
-operator|.
-name|data
-operator|=
-name|uri
-operator|->
-name|data
 expr_stmt|;
 if|if
 condition|(
@@ -3630,22 +3602,9 @@ block|{
 name|r
 operator|->
 name|args
-operator|.
-name|len
 operator|=
+operator|*
 name|args
-operator|->
-name|len
-expr_stmt|;
-name|r
-operator|->
-name|args
-operator|.
-name|data
-operator|=
-name|args
-operator|->
-name|data
 expr_stmt|;
 block|}
 if|if
@@ -4772,15 +4731,14 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"the using of the regex \"%s\" "
+literal|"the using of the regex \"%V\" "
 literal|"requires PCRE library"
 argument_list|,
+operator|&
 name|value
 index|[
 literal|2
 index|]
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 return|return
@@ -4799,14 +4757,13 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"invalid location modifier \"%s\""
+literal|"invalid location modifier \"%V\""
 argument_list|,
+operator|&
 name|value
 index|[
 literal|1
 index|]
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 return|return
@@ -4920,20 +4877,18 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"location \"%s\" could not be inside "
-literal|"the exact location \"%s\""
+literal|"location \"%V\" could not be inside "
+literal|"the exact location \"%V\""
 argument_list|,
+operator|&
 name|clcf
 operator|->
 name|name
-operator|.
-name|data
 argument_list|,
+operator|&
 name|pclcf
 operator|->
 name|name
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 return|return
@@ -5014,19 +4969,17 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"location \"%s\" is outside location \"%s\""
+literal|"location \"%V\" is outside location \"%V\""
 argument_list|,
+operator|&
 name|clcf
 operator|->
 name|name
-operator|.
-name|data
 argument_list|,
+operator|&
 name|pclcf
 operator|->
 name|name
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 return|return
@@ -5718,7 +5671,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
 name|l
 operator|->
@@ -7057,7 +7010,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"invalid port \"%s\" in \"%s\" directive, "
+literal|"invalid port \"%s\" in \"%V\" directive, "
 literal|"it must be a number between 1 and 65535"
 argument_list|,
 operator|&
@@ -7066,11 +7019,10 @@ index|[
 name|p
 index|]
 argument_list|,
+operator|&
 name|cmd
 operator|->
 name|name
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 return|return
@@ -7175,15 +7127,14 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"can not resolve host \"%s\" "
-literal|"in \"%s\" directive"
+literal|"in \"%V\" directive"
 argument_list|,
 name|addr
 argument_list|,
+operator|&
 name|cmd
 operator|->
 name|name
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 return|return
@@ -7312,21 +7263,19 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"server name \"%s\" is invalid "
-literal|"in \"%s\" directive"
+literal|"server name \"%V\" is invalid "
+literal|"in \"%V\" directive"
 argument_list|,
+operator|&
 name|value
 index|[
 name|i
 index|]
-operator|.
-name|data
 argument_list|,
+operator|&
 name|cmd
 operator|->
 name|name
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 return|return
@@ -7544,13 +7493,12 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"\"%s\" directive is duplicate"
+literal|"\"%V\" directive is duplicate"
 argument_list|,
+operator|&
 name|cmd
 operator|->
 name|name
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 block|}
@@ -7564,14 +7512,13 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"\"%s\" directive is duplicate, "
+literal|"\"%V\" directive is duplicate, "
 literal|"\"%s\" directive is specified before"
 argument_list|,
+operator|&
 name|cmd
 operator|->
 name|name
-operator|.
-name|data
 argument_list|,
 name|lcf
 operator|->
@@ -7778,14 +7725,13 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"invalid value \"%s\""
+literal|"invalid value \"%V\""
 argument_list|,
+operator|&
 name|value
 index|[
 name|i
 index|]
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 return|return
@@ -7832,14 +7778,12 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"invalid value \"%s\""
+literal|"invalid value \"%V\""
 argument_list|,
 name|value
 index|[
 name|i
 index|]
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 return|return
@@ -7939,14 +7883,13 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"invalid value \"%s\""
+literal|"invalid value \"%V\""
 argument_list|,
+operator|&
 name|value
 index|[
 name|i
 index|]
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 return|return
@@ -7976,14 +7919,13 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"value \"%s\" must be between 400 and 599"
+literal|"value \"%V\" must be between 400 and 599"
 argument_list|,
+operator|&
 name|value
 index|[
 name|i
 index|]
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 return|return

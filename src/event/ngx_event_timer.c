@@ -365,9 +365,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"event "
-name|PTR_FMT
-literal|" is busy in expire timers"
+literal|"event %p is busy in expire timers"
 argument_list|,
 name|ev
 argument_list|)
@@ -386,7 +384,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"event timer del: %d: %d"
+literal|"event timer del: %d: %i"
 argument_list|,
 name|ngx_event_ident
 argument_list|(

@@ -218,6 +218,16 @@ end_comment
 begin_include
 include|#
 directive|include
+file|<malloc.h>
+end_include
+
+begin_comment
+comment|/* memalign() */
+end_comment
+
+begin_include
+include|#
+directive|include
 file|<sys/ioctl.h>
 end_include
 

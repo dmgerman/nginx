@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b2da4490108
+DECL|struct|__anon2c50ae150108
 typedef|typedef
 struct|struct
 block|{
@@ -825,8 +825,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http open file cache get: "
-name|PTR_FMT
+literal|"http open file cache get: %p"
 argument_list|,
 name|file
 argument_list|)
@@ -895,8 +894,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http redirect cache get: "
-name|PTR_FMT
+literal|"http redirect cache get: %p"
 argument_list|,
 name|redirect
 argument_list|)
@@ -970,7 +968,7 @@ comment|/* open file */
 if|#
 directive|if
 operator|(
-name|WIN9X
+name|NGX_WIN9X
 operator|)
 comment|/* TODO: redirect cache */
 if|if
@@ -1058,14 +1056,21 @@ name|fi
 argument_list|)
 condition|)
 block|{
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|log
+name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-literal|"HTTP DIR: '%s'"
-argument|_ name.data
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"HTTP DIR: \"%s\""
+argument_list|,
+name|name
+operator|.
+name|data
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -1528,8 +1533,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http redirect cache alloc: "
-name|PTR_FMT
+literal|"http redirect cache alloc: %p"
 argument_list|,
 name|redirect
 argument_list|)
@@ -1598,7 +1602,7 @@ if|#
 directive|if
 operator|!
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
 comment|/* the not regular files are probably Unix specific */
 if|if
@@ -1619,7 +1623,7 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"%s is not a regular file"
+literal|"\"%s\" is not a regular file"
 argument_list|,
 name|name
 operator|.
@@ -1845,8 +1849,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http open file cache alloc: "
-name|PTR_FMT
+literal|"http open file cache alloc: %p"
 argument_list|,
 name|file
 argument_list|)

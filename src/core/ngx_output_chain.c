@@ -586,20 +586,38 @@ operator|->
 name|next
 expr_stmt|;
 block|}
-name|ngx_alloc_link_and_set_buf
-argument_list|(
+if|if
+condition|(
+operator|!
+operator|(
 name|cl
-argument_list|,
-name|ctx
-operator|->
-name|buf
-argument_list|,
+operator|=
+name|ngx_alloc_chain_link
+argument_list|(
 name|ctx
 operator|->
 name|pool
-argument_list|,
-name|NGX_ERROR
 argument_list|)
+operator|)
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+name|cl
+operator|->
+name|buf
+operator|=
+name|ctx
+operator|->
+name|buf
+expr_stmt|;
+name|cl
+operator|->
+name|next
+operator|=
+name|NULL
 expr_stmt|;
 operator|*
 name|last_out
@@ -1047,7 +1065,7 @@ argument_list|,
 literal|0
 argument_list|,
 name|ngx_read_file_n
-literal|" reads only %d of %d from file"
+literal|" reads only %z of %uz from file"
 argument_list|,
 name|n
 argument_list|,
@@ -1203,7 +1221,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"WRITER buf: %d"
+literal|"chain writer buf size: %uz"
 argument_list|,
 name|ngx_buf_size
 argument_list|(
@@ -1213,20 +1231,38 @@ name|buf
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ngx_alloc_link_and_set_buf
-argument_list|(
+if|if
+condition|(
+operator|!
+operator|(
 name|cl
-argument_list|,
-name|in
-operator|->
-name|buf
-argument_list|,
+operator|=
+name|ngx_alloc_chain_link
+argument_list|(
 name|ctx
 operator|->
 name|pool
-argument_list|,
-name|NGX_ERROR
 argument_list|)
+operator|)
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+name|cl
+operator|->
+name|buf
+operator|=
+name|in
+operator|->
+name|buf
+expr_stmt|;
+name|cl
+operator|->
+name|next
+operator|=
+name|NULL
 expr_stmt|;
 operator|*
 name|ctx
@@ -1257,7 +1293,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"WRITER0: %X"
+literal|"chain writer in: %p"
 argument_list|,
 name|ctx
 operator|->
@@ -1295,7 +1331,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"WRITER1: %X"
+literal|"chain writer out: %p"
 argument_list|,
 name|ctx
 operator|->

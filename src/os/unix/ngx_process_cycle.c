@@ -1541,11 +1541,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"pass channel s:%d pid:"
-name|PID_T_FMT
-literal|" fd:%d to s:%d pid:"
-name|PID_T_FMT
-literal|" fd:%d"
+literal|"pass channel s:%d pid:%P fd:%d to s:%i pid:%P fd:%d"
 argument_list|,
 name|ch
 operator|.
@@ -1785,9 +1781,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"child: %d "
-name|PID_T_FMT
-literal|" e:%d t:%d d:%d r:%d j:%d"
+literal|"child: %d %P e:%d t:%d d:%d r:%d j:%d"
 argument_list|,
 name|i
 argument_list|,
@@ -1966,9 +1960,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"kill ("
-name|PID_T_FMT
-literal|", %d)"
+literal|"kill (%P, %d)"
 argument_list|,
 name|ngx_processes
 index|[
@@ -2012,7 +2004,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"kill(%d, %d) failed"
+literal|"kill(%P, %d) failed"
 argument_list|,
 name|ngx_processes
 index|[
@@ -2143,9 +2135,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"child: %d "
-name|PID_T_FMT
-literal|" e:%d t:%d d:%d r:%d j:%d"
+literal|"child: %d %P e:%d t:%d d:%d r:%d j:%d"
 argument_list|,
 name|i
 argument_list|,
@@ -2344,10 +2334,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"pass close channel s:%d pid:"
-name|PID_T_FMT
-literal|" to:"
-name|PID_T_FMT
+literal|"pass close channel s:%i pid:%P to:%P"
 argument_list|,
 name|ch
 operator|.
@@ -3542,7 +3529,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"channel: %d"
+literal|"channel: %i"
 argument_list|,
 name|n
 argument_list|)
@@ -3550,8 +3537,51 @@ expr_stmt|;
 if|if
 condition|(
 name|n
-operator|<=
-literal|0
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+if|if
+condition|(
+name|close
+argument_list|(
+name|c
+operator|->
+name|fd
+argument_list|)
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|ev
+operator|->
+name|log
+argument_list|,
+name|ngx_errno
+argument_list|,
+literal|"close() channel failed"
+argument_list|)
+expr_stmt|;
+block|}
+name|c
+operator|->
+name|fd
+operator|=
+operator|-
+literal|1
+expr_stmt|;
+return|return;
+block|}
+if|if
+condition|(
+name|n
+operator|==
+name|NGX_AGAIN
 condition|)
 block|{
 return|return;
@@ -3617,9 +3647,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"get channel s:%d pid:"
-name|PID_T_FMT
-literal|" fd:%d"
+literal|"get channel s:%i pid:%P fd:%d"
 argument_list|,
 name|ch
 operator|.
@@ -3677,11 +3705,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"close channel s:%d pid:"
-name|PID_T_FMT
-literal|" our:"
-name|PID_T_FMT
-literal|" fd:%d"
+literal|"close channel s:%i pid:%P our:%P fd:%d"
 argument_list|,
 name|ch
 operator|.
@@ -4097,7 +4121,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"thread "
-name|TID_T_FMT
+name|NGX_TID_T_FMT
 literal|" started"
 argument_list|,
 name|ngx_thread_self
@@ -4253,7 +4277,9 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"thread %d is done"
+literal|"thread "
+name|NGX_TID_T_FMT
+literal|" is done"
 argument_list|,
 name|ngx_thread_self
 argument_list|()

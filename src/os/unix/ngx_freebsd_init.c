@@ -24,7 +24,7 @@ DECL|variable|ngx_freebsd_kern_ostype
 name|char
 name|ngx_freebsd_kern_ostype
 index|[
-literal|20
+literal|16
 index|]
 decl_stmt|;
 end_decl_stmt
@@ -34,7 +34,7 @@ DECL|variable|ngx_freebsd_kern_osrelease
 name|char
 name|ngx_freebsd_kern_osrelease
 index|[
-literal|20
+literal|128
 index|]
 decl_stmt|;
 end_decl_stmt
@@ -128,7 +128,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2c811e4b0108
+DECL|struct|__anon2c4bbbff0108
 typedef|typedef
 struct|struct
 block|{
@@ -328,9 +328,26 @@ argument_list|,
 literal|"sysctlbyname(kern.ostype) failed"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|ngx_errno
+operator|!=
+name|NGX_ENOMEM
+condition|)
+block|{
 return|return
 name|NGX_ERROR
 return|;
+block|}
+name|ngx_freebsd_kern_ostype
+index|[
+name|size
+operator|-
+literal|1
+index|]
+operator|=
+literal|'\0'
+expr_stmt|;
 block|}
 name|size
 operator|=
@@ -370,9 +387,26 @@ argument_list|,
 literal|"sysctlbyname(kern.osrelease) failed"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|ngx_errno
+operator|!=
+name|NGX_ENOMEM
+condition|)
+block|{
 return|return
 name|NGX_ERROR
 return|;
+block|}
+name|ngx_freebsd_kern_osrelease
+index|[
+name|size
+operator|-
+literal|1
+index|]
+operator|=
+literal|'\0'
+expr_stmt|;
 block|}
 name|size
 operator|=

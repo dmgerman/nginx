@@ -59,6 +59,12 @@ name|defined
 argument_list|(
 name|__BORLANDC__
 argument_list|)
+operator|||
+operator|(
+name|_MSC_VER
+operator|>=
+literal|1300
+operator|)
 end_if
 
 begin_comment

@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon291b86580108
+DECL|struct|__anon294acae70108
 typedef|typedef
 struct|struct
 block|{
@@ -37,7 +37,7 @@ name|int
 name|flag
 decl_stmt|;
 DECL|member|name
-name|u_char
+name|ngx_str_t
 modifier|*
 name|name
 decl_stmt|;
@@ -64,14 +64,15 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|size_t
+name|u_char
+modifier|*
 name|ngx_accept_log_error
 parameter_list|(
 name|void
 modifier|*
 name|data
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -200,15 +201,14 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"accept on %s, ready: %d"
+literal|"accept on %V, ready: %d"
 argument_list|,
+operator|&
 name|ls
 operator|->
 name|listening
 operator|->
 name|addr_text
-operator|.
-name|data
 argument_list|,
 name|ev
 operator|->
@@ -371,13 +371,12 @@ name|ctx
 operator|->
 name|name
 operator|=
+operator|&
 name|ls
 operator|->
 name|listening
 operator|->
 name|addr_text
-operator|.
-name|data
 expr_stmt|;
 name|log
 operator|->
@@ -455,15 +454,14 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"accept() on %s failed"
+literal|"accept() on %V failed"
 argument_list|,
+operator|&
 name|ls
 operator|->
 name|listening
 operator|->
 name|addr_text
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 if|if
@@ -553,17 +551,16 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"accept() on %s returned socket #%d while "
+literal|"accept() on %V returned socket #%d while "
 literal|"only %d connections was configured, "
 literal|"closing the connection"
 argument_list|,
+operator|&
 name|ls
 operator|->
 name|listening
 operator|->
 name|addr_text
-operator|.
-name|data
 argument_list|,
 name|s
 argument_list|,
@@ -711,7 +708,7 @@ block|}
 if|#
 directive|if
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
 comment|/*          * Winsock assignes a socket number divisible by 4          * so to find a connection we divide a socket number by 4.          */
 if|if
@@ -731,16 +728,15 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"accept() on %s returned socket #%d, "
+literal|"accept() on %V returned socket #%d, "
 literal|"not divisible by 4"
 argument_list|,
+operator|&
 name|ls
 operator|->
 name|listening
 operator|->
 name|addr_text
-operator|.
-name|data
 argument_list|,
 name|s
 argument_list|)
@@ -1863,16 +1859,17 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_accept_log_error (void * data,char * buf,size_t len)
+DECL|function|ngx_accept_log_error (void * data,u_char * buf,size_t len)
 specifier|static
-name|size_t
+name|u_char
+modifier|*
 name|ngx_accept_log_error
 parameter_list|(
 name|void
 modifier|*
 name|data
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -1893,7 +1890,7 @@ name|buf
 argument_list|,
 name|len
 argument_list|,
-literal|" while accept() on %s"
+literal|" while accept() on %V"
 argument_list|,
 name|ctx
 operator|->

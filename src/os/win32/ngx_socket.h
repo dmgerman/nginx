@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_define
-DECL|macro|ngx_socket (af,type,proto,flags)
+DECL|macro|ngx_socket (af,type,proto)
 define|#
 directive|define
 name|ngx_socket
@@ -63,39 +63,10 @@ parameter_list|,
 name|type
 parameter_list|,
 name|proto
-parameter_list|,
-name|flags
-parameter_list|)
-value|socket(af, type, proto)
-end_define
-
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-
-begin_define
-define|#
-directive|define
-name|ngx_socket
-parameter_list|(
-name|af
-parameter_list|,
-name|type
-parameter_list|,
-name|proto
-parameter_list|,
-name|flags
 parameter_list|)
 define|\
-value|WSASocket(af, type, proto, NULL, 0, flags)
+value|WSASocket(af, type, proto, NULL, 0, WSA_FLAG_OVERLAPPED)
 end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
 
 begin_define
 DECL|macro|ngx_socket_n

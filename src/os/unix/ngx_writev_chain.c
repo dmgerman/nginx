@@ -26,7 +26,7 @@ DECL|macro|NGX_IOVS
 define|#
 directive|define
 name|NGX_IOVS
-value|8
+value|16
 end_define
 
 begin_function
@@ -55,13 +55,13 @@ name|ssize_t
 name|n
 decl_stmt|,
 name|size
+decl_stmt|,
+name|sent
 decl_stmt|;
 name|off_t
 name|send
 decl_stmt|,
 name|sprev
-decl_stmt|,
-name|sent
 decl_stmt|;
 name|ngx_uint_t
 name|eintr
@@ -259,6 +259,26 @@ condition|)
 block|{
 continue|continue;
 block|}
+if|#
+directive|if
+literal|1
+if|if
+condition|(
+operator|!
+name|ngx_buf_in_memory
+argument_list|(
+name|cl
+operator|->
+name|buf
+argument_list|)
+condition|)
+block|{
+name|ngx_debug_point
+argument_list|()
+expr_stmt|;
+block|}
+endif|#
+directive|endif
 name|size
 operator|=
 name|cl
@@ -471,8 +491,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"writev: "
-name|OFF_T_FMT
+literal|"writev: %z"
 argument_list|,
 name|sent
 argument_list|)
@@ -504,10 +523,6 @@ operator|=
 name|in
 init|;
 name|cl
-operator|&&
-name|sent
-operator|>
-literal|0
 condition|;
 name|cl
 operator|=

@@ -89,8 +89,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"posted event "
-name|PTR_FMT
+literal|"posted event %p"
 argument_list|,
 name|ev
 argument_list|)
@@ -125,6 +124,11 @@ if|#
 directive|if
 operator|(
 name|NGX_THREADS
+operator|)
+operator|&&
+operator|!
+operator|(
+name|NGX_WIN32
 operator|)
 end_if
 
@@ -240,8 +244,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"posted event "
-name|PTR_FMT
+literal|"posted event %p"
 argument_list|,
 name|ev
 argument_list|)
@@ -279,9 +282,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"posted event "
-name|PTR_FMT
-literal|" is busy"
+literal|"posted event %p is busy"
 argument_list|,
 name|ev
 argument_list|)
@@ -325,9 +326,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"the own lock of the posted event "
-name|PTR_FMT
-literal|" is busy"
+literal|"the own lock of the posted event %p is busy"
 argument_list|,
 name|ev
 argument_list|)
@@ -530,9 +529,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"posted event "
-name|PTR_FMT
-literal|" is done"
+literal|"posted event %p is done"
 argument_list|,
 name|ev
 argument_list|)

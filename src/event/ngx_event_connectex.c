@@ -821,7 +821,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"WSAWaitForMultipleEvents() "
-literal|"returned unexpected network event %lu"
+literal|"returned unexpected network event %ul"
 argument_list|,
 name|ne
 operator|.

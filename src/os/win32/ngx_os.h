@@ -28,6 +28,12 @@ directive|include
 file|<ngx_core.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_gui.h>
+end_include
+
 begin_define
 DECL|macro|NGX_IO_SENDFILE
 define|#
@@ -203,7 +209,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a7dd5d0108
+DECL|struct|__anon2af15f090108
 typedef|typedef
 struct|struct
 block|{
@@ -355,6 +361,13 @@ begin_decl_stmt
 specifier|extern
 name|ngx_uint_t
 name|ngx_ncpu
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_uint_t
+name|ngx_max_wsabufs
 decl_stmt|;
 end_decl_stmt
 

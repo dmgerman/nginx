@@ -110,7 +110,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2bbfaf990108
+DECL|struct|__anon2745a2840108
 typedef|typedef
 struct|struct
 block|{
@@ -1581,7 +1581,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"rtsig signo:%d fd:%d band:%X"
+literal|"rtsig signo:%d fd:%d band:%04Xd"
 argument_list|,
 name|signo
 argument_list|,
@@ -1796,8 +1796,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"rtsig: stale event "
-name|PTR_FMT
+literal|"rtsig: stale event %p"
 argument_list|,
 name|c
 argument_list|)

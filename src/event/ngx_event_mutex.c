@@ -48,9 +48,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"lock event mutex "
-name|PTR_FMT
-literal|" lock:%X"
+literal|"lock event mutex %p lock:%XD"
 argument_list|,
 name|m
 argument_list|,
@@ -176,8 +174,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"tring to unlock the free event mutex "
-name|PTR_FMT
+literal|"tring to unlock the free event mutex %p"
 argument_list|,
 name|m
 argument_list|)
@@ -194,10 +191,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"unlock event mutex "
-name|PTR_FMT
-literal|", next event: "
-name|PTR_FMT
+literal|"unlock event mutex %p, next event: %p"
 argument_list|,
 name|m
 argument_list|,

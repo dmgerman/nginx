@@ -368,7 +368,7 @@ decl_stmt|;
 if|#
 directive|if
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
 name|ngx_iocp_conf_t
 modifier|*
@@ -1464,16 +1464,15 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"the duplicate default server in %s:%d"
+literal|"the duplicate default server in %V:%d"
 argument_list|,
+operator|&
 name|lscf
 index|[
 name|l
 index|]
 operator|.
 name|file_name
-operator|.
-name|data
 argument_list|,
 name|lscf
 index|[
@@ -2131,7 +2130,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
 name|iocpcf
 operator|=
@@ -2439,7 +2438,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"port: %d %08x"
+literal|"port: %d %p"
 argument_list|,
 name|in_port
 index|[
@@ -2514,7 +2513,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"%s:%d %08x"
+literal|"%s:%d %p"
 argument_list|,
 name|address
 argument_list|,
@@ -2575,7 +2574,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"%s:%d %s %08x"
+literal|"%s:%d %V %p"
 argument_list|,
 name|address
 argument_list|,
@@ -2586,14 +2585,13 @@ index|]
 operator|.
 name|port
 argument_list|,
+operator|&
 name|s_name
 index|[
 name|n
 index|]
 operator|.
 name|name
-operator|.
-name|data
 argument_list|,
 name|s_name
 index|[
@@ -2906,16 +2904,15 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"name: %s"
+literal|"name: %V"
 argument_list|,
+operator|&
 name|server_names
 index|[
 name|i
 index|]
 operator|.
 name|name
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 comment|/* TODO: duplicate names can be checked here */

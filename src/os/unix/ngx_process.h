@@ -45,7 +45,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon287de25c0108
+DECL|struct|__anon2c93056a0108
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon287de25c0208
+DECL|struct|__anon2c93056a0208
 typedef|typedef
 struct|struct
 block|{
@@ -248,6 +248,15 @@ end_function_decl
 begin_function_decl
 name|void
 name|ngx_process_get_status
+parameter_list|(
+name|void
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_debug_point
 parameter_list|(
 name|void
 parameter_list|)

@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a34ff5c0108
+DECL|struct|__anon2942b8480108
 typedef|typedef
 struct|struct
 block|{
@@ -81,7 +81,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a34ff5c0208
+DECL|struct|__anon2942b8480208
 typedef|typedef
 struct|struct
 block|{
@@ -172,7 +172,7 @@ value|0x0200
 end_define
 
 begin_typedef
-DECL|struct|__anon2a34ff5c0308
+DECL|struct|__anon2942b8480308
 typedef|typedef
 struct|struct
 block|{
@@ -331,7 +331,6 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|ngx_inline
 specifier|static
 name|int
 name|ngx_http_gzip_error
@@ -2329,21 +2328,39 @@ name|pos
 operator|+
 literal|10
 expr_stmt|;
-name|ngx_alloc_link_and_set_buf
-argument_list|(
+if|if
+condition|(
+operator|!
+operator|(
 name|cl
-argument_list|,
-name|b
-argument_list|,
+operator|=
+name|ngx_alloc_chain_link
+argument_list|(
 name|r
 operator|->
 name|pool
-argument_list|,
+argument_list|)
+operator|)
+condition|)
+block|{
+return|return
 name|ngx_http_gzip_error
 argument_list|(
 name|ctx
 argument_list|)
-argument_list|)
+return|;
+block|}
+name|cl
+operator|->
+name|buf
+operator|=
+name|b
+expr_stmt|;
+name|cl
+operator|->
+name|next
+operator|=
+name|NULL
 expr_stmt|;
 name|ctx
 operator|->
@@ -2463,8 +2480,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"gzip in: "
-name|PTR_FMT
+literal|"gzip in: %p"
 argument_list|,
 name|ctx
 operator|->
@@ -2544,11 +2560,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"gzip in_buf:"
-name|PTR_FMT
-literal|" ni:"
-name|PTR_FMT
-literal|" ai:%d"
+literal|"gzip in_buf:%p ni:%p ai:%ud"
 argument_list|,
 name|ctx
 operator|->
@@ -2844,7 +2856,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"deflate in: ni:%X no:%X ai:%d ao:%d fl:%d redo:%d"
+literal|"deflate in: ni:%p no:%p ai:%ud ao:%ud fl:%d redo:%d"
 argument_list|,
 name|ctx
 operator|->
@@ -2944,7 +2956,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"deflate out: ni:%X no:%X ai:%d ao:%d rc:%d"
+literal|"deflate out: ni:%p no:%p ai:%ud ao:%ud rc:%d"
 argument_list|,
 name|ctx
 operator|->
@@ -2985,10 +2997,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"gzip in_buf:"
-name|PTR_FMT
-literal|" pos:"
-name|PTR_FMT
+literal|"gzip in_buf:%p pos:%p"
 argument_list|,
 name|ctx
 operator|->
@@ -3067,23 +3076,41 @@ literal|0
 condition|)
 block|{
 comment|/* zlib wants to output some more gzipped data */
-name|ngx_alloc_link_and_set_buf
-argument_list|(
+if|if
+condition|(
+operator|!
+operator|(
 name|cl
-argument_list|,
-name|ctx
-operator|->
-name|out_buf
-argument_list|,
+operator|=
+name|ngx_alloc_chain_link
+argument_list|(
 name|r
 operator|->
 name|pool
-argument_list|,
+argument_list|)
+operator|)
+condition|)
+block|{
+return|return
 name|ngx_http_gzip_error
 argument_list|(
 name|ctx
 argument_list|)
-argument_list|)
+return|;
+block|}
+name|cl
+operator|->
+name|buf
+operator|=
+name|ctx
+operator|->
+name|out_buf
+expr_stmt|;
+name|cl
+operator|->
+name|next
+operator|=
+name|NULL
 expr_stmt|;
 operator|*
 name|ctx
@@ -3138,23 +3165,41 @@ name|flush
 operator|=
 name|Z_NO_FLUSH
 expr_stmt|;
-name|ngx_alloc_link_and_set_buf
-argument_list|(
+if|if
+condition|(
+operator|!
+operator|(
 name|cl
-argument_list|,
-name|ctx
-operator|->
-name|out_buf
-argument_list|,
+operator|=
+name|ngx_alloc_chain_link
+argument_list|(
 name|r
 operator|->
 name|pool
-argument_list|,
+argument_list|)
+operator|)
+condition|)
+block|{
+return|return
 name|ngx_http_gzip_error
 argument_list|(
 name|ctx
 argument_list|)
-argument_list|)
+return|;
+block|}
+name|cl
+operator|->
+name|buf
+operator|=
+name|ctx
+operator|->
+name|out_buf
+expr_stmt|;
+name|cl
+operator|->
+name|next
+operator|=
+name|NULL
 expr_stmt|;
 operator|*
 name|ctx
@@ -3257,23 +3302,41 @@ operator|->
 name|preallocated
 argument_list|)
 expr_stmt|;
-name|ngx_alloc_link_and_set_buf
-argument_list|(
+if|if
+condition|(
+operator|!
+operator|(
 name|cl
-argument_list|,
-name|ctx
-operator|->
-name|out_buf
-argument_list|,
+operator|=
+name|ngx_alloc_chain_link
+argument_list|(
 name|r
 operator|->
 name|pool
-argument_list|,
+argument_list|)
+operator|)
+condition|)
+block|{
+return|return
 name|ngx_http_gzip_error
 argument_list|(
 name|ctx
 argument_list|)
-argument_list|)
+return|;
+block|}
+name|cl
+operator|->
+name|buf
+operator|=
+name|ctx
+operator|->
+name|out_buf
+expr_stmt|;
+name|cl
+operator|->
+name|next
+operator|=
+name|NULL
 expr_stmt|;
 operator|*
 name|ctx
@@ -3364,21 +3427,39 @@ name|last_buf
 operator|=
 literal|1
 expr_stmt|;
-name|ngx_alloc_link_and_set_buf
-argument_list|(
+if|if
+condition|(
+operator|!
+operator|(
 name|cl
-argument_list|,
-name|b
-argument_list|,
+operator|=
+name|ngx_alloc_chain_link
+argument_list|(
 name|r
 operator|->
 name|pool
-argument_list|,
+argument_list|)
+operator|)
+condition|)
+block|{
+return|return
 name|ngx_http_gzip_error
 argument_list|(
 name|ctx
 argument_list|)
-argument_list|)
+return|;
+block|}
+name|cl
+operator|->
+name|buf
+operator|=
+name|b
+expr_stmt|;
+name|cl
+operator|->
+name|next
+operator|=
+name|NULL
 expr_stmt|;
 operator|*
 name|ctx
@@ -3604,23 +3685,41 @@ operator|==
 name|NULL
 condition|)
 block|{
-name|ngx_alloc_link_and_set_buf
-argument_list|(
+if|if
+condition|(
+operator|!
+operator|(
 name|cl
-argument_list|,
-name|ctx
-operator|->
-name|out_buf
-argument_list|,
+operator|=
+name|ngx_alloc_chain_link
+argument_list|(
 name|r
 operator|->
 name|pool
-argument_list|,
+argument_list|)
+operator|)
+condition|)
+block|{
+return|return
 name|ngx_http_gzip_error
 argument_list|(
 name|ctx
 argument_list|)
-argument_list|)
+return|;
+block|}
+name|cl
+operator|->
+name|buf
+operator|=
+name|ctx
+operator|->
+name|out_buf
+expr_stmt|;
+name|cl
+operator|->
+name|next
+operator|=
+name|NULL
 expr_stmt|;
 operator|*
 name|ctx
@@ -3791,7 +3890,7 @@ operator|!=
 literal|0
 condition|)
 block|{
-comment|/*          * the zlib deflate_state allocation, it takes about 6K, we allocate 8K          */
+comment|/*          * The zlib deflate_state allocation, it takes about 6K,          * we allocate 8K.  Other allocations are divisible by 512.          */
 name|alloc
 operator|=
 operator|(
@@ -3851,8 +3950,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"gzip alloc: n:%d s:%d a:%d p:"
-name|PTR_FMT
+literal|"gzip alloc: n:%ud s:%ud a:%ud p:%p"
 argument_list|,
 name|items
 argument_list|,
@@ -3881,7 +3979,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"gzip filter failed to use preallocated memory: %d of %d"
+literal|"gzip filter failed to use preallocated memory: %ud of %ud"
 argument_list|,
 name|items
 operator|*
@@ -3931,7 +4029,7 @@ block|{
 if|#
 directive|if
 literal|0
-block_content|ngx_http_gzip_ctx_t *ctx = opaque;      ngx_log_debug1(NGX_LOG_DEBUG_HTTP, ctx->request->connection->log, 0,                    "gzip free: %X", address);
+block_content|ngx_http_gzip_ctx_t *ctx = opaque;      ngx_log_debug1(NGX_LOG_DEBUG_HTTP, ctx->request->connection->log, 0,                    "gzip free: %p", address);
 endif|#
 directive|endif
 block|}
@@ -3998,7 +4096,6 @@ operator|+
 literal|1
 return|;
 block|}
-comment|/* we prefer do not use the FPU */
 name|zint
 operator|=
 operator|(
@@ -4086,18 +4183,11 @@ argument_list|,
 name|zfrac
 argument_list|)
 return|;
-if|#
-directive|if
-literal|0
-block_content|return buf + ngx_snprintf((char *) buf, NGX_INT32_LEN + 4,                               "%" NGX_UINT_T_FMT ".%02" NGX_UINT_T_FMT,                               zint, zfrac);
-endif|#
-directive|endif
 block|}
 end_function
 
 begin_function
 DECL|function|ngx_http_gzip_error (ngx_http_gzip_ctx_t * ctx)
-name|ngx_inline
 specifier|static
 name|int
 name|ngx_http_gzip_error

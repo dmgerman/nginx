@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b8bd1d50108
+DECL|struct|__anon29ece8cb0108
 typedef|typedef
 struct|struct
 block|{
@@ -48,7 +48,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8bd1d50208
+DECL|struct|__anon29ece8cb0208
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8bd1d50308
+DECL|struct|__anon29ece8cb0308
 typedef|typedef
 struct|struct
 block|{
@@ -98,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8bd1d50408
+DECL|struct|__anon29ece8cb0408
 typedef|typedef
 struct|struct
 block|{
@@ -125,7 +125,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8bd1d50508
+DECL|struct|__anon29ece8cb0508
 typedef|typedef
 struct|struct
 block|{
@@ -513,7 +513,7 @@ name|ngx_http_charset_filter_init
 block|,
 comment|/* init module */
 name|NULL
-comment|/* init child */
+comment|/* init process */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -1193,21 +1193,19 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"\"charset_map\" between the same charsets "
-literal|"\"%s\" and \"%s\""
+literal|"\"%V\" and \"%V\""
 argument_list|,
+operator|&
 name|value
 index|[
 literal|1
 index|]
-operator|.
-name|data
 argument_list|,
+operator|&
 name|value
 index|[
 literal|2
 index|]
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 return|return
@@ -1280,21 +1278,19 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"duplicate \"charset_map\" between "
-literal|"\"%s\" and \"%s\""
+literal|"\"%V\" and \"%V\""
 argument_list|,
+operator|&
 name|value
 index|[
 literal|1
 index|]
-operator|.
-name|data
 argument_list|,
+operator|&
 name|value
 index|[
 literal|2
 index|]
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 return|return
@@ -1598,14 +1594,13 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"invalid value \"%s\""
+literal|"invalid value \"%V\""
 argument_list|,
+operator|&
 name|value
 index|[
 literal|0
 index|]
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 return|return
@@ -1650,14 +1645,13 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"invalid value \"%s\""
+literal|"invalid value \"%V\""
 argument_list|,
+operator|&
 name|value
 index|[
 literal|1
 index|]
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 return|return
@@ -2418,25 +2412,23 @@ argument_list|,
 literal|0
 argument_list|,
 literal|" no \"charset_map\" between the charsets "
-literal|"\"%s\" and \"%s\""
+literal|"\"%V\" and \"%V\""
 argument_list|,
+operator|&
 name|charset
 index|[
 name|i
 index|]
 operator|.
 name|name
-operator|.
-name|data
 argument_list|,
+operator|&
 name|charset
 index|[
 name|n
 index|]
 operator|.
 name|name
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 return|return

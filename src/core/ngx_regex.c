@@ -201,10 +201,6 @@ condition|)
 block|{
 name|ngx_snprintf
 argument_list|(
-operator|(
-name|char
-operator|*
-operator|)
 name|err
 operator|->
 name|data
@@ -229,10 +225,6 @@ else|else
 block|{
 name|ngx_snprintf
 argument_list|(
-operator|(
-name|char
-operator|*
-operator|)
 name|err
 operator|->
 name|data

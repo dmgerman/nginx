@@ -16,7 +16,7 @@ file|<ngx_core.h>
 end_include
 
 begin_comment
-comment|/*  * The threads implementation uses the rfork(RFPROC|RFTHREAD|RFMEM) syscall  * to create threads.  All threads use the stacks of the same size mmap()ed  * below the main stack.  Thus the current thread id is determinated via  * the stack pointer value.  *  * The mutex implementation uses the ngx_atomic_cmp_set() operation  * to acquire a mutex and the SysV semaphore to wait on a mutex and to wake up  * the waiting threads.  The light mutex does not use semaphore, so after  * spinning in the lock the thread calls sched_yield().  However the light  * mutecies are intended to be used with the "trylock" operation only.  * The SysV semop() is a cheap syscall, particularly if it has little sembuf's  * and does not use SEM_UNDO.  *  * The condition variable implementation uses signal #64.  The signal handler  * is SIG_IGN so the kill() is a cheap syscall.  The thread waits a signal  * in kevent().  The use of the EVFILT_SIGNAL is safe since FreeBSD 4.7.  *  * This threads implementation currently works on i386 (486+) and amd64  * platforms only.  */
+comment|/*  * The threads implementation uses the rfork(RFPROC|RFTHREAD|RFMEM) syscall  * to create threads.  All threads use the stacks of the same size mmap()ed  * below the main stack.  Thus the current thread id is determinated via  * the stack pointer value.  *  * The mutex implementation uses the ngx_atomic_cmp_set() operation  * to acquire a mutex and the SysV semaphore to wait on a mutex and to wake up  * the waiting threads.  The light mutex does not use semaphore, so after  * spinning in the lock the thread calls sched_yield().  However the light  * mutecies are intended to be used with the "trylock" operation only.  * The SysV semop() is a cheap syscall, particularly if it has little sembuf's  * and does not use SEM_UNDO.  *  * The condition variable implementation uses the signal #64.  * The signal handler is SIG_IGN so the kill() is a cheap syscall.  * The thread waits a signal in kevent().  The use of the EVFILT_SIGNAL  * is safe since FreeBSD 4.10-STABLE.  *  * This threads implementation currently works on i386 (486+) and amd64  * platforms only.  */
 end_comment
 
 begin_decl_stmt
@@ -292,7 +292,7 @@ end_endif
 
 begin_function
 DECL|function|ngx_create_thread (ngx_tid_t * tid,void * (* func)(void * arg),void * arg,ngx_log_t * log)
-name|int
+name|ngx_err_t
 name|ngx_create_thread
 parameter_list|(
 name|ngx_tid_t
@@ -320,9 +320,10 @@ modifier|*
 name|log
 parameter_list|)
 block|{
-name|int
+name|ngx_pid_t
 name|id
-decl_stmt|,
+decl_stmt|;
+name|ngx_err_t
 name|err
 decl_stmt|;
 name|char
@@ -347,7 +348,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"no more than %d threads can be created"
+literal|"no more than %ui threads can be created"
 argument_list|,
 name|max_threads
 argument_list|)
@@ -395,11 +396,7 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"mmap("
-name|PTR_FMT
-literal|":"
-name|SIZE_T_FMT
-literal|", MAP_STACK) thread stack failed"
+literal|"mmap(%p:%uz, MAP_STACK) thread stack failed"
 argument_list|,
 name|last_stack
 argument_list|,
@@ -425,9 +422,16 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"stack address was changed"
+literal|"stack %p address was changed to %p"
+argument_list|,
+name|last_stack
+argument_list|,
+name|stack
 argument_list|)
 expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
 block|}
 name|stack_top
 operator|=
@@ -443,10 +447,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"thread stack: "
-name|PTR_FMT
-literal|"-"
-name|PTR_FMT
+literal|"thread stack: %p-%p"
 argument_list|,
 name|stack
 argument_list|,
@@ -534,7 +535,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"rfork()ed thread: %d"
+literal|"rfork()ed thread: %P"
 argument_list|,
 name|id
 argument_list|)
@@ -731,10 +732,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"usrstack: "
-name|PTR_FMT
-literal|" red zone: "
-name|PTR_FMT
+literal|"usrstack: %p red zone: %p"
 argument_list|,
 name|ngx_freebsd_kern_usrstack
 argument_list|,
@@ -776,11 +774,7 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"mmap("
-name|PTR_FMT
-literal|":"
-name|SIZE_T_FMT
-literal|", PROT_NONE, MAP_ANON) red zone failed"
+literal|"mmap(%p:%uz, PROT_NONE, MAP_ANON) red zone failed"
 argument_list|,
 name|red_zone
 argument_list|,
@@ -808,11 +802,18 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"red zone address was changed"
+literal|"red zone %p address was changed to %p"
+argument_list|,
+name|red_zone
+argument_list|,
+name|zone
 argument_list|)
 expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
 block|}
-comment|/* create the threads errno's array */
+comment|/* create the thread errno' array */
 if|if
 condition|(
 operator|!
@@ -839,7 +840,7 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-comment|/* create the threads tids array */
+comment|/* create the thread tids array */
 if|if
 condition|(
 operator|!
@@ -877,7 +878,7 @@ index|]
 operator|=
 name|ngx_pid
 expr_stmt|;
-comment|/* create the threads tls's array */
+comment|/* create the thread tls' array */
 name|ngx_tls
 operator|=
 name|ngx_calloc
@@ -986,7 +987,7 @@ end_function
 
 begin_function
 DECL|function|ngx_thread_key_create (ngx_tls_key_t * key)
-name|ngx_int_t
+name|ngx_err_t
 name|ngx_thread_key_create
 parameter_list|(
 name|ngx_tls_key_t
@@ -1019,7 +1020,7 @@ end_function
 
 begin_function
 DECL|function|ngx_thread_set_tls (ngx_tls_key_t key,void * value)
-name|ngx_int_t
+name|ngx_err_t
 name|ngx_thread_set_tls
 parameter_list|(
 name|ngx_tls_key_t
@@ -1060,7 +1061,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_mutex_init (ngx_log_t * log,uint flags)
+DECL|function|ngx_mutex_init (ngx_log_t * log,ngx_uint_t flags)
 name|ngx_mutex_t
 modifier|*
 name|ngx_mutex_init
@@ -1069,7 +1070,7 @@ name|ngx_log_t
 modifier|*
 name|log
 parameter_list|,
-name|uint
+name|ngx_uint_t
 name|flags
 parameter_list|)
 block|{
@@ -1358,9 +1359,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"try lock mutex "
-name|PTR_FMT
-literal|" lock:%X"
+literal|"try lock mutex %p lock:%XD"
 argument_list|,
 name|m
 argument_list|,
@@ -1382,9 +1381,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"lock mutex "
-name|PTR_FMT
-literal|" lock:%X"
+literal|"lock mutex %p lock:%XD"
 argument_list|,
 name|m
 argument_list|,
@@ -1484,9 +1481,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"mutex "
-name|PTR_FMT
-literal|" lock:%X"
+literal|"mutex %p lock:%XD"
 argument_list|,
 name|m
 argument_list|,
@@ -1524,9 +1519,8 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"%d threads wait for mutex "
-name|PTR_FMT
-literal|", while only %d threads are available"
+literal|"%D threads wait for mutex %p, "
+literal|"while only %ui threads are available"
 argument_list|,
 name|lock
 operator|&
@@ -1567,9 +1561,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"wait mutex "
-name|PTR_FMT
-literal|" lock:%X"
+literal|"wait mutex %p lock:%XD"
 argument_list|,
 name|m
 argument_list|,
@@ -1626,9 +1618,7 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"semop() failed while waiting "
-literal|"on mutex "
-name|PTR_FMT
+literal|"semop() failed while waiting on mutex %p"
 argument_list|,
 name|m
 argument_list|)
@@ -1647,9 +1637,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"mutex waked up "
-name|PTR_FMT
-literal|" lock:%X"
+literal|"mutex waked up %p lock:%XD"
 argument_list|,
 name|m
 argument_list|,
@@ -1728,9 +1716,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"mutex "
-name|PTR_FMT
-literal|" is contested"
+literal|"mutex %p is contested"
 argument_list|,
 name|m
 argument_list|)
@@ -1761,9 +1747,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"mutex "
-name|PTR_FMT
-literal|" is locked, lock:%X"
+literal|"mutex %p is locked, lock:%XD"
 argument_list|,
 name|m
 argument_list|,
@@ -1835,8 +1819,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"trying to unlock the free mutex "
-name|PTR_FMT
+literal|"trying to unlock the free mutex %p"
 argument_list|,
 name|m
 argument_list|)
@@ -1849,7 +1832,7 @@ comment|/* free the mutex */
 if|#
 directive|if
 literal|0
-block_content|ngx_log_debug2(NGX_LOG_DEBUG_MUTEX, m->log, 0,                    "unlock mutex " PTR_FMT " lock:%X", m, old);
+block_content|ngx_log_debug2(NGX_LOG_DEBUG_MUTEX, m->log, 0,                    "unlock mutex %p lock:%XD", m, old);
 endif|#
 directive|endif
 for|for
@@ -1909,9 +1892,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"mutex "
-name|PTR_FMT
-literal|" is unlocked"
+literal|"mutex %p is unlocked"
 argument_list|,
 name|m
 argument_list|)
@@ -1985,9 +1966,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"wake up mutex "
-name|PTR_FMT
-literal|""
+literal|"wake up mutex %p"
 argument_list|,
 name|m
 argument_list|)
@@ -2038,8 +2017,7 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"semop() failed while waking up on mutex "
-name|PTR_FMT
+literal|"semop() failed while waking up on mutex %p"
 argument_list|,
 name|m
 argument_list|)
@@ -2067,9 +2045,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"mutex "
-name|PTR_FMT
-literal|" is unlocked"
+literal|"mutex %p is unlocked"
 argument_list|,
 name|m
 argument_list|)
@@ -2404,9 +2380,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"cv "
-name|PTR_FMT
-literal|" wait, kq:%d, signo:%d"
+literal|"cv %p wait, kq:%d, signo:%d"
 argument_list|,
 name|cv
 argument_list|,
@@ -2455,9 +2429,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"cv "
-name|PTR_FMT
-literal|" kevent: %d"
+literal|"cv %p kevent: %d"
 argument_list|,
 name|cv
 argument_list|,
@@ -2494,8 +2466,7 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"kevent() failed while waiting condition variable "
-name|PTR_FMT
+literal|"kevent() failed while waiting condition variable %p"
 argument_list|,
 name|cv
 argument_list|)
@@ -2531,8 +2502,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"kevent() returned no events "
-literal|"while waiting condition variable "
-name|PTR_FMT
+literal|"while waiting condition variable %p"
 argument_list|,
 name|cv
 argument_list|)
@@ -2559,8 +2529,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"kevent() returned unexpected events: %d "
-literal|"while waiting condition variable "
-name|PTR_FMT
+literal|"while waiting condition variable %p"
 argument_list|,
 name|kev
 operator|.
@@ -2597,8 +2566,7 @@ literal|0
 argument_list|,
 literal|"kevent() returned unexpected signal: %d "
 argument_list|,
-literal|"while waiting condition variable "
-name|PTR_FMT
+literal|"while waiting condition variable %p"
 argument_list|,
 name|kev
 operator|.
@@ -2621,9 +2589,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"cv "
-name|PTR_FMT
-literal|" is waked up"
+literal|"cv %p is waked up"
 argument_list|,
 name|cv
 argument_list|)
@@ -2671,11 +2637,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"cv "
-name|PTR_FMT
-literal|" to signal "
-name|PID_T_FMT
-literal|" %d"
+literal|"cv %p to signal %P %d"
 argument_list|,
 name|cv
 argument_list|,
@@ -2719,8 +2681,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"kill() failed while signaling condition variable "
-name|PTR_FMT
+literal|"kill() failed while signaling condition variable %p"
 argument_list|,
 name|cv
 argument_list|)
@@ -2754,9 +2715,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"cv "
-name|PTR_FMT
-literal|" is signaled"
+literal|"cv %p is signaled"
 argument_list|,
 name|cv
 argument_list|)

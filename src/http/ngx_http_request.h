@@ -201,18 +201,18 @@ value|18
 end_define
 
 begin_define
-DECL|macro|NGX_HTTP_PARSE_HTTP_TO_HTTPS
-define|#
-directive|define
-name|NGX_HTTP_PARSE_HTTP_TO_HTTPS
-value|19
-end_define
-
-begin_define
 DECL|macro|NGX_HTTP_PARSE_INVALID_HOST
 define|#
 directive|define
 name|NGX_HTTP_PARSE_INVALID_HOST
+value|19
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_PARSE_HTTP_TO_HTTPS
+define|#
+directive|define
+name|NGX_HTTP_PARSE_HTTP_TO_HTTPS
 value|20
 end_define
 
@@ -417,7 +417,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon27930a600103
+DECL|enum|__anon278aaa890103
 typedef|typedef
 enum|enum
 block|{
@@ -438,7 +438,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27930a600203
+DECL|enum|__anon278aaa890203
 typedef|typedef
 enum|enum
 block|{
@@ -477,7 +477,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27930a600308
+DECL|struct|__anon278aaa890308
 typedef|typedef
 struct|struct
 block|{
@@ -496,7 +496,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27930a600408
+DECL|struct|__anon278aaa890408
 typedef|typedef
 struct|struct
 block|{
@@ -645,7 +645,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27930a600508
+DECL|struct|__anon278aaa890508
 typedef|typedef
 struct|struct
 block|{
@@ -668,7 +668,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27930a600608
+DECL|struct|__anon278aaa890608
 typedef|typedef
 struct|struct
 block|{
@@ -771,7 +771,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27930a600708
+DECL|struct|__anon278aaa890708
 typedef|typedef
 struct|struct
 block|{
@@ -822,10 +822,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon27930a60080a
+DECL|union|__anon278aaa89080a
 union|union
 block|{
-DECL|struct|__anon27930a600908
+DECL|struct|__anon278aaa890908
 struct|struct
 block|{
 DECL|member|fd
@@ -841,7 +841,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon27930a600a08
+DECL|struct|__anon278aaa890a08
 struct|struct
 block|{
 DECL|member|hash
@@ -879,7 +879,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27930a600b08
+DECL|struct|__anon278aaa890b08
 typedef|typedef
 struct|struct
 block|{

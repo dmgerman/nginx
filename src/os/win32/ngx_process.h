@@ -41,7 +41,7 @@ value|ngx_pid
 end_define
 
 begin_typedef
-DECL|struct|__anon2c98423d0108
+DECL|struct|__anon292258340108
 typedef|typedef
 struct|struct
 block|{
@@ -113,6 +113,14 @@ name|ctx
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_define
+DECL|macro|ngx_debug_point ()
+define|#
+directive|define
+name|ngx_debug_point
+parameter_list|()
+end_define
 
 begin_define
 DECL|macro|ngx_sched_yield ()

@@ -63,7 +63,7 @@ directive|if
 operator|(
 name|HAVE_MSGHDR_MSG_CONTROL
 operator|)
-DECL|union|__anon2abc000a010a
+DECL|union|__anon2794216c010a
 union|union
 block|{
 DECL|member|cm
@@ -371,7 +371,7 @@ directive|if
 operator|(
 name|HAVE_MSGHDR_MSG_CONTROL
 operator|)
-DECL|union|__anon2abc000a020a
+DECL|union|__anon2794216c020a
 union|union
 block|{
 DECL|member|cm
@@ -547,6 +547,28 @@ return|;
 block|}
 if|if
 condition|(
+name|n
+operator|==
+literal|0
+condition|)
+block|{
+name|ngx_log_debug0
+argument_list|(
+name|NGX_LOG_DEBUG_CORE
+argument_list|,
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"recvmsg() returned zero"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
+if|if
+condition|(
 operator|(
 name|size_t
 operator|)
@@ -566,7 +588,9 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"recvmsg() returned not enough data"
+literal|"recvmsg() returned not enough data: %uz"
+argument_list|,
+name|n
 argument_list|)
 expr_stmt|;
 return|return

@@ -23,6 +23,24 @@ end_include
 
 begin_function_decl
 specifier|static
+name|ngx_int_t
+name|ngx_cmp_sockaddr
+parameter_list|(
+name|struct
+name|sockaddr
+modifier|*
+name|s1
+parameter_list|,
+name|struct
+name|sockaddr
+modifier|*
+name|s2
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
 name|void
 name|ngx_clean_old_cycles
 parameter_list|(
@@ -967,7 +985,7 @@ if|#
 directive|if
 operator|!
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
 if|if
 condition|(
@@ -994,6 +1012,7 @@ operator|!
 name|failed
 condition|)
 block|{
+comment|/* open the new files */
 name|part
 operator|=
 operator|&
@@ -1107,7 +1126,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"log: %0X %d \"%s\""
+literal|"log: %p %d \"%s\""
 argument_list|,
 operator|&
 name|file
@@ -1174,7 +1193,7 @@ block|}
 if|#
 directive|if
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
 if|if
 condition|(
@@ -1312,6 +1331,7 @@ operator|!
 name|failed
 condition|)
 block|{
+comment|/* handle the listening sockets */
 if|if
 condition|(
 name|old_cycle
@@ -1415,7 +1435,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-name|ngx_memcmp
+name|ngx_cmp_sockaddr
 argument_list|(
 name|nls
 index|[
@@ -1430,16 +1450,9 @@ name|i
 index|]
 operator|.
 name|sockaddr
-argument_list|,
-name|ls
-index|[
-name|i
-index|]
-operator|.
-name|socklen
 argument_list|)
 operator|==
-literal|0
+name|NGX_OK
 condition|)
 block|{
 name|fd
@@ -1454,7 +1467,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
 comment|/*                          * Winsock assignes a socket number divisible by 4 so                          * to find a connection we divide a socket number by 4.                          */
 name|fd
@@ -1484,21 +1497,20 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"%d connections is not enough to hold "
-literal|"an open listening socket on %s, "
+literal|"an open listening socket on %V, "
 literal|"required at least %d connections"
 argument_list|,
 name|cycle
 operator|->
 name|connection_n
 argument_list|,
+operator|&
 name|ls
 index|[
 name|i
 index|]
 operator|.
 name|addr_text
-operator|.
-name|data
 argument_list|,
 name|fd
 argument_list|)
@@ -1853,16 +1865,15 @@ argument_list|,
 name|ngx_socket_errno
 argument_list|,
 name|ngx_close_socket_n
-literal|" %s failed"
+literal|" %V failed"
 argument_list|,
+operator|&
 name|ls
 index|[
 name|i
 index|]
 operator|.
 name|addr_text
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 block|}
@@ -1881,7 +1892,7 @@ if|#
 directive|if
 operator|!
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
 if|if
 condition|(
@@ -1907,7 +1918,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"dup2: %0X %d \"%s\""
+literal|"dup2: %p %d \"%s\""
 argument_list|,
 name|cycle
 operator|->
@@ -2095,16 +2106,15 @@ argument_list|,
 name|ngx_socket_errno
 argument_list|,
 name|ngx_close_socket_n
-literal|" %s failed"
+literal|" %V failed"
 argument_list|,
+operator|&
 name|ls
 index|[
 name|i
 index|]
 operator|.
 name|addr_text
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 block|}
@@ -2477,12 +2487,115 @@ return|;
 block|}
 end_function
 
+begin_function
+DECL|function|ngx_cmp_sockaddr (struct sockaddr * s1,struct sockaddr * s2)
+specifier|static
+name|ngx_int_t
+name|ngx_cmp_sockaddr
+parameter_list|(
+name|struct
+name|sockaddr
+modifier|*
+name|s1
+parameter_list|,
+name|struct
+name|sockaddr
+modifier|*
+name|s2
+parameter_list|)
+block|{
+name|struct
+name|sockaddr_in
+modifier|*
+name|sin1
+decl_stmt|,
+modifier|*
+name|sin2
+decl_stmt|;
+comment|/* AF_INET only */
+if|if
+condition|(
+name|s1
+operator|->
+name|sa_family
+operator|!=
+name|AF_INET
+operator|||
+name|s2
+operator|->
+name|sa_family
+operator|!=
+name|AF_INET
+condition|)
+block|{
+return|return
+name|NGX_DECLINED
+return|;
+block|}
+name|sin1
+operator|=
+operator|(
+expr|struct
+name|sockaddr_in
+operator|*
+operator|)
+name|s1
+expr_stmt|;
+name|sin2
+operator|=
+operator|(
+expr|struct
+name|sockaddr_in
+operator|*
+operator|)
+name|s2
+expr_stmt|;
+if|if
+condition|(
+name|sin1
+operator|->
+name|sin_addr
+operator|.
+name|s_addr
+operator|!=
+name|sin2
+operator|->
+name|sin_addr
+operator|.
+name|s_addr
+condition|)
+block|{
+return|return
+name|NGX_DECLINED
+return|;
+block|}
+if|if
+condition|(
+name|sin1
+operator|->
+name|sin_port
+operator|!=
+name|sin2
+operator|->
+name|sin_port
+condition|)
+block|{
+return|return
+name|NGX_DECLINED
+return|;
+block|}
+return|return
+name|NGX_OK
+return|;
+block|}
+end_function
+
 begin_if
 if|#
 directive|if
 operator|!
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
 end_if
 
@@ -2513,8 +2626,6 @@ decl_stmt|,
 name|pid
 index|[
 name|NGX_INT64_LEN
-operator|+
-literal|1
 index|]
 decl_stmt|;
 name|ngx_file_t
@@ -2622,25 +2733,6 @@ name|NGX_OK
 return|;
 block|}
 block|}
-name|len
-operator|=
-name|ngx_snprintf
-argument_list|(
-operator|(
-name|char
-operator|*
-operator|)
-name|pid
-argument_list|,
-name|NGX_INT64_LEN
-operator|+
-literal|1
-argument_list|,
-name|PID_T_FMT
-argument_list|,
-name|ngx_pid
-argument_list|)
-expr_stmt|;
 name|ngx_memzero
 argument_list|(
 operator|&
@@ -2747,6 +2839,19 @@ operator|!
 name|ngx_test_config
 condition|)
 block|{
+name|len
+operator|=
+name|ngx_sprintf
+argument_list|(
+name|pid
+argument_list|,
+literal|"%P"
+argument_list|,
+name|ngx_pid
+argument_list|)
+operator|-
+name|pid
+expr_stmt|;
 if|if
 condition|(
 name|ngx_write_file
@@ -2957,7 +3062,7 @@ if|#
 directive|if
 operator|!
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
 name|ngx_file_info_t
 name|fi
@@ -3124,7 +3229,7 @@ block|}
 if|#
 directive|if
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
 if|if
 condition|(
@@ -3622,7 +3727,7 @@ if|#
 directive|if
 operator|!
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
 if|if
 condition|(

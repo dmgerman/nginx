@@ -15,6 +15,10 @@ directive|include
 file|<ngx_core.h>
 end_include
 
+begin_comment
+comment|/*  * ngx_sock_ntop() and ngx_inet_ntop() may be implemented as  * "ngx_sprintf(text, "%ud.%ud.%ud.%ud", p[0], p[1], p[2], p[3])",  * however, they were implemented long before the ngx_sprintf() appeared  * and they are faster by 1.5-2.5 times, so it is worth to keep them.  *  * By the way, the implementation using ngx_sprintf() is faster by 2.5-3 times  * than using FreeBSD libc's snrpintf().  */
+end_comment
+
 begin_function
 DECL|function|ngx_sprint_uchar (u_char * text,u_char c,size_t len)
 name|ngx_inline
@@ -387,12 +391,6 @@ expr_stmt|;
 return|return
 name|n
 return|;
-if|#
-directive|if
-literal|0
-block_content|return ngx_snprintf((char *) text,                         len> INET_ADDRSTRLEN ? INET_ADDRSTRLEN : len,                         "%u.%u.%u.%u", p[0], p[1], p[2], p[3]);
-endif|#
-directive|endif
 block|}
 end_function
 
@@ -593,12 +591,6 @@ expr_stmt|;
 return|return
 name|n
 return|;
-if|#
-directive|if
-literal|0
-block_content|return ngx_snprintf((char *) text,                         len> INET_ADDRSTRLEN ? INET_ADDRSTRLEN : len,                         "%u.%u.%u.%u", p[0], p[1], p[2], p[3]);
-endif|#
-directive|endif
 block|}
 end_function
 

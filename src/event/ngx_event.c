@@ -831,7 +831,7 @@ if|#
 directive|if
 operator|!
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
 name|size_t
 name|size
@@ -1050,9 +1050,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"counter: "
-name|PTR_FMT
-literal|", %d"
+literal|"counter: %p, %d"
 argument_list|,
 name|ngx_connection_counter
 argument_list|,
@@ -1117,7 +1115,7 @@ decl_stmt|;
 if|#
 directive|if
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
 name|ngx_iocp_conf_t
 modifier|*
@@ -1646,7 +1644,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
 comment|/*          * Winsock assignes a socket number divisible by 4          * so to find a connection we divide a socket number by 4.          */
 name|fd
@@ -1898,7 +1896,7 @@ block|}
 if|#
 directive|if
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
 if|if
 condition|(
@@ -1911,7 +1909,6 @@ name|rev
 operator|->
 name|event_handler
 operator|=
-operator|&
 name|ngx_event_acceptex
 expr_stmt|;
 if|if
@@ -1972,7 +1969,6 @@ name|rev
 operator|->
 name|event_handler
 operator|=
-operator|&
 name|ngx_event_accept
 expr_stmt|;
 if|if
@@ -2000,7 +1996,6 @@ name|rev
 operator|->
 name|event_handler
 operator|=
-operator|&
 name|ngx_event_accept
 expr_stmt|;
 if|if
@@ -2619,14 +2614,13 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"invalid number \"%s\""
+literal|"invalid number \"%V\""
 argument_list|,
+operator|&
 name|value
 index|[
 literal|1
 index|]
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 return|return
@@ -2867,18 +2861,17 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"when the server runs without a master process "
-literal|"the \"%s\" event type must be the same as "
+literal|"the \"%V\" event type must be the same as "
 literal|"in previous configuration - \"%s\" "
 literal|"and it can not be changed on the fly, "
 literal|"to change it you need to stop server "
 literal|"and start it again"
 argument_list|,
+operator|&
 name|value
 index|[
 literal|1
 index|]
-operator|.
-name|data
 argument_list|,
 name|old_ecf
 operator|->
@@ -2903,14 +2896,13 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"invalid event type \"%s\""
+literal|"invalid event type \"%V\""
 argument_list|,
+operator|&
 name|value
 index|[
 literal|1
 index|]
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 return|return
@@ -3061,7 +3053,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"host %s not found"
+literal|"host \"%s\" not found"
 argument_list|,
 name|value
 index|[
@@ -3415,7 +3407,7 @@ operator|)
 if|#
 directive|if
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
 name|ngx_conf_init_unsigned_value
 argument_list|(

@@ -112,11 +112,11 @@ operator|)
 end_if
 
 begin_define
-DECL|macro|TID_T_FMT
+DECL|macro|NGX_TID_T_FMT
 define|#
 directive|define
-name|TID_T_FMT
-value|PTR_FMT
+name|NGX_TID_T_FMT
+value|"%p"
 end_define
 
 begin_else
@@ -125,10 +125,10 @@ directive|else
 end_else
 
 begin_define
-DECL|macro|TID_T_FMT
+DECL|macro|NGX_TID_T_FMT
 define|#
 directive|define
-name|TID_T_FMT
+name|NGX_TID_T_FMT
 value|"%d"
 end_define
 
@@ -197,7 +197,7 @@ value|0
 end_define
 
 begin_typedef
-DECL|struct|__anon2c593dbf0108
+DECL|struct|__anon2bae01140108
 typedef|typedef
 struct|struct
 block|{
@@ -217,7 +217,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c593dbf0208
+DECL|struct|__anon2bae01140208
 typedef|typedef
 struct|struct
 block|{
@@ -326,7 +326,7 @@ value|volatile
 end_define
 
 begin_typedef
-DECL|struct|__anon2c593dbf0308
+DECL|struct|__anon2bae01140308
 typedef|typedef
 struct|struct
 block|{
@@ -417,7 +417,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|int
+name|ngx_err_t
 name|ngx_create_thread
 parameter_list|(
 name|ngx_tid_t
@@ -456,7 +456,7 @@ name|ngx_log_t
 modifier|*
 name|log
 parameter_list|,
-name|uint
+name|ngx_uint_t
 name|flags
 parameter_list|)
 function_decl|;
@@ -547,10 +547,10 @@ value|0
 end_define
 
 begin_define
-DECL|macro|TID_T_FMT
+DECL|macro|NGX_TID_T_FMT
 define|#
 directive|define
-name|TID_T_FMT
+name|NGX_TID_T_FMT
 value|"%d"
 end_define
 

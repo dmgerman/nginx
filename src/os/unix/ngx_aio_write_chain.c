@@ -45,9 +45,6 @@ name|off_t
 name|limit
 parameter_list|)
 block|{
-name|int
-name|n
-decl_stmt|;
 name|u_char
 modifier|*
 name|buf
@@ -64,6 +61,8 @@ name|size_t
 name|len
 decl_stmt|;
 name|ssize_t
+name|n
+decl_stmt|,
 name|size
 decl_stmt|;
 name|ngx_err_t
@@ -250,7 +249,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"aio_write: %d"
+literal|"aio_write: %z"
 argument_list|,
 name|n
 argument_list|)
@@ -294,8 +293,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"aio_write sent: "
-name|OFF_T_FMT
+literal|"aio_write sent: %O"
 argument_list|,
 name|c
 operator|->

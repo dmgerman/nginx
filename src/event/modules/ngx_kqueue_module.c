@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27a13b560108
+DECL|struct|__anon299dfd820108
 typedef|typedef
 struct|struct
 block|{
@@ -1490,7 +1490,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"kevent set event: %d: ft:%d fl:%04X"
+literal|"kevent set event: %d: ft:%d fl:%04Xd"
 argument_list|,
 name|c
 operator|->
@@ -2439,8 +2439,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"kevent: stale event "
-name|PTR_FMT
+literal|"kevent: stale event %p"
 argument_list|,
 name|ev
 argument_list|)
@@ -3083,13 +3082,9 @@ operator|-
 literal|1
 operator|)
 condition|?
-literal|"kevent: "
-name|PTR_FMT
-literal|": ft:%d fl:%04X ff:%08X d:%d ud:"
-name|PTR_FMT
+literal|"kevent: %p: ft:%d fl:%04Xd ff:%08Xd d:%d ud:%p"
 else|:
-literal|"kevent: %d: ft:%d fl:%04X ff:%08X d:%d ud:"
-name|PTR_FMT
+literal|"kevent: %d: ft:%d fl:%04Xd ff:%08Xd d:%d ud:%p"
 argument_list|,
 name|kev
 operator|->

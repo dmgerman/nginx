@@ -1238,7 +1238,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"poll: %d: fd:%d ev:%04X"
+literal|"poll: %d: fd:%d ev:%04Xd"
 argument_list|,
 name|i
 argument_list|,
@@ -1567,7 +1567,7 @@ block|{
 if|#
 directive|if
 literal|0
-block_content|ngx_log_debug4(NGX_LOG_DEBUG_EVENT, cycle->log, 0,                        "poll: %d: fd:%d ev:%04X rev:%04X",                        i, event_list[i].fd,                        event_list[i].events, event_list[i].revents);
+block_content|ngx_log_debug4(NGX_LOG_DEBUG_EVENT, cycle->log, 0,                        "poll: %d: fd:%d ev:%04Xd rev:%04Xd",                        i, event_list[i].fd,                        event_list[i].events, event_list[i].revents);
 else|#
 directive|else
 if|if
@@ -1590,7 +1590,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"poll: %d: fd:%d ev:%04X rev:%04X"
+literal|"poll: %d: fd:%d ev:%04Xd rev:%04Xd"
 argument_list|,
 name|i
 argument_list|,
@@ -1641,7 +1641,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"poll() error fd:%d ev:%04X rev:%04X"
+literal|"poll() error fd:%d ev:%04Xd rev:%04Xd"
 argument_list|,
 name|event_list
 index|[
@@ -1699,7 +1699,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"strange poll() events fd:%d ev:%04X rev:%04X"
+literal|"strange poll() events fd:%d ev:%04Xd rev:%04Xd"
 argument_list|,
 name|event_list
 index|[
@@ -2101,8 +2101,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"accept event "
-name|PTR_FMT
+literal|"accept event %p"
 argument_list|,
 name|ev
 argument_list|)

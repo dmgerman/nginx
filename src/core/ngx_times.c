@@ -427,7 +427,7 @@ if|#
 directive|if
 operator|!
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
 name|tzset
 argument_list|()
@@ -596,18 +596,9 @@ index|[
 name|slot
 index|]
 expr_stmt|;
-name|ngx_snprintf
+name|ngx_sprintf
 argument_list|(
-operator|(
-name|char
-operator|*
-operator|)
 name|p
-argument_list|,
-sizeof|sizeof
-argument_list|(
-literal|"Mon, 28 Sep 1970 06:00:00 GMT"
-argument_list|)
 argument_list|,
 literal|"%s, %02d %s %4d %02d:%02d:%02d GMT"
 argument_list|,
@@ -721,18 +712,9 @@ index|[
 name|slot
 index|]
 expr_stmt|;
-name|ngx_snprintf
+name|ngx_sprintf
 argument_list|(
-operator|(
-name|char
-operator|*
-operator|)
 name|p
-argument_list|,
-sizeof|sizeof
-argument_list|(
-literal|"1970/09/28 12:00:00"
-argument_list|)
 argument_list|,
 literal|"%4d/%02d/%02d %02d:%02d:%02d"
 argument_list|,
@@ -774,18 +756,9 @@ index|[
 name|slot
 index|]
 expr_stmt|;
-name|ngx_snprintf
+name|ngx_sprintf
 argument_list|(
-operator|(
-name|char
-operator|*
-operator|)
 name|p
-argument_list|,
-sizeof|sizeof
-argument_list|(
-literal|"28/Sep/1970:12:00:00 +0600"
-argument_list|)
 argument_list|,
 literal|"%02d/%s/%d:%02d:%02d:%02d %c%02d%02d"
 argument_list|,
@@ -875,12 +848,6 @@ parameter_list|,
 name|time_t
 name|t
 parameter_list|)
-if|#
-directive|if
-literal|0
-function|size_t ngx_http_time(u_char *buf, time_t t)
-endif|#
-directive|endif
 block|{
 name|ngx_tm_t
 name|tm
@@ -937,12 +904,6 @@ operator|.
 name|ngx_tm_sec
 argument_list|)
 return|;
-if|#
-directive|if
-literal|0
-block_content|return ngx_snprintf((char *) buf, sizeof("Mon, 28 Sep 1970 06:00:00 GMT"),                                       "%s, %02d %s %4d %02d:%02d:%02d GMT",                                       week[tm.ngx_tm_wday],                                       tm.ngx_tm_mday,                                       months[tm.ngx_tm_mon - 1],                                       tm.ngx_tm_year,                                       tm.ngx_tm_hour,                                       tm.ngx_tm_min,                                       tm.ngx_tm_sec);
-endif|#
-directive|endif
 block|}
 end_function
 
@@ -959,12 +920,6 @@ parameter_list|,
 name|time_t
 name|t
 parameter_list|)
-if|#
-directive|if
-literal|0
-function|size_t ngx_http_cookie_time(u_char *buf, time_t t)
-endif|#
-directive|endif
 block|{
 name|ngx_tm_t
 name|tm
@@ -1046,12 +1001,6 @@ operator|.
 name|ngx_tm_sec
 argument_list|)
 return|;
-if|#
-directive|if
-literal|0
-block_content|if (tm.ngx_tm_year> 2037) {         return ngx_snprintf((char *) buf,                                       sizeof("Mon, 28-Sep-1970 06:00:00 GMT"),                                       "%s, %02d-%s-%d %02d:%02d:%02d GMT",                                       week[tm.ngx_tm_wday],                                       tm.ngx_tm_mday,                                       months[tm.ngx_tm_mon - 1],                                       tm.ngx_tm_year,                                       tm.ngx_tm_hour,                                       tm.ngx_tm_min,                                       tm.ngx_tm_sec);     } else {         return ngx_snprintf((char *) buf,                                       sizeof("Mon, 28-Sep-70 06:00:00 GMT"),                                       "%s, %02d-%s-%02d %02d:%02d:%02d GMT",                                       week[tm.ngx_tm_wday],                                       tm.ngx_tm_mday,                                       months[tm.ngx_tm_mon - 1],                                       tm.ngx_tm_year % 100,                                       tm.ngx_tm_hour,                                       tm.ngx_tm_min,                                       tm.ngx_tm_sec);     }
-endif|#
-directive|endif
 block|}
 end_function
 

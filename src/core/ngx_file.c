@@ -260,13 +260,8 @@ init|;
 condition|;
 control|)
 block|{
-name|ngx_snprintf
+name|ngx_sprintf
 argument_list|(
-operator|(
-name|char
-operator|*
-operator|)
-operator|(
 name|file
 operator|->
 name|name
@@ -284,11 +279,8 @@ operator|+
 name|path
 operator|->
 name|len
-operator|)
 argument_list|,
-literal|11
-argument_list|,
-literal|"%010u"
+literal|"%010ud%Z"
 argument_list|,
 name|num
 argument_list|)
@@ -407,7 +399,7 @@ name|NGX_ENOENT
 if|#
 directive|if
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
 operator|&&
 name|err

@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b860a4a0108
+DECL|struct|__anon2b8bd5b10108
 typedef|typedef
 struct|struct
 block|{
@@ -668,12 +668,6 @@ name|value
 operator|.
 name|data
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|cc->value.len = ngx_snprintf((char *) cc->value.data,                                                sizeof("max-age=") + TIME_T_LEN,                                                "max-age=" TIME_T_FMT,                                                conf->expires);
-endif|#
-directive|endif
 block|}
 block|}
 block|}

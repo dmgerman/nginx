@@ -151,8 +151,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"free: "
-name|PTR_FMT
+literal|"free: %p"
 argument_list|,
 name|l
 operator|->
@@ -216,10 +215,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"free: "
-name|PTR_FMT
-literal|", unused: "
-name|SIZE_T_FMT
+literal|"free: %p, unused: %uz"
 argument_list|,
 name|p
 argument_list|,
@@ -715,8 +711,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"free: "
-name|PTR_FMT
+literal|"free: %p"
 argument_list|,
 name|l
 operator|->

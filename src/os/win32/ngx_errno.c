@@ -29,13 +29,16 @@ init|=
 block|{
 name|ngx_string
 argument_list|(
-literal|"Invalid argument"
+literal|"An invalid argument was supplied"
 argument_list|)
 block|,
-comment|/* 10022 */
-name|ngx_null_string
+comment|/* WSAEINVAL 10022 */
+name|ngx_string
+argument_list|(
+literal|"Too many open sockets"
+argument_list|)
 block|,
-comment|/* 10023 */
+comment|/* WSAEMFILE 10023 */
 name|ngx_null_string
 block|,
 comment|/* 10024 */
@@ -69,21 +72,25 @@ comment|/* 10033 */
 name|ngx_null_string
 block|,
 comment|/* 10034 */
+comment|/* WSAEWOULDBLOCK 10035 */
 name|ngx_string
 argument_list|(
-literal|"Resource temporarily unavailable"
+literal|"A non-blocking socket operation could not be completed "
+literal|"immediately"
 argument_list|)
 block|,
-comment|/* 10035 */
 name|ngx_null_string
 block|,
 comment|/* 10036 */
 name|ngx_null_string
 block|,
 comment|/* 10037 */
-name|ngx_null_string
+comment|/* WSAENOTSOCK 10038 */
+name|ngx_string
+argument_list|(
+literal|"An operation was attempted on something that is not a socket"
+argument_list|)
 block|,
-comment|/* 10038 */
 name|ngx_null_string
 block|,
 comment|/* 10039 */
@@ -129,33 +136,69 @@ comment|/* 10052 */
 name|ngx_null_string
 block|,
 comment|/* 10053 */
-name|ngx_null_string
-block|,
-comment|/* 10054 */
-name|ngx_null_string
-block|,
-comment|/* 10055 */
-name|ngx_null_string
-block|,
-comment|/* 10056 */
+comment|/* WSAECONNRESET 10054 */
 name|ngx_string
 argument_list|(
-literal|"Socket is not connected"
+literal|"An existing connection was forcibly closed by the remote host"
 argument_list|)
-comment|/* 10057 */
+block|,
+comment|/* WSAENOBUFS 10055 */
+name|ngx_string
+argument_list|(
+literal|"An operation on a socket could not be performed because "
+literal|"the system lacked sufficient buffer space or "
+literal|"because a queue was full"
+argument_list|)
+block|,
+comment|/* WSAEISCONN 10056 */
+name|ngx_string
+argument_list|(
+literal|"A connect request was made on an already connected socket"
+argument_list|)
+block|,
+comment|/* WSAENOTCONN 10057 */
+name|ngx_string
+argument_list|(
+literal|"A request to send or receive data was disallowed because"
+literal|"the socket is not connected and (when sending on a datagram "
+literal|"socket using a sendto call) no address was supplied"
+argument_list|)
+block|,
+name|ngx_null_string
+block|,
+comment|/* 10058 */
+name|ngx_null_string
+block|,
+comment|/* 10059 */
+comment|/* WSAETIMEDOUT 10060 */
+name|ngx_string
+argument_list|(
+literal|"A connection attempt failed because the connected party "
+literal|"did not properly respond after a period of time, "
+literal|"or established connection failed because connected host "
+literal|"has failed to respond"
+argument_list|)
+block|,
+comment|/* WSAECONNREFUSED 10061 */
+name|ngx_string
+argument_list|(
+literal|"No connection could be made because the target machine "
+literal|"actively refused it"
+argument_list|)
 block|}
 decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_strerror_r (ngx_err_t err,char * errstr,size_t size)
-name|int
+DECL|function|ngx_strerror_r (ngx_err_t err,u_char * errstr,size_t size)
+name|u_char
+modifier|*
 name|ngx_strerror_r
 parameter_list|(
 name|ngx_err_t
 name|err
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|errstr
 parameter_list|,
@@ -172,6 +215,17 @@ decl_stmt|;
 name|ngx_err_t
 name|format_error
 decl_stmt|;
+if|if
+condition|(
+name|size
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+name|errstr
+return|;
+block|}
 name|len
 operator|=
 name|FormatMessage
@@ -191,6 +245,10 @@ argument_list|,
 name|SUBLANG_DEFAULT
 argument_list|)
 argument_list|,
+operator|(
+name|char
+operator|*
+operator|)
 name|errstr
 argument_list|,
 name|size
@@ -221,9 +279,7 @@ name|n
 operator|=
 name|err
 operator|-
-name|WSABASEERR
-operator|-
-literal|22
+name|WSAEINVAL
 expr_stmt|;
 if|if
 condition|(
@@ -233,7 +289,9 @@ literal|0
 operator|&&
 name|n
 operator|<=
-literal|35
+name|WSAECONNREFUSED
+operator|-
+name|WSAEINVAL
 condition|)
 block|{
 name|len
@@ -277,13 +335,14 @@ name|len
 argument_list|)
 expr_stmt|;
 return|return
+name|errstr
+operator|+
 name|len
 return|;
 block|}
 block|}
 block|}
-name|len
-operator|=
+return|return
 name|ngx_snprintf
 argument_list|(
 name|errstr
@@ -294,9 +353,6 @@ literal|"FormatMessage() error:(%d)"
 argument_list|,
 name|format_error
 argument_list|)
-expr_stmt|;
-return|return
-name|len
 return|;
 block|}
 comment|/* remove ".\r\n\0" */
@@ -330,12 +386,18 @@ index|]
 operator|==
 literal|'.'
 condition|)
+block|{
 operator|--
 name|len
 expr_stmt|;
+block|}
 return|return
+operator|&
+name|errstr
+index|[
 operator|++
 name|len
+index|]
 return|;
 block|}
 end_function

@@ -146,7 +146,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
 end_if
 
@@ -458,7 +458,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
 name|max_read
 operator|=
@@ -591,7 +591,7 @@ block|}
 if|#
 directive|if
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
 if|if
 condition|(
@@ -858,7 +858,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
 if|if
 condition|(
@@ -1128,7 +1128,7 @@ if|#
 directive|if
 operator|!
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
 if|if
 condition|(
@@ -1325,7 +1325,7 @@ if|#
 directive|if
 operator|!
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
 name|ngx_log_debug1
 argument_list|(
@@ -1424,7 +1424,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"select read fd_set: %08X"
+literal|"select read fd_set: %08Xd"
 argument_list|,
 operator|*
 operator|(
@@ -1438,7 +1438,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
 name|ready
 operator|=
@@ -1806,7 +1806,7 @@ block|{
 if|#
 directive|if
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
 name|ngx_log_error
 argument_list|(
@@ -2114,8 +2114,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"accept event "
-name|PTR_FMT
+literal|"accept event %p"
 argument_list|,
 name|ev
 argument_list|)
@@ -2315,7 +2314,7 @@ if|#
 directive|if
 operator|!
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
 if|if
 condition|(
@@ -2357,6 +2356,11 @@ if|#
 directive|if
 operator|(
 name|NGX_THREADS
+operator|)
+operator|&&
+operator|!
+operator|(
+name|NGX_WIN32
 operator|)
 name|ngx_log_error
 argument_list|(

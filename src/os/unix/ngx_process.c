@@ -741,8 +741,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"spawn %s: "
-name|PID_T_FMT
+literal|"spawn %s: %P"
 argument_list|,
 name|name
 argument_list|,
@@ -1270,9 +1269,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"%s "
-name|PID_T_FMT
-literal|" exited on signal %d%s"
+literal|"%s %P exited on signal %d%s"
 argument_list|,
 name|process
 argument_list|,
@@ -1306,9 +1303,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"%s "
-name|PID_T_FMT
-literal|" exited with code %d"
+literal|"%s %P exited with code %d"
 argument_list|,
 name|process
 argument_list|,
@@ -1348,9 +1343,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"%s "
-name|PID_T_FMT
-literal|" exited with fatal code %d and could not respawn"
+literal|"%s %P exited with fatal code %d and could not respawn"
 argument_list|,
 name|process
 argument_list|,
@@ -1372,6 +1365,57 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+block|}
+block|}
+end_function
+
+begin_function
+DECL|function|ngx_debug_point ()
+name|void
+name|ngx_debug_point
+parameter_list|()
+block|{
+name|ngx_core_conf_t
+modifier|*
+name|ccf
+decl_stmt|;
+name|ccf
+operator|=
+operator|(
+name|ngx_core_conf_t
+operator|*
+operator|)
+name|ngx_get_conf
+argument_list|(
+name|ngx_cycle
+operator|->
+name|conf_ctx
+argument_list|,
+name|ngx_core_module
+argument_list|)
+expr_stmt|;
+switch|switch
+condition|(
+name|ccf
+operator|->
+name|debug_points
+condition|)
+block|{
+case|case
+name|NGX_DEBUG_POINTS_STOP
+case|:
+name|raise
+argument_list|(
+name|SIGSTOP
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
+name|NGX_DEBUG_POINTS_ABORT
+case|:
+name|abort
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_function

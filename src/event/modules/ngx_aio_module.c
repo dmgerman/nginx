@@ -434,6 +434,17 @@ return|return
 name|NGX_OK
 return|;
 block|}
+if|if
+condition|(
+name|flags
+operator|&
+name|NGX_CLOSE_EVENT
+condition|)
+block|{
+return|return
+name|NGX_OK
+return|;
+block|}
 name|rc
 operator|=
 name|aio_cancel

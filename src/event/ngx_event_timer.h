@@ -314,7 +314,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"event timer: %d, old: %d, new: %d"
+literal|"event timer: %d, old: %i, new: %i"
 argument_list|,
 name|ngx_event_ident
 argument_list|(
@@ -354,7 +354,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"event timer add: %d: %d"
+literal|"event timer add: %d: %i"
 argument_list|,
 name|ngx_event_ident
 argument_list|(

@@ -187,7 +187,8 @@ end_define
 begin_typedef
 DECL|typedef|ngx_log_handler_pt
 typedef|typedef
-name|size_t
+name|u_char
+modifier|*
 function_decl|(
 modifier|*
 name|ngx_log_handler_pt
@@ -197,7 +198,7 @@ name|void
 modifier|*
 name|ctx
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -235,10 +236,10 @@ struct|;
 end_struct
 
 begin_define
-DECL|macro|MAX_ERROR_STR
+DECL|macro|NGX_MAX_ERROR_STR
 define|#
 directive|define
-name|MAX_ERROR_STR
+name|NGX_MAX_ERROR_STR
 value|2048
 end_define
 
@@ -443,24 +444,6 @@ name|log
 parameter_list|,
 name|ngx_err_t
 name|err
-parameter_list|,
-specifier|const
-name|char
-modifier|*
-name|fmt
-parameter_list|,
-modifier|...
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-name|void
-name|ngx_assert_core
-parameter_list|(
-name|ngx_log_t
-modifier|*
-name|log
 parameter_list|,
 specifier|const
 name|char
@@ -1146,22 +1129,10 @@ end_define
 begin_function_decl
 name|ngx_log_t
 modifier|*
-name|ngx_log_init_stderr
+name|ngx_log_init
 parameter_list|()
 function_decl|;
 end_function_decl
-
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-
-begin_endif
-unit|ngx_int_t ngx_log_init_error_log();
-endif|#
-directive|endif
-end_endif
 
 begin_function_decl
 name|ngx_log_t

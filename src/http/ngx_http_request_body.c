@@ -667,8 +667,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http client request body recv "
-name|SIZE_T_FMT
+literal|"http client request body recv %z"
 argument_list|,
 name|n
 argument_list|)
@@ -827,8 +826,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http client request body rest "
-name|SIZE_T_FMT
+literal|"http client request body rest %uz"
 argument_list|,
 name|r
 operator|->

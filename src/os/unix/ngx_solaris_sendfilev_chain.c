@@ -639,9 +639,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"sendfilev() sent only "
-name|SIZE_T_FMT
-literal|" bytes"
+literal|"sendfilev() sent only %z bytes"
 argument_list|,
 name|sent
 argument_list|)
@@ -679,8 +677,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"sendfilev: %d "
-name|SIZE_T_FMT
+literal|"sendfilev: %z %z"
 argument_list|,
 name|n
 argument_list|,

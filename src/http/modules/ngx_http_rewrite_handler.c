@@ -46,7 +46,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon288b0f880108
+DECL|struct|__anon2997af070108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288b0f880208
+DECL|struct|__anon2997af070208
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288b0f880308
+DECL|struct|__anon2997af070308
 typedef|typedef
 struct|struct
 block|{
@@ -134,7 +134,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288b0f880408
+DECL|struct|__anon2997af070408
 typedef|typedef
 struct|struct
 block|{
@@ -594,22 +594,20 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"\"%s\" does not match \"%s\""
+literal|"\"%V\" does not match \"%V\""
 argument_list|,
+operator|&
 name|rule
 index|[
 name|i
 index|]
 operator|.
 name|re_name
-operator|.
-name|data
 argument_list|,
+operator|&
 name|r
 operator|->
 name|uri
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 block|}
@@ -635,24 +633,22 @@ argument_list|,
 literal|0
 argument_list|,
 name|ngx_regex_exec_n
-literal|" failed: %d on \"%s\" using \"%s\""
+literal|" failed: %d on \"%V\" using \"%V\""
 argument_list|,
 name|rc
 argument_list|,
+operator|&
 name|r
 operator|->
 name|uri
-operator|.
-name|data
 argument_list|,
+operator|&
 name|rule
 index|[
 name|i
 index|]
 operator|.
 name|re_name
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 return|return
@@ -678,22 +674,20 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"\"%s\" matches \"%s\""
+literal|"\"%V\" matches \"%V\""
 argument_list|,
+operator|&
 name|rule
 index|[
 name|i
 index|]
 operator|.
 name|re_name
-operator|.
-name|data
 argument_list|,
+operator|&
 name|r
 operator|->
 name|uri
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 block|}
@@ -782,8 +776,6 @@ argument_list|,
 name|uri
 operator|.
 name|len
-operator|+
-literal|1
 argument_list|)
 operator|)
 condition|)
@@ -971,11 +963,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-operator|*
-name|p
-operator|=
-literal|'\0'
-expr_stmt|;
 if|if
 condition|(
 name|scf
@@ -995,11 +982,10 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"rewritten uri: \"%s\""
+literal|"rewritten uri: \"%V\""
 argument_list|,
+operator|&
 name|uri
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 block|}
@@ -1722,14 +1708,13 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"invalid parameter \"%s\""
+literal|"invalid parameter \"%V\""
 argument_list|,
+operator|&
 name|value
 index|[
 literal|3
 index|]
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 return|return
@@ -2111,14 +2096,13 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"invalid parameter \"%s\""
+literal|"invalid parameter \"%V\""
 argument_list|,
+operator|&
 name|value
 index|[
 literal|3
 index|]
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 return|return

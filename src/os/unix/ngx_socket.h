@@ -39,20 +39,11 @@ typedef|;
 end_typedef
 
 begin_define
-DECL|macro|ngx_socket (af,type,proto,flags)
+DECL|macro|ngx_socket
 define|#
 directive|define
 name|ngx_socket
-parameter_list|(
-name|af
-parameter_list|,
-name|type
-parameter_list|,
-name|proto
-parameter_list|,
-name|flags
-parameter_list|)
-value|socket(af, type, proto)
+value|socket
 end_define
 
 begin_define

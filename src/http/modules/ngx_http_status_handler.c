@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2908cd600108
+DECL|struct|__anon28dce74e0108
 typedef|typedef
 struct|struct
 block|{
@@ -694,24 +694,14 @@ block|}
 name|b
 operator|->
 name|last
-operator|+=
-name|ngx_snprintf
+operator|=
+name|ngx_sprintf
 argument_list|(
-operator|(
-name|char
-operator|*
-operator|)
 name|b
 operator|->
 name|last
 argument_list|,
-comment|/* STUB: should be NGX_PID_T_LEN */
-name|NGX_INT64_LEN
-operator|+
-name|NGX_INT32_LEN
-argument_list|,
-name|PID_T_FMT
-literal|" %4u"
+literal|"%P %5ui"
 argument_list|,
 name|ngx_pid
 argument_list|,
@@ -1091,24 +1081,14 @@ block|}
 name|b
 operator|->
 name|last
-operator|+=
-name|ngx_snprintf
+operator|=
+name|ngx_sprintf
 argument_list|(
-operator|(
-name|char
-operator|*
-operator|)
 name|b
 operator|->
 name|last
 argument_list|,
-comment|/* STUB: should be NGX_PID_T_LEN */
-name|NGX_INT64_LEN
-operator|+
-name|NGX_INT32_LEN
-argument_list|,
-name|PID_T_FMT
-literal|" %4u"
+literal|"%P %5ui"
 argument_list|,
 name|ngx_pid
 argument_list|,

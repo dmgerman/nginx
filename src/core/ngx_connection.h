@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2940ed030108
+DECL|struct|__anon2c40c7240108
 typedef|typedef
 struct|struct
 block|{
@@ -73,11 +73,6 @@ DECL|member|protocol
 name|int
 name|protocol
 decl_stmt|;
-DECL|member|flags
-name|int
-name|flags
-decl_stmt|;
-comment|/* Winsock2 flags */
 DECL|member|handler
 name|void
 function_decl|(
@@ -170,13 +165,6 @@ name|nonblocking
 range|:
 literal|1
 decl_stmt|;
-if|#
-directive|if
-literal|0
-block|unsigned          overlapped:1;
-comment|/* Winsock2 overlapped */
-endif|#
-directive|endif
 DECL|member|shared
 name|unsigned
 name|shared
@@ -210,7 +198,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2940ed030203
+DECL|enum|__anon2c40c7240203
 typedef|typedef
 enum|enum
 block|{
@@ -234,7 +222,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2940ed030303
+DECL|enum|__anon2c40c7240303
 typedef|typedef
 enum|enum
 block|{

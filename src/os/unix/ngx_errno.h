@@ -261,13 +261,14 @@ operator|)
 end_if
 
 begin_function_decl
-name|ngx_int_t
+name|u_char
+modifier|*
 name|ngx_strerror_r
 parameter_list|(
 name|int
 name|err
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|errstr
 parameter_list|,
@@ -299,7 +300,7 @@ parameter_list|,
 name|size
 parameter_list|)
 define|\
-value|(char *) ngx_cpystrn(errstr, strerror(err), size) - (errstr)
+value|ngx_cpystrn(errstr, (u_char *) strerror(err), size)
 end_define
 
 begin_endif

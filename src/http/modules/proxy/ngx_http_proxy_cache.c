@@ -1011,17 +1011,16 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http cache status %d \"%s\""
+literal|"http cache status %ui \"%V\""
 argument_list|,
 name|c
 operator|->
 name|status
 argument_list|,
+operator|&
 name|c
 operator|->
 name|status_line
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 comment|/* TODO: ngx_init_table */
@@ -1329,19 +1328,17 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http cache header: \"%s: %s\""
+literal|"http cache header: \"%V: %V\""
 argument_list|,
+operator|&
 name|h
 operator|->
 name|key
-operator|.
-name|data
 argument_list|,
+operator|&
 name|h
 operator|->
 name|value
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 continue|continue;
@@ -3280,10 +3277,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http cache update len: "
-name|OFF_T_FMT
-literal|":"
-name|OFF_T_FMT
+literal|"http cache update len: %O:%O"
 argument_list|,
 name|p
 operator|->

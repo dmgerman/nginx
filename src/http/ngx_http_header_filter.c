@@ -1652,12 +1652,6 @@ operator|.
 name|content_length_n
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|b->last += ngx_snprintf((char *) b->last,                                 sizeof("Content-Length: ") + NGX_OFF_T_LEN + 2,                                 "Content-Length: " OFF_T_FMT CRLF,                                 r->headers_out.content_length_n);
-endif|#
-directive|endif
 block|}
 block|}
 if|if
@@ -2234,12 +2228,6 @@ operator|->
 name|keepalive_header
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|b->last += ngx_snprintf((char *) b->last,                             sizeof("Keep-Alive: timeout=") + TIME_T_LEN + 2,                             "Keep-Alive: timeout=" TIME_T_FMT CRLF,                             clcf->keepalive_header);
-endif|#
-directive|endif
 block|}
 block|}
 else|else

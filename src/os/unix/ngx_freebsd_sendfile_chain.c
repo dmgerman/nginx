@@ -1035,9 +1035,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"sendfile() sent only "
-name|OFF_T_FMT
-literal|" bytes"
+literal|"sendfile() sent only %O bytes"
 argument_list|,
 name|sent
 argument_list|)
@@ -1112,11 +1110,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"sendfile: %d, @"
-name|OFF_T_FMT
-literal|" "
-name|OFF_T_FMT
-literal|":%d"
+literal|"sendfile: %d, @%O %O:%uz"
 argument_list|,
 name|rc
 argument_list|,
@@ -1161,8 +1155,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"writev: %d of "
-name|SIZE_T_FMT
+literal|"writev: %d of %uz"
 argument_list|,
 name|rc
 argument_list|,
