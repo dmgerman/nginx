@@ -89,7 +89,7 @@ operator|->
 name|pool
 argument_list|)
 argument_list|,
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 name|h
@@ -140,7 +140,7 @@ name|r
 operator|->
 name|pool
 argument_list|,
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 if|if
@@ -239,7 +239,7 @@ argument_list|,
 name|size
 argument_list|)
 argument_list|,
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 name|r
@@ -273,7 +273,7 @@ name|r
 operator|->
 name|pool
 argument_list|,
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 if|if

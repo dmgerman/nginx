@@ -23,6 +23,18 @@ directive|include
 file|<ngx_http_proxy_handler.h>
 end_include
 
+begin_function_decl
+specifier|static
+name|int
+name|ngx_http_proxy_process_cached_header
+parameter_list|(
+name|ngx_http_proxy_ctx_t
+modifier|*
+name|p
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_function
 DECL|function|ngx_http_proxy_get_cached_response (ngx_http_proxy_ctx_t * p)
 name|int
@@ -48,7 +60,7 @@ name|ngx_http_proxy_cache_t
 modifier|*
 name|c
 decl_stmt|;
-name|ngx_http_proxy_upstream_t
+name|ngx_http_proxy_upstream_conf_t
 modifier|*
 name|u
 decl_stmt|;
@@ -82,6 +94,12 @@ return|return
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
 block|}
+name|p
+operator|->
+name|cache
+operator|=
+name|c
+expr_stmt|;
 name|c
 operator|->
 name|ctx
@@ -345,12 +363,6 @@ name|p
 operator|->
 name|header_in
 expr_stmt|;
-name|p
-operator|->
-name|cache
-operator|=
-name|c
-expr_stmt|;
 name|rc
 operator|=
 name|ngx_http_cache_get_file
@@ -363,6 +375,20 @@ operator|->
 name|ctx
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|rc
+operator|==
+name|NGX_STALE
+condition|)
+block|{
+name|p
+operator|->
+name|stale
+operator|=
+literal|1
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|rc
@@ -384,10 +410,22 @@ name|c
 operator|->
 name|ctx
 operator|.
-name|header
-operator|.
-name|size
+name|header_size
 expr_stmt|;
+if|if
+condition|(
+name|ngx_http_proxy_process_cached_header
+argument_list|(
+name|p
+argument_list|)
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+return|return
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
+return|;
+block|}
 block|}
 if|else if
 condition|(
@@ -406,9 +444,7 @@ name|c
 operator|->
 name|ctx
 operator|.
-name|header
-operator|.
-name|size
+name|header_size
 expr_stmt|;
 name|p
 operator|->
@@ -430,9 +466,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_proxy_process_cached_response (ngx_http_proxy_ctx_t * p)
+DECL|function|ngx_http_proxy_process_cached_header (ngx_http_proxy_ctx_t * p)
+specifier|static
 name|int
-name|ngx_http_proxy_process_cached_response
+name|ngx_http_proxy_process_cached_header
 parameter_list|(
 name|ngx_http_proxy_ctx_t
 modifier|*
@@ -509,7 +546,7 @@ name|data
 argument_list|)
 expr_stmt|;
 return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 return|;
 block|}
 if|if
@@ -545,7 +582,7 @@ name|data
 argument_list|)
 expr_stmt|;
 return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 return|;
 block|}
 comment|/* rc == NGX_OK */
@@ -604,7 +641,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 return|;
 block|}
 name|ngx_cpystrn
@@ -696,7 +733,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 return|;
 block|}
 name|h
@@ -768,7 +805,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 return|;
 block|}
 name|h
@@ -958,10 +995,7 @@ literal|"HTTP header done"
 argument_list|)
 expr_stmt|;
 return|return
-name|ngx_http_proxy_send_cached_response
-argument_list|(
-name|p
-argument_list|)
+name|NGX_OK
 return|;
 block|}
 if|else if
@@ -997,7 +1031,7 @@ name|data
 argument_list|)
 expr_stmt|;
 return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 return|;
 block|}
 comment|/* rc == NGX_AGAIN || rc == NGX_HTTP_PARSE_TOO_LONG_HEADER */
@@ -1028,7 +1062,7 @@ name|data
 argument_list|)
 expr_stmt|;
 return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 return|;
 block|}
 block|}
@@ -1071,6 +1105,8 @@ operator|.
 name|status
 operator|=
 name|p
+operator|->
+name|cache
 operator|->
 name|status
 expr_stmt|;
@@ -1281,6 +1317,60 @@ name|r
 argument_list|,
 operator|&
 name|out
+argument_list|)
+return|;
+block|}
+end_function
+
+begin_function
+DECL|function|ngx_http_proxy_update_cache (ngx_http_proxy_ctx_t * p)
+name|int
+name|ngx_http_proxy_update_cache
+parameter_list|(
+name|ngx_http_proxy_ctx_t
+modifier|*
+name|p
+parameter_list|)
+block|{
+if|if
+condition|(
+name|p
+operator|->
+name|cache
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_OK
+return|;
+block|}
+return|return
+name|ngx_http_cache_update_file
+argument_list|(
+name|p
+operator|->
+name|request
+argument_list|,
+operator|&
+name|p
+operator|->
+name|cache
+operator|->
+name|ctx
+argument_list|,
+operator|&
+name|p
+operator|->
+name|upstream
+operator|->
+name|event_pipe
+operator|->
+name|temp_file
+operator|->
+name|file
+operator|.
+name|name
 argument_list|)
 return|;
 block|}
