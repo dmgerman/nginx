@@ -2344,9 +2344,34 @@ return|;
 block|}
 endif|#
 directive|endif
+if|#
+directive|if
+operator|(
+name|NGX_THREADS
+operator|)
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"select() is not supported in the threaded mode"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CONF_ERROR
+return|;
+else|#
+directive|else
 return|return
 name|NGX_CONF_OK
 return|;
+endif|#
+directive|endif
 block|}
 end_function
 

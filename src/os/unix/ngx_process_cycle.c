@@ -2504,6 +2504,9 @@ block|{
 name|sigset_t
 name|set
 decl_stmt|;
+name|ngx_err_t
+name|err
+decl_stmt|;
 name|ngx_int_t
 name|n
 decl_stmt|;
@@ -2976,6 +2979,42 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
+comment|/* fatal */
+name|exit
+argument_list|(
+literal|2
+argument_list|)
+expr_stmt|;
+block|}
+name|err
+operator|=
+name|ngx_thread_key_create
+argument_list|(
+operator|&
+name|ngx_core_tls_key
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|err
+operator|!=
+literal|0
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|,
+name|err
+argument_list|,
+name|ngx_thread_key_create_n
+literal|" failed"
+argument_list|)
+expr_stmt|;
 comment|/* fatal */
 name|exit
 argument_list|(
@@ -3765,7 +3804,7 @@ decl_stmt|;
 name|ngx_err_t
 name|err
 decl_stmt|;
-name|ngx_tls_t
+name|ngx_core_tls_t
 modifier|*
 name|tls
 decl_stmt|;
@@ -3905,7 +3944,7 @@ name|ngx_calloc
 argument_list|(
 sizeof|sizeof
 argument_list|(
-name|ngx_tls_t
+name|ngx_core_tls_t
 argument_list|)
 argument_list|,
 name|cycle
@@ -3925,8 +3964,12 @@ return|;
 block|}
 name|err
 operator|=
-name|ngx_thread_create_tls
-argument_list|()
+name|ngx_thread_set_tls
+argument_list|(
+name|ngx_core_tls_key
+argument_list|,
+name|tls
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -3945,7 +3988,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-name|ngx_thread_create_tls_n
+name|ngx_thread_set_tls_n
 literal|" failed"
 argument_list|)
 expr_stmt|;
@@ -3957,11 +4000,6 @@ operator|)
 literal|1
 return|;
 block|}
-name|ngx_thread_set_tls
-argument_list|(
-name|tls
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|ngx_mutex_lock
@@ -4038,7 +4076,7 @@ name|cycle
 operator|->
 name|log
 argument_list|,
-name|ngx_errno
+literal|0
 argument_list|,
 literal|"thread %d is done"
 argument_list|,
@@ -4099,6 +4137,11 @@ block|}
 if|if
 condition|(
 name|ngx_process_changes
+condition|)
+block|{
+if|if
+condition|(
+name|ngx_process_changes
 argument_list|(
 name|cycle
 argument_list|,
@@ -4115,6 +4158,7 @@ operator|*
 operator|)
 literal|1
 return|;
+block|}
 block|}
 block|}
 block|}

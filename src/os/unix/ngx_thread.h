@@ -69,12 +69,6 @@ directive|include
 file|<pthread.h>
 end_include
 
-begin_include
-include|#
-directive|include
-file|<pthread_np.h>
-end_include
-
 begin_typedef
 DECL|typedef|ngx_tid_t
 typedef|typedef
@@ -108,41 +102,55 @@ name|TID_T_FMT
 value|PTR_FMT
 end_define
 
+begin_typedef
+DECL|typedef|ngx_tls_key_t
+typedef|typedef
+name|pthread_key_t
+name|ngx_tls_key_t
+typedef|;
+end_typedef
+
 begin_define
-DECL|macro|ngx_thread_create_tls ()
+DECL|macro|ngx_thread_key_create (key)
 define|#
 directive|define
-name|ngx_thread_create_tls
-parameter_list|()
-value|pthread_key_create(0, NULL)
+name|ngx_thread_key_create
+parameter_list|(
+name|key
+parameter_list|)
+value|pthread_key_create(key, NULL)
 end_define
 
 begin_define
-DECL|macro|ngx_thread_create_tls_n
+DECL|macro|ngx_thread_key_create_n
 define|#
 directive|define
-name|ngx_thread_create_tls_n
-value|"pthread_key_create(0, NULL)"
+name|ngx_thread_key_create_n
+value|"pthread_key_create()"
 end_define
 
 begin_define
-DECL|macro|ngx_thread_get_tls ()
-define|#
-directive|define
-name|ngx_thread_get_tls
-parameter_list|()
-value|pthread_getspecific(0)
-end_define
-
-begin_define
-DECL|macro|ngx_thread_set_tls (v)
+DECL|macro|ngx_thread_set_tls
 define|#
 directive|define
 name|ngx_thread_set_tls
-parameter_list|(
-name|v
-parameter_list|)
-value|pthread_setspecific(0, v)
+value|pthread_setspecific
+end_define
+
+begin_define
+DECL|macro|ngx_thread_set_tls_n
+define|#
+directive|define
+name|ngx_thread_set_tls_n
+value|"pthread_setspecific()"
+end_define
+
+begin_define
+DECL|macro|ngx_thread_get_tls
+define|#
+directive|define
+name|ngx_thread_get_tls
+value|pthread_getspecific
 end_define
 
 begin_define
@@ -154,7 +162,7 @@ value|0
 end_define
 
 begin_typedef
-DECL|struct|__anon2c8f79680108
+DECL|struct|__anon2bef03200108
 typedef|typedef
 struct|struct
 block|{
@@ -174,7 +182,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c8f79680208
+DECL|struct|__anon2bef03200208
 typedef|typedef
 struct|struct
 block|{
@@ -283,7 +291,7 @@ value|volatile
 end_define
 
 begin_typedef
-DECL|struct|__anon2c8f79680308
+DECL|struct|__anon2bef03200308
 typedef|typedef
 struct|struct
 block|{
@@ -555,22 +563,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-
-begin_typedef
-DECL|struct|__anon2c8f79680408
-typedef|typedef
-struct|struct
-block|{
-DECL|member|event
-name|ngx_event_t
-modifier|*
-name|event
-decl_stmt|;
-DECL|typedef|ngx_tls_t
-block|}
-name|ngx_tls_t
-typedef|;
-end_typedef
 
 begin_endif
 endif|#

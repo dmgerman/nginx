@@ -258,6 +258,9 @@ comment|/* add an connection */
 name|ngx_iocp_del_connection
 block|,
 comment|/* delete an connection */
+name|NULL
+block|,
+comment|/* process the changes */
 name|ngx_iocp_process_events
 block|,
 comment|/* process the events */
@@ -293,7 +296,7 @@ name|NULL
 block|,
 comment|/* init module */
 name|NULL
-comment|/* init child */
+comment|/* init process */
 block|}
 decl_stmt|;
 end_decl_stmt

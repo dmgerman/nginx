@@ -57,7 +57,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon28f057ef0108
+DECL|struct|__anon28f768bf0108
 typedef|typedef
 struct|struct
 block|{
@@ -86,7 +86,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28f057ef0208
+DECL|struct|__anon28f768bf0208
 typedef|typedef
 struct|struct
 block|{
@@ -139,21 +139,9 @@ range|:
 literal|1
 decl_stmt|;
 comment|/* used to detect the stale events in kqueue, rt signals and epoll */
-DECL|member|use_instance
-name|unsigned
-name|use_instance
-range|:
-literal|1
-decl_stmt|;
 DECL|member|instance
 name|unsigned
 name|instance
-range|:
-literal|1
-decl_stmt|;
-DECL|member|returned_instance
-name|unsigned
-name|returned_instance
 range|:
 literal|1
 decl_stmt|;
@@ -239,6 +227,20 @@ name|pending_eof
 range|:
 literal|1
 decl_stmt|;
+if|#
+directive|if
+operator|!
+operator|(
+name|NGX_THREADS
+operator|)
+DECL|member|posted_ready
+name|unsigned
+name|posted_ready
+range|:
+literal|1
+decl_stmt|;
+endif|#
+directive|endif
 if|#
 directive|if
 operator|(
@@ -475,7 +477,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28f057ef0308
+DECL|struct|__anon28f768bf0308
 typedef|typedef
 struct|struct
 block|{
@@ -703,18 +705,6 @@ value|0x00000010
 end_define
 
 begin_comment
-comment|/*  * The event filter allows to pass instance information to check stale events -  * kqueue, epoll, rt signals.  */
-end_comment
-
-begin_define
-DECL|macro|NGX_HAVE_INSTANCE_EVENT
-define|#
-directive|define
-name|NGX_HAVE_INSTANCE_EVENT
-value|0x00000020
-end_define
-
-begin_comment
 comment|/*  * The event filter requires to do i/o operation until EAGAIN -  * epoll, rt signals.  */
 end_comment
 
@@ -723,19 +713,19 @@ DECL|macro|NGX_HAVE_GREEDY_EVENT
 define|#
 directive|define
 name|NGX_HAVE_GREEDY_EVENT
-value|0x00000040
+value|0x00000020
 end_define
 
 begin_comment
-comment|/*  * The event filter notifies only the changes (the edges)  * but not an initial level - early epoll patches.  */
+comment|/*  * The event filter is epoll,  */
 end_comment
 
 begin_define
-DECL|macro|NGX_USE_EDGE_EVENT
+DECL|macro|NGX_USE_EPOLL_EVENT
 define|#
 directive|define
-name|NGX_USE_EDGE_EVENT
-value|0x00000080
+name|NGX_USE_EPOLL_EVENT
+value|0x00000040
 end_define
 
 begin_comment
@@ -747,7 +737,7 @@ DECL|macro|NGX_USE_RTSIG_EVENT
 define|#
 directive|define
 name|NGX_USE_RTSIG_EVENT
-value|0x00000100
+value|0x00000080
 end_define
 
 begin_comment
@@ -759,7 +749,7 @@ DECL|macro|NGX_USE_AIO_EVENT
 define|#
 directive|define
 name|NGX_USE_AIO_EVENT
-value|0x00000200
+value|0x00000100
 end_define
 
 begin_comment
@@ -771,7 +761,7 @@ DECL|macro|NGX_USE_IOCP_EVENT
 define|#
 directive|define
 name|NGX_USE_IOCP_EVENT
-value|0x00000400
+value|0x00000200
 end_define
 
 begin_comment
@@ -1297,7 +1287,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon28f057ef0408
+DECL|struct|__anon28f768bf0408
 typedef|typedef
 struct|struct
 block|{
@@ -1344,7 +1334,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f057ef0508
+DECL|struct|__anon28f768bf0508
 typedef|typedef
 struct|struct
 block|{

@@ -483,14 +483,6 @@ name|posted_timedout
 operator|=
 literal|1
 expr_stmt|;
-name|ev
-operator|->
-name|returned_instance
-operator|=
-name|ev
-operator|->
-name|instance
-expr_stmt|;
 name|ngx_post_event
 argument_list|(
 name|ev

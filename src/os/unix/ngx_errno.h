@@ -65,6 +65,14 @@ value|ECHILD
 end_define
 
 begin_define
+DECL|macro|NGX_ENOMEM
+define|#
+directive|define
+name|NGX_ENOMEM
+value|ENOMEM
+end_define
+
+begin_define
 DECL|macro|NGX_EACCES
 define|#
 directive|define
@@ -94,6 +102,14 @@ define|#
 directive|define
 name|NGX_ENOTDIR
 value|ENOTDIR
+end_define
+
+begin_define
+DECL|macro|NGX_EINVAL
+define|#
+directive|define
+name|NGX_EINVAL
+value|EINVAL
 end_define
 
 begin_define
