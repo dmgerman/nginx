@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b3a8d6d0108
+DECL|struct|__anon29e22f260108
 typedef|typedef
 struct|struct
 block|{
@@ -67,7 +67,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3a8d6d0208
+DECL|struct|__anon29e22f260208
 typedef|typedef
 struct|struct
 block|{
@@ -103,7 +103,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2b3a8d6d0308
+DECL|struct|__anon29e22f260308
 typedef|typedef
 struct|struct
 block|{
@@ -123,7 +123,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3a8d6d0408
+DECL|struct|__anon29e22f260408
 typedef|typedef
 struct|struct
 block|{
@@ -161,7 +161,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2b3a8d6d0508
+DECL|struct|__anon29e22f260508
 typedef|typedef
 struct|struct
 block|{
@@ -182,7 +182,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3a8d6d0608
+DECL|struct|__anon29e22f260608
 typedef|typedef
 struct|struct
 block|{
@@ -280,6 +280,31 @@ end_decl_stmt
 begin_function_decl
 name|int
 name|ngx_http_core_translate_handler
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|int
+name|ngx_http_error
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|int
+name|error
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|int
+name|ngx_http_close_request
 parameter_list|(
 name|ngx_http_request_t
 modifier|*

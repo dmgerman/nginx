@@ -220,10 +220,17 @@ expr_stmt|;
 comment|/* */
 if|#
 directive|if
-operator|!
 operator|(
 name|WIN32
 operator|)
+name|ngx_init_sockets
+argument_list|(
+operator|&
+name|ngx_log
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|ngx_set_signals
 argument_list|(
 operator|&
@@ -232,12 +239,6 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-name|ngx_init_sockets
-argument_list|(
-operator|&
-name|ngx_log
-argument_list|)
-expr_stmt|;
 name|ngx_init_array
 argument_list|(
 name|ngx_listening_sockets

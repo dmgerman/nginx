@@ -263,7 +263,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2c89a8b00108
+DECL|struct|__anon2c12ae530108
 typedef|typedef
 struct|struct
 block|{
@@ -311,7 +311,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c89a8b00208
+DECL|struct|__anon2c12ae530208
 typedef|typedef
 struct|struct
 block|{
@@ -335,7 +335,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c89a8b00308
+DECL|struct|__anon2c12ae530308
 typedef|typedef
 struct|struct
 block|{
@@ -380,7 +380,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c89a8b00408
+DECL|struct|__anon2c12ae530408
 typedef|typedef
 struct|struct
 block|{
@@ -718,7 +718,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c89a8b00508
+DECL|struct|__anon2c12ae530508
 typedef|typedef
 struct|struct
 block|{
@@ -796,7 +796,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c89a8b00608
+DECL|struct|__anon2c12ae530608
 typedef|typedef
 struct|struct
 block|{
@@ -1073,6 +1073,20 @@ parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|int
+name|ngx_http_special_response
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|int
+name|error
 parameter_list|)
 function_decl|;
 end_function_decl

@@ -35,13 +35,6 @@ typedef|;
 end_typedef
 
 begin_define
-DECL|macro|ngx_init_sockets
-define|#
-directive|define
-name|ngx_init_sockets
-end_define
-
-begin_define
 DECL|macro|ngx_socket (af,type,proto,flags)
 define|#
 directive|define
