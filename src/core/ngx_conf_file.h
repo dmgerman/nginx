@@ -109,14 +109,6 @@ value|0x00000200
 end_define
 
 begin_define
-DECL|macro|NGX_CONF_TAKE10
-define|#
-directive|define
-name|NGX_CONF_TAKE10
-value|0x00000400
-end_define
-
-begin_define
 DECL|macro|NGX_CONF_TAKE1234
 define|#
 directive|define
@@ -281,10 +273,10 @@ modifier|*
 name|conf
 parameter_list|)
 function_decl|;
-DECL|union|__anon2988be66010a
+DECL|union|__anon297bc310010a
 union|union
 block|{
-DECL|struct|__anon2988be660208
+DECL|struct|__anon297bc3100208
 struct|struct
 block|{
 DECL|member|low
@@ -542,7 +534,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2988be660308
+DECL|struct|__anon297bc3100308
 typedef|typedef
 struct|struct
 block|{

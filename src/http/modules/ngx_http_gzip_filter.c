@@ -24,7 +24,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28c626be0108
+DECL|struct|__anon2b93432b0108
 typedef|typedef
 struct|struct
 block|{
@@ -59,7 +59,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c626be0208
+DECL|struct|__anon2b93432b0208
 typedef|typedef
 struct|struct
 block|{
@@ -1079,7 +1079,7 @@ operator|--
 expr_stmt|;
 block|}
 block|}
-comment|/*          * We preallocate a memory for zlib in one hunk (200K-400K), this          * dicreases number of malloc() and free() calls and probably          * syscalls.          * Besides we free() this memory as soon as the gzipping will complete          * and do not wait while a whole response will be sent to a client.          *          * 8K is for zlib deflate_state (~6K).          *          * TODO: 64-bit, round to PAGE_SIZE          */
+comment|/*          * We preallocate a memory for zlib in one hunk (200K-400K), this          * dicreases number of malloc() and free() calls and probably          * syscalls.          * Besides we free() this memory as soon as the gzipping will complete          * and do not wait while a whole response will be sent to a client.          *          * 8K is for zlib deflate_state (~6K).          *          * TODO: 64-bit, round to PAGE_SIZE, autoconf of deflate_state size          */
 name|ctx
 operator|->
 name|allocated
