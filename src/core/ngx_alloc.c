@@ -260,6 +260,13 @@ argument_list|)
 empty_stmt|;
 endif|#
 directive|endif
+if|if
+condition|(
+name|l
+operator|->
+name|alloc
+condition|)
+block|{
 name|free
 argument_list|(
 name|l
@@ -267,6 +274,7 @@ operator|->
 name|alloc
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/*      * we could allocate pool->log from this pool      * so we can not use this log while free()ing the pool      */
 if|#
@@ -477,7 +485,7 @@ block|{
 break|break;
 block|}
 block|}
-comment|/* alloc new pool block */
+comment|/* alloc a new pool block */
 name|ngx_test_null
 argument_list|(
 name|n
@@ -523,10 +531,8 @@ expr_stmt|;
 return|return
 name|m
 return|;
-comment|/* alloc large block */
 block|}
-else|else
-block|{
+comment|/* alloc a large block */
 name|large
 operator|=
 name|NULL
@@ -675,6 +681,82 @@ expr_stmt|;
 return|return
 name|p
 return|;
+block|}
+end_function
+
+begin_function
+DECL|function|ngx_pfree (ngx_pool_t * pool,void * p)
+name|void
+name|ngx_pfree
+parameter_list|(
+name|ngx_pool_t
+modifier|*
+name|pool
+parameter_list|,
+name|void
+modifier|*
+name|p
+parameter_list|)
+block|{
+name|ngx_pool_large_t
+modifier|*
+name|l
+decl_stmt|;
+for|for
+control|(
+name|l
+operator|=
+name|pool
+operator|->
+name|large
+init|;
+name|l
+condition|;
+name|l
+operator|=
+name|l
+operator|->
+name|next
+control|)
+block|{
+if|if
+condition|(
+name|p
+operator|==
+name|l
+operator|->
+name|alloc
+condition|)
+block|{
+if|#
+directive|if
+operator|(
+name|NGX_DEBUG_ALLOC
+operator|)
+name|ngx_log_debug
+argument_list|(
+argument|pool->log
+argument_list|,
+literal|"free: %08x"
+argument|_ l->alloc
+argument_list|)
+empty_stmt|;
+endif|#
+directive|endif
+name|free
+argument_list|(
+name|l
+operator|->
+name|alloc
+argument_list|)
+expr_stmt|;
+name|l
+operator|->
+name|alloc
+operator|=
+name|NULL
+expr_stmt|;
+block|}
 block|}
 block|}
 end_function

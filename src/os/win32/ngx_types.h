@@ -34,6 +34,14 @@ typedef|;
 end_typedef
 
 begin_typedef
+DECL|typedef|int64_t
+typedef|typedef
+name|__int64
+name|int64_t
+typedef|;
+end_typedef
+
+begin_typedef
 DECL|typedef|ssize_t
 typedef|typedef
 name|int

@@ -902,7 +902,7 @@ literal|0
 expr_stmt|;
 block|}
 return|return
-name|NULL
+name|NGX_CONF_OK
 return|;
 block|}
 end_function

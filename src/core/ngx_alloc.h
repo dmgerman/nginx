@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_comment
-comment|/* NGX_MAX_ALLOC_FROM_POOL should be (PAGE_SIZE - 1), i.e. 4095 on x86.    On FreeBSD 5.x it allows to use zero copy send.    On Windows NT it decreases number of locked pages in kernel.  */
+comment|/*  * NGX_MAX_ALLOC_FROM_POOL should be (PAGE_SIZE - 1), i.e. 4095 on x86.  * On FreeBSD 5.x it allows to use zero copy send.  * On Windows NT it decreases number of locked pages in kernel.  */
 end_comment
 
 begin_define
@@ -212,6 +212,21 @@ name|pool
 parameter_list|,
 name|size_t
 name|size
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_pfree
+parameter_list|(
+name|ngx_pool_t
+modifier|*
+name|pool
+parameter_list|,
+name|void
+modifier|*
+name|p
 parameter_list|)
 function_decl|;
 end_function_decl

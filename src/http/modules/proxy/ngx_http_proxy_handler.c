@@ -4240,7 +4240,7 @@ name|char
 modifier|*
 name|pos
 decl_stmt|;
-DECL|enum|__anon2bcb72ab0103
+DECL|enum|__anon27dad3780103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -5160,9 +5160,6 @@ modifier|*
 name|cf
 parameter_list|)
 block|{
-name|int
-name|i
-decl_stmt|;
 name|ngx_http_proxy_loc_conf_t
 modifier|*
 name|conf
