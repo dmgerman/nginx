@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon292c90670108
+DECL|struct|__anon2b12df7a0108
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon292c90670203
+DECL|enum|__anon2b12df7a0203
 typedef|typedef
 enum|enum
 block|{
@@ -95,7 +95,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292c90670308
+DECL|struct|__anon2b12df7a0308
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292c90670408
+DECL|struct|__anon2b12df7a0408
 typedef|typedef
 struct|struct
 block|{
@@ -146,7 +146,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292c90670508
+DECL|struct|__anon2b12df7a0508
 typedef|typedef
 struct|struct
 block|{
@@ -183,6 +183,10 @@ DECL|member|client_header_buffer_size
 name|size_t
 name|client_header_buffer_size
 decl_stmt|;
+DECL|member|client_large_buffers
+name|ngx_bufs_t
+name|client_large_buffers
+decl_stmt|;
 DECL|member|post_accept_timeout
 name|ngx_msec_t
 name|post_accept_timeout
@@ -210,7 +214,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon292c90670608
+DECL|struct|__anon2b12df7a0608
 typedef|typedef
 struct|struct
 block|{
@@ -234,7 +238,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292c90670708
+DECL|struct|__anon2b12df7a0708
 typedef|typedef
 struct|struct
 block|{
@@ -266,7 +270,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292c90670808
+DECL|struct|__anon2b12df7a0808
 typedef|typedef
 struct|struct
 block|{
@@ -309,7 +313,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon292c90670908
+DECL|struct|__anon2b12df7a0908
 typedef|typedef
 struct|struct
 block|{
@@ -328,7 +332,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292c90670a08
+DECL|struct|__anon2b12df7a0a08
 typedef|typedef
 struct|struct
 block|{

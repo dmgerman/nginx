@@ -24,6 +24,11 @@ name|ngx_uint_t
 name|spin
 parameter_list|)
 block|{
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_ATOMIC_OPS
+operator|)
 name|ngx_uint_t
 name|tries
 decl_stmt|;
@@ -83,6 +88,20 @@ return|return;
 block|}
 block|}
 block|}
+else|#
+directive|else
+if|#
+directive|if
+operator|(
+name|NGX_THREADS
+operator|)
+error|#
+directive|error
+error|ngx_spinlock() or ngx_atomic_cmp_set() are not defined !
+endif|#
+directive|endif
+endif|#
+directive|endif
 block|}
 end_function
 

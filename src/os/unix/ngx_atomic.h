@@ -34,6 +34,14 @@ name|__amd64__
 operator|)
 end_if
 
+begin_define
+DECL|macro|NGX_HAVE_ATOMIC_OPS
+define|#
+directive|define
+name|NGX_HAVE_ATOMIC_OPS
+value|1
+end_define
+
 begin_typedef
 DECL|typedef|ngx_atomic_t
 typedef|typedef
@@ -100,29 +108,17 @@ return|;
 block|}
 end_function
 
-begin_function
-DECL|function|ngx_atomic_dec (ngx_atomic_t * value)
-specifier|static
-name|ngx_inline
-name|uint32_t
-name|ngx_atomic_dec
-parameter_list|(
-name|ngx_atomic_t
-modifier|*
-name|value
-parameter_list|)
-block|{
-name|uint32_t
-name|old
-decl_stmt|;
-asm|__asm__
-specifier|volatile
-asm|(          NGX_SMP_LOCK     "   xaddl  %0, %1;   "     "   decl   %0;       "      : "=q" (old) : "0" (-1), "m" (*value));
-return|return
-name|old
-return|;
-block|}
-end_function
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
+begin_endif
+unit|static ngx_inline uint32_t ngx_atomic_dec(ngx_atomic_t *value) {     uint32_t  old;      __asm__ volatile (          NGX_SMP_LOCK     "   xaddl  %0, %1;   "     "   decl   %0;       "      : "=q" (old) : "0" (-1), "m" (*value));      return old; }
+endif|#
+directive|endif
+end_endif
 
 begin_function
 DECL|function|ngx_atomic_cmp_set (ngx_atomic_t * lock,ngx_atomic_t old,ngx_atomic_t set)
@@ -161,6 +157,14 @@ operator|(
 name|__sparc__
 operator|)
 end_elif
+
+begin_define
+DECL|macro|NGX_HAVE_ATOMIC_OPS
+define|#
+directive|define
+name|NGX_HAVE_ATOMIC_OPS
+value|1
+end_define
 
 begin_typedef
 DECL|typedef|ngx_atomic_t
@@ -233,25 +237,6 @@ block|}
 block|}
 end_function
 
-begin_comment
-comment|/* STUB */
-end_comment
-
-begin_define
-DECL|macro|ngx_atomic_dec (x)
-define|#
-directive|define
-name|ngx_atomic_dec
-parameter_list|(
-name|x
-parameter_list|)
-value|(*(x))--;
-end_define
-
-begin_comment
-comment|/**/
-end_comment
-
 begin_function
 DECL|function|ngx_atomic_cmp_set (ngx_atomic_t * lock,ngx_atomic_t old,ngx_atomic_t set)
 specifier|static
@@ -296,6 +281,14 @@ else|#
 directive|else
 end_else
 
+begin_define
+DECL|macro|NGX_HAVE_ATOMIC_OPS
+define|#
+directive|define
+name|NGX_HAVE_ATOMIC_OPS
+value|0
+end_define
+
 begin_typedef
 DECL|typedef|ngx_atomic_t
 typedef|typedef
@@ -304,10 +297,6 @@ name|uint32_t
 name|ngx_atomic_t
 typedef|;
 end_typedef
-
-begin_comment
-comment|/* STUB */
-end_comment
 
 begin_define
 DECL|macro|ngx_atomic_inc (x)
@@ -320,35 +309,29 @@ parameter_list|)
 value|++(*(x));
 end_define
 
-begin_define
-DECL|macro|ngx_atomic_dec (x)
-define|#
-directive|define
-name|ngx_atomic_dec
-parameter_list|(
-name|x
-parameter_list|)
-value|--(*(x));
-end_define
-
-begin_define
-DECL|macro|ngx_atomic_cmp_set (lock,old,set)
-define|#
-directive|define
+begin_function
+DECL|function|ngx_atomic_cmp_set (ngx_atomic_t * lock,ngx_atomic_t old,ngx_atomic_t set)
+specifier|static
+name|ngx_inline
+name|uint32_t
 name|ngx_atomic_cmp_set
 parameter_list|(
+name|ngx_atomic_t
+modifier|*
 name|lock
 parameter_list|,
+name|ngx_atomic_t
 name|old
 parameter_list|,
+name|ngx_atomic_t
 name|set
 parameter_list|)
-value|1
-end_define
-
-begin_comment
-comment|/**/
-end_comment
+block|{
+return|return
+literal|1
+return|;
+block|}
+end_function
 
 begin_endif
 endif|#

@@ -25,6 +25,14 @@ file|<ngx_core.h>
 end_include
 
 begin_define
+DECL|macro|NGX_HAVE_ATOMIC_OPS
+define|#
+directive|define
+name|NGX_HAVE_ATOMIC_OPS
+value|1
+end_define
+
+begin_define
 DECL|macro|ngx_atomic_inc (p)
 define|#
 directive|define
@@ -33,17 +41,6 @@ parameter_list|(
 name|p
 parameter_list|)
 value|InterlockedIncrement((long *) p)
-end_define
-
-begin_define
-DECL|macro|ngx_atomic_dec (p)
-define|#
-directive|define
-name|ngx_atomic_dec
-parameter_list|(
-name|p
-parameter_list|)
-value|InterlockedDecrement((long *) p)
 end_define
 
 begin_if
@@ -59,6 +56,10 @@ argument_list|(
 name|__BORLANDC__
 argument_list|)
 end_if
+
+begin_comment
+comment|/* the new SDK headers */
+end_comment
 
 begin_define
 DECL|macro|ngx_atomic_cmp_set (lock,old,set)
@@ -80,6 +81,10 @@ begin_else
 else|#
 directive|else
 end_else
+
+begin_comment
+comment|/* the old MS VC6.0SP2 SDK headers */
+end_comment
 
 begin_define
 DECL|macro|ngx_atomic_cmp_set (lock,old,set)
