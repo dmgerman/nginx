@@ -146,7 +146,7 @@ DECL|struct|ngx_hunk_s
 struct|struct
 name|ngx_hunk_s
 block|{
-DECL|union|__anon2afc96e0010a
+DECL|union|__anon29c6ba7f010a
 union|union
 block|{
 DECL|member|mem
@@ -163,7 +163,7 @@ DECL|member|pos
 block|}
 name|pos
 union|;
-DECL|union|__anon2afc96e0020a
+DECL|union|__anon29c6ba7f020a
 union|union
 block|{
 DECL|member|mem
@@ -247,6 +247,24 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+
+begin_define
+DECL|macro|ngx_add_hunk_to_chain (chain,h,pool,error)
+define|#
+directive|define
+name|ngx_add_hunk_to_chain
+parameter_list|(
+name|chain
+parameter_list|,
+name|h
+parameter_list|,
+name|pool
+parameter_list|,
+name|error
+parameter_list|)
+define|\
+value|do {                                                             \                 ngx_test_null(chain, ngx_create_chain_entry(pool), error);   \                 chain->hunk = h;                                             \                 chain->next = NULL;                                          \             } while (0);
+end_define
 
 begin_function_decl
 name|ngx_hunk_t

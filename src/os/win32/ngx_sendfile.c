@@ -218,8 +218,27 @@ expr_stmt|;
 block|}
 if|#
 directive|if
+literal|1
+name|tfrc
+operator|=
+name|TransmitFile
+argument_list|(
+name|s
+argument_list|,
+name|fd
+argument_list|,
+name|nbytes
+argument_list|,
 literal|0
-block_content|tfrc = TransmitFile(s, fd, nbytes, 0,&olp, ptfb, 0);
+argument_list|,
+operator|&
+name|olp
+argument_list|,
+name|ptfb
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
 else|#
 directive|else
 name|tfrc
@@ -260,14 +279,22 @@ literal|0
 block_content|rc = WSAGetOverlappedResult(s,&olp, (unsigned long *) sent, 0, NULL);
 endif|#
 directive|endif
+if|#
+directive|if
+literal|0
+block_content|ngx_log_debug(log, "ngx_sendfile: %d, @%I64d %I64d:%d" _                   tfrc _ offset _ *sent _ nbytes);
+else|#
+directive|else
 name|ngx_log_debug
 argument_list|(
 argument|log
 argument_list|,
-literal|"ngx_sendfile: %d, @%I64d %I64d:%d"
-argument|_                   tfrc _ offset _ *sent _ nbytes
+literal|"ngx_sendfile: %d, @%I64d %d:%d"
+argument|_                   tfrc _ offset _ olp.InternalHigh _ nbytes
 argument_list|)
 empty_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|rc

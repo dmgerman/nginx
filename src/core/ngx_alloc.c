@@ -56,13 +56,13 @@ name|NULL
 condition|)
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_EMERG
+name|NGX_LOG_ALERT
 argument_list|,
 name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"ngx_alloc: malloc %d bytes failed"
+literal|"ngx_alloc: malloc() %d bytes failed"
 argument_list|,
 name|size
 argument_list|)

@@ -209,8 +209,10 @@ name|ngx_log_debug
 argument_list|(
 argument|r->connection->log
 argument_list|,
-literal|"old chunk: %x %qx %qd"
-argument|_                       ch->hunk->type _ ch->hunk->pos.file _                       ch->hunk->last.file - ch->hunk->pos.file
+literal|"old chunk: %x "
+argument|QX_FMT
+literal|" "
+argument|QD_FMT _                       ch->hunk->type _ ch->hunk->pos.file _                       ch->hunk->last.file - ch->hunk->pos.file
 argument_list|)
 empty_stmt|;
 if|if
@@ -272,7 +274,7 @@ name|ngx_chain_t
 argument_list|)
 argument_list|)
 argument_list|,
-name|NGX_HTTP_FILTER_ERROR
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 name|ch
@@ -323,8 +325,10 @@ name|ngx_log_debug
 argument_list|(
 argument|r->connection->log
 argument_list|,
-literal|"new chunk: %x %qx %qd"
-argument|_                       ch->hunk->type _ ch->hunk->pos.file _                       ch->hunk->last.file - ch->hunk->pos.file
+literal|"new chunk: %x "
+argument|QX_FMT
+literal|" "
+argument|QD_FMT _                       ch->hunk->type _ ch->hunk->pos.file _                       ch->hunk->last.file - ch->hunk->pos.file
 argument_list|)
 empty_stmt|;
 if|if
@@ -372,7 +376,7 @@ operator|->
 name|buffer_output
 condition|)
 return|return
-name|NGX_HTTP_FILTER_DONE
+name|NGX_OK
 return|;
 name|chain
 operator|=
@@ -401,7 +405,7 @@ operator|-
 literal|1
 condition|)
 return|return
-name|NGX_HTTP_FILTER_ERROR
+name|NGX_ERROR
 return|;
 name|ctx
 operator|->
@@ -413,9 +417,9 @@ return|return
 operator|(
 name|chain
 condition|?
-name|NGX_HTTP_FILTER_AGAIN
+name|NGX_AGAIN
 else|:
-name|NGX_HTTP_FILTER_DONE
+name|NGX_OK
 operator|)
 return|;
 block|}

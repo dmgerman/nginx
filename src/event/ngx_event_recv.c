@@ -8,6 +8,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_core.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_errno.h>
 end_include
 
@@ -125,7 +131,7 @@ name|ev
 operator|->
 name|error
 argument_list|,
-literal|"ngx_event_recv: recv failed while %s"
+literal|"ngx_event_recv: recv() failed while %s"
 argument_list|,
 name|ev
 operator|->
@@ -135,8 +141,7 @@ name|action
 argument_list|)
 expr_stmt|;
 return|return
-operator|-
-literal|1
+name|NGX_ERROR
 return|;
 block|}
 return|return
@@ -189,7 +194,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"ngx_event_recv: EAGAIN while %s"
+literal|"ngx_event_recv: recv() returns EAGAIN while %s"
 argument_list|,
 name|ev
 operator|->
@@ -199,8 +204,7 @@ name|action
 argument_list|)
 expr_stmt|;
 return|return
-operator|-
-literal|2
+name|NGX_AGAIN
 return|;
 block|}
 name|ngx_log_error
@@ -213,7 +217,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"ngx_event_recv: recv failed while %s"
+literal|"ngx_event_recv: recv() failed while %s"
 argument_list|,
 name|ev
 operator|->
@@ -223,8 +227,7 @@ name|action
 argument_list|)
 expr_stmt|;
 return|return
-operator|-
-literal|1
+name|NGX_ERROR
 return|;
 block|}
 if|#

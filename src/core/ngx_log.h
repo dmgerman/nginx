@@ -19,7 +19,7 @@ file|<ngx_errno.h>
 end_include
 
 begin_typedef
-DECL|enum|__anon275655d50103
+DECL|enum|__anon2c7848300103
 typedef|typedef
 enum|enum
 block|{
@@ -55,11 +55,11 @@ typedef|;
 end_typedef
 
 begin_comment
-comment|/*     "[%time] [%level] %pid#%tid: %message:(%errno)%errstr, while %action"         " %peer and processing %context"      message = "recv() failed";     errno = 32;     action = "reading request headers from client";     peer = "192.168.1.1";     context = "URL /"      "[2002/08/20 12:00:00] [error] 412#3: recv() failed:(32)Broken pipe,"     " while reading request headers from client 192.168.1.1"     " and processing URL /"       OLD:     "... while ", action = "reading client request headers"     "... while reading client request headers"     "... while ", action = "reading client request headers"                   context: pop3 user account     "... while reading client command for 'john_doe'" */
+comment|/*     "[%time] [%level] %pid#%tid: %message:(%errno)%errstr, while %action"         " %peer and while processing %context"      ----     message = "recv() failed";     errno = 32;     action = "reading request headers from client";     peer = "192.168.1.1";     context = "URL /"      "[2002/08/20 12:00:00] [error] 412#3: recv() failed (32: Broken pipe)"     " while reading request headers from client 192.168.1.1"     " and while processing URL /"      ----     message = "recv() failed";     errno = 32;     ngx_http_proxy_error_context_t:         action = "reading headers from server %s for client %s and "                  "while processing %s"         backend = "127.0.0.1";         peer = "192.168.1.1";         context = "URL /"      "[2002/08/20 12:00:00] [error] 412#3: recv() failed (32: Broken pipe)"     " while reading headers from backend 127.0.0.1"     " for client 192.168.1.1 and while processing URL /"      ----     "[alert] 412#3: ngx_alloc: malloc() 102400 bytes failed (12: Cannot "     "allocate memory) while reading request headers from client 192.168.1.1"     " and while processing URL /"       OLD:     "... while ", action = "reading client request headers"     "... while reading client request headers"     "... while ", action = "reading client request headers"                   context: pop3 user account     "... while reading client command for 'john_doe'" */
 end_comment
 
 begin_typedef
-DECL|struct|__anon275655d50208
+DECL|struct|__anon2c7848300208
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,14 @@ name|char
 modifier|*
 name|context
 decl_stmt|;
-comment|/*  char  *func(ngx_log_t *log); */
+if|#
+directive|if
+literal|0
+block|void  *data;
+comment|/* i.e. ngx_http_proxy_error_context_t */
+block|char  *func(ngx_log_t *log);
+endif|#
+directive|endif
 DECL|typedef|ngx_log_t
 block|}
 name|ngx_log_t
@@ -133,11 +140,13 @@ define|\
 value|if (log->log_level>= level) ngx_log_error_core(level, log, args)
 end_define
 
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+operator|(
 name|NGX_DEBUG
-end_ifdef
+operator|)
+end_if
 
 begin_define
 DECL|macro|ngx_log_debug (log,args...)
@@ -252,11 +261,13 @@ define|\
 value|if (log->log_level>= level) ngx_log_error_core(level, log, __VA_ARGS__)
 end_define
 
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+operator|(
 name|NGX_DEBUG
-end_ifdef
+operator|)
+end_if
 
 begin_define
 DECL|macro|ngx_log_debug (log,...)
@@ -351,11 +362,13 @@ directive|include
 file|<stdarg.h>
 end_include
 
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+operator|(
 name|NGX_DEBUG
-end_ifdef
+operator|)
+end_if
 
 begin_define
 DECL|macro|ngx_log_debug (log,text)

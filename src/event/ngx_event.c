@@ -104,11 +104,19 @@ end_if
 begin_if
 if|#
 directive|if
-literal|0
+literal|1
 end_if
 
+begin_decl_stmt
+DECL|variable|ngx_event_type
+name|ngx_event_type_e
+name|ngx_event_type
+init|=
+name|NGX_SELECT_EVENT
+decl_stmt|;
+end_decl_stmt
+
 begin_else
-unit|ngx_event_type_e     ngx_event_type = NGX_SELECT_EVENT;
 else|#
 directive|else
 end_else

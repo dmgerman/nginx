@@ -165,7 +165,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon29f666880108
+DECL|struct|__anon2b1d09270108
 typedef|typedef
 struct|struct
 block|{
@@ -199,7 +199,7 @@ value|(module)->ctx
 end_define
 
 begin_typedef
-DECL|struct|__anon29f666880208
+DECL|struct|__anon2b1d09270208
 typedef|typedef
 struct|struct
 block|{
@@ -223,7 +223,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f666880308
+DECL|struct|__anon2b1d09270308
 typedef|typedef
 struct|struct
 block|{
@@ -254,7 +254,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f666880408
+DECL|struct|__anon2b1d09270408
 typedef|typedef
 struct|struct
 block|{
@@ -407,6 +407,10 @@ DECL|member|pool
 name|ngx_pool_t
 modifier|*
 name|pool
+decl_stmt|;
+DECL|member|filter
+name|int
+name|filter
 decl_stmt|;
 DECL|member|header_only
 name|unsigned

@@ -43,6 +43,22 @@ name|off_t
 typedef|;
 end_typedef
 
+begin_define
+DECL|macro|QD_FMT
+define|#
+directive|define
+name|QD_FMT
+value|"%I64d"
+end_define
+
+begin_define
+DECL|macro|QX_FMT
+define|#
+directive|define
+name|QX_FMT
+value|"%I64x"
+end_define
+
 begin_endif
 endif|#
 directive|endif
