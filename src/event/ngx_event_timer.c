@@ -43,13 +43,13 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_event_timer_init (ngx_log_t * log)
+DECL|function|ngx_event_timer_init (ngx_cycle_t * cycle)
 name|int
 name|ngx_event_timer_init
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 block|{
 name|int
@@ -67,6 +67,10 @@ name|ecf
 operator|=
 name|ngx_event_get_conf
 argument_list|(
+name|cycle
+operator|->
+name|conf_ctx
+argument_list|,
 name|ngx_event_core_module
 argument_list|)
 expr_stmt|;
@@ -94,6 +98,8 @@ argument_list|(
 name|ngx_event_t
 argument_list|)
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|)
 argument_list|,
@@ -190,6 +196,35 @@ index|]
 expr_stmt|;
 block|}
 block|}
+if|else if
+condition|(
+name|ngx_timer_queue_num
+operator|>
+name|ecf
+operator|->
+name|timer_queues
+condition|)
+block|{
+comment|/* STUB */
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"NOT READY"
+argument_list|)
+expr_stmt|;
+name|exit
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|NGX_OK
 return|;
@@ -198,13 +233,13 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_event_timer_done (ngx_log_t * log)
+DECL|function|ngx_event_timer_done (ngx_cycle_t * cycle)
 name|void
 name|ngx_event_timer_done
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 block|{
 name|ngx_free
@@ -215,6 +250,10 @@ expr_stmt|;
 name|ngx_timer_queue
 operator|=
 name|NULL
+expr_stmt|;
+name|ngx_timer_queue_num
+operator|=
+literal|0
 expr_stmt|;
 block|}
 end_function

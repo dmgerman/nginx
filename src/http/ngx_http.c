@@ -2115,6 +2115,8 @@ name|log
 operator|=
 name|cf
 operator|->
+name|cycle
+operator|->
 name|log
 expr_stmt|;
 name|cscf

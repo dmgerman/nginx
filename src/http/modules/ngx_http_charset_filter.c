@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon296f76970108
+DECL|struct|__anon2a3db0d60108
 typedef|typedef
 struct|struct
 block|{
@@ -31,6 +31,18 @@ block|}
 name|ngx_http_charset_loc_conf_t
 typedef|;
 end_typedef
+
+begin_function_decl
+specifier|static
+name|int
+name|ngx_http_charset_filter_init
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_function_decl
 specifier|static
@@ -62,22 +74,6 @@ parameter_list|,
 name|void
 modifier|*
 name|child
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-specifier|static
-name|int
-name|ngx_http_charset_filter_init
-parameter_list|(
-name|ngx_cycle_t
-modifier|*
-name|cycle
-parameter_list|,
-name|ngx_log_t
-modifier|*
-name|log
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -173,10 +169,7 @@ name|ngx_http_charset_filter_init
 block|,
 comment|/* init module */
 name|NULL
-block|,
-comment|/* commit module */
-name|NULL
-comment|/* rollback module */
+comment|/* init child */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -310,7 +303,7 @@ directive|endif
 end_endif
 
 begin_function
-DECL|function|ngx_http_charset_filter_init (ngx_cycle_t * cycle,ngx_log_t * log)
+DECL|function|ngx_http_charset_filter_init (ngx_cycle_t * cycle)
 specifier|static
 name|int
 name|ngx_http_charset_filter_init
@@ -318,10 +311,6 @@ parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
-parameter_list|,
-name|ngx_log_t
-modifier|*
-name|log
 parameter_list|)
 block|{
 name|next_header_filter

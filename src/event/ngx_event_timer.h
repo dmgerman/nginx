@@ -34,9 +34,9 @@ begin_function_decl
 name|int
 name|ngx_event_timer_init
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -45,9 +45,9 @@ begin_function_decl
 name|void
 name|ngx_event_timer_done
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 function_decl|;
 end_function_decl

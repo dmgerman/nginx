@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ae9eca50108
+DECL|struct|__anon28ea06bc0108
 typedef|typedef
 struct|struct
 block|{
@@ -64,10 +64,6 @@ parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
-parameter_list|,
-name|ngx_log_t
-modifier|*
-name|log
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -208,10 +204,7 @@ name|ngx_http_index_init
 block|,
 comment|/* init module */
 name|NULL
-block|,
-comment|/* commit module */
-name|NULL
-comment|/* rollback module */
+comment|/* init child */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -937,7 +930,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_index_init (ngx_cycle_t * cycle,ngx_log_t * log)
+DECL|function|ngx_http_index_init (ngx_cycle_t * cycle)
 specifier|static
 name|int
 name|ngx_http_index_init
@@ -945,10 +938,6 @@ parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
-parameter_list|,
-name|ngx_log_t
-modifier|*
-name|log
 parameter_list|)
 block|{
 name|ngx_http_handler_pt

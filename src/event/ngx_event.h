@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2c592ce10108
+DECL|struct|__anon27dbd7830108
 typedef|typedef
 struct|struct
 block|{
@@ -349,7 +349,7 @@ literal|1
 end_if
 
 begin_typedef
-DECL|enum|__anon2c592ce10203
+DECL|enum|__anon27dbd7830203
 typedef|typedef
 enum|enum
 block|{
@@ -423,7 +423,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c592ce10308
+DECL|struct|__anon27dbd7830308
 typedef|typedef
 struct|struct
 block|{
@@ -542,9 +542,9 @@ modifier|*
 name|init
 function_decl|)
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 function_decl|;
 DECL|member|done
@@ -554,9 +554,9 @@ modifier|*
 name|done
 function_decl|)
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 function_decl|;
 DECL|typedef|ngx_event_actions_t
@@ -1256,7 +1256,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon2c592ce10408
+DECL|struct|__anon27dbd7830408
 typedef|typedef
 struct|struct
 block|{
@@ -1279,7 +1279,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c592ce10508
+DECL|struct|__anon27dbd7830508
 typedef|typedef
 struct|struct
 block|{
@@ -1343,15 +1343,17 @@ decl_stmt|;
 end_decl_stmt
 
 begin_define
-DECL|macro|ngx_event_get_conf (module)
+DECL|macro|ngx_event_get_conf (conf_ctx,module)
 define|#
 directive|define
 name|ngx_event_get_conf
 parameter_list|(
+name|conf_ctx
+parameter_list|,
 name|module
 parameter_list|)
 define|\
-value|(*(ngx_get_conf(ngx_events_module))) [module.ctx_index];
+value|(*(ngx_get_conf(conf_ctx, ngx_events_module))) [module.ctx_index];
 end_define
 
 begin_function_decl

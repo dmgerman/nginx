@@ -28,29 +28,13 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a0c757e0108
+DECL|struct|__anon2ae865bf0108
 typedef|typedef
 struct|struct
 block|{
-DECL|member|kqueue
-name|int
-name|kqueue
-decl_stmt|;
-DECL|member|change_list
-name|struct
-name|kevent
-modifier|*
-name|change_list
-decl_stmt|;
 DECL|member|changes
 name|u_int
 name|changes
-decl_stmt|;
-DECL|member|event_list
-name|struct
-name|kevent
-modifier|*
-name|event_list
 decl_stmt|;
 DECL|member|events
 name|u_int
@@ -67,9 +51,9 @@ specifier|static
 name|int
 name|ngx_kqueue_init
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -79,9 +63,9 @@ specifier|static
 name|void
 name|ngx_kqueue_done
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -334,15 +318,6 @@ comment|/* process the events */
 name|ngx_kqueue_init
 block|,
 comment|/* init the events */
-if|#
-directive|if
-literal|0
-block|ngx_kqueue_commit,
-comment|/* commit the events */
-block|ngx_kqueue_rollback,
-comment|/* rollback the events */
-endif|#
-directive|endif
 name|ngx_kqueue_done
 comment|/* done the events */
 block|}
@@ -372,78 +347,20 @@ name|NULL
 block|,
 comment|/* init module */
 name|NULL
-block|,
-comment|/* commit module */
-name|NULL
-block|,
-comment|/* rollback module */
-if|#
-directive|if
-literal|0
-block|NULL
 comment|/* init child */
-endif|#
-directive|endif
 block|}
 decl_stmt|;
 end_decl_stmt
 
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-
-begin_if
-unit|static int ngx_kqueue_init(ngx_cycle_t *cycle, ngx_log_t *log) {     struct timespec     ts;     ngx_kqueue_conf_t  *kcf;      kcf = ngx_event_get_conf(cycle->conf_ctx, ngx_kqueue_module);  ngx_log_debug(log, "CH: %d" _ kcf->changes); ngx_log_debug(log, "EV: %d" _ kcf->events);      if (ngx_kqueue == -1) {         kcf->kqueue = kqueue();          if (kcf->kqueue == -1) {             ngx_log_error(NGX_LOG_EMERG, log, ngx_errno, "kqueue() failed");             return NGX_ERROR;         }      } else {         kcf->kqueue = ngx_kqueue;     }      if (max_changes< kcf->changes) {         if (nchanges) {             ts.tv_sec = 0;             ts.tv_nsec = 0;              if (kevent(ngx_kqueue, change_list, nchanges, NULL, 0,&ts) == -1) {                 ngx_log_error(NGX_LOG_ALERT, log, ngx_errno, "kevent() failed");                 return NGX_ERROR;             }              nchanges = 0;         }          ngx_test_null(kcf->change_list,                       ngx_alloc(kcf->changes * sizeof(struct kevent), log),                       NGX_ERROR);      } else {         kcf->change_list = change_list;     }      if (nevents< kcf->events) {         ngx_test_null(kcf->event_list,                       ngx_alloc(kcf->events * sizeof(struct kevent), log),                       NGX_ERROR);     } else {         kcf->event_list = event_list;     }      if (ngx_event_timer_init(cycle, log) == NGX_ERROR) {         return NGX_ERROR;     }      return NGX_OK; }   static void ngx_kqueue_commit(ngx_cycle_t *cycle, ngx_log_t *log) {     ngx_kqueue_conf_t  *kcf;      kcf = ngx_event_get_conf(cycle->conf_ctx, ngx_kqueue_module);      ngx_kqueue = kcf->kqueue;      if (change_list != kcf->change_list) {         ngx_free(change_list);         change_list = kcf->change_list;     }      max_changes = kcf->changes;      if (event_list != kcf->event_list) {         ngx_free(event_list);         event_list = kcf->event_list;     }      nevents = kcf->events;      ngx_event_timer_commit(cycle, log);      ngx_event_actions = ngx_kqueue_module_ctx.actions;     ngx_io = ngx_os_io;      ngx_event_flags = NGX_HAVE_LEVEL_EVENT                      |NGX_HAVE_ONESHOT_EVENT
-if|#
-directive|if
-operator|(
-name|HAVE_CLEAR_EVENT
-operator|)
-end_if
-
-begin_else
-unit||NGX_HAVE_CLEAR_EVENT
-else|#
-directive|else
-end_else
-
-begin_endif
-unit||NGX_USE_LEVEL_EVENT
-endif|#
-directive|endif
-end_endif
-
-begin_if
-if|#
-directive|if
-operator|(
-name|HAVE_LOWAT_EVENT
-operator|)
-end_if
-
-begin_endif
-unit||NGX_HAVE_LOWAT_EVENT
-endif|#
-directive|endif
-end_endif
-
-begin_endif
-unit||NGX_HAVE_KQUEUE_EVENT; }   static void ngx_kqueue_rollback(ngx_cycle_t *cycle, ngx_log_t *log) {     ngx_kqueue_conf_t  *kcf;      kcf = ngx_event_get_conf(cycle->conf_ctx, ngx_kqueue_module);      if (ngx_kqueue == -1) {         if (close(kcf->kqueue) == -1) {             ngx_log_error(NGX_LOG_ALERT, log, ngx_errno,                           "kqueue close() failed");         }     }      if (change_list != kcf->change_list) {         ngx_free(kcf->change_list);     }      if (event_list != kcf->event_list) {         ngx_free(kcf->event_list);     }      ngx_event_timer_rollback(cycle, log); }
-endif|#
-directive|endif
-end_endif
-
 begin_function
-DECL|function|ngx_kqueue_init (ngx_log_t * log)
+DECL|function|ngx_kqueue_init (ngx_cycle_t * cycle)
 specifier|static
 name|int
 name|ngx_kqueue_init
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 block|{
 name|struct
@@ -458,12 +375,16 @@ name|kcf
 operator|=
 name|ngx_event_get_conf
 argument_list|(
+name|cycle
+operator|->
+name|conf_ctx
+argument_list|,
 name|ngx_kqueue_module
 argument_list|)
 expr_stmt|;
 name|ngx_log_debug
 argument_list|(
-argument|log
+argument|cycle->log
 argument_list|,
 literal|"CH: %d"
 argument|_ kcf->changes
@@ -471,7 +392,7 @@ argument_list|)
 empty_stmt|;
 name|ngx_log_debug
 argument_list|(
-argument|log
+argument|cycle->log
 argument_list|,
 literal|"EV: %d"
 argument|_ kcf->events
@@ -502,6 +423,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_EMERG
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 name|ngx_errno
@@ -566,6 +489,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 name|ngx_errno
@@ -577,6 +502,10 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|nchanges
+operator|=
+literal|0
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -605,6 +534,8 @@ expr|struct
 name|kevent
 argument_list|)
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|)
 argument_list|,
@@ -617,10 +548,6 @@ operator|=
 name|kcf
 operator|->
 name|changes
-expr_stmt|;
-name|nchanges
-operator|=
-literal|0
 expr_stmt|;
 if|if
 condition|(
@@ -658,6 +585,8 @@ expr|struct
 name|kevent
 argument_list|)
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|)
 argument_list|,
@@ -675,7 +604,7 @@ if|if
 condition|(
 name|ngx_event_timer_init
 argument_list|(
-name|log
+name|cycle
 argument_list|)
 operator|==
 name|NGX_ERROR
@@ -685,7 +614,10 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-comment|/* TODO: re-add active events with new udata              if ecf->connections was increased */
+name|ngx_io
+operator|=
+name|ngx_os_io
+expr_stmt|;
 name|ngx_event_actions
 operator|=
 name|ngx_kqueue_module_ctx
@@ -729,14 +661,14 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_kqueue_done (ngx_log_t * log)
+DECL|function|ngx_kqueue_done (ngx_cycle_t * cycle)
 specifier|static
 name|void
 name|ngx_kqueue_done
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 block|{
 if|if
@@ -754,6 +686,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 name|ngx_errno
@@ -769,7 +703,7 @@ literal|1
 expr_stmt|;
 name|ngx_event_timer_done
 argument_list|(
-name|log
+name|cycle
 argument_list|)
 expr_stmt|;
 name|ngx_free

@@ -18,10 +18,10 @@ file|<ngx_event.h>
 end_include
 
 begin_define
-DECL|macro|DEF_CONNECTIONS
+DECL|macro|DEFAULT_CONNECTIONS
 define|#
 directive|define
-name|DEF_CONNECTIONS
+name|DEFAULT_CONNECTIONS
 value|512
 end_define
 
@@ -89,6 +89,42 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_function_decl
+specifier|static
+name|int
+name|ngx_event_init_module
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
+name|int
+name|ngx_event_init_child
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
+name|int
+name|ngx_event_init
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_function_decl
 specifier|static
@@ -177,6 +213,13 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_max_connections
+name|int
+name|ngx_max_connections
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_connections
 name|ngx_connection_t
 modifier|*
@@ -201,14 +244,6 @@ DECL|variable|ngx_event_max_module
 specifier|static
 name|int
 name|ngx_event_max_module
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-DECL|variable|ngx_event_connections
-specifier|static
-name|int
-name|ngx_event_connections
 decl_stmt|;
 end_decl_stmt
 
@@ -278,7 +313,10 @@ name|NGX_CORE_MODULE
 block|,
 comment|/* module type */
 name|NULL
+block|,
 comment|/* init module */
+name|NULL
+comment|/* init child */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -435,12 +473,6 @@ comment|/* module type */
 name|ngx_event_init_module
 block|,
 comment|/* init module */
-name|ngx_event_commit
-block|,
-comment|/* commit module */
-name|ngx_event_rollback
-block|,
-comment|/* rollback module */
 name|ngx_event_init_child
 comment|/* init child */
 block|}
@@ -448,7 +480,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_event_init_module (ngx_cycle_t * cycle,ngx_log_t * log)
+DECL|function|ngx_event_init_module (ngx_cycle_t * cycle)
 specifier|static
 name|int
 name|ngx_event_init_module
@@ -456,10 +488,6 @@ parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
-parameter_list|,
-name|ngx_log_t
-modifier|*
-name|log
 parameter_list|)
 block|{
 if|if
@@ -473,8 +501,6 @@ return|return
 name|ngx_event_init
 argument_list|(
 name|cycle
-argument_list|,
-name|log
 argument_list|)
 return|;
 block|}
@@ -497,48 +523,26 @@ parameter_list|)
 block|{
 if|if
 condition|(
-operator|!
 name|cycle
 operator|->
 name|one_process
 condition|)
 block|{
-if|if
-condition|(
+return|return
+name|NGX_OK
+return|;
+block|}
+return|return
 name|ngx_event_init
 argument_list|(
 name|cycle
-argument_list|,
-name|cycle
-operator|->
-name|log
 argument_list|)
-operator|==
-name|NGX_ERROR
-condition|)
-block|{
-return|return
-name|NGX_ERROR
-return|;
-block|}
-name|ngx_event_commit
-argument_list|(
-name|cycle
-argument_list|,
-name|cycle
-operator|->
-name|log
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|NGX_OK
 return|;
 block|}
 end_function
 
 begin_function
-DECL|function|ngx_event_init (ngx_cycle_t * cycle,ngx_log_t * log)
+DECL|function|ngx_event_init (ngx_cycle_t * cycle)
 specifier|static
 name|int
 name|ngx_event_init
@@ -546,10 +550,6 @@ parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
-parameter_list|,
-name|ngx_log_t
-modifier|*
-name|log
 parameter_list|)
 block|{
 name|int
@@ -606,7 +606,7 @@ argument_list|)
 expr_stmt|;
 name|ngx_log_debug
 argument_list|(
-argument|log
+argument|cycle->log
 argument_list|,
 literal|"CONN: %d"
 argument|_ ecf->connections
@@ -614,7 +614,7 @@ argument_list|)
 empty_stmt|;
 name|ngx_log_debug
 argument_list|(
-argument|log
+argument|cycle->log
 argument_list|,
 literal|"TYPE: %d"
 argument|_ ecf->use
@@ -680,7 +680,7 @@ name|actions
 operator|.
 name|init
 argument_list|(
-name|log
+name|cycle
 argument_list|)
 operator|==
 name|NGX_ERROR
@@ -695,12 +695,41 @@ block|}
 block|}
 if|if
 condition|(
+name|ngx_max_connections
+operator|&&
+name|ngx_max_connections
+operator|<
 name|ecf
 operator|->
 name|connections
 condition|)
 block|{
+comment|/* TODO: push into delayed array and temporary pool */
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"NOT READY"
+argument_list|)
+expr_stmt|;
+name|exit
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 block|}
+name|ngx_max_connections
+operator|=
+name|ecf
+operator|->
+name|connections
+expr_stmt|;
 name|ngx_test_null
 argument_list|(
 name|ngx_connections
@@ -716,6 +745,8 @@ name|ecf
 operator|->
 name|connections
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|)
 argument_list|,
@@ -737,6 +768,8 @@ name|ecf
 operator|->
 name|connections
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|)
 argument_list|,
@@ -758,6 +791,8 @@ name|ecf
 operator|->
 name|connections
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|)
 argument_list|,
@@ -769,8 +804,10 @@ for|for
 control|(
 name|s
 operator|=
-name|ls
+name|cycle
 operator|->
+name|listening
+operator|.
 name|elts
 operator|,
 name|i
@@ -779,8 +816,10 @@ literal|0
 init|;
 name|i
 operator|<
-name|ls
+name|cycle
 operator|->
+name|listening
+operator|.
 name|nelts
 condition|;
 name|i
@@ -937,6 +976,8 @@ name|log
 argument_list|,
 name|ngx_palloc
 argument_list|(
+name|cycle
+operator|->
 name|pool
 argument_list|,
 sizeof|sizeof
@@ -1128,78 +1169,6 @@ block|}
 return|return
 name|NGX_OK
 return|;
-block|}
-end_function
-
-begin_function
-DECL|function|ngx_event_commit (ngx_cycle_t * cycle,ngx_log_t * log)
-specifier|static
-name|void
-name|ngx_event_commit
-parameter_list|(
-name|ngx_cycle_t
-modifier|*
-name|cycle
-parameter_list|,
-name|ngx_log_t
-modifier|*
-name|log
-parameter_list|)
-block|{
-block|}
-end_function
-
-begin_function
-DECL|function|ngx_event_rollback (ngx_cycle_t * cycle,ngx_log_t * log)
-specifier|static
-name|void
-name|ngx_event_rollback
-parameter_list|(
-name|ngx_cycle_t
-modifier|*
-name|cycle
-parameter_list|,
-name|ngx_log_t
-modifier|*
-name|log
-parameter_list|)
-block|{
-block|}
-end_function
-
-begin_function
-DECL|function|ngx_worker (ngx_cycle_t * cycle)
-name|void
-name|ngx_worker
-parameter_list|(
-name|ngx_cycle_t
-modifier|*
-name|cycle
-parameter_list|)
-block|{
-for|for
-control|(
-init|;
-condition|;
-control|)
-block|{
-name|ngx_log_debug
-argument_list|(
-name|cycle
-operator|->
-name|log
-argument_list|,
-literal|"ngx_worker cycle"
-argument_list|)
-expr_stmt|;
-name|ngx_process_events
-argument_list|(
-name|cycle
-operator|->
-name|log
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 end_function
 
@@ -1795,7 +1764,7 @@ name|ecf
 operator|->
 name|connections
 argument_list|,
-name|DEF_CONNECTIONS
+name|DEFAULT_CONNECTIONS
 argument_list|)
 expr_stmt|;
 name|ngx_conf_init_value
@@ -1820,7 +1789,7 @@ name|ecf
 operator|->
 name|connections
 argument_list|,
-name|DEF_CONNECTIONS
+name|DEFAULT_CONNECTIONS
 argument_list|)
 expr_stmt|;
 name|ngx_conf_init_value
@@ -1845,11 +1814,11 @@ name|connections
 argument_list|,
 name|FD_SETSIZE
 operator|<
-name|DEF_CONNECTIONS
+name|DEFAULT_CONNECTIONS
 condition|?
 name|FD_SETSIZE
 else|:
-name|DEF_CONNECTIONS
+name|DEFAULT_CONNECTIONS
 argument_list|)
 expr_stmt|;
 name|ngx_conf_init_value

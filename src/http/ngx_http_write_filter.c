@@ -24,7 +24,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon291aa8c30108
+DECL|struct|__anon2b300b6b0108
 typedef|typedef
 struct|struct
 block|{
@@ -39,7 +39,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291aa8c30208
+DECL|struct|__anon2b300b6b0208
 typedef|typedef
 struct|struct
 block|{
@@ -96,10 +96,6 @@ parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
-parameter_list|,
-name|ngx_log_t
-modifier|*
-name|log
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -190,10 +186,7 @@ name|ngx_http_write_filter_init
 block|,
 comment|/* init module */
 name|NULL
-block|,
-comment|/* commit module */
-name|NULL
-comment|/* rollback module */
+comment|/* init child */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -766,7 +759,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_write_filter_init (ngx_cycle_t * cycle,ngx_log_t * log)
+DECL|function|ngx_http_write_filter_init (ngx_cycle_t * cycle)
 specifier|static
 name|int
 name|ngx_http_write_filter_init
@@ -774,10 +767,6 @@ parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
-parameter_list|,
-name|ngx_log_t
-modifier|*
-name|log
 parameter_list|)
 block|{
 name|ngx_http_top_body_filter

@@ -346,42 +346,18 @@ parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
-parameter_list|,
-name|ngx_log_t
-modifier|*
-name|log
 parameter_list|)
 function_decl|;
-DECL|member|commit_module
+DECL|member|init_child
 name|int
 function_decl|(
 modifier|*
-name|commit_module
+name|init_child
 function_decl|)
 parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
-parameter_list|,
-name|ngx_log_t
-modifier|*
-name|log
-parameter_list|)
-function_decl|;
-DECL|member|rollback_module
-name|int
-function_decl|(
-modifier|*
-name|rollback_module
-function_decl|)
-parameter_list|(
-name|ngx_cycle_t
-modifier|*
-name|cycle
-parameter_list|,
-name|ngx_log_t
-modifier|*
-name|log
 parameter_list|)
 function_decl|;
 block|}
@@ -389,7 +365,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27b867eb0108
+DECL|struct|__anon2c74d1c70108
 typedef|typedef
 struct|struct
 block|{
@@ -499,14 +475,16 @@ struct|;
 end_struct
 
 begin_define
-DECL|macro|ngx_get_conf (module)
+DECL|macro|ngx_get_conf (conf_ctx,module)
 define|#
 directive|define
 name|ngx_get_conf
 parameter_list|(
+name|conf_ctx
+parameter_list|,
 name|module
 parameter_list|)
-value|ngx_conf_ctx[module.index]
+value|conf_ctx[module.index]
 end_define
 
 begin_define
@@ -763,12 +741,8 @@ end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
-name|void
-modifier|*
-modifier|*
-modifier|*
-modifier|*
-name|ngx_conf_ctx
+name|ngx_cycle_t
+name|ngx_cycle
 decl_stmt|;
 end_decl_stmt
 
