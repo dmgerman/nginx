@@ -22,7 +22,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon2bbfb4480108
+DECL|struct|__anon2c59c1e10108
 typedef|typedef
 struct|struct
 block|{
@@ -55,6 +55,9 @@ name|ngx_http_module_t
 name|ngx_http_range_filter_module_ctx
 init|=
 block|{
+name|NULL
+block|,
+comment|/* pre conf */
 name|NULL
 block|,
 comment|/* create main configuration */

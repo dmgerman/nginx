@@ -172,6 +172,14 @@ name|SIZEX_FMT
 value|"%x"
 end_define
 
+begin_define
+DECL|macro|TIME_FMT
+define|#
+directive|define
+name|TIME_FMT
+value|"%lu"
+end_define
+
 begin_else
 else|#
 directive|else
@@ -203,6 +211,14 @@ define|#
 directive|define
 name|SIZEX_FMT
 value|"%lx"
+end_define
+
+begin_define
+DECL|macro|TIME_FMT
+define|#
+directive|define
+name|TIME_FMT
+value|"%lu"
 end_define
 
 begin_endif

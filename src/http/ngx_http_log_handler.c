@@ -245,6 +245,18 @@ end_function_decl
 
 begin_function_decl
 specifier|static
+name|int
+name|ngx_http_log_pre_conf
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
 name|void
 modifier|*
 name|ngx_http_log_create_main_conf
@@ -417,6 +429,9 @@ name|ngx_http_module_t
 name|ngx_http_log_module_ctx
 init|=
 block|{
+name|ngx_http_log_pre_conf
+block|,
+comment|/* pre conf */
 name|ngx_http_log_create_main_conf
 block|,
 comment|/* create main configuration */
@@ -530,7 +545,6 @@ end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_http_log_fmt_ops
-specifier|static
 name|ngx_http_log_op_name_t
 name|ngx_http_log_fmt_ops
 index|[]
@@ -2350,6 +2364,51 @@ block|}
 end_function
 
 begin_function
+DECL|function|ngx_http_log_pre_conf (ngx_conf_t * cf)
+specifier|static
+name|int
+name|ngx_http_log_pre_conf
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|)
+block|{
+name|ngx_http_log_op_name_t
+modifier|*
+name|op
+decl_stmt|;
+for|for
+control|(
+name|op
+operator|=
+name|ngx_http_log_fmt_ops
+init|;
+name|op
+operator|->
+name|name
+operator|.
+name|len
+condition|;
+name|op
+operator|++
+control|)
+block|{
+comment|/* void */
+block|}
+name|op
+operator|->
+name|op
+operator|=
+name|NULL
+expr_stmt|;
+return|return
+name|NGX_OK
+return|;
+block|}
+end_function
+
+begin_function
 DECL|function|ngx_http_log_create_main_conf (ngx_conf_t * cf)
 specifier|static
 name|void
@@ -2523,7 +2582,7 @@ name|NGX_CONF_OK
 condition|)
 block|{
 return|return
-name|rc
+name|NULL
 return|;
 block|}
 return|return
@@ -3106,12 +3165,6 @@ name|args
 operator|->
 name|elts
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|lmcf = ngx_http_conf_module_main_conf(cf, ngx_http_log_module);
-endif|#
-directive|endif
 name|fmt
 operator|=
 name|lmcf
@@ -3491,6 +3544,8 @@ index|]
 operator|.
 name|len
 operator|&&
+operator|(
+operator|(
 name|value
 index|[
 name|s
@@ -3514,6 +3569,20 @@ name|i
 index|]
 operator|<=
 literal|'z'
+operator|)
+operator|||
+name|value
+index|[
+name|s
+index|]
+operator|.
+name|data
+index|[
+name|i
+index|]
+operator|==
+literal|'_'
+operator|)
 condition|)
 block|{
 name|i
@@ -3556,14 +3625,34 @@ name|ngx_http_log_fmt_ops
 init|;
 name|name
 operator|->
-name|name
-operator|.
-name|len
+name|op
 condition|;
 name|name
 operator|++
 control|)
 block|{
+if|if
+condition|(
+name|name
+operator|->
+name|name
+operator|.
+name|len
+operator|==
+literal|0
+condition|)
+block|{
+name|name
+operator|=
+operator|(
+name|ngx_http_log_op_name_t
+operator|*
+operator|)
+name|name
+operator|->
+name|op
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|name

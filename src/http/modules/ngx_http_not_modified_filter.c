@@ -38,6 +38,9 @@ init|=
 block|{
 name|NULL
 block|,
+comment|/* pre conf */
+name|NULL
+block|,
 comment|/* create main configuration */
 name|NULL
 block|,

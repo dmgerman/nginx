@@ -1014,6 +1014,9 @@ name|ngx_http_module_t
 name|ngx_http_core_module_ctx
 init|=
 block|{
+name|NULL
+block|,
+comment|/* pre conf */
 name|ngx_http_core_create_main_conf
 block|,
 comment|/* create main configuration */

@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27f150fd0108
+DECL|struct|__anon2b8155bb0108
 typedef|typedef
 struct|struct
 block|{
@@ -114,6 +114,9 @@ name|ngx_http_module_t
 name|ngx_http_output_filter_module_ctx
 init|=
 block|{
+name|NULL
+block|,
+comment|/* pre conf */
 name|NULL
 block|,
 comment|/* create main configuration */

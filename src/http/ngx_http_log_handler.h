@@ -91,6 +91,14 @@ value|sizeof("4294967296") - 1
 end_define
 
 begin_define
+DECL|macro|NGX_TIME_LEN
+define|#
+directive|define
+name|NGX_TIME_LEN
+value|sizeof("4294967296") - 1
+end_define
+
+begin_define
 DECL|macro|NGX_OFF_LEN
 define|#
 directive|define
@@ -99,7 +107,7 @@ value|sizeof("18446744073709551616") - 1
 end_define
 
 begin_typedef
-DECL|struct|__anon278e96580108
+DECL|struct|__anon2c2c35b40108
 typedef|typedef
 struct|struct
 block|{
@@ -122,7 +130,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278e96580208
+DECL|struct|__anon2c2c35b40208
 typedef|typedef
 struct|struct
 block|{
@@ -143,7 +151,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278e96580308
+DECL|struct|__anon2c2c35b40308
 typedef|typedef
 struct|struct
 block|{
@@ -166,7 +174,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278e96580408
+DECL|struct|__anon2c2c35b40408
 typedef|typedef
 struct|struct
 block|{
@@ -182,7 +190,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278e96580508
+DECL|struct|__anon2c2c35b40508
 typedef|typedef
 struct|struct
 block|{
@@ -204,7 +212,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278e96580608
+DECL|struct|__anon2c2c35b40608
 typedef|typedef
 struct|struct
 block|{
@@ -219,6 +227,14 @@ block|}
 name|ngx_http_log_loc_conf_t
 typedef|;
 end_typedef
+
+begin_decl_stmt
+specifier|extern
+name|ngx_http_log_op_name_t
+name|ngx_http_log_fmt_ops
+index|[]
+decl_stmt|;
+end_decl_stmt
 
 begin_endif
 endif|#

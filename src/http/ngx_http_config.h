@@ -25,7 +25,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2882c9c00108
+DECL|struct|__anon28d48d370108
 typedef|typedef
 struct|struct
 block|{
@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2882c9c00208
+DECL|struct|__anon28d48d370208
 typedef|typedef
 struct|struct
 block|{
@@ -93,10 +93,22 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2882c9c00308
+DECL|struct|__anon28d48d370308
 typedef|typedef
 struct|struct
 block|{
+DECL|member|pre_conf
+name|int
+function_decl|(
+modifier|*
+name|pre_conf
+function_decl|)
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|)
+function_decl|;
 DECL|member|create_main_conf
 name|void
 modifier|*
