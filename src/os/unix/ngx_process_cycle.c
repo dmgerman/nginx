@@ -5106,7 +5106,7 @@ index|[
 name|i
 index|]
 operator|->
-name|gc_handler
+name|cleaner
 expr_stmt|;
 name|ngx_collect_garbage
 argument_list|(

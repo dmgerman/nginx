@@ -96,12 +96,6 @@ name|part
 operator|->
 name|elts
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|h = headers_in->headers.elts;     for (i = 0; i< headers_in->headers.nelts; i++) {
-endif|#
-directive|endif
 for|for
 control|(
 name|i
@@ -434,6 +428,11 @@ name|ho
 expr_stmt|;
 continue|continue;
 block|}
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_GZIP
+operator|)
 if|if
 condition|(
 operator|&
@@ -457,6 +456,8 @@ name|ho
 expr_stmt|;
 continue|continue;
 block|}
+endif|#
+directive|endif
 if|if
 condition|(
 operator|&
@@ -648,6 +649,12 @@ return|;
 block|}
 if|if
 condition|(
+name|p
+operator|->
+name|lcf
+operator|->
+name|preserve_host
+operator|||
 name|uc
 operator|->
 name|url

@@ -53,7 +53,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|enum|__anon2a409cc10103
+DECL|enum|__anon2b0ad3a60103
 typedef|typedef
 enum|enum
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a409cc10203
+DECL|enum|__anon2b0ad3a60203
 typedef|typedef
 enum|enum
 block|{
@@ -122,7 +122,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a409cc10308
+DECL|struct|__anon2b0ad3a60308
 typedef|typedef
 struct|struct
 block|{
@@ -151,6 +151,11 @@ name|ngx_str_t
 modifier|*
 name|location
 decl_stmt|;
+DECL|member|uri_separator
+name|char
+modifier|*
+name|uri_separator
+decl_stmt|;
 DECL|member|port
 name|in_port_t
 name|port
@@ -168,7 +173,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a409cc10408
+DECL|struct|__anon2b0ad3a60408
 typedef|typedef
 struct|struct
 block|{
@@ -296,7 +301,7 @@ comment|/*  * "EXPR/10/5/- 200/EXP/60 4"  * "MISS/-/-/B 503/-/- -"  * "EXPR/10/2
 end_comment
 
 begin_typedef
-DECL|struct|__anon2a409cc10508
+DECL|struct|__anon2b0ad3a60508
 typedef|typedef
 struct|struct
 block|{
@@ -344,7 +349,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a409cc10608
+DECL|struct|__anon2b0ad3a60608
 typedef|typedef
 struct|struct
 block|{
@@ -404,11 +409,18 @@ name|ngx_table_elt_t
 modifier|*
 name|content_length
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_GZIP
+operator|)
 DECL|member|content_encoding
 name|ngx_table_elt_t
 modifier|*
 name|content_encoding
 decl_stmt|;
+endif|#
+directive|endif
 DECL|member|last_modified
 name|ngx_table_elt_t
 modifier|*
@@ -440,7 +452,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a409cc10708
+DECL|struct|__anon2b0ad3a60708
 typedef|typedef
 struct|struct
 block|{
@@ -467,7 +479,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a409cc10808
+DECL|struct|__anon2b0ad3a60808
 typedef|typedef
 struct|struct
 block|{
@@ -651,7 +663,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a409cc10908
+DECL|struct|__anon2b0ad3a60908
 typedef|typedef
 struct|struct
 block|{

@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_comment
-comment|/*  * Although FreeBSD sendfile() allows to pass a header and a trailer  * it can not send a header with a part of the file in one packet until  * FreeBSD 5.3.  Besides over the fast ethernet connection sendfile()  * may send the partially filled packets, i.e. the 8 file pages may be sent  * as the 11 full 1460-bytes packets, then one incomplete 324-bytes packet,  * and then again the 11 full 1460-bytes packets.  *  * So we use the TCP_NOPUSH option (similar to Linux's TCP_CORK)  * to postpone the sending - it not only sends a header and the first part  * of the file in one packet but also sends the file pages in the full packets.  *  * But until FreeBSD 4.5 the turning TCP_NOPUSH off does not flush a pending  * data that less than MSS so that data may be sent with 5 second delay.  * So we do not use TCP_NOPUSH on FreeBSD prior to 4.5 although it can be used  * for non-keepalive HTTP connections.  */
+comment|/*  * Although FreeBSD sendfile() allows to pass a header and a trailer,  * it can not send a header with a part of the file in one packet until  * FreeBSD 5.3.  Besides, over the fast ethernet connection sendfile()  * may send the partially filled packets, i.e. the 8 file pages may be sent  * as the 11 full 1460-bytes packets, then one incomplete 324-bytes packet,  * and then again the 11 full 1460-bytes packets.  *  * Threfore we use the TCP_NOPUSH option (similar to Linux's TCP_CORK)  * to postpone the sending - it not only sends a header and the first part of  * the file in one packet, but also sends the file pages in the full packets.  *  * But until FreeBSD 4.5 the turning TCP_NOPUSH off does not flush a pending  * data that less than MSS so that data may be sent with 5 second delay.  * So we do not use TCP_NOPUSH on FreeBSD prior to 4.5 although it can be used  * for non-keepalive HTTP connections.  */
 end_comment
 
 begin_define
@@ -880,7 +880,7 @@ name|err
 operator|=
 name|ngx_errno
 expr_stmt|;
-comment|/*                      * there is a tiny chance to be interrupted, however                      * we continue a processing without the TCP_NOPUSH                      */
+comment|/*                      * there is a tiny chance to be interrupted, however,                      * we continue a processing without the TCP_NOPUSH                      */
 if|if
 condition|(
 name|err
@@ -977,9 +977,8 @@ expr_stmt|;
 comment|/*              * the "nbytes bug" of the old sendfile() syscall:              * http://www.freebsd.org/cgi/query-pr.cgi?pr=33771              */
 if|if
 condition|(
+operator|!
 name|ngx_freebsd_sendfile_nbytes_bug
-operator|==
-literal|0
 condition|)
 block|{
 name|header_size
@@ -1113,7 +1112,7 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|/*                  * rc and sent are equals to zero when someone has truncated                  * the file, so the offset became beyond the end of the file                  */
+comment|/*                  * rc and sent equal to zero when someone has truncated                  * the file, so the offset became beyond the end of the file                  */
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
@@ -1453,7 +1452,7 @@ condition|(
 name|eagain
 condition|)
 block|{
-comment|/*              * sendfile() can return EAGAIN even if it has sent              * a whole file part but the successive sendfile() call would              * return EAGAIN right away and would not send anything.              * We use it as a hint.              */
+comment|/*              * sendfile() may return EAGAIN, even if it has sent a whole file              * part, it indicates that the successive sendfile() call would              * return EAGAIN right away and would not send anything.              * We use it as a hint.              */
 name|wev
 operator|->
 name|ready

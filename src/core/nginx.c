@@ -1840,7 +1840,7 @@ return|return
 name|NULL
 return|;
 block|}
-comment|/* set by pcalloc()      *      * ccf->pid = NULL;      * ccf->newpid = NULL;      * ccf->priority = 0;      */
+comment|/*      * set by pcalloc()      *      *     ccf->pid = NULL;      *     ccf->newpid = NULL;      *     ccf->priority = 0;      */
 name|ccf
 operator|->
 name|daemon

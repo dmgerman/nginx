@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b3764040108
+DECL|struct|__anon29a2abfe0108
 typedef|typedef
 struct|struct
 block|{
@@ -81,7 +81,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3764040208
+DECL|struct|__anon29a2abfe0208
 typedef|typedef
 struct|struct
 block|{
@@ -172,7 +172,7 @@ value|0x0200
 end_define
 
 begin_typedef
-DECL|struct|__anon2b3764040308
+DECL|struct|__anon29a2abfe0308
 typedef|typedef
 struct|struct
 block|{
@@ -332,7 +332,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|int
+name|void
 name|ngx_http_gzip_error
 parameter_list|(
 name|ngx_http_gzip_ctx_t
@@ -356,8 +356,9 @@ name|u_char
 modifier|*
 name|buf
 parameter_list|,
-name|uintptr_t
-name|data
+name|ngx_http_log_op_t
+modifier|*
+name|op
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -365,7 +366,7 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|ngx_int_t
-name|ngx_http_gzip_pre_conf
+name|ngx_http_gzip_add_log_formats
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -952,7 +953,7 @@ name|ngx_http_module_t
 name|ngx_http_gzip_filter_module_ctx
 init|=
 block|{
-name|ngx_http_gzip_pre_conf
+name|ngx_http_gzip_add_log_formats
 block|,
 comment|/* pre conf */
 name|NULL
@@ -1022,6 +1023,10 @@ name|NGX_INT32_LEN
 operator|+
 literal|3
 block|,
+name|NULL
+block|,
+name|NULL
+block|,
 name|ngx_http_gzip_log_ratio
 block|}
 block|,
@@ -1029,6 +1034,10 @@ block|{
 name|ngx_null_string
 block|,
 literal|0
+block|,
+name|NULL
+block|,
+name|NULL
 block|,
 name|NULL
 block|}
@@ -1074,6 +1083,8 @@ if|#
 directive|if
 operator|(
 name|NGX_HAVE_LITTLE_ENDIAN
+operator|&&
+name|NGX_HAVE_NONALIGNED
 operator|)
 end_if
 
@@ -1100,7 +1111,7 @@ directive|else
 end_else
 
 begin_comment
-comment|/* NGX_HAVE_BIG_ENDIAN */
+comment|/* NGX_HAVE_BIG_ENDIAN || !NGX_HAVE_NONALIGNED */
 end_comment
 
 begin_struct
@@ -2273,11 +2284,13 @@ argument_list|,
 name|rc
 argument_list|)
 expr_stmt|;
-return|return
 name|ngx_http_gzip_error
 argument_list|(
 name|ctx
 argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
 return|;
 block|}
 if|if
@@ -2300,11 +2313,13 @@ argument_list|)
 operator|)
 condition|)
 block|{
-return|return
 name|ngx_http_gzip_error
 argument_list|(
 name|ctx
 argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
 return|;
 block|}
 name|b
@@ -2344,11 +2359,13 @@ argument_list|)
 operator|)
 condition|)
 block|{
-return|return
 name|ngx_http_gzip_error
 argument_list|(
 name|ctx
 argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
 return|;
 block|}
 name|cl
@@ -2376,11 +2393,13 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
-return|return
 name|ngx_http_gzip_error
 argument_list|(
 name|ctx
 argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
 return|;
 block|}
 name|ctx
@@ -2436,11 +2455,13 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
-return|return
 name|ngx_http_gzip_error
 argument_list|(
 name|ctx
 argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
 return|;
 block|}
 block|}
@@ -2797,11 +2818,13 @@ operator|==
 name|NULL
 condition|)
 block|{
-return|return
 name|ngx_http_gzip_error
 argument_list|(
 name|ctx
 argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
 return|;
 block|}
 name|ctx
@@ -2952,11 +2975,13 @@ argument_list|,
 name|rc
 argument_list|)
 expr_stmt|;
-return|return
 name|ngx_http_gzip_error
 argument_list|(
 name|ctx
 argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
 return|;
 block|}
 name|ngx_log_debug5
@@ -3106,11 +3131,13 @@ argument_list|)
 operator|)
 condition|)
 block|{
-return|return
 name|ngx_http_gzip_error
 argument_list|(
 name|ctx
 argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
 return|;
 block|}
 name|cl
@@ -3195,11 +3222,13 @@ argument_list|)
 operator|)
 condition|)
 block|{
-return|return
 name|ngx_http_gzip_error
 argument_list|(
 name|ctx
 argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
 return|;
 block|}
 name|cl
@@ -3299,11 +3328,13 @@ argument_list|,
 name|rc
 argument_list|)
 expr_stmt|;
-return|return
 name|ngx_http_gzip_error
 argument_list|(
 name|ctx
 argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
 return|;
 block|}
 name|ngx_pfree
@@ -3332,11 +3363,13 @@ argument_list|)
 operator|)
 condition|)
 block|{
-return|return
 name|ngx_http_gzip_error
 argument_list|(
 name|ctx
 argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
 return|;
 block|}
 name|cl
@@ -3429,11 +3462,13 @@ argument_list|)
 operator|)
 condition|)
 block|{
-return|return
 name|ngx_http_gzip_error
 argument_list|(
 name|ctx
 argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
 return|;
 block|}
 name|b
@@ -3457,11 +3492,13 @@ argument_list|)
 operator|)
 condition|)
 block|{
-return|return
 name|ngx_http_gzip_error
 argument_list|(
 name|ctx
 argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
 return|;
 block|}
 name|cl
@@ -3514,6 +3551,8 @@ if|#
 directive|if
 operator|(
 name|NGX_HAVE_LITTLE_ENDIAN
+operator|&&
+name|NGX_HAVE_NONALIGNED
 operator|)
 name|trailer
 operator|->
@@ -3540,11 +3579,16 @@ index|[
 literal|0
 index|]
 operator|=
+operator|(
+name|u_char
+operator|)
+operator|(
 name|ctx
 operator|->
 name|crc32
 operator|&
 literal|0xff
+operator|)
 expr_stmt|;
 name|trailer
 operator|->
@@ -3554,6 +3598,10 @@ literal|1
 index|]
 operator|=
 operator|(
+name|u_char
+operator|)
+operator|(
+operator|(
 name|ctx
 operator|->
 name|crc32
@@ -3562,6 +3610,7 @@ literal|8
 operator|)
 operator|&
 literal|0xff
+operator|)
 expr_stmt|;
 name|trailer
 operator|->
@@ -3571,6 +3620,10 @@ literal|2
 index|]
 operator|=
 operator|(
+name|u_char
+operator|)
+operator|(
+operator|(
 name|ctx
 operator|->
 name|crc32
@@ -3579,6 +3632,7 @@ literal|16
 operator|)
 operator|&
 literal|0xff
+operator|)
 expr_stmt|;
 name|trailer
 operator|->
@@ -3588,6 +3642,10 @@ literal|3
 index|]
 operator|=
 operator|(
+name|u_char
+operator|)
+operator|(
+operator|(
 name|ctx
 operator|->
 name|crc32
@@ -3596,6 +3654,7 @@ literal|24
 operator|)
 operator|&
 literal|0xff
+operator|)
 expr_stmt|;
 name|trailer
 operator|->
@@ -3604,11 +3663,16 @@ index|[
 literal|0
 index|]
 operator|=
+operator|(
+name|u_char
+operator|)
+operator|(
 name|ctx
 operator|->
 name|zin
 operator|&
 literal|0xff
+operator|)
 expr_stmt|;
 name|trailer
 operator|->
@@ -3618,6 +3682,10 @@ literal|1
 index|]
 operator|=
 operator|(
+name|u_char
+operator|)
+operator|(
+operator|(
 name|ctx
 operator|->
 name|zin
@@ -3626,6 +3694,7 @@ literal|8
 operator|)
 operator|&
 literal|0xff
+operator|)
 expr_stmt|;
 name|trailer
 operator|->
@@ -3635,6 +3704,10 @@ literal|2
 index|]
 operator|=
 operator|(
+name|u_char
+operator|)
+operator|(
+operator|(
 name|ctx
 operator|->
 name|zin
@@ -3643,6 +3716,7 @@ literal|16
 operator|)
 operator|&
 literal|0xff
+operator|)
 expr_stmt|;
 name|trailer
 operator|->
@@ -3652,6 +3726,10 @@ literal|3
 index|]
 operator|=
 operator|(
+name|u_char
+operator|)
+operator|(
+operator|(
 name|ctx
 operator|->
 name|zin
@@ -3660,6 +3738,7 @@ literal|24
 operator|)
 operator|&
 literal|0xff
+operator|)
 expr_stmt|;
 endif|#
 directive|endif
@@ -3715,11 +3794,13 @@ argument_list|)
 operator|)
 condition|)
 block|{
-return|return
 name|ngx_http_gzip_error
 argument_list|(
 name|ctx
 argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
 return|;
 block|}
 name|cl
@@ -3809,11 +3890,13 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
-return|return
 name|ngx_http_gzip_error
 argument_list|(
 name|ctx
 argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
 return|;
 block|}
 name|ngx_chain_update_chains
@@ -4056,7 +4139,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_gzip_log_ratio (ngx_http_request_t * r,u_char * buf,uintptr_t data)
+DECL|function|ngx_http_gzip_log_ratio (ngx_http_request_t * r,u_char * buf,ngx_http_log_op_t * op)
 specifier|static
 name|u_char
 modifier|*
@@ -4070,8 +4153,9 @@ name|u_char
 modifier|*
 name|buf
 parameter_list|,
-name|uintptr_t
-name|data
+name|ngx_http_log_op_t
+modifier|*
+name|op
 parameter_list|)
 block|{
 name|ngx_uint_t
@@ -4209,7 +4293,7 @@ end_function
 begin_function
 DECL|function|ngx_http_gzip_error (ngx_http_gzip_ctx_t * ctx)
 specifier|static
-name|int
+name|void
 name|ngx_http_gzip_error
 parameter_list|(
 name|ngx_http_gzip_ctx_t
@@ -4268,17 +4352,15 @@ name|done
 operator|=
 literal|1
 expr_stmt|;
-return|return
-name|NGX_ERROR
-return|;
+return|return;
 block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_gzip_pre_conf (ngx_conf_t * cf)
+DECL|function|ngx_http_gzip_add_log_formats (ngx_conf_t * cf)
 specifier|static
 name|ngx_int_t
-name|ngx_http_gzip_pre_conf
+name|ngx_http_gzip_add_log_formats
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -4309,13 +4391,9 @@ comment|/* void */
 block|}
 name|op
 operator|->
-name|op
+name|run
 operator|=
 name|NULL
-expr_stmt|;
-name|op
-operator|=
-name|ngx_http_log_fmt_ops
 expr_stmt|;
 for|for
 control|(
@@ -4325,7 +4403,7 @@ name|ngx_http_log_fmt_ops
 init|;
 name|op
 operator|->
-name|op
+name|run
 condition|;
 name|op
 operator|++
@@ -4350,16 +4428,16 @@ operator|*
 operator|)
 name|op
 operator|->
-name|op
+name|run
 expr_stmt|;
 block|}
 block|}
 name|op
 operator|->
-name|op
+name|run
 operator|=
 operator|(
-name|ngx_http_log_op_pt
+name|ngx_http_log_op_run_pt
 operator|)
 name|ngx_http_gzip_log_fmt_ops
 expr_stmt|;
@@ -4442,7 +4520,7 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
-comment|/*      set by ngx_pcalloc():      conf->bufs.num = 0;     conf->proxied = 0;      conf->types = NULL;       */
+comment|/*      * set by ngx_pcalloc():      *      *     conf->bufs.num = 0;      *     conf->proxied = 0;      *     conf->types = NULL;      */
 name|conf
 operator|->
 name|enable

@@ -112,9 +112,9 @@ index|[
 literal|3
 index|]
 decl_stmt|;
-DECL|member|gc_handler
+DECL|member|cleaner
 name|ngx_gc_handler_pt
-name|gc_handler
+name|cleaner
 decl_stmt|;
 DECL|member|conf_file
 name|u_char
@@ -130,7 +130,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c13ef7d0108
+DECL|struct|__anon28a80be70108
 typedef|typedef
 struct|struct
 block|{
@@ -238,6 +238,22 @@ end_function_decl
 
 begin_function_decl
 name|ngx_int_t
+name|ngx_add_path
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_path_t
+modifier|*
+modifier|*
+name|slot
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
 name|ngx_create_pathes
 parameter_list|(
 name|ngx_cycle_t
@@ -288,12 +304,12 @@ function_decl|;
 end_function_decl
 
 begin_define
-DECL|macro|ngx_conf_merge_path_value (conf,prev,path,l1,l2,l3,pool)
+DECL|macro|ngx_conf_merge_path_value (curr,prev,path,l1,l2,l3,clean,cf)
 define|#
 directive|define
 name|ngx_conf_merge_path_value
 parameter_list|(
-name|conf
+name|curr
 parameter_list|,
 name|prev
 parameter_list|,
@@ -305,10 +321,12 @@ name|l2
 parameter_list|,
 name|l3
 parameter_list|,
-name|pool
+name|clean
+parameter_list|,
+name|cf
 parameter_list|)
 define|\
-value|if (conf == NULL) {                                                      \         if (prev == NULL) {                                                  \             ngx_test_null(conf, ngx_palloc(pool, sizeof(ngx_path_t)), NULL); \             conf->name.len = sizeof(path) - 1;                               \             conf->name.data = (u_char *) path;                               \             conf->level[0] = l1;                                             \             conf->level[1] = l2;                                             \             conf->level[2] = l3;                                             \             conf->len = l1 + l2 + l3 + (l1 ? 1:0) + (l2 ? 1:0) + (l3 ? 1:0); \         } else {                                                             \             conf = prev;                                                     \         }                                                                    \     }
+value|if (curr == NULL) {                                                       \         if (prev == NULL) {                                                   \             if (!(curr = ngx_palloc(cf->pool, sizeof(ngx_path_t)))) {         \                 return NGX_CONF_ERROR;                                        \             }                                                                 \                                                                               \             curr->name.len = sizeof(path) - 1;                                \             curr->name.data = (u_char *) path;                                \                                                                               \             if (ngx_conf_full_name(cf->cycle,&curr->name) == NGX_ERROR) {    \                 return NGX_CONF_ERROR;                                        \             }                                                                 \                                                                               \             curr->level[0] = l1;                                              \             curr->level[1] = l2;                                              \             curr->level[2] = l3;                                              \             curr->len = l1 + l2 + l3 + (l1 ? 1:0) + (l2 ? 1:0) + (l3 ? 1:0);  \             curr->cleaner = clean;                                            \             curr->conf_file = NULL;                                           \                                                                               \             if (ngx_add_path(cf,&curr) == NGX_ERROR) {                       \                 return NGX_CONF_ERROR;                                        \             }                                                                 \                                                                               \         } else {                                                              \             curr = prev;                                                      \         }                                                                     \     }
 end_define
 
 begin_endif

@@ -44,6 +44,15 @@ typedef|;
 end_typedef
 
 begin_typedef
+DECL|typedef|ngx_http_log_ctx_t
+typedef|typedef
+name|struct
+name|ngx_http_log_ctx_s
+name|ngx_http_log_ctx_t
+typedef|;
+end_typedef
+
+begin_typedef
 DECL|typedef|ngx_http_cleanup_t
 typedef|typedef
 name|struct
@@ -88,6 +97,12 @@ begin_include
 include|#
 directive|include
 file|<ngx_http_cache.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_http_upstream.h>
 end_include
 
 begin_include
@@ -139,13 +154,13 @@ endif|#
 directive|endif
 end_endif
 
-begin_typedef
-DECL|struct|__anon297a89600108
-typedef|typedef
+begin_struct
+DECL|struct|ngx_http_log_ctx_s
 struct|struct
+name|ngx_http_log_ctx_s
 block|{
 DECL|member|connection
-name|u_int
+name|ngx_uint_t
 name|connection
 decl_stmt|;
 comment|/*      * we declare "action" as "char *" because the actions are usually      * the static strings and in the "u_char *" case we have to override      * all the time their types      */
@@ -164,11 +179,9 @@ name|ngx_http_request_t
 modifier|*
 name|request
 decl_stmt|;
-DECL|typedef|ngx_http_log_ctx_t
 block|}
-name|ngx_http_log_ctx_t
-typedef|;
-end_typedef
+struct|;
+end_struct
 
 begin_define
 DECL|macro|ngx_http_get_module_ctx (r,module)
@@ -197,6 +210,10 @@ define|\
 value|(r->err_ctx ? r->err_ctx[module.ctx_index] : r->ctx[module.ctx_index])
 end_define
 
+begin_comment
+comment|/* STUB */
+end_comment
+
 begin_define
 DECL|macro|ngx_http_create_ctx (r,cx,module,size,error)
 define|#
@@ -215,6 +232,26 @@ name|error
 parameter_list|)
 define|\
 value|do {                                                              \                 ngx_test_null(cx, ngx_pcalloc(r->pool, size), error);         \                 r->ctx[module.ctx_index] = cx;                                \             } while (0)
+end_define
+
+begin_comment
+comment|/**/
+end_comment
+
+begin_define
+DECL|macro|ngx_http_set_ctx (r,c,module)
+define|#
+directive|define
+name|ngx_http_set_ctx
+parameter_list|(
+name|r
+parameter_list|,
+name|c
+parameter_list|,
+name|module
+parameter_list|)
+define|\
+value|r->ctx[module.ctx_index] = c;
 end_define
 
 begin_define
@@ -384,6 +421,9 @@ parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
+parameter_list|,
+name|ngx_http_client_body_handler_pt
+name|post_handler
 parameter_list|)
 function_decl|;
 end_function_decl

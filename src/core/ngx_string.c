@@ -242,8 +242,11 @@ decl_stmt|,
 name|temp
 index|[
 name|NGX_INT64_LEN
+operator|+
+literal|1
 index|]
 decl_stmt|;
+comment|/*                                      * really we need temp[NGX_INT64_LEN] only,                                      * but icc shows the warning                                      */
 name|int
 name|d
 decl_stmt|;

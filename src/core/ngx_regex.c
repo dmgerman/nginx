@@ -211,7 +211,7 @@ name|len
 operator|-
 literal|1
 argument_list|,
-literal|"pcre_compile() failed: %s in \"%s\""
+literal|"pcre_compile() failed: %s in \"%s\"%Z"
 argument_list|,
 name|errstr
 argument_list|,
@@ -235,7 +235,7 @@ name|len
 operator|-
 literal|1
 argument_list|,
-literal|"pcre_compile() failed: %s in \"%s\" at \"%s\""
+literal|"pcre_compile() failed: %s in \"%s\" at \"%s\"%Z"
 argument_list|,
 name|errstr
 argument_list|,

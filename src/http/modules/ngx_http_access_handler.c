@@ -26,7 +26,7 @@ comment|/* AF_INET only */
 end_comment
 
 begin_typedef
-DECL|struct|__anon27dec3650108
+DECL|struct|__anon278bf98a0108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27dec3650208
+DECL|struct|__anon278bf98a0208
 typedef|typedef
 struct|struct
 block|{
@@ -277,7 +277,7 @@ decl_stmt|;
 name|struct
 name|sockaddr_in
 modifier|*
-name|addr_in
+name|sin
 decl_stmt|;
 name|ngx_http_access_rule_t
 modifier|*
@@ -310,7 +310,7 @@ name|NGX_OK
 return|;
 block|}
 comment|/* AF_INET only */
-name|addr_in
+name|sin
 operator|=
 operator|(
 expr|struct
@@ -363,7 +363,7 @@ literal|0
 argument_list|,
 literal|"%08XD %08XD %08XD"
 argument_list|,
-name|addr_in
+name|sin
 operator|->
 name|sin_addr
 operator|.
@@ -387,7 +387,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|(
-name|addr_in
+name|sin
 operator|->
 name|sin_addr
 operator|.

@@ -35,7 +35,22 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon291b191d0108
+DECL|struct|__anon2b3da51c0108
+typedef|typedef
+struct|struct
+block|{
+DECL|member|engine
+name|ngx_str_t
+name|engine
+decl_stmt|;
+DECL|typedef|ngx_http_ssl_main_conf_t
+block|}
+name|ngx_http_ssl_main_conf_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2b3da51c0208
 typedef|typedef
 struct|struct
 block|{
@@ -50,6 +65,10 @@ decl_stmt|;
 DECL|member|certificate_key
 name|ngx_str_t
 name|certificate_key
+decl_stmt|;
+DECL|member|ciphers
+name|ngx_str_t
+name|ciphers
 decl_stmt|;
 DECL|member|ssl_ctx
 name|ngx_ssl_ctx_t

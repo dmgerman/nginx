@@ -441,9 +441,7 @@ name|ls
 operator|->
 name|type
 argument_list|,
-name|ls
-operator|->
-name|protocol
+literal|0
 argument_list|)
 expr_stmt|;
 name|ngx_log_debug1

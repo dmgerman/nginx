@@ -1022,6 +1022,38 @@ block|,
 block|{
 name|ngx_string
 argument_list|(
+literal|"client_body_temp_path"
+argument_list|)
+block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
+name|NGX_HTTP_SRV_CONF
+operator||
+name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_CONF_TAKE1234
+block|,
+name|ngx_conf_set_path_slot
+block|,
+name|NGX_HTTP_LOC_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+name|ngx_http_core_loc_conf_t
+argument_list|,
+name|client_body_temp_path
+argument_list|)
+block|,
+operator|(
+name|void
+operator|*
+operator|)
+name|ngx_garbage_collector_temp_handler
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
 literal|"sendfile"
 argument_list|)
 block|,
@@ -5646,7 +5678,7 @@ argument_list|,
 name|NGX_CONF_ERROR
 argument_list|)
 expr_stmt|;
-comment|/*      set by ngx_pcalloc():      conf->client_large_buffers.num = 0;      */
+comment|/*      *      * set by ngx_pcalloc():      *     conf->client_large_buffers.num = 0;      */
 name|ngx_init_array
 argument_list|(
 name|cscf
@@ -6171,7 +6203,7 @@ argument_list|,
 name|NGX_CONF_ERROR
 argument_list|)
 expr_stmt|;
-comment|/* set by ngx_pcalloc():      lcf->root.len = 0;     lcf->root.data = NULL;     lcf->types = NULL;     lcf->default_type.len = 0;     lcf->default_type.data = NULL;     lcf->err_log = NULL;     lcf->error_pages = NULL;      lcf->regex = NULL;     lcf->exact_match = 0;     lcf->auto_redirect = 0;     lcf->alias = 0;      */
+comment|/*      * set by ngx_pcalloc():      *      *     lcf->root.len = 0;      *     lcf->root.data = NULL;      *     lcf->types = NULL;      *     lcf->default_type.len = 0;      *     lcf->default_type.data = NULL;      *     lcf->err_log = NULL;      *     lcf->error_pages = NULL;      *     lcf->client_body_path = NULL;      *     lcf->regex = NULL;      *     lcf->exact_match = 0;      *     lcf->auto_redirect = 0;      *     lcf->alias = 0;      */
 name|lcf
 operator|->
 name|client_max_body_size
@@ -6865,6 +6897,29 @@ operator|->
 name|lingering_timeout
 argument_list|,
 literal|5000
+argument_list|)
+expr_stmt|;
+name|ngx_conf_merge_path_value
+argument_list|(
+name|conf
+operator|->
+name|client_body_temp_path
+argument_list|,
+name|prev
+operator|->
+name|client_body_temp_path
+argument_list|,
+name|NGX_HTTP_CLIENT_TEMP_PATH
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+name|ngx_garbage_collector_temp_handler
+argument_list|,
+name|cf
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_value
@@ -7939,6 +7994,7 @@ literal|0
 argument_list|,
 literal|"invalid value \"%V\""
 argument_list|,
+operator|&
 name|value
 index|[
 name|i

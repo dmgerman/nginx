@@ -332,7 +332,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"zero size buf"
+literal|"zero size buf in output"
 argument_list|)
 expr_stmt|;
 name|ngx_debug_point

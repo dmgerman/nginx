@@ -89,7 +89,7 @@ name|min
 decl_stmt|,
 name|sec
 decl_stmt|;
-DECL|enum|__anon2b0565cc0103
+DECL|enum|__anon27e9c8160103
 enum|enum
 block|{
 DECL|enumerator|no
@@ -1138,12 +1138,6 @@ operator|-
 literal|'0'
 expr_stmt|;
 block|}
-if|#
-directive|if
-literal|0
-block_content|printf("%d.%d.%d %d:%d:%d\n", day, month + 1, year, hour, min, sec);
-endif|#
-directive|endif
 if|if
 condition|(
 name|hour
@@ -1238,7 +1232,7 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-comment|/*      * shift new year to March 1 and start months from 1 (not 0),      * it's needed for Gauss's formula      */
+comment|/*      * shift new year to March 1 and start months from 1 (not 0),      * it is needed for Gauss's formula      */
 if|if
 condition|(
 operator|--
@@ -1284,7 +1278,7 @@ operator|-
 literal|31
 operator|+
 name|day
-comment|/*             * 719527 days were between March 1, 1 BC and March 1, 1970,             * 31 and 28 days in January and February 1970             */
+comment|/*              * 719527 days were between March 1, 1 BC and March 1, 1970,              * 31 and 28 days in January and February 1970              */
 operator|-
 literal|719527
 operator|+
@@ -1307,18 +1301,6 @@ name|sec
 return|;
 block|}
 end_function
-
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-
-begin_endif
-unit|char zero[] = "Sun, 01 Jan 1970 08:49:30"; char one[]  = "Sunday, 11-Dec-02 08:49:30"; char two[]  = "Sun Mar 1 08:49:37 2000"; char thr[]  = "Sun Dec 11 08:49:37 2002";  main() {     int rc;      rc = ngx_http_parse_time(zero, sizeof(zero) - 1);     printf("rc: %d\n", rc);      rc = ngx_http_parse_time(one, sizeof(one) - 1);     printf("rc: %d\n", rc);      rc = ngx_http_parse_time(two, sizeof(two) - 1);     printf("rc: %d\n", rc);      rc = ngx_http_parse_time(thr, sizeof(thr) - 1);     printf("rc: %d\n", rc); }
-endif|#
-directive|endif
-end_endif
 
 end_unit
 

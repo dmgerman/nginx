@@ -29,12 +29,12 @@ parameter_list|(
 name|struct
 name|sockaddr
 modifier|*
-name|s1
+name|sa1
 parameter_list|,
 name|struct
 name|sockaddr
 modifier|*
-name|s2
+name|sa2
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -2533,7 +2533,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_cmp_sockaddr (struct sockaddr * s1,struct sockaddr * s2)
+DECL|function|ngx_cmp_sockaddr (struct sockaddr * sa1,struct sockaddr * sa2)
 specifier|static
 name|ngx_int_t
 name|ngx_cmp_sockaddr
@@ -2541,12 +2541,12 @@ parameter_list|(
 name|struct
 name|sockaddr
 modifier|*
-name|s1
+name|sa1
 parameter_list|,
 name|struct
 name|sockaddr
 modifier|*
-name|s2
+name|sa2
 parameter_list|)
 block|{
 name|struct
@@ -2560,13 +2560,13 @@ decl_stmt|;
 comment|/* AF_INET only */
 if|if
 condition|(
-name|s1
+name|sa1
 operator|->
 name|sa_family
 operator|!=
 name|AF_INET
 operator|||
-name|s2
+name|sa2
 operator|->
 name|sa_family
 operator|!=
@@ -2584,7 +2584,7 @@ expr|struct
 name|sockaddr_in
 operator|*
 operator|)
-name|s1
+name|sa1
 expr_stmt|;
 name|sin2
 operator|=
@@ -2593,7 +2593,7 @@ expr|struct
 name|sockaddr_in
 operator|*
 operator|)
-name|s2
+name|sa2
 expr_stmt|;
 if|if
 condition|(

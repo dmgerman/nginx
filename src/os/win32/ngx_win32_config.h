@@ -577,6 +577,14 @@ value|1
 end_define
 
 begin_define
+DECL|macro|NGX_HAVE_NONALIGNED
+define|#
+directive|define
+name|NGX_HAVE_NONALIGNED
+value|1
+end_define
+
+begin_define
 DECL|macro|NGX_THREADS
 define|#
 directive|define

@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_comment
-comment|/*  * On Linux up to 2.4.21 sendfile() (syscall #187) works with 32-bit  * offsets only and the including<sys/sendfile.h> breaks the compiling  * if off_t is 64 bit wide.  So we use own sendfile() definition where offset  * parameter is int32_t and use sendfile() for the file parts below 2G only.  *  * Linux 2.4.21 has a new sendfile64() syscall #239.  */
+comment|/*  * On Linux up to 2.4.21 sendfile() (syscall #187) works with 32-bit  * offsets only, and the including<sys/sendfile.h> breaks the compiling,  * if off_t is 64 bit wide.  So we use own sendfile() definition, where offset  * parameter is int32_t, and use sendfile() for the file parts below 2G only,  * see src/os/unix/ngx_linux_config.h  *  * Linux 2.4.21 has a new sendfile64() syscall #239.  */
 end_comment
 
 begin_define
@@ -275,6 +275,46 @@ condition|)
 block|{
 continue|continue;
 block|}
+if|#
+directive|if
+literal|1
+if|if
+condition|(
+operator|!
+name|ngx_buf_in_memory
+argument_list|(
+name|cl
+operator|->
+name|buf
+argument_list|)
+operator|&&
+operator|!
+name|cl
+operator|->
+name|buf
+operator|->
+name|in_file
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"zero size buf in sendfile"
+argument_list|)
+expr_stmt|;
+name|ngx_debug_point
+argument_list|()
+expr_stmt|;
+block|}
+endif|#
+directive|endif
 if|if
 condition|(
 operator|!
@@ -471,7 +511,7 @@ name|err
 operator|=
 name|ngx_errno
 expr_stmt|;
-comment|/*                      * there is a tiny chance to be interrupted, however                      * we continue a processing with the TCP_NODELAY                      * and without the TCP_CORK                      */
+comment|/*                      * there is a tiny chance to be interrupted, however,                      * we continue a processing with the TCP_NODELAY                      * and without the TCP_CORK                      */
 if|if
 condition|(
 name|err
@@ -546,7 +586,7 @@ name|err
 operator|=
 name|ngx_errno
 expr_stmt|;
-comment|/*                      * there is a tiny chance to be interrupted, however                      * we continue a processing without the TCP_CORK                      */
+comment|/*                      * there is a tiny chance to be interrupted, however,                      * we continue a processing without the TCP_CORK                      */
 if|if
 condition|(
 name|err

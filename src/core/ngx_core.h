@@ -107,6 +107,15 @@ typedef|;
 end_typedef
 
 begin_typedef
+DECL|typedef|ngx_peers_t
+typedef|typedef
+name|struct
+name|ngx_peers_s
+name|ngx_peers_t
+typedef|;
+end_typedef
+
+begin_typedef
 DECL|typedef|ngx_connection_t
 typedef|typedef
 name|struct
@@ -349,6 +358,25 @@ include|#
 directive|include
 file|<ngx_inet.h>
 end_include
+
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_UNIX_DOMAIN
+operator|)
+end_if
+
+begin_include
+include|#
+directive|include
+file|<ngx_unix_domain.h>
+end_include
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_include
 include|#

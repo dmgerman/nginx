@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27ea3ed60108
+DECL|struct|__anon2c7bfb4b0108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27ea3ed60203
+DECL|enum|__anon2c7bfb4b0203
 typedef|typedef
 enum|enum
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ea3ed60308
+DECL|struct|__anon2c7bfb4b0308
 typedef|typedef
 struct|struct
 block|{
@@ -119,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ea3ed60408
+DECL|struct|__anon2c7bfb4b0408
 typedef|typedef
 struct|struct
 block|{
@@ -158,7 +158,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ea3ed60508
+DECL|struct|__anon2c7bfb4b0508
 typedef|typedef
 struct|struct
 block|{
@@ -222,7 +222,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon27ea3ed60608
+DECL|struct|__anon2c7bfb4b0608
 typedef|typedef
 struct|struct
 block|{
@@ -286,7 +286,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27ea3ed60708
+DECL|struct|__anon2c7bfb4b0708
 typedef|typedef
 struct|struct
 block|{
@@ -352,7 +352,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon27ea3ed60808
+DECL|struct|__anon2c7bfb4b0808
 typedef|typedef
 struct|struct
 block|{
@@ -371,7 +371,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ea3ed60908
+DECL|struct|__anon2c7bfb4b0908
 typedef|typedef
 struct|struct
 block|{
@@ -564,6 +564,12 @@ modifier|*
 name|error_pages
 decl_stmt|;
 comment|/* error_page */
+DECL|member|client_body_temp_path
+name|ngx_path_t
+modifier|*
+name|client_body_temp_path
+decl_stmt|;
+comment|/* client_body_temp_path */
 DECL|member|open_files
 name|ngx_http_cache_hash_t
 modifier|*

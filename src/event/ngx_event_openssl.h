@@ -41,7 +41,7 @@ file|<openssl/err.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c7f9a400108
+DECL|struct|__anon2966b97b0108
 typedef|typedef
 struct|struct
 block|{
@@ -87,6 +87,19 @@ name|shutdown_set
 range|:
 literal|1
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_DEBUG
+operator|)
+DECL|member|handshaked
+name|unsigned
+name|handshaked
+range|:
+literal|1
+decl_stmt|;
+endif|#
+directive|endif
 DECL|typedef|ngx_ssl_t
 block|}
 name|ngx_ssl_t

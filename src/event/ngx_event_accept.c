@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon274394970108
+DECL|struct|__anon2767d0d10108
 typedef|typedef
 struct|struct
 block|{
@@ -1282,9 +1282,9 @@ decl_stmt|;
 name|struct
 name|sockaddr_in
 modifier|*
-name|addr_in
+name|sin
 decl_stmt|;
-name|addr_in
+name|sin
 operator|=
 operator|(
 expr|struct
@@ -1326,7 +1326,7 @@ index|[
 name|i
 index|]
 operator|==
-name|addr_in
+name|sin
 operator|->
 name|sin_addr
 operator|.
