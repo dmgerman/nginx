@@ -441,7 +441,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bd9e6ff0108
+DECL|struct|__anon27a80eca0108
 typedef|typedef
 struct|struct
 block|{
@@ -486,7 +486,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd9e6ff0208
+DECL|struct|__anon27a80eca0208
 typedef|typedef
 struct|struct
 block|{
@@ -621,7 +621,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd9e6ff0308
+DECL|struct|__anon27a80eca0308
 typedef|typedef
 struct|struct
 block|{
@@ -636,7 +636,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd9e6ff0408
+DECL|struct|__anon27a80eca0408
 typedef|typedef
 struct|struct
 block|{
@@ -659,7 +659,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd9e6ff0508
+DECL|struct|__anon27a80eca0508
 typedef|typedef
 struct|struct
 block|{
@@ -686,7 +686,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2bd9e6ff0608
+DECL|struct|__anon27a80eca0608
 typedef|typedef
 struct|struct
 block|{
@@ -1169,7 +1169,7 @@ end_function_decl
 
 begin_decl_stmt
 specifier|extern
-name|ngx_int_t
+name|ngx_uint_t
 name|ngx_max_module
 decl_stmt|;
 end_decl_stmt

@@ -288,35 +288,14 @@ end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_max_module
-name|ngx_int_t
+name|ngx_uint_t
 name|ngx_max_module
 decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_process
-name|ngx_int_t
-name|ngx_process
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-DECL|variable|ngx_pid
-name|ngx_pid_t
-name|ngx_pid
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-DECL|variable|ngx_new_binary
-name|ngx_pid_t
-name|ngx_new_binary
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
 DECL|variable|ngx_inherited
-name|ngx_int_t
+name|ngx_uint_t
 name|ngx_inherited
 decl_stmt|;
 end_decl_stmt

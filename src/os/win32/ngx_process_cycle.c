@@ -24,14 +24,28 @@ literal|0
 end_if
 
 begin_endif
-unit|ngx_int_t     ngx_process; ngx_pid_t     ngx_pid; ngx_pid_t     ngx_new_binary; ngx_int_t     ngx_inherited;  sig_atomic_t  ngx_reap; sig_atomic_t  ngx_timer;
+unit|ngx_pid_t     ngx_new_binary;  sig_atomic_t  ngx_reap; sig_atomic_t  ngx_timer;
 endif|#
 directive|endif
 end_endif
 
 begin_decl_stmt
+DECL|variable|ngx_process
+name|ngx_uint_t
+name|ngx_process
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_pid
+name|ngx_pid_t
+name|ngx_pid
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_threaded
-name|ngx_int_t
+name|ngx_uint_t
 name|ngx_threaded
 decl_stmt|;
 end_decl_stmt
@@ -47,6 +61,13 @@ begin_decl_stmt
 DECL|variable|ngx_quit
 name|sig_atomic_t
 name|ngx_quit
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_exiting
+name|ngx_uint_t
+name|ngx_exiting
 decl_stmt|;
 end_decl_stmt
 

@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b9953370108
+DECL|struct|__anon2a0899030108
 typedef|typedef
 struct|struct
 block|{
@@ -102,7 +102,7 @@ end_function_decl
 
 begin_decl_stmt
 specifier|extern
-name|ngx_int_t
+name|ngx_uint_t
 name|ngx_process
 decl_stmt|;
 end_decl_stmt
@@ -123,15 +123,22 @@ end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
-name|ngx_int_t
+name|ngx_uint_t
 name|ngx_inherited
 decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
-name|ngx_int_t
+name|ngx_uint_t
 name|ngx_threaded
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_uint_t
+name|ngx_exiting
 decl_stmt|;
 end_decl_stmt
 

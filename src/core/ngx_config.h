@@ -331,12 +331,30 @@ name|NGX_INT64_LEN
 value|sizeof("-9223372036854775808") - 1
 end_define
 
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
+begin_define
+define|#
+directive|define
+name|NGX_TIME_T_LEN
+value|sizeof("-2147483648") - 1
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_define
 DECL|macro|NGX_TIME_T_LEN
 define|#
 directive|define
 name|NGX_TIME_T_LEN
-value|sizeof("-2147483648") - 1
+value|sizeof("-9223372036854775808") - 1
 end_define
 
 begin_define

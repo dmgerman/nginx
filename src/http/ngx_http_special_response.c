@@ -636,7 +636,7 @@ index|[
 name|i
 index|]
 operator|.
-name|code
+name|status
 operator|==
 name|error
 condition|)

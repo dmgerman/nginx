@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c468c710108
+DECL|struct|__anon2b1e0cd50108
 typedef|typedef
 struct|struct
 block|{
@@ -167,7 +167,7 @@ end_decl_stmt
 
 begin_function
 DECL|function|ngx_http_output_filter (ngx_http_request_t * r,ngx_chain_t * in)
-name|int
+name|ngx_int_t
 name|ngx_http_output_filter
 parameter_list|(
 name|ngx_http_request_t
@@ -179,6 +179,9 @@ modifier|*
 name|in
 parameter_list|)
 block|{
+name|ngx_int_t
+name|rc
+decl_stmt|;
 name|ngx_output_chain_ctx_t
 modifier|*
 name|ctx
@@ -314,13 +317,36 @@ operator|=
 name|r
 expr_stmt|;
 block|}
-return|return
+name|rc
+operator|=
 name|ngx_output_chain
 argument_list|(
 name|ctx
 argument_list|,
 name|in
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|rc
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+comment|/* NGX_ERROR could be returned by any filter */
+name|r
+operator|->
+name|connection
+operator|->
+name|write
+operator|->
+name|error
+operator|=
+literal|1
+expr_stmt|;
+block|}
+return|return
+name|rc
 return|;
 block|}
 end_function

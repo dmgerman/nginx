@@ -7052,7 +7052,7 @@ return|;
 block|}
 name|err
 operator|->
-name|code
+name|status
 operator|=
 name|ngx_atoi
 argument_list|(
@@ -7075,7 +7075,7 @@ if|if
 condition|(
 name|err
 operator|->
-name|code
+name|status
 operator|==
 name|NGX_ERROR
 condition|)
@@ -7106,13 +7106,13 @@ if|if
 condition|(
 name|err
 operator|->
-name|code
+name|status
 operator|<
 literal|400
 operator|||
 name|err
 operator|->
-name|code
+name|status
 operator|>
 literal|599
 condition|)

@@ -104,7 +104,7 @@ file|<ngx_http_core_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a50c3d10108
+DECL|struct|__anon2af0849b0108
 typedef|typedef
 struct|struct
 block|{
@@ -467,13 +467,6 @@ begin_decl_stmt
 specifier|extern
 name|ngx_module_t
 name|ngx_http_module
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-specifier|extern
-name|int
-name|ngx_max_module
 decl_stmt|;
 end_decl_stmt
 

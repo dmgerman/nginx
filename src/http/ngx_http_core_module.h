@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a1535a80108
+DECL|struct|__anon2c854a7c0108
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a1535a80203
+DECL|enum|__anon2c854a7c0203
 typedef|typedef
 enum|enum
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1535a80308
+DECL|struct|__anon2c854a7c0308
 typedef|typedef
 struct|struct
 block|{
@@ -112,7 +112,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1535a80408
+DECL|struct|__anon2c854a7c0408
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1535a80508
+DECL|struct|__anon2c854a7c0508
 typedef|typedef
 struct|struct
 block|{
@@ -199,7 +199,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2a1535a80608
+DECL|struct|__anon2c854a7c0608
 typedef|typedef
 struct|struct
 block|{
@@ -223,7 +223,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1535a80708
+DECL|struct|__anon2c854a7c0708
 typedef|typedef
 struct|struct
 block|{
@@ -255,7 +255,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1535a80808
+DECL|struct|__anon2c854a7c0808
 typedef|typedef
 struct|struct
 block|{
@@ -298,7 +298,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon2a1535a80908
+DECL|struct|__anon2c854a7c0908
 typedef|typedef
 struct|struct
 block|{
@@ -317,16 +317,16 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1535a80a08
+DECL|struct|__anon2c854a7c0a08
 typedef|typedef
 struct|struct
 block|{
-DECL|member|code
-name|int
-name|code
+DECL|member|status
+name|ngx_int_t
+name|status
 decl_stmt|;
 DECL|member|overwrite
-name|int
+name|ngx_int_t
 name|overwrite
 decl_stmt|;
 DECL|member|uri
@@ -340,7 +340,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1535a80b08
+DECL|struct|__anon2c854a7c0b08
 typedef|typedef
 struct|struct
 block|{

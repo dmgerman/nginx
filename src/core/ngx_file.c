@@ -385,6 +385,18 @@ continue|continue;
 block|}
 if|if
 condition|(
+operator|(
+name|path
+operator|->
+name|level
+index|[
+literal|0
+index|]
+operator|==
+literal|0
+operator|)
+operator|||
+operator|(
 name|err
 operator|!=
 name|NGX_ENOENT
@@ -399,6 +411,7 @@ operator|!=
 name|NGX_ENOTDIR
 endif|#
 directive|endif
+operator|)
 condition|)
 block|{
 name|ngx_log_error

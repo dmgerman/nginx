@@ -187,7 +187,7 @@ literal|"Wed"
 block|,
 literal|"Thu"
 block|,
-literal|"Fir"
+literal|"Fri"
 block|,
 literal|"Sat"
 block|}
