@@ -1052,7 +1052,7 @@ operator|+
 name|r
 operator|->
 name|server_name
-operator|->
+operator|.
 name|len
 operator|+
 name|r
@@ -1924,13 +1924,13 @@ argument_list|,
 name|r
 operator|->
 name|server_name
-operator|->
+operator|.
 name|data
 argument_list|,
 name|r
 operator|->
 name|server_name
-operator|->
+operator|.
 name|len
 argument_list|)
 expr_stmt|;

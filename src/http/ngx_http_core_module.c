@@ -4270,6 +4270,9 @@ literal|1
 return|;
 block|}
 return|return
+operator|(
+name|int
+operator|)
 name|rc
 return|;
 block|}

@@ -65,7 +65,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|HAVE_PREAD
+name|NGX_PREAD
 operator|)
 name|n
 operator|=
@@ -249,7 +249,7 @@ decl_stmt|;
 if|#
 directive|if
 operator|(
-name|HAVE_PWRITE
+name|NGX_PWRITE
 operator|)
 name|n
 operator|=
@@ -978,7 +978,7 @@ return|;
 block|}
 name|dir
 operator|->
-name|info_valid
+name|valid_info
 operator|=
 literal|0
 expr_stmt|;

@@ -43,7 +43,7 @@ value|-10
 end_define
 
 begin_typedef
-DECL|struct|__anon29ffcb590108
+DECL|struct|__anon28c7f2d10108
 typedef|typedef
 struct|struct
 block|{
@@ -78,7 +78,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ffcb590208
+DECL|struct|__anon28c7f2d10208
 typedef|typedef
 struct|struct
 block|{
@@ -95,7 +95,7 @@ name|ngx_int_t
 name|max_fails
 decl_stmt|;
 DECL|member|fail_timeout
-name|ngx_int_t
+name|time_t
 name|fail_timeout
 decl_stmt|;
 DECL|member|last_cached
@@ -123,7 +123,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ffcb590308
+DECL|struct|__anon28c7f2d10308
 typedef|typedef
 struct|struct
 block|{

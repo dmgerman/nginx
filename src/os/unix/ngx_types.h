@@ -48,7 +48,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon274e547a0108
+DECL|struct|__anon290a3dbe0108
 typedef|typedef
 struct|struct
 block|{
@@ -68,10 +68,13 @@ name|struct
 name|stat
 name|info
 decl_stmt|;
-DECL|member|info_valid
-name|unsigned
-name|info_valid
+DECL|member|valid_info
+name|ngx_uint_t
+name|valid_info
+range|:
+literal|1
 decl_stmt|;
+comment|/* unsigned  valid_info:1; */
 DECL|typedef|ngx_dir_t
 block|}
 name|ngx_dir_t

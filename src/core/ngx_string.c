@@ -89,7 +89,7 @@ block|}
 end_function
 
 begin_comment
-comment|/*  * supported formats:  *    %[0][width]O     off_t  *    %[0][width]T     time_t  *    %[0][width]S     ssize_t  *    %[0][width]uS    size_t  *    %[0][width]uxS   size_t in hex  *    %[0][width]l     long  *    %[0][width]d     int  *    %[0][width]i     ngx_int_t  *    %[0][width]ui    ngx_uint_t  *    %[0][width]uxi   ngx_uint_t in hex  *    %s               null-terminated string  *    %%               %  *  */
+comment|/*  * supported formats:  *    %[0][width]O     off_t  *    %[0][width]T     time_t  *    %[0][width]S     ssize_t  *    %[0][width]uS    size_t  *    %[0][width]uxS   size_t in hex  *    %[0][width]l     long  *    %[0][width]d     int  *    %[0][width]i     ngx_int_t  *    %[0][width]ui    ngx_uint_t  *    %[0][width]uxi   ngx_uint_t in hex  *    %s               null-terminated string  *    %c               char  *    %%               %  *  */
 end_comment
 
 begin_function
@@ -780,6 +780,35 @@ name|p
 operator|++
 expr_stmt|;
 block|}
+name|fmt
+operator|++
+expr_stmt|;
+continue|continue;
+case|case
+literal|'c'
+case|:
+name|d
+operator|=
+name|va_arg
+argument_list|(
+name|arg
+argument_list|,
+name|int
+argument_list|)
+expr_stmt|;
+operator|*
+name|buf
+operator|++
+operator|=
+operator|(
+name|u_char
+operator|)
+operator|(
+name|d
+operator|&
+literal|0xff
+operator|)
+expr_stmt|;
 name|fmt
 operator|++
 expr_stmt|;

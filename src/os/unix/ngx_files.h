@@ -503,7 +503,7 @@ name|ngx_de_name
 parameter_list|(
 name|dir
 parameter_list|)
-value|(dir)->de->d_name
+value|((u_char *) (dir)->de->d_name)
 end_define
 
 begin_if

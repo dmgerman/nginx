@@ -525,7 +525,7 @@ name|ngx_de_name
 parameter_list|(
 name|dir
 parameter_list|)
-value|(dir)->fd.cFileName
+value|((u_char *) (dir)->fd.cFileName)
 end_define
 
 begin_define

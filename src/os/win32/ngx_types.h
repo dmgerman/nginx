@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7530dd0108
+DECL|struct|__anon28a427f00108
 typedef|typedef
 struct|struct
 block|{
@@ -65,13 +65,17 @@ DECL|member|fd
 name|WIN32_FIND_DATA
 name|fd
 decl_stmt|;
-DECL|member|info_valid
+DECL|member|valid_info
 name|unsigned
-name|info_valid
+name|valid_info
+range|:
+literal|1
 decl_stmt|;
 DECL|member|ready
 name|unsigned
 name|ready
+range|:
+literal|1
 decl_stmt|;
 DECL|typedef|ngx_dir_t
 block|}

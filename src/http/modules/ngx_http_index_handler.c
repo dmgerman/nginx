@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon286f664b0108
+DECL|struct|__anon28c8e55a0108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon286f664b0208
+DECL|struct|__anon28c8e55a0208
 typedef|typedef
 struct|struct
 block|{
@@ -324,6 +324,7 @@ end_comment
 
 begin_function
 DECL|function|ngx_http_index_handler (ngx_http_request_t * r)
+specifier|static
 name|ngx_int_t
 name|ngx_http_index_handler
 parameter_list|(

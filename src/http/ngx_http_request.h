@@ -417,7 +417,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon291df7470103
+DECL|enum|__anon27930a600103
 typedef|typedef
 enum|enum
 block|{
@@ -438,7 +438,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon291df7470203
+DECL|enum|__anon27930a600203
 typedef|typedef
 enum|enum
 block|{
@@ -477,7 +477,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291df7470308
+DECL|struct|__anon27930a600308
 typedef|typedef
 struct|struct
 block|{
@@ -496,7 +496,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291df7470408
+DECL|struct|__anon27930a600408
 typedef|typedef
 struct|struct
 block|{
@@ -576,6 +576,16 @@ name|ngx_table_elt_t
 modifier|*
 name|x_forwarded_for
 decl_stmt|;
+DECL|member|x_real_ip
+name|ngx_table_elt_t
+modifier|*
+name|x_real_ip
+decl_stmt|;
+DECL|member|x_url
+name|ngx_table_elt_t
+modifier|*
+name|x_url
+decl_stmt|;
 endif|#
 directive|endif
 DECL|member|cookies
@@ -635,7 +645,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291df7470508
+DECL|struct|__anon27930a600508
 typedef|typedef
 struct|struct
 block|{
@@ -658,7 +668,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291df7470608
+DECL|struct|__anon27930a600608
 typedef|typedef
 struct|struct
 block|{
@@ -761,7 +771,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291df7470708
+DECL|struct|__anon27930a600708
 typedef|typedef
 struct|struct
 block|{
@@ -812,10 +822,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon291df747080a
+DECL|union|__anon27930a60080a
 union|union
 block|{
-DECL|struct|__anon291df7470908
+DECL|struct|__anon27930a600908
 struct|struct
 block|{
 DECL|member|fd
@@ -831,7 +841,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon291df7470a08
+DECL|struct|__anon27930a600a08
 struct|struct
 block|{
 DECL|member|hash
@@ -869,7 +879,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon291df7470b08
+DECL|struct|__anon27930a600b08
 typedef|typedef
 struct|struct
 block|{
@@ -1061,7 +1071,6 @@ decl_stmt|;
 comment|/* ":80" */
 DECL|member|server_name
 name|ngx_str_t
-modifier|*
 name|server_name
 decl_stmt|;
 DECL|member|virtual_names

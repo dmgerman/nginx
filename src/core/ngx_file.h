@@ -73,12 +73,13 @@ name|ngx_log_t
 modifier|*
 name|log
 decl_stmt|;
-DECL|member|info_valid
-name|unsigned
-name|info_valid
+DECL|member|valid_info
+name|ngx_uint_t
+name|valid_info
 range|:
 literal|1
 decl_stmt|;
+comment|/* unsigned  valid_info:1; */
 block|}
 struct|;
 end_struct
@@ -120,7 +121,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29b646de0108
+DECL|struct|__anon2a230aaa0108
 typedef|typedef
 struct|struct
 block|{

@@ -282,6 +282,10 @@ else|#
 directive|else
 end_else
 
+begin_comment
+comment|/* Solaris has threads-safe strerror() */
+end_comment
+
 begin_define
 DECL|macro|ngx_strerror_r (err,errstr,size)
 define|#

@@ -581,7 +581,7 @@ condition|(
 operator|!
 name|dir
 operator|.
-name|info_valid
+name|valid_info
 condition|)
 block|{
 if|if

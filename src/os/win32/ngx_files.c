@@ -1002,7 +1002,7 @@ return|;
 block|}
 name|dir
 operator|->
-name|info_valid
+name|valid_info
 operator|=
 literal|1
 expr_stmt|;
