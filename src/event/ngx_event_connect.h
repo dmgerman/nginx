@@ -31,7 +31,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a42ba050108
+DECL|struct|__anon2bd41bf60108
 typedef|typedef
 struct|struct
 block|{
@@ -66,7 +66,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a42ba050208
+DECL|struct|__anon2bd41bf60208
 typedef|typedef
 struct|struct
 block|{
@@ -106,7 +106,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a42ba050308
+DECL|struct|__anon2bd41bf60308
 typedef|typedef
 struct|struct
 block|{
@@ -131,6 +131,11 @@ decl_stmt|;
 DECL|member|rcvbuf
 name|int
 name|rcvbuf
+decl_stmt|;
+DECL|member|log
+name|ngx_log_t
+modifier|*
+name|log
 decl_stmt|;
 DECL|member|cached
 name|unsigned

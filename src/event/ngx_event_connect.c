@@ -10,11 +10,11 @@ comment|/* AF_INET only */
 end_comment
 
 begin_function
-DECL|function|ngx_event_connect_peer (ngx_peer_connecttion_t * pc)
+DECL|function|ngx_event_connect_peer (ngx_peer_connection_t * pc)
 name|int
 name|ngx_event_connect_peer
 parameter_list|(
-name|ngx_peer_connecttion_t
+name|ngx_peer_connection_t
 modifier|*
 name|pc
 parameter_list|)
@@ -89,6 +89,12 @@ operator|->
 name|cached
 operator|=
 literal|0
+expr_stmt|;
+name|pc
+operator|->
+name|connection
+operator|=
+name|NULL
 expr_stmt|;
 if|if
 condition|(
