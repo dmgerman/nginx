@@ -24,7 +24,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon295a46c20108
+DECL|struct|__anon299fbca00108
 typedef|typedef
 struct|struct
 block|{
@@ -39,7 +39,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295a46c20208
+DECL|struct|__anon299fbca00208
 typedef|typedef
 struct|struct
 block|{
@@ -114,6 +114,10 @@ argument_list|(
 literal|"buffer_output"
 argument_list|)
 block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
+name|NGX_HTTP_SRV_CONF
+operator||
 name|NGX_HTTP_LOC_CONF
 operator||
 name|NGX_CONF_TAKE1

@@ -12,6 +12,24 @@ directive|define
 name|_NGX_CONFIG_H_INCLUDED_
 end_define
 
+begin_comment
+comment|/* STUB to allocate a big ngx_connections */
+end_comment
+
+begin_undef
+undef|#
+directive|undef
+name|FD_SETSIZE
+end_undef
+
+begin_define
+DECL|macro|FD_SETSIZE
+define|#
+directive|define
+name|FD_SETSIZE
+value|5000
+end_define
+
 begin_if
 if|#
 directive|if

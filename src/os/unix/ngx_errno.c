@@ -11,6 +11,14 @@ directive|include
 file|<ngx_core.h>
 end_include
 
+begin_if
+if|#
+directive|if
+operator|(
+name|HAVE_STRERROR_R
+operator|)
+end_if
+
 begin_function
 DECL|function|ngx_strerror_r (int err,char * errstr,size_t size)
 name|ngx_int_t
@@ -89,6 +97,11 @@ name|len
 return|;
 block|}
 end_function
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 end_unit
 
