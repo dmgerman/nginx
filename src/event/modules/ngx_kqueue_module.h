@@ -31,7 +31,7 @@ file|<ngx_event.h>
 end_include
 
 begin_function_decl
-name|void
+name|int
 name|ngx_kqueue_init
 parameter_list|(
 name|int

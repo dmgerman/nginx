@@ -107,6 +107,10 @@ name|char
 modifier|*
 name|action
 decl_stmt|;
+DECL|member|index
+name|int
+name|index
+decl_stmt|;
 DECL|member|prev
 name|ngx_event_t
 modifier|*
@@ -263,7 +267,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon27a084380103
+DECL|enum|__anon275cce320103
 typedef|typedef
 enum|enum
 block|{
@@ -299,7 +303,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a084380208
+DECL|struct|__anon275cce320208
 typedef|typedef
 struct|struct
 block|{

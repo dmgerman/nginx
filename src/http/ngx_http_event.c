@@ -2427,8 +2427,13 @@ expr_stmt|;
 comment|/* STUB: should find handler */
 if|#
 directive|if
-literal|0
-block_content|r->filter = NGX_HTTP_FILTER_NEED_IN_MEMORY;
+literal|1
+name|r
+operator|->
+name|filter
+operator|=
+name|NGX_HTTP_FILTER_NEED_IN_MEMORY
+expr_stmt|;
 endif|#
 directive|endif
 name|rc

@@ -116,7 +116,7 @@ end_decl_stmt
 
 begin_function
 DECL|function|ngx_kqueue_init (int max_connections,ngx_log_t * log)
-name|void
+name|int
 name|ngx_kqueue_init
 parameter_list|(
 name|int
@@ -170,28 +170,36 @@ argument_list|,
 literal|"kqueue() failed"
 argument_list|)
 expr_stmt|;
-name|exit
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
 block|}
+name|ngx_test_null
+argument_list|(
 name|change_list
-operator|=
+argument_list|,
 name|ngx_alloc
 argument_list|(
 name|size
 argument_list|,
 name|log
 argument_list|)
+argument_list|,
+name|NGX_ERROR
+argument_list|)
 expr_stmt|;
+name|ngx_test_null
+argument_list|(
 name|event_list
-operator|=
+argument_list|,
 name|ngx_alloc
 argument_list|(
 name|size
 argument_list|,
 name|log
+argument_list|)
+argument_list|,
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 name|timer_queue
@@ -240,6 +248,9 @@ name|ngx_kqueue_process_events
 expr_stmt|;
 endif|#
 directive|endif
+return|return
+name|NGX_OK
+return|;
 block|}
 end_function
 
@@ -377,7 +388,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"ngx_kqueue_set_event: change list is filled up"
+literal|"kqueue change list is filled up"
 argument_list|)
 expr_stmt|;
 if|if

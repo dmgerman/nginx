@@ -8,6 +8,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_core.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_types.h>
 end_include
 
@@ -110,11 +116,19 @@ end_if
 begin_if
 if|#
 directive|if
-literal|0
+literal|1
 end_if
 
+begin_decl_stmt
+DECL|variable|ngx_event_type
+name|ngx_event_type_e
+name|ngx_event_type
+init|=
+name|NGX_SELECT_EVENT
+decl_stmt|;
+end_decl_stmt
+
 begin_else
-unit|ngx_event_type_e     ngx_event_type = NGX_SELECT_EVENT;
 else|#
 directive|else
 end_else
@@ -147,7 +161,7 @@ end_comment
 begin_function_decl
 DECL|variable|ngx_event_init
 specifier|static
-name|void
+name|int
 function_decl|(
 modifier|*
 name|ngx_event_init
@@ -230,11 +244,20 @@ name|max_connections
 init|=
 literal|512
 decl_stmt|;
+if|if
+condition|(
 name|ngx_init_events
 argument_list|(
 name|max_connections
 argument_list|,
 name|log
+argument_list|)
+operator|==
+name|NGX_ERROR
+condition|)
+name|exit
+argument_list|(
+literal|1
 argument_list|)
 expr_stmt|;
 name|ngx_connections
