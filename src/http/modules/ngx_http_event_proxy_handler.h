@@ -31,13 +31,14 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28cc0ddf0108
+DECL|struct|__anon2a456ae90108
 typedef|typedef
 struct|struct
 block|{
-DECL|member|dummy
-name|int
-name|dummy
+DECL|member|out
+name|ngx_chain_t
+modifier|*
+name|out
 decl_stmt|;
 DECL|typedef|ngx_http_proxy_ctx_t
 block|}

@@ -221,7 +221,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2baed0710108
+DECL|struct|__anon2b3a10870108
 typedef|typedef
 struct|struct
 block|{
@@ -269,7 +269,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baed0710208
+DECL|struct|__anon2b3a10870208
 typedef|typedef
 struct|struct
 block|{
@@ -293,7 +293,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baed0710308
+DECL|struct|__anon2b3a10870308
 typedef|typedef
 struct|struct
 block|{
@@ -329,7 +329,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baed0710408
+DECL|struct|__anon2b3a10870408
 typedef|typedef
 struct|struct
 block|{
@@ -487,6 +487,10 @@ decl_stmt|;
 DECL|member|http_minor
 name|int
 name|http_minor
+decl_stmt|;
+DECL|member|request_line
+name|ngx_str_t
+name|request_line
 decl_stmt|;
 DECL|member|uri
 name|char
@@ -653,7 +657,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2baed0710508
+DECL|struct|__anon2b3a10870508
 typedef|typedef
 struct|struct
 block|{
@@ -679,7 +683,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baed0710608
+DECL|struct|__anon2b3a10870608
 typedef|typedef
 struct|struct
 block|{
