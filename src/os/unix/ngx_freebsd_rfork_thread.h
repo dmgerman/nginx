@@ -131,7 +131,7 @@ value|0x80000000
 end_define
 
 begin_typedef
-DECL|struct|__anon27a6539a0108
+DECL|struct|__anon27b0a6ac0108
 typedef|typedef
 specifier|volatile
 struct|struct
@@ -164,7 +164,7 @@ value|64
 end_define
 
 begin_typedef
-DECL|struct|__anon27a6539a0208
+DECL|struct|__anon27b0a6ac0208
 typedef|typedef
 struct|struct
 block|{
@@ -317,15 +317,6 @@ name|ngx_thread_self
 parameter_list|()
 function_decl|;
 end_function_decl
-
-begin_define
-DECL|macro|ngx_thread_main ()
-define|#
-directive|define
-name|ngx_thread_main
-parameter_list|()
-value|(ngx_gettid() == 0)
-end_define
 
 begin_define
 DECL|macro|ngx_mutex_trylock (m)

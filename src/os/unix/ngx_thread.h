@@ -93,15 +93,6 @@ value|pthread_self()
 end_define
 
 begin_define
-DECL|macro|ngx_thread_main ()
-define|#
-directive|define
-name|ngx_thread_main
-parameter_list|()
-value|pthread_main_np()
-end_define
-
-begin_define
 DECL|macro|ngx_log_tid
 define|#
 directive|define
@@ -163,7 +154,7 @@ value|0
 end_define
 
 begin_typedef
-DECL|struct|__anon288d2b730108
+DECL|struct|__anon2c8f79680108
 typedef|typedef
 struct|struct
 block|{
@@ -183,7 +174,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288d2b730208
+DECL|struct|__anon2c8f79680208
 typedef|typedef
 struct|struct
 block|{
@@ -292,7 +283,7 @@ value|volatile
 end_define
 
 begin_typedef
-DECL|struct|__anon288d2b730308
+DECL|struct|__anon2c8f79680308
 typedef|typedef
 struct|struct
 block|{
@@ -566,7 +557,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon288d2b730408
+DECL|struct|__anon2c8f79680408
 typedef|typedef
 struct|struct
 block|{

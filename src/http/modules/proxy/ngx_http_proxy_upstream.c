@@ -2861,6 +2861,16 @@ name|action
 operator|=
 literal|"connecting to upstream"
 expr_stmt|;
+name|p
+operator|->
+name|request
+operator|->
+name|connection
+operator|->
+name|single_connection
+operator|=
+literal|0
+expr_stmt|;
 name|rc
 operator|=
 name|ngx_event_connect_peer

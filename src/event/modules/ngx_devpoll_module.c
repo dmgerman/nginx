@@ -78,7 +78,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c7fe3130108
+DECL|struct|__anon2b4d12fe0108
 typedef|typedef
 struct|struct
 block|{
@@ -373,6 +373,9 @@ comment|/* add an connection */
 name|NULL
 block|,
 comment|/* delete an connection */
+name|NULL
+block|,
+comment|/* process the changes */
 name|ngx_devpoll_process_events
 block|,
 comment|/* process the events */
@@ -409,7 +412,7 @@ name|NULL
 block|,
 comment|/* init module */
 name|NULL
-comment|/* init child */
+comment|/* init process */
 block|}
 decl_stmt|;
 end_decl_stmt

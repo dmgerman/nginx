@@ -1296,6 +1296,12 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|c
+operator|->
+name|single_connection
+operator|=
+literal|1
+expr_stmt|;
 name|r
 operator|->
 name|connection
@@ -7808,6 +7814,13 @@ name|closed
 operator|=
 literal|1
 expr_stmt|;
+if|if
+condition|(
+name|c
+operator|->
+name|single_connection
+condition|)
+block|{
 name|ngx_unlock
 argument_list|(
 operator|&
@@ -7832,6 +7845,7 @@ name|locked
 operator|=
 literal|0
 expr_stmt|;
+block|}
 name|ngx_mutex_unlock
 argument_list|(
 name|ngx_posted_events_mutex

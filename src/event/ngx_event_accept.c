@@ -24,7 +24,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2780e4a70108
+DECL|struct|__anon28e678d00108
 typedef|typedef
 struct|struct
 block|{
@@ -884,7 +884,8 @@ if|if
 condition|(
 operator|*
 operator|(
-name|rev
+operator|&
+name|c
 operator|->
 name|lock
 operator|)
@@ -900,16 +901,15 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"spinlock event "
-name|PTR_FMT
-literal|" in accept"
+literal|"spinlock in accept, fd:%"
 argument_list|,
-name|rev
+name|s
 argument_list|)
 expr_stmt|;
 name|ngx_spinlock
 argument_list|(
-name|rev
+operator|&
+name|c
 operator|->
 name|lock
 argument_list|,
@@ -918,7 +918,8 @@ argument_list|)
 expr_stmt|;
 name|ngx_unlock
 argument_list|(
-name|rev
+operator|&
+name|c
 operator|->
 name|lock
 argument_list|)
@@ -1212,6 +1213,24 @@ expr_stmt|;
 name|wev
 operator|->
 name|lock
+operator|=
+operator|&
+name|c
+operator|->
+name|lock
+expr_stmt|;
+name|rev
+operator|->
+name|own_lock
+operator|=
+operator|&
+name|c
+operator|->
+name|lock
+expr_stmt|;
+name|wev
+operator|->
+name|own_lock
 operator|=
 operator|&
 name|c

@@ -103,7 +103,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29ed4b810108
+DECL|struct|__anon2bf750e90108
 typedef|typedef
 struct|struct
 block|{
@@ -443,6 +443,9 @@ comment|/* add an connection */
 name|ngx_rtsig_del_connection
 block|,
 comment|/* delete an connection */
+name|NULL
+block|,
+comment|/* process the changes */
 name|ngx_rtsig_process_events
 block|,
 comment|/* process the events */
@@ -479,7 +482,7 @@ name|NULL
 block|,
 comment|/* init module */
 name|NULL
-comment|/* init child */
+comment|/* init process */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -2092,7 +2095,7 @@ literal|0
 expr_stmt|;
 name|ngx_event_actions
 operator|.
-name|process
+name|process_events
 operator|=
 name|ngx_rtsig_process_overflow
 expr_stmt|;
@@ -2895,7 +2898,7 @@ literal|0
 expr_stmt|;
 name|ngx_event_actions
 operator|.
-name|process
+name|process_events
 operator|=
 name|ngx_rtsig_process_events
 expr_stmt|;

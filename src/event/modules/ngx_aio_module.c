@@ -195,6 +195,9 @@ comment|/* add an connection */
 name|ngx_aio_del_connection
 block|,
 comment|/* delete an connection */
+name|NULL
+block|,
+comment|/* process the changes */
 name|ngx_aio_process_events
 block|,
 comment|/* process the events */
@@ -587,7 +590,7 @@ name|ngx_kqueue_module_ctx
 operator|.
 name|actions
 operator|.
-name|process
+name|process_events
 argument_list|(
 name|cycle
 argument_list|)

@@ -736,7 +736,8 @@ if|if
 condition|(
 operator|*
 operator|(
-name|rev
+operator|&
+name|c
 operator|->
 name|lock
 operator|)
@@ -752,16 +753,15 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"spinlock event "
-name|PTR_FMT
-literal|" in connect"
+literal|"spinlock in connect, fd:%d"
 argument_list|,
-name|rev
+name|s
 argument_list|)
 expr_stmt|;
 name|ngx_spinlock
 argument_list|(
-name|rev
+operator|&
+name|c
 operator|->
 name|lock
 argument_list|,
@@ -770,7 +770,8 @@ argument_list|)
 expr_stmt|;
 name|ngx_unlock
 argument_list|(
-name|rev
+operator|&
+name|c
 operator|->
 name|lock
 argument_list|)
@@ -980,6 +981,24 @@ operator|->
 name|lock
 operator|=
 name|pc
+operator|->
+name|lock
+expr_stmt|;
+name|rev
+operator|->
+name|own_lock
+operator|=
+operator|&
+name|c
+operator|->
+name|lock
+expr_stmt|;
+name|wev
+operator|->
+name|own_lock
+operator|=
+operator|&
+name|c
 operator|->
 name|lock
 expr_stmt|;
