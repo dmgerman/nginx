@@ -38,10 +38,6 @@ DECL|struct|ngx_radix_node_s
 struct|struct
 name|ngx_radix_node_s
 block|{
-DECL|member|value
-name|uintptr_t
-name|value
-decl_stmt|;
 DECL|member|right
 name|ngx_radix_node_t
 modifier|*
@@ -52,12 +48,21 @@ name|ngx_radix_node_t
 modifier|*
 name|left
 decl_stmt|;
+DECL|member|parent
+name|ngx_radix_node_t
+modifier|*
+name|parent
+decl_stmt|;
+DECL|member|value
+name|uintptr_t
+name|value
+decl_stmt|;
 block|}
 struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon276735840108
+DECL|struct|__anon2bc42bb10108
 typedef|typedef
 struct|struct
 block|{
@@ -124,7 +129,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|void
+name|ngx_int_t
 name|ngx_radix32tree_delete
 parameter_list|(
 name|ngx_radix_tree_t
