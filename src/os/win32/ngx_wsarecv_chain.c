@@ -98,7 +98,7 @@ argument_list|,
 name|NGX_ERROR
 argument_list|)
 expr_stmt|;
-comment|/* coalesce the neighbouring hunks */
+comment|/* coalesce the neighbouring bufs */
 while|while
 condition|(
 name|chain
@@ -110,7 +110,7 @@ name|prev
 operator|==
 name|chain
 operator|->
-name|hunk
+name|buf
 operator|->
 name|last
 condition|)
@@ -121,13 +121,13 @@ name|len
 operator|+=
 name|chain
 operator|->
-name|hunk
+name|buf
 operator|->
 name|end
 operator|-
 name|chain
 operator|->
-name|hunk
+name|buf
 operator|->
 name|last
 expr_stmt|;
@@ -157,7 +157,7 @@ operator|*
 operator|)
 name|chain
 operator|->
-name|hunk
+name|buf
 operator|->
 name|last
 expr_stmt|;
@@ -167,13 +167,13 @@ name|len
 operator|=
 name|chain
 operator|->
-name|hunk
+name|buf
 operator|->
 name|end
 operator|-
 name|chain
 operator|->
-name|hunk
+name|buf
 operator|->
 name|last
 expr_stmt|;
@@ -182,13 +182,13 @@ name|size
 operator|+=
 name|chain
 operator|->
-name|hunk
+name|buf
 operator|->
 name|end
 operator|-
 name|chain
 operator|->
-name|hunk
+name|buf
 operator|->
 name|last
 expr_stmt|;
@@ -196,7 +196,7 @@ name|prev
 operator|=
 name|chain
 operator|->
-name|hunk
+name|buf
 operator|->
 name|end
 expr_stmt|;

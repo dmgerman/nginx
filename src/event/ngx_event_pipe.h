@@ -42,7 +42,7 @@ end_typedef
 begin_typedef
 DECL|typedef|ngx_event_pipe_input_filter_pt
 typedef|typedef
-name|int
+name|ngx_int_t
 function_decl|(
 modifier|*
 name|ngx_event_pipe_input_filter_pt
@@ -52,9 +52,9 @@ name|ngx_event_pipe_t
 modifier|*
 name|p
 parameter_list|,
-name|ngx_hunk_t
+name|ngx_buf_t
 modifier|*
-name|hunk
+name|buf
 parameter_list|)
 function_decl|;
 end_typedef
@@ -62,7 +62,7 @@ end_typedef
 begin_typedef
 DECL|typedef|ngx_event_pipe_output_filter_pt
 typedef|typedef
-name|int
+name|ngx_int_t
 function_decl|(
 modifier|*
 name|ngx_event_pipe_output_filter_pt
@@ -94,10 +94,10 @@ name|ngx_connection_t
 modifier|*
 name|downstream
 decl_stmt|;
-DECL|member|free_raw_hunks
+DECL|member|free_raw_bufs
 name|ngx_chain_t
 modifier|*
-name|free_raw_hunks
+name|free_raw_bufs
 decl_stmt|;
 DECL|member|in
 name|ngx_chain_t
@@ -131,7 +131,7 @@ name|ngx_chain_t
 modifier|*
 name|busy
 decl_stmt|;
-comment|/*      * the input filter i.e. that moves HTTP/1.1 chunks      * from the raw hunks to an incoming chain      */
+comment|/*      * the input filter i.e. that moves HTTP/1.1 chunks      * from the raw bufs to an incoming chain      */
 DECL|member|input_filter
 name|ngx_event_pipe_input_filter_pt
 name|input_filter
@@ -216,16 +216,16 @@ name|cyclic_temp_file
 range|:
 literal|1
 decl_stmt|;
-DECL|member|hunks
-name|int
-name|hunks
+DECL|member|allocated
+name|ngx_int_t
+name|allocated
 decl_stmt|;
 DECL|member|bufs
 name|ngx_bufs_t
 name|bufs
 decl_stmt|;
 DECL|member|tag
-name|ngx_hunk_tag_t
+name|ngx_buf_tag_t
 name|tag
 decl_stmt|;
 DECL|member|busy_size
@@ -241,7 +241,7 @@ name|off_t
 name|max_temp_file_size
 decl_stmt|;
 DECL|member|temp_file_write_size
-name|int
+name|size_t
 name|temp_file_write_size
 decl_stmt|;
 DECL|member|read_timeout
@@ -266,19 +266,19 @@ name|ngx_log_t
 modifier|*
 name|log
 decl_stmt|;
-DECL|member|preread_hunks
+DECL|member|preread_bufs
 name|ngx_chain_t
 modifier|*
-name|preread_hunks
+name|preread_bufs
 decl_stmt|;
 DECL|member|preread_size
-name|int
+name|size_t
 name|preread_size
 decl_stmt|;
-DECL|member|hunk_to_file
-name|ngx_hunk_t
+DECL|member|buf_to_file
+name|ngx_buf_t
 modifier|*
-name|hunk_to_file
+name|buf_to_file
 decl_stmt|;
 DECL|member|temp_file
 name|ngx_temp_file_t
@@ -295,7 +295,7 @@ struct|;
 end_struct
 
 begin_function_decl
-name|int
+name|ngx_int_t
 name|ngx_event_pipe
 parameter_list|(
 name|ngx_event_pipe_t
@@ -309,16 +309,16 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|int
+name|ngx_int_t
 name|ngx_event_pipe_copy_input_filter
 parameter_list|(
 name|ngx_event_pipe_t
 modifier|*
 name|p
 parameter_list|,
-name|ngx_hunk_t
+name|ngx_buf_t
 modifier|*
-name|hunk
+name|buf
 parameter_list|)
 function_decl|;
 end_function_decl

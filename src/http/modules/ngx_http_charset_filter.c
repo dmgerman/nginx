@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27ce70410108
+DECL|struct|__anon28da4a7e0108
 typedef|typedef
 struct|struct
 block|{
@@ -43,7 +43,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ce70410208
+DECL|struct|__anon28da4a7e0208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ce70410308
+DECL|struct|__anon28da4a7e0308
 typedef|typedef
 struct|struct
 block|{
@@ -93,7 +93,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ce70410408
+DECL|struct|__anon28da4a7e0408
 typedef|typedef
 struct|struct
 block|{
@@ -120,7 +120,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ce70410508
+DECL|struct|__anon28da4a7e0508
 typedef|typedef
 struct|struct
 block|{
@@ -143,9 +143,9 @@ specifier|static
 name|void
 name|ngx_charset_recode
 parameter_list|(
-name|ngx_hunk_t
+name|ngx_buf_t
 modifier|*
-name|h
+name|b
 parameter_list|,
 name|char
 modifier|*
@@ -235,7 +235,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_charset_filter_init
 parameter_list|(
 name|ngx_cycle_t
@@ -902,7 +902,7 @@ name|ngx_charset_recode
 argument_list|(
 name|cl
 operator|->
-name|hunk
+name|buf
 argument_list|,
 name|table
 argument_list|)
@@ -920,14 +920,14 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_charset_recode (ngx_hunk_t * h,char * table)
+DECL|function|ngx_charset_recode (ngx_buf_t * b,char * table)
 specifier|static
 name|void
 name|ngx_charset_recode
 parameter_list|(
-name|ngx_hunk_t
+name|ngx_buf_t
 modifier|*
-name|h
+name|b
 parameter_list|,
 name|char
 modifier|*
@@ -944,13 +944,13 @@ for|for
 control|(
 name|p
 operator|=
-name|h
+name|b
 operator|->
 name|pos
 init|;
 name|p
 operator|<
-name|h
+name|b
 operator|->
 name|last
 condition|;
@@ -1906,7 +1906,7 @@ end_function
 begin_function
 DECL|function|ngx_http_charset_filter_init (ngx_cycle_t * cycle)
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_charset_filter_init
 parameter_list|(
 name|ngx_cycle_t

@@ -582,7 +582,7 @@ name|file
 argument_list|,
 name|cl
 operator|->
-name|hunk
+name|buf
 operator|->
 name|pos
 argument_list|,
@@ -592,13 +592,13 @@ operator|)
 operator|(
 name|cl
 operator|->
-name|hunk
+name|buf
 operator|->
 name|last
 operator|-
 name|cl
 operator|->
-name|hunk
+name|buf
 operator|->
 name|pos
 operator|)
@@ -636,7 +636,7 @@ argument_list|,
 name|NGX_ERROR
 argument_list|)
 expr_stmt|;
-comment|/* create the iovec and coalesce the neighbouring hunks */
+comment|/* create the iovec and coalesce the neighbouring bufs */
 while|while
 condition|(
 name|cl
@@ -648,7 +648,7 @@ name|prev
 operator|==
 name|cl
 operator|->
-name|hunk
+name|buf
 operator|->
 name|pos
 condition|)
@@ -659,13 +659,13 @@ name|iov_len
 operator|+=
 name|cl
 operator|->
-name|hunk
+name|buf
 operator|->
 name|last
 operator|-
 name|cl
 operator|->
-name|hunk
+name|buf
 operator|->
 name|pos
 expr_stmt|;
@@ -695,7 +695,7 @@ operator|*
 operator|)
 name|cl
 operator|->
-name|hunk
+name|buf
 operator|->
 name|pos
 expr_stmt|;
@@ -705,13 +705,13 @@ name|iov_len
 operator|=
 name|cl
 operator|->
-name|hunk
+name|buf
 operator|->
 name|last
 operator|-
 name|cl
 operator|->
-name|hunk
+name|buf
 operator|->
 name|pos
 expr_stmt|;
@@ -720,13 +720,13 @@ name|size
 operator|+=
 name|cl
 operator|->
-name|hunk
+name|buf
 operator|->
 name|last
 operator|-
 name|cl
 operator|->
-name|hunk
+name|buf
 operator|->
 name|pos
 expr_stmt|;
@@ -734,7 +734,7 @@ name|prev
 operator|=
 name|cl
 operator|->
-name|hunk
+name|buf
 operator|->
 name|last
 expr_stmt|;

@@ -68,7 +68,7 @@ decl_stmt|;
 name|ngx_err_t
 name|err
 decl_stmt|;
-name|ngx_hunk_t
+name|ngx_buf_t
 modifier|*
 name|file
 decl_stmt|;
@@ -160,7 +160,7 @@ name|iov
 operator|=
 name|NULL
 expr_stmt|;
-comment|/* create the iovec and coalesce the neighbouring hunks */
+comment|/* create the iovec and coalesce the neighbouring bufs */
 for|for
 control|(
 name|cl
@@ -516,7 +516,7 @@ name|next
 expr_stmt|;
 block|}
 block|}
-comment|/*           * the tail is the rest of the chain that exceeded          * a single sendfile() capability          */
+comment|/*           * the tail is the rest of the chain that exceedes          * a single sendfile() capability          */
 name|tail
 operator|=
 name|cl

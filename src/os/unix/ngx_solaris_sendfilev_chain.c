@@ -140,7 +140,7 @@ argument_list|,
 name|NGX_CHAIN_ERROR
 argument_list|)
 expr_stmt|;
-comment|/* create the sendfilevec and coalesce the neighbouring hunks */
+comment|/* create the sendfilevec and coalesce the neighbouring bufs */
 for|for
 control|(
 name|cl
@@ -403,7 +403,7 @@ name|file_last
 expr_stmt|;
 block|}
 block|}
-comment|/*          * the tail is the rest of the chain that exceeded a single          * sendfilev() capability, IOV_MAX in Solaris is only 16          */
+comment|/*          * the tail is the rest of the chain that exceedes a single          * sendfilev() capability, IOV_MAX in Solaris is limited by 16          */
 name|tail
 operator|=
 name|cl

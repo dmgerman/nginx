@@ -48,11 +48,6 @@ name|n
 decl_stmt|,
 name|size
 decl_stmt|;
-name|struct
-name|iovec
-modifier|*
-name|iov
-decl_stmt|;
 name|ngx_err_t
 name|err
 decl_stmt|;
@@ -62,6 +57,11 @@ decl_stmt|;
 name|ngx_event_t
 modifier|*
 name|rev
+decl_stmt|;
+name|struct
+name|iovec
+modifier|*
+name|iov
 decl_stmt|;
 name|rev
 operator|=
@@ -211,7 +211,7 @@ argument_list|,
 name|NGX_ERROR
 argument_list|)
 expr_stmt|;
-comment|/* coalesce the neighbouring hunks */
+comment|/* coalesce the neighbouring bufs */
 while|while
 condition|(
 name|chain
@@ -223,7 +223,7 @@ name|prev
 operator|==
 name|chain
 operator|->
-name|hunk
+name|buf
 operator|->
 name|last
 condition|)
@@ -234,13 +234,13 @@ name|iov_len
 operator|+=
 name|chain
 operator|->
-name|hunk
+name|buf
 operator|->
 name|end
 operator|-
 name|chain
 operator|->
-name|hunk
+name|buf
 operator|->
 name|last
 expr_stmt|;
@@ -270,7 +270,7 @@ operator|*
 operator|)
 name|chain
 operator|->
-name|hunk
+name|buf
 operator|->
 name|last
 expr_stmt|;
@@ -280,13 +280,13 @@ name|iov_len
 operator|=
 name|chain
 operator|->
-name|hunk
+name|buf
 operator|->
 name|end
 operator|-
 name|chain
 operator|->
-name|hunk
+name|buf
 operator|->
 name|last
 expr_stmt|;
@@ -295,13 +295,13 @@ name|size
 operator|+=
 name|chain
 operator|->
-name|hunk
+name|buf
 operator|->
 name|end
 operator|-
 name|chain
 operator|->
-name|hunk
+name|buf
 operator|->
 name|last
 expr_stmt|;
@@ -309,7 +309,7 @@ name|prev
 operator|=
 name|chain
 operator|->
-name|hunk
+name|buf
 operator|->
 name|end
 expr_stmt|;
@@ -585,11 +585,6 @@ name|n
 decl_stmt|,
 name|size
 decl_stmt|;
-name|struct
-name|iovec
-modifier|*
-name|iov
-decl_stmt|;
 name|ngx_err_t
 name|err
 decl_stmt|;
@@ -599,6 +594,11 @@ decl_stmt|;
 name|ngx_event_t
 modifier|*
 name|rev
+decl_stmt|;
+name|struct
+name|iovec
+modifier|*
+name|iov
 decl_stmt|;
 name|prev
 operator|=
@@ -631,7 +631,7 @@ argument_list|,
 name|NGX_ERROR
 argument_list|)
 expr_stmt|;
-comment|/* coalesce the neighbouring hunks */
+comment|/* coalesce the neighbouring bufs */
 while|while
 condition|(
 name|chain
@@ -643,7 +643,7 @@ name|prev
 operator|==
 name|chain
 operator|->
-name|hunk
+name|buf
 operator|->
 name|last
 condition|)
@@ -654,13 +654,13 @@ name|iov_len
 operator|+=
 name|chain
 operator|->
-name|hunk
+name|buf
 operator|->
 name|end
 operator|-
 name|chain
 operator|->
-name|hunk
+name|buf
 operator|->
 name|last
 expr_stmt|;
@@ -686,7 +686,7 @@ name|iov_base
 operator|=
 name|chain
 operator|->
-name|hunk
+name|buf
 operator|->
 name|last
 expr_stmt|;
@@ -696,13 +696,13 @@ name|iov_len
 operator|=
 name|chain
 operator|->
-name|hunk
+name|buf
 operator|->
 name|end
 operator|-
 name|chain
 operator|->
-name|hunk
+name|buf
 operator|->
 name|last
 expr_stmt|;
@@ -711,13 +711,13 @@ name|size
 operator|+=
 name|chain
 operator|->
-name|hunk
+name|buf
 operator|->
 name|end
 operator|-
 name|chain
 operator|->
-name|hunk
+name|buf
 operator|->
 name|last
 expr_stmt|;
@@ -725,7 +725,7 @@ name|prev
 operator|=
 name|chain
 operator|->
-name|hunk
+name|buf
 operator|->
 name|end
 expr_stmt|;

@@ -43,7 +43,7 @@ value|3
 end_define
 
 begin_typedef
-DECL|struct|__anon2a44243e0108
+DECL|struct|__anon2968ec990108
 typedef|typedef
 struct|struct
 block|{
@@ -126,7 +126,7 @@ DECL|member|updated
 name|time_t
 name|updated
 decl_stmt|;
-DECL|union|__anon2a44243e020a
+DECL|union|__anon2968ec99020a
 union|union
 block|{
 DECL|member|size
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a44243e0308
+DECL|struct|__anon2968ec990308
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +202,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2a44243e0408
+DECL|struct|__anon2968ec990408
 typedef|typedef
 struct|struct
 block|{
@@ -250,7 +250,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a44243e0508
+DECL|struct|__anon2968ec990508
 typedef|typedef
 struct|struct
 block|{
@@ -289,7 +289,7 @@ modifier|*
 name|path
 decl_stmt|;
 DECL|member|buf
-name|ngx_hunk_t
+name|ngx_buf_t
 modifier|*
 name|buf
 decl_stmt|;

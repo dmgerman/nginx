@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28c381670108
+DECL|struct|__anon2abaf2390108
 typedef|typedef
 struct|struct
 block|{
@@ -328,7 +328,7 @@ operator|->
 name|tag
 operator|=
 operator|(
-name|ngx_hunk_tag_t
+name|ngx_buf_tag_t
 operator|)
 operator|&
 name|ngx_http_copy_filter_module

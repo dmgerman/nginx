@@ -109,7 +109,7 @@ name|buf
 operator|=
 name|cl
 operator|->
-name|hunk
+name|buf
 operator|->
 name|last
 expr_stmt|;
@@ -117,7 +117,7 @@ name|prev
 operator|=
 name|cl
 operator|->
-name|hunk
+name|buf
 operator|->
 name|last
 expr_stmt|;
@@ -125,7 +125,7 @@ name|size
 operator|=
 literal|0
 expr_stmt|;
-comment|/* coalesce the neighbouring hunks */
+comment|/* coalesce the neighbouring bufs */
 while|while
 condition|(
 name|cl
@@ -134,7 +134,7 @@ name|prev
 operator|==
 name|cl
 operator|->
-name|hunk
+name|buf
 operator|->
 name|last
 condition|)
@@ -143,13 +143,13 @@ name|size
 operator|+=
 name|cl
 operator|->
-name|hunk
+name|buf
 operator|->
 name|end
 operator|-
 name|cl
 operator|->
-name|hunk
+name|buf
 operator|->
 name|last
 expr_stmt|;
@@ -157,7 +157,7 @@ name|prev
 operator|=
 name|cl
 operator|->
-name|hunk
+name|buf
 operator|->
 name|end
 expr_stmt|;

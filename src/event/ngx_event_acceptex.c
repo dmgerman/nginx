@@ -627,7 +627,7 @@ name|c
 operator|->
 name|buffer
 argument_list|,
-name|ngx_create_temp_hunk
+name|ngx_create_temp_buf
 argument_list|(
 name|c
 operator|->
