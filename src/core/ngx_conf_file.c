@@ -2579,17 +2579,17 @@ return|return
 name|NULL
 return|;
 block|}
+if|if
+condition|(
+name|name
+condition|)
+block|{
 name|file
 operator|->
 name|fd
 operator|=
 name|NGX_INVALID_FILE
 expr_stmt|;
-if|if
-condition|(
-name|name
-condition|)
-block|{
 name|file
 operator|->
 name|name
@@ -2599,7 +2599,12 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|/* stderr */
+name|file
+operator|->
+name|fd
+operator|=
+name|STDERR_FILENO
+expr_stmt|;
 name|file
 operator|->
 name|name
