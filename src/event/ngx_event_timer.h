@@ -300,11 +300,14 @@ block|{
 comment|/*          * Use the previous timer value if a difference between them is less          * then 100 milliseconds.  It allows to minimize the rbtree operations          * for the fast connections.          */
 if|if
 condition|(
+name|abs
+argument_list|(
 name|key
 operator|-
 name|ev
 operator|->
 name|rbtree_key
+argument_list|)
 operator|<
 literal|100
 operator|/

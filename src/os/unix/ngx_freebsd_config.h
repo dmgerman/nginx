@@ -196,6 +196,67 @@ begin_comment
 comment|/* TCP_NOPUSH */
 end_comment
 
+begin_if
+if|#
+directive|if
+name|__FreeBSD_version
+operator|<
+literal|400017
+end_if
+
+begin_include
+include|#
+directive|include
+file|<sys/param.h>
+end_include
+
+begin_comment
+comment|/* ALIGN() */
+end_comment
+
+begin_comment
+comment|/* FreeBSD 3.x has no CMSG_SPACE() at all and has the broken CMSG_DATA() */
+end_comment
+
+begin_undef
+undef|#
+directive|undef
+name|CMSG_SPACE
+end_undef
+
+begin_define
+DECL|macro|CMSG_SPACE (l)
+define|#
+directive|define
+name|CMSG_SPACE
+parameter_list|(
+name|l
+parameter_list|)
+value|(ALIGN(sizeof(struct cmsghdr)) + ALIGN(l))
+end_define
+
+begin_undef
+undef|#
+directive|undef
+name|CMSG_DATA
+end_undef
+
+begin_define
+DECL|macro|CMSG_DATA (cmsg)
+define|#
+directive|define
+name|CMSG_DATA
+parameter_list|(
+name|cmsg
+parameter_list|)
+value|((u_char *)(cmsg) + ALIGN(sizeof(struct cmsghdr)))
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_include
 include|#
 directive|include

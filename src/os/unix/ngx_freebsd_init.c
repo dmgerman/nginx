@@ -113,7 +113,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2c6de0290108
+DECL|struct|__anon29a950070108
 typedef|typedef
 struct|struct
 block|{
@@ -434,7 +434,7 @@ directive|if
 operator|(
 name|HAVE_SENDFILE
 operator|)
-comment|/*      * The determination of the sendfile() nbytes bug is complex enough.      * There are two sendfile() syscalls: a new #393 has no bug while      * an old #336 has the bug in some versions and has not in others.      * Besides libc_r wrapper also emulates the bug in some versions.      * There's no way to say exactly if a given FreeBSD version has the bug.      * Here is the algorithm that works at least for RELEASEs      * and for syscalls only (not libc_r wrapper).      *      * We detect the new sendfile() version available at the compile time      * to allow an old binary to run correctly on an updated FreeBSD system.      */
+comment|/*      * The determination of the sendfile() "nbytes bug" is complex enough.      * There are two sendfile() syscalls: a new #393 has no bug while      * an old #336 has the bug in some versions and has not in others.      * Besides libc_r wrapper also emulates the bug in some versions.      * There's no way to say exactly if a given FreeBSD version has the bug.      * We use the algorithm that is correct at least for RELEASEs      * and for syscalls only (not libc_r wrapper).      *      * 4.6.1-RELEASE and below have the bug      * 4.6.2-RELEASE and above have the new syscall      *      * We detect the new sendfile() syscall available at the compile time      * to allow an old binary to run correctly on an updated FreeBSD system.      */
 if|#
 directive|if
 operator|(
@@ -462,7 +462,7 @@ literal|0
 expr_stmt|;
 else|#
 directive|else
-comment|/* an old syscall that can have the bug */
+comment|/* an old syscall that may have the bug */
 name|ngx_freebsd_sendfile_nbytes_bug
 operator|=
 literal|1

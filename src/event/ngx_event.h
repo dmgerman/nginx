@@ -57,7 +57,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon298f73890108
+DECL|struct|__anon2bb93fe00108
 typedef|typedef
 struct|struct
 block|{
@@ -86,7 +86,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon298f73890208
+DECL|struct|__anon2bb93fe00208
 typedef|typedef
 struct|struct
 block|{
@@ -266,13 +266,6 @@ name|timer_set
 range|:
 literal|1
 decl_stmt|;
-DECL|member|delayed
-name|unsigned
-name|short
-name|delayed
-range|:
-literal|1
-decl_stmt|;
 DECL|member|read_discarded
 name|unsigned
 name|short
@@ -431,7 +424,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon298f73890308
+DECL|struct|__anon2bb93fe00308
 typedef|typedef
 struct|struct
 block|{
@@ -1222,7 +1215,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon298f73890408
+DECL|struct|__anon2bb93fe00408
 typedef|typedef
 struct|struct
 block|{
@@ -1269,7 +1262,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298f73890508
+DECL|struct|__anon2bb93fe00508
 typedef|typedef
 struct|struct
 block|{
@@ -1686,7 +1679,7 @@ name|NGX_OK
 return|;
 block|}
 block|}
-comment|/* aio, iocp, epoll, rt signals */
+comment|/* aio, iocp, epoll, rtsig */
 return|return
 name|NGX_OK
 return|;
@@ -1925,7 +1918,7 @@ name|NGX_OK
 return|;
 block|}
 block|}
-comment|/* aio, iocp, epoll, rt signals */
+comment|/* aio, iocp, epoll, rtsig */
 return|return
 name|NGX_OK
 return|;

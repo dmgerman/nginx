@@ -377,7 +377,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon292d63910103
+DECL|enum|__anon2c2f32990103
 typedef|typedef
 enum|enum
 block|{
@@ -398,7 +398,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon292d63910203
+DECL|enum|__anon2c2f32990203
 typedef|typedef
 enum|enum
 block|{
@@ -437,7 +437,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292d63910308
+DECL|struct|__anon2c2f32990308
 typedef|typedef
 struct|struct
 block|{
@@ -456,7 +456,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292d63910408
+DECL|struct|__anon2c2f32990408
 typedef|typedef
 struct|struct
 block|{
@@ -570,7 +570,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292d63910508
+DECL|struct|__anon2c2f32990508
 typedef|typedef
 struct|struct
 block|{
@@ -593,7 +593,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292d63910608
+DECL|struct|__anon2c2f32990608
 typedef|typedef
 struct|struct
 block|{
@@ -697,7 +697,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292d63910708
+DECL|struct|__anon2c2f32990708
 typedef|typedef
 struct|struct
 block|{
@@ -748,10 +748,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon292d6391080a
+DECL|union|__anon2c2f3299080a
 union|union
 block|{
-DECL|struct|__anon292d63910908
+DECL|struct|__anon2c2f32990908
 struct|struct
 block|{
 DECL|member|fd
@@ -767,7 +767,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon292d63910a08
+DECL|struct|__anon2c2f32990a08
 struct|struct
 block|{
 DECL|member|hash
@@ -1055,6 +1055,12 @@ comment|/* can we use sendfile ? */
 DECL|member|sendfile
 name|unsigned
 name|sendfile
+range|:
+literal|1
+decl_stmt|;
+DECL|member|delayed
+name|unsigned
+name|delayed
 range|:
 literal|1
 decl_stmt|;
