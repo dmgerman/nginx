@@ -214,13 +214,13 @@ name|ngx_module_t
 name|ngx_http_index_module
 init|=
 block|{
-literal|0
-block|,
-comment|/* module index */
 operator|&
 name|ngx_http_index_module_ctx
 block|,
 comment|/* module context */
+literal|0
+block|,
+comment|/* module index */
 name|ngx_http_index_commands
 block|,
 comment|/* module directives */

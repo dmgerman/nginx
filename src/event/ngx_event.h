@@ -92,7 +92,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2c0126820108
+DECL|struct|__anon28d7cf190108
 typedef|typedef
 struct|struct
 block|{
@@ -388,7 +388,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2c0126820203
+DECL|enum|__anon28d7cf190203
 typedef|typedef
 enum|enum
 block|{
@@ -457,7 +457,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0126820308
+DECL|struct|__anon28d7cf190308
 typedef|typedef
 struct|struct
 block|{
@@ -1170,6 +1170,27 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_define
+DECL|macro|NGX_EVENT_MODULE_TYPE
+define|#
+directive|define
+name|NGX_EVENT_MODULE_TYPE
+value|0x544E5645
+end_define
+
+begin_comment
+DECL|macro|NGX_EVENT_MODULE_TYPE
+comment|/* "EVNT" */
+end_comment
+
+begin_define
+DECL|macro|NGX_EVENT_CONF
+define|#
+directive|define
+name|NGX_EVENT_CONF
+value|0x00200000
+end_define
 
 begin_function_decl
 name|void

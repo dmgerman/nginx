@@ -67,7 +67,7 @@ file|<ngx_array.h>
 end_include
 
 begin_comment
-comment|/*  *        AAAA  number of agruments  *      FF      command flags  *    TT        command type, i.e. HTTP "location" or "server" command  *  00  */
+comment|/*  *        AAAA  number of agruments  *      FF      command flags  *    TT        command type, i.e. HTTP "location" or "server" command  */
 end_comment
 
 begin_define
@@ -75,7 +75,7 @@ DECL|macro|NGX_CONF_NOARGS
 define|#
 directive|define
 name|NGX_CONF_NOARGS
-value|0x0000000001
+value|0x00000001
 end_define
 
 begin_define
@@ -83,7 +83,7 @@ DECL|macro|NGX_CONF_TAKE1
 define|#
 directive|define
 name|NGX_CONF_TAKE1
-value|0x0000000002
+value|0x00000002
 end_define
 
 begin_define
@@ -91,7 +91,7 @@ DECL|macro|NGX_CONF_TAKE2
 define|#
 directive|define
 name|NGX_CONF_TAKE2
-value|0x0000000004
+value|0x00000004
 end_define
 
 begin_define
@@ -99,7 +99,7 @@ DECL|macro|NGX_CONF_ARGS_NUMBER
 define|#
 directive|define
 name|NGX_CONF_ARGS_NUMBER
-value|0x000000ffff
+value|0x0000ffff
 end_define
 
 begin_define
@@ -107,7 +107,7 @@ DECL|macro|NGX_CONF_ANY
 define|#
 directive|define
 name|NGX_CONF_ANY
-value|0x0000010000
+value|0x00010000
 end_define
 
 begin_define
@@ -115,7 +115,7 @@ DECL|macro|NGX_CONF_BLOCK
 define|#
 directive|define
 name|NGX_CONF_BLOCK
-value|0x0000020000
+value|0x00020000
 end_define
 
 begin_define
@@ -123,7 +123,7 @@ DECL|macro|NGX_CONF_FLAG
 define|#
 directive|define
 name|NGX_CONF_FLAG
-value|0x0000040000
+value|0x00040000
 end_define
 
 begin_define
@@ -131,7 +131,7 @@ DECL|macro|NGX_MAIN_CONF
 define|#
 directive|define
 name|NGX_MAIN_CONF
-value|0x0001000000
+value|0x01000000
 end_define
 
 begin_define
@@ -270,18 +270,18 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon278ed8e80108
+DECL|struct|__anon294acca40108
 typedef|typedef
 struct|struct
 block|{
-DECL|member|index
-name|int
-name|index
-decl_stmt|;
 DECL|member|ctx
 name|void
 modifier|*
 name|ctx
+decl_stmt|;
+DECL|member|index
+name|int
+name|index
 decl_stmt|;
 DECL|member|commands
 name|ngx_command_t
@@ -311,7 +311,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278ed8e80208
+DECL|struct|__anon294acca40208
 typedef|typedef
 struct|struct
 block|{
@@ -505,6 +505,26 @@ begin_function_decl
 name|char
 modifier|*
 name|ngx_conf_set_str_slot
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_command_t
+modifier|*
+name|cmd
+parameter_list|,
+name|char
+modifier|*
+name|conf
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|char
+modifier|*
+name|ngx_conf_set_num_slot
 parameter_list|(
 name|ngx_conf_t
 modifier|*

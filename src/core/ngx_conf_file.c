@@ -106,6 +106,7 @@ condition|(
 name|filename
 condition|)
 block|{
+comment|/* open configuration file */
 name|fd
 operator|=
 name|ngx_open_file
@@ -311,7 +312,7 @@ argument_list|(
 name|cf
 argument_list|)
 expr_stmt|;
-comment|/* NGX_OK, NGX_ERROR, NGX_CONF_FILE_DONE, NGX_CONF_BLOCK_DONE */
+comment|/* ngx_conf_read_token() returns NGX_OK, NGX_ERROR,            NGX_CONF_FILE_DONE or NGX_CONF_BLOCK_DONE */
 if|#
 directive|if
 literal|0
@@ -347,6 +348,7 @@ operator|->
 name|handler
 condition|)
 block|{
+comment|/* custom handler, i.e. used in http "types { ... }" directive */
 name|rv
 operator|=
 call|(
@@ -457,6 +459,7 @@ name|i
 operator|++
 control|)
 block|{
+comment|/* look up the directive in the appropriate modules */
 if|if
 condition|(
 name|ngx_modules
@@ -543,6 +546,7 @@ literal|0
 block_content|ngx_log_debug(cf->log, "command '%s'" _ cmd->name.data);
 endif|#
 directive|endif
+comment|/* is the directive's location right ? */
 if|if
 condition|(
 operator|(
@@ -596,6 +600,7 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
+comment|/* is the directive's argument count right ? */
 if|if
 condition|(
 operator|!
@@ -693,11 +698,46 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
+comment|/* set up the directive's configuration context */
 name|conf
 operator|=
 name|NULL
 expr_stmt|;
 if|if
+condition|(
+name|cf
+operator|->
+name|module_type
+operator|==
+name|NGX_CORE_MODULE_TYPE
+condition|)
+block|{
+name|conf
+operator|=
+operator|&
+operator|(
+operator|(
+operator|(
+name|void
+operator|*
+operator|*
+operator|)
+name|cf
+operator|->
+name|ctx
+operator|)
+index|[
+name|ngx_modules
+index|[
+name|i
+index|]
+operator|->
+name|index
+index|]
+operator|)
+expr_stmt|;
+block|}
+if|else if
 condition|(
 name|cf
 operator|->
@@ -909,7 +949,7 @@ condition|)
 block|{
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_ERR
+name|NGX_LOG_ALERT
 argument_list|,
 name|cf
 operator|->
@@ -1939,6 +1979,101 @@ literal|1
 index|]
 operator|.
 name|data
+expr_stmt|;
+return|return
+name|NGX_CONF_OK
+return|;
+block|}
+end_function
+
+begin_function
+DECL|function|ngx_conf_set_num_slot (ngx_conf_t * cf,ngx_command_t * cmd,char * conf)
+name|char
+modifier|*
+name|ngx_conf_set_num_slot
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_command_t
+modifier|*
+name|cmd
+parameter_list|,
+name|char
+modifier|*
+name|conf
+parameter_list|)
+block|{
+name|int
+name|num
+decl_stmt|,
+name|len
+decl_stmt|;
+name|ngx_str_t
+modifier|*
+name|value
+decl_stmt|;
+name|value
+operator|=
+operator|(
+name|ngx_str_t
+operator|*
+operator|)
+name|cf
+operator|->
+name|args
+operator|->
+name|elts
+expr_stmt|;
+name|len
+operator|=
+name|value
+index|[
+literal|1
+index|]
+operator|.
+name|len
+expr_stmt|;
+name|num
+operator|=
+name|ngx_atoi
+argument_list|(
+name|value
+index|[
+literal|1
+index|]
+operator|.
+name|data
+argument_list|,
+name|len
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|num
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+return|return
+literal|"invalid value"
+return|;
+block|}
+operator|*
+operator|(
+name|int
+operator|*
+operator|)
+operator|(
+name|conf
+operator|+
+name|cmd
+operator|->
+name|offset
+operator|)
+operator|=
+name|num
 expr_stmt|;
 return|return
 name|NGX_CONF_OK

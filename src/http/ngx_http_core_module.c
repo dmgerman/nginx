@@ -384,11 +384,13 @@ name|NGX_CONF_TAKE1
 block|,
 name|ngx_conf_set_size_slot
 block|,
-literal|0
+name|NGX_HTTP_MAIN_CONF_OFFSET
 block|,
-name|addressof
+name|offsetof
 argument_list|(
-name|ngx_http_client_header_buffer_size
+name|ngx_http_core_main_conf_t
+argument_list|,
+name|client_header_buffer_size
 argument_list|)
 block|,
 name|NULL
@@ -645,13 +647,13 @@ name|ngx_module_t
 name|ngx_http_core_module
 init|=
 block|{
-literal|0
-block|,
-comment|/* module index */
 operator|&
 name|ngx_http_core_module_ctx
 block|,
 comment|/* module context */
+literal|0
+block|,
+comment|/* module index */
 name|ngx_http_core_commands
 block|,
 comment|/* module directives */
@@ -2818,6 +2820,9 @@ modifier|*
 name|ctx
 decl_stmt|,
 modifier|*
+name|tctx
+decl_stmt|,
+modifier|*
 name|pctx
 decl_stmt|;
 name|ngx_http_core_srv_conf_t
@@ -2848,7 +2853,25 @@ argument_list|,
 name|NGX_CONF_ERROR
 argument_list|)
 expr_stmt|;
-comment|/* server config */
+name|tctx
+operator|=
+operator|(
+name|ngx_http_conf_ctx_t
+operator|*
+operator|)
+name|cf
+operator|->
+name|ctx
+expr_stmt|;
+name|ctx
+operator|->
+name|main_conf
+operator|=
+name|tctx
+operator|->
+name|main_conf
+expr_stmt|;
+comment|/* server configuration */
 name|ngx_test_null
 argument_list|(
 name|ctx
@@ -2873,7 +2896,7 @@ argument_list|,
 name|NGX_CONF_ERROR
 argument_list|)
 expr_stmt|;
-comment|/* server location config */
+comment|/* server location configuration */
 name|ngx_test_null
 argument_list|(
 name|ctx

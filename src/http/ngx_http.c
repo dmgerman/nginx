@@ -283,13 +283,13 @@ name|ngx_module_t
 name|ngx_http_module
 init|=
 block|{
-literal|0
-block|,
-comment|/* module index */
 operator|&
 name|http_name
 block|,
 comment|/* module context */
+literal|0
+block|,
+comment|/* module index */
 name|ngx_http_commands
 block|,
 comment|/* module directives */
@@ -303,7 +303,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_http_block (ngx_conf_t * cf,ngx_command_t * cmd,char * dummy)
+DECL|function|ngx_http_block (ngx_conf_t * cf,ngx_command_t * cmd,char * conf)
 specifier|static
 name|char
 modifier|*
@@ -319,7 +319,7 @@ name|cmd
 parameter_list|,
 name|char
 modifier|*
-name|dummy
+name|conf
 parameter_list|)
 block|{
 name|int
@@ -365,7 +365,7 @@ modifier|*
 name|module
 decl_stmt|;
 name|ngx_conf_t
-name|prev
+name|pcf
 decl_stmt|;
 name|ngx_http_conf_ctx_t
 modifier|*
@@ -439,6 +439,16 @@ argument_list|,
 name|NGX_CONF_ERROR
 argument_list|)
 expr_stmt|;
+operator|*
+operator|(
+name|ngx_http_conf_ctx_t
+operator|*
+operator|*
+operator|)
+name|conf
+operator|=
+name|ctx
+expr_stmt|;
 name|ngx_http_max_module
 operator|=
 literal|0
@@ -493,7 +503,57 @@ name|ngx_http_max_module
 operator|++
 expr_stmt|;
 block|}
-comment|/* null loc_conf */
+comment|/* TODO: http main_conf */
+name|ngx_test_null
+argument_list|(
+name|ctx
+operator|->
+name|main_conf
+argument_list|,
+name|ngx_pcalloc
+argument_list|(
+name|cf
+operator|->
+name|pool
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|void
+operator|*
+argument_list|)
+operator|*
+name|ngx_http_max_module
+argument_list|)
+argument_list|,
+name|NGX_CONF_ERROR
+argument_list|)
+expr_stmt|;
+comment|/* TODO: http srv_conf */
+name|ngx_test_null
+argument_list|(
+name|ctx
+operator|->
+name|srv_conf
+argument_list|,
+name|ngx_pcalloc
+argument_list|(
+name|cf
+operator|->
+name|pool
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|void
+operator|*
+argument_list|)
+operator|*
+name|ngx_http_max_module
+argument_list|)
+argument_list|,
+name|NGX_CONF_ERROR
+argument_list|)
+expr_stmt|;
+comment|/* http null loc_conf */
 name|ngx_test_null
 argument_list|(
 name|ctx
@@ -592,7 +652,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|prev
+name|pcf
 operator|=
 operator|*
 name|cf
@@ -627,7 +687,7 @@ expr_stmt|;
 operator|*
 name|cf
 operator|=
-name|prev
+name|pcf
 expr_stmt|;
 if|if
 condition|(

@@ -14,6 +14,20 @@ end_include
 begin_decl_stmt
 specifier|extern
 name|ngx_module_t
+name|ngx_events_module
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_module_t
+name|ngx_event_module
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_module_t
 name|ngx_http_module
 decl_stmt|;
 end_decl_stmt
@@ -68,6 +82,14 @@ name|ngx_modules
 index|[]
 init|=
 block|{
+comment|/* events */
+operator|&
+name|ngx_events_module
+block|,
+operator|&
+name|ngx_event_module
+block|,
+comment|/* http */
 operator|&
 name|ngx_http_module
 block|,

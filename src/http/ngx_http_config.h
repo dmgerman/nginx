@@ -25,10 +25,16 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b9c3b9c0108
+DECL|struct|__anon29f453f60108
 typedef|typedef
 struct|struct
 block|{
+DECL|member|main_conf
+name|void
+modifier|*
+modifier|*
+name|main_conf
+decl_stmt|;
 DECL|member|srv_conf
 name|void
 modifier|*
@@ -48,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b9c3b9c0208
+DECL|struct|__anon29f453f60208
 typedef|typedef
 struct|struct
 block|{
@@ -87,7 +93,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b9c3b9c0308
+DECL|struct|__anon29f453f60308
 typedef|typedef
 struct|struct
 block|{
@@ -211,6 +217,14 @@ value|0x8000000
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_MAIN_CONF_OFFSET
+define|#
+directive|define
+name|NGX_HTTP_MAIN_CONF_OFFSET
+value|offsetof(ngx_http_conf_ctx_t, main_conf)
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_SRV_CONF_OFFSET
 define|#
 directive|define
@@ -227,29 +241,42 @@ value|offsetof(ngx_http_conf_ctx_t, loc_conf)
 end_define
 
 begin_define
-DECL|macro|ngx_http_get_module_srv_conf (r,module)
+DECL|macro|ngx_http_get_module_main_conf (r,ctx)
+define|#
+directive|define
+name|ngx_http_get_module_main_conf
+parameter_list|(
+name|r
+parameter_list|,
+name|ctx
+parameter_list|)
+value|r->main_conf[ctx.index]
+end_define
+
+begin_define
+DECL|macro|ngx_http_get_module_srv_conf (r,ctx)
 define|#
 directive|define
 name|ngx_http_get_module_srv_conf
 parameter_list|(
 name|r
 parameter_list|,
-name|module
+name|ctx
 parameter_list|)
-value|r->srv_conf[module.index]
+value|r->srv_conf[ctx.index]
 end_define
 
 begin_define
-DECL|macro|ngx_http_get_module_loc_conf (r,module)
+DECL|macro|ngx_http_get_module_loc_conf (r,ctx)
 define|#
 directive|define
 name|ngx_http_get_module_loc_conf
 parameter_list|(
 name|r
 parameter_list|,
-name|module
+name|ctx
 parameter_list|)
-value|r->loc_conf[module.index]
+value|r->loc_conf[ctx.index]
 end_define
 
 begin_function_decl
@@ -267,13 +294,6 @@ name|modules
 parameter_list|)
 function_decl|;
 end_function_decl
-
-begin_decl_stmt
-specifier|extern
-name|ngx_module_t
-name|ngx_http_module
-decl_stmt|;
-end_decl_stmt
 
 begin_function_decl
 specifier|extern
