@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ad444510108
+DECL|struct|__anon2ae4096c0108
 typedef|typedef
 struct|struct
 block|{
@@ -1585,24 +1585,10 @@ return|;
 block|}
 if|#
 directive|if
-literal|1
-if|if
-condition|(
-name|ngx_accept_token
-operator|==
 literal|0
-operator|&&
-name|timer
-operator|==
-literal|0
-condition|)
-block|{
+block_content|if (ngx_accept_mutex_held == 0&& timer == 0) {
 comment|/* STUB */
-name|timer
-operator|=
-literal|500
-expr_stmt|;
-block|}
+block_content|timer = 500;         }
 endif|#
 directive|endif
 block|}
@@ -1774,17 +1760,9 @@ argument_list|,
 literal|"kevent() failed"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|ngx_accept_token
-condition|)
-block|{
-operator|*
-name|ngx_accept_mutex
-operator|=
-literal|0
+name|ngx_accept_mutex_unlock
+argument_list|()
 expr_stmt|;
-block|}
 return|return
 name|NGX_ERROR
 return|;
@@ -1843,17 +1821,9 @@ argument_list|,
 literal|"kevent() returned no events without timeout"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|ngx_accept_token
-condition|)
-block|{
-operator|*
-name|ngx_accept_mutex
-operator|=
-literal|0
+name|ngx_accept_mutex_unlock
+argument_list|()
 expr_stmt|;
-block|}
 return|return
 name|NGX_ERROR
 return|;
@@ -1869,17 +1839,9 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
-if|if
-condition|(
-name|ngx_accept_token
-condition|)
-block|{
-operator|*
-name|ngx_accept_mutex
-operator|=
-literal|0
+name|ngx_accept_mutex_unlock
+argument_list|()
 expr_stmt|;
-block|}
 return|return
 name|NGX_ERROR
 return|;
@@ -2240,7 +2202,7 @@ endif|#
 directive|endif
 if|if
 condition|(
-name|ngx_accept_token
+name|ngx_accept_mutex_held
 condition|)
 block|{
 if|if
@@ -2272,17 +2234,9 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
-if|if
-condition|(
-name|ngx_accept_token
-condition|)
-block|{
-operator|*
-name|ngx_accept_mutex
-operator|=
-literal|0
+name|ngx_accept_mutex_unlock
+argument_list|()
 expr_stmt|;
-block|}
 return|return
 name|NGX_ERROR
 return|;
@@ -2316,17 +2270,9 @@ argument_list|(
 name|ngx_posted_events_mutex
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|ngx_accept_token
-condition|)
-block|{
-operator|*
-name|ngx_accept_mutex
-operator|=
-literal|0
+name|ngx_accept_mutex_unlock
+argument_list|()
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|timer

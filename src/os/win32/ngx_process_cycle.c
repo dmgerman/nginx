@@ -146,8 +146,6 @@ expr_stmt|;
 name|ngx_process_events
 argument_list|(
 name|cycle
-operator|->
-name|log
 argument_list|)
 expr_stmt|;
 block|}

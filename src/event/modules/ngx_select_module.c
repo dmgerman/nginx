@@ -86,9 +86,9 @@ specifier|static
 name|int
 name|ngx_select_process_events
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -1021,14 +1021,14 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_select_process_events (ngx_log_t * log)
+DECL|function|ngx_select_process_events (ngx_cycle_t * cycle)
 specifier|static
 name|int
 name|ngx_select_process_events
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 block|{
 name|int
@@ -1190,6 +1190,8 @@ name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1238,6 +1240,8 @@ name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1260,6 +1264,8 @@ name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1400,6 +1406,8 @@ name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1445,6 +1453,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1508,6 +1518,8 @@ name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1536,6 +1548,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1555,6 +1569,8 @@ name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1578,6 +1594,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 name|err
@@ -1599,6 +1617,8 @@ name|NGX_LOG_INFO
 else|:
 name|NGX_LOG_ALERT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 name|err
@@ -1675,6 +1695,8 @@ name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1711,6 +1733,8 @@ name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1848,6 +1872,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0

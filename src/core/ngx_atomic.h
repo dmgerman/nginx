@@ -163,26 +163,30 @@ operator|)
 end_elif
 
 begin_define
-DECL|macro|ngx_atomic_inc (x)
+DECL|macro|ngx_atomic_inc (p)
 define|#
 directive|define
 name|ngx_atomic_inc
 parameter_list|(
-name|x
+name|p
 parameter_list|)
-value|InterlockedIncrement
+value|InterlockedIncrement((long *) p)
 end_define
 
 begin_define
-DECL|macro|ngx_atomic_dec (x)
+DECL|macro|ngx_atomic_dec (p)
 define|#
 directive|define
 name|ngx_atomic_dec
 parameter_list|(
-name|x
+name|p
 parameter_list|)
-value|InterlockedDecrement
+value|InterlockedDecrement((long *) p)
 end_define
+
+begin_comment
+comment|/* STUB */
+end_comment
 
 begin_define
 DECL|macro|ngx_atomic_cmp_set (lock,old,set)
@@ -196,9 +200,34 @@ name|old
 parameter_list|,
 name|set
 parameter_list|)
+value|1
+end_define
+
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
+begin_define
+define|#
+directive|define
+name|ngx_atomic_cmp_set
+parameter_list|(
+name|lock
+parameter_list|,
+name|old
+parameter_list|,
+name|set
+parameter_list|)
 define|\
 value|InterlockedCompareExchange(lock, set, old)
 end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_else
 else|#
@@ -252,7 +281,7 @@ name|old
 parameter_list|,
 name|set
 parameter_list|)
-value|1;
+value|1
 end_define
 
 begin_comment

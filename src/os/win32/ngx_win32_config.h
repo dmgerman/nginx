@@ -145,6 +145,17 @@ name|warning
 name|(
 name|disable
 name|:
+name|4054
+name|)
+end_pragma
+
+begin_pragma
+pragma|#
+directive|pragma
+name|warning
+name|(
+name|disable
+name|:
 name|4055
 name|)
 end_pragma
@@ -218,6 +229,19 @@ ifdef|#
 directive|ifdef
 name|__WATCOMC__
 end_ifdef
+
+begin_comment
+comment|/* unreachable code */
+end_comment
+
+begin_pragma
+pragma|#
+directive|pragma
+name|disable_message
+name|(
+name|201
+name|)
+end_pragma
 
 begin_comment
 comment|/* disable "Symbol 'ngx_rbtree_min' has been defined, but not referenced" */
@@ -440,6 +464,14 @@ DECL|typedef|sig_atomic_t
 typedef|typedef
 name|int
 name|sig_atomic_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|typedef|ngx_atomic_t
+typedef|typedef
+name|uint32_t
+name|ngx_atomic_t
 typedef|;
 end_typedef
 

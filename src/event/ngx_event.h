@@ -57,7 +57,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2bc834440108
+DECL|struct|__anon29a4c30b0108
 typedef|typedef
 struct|struct
 block|{
@@ -86,7 +86,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2bc834440208
+DECL|struct|__anon29a4c30b0208
 typedef|typedef
 struct|struct
 block|{
@@ -417,7 +417,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bc834440308
+DECL|struct|__anon29a4c30b0308
 typedef|typedef
 struct|struct
 block|{
@@ -1196,7 +1196,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon2bc834440408
+DECL|struct|__anon29a4c30b0408
 typedef|typedef
 struct|struct
 block|{
@@ -1224,7 +1224,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc834440508
+DECL|struct|__anon29a4c30b0508
 typedef|typedef
 struct|struct
 block|{
@@ -1307,6 +1307,14 @@ begin_decl_stmt
 specifier|extern
 name|ngx_atomic_t
 modifier|*
+name|ngx_accept_mutex_ptr
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_atomic_t
+modifier|*
 name|ngx_accept_mutex
 decl_stmt|;
 end_decl_stmt
@@ -1314,9 +1322,19 @@ end_decl_stmt
 begin_decl_stmt
 specifier|extern
 name|ngx_uint_t
-name|ngx_accept_token
+name|ngx_accept_mutex_held
 decl_stmt|;
 end_decl_stmt
+
+begin_define
+DECL|macro|ngx_accept_mutex_unlock ()
+define|#
+directive|define
+name|ngx_accept_mutex_unlock
+parameter_list|()
+define|\
+value|if (ngx_accept_mutex_held) {                                       \                *ngx_accept_mutex = 0;                                         \            }
+end_define
 
 begin_decl_stmt
 specifier|extern

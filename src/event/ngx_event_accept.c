@@ -24,7 +24,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b048ed30108
+DECL|struct|__anon2af453010108
 typedef|typedef
 struct|struct
 block|{
@@ -63,6 +63,14 @@ function_decl|;
 end_function_decl
 
 begin_decl_stmt
+DECL|variable|ngx_accept_mutex_ptr
+name|ngx_atomic_t
+modifier|*
+name|ngx_accept_mutex_ptr
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_accept_mutex
 name|ngx_atomic_t
 modifier|*
@@ -71,9 +79,9 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_accept_token
+DECL|variable|ngx_accept_mutex_held
 name|ngx_uint_t
-name|ngx_accept_token
+name|ngx_accept_mutex_held
 decl_stmt|;
 end_decl_stmt
 
@@ -1274,7 +1282,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|ngx_accept_token
+name|ngx_accept_mutex_held
 condition|)
 block|{
 if|if
@@ -1287,11 +1295,16 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
+operator|*
+name|ngx_accept_mutex
+operator|=
+literal|0
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
 block|}
-name|ngx_accept_token
+name|ngx_accept_mutex_held
 operator|=
 literal|1
 expr_stmt|;
@@ -1302,7 +1315,7 @@ return|;
 block|}
 if|if
 condition|(
-name|ngx_accept_token
+name|ngx_accept_mutex_held
 condition|)
 block|{
 if|if
@@ -1319,7 +1332,7 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-name|ngx_accept_token
+name|ngx_accept_mutex_held
 operator|=
 literal|0
 expr_stmt|;
