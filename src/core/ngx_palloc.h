@@ -87,15 +87,6 @@ block|}
 struct|;
 end_struct
 
-begin_typedef
-DECL|typedef|ngx_pool_t
-typedef|typedef
-name|struct
-name|ngx_pool_s
-name|ngx_pool_t
-typedef|;
-end_typedef
-
 begin_struct
 DECL|struct|ngx_pool_s
 struct|struct

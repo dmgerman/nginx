@@ -57,7 +57,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon279071340108
+DECL|struct|__anon2bb0d6600108
 typedef|typedef
 struct|struct
 block|{
@@ -86,7 +86,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon279071340208
+DECL|struct|__anon2bb0d6600208
 typedef|typedef
 struct|struct
 block|{
@@ -431,7 +431,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon279071340308
+DECL|struct|__anon2bb0d6600308
 typedef|typedef
 struct|struct
 block|{
@@ -739,6 +739,14 @@ name|NGX_CLOSE_EVENT
 value|1
 end_define
 
+begin_define
+DECL|macro|NGX_DISABLE_EVENT
+define|#
+directive|define
+name|NGX_DISABLE_EVENT
+value|2
+end_define
+
 begin_comment
 comment|/* these flags have a meaning only for kqueue */
 end_comment
@@ -748,14 +756,6 @@ DECL|macro|NGX_LOWAT_EVENT
 define|#
 directive|define
 name|NGX_LOWAT_EVENT
-value|0
-end_define
-
-begin_define
-DECL|macro|NGX_DISABLE_EVENT
-define|#
-directive|define
-name|NGX_DISABLE_EVENT
 value|0
 end_define
 
@@ -1234,7 +1234,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon279071340408
+DECL|struct|__anon2bb0d6600408
 typedef|typedef
 struct|struct
 block|{
@@ -1281,7 +1281,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon279071340508
+DECL|struct|__anon2bb0d6600508
 typedef|typedef
 struct|struct
 block|{

@@ -36,7 +36,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon2c60f24a0108
+DECL|struct|__anon294a50780108
 typedef|typedef
 struct|struct
 block|{
@@ -175,6 +175,14 @@ block|{
 name|SIGINT
 block|,
 literal|"SIGINT"
+block|,
+name|ngx_signal_handler
+block|}
+block|,
+block|{
+name|SIGIO
+block|,
+literal|"SIGIO"
 block|,
 name|ngx_signal_handler
 block|}
@@ -622,9 +630,17 @@ literal|1
 expr_stmt|;
 name|action
 operator|=
-literal|", shutting down old worker process"
+literal|", shutting down old worker processes"
 expr_stmt|;
 block|}
+break|break;
+case|case
+name|SIGIO
+case|:
+name|ngx_sigio
+operator|=
+literal|1
+expr_stmt|;
 break|break;
 case|case
 name|SIGCHLD
@@ -709,6 +725,9 @@ name|ngx_signal_value
 argument_list|(
 name|NGX_CHANGEBIN_SIGNAL
 argument_list|)
+case|:
+case|case
+name|SIGIO
 case|:
 name|action
 operator|=

@@ -40,6 +40,15 @@ typedef|;
 end_typedef
 
 begin_typedef
+DECL|typedef|ngx_pool_t
+typedef|typedef
+name|struct
+name|ngx_pool_s
+name|ngx_pool_t
+typedef|;
+end_typedef
+
+begin_typedef
 DECL|typedef|ngx_log_t
 typedef|typedef
 name|struct
