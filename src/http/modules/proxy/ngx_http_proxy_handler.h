@@ -37,7 +37,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c5b76810108
+DECL|struct|__anon27b369e70108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5b76810208
+DECL|struct|__anon27b369e70208
 typedef|typedef
 struct|struct
 block|{
@@ -190,6 +190,7 @@ DECL|member|host_header
 name|ngx_str_t
 name|host_header
 decl_stmt|;
+comment|/* used to parse an upstream HTTP header */
 DECL|member|status_start
 name|char
 modifier|*
@@ -222,7 +223,7 @@ DECL|macro|NGX_HTTP_PROXY_PARSE_NO_HEADER
 define|#
 directive|define
 name|NGX_HTTP_PROXY_PARSE_NO_HEADER
-value|10
+value|20
 end_define
 
 begin_endif
