@@ -12,21 +12,22 @@ file|<ngx_stat.h>
 end_include
 
 begin_function
-DECL|function|ngx_stat (char * file,ngx_stat_t * sb)
+DECL|function|ngx_file_type (char * file,ngx_file_info_t * sb)
 name|int
-name|ngx_stat
+name|ngx_file_type
 parameter_list|(
 name|char
 modifier|*
 name|file
 parameter_list|,
-name|ngx_stat_t
+name|ngx_file_info_t
 modifier|*
 name|sb
 parameter_list|)
 block|{
-operator|*
 name|sb
+operator|->
+name|dwFileAttributes
 operator|=
 name|GetFileAttributes
 argument_list|(
@@ -35,8 +36,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|*
 name|sb
+operator|->
+name|dwFileAttributes
 operator|==
 name|INVALID_FILE_ATTRIBUTES
 condition|)
@@ -51,6 +53,10 @@ literal|0
 return|;
 block|}
 end_function
+
+begin_comment
+comment|/* int ngx_stat(char *file, ngx_stat_t *sb) {     *sb = GetFileAttributes(file);      if (*sb == INVALID_FILE_ATTRIBUTES) {         return -1;     }      return 0; } */
+end_comment
 
 end_unit
 

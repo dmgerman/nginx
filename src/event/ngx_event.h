@@ -27,7 +27,25 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_socket.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_log.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_alloc.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_array.h>
 end_include
 
 begin_typedef
@@ -219,7 +237,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2918c48d0103
+DECL|enum|__anon2c5e4f220103
 typedef|typedef
 enum|enum
 block|{
@@ -255,7 +273,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2918c48d0208
+DECL|struct|__anon2c5e4f220208
 typedef|typedef
 struct|struct
 block|{
@@ -331,7 +349,7 @@ typedef|;
 end_typedef
 
 begin_comment
-comment|/*  NGX_LEVEL_EVENT (default)  select, poll, kqueue                                 requires to read whole data NGX_ONESHOT_EVENT          kqueue NGX_CLEAR_EVENT            kqueue  */
+comment|/* NGX_LEVEL_EVENT (default)  select, poll, kqueue                                 requires to read whole data NGX_ONESHOT_EVENT          kqueue NGX_CLEAR_EVENT            kqueue */
 end_comment
 
 begin_if
@@ -584,19 +602,27 @@ end_endif
 
 begin_function_decl
 name|void
-name|ngx_worker
+name|ngx_pre_thread
 parameter_list|(
-name|ngx_listen_t
+name|ngx_array_t
 modifier|*
-name|sock
-parameter_list|,
-name|int
-name|n
+name|ls
 parameter_list|,
 name|ngx_pool_t
 modifier|*
 name|pool
 parameter_list|,
+name|ngx_log_t
+modifier|*
+name|log
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_worker
+parameter_list|(
 name|ngx_log_t
 modifier|*
 name|log

@@ -26,6 +26,14 @@ name|ngx_tm_t
 typedef|;
 end_typedef
 
+begin_typedef
+DECL|typedef|ngx_mtime_t
+typedef|typedef
+name|FILETIME
+name|ngx_mtime_t
+typedef|;
+end_typedef
+
 begin_define
 DECL|macro|ngx_tm_sec
 define|#
@@ -80,6 +88,14 @@ define|#
 directive|define
 name|ngx_tm_wday
 value|wDayOfWeek
+end_define
+
+begin_define
+DECL|macro|ngx_msleep
+define|#
+directive|define
+name|ngx_msleep
+value|Sleep
 end_define
 
 begin_define

@@ -83,6 +83,17 @@ name|ngx_tm_wday
 value|tm_wday
 end_define
 
+begin_define
+DECL|macro|ngx_msleep (ms)
+define|#
+directive|define
+name|ngx_msleep
+parameter_list|(
+name|ms
+parameter_list|)
+value|usleep(ms * 1000)
+end_define
+
 begin_function_decl
 name|void
 name|ngx_localtime

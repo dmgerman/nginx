@@ -628,6 +628,14 @@ operator|&
 name|sent
 argument_list|)
 expr_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|cn->log
+argument_list|,
+literal|"sendv: %d"
+argument|_ sent
+argument_list|)
+empty_stmt|;
 block|}
 if|#
 directive|if
@@ -664,17 +672,6 @@ operator|=
 name|in
 init|;
 name|ch
-operator|&&
-operator|!
-operator|(
-name|ch
-operator|->
-name|hunk
-operator|->
-name|type
-operator|&
-name|NGX_HUNK_LAST
-operator|)
 condition|;
 name|ch
 operator|=
@@ -738,6 +735,25 @@ name|pos
 operator|.
 name|file
 expr_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|cn->log
+argument_list|,
+literal|"event write: %qx 0"
+argument|_                               ch->hunk->pos.file
+argument_list|)
+empty_stmt|;
+if|if
+condition|(
+name|ch
+operator|->
+name|hunk
+operator|->
+name|type
+operator|&
+name|NGX_HUNK_LAST
+condition|)
+break|break;
 continue|continue;
 block|}
 name|ch
@@ -750,6 +766,14 @@ name|file
 operator|+=
 name|sent
 expr_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|cn->log
+argument_list|,
+literal|"event write: %qx %qd"
+argument|_                           ch->hunk->pos.file _                           ch->hunk->last.file - ch->hunk->pos.file
+argument_list|)
+empty_stmt|;
 break|break;
 block|}
 comment|/* flush hunks if threaded state */

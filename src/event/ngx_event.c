@@ -26,6 +26,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_listen.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_connection.h>
 end_include
 
@@ -98,19 +104,11 @@ end_if
 begin_if
 if|#
 directive|if
-literal|1
+literal|0
 end_if
 
-begin_decl_stmt
-DECL|variable|ngx_event_type
-name|ngx_event_type_e
-name|ngx_event_type
-init|=
-name|NGX_SELECT_EVENT
-decl_stmt|;
-end_decl_stmt
-
 begin_else
+unit|ngx_event_type_e     ngx_event_type = NGX_SELECT_EVENT;
 else|#
 directive|else
 end_else
@@ -194,16 +192,13 @@ comment|/* USE_KQUEUE */
 end_comment
 
 begin_function
-DECL|function|ngx_worker (ngx_listen_t * sock,int n,ngx_pool_t * pool,ngx_log_t * log)
+DECL|function|ngx_pre_thread (ngx_array_t * ls,ngx_pool_t * pool,ngx_log_t * log)
 name|void
-name|ngx_worker
+name|ngx_pre_thread
 parameter_list|(
-name|ngx_listen_t
+name|ngx_array_t
 modifier|*
-name|sock
-parameter_list|,
-name|int
-name|n
+name|ls
 parameter_list|,
 name|ngx_pool_t
 modifier|*
@@ -218,6 +213,10 @@ name|int
 name|i
 decl_stmt|,
 name|fd
+decl_stmt|;
+name|ngx_listen_t
+modifier|*
+name|s
 decl_stmt|;
 comment|/* per group */
 name|int
@@ -275,6 +274,16 @@ name|log
 argument_list|)
 expr_stmt|;
 comment|/* for each listening socket */
+name|s
+operator|=
+operator|(
+name|ngx_listen_t
+operator|*
+operator|)
+name|ls
+operator|->
+name|elts
+expr_stmt|;
 for|for
 control|(
 name|i
@@ -283,7 +292,9 @@ literal|0
 init|;
 name|i
 operator|<
-name|n
+name|ls
+operator|->
+name|nelts
 condition|;
 name|i
 operator|++
@@ -291,7 +302,7 @@ control|)
 block|{
 name|fd
 operator|=
-name|sock
+name|s
 index|[
 name|i
 index|]
@@ -356,7 +367,7 @@ index|]
 operator|.
 name|server
 operator|=
-name|sock
+name|s
 index|[
 name|i
 index|]
@@ -382,6 +393,20 @@ index|]
 operator|.
 name|data
 expr_stmt|;
+name|ngx_connections
+index|[
+name|fd
+index|]
+operator|.
+name|handler
+operator|=
+name|s
+index|[
+name|i
+index|]
+operator|.
+name|handler
+expr_stmt|;
 name|ngx_read_events
 index|[
 name|fd
@@ -409,7 +434,7 @@ index|]
 operator|.
 name|log
 operator|=
-name|sock
+name|s
 index|[
 name|i
 index|]
@@ -469,8 +494,11 @@ index|]
 operator|.
 name|accept_filter
 operator|=
-name|sock
-operator|->
+name|s
+index|[
+name|i
+index|]
+operator|.
 name|accept_filter
 expr_stmt|;
 endif|#
@@ -489,6 +517,19 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+end_function
+
+begin_function
+DECL|function|ngx_worker (ngx_log_t * log)
+name|void
+name|ngx_worker
+parameter_list|(
+name|ngx_log_t
+modifier|*
+name|log
+parameter_list|)
+block|{
 while|while
 condition|(
 literal|1

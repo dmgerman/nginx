@@ -27,14 +27,6 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|typedef|ngx_socket_t
-typedef|typedef
-name|SOCKET
-name|ngx_socket_t
-typedef|;
-end_typedef
-
-begin_typedef
 DECL|typedef|time_t
 typedef|typedef
 name|long

@@ -14,6 +14,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_socket.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_errno.h>
 end_include
 
@@ -210,6 +216,12 @@ operator|=
 name|NULL
 expr_stmt|;
 block|}
+if|#
+directive|if
+literal|0
+block_content|tfrc = TransmitFile(s, fd, nbytes, 0,&olp, ptfb, 0);
+else|#
+directive|else
 name|tfrc
 operator|=
 name|TransmitFile
@@ -222,14 +234,15 @@ name|nbytes
 argument_list|,
 literal|0
 argument_list|,
-operator|&
-name|olp
+name|NULL
 argument_list|,
 name|ptfb
 argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|tfrc
@@ -241,33 +254,18 @@ operator|=
 name|ngx_socket_errno
 expr_stmt|;
 comment|/* set sent */
-name|rc
-operator|=
-name|WSAGetOverlappedResult
-argument_list|(
-name|s
-argument_list|,
-operator|&
-name|olp
-argument_list|,
-operator|(
-name|unsigned
-name|long
-operator|*
-operator|)
-name|sent
-argument_list|,
+if|#
+directive|if
 literal|0
-argument_list|,
-name|NULL
-argument_list|)
-expr_stmt|;
+block_content|rc = WSAGetOverlappedResult(s,&olp, (unsigned long *) sent, 0, NULL);
+endif|#
+directive|endif
 name|ngx_log_debug
 argument_list|(
 argument|log
 argument_list|,
-literal|"ngx_sendfile: %d, @%qd %d:%qd"
-argument|_                   tfrc _ offset _ nbytes _ *sent
+literal|"ngx_sendfile: %d, @%I64d %I64d:%d"
+argument|_                   tfrc _ offset _ *sent _ nbytes
 argument_list|)
 empty_stmt|;
 if|if
@@ -331,7 +329,7 @@ name|log
 argument_list|,
 name|tf_err
 argument_list|,
-literal|"ngx_sendfile: TransmitFile sent only %qd bytes"
+literal|"ngx_sendfile: TransmitFile sent only %I64d bytes"
 argument_list|,
 operator|*
 name|sent

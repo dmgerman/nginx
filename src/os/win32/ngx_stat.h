@@ -19,7 +19,7 @@ file|<windows.h>
 end_include
 
 begin_comment
-comment|/* INVALID_FILE_ATTRIBUTES specified but never defined */
+comment|/* INVALID_FILE_ATTRIBUTES specified but never defined at least in VC6SP2 */
 end_comment
 
 begin_ifndef
@@ -42,22 +42,30 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|typedef|ngx_stat_t
+DECL|typedef|ngx_file_info_t
 typedef|typedef
-name|DWORD
-name|ngx_stat_t
+name|BY_HANDLE_FILE_INFORMATION
+name|ngx_file_info_t
 typedef|;
 end_typedef
 
 begin_define
-DECL|macro|ngx_is_dir (sb)
+DECL|macro|ngx_file_type_n
+define|#
+directive|define
+name|ngx_file_type_n
+value|"GetFileAttributes"
+end_define
+
+begin_define
+DECL|macro|ngx_is_dir (fi)
 define|#
 directive|define
 name|ngx_is_dir
 parameter_list|(
-name|sb
+name|fi
 parameter_list|)
-value|(*sb& FILE_ATTRIBUTE_DIRECTORY)
+value|(fi.dwFileAttributes& FILE_ATTRIBUTE_DIRECTORY)
 end_define
 
 begin_define
@@ -91,20 +99,9 @@ name|ngx_fstat_n
 value|"GetFileAttributes"
 end_define
 
-begin_function_decl
-name|int
-name|ngx_stat
-parameter_list|(
-name|char
-modifier|*
-name|file
-parameter_list|,
-name|ngx_stat_t
-modifier|*
-name|sb
-parameter_list|)
-function_decl|;
-end_function_decl
+begin_comment
+comment|/* int ngx_stat(char *file, ngx_stat_t *sb); */
+end_comment
 
 begin_endif
 endif|#

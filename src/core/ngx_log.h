@@ -19,7 +19,7 @@ file|<ngx_errno.h>
 end_include
 
 begin_typedef
-DECL|enum|__anon2c878da20103
+DECL|enum|__anon275655d50103
 typedef|typedef
 enum|enum
 block|{
@@ -55,11 +55,11 @@ typedef|;
 end_typedef
 
 begin_comment
-comment|/*     "... while ", action = "reading client request headers"     "... while reading client request headers"     "... while ", action = "reading client request headers"                   context: pop3 user account     "... while reading client command for 'john_doe'" */
+comment|/*     "[%time] [%level] %pid#%tid: %message:(%errno)%errstr, while %action"         " %peer and processing %context"      message = "recv() failed";     errno = 32;     action = "reading request headers from client";     peer = "192.168.1.1";     context = "URL /"      "[2002/08/20 12:00:00] [error] 412#3: recv() failed:(32)Broken pipe,"     " while reading request headers from client 192.168.1.1"     " and processing URL /"       OLD:     "... while ", action = "reading client request headers"     "... while reading client request headers"     "... while ", action = "reading client request headers"                   context: pop3 user account     "... while reading client command for 'john_doe'" */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2c878da20208
+DECL|struct|__anon275655d50208
 typedef|typedef
 struct|struct
 block|{

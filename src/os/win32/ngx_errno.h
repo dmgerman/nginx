@@ -58,6 +58,14 @@ name|NGX_EAGAIN
 value|WSAEWOULDBLOCK
 end_define
 
+begin_define
+DECL|macro|NGX_EADDRINUSE
+define|#
+directive|define
+name|NGX_EADDRINUSE
+value|WSAEADDRINUSE
+end_define
+
 begin_function_decl
 name|int
 name|ngx_strerror_r

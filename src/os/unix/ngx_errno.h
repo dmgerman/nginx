@@ -57,6 +57,14 @@ value|EWOULDBLOCK
 end_define
 
 begin_define
+DECL|macro|NGX_EADDRINUSE
+define|#
+directive|define
+name|NGX_EADDRINUSE
+value|EADDRINUSE
+end_define
+
+begin_define
 DECL|macro|ngx_errno
 define|#
 directive|define

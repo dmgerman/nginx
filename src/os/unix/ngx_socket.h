@@ -52,6 +52,22 @@ name|ngx_nonblocking_n
 value|"fcntl (O_NONBLOCK)"
 end_define
 
+begin_define
+DECL|macro|ngx_close_socket
+define|#
+directive|define
+name|ngx_close_socket
+value|close
+end_define
+
+begin_define
+DECL|macro|ngx_close_socket_n
+define|#
+directive|define
+name|ngx_close_socket_n
+value|"close"
+end_define
+
 begin_endif
 endif|#
 directive|endif

@@ -18,22 +18,6 @@ directive|include
 file|<ngx_config.h>
 end_include
 
-begin_typedef
-DECL|typedef|ngx_file_t
-typedef|typedef
-name|int
-name|ngx_file_t
-typedef|;
-end_typedef
-
-begin_typedef
-DECL|typedef|ngx_socket_t
-typedef|typedef
-name|int
-name|ngx_socket_t
-typedef|;
-end_typedef
-
 begin_endif
 endif|#
 directive|endif

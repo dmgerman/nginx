@@ -14,6 +14,18 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_file.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_socket.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_errno.h>
 end_include
 
@@ -237,8 +249,8 @@ name|ngx_log_debug
 argument_list|(
 argument|log
 argument_list|,
-literal|"ngx_sendfile: %d, @%qd %d:%qd"
-argument|_                   rc _ offset _ nbytes _ *sent
+literal|"ngx_sendfile: %d, @%qd %qd:%d"
+argument|_                   rc _ offset _ *sent _ nbytes
 argument_list|)
 empty_stmt|;
 return|return

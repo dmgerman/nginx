@@ -27,6 +27,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_file.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_connection.h>
 end_include
 
@@ -119,6 +125,14 @@ value|200
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_MOVED_PERMANENTLY
+define|#
+directive|define
+name|NGX_HTTP_MOVED_PERMANENTLY
+value|302
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_NOT_FOUND
 define|#
 directive|define
@@ -151,7 +165,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2bad4e9f0108
+DECL|struct|__anon29f666880108
 typedef|typedef
 struct|struct
 block|{
@@ -185,7 +199,7 @@ value|(module)->ctx
 end_define
 
 begin_typedef
-DECL|struct|__anon2bad4e9f0208
+DECL|struct|__anon29f666880208
 typedef|typedef
 struct|struct
 block|{
@@ -195,8 +209,12 @@ modifier|*
 name|doc_root
 decl_stmt|;
 DECL|member|doc_root_len
-name|int
+name|size_t
 name|doc_root_len
+decl_stmt|;
+DECL|member|buff_size
+name|size_t
+name|buff_size
 decl_stmt|;
 DECL|typedef|ngx_http_server_t
 block|}
@@ -205,7 +223,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bad4e9f0308
+DECL|struct|__anon29f666880308
 typedef|typedef
 struct|struct
 block|{
@@ -236,7 +254,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bad4e9f0408
+DECL|struct|__anon29f666880408
 typedef|typedef
 struct|struct
 block|{
@@ -249,8 +267,13 @@ name|int
 name|connection
 decl_stmt|;
 DECL|member|content_length
-name|size_t
+name|off_t
 name|content_length
+decl_stmt|;
+DECL|member|location
+name|char
+modifier|*
+name|location
 decl_stmt|;
 DECL|member|content_type
 name|char
@@ -267,6 +290,11 @@ name|char
 modifier|*
 name|etag
 decl_stmt|;
+DECL|member|server
+name|char
+modifier|*
+name|server
+decl_stmt|;
 DECL|member|date
 name|time_t
 name|date
@@ -275,9 +303,9 @@ DECL|member|last_modified
 name|time_t
 name|last_modified
 decl_stmt|;
-DECL|typedef|ngx_http_header_out_t
+DECL|typedef|ngx_http_headers_out_t
 block|}
-name|ngx_http_header_out_t
+name|ngx_http_headers_out_t
 typedef|;
 end_typedef
 
@@ -305,6 +333,15 @@ name|char
 modifier|*
 name|location
 decl_stmt|;
+DECL|member|fd
+name|ngx_file_t
+name|fd
+decl_stmt|;
+DECL|member|headers_out
+name|ngx_http_headers_out_t
+modifier|*
+name|headers_out
+decl_stmt|;
 DECL|member|filename_len
 name|int
 name|filename_len
@@ -321,6 +358,10 @@ modifier|*
 name|r
 parameter_list|)
 function_decl|;
+DECL|member|file_info
+name|ngx_file_info_t
+name|file_info
+decl_stmt|;
 DECL|member|method
 name|int
 name|method
@@ -367,7 +408,12 @@ name|ngx_pool_t
 modifier|*
 name|pool
 decl_stmt|;
-comment|/* internal */
+DECL|member|header_only
+name|unsigned
+name|header_only
+range|:
+literal|1
+decl_stmt|;
 DECL|member|unusual_uri
 name|unsigned
 name|unusual_uri

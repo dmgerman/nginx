@@ -18,6 +18,12 @@ directive|include
 file|<ngx_config.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_log.h>
+end_include
+
 begin_typedef
 DECL|typedef|ngx_socket_t
 typedef|typedef
@@ -52,6 +58,22 @@ define|#
 directive|define
 name|ngx_nonblocking_n
 value|"ioctlsocket (FIONBIO)"
+end_define
+
+begin_define
+DECL|macro|ngx_close_socket
+define|#
+directive|define
+name|ngx_close_socket
+value|closesocket
+end_define
+
+begin_define
+DECL|macro|ngx_close_socket_n
+define|#
+directive|define
+name|ngx_close_socket_n
+value|"closesocket"
 end_define
 
 begin_endif

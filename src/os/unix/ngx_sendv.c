@@ -8,6 +8,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_socket.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_sendv.h>
 end_include
 

@@ -27,6 +27,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_file.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_alloc.h>
 end_include
 
@@ -140,7 +146,7 @@ DECL|struct|ngx_hunk_s
 struct|struct
 name|ngx_hunk_s
 block|{
-DECL|union|__anon299b3bb3010a
+DECL|union|__anon2afc96e0010a
 union|union
 block|{
 DECL|member|mem
@@ -157,7 +163,7 @@ DECL|member|pos
 block|}
 name|pos
 union|;
-DECL|union|__anon299b3bb3020a
+DECL|union|__anon2afc96e0020a
 union|union
 block|{
 DECL|member|mem

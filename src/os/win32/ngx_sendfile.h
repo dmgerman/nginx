@@ -27,6 +27,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_socket.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_log.h>
 end_include
 

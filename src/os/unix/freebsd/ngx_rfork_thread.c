@@ -86,9 +86,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_create_os_thread (ngx_os_tid_t * tid,void * stack,int (* func)(void * arg),void * arg,ngx_log_t log)
+DECL|function|ngx_create_thread (ngx_os_tid_t * tid,void * stack,int (* func)(void * arg),void * arg,ngx_log_t log)
 name|int
-name|ngx_create_os_thread
+name|ngx_create_thread
 parameter_list|(
 name|ngx_os_tid_t
 modifier|*
@@ -172,9 +172,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_create_os_thread_env (int n,size_t size,ngx_log_t log)
+DECL|function|ngx_create_thread_env (int n,size_t size,ngx_log_t log)
 name|int
-name|ngx_create_os_thread_env
+name|ngx_create_thread_env
 parameter_list|(
 name|int
 name|n

@@ -205,6 +205,14 @@ name|pos
 operator|.
 name|file
 expr_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|r->connection->log
+argument_list|,
+literal|"old chunk: %x %qx %qd"
+argument|_                       ch->hunk->type _ ch->hunk->pos.file _                       ch->hunk->last.file - ch->hunk->pos.file
+argument_list|)
+empty_stmt|;
 if|if
 condition|(
 name|ch
@@ -311,6 +319,14 @@ name|pos
 operator|.
 name|file
 expr_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|r->connection->log
+argument_list|,
+literal|"new chunk: %x %qx %qd"
+argument|_                       ch->hunk->type _ ch->hunk->pos.file _                       ch->hunk->last.file - ch->hunk->pos.file
+argument_list|)
+empty_stmt|;
 if|if
 condition|(
 name|ch
@@ -342,6 +358,9 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+operator|!
+name|last
+operator|&&
 name|flush
 operator|==
 literal|0

@@ -15,6 +15,12 @@ end_define
 begin_include
 include|#
 directive|include
+file|<ngx_socket.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_log.h>
 end_include
 
@@ -90,6 +96,18 @@ name|ngx_log_t
 modifier|*
 name|log
 decl_stmt|;
+DECL|member|handler
+name|int
+function_decl|(
+modifier|*
+name|handler
+function_decl|)
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|)
+function_decl|;
 DECL|member|server
 name|ngx_server_t
 modifier|*
@@ -109,9 +127,17 @@ block|}
 struct|;
 end_struct
 
-begin_comment
-comment|/*  cached file     int      fd;       -2 unused, -1 closed (but read or mmaped),>=0 open     char    *name;      void    *buf;      addr if read or mmaped                        aiocb* if aio_read                        OVERLAPPED if TransmitFile or TransmitPackets                        NULL if sendfile      size_t   buf_size; for plain read     off_t    offset;   for plain read      size_t   size;     time_t   mod;     char    *last_mod; 'Sun, 17 Mar 2002 19:39:50 GMT'     char    *etag;     '"a6d08-1302-3c94f106"'     char    *len;      '4866'  EV_VNODE        should notify by some signal if diretory tree is changed                 or stat if aged>= N seconds (big enough) */
-end_comment
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
+begin_endif
+unit|cached file     int      fd;       -2 unused, -1 closed (but read or mmaped),>=0 open     char    *name;      void    *buf;      addr if read or mmaped                        aiocb* if aio_read                        OVERLAPPED if TransmitFile or TransmitPackets                        NULL if sendfile      size_t   buf_size; for plain read     off_t    offset;   for plain read      size_t   size;     time_t   mod;     char    *last_mod; 'Sun, 17 Mar 2002 19:39:50 GMT'     char    *etag;     '"a6d08-1302-3c94f106"'     char    *len;      '4866'  EV_VNODE        should notify by some signal if diretory tree is changed                 or stat if aged>= N seconds (big enough)
+endif|#
+directive|endif
+end_endif
 
 begin_endif
 endif|#
