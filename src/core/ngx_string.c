@@ -155,6 +155,7 @@ end_comment
 begin_function
 name|u_char
 modifier|*
+name|ngx_cdecl
 DECL|function|ngx_sprintf (u_char * buf,const char * fmt,...)
 name|ngx_sprintf
 parameter_list|(
@@ -212,6 +213,7 @@ end_function
 begin_function
 name|u_char
 modifier|*
+name|ngx_cdecl
 DECL|function|ngx_snprintf (u_char * buf,size_t max,const char * fmt,...)
 name|ngx_snprintf
 parameter_list|(

@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28fb13320108
+DECL|struct|__anon2b78f4a60108
 typedef|typedef
 struct|struct
 block|{
@@ -65,7 +65,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28fb13320208
+DECL|struct|__anon2b78f4a60208
 typedef|typedef
 struct|struct
 block|{
@@ -90,6 +90,7 @@ end_define
 begin_function_decl
 specifier|static
 name|int
+name|ngx_libc_cdecl
 name|ngx_http_autoindex_cmp_entries
 parameter_list|(
 specifier|const
@@ -2383,6 +2384,7 @@ end_function
 begin_function
 specifier|static
 name|int
+name|ngx_libc_cdecl
 DECL|function|ngx_http_autoindex_cmp_entries (const void * one,const void * two)
 name|ngx_http_autoindex_cmp_entries
 parameter_list|(

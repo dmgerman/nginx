@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29cd7b120108
+DECL|struct|__anon2b39ec4a0108
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +70,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29cd7b120208
+DECL|struct|__anon2b39ec4a0208
 typedef|typedef
 struct|struct
 block|{
@@ -117,7 +117,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29cd7b120308
+DECL|struct|__anon2b39ec4a0308
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29cd7b120403
+DECL|enum|__anon2b39ec4a0403
 typedef|typedef
 enum|enum
 block|{
@@ -174,7 +174,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29cd7b120508
+DECL|struct|__anon2b39ec4a0508
 typedef|typedef
 struct|struct
 block|{
@@ -412,7 +412,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon29cd7b120608
+DECL|struct|__anon2b39ec4a0608
 typedef|typedef
 struct|struct
 block|{
@@ -455,7 +455,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29cd7b120708
+DECL|struct|__anon2b39ec4a0708
 typedef|typedef
 struct|struct
 block|{
@@ -714,6 +714,14 @@ block|}
 decl_stmt|;
 end_decl_stmt
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_PCRE
+operator|)
+end_if
+
 begin_decl_stmt
 DECL|variable|ngx_http_fastcgi_uri
 specifier|static
@@ -726,6 +734,11 @@ literal|"/"
 argument_list|)
 decl_stmt|;
 end_decl_stmt
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_decl_stmt
 DECL|variable|ngx_http_fastcgi_headers_in

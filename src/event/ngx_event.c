@@ -3807,7 +3807,8 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"\"accept_mutex\" is not supported, ignored"
+literal|"\"accept_mutex\" is not supported on this platform, "
+literal|"ignored"
 argument_list|)
 expr_stmt|;
 endif|#

@@ -4670,7 +4670,8 @@ name|buf
 argument_list|,
 name|len
 argument_list|,
-literal|" while %s, client: %V, URL: %V, upstream: %V%V%s%V"
+literal|" while %s, client: %V, host: %V, URL: \"%V\","
+literal|" upstream: %V%V%s%V"
 argument_list|,
 name|log
 operator|->
@@ -4682,6 +4683,11 @@ operator|->
 name|connection
 operator|->
 name|addr_text
+argument_list|,
+operator|&
+name|r
+operator|->
+name|server_name
 argument_list|,
 operator|&
 name|r

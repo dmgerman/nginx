@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b0d11bc0108
+DECL|struct|__anon27edd61d0108
 typedef|typedef
 struct|struct
 block|{
@@ -339,6 +339,7 @@ end_function_decl
 begin_function_decl
 name|u_char
 modifier|*
+name|ngx_cdecl
 name|ngx_sprintf
 parameter_list|(
 name|u_char
@@ -358,6 +359,7 @@ end_function_decl
 begin_function_decl
 name|u_char
 modifier|*
+name|ngx_cdecl
 name|ngx_snprintf
 parameter_list|(
 name|u_char

@@ -130,11 +130,11 @@ index|[]
 init|=
 literal|"<html>"
 name|CRLF
-literal|"<head><title>401 Unauthorized</title></head>"
+literal|"<head><title>401 Authorization Required</title></head>"
 name|CRLF
 literal|"<body bgcolor=\"white\">"
 name|CRLF
-literal|"<center><h1>401 Unauthorized</h1></center>"
+literal|"<center><h1>401 Authorization Required</h1></center>"
 name|CRLF
 decl_stmt|;
 end_decl_stmt

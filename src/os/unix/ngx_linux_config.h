@@ -246,6 +246,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<crypt.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_auto_config.h>
 end_include
 

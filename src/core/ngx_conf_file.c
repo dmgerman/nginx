@@ -32,6 +32,18 @@ end_function_decl
 
 begin_function_decl
 specifier|static
+name|ngx_int_t
+name|ngx_conf_read_token
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
 name|char
 modifier|*
 name|ngx_conf_include
@@ -140,22 +152,10 @@ block|}
 decl_stmt|;
 end_decl_stmt
 
-begin_function_decl
-specifier|static
-name|ngx_int_t
-name|ngx_conf_read_token
-parameter_list|(
-name|ngx_conf_t
-modifier|*
-name|cf
-parameter_list|)
-function_decl|;
-end_function_decl
-
 begin_function
-DECL|function|ngx_conf_parse (ngx_conf_t * cf,ngx_str_t * filename)
 name|char
 modifier|*
+DECL|function|ngx_conf_parse (ngx_conf_t * cf,ngx_str_t * filename)
 name|ngx_conf_parse
 parameter_list|(
 name|ngx_conf_t
@@ -626,9 +626,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_conf_handler (ngx_conf_t * cf,ngx_int_t last)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_conf_handler (ngx_conf_t * cf,ngx_int_t last)
 name|ngx_conf_handler
 parameter_list|(
 name|ngx_conf_t
@@ -1363,9 +1363,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_conf_read_token (ngx_conf_t * cf)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_conf_read_token (ngx_conf_t * cf)
 name|ngx_conf_read_token
 parameter_list|(
 name|ngx_conf_t
@@ -2337,10 +2337,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_conf_include (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_conf_include (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_conf_include
 parameter_list|(
 name|ngx_conf_t
@@ -2426,8 +2426,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_conf_full_name (ngx_cycle_t * cycle,ngx_str_t * name)
 name|ngx_int_t
+DECL|function|ngx_conf_full_name (ngx_cycle_t * cycle,ngx_str_t * name)
 name|ngx_conf_full_name
 parameter_list|(
 name|ngx_cycle_t
@@ -2667,9 +2667,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_conf_open_file (ngx_cycle_t * cycle,ngx_str_t * name)
 name|ngx_open_file_t
 modifier|*
+DECL|function|ngx_conf_open_file (ngx_cycle_t * cycle,ngx_str_t * name)
 name|ngx_conf_open_file
 parameter_list|(
 name|ngx_cycle_t
@@ -2925,8 +2925,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_conf_log_error (ngx_uint_t level,ngx_conf_t * cf,ngx_err_t err,char * fmt,...)
 name|void
+name|ngx_cdecl
+DECL|function|ngx_conf_log_error (ngx_uint_t level,ngx_conf_t * cf,ngx_err_t err,char * fmt,...)
 name|ngx_conf_log_error
 parameter_list|(
 name|ngx_uint_t
@@ -3083,9 +3084,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_conf_set_flag_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|char
 modifier|*
+DECL|function|ngx_conf_set_flag_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_conf_set_flag_slot
 parameter_list|(
 name|ngx_conf_t
@@ -3263,9 +3264,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_conf_set_str_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|char
 modifier|*
+DECL|function|ngx_conf_set_str_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_conf_set_str_slot
 parameter_list|(
 name|ngx_conf_t
@@ -3372,9 +3373,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_conf_set_num_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|char
 modifier|*
+DECL|function|ngx_conf_set_num_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_conf_set_num_slot
 parameter_list|(
 name|ngx_conf_t
@@ -3507,9 +3508,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_conf_set_size_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|char
 modifier|*
+DECL|function|ngx_conf_set_size_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_conf_set_size_slot
 parameter_list|(
 name|ngx_conf_t
@@ -3637,9 +3638,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_conf_set_msec_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|char
 modifier|*
+DECL|function|ngx_conf_set_msec_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_conf_set_msec_slot
 parameter_list|(
 name|ngx_conf_t
@@ -3784,9 +3785,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_conf_set_sec_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|char
 modifier|*
+DECL|function|ngx_conf_set_sec_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_conf_set_sec_slot
 parameter_list|(
 name|ngx_conf_t
@@ -3925,9 +3926,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_conf_set_bufs_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|char
 modifier|*
+DECL|function|ngx_conf_set_bufs_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_conf_set_bufs_slot
 parameter_list|(
 name|ngx_conf_t
@@ -4072,9 +4073,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_conf_set_enum_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|char
 modifier|*
+DECL|function|ngx_conf_set_enum_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_conf_set_enum_slot
 parameter_list|(
 name|ngx_conf_t
@@ -4252,9 +4253,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_conf_set_bitmask_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|char
 modifier|*
+DECL|function|ngx_conf_set_bitmask_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_conf_set_bitmask_slot
 parameter_list|(
 name|ngx_conf_t
@@ -4492,9 +4493,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_conf_unsupported (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|char
 modifier|*
+DECL|function|ngx_conf_unsupported (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_conf_unsupported
 parameter_list|(
 name|ngx_conf_t
@@ -4517,9 +4518,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_conf_check_num_bounds (ngx_conf_t * cf,void * post,void * data)
 name|char
 modifier|*
+DECL|function|ngx_conf_check_num_bounds (ngx_conf_t * cf,void * post,void * data)
 name|ngx_conf_check_num_bounds
 parameter_list|(
 name|ngx_conf_t

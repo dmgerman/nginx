@@ -351,6 +351,14 @@ name|ngx_inline
 value|__inline
 end_define
 
+begin_define
+DECL|macro|ngx_cdecl
+define|#
+directive|define
+name|ngx_cdecl
+value|__cdecl
+end_define
+
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -374,13 +382,52 @@ name|int32_t
 typedef|;
 end_typedef
 
+begin_define
+DECL|macro|ngx_libc_cdecl
+define|#
+directive|define
+name|ngx_libc_cdecl
+value|__cdecl
+end_define
+
+begin_elif
+elif|#
+directive|elif
+name|defined
+name|__WATCOMC__
+end_elif
+
+begin_typedef
+DECL|typedef|uint32_t
+typedef|typedef
+name|unsigned
+name|int
+name|uint32_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|typedef|int32_t
+typedef|typedef
+name|int
+name|int32_t
+typedef|;
+end_typedef
+
+begin_define
+DECL|macro|ngx_libc_cdecl
+define|#
+directive|define
+name|ngx_libc_cdecl
+end_define
+
 begin_else
 else|#
 directive|else
 end_else
 
 begin_comment
-comment|/* __WATCOMC__ and __BORLANDC__ */
+comment|/* __BORLANDC__ */
 end_comment
 
 begin_typedef
@@ -399,6 +446,14 @@ name|int
 name|int32_t
 typedef|;
 end_typedef
+
+begin_define
+DECL|macro|ngx_libc_cdecl
+define|#
+directive|define
+name|ngx_libc_cdecl
+value|__cdecl
+end_define
 
 begin_endif
 endif|#

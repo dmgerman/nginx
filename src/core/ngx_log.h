@@ -430,6 +430,7 @@ end_define
 
 begin_function_decl
 name|void
+name|ngx_cdecl
 name|ngx_log_error
 parameter_list|(
 name|ngx_uint_t
@@ -479,6 +480,7 @@ end_function_decl
 
 begin_function_decl
 name|void
+name|ngx_cdecl
 name|ngx_log_debug_core
 parameter_list|(
 name|ngx_log_t

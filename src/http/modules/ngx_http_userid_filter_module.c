@@ -66,7 +66,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon2b8c06180108
+DECL|struct|__anon29e24ab00108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8c06180208
+DECL|struct|__anon29e24ab00208
 typedef|typedef
 struct|struct
 block|{
@@ -2897,12 +2897,6 @@ name|new
 decl_stmt|;
 if|if
 condition|(
-name|domain
-operator|->
-name|len
-operator|==
-literal|4
-operator|&&
 name|ngx_strcmp
 argument_list|(
 name|domain
@@ -3314,12 +3308,6 @@ name|data
 decl_stmt|;
 if|if
 condition|(
-name|p3p
-operator|->
-name|len
-operator|==
-literal|4
-operator|&&
 name|ngx_strcmp
 argument_list|(
 name|p3p

@@ -1499,6 +1499,14 @@ block|}
 decl_stmt|;
 end_decl_stmt
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_PCRE
+operator|)
+end_if
+
 begin_decl_stmt
 DECL|variable|ngx_http_proxy_uri
 specifier|static
@@ -1511,6 +1519,11 @@ literal|"/"
 argument_list|)
 decl_stmt|;
 end_decl_stmt
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_function
 DECL|function|ngx_http_proxy_handler (ngx_http_request_t * r)
@@ -2997,7 +3010,8 @@ name|buf
 argument_list|,
 name|len
 argument_list|,
-literal|" while %s, client: %V, URL: %V, upstream: http://%V%s%V"
+literal|" while %s, client: %V, host: %V, URL: \"%V\","
+literal|" upstream: http://%V%s%V"
 argument_list|,
 name|ctx
 operator|->
@@ -3011,6 +3025,11 @@ operator|->
 name|connection
 operator|->
 name|addr_text
+argument_list|,
+operator|&
+name|r
+operator|->
+name|server_name
 argument_list|,
 operator|&
 name|r

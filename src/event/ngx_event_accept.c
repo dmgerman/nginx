@@ -780,7 +780,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"spinlock in accept, fd:%"
+literal|"spinlock in accept, fd:%d"
 argument_list|,
 name|s
 argument_list|)

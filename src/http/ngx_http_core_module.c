@@ -251,6 +251,7 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|int
+name|ngx_libc_cdecl
 name|ngx_http_core_cmp_locations
 parameter_list|(
 specifier|const
@@ -5463,6 +5464,7 @@ end_function
 begin_function
 specifier|static
 name|int
+name|ngx_libc_cdecl
 DECL|function|ngx_http_core_cmp_locations (const void * one,const void * two)
 name|ngx_http_core_cmp_locations
 parameter_list|(

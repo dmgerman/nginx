@@ -19,6 +19,7 @@ begin_function_decl
 specifier|static
 name|void
 modifier|*
+name|ngx_libc_cdecl
 name|ngx_regex_malloc
 parameter_list|(
 name|size_t
@@ -30,6 +31,7 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|void
+name|ngx_libc_cdecl
 name|ngx_regex_free
 parameter_list|(
 name|void
@@ -49,8 +51,8 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_regex_init (void)
 name|void
+DECL|function|ngx_regex_init (void)
 name|ngx_regex_init
 parameter_list|(
 name|void
@@ -68,9 +70,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_regex_compile (ngx_str_t * pattern,ngx_int_t options,ngx_pool_t * pool,ngx_str_t * err)
 name|ngx_regex_t
 modifier|*
+DECL|function|ngx_regex_compile (ngx_str_t * pattern,ngx_int_t options,ngx_pool_t * pool,ngx_str_t * err)
 name|ngx_regex_compile
 parameter_list|(
 name|ngx_str_t
@@ -294,8 +296,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_regex_capture_count (ngx_regex_t * re)
 name|ngx_int_t
+DECL|function|ngx_regex_capture_count (ngx_regex_t * re)
 name|ngx_regex_capture_count
 parameter_list|(
 name|ngx_regex_t
@@ -350,8 +352,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_regex_exec (ngx_regex_t * re,ngx_str_t * s,int * captures,ngx_int_t size)
 name|ngx_int_t
+DECL|function|ngx_regex_exec (ngx_regex_t * re,ngx_str_t * s,int * captures,ngx_int_t size)
 name|ngx_regex_exec
 parameter_list|(
 name|ngx_regex_t
@@ -422,10 +424,11 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_regex_malloc (size_t size)
 specifier|static
 name|void
 modifier|*
+name|ngx_libc_cdecl
+DECL|function|ngx_regex_malloc (size_t size)
 name|ngx_regex_malloc
 parameter_list|(
 name|size_t
@@ -500,9 +503,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_regex_free (void * p)
 specifier|static
 name|void
+name|ngx_libc_cdecl
+DECL|function|ngx_regex_free (void * p)
 name|ngx_regex_free
 parameter_list|(
 name|void

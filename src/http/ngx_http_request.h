@@ -273,6 +273,14 @@ value|400
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_UNAUTHORIZED
+define|#
+directive|define
+name|NGX_HTTP_UNAUTHORIZED
+value|401
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_FORBIDDEN
 define|#
 directive|define
@@ -417,7 +425,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon2a9e9aa90103
+DECL|enum|__anon2bd35ccb0103
 typedef|typedef
 enum|enum
 block|{
@@ -438,7 +446,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a9e9aa90203
+DECL|enum|__anon2bd35ccb0203
 typedef|typedef
 enum|enum
 block|{
@@ -477,7 +485,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a9e9aa90308
+DECL|struct|__anon2bd35ccb0308
 typedef|typedef
 struct|struct
 block|{
@@ -496,7 +504,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a9e9aa90408
+DECL|struct|__anon2bd35ccb0408
 typedef|typedef
 struct|struct
 block|{
@@ -610,6 +618,14 @@ name|accept_language
 decl_stmt|;
 endif|#
 directive|endif
+DECL|member|user
+name|ngx_str_t
+name|user
+decl_stmt|;
+DECL|member|passwd
+name|ngx_str_t
+name|passwd
+decl_stmt|;
 DECL|member|cookies
 name|ngx_array_t
 name|cookies
@@ -669,7 +685,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a9e9aa90508
+DECL|struct|__anon2bd35ccb0508
 typedef|typedef
 struct|struct
 block|{
@@ -692,7 +708,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a9e9aa90608
+DECL|struct|__anon2bd35ccb0608
 typedef|typedef
 struct|struct
 block|{
@@ -753,6 +769,11 @@ name|ngx_table_elt_t
 modifier|*
 name|accept_ranges
 decl_stmt|;
+DECL|member|www_authenticate
+name|ngx_table_elt_t
+modifier|*
+name|www_authenticate
+decl_stmt|;
 DECL|member|expires
 name|ngx_table_elt_t
 modifier|*
@@ -811,7 +832,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a9e9aa90708
+DECL|struct|__anon2bd35ccb0708
 typedef|typedef
 struct|struct
 block|{
@@ -849,10 +870,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon2a9e9aa9080a
+DECL|union|__anon2bd35ccb080a
 union|union
 block|{
-DECL|struct|__anon2a9e9aa90908
+DECL|struct|__anon2bd35ccb0908
 struct|struct
 block|{
 DECL|member|fd
@@ -868,7 +889,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon2a9e9aa90a08
+DECL|struct|__anon2bd35ccb0a08
 struct|struct
 block|{
 DECL|member|hash
@@ -906,7 +927,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a9e9aa90b08
+DECL|struct|__anon2bd35ccb0b08
 typedef|typedef
 struct|struct
 block|{
@@ -1214,6 +1235,12 @@ name|unsigned
 name|uri_changes
 range|:
 literal|4
+decl_stmt|;
+DECL|member|invalid_header
+name|unsigned
+name|invalid_header
+range|:
+literal|1
 decl_stmt|;
 DECL|member|low_case_exten
 name|unsigned

@@ -266,6 +266,20 @@ endif|#
 directive|endif
 end_endif
 
+begin_define
+DECL|macro|ngx_cdecl
+define|#
+directive|define
+name|ngx_cdecl
+end_define
+
+begin_define
+DECL|macro|ngx_libc_cdecl
+define|#
+directive|define
+name|ngx_libc_cdecl
+end_define
+
 begin_endif
 endif|#
 directive|endif

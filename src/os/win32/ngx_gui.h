@@ -36,6 +36,7 @@ end_include
 
 begin_function_decl
 name|void
+name|ngx_cdecl
 name|ngx_message_box
 parameter_list|(
 name|char

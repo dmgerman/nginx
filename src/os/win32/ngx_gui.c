@@ -26,6 +26,7 @@ end_define
 begin_function
 DECL|function|ngx_message_box (char * title,ngx_uint_t type,ngx_err_t err,const char * fmt,...)
 name|void
+name|ngx_cdecl
 name|ngx_message_box
 parameter_list|(
 name|char
@@ -239,8 +240,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_system_tray_icon (HWND window,u_long action,HICON icon,u_char * tip)
 name|ngx_int_t
+DECL|function|ngx_system_tray_icon (HWND window,u_long action,HICON icon,u_char * tip)
 name|ngx_system_tray_icon
 parameter_list|(
 name|HWND

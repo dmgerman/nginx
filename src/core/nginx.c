@@ -488,6 +488,7 @@ end_decl_stmt
 
 begin_function
 name|int
+name|ngx_cdecl
 DECL|function|main (int argc,char * const * argv)
 name|main
 parameter_list|(

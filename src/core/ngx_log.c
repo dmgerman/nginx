@@ -214,8 +214,8 @@ operator|)
 end_if
 
 begin_decl_stmt
-DECL|function|ngx_log_error_core (ngx_uint_t level,ngx_log_t * log,ngx_err_t err,const char * fmt,...)
 name|void
+DECL|function|ngx_log_error_core (ngx_uint_t level,ngx_log_t * log,ngx_err_t err,const char * fmt,...)
 name|ngx_log_error_core
 argument_list|(
 name|ngx_uint_t
@@ -603,9 +603,9 @@ block|}
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_log_write (ngx_log_t * log,u_char * errstr,size_t len)
 specifier|static
 name|void
+DECL|function|ngx_log_write (ngx_log_t * log,u_char * errstr,size_t len)
 name|ngx_log_write
 parameter_list|(
 name|ngx_log_t
@@ -733,8 +733,9 @@ operator|)
 end_if
 
 begin_function
-DECL|function|ngx_log_error (ngx_uint_t level,ngx_log_t * log,ngx_err_t err,const char * fmt,...)
 name|void
+name|ngx_cdecl
+DECL|function|ngx_log_error (ngx_uint_t level,ngx_log_t * log,ngx_err_t err,const char * fmt,...)
 name|ngx_log_error
 parameter_list|(
 name|ngx_uint_t
@@ -797,8 +798,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_log_debug_core (ngx_log_t * log,ngx_err_t err,const char * fmt,...)
 name|void
+name|ngx_cdecl
+DECL|function|ngx_log_debug_core (ngx_log_t * log,ngx_err_t err,const char * fmt,...)
 name|ngx_log_debug_core
 parameter_list|(
 name|ngx_log_t
@@ -853,9 +855,9 @@ directive|endif
 end_endif
 
 begin_function
-DECL|function|ngx_log_init (void)
 name|ngx_log_t
 modifier|*
+DECL|function|ngx_log_init (void)
 name|ngx_log_init
 parameter_list|(
 name|void
@@ -971,9 +973,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_log_create_errlog (ngx_cycle_t * cycle,ngx_array_t * args)
 name|ngx_log_t
 modifier|*
+DECL|function|ngx_log_create_errlog (ngx_cycle_t * cycle,ngx_array_t * args)
 name|ngx_log_create_errlog
 parameter_list|(
 name|ngx_cycle_t
@@ -1079,9 +1081,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_set_error_log_levels (ngx_conf_t * cf,ngx_log_t * log)
 name|char
 modifier|*
+DECL|function|ngx_set_error_log_levels (ngx_conf_t * cf,ngx_log_t * log)
 name|ngx_set_error_log_levels
 parameter_list|(
 name|ngx_conf_t
@@ -1339,10 +1341,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_set_error_log (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_set_error_log (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_set_error_log
 parameter_list|(
 name|ngx_conf_t
