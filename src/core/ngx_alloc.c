@@ -307,6 +307,15 @@ literal|"free: %08x"
 argument|_ p
 argument_list|)
 empty_stmt|;
+if|if
+condition|(
+name|n
+operator|==
+name|NULL
+condition|)
+block|{
+break|break;
+block|}
 block|}
 endif|#
 directive|endif
