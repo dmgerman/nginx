@@ -1156,6 +1156,7 @@ name|data
 operator|=
 name|p
 expr_stmt|;
+comment|/* TODO: we ignore return value of ngx_http_read_client_request_body */
 name|ngx_http_read_client_request_body
 argument_list|(
 name|r
@@ -2334,6 +2335,45 @@ expr_stmt|;
 return|return;
 block|}
 end_function
+
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
+begin_if
+unit|static int ngx_http_proxy_connect(ngx_http_proxy_ctx_t *p) {     int                rc;     ngx_chain_t       *cl;     ngx_connection_t  *c;      for ( ;; ) {         p->action = "connecting to upstream";          rc = ngx_event_connect_peer(&p->upstream);          if (rc == NGX_ERROR) {             ngx_http_proxy_finalize_request(p, NGX_HTTP_INTERNAL_SERVER_ERROR);             return NGX_DONE;         }          if (rc == NGX_CONNECT_ERROR) {             ngx_event_connect_peer_failed(&p->upstream);
+if|#
+directive|if
+literal|0
+end_if
+
+begin_comment
+comment|/* TODO: make separate func and call it from next_upstream */
+end_comment
+
+begin_endif
+unit|if (!(state = ngx_push_array(p->states))) {                 ngx_http_proxy_finalize_request(p,                                                 NGX_HTTP_INTERNAL_SERVER_ERROR);                 return NGX_DONE;             }              state->status = NGX_HTTP_BAD_GATEWAY;             state->peer =                  p->upstream.peers->peers[p->upstream.cur_peer].addr_port_text;
+endif|#
+directive|endif
+end_endif
+
+begin_comment
+unit|if (p->upstream.tries == 0) {                 ngx_http_proxy_finalize_request(p, NGX_HTTP_BAD_GATEWAY);                 return NGX_DONE;             }              continue;         }          p->upstream.connection->data = p;         p->upstream.connection->write->event_handler =                                            ngx_http_proxy_send_request_handler;         p->upstream.connection->read->event_handler =                                    ngx_http_proxy_process_upstream_status_line;          c = p->upstream.connection;         c->pool = p->request->pool;         c->read->log = c->write->log = c->log = p->request->connection->log;          if (p->upstream.tries> 1&& p->request_sent) {
+comment|/* reinit the request chain */
+end_comment
+
+begin_comment
+unit|for (cl = p->request->request_hunks; cl; cl = cl->next) {                 cl->hunk->pos = cl->hunk->start;             }         }          p->request_sent = 0;         p->timedout = 0;          if (rc == NGX_OK) {             return ngx_http_proxy_send_request(p);         }
+comment|/* rc == NGX_AGAIN */
+end_comment
+
+begin_endif
+unit|ngx_add_timer(c->write, p->lcf->connect_timeout);          return NGX_AGAIN;     } }
+endif|#
+directive|endif
+end_endif
 
 begin_function
 DECL|function|ngx_http_proxy_send_request (ngx_http_proxy_ctx_t * p)
@@ -4717,6 +4757,13 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
+comment|/* TODO: ep->free_bufs = 0 if use ngx_create_chain_of_hunks() */
+name|ep
+operator|->
+name|free_bufs
+operator|=
+literal|1
+expr_stmt|;
 comment|/*      * event_pipe would do p->header_in->last += ep->preread_size      * as though these bytes were read.      */
 name|p
 operator|->
@@ -5217,7 +5264,7 @@ name|char
 modifier|*
 name|pos
 decl_stmt|;
-DECL|enum|__anon2b1fd2a20103
+DECL|enum|__anon2a30f56a0103
 enum|enum
 block|{
 DECL|enumerator|sw_start

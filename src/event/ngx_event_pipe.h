@@ -158,6 +158,12 @@ name|single_buf
 range|:
 literal|1
 decl_stmt|;
+DECL|member|free_bufs
+name|unsigned
+name|free_bufs
+range|:
+literal|1
+decl_stmt|;
 DECL|member|upstream_done
 name|unsigned
 name|upstream_done

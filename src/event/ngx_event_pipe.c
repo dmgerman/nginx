@@ -1155,6 +1155,13 @@ name|free_raw_hunks
 operator|->
 name|next
 expr_stmt|;
+if|if
+condition|(
+name|p
+operator|->
+name|free_bufs
+condition|)
+block|{
 for|for
 control|(
 name|cl
@@ -1185,6 +1192,7 @@ operator|->
 name|start
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 if|if
@@ -1671,6 +1679,7 @@ operator|->
 name|next
 control|)
 block|{
+comment|/* TODO: free hunk if p->free_bufs&& upstream done */
 comment|/* add the free shadow raw hunk to p->free_raw_hunks */
 if|if
 condition|(
