@@ -181,11 +181,19 @@ value|18
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_PARSE_HTTP_TO_HTTPS
+define|#
+directive|define
+name|NGX_HTTP_PARSE_HTTP_TO_HTTPS
+value|19
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_PARSE_INVALID_HOST
 define|#
 directive|define
 name|NGX_HTTP_PARSE_INVALID_HOST
-value|19
+value|20
 end_define
 
 begin_define
@@ -389,7 +397,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon2aa17ed50103
+DECL|enum|__anon28b843b90103
 typedef|typedef
 enum|enum
 block|{
@@ -410,7 +418,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2aa17ed50203
+DECL|enum|__anon28b843b90203
 typedef|typedef
 enum|enum
 block|{
@@ -449,7 +457,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa17ed50308
+DECL|struct|__anon28b843b90308
 typedef|typedef
 struct|struct
 block|{
@@ -468,7 +476,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa17ed50408
+DECL|struct|__anon28b843b90408
 typedef|typedef
 struct|struct
 block|{
@@ -582,7 +590,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa17ed50508
+DECL|struct|__anon28b843b90508
 typedef|typedef
 struct|struct
 block|{
@@ -605,7 +613,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa17ed50608
+DECL|struct|__anon28b843b90608
 typedef|typedef
 struct|struct
 block|{
@@ -709,7 +717,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa17ed50708
+DECL|struct|__anon28b843b90708
 typedef|typedef
 struct|struct
 block|{
@@ -760,10 +768,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon2aa17ed5080a
+DECL|union|__anon28b843b9080a
 union|union
 block|{
-DECL|struct|__anon2aa17ed50908
+DECL|struct|__anon28b843b90908
 struct|struct
 block|{
 DECL|member|fd
@@ -779,7 +787,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon2aa17ed50a08
+DECL|struct|__anon28b843b90a08
 struct|struct
 block|{
 DECL|member|hash
@@ -846,6 +854,14 @@ DECL|member|connection
 name|ngx_connection_t
 modifier|*
 name|connection
+decl_stmt|;
+DECL|member|recv
+name|ngx_recv_pt
+name|recv
+decl_stmt|;
+DECL|member|send_chain
+name|ngx_send_chain_pt
+name|send_chain
 decl_stmt|;
 DECL|member|ctx
 name|void
@@ -1072,6 +1088,12 @@ comment|/* can we use sendfile ? */
 DECL|member|sendfile
 name|unsigned
 name|sendfile
+range|:
+literal|1
+decl_stmt|;
+DECL|member|plain_http
+name|unsigned
+name|plain_http
 range|:
 literal|1
 decl_stmt|;

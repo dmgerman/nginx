@@ -67,23 +67,11 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
-begin_function_decl
-specifier|static
-name|ngx_int_t
-name|ngx_http_ssl_init_process
-parameter_list|(
-name|ngx_cycle_t
-modifier|*
-name|cycle
-parameter_list|)
-function_decl|;
-end_function_decl
-
 begin_decl_stmt
-DECL|variable|ngx_http_charset_filter_commands
+DECL|variable|ngx_http_ssl_commands
 specifier|static
 name|ngx_command_t
-name|ngx_http_charset_filter_commands
+name|ngx_http_ssl_commands
 index|[]
 init|=
 block|{
@@ -165,10 +153,10 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_http_ssl_filter_module_ctx
+DECL|variable|ngx_http_ssl_module_ctx
 specifier|static
 name|ngx_http_module_t
-name|ngx_http_ssl_filter_module_ctx
+name|ngx_http_ssl_module_ctx
 init|=
 block|{
 name|NULL
@@ -197,18 +185,18 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_http_ssl_filter_module
+DECL|variable|ngx_http_ssl_module
 name|ngx_module_t
-name|ngx_http_ssl_filter_module
+name|ngx_http_ssl_module
 init|=
 block|{
 name|NGX_MODULE
 block|,
 operator|&
-name|ngx_http_ssl_filter_module_ctx
+name|ngx_http_ssl_module_ctx
 block|,
 comment|/* module context */
-name|ngx_http_charset_filter_commands
+name|ngx_http_ssl_commands
 block|,
 comment|/* module directives */
 name|NGX_HTTP_MODULE
@@ -217,7 +205,7 @@ comment|/* module type */
 name|NULL
 block|,
 comment|/* init module */
-name|ngx_http_ssl_init_process
+name|NULL
 comment|/* init process */
 block|}
 decl_stmt|;
@@ -387,6 +375,8 @@ name|cf
 operator|->
 name|log
 argument_list|,
+literal|0
+argument_list|,
 literal|"SSL_CTX_new() failed"
 argument_list|)
 expr_stmt|;
@@ -421,6 +411,8 @@ argument_list|,
 name|cf
 operator|->
 name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"SSL_CTX_use_certificate_file(\"%s\") failed"
 argument_list|,
@@ -463,6 +455,8 @@ name|cf
 operator|->
 name|log
 argument_list|,
+literal|0
+argument_list|,
 literal|"SSL_CTX_use_PrivateKey_file(\"%s\") failed"
 argument_list|,
 name|conf
@@ -482,116 +476,17 @@ return|;
 block|}
 end_function
 
-begin_function
-DECL|function|ngx_http_ssl_init_process (ngx_cycle_t * cycle)
-specifier|static
-name|ngx_int_t
-name|ngx_http_ssl_init_process
-parameter_list|(
-name|ngx_cycle_t
-modifier|*
-name|cycle
-parameter_list|)
-block|{
-name|ngx_uint_t
-name|i
-decl_stmt|;
-name|ngx_http_ssl_srv_conf_t
-modifier|*
-name|sscf
-decl_stmt|;
-name|ngx_http_core_srv_conf_t
-modifier|*
-modifier|*
-name|cscfp
-decl_stmt|;
-name|ngx_http_core_main_conf_t
-modifier|*
-name|cmcf
-decl_stmt|;
-name|cmcf
-operator|=
-name|ngx_http_cycle_get_module_main_conf
-argument_list|(
-name|cycle
-argument_list|,
-name|ngx_http_core_module
-argument_list|)
-expr_stmt|;
-name|cscfp
-operator|=
-name|cmcf
-operator|->
-name|servers
-operator|.
-name|elts
-expr_stmt|;
-for|for
-control|(
-name|i
-operator|=
+begin_if
+if|#
+directive|if
 literal|0
-init|;
-name|i
-operator|<
-name|cmcf
-operator|->
-name|servers
-operator|.
-name|nelts
-condition|;
-name|i
-operator|++
-control|)
-block|{
-name|sscf
-operator|=
-name|cscfp
-index|[
-name|i
-index|]
-operator|->
-name|ctx
-operator|->
-name|srv_conf
-index|[
-name|ngx_http_ssl_filter_module
-operator|.
-name|ctx_index
-index|]
-expr_stmt|;
-if|if
-condition|(
-name|sscf
-operator|->
-name|enable
-condition|)
-block|{
-name|cscfp
-index|[
-name|i
-index|]
-operator|->
-name|recv
-operator|=
-name|ngx_ssl_recv
-expr_stmt|;
-name|cscfp
-index|[
-name|i
-index|]
-operator|->
-name|send_chain
-operator|=
-name|ngx_ssl_send_chain
-expr_stmt|;
-block|}
-block|}
-return|return
-name|NGX_OK
-return|;
-block|}
-end_function
+end_if
+
+begin_endif
+unit|static ngx_int_t ngx_http_ssl_init_process(ngx_cycle_t *cycle) {     ngx_uint_t                   i;     ngx_http_ssl_srv_conf_t     *sscf;     ngx_http_core_srv_conf_t   **cscfp;     ngx_http_core_main_conf_t   *cmcf;      cmcf = ngx_http_cycle_get_module_main_conf(cycle, ngx_http_core_module);      cscfp = cmcf->servers.elts;      for (i = 0; i< cmcf->servers.nelts; i++) {         sscf = cscfp[i]->ctx->srv_conf[ngx_http_ssl_module.ctx_index];          if (sscf->enable) {             cscfp[i]->recv = ngx_ssl_recv;             cscfp[i]->send_chain = ngx_ssl_send_chain;         }     }      return NGX_OK; }
+endif|#
+directive|endif
+end_endif
 
 end_unit
 

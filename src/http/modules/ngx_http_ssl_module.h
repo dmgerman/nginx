@@ -2,14 +2,14 @@ begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|_NGX_HTTP_SSL_FILTER_H_INCLUDED_
+name|_NGX_HTTP_SSL_H_INCLUDED_
 end_ifndef
 
 begin_define
-DECL|macro|_NGX_HTTP_SSL_FILTER_H_INCLUDED_
+DECL|macro|_NGX_HTTP_SSL_H_INCLUDED_
 define|#
 directive|define
-name|_NGX_HTTP_SSL_FILTER_H_INCLUDED_
+name|_NGX_HTTP_SSL_H_INCLUDED_
 end_define
 
 begin_include
@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28b115e80108
+DECL|struct|__anon2c7ead8b0108
 typedef|typedef
 struct|struct
 block|{
@@ -124,7 +124,7 @@ end_function_decl
 begin_decl_stmt
 specifier|extern
 name|ngx_module_t
-name|ngx_http_ssl_filter_module
+name|ngx_http_ssl_module
 decl_stmt|;
 end_decl_stmt
 
@@ -134,7 +134,7 @@ directive|endif
 end_endif
 
 begin_comment
-comment|/* _NGX_HTTP_SSL_FILTER_H_INCLUDED_ */
+comment|/* _NGX_HTTP_SSL_H_INCLUDED_ */
 end_comment
 
 end_unit

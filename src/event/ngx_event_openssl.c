@@ -40,7 +40,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_ssl_create_session (ngx_ssl_ctx_t * ssl_ctx,ngx_connection_t * c)
+DECL|function|ngx_ssl_create_session (ngx_ssl_ctx_t * ssl_ctx,ngx_connection_t * c,ngx_uint_t flags)
 name|ngx_int_t
 name|ngx_ssl_create_session
 parameter_list|(
@@ -51,12 +51,72 @@ parameter_list|,
 name|ngx_connection_t
 modifier|*
 name|c
+parameter_list|,
+name|ngx_uint_t
+name|flags
 parameter_list|)
 block|{
 name|ngx_ssl_t
 modifier|*
 name|ssl
 decl_stmt|;
+if|if
+condition|(
+operator|!
+operator|(
+name|ssl
+operator|=
+name|ngx_pcalloc
+argument_list|(
+name|c
+operator|->
+name|pool
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|ngx_ssl_t
+argument_list|)
+argument_list|)
+operator|)
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+if|if
+condition|(
+name|flags
+operator|&
+name|NGX_SSL_BUFFER
+condition|)
+block|{
+if|if
+condition|(
+operator|!
+operator|(
+name|ssl
+operator|->
+name|buf
+operator|=
+name|ngx_create_temp_buf
+argument_list|(
+name|c
+operator|->
+name|pool
+argument_list|,
+name|NGX_SSL_BUFSIZE
+argument_list|)
+operator|)
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+block|}
+name|ssl
+operator|->
 name|ssl
 operator|=
 name|SSL_new
@@ -66,6 +126,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|ssl
+operator|->
 name|ssl
 operator|==
 name|NULL
@@ -79,6 +141,8 @@ name|c
 operator|->
 name|log
 argument_list|,
+literal|0
+argument_list|,
 literal|"SSL_new() failed"
 argument_list|)
 expr_stmt|;
@@ -90,6 +154,8 @@ if|if
 condition|(
 name|SSL_set_fd
 argument_list|(
+name|ssl
+operator|->
 name|ssl
 argument_list|,
 name|c
@@ -108,6 +174,8 @@ name|c
 operator|->
 name|log
 argument_list|,
+literal|0
+argument_list|,
 literal|"SSL_set_fd() failed"
 argument_list|)
 expr_stmt|;
@@ -117,6 +185,8 @@ return|;
 block|}
 name|SSL_set_accept_state
 argument_list|(
+name|ssl
+operator|->
 name|ssl
 argument_list|)
 expr_stmt|;
@@ -151,6 +221,11 @@ parameter_list|)
 block|{
 name|int
 name|n
+decl_stmt|,
+name|sslerr
+decl_stmt|;
+name|ngx_err_t
+name|err
 decl_stmt|;
 name|char
 modifier|*
@@ -161,6 +236,8 @@ operator|=
 name|SSL_read
 argument_list|(
 name|c
+operator|->
+name|ssl
 operator|->
 name|ssl
 argument_list|,
@@ -195,11 +272,13 @@ return|return
 name|n
 return|;
 block|}
-name|n
+name|sslerr
 operator|=
 name|SSL_get_error
 argument_list|(
 name|c
+operator|->
+name|ssl
 operator|->
 name|ssl
 argument_list|,
@@ -218,12 +297,24 @@ literal|0
 argument_list|,
 literal|"SSL_get_error: %d"
 argument_list|,
-name|n
+name|sslerr
 argument_list|)
+expr_stmt|;
+name|err
+operator|=
+operator|(
+name|sslerr
+operator|==
+name|SSL_ERROR_SYSCALL
+operator|)
+condition|?
+name|ngx_errno
+else|:
+literal|0
 expr_stmt|;
 if|if
 condition|(
-name|n
+name|sslerr
 operator|==
 name|SSL_ERROR_WANT_READ
 condition|)
@@ -235,7 +326,7 @@ block|}
 if|#
 directive|if
 literal|0
-block_content|if (n == SSL_ERROR_WANT_WRITE) {         return NGX_AGAIN;     }
+block_content|if (sslerr == SSL_ERROR_WANT_WRITE) {         return NGX_AGAIN;     }
 endif|#
 directive|endif
 if|if
@@ -244,6 +335,8 @@ operator|!
 name|SSL_is_init_finished
 argument_list|(
 name|c
+operator|->
+name|ssl
 operator|->
 name|ssl
 argument_list|)
@@ -263,9 +356,14 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|n
+name|sslerr
 operator|==
 name|SSL_ERROR_ZERO_RETURN
+operator|||
+name|ERR_peek_error
+argument_list|()
+operator|==
+literal|0
 condition|)
 block|{
 name|ngx_log_error
@@ -276,7 +374,7 @@ name|c
 operator|->
 name|log
 argument_list|,
-literal|0
+name|err
 argument_list|,
 literal|"client closed connection%s"
 argument_list|,
@@ -288,51 +386,14 @@ argument_list|(
 name|c
 operator|->
 name|ssl
+operator|->
+name|ssl
 argument_list|,
 name|SSL_RECEIVED_SHUTDOWN
 argument_list|)
 expr_stmt|;
 return|return
 name|NGX_ERROR
-return|;
-block|}
-if|if
-condition|(
-name|ERR_GET_REASON
-argument_list|(
-name|ERR_peek_error
-argument_list|()
-argument_list|)
-operator|==
-name|SSL_R_HTTP_REQUEST
-condition|)
-block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_ERR
-argument_list|,
-name|c
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"client sent plain HTTP request to HTTPS port"
-argument_list|)
-expr_stmt|;
-name|SSL_set_shutdown
-argument_list|(
-name|c
-operator|->
-name|ssl
-argument_list|,
-name|SSL_RECEIVED_SHUTDOWN
-operator||
-name|SSL_SENT_SHUTDOWN
-argument_list|)
-expr_stmt|;
-return|return
-name|NGX_SSL_HTTP_ERROR
 return|;
 block|}
 name|ngx_ssl_error
@@ -343,6 +404,8 @@ name|c
 operator|->
 name|log
 argument_list|,
+name|err
+argument_list|,
 literal|"SSL_read() failed%s"
 argument_list|,
 name|handshake
@@ -351,6 +414,8 @@ expr_stmt|;
 name|SSL_set_shutdown
 argument_list|(
 name|c
+operator|->
+name|ssl
 operator|->
 name|ssl
 argument_list|,
@@ -389,10 +454,37 @@ name|send
 decl_stmt|,
 name|size
 decl_stmt|;
+name|ngx_buf_t
+modifier|*
+name|buf
+decl_stmt|;
 name|send
 operator|=
 literal|0
 expr_stmt|;
+name|buf
+operator|=
+name|c
+operator|->
+name|ssl
+operator|->
+name|buf
+expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|if (buf) {          for ( ;; ) {              for (
+comment|/* void */
+block_content|; in&& buf->last< buf->end; in = in->next) {                 if (ngx_buf_special(in->buf)) {                     continue;                 }                  size = in->buf->last - in->buf->pos;                  if (size> buf->end - buf->last) {                     size = buf->end - buf->last;                 }                  ngx_log_debug1(NGX_LOG_DEBUG_EVENT, c->log, 0,                                "SSL buf copy: %d", size);                  ngx_memcpy(buf->last, in->buf->pos, size);                  buf->last += size;                 in->buf->pos += size;             }              size = buf->last - buf->pos;              if (send + size> limit) {                 size = limit - send;             }              ngx_log_debug1(NGX_LOG_DEBUG_EVENT, c->log, 0,                            "SSL to write: %d", size);              n = SSL_write(c->ssl->ssl, buf->pos, size);              ngx_log_debug1(NGX_LOG_DEBUG_EVENT, c->log, 0,                            "SSL_write: %d", n);              if (n> 0) {                 buf->pos += n;                 send += n;                  if (n< size) {                     break;                 }                  if (send< limit) {                     if (buf->pos == buf->last) {                         buf->pos = buf->start;                         buf->last = buf->start;                     }                      if (in == NULL) {                         break;                     }                      continue;                 }             }              n = SSL_get_error(c->ssl->ssl, n);              ngx_log_debug1(NGX_LOG_DEBUG_EVENT, c->log, 0,                            "SSL_get_error: %d", n);              if (n == SSL_ERROR_WANT_WRITE) {                 break;             }
+if|#
+directive|if
+literal|0
+block_content|if (n == SSL_ERROR_WANT_READ) {                 break;             }
+endif|#
+directive|endif
+block_content|ngx_ssl_error(NGX_LOG_ALERT, c->log, "SSL_write() failed");              return NGX_CHAIN_ERROR;         }          if (in) {             c->write->ready = 0;             return in;         }          if (buf->pos == buf->last) {             return NULL;          } else {             c->write->ready = 0;             return NGX_CHAIN_AGAIN;                     }     }
+endif|#
+directive|endif
 for|for
 control|(
 comment|/* void */
@@ -468,6 +560,8 @@ operator|=
 name|SSL_write
 argument_list|(
 name|c
+operator|->
+name|ssl
 operator|->
 name|ssl
 argument_list|,
@@ -553,6 +647,8 @@ argument_list|(
 name|c
 operator|->
 name|ssl
+operator|->
+name|ssl
 argument_list|,
 name|n
 argument_list|)
@@ -605,6 +701,8 @@ name|c
 operator|->
 name|log
 argument_list|,
+literal|0
+argument_list|,
 literal|"SSL_write() failed"
 argument_list|)
 expr_stmt|;
@@ -643,7 +741,7 @@ directive|endif
 if|#
 directive|if
 literal|0
-block_content|SSL_set_shutdown(c->ssl, SSL_RECEIVED_SHUTDOWN);
+block_content|SSL_set_shutdown(c->ssl->ssl, SSL_RECEIVED_SHUTDOWN);
 endif|#
 directive|endif
 name|again
@@ -661,6 +759,8 @@ operator|=
 name|SSL_shutdown
 argument_list|(
 name|c
+operator|->
+name|ssl
 operator|->
 name|ssl
 argument_list|)
@@ -705,6 +805,8 @@ argument_list|(
 name|c
 operator|->
 name|ssl
+operator|->
+name|ssl
 argument_list|)
 expr_stmt|;
 name|c
@@ -730,6 +832,8 @@ operator|=
 name|SSL_get_error
 argument_list|(
 name|c
+operator|->
+name|ssl
 operator|->
 name|ssl
 argument_list|,
@@ -829,6 +933,8 @@ name|c
 operator|->
 name|log
 argument_list|,
+literal|0
+argument_list|,
 literal|"SSL_shutdown() failed"
 argument_list|)
 expr_stmt|;
@@ -839,7 +945,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_ssl_error (ngx_uint_t level,ngx_log_t * log,char * fmt,...)
+DECL|function|ngx_ssl_error (ngx_uint_t level,ngx_log_t * log,ngx_err_t err,char * fmt,...)
 name|void
 name|ngx_ssl_error
 parameter_list|(
@@ -849,6 +955,9 @@ parameter_list|,
 name|ngx_log_t
 modifier|*
 name|log
+parameter_list|,
+name|ngx_err_t
+name|err
 parameter_list|,
 name|char
 modifier|*
@@ -980,7 +1089,7 @@ name|level
 argument_list|,
 name|log
 argument_list|,
-literal|0
+name|err
 argument_list|,
 literal|"%s)"
 argument_list|,

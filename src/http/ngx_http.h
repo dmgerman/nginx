@@ -111,14 +111,14 @@ begin_if
 if|#
 directive|if
 operator|(
-name|NGX_OPENSSL
+name|NGX_HTTP_SSL
 operator|)
 end_if
 
 begin_include
 include|#
 directive|include
-file|<ngx_http_ssl_filter.h>
+file|<ngx_http_ssl_module.h>
 end_include
 
 begin_endif
@@ -127,7 +127,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b8b96be0108
+DECL|struct|__anon298804310108
 typedef|typedef
 struct|struct
 block|{

@@ -111,6 +111,22 @@ name|ngx_connection_t
 typedef|;
 end_typedef
 
+begin_typedef
+DECL|typedef|ngx_event_handler_pt
+typedef|typedef
+name|void
+function_decl|(
+modifier|*
+name|ngx_event_handler_pt
+function_decl|)
+parameter_list|(
+name|ngx_event_t
+modifier|*
+name|ev
+parameter_list|)
+function_decl|;
+end_typedef
+
 begin_define
 DECL|macro|NGX_OK
 define|#

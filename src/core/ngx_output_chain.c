@@ -1102,7 +1102,7 @@ name|ctx
 operator|->
 name|out
 operator|=
-name|ngx_write_chain
+name|ngx_send_chain
 argument_list|(
 name|ctx
 operator|->

@@ -25,7 +25,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b926bb60108
+DECL|struct|__anon2c4ad5ed0108
 typedef|typedef
 struct|struct
 block|{
@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b926bb60208
+DECL|struct|__anon2c4ad5ed0208
 typedef|typedef
 struct|struct
 block|{
@@ -288,19 +288,9 @@ define|\
 value|((ngx_http_conf_ctx_t *) cf->ctx)->main_conf[module.ctx_index]
 end_define
 
-begin_define
-DECL|macro|ngx_http_conf_get_module_srv_conf (cf,module)
-define|#
-directive|define
-name|ngx_http_conf_get_module_srv_conf
-parameter_list|(
-name|cf
-parameter_list|,
-name|module
-parameter_list|)
-define|\
-value|ngx_http_conf_get_module_srv_conf_could_not_be_implemented()
-end_define
+begin_comment
+comment|/*  * ngx_http_conf_get_module_srv_conf() and ngx_http_conf_get_module_loc_conf()  * could not be correctly implemented because at the merge phase cf->ctx  * points to http{}'s ctx  */
+end_comment
 
 begin_define
 DECL|macro|ngx_http_cycle_get_module_main_conf (cycle,module)

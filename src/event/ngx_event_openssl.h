@@ -37,9 +37,26 @@ file|<openssl/err.h>
 end_include
 
 begin_typedef
-DECL|typedef|ngx_ssl_t
+DECL|struct|__anon297de1bb0108
 typedef|typedef
+struct|struct
+block|{
+DECL|member|ssl
 name|SSL
+modifier|*
+name|ssl
+decl_stmt|;
+DECL|member|buf
+name|ngx_buf_t
+modifier|*
+name|buf
+decl_stmt|;
+DECL|member|saved_handler
+name|ngx_event_handler_pt
+name|saved_handler
+decl_stmt|;
+DECL|typedef|ngx_ssl_t
+block|}
 name|ngx_ssl_t
 typedef|;
 end_typedef
@@ -53,11 +70,19 @@ typedef|;
 end_typedef
 
 begin_define
-DECL|macro|NGX_SSL_HTTP_ERROR
+DECL|macro|NGX_SSL_BUFFER
 define|#
 directive|define
-name|NGX_SSL_HTTP_ERROR
-value|-10
+name|NGX_SSL_BUFFER
+value|1
+end_define
+
+begin_define
+DECL|macro|NGX_SSL_BUFSIZE
+define|#
+directive|define
+name|NGX_SSL_BUFSIZE
+value|16384
 end_define
 
 begin_function_decl
@@ -82,6 +107,9 @@ parameter_list|,
 name|ngx_connection_t
 modifier|*
 name|c
+parameter_list|,
+name|ngx_uint_t
+name|flags
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -144,6 +172,9 @@ parameter_list|,
 name|ngx_log_t
 modifier|*
 name|log
+parameter_list|,
+name|ngx_err_t
+name|err
 parameter_list|,
 name|char
 modifier|*

@@ -331,7 +331,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b947bae0108
+DECL|struct|__anon29dfcd280108
 typedef|typedef
 struct|struct
 block|{
@@ -370,7 +370,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b947bae0208
+DECL|struct|__anon29dfcd280208
 typedef|typedef
 struct|struct
 block|{
@@ -439,7 +439,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b947bae0308
+DECL|struct|__anon29dfcd280308
 typedef|typedef
 struct|struct
 block|{
@@ -480,6 +480,14 @@ define|#
 directive|define
 name|NGX_CHAIN_ERROR
 value|(ngx_chain_t *) NGX_ERROR
+end_define
+
+begin_define
+DECL|macro|NGX_CHAIN_AGAIN
+define|#
+directive|define
+name|NGX_CHAIN_AGAIN
+value|(ngx_chain_t *) NGX_AGAIN
 end_define
 
 begin_define
