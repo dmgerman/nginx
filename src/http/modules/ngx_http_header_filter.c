@@ -14,6 +14,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_core.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_string.h>
 end_include
 
@@ -30,7 +36,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ae7440a0108
+DECL|struct|__anon2ad7c5930108
 typedef|typedef
 struct|struct
 block|{
@@ -91,7 +97,7 @@ name|ngx_test_null
 argument_list|(
 name|h
 argument_list|,
-name|ngx_get_hunk
+name|ngx_create_temp_hunk
 argument_list|(
 name|r
 operator|->
@@ -104,12 +110,9 @@ argument_list|,
 literal|64
 argument_list|)
 argument_list|,
-comment|/* STUB */
-operator|-
-literal|1
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
-comment|/*                   NGX_HTTP_FILTER_ERROR); */
 name|status
 operator|=
 name|r

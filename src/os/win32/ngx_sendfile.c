@@ -8,7 +8,19 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_core.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_types.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_files.h>
 end_include
 
 begin_include
@@ -45,10 +57,6 @@ begin_comment
 comment|/*   TODO:        various flags        TransmitPackets */
 end_comment
 
-begin_comment
-comment|/*   returns       0 done      -1 error */
-end_comment
-
 begin_if
 if|#
 directive|if
@@ -58,7 +66,7 @@ operator|)
 end_if
 
 begin_function
-DECL|function|ngx_sendfile (ngx_socket_t s,ngx_iovec_t * headers,int hdr_cnt,ngx_file_t fd,off_t offset,size_t nbytes,ngx_iovec_t * trailers,int trl_cnt,off_t * sent,ngx_log_t * log)
+DECL|function|ngx_sendfile (ngx_socket_t s,ngx_iovec_t * headers,int hdr_cnt,ngx_fd_t fd,off_t offset,size_t nbytes,ngx_iovec_t * trailers,int trl_cnt,off_t * sent,ngx_log_t * log)
 name|int
 name|ngx_sendfile
 parameter_list|(
@@ -72,7 +80,7 @@ parameter_list|,
 name|int
 name|hdr_cnt
 parameter_list|,
-name|ngx_file_t
+name|ngx_fd_t
 name|fd
 parameter_list|,
 name|off_t
@@ -277,24 +285,29 @@ if|#
 directive|if
 literal|0
 block_content|rc = WSAGetOverlappedResult(s,&olp, (unsigned long *) sent, 0, NULL);
-endif|#
-directive|endif
-if|#
-directive|if
-literal|0
-block_content|ngx_log_debug(log, "ngx_sendfile: %d, @%I64d %I64d:%d" _                   tfrc _ offset _ *sent _ nbytes);
 else|#
 directive|else
+operator|*
+name|sent
+operator|=
+name|olp
+operator|.
+name|InternalHigh
+expr_stmt|;
+name|rc
+operator|=
+literal|1
+expr_stmt|;
+endif|#
+directive|endif
 name|ngx_log_debug
 argument_list|(
 argument|log
 argument_list|,
-literal|"ngx_sendfile: %d, @%I64d %d:%d"
-argument|_                   tfrc _ offset _ olp.InternalHigh _ nbytes
+literal|"ngx_sendfile: %d, @%I64d %I64d:%d"
+argument|_                   tfrc _ offset _ *sent _ nbytes
 argument_list|)
 empty_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 name|rc
@@ -344,8 +357,7 @@ literal|"ngx_sendfile: TransmitFile failed"
 argument_list|)
 expr_stmt|;
 return|return
-operator|-
-literal|1
+name|NGX_ERROR
 return|;
 block|}
 name|ngx_log_error
@@ -370,11 +382,10 @@ operator|==
 literal|0
 condition|)
 return|return
-operator|-
-literal|1
+name|NGX_ERROR
 return|;
 return|return
-literal|0
+name|NGX_OK
 return|;
 block|}
 end_function

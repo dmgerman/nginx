@@ -27,6 +27,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_time.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_socket.h>
 end_include
 
@@ -160,6 +166,20 @@ comment|/*   write:  available space in buffer       */
 comment|/* otherwise:                                */
 comment|/*   accept: 1 if accept many, 0 otherwise   */
 comment|/* flags - int are probably faster on write then bits ??? */
+if|#
+directive|if
+operator|!
+operator|(
+name|USE_KQUEUE
+operator|)
+DECL|member|oneshot
+name|unsigned
+name|oneshot
+range|:
+literal|1
+decl_stmt|;
+endif|#
+directive|endif
 DECL|member|listening
 name|unsigned
 name|listening
@@ -181,6 +201,12 @@ decl_stmt|;
 DECL|member|timedout
 name|unsigned
 name|timedout
+range|:
+literal|1
+decl_stmt|;
+DECL|member|blocked
+name|unsigned
+name|blocked
 range|:
 literal|1
 decl_stmt|;
@@ -237,7 +263,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2a18014d0103
+DECL|enum|__anon2c15c1d30103
 typedef|typedef
 enum|enum
 block|{
@@ -273,7 +299,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a18014d0208
+DECL|struct|__anon2c15c1d30208
 typedef|typedef
 struct|struct
 block|{
@@ -308,6 +334,21 @@ name|ev
 parameter_list|,
 name|int
 name|event
+parameter_list|)
+function_decl|;
+DECL|member|timer
+name|void
+function_decl|(
+modifier|*
+name|timer
+function_decl|)
+parameter_list|(
+name|ngx_event_t
+modifier|*
+name|ev
+parameter_list|,
+name|ngx_msec_t
+name|timer
 parameter_list|)
 function_decl|;
 DECL|member|process
@@ -377,14 +418,6 @@ value|EVFILT_WRITE
 end_define
 
 begin_define
-DECL|macro|NGX_TIMER_EVENT
-define|#
-directive|define
-name|NGX_TIMER_EVENT
-value|(-EVFILT_SYSCOUNT - 1)
-end_define
-
-begin_define
 DECL|macro|NGX_LEVEL_EVENT
 define|#
 directive|define
@@ -400,6 +433,20 @@ name|NGX_ONESHOT_EVENT
 value|EV_ONESHOT
 end_define
 
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|HAVE_CLEAR_EVENT
+end_ifndef
+
+begin_define
+DECL|macro|HAVE_CLEAR_EVENT
+define|#
+directive|define
+name|HAVE_CLEAR_EVENT
+value|1
+end_define
+
 begin_define
 DECL|macro|NGX_CLEAR_EVENT
 define|#
@@ -407,6 +454,11 @@ directive|define
 name|NGX_CLEAR_EVENT
 value|EV_CLEAR
 end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_else
 else|#
@@ -430,14 +482,6 @@ value|1
 end_define
 
 begin_define
-DECL|macro|NGX_TIMER_EVENT
-define|#
-directive|define
-name|NGX_TIMER_EVENT
-value|2
-end_define
-
-begin_define
 DECL|macro|NGX_LEVEL_EVENT
 define|#
 directive|define
@@ -451,14 +495,6 @@ define|#
 directive|define
 name|NGX_ONESHOT_EVENT
 value|1
-end_define
-
-begin_define
-DECL|macro|NGX_CLEAR_EVENT
-define|#
-directive|define
-name|NGX_CLEAR_EVENT
-value|2
 end_define
 
 begin_endif
@@ -491,19 +527,39 @@ value|ngx_kqueue_process_events
 end_define
 
 begin_define
-DECL|macro|ngx_add_event
+DECL|macro|ngx_kqueue_add_event (ev,event)
 define|#
 directive|define
-name|ngx_add_event
-value|ngx_kqueue_add_event
+name|ngx_kqueue_add_event
+parameter_list|(
+name|ev
+parameter_list|,
+name|event
+parameter_list|)
+define|\
+value|ngx_kqueue_set_event(ev, event, EV_ADD | flags)
 end_define
 
 begin_define
-DECL|macro|ngx_del_event
+DECL|macro|ngx_kqueue_del_event (ev,event)
 define|#
 directive|define
-name|ngx_del_event
-value|ngx_kqueue_del_event
+name|ngx_kqueue_del_event
+parameter_list|(
+name|ev
+parameter_list|,
+name|event
+parameter_list|)
+define|\
+value|ngx_kqueue_set_event(ev, event, EV_DELETE)
+end_define
+
+begin_define
+DECL|macro|ngx_add_timer
+define|#
+directive|define
+name|ngx_add_timer
+value|ngx_kqueue_add_timer
 end_define
 
 begin_define
@@ -552,6 +608,14 @@ value|ngx_event_actions.del
 end_define
 
 begin_define
+DECL|macro|ngx_add_timer
+define|#
+directive|define
+name|ngx_add_timer
+value|ngx_event_actions.timer
+end_define
+
+begin_define
 DECL|macro|ngx_event_recv
 define|#
 directive|define
@@ -563,19 +627,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-
-begin_define
-DECL|macro|ngx_add_timer (ev,time)
-define|#
-directive|define
-name|ngx_add_timer
-parameter_list|(
-name|ev
-parameter_list|,
-name|time
-parameter_list|)
-value|ngx_add_event(ev, NGX_TIMER_EVENT, time)
-end_define
 
 begin_function
 DECL|function|ngx_del_timer (ngx_event_t * ev)

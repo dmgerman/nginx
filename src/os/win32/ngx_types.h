@@ -19,6 +19,14 @@ file|<ngx_config.h>
 end_include
 
 begin_typedef
+DECL|typedef|ssize_t
+typedef|typedef
+name|int
+name|ssize_t
+typedef|;
+end_typedef
+
+begin_typedef
 DECL|typedef|time_t
 typedef|typedef
 name|long

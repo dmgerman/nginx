@@ -91,6 +91,10 @@ name|write
 decl_stmt|;
 endif|#
 directive|endif
+DECL|member|sent
+name|off_t
+name|sent
+decl_stmt|;
 DECL|member|log
 name|ngx_log_t
 modifier|*
@@ -154,6 +158,12 @@ DECL|member|post_accept_timeout
 name|unsigned
 name|int
 name|post_accept_timeout
+decl_stmt|;
+DECL|member|unexpected_eof
+name|unsigned
+name|unexpected_eof
+range|:
+literal|1
 decl_stmt|;
 block|}
 struct|;

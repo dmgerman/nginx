@@ -93,6 +93,20 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
+name|void
+name|ngx_select_add_timer
+parameter_list|(
+name|ngx_event_t
+modifier|*
+name|ev
+parameter_list|,
+name|ngx_msec_t
+name|timer
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
 name|int
 name|ngx_select_process_events
 parameter_list|(

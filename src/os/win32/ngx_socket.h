@@ -24,11 +24,27 @@ directive|include
 file|<ngx_log.h>
 end_include
 
+begin_define
+DECL|macro|INET_ADDRSTRLEN
+define|#
+directive|define
+name|INET_ADDRSTRLEN
+value|16
+end_define
+
 begin_typedef
 DECL|typedef|ngx_socket_t
 typedef|typedef
 name|SOCKET
 name|ngx_socket_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|typedef|socklen_t
+typedef|typedef
+name|int
+name|socklen_t
 typedef|;
 end_typedef
 
@@ -71,8 +87,9 @@ end_define
 
 begin_function_decl
 name|int
-name|ngx_nonblocking_n
+name|ngx_nonblocking
 parameter_list|(
+name|ngx_socket_t
 name|s
 parameter_list|)
 function_decl|;

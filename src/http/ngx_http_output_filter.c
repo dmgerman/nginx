@@ -2,6 +2,24 @@ begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_include
 include|#
 directive|include
+file|<ngx_core.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_files.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_string.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_hunk.h>
 end_include
 
@@ -14,13 +32,48 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_http_filter.h>
+file|<ngx_http_output_filter.h>
 end_include
 
+begin_comment
+comment|/* STUB */
+end_comment
+
+begin_function_decl
+name|int
+name|ngx_http_write_filter
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_chain_t
+modifier|*
+name|in
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
+name|int
+name|ngx_http_output_filter_copy_hunk
+parameter_list|(
+name|ngx_hunk_t
+modifier|*
+name|dst
+parameter_list|,
+name|ngx_hunk_t
+modifier|*
+name|src
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_decl_stmt
-DECL|variable|ngx_http_filter_module
+DECL|variable|ngx_http_output_filter_module
 name|ngx_http_module_t
-name|ngx_http_filter_module
+name|ngx_http_output_filter_module
 decl_stmt|;
 end_decl_stmt
 
@@ -31,15 +84,15 @@ end_comment
 begin_decl_stmt
 DECL|variable|module_ctx
 specifier|static
-name|ngx_http_filter_ctx_t
+name|ngx_http_output_filter_ctx_t
 name|module_ctx
 decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_http_filter_init ()
+DECL|function|ngx_http_output_filter_init ()
 name|void
-name|ngx_http_filter_init
+name|ngx_http_output_filter_init
 parameter_list|()
 block|{
 name|module_ctx
@@ -72,7 +125,7 @@ name|next_filter
 operator|=
 name|ngx_http_write_filter
 expr_stmt|;
-name|ngx_http_filter_module
+name|ngx_http_output_filter_module
 operator|.
 name|ctx
 operator|=
@@ -87,17 +140,13 @@ comment|/* */
 end_comment
 
 begin_comment
-comment|/* int ngx_http_filter(ngx_http_request_t *r, ngx_chain_t *in) */
-end_comment
-
-begin_comment
 comment|/*     flags NGX_HUNK_RECYCLED, NGX_HUNK_FLUSH, NGX_HUNK_LAST */
 end_comment
 
 begin_function
-DECL|function|ngx_http_filter (ngx_http_request_t * r,ngx_hunk_t * hunk)
+DECL|function|ngx_http_output_filter (ngx_http_request_t * r,ngx_hunk_t * hunk)
 name|int
-name|ngx_http_filter
+name|ngx_http_output_filter
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
@@ -110,6 +159,8 @@ parameter_list|)
 block|{
 name|int
 name|rc
+decl_stmt|,
+name|first
 decl_stmt|;
 name|size_t
 name|size
@@ -121,14 +172,14 @@ name|ngx_chain_t
 modifier|*
 name|ce
 decl_stmt|;
-name|ngx_http_filter_ctx_t
+name|ngx_http_output_filter_ctx_t
 modifier|*
 name|ctx
 decl_stmt|;
 name|ctx
 operator|=
 operator|(
-name|ngx_http_filter_ctx_t
+name|ngx_http_output_filter_ctx_t
 operator|*
 operator|)
 name|ngx_get_module_ctx
@@ -144,7 +195,7 @@ operator|:
 name|r
 argument_list|,
 operator|&
-name|ngx_http_filter_module
+name|ngx_http_output_filter_module
 argument_list|)
 expr_stmt|;
 if|if
@@ -165,15 +216,21 @@ name|last
 operator|=
 literal|1
 expr_stmt|;
-comment|/* input chain is not empty */
-if|if
+name|first
+operator|=
+literal|1
+expr_stmt|;
+while|while
 condition|(
+name|first
+operator|||
 name|ctx
 operator|->
 name|in
 condition|)
 block|{
-while|while
+comment|/* input chain is not empty */
+if|if
 condition|(
 name|ctx
 operator|->
@@ -183,6 +240,8 @@ block|{
 comment|/* add hunk to input chain */
 if|if
 condition|(
+name|first
+operator|&&
 name|hunk
 condition|)
 block|{
@@ -222,6 +281,10 @@ name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 block|}
+name|first
+operator|=
+literal|0
+expr_stmt|;
 comment|/* our hunk is still busy */
 if|if
 condition|(
@@ -269,7 +332,7 @@ name|hunk
 expr_stmt|;
 name|rc
 operator|=
-name|ngx_http_filter_copy_hunk
+name|ngx_http_output_filter_copy_hunk
 argument_list|(
 name|ctx
 operator|->
@@ -366,6 +429,8 @@ if|if
 condition|(
 name|ce
 operator|->
+name|hunk
+operator|->
 name|type
 operator|&
 name|NGX_HUNK_FILE
@@ -375,6 +440,8 @@ if|if
 condition|(
 operator|(
 name|ce
+operator|->
+name|hunk
 operator|->
 name|type
 operator|&
@@ -428,6 +495,51 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+comment|/* delete completed hunks from input chain */
+for|for
+control|(
+name|ce
+operator|=
+name|ctx
+operator|->
+name|in
+init|;
+name|ce
+condition|;
+name|ce
+operator|=
+name|ce
+operator|->
+name|next
+control|)
+block|{
+if|if
+condition|(
+name|ce
+operator|->
+name|hunk
+operator|->
+name|pos
+operator|.
+name|file
+operator|==
+name|ce
+operator|->
+name|hunk
+operator|->
+name|last
+operator|.
+name|file
+condition|)
+name|ctx
+operator|->
+name|in
+operator|=
+name|ce
+operator|->
+name|next
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|rc
@@ -460,11 +572,14 @@ else|else
 return|return
 name|rc
 return|;
-block|}
 comment|/* input chain is empty */
 block|}
 else|else
 block|{
+name|first
+operator|=
+literal|0
+expr_stmt|;
 if|if
 condition|(
 name|hunk
@@ -659,18 +774,22 @@ argument_list|,
 name|NGX_ERROR
 argument_list|)
 expr_stmt|;
+name|ctx
+operator|->
+name|hunk
+operator|->
+name|type
+operator||=
+name|NGX_HUNK_RECYCLED
+expr_stmt|;
 name|rc
 operator|=
-name|ngx_http_filter_copy_hunk
+name|ngx_http_output_filter_copy_hunk
 argument_list|(
 name|ctx
 operator|->
 name|hunk
 argument_list|,
-name|ctx
-operator|->
-name|in
-operator|->
 name|hunk
 argument_list|)
 expr_stmt|;
@@ -719,20 +838,12 @@ name|rc
 return|;
 if|if
 condition|(
-name|ctx
-operator|->
-name|in
-operator|->
 name|hunk
 operator|->
 name|pos
 operator|.
 name|mem
 operator|<
-name|ctx
-operator|->
-name|in
-operator|->
 name|hunk
 operator|->
 name|last
@@ -832,14 +943,44 @@ name|NGX_OK
 operator|&&
 name|ctx
 operator|->
+name|hunk
+condition|)
+name|ctx
+operator|->
+name|hunk
+operator|->
+name|pos
+operator|.
+name|mem
+operator|=
+name|ctx
+operator|->
+name|hunk
+operator|->
+name|last
+operator|.
+name|mem
+operator|=
+name|ctx
+operator|->
+name|hunk
+operator|->
+name|start
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|rc
+operator|==
+name|NGX_OK
+operator|&&
+name|ctx
+operator|->
 name|last
 condition|)
-block|{
-comment|/* STUB */
 return|return
-name|NGX_ERROR
+name|NGX_OK
 return|;
-block|}
 if|if
 condition|(
 name|rc
@@ -893,9 +1034,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_filter_copy_hunk (ngx_hunk_t * dst,ngx_hunk_t * src,ngx_log_t * log)
+DECL|function|ngx_http_output_filter_copy_hunk (ngx_hunk_t * dst,ngx_hunk_t * src)
+specifier|static
 name|int
-name|ngx_http_filter_copy_hunk
+name|ngx_http_output_filter_copy_hunk
 parameter_list|(
 name|ngx_hunk_t
 modifier|*
@@ -904,24 +1046,23 @@ parameter_list|,
 name|ngx_hunk_t
 modifier|*
 name|src
-parameter_list|,
-name|ngx_log_t
-modifier|*
-name|log
 parameter_list|)
 block|{
 name|size_t
 name|size
 decl_stmt|;
+name|ssize_t
+name|n
+decl_stmt|;
 name|size
 operator|=
-name|hunk
+name|src
 operator|->
 name|last
 operator|.
 name|mem
 operator|-
-name|hunk
+name|src
 operator|->
 name|pos
 operator|.
@@ -968,7 +1109,7 @@ name|ngx_read_file
 argument_list|(
 name|src
 operator|->
-name|handle
+name|file
 argument_list|,
 name|dst
 operator|->
@@ -977,6 +1118,12 @@ operator|.
 name|mem
 argument_list|,
 name|size
+argument_list|,
+name|src
+operator|->
+name|pos
+operator|.
+name|file
 argument_list|)
 expr_stmt|;
 if|if
@@ -986,18 +1133,6 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_ERR
-argument_list|,
-name|log
-argument_list|,
-name|ngx_errno
-argument_list|,
-name|ngx_read_file_n
-literal|" failed for client"
-argument_list|)
-expr_stmt|;
 return|return
 name|n
 return|;
@@ -1029,10 +1164,10 @@ argument_list|,
 comment|/* void */
 argument|;
 argument_list|,
-argument|log
+argument|src->file->log
 argument_list|,
 argument|ngx_read_file_n
-literal|" reads only %d of %d for client"
+literal|" reads only %d of %d"
 argument|_                        n _ size
 argument_list|)
 empty_stmt|;

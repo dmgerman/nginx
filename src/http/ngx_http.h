@@ -33,7 +33,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_file.h>
+file|<ngx_files.h>
 end_include
 
 begin_include
@@ -131,6 +131,14 @@ value|200
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_SPECIAL_RESPONSE
+define|#
+directive|define
+name|NGX_HTTP_SPECIAL_RESPONSE
+value|300
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_MOVED_PERMANENTLY
 define|#
 directive|define
@@ -179,7 +187,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon29f71d130108
+DECL|struct|__anon28ec52d00108
 typedef|typedef
 struct|struct
 block|{
@@ -213,7 +221,7 @@ value|(module)->ctx
 end_define
 
 begin_typedef
-DECL|struct|__anon29f71d130208
+DECL|struct|__anon28ec52d00208
 typedef|typedef
 struct|struct
 block|{
@@ -226,9 +234,17 @@ DECL|member|doc_root_len
 name|size_t
 name|doc_root_len
 decl_stmt|;
-DECL|member|buff_size
+DECL|member|request_pool_size
 name|size_t
-name|buff_size
+name|request_pool_size
+decl_stmt|;
+DECL|member|header_buffer_size
+name|size_t
+name|header_buffer_size
+decl_stmt|;
+DECL|member|discarded_buffer_size
+name|size_t
+name|discarded_buffer_size
 decl_stmt|;
 DECL|member|header_timeout
 name|unsigned
@@ -242,7 +258,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f71d130308
+DECL|struct|__anon28ec52d00308
 typedef|typedef
 struct|struct
 block|{
@@ -273,7 +289,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f71d130408
+DECL|struct|__anon28ec52d00408
 typedef|typedef
 struct|struct
 block|{
@@ -388,9 +404,9 @@ modifier|*
 name|r
 parameter_list|)
 function_decl|;
-DECL|member|file_info
+DECL|member|fileinfo
 name|ngx_file_info_t
-name|file_info
+name|fileinfo
 decl_stmt|;
 DECL|member|method
 name|int
@@ -432,9 +448,24 @@ DECL|member|filter
 name|int
 name|filter
 decl_stmt|;
+DECL|member|client_content_length
+name|ssize_t
+name|client_content_length
+decl_stmt|;
+DECL|member|discarded_buffer
+name|char
+modifier|*
+name|discarded_buffer
+decl_stmt|;
 DECL|member|header_timeout
 name|unsigned
 name|header_timeout
+range|:
+literal|1
+decl_stmt|;
+DECL|member|process_header
+name|unsigned
+name|process_header
 range|:
 literal|1
 decl_stmt|;
@@ -522,7 +553,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29f71d130508
+DECL|struct|__anon28ec52d00508
 typedef|typedef
 struct|struct
 block|{
@@ -554,6 +585,25 @@ directive|define
 name|NGX_INDEX
 value|"index.html"
 end_define
+
+begin_comment
+comment|/* STUB */
+end_comment
+
+begin_function_decl
+name|int
+name|ngx_http_init
+parameter_list|(
+name|ngx_pool_t
+modifier|*
+name|pool
+parameter_list|,
+name|ngx_log_t
+modifier|*
+name|log
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_function_decl
 name|int

@@ -73,11 +73,32 @@ name|ngx_hunk_t
 modifier|*
 name|h
 decl_stmt|;
-name|ngx_chain_t
+name|ngx_http_log_ctx_t
 modifier|*
-name|ch
+name|ctx
 decl_stmt|;
 comment|/*     ngx_http_event_static_handler_loc_conf_t  *cf;      cf = (ngx_http_event_static_handler_loc_conf_t *)              ngx_get_module_loc_conf(r,&ngx_http_event_static_handler_module);  */
+name|ngx_http_discard_body
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
+name|ctx
+operator|=
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+operator|->
+name|data
+expr_stmt|;
+name|ctx
+operator|->
+name|action
+operator|=
+literal|"sending response"
+expr_stmt|;
 name|r
 operator|->
 name|fd
@@ -139,7 +160,7 @@ argument_list|,
 operator|&
 name|r
 operator|->
-name|file_info
+name|fileinfo
 argument_list|)
 operator|==
 operator|-
@@ -191,10 +212,10 @@ name|ngx_file_size
 argument_list|(
 name|r
 operator|->
-name|file_info
+name|fileinfo
 argument_list|)
 expr_stmt|;
-comment|/*     r->headers_out->last_modified = ngx_file_mtime(r->file_info); */
+comment|/*     r->headers_out->last_modified = ngx_file_mtime(r->fileinfo); */
 comment|/* STUB */
 name|r
 operator|->
@@ -228,25 +249,21 @@ name|ngx_test_null
 argument_list|(
 name|h
 argument_list|,
-name|ngx_get_hunk
+name|ngx_pcalloc
 argument_list|(
 name|r
 operator|->
 name|pool
 argument_list|,
-literal|1024
-argument_list|,
-literal|0
-argument_list|,
-literal|64
+sizeof|sizeof
+argument_list|(
+name|ngx_hunk_t
+argument_list|)
 argument_list|)
 argument_list|,
-comment|/* STUB */
-operator|-
-literal|1
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
-comment|/*     ngx_test_null(h, ngx_create_hunk(r->pool), NGX_HTTP_INTERNAL_SERVER_ERROR); */
 name|h
 operator|->
 name|type
@@ -254,14 +271,6 @@ operator|=
 name|NGX_HUNK_FILE
 operator||
 name|NGX_HUNK_LAST
-expr_stmt|;
-name|h
-operator|->
-name|fd
-operator|=
-name|r
-operator|->
-name|fd
 expr_stmt|;
 name|h
 operator|->
@@ -281,15 +290,17 @@ name|ngx_file_size
 argument_list|(
 name|r
 operator|->
-name|file_info
+name|fileinfo
 argument_list|)
 expr_stmt|;
 comment|/* STUB */
 name|ngx_test_null
 argument_list|(
-name|ch
+name|h
+operator|->
+name|file
 argument_list|,
-name|ngx_palloc
+name|ngx_pcalloc
 argument_list|(
 name|r
 operator|->
@@ -297,51 +308,55 @@ name|pool
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|ngx_chain_t
+name|ngx_file_t
 argument_list|)
 argument_list|)
 argument_list|,
-comment|/* STUB */
-operator|-
-literal|1
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
-comment|/*                   NGX_HTTP_FILTER_ERROR); */
-comment|/*     ngx_test_null(ch, ngx_create_chain(r->pool),                   NGX_HTTP_INTERNAL_SERVER_ERROR); */
-name|ch
-operator|->
-name|hunk
-operator|=
 name|h
-expr_stmt|;
-name|ch
 operator|->
-name|next
+name|file
+operator|->
+name|fd
 operator|=
-name|NULL
+name|r
+operator|->
+name|fd
 expr_stmt|;
-comment|/* STUB */
+name|h
+operator|->
+name|file
+operator|->
+name|log
+operator|=
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+expr_stmt|;
 name|rc
 operator|=
-name|ngx_http_write_filter
+name|ngx_http_output_filter
 argument_list|(
 name|r
 argument_list|,
-name|ch
+name|h
 argument_list|)
 expr_stmt|;
 name|ngx_log_debug
 argument_list|(
 argument|r->connection->log
 argument_list|,
-literal|"write_filter: %d"
+literal|"0 output_filter: %d"
 argument|_ rc
 argument_list|)
 empty_stmt|;
 return|return
 name|rc
 return|;
-comment|/*     return ngx_http_filter(r, ch); */
 block|}
 end_function
 

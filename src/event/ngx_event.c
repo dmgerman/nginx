@@ -14,6 +14,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_string.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_log.h>
 end_include
 
@@ -104,11 +110,19 @@ end_if
 begin_if
 if|#
 directive|if
-literal|0
+literal|1
 end_if
 
+begin_decl_stmt
+DECL|variable|ngx_event_type
+name|ngx_event_type_e
+name|ngx_event_type
+init|=
+name|NGX_SELECT_EVENT
+decl_stmt|;
+end_decl_stmt
+
 begin_else
-unit|ngx_event_type_e     ngx_event_type = NGX_SELECT_EVENT;
 else|#
 directive|else
 end_else
@@ -491,19 +505,37 @@ index|]
 operator|.
 name|log
 expr_stmt|;
+name|ngx_test_null
+argument_list|(
+argument|ngx_read_events[fd].log
+argument_list|,
+argument|ngx_palloc(pool, sizeof(ngx_log_t))
+argument_list|,
+comment|/* void */
+argument|;
+argument_list|)
+empty_stmt|;
+name|ngx_memcpy
+argument_list|(
 name|ngx_read_events
 index|[
 name|fd
 index|]
 operator|.
 name|log
-operator|=
+argument_list|,
 name|ngx_connections
 index|[
 name|fd
 index|]
 operator|.
 name|log
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|ngx_log_t
+argument_list|)
+argument_list|)
 expr_stmt|;
 name|ngx_read_events
 index|[

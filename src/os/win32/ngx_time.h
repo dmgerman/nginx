@@ -19,6 +19,15 @@ file|<windows.h>
 end_include
 
 begin_typedef
+DECL|typedef|ngx_msec_t
+typedef|typedef
+name|unsigned
+name|int
+name|ngx_msec_t
+typedef|;
+end_typedef
+
+begin_typedef
 DECL|typedef|ngx_tm_t
 typedef|typedef
 name|SYSTEMTIME

@@ -1,10 +1,23 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
+begin_include
+include|#
+directive|include
+file|<ngx_core.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_file.h>
+end_include
+
 begin_function
-DECL|function|ngx_read_file (ngx_file_t file,char * buf,size_t size,off_t offset)
+DECL|function|ngx_read_file (ngx_file_t * file,char * buf,size_t size,off_t offset)
 name|ssize_t
 name|ngx_read_file
 parameter_list|(
 name|ngx_file_t
+modifier|*
 name|file
 parameter_list|,
 name|char
@@ -18,7 +31,19 @@ name|off_t
 name|offset
 parameter_list|)
 block|{
-return|return
+name|ssize_t
+name|n
+decl_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|file->log
+argument_list|,
+literal|"read: %x, %d, %qd"
+argument|_ buf _ size _ offset
+argument_list|)
+empty_stmt|;
+name|n
+operator|=
 name|pread
 argument_list|(
 name|file
@@ -31,6 +56,28 @@ name|size
 argument_list|,
 name|offset
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|n
+operator|==
+name|NGX_ERROR
+condition|)
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|file
+operator|->
+name|log
+argument_list|,
+name|ngx_errno
+argument_list|,
+literal|"read() failed"
+argument_list|)
+expr_stmt|;
+return|return
+name|n
 return|;
 block|}
 end_function

@@ -21,11 +21,11 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_file.h>
+file|<ngx_files.h>
 end_include
 
 begin_typedef
-DECL|enum|__anon297c209b0103
+DECL|enum|__anon2c6e1a880103
 typedef|typedef
 enum|enum
 block|{
@@ -65,7 +65,7 @@ comment|/*     "[%time] [%level] %pid#%tid: %message:(%errno)%errstr, while %act
 end_comment
 
 begin_typedef
-DECL|struct|__anon297c209b0208
+DECL|struct|__anon2c6e1a880208
 typedef|typedef
 struct|struct
 block|{

@@ -14,19 +14,19 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_event_write.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_http.h>
 end_include
 
 begin_include
 include|#
 directive|include
-file|<ngx_http_filter.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_event_write.h>
+file|<ngx_http_output_filter.h>
 end_include
 
 begin_include
@@ -224,6 +224,8 @@ operator|->
 name|type
 operator|&
 name|NGX_HUNK_FLUSH
+operator||
+name|NGX_HUNK_RECYCLED
 condition|)
 name|flush
 operator|=
@@ -340,6 +342,8 @@ operator|->
 name|type
 operator|&
 name|NGX_HUNK_FLUSH
+operator||
+name|NGX_HUNK_RECYCLED
 condition|)
 name|flush
 operator|=
@@ -413,6 +417,14 @@ name|out
 operator|=
 name|chain
 expr_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|r->connection->log
+argument_list|,
+literal|"write filter %x"
+argument|_ chain
+argument_list|)
+empty_stmt|;
 return|return
 operator|(
 name|chain

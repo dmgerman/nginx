@@ -13,7 +13,7 @@ name|_NGX_HTTP_WRITE_FILTER_H_INCLUDED_
 end_define
 
 begin_typedef
-DECL|struct|__anon2790daec0108
+DECL|struct|__anon2b2f098a0108
 typedef|typedef
 struct|struct
 block|{
@@ -31,6 +31,21 @@ block|}
 name|ngx_http_write_filter_ctx_t
 typedef|;
 end_typedef
+
+begin_function_decl
+name|int
+name|ngx_http_write_filter
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_chain_t
+modifier|*
+name|in
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_endif
 endif|#

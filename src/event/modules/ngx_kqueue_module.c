@@ -73,21 +73,6 @@ endif|#
 directive|endif
 end_endif
 
-begin_function_decl
-specifier|static
-name|void
-name|ngx_add_timer_core
-parameter_list|(
-name|ngx_event_t
-modifier|*
-name|ev
-parameter_list|,
-name|u_int
-name|timer
-parameter_list|)
-function_decl|;
-end_function_decl
-
 begin_decl_stmt
 DECL|variable|kq
 specifier|static
@@ -243,6 +228,12 @@ name|ngx_kqueue_del_event
 expr_stmt|;
 name|ngx_event_actions
 operator|.
+name|timer
+operator|=
+name|ngx_kqueue_add_timer
+expr_stmt|;
+name|ngx_event_actions
+operator|.
 name|process
 operator|=
 name|ngx_kqueue_process_events
@@ -268,24 +259,6 @@ name|u_int
 name|flags
 parameter_list|)
 block|{
-if|if
-condition|(
-name|event
-operator|==
-name|NGX_TIMER_EVENT
-condition|)
-block|{
-name|ngx_add_timer_core
-argument_list|(
-name|ev
-argument_list|,
-name|flags
-argument_list|)
-expr_stmt|;
-return|return
-literal|0
-return|;
-block|}
 return|return
 name|ngx_kqueue_set_event
 argument_list|(
@@ -314,22 +287,6 @@ name|int
 name|event
 parameter_list|)
 block|{
-if|if
-condition|(
-name|event
-operator|==
-name|NGX_TIMER_EVENT
-condition|)
-block|{
-name|ngx_del_timer
-argument_list|(
-name|ev
-argument_list|)
-expr_stmt|;
-return|return
-literal|0
-return|;
-block|}
 return|return
 name|ngx_kqueue_set_event
 argument_list|(
@@ -790,9 +747,6 @@ argument_list|(
 name|ev
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|1
 name|ev
 operator|->
 name|timedout
@@ -817,29 +771,6 @@ argument_list|(
 name|ev
 argument_list|)
 expr_stmt|;
-else|#
-directive|else
-if|if
-condition|(
-name|ev
-operator|->
-name|timer_handler
-argument_list|(
-name|ev
-argument_list|)
-operator|==
-operator|-
-literal|1
-condition|)
-name|ev
-operator|->
-name|close_handler
-argument_list|(
-name|ev
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 name|ev
 operator|=
 name|nx
@@ -906,7 +837,14 @@ index|]
 operator|.
 name|data
 argument_list|,
-literal|"ngx_kqueue_process_events: kevent error"
+literal|"ngx_kqueue_process_events: kevent error on %d"
+argument_list|,
+name|event_list
+index|[
+name|i
+index|]
+operator|.
+name|ident
 argument_list|)
 expr_stmt|;
 continue|continue;
@@ -1028,16 +966,15 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_add_timer_core (ngx_event_t * ev,u_int timer)
-specifier|static
+DECL|function|ngx_kqueue_add_timer (ngx_event_t * ev,ngx_msec_t timer)
 name|void
-name|ngx_add_timer_core
+name|ngx_kqueue_add_timer
 parameter_list|(
 name|ngx_event_t
 modifier|*
 name|ev
 parameter_list|,
-name|u_int
+name|ngx_msec_t
 name|timer
 parameter_list|)
 block|{
@@ -1045,6 +982,14 @@ name|ngx_event_t
 modifier|*
 name|e
 decl_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|ev->log
+argument_list|,
+literal|"set timer: %d"
+argument|_ timer
+argument_list|)
+empty_stmt|;
 for|for
 control|(
 name|e
@@ -1112,18 +1057,6 @@ name|ev
 expr_stmt|;
 block|}
 end_function
-
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-
-begin_endif
-unit|static void ngx_inline ngx_del_timer(ngx_event_t *ev) {     if (ev->timer_prev)         ev->timer_prev->timer_next = ev->timer_next;      if (ev->timer_next) {         ev->timer_next->timer_prev = ev->timer_prev;         ev->timer_next = NULL;     }      if (ev->timer_prev)         ev->timer_prev = NULL; }
-endif|#
-directive|endif
-end_endif
 
 end_unit
 

@@ -159,9 +159,6 @@ modifier|*
 name|argv
 parameter_list|)
 block|{
-name|int
-name|i
-decl_stmt|;
 comment|/* STUB */
 name|ngx_log
 operator|.
@@ -244,6 +241,9 @@ operator|&
 name|ngx_log
 argument_list|)
 expr_stmt|;
+return|return
+literal|0
+return|;
 block|}
 end_function
 

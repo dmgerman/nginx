@@ -2,14 +2,14 @@ begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|_NGX_HTTP_FILTER_H_INCLUDED_
+name|_NGX_HTTP_OUTPUT_FILTER_H_INCLUDED_
 end_ifndef
 
 begin_define
-DECL|macro|_NGX_HTTP_FILTER_H_INCLUDED_
+DECL|macro|_NGX_HTTP_OUTPUT_FILTER_H_INCLUDED_
 define|#
 directive|define
-name|_NGX_HTTP_FILTER_H_INCLUDED_
+name|_NGX_HTTP_OUTPUT_FILTER_H_INCLUDED_
 end_define
 
 begin_include
@@ -35,7 +35,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon27e705930108
+DECL|struct|__anon28a4d6380108
 typedef|typedef
 struct|struct
 block|{
@@ -77,9 +77,9 @@ DECL|member|last
 name|unsigned
 name|last
 decl_stmt|;
-DECL|typedef|ngx_http_filter_ctx_t
+DECL|typedef|ngx_http_output_filter_ctx_t
 block|}
-name|ngx_http_filter_ctx_t
+name|ngx_http_output_filter_ctx_t
 typedef|;
 end_typedef
 
@@ -89,7 +89,7 @@ directive|endif
 end_endif
 
 begin_comment
-comment|/* _NGX_HTTP_FILTER_H_INCLUDED_ */
+comment|/* _NGX_HTTP_OUTPUT_FILTER_H_INCLUDED_ */
 end_comment
 
 end_unit

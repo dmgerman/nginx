@@ -8,6 +8,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_core.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_types.h>
 end_include
 
@@ -49,10 +55,6 @@ end_include
 
 begin_comment
 comment|/*   TODO:     FreeBSD:        check sent if errno == EINTR then should return right sent. */
-end_comment
-
-begin_comment
-comment|/*   returns       0 done      -1 error */
 end_comment
 
 begin_if
@@ -223,8 +225,7 @@ literal|"ngx_sendfile: sendfile failed"
 argument_list|)
 expr_stmt|;
 return|return
-operator|-
-literal|1
+name|NGX_ERROR
 return|;
 block|}
 else|else
@@ -254,7 +255,7 @@ argument|_                   rc _ offset _ *sent _ nbytes
 argument_list|)
 empty_stmt|;
 return|return
-literal|0
+name|NGX_OK
 return|;
 block|}
 end_function

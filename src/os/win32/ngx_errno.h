@@ -43,6 +43,17 @@ value|WSAGetLastError()
 end_define
 
 begin_define
+DECL|macro|ngx_set_socket_errno (err)
+define|#
+directive|define
+name|ngx_set_socket_errno
+parameter_list|(
+name|err
+parameter_list|)
+value|WSASetLastError(err)
+end_define
+
+begin_define
 DECL|macro|NGX_ENOENT
 define|#
 directive|define
@@ -64,6 +75,14 @@ define|#
 directive|define
 name|NGX_EADDRINUSE
 value|WSAEADDRINUSE
+end_define
+
+begin_define
+DECL|macro|NGX_ETIMEDOUT
+define|#
+directive|define
+name|NGX_ETIMEDOUT
+value|WSAETIMEDOUT
 end_define
 
 begin_function_decl

@@ -19,6 +19,14 @@ file|<ngx_config.h>
 end_include
 
 begin_typedef
+DECL|typedef|ngx_msec_t
+typedef|typedef
+name|u_int
+name|ngx_msec_t
+typedef|;
+end_typedef
+
+begin_typedef
 DECL|typedef|ngx_tm_t
 typedef|typedef
 name|struct
@@ -106,7 +114,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|u_int
+name|ngx_msec_t
 name|ngx_msec
 parameter_list|(
 name|void

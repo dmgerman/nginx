@@ -2,14 +2,14 @@ begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|_NGX_FILE_H_INCLUDED_
+name|_NGX_FILES_H_INCLUDED_
 end_ifndef
 
 begin_define
-DECL|macro|_NGX_FILE_H_INCLUDED_
+DECL|macro|_NGX_FILES_H_INCLUDED_
 define|#
 directive|define
-name|_NGX_FILE_H_INCLUDED_
+name|_NGX_FILES_H_INCLUDED_
 end_define
 
 begin_include
@@ -85,7 +85,7 @@ DECL|macro|ngx_open_file_n
 define|#
 directive|define
 name|ngx_open_file_n
-value|"CreateFile"
+value|"CreateFile()"
 end_define
 
 begin_define
@@ -182,13 +182,21 @@ begin_comment
 comment|/* 1970 - 1601: 	116444736000000000 	19DB1DED53E8000 */
 end_comment
 
+begin_define
+DECL|macro|ngx_read_file_n
+define|#
+directive|define
+name|ngx_read_file_n
+value|"ReadFile()"
+end_define
+
 begin_endif
 endif|#
 directive|endif
 end_endif
 
 begin_comment
-comment|/* _NGX_FILE_H_INCLUDED_ */
+comment|/* _NGX_FILES_H_INCLUDED_ */
 end_comment
 
 end_unit

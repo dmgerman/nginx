@@ -8,6 +8,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_core.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_types.h>
 end_include
 
@@ -54,14 +60,14 @@ file|<ngx_event_write.h>
 end_include
 
 begin_function
-DECL|function|ngx_event_write (ngx_connection_t * cn,ngx_chain_t * in,off_t flush)
+DECL|function|ngx_event_write (ngx_connection_t * c,ngx_chain_t * in,off_t flush)
 name|ngx_chain_t
 modifier|*
 name|ngx_event_write
 parameter_list|(
 name|ngx_connection_t
 modifier|*
-name|cn
+name|c
 parameter_list|,
 name|ngx_chain_t
 modifier|*
@@ -114,7 +120,7 @@ name|header
 argument_list|,
 name|ngx_create_array
 argument_list|(
-name|cn
+name|c
 operator|->
 name|pool
 argument_list|,
@@ -140,7 +146,7 @@ name|trailer
 argument_list|,
 name|ngx_create_array
 argument_list|(
-name|cn
+name|c
 operator|->
 name|pool
 argument_list|,
@@ -360,7 +366,7 @@ name|rc
 operator|=
 name|ngx_sendv
 argument_list|(
-name|cn
+name|c
 operator|->
 name|fd
 argument_list|,
@@ -534,7 +540,7 @@ name|rc
 operator|=
 name|ngx_sendfile
 argument_list|(
-name|cn
+name|c
 operator|->
 name|fd
 argument_list|,
@@ -550,6 +556,8 @@ name|header
 operator|->
 name|nelts
 argument_list|,
+name|file
+operator|->
 name|file
 operator|->
 name|fd
@@ -592,7 +600,7 @@ argument_list|,
 operator|&
 name|sent
 argument_list|,
-name|cn
+name|c
 operator|->
 name|log
 argument_list|)
@@ -600,11 +608,18 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|size_t
+name|sendv_sent
+decl_stmt|;
+name|sendv_sent
+operator|=
+literal|0
+expr_stmt|;
 name|rc
 operator|=
 name|ngx_sendv
 argument_list|(
-name|cn
+name|c
 operator|->
 name|fd
 argument_list|,
@@ -620,20 +635,20 @@ name|header
 operator|->
 name|nelts
 argument_list|,
-operator|(
-name|size_t
-operator|*
-operator|)
 operator|&
-name|sent
+name|sendv_sent
 argument_list|)
+expr_stmt|;
+name|sent
+operator|=
+name|sendv_sent
 expr_stmt|;
 name|ngx_log_debug
 argument_list|(
-argument|cn->log
+argument|c->log
 argument_list|,
-literal|"sendv: %d"
-argument|_ sent
+literal|"sendv: "
+argument|QD_FMT _ sent
 argument_list|)
 empty_stmt|;
 block|}
@@ -650,8 +665,7 @@ if|if
 condition|(
 name|rc
 operator|==
-operator|-
-literal|1
+name|NGX_ERROR
 condition|)
 return|return
 operator|(
@@ -661,6 +675,12 @@ operator|)
 operator|-
 literal|1
 return|;
+name|c
+operator|->
+name|sent
+operator|=
+name|sent
+expr_stmt|;
 name|flush
 operator|-=
 name|sent
@@ -680,6 +700,14 @@ operator|->
 name|next
 control|)
 block|{
+name|ngx_log_debug
+argument_list|(
+argument|c->log
+argument_list|,
+literal|"ch event write: %x %qx %qd"
+argument|_                           ch->hunk->type _                           ch->hunk->pos.file _                           ch->hunk->last.file - ch->hunk->pos.file
+argument_list|)
+empty_stmt|;
 if|if
 condition|(
 name|sent
@@ -723,7 +751,7 @@ name|ch
 operator|->
 name|hunk
 operator|->
-name|last
+name|pos
 operator|.
 name|file
 operator|=
@@ -731,29 +759,21 @@ name|ch
 operator|->
 name|hunk
 operator|->
-name|pos
+name|last
 operator|.
 name|file
 expr_stmt|;
 name|ngx_log_debug
 argument_list|(
-argument|cn->log
+argument|c->log
 argument_list|,
-literal|"event write: %qx 0"
-argument|_                               ch->hunk->pos.file
+literal|"event write: "
+argument|QX_FMT
+literal|" 0 "
+argument|QD_FMT _                               ch->hunk->pos.file _ sent
 argument_list|)
 empty_stmt|;
-if|if
-condition|(
-name|ch
-operator|->
-name|hunk
-operator|->
-name|type
-operator|&
-name|NGX_HUNK_LAST
-condition|)
-break|break;
+comment|/*                 if (ch->hunk->type& NGX_HUNK_LAST)                    break; */
 continue|continue;
 block|}
 name|ch
@@ -768,7 +788,7 @@ name|sent
 expr_stmt|;
 name|ngx_log_debug
 argument_list|(
-argument|cn->log
+argument|c->log
 argument_list|,
 literal|"event write: %qx %qd"
 argument|_                           ch->hunk->pos.file _                           ch->hunk->last.file - ch->hunk->pos.file
@@ -780,7 +800,7 @@ comment|/* flush hunks if threaded state */
 block|}
 do|while
 condition|(
-name|cn
+name|c
 operator|->
 name|write
 operator|->

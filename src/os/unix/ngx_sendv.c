@@ -2,6 +2,12 @@ begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_include
 include|#
 directive|include
+file|<ngx_core.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_types.h>
 end_include
 
@@ -39,7 +45,9 @@ parameter_list|)
 block|{
 name|ssize_t
 name|rc
-init|=
+decl_stmt|;
+name|rc
+operator|=
 name|writev
 argument_list|(
 name|s
@@ -48,7 +56,7 @@ name|iovec
 argument_list|,
 name|n
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|rc
@@ -57,8 +65,7 @@ operator|-
 literal|1
 condition|)
 return|return
-operator|-
-literal|1
+name|NGX_ERROR
 return|;
 operator|*
 name|sent
@@ -66,7 +73,7 @@ operator|=
 name|rc
 expr_stmt|;
 return|return
-literal|0
+name|NGX_OK
 return|;
 block|}
 end_function

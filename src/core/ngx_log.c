@@ -232,19 +232,44 @@ name|len
 operator|-
 literal|1
 argument_list|,
+if|#
+directive|if
+operator|(
+name|WIN32
+operator|)
 literal|"%d#%d: "
 argument_list|,
-name|getpid
-argument_list|()
+literal|0
 argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+literal|"%d#%d: "
+operator|,
+name|getpid
+argument_list|()
+operator|,
+literal|0
+block_content|)
+decl_stmt|;
+end_decl_stmt
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_if
 if|#
 directive|if
 operator|(
 name|HAVE_VARIADIC_MACROS
 operator|)
+end_if
+
+begin_expr_stmt
 name|va_start
 argument_list|(
 name|args
@@ -252,6 +277,9 @@ argument_list|,
 name|fmt
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|len
 operator|+=
 name|ngx_vsnprintf
@@ -274,13 +302,22 @@ argument_list|,
 name|args
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|va_end
 argument_list|(
 name|args
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_else
 else|#
 directive|else
+end_else
+
+begin_expr_stmt
 name|len
 operator|+=
 name|ngx_vsnprintf
@@ -303,8 +340,14 @@ argument_list|,
 name|args
 argument_list|)
 expr_stmt|;
+end_expr_stmt
+
+begin_endif
 endif|#
 directive|endif
+end_endif
+
+begin_if_stmt
 if|if
 condition|(
 name|err
@@ -418,6 +461,9 @@ literal|2
 expr_stmt|;
 block|}
 block|}
+end_if_stmt
+
+begin_if_stmt
 if|if
 condition|(
 name|level
@@ -452,6 +498,9 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
+end_if_stmt
+
+begin_if_stmt
 if|if
 condition|(
 name|len
@@ -472,6 +521,9 @@ argument_list|)
 operator|-
 literal|2
 expr_stmt|;
+end_if_stmt
+
+begin_expr_stmt
 name|errstr
 index|[
 name|len
@@ -479,6 +531,9 @@ index|]
 operator|=
 literal|'\n'
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|errstr
 index|[
 name|len
@@ -488,6 +543,9 @@ index|]
 operator|=
 literal|'\0'
 expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|fputs
 argument_list|(
 name|errstr
@@ -495,10 +553,10 @@ argument_list|,
 name|stderr
 argument_list|)
 expr_stmt|;
-block|}
-end_decl_stmt
+end_expr_stmt
 
 begin_if
+unit|}
 if|#
 directive|if
 operator|!
@@ -507,28 +565,24 @@ name|HAVE_VARIADIC_MACROS
 operator|)
 end_if
 
-begin_function
+begin_macro
 DECL|function|ngx_log_error (int level,ngx_log_t * log,ngx_err_t err,const char * fmt,...)
-name|void
+unit|void
 name|ngx_log_error
-parameter_list|(
-name|int
-name|level
-parameter_list|,
-name|ngx_log_t
-modifier|*
-name|log
-parameter_list|,
-name|ngx_err_t
-name|err
-parameter_list|,
-specifier|const
-name|char
-modifier|*
-name|fmt
-parameter_list|,
-modifier|...
-parameter_list|)
+argument_list|(
+argument|int level
+argument_list|,
+argument|ngx_log_t *log
+argument_list|,
+argument|ngx_err_t err
+argument_list|,
+argument|const char *fmt
+argument_list|,
+argument|...
+argument_list|)
+end_macro
+
+begin_block
 block|{
 name|va_list
 name|args
@@ -569,7 +623,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-end_function
+end_block
 
 begin_function
 DECL|function|ngx_log_debug_core (ngx_log_t * log,const char * fmt,...)

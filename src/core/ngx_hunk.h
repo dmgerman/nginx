@@ -125,6 +125,14 @@ value|0x0400
 end_define
 
 begin_define
+DECL|macro|NGX_HUNK_RECYCLED
+define|#
+directive|define
+name|NGX_HUNK_RECYCLED
+value|0x0800
+end_define
+
+begin_define
 DECL|macro|NGX_HUNK_IN_MEMORY
 define|#
 directive|define
@@ -146,7 +154,7 @@ DECL|struct|ngx_hunk_s
 struct|struct
 name|ngx_hunk_s
 block|{
-DECL|union|__anon2a2ae1d1010a
+DECL|union|__anon2a17f7f1010a
 union|union
 block|{
 DECL|member|mem
@@ -163,7 +171,7 @@ DECL|member|pos
 block|}
 name|pos
 union|;
-DECL|union|__anon2a2ae1d1020a
+DECL|union|__anon2a17f7f1020a
 union|union
 block|{
 DECL|member|mem
@@ -212,9 +220,10 @@ DECL|member|tag
 name|int
 name|tag
 decl_stmt|;
-DECL|member|fd
-name|ngx_fd_t
-name|fd
+DECL|member|file
+name|ngx_file_t
+modifier|*
+name|file
 decl_stmt|;
 block|}
 struct|;
@@ -248,22 +257,36 @@ block|}
 struct|;
 end_struct
 
-begin_define
-DECL|macro|ngx_create_temp_hunk (pool,size,before,after)
-define|#
-directive|define
+begin_function_decl
+name|ngx_hunk_t
+modifier|*
 name|ngx_create_temp_hunk
 parameter_list|(
+name|ngx_pool_t
+modifier|*
 name|pool
 parameter_list|,
+name|int
 name|size
 parameter_list|,
+name|int
 name|before
 parameter_list|,
+name|int
 name|after
 parameter_list|)
-define|\
-value|ngx_get_hunk(pool, size, before, after)
+function_decl|;
+end_function_decl
+
+begin_define
+DECL|macro|ngx_create_chain_entry (pool)
+define|#
+directive|define
+name|ngx_create_chain_entry
+parameter_list|(
+name|pool
+parameter_list|)
+value|ngx_palloc(pool, sizeof(ngx_chain_t))
 end_define
 
 begin_define
@@ -283,27 +306,6 @@ parameter_list|)
 define|\
 value|do {                                                             \                 ngx_test_null(chain, ngx_create_chain_entry(pool), error);   \                 chain->hunk = h;                                             \                 chain->next = NULL;                                          \             } while (0);
 end_define
-
-begin_function_decl
-name|ngx_hunk_t
-modifier|*
-name|ngx_get_hunk
-parameter_list|(
-name|ngx_pool_t
-modifier|*
-name|pool
-parameter_list|,
-name|int
-name|size
-parameter_list|,
-name|int
-name|before
-parameter_list|,
-name|int
-name|after
-parameter_list|)
-function_decl|;
-end_function_decl
 
 begin_endif
 endif|#

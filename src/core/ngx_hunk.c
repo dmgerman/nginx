@@ -2,20 +2,14 @@ begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_include
 include|#
 directive|include
-file|<ngx_file.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<ngx_hunk.h>
 end_include
 
 begin_function
-DECL|function|ngx_get_hunk (ngx_pool_t * pool,int size,int before,int after)
+DECL|function|ngx_create_temp_hunk (ngx_pool_t * pool,int size,int before,int after)
 name|ngx_hunk_t
 modifier|*
-name|ngx_get_hunk
+name|ngx_create_temp_hunk
 parameter_list|(
 name|ngx_pool_t
 modifier|*
@@ -45,9 +39,12 @@ name|ngx_hunk_t
 argument_list|)
 argument_list|)
 decl_stmt|;
-ifndef|#
-directive|ifndef
-name|OFF_EQUAL_PTR
+if|#
+directive|if
+operator|!
+operator|(
+name|HAVE_OFFSET_EQUAL_PTR
+operator|)
 name|h
 operator|->
 name|pos
@@ -137,13 +134,9 @@ literal|0
 expr_stmt|;
 name|h
 operator|->
-name|fd
+name|file
 operator|=
-operator|(
-name|ngx_fd_t
-operator|)
-operator|-
-literal|1
+name|NULL
 expr_stmt|;
 return|return
 name|h
@@ -152,10 +145,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_get_hunk_before (ngx_pool_t * pool,ngx_hunk_t * hunk,int size)
+DECL|function|ngx_create_hunk_before (ngx_pool_t * pool,ngx_hunk_t * hunk,int size)
 name|ngx_hunk_t
 modifier|*
-name|ngx_get_hunk_before
+name|ngx_create_hunk_before
 parameter_list|(
 name|ngx_pool_t
 modifier|*
@@ -183,9 +176,12 @@ name|ngx_hunk_t
 argument_list|)
 argument_list|)
 decl_stmt|;
-ifndef|#
-directive|ifndef
-name|OFF_EQUAL_PTR
+if|#
+directive|if
+operator|!
+operator|(
+name|HAVE_OFFSET_EQUAL_PTR
+operator|)
 name|h
 operator|->
 name|pos
@@ -286,13 +282,9 @@ literal|0
 expr_stmt|;
 name|h
 operator|->
-name|fd
+name|file
 operator|=
-operator|(
-name|ngx_fd_t
-operator|)
-operator|-
-literal|1
+name|NULL
 expr_stmt|;
 block|}
 else|else
@@ -352,13 +344,9 @@ literal|0
 expr_stmt|;
 name|h
 operator|->
-name|fd
+name|file
 operator|=
-operator|(
-name|ngx_fd_t
-operator|)
-operator|-
-literal|1
+name|NULL
 expr_stmt|;
 block|}
 return|return
@@ -368,10 +356,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_get_hunk_after (ngx_pool_t * pool,ngx_hunk_t * hunk,int size)
+DECL|function|ngx_create_hunk_after (ngx_pool_t * pool,ngx_hunk_t * hunk,int size)
 name|ngx_hunk_t
 modifier|*
-name|ngx_get_hunk_after
+name|ngx_create_hunk_after
 parameter_list|(
 name|ngx_pool_t
 modifier|*
@@ -399,9 +387,12 @@ name|ngx_hunk_t
 argument_list|)
 argument_list|)
 decl_stmt|;
-ifndef|#
-directive|ifndef
-name|OFF_EQUAL_PTR
+if|#
+directive|if
+operator|!
+operator|(
+name|HAVE_OFFSET_EQUAL_PTR
+operator|)
 name|h
 operator|->
 name|pos
@@ -499,13 +490,9 @@ literal|0
 expr_stmt|;
 name|h
 operator|->
-name|fd
+name|file
 operator|=
-operator|(
-name|ngx_fd_t
-operator|)
-operator|-
-literal|1
+name|NULL
 expr_stmt|;
 block|}
 else|else
@@ -565,13 +552,9 @@ literal|0
 expr_stmt|;
 name|h
 operator|->
-name|fd
+name|file
 operator|=
-operator|(
-name|ngx_fd_t
-operator|)
-operator|-
-literal|1
+name|NULL
 expr_stmt|;
 block|}
 return|return
