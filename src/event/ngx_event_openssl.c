@@ -490,12 +490,12 @@ condition|(
 operator|*
 name|s
 operator|==
-literal|'\n'
+name|LF
 operator|||
 operator|*
 name|s
 operator|==
-literal|'\r'
+name|CR
 condition|)
 block|{
 continue|continue;
