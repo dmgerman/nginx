@@ -2979,6 +2979,19 @@ name|ev
 operator|->
 name|data
 expr_stmt|;
+name|ngx_log_debug0
+argument_list|(
+name|NGX_LOG_DEBUG_CORE
+argument_list|,
+name|ev
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"channel handler"
+argument_list|)
+expr_stmt|;
 name|n
 operator|=
 name|ngx_read_channel
@@ -3000,6 +3013,21 @@ operator|->
 name|log
 argument_list|)
 expr_stmt|;
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_CORE
+argument_list|,
+name|ev
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"channel: %d"
+argument_list|,
+name|n
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|n
@@ -3009,6 +3037,23 @@ condition|)
 block|{
 return|return;
 block|}
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_CORE
+argument_list|,
+name|ev
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"channel command: %d"
+argument_list|,
+name|ch
+operator|.
+name|command
+argument_list|)
+expr_stmt|;
 switch|switch
 condition|(
 name|ch
