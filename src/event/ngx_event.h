@@ -267,7 +267,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2c14e9a40103
+DECL|enum|__anon2b057a560103
 typedef|typedef
 enum|enum
 block|{
@@ -303,7 +303,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c14e9a40208
+DECL|struct|__anon2b057a560208
 typedef|typedef
 struct|struct
 block|{
@@ -529,6 +529,10 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_comment
+comment|/* HAVE_KQUEUE */
+end_comment
 
 begin_if
 if|#
