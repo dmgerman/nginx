@@ -88,6 +88,12 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|file
+operator|->
+name|offset
+operator|+=
+name|n
+expr_stmt|;
 return|return
 name|n
 return|;

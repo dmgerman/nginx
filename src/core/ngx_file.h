@@ -56,6 +56,10 @@ DECL|member|info
 name|ngx_file_info_t
 name|info
 decl_stmt|;
+DECL|member|offset
+name|off_t
+name|offset
+decl_stmt|;
 DECL|member|log
 name|ngx_log_t
 modifier|*
