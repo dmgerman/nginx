@@ -12,13 +12,13 @@ directive|define
 name|_NGINX_H_INCLUDED_
 end_define
 
-begin_decl_stmt
-specifier|extern
-name|char
-modifier|*
-name|gx_root
-decl_stmt|;
-end_decl_stmt
+begin_define
+DECL|macro|NGINX_VER
+define|#
+directive|define
+name|NGINX_VER
+value|"nginx/0.0.1"
+end_define
 
 begin_endif
 endif|#
