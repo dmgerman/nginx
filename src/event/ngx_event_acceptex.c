@@ -253,13 +253,14 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-comment|/* TODO: MT */
 name|c
 operator|->
 name|number
 operator|=
+name|ngx_atomic_inc
+argument_list|(
 name|ngx_connection_counter
-operator|++
+argument_list|)
 expr_stmt|;
 name|c
 operator|->

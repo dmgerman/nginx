@@ -37,19 +37,19 @@ value|"nginx.pid"
 end_define
 
 begin_define
-DECL|macro|NGINX_NEW_PID_EXT
+DECL|macro|NGINX_NEWPID_EXT
 define|#
 directive|define
-name|NGINX_NEW_PID_EXT
+name|NGINX_NEWPID_EXT
 value|".newbin"
 end_define
 
 begin_define
-DECL|macro|NGINX_NEW_PID
+DECL|macro|NGINX_NEWPID
 define|#
 directive|define
-name|NGINX_NEW_PID
-value|NGINX_PID NGINX_NEW_PID_EXT
+name|NGINX_NEWPID
+value|NGINX_PID NGINX_NEWPID_EXT
 end_define
 
 begin_define

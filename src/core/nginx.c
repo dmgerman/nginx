@@ -683,7 +683,7 @@ name|len
 operator|=
 sizeof|sizeof
 argument_list|(
-name|NGINX_NEW_PID
+name|NGINX_NEWPID
 argument_list|)
 operator|-
 literal|1
@@ -694,7 +694,7 @@ name|newpid
 operator|.
 name|data
 operator|=
-name|NGINX_NEW_PID
+name|NGINX_NEWPID
 expr_stmt|;
 block|}
 else|else
@@ -713,7 +713,7 @@ name|len
 operator|+
 sizeof|sizeof
 argument_list|(
-name|NGINX_NEW_PID_EXT
+name|NGINX_NEWPID_EXT
 argument_list|)
 expr_stmt|;
 if|if
@@ -768,11 +768,11 @@ operator|.
 name|len
 argument_list|)
 argument_list|,
-name|NGINX_NEW_PID_EXT
+name|NGINX_NEWPID_EXT
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|NGINX_NEW_PID_EXT
+name|NGINX_NEWPID_EXT
 argument_list|)
 argument_list|)
 expr_stmt|;
