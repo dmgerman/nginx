@@ -840,7 +840,7 @@ name|log
 operator|=
 name|log
 expr_stmt|;
-comment|/* TODO: x86: MT: lock xadd, MP: lock xadd, shared */
+comment|/*          * In the multithreaded model the connection counter is updated by          * the main thread only that accept()s connections.          *          * TODO: MP: - allocated in a shared memory          *           - atomic increment (x86: lock xadd)          *             or protection by critical section or mutex          */
 name|c
 operator|->
 name|number

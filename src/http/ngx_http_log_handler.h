@@ -91,23 +91,23 @@ value|sizeof("-2147483648") - 1
 end_define
 
 begin_define
-DECL|macro|NGX_TIME_LEN
+DECL|macro|NGX_TIME_T_LEN
 define|#
 directive|define
-name|NGX_TIME_LEN
+name|NGX_TIME_T_LEN
 value|sizeof("-2147483648") - 1
 end_define
 
 begin_define
-DECL|macro|NGX_OFF_LEN
+DECL|macro|NGX_OFF_T_LEN
 define|#
 directive|define
-name|NGX_OFF_LEN
+name|NGX_OFF_T_LEN
 value|sizeof("-9223372036854775808") - 1
 end_define
 
 begin_typedef
-DECL|struct|__anon2b43fcf60108
+DECL|struct|__anon27e4c4b10108
 typedef|typedef
 struct|struct
 block|{
@@ -130,7 +130,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b43fcf60208
+DECL|struct|__anon27e4c4b10208
 typedef|typedef
 struct|struct
 block|{
@@ -151,7 +151,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b43fcf60308
+DECL|struct|__anon27e4c4b10308
 typedef|typedef
 struct|struct
 block|{
@@ -174,7 +174,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b43fcf60408
+DECL|struct|__anon27e4c4b10408
 typedef|typedef
 struct|struct
 block|{
@@ -190,7 +190,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b43fcf60508
+DECL|struct|__anon27e4c4b10508
 typedef|typedef
 struct|struct
 block|{
@@ -212,7 +212,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b43fcf60608
+DECL|struct|__anon27e4c4b10608
 typedef|typedef
 struct|struct
 block|{

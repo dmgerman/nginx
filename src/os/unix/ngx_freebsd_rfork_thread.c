@@ -11,24 +11,6 @@ directive|include
 file|<ngx_core.h>
 end_include
 
-begin_include
-include|#
-directive|include
-file|<ngx_process.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_log.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_alloc.h>
-end_include
-
 begin_decl_stmt
 specifier|extern
 name|int

@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon27bc97b50108
+DECL|struct|__anon29e71e020108
 typedef|typedef
 struct|struct
 block|{
@@ -112,7 +112,7 @@ name|ngx_log_t
 modifier|*
 name|log
 decl_stmt|;
-comment|/*      * The inline of "ngx_rbtree_t  rbtree;".      *      * It allows to pack rbtree_color and variuos event bit flags into      * the single int.  We also use "unsigned char" and then "usigned short"      * because otherwise MSVC 6.0 uses an additional int for bit flags.      */
+comment|/*      * The inline of "ngx_rbtree_t  rbtree;".      *      * It allows to pack the rbtree_color and the variuos event bit flags into      * the single "int".  We also use "unsigned char" and then "usigned short"      * because otherwise MSVC 6.0 uses an additional "int" for the bit flags.      * We use "char rbtree_color" instead of "unsigned int rbtree_color:1"      * because it preserves the bits order on the big endian platforms.      */
 DECL|member|rbtree_key
 name|ngx_int_t
 name|rbtree_key
@@ -364,7 +364,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27bc97b50208
+DECL|struct|__anon29e71e020208
 typedef|typedef
 struct|struct
 block|{
@@ -1054,7 +1054,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon27bc97b50308
+DECL|struct|__anon29e71e020308
 typedef|typedef
 struct|struct
 block|{
@@ -1077,7 +1077,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27bc97b50408
+DECL|struct|__anon29e71e020408
 typedef|typedef
 struct|struct
 block|{

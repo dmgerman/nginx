@@ -2604,7 +2604,7 @@ name|ngx_snprintf
 argument_list|(
 name|buf
 argument_list|,
-name|NGX_TIME_LEN
+name|NGX_TIME_T_LEN
 argument_list|,
 name|TIME_T_FMT
 argument_list|,
@@ -2648,7 +2648,7 @@ name|ngx_snprintf
 argument_list|(
 name|buf
 argument_list|,
-name|NGX_TIME_LEN
+name|NGX_TIME_T_LEN
 argument_list|,
 name|TIME_T_FMT
 argument_list|,
@@ -2808,7 +2808,7 @@ name|ngx_snprintf
 argument_list|(
 name|buf
 argument_list|,
-name|NGX_TIME_LEN
+name|NGX_TIME_T_LEN
 argument_list|,
 name|TIME_T_FMT
 argument_list|,

@@ -24,10 +24,10 @@ directive|include
 file|<ngx_core.h>
 end_include
 
-begin_typedef
-DECL|struct|__anon277415e10108
-typedef|typedef
+begin_struct
+DECL|struct|ngx_array_s
 struct|struct
+name|ngx_array_s
 block|{
 DECL|member|elts
 name|void
@@ -51,11 +51,9 @@ name|ngx_pool_t
 modifier|*
 name|pool
 decl_stmt|;
-DECL|typedef|ngx_array_t
 block|}
-name|ngx_array_t
-typedef|;
-end_typedef
+struct|;
+end_struct
 
 begin_function_decl
 name|ngx_array_t
