@@ -41,7 +41,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f330f10108
+DECL|struct|__anon29c761cf0108
 typedef|typedef
 struct|struct
 block|{
@@ -98,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f330f10208
+DECL|struct|__anon29c761cf0208
 typedef|typedef
 struct|struct
 block|{
@@ -154,6 +154,14 @@ define|#
 directive|define
 name|NGX_PROCESS_WORKER
 value|2
+end_define
+
+begin_define
+DECL|macro|NGX_PROCESS_MASTER_QUIT
+define|#
+directive|define
+name|NGX_PROCESS_MASTER_QUIT
+value|3
 end_define
 
 begin_define
@@ -269,13 +277,6 @@ name|void
 parameter_list|)
 function_decl|;
 end_function_decl
-
-begin_decl_stmt
-specifier|extern
-name|ngx_int_t
-name|ngx_respawn
-decl_stmt|;
-end_decl_stmt
 
 begin_decl_stmt
 specifier|extern

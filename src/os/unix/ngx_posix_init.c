@@ -36,7 +36,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon29bab8930108
+DECL|struct|__anon2c47e8eb0108
 typedef|typedef
 struct|struct
 block|{
@@ -493,6 +493,10 @@ block|{
 case|case
 name|SIGCHLD
 case|:
+name|ngx_reap
+operator|=
+literal|1
+expr_stmt|;
 name|ngx_process_get_status
 argument_list|()
 expr_stmt|;
