@@ -122,6 +122,14 @@ end_if
 begin_if
 if|#
 directive|if
+operator|(
+name|HAVE_KQUEUE
+operator|)
+end_if
+
+begin_if
+if|#
+directive|if
 literal|1
 end_if
 
@@ -145,6 +153,25 @@ name|ngx_event_type_e
 name|ngx_event_type
 init|=
 name|NGX_KQUEUE_EVENT
+decl_stmt|;
+end_decl_stmt
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_else
+else|#
+directive|else
+end_else
+
+begin_decl_stmt
+DECL|variable|ngx_event_type
+name|ngx_event_type_e
+name|ngx_event_type
+init|=
+name|NGX_SELECT_EVENT
 decl_stmt|;
 end_decl_stmt
 
