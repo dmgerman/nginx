@@ -192,6 +192,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_rbtree.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_times.h>
 end_include
 

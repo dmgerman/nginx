@@ -84,6 +84,20 @@ end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
+name|ngx_epoch_msec_t
+name|ngx_elapsed_msec
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_epoch_msec_t
+name|ngx_start_msec
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
 name|ngx_str_t
 name|ngx_cached_err_log_time
 decl_stmt|;

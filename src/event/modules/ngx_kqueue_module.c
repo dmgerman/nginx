@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27f8afdb0108
+DECL|struct|__anon2ba5cfe00108
 typedef|typedef
 struct|struct
 block|{
@@ -1536,26 +1536,12 @@ operator|=
 operator|&
 name|ts
 expr_stmt|;
-name|ngx_gettimeofday
-argument_list|(
-operator|&
-name|tv
-argument_list|)
-expr_stmt|;
-name|delta
-operator|=
-name|tv
-operator|.
-name|tv_sec
-operator|*
-literal|1000
-operator|+
-name|tv
-operator|.
-name|tv_usec
-operator|/
-literal|1000
-expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|ngx_gettimeofday(&tv);         delta = tv.tv_sec * 1000 + tv.tv_usec / 1000;
+endif|#
+directive|endif
 block|}
 else|else
 block|{
@@ -1630,6 +1616,31 @@ operator|&
 name|tv
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+literal|1
+name|delta
+operator|=
+name|ngx_elapsed_msec
+expr_stmt|;
+endif|#
+directive|endif
+name|ngx_elapsed_msec
+operator|=
+name|tv
+operator|.
+name|tv_sec
+operator|*
+literal|1000
+operator|+
+name|tv
+operator|.
+name|tv_usec
+operator|/
+literal|1000
+operator|-
+name|ngx_start_msec
+expr_stmt|;
 if|if
 condition|(
 name|ngx_cached_time
@@ -1656,50 +1667,18 @@ condition|)
 block|{
 name|delta
 operator|=
-name|tv
-operator|.
-name|tv_sec
-operator|*
-literal|1000
-operator|+
-name|tv
-operator|.
-name|tv_usec
-operator|/
-literal|1000
+name|ngx_elapsed_msec
 operator|-
 name|delta
 expr_stmt|;
 if|#
 directive|if
-operator|(
-name|NGX_DEBUG_EVENT
-operator|)
-name|ngx_log_debug
-argument_list|(
-argument|log
-argument_list|,
-literal|"kevent timer: %d, delta: %d"
-argument|_ timer _ (int) delta
-argument_list|)
-empty_stmt|;
-endif|#
-directive|endif
-if|#
-directive|if
 literal|0
+block_content|delta = tv.tv_sec * 1000 + tv.tv_usec / 1000 - delta;
 comment|/*          * The expired timers must be handled before a processing of the events          * because the new timers can be added during a processing          */
-block_content|ngx_event_expire_timers((ngx_msec_t) delta);
+block_content|ngx_event_expire_timers((ngx_msec_t) delta);          ngx_event_set_timer_delta((ngx_msec_t) delta);
 endif|#
 directive|endif
-name|ngx_event_set_timer_delta
-argument_list|(
-operator|(
-name|ngx_msec_t
-operator|)
-name|delta
-argument_list|)
-expr_stmt|;
 block|}
 else|else
 block|{
@@ -1725,6 +1704,7 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+block|}
 if|#
 directive|if
 operator|(
@@ -1740,7 +1720,6 @@ argument_list|)
 empty_stmt|;
 endif|#
 directive|endif
-block|}
 if|if
 condition|(
 name|err
@@ -2082,6 +2061,8 @@ block|}
 if|if
 condition|(
 name|timer
+operator|&&
+name|delta
 condition|)
 block|{
 name|ngx_event_expire_timers
@@ -2093,6 +2074,12 @@ name|delta
 argument_list|)
 expr_stmt|;
 block|}
+if|#
+directive|if
+literal|0
+block_content|if (timer) {         ngx_event_expire_timers((ngx_msec_t) delta);     }
+endif|#
+directive|endif
 return|return
 name|NGX_OK
 return|;

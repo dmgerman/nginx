@@ -898,12 +898,6 @@ name|write
 operator|=
 name|wev
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|ngx_test_null(rev->log, ngx_palloc(cycle->pool, sizeof(ngx_log_t)),                       NGX_ERROR);          ngx_memcpy(rev->log, c->log, sizeof(ngx_log_t));
-endif|#
-directive|endif
 name|rev
 operator|->
 name|log
@@ -924,12 +918,6 @@ name|index
 operator|=
 name|NGX_INVALID_INDEX
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|rev->listening = 1;
-endif|#
-directive|endif
 name|rev
 operator|->
 name|available

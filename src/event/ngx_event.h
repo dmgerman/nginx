@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon278fb6110108
+DECL|struct|__anon2c62b9820108
 typedef|typedef
 struct|struct
 block|{
@@ -107,24 +107,16 @@ name|ngx_event_t
 modifier|*
 name|next
 decl_stmt|;
-DECL|member|timer_prev
-name|ngx_event_t
-modifier|*
-name|timer_prev
+DECL|member|rbtree
+name|ngx_rbtree_t
+name|rbtree
 decl_stmt|;
-DECL|member|timer_next
-name|ngx_event_t
-modifier|*
-name|timer_next
-decl_stmt|;
-DECL|member|timer_delta
-name|ngx_msec_t
-name|timer_delta
-decl_stmt|;
-DECL|member|timer
-name|ngx_msec_t
-name|timer
-decl_stmt|;
+if|#
+directive|if
+literal|0
+block|ngx_event_t     *timer_prev;     ngx_event_t     *timer_next;      ngx_msec_t       timer_delta;
+endif|#
+directive|endif
 DECL|member|log
 name|ngx_log_t
 modifier|*
@@ -338,7 +330,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon278fb6110208
+DECL|struct|__anon2c62b9820208
 typedef|typedef
 struct|struct
 block|{
@@ -1028,7 +1020,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon278fb6110308
+DECL|struct|__anon2c62b9820308
 typedef|typedef
 struct|struct
 block|{
@@ -1051,7 +1043,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278fb6110408
+DECL|struct|__anon2c62b9820408
 typedef|typedef
 struct|struct
 block|{
