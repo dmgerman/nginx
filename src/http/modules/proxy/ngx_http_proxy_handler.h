@@ -49,7 +49,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|enum|__anon2b430cec0103
+DECL|enum|__anon297d304c0103
 typedef|typedef
 enum|enum
 block|{
@@ -85,7 +85,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b430cec0203
+DECL|enum|__anon297d304c0203
 typedef|typedef
 enum|enum
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b430cec0308
+DECL|struct|__anon297d304c0308
 typedef|typedef
 struct|struct
 block|{
@@ -151,6 +151,12 @@ DECL|member|port
 name|int
 name|port
 decl_stmt|;
+DECL|member|default_port
+name|unsigned
+name|default_port
+range|:
+literal|1
+decl_stmt|;
 DECL|typedef|ngx_http_proxy_upstream_conf_t
 block|}
 name|ngx_http_proxy_upstream_conf_t
@@ -158,7 +164,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b430cec0408
+DECL|struct|__anon297d304c0408
 typedef|typedef
 struct|struct
 block|{
@@ -205,6 +211,10 @@ decl_stmt|;
 DECL|member|cache
 name|ngx_flag_t
 name|cache
+decl_stmt|;
+DECL|member|preserve_host
+name|ngx_flag_t
+name|preserve_host
 decl_stmt|;
 DECL|member|set_x_real_ip
 name|ngx_flag_t
@@ -278,7 +288,7 @@ comment|/*  * "EXPR/10/5/- 200/EXP/60 4"  * "MISS/-/-/B 503/-/- -"  * "EXPR/10/2
 end_comment
 
 begin_typedef
-DECL|struct|__anon2b430cec0508
+DECL|struct|__anon297d304c0508
 typedef|typedef
 struct|struct
 block|{
@@ -326,7 +336,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b430cec0608
+DECL|struct|__anon297d304c0608
 typedef|typedef
 struct|struct
 block|{
@@ -402,7 +412,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b430cec0708
+DECL|struct|__anon297d304c0708
 typedef|typedef
 struct|struct
 block|{
@@ -429,7 +439,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b430cec0808
+DECL|struct|__anon297d304c0808
 typedef|typedef
 struct|struct
 block|{
@@ -612,7 +622,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b430cec0908
+DECL|struct|__anon297d304c0908
 typedef|typedef
 struct|struct
 block|{

@@ -39,7 +39,7 @@ value|-10
 end_define
 
 begin_typedef
-DECL|struct|__anon2be6c3fa0108
+DECL|struct|__anon28a3b7510108
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be6c3fa0208
+DECL|struct|__anon28a3b7510208
 typedef|typedef
 struct|struct
 block|{
@@ -119,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be6c3fa0308
+DECL|struct|__anon28a3b7510308
 typedef|typedef
 struct|struct
 block|{
@@ -156,6 +156,13 @@ name|cached
 range|:
 literal|1
 decl_stmt|;
+DECL|member|log_error
+name|unsigned
+name|log_error
+range|:
+literal|2
+decl_stmt|;
+comment|/* ngx_connection_log_error_e */
 DECL|typedef|ngx_peer_connection_t
 block|}
 name|ngx_peer_connection_t

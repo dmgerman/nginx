@@ -167,6 +167,22 @@ value|WSAETIMEDOUT
 end_define
 
 begin_define
+DECL|macro|NGX_ECONNREFUSED
+define|#
+directive|define
+name|NGX_ECONNREFUSED
+value|WSAECONNREFUSED
+end_define
+
+begin_define
+DECL|macro|NGX_EHOSTUNREACH
+define|#
+directive|define
+name|NGX_EHOSTUNREACH
+value|WSAEHOSTUNREACH
+end_define
+
+begin_define
 DECL|macro|NGX_ENOMOREFILES
 define|#
 directive|define

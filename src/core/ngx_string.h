@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2abba4180108
+DECL|struct|__anon2b13c1360108
 typedef|typedef
 struct|struct
 block|{
@@ -88,38 +88,6 @@ value|stricmp
 end_define
 
 begin_define
-DECL|macro|ngx_strncmp
-define|#
-directive|define
-name|ngx_strncmp
-value|strncmp
-end_define
-
-begin_define
-DECL|macro|ngx_strcmp
-define|#
-directive|define
-name|ngx_strcmp
-value|strcmp
-end_define
-
-begin_define
-DECL|macro|ngx_strstr
-define|#
-directive|define
-name|ngx_strstr
-value|strstr
-end_define
-
-begin_define
-DECL|macro|ngx_strlen
-define|#
-directive|define
-name|ngx_strlen
-value|strlen
-end_define
-
-begin_define
 DECL|macro|ngx_snprintf
 define|#
 directive|define
@@ -157,12 +125,37 @@ value|strcasecmp
 end_define
 
 begin_define
+DECL|macro|ngx_snprintf
+define|#
+directive|define
+name|ngx_snprintf
+value|snprintf
+end_define
+
+begin_define
+DECL|macro|ngx_vsnprintf
+define|#
+directive|define
+name|ngx_vsnprintf
+value|vsnprintf
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_define
 DECL|macro|ngx_strncmp
 define|#
 directive|define
 name|ngx_strncmp
 value|strncmp
 end_define
+
+begin_comment
+comment|/* msvc and icc compile strcmp() to inline loop */
+end_comment
 
 begin_define
 DECL|macro|ngx_strcmp
@@ -188,29 +181,8 @@ name|ngx_strlen
 value|strlen
 end_define
 
-begin_define
-DECL|macro|ngx_snprintf
-define|#
-directive|define
-name|ngx_snprintf
-value|snprintf
-end_define
-
-begin_define
-DECL|macro|ngx_vsnprintf
-define|#
-directive|define
-name|ngx_vsnprintf
-value|vsnprintf
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
 begin_comment
-comment|/*  * msvc and icc compile memset() to inline "rep stos"  * while ZeroMemory and bzero are calls.  */
+comment|/*  * msvc and icc compile memset() to inline "rep stos"  * while ZeroMemory and bzero are calls.  *  * icc can also inline mov's of a zeroed register for small blocks.  */
 end_comment
 
 begin_define

@@ -13,7 +13,7 @@ name|_NGX_IOCP_MODULE_H_INCLUDED_
 end_define
 
 begin_typedef
-DECL|struct|__anon29c8772a0108
+DECL|struct|__anon27b1c9020108
 typedef|typedef
 struct|struct
 block|{
@@ -21,9 +21,9 @@ DECL|member|threads
 name|int
 name|threads
 decl_stmt|;
-DECL|member|acceptex
+DECL|member|post_acceptex
 name|int
-name|acceptex
+name|post_acceptex
 decl_stmt|;
 DECL|member|acceptex_read
 name|int

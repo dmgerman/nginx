@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29c510460108
+DECL|struct|__anon29311e420108
 typedef|typedef
 struct|struct
 block|{
@@ -42,7 +42,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c510460208
+DECL|struct|__anon29311e420208
 typedef|typedef
 struct|struct
 block|{
@@ -332,9 +332,6 @@ name|char
 modifier|*
 name|name
 decl_stmt|;
-name|uint32_t
-name|crc
-decl_stmt|;
 name|size_t
 name|len
 decl_stmt|;
@@ -367,6 +364,16 @@ name|ngx_http_index_loc_conf_t
 modifier|*
 name|ilcf
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_CACHE
+operator|)
+name|uint32_t
+name|crc
+decl_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|r

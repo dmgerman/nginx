@@ -153,6 +153,22 @@ value|ETIMEDOUT
 end_define
 
 begin_define
+DECL|macro|NGX_ECONNREFUSED
+define|#
+directive|define
+name|NGX_ECONNREFUSED
+value|ECONNREFUSED
+end_define
+
+begin_define
+DECL|macro|NGX_EHOSTUNREACH
+define|#
+directive|define
+name|NGX_EHOSTUNREACH
+value|EHOSTUNREACH
+end_define
+
+begin_define
 DECL|macro|NGX_ECANCELED
 define|#
 directive|define

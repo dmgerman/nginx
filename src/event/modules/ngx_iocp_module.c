@@ -174,7 +174,7 @@ block|,
 block|{
 name|ngx_string
 argument_list|(
-literal|"acceptex"
+literal|"post_acceptex"
 argument_list|)
 block|,
 name|NGX_EVENT_CONF
@@ -189,7 +189,7 @@ name|offsetof
 argument_list|(
 name|ngx_iocp_conf_t
 argument_list|,
-name|acceptex
+name|post_acceptex
 argument_list|)
 block|,
 name|NULL
@@ -1049,7 +1049,7 @@ name|NGX_CONF_UNSET
 expr_stmt|;
 name|cf
 operator|->
-name|acceptex
+name|post_acceptex
 operator|=
 name|NGX_CONF_UNSET
 expr_stmt|;
@@ -1100,7 +1100,7 @@ name|ngx_conf_init_value
 argument_list|(
 name|cf
 operator|->
-name|acceptex
+name|post_acceptex
 argument_list|,
 literal|10
 argument_list|)

@@ -747,6 +747,14 @@ name|fd
 operator|=
 name|s
 expr_stmt|;
+name|c
+operator|->
+name|log_error
+operator|=
+name|pc
+operator|->
+name|log_error
+expr_stmt|;
 name|pc
 operator|->
 name|connection
@@ -869,7 +877,7 @@ name|err
 operator|=
 name|ngx_socket_errno
 expr_stmt|;
-comment|/* Winsock returns WSAEWOULDBLOCK */
+comment|/* Winsock returns WSAEWOULDBLOCK (NGX_EAGAIN) */
 if|if
 condition|(
 name|err
@@ -881,13 +889,9 @@ operator|!=
 name|NGX_EAGAIN
 condition|)
 block|{
-name|ngx_log_error
+name|ngx_connection_error
 argument_list|(
-name|NGX_LOG_ERR
-argument_list|,
-name|pc
-operator|->
-name|log
+name|c
 argument_list|,
 name|err
 argument_list|,

@@ -1119,6 +1119,14 @@ operator|||
 name|err
 operator|==
 name|NGX_ENOTCONN
+operator|||
+name|err
+operator|==
+name|NGX_ECONNREFUSED
+operator|||
+name|err
+operator|==
+name|NGX_EHOSTUNREACH
 condition|)
 block|{
 switch|switch
