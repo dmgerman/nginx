@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a3db0d60108
+DECL|struct|__anon278394950108
 typedef|typedef
 struct|struct
 block|{
@@ -50,9 +50,9 @@ name|void
 modifier|*
 name|ngx_http_charset_create_loc_conf
 parameter_list|(
-name|ngx_pool_t
+name|ngx_conf_t
 modifier|*
-name|pool
+name|cf
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -63,9 +63,9 @@ name|char
 modifier|*
 name|ngx_http_charset_merge_loc_conf
 parameter_list|(
-name|ngx_pool_t
+name|ngx_conf_t
 modifier|*
-name|pool
+name|cf
 parameter_list|,
 name|void
 modifier|*
@@ -334,15 +334,15 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_charset_create_loc_conf (ngx_pool_t * pool)
+DECL|function|ngx_http_charset_create_loc_conf (ngx_conf_t * cf)
 specifier|static
 name|void
 modifier|*
 name|ngx_http_charset_create_loc_conf
 parameter_list|(
-name|ngx_pool_t
+name|ngx_conf_t
 modifier|*
-name|pool
+name|cf
 parameter_list|)
 block|{
 name|ngx_http_charset_loc_conf_t
@@ -355,6 +355,8 @@ name|lcf
 argument_list|,
 name|ngx_pcalloc
 argument_list|(
+name|cf
+operator|->
 name|pool
 argument_list|,
 sizeof|sizeof
@@ -373,15 +375,15 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_charset_merge_loc_conf (ngx_pool_t * pool,void * parent,void * child)
+DECL|function|ngx_http_charset_merge_loc_conf (ngx_conf_t * cf,void * parent,void * child)
 specifier|static
 name|char
 modifier|*
 name|ngx_http_charset_merge_loc_conf
 parameter_list|(
-name|ngx_pool_t
+name|ngx_conf_t
 modifier|*
-name|pool
+name|cf
 parameter_list|,
 name|void
 modifier|*

@@ -54,6 +54,16 @@ directive|include
 file|<stdarg.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<time.h>
+end_include
+
+begin_comment
+comment|/* gmtime, strftime */
+end_comment
+
 begin_define
 DECL|macro|ngx_inline
 define|#

@@ -174,24 +174,6 @@ DECL|macro|NGX_CONF_MODULE
 comment|/* "CONF" */
 end_comment
 
-begin_define
-DECL|macro|MAX_CONF_ERRSTR
-define|#
-directive|define
-name|MAX_CONF_ERRSTR
-value|256
-end_define
-
-begin_decl_stmt
-specifier|extern
-name|char
-name|ngx_conf_errstr
-index|[
-name|MAX_CONF_ERRSTR
-index|]
-decl_stmt|;
-end_decl_stmt
-
 begin_struct
 DECL|struct|ngx_command_s
 struct|struct
@@ -264,6 +246,15 @@ DECL|member|name
 name|ngx_str_t
 name|name
 decl_stmt|;
+if|#
+directive|if
+literal|0
+comment|/* e.g. append mode, error_log */
+block|int        flags;
+comment|/* e.g. reopen db file */
+block|int      (*handler)(void *data, ngx_open_file_t *file);     void      *data;
+endif|#
+directive|endif
 block|}
 struct|;
 end_struct
@@ -394,7 +385,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28a78ac90108
+DECL|struct|__anon27b9e76d0108
 typedef|typedef
 struct|struct
 block|{
@@ -635,6 +626,22 @@ parameter_list|,
 name|ngx_str_t
 modifier|*
 name|filename
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_open_file_t
+modifier|*
+name|ngx_conf_open_file
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|name
 parameter_list|)
 function_decl|;
 end_function_decl

@@ -15,6 +15,15 @@ modifier|*
 name|cp
 parameter_list|)
 block|{
+name|time_t
+name|now
+decl_stmt|;
+comment|/* TODO: cached connection */
+name|now
+operator|=
+name|ngx_time
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|cp
@@ -26,7 +35,7 @@ operator|>
 literal|1
 condition|)
 block|{
-comment|/* it's a first try - get current peer */
+comment|/* there are several peers */
 if|if
 condition|(
 name|cp
@@ -40,7 +49,8 @@ operator|->
 name|number
 condition|)
 block|{
-comment|/* Here is the race condition                when the peers are shared between                the threads or the processes but it should not be serious */
+comment|/* it's a first try - get a current peer */
+comment|/* Here is the race condition when the peers are shared between                the threads or the processes but it should not be serious */
 name|cp
 operator|->
 name|cur_peer
@@ -76,7 +86,7 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-comment|/* */
+comment|/* the end of the race condition */
 if|#
 directive|if
 operator|(
@@ -119,6 +129,7 @@ operator|>
 literal|0
 condition|)
 block|{
+comment|/* the peers support a fault tolerance */
 for|for
 control|(
 init|;
@@ -139,7 +150,7 @@ operator|->
 name|cur_peer
 index|]
 expr_stmt|;
-comment|/* Here is the race condition                    when the peers are shared between                    the threads or the processes but it should not be serious */
+comment|/* Here is the race condition when the peers are shared between                    the threads or the processes but it should not be serious */
 if|if
 condition|(
 name|peer
@@ -169,7 +180,7 @@ condition|)
 block|{
 break|break;
 block|}
-comment|/* */
+comment|/* the end of the race condition */
 name|cp
 operator|->
 name|cur_peer
@@ -241,7 +252,7 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
-name|cn
+name|cp
 operator|->
 name|log
 argument_list|,
@@ -252,12 +263,12 @@ literal|" failed"
 argument_list|)
 expr_stmt|;
 return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 return|;
 block|}
 if|if
 condition|(
-name|cn
+name|cp
 operator|->
 name|rcvbuf
 condition|)
@@ -278,7 +289,7 @@ name|void
 operator|*
 operator|)
 operator|&
-name|cn
+name|cp
 operator|->
 name|rcvbuf
 argument_list|,
@@ -296,7 +307,7 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
-name|cn
+name|cp
 operator|->
 name|log
 argument_list|,
@@ -320,7 +331,7 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
-name|cn
+name|cp
 operator|->
 name|log
 argument_list|,
@@ -332,7 +343,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 return|;
 block|}
 block|}
@@ -388,13 +399,88 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 return|;
+block|}
+if|#
+directive|if
+operator|(
+name|WIN32
+operator|)
+comment|/*          * Winsock assignes a socket number divisible by 4          * so to find a connection we divide a socket number by 4.          */
+if|if
+condition|(
+name|s
+operator|%
+literal|4
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cp
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+name|ngx_socket_n
+literal|" created socket %d, not divisible by 4"
+argument_list|,
+name|s
+argument_list|)
+expr_stmt|;
+name|exit
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 block|}
 name|c
 operator|=
 operator|&
-name|ngx_connections
+name|ngx_cycle
+operator|->
+name|connections
+index|[
+name|s
+operator|/
+literal|4
+index|]
+expr_stmt|;
+name|rev
+operator|=
+operator|&
+name|ngx_cycle
+operator|->
+name|read_events
+index|[
+name|s
+operator|/
+literal|4
+index|]
+expr_stmt|;
+name|wev
+operator|=
+operator|&
+name|ngx_cycle
+operator|->
+name|write_events
+index|[
+name|s
+operator|/
+literal|4
+index|]
+expr_stmt|;
+else|#
+directive|else
+name|c
+operator|=
+operator|&
+name|ngx_cycle
+operator|->
+name|connections
 index|[
 name|s
 index|]
@@ -402,7 +488,9 @@ expr_stmt|;
 name|rev
 operator|=
 operator|&
-name|ngx_read_events
+name|ngx_cycle
+operator|->
+name|read_events
 index|[
 name|s
 index|]
@@ -410,11 +498,15 @@ expr_stmt|;
 name|wev
 operator|=
 operator|&
-name|ngx_write_events
+name|ngx_cycle
+operator|->
+name|write_events
 index|[
 name|s
 index|]
 expr_stmt|;
+endif|#
+directive|endif
 name|instance
 operator|=
 name|rev
@@ -494,6 +586,21 @@ operator|=
 operator|!
 name|instance
 expr_stmt|;
+operator|!
+operator|!
+operator|!
+operator|!
+operator|!
+operator|!
+operator|!
+operator|!
+operator|!
+operator|!
+operator|!
+operator|!
+operator|!
+operator|!
+operator|!
 name|rev
 operator|->
 name|log
@@ -526,6 +633,7 @@ name|close_handler
 operator|=
 name|ngx_event_close_connection
 expr_stmt|;
+block|}
 end_function
 
 end_unit

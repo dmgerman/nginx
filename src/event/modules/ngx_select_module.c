@@ -1112,11 +1112,24 @@ operator|=
 operator|&
 name|tv
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|HAVE_SELECT_CHANGE_TIMEOUT
+operator|)
+name|delta
+operator|=
+literal|0
+expr_stmt|;
+else|#
+directive|else
 name|delta
 operator|=
 name|ngx_msec
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 else|else
 block|{
@@ -1349,7 +1362,31 @@ condition|(
 name|timer
 condition|)
 block|{
-comment|/* TODO: Linux returns time in tv */
+if|#
+directive|if
+operator|(
+name|HAVE_SELECT_CHANGE_TIMEOUT
+operator|)
+name|delta
+operator|=
+name|timer
+operator|-
+operator|(
+name|tv
+operator|.
+name|tv_sec
+operator|*
+literal|1000
+operator|+
+name|tv
+operator|.
+name|tv_usec
+operator|/
+literal|1000
+operator|)
+expr_stmt|;
+else|#
+directive|else
 name|delta
 operator|=
 name|ngx_msec
@@ -1357,6 +1394,8 @@ argument_list|()
 operator|-
 name|delta
 expr_stmt|;
+endif|#
+directive|endif
 if|#
 directive|if
 operator|(
@@ -1395,7 +1434,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"select() returns no events without timeout"
+literal|"select() returned no events without timeout"
 argument_list|)
 expr_stmt|;
 return|return
@@ -1734,7 +1773,7 @@ argument_list|,
 name|ngx_event_core_module
 argument_list|)
 expr_stmt|;
-comment|/* the default FD_SETSIZE is 1024U in FreeBSD 5.x */
+comment|/* disable warnings: the default FD_SETSIZE is 1024U in FreeBSD 5.x */
 if|if
 condition|(
 operator|(

@@ -1112,7 +1112,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"poll() returns no events without timeout"
+literal|"poll() returned no events without timeout"
 argument_list|)
 expr_stmt|;
 return|return

@@ -314,6 +314,25 @@ endif|#
 directive|endif
 end_endif
 
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|HAVE_SELECT_CHANGE_TIMEOUT
+end_ifndef
+
+begin_define
+DECL|macro|HAVE_SELECT_CHANGE_TIMEOUT
+define|#
+directive|define
+name|HAVE_SELECT_CHANGE_TIMEOUT
+value|1
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_endif
 endif|#
 directive|endif

@@ -17,6 +17,10 @@ directive|include
 file|<ngx_event.h>
 end_include
 
+begin_comment
+comment|/* in multithreaded enviroment all timer operations must be    protected by the single mutex */
+end_comment
+
 begin_decl_stmt
 DECL|variable|ngx_timer_queue
 DECL|variable|ngx_temp_timer_queue

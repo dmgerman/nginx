@@ -21,13 +21,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_string.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_log.h>
+file|<ngx_core.h>
 end_include
 
 begin_include
@@ -36,14 +30,8 @@ directive|include
 file|<ngx_event.h>
 end_include
 
-begin_include
-include|#
-directive|include
-file|<ngx_connection.h>
-end_include
-
 begin_typedef
-DECL|struct|__anon2788f8a70108
+DECL|struct|__anon2b53883a0108
 typedef|typedef
 struct|struct
 block|{
@@ -78,7 +66,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2788f8a70208
+DECL|struct|__anon2b53883a0208
 typedef|typedef
 struct|struct
 block|{
@@ -114,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2788f8a70308
+DECL|struct|__anon2b53883a0308
 typedef|typedef
 struct|struct
 block|{
@@ -130,6 +118,12 @@ decl_stmt|;
 DECL|member|tries
 name|int
 name|tries
+decl_stmt|;
+DECL|member|cached
+name|unsigned
+name|cached
+range|:
+literal|1
 decl_stmt|;
 DECL|typedef|ngx_connect_peer_t
 block|}

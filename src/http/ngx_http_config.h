@@ -25,7 +25,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bf84ade0108
+DECL|struct|__anon289c135f0108
 typedef|typedef
 struct|struct
 block|{
@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf84ade0208
+DECL|struct|__anon289c135f0208
 typedef|typedef
 struct|struct
 block|{
@@ -93,7 +93,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf84ade0308
+DECL|struct|__anon289c135f0308
 typedef|typedef
 struct|struct
 block|{
@@ -105,9 +105,9 @@ modifier|*
 name|create_main_conf
 function_decl|)
 parameter_list|(
-name|ngx_pool_t
+name|ngx_conf_t
 modifier|*
-name|p
+name|cf
 parameter_list|)
 function_decl|;
 DECL|member|init_main_conf
@@ -118,9 +118,9 @@ modifier|*
 name|init_main_conf
 function_decl|)
 parameter_list|(
-name|ngx_pool_t
+name|ngx_conf_t
 modifier|*
-name|p
+name|cf
 parameter_list|,
 name|void
 modifier|*
@@ -135,9 +135,9 @@ modifier|*
 name|create_srv_conf
 function_decl|)
 parameter_list|(
-name|ngx_pool_t
+name|ngx_conf_t
 modifier|*
-name|p
+name|cf
 parameter_list|)
 function_decl|;
 DECL|member|merge_srv_conf
@@ -148,9 +148,9 @@ modifier|*
 name|merge_srv_conf
 function_decl|)
 parameter_list|(
-name|ngx_pool_t
+name|ngx_conf_t
 modifier|*
-name|p
+name|cf
 parameter_list|,
 name|void
 modifier|*
@@ -169,9 +169,9 @@ modifier|*
 name|create_loc_conf
 function_decl|)
 parameter_list|(
-name|ngx_pool_t
+name|ngx_conf_t
 modifier|*
-name|p
+name|cf
 parameter_list|)
 function_decl|;
 DECL|member|merge_loc_conf
@@ -182,9 +182,9 @@ modifier|*
 name|merge_loc_conf
 function_decl|)
 parameter_list|(
-name|ngx_pool_t
+name|ngx_conf_t
 modifier|*
-name|p
+name|cf
 parameter_list|,
 name|void
 modifier|*

@@ -818,7 +818,7 @@ name|c
 operator|->
 name|log
 argument_list|,
-name|ev
+name|ls
 operator|->
 name|log
 argument_list|,

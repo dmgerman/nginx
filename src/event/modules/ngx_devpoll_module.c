@@ -78,7 +78,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c6c15d00108
+DECL|struct|__anon2757616c0108
 typedef|typedef
 struct|struct
 block|{
@@ -1552,7 +1552,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"ioctl(DP_POLL) returns no events without timeout"
+literal|"ioctl(DP_POLL) returned no events without timeout"
 argument_list|)
 expr_stmt|;
 return|return

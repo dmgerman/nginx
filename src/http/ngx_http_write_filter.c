@@ -24,7 +24,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b300b6b0108
+DECL|struct|__anon2bc334cd0108
 typedef|typedef
 struct|struct
 block|{
@@ -39,7 +39,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b300b6b0208
+DECL|struct|__anon2bc334cd0208
 typedef|typedef
 struct|struct
 block|{
@@ -60,9 +60,9 @@ name|void
 modifier|*
 name|ngx_http_write_filter_create_conf
 parameter_list|(
-name|ngx_pool_t
+name|ngx_conf_t
 modifier|*
-name|pool
+name|cf
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -73,9 +73,9 @@ name|char
 modifier|*
 name|ngx_http_write_filter_merge_conf
 parameter_list|(
-name|ngx_pool_t
+name|ngx_conf_t
 modifier|*
-name|pool
+name|cf
 parameter_list|,
 name|void
 modifier|*
@@ -663,15 +663,15 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_write_filter_create_conf (ngx_pool_t * pool)
+DECL|function|ngx_http_write_filter_create_conf (ngx_conf_t * cf)
 specifier|static
 name|void
 modifier|*
 name|ngx_http_write_filter_create_conf
 parameter_list|(
-name|ngx_pool_t
+name|ngx_conf_t
 modifier|*
-name|pool
+name|cf
 parameter_list|)
 block|{
 name|ngx_http_write_filter_conf_t
@@ -684,6 +684,8 @@ name|conf
 argument_list|,
 name|ngx_palloc
 argument_list|(
+name|cf
+operator|->
 name|pool
 argument_list|,
 sizeof|sizeof
@@ -708,15 +710,15 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_write_filter_merge_conf (ngx_pool_t * pool,void * parent,void * child)
+DECL|function|ngx_http_write_filter_merge_conf (ngx_conf_t * cf,void * parent,void * child)
 specifier|static
 name|char
 modifier|*
 name|ngx_http_write_filter_merge_conf
 parameter_list|(
-name|ngx_pool_t
+name|ngx_conf_t
 modifier|*
-name|pool
+name|cf
 parameter_list|,
 name|void
 modifier|*
