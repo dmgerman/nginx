@@ -202,7 +202,7 @@ operator|->
 name|next
 control|)
 block|{
-name|ngx_log_debug1
+name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_ALLOC
 argument_list|,
@@ -214,8 +214,18 @@ literal|0
 argument_list|,
 literal|"free: "
 name|PTR_FMT
+literal|", unused: "
+name|SIZE_T_FMT
 argument_list|,
 name|p
+argument_list|,
+name|p
+operator|->
+name|end
+operator|-
+name|p
+operator|->
+name|last
 argument_list|)
 expr_stmt|;
 if|if
@@ -330,6 +340,11 @@ operator|*
 operator|)
 name|pool
 operator|)
+operator|-
+sizeof|sizeof
+argument_list|(
+name|ngx_pool_t
+argument_list|)
 condition|)
 block|{
 for|for
@@ -633,7 +648,7 @@ end_function
 
 begin_function
 DECL|function|ngx_pfree (ngx_pool_t * pool,void * p)
-name|void
+name|ngx_int_t
 name|ngx_pfree
 parameter_list|(
 name|ngx_pool_t
@@ -706,8 +721,14 @@ name|alloc
 operator|=
 name|NULL
 expr_stmt|;
+return|return
+name|NGX_OK
+return|;
 block|}
 block|}
+return|return
+name|NGX_DECLINED
+return|;
 block|}
 end_function
 

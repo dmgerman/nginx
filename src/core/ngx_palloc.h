@@ -208,7 +208,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|void
+name|ngx_int_t
 name|ngx_pfree
 parameter_list|(
 name|ngx_pool_t

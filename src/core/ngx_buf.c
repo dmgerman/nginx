@@ -99,7 +99,7 @@ name|temporary
 operator|=
 literal|1
 expr_stmt|;
-comment|/*     b->file_pos = 0;     b->file_last = 0;      b->file = NULL;     b->shadow = NULL;      b->tag = 0;     */
+comment|/*      b->file_pos = 0;     b->file_last = 0;      b->file = NULL;     b->shadow = NULL;      b->tag = 0;       */
 return|return
 name|b
 return|;

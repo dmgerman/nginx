@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b12df7a0108
+DECL|struct|__anon2981663a0108
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b12df7a0203
+DECL|enum|__anon2981663a0203
 typedef|typedef
 enum|enum
 block|{
@@ -95,7 +95,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b12df7a0308
+DECL|struct|__anon2981663a0308
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b12df7a0408
+DECL|struct|__anon2981663a0408
 typedef|typedef
 struct|struct
 block|{
@@ -146,7 +146,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b12df7a0508
+DECL|struct|__anon2981663a0508
 typedef|typedef
 struct|struct
 block|{
@@ -183,9 +183,9 @@ DECL|member|client_header_buffer_size
 name|size_t
 name|client_header_buffer_size
 decl_stmt|;
-DECL|member|client_large_buffers
+DECL|member|large_client_header_buffers
 name|ngx_bufs_t
-name|client_large_buffers
+name|large_client_header_buffers
 decl_stmt|;
 DECL|member|post_accept_timeout
 name|ngx_msec_t
@@ -199,10 +199,6 @@ DECL|member|restrict_host_names
 name|ngx_uint_t
 name|restrict_host_names
 decl_stmt|;
-DECL|member|large_client_header
-name|ngx_flag_t
-name|large_client_header
-decl_stmt|;
 DECL|typedef|ngx_http_core_srv_conf_t
 block|}
 name|ngx_http_core_srv_conf_t
@@ -214,7 +210,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2b12df7a0608
+DECL|struct|__anon2981663a0608
 typedef|typedef
 struct|struct
 block|{
@@ -238,7 +234,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b12df7a0708
+DECL|struct|__anon2981663a0708
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +266,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b12df7a0808
+DECL|struct|__anon2981663a0808
 typedef|typedef
 struct|struct
 block|{
@@ -313,7 +309,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon2b12df7a0908
+DECL|struct|__anon2981663a0908
 typedef|typedef
 struct|struct
 block|{
@@ -332,7 +328,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b12df7a0a08
+DECL|struct|__anon2981663a0a08
 typedef|typedef
 struct|struct
 block|{
@@ -438,11 +434,6 @@ name|size_t
 name|client_max_body_size
 decl_stmt|;
 comment|/* client_max_body_size */
-DECL|member|discarded_buffer_size
-name|size_t
-name|discarded_buffer_size
-decl_stmt|;
-comment|/* discarded_buffer_size */
 DECL|member|client_body_buffer_size
 name|size_t
 name|client_body_buffer_size
@@ -478,11 +469,6 @@ name|ngx_msec_t
 name|keepalive_timeout
 decl_stmt|;
 comment|/* keepalive_timeout */
-DECL|member|keepalive_header
-name|time_t
-name|keepalive_header
-decl_stmt|;
-comment|/* keepalive_timeout */
 DECL|member|lingering_time
 name|ngx_msec_t
 name|lingering_time
@@ -493,6 +479,16 @@ name|ngx_msec_t
 name|lingering_timeout
 decl_stmt|;
 comment|/* lingering_timeout */
+DECL|member|keepalive_header
+name|time_t
+name|keepalive_header
+decl_stmt|;
+comment|/* keepalive_timeout */
+DECL|member|keepalive_buffers
+name|ngx_flag_t
+name|keepalive_buffers
+decl_stmt|;
+comment|/* keepalive_buffers */
 DECL|member|sendfile
 name|ngx_flag_t
 name|sendfile
