@@ -377,7 +377,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon292d63910103
+DECL|enum|__anon2c4e6fbd0103
 typedef|typedef
 enum|enum
 block|{
@@ -398,7 +398,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon292d63910203
+DECL|enum|__anon2c4e6fbd0203
 typedef|typedef
 enum|enum
 block|{
@@ -437,7 +437,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292d63910308
+DECL|struct|__anon2c4e6fbd0308
 typedef|typedef
 struct|struct
 block|{
@@ -456,7 +456,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292d63910408
+DECL|struct|__anon2c4e6fbd0408
 typedef|typedef
 struct|struct
 block|{
@@ -570,7 +570,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292d63910508
+DECL|struct|__anon2c4e6fbd0508
 typedef|typedef
 struct|struct
 block|{
@@ -593,7 +593,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292d63910608
+DECL|struct|__anon2c4e6fbd0608
 typedef|typedef
 struct|struct
 block|{
@@ -697,7 +697,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292d63910708
+DECL|struct|__anon2c4e6fbd0708
 typedef|typedef
 struct|struct
 block|{
@@ -748,10 +748,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon292d6391080a
+DECL|union|__anon2c4e6fbd080a
 union|union
 block|{
-DECL|struct|__anon292d63910908
+DECL|struct|__anon2c4e6fbd0908
 struct|struct
 block|{
 DECL|member|fd
@@ -767,7 +767,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon292d63910a08
+DECL|struct|__anon2c4e6fbd0a08
 struct|struct
 block|{
 DECL|member|hash
@@ -825,6 +825,11 @@ DECL|struct|ngx_http_request_s
 struct|struct
 name|ngx_http_request_s
 block|{
+DECL|member|signature
+name|uint32_t
+name|signature
+decl_stmt|;
+comment|/* "HTTP" */
 DECL|member|connection
 name|ngx_connection_t
 modifier|*

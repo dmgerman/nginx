@@ -1133,6 +1133,15 @@ operator|)
 operator|-
 literal|1
 expr_stmt|;
+name|c
+index|[
+name|i
+index|]
+operator|.
+name|data
+operator|=
+name|NULL
+expr_stmt|;
 block|}
 name|cycle
 operator|->
