@@ -3073,7 +3073,7 @@ operator|*
 operator|)
 name|buf
 argument_list|,
-name|NGX_TIME_T_LEN
+name|TIME_T_LEN
 argument_list|,
 name|TIME_T_FMT
 argument_list|,
@@ -3121,7 +3121,7 @@ operator|*
 operator|)
 name|buf
 argument_list|,
-name|NGX_TIME_T_LEN
+name|TIME_T_LEN
 argument_list|,
 name|TIME_T_FMT
 argument_list|,
@@ -3290,7 +3290,7 @@ operator|*
 operator|)
 name|buf
 argument_list|,
-name|NGX_TIME_T_LEN
+name|TIME_T_LEN
 argument_list|,
 name|TIME_T_FMT
 argument_list|,

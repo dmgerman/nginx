@@ -57,7 +57,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon28ea27c80108
+DECL|struct|__anon29d584870108
 typedef|typedef
 struct|struct
 block|{
@@ -86,7 +86,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28ea27c80208
+DECL|struct|__anon29d584870208
 typedef|typedef
 struct|struct
 block|{
@@ -411,6 +411,18 @@ endif|#
 directive|endif
 if|#
 directive|if
+operator|(
+name|NGX_THREADS
+operator|)
+DECL|member|lock
+name|ngx_atomic_t
+modifier|*
+name|lock
+decl_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
 literal|0
 comment|/* the threads support */
 comment|/*      * the event thread context, we store it here      * if $(CC) does not understand __thread declaration      * and pthread_getspecific() is too costly      */
@@ -431,7 +443,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28ea27c80308
+DECL|struct|__anon29d584870308
 typedef|typedef
 struct|struct
 block|{
@@ -1222,7 +1234,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon28ea27c80408
+DECL|struct|__anon29d584870408
 typedef|typedef
 struct|struct
 block|{
@@ -1269,7 +1281,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ea27c80508
+DECL|struct|__anon29d584870508
 typedef|typedef
 struct|struct
 block|{

@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b874cc10108
+DECL|struct|__anon28c6ae8e0108
 typedef|typedef
 struct|struct
 block|{
@@ -2377,7 +2377,6 @@ name|ngx_posted_events_mutex
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* TODO: wake up worker thread */
 if|if
 condition|(
 name|expire
@@ -2396,15 +2395,28 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-operator|!
+name|ngx_posted_events
+condition|)
+block|{
+if|if
+condition|(
 name|ngx_threaded
 condition|)
+block|{
+name|ngx_cv_signal
+argument_list|(
+name|ngx_posted_events_cv
+argument_list|)
+expr_stmt|;
+block|}
+else|else
 block|{
 name|ngx_event_process_posted
 argument_list|(
 name|cycle
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|NGX_OK

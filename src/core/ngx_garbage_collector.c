@@ -1055,7 +1055,8 @@ block|{
 comment|/*      * We use mtime only and do not use atime because:      *    on NTFS access time has a resolution of 1 hour,      *    on NT FAT access time has a resolution of 1 day,      *    Unices have the mount option "noatime".      */
 if|if
 condition|(
-name|ngx_cached_time
+name|ngx_time
+argument_list|()
 operator|-
 name|ngx_de_mtime
 argument_list|(

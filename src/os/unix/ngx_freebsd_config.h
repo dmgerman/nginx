@@ -515,28 +515,12 @@ endif|#
 directive|endif
 end_endif
 
-begin_comment
-comment|/* STUB: autoconf */
-end_comment
-
 begin_define
 DECL|macro|ngx_setproctitle
 define|#
 directive|define
 name|ngx_setproctitle
 value|setproctitle
-end_define
-
-begin_comment
-comment|/* STUB */
-end_comment
-
-begin_define
-DECL|macro|HAVE_LITTLE_ENDIAN
-define|#
-directive|define
-name|HAVE_LITTLE_ENDIAN
-value|1
 end_define
 
 begin_decl_stmt

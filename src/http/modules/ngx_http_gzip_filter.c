@@ -24,7 +24,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29f23f150108
+DECL|struct|__anon2987452c0108
 typedef|typedef
 struct|struct
 block|{
@@ -143,7 +143,7 @@ value|0x0200
 end_define
 
 begin_typedef
-DECL|struct|__anon29f23f150208
+DECL|struct|__anon2987452c0208
 typedef|typedef
 struct|struct
 block|{
@@ -1664,7 +1664,8 @@ else|else
 block|{
 name|date
 operator|=
-name|ngx_cached_time
+name|ngx_time
+argument_list|()
 expr_stmt|;
 block|}
 if|if

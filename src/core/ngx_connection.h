@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon279630f20108
+DECL|struct|__anon29259b670108
 typedef|typedef
 struct|struct
 block|{
@@ -200,7 +200,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon279630f20203
+DECL|enum|__anon29259b670203
 typedef|typedef
 enum|enum
 block|{
@@ -224,7 +224,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon279630f20303
+DECL|enum|__anon29259b670303
 typedef|typedef
 enum|enum
 block|{
@@ -381,6 +381,17 @@ name|unsigned
 name|accept_context_updated
 range|:
 literal|1
+decl_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
+operator|(
+name|NGX_THREADS
+operator|)
+DECL|member|lock
+name|ngx_atomic_t
+name|lock
 decl_stmt|;
 endif|#
 directive|endif

@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c2669840108
+DECL|struct|__anon2bbf192d0108
 typedef|typedef
 struct|struct
 block|{
@@ -557,7 +557,8 @@ name|value
 operator|.
 name|data
 argument_list|,
-name|ngx_cached_time
+name|ngx_time
+argument_list|()
 operator|+
 name|conf
 operator|->
@@ -613,7 +614,7 @@ name|r
 operator|->
 name|pool
 argument_list|,
-name|NGX_TIME_T_LEN
+name|TIME_T_LEN
 operator|+
 literal|1
 argument_list|)
@@ -656,7 +657,7 @@ argument_list|(
 literal|"max-age="
 argument_list|)
 operator|+
-name|NGX_TIME_T_LEN
+name|TIME_T_LEN
 argument_list|,
 literal|"max-age="
 name|TIME_T_FMT
