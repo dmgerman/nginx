@@ -2274,12 +2274,6 @@ name|handler
 operator|=
 name|ngx_http_init_connection
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|ls->log = cf->cycle->log;
-endif|#
-directive|endif
 name|cscf
 operator|=
 name|in_addr

@@ -36,7 +36,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon2c3e3ffc0108
+DECL|struct|__anon2abeac790108
 typedef|typedef
 struct|struct
 block|{
@@ -474,6 +474,9 @@ block|{
 case|case
 name|NGX_PROCESS_MASTER
 case|:
+case|case
+name|NGX_PROCESS_SINGLE
+case|:
 switch|switch
 condition|(
 name|signo
@@ -668,22 +671,25 @@ operator|=
 literal|", exiting"
 expr_stmt|;
 break|break;
-if|#
-directive|if
-literal|0
-block_content|case ngx_signal_value(NGX_REOPEN_SIGNAL):             ngx_reopen = 1;             action = ", reopen logs";             break;
-endif|#
-directive|endif
-case|case
-name|ngx_signal_value
-argument_list|(
-name|NGX_RECONFIGURE_SIGNAL
-argument_list|)
-case|:
 case|case
 name|ngx_signal_value
 argument_list|(
 name|NGX_REOPEN_SIGNAL
+argument_list|)
+case|:
+name|ngx_reopen
+operator|=
+literal|1
+expr_stmt|;
+name|action
+operator|=
+literal|", reopen logs"
+expr_stmt|;
+break|break;
+case|case
+name|ngx_signal_value
+argument_list|(
+name|NGX_RECONFIGURE_SIGNAL
 argument_list|)
 case|:
 case|case

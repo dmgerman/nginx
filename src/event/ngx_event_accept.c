@@ -852,10 +852,29 @@ name|ngx_log_debug
 argument_list|(
 argument|ev->log
 argument_list|,
-literal|"accept: %d, %d"
-argument|_ s _ c->number
+literal|"LOG: %x"
+argument|_ ev->log->log_level
 argument_list|)
 empty_stmt|;
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|ev
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"accept: %d, %d"
+argument_list|,
+name|s
+argument_list|,
+name|c
+operator|->
+name|number
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|ev

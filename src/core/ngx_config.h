@@ -176,6 +176,14 @@ name|ngx_uint_t
 typedef|;
 end_typedef
 
+begin_typedef
+DECL|typedef|ngx_flag_t
+typedef|typedef
+name|int
+name|ngx_flag_t
+typedef|;
+end_typedef
+
 begin_comment
 comment|/* STUB: autoconf */
 end_comment
