@@ -274,6 +274,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|ngx_log_debug
+argument_list|(
+argument|p->log
+argument_list|,
+literal|"DOWN: %d"
+argument|_ p->downstream->fd
+argument_list|)
+empty_stmt|;
 if|if
 condition|(
 name|p
@@ -2892,6 +2900,12 @@ name|p
 operator|->
 name|busy
 expr_stmt|;
+name|p
+operator|->
+name|busy
+operator|=
+name|NULL
+expr_stmt|;
 block|}
 if|else if
 condition|(
@@ -2906,6 +2920,12 @@ name|p
 operator|->
 name|out
 expr_stmt|;
+name|p
+operator|->
+name|out
+operator|=
+name|NULL
+expr_stmt|;
 block|}
 if|else if
 condition|(
@@ -2919,6 +2939,12 @@ operator|=
 name|p
 operator|->
 name|in
+expr_stmt|;
+name|p
+operator|->
+name|in
+operator|=
+name|NULL
 expr_stmt|;
 block|}
 else|else

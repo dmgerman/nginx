@@ -158,12 +158,6 @@ block|}
 block|}
 do|do
 block|{
-name|rev
-operator|->
-name|ready
-operator|=
-literal|1
-expr_stmt|;
 name|n
 operator|=
 name|recv
@@ -288,12 +282,6 @@ return|return
 name|n
 return|;
 block|}
-name|rev
-operator|->
-name|ready
-operator|=
-literal|0
-expr_stmt|;
 name|n
 operator|=
 name|ngx_unix_recv_error
@@ -311,6 +299,13 @@ operator|==
 name|NGX_EINTR
 condition|)
 do|;
+comment|/* NGX_ERROR || NGX_AGAIN */
+name|rev
+operator|->
+name|ready
+operator|=
+literal|0
+expr_stmt|;
 if|if
 condition|(
 name|n
@@ -372,12 +367,6 @@ name|read
 expr_stmt|;
 do|do
 block|{
-name|rev
-operator|->
-name|ready
-operator|=
-literal|1
-expr_stmt|;
 name|n
 operator|=
 name|recv
@@ -443,12 +432,6 @@ return|return
 name|n
 return|;
 block|}
-name|rev
-operator|->
-name|ready
-operator|=
-literal|0
-expr_stmt|;
 name|n
 operator|=
 name|ngx_unix_recv_error
@@ -466,6 +449,13 @@ operator|==
 name|NGX_EINTR
 condition|)
 do|;
+comment|/* NGX_ERROR || NGX_AGAIN */
+name|rev
+operator|->
+name|ready
+operator|=
+literal|0
+expr_stmt|;
 if|if
 condition|(
 name|n
