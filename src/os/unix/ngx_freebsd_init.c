@@ -97,7 +97,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2afba49c0108
+DECL|struct|__anon27587f4b0108
 typedef|typedef
 struct|struct
 block|{
@@ -199,7 +199,10 @@ name|err
 decl_stmt|;
 name|size
 operator|=
-literal|20
+sizeof|sizeof
+argument_list|(
+name|ngx_freebsd_kern_ostype
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -238,7 +241,10 @@ return|;
 block|}
 name|size
 operator|=
-literal|20
+sizeof|sizeof
+argument_list|(
+name|ngx_freebsd_kern_osrelease
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -292,7 +298,10 @@ argument_list|)
 expr_stmt|;
 name|size
 operator|=
-literal|4
+sizeof|sizeof
+argument_list|(
+name|int
+argument_list|)
 expr_stmt|;
 if|if
 condition|(

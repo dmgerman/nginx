@@ -179,6 +179,12 @@ name|tcp_nopush
 range|:
 literal|1
 decl_stmt|;
+DECL|member|tcp_nopush_enabled
+name|unsigned
+name|tcp_nopush_enabled
+range|:
+literal|1
+decl_stmt|;
 block|}
 struct|;
 end_struct

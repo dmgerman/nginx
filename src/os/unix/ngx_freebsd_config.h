@@ -85,6 +85,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<sys/sysctl.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<sys/socket.h>
 end_include
 
@@ -450,6 +456,25 @@ DECL|macro|HAVE_INHERITED_NONBLOCK
 define|#
 directive|define
 name|HAVE_INHERITED_NONBLOCK
+value|1
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|HAVE_FIONBIO
+end_ifndef
+
+begin_define
+DECL|macro|HAVE_FIONBIO
+define|#
+directive|define
+name|HAVE_FIONBIO
 value|1
 end_define
 

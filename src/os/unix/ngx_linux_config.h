@@ -13,6 +13,21 @@ name|_NGX_LINUX_CONFIG_H_INCLUDED_
 end_define
 
 begin_define
+DECL|macro|_FILE_OFFSET_BITS
+define|#
+directive|define
+name|_FILE_OFFSET_BITS
+value|64
+end_define
+
+begin_define
+DECL|macro|_LARGEFILE_SOURCE
+define|#
+directive|define
+name|_LARGEFILE_SOURCE
+end_define
+
+begin_define
 DECL|macro|_XOPEN_SOURCE
 define|#
 directive|define
@@ -20,11 +35,23 @@ name|_XOPEN_SOURCE
 value|500
 end_define
 
+begin_comment
+DECL|macro|_XOPEN_SOURCE
+comment|/* pread, pwrite */
+end_comment
+
 begin_include
 include|#
 directive|include
 file|<unistd.h>
 end_include
+
+begin_undef
+undef|#
+directive|undef
+name|_XOPEN_SOURCE
+name|500
+end_undef
 
 begin_include
 include|#
@@ -72,6 +99,11 @@ define|#
 directive|define
 name|__USE_BSD
 end_define
+
+begin_comment
+DECL|macro|__USE_BSD
+comment|/* bzero */
+end_comment
 
 begin_include
 include|#
@@ -124,6 +156,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<sys/sysctl.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<sys/socket.h>
 end_include
 
@@ -151,6 +189,15 @@ typedef|typedef
 name|unsigned
 name|int
 name|u_int
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|typedef|u_short
+typedef|typedef
+name|unsigned
+name|short
+name|u_short
 typedef|;
 end_typedef
 
@@ -255,6 +302,25 @@ DECL|macro|HAVE_INHERITED_NONBLOCK
 define|#
 directive|define
 name|HAVE_INHERITED_NONBLOCK
+value|1
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|HAVE_FIONBIO
+end_ifndef
+
+begin_define
+DECL|macro|HAVE_FIONBIO
+define|#
+directive|define
+name|HAVE_FIONBIO
 value|1
 end_define
 
