@@ -774,13 +774,6 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-if|if
-condition|(
-name|ecf
-operator|->
-name|accept_mutex
-condition|)
-block|{
 name|ngx_accept_mutex_ptr
 operator|=
 operator|(
@@ -789,7 +782,6 @@ operator|*
 operator|)
 name|shared
 expr_stmt|;
-block|}
 name|ngx_connection_counter
 operator|=
 operator|(
@@ -921,7 +913,9 @@ name|worker_processes
 operator|>
 literal|1
 operator|&&
-name|ngx_accept_mutex_ptr
+name|ecf
+operator|->
+name|accept_mutex
 condition|)
 block|{
 name|ngx_accept_mutex
