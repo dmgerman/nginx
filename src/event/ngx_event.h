@@ -57,7 +57,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2c8886830108
+DECL|struct|__anon28c696d70108
 typedef|typedef
 struct|struct
 block|{
@@ -86,7 +86,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c8886830208
+DECL|struct|__anon28c696d70208
 typedef|typedef
 struct|struct
 block|{
@@ -424,7 +424,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c8886830308
+DECL|struct|__anon28c696d70308
 typedef|typedef
 struct|struct
 block|{
@@ -649,6 +649,18 @@ value|0x00000020
 end_define
 
 begin_comment
+comment|/*  * The event filter requires to do i/o operation until EAGAIN -  * epoll, rt signals.  */
+end_comment
+
+begin_define
+DECL|macro|NGX_HAVE_GREEDY_EVENT
+define|#
+directive|define
+name|NGX_HAVE_GREEDY_EVENT
+value|0x00000040
+end_define
+
+begin_comment
 comment|/*  * The event filter notifies only the changes (the edges)  * but not an initial level - early epoll patches.  */
 end_comment
 
@@ -657,7 +669,7 @@ DECL|macro|NGX_USE_EDGE_EVENT
 define|#
 directive|define
 name|NGX_USE_EDGE_EVENT
-value|0x00000040
+value|0x00000080
 end_define
 
 begin_comment
@@ -669,7 +681,7 @@ DECL|macro|NGX_USE_SIGIO_EVENT
 define|#
 directive|define
 name|NGX_USE_SIGIO_EVENT
-value|0x00000080
+value|0x00000100
 end_define
 
 begin_comment
@@ -681,7 +693,7 @@ DECL|macro|NGX_OVERFLOW_EVENT
 define|#
 directive|define
 name|NGX_OVERFLOW_EVENT
-value|0x00000100
+value|0x00000200
 end_define
 
 begin_comment
@@ -693,7 +705,7 @@ DECL|macro|NGX_USE_AIO_EVENT
 define|#
 directive|define
 name|NGX_USE_AIO_EVENT
-value|0x00000200
+value|0x00000400
 end_define
 
 begin_comment
@@ -705,7 +717,7 @@ DECL|macro|NGX_USE_IOCP_EVENT
 define|#
 directive|define
 name|NGX_USE_IOCP_EVENT
-value|0x00000400
+value|0x00000800
 end_define
 
 begin_comment
@@ -1215,7 +1227,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon2c8886830408
+DECL|struct|__anon28c696d70408
 typedef|typedef
 struct|struct
 block|{
@@ -1262,7 +1274,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c8886830508
+DECL|struct|__anon28c696d70508
 typedef|typedef
 struct|struct
 block|{

@@ -109,7 +109,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon27d7ffc20108
+DECL|struct|__anon295a3d620108
 typedef|typedef
 struct|struct
 block|{
@@ -482,6 +482,8 @@ expr_stmt|;
 name|ngx_event_flags
 operator|=
 name|NGX_USE_SIGIO_EVENT
+operator||
+name|NGX_HAVE_GREEDY_EVENT
 operator||
 name|NGX_HAVE_INSTANCE_EVENT
 expr_stmt|;

@@ -327,7 +327,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28a551810108
+DECL|struct|__anon27976cd90108
 typedef|typedef
 struct|struct
 block|{
@@ -792,6 +792,8 @@ operator|=
 name|NGX_USE_LEVEL_EVENT
 endif|#
 directive|endif
+operator||
+name|NGX_HAVE_GREEDY_EVENT
 operator||
 name|NGX_HAVE_INSTANCE_EVENT
 expr_stmt|;
@@ -1864,7 +1866,7 @@ block|}
 if|#
 directive|if
 operator|(
-name|NGX_DEBUG
+name|NGX_DEBUG0
 operator|)
 name|log
 operator|=
