@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2a1c5adf0108
+DECL|struct|__anon2bb797dc0108
 typedef|typedef
 struct|struct
 block|{
@@ -364,7 +364,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a1c5adf0208
+DECL|struct|__anon2bb797dc0208
 typedef|typedef
 struct|struct
 block|{
@@ -514,7 +514,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_comment
-comment|/*  * The event filter requires to read/write the whole data -  * select, poll, /dev/poll, kqueue.  */
+comment|/*  * The event filter requires to read/write the whole data -  * select, poll, /dev/poll, kqueue, epoll.  */
 end_comment
 
 begin_define
@@ -526,7 +526,7 @@ value|0x00000001
 end_define
 
 begin_comment
-comment|/*  * The event filter is deleted after a notification without an additional  * syscall - select, poll, kqueue.  */
+comment|/*  * The event filter is deleted after a notification without an additional  * syscall - select, poll, kqueue, epoll.  */
 end_comment
 
 begin_define
@@ -538,7 +538,7 @@ value|0x00000002
 end_define
 
 begin_comment
-comment|/*  *  The event filter notifies only the changes and an initial level - kqueue.  */
+comment|/*  * The event filter notifies only the changes and an initial level -  * kqueue, epoll.  */
 end_comment
 
 begin_define
@@ -574,7 +574,7 @@ value|0x00000010
 end_define
 
 begin_comment
-comment|/*  * The event filter notifies only the changes (the edges)  * but not an initial level - epoll.  */
+comment|/*  * The event filter notifies only the changes (the edges)  * but not an initial level - early epoll patches.  */
 end_comment
 
 begin_define
@@ -773,6 +773,104 @@ begin_elif
 elif|#
 directive|elif
 operator|(
+name|HAVE_DEVPOLL
+operator|)
+end_elif
+
+begin_define
+DECL|macro|NGX_READ_EVENT
+define|#
+directive|define
+name|NGX_READ_EVENT
+value|POLLIN
+end_define
+
+begin_define
+DECL|macro|NGX_WRITE_EVENT
+define|#
+directive|define
+name|NGX_WRITE_EVENT
+value|POLLOUT
+end_define
+
+begin_define
+DECL|macro|NGX_LEVEL_EVENT
+define|#
+directive|define
+name|NGX_LEVEL_EVENT
+value|0
+end_define
+
+begin_elif
+elif|#
+directive|elif
+operator|(
+name|HAVE_EPOLL
+operator|)
+end_elif
+
+begin_define
+DECL|macro|NGX_READ_EVENT
+define|#
+directive|define
+name|NGX_READ_EVENT
+value|EPOLLIN
+end_define
+
+begin_define
+DECL|macro|NGX_WRITE_EVENT
+define|#
+directive|define
+name|NGX_WRITE_EVENT
+value|EPOLLOUT
+end_define
+
+begin_define
+DECL|macro|NGX_LEVEL_EVENT
+define|#
+directive|define
+name|NGX_LEVEL_EVENT
+value|0
+end_define
+
+begin_define
+DECL|macro|NGX_CLEAR_EVENT
+define|#
+directive|define
+name|NGX_CLEAR_EVENT
+value|EPOLLET
+end_define
+
+begin_define
+DECL|macro|NGX_ONESHOT_EVENT
+define|#
+directive|define
+name|NGX_ONESHOT_EVENT
+value|0x70000000
+end_define
+
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
+begin_define
+define|#
+directive|define
+name|NGX_ONESHOT_EVENT
+value|EPOLLONESHOT
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_elif
+elif|#
+directive|elif
+operator|(
 name|HAVE_POLL
 operator|)
 end_elif
@@ -807,38 +905,6 @@ define|#
 directive|define
 name|NGX_ONESHOT_EVENT
 value|1
-end_define
-
-begin_elif
-elif|#
-directive|elif
-operator|(
-name|HAVE_DEVPOLL
-operator|)
-end_elif
-
-begin_define
-DECL|macro|NGX_READ_EVENT
-define|#
-directive|define
-name|NGX_READ_EVENT
-value|POLLIN
-end_define
-
-begin_define
-DECL|macro|NGX_WRITE_EVENT
-define|#
-directive|define
-name|NGX_WRITE_EVENT
-value|POLLOUT
-end_define
-
-begin_define
-DECL|macro|NGX_LEVEL_EVENT
-define|#
-directive|define
-name|NGX_LEVEL_EVENT
-value|0
 end_define
 
 begin_else
@@ -1054,7 +1120,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon2a1c5adf0308
+DECL|struct|__anon2bb797dc0308
 typedef|typedef
 struct|struct
 block|{
@@ -1082,7 +1148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1c5adf0408
+DECL|struct|__anon2bb797dc0408
 typedef|typedef
 struct|struct
 block|{

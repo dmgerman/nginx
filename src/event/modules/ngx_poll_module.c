@@ -596,7 +596,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"poll index: %d"
+literal|"poll add index: %d"
 argument_list|,
 name|e
 operator|->
@@ -816,6 +816,25 @@ operator|)
 name|nevents
 condition|)
 block|{
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|ev
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"index: copy event %d to %d"
+argument_list|,
+name|nevents
+argument_list|,
+name|ev
+operator|->
+name|index
+argument_list|)
+expr_stmt|;
 name|event_list
 index|[
 name|ev
@@ -970,7 +989,7 @@ operator|->
 name|index
 expr_stmt|;
 block|}
-if|else if
+if|if
 condition|(
 name|c
 operator|->
@@ -995,22 +1014,6 @@ operator|->
 name|index
 expr_stmt|;
 block|}
-else|else
-block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_ALERT
-argument_list|,
-name|ev
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"unexpected last event index"
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -1026,7 +1029,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"poll index: %d"
+literal|"poll del index: %d"
 argument_list|,
 name|e
 operator|->

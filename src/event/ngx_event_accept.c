@@ -24,7 +24,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon296e99450108
+DECL|struct|__anon2c645b700108
 typedef|typedef
 struct|struct
 block|{
@@ -573,7 +573,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-comment|/* set a blocking mode for aio and non-blocking mode for others */
+comment|/* set a blocking mode for aio and non-blocking mode for the others */
 if|if
 condition|(
 name|ngx_inherited_nonblocking
