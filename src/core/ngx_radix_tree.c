@@ -11,18 +11,6 @@ directive|include
 file|<ngx_core.h>
 end_include
 
-begin_comment
-comment|/* STUB: page size */
-end_comment
-
-begin_define
-DECL|macro|NGX_RADIX_TREE_POOL_SIZE
-define|#
-directive|define
-name|NGX_RADIX_TREE_POOL_SIZE
-value|4096
-end_define
-
 begin_function_decl
 specifier|static
 name|void
@@ -733,7 +721,7 @@ name|tree
 operator|->
 name|pool
 argument_list|,
-name|NGX_RADIX_TREE_POOL_SIZE
+name|ngx_pagesize
 argument_list|)
 operator|)
 condition|)
@@ -746,7 +734,7 @@ name|tree
 operator|->
 name|size
 operator|=
-name|NGX_RADIX_TREE_POOL_SIZE
+name|ngx_pagesize
 expr_stmt|;
 block|}
 name|p
