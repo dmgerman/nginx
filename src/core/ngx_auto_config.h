@@ -18,5 +18,13 @@ endif|#
 directive|endif
 end_endif
 
+begin_define
+DECL|macro|NGX_PAGE_SIZE
+define|#
+directive|define
+name|NGX_PAGE_SIZE
+value|4096
+end_define
+
 end_unit
 

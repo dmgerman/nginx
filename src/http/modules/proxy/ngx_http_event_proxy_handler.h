@@ -53,7 +53,7 @@ value|21
 end_define
 
 begin_typedef
-DECL|struct|__anon29b6326c0108
+DECL|struct|__anon275b9c420108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b6326c0208
+DECL|struct|__anon275b9c420208
 typedef|typedef
 struct|struct
 block|{
@@ -134,7 +134,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b6326c0308
+DECL|struct|__anon275b9c420308
 typedef|typedef
 struct|struct
 block|{
@@ -170,7 +170,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b6326c0408
+DECL|struct|__anon275b9c420408
 typedef|typedef
 struct|struct
 block|{
@@ -206,7 +206,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b6326c0508
+DECL|struct|__anon275b9c420508
 typedef|typedef
 struct|struct
 block|{
@@ -219,6 +219,10 @@ DECL|member|upstream_url
 name|ngx_http_proxy_upstream_url_t
 modifier|*
 name|upstream_url
+decl_stmt|;
+DECL|member|client_request_buffer_size
+name|int
+name|client_request_buffer_size
 decl_stmt|;
 DECL|member|rcvbuf
 name|int
@@ -365,6 +369,16 @@ DECL|member|request_hunks
 name|ngx_chain_t
 modifier|*
 name|request_hunks
+decl_stmt|;
+DECL|member|client_request_hunk
+name|ngx_hunk_t
+modifier|*
+name|client_request_hunk
+decl_stmt|;
+DECL|member|client_first_part_hunk
+name|ngx_hunk_t
+modifier|*
+name|client_first_part_hunk
 decl_stmt|;
 DECL|member|connection
 name|ngx_connection_t
@@ -543,7 +557,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29b6326c0608
+DECL|struct|__anon275b9c420608
 typedef|typedef
 struct|struct
 block|{

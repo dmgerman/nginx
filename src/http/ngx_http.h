@@ -199,6 +199,14 @@ value|16
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_PARSE_INVALID_CL_HEADER
+define|#
+directive|define
+name|NGX_HTTP_PARSE_INVALID_CL_HEADER
+value|17
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_OK
 define|#
 directive|define
@@ -335,7 +343,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon29b3557e0108
+DECL|struct|__anon2c5fea0e0108
 typedef|typedef
 struct|struct
 block|{
@@ -354,13 +362,17 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b3557e0208
+DECL|struct|__anon2c5fea0e0208
 typedef|typedef
 struct|struct
 block|{
 DECL|member|host_name_len
 name|size_t
 name|host_name_len
+decl_stmt|;
+DECL|member|content_length_n
+name|ssize_t
+name|content_length_n
 decl_stmt|;
 DECL|member|host
 name|ngx_table_elt_t
@@ -376,6 +388,11 @@ DECL|member|if_modified_since
 name|ngx_table_elt_t
 modifier|*
 name|if_modified_since
+decl_stmt|;
+DECL|member|content_length
+name|ngx_table_elt_t
+modifier|*
+name|content_length
 decl_stmt|;
 DECL|member|accept_encoding
 name|ngx_table_elt_t
@@ -399,7 +416,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b3557e0308
+DECL|struct|__anon2c5fea0e0308
 typedef|typedef
 struct|struct
 block|{
@@ -597,10 +614,6 @@ DECL|member|filter
 name|int
 name|filter
 decl_stmt|;
-DECL|member|client_content_length
-name|ssize_t
-name|client_content_length
-decl_stmt|;
 DECL|member|discarded_buffer
 name|char
 modifier|*
@@ -775,7 +788,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29b3557e0408
+DECL|struct|__anon2c5fea0e0408
 typedef|typedef
 struct|struct
 block|{
