@@ -49,7 +49,7 @@ file|<ngx_http_core_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2895f5590108
+DECL|struct|__anon2aab35af0108
 typedef|typedef
 struct|struct
 block|{
@@ -157,6 +157,20 @@ name|error
 parameter_list|)
 define|\
 value|do {                                                              \                 ngx_test_null(cx, ngx_pcalloc(r->pool, size), error);         \                 r->ctx[module.ctx_index] = cx;                                \             } while (0)
+end_define
+
+begin_define
+DECL|macro|ngx_http_delete_ctx (r,module)
+define|#
+directive|define
+name|ngx_http_delete_ctx
+parameter_list|(
+name|r
+parameter_list|,
+name|module
+parameter_list|)
+define|\
+value|r->ctx[module.ctx_index] = NULL;
 end_define
 
 begin_comment

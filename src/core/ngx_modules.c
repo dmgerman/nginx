@@ -193,6 +193,13 @@ end_decl_stmt
 begin_decl_stmt
 specifier|extern
 name|ngx_module_t
+name|ngx_http_not_modified_filter_module
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_module_t
 name|ngx_http_range_filter_module
 decl_stmt|;
 end_decl_stmt
@@ -326,6 +333,9 @@ name|ngx_http_chunked_filter_module
 block|,
 operator|&
 name|ngx_http_gzip_filter_module
+block|,
+operator|&
+name|ngx_http_not_modified_filter_module
 block|,
 operator|&
 name|ngx_http_range_filter_module

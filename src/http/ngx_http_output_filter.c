@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b0e2bba0108
+DECL|struct|__anon2c47c7d40108
 typedef|typedef
 struct|struct
 block|{
@@ -33,7 +33,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0e2bba0208
+DECL|struct|__anon2c47c7d40208
 typedef|typedef
 struct|struct
 block|{
@@ -630,6 +630,9 @@ name|rc
 return|;
 block|}
 comment|/* NGX_OK */
+if|#
+directive|if
+literal|1
 comment|/* set our hunk free */
 name|ctx
 operator|->
@@ -649,6 +652,8 @@ name|hunk
 operator|->
 name|start
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 if|#
 directive|if
@@ -959,6 +964,9 @@ name|rc
 return|;
 block|}
 comment|/* NGX_OK */
+if|#
+directive|if
+literal|1
 comment|/* set our hunk free */
 name|ctx
 operator|->
@@ -978,6 +986,8 @@ name|hunk
 operator|->
 name|start
 expr_stmt|;
+endif|#
+directive|endif
 comment|/* repeat until we will have copied the whole first hunk from                the chain ctx->incoming */
 block|}
 do|while
