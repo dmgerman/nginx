@@ -4503,10 +4503,6 @@ name|ngx_inet_ntop
 argument_list|(
 name|AF_INET
 argument_list|,
-operator|(
-name|u_char
-operator|*
-operator|)
 operator|&
 name|lcf
 operator|->

@@ -267,7 +267,7 @@ parameter_list|,
 name|size
 parameter_list|)
 define|\
-value|ngx_cpystrn(errstr, strerror(err), size) - (errstr)
+value|(char *) ngx_cpystrn(errstr, strerror(err), size) - (errstr)
 end_define
 
 begin_endif

@@ -41,7 +41,7 @@ parameter_list|(
 name|int
 name|family
 parameter_list|,
-name|u_char
+name|void
 modifier|*
 name|addr
 parameter_list|,

@@ -33,7 +33,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon29dbade00103
+DECL|enum|__anon297712c70103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1248,7 +1248,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon29dbade00203
+DECL|enum|__anon297712c70203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1378,7 +1378,7 @@ expr_stmt|;
 name|c
 operator|=
 operator|(
-name|char
+name|u_char
 operator|)
 operator|(
 name|ch
@@ -1883,7 +1883,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon29dbade00303
+DECL|enum|__anon297712c70303
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -2432,7 +2432,7 @@ block|{
 name|decoded
 operator|=
 operator|(
-name|char
+name|u_char
 operator|)
 operator|(
 name|ch
@@ -2455,7 +2455,7 @@ block|}
 name|c
 operator|=
 operator|(
-name|char
+name|u_char
 operator|)
 operator|(
 name|ch
@@ -2477,7 +2477,7 @@ block|{
 name|decoded
 operator|=
 operator|(
-name|char
+name|u_char
 operator|)
 operator|(
 name|c
@@ -2519,7 +2519,7 @@ block|{
 name|ch
 operator|=
 operator|(
-name|char
+name|u_char
 operator|)
 operator|(
 operator|(
@@ -2567,7 +2567,7 @@ block|}
 name|c
 operator|=
 operator|(
-name|char
+name|u_char
 operator|)
 operator|(
 name|ch
@@ -2589,7 +2589,7 @@ block|{
 name|ch
 operator|=
 operator|(
-name|char
+name|u_char
 operator|)
 operator|(
 operator|(

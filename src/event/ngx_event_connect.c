@@ -835,7 +835,7 @@ name|peer
 operator|->
 name|addr
 expr_stmt|;
-name|ngx_log_debug1
+name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
@@ -845,13 +845,17 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"connect to %s"
+literal|"connect to %s, #%d"
 argument_list|,
 name|peer
 operator|->
 name|addr_port_text
 operator|.
 name|data
+argument_list|,
+name|c
+operator|->
+name|number
 argument_list|)
 expr_stmt|;
 name|rc
