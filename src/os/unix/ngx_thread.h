@@ -129,7 +129,7 @@ value|0x80000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2b1947930108
+DECL|struct|__anon2a1b9c220108
 typedef|typedef
 specifier|volatile
 struct|struct
@@ -154,7 +154,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1947930208
+DECL|struct|__anon2a1b9c220208
 typedef|typedef
 struct|struct
 block|{
@@ -269,6 +269,15 @@ name|ngx_thread_stack_size
 return|;
 block|}
 end_function
+
+begin_define
+DECL|macro|ngx_thread_main ()
+define|#
+directive|define
+name|ngx_thread_main
+parameter_list|()
+value|(ngx_gettid() == 0)
+end_define
 
 begin_else
 else|#
@@ -558,6 +567,25 @@ name|ngx_mutex_unlock
 parameter_list|(
 name|m
 parameter_list|)
+end_define
+
+begin_define
+DECL|macro|ngx_cond_signal (cv)
+define|#
+directive|define
+name|ngx_cond_signal
+parameter_list|(
+name|cv
+parameter_list|)
+end_define
+
+begin_define
+DECL|macro|ngx_thread_main ()
+define|#
+directive|define
+name|ngx_thread_main
+parameter_list|()
+value|1
 end_define
 
 begin_endif

@@ -364,12 +364,12 @@ name|returned_instance
 operator|)
 condition|)
 block|{
-comment|/*                  * the stale event from a file descriptor                  * that was just closed in this iteration                  */
+comment|/*                  * The stale event from a file descriptor that was just                  * closed in this iteration.  We use ngx_cycle->log                  * because ev->log may be already destoyed.                  */
 name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
-name|ev
+name|ngx_cycle
 operator|->
 name|log
 argument_list|,
@@ -379,6 +379,13 @@ literal|"kevent: stale event "
 name|PTR_FMT
 argument_list|,
 name|ev
+argument_list|)
+expr_stmt|;
+name|ngx_unlock
+argument_list|(
+name|ev
+operator|->
+name|lock
 argument_list|)
 expr_stmt|;
 name|ev

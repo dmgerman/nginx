@@ -39,7 +39,7 @@ parameter_list|(
 name|ev
 parameter_list|)
 define|\
-value|ev->next = (ngx_event_t *) ngx_posted_events;                 \                 ngx_posted_events = ev;                                       \                 ev->posted = 1;
+value|if (!ev->posted) {                                                \                 ev->next = (ngx_event_t *) ngx_posted_events;                 \                 ngx_posted_events = ev;                                       \                 ev->posted = 1;                                               \             }
 end_define
 
 begin_function_decl

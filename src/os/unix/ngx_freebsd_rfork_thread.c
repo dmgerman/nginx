@@ -1469,6 +1469,27 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_CORE
+argument_list|,
+name|m
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"mutex waked up "
+name|PTR_FMT
+literal|" lock:%X"
+argument_list|,
+name|m
+argument_list|,
+name|m
+operator|->
+name|lock
+argument_list|)
+expr_stmt|;
 name|tries
 operator|=
 literal|0
@@ -1786,6 +1807,23 @@ argument_list|)
 condition|)
 block|{
 comment|/* wake up the thread that waits on semaphore */
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_CORE
+argument_list|,
+name|m
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"wake up mutex "
+name|PTR_FMT
+literal|""
+argument_list|,
+name|m
+argument_list|)
+expr_stmt|;
 name|op
 operator|.
 name|sem_num

@@ -318,6 +318,11 @@ name|rbtree_key
 argument_list|)
 operator|)
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_THREADS
+operator|)
 if|if
 condition|(
 name|ngx_trylock
@@ -332,6 +337,8 @@ condition|)
 block|{
 break|break;
 block|}
+endif|#
+directive|endif
 name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
@@ -421,6 +428,11 @@ name|timedout
 operator|=
 literal|1
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_THREADS
+operator|)
 name|ngx_unlock
 argument_list|(
 name|ev
@@ -428,6 +440,8 @@ operator|->
 name|lock
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|ngx_threaded
