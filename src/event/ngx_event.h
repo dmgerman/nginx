@@ -92,7 +92,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2790d0920108
+DECL|struct|__anon2a2bbe1b0108
 typedef|typedef
 struct|struct
 block|{
@@ -399,7 +399,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2790d0920203
+DECL|enum|__anon2a2bbe1b0203
 typedef|typedef
 enum|enum
 block|{
@@ -468,7 +468,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2790d0920308
+DECL|struct|__anon2a2bbe1b0308
 typedef|typedef
 struct|struct
 block|{
@@ -562,7 +562,7 @@ typedef|;
 end_typedef
 
 begin_comment
-comment|/* Event filter requires to read/write the whole data -    select, poll, /dev/poll, kqueue. */
+comment|/* The event filter requires to read/write the whole data -    select, poll, /dev/poll, kqueue. */
 end_comment
 
 begin_define
@@ -574,7 +574,7 @@ value|1
 end_define
 
 begin_comment
-comment|/* Event filter is deleted after notification - select, poll, kqueue.    Using /dev/poll it can be implemented with additional syscall */
+comment|/* The event filter is deleted after a notification without an additional    syscall - select, poll, kqueue.  */
 end_comment
 
 begin_define
@@ -586,7 +586,7 @@ value|2
 end_define
 
 begin_comment
-comment|/* Event filter notifies only changes and initial level - kqueue */
+comment|/* The event filter notifies only the changes and an initial level - kqueue */
 end_comment
 
 begin_define
@@ -598,7 +598,7 @@ value|4
 end_define
 
 begin_comment
-comment|/* Event filter has kqueue features - eof flag, errno, available data, etc */
+comment|/* The event filter has kqueue features - the eof flag, errno,    available data, etc */
 end_comment
 
 begin_define
@@ -610,7 +610,7 @@ value|8
 end_define
 
 begin_comment
-comment|/* Event filter supports low water mark - kqueue's NOTE_LOWAT,    early kqueue implementations have no NOTE_LOWAT so we need a separate flag */
+comment|/* The event filter supports low water mark - kqueue's NOTE_LOWAT.    Early kqueue implementations have no NOTE_LOWAT so we need a separate flag */
 end_comment
 
 begin_define
@@ -622,7 +622,7 @@ value|0x00000010
 end_define
 
 begin_comment
-comment|/* Event filter notifies only changes (edges) but not initial level - epoll */
+comment|/* The event filter notifies only the changes (the edges)    but not an initial level - epoll */
 end_comment
 
 begin_define
@@ -634,7 +634,7 @@ value|0x00000020
 end_define
 
 begin_comment
-comment|/* No need to add or delete event filters - rt signals */
+comment|/* No need to add or delete the event filters - rt signals */
 end_comment
 
 begin_define
@@ -646,7 +646,7 @@ value|0x00000040
 end_define
 
 begin_comment
-comment|/* No need to add or delete event filters - overlapped, aio_read, aioread */
+comment|/* No need to add or delete the event filters - overlapped, aio_read, aioread */
 end_comment
 
 begin_define
@@ -1151,6 +1151,31 @@ name|int
 name|ngx_event_flags
 decl_stmt|;
 end_decl_stmt
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_if
+if|#
+directive|if
+operator|!
+operator|(
+name|HAVE_EPOLL
+operator|)
+end_if
+
+begin_define
+DECL|macro|ngx_edge_add_event (ev)
+define|#
+directive|define
+name|ngx_edge_add_event
+parameter_list|(
+name|ev
+parameter_list|)
+value|NGX_ERROR
+end_define
 
 begin_endif
 endif|#

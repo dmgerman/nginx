@@ -51,30 +51,6 @@ directive|include
 file|<ngx_kqueue_module.h>
 end_include
 
-begin_if
-if|#
-directive|if
-operator|(
-name|USE_KQUEUE
-operator|)
-operator|&&
-operator|!
-operator|(
-name|HAVE_KQUEUE
-operator|)
-end_if
-
-begin_error
-error|#
-directive|error
-literal|"kqueue is not supported on this platform"
-end_error
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
 begin_comment
 comment|/* STUB */
 end_comment
@@ -96,7 +72,7 @@ value|512
 end_define
 
 begin_comment
-comment|/* should be per-thread */
+comment|/* should be per-thread if threads are used without thread pool */
 end_comment
 
 begin_if
@@ -294,12 +270,6 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-if|#
-directive|if
-operator|!
-operator|(
-name|USE_KQUEUE
-operator|)
 name|ngx_event_actions
 operator|.
 name|add
@@ -369,8 +339,6 @@ name|ngx_write_chain_proc
 operator|=
 name|ngx_freebsd_write_chain
 expr_stmt|;
-endif|#
-directive|endif
 endif|#
 directive|endif
 return|return
