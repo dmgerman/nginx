@@ -1,6 +1,6 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_comment
-comment|/*  * Copyright (C) 2002-2004 Igor Sysoev  */
+comment|/*  * Copyright (C) Igor Sysoev  */
 end_comment
 
 begin_include
@@ -356,13 +356,6 @@ name|ngx_max_module
 decl_stmt|;
 end_decl_stmt
 
-begin_decl_stmt
-DECL|variable|ngx_use_stderr
-name|ngx_uint_t
-name|ngx_use_stderr
-decl_stmt|;
-end_decl_stmt
-
 begin_function
 DECL|function|main (int argc,char * const * argv)
 name|int
@@ -431,11 +424,21 @@ operator|=
 name|ngx_getpid
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+operator|!
+operator|(
 name|log
 operator|=
 name|ngx_log_init_errlog
 argument_list|()
-expr_stmt|;
+operator|)
+condition|)
+block|{
+return|return
+literal|1
+return|;
+block|}
 if|#
 directive|if
 operator|(
@@ -532,17 +535,6 @@ block|{
 return|return
 literal|1
 return|;
-block|}
-if|if
-condition|(
-name|ngx_use_stderr
-condition|)
-block|{
-name|log
-operator|=
-name|ngx_log_init_errlog
-argument_list|()
-expr_stmt|;
 block|}
 if|if
 condition|(
@@ -1305,14 +1297,6 @@ case|case
 literal|'t'
 case|:
 name|ngx_test_config
-operator|=
-literal|1
-expr_stmt|;
-break|break;
-case|case
-literal|'s'
-case|:
-name|ngx_use_stderr
 operator|=
 literal|1
 expr_stmt|;

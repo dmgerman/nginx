@@ -1,6 +1,6 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_comment
-comment|/*  * Copyright (C) 2002-2004 Igor Sysoev  */
+comment|/*  * Copyright (C) Igor Sysoev  */
 end_comment
 
 begin_include
@@ -109,6 +109,12 @@ begin_comment
 comment|/* STUB */
 end_comment
 
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|NGX_ERROR_LOG_PATH
+end_ifdef
+
 begin_decl_stmt
 specifier|static
 name|ngx_str_t
@@ -120,6 +126,26 @@ name|NGX_ERROR_LOG_PATH
 argument_list|)
 decl_stmt|;
 end_decl_stmt
+
+begin_else
+else|#
+directive|else
+end_else
+
+begin_decl_stmt
+DECL|variable|error_log
+specifier|static
+name|ngx_str_t
+name|error_log
+init|=
+name|ngx_null_string
+decl_stmt|;
+end_decl_stmt
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_function
 DECL|function|ngx_init_cycle (ngx_cycle_t * old_cycle)

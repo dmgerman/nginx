@@ -1,6 +1,6 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_comment
-comment|/*  * Copyright (C) 2002-2004 Igor Sysoev  */
+comment|/*  * Copyright (C) Igor Sysoev  */
 end_comment
 
 begin_include
@@ -44,7 +44,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon2aa2c39a0103
+DECL|enum|__anon2abc56960103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1504,7 +1504,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2aa2c39a0203
+DECL|enum|__anon2abc56960203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2139,7 +2139,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2aa2c39a0303
+DECL|enum|__anon2abc56960303
 enum|enum
 block|{
 DECL|enumerator|sw_usual

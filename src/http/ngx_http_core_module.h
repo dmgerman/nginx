@@ -1,6 +1,6 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_comment
-comment|/*  * Copyright (C) 2002-2004 Igor Sysoev  */
+comment|/*  * Copyright (C) Igor Sysoev  */
 end_comment
 
 begin_ifndef
@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a1beb540108
+DECL|struct|__anon27a48c150108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a1beb540203
+DECL|enum|__anon27a48c150203
 typedef|typedef
 enum|enum
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1beb540308
+DECL|struct|__anon27a48c150308
 typedef|typedef
 struct|struct
 block|{
@@ -119,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1beb540408
+DECL|struct|__anon27a48c150408
 typedef|typedef
 struct|struct
 block|{
@@ -150,7 +150,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1beb540508
+DECL|struct|__anon27a48c150508
 typedef|typedef
 struct|struct
 block|{
@@ -214,7 +214,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2a1beb540608
+DECL|struct|__anon27a48c150608
 typedef|typedef
 struct|struct
 block|{
@@ -238,7 +238,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1beb540708
+DECL|struct|__anon27a48c150708
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +270,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1beb540808
+DECL|struct|__anon27a48c150808
 typedef|typedef
 struct|struct
 block|{
@@ -313,7 +313,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon2a1beb540908
+DECL|struct|__anon27a48c150908
 typedef|typedef
 struct|struct
 block|{
@@ -332,7 +332,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1beb540a08
+DECL|struct|__anon27a48c150a08
 typedef|typedef
 struct|struct
 block|{

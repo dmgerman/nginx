@@ -1,6 +1,6 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_comment
-comment|/*  * Copyright (C) 2002-2004 Igor Sysoev  */
+comment|/*  * Copyright (C) Igor Sysoev  */
 end_comment
 
 begin_include
@@ -160,7 +160,7 @@ name|max
 decl_stmt|,
 name|i
 decl_stmt|;
-DECL|enum|__anon27fb42e10103
+DECL|enum|__anon291ed1a80103
 enum|enum
 block|{
 DECL|enumerator|st_start

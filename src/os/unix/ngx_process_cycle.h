@@ -1,6 +1,6 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_comment
-comment|/*  * Copyright (C) 2002-2004 Igor Sysoev  */
+comment|/*  * Copyright (C) Igor Sysoev  */
 end_comment
 
 begin_ifndef
@@ -69,7 +69,7 @@ value|5
 end_define
 
 begin_typedef
-DECL|struct|__anon2b2acb410108
+DECL|struct|__anon28a5f28d0108
 typedef|typedef
 struct|struct
 block|{

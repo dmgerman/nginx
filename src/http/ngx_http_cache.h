@@ -1,6 +1,6 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_comment
-comment|/*  * Copyright (C) 2002-2004 Igor Sysoev  */
+comment|/*  * Copyright (C) Igor Sysoev  */
 end_comment
 
 begin_ifndef
@@ -47,7 +47,7 @@ value|3
 end_define
 
 begin_typedef
-DECL|struct|__anon2aa286920108
+DECL|struct|__anon290811260108
 typedef|typedef
 struct|struct
 block|{
@@ -130,7 +130,7 @@ DECL|member|updated
 name|time_t
 name|updated
 decl_stmt|;
-DECL|union|__anon2aa28692020a
+DECL|union|__anon29081126020a
 union|union
 block|{
 DECL|member|size
@@ -152,7 +152,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa286920308
+DECL|struct|__anon290811260308
 typedef|typedef
 struct|struct
 block|{
@@ -206,7 +206,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2aa286920408
+DECL|struct|__anon290811260408
 typedef|typedef
 struct|struct
 block|{
@@ -254,7 +254,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa286920508
+DECL|struct|__anon290811260508
 typedef|typedef
 struct|struct
 block|{
