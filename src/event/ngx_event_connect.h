@@ -30,8 +30,16 @@ directive|include
 file|<ngx_event.h>
 end_include
 
+begin_define
+DECL|macro|NGX_CONNECT_ERROR
+define|#
+directive|define
+name|NGX_CONNECT_ERROR
+value|-10
+end_define
+
 begin_typedef
-DECL|struct|__anon2bd41bf60108
+DECL|struct|__anon2b837bbf0108
 typedef|typedef
 struct|struct
 block|{
@@ -66,7 +74,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd41bf60208
+DECL|struct|__anon2b837bbf0208
 typedef|typedef
 struct|struct
 block|{
@@ -86,9 +94,14 @@ DECL|member|fail_timeout
 name|int
 name|fail_timeout
 decl_stmt|;
-comment|/* ngx_mutex_t       *mutex; */
+DECL|member|last_cached
+name|int
+name|last_cached
+decl_stmt|;
+comment|/* ngx_mutex_t        *mutex; */
 DECL|member|cached
 name|ngx_connection_t
+modifier|*
 modifier|*
 name|cached
 decl_stmt|;
@@ -106,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd41bf60308
+DECL|struct|__anon2b837bbf0308
 typedef|typedef
 struct|struct
 block|{
@@ -148,6 +161,28 @@ block|}
 name|ngx_peer_connection_t
 typedef|;
 end_typedef
+
+begin_function_decl
+name|int
+name|ngx_event_connect_peer
+parameter_list|(
+name|ngx_peer_connection_t
+modifier|*
+name|pc
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_event_connect_peer_failed
+parameter_list|(
+name|ngx_peer_connection_t
+modifier|*
+name|pc
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_endif
 endif|#

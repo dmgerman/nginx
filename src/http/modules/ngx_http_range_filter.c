@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon297ce27f0108
+DECL|struct|__anon28e604770108
 typedef|typedef
 struct|struct
 block|{
@@ -165,10 +165,6 @@ name|start
 decl_stmt|,
 name|end
 decl_stmt|;
-name|ngx_table_elt_t
-modifier|*
-name|accept_ranges
-decl_stmt|;
 name|ngx_http_range_t
 modifier|*
 name|range
@@ -265,6 +261,10 @@ condition|)
 block|{
 name|ngx_test_null
 argument_list|(
+name|r
+operator|->
+name|headers_out
+operator|.
 name|accept_ranges
 argument_list|,
 name|ngx_push_table
@@ -279,6 +279,10 @@ argument_list|,
 name|NGX_ERROR
 argument_list|)
 expr_stmt|;
+name|r
+operator|->
+name|headers_out
+operator|.
 name|accept_ranges
 operator|->
 name|key
@@ -292,6 +296,10 @@ argument_list|)
 operator|-
 literal|1
 expr_stmt|;
+name|r
+operator|->
+name|headers_out
+operator|.
 name|accept_ranges
 operator|->
 name|key
@@ -300,6 +308,10 @@ name|data
 operator|=
 literal|"Accept-Ranges"
 expr_stmt|;
+name|r
+operator|->
+name|headers_out
+operator|.
 name|accept_ranges
 operator|->
 name|value
@@ -313,6 +325,10 @@ argument_list|)
 operator|-
 literal|1
 expr_stmt|;
+name|r
+operator|->
+name|headers_out
+operator|.
 name|accept_ranges
 operator|->
 name|value

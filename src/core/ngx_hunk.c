@@ -687,12 +687,6 @@ name|in
 operator|->
 name|hunk
 expr_stmt|;
-name|ce
-operator|->
-name|next
-operator|=
-name|NULL
-expr_stmt|;
 operator|*
 name|le
 operator|=
@@ -712,6 +706,11 @@ operator|->
 name|next
 expr_stmt|;
 block|}
+operator|*
+name|le
+operator|=
+name|NULL
+expr_stmt|;
 return|return
 name|NGX_OK
 return|;

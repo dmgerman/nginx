@@ -234,11 +234,52 @@ name|content_type
 operator|=
 name|NULL
 expr_stmt|;
+name|r
+operator|->
+name|headers_out
+operator|.
+name|accept_ranges
+operator|->
+name|key
+operator|.
+name|len
+operator|=
+literal|0
+expr_stmt|;
+block|}
+return|return
+name|next_header_filter
+argument_list|(
+name|r
+argument_list|)
+return|;
+block|}
 end_function
 
-begin_comment
-comment|/* TODO: delete "Accept-Ranges" header     }      return next_header_filter(r); }   static int ngx_http_not_modified_filter_init(ngx_cycle_t *cycle) {     next_header_filter = ngx_http_top_header_filter;     ngx_http_top_header_filter = ngx_http_not_modified_header_filter;      return NGX_OK; }
-end_comment
+begin_function
+DECL|function|ngx_http_not_modified_filter_init (ngx_cycle_t * cycle)
+specifier|static
+name|int
+name|ngx_http_not_modified_filter_init
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|)
+block|{
+name|next_header_filter
+operator|=
+name|ngx_http_top_header_filter
+expr_stmt|;
+name|ngx_http_top_header_filter
+operator|=
+name|ngx_http_not_modified_header_filter
+expr_stmt|;
+return|return
+name|NGX_OK
+return|;
+block|}
+end_function
 
 end_unit
 

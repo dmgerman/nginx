@@ -37,7 +37,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2739878a0108
+DECL|struct|__anon2911b8c40108
 typedef|typedef
 struct|struct
 block|{
@@ -93,6 +93,11 @@ DECL|member|lcf
 name|ngx_http_proxy_loc_conf_t
 modifier|*
 name|lcf
+decl_stmt|;
+DECL|member|work_request_hunks
+name|ngx_chain_t
+modifier|*
+name|work_request_hunks
 decl_stmt|;
 DECL|member|request_hunks
 name|ngx_chain_t
