@@ -21,38 +21,6 @@ value|"nginx/0.0.3"
 end_define
 
 begin_define
-DECL|macro|NGINX_CONF
-define|#
-directive|define
-name|NGINX_CONF
-value|(u_char *) "nginx.conf"
-end_define
-
-begin_define
-DECL|macro|NGINX_PID
-define|#
-directive|define
-name|NGINX_PID
-value|"nginx.pid"
-end_define
-
-begin_define
-DECL|macro|NGINX_NEWPID_EXT
-define|#
-directive|define
-name|NGINX_NEWPID_EXT
-value|".newbin"
-end_define
-
-begin_define
-DECL|macro|NGINX_NEWPID
-define|#
-directive|define
-name|NGINX_NEWPID
-value|NGINX_PID NGINX_NEWPID_EXT
-end_define
-
-begin_define
 DECL|macro|NGINX_VAR
 define|#
 directive|define
@@ -60,12 +28,13 @@ name|NGINX_VAR
 value|"NGINX"
 end_define
 
-begin_decl_stmt
-specifier|extern
-name|ngx_module_t
-name|ngx_core_module
-decl_stmt|;
-end_decl_stmt
+begin_define
+DECL|macro|NGX_NEWPID_EXT
+define|#
+directive|define
+name|NGX_NEWPID_EXT
+value|".newbin"
+end_define
 
 begin_endif
 endif|#
