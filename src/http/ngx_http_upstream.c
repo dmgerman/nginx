@@ -4214,10 +4214,6 @@ operator|->
 name|pipe
 operator|.
 name|temp_file
-operator|->
-name|file
-operator|.
-name|fd
 condition|)
 block|{
 name|ngx_log_debug1
@@ -4259,10 +4255,6 @@ operator|->
 name|pipe
 operator|.
 name|temp_file
-operator|->
-name|file
-operator|.
-name|fd
 condition|)
 block|{
 name|r

@@ -35,6 +35,14 @@ file|<pcre.h>
 end_include
 
 begin_define
+DECL|macro|NGX_REGEX_NO_MATCHED
+define|#
+directive|define
+name|NGX_REGEX_NO_MATCHED
+value|-1000
+end_define
+
+begin_define
 DECL|macro|NGX_REGEX_CASELESS
 define|#
 directive|define
@@ -81,6 +89,17 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
+name|ngx_uint_t
+name|ngx_regex_capture_count
+parameter_list|(
+name|ngx_regex_t
+modifier|*
+name|re
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
 name|ngx_int_t
 name|ngx_regex_exec
 parameter_list|(
@@ -94,7 +113,7 @@ name|s
 parameter_list|,
 name|int
 modifier|*
-name|matches
+name|captures
 parameter_list|,
 name|ngx_int_t
 name|size

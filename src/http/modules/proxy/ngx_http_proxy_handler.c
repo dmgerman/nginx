@@ -5192,6 +5192,16 @@ name|uri_separator
 operator|=
 literal|""
 expr_stmt|;
+name|lcf
+operator|->
+name|upstream
+operator|->
+name|default_port
+operator|=
+name|inet_upstream
+operator|.
+name|default_port
+expr_stmt|;
 block|}
 name|clcf
 operator|=

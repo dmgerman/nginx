@@ -1265,6 +1265,46 @@ operator|==
 name|NULL
 condition|)
 block|{
+if|if
+condition|(
+name|p
+index|[
+name|i
+index|]
+operator|->
+name|conf_file
+operator|==
+name|NULL
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"the default path name \"%V\" has "
+literal|"the same name as another default path, "
+literal|"but the different levels, you need to "
+literal|"redefine one of them in http section"
+argument_list|,
+operator|&
+name|p
+index|[
+name|i
+index|]
+operator|->
+name|name
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_EMERG
@@ -1276,7 +1316,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"the path name \"%V\" in %s:%ui has "
-literal|"the same name as default path but "
+literal|"the same name as default path, but "
 literal|"the different levels, you need to "
 literal|"define default path in http section"
 argument_list|,

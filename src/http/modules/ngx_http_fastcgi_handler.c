@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28a36fda0108
+DECL|struct|__anon29a2b2fb0108
 typedef|typedef
 struct|struct
 block|{
@@ -65,7 +65,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a36fda0208
+DECL|struct|__anon29a2b2fb0208
 typedef|typedef
 struct|struct
 block|{
@@ -112,7 +112,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a36fda0308
+DECL|struct|__anon29a2b2fb0308
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28a36fda0403
+DECL|enum|__anon29a2b2fb0403
 typedef|typedef
 enum|enum
 block|{
@@ -169,7 +169,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a36fda0508
+DECL|struct|__anon29a2b2fb0508
 typedef|typedef
 struct|struct
 block|{
@@ -379,7 +379,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon28a36fda0608
+DECL|struct|__anon29a2b2fb0608
 typedef|typedef
 struct|struct
 block|{
@@ -422,7 +422,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a36fda0708
+DECL|struct|__anon29a2b2fb0708
 typedef|typedef
 struct|struct
 block|{
@@ -657,6 +657,19 @@ argument_list|(
 literal|"POST"
 argument_list|)
 block|}
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_http_fastcgi_uri
+specifier|static
+name|ngx_str_t
+name|ngx_http_fastcgi_uri
+init|=
+name|ngx_string
+argument_list|(
+literal|"/"
+argument_list|)
 decl_stmt|;
 end_decl_stmt
 
@@ -2318,7 +2331,7 @@ operator|(
 operator|(
 name|r
 operator|->
-name|uri
+name|unparsed_uri
 operator|.
 name|len
 operator|>
@@ -2339,7 +2352,7 @@ literal|1
 operator|+
 name|r
 operator|->
-name|uri
+name|unparsed_uri
 operator|.
 name|len
 expr_stmt|;
@@ -4199,7 +4212,7 @@ name|len
 operator|=
 name|r
 operator|->
-name|uri
+name|unparsed_uri
 operator|.
 name|len
 expr_stmt|;
@@ -4333,7 +4346,7 @@ name|last
 argument_list|,
 name|r
 operator|->
-name|uri
+name|unparsed_uri
 operator|.
 name|data
 argument_list|,
@@ -9139,20 +9152,27 @@ argument_list|,
 name|ngx_http_core_module
 argument_list|)
 expr_stmt|;
-name|lcf
-operator|->
-name|location
-operator|=
-operator|&
-name|clcf
-operator|->
-name|name
-expr_stmt|;
 name|clcf
 operator|->
 name|handler
 operator|=
 name|ngx_http_fastcgi_handler
+expr_stmt|;
+name|lcf
+operator|->
+name|location
+operator|=
+name|clcf
+operator|->
+name|regex
+condition|?
+operator|&
+name|ngx_http_fastcgi_uri
+else|:
+operator|&
+name|clcf
+operator|->
+name|name
 expr_stmt|;
 if|if
 condition|(

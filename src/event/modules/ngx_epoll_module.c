@@ -327,7 +327,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2930119e0108
+DECL|struct|__anon277116f90108
 typedef|typedef
 struct|struct
 block|{
@@ -998,13 +998,8 @@ name|ee
 operator|.
 name|data
 operator|.
-name|ptr
+name|u64
 operator|=
-operator|(
-name|void
-operator|*
-operator|)
-operator|(
 operator|(
 name|uintptr_t
 operator|)
@@ -1013,7 +1008,6 @@ operator||
 name|ev
 operator|->
 name|instance
-operator|)
 expr_stmt|;
 name|ngx_log_debug3
 argument_list|(
@@ -1211,13 +1205,8 @@ name|ee
 operator|.
 name|data
 operator|.
-name|ptr
+name|u64
 operator|=
-operator|(
-name|void
-operator|*
-operator|)
-operator|(
 operator|(
 name|uintptr_t
 operator|)
@@ -1226,7 +1215,6 @@ operator||
 name|ev
 operator|->
 name|instance
-operator|)
 expr_stmt|;
 block|}
 else|else
@@ -1357,13 +1345,8 @@ name|ee
 operator|.
 name|data
 operator|.
-name|ptr
+name|u64
 operator|=
-operator|(
-name|void
-operator|*
-operator|)
-operator|(
 operator|(
 name|uintptr_t
 operator|)
@@ -1374,7 +1357,6 @@ operator|->
 name|read
 operator|->
 name|instance
-operator|)
 expr_stmt|;
 name|ngx_log_debug2
 argument_list|(
@@ -1540,9 +1522,9 @@ name|ee
 operator|.
 name|data
 operator|.
-name|ptr
+name|u64
 operator|=
-name|NULL
+literal|0
 expr_stmt|;
 if|if
 condition|(

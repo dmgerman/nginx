@@ -2978,7 +2978,7 @@ if|if
 condition|(
 name|n
 operator|==
-name|NGX_DECLINED
+name|NGX_REGEX_NO_MATCHED
 condition|)
 block|{
 continue|continue;

@@ -292,7 +292,49 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_regex_exec (ngx_regex_t * re,ngx_str_t * s,int * matches,ngx_int_t size)
+DECL|function|ngx_regex_capture_count (ngx_regex_t * re)
+name|ngx_uint_t
+name|ngx_regex_capture_count
+parameter_list|(
+name|ngx_regex_t
+modifier|*
+name|re
+parameter_list|)
+block|{
+name|int
+name|rc
+decl_stmt|,
+name|n
+decl_stmt|;
+name|n
+operator|=
+literal|0
+expr_stmt|;
+name|rc
+operator|=
+name|pcre_fullinfo
+argument_list|(
+name|re
+argument_list|,
+name|NULL
+argument_list|,
+name|PCRE_INFO_CAPTURECOUNT
+argument_list|,
+operator|&
+name|n
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|ngx_uint_t
+operator|)
+name|n
+return|;
+block|}
+end_function
+
+begin_function
+DECL|function|ngx_regex_exec (ngx_regex_t * re,ngx_str_t * s,int * captures,ngx_int_t size)
 name|ngx_int_t
 name|ngx_regex_exec
 parameter_list|(
@@ -306,7 +348,7 @@ name|s
 parameter_list|,
 name|int
 modifier|*
-name|matches
+name|captures
 parameter_list|,
 name|ngx_int_t
 name|size
@@ -340,7 +382,7 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
-name|matches
+name|captures
 argument_list|,
 name|size
 argument_list|)
@@ -354,7 +396,7 @@ literal|1
 condition|)
 block|{
 return|return
-name|NGX_DECLINED
+name|NGX_REGEX_NO_MATCHED
 return|;
 block|}
 return|return
