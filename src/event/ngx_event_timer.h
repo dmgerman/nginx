@@ -77,11 +77,11 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_event_get_timer ()
+DECL|function|ngx_event_find_timer ()
 name|ngx_inline
 specifier|static
 name|int
-name|ngx_event_get_timer
+name|ngx_event_find_timer
 parameter_list|()
 block|{
 name|int
@@ -116,7 +116,7 @@ name|i
 index|]
 operator|.
 name|timer_next
-operator|!=
+operator|==
 operator|&
 name|ngx_timer_queue
 index|[
@@ -124,6 +124,8 @@ name|i
 index|]
 condition|)
 block|{
+continue|continue;
+block|}
 if|if
 condition|(
 name|timer
@@ -149,7 +151,6 @@ name|timer_next
 operator|->
 name|timer_delta
 expr_stmt|;
-block|}
 block|}
 block|}
 if|if
