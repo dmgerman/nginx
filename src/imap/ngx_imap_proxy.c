@@ -246,7 +246,7 @@ expr_stmt|;
 if|#
 directive|if
 literal|0
-block_content|peers->peers[0].addr = inet_addr("81.19.69.70");     peers->peers[0].addr_port_text.len = sizeof("81.19.69.70:110") - 1;     peers->peers[0].addr_port_text.data = "81.19.69.70:110";     peers->peers[0].port = htons(110);
+block_content|peers->peers[0].addr = inet_addr("81.19.69.70");     peers->peers[0].addr_port_text.len = sizeof("81.19.69.70:110") - 1;     peers->peers[0].addr_port_text.data = (u_char *) "81.19.69.70:110";     peers->peers[0].port = htons(110);
 else|#
 directive|else
 name|peers
@@ -292,6 +292,10 @@ name|addr_port_text
 operator|.
 name|data
 operator|=
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"81.19.64.101:110"
 expr_stmt|;
 name|peers

@@ -24,7 +24,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bd272c30108
+DECL|struct|__anon2c5256f40108
 typedef|typedef
 struct|struct
 block|{
@@ -500,6 +500,25 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+if|#
+directive|if
+operator|(
+name|NGX_STAT_STUB
+operator|)
+operator|(
+operator|*
+name|ngx_stat_accepted
+operator|)
+operator|++
+expr_stmt|;
+operator|(
+operator|*
+name|ngx_stat_active
+operator|)
+operator|++
+expr_stmt|;
+endif|#
+directive|endif
 name|ngx_accept_disabled
 operator|=
 operator|(

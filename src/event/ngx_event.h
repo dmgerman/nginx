@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon28f571d60108
+DECL|struct|__anon2c638c180108
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +70,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28f571d60208
+DECL|struct|__anon2c638c180208
 typedef|typedef
 struct|struct
 block|{
@@ -461,7 +461,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28f571d60308
+DECL|struct|__anon2c638c180308
 typedef|typedef
 struct|struct
 block|{
@@ -1279,7 +1279,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon28f571d60408
+DECL|struct|__anon2c638c180408
 typedef|typedef
 struct|struct
 block|{
@@ -1326,7 +1326,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f571d60508
+DECL|struct|__anon2c638c180508
 typedef|typedef
 struct|struct
 block|{
@@ -1419,6 +1419,59 @@ name|ngx_int_t
 name|ngx_accept_disabled
 decl_stmt|;
 end_decl_stmt
+
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_STAT_STUB
+operator|)
+end_if
+
+begin_decl_stmt
+specifier|extern
+name|ngx_atomic_t
+modifier|*
+name|ngx_stat_accepted
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_atomic_t
+modifier|*
+name|ngx_stat_requests
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_atomic_t
+modifier|*
+name|ngx_stat_active
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_atomic_t
+modifier|*
+name|ngx_stat_reading
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_atomic_t
+modifier|*
+name|ngx_stat_writing
+decl_stmt|;
+end_decl_stmt
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_define
 DECL|macro|ngx_accept_mutex_unlock ()

@@ -1101,17 +1101,14 @@ parameter_list|,
 name|arg4
 parameter_list|,
 name|arg5
-parameter_list|,
+parameter_list|,    \
 name|arg6
 parameter_list|,
+name|arg7
+parameter_list|)
 end_define
 
-begin_expr_stmt
-name|arg7
-end_expr_stmt
-
 begin_endif
-unit|)
 endif|#
 directive|endif
 end_endif

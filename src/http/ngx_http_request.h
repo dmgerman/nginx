@@ -405,7 +405,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon2b5644f80103
+DECL|enum|__anon27905f730103
 typedef|typedef
 enum|enum
 block|{
@@ -426,7 +426,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b5644f80203
+DECL|enum|__anon27905f730203
 typedef|typedef
 enum|enum
 block|{
@@ -465,7 +465,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5644f80308
+DECL|struct|__anon27905f730308
 typedef|typedef
 struct|struct
 block|{
@@ -484,7 +484,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5644f80408
+DECL|struct|__anon27905f730408
 typedef|typedef
 struct|struct
 block|{
@@ -589,10 +589,14 @@ decl_stmt|;
 DECL|member|msie
 name|unsigned
 name|msie
+range|:
+literal|1
 decl_stmt|;
 DECL|member|msie4
 name|unsigned
 name|msie4
+range|:
+literal|1
 decl_stmt|;
 DECL|typedef|ngx_http_headers_in_t
 block|}
@@ -601,7 +605,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5644f80508
+DECL|struct|__anon27905f730508
 typedef|typedef
 struct|struct
 block|{
@@ -624,7 +628,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5644f80608
+DECL|struct|__anon27905f730608
 typedef|typedef
 struct|struct
 block|{
@@ -727,7 +731,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5644f80708
+DECL|struct|__anon27905f730708
 typedef|typedef
 struct|struct
 block|{
@@ -778,10 +782,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon2b5644f8080a
+DECL|union|__anon27905f73080a
 union|union
 block|{
-DECL|struct|__anon2b5644f80908
+DECL|struct|__anon27905f730908
 struct|struct
 block|{
 DECL|member|fd
@@ -797,7 +801,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon2b5644f80a08
+DECL|struct|__anon27905f730a08
 struct|struct
 block|{
 DECL|member|hash

@@ -387,7 +387,7 @@ block|{
 break|break;
 block|}
 block|}
-comment|/* alloc a new pool block */
+comment|/* allocate a new pool block */
 if|if
 condition|(
 operator|!
@@ -444,7 +444,7 @@ return|return
 name|m
 return|;
 block|}
-comment|/* alloc a large block */
+comment|/* allocate a large block */
 name|large
 operator|=
 name|NULL
