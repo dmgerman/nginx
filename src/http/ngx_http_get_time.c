@@ -41,7 +41,7 @@ name|strftime
 argument_list|(
 name|buf
 argument_list|,
-literal|31
+literal|30
 argument_list|,
 literal|"%a, %d %b %Y %H:%M:%S GMT"
 argument_list|,

@@ -313,11 +313,15 @@ index|[
 name|s
 index|]
 operator|.
-name|addr_textlen
+name|addr_text
+operator|.
+name|len
 operator|=
 name|cn
 operator|->
-name|addr_textlen
+name|addr_text
+operator|.
+name|len
 expr_stmt|;
 name|ngx_connections
 index|[

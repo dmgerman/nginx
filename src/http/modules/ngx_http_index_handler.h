@@ -39,7 +39,7 @@ value|"index.html"
 end_define
 
 begin_typedef
-DECL|struct|__anon2895264c0108
+DECL|struct|__anon2a5290bf0108
 typedef|typedef
 struct|struct
 block|{
@@ -55,26 +55,6 @@ decl_stmt|;
 DECL|typedef|ngx_http_index_conf_t
 block|}
 name|ngx_http_index_conf_t
-typedef|;
-end_typedef
-
-begin_typedef
-DECL|struct|__anon2895264c0208
-typedef|typedef
-struct|struct
-block|{
-DECL|member|name
-name|char
-modifier|*
-name|name
-decl_stmt|;
-DECL|member|len
-name|size_t
-name|len
-decl_stmt|;
-DECL|typedef|ngx_http_index_file_t
-block|}
-name|ngx_http_index_file_t
 typedef|;
 end_typedef
 

@@ -47,7 +47,7 @@ value|21
 end_define
 
 begin_typedef
-DECL|struct|__anon2892de2b0108
+DECL|struct|__anon29f6dab00108
 typedef|typedef
 struct|struct
 block|{
@@ -115,10 +115,10 @@ DECL|member|status_count
 name|int
 name|status_count
 decl_stmt|;
-DECL|member|status_text
+DECL|member|status_line
 name|char
 modifier|*
-name|status_text
+name|status_line
 decl_stmt|;
 DECL|member|request_end
 name|char

@@ -90,6 +90,9 @@ name|NULL
 block|,
 comment|/* init module */
 name|NULL
+block|,
+comment|/* translate handler */
+name|NULL
 comment|/* init output body filter */
 block|}
 decl_stmt|;

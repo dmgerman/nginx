@@ -129,6 +129,9 @@ comment|/* module directives */
 name|NULL
 block|,
 comment|/* init module */
+name|NULL
+block|,
+comment|/* translate handler */
 name|ngx_http_output_filter_init
 comment|/* init output body filter */
 block|}

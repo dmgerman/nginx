@@ -58,6 +58,22 @@ value|"open()"
 end_define
 
 begin_define
+DECL|macro|ngx_close_file
+define|#
+directive|define
+name|ngx_close_file
+value|close
+end_define
+
+begin_define
+DECL|macro|ngx_close_file_n
+define|#
+directive|define
+name|ngx_close_file_n
+value|"close()"
+end_define
+
+begin_define
 DECL|macro|ngx_read_file_n
 define|#
 directive|define

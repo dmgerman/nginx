@@ -48,10 +48,10 @@ operator|&
 name|ngx_http_output_filter_module
 block|,
 operator|&
-name|ngx_http_core_module
+name|ngx_http_index_module
 block|,
 operator|&
-name|ngx_http_index_module
+name|ngx_http_core_module
 block|,
 name|NULL
 block|}

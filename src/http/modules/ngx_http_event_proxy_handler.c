@@ -334,7 +334,7 @@ name|ngx_table_elt_t
 modifier|*
 name|header
 decl_stmt|;
-comment|/* "+ 4" is for "\r\n" after request line and at the header end */
+comment|/* 2 is for "\r\n" after request line        and 2 is for "\r\n" at the header end */
 name|len
 operator|=
 name|r
@@ -343,7 +343,9 @@ name|request_line
 operator|.
 name|len
 operator|+
-literal|4
+literal|2
+operator|+
+literal|2
 expr_stmt|;
 comment|/* "Connection: close\r\n" */
 name|len
@@ -419,7 +421,7 @@ operator|.
 name|connection
 condition|)
 continue|continue;
-comment|/* "+ 4" is for ": " and "\r\n" */
+comment|/* 2 is for ": " and 2 is for "\r\n" */
 name|len
 operator|+=
 name|header
@@ -431,6 +433,8 @@ name|key
 operator|.
 name|len
 operator|+
+literal|2
+operator|+
 name|header
 index|[
 name|i
@@ -440,7 +444,7 @@ name|value
 operator|.
 name|len
 operator|+
-literal|4
+literal|2
 expr_stmt|;
 block|}
 comment|/* STUB */
@@ -1695,51 +1699,14 @@ argument_list|)
 return|;
 block|}
 comment|/* state_handlers are called in following order:         ngx_http_proxy_process_status_line(r, p)         ngx_http_proxy_process_reponse_header(r, p) */
-do|do
-block|{
-name|rc
-operator|=
-operator|(
-name|p
-operator|->
-name|state_handler
-operator|)
-operator|(
-name|r
-operator|,
-name|p
-operator|)
-expr_stmt|;
-if|if
-condition|(
-name|rc
-operator|==
-name|NGX_ERROR
-condition|)
-return|return
-name|rc
-return|;
+if|#
+directive|if
+literal|0
+block_content|do {         rc = (p->state_handler)(r, p);          if (rc == NGX_ERROR)             return rc;
 comment|/* rc == NGX_OK || rc == NGX_AGAIN */
-block|}
-do|while
-condition|(
-name|p
-operator|->
-name|header_in
-operator|->
-name|pos
-operator|.
-name|mem
-operator|<
-name|p
-operator|->
-name|header_in
-operator|->
-name|last
-operator|.
-name|mem
-condition|)
-do|;
+block_content|} while (p->header_in->pos.mem< p->header_in->last.mem);
+endif|#
+directive|endif
 name|ev
 operator|->
 name|event_handler
@@ -1794,14 +1761,6 @@ block|{
 name|int
 name|rc
 decl_stmt|;
-name|ngx_log_debug
-argument_list|(
-argument|r->connection->log
-argument_list|,
-literal|"STATUS: %d"
-argument|_ p->status
-argument_list|)
-empty_stmt|;
 name|rc
 operator|=
 name|ngx_read_http_proxy_status_line
@@ -1809,14 +1768,20 @@ argument_list|(
 name|p
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug
-argument_list|(
-argument|r->connection->log
-argument_list|,
-literal|"STATUS: %d"
-argument|_ p->status
-argument_list|)
-empty_stmt|;
+if|if
+condition|(
+name|rc
+operator|==
+name|NGX_HTTP_PROXY_PARSE_NO_HEADER
+condition|)
+block|{
+name|p
+operator|->
+name|status
+operator|=
+literal|200
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|rc
@@ -1877,6 +1842,24 @@ comment|/* STUB */
 return|return
 name|NGX_ERROR
 return|;
+block|}
+end_function
+
+begin_function
+DECL|function|ngx_http_proxy_process_response_header (ngx_http_request_t * r,ngx_http_proxy_ctx_t * p)
+specifier|static
+name|int
+name|ngx_http_proxy_process_response_header
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_http_proxy_ctx_t
+modifier|*
+name|p
+parameter_list|)
+block|{
 block|}
 end_function
 
@@ -2417,7 +2400,7 @@ name|char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon27b4f2c90103
+DECL|enum|__anon29b6737f0103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2740,10 +2723,20 @@ name|status_count
 operator|==
 literal|3
 condition|)
+block|{
 name|state
 operator|=
 name|sw_space_after_status
 expr_stmt|;
+name|ctx
+operator|->
+name|status_line
+operator|=
+name|p
+operator|-
+literal|3
+expr_stmt|;
+block|}
 break|break;
 comment|/* space or end of line */
 case|case
@@ -2757,14 +2750,6 @@ block|{
 case|case
 literal|' '
 case|:
-name|ctx
-operator|->
-name|status_text
-operator|=
-name|p
-operator|-
-literal|1
-expr_stmt|;
 name|state
 operator|=
 name|sw_status_text

@@ -43,7 +43,7 @@ file|<ngx_connection.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a22269c0108
+DECL|struct|__anon29d842f80108
 typedef|typedef
 struct|struct
 block|{
@@ -66,13 +66,8 @@ name|size_t
 name|addr
 decl_stmt|;
 DECL|member|addr_text
-name|char
-modifier|*
+name|ngx_str_t
 name|addr_text
-decl_stmt|;
-DECL|member|addr_textlen
-name|size_t
-name|addr_textlen
 decl_stmt|;
 DECL|member|family
 name|int

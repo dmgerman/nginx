@@ -34,7 +34,7 @@ name|char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon287a50e80103
+DECL|enum|__anon287d70e40103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1113,13 +1113,17 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_read_http_header_line (ngx_http_request_t * r)
+DECL|function|ngx_read_http_header_line (ngx_http_request_t * r,ngx_hunk_t * h)
 name|int
 name|ngx_read_http_header_line
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
+parameter_list|,
+name|ngx_hunk_t
+modifier|*
+name|h
 parameter_list|)
 block|{
 name|char
@@ -1131,7 +1135,7 @@ name|char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon287a50e80203
+DECL|enum|__anon287d70e40203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1173,9 +1177,7 @@ name|state
 expr_stmt|;
 name|p
 operator|=
-name|r
-operator|->
-name|header_in
+name|h
 operator|->
 name|pos
 operator|.
@@ -1185,9 +1187,7 @@ while|while
 condition|(
 name|p
 operator|<
-name|r
-operator|->
-name|header_in
+name|h
 operator|->
 name|last
 operator|.
@@ -1204,7 +1204,7 @@ operator|*
 name|p
 operator|++
 expr_stmt|;
-comment|/* printf("\nstate: %d, pos: %x, end: %x, char: '%c' buf: %s",        state, p, r->header_in->last.mem, ch, p); */
+comment|/* printf("\nstate: %d, pos: %x, end: %x, char: '%c' buf: %s",        state, p, h->last.mem, ch, p); */
 switch|switch
 condition|(
 name|state
@@ -1580,9 +1580,7 @@ block|}
 break|break;
 block|}
 block|}
-name|r
-operator|->
-name|header_in
+name|h
 operator|->
 name|pos
 operator|.

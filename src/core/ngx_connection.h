@@ -39,6 +39,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_string.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_server.h>
 end_include
 
@@ -162,13 +168,8 @@ name|size_t
 name|addr
 decl_stmt|;
 DECL|member|addr_text
-name|char
-modifier|*
+name|ngx_str_t
 name|addr_text
-decl_stmt|;
-DECL|member|addr_textlen
-name|size_t
-name|addr_textlen
 decl_stmt|;
 DECL|member|buffer
 name|ngx_hunk_t
