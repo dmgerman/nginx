@@ -57,7 +57,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bd42e8d0108
+DECL|struct|__anon276735840108
 typedef|typedef
 struct|struct
 block|{
@@ -72,9 +72,14 @@ modifier|*
 name|pool
 decl_stmt|;
 DECL|member|free
-name|char
+name|ngx_radix_node_t
 modifier|*
 name|free
+decl_stmt|;
+DECL|member|start
+name|char
+modifier|*
+name|start
 decl_stmt|;
 DECL|member|size
 name|size_t
