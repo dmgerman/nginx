@@ -295,11 +295,15 @@ end_function_decl
 
 begin_function_decl
 name|int
-name|ngx_event_proxy_write_chain_to_temp_file
+name|ngx_event_proxy_copy_input_filter
 parameter_list|(
 name|ngx_event_proxy_t
 modifier|*
 name|p
+parameter_list|,
+name|ngx_chain_t
+modifier|*
+name|chain
 parameter_list|)
 function_decl|;
 end_function_decl
