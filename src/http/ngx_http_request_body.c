@@ -90,6 +90,7 @@ condition|(
 name|size
 condition|)
 block|{
+comment|/* there is the pre-read part of the request body */
 name|ngx_test_null
 argument_list|(
 name|h
@@ -166,6 +167,7 @@ operator|.
 name|content_length_n
 condition|)
 block|{
+comment|/* the whole request body was pre-read */
 name|r
 operator|->
 name|header_in
@@ -197,7 +199,7 @@ expr_stmt|;
 block|}
 name|r
 operator|->
-name|request_body_len
+name|remaining_body_len
 operator|=
 name|r
 operator|->
@@ -211,7 +213,7 @@ if|if
 condition|(
 name|r
 operator|->
-name|request_body_len
+name|remaining_body_len
 operator|<
 name|request_buffer_size
 operator|+
@@ -226,7 +228,7 @@ name|size
 operator|=
 name|r
 operator|->
-name|request_body_len
+name|remaining_body_len
 expr_stmt|;
 block|}
 else|else
@@ -531,14 +533,14 @@ name|size
 operator|>
 name|r
 operator|->
-name|request_body_len
+name|remaining_body_len
 condition|)
 block|{
 name|size
 operator|=
 name|r
 operator|->
-name|request_body_len
+name|remaining_body_len
 expr_stmt|;
 block|}
 name|n
@@ -673,7 +675,7 @@ name|n
 expr_stmt|;
 name|r
 operator|->
-name|request_body_len
+name|remaining_body_len
 operator|-=
 name|n
 expr_stmt|;
@@ -681,7 +683,7 @@ if|if
 condition|(
 name|r
 operator|->
-name|request_body_len
+name|remaining_body_len
 operator|==
 literal|0
 condition|)
@@ -721,14 +723,14 @@ name|SIZE_T_FMT
 argument_list|,
 name|r
 operator|->
-name|request_body_len
+name|remaining_body_len
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
 name|r
 operator|->
-name|request_body_len
+name|remaining_body_len
 condition|)
 block|{
 return|return
