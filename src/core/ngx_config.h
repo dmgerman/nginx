@@ -120,6 +120,62 @@ endif|#
 directive|endif
 end_endif
 
+begin_if
+if|#
+directive|if
+operator|!
+operator|(
+name|WIN32
+operator|)
+end_if
+
+begin_define
+DECL|macro|ngx_signal_helper (n)
+define|#
+directive|define
+name|ngx_signal_helper
+parameter_list|(
+name|n
+parameter_list|)
+value|SIG##n
+end_define
+
+begin_define
+DECL|macro|ngx_signal_value (n)
+define|#
+directive|define
+name|ngx_signal_value
+parameter_list|(
+name|n
+parameter_list|)
+value|ngx_signal_helper(n)
+end_define
+
+begin_comment
+comment|/* TODO: #ifndef */
+end_comment
+
+begin_define
+DECL|macro|NGX_RESTART_SIGNAL
+define|#
+directive|define
+name|NGX_RESTART_SIGNAL
+value|HUP
+end_define
+
+begin_define
+DECL|macro|NGX_ROTATE_SIGNAL
+define|#
+directive|define
+name|NGX_ROTATE_SIGNAL
+value|USR1
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_comment
 comment|/* TODO: platform specific: array[NGX_INVALID_ARRAY_INDEX] must cause SIGSEGV */
 end_comment

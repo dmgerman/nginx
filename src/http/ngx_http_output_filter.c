@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27c698ed0108
+DECL|struct|__anon289032740108
 typedef|typedef
 struct|struct
 block|{
@@ -33,7 +33,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c698ed0208
+DECL|struct|__anon289032740208
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +202,10 @@ name|NGX_HTTP_MODULE
 block|,
 comment|/* module type */
 name|NULL
+block|,
 comment|/* init module */
+name|NULL
+comment|/* init child */
 block|}
 decl_stmt|;
 end_decl_stmt

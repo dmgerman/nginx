@@ -104,7 +104,10 @@ name|NGX_CORE_MODULE
 block|,
 comment|/* module type */
 name|NULL
+block|,
 comment|/* init module */
+name|NULL
+comment|/* init child */
 block|}
 decl_stmt|;
 end_decl_stmt

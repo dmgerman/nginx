@@ -130,7 +130,10 @@ if|if
 condition|(
 name|sigaction
 argument_list|(
-name|SIGHUP
+name|ngx_signal_value
+argument_list|(
+name|NGX_RESTART_SIGNAL
+argument_list|)
 argument_list|,
 operator|&
 name|sa
@@ -150,7 +153,12 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"sigaction(SIGHUP) failed"
+literal|"sigaction(SIG"
+name|ngx_value
+argument_list|(
+name|NGX_RESTART_SIGNAL
+argument_list|)
+literal|") failed"
 argument_list|)
 expr_stmt|;
 return|return
@@ -167,7 +175,10 @@ if|if
 condition|(
 name|sigaction
 argument_list|(
-name|SIGUSR1
+name|ngx_signal_value
+argument_list|(
+name|NGX_ROTATE_SIGNAL
+argument_list|)
 argument_list|,
 operator|&
 name|sa
@@ -187,7 +198,12 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"sigaction(SIGUSR1) failed"
+literal|"sigaction(SIG"
+name|ngx_value
+argument_list|(
+name|NGX_ROTATE_SIGNAL
+argument_list|)
+literal|") failed"
 argument_list|)
 expr_stmt|;
 return|return

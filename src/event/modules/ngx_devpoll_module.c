@@ -78,16 +78,16 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2a8c7b2e0108
+DECL|struct|__anon2c6c15d00108
 typedef|typedef
 struct|struct
 block|{
 DECL|member|changes
-name|int
+name|u_int
 name|changes
 decl_stmt|;
 DECL|member|events
-name|int
+name|u_int
 name|events
 decl_stmt|;
 DECL|typedef|ngx_devpoll_conf_t
@@ -241,18 +241,13 @@ end_decl_stmt
 begin_decl_stmt
 DECL|variable|nchanges
 DECL|variable|max_changes
+DECL|variable|nevents
 specifier|static
 name|u_int
 name|nchanges
 decl_stmt|,
 name|max_changes
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-DECL|variable|nevents
-specifier|static
-name|int
+decl_stmt|,
 name|nevents
 decl_stmt|;
 end_decl_stmt
@@ -408,7 +403,10 @@ name|NGX_EVENT_MODULE
 block|,
 comment|/* module type */
 name|NULL
+block|,
 comment|/* init module */
+name|NULL
+comment|/* init child */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -1296,6 +1294,8 @@ decl_stmt|,
 name|n
 decl_stmt|,
 name|i
+decl_stmt|,
+name|j
 decl_stmt|;
 name|ngx_msec_t
 name|timer
@@ -1642,17 +1642,17 @@ name|elts
 expr_stmt|;
 for|for
 control|(
-name|i
+name|j
 operator|=
 literal|0
 init|;
-name|i
+name|j
 operator|<
 name|ngx_old_cycles
 operator|.
 name|nelts
 condition|;
-name|i
+name|j
 operator|++
 control|)
 block|{
@@ -1673,7 +1673,7 @@ operator|=
 operator|&
 name|cycle
 index|[
-name|i
+name|j
 index|]
 operator|->
 name|connections
@@ -1977,7 +1977,7 @@ name|dpcf
 init|=
 name|conf
 decl_stmt|;
-name|ngx_conf_init_value
+name|ngx_conf_init_unsigned_value
 argument_list|(
 name|dpcf
 operator|->
@@ -1986,7 +1986,7 @@ argument_list|,
 literal|512
 argument_list|)
 expr_stmt|;
-name|ngx_conf_init_value
+name|ngx_conf_init_unsigned_value
 argument_list|(
 name|dpcf
 operator|->
