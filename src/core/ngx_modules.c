@@ -237,9 +237,12 @@ block|,
 operator|&
 name|ngx_event_core_module
 block|,
-operator|&
-name|ngx_select_module
-block|,
+if|#
+directive|if
+literal|0
+block|&ngx_select_module,
+endif|#
+directive|endif
 if|#
 directive|if
 operator|(
