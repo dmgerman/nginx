@@ -268,7 +268,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2bfa9c910103
+DECL|enum|__anon2c00e8ad0103
 typedef|typedef
 enum|enum
 block|{
@@ -304,7 +304,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bfa9c910208
+DECL|struct|__anon2c00e8ad0208
 typedef|typedef
 struct|struct
 block|{
@@ -701,12 +701,40 @@ modifier|*
 name|ev
 parameter_list|)
 block|{
+if|#
+directive|if
+operator|(
+name|NGX_DEBUG
+operator|)
+name|ngx_log_debug
+argument_list|(
+name|ev
+operator|->
+name|log
+argument_list|,
+literal|"del timer: %d"
+name|_
+operator|*
+operator|(
+name|int
+operator|*
+operator|)
+operator|(
+name|ev
+operator|->
+name|data
+operator|)
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|ev
 operator|->
 name|timer_prev
 condition|)
+block|{
 name|ev
 operator|->
 name|timer_prev
@@ -717,6 +745,7 @@ name|ev
 operator|->
 name|timer_next
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|ev
@@ -724,6 +753,16 @@ operator|->
 name|timer_next
 condition|)
 block|{
+name|ev
+operator|->
+name|timer_next
+operator|->
+name|timer_delta
+operator|+=
+name|ev
+operator|->
+name|timer_delta
+expr_stmt|;
 name|ev
 operator|->
 name|timer_next
@@ -747,12 +786,14 @@ name|ev
 operator|->
 name|timer_prev
 condition|)
+block|{
 name|ev
 operator|->
 name|timer_prev
 operator|=
 name|NULL
 expr_stmt|;
+block|}
 block|}
 end_function
 

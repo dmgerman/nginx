@@ -866,6 +866,10 @@ name|i
 operator|=
 literal|0
 init|;
+name|i
+operator|<
+name|nevents
+operator|&&
 name|ready
 condition|;
 name|i
@@ -1138,6 +1142,20 @@ operator|--
 expr_stmt|;
 block|}
 block|}
+name|ngx_assert
+argument_list|(
+argument|(ready ==
+literal|0
+argument|)
+argument_list|,
+comment|/* void */
+argument|;
+argument_list|,
+argument|log
+argument_list|,
+literal|"poll ready != nevents"
+argument_list|)
+empty_stmt|;
 return|return
 name|NGX_OK
 return|;

@@ -160,6 +160,12 @@ name|doc_root
 operator|=
 literal|"/home/is/work/xml/site-1.0.0/html"
 expr_stmt|;
+name|ngx_http_server
+operator|.
+name|doc_root
+operator|=
+literal|"/spool/test/lperltk"
+expr_stmt|;
 endif|#
 directive|endif
 name|ngx_http_server

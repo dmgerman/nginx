@@ -433,6 +433,38 @@ literal|"select fd:%d event:%d"
 argument|_ c->fd _ event
 argument_list|)
 empty_stmt|;
+if|if
+condition|(
+name|ev
+operator|->
+name|index
+operator|!=
+name|NGX_INVALID_INDEX
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|ev
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"%d:%d is already set"
+argument_list|,
+name|c
+operator|->
+name|fd
+argument_list|,
+name|event
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_OK
+return|;
+block|}
 if|#
 directive|if
 operator|(
@@ -1028,8 +1060,8 @@ name|ngx_log_debug
 argument_list|(
 argument|log
 argument_list|,
-literal|"select: %d"
-argument|_ c->fd
+literal|"select: %d:%d"
+argument|_ c->fd _ ev->write
 argument_list|)
 empty_stmt|;
 block|}
@@ -1487,6 +1519,44 @@ name|ngx_event_t
 modifier|*
 name|e
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_DEBUG
+operator|)
+name|ngx_connection_t
+modifier|*
+name|c
+init|=
+operator|(
+name|ngx_connection_t
+operator|*
+operator|)
+name|ev
+operator|->
+name|data
+decl_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|ev->log
+argument_list|,
+literal|"set timer: %d:%d"
+argument|_ c->fd _ timer
+argument_list|)
+empty_stmt|;
+endif|#
+directive|endif
+name|ngx_assert
+argument_list|(
+argument|(!ev->timer_next&& !ev->timer_prev)
+argument_list|,
+argument|return
+argument_list|,
+argument|ev->log
+argument_list|,
+literal|"timer already set"
+argument_list|)
+empty_stmt|;
 for|for
 control|(
 name|e

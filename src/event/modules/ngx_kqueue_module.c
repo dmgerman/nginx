@@ -290,9 +290,6 @@ literal|1
 else|:
 literal|0
 expr_stmt|;
-if|#
-directive|if
-literal|1
 if|if
 condition|(
 name|nchanges
@@ -364,8 +361,6 @@ return|return
 name|NGX_OK
 return|;
 block|}
-endif|#
-directive|endif
 return|return
 name|ngx_kqueue_set_event
 argument_list|(
@@ -690,12 +685,6 @@ name|udata
 operator|=
 name|ev
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|if (flags == EV_ADD)
-endif|#
-directive|endif
 name|ev
 operator|->
 name|index
@@ -1223,14 +1212,33 @@ name|ngx_event_t
 modifier|*
 name|e
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_DEBUG
+operator|)
+name|ngx_connection_t
+modifier|*
+name|c
+init|=
+operator|(
+name|ngx_connection_t
+operator|*
+operator|)
+name|ev
+operator|->
+name|data
+decl_stmt|;
 name|ngx_log_debug
 argument_list|(
 argument|ev->log
 argument_list|,
-literal|"set timer: %d"
-argument|_ timer
+literal|"set timer: %d:%d"
+argument|_ c->fd _ timer
 argument_list|)
 empty_stmt|;
+endif|#
+directive|endif
 name|ngx_assert
 argument_list|(
 argument|(!ev->timer_next&& !ev->timer_prev)

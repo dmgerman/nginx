@@ -693,6 +693,12 @@ name|listening
 operator|=
 literal|1
 expr_stmt|;
+name|ev
+operator|->
+name|index
+operator|=
+name|NGX_INVALID_INDEX
+expr_stmt|;
 name|ngx_read_events
 index|[
 name|fd
