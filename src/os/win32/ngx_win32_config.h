@@ -469,6 +469,14 @@ typedef|;
 end_typedef
 
 begin_typedef
+DECL|typedef|in_port_t
+typedef|typedef
+name|u_short
+name|in_port_t
+typedef|;
+end_typedef
+
+begin_typedef
 DECL|typedef|sig_atomic_t
 typedef|typedef
 name|int

@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon298a4b690108
+DECL|struct|__anon27c779f80108
 typedef|typedef
 struct|struct
 block|{
@@ -193,6 +193,12 @@ literal|1
 decl_stmt|;
 endif|#
 directive|endif
+DECL|member|addr_ntop
+name|unsigned
+name|addr_ntop
+range|:
+literal|1
+decl_stmt|;
 DECL|typedef|ngx_listening_t
 block|}
 name|ngx_listening_t
@@ -200,7 +206,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon298a4b690203
+DECL|enum|__anon27c779f80203
 typedef|typedef
 enum|enum
 block|{
@@ -224,7 +230,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon298a4b690303
+DECL|enum|__anon27c779f80303
 typedef|typedef
 enum|enum
 block|{

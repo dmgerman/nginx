@@ -405,7 +405,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon27c740d00103
+DECL|enum|__anon2b8d56ba0103
 typedef|typedef
 enum|enum
 block|{
@@ -426,7 +426,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27c740d00203
+DECL|enum|__anon2b8d56ba0203
 typedef|typedef
 enum|enum
 block|{
@@ -465,7 +465,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c740d00308
+DECL|struct|__anon2b8d56ba0308
 typedef|typedef
 struct|struct
 block|{
@@ -484,7 +484,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c740d00408
+DECL|struct|__anon2b8d56ba0408
 typedef|typedef
 struct|struct
 block|{
@@ -601,7 +601,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c740d00508
+DECL|struct|__anon2b8d56ba0508
 typedef|typedef
 struct|struct
 block|{
@@ -624,7 +624,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c740d00608
+DECL|struct|__anon2b8d56ba0608
 typedef|typedef
 struct|struct
 block|{
@@ -727,7 +727,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c740d00708
+DECL|struct|__anon2b8d56ba0708
 typedef|typedef
 struct|struct
 block|{
@@ -778,10 +778,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon27c740d0080a
+DECL|union|__anon2b8d56ba080a
 union|union
 block|{
-DECL|struct|__anon27c740d00908
+DECL|struct|__anon2b8d56ba0908
 struct|struct
 block|{
 DECL|member|fd
@@ -797,7 +797,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon27c740d00a08
+DECL|struct|__anon2b8d56ba0a08
 struct|struct
 block|{
 DECL|member|hash
@@ -1159,7 +1159,7 @@ name|headers_n
 decl_stmt|;
 comment|/* used to parse HTTP headers */
 DECL|member|state
-name|ngx_int_t
+name|ngx_uint_t
 name|state
 decl_stmt|;
 DECL|member|uri_start

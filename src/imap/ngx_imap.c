@@ -180,6 +180,12 @@ literal|1
 expr_stmt|;
 name|ls
 operator|->
+name|addr_ntop
+operator|=
+literal|1
+expr_stmt|;
+name|ls
+operator|->
 name|handler
 operator|=
 name|ngx_imap_init_connection

@@ -5731,6 +5731,9 @@ name|u
 operator|->
 name|port
 operator|=
+operator|(
+name|in_port_t
+operator|)
 name|ngx_atoi
 argument_list|(
 name|u
@@ -5925,6 +5928,9 @@ name|u
 operator|->
 name|port
 operator|=
+operator|(
+name|in_port_t
+operator|)
 name|ngx_atoi
 argument_list|(
 name|u

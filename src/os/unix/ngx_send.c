@@ -189,6 +189,15 @@ argument_list|,
 literal|"send() returned zero"
 argument_list|)
 expr_stmt|;
+name|wev
+operator|->
+name|ready
+operator|=
+literal|0
+expr_stmt|;
+return|return
+name|n
+return|;
 block|}
 if|if
 condition|(

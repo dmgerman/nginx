@@ -39,7 +39,7 @@ value|-10
 end_define
 
 begin_typedef
-DECL|struct|__anon27a13dc80108
+DECL|struct|__anon29f54f390108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ name|ngx_str_t
 name|host
 decl_stmt|;
 DECL|member|port
-name|int
+name|in_port_t
 name|port
 decl_stmt|;
 DECL|member|addr_port_text
@@ -60,7 +60,7 @@ name|ngx_str_t
 name|addr_port_text
 decl_stmt|;
 DECL|member|fails
-name|int
+name|ngx_int_t
 name|fails
 decl_stmt|;
 DECL|member|accessed
@@ -74,28 +74,28 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a13dc80208
+DECL|struct|__anon29f54f390208
 typedef|typedef
 struct|struct
 block|{
 DECL|member|current
-name|int
+name|ngx_int_t
 name|current
 decl_stmt|;
 DECL|member|number
-name|int
+name|ngx_int_t
 name|number
 decl_stmt|;
 DECL|member|max_fails
-name|int
+name|ngx_int_t
 name|max_fails
 decl_stmt|;
 DECL|member|fail_timeout
-name|int
+name|ngx_int_t
 name|fail_timeout
 decl_stmt|;
 DECL|member|last_cached
-name|int
+name|ngx_int_t
 name|last_cached
 decl_stmt|;
 comment|/* ngx_mutex_t        *mutex; */
@@ -119,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a13dc80308
+DECL|struct|__anon29f54f390308
 typedef|typedef
 struct|struct
 block|{
@@ -129,11 +129,11 @@ modifier|*
 name|peers
 decl_stmt|;
 DECL|member|cur_peer
-name|int
+name|ngx_int_t
 name|cur_peer
 decl_stmt|;
 DECL|member|tries
-name|int
+name|ngx_int_t
 name|tries
 decl_stmt|;
 DECL|member|connection
