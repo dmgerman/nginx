@@ -449,7 +449,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28fccaa70108
+DECL|struct|__anon2c0794480108
 typedef|typedef
 struct|struct
 block|{
@@ -584,7 +584,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28fccaa70208
+DECL|struct|__anon2c0794480208
 typedef|typedef
 struct|struct
 block|{
@@ -599,7 +599,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28fccaa70308
+DECL|struct|__anon2c0794480308
 typedef|typedef
 struct|struct
 block|{
@@ -630,7 +630,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon28fccaa70408
+DECL|struct|__anon2c0794480408
 typedef|typedef
 struct|struct
 block|{
@@ -752,6 +752,19 @@ define|default)                       \     if (conf == (ngx_msec_t) NGX_CONF_UN
 end_define
 
 begin_define
+DECL|macro|ngx_conf_merge_sec_value (conf,prev,default)
+define|#
+directive|define
+name|ngx_conf_merge_sec_value
+parameter_list|(
+name|conf
+parameter_list|,
+name|prev
+parameter_list|,
+define|default)                        \     if (conf == NGX_CONF_UNSET) {                                            \         conf = (prev == NGX_CONF_UNSET) ? default : prev;                    \     }
+end_define
+
+begin_define
 DECL|macro|ngx_conf_merge_size_value (conf,prev,default)
 define|#
 directive|define
@@ -761,7 +774,7 @@ name|conf
 parameter_list|,
 name|prev
 parameter_list|,
-define|default)                       \     if (conf == (ssize_t) NGX_CONF_UNSET) {                                   \         conf = (prev == (ssize_t) NGX_CONF_UNSET) ? default : prev;           \     }
+define|default)                       \     if (conf == (ssize_t) NGX_CONF_UNSET) {                                  \         conf = (prev == (ssize_t) NGX_CONF_UNSET) ? default : prev;          \     }
 end_define
 
 begin_define
@@ -958,6 +971,26 @@ begin_function_decl
 name|char
 modifier|*
 name|ngx_conf_set_msec_slot
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_command_t
+modifier|*
+name|cmd
+parameter_list|,
+name|void
+modifier|*
+name|conf
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|char
+modifier|*
+name|ngx_conf_set_sec_slot
 parameter_list|(
 name|ngx_conf_t
 modifier|*

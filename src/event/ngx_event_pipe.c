@@ -1850,8 +1850,6 @@ name|p
 parameter_list|)
 block|{
 name|int
-name|rc
-decl_stmt|,
 name|size
 decl_stmt|,
 name|hsize

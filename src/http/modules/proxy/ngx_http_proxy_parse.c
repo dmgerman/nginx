@@ -40,7 +40,7 @@ name|char
 modifier|*
 name|pos
 decl_stmt|;
-DECL|enum|__anon2b2ecb780103
+DECL|enum|__anon2c41e7a80103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -93,7 +93,7 @@ name|state
 operator|=
 name|p
 operator|->
-name|state
+name|parse_state
 expr_stmt|;
 name|pos
 operator|=
@@ -545,7 +545,7 @@ expr_stmt|;
 block|}
 name|p
 operator|->
-name|state
+name|parse_state
 operator|=
 name|sw_start
 expr_stmt|;
@@ -555,7 +555,7 @@ return|;
 block|}
 name|p
 operator|->
-name|state
+name|parse_state
 operator|=
 name|state
 expr_stmt|;

@@ -341,7 +341,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2b798a270108
+DECL|struct|__anon2b3121aa0108
 typedef|typedef
 struct|struct
 block|{
@@ -360,7 +360,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b798a270208
+DECL|struct|__anon2b3121aa0208
 typedef|typedef
 struct|struct
 block|{
@@ -405,6 +405,11 @@ name|ngx_table_elt_t
 modifier|*
 name|range
 decl_stmt|;
+DECL|member|authorization
+name|ngx_table_elt_t
+modifier|*
+name|authorization
+decl_stmt|;
 DECL|member|keep_alive
 name|ngx_table_elt_t
 modifier|*
@@ -433,7 +438,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b798a270308
+DECL|struct|__anon2b3121aa0308
 typedef|typedef
 struct|struct
 block|{
@@ -484,7 +489,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b798a270408
+DECL|struct|__anon2b3121aa0408
 typedef|typedef
 struct|struct
 block|{
@@ -507,7 +512,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b798a270508
+DECL|struct|__anon2b3121aa0508
 typedef|typedef
 struct|struct
 block|{
@@ -846,6 +851,12 @@ decl_stmt|;
 DECL|member|bypass_cache
 name|unsigned
 name|bypass_cache
+range|:
+literal|1
+decl_stmt|;
+DECL|member|no_cache
+name|unsigned
+name|no_cache
 range|:
 literal|1
 decl_stmt|;

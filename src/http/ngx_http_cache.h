@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2889bb3b0108
+DECL|struct|__anon28902b200108
 typedef|typedef
 struct|struct
 block|{
@@ -36,6 +36,10 @@ decl_stmt|;
 DECL|member|last_modified
 name|time_t
 name|last_modified
+decl_stmt|;
+DECL|member|date
+name|time_t
+name|date
 decl_stmt|;
 DECL|member|length
 name|off_t
@@ -48,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2889bb3b0208
+DECL|struct|__anon28902b200208
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +78,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2889bb3b0308
+DECL|struct|__anon28902b200308
 typedef|typedef
 struct|struct
 block|{
@@ -128,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2889bb3b0408
+DECL|struct|__anon28902b200408
 typedef|typedef
 struct|struct
 block|{
@@ -165,11 +169,19 @@ typedef|;
 end_typedef
 
 begin_define
-DECL|macro|NGX_STALE
+DECL|macro|NGX_HTTP_CACHE_STALE
 define|#
 directive|define
-name|NGX_STALE
+name|NGX_HTTP_CACHE_STALE
 value|1
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_CACHE_AGED
+define|#
+directive|define
+name|NGX_HTTP_CACHE_AGED
+value|2
 end_define
 
 begin_function_decl
