@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29c3dc820108
+DECL|struct|__anon2a35a7410108
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c3dc820208
+DECL|struct|__anon2a35a7410208
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c3dc820308
+DECL|struct|__anon2a35a7410308
 typedef|typedef
 struct|struct
 block|{
@@ -119,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c3dc820408
+DECL|struct|__anon2a35a7410408
 typedef|typedef
 struct|struct
 block|{
@@ -138,7 +138,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c3dc820508
+DECL|struct|__anon2a35a7410508
 typedef|typedef
 struct|struct
 block|{
@@ -174,7 +174,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon29c3dc820608
+DECL|struct|__anon2a35a7410608
 typedef|typedef
 struct|struct
 block|{
@@ -189,7 +189,7 @@ modifier|*
 modifier|*
 name|loc_conf
 decl_stmt|;
-comment|/* used in translation handler */
+comment|/* pointer to modules loc_conf,                                   used in translation handler */
 DECL|member|doc_root
 name|ngx_str_t
 name|doc_root

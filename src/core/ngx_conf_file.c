@@ -1660,11 +1660,13 @@ operator|(
 name|ngx_str_t
 operator|*
 operator|)
+operator|(
 name|conf
 operator|+
 name|cmd
 operator|->
 name|offset
+operator|)
 expr_stmt|;
 name|value
 operator|=
@@ -1683,7 +1685,10 @@ operator|->
 name|len
 operator|=
 name|value
-operator|->
+index|[
+literal|1
+index|]
+operator|.
 name|len
 expr_stmt|;
 name|field
@@ -1691,7 +1696,10 @@ operator|->
 name|data
 operator|=
 name|value
-operator|->
+index|[
+literal|1
+index|]
+operator|.
 name|data
 expr_stmt|;
 return|return

@@ -97,8 +97,6 @@ argument_list|)
 block|,
 name|NGX_HTTP_LOC_CONF
 operator||
-name|NGX_CONF_BLOCK
-operator||
 name|NGX_CONF_TAKE1
 block|,
 name|ngx_conf_set_size_slot

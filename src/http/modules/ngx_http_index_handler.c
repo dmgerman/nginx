@@ -154,8 +154,6 @@ argument_list|)
 block|,
 name|NGX_HTTP_LOC_CONF
 operator||
-name|NGX_CONF_BLOCK
-operator||
 name|NGX_CONF_ANY
 block|,
 name|ngx_http_index_set_index

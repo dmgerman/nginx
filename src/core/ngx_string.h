@@ -19,7 +19,7 @@ file|<ngx_config.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b4ad2bb0108
+DECL|struct|__anon2bf58cf60108
 typedef|typedef
 struct|struct
 block|{
@@ -63,6 +63,14 @@ define|#
 directive|define
 name|ngx_memzero
 value|ZeroMemory
+end_define
+
+begin_define
+DECL|macro|ngx_strncasecmp
+define|#
+directive|define
+name|ngx_strncasecmp
+value|strnicmp
 end_define
 
 begin_define
@@ -124,6 +132,14 @@ define|#
 directive|define
 name|ngx_memzero
 value|bzero
+end_define
+
+begin_define
+DECL|macro|ngx_strncasecmp
+define|#
+directive|define
+name|ngx_strncasecmp
+value|strncasecmp
 end_define
 
 begin_define

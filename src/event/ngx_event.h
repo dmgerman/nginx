@@ -296,7 +296,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2ad3cd4f0103
+DECL|enum|__anon28a6edad0103
 typedef|typedef
 enum|enum
 block|{
@@ -342,7 +342,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad3cd4f0208
+DECL|struct|__anon28a6edad0208
 typedef|typedef
 struct|struct
 block|{
@@ -484,7 +484,7 @@ value|8
 end_define
 
 begin_comment
-comment|/* Event filter is deleted before closing file. Has no meaning for select, poll.    kqueue:     kqueue deletes event filters for file that closed                so we need only to delete filters in user-level batch array    /dev/poll:  we need to flush POLLREMOVE event before closing file    epoll:      ??? */
+comment|/* Event filter is deleted before closing file. Has no meaning    for select, poll, epoll.     kqueue:     kqueue deletes event filters for file that closed                so we need only to delete filters in user-level batch array    /dev/poll:  we need to flush POLLREMOVE event before closing file */
 end_comment
 
 begin_define

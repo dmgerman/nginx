@@ -591,6 +591,14 @@ condition|)
 return|return
 name|rv
 return|;
+if|#
+directive|if
+literal|0
+comment|/* DEBUG STUFF */
+block_content|cscf = (ngx_http_core_srv_conf_t **) ngx_http_servers.elts;     for (s = 0; s< ngx_http_servers.nelts; s++) {         ngx_http_core_loc_conf_t **loc;          ngx_log_debug(cf->log, "srv: %08x" _ cscf[s]);         loc = (ngx_http_core_loc_conf_t **) cscf[s]->locations.elts;         for (l = 0; l< cscf[s]->locations.nelts; l++) {             ngx_log_debug(cf->log, "loc: %08x:%s, %08x:%s" _                           loc[l] _ loc[l]->name.data _&loc[l]->doc_root _ loc[l]->doc_root.data);         }     }
+comment|/**/
+endif|#
+directive|endif
 name|ngx_init_array
 argument_list|(
 name|ngx_http_index_handlers
@@ -618,9 +626,7 @@ argument_list|,
 name|ngx_modules
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|1
+comment|/* create lists of ports, addresses and server names */
 name|ngx_init_array
 argument_list|(
 name|in_ports
@@ -1218,10 +1224,7 @@ name|ngx_push_array
 argument_list|(
 operator|&
 name|in_port
-index|[
-name|p
-index|]
-operator|.
+operator|->
 name|addr
 argument_list|)
 argument_list|,
@@ -1282,6 +1285,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|/* optimzie lists of ports, addresses and server names */
 comment|/* AF_INET only */
 name|in_port
 operator|=
@@ -1789,6 +1793,7 @@ name|addr
 operator|.
 name|elts
 expr_stmt|;
+comment|/* if there is the single address for this port and no virtual                    name servers so we do not need to check addresses                    at run time */
 if|if
 condition|(
 name|in_addr
@@ -1821,10 +1826,16 @@ name|NULL
 expr_stmt|;
 block|}
 block|}
+name|ngx_log_debug
+argument_list|(
+argument|cf->log
+argument_list|,
+literal|"ls ctx: %d:%08x"
+argument|_ in_port[p].port _ ls->ctx
+argument_list|)
+empty_stmt|;
 block|}
 block|}
-endif|#
-directive|endif
 return|return
 name|NGX_CONF_OK
 return|;
