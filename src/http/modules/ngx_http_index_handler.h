@@ -39,7 +39,7 @@ value|"index.html"
 end_define
 
 begin_typedef
-DECL|struct|__anon2a5290bf0108
+DECL|struct|__anon28da5f320108
 typedef|typedef
 struct|struct
 block|{
@@ -60,7 +60,7 @@ end_typedef
 
 begin_decl_stmt
 specifier|extern
-name|ngx_http_module_t
+name|ngx_module_t
 name|ngx_http_index_module
 decl_stmt|;
 end_decl_stmt

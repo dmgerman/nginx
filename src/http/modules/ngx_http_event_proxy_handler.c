@@ -48,9 +48,9 @@ file|<ngx_http_event_proxy_handler.h>
 end_include
 
 begin_decl_stmt
-DECL|variable|ngx_http_proxy_module
+DECL|variable|ngx_http_proxy_module_ctx
 name|ngx_http_module_t
-name|ngx_http_proxy_module
+name|ngx_http_proxy_module_ctx
 decl_stmt|;
 end_decl_stmt
 
@@ -204,11 +204,11 @@ operator|(
 name|ngx_http_proxy_ctx_t
 operator|*
 operator|)
-name|ngx_get_module_ctx
+name|ngx_http_get_module_ctx
 argument_list|(
 name|r
 argument_list|,
-name|ngx_http_proxy_module
+name|ngx_http_proxy_module_ctx
 argument_list|)
 expr_stmt|;
 if|if
@@ -223,7 +223,7 @@ name|r
 argument_list|,
 name|p
 argument_list|,
-name|ngx_http_proxy_module
+name|ngx_http_proxy_module_ctx
 argument_list|,
 sizeof|sizeof
 argument_list|(
@@ -1342,11 +1342,11 @@ operator|(
 name|ngx_http_proxy_ctx_t
 operator|*
 operator|)
-name|ngx_get_module_ctx
+name|ngx_http_get_module_ctx
 argument_list|(
 name|r
 argument_list|,
-name|ngx_http_proxy_module
+name|ngx_http_proxy_module_ctx
 argument_list|)
 expr_stmt|;
 name|chain
@@ -1456,11 +1456,11 @@ operator|(
 name|ngx_http_proxy_ctx_t
 operator|*
 operator|)
-name|ngx_get_module_ctx
+name|ngx_http_get_module_ctx
 argument_list|(
 name|r
 argument_list|,
-name|ngx_http_proxy_module
+name|ngx_http_proxy_module_ctx
 argument_list|)
 expr_stmt|;
 if|if
@@ -1934,11 +1934,11 @@ operator|(
 name|ngx_http_proxy_ctx_t
 operator|*
 operator|)
-name|ngx_get_module_ctx
+name|ngx_http_get_module_ctx
 argument_list|(
 name|r
 argument_list|,
-name|ngx_http_proxy_module
+name|ngx_http_proxy_module_ctx
 argument_list|)
 expr_stmt|;
 name|left
@@ -2301,11 +2301,11 @@ operator|(
 name|ngx_http_proxy_ctx_t
 operator|*
 operator|)
-name|ngx_get_module_ctx
+name|ngx_http_get_module_ctx
 argument_list|(
 name|r
 argument_list|,
-name|ngx_http_proxy_module
+name|ngx_http_proxy_module_ctx
 argument_list|)
 expr_stmt|;
 do|do
@@ -2398,7 +2398,7 @@ name|char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon27c185450103
+DECL|enum|__anon273e23410103
 enum|enum
 block|{
 DECL|enumerator|sw_start

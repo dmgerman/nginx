@@ -19,7 +19,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c755a940108
+DECL|struct|__anon279036b70108
 typedef|typedef
 struct|struct
 block|{
@@ -34,7 +34,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c755a940208
+DECL|struct|__anon279036b70208
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c755a940308
+DECL|struct|__anon279036b70308
 typedef|typedef
 struct|struct
 block|{
@@ -66,7 +66,36 @@ end_typedef
 begin_decl_stmt
 specifier|extern
 name|ngx_http_module_t
+name|ngx_http_core_module_ctx
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_module_t
 name|ngx_http_core_module
+decl_stmt|;
+end_decl_stmt
+
+begin_function_decl
+specifier|extern
+name|int
+function_decl|(
+modifier|*
+name|ngx_http_top_header_filter
+function_decl|)
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_decl_stmt
+specifier|extern
+name|int
+name|ngx_http_max_module
 decl_stmt|;
 end_decl_stmt
 

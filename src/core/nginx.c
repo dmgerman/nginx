@@ -273,12 +273,6 @@ operator|=
 operator|&
 name|ngx_log
 expr_stmt|;
-name|conf
-operator|.
-name|modules
-operator|=
-name|ngx_http_modules
-expr_stmt|;
 name|conf_file
 operator|.
 name|len

@@ -93,17 +93,17 @@ name|char
 modifier|*
 name|ngx_http_index_set_index
 parameter_list|(
-name|ngx_pool_t
+name|ngx_conf_t
 modifier|*
-name|p
+name|cf
 parameter_list|,
-name|void
+name|ngx_command_t
+modifier|*
+name|cmd
+parameter_list|,
+name|char
 modifier|*
 name|conf
-parameter_list|,
-name|ngx_str_t
-modifier|*
-name|value
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -117,30 +117,42 @@ index|[]
 init|=
 block|{
 block|{
+name|ngx_string
+argument_list|(
 literal|"index"
+argument_list|)
+block|,
+name|NGX_CONF_ANY
 block|,
 name|ngx_http_index_set_index
 block|,
-literal|0
-block|,
 name|NGX_HTTP_LOC_CONF
 block|,
-name|NGX_CONF_ITERATE
-block|,
-literal|"set index files"
+literal|0
 block|}
 block|,
 block|{
+name|ngx_string
+argument_list|(
+literal|""
+argument_list|)
+block|,
+literal|0
+block|,
 name|NULL
+block|,
+literal|0
+block|,
+literal|0
 block|}
 block|}
 decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_http_index_module
+DECL|variable|ngx_http_index_module_ctx
 name|ngx_http_module_t
-name|ngx_http_index_module
+name|ngx_http_index_module_ctx
 init|=
 block|{
 name|NGX_HTTP_MODULE
@@ -151,18 +163,43 @@ comment|/* create server config */
 name|ngx_http_index_create_conf
 block|,
 comment|/* create location config */
-name|ngx_http_index_commands
-block|,
-comment|/* module directives */
-name|NULL
-block|,
-comment|/* init module */
 name|NULL
 block|,
 comment|/* translate handler */
 name|NULL
 block|,
-comment|/* init output body filter */
+comment|/* output header filter */
+name|NULL
+block|,
+comment|/* next output header filter */
+name|NULL
+block|,
+comment|/* output body filter */
+name|NULL
+block|,
+comment|/* next output body filter */
+block|}
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_http_index_module
+name|ngx_module_t
+name|ngx_http_index_module
+init|=
+block|{
+operator|&
+name|ngx_http_index_module_ctx
+block|,
+comment|/* module context */
+name|ngx_http_index_commands
+block|,
+comment|/* module directives */
+name|NGX_HTTP_MODULE_TYPE
+block|,
+comment|/* module type */
+name|NULL
+comment|/* init module */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -209,11 +246,11 @@ operator|(
 name|ngx_http_index_conf_t
 operator|*
 operator|)
-name|ngx_get_module_loc_conf
+name|ngx_http_get_module_loc_conf
 argument_list|(
 name|r
 argument_list|,
-name|ngx_http_index_module
+name|ngx_http_index_module_ctx
 argument_list|)
 expr_stmt|;
 name|ngx_test_null
@@ -367,7 +404,9 @@ name|err
 operator|==
 name|NGX_ENOENT
 condition|)
+block|{
 continue|continue;
+block|}
 if|#
 directive|if
 operator|(
@@ -379,7 +418,9 @@ name|err
 operator|==
 name|ERROR_PATH_NOT_FOUND
 condition|)
+block|{
 continue|continue;
+block|}
 endif|#
 directive|endif
 name|ngx_log_error
@@ -602,9 +643,11 @@ name|max_index_len
 operator|!=
 literal|0
 condition|)
+block|{
 return|return
 name|prev
 return|;
+block|}
 name|ngx_test_null
 argument_list|(
 name|index
@@ -653,28 +696,28 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_index_set_index (ngx_pool_t * p,void * conf,ngx_str_t * value)
+DECL|function|ngx_http_index_set_index (ngx_conf_t * cf,ngx_command_t * cmd,char * conf)
 specifier|static
 name|char
 modifier|*
 name|ngx_http_index_set_index
 parameter_list|(
-name|ngx_pool_t
+name|ngx_conf_t
 modifier|*
-name|p
+name|cf
 parameter_list|,
-name|void
+name|ngx_command_t
+modifier|*
+name|cmd
+parameter_list|,
+name|char
 modifier|*
 name|conf
-parameter_list|,
-name|ngx_str_t
-modifier|*
-name|value
 parameter_list|)
 block|{
 name|ngx_http_index_conf_t
 modifier|*
-name|cf
+name|icf
 init|=
 operator|(
 name|ngx_http_index_conf_t
@@ -682,17 +725,53 @@ operator|*
 operator|)
 name|conf
 decl_stmt|;
+name|int
+name|i
+decl_stmt|;
 name|ngx_str_t
 modifier|*
 name|index
+decl_stmt|,
+modifier|*
+name|value
 decl_stmt|;
+name|value
+operator|=
+operator|(
+name|ngx_str_t
+operator|*
+operator|)
+name|cf
+operator|->
+name|args
+operator|->
+name|elts
+expr_stmt|;
+for|for
+control|(
+name|i
+operator|=
+literal|1
+init|;
+name|i
+operator|<
+name|cf
+operator|->
+name|args
+operator|->
+name|nelts
+condition|;
+name|i
+operator|++
+control|)
+block|{
 name|ngx_test_null
 argument_list|(
 name|index
 argument_list|,
 name|ngx_push_array
 argument_list|(
-name|cf
+name|icf
 operator|->
 name|indices
 argument_list|)
@@ -705,7 +784,10 @@ operator|->
 name|len
 operator|=
 name|value
-operator|->
+index|[
+name|i
+index|]
+operator|.
 name|len
 expr_stmt|;
 name|index
@@ -713,12 +795,15 @@ operator|->
 name|data
 operator|=
 name|value
-operator|->
+index|[
+name|i
+index|]
+operator|.
 name|data
 expr_stmt|;
 if|if
 condition|(
-name|cf
+name|icf
 operator|->
 name|max_index_len
 operator|<
@@ -726,7 +811,8 @@ name|index
 operator|->
 name|len
 condition|)
-name|cf
+block|{
+name|icf
 operator|->
 name|max_index_len
 operator|=
@@ -734,6 +820,8 @@ name|index
 operator|->
 name|len
 expr_stmt|;
+block|}
+block|}
 return|return
 name|NULL
 return|;

@@ -24,12 +24,43 @@ directive|include
 file|<ngx_http.h>
 end_include
 
+begin_typedef
+DECL|struct|__anon298b4bbb0108
+typedef|typedef
+struct|struct
+block|{
+DECL|member|srv_conf
+name|void
+modifier|*
+modifier|*
+name|srv_conf
+decl_stmt|;
+DECL|member|loc_conf
+name|void
+modifier|*
+modifier|*
+name|loc_conf
+decl_stmt|;
+DECL|typedef|ngx_http_conf_ctx_t
+block|}
+name|ngx_http_conf_ctx_t
+typedef|;
+end_typedef
+
+begin_define
+DECL|macro|NGX_HTTP_SRV_CONF
+define|#
+directive|define
+name|NGX_HTTP_SRV_CONF
+value|offsetof(ngx_http_conf_ctx_t, srv_conf)
+end_define
+
 begin_define
 DECL|macro|NGX_HTTP_LOC_CONF
 define|#
 directive|define
 name|NGX_HTTP_LOC_CONF
-value|0
+value|offsetof(ngx_http_conf_ctx_t, loc_conf)
 end_define
 
 begin_function_decl
@@ -40,13 +71,20 @@ name|ngx_pool_t
 modifier|*
 name|pool
 parameter_list|,
-name|ngx_http_module_t
+name|ngx_module_t
 modifier|*
 modifier|*
 name|modules
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_decl_stmt
+specifier|extern
+name|ngx_module_t
+name|ngx_http_module
+decl_stmt|;
+end_decl_stmt
 
 begin_function_decl
 specifier|extern

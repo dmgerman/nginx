@@ -38,7 +38,19 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_config_file.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_http.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_http_write_filter.h>
 end_include
 
 begin_function_decl
@@ -54,9 +66,9 @@ function_decl|;
 end_function_decl
 
 begin_decl_stmt
-DECL|variable|ngx_http_header_filter_module
+DECL|variable|ngx_http_header_filter_module_ctx
 name|ngx_http_module_t
-name|ngx_http_header_filter_module
+name|ngx_http_header_filter_module_ctx
 init|=
 block|{
 name|NGX_HTTP_MODULE
@@ -67,12 +79,6 @@ comment|/* create server config */
 name|NULL
 block|,
 comment|/* create location config */
-name|NULL
-block|,
-comment|/* module directives */
-name|NULL
-block|,
-comment|/* init module */
 name|NULL
 block|,
 comment|/* translate handler */
@@ -87,6 +93,28 @@ block|,
 comment|/* output body filter */
 name|NULL
 comment|/* next output body filter */
+block|}
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_http_header_filter_module
+name|ngx_module_t
+name|ngx_http_header_filter_module
+init|=
+block|{
+operator|&
+name|ngx_http_header_filter_module_ctx
+block|,
+comment|/* module context */
+name|NULL
+block|,
+comment|/* module directives */
+name|NGX_HTTP_MODULE_TYPE
+block|,
+comment|/* module type */
+name|NULL
+comment|/* init module */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -112,12 +140,17 @@ name|http_codes
 index|[]
 init|=
 block|{
-block|{
-literal|6
-block|,
+name|ngx_string
+argument_list|(
 literal|"200 OK"
-block|}
+argument_list|)
 block|,
+if|#
+directive|if
+literal|0
+block|{ 6,  "200 OK" },
+endif|#
+directive|endif
 block|{
 literal|21
 block|,
@@ -222,9 +255,11 @@ name|http_version
 operator|<
 name|NGX_HTTP_VERSION_10
 condition|)
+block|{
 return|return
 name|NGX_OK
 return|;
+block|}
 comment|/* 9 is for "HTTP/1.x ", 2 is for trailing "\r\n"        and 2 is for end of header */
 name|len
 operator|=
@@ -382,6 +417,7 @@ name|status
 operator|<
 name|NGX_HTTP_MOVED_PERMANENTLY
 condition|)
+block|{
 name|status
 operator|=
 name|r
@@ -392,6 +428,7 @@ name|status
 operator|-
 name|NGX_HTTP_OK
 expr_stmt|;
+block|}
 if|else if
 condition|(
 name|r
@@ -402,6 +439,7 @@ name|status
 operator|<
 name|NGX_HTTP_BAD_REQUEST
 condition|)
+block|{
 name|status
 operator|=
 name|r
@@ -414,6 +452,7 @@ name|NGX_HTTP_MOVED_PERMANENTLY
 operator|+
 literal|1
 expr_stmt|;
+block|}
 if|else if
 condition|(
 name|r
@@ -424,6 +463,7 @@ name|status
 operator|<
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 condition|)
+block|{
 name|status
 operator|=
 name|r
@@ -438,7 +478,9 @@ literal|1
 operator|+
 literal|4
 expr_stmt|;
+block|}
 else|else
+block|{
 name|status
 operator|=
 name|r
@@ -455,6 +497,7 @@ literal|4
 operator|+
 literal|5
 expr_stmt|;
+block|}
 name|len
 operator|+=
 name|http_codes
@@ -584,10 +627,12 @@ name|content_length
 operator|>=
 literal|0
 condition|)
+block|{
 name|len
 operator|+=
 literal|48
 expr_stmt|;
+block|}
 if|#
 directive|if
 literal|0
@@ -662,15 +707,19 @@ name|r
 operator|->
 name|keepalive
 condition|)
+block|{
 name|len
 operator|+=
 literal|24
 expr_stmt|;
+block|}
 else|else
+block|{
 name|len
 operator|+=
 literal|19
 expr_stmt|;
+block|}
 name|header
 operator|=
 operator|(
@@ -718,7 +767,9 @@ name|len
 operator|==
 literal|0
 condition|)
+block|{
 continue|continue;
+block|}
 name|len
 operator|+=
 name|header
@@ -1054,6 +1105,7 @@ name|content_length
 operator|>=
 literal|0
 condition|)
+block|{
 name|h
 operator|->
 name|last
@@ -1080,6 +1132,7 @@ operator|.
 name|content_length
 argument_list|)
 expr_stmt|;
+block|}
 if|#
 directive|if
 literal|0
@@ -1272,7 +1325,9 @@ name|len
 operator|==
 literal|0
 condition|)
+block|{
 continue|continue;
+block|}
 name|ngx_memcpy
 argument_list|(
 name|h
@@ -1458,12 +1513,14 @@ name|r
 operator|->
 name|header_only
 condition|)
+block|{
 name|h
 operator|->
 name|type
 operator||=
 name|NGX_HUNK_LAST
 expr_stmt|;
+block|}
 name|ngx_test_null
 argument_list|(
 name|ch

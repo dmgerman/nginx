@@ -1000,7 +1000,7 @@ name|void
 operator|*
 argument_list|)
 operator|*
-name|ngx_max_module
+name|ngx_http_max_module
 argument_list|)
 argument_list|,
 name|ngx_http_close_request
@@ -2769,7 +2769,7 @@ operator|(
 name|ngx_http_core_loc_conf_t
 operator|*
 operator|)
-name|ngx_get_module_loc_conf
+name|ngx_http_get_module_loc_conf
 argument_list|(
 name|r
 operator|->
@@ -2781,7 +2781,7 @@ expr|main
 operator|:
 name|r
 argument_list|,
-name|ngx_http_core_module
+name|ngx_http_core_module_ctx
 argument_list|)
 expr_stmt|;
 name|timeout

@@ -39,12 +39,6 @@ begin_comment
 comment|/* STUB */
 end_comment
 
-begin_include
-include|#
-directive|include
-file|<ngx_http_output_filter.h>
-end_include
-
 begin_function_decl
 name|int
 name|ngx_http_static_handler
@@ -120,6 +114,28 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_function_decl
+DECL|variable|ngx_http_top_header_filter
+name|int
+function_decl|(
+modifier|*
+name|ngx_http_top_header_filter
+function_decl|)
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_decl_stmt
+DECL|variable|ngx_http_max_module
+name|int
+name|ngx_http_max_module
+decl_stmt|;
+end_decl_stmt
+
 begin_decl_stmt
 DECL|variable|ngx_http_core_commands
 specifier|static
@@ -129,35 +145,47 @@ index|[]
 init|=
 block|{
 block|{
-literal|"send_timeout"
-block|,
-name|ngx_conf_set_time_slot
-block|,
-name|offsetof
+name|ngx_string
 argument_list|(
-name|ngx_http_core_loc_conf_t
-argument_list|,
-name|send_timeout
+literal|"send_timeout"
 argument_list|)
-block|,
-name|NGX_HTTP_LOC_CONF
 block|,
 name|NGX_CONF_TAKE1
 block|,
-literal|"set timeout for sending response"
+name|ngx_conf_set_time_slot
+block|,
+name|NGX_HTTP_LOC_CONF
+block|,
+name|offsetof
+argument_list|(
+argument|ngx_http_core_loc_conf_t
+argument_list|,
+argument|send_timeout
+argument_list|)
 block|}
 block|,
 block|{
+name|ngx_string
+argument_list|(
+literal|""
+argument_list|)
+block|,
+literal|0
+block|,
 name|NULL
+block|,
+literal|0
+block|,
+literal|0
 block|}
 block|}
 decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_http_core_module
+DECL|variable|ngx_http_core_module_ctx
 name|ngx_http_module_t
-name|ngx_http_core_module
+name|ngx_http_core_module_ctx
 init|=
 block|{
 name|NGX_HTTP_MODULE
@@ -168,18 +196,43 @@ comment|/* create server config */
 name|ngx_http_core_create_loc_conf
 block|,
 comment|/* create location config */
-name|ngx_http_core_commands
-block|,
-comment|/* module directives */
-comment|/* STUB */
-name|NULL
-block|,
-comment|/* init module */
 name|ngx_http_core_translate_handler
 block|,
 comment|/* translate handler */
 name|NULL
-comment|/* init output body filter */
+block|,
+comment|/* output header filter */
+name|NULL
+block|,
+comment|/* next output header filter */
+name|NULL
+block|,
+comment|/* output body filter */
+name|NULL
+block|,
+comment|/* next output body filter */
+block|}
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_http_core_module
+name|ngx_module_t
+name|ngx_http_core_module
+init|=
+block|{
+operator|&
+name|ngx_http_core_module_ctx
+block|,
+comment|/* module context */
+name|ngx_http_core_commands
+block|,
+comment|/* module directives */
+name|NGX_HTTP_MODULE_TYPE
+block|,
+comment|/* module type */
+name|NULL
+comment|/* init module */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -198,6 +251,10 @@ name|int
 name|rc
 decl_stmt|,
 name|i
+decl_stmt|;
+name|ngx_http_module_t
+modifier|*
+name|module
 decl_stmt|;
 name|r
 operator|->
@@ -221,13 +278,8 @@ literal|0
 expr_stmt|;
 if|#
 directive|if
-literal|1
-name|r
-operator|->
-name|filter
-operator|=
-name|NGX_HTTP_FILTER_NEED_IN_MEMORY
-expr_stmt|;
+literal|0
+block_content|r->filter = NGX_HTTP_FILTER_NEED_IN_MEMORY;
 endif|#
 directive|endif
 comment|/* run translation phase */
@@ -237,7 +289,7 @@ name|i
 operator|=
 literal|0
 init|;
-name|ngx_http_modules
+name|ngx_modules
 index|[
 name|i
 index|]
@@ -248,20 +300,45 @@ control|)
 block|{
 if|if
 condition|(
-name|ngx_http_modules
+name|ngx_modules
 index|[
 name|i
 index|]
 operator|->
-name|translate_handler
+name|type
+operator|!=
+name|NGX_HTTP_MODULE_TYPE
 condition|)
 block|{
-name|rc
+continue|continue;
+block|}
+name|module
 operator|=
-name|ngx_http_modules
+operator|(
+name|ngx_http_module_t
+operator|*
+operator|)
+name|ngx_modules
 index|[
 name|i
 index|]
+operator|->
+name|ctx
+expr_stmt|;
+if|if
+condition|(
+name|module
+operator|->
+name|translate_handler
+operator|==
+name|NULL
+condition|)
+block|{
+continue|continue;
+block|}
+name|rc
+operator|=
+name|module
 operator|->
 name|translate_handler
 argument_list|(
@@ -274,13 +351,16 @@ name|rc
 operator|==
 name|NGX_OK
 condition|)
+block|{
 break|break;
+block|}
 if|if
 condition|(
 name|rc
 operator|>=
 name|NGX_HTTP_SPECIAL_RESPONSE
 condition|)
+block|{
 return|return
 name|ngx_http_special_response
 argument_list|(
@@ -306,6 +386,7 @@ name|rc
 operator|>=
 name|NGX_HTTP_SPECIAL_RESPONSE
 condition|)
+block|{
 return|return
 name|ngx_http_special_response
 argument_list|(
@@ -314,6 +395,7 @@ argument_list|,
 name|rc
 argument_list|)
 return|;
+block|}
 return|return
 name|rc
 return|;
@@ -564,22 +646,28 @@ name|err
 operator|==
 name|ERROR_FILE_NOT_FOUND
 condition|)
+block|{
 return|return
 name|NGX_HTTP_NOT_FOUND
 return|;
+block|}
 if|else if
 condition|(
 name|err
 operator|==
 name|ERROR_PATH_NOT_FOUND
 condition|)
+block|{
 return|return
 name|NGX_HTTP_NOT_FOUND
 return|;
+block|}
 else|else
+block|{
 return|return
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
+block|}
 block|}
 else|#
 directive|else
@@ -593,6 +681,7 @@ name|fd
 operator|==
 name|NGX_INVALID_FILE
 condition|)
+block|{
 name|r
 operator|->
 name|file
@@ -612,6 +701,7 @@ argument_list|,
 name|NGX_FILE_RDONLY
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|r
@@ -658,13 +748,17 @@ name|err
 operator|==
 name|NGX_ENOENT
 condition|)
+block|{
 return|return
 name|NGX_HTTP_NOT_FOUND
 return|;
+block|}
 else|else
+block|{
 return|return
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
+block|}
 block|}
 if|if
 condition|(
@@ -735,6 +829,7 @@ argument_list|)
 operator|==
 name|NGX_FILE_ERROR
 condition|)
+block|{
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ERR
@@ -760,6 +855,7 @@ operator|.
 name|data
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
@@ -814,6 +910,7 @@ argument_list|)
 operator|==
 name|NGX_FILE_ERROR
 condition|)
+block|{
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ERR
@@ -839,6 +936,7 @@ operator|.
 name|data
 argument_list|)
 expr_stmt|;
+block|}
 endif|#
 directive|endif
 comment|/* BROKEN: need to include server name */
