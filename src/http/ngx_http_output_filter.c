@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bcaebb40108
+DECL|struct|__anon2967e7970108
 typedef|typedef
 struct|struct
 block|{
@@ -33,7 +33,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bcaebb40208
+DECL|struct|__anon2967e7970208
 typedef|typedef
 struct|struct
 block|{
@@ -93,6 +93,9 @@ parameter_list|,
 name|ngx_hunk_t
 modifier|*
 name|src
+parameter_list|,
+name|int
+name|sendfile
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -246,7 +249,7 @@ parameter_list|,
 name|hunk
 parameter_list|)
 define|\
-value|(!ngx_hunk_special(hunk)                                      \&& (((r->filter& NGX_HTTP_FILTER_NEED_IN_MEMORY)            \&& (hunk->type& NGX_HUNK_IN_MEMORY) == 0)             \                  || ((r->filter& NGX_HTTP_FILTER_NEED_TEMP)              \&& (hunk->type& (NGX_HUNK_MEMORY|NGX_HUNK_MMAP)))))
+value|(!ngx_hunk_special(hunk)                                      \&& (!r->sendfile                                             \                  || ((r->filter& NGX_HTTP_FILTER_NEED_IN_MEMORY)         \&& (hunk->type& NGX_HUNK_IN_MEMORY) == 0)             \                  || ((r->filter& NGX_HTTP_FILTER_NEED_TEMP)              \&& (hunk->type& (NGX_HUNK_MEMORY|NGX_HUNK_MMAP)))))
 end_define
 
 begin_function
@@ -589,6 +592,18 @@ name|ctx
 operator|->
 name|hunk
 operator|->
+name|tag
+operator|=
+operator|(
+name|ngx_hunk_tag_t
+operator|)
+operator|&
+name|ngx_http_output_filter_module
+expr_stmt|;
+name|ctx
+operator|->
+name|hunk
+operator|->
 name|type
 operator||=
 name|NGX_HUNK_RECYCLED
@@ -617,6 +632,10 @@ operator|->
 name|in
 operator|->
 name|hunk
+argument_list|,
+name|r
+operator|->
+name|sendfile
 argument_list|)
 expr_stmt|;
 if|if
@@ -827,6 +846,12 @@ operator|&
 name|ctx
 operator|->
 name|out
+argument_list|,
+operator|(
+name|ngx_hunk_tag_t
+operator|)
+operator|&
+name|ngx_http_output_filter_module
 argument_list|)
 expr_stmt|;
 name|ctx
@@ -843,7 +868,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_output_filter_copy_hunk (ngx_hunk_t * dst,ngx_hunk_t * src)
+DECL|function|ngx_http_output_filter_copy_hunk (ngx_hunk_t * dst,ngx_hunk_t * src,int sendfile)
 specifier|static
 name|int
 name|ngx_http_output_filter_copy_hunk
@@ -855,6 +880,9 @@ parameter_list|,
 name|ngx_hunk_t
 modifier|*
 name|src
+parameter_list|,
+name|int
+name|sendfile
 parameter_list|)
 block|{
 name|ssize_t
@@ -1120,6 +1148,20 @@ name|last
 operator|+=
 name|n
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|sendfile
+condition|)
+block|{
+name|dst
+operator|->
+name|type
+operator|&=
+operator|~
+name|NGX_HUNK_FILE
+expr_stmt|;
+block|}
 if|if
 condition|(
 operator|(

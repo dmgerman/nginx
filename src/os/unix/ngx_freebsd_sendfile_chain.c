@@ -343,12 +343,6 @@ name|ce
 operator|->
 name|hunk
 expr_stmt|;
-name|ce
-operator|=
-name|ce
-operator|->
-name|next
-expr_stmt|;
 name|fsize
 operator|=
 operator|(
@@ -369,6 +363,12 @@ operator|=
 name|file
 operator|->
 name|file_last
+expr_stmt|;
+name|ce
+operator|=
+name|ce
+operator|->
+name|next
 expr_stmt|;
 comment|/* coalesce the neighbouring file hunks */
 while|while

@@ -36,25 +36,6 @@ name|NGX_HTTP_FILTER_NEED_TEMP
 value|4
 end_define
 
-begin_typedef
-DECL|struct|__anon2afa70f30108
-typedef|typedef
-struct|struct
-block|{
-DECL|member|buffer_output
-name|ssize_t
-name|buffer_output
-decl_stmt|;
-DECL|member|sendfile
-name|int
-name|sendfile
-decl_stmt|;
-DECL|typedef|ngx_http_write_filter_conf_t
-block|}
-name|ngx_http_write_filter_conf_t
-typedef|;
-end_typedef
-
 begin_function_decl
 name|int
 name|ngx_http_output_filter
@@ -118,13 +99,6 @@ name|ch
 parameter_list|)
 function_decl|;
 end_function_decl
-
-begin_decl_stmt
-specifier|extern
-name|ngx_module_t
-name|ngx_http_write_filter_module
-decl_stmt|;
-end_decl_stmt
 
 begin_endif
 endif|#

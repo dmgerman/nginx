@@ -24,7 +24,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29e9a0590108
+DECL|struct|__anon2c6ee10b0108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e9a0590208
+DECL|struct|__anon2c6ee10b0208
 typedef|typedef
 struct|struct
 block|{
@@ -1367,6 +1367,18 @@ name|ctx
 operator|->
 name|out_hunk
 operator|->
+name|tag
+operator|=
+operator|(
+name|ngx_hunk_tag_t
+operator|)
+operator|&
+name|ngx_http_gzip_filter_module
+expr_stmt|;
+name|ctx
+operator|->
+name|out_hunk
+operator|->
 name|type
 operator||=
 name|NGX_HUNK_RECYCLED
@@ -2053,6 +2065,12 @@ operator|&
 name|ctx
 operator|->
 name|out
+argument_list|,
+operator|(
+name|ngx_hunk_tag_t
+operator|)
+operator|&
+name|ngx_http_gzip_filter_module
 argument_list|)
 expr_stmt|;
 name|ctx

@@ -718,7 +718,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_chain_update_chains (ngx_chain_t ** free,ngx_chain_t ** busy,ngx_chain_t ** out)
+DECL|function|ngx_chain_update_chains (ngx_chain_t ** free,ngx_chain_t ** busy,ngx_chain_t ** out,ngx_hunk_tag_t tag)
 name|void
 name|ngx_chain_update_chains
 parameter_list|(
@@ -736,6 +736,9 @@ name|ngx_chain_t
 modifier|*
 modifier|*
 name|out
+parameter_list|,
+name|ngx_hunk_tag_t
+name|tag
 parameter_list|)
 block|{
 name|ngx_chain_t
@@ -846,11 +849,8 @@ break|break;
 block|}
 endif|#
 directive|endif
-comment|/* TODO: change to hunk->tag */
 if|if
 condition|(
-operator|!
-operator|(
 operator|(
 operator|*
 name|busy
@@ -858,10 +858,9 @@ operator|)
 operator|->
 name|hunk
 operator|->
-name|type
-operator|&
-name|NGX_HUNK_TEMP
-operator|)
+name|tag
+operator|!=
+name|tag
 condition|)
 block|{
 operator|*

@@ -144,6 +144,23 @@ name|NGX_HUNK_LAST_SHADOW
 value|0x4000
 end_define
 
+begin_define
+DECL|macro|NGX_HUNK_TEMP_FILE
+define|#
+directive|define
+name|NGX_HUNK_TEMP_FILE
+value|0x8000
+end_define
+
+begin_typedef
+DECL|typedef|ngx_hunk_tag_t
+typedef|typedef
+name|void
+modifier|*
+name|ngx_hunk_tag_t
+typedef|;
+end_typedef
+
 begin_typedef
 DECL|typedef|ngx_hunk_t
 typedef|typedef
@@ -205,7 +222,7 @@ name|post_end
 decl_stmt|;
 comment|/* end of post-allocated hunk */
 DECL|member|tag
-name|int
+name|ngx_hunk_tag_t
 name|tag
 decl_stmt|;
 DECL|member|file
@@ -217,6 +234,11 @@ DECL|member|shadow
 name|ngx_hunk_t
 modifier|*
 name|shadow
+decl_stmt|;
+DECL|member|num
+comment|/* STUB */
+name|int
+name|num
 decl_stmt|;
 block|}
 struct|;
@@ -251,7 +273,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b1793290108
+DECL|struct|__anon29065eb00108
 typedef|typedef
 struct|struct
 block|{
@@ -451,6 +473,9 @@ name|ngx_chain_t
 modifier|*
 modifier|*
 name|out
+parameter_list|,
+name|ngx_hunk_tag_t
+name|tag
 parameter_list|)
 function_decl|;
 end_function_decl

@@ -317,7 +317,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2b1aae3f0108
+DECL|struct|__anon29400b7a0108
 typedef|typedef
 struct|struct
 block|{
@@ -336,7 +336,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1aae3f0208
+DECL|struct|__anon29400b7a0208
 typedef|typedef
 struct|struct
 block|{
@@ -408,7 +408,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1aae3f0308
+DECL|struct|__anon29400b7a0308
 typedef|typedef
 struct|struct
 block|{
@@ -459,7 +459,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1aae3f0408
+DECL|struct|__anon29400b7a0408
 typedef|typedef
 struct|struct
 block|{
@@ -482,7 +482,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1aae3f0508
+DECL|struct|__anon29400b7a0508
 typedef|typedef
 struct|struct
 block|{
@@ -790,6 +790,13 @@ directive|endif
 DECL|member|pipeline
 name|unsigned
 name|pipeline
+range|:
+literal|1
+decl_stmt|;
+comment|/* can we use sendfile ? */
+DECL|member|sendfile
+name|unsigned
+name|sendfile
 range|:
 literal|1
 decl_stmt|;

@@ -387,6 +387,15 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|file
+operator|->
+name|offset
+operator|!=
+name|offset
+condition|)
+block|{
+if|if
+condition|(
 name|lseek
 argument_list|(
 name|file
@@ -419,6 +428,7 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+block|}
 name|n
 operator|=
 name|writev
@@ -439,12 +449,6 @@ argument_list|,
 name|io
 operator|.
 name|nelts
-argument_list|)
-expr_stmt|;
-name|ngx_destroy_array
-argument_list|(
-operator|&
-name|io
 argument_list|)
 expr_stmt|;
 if|if

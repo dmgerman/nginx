@@ -37,7 +37,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2947b6210108
+DECL|struct|__anon2ad51b570108
 typedef|typedef
 struct|struct
 block|{
@@ -73,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2947b6210208
+DECL|struct|__anon2ad51b570208
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ DECL|member|bufs
 name|ngx_bufs_t
 name|bufs
 decl_stmt|;
-comment|/* STUB */
+comment|/* STUB names */
 DECL|member|max_busy_len
 name|int
 name|max_busy_len
@@ -109,6 +109,10 @@ decl_stmt|;
 DECL|member|temp_file_write_size
 name|int
 name|temp_file_write_size
+decl_stmt|;
+DECL|member|cyclic_temp_file
+name|int
+name|cyclic_temp_file
 decl_stmt|;
 comment|/* */
 DECL|member|temp_path
@@ -133,7 +137,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2947b6210308
+DECL|struct|__anon2ad51b570308
 typedef|typedef
 struct|struct
 block|{

@@ -165,6 +165,12 @@ name|read
 operator|=
 literal|0
 expr_stmt|;
+name|p
+operator|->
+name|upstream_blocked
+operator|=
+literal|0
+expr_stmt|;
 if|if
 condition|(
 name|ngx_event_pipe_read_upstream
@@ -185,6 +191,11 @@ operator|!
 name|p
 operator|->
 name|read
+operator|&&
+operator|!
+name|p
+operator|->
+name|upstream_blocked
 condition|)
 block|{
 break|break;
@@ -571,6 +582,12 @@ name|ready
 condition|)
 block|{
 comment|/*                  * if the hunks are not needed to be saved in a cache and                  * a downstream is ready then write the hunks to a downstream                  */
+name|p
+operator|->
+name|upstream_blocked
+operator|=
+literal|1
+expr_stmt|;
 name|ngx_log_debug
 argument_list|(
 name|p
@@ -705,6 +722,14 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
+name|ngx_log_debug
+argument_list|(
+argument|p->log
+argument_list|,
+literal|"HUNK_FREE: %d"
+argument|_ chain->hunk->num
+argument_list|)
+empty_stmt|;
 name|n
 operator|=
 name|ngx_recv_chain
@@ -831,6 +856,18 @@ name|hunk
 operator|->
 name|end
 expr_stmt|;
+comment|/* STUB */
+name|ce
+operator|->
+name|hunk
+operator|->
+name|num
+operator|=
+name|p
+operator|->
+name|num
+operator|++
+expr_stmt|;
 if|if
 condition|(
 name|p
@@ -902,6 +939,20 @@ operator|->
 name|free_raw_hunks
 condition|)
 block|{
+comment|/* STUB */
+name|p
+operator|->
+name|free_raw_hunks
+operator|->
+name|hunk
+operator|->
+name|num
+operator|=
+name|p
+operator|->
+name|num
+operator|++
+expr_stmt|;
 if|if
 condition|(
 name|p
@@ -1213,6 +1264,14 @@ operator|->
 name|hunk
 argument_list|)
 expr_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|p->log
+argument_list|,
+literal|"HUNK OUT: %d %x"
+argument|_ ce->hunk->num _ ce->hunk->type
+argument_list|)
+empty_stmt|;
 block|}
 if|else if
 condition|(
@@ -1277,6 +1336,14 @@ name|in
 operator|->
 name|next
 expr_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|p->log
+argument_list|,
+literal|"HUNK IN: %d"
+argument|_ ce->hunk->num
+argument_list|)
+empty_stmt|;
 block|}
 else|else
 block|{
@@ -1314,7 +1381,29 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|ngx_log_debug
+argument_list|(
+argument|p->log
+argument_list|,
+literal|"no hunks to write BUSY: %d"
+argument|_ busy_len
+argument_list|)
+empty_stmt|;
+if|if
+condition|(
+operator|!
+name|p
+operator|->
+name|upstream_blocked
+operator|||
+name|busy_len
+operator|==
+literal|0
+condition|)
+block|{
 break|break;
+block|}
+comment|/* if the upstream is blocked then write the busy hunks */
 block|}
 if|if
 condition|(
@@ -1338,6 +1427,7 @@ name|downstream_error
 operator|=
 literal|1
 expr_stmt|;
+comment|/* handle the downstream error at the begin of the cycle.  */
 continue|continue;
 block|}
 name|ngx_chain_update_chains
@@ -1354,9 +1444,12 @@ name|busy
 argument_list|,
 operator|&
 name|out
+argument_list|,
+name|p
+operator|->
+name|tag
 argument_list|)
 expr_stmt|;
-comment|/* add the free shadow raw hunks to p->free_raw_hunks */
 for|for
 control|(
 name|ce
@@ -1374,6 +1467,7 @@ operator|->
 name|next
 control|)
 block|{
+comment|/* add the free shadow raw hunk to p->free_raw_hunks */
 if|if
 condition|(
 name|ce
@@ -1393,7 +1487,6 @@ name|hunk
 operator|->
 name|shadow
 expr_stmt|;
-comment|/* THINK NEEDED ??? */
 name|h
 operator|->
 name|pos
@@ -1453,6 +1546,45 @@ name|shadow
 operator|=
 name|NULL
 expr_stmt|;
+if|if
+condition|(
+name|p
+operator|->
+name|cyclic_temp_file
+operator|&&
+operator|(
+name|ce
+operator|->
+name|hunk
+operator|->
+name|type
+operator|&
+name|NGX_HUNK_TEMP_FILE
+operator|)
+condition|)
+block|{
+comment|/* reset p->temp_offset if all hunks had been sent */
+if|if
+condition|(
+name|ce
+operator|->
+name|hunk
+operator|->
+name|file_last
+operator|==
+name|p
+operator|->
+name|temp_offset
+condition|)
+block|{
+name|p
+operator|->
+name|temp_offset
+operator|=
+literal|0
+expr_stmt|;
+block|}
+block|}
 block|}
 block|}
 return|return
@@ -1477,7 +1609,7 @@ name|rc
 decl_stmt|,
 name|size
 decl_stmt|,
-name|hunk_size
+name|hsize
 decl_stmt|;
 name|ngx_hunk_t
 modifier|*
@@ -1634,7 +1766,7 @@ argument_list|)
 empty_stmt|;
 do|do
 block|{
-name|hunk_size
+name|hsize
 operator|=
 name|ce
 operator|->
@@ -1653,7 +1785,7 @@ argument_list|(
 argument|p->log
 argument_list|,
 literal|"hunk size: %d"
-argument|_ hunk_size
+argument|_ hsize
 argument_list|)
 empty_stmt|;
 if|if
@@ -1661,7 +1793,7 @@ condition|(
 operator|(
 name|size
 operator|+
-name|hunk_size
+name|hsize
 operator|>
 name|p
 operator|->
@@ -1673,7 +1805,9 @@ name|p
 operator|->
 name|temp_offset
 operator|+
-name|hunk_size
+name|size
+operator|+
+name|hsize
 operator|>
 name|p
 operator|->
@@ -1685,7 +1819,7 @@ break|break;
 block|}
 name|size
 operator|+=
-name|hunk_size
+name|hsize
 expr_stmt|;
 name|le
 operator|=
@@ -1854,12 +1988,6 @@ name|hunk
 expr_stmt|;
 name|h
 operator|->
-name|type
-operator||=
-name|NGX_HUNK_FILE
-expr_stmt|;
-name|h
-operator|->
 name|file
 operator|=
 name|p
@@ -1894,6 +2022,31 @@ name|p
 operator|->
 name|temp_offset
 expr_stmt|;
+if|if
+condition|(
+name|p
+operator|->
+name|cachable
+condition|)
+block|{
+name|h
+operator|->
+name|type
+operator||=
+name|NGX_HUNK_FILE
+expr_stmt|;
+block|}
+else|else
+block|{
+name|h
+operator|->
+name|type
+operator||=
+name|NGX_HUNK_FILE
+operator||
+name|NGX_HUNK_TEMP_FILE
+expr_stmt|;
+block|}
 name|ngx_chain_add_ce
 argument_list|(
 name|p
@@ -2073,6 +2226,14 @@ name|hunk
 expr_stmt|;
 name|h
 operator|->
+name|tag
+operator|=
+name|p
+operator|->
+name|tag
+expr_stmt|;
+name|h
+operator|->
 name|type
 operator||=
 name|NGX_HUNK_LAST_SHADOW
@@ -2098,6 +2259,14 @@ argument_list|,
 name|NGX_ERROR
 argument_list|)
 expr_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|p->log
+argument_list|,
+literal|"HUNK %d"
+argument|_ h->num
+argument_list|)
+empty_stmt|;
 name|ngx_chain_add_ce
 argument_list|(
 name|p
