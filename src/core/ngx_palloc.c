@@ -545,16 +545,20 @@ operator|=
 name|NULL
 expr_stmt|;
 block|}
+if|#
+directive|if
+literal|0
+block_content|if (!(p = ngx_memalign(ngx_pagesize, size, pool->log))) {         return NULL;     }
+else|#
+directive|else
 if|if
 condition|(
 operator|!
 operator|(
 name|p
 operator|=
-name|ngx_memalign
+name|ngx_alloc
 argument_list|(
-name|ngx_pagesize
-argument_list|,
 name|size
 argument_list|,
 name|pool
@@ -568,6 +572,8 @@ return|return
 name|NULL
 return|;
 block|}
+endif|#
+directive|endif
 if|if
 condition|(
 name|pool

@@ -144,13 +144,13 @@ operator|)
 end_if
 
 begin_function
-DECL|function|ngx_memalign (size_t aligment,size_t size,ngx_log_t * log)
+DECL|function|ngx_memalign (size_t alignment,size_t size,ngx_log_t * log)
 name|void
 modifier|*
 name|ngx_memalign
 parameter_list|(
 name|size_t
-name|aligment
+name|alignment
 parameter_list|,
 name|size_t
 name|size
@@ -171,7 +171,7 @@ argument_list|(
 operator|&
 name|p
 argument_list|,
-name|aligment
+name|alignment
 argument_list|,
 name|size
 argument_list|)
@@ -224,18 +224,22 @@ return|;
 block|}
 end_function
 
-begin_empty
-empty|#esif (HAVE_MEMALIGN)
-end_empty
+begin_elif
+elif|#
+directive|elif
+operator|(
+name|HAVE_MEMALIGN
+operator|)
+end_elif
 
 begin_function
-DECL|function|ngx_memalign (size_t aligment,size_t size,ngx_log_t * log)
+DECL|function|ngx_memalign (size_t alignment,size_t size,ngx_log_t * log)
 name|void
 modifier|*
 name|ngx_memalign
 parameter_list|(
 name|size_t
-name|aligment
+name|alignment
 parameter_list|,
 name|size_t
 name|size
@@ -257,7 +261,7 @@ name|p
 operator|=
 name|memalign
 argument_list|(
-name|aligment
+name|alignment
 argument_list|,
 name|size
 argument_list|)
