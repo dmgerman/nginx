@@ -60,6 +60,10 @@ directive|include
 file|<ngx_array.h>
 end_include
 
+begin_comment
+comment|/*  *      AAAA  number of agruments  *    TT      command flags  *  LL        command location  */
+end_comment
+
 begin_define
 DECL|macro|NGX_CONF_NOARGS
 define|#
@@ -114,6 +118,14 @@ define|#
 directive|define
 name|NGX_CONF_FLAG
 value|0x040000
+end_define
+
+begin_define
+DECL|macro|NGX_MAIN_CONF
+define|#
+directive|define
+name|NGX_MAIN_CONF
+value|0x1000000
 end_define
 
 begin_define
@@ -252,7 +264,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon294225d10108
+DECL|struct|__anon2bdd6e950108
 typedef|typedef
 struct|struct
 block|{
@@ -293,7 +305,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294225d10208
+DECL|struct|__anon2bdd6e950208
 typedef|typedef
 struct|struct
 block|{
@@ -314,6 +326,31 @@ DECL|typedef|ngx_conf_file_t
 block|}
 name|ngx_conf_file_t
 typedef|;
+end_typedef
+
+begin_typedef
+DECL|typedef|ngx_conf_handler_pt
+typedef|typedef
+name|char
+modifier|*
+function_decl|(
+modifier|*
+name|ngx_conf_handler_pt
+function_decl|)
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_command_t
+modifier|*
+name|dummy
+parameter_list|,
+name|char
+modifier|*
+name|conf
+parameter_list|)
+function_decl|;
 end_typedef
 
 begin_struct
@@ -351,23 +388,23 @@ name|void
 modifier|*
 name|ctx
 decl_stmt|;
-DECL|member|type
+DECL|member|module_type
 name|int
-name|type
+name|module_type
+decl_stmt|;
+DECL|member|cmd_type
+name|int
+name|cmd_type
 decl_stmt|;
 DECL|member|handler
+name|ngx_conf_handler_pt
+name|handler
+decl_stmt|;
+DECL|member|handler_conf
 name|char
 modifier|*
-function_decl|(
-modifier|*
-name|handler
-function_decl|)
-parameter_list|(
-name|ngx_conf_t
-modifier|*
-name|cf
-parameter_list|)
-function_decl|;
+name|handler_conf
+decl_stmt|;
 block|}
 struct|;
 end_struct
@@ -383,6 +420,19 @@ parameter_list|,
 name|prev
 parameter_list|,
 define|default)                                  \     if (conf == NGX_CONF_UNSET) {                                            \         conf = (prev == NGX_CONF_UNSET) ? default : prev;                    \     }
+end_define
+
+begin_define
+DECL|macro|ngx_conf_msec_merge (conf,prev,default)
+define|#
+directive|define
+name|ngx_conf_msec_merge
+parameter_list|(
+name|conf
+parameter_list|,
+name|prev
+parameter_list|,
+define|default)                             \     if (conf == NGX_CONF_UNSET) {                                            \         conf = (prev == NGX_CONF_UNSET) ? default : prev;                    \     }
 end_define
 
 begin_define

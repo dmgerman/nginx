@@ -242,6 +242,8 @@ argument_list|(
 literal|"http"
 argument_list|)
 block|,
+name|NGX_MAIN_CONF
+operator||
 name|NGX_CONF_BLOCK
 operator||
 name|NGX_CONF_NOARGS
@@ -358,12 +360,12 @@ name|ngx_http_module_t
 modifier|*
 name|module
 decl_stmt|;
+name|ngx_conf_t
+name|prev
+decl_stmt|;
 name|ngx_http_conf_ctx_t
 modifier|*
 name|ctx
-decl_stmt|,
-modifier|*
-name|prev
 decl_stmt|;
 name|ngx_http_in_port_t
 modifier|*
@@ -586,9 +588,8 @@ block|}
 block|}
 name|prev
 operator|=
+operator|*
 name|cf
-operator|->
-name|ctx
 expr_stmt|;
 name|cf
 operator|->
@@ -598,9 +599,15 @@ name|ctx
 expr_stmt|;
 name|cf
 operator|->
-name|type
+name|module_type
 operator|=
 name|NGX_HTTP_MODULE_TYPE
+expr_stmt|;
+name|cf
+operator|->
+name|cmd_type
+operator|=
+name|NGX_HTTP_MAIN_CONF
 expr_stmt|;
 name|rv
 operator|=
@@ -611,9 +618,8 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
+operator|*
 name|cf
-operator|->
-name|ctx
 operator|=
 name|prev
 expr_stmt|;
@@ -670,7 +676,7 @@ argument_list|,
 name|NGX_CONF_ERROR
 argument_list|)
 expr_stmt|;
-comment|/* create lists of ports, addresses and server names */
+comment|/* create lists of the ports, the addresses and the server names */
 name|ngx_init_array
 argument_list|(
 name|in_ports

@@ -343,6 +343,7 @@ operator|<
 name|NGX_HTTP_BAD_REQUEST
 condition|)
 block|{
+comment|/* 3XX */
 name|err
 operator|=
 name|error
@@ -427,6 +428,7 @@ operator|<
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 condition|)
 block|{
+comment|/* 4XX */
 name|err
 operator|=
 name|error
@@ -438,6 +440,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|/* 5XX */
 name|err
 operator|=
 name|error
@@ -476,6 +479,37 @@ case|:
 name|r
 operator|->
 name|keepalive
+operator|=
+literal|0
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+name|r
+operator|->
+name|lingering_close
+operator|==
+literal|1
+condition|)
+block|{
+switch|switch
+condition|(
+name|error
+condition|)
+block|{
+case|case
+name|NGX_HTTP_BAD_REQUEST
+case|:
+case|case
+name|NGX_HTTP_REQUEST_URI_TOO_LARGE
+case|:
+case|case
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
+case|:
+name|r
+operator|->
+name|lingering_close
 operator|=
 literal|0
 expr_stmt|;

@@ -232,7 +232,7 @@ argument_list|)
 block|,
 name|ngx_null_string
 block|,
-comment|/* "414 Request-URI Too Large" but we never send it                          because we treat such requests as HTTP/0.9 requests                          and send only the body without the header */
+comment|/* "414 Request-URI Too Large" but we never send it                          because we treat such requests as the HTTP/0.9 requests                          and send only the body without the header */
 name|ngx_null_string
 block|,
 comment|/* 415 */
@@ -479,6 +479,7 @@ operator|<
 name|NGX_HTTP_MOVED_PERMANENTLY
 condition|)
 block|{
+comment|/* 2XX */
 name|status
 operator|=
 name|r
@@ -501,6 +502,7 @@ operator|<
 name|NGX_HTTP_BAD_REQUEST
 condition|)
 block|{
+comment|/* 3XX */
 name|status
 operator|=
 name|r
@@ -531,6 +533,7 @@ operator|<
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 condition|)
 block|{
+comment|/* 4XX */
 name|status
 operator|=
 name|r
@@ -548,6 +551,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|/* 5XX */
 name|status
 operator|=
 name|r

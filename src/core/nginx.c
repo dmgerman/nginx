@@ -20,6 +20,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_os_init.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_string.h>
 end_include
 
@@ -219,6 +225,23 @@ name|log_level
 operator|=
 name|NGX_LOG_DEBUG
 expr_stmt|;
+if|if
+condition|(
+name|ngx_os_init
+argument_list|(
+operator|&
+name|ngx_log
+argument_list|)
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+name|exit
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
 name|ngx_pool
 operator|=
 name|ngx_create_pool
@@ -262,12 +285,6 @@ operator|&
 name|ngx_log
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
-if|#
-directive|if
-literal|0
-block_content|if (ngx_os_init(&ngx_log) == NGX_ERROR) {         exit(1);     }
 endif|#
 directive|endif
 name|ngx_init_array
@@ -363,9 +380,15 @@ name|ngx_log
 expr_stmt|;
 name|conf
 operator|.
-name|type
+name|module_type
 operator|=
 name|NGX_CORE_MODULE_TYPE
+expr_stmt|;
+name|conf
+operator|.
+name|cmd_type
+operator|=
+name|NGX_MAIN_CONF
 expr_stmt|;
 name|conf_file
 operator|.

@@ -2,14 +2,14 @@ begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|_NGX_OS_INIT_H_INCLUDED_
+name|_NGX_FREEBSD_INIT_H_INCLUDED_
 end_ifndef
 
 begin_define
-DECL|macro|_NGX_OS_INIT_H_INCLUDED_
+DECL|macro|_NGX_FREEBSD_INIT_H_INCLUDED_
 define|#
 directive|define
-name|_NGX_OS_INIT_H_INCLUDED_
+name|_NGX_FREEBSD_INIT_H_INCLUDED_
 end_define
 
 begin_include
@@ -50,14 +50,28 @@ end_function_decl
 begin_decl_stmt
 specifier|extern
 name|int
-name|freebsd_kern_osreldate
+name|ngx_freebsd_kern_osreldate
 decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
 name|int
-name|freebsd_hw_ncpu
+name|ngx_freebsd_hw_ncpu
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|int
+name|ngx_freebsd_net_inet_tcp_sendspace
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|int
+name|ngx_freebsd_sendfile_nbytes_bug
 decl_stmt|;
 end_decl_stmt
 
@@ -67,7 +81,7 @@ directive|endif
 end_endif
 
 begin_comment
-comment|/* _NGX_OS_INIT_H_INCLUDED_ */
+comment|/* _NGX_FREEBSD_INIT_H_INCLUDED_ */
 end_comment
 
 end_unit

@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29c336270108
+DECL|struct|__anon2a32aeff0108
 typedef|typedef
 struct|struct
 block|{
@@ -67,7 +67,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c336270208
+DECL|struct|__anon2a32aeff0208
 typedef|typedef
 struct|struct
 block|{
@@ -103,7 +103,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon29c336270308
+DECL|struct|__anon2a32aeff0308
 typedef|typedef
 struct|struct
 block|{
@@ -123,7 +123,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c336270408
+DECL|struct|__anon2a32aeff0408
 typedef|typedef
 struct|struct
 block|{
@@ -161,7 +161,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon29c336270508
+DECL|struct|__anon2a32aeff0508
 typedef|typedef
 struct|struct
 block|{
@@ -181,8 +181,49 @@ name|ngx_http_server_name_t
 typedef|;
 end_typedef
 
+begin_define
+DECL|macro|NGX_HTTP_TYPES_HASH_PRIME
+define|#
+directive|define
+name|NGX_HTTP_TYPES_HASH_PRIME
+value|13
+end_define
+
+begin_define
+DECL|macro|ngx_http_types_hash_key (key,ext)
+define|#
+directive|define
+name|ngx_http_types_hash_key
+parameter_list|(
+name|key
+parameter_list|,
+name|ext
+parameter_list|)
+define|\
+value|{                                                                   \             int n;                                                          \             for (key = 0, n = 0; n< ext.len; n++) {                        \                 key += ext.data[n];                                         \             }                                                               \             key %= NGX_HTTP_TYPES_HASH_PRIME;                               \         }
+end_define
+
 begin_typedef
-DECL|struct|__anon29c336270608
+DECL|struct|__anon2a32aeff0608
+typedef|typedef
+struct|struct
+block|{
+DECL|member|exten
+name|ngx_str_t
+name|exten
+decl_stmt|;
+DECL|member|type
+name|ngx_str_t
+name|type
+decl_stmt|;
+DECL|typedef|ngx_http_type_t
+block|}
+name|ngx_http_type_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2a32aeff0708
 typedef|typedef
 struct|struct
 block|{
@@ -215,6 +256,11 @@ name|ngx_str_t
 name|doc_root
 decl_stmt|;
 comment|/* root */
+DECL|member|types
+name|ngx_array_t
+modifier|*
+name|types
+decl_stmt|;
 DECL|member|sendfile
 name|int
 name|sendfile

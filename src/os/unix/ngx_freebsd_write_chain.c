@@ -53,6 +53,12 @@ directive|include
 file|<ngx_sendfile.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_freebsd_init.h>
+end_include
+
 begin_function
 DECL|function|ngx_freebsd_write_chain (ngx_connection_t * c,ngx_chain_t * in)
 name|ngx_chain_t
@@ -276,11 +282,11 @@ operator|->
 name|last
 expr_stmt|;
 block|}
-if|#
-directive|if
-operator|(
-name|HAVE_FREEBSD_SENDFILE_NBYTES_BUG
-operator|)
+if|if
+condition|(
+name|ngx_freebsd_sendfile_nbytes_bug
+condition|)
+block|{
 name|hsize
 operator|+=
 name|ce
@@ -295,8 +301,7 @@ name|hunk
 operator|->
 name|pos
 expr_stmt|;
-endif|#
-directive|endif
+block|}
 name|ce
 operator|=
 name|ce

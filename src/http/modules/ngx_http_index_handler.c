@@ -756,6 +756,23 @@ operator|.
 name|len
 expr_stmt|;
 block|}
+comment|/* STUB */
+name|r
+operator|->
+name|exten
+operator|.
+name|len
+operator|=
+literal|4
+expr_stmt|;
+name|r
+operator|->
+name|exten
+operator|.
+name|data
+operator|=
+literal|"html"
+expr_stmt|;
 return|return
 name|ngx_http_internal_redirect
 argument_list|(

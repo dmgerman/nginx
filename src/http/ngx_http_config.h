@@ -25,7 +25,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29373b1f0108
+DECL|struct|__anon2b9c3b9c0108
 typedef|typedef
 struct|struct
 block|{
@@ -48,7 +48,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29373b1f0208
+DECL|struct|__anon2b9c3b9c0208
 typedef|typedef
 struct|struct
 block|{
@@ -87,7 +87,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29373b1f0308
+DECL|struct|__anon2b9c3b9c0308
 typedef|typedef
 struct|struct
 block|{
@@ -191,7 +191,7 @@ DECL|macro|NGX_HTTP_MAIN_CONF
 define|#
 directive|define
 name|NGX_HTTP_MAIN_CONF
-value|0x1000000
+value|0x2000000
 end_define
 
 begin_define
@@ -199,7 +199,7 @@ DECL|macro|NGX_HTTP_SRV_CONF
 define|#
 directive|define
 name|NGX_HTTP_SRV_CONF
-value|0x2000000
+value|0x4000000
 end_define
 
 begin_define
@@ -207,7 +207,7 @@ DECL|macro|NGX_HTTP_LOC_CONF
 define|#
 directive|define
 name|NGX_HTTP_LOC_CONF
-value|0x6000000
+value|0x8000000
 end_define
 
 begin_define
