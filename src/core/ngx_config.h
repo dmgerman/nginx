@@ -475,7 +475,7 @@ DECL|macro|NGX_ACCEPT_THRESHOLD
 define|#
 directive|define
 name|NGX_ACCEPT_THRESHOLD
-value|50
+value|100
 end_define
 
 begin_ifndef
