@@ -981,6 +981,7 @@ name|found
 operator|=
 literal|1
 expr_stmt|;
+comment|/* need ot add to ready_index[nready++] = c->read or c->write; */
 name|err
 operator|=
 literal|0

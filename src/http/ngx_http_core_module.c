@@ -434,18 +434,23 @@ name|r
 operator|->
 name|lingering_close
 operator|=
-literal|0
+literal|1
 expr_stmt|;
 name|r
 operator|->
 name|keepalive
 operator|=
-literal|0
+literal|1
 expr_stmt|;
 if|#
 directive|if
-literal|0
-block_content|r->filter = NGX_HTTP_FILTER_NEED_IN_MEMORY;
+literal|1
+name|r
+operator|->
+name|filter
+operator|=
+name|NGX_HTTP_FILTER_NEED_IN_MEMORY
+expr_stmt|;
 endif|#
 directive|endif
 name|ngx_log_debug

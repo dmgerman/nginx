@@ -123,7 +123,7 @@ return|return
 name|NGX_OK
 return|;
 block|}
-name|GetAcceptExSockaddrs
+name|getacceptexsockaddrs
 argument_list|(
 name|c
 operator|->
@@ -675,7 +675,7 @@ return|;
 block|}
 if|if
 condition|(
-name|AcceptEx
+name|acceptex
 argument_list|(
 name|ls
 operator|->

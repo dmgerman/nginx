@@ -34,23 +34,23 @@ comment|/* These pointers should be per protocol ? */
 end_comment
 
 begin_decl_stmt
-DECL|variable|AcceptEx
+DECL|variable|acceptex
 name|LPFN_ACCEPTEX
-name|AcceptEx
+name|acceptex
 decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|GetAcceptExSockaddrs
+DECL|variable|getacceptexsockaddrs
 name|LPFN_GETACCEPTEXSOCKADDRS
-name|GetAcceptExSockaddrs
+name|getacceptexsockaddrs
 decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|TransmitFile
+DECL|variable|transmitfile
 name|LPFN_TRANSMITFILE
-name|TransmitFile
+name|transmitfile
 decl_stmt|;
 end_decl_stmt
 
@@ -190,7 +190,7 @@ name|GUID
 argument_list|)
 argument_list|,
 operator|&
-name|AcceptEx
+name|acceptex
 argument_list|,
 sizeof|sizeof
 argument_list|(
@@ -242,7 +242,7 @@ name|GUID
 argument_list|)
 argument_list|,
 operator|&
-name|GetAcceptExSockaddrs
+name|getacceptexsockaddrs
 argument_list|,
 sizeof|sizeof
 argument_list|(
@@ -294,7 +294,7 @@ name|GUID
 argument_list|)
 argument_list|,
 operator|&
-name|TransmitFile
+name|transmitfile
 argument_list|,
 sizeof|sizeof
 argument_list|(

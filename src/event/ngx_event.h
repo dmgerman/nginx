@@ -80,7 +80,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon29aec63c0108
+DECL|struct|__anon2c1e45390108
 typedef|typedef
 struct|struct
 block|{
@@ -357,12 +357,12 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon29aec63c0203
+DECL|enum|__anon2c1e45390203
 typedef|typedef
 enum|enum
 block|{
-DECL|enumerator|NGX_SELECT_EVENT
-name|NGX_SELECT_EVENT
+DECL|enumerator|NGX_SELECT_EVENT_N
+name|NGX_SELECT_EVENT_N
 init|=
 literal|0
 block|,
@@ -371,8 +371,8 @@ directive|if
 operator|(
 name|HAVE_POLL
 operator|)
-DECL|enumerator|NGX_POLL_EVENT
-name|NGX_POLL_EVENT
+DECL|enumerator|NGX_POLL_EVENT_N
+name|NGX_POLL_EVENT_N
 block|,
 endif|#
 directive|endif
@@ -381,8 +381,8 @@ directive|if
 operator|(
 name|HAVE_DEVPOLL
 operator|)
-DECL|enumerator|NGX_DEVPOLL_EVENT
-name|NGX_DEVPOLL_EVENT
+DECL|enumerator|NGX_DEVPOLL_EVENT_N
+name|NGX_DEVPOLL_EVENT_N
 block|,
 endif|#
 directive|endif
@@ -391,8 +391,8 @@ directive|if
 operator|(
 name|HAVE_KQUEUE
 operator|)
-DECL|enumerator|NGX_KQUEUE_EVENT
-name|NGX_KQUEUE_EVENT
+DECL|enumerator|NGX_KQUEUE_EVENT_N
+name|NGX_KQUEUE_EVENT_N
 block|,
 endif|#
 directive|endif
@@ -401,13 +401,13 @@ directive|if
 operator|(
 name|HAVE_IOCP
 operator|)
-DECL|enumerator|NGX_IOCP_EVENT
-name|NGX_IOCP_EVENT
+DECL|enumerator|NGX_IOCP_EVENT_N
+name|NGX_IOCP_EVENT_N
 block|,
 endif|#
 directive|endif
-DECL|enumerator|NGX_DUMMY_EVENT
-name|NGX_DUMMY_EVENT
+DECL|enumerator|NGX_DUMMY_EVENT_N
+name|NGX_DUMMY_EVENT_N
 comment|/* avoid comma at end of enumerator list */
 DECL|typedef|ngx_event_type_e
 block|}
@@ -416,7 +416,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29aec63c0308
+DECL|struct|__anon2c1e45390308
 typedef|typedef
 struct|struct
 block|{
@@ -546,6 +546,18 @@ value|4
 end_define
 
 begin_comment
+comment|/* Event filter has kqueue features - eof flag, errno, available data, etc */
+end_comment
+
+begin_define
+DECL|macro|NGX_HAVE_KQUEUE_EVENT
+define|#
+directive|define
+name|NGX_HAVE_KQUEUE_EVENT
+value|8
+end_define
+
+begin_comment
 comment|/* Event filter notifies only changes (edgesi) but not initial level - epoll */
 end_comment
 
@@ -554,7 +566,19 @@ DECL|macro|NGX_HAVE_EDGE_EVENT
 define|#
 directive|define
 name|NGX_HAVE_EDGE_EVENT
-value|8
+value|16
+end_define
+
+begin_comment
+comment|/* No need to add or delete event filters - rt signals */
+end_comment
+
+begin_define
+DECL|macro|NGX_HAVE_SIGIO_EVENT
+define|#
+directive|define
+name|NGX_HAVE_SIGIO_EVENT
+value|32
 end_define
 
 begin_comment
@@ -566,7 +590,7 @@ DECL|macro|NGX_HAVE_AIO_EVENT
 define|#
 directive|define
 name|NGX_HAVE_AIO_EVENT
-value|16
+value|64
 end_define
 
 begin_comment
@@ -578,7 +602,7 @@ DECL|macro|NGX_HAVE_IOCP_EVENT
 define|#
 directive|define
 name|NGX_HAVE_IOCP_EVENT
-value|32
+value|128
 end_define
 
 begin_comment

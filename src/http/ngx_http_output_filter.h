@@ -55,7 +55,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2c0c17890108
+DECL|struct|__anon28fc7cb60108
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +70,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0c17890208
+DECL|struct|__anon28fc7cb60208
 typedef|typedef
 struct|struct
 block|{
@@ -87,10 +87,6 @@ decl_stmt|;
 DECL|member|out
 name|ngx_chain_t
 name|out
-decl_stmt|;
-DECL|member|last
-name|unsigned
-name|last
 decl_stmt|;
 DECL|typedef|ngx_http_output_filter_ctx_t
 block|}

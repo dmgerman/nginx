@@ -746,7 +746,7 @@ if|if
 condition|(
 name|ngx_event_type
 operator|==
-name|NGX_KQUEUE_EVENT
+name|NGX_HAVE_KQUEUE_EVENT
 condition|)
 block|{
 name|ev

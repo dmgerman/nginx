@@ -263,7 +263,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon29194c960108
+DECL|struct|__anon29af9c390108
 typedef|typedef
 struct|struct
 block|{
@@ -311,7 +311,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29194c960208
+DECL|struct|__anon29af9c390208
 typedef|typedef
 struct|struct
 block|{
@@ -335,7 +335,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29194c960308
+DECL|struct|__anon29af9c390308
 typedef|typedef
 struct|struct
 block|{
@@ -380,7 +380,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29194c960408
+DECL|struct|__anon29af9c390408
 typedef|typedef
 struct|struct
 block|{
@@ -647,6 +647,17 @@ name|path_not_found
 range|:
 literal|1
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|NGX_EVENT
+DECL|member|write_level_event
+name|unsigned
+name|write_level_event
+range|:
+literal|1
+decl_stmt|;
+endif|#
+directive|endif
 DECL|member|state
 name|int
 name|state
@@ -718,7 +729,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29194c960508
+DECL|struct|__anon29af9c390508
 typedef|typedef
 struct|struct
 block|{
@@ -796,7 +807,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29194c960608
+DECL|struct|__anon29af9c390608
 typedef|typedef
 struct|struct
 block|{

@@ -2045,7 +2045,7 @@ if|if
 condition|(
 name|ngx_event_type
 operator|==
-name|NGX_KQUEUE_EVENT
+name|NGX_HAVE_KQUEUE_EVENT
 condition|)
 block|{
 comment|/* do not allocate new block if there is EOF */
@@ -2470,7 +2470,7 @@ name|char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon274e77060103
+DECL|enum|__anon27b11bf80103
 enum|enum
 block|{
 DECL|enumerator|sw_start
