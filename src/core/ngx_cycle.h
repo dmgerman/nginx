@@ -56,13 +56,13 @@ DECL|member|listening
 name|ngx_array_t
 name|listening
 decl_stmt|;
-DECL|member|open_files
-name|ngx_array_t
-name|open_files
-decl_stmt|;
 DECL|member|pathes
 name|ngx_array_t
 name|pathes
+decl_stmt|;
+DECL|member|open_files
+name|ngx_list_t
+name|open_files
 decl_stmt|;
 DECL|member|connection_n
 name|ngx_uint_t
@@ -101,7 +101,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29d759a80108
+DECL|struct|__anon2c76d4bc0108
 typedef|typedef
 struct|struct
 block|{
@@ -155,7 +155,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d759a80208
+DECL|struct|__anon2c76d4bc0208
 typedef|typedef
 struct|struct
 block|{

@@ -282,6 +282,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_list.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_table.h>
 end_include
 
