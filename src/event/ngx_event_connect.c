@@ -5,6 +5,10 @@ directive|include
 file|<ngx_event_connect.h>
 end_include
 
+begin_comment
+comment|/* AF_INET only */
+end_comment
+
 begin_function
 DECL|function|ngx_event_connect_peer (ngx_peer_connecttion_t * pc)
 name|int
@@ -18,9 +22,23 @@ block|{
 name|time_t
 name|now
 decl_stmt|;
+name|ngx_peer_r
+modifier|*
+name|peer
+decl_stmt|;
 name|ngx_socket_t
 name|s
 decl_stmt|;
+name|struct
+name|sockaddr_in
+modifier|*
+name|addr
+decl_stmt|;
+name|now
+operator|=
+name|ngx_time
+argument_list|()
+expr_stmt|;
 comment|/* ngx_lock_mutex(pc->peers->mutex); */
 if|if
 condition|(
@@ -66,17 +84,11 @@ return|return
 name|NGX_OK
 return|;
 block|}
-comment|/* ngx_unlock_mutex(pc->peers->mutex); */
 name|pc
 operator|->
 name|cached
 operator|=
 literal|0
-expr_stmt|;
-name|now
-operator|=
-name|ngx_time
-argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -104,7 +116,6 @@ name|number
 condition|)
 block|{
 comment|/* it's a first try - get a current peer */
-comment|/* Here is the race condition when the peers are shared between                the threads or the processes but it should not be serious */
 name|pc
 operator|->
 name|cur_peer
@@ -140,37 +151,6 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-comment|/* the end of the race condition */
-if|#
-directive|if
-operator|(
-name|NGX_MULTITHREADED
-operator|||
-name|NGX_MULTIPROCESSED
-operator|)
-comment|/* eliminate the sequences of the race condition */
-if|if
-condition|(
-name|pc
-operator|->
-name|cur_peer
-operator|>=
-name|pc
-operator|->
-name|peers
-operator|->
-name|number
-condition|)
-block|{
-name|pc
-operator|->
-name|cur_peer
-operator|=
-literal|0
-expr_stmt|;
-block|}
-endif|#
-directive|endif
 block|}
 if|if
 condition|(
@@ -204,7 +184,6 @@ operator|->
 name|cur_peer
 index|]
 expr_stmt|;
-comment|/* Here is the race condition when the peers are shared between                    the threads or the processes but it should not be serious */
 if|if
 condition|(
 name|peer
@@ -234,7 +213,6 @@ condition|)
 block|{
 break|break;
 block|}
-comment|/* the end of the race condition */
 name|pc
 operator|->
 name|cur_peer
@@ -274,6 +252,7 @@ operator|==
 literal|0
 condition|)
 block|{
+comment|/* ngx_unlock_mutex(pc->peers->mutex); */
 return|return
 name|NGX_ERROR
 return|;
@@ -281,6 +260,7 @@ block|}
 block|}
 block|}
 block|}
+comment|/* ngx_unlock_mutex(pc->peers->mutex); */
 name|pc
 operator|->
 name|addr_port_text
@@ -696,6 +676,125 @@ name|NGX_ERROR
 return|;
 block|}
 block|}
+name|addr
+operator|=
+name|p
+operator|->
+name|sockaddr
+expr_stmt|;
+name|addr
+operator|->
+name|sin_family
+operator|=
+name|AF_INET
+expr_stmt|;
+name|addr
+operator|->
+name|sin_addr
+operator|.
+name|s_addr
+operator|=
+name|peer
+operator|->
+name|addr
+expr_stmt|;
+name|addr
+operator|->
+name|sin_port
+operator|=
+name|htons
+argument_list|(
+name|peer
+operator|->
+name|port
+argument_list|)
+expr_stmt|;
+name|rc
+operator|=
+name|connect
+argument_list|(
+name|s
+argument_list|,
+name|p
+operator|->
+name|sockaddr
+argument_list|,
+sizeof|sizeof
+argument_list|(
+expr|struct
+name|sockaddr_in
+argument_list|)
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|rc
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+name|err
+operator|=
+name|ngx_socket_errno
+expr_stmt|;
+if|if
+condition|(
+name|err
+operator|!=
+name|NGX_EINPROGRESS
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_CRIT
+argument_list|,
+name|pc
+operator|->
+name|log
+argument_list|,
+name|err
+argument_list|,
+literal|"connect() failed"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|ngx_close_socket
+argument_list|(
+name|s
+argument_list|)
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|pc
+operator|->
+name|log
+argument_list|,
+name|ngx_socket_errno
+argument_list|,
+name|ngx_close_socket_n
+literal|" failed"
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|NGX_CONNECT_ERROR
+return|;
+block|}
+block|}
+name|c
+operator|->
+name|data
+operator|=
+operator|???
+expr_stmt|;
 block|}
 end_function
 
