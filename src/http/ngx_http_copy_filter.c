@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28d12bef0108
+DECL|struct|__anon28c381670108
 typedef|typedef
 struct|struct
 block|{
@@ -26,9 +26,9 @@ DECL|member|bufs
 name|ngx_bufs_t
 name|bufs
 decl_stmt|;
-DECL|typedef|ngx_http_output_filter_conf_t
+DECL|typedef|ngx_http_copy_filter_conf_t
 block|}
-name|ngx_http_output_filter_conf_t
+name|ngx_http_copy_filter_conf_t
 typedef|;
 end_typedef
 
@@ -36,7 +36,7 @@ begin_function_decl
 specifier|static
 name|void
 modifier|*
-name|ngx_http_output_filter_create_conf
+name|ngx_http_copy_filter_create_conf
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -49,7 +49,7 @@ begin_function_decl
 specifier|static
 name|char
 modifier|*
-name|ngx_http_output_filter_merge_conf
+name|ngx_http_copy_filter_merge_conf
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -66,11 +66,23 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_function_decl
+specifier|static
+name|ngx_int_t
+name|ngx_http_copy_filter_init
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_decl_stmt
-DECL|variable|ngx_http_output_filter_commands
+DECL|variable|ngx_http_copy_filter_commands
 specifier|static
 name|ngx_command_t
-name|ngx_http_output_filter_commands
+name|ngx_http_copy_filter_commands
 index|[]
 init|=
 block|{
@@ -94,7 +106,7 @@ name|NGX_HTTP_LOC_CONF_OFFSET
 block|,
 name|offsetof
 argument_list|(
-name|ngx_http_output_filter_conf_t
+name|ngx_http_copy_filter_conf_t
 argument_list|,
 name|bufs
 argument_list|)
@@ -108,10 +120,10 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_http_output_filter_module_ctx
+DECL|variable|ngx_http_copy_filter_module_ctx
 specifier|static
 name|ngx_http_module_t
-name|ngx_http_output_filter_module_ctx
+name|ngx_http_copy_filter_module_ctx
 init|=
 block|{
 name|NULL
@@ -129,46 +141,54 @@ comment|/* create server configuration */
 name|NULL
 block|,
 comment|/* merge server configuration */
-name|ngx_http_output_filter_create_conf
+name|ngx_http_copy_filter_create_conf
 block|,
 comment|/* create location configuration */
-name|ngx_http_output_filter_merge_conf
+name|ngx_http_copy_filter_merge_conf
 comment|/* merge location configuration */
 block|}
 decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_http_output_filter_module
+DECL|variable|ngx_http_copy_filter_module
 name|ngx_module_t
-name|ngx_http_output_filter_module
+name|ngx_http_copy_filter_module
 init|=
 block|{
 name|NGX_MODULE
 block|,
 operator|&
-name|ngx_http_output_filter_module_ctx
+name|ngx_http_copy_filter_module_ctx
 block|,
 comment|/* module context */
-name|ngx_http_output_filter_commands
+name|ngx_http_copy_filter_commands
 block|,
 comment|/* module directives */
 name|NGX_HTTP_MODULE
 block|,
 comment|/* module type */
-name|NULL
+name|ngx_http_copy_filter_init
 block|,
 comment|/* init module */
 name|NULL
-comment|/* init child */
+comment|/* init process */
 block|}
 decl_stmt|;
 end_decl_stmt
 
+begin_decl_stmt
+DECL|variable|ngx_http_next_filter
+specifier|static
+name|ngx_http_output_body_filter_pt
+name|ngx_http_next_filter
+decl_stmt|;
+end_decl_stmt
+
 begin_function
-DECL|function|ngx_http_output_filter (ngx_http_request_t * r,ngx_chain_t * in)
+DECL|function|ngx_http_copy_filter (ngx_http_request_t * r,ngx_chain_t * in)
 name|ngx_int_t
-name|ngx_http_output_filter
+name|ngx_http_copy_filter
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
@@ -179,14 +199,11 @@ modifier|*
 name|in
 parameter_list|)
 block|{
-name|ngx_int_t
-name|rc
-decl_stmt|;
 name|ngx_output_chain_ctx_t
 modifier|*
 name|ctx
 decl_stmt|;
-name|ngx_http_output_filter_conf_t
+name|ngx_http_copy_filter_conf_t
 modifier|*
 name|conf
 decl_stmt|;
@@ -219,7 +236,7 @@ expr|main
 operator|:
 name|r
 argument_list|,
-name|ngx_http_output_filter_module
+name|ngx_http_copy_filter_module
 argument_list|)
 expr_stmt|;
 if|if
@@ -243,7 +260,7 @@ expr|main
 operator|:
 name|r
 argument_list|,
-name|ngx_http_output_filter_module
+name|ngx_http_copy_filter_module
 argument_list|)
 expr_stmt|;
 name|ngx_http_create_ctx
@@ -252,7 +269,7 @@ name|r
 argument_list|,
 name|ctx
 argument_list|,
-name|ngx_http_output_filter_module
+name|ngx_http_copy_filter_module
 argument_list|,
 sizeof|sizeof
 argument_list|(
@@ -314,7 +331,7 @@ operator|(
 name|ngx_hunk_tag_t
 operator|)
 operator|&
-name|ngx_http_output_filter_module
+name|ngx_http_copy_filter_module
 expr_stmt|;
 name|ctx
 operator|->
@@ -323,7 +340,7 @@ operator|=
 operator|(
 name|ngx_output_chain_filter_pt
 operator|)
-name|ngx_http_top_body_filter
+name|ngx_http_next_filter
 expr_stmt|;
 name|ctx
 operator|->
@@ -332,53 +349,30 @@ operator|=
 name|r
 expr_stmt|;
 block|}
-name|rc
-operator|=
+return|return
 name|ngx_output_chain
 argument_list|(
 name|ctx
 argument_list|,
 name|in
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|rc
-operator|==
-name|NGX_ERROR
-condition|)
-block|{
-comment|/* NGX_ERROR could be returned by any filter */
-name|r
-operator|->
-name|connection
-operator|->
-name|write
-operator|->
-name|error
-operator|=
-literal|1
-expr_stmt|;
-block|}
-return|return
-name|rc
 return|;
 block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_output_filter_create_conf (ngx_conf_t * cf)
+DECL|function|ngx_http_copy_filter_create_conf (ngx_conf_t * cf)
 specifier|static
 name|void
 modifier|*
-name|ngx_http_output_filter_create_conf
+name|ngx_http_copy_filter_create_conf
 parameter_list|(
 name|ngx_conf_t
 modifier|*
 name|cf
 parameter_list|)
 block|{
-name|ngx_http_output_filter_conf_t
+name|ngx_http_copy_filter_conf_t
 modifier|*
 name|conf
 decl_stmt|;
@@ -394,7 +388,7 @@ name|pool
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|ngx_http_output_filter_conf_t
+name|ngx_http_copy_filter_conf_t
 argument_list|)
 argument_list|)
 argument_list|,
@@ -416,11 +410,11 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_output_filter_merge_conf (ngx_conf_t * cf,void * parent,void * child)
+DECL|function|ngx_http_copy_filter_merge_conf (ngx_conf_t * cf,void * parent,void * child)
 specifier|static
 name|char
 modifier|*
-name|ngx_http_output_filter_merge_conf
+name|ngx_http_copy_filter_merge_conf
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -435,13 +429,13 @@ modifier|*
 name|child
 parameter_list|)
 block|{
-name|ngx_http_output_filter_conf_t
+name|ngx_http_copy_filter_conf_t
 modifier|*
 name|prev
 init|=
 name|parent
 decl_stmt|;
-name|ngx_http_output_filter_conf_t
+name|ngx_http_copy_filter_conf_t
 modifier|*
 name|conf
 init|=
@@ -464,6 +458,31 @@ argument_list|)
 expr_stmt|;
 return|return
 name|NULL
+return|;
+block|}
+end_function
+
+begin_function
+DECL|function|ngx_http_copy_filter_init (ngx_cycle_t * cycle)
+specifier|static
+name|ngx_int_t
+name|ngx_http_copy_filter_init
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|)
+block|{
+name|ngx_http_next_filter
+operator|=
+name|ngx_http_top_body_filter
+expr_stmt|;
+name|ngx_http_top_body_filter
+operator|=
+name|ngx_http_copy_filter
+expr_stmt|;
+return|return
+name|NGX_OK
 return|;
 block|}
 end_function

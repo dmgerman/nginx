@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27c7bc610108
+DECL|struct|__anon27d9df9b0108
 typedef|typedef
 struct|struct
 block|{
@@ -1926,6 +1926,12 @@ return|return
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
 block|}
+name|r
+operator|->
+name|filter
+operator||=
+name|NGX_HTTP_FILTER_ALLOW_RANGES
+expr_stmt|;
 name|rc
 operator|=
 name|ngx_http_send_header

@@ -22,7 +22,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon2c999dcf0108
+DECL|struct|__anon28917dec0108
 typedef|typedef
 struct|struct
 block|{
@@ -39,7 +39,19 @@ end_typedef
 begin_function_decl
 specifier|static
 name|ngx_int_t
-name|ngx_http_range_filter_init
+name|ngx_http_range_header_filter_init
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
+name|ngx_int_t
+name|ngx_http_range_body_filter_init
 parameter_list|(
 name|ngx_cycle_t
 modifier|*
@@ -49,10 +61,10 @@ function_decl|;
 end_function_decl
 
 begin_decl_stmt
-DECL|variable|ngx_http_range_filter_module_ctx
+DECL|variable|ngx_http_range_header_filter_module_ctx
 specifier|static
 name|ngx_http_module_t
-name|ngx_http_range_filter_module_ctx
+name|ngx_http_range_header_filter_module_ctx
 init|=
 block|{
 name|NULL
@@ -81,15 +93,15 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_http_range_filter_module
+DECL|variable|ngx_http_range_header_filter_module
 name|ngx_module_t
-name|ngx_http_range_filter_module
+name|ngx_http_range_header_filter_module
 init|=
 block|{
 name|NGX_MODULE
 block|,
 operator|&
-name|ngx_http_range_filter_module_ctx
+name|ngx_http_range_header_filter_module_ctx
 block|,
 comment|/* module context */
 name|NULL
@@ -98,7 +110,66 @@ comment|/* module directives */
 name|NGX_HTTP_MODULE
 block|,
 comment|/* module type */
-name|ngx_http_range_filter_init
+name|ngx_http_range_header_filter_init
+block|,
+comment|/* init module */
+name|NULL
+comment|/* init child */
+block|}
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_http_range_body_filter_module_ctx
+specifier|static
+name|ngx_http_module_t
+name|ngx_http_range_body_filter_module_ctx
+init|=
+block|{
+name|NULL
+block|,
+comment|/* pre conf */
+name|NULL
+block|,
+comment|/* create main configuration */
+name|NULL
+block|,
+comment|/* init main configuration */
+name|NULL
+block|,
+comment|/* create server configuration */
+name|NULL
+block|,
+comment|/* merge server configuration */
+name|NULL
+block|,
+comment|/* create location configuration */
+name|NULL
+block|,
+comment|/* merge location configuration */
+block|}
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_http_range_body_filter_module
+name|ngx_module_t
+name|ngx_http_range_body_filter_module
+init|=
+block|{
+name|NGX_MODULE
+block|,
+operator|&
+name|ngx_http_range_body_filter_module_ctx
+block|,
+comment|/* module context */
+name|NULL
+block|,
+comment|/* module directives */
+name|NGX_HTTP_MODULE
+block|,
+comment|/* module type */
+name|ngx_http_range_body_filter_init
 block|,
 comment|/* init module */
 name|NULL
@@ -188,37 +259,29 @@ name|content_length_n
 operator|==
 operator|-
 literal|1
-comment|/* STUB: we currently support ranges for file hunks only */
 operator|||
 operator|!
-name|r
-operator|->
-name|sendfile
-operator|||
+operator|(
 name|r
 operator|->
 name|filter
 operator|&
-name|NGX_HTTP_FILTER_NEED_IN_MEMORY
-operator|||
-operator|(
-name|r
-operator|->
-name|headers_out
-operator|.
-name|content_encoding
-operator|&&
-name|r
-operator|->
-name|headers_out
-operator|.
-name|content_encoding
-operator|->
-name|value
-operator|.
-name|len
+name|NGX_HTTP_FILTER_ALLOW_RANGES
 operator|)
 condition|)
+if|#
+directive|if
+literal|0
+comment|/* STUB: we currently support ranges for file hunks only */
+if||| !r->sendfile         || r->filter& NGX_HTTP_FILTER_NEED_IN_MEMORY
+endif|#
+directive|endif
+if|#
+directive|if
+literal|0
+if||| (r->headers_out.content_encoding&& r->headers_out.content_encoding->value.len))
+endif|#
+directive|endif
 block|{
 return|return
 name|ngx_http_next_header_filter
@@ -1214,7 +1277,7 @@ name|r
 argument_list|,
 name|ctx
 argument_list|,
-name|ngx_http_range_filter_module
+name|ngx_http_range_body_filter_module
 argument_list|,
 sizeof|sizeof
 argument_list|(
@@ -1806,7 +1869,7 @@ name|ngx_http_get_module_ctx
 argument_list|(
 name|r
 argument_list|,
-name|ngx_http_range_filter_module
+name|ngx_http_range_body_filter_module
 argument_list|)
 expr_stmt|;
 name|ll
@@ -2212,10 +2275,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_range_filter_init (ngx_cycle_t * cycle)
+DECL|function|ngx_http_range_header_filter_init (ngx_cycle_t * cycle)
 specifier|static
 name|ngx_int_t
-name|ngx_http_range_filter_init
+name|ngx_http_range_header_filter_init
 parameter_list|(
 name|ngx_cycle_t
 modifier|*
@@ -2230,6 +2293,23 @@ name|ngx_http_top_header_filter
 operator|=
 name|ngx_http_range_header_filter
 expr_stmt|;
+return|return
+name|NGX_OK
+return|;
+block|}
+end_function
+
+begin_function
+DECL|function|ngx_http_range_body_filter_init (ngx_cycle_t * cycle)
+specifier|static
+name|ngx_int_t
+name|ngx_http_range_body_filter_init
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|)
+block|{
 name|ngx_http_next_body_filter
 operator|=
 name|ngx_http_top_body_filter

@@ -36,6 +36,14 @@ name|NGX_HTTP_FILTER_NEED_TEMP
 value|4
 end_define
 
+begin_define
+DECL|macro|NGX_HTTP_FILTER_ALLOW_RANGES
+define|#
+directive|define
+name|NGX_HTTP_FILTER_ALLOW_RANGES
+value|8
+end_define
+
 begin_typedef
 DECL|typedef|ngx_http_output_header_filter_pt
 typedef|typedef
