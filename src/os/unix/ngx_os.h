@@ -109,7 +109,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon298f551d0108
+DECL|struct|__anon2b5bfb040108
 typedef|typedef
 struct|struct
 block|{
@@ -182,6 +182,9 @@ parameter_list|,
 name|ngx_chain_t
 modifier|*
 name|in
+parameter_list|,
+name|off_t
+name|limit
 parameter_list|)
 function_decl|;
 DECL|member|flags
@@ -290,6 +293,9 @@ parameter_list|,
 name|ngx_chain_t
 modifier|*
 name|in
+parameter_list|,
+name|off_t
+name|limit
 parameter_list|)
 function_decl|;
 end_function_decl

@@ -24,7 +24,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c0d12b20108
+DECL|struct|__anon2bf8bdef0108
 typedef|typedef
 struct|struct
 block|{
@@ -32,6 +32,12 @@ DECL|member|postpone_output
 name|size_t
 name|postpone_output
 decl_stmt|;
+comment|/* postpone_output */
+DECL|member|limit_rate
+name|size_t
+name|limit_rate
+decl_stmt|;
+comment|/* limit_rate */
 DECL|typedef|ngx_http_write_filter_conf_t
 block|}
 name|ngx_http_write_filter_conf_t
@@ -39,7 +45,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0d12b20208
+DECL|struct|__anon2bf8bdef0208
 typedef|typedef
 struct|struct
 block|{
@@ -108,11 +114,10 @@ name|ngx_http_write_filter_commands
 index|[]
 init|=
 block|{
-comment|/* STUB */
 block|{
 name|ngx_string
 argument_list|(
-literal|"buffer_output"
+literal|"postpone_output"
 argument_list|)
 block|,
 name|NGX_HTTP_MAIN_CONF
@@ -140,7 +145,7 @@ block|,
 block|{
 name|ngx_string
 argument_list|(
-literal|"postpone_output"
+literal|"limit_rate"
 argument_list|)
 block|,
 name|NGX_HTTP_MAIN_CONF
@@ -159,7 +164,7 @@ name|offsetof
 argument_list|(
 name|ngx_http_write_filter_conf_t
 argument_list|,
-name|postpone_output
+name|limit_rate
 argument_list|)
 block|,
 name|NULL
@@ -560,6 +565,10 @@ if|if
 condition|(
 name|r
 operator|->
+name|connection
+operator|->
+name|write
+operator|->
 name|delayed
 condition|)
 block|{
@@ -619,6 +628,16 @@ argument_list|,
 name|ctx
 operator|->
 name|out
+argument_list|,
+name|conf
+operator|->
+name|limit_rate
+condition|?
+name|conf
+operator|->
+name|limit_rate
+else|:
+name|OFF_T_MAX_VALUE
 argument_list|)
 expr_stmt|;
 name|ngx_log_debug1
@@ -638,9 +657,13 @@ argument_list|,
 name|chain
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|1
+if|if
+condition|(
+name|conf
+operator|->
+name|limit_rate
+condition|)
+block|{
 name|sent
 operator|=
 name|r
@@ -652,6 +675,10 @@ operator|-
 name|sent
 expr_stmt|;
 name|r
+operator|->
+name|connection
+operator|->
+name|write
 operator|->
 name|delayed
 operator|=
@@ -669,15 +696,12 @@ name|sent
 operator|*
 literal|1000
 operator|/
-operator|(
-literal|4
-operator|*
-literal|1024
-operator|)
+name|conf
+operator|->
+name|limit_rate
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
+block|}
 if|if
 condition|(
 name|chain
@@ -753,6 +777,12 @@ name|postpone_output
 operator|=
 name|NGX_CONF_UNSET_SIZE
 expr_stmt|;
+name|conf
+operator|->
+name|limit_rate
+operator|=
+name|NGX_CONF_UNSET_SIZE
+expr_stmt|;
 return|return
 name|conf
 return|;
@@ -802,6 +832,19 @@ operator|->
 name|postpone_output
 argument_list|,
 literal|1460
+argument_list|)
+expr_stmt|;
+name|ngx_conf_merge_size_value
+argument_list|(
+name|conf
+operator|->
+name|limit_rate
+argument_list|,
+name|prev
+operator|->
+name|limit_rate
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 return|return

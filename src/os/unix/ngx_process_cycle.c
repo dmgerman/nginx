@@ -3476,7 +3476,7 @@ directive|if
 operator|(
 name|HAVE_MSGHDR_MSG_CONTROL
 operator|)
-DECL|union|__anon2af80d6f010a
+DECL|union|__anon2bf3415f010a
 union|union
 block|{
 DECL|member|cm
@@ -3580,6 +3580,8 @@ name|CMSG_DATA
 argument_list|(
 operator|&
 name|cmsg
+operator|.
+name|cm
 argument_list|)
 operator|=
 name|ch
@@ -3782,7 +3784,7 @@ directive|if
 operator|(
 name|HAVE_MSGHDR_MSG_CONTROL
 operator|)
-DECL|union|__anon2af80d6f020a
+DECL|union|__anon2bf3415f020a
 union|union
 block|{
 DECL|member|cm
@@ -4087,6 +4089,8 @@ name|CMSG_DATA
 argument_list|(
 operator|&
 name|cmsg
+operator|.
+name|cm
 argument_list|)
 expr_stmt|;
 block|}

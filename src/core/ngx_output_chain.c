@@ -1111,6 +1111,10 @@ argument_list|,
 name|ctx
 operator|->
 name|out
+argument_list|,
+name|ctx
+operator|->
+name|limit
 argument_list|)
 expr_stmt|;
 name|ngx_log_debug1

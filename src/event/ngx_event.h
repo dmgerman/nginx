@@ -57,7 +57,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2bb93fe00108
+DECL|struct|__anon28ea27c80108
 typedef|typedef
 struct|struct
 block|{
@@ -86,7 +86,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2bb93fe00208
+DECL|struct|__anon28ea27c80208
 typedef|typedef
 struct|struct
 block|{
@@ -266,6 +266,13 @@ name|timer_set
 range|:
 literal|1
 decl_stmt|;
+DECL|member|delayed
+name|unsigned
+name|short
+name|delayed
+range|:
+literal|1
+decl_stmt|;
 DECL|member|read_discarded
 name|unsigned
 name|short
@@ -424,7 +431,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bb93fe00308
+DECL|struct|__anon28ea27c80308
 typedef|typedef
 struct|struct
 block|{
@@ -1215,7 +1222,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon2bb93fe00408
+DECL|struct|__anon28ea27c80408
 typedef|typedef
 struct|struct
 block|{
@@ -1262,7 +1269,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb93fe00508
+DECL|struct|__anon28ea27c80508
 typedef|typedef
 struct|struct
 block|{

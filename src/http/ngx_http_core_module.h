@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b8b97070108
+DECL|struct|__anon275c03990108
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b8b97070203
+DECL|enum|__anon275c03990203
 typedef|typedef
 enum|enum
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8b97070308
+DECL|struct|__anon275c03990308
 typedef|typedef
 struct|struct
 block|{
@@ -112,7 +112,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8b97070408
+DECL|struct|__anon275c03990408
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8b97070508
+DECL|struct|__anon275c03990508
 typedef|typedef
 struct|struct
 block|{
@@ -203,7 +203,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2b8b97070608
+DECL|struct|__anon275c03990608
 typedef|typedef
 struct|struct
 block|{
@@ -227,7 +227,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8b97070708
+DECL|struct|__anon275c03990708
 typedef|typedef
 struct|struct
 block|{
@@ -259,7 +259,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8b97070808
+DECL|struct|__anon275c03990808
 typedef|typedef
 struct|struct
 block|{
@@ -302,7 +302,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon2b8b97070908
+DECL|struct|__anon275c03990908
 typedef|typedef
 struct|struct
 block|{
@@ -321,7 +321,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8b97070a08
+DECL|struct|__anon275c03990a08
 typedef|typedef
 struct|struct
 block|{
@@ -344,7 +344,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8b97070b08
+DECL|struct|__anon275c03990b08
 typedef|typedef
 struct|struct
 block|{
@@ -383,11 +383,6 @@ name|size_t
 name|client_max_body_size
 decl_stmt|;
 comment|/* client_max_body_size */
-DECL|member|send_lowat
-name|size_t
-name|send_lowat
-decl_stmt|;
-comment|/* send_lowat */
 DECL|member|discarded_buffer_size
 name|size_t
 name|discarded_buffer_size
@@ -398,6 +393,11 @@ name|size_t
 name|client_body_buffer_size
 decl_stmt|;
 comment|/* client_body_buffer_size */
+DECL|member|send_lowat
+name|size_t
+name|send_lowat
+decl_stmt|;
+comment|/* send_lowat */
 DECL|member|client_body_timeout
 name|ngx_msec_t
 name|client_body_timeout

@@ -331,7 +331,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28e9542a0108
+DECL|struct|__anon2b947bae0108
 typedef|typedef
 struct|struct
 block|{
@@ -370,7 +370,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e9542a0208
+DECL|struct|__anon2b947bae0208
 typedef|typedef
 struct|struct
 block|{
@@ -439,7 +439,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e9542a0308
+DECL|struct|__anon2b947bae0308
 typedef|typedef
 struct|struct
 block|{
@@ -463,6 +463,10 @@ DECL|member|pool
 name|ngx_pool_t
 modifier|*
 name|pool
+decl_stmt|;
+DECL|member|limit
+name|off_t
+name|limit
 decl_stmt|;
 DECL|typedef|ngx_chain_writer_ctx_t
 block|}
