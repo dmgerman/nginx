@@ -24,7 +24,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b446a780108
+DECL|struct|__anon28ee20200108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b446a780208
+DECL|struct|__anon28ee20200208
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ name|int
 name|hunks
 decl_stmt|;
 DECL|member|length
-name|int
+name|off_t
 name|length
 decl_stmt|;
 DECL|member|alloc
@@ -350,8 +350,12 @@ init|=
 block|{
 literal|0x1f
 block|,
+operator|(
+name|char
+operator|)
 literal|0x8b
 block|,
+comment|/* suppress MSVC warning */
 name|Z_DEFLATED
 block|,
 literal|0
@@ -883,8 +887,8 @@ operator|(
 name|void
 operator|*
 operator|)
-operator|~
-name|NULL
+operator|-
+literal|1
 expr_stmt|;
 endif|#
 directive|endif

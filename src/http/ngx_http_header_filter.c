@@ -433,12 +433,24 @@ name|NGX_HTTP_MOVED_PERMANENTLY
 operator|+
 literal|8
 expr_stmt|;
+if|if
+condition|(
+name|r
+operator|->
+name|headers_out
+operator|.
+name|status
+operator|==
+name|NGX_HTTP_NOT_MODIFIED
+condition|)
+block|{
 name|r
 operator|->
 name|header_only
 operator|=
 literal|1
 expr_stmt|;
+block|}
 block|}
 if|else if
 condition|(

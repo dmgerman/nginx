@@ -442,11 +442,9 @@ name|actions
 expr_stmt|;
 name|ngx_event_flags
 operator|=
-name|NGX_HAVE_LEVEL_EVENT
-operator||
-name|NGX_HAVE_ONESHOT_EVENT
-operator||
 name|NGX_USE_LEVEL_EVENT
+operator||
+name|NGX_USE_ONESHOT_EVENT
 expr_stmt|;
 return|return
 name|NGX_OK
@@ -1555,12 +1553,6 @@ name|ngx_del_timer
 argument_list|(
 name|ev
 argument_list|)
-expr_stmt|;
-name|ev
-operator|->
-name|timer_set
-operator|=
-literal|0
 expr_stmt|;
 block|}
 if|if

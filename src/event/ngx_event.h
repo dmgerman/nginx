@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2a3fae610108
+DECL|struct|__anon2b181acc0108
 typedef|typedef
 struct|struct
 block|{
@@ -91,12 +91,6 @@ modifier|*
 name|ev
 parameter_list|)
 function_decl|;
-if|#
-directive|if
-literal|0
-block|int            (*close_handler)(ngx_event_t *ev);
-endif|#
-directive|endif
 DECL|member|context
 name|void
 modifier|*
@@ -124,12 +118,6 @@ modifier|*
 name|next
 decl_stmt|;
 comment|/*                                            */
-if|#
-directive|if
-literal|0
-block|int            (*timer_handler)(ngx_event_t *ev);
-endif|#
-directive|endif
 DECL|member|timer_prev
 name|ngx_event_t
 modifier|*
@@ -182,19 +170,21 @@ name|write
 range|:
 literal|1
 decl_stmt|;
+comment|/* used to detect stale events in kqueue, rt signals and epoll */
 DECL|member|instance
 name|unsigned
 name|instance
 range|:
 literal|1
 decl_stmt|;
-comment|/* used to detect stale events in kqueue,                                      rt signals and epoll */
+comment|/*      * event was passed or would be passed to a kernel;      * the posted aio operation.      */
 DECL|member|active
 name|unsigned
 name|active
 range|:
 literal|1
 decl_stmt|;
+comment|/* ready event; the complete aio operation */
 DECL|member|ready
 name|unsigned
 name|ready
@@ -207,27 +197,26 @@ name|timedout
 range|:
 literal|1
 decl_stmt|;
-DECL|member|blocked
-name|unsigned
-name|blocked
-range|:
-literal|1
-decl_stmt|;
 DECL|member|timer_set
 name|unsigned
 name|timer_set
 range|:
 literal|1
 decl_stmt|;
-DECL|member|delayed
+if|#
+directive|if
+literal|1
+DECL|member|blocked
 name|unsigned
-name|delayed
+name|blocked
 range|:
 literal|1
 decl_stmt|;
-DECL|member|process
+endif|#
+directive|endif
+DECL|member|delayed
 name|unsigned
-name|process
+name|delayed
 range|:
 literal|1
 decl_stmt|;
@@ -349,7 +338,7 @@ literal|1
 end_if
 
 begin_typedef
-DECL|enum|__anon2a3fae610203
+DECL|enum|__anon2b181acc0203
 typedef|typedef
 enum|enum
 block|{
@@ -423,7 +412,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2a3fae610308
+DECL|struct|__anon2b181acc0308
 typedef|typedef
 struct|struct
 block|{
@@ -566,43 +555,43 @@ typedef|;
 end_typedef
 
 begin_comment
-comment|/* The event filter requires to read/write the whole data -    select, poll, /dev/poll, kqueue. */
+comment|/*  * The event filter requires to read/write the whole data -  * select, poll, /dev/poll, kqueue.  */
 end_comment
 
 begin_define
-DECL|macro|NGX_HAVE_LEVEL_EVENT
+DECL|macro|NGX_USE_LEVEL_EVENT
 define|#
 directive|define
-name|NGX_HAVE_LEVEL_EVENT
+name|NGX_USE_LEVEL_EVENT
 value|0x00000001
 end_define
 
 begin_comment
-comment|/* The event filter is deleted after a notification without an additional    syscall - select, poll, kqueue.  */
+comment|/*  * The event filter is deleted after a notification without an additional  * syscall - select, poll, kqueue.  */
 end_comment
 
 begin_define
-DECL|macro|NGX_HAVE_ONESHOT_EVENT
+DECL|macro|NGX_USE_ONESHOT_EVENT
 define|#
 directive|define
-name|NGX_HAVE_ONESHOT_EVENT
+name|NGX_USE_ONESHOT_EVENT
 value|0x00000002
 end_define
 
 begin_comment
-comment|/* The event filter notifies only the changes and an initial level - kqueue */
+comment|/*  *  The event filter notifies only the changes and an initial level - kqueue.  */
 end_comment
 
 begin_define
-DECL|macro|NGX_HAVE_CLEAR_EVENT
+DECL|macro|NGX_USE_CLEAR_EVENT
 define|#
 directive|define
-name|NGX_HAVE_CLEAR_EVENT
+name|NGX_USE_CLEAR_EVENT
 value|0x00000004
 end_define
 
 begin_comment
-comment|/* The event filter has kqueue features - the eof flag, errno,    available data, etc */
+comment|/*  * The event filter has kqueue features - the eof flag, errno,  * available data, etc  */
 end_comment
 
 begin_define
@@ -614,7 +603,7 @@ value|0x00000008
 end_define
 
 begin_comment
-comment|/* The event filter supports low water mark - kqueue's NOTE_LOWAT.    kqueue in FreeBSD 4.1-4.2 has no NOTE_LOWAT so we need a separate flag */
+comment|/*  * The event filter supports low water mark - kqueue's NOTE_LOWAT.  * kqueue in FreeBSD 4.1-4.2 has no NOTE_LOWAT so we need a separate flag.  */
 end_comment
 
 begin_define
@@ -626,71 +615,55 @@ value|0x00000010
 end_define
 
 begin_comment
-comment|/* The event filter notifies only the changes (the edges)    but not an initial level - epoll */
+comment|/*  * The event filter notifies only the changes (the edges)  * but not an initial level - epoll.  */
 end_comment
 
 begin_define
-DECL|macro|NGX_HAVE_EDGE_EVENT
+DECL|macro|NGX_USE_EDGE_EVENT
 define|#
 directive|define
-name|NGX_HAVE_EDGE_EVENT
+name|NGX_USE_EDGE_EVENT
 value|0x00000020
 end_define
 
 begin_comment
-comment|/* No need to add or delete the event filters - rt signals */
+comment|/*  * No need to add or delete the event filters - rt signals.  */
 end_comment
 
 begin_define
-DECL|macro|NGX_HAVE_SIGIO_EVENT
+DECL|macro|NGX_USE_SIGIO_EVENT
 define|#
 directive|define
-name|NGX_HAVE_SIGIO_EVENT
+name|NGX_USE_SIGIO_EVENT
 value|0x00000040
 end_define
 
 begin_comment
-comment|/* No need to add or delete the event filters - overlapped, aio_read, aioread */
+comment|/*  * No need to add or delete the event filters - overlapped, aio_read,  * aioread, io_submit.  */
 end_comment
-
-begin_define
-DECL|macro|NGX_HAVE_AIO_EVENT
-define|#
-directive|define
-name|NGX_HAVE_AIO_EVENT
-value|0x00000080
-end_define
-
-begin_comment
-comment|/* Need to add socket or handle only once - i/o completion port.    It also requires HAVE_AIO_EVENT and NGX_HAVE_AIO_EVENT to be set */
-end_comment
-
-begin_define
-DECL|macro|NGX_HAVE_IOCP_EVENT
-define|#
-directive|define
-name|NGX_HAVE_IOCP_EVENT
-value|0x00000100
-end_define
-
-begin_define
-DECL|macro|NGX_USE_LEVEL_EVENT
-define|#
-directive|define
-name|NGX_USE_LEVEL_EVENT
-value|0x00010000
-end_define
 
 begin_define
 DECL|macro|NGX_USE_AIO_EVENT
 define|#
 directive|define
 name|NGX_USE_AIO_EVENT
-value|0x00020000
+value|0x00000080
 end_define
 
 begin_comment
-comment|/* Event filter is deleted before closing file.    Has no meaning for select, poll, epoll.     kqueue:     kqueue deletes event filters for file that closed                so we need only to delete filters in user-level batch array    /dev/poll:  we need to flush POLLREMOVE event before closing file */
+comment|/*  * Need to add socket or handle only once - i/o completion port.  * It also requires HAVE_AIO_EVENT and NGX_HAVE_AIO_EVENT to be set.  */
+end_comment
+
+begin_define
+DECL|macro|NGX_USE_IOCP_EVENT
+define|#
+directive|define
+name|NGX_USE_IOCP_EVENT
+value|0x00000100
+end_define
+
+begin_comment
+comment|/*  * The event filter is deleted before the closing file.  * Has no meaning for select, poll, epoll.  *  * kqueue:     kqueue deletes event filters for file that closed  *             so we need only to delete filters in user-level batch array  * /dev/poll:  we need to flush POLLREMOVE event before closing file  */
 end_comment
 
 begin_define
@@ -726,7 +699,7 @@ value|EVFILT_WRITE
 end_define
 
 begin_comment
-comment|/* NGX_CLOSE_EVENT is the module flag and it would not go into a kernel    so we need to choose the value that would not interfere with any existent    and future flags. kqueue has such values - EV_FLAG1, EV_EOF and EV_ERROR.    They are reserved and cleared on a kernel entrance */
+comment|/*  * NGX_CLOSE_EVENT is the module flag and it would not go into a kernel  * so we need to choose the value that would not interfere with any existent  * and future flags.  kqueue has such values - EV_FLAG1, EV_EOF and EV_ERROR.  * They are reserved and cleared on a kernel entrance.  */
 end_comment
 
 begin_undef
@@ -1240,7 +1213,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon2a3fae610408
+DECL|struct|__anon2b181acc0408
 typedef|typedef
 struct|struct
 block|{
@@ -1263,7 +1236,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3fae610508
+DECL|struct|__anon2b181acc0508
 typedef|typedef
 struct|struct
 block|{
@@ -1498,9 +1471,9 @@ condition|(
 name|ngx_event_flags
 operator|&
 operator|(
-name|NGX_HAVE_AIO_EVENT
+name|NGX_USE_AIO_EVENT
 operator||
-name|NGX_HAVE_EDGE_EVENT
+name|NGX_USE_EDGE_EVENT
 operator|)
 condition|)
 block|{
@@ -1513,7 +1486,7 @@ if|if
 condition|(
 name|ngx_event_flags
 operator|&
-name|NGX_HAVE_CLEAR_EVENT
+name|NGX_USE_CLEAR_EVENT
 condition|)
 block|{
 comment|/* kqueue */
@@ -1629,6 +1602,100 @@ block|}
 end_function
 
 begin_function
+DECL|function|ngx_handle_level_read_event (ngx_event_t * rev)
+name|ngx_inline
+specifier|static
+name|int
+name|ngx_handle_level_read_event
+parameter_list|(
+name|ngx_event_t
+modifier|*
+name|rev
+parameter_list|)
+block|{
+if|if
+condition|(
+name|ngx_event_flags
+operator|&
+name|NGX_USE_LEVEL_EVENT
+condition|)
+block|{
+if|if
+condition|(
+operator|!
+name|rev
+operator|->
+name|active
+operator|&&
+operator|!
+name|rev
+operator|->
+name|ready
+condition|)
+block|{
+if|if
+condition|(
+name|ngx_add_event
+argument_list|(
+name|rev
+argument_list|,
+name|NGX_READ_EVENT
+argument_list|,
+name|NGX_LEVEL_EVENT
+argument_list|)
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+return|return
+name|NGX_OK
+return|;
+block|}
+if|if
+condition|(
+name|rev
+operator|->
+name|active
+operator|&&
+name|rev
+operator|->
+name|ready
+condition|)
+block|{
+if|if
+condition|(
+name|ngx_del_event
+argument_list|(
+name|rev
+argument_list|,
+name|NGX_READ_EVENT
+argument_list|,
+literal|0
+argument_list|)
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+return|return
+name|NGX_OK
+return|;
+block|}
+block|}
+return|return
+name|NGX_OK
+return|;
+block|}
+end_function
+
+begin_function
 DECL|function|ngx_handle_write_event (ngx_event_t * wev,int lowat)
 name|ngx_inline
 specifier|static
@@ -1648,9 +1715,9 @@ condition|(
 name|ngx_event_flags
 operator|&
 operator|(
-name|NGX_HAVE_AIO_EVENT
+name|NGX_USE_AIO_EVENT
 operator||
-name|NGX_HAVE_EDGE_EVENT
+name|NGX_USE_EDGE_EVENT
 operator|)
 condition|)
 block|{
@@ -1663,7 +1730,7 @@ if|if
 condition|(
 name|ngx_event_flags
 operator|&
-name|NGX_HAVE_CLEAR_EVENT
+name|NGX_USE_CLEAR_EVENT
 condition|)
 block|{
 comment|/* kqueue */
@@ -1793,6 +1860,100 @@ block|}
 return|return
 name|NGX_OK
 return|;
+block|}
+return|return
+name|NGX_OK
+return|;
+block|}
+end_function
+
+begin_function
+DECL|function|ngx_handle_level_write_event (ngx_event_t * wev)
+name|ngx_inline
+specifier|static
+name|int
+name|ngx_handle_level_write_event
+parameter_list|(
+name|ngx_event_t
+modifier|*
+name|wev
+parameter_list|)
+block|{
+if|if
+condition|(
+name|ngx_event_flags
+operator|&
+name|NGX_USE_LEVEL_EVENT
+condition|)
+block|{
+if|if
+condition|(
+operator|!
+name|wev
+operator|->
+name|active
+operator|&&
+operator|!
+name|wev
+operator|->
+name|ready
+condition|)
+block|{
+if|if
+condition|(
+name|ngx_add_event
+argument_list|(
+name|wev
+argument_list|,
+name|NGX_WRITE_EVENT
+argument_list|,
+name|NGX_LEVEL_EVENT
+argument_list|)
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+return|return
+name|NGX_OK
+return|;
+block|}
+if|if
+condition|(
+name|wev
+operator|->
+name|active
+operator|&&
+name|wev
+operator|->
+name|ready
+condition|)
+block|{
+if|if
+condition|(
+name|ngx_del_event
+argument_list|(
+name|wev
+argument_list|,
+name|NGX_WRITE_EVENT
+argument_list|,
+literal|0
+argument_list|)
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+return|return
+name|NGX_OK
+return|;
+block|}
 block|}
 return|return
 name|NGX_OK

@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2afc58b70108
+DECL|struct|__anon2a8efa1f0108
 typedef|typedef
 struct|struct
 block|{
@@ -626,16 +626,14 @@ name|actions
 expr_stmt|;
 name|ngx_event_flags
 operator|=
-name|NGX_HAVE_LEVEL_EVENT
-operator||
-name|NGX_HAVE_ONESHOT_EVENT
+name|NGX_USE_ONESHOT_EVENT
 if|#
 directive|if
 operator|(
 name|HAVE_CLEAR_EVENT
 operator|)
 operator||
-name|NGX_HAVE_CLEAR_EVENT
+name|NGX_USE_CLEAR_EVENT
 else|#
 directive|else
 operator||
@@ -997,7 +995,7 @@ return|return
 name|NGX_OK
 return|;
 block|}
-comment|/* when the file descriptor is closed a kqueue automatically deletes        its filters so we do not need to delete explicity the event        before the closing the file descriptor */
+comment|/*      * when the file descriptor is closed a kqueue automatically deletes      * its filters so we do not need to delete explicity the event      * before the closing the file descriptor.      */
 if|if
 condition|(
 name|flags
@@ -1801,14 +1799,21 @@ argument_list|(
 name|ev
 argument_list|)
 expr_stmt|;
+block|}
 name|ev
 operator|->
-name|timer_set
+name|ready
 operator|=
-literal|0
+literal|1
 expr_stmt|;
-block|}
-comment|/* fall through */
+name|ev
+operator|->
+name|event_handler
+argument_list|(
+name|ev
+argument_list|)
+expr_stmt|;
+break|break;
 case|case
 name|EVFILT_AIO
 case|:
@@ -1817,6 +1822,12 @@ operator|->
 name|ready
 operator|=
 literal|1
+expr_stmt|;
+name|ev
+operator|->
+name|active
+operator|=
+literal|0
 expr_stmt|;
 name|ev
 operator|->

@@ -317,7 +317,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon290235230108
+DECL|struct|__anon2b68c5c90108
 typedef|typedef
 struct|struct
 block|{
@@ -336,7 +336,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290235230208
+DECL|struct|__anon2b68c5c90208
 typedef|typedef
 struct|struct
 block|{
@@ -395,7 +395,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290235230308
+DECL|struct|__anon2b68c5c90308
 typedef|typedef
 struct|struct
 block|{
@@ -446,7 +446,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290235230408
+DECL|struct|__anon2b68c5c90408
 typedef|typedef
 struct|struct
 block|{
@@ -469,7 +469,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290235230508
+DECL|struct|__anon2b68c5c90508
 typedef|typedef
 struct|struct
 block|{
@@ -683,6 +683,14 @@ DECL|member|unparsed_uri
 name|ngx_str_t
 name|unparsed_uri
 decl_stmt|;
+DECL|member|path
+name|ngx_str_t
+name|path
+decl_stmt|;
+DECL|member|path_allocated
+name|int
+name|path_allocated
+decl_stmt|;
 DECL|member|main
 name|ngx_http_request_t
 modifier|*
@@ -728,14 +736,6 @@ DECL|member|discarded_buffer
 name|char
 modifier|*
 name|discarded_buffer
-decl_stmt|;
-DECL|member|path
-name|ngx_str_t
-name|path
-decl_stmt|;
-DECL|member|path_err
-name|int
-name|path_err
 decl_stmt|;
 comment|/* URI is not started with '/' - "GET http://" */
 DECL|member|unusual_uri

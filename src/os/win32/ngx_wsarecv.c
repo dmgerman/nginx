@@ -74,7 +74,7 @@ condition|(
 operator|(
 name|ngx_event_flags
 operator|&
-name|NGX_HAVE_AIO_EVENT
+name|NGX_USE_AIO_EVENT
 operator|)
 operator|&&
 name|rev
@@ -93,7 +93,7 @@ if|if
 condition|(
 name|ngx_event_flags
 operator|&
-name|NGX_HAVE_IOCP_EVENT
+name|NGX_USE_IOCP_EVENT
 condition|)
 block|{
 if|if
@@ -188,7 +188,7 @@ if|if
 condition|(
 name|ngx_event_flags
 operator|&
-name|NGX_HAVE_AIO_EVENT
+name|NGX_USE_AIO_EVENT
 condition|)
 block|{
 name|ovlp
@@ -345,7 +345,7 @@ if|if
 condition|(
 name|ngx_event_flags
 operator|&
-name|NGX_HAVE_IOCP_EVENT
+name|NGX_USE_IOCP_EVENT
 condition|)
 block|{
 comment|/*          * If a socket was bound with I/O completion port          * then GetQueuedCompletionStatus() would anyway return its status          * despite that WSARecv() was already completed.          */

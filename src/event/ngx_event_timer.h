@@ -114,8 +114,8 @@ name|ngx_log_debug
 argument_list|(
 argument|ev->log
 argument_list|,
-literal|"del timer: %d"
-argument|_ c->fd
+literal|"del timer: %d:%d"
+argument|_ c->fd _ ev->write
 argument_list|)
 empty_stmt|;
 endif|#
@@ -214,6 +214,12 @@ operator|=
 name|NULL
 expr_stmt|;
 block|}
+name|ev
+operator|->
+name|timer_set
+operator|=
+literal|0
+expr_stmt|;
 block|}
 end_function
 

@@ -911,7 +911,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/* init list of the handlers */
+comment|/* init lists of the handlers */
 name|ngx_init_array
 argument_list|(
 name|cmcf
@@ -998,28 +998,6 @@ operator|.
 name|type
 operator|=
 name|NGX_OK
-expr_stmt|;
-name|ngx_init_array
-argument_list|(
-name|cmcf
-operator|->
-name|index_handlers
-argument_list|,
-name|cf
-operator|->
-name|cycle
-operator|->
-name|pool
-argument_list|,
-literal|3
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|ngx_http_handler_pt
-argument_list|)
-argument_list|,
-name|NGX_CONF_ERROR
-argument_list|)
 expr_stmt|;
 comment|/* create the lists of the ports, the addresses and the server names        to allow quickly find the server core module configuration at run-time */
 name|ngx_init_array

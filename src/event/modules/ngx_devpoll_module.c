@@ -78,7 +78,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2757616c0108
+DECL|struct|__anon2b14882f0108
 typedef|typedef
 struct|struct
 block|{
@@ -713,8 +713,6 @@ name|actions
 expr_stmt|;
 name|ngx_event_flags
 operator|=
-name|NGX_HAVE_LEVEL_EVENT
-operator||
 name|NGX_USE_LEVEL_EVENT
 expr_stmt|;
 return|return

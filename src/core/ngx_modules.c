@@ -214,14 +214,14 @@ end_decl_stmt
 begin_decl_stmt
 specifier|extern
 name|ngx_module_t
-name|ngx_http_index_module
+name|ngx_http_static_module
 decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
 name|ngx_module_t
-name|ngx_http_static_module
+name|ngx_http_index_module
 decl_stmt|;
 end_decl_stmt
 
@@ -344,10 +344,10 @@ comment|/*&ngx_http_ssi_filter_module, */
 operator|&
 name|ngx_http_charset_filter_module
 block|,
+comment|/*&ngx_http_static_module, */
 operator|&
 name|ngx_http_index_module
 block|,
-comment|/*&ngx_http_static_module, */
 operator|&
 name|ngx_http_proxy_module
 block|,

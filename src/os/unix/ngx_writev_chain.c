@@ -11,6 +11,12 @@ directive|include
 file|<ngx_core.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_event.h>
+end_include
+
 begin_function
 DECL|function|ngx_writev_chain (ngx_connection_t * c,ngx_chain_t * in)
 name|ngx_chain_t
@@ -53,6 +59,20 @@ name|ngx_chain_t
 modifier|*
 name|ce
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|c
+operator|->
+name|write
+operator|->
+name|ready
+condition|)
+block|{
+return|return
+name|in
+return|;
+block|}
 name|ngx_init_array
 argument_list|(
 name|iovecs

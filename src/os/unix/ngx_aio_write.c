@@ -398,6 +398,12 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|ev
+operator|->
+name|active
+operator|=
+literal|0
+expr_stmt|;
 name|ngx_log_debug
 argument_list|(
 argument|ev->log

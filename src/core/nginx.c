@@ -94,7 +94,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2ba4cefc0108
+DECL|struct|__anon27df1aad0108
 typedef|typedef
 struct|struct
 block|{
@@ -3184,12 +3184,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|ngx_cleaner_event
-operator|.
-name|timer_set
-operator|=
-literal|0
-expr_stmt|;
 name|ngx_destroy_pool
 argument_list|(
 name|ngx_temp_pool

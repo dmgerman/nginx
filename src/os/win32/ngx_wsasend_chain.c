@@ -82,7 +82,7 @@ operator|(
 operator|(
 name|ngx_event_flags
 operator|&
-name|NGX_HAVE_AIO_EVENT
+name|NGX_USE_AIO_EVENT
 operator|)
 operator|&&
 operator|!
@@ -95,7 +95,7 @@ operator|(
 operator|(
 name|ngx_event_flags
 operator|&
-name|NGX_HAVE_AIO_EVENT
+name|NGX_USE_AIO_EVENT
 operator|)
 operator|==
 literal|0
@@ -236,7 +236,7 @@ if|if
 condition|(
 name|ngx_event_flags
 operator|&
-name|NGX_HAVE_AIO_EVENT
+name|NGX_USE_AIO_EVENT
 condition|)
 block|{
 name|ovlp
@@ -370,7 +370,7 @@ if|if
 condition|(
 name|ngx_event_flags
 operator|&
-name|NGX_HAVE_IOCP_EVENT
+name|NGX_USE_IOCP_EVENT
 condition|)
 block|{
 comment|/*                  * If a socket was bound with I/O completion port then                  * GetQueuedCompletionStatus() would anyway return its status                  * despite that WSASend() was already completed.                  */
@@ -387,7 +387,7 @@ if|if
 condition|(
 name|ngx_event_flags
 operator|&
-name|NGX_HAVE_IOCP_EVENT
+name|NGX_USE_IOCP_EVENT
 condition|)
 block|{
 name|wev

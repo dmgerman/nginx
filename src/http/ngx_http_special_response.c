@@ -64,6 +64,24 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|error_301_page
+specifier|static
+name|char
+name|error_301_page
+index|[]
+init|=
+literal|"<html>"
+name|CRLF
+literal|"<head><title>301 Moved Permanently</title></head>"
+name|CRLF
+literal|"<body bgcolor=\"white\">"
+name|CRLF
+literal|"<center><h1>301 Moved Permanently</h1></center>"
+name|CRLF
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|error_302_page
 specifier|static
 name|char
@@ -269,12 +287,13 @@ name|error_pages
 index|[]
 init|=
 block|{
-name|ngx_null_string
-block|,
+comment|/* ngx_null_string, */
 comment|/* 300 */
-name|ngx_null_string
+name|ngx_string
+argument_list|(
+name|error_301_page
+argument_list|)
 block|,
-comment|/* 301 */
 name|ngx_string
 argument_list|(
 name|error_302_page
@@ -778,6 +797,16 @@ if|if
 condition|(
 comment|/* STUB: "msie_padding on/off" */
 literal|1
+operator|&&
+name|r
+operator|->
+name|http_version
+operator|>=
+name|NGX_HTTP_VERSION_10
+operator|&&
+name|error
+operator|>=
+name|NGX_HTTP_BAD_REQUEST
 condition|)
 block|{
 if|if

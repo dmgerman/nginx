@@ -869,7 +869,7 @@ if|if
 condition|(
 name|ngx_event_flags
 operator|&
-name|NGX_HAVE_CLEAR_EVENT
+name|NGX_USE_CLEAR_EVENT
 condition|)
 block|{
 comment|/* kqueue */

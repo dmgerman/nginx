@@ -18,7 +18,7 @@ file|<ngx_event.h>
 end_include
 
 begin_comment
-comment|/* in multithreaded enviroment all timer operations must be    protected by the single mutex */
+comment|/* TODO: in multithreaded enviroment all timer operations must be    protected by the single mutex */
 end_comment
 
 begin_decl_stmt
@@ -315,17 +315,39 @@ operator|)
 name|ngx_connection_t
 modifier|*
 name|c
-init|=
+decl_stmt|;
+endif|#
+directive|endif
+if|if
+condition|(
+name|ev
+operator|->
+name|timer_set
+condition|)
+block|{
+name|ngx_del_timer
+argument_list|(
+name|ev
+argument_list|)
+expr_stmt|;
+block|}
+if|#
+directive|if
+operator|(
+name|NGX_DEBUG_EVENT
+operator|)
+name|c
+operator|=
 name|ev
 operator|->
 name|data
-decl_stmt|;
+expr_stmt|;
 name|ngx_log_debug
 argument_list|(
 argument|ev->log
 argument_list|,
-literal|"set timer: %d:%d, slot: %d"
-argument|_                   c->fd _ timer _ ngx_timer_cur_queue
+literal|"set timer: %d:%d:%d, slot: %d"
+argument|_                   c->fd _ ev->write _ timer _ ngx_timer_cur_queue
 argument_list|)
 empty_stmt|;
 endif|#
@@ -457,6 +479,13 @@ name|timer_prev
 operator|=
 name|ev
 expr_stmt|;
+name|ev
+operator|->
+name|timer_set
+operator|=
+literal|1
+expr_stmt|;
+return|return;
 block|}
 end_function
 
@@ -548,12 +577,9 @@ return|return
 literal|0
 return|;
 block|}
-else|else
-block|{
 return|return
 name|timer
 return|;
-block|}
 block|}
 end_function
 
@@ -747,6 +773,22 @@ name|ngx_temp_timer_queue
 operator|.
 name|timer_next
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_DEBUG_EVENT
+operator|)
+name|ngx_log_debug
+argument_list|(
+name|ev
+operator|->
+name|log
+argument_list|,
+literal|"process temp timer queue"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|ngx_del_timer
 argument_list|(
 name|ev

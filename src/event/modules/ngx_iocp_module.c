@@ -402,9 +402,9 @@ name|actions
 expr_stmt|;
 name|ngx_event_flags
 operator|=
-name|NGX_HAVE_AIO_EVENT
+name|NGX_USE_AIO_EVENT
 operator||
-name|NGX_HAVE_IOCP_EVENT
+name|NGX_USE_IOCP_EVENT
 expr_stmt|;
 return|return
 name|NGX_OK

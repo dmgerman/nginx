@@ -2170,8 +2170,6 @@ name|p
 parameter_list|)
 block|{
 name|int
-name|i
-decl_stmt|,
 name|rc
 decl_stmt|,
 name|size

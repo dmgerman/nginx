@@ -14,6 +14,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_event.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_aio.h>
 end_include
 
@@ -68,6 +74,20 @@ condition|(
 name|ce
 condition|)
 block|{
+comment|/* we can post the single aio operation only */
+if|if
+condition|(
+name|c
+operator|->
+name|write
+operator|->
+name|active
+condition|)
+block|{
+return|return
+name|ce
+return|;
+block|}
 name|buf
 operator|=
 name|prev
@@ -154,6 +174,17 @@ directive|endif
 if|if
 condition|(
 name|rc
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+return|return
+name|NGX_CHAIN_ERROR
+return|;
+block|}
+if|if
+condition|(
+name|rc
 operator|>
 literal|0
 condition|)
@@ -168,27 +199,6 @@ name|sent
 operator|+=
 name|rc
 expr_stmt|;
-block|}
-if|else if
-condition|(
-name|rc
-operator|==
-name|NGX_ERROR
-condition|)
-block|{
-return|return
-name|NGX_CHAIN_ERROR
-return|;
-block|}
-if|else if
-condition|(
-name|rc
-operator|==
-name|NGX_AGAIN
-condition|)
-block|{
-break|break;
-block|}
 block|}
 if|#
 directive|if
@@ -274,6 +284,7 @@ operator|+=
 name|sent
 expr_stmt|;
 break|break;
+block|}
 block|}
 return|return
 name|ce
