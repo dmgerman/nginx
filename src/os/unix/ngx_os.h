@@ -109,7 +109,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2756af650108
+DECL|struct|__anon298f551d0108
 typedef|typedef
 struct|struct
 block|{
@@ -314,18 +314,6 @@ name|int
 name|ngx_inherited_nonblocking
 decl_stmt|;
 end_decl_stmt
-
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-
-begin_endif
-unit|extern ngx_int_t    ngx_process; extern ngx_pid_t    ngx_new_binary;  extern ngx_int_t    ngx_inherited; extern ngx_int_t    ngx_reap; extern ngx_int_t    ngx_timer; extern ngx_int_t    ngx_quit; extern ngx_int_t    ngx_terminate; extern ngx_int_t    ngx_noaccept; extern ngx_int_t    ngx_reconfigure; extern ngx_int_t    ngx_reopen; extern ngx_int_t    ngx_change_binary;
-endif|#
-directive|endif
-end_endif
 
 begin_ifdef
 ifdef|#

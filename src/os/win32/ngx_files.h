@@ -211,11 +211,14 @@ value|"CloseHandle()"
 end_define
 
 begin_define
-DECL|macro|ngx_delete_file
+DECL|macro|ngx_delete_file (name)
 define|#
 directive|define
 name|ngx_delete_file
-value|DeleteFile
+parameter_list|(
+name|name
+parameter_list|)
+value|DeleteFile((const char *) name)
 end_define
 
 begin_define
@@ -265,7 +268,7 @@ begin_function_decl
 name|int
 name|ngx_file_info
 parameter_list|(
-name|char
+name|u_char
 modifier|*
 name|filename
 parameter_list|,
@@ -371,7 +374,7 @@ DECL|macro|NGX_DIR_MASK
 define|#
 directive|define
 name|NGX_DIR_MASK
-value|"/*"
+value|(u_char *) "/*"
 end_define
 
 begin_define
@@ -451,7 +454,7 @@ name|ngx_create_dir
 parameter_list|(
 name|name
 parameter_list|)
-value|CreateDirectory(name, NULL)
+value|CreateDirectory((const char *) name, NULL)
 end_define
 
 begin_define
@@ -463,11 +466,14 @@ value|"CreateDirectory()"
 end_define
 
 begin_define
-DECL|macro|ngx_delete_dir
+DECL|macro|ngx_delete_dir (name)
 define|#
 directive|define
 name|ngx_delete_dir
-value|RemoveDirectory
+parameter_list|(
+name|name
+parameter_list|)
+value|RemoveDirectory((const char *) name)
 end_define
 
 begin_define

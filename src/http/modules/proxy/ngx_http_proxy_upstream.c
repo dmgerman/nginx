@@ -1831,7 +1831,7 @@ name|writer
 decl_stmt|;
 name|ngx_http_proxy_log_ctx_t
 modifier|*
-name|lctx
+name|ctx
 decl_stmt|;
 name|r
 operator|=
@@ -1992,7 +1992,7 @@ if|if
 condition|(
 operator|!
 operator|(
-name|lctx
+name|ctx
 operator|=
 name|ngx_pcalloc
 argument_list|(
@@ -2017,7 +2017,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|lctx
+name|ctx
 operator|->
 name|connection
 operator|=
@@ -2027,7 +2027,7 @@ name|connection
 operator|->
 name|number
 expr_stmt|;
-name|lctx
+name|ctx
 operator|->
 name|proxy
 operator|=
@@ -2079,7 +2079,7 @@ name|log
 operator|->
 name|data
 operator|=
-name|lctx
+name|ctx
 expr_stmt|;
 name|r
 operator|->
@@ -2270,6 +2270,10 @@ name|ngx_output_chain_ctx_t
 modifier|*
 name|output
 decl_stmt|;
+name|ngx_chain_writer_ctx_t
+modifier|*
+name|writer
+decl_stmt|;
 name|output
 operator|=
 name|p
@@ -2311,7 +2315,7 @@ operator|->
 name|start
 expr_stmt|;
 block|}
-comment|/* reinit ngx_output_chain() context */
+comment|/* reinit the ngx_output_chain() context */
 name|output
 operator|->
 name|hunk
@@ -2665,6 +2669,10 @@ name|ngx_output_chain_ctx_t
 modifier|*
 name|output
 decl_stmt|;
+name|ngx_chain_writer_ctx_t
+modifier|*
+name|writer
+decl_stmt|;
 name|p
 operator|->
 name|action
@@ -2829,6 +2837,7 @@ name|connection
 operator|->
 name|log
 expr_stmt|;
+comment|/* init or reinit the ngx_output_chain() and ngx_chain_writer() contexts */
 name|output
 operator|=
 name|p
@@ -2836,6 +2845,33 @@ operator|->
 name|upstream
 operator|->
 name|output_chain_ctx
+expr_stmt|;
+name|writer
+operator|=
+name|output
+operator|->
+name|output_ctx
+expr_stmt|;
+name|writer
+operator|->
+name|out
+operator|=
+name|NULL
+expr_stmt|;
+name|writer
+operator|->
+name|last
+operator|=
+operator|&
+name|writer
+operator|->
+name|out
+expr_stmt|;
+name|writer
+operator|->
+name|connection
+operator|=
+name|c
 expr_stmt|;
 if|if
 condition|(
@@ -2860,7 +2896,6 @@ name|p
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* init or reinit ngx_output_chain() context */
 if|if
 condition|(
 name|r
@@ -3023,10 +3058,6 @@ name|ngx_connection_t
 modifier|*
 name|c
 decl_stmt|;
-name|ngx_chain_writer_ctx_t
-modifier|*
-name|writer
-decl_stmt|;
 name|c
 operator|=
 name|p
@@ -3095,37 +3126,6 @@ operator|->
 name|action
 operator|=
 literal|"sending request to upstream"
-expr_stmt|;
-name|writer
-operator|=
-name|p
-operator|->
-name|upstream
-operator|->
-name|output_chain_ctx
-operator|->
-name|output_ctx
-expr_stmt|;
-name|writer
-operator|->
-name|out
-operator|=
-name|NULL
-expr_stmt|;
-name|writer
-operator|->
-name|last
-operator|=
-operator|&
-name|writer
-operator|->
-name|out
-expr_stmt|;
-name|writer
-operator|->
-name|connection
-operator|=
-name|c
 expr_stmt|;
 name|rc
 operator|=

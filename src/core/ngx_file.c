@@ -299,25 +299,9 @@ expr_stmt|;
 if|#
 directive|if
 literal|0
-if|#
-directive|if
-operator|(
-name|WIN32
-operator|)
-block_content|file->fd = CreateFile(file->name.data,                         GENERIC_READ|GENERIC_WRITE,                         FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_SHARE_DELETE,                         NULL,                         CREATE_NEW,                         persistent ? 0:                             FILE_ATTRIBUTE_TEMPORARY|FILE_FLAG_DELETE_ON_CLOSE,                         NULL);
+block_content|file->fd = ngx_open_tempfile(file->name.data, persistent);
 else|#
 directive|else
-block_content|file->fd = open(file->name.data, O_CREAT|O_EXCL|O_WRONLY, 0600);
-endif|#
-directive|endif
-endif|#
-directive|endif
-if|#
-directive|if
-literal|0
-block_content|file->fd = ngx_open_tempfile(file->name.data, persistent);
-endif|#
-directive|endif
 name|file
 operator|->
 name|fd
@@ -333,6 +317,8 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_CORE

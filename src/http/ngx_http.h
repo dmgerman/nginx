@@ -104,7 +104,7 @@ file|<ngx_http_core_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29980de40108
+DECL|struct|__anon29f77cbc0108
 typedef|typedef
 struct|struct
 block|{
@@ -112,8 +112,9 @@ DECL|member|connection
 name|u_int
 name|connection
 decl_stmt|;
+comment|/*      * we declare "action" as "char *" because the actions are usually      * the static strings and in the "u_char *" case we have to override      * all the time their types      */
 DECL|member|action
-name|u_char
+name|char
 modifier|*
 name|action
 decl_stmt|;

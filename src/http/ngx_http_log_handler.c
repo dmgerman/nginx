@@ -3119,6 +3119,10 @@ name|value
 operator|->
 name|data
 operator|=
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"combined"
 expr_stmt|;
 if|if
@@ -3583,6 +3587,10 @@ name|name
 operator|.
 name|data
 operator|=
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"combined"
 expr_stmt|;
 block|}

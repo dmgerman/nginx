@@ -441,7 +441,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27e3bab60108
+DECL|struct|__anon2afc2aa60108
 typedef|typedef
 struct|struct
 block|{
@@ -576,7 +576,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e3bab60208
+DECL|struct|__anon2afc2aa60208
 typedef|typedef
 struct|struct
 block|{
@@ -591,7 +591,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e3bab60308
+DECL|struct|__anon2afc2aa60308
 typedef|typedef
 struct|struct
 block|{
@@ -622,7 +622,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon27e3bab60408
+DECL|struct|__anon2afc2aa60408
 typedef|typedef
 struct|struct
 block|{
@@ -790,7 +790,7 @@ name|conf
 parameter_list|,
 name|prev
 parameter_list|,
-define|default)                        \     if (conf.len == 0) {                                                     \         if (prev.len) {                                                      \             conf.len = prev.len;                                             \             conf.data = prev.data;                                           \         } else {                                                             \             conf.len = sizeof(default) - 1;                                  \             conf.data = default;                                             \         }                                                                    \     }
+define|default)                        \     if (conf.len == 0) {                                                     \         if (prev.len) {                                                      \             conf.len = prev.len;                                             \             conf.data = prev.data;                                           \         } else {                                                             \             conf.len = sizeof(default) - 1;                                  \             conf.data = (u_char *) default;                                  \         }                                                                    \     }
 end_define
 
 begin_define

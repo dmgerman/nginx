@@ -458,6 +458,10 @@ name|h
 operator|->
 name|pos
 operator|=
+operator|(
+name|u_char
+operator|*
+operator|)
 name|CRLF
 literal|"0"
 name|CRLF
@@ -488,6 +492,10 @@ name|h
 operator|->
 name|pos
 operator|=
+operator|(
+name|u_char
+operator|*
+operator|)
 name|CRLF
 expr_stmt|;
 name|h

@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bcd78a70108
+DECL|struct|__anon2c2b54150108
 typedef|typedef
 struct|struct
 block|{
@@ -72,19 +72,33 @@ operator|)
 end_if
 
 begin_define
-DECL|macro|ngx_strncasecmp
+DECL|macro|ngx_strncasecmp (s1,s2,n)
 define|#
 directive|define
 name|ngx_strncasecmp
-value|strnicmp
+parameter_list|(
+name|s1
+parameter_list|,
+name|s2
+parameter_list|,
+name|n
+parameter_list|)
+define|\
+value|strnicmp((const char *) s1, (const char *) s2, n)
 end_define
 
 begin_define
-DECL|macro|ngx_strcasecmp
+DECL|macro|ngx_strcasecmp (s1,s2)
 define|#
 directive|define
 name|ngx_strcasecmp
-value|stricmp
+parameter_list|(
+name|s1
+parameter_list|,
+name|s2
+parameter_list|)
+define|\
+value|stricmp((const char *) s1, (const char *) s2)
 end_define
 
 begin_define

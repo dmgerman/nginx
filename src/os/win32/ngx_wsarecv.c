@@ -18,7 +18,7 @@ file|<ngx_event.h>
 end_include
 
 begin_function
-DECL|function|ngx_wsarecv (ngx_connection_t * c,char * buf,size_t size)
+DECL|function|ngx_wsarecv (ngx_connection_t * c,u_char * buf,size_t size)
 name|ssize_t
 name|ngx_wsarecv
 parameter_list|(
@@ -26,7 +26,7 @@ name|ngx_connection_t
 modifier|*
 name|c
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -62,6 +62,10 @@ index|]
 operator|.
 name|buf
 operator|=
+operator|(
+name|char
+operator|*
+operator|)
 name|buf
 expr_stmt|;
 name|wsabuf
@@ -229,7 +233,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_overlapped_wsarecv (ngx_connection_t * c,char * buf,size_t size)
+DECL|function|ngx_overlapped_wsarecv (ngx_connection_t * c,u_char * buf,size_t size)
 name|ssize_t
 name|ngx_overlapped_wsarecv
 parameter_list|(
@@ -237,7 +241,7 @@ name|ngx_connection_t
 modifier|*
 name|c
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -440,6 +444,10 @@ index|]
 operator|.
 name|buf
 operator|=
+operator|(
+name|char
+operator|*
+operator|)
 name|buf
 expr_stmt|;
 name|wsabuf

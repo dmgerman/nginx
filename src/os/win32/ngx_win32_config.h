@@ -244,10 +244,10 @@ file|<ngx_auto_config.h>
 end_include
 
 begin_define
-DECL|macro|ngx_inline
+DECL|macro|ngx_inlie
 define|#
 directive|define
-name|ngx_inline
+name|ngx_inlie
 value|__inline
 end_define
 

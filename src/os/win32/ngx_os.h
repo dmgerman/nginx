@@ -109,7 +109,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon299e52860108
+DECL|struct|__anon28b7c7a60108
 typedef|typedef
 struct|struct
 block|{
@@ -124,7 +124,7 @@ name|ngx_connection_t
 modifier|*
 name|c
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -159,7 +159,7 @@ name|ngx_connection_t
 modifier|*
 name|c
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -213,7 +213,7 @@ name|ngx_connection_t
 modifier|*
 name|c
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -231,7 +231,7 @@ name|ngx_connection_t
 modifier|*
 name|c
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -313,41 +313,6 @@ begin_decl_stmt
 specifier|extern
 name|int
 name|ngx_win32_version
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-specifier|extern
-name|ngx_int_t
-name|ngx_process
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-specifier|extern
-name|ngx_int_t
-name|ngx_quit
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-specifier|extern
-name|ngx_int_t
-name|ngx_terminate
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-specifier|extern
-name|ngx_int_t
-name|ngx_reconfigure
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-specifier|extern
-name|ngx_int_t
-name|ngx_reopen
 decl_stmt|;
 end_decl_stmt
 

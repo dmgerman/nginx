@@ -5142,6 +5142,10 @@ name|port_text
 operator|.
 name|data
 operator|=
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"80"
 expr_stmt|;
 return|return
@@ -5265,6 +5269,10 @@ name|uri
 operator|.
 name|data
 operator|=
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"/"
 expr_stmt|;
 name|u
@@ -5315,6 +5323,10 @@ name|port_text
 operator|.
 name|data
 operator|=
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"80"
 expr_stmt|;
 return|return

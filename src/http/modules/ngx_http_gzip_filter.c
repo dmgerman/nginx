@@ -24,7 +24,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2be5d1a40108
+DECL|struct|__anon2ae992d30108
 typedef|typedef
 struct|struct
 block|{
@@ -59,7 +59,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be5d1a40208
+DECL|struct|__anon2ae992d30208
 typedef|typedef
 struct|struct
 block|{
@@ -971,6 +971,10 @@ name|key
 operator|.
 name|data
 operator|=
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"Content-Encoding"
 expr_stmt|;
 name|r
@@ -1000,6 +1004,10 @@ name|value
 operator|.
 name|data
 operator|=
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"gzip"
 expr_stmt|;
 name|ctx

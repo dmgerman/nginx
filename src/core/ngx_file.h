@@ -116,7 +116,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29d68d190108
+DECL|struct|__anon275e6a130108
 typedef|typedef
 struct|struct
 block|{
@@ -280,7 +280,7 @@ parameter_list|,
 name|pool
 parameter_list|)
 define|\
-value|if (conf == NULL) {                                                      \         if (prev == NULL) {                                                  \             ngx_test_null(conf, ngx_palloc(pool, sizeof(ngx_path_t)), NULL); \             conf->name.len = sizeof(path) - 1;                               \             conf->name.data = path;                                          \             conf->level[0] = l1;                                             \             conf->level[1] = l2;                                             \             conf->level[2] = l3;                                             \             conf->len = l1 + l2 + l3 + (l1 ? 1:0) + (l2 ? 1:0) + (l3 ? 1:0); \         } else {                                                             \             conf = prev;                                                     \         }                                                                    \     }
+value|if (conf == NULL) {                                                      \         if (prev == NULL) {                                                  \             ngx_test_null(conf, ngx_palloc(pool, sizeof(ngx_path_t)), NULL); \             conf->name.len = sizeof(path) - 1;                               \             conf->name.data = (u_char *) path;                               \             conf->level[0] = l1;                                             \             conf->level[1] = l2;                                             \             conf->level[2] = l3;                                             \             conf->len = l1 + l2 + l3 + (l1 ? 1:0) + (l2 ? 1:0) + (l3 ? 1:0); \         } else {                                                             \             conf = prev;                                                     \         }                                                                    \     }
 end_define
 
 begin_endif

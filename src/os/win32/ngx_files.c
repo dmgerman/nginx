@@ -472,7 +472,7 @@ modifier|*
 name|pool
 parameter_list|)
 block|{
-name|char
+name|u_char
 modifier|*
 name|buf
 decl_stmt|,
@@ -620,7 +620,7 @@ decl_stmt|;
 name|u_int
 name|num
 decl_stmt|;
-name|char
+name|u_char
 modifier|*
 name|name
 decl_stmt|;
@@ -685,6 +685,10 @@ argument_list|)
 expr_stmt|;
 name|ngx_snprintf
 argument_list|(
+operator|(
+name|char
+operator|*
+operator|)
 name|name
 operator|+
 name|to
@@ -711,10 +715,20 @@ if|if
 condition|(
 name|MoveFile
 argument_list|(
+operator|(
+specifier|const
+name|char
+operator|*
+operator|)
 name|to
 operator|->
 name|data
 argument_list|,
+operator|(
+specifier|const
+name|char
+operator|*
+operator|)
 name|name
 argument_list|)
 operator|==
@@ -749,10 +763,20 @@ if|if
 condition|(
 name|MoveFile
 argument_list|(
+operator|(
+specifier|const
+name|char
+operator|*
+operator|)
 name|from
 operator|->
 name|data
 argument_list|,
+operator|(
+specifier|const
+name|char
+operator|*
+operator|)
 name|to
 operator|->
 name|data
@@ -784,6 +808,11 @@ if|if
 condition|(
 name|DeleteFile
 argument_list|(
+operator|(
+specifier|const
+name|char
+operator|*
+operator|)
 name|name
 argument_list|)
 operator|==
@@ -855,11 +884,11 @@ directive|endif
 end_endif
 
 begin_function
-DECL|function|ngx_file_info (char * file,ngx_file_info_t * sb)
+DECL|function|ngx_file_info (u_char * file,ngx_file_info_t * sb)
 name|int
 name|ngx_file_info
 parameter_list|(
-name|char
+name|u_char
 modifier|*
 name|file
 parameter_list|,
@@ -875,6 +904,11 @@ name|dwFileAttributes
 operator|=
 name|GetFileAttributes
 argument_list|(
+operator|(
+specifier|const
+name|char
+operator|*
+operator|)
 name|file
 argument_list|)
 expr_stmt|;
@@ -934,6 +968,11 @@ name|dir
 operator|=
 name|FindFirstFile
 argument_list|(
+operator|(
+specifier|const
+name|char
+operator|*
+operator|)
 name|name
 operator|->
 name|data

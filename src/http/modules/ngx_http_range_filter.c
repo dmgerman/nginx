@@ -22,7 +22,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon2b41bb4e0108
+DECL|struct|__anon2c53fdd10108
 typedef|typedef
 struct|struct
 block|{
@@ -304,6 +304,10 @@ name|key
 operator|.
 name|data
 operator|=
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"Accept-Ranges"
 expr_stmt|;
 name|r
@@ -333,6 +337,10 @@ name|value
 operator|.
 name|data
 operator|=
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"bytes"
 expr_stmt|;
 return|return
@@ -856,6 +864,10 @@ name|key
 operator|.
 name|data
 operator|=
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"Content-Range"
 expr_stmt|;
 name|ngx_test_null
@@ -1047,6 +1059,10 @@ name|key
 operator|.
 name|data
 operator|=
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"Content-Range"
 expr_stmt|;
 name|ngx_test_null

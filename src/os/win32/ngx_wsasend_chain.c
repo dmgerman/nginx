@@ -35,7 +35,7 @@ block|{
 name|int
 name|rc
 decl_stmt|;
-name|char
+name|u_char
 modifier|*
 name|prev
 decl_stmt|;
@@ -178,6 +178,10 @@ name|wsabuf
 operator|->
 name|buf
 operator|=
+operator|(
+name|char
+operator|*
+operator|)
 name|cl
 operator|->
 name|hunk
@@ -449,7 +453,7 @@ block|{
 name|int
 name|rc
 decl_stmt|;
-name|char
+name|u_char
 modifier|*
 name|prev
 decl_stmt|;
@@ -604,6 +608,10 @@ name|wsabuf
 operator|->
 name|buf
 operator|=
+operator|(
+name|char
+operator|*
+operator|)
 name|cl
 operator|->
 name|hunk

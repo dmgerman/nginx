@@ -815,6 +815,10 @@ name|key
 operator|.
 name|data
 operator|=
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"Content-Type"
 expr_stmt|;
 name|r
@@ -844,6 +848,10 @@ name|value
 operator|.
 name|data
 operator|=
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"text/html"
 expr_stmt|;
 block|}

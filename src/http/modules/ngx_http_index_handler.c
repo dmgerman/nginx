@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28a1e5ca0108
+DECL|struct|__anon29f7bc5c0108
 typedef|typedef
 struct|struct
 block|{
@@ -42,7 +42,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a1e5ca0208
+DECL|struct|__anon29f7bc5c0208
 typedef|typedef
 struct|struct
 block|{
@@ -85,7 +85,7 @@ DECL|macro|NGX_HTTP_DEFAULT_INDEX
 define|#
 directive|define
 name|NGX_HTTP_DEFAULT_INDEX
-value|"index.html"
+value|(u_char *) "index.html"
 end_define
 
 begin_function_decl

@@ -49,7 +49,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|enum|__anon28e587390103
+DECL|enum|__anon29b35a670103
 typedef|typedef
 enum|enum
 block|{
@@ -85,7 +85,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28e587390203
+DECL|enum|__anon29b35a670203
 typedef|typedef
 enum|enum
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e587390308
+DECL|struct|__anon29b35a670308
 typedef|typedef
 struct|struct
 block|{
@@ -164,7 +164,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e587390408
+DECL|struct|__anon29b35a670408
 typedef|typedef
 struct|struct
 block|{
@@ -288,7 +288,7 @@ comment|/*  * "EXPR/10/5/- 200/EXP/60 4"  * "MISS/-/-/B 503/-/- -"  * "EXPR/10/2
 end_comment
 
 begin_typedef
-DECL|struct|__anon28e587390508
+DECL|struct|__anon29b35a670508
 typedef|typedef
 struct|struct
 block|{
@@ -336,7 +336,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e587390608
+DECL|struct|__anon29b35a670608
 typedef|typedef
 struct|struct
 block|{
@@ -412,7 +412,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e587390708
+DECL|struct|__anon29b35a670708
 typedef|typedef
 struct|struct
 block|{
@@ -439,7 +439,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e587390808
+DECL|struct|__anon29b35a670808
 typedef|typedef
 struct|struct
 block|{
@@ -603,8 +603,9 @@ name|ngx_array_t
 name|states
 decl_stmt|;
 comment|/* of ngx_http_proxy_state_t */
+comment|/*      * we declare "action" as "char *" because the actions are usually      * the static strings and in the "u_char *" case we have to override      * all the time their types      */
 DECL|member|action
-name|u_char
+name|char
 modifier|*
 name|action
 decl_stmt|;
@@ -622,7 +623,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28e587390908
+DECL|struct|__anon29b35a670908
 typedef|typedef
 struct|struct
 block|{
