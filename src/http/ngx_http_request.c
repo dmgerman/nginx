@@ -791,7 +791,7 @@ operator|>
 literal|1
 condition|)
 block|{
-comment|/*          * There are the several addresses on this port and one of them          * is "*:port" so getsockname() is needed to determine          * the server address.          * AcceptEx() already gave this address.          */
+comment|/*          * There are several addresses on this port and one of them          * is the "*:port" wildcard so getsockname() is needed to determine          * the server address.          *          * AcceptEx() already gave this address.          */
 if|#
 directive|if
 operator|(
