@@ -42,7 +42,7 @@ name|pos
 operator|.
 name|mem
 decl_stmt|;
-DECL|enum|__anon297cae3e0103
+DECL|enum|__anon2addee7f0103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -119,7 +119,7 @@ name|p
 operator|++
 expr_stmt|;
 comment|/* printf("\nstate: %d, pos: %x, end: %x, char: '%c' buf: %s",        state, p, r->header_in->last, ch, p); */
-comment|/* GCC 2.95.2 and VC 6.0 compiles switch as jump table */
+comment|/* GCC 2.95.2 and VC 6.0 compiles this switch as jump table */
 switch|switch
 condition|(
 name|state
@@ -171,7 +171,7 @@ operator|!=
 literal|'T'
 condition|)
 return|return
-name|NGX_HTTP_INVALID_METHOD
+name|NGX_HTTP_PARSE_INVALID_METHOD
 return|;
 name|r
 operator|->
@@ -230,7 +230,7 @@ operator|!=
 literal|'D'
 condition|)
 return|return
-name|NGX_HTTP_INVALID_METHOD
+name|NGX_HTTP_PARSE_INVALID_METHOD
 return|;
 name|r
 operator|->
@@ -289,7 +289,7 @@ operator|!=
 literal|'T'
 condition|)
 return|return
-name|NGX_HTTP_INVALID_METHOD
+name|NGX_HTTP_PARSE_INVALID_METHOD
 return|;
 name|r
 operator|->
@@ -304,7 +304,7 @@ expr_stmt|;
 break|break;
 default|default:
 return|return
-name|NGX_HTTP_INVALID_METHOD
+name|NGX_HTTP_PARSE_INVALID_METHOD
 return|;
 block|}
 name|state
@@ -331,7 +331,7 @@ expr_stmt|;
 break|break;
 default|default:
 return|return
-name|NGX_HTTP_INVALID_METHOD
+name|NGX_HTTP_PARSE_INVALID_METHOD
 return|;
 block|}
 break|break;
@@ -736,7 +736,7 @@ expr_stmt|;
 break|break;
 default|default:
 return|return
-name|NGX_HTTP_INVALID_REQUEST
+name|NGX_HTTP_PARSE_INVALID_REQUEST
 return|;
 block|}
 break|break;
@@ -811,7 +811,7 @@ operator|!=
 literal|'/'
 condition|)
 return|return
-name|NGX_HTTP_INVALID_REQUEST
+name|NGX_HTTP_PARSE_INVALID_REQUEST
 return|;
 name|p
 operator|+=
@@ -837,7 +837,7 @@ argument_list|>
 literal|'9'
 condition|)
 return|return
-name|NGX_HTTP_INVALID_REQUEST
+name|NGX_HTTP_PARSE_INVALID_REQUEST
 return|;
 name|r
 operator|->
@@ -880,7 +880,7 @@ argument_list|>
 literal|'9'
 condition|)
 return|return
-name|NGX_HTTP_INVALID_REQUEST
+name|NGX_HTTP_PARSE_INVALID_REQUEST
 return|;
 name|r
 operator|->
@@ -912,7 +912,7 @@ argument_list|>
 literal|'9'
 condition|)
 return|return
-name|NGX_HTTP_INVALID_REQUEST
+name|NGX_HTTP_PARSE_INVALID_REQUEST
 return|;
 name|r
 operator|->
@@ -968,7 +968,7 @@ argument_list|>
 literal|'9'
 condition|)
 return|return
-name|NGX_HTTP_INVALID_REQUEST
+name|NGX_HTTP_PARSE_INVALID_REQUEST
 return|;
 name|r
 operator|->
@@ -1004,7 +1004,7 @@ expr_stmt|;
 break|break;
 default|default:
 return|return
-name|NGX_HTTP_INVALID_REQUEST
+name|NGX_HTTP_PARSE_INVALID_REQUEST
 return|;
 block|}
 break|break;
@@ -1062,7 +1062,7 @@ operator|==
 name|NGX_HTTP_HEAD
 condition|)
 return|return
-name|NGX_HTTP_INVALID_HEAD
+name|NGX_HTTP_PARSE_INVALID_HEAD
 return|;
 else|else
 return|return
@@ -1111,7 +1111,7 @@ name|pos
 operator|.
 name|mem
 decl_stmt|;
-DECL|enum|__anon297cae3e0203
+DECL|enum|__anon2addee7f0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1268,7 +1268,7 @@ literal|'9'
 condition|)
 break|break;
 return|return
-name|NGX_HTTP_INVALID_HEADER
+name|NGX_HTTP_PARSE_INVALID_HEADER
 return|;
 block|}
 break|break;
@@ -1333,7 +1333,7 @@ literal|'9'
 condition|)
 break|break;
 return|return
-name|NGX_HTTP_INVALID_HEADER
+name|NGX_HTTP_PARSE_INVALID_HEADER
 return|;
 comment|/* space* before header value */
 case|case
@@ -1519,7 +1519,7 @@ expr_stmt|;
 break|break;
 default|default:
 return|return
-name|NGX_HTTP_INVALID_HEADER
+name|NGX_HTTP_PARSE_INVALID_HEADER
 return|;
 block|}
 break|break;
@@ -1542,7 +1542,7 @@ expr_stmt|;
 break|break;
 default|default:
 return|return
-name|NGX_HTTP_INVALID_HEADER
+name|NGX_HTTP_PARSE_INVALID_HEADER
 return|;
 block|}
 break|break;
@@ -1589,7 +1589,7 @@ operator|=
 name|sw_start
 expr_stmt|;
 return|return
-name|NGX_HTTP_HEADER_DONE
+name|NGX_HTTP_PARSE_HEADER_DONE
 return|;
 block|}
 else|else

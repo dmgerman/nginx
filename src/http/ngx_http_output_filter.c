@@ -275,14 +275,6 @@ operator|=
 name|ngx_http_output_next_filter
 expr_stmt|;
 block|}
-name|ngx_log_debug
-argument_list|(
-argument|r->connection->log
-argument_list|,
-literal|"HUNK: x%x CTX-IN: x%x CTX->HUNK: x%x"
-argument|_                   hunk _ ctx->in _ ctx->hunk
-argument_list|)
-empty_stmt|;
 if|if
 condition|(
 name|hunk

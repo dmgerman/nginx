@@ -89,43 +89,51 @@ value|1
 end_define
 
 begin_define
-DECL|macro|NGX_HTTP_HEADER_DONE
+DECL|macro|NGX_HTTP_PARSE_HEADER_DONE
 define|#
 directive|define
-name|NGX_HTTP_HEADER_DONE
+name|NGX_HTTP_PARSE_HEADER_DONE
 value|1
 end_define
 
 begin_define
-DECL|macro|NGX_HTTP_INVALID_METHOD
+DECL|macro|NGX_HTTP_PARSE_INVALID_METHOD
 define|#
 directive|define
-name|NGX_HTTP_INVALID_METHOD
+name|NGX_HTTP_PARSE_INVALID_METHOD
 value|10
 end_define
 
 begin_define
-DECL|macro|NGX_HTTP_INVALID_REQUEST
+DECL|macro|NGX_HTTP_PARSE_INVALID_REQUEST
 define|#
 directive|define
-name|NGX_HTTP_INVALID_REQUEST
+name|NGX_HTTP_PARSE_INVALID_REQUEST
 value|11
 end_define
 
 begin_define
-DECL|macro|NGX_HTTP_INVALID_HEAD
+DECL|macro|NGX_HTTP_PARSE_TOO_LONG_URI
 define|#
 directive|define
-name|NGX_HTTP_INVALID_HEAD
+name|NGX_HTTP_PARSE_TOO_LONG_URI
 value|12
 end_define
 
 begin_define
-DECL|macro|NGX_HTTP_INVALID_HEADER
+DECL|macro|NGX_HTTP_PARSE_INVALID_HEAD
 define|#
 directive|define
-name|NGX_HTTP_INVALID_HEADER
+name|NGX_HTTP_PARSE_INVALID_HEAD
 value|13
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_PARSE_INVALID_HEADER
+define|#
+directive|define
+name|NGX_HTTP_PARSE_INVALID_HEADER
+value|14
 end_define
 
 begin_define
@@ -169,6 +177,14 @@ value|404
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_REQUEST_URI_TOO_LARGE
+define|#
+directive|define
+name|NGX_HTTP_REQUEST_URI_TOO_LARGE
+value|414
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_INTERNAL_SERVER_ERROR
 define|#
 directive|define
@@ -193,7 +209,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon289176d10108
+DECL|struct|__anon28dddf930108
 typedef|typedef
 struct|struct
 block|{
@@ -230,7 +246,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289176d10208
+DECL|struct|__anon28dddf930208
 typedef|typedef
 struct|struct
 block|{
@@ -261,7 +277,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289176d10308
+DECL|struct|__anon28dddf930308
 typedef|typedef
 struct|struct
 block|{
@@ -463,15 +479,21 @@ name|lingering_close
 range|:
 literal|1
 decl_stmt|;
+DECL|member|process_header
+name|unsigned
+name|process_header
+range|:
+literal|1
+decl_stmt|;
 DECL|member|header_timeout
 name|unsigned
 name|header_timeout
 range|:
 literal|1
 decl_stmt|;
-DECL|member|process_header
+DECL|member|logging
 name|unsigned
-name|process_header
+name|logging
 range|:
 literal|1
 decl_stmt|;
@@ -559,7 +581,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon289176d10408
+DECL|struct|__anon28dddf930408
 typedef|typedef
 struct|struct
 block|{
@@ -585,7 +607,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289176d10508
+DECL|struct|__anon28dddf930508
 typedef|typedef
 struct|struct
 block|{

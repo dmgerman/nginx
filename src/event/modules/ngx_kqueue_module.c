@@ -146,14 +146,14 @@ name|nevents
 operator|=
 literal|512
 expr_stmt|;
-if|if
-condition|(
-operator|(
 name|kq
 operator|=
 name|kqueue
 argument_list|()
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|kq
 operator|==
 operator|-
 literal|1
@@ -356,7 +356,7 @@ name|ngx_log_debug
 argument_list|(
 argument|ev->log
 argument_list|,
-literal|"ngx_kqueue_set_event: %d: ft:%d f:%08x"
+literal|"kqueue set event: %d: ft:%d f:%08x"
 argument|_                   cn->fd _ filter _ flags
 argument_list|)
 empty_stmt|;
@@ -412,12 +412,11 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"ngx_kqueue_set_event: kevent failed"
+literal|"kevent failed"
 argument_list|)
 expr_stmt|;
 return|return
-operator|-
-literal|1
+name|NGX_ERROR
 return|;
 block|}
 name|nchanges
@@ -485,7 +484,7 @@ name|nchanges
 operator|++
 expr_stmt|;
 return|return
-literal|0
+name|NGX_OK
 return|;
 block|}
 end_function
@@ -604,13 +603,10 @@ name|ngx_log_debug
 argument_list|(
 argument|log
 argument_list|,
-literal|"ngx_kqueue_process_events: timer: %d"
+literal|"kevent timer: %d"
 argument|_ timer
 argument_list|)
 empty_stmt|;
-if|if
-condition|(
-operator|(
 name|events
 operator|=
 name|kevent
@@ -627,7 +623,10 @@ name|nevents
 argument_list|,
 name|tp
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|events
 operator|==
 operator|-
 literal|1
@@ -641,12 +640,11 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"ngx_kqueue_process_events: kevent failed"
+literal|"kevent failed"
 argument_list|)
 expr_stmt|;
 return|return
-operator|-
-literal|1
+name|NGX_ERROR
 return|;
 block|}
 name|nchanges
@@ -691,12 +689,10 @@ argument|(events !=
 literal|0
 argument|)
 argument_list|,
-argument|return -
-literal|1
+argument|return NGX_ERROR
 argument_list|,
 argument|log
 argument_list|,
-literal|"ngx_kqueue_process_events: "
 literal|"kevent returns no events without timeout"
 argument_list|)
 empty_stmt|;
@@ -705,8 +701,7 @@ name|ngx_log_debug
 argument_list|(
 argument|log
 argument_list|,
-literal|"ngx_kqueue_process_events: "
-literal|"timer: %d, delta: %d"
+literal|"kevent timer: %d, delta: %d"
 argument|_ timer _ delta
 argument_list|)
 empty_stmt|;
@@ -821,8 +816,7 @@ name|ngx_log_debug
 argument_list|(
 argument|log
 argument_list|,
-literal|"ngx_kqueue_process_events: kevent: "
-literal|"%d: ft:%d f:%08x ff:%08x d:%d ud:%08x"
+literal|"kevent: %d: ft:%d f:%08x ff:%08x d:%d ud:%08x"
 argument|_                       event_list[i].ident _ event_list[i].filter _                       event_list[i].flags _ event_list[i].fflags _                       event_list[i].data _ event_list[i].udata
 argument_list|)
 empty_stmt|;
@@ -851,7 +845,7 @@ index|]
 operator|.
 name|data
 argument_list|,
-literal|"ngx_kqueue_process_events: kevent error on %d"
+literal|"kevent error on %d"
 argument_list|,
 name|event_list
 index|[
@@ -978,14 +972,14 @@ comment|/* void */
 argument_list|,
 argument|log
 argument_list|,
-literal|"ngx_kqueue_process_events: unknown filter %d"
-argument|_                        event_list[i].filter
+literal|"unknown kevent filter %d"
+argument|_ event_list[i].filter
 argument_list|)
 empty_stmt|;
 block|}
 block|}
 return|return
-literal|0
+name|NGX_OK
 return|;
 block|}
 end_function
