@@ -109,7 +109,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28ee33540108
+DECL|struct|__anon2c2b03840108
 typedef|typedef
 struct|struct
 block|{
@@ -219,6 +219,17 @@ end_function_decl
 begin_function_decl
 name|int
 name|ngx_posix_init
+parameter_list|(
+name|ngx_log_t
+modifier|*
+name|log
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|int
+name|ngx_posix_post_conf_init
 parameter_list|(
 name|ngx_log_t
 modifier|*

@@ -233,11 +233,18 @@ function_decl|;
 end_function_decl
 
 begin_define
-DECL|macro|ngx_rename_file
+DECL|macro|ngx_rename_file (from,to,pool)
 define|#
 directive|define
 name|ngx_rename_file
-value|rename
+parameter_list|(
+name|from
+parameter_list|,
+name|to
+parameter_list|,
+name|pool
+parameter_list|)
+value|rename(from->data, to->data)
 end_define
 
 begin_define

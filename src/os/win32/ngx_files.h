@@ -210,17 +210,24 @@ name|ngx_close_file_n
 value|"CloseHandle()"
 end_define
 
-begin_comment
-comment|/* STUB */
-end_comment
-
-begin_define
-DECL|macro|ngx_rename_file
-define|#
-directive|define
+begin_function_decl
+name|int
 name|ngx_rename_file
-value|MoveFile
-end_define
+parameter_list|(
+name|ngx_str_t
+modifier|*
+name|from
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|to
+parameter_list|,
+name|ngx_pool_t
+modifier|*
+name|pool
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_define
 DECL|macro|ngx_rename_file_n

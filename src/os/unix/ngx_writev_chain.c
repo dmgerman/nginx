@@ -313,8 +313,8 @@ name|ngx_log_debug
 argument_list|(
 argument|c->log
 argument_list|,
-literal|"writev: %qd"
-argument|_ sent
+literal|"writev: "
+argument|OFF_FMT  _ sent
 argument_list|)
 empty_stmt|;
 endif|#
@@ -401,12 +401,6 @@ operator|->
 name|last
 expr_stmt|;
 block|}
-if|#
-directive|if
-literal|0
-block_content|if (cl->hunk->type& NGX_HUNK_FILE) {                 cl->hunk->file_pos = cl->hunk->file_last;             }
-endif|#
-directive|endif
 continue|continue;
 block|}
 if|if
@@ -429,12 +423,6 @@ operator|+=
 name|sent
 expr_stmt|;
 block|}
-if|#
-directive|if
-literal|0
-block_content|if (cl->hunk->type& NGX_HUNK_FILE) {             cl->hunk->file_pos += sent;         }
-endif|#
-directive|endif
 break|break;
 block|}
 return|return

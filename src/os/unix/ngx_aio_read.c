@@ -88,7 +88,7 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
-name|rev
+name|c
 operator|->
 name|log
 argument_list|,
@@ -103,7 +103,7 @@ return|;
 block|}
 name|ngx_log_debug
 argument_list|(
-argument|rev->log
+argument|c->log
 argument_list|,
 literal|"rev->complete: %d"
 argument|_ rev->complete
@@ -111,7 +111,7 @@ argument_list|)
 empty_stmt|;
 name|ngx_log_debug
 argument_list|(
-argument|rev->log
+argument|c->log
 argument_list|,
 literal|"aio size: %d"
 argument|_ size
@@ -243,7 +243,7 @@ return|;
 block|}
 name|ngx_log_debug
 argument_list|(
-argument|rev->log
+argument|c->log
 argument_list|,
 literal|"aio_read: #%d OK"
 argument|_ c->fd
@@ -290,7 +290,7 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
-name|rev
+name|c
 operator|->
 name|log
 argument_list|,
@@ -334,7 +334,7 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
-name|rev
+name|c
 operator|->
 name|log
 argument_list|,
@@ -358,7 +358,7 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_CRIT
 argument_list|,
-name|rev
+name|c
 operator|->
 name|log
 argument_list|,
@@ -405,7 +405,7 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
-name|rev
+name|c
 operator|->
 name|log
 argument_list|,
