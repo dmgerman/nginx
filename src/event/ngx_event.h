@@ -57,7 +57,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon29d584870108
+DECL|struct|__anon2c2536880108
 typedef|typedef
 struct|struct
 block|{
@@ -86,7 +86,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29d584870208
+DECL|struct|__anon2c2536880208
 typedef|typedef
 struct|struct
 block|{
@@ -419,6 +419,65 @@ name|ngx_atomic_t
 modifier|*
 name|lock
 decl_stmt|;
+DECL|member|locked
+name|unsigned
+name|locked
+range|:
+literal|1
+decl_stmt|;
+DECL|member|posted_ready
+name|unsigned
+name|posted_ready
+range|:
+literal|1
+decl_stmt|;
+DECL|member|posted_timedout
+name|unsigned
+name|posted_timedout
+range|:
+literal|1
+decl_stmt|;
+DECL|member|posted_eof
+name|unsigned
+name|posted_eof
+range|:
+literal|1
+decl_stmt|;
+if|#
+directive|if
+operator|(
+name|HAVE_KQUEUE
+operator|)
+comment|/* the pending errno reported by kqueue */
+DECL|member|posted_errno
+name|int
+name|posted_errno
+decl_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
+operator|(
+name|HAVE_KQUEUE
+operator|)
+operator|||
+operator|(
+name|HAVE_IOCP
+operator|)
+DECL|member|posted_available
+name|int
+name|posted_available
+decl_stmt|;
+else|#
+directive|else
+DECL|member|posted_available
+name|unsigned
+name|posted_available
+range|:
+literal|1
+decl_stmt|;
+endif|#
+directive|endif
 endif|#
 directive|endif
 if|#
@@ -443,7 +502,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29d584870308
+DECL|struct|__anon2c2536880308
 typedef|typedef
 struct|struct
 block|{
@@ -1234,7 +1293,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon29d584870408
+DECL|struct|__anon2c2536880408
 typedef|typedef
 struct|struct
 block|{
@@ -1281,7 +1340,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d584870508
+DECL|struct|__anon2c2536880508
 typedef|typedef
 struct|struct
 block|{

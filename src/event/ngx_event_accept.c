@@ -24,7 +24,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2adfb16c0108
+DECL|struct|__anon27457ff90108
 typedef|typedef
 struct|struct
 block|{
@@ -875,39 +875,6 @@ name|wev
 operator|->
 name|returned_instance
 expr_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_THREADS
-operator|)
-comment|/*          * We has to acquire the lock to avoid the race condition when          * the connection was just closed by another thread but its lock          * is not unlocked at this point and we got the same descriptor.          *          * The condition should be too rare.          */
-if|if
-condition|(
-name|ngx_trylock
-argument_list|(
-operator|&
-name|c
-operator|->
-name|lock
-argument_list|)
-operator|==
-literal|0
-condition|)
-block|{
-comment|/* TODO: ngx_cycle->stat.accept.spinlock++; */
-name|ngx_spinlock
-argument_list|(
-operator|&
-name|c
-operator|->
-name|lock
-argument_list|,
-literal|1000
-argument_list|)
-expr_stmt|;
-block|}
-endif|#
-directive|endif
 name|ngx_memzero
 argument_list|(
 name|rev
