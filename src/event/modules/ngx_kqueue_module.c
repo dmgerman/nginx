@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bffe6810108
+DECL|struct|__anon28a73dfc0108
 typedef|typedef
 struct|struct
 block|{
@@ -991,6 +991,12 @@ name|disabled
 operator|=
 literal|0
 expr_stmt|;
+name|ev
+operator|->
+name|posted
+operator|=
+literal|0
+expr_stmt|;
 if|if
 condition|(
 name|nchanges
@@ -1114,12 +1120,6 @@ operator|&
 name|NGX_CLOSE_EVENT
 condition|)
 block|{
-name|ev
-operator|->
-name|posted
-operator|=
-literal|0
-expr_stmt|;
 return|return
 name|NGX_OK
 return|;
