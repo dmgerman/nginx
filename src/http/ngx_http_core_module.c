@@ -5873,7 +5873,7 @@ name|prev
 operator|->
 name|connection_pool_size
 argument_list|,
-literal|2048
+literal|256
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_msec_value
@@ -5886,7 +5886,7 @@ name|prev
 operator|->
 name|post_accept_timeout
 argument_list|,
-literal|30000
+literal|60000
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_size_value
@@ -5899,7 +5899,7 @@ name|prev
 operator|->
 name|request_pool_size
 argument_list|,
-literal|16384
+literal|4096
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_msec_value
@@ -6535,7 +6535,7 @@ name|prev
 operator|->
 name|client_max_body_size
 argument_list|,
-literal|10
+literal|1
 operator|*
 literal|1024
 operator|*
@@ -6552,7 +6552,12 @@ name|prev
 operator|->
 name|client_body_buffer_size
 argument_list|,
-literal|8192
+operator|(
+name|size_t
+operator|)
+literal|2
+operator|*
+name|ngx_pagesize
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_msec_value

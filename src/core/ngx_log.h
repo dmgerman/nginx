@@ -1146,7 +1146,14 @@ end_define
 begin_function_decl
 name|ngx_log_t
 modifier|*
-name|ngx_log_init_errlog
+name|ngx_log_init_stderr
+parameter_list|()
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_log_init_error_log
 parameter_list|()
 function_decl|;
 end_function_decl

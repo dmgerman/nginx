@@ -3893,7 +3893,7 @@ name|prev
 operator|->
 name|send_timeout
 argument_list|,
-literal|30000
+literal|60000
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_value
@@ -3945,7 +3945,7 @@ name|prev
 operator|->
 name|read_timeout
 argument_list|,
-literal|30000
+literal|60000
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_size_value
@@ -3958,7 +3958,10 @@ name|prev
 operator|->
 name|header_buffer_size
 argument_list|,
-literal|4096
+operator|(
+name|size_t
+operator|)
+name|ngx_pagesize
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_bufs_value
@@ -3973,7 +3976,7 @@ name|bufs
 argument_list|,
 literal|8
 argument_list|,
-literal|4096
+name|ngx_pagesize
 argument_list|)
 expr_stmt|;
 if|if

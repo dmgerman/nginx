@@ -1017,15 +1017,12 @@ directive|endif
 end_endif
 
 begin_function
-DECL|function|ngx_log_init_errlog ()
+DECL|function|ngx_log_init_stderr ()
 name|ngx_log_t
 modifier|*
-name|ngx_log_init_errlog
+name|ngx_log_init_stderr
 parameter_list|()
 block|{
-name|ngx_fd_t
-name|fd
-decl_stmt|;
 if|#
 directive|if
 operator|(
@@ -1089,15 +1086,31 @@ operator|=
 operator|&
 name|ngx_stderr
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|NGX_ERROR_LOG_PATH
 name|ngx_log
 operator|.
 name|log_level
 operator|=
 name|NGX_LOG_ERR
 expr_stmt|;
+return|return
+operator|&
+name|ngx_log
+return|;
+block|}
+end_function
+
+begin_function
+DECL|function|ngx_log_init_error_log ()
+name|ngx_int_t
+name|ngx_log_init_error_log
+parameter_list|()
+block|{
+name|ngx_fd_t
+name|fd
+decl_stmt|;
+ifdef|#
+directive|ifdef
+name|NGX_ERROR_LOG_PATH
 name|fd
 operator|=
 name|ngx_open_file
@@ -1136,7 +1149,7 @@ literal|"\" failed"
 argument_list|)
 expr_stmt|;
 return|return
-name|NULL
+name|NGX_ERROR
 return|;
 block|}
 if|#
@@ -1172,7 +1185,7 @@ literal|"\" failed"
 argument_list|)
 expr_stmt|;
 return|return
-name|NULL
+name|NGX_ERROR
 return|;
 block|}
 else|#
@@ -1204,13 +1217,14 @@ literal|"dup2(STDERR) failed"
 argument_list|)
 expr_stmt|;
 return|return
-name|NULL
+name|NGX_ERROR
 return|;
 block|}
 endif|#
 directive|endif
 else|#
 directive|else
+comment|/* no NGX_ERROR_LOG_PATH */
 name|ngx_log
 operator|.
 name|log_level
@@ -1220,8 +1234,7 @@ expr_stmt|;
 endif|#
 directive|endif
 return|return
-operator|&
-name|ngx_log
+name|NGX_OK
 return|;
 block|}
 end_function
