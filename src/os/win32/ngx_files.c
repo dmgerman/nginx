@@ -85,12 +85,11 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_file_append_mode (ngx_fd_t * fd)
+DECL|function|ngx_file_append_mode (ngx_fd_t fd)
 name|int
 name|ngx_file_append_mode
 parameter_list|(
 name|ngx_fd_t
-modifier|*
 name|fd
 parameter_list|)
 block|{

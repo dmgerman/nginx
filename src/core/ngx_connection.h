@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2afd21100108
+DECL|struct|__anon295a1e270108
 typedef|typedef
 struct|struct
 block|{
@@ -358,7 +358,7 @@ literal|0
 end_if
 
 begin_endif
-unit|cached file     int      fd;       -2 unused, -1 closed (but read or mmaped),>=0 open     char    *name;      void    *buf;      addr if read or mmaped                        aiocb* if aio_read                        OVERLAPPED if TransmitFile or TransmitPackets                        NULL if sendfile      size_t   buf_size; for plain read     off_t    offset;   for plain read      size_t   size;     time_t   mod;     char    *last_mod; 'Sun, 17 Mar 2002 19:39:50 GMT'     char    *etag;     '"a6d08-1302-3c94f106"'     char    *len;      '4866'  EV_VNODE        should notify by some signal if diretory tree is changed                 or stat if aged>= N seconds (big enough)
+unit|cached file     int      fd;       -2 unused, -1 closed (but read or mmaped),>=0 open     char    *name;      void    *buf;      addr if read or mmaped                        aiocb* if aio_read                        OVERLAPPED if TransmitFile or TransmitPackets                        NULL if sendfile      size_t   buf_size; for plain read     off_t    offset;   for plain read      size_t   size;     time_t   mod;     char    *last_mod; "Sun, 17 Mar 2002 19:39:50 GMT"     char    *etag;     ""a6d08-1302-3c94f106""     char    *len;      "4866"  EV_VNODE        should notify by some signal if diretory tree is changed                 or stat if aged>= N seconds (big enough)
 endif|#
 directive|endif
 end_endif
