@@ -306,6 +306,12 @@ endif|#
 directive|endif
 endif|#
 directive|endif
+if|#
+directive|if
+literal|0
+block_content|file->fd = ngx_open_tempfile(file->name.data, persistent);
+endif|#
+directive|endif
 name|file
 operator|->
 name|fd
@@ -318,7 +324,7 @@ name|name
 operator|.
 name|data
 argument_list|,
-name|persistent
+literal|1
 argument_list|)
 expr_stmt|;
 name|ngx_log_debug
@@ -1000,15 +1006,17 @@ return|;
 block|}
 name|path
 operator|->
-name|len
-operator|+=
-name|path
-operator|->
 name|level
 index|[
 name|i
 index|]
-operator|+
+operator|=
+name|level
+expr_stmt|;
+name|path
+operator|->
+name|len
+operator|+=
 name|level
 operator|+
 literal|1
@@ -1036,6 +1044,9 @@ name|path
 operator|->
 name|gc_handler
 operator|=
+operator|(
+name|ngx_gc_handler_pt
+operator|)
 name|cmd
 operator|->
 name|post

@@ -814,10 +814,6 @@ literal|0
 expr_stmt|;
 name|value
 operator|=
-operator|(
-name|ngx_str_t
-operator|*
-operator|)
 name|cf
 operator|->
 name|args

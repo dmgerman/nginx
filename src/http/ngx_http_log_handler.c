@@ -1408,7 +1408,7 @@ name|NGX_OFF_LEN
 operator|+
 literal|1
 argument_list|,
-name|OFF_FMT
+name|OFF_T_FMT
 argument_list|,
 name|r
 operator|->

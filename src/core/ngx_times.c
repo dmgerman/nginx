@@ -142,9 +142,9 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_init_time ()
+DECL|function|ngx_time_init ()
 name|void
-name|ngx_init_time
+name|ngx_time_init
 parameter_list|()
 block|{
 name|struct

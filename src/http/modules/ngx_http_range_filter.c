@@ -22,7 +22,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon2c59c1e10108
+DECL|struct|__anon2c8e7f830108
 typedef|typedef
 struct|struct
 block|{
@@ -843,7 +843,7 @@ operator|+
 literal|1
 argument_list|,
 literal|"bytes */"
-name|OFF_FMT
+name|OFF_T_FMT
 argument_list|,
 name|r
 operator|->
@@ -1047,11 +1047,11 @@ operator|+
 literal|1
 argument_list|,
 literal|"bytes "
-name|OFF_FMT
+name|OFF_T_FMT
 literal|"-"
-name|OFF_FMT
+name|OFF_T_FMT
 literal|"/"
-name|OFF_FMT
+name|OFF_T_FMT
 argument_list|,
 name|range
 operator|->
@@ -1453,11 +1453,11 @@ literal|20
 argument|+
 literal|5
 argument_list|,
-argument|OFF_FMT
+argument|OFF_T_FMT
 literal|"-"
-argument|OFF_FMT
+argument|OFF_T_FMT
 literal|"/"
-argument|OFF_FMT CRLF CRLF
+argument|OFF_T_FMT CRLF CRLF
 argument_list|,
 argument|range[i].start
 argument_list|,

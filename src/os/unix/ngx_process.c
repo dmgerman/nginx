@@ -182,13 +182,14 @@ argument_list|)
 expr_stmt|;
 break|break;
 default|default:
+break|break;
 block|}
 name|ngx_log_debug
 argument_list|(
 argument|log
 argument_list|,
 literal|"parent process, child: "
-argument|PID_FMT _ pid
+argument|PID_T_FMT _ pid
 argument_list|)
 empty_stmt|;
 comment|/* book keeping */
@@ -370,7 +371,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"process "
-name|PID_FMT
+name|PID_T_FMT
 literal|" exited with code %d"
 argument_list|,
 name|pid

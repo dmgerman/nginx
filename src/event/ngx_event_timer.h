@@ -77,6 +77,16 @@ end_function_decl
 
 begin_function_decl
 name|void
+name|ngx_event_set_timer_delta
+parameter_list|(
+name|ngx_msec_t
+name|timer
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
 name|ngx_event_expire_timers
 parameter_list|(
 name|ngx_msec_t

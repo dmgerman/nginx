@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon298853c00108
+DECL|struct|__anon2b284aba0108
 typedef|typedef
 struct|struct
 block|{
@@ -288,6 +288,12 @@ directive|if
 operator|(
 name|HAVE_KQUEUE
 operator|)
+DECL|member|kq_vnode
+name|unsigned
+name|kq_vnode
+range|:
+literal|1
+decl_stmt|;
 comment|/* the pending errno reported by kqueue */
 DECL|member|kq_errno
 name|int
@@ -342,7 +348,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon298853c00208
+DECL|struct|__anon2b284aba0208
 typedef|typedef
 struct|struct
 block|{
@@ -588,7 +594,7 @@ value|0x00000080
 end_define
 
 begin_comment
-comment|/*  * Need to add socket or handle only once - i/o completion port.  * It also requires HAVE_AIO_EVENT and NGX_HAVE_AIO_EVENT to be set.  */
+comment|/*  * Need to add socket or handle only once - i/o completion port.  * It also requires HAVE_AIO and NGX_USE_AIO_EVENT to be set.  */
 end_comment
 
 begin_define
@@ -631,6 +637,14 @@ name|NGX_DISABLE_EVENT
 value|0
 end_define
 
+begin_define
+DECL|macro|NGX_VNODE_EVENT
+define|#
+directive|define
+name|NGX_VNODE_EVENT
+value|0
+end_define
+
 begin_if
 if|#
 directive|if
@@ -653,6 +667,20 @@ define|#
 directive|define
 name|NGX_WRITE_EVENT
 value|EVFILT_WRITE
+end_define
+
+begin_undef
+undef|#
+directive|undef
+name|NGX_VNODE_EVENT
+end_undef
+
+begin_define
+DECL|macro|NGX_VNODE_EVENT
+define|#
+directive|define
+name|NGX_VNODE_EVENT
+value|EVFILT_VNODE
 end_define
 
 begin_comment
@@ -851,7 +879,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|HAVE_IOCP_EVENT
+name|HAVE_IOCP
 operator|)
 end_if
 
@@ -1010,7 +1038,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon298853c00308
+DECL|struct|__anon2b284aba0308
 typedef|typedef
 struct|struct
 block|{
@@ -1033,7 +1061,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298853c00408
+DECL|struct|__anon2b284aba0408
 typedef|typedef
 struct|struct
 block|{

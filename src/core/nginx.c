@@ -109,7 +109,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2953bacb0108
+DECL|struct|__anon2c28eed10108
 typedef|typedef
 struct|struct
 block|{
@@ -356,7 +356,10 @@ operator|=
 operator|-
 literal|1
 expr_stmt|;
-name|ngx_init_time
+name|ngx_time_init
+argument_list|()
+expr_stmt|;
+name|ngx_regex_init
 argument_list|()
 expr_stmt|;
 name|log

@@ -439,7 +439,7 @@ name|ngx_create_dir
 parameter_list|(
 name|name
 parameter_list|)
-value|mkdir(name, (mode_t) 0700)
+value|mkdir(name, 0700)
 end_define
 
 begin_define

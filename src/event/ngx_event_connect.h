@@ -39,12 +39,12 @@ value|-10
 end_define
 
 begin_typedef
-DECL|struct|__anon2b837bbf0108
+DECL|struct|__anon2be6c3fa0108
 typedef|typedef
 struct|struct
 block|{
 DECL|member|addr
-name|u_int32_t
+name|in_addr_t
 name|addr
 decl_stmt|;
 DECL|member|host
@@ -74,7 +74,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b837bbf0208
+DECL|struct|__anon2be6c3fa0208
 typedef|typedef
 struct|struct
 block|{
@@ -119,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b837bbf0308
+DECL|struct|__anon2be6c3fa0308
 typedef|typedef
 struct|struct
 block|{

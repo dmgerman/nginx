@@ -305,9 +305,9 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"getrlimit(RLIMIT_NOFILE): "
-name|RLIM_FMT
+name|RLIM_T_FMT
 literal|":"
-name|RLIM_FMT
+name|RLIM_T_FMT
 argument_list|,
 name|rlmt
 operator|.

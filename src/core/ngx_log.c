@@ -325,7 +325,7 @@ name|len
 operator|-
 literal|1
 argument_list|,
-name|PID_FMT
+name|PID_T_FMT
 literal|"#%d: "
 argument_list|,
 name|ngx_getpid

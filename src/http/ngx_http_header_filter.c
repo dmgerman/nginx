@@ -1447,7 +1447,7 @@ literal|"Content-Length: 18446744073709551616"
 argument|CRLF)
 argument_list|,
 literal|"Content-Length: "
-argument|OFF_FMT CRLF
+argument|OFF_T_FMT CRLF
 argument_list|,
 argument|r->headers_out.content_length_n
 argument_list|)

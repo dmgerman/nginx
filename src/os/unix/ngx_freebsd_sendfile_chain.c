@@ -38,10 +38,6 @@ parameter_list|)
 block|{
 name|int
 name|rc
-decl_stmt|,
-name|eintr
-decl_stmt|,
-name|eagain
 decl_stmt|;
 name|char
 modifier|*
@@ -59,6 +55,11 @@ name|fsize
 decl_stmt|,
 name|size
 decl_stmt|;
+name|ngx_int_t
+name|eintr
+decl_stmt|,
+name|eagain
+decl_stmt|;
 name|struct
 name|iovec
 modifier|*
@@ -71,6 +72,10 @@ decl_stmt|;
 name|ngx_err_t
 name|err
 decl_stmt|;
+name|ngx_hunk_t
+modifier|*
+name|file
+decl_stmt|;
 name|ngx_array_t
 name|header
 decl_stmt|,
@@ -79,10 +84,6 @@ decl_stmt|;
 name|ngx_event_t
 modifier|*
 name|wev
-decl_stmt|;
-name|ngx_hunk_t
-modifier|*
-name|file
 decl_stmt|;
 name|ngx_chain_t
 modifier|*
@@ -156,10 +157,6 @@ endif|#
 directive|endif
 do|do
 block|{
-name|cl
-operator|=
-name|in
-expr_stmt|;
 name|file
 operator|=
 name|NULL
@@ -668,7 +665,7 @@ name|c
 operator|->
 name|log
 argument_list|,
-name|ngx_socket_errno
+name|ngx_errno
 argument_list|,
 name|ngx_tcp_nopush_n
 literal|" failed"

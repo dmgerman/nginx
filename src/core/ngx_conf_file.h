@@ -262,6 +262,14 @@ DECL|macro|NGX_CONF_MODULE
 comment|/* "CONF" */
 end_comment
 
+begin_define
+DECL|macro|NGX_MAX_CONF_ERRSTR
+define|#
+directive|define
+name|NGX_MAX_CONF_ERRSTR
+value|256
+end_define
+
 begin_struct
 DECL|struct|ngx_command_s
 struct|struct
@@ -477,7 +485,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b8751820108
+DECL|struct|__anon2b56f29b0108
 typedef|typedef
 struct|struct
 block|{
@@ -612,7 +620,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8751820208
+DECL|struct|__anon2b56f29b0208
 typedef|typedef
 struct|struct
 block|{
@@ -627,7 +635,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8751820308
+DECL|struct|__anon2b56f29b0308
 typedef|typedef
 struct|struct
 block|{
@@ -658,7 +666,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2b8751820408
+DECL|struct|__anon2b56f29b0408
 typedef|typedef
 struct|struct
 block|{

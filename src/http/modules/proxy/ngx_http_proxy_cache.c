@@ -539,6 +539,23 @@ condition|)
 block|{
 name|p
 operator|->
+name|state
+operator|->
+name|expired
+operator|=
+name|ngx_time
+argument_list|()
+operator|-
+name|p
+operator|->
+name|cache
+operator|->
+name|ctx
+operator|.
+name|expires
+expr_stmt|;
+name|p
+operator|->
 name|header_in
 operator|->
 name|pos
@@ -2593,6 +2610,22 @@ operator||=
 name|NGX_HUNK_LAST
 expr_stmt|;
 block|}
+name|r
+operator|->
+name|file
+operator|.
+name|fd
+operator|=
+name|p
+operator|->
+name|cache
+operator|->
+name|ctx
+operator|.
+name|file
+operator|.
+name|fd
+expr_stmt|;
 return|return
 name|ngx_http_output_filter
 argument_list|(
@@ -3158,9 +3191,9 @@ argument_list|(
 argument|p->request->connection->log
 argument_list|,
 literal|"LEN: "
-argument|OFF_FMT
+argument|OFF_T_FMT
 literal|", "
-argument|OFF_FMT _               p->cache->ctx.length _ ep->read_length
+argument|OFF_T_FMT _               p->cache->ctx.length _ ep->read_length
 argument_list|)
 empty_stmt|;
 if|if

@@ -137,7 +137,7 @@ block_content|ev = c->write;      if (ev->timedout) {         ngx_set_socket_err
 if|#
 directive|if
 operator|(
-name|HAVE_IOCP_EVENT
+name|HAVE_IOCP
 operator|)
 comment|/* iocp */
 block_content|if (ngx_event_flags& NGX_HAVE_IOCP_EVENT) {             if (ev->ovlp.error) {                 ngx_log_error(NGX_LOG_ERR, ev->log, 0, "TransmitFile() failed");                 return NGX_ERROR;             }              return ev->available;             }         }

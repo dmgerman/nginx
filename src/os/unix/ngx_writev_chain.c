@@ -314,7 +314,7 @@ argument_list|(
 argument|c->log
 argument_list|,
 literal|"writev: "
-argument|OFF_FMT  _ sent
+argument|OFF_T_FMT  _ sent
 argument_list|)
 empty_stmt|;
 endif|#

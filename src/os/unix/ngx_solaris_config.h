@@ -59,7 +59,7 @@ file|<stddef.h>
 end_include
 
 begin_comment
-comment|/* offsetof */
+comment|/* offsetof() */
 end_comment
 
 begin_include
@@ -154,16 +154,13 @@ directive|include
 file|<netdb.h>
 end_include
 
-begin_typedef
-DECL|typedef|u_int32_t
-typedef|typedef
-name|uint32_t
-name|u_int32_t
-typedef|;
-end_typedef
+begin_if
+if|#
+directive|if
+literal|0
+end_if
 
 begin_define
-DECL|macro|OFF_FMT
 define|#
 directive|define
 name|OFF_FMT
@@ -171,7 +168,6 @@ value|"%lld"
 end_define
 
 begin_define
-DECL|macro|SIZE_FMT
 define|#
 directive|define
 name|SIZE_FMT
@@ -179,7 +175,6 @@ value|"%d"
 end_define
 
 begin_define
-DECL|macro|SIZEX_FMT
 define|#
 directive|define
 name|SIZEX_FMT
@@ -187,7 +182,6 @@ value|"%x"
 end_define
 
 begin_define
-DECL|macro|TIME_FMT
 define|#
 directive|define
 name|TIME_FMT
@@ -195,7 +189,6 @@ value|"%ld"
 end_define
 
 begin_define
-DECL|macro|PID_FMT
 define|#
 directive|define
 name|PID_FMT
@@ -203,12 +196,16 @@ value|"%ld"
 end_define
 
 begin_define
-DECL|macro|RLIM_FMT
 define|#
 directive|define
 name|RLIM_FMT
 value|"%lu"
 end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_ifndef
 ifndef|#

@@ -133,7 +133,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|HAVE_IOCP_EVENT
+name|HAVE_IOCP
 operator|)
 comment|/* iocp */
 if|if
@@ -363,7 +363,7 @@ block|}
 if|#
 directive|if
 operator|(
-name|HAVE_IOCP_EVENT
+name|HAVE_IOCP
 operator|)
 comment|/* iocp */
 if|if

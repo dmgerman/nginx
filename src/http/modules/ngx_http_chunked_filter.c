@@ -363,7 +363,7 @@ argument|chunk
 argument_list|,
 literal|11
 argument_list|,
-argument|SIZEX_FMT CRLF
+argument|SIZE_T_X_FMT CRLF
 argument_list|,
 argument|size
 argument_list|)

@@ -31,12 +31,12 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29afe61f0108
+DECL|struct|__anon2c776eeb0108
 typedef|typedef
 struct|struct
 block|{
 DECL|member|addr
-name|u_int32_t
+name|in_addr_t
 name|addr
 decl_stmt|;
 DECL|member|port
@@ -67,7 +67,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29afe61f0208
+DECL|struct|__anon2c776eeb0208
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon29afe61f0308
+DECL|struct|__anon2c776eeb0308
 typedef|typedef
 struct|struct
 block|{
@@ -142,7 +142,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29afe61f0408
+DECL|struct|__anon2c776eeb0408
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +202,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon29afe61f0508
+DECL|struct|__anon2c776eeb0508
 typedef|typedef
 struct|struct
 block|{
@@ -226,12 +226,12 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29afe61f0608
+DECL|struct|__anon2c776eeb0608
 typedef|typedef
 struct|struct
 block|{
 DECL|member|addr
-name|u_int32_t
+name|in_addr_t
 name|addr
 decl_stmt|;
 DECL|member|names
@@ -268,7 +268,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon29afe61f0708
+DECL|struct|__anon2c776eeb0708
 typedef|typedef
 struct|struct
 block|{
@@ -311,7 +311,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon29afe61f0808
+DECL|struct|__anon2c776eeb0808
 typedef|typedef
 struct|struct
 block|{
@@ -330,7 +330,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29afe61f0908
+DECL|struct|__anon2c776eeb0908
 typedef|typedef
 struct|struct
 block|{
@@ -349,7 +349,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29afe61f0a08
+DECL|struct|__anon2c776eeb0a08
 typedef|typedef
 struct|struct
 block|{
@@ -442,6 +442,17 @@ modifier|*
 name|error_pages
 decl_stmt|;
 comment|/* error_page */
+DECL|member|regex
+name|ngx_regex_t
+modifier|*
+name|regex
+decl_stmt|;
+DECL|member|exact_match
+name|unsigned
+name|exact_match
+range|:
+literal|1
+decl_stmt|;
 DECL|member|auto_redirect
 name|unsigned
 name|auto_redirect

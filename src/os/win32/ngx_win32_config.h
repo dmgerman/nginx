@@ -93,7 +93,7 @@ file|<stddef.h>
 end_include
 
 begin_comment
-comment|/* offsetof */
+comment|/* offsetof() */
 end_comment
 
 begin_include
@@ -180,6 +180,10 @@ directive|if
 literal|0
 end_if
 
+begin_comment
+comment|/* owc have not __int32 */
+end_comment
+
 begin_else
 unit|typedef unsigned __int32  uint32_t;
 else|#
@@ -249,57 +253,53 @@ name|off_t
 typedef|;
 end_typedef
 
+begin_typedef
+DECL|typedef|in_addr_t
+typedef|typedef
+name|uint32_t
+name|in_addr_t
+typedef|;
+end_typedef
+
 begin_define
-DECL|macro|OFF_FMT
+DECL|macro|OFF_T_FMT
 define|#
 directive|define
-name|OFF_FMT
+name|OFF_T_FMT
 value|"%I64d"
 end_define
 
 begin_define
-DECL|macro|SIZE_FMT
+DECL|macro|SIZE_T_FMT
 define|#
 directive|define
-name|SIZE_FMT
+name|SIZE_T_FMT
 value|"%d"
 end_define
 
 begin_define
-DECL|macro|SIZEX_FMT
+DECL|macro|SIZE_T_X_FMT
 define|#
 directive|define
-name|SIZEX_FMT
+name|SIZE_T_X_FMT
 value|"%x"
 end_define
 
 begin_define
-DECL|macro|PID_FMT
+DECL|macro|PID_T_FMT
 define|#
 directive|define
-name|PID_FMT
+name|PID_T_FMT
 value|"%d"
 end_define
 
 begin_define
-DECL|macro|TIME_FMT
+DECL|macro|TIME_T_FMT
 define|#
 directive|define
-name|TIME_FMT
+name|TIME_T_FMT
 value|"%lu"
 end_define
-
-begin_comment
-comment|/* STUB */
-end_comment
-
-begin_typedef
-DECL|typedef|u_int32_t
-typedef|typedef
-name|uint32_t
-name|u_int32_t
-typedef|;
-end_typedef
 
 begin_ifndef
 ifndef|#

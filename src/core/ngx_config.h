@@ -12,12 +12,6 @@ directive|define
 name|_NGX_CONFIG_H_INCLUDED_
 end_define
 
-begin_include
-include|#
-directive|include
-file|<ngx_auto_config.h>
-end_include
-
 begin_if
 if|#
 directive|if
@@ -119,6 +113,32 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_comment
+comment|/* STUB: autoconf */
+end_comment
+
+begin_typedef
+DECL|typedef|ngx_int_t
+typedef|typedef
+name|int
+name|ngx_int_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|typedef|ngx_uint_t
+typedef|typedef
+name|u_int
+name|ngx_uint_t
+typedef|;
+end_typedef
+
+begin_include
+include|#
+directive|include
+file|<ngx_auto_config.h>
+end_include
 
 begin_ifndef
 ifndef|#
