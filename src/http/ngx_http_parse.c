@@ -42,7 +42,7 @@ name|pos
 operator|.
 name|mem
 decl_stmt|;
-DECL|enum|__anon2addee7f0103
+DECL|enum|__anon2bbc56400103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -119,7 +119,7 @@ name|p
 operator|++
 expr_stmt|;
 comment|/* printf("\nstate: %d, pos: %x, end: %x, char: '%c' buf: %s",        state, p, r->header_in->last, ch, p); */
-comment|/* GCC 2.95.2 and VC 6.0 compiles this switch as jump table */
+comment|/* GCC 2.95.2 and VC 6.0 compile this switch as jump table */
 switch|switch
 condition|(
 name|state
@@ -989,6 +989,14 @@ comment|/* end of request line */
 case|case
 name|sw_almost_done
 case|:
+name|r
+operator|->
+name|request_end
+operator|=
+name|p
+operator|-
+literal|2
+expr_stmt|;
 switch|switch
 condition|(
 name|ch
@@ -1027,6 +1035,22 @@ operator|==
 name|sw_done
 condition|)
 block|{
+if|if
+condition|(
+name|r
+operator|->
+name|request_end
+operator|==
+name|NULL
+condition|)
+name|r
+operator|->
+name|request_end
+operator|=
+name|p
+operator|-
+literal|1
+expr_stmt|;
 name|r
 operator|->
 name|http_version
@@ -1111,7 +1135,7 @@ name|pos
 operator|.
 name|mem
 decl_stmt|;
-DECL|enum|__anon2addee7f0203
+DECL|enum|__anon2bbc56400203
 enum|enum
 block|{
 DECL|enumerator|sw_start

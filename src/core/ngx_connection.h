@@ -82,6 +82,16 @@ name|void
 modifier|*
 name|data
 decl_stmt|;
+comment|/* STUB */
+DECL|member|requests
+name|ngx_array_t
+modifier|*
+name|requests
+decl_stmt|;
+DECL|member|requests_len
+name|int
+name|requests_len
+decl_stmt|;
 ifdef|#
 directive|ifdef
 name|NGX_EVENT

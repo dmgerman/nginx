@@ -209,7 +209,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon29aeb8730108
+DECL|struct|__anon29771b4e0108
 typedef|typedef
 struct|struct
 block|{
@@ -257,7 +257,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29aeb8730208
+DECL|struct|__anon29771b4e0208
 typedef|typedef
 struct|struct
 block|{
@@ -500,12 +500,14 @@ name|unusual_uri
 range|:
 literal|1
 decl_stmt|;
+comment|/* URI is not started with '/' - "GET http://" */
 DECL|member|complex_uri
 name|unsigned
 name|complex_uri
 range|:
 literal|1
 decl_stmt|;
+comment|/* URI with "./" or with "//" */
 DECL|member|state
 name|int
 name|state
@@ -529,6 +531,11 @@ DECL|member|args_start
 name|char
 modifier|*
 name|args_start
+decl_stmt|;
+DECL|member|request_end
+name|char
+modifier|*
+name|request_end
 decl_stmt|;
 DECL|member|header_name_start
 name|char
@@ -572,7 +579,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29aeb8730308
+DECL|struct|__anon29771b4e0308
 typedef|typedef
 struct|struct
 block|{
@@ -598,7 +605,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29aeb8730408
+DECL|struct|__anon29771b4e0408
 typedef|typedef
 struct|struct
 block|{
