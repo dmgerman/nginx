@@ -103,6 +103,7 @@ end_endif
 
 begin_decl_stmt
 specifier|extern
+specifier|volatile
 name|ngx_rbtree_t
 modifier|*
 name|ngx_event_timer_rbtree
@@ -173,6 +174,11 @@ endif|#
 directive|endif
 name|ngx_rbtree_delete
 argument_list|(
+operator|(
+name|ngx_rbtree_t
+operator|*
+operator|*
+operator|)
 operator|&
 name|ngx_event_timer_rbtree
 argument_list|,
@@ -333,6 +339,11 @@ endif|#
 directive|endif
 name|ngx_rbtree_insert
 argument_list|(
+operator|(
+name|ngx_rbtree_t
+operator|*
+operator|*
+operator|)
 operator|&
 name|ngx_event_timer_rbtree
 argument_list|,

@@ -40,6 +40,7 @@ end_endif
 
 begin_decl_stmt
 DECL|variable|ngx_event_timer_rbtree
+specifier|volatile
 name|ngx_rbtree_t
 modifier|*
 name|ngx_event_timer_rbtree
@@ -68,12 +69,19 @@ condition|(
 name|ngx_event_timer_rbtree
 condition|)
 block|{
+if|#
+directive|if
+operator|(
+name|NGX_THREADS
+operator|)
 name|ngx_event_timer_mutex
 operator|->
 name|log
 operator|=
 name|log
 expr_stmt|;
+endif|#
+directive|endif
 return|return
 name|NGX_OK
 return|;
@@ -83,6 +91,11 @@ operator|=
 operator|&
 name|ngx_event_timer_sentinel
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_THREADS
+operator|)
 if|if
 condition|(
 operator|!
@@ -102,6 +115,8 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+endif|#
+directive|endif
 return|return
 name|NGX_OK
 return|;
@@ -157,6 +172,10 @@ name|node
 operator|=
 name|ngx_rbtree_min
 argument_list|(
+operator|(
+name|ngx_rbtree_t
+operator|*
+operator|)
 name|ngx_event_timer_rbtree
 argument_list|,
 operator|&
@@ -258,6 +277,10 @@ name|node
 operator|=
 name|ngx_rbtree_min
 argument_list|(
+operator|(
+name|ngx_rbtree_t
+operator|*
+operator|)
 name|ngx_event_timer_rbtree
 argument_list|,
 operator|&

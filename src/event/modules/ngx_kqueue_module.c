@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c74201e0108
+DECL|struct|__anon27cb97720108
 typedef|typedef
 struct|struct
 block|{
@@ -135,6 +135,31 @@ name|log
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_THREADS
+operator|)
+end_if
+
+begin_function_decl
+specifier|static
+name|void
+name|ngx_kqueue_thread_handler
+parameter_list|(
+name|ngx_event_t
+modifier|*
+name|ev
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_function_decl
 specifier|static
@@ -315,6 +340,16 @@ comment|/* delete an connection */
 name|ngx_kqueue_process_events
 block|,
 comment|/* process the events */
+if|#
+directive|if
+operator|(
+name|NGX_THREADS0
+operator|)
+name|ngx_kqueue_thread_handler
+block|,
+comment|/* process an event by thread */
+endif|#
+directive|endif
 name|ngx_kqueue_init
 block|,
 comment|/* init the events */
@@ -2123,7 +2158,7 @@ operator|->
 name|light
 condition|)
 block|{
-comment|/* the accept event */
+comment|/*                  * The light events are the accept event,                  * or the event that waits in the mutex queue - we need to                  * remove it from the mutex queue before the inserting into                  * the posted events queue.                  */
 name|ngx_mutex_unlock
 argument_list|(
 name|ngx_posted_events_mutex
@@ -2219,31 +2254,41 @@ block|}
 endif|#
 directive|endif
 comment|/* TODO: non-thread mode only */
+for|for
+control|(
+init|;
+condition|;
+control|)
+block|{
 name|ev
 operator|=
+operator|(
+name|ngx_event_t
+operator|*
+operator|)
 name|ngx_posted_events
 expr_stmt|;
-name|ngx_posted_events
-operator|=
-name|NULL
-expr_stmt|;
-while|while
+if|if
 condition|(
 name|ev
+operator|==
+name|NULL
 condition|)
 block|{
+break|break;
+block|}
+name|ngx_posted_events
+operator|=
+name|ev
+operator|->
+name|next
+expr_stmt|;
 name|ev
 operator|->
 name|event_handler
 argument_list|(
 name|ev
 argument_list|)
-expr_stmt|;
-name|ev
-operator|=
-name|ev
-operator|->
-name|next
 expr_stmt|;
 block|}
 return|return

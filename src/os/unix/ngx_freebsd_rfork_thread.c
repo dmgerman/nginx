@@ -1,4 +1,8 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
+begin_comment
+comment|/*  * Copyright (C) 2002-2004 Igor Sysoev, http://sysoev.ru/en/  */
+end_comment
+
 begin_include
 include|#
 directive|include
@@ -22,21 +26,18 @@ name|ngx_threaded
 decl_stmt|;
 end_decl_stmt
 
-begin_function_decl
-specifier|static
-specifier|inline
-name|int
-name|ngx_gettid
-parameter_list|()
-function_decl|;
-end_function_decl
-
 begin_decl_stmt
-DECL|variable|usrstack
-specifier|static
+DECL|variable|ngx_freebsd_kern_usrstack
 name|char
 modifier|*
-name|usrstack
+name|ngx_freebsd_kern_usrstack
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_thread_stack_size
+name|size_t
+name|ngx_thread_stack_size
 decl_stmt|;
 end_decl_stmt
 
@@ -48,14 +49,6 @@ name|rz_size
 init|=
 comment|/* STUB: PAGE_SIZE */
 literal|4096
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-DECL|variable|stack_size
-specifier|static
-name|size_t
-name|stack_size
 decl_stmt|;
 end_decl_stmt
 
@@ -170,7 +163,7 @@ block|}
 end_function
 
 begin_comment
-comment|/*  * __isthreaded enables spinlock() in some libc functions, i.e. in malloc()  * and some other places.  Nevertheless we protect our malloc()/free() calls  * by own mutex that is more efficient than the spinlock.  *  * We define own _spinlock() because a weak referenced _spinlock() stub in  * src/lib/libc/gen/_spinlock_stub.c does nothing.  */
+comment|/*  * __isthreaded enables the spinlocks in some libc functions, i.e. in malloc()  * and some other places.  Nevertheless we protect our malloc()/free() calls  * by own mutex that is more efficient than the spinlock.  *  * _spinlock() is a weak referenced stub in src/lib/libc/gen/_spinlock_stub.c  * that does nothing.  */
 end_comment
 
 begin_decl_stmt
@@ -252,6 +245,39 @@ block|}
 block|}
 end_function
 
+begin_comment
+comment|/*  * Before FreeBSD 5.1 _spinunlock() is a simple #define in  * src/lib/libc/include/spinlock.h that zeroes lock.  *  * Since FreeBSD 5.1 _spinunlock() is a weak referenced stub in  * src/lib/libc/gen/_spinlock_stub.c that does nothing.  */
+end_comment
+
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|_spinunlock
+end_ifndef
+
+begin_function
+DECL|function|_spinunlock (ngx_atomic_t * lock)
+name|void
+name|_spinunlock
+parameter_list|(
+name|ngx_atomic_t
+modifier|*
+name|lock
+parameter_list|)
+block|{
+operator|*
+name|lock
+operator|=
+literal|0
+expr_stmt|;
+block|}
+end_function
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_function
 DECL|function|ngx_create_thread (ngx_tid_t * tid,int (* func)(void * arg),void * arg,ngx_log_t * log)
 name|int
@@ -319,7 +345,7 @@ return|;
 block|}
 name|last_stack
 operator|-=
-name|stack_size
+name|ngx_thread_stack_size
 expr_stmt|;
 name|stack
 operator|=
@@ -517,12 +543,12 @@ expr_stmt|;
 name|nthreads
 operator|=
 operator|(
-name|usrstack
+name|ngx_freebsd_kern_usrstack
 operator|-
 name|stack_top
 operator|)
 operator|/
-name|stack_size
+name|ngx_thread_stack_size
 expr_stmt|;
 name|tids
 index|[
@@ -585,7 +611,7 @@ name|len
 operator|=
 sizeof|sizeof
 argument_list|(
-name|usrstack
+name|ngx_freebsd_kern_usrstack
 argument_list|)
 expr_stmt|;
 if|if
@@ -595,7 +621,7 @@ argument_list|(
 literal|"kern.usrstack"
 argument_list|,
 operator|&
-name|usrstack
+name|ngx_freebsd_kern_usrstack
 argument_list|,
 operator|&
 name|len
@@ -629,7 +655,7 @@ block|}
 comment|/* the main thread stack red zone */
 name|red_zone
 operator|=
-name|usrstack
+name|ngx_freebsd_kern_usrstack
 operator|-
 operator|(
 name|size
@@ -652,7 +678,7 @@ name|PTR_FMT
 literal|" red zone: "
 name|PTR_FMT
 argument_list|,
-name|usrstack
+name|ngx_freebsd_kern_usrstack
 argument_list|,
 name|red_zone
 argument_list|)
@@ -807,7 +833,7 @@ name|usable_stack_size
 operator|=
 name|size
 expr_stmt|;
-name|stack_size
+name|ngx_thread_stack_size
 operator|=
 name|size
 operator|+
@@ -824,59 +850,6 @@ literal|1
 expr_stmt|;
 return|return
 name|NGX_OK
-return|;
-block|}
-end_function
-
-begin_function
-DECL|function|ngx_gettid ()
-specifier|static
-specifier|inline
-name|int
-name|ngx_gettid
-parameter_list|()
-block|{
-name|char
-modifier|*
-name|sp
-decl_stmt|;
-if|if
-condition|(
-name|stack_size
-operator|==
-literal|0
-condition|)
-block|{
-return|return
-literal|0
-return|;
-block|}
-if|#
-directive|if
-operator|(
-name|__i386__
-operator|)
-asm|__asm__
-specifier|volatile
-asm|("mov %%esp, %0" : "=q" (sp));
-elif|#
-directive|elif
-operator|(
-name|__amd64__
-operator|)
-asm|__asm__
-specifier|volatile
-asm|("mov %%rsp, %0" : "=q" (sp));
-endif|#
-directive|endif
-return|return
-operator|(
-name|usrstack
-operator|-
-name|sp
-operator|)
-operator|/
-name|stack_size
 return|;
 block|}
 end_function
@@ -1199,9 +1172,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_mutex_do_lock (ngx_mutex_t * m,ngx_int_t try)
+DECL|function|ngx_mutex_dolock (ngx_mutex_t * m,ngx_int_t try)
 name|ngx_int_t
-name|ngx_mutex_do_lock
+name|ngx_mutex_dolock
 parameter_list|(
 name|ngx_mutex_t
 modifier|*
@@ -1709,7 +1682,7 @@ name|m
 operator|->
 name|log
 argument_list|,
-name|ngx_errno
+literal|0
 argument_list|,
 literal|"tring to unlock the free mutex "
 name|PTR_FMT

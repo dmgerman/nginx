@@ -147,7 +147,7 @@ name|res
 decl_stmt|;
 asm|__asm__
 specifier|volatile
-asm|(          NGX_SMP_LOCK     "   cmpxchgl  %3, %1;   "     "   setzb     %%al;     "     "   movzbl    %%al, %0; "      : "=a" (res) : "m" (*lock), "a" (old), "q" (set));
+asm|(          NGX_SMP_LOCK     "   cmpxchgl  %3, %1;   "     "   setz      %%al;     "     "   movzbl    %%al, %0; "      : "=a" (res) : "m" (*lock), "a" (old), "q" (set));
 return|return
 name|res
 return|;

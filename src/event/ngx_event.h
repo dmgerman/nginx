@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon27f11ead0108
+DECL|struct|__anon288113710108
 typedef|typedef
 struct|struct
 block|{
@@ -68,6 +68,31 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_typedef
+DECL|struct|__anon288113710208
+typedef|typedef
+struct|struct
+block|{
+DECL|member|lock
+name|ngx_uint_t
+name|lock
+decl_stmt|;
+DECL|member|events
+name|ngx_event_t
+modifier|*
+name|events
+decl_stmt|;
+DECL|member|last
+name|ngx_event_t
+modifier|*
+name|last
+decl_stmt|;
+DECL|typedef|ngx_event_mutex_t
+block|}
+name|ngx_event_mutex_t
+typedef|;
+end_typedef
 
 begin_struct
 DECL|struct|ngx_event_s
@@ -359,7 +384,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27f11ead0208
+DECL|struct|__anon288113710308
 typedef|typedef
 struct|struct
 block|{
@@ -1138,7 +1163,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon27f11ead0308
+DECL|struct|__anon288113710408
 typedef|typedef
 struct|struct
 block|{
@@ -1166,7 +1191,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27f11ead0408
+DECL|struct|__anon288113710508
 typedef|typedef
 struct|struct
 block|{
@@ -1217,6 +1242,7 @@ end_typedef
 
 begin_decl_stmt
 specifier|extern
+specifier|volatile
 name|ngx_event_t
 modifier|*
 name|ngx_posted_events

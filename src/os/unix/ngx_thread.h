@@ -66,22 +66,6 @@ name|ngx_tid_t
 typedef|;
 end_typedef
 
-begin_define
-DECL|macro|TID_T_FMT
-define|#
-directive|define
-name|TID_T_FMT
-value|PID_T_FMT
-end_define
-
-begin_define
-DECL|macro|ngx_log_tid
-define|#
-directive|define
-name|ngx_log_tid
-value|0
-end_define
-
 begin_undef
 undef|#
 directive|undef
@@ -94,6 +78,22 @@ define|#
 directive|define
 name|ngx_log_pid
 value|ngx_thread_self()
+end_define
+
+begin_define
+DECL|macro|ngx_log_tid
+define|#
+directive|define
+name|ngx_log_tid
+value|0
+end_define
+
+begin_define
+DECL|macro|TID_T_FMT
+define|#
+directive|define
+name|TID_T_FMT
+value|PID_T_FMT
 end_define
 
 begin_define
@@ -121,7 +121,7 @@ value|0x80000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2bff69350108
+DECL|struct|__anon2ad0aeb90108
 typedef|typedef
 specifier|volatile
 struct|struct
@@ -145,6 +145,79 @@ name|ngx_mutex_t
 typedef|;
 end_typedef
 
+begin_decl_stmt
+specifier|extern
+name|char
+modifier|*
+name|ngx_freebsd_kern_usrstack
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|size_t
+name|ngx_thread_stack_size
+decl_stmt|;
+end_decl_stmt
+
+begin_function
+DECL|function|ngx_gettid ()
+specifier|static
+specifier|inline
+name|int
+name|ngx_gettid
+parameter_list|()
+block|{
+name|char
+modifier|*
+name|sp
+decl_stmt|;
+if|if
+condition|(
+name|ngx_thread_stack_size
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+literal|0
+return|;
+block|}
+if|#
+directive|if
+operator|(
+name|__i386__
+operator|)
+asm|__asm__
+specifier|volatile
+asm|("mov %%esp, %0" : "=q" (sp));
+elif|#
+directive|elif
+operator|(
+name|__amd64__
+operator|)
+asm|__asm__
+specifier|volatile
+asm|("mov %%rsp, %0" : "=q" (sp));
+else|#
+directive|else
+error|#
+directive|error
+literal|"rfork()ed threads are not supported on this platform"
+endif|#
+directive|endif
+return|return
+operator|(
+name|ngx_freebsd_kern_usrstack
+operator|-
+name|sp
+operator|)
+operator|/
+name|ngx_thread_stack_size
+return|;
+block|}
+end_function
+
 begin_else
 else|#
 directive|else
@@ -167,6 +240,15 @@ name|pthread_t
 name|ngx_tid_t
 typedef|;
 end_typedef
+
+begin_define
+DECL|macro|ngx_gettid ()
+define|#
+directive|define
+name|ngx_gettid
+parameter_list|()
+value|((ngx_int_t) pthread_getspecific(0))
+end_define
 
 begin_define
 DECL|macro|ngx_log_tid
@@ -269,7 +351,7 @@ name|ngx_mutex_trylock
 parameter_list|(
 name|m
 parameter_list|)
-value|ngx_mutex_do_lock(m, 1)
+value|ngx_mutex_dolock(m, 1)
 end_define
 
 begin_define
@@ -280,12 +362,12 @@ name|ngx_mutex_lock
 parameter_list|(
 name|m
 parameter_list|)
-value|ngx_mutex_do_lock(m, 0)
+value|ngx_mutex_dolock(m, 0)
 end_define
 
 begin_function_decl
 name|ngx_int_t
-name|ngx_mutex_do_lock
+name|ngx_mutex_dolock
 parameter_list|(
 name|ngx_mutex_t
 modifier|*

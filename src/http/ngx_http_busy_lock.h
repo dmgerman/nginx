@@ -37,7 +37,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28da8a510108
+DECL|struct|__anon27cd27560108
 typedef|typedef
 struct|struct
 block|{
@@ -75,7 +75,11 @@ DECL|member|timeout
 name|time_t
 name|timeout
 decl_stmt|;
-comment|/* ngx_mutex_t  mutex; */
+DECL|member|mutex
+name|ngx_event_mutex_t
+modifier|*
+name|mutex
+decl_stmt|;
 DECL|typedef|ngx_http_busy_lock_t
 block|}
 name|ngx_http_busy_lock_t
@@ -83,7 +87,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28da8a510208
+DECL|struct|__anon27cd27560208
 typedef|typedef
 struct|struct
 block|{

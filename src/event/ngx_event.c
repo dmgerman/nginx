@@ -260,6 +260,7 @@ end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_posted_events
+specifier|volatile
 name|ngx_event_t
 modifier|*
 name|ngx_posted_events
