@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_comment
-comment|/* INVALID_FILE_ATTRIBUTES specified but never defined at least in VC6SP2 */
+comment|/* INVALID_FILE_ATTRIBUTES specified but not defined at least in MSVC6SP2 */
 end_comment
 
 begin_ifndef
@@ -282,6 +282,17 @@ name|fi
 parameter_list|)
 define|\
 value|(((off_t) fi.nFileSizeHigh<< 32) | fi.nFileSizeLow)
+end_define
+
+begin_define
+DECL|macro|ngx_file_uniq (fi)
+define|#
+directive|define
+name|ngx_file_uniq
+parameter_list|(
+name|fi
+parameter_list|)
+value|(*(ngx_file_uniq_t *)&fi.nFileIndexHigh)
 end_define
 
 begin_comment

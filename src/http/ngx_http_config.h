@@ -25,7 +25,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon289c135f0108
+DECL|struct|__anon2882c9c00108
 typedef|typedef
 struct|struct
 block|{
@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289c135f0208
+DECL|struct|__anon2882c9c00208
 typedef|typedef
 struct|struct
 block|{
@@ -93,7 +93,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289c135f0308
+DECL|struct|__anon2882c9c00308
 typedef|typedef
 struct|struct
 block|{
@@ -299,6 +299,20 @@ parameter_list|,
 name|module
 parameter_list|)
 value|r->loc_conf[module.ctx_index]
+end_define
+
+begin_define
+DECL|macro|ngx_http_conf_module_main_conf (cf,module)
+define|#
+directive|define
+name|ngx_http_conf_module_main_conf
+parameter_list|(
+name|cf
+parameter_list|,
+name|module
+parameter_list|)
+define|\
+value|((ngx_http_conf_ctx_t *) cf->ctx)->main_conf[module.ctx_index]
 end_define
 
 begin_function_decl

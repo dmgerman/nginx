@@ -57,11 +57,17 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_http_log_handler.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_http_core_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28b68d100108
+DECL|struct|__anon28b21f2e0108
 typedef|typedef
 struct|struct
 block|{

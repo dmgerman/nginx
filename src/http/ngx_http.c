@@ -597,21 +597,23 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
-operator|*
-name|cf
-operator|=
-name|pcf
-expr_stmt|;
 if|if
 condition|(
 name|rv
 operator|!=
 name|NGX_CONF_OK
 condition|)
+block|{
+operator|*
+name|cf
+operator|=
+name|pcf
+expr_stmt|;
 return|return
 name|rv
 return|;
-comment|/* init http{} main_conf's, merge the server{}s' srv_conf's        and its location{}s' loc_conf's */
+block|}
+comment|/*      * init http{} main_conf's, merge the server{}s' srv_conf's      * and its location{}s' loc_conf's      */
 name|cmcf
 operator|=
 name|ctx
@@ -2598,6 +2600,11 @@ block|}
 block|}
 block|}
 comment|/**/
+operator|*
+name|cf
+operator|=
+name|pcf
+expr_stmt|;
 return|return
 name|NGX_CONF_OK
 return|;

@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon298be3580108
+DECL|struct|__anon2ae96e330108
 typedef|typedef
 struct|struct
 block|{
@@ -59,7 +59,7 @@ DECL|member|key
 name|char
 name|key
 index|[
-literal|0
+literal|1
 index|]
 decl_stmt|;
 DECL|typedef|ngx_http_cache_header_t
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298be3580208
+DECL|struct|__anon2ae96e330208
 typedef|typedef
 struct|struct
 block|{
@@ -123,7 +123,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298be3580308
+DECL|struct|__anon2ae96e330308
 typedef|typedef
 struct|struct
 block|{
@@ -198,6 +198,14 @@ name|NGX_HTTP_CACHE_AGED
 value|2
 end_define
 
+begin_define
+DECL|macro|NGX_HTTP_CACHE_THE_SAME
+define|#
+directive|define
+name|NGX_HTTP_CACHE_THE_SAME
+value|3
+end_define
+
 begin_function_decl
 name|int
 name|ngx_http_cache_get_file
@@ -209,6 +217,24 @@ parameter_list|,
 name|ngx_http_cache_ctx_t
 modifier|*
 name|ctx
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|int
+name|ngx_http_cache_open_file
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_http_cache_ctx_t
+modifier|*
+name|ctx
+parameter_list|,
+name|ngx_file_uniq_t
+name|uniq
 parameter_list|)
 function_decl|;
 end_function_decl

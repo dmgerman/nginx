@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bb846df0108
+DECL|struct|__anon29d8b47f0108
 typedef|typedef
 struct|struct
 block|{
@@ -67,7 +67,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb846df0208
+DECL|struct|__anon29d8b47f0208
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2bb846df0308
+DECL|struct|__anon29d8b47f0308
 typedef|typedef
 struct|struct
 block|{
@@ -142,7 +142,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb846df0408
+DECL|struct|__anon29d8b47f0408
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +202,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2bb846df0508
+DECL|struct|__anon29d8b47f0508
 typedef|typedef
 struct|struct
 block|{
@@ -226,7 +226,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb846df0608
+DECL|struct|__anon29d8b47f0608
 typedef|typedef
 struct|struct
 block|{
@@ -268,7 +268,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2bb846df0708
+DECL|struct|__anon29d8b47f0708
 typedef|typedef
 struct|struct
 block|{
@@ -311,7 +311,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon2bb846df0808
+DECL|struct|__anon29d8b47f0808
 typedef|typedef
 struct|struct
 block|{
@@ -330,7 +330,26 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb846df0908
+DECL|struct|__anon29d8b47f0908
+typedef|typedef
+struct|struct
+block|{
+DECL|member|code
+name|int
+name|code
+decl_stmt|;
+DECL|member|uri
+name|ngx_str_t
+name|uri
+decl_stmt|;
+DECL|typedef|ngx_http_err_page_t
+block|}
+name|ngx_http_err_page_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon29d8b47f0a08
 typedef|typedef
 struct|struct
 block|{
@@ -417,6 +436,12 @@ name|int
 name|msie_padding
 decl_stmt|;
 comment|/* msie_padding */
+DECL|member|error_pages
+name|ngx_array_t
+modifier|*
+name|error_pages
+decl_stmt|;
+comment|/* error_page */
 DECL|member|err_log
 name|ngx_log_t
 modifier|*

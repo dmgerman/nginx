@@ -158,6 +158,13 @@ end_decl_stmt
 begin_decl_stmt
 specifier|extern
 name|ngx_module_t
+name|ngx_http_log_module
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_module_t
 name|ngx_http_write_filter_module
 decl_stmt|;
 end_decl_stmt
@@ -229,13 +236,6 @@ begin_decl_stmt
 specifier|extern
 name|ngx_module_t
 name|ngx_http_proxy_module
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-specifier|extern
-name|ngx_module_t
-name|ngx_http_log_module
 decl_stmt|;
 end_decl_stmt
 
@@ -320,6 +320,9 @@ operator|&
 name|ngx_http_core_module
 block|,
 operator|&
+name|ngx_http_log_module
+block|,
+operator|&
 name|ngx_http_write_filter_module
 block|,
 operator|&
@@ -352,9 +355,6 @@ name|ngx_http_index_module
 block|,
 operator|&
 name|ngx_http_proxy_module
-block|,
-operator|&
-name|ngx_http_log_module
 block|,
 name|NULL
 block|}

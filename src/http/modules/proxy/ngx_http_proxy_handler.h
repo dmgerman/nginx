@@ -49,7 +49,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|enum|__anon29da0e8f0103
+DECL|enum|__anon2c2960a20103
 typedef|typedef
 enum|enum
 block|{
@@ -85,7 +85,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29da0e8f0203
+DECL|enum|__anon2c2960a20203
 typedef|typedef
 enum|enum
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29da0e8f0308
+DECL|struct|__anon2c2960a20308
 typedef|typedef
 struct|struct
 block|{
@@ -158,7 +158,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29da0e8f0408
+DECL|struct|__anon2c2960a20408
 typedef|typedef
 struct|struct
 block|{
@@ -265,22 +265,46 @@ name|ngx_http_proxy_loc_conf_t
 typedef|;
 end_typedef
 
+begin_comment
+comment|/*  * "EXPR/10/5/- 200/EXP/60 4"  * "MISS/-/-/B 503/-/- -"  * "EXPR/10/20/SB HIT/-/- -"  * "EXPR/10/15/NB HIT/-/- -"  */
+end_comment
+
 begin_typedef
-DECL|struct|__anon29da0e8f0508
+DECL|struct|__anon2c2960a20508
 typedef|typedef
 struct|struct
 block|{
-DECL|member|cache
+DECL|member|cache_state
 name|ngx_http_proxy_state_e
-name|cache
+name|cache_state
+decl_stmt|;
+DECL|member|expired
+name|time_t
+name|expired
+decl_stmt|;
+DECL|member|bl_time
+name|time_t
+name|bl_time
+decl_stmt|;
+DECL|member|bl_state
+name|int
+name|bl_state
+decl_stmt|;
+DECL|member|status
+name|int
+name|status
 decl_stmt|;
 DECL|member|reason
 name|ngx_http_proxy_reason_e
 name|reason
 decl_stmt|;
-DECL|member|status
-name|int
-name|status
+DECL|member|time
+name|time_t
+name|time
+decl_stmt|;
+DECL|member|expires
+name|time_t
+name|expires
 decl_stmt|;
 DECL|member|peer
 name|ngx_str_t
@@ -294,7 +318,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29da0e8f0608
+DECL|struct|__anon2c2960a20608
 typedef|typedef
 struct|struct
 block|{
@@ -365,7 +389,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29da0e8f0708
+DECL|struct|__anon2c2960a20708
 typedef|typedef
 struct|struct
 block|{
@@ -392,7 +416,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29da0e8f0808
+DECL|struct|__anon2c2960a20808
 typedef|typedef
 struct|struct
 block|{
@@ -471,9 +495,9 @@ name|ngx_hunk_t
 modifier|*
 name|header_in
 decl_stmt|;
-DECL|member|busy_lock_time
-name|time_t
-name|busy_lock_time
+DECL|member|busy_lock
+name|ngx_http_busy_lock_ctx_t
+name|busy_lock
 decl_stmt|;
 DECL|member|accel
 name|unsigned
@@ -490,6 +514,18 @@ decl_stmt|;
 DECL|member|stale
 name|unsigned
 name|stale
+range|:
+literal|1
+decl_stmt|;
+DECL|member|try_busy_lock
+name|unsigned
+name|try_busy_lock
+range|:
+literal|1
+decl_stmt|;
+DECL|member|busy_locked
+name|unsigned
+name|busy_locked
 range|:
 literal|1
 decl_stmt|;
@@ -673,6 +709,39 @@ end_function_decl
 begin_function_decl
 name|int
 name|ngx_http_proxy_update_cache
+parameter_list|(
+name|ngx_http_proxy_ctx_t
+modifier|*
+name|p
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_http_proxy_busy_lock_handler
+parameter_list|(
+name|ngx_event_t
+modifier|*
+name|rev
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_http_proxy_cache_busy_lock
+parameter_list|(
+name|ngx_http_proxy_ctx_t
+modifier|*
+name|p
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_http_proxy_upstream_busy_lock
 parameter_list|(
 name|ngx_http_proxy_ctx_t
 modifier|*

@@ -109,6 +109,22 @@ value|0x00000200
 end_define
 
 begin_define
+DECL|macro|NGX_CONF_TAKE12
+define|#
+directive|define
+name|NGX_CONF_TAKE12
+value|(NGX_CONF_TAKE1|NGX_CONF_TAKE2)
+end_define
+
+begin_define
+DECL|macro|NGX_CONF_TAKE13
+define|#
+directive|define
+name|NGX_CONF_TAKE13
+value|(NGX_CONF_TAKE1|NGX_CONF_TAKE3)
+end_define
+
+begin_define
 DECL|macro|NGX_CONF_TAKE1234
 define|#
 directive|define
@@ -125,27 +141,11 @@ value|0x0000ffff
 end_define
 
 begin_define
-DECL|macro|NGX_CONF_ANY
-define|#
-directive|define
-name|NGX_CONF_ANY
-value|0x00010000
-end_define
-
-begin_define
-DECL|macro|NGX_CONF_1MORE
-define|#
-directive|define
-name|NGX_CONF_1MORE
-value|0x00020000
-end_define
-
-begin_define
 DECL|macro|NGX_CONF_BLOCK
 define|#
 directive|define
 name|NGX_CONF_BLOCK
-value|0x00040000
+value|0x00010000
 end_define
 
 begin_define
@@ -153,7 +153,31 @@ DECL|macro|NGX_CONF_FLAG
 define|#
 directive|define
 name|NGX_CONF_FLAG
+value|0x00020000
+end_define
+
+begin_define
+DECL|macro|NGX_CONF_ANY
+define|#
+directive|define
+name|NGX_CONF_ANY
+value|0x00040000
+end_define
+
+begin_define
+DECL|macro|NGX_CONF_1MORE
+define|#
+directive|define
+name|NGX_CONF_1MORE
 value|0x00080000
+end_define
+
+begin_define
+DECL|macro|NGX_CONF_2MORE
+define|#
+directive|define
+name|NGX_CONF_2MORE
+value|0x00100000
 end_define
 
 begin_define
@@ -449,7 +473,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c0794480108
+DECL|struct|__anon299f6af60108
 typedef|typedef
 struct|struct
 block|{
@@ -584,7 +608,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0794480208
+DECL|struct|__anon299f6af60208
 typedef|typedef
 struct|struct
 block|{
@@ -599,7 +623,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0794480308
+DECL|struct|__anon299f6af60308
 typedef|typedef
 struct|struct
 block|{
@@ -630,7 +654,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2c0794480408
+DECL|struct|__anon299f6af60408
 typedef|typedef
 struct|struct
 block|{

@@ -353,6 +353,17 @@ parameter_list|)
 value|sb.st_mtime
 end_define
 
+begin_define
+DECL|macro|ngx_file_uniq (sb)
+define|#
+directive|define
+name|ngx_file_uniq
+parameter_list|(
+name|sb
+parameter_list|)
+value|sb.st_ino
+end_define
+
 begin_endif
 endif|#
 directive|endif

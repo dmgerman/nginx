@@ -1026,6 +1026,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+comment|/* TODO: ngx_init_table */
 if|if
 condition|(
 operator|!
@@ -2069,6 +2070,7 @@ name|unparsed_uri
 operator|.
 name|data
 expr_stmt|;
+comment|/* TODO: ngx_init_table */
 name|r
 operator|->
 name|headers_in
@@ -4906,7 +4908,7 @@ operator|->
 name|last
 condition|)
 block|{
-comment|/* Pipelined request.          *          * We do not know here whether a pipelined request is complete          * so if the large client headers are not enabled          * we need to copy the data to the start of c->buffer.          * This copy should be rare because clients that support          * pipelined requests (Mozilla 1.x, Opera 6.x+) are still rare.          */
+comment|/*          * Pipelined request.          *          * We do not know here whether a pipelined request is complete          * so if the large client headers are not enabled          * we need to copy the data to the start of c->buffer.          * This copy should be rare because clients that support          * pipelined requests (Mozilla 1.x, Opera 6.x+) are still rare.          */
 name|cscf
 operator|=
 name|ngx_http_get_module_srv_conf

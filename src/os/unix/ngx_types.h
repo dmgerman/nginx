@@ -47,6 +47,14 @@ name|ngx_file_info_t
 typedef|;
 end_typedef
 
+begin_typedef
+DECL|typedef|ngx_file_uniq_t
+typedef|typedef
+name|ino_t
+name|ngx_file_uniq_t
+typedef|;
+end_typedef
+
 begin_endif
 endif|#
 directive|endif
