@@ -8,13 +8,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_string.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_socket.h>
+file|<ngx_core.h>
 end_include
 
 begin_include
@@ -26,25 +20,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_inet.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<ngx_http.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_http_config.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_http_core_module.h>
 end_include
 
 begin_function_decl

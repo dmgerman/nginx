@@ -18,8 +18,14 @@ directive|include
 file|<ngx_config.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_core.h>
+end_include
+
 begin_typedef
-DECL|struct|__anon291e7ec20108
+DECL|struct|__anon278cf9730108
 typedef|typedef
 struct|struct
 block|{

@@ -8,25 +8,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_errno.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_log.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_string.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_alloc.h>
+file|<ngx_core.h>
 end_include
 
 begin_function

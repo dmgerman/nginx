@@ -11,12 +11,6 @@ directive|include
 file|<ngx_core.h>
 end_include
 
-begin_include
-include|#
-directive|include
-file|<ngx_string.h>
-end_include
-
 begin_function
 DECL|function|ngx_cpystrn (char * dst,char * src,size_t n)
 name|char

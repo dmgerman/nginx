@@ -305,9 +305,9 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
-name|sleep
+name|ngx_msleep
 argument_list|(
-literal|1
+literal|1000
 argument_list|)
 expr_stmt|;
 name|ngx_destroy_pool

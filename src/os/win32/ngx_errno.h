@@ -18,6 +18,12 @@ directive|include
 file|<ngx_config.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_core.h>
+end_include
+
 begin_typedef
 DECL|typedef|ngx_err_t
 typedef|typedef

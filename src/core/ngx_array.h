@@ -21,11 +21,11 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_alloc.h>
+file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29ceea300108
+DECL|struct|__anon277415e10108
 typedef|typedef
 struct|struct
 block|{

@@ -21,7 +21,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_log.h>
+file|<ngx_core.h>
 end_include
 
 begin_define
@@ -55,17 +55,6 @@ name|int
 name|socklen_t
 typedef|;
 end_typedef
-
-begin_function_decl
-name|int
-name|ngx_init_sockets
-parameter_list|(
-name|ngx_log_t
-modifier|*
-name|log
-parameter_list|)
-function_decl|;
-end_function_decl
 
 begin_define
 DECL|macro|ngx_socket (af,type,proto,flags)

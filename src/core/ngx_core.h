@@ -33,12 +33,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_files.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<ngx_errno.h>
 end_include
 
@@ -49,11 +43,38 @@ file|<ngx_process.h>
 end_include
 
 begin_typedef
-DECL|typedef|ngx_connection_t
+DECL|typedef|ngx_module_t
 typedef|typedef
 name|struct
-name|ngx_connection_s
-name|ngx_connection_t
+name|ngx_module_s
+name|ngx_module_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|typedef|ngx_conf_t
+typedef|typedef
+name|struct
+name|ngx_conf_s
+name|ngx_conf_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|typedef|ngx_command_t
+typedef|typedef
+name|struct
+name|ngx_command_s
+name|ngx_command_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|typedef|ngx_file_t
+typedef|typedef
+name|struct
+name|ngx_file_s
+name|ngx_file_t
 typedef|;
 end_typedef
 
@@ -63,6 +84,15 @@ typedef|typedef
 name|struct
 name|ngx_event_s
 name|ngx_event_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|typedef|ngx_connection_t
+typedef|typedef
+name|struct
+name|ngx_connection_s
+name|ngx_connection_t
 typedef|;
 end_typedef
 
@@ -81,6 +111,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_string.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_hunk.h>
 end_include
 
@@ -93,13 +129,19 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_string.h>
+file|<ngx_table.h>
 end_include
 
 begin_include
 include|#
 directive|include
 file|<ngx_file.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_files.h>
 end_include
 
 begin_include

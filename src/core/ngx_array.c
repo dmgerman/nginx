@@ -8,19 +8,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_alloc.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_string.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_array.h>
+file|<ngx_core.h>
 end_include
 
 begin_function

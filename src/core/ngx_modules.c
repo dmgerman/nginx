@@ -8,8 +8,15 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_conf_file.h>
+file|<ngx_core.h>
 end_include
+
+begin_decl_stmt
+specifier|extern
+name|ngx_module_t
+name|ngx_errlog_module
+decl_stmt|;
+end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
@@ -204,6 +211,10 @@ name|ngx_modules
 index|[]
 init|=
 block|{
+comment|/* core */
+operator|&
+name|ngx_errlog_module
+block|,
 comment|/* events */
 operator|&
 name|ngx_events_module

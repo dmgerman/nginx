@@ -11,18 +11,6 @@ directive|include
 file|<ngx_core.h>
 end_include
 
-begin_include
-include|#
-directive|include
-file|<ngx_files.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_conf_file.h>
-end_include
-
 begin_decl_stmt
 DECL|variable|ngx_conf_errstr
 name|char

@@ -15,17 +15,17 @@ end_define
 begin_include
 include|#
 directive|include
-file|<ngx_types.h>
+file|<ngx_config.h>
 end_include
 
 begin_include
 include|#
 directive|include
-file|<ngx_errno.h>
+file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|enum|__anon2a32b3fd0103
+DECL|enum|__anon2bc8ed2e0103
 typedef|typedef
 enum|enum
 block|{
@@ -68,7 +68,7 @@ comment|/*     "[%time] [%level] %pid#%tid: %message:(%errno)%errstr, while %act
 end_comment
 
 begin_typedef
-DECL|struct|__anon2a32b3fd0208
+DECL|struct|__anon2bc8ed2e0208
 typedef|typedef
 struct|struct
 block|{
@@ -548,6 +548,41 @@ end_endif
 begin_comment
 comment|/* VARIADIC MACROS */
 end_comment
+
+begin_function_decl
+name|ngx_log_t
+modifier|*
+name|ngx_log_init_errlog
+parameter_list|()
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|char
+modifier|*
+name|ngx_log_set_errlog
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_command_t
+modifier|*
+name|cmd
+parameter_list|,
+name|ngx_log_t
+modifier|*
+name|log
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_decl_stmt
+specifier|extern
+name|ngx_module_t
+name|ngx_errlog_module
+decl_stmt|;
+end_decl_stmt
 
 begin_endif
 endif|#

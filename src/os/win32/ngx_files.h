@@ -21,13 +21,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_types.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_file.h>
+file|<ngx_core.h>
 end_include
 
 begin_comment
@@ -82,7 +76,7 @@ parameter_list|,
 name|create
 parameter_list|)
 define|\
-value|CreateFile(name, flags,                                         \                        FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_SHARE_DELETE,  \                        NULL, create, FILE_FLAG_BACKUP_SEMANTICS, NULL)
+value|CreateFile(name, access,                                        \                        FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_SHARE_DELETE,  \                        NULL, create, FILE_FLAG_BACKUP_SEMANTICS, NULL)
 end_define
 
 begin_comment
@@ -127,6 +121,32 @@ define|#
 directive|define
 name|NGX_FILE_OPEN
 value|OPEN_EXISTING
+end_define
+
+begin_define
+DECL|macro|NGX_FILE_APPEND
+define|#
+directive|define
+name|NGX_FILE_APPEND
+value|0
+end_define
+
+begin_function_decl
+name|int
+name|ngx_file_append_mode
+parameter_list|(
+name|ngx_fd_t
+name|fd
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_define
+DECL|macro|ngx_file_append_mode_n
+define|#
+directive|define
+name|ngx_file_append_mode_n
+value|"SetFilePointer()"
 end_define
 
 begin_define

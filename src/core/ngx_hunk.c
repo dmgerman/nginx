@@ -8,7 +8,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_hunk.h>
+file|<ngx_core.h>
 end_include
 
 begin_function

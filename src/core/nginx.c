@@ -118,6 +118,10 @@ decl_stmt|;
 name|ngx_str_t
 name|conf_file
 decl_stmt|;
+name|ngx_log_t
+modifier|*
+name|log
+decl_stmt|;
 name|ngx_conf_t
 name|conf
 decl_stmt|;
@@ -126,31 +130,24 @@ operator|=
 operator|-
 literal|1
 expr_stmt|;
-name|ngx_log
-operator|.
-name|fd
-operator|=
-name|STDERR_FILENO
-expr_stmt|;
-name|ngx_log
-operator|.
-name|log_level
-operator|=
-name|NGX_LOG_INFO
-expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|ngx_log.fd = STDERR_FILENO;     ngx_log.log_level = NGX_LOG_INFO;
 comment|/* STUB */
-name|ngx_log
-operator|.
-name|log_level
+block_content|ngx_log.log_level = NGX_LOG_DEBUG;
+endif|#
+directive|endif
+name|log
 operator|=
-name|NGX_LOG_DEBUG
+name|ngx_log_init_errlog
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
 name|ngx_os_init
 argument_list|(
-operator|&
-name|ngx_log
+name|log
 argument_list|)
 operator|==
 name|NGX_ERROR
@@ -168,8 +165,7 @@ literal|16
 operator|*
 literal|1024
 argument_list|,
-operator|&
-name|ngx_log
+name|log
 argument_list|)
 expr_stmt|;
 comment|/* */
@@ -289,8 +285,7 @@ name|conf
 operator|.
 name|log
 operator|=
-operator|&
-name|ngx_log
+name|log
 expr_stmt|;
 name|conf
 operator|.
@@ -339,6 +334,14 @@ return|return
 literal|1
 return|;
 block|}
+if|#
+directive|if
+literal|0
+block_content|log = (ngx_log_t *) ngx_get_conf(ngx_errlog_module);
+comment|/* STUB */
+block_content|log->log_level = NGX_LOG_DEBUG;
+endif|#
+directive|endif
 name|ngx_init_temp_number
 argument_list|()
 expr_stmt|;
@@ -396,8 +399,7 @@ if|if
 condition|(
 name|ngx_open_listening_sockets
 argument_list|(
-operator|&
-name|ngx_log
+name|log
 argument_list|)
 operator|==
 name|NGX_ERROR
@@ -416,16 +418,14 @@ name|ngx_listening_sockets
 argument_list|,
 name|ngx_pool
 argument_list|,
-operator|&
-name|ngx_log
+name|log
 argument_list|)
 expr_stmt|;
 comment|/* TODO: threads */
 comment|/* STUB */
 name|ngx_worker
 argument_list|(
-operator|&
-name|ngx_log
+name|log
 argument_list|)
 expr_stmt|;
 block|}

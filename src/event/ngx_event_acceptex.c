@@ -14,25 +14,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_types.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_log.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<ngx_listen.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_connection.h>
 end_include
 
 begin_include
@@ -59,13 +41,9 @@ directive|include
 file|<ngx_event_acceptex.h>
 end_include
 
-begin_comment
-comment|/* This function should always return NGX_OK even there are some failures    because if we return NGX_ERROR then listening socket would be closed */
-end_comment
-
 begin_function
 DECL|function|ngx_event_acceptex (ngx_event_t * ev)
-name|int
+name|void
 name|ngx_event_acceptex
 parameter_list|(
 name|ngx_event_t
@@ -110,7 +88,7 @@ name|ovlp
 operator|.
 name|error
 argument_list|,
-literal|"AcceptEx(%s) falied"
+literal|"AcceptEx() falied for %s"
 argument_list|,
 name|c
 operator|->
@@ -119,19 +97,64 @@ operator|.
 name|data
 argument_list|)
 expr_stmt|;
-return|return
-name|NGX_OK
-return|;
+return|return;
 block|}
-if|#
-directive|if
-literal|0
-comment|/* can we do SO_UPDATE_ACCEPT_CONTEXT just before shutdown() ???        or AcceptEx's context will be lost ??? */
+comment|/* TODO: can we do SO_UPDATE_ACCEPT_CONTEXT just before shutdown() ???        or AcceptEx's context will be lost ??? */
 comment|/* SO_UPDATE_ACCEPT_CONTEXT is required for shutdown() to work */
-block_content|if (setsockopt(context->accept_socket, SOL_SOCKET,                     SO_UPDATE_ACCEPT_CONTEXT, (char *)&nsd,                      sizeof(nsd))) {           ap_log_error(APLOG_MARK, APLOG_ERR, WSAGetLastError(), server_conf,                        "setsockopt(SO_UPDATE_ACCEPT_CONTEXT) failed.");
+if|if
+condition|(
+name|setsockopt
+argument_list|(
+name|c
+operator|->
+name|fd
+argument_list|,
+name|SOL_SOCKET
+argument_list|,
+name|SO_UPDATE_ACCEPT_CONTEXT
+argument_list|,
+operator|(
+name|char
+operator|*
+operator|)
+operator|&
+name|c
+operator|->
+name|listening
+operator|->
+name|fd
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|ngx_socket_t
+argument_list|)
+argument_list|)
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_CRIT
+argument_list|,
+name|ev
+operator|->
+name|log
+argument_list|,
+name|ngx_socket_errno
+argument_list|,
+literal|"setsockopt(SO_UPDATE_ACCEPT_CONTEXT) failed for %s"
+argument_list|,
+name|c
+operator|->
+name|addr_text
+operator|.
+name|data
+argument_list|)
+expr_stmt|;
 comment|/* non fatal - we can not only do lingering close */
-endif|#
-directive|endif
+block|}
 name|getacceptexsockaddrs
 argument_list|(
 name|c
@@ -197,9 +220,7 @@ argument_list|(
 name|c
 argument_list|)
 expr_stmt|;
-return|return
-name|NGX_OK
-return|;
+return|return;
 block|}
 end_function
 

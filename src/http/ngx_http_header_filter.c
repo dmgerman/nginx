@@ -312,10 +312,6 @@ name|ngx_table_elt_t
 modifier|*
 name|header
 decl_stmt|;
-name|ngx_http_range_t
-modifier|*
-name|range
-decl_stmt|;
 if|if
 condition|(
 name|r

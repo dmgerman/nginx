@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon291158200108
+DECL|struct|__anon2b1c310c0108
 typedef|typedef
 struct|struct
 block|{
@@ -1290,6 +1290,10 @@ name|content_range
 operator|.
 name|len
 operator|+
+operator|(
+name|size_t
+operator|)
+operator|(
 name|range
 index|[
 name|i
@@ -1303,6 +1307,7 @@ name|i
 index|]
 operator|.
 name|start
+operator|)
 expr_stmt|;
 block|}
 name|r

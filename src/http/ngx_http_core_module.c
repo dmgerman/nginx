@@ -3779,6 +3779,19 @@ name|addr
 operator|=
 name|INADDR_ANY
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|WIN32
+operator|)
+name|l
+operator|->
+name|port
+operator|=
+literal|80
+expr_stmt|;
+else|#
+directive|else
 comment|/* STUB: getuid() should be cached */
 name|l
 operator|->
@@ -3795,6 +3808,8 @@ literal|80
 else|:
 literal|8000
 expr_stmt|;
+endif|#
+directive|endif
 name|l
 operator|->
 name|family
