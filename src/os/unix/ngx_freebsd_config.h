@@ -382,6 +382,34 @@ directive|endif
 end_endif
 
 begin_comment
+comment|/* STUB */
+end_comment
+
+begin_define
+DECL|macro|HAVE_PREAD
+define|#
+directive|define
+name|HAVE_PREAD
+value|1
+end_define
+
+begin_define
+DECL|macro|HAVE_PWRITE
+define|#
+directive|define
+name|HAVE_PWRITE
+value|1
+end_define
+
+begin_define
+DECL|macro|HAVE_LOCALTIME_R
+define|#
+directive|define
+name|HAVE_LOCALTIME_R
+value|1
+end_define
+
+begin_comment
 comment|/* FreeBSD sendfile */
 end_comment
 

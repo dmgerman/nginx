@@ -113,6 +113,14 @@ name|ngx_tm_wday
 value|tm_wday
 end_define
 
+begin_define
+DECL|macro|ngx_tm_zone
+define|#
+directive|define
+name|ngx_tm_zone
+value|tm_zone
+end_define
+
 begin_function_decl
 name|void
 name|ngx_localtime

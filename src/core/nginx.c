@@ -94,7 +94,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon27df1aad0108
+DECL|struct|__anon2c92f9d60108
 typedef|typedef
 struct|struct
 block|{
@@ -294,10 +294,18 @@ name|ngx_open_file_t
 modifier|*
 name|file
 decl_stmt|;
+if|#
+directive|if
+operator|!
+operator|(
+name|WIN32
+operator|)
 name|ngx_core_conf_t
 modifier|*
 name|ccf
 decl_stmt|;
+endif|#
+directive|endif
 if|#
 directive|if
 operator|(
@@ -328,6 +336,9 @@ name|ngx_max_sockets
 operator|=
 operator|-
 literal|1
+expr_stmt|;
+name|ngx_init_time
+argument_list|()
 expr_stmt|;
 name|log
 operator|=

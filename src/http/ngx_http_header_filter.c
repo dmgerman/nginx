@@ -2003,7 +2003,7 @@ name|h
 operator|->
 name|last
 operator|+=
-name|ngx_http_get_time
+name|ngx_http_time
 argument_list|(
 name|h
 operator|->
