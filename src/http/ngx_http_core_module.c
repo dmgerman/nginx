@@ -153,9 +153,13 @@ specifier|static
 name|int
 name|ngx_http_core_init
 parameter_list|(
-name|ngx_pool_t
+name|ngx_cycle_t
 modifier|*
-name|pool
+name|cycle
+parameter_list|,
+name|ngx_log_t
+modifier|*
+name|log
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -828,7 +832,13 @@ name|NGX_HTTP_MODULE
 block|,
 comment|/* module type */
 name|ngx_http_core_init
+block|,
 comment|/* init module */
+name|NULL
+block|,
+comment|/* commit module */
+name|NULL
+comment|/* rollback module */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -867,6 +877,10 @@ decl_stmt|;
 name|ngx_http_core_srv_conf_t
 modifier|*
 name|cscf
+decl_stmt|;
+name|ngx_http_core_main_conf_t
+modifier|*
+name|cmcf
 decl_stmt|;
 name|r
 operator|->
@@ -1087,10 +1101,21 @@ operator|=
 name|NGX_HTTP_FILTER_NEED_IN_MEMORY
 expr_stmt|;
 block|}
+name|cmcf
+operator|=
+name|ngx_http_get_module_main_conf
+argument_list|(
+name|r
+argument_list|,
+name|ngx_http_core_module
+argument_list|)
+expr_stmt|;
 comment|/* run translation phase */
 name|h
 operator|=
-name|ngx_http_translate_handlers
+name|cmcf
+operator|->
+name|translate_handlers
 operator|.
 name|elts
 expr_stmt|;
@@ -1098,7 +1123,9 @@ for|for
 control|(
 name|i
 operator|=
-name|ngx_http_translate_handlers
+name|cmcf
+operator|->
+name|translate_handlers
 operator|.
 name|nelts
 operator|-
@@ -2378,14 +2405,18 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_core_init (ngx_pool_t * pool)
+DECL|function|ngx_http_core_init (ngx_cycle_t * cycle,ngx_log_t * log)
 specifier|static
 name|int
 name|ngx_http_core_init
 parameter_list|(
-name|ngx_pool_t
+name|ngx_cycle_t
 modifier|*
-name|pool
+name|cycle
+parameter_list|,
+name|ngx_log_t
+modifier|*
+name|log
 parameter_list|)
 block|{
 name|ngx_http_handler_pt

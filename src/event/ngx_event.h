@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2925aa5d0108
+DECL|struct|__anon2c592ce10108
 typedef|typedef
 struct|struct
 block|{
@@ -349,7 +349,7 @@ literal|1
 end_if
 
 begin_typedef
-DECL|enum|__anon2925aa5d0203
+DECL|enum|__anon2c592ce10203
 typedef|typedef
 enum|enum
 block|{
@@ -423,7 +423,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2925aa5d0308
+DECL|struct|__anon2c592ce10308
 typedef|typedef
 struct|struct
 block|{
@@ -1256,7 +1256,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon2925aa5d0408
+DECL|struct|__anon2c592ce10408
 typedef|typedef
 struct|struct
 block|{
@@ -1279,7 +1279,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2925aa5d0508
+DECL|struct|__anon2c592ce10508
 typedef|typedef
 struct|struct
 block|{
@@ -1459,9 +1459,9 @@ begin_function_decl
 name|void
 name|ngx_worker
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 function_decl|;
 end_function_decl

@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c52ce430108
+DECL|struct|__anon29c63bc50108
 typedef|typedef
 struct|struct
 block|{
@@ -67,7 +67,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c52ce430208
+DECL|struct|__anon29c63bc50208
 typedef|typedef
 struct|struct
 block|{
@@ -76,6 +76,10 @@ name|ngx_array_t
 name|servers
 decl_stmt|;
 comment|/* array of ngx_http_core_srv_conf_t */
+DECL|member|translate_handlers
+name|ngx_array_t
+name|translate_handlers
+decl_stmt|;
 DECL|typedef|ngx_http_core_main_conf_t
 block|}
 name|ngx_http_core_main_conf_t
@@ -83,7 +87,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c52ce430308
+DECL|struct|__anon29c63bc50308
 typedef|typedef
 struct|struct
 block|{
@@ -143,7 +147,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2c52ce430408
+DECL|struct|__anon29c63bc50408
 typedef|typedef
 struct|struct
 block|{
@@ -167,7 +171,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c52ce430508
+DECL|struct|__anon29c63bc50508
 typedef|typedef
 struct|struct
 block|{
@@ -209,7 +213,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2c52ce430608
+DECL|struct|__anon29c63bc50608
 typedef|typedef
 struct|struct
 block|{
@@ -252,7 +256,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon2c52ce430708
+DECL|struct|__anon29c63bc50708
 typedef|typedef
 struct|struct
 block|{
@@ -271,7 +275,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c52ce430808
+DECL|struct|__anon29c63bc50808
 typedef|typedef
 struct|struct
 block|{

@@ -84,7 +84,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2771b3370108
+DECL|struct|__anon275d2ff90108
 typedef|typedef
 struct|struct
 block|{
@@ -818,19 +818,15 @@ name|ngx_event_t
 modifier|*
 name|e
 decl_stmt|;
+name|ngx_connection_t
+modifier|*
+name|c
+decl_stmt|;
 if|#
 directive|if
 operator|(
 name|NGX_DEBUG_EVENT
 operator|)
-name|ngx_connection_t
-modifier|*
-name|c
-init|=
-name|ev
-operator|->
-name|data
-decl_stmt|;
 name|ngx_log_debug
 argument_list|(
 argument|c->log
@@ -877,6 +873,12 @@ name|NGX_OK
 return|;
 block|}
 comment|/* we need to restore second event if it exists */
+name|c
+operator|=
+name|ev
+operator|->
+name|data
+expr_stmt|;
 if|if
 condition|(
 name|event

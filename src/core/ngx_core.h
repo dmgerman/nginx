@@ -61,6 +61,15 @@ typedef|;
 end_typedef
 
 begin_typedef
+DECL|typedef|ngx_cycle_t
+typedef|typedef
+name|struct
+name|ngx_cycle_s
+name|ngx_cycle_t
+typedef|;
+end_typedef
+
+begin_typedef
 DECL|typedef|ngx_open_file_t
 typedef|typedef
 name|struct
@@ -68,11 +77,6 @@ name|ngx_open_file_s
 name|ngx_open_file_t
 typedef|;
 end_typedef
-
-begin_empty_stmt
-DECL|typedef|ngx_open_file_t
-empty_stmt|;
-end_empty_stmt
 
 begin_typedef
 DECL|typedef|ngx_command_t

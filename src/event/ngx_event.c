@@ -1024,13 +1024,13 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_worker (ngx_log_t * log)
+DECL|function|ngx_worker (ngx_cycle_t * cycle)
 name|void
 name|ngx_worker
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 block|{
 for|for
@@ -1041,6 +1041,8 @@ control|)
 block|{
 name|ngx_log_debug
 argument_list|(
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|"ngx_worker cycle"
@@ -1048,6 +1050,8 @@ argument_list|)
 expr_stmt|;
 name|ngx_process_events
 argument_list|(
+name|cycle
+operator|->
 name|log
 argument_list|)
 expr_stmt|;

@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29ae307d0108
+DECL|struct|__anon2afd21100108
 typedef|typedef
 struct|struct
 block|{
@@ -122,6 +122,18 @@ name|time_t
 name|post_accept_timeout
 decl_stmt|;
 comment|/* should be here because                                                   of the deferred accept */
+DECL|member|new
+name|unsigned
+name|new
+range|:
+literal|1
+decl_stmt|;
+DECL|member|remain
+name|unsigned
+name|remain
+range|:
+literal|1
+decl_stmt|;
 DECL|member|bound
 name|unsigned
 name|bound
