@@ -253,6 +253,8 @@ block|,
 literal|0
 block|,
 literal|0
+block|,
+name|NULL
 block|}
 block|,
 block|{
@@ -268,6 +270,8 @@ block|,
 literal|0
 block|,
 literal|0
+block|,
+name|NULL
 block|}
 block|}
 decl_stmt|;
@@ -370,6 +374,9 @@ decl_stmt|;
 name|ngx_http_in_port_t
 modifier|*
 name|in_port
+decl_stmt|,
+modifier|*
+name|inport
 decl_stmt|;
 name|ngx_http_in_addr_t
 modifier|*
@@ -394,7 +401,6 @@ decl_stmt|,
 modifier|*
 name|name
 decl_stmt|;
-empty_stmt|;
 name|ngx_init_array
 argument_list|(
 name|ngx_http_servers
@@ -676,7 +682,7 @@ argument_list|,
 name|NGX_CONF_ERROR
 argument_list|)
 expr_stmt|;
-comment|/* create lists of the ports, the addresses and the server names */
+comment|/* create the lists of the ports, the addresses and the server names        to allow quickly find the server core module configuration at run-time */
 name|ngx_init_array
 argument_list|(
 name|in_ports
@@ -695,6 +701,7 @@ argument_list|,
 name|NGX_CONF_ERROR
 argument_list|)
 expr_stmt|;
+comment|/* "server" directives */
 name|cscf
 operator|=
 operator|(
@@ -722,6 +729,7 @@ name|s
 operator|++
 control|)
 block|{
+comment|/* "listen" directives */
 name|lscf
 operator|=
 operator|(
@@ -806,6 +814,7 @@ operator|.
 name|port
 condition|)
 block|{
+comment|/* the port is already in the port list */
 name|port_found
 operator|=
 literal|1
@@ -825,7 +834,7 @@ index|[
 name|p
 index|]
 operator|.
-name|addr
+name|addrs
 operator|.
 name|elts
 expr_stmt|;
@@ -842,7 +851,7 @@ index|[
 name|p
 index|]
 operator|.
-name|addr
+name|addrs
 operator|.
 name|nelts
 condition|;
@@ -867,6 +876,8 @@ operator|.
 name|addr
 condition|)
 block|{
+comment|/* the address is already bound to this port */
+comment|/* "server_name" directives */
 name|s_name
 operator|=
 operator|(
@@ -903,6 +914,8 @@ name|n
 operator|++
 control|)
 block|{
+comment|/* add the server name and server core module                                    configuration to the address:port */
+comment|/* TODO: duplicate names can be checked here */
 name|ngx_test_null
 argument_list|(
 name|name
@@ -944,6 +957,7 @@ operator|.
 name|core_srv_conf
 expr_stmt|;
 block|}
+comment|/* check duplicate "default" server that                                serves this address:port */
 if|if
 condition|(
 name|lscf
@@ -1028,13 +1042,12 @@ operator|=
 literal|1
 expr_stmt|;
 break|break;
-comment|/* "*:XX" is the last resort */
 block|}
 if|else if
 condition|(
 name|in_addr
 index|[
-name|p
+name|a
 index|]
 operator|.
 name|addr
@@ -1042,6 +1055,7 @@ operator|==
 name|INADDR_ANY
 condition|)
 block|{
+comment|/* "*:port" must be the last resort so move it                                to the end of the address list and add                                the new address at its place */
 name|ngx_test_null
 argument_list|(
 name|inaddr
@@ -1054,7 +1068,7 @@ index|[
 name|p
 index|]
 operator|.
-name|addr
+name|addrs
 argument_list|)
 argument_list|,
 name|NGX_CONF_ERROR
@@ -1076,8 +1090,11 @@ name|ngx_http_in_addr_t
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|inaddr
-operator|->
+name|in_addr
+index|[
+name|a
+index|]
+operator|.
 name|addr
 operator|=
 name|lscf
@@ -1087,8 +1104,11 @@ index|]
 operator|.
 name|addr
 expr_stmt|;
-name|inaddr
-operator|->
+name|in_addr
+index|[
+name|a
+index|]
+operator|.
 name|flags
 operator|=
 name|lscf
@@ -1098,8 +1118,11 @@ index|]
 operator|.
 name|flags
 expr_stmt|;
-name|inaddr
-operator|->
+name|in_addr
+index|[
+name|a
+index|]
+operator|.
 name|core_srv_conf
 operator|=
 name|cscf
@@ -1107,6 +1130,7 @@ index|[
 name|s
 index|]
 expr_stmt|;
+comment|/* create the empty list of the server names that                                can be served on this address:port */
 name|ngx_init_array
 argument_list|(
 name|inaddr
@@ -1140,6 +1164,7 @@ operator|!
 name|addr_found
 condition|)
 block|{
+comment|/* add the address to the addresses list that                            bound to this port */
 name|ngx_test_null
 argument_list|(
 name|inaddr
@@ -1152,7 +1177,7 @@ index|[
 name|p
 index|]
 operator|.
-name|addr
+name|addrs
 argument_list|)
 argument_list|,
 name|NGX_CONF_ERROR
@@ -1189,6 +1214,7 @@ index|[
 name|s
 index|]
 expr_stmt|;
+comment|/* create the empty list of the server names that                            can be served on this address:port */
 name|ngx_init_array
 argument_list|(
 name|inaddr
@@ -1218,6 +1244,7 @@ operator|!
 name|port_found
 condition|)
 block|{
+comment|/* add the port to the in_port list */
 name|ngx_test_null
 argument_list|(
 name|in_port
@@ -1242,11 +1269,12 @@ index|]
 operator|.
 name|port
 expr_stmt|;
+comment|/* create list of the addresses that bound to this port ... */
 name|ngx_init_array
 argument_list|(
 name|in_port
 operator|->
-name|addr
+name|addrs
 argument_list|,
 name|cf
 operator|->
@@ -1271,12 +1299,13 @@ argument_list|(
 operator|&
 name|in_port
 operator|->
-name|addr
+name|addrs
 argument_list|)
 argument_list|,
 name|NGX_CONF_ERROR
 argument_list|)
 expr_stmt|;
+comment|/* ... and add the address to this list */
 name|inaddr
 operator|->
 name|addr
@@ -1308,6 +1337,7 @@ index|[
 name|s
 index|]
 expr_stmt|;
+comment|/* create the empty list of the server names that                    can be served on this address:port */
 name|ngx_init_array
 argument_list|(
 name|inaddr
@@ -1331,7 +1361,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/* optimzie lists of ports, addresses and server names */
+comment|/* optimize the lists of the ports, the addresses and the server names */
 comment|/* AF_INET only */
 name|in_port
 operator|=
@@ -1359,6 +1389,7 @@ name|p
 operator|++
 control|)
 block|{
+comment|/* check whether the all server names point to the same server */
 name|in_addr
 operator|=
 operator|(
@@ -1370,7 +1401,7 @@ index|[
 name|p
 index|]
 operator|.
-name|addr
+name|addrs
 operator|.
 name|elts
 expr_stmt|;
@@ -1387,7 +1418,7 @@ index|[
 name|p
 index|]
 operator|.
-name|addr
+name|addrs
 operator|.
 name|nelts
 condition|;
@@ -1459,7 +1490,7 @@ expr_stmt|;
 break|break;
 block|}
 block|}
-comment|/* if all server names point to the same server                then we do not need to check them at run time */
+comment|/* if the all server names point to the same server                then we do not need to check them at run-time */
 if|if
 condition|(
 operator|!
@@ -1479,7 +1510,7 @@ literal|0
 expr_stmt|;
 block|}
 block|}
-comment|/* if there is binding to "*:XX" then we need to bind to "*:XX" only            and ignore other binding */
+comment|/* if there's the binding to "*:port" then we need to bind()            to "*:port" only and ignore the other bindings */
 if|if
 condition|(
 name|in_addr
@@ -1494,16 +1525,13 @@ operator|==
 name|INADDR_ANY
 condition|)
 block|{
-name|start
-operator|=
 name|a
-operator|-
-literal|1
+operator|--
 expr_stmt|;
 block|}
 else|else
 block|{
-name|start
+name|a
 operator|=
 literal|0
 expr_stmt|;
@@ -1519,16 +1547,12 @@ index|[
 name|p
 index|]
 operator|.
-name|addr
+name|addrs
 operator|.
 name|elts
 expr_stmt|;
-for|for
-control|(
-name|a
-operator|=
-name|start
-init|;
+while|while
+condition|(
 name|a
 operator|<
 name|in_port
@@ -1536,13 +1560,10 @@ index|[
 name|p
 index|]
 operator|.
-name|addr
+name|addrs
 operator|.
 name|nelts
-condition|;
-name|a
-operator|++
-control|)
+condition|)
 block|{
 name|ngx_test_null
 argument_list|(
@@ -1808,6 +1829,189 @@ name|ctx
 operator|=
 name|ctx
 expr_stmt|;
+if|if
+condition|(
+name|in_port
+index|[
+name|p
+index|]
+operator|.
+name|addrs
+operator|.
+name|nelts
+operator|>
+literal|1
+condition|)
+block|{
+name|in_addr
+operator|=
+operator|(
+name|ngx_http_in_addr_t
+operator|*
+operator|)
+name|in_port
+index|[
+name|p
+index|]
+operator|.
+name|addrs
+operator|.
+name|elts
+expr_stmt|;
+if|if
+condition|(
+name|in_addr
+index|[
+name|in_port
+index|[
+name|p
+index|]
+operator|.
+name|addrs
+operator|.
+name|nelts
+operator|-
+literal|1
+index|]
+operator|.
+name|addr
+operator|!=
+name|INADDR_ANY
+condition|)
+block|{
+comment|/* if this port has not the "*:port" binding then create                        the separate ngx_http_in_port_t for the all bindings */
+name|ngx_test_null
+argument_list|(
+name|inport
+argument_list|,
+name|ngx_palloc
+argument_list|(
+name|cf
+operator|->
+name|pool
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|ngx_http_in_port_t
+argument_list|)
+argument_list|)
+argument_list|,
+name|NGX_CONF_ERROR
+argument_list|)
+expr_stmt|;
+name|inport
+operator|->
+name|port
+operator|=
+name|in_port
+index|[
+name|p
+index|]
+operator|.
+name|port
+expr_stmt|;
+comment|/* init list of the addresses ... */
+name|ngx_init_array
+argument_list|(
+name|inport
+operator|->
+name|addrs
+argument_list|,
+name|cf
+operator|->
+name|pool
+argument_list|,
+literal|1
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|ngx_http_in_addr_t
+argument_list|)
+argument_list|,
+name|NGX_CONF_ERROR
+argument_list|)
+expr_stmt|;
+comment|/* ... and set up it with the first address */
+name|inport
+operator|->
+name|addrs
+operator|.
+name|nelts
+operator|=
+literal|1
+expr_stmt|;
+name|inport
+operator|->
+name|addrs
+operator|.
+name|elts
+operator|=
+name|in_port
+index|[
+name|p
+index|]
+operator|.
+name|addrs
+operator|.
+name|elts
+expr_stmt|;
+name|ls
+operator|->
+name|servers
+operator|=
+name|inport
+expr_stmt|;
+comment|/* prepare for the next cycle */
+name|in_port
+index|[
+name|p
+index|]
+operator|.
+name|addrs
+operator|.
+name|elts
+operator|+=
+name|in_port
+index|[
+name|p
+index|]
+operator|.
+name|addrs
+operator|.
+name|size
+expr_stmt|;
+name|in_port
+index|[
+name|p
+index|]
+operator|.
+name|addrs
+operator|.
+name|nelts
+operator|--
+expr_stmt|;
+name|in_addr
+operator|=
+operator|(
+name|ngx_http_in_addr_t
+operator|*
+operator|)
+name|in_port
+index|[
+name|p
+index|]
+operator|.
+name|addrs
+operator|.
+name|elts
+expr_stmt|;
+name|a
+operator|=
+literal|0
+expr_stmt|;
+continue|continue;
+block|}
+block|}
 name|ls
 operator|->
 name|servers
@@ -1818,22 +2022,9 @@ index|[
 name|p
 index|]
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|if (in_port[p].addr.nelts == 1) {                 in_addr = (ngx_http_in_addr_t *) in_port[p].addr.elts;
-comment|/* if there is the single address for this port and no virtual                    name servers so we do not need to check addresses                    at run time */
-block_content|if (in_addr[a].names.nelts == 0) {                     ls->ctx = in_addr->core_srv_conf->ctx;                     ls->servers = NULL;                 }             }
-endif|#
-directive|endif
-name|ngx_log_debug
-argument_list|(
-argument|cf->log
-argument_list|,
-literal|"ls ctx: %d:%08x"
-argument|_ in_port[p].port _ ls->ctx
-argument_list|)
-empty_stmt|;
+name|a
+operator|++
+expr_stmt|;
 block|}
 block|}
 comment|/* DEBUG STUFF */
@@ -1882,7 +2073,7 @@ index|[
 name|p
 index|]
 operator|.
-name|addr
+name|addrs
 operator|.
 name|elts
 expr_stmt|;
@@ -1899,7 +2090,7 @@ index|[
 name|p
 index|]
 operator|.
-name|addr
+name|addrs
 operator|.
 name|nelts
 condition|;

@@ -167,10 +167,10 @@ value|12
 end_define
 
 begin_define
-DECL|macro|NGX_HTTP_PARSE_INVALID_HEAD
+DECL|macro|NGX_HTTP_PARSE_INVALID_09_METHOD
 define|#
 directive|define
-name|NGX_HTTP_PARSE_INVALID_HEAD
+name|NGX_HTTP_PARSE_INVALID_09_METHOD
 value|13
 end_define
 
@@ -343,7 +343,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon28b253e40108
+DECL|struct|__anon273c30310108
 typedef|typedef
 struct|struct
 block|{
@@ -362,7 +362,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b253e40208
+DECL|struct|__anon273c30310208
 typedef|typedef
 struct|struct
 block|{
@@ -416,7 +416,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b253e40308
+DECL|struct|__anon273c30310308
 typedef|typedef
 struct|struct
 block|{
@@ -467,7 +467,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b253e40408
+DECL|struct|__anon273c30310408
 typedef|typedef
 struct|struct
 block|{
@@ -844,7 +844,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28b253e40508
+DECL|struct|__anon273c30310508
 typedef|typedef
 struct|struct
 block|{
@@ -1022,6 +1022,17 @@ parameter_list|,
 name|ngx_hunk_t
 modifier|*
 name|h
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|int
+name|ngx_http_find_server_conf
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
 parameter_list|)
 function_decl|;
 end_function_decl

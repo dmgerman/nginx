@@ -118,11 +118,24 @@ literal|0
 block_content|ngx_http_event_static_handler_loc_conf_t  *lcf;      lcf = (ngx_http_event_static_handler_loc_conf_t *)          ngx_get_module_loc_conf(r,&ngx_http_event_static_handler_module_ctx);
 endif|#
 directive|endif
+name|rc
+operator|=
 name|ngx_http_discard_body
 argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|rc
+operator|!=
+name|NGX_OK
+condition|)
+block|{
+return|return
+name|rc
+return|;
+block|}
 name|ctx
 operator|=
 name|r
@@ -355,7 +368,7 @@ operator|!
 operator|(
 name|WIN32
 operator|)
-comment|/* not regular files is probably Unix specific */
+comment|/* the not regular files are probably Unix specific */
 if|if
 condition|(
 operator|!

@@ -39,6 +39,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_time.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_string.h>
 end_include
 
@@ -61,7 +67,7 @@ file|<ngx_array.h>
 end_include
 
 begin_comment
-comment|/*  *      AAAA  number of agruments  *    TT      command flags  *  LL        command location  */
+comment|/*  *        AAAA  number of agruments  *      FF      command flags  *    TT        command type, i.e. HTTP "location" or "server" command  *  00  */
 end_comment
 
 begin_define
@@ -69,7 +75,7 @@ DECL|macro|NGX_CONF_NOARGS
 define|#
 directive|define
 name|NGX_CONF_NOARGS
-value|1
+value|0x0000000001
 end_define
 
 begin_define
@@ -77,7 +83,7 @@ DECL|macro|NGX_CONF_TAKE1
 define|#
 directive|define
 name|NGX_CONF_TAKE1
-value|2
+value|0x0000000002
 end_define
 
 begin_define
@@ -85,7 +91,7 @@ DECL|macro|NGX_CONF_TAKE2
 define|#
 directive|define
 name|NGX_CONF_TAKE2
-value|4
+value|0x0000000004
 end_define
 
 begin_define
@@ -93,7 +99,7 @@ DECL|macro|NGX_CONF_ARGS_NUMBER
 define|#
 directive|define
 name|NGX_CONF_ARGS_NUMBER
-value|0x00ffff
+value|0x000000ffff
 end_define
 
 begin_define
@@ -101,7 +107,7 @@ DECL|macro|NGX_CONF_ANY
 define|#
 directive|define
 name|NGX_CONF_ANY
-value|0x010000
+value|0x0000010000
 end_define
 
 begin_define
@@ -109,7 +115,7 @@ DECL|macro|NGX_CONF_BLOCK
 define|#
 directive|define
 name|NGX_CONF_BLOCK
-value|0x020000
+value|0x0000020000
 end_define
 
 begin_define
@@ -117,7 +123,7 @@ DECL|macro|NGX_CONF_FLAG
 define|#
 directive|define
 name|NGX_CONF_FLAG
-value|0x040000
+value|0x0000040000
 end_define
 
 begin_define
@@ -125,7 +131,7 @@ DECL|macro|NGX_MAIN_CONF
 define|#
 directive|define
 name|NGX_MAIN_CONF
-value|0x1000000
+value|0x0001000000
 end_define
 
 begin_define
@@ -264,7 +270,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bdd6e950108
+DECL|struct|__anon278ed8e80108
 typedef|typedef
 struct|struct
 block|{
@@ -305,7 +311,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bdd6e950208
+DECL|struct|__anon278ed8e80208
 typedef|typedef
 struct|struct
 block|{
@@ -432,7 +438,7 @@ name|conf
 parameter_list|,
 name|prev
 parameter_list|,
-define|default)                             \     if (conf == NGX_CONF_UNSET) {                                            \         conf = (prev == NGX_CONF_UNSET) ? default : prev;                    \     }
+define|default)                             \     if (conf == (ngx_msec_t) NGX_CONF_UNSET) {                               \         conf = (prev == (ngx_msec_t) NGX_CONF_UNSET) ? default : prev;       \     }
 end_define
 
 begin_define

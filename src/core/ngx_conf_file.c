@@ -397,11 +397,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"%s %s in %s:%d"
-argument_list|,
-name|name
-operator|->
-name|data
+literal|"%s in %s:%d"
 argument_list|,
 name|rv
 argument_list|,
@@ -2136,11 +2132,11 @@ decl_stmt|,
 name|len
 decl_stmt|,
 name|scale
-decl_stmt|,
-name|i
 decl_stmt|;
 name|u_int
 name|max
+decl_stmt|,
+name|i
 decl_stmt|;
 name|char
 name|last
@@ -2516,11 +2512,11 @@ decl_stmt|,
 name|len
 decl_stmt|,
 name|scale
-decl_stmt|,
-name|i
 decl_stmt|;
 name|u_int
 name|max
+decl_stmt|,
+name|i
 decl_stmt|;
 name|char
 name|last

@@ -161,6 +161,8 @@ block|,
 name|NGX_HTTP_LOC_CONF_OFFSET
 block|,
 literal|0
+block|,
+name|NULL
 block|}
 block|,
 block|{
@@ -176,6 +178,8 @@ block|,
 literal|0
 block|,
 literal|0
+block|,
+name|NULL
 block|}
 block|}
 decl_stmt|;

@@ -57,6 +57,17 @@ decl_stmt|;
 name|ngx_array_t
 name|io
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_SUPPRESS_WARN
+operator|)
+name|iov
+operator|=
+name|NULL
+expr_stmt|;
+endif|#
+directive|endif
 name|ngx_init_array
 argument_list|(
 name|io

@@ -82,6 +82,17 @@ decl_stmt|;
 if|#
 directive|if
 operator|(
+name|NGX_SUPPRESS_WARN
+operator|)
+name|entry
+operator|=
+name|NULL
+expr_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
+operator|(
 name|NGX_EVENT_COPY_FILTER
 operator|)
 if|if
