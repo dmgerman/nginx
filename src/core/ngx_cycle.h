@@ -47,6 +47,11 @@ name|ngx_log_t
 modifier|*
 name|log
 decl_stmt|;
+DECL|member|new_log
+name|ngx_log_t
+modifier|*
+name|new_log
+decl_stmt|;
 DECL|member|listening
 name|ngx_array_t
 name|listening
@@ -92,7 +97,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon295782700108
+DECL|struct|__anon2b52b25e0108
 typedef|typedef
 struct|struct
 block|{

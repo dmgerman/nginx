@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27d3cf330108
+DECL|struct|__anon2bc735e70108
 typedef|typedef
 struct|struct
 block|{
@@ -1586,7 +1586,9 @@ argument_list|)
 expr_stmt|;
 name|ngx_event_expire_timers
 argument_list|(
-literal|0
+name|ngx_elapsed_msec
+operator|-
+name|ngx_old_elapsed_msec
 argument_list|)
 expr_stmt|;
 comment|/* TODO: if ngx_threaded then wake up the worker thread */

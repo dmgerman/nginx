@@ -1869,6 +1869,7 @@ name|err
 operator|=
 name|ngx_socket_errno
 expr_stmt|;
+comment|/*      * we do not need to disable the write event because      * that event has NGX_USE_CLEAR_EVENT type      */
 if|if
 condition|(
 name|ev
@@ -1888,13 +1889,6 @@ condition|)
 block|{
 return|return;
 block|}
-if|if
-condition|(
-name|n
-operator|>
-literal|0
-condition|)
-block|{
 if|if
 condition|(
 operator|(
@@ -1931,6 +1925,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|n
+operator|>
+literal|0
+condition|)
+block|{
 return|return;
 block|}
 name|ev
