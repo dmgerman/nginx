@@ -755,12 +755,6 @@ operator|+
 literal|128
 expr_stmt|;
 comment|/* ngx_connection_counter */
-if|#
-directive|if
-literal|0
-block_content|shared = mmap(NULL, size, PROT_READ|PROT_WRITE, MAP_ANON|MAP_SHARED, -1, 0);      if (shared == MAP_FAILED) {         ngx_log_error(NGX_LOG_EMERG, cycle->log, ngx_errno,                       "mmap(MAP_ANON|MAP_SHARED) failed");         return NGX_ERROR;     }
-endif|#
-directive|endif
 if|if
 condition|(
 operator|!
@@ -2727,6 +2721,17 @@ decl_stmt|;
 if|#
 directive|if
 operator|(
+name|HAVE_RTSIG
+operator|)
+name|ngx_core_conf_t
+modifier|*
+name|ccf
+decl_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
+operator|(
 name|HAVE_KQUEUE
 operator|)
 name|ngx_conf_init_unsigned_value
@@ -2843,10 +2848,6 @@ directive|elif
 operator|(
 name|HAVE_RTSIG
 operator|)
-name|ngx_core_conf_t
-modifier|*
-name|ccf
-decl_stmt|;
 name|ngx_conf_init_unsigned_value
 argument_list|(
 name|ecf

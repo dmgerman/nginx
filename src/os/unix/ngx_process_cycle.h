@@ -65,7 +65,7 @@ value|5
 end_define
 
 begin_typedef
-DECL|struct|__anon29d8f0200108
+DECL|struct|__anon28d62e490108
 typedef|typedef
 struct|struct
 block|{
@@ -76,6 +76,10 @@ decl_stmt|;
 DECL|member|pid
 name|ngx_pid_t
 name|pid
+decl_stmt|;
+DECL|member|slot
+name|ngx_int_t
+name|slot
 decl_stmt|;
 DECL|member|fd
 name|ngx_fd_t
@@ -88,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d8f0200208
+DECL|struct|__anon28d62e490208
 typedef|typedef
 struct|struct
 block|{

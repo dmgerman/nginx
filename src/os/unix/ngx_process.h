@@ -41,7 +41,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292120e60108
+DECL|struct|__anon2b436b130108
 typedef|typedef
 struct|struct
 block|{
@@ -111,7 +111,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292120e60208
+DECL|struct|__anon2b436b130208
 typedef|typedef
 struct|struct
 block|{
@@ -259,8 +259,15 @@ end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
+name|ngx_socket_t
+name|ngx_channel
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
 name|ngx_int_t
-name|ngx_current_slot
+name|ngx_process_slot
 decl_stmt|;
 end_decl_stmt
 
@@ -268,13 +275,6 @@ begin_decl_stmt
 specifier|extern
 name|ngx_int_t
 name|ngx_last_process
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-specifier|extern
-name|ngx_socket_t
-name|ngx_channel
 decl_stmt|;
 end_decl_stmt
 
