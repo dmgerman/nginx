@@ -109,6 +109,9 @@ name|ngx_module_t
 name|ngx_http_header_filter_module
 init|=
 block|{
+literal|0
+block|,
+comment|/* module index */
 operator|&
 name|ngx_http_header_filter_module_ctx
 block|,

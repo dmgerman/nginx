@@ -25,7 +25,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c42d5c00108
+DECL|struct|__anon29026e540108
 typedef|typedef
 struct|struct
 block|{
@@ -41,11 +41,6 @@ modifier|*
 modifier|*
 name|loc_conf
 decl_stmt|;
-DECL|member|locations
-name|ngx_array_t
-modifier|*
-name|locations
-decl_stmt|;
 DECL|typedef|ngx_http_conf_ctx_t
 block|}
 name|ngx_http_conf_ctx_t
@@ -53,11 +48,19 @@ typedef|;
 end_typedef
 
 begin_define
+DECL|macro|NGX_HTTP_MAIN_CONF
+define|#
+directive|define
+name|NGX_HTTP_MAIN_CONF
+value|0x1000000
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_SRV_CONF
 define|#
 directive|define
 name|NGX_HTTP_SRV_CONF
-value|offsetof(ngx_http_conf_ctx_t, srv_conf)
+value|0x2000000
 end_define
 
 begin_define
@@ -65,6 +68,22 @@ DECL|macro|NGX_HTTP_LOC_CONF
 define|#
 directive|define
 name|NGX_HTTP_LOC_CONF
+value|0x6000000
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_SRV_CONF_OFFSET
+define|#
+directive|define
+name|NGX_HTTP_SRV_CONF_OFFSET
+value|offsetof(ngx_http_conf_ctx_t, srv_conf)
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_LOC_CONF_OFFSET
+define|#
+directive|define
+name|NGX_HTTP_LOC_CONF_OFFSET
 value|offsetof(ngx_http_conf_ctx_t, loc_conf)
 end_define
 

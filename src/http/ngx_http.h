@@ -245,7 +245,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2b3000b90108
+DECL|struct|__anon2c6474d50108
 typedef|typedef
 struct|struct
 block|{
@@ -293,7 +293,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3000b90208
+DECL|struct|__anon2c6474d50208
 typedef|typedef
 struct|struct
 block|{
@@ -317,7 +317,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3000b90308
+DECL|struct|__anon2c6474d50308
 typedef|typedef
 struct|struct
 block|{
@@ -358,7 +358,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3000b90408
+DECL|struct|__anon2c6474d50408
 typedef|typedef
 struct|struct
 block|{
@@ -458,17 +458,17 @@ modifier|*
 modifier|*
 name|ctx
 decl_stmt|;
-DECL|member|loc_conf
-name|void
-modifier|*
-modifier|*
-name|loc_conf
-decl_stmt|;
 DECL|member|srv_conf
 name|void
 modifier|*
 modifier|*
 name|srv_conf
+decl_stmt|;
+DECL|member|loc_conf
+name|void
+modifier|*
+modifier|*
+name|loc_conf
 decl_stmt|;
 DECL|member|pool
 name|ngx_pool_t
@@ -541,11 +541,6 @@ DECL|member|connection
 name|ngx_connection_t
 modifier|*
 name|connection
-decl_stmt|;
-DECL|member|server
-name|ngx_http_server_t
-modifier|*
-name|server
 decl_stmt|;
 DECL|member|filter
 name|int
@@ -681,7 +676,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b3000b90508
+DECL|struct|__anon2c6474d50508
 typedef|typedef
 struct|struct
 block|{
@@ -743,7 +738,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3000b90608
+DECL|struct|__anon2c6474d50608
 typedef|typedef
 struct|struct
 block|{
@@ -765,7 +760,7 @@ name|p
 parameter_list|)
 function_decl|;
 DECL|member|init_srv_conf
-name|void
+name|char
 modifier|*
 function_decl|(
 modifier|*
@@ -795,7 +790,7 @@ name|p
 parameter_list|)
 function_decl|;
 DECL|member|merge_loc_conf
-name|void
+name|char
 modifier|*
 function_decl|(
 modifier|*
@@ -964,7 +959,7 @@ parameter_list|,
 name|size
 parameter_list|)
 define|\
-value|do {                                                              \                ngx_test_null(cx, ngx_pcalloc(r->pool, size), NGX_ERROR);      \                r->ctx[module.index] = cx;                                     \             } while (0)
+value|do {                                                              \                 ngx_test_null(cx, ngx_pcalloc(r->pool, size), NGX_ERROR);     \                 r->ctx[module.index] = cx;                                    \             } while (0)
 end_define
 
 begin_comment
@@ -1028,6 +1023,69 @@ begin_decl_stmt
 specifier|extern
 name|int
 name|ngx_max_module
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_array_t
+name|ngx_http_servers
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|int
+name|ngx_http_post_accept_timeout
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|int
+name|ngx_http_connection_pool_size
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|int
+name|ngx_http_request_pool_size
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|int
+name|ngx_http_client_header_timeout
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|int
+name|ngx_http_client_header_buffer_size
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|int
+name|ngx_http_discarded_buffer_size
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|int
+name|ngx_http_lingering_timeout
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|int
+name|ngx_http_lingering_time
 decl_stmt|;
 end_decl_stmt
 

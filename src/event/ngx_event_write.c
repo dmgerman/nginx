@@ -637,6 +637,11 @@ name|rc
 else|:
 literal|0
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_DEBUG_EVENT_WRITE
+operator|)
 name|ngx_log_debug
 argument_list|(
 argument|c->log
@@ -645,6 +650,8 @@ literal|"sendv: "
 argument|QD_FMT _ sent
 argument_list|)
 empty_stmt|;
+endif|#
+directive|endif
 block|}
 if|#
 directive|if
@@ -692,14 +699,23 @@ operator|->
 name|next
 control|)
 block|{
+if|#
+directive|if
+operator|(
+name|NGX_DEBUG_EVENT_WRITE
+operator|)
 name|ngx_log_debug
 argument_list|(
 argument|c->log
 argument_list|,
-literal|"ch event write: %x %qx %qd"
-argument|_                           ch->hunk->type _                           ch->hunk->pos.file _                           ch->hunk->last.file - ch->hunk->pos.file
+literal|"event write: %x "
+argument|QX_FMT
+literal|" "
+argument|QD_FMT _                           ch->hunk->type _                           ch->hunk->pos.file _                           ch->hunk->last.file - ch->hunk->pos.file
 argument_list|)
 empty_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|sent
@@ -755,6 +771,11 @@ name|last
 operator|.
 name|file
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_DEBUG_EVENT_WRITE
+operator|)
 name|ngx_log_debug
 argument_list|(
 argument|c->log
@@ -765,6 +786,8 @@ literal|" 0 "
 argument|QD_FMT _                               ch->hunk->pos.file _ sent
 argument_list|)
 empty_stmt|;
+endif|#
+directive|endif
 comment|/*                 if (ch->hunk->type& NGX_HUNK_LAST)                    break; */
 continue|continue;
 block|}
@@ -778,14 +801,23 @@ name|file
 operator|+=
 name|sent
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_DEBUG_EVENT_WRITE
+operator|)
 name|ngx_log_debug
 argument_list|(
 argument|c->log
 argument_list|,
-literal|"event write: %qx %qd"
-argument|_                           ch->hunk->pos.file _                           ch->hunk->last.file - ch->hunk->pos.file
+literal|"event write: "
+argument|QX_FMT
+literal|" "
+argument|QD_FMT _                           ch->hunk->pos.file _                           ch->hunk->last.file - ch->hunk->pos.file
 argument_list|)
 empty_stmt|;
+endif|#
+directive|endif
 break|break;
 block|}
 comment|/* flush hunks if threaded state */

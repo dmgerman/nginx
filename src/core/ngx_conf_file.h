@@ -89,7 +89,7 @@ DECL|macro|NGX_CONF_ARGS_NUMBER
 define|#
 directive|define
 name|NGX_CONF_ARGS_NUMBER
-value|0x0ffff
+value|0x00ffff
 end_define
 
 begin_define
@@ -97,7 +97,7 @@ DECL|macro|NGX_CONF_ANY
 define|#
 directive|define
 name|NGX_CONF_ANY
-value|0x10000
+value|0x010000
 end_define
 
 begin_define
@@ -105,7 +105,7 @@ DECL|macro|NGX_CONF_BLOCK
 define|#
 directive|define
 name|NGX_CONF_BLOCK
-value|0x20000
+value|0x020000
 end_define
 
 begin_define
@@ -117,11 +117,19 @@ value|-1
 end_define
 
 begin_define
+DECL|macro|NGX_CONF_OK
+define|#
+directive|define
+name|NGX_CONF_OK
+value|NULL
+end_define
+
+begin_define
 DECL|macro|NGX_CONF_ERROR
 define|#
 directive|define
 name|NGX_CONF_ERROR
-value|(char *) -1
+value|(void *) -1
 end_define
 
 begin_define
@@ -218,10 +226,14 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b1f010c0108
+DECL|struct|__anon2b96b7c10108
 typedef|typedef
 struct|struct
 block|{
+DECL|member|index
+name|int
+name|index
+decl_stmt|;
 DECL|member|ctx
 name|void
 modifier|*
@@ -255,7 +267,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1f010c0208
+DECL|struct|__anon2b96b7c10208
 typedef|typedef
 struct|struct
 block|{
@@ -318,7 +330,8 @@ name|int
 name|type
 decl_stmt|;
 DECL|member|handler
-name|int
+name|char
+modifier|*
 function_decl|(
 modifier|*
 name|handler
@@ -333,8 +346,22 @@ block|}
 struct|;
 end_struct
 
+begin_define
+DECL|macro|ngx_conf_merge (conf,prev,default)
+define|#
+directive|define
+name|ngx_conf_merge
+parameter_list|(
+name|conf
+parameter_list|,
+name|prev
+parameter_list|,
+define|default)                                  \     if (conf == NGX_CONF_UNSET) {                                            \         conf = (prev == NGX_CONF_UNSET) ? default : prev;                    \     }
+end_define
+
 begin_function_decl
-name|int
+name|char
+modifier|*
 name|ngx_conf_parse
 parameter_list|(
 name|ngx_conf_t
@@ -344,6 +371,26 @@ parameter_list|,
 name|ngx_str_t
 modifier|*
 name|filename
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|char
+modifier|*
+name|ngx_conf_set_str_slot
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_command_t
+modifier|*
+name|cmd
+parameter_list|,
+name|char
+modifier|*
+name|conf
 parameter_list|)
 function_decl|;
 end_function_decl

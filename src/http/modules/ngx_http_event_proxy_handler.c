@@ -217,6 +217,7 @@ name|p
 operator|==
 name|NULL
 condition|)
+block|{
 name|ngx_http_create_ctx
 argument_list|(
 name|r
@@ -231,6 +232,7 @@ name|ngx_http_proxy_ctx_t
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|chain
 operator|=
 name|ngx_http_proxy_create_request
@@ -244,9 +246,11 @@ name|chain
 operator|==
 name|NULL
 condition|)
+block|{
 return|return
 name|NGX_ERROR
 return|;
+block|}
 name|p
 operator|->
 name|out
@@ -405,7 +409,9 @@ name|headers_in
 operator|.
 name|host
 condition|)
+block|{
 continue|continue;
+block|}
 if|if
 condition|(
 operator|&
@@ -420,7 +426,9 @@ name|headers_in
 operator|.
 name|connection
 condition|)
+block|{
 continue|continue;
+block|}
 comment|/* 2 is for ": " and 2 is for "\r\n" */
 name|len
 operator|+=
@@ -606,7 +614,9 @@ name|headers_in
 operator|.
 name|host
 condition|)
+block|{
 continue|continue;
+block|}
 if|if
 condition|(
 operator|&
@@ -621,7 +631,9 @@ name|headers_in
 operator|.
 name|connection
 condition|)
+block|{
 continue|continue;
+block|}
 name|ngx_memcpy
 argument_list|(
 name|hunk
@@ -759,7 +771,7 @@ argument_list|(
 argument|r->connection->log
 argument_list|,
 literal|"proxy: '%s: %s'"
-argument|_                   header[i].key.data _ header[i].value.data
+argument|_                       header[i].key.data _ header[i].value.data
 argument_list|)
 empty_stmt|;
 block|}
@@ -924,7 +936,7 @@ block|}
 if|#
 directive|if
 literal|0
-block_content|if (rcvbuf) {         if (setsockopt(sock, SOL_SOCKET, SO_RCVBUF,                        (const void *)&rcvbuf, sizeof(int)) == -1) {             ngx_log_error(NGX_LOG_ALERT, c->log, ngx_socket_errno,                           "setsockopt(SO_RCVBUF) failed");              if (ngx_close_socket(s) == -1)                 ngx_log_error(NGX_LOG_ERR, c->log, ngx_socket_errno,                               ngx_close_socket_n " failed");              return NGX_ERROR;         }     }
+block_content|if (rcvbuf) {         if (setsockopt(sock, SOL_SOCKET, SO_RCVBUF,                        (const void *)&rcvbuf, sizeof(int)) == -1) {             ngx_log_error(NGX_LOG_ALERT, c->log, ngx_socket_errno,                           "setsockopt(SO_RCVBUF) failed");              if (ngx_close_socket(s) == -1) {                 ngx_log_error(NGX_LOG_ERR, c->log, ngx_socket_errno,                               ngx_close_socket_n " failed");             }              return NGX_ERROR;         }     }
 endif|#
 directive|endif
 if|if
@@ -962,6 +974,7 @@ operator|==
 operator|-
 literal|1
 condition|)
+block|{
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ERR
@@ -976,6 +989,7 @@ name|ngx_close_socket_n
 literal|" failed"
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|NGX_ERROR
 return|;
@@ -1042,6 +1056,7 @@ operator|==
 operator|-
 literal|1
 condition|)
+block|{
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ERR
@@ -1056,6 +1071,7 @@ name|ngx_close_socket_n
 literal|" failed"
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|NGX_ERROR
 return|;
@@ -1151,14 +1167,6 @@ name|s
 expr_stmt|;
 name|pc
 operator|->
-name|server
-operator|=
-name|c
-operator|->
-name|server
-expr_stmt|;
-name|pc
-operator|->
 name|servers
 operator|=
 name|c
@@ -1231,6 +1239,7 @@ argument_list|)
 operator|!=
 name|NGX_OK
 condition|)
+block|{
 else|#
 directive|else
 if|if
@@ -1246,11 +1255,13 @@ argument_list|)
 operator|!=
 name|NGX_OK
 condition|)
+block|{
 endif|#
 directive|endif
 return|return
 name|NGX_ERROR
 return|;
+block|}
 if|if
 condition|(
 name|rc
@@ -1258,6 +1269,7 @@ operator|==
 operator|-
 literal|1
 condition|)
+block|{
 return|return
 name|ngx_add_event
 argument_list|(
@@ -1268,6 +1280,7 @@ argument_list|,
 name|NGX_ONESHOT_EVENT
 argument_list|)
 return|;
+block|}
 name|wev
 operator|->
 name|write
@@ -1287,9 +1300,6 @@ name|wev
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 DECL|function|ngx_http_proxy_send_request (ngx_event_t * ev)
 specifier|static
 name|int
@@ -1373,9 +1383,11 @@ operator|)
 operator|-
 literal|1
 condition|)
+block|{
 return|return
 name|NGX_ERROR
 return|;
+block|}
 name|p
 operator|->
 name|out
@@ -1386,9 +1398,6 @@ return|return
 name|NGX_WAITING
 return|;
 block|}
-end_function
-
-begin_function
 DECL|function|ngx_http_proxy_read_response_header (ngx_event_t * ev)
 specifier|static
 name|int
@@ -1427,9 +1436,11 @@ name|ev
 operator|->
 name|timedout
 condition|)
+block|{
 return|return
 name|NGX_ERROR
 return|;
+block|}
 name|c
 operator|=
 operator|(
@@ -1701,7 +1712,7 @@ comment|/* state_handlers are called in following order:         ngx_http_proxy_
 if|#
 directive|if
 literal|0
-block_content|do {         rc = (p->state_handler)(r, p);          if (rc == NGX_ERROR)             return rc;
+block_content|do {         rc = (p->state_handler)(r, p);          if (rc == NGX_ERROR) {             return rc;         }
 comment|/* rc == NGX_OK || rc == NGX_AGAIN */
 block_content|} while (p->header_in->pos.mem< p->header_in->last.mem);
 endif|#
@@ -1730,19 +1741,18 @@ name|mem
 operator|==
 literal|0
 condition|)
+block|{
 return|return
 name|ngx_http_proxy_read_response_body
 argument_list|(
 name|ev
 argument_list|)
 return|;
+block|}
 return|return
 name|NGX_WAITING
 return|;
 block|}
-end_function
-
-begin_function
 DECL|function|ngx_http_proxy_process_status_line (ngx_http_request_t * r,ngx_http_proxy_ctx_t * p)
 specifier|static
 name|int
@@ -1842,9 +1852,6 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-end_function
-
-begin_function
 DECL|function|ngx_http_proxy_process_response_header (ngx_http_request_t * r,ngx_http_proxy_ctx_t * p)
 specifier|static
 name|int
@@ -1860,9 +1867,6 @@ name|p
 parameter_list|)
 block|{
 block|}
-end_function
-
-begin_function
 DECL|function|ngx_http_proxy_read_response_body (ngx_event_t * ev)
 specifier|static
 name|int
@@ -2012,6 +2016,7 @@ name|ngx_event_type
 operator|==
 name|NGX_KQUEUE_EVENT
 condition|)
+block|{
 endif|#
 directive|endif
 comment|/* do not allocate new block if there is EOF */
@@ -2027,10 +2032,21 @@ name|available
 operator|==
 literal|0
 condition|)
+block|{
 name|left
 operator|=
 literal|1
 expr_stmt|;
+block|}
+if|#
+directive|if
+operator|!
+operator|(
+name|USE_KQUEUE
+operator|)
+block|}
+endif|#
+directive|endif
 endif|#
 directive|endif
 if|if
@@ -2125,18 +2141,22 @@ name|n
 operator|==
 name|NGX_AGAIN
 condition|)
+block|{
 return|return
 name|NGX_WAITING
 return|;
+block|}
 if|if
 condition|(
 name|n
 operator|==
 name|NGX_ERROR
 condition|)
+block|{
 return|return
 name|NGX_ERROR
 return|;
+block|}
 name|h
 operator|->
 name|last
@@ -2243,9 +2263,6 @@ return|return
 name|NGX_WAITING
 return|;
 block|}
-end_function
-
-begin_function
 DECL|function|ngx_http_proxy_write_to_client (ngx_event_t * ev)
 specifier|static
 name|int
@@ -2345,9 +2362,11 @@ name|rc
 operator|!=
 name|NGX_OK
 condition|)
+block|{
 return|return
 name|rc
 return|;
+block|}
 if|if
 condition|(
 name|p
@@ -2360,7 +2379,9 @@ name|hunks
 operator|->
 name|nelts
 condition|)
+block|{
 break|break;
+block|}
 name|p
 operator|->
 name|hunk_n
@@ -2378,9 +2399,6 @@ return|return
 name|NGX_OK
 return|;
 block|}
-end_function
-
-begin_function
 DECL|function|ngx_read_http_proxy_status_line (ngx_http_proxy_ctx_t * ctx)
 specifier|static
 name|int
@@ -2398,7 +2416,7 @@ name|char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon273e23410103
+DECL|enum|__anon28e950ab0103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2522,9 +2540,11 @@ name|last
 operator|.
 name|mem
 condition|)
+block|{
 return|return
 name|NGX_AGAIN
 return|;
+block|}
 if|if
 condition|(
 name|ch
@@ -2563,9 +2583,11 @@ operator|)
 operator|!=
 literal|'/'
 condition|)
+block|{
 return|return
 name|NGX_HTTP_PROXY_PARSE_NO_HEADER
 return|;
+block|}
 name|p
 operator|+=
 literal|4
@@ -2589,9 +2611,11 @@ name|ch
 argument_list|>
 literal|'9'
 condition|)
+block|{
 return|return
 name|NGX_HTTP_PROXY_PARSE_NO_HEADER
 return|;
+block|}
 name|state
 operator|=
 name|sw_major_digit
@@ -2624,9 +2648,11 @@ name|ch
 argument_list|>
 literal|'9'
 condition|)
+block|{
 return|return
 name|NGX_HTTP_PROXY_PARSE_NO_HEADER
 return|;
+block|}
 break|break;
 comment|/* first digit of minor HTTP version */
 case|case
@@ -2642,9 +2668,11 @@ name|ch
 argument_list|>
 literal|'9'
 condition|)
+block|{
 return|return
 name|NGX_HTTP_PROXY_PARSE_NO_HEADER
 return|;
+block|}
 name|state
 operator|=
 name|sw_minor_digit
@@ -2677,9 +2705,11 @@ name|ch
 argument_list|>
 literal|'9'
 condition|)
+block|{
 return|return
 name|NGX_HTTP_PROXY_PARSE_NO_HEADER
 return|;
+block|}
 break|break;
 comment|/* HTTP status code */
 case|case
@@ -2695,9 +2725,11 @@ name|ch
 argument_list|>
 literal|'9'
 condition|)
+block|{
 return|return
 name|NGX_HTTP_PROXY_PARSE_NO_HEADER
 return|;
+block|}
 name|ctx
 operator|->
 name|status
@@ -2860,6 +2892,7 @@ name|request_end
 operator|==
 name|NULL
 condition|)
+block|{
 name|ctx
 operator|->
 name|request_end
@@ -2868,6 +2901,7 @@ name|p
 operator|-
 literal|1
 expr_stmt|;
+block|}
 name|ctx
 operator|->
 name|state

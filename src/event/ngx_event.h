@@ -274,7 +274,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2c6578b50103
+DECL|enum|__anon29c2d4b90103
 typedef|typedef
 enum|enum
 block|{
@@ -320,7 +320,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6578b50208
+DECL|struct|__anon29c2d4b90208
 typedef|typedef
 struct|struct
 block|{
@@ -414,7 +414,7 @@ typedef|;
 end_typedef
 
 begin_comment
-comment|/* NGX_LEVEL_EVENT (default)  select, poll, /dev/poll, kqueue                                 requires to read whole data NGX_ONESHOT_EVENT          select, poll, kqueue NGX_CLEAR_EVENT            kqueue NGX_AIO_EVENT              overlapped, aio_read, aioread                                 no need to add or delete events  NGX_CLOSE_EVENT            kqueue: kqueue deletes events for file that closed */
+comment|/* NGX_LEVEL_EVENT (default)  select, poll, /dev/poll, kqueue                                 requires to read whole data NGX_ONESHOT_EVENT          select, poll, /dev/poll(*), kqueue, epoll(*)                            (*) - additional syscall NGX_CLEAR_EVENT            kqueue, epoll NGX_AIO_EVENT              overlapped, aio_read, aioread                                 no need to add or delete events  NGX_CLOSE_EVENT            kqueue: kqueue deletes events for file that closed                            /dev/poll: need to flush events before closing */
 end_comment
 
 begin_define

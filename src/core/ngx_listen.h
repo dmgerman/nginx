@@ -43,7 +43,7 @@ file|<ngx_connection.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29d842f80108
+DECL|struct|__anon29558c6c0108
 typedef|typedef
 struct|struct
 block|{
@@ -61,9 +61,15 @@ DECL|member|socklen
 name|socklen_t
 name|socklen
 decl_stmt|;
+comment|/* size of sockaddr */
 DECL|member|addr
-name|size_t
+name|int
 name|addr
+decl_stmt|;
+comment|/* offset to address in sockaddr */
+DECL|member|addr_text_max_len
+name|int
+name|addr_text_max_len
 decl_stmt|;
 DECL|member|addr_text
 name|ngx_str_t
@@ -85,16 +91,7 @@ DECL|member|flags
 name|int
 name|flags
 decl_stmt|;
-DECL|member|log
-name|ngx_log_t
-modifier|*
-name|log
-decl_stmt|;
-DECL|member|server
-name|void
-modifier|*
-name|server
-decl_stmt|;
+comment|/* Winsock2 flags */
 DECL|member|handler
 name|int
 function_decl|(
@@ -107,6 +104,24 @@ modifier|*
 name|c
 parameter_list|)
 function_decl|;
+comment|/* handler of accepted                                                         connection */
+DECL|member|ctx
+name|void
+modifier|*
+name|ctx
+decl_stmt|;
+comment|/* ngx_http_conf_ctx_t, for example */
+DECL|member|servers
+name|void
+modifier|*
+name|servers
+decl_stmt|;
+comment|/* array of ngx_http_in_addr_t, for example */
+DECL|member|log
+name|ngx_log_t
+modifier|*
+name|log
+decl_stmt|;
 DECL|member|backlog
 name|int
 name|backlog
@@ -115,18 +130,21 @@ DECL|member|post_accept_timeout
 name|time_t
 name|post_accept_timeout
 decl_stmt|;
-DECL|member|done
+comment|/* should be here because                                                of the deferred accept */
+DECL|member|bound
 name|unsigned
-name|done
+name|bound
 range|:
 literal|1
 decl_stmt|;
+comment|/* already bound */
 DECL|member|inherited
 name|unsigned
 name|inherited
 range|:
 literal|1
 decl_stmt|;
+comment|/* inherited from previous process */
 DECL|member|nonblocking
 name|unsigned
 name|nonblocking
@@ -136,7 +154,8 @@ decl_stmt|;
 if|#
 directive|if
 literal|0
-block|unsigned      overlapped:1;
+block|unsigned          overlapped:1;
+comment|/* Winsock2 overlapped */
 endif|#
 directive|endif
 DECL|member|shared
@@ -164,6 +183,13 @@ block|}
 name|ngx_listen_t
 typedef|;
 end_typedef
+
+begin_decl_stmt
+specifier|extern
+name|ngx_array_t
+name|ngx_listening_sockets
+decl_stmt|;
+end_decl_stmt
 
 begin_endif
 endif|#

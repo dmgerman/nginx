@@ -85,7 +85,7 @@ name|min
 decl_stmt|,
 name|sec
 decl_stmt|;
-DECL|enum|__anon2af5e2ba0103
+DECL|enum|__anon2961b9510103
 enum|enum
 block|{
 DECL|enumerator|no
@@ -138,7 +138,9 @@ name|p
 operator|==
 literal|','
 condition|)
+block|{
 break|break;
+block|}
 if|if
 condition|(
 operator|*
@@ -173,7 +175,9 @@ name|p
 operator|!=
 literal|' '
 condition|)
+block|{
 break|break;
+block|}
 if|if
 condition|(
 name|end
@@ -182,9 +186,11 @@ name|p
 operator|<
 literal|18
 condition|)
+block|{
 return|return
 name|NGX_ERROR
 return|;
+block|}
 if|if
 condition|(
 name|fmt
@@ -222,9 +228,11 @@ operator|)
 operator|>
 literal|'9'
 condition|)
+block|{
 return|return
 name|NGX_ERROR
 return|;
+block|}
 name|day
 operator|=
 operator|(
@@ -265,9 +273,11 @@ name|p
 operator|<
 literal|18
 condition|)
+block|{
 return|return
 name|NGX_ERROR
 return|;
+block|}
 name|fmt
 operator|=
 name|rfc822
@@ -443,9 +453,11 @@ operator|!=
 literal|'-'
 operator|)
 condition|)
+block|{
 return|return
 name|NGX_ERROR
 return|;
+block|}
 name|p
 operator|++
 expr_stmt|;
@@ -522,9 +534,11 @@ operator|)
 operator|>
 literal|'9'
 condition|)
+block|{
 return|return
 name|NGX_ERROR
 return|;
+block|}
 name|year
 operator|=
 operator|(
@@ -613,9 +627,11 @@ operator|)
 operator|>
 literal|'9'
 condition|)
+block|{
 return|return
 name|NGX_ERROR
 return|;
+block|}
 name|year
 operator|=
 operator|(
@@ -667,9 +683,11 @@ name|p
 operator|==
 literal|' '
 condition|)
+block|{
 name|p
 operator|++
 expr_stmt|;
+block|}
 if|if
 condition|(
 operator|*
@@ -682,9 +700,11 @@ name|p
 argument_list|>
 literal|'9'
 condition|)
+block|{
 return|return
 name|NGX_ERROR
 return|;
+block|}
 name|day
 operator|=
 operator|*
@@ -713,9 +733,11 @@ name|p
 argument_list|>
 literal|'9'
 condition|)
+block|{
 return|return
 name|NGX_ERROR
 return|;
+block|}
 name|day
 operator|=
 name|day
@@ -737,9 +759,11 @@ name|p
 operator|<
 literal|14
 condition|)
+block|{
 return|return
 name|NGX_ERROR
 return|;
+block|}
 block|}
 if|if
 condition|(
@@ -749,9 +773,11 @@ operator|++
 operator|!=
 literal|' '
 condition|)
+block|{
 return|return
 name|NGX_ERROR
 return|;
+block|}
 if|if
 condition|(
 operator|*
@@ -782,9 +808,11 @@ operator|)
 operator|>
 literal|'9'
 condition|)
+block|{
 return|return
 name|NGX_ERROR
 return|;
+block|}
 name|hour
 operator|=
 operator|(
@@ -817,9 +845,11 @@ operator|++
 operator|!=
 literal|':'
 condition|)
+block|{
 return|return
 name|NGX_ERROR
 return|;
+block|}
 if|if
 condition|(
 operator|*
@@ -850,9 +880,11 @@ operator|)
 operator|>
 literal|'9'
 condition|)
+block|{
 return|return
 name|NGX_ERROR
 return|;
+block|}
 name|min
 operator|=
 operator|(
@@ -885,9 +917,11 @@ operator|++
 operator|!=
 literal|':'
 condition|)
+block|{
 return|return
 name|NGX_ERROR
 return|;
+block|}
 if|if
 condition|(
 operator|*
@@ -918,9 +952,11 @@ operator|)
 operator|>
 literal|'9'
 condition|)
+block|{
 return|return
 name|NGX_ERROR
 return|;
+block|}
 name|sec
 operator|=
 operator|(
@@ -960,9 +996,11 @@ operator|++
 operator|!=
 literal|' '
 condition|)
+block|{
 return|return
 name|NGX_ERROR
 return|;
+block|}
 if|if
 condition|(
 operator|*
@@ -1029,9 +1067,11 @@ operator|)
 operator|>
 literal|'9'
 condition|)
+block|{
 return|return
 name|NGX_ERROR
 return|;
+block|}
 name|year
 operator|=
 operator|(
@@ -1099,9 +1139,11 @@ name|sec
 operator|>
 literal|59
 condition|)
+block|{
 return|return
 name|NGX_ERROR
 return|;
+block|}
 if|if
 condition|(
 name|day
@@ -1139,9 +1181,11 @@ operator|!=
 literal|0
 operator|)
 condition|)
+block|{
 return|return
 name|NGX_ERROR
 return|;
+block|}
 block|}
 if|else if
 condition|(
@@ -1170,9 +1214,11 @@ name|year
 operator|>=
 literal|2038
 condition|)
+block|{
 return|return
 name|NGX_ERROR
 return|;
+block|}
 comment|/* shift new year to 1st March, needed for Gauss's formula */
 if|if
 condition|(

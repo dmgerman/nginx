@@ -50,6 +50,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_http_core_module.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_http_index_handler.h>
 end_include
 
@@ -68,7 +74,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|void
+name|char
 modifier|*
 name|ngx_http_index_merge_conf
 parameter_list|(
@@ -194,6 +200,9 @@ name|ngx_module_t
 name|ngx_http_index_module
 init|=
 block|{
+literal|0
+block|,
+comment|/* module index */
 operator|&
 name|ngx_http_index_module_ctx
 block|,
@@ -246,6 +255,10 @@ name|ngx_http_index_conf_t
 modifier|*
 name|cf
 decl_stmt|;
+name|ngx_http_core_loc_conf_t
+modifier|*
+name|core_cf
+decl_stmt|;
 name|cf
 operator|=
 operator|(
@@ -259,6 +272,19 @@ argument_list|,
 name|ngx_http_index_module_ctx
 argument_list|)
 expr_stmt|;
+name|core_cf
+operator|=
+operator|(
+name|ngx_http_core_loc_conf_t
+operator|*
+operator|)
+name|ngx_http_get_module_loc_conf
+argument_list|(
+name|r
+argument_list|,
+name|ngx_http_core_module_ctx
+argument_list|)
+expr_stmt|;
 name|ngx_test_null
 argument_list|(
 name|name
@@ -269,11 +295,11 @@ name|r
 operator|->
 name|pool
 argument_list|,
-name|r
+name|core_cf
 operator|->
-name|server
-operator|->
-name|doc_root_len
+name|doc_root
+operator|.
+name|len
 operator|+
 name|r
 operator|->
@@ -297,17 +323,19 @@ name|ngx_cpystrn
 argument_list|(
 name|name
 argument_list|,
-name|r
-operator|->
-name|server
+name|core_cf
 operator|->
 name|doc_root
+operator|.
+name|data
 argument_list|,
-name|r
+name|core_cf
 operator|->
-name|server
-operator|->
-name|doc_root_len
+name|doc_root
+operator|.
+name|len
+operator|+
+literal|1
 argument_list|)
 expr_stmt|;
 name|file
@@ -459,11 +487,11 @@ name|name
 operator|.
 name|len
 operator|=
-name|r
+name|core_cf
 operator|->
-name|server
-operator|->
-name|doc_root_len
+name|doc_root
+operator|.
+name|len
 operator|+
 name|r
 operator|->
@@ -558,7 +586,7 @@ name|ngx_http_index_conf_t
 argument_list|)
 argument_list|)
 argument_list|,
-name|NULL
+name|NGX_CONF_ERROR
 argument_list|)
 expr_stmt|;
 name|ngx_test_null
@@ -579,7 +607,7 @@ argument_list|,
 literal|3
 argument_list|)
 argument_list|,
-name|NULL
+name|NGX_CONF_ERROR
 argument_list|)
 expr_stmt|;
 return|return
@@ -591,7 +619,7 @@ end_function
 begin_function
 DECL|function|ngx_http_index_merge_conf (ngx_pool_t * p,void * parent,void * child)
 specifier|static
-name|void
+name|char
 modifier|*
 name|ngx_http_index_merge_conf
 parameter_list|(
@@ -632,28 +660,6 @@ name|ngx_str_t
 modifier|*
 name|index
 decl_stmt|;
-if|if
-condition|(
-name|conf
-operator|->
-name|max_index_len
-operator|==
-literal|0
-condition|)
-block|{
-if|if
-condition|(
-name|prev
-operator|->
-name|max_index_len
-operator|!=
-literal|0
-condition|)
-block|{
-return|return
-name|prev
-return|;
-block|}
 name|ngx_test_null
 argument_list|(
 name|index
@@ -665,7 +671,7 @@ operator|->
 name|indices
 argument_list|)
 argument_list|,
-name|NULL
+name|NGX_CONF_ERROR
 argument_list|)
 expr_stmt|;
 name|index
@@ -694,12 +700,23 @@ argument_list|(
 name|NGX_HTTP_INDEX
 argument_list|)
 expr_stmt|;
-block|}
 return|return
-name|conf
+name|NULL
 return|;
 block|}
 end_function
+
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
+begin_endif
+unit|static char *ngx_http_index_merge_conf(ngx_pool_t *p, void *parent, void *child) {     ngx_http_index_conf_t *prev = (ngx_http_index_conf_t *) parent;     ngx_http_index_conf_t *conf = (ngx_http_index_conf_t *) child;     ngx_str_t  *index;      if (conf->max_index_len == 0) {         if (prev->max_index_len != 0) {             return prev;         }          ngx_test_null(index, ngx_push_array(conf->indices), NULL);         index->len = sizeof(NGX_HTTP_INDEX) - 1;         index->data = NGX_HTTP_INDEX;         conf->max_index_len = sizeof(NGX_HTTP_INDEX);     }      return conf; }
+endif|#
+directive|endif
+end_endif
 
 begin_function
 DECL|function|ngx_http_index_set_index (ngx_conf_t * cf,ngx_command_t * cmd,char * conf)

@@ -164,7 +164,6 @@ end_decl_stmt
 begin_decl_stmt
 DECL|variable|ngx_listening_sockets
 name|ngx_array_t
-modifier|*
 name|ngx_listening_sockets
 decl_stmt|;
 end_decl_stmt
@@ -230,10 +229,22 @@ operator|&
 name|ngx_log
 argument_list|)
 expr_stmt|;
-comment|/* TODO: read config */
-if|#
-directive|if
+name|ngx_init_array
+argument_list|(
+name|ngx_listening_sockets
+argument_list|,
+name|ngx_pool
+argument_list|,
+literal|10
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|ngx_listen_t
+argument_list|)
+argument_list|,
 literal|1
+argument_list|)
+expr_stmt|;
 name|ngx_memzero
 argument_list|(
 operator|&
@@ -302,6 +313,8 @@ name|data
 operator|=
 literal|"nginx.conf"
 expr_stmt|;
+if|if
+condition|(
 name|ngx_conf_parse
 argument_list|(
 operator|&
@@ -310,38 +323,24 @@ argument_list|,
 operator|&
 name|conf_file
 argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-name|ngx_test_null
+operator|!=
+name|NGX_CONF_OK
+condition|)
+block|{
+name|exit
 argument_list|(
-name|ngx_listening_sockets
-argument_list|,
-name|ngx_create_array
-argument_list|(
-name|ngx_pool
-argument_list|,
-literal|10
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|ngx_listen_t
-argument_list|)
-argument_list|)
-argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
+block|}
+if|#
+directive|if
+literal|0
 comment|/* STUB */
 comment|/* TODO: init chain of global modules (like ngx_http.c),        they would init its modules and ngx_listening_sockets */
-name|ngx_http_init
-argument_list|(
-name|ngx_pool
-argument_list|,
-operator|&
-name|ngx_log
-argument_list|)
-expr_stmt|;
+block_content|ngx_http_init(ngx_pool,&ngx_log);
+endif|#
+directive|endif
 name|ngx_open_listening_sockets
 argument_list|(
 operator|&
@@ -352,6 +351,7 @@ comment|/* TODO: daemon */
 comment|/* TODO: fork */
 name|ngx_pre_thread
 argument_list|(
+operator|&
 name|ngx_listening_sockets
 argument_list|,
 name|ngx_pool
@@ -523,7 +523,7 @@ name|ngx_listen_t
 operator|*
 operator|)
 name|ngx_listening_sockets
-operator|->
+operator|.
 name|elts
 expr_stmt|;
 for|for
@@ -535,7 +535,7 @@ init|;
 name|i
 operator|<
 name|ngx_listening_sockets
-operator|->
+operator|.
 name|nelts
 condition|;
 name|i
@@ -549,7 +549,7 @@ index|[
 name|i
 index|]
 operator|.
-name|done
+name|bound
 condition|)
 continue|continue;
 if|if
@@ -570,7 +570,7 @@ index|[
 name|i
 index|]
 operator|.
-name|done
+name|bound
 operator|=
 literal|1
 expr_stmt|;
@@ -904,7 +904,7 @@ index|[
 name|i
 index|]
 operator|.
-name|done
+name|bound
 operator|=
 literal|1
 expr_stmt|;

@@ -25,7 +25,7 @@ file|<ngx_alloc.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon274ea5620108
+DECL|struct|__anon2b56a0020108
 typedef|typedef
 struct|struct
 block|{
@@ -97,6 +97,26 @@ name|a
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_define
+DECL|macro|ngx_init_array (a,p,n,s,rc)
+define|#
+directive|define
+name|ngx_init_array
+parameter_list|(
+name|a
+parameter_list|,
+name|p
+parameter_list|,
+name|n
+parameter_list|,
+name|s
+parameter_list|,
+name|rc
+parameter_list|)
+define|\
+value|ngx_test_null(a.elts, ngx_palloc(p, n * s), rc);                         \     a.nelts = 0; a.size = s; a.nalloc = n; a.pool = p;
+end_define
 
 begin_endif
 endif|#

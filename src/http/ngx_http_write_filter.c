@@ -60,6 +60,27 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_function_decl
+specifier|static
+name|char
+modifier|*
+name|ngx_http_write_filter_merge_conf
+parameter_list|(
+name|ngx_pool_t
+modifier|*
+name|pool
+parameter_list|,
+name|void
+modifier|*
+name|parent
+parameter_list|,
+name|void
+modifier|*
+name|child
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_decl_stmt
 DECL|variable|ngx_http_write_filter_commands
 specifier|static
@@ -74,11 +95,15 @@ argument_list|(
 literal|"write_buffer"
 argument_list|)
 block|,
+name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_CONF_BLOCK
+operator||
 name|NGX_CONF_TAKE1
 block|,
 name|ngx_conf_set_size_slot
 block|,
-name|NGX_HTTP_LOC_CONF
+name|NGX_HTTP_LOC_CONF_OFFSET
 block|,
 name|offsetof
 argument_list|(
@@ -123,7 +148,7 @@ comment|/* init server config */
 name|ngx_http_write_filter_create_conf
 block|,
 comment|/* create location config */
-name|NULL
+name|ngx_http_write_filter_merge_conf
 block|,
 comment|/* merge location config */
 name|NULL
@@ -151,6 +176,9 @@ name|ngx_module_t
 name|ngx_http_write_filter_module
 init|=
 block|{
+literal|0
+block|,
+comment|/* module index */
 operator|&
 name|ngx_http_write_filter_module_ctx
 block|,
@@ -311,16 +339,23 @@ name|pos
 operator|.
 name|file
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_DEBUG_WRITE_FILTER
+operator|)
 name|ngx_log_debug
 argument_list|(
 argument|r->connection->log
 argument_list|,
-literal|"old chunk: %x "
+literal|"write filter: old chunk: %x "
 argument|QX_FMT
 literal|" "
 argument|QD_FMT _                       ch->hunk->type _ ch->hunk->pos.file _                       ch->hunk->last.file - ch->hunk->pos.file
 argument_list|)
 empty_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|ch
@@ -435,16 +470,23 @@ name|pos
 operator|.
 name|file
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_DEBUG_WRITE_FILTER
+operator|)
 name|ngx_log_debug
 argument_list|(
 argument|r->connection->log
 argument_list|,
-literal|"new chunk: %x "
+literal|"write filter: new chunk: %x "
 argument|QX_FMT
 literal|" "
 argument|QD_FMT _                       ch->hunk->type _ ch->hunk->pos.file _                       ch->hunk->last.file - ch->hunk->pos.file
 argument_list|)
 empty_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|ch
@@ -503,14 +545,21 @@ argument_list|,
 name|ngx_http_write_filter_module_ctx
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_DEBUG_WRITE_FILTER
+operator|)
 name|ngx_log_debug
 argument_list|(
 argument|r->connection->log
 argument_list|,
-literal|"l:%d f:%d"
-argument|_ last _ flush
+literal|"write filter: last:%d flush:%d"
+argument|_                   last _ flush
 argument_list|)
 empty_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 operator|!
@@ -629,6 +678,65 @@ name|NGX_CONF_UNSET
 expr_stmt|;
 return|return
 name|conf
+return|;
+block|}
+end_function
+
+begin_function
+DECL|function|ngx_http_write_filter_merge_conf (ngx_pool_t * pool,void * parent,void * child)
+specifier|static
+name|char
+modifier|*
+name|ngx_http_write_filter_merge_conf
+parameter_list|(
+name|ngx_pool_t
+modifier|*
+name|pool
+parameter_list|,
+name|void
+modifier|*
+name|parent
+parameter_list|,
+name|void
+modifier|*
+name|child
+parameter_list|)
+block|{
+name|ngx_http_write_filter_conf_t
+modifier|*
+name|prev
+init|=
+operator|(
+name|ngx_http_write_filter_conf_t
+operator|*
+operator|)
+name|parent
+decl_stmt|;
+name|ngx_http_write_filter_conf_t
+modifier|*
+name|conf
+init|=
+operator|(
+name|ngx_http_write_filter_conf_t
+operator|*
+operator|)
+name|child
+decl_stmt|;
+name|ngx_conf_merge
+argument_list|(
+name|conf
+operator|->
+name|buffer_output
+argument_list|,
+name|prev
+operator|->
+name|buffer_output
+argument_list|,
+literal|1460
+argument_list|)
+expr_stmt|;
+return|return
+name|NULL
 return|;
 block|}
 end_function

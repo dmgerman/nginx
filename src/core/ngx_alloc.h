@@ -52,7 +52,7 @@ name|alloc
 parameter_list|,
 name|rc
 parameter_list|)
-value|if ((p = alloc) == NULL) return rc
+value|if ((p = alloc) == NULL) { return rc; }
 end_define
 
 begin_typedef
