@@ -24,7 +24,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bf8bdef0108
+DECL|struct|__anon2926fb780108
 typedef|typedef
 struct|struct
 block|{
@@ -45,7 +45,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf8bdef0208
+DECL|struct|__anon2926fb780208
 typedef|typedef
 struct|struct
 block|{
@@ -692,6 +692,9 @@ name|connection
 operator|->
 name|write
 argument_list|,
+operator|(
+name|ngx_msec_t
+operator|)
 name|sent
 operator|*
 literal|1000

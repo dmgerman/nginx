@@ -127,16 +127,9 @@ begin_comment
 comment|/* disable some "-W4" level warnings */
 end_comment
 
-begin_pragma
-pragma|#
-directive|pragma
-name|warning
-name|(
-name|disable
-name|:
-name|4054
-name|)
-end_pragma
+begin_comment
+comment|/* disable warnings about some 'type cast */
+end_comment
 
 begin_pragma
 pragma|#
@@ -175,6 +168,10 @@ name|4100
 name|)
 end_pragma
 
+begin_comment
+comment|/* conditional expression is constant */
+end_comment
+
 begin_pragma
 pragma|#
 directive|pragma
@@ -185,6 +182,10 @@ name|:
 name|4127
 name|)
 end_pragma
+
+begin_comment
+comment|/* nonstandard extension used : bit field types other than int */
+end_comment
 
 begin_pragma
 pragma|#
@@ -197,6 +198,10 @@ name|4214
 name|)
 end_pragma
 
+begin_comment
+comment|/* unreachable code */
+end_comment
+
 begin_pragma
 pragma|#
 directive|pragma
@@ -208,6 +213,10 @@ name|4702
 name|)
 end_pragma
 
+begin_comment
+comment|/* assignment within conditional expression */
+end_comment
+
 begin_pragma
 pragma|#
 directive|pragma
@@ -216,6 +225,21 @@ name|(
 name|disable
 name|:
 name|4706
+name|)
+end_pragma
+
+begin_comment
+comment|/* disable "function 'ngx_handle_write_event' not inlined" */
+end_comment
+
+begin_pragma
+pragma|#
+directive|pragma
+name|warning
+name|(
+name|disable
+name|:
+name|4710
 name|)
 end_pragma
 
@@ -620,6 +644,14 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_define
+DECL|macro|OFF_T_MAX_VALUE
+define|#
+directive|define
+name|OFF_T_MAX_VALUE
+value|9223372036854775807
+end_define
 
 begin_comment
 comment|/* STUB */
