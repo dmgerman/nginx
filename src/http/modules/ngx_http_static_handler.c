@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28a42c550108
+DECL|struct|__anon274e9f780108
 typedef|typedef
 struct|struct
 block|{
@@ -1983,6 +1983,24 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_length_n
+operator|==
+literal|0
+condition|)
+block|{
+name|r
+operator|->
+name|header_only
+operator|=
+literal|1
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|ngx_http_set_content_type
 argument_list|(
 name|r
@@ -1995,6 +2013,25 @@ return|return
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
 block|}
+if|#
+directive|if
+operator|(
+name|NGX_SUPPRESS_WARN
+operator|)
+name|b
+operator|=
+name|NULL
+expr_stmt|;
+endif|#
+directive|endif
+if|if
+condition|(
+operator|!
+name|r
+operator|->
+name|header_only
+condition|)
+block|{
 comment|/* we need to allocate all before the header would be sent */
 if|if
 condition|(
@@ -2052,6 +2089,7 @@ name|filter_allow_ranges
 operator|=
 literal|1
 expr_stmt|;
+block|}
 name|rc
 operator|=
 name|ngx_http_send_header
