@@ -36,7 +36,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon28a06a2e0108
+DECL|struct|__anon29bab8930108
 typedef|typedef
 struct|struct
 block|{
@@ -410,10 +410,17 @@ name|struct
 name|timeval
 name|tv
 decl_stmt|;
+name|ngx_err_t
+name|err
+decl_stmt|;
 name|ngx_signal_t
 modifier|*
 name|sig
 decl_stmt|;
+name|err
+operator|=
+name|ngx_errno
+expr_stmt|;
 for|for
 control|(
 name|sig
@@ -552,6 +559,11 @@ literal|1
 expr_stmt|;
 break|break;
 block|}
+name|ngx_set_errno
+argument_list|(
+name|err
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 

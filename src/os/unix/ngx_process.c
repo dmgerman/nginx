@@ -1021,18 +1021,6 @@ block|}
 block|}
 end_function
 
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-
-begin_endif
-unit|void ngx_sigchld_handler(int signo) {     int              status;     char            *process;     ngx_pid_t        pid;     ngx_err_t        err;     ngx_uint_t       i, one;     struct timeval   tv;      ngx_gettimeofday(&tv);     ngx_time_update(tv.tv_sec);      ngx_log_error(NGX_LOG_INFO, ngx_cycle->log, 0,                   "signal #%d (SIGCHLD) received", signo); }
-endif|#
-directive|endif
-end_endif
-
 begin_function
 DECL|function|ngx_process_get_status ()
 name|void

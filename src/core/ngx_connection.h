@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27cc7eb90108
+DECL|struct|__anon2c04696b0108
 typedef|typedef
 struct|struct
 block|{
@@ -334,11 +334,6 @@ parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
-parameter_list|,
-name|char
-modifier|*
-modifier|*
-name|envp
 parameter_list|)
 function_decl|;
 end_function_decl
