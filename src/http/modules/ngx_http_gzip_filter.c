@@ -24,7 +24,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29ac9bbf0108
+DECL|struct|__anon276ea4870108
 typedef|typedef
 struct|struct
 block|{
@@ -143,7 +143,7 @@ value|0x0200
 end_define
 
 begin_typedef
-DECL|struct|__anon29ac9bbf0208
+DECL|struct|__anon276ea4870208
 typedef|typedef
 struct|struct
 block|{
@@ -2312,10 +2312,6 @@ name|zstream
 operator|.
 name|next_in
 operator|=
-operator|(
-name|u_char
-operator|*
-operator|)
 name|ctx
 operator|->
 name|in_hunk
@@ -2540,10 +2536,6 @@ name|zstream
 operator|.
 name|next_out
 operator|=
-operator|(
-name|u_char
-operator|*
-operator|)
 name|ctx
 operator|->
 name|out_hunk

@@ -41,6 +41,14 @@ value|ENOENT
 end_define
 
 begin_define
+DECL|macro|NGX_ESRCH
+define|#
+directive|define
+name|NGX_ESRCH
+value|ESRCH
+end_define
+
+begin_define
 DECL|macro|NGX_EINTR
 define|#
 directive|define
