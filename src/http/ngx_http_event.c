@@ -4728,10 +4728,9 @@ modifier|*
 name|r
 parameter_list|)
 block|{
-name|size_t
-name|size
-decl_stmt|;
 name|ssize_t
+name|size
+decl_stmt|,
 name|n
 decl_stmt|;
 name|ngx_http_core_loc_conf_t
@@ -5915,10 +5914,6 @@ block|{
 comment|/* TODO: r->header_in->start (if large headers are enabled)                  or the end of parsed header (otherwise)                  instead of r->header_in->last */
 if|if
 condition|(
-operator|(
-name|size_t
-operator|)
-operator|(
 name|r
 operator|->
 name|header_in
@@ -5930,7 +5925,6 @@ operator|->
 name|header_in
 operator|->
 name|last
-operator|)
 operator|>=
 name|clcf
 operator|->

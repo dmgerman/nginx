@@ -2313,6 +2313,15 @@ operator|=
 name|inport
 expr_stmt|;
 comment|/* prepare for the next cycle */
+name|in_port
+index|[
+name|p
+index|]
+operator|.
+name|addrs
+operator|.
+name|elts
+operator|=
 operator|(
 name|char
 operator|*
@@ -2325,7 +2334,7 @@ operator|.
 name|addrs
 operator|.
 name|elts
-operator|+=
+operator|+
 name|in_port
 index|[
 name|p

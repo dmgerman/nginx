@@ -252,16 +252,21 @@ begin_comment
 comment|/* #define NGX_MAXHOSTNAMELEN MAXHOSTNAMELEN */
 end_comment
 
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
 begin_comment
 comment|/* STUB */
 end_comment
 
-begin_decl_stmt
-specifier|extern
-name|ngx_log_t
-name|ngx_log
-decl_stmt|;
-end_decl_stmt
+begin_endif
+unit|extern ngx_log_t  ngx_log;
+endif|#
+directive|endif
+end_endif
 
 begin_endif
 endif|#

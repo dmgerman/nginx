@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a42aa0b0108
+DECL|struct|__anon27c698ed0108
 typedef|typedef
 struct|struct
 block|{
@@ -33,7 +33,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a42aa0b0208
+DECL|struct|__anon27c698ed0208
 typedef|typedef
 struct|struct
 block|{
@@ -246,7 +246,7 @@ block|{
 name|int
 name|rc
 decl_stmt|;
-name|size_t
+name|ssize_t
 name|size
 decl_stmt|;
 name|ngx_chain_t

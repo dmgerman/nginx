@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a0928b20108
+DECL|struct|__anon2c52ce430108
 typedef|typedef
 struct|struct
 block|{
@@ -67,7 +67,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a0928b20208
+DECL|struct|__anon2c52ce430208
 typedef|typedef
 struct|struct
 block|{
@@ -83,7 +83,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a0928b20308
+DECL|struct|__anon2c52ce430308
 typedef|typedef
 struct|struct
 block|{
@@ -117,7 +117,7 @@ name|ssize_t
 name|connection_pool_size
 decl_stmt|;
 DECL|member|request_pool_size
-name|size_t
+name|ssize_t
 name|request_pool_size
 decl_stmt|;
 DECL|member|client_header_timeout
@@ -125,7 +125,7 @@ name|ngx_msec_t
 name|client_header_timeout
 decl_stmt|;
 DECL|member|client_header_buffer_size
-name|size_t
+name|ssize_t
 name|client_header_buffer_size
 decl_stmt|;
 DECL|member|large_client_header
@@ -143,7 +143,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2a0928b20408
+DECL|struct|__anon2c52ce430408
 typedef|typedef
 struct|struct
 block|{
@@ -167,7 +167,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a0928b20508
+DECL|struct|__anon2c52ce430508
 typedef|typedef
 struct|struct
 block|{
@@ -209,7 +209,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2a0928b20608
+DECL|struct|__anon2c52ce430608
 typedef|typedef
 struct|struct
 block|{
@@ -252,7 +252,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon2a0928b20708
+DECL|struct|__anon2c52ce430708
 typedef|typedef
 struct|struct
 block|{
@@ -271,7 +271,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a0928b20808
+DECL|struct|__anon2c52ce430808
 typedef|typedef
 struct|struct
 block|{
@@ -324,12 +324,12 @@ name|send_timeout
 decl_stmt|;
 comment|/* send_timeout */
 DECL|member|send_lowat
-name|size_t
+name|ssize_t
 name|send_lowat
 decl_stmt|;
 comment|/* send_lowat */
 DECL|member|discarded_buffer_size
-name|size_t
+name|ssize_t
 name|discarded_buffer_size
 decl_stmt|;
 comment|/* discarded_buffer_size */

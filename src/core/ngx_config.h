@@ -141,16 +141,26 @@ DECL|macro|NGX_ALIGN
 define|#
 directive|define
 name|NGX_ALIGN
-value|(4 - 1)
+value|(sizeof(unsigned long) - 1)
 end_define
 
+begin_comment
+DECL|macro|NGX_ALIGN
+comment|/* platform word */
+end_comment
+
 begin_define
-DECL|macro|NGX_ALIGN_TYPE
+DECL|macro|NGX_ALIGN_CAST
 define|#
 directive|define
-name|NGX_ALIGN_TYPE
-value|(unsigned int)
+name|NGX_ALIGN_CAST
+value|(unsigned long)
 end_define
+
+begin_comment
+DECL|macro|NGX_ALIGN_CAST
+comment|/* size of the pointer */
+end_comment
 
 begin_define
 DECL|macro|ngx_align (p)
@@ -160,7 +170,7 @@ name|ngx_align
 parameter_list|(
 name|p
 parameter_list|)
-value|(char *) ((NGX_ALIGN_TYPE p + NGX_ALIGN)& ~NGX_ALIGN)
+value|(char *) ((NGX_ALIGN_CAST p + NGX_ALIGN)& ~NGX_ALIGN)
 end_define
 
 begin_comment
@@ -224,7 +234,7 @@ DECL|macro|INADDR_NONE
 define|#
 directive|define
 name|INADDR_NONE
-value|((unsigned long) -1)
+value|((unsigned int) -1)
 end_define
 
 begin_endif
@@ -237,6 +247,10 @@ ifndef|#
 directive|ifndef
 name|INET_ADDRSTRLEN
 end_ifndef
+
+begin_comment
+comment|/* Win32 */
+end_comment
 
 begin_define
 DECL|macro|INET_ADDRSTRLEN

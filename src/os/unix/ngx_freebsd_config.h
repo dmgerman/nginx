@@ -128,30 +128,6 @@ directive|include
 file|<osreldate.h>
 end_include
 
-begin_comment
-comment|/* STUB */
-end_comment
-
-begin_define
-DECL|macro|QD_FMT
-define|#
-directive|define
-name|QD_FMT
-value|"%lld"
-end_define
-
-begin_define
-DECL|macro|QX_FMT
-define|#
-directive|define
-name|QX_FMT
-value|"%llx"
-end_define
-
-begin_comment
-comment|/**/
-end_comment
-
 begin_if
 if|#
 directive|if
@@ -188,6 +164,10 @@ begin_else
 else|#
 directive|else
 end_else
+
+begin_comment
+comment|/* amd64, alpha, sparc64, ia64 */
+end_comment
 
 begin_define
 DECL|macro|OFF_FMT

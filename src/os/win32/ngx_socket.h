@@ -32,14 +32,6 @@ name|NGX_WRITE_SHUTDOWN
 value|SD_SEND
 end_define
 
-begin_define
-DECL|macro|INET_ADDRSTRLEN
-define|#
-directive|define
-name|INET_ADDRSTRLEN
-value|16
-end_define
-
 begin_typedef
 DECL|typedef|ngx_socket_t
 typedef|typedef
