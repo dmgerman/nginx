@@ -449,7 +449,7 @@ name|event_handler
 operator|=
 name|ngx_http_init_request
 expr_stmt|;
-comment|/* STUB: epoll edge */
+comment|/* STUB: epoll */
 name|c
 operator|->
 name|write
@@ -5372,18 +5372,6 @@ name|c
 operator|->
 name|buffer
 expr_stmt|;
-name|wev
-operator|=
-name|c
-operator|->
-name|write
-expr_stmt|;
-name|wev
-operator|->
-name|event_handler
-operator|=
-name|ngx_http_empty_handler
-expr_stmt|;
 if|if
 condition|(
 name|h
@@ -5510,6 +5498,18 @@ operator|->
 name|event_handler
 operator|=
 name|ngx_http_keepalive_handler
+expr_stmt|;
+name|wev
+operator|=
+name|c
+operator|->
+name|write
+expr_stmt|;
+name|wev
+operator|->
+name|event_handler
+operator|=
+name|ngx_http_empty_handler
 expr_stmt|;
 if|if
 condition|(
