@@ -217,11 +217,11 @@ name|flush
 decl_stmt|;
 name|ngx_chain_t
 modifier|*
-name|ch
+name|ce
 decl_stmt|,
 modifier|*
 modifier|*
-name|prev
+name|le
 decl_stmt|,
 modifier|*
 name|chain
@@ -287,41 +287,41 @@ name|last
 operator|=
 literal|0
 expr_stmt|;
-name|prev
+name|le
 operator|=
 operator|&
 name|ctx
 operator|->
 name|out
 expr_stmt|;
-comment|/* find size, flush point and last link of saved chain */
+comment|/* find the size, the flush point and the last entry of saved chain */
 for|for
 control|(
-name|ch
+name|ce
 operator|=
 name|ctx
 operator|->
 name|out
 init|;
-name|ch
+name|ce
 condition|;
-name|ch
+name|ce
 operator|=
-name|ch
+name|ce
 operator|->
 name|next
 control|)
 block|{
-name|prev
+name|le
 operator|=
 operator|&
-name|ch
+name|ce
 operator|->
 name|next
 expr_stmt|;
 name|size
 operator|+=
-name|ch
+name|ce
 operator|->
 name|hunk
 operator|->
@@ -329,7 +329,7 @@ name|last
 operator|.
 name|file
 operator|-
-name|ch
+name|ce
 operator|->
 name|hunk
 operator|->
@@ -340,7 +340,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_DEBUG_WRITE_FILTER
+name|NGX_DEBUG_WRITE_FILTER0
 operator|)
 name|ngx_log_debug
 argument_list|(
@@ -349,14 +349,14 @@ argument_list|,
 literal|"write filter: old chunk: %x "
 argument|QX_FMT
 literal|" "
-argument|QD_FMT _                       ch->hunk->type _ ch->hunk->pos.file _                       ch->hunk->last.file - ch->hunk->pos.file
+argument|QD_FMT _                       ce->hunk->type _ ce->hunk->pos.file _                       ce->hunk->last.file - ce->hunk->pos.file
 argument_list|)
 empty_stmt|;
 endif|#
 directive|endif
 if|if
 condition|(
-name|ch
+name|ce
 operator|->
 name|hunk
 operator|->
@@ -376,7 +376,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|ch
+name|ce
 operator|->
 name|hunk
 operator|->
@@ -391,7 +391,7 @@ literal|1
 expr_stmt|;
 block|}
 block|}
-comment|/* add new chain to existent one */
+comment|/* add the new chain to the existent one */
 for|for
 control|(
 comment|/* void */
@@ -407,7 +407,7 @@ control|)
 block|{
 name|ngx_test_null
 argument_list|(
-name|ch
+name|ce
 argument_list|,
 name|ngx_palloc
 argument_list|(
@@ -424,7 +424,7 @@ argument_list|,
 name|NGX_ERROR
 argument_list|)
 expr_stmt|;
-name|ch
+name|ce
 operator|->
 name|hunk
 operator|=
@@ -432,27 +432,27 @@ name|in
 operator|->
 name|hunk
 expr_stmt|;
-name|ch
+name|ce
 operator|->
 name|next
 operator|=
 name|NULL
 expr_stmt|;
 operator|*
-name|prev
+name|le
 operator|=
-name|ch
+name|ce
 expr_stmt|;
-name|prev
+name|le
 operator|=
 operator|&
-name|ch
+name|ce
 operator|->
 name|next
 expr_stmt|;
 name|size
 operator|+=
-name|ch
+name|ce
 operator|->
 name|hunk
 operator|->
@@ -460,7 +460,7 @@ name|last
 operator|.
 name|file
 operator|-
-name|ch
+name|ce
 operator|->
 name|hunk
 operator|->
@@ -471,23 +471,23 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_DEBUG_WRITE_FILTER
+name|NGX_DEBUG_WRITE_FILTER0
 operator|)
 name|ngx_log_debug
 argument_list|(
 argument|r->connection->log
 argument_list|,
-literal|"write filter: new chunk: %x "
+literal|"write filter: new hunk: %x "
 argument|QX_FMT
 literal|" "
-argument|QD_FMT _                       ch->hunk->type _ ch->hunk->pos.file _                       ch->hunk->last.file - ch->hunk->pos.file
+argument|QD_FMT _                       ce->hunk->type _ ce->hunk->pos.file _                       ce->hunk->last.file - ce->hunk->pos.file
 argument_list|)
 empty_stmt|;
 endif|#
 directive|endif
 if|if
 condition|(
-name|ch
+name|ce
 operator|->
 name|hunk
 operator|->
@@ -507,7 +507,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|ch
+name|ce
 operator|->
 name|hunk
 operator|->
@@ -546,7 +546,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_DEBUG_WRITE_FILTER
+name|NGX_DEBUG_WRITE_FILTER0
 operator|)
 name|ngx_log_debug
 argument_list|(
@@ -558,6 +558,7 @@ argument_list|)
 empty_stmt|;
 endif|#
 directive|endif
+comment|/* avoid the output if there is no last hunk, no flush point and        size of the hunks is smaller then 'write_buffer' */
 if|if
 condition|(
 operator|!
@@ -593,16 +594,26 @@ argument_list|,
 name|flush
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_DEBUG_WRITE_FILTER
+operator|)
+name|ngx_log_debug
+argument_list|(
+argument|r->connection->log
+argument_list|,
+literal|"write filter %x"
+argument|_ chain
+argument_list|)
+empty_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|chain
 operator|==
-operator|(
-name|ngx_chain_t
-operator|*
-operator|)
-operator|-
-literal|1
+name|NGX_CHAIN_ERROR
 condition|)
 block|{
 return|return
@@ -615,23 +626,23 @@ name|out
 operator|=
 name|chain
 expr_stmt|;
-name|ngx_log_debug
-argument_list|(
-argument|r->connection->log
-argument_list|,
-literal|"write filter %x"
-argument|_ chain
-argument_list|)
-empty_stmt|;
-return|return
-operator|(
+if|if
+condition|(
 name|chain
-condition|?
-name|NGX_AGAIN
-else|:
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
 name|NGX_OK
-operator|)
 return|;
+block|}
+else|else
+block|{
+return|return
+name|NGX_AGAIN
+return|;
+block|}
 block|}
 end_function
 

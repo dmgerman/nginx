@@ -55,7 +55,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon28fc7cb60108
+DECL|struct|__anon2ae83f980108
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +70,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28fc7cb60208
+DECL|struct|__anon2ae83f980208
 typedef|typedef
 struct|struct
 block|{
@@ -79,15 +79,22 @@ name|ngx_hunk_t
 modifier|*
 name|hunk
 decl_stmt|;
-DECL|member|in
+comment|/* the temporary hunk to copy */
+DECL|member|incoming
 name|ngx_chain_t
 modifier|*
+name|incoming
+decl_stmt|;
+DECL|member|in
+name|ngx_chain_t
 name|in
 decl_stmt|;
+comment|/* one chain entry for input */
 DECL|member|out
 name|ngx_chain_t
 name|out
 decl_stmt|;
+comment|/* one chain entry for output */
 DECL|typedef|ngx_http_output_filter_ctx_t
 block|}
 name|ngx_http_output_filter_ctx_t

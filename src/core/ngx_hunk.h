@@ -164,7 +164,7 @@ DECL|struct|ngx_hunk_s
 struct|struct
 name|ngx_hunk_s
 block|{
-DECL|union|__anon27f1cd78010a
+DECL|union|__anon28a40e70010a
 union|union
 block|{
 DECL|member|mem
@@ -181,7 +181,7 @@ DECL|member|pos
 block|}
 name|pos
 union|;
-DECL|union|__anon27f1cd78020a
+DECL|union|__anon28a40e70020a
 union|union
 block|{
 DECL|member|mem
@@ -266,6 +266,14 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+
+begin_define
+DECL|macro|NGX_CHAIN_ERROR
+define|#
+directive|define
+name|NGX_CHAIN_ERROR
+value|(ngx_chain_t *) NGX_ERROR
+end_define
 
 begin_function_decl
 name|ngx_hunk_t
