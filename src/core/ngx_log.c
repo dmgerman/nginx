@@ -1035,6 +1035,9 @@ modifier|*
 name|ngx_log_init_errlog
 parameter_list|()
 block|{
+name|ngx_fd_t
+name|fd
+decl_stmt|;
 if|#
 directive|if
 operator|(
@@ -1102,8 +1105,25 @@ name|ngx_log
 operator|.
 name|log_level
 operator|=
-name|NGX_LOG_INFO
+name|NGX_LOG_ERR
 expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|fd = ngx_open_file(NGX_ERROR_LOG_PATH, NGX_FILE_RDWR,                        NGX_FILE_CREATE_OR_OPEN|NGX_FILE_APPEND);      if (fd == NGX_INVALID_FILE) {         ngx_log_error(NGX_LOG_EMERG, (&ngx_log), ngx_errno,                       ngx_open_file_n " \"" NGX_ERROR_LOG_PATH "\" failed");         return NULL;     }
+if|#
+directive|if
+operator|(
+name|WIN32
+operator|)
+block_content|if (ngx_file_append_mode(fd) == NGX_ERROR) {         ngx_log_error(NGX_LOG_EMERG, (&ngx_log), ngx_errno,                       ngx_file_append_mode_n " \"" NGX_ERROR_LOG_PATH                       "\" failed");         return NULL;     }
+else|#
+directive|else
+block_content|if (dup2(fd, STDERR_FILENO) == NGX_ERROR) {         ngx_log_error(NGX_LOG_EMERG, (&ngx_log), ngx_errno,                       "dup2(STDERR) failed");         return NULL;     }
+endif|#
+directive|endif
+endif|#
+directive|endif
 return|return
 operator|&
 name|ngx_log
