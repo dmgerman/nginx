@@ -41,7 +41,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0a02630108
+DECL|struct|__anon29e3bbb50108
 typedef|typedef
 struct|struct
 block|{
@@ -79,15 +79,21 @@ name|detached
 range|:
 literal|1
 decl_stmt|;
-DECL|member|exited
+DECL|member|signal
 name|unsigned
-name|exited
+name|signal
 range|:
 literal|1
 decl_stmt|;
 DECL|member|exiting
 name|unsigned
 name|exiting
+range|:
+literal|1
+decl_stmt|;
+DECL|member|exited
+name|unsigned
+name|exited
 range|:
 literal|1
 decl_stmt|;
@@ -98,7 +104,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0a02630208
+DECL|struct|__anon29e3bbb50208
 typedef|typedef
 struct|struct
 block|{
