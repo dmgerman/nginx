@@ -2096,7 +2096,7 @@ name|ecf
 operator|->
 name|multi_accept
 argument_list|,
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 return|return

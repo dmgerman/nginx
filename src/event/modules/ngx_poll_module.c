@@ -510,6 +510,38 @@ name|ev
 operator|->
 name|data
 expr_stmt|;
+if|if
+condition|(
+name|ev
+operator|->
+name|index
+operator|!=
+name|NGX_INVALID_INDEX
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|ev
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"poll event fd:%d ev:%d is already set"
+argument_list|,
+name|c
+operator|->
+name|fd
+argument_list|,
+name|event
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_OK
+return|;
+block|}
 name|ev
 operator|->
 name|active
@@ -659,6 +691,23 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|ev
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"poll index: %d"
+argument_list|,
+name|e
+operator|->
+name|index
+argument_list|)
+expr_stmt|;
 name|event_list
 index|[
 name|e
@@ -814,6 +863,9 @@ operator|==
 name|NGX_INVALID_INDEX
 condition|)
 block|{
+name|nevents
+operator|--
+expr_stmt|;
 if|if
 condition|(
 name|ev
@@ -823,7 +875,6 @@ operator|<
 operator|(
 name|u_int
 operator|)
-operator|--
 name|nevents
 condition|)
 block|{
@@ -868,6 +919,23 @@ block|}
 block|}
 else|else
 block|{
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|ev
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"poll index: %d"
+argument_list|,
+name|e
+operator|->
+name|index
+argument_list|)
+expr_stmt|;
 name|event_list
 index|[
 name|e
@@ -990,7 +1058,7 @@ name|i
 operator|++
 control|)
 block|{
-name|ngx_log_debug2
+name|ngx_log_debug3
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
@@ -998,7 +1066,9 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"poll: fd:%d ev:%04X"
+literal|"poll: %d: fd:%d ev:%04X"
+argument_list|,
+name|i
 argument_list|,
 name|event_list
 index|[
@@ -1222,7 +1292,7 @@ name|i
 operator|++
 control|)
 block|{
-name|ngx_log_debug3
+name|ngx_log_debug4
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
@@ -1230,7 +1300,9 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"poll: fd:%d ev:%04X rev:%04X"
+literal|"poll: %d: fd:%d ev:%04X rev:%04X"
+argument_list|,
+name|i
 argument_list|,
 name|event_list
 index|[
@@ -1473,6 +1545,33 @@ argument_list|,
 literal|"unknown cycle"
 argument_list|)
 expr_stmt|;
+comment|/*              * it is certainly our fault and it should be investigated,              * in the meantime we disable this event to avoid a CPU spinning              */
+if|if
+condition|(
+name|i
+operator|==
+name|nevents
+operator|-
+literal|1
+condition|)
+block|{
+name|nevents
+operator|--
+expr_stmt|;
+block|}
+else|else
+block|{
+name|event_list
+index|[
+name|i
+index|]
+operator|.
+name|fd
+operator|=
+operator|-
+literal|1
+expr_stmt|;
+block|}
 continue|continue;
 block|}
 name|found

@@ -587,7 +587,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"%d:%d is already set"
+literal|"select event fd:%d ev:%d is already set"
 argument_list|,
 name|c
 operator|->
@@ -1157,10 +1157,6 @@ control|)
 block|{
 name|c
 operator|=
-operator|(
-name|ngx_connection_t
-operator|*
-operator|)
 name|event_index
 index|[
 name|i
@@ -1229,10 +1225,6 @@ index|]
 expr_stmt|;
 name|c
 operator|=
-operator|(
-name|ngx_connection_t
-operator|*
-operator|)
 name|ev
 operator|->
 name|data
@@ -1622,10 +1614,6 @@ index|]
 expr_stmt|;
 name|c
 operator|=
-operator|(
-name|ngx_connection_t
-operator|*
-operator|)
 name|ev
 operator|->
 name|data
