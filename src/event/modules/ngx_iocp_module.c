@@ -648,7 +648,7 @@ decl_stmt|;
 name|u_int
 name|key
 decl_stmt|;
-name|size_t
+name|u_long
 name|bytes
 decl_stmt|;
 name|ngx_err_t

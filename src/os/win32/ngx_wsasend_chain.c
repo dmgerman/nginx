@@ -41,7 +41,8 @@ name|prev
 decl_stmt|;
 name|size_t
 name|size
-decl_stmt|,
+decl_stmt|;
+name|u_long
 name|sent
 decl_stmt|;
 name|LPWSABUF
@@ -454,7 +455,8 @@ name|prev
 decl_stmt|;
 name|size_t
 name|size
-decl_stmt|,
+decl_stmt|;
+name|u_long
 name|sent
 decl_stmt|;
 name|LPWSABUF

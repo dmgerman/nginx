@@ -38,12 +38,12 @@ name|char
 modifier|*
 name|prev
 decl_stmt|;
-name|u_int
+name|u_long
+name|bytes
+decl_stmt|,
 name|flags
 decl_stmt|;
 name|size_t
-name|bytes
-decl_stmt|,
 name|size
 decl_stmt|;
 name|WSABUF

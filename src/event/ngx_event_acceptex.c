@@ -287,11 +287,11 @@ name|int
 name|n
 parameter_list|)
 block|{
-name|int
-name|i
-decl_stmt|;
-name|u_int
+name|u_long
 name|rcvd
+decl_stmt|;
+name|ngx_int_t
+name|i
 decl_stmt|;
 name|ngx_err_t
 name|err

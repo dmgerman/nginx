@@ -12,9 +12,9 @@ file|<ngx_core.h>
 end_include
 
 begin_function
-DECL|function|ngx_exec (ngx_cycle_t * cycle,ngx_exec_ctx_t * ctx)
+DECL|function|ngx_execute (ngx_cycle_t * cycle,ngx_exec_ctx_t * ctx)
 name|ngx_pid_t
-name|ngx_exec
+name|ngx_execute
 parameter_list|(
 name|ngx_cycle_t
 modifier|*

@@ -57,7 +57,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2c9154f20108
+DECL|struct|__anon27aaac520108
 typedef|typedef
 struct|struct
 block|{
@@ -86,7 +86,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c9154f20208
+DECL|struct|__anon27aaac520208
 typedef|typedef
 struct|struct
 block|{
@@ -324,11 +324,15 @@ name|kq_errno
 decl_stmt|;
 endif|#
 directive|endif
-comment|/*      * kqueue only:      *   accept:     number of sockets that wait to be accepted      *   read:       bytes to read when event is ready      *               or lowat when event is set with NGX_LOWAT_EVENT flag      *   write:      available space in buffer when event is ready      *               or lowat when event is set with NGX_LOWAT_EVENT flag      *      * otherwise:      *   accept:     1 if accept many, 0 otherwise      */
+comment|/*      * kqueue only:      *   accept:     number of sockets that wait to be accepted      *   read:       bytes to read when event is ready      *               or lowat when event is set with NGX_LOWAT_EVENT flag      *   write:      available space in buffer when event is ready      *               or lowat when event is set with NGX_LOWAT_EVENT flag      *      * iocp: TODO      *      * otherwise:      *   accept:     1 if accept many, 0 otherwise      */
 if|#
 directive|if
 operator|(
 name|HAVE_KQUEUE
+operator|)
+operator|||
+operator|(
+name|HAVE_IOCP
 operator|)
 DECL|member|available
 name|int
@@ -392,7 +396,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c9154f20308
+DECL|struct|__anon27aaac520308
 typedef|typedef
 struct|struct
 block|{
@@ -1171,7 +1175,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon2c9154f20408
+DECL|struct|__anon27aaac520408
 typedef|typedef
 struct|struct
 block|{
@@ -1199,7 +1203,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c9154f20508
+DECL|struct|__anon27aaac520508
 typedef|typedef
 struct|struct
 block|{
