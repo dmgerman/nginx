@@ -41,7 +41,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae2a9e20108
+DECL|struct|__anon28f6cdde0108
 typedef|typedef
 struct|struct
 block|{
@@ -104,7 +104,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae2a9e20208
+DECL|struct|__anon28f6cdde0208
 typedef|typedef
 struct|struct
 block|{
@@ -228,7 +228,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|ngx_int_t
+name|ngx_pid_t
 name|ngx_exec
 parameter_list|(
 name|ngx_cycle_t

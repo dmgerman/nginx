@@ -36,7 +36,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon2c6c77260108
+DECL|struct|__anon2c3e3ffc0108
 typedef|typedef
 struct|struct
 block|{
@@ -159,6 +159,14 @@ name|ngx_value
 argument_list|(
 name|NGX_CHANGEBIN_SIGNAL
 argument_list|)
+block|,
+name|ngx_signal_handler
+block|}
+block|,
+block|{
+name|SIGINT
+block|,
+literal|"SIGINT"
 block|,
 name|ngx_signal_handler
 block|}
@@ -391,6 +399,9 @@ name|struct
 name|timeval
 name|tv
 decl_stmt|;
+name|ngx_int_t
+name|ignore
+decl_stmt|;
 name|ngx_err_t
 name|err
 decl_stmt|;
@@ -401,6 +412,10 @@ decl_stmt|;
 name|ngx_signal
 operator|=
 literal|1
+expr_stmt|;
+name|ignore
+operator|=
+literal|0
 expr_stmt|;
 name|err
 operator|=
@@ -533,6 +548,18 @@ argument_list|(
 name|NGX_REOPEN_SIGNAL
 argument_list|)
 case|:
+if|if
+condition|(
+name|ngx_noaccept
+condition|)
+block|{
+name|action
+operator|=
+literal|", ignoring"
+expr_stmt|;
+block|}
+else|else
+block|{
 name|ngx_reopen
 operator|=
 literal|1
@@ -542,12 +569,45 @@ operator|=
 literal|", reopen logs"
 expr_stmt|;
 break|break;
+block|}
 case|case
 name|ngx_signal_value
 argument_list|(
 name|NGX_CHANGEBIN_SIGNAL
 argument_list|)
 case|:
+if|if
+condition|(
+operator|(
+name|ngx_inherited
+operator|&&
+name|getppid
+argument_list|()
+operator|>
+literal|1
+operator|)
+operator|||
+operator|(
+operator|!
+name|ngx_inherited
+operator|&&
+name|ngx_new_binary
+operator|>
+literal|0
+operator|)
+condition|)
+block|{
+comment|/*                  * Ignore the signal in the new binary if its parent is                  * not the init process, i.e. the old binary's process                  * is still running.  Or ingore the signal in the old binary's                  * process if the new binary's process is already running.                  */
+name|action
+operator|=
+literal|", ignoring"
+expr_stmt|;
+name|ignore
+operator|=
+literal|1
+expr_stmt|;
+break|break;
+block|}
 name|ngx_change_binary
 operator|=
 literal|1
@@ -667,6 +727,27 @@ argument_list|,
 name|action
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|ignore
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_CRIT
+argument_list|,
+name|ngx_cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"the changing binary signal is ignored: "
+literal|"you should shutdown or terminate "
+literal|"before either old or new binary's process"
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|signo

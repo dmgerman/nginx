@@ -24,7 +24,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b55c7b50108
+DECL|struct|__anon276145cb0108
 typedef|typedef
 struct|struct
 block|{
@@ -55,13 +55,18 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b55c7b50208
+DECL|struct|__anon276145cb0208
 typedef|typedef
 struct|struct
 block|{
 DECL|member|pid
 name|ngx_file_t
 name|pid
+decl_stmt|;
+DECL|member|name
+name|char
+modifier|*
+name|name
 decl_stmt|;
 DECL|member|argv
 name|char
@@ -127,7 +132,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|void
+name|ngx_pid_t
 name|ngx_exec_new_binary
 parameter_list|(
 name|ngx_cycle_t
@@ -309,6 +314,13 @@ begin_decl_stmt
 DECL|variable|ngx_process
 name|ngx_int_t
 name|ngx_process
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_new_binary
+name|ngx_pid_t
+name|ngx_new_binary
 decl_stmt|;
 end_decl_stmt
 
@@ -866,6 +878,16 @@ name|pid
 expr_stmt|;
 name|ctx
 operator|.
+name|name
+operator|=
+name|ccf
+operator|->
+name|pid
+operator|.
+name|data
+expr_stmt|;
+name|ctx
+operator|.
 name|pid
 operator|.
 name|fd
@@ -1004,6 +1026,10 @@ return|;
 block|}
 end_function
 
+begin_comment
+comment|/* TODO: broken single process */
+end_comment
+
 begin_function
 DECL|function|ngx_master_process_cycle (ngx_cycle_t * cycle,ngx_master_ctx_t * ctx)
 specifier|static
@@ -1022,8 +1048,14 @@ block|{
 name|int
 name|signo
 decl_stmt|;
-name|ngx_msec_t
-name|delay
+name|char
+modifier|*
+name|name
+decl_stmt|;
+name|sigset_t
+name|set
+decl_stmt|,
+name|wset
 decl_stmt|;
 name|struct
 name|timeval
@@ -1036,10 +1068,8 @@ name|live
 decl_stmt|,
 name|mark
 decl_stmt|;
-name|sigset_t
-name|set
-decl_stmt|,
-name|wset
+name|ngx_msec_t
+name|delay
 decl_stmt|;
 name|delay
 operator|=
@@ -1165,6 +1195,10 @@ name|ngx_signal
 operator|=
 literal|0
 expr_stmt|;
+name|ngx_new_binary
+operator|=
+literal|0
+expr_stmt|;
 name|signo
 operator|=
 literal|0
@@ -1211,6 +1245,10 @@ literal|"worker process"
 argument_list|,
 name|NGX_PROCESS_RESPAWN
 argument_list|)
+expr_stmt|;
+name|mark
+operator|=
+literal|1
 expr_stmt|;
 block|}
 else|else
@@ -1268,7 +1306,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/* a cycle with the same configuration */
+comment|/* a cycle with the same configuration because a new one is invalid */
 for|for
 control|(
 init|;
@@ -1294,7 +1332,7 @@ condition|(
 name|signo
 condition|)
 block|{
-name|ngx_log_debug0
+name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
@@ -1304,7 +1342,11 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"signal cycle"
+literal|"signal cycle: %d, %d"
+argument_list|,
+name|signo
+argument_list|,
+name|mark
 argument_list|)
 expr_stmt|;
 if|if
@@ -1441,6 +1483,19 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|ngx_log_debug0
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"sigsuspend"
+argument_list|)
+expr_stmt|;
 name|sigsuspend
 argument_list|(
 operator|&
@@ -1460,16 +1515,24 @@ operator|.
 name|tv_sec
 argument_list|)
 expr_stmt|;
+name|ngx_log_debug0
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"wake up"
+argument_list|)
+expr_stmt|;
 block|}
-comment|/* TODO: broken */
 block|}
-if|else if
-condition|(
-name|ngx_process
-operator|==
-name|NGX_PROCESS_SINGLE
-condition|)
+else|else
 block|{
+comment|/* NGX_PROCESS_SINGLE */
 name|ngx_log_debug0
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
@@ -1496,6 +1559,19 @@ condition|(
 name|ngx_reap
 condition|)
 block|{
+name|ngx_log_debug0
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"reap childs"
+argument_list|)
+expr_stmt|;
 name|live
 operator|=
 literal|0
@@ -1540,6 +1616,33 @@ continue|continue;
 block|}
 if|if
 condition|(
+name|ngx_processes
+index|[
+name|i
+index|]
+operator|.
+name|exited
+condition|)
+block|{
+if|if
+condition|(
+name|ngx_processes
+index|[
+name|i
+index|]
+operator|.
+name|pid
+operator|==
+name|ngx_new_binary
+condition|)
+block|{
+name|ngx_new_binary
+operator|=
+literal|0
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|i
 operator|!=
 operator|--
@@ -1559,6 +1662,7 @@ index|]
 expr_stmt|;
 block|}
 block|}
+block|}
 if|if
 condition|(
 operator|!
@@ -1574,8 +1678,16 @@ condition|)
 block|{
 if|if
 condition|(
-name|ngx_delete_file
-argument_list|(
+name|ngx_inherited
+operator|&&
+name|getppid
+argument_list|()
+operator|>
+literal|1
+condition|)
+block|{
+name|name
+operator|=
 name|ctx
 operator|->
 name|pid
@@ -1583,6 +1695,22 @@ operator|.
 name|name
 operator|.
 name|data
+expr_stmt|;
+block|}
+else|else
+block|{
+name|name
+operator|=
+name|ctx
+operator|->
+name|name
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|ngx_delete_file
+argument_list|(
+name|name
 argument_list|)
 operator|==
 name|NGX_FILE_ERROR
@@ -1601,13 +1729,7 @@ argument_list|,
 name|ngx_delete_file_n
 literal|" \"%s\" failed"
 argument_list|,
-name|ctx
-operator|->
-name|pid
-operator|.
 name|name
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 block|}
@@ -1633,6 +1755,10 @@ block|}
 else|else
 block|{
 name|signo
+operator|=
+literal|0
+expr_stmt|;
+name|mark
 operator|=
 literal|0
 expr_stmt|;
@@ -1665,7 +1791,34 @@ argument_list|(
 name|NGX_TERMINATE_SIGNAL
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|mark
+operator|==
+literal|0
+condition|)
+block|{
+name|mark
+operator|=
+literal|1
+expr_stmt|;
 block|}
+block|}
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"mark: %d"
+argument_list|,
+name|mark
+argument_list|)
+expr_stmt|;
 block|}
 if|else if
 condition|(
@@ -1679,6 +1832,18 @@ argument_list|(
 name|NGX_SHUTDOWN_SIGNAL
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|mark
+operator|==
+literal|0
+condition|)
+block|{
+name|mark
+operator|=
+literal|1
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -1687,6 +1852,19 @@ condition|(
 name|ngx_reap
 condition|)
 block|{
+name|ngx_log_debug0
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"respawn processes"
+argument_list|)
+expr_stmt|;
 name|ngx_respawn_processes
 argument_list|(
 name|cycle
@@ -1740,6 +1918,8 @@ argument_list|,
 literal|"changing binary"
 argument_list|)
 expr_stmt|;
+name|ngx_new_binary
+operator|=
 name|ngx_exec_new_binary
 argument_list|(
 name|cycle
@@ -1785,13 +1965,14 @@ condition|(
 name|ngx_reopen
 condition|)
 block|{
-name|mark
-operator|=
-literal|1
-expr_stmt|;
 name|ngx_reopen
 operator|=
 literal|0
+expr_stmt|;
+comment|/* STUB */
+name|mark
+operator|=
+literal|1
 expr_stmt|;
 name|signo
 operator|=
@@ -1846,6 +2027,27 @@ name|i
 operator|++
 control|)
 block|{
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"proc "
+name|PID_T_FMT
+argument_list|,
+name|ngx_processes
+index|[
+name|i
+index|]
+operator|.
+name|pid
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -1865,6 +2067,27 @@ operator|.
 name|signal
 operator|=
 literal|1
+expr_stmt|;
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"mark "
+name|PID_T_FMT
+argument_list|,
+name|ngx_processes
+index|[
+name|i
+index|]
+operator|.
+name|pid
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -1895,6 +2118,14 @@ name|ngx_reap
 operator|=
 literal|0
 expr_stmt|;
+block|}
+comment|/* STUB */
+if|if
+condition|(
+name|ngx_reopen
+condition|)
+block|{
+break|break;
 block|}
 if|if
 condition|(
@@ -2530,7 +2761,7 @@ end_function
 begin_function
 DECL|function|ngx_exec_new_binary (ngx_cycle_t * cycle,char * const * argv)
 specifier|static
-name|void
+name|ngx_pid_t
 name|ngx_exec_new_binary
 parameter_list|(
 name|ngx_cycle_t
@@ -2559,6 +2790,9 @@ name|p
 decl_stmt|;
 name|ngx_int_t
 name|i
+decl_stmt|;
+name|ngx_pid_t
+name|pid
 decl_stmt|;
 name|ngx_exec_ctx_t
 name|ctx
@@ -2698,6 +2932,8 @@ operator|)
 operator|&
 name|env
 expr_stmt|;
+name|pid
+operator|=
 name|ngx_exec
 argument_list|(
 name|cycle
@@ -2711,6 +2947,9 @@ argument_list|(
 name|var
 argument_list|)
 expr_stmt|;
+return|return
+name|pid
+return|;
 block|}
 end_function
 

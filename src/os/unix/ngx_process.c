@@ -429,7 +429,7 @@ end_function
 
 begin_function
 DECL|function|ngx_exec (ngx_cycle_t * cycle,ngx_exec_ctx_t * ctx)
-name|ngx_int_t
+name|ngx_pid_t
 name|ngx_exec
 parameter_list|(
 name|ngx_cycle_t
@@ -441,8 +441,7 @@ modifier|*
 name|ctx
 parameter_list|)
 block|{
-if|if
-condition|(
+return|return
 name|ngx_spawn_process
 argument_list|(
 name|cycle
@@ -457,33 +456,6 @@ name|name
 argument_list|,
 name|NGX_PROCESS_DETACHED
 argument_list|)
-operator|==
-name|NGX_ERROR
-condition|)
-block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_ALERT
-argument_list|,
-name|cycle
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"can not spawn %s"
-argument_list|,
-name|ctx
-operator|->
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|NGX_ERROR
-return|;
-block|}
-return|return
-name|NGX_OK
 return|;
 block|}
 end_function
@@ -726,6 +698,27 @@ name|i
 operator|++
 control|)
 block|{
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_CORE
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"proc table "
+name|PID_T_FMT
+argument_list|,
+name|ngx_processes
+index|[
+name|i
+index|]
+operator|.
+name|pid
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|ngx_processes
