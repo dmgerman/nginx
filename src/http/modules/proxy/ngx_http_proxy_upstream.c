@@ -3423,6 +3423,8 @@ condition|(
 name|c
 operator|->
 name|tcp_nopush
+operator|==
+name|NGX_TCP_NOPUSH_SET
 condition|)
 block|{
 if|if
@@ -3464,7 +3466,7 @@ name|c
 operator|->
 name|tcp_nopush
 operator|=
-literal|0
+name|NGX_TCP_NOPUSH_UNSET
 expr_stmt|;
 return|return;
 block|}
@@ -5277,7 +5279,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-comment|/* TODO: preallocate event_pipe hunks, look "Content-Length" */
+comment|/* TODO: preallocate event_pipe bufs, look "Content-Length" */
 name|rc
 operator|=
 name|ngx_http_send_header

@@ -472,7 +472,6 @@ block|{
 comment|/* deferred accept, aio, iocp */
 if|if
 condition|(
-operator|*
 name|ngx_accept_mutex
 condition|)
 block|{
@@ -2583,7 +2582,7 @@ operator|->
 name|end
 condition|)
 block|{
-comment|/*          * If it's a pipelined request and a request line is not complete          * then we have to copy it to the start of the r->header_in hunk.          * We have to copy it here only if the large client headers          * are enabled otherwise a request line had been already copied          * to the start of the r->header_in hunk in ngx_http_set_keepalive().          */
+comment|/*          * If it's a pipelined request and a request line is not complete          * then we have to copy it to the start of the r->header_in buf.          * We have to copy it here only if the large client headers          * are enabled otherwise a request line had been already copied          * to the start of the r->header_in buf in ngx_http_set_keepalive().          */
 name|cscf
 operator|=
 name|ngx_http_get_module_srv_conf
@@ -3483,7 +3482,7 @@ operator|->
 name|end
 condition|)
 block|{
-comment|/* if the large client headers are enabled then                 we need to compact r->header_in hunk */
+comment|/*              * if the large client headers are enabled then              * we need to compact r->header_in buf              */
 if|if
 condition|(
 name|cscf
@@ -5891,7 +5890,7 @@ name|c
 operator|->
 name|tcp_nopush
 operator|==
-literal|1
+name|NGX_TCP_NOPUSH_SET
 condition|)
 block|{
 if|if
@@ -5927,7 +5926,7 @@ name|c
 operator|->
 name|tcp_nopush
 operator|=
-literal|0
+name|NGX_TCP_NOPUSH_UNSET
 expr_stmt|;
 block|}
 if|if

@@ -377,7 +377,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon296049880103
+DECL|enum|__anon2a8e2d9d0103
 typedef|typedef
 enum|enum
 block|{
@@ -398,7 +398,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon296049880203
+DECL|enum|__anon2a8e2d9d0203
 typedef|typedef
 enum|enum
 block|{
@@ -437,7 +437,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296049880308
+DECL|struct|__anon2a8e2d9d0308
 typedef|typedef
 struct|struct
 block|{
@@ -456,7 +456,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296049880408
+DECL|struct|__anon2a8e2d9d0408
 typedef|typedef
 struct|struct
 block|{
@@ -562,7 +562,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296049880508
+DECL|struct|__anon2a8e2d9d0508
 typedef|typedef
 struct|struct
 block|{
@@ -585,7 +585,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296049880608
+DECL|struct|__anon2a8e2d9d0608
 typedef|typedef
 struct|struct
 block|{
@@ -689,7 +689,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296049880708
+DECL|struct|__anon2a8e2d9d0708
 typedef|typedef
 struct|struct
 block|{
@@ -740,10 +740,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon29604988080a
+DECL|union|__anon2a8e2d9d080a
 union|union
 block|{
-DECL|struct|__anon296049880908
+DECL|struct|__anon2a8e2d9d0908
 struct|struct
 block|{
 DECL|member|fd
@@ -759,7 +759,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon296049880a08
+DECL|struct|__anon2a8e2d9d0a08
 struct|struct
 block|{
 DECL|member|hash
@@ -878,12 +878,6 @@ name|ngx_http_request_body_t
 modifier|*
 name|request_body
 decl_stmt|;
-if|#
-directive|if
-literal|0
-block|ngx_temp_file_t     *temp_file;     ngx_chain_t         *request_hunks;     ngx_hunk_t          *request_body_hunk;     size_t               remaining_body_len;     void               (*request_body_handler) (void *data);      void                *data;
-endif|#
-directive|endif
 DECL|member|lingering_time
 name|time_t
 name|lingering_time

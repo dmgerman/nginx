@@ -512,7 +512,7 @@ name|size
 operator|=
 literal|0
 expr_stmt|;
-comment|/* coalesce the neighbouring hunks */
+comment|/* coalesce the neighbouring bufs */
 while|while
 condition|(
 name|cl

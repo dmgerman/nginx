@@ -2560,8 +2560,7 @@ name|connection
 operator|->
 name|tcp_nopush
 operator|=
-operator|-
-literal|1
+name|NGX_TCP_NOPUSH_DISABLED
 expr_stmt|;
 block|}
 name|ngx_log_debug2

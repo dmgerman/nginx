@@ -161,7 +161,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/* add the incoming hunk to the chain ctx->in */
+comment|/* add the incoming buf to the chain ctx->in */
 if|if
 condition|(
 name|in

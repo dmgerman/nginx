@@ -331,7 +331,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a47efb40108
+DECL|struct|__anon29c5d6240108
 typedef|typedef
 struct|struct
 block|{
@@ -370,7 +370,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a47efb40208
+DECL|struct|__anon29c5d6240208
 typedef|typedef
 struct|struct
 block|{
@@ -439,7 +439,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a47efb40308
+DECL|struct|__anon29c5d6240308
 typedef|typedef
 struct|struct
 block|{
@@ -523,54 +523,6 @@ parameter_list|)
 define|\
 value|(ngx_buf_in_memory(b) ? (size_t) (b->last - b->pos):                 \                                 (size_t) (b->file_last - b->file_pos))
 end_define
-
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-
-begin_define
-define|#
-directive|define
-name|ngx_hunk_in_memory_only
-parameter_list|(
-name|h
-parameter_list|)
-define|\
-value|((h->type& (NGX_HUNK_IN_MEMORY|NGX_HUNK_FILE)) == NGX_HUNK_IN_MEMORY)
-end_define
-
-begin_comment
-comment|/*     ((h->type& (NGX_HUNK_TEMP|NGX_HUNK_MEMORY|NGX_HUNK_MMAP|NGX_HUNK_FILE)) \                   == (h->type& (NGX_HUNK_TEMP|NGX_HUNK_MEMORY|NGX_HUNK_MMAP)))  */
-end_comment
-
-begin_define
-define|#
-directive|define
-name|ngx_hunk_special
-parameter_list|(
-name|b
-parameter_list|)
-define|\
-value|(b->type == (b->type& (NGX_HUNK_FLUSH|NGX_HUNK_LAST)))
-end_define
-
-begin_define
-define|#
-directive|define
-name|ngx_hunk_size
-parameter_list|(
-name|b
-parameter_list|)
-define|\
-value|((b->type& NGX_HUNK_IN_MEMORY) ? (size_t) (b->last - b->pos):       \                                           (size_t) (b->file_last - b->file_pos))
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
 
 begin_function_decl
 name|ngx_buf_t

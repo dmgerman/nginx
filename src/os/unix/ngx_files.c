@@ -565,7 +565,7 @@ decl_stmt|;
 name|ngx_array_t
 name|io
 decl_stmt|;
-comment|/* use pwrite() if there's the only hunk in a chain */
+comment|/* use pwrite() if there's the only buf in a chain */
 if|if
 condition|(
 name|cl

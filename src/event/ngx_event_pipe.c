@@ -959,7 +959,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"no pipe hunks to read in"
+literal|"no pipe bufs to read in"
 argument_list|)
 expr_stmt|;
 break|break;

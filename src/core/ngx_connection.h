@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2beeef5a0108
+DECL|struct|__anon29a21e760108
 typedef|typedef
 struct|struct
 block|{
@@ -200,7 +200,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2beeef5a0203
+DECL|enum|__anon29a21e760203
 typedef|typedef
 enum|enum
 block|{
@@ -220,6 +220,30 @@ name|NGX_ERROR_IGNORE_ECONNRESET
 DECL|typedef|ngx_connection_log_error_e
 block|}
 name|ngx_connection_log_error_e
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|enum|__anon29a21e760303
+typedef|typedef
+enum|enum
+block|{
+DECL|enumerator|NGX_TCP_NOPUSH_DISABLED
+name|NGX_TCP_NOPUSH_DISABLED
+init|=
+operator|-
+literal|1
+block|,
+DECL|enumerator|NGX_TCP_NOPUSH_UNSET
+name|NGX_TCP_NOPUSH_UNSET
+init|=
+literal|0
+block|,
+DECL|enumerator|NGX_TCP_NOPUSH_SET
+name|NGX_TCP_NOPUSH_SET
+DECL|typedef|ngx_connection_tcp_nopush_e
+block|}
+name|ngx_connection_tcp_nopush_e
 typedef|;
 end_typedef
 

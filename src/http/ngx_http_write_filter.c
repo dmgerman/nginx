@@ -24,7 +24,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c2be52b0108
+DECL|struct|__anon2b73b08b0108
 typedef|typedef
 struct|struct
 block|{
@@ -39,7 +39,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2be52b0208
+DECL|struct|__anon2b73b08b0208
 typedef|typedef
 struct|struct
 block|{
@@ -528,7 +528,7 @@ argument_list|,
 name|ngx_http_write_filter_module
 argument_list|)
 expr_stmt|;
-comment|/*      * avoid the output if there is no last hunk, no flush point,      * there are the incoming hunks and the size of all hunks      * is smaller than "postpone_output" directive      */
+comment|/*      * avoid the output if there is no last buf, no flush point,      * there are the incoming bufs and the size of all bufs      * is smaller than "postpone_output" directive      */
 if|if
 condition|(
 operator|!

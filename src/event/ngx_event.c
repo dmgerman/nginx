@@ -1603,6 +1603,18 @@ condition|)
 block|{
 if|if
 condition|(
+name|ngx_accept_mutex
+condition|)
+block|{
+name|ngx_accept_mutex_held
+operator|=
+literal|0
+expr_stmt|;
+block|}
+else|else
+block|{
+if|if
+condition|(
 name|ngx_add_conn
 argument_list|(
 name|c
@@ -1614,6 +1626,7 @@ block|{
 return|return
 name|NGX_ERROR
 return|;
+block|}
 block|}
 block|}
 else|else

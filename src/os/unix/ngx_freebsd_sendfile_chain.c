@@ -651,7 +651,7 @@ name|c
 operator|->
 name|tcp_nopush
 operator|==
-literal|0
+name|NGX_TCP_NOPUSH_UNSET
 condition|)
 block|{
 if|if
@@ -705,7 +705,7 @@ name|c
 operator|->
 name|tcp_nopush
 operator|=
-literal|1
+name|NGX_TCP_NOPUSH_SET
 expr_stmt|;
 name|ngx_log_debug0
 argument_list|(
