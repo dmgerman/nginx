@@ -91,7 +91,7 @@ end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
-name|ngx_cv_t
+name|ngx_cond_t
 modifier|*
 name|ngx_posted_events_cv
 decl_stmt|;

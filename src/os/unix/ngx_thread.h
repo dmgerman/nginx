@@ -129,7 +129,7 @@ value|0x80000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2ac7653a0108
+DECL|struct|__anon2b1947930108
 typedef|typedef
 specifier|volatile
 struct|struct
@@ -154,17 +154,22 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac7653a0208
+DECL|struct|__anon2b1947930208
 typedef|typedef
 struct|struct
 block|{
-DECL|member|mutex
-name|ngx_mutex_t
-name|mutex
+DECL|member|semid
+name|int
+name|semid
 decl_stmt|;
-DECL|typedef|ngx_cv_t
+DECL|member|log
+name|ngx_log_t
+modifier|*
+name|log
+decl_stmt|;
+DECL|typedef|ngx_cond_t
 block|}
-name|ngx_cv_t
+name|ngx_cond_t
 typedef|;
 end_typedef
 
@@ -454,9 +459,9 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|ngx_cv_t
+name|ngx_cond_t
 modifier|*
-name|ngx_cv_init
+name|ngx_cond_init
 parameter_list|(
 name|ngx_log_t
 modifier|*
@@ -467,9 +472,9 @@ end_function_decl
 
 begin_function_decl
 name|void
-name|ngx_cv_done
+name|ngx_cond_done
 parameter_list|(
-name|ngx_cv_t
+name|ngx_cond_t
 modifier|*
 name|cv
 parameter_list|)
@@ -478,20 +483,24 @@ end_function_decl
 
 begin_function_decl
 name|ngx_int_t
-name|ngx_cv_wait
+name|ngx_cond_wait
 parameter_list|(
-name|ngx_cv_t
+name|ngx_cond_t
 modifier|*
 name|cv
+parameter_list|,
+name|ngx_mutex_t
+modifier|*
+name|m
 parameter_list|)
 function_decl|;
 end_function_decl
 
 begin_function_decl
 name|ngx_int_t
-name|ngx_cv_signal
+name|ngx_cond_signal
 parameter_list|(
-name|ngx_cv_t
+name|ngx_cond_t
 modifier|*
 name|cv
 parameter_list|)

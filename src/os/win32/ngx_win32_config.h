@@ -500,6 +500,14 @@ typedef|;
 end_typedef
 
 begin_define
+DECL|macro|TIME_T_LEN
+define|#
+directive|define
+name|TIME_T_LEN
+value|sizeof("-2147483648") - 1
+end_define
+
+begin_define
 DECL|macro|OFF_T_FMT
 define|#
 directive|define

@@ -154,7 +154,7 @@ end_endif
 
 begin_decl_stmt
 specifier|extern
-specifier|volatile
+name|ngx_thread_volatile
 name|ngx_str_t
 name|ngx_cached_err_log_time
 decl_stmt|;
@@ -162,7 +162,7 @@ end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
-specifier|volatile
+name|ngx_thread_volatile
 name|ngx_str_t
 name|ngx_cached_http_time
 decl_stmt|;
@@ -170,7 +170,7 @@ end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
-specifier|volatile
+name|ngx_thread_volatile
 name|ngx_str_t
 name|ngx_cached_http_log_time
 decl_stmt|;

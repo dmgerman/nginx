@@ -44,7 +44,7 @@ end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_posted_events_cv
-name|ngx_cv_t
+name|ngx_cond_t
 modifier|*
 name|ngx_posted_events_cv
 decl_stmt|;
@@ -293,7 +293,7 @@ operator|->
 name|lock
 argument_list|)
 operator|==
-name|NGX_BUSY
+literal|0
 condition|)
 block|{
 name|ngx_log_debug1
@@ -415,14 +415,12 @@ argument_list|(
 name|ev
 argument_list|)
 expr_stmt|;
-operator|*
-operator|(
+name|ngx_unlock
+argument_list|(
 name|ev
 operator|->
 name|lock
-operator|)
-operator|=
-literal|0
+argument_list|)
 expr_stmt|;
 if|if
 condition|(

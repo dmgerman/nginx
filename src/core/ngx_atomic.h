@@ -184,9 +184,19 @@ parameter_list|)
 value|InterlockedDecrement((long *) p)
 end_define
 
-begin_comment
-comment|/* STUB */
-end_comment
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|__WATCOMC__
+argument_list|)
+operator|||
+name|defined
+argument_list|(
+name|__BORLANDC__
+argument_list|)
+end_if
 
 begin_define
 DECL|macro|ngx_atomic_cmp_set (lock,old,set)
@@ -200,16 +210,17 @@ name|old
 parameter_list|,
 name|set
 parameter_list|)
-value|1
+define|\
+value|(InterlockedCompareExchange((long *) lock, set, old) == old)
 end_define
 
-begin_if
-if|#
-directive|if
-literal|0
-end_if
+begin_else
+else|#
+directive|else
+end_else
 
 begin_define
+DECL|macro|ngx_atomic_cmp_set (lock,old,set)
 define|#
 directive|define
 name|ngx_atomic_cmp_set
@@ -221,7 +232,7 @@ parameter_list|,
 name|set
 parameter_list|)
 define|\
-value|InterlockedCompareExchange(lock, set, old)
+value|(InterlockedCompareExchange((void **) lock, (void *) set, (void *) old)  \       == (void *) old)
 end_define
 
 begin_endif
@@ -293,49 +304,27 @@ endif|#
 directive|endif
 end_endif
 
-begin_function
-DECL|function|ngx_trylock (ngx_atomic_t * lock)
-specifier|static
-name|ngx_inline
-name|ngx_int_t
+begin_define
+DECL|macro|ngx_trylock (lock)
+define|#
+directive|define
 name|ngx_trylock
 parameter_list|(
-name|ngx_atomic_t
-modifier|*
 name|lock
 parameter_list|)
-block|{
-if|if
-condition|(
-operator|*
+value|(*(lock) == 0&& ngx_atomic_cmp_set(lock, 0, 1))
+end_define
+
+begin_define
+DECL|macro|ngx_unlock (lock)
+define|#
+directive|define
+name|ngx_unlock
+parameter_list|(
 name|lock
-condition|)
-block|{
-return|return
-name|NGX_BUSY
-return|;
-block|}
-if|if
-condition|(
-name|ngx_atomic_cmp_set
-argument_list|(
-name|lock
-argument_list|,
-literal|0
-argument_list|,
-literal|1
-argument_list|)
-condition|)
-block|{
-return|return
-name|NGX_OK
-return|;
-block|}
-return|return
-name|NGX_BUSY
-return|;
-block|}
-end_function
+parameter_list|)
+value|*(lock) = 0
+end_define
 
 begin_endif
 endif|#

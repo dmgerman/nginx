@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28c6ae8e0108
+DECL|struct|__anon27dd08830108
 typedef|typedef
 struct|struct
 block|{
@@ -1561,7 +1561,23 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-comment|/*           * TODO: if timer is NGX_TIMER_INFINITE and any worker thread           *       is still busy then set the configurable 500ms timeout           *       to wake up another worker thread           */
+if|if
+condition|(
+name|timer
+operator|==
+name|NGX_TIMER_INFINITE
+operator|||
+name|timer
+operator|>
+literal|500
+condition|)
+block|{
+name|timer
+operator|=
+literal|500
+expr_stmt|;
+break|break;
+block|}
 endif|#
 directive|endif
 if|if
@@ -1923,6 +1939,13 @@ block|}
 block|}
 if|if
 condition|(
+name|events
+operator|>
+literal|0
+condition|)
+block|{
+if|if
+condition|(
 name|ngx_mutex_lock
 argument_list|(
 name|ngx_posted_events_mutex
@@ -1942,6 +1965,14 @@ name|lock
 operator|=
 literal|1
 expr_stmt|;
+block|}
+else|else
+block|{
+name|lock
+operator|=
+literal|0
+expr_stmt|;
+block|}
 for|for
 control|(
 name|i
@@ -2403,7 +2434,7 @@ condition|(
 name|ngx_threaded
 condition|)
 block|{
-name|ngx_cv_signal
+name|ngx_cond_signal
 argument_list|(
 name|ngx_posted_events_cv
 argument_list|)

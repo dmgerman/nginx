@@ -2933,7 +2933,7 @@ operator|!
 operator|(
 name|ngx_posted_events_cv
 operator|=
-name|ngx_cv_init
+name|ngx_cond_init
 argument_list|(
 name|cycle
 operator|->
@@ -2949,13 +2949,6 @@ literal|2
 argument_list|)
 expr_stmt|;
 block|}
-name|ngx_posted_events_mutex
-operator|=
-operator|&
-name|ngx_posted_events_cv
-operator|->
-name|mutex
-expr_stmt|;
 for|for
 control|(
 name|i
@@ -2964,7 +2957,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|1
+literal|2
 condition|;
 name|i
 operator|++
@@ -3588,9 +3581,11 @@ control|)
 block|{
 if|if
 condition|(
-name|ngx_cv_wait
+name|ngx_cond_wait
 argument_list|(
 name|ngx_posted_events_cv
+argument_list|,
+name|ngx_posted_events_mutex
 argument_list|)
 operator|==
 name|NGX_ERROR
