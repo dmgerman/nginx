@@ -1229,6 +1229,18 @@ return|;
 block|}
 end_function
 
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
+begin_endif
+unit|{"http", ngx_http_enter_container, 0,      NGX_GLOBAL_CONF, NGX_CONF_CONTAINER},      {"server", ngx_http_enter_server_container, 0,      NGX_HTTP_CONF, NGX_CONF_CONTAINER],      {"location", ngx_http_enter_location_container, 0,      NGX_HTTP_SRV_CONF, NGX_CONF_CONTAINER|NGX_CONF_TAKE1}   int ngx_http_enter_container() {      create_srv_conf(null_srv_conf)      create_loc_conf(null_loc_conf) }  int ngx_http_exit_container() {      nothing ? }   int ngx_http_enter_server_container() {      create_srv_conf()      create_loc_conf(NULL) }  int ngx_http_exit_server_container() {      merge_srv_conf(srv_conf, null_srv_conf)      merge_loc_conf(loc_conf, null_loc_conf)       iterate check_loc_conf_is_set and merge_loc_conf() }  int ngx_http_enter_location_container() {      create_loc_conf(loc)       push to array }  int ngx_http_exit_location_container() { }
+endif|#
+directive|endif
+end_endif
+
 begin_function
 DECL|function|ngx_http_core_create_srv_conf (ngx_pool_t * pool)
 specifier|static
