@@ -84,7 +84,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b150a8e0108
+DECL|struct|__anon28eff5440108
 typedef|typedef
 struct|struct
 block|{
@@ -1326,20 +1326,17 @@ operator|-
 literal|1
 condition|)
 block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_ALERT
-argument_list|,
-name|log
-argument_list|,
+name|err
+operator|=
 name|ngx_errno
-argument_list|,
-literal|"ioctl(DP_POLL) failed"
-argument_list|)
 expr_stmt|;
-return|return
-name|NGX_ERROR
-return|;
+block|}
+else|else
+block|{
+name|err
+operator|=
+literal|0
+expr_stmt|;
 block|}
 name|nchanges
 operator|=
@@ -1379,6 +1376,21 @@ literal|1000
 operator|-
 name|delta
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_DEBUG_EVENT
+operator|)
+name|ngx_log_debug
+argument_list|(
+argument|log
+argument_list|,
+literal|"devpoll timer: %d, delta: %d"
+argument|_ timer _ delta
+argument_list|)
+empty_stmt|;
+endif|#
+directive|endif
 name|ngx_event_expire_timers
 argument_list|(
 name|delta
@@ -1409,7 +1421,6 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-block|}
 if|#
 directive|if
 operator|(
@@ -1425,6 +1436,27 @@ argument_list|)
 empty_stmt|;
 endif|#
 directive|endif
+block|}
+if|if
+condition|(
+name|err
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|log
+argument_list|,
+name|err
+argument_list|,
+literal|"ioctl(DP_POLL) failed"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
 for|for
 control|(
 name|i

@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ae865bf0108
+DECL|struct|__anon2afc58b70108
 typedef|typedef
 struct|struct
 block|{
@@ -142,9 +142,9 @@ name|void
 modifier|*
 name|ngx_kqueue_create_conf
 parameter_list|(
-name|ngx_pool_t
+name|ngx_cycle_t
 modifier|*
-name|pool
+name|cycle
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -155,9 +155,9 @@ name|char
 modifier|*
 name|ngx_kqueue_init_conf
 parameter_list|(
-name|ngx_pool_t
+name|ngx_cycle_t
 modifier|*
-name|pool
+name|cycle
 parameter_list|,
 name|void
 modifier|*
@@ -1312,6 +1312,9 @@ name|instance
 decl_stmt|,
 name|i
 decl_stmt|;
+name|ngx_err_t
+name|err
+decl_stmt|;
 name|ngx_msec_t
 name|timer
 decl_stmt|,
@@ -1445,20 +1448,17 @@ operator|-
 literal|1
 condition|)
 block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_ALERT
-argument_list|,
-name|log
-argument_list|,
+name|err
+operator|=
 name|ngx_errno
-argument_list|,
-literal|"kevent() failed"
-argument_list|)
 expr_stmt|;
-return|return
-name|NGX_ERROR
-return|;
+block|}
+else|else
+block|{
+name|err
+operator|=
+literal|0
+expr_stmt|;
 block|}
 name|nchanges
 operator|=
@@ -1493,6 +1493,21 @@ literal|1000
 operator|-
 name|delta
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_DEBUG_EVENT
+operator|)
+name|ngx_log_debug
+argument_list|(
+argument|log
+argument_list|,
+literal|"kevent timer: %d, delta: %d"
+argument|_ timer _ delta
+argument_list|)
+empty_stmt|;
+endif|#
+directive|endif
 comment|/* The expired timers must be handled before a processing of the events            because the new timers can be added during a processing */
 name|ngx_event_expire_timers
 argument_list|(
@@ -1524,7 +1539,6 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-block|}
 if|#
 directive|if
 operator|(
@@ -1540,6 +1554,27 @@ argument_list|)
 empty_stmt|;
 endif|#
 directive|endif
+block|}
+if|if
+condition|(
+name|err
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|log
+argument_list|,
+name|err
+argument_list|,
+literal|"kevent() failed"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
 for|for
 control|(
 name|i
@@ -1813,15 +1848,15 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_kqueue_create_conf (ngx_pool_t * pool)
+DECL|function|ngx_kqueue_create_conf (ngx_cycle_t * cycle)
 specifier|static
 name|void
 modifier|*
 name|ngx_kqueue_create_conf
 parameter_list|(
-name|ngx_pool_t
+name|ngx_cycle_t
 modifier|*
-name|pool
+name|cycle
 parameter_list|)
 block|{
 name|ngx_kqueue_conf_t
@@ -1834,6 +1869,8 @@ name|kcf
 argument_list|,
 name|ngx_palloc
 argument_list|(
+name|cycle
+operator|->
 name|pool
 argument_list|,
 sizeof|sizeof
@@ -1864,15 +1901,15 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_kqueue_init_conf (ngx_pool_t * pool,void * conf)
+DECL|function|ngx_kqueue_init_conf (ngx_cycle_t * cycle,void * conf)
 specifier|static
 name|char
 modifier|*
 name|ngx_kqueue_init_conf
 parameter_list|(
-name|ngx_pool_t
+name|ngx_cycle_t
 modifier|*
-name|pool
+name|cycle
 parameter_list|,
 name|void
 modifier|*

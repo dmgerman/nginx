@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon291113e80108
+DECL|struct|__anon298fc42d0108
 typedef|typedef
 struct|struct
 block|{
@@ -67,7 +67,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291113e80208
+DECL|struct|__anon298fc42d0208
 typedef|typedef
 struct|struct
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291113e80308
+DECL|struct|__anon298fc42d0308
 typedef|typedef
 struct|struct
 block|{
@@ -151,7 +151,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon291113e80408
+DECL|struct|__anon298fc42d0408
 typedef|typedef
 struct|struct
 block|{
@@ -175,7 +175,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291113e80508
+DECL|struct|__anon298fc42d0508
 typedef|typedef
 struct|struct
 block|{
@@ -217,7 +217,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon291113e80608
+DECL|struct|__anon298fc42d0608
 typedef|typedef
 struct|struct
 block|{
@@ -260,7 +260,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon291113e80708
+DECL|struct|__anon298fc42d0708
 typedef|typedef
 struct|struct
 block|{
@@ -279,7 +279,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291113e80808
+DECL|struct|__anon298fc42d0808
 typedef|typedef
 struct|struct
 block|{
@@ -356,6 +356,11 @@ name|ngx_msec_t
 name|lingering_timeout
 decl_stmt|;
 comment|/* lingering_timeout */
+DECL|member|err_log
+name|ngx_log_t
+modifier|*
+name|err_log
+decl_stmt|;
 DECL|typedef|ngx_http_core_loc_conf_t
 block|}
 name|ngx_http_core_loc_conf_t

@@ -721,6 +721,14 @@ name|addrs
 operator|.
 name|elts
 expr_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|rev->log
+argument_list|,
+literal|"IN: %08x"
+argument|_ in_port
+argument_list|)
+empty_stmt|;
 name|r
 operator|->
 name|port

@@ -32,9 +32,9 @@ specifier|static
 name|int
 name|ngx_iocp_init
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -44,9 +44,9 @@ specifier|static
 name|void
 name|ngx_iocp_done
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -99,9 +99,9 @@ name|void
 modifier|*
 name|ngx_iocp_create_conf
 parameter_list|(
-name|ngx_pool_t
+name|ngx_cycle_t
 modifier|*
-name|pool
+name|cycle
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -112,9 +112,9 @@ name|char
 modifier|*
 name|ngx_iocp_init_conf
 parameter_list|(
-name|ngx_pool_t
+name|ngx_cycle_t
 modifier|*
-name|pool
+name|cycle
 parameter_list|,
 name|void
 modifier|*
@@ -287,7 +287,10 @@ name|NGX_EVENT_MODULE
 block|,
 comment|/* module type */
 name|NULL
+block|,
 comment|/* init module */
+name|NULL
+comment|/* init child */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -301,14 +304,14 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_iocp_init (ngx_log_t * log)
+DECL|function|ngx_iocp_init (ngx_cycle_t * cycle)
 specifier|static
 name|int
 name|ngx_iocp_init
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 block|{
 name|ngx_iocp_conf_t
@@ -319,9 +322,20 @@ name|cf
 operator|=
 name|ngx_event_get_conf
 argument_list|(
+name|cycle
+operator|->
+name|conf_ctx
+argument_list|,
 name|ngx_iocp_module
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|iocp
+operator|==
+name|NULL
+condition|)
+block|{
 name|iocp
 operator|=
 name|CreateIoCompletionPort
@@ -337,6 +351,7 @@ operator|->
 name|threads
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|iocp
@@ -348,6 +363,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_EMERG
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 name|ngx_errno
@@ -363,7 +380,7 @@ if|if
 condition|(
 name|ngx_event_timer_init
 argument_list|(
-name|log
+name|cycle
 argument_list|)
 operator|==
 name|NGX_ERROR
@@ -373,6 +390,10 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|ngx_io
+operator|=
+name|ngx_os_io
+expr_stmt|;
 name|ngx_event_actions
 operator|=
 name|ngx_iocp_module_ctx
@@ -392,14 +413,14 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_iocp_done (ngx_log_t * log)
+DECL|function|ngx_iocp_done (ngx_cycle_t * cycle)
 specifier|static
 name|void
 name|ngx_iocp_done
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 block|{
 if|if
@@ -417,6 +438,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 name|ngx_errno
@@ -425,9 +448,13 @@ literal|"iocp CloseHandle() failed"
 argument_list|)
 expr_stmt|;
 block|}
+name|iocp
+operator|=
+name|NULL
+expr_stmt|;
 name|ngx_event_timer_done
 argument_list|(
-name|log
+name|cycle
 argument_list|)
 expr_stmt|;
 block|}
@@ -696,6 +723,39 @@ name|err
 operator|=
 name|ngx_errno
 expr_stmt|;
+block|}
+else|else
+block|{
+name|err
+operator|=
+literal|0
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|timer
+operator|!=
+name|INFINITE
+condition|)
+block|{
+name|delta
+operator|=
+name|ngx_msec
+argument_list|()
+operator|-
+name|delta
+expr_stmt|;
+name|ngx_event_expire_timers
+argument_list|(
+name|delta
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|err
+condition|)
+block|{
 if|if
 condition|(
 name|ovlp
@@ -735,26 +795,6 @@ operator|=
 name|err
 expr_stmt|;
 block|}
-block|}
-if|if
-condition|(
-name|timer
-operator|!=
-name|INFINITE
-condition|)
-block|{
-name|delta
-operator|=
-name|ngx_msec
-argument_list|()
-operator|-
-name|delta
-expr_stmt|;
-name|ngx_event_expire_timers
-argument_list|(
-name|delta
-argument_list|)
-expr_stmt|;
 block|}
 if|if
 condition|(
@@ -836,15 +876,15 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_iocp_create_conf (ngx_pool_t * pool)
+DECL|function|ngx_iocp_create_conf (ngx_cycle_t * cycle)
 specifier|static
 name|void
 modifier|*
 name|ngx_iocp_create_conf
 parameter_list|(
-name|ngx_pool_t
+name|ngx_cycle_t
 modifier|*
-name|pool
+name|cycle
 parameter_list|)
 block|{
 name|ngx_iocp_conf_t
@@ -857,6 +897,8 @@ name|cf
 argument_list|,
 name|ngx_palloc
 argument_list|(
+name|cycle
+operator|->
 name|pool
 argument_list|,
 sizeof|sizeof
@@ -893,15 +935,15 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_iocp_init_conf (ngx_pool_t * pool,void * conf)
+DECL|function|ngx_iocp_init_conf (ngx_cycle_t * cycle,void * conf)
 specifier|static
 name|char
 modifier|*
 name|ngx_iocp_init_conf
 parameter_list|(
-name|ngx_pool_t
+name|ngx_cycle_t
 modifier|*
-name|pool
+name|cycle
 parameter_list|,
 name|void
 modifier|*

@@ -2153,6 +2153,12 @@ name|iocpcf
 operator|=
 name|ngx_event_get_conf
 argument_list|(
+name|cf
+operator|->
+name|cycle
+operator|->
+name|conf_ctx
+argument_list|,
 name|ngx_iocp_module
 argument_list|)
 expr_stmt|;
@@ -2425,8 +2431,8 @@ name|ngx_log_debug
 argument_list|(
 argument|cf->log
 argument_list|,
-literal|"port: %d"
-argument|_ in_port[p].port
+literal|"port: %d %08x"
+argument|_ in_port[p].port _&in_port[p]
 argument_list|)
 empty_stmt|;
 name|in_addr

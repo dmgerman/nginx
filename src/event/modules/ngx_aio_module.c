@@ -47,9 +47,9 @@ specifier|static
 name|int
 name|ngx_aio_init
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -59,9 +59,9 @@ specifier|static
 name|void
 name|ngx_aio_done
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -224,7 +224,10 @@ name|NGX_EVENT_MODULE
 block|,
 comment|/* module type */
 name|NULL
+block|,
 comment|/* init module */
+name|NULL
+comment|/* init child */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -238,14 +241,14 @@ operator|)
 end_if
 
 begin_function
-DECL|function|ngx_aio_init (ngx_log_t * log)
+DECL|function|ngx_aio_init (ngx_cycle_t * cycle)
 specifier|static
 name|int
 name|ngx_aio_init
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 block|{
 if|if
@@ -256,7 +259,7 @@ name|actions
 operator|.
 name|init
 argument_list|(
-name|log
+name|cycle
 argument_list|)
 operator|==
 name|NGX_ERROR
@@ -266,6 +269,10 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|ngx_io
+operator|=
+name|ngx_os_aio
+expr_stmt|;
 name|ngx_event_flags
 operator|=
 name|NGX_HAVE_AIO_EVENT
@@ -278,10 +285,6 @@ name|ngx_aio_module_ctx
 operator|.
 name|actions
 expr_stmt|;
-name|ngx_io
-operator|=
-name|ngx_os_aio
-expr_stmt|;
 return|return
 name|NGX_OK
 return|;
@@ -289,14 +292,14 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_aio_done (ngx_log_t * log)
+DECL|function|ngx_aio_done (ngx_cycle_t * cycle)
 specifier|static
 name|void
 name|ngx_aio_done
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 block|{
 name|ngx_kqueue_module_ctx
@@ -305,7 +308,7 @@ name|actions
 operator|.
 name|done
 argument_list|(
-name|log
+name|cycle
 argument_list|)
 expr_stmt|;
 block|}

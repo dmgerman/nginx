@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon27dbd7830108
+DECL|struct|__anon2936259b0108
 typedef|typedef
 struct|struct
 block|{
@@ -349,7 +349,7 @@ literal|1
 end_if
 
 begin_typedef
-DECL|enum|__anon27dbd7830203
+DECL|enum|__anon2936259b0203
 typedef|typedef
 enum|enum
 block|{
@@ -423,7 +423,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon27dbd7830308
+DECL|struct|__anon2936259b0308
 typedef|typedef
 struct|struct
 block|{
@@ -1171,30 +1171,6 @@ begin_comment
 comment|/* ***************************** */
 end_comment
 
-begin_decl_stmt
-specifier|extern
-name|ngx_event_t
-modifier|*
-name|ngx_read_events
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-specifier|extern
-name|ngx_event_t
-modifier|*
-name|ngx_write_events
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-specifier|extern
-name|ngx_connection_t
-modifier|*
-name|ngx_connections
-decl_stmt|;
-end_decl_stmt
-
 begin_if
 if|#
 directive|if
@@ -1256,7 +1232,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon27dbd7830408
+DECL|struct|__anon2936259b0408
 typedef|typedef
 struct|struct
 block|{
@@ -1279,7 +1255,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27dbd7830508
+DECL|struct|__anon2936259b0508
 typedef|typedef
 struct|struct
 block|{
@@ -1296,9 +1272,9 @@ modifier|*
 name|create_conf
 function_decl|)
 parameter_list|(
-name|ngx_pool_t
+name|ngx_cycle_t
 modifier|*
-name|p
+name|cycle
 parameter_list|)
 function_decl|;
 DECL|member|init_conf
@@ -1309,9 +1285,9 @@ modifier|*
 name|init_conf
 function_decl|)
 parameter_list|(
-name|ngx_pool_t
+name|ngx_cycle_t
 modifier|*
-name|p
+name|cycle
 parameter_list|,
 name|void
 modifier|*
