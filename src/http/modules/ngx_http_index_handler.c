@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29e39f2b0108
+DECL|struct|__anon2b2628340108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e39f2b0208
+DECL|struct|__anon2b2628340208
 typedef|typedef
 struct|struct
 block|{
@@ -2206,29 +2206,9 @@ block|}
 if|#
 directive|if
 literal|0
-block_content|if (prev->max_index_len != 0) {          prev_index = prev->indices.elts;         for (i = 0; i< prev->indices.nelts; i++) {             ngx_test_null(index, ngx_push_array(&conf->indices),                           NGX_CONF_ERROR);             index->len = prev_index[i].len;             index->data = prev_index[i].data;         }     }
+block_content|if (prev->max_index_len != 0) {          prev_index = prev->indices.elts;         for (i = 0; i< prev->indices.nelts; i++) {             ngx_test_null(index, ngx_push_array(&conf->indices),                           NGX_CONF_ERROR);             index->len = prev_index[i].len;             index->data = prev_index[i].data;         }     }      if (conf->max_index_len< prev->max_index_len) {         conf->max_index_len = prev->max_index_len;     }
 endif|#
 directive|endif
-if|if
-condition|(
-name|conf
-operator|->
-name|max_index_len
-operator|<
-name|prev
-operator|->
-name|max_index_len
-condition|)
-block|{
-name|conf
-operator|->
-name|max_index_len
-operator|=
-name|prev
-operator|->
-name|max_index_len
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|conf

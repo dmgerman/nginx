@@ -340,7 +340,7 @@ name|NGX_HAVE_SO_SNDLOWAT
 end_ifndef
 
 begin_comment
-comment|/* setsockopt(SO_SNDLOWAT) returns error "Option not supported by protocol" */
+comment|/* setsockopt(SO_SNDLOWAT) returns ENOPROTOOPT */
 end_comment
 
 begin_define

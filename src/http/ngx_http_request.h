@@ -417,7 +417,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon27eb46820103
+DECL|enum|__anon27a35ec60103
 typedef|typedef
 enum|enum
 block|{
@@ -438,7 +438,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27eb46820203
+DECL|enum|__anon27a35ec60203
 typedef|typedef
 enum|enum
 block|{
@@ -477,7 +477,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27eb46820308
+DECL|struct|__anon27a35ec60308
 typedef|typedef
 struct|struct
 block|{
@@ -496,7 +496,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27eb46820408
+DECL|struct|__anon27a35ec60408
 typedef|typedef
 struct|struct
 block|{
@@ -645,7 +645,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27eb46820508
+DECL|struct|__anon27a35ec60508
 typedef|typedef
 struct|struct
 block|{
@@ -668,7 +668,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27eb46820608
+DECL|struct|__anon27a35ec60608
 typedef|typedef
 struct|struct
 block|{
@@ -771,7 +771,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27eb46820708
+DECL|struct|__anon27a35ec60708
 typedef|typedef
 struct|struct
 block|{
@@ -822,10 +822,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon27eb4682080a
+DECL|union|__anon27a35ec6080a
 union|union
 block|{
-DECL|struct|__anon27eb46820908
+DECL|struct|__anon27a35ec60908
 struct|struct
 block|{
 DECL|member|fd
@@ -841,7 +841,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon27eb46820a08
+DECL|struct|__anon27a35ec60a08
 struct|struct
 block|{
 DECL|member|hash
@@ -879,7 +879,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27eb46820b08
+DECL|struct|__anon27a35ec60b08
 typedef|typedef
 struct|struct
 block|{
@@ -1098,6 +1098,10 @@ comment|/* used to learn the Apache compatible response length without a header 
 DECL|member|header_size
 name|size_t
 name|header_size
+decl_stmt|;
+DECL|member|request_length
+name|size_t
+name|request_length
 decl_stmt|;
 DECL|member|discarded_buffer
 name|u_char
