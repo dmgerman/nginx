@@ -2242,7 +2242,7 @@ modifier|*
 name|p
 parameter_list|)
 block|{
-name|size_t
+name|ssize_t
 name|size
 decl_stmt|,
 name|bsize

@@ -177,10 +177,10 @@ value|Sleep
 end_define
 
 begin_define
-DECL|macro|HAVE_GETIMEZONE
+DECL|macro|HAVE_GETTIMEZONE
 define|#
 directive|define
-name|HAVE_GETIMEZONE
+name|HAVE_GETTIMEZONE
 value|1
 end_define
 

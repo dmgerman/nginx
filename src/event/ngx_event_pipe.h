@@ -241,7 +241,7 @@ name|off_t
 name|max_temp_file_size
 decl_stmt|;
 DECL|member|temp_file_write_size
-name|size_t
+name|ssize_t
 name|temp_file_write_size
 decl_stmt|;
 DECL|member|read_timeout
