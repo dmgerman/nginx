@@ -469,10 +469,9 @@ name|ccf
 operator|->
 name|open_files
 operator|->
-name|check_time
+name|update
 operator|>=
-name|ngx_time
-argument_list|()
+name|ngx_cached_time
 operator|-
 name|cache
 operator|->

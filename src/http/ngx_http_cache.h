@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29c868020108
+DECL|struct|__anon2c6e28c50108
 typedef|typedef
 struct|struct
 block|{
@@ -79,7 +79,7 @@ DECL|member|updated
 name|time_t
 name|updated
 decl_stmt|;
-DECL|union|__anon29c86802020a
+DECL|union|__anon2c6e28c5020a
 union|union
 block|{
 DECL|member|size
@@ -101,7 +101,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c868020308
+DECL|struct|__anon2c6e28c50308
 typedef|typedef
 struct|struct
 block|{
@@ -155,7 +155,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon29c868020408
+DECL|struct|__anon2c6e28c50408
 typedef|typedef
 struct|struct
 block|{
@@ -172,13 +172,13 @@ DECL|member|nelts
 name|size_t
 name|nelts
 decl_stmt|;
-DECL|member|life_time
+DECL|member|life
 name|time_t
-name|life_time
+name|life
 decl_stmt|;
-DECL|member|check_time
+DECL|member|update
 name|time_t
-name|check_time
+name|update
 decl_stmt|;
 DECL|member|pool
 name|ngx_pool_t
@@ -192,7 +192,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c868020508
+DECL|struct|__anon2c6e28c50508
 typedef|typedef
 struct|struct
 block|{
@@ -271,7 +271,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c868020608
+DECL|struct|__anon2c6e28c50608
 typedef|typedef
 struct|struct
 block|{
@@ -285,6 +285,20 @@ block|}
 name|ngx_http_cache_conf_t
 typedef|;
 end_typedef
+
+begin_define
+DECL|macro|ngx_http_cache_unlock (ch,ce)
+define|#
+directive|define
+name|ngx_http_cache_unlock
+parameter_list|(
+name|ch
+parameter_list|,
+name|ce
+parameter_list|)
+define|\
+value|ngx_mutex_lock(&ch->mutex);                                      \             ce->refs--;                                                      \             ngx_mutex_unlock(&ch->mutex);
+end_define
 
 begin_define
 DECL|macro|NGX_HTTP_CACHE_STALE
@@ -416,6 +430,26 @@ parameter_list|,
 name|ngx_dir_t
 modifier|*
 name|dir
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|char
+modifier|*
+name|ngx_http_set_cache_slot
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_command_t
+modifier|*
+name|cmd
+parameter_list|,
+name|void
+modifier|*
+name|conf
 parameter_list|)
 function_decl|;
 end_function_decl

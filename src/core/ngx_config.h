@@ -115,6 +115,30 @@ directive|endif
 end_endif
 
 begin_comment
+comment|/* STUB: ngx_mutex.h */
+end_comment
+
+begin_define
+DECL|macro|ngx_mutex_lock (m)
+define|#
+directive|define
+name|ngx_mutex_lock
+parameter_list|(
+name|m
+parameter_list|)
+end_define
+
+begin_define
+DECL|macro|ngx_mutex_unlock (m)
+define|#
+directive|define
+name|ngx_mutex_unlock
+parameter_list|(
+name|m
+parameter_list|)
+end_define
+
+begin_comment
 comment|/* STUB: autoconf */
 end_comment
 
