@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29318e330108
+DECL|struct|__anon2a8ef4900108
 typedef|typedef
 struct|struct
 block|{
@@ -67,7 +67,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29318e330208
+DECL|struct|__anon2a8ef4900208
 typedef|typedef
 struct|struct
 block|{
@@ -103,7 +103,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon29318e330308
+DECL|struct|__anon2a8ef4900308
 typedef|typedef
 struct|struct
 block|{
@@ -123,7 +123,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29318e330408
+DECL|struct|__anon2a8ef4900408
 typedef|typedef
 struct|struct
 block|{
@@ -161,7 +161,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon29318e330508
+DECL|struct|__anon2a8ef4900508
 typedef|typedef
 struct|struct
 block|{
@@ -182,7 +182,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29318e330608
+DECL|struct|__anon2a8ef4900608
 typedef|typedef
 struct|struct
 block|{
@@ -202,27 +202,32 @@ DECL|member|doc_root
 name|ngx_str_t
 name|doc_root
 decl_stmt|;
-comment|/* 'root' */
+comment|/* root */
 DECL|member|send_timeout
 name|time_t
 name|send_timeout
 decl_stmt|;
-comment|/* 'send_timeout' */
+comment|/* send_timeout */
+DECL|member|send_lowat
+name|size_t
+name|send_lowat
+decl_stmt|;
+comment|/* send_lowa */
 DECL|member|discarded_buffer_size
 name|size_t
 name|discarded_buffer_size
 decl_stmt|;
-comment|/* 'discarded_buffer_size */
+comment|/* discarded_buffer_size */
 DECL|member|lingering_time
 name|time_t
 name|lingering_time
 decl_stmt|;
-comment|/* 'lingering_time */
+comment|/* lingering_time */
 DECL|member|lingering_timeout
 name|ngx_msec_t
 name|lingering_timeout
 decl_stmt|;
-comment|/* 'lingering_timeout */
+comment|/* lingering_timeout */
 DECL|typedef|ngx_http_core_loc_conf_t
 block|}
 name|ngx_http_core_loc_conf_t
@@ -318,11 +323,28 @@ end_function_decl
 
 begin_function_decl
 name|int
+name|ngx_http_finalize_request
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|int
+name|error
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|int
 name|ngx_http_close_request
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
+parameter_list|,
+name|int
+name|error
 parameter_list|)
 function_decl|;
 end_function_decl

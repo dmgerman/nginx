@@ -92,7 +92,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2be2caf60108
+DECL|struct|__anon2bc320070108
 typedef|typedef
 struct|struct
 block|{
@@ -245,6 +245,12 @@ name|write
 range|:
 literal|1
 decl_stmt|;
+DECL|member|first
+name|unsigned
+name|first
+range|:
+literal|1
+decl_stmt|;
 DECL|member|active
 name|unsigned
 name|active
@@ -387,7 +393,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2be2caf60203
+DECL|enum|__anon2bc320070203
 typedef|typedef
 enum|enum
 block|{
@@ -456,7 +462,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be2caf60308
+DECL|struct|__anon2bc320070308
 typedef|typedef
 struct|struct
 block|{
@@ -666,7 +672,7 @@ value|0x00010000
 end_define
 
 begin_comment
-comment|/* Event filter is deleted before closing file. Has no meaning    for select, poll, epoll.     kqueue:     kqueue deletes event filters for file that closed                so we need only to delete filters in user-level batch array    /dev/poll:  we need to flush POLLREMOVE event before closing file */
+comment|/* Event filter is deleted before closing file.    Has no meaning for select, poll, epoll.     kqueue:     kqueue deletes event filters for file that closed                so we need only to delete filters in user-level batch array    /dev/poll:  we need to flush POLLREMOVE event before closing file */
 end_comment
 
 begin_define
@@ -702,6 +708,40 @@ value|EVFILT_WRITE
 end_define
 
 begin_define
+DECL|macro|NGX_ENABLE_EVENT
+define|#
+directive|define
+name|NGX_ENABLE_EVENT
+value|EV_ENABLE
+end_define
+
+begin_define
+DECL|macro|NGX_DISABLE_EVENT
+define|#
+directive|define
+name|NGX_DISABLE_EVENT
+value|EV_DISABLE
+end_define
+
+begin_comment
+comment|/* NGX_CLOSE_EVENT is the module flag and it would not go into a kernel    so we need to choose the value that would not interfere with any existent    and future flags. kqueue has such values - EV_FLAG1, EV_EOF and EV_ERROR.    They are reserved and cleared on a kernel entrance */
+end_comment
+
+begin_undef
+undef|#
+directive|undef
+name|NGX_CLOSE_EVENT
+end_undef
+
+begin_define
+DECL|macro|NGX_CLOSE_EVENT
+define|#
+directive|define
+name|NGX_CLOSE_EVENT
+value|EV_FLAG1
+end_define
+
+begin_define
 DECL|macro|NGX_LEVEL_EVENT
 define|#
 directive|define
@@ -717,6 +757,14 @@ name|NGX_ONESHOT_EVENT
 value|EV_ONESHOT
 end_define
 
+begin_define
+DECL|macro|NGX_CLEAR_EVENT
+define|#
+directive|define
+name|NGX_CLEAR_EVENT
+value|EV_CLEAR
+end_define
+
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -729,27 +777,6 @@ define|#
 directive|define
 name|HAVE_CLEAR_EVENT
 value|1
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_if
-if|#
-directive|if
-operator|(
-name|HAVE_CLEAR_EVENT
-operator|)
-end_if
-
-begin_define
-DECL|macro|NGX_CLEAR_EVENT
-define|#
-directive|define
-name|NGX_CLEAR_EVENT
-value|EV_CLEAR
 end_define
 
 begin_endif

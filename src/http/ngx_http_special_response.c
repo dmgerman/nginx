@@ -108,6 +108,24 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|error_408_page
+specifier|static
+name|char
+name|error_408_page
+index|[]
+init|=
+literal|"<html>"
+name|CRLF
+literal|"<head><title>408 Request Time-out</title></head>"
+name|CRLF
+literal|"<body bgcolor=\"white\">"
+name|CRLF
+literal|"<center><h1>408 Request Time-out</h1></center>"
+name|CRLF
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|error_414_page
 specifier|static
 name|char
@@ -144,6 +162,42 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|error_502_page
+specifier|static
+name|char
+name|error_502_page
+index|[]
+init|=
+literal|"<html>"
+name|CRLF
+literal|"<head><title>502 Bad Gateway</title></head>"
+name|CRLF
+literal|"<body bgcolor=\"white\">"
+name|CRLF
+literal|"<center><h1>502 Bad Gateway</h1></center>"
+name|CRLF
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|error_504_page
+specifier|static
+name|char
+name|error_504_page
+index|[]
+init|=
+literal|"<html>"
+name|CRLF
+literal|"<head><title>504 Gateway Time-out</title></head>"
+name|CRLF
+literal|"<body bgcolor=\"white\">"
+name|CRLF
+literal|"<center><h1>504 Gateway Time-out</h1></center>"
+name|CRLF
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|error_pages
 specifier|static
 name|ngx_str_t
@@ -151,187 +205,104 @@ name|error_pages
 index|[]
 init|=
 block|{
-block|{
-literal|0
-block|,
-name|NULL
-block|}
+name|ngx_null_string
 block|,
 comment|/* 301 */
-block|{
-literal|0
-block|,
-name|NULL
-block|}
+name|ngx_null_string
 block|,
 comment|/* 302 */
-block|{
-literal|0
-block|,
-name|NULL
-block|}
+name|ngx_null_string
 block|,
 comment|/* 303 */
-block|{
-literal|0
-block|,
-name|NULL
-block|}
-block|,
-comment|/* 304 */
-block|{
-sizeof|sizeof
+name|ngx_string
 argument_list|(
 name|error_400_page
 argument_list|)
-operator|-
-literal|1
 block|,
-name|error_400_page
-block|}
-block|,
-block|{
-literal|0
-block|,
-name|NULL
-block|}
+name|ngx_null_string
 block|,
 comment|/* 401 */
-block|{
-literal|0
-block|,
-name|NULL
-block|}
+name|ngx_null_string
 block|,
 comment|/* 402 */
-block|{
-sizeof|sizeof
+name|ngx_string
 argument_list|(
 name|error_403_page
 argument_list|)
-operator|-
-literal|1
 block|,
-name|error_403_page
-block|}
-block|,
-block|{
-sizeof|sizeof
+name|ngx_string
 argument_list|(
 name|error_404_page
 argument_list|)
-operator|-
-literal|1
 block|,
-name|error_404_page
-block|}
-block|,
-block|{
-literal|0
-block|,
-name|NULL
-block|}
+name|ngx_null_string
 block|,
 comment|/* 405 */
-block|{
-literal|0
-block|,
-name|NULL
-block|}
+name|ngx_null_string
 block|,
 comment|/* 406 */
-block|{
-literal|0
-block|,
-name|NULL
-block|}
+name|ngx_null_string
 block|,
 comment|/* 407 */
-block|{
-literal|0
+name|ngx_string
+argument_list|(
+name|error_408_page
+argument_list|)
 block|,
-name|NULL
-block|}
-block|,
-comment|/* 408 */
-block|{
-literal|0
-block|,
-name|NULL
-block|}
+name|ngx_null_string
 block|,
 comment|/* 409 */
-block|{
-literal|0
-block|,
-name|NULL
-block|}
+name|ngx_null_string
 block|,
 comment|/* 410 */
-block|{
-literal|0
-block|,
-name|NULL
-block|}
+name|ngx_null_string
 block|,
 comment|/* 411 */
-block|{
-literal|0
-block|,
-name|NULL
-block|}
+name|ngx_null_string
 block|,
 comment|/* 412 */
-block|{
-literal|0
-block|,
-name|NULL
-block|}
+name|ngx_null_string
 block|,
 comment|/* 413 */
-block|{
-sizeof|sizeof
+name|ngx_string
 argument_list|(
 name|error_414_page
 argument_list|)
-operator|-
-literal|1
 block|,
-name|error_414_page
-block|}
-block|,
-block|{
-literal|0
-block|,
-name|NULL
-block|}
+name|ngx_null_string
 block|,
 comment|/* 415 */
-block|{
-literal|0
-block|,
-name|NULL
-block|}
+name|ngx_null_string
 block|,
 comment|/* 416 */
-block|{
-sizeof|sizeof
+name|ngx_string
 argument_list|(
 name|error_500_page
 argument_list|)
-operator|-
-literal|1
 block|,
-name|error_500_page
-block|}
+name|ngx_null_string
+block|,
+comment|/* 501 */
+name|ngx_string
+argument_list|(
+name|error_502_page
+argument_list|)
+block|,
+name|ngx_null_string
+block|,
+comment|/* 503 */
+name|ngx_string
+argument_list|(
+argument|error_504_page
+argument_list|)
 block|}
 decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_http_special_response (ngx_http_request_t * r,int error)
+DECL|function|ngx_http_special_response_handler (ngx_http_request_t * r,int error)
 name|int
-name|ngx_http_special_response
+name|ngx_http_special_response_handler
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
@@ -392,7 +363,7 @@ name|error
 operator|-
 name|NGX_HTTP_BAD_REQUEST
 operator|+
-literal|4
+literal|3
 expr_stmt|;
 block|}
 else|else
@@ -403,7 +374,7 @@ name|error
 operator|-
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 operator|+
-literal|4
+literal|3
 operator|+
 literal|17
 expr_stmt|;

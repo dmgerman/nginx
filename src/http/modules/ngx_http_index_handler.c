@@ -187,8 +187,6 @@ name|ngx_http_module_t
 name|ngx_http_index_module_ctx
 init|=
 block|{
-name|NGX_HTTP_MODULE
-block|,
 name|NULL
 block|,
 comment|/* create server config */
@@ -202,20 +200,7 @@ name|ngx_http_index_merge_conf
 block|,
 comment|/* merge location config */
 name|NULL
-block|,
-comment|/* translate handler */
-name|NULL
-block|,
-comment|/* output header filter */
-name|NULL
-block|,
-comment|/* next output header filter */
-name|NULL
-block|,
-comment|/* output body filter */
-name|NULL
-block|,
-comment|/* next output body filter */
+comment|/* init filters */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -1199,7 +1184,7 @@ parameter_list|)
 block|{
 name|ngx_http_index_conf_t
 modifier|*
-name|icf
+name|lcf
 init|=
 operator|(
 name|ngx_http_index_conf_t
@@ -1253,7 +1238,7 @@ name|index
 argument_list|,
 name|ngx_push_array
 argument_list|(
-name|icf
+name|lcf
 operator|->
 name|indices
 argument_list|)
@@ -1285,7 +1270,7 @@ name|data
 expr_stmt|;
 if|if
 condition|(
-name|icf
+name|lcf
 operator|->
 name|max_index_len
 operator|<
@@ -1294,7 +1279,7 @@ operator|->
 name|len
 condition|)
 block|{
-name|icf
+name|lcf
 operator|->
 name|max_index_len
 operator|=

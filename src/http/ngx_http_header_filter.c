@@ -50,8 +50,30 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_http_config.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_http_write_filter.h>
 end_include
+
+begin_function_decl
+specifier|static
+name|void
+name|ngx_http_header_filter_init
+parameter_list|(
+name|ngx_pool_t
+modifier|*
+name|pool
+parameter_list|,
+name|ngx_http_conf_filter_t
+modifier|*
+name|cf
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_function_decl
 specifier|static
@@ -71,8 +93,6 @@ name|ngx_http_module_t
 name|ngx_http_header_filter_module_ctx
 init|=
 block|{
-name|NGX_HTTP_MODULE
-block|,
 name|NULL
 block|,
 comment|/* create server config */
@@ -85,20 +105,8 @@ comment|/* create location config */
 name|NULL
 block|,
 comment|/* merge location config */
-name|NULL
-block|,
-comment|/* translate handler */
-name|ngx_http_header_filter
-block|,
-comment|/* output header filter */
-name|NULL
-block|,
-comment|/* next output header filter */
-name|NULL
-block|,
-comment|/* output body filter */
-name|NULL
-comment|/* next output body filter */
+name|ngx_http_header_filter_init
+comment|/* init filters */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -1543,6 +1551,30 @@ argument_list|,
 name|ch
 argument_list|)
 return|;
+block|}
+end_function
+
+begin_function
+DECL|function|ngx_http_header_filter_init (ngx_pool_t * pool,ngx_http_conf_filter_t * cf)
+specifier|static
+name|void
+name|ngx_http_header_filter_init
+parameter_list|(
+name|ngx_pool_t
+modifier|*
+name|pool
+parameter_list|,
+name|ngx_http_conf_filter_t
+modifier|*
+name|cf
+parameter_list|)
+block|{
+name|cf
+operator|->
+name|output_header_filter
+operator|=
+name|ngx_http_header_filter
+expr_stmt|;
 block|}
 end_function
 

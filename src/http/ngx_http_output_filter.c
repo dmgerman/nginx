@@ -103,6 +103,22 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_function_decl
+specifier|static
+name|void
+name|ngx_http_output_filter_init
+parameter_list|(
+name|ngx_pool_t
+modifier|*
+name|pool
+parameter_list|,
+name|ngx_http_conf_filter_t
+modifier|*
+name|cf
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_decl_stmt
 DECL|variable|ngx_http_output_filter_commands
 specifier|static
@@ -155,8 +171,6 @@ name|ngx_http_module_t
 name|ngx_http_output_filter_module_ctx
 init|=
 block|{
-name|NGX_HTTP_MODULE
-block|,
 name|NULL
 block|,
 comment|/* create server config */
@@ -169,33 +183,8 @@ comment|/* create location config */
 name|ngx_http_output_filter_merge_conf
 block|,
 comment|/* merge location config */
-name|NULL
-block|,
-comment|/* translate handler */
-name|NULL
-block|,
-comment|/* output header filter */
-name|NULL
-block|,
-comment|/* next output header filter */
-operator|(
-name|int
-argument_list|(
-operator|*
-argument_list|)
-argument_list|(
-name|ngx_http_request_t
-operator|*
-argument_list|,
-name|ngx_chain_t
-operator|*
-argument_list|)
-operator|)
-name|ngx_http_output_filter
-block|,
+name|ngx_http_output_filter_init
 comment|/* output body filter */
-name|NULL
-comment|/* next output body filter */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -225,13 +214,43 @@ block|}
 decl_stmt|;
 end_decl_stmt
 
+begin_function_decl
+DECL|variable|next_filter
+specifier|static
+name|int
+function_decl|(
+modifier|*
+name|next_filter
+function_decl|)
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_chain_t
+modifier|*
+name|ch
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
 begin_define
-DECL|macro|next_filter
 define|#
 directive|define
 name|next_filter
 value|ngx_http_output_filter_module_ctx.next_output_body_filter
 end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_define
 DECL|macro|need_to_copy (r,hunk)
@@ -1288,6 +1307,36 @@ block|}
 return|return
 name|NGX_OK
 return|;
+block|}
+end_function
+
+begin_function
+DECL|function|ngx_http_output_filter_init (ngx_pool_t * pool,ngx_http_conf_filter_t * cf)
+specifier|static
+name|void
+name|ngx_http_output_filter_init
+parameter_list|(
+name|ngx_pool_t
+modifier|*
+name|pool
+parameter_list|,
+name|ngx_http_conf_filter_t
+modifier|*
+name|cf
+parameter_list|)
+block|{
+name|next_filter
+operator|=
+name|cf
+operator|->
+name|output_body_filter
+expr_stmt|;
+name|cf
+operator|->
+name|output_body_filter
+operator|=
+name|NULL
+expr_stmt|;
 block|}
 end_function
 

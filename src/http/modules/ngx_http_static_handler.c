@@ -32,6 +32,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_http_config.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_http_output_filter.h>
 end_include
 
@@ -41,26 +47,6 @@ name|ngx_http_module_t
 name|ngx_http_static_module
 decl_stmt|;
 end_decl_stmt
-
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-
-begin_comment
-comment|/* STUB */
-end_comment
-
-begin_comment
-unit|static ngx_http_static_ctx_t module_ctx;  void ngx_http_static_init() {      module_ctx.out = NULL;       ngx_http_static_module.ctx =&module_ctx; }
-comment|/* */
-end_comment
-
-begin_endif
-endif|#
-directive|endif
-end_endif
 
 begin_function
 DECL|function|ngx_http_static_handler (ngx_http_request_t * r)

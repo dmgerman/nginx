@@ -457,6 +457,11 @@ argument_list|()
 operator|-
 name|delta
 expr_stmt|;
+name|ngx_event_expire_timers
+argument_list|(
+name|delta
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -484,6 +489,7 @@ operator|==
 name|e
 condition|)
 block|{
+comment|/* it's not AcceptEx() completion */
 name|ev
 operator|->
 name|ready
@@ -525,19 +531,6 @@ name|ev
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-if|if
-condition|(
-name|timer
-operator|!=
-name|INFINITE
-condition|)
-block|{
-name|ngx_event_expire_timers
-argument_list|(
-name|delta
-argument_list|)
-expr_stmt|;
 block|}
 return|return
 name|NGX_OK

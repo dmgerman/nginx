@@ -45,10 +45,10 @@ value|-2
 end_define
 
 begin_define
-DECL|macro|NGX_WAITING
+DECL|macro|NGX_BUSY
 define|#
 directive|define
-name|NGX_WAITING
+name|NGX_BUSY
 value|-3
 end_define
 

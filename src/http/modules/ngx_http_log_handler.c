@@ -35,6 +35,12 @@ directive|include
 file|<ngx_http.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_http_config.h>
+end_include
+
 begin_decl_stmt
 DECL|variable|ngx_http_log_module
 name|ngx_http_module_t

@@ -812,6 +812,11 @@ argument_list|()
 operator|-
 name|delta
 expr_stmt|;
+name|ngx_event_expire_timers
+argument_list|(
+name|delta
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -1155,22 +1160,6 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"poll ready != events"
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-operator|(
-name|int
-operator|)
-name|timer
-operator|!=
-name|INFTIM
-condition|)
-block|{
-name|ngx_event_expire_timers
-argument_list|(
-name|delta
 argument_list|)
 expr_stmt|;
 block|}

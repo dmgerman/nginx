@@ -563,6 +563,16 @@ name|write
 operator|=
 literal|1
 expr_stmt|;
+name|rev
+operator|->
+name|first
+operator|=
+name|wev
+operator|->
+name|first
+operator|=
+literal|1
+expr_stmt|;
 if|#
 directive|if
 operator|(

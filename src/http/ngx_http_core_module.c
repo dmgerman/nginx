@@ -91,42 +91,12 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|char
-modifier|*
-name|ngx_server_block
+name|int
+name|ngx_http_core_init
 parameter_list|(
-name|ngx_conf_t
+name|ngx_pool_t
 modifier|*
-name|cf
-parameter_list|,
-name|ngx_command_t
-modifier|*
-name|cmd
-parameter_list|,
-name|char
-modifier|*
-name|dummy
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-specifier|static
-name|char
-modifier|*
-name|ngx_location_block
-parameter_list|(
-name|ngx_conf_t
-modifier|*
-name|cf
-parameter_list|,
-name|ngx_command_t
-modifier|*
-name|cmd
-parameter_list|,
-name|char
-modifier|*
-name|dummy
+name|pool
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -170,6 +140,48 @@ parameter_list|(
 name|ngx_pool_t
 modifier|*
 name|pool
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
+name|char
+modifier|*
+name|ngx_server_block
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_command_t
+modifier|*
+name|cmd
+parameter_list|,
+name|char
+modifier|*
+name|dummy
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
+name|char
+modifier|*
+name|ngx_location_block
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_command_t
+modifier|*
+name|cmd
+parameter_list|,
+name|char
+modifier|*
+name|dummy
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -467,10 +479,7 @@ argument_list|)
 block|}
 block|,
 block|{
-name|ngx_string
-argument_list|(
-literal|""
-argument_list|)
+name|ngx_null_string
 block|,
 literal|0
 block|,
@@ -490,8 +499,6 @@ name|ngx_http_module_t
 name|ngx_http_core_module_ctx
 init|=
 block|{
-name|NGX_HTTP_MODULE
-block|,
 name|ngx_http_core_create_srv_conf
 block|,
 comment|/* create server config */
@@ -504,20 +511,8 @@ comment|/* create location config */
 name|NULL
 block|,
 comment|/* merge location config */
-name|ngx_http_core_translate_handler
-block|,
-comment|/* translate handler */
 name|NULL
-block|,
-comment|/* output header filter */
-name|NULL
-block|,
-comment|/* next output header filter */
-name|NULL
-block|,
-comment|/* output body filter */
-name|NULL
-comment|/* next output body filter */
+comment|/* init filters */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -541,7 +536,7 @@ comment|/* module directives */
 name|NGX_HTTP_MODULE_TYPE
 block|,
 comment|/* module type */
-name|NULL
+name|ngx_http_core_init
 comment|/* init module */
 block|}
 decl_stmt|;
@@ -565,6 +560,10 @@ decl_stmt|,
 name|n
 decl_stmt|,
 name|i
+decl_stmt|;
+name|ngx_http_handler_pt
+modifier|*
+name|h
 decl_stmt|;
 name|ngx_http_module_t
 modifier|*
@@ -596,15 +595,15 @@ literal|0
 expr_stmt|;
 name|r
 operator|->
-name|lingering_close
+name|keepalive
 operator|=
 literal|1
 expr_stmt|;
 name|r
 operator|->
-name|keepalive
+name|lingering_close
 operator|=
-literal|0
+literal|1
 expr_stmt|;
 if|#
 directive|if
@@ -905,68 +904,51 @@ argument|_ r->loc_conf
 argument_list|)
 empty_stmt|;
 comment|/* run translation phase */
+name|h
+operator|=
+operator|(
+name|ngx_http_handler_pt
+operator|*
+operator|)
+name|ngx_http_translate_handlers
+operator|.
+name|elts
+expr_stmt|;
 for|for
 control|(
 name|i
 operator|=
 literal|0
 init|;
-name|ngx_modules
-index|[
 name|i
-index|]
+operator|<
+name|ngx_http_translate_handlers
+operator|.
+name|nelts
 condition|;
 name|i
 operator|++
 control|)
 block|{
-if|if
-condition|(
-name|ngx_modules
-index|[
-name|i
-index|]
-operator|->
-name|type
-operator|!=
-name|NGX_HTTP_MODULE_TYPE
-condition|)
-block|{
-continue|continue;
-block|}
-name|module
-operator|=
-operator|(
-name|ngx_http_module_t
-operator|*
-operator|)
-name|ngx_modules
-index|[
-name|i
-index|]
-operator|->
-name|ctx
-expr_stmt|;
-if|if
-condition|(
-name|module
-operator|->
-name|translate_handler
-operator|==
-name|NULL
-condition|)
-block|{
-continue|continue;
-block|}
 name|rc
 operator|=
-name|module
-operator|->
-name|translate_handler
-argument_list|(
+name|h
+index|[
+name|i
+index|]
+operator|(
 name|r
-argument_list|)
+operator|)
 expr_stmt|;
+if|if
+condition|(
+name|rc
+operator|==
+name|NGX_DECLINED
+condition|)
+block|{
+continue|continue;
+block|}
 if|if
 condition|(
 name|rc
@@ -984,42 +966,17 @@ name|NGX_HTTP_SPECIAL_RESPONSE
 condition|)
 block|{
 return|return
-name|ngx_http_special_response
-argument_list|(
-name|r
-argument_list|,
 name|rc
-argument_list|)
 return|;
 block|}
 block|}
-name|rc
-operator|=
+return|return
 name|r
 operator|->
 name|handler
 argument_list|(
 name|r
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|rc
-operator|>=
-name|NGX_HTTP_SPECIAL_RESPONSE
-condition|)
-block|{
-return|return
-name|ngx_http_special_response
-argument_list|(
-name|r
-argument_list|,
-name|rc
-argument_list|)
-return|;
-block|}
-return|return
-name|rc
 return|;
 block|}
 end_function
@@ -1074,11 +1031,11 @@ name|scf
 decl_stmt|;
 name|ngx_http_core_loc_conf_t
 modifier|*
-modifier|*
 name|lcf
 decl_stmt|,
 modifier|*
-name|loc_conf
+modifier|*
+name|plcf
 decl_stmt|;
 name|scf
 operator|=
@@ -1090,11 +1047,11 @@ name|ngx_http_get_module_srv_conf
 argument_list|(
 name|r
 argument_list|,
-name|ngx_http_core_module_ctx
+name|ngx_http_core_module
 argument_list|)
 expr_stmt|;
 comment|/* find location config */
-name|lcf
+name|plcf
 operator|=
 operator|(
 name|ngx_http_core_loc_conf_t
@@ -1130,7 +1087,7 @@ argument_list|(
 argument|r->connection->log
 argument_list|,
 literal|"trans: %s"
-argument|_ lcf[i]->name.data
+argument|_ plcf[i]->name.data
 argument_list|)
 empty_stmt|;
 if|if
@@ -1141,7 +1098,7 @@ name|uri
 operator|.
 name|len
 operator|<
-name|lcf
+name|plcf
 index|[
 name|i
 index|]
@@ -1163,7 +1120,7 @@ name|uri
 operator|.
 name|data
 argument_list|,
-name|lcf
+name|plcf
 index|[
 name|i
 index|]
@@ -1172,7 +1129,7 @@ name|name
 operator|.
 name|data
 argument_list|,
-name|lcf
+name|plcf
 index|[
 name|i
 index|]
@@ -1202,7 +1159,7 @@ name|r
 operator|->
 name|loc_conf
 operator|=
-name|lcf
+name|plcf
 index|[
 name|i
 index|]
@@ -1248,7 +1205,7 @@ return|return
 name|NGX_OK
 return|;
 block|}
-name|loc_conf
+name|lcf
 operator|=
 operator|(
 name|ngx_http_core_loc_conf_t
@@ -1258,7 +1215,7 @@ name|ngx_http_get_module_loc_conf
 argument_list|(
 name|r
 argument_list|,
-name|ngx_http_core_module_ctx
+name|ngx_http_core_module
 argument_list|)
 expr_stmt|;
 name|ngx_log_debug
@@ -1272,7 +1229,7 @@ argument_list|,
 literal|"doc_root: %08x"
 name|_
 operator|&
-name|loc_conf
+name|lcf
 operator|->
 name|doc_root
 argument_list|)
@@ -1405,7 +1362,7 @@ expr_stmt|;
 comment|/* "+ 7" is "http://" */
 if|if
 condition|(
-name|loc_conf
+name|lcf
 operator|->
 name|doc_root
 operator|.
@@ -1427,7 +1384,7 @@ condition|)
 block|{
 name|len
 operator|=
-name|loc_conf
+name|lcf
 operator|->
 name|doc_root
 operator|.
@@ -1478,7 +1435,7 @@ name|f_offset
 operator|=
 name|len
 operator|-
-name|loc_conf
+name|lcf
 operator|->
 name|doc_root
 operator|.
@@ -1548,13 +1505,13 @@ name|name
 operator|.
 name|data
 argument_list|,
-name|loc_conf
+name|lcf
 operator|->
 name|doc_root
 operator|.
 name|data
 argument_list|,
-name|loc_conf
+name|lcf
 operator|->
 name|doc_root
 operator|.
@@ -1609,7 +1566,7 @@ directive|if
 operator|(
 name|WIN9X
 operator|)
-comment|/* There is no way to open file or directory in Win9X with        one syscall: Win9X has not FILE_FLAG_BACKUP_SEMANTICS flag.        so we need to check its type before opening */
+comment|/* There is no way to open a file or a directory in Win9X with        one syscall: Win9X has no FILE_FLAG_BACKUP_SEMANTICS flag.        so we need to check its type before the opening */
 name|r
 operator|->
 name|file
@@ -2161,7 +2118,7 @@ return|return
 name|NGX_HTTP_MOVED_PERMANENTLY
 return|;
 block|}
-comment|/* TODO: r->handler = loc_conf->default_handler; */
+comment|/* TODO: r->handler = lcf->default_handler; */
 comment|/* STUB */
 name|r
 operator|->
@@ -2388,6 +2345,8 @@ return|return
 name|ngx_http_close_request
 argument_list|(
 name|r
+argument_list|,
+literal|0
 argument_list|)
 return|;
 block|}
@@ -2416,7 +2375,7 @@ argument|_ error
 argument_list|)
 empty_stmt|;
 comment|/* log request */
-name|ngx_http_special_response
+name|ngx_http_special_response_handler
 argument_list|(
 name|r
 argument_list|,
@@ -2427,19 +2386,24 @@ return|return
 name|ngx_http_close_request
 argument_list|(
 name|r
+argument_list|,
+literal|0
 argument_list|)
 return|;
 block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_close_request (ngx_http_request_t * r)
+DECL|function|ngx_http_close_request (ngx_http_request_t * r,int error)
 name|int
 name|ngx_http_close_request
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
+parameter_list|,
+name|int
+name|error
 parameter_list|)
 block|{
 name|ngx_connection_t
@@ -2456,6 +2420,20 @@ name|r
 operator|->
 name|connection
 expr_stmt|;
+if|if
+condition|(
+name|error
+condition|)
+block|{
+name|r
+operator|->
+name|headers_out
+operator|.
+name|status
+operator|=
+name|error
+expr_stmt|;
+block|}
 name|ngx_http_log_handler
 argument_list|(
 name|r
@@ -2666,6 +2644,45 @@ block|}
 end_function
 
 begin_function
+DECL|function|ngx_http_core_init (ngx_pool_t * pool)
+specifier|static
+name|int
+name|ngx_http_core_init
+parameter_list|(
+name|ngx_pool_t
+modifier|*
+name|pool
+parameter_list|)
+block|{
+name|ngx_http_handler_pt
+modifier|*
+name|h
+decl_stmt|;
+name|ngx_test_null
+argument_list|(
+name|h
+argument_list|,
+name|ngx_push_array
+argument_list|(
+operator|&
+name|ngx_http_translate_handlers
+argument_list|)
+argument_list|,
+name|NGX_ERROR
+argument_list|)
+expr_stmt|;
+operator|*
+name|h
+operator|=
+name|ngx_http_core_translate_handler
+expr_stmt|;
+return|return
+name|NGX_OK
+return|;
+block|}
+end_function
+
+begin_function
 DECL|function|ngx_server_block (ngx_conf_t * cf,ngx_command_t * cmd,char * dummy)
 specifier|static
 name|char
@@ -2712,7 +2729,7 @@ decl_stmt|;
 name|ngx_http_core_loc_conf_t
 modifier|*
 modifier|*
-name|lcf
+name|plcf
 decl_stmt|;
 name|ngx_test_null
 argument_list|(
@@ -2838,7 +2855,10 @@ name|ctx
 operator|->
 name|srv_conf
 index|[
-name|module
+name|ngx_modules
+index|[
+name|i
+index|]
 operator|->
 name|index
 index|]
@@ -2869,7 +2889,10 @@ name|ctx
 operator|->
 name|loc_conf
 index|[
-name|module
+name|ngx_modules
+index|[
+name|i
+index|]
 operator|->
 name|index
 index|]
@@ -2930,7 +2953,7 @@ name|ctx
 operator|->
 name|srv_conf
 index|[
-name|ngx_http_core_module_ctx
+name|ngx_http_core_module
 operator|.
 name|index
 index|]
@@ -2941,7 +2964,7 @@ name|ctx
 operator|=
 name|ctx
 expr_stmt|;
-name|lcf
+name|plcf
 operator|=
 operator|(
 name|ngx_http_core_loc_conf_t
@@ -3017,7 +3040,10 @@ name|ctx
 operator|->
 name|srv_conf
 index|[
-name|module
+name|ngx_modules
+index|[
+name|i
+index|]
 operator|->
 name|index
 index|]
@@ -3052,7 +3078,10 @@ name|prev
 operator|->
 name|loc_conf
 index|[
-name|module
+name|ngx_modules
+index|[
+name|i
+index|]
 operator|->
 name|index
 index|]
@@ -3061,7 +3090,10 @@ name|ctx
 operator|->
 name|loc_conf
 index|[
-name|module
+name|ngx_modules
+index|[
+name|i
+index|]
 operator|->
 name|index
 index|]
@@ -3106,19 +3138,25 @@ name|ctx
 operator|->
 name|loc_conf
 index|[
-name|module
+name|ngx_modules
+index|[
+name|i
+index|]
 operator|->
 name|index
 index|]
 argument_list|,
-name|lcf
+name|plcf
 index|[
 name|j
 index|]
 operator|->
 name|loc_conf
 index|[
-name|module
+name|ngx_modules
+index|[
+name|i
+index|]
 operator|->
 name|index
 index|]
@@ -3192,7 +3230,7 @@ name|lcf
 decl_stmt|,
 modifier|*
 modifier|*
-name|loc
+name|plcf
 decl_stmt|;
 name|ngx_test_null
 argument_list|(
@@ -3310,7 +3348,10 @@ name|ctx
 operator|->
 name|loc_conf
 index|[
-name|module
+name|ngx_modules
+index|[
+name|i
+index|]
 operator|->
 name|index
 index|]
@@ -3407,7 +3448,7 @@ index|]
 expr_stmt|;
 name|ngx_test_null
 argument_list|(
-name|loc
+name|plcf
 argument_list|,
 name|ngx_push_array
 argument_list|(
@@ -3421,7 +3462,7 @@ name|NGX_CONF_ERROR
 argument_list|)
 expr_stmt|;
 operator|*
-name|loc
+name|plcf
 operator|=
 name|lcf
 expr_stmt|;
@@ -3800,7 +3841,7 @@ name|lcf
 operator|->
 name|send_timeout
 operator|=
-literal|10
+literal|10000
 expr_stmt|;
 name|lcf
 operator|->
