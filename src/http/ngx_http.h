@@ -82,7 +82,7 @@ file|<ngx_http_core_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a442ca30108
+DECL|struct|__anon28dd7b8c0108
 typedef|typedef
 struct|struct
 block|{
@@ -221,6 +221,17 @@ end_function_decl
 begin_function_decl
 name|int
 name|ngx_http_parse_request_line
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|int
+name|ngx_http_parse_complex_uri
 parameter_list|(
 name|ngx_http_request_t
 modifier|*

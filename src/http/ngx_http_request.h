@@ -353,7 +353,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2910a3790108
+DECL|struct|__anon28a81eea0108
 typedef|typedef
 struct|struct
 block|{
@@ -372,7 +372,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2910a3790208
+DECL|struct|__anon28a81eea0208
 typedef|typedef
 struct|struct
 block|{
@@ -455,7 +455,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2910a3790308
+DECL|struct|__anon28a81eea0308
 typedef|typedef
 struct|struct
 block|{
@@ -506,7 +506,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2910a3790408
+DECL|struct|__anon28a81eea0408
 typedef|typedef
 struct|struct
 block|{
@@ -529,7 +529,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2910a3790508
+DECL|struct|__anon28a81eea0508
 typedef|typedef
 struct|struct
 block|{
@@ -620,6 +620,63 @@ decl_stmt|;
 DECL|typedef|ngx_http_headers_out_t
 block|}
 name|ngx_http_headers_out_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon28a81eea0608
+typedef|typedef
+struct|struct
+block|{
+DECL|union|__anon28a81eea070a
+union|union
+block|{
+DECL|struct|__anon28a81eea0808
+struct|struct
+block|{
+DECL|member|fd
+name|ngx_fd_t
+name|fd
+decl_stmt|;
+DECL|member|name
+name|char
+modifier|*
+name|name
+decl_stmt|;
+DECL|member|file
+block|}
+name|file
+struct|;
+DECL|struct|__anon28a81eea0908
+struct|struct
+block|{
+DECL|member|hash
+name|ngx_http_cache_hash_t
+modifier|*
+name|hash
+decl_stmt|;
+DECL|member|cache
+name|ngx_http_cache_t
+modifier|*
+name|cache
+decl_stmt|;
+DECL|member|cache
+block|}
+name|cache
+struct|;
+DECL|member|data
+block|}
+name|data
+union|;
+DECL|member|cache
+name|unsigned
+name|cache
+range|:
+literal|1
+decl_stmt|;
+DECL|typedef|ngx_http_cleanup_t
+block|}
+name|ngx_http_cleanup_t
 typedef|;
 end_typedef
 
@@ -829,6 +886,10 @@ DECL|member|data
 name|void
 modifier|*
 name|data
+decl_stmt|;
+DECL|member|cleanup
+name|ngx_array_t
+name|cleanup
 decl_stmt|;
 DECL|member|discarded_buffer
 name|char

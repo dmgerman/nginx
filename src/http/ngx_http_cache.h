@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c6e28c50108
+DECL|struct|__anon2aafc9770108
 typedef|typedef
 struct|struct
 block|{
@@ -79,7 +79,7 @@ DECL|member|updated
 name|time_t
 name|updated
 decl_stmt|;
-DECL|union|__anon2c6e28c5020a
+DECL|union|__anon2aafc977020a
 union|union
 block|{
 DECL|member|size
@@ -101,7 +101,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6e28c50308
+DECL|struct|__anon2aafc9770308
 typedef|typedef
 struct|struct
 block|{
@@ -155,7 +155,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2c6e28c50408
+DECL|struct|__anon2aafc9770408
 typedef|typedef
 struct|struct
 block|{
@@ -192,7 +192,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6e28c50508
+DECL|struct|__anon2aafc9770508
 typedef|typedef
 struct|struct
 block|{
@@ -271,7 +271,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6e28c50608
+DECL|struct|__anon2aafc9770608
 typedef|typedef
 struct|struct
 block|{
@@ -285,20 +285,6 @@ block|}
 name|ngx_http_cache_conf_t
 typedef|;
 end_typedef
-
-begin_define
-DECL|macro|ngx_http_cache_unlock (ch,ce)
-define|#
-directive|define
-name|ngx_http_cache_unlock
-parameter_list|(
-name|ch
-parameter_list|,
-name|ce
-parameter_list|)
-define|\
-value|ngx_mutex_lock(&ch->mutex);                                      \             ce->refs--;                                                      \             ngx_mutex_unlock(&ch->mutex);
-end_define
 
 begin_define
 DECL|macro|NGX_HTTP_CACHE_STALE
@@ -407,6 +393,25 @@ name|key
 parameter_list|,
 name|uint32_t
 name|crc
+parameter_list|,
+name|ngx_log_t
+modifier|*
+name|log
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_http_cache_unlock
+parameter_list|(
+name|ngx_http_cache_hash_t
+modifier|*
+name|hash
+parameter_list|,
+name|ngx_http_cache_t
+modifier|*
+name|cache
 parameter_list|,
 name|ngx_log_t
 modifier|*

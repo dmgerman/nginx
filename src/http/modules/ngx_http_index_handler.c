@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29c3e7140108
+DECL|struct|__anon2a0b32c10108
 typedef|typedef
 struct|struct
 block|{
@@ -42,7 +42,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c3e7140208
+DECL|struct|__anon2a0b32c10208
 typedef|typedef
 struct|struct
 block|{
@@ -474,6 +474,12 @@ operator|->
 name|cache
 argument_list|,
 name|cache
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
 argument_list|)
 expr_stmt|;
 return|return
@@ -508,6 +514,12 @@ operator|->
 name|cache
 argument_list|,
 name|cache
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
 argument_list|)
 expr_stmt|;
 return|return
@@ -1166,6 +1178,12 @@ operator|->
 name|cache
 argument_list|,
 name|cache
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
 argument_list|)
 expr_stmt|;
 return|return
@@ -1389,6 +1407,12 @@ operator|->
 name|cache
 argument_list|,
 name|cache
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
 argument_list|)
 expr_stmt|;
 block|}
