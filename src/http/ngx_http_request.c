@@ -2936,6 +2936,7 @@ operator|)
 operator|=
 name|h
 expr_stmt|;
+break|break;
 block|}
 block|}
 name|ngx_log_debug

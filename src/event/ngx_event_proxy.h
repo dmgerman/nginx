@@ -190,10 +190,6 @@ DECL|member|bufs
 name|ngx_bufs_t
 name|bufs
 decl_stmt|;
-DECL|member|busy_len
-name|size_t
-name|busy_len
-decl_stmt|;
 DECL|member|max_busy_len
 name|size_t
 name|max_busy_len

@@ -3550,6 +3550,19 @@ name|header_in
 operator|->
 name|pos
 expr_stmt|;
+comment|/*      * event_proxy would do p->header_in->last += ep->preread_size      * as these bytes were read.      */
+name|p
+operator|->
+name|header_in
+operator|->
+name|last
+operator|=
+name|p
+operator|->
+name|header_in
+operator|->
+name|pos
+expr_stmt|;
 comment|/* STUB */
 name|ep
 operator|->
@@ -3802,7 +3815,11 @@ condition|)
 block|{
 name|ngx_http_proxy_close_connection
 argument_list|(
-name|c
+name|p
+operator|->
+name|upstream
+operator|.
+name|connection
 argument_list|)
 expr_stmt|;
 name|p
@@ -3872,7 +3889,11 @@ condition|)
 block|{
 name|ngx_http_proxy_close_connection
 argument_list|(
-name|c
+name|p
+operator|->
+name|upstream
+operator|.
+name|connection
 argument_list|)
 expr_stmt|;
 name|p
@@ -3924,7 +3945,7 @@ name|char
 modifier|*
 name|pos
 decl_stmt|;
-DECL|enum|__anon2c75796c0103
+DECL|enum|__anon2b70d1ce0103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -4551,6 +4572,16 @@ condition|(
 name|p
 operator|->
 name|header_sent
+operator|&&
+operator|(
+name|rc
+operator|==
+name|NGX_ERROR
+operator|||
+name|rc
+operator|>=
+name|NGX_HTTP_SPECIAL_RESPONSE
+operator|)
 condition|)
 block|{
 name|rc
@@ -5040,6 +5071,7 @@ literal|8192
 operator|+
 literal|4096
 expr_stmt|;
+comment|/* CHECK in _init conf->max_temp_size>= conf->bufs.size !!! */
 name|conf
 operator|->
 name|max_temp_file_size
