@@ -656,6 +656,14 @@ name|ev
 operator|->
 name|data
 expr_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|c->log
+argument_list|,
+literal|"del event: %d"
+argument|_ c->fd
+argument_list|)
+empty_stmt|;
 if|#
 directive|if
 operator|(
@@ -752,6 +760,9 @@ literal|1
 expr_stmt|;
 endif|#
 directive|endif
+name|nevents
+operator|--
+expr_stmt|;
 if|if
 condition|(
 name|ev
@@ -787,9 +798,6 @@ operator|->
 name|index
 expr_stmt|;
 block|}
-name|nevents
-operator|--
-expr_stmt|;
 return|return
 name|NGX_OK
 return|;

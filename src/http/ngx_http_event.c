@@ -1789,7 +1789,7 @@ name|end
 condition|)
 block|{
 name|rc
-operator|==
+operator|=
 name|NGX_HTTP_PARSE_TOO_LONG_URI
 expr_stmt|;
 block|}
@@ -2659,6 +2659,7 @@ argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
+comment|/* handler is still busy */
 if|if
 condition|(
 name|rc
@@ -2668,7 +2669,7 @@ condition|)
 return|return
 name|rc
 return|;
-comment|/* transfer not completed */
+comment|/* handler has done its work but transfer is not completed */
 if|if
 condition|(
 name|rc
@@ -2984,13 +2985,8 @@ expr_stmt|;
 comment|/* STUB: should find handler */
 if|#
 directive|if
-literal|1
-name|r
-operator|->
-name|filter
-operator|=
-name|NGX_HTTP_FILTER_NEED_IN_MEMORY
-expr_stmt|;
+literal|0
+block_content|r->filter = NGX_HTTP_FILTER_NEED_IN_MEMORY;
 endif|#
 directive|endif
 name|rc

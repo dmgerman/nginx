@@ -116,13 +116,13 @@ name|ngx_event_t
 modifier|*
 name|prev
 decl_stmt|;
-comment|/* queue in select(), poll(), mutex(),        */
+comment|/* queue in mutex(), aio_read(), aio_write()  */
 DECL|member|next
 name|ngx_event_t
 modifier|*
 name|next
 decl_stmt|;
-comment|/*   aio_read(), aio_write()                  */
+comment|/*                                            */
 DECL|member|timer_handler
 name|int
 function_decl|(
@@ -170,20 +170,12 @@ comment|/*   write:  available space in buffer       */
 comment|/* otherwise:                                */
 comment|/*   accept: 1 if accept many, 0 otherwise   */
 comment|/* flags - int are probably faster on write then bits ??? */
-if|#
-directive|if
-operator|!
-operator|(
-name|USE_KQUEUE
-operator|)
 DECL|member|oneshot
 name|unsigned
 name|oneshot
 range|:
 literal|1
 decl_stmt|;
-endif|#
-directive|endif
 DECL|member|listening
 name|unsigned
 name|listening
@@ -267,7 +259,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon275cce320103
+DECL|enum|__anon2c8a507b0103
 typedef|typedef
 enum|enum
 block|{
@@ -303,7 +295,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275cce320208
+DECL|struct|__anon2c8a507b0208
 typedef|typedef
 struct|struct
 block|{

@@ -622,6 +622,10 @@ condition|(
 name|rc
 operator|==
 name|NGX_OK
+operator|&&
+name|ctx
+operator|->
+name|hunk
 condition|)
 name|ctx
 operator|->
@@ -1082,6 +1086,12 @@ operator|==
 name|NGX_OK
 condition|)
 block|{
+if|if
+condition|(
+name|ctx
+operator|->
+name|hunk
+condition|)
 name|ctx
 operator|->
 name|hunk
