@@ -862,6 +862,7 @@ return|return
 literal|"is duplicate"
 return|;
 block|}
+comment|/* TODO: check duplicate in cf->cycle->pathes */
 name|ngx_test_null
 argument_list|(
 name|path
@@ -878,7 +879,29 @@ name|ngx_path_t
 argument_list|)
 argument_list|)
 argument_list|,
-name|NULL
+name|NGX_CONF_ERROR
+argument_list|)
+expr_stmt|;
+operator|*
+name|pp
+operator|=
+name|path
+expr_stmt|;
+name|ngx_test_null
+argument_list|(
+name|pp
+argument_list|,
+name|ngx_push_array
+argument_list|(
+operator|&
+name|cf
+operator|->
+name|cycle
+operator|->
+name|pathes
+argument_list|)
+argument_list|,
+name|NGX_CONF_ERROR
 argument_list|)
 expr_stmt|;
 operator|*
@@ -1019,6 +1042,14 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+name|path
+operator|->
+name|gc_handler
+operator|=
+name|cmd
+operator|->
+name|post
+expr_stmt|;
 return|return
 name|NGX_CONF_OK
 return|;

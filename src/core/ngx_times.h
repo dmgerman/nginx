@@ -32,13 +32,6 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|time_t
-name|ngx_time
-parameter_list|()
-function_decl|;
-end_function_decl
-
-begin_function_decl
 name|void
 name|ngx_time_update
 parameter_list|()
@@ -72,6 +65,15 @@ name|tp
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_define
+DECL|macro|ngx_time ()
+define|#
+directive|define
+name|ngx_time
+parameter_list|()
+value|ngx_cached_time
+end_define
 
 begin_decl_stmt
 specifier|extern

@@ -468,7 +468,7 @@ DECL|macro|HAVE_PREAD
 define|#
 directive|define
 name|HAVE_PREAD
-value|0
+value|1
 end_define
 
 begin_define
@@ -476,7 +476,7 @@ DECL|macro|HAVE_PWRITE
 define|#
 directive|define
 name|HAVE_PWRITE
-value|0
+value|1
 end_define
 
 begin_define

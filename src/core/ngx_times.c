@@ -210,18 +210,6 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_time ()
-name|time_t
-name|ngx_time
-parameter_list|()
-block|{
-return|return
-name|ngx_cached_time
-return|;
-block|}
-end_function
-
-begin_function
 DECL|function|ngx_time_update ()
 name|void
 name|ngx_time_update

@@ -24,6 +24,21 @@ directive|include
 file|<ngx_core.h>
 end_include
 
+begin_typedef
+DECL|typedef|ngx_path_t
+typedef|typedef
+name|struct
+name|ngx_path_s
+name|ngx_path_t
+typedef|;
+end_typedef
+
+begin_include
+include|#
+directive|include
+file|<ngx_garbage_collector.h>
+end_include
+
 begin_struct
 DECL|struct|ngx_file_s
 struct|struct
@@ -44,6 +59,10 @@ decl_stmt|;
 DECL|member|offset
 name|off_t
 name|offset
+decl_stmt|;
+DECL|member|sys_offset
+name|off_t
+name|sys_offset
 decl_stmt|;
 DECL|member|log
 name|ngx_log_t
@@ -68,10 +87,10 @@ name|NGX_MAX_PATH_LEVEL
 value|3
 end_define
 
-begin_typedef
-DECL|struct|__anon2c0836b30108
-typedef|typedef
+begin_struct
+DECL|struct|ngx_path_s
 struct|struct
+name|ngx_path_s
 block|{
 DECL|member|name
 name|ngx_str_t
@@ -88,14 +107,16 @@ index|[
 literal|3
 index|]
 decl_stmt|;
-DECL|typedef|ngx_path_t
+DECL|member|gc_handler
+name|ngx_gc_handler_pt
+name|gc_handler
+decl_stmt|;
 block|}
-name|ngx_path_t
-typedef|;
-end_typedef
+struct|;
+end_struct
 
 begin_typedef
-DECL|struct|__anon2c0836b30208
+DECL|struct|__anon2b5e4b220108
 typedef|typedef
 struct|struct
 block|{

@@ -5580,13 +5580,10 @@ name|ngx_http_proxy_finalize_request
 argument_list|(
 name|p
 argument_list|,
-name|status
-condition|?
-name|status
-else|:
 name|NGX_HTTP_CLIENT_CLOSED_REQUEST
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 if|if
 condition|(

@@ -285,7 +285,7 @@ value|416
 end_define
 
 begin_comment
-comment|/*  * HTTP does not define a code for the case when a client closed a connection  * while we are processing request so we introduce own code to log this case  */
+comment|/*  * HTTP does not define a code for the case when a client closed a connection  * while we are processing request so we introduce own code to log such  * situation when client has closed a connection before we even try to  * send HTTP header to it  */
 end_comment
 
 begin_define
@@ -293,7 +293,7 @@ DECL|macro|NGX_HTTP_CLIENT_CLOSED_REQUEST
 define|#
 directive|define
 name|NGX_HTTP_CLIENT_CLOSED_REQUEST
-value|420
+value|499
 end_define
 
 begin_define
@@ -353,7 +353,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon289297660108
+DECL|struct|__anon28906c610108
 typedef|typedef
 struct|struct
 block|{
@@ -372,7 +372,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289297660208
+DECL|struct|__anon28906c610208
 typedef|typedef
 struct|struct
 block|{
@@ -455,7 +455,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289297660308
+DECL|struct|__anon28906c610308
 typedef|typedef
 struct|struct
 block|{
@@ -506,7 +506,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289297660408
+DECL|struct|__anon28906c610408
 typedef|typedef
 struct|struct
 block|{
@@ -529,7 +529,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289297660508
+DECL|struct|__anon28906c610508
 typedef|typedef
 struct|struct
 block|{

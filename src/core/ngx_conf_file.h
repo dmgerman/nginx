@@ -378,6 +378,10 @@ DECL|member|open_files
 name|ngx_array_t
 name|open_files
 decl_stmt|;
+DECL|member|pathes
+name|ngx_array_t
+name|pathes
+decl_stmt|;
 DECL|member|connection_n
 name|int
 name|connection_n
@@ -473,7 +477,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon299f6af60108
+DECL|struct|__anon27ede69a0108
 typedef|typedef
 struct|struct
 block|{
@@ -608,7 +612,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299f6af60208
+DECL|struct|__anon27ede69a0208
 typedef|typedef
 struct|struct
 block|{
@@ -623,7 +627,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299f6af60308
+DECL|struct|__anon27ede69a0308
 typedef|typedef
 struct|struct
 block|{
@@ -654,7 +658,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon299f6af60408
+DECL|struct|__anon27ede69a0408
 typedef|typedef
 struct|struct
 block|{

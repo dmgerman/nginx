@@ -27,6 +27,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_garbage_collector.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_http_request.h>
 end_include
 
@@ -67,7 +73,7 @@ file|<ngx_http_core_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2abf475e0108
+DECL|struct|__anon2b2b03930108
 typedef|typedef
 struct|struct
 block|{

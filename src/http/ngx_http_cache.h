@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ae96e330108
+DECL|struct|__anon2baad5280108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae96e330208
+DECL|struct|__anon2baad5280208
 typedef|typedef
 struct|struct
 block|{
@@ -123,7 +123,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae96e330308
+DECL|struct|__anon2baad5280308
 typedef|typedef
 struct|struct
 block|{
@@ -176,6 +176,11 @@ DECL|member|file_start
 name|size_t
 name|file_start
 decl_stmt|;
+DECL|member|log
+name|ngx_log_t
+modifier|*
+name|log
+decl_stmt|;
 DECL|typedef|ngx_http_cache_ctx_t
 block|}
 name|ngx_http_cache_ctx_t
@@ -225,16 +230,31 @@ begin_function_decl
 name|int
 name|ngx_http_cache_open_file
 parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|,
 name|ngx_http_cache_ctx_t
 modifier|*
 name|ctx
 parameter_list|,
 name|ngx_file_uniq_t
 name|uniq
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|int
+name|ngx_garbage_collector_http_cache_handler
+parameter_list|(
+name|ngx_gc_t
+modifier|*
+name|gc
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|name
+parameter_list|,
+name|ngx_dir_t
+modifier|*
+name|dir
 parameter_list|)
 function_decl|;
 end_function_decl
