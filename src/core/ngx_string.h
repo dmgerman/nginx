@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28a28f070108
+DECL|struct|__anon29c5f3130108
 typedef|typedef
 struct|struct
 block|{
@@ -207,7 +207,7 @@ name|buf
 parameter_list|,
 name|n
 parameter_list|)
-value|memset(buf, n, 0)
+value|memset(buf, 0, n)
 end_define
 
 begin_comment

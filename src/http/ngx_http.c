@@ -51,20 +51,6 @@ name|ngx_http_max_module
 decl_stmt|;
 end_decl_stmt
 
-begin_decl_stmt
-DECL|variable|ngx_http_translate_handlers
-name|ngx_array_t
-name|ngx_http_translate_handlers
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-DECL|variable|ngx_http_index_handlers
-name|ngx_array_t
-name|ngx_http_index_handlers
-decl_stmt|;
-end_decl_stmt
-
 begin_function_decl
 DECL|variable|ngx_http_top_header_filter
 name|int
@@ -936,9 +922,13 @@ block|}
 comment|/* init list of the handlers */
 name|ngx_init_array
 argument_list|(
-name|ngx_http_translate_handlers
+name|cmcf
+operator|->
+name|translate_handlers
 argument_list|,
 name|cf
+operator|->
+name|cycle
 operator|->
 name|pool
 argument_list|,
@@ -954,9 +944,13 @@ argument_list|)
 expr_stmt|;
 name|ngx_init_array
 argument_list|(
-name|ngx_http_index_handlers
+name|cmcf
+operator|->
+name|index_handlers
 argument_list|,
 name|cf
+operator|->
+name|cycle
 operator|->
 name|pool
 argument_list|,
@@ -1870,7 +1864,11 @@ argument_list|,
 name|ngx_push_array
 argument_list|(
 operator|&
-name|ngx_listening_sockets
+name|cf
+operator|->
+name|cycle
+operator|->
+name|listening
 argument_list|)
 argument_list|,
 name|NGX_CONF_ERROR
@@ -2014,6 +2012,13 @@ index|]
 operator|.
 name|port
 argument_list|)
+expr_stmt|;
+name|ls
+operator|->
+name|fd
+operator|=
+operator|-
+literal|1
 expr_stmt|;
 name|ls
 operator|->

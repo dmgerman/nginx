@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ba7b5730108
+DECL|struct|__anon2ae9eca50108
 typedef|typedef
 struct|struct
 block|{
@@ -61,9 +61,13 @@ specifier|static
 name|int
 name|ngx_http_index_init
 parameter_list|(
-name|ngx_pool_t
+name|ngx_cycle_t
 modifier|*
-name|pool
+name|cycle
+parameter_list|,
+name|ngx_log_t
+modifier|*
+name|log
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -201,7 +205,13 @@ name|NGX_HTTP_MODULE
 block|,
 comment|/* module type */
 name|ngx_http_index_init
+block|,
 comment|/* init module */
+name|NULL
+block|,
+comment|/* commit module */
+name|NULL
+comment|/* rollback module */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -927,20 +937,58 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_index_init (ngx_pool_t * pool)
+DECL|function|ngx_http_index_init (ngx_cycle_t * cycle,ngx_log_t * log)
 specifier|static
 name|int
 name|ngx_http_index_init
 parameter_list|(
-name|ngx_pool_t
+name|ngx_cycle_t
 modifier|*
-name|pool
+name|cycle
+parameter_list|,
+name|ngx_log_t
+modifier|*
+name|log
 parameter_list|)
 block|{
 name|ngx_http_handler_pt
 modifier|*
 name|h
 decl_stmt|;
+name|ngx_http_conf_ctx_t
+modifier|*
+name|ctx
+decl_stmt|;
+name|ngx_http_core_main_conf_t
+modifier|*
+name|cmcf
+decl_stmt|;
+name|ctx
+operator|=
+operator|(
+name|ngx_http_conf_ctx_t
+operator|*
+operator|)
+name|cycle
+operator|->
+name|conf_ctx
+index|[
+name|ngx_http_module
+operator|.
+name|index
+index|]
+expr_stmt|;
+name|cmcf
+operator|=
+name|ctx
+operator|->
+name|main_conf
+index|[
+name|ngx_http_core_module
+operator|.
+name|ctx_index
+index|]
+expr_stmt|;
 name|ngx_test_null
 argument_list|(
 name|h
@@ -948,7 +996,9 @@ argument_list|,
 name|ngx_push_array
 argument_list|(
 operator|&
-name|ngx_http_index_handlers
+name|cmcf
+operator|->
+name|index_handlers
 argument_list|)
 argument_list|,
 name|NGX_ERROR

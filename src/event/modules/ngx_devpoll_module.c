@@ -84,7 +84,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon275d2ff90108
+DECL|struct|__anon2b150a8e0108
 typedef|typedef
 struct|struct
 block|{
@@ -822,6 +822,12 @@ name|ngx_connection_t
 modifier|*
 name|c
 decl_stmt|;
+name|c
+operator|=
+name|ev
+operator|->
+name|data
+expr_stmt|;
 if|#
 directive|if
 operator|(
@@ -872,13 +878,7 @@ return|return
 name|NGX_OK
 return|;
 block|}
-comment|/* we need to restore second event if it exists */
-name|c
-operator|=
-name|ev
-operator|->
-name|data
-expr_stmt|;
+comment|/* we need to restore the second event if it exists */
 if|if
 condition|(
 name|event
