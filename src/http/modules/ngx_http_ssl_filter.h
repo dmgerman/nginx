@@ -30,6 +30,12 @@ directive|include
 file|<ngx_http.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<openssl/ssl.h>
+end_include
+
 begin_function_decl
 name|ngx_int_t
 name|ngx_http_ssl_read
@@ -37,6 +43,20 @@ parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_http_ssl_close_request
+parameter_list|(
+name|SSL
+modifier|*
+name|ssl
+parameter_list|,
+name|int
+name|mode
 parameter_list|)
 function_decl|;
 end_function_decl

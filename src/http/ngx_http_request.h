@@ -309,7 +309,19 @@ DECL|macro|NGX_HTTP_NGX_CODES
 define|#
 directive|define
 name|NGX_HTTP_NGX_CODES
-value|NGX_HTTP_INVALID_HOST
+value|NGX_HTTP_TO_HTTPS
+end_define
+
+begin_comment
+comment|/*  * We use the special code for the plain HTTP requests that are sent to  * HTTPS port to distinguish it from 4XX in an error page redirection   */
+end_comment
+
+begin_define
+DECL|macro|NGX_HTTP_TO_HTTPS
+define|#
+directive|define
+name|NGX_HTTP_TO_HTTPS
+value|497
 end_define
 
 begin_comment
@@ -377,7 +389,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon2c4e6fbd0103
+DECL|enum|__anon2aa17ed50103
 typedef|typedef
 enum|enum
 block|{
@@ -398,7 +410,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c4e6fbd0203
+DECL|enum|__anon2aa17ed50203
 typedef|typedef
 enum|enum
 block|{
@@ -437,7 +449,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4e6fbd0308
+DECL|struct|__anon2aa17ed50308
 typedef|typedef
 struct|struct
 block|{
@@ -456,7 +468,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4e6fbd0408
+DECL|struct|__anon2aa17ed50408
 typedef|typedef
 struct|struct
 block|{
@@ -570,7 +582,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4e6fbd0508
+DECL|struct|__anon2aa17ed50508
 typedef|typedef
 struct|struct
 block|{
@@ -593,7 +605,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4e6fbd0608
+DECL|struct|__anon2aa17ed50608
 typedef|typedef
 struct|struct
 block|{
@@ -697,7 +709,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4e6fbd0708
+DECL|struct|__anon2aa17ed50708
 typedef|typedef
 struct|struct
 block|{
@@ -748,10 +760,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon2c4e6fbd080a
+DECL|union|__anon2aa17ed5080a
 union|union
 block|{
-DECL|struct|__anon2c4e6fbd0908
+DECL|struct|__anon2aa17ed50908
 struct|struct
 block|{
 DECL|member|fd
@@ -767,7 +779,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon2c4e6fbd0a08
+DECL|struct|__anon2aa17ed50a08
 struct|struct
 block|{
 DECL|member|hash

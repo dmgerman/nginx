@@ -244,6 +244,24 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|error_497_page
+specifier|static
+name|char
+name|error_497_page
+index|[]
+init|=
+literal|"<html>"
+name|CRLF
+literal|"<head><title>The plain HTTP request was sent to HTTPS port</title></head>"
+name|CRLF
+literal|"<body bgcolor=\"white\">"
+name|CRLF
+literal|"<center><h1>The plain HTTP request was sent to HTTPS por</h1></center>"
+name|CRLF
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|error_500_page
 specifier|static
 name|char
@@ -425,13 +443,19 @@ argument_list|)
 block|,
 name|ngx_string
 argument_list|(
+name|error_400_page
+argument_list|)
+block|,
+comment|/* 497, http to https */
+name|ngx_string
+argument_list|(
 name|error_404_page
 argument_list|)
 block|,
-comment|/* 498 */
+comment|/* 498, invalid host name */
 name|ngx_null_string
 block|,
-comment|/* 499 */
+comment|/* 499, client closed connection */
 name|ngx_string
 argument_list|(
 name|error_500_page
@@ -557,6 +581,9 @@ case|case
 name|NGX_HTTP_REQUEST_URI_TOO_LARGE
 case|:
 case|case
+name|NGX_HTTP_TO_HTTPS
+case|:
+case|case
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 case|:
 name|r
@@ -583,6 +610,9 @@ condition|)
 block|{
 case|case
 name|NGX_HTTP_BAD_REQUEST
+case|:
+case|case
+name|NGX_HTTP_TO_HTTPS
 case|:
 name|r
 operator|->
@@ -760,6 +790,22 @@ condition|(
 name|error
 condition|)
 block|{
+case|case
+name|NGX_HTTP_TO_HTTPS
+case|:
+name|r
+operator|->
+name|headers_out
+operator|.
+name|status
+operator|=
+name|NGX_HTTP_BAD_REQUEST
+expr_stmt|;
+name|error
+operator|=
+name|NGX_HTTP_BAD_REQUEST
+expr_stmt|;
+break|break;
 case|case
 name|NGX_HTTP_INVALID_HOST
 case|:
