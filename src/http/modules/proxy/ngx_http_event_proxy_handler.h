@@ -47,13 +47,44 @@ value|21
 end_define
 
 begin_typedef
-DECL|struct|__anon291e7c140108
+DECL|struct|__anon279555cf0108
 typedef|typedef
 struct|struct
 block|{
-DECL|member|dummy
-name|int
-name|dummy
+DECL|member|date
+name|ngx_table_elt_t
+modifier|*
+name|date
+decl_stmt|;
+DECL|member|server
+name|ngx_table_elt_t
+modifier|*
+name|server
+decl_stmt|;
+DECL|member|connection
+name|ngx_table_elt_t
+modifier|*
+name|connection
+decl_stmt|;
+DECL|member|content_type
+name|ngx_table_elt_t
+modifier|*
+name|content_type
+decl_stmt|;
+DECL|member|content_length
+name|ngx_table_elt_t
+modifier|*
+name|content_length
+decl_stmt|;
+DECL|member|last_modified
+name|ngx_table_elt_t
+modifier|*
+name|last_modified
+decl_stmt|;
+DECL|member|headers
+name|ngx_table_t
+modifier|*
+name|headers
 decl_stmt|;
 DECL|typedef|ngx_http_proxy_headers_in_t
 block|}
@@ -62,7 +93,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291e7c140208
+DECL|struct|__anon279555cf0208
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +128,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291e7c140308
+DECL|struct|__anon279555cf0308
 typedef|typedef
 struct|struct
 block|{
@@ -133,7 +164,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291e7c140408
+DECL|struct|__anon279555cf0408
 typedef|typedef
 struct|struct
 block|{
@@ -169,7 +200,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291e7c140508
+DECL|struct|__anon279555cf0508
 typedef|typedef
 struct|struct
 block|{
@@ -285,9 +316,9 @@ DECL|member|hunks
 name|ngx_array_t
 name|hunks
 decl_stmt|;
-DECL|member|hunks_number
+DECL|member|nhunks
 name|int
-name|hunks_number
+name|nhunks
 decl_stmt|;
 DECL|member|hunk_n
 name|int
@@ -305,7 +336,6 @@ name|request
 decl_stmt|;
 DECL|member|headers_in
 name|ngx_http_proxy_headers_in_t
-modifier|*
 name|headers_in
 decl_stmt|;
 DECL|member|upstream_url
@@ -421,6 +451,12 @@ DECL|member|last_error
 name|int
 name|last_error
 decl_stmt|;
+DECL|member|accel
+name|unsigned
+name|accel
+range|:
+literal|1
+decl_stmt|;
 DECL|member|cached_connection
 name|unsigned
 name|cached_connection
@@ -432,7 +468,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon291e7c140608
+DECL|struct|__anon279555cf0608
 typedef|typedef
 struct|struct
 block|{

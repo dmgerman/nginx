@@ -34,7 +34,7 @@ name|char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon297df02a0103
+DECL|enum|__anon27c61d450103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1157,7 +1157,7 @@ name|char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon297df02a0203
+DECL|enum|__anon27c61d450203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1396,19 +1396,24 @@ condition|)
 block|{
 break|break;
 block|}
+comment|/* IIS can send duplicate "HTTP/1.1 ..." lines */
 if|if
 condition|(
 name|ch
 operator|==
 literal|'/'
-condition|)
-block|{
-comment|/* IIS can send duplicate "HTTP/1.1 ..." lines */
-if|if
-condition|(
+operator|&&
 name|r
 operator|->
 name|proxy
+operator|&&
+name|p
+operator|-
+name|r
+operator|->
+name|header_start
+operator|==
+literal|5
 operator|&&
 name|ngx_strncmp
 argument_list|(
@@ -1429,7 +1434,6 @@ operator|=
 name|sw_ignore_line
 expr_stmt|;
 break|break;
-block|}
 block|}
 return|return
 name|NGX_HTTP_PARSE_INVALID_HEADER
