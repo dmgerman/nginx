@@ -127,6 +127,12 @@ name|data
 operator|=
 name|cached_http_log_time
 expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|days = sec / 86400;     days = days - 31 - 28 + 719527;      year = days * 400 / (365 * 400 + 100 - 4 + 1);     yday = days - (365 * year + year / 4 - year / 100 + year / 400);      month = (yday + 30) * 12 / 367;     mday = yday - (month * 367 / 12 - 31);      if (++month> 11) {         month -= 12;         year++;     }
+endif|#
+directive|endif
 name|tp
 operator|=
 name|gmtime
