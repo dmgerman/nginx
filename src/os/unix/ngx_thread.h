@@ -36,7 +36,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|USE_RFORK
+name|NGX_USE_RFORK
 operator|)
 end_if
 
@@ -121,7 +121,7 @@ value|0x80000000
 end_define
 
 begin_typedef
-DECL|struct|__anon29a411eb0108
+DECL|struct|__anon2b0d1e7c0108
 typedef|typedef
 specifier|volatile
 struct|struct
@@ -191,9 +191,9 @@ parameter_list|,
 name|size_t
 name|size
 parameter_list|,
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 function_decl|;
 end_function_decl

@@ -545,7 +545,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_init_threads (int n,size_t size,ngx_log_t * log)
+DECL|function|ngx_init_threads (int n,size_t size,ngx_cycle_t * cycle)
 name|ngx_int_t
 name|ngx_init_threads
 parameter_list|(
@@ -555,9 +555,9 @@ parameter_list|,
 name|size_t
 name|size
 parameter_list|,
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 block|{
 name|size_t
@@ -606,6 +606,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 name|ngx_errno
@@ -632,6 +634,8 @@ name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_CORE
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -675,6 +679,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 name|ngx_errno
@@ -705,6 +711,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -729,6 +737,8 @@ argument_list|(
 name|int
 argument_list|)
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|)
 operator|)
@@ -758,6 +768,8 @@ argument_list|(
 name|ngx_tid_t
 argument_list|)
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|)
 operator|)

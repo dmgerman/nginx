@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon287e4b4f0108
+DECL|struct|__anon2c5aafed0108
 typedef|typedef
 struct|struct
 block|{
@@ -1461,7 +1461,7 @@ end_function
 begin_function
 DECL|function|ngx_kqueue_process_events (ngx_log_t * log)
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_kqueue_process_events
 parameter_list|(
 name|ngx_log_t
@@ -1506,6 +1506,25 @@ operator|=
 name|ngx_event_find_timer
 argument_list|()
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_THREADS
+operator|)
+if|if
+condition|(
+name|timer
+operator|==
+name|NGX_TIMER_ERROR
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+comment|/*      * TODO: if timer is 0 and any worker thread is still busy      *       then set 1 second timeout      */
+endif|#
+directive|endif
 name|ngx_old_elapsed_msec
 operator|=
 name|ngx_elapsed_msec

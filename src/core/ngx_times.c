@@ -273,11 +273,27 @@ operator|.
 name|tv_sec
 argument_list|)
 expr_stmt|;
+block|}
+end_function
+
+begin_if
 if|#
 directive|if
 operator|(
-name|NGX_THREADS0
+name|NGX_THREADS
 operator|)
+end_if
+
+begin_function
+DECL|function|ngx_time_mutex_init (ngx_log_t * log)
+name|ngx_int_t
+name|ngx_time_mutex_init
+parameter_list|(
+name|ngx_log_t
+modifier|*
+name|log
+parameter_list|)
+block|{
 if|if
 condition|(
 operator|!
@@ -290,9 +306,15 @@ name|log
 argument_list|,
 name|NGX_MUTEX_LIGHT
 argument_list|)
-expr|;
+operator|)
+condition|)
+block|{
 return|return
-literal|0
+name|NGX_ERROR
+return|;
+block|}
+return|return
+name|NGX_OK
 return|;
 block|}
 end_function
@@ -302,15 +324,14 @@ endif|#
 directive|endif
 end_endif
 
-begin_macro
-unit|}   void
+begin_function
+DECL|function|ngx_time_update (time_t s)
+name|void
 name|ngx_time_update
-argument_list|(
-argument|time_t s
-argument_list|)
-end_macro
-
-begin_block
+parameter_list|(
+name|time_t
+name|s
+parameter_list|)
 block|{
 name|ngx_tm_t
 name|tm
@@ -327,8 +348,13 @@ block|}
 if|#
 directive|if
 operator|(
-name|NGX_THREADS0
+name|NGX_THREADS
 operator|)
+if|if
+condition|(
+name|ngx_time_mutex
+condition|)
+block|{
 if|if
 condition|(
 name|ngx_mutex_trylock
@@ -340,6 +366,7 @@ name|NGX_OK
 condition|)
 block|{
 return|return;
+block|}
 block|}
 endif|#
 directive|endif
@@ -507,19 +534,26 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_THREADS0
+name|NGX_THREADS
 operator|)
+if|if
+condition|(
+name|ngx_time_mutex
+condition|)
+block|{
 name|ngx_mutex_unlock
 argument_list|(
 name|ngx_time_mutex
 argument_list|)
 expr_stmt|;
+block|}
 endif|#
 directive|endif
 block|}
-end_block
+end_function
 
 begin_function
+DECL|function|ngx_http_time (char * buf,time_t t)
 name|size_t
 name|ngx_http_time
 parameter_list|(
@@ -595,6 +629,7 @@ block|}
 end_function
 
 begin_function
+DECL|function|ngx_gmtime (time_t t,ngx_tm_t * tp)
 name|void
 name|ngx_gmtime
 parameter_list|(
