@@ -158,6 +158,18 @@ name|ngx_uint_t
 typedef|;
 end_typedef
 
+begin_comment
+comment|/* STUB: autoconf */
+end_comment
+
+begin_define
+DECL|macro|PTR_FMT
+define|#
+directive|define
+name|PTR_FMT
+value|"%X"
+end_define
+
 begin_include
 include|#
 directive|include

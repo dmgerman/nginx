@@ -109,7 +109,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c28eed10108
+DECL|struct|__anon2b3a989c0108
 typedef|typedef
 struct|struct
 block|{
@@ -535,6 +535,8 @@ operator|->
 name|log_level
 operator|=
 name|NGX_LOG_DEBUG
+operator||
+name|NGX_LOG_DEBUG_HTTP
 expr_stmt|;
 if|#
 directive|if

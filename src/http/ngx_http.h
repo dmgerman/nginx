@@ -39,6 +39,15 @@ name|ngx_http_request_t
 typedef|;
 end_typedef
 
+begin_typedef
+DECL|typedef|ngx_http_cleanup_t
+typedef|typedef
+name|struct
+name|ngx_http_cleanup_s
+name|ngx_http_cleanup_t
+typedef|;
+end_typedef
+
 begin_include
 include|#
 directive|include
@@ -82,7 +91,7 @@ file|<ngx_http_core_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28dd7b8c0108
+DECL|struct|__anon2b52ffa00108
 typedef|typedef
 struct|struct
 block|{

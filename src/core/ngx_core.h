@@ -180,6 +180,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_crc.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_regex.h>
 end_include
 

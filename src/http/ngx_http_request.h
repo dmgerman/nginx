@@ -353,7 +353,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon28a81eea0108
+DECL|struct|__anon2ae360e80108
 typedef|typedef
 struct|struct
 block|{
@@ -372,7 +372,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a81eea0208
+DECL|struct|__anon2ae360e80208
 typedef|typedef
 struct|struct
 block|{
@@ -455,7 +455,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a81eea0308
+DECL|struct|__anon2ae360e80308
 typedef|typedef
 struct|struct
 block|{
@@ -506,7 +506,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a81eea0408
+DECL|struct|__anon2ae360e80408
 typedef|typedef
 struct|struct
 block|{
@@ -529,7 +529,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a81eea0508
+DECL|struct|__anon2ae360e80508
 typedef|typedef
 struct|struct
 block|{
@@ -623,15 +623,15 @@ name|ngx_http_headers_out_t
 typedef|;
 end_typedef
 
-begin_typedef
-DECL|struct|__anon28a81eea0608
-typedef|typedef
+begin_struct
+DECL|struct|ngx_http_cleanup_s
 struct|struct
+name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon28a81eea070a
+DECL|union|__anon2ae360e8060a
 union|union
 block|{
-DECL|struct|__anon28a81eea0808
+DECL|struct|__anon2ae360e80708
 struct|struct
 block|{
 DECL|member|fd
@@ -647,7 +647,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon28a81eea0908
+DECL|struct|__anon2ae360e80808
 struct|struct
 block|{
 DECL|member|hash
@@ -668,17 +668,21 @@ DECL|member|data
 block|}
 name|data
 union|;
+DECL|member|valid
+name|unsigned
+name|valid
+range|:
+literal|1
+decl_stmt|;
 DECL|member|cache
 name|unsigned
 name|cache
 range|:
 literal|1
 decl_stmt|;
-DECL|typedef|ngx_http_cleanup_t
 block|}
-name|ngx_http_cleanup_t
-typedef|;
-end_typedef
+struct|;
+end_struct
 
 begin_typedef
 DECL|typedef|ngx_http_handler_pt
@@ -801,14 +805,6 @@ decl_stmt|;
 DECL|member|unparsed_uri
 name|ngx_str_t
 name|unparsed_uri
-decl_stmt|;
-DECL|member|path
-name|ngx_str_t
-name|path
-decl_stmt|;
-DECL|member|path_allocated
-name|int
-name|path_allocated
 decl_stmt|;
 DECL|member|main
 name|ngx_http_request_t

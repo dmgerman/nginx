@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c776eeb0108
+DECL|struct|__anon274d754f0108
 typedef|typedef
 struct|struct
 block|{
@@ -67,7 +67,31 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c776eeb0208
+DECL|enum|__anon274d754f0203
+typedef|typedef
+enum|enum
+block|{
+DECL|enumerator|NGX_HTTP_REWRITE_PHASE
+name|NGX_HTTP_REWRITE_PHASE
+init|=
+literal|0
+block|,
+DECL|enumerator|NGX_HTTP_FIND_CONFIG_PHASE
+name|NGX_HTTP_FIND_CONFIG_PHASE
+block|,
+DECL|enumerator|NGX_HTTP_CONTENT_PHASE
+name|NGX_HTTP_CONTENT_PHASE
+block|,
+DECL|enumerator|NGX_HTTP_LAST_PHASE
+name|NGX_HTTP_LAST_PHASE
+DECL|typedef|ngx_http_phases
+block|}
+name|ngx_http_phases
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon274d754f0308
 typedef|typedef
 struct|struct
 block|{
@@ -80,42 +104,14 @@ name|int
 name|type
 decl_stmt|;
 comment|/* NGX_OK, NGX_DECLINED */
-DECL|member|post_handler
-name|ngx_http_handler_pt
-name|post_handler
-decl_stmt|;
 DECL|typedef|ngx_http_phase_t
 block|}
 name|ngx_http_phase_t
 typedef|;
 end_typedef
 
-begin_define
-DECL|macro|NGX_HTTP_REWRITE_PHASE
-define|#
-directive|define
-name|NGX_HTTP_REWRITE_PHASE
-value|0
-end_define
-
-begin_define
-DECL|macro|NGX_HTTP_TRANSLATE_PHASE
-define|#
-directive|define
-name|NGX_HTTP_TRANSLATE_PHASE
-value|1
-end_define
-
-begin_define
-DECL|macro|NGX_HTTP_LAST_PHASE
-define|#
-directive|define
-name|NGX_HTTP_LAST_PHASE
-value|2
-end_define
-
 begin_typedef
-DECL|struct|__anon2c776eeb0308
+DECL|struct|__anon274d754f0408
 typedef|typedef
 struct|struct
 block|{
@@ -142,7 +138,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c776eeb0408
+DECL|struct|__anon274d754f0508
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +198,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2c776eeb0508
+DECL|struct|__anon274d754f0608
 typedef|typedef
 struct|struct
 block|{
@@ -226,7 +222,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c776eeb0608
+DECL|struct|__anon274d754f0708
 typedef|typedef
 struct|struct
 block|{
@@ -268,7 +264,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2c776eeb0708
+DECL|struct|__anon274d754f0808
 typedef|typedef
 struct|struct
 block|{
@@ -311,7 +307,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon2c776eeb0808
+DECL|struct|__anon274d754f0908
 typedef|typedef
 struct|struct
 block|{
@@ -330,7 +326,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c776eeb0908
+DECL|struct|__anon274d754f0a08
 typedef|typedef
 struct|struct
 block|{
@@ -349,7 +345,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c776eeb0a08
+DECL|struct|__anon274d754f0b08
 typedef|typedef
 struct|struct
 block|{
@@ -442,6 +438,11 @@ modifier|*
 name|error_pages
 decl_stmt|;
 comment|/* error_page */
+DECL|member|open_files
+name|ngx_http_cache_hash_t
+modifier|*
+name|open_files
+decl_stmt|;
 DECL|member|regex
 name|ngx_regex_t
 modifier|*
@@ -469,42 +470,6 @@ block|}
 name|ngx_http_core_loc_conf_t
 typedef|;
 end_typedef
-
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-
-begin_endif
-unit|typedef struct {     int dummy; } ngx_http_core_conf_t;
-endif|#
-directive|endif
-end_endif
-
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-
-begin_define
-define|#
-directive|define
-name|ngx_http_set_loc_handler
-parameter_list|(
-name|conf_ctx
-parameter_list|,
-name|ngx_http_handler
-parameter_list|)
-define|\
-value|{                                                                         \         ngx_http_conf_ctx_t       *cx = conf_ctx;                             \         ngx_http_core_loc_conf_t  *lcf;                                       \         lcf = cx->loc_conf[ngx_http_core_module_ctx.index];                   \         lcf->handler = ngx_http_handler;                                      \     }
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
 
 begin_decl_stmt
 specifier|extern
@@ -541,6 +506,17 @@ end_function_decl
 begin_function_decl
 name|int
 name|ngx_http_core_translate_handler
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_http_set_content_type
 parameter_list|(
 name|ngx_http_request_t
 modifier|*

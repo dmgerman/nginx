@@ -783,13 +783,16 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_log_debug_core (ngx_log_t * log,const char * fmt,...)
+DECL|function|ngx_log_debug_core (ngx_log_t * log,ngx_err_t err,const char * fmt,...)
 name|void
 name|ngx_log_debug_core
 parameter_list|(
 name|ngx_log_t
 modifier|*
 name|log
+parameter_list|,
+name|ngx_err_t
+name|err
 parameter_list|,
 specifier|const
 name|char
@@ -815,7 +818,7 @@ name|NGX_LOG_DEBUG
 argument_list|,
 name|log
 argument_list|,
-literal|0
+name|err
 argument_list|,
 name|fmt
 argument_list|,

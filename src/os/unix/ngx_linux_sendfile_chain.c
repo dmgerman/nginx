@@ -18,7 +18,7 @@ file|<ngx_event.h>
 end_include
 
 begin_comment
-comment|/*  * On Linux up to 2.4.21 sendfile() (syscall #187) works with 32-bit  * offsets only and the including<sys/sendfile.h> breaks building  * if off_t is 64 bit wide.  So we use own sendfile() definition where  * offset paramter is int32_t.  It allows to use sendfile() with  * the file parts below 2G.  *  * Linux 2.4.21 has a new sendfile64() syscall #239.  */
+comment|/*  * On Linux up to 2.4.21 sendfile() (syscall #187) works with 32-bit  * offsets only and the including<sys/sendfile.h> breaks building if  * off_t is 64 bit wide.  So we use own sendfile() definition where offset  * parameter is int32_t and use sendfile() with the file parts below 2G.  *  * Linux 2.4.21 has a new sendfile64() syscall #239.  */
 end_comment
 
 begin_function
