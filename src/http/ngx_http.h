@@ -245,7 +245,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2c22ff440108
+DECL|struct|__anon2768b38c0108
 typedef|typedef
 struct|struct
 block|{
@@ -293,7 +293,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c22ff440208
+DECL|struct|__anon2768b38c0208
 typedef|typedef
 struct|struct
 block|{
@@ -317,7 +317,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c22ff440308
+DECL|struct|__anon2768b38c0308
 typedef|typedef
 struct|struct
 block|{
@@ -358,7 +358,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c22ff440408
+DECL|struct|__anon2768b38c0408
 typedef|typedef
 struct|struct
 block|{
@@ -681,7 +681,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c22ff440508
+DECL|struct|__anon2768b38c0508
 typedef|typedef
 struct|struct
 block|{
@@ -707,7 +707,43 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c22ff440608
+DECL|typedef|ngx_http_output_header_filter_p
+typedef|typedef
+name|int
+function_decl|(
+modifier|*
+name|ngx_http_output_header_filter_p
+function_decl|)
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|)
+function_decl|;
+end_typedef
+
+begin_typedef
+DECL|typedef|ngx_http_output_body_filter_p
+typedef|typedef
+name|int
+function_decl|(
+modifier|*
+name|ngx_http_output_body_filter_p
+function_decl|)
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_chain_t
+modifier|*
+name|chain
+parameter_list|)
+function_decl|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2768b38c0608
 typedef|typedef
 struct|struct
 block|{
@@ -734,23 +770,6 @@ modifier|*
 function_decl|(
 modifier|*
 name|create_loc_conf
-function_decl|)
-parameter_list|(
-name|ngx_pool_t
-modifier|*
-name|p
-parameter_list|)
-function_decl|;
-DECL|member|commands
-name|ngx_command_t
-modifier|*
-name|commands
-decl_stmt|;
-DECL|member|init_module
-name|int
-function_decl|(
-modifier|*
-name|init_module
 function_decl|)
 parameter_list|(
 name|ngx_pool_t
@@ -795,29 +814,19 @@ name|r
 parameter_list|)
 function_decl|;
 DECL|member|output_body_filter
-name|int
-function_decl|(
-modifier|*
+name|ngx_http_output_body_filter_p
 name|output_body_filter
-function_decl|)
-parameter_list|()
-function_decl|;
+decl_stmt|;
 DECL|member|next_output_body_filter
-name|int
-function_decl|(
-modifier|*
+name|ngx_http_output_body_filter_p
 name|next_output_body_filter
-function_decl|)
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|,
-name|ngx_chain_t
-modifier|*
-name|ch
-parameter_list|)
-function_decl|;
+decl_stmt|;
+if|#
+directive|if
+literal|0
+block|int             (*output_body_filter)();     int             (*next_output_body_filter)                                       (ngx_http_request_t *r, ngx_chain_t *ch);
+endif|#
+directive|endif
 if|#
 directive|if
 literal|0
@@ -835,8 +844,25 @@ DECL|macro|NGX_HTTP_MODULE
 define|#
 directive|define
 name|NGX_HTTP_MODULE
-value|0
+value|0x80000000
 end_define
+
+begin_define
+DECL|macro|NGX_HTTP_MODULE_TYPE
+define|#
+directive|define
+name|NGX_HTTP_MODULE_TYPE
+value|0x50545448
+end_define
+
+begin_comment
+DECL|macro|NGX_HTTP_MODULE_TYPE
+comment|/* "HTTP" */
+end_comment
+
+begin_comment
+comment|/* STUB */
+end_comment
 
 begin_define
 DECL|macro|ngx_get_module_loc_conf (r,module)
@@ -856,6 +882,49 @@ DECL|macro|ngx_get_module_ctx (r,module)
 define|#
 directive|define
 name|ngx_get_module_ctx
+parameter_list|(
+name|r
+parameter_list|,
+name|module
+parameter_list|)
+value|r->ctx[module.index]
+end_define
+
+begin_comment
+comment|/**/
+end_comment
+
+begin_define
+DECL|macro|ngx_http_get_module_srv_conf (r,module)
+define|#
+directive|define
+name|ngx_http_get_module_srv_conf
+parameter_list|(
+name|r
+parameter_list|,
+name|module
+parameter_list|)
+value|r->srv_conf[module.index]
+end_define
+
+begin_define
+DECL|macro|ngx_http_get_module_loc_conf (r,module)
+define|#
+directive|define
+name|ngx_http_get_module_loc_conf
+parameter_list|(
+name|r
+parameter_list|,
+name|module
+parameter_list|)
+value|r->loc_conf[module.index]
+end_define
+
+begin_define
+DECL|macro|ngx_http_get_module_ctx (r,module)
+define|#
+directive|define
+name|ngx_http_get_module_ctx
 parameter_list|(
 name|r
 parameter_list|,

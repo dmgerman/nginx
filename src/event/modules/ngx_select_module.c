@@ -128,8 +128,7 @@ end_endif
 begin_decl_stmt
 DECL|variable|nevents
 specifier|static
-name|unsigned
-name|int
+name|u_int
 name|nevents
 decl_stmt|;
 end_decl_stmt
@@ -881,8 +880,6 @@ name|log
 parameter_list|)
 block|{
 name|int
-name|i
-decl_stmt|,
 name|ready
 decl_stmt|,
 name|found
@@ -890,6 +887,8 @@ decl_stmt|,
 name|nready
 decl_stmt|;
 name|u_int
+name|i
+decl_stmt|,
 name|timer
 decl_stmt|,
 name|delta

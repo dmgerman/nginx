@@ -110,7 +110,7 @@ literal|0
 end_if
 
 begin_comment
-comment|/* DEBUG */
+comment|/* Solaris */
 end_comment
 
 begin_define
@@ -128,7 +128,7 @@ value|0xD001
 end_define
 
 begin_endif
-unit|struct dvpoll {     struct pollfd* dp_fds;     int dp_nfds;     int dp_timeout; };
+unit|struct dvpoll {     struct pollfd  *dp_fds;     int             dp_nfds;     int             dp_timeout; };
 endif|#
 directive|endif
 end_endif

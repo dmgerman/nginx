@@ -41,7 +41,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon291b0ef20108
+DECL|struct|__anon27e5bde90108
 typedef|typedef
 struct|struct
 block|{
@@ -56,16 +56,10 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291b0ef20208
+DECL|struct|__anon27e5bde90208
 typedef|typedef
 struct|struct
 block|{
-if|#
-directive|if
-literal|0
-block|int         (*next_filter)(ngx_http_request_t *r, ngx_chain_t *ch);
-endif|#
-directive|endif
 DECL|member|hunk
 name|ngx_hunk_t
 modifier|*
@@ -90,24 +84,9 @@ name|ngx_http_output_filter_ctx_t
 typedef|;
 end_typedef
 
-begin_function_decl
-name|int
-name|ngx_http_output_filter
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|,
-name|ngx_hunk_t
-modifier|*
-name|hunk
-parameter_list|)
-function_decl|;
-end_function_decl
-
 begin_decl_stmt
 specifier|extern
-name|ngx_http_module_t
+name|ngx_module_t
 name|ngx_http_output_filter_module
 decl_stmt|;
 end_decl_stmt
