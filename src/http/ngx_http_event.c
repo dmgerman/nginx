@@ -839,10 +839,7 @@ operator|->
 name|log
 argument_list|)
 argument_list|,
-name|ngx_http_close_request
-argument_list|(
-name|r
-argument_list|)
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 name|ngx_test_null
@@ -4067,9 +4064,11 @@ name|ev
 operator|->
 name|timedout
 condition|)
+block|{
 return|return
 name|NGX_DONE
 return|;
+block|}
 comment|/* MSIE closes keepalive connection with RST flag        so we ignore ECONNRESET here */
 name|ev
 operator|->
@@ -4123,9 +4122,11 @@ name|n
 operator|==
 name|NGX_ERROR
 condition|)
+block|{
 return|return
 name|n
 return|;
+block|}
 name|ctx
 operator|=
 operator|(
