@@ -171,6 +171,8 @@ name|ngx_http_module_t
 name|ngx_http_output_filter_module_ctx
 init|=
 block|{
+name|NGX_HTTP_MODULE
+block|,
 name|NULL
 block|,
 comment|/* create server config */
@@ -181,10 +183,7 @@ name|ngx_http_output_filter_create_conf
 block|,
 comment|/* create location config */
 name|ngx_http_output_filter_merge_conf
-block|,
 comment|/* merge location config */
-name|ngx_http_output_filter_init
-comment|/* output body filter */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -214,25 +213,25 @@ block|}
 decl_stmt|;
 end_decl_stmt
 
-begin_function_decl
-DECL|variable|next_filter
-specifier|static
-name|int
-function_decl|(
-modifier|*
+begin_define
+DECL|macro|next_filter
+define|#
+directive|define
 name|next_filter
-function_decl|)
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|,
-name|ngx_chain_t
-modifier|*
-name|ch
-parameter_list|)
-function_decl|;
-end_function_decl
+value|(*ngx_http_top_body_filter)
+end_define
+
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
+begin_endif
+unit|static int (*next_filter) (ngx_http_request_t *r, ngx_chain_t *ch);
+endif|#
+directive|endif
+end_endif
 
 begin_if
 if|#
@@ -319,7 +318,7 @@ expr|main
 operator|:
 name|r
 argument_list|,
-name|ngx_http_output_filter_module
+name|ngx_http_output_filter_module_ctx
 argument_list|)
 expr_stmt|;
 if|if
@@ -335,7 +334,7 @@ name|r
 argument_list|,
 name|ctx
 argument_list|,
-name|ngx_http_output_filter_module
+name|ngx_http_output_filter_module_ctx
 argument_list|,
 sizeof|sizeof
 argument_list|(
@@ -524,7 +523,7 @@ expr|main
 operator|:
 name|r
 argument_list|,
-name|ngx_http_output_filter_module
+name|ngx_http_output_filter_module_ctx
 argument_list|)
 expr_stmt|;
 if|if
@@ -1325,18 +1324,12 @@ modifier|*
 name|cf
 parameter_list|)
 block|{
-name|next_filter
-operator|=
-name|cf
-operator|->
-name|output_body_filter
-expr_stmt|;
-name|cf
-operator|->
-name|output_body_filter
-operator|=
-name|NULL
-expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|next_filter = cf->output_body_filter;     cf->output_body_filter = NULL;
+endif|#
+directive|endif
 block|}
 end_function
 

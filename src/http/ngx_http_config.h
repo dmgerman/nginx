@@ -25,7 +25,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b6e93660108
+DECL|struct|__anon29373b1f0108
 typedef|typedef
 struct|struct
 block|{
@@ -48,7 +48,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b6e93660208
+DECL|struct|__anon29373b1f0208
 typedef|typedef
 struct|struct
 block|{
@@ -87,10 +87,14 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b6e93660308
+DECL|struct|__anon29373b1f0308
 typedef|typedef
 struct|struct
 block|{
+DECL|member|index
+name|int
+name|index
+decl_stmt|;
 DECL|member|create_srv_conf
 name|void
 modifier|*
@@ -155,22 +159,6 @@ modifier|*
 name|conf
 parameter_list|)
 function_decl|;
-DECL|member|init_filters
-name|void
-function_decl|(
-modifier|*
-name|init_filters
-function_decl|)
-parameter_list|(
-name|ngx_pool_t
-modifier|*
-name|p
-parameter_list|,
-name|ngx_http_conf_filter_t
-modifier|*
-name|cf
-parameter_list|)
-function_decl|;
 DECL|typedef|ngx_http_module_t
 block|}
 name|ngx_http_module_t
@@ -189,6 +177,14 @@ begin_comment
 DECL|macro|NGX_HTTP_MODULE_TYPE
 comment|/* "HTTP" */
 end_comment
+
+begin_define
+DECL|macro|NGX_HTTP_MODULE
+define|#
+directive|define
+name|NGX_HTTP_MODULE
+value|0
+end_define
 
 begin_define
 DECL|macro|NGX_HTTP_MAIN_CONF

@@ -187,6 +187,8 @@ name|ngx_http_module_t
 name|ngx_http_index_module_ctx
 init|=
 block|{
+name|NGX_HTTP_MODULE
+block|,
 name|NULL
 block|,
 comment|/* create server config */
@@ -197,10 +199,7 @@ name|ngx_http_index_create_conf
 block|,
 comment|/* create location config */
 name|ngx_http_index_merge_conf
-block|,
 comment|/* merge location config */
-name|NULL
-comment|/* init filters */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -288,7 +287,7 @@ name|ngx_http_get_module_loc_conf
 argument_list|(
 name|r
 argument_list|,
-name|ngx_http_index_module
+name|ngx_http_index_module_ctx
 argument_list|)
 expr_stmt|;
 name|core_cf
@@ -301,7 +300,7 @@ name|ngx_http_get_module_loc_conf
 argument_list|(
 name|r
 argument_list|,
-name|ngx_http_core_module
+name|ngx_http_core_module_ctx
 argument_list|)
 expr_stmt|;
 name|ngx_test_null

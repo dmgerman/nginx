@@ -89,16 +89,12 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|void
+name|int
 name|ngx_http_write_filter_init
 parameter_list|(
 name|ngx_pool_t
 modifier|*
 name|pool
-parameter_list|,
-name|ngx_http_conf_filter_t
-modifier|*
-name|cf
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -114,7 +110,7 @@ block|{
 block|{
 name|ngx_string
 argument_list|(
-literal|"write_buffer"
+literal|"buffer_output"
 argument_list|)
 block|,
 name|NGX_HTTP_LOC_CONF
@@ -134,10 +130,7 @@ argument_list|)
 block|}
 block|,
 block|{
-name|ngx_string
-argument_list|(
-literal|""
-argument_list|)
+name|ngx_null_string
 block|,
 literal|0
 block|,
@@ -157,6 +150,8 @@ name|ngx_http_module_t
 name|ngx_http_write_filter_module_ctx
 init|=
 block|{
+name|NGX_HTTP_MODULE
+block|,
 name|NULL
 block|,
 comment|/* create server config */
@@ -167,10 +162,7 @@ name|ngx_http_write_filter_create_conf
 block|,
 comment|/* create location config */
 name|ngx_http_write_filter_merge_conf
-block|,
 comment|/* merge location config */
-name|ngx_http_write_filter_init
-comment|/* init filters */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -194,7 +186,7 @@ comment|/* module directives */
 name|NGX_HTTP_MODULE_TYPE
 block|,
 comment|/* module type */
-name|NULL
+name|ngx_http_write_filter_init
 comment|/* init module */
 block|}
 decl_stmt|;
@@ -259,7 +251,7 @@ expr|main
 operator|:
 name|r
 argument_list|,
-name|ngx_http_write_filter_module
+name|ngx_http_write_filter_module_ctx
 argument_list|)
 expr_stmt|;
 if|if
@@ -275,7 +267,7 @@ name|r
 argument_list|,
 name|ctx
 argument_list|,
-name|ngx_http_write_filter_module
+name|ngx_http_write_filter_module_ctx
 argument_list|,
 sizeof|sizeof
 argument_list|(
@@ -303,7 +295,7 @@ name|ctx
 operator|->
 name|out
 expr_stmt|;
-comment|/* find the size, the flush point and the last entry of saved chain */
+comment|/* find the size, the flush point and the last entry of the saved chain */
 for|for
 control|(
 name|ce
@@ -565,7 +557,7 @@ expr|main
 operator|:
 name|r
 argument_list|,
-name|ngx_http_write_filter_module
+name|ngx_http_write_filter_module_ctx
 argument_list|)
 expr_stmt|;
 if|#
@@ -583,7 +575,7 @@ argument_list|)
 empty_stmt|;
 endif|#
 directive|endif
-comment|/* avoid the output if there is no last hunk, no flush point and        size of the hunks is smaller then 'write_buffer' */
+comment|/* avoid the output if there is no last hunk, no flush point and        size of the hunks is smaller then "buffer_output" */
 if|if
 condition|(
 operator|!
@@ -668,30 +660,6 @@ return|return
 name|NGX_AGAIN
 return|;
 block|}
-block|}
-end_function
-
-begin_function
-DECL|function|ngx_http_write_filter_init (ngx_pool_t * pool,ngx_http_conf_filter_t * cf)
-specifier|static
-name|void
-name|ngx_http_write_filter_init
-parameter_list|(
-name|ngx_pool_t
-modifier|*
-name|pool
-parameter_list|,
-name|ngx_http_conf_filter_t
-modifier|*
-name|cf
-parameter_list|)
-block|{
-name|cf
-operator|->
-name|output_body_filter
-operator|=
-name|ngx_http_write_filter
-expr_stmt|;
 block|}
 end_function
 
@@ -795,6 +763,27 @@ argument_list|)
 expr_stmt|;
 return|return
 name|NULL
+return|;
+block|}
+end_function
+
+begin_function
+DECL|function|ngx_http_write_filter_init (ngx_pool_t * pool)
+specifier|static
+name|int
+name|ngx_http_write_filter_init
+parameter_list|(
+name|ngx_pool_t
+modifier|*
+name|pool
+parameter_list|)
+block|{
+name|ngx_http_top_body_filter
+operator|=
+name|ngx_http_write_filter
+expr_stmt|;
+return|return
+name|NGX_OK
 return|;
 block|}
 end_function

@@ -14,7 +14,14 @@ end_include
 begin_decl_stmt
 specifier|extern
 name|ngx_module_t
-name|ngx_http_header_filter_module
+name|ngx_http_module
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_module_t
+name|ngx_http_core_module
 decl_stmt|;
 end_decl_stmt
 
@@ -35,7 +42,7 @@ end_decl_stmt
 begin_decl_stmt
 specifier|extern
 name|ngx_module_t
-name|ngx_http_core_module
+name|ngx_http_header_filter_module
 decl_stmt|;
 end_decl_stmt
 
@@ -49,7 +56,7 @@ end_decl_stmt
 begin_decl_stmt
 specifier|extern
 name|ngx_module_t
-name|ngx_http_module
+name|ngx_http_proxy_module
 decl_stmt|;
 end_decl_stmt
 
@@ -62,7 +69,10 @@ index|[]
 init|=
 block|{
 operator|&
-name|ngx_http_header_filter_module
+name|ngx_http_module
+block|,
+operator|&
+name|ngx_http_core_module
 block|,
 operator|&
 name|ngx_http_write_filter_module
@@ -71,13 +81,16 @@ operator|&
 name|ngx_http_output_filter_module
 block|,
 operator|&
+name|ngx_http_header_filter_module
+block|,
+comment|/*&ngx_http_gzip_filter_module, */
+comment|/*&ngx_http_range_filter_module, */
+comment|/*&ngx_http_ssi_filter_module, */
+operator|&
 name|ngx_http_index_module
 block|,
 operator|&
-name|ngx_http_core_module
-block|,
-operator|&
-name|ngx_http_module
+name|ngx_http_proxy_module
 block|,
 name|NULL
 block|}

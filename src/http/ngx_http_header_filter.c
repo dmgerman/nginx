@@ -61,16 +61,12 @@ end_include
 
 begin_function_decl
 specifier|static
-name|void
+name|int
 name|ngx_http_header_filter_init
 parameter_list|(
 name|ngx_pool_t
 modifier|*
 name|pool
-parameter_list|,
-name|ngx_http_conf_filter_t
-modifier|*
-name|cf
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -105,7 +101,7 @@ comment|/* create location config */
 name|NULL
 block|,
 comment|/* merge location config */
-name|ngx_http_header_filter_init
+name|NULL
 comment|/* init filters */
 block|}
 decl_stmt|;
@@ -130,7 +126,7 @@ comment|/* module directives */
 name|NGX_HTTP_MODULE_TYPE
 block|,
 comment|/* module type */
-name|NULL
+name|ngx_http_header_filter_init
 comment|/* init module */
 block|}
 decl_stmt|;
@@ -1555,26 +1551,23 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_header_filter_init (ngx_pool_t * pool,ngx_http_conf_filter_t * cf)
+DECL|function|ngx_http_header_filter_init (ngx_pool_t * pool)
 specifier|static
-name|void
+name|int
 name|ngx_http_header_filter_init
 parameter_list|(
 name|ngx_pool_t
 modifier|*
 name|pool
-parameter_list|,
-name|ngx_http_conf_filter_t
-modifier|*
-name|cf
 parameter_list|)
 block|{
-name|cf
-operator|->
-name|output_header_filter
+name|ngx_http_top_header_filter
 operator|=
 name|ngx_http_header_filter
 expr_stmt|;
+return|return
+name|NGX_OK
+return|;
 block|}
 end_function
 

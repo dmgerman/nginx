@@ -335,7 +335,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon29112ca20108
+DECL|struct|__anon2b2720740108
 typedef|typedef
 struct|struct
 block|{
@@ -354,7 +354,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29112ca20208
+DECL|struct|__anon2b2720740208
 typedef|typedef
 struct|struct
 block|{
@@ -399,7 +399,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29112ca20308
+DECL|struct|__anon2b2720740308
 typedef|typedef
 struct|struct
 block|{
@@ -614,6 +614,12 @@ DECL|member|path_err
 name|int
 name|path_err
 decl_stmt|;
+DECL|member|proxy
+name|unsigned
+name|proxy
+range|:
+literal|1
+decl_stmt|;
 DECL|member|pipeline
 name|unsigned
 name|pipeline
@@ -763,7 +769,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29112ca20408
+DECL|struct|__anon2b2720740408
 typedef|typedef
 struct|struct
 block|{
@@ -1103,6 +1109,40 @@ name|ngx_array_t
 name|ngx_http_index_handlers
 decl_stmt|;
 end_decl_stmt
+
+begin_function_decl
+specifier|extern
+name|int
+function_decl|(
+modifier|*
+name|ngx_http_top_header_filter
+function_decl|)
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|extern
+name|int
+function_decl|(
+modifier|*
+name|ngx_http_top_body_filter
+function_decl|)
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_chain_t
+modifier|*
+name|ch
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_comment
 comment|/* STUB */

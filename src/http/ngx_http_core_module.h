@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a8ef4900108
+DECL|struct|__anon2a32f84f0108
 typedef|typedef
 struct|struct
 block|{
@@ -67,7 +67,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a8ef4900208
+DECL|struct|__anon2a32f84f0208
 typedef|typedef
 struct|struct
 block|{
@@ -103,7 +103,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2a8ef4900308
+DECL|struct|__anon2a32f84f0308
 typedef|typedef
 struct|struct
 block|{
@@ -123,7 +123,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a8ef4900408
+DECL|struct|__anon2a32f84f0408
 typedef|typedef
 struct|struct
 block|{
@@ -161,7 +161,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2a8ef4900508
+DECL|struct|__anon2a32f84f0508
 typedef|typedef
 struct|struct
 block|{
@@ -182,7 +182,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a8ef4900608
+DECL|struct|__anon2a32f84f0608
 typedef|typedef
 struct|struct
 block|{
@@ -198,11 +198,28 @@ modifier|*
 name|loc_conf
 decl_stmt|;
 comment|/* pointer to modules loc_conf,                                   used in translation handler */
+DECL|member|handler
+name|int
+function_decl|(
+modifier|*
+name|handler
+function_decl|)
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|)
+function_decl|;
 DECL|member|doc_root
 name|ngx_str_t
 name|doc_root
 decl_stmt|;
 comment|/* root */
+DECL|member|sendfile
+name|int
+name|sendfile
+decl_stmt|;
+comment|/* sendfile */
 DECL|member|send_timeout
 name|time_t
 name|send_timeout
@@ -246,6 +263,30 @@ endif|#
 directive|endif
 end_endif
 
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
+begin_define
+define|#
+directive|define
+name|ngx_http_set_loc_handler
+parameter_list|(
+name|conf_ctx
+parameter_list|,
+name|ngx_http_handler
+parameter_list|)
+define|\
+value|{                                                                         \         ngx_http_conf_ctx_t       *cx = conf_ctx;                             \         ngx_http_core_loc_conf_t  *lcf;                                       \         lcf = cx->loc_conf[ngx_http_core_module_ctx.index];                   \         lcf->handler = ngx_http_handler;                                      \     }
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_decl_stmt
 specifier|extern
 name|ngx_http_module_t
@@ -259,21 +300,6 @@ name|ngx_module_t
 name|ngx_http_core_module
 decl_stmt|;
 end_decl_stmt
-
-begin_function_decl
-specifier|extern
-name|int
-function_decl|(
-modifier|*
-name|ngx_http_top_header_filter
-function_decl|)
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|)
-function_decl|;
-end_function_decl
 
 begin_decl_stmt
 specifier|extern

@@ -1175,19 +1175,17 @@ operator|+=
 name|n
 expr_stmt|;
 block|}
-comment|/* the state_handlers are called in the following order:             ngx_http_process_request_line(r)             ngx_http_process_request_headers(r) */
+comment|/* the state handlers are called in the following order:             ngx_http_process_request_line(r)             ngx_http_process_request_headers(r) */
 do|do
 block|{
 name|rc
 operator|=
-operator|(
 name|r
 operator|->
 name|state_handler
-operator|)
-operator|(
+argument_list|(
 name|r
-operator|)
+argument_list|)
 expr_stmt|;
 block|}
 do|while
@@ -1280,12 +1278,12 @@ argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
-comment|/* a handler is still busy */
+comment|/* a handler does its own processing */
 if|if
 condition|(
 name|rc
 operator|==
-name|NGX_BUSY
+name|NGX_DONE
 condition|)
 block|{
 return|return
@@ -1409,6 +1407,42 @@ operator|==
 name|NGX_OK
 condition|)
 block|{
+if|if
+condition|(
+name|r
+operator|->
+name|http_version
+operator|>=
+name|NGX_HTTP_VERSION_10
+operator|&&
+name|ngx_http_large_client_header
+operator|==
+literal|0
+operator|&&
+name|r
+operator|->
+name|header_in
+operator|->
+name|pos
+operator|==
+name|r
+operator|->
+name|header_in
+operator|->
+name|end
+condition|)
+block|{
+name|ngx_http_header_parse_error
+argument_list|(
+name|r
+argument_list|,
+name|NGX_HTTP_PARSE_TOO_LONG_URI
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_HTTP_REQUEST_URI_TOO_LARGE
+return|;
+block|}
 comment|/* copy URI */
 if|if
 condition|(
@@ -3061,7 +3095,7 @@ expr|main
 operator|:
 name|r
 argument_list|,
-name|ngx_http_core_module
+name|ngx_http_core_module_ctx
 argument_list|)
 expr_stmt|;
 name|wev
@@ -3326,7 +3360,7 @@ expr|main
 operator|:
 name|r
 argument_list|,
-name|ngx_http_core_module
+name|ngx_http_core_module_ctx
 argument_list|)
 expr_stmt|;
 if|if
@@ -3654,7 +3688,7 @@ name|ngx_http_get_module_loc_conf
 argument_list|(
 name|r
 argument_list|,
-name|ngx_http_core_module
+name|ngx_http_core_module_ctx
 argument_list|)
 expr_stmt|;
 if|if
@@ -4131,8 +4165,9 @@ name|timedout
 condition|)
 block|{
 return|return
-name|NGX_DONE
+name|NGX_ERROR
 return|;
+comment|/* to close connection */
 block|}
 comment|/* MSIE closes a keepalive connection with RST flag        so we ignore ECONNRESET here */
 name|rev
@@ -4237,8 +4272,9 @@ name|client
 argument_list|)
 expr_stmt|;
 return|return
-name|NGX_DONE
+name|NGX_ERROR
 return|;
+comment|/* to close connection */
 block|}
 name|c
 operator|->
@@ -4316,7 +4352,7 @@ name|ngx_http_get_module_loc_conf
 argument_list|(
 name|r
 argument_list|,
-name|ngx_http_core_module
+name|ngx_http_core_module_ctx
 argument_list|)
 expr_stmt|;
 name|r
@@ -4661,7 +4697,7 @@ name|ngx_http_get_module_loc_conf
 argument_list|(
 name|r
 argument_list|,
-name|ngx_http_core_module
+name|ngx_http_core_module_ctx
 argument_list|)
 expr_stmt|;
 if|if

@@ -29,14 +29,6 @@ value|-1
 end_define
 
 begin_define
-DECL|macro|NGX_DONE
-define|#
-directive|define
-name|NGX_DONE
-value|NGX_ERROR
-end_define
-
-begin_define
 DECL|macro|NGX_AGAIN
 define|#
 directive|define
@@ -45,12 +37,16 @@ value|-2
 end_define
 
 begin_define
-DECL|macro|NGX_BUSY
+DECL|macro|NGX_DONE
 define|#
 directive|define
-name|NGX_BUSY
+name|NGX_DONE
 value|-3
 end_define
+
+begin_comment
+comment|/* #define  NGX_BUSY       -3 */
+end_comment
 
 begin_define
 DECL|macro|NGX_DECLINED
@@ -60,13 +56,9 @@ name|NGX_DECLINED
 value|-4
 end_define
 
-begin_define
-DECL|macro|NGX_ALERT
-define|#
-directive|define
-name|NGX_ALERT
-value|-5
-end_define
+begin_comment
+comment|/* #define  NGX_ALERT      -5 */
+end_comment
 
 begin_define
 DECL|macro|NGX_MAXHOSTNAMELEN
