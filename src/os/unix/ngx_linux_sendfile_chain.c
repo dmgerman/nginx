@@ -40,7 +40,7 @@ modifier|*
 name|prev
 decl_stmt|;
 name|off_t
-name|fprev
+name|offset
 decl_stmt|;
 name|size_t
 name|size
@@ -76,6 +76,9 @@ decl_stmt|;
 name|ngx_chain_t
 modifier|*
 name|cl
+decl_stmt|,
+modifier|*
+name|tail
 decl_stmt|;
 name|wev
 operator|=
@@ -95,10 +98,6 @@ return|return
 name|in
 return|;
 block|}
-name|cork
-operator|=
-literal|0
-expr_stmt|;
 do|do
 block|{
 name|file
@@ -372,7 +371,7 @@ operator|->
 name|file_pos
 operator|)
 expr_stmt|;
-name|fprev
+name|offset
 operator|=
 name|file
 operator|->
@@ -416,7 +415,7 @@ name|file
 operator|->
 name|fd
 operator|||
-name|fprev
+name|offset
 operator|!=
 name|cl
 operator|->
@@ -446,7 +445,7 @@ operator|->
 name|file_pos
 operator|)
 expr_stmt|;
-name|fprev
+name|offset
 operator|=
 name|cl
 operator|->
@@ -472,6 +471,12 @@ condition|(
 name|fsize
 condition|)
 block|{
+name|offset
+operator|=
+name|file
+operator|->
+name|file_pos
+expr_stmt|;
 name|rc
 operator|=
 name|sendfile
@@ -486,9 +491,8 @@ name|file
 operator|->
 name|fd
 argument_list|,
-name|file
-operator|->
-name|file_pos
+operator|&
+name|offset
 argument_list|,
 name|fsize
 argument_list|)

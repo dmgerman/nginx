@@ -12,20 +12,21 @@ directive|define
 name|_NGX_LINUX_H_INCLUDED_
 end_define
 
-begin_decl
+begin_function_decl
 name|ngx_chain_t
 modifier|*
 name|ngx_linux_sendfile_chain
-argument_list|(
+parameter_list|(
 name|ngx_connection_t
-operator|*
+modifier|*
 name|c
-argument_list|,
+parameter_list|,
 name|ngx_chain_t
-operator|*
+modifier|*
 name|in
-argument_list|)
-end_decl
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_endif
 endif|#

@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c7830e60108
+DECL|struct|__anon27f8afdb0108
 typedef|typedef
 struct|struct
 block|{
@@ -1334,8 +1334,26 @@ operator||
 name|NOTE_ATTRIB
 operator||
 name|NOTE_RENAME
+if|#
+directive|if
+operator|(
+name|__FreeBSD__
+operator|==
+literal|4
+operator|&&
+name|__FreeBSD_version
+operator|>=
+literal|430000
+operator|)
+expr|\
+operator|||
+name|__FreeBSD_version
+operator|>=
+literal|500018
 operator||
 name|NOTE_REVOKE
+endif|#
+directive|endif
 expr_stmt|;
 name|change_list
 index|[

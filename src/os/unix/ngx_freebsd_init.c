@@ -100,7 +100,7 @@ name|HAVE_SENDFILE
 operator|)
 name|ngx_freebsd_sendfile_chain
 block|,
-name|NGX_HAVE_SENDFILE
+name|NGX_IO_SENDFILE
 else|#
 directive|else
 name|ngx_writev_chain
@@ -113,7 +113,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon28b843780108
+DECL|struct|__anon2b4fe1310108
 typedef|typedef
 struct|struct
 block|{

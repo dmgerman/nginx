@@ -109,7 +109,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c2b03840108
+DECL|struct|__anon29d352ce0108
 typedef|typedef
 struct|struct
 block|{
@@ -332,6 +332,23 @@ begin_include
 include|#
 directive|include
 file|<ngx_freebsd.h>
+end_include
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|__linux__
+end_ifdef
+
+begin_include
+include|#
+directive|include
+file|<ngx_linux.h>
 end_include
 
 begin_endif

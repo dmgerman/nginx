@@ -24,8 +24,13 @@ DECL|macro|_GNU_SOURCE
 comment|/* pread(), pwrite(), gethostname() */
 end_comment
 
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
 begin_define
-DECL|macro|_FILE_OFFSET_BITS
 define|#
 directive|define
 name|_FILE_OFFSET_BITS
@@ -33,11 +38,15 @@ value|64
 end_define
 
 begin_define
-DECL|macro|_LARGEFILE_SOURCE
 define|#
 directive|define
 name|_LARGEFILE_SOURCE
 end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_include
 include|#
@@ -142,7 +151,19 @@ end_include
 begin_include
 include|#
 directive|include
+file|<sys/wait.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<sys/socket.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<sys/sendfile.h>
 end_include
 
 begin_include
@@ -150,6 +171,16 @@ include|#
 directive|include
 file|<netinet/in.h>
 end_include
+
+begin_include
+include|#
+directive|include
+file|<netinet/tcp.h>
+end_include
+
+begin_comment
+comment|/* TCP_CORK */
+end_comment
 
 begin_include
 include|#

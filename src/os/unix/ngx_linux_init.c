@@ -43,9 +43,9 @@ name|NULL
 block|,
 name|NULL
 block|,
-name|ngx_writev_chain
+name|ngx_linux_sendfile_chain
 block|,
-name|NGX_HAVE_ZEROCOPY
+name|NGX_IO_SENDFILE
 block|}
 decl_stmt|;
 end_decl_stmt

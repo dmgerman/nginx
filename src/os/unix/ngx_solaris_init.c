@@ -55,7 +55,7 @@ name|NULL
 block|,
 name|ngx_writev_chain
 block|,
-name|NGX_HAVE_ZEROCOPY
+literal|0
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -178,6 +178,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"OS: %s %s"
+argument_list|,
 name|ngx_solaris_sysname
 argument_list|,
 name|ngx_solaris_release
