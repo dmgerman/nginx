@@ -161,6 +161,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<grp.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<osreldate.h>
 end_include
 
