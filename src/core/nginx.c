@@ -24,7 +24,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon289b79580108
+DECL|struct|__anon29a1784c0108
 typedef|typedef
 struct|struct
 block|{
@@ -63,7 +63,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289b79580208
+DECL|struct|__anon29a1784c0208
 typedef|typedef
 struct|struct
 block|{
@@ -371,6 +371,13 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_pid
+name|ngx_pid_t
+name|ngx_pid
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_new_binary
 name|ngx_pid_t
 name|ngx_new_binary
@@ -535,6 +542,11 @@ directive|endif
 name|log
 operator|=
 name|ngx_log_init_errlog
+argument_list|()
+expr_stmt|;
+name|ngx_pid
+operator|=
+name|ngx_getpid
 argument_list|()
 expr_stmt|;
 comment|/* init_cycle->log is required for signal handlers */
@@ -735,42 +747,6 @@ return|return
 literal|1
 return|;
 block|}
-block|}
-if|if
-condition|(
-name|dup2
-argument_list|(
-name|cycle
-operator|->
-name|log
-operator|->
-name|file
-operator|->
-name|fd
-argument_list|,
-name|STDERR_FILENO
-argument_list|)
-operator|==
-operator|-
-literal|1
-condition|)
-block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_EMERG
-argument_list|,
-name|cycle
-operator|->
-name|log
-argument_list|,
-name|ngx_errno
-argument_list|,
-literal|"dup2(STDERR) failed"
-argument_list|)
-expr_stmt|;
-return|return
-literal|1
-return|;
 block|}
 if|if
 condition|(

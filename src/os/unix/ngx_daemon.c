@@ -59,6 +59,11 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
+name|ngx_pid
+operator|=
+name|ngx_getpid
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|setsid

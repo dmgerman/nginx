@@ -227,6 +227,11 @@ return|;
 case|case
 literal|0
 case|:
+name|ngx_pid
+operator|=
+name|ngx_getpid
+argument_list|()
+expr_stmt|;
 name|proc
 argument_list|(
 name|cycle

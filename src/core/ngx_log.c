@@ -359,8 +359,7 @@ argument_list|,
 name|PID_T_FMT
 literal|"#%d: "
 argument_list|,
-name|ngx_getpid
-argument_list|()
+name|ngx_pid
 argument_list|,
 comment|/* STUB */
 literal|0

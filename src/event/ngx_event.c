@@ -73,6 +73,13 @@ name|ngx_devpoll_module
 decl_stmt|;
 end_decl_stmt
 
+begin_decl_stmt
+specifier|extern
+name|ngx_event_module_t
+name|ngx_devpoll_module_ctx
+decl_stmt|;
+end_decl_stmt
+
 begin_endif
 endif|#
 directive|endif
@@ -1788,6 +1795,10 @@ name|data
 expr_stmt|;
 if|if
 condition|(
+name|ngx_process
+operator|==
+name|NGX_PROCESS_SINGLE
+operator|&&
 name|old_ecf
 operator|&&
 name|old_ecf
@@ -1807,6 +1818,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
+literal|"when the server runs without a master process "
 literal|"the \"%s\" event type must be the same as "
 literal|"in previous configuration - \"%s\" "
 literal|"and it can not be changed on the fly, "
