@@ -24,7 +24,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c70eb010108
+DECL|struct|__anon2762c4e20108
 typedef|typedef
 struct|struct
 block|{
@@ -53,11 +53,11 @@ name|int
 name|level
 decl_stmt|;
 DECL|member|wbits
-name|int
+name|size_t
 name|wbits
 decl_stmt|;
 DECL|member|memlevel
-name|int
+name|size_t
 name|memlevel
 decl_stmt|;
 DECL|typedef|ngx_http_gzip_conf_t
@@ -67,7 +67,7 @@ typedef|;
 end_typedef
 
 begin_enum
-DECL|enum|__anon2c70eb010203
+DECL|enum|__anon2762c4e20203
 enum|enum
 block|{
 DECL|enumerator|NGX_HTTP_GZIP_PROXIED_OFF
@@ -88,7 +88,7 @@ enum|;
 end_enum
 
 begin_typedef
-DECL|struct|__anon2c70eb010308
+DECL|struct|__anon2762c4e20308
 typedef|typedef
 struct|struct
 block|{
@@ -3765,7 +3765,7 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-name|ngx_conf_merge_value
+name|ngx_conf_merge_size_value
 argument_list|(
 name|conf
 operator|->
@@ -3778,7 +3778,7 @@ argument_list|,
 name|MAX_WBITS
 argument_list|)
 expr_stmt|;
-name|ngx_conf_merge_value
+name|ngx_conf_merge_size_value
 argument_list|(
 name|conf
 operator|->

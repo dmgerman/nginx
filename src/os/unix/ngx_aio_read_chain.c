@@ -49,7 +49,8 @@ name|prev
 decl_stmt|;
 name|size_t
 name|size
-decl_stmt|,
+decl_stmt|;
+name|ssize_t
 name|total
 decl_stmt|;
 name|ngx_err_t
