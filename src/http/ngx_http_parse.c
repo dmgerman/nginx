@@ -33,7 +33,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon29ff94740103
+DECL|enum|__anon2beda47e0103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1248,7 +1248,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon29ff94740203
+DECL|enum|__anon2beda47e0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1407,6 +1407,10 @@ operator|||
 name|ch
 operator|==
 literal|'~'
+operator|||
+name|ch
+operator|==
+literal|'.'
 condition|)
 block|{
 break|break;
@@ -1486,6 +1490,10 @@ operator|||
 name|ch
 operator|==
 literal|'~'
+operator|||
+name|ch
+operator|==
+literal|'.'
 condition|)
 block|{
 break|break;
@@ -1865,7 +1873,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon29ff94740303
+DECL|enum|__anon2beda47e0303
 enum|enum
 block|{
 DECL|enumerator|sw_usual

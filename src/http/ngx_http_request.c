@@ -5085,13 +5085,17 @@ name|ngx_http_core_loc_conf_t
 modifier|*
 name|clcf
 decl_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug0
 argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
 name|r
 operator|->
 name|connection
 operator|->
 name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"http read discarded body"
 argument_list|)
@@ -5286,11 +5290,15 @@ name|c
 operator|->
 name|read
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug0
 argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
 name|c
 operator|->
 name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"set http keepalive handler"
 argument_list|)
@@ -5432,11 +5440,15 @@ operator|+
 name|len
 expr_stmt|;
 block|}
-name|ngx_log_debug
+name|ngx_log_debug0
 argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
 name|c
 operator|->
 name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"pipelined request"
 argument_list|)
@@ -5665,11 +5677,15 @@ name|rev
 operator|->
 name|data
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug0
 argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
 name|c
 operator|->
 name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"http keepalive handler"
 argument_list|)
@@ -6111,11 +6127,15 @@ name|c
 operator|->
 name|data
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug0
 argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
 name|c
 operator|->
 name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"http lingering close handler"
 argument_list|)
@@ -6276,14 +6296,21 @@ operator|->
 name|discarded_buffer_size
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|c->log
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"lingering read: %d"
-argument|_ n
+argument_list|,
+name|n
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|n
@@ -6358,13 +6385,17 @@ modifier|*
 name|wev
 parameter_list|)
 block|{
-name|ngx_log_debug
+name|ngx_log_debug0
 argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
 name|wev
 operator|->
 name|log
 argument_list|,
-literal|"http EMPTY handler"
+literal|0
+argument_list|,
+literal|"http empty handler"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -6754,14 +6785,23 @@ modifier|*
 name|c
 parameter_list|)
 block|{
-name|ngx_log_debug
+name|ngx_log_debug1
 argument_list|(
-argument|c->log
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"close connection: %d"
-argument|_ c->fd
+argument_list|,
+name|c
+operator|->
+name|fd
 argument_list|)
-empty_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|c
