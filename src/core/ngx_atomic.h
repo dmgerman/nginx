@@ -24,6 +24,10 @@ directive|include
 file|<ngx_core.h>
 end_include
 
+begin_comment
+comment|/* STUB */
+end_comment
+
 begin_define
 DECL|macro|ngx_atomic_inc (x)
 define|#

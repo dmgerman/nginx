@@ -495,11 +495,6 @@ comment|/* TODO: learn SO_SNDBUF (to use in zerocopy) via kqueue's EV_CLEAR even
 block_content|c->write->ready = 0;     c->write->event_handler = ngx_http_dummy;      if (ngx_handle_write_event(c->write, 0) == NGX_ERROR) {         ngx_http_close_connection(c);         return;     }
 endif|#
 directive|endif
-name|ngx_atomic_inc
-argument_list|(
-name|ngx_http_reading_state
-argument_list|)
-expr_stmt|;
 block|}
 end_function
 
@@ -576,11 +571,6 @@ argument_list|,
 name|NGX_ETIMEDOUT
 argument_list|,
 literal|"client timed out"
-argument_list|)
-expr_stmt|;
-name|ngx_atomic_dec
-argument_list|(
-name|ngx_http_reading_state
 argument_list|)
 expr_stmt|;
 name|ngx_http_close_connection

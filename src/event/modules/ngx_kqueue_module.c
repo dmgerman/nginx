@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a0881530108
+DECL|struct|__anon28d55e770108
 typedef|typedef
 struct|struct
 block|{
@@ -1181,21 +1181,27 @@ name|ev
 operator|->
 name|data
 expr_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG_EVENT
-operator|)
-name|ngx_log_debug
+name|ngx_log_debug3
 argument_list|(
-argument|ev->log
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
-literal|"kqueue set event: %d: ft:%d fl:%08x"
-argument|_                   c->fd _ filter _ flags
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"kevent set event: %d: ft:%d fl:%04X"
+argument_list|,
+name|c
+operator|->
+name|fd
+argument_list|,
+name|filter
+argument_list|,
+name|flags
 argument_list|)
-empty_stmt|;
-endif|#
-directive|endif
+expr_stmt|;
 if|if
 condition|(
 name|nchanges

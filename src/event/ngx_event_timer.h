@@ -39,7 +39,7 @@ DECL|macro|NGX_TIMER_RESOLUTION
 define|#
 directive|define
 name|NGX_TIMER_RESOLUTION
-value|50
+value|1
 end_define
 
 begin_if
@@ -130,6 +130,23 @@ modifier|*
 name|ev
 parameter_list|)
 block|{
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|ev
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"event timer del: %d"
+argument_list|,
+name|ev
+operator|->
+name|rbtree_key
+argument_list|)
+expr_stmt|;
 name|ngx_rbtree_delete
 argument_list|(
 operator|&
@@ -210,6 +227,23 @@ literal|0
 block_content|(ngx_elapsed_msec + timer) / NGX_TIMER_RESOLUTION;
 endif|#
 directive|endif
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|ev
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"event timer add: %d"
+argument_list|,
+name|ev
+operator|->
+name|rbtree_key
+argument_list|)
+expr_stmt|;
 name|ngx_rbtree_insert
 argument_list|(
 operator|&

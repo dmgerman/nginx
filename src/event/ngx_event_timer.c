@@ -62,17 +62,10 @@ operator|=
 operator|&
 name|ngx_event_timer_sentinel
 expr_stmt|;
-name|ngx_event_timer_sentinel
-operator|.
-name|left
-operator|=
-operator|&
-name|ngx_event_timer_sentinel
-expr_stmt|;
 if|#
 directive|if
 literal|0
-block_content|ngx_event_timer_sentinel.right =&ngx_event_timer_sentinel;     ngx_event_timer_sentinel.parent =&ngx_event_timer_sentinel;
+block_content|ngx_event_timer_sentinel.left =&ngx_event_timer_sentinel;     ngx_event_timer_sentinel.right =&ngx_event_timer_sentinel;     ngx_event_timer_sentinel.parent =&ngx_event_timer_sentinel;
 endif|#
 directive|endif
 return|return
@@ -106,6 +99,18 @@ name|ngx_rbtree_t
 modifier|*
 name|node
 decl_stmt|;
+if|if
+condition|(
+name|ngx_event_timer_rbtree
+operator|==
+operator|&
+name|ngx_event_timer_sentinel
+condition|)
+block|{
+return|return
+literal|0
+return|;
+block|}
 name|node
 operator|=
 name|ngx_rbtree_min
@@ -116,20 +121,6 @@ operator|&
 name|ngx_event_timer_sentinel
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|node
-operator|==
-operator|&
-name|ngx_event_timer_sentinel
-condition|)
-block|{
-return|return
-literal|0
-return|;
-block|}
-else|else
-block|{
 return|return
 operator|(
 name|ngx_msec_t
@@ -154,7 +145,6 @@ literal|0
 block_content|(node->key * NGX_TIMER_RESOLUTION - ngx_elapsed_msec);
 endif|#
 directive|endif
-block|}
 block|}
 end_function
 
@@ -181,6 +171,16 @@ init|;
 condition|;
 control|)
 block|{
+if|if
+condition|(
+name|ngx_event_timer_rbtree
+operator|==
+operator|&
+name|ngx_event_timer_sentinel
+condition|)
+block|{
+break|break;
+block|}
 name|node
 operator|=
 name|ngx_rbtree_min
@@ -191,16 +191,6 @@ operator|&
 name|ngx_event_timer_sentinel
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|node
-operator|==
-operator|&
-name|ngx_event_timer_sentinel
-condition|)
-block|{
-break|break;
-block|}
 if|if
 condition|(
 operator|(
