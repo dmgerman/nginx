@@ -192,6 +192,14 @@ value|ngx_test_null(a.elts, ngx_palloc(p, n * s), rc);                         \
 end_define
 
 begin_define
+DECL|macro|ngx_array_create
+define|#
+directive|define
+name|ngx_array_create
+value|ngx_create_array
+end_define
+
+begin_define
 DECL|macro|ngx_array_push
 define|#
 directive|define

@@ -406,6 +406,49 @@ name|NGX_OFF_T_LEN
 value|sizeof("-9223372036854775808") - 1
 end_define
 
+begin_if
+if|#
+directive|if
+operator|(
+name|SOLARIS
+operator|)
+end_if
+
+begin_comment
+comment|/* TODO: auto_conf */
+end_comment
+
+begin_define
+DECL|macro|NGX_ALIGN
+define|#
+directive|define
+name|NGX_ALIGN
+value|(_MAX_ALIGNMENT - 1)
+end_define
+
+begin_comment
+DECL|macro|NGX_ALIGN
+comment|/* platform word */
+end_comment
+
+begin_define
+DECL|macro|NGX_ALIGN_CAST
+define|#
+directive|define
+name|NGX_ALIGN_CAST
+value|(unsigned long)
+end_define
+
+begin_comment
+DECL|macro|NGX_ALIGN_CAST
+comment|/* size of the pointer */
+end_comment
+
+begin_else
+else|#
+directive|else
+end_else
+
 begin_comment
 comment|/* TODO: auto_conf */
 end_comment
@@ -435,6 +478,11 @@ begin_comment
 DECL|macro|NGX_ALIGN_CAST
 comment|/* size of the pointer */
 end_comment
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_define
 DECL|macro|ngx_align (p)

@@ -79,7 +79,7 @@ value|(u_int) -1
 end_define
 
 begin_typedef
-DECL|struct|__anon29e8ff9f0108
+DECL|struct|__anon2b40ae770108
 typedef|typedef
 struct|struct
 block|{
@@ -102,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e8ff9f0208
+DECL|struct|__anon2b40ae770208
 typedef|typedef
 struct|struct
 block|{
@@ -123,7 +123,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e8ff9f0308
+DECL|struct|__anon2b40ae770308
 typedef|typedef
 struct|struct
 block|{
@@ -146,7 +146,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e8ff9f0408
+DECL|struct|__anon2b40ae770408
 typedef|typedef
 struct|struct
 block|{
@@ -162,7 +162,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e8ff9f0508
+DECL|struct|__anon2b40ae770508
 typedef|typedef
 struct|struct
 block|{
@@ -184,7 +184,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e8ff9f0608
+DECL|struct|__anon2b40ae770608
 typedef|typedef
 struct|struct
 block|{
@@ -194,6 +194,11 @@ modifier|*
 name|logs
 decl_stmt|;
 comment|/* array of ngx_http_log_t */
+DECL|member|off
+name|ngx_uint_t
+name|off
+decl_stmt|;
+comment|/* unsigned  off:1 */
 DECL|typedef|ngx_http_log_loc_conf_t
 block|}
 name|ngx_http_log_loc_conf_t

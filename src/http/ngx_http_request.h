@@ -405,7 +405,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon27905f730103
+DECL|enum|__anon2bf810870103
 typedef|typedef
 enum|enum
 block|{
@@ -426,7 +426,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27905f730203
+DECL|enum|__anon2bf810870203
 typedef|typedef
 enum|enum
 block|{
@@ -465,7 +465,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27905f730308
+DECL|struct|__anon2bf810870308
 typedef|typedef
 struct|struct
 block|{
@@ -484,7 +484,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27905f730408
+DECL|struct|__anon2bf810870408
 typedef|typedef
 struct|struct
 block|{
@@ -598,6 +598,12 @@ name|msie4
 range|:
 literal|1
 decl_stmt|;
+DECL|member|opera
+name|unsigned
+name|opera
+range|:
+literal|1
+decl_stmt|;
 DECL|typedef|ngx_http_headers_in_t
 block|}
 name|ngx_http_headers_in_t
@@ -605,7 +611,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27905f730508
+DECL|struct|__anon2bf810870508
 typedef|typedef
 struct|struct
 block|{
@@ -628,7 +634,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27905f730608
+DECL|struct|__anon2bf810870608
 typedef|typedef
 struct|struct
 block|{
@@ -731,7 +737,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27905f730708
+DECL|struct|__anon2bf810870708
 typedef|typedef
 struct|struct
 block|{
@@ -782,10 +788,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon27905f73080a
+DECL|union|__anon2bf81087080a
 union|union
 block|{
-DECL|struct|__anon27905f730908
+DECL|struct|__anon2bf810870908
 struct|struct
 block|{
 DECL|member|fd
@@ -801,7 +807,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon27905f730a08
+DECL|struct|__anon2bf810870a08
 struct|struct
 block|{
 DECL|member|hash
@@ -1157,6 +1163,25 @@ name|filter_allow_ranges
 range|:
 literal|1
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_STAT_STUB
+operator|)
+DECL|member|stat_reading
+name|unsigned
+name|stat_reading
+range|:
+literal|1
+decl_stmt|;
+DECL|member|stat_writing
+name|unsigned
+name|stat_writing
+range|:
+literal|1
+decl_stmt|;
+endif|#
+directive|endif
 DECL|member|headers_n
 name|ngx_uint_t
 name|headers_n
