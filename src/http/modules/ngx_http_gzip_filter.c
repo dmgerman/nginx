@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b7729a90108
+DECL|struct|__anon27c350270108
 typedef|typedef
 struct|struct
 block|{
@@ -81,7 +81,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7729a90208
+DECL|struct|__anon27c350270208
 typedef|typedef
 struct|struct
 block|{
@@ -172,7 +172,7 @@ value|0x0200
 end_define
 
 begin_typedef
-DECL|struct|__anon2b7729a90308
+DECL|struct|__anon27c350270308
 typedef|typedef
 struct|struct
 block|{
@@ -1160,9 +1160,9 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_http_gzip_header_filter (ngx_http_request_t * r)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_gzip_header_filter (ngx_http_request_t * r)
 name|ngx_http_gzip_header_filter
 parameter_list|(
 name|ngx_http_request_t
@@ -1689,9 +1689,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_gzip_proxied (ngx_http_request_t * r,ngx_http_gzip_conf_t * conf)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_gzip_proxied (ngx_http_request_t * r,ngx_http_gzip_conf_t * conf)
 name|ngx_http_gzip_proxied
 parameter_list|(
 name|ngx_http_request_t
@@ -2011,9 +2011,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_gzip_body_filter (ngx_http_request_t * r,ngx_chain_t * in)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_gzip_body_filter (ngx_http_request_t * r,ngx_chain_t * in)
 name|ngx_http_gzip_body_filter
 parameter_list|(
 name|ngx_http_request_t
@@ -3949,10 +3949,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_gzip_filter_alloc (void * opaque,u_int items,u_int size)
 specifier|static
 name|void
 modifier|*
+DECL|function|ngx_http_gzip_filter_alloc (void * opaque,u_int items,u_int size)
 name|ngx_http_gzip_filter_alloc
 parameter_list|(
 name|void
@@ -4116,9 +4116,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_gzip_filter_free (void * opaque,void * address)
 specifier|static
 name|void
+DECL|function|ngx_http_gzip_filter_free (void * opaque,void * address)
 name|ngx_http_gzip_filter_free
 parameter_list|(
 name|void
@@ -4140,10 +4140,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_gzip_log_ratio (ngx_http_request_t * r,u_char * buf,ngx_http_log_op_t * op)
 specifier|static
 name|u_char
 modifier|*
+DECL|function|ngx_http_gzip_log_ratio (ngx_http_request_t * r,u_char * buf,ngx_http_log_op_t * op)
 name|ngx_http_gzip_log_ratio
 parameter_list|(
 name|ngx_http_request_t
@@ -4292,9 +4292,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_gzip_error (ngx_http_gzip_ctx_t * ctx)
 specifier|static
 name|void
+DECL|function|ngx_http_gzip_error (ngx_http_gzip_ctx_t * ctx)
 name|ngx_http_gzip_error
 parameter_list|(
 name|ngx_http_gzip_ctx_t
@@ -4358,9 +4358,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_gzip_add_log_formats (ngx_conf_t * cf)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_gzip_add_log_formats (ngx_conf_t * cf)
 name|ngx_http_gzip_add_log_formats
 parameter_list|(
 name|ngx_conf_t
@@ -4449,9 +4449,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_gzip_filter_init (ngx_cycle_t * cycle)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_gzip_filter_init (ngx_cycle_t * cycle)
 name|ngx_http_gzip_filter_init
 parameter_list|(
 name|ngx_cycle_t
@@ -4482,10 +4482,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_gzip_create_conf (ngx_conf_t * cf)
 specifier|static
 name|void
 modifier|*
+DECL|function|ngx_http_gzip_create_conf (ngx_conf_t * cf)
 name|ngx_http_gzip_create_conf
 parameter_list|(
 name|ngx_conf_t
@@ -4577,10 +4577,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_gzip_merge_conf (ngx_conf_t * cf,void * parent,void * child)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_gzip_merge_conf (ngx_conf_t * cf,void * parent,void * child)
 name|ngx_http_gzip_merge_conf
 parameter_list|(
 name|ngx_conf_t
@@ -4856,10 +4856,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_gzip_set_types (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_gzip_set_types (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_http_gzip_set_types
 parameter_list|(
 name|ngx_conf_t
@@ -4911,7 +4911,7 @@ name|cf
 operator|->
 name|pool
 argument_list|,
-literal|5
+literal|4
 argument_list|,
 sizeof|sizeof
 argument_list|(
@@ -5123,10 +5123,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_gzip_set_window (ngx_conf_t * cf,void * post,void * data)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_gzip_set_window (ngx_conf_t * cf,void * post,void * data)
 name|ngx_http_gzip_set_window
 parameter_list|(
 name|ngx_conf_t
@@ -5202,10 +5202,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_gzip_set_hash (ngx_conf_t * cf,void * post,void * data)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_gzip_set_hash (ngx_conf_t * cf,void * post,void * data)
 name|ngx_http_gzip_set_hash
 parameter_list|(
 name|ngx_conf_t

@@ -556,7 +556,7 @@ name|name
 parameter_list|,
 name|dir
 parameter_list|)
-value|lstat((const char *) name,&(dir)->info)
+value|stat((const char *) name,&(dir)->info)
 end_define
 
 begin_define
@@ -565,6 +565,27 @@ define|#
 directive|define
 name|ngx_de_info_n
 value|"stat()"
+end_define
+
+begin_define
+DECL|macro|ngx_de_link_info (name,dir)
+define|#
+directive|define
+name|ngx_de_link_info
+parameter_list|(
+name|name
+parameter_list|,
+name|dir
+parameter_list|)
+value|lstat((const char *) name,&(dir)->info)
+end_define
+
+begin_define
+DECL|macro|ngx_de_link_info_n
+define|#
+directive|define
+name|ngx_de_link_info_n
+value|"lstat()"
 end_define
 
 begin_define
@@ -587,6 +608,17 @@ parameter_list|(
 name|dir
 parameter_list|)
 value|(S_ISREG((dir)->info.st_mode))
+end_define
+
+begin_define
+DECL|macro|ngx_de_is_link (dir)
+define|#
+directive|define
+name|ngx_de_is_link
+parameter_list|(
+name|dir
+parameter_list|)
+value|(S_ISLNK((dir)->info.st_mode))
 end_define
 
 begin_define

@@ -103,11 +103,11 @@ parameter_list|,
 name|create
 parameter_list|)
 define|\
-value|CreateFile((const char *) name, access,                         \                        FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_SHARE_DELETE,  \                        NULL, create, FILE_FLAG_BACKUP_SEMANTICS, NULL)
+value|CreateFile((const char *) name, access,                                 \                FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_SHARE_DELETE,          \                NULL, create, FILE_FLAG_BACKUP_SEMANTICS, NULL)
 end_define
 
 begin_comment
-comment|/*                        NULL, OPEN_EXISTING, 0, NULL) */
+comment|/*                NULL, OPEN_EXISTING, 0, NULL) */
 end_comment
 
 begin_define
@@ -187,7 +187,7 @@ parameter_list|,
 name|persistent
 parameter_list|)
 define|\
-value|CreateFile((const char *) name,                                 \                     GENERIC_READ|GENERIC_WRITE,                             \                     FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_SHARE_DELETE,     \                     NULL,                                                   \                     CREATE_NEW,                                             \                     persistent ? 0:                                         \                         FILE_ATTRIBUTE_TEMPORARY|FILE_FLAG_DELETE_ON_CLOSE, \                     NULL);
+value|CreateFile((const char *) name,                                         \                GENERIC_READ|GENERIC_WRITE,                                  \                FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_SHARE_DELETE,          \                NULL,                                                        \                CREATE_NEW,                                                  \                persistent ? 0:                                              \                    FILE_ATTRIBUTE_TEMPORARY|FILE_FLAG_DELETE_ON_CLOSE,      \                NULL);
 end_define
 
 begin_define
@@ -561,6 +561,27 @@ value|"dummy()"
 end_define
 
 begin_define
+DECL|macro|ngx_de_link_info (name,dir)
+define|#
+directive|define
+name|ngx_de_link_info
+parameter_list|(
+name|name
+parameter_list|,
+name|dir
+parameter_list|)
+value|NGX_OK
+end_define
+
+begin_define
+DECL|macro|ngx_de_link_info_n
+define|#
+directive|define
+name|ngx_de_link_info_n
+value|"dummy()"
+end_define
+
+begin_define
 DECL|macro|ngx_de_is_dir (dir)
 define|#
 directive|define
@@ -582,6 +603,17 @@ name|dir
 parameter_list|)
 define|\
 value|!((dir)->fd.dwFileAttributes& FILE_ATTRIBUTE_DIRECTORY)
+end_define
+
+begin_define
+DECL|macro|ngx_de_is_link (dir)
+define|#
+directive|define
+name|ngx_de_is_link
+parameter_list|(
+name|dir
+parameter_list|)
+value|0
 end_define
 
 begin_define
@@ -609,7 +641,7 @@ parameter_list|(
 name|dir
 parameter_list|)
 define|\
-value|(time_t) (((((unsigned __int64)                                  \                            (dir)->fd.ftLastWriteTime.dwHighDateTime<< 32)    \                             | (dir)->fd.ftLastWriteTime.dwLowDateTime)        \                                           - 116444736000000000) / 10000000)
+value|(time_t) (((((unsigned __int64)                                           \                            (dir)->fd.ftLastWriteTime.dwHighDateTime<< 32)    \                             | (dir)->fd.ftLastWriteTime.dwLowDateTime)        \                                           - 116444736000000000) / 10000000)
 end_define
 
 begin_function_decl

@@ -21,12 +21,6 @@ directive|include
 file|<ngx_event.h>
 end_include
 
-begin_include
-include|#
-directive|include
-file|<nginx.h>
-end_include
-
 begin_function
 DECL|function|ngx_event_acceptex (ngx_event_t * rev)
 name|void

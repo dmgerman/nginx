@@ -884,6 +884,14 @@ typedef|;
 end_typedef
 
 begin_define
+DECL|macro|NGX_ATOMIC_T_LEN
+define|#
+directive|define
+name|NGX_ATOMIC_T_LEN
+value|sizeof("-2147483648") - 1
+end_define
+
+begin_define
 DECL|macro|ngx_atomic_inc (x)
 define|#
 directive|define

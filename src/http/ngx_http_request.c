@@ -1782,6 +1782,13 @@ name|c
 expr_stmt|;
 name|r
 operator|->
+name|start_time
+operator|=
+name|ngx_time
+argument_list|()
+expr_stmt|;
+name|r
+operator|->
 name|file
 operator|.
 name|fd

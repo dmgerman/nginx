@@ -39,8 +39,16 @@ end_define
 begin_typedef
 DECL|typedef|ngx_atomic_int_t
 typedef|typedef
-name|uint32_t
+name|int32_t
 name|ngx_atomic_int_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|typedef|ngx_atomic_uint_t
+typedef|typedef
+name|uint32_t
+name|ngx_atomic_uint_t
 typedef|;
 end_typedef
 
@@ -48,7 +56,7 @@ begin_typedef
 DECL|typedef|ngx_atomic_t
 typedef|typedef
 specifier|volatile
-name|ngx_atomic_int_t
+name|ngx_atomic_uint_t
 name|ngx_atomic_t
 typedef|;
 end_typedef

@@ -417,7 +417,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon29c8cdd90103
+DECL|enum|__anon296584cf0103
 typedef|typedef
 enum|enum
 block|{
@@ -438,7 +438,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29c8cdd90203
+DECL|enum|__anon296584cf0203
 typedef|typedef
 enum|enum
 block|{
@@ -477,7 +477,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c8cdd90308
+DECL|struct|__anon296584cf0308
 typedef|typedef
 struct|struct
 block|{
@@ -496,7 +496,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c8cdd90408
+DECL|struct|__anon296584cf0408
 typedef|typedef
 struct|struct
 block|{
@@ -667,7 +667,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c8cdd90508
+DECL|struct|__anon296584cf0508
 typedef|typedef
 struct|struct
 block|{
@@ -690,7 +690,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c8cdd90608
+DECL|struct|__anon296584cf0608
 typedef|typedef
 struct|struct
 block|{
@@ -809,7 +809,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c8cdd90708
+DECL|struct|__anon296584cf0708
 typedef|typedef
 struct|struct
 block|{
@@ -847,10 +847,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon29c8cdd9080a
+DECL|union|__anon296584cf080a
 union|union
 block|{
-DECL|struct|__anon29c8cdd90908
+DECL|struct|__anon296584cf0908
 struct|struct
 block|{
 DECL|member|fd
@@ -866,7 +866,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon29c8cdd90a08
+DECL|struct|__anon296584cf0a08
 struct|struct
 block|{
 DECL|member|hash
@@ -904,7 +904,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29c8cdd90b08
+DECL|struct|__anon296584cf0b08
 typedef|typedef
 struct|struct
 block|{
@@ -1039,6 +1039,10 @@ decl_stmt|;
 DECL|member|lingering_time
 name|time_t
 name|lingering_time
+decl_stmt|;
+DECL|member|start_time
+name|time_t
+name|start_time
 decl_stmt|;
 DECL|member|method
 name|ngx_uint_t
