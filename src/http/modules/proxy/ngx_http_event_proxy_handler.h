@@ -53,7 +53,7 @@ value|21
 end_define
 
 begin_typedef
-DECL|struct|__anon27b937ea0108
+DECL|struct|__anon28a80fb80108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b937ea0208
+DECL|struct|__anon28a80fb80208
 typedef|typedef
 struct|struct
 block|{
@@ -134,7 +134,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b937ea0308
+DECL|struct|__anon28a80fb80308
 typedef|typedef
 struct|struct
 block|{
@@ -170,7 +170,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b937ea0408
+DECL|struct|__anon28a80fb80408
 typedef|typedef
 struct|struct
 block|{
@@ -206,7 +206,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b937ea0508
+DECL|struct|__anon28a80fb80508
 typedef|typedef
 struct|struct
 block|{
@@ -255,6 +255,10 @@ decl_stmt|;
 DECL|member|max_block_size
 name|int
 name|max_block_size
+decl_stmt|;
+DECL|member|max_temp_file_size
+name|int
+name|max_temp_file_size
 decl_stmt|;
 DECL|member|file_block_size
 name|int
@@ -539,7 +543,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27b937ea0608
+DECL|struct|__anon28a80fb80608
 typedef|typedef
 struct|struct
 block|{

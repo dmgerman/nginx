@@ -88,7 +88,7 @@ comment|/* STUB */
 end_comment
 
 begin_typedef
-DECL|struct|__anon27a389180108
+DECL|struct|__anon2bac29420108
 typedef|typedef
 struct|struct
 block|{
@@ -4296,7 +4296,11 @@ name|ep
 operator|->
 name|max_temp_size
 operator|=
-literal|6000
+name|p
+operator|->
+name|lcf
+operator|->
+name|max_temp_file_size
 expr_stmt|;
 name|ep
 operator|->
@@ -6162,7 +6166,7 @@ name|char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon27a389180203
+DECL|enum|__anon2bac29420203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6847,11 +6851,17 @@ name|header_size
 operator|=
 literal|1024
 expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|conf->block_size = 4096;     conf->max_block_size = 4096 * 3;     conf->max_temp_file_size = 4096 * 5;     conf->file_block_size = 4096 * 2;
+else|#
+directive|else
 name|conf
 operator|->
 name|block_size
 operator|=
-literal|4096
+literal|2048
 expr_stmt|;
 name|conf
 operator|->
@@ -6859,14 +6869,26 @@ name|max_block_size
 operator|=
 literal|4096
 operator|*
-literal|3
+literal|6
+expr_stmt|;
+name|conf
+operator|->
+name|max_temp_file_size
+operator|=
+literal|4096
+operator|*
+literal|5
 expr_stmt|;
 name|conf
 operator|->
 name|file_block_size
 operator|=
 literal|4096
+operator|*
+literal|5
 expr_stmt|;
+endif|#
+directive|endif
 name|ngx_test_null
 argument_list|(
 name|conf

@@ -351,7 +351,7 @@ parameter_list|,
 name|error
 parameter_list|)
 define|\
-value|do {                                                             \                 ngx_test_null(chain, ngx_create_chain_entry(pool), error);   \                 chain->hunk = h;                                             \                 chain->next = NULL;                                          \             } while (0);
+value|do {                                                             \                 ngx_test_null(chain, ngx_alloc_chain_entry(pool), error);    \                 chain->hunk = h;                                             \                 chain->next = NULL;                                          \             } while (0);
 end_define
 
 begin_endif

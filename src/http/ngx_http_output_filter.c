@@ -262,7 +262,7 @@ parameter_list|,
 name|hunk
 parameter_list|)
 define|\
-value|(((r->filter& NGX_HTTP_FILTER_NEED_IN_MEMORY)                \&& (hunk->type& NGX_HUNK_FILE))                           \              || ((r->filter& NGX_HTTP_FILTER_NEED_TEMP)                  \&& (hunk->type& (NGX_HUNK_MEMORY|NGX_HUNK_MMAP))))
+value|(((r->filter& NGX_HTTP_FILTER_NEED_IN_MEMORY)                \&& (hunk->type& NGX_HUNK_IN_MEMORY) == 0)                 \              || ((r->filter& NGX_HTTP_FILTER_NEED_TEMP)                  \&& (hunk->type& (NGX_HUNK_MEMORY|NGX_HUNK_MMAP))))
 end_define
 
 begin_function
@@ -1113,11 +1113,11 @@ condition|)
 block|{
 name|ngx_memcpy
 argument_list|(
-name|src
+name|dst
 operator|->
 name|pos
 argument_list|,
-name|dst
+name|src
 operator|->
 name|pos
 argument_list|,
@@ -1149,7 +1149,7 @@ name|src
 operator|->
 name|file_pos
 operator|+=
-name|n
+name|size
 expr_stmt|;
 block|}
 if|if

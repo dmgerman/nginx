@@ -651,7 +651,7 @@ name|r
 operator|->
 name|keepalive
 operator|=
-literal|1
+literal|0
 expr_stmt|;
 name|r
 operator|->

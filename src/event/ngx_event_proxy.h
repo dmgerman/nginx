@@ -69,6 +69,10 @@ parameter_list|(
 name|ngx_event_proxy_t
 modifier|*
 name|p
+parameter_list|,
+name|ngx_chain_t
+modifier|*
+name|chain
 parameter_list|)
 function_decl|;
 end_typedef
