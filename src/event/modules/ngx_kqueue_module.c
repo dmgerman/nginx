@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ba5e2a30108
+DECL|struct|__anon299af6480108
 typedef|typedef
 struct|struct
 block|{
@@ -1609,11 +1609,8 @@ name|kev
 operator|->
 name|udata
 operator|=
-operator|(
-name|void
-operator|*
-operator|)
-operator|(
+name|NGX_KQUEUE_UDATA_T
+argument_list|(
 operator|(
 name|uintptr_t
 operator|)
@@ -1622,7 +1619,7 @@ operator||
 name|ev
 operator|->
 name|instance
-operator|)
+argument_list|)
 expr_stmt|;
 if|if
 condition|(

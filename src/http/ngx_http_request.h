@@ -417,7 +417,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon28db63520103
+DECL|enum|__anon29c8cdd90103
 typedef|typedef
 enum|enum
 block|{
@@ -438,7 +438,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28db63520203
+DECL|enum|__anon29c8cdd90203
 typedef|typedef
 enum|enum
 block|{
@@ -477,7 +477,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28db63520308
+DECL|struct|__anon29c8cdd90308
 typedef|typedef
 struct|struct
 block|{
@@ -496,7 +496,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28db63520408
+DECL|struct|__anon29c8cdd90408
 typedef|typedef
 struct|struct
 block|{
@@ -593,6 +593,23 @@ name|x_url
 decl_stmt|;
 endif|#
 directive|endif
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_HEADERS
+operator|)
+DECL|member|accept
+name|ngx_table_elt_t
+modifier|*
+name|accept
+decl_stmt|;
+DECL|member|accept_language
+name|ngx_table_elt_t
+modifier|*
+name|accept_language
+decl_stmt|;
+endif|#
+directive|endif
 DECL|member|cookies
 name|ngx_array_t
 name|cookies
@@ -650,7 +667,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28db63520508
+DECL|struct|__anon29c8cdd90508
 typedef|typedef
 struct|struct
 block|{
@@ -673,7 +690,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28db63520608
+DECL|struct|__anon29c8cdd90608
 typedef|typedef
 struct|struct
 block|{
@@ -792,7 +809,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28db63520708
+DECL|struct|__anon29c8cdd90708
 typedef|typedef
 struct|struct
 block|{
@@ -830,10 +847,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon28db6352080a
+DECL|union|__anon29c8cdd9080a
 union|union
 block|{
-DECL|struct|__anon28db63520908
+DECL|struct|__anon29c8cdd90908
 struct|struct
 block|{
 DECL|member|fd
@@ -849,7 +866,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon28db63520a08
+DECL|struct|__anon29c8cdd90a08
 struct|struct
 block|{
 DECL|member|hash
@@ -887,7 +904,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28db63520b08
+DECL|struct|__anon29c8cdd90b08
 typedef|typedef
 struct|struct
 block|{
@@ -1174,6 +1191,13 @@ comment|/* URI with "+" */
 DECL|member|plus_in_uri
 name|unsigned
 name|plus_in_uri
+range|:
+literal|1
+decl_stmt|;
+comment|/* URI with "\0" or "%00" */
+DECL|member|zero_in_uri
+name|unsigned
+name|zero_in_uri
 range|:
 literal|1
 decl_stmt|;

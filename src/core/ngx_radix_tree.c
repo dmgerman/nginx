@@ -31,14 +31,14 @@ end_function_decl
 begin_function
 name|ngx_radix_tree_t
 modifier|*
-DECL|function|ngx_radix_tree_create (ngx_pool_t * pool,ngx_uint_t preallocate)
+DECL|function|ngx_radix_tree_create (ngx_pool_t * pool,ngx_int_t preallocate)
 name|ngx_radix_tree_create
 parameter_list|(
 name|ngx_pool_t
 modifier|*
 name|pool
 parameter_list|,
-name|ngx_uint_t
+name|ngx_int_t
 name|preallocate
 parameter_list|)
 block|{
@@ -150,7 +150,62 @@ name|value
 operator|=
 name|NGX_RADIX_NO_VALUE
 expr_stmt|;
-comment|/*      * We preallocate the first nodes: 0, 1, 00, 01, 10, 11, 000, 001, etc.,      * to increase the TLB hits even if for the first lookup iterations.      * On the 32-bit platforms the 7 preallocated bits takes continuous 4K,      * 8 - 8K, 9 - 16K, etc.      */
+if|if
+condition|(
+name|preallocate
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+name|tree
+return|;
+block|}
+comment|/*      * We preallocate the first nodes: 0, 1, 00, 01, 10, 11, 000, 001, etc.,      * to increase the TLB hits even if for the first lookup iterations.      * On the 32-bit platforms the 7 preallocated bits takes continuous 4K,      * 8 - 8K, 9 - 16K, etc.  On the 64-bit platforms the 6 preallocated bits      * takes continuous 4K, 7 - 8K, 8 - 16K, etc.  There is no sense to      * to preallocate more than one page, because further preallocation      * distribute the only bit per page.  Instead, the random insertion      * may distribute several bits per page.      *      * Thus, by default we preallocate maximum      *     6 bits on amd64 (64-bit platform and 4K pages)      *     7 bits on i386 (32-bit platform and 4K pages)      *     7 bits on sparc64 in 64-bit mode (8K pages)      *     8 bits on sparc64 in 32-bit mode (8K pages)      */
+if|if
+condition|(
+name|preallocate
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+switch|switch
+condition|(
+name|ngx_pagesize
+operator|/
+sizeof|sizeof
+argument_list|(
+name|ngx_radix_tree_t
+argument_list|)
+condition|)
+block|{
+comment|/* amd64 */
+case|case
+literal|128
+case|:
+name|preallocate
+operator|=
+literal|6
+expr_stmt|;
+break|break;
+comment|/* i386, sparc64 */
+case|case
+literal|256
+case|:
+name|preallocate
+operator|=
+literal|7
+expr_stmt|;
+break|break;
+comment|/* sparc64 in 32-bit mode */
+default|default:
+name|preallocate
+operator|=
+literal|8
+expr_stmt|;
+block|}
+block|}
 name|mask
 operator|=
 literal|0

@@ -29,6 +29,21 @@ end_include
 
 begin_function_decl
 specifier|static
+name|ngx_int_t
+name|ngx_ssl_handle_recv
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|,
+name|int
+name|n
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
 name|void
 name|ngx_ssl_write_handler
 parameter_list|(
@@ -71,8 +86,8 @@ function_decl|;
 end_function_decl
 
 begin_function
-DECL|function|ngx_ssl_init (ngx_log_t * log)
 name|ngx_int_t
+DECL|function|ngx_ssl_init (ngx_log_t * log)
 name|ngx_ssl_init
 parameter_list|(
 name|ngx_log_t
@@ -100,8 +115,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_ssl_create_session (ngx_ssl_ctx_t * ssl_ctx,ngx_connection_t * c,ngx_uint_t flags)
 name|ngx_int_t
+DECL|function|ngx_ssl_create_session (ngx_ssl_ctx_t * ssl_ctx,ngx_connection_t * c,ngx_uint_t flags)
 name|ngx_ssl_create_session
 parameter_list|(
 name|ngx_ssl_ctx_t
@@ -269,8 +284,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_ssl_recv (ngx_connection_t * c,u_char * buf,size_t size)
 name|ssize_t
+DECL|function|ngx_ssl_recv (ngx_connection_t * c,u_char * buf,size_t size)
 name|ngx_ssl_recv
 parameter_list|(
 name|ngx_connection_t
@@ -288,15 +303,34 @@ block|{
 name|int
 name|n
 decl_stmt|,
-name|sslerr
+name|bytes
 decl_stmt|;
-name|ngx_err_t
-name|err
-decl_stmt|;
-name|char
-modifier|*
-name|handshake
-decl_stmt|;
+if|if
+condition|(
+name|c
+operator|->
+name|ssl
+operator|->
+name|last
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+name|bytes
+operator|=
+literal|0
+expr_stmt|;
+comment|/*      * SSL_read() may return data in parts, so try to read      * until SSL_read() would return no data      */
+for|for
+control|(
+init|;
+condition|;
+control|)
+block|{
 name|n
 operator|=
 name|SSL_read
@@ -334,6 +368,10 @@ operator|>
 literal|0
 condition|)
 block|{
+name|bytes
+operator|+=
+name|n
+expr_stmt|;
 if|#
 directive|if
 operator|(
@@ -526,6 +564,105 @@ block|}
 block|}
 endif|#
 directive|endif
+block|}
+name|c
+operator|->
+name|ssl
+operator|->
+name|last
+operator|=
+name|ngx_ssl_handle_recv
+argument_list|(
+name|c
+argument_list|,
+name|n
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|c
+operator|->
+name|ssl
+operator|->
+name|last
+operator|!=
+name|NGX_OK
+condition|)
+block|{
+if|if
+condition|(
+name|bytes
+condition|)
+block|{
+return|return
+name|bytes
+return|;
+block|}
+else|else
+block|{
+return|return
+name|c
+operator|->
+name|ssl
+operator|->
+name|last
+return|;
+block|}
+block|}
+name|size
+operator|-=
+name|n
+expr_stmt|;
+if|if
+condition|(
+name|size
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+name|bytes
+return|;
+block|}
+name|buf
+operator|+=
+name|n
+expr_stmt|;
+block|}
+block|}
+end_function
+
+begin_function
+specifier|static
+name|ngx_int_t
+DECL|function|ngx_ssl_handle_recv (ngx_connection_t * c,int n)
+name|ngx_ssl_handle_recv
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|,
+name|int
+name|n
+parameter_list|)
+block|{
+name|int
+name|sslerr
+decl_stmt|;
+name|ngx_err_t
+name|err
+decl_stmt|;
+name|char
+modifier|*
+name|handshake
+decl_stmt|;
+if|if
+condition|(
+name|n
+operator|>
+literal|0
+condition|)
+block|{
 if|if
 condition|(
 name|c
@@ -609,7 +746,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|n
+name|NGX_OK
 return|;
 block|}
 if|if
@@ -850,9 +987,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_ssl_write_handler (ngx_event_t * wev)
 specifier|static
 name|void
+DECL|function|ngx_ssl_write_handler (ngx_event_t * wev)
 name|ngx_ssl_write_handler
 parameter_list|(
 name|ngx_event_t
@@ -889,9 +1026,9 @@ comment|/*  * OpenSSL has no SSL_writev() so we copy several bufs into our 16K b
 end_comment
 
 begin_function
-DECL|function|ngx_ssl_send_chain (ngx_connection_t * c,ngx_chain_t * in,off_t limit)
 name|ngx_chain_t
 modifier|*
+DECL|function|ngx_ssl_send_chain (ngx_connection_t * c,ngx_chain_t * in,off_t limit)
 name|ngx_ssl_send_chain
 parameter_list|(
 name|ngx_connection_t
@@ -1387,9 +1524,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_ssl_write (ngx_connection_t * c,u_char * data,size_t size)
 specifier|static
 name|ssize_t
+DECL|function|ngx_ssl_write (ngx_connection_t * c,u_char * data,size_t size)
 name|ngx_ssl_write
 parameter_list|(
 name|ngx_connection_t
@@ -1759,9 +1896,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_ssl_read_handler (ngx_event_t * rev)
 specifier|static
 name|void
+DECL|function|ngx_ssl_read_handler (ngx_event_t * rev)
 name|ngx_ssl_read_handler
 parameter_list|(
 name|ngx_event_t
@@ -1794,8 +1931,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_ssl_shutdown (ngx_connection_t * c)
 name|ngx_int_t
+DECL|function|ngx_ssl_shutdown (ngx_connection_t * c)
 name|ngx_ssl_shutdown
 parameter_list|(
 name|ngx_connection_t
@@ -2125,8 +2262,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_ssl_error (ngx_uint_t level,ngx_log_t * log,ngx_err_t err,char * fmt,...)
 name|void
+DECL|function|ngx_ssl_error (ngx_uint_t level,ngx_log_t * log,ngx_err_t err,char * fmt,...)
 name|ngx_ssl_error
 parameter_list|(
 name|ngx_uint_t

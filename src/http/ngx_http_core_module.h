@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2aeec16c0108
+DECL|struct|__anon277ca44f0108
 typedef|typedef
 struct|struct
 block|{
@@ -72,17 +72,17 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2aeec16c0203
+DECL|enum|__anon277ca44f0203
 typedef|typedef
 enum|enum
 block|{
-DECL|enumerator|NGX_HTTP_REWRITE_PHASE
-name|NGX_HTTP_REWRITE_PHASE
+DECL|enumerator|NGX_HTTP_FIND_CONFIG_PHASE
+name|NGX_HTTP_FIND_CONFIG_PHASE
 init|=
 literal|0
 block|,
-DECL|enumerator|NGX_HTTP_FIND_CONFIG_PHASE
-name|NGX_HTTP_FIND_CONFIG_PHASE
+DECL|enumerator|NGX_HTTP_REWRITE_PHASE
+name|NGX_HTTP_REWRITE_PHASE
 block|,
 DECL|enumerator|NGX_HTTP_ACCESS_PHASE
 name|NGX_HTTP_ACCESS_PHASE
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aeec16c0308
+DECL|struct|__anon277ca44f0308
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2aeec16c0408
+DECL|struct|__anon277ca44f0408
 typedef|typedef
 struct|struct
 block|{
@@ -198,7 +198,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aeec16c0508
+DECL|struct|__anon277ca44f0508
 typedef|typedef
 struct|struct
 block|{
@@ -242,7 +242,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aeec16c0608
+DECL|struct|__anon277ca44f0608
 typedef|typedef
 struct|struct
 block|{
@@ -306,7 +306,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2aeec16c0708
+DECL|struct|__anon277ca44f0708
 typedef|typedef
 struct|struct
 block|{
@@ -370,7 +370,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2aeec16c0808
+DECL|struct|__anon277ca44f0808
 typedef|typedef
 struct|struct
 block|{
@@ -436,7 +436,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon2aeec16c0908
+DECL|struct|__anon277ca44f0908
 typedef|typedef
 struct|struct
 block|{
@@ -455,7 +455,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aeec16c0a08
+DECL|struct|__anon277ca44f0a08
 typedef|typedef
 struct|struct
 block|{

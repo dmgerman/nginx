@@ -812,7 +812,7 @@ argument_list|)
 block|,
 sizeof|sizeof
 argument_list|(
-literal|"28/Sep/1970:12:00:00"
+literal|"28/Sep/1970:12:00:00 +0600"
 argument_list|)
 operator|-
 literal|1

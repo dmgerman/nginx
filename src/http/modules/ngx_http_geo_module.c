@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon299813960108
+DECL|struct|__anon2b4553e30108
 typedef|typedef
 struct|struct
 block|{
@@ -202,10 +202,10 @@ comment|/* AF_INET only */
 end_comment
 
 begin_function
-DECL|function|ngx_http_geo_variable (ngx_http_request_t * r,void * data)
 specifier|static
 name|ngx_http_variable_value_t
 modifier|*
+DECL|function|ngx_http_geo_variable (ngx_http_request_t * r,void * data)
 name|ngx_http_geo_variable
 parameter_list|(
 name|ngx_http_request_t
@@ -228,6 +228,10 @@ name|sockaddr_in
 modifier|*
 name|sin
 decl_stmt|;
+name|ngx_http_variable_value_t
+modifier|*
+name|var
+decl_stmt|;
 name|sin
 operator|=
 operator|(
@@ -241,7 +245,23 @@ name|connection
 operator|->
 name|sockaddr
 expr_stmt|;
-return|return
+name|ngx_log_debug0
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http geo started"
+argument_list|)
+expr_stmt|;
+name|var
+operator|=
 operator|(
 name|ngx_http_variable_value_t
 operator|*
@@ -259,15 +279,45 @@ operator|.
 name|s_addr
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http geo: %V %V"
+argument_list|,
+operator|&
+name|r
+operator|->
+name|connection
+operator|->
+name|addr_text
+argument_list|,
+operator|&
+name|var
+operator|->
+name|text
+argument_list|)
+expr_stmt|;
+return|return
+name|var
 return|;
 block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_geo_block (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_geo_block (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_http_geo_block
 parameter_list|(
 name|ngx_conf_t
@@ -338,7 +388,8 @@ name|cf
 operator|->
 name|pool
 argument_list|,
-literal|8
+operator|-
+literal|1
 argument_list|)
 operator|)
 condition|)
@@ -546,10 +597,10 @@ comment|/* AF_INET only */
 end_comment
 
 begin_function
-DECL|function|ngx_http_geo (ngx_conf_t * cf,ngx_command_t * dummy,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_geo (ngx_conf_t * cf,ngx_command_t * dummy,void * conf)
 name|ngx_http_geo
 parameter_list|(
 name|ngx_conf_t

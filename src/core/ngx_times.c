@@ -1260,7 +1260,7 @@ literal|28
 expr_stmt|;
 block|}
 block|}
-comment|/*  *  there is no "yday" in Win32 SYSTEMTIME  *  *  } else {  *      yday += 31 + 28;  *  *      if ((year % 4 == 0)&& (year % 100 || (year % 400 == 0))) {  *           yday++;  *      }  */
+comment|/*  *  there is no "yday" in Win32 SYSTEMTIME  *  *  } else {  *      yday += 31 + 28;  *  *      if ((year % 4 == 0)&& (year % 100 || (year % 400 == 0))) {  *          yday++;  *      }  */
 block|}
 name|tp
 operator|->

@@ -28,7 +28,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c1c3bb70108
+DECL|struct|__anon2773d7a70108
 typedef|typedef
 struct|struct
 block|{
@@ -414,6 +414,9 @@ expr_stmt|;
 name|ngx_debug_point
 argument_list|()
 expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
 block|}
 endif|#
 directive|endif
@@ -682,6 +685,9 @@ expr_stmt|;
 name|ngx_debug_point
 argument_list|()
 expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
 block|}
 endif|#
 directive|endif

@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon297354a30108
+DECL|struct|__anon2b7729a90108
 typedef|typedef
 struct|struct
 block|{
@@ -81,7 +81,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297354a30208
+DECL|struct|__anon2b7729a90208
 typedef|typedef
 struct|struct
 block|{
@@ -172,7 +172,7 @@ value|0x0200
 end_define
 
 begin_typedef
-DECL|struct|__anon297354a30308
+DECL|struct|__anon2b7729a90308
 typedef|typedef
 struct|struct
 block|{
@@ -974,7 +974,6 @@ name|ngx_http_gzip_create_conf
 block|,
 comment|/* create location configuration */
 name|ngx_http_gzip_merge_conf
-block|,
 comment|/* merge location configuration */
 block|}
 decl_stmt|;

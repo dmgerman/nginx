@@ -41,7 +41,7 @@ file|<openssl/err.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2966b97b0108
+DECL|struct|__anon2b81d20c0108
 typedef|typedef
 struct|struct
 block|{
@@ -49,6 +49,10 @@ DECL|member|ssl
 name|SSL
 modifier|*
 name|ssl
+decl_stmt|;
+DECL|member|last
+name|ngx_int_t
+name|last
 decl_stmt|;
 DECL|member|buf
 name|ngx_buf_t
