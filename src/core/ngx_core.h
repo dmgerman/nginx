@@ -36,6 +36,14 @@ name|NGX_AGAIN
 value|-2
 end_define
 
+begin_define
+DECL|macro|NGX_DECLINED
+define|#
+directive|define
+name|NGX_DECLINED
+value|-3
+end_define
+
 begin_endif
 endif|#
 directive|endif

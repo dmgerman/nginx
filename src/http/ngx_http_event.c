@@ -53,6 +53,12 @@ directive|include
 file|<ngx_http.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_http_config.h>
+end_include
+
 begin_comment
 comment|/* STUB */
 end_comment
@@ -73,6 +79,21 @@ name|r
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_function_decl
+name|int
+name|ngx_http_index_handler
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_comment
+comment|/* */
+end_comment
 
 begin_function_decl
 name|int
@@ -714,6 +735,18 @@ name|server
 operator|=
 name|srv
 expr_stmt|;
+name|r
+operator|->
+name|srv_conf
+operator|=
+name|ngx_srv_conf
+expr_stmt|;
+name|r
+operator|->
+name|loc_conf
+operator|=
+name|ngx_loc_conf
+expr_stmt|;
 name|ngx_test_null
 argument_list|(
 name|r
@@ -729,6 +762,33 @@ argument_list|,
 name|ev
 operator|->
 name|log
+argument_list|)
+argument_list|,
+name|ngx_http_close_request
+argument_list|(
+name|r
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|ngx_test_null
+argument_list|(
+name|r
+operator|->
+name|ctx
+argument_list|,
+name|ngx_pcalloc
+argument_list|(
+name|r
+operator|->
+name|pool
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|void
+operator|*
+argument_list|)
+operator|*
+name|ngx_max_module
 argument_list|)
 argument_list|,
 name|ngx_http_close_request
@@ -2086,6 +2146,57 @@ argument_list|)
 return|;
 comment|/*     if (!keepalive)         if (linger)             set linger timeout on read             shutdown socket         else             close socket */
 block|}
+DECL|function|ngx_http_internal_redirect (ngx_http_request_t * r,char * uri)
+name|int
+name|ngx_http_internal_redirect
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|char
+modifier|*
+name|uri
+parameter_list|)
+block|{
+name|ngx_log_debug
+argument_list|(
+argument|r->connection->log
+argument_list|,
+literal|"internal redirect: '%s'"
+argument|_ uri
+argument_list|)
+empty_stmt|;
+name|r
+operator|->
+name|uri
+operator|=
+name|uri
+expr_stmt|;
+name|r
+operator|->
+name|uri_start
+operator|=
+name|uri
+expr_stmt|;
+name|r
+operator|->
+name|uri_end
+operator|=
+name|uri
+operator|+
+name|strlen
+argument_list|(
+name|uri
+argument_list|)
+expr_stmt|;
+return|return
+name|ngx_http_handler
+argument_list|(
+name|r
+argument_list|)
+return|;
+block|}
 DECL|function|ngx_http_set_default_handler (ngx_http_request_t * r)
 specifier|static
 name|int
@@ -2146,15 +2257,15 @@ operator|==
 literal|'/'
 condition|)
 block|{
+name|r
+operator|->
+name|handler
+operator|=
+name|ngx_http_index_handler
+expr_stmt|;
 return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_OK
 return|;
-if|#
-directive|if
-literal|0
-block_content|r->handler = ngx_http_index_handler;         return NGX_OK;
-endif|#
-directive|endif
 block|}
 comment|/* 20 bytes is spare space for some index name, i.e. index.html */
 name|r

@@ -143,10 +143,8 @@ operator|->
 name|filename
 argument_list|)
 expr_stmt|;
-comment|/* STUB */
 return|return
-operator|-
-literal|1
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
 block|}
 if|if
@@ -188,10 +186,9 @@ operator|->
 name|filename
 argument_list|)
 expr_stmt|;
-comment|/* STUB */
+comment|/* close fd */
 return|return
-operator|-
-literal|1
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
 block|}
 name|r

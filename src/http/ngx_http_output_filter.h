@@ -41,7 +41,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon29b3464d0108
+DECL|struct|__anon2b657dde0108
 typedef|typedef
 struct|struct
 block|{
@@ -56,7 +56,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b3464d0208
+DECL|struct|__anon2b657dde0208
 typedef|typedef
 struct|struct
 block|{
@@ -114,6 +114,13 @@ name|hunk
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_decl_stmt
+specifier|extern
+name|ngx_http_module_t
+name|ngx_http_output_filter_module
+decl_stmt|;
+end_decl_stmt
 
 begin_endif
 endif|#

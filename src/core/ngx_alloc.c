@@ -71,8 +71,8 @@ name|ngx_log_debug
 argument_list|(
 argument|log
 argument_list|,
-literal|"malloc: %x"
-argument|_ p
+literal|"malloc: %x:%d"
+argument|_ p _ size
 argument_list|)
 empty_stmt|;
 return|return
@@ -245,6 +245,15 @@ name|l
 operator|->
 name|next
 control|)
+block|{
+name|ngx_log_debug
+argument_list|(
+argument|pool->log
+argument_list|,
+literal|"free: %x"
+argument|_ l->alloc
+argument_list|)
+empty_stmt|;
 name|free
 argument_list|(
 name|l
@@ -252,6 +261,7 @@ operator|->
 name|alloc
 argument_list|)
 expr_stmt|;
+block|}
 for|for
 control|(
 name|p
@@ -277,6 +287,14 @@ operator|->
 name|next
 control|)
 block|{
+name|ngx_log_debug
+argument_list|(
+argument|pool->log
+argument_list|,
+literal|"free: %x"
+argument|_ p
+argument_list|)
+empty_stmt|;
 name|free
 argument_list|(
 name|p
@@ -534,6 +552,12 @@ argument_list|)
 argument_list|,
 name|NULL
 argument_list|)
+expr_stmt|;
+name|large
+operator|->
+name|next
+operator|=
+name|NULL
 expr_stmt|;
 block|}
 name|ngx_test_null

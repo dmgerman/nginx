@@ -42,6 +42,12 @@ directive|include
 file|<ngx_connection.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_config_command.h>
+end_include
+
 begin_define
 DECL|macro|NGX_HTTP_GET
 define|#
@@ -187,7 +193,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon292ae4300108
+DECL|struct|__anon29f9ed430108
 typedef|typedef
 struct|struct
 block|{
@@ -224,7 +230,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292ae4300208
+DECL|struct|__anon29f9ed430208
 typedef|typedef
 struct|struct
 block|{
@@ -255,7 +261,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292ae4300308
+DECL|struct|__anon29f9ed430308
 typedef|typedef
 struct|struct
 block|{
@@ -537,7 +543,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon292ae4300408
+DECL|struct|__anon29f9ed430408
 typedef|typedef
 struct|struct
 block|{
@@ -563,7 +569,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292ae4300508
+DECL|struct|__anon29f9ed430508
 typedef|typedef
 struct|struct
 block|{
@@ -571,6 +577,73 @@ DECL|member|index
 name|int
 name|index
 decl_stmt|;
+DECL|member|create_srv_conf
+name|void
+modifier|*
+function_decl|(
+modifier|*
+name|create_srv_conf
+function_decl|)
+parameter_list|(
+name|ngx_pool_t
+modifier|*
+name|p
+parameter_list|)
+function_decl|;
+DECL|member|create_loc_conf
+name|void
+modifier|*
+function_decl|(
+modifier|*
+name|create_loc_conf
+function_decl|)
+parameter_list|(
+name|ngx_pool_t
+modifier|*
+name|p
+parameter_list|)
+function_decl|;
+DECL|member|commands
+name|ngx_command_t
+modifier|*
+name|commands
+decl_stmt|;
+DECL|member|init_module
+name|int
+function_decl|(
+modifier|*
+name|init_module
+function_decl|)
+parameter_list|(
+name|ngx_pool_t
+modifier|*
+name|p
+parameter_list|)
+function_decl|;
+DECL|member|init_output_body_filter
+name|int
+function_decl|(
+modifier|*
+name|init_output_body_filter
+function_decl|)
+parameter_list|(
+name|int
+function_decl|(
+modifier|*
+modifier|*
+name|next_filter
+function_decl|)
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_chain_t
+modifier|*
+name|ch
+parameter_list|)
+parameter_list|)
+function_decl|;
 DECL|typedef|ngx_http_module_t
 block|}
 name|ngx_http_module_t
@@ -609,6 +682,24 @@ parameter_list|,
 name|module
 parameter_list|)
 value|r->ctx[module.index]
+end_define
+
+begin_define
+DECL|macro|ngx_http_create_ctx (r,ctx,module,size)
+define|#
+directive|define
+name|ngx_http_create_ctx
+parameter_list|(
+name|r
+parameter_list|,
+name|ctx
+parameter_list|,
+name|module
+parameter_list|,
+name|size
+parameter_list|)
+define|\
+value|do {                                                              \                ngx_test_null(ctx, ngx_pcalloc(r->pool, size), NGX_ERROR);     \                r->ctx[module.index] = ctx;                                    \             } while (0)
 end_define
 
 begin_comment
@@ -652,6 +743,22 @@ name|c
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_decl_stmt
+specifier|extern
+name|int
+name|ngx_max_module
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_http_module_t
+modifier|*
+name|ngx_http_modules
+index|[]
+decl_stmt|;
+end_decl_stmt
 
 begin_endif
 endif|#

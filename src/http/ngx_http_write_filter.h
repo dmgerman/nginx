@@ -25,7 +25,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29ac4a7b0108
+DECL|struct|__anon2c1e2abe0108
 typedef|typedef
 struct|struct
 block|{
@@ -40,7 +40,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ac4a7b0208
+DECL|struct|__anon2c1e2abe0208
 typedef|typedef
 struct|struct
 block|{
@@ -69,6 +69,13 @@ name|in
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_decl_stmt
+specifier|extern
+name|ngx_http_module_t
+name|ngx_http_write_filter_module
+decl_stmt|;
+end_decl_stmt
 
 begin_endif
 endif|#
