@@ -1,6 +1,6 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_function
-DECL|function|ngx_read_file (ngx_file_t file,char * buf,size_t size)
+DECL|function|ngx_read_file (ngx_file_t file,char * buf,size_t size,off_t offset)
 name|ssize_t
 name|ngx_read_file
 parameter_list|(
@@ -13,11 +13,25 @@ name|buf
 parameter_list|,
 name|size_t
 name|size
+parameter_list|,
+name|off_t
+name|offset
 parameter_list|)
 block|{
-name|read
-argument_list|()
-expr_stmt|;
+return|return
+name|pread
+argument_list|(
+name|file
+operator|->
+name|fd
+argument_list|,
+name|buf
+argument_list|,
+name|size
+argument_list|,
+name|offset
+argument_list|)
+return|;
 block|}
 end_function
 

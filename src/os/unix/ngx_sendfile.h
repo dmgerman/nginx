@@ -56,7 +56,7 @@ parameter_list|,
 name|int
 name|hdr_cnt
 parameter_list|,
-name|ngx_file_t
+name|ngx_fd_t
 name|fd
 parameter_list|,
 name|off_t

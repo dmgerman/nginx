@@ -165,7 +165,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2b1d09270108
+DECL|struct|__anon290d2efc0108
 typedef|typedef
 struct|struct
 block|{
@@ -199,7 +199,7 @@ value|(module)->ctx
 end_define
 
 begin_typedef
-DECL|struct|__anon2b1d09270208
+DECL|struct|__anon290d2efc0208
 typedef|typedef
 struct|struct
 block|{
@@ -223,7 +223,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1d09270308
+DECL|struct|__anon290d2efc0308
 typedef|typedef
 struct|struct
 block|{
@@ -254,7 +254,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1d09270408
+DECL|struct|__anon290d2efc0408
 typedef|typedef
 struct|struct
 block|{
@@ -334,7 +334,7 @@ modifier|*
 name|location
 decl_stmt|;
 DECL|member|fd
-name|ngx_file_t
+name|ngx_fd_t
 name|fd
 decl_stmt|;
 DECL|member|headers_out
@@ -494,6 +494,32 @@ directive|endif
 block|}
 struct|;
 end_struct
+
+begin_typedef
+DECL|struct|__anon290d2efc0508
+typedef|typedef
+struct|struct
+block|{
+DECL|member|action
+name|char
+modifier|*
+name|action
+decl_stmt|;
+DECL|member|client
+name|char
+modifier|*
+name|client
+decl_stmt|;
+DECL|member|url
+name|char
+modifier|*
+name|url
+decl_stmt|;
+DECL|typedef|ngx_http_log_ctx_t
+block|}
+name|ngx_http_log_ctx_t
+typedef|;
+end_typedef
 
 begin_define
 DECL|macro|NGX_INDEX

@@ -65,6 +65,14 @@ value|EADDRINUSE
 end_define
 
 begin_define
+DECL|macro|NGX_ETIMEDOUT
+define|#
+directive|define
+name|NGX_ETIMEDOUT
+value|ETIMEDOUT
+end_define
+
+begin_define
 DECL|macro|ngx_errno
 define|#
 directive|define

@@ -140,7 +140,7 @@ operator|->
 name|fd
 operator|=
 operator|(
-name|ngx_file_t
+name|ngx_fd_t
 operator|)
 operator|-
 literal|1
@@ -289,7 +289,7 @@ operator|->
 name|fd
 operator|=
 operator|(
-name|ngx_file_t
+name|ngx_fd_t
 operator|)
 operator|-
 literal|1
@@ -355,7 +355,7 @@ operator|->
 name|fd
 operator|=
 operator|(
-name|ngx_file_t
+name|ngx_fd_t
 operator|)
 operator|-
 literal|1
@@ -502,7 +502,7 @@ operator|->
 name|fd
 operator|=
 operator|(
-name|ngx_file_t
+name|ngx_fd_t
 operator|)
 operator|-
 literal|1
@@ -568,7 +568,7 @@ operator|->
 name|fd
 operator|=
 operator|(
-name|ngx_file_t
+name|ngx_fd_t
 operator|)
 operator|-
 literal|1

@@ -20,7 +20,7 @@ end_include
 
 begin_function_decl
 name|int
-name|ngx_event_close
+name|ngx_event_close_connection
 parameter_list|(
 name|ngx_event_t
 modifier|*

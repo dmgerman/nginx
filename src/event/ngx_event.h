@@ -207,9 +207,9 @@ directive|if
 operator|(
 name|HAVE_DEFERRED_ACCEPT
 operator|)
-DECL|member|accept_filter
+DECL|member|deferred_accept
 name|unsigned
-name|accept_filter
+name|deferred_accept
 range|:
 literal|1
 decl_stmt|;
@@ -237,7 +237,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2c5e4f220103
+DECL|enum|__anon2ba957f90103
 typedef|typedef
 enum|enum
 block|{
@@ -273,7 +273,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5e4f220208
+DECL|struct|__anon2ba957f90208
 typedef|typedef
 struct|struct
 block|{
@@ -349,7 +349,7 @@ typedef|;
 end_typedef
 
 begin_comment
-comment|/* NGX_LEVEL_EVENT (default)  select, poll, kqueue                                 requires to read whole data NGX_ONESHOT_EVENT          kqueue NGX_CLEAR_EVENT            kqueue */
+comment|/* NGX_LEVEL_EVENT (default)  select, poll, /dev/poll, kqueue                                 requires to read whole data NGX_ONESHOT_EVENT          select, poll, kqueue NGX_CLEAR_EVENT            kqueue NGX_AIO_EVENT              overlapped, aio_read, aioread                                 no need to add or delete events */
 end_comment
 
 begin_if
@@ -382,6 +382,14 @@ define|#
 directive|define
 name|NGX_TIMER_EVENT
 value|(-EVFILT_SYSCOUNT - 1)
+end_define
+
+begin_define
+DECL|macro|NGX_LEVEL_EVENT
+define|#
+directive|define
+name|NGX_LEVEL_EVENT
+value|0
 end_define
 
 begin_define
@@ -427,6 +435,14 @@ define|#
 directive|define
 name|NGX_TIMER_EVENT
 value|2
+end_define
+
+begin_define
+DECL|macro|NGX_LEVEL_EVENT
+define|#
+directive|define
+name|NGX_LEVEL_EVENT
+value|0
 end_define
 
 begin_define
@@ -547,6 +563,19 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_define
+DECL|macro|ngx_add_timer (ev,time)
+define|#
+directive|define
+name|ngx_add_timer
+parameter_list|(
+name|ev
+parameter_list|,
+name|time
+parameter_list|)
+value|ngx_add_event(ev, NGX_TIMER_EVENT, time)
+end_define
 
 begin_decl_stmt
 specifier|extern

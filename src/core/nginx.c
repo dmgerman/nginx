@@ -334,14 +334,33 @@ operator|.
 name|done
 condition|)
 continue|continue;
-if|#
-directive|if
-operator|(
-name|WIN32
-operator|)
+if|if
+condition|(
+name|ls
+index|[
+name|i
+index|]
+operator|.
+name|inherited
+condition|)
+block|{
+comment|/* TODO: close on exit */
+comment|/* TODO: nonblocking */
+comment|/* TODO: deferred accept */
+name|ls
+index|[
+name|i
+index|]
+operator|.
+name|done
+operator|=
+literal|1
+expr_stmt|;
+continue|continue;
+block|}
 name|s
 operator|=
-name|WSASocket
+name|ngx_socket
 argument_list|(
 name|ls
 index|[
@@ -364,43 +383,14 @@ index|]
 operator|.
 name|protocol
 argument_list|,
-name|NULL
-argument_list|,
-literal|0
-argument_list|,
-literal|0
+name|ls
+index|[
+name|i
+index|]
+operator|.
+name|flags
 argument_list|)
 expr_stmt|;
-else|#
-directive|else
-name|s
-operator|=
-name|socket
-argument_list|(
-name|ls
-index|[
-name|i
-index|]
-operator|.
-name|family
-argument_list|,
-name|ls
-index|[
-name|i
-index|]
-operator|.
-name|type
-argument_list|,
-name|ls
-index|[
-name|i
-index|]
-operator|.
-name|protocol
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 name|s
@@ -408,6 +398,7 @@ operator|==
 operator|-
 literal|1
 condition|)
+block|{
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_EMERG
@@ -416,7 +407,8 @@ name|log
 argument_list|,
 name|ngx_socket_errno
 argument_list|,
-literal|"nginx: socket %s falied"
+name|ngx_socket_n
+literal|" %s falied"
 argument_list|,
 name|ls
 index|[
@@ -426,6 +418,12 @@ operator|.
 name|addr_text
 argument_list|)
 expr_stmt|;
+name|exit
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|setsockopt
@@ -453,6 +451,7 @@ operator|==
 operator|-
 literal|1
 condition|)
+block|{
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_EMERG
@@ -461,7 +460,7 @@ name|log
 argument_list|,
 name|ngx_socket_errno
 argument_list|,
-literal|"nginx: setsockopt (SO_REUSEADDR) %s failed"
+literal|"setsockopt(SO_REUSEADDR) %s failed"
 argument_list|,
 name|ls
 index|[
@@ -471,6 +470,12 @@ operator|.
 name|addr_text
 argument_list|)
 expr_stmt|;
+name|exit
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
 comment|/* TODO: close on exit */
 if|if
 condition|(
@@ -492,6 +497,7 @@ operator|==
 operator|-
 literal|1
 condition|)
+block|{
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_EMERG
@@ -511,6 +517,12 @@ operator|.
 name|addr_text
 argument_list|)
 expr_stmt|;
+name|exit
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
@@ -518,24 +530,19 @@ name|bind
 argument_list|(
 name|s
 argument_list|,
-operator|(
-expr|struct
-name|sockaddr
-operator|*
-operator|)
 name|ls
 index|[
 name|i
 index|]
 operator|.
-name|addr
+name|sockaddr
 argument_list|,
 name|ls
 index|[
 name|i
 index|]
 operator|.
-name|addr_len
+name|socklen
 argument_list|)
 operator|==
 operator|-
@@ -548,13 +555,13 @@ name|ngx_socket_errno
 expr_stmt|;
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_ALERT
+name|NGX_LOG_EMERG
 argument_list|,
 name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"bind to %s failed"
+literal|"bind() to %s failed"
 argument_list|,
 name|ls
 index|[
@@ -587,7 +594,7 @@ literal|1
 condition|)
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_ALERT
+name|NGX_LOG_EMERG
 argument_list|,
 name|log
 argument_list|,
@@ -627,6 +634,7 @@ operator|==
 operator|-
 literal|1
 condition|)
+block|{
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_EMERG
@@ -635,7 +643,7 @@ name|log
 argument_list|,
 name|ngx_socket_errno
 argument_list|,
-literal|"listen to %s failed"
+literal|"listen() to %s failed"
 argument_list|,
 name|ls
 index|[
@@ -645,6 +653,12 @@ operator|.
 name|addr_text
 argument_list|)
 expr_stmt|;
+name|exit
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
 comment|/* TODO: deferred accept */
 name|ls
 index|[
@@ -679,7 +693,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"try to bind again after 500ms"
+literal|"try again to bind() after 500ms"
 argument_list|)
 expr_stmt|;
 name|ngx_msleep
@@ -692,6 +706,7 @@ if|if
 condition|(
 name|failed
 condition|)
+block|{
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_EMERG
@@ -700,9 +715,15 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"can't bind"
+literal|"can not bind(), exiting"
 argument_list|)
 expr_stmt|;
+name|exit
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_function
 

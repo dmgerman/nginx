@@ -146,7 +146,7 @@ DECL|struct|ngx_hunk_s
 struct|struct
 name|ngx_hunk_s
 block|{
-DECL|union|__anon29c6ba7f010a
+DECL|union|__anon27611973010a
 union|union
 block|{
 DECL|member|mem
@@ -163,7 +163,7 @@ DECL|member|pos
 block|}
 name|pos
 union|;
-DECL|union|__anon29c6ba7f020a
+DECL|union|__anon27611973020a
 union|union
 block|{
 DECL|member|mem
@@ -213,7 +213,7 @@ name|int
 name|tag
 decl_stmt|;
 DECL|member|fd
-name|ngx_file_t
+name|ngx_fd_t
 name|fd
 decl_stmt|;
 block|}

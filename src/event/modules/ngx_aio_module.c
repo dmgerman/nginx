@@ -1,4 +1,43 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
+begin_comment
+comment|/* 1 */
+end_comment
+
+begin_function
+DECL|function|ngx_posix_aio_process_events (ngx_log_t * log)
+name|int
+name|ngx_posix_aio_process_events
+parameter_list|(
+name|ngx_log_t
+modifier|*
+name|log
+parameter_list|)
+block|{
+name|listen
+name|via
+name|SIGIO
+decl_stmt|;
+name|aio_
+modifier|*
+name|via
+name|SIGxxx
+decl_stmt|;
+name|sigsuspend
+argument_list|()
+operator|/
+name|sigwaitinfo
+argument_list|()
+operator|/
+name|sigtimedwait
+argument_list|()
+expr_stmt|;
+block|}
+end_function
+
+begin_comment
+comment|/* 2 */
+end_comment
+
 begin_function
 DECL|function|ngx_posix_aio_process_events (ngx_log_t * log)
 name|int
@@ -48,6 +87,10 @@ else|else
 name|aio
 block|}
 end_function
+
+begin_comment
+comment|/* 3 */
+end_comment
 
 begin_function
 DECL|function|ngx_posix_aio_process_events (ngx_log_t * log)

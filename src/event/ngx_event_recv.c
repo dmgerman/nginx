@@ -72,6 +72,35 @@ name|ev
 operator|->
 name|data
 expr_stmt|;
+if|if
+condition|(
+name|ev
+operator|->
+name|timedout
+condition|)
+block|{
+name|ngx_set_socket_errno
+argument_list|(
+name|NGX_ETIMEDOUT
+argument_list|)
+expr_stmt|;
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|ev
+operator|->
+name|log
+argument_list|,
+name|NGX_ETIMEDOUT
+argument_list|,
+literal|"recv() failed"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
 if|#
 directive|if
 operator|(
@@ -131,13 +160,7 @@ name|ev
 operator|->
 name|error
 argument_list|,
-literal|"ngx_event_recv: recv() failed while %s"
-argument_list|,
-name|ev
-operator|->
-name|log
-operator|->
-name|action
+literal|"recv() failed"
 argument_list|)
 expr_stmt|;
 return|return
@@ -194,13 +217,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"ngx_event_recv: recv() returns EAGAIN while %s"
-argument_list|,
-name|ev
-operator|->
-name|log
-operator|->
-name|action
+literal|"recv() returns EAGAIN"
 argument_list|)
 expr_stmt|;
 return|return
@@ -209,7 +226,7 @@ return|;
 block|}
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_ERR
 argument_list|,
 name|ev
 operator|->
@@ -217,13 +234,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"ngx_event_recv: recv() failed while %s"
-argument_list|,
-name|ev
-operator|->
-name|log
-operator|->
-name|action
+literal|"recv() failed"
 argument_list|)
 expr_stmt|;
 return|return

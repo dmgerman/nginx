@@ -25,10 +25,10 @@ file|<sys/stat.h>
 end_include
 
 begin_typedef
-DECL|typedef|ngx_file_t
+DECL|typedef|ngx_fd_t
 typedef|typedef
 name|int
-name|ngx_file_t
+name|ngx_fd_t
 typedef|;
 end_typedef
 

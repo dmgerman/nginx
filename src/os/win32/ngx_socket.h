@@ -43,6 +43,32 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_define
+DECL|macro|ngx_socket (af,type,proto,flags)
+define|#
+directive|define
+name|ngx_socket
+parameter_list|(
+name|af
+parameter_list|,
+name|type
+parameter_list|,
+name|proto
+parameter_list|,
+name|flags
+parameter_list|)
+define|\
+value|WSASocket(af, type, proto, NULL, 0, flags)
+end_define
+
+begin_define
+DECL|macro|ngx_socket_n
+define|#
+directive|define
+name|ngx_socket_n
+value|"WSASocket()"
+end_define
+
 begin_function_decl
 name|int
 name|ngx_nonblocking_n
@@ -57,7 +83,7 @@ DECL|macro|ngx_nonblocking_n
 define|#
 directive|define
 name|ngx_nonblocking_n
-value|"ioctlsocket (FIONBIO)"
+value|"ioctlsocket(FIONBIO)"
 end_define
 
 begin_define
@@ -73,7 +99,7 @@ DECL|macro|ngx_close_socket_n
 define|#
 directive|define
 name|ngx_close_socket_n
-value|"closesocket"
+value|"closesocket()"
 end_define
 
 begin_endif

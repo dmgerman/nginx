@@ -18,8 +18,14 @@ directive|include
 file|<ngx_errno.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_file.h>
+end_include
+
 begin_typedef
-DECL|enum|__anon2c7848300103
+DECL|enum|__anon297c209b0103
 typedef|typedef
 enum|enum
 block|{
@@ -59,7 +65,7 @@ comment|/*     "[%time] [%level] %pid#%tid: %message:(%errno)%errstr, while %act
 end_comment
 
 begin_typedef
-DECL|struct|__anon2c7848300208
+DECL|struct|__anon297c209b0208
 typedef|typedef
 struct|struct
 block|{
@@ -67,6 +73,35 @@ DECL|member|log_level
 name|int
 name|log_level
 decl_stmt|;
+DECL|member|fd
+name|ngx_fd_t
+name|fd
+decl_stmt|;
+DECL|member|data
+name|void
+modifier|*
+name|data
+decl_stmt|;
+DECL|member|handler
+name|size_t
+function_decl|(
+modifier|*
+name|handler
+function_decl|)
+parameter_list|(
+name|void
+modifier|*
+name|ctx
+parameter_list|,
+name|char
+modifier|*
+name|buf
+parameter_list|,
+name|size_t
+name|len
+parameter_list|)
+function_decl|;
+comment|/* STUB */
 DECL|member|action
 name|char
 modifier|*
@@ -77,14 +112,7 @@ name|char
 modifier|*
 name|context
 decl_stmt|;
-if|#
-directive|if
-literal|0
-block|void  *data;
-comment|/* i.e. ngx_http_proxy_error_context_t */
-block|char  *func(ngx_log_t *log);
-endif|#
-directive|endif
+comment|/* */
 DECL|typedef|ngx_log_t
 block|}
 name|ngx_log_t

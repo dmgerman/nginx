@@ -8,6 +8,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_core.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_types.h>
 end_include
 
@@ -109,16 +115,14 @@ name|cn
 operator|->
 name|fd
 argument_list|,
-operator|(
-expr|struct
+name|cn
+operator|->
 name|sockaddr
-operator|*
-operator|)
-operator|&
-name|addr
 argument_list|,
 operator|&
-name|addrlen
+name|cn
+operator|->
+name|socklen
 argument_list|)
 operator|)
 operator|==
@@ -147,11 +151,15 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"ngx_event_accept: EAGAIN while accept"
+literal|"ngx_event_accept: EAGAIN while accept %s"
+argument_list|,
+name|cn
+operator|->
+name|addr_text
 argument_list|)
 expr_stmt|;
 return|return
-literal|0
+name|NGX_OK
 return|;
 block|}
 name|ngx_log_error
@@ -164,19 +172,23 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"ngx_event_accept: accept failed"
+literal|"ngx_event_accept: accept %s failed"
+argument_list|,
+name|cn
+operator|->
+name|addr_text
 argument_list|)
 expr_stmt|;
-comment|/* if we return -1 listen socket would be closed */
+comment|/* if we return NGX_ERROR listen socket would be closed */
 return|return
-literal|0
+name|NGX_OK
 return|;
 block|}
 name|ngx_log_debug
 argument_list|(
 argument|ev->log
 argument_list|,
-literal|"ngx_event_accept: accepted socket: %d"
+literal|"ngx_event_accept: accept: %d"
 argument|_ s
 argument_list|)
 empty_stmt|;
@@ -251,6 +263,72 @@ argument_list|(
 name|ngx_connection_t
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|ngx_connections
+index|[
+name|s
+index|]
+operator|.
+name|sockaddr
+operator|=
+name|cn
+operator|->
+name|sockaddr
+expr_stmt|;
+name|ngx_connections
+index|[
+name|s
+index|]
+operator|.
+name|family
+operator|=
+name|cn
+operator|->
+name|family
+expr_stmt|;
+name|ngx_connections
+index|[
+name|s
+index|]
+operator|.
+name|socklen
+operator|=
+name|cn
+operator|->
+name|socklen
+expr_stmt|;
+name|ngx_connections
+index|[
+name|s
+index|]
+operator|.
+name|addr
+operator|=
+name|cn
+operator|->
+name|addr
+expr_stmt|;
+name|ngx_connections
+index|[
+name|s
+index|]
+operator|.
+name|addr_textlen
+operator|=
+name|cn
+operator|->
+name|addr_textlen
+expr_stmt|;
+name|ngx_connections
+index|[
+name|s
+index|]
+operator|.
+name|post_accept_timeout
+operator|=
+name|cn
+operator|->
+name|post_accept_timeout
 expr_stmt|;
 name|ngx_read_events
 index|[
@@ -355,7 +433,7 @@ index|]
 operator|.
 name|timer_handler
 operator|=
-name|ngx_event_close
+name|ngx_event_close_connection
 expr_stmt|;
 name|ngx_write_events
 index|[
@@ -371,7 +449,7 @@ index|]
 operator|.
 name|close_handler
 operator|=
-name|ngx_event_close
+name|ngx_event_close_connection
 expr_stmt|;
 name|ngx_connections
 index|[

@@ -70,7 +70,7 @@ end_endif
 begin_function_decl
 specifier|static
 name|void
-name|ngx_add_timer
+name|ngx_add_timer_core
 parameter_list|(
 name|ngx_event_t
 modifier|*
@@ -180,6 +180,7 @@ operator|==
 operator|-
 literal|1
 condition|)
+block|{
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_EMERG
@@ -188,9 +189,15 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"ngx_kqueue_init: kqueue failed"
+literal|"kqueue() failed"
 argument_list|)
 expr_stmt|;
+name|exit
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
 name|change_list
 operator|=
 name|ngx_alloc
@@ -275,7 +282,7 @@ operator|==
 name|NGX_TIMER_EVENT
 condition|)
 block|{
-name|ngx_add_timer
+name|ngx_add_timer_core
 argument_list|(
 name|ev
 argument_list|,
@@ -790,6 +797,36 @@ argument_list|(
 name|ev
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+literal|1
+name|ev
+operator|->
+name|timedout
+operator|=
+literal|1
+expr_stmt|;
+if|if
+condition|(
+name|ev
+operator|->
+name|event_handler
+argument_list|(
+name|ev
+argument_list|)
+operator|==
+operator|-
+literal|1
+condition|)
+name|ev
+operator|->
+name|close_handler
+argument_list|(
+name|ev
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 if|if
 condition|(
 name|ev
@@ -809,6 +846,8 @@ argument_list|(
 name|ev
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|ev
 operator|=
 name|nx
@@ -998,10 +1037,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_add_timer (ngx_event_t * ev,u_int timer)
+DECL|function|ngx_add_timer_core (ngx_event_t * ev,u_int timer)
 specifier|static
 name|void
-name|ngx_add_timer
+name|ngx_add_timer_core
 parameter_list|(
 name|ngx_event_t
 modifier|*

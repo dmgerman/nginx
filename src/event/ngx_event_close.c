@@ -24,9 +24,9 @@ file|<ngx_event_close.h>
 end_include
 
 begin_function
-DECL|function|ngx_event_close (ngx_event_t * ev)
+DECL|function|ngx_event_close_connection (ngx_event_t * ev)
 name|int
-name|ngx_event_close
+name|ngx_event_close_connection
 parameter_list|(
 name|ngx_event_t
 modifier|*

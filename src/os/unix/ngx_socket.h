@@ -34,6 +34,31 @@ name|ngx_init_sockets
 end_define
 
 begin_define
+DECL|macro|ngx_socket (af,type,proto,flags)
+define|#
+directive|define
+name|ngx_socket
+parameter_list|(
+name|af
+parameter_list|,
+name|type
+parameter_list|,
+name|proto
+parameter_list|,
+name|flags
+parameter_list|)
+value|socket(af, type, proto)
+end_define
+
+begin_define
+DECL|macro|ngx_socket_n
+define|#
+directive|define
+name|ngx_socket_n
+value|"socket()"
+end_define
+
+begin_define
 DECL|macro|ngx_nonblocking (s)
 define|#
 directive|define
@@ -49,7 +74,7 @@ DECL|macro|ngx_nonblocking_n
 define|#
 directive|define
 name|ngx_nonblocking_n
-value|"fcntl (O_NONBLOCK)"
+value|"fcntl(O_NONBLOCK)"
 end_define
 
 begin_define
@@ -65,7 +90,7 @@ DECL|macro|ngx_close_socket_n
 define|#
 directive|define
 name|ngx_close_socket_n
-value|"close"
+value|"close()"
 end_define
 
 begin_endif

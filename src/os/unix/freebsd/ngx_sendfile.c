@@ -64,7 +64,7 @@ operator|)
 end_if
 
 begin_function
-DECL|function|ngx_sendfile (ngx_socket_t s,ngx_iovec_t * headers,int hdr_cnt,ngx_file_t fd,off_t offset,size_t nbytes,ngx_iovec_t * trailers,int trl_cnt,off_t * sent,ngx_log_t * log)
+DECL|function|ngx_sendfile (ngx_socket_t s,ngx_iovec_t * headers,int hdr_cnt,ngx_fd_t fd,off_t offset,size_t nbytes,ngx_iovec_t * trailers,int trl_cnt,off_t * sent,ngx_log_t * log)
 name|int
 name|ngx_sendfile
 parameter_list|(
@@ -78,7 +78,7 @@ parameter_list|,
 name|int
 name|hdr_cnt
 parameter_list|,
-name|ngx_file_t
+name|ngx_fd_t
 name|fd
 parameter_list|,
 name|off_t
