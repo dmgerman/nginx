@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c88e6ee0108
+DECL|struct|__anon2c1e261a0108
 typedef|typedef
 struct|struct
 block|{
@@ -33,7 +33,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c88e6ee0208
+DECL|struct|__anon2c1e261a0208
 typedef|typedef
 struct|struct
 block|{
@@ -48,6 +48,7 @@ name|ngx_chain_t
 modifier|*
 name|in
 decl_stmt|;
+comment|/* TODO: out and last_out should be local variables */
 DECL|member|out
 name|ngx_chain_t
 modifier|*
@@ -59,6 +60,7 @@ modifier|*
 modifier|*
 name|last_out
 decl_stmt|;
+comment|/* */
 DECL|member|free
 name|ngx_chain_t
 modifier|*
@@ -676,6 +678,15 @@ operator|==
 name|NGX_AGAIN
 condition|)
 block|{
+if|if
+condition|(
+name|ctx
+operator|->
+name|out
+condition|)
+block|{
+break|break;
+block|}
 return|return
 name|rc
 return|;
