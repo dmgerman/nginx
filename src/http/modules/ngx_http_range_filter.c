@@ -26,7 +26,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon29a30a620108
+DECL|struct|__anon27ceb85e0108
 typedef|typedef
 struct|struct
 block|{
@@ -199,9 +199,9 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_http_range_header_filter (ngx_http_request_t * r)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_range_header_filter (ngx_http_request_t * r)
 name|ngx_http_range_header_filter
 parameter_list|(
 name|ngx_http_request_t
@@ -224,13 +224,13 @@ decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
-name|uint32_t
-name|boundary
-decl_stmt|;
 name|ngx_uint_t
 name|suffix
 decl_stmt|,
 name|i
+decl_stmt|;
+name|ngx_atomic_int_t
+name|boundary
 decl_stmt|;
 name|ngx_table_elt_t
 modifier|*
@@ -1269,7 +1269,15 @@ operator|=
 sizeof|sizeof
 argument_list|(
 name|CRLF
-literal|"--0123456789"
+literal|"--"
+argument_list|)
+operator|-
+literal|1
+operator|+
+name|NGX_ATOMIC_T_LEN
+operator|+
+sizeof|sizeof
+argument_list|(
 name|CRLF
 literal|"Content-Type: "
 argument_list|)
@@ -1350,9 +1358,6 @@ return|;
 block|}
 name|boundary
 operator|=
-operator|(
-name|uint32_t
-operator|)
 name|ngx_next_temp_number
 argument_list|(
 literal|0
@@ -1385,7 +1390,7 @@ operator|.
 name|data
 argument_list|,
 name|CRLF
-literal|"--%010ud"
+literal|"--%0muA"
 name|CRLF
 literal|"Content-Type: %V; charset=%V"
 name|CRLF
@@ -1444,7 +1449,7 @@ operator|.
 name|data
 argument_list|,
 name|CRLF
-literal|"--%010ud"
+literal|"--%0muA"
 name|CRLF
 literal|"Content-Type: %V"
 name|CRLF
@@ -1487,11 +1492,12 @@ name|pool
 argument_list|,
 sizeof|sizeof
 argument_list|(
-literal|"Content-Type: multipart/byteranges; "
-literal|"boundary=0123456789"
+literal|"Content-Type: multipart/byteranges; boundary="
 argument_list|)
 operator|-
 literal|1
+operator|+
+name|NGX_ATOMIC_T_LEN
 argument_list|)
 expr_stmt|;
 if|if
@@ -1536,7 +1542,7 @@ name|value
 operator|.
 name|data
 argument_list|,
-literal|"multipart/byteranges; boundary=%010ud"
+literal|"multipart/byteranges; boundary=%0muA"
 argument_list|,
 name|boundary
 argument_list|)
@@ -1557,7 +1563,16 @@ operator|=
 sizeof|sizeof
 argument_list|(
 name|CRLF
-literal|"--0123456789--"
+literal|"--"
+argument_list|)
+operator|-
+literal|1
+operator|+
+name|NGX_ATOMIC_T_LEN
+operator|+
+sizeof|sizeof
+argument_list|(
+literal|"--"
 name|CRLF
 argument_list|)
 operator|-
@@ -1732,9 +1747,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_range_body_filter (ngx_http_request_t * r,ngx_chain_t * in)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_range_body_filter (ngx_http_request_t * r,ngx_chain_t * in)
 name|ngx_http_range_body_filter
 parameter_list|(
 name|ngx_http_request_t
@@ -2220,7 +2235,16 @@ argument_list|,
 sizeof|sizeof
 argument_list|(
 name|CRLF
-literal|"--0123456789--"
+literal|"--"
+argument_list|)
+operator|-
+literal|1
+operator|+
+name|NGX_ATOMIC_T_LEN
+operator|+
+sizeof|sizeof
+argument_list|(
+literal|"--"
 name|CRLF
 argument_list|)
 operator|-
@@ -2351,9 +2375,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_range_header_filter_init (ngx_cycle_t * cycle)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_range_header_filter_init (ngx_cycle_t * cycle)
 name|ngx_http_range_header_filter_init
 parameter_list|(
 name|ngx_cycle_t
@@ -2376,9 +2400,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_range_body_filter_init (ngx_cycle_t * cycle)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_range_body_filter_init (ngx_cycle_t * cycle)
 name|ngx_http_range_body_filter_init
 parameter_list|(
 name|ngx_cycle_t

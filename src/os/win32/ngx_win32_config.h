@@ -512,14 +512,6 @@ name|sig_atomic_t
 typedef|;
 end_typedef
 
-begin_typedef
-DECL|typedef|ngx_atomic_t
-typedef|typedef
-name|uint32_t
-name|ngx_atomic_t
-typedef|;
-end_typedef
-
 begin_define
 DECL|macro|NGX_SIZE_T_LEN
 define|#

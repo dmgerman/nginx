@@ -443,7 +443,7 @@ name|b
 operator|->
 name|last
 argument_list|,
-literal|"Active connections: %d \n"
+literal|"Active connections: %D \n"
 argument_list|,
 name|ac
 argument_list|)
@@ -478,7 +478,7 @@ name|b
 operator|->
 name|last
 argument_list|,
-literal|" %d %d %d \n"
+literal|" %D %D %D \n"
 argument_list|,
 name|ap
 argument_list|,
@@ -497,7 +497,7 @@ name|b
 operator|->
 name|last
 argument_list|,
-literal|"Reading: %d Writing: %d Waiting: %d \n"
+literal|"Reading: %D Writing: %D Waiting: %d \n"
 argument_list|,
 name|rd
 argument_list|,

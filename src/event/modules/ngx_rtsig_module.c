@@ -110,7 +110,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon292d8d740108
+DECL|struct|__anon288198160108
 typedef|typedef
 struct|struct
 block|{
@@ -2811,10 +2811,7 @@ name|sysctl
 argument_list|(
 name|name
 argument_list|,
-sizeof|sizeof
-argument_list|(
-name|name
-argument_list|)
+literal|2
 argument_list|,
 operator|&
 name|rtsig_max
@@ -2848,13 +2845,7 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-name|name
-index|[
-literal|0
-index|]
-operator|=
-name|CTL_KERN
-expr_stmt|;
+comment|/* name[0] = CTL_KERN; */
 name|name
 index|[
 literal|1
@@ -2875,10 +2866,7 @@ name|sysctl
 argument_list|(
 name|name
 argument_list|,
-sizeof|sizeof
-argument_list|(
-name|name
-argument_list|)
+literal|2
 argument_list|,
 operator|&
 name|rtsig_nr

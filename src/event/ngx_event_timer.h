@@ -51,7 +51,7 @@ value|-2
 end_define
 
 begin_comment
-comment|/*  * 32 bit timer key value resolution  *  * 1 msec - 24 days  * 10 msec - 8 months  * 50 msec - 3 years 5 months  * 100 msec - 6 years 10 months  */
+comment|/*  * the 32-bit timer key value resolution  *  * 1 msec - 24 days  * 10 msec - 8 months  * 50 msec - 3 years 5 months  * 100 msec - 6 years 10 months  */
 end_comment
 
 begin_define
@@ -60,6 +60,14 @@ define|#
 directive|define
 name|NGX_TIMER_RESOLUTION
 value|1
+end_define
+
+begin_define
+DECL|macro|NGX_TIMER_LAZY_DELAY
+define|#
+directive|define
+name|NGX_TIMER_LAZY_DELAY
+value|300
 end_define
 
 begin_function_decl
@@ -130,10 +138,10 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_event_del_timer (ngx_event_t * ev)
 specifier|static
 name|ngx_inline
 name|void
+DECL|function|ngx_event_del_timer (ngx_event_t * ev)
 name|ngx_event_del_timer
 parameter_list|(
 name|ngx_event_t
@@ -240,10 +248,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_event_add_timer (ngx_event_t * ev,ngx_msec_t timer)
 specifier|static
 name|ngx_inline
 name|void
+DECL|function|ngx_event_add_timer (ngx_event_t * ev,ngx_msec_t timer)
 name|ngx_event_add_timer
 parameter_list|(
 name|ngx_event_t
@@ -287,7 +295,7 @@ operator|->
 name|timer_set
 condition|)
 block|{
-comment|/*          * Use the previous timer value if a difference between them is less          * then 100 milliseconds.  It allows to minimize the rbtree operations          * for the fast connections.          */
+comment|/*          * Use the previous timer value if a difference between them is less          * then NGX_TIMER_LAZY_DELAY milliseconds.  It allows to minimize          * the rbtree operations for the fast connections.          */
 if|if
 condition|(
 name|abs
@@ -299,7 +307,7 @@ operator|->
 name|rbtree_key
 argument_list|)
 operator|<
-literal|100
+name|NGX_TIMER_LAZY_DELAY
 operator|/
 name|NGX_TIMER_RESOLUTION
 condition|)

@@ -74,8 +74,8 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_os_init (ngx_log_t * log)
 name|ngx_int_t
+DECL|function|ngx_os_init (ngx_log_t * log)
 name|ngx_os_init
 parameter_list|(
 name|ngx_log_t
@@ -122,10 +122,7 @@ name|sysctl
 argument_list|(
 name|name
 argument_list|,
-sizeof|sizeof
-argument_list|(
-name|name
-argument_list|)
+literal|2
 argument_list|,
 name|ngx_linux_kern_ostype
 argument_list|,
@@ -156,13 +153,7 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-name|name
-index|[
-literal|0
-index|]
-operator|=
-name|CTL_KERN
-expr_stmt|;
+comment|/* name[0] = CTL_KERN; */
 name|name
 index|[
 literal|1
@@ -183,10 +174,7 @@ name|sysctl
 argument_list|(
 name|name
 argument_list|,
-sizeof|sizeof
-argument_list|(
-name|name
-argument_list|)
+literal|2
 argument_list|,
 name|ngx_linux_kern_osrelease
 argument_list|,
@@ -217,13 +205,7 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-name|name
-index|[
-literal|0
-index|]
-operator|=
-name|CTL_KERN
-expr_stmt|;
+comment|/* name[0] = CTL_KERN; */
 name|name
 index|[
 literal|1
@@ -244,10 +226,7 @@ name|sysctl
 argument_list|(
 name|name
 argument_list|,
-sizeof|sizeof
-argument_list|(
-name|name
-argument_list|)
+literal|2
 argument_list|,
 operator|&
 name|ngx_linux_rtsig_max
@@ -310,8 +289,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_os_status (ngx_log_t * log)
 name|void
+DECL|function|ngx_os_status (ngx_log_t * log)
 name|ngx_os_status
 parameter_list|(
 name|ngx_log_t

@@ -110,11 +110,11 @@ function_decl|;
 end_function_decl
 
 begin_function
-DECL|function|ngx_rbtree_min (ngx_rbtree_t * node,ngx_rbtree_t * sentinel)
 specifier|static
 name|ngx_inline
 name|ngx_rbtree_t
 modifier|*
+DECL|function|ngx_rbtree_min (ngx_rbtree_t * node,ngx_rbtree_t * sentinel)
 name|ngx_rbtree_min
 parameter_list|(
 name|ngx_rbtree_t

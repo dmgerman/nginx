@@ -16,9 +16,9 @@ file|<ngx_core.h>
 end_include
 
 begin_function
-DECL|function|ngx_cpystrn (u_char * dst,u_char * src,size_t n)
 name|u_char
 modifier|*
+DECL|function|ngx_cpystrn (u_char * dst,u_char * src,size_t n)
 name|ngx_cpystrn
 parameter_list|(
 name|u_char
@@ -89,9 +89,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_pstrdup (ngx_pool_t * pool,ngx_str_t * src)
 name|u_char
 modifier|*
+DECL|function|ngx_pstrdup (ngx_pool_t * pool,ngx_str_t * src)
 name|ngx_pstrdup
 parameter_list|(
 name|ngx_pool_t
@@ -148,13 +148,13 @@ block|}
 end_function
 
 begin_comment
-comment|/*  * supported formats:  *    %[0][width][x][X]O        off_t  *    %[0][width]T              time_t  *    %[0][width][u][x|X]z      ssize_t/size_t  *    %[0][width][u][x|X]d      int/u_int  *    %[0][width][u][x|X]l      long  *    %[0][width|m][u][x|X]i    ngx_int_t/ngx_uint_t  *    %[0][width][u][x|X]D      int32_t/uint32_t  *    %[0][width][u][x|X]L      int64_t/uint64_t  *    %P                        ngx_pid_t  *    %r                        rlim_t  *    %p                        pointer  *    %V                        pointer to ngx_str_t  *    %s                        null-terminated string  *    %Z                        '\0'  *    %c                        char  *    %%                        %  *  *  TODO:  *    %M                        ngx_msec_t  *    %A                        ngx_atomic_t  *  *  reserved:  *    %t                        ptrdiff_t  *    %S                        null-teminated wchar string  *    %C                        wchar  */
+comment|/*  * supported formats:  *    %[0][width][x][X]O        off_t  *    %[0][width]T              time_t  *    %[0][width][u][x|X]z      ssize_t/size_t  *    %[0][width][u][x|X]d      int/u_int  *    %[0][width][u][x|X]l      long  *    %[0][width|m][u][x|X]i    ngx_int_t/ngx_uint_t  *    %[0][width][u][x|X]D      int32_t/uint32_t  *    %[0][width][u][x|X]L      int64_t/uint64_t  *    %[0][width|m][u][x|X]A    ngx_atomic_int_t  *    %P                        ngx_pid_t  *    %r                        rlim_t  *    %p                        pointer  *    %V                        pointer to ngx_str_t  *    %s                        null-terminated string  *    %Z                        '\0'  *    %c                        char  *    %%                        %  *  *  TODO:  *    %M                        ngx_msec_t  *  *  reserved:  *    %t                        ptrdiff_t  *    %S                        null-teminated wchar string  *    %C                        wchar  */
 end_comment
 
 begin_function
-DECL|function|ngx_sprintf (u_char * buf,const char * fmt,...)
 name|u_char
 modifier|*
+DECL|function|ngx_sprintf (u_char * buf,const char * fmt,...)
 name|ngx_sprintf
 parameter_list|(
 name|u_char
@@ -209,9 +209,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_snprintf (u_char * buf,size_t max,const char * fmt,...)
 name|u_char
 modifier|*
+DECL|function|ngx_snprintf (u_char * buf,size_t max,const char * fmt,...)
 name|ngx_snprintf
 parameter_list|(
 name|u_char
@@ -268,9 +268,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_vsnprintf (u_char * buf,size_t max,const char * fmt,va_list args)
 name|u_char
 modifier|*
+DECL|function|ngx_vsnprintf (u_char * buf,size_t max,const char * fmt,va_list args)
 name|ngx_vsnprintf
 parameter_list|(
 name|u_char
@@ -305,7 +305,7 @@ operator|+
 literal|1
 index|]
 decl_stmt|;
-comment|/*                                      * really we need temp[NGX_INT64_LEN] only,                                      * but icc shows the warning                                      */
+comment|/*                                      * really we need temp[NGX_INT64_LEN] only,                                      * but icc issues the warning                                      */
 name|int
 name|d
 decl_stmt|;
@@ -331,6 +331,8 @@ decl_stmt|,
 name|sign
 decl_stmt|,
 name|hexadecimal
+decl_stmt|,
+name|max_width
 decl_stmt|;
 specifier|static
 name|u_char
@@ -421,6 +423,10 @@ name|hexadecimal
 operator|=
 literal|0
 expr_stmt|;
+name|max_width
+operator|=
+literal|0
+expr_stmt|;
 name|p
 operator|=
 name|temp
@@ -479,9 +485,9 @@ continue|continue;
 case|case
 literal|'m'
 case|:
-name|width
+name|max_width
 operator|=
-name|NGX_INT_T_LEN
+literal|1
 expr_stmt|;
 name|fmt
 operator|++
@@ -752,6 +758,16 @@ name|ngx_uint_t
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|max_width
+condition|)
+block|{
+name|width
+operator|=
+name|NGX_INT_T_LEN
+expr_stmt|;
+block|}
 break|break;
 case|case
 literal|'d'
@@ -892,6 +908,53 @@ name|args
 argument_list|,
 name|uint64_t
 argument_list|)
+expr_stmt|;
+block|}
+break|break;
+case|case
+literal|'A'
+case|:
+if|if
+condition|(
+name|sign
+condition|)
+block|{
+name|i64
+operator|=
+operator|(
+name|int64_t
+operator|)
+name|va_arg
+argument_list|(
+name|args
+argument_list|,
+name|ngx_atomic_int_t
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|ui64
+operator|=
+operator|(
+name|uint64_t
+operator|)
+name|va_arg
+argument_list|(
+name|args
+argument_list|,
+name|ngx_atomic_int_t
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|max_width
+condition|)
+block|{
+name|width
+operator|=
+name|NGX_ATOMIC_T_LEN
 expr_stmt|;
 block|}
 break|break;
@@ -1137,7 +1200,7 @@ operator|<=
 name|NGX_MAX_UINT32_VALUE
 condition|)
 block|{
-comment|/*                  * To divide 64-bit number and to find the remainder                  * on the x86 platform gcc and icc call the libc functions                  * [u]divdi3() and [u]moddi3(), they call another function                  * in return.  On FreeBSD it is the qdivrem() function,                  * its source code is about 170 lines of the code.                  * The glibc counterpart is about 150 lines of the code.                  *                  * For 32-bit numbers gcc and icc use the inlined                  * multiplication and shifts.  For example, unsigned                  * "i32 / 10" is compiled to "(i32 * 0xCCCCCCCD)>> 35".                  */
+comment|/*                  * To divide 64-bit number and to find the remainder                  * on the x86 platform gcc and icc call the libc functions                  * [u]divdi3() and [u]moddi3(), they call another function                  * in its turn.  On FreeBSD it is the qdivrem() function,                  * its source code is about 170 lines of the code.                  * The glibc counterpart is about 150 lines of the code.                  *                  * For 32-bit numbers and some divisors gcc and icc use                  * the inlined multiplication and shifts.  For example,                  * unsigned "i32 / 10" is compiled to                  *                  *     (i32 * 0xCCCCCCCD)>> 35                  */
 name|ui32
 operator|=
 operator|(
@@ -1288,8 +1351,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_rstrncmp (u_char * s1,u_char * s2,size_t n)
 name|ngx_int_t
+DECL|function|ngx_rstrncmp (u_char * s1,u_char * s2,size_t n)
 name|ngx_rstrncmp
 parameter_list|(
 name|u_char
@@ -1368,8 +1431,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_rstrncasecmp (u_char * s1,u_char * s2,size_t n)
 name|ngx_int_t
+DECL|function|ngx_rstrncasecmp (u_char * s1,u_char * s2,size_t n)
 name|ngx_rstrncasecmp
 parameter_list|(
 name|u_char
@@ -1491,8 +1554,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_atoi (u_char * line,size_t n)
 name|ngx_int_t
+DECL|function|ngx_atoi (u_char * line,size_t n)
 name|ngx_atoi
 parameter_list|(
 name|u_char
@@ -1582,8 +1645,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_hextoi (u_char * line,size_t n)
 name|ngx_int_t
+DECL|function|ngx_hextoi (u_char * line,size_t n)
 name|ngx_hextoi
 parameter_list|(
 name|u_char
@@ -1733,8 +1796,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_md5_text (u_char * text,u_char * md5)
 name|void
+DECL|function|ngx_md5_text (u_char * text,u_char * md5)
 name|ngx_md5_text
 parameter_list|(
 name|u_char
@@ -1808,8 +1871,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_encode_base64 (ngx_str_t * dst,ngx_str_t * src)
 name|void
+DECL|function|ngx_encode_base64 (ngx_str_t * dst,ngx_str_t * src)
 name|ngx_encode_base64
 parameter_list|(
 name|ngx_str_t
@@ -2088,8 +2151,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_decode_base64 (ngx_str_t * dst,ngx_str_t * src)
 name|ngx_int_t
+DECL|function|ngx_decode_base64 (ngx_str_t * dst,ngx_str_t * src)
 name|ngx_decode_base64
 parameter_list|(
 name|ngx_str_t
@@ -2897,8 +2960,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_escape_uri (u_char * dst,u_char * src,size_t size,ngx_uint_t type)
 name|uintptr_t
+DECL|function|ngx_escape_uri (u_char * dst,u_char * src,size_t size,ngx_uint_t type)
 name|ngx_escape_uri
 parameter_list|(
 name|u_char
@@ -2932,7 +2995,7 @@ index|[]
 init|=
 literal|"0123456789abcdef"
 decl_stmt|;
-comment|/* " ", "%", "?", %00-%1F, %7F-%FF */
+comment|/* " ", "#", "%", "?", %00-%1F, %7F-%FF */
 specifier|static
 name|uint32_t
 name|uri
@@ -2943,9 +3006,9 @@ literal|0xffffffff
 block|,
 comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
 comment|/* ?>=< ;:98 7654 3210  /.-, +*)( '&%$ #"!  */
-literal|0x80000021
+literal|0x80000029
 block|,
-comment|/* 1000 0000 0000 0000  0000 0000 0010 0001 */
+comment|/* 1000 0000 0000 0000  0000 0000 0010 1001 */
 comment|/* _^]\ [ZYX WVUT SRQP  ONML KJIH GFED CBA@ */
 literal|0x00000000
 block|,
@@ -2967,7 +3030,7 @@ literal|0xffffffff
 comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
 block|}
 decl_stmt|;
-comment|/* " ", "%", "+", "?", %00-%1F, %7F-%FF */
+comment|/* " ", "#", "%", "+", "?", %00-%1F, %7F-%FF */
 specifier|static
 name|uint32_t
 name|args
@@ -2978,9 +3041,9 @@ literal|0xffffffff
 block|,
 comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
 comment|/* ?>=< ;:98 7654 3210  /.-, +*)( '&%$ #"!  */
-literal|0x80000821
+literal|0x80000829
 block|,
-comment|/* 1000 0000 0000 0000  0000 1000 0010 0001 */
+comment|/* 1000 0000 0000 0000  0000 1000 0010 1001 */
 comment|/* _^]\ [ZYX WVUT SRQP  ONML KJIH GFED CBA@ */
 literal|0x00000000
 block|,
@@ -3013,9 +3076,9 @@ literal|0xffffffff
 block|,
 comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
 comment|/* ?>=< ;:98 7654 3210  /.-, +*)( '&%$ #"!  */
-literal|0x80000021
+literal|0x800000ad
 block|,
-comment|/* 0000 0000 0000 0000  0000 0000 1010 0101 */
+comment|/* 0000 0000 0000 0000  0000 0000 1010 1101 */
 comment|/* _^]\ [ZYX WVUT SRQP  ONML KJIH GFED CBA@ */
 literal|0x00000000
 block|,

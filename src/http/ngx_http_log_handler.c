@@ -780,7 +780,7 @@ argument_list|(
 literal|"conn"
 argument_list|)
 block|,
-name|NGX_INT32_LEN
+name|NGX_ATOMIC_T_LEN
 block|,
 name|NULL
 block|,

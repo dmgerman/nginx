@@ -121,8 +121,8 @@ function_decl|;
 end_function_decl
 
 begin_function
-DECL|function|ngx_rbtree_insert (ngx_rbtree_t ** root,ngx_rbtree_t * sentinel,ngx_rbtree_t * node)
 name|void
+DECL|function|ngx_rbtree_insert (ngx_rbtree_t ** root,ngx_rbtree_t * sentinel,ngx_rbtree_t * node)
 name|ngx_rbtree_insert
 parameter_list|(
 name|ngx_rbtree_t
@@ -537,8 +537,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_rbtree_delete (ngx_rbtree_t ** root,ngx_rbtree_t * sentinel,ngx_rbtree_t * node)
 name|void
+DECL|function|ngx_rbtree_delete (ngx_rbtree_t ** root,ngx_rbtree_t * sentinel,ngx_rbtree_t * node)
 name|ngx_rbtree_delete
 parameter_list|(
 name|ngx_rbtree_t
@@ -1281,10 +1281,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_rbtree_left_rotate (ngx_rbtree_t ** root,ngx_rbtree_t * sentinel,ngx_rbtree_t * node)
 specifier|static
 name|ngx_inline
 name|void
+DECL|function|ngx_rbtree_left_rotate (ngx_rbtree_t ** root,ngx_rbtree_t * sentinel,ngx_rbtree_t * node)
 name|ngx_rbtree_left_rotate
 parameter_list|(
 name|ngx_rbtree_t
@@ -1406,10 +1406,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_rbtree_right_rotate (ngx_rbtree_t ** root,ngx_rbtree_t * sentinel,ngx_rbtree_t * node)
 specifier|static
 name|ngx_inline
 name|void
+DECL|function|ngx_rbtree_right_rotate (ngx_rbtree_t ** root,ngx_rbtree_t * sentinel,ngx_rbtree_t * node)
 name|ngx_rbtree_right_rotate
 parameter_list|(
 name|ngx_rbtree_t

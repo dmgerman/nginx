@@ -460,9 +460,9 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_http_header_filter (ngx_http_request_t * r)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_header_filter (ngx_http_request_t * r)
 name|ngx_http_header_filter
 parameter_list|(
 name|ngx_http_request_t
@@ -589,7 +589,6 @@ name|NULL
 expr_stmt|;
 block|}
 block|}
-comment|/* 2 is for trailing "\r\n" and 2 is for "\r\n" in the end of header */
 name|len
 operator|=
 sizeof|sizeof
@@ -599,9 +598,20 @@ argument_list|)
 operator|-
 literal|1
 operator|+
-literal|2
+sizeof|sizeof
+argument_list|(
+name|CRLF
+argument_list|)
+operator|-
+literal|1
+comment|/* the end of the header */
 operator|+
-literal|2
+sizeof|sizeof
+argument_list|(
+name|CRLF
+argument_list|)
+operator|-
+literal|1
 expr_stmt|;
 comment|/* status line */
 if|if
@@ -1315,7 +1325,6 @@ condition|)
 block|{
 continue|continue;
 block|}
-comment|/* 2 is for ": " and 2 is for "\r\n" */
 name|len
 operator|+=
 name|header
@@ -1327,7 +1336,12 @@ name|key
 operator|.
 name|len
 operator|+
-literal|2
+sizeof|sizeof
+argument_list|(
+literal|": "
+argument_list|)
+operator|-
+literal|1
 operator|+
 name|header
 index|[
@@ -1338,7 +1352,12 @@ name|value
 operator|.
 name|len
 operator|+
-literal|2
+sizeof|sizeof
+argument_list|(
+name|CRLF
+argument_list|)
+operator|-
+literal|1
 expr_stmt|;
 block|}
 if|if
@@ -1452,22 +1471,18 @@ argument_list|)
 expr_stmt|;
 block|}
 operator|*
-operator|(
 name|b
 operator|->
 name|last
 operator|++
-operator|)
 operator|=
 name|CR
 expr_stmt|;
 operator|*
-operator|(
 name|b
 operator|->
 name|last
 operator|++
-operator|)
 operator|=
 name|LF
 expr_stmt|;
@@ -1576,22 +1591,18 @@ name|len
 argument_list|)
 expr_stmt|;
 operator|*
-operator|(
 name|b
 operator|->
 name|last
 operator|++
-operator|)
 operator|=
 name|CR
 expr_stmt|;
 operator|*
-operator|(
 name|b
 operator|->
 name|last
 operator|++
-operator|)
 operator|=
 name|LF
 expr_stmt|;
@@ -1804,22 +1815,18 @@ name|p
 expr_stmt|;
 block|}
 operator|*
-operator|(
 name|b
 operator|->
 name|last
 operator|++
-operator|)
 operator|=
 name|CR
 expr_stmt|;
 operator|*
-operator|(
 name|b
 operator|->
 name|last
 operator|++
-operator|)
 operator|=
 name|LF
 expr_stmt|;
@@ -2007,22 +2014,18 @@ operator|=
 name|p
 expr_stmt|;
 operator|*
-operator|(
 name|b
 operator|->
 name|last
 operator|++
-operator|)
 operator|=
 name|CR
 expr_stmt|;
 operator|*
-operator|(
 name|b
 operator|->
 name|last
 operator|++
-operator|)
 operator|=
 name|LF
 expr_stmt|;
@@ -2096,22 +2099,18 @@ name|last_modified_time
 argument_list|)
 expr_stmt|;
 operator|*
-operator|(
 name|b
 operator|->
 name|last
 operator|++
-operator|)
 operator|=
 name|CR
 expr_stmt|;
 operator|*
-operator|(
 name|b
 operator|->
 name|last
 operator|++
-operator|)
 operator|=
 name|LF
 expr_stmt|;
@@ -2339,22 +2338,18 @@ name|len
 argument_list|)
 expr_stmt|;
 operator|*
-operator|(
 name|b
 operator|->
 name|last
 operator|++
-operator|)
 operator|=
 literal|':'
 expr_stmt|;
 operator|*
-operator|(
 name|b
 operator|->
 name|last
 operator|++
-operator|)
 operator|=
 literal|' '
 expr_stmt|;
@@ -2388,22 +2383,18 @@ name|len
 argument_list|)
 expr_stmt|;
 operator|*
-operator|(
 name|b
 operator|->
 name|last
 operator|++
-operator|)
 operator|=
 name|CR
 expr_stmt|;
 operator|*
-operator|(
 name|b
 operator|->
 name|last
 operator|++
-operator|)
 operator|=
 name|LF
 expr_stmt|;
@@ -2414,11 +2405,9 @@ operator|(
 name|NGX_DEBUG
 operator|)
 operator|*
-operator|(
 name|b
 operator|->
 name|last
-operator|)
 operator|=
 literal|'\0'
 expr_stmt|;
@@ -2445,22 +2434,18 @@ endif|#
 directive|endif
 comment|/* the end of HTTP header */
 operator|*
-operator|(
 name|b
 operator|->
 name|last
 operator|++
-operator|)
 operator|=
 name|CR
 expr_stmt|;
 operator|*
-operator|(
 name|b
 operator|->
 name|last
 operator|++
-operator|)
 operator|=
 name|LF
 expr_stmt|;
@@ -2533,9 +2518,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_header_filter_init (ngx_cycle_t * cycle)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_header_filter_init (ngx_cycle_t * cycle)
 name|ngx_http_header_filter_init
 parameter_list|(
 name|ngx_cycle_t

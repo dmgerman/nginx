@@ -46,8 +46,8 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_init_setproctitle (ngx_log_t * log)
 name|ngx_int_t
+DECL|function|ngx_init_setproctitle (ngx_log_t * log)
 name|ngx_init_setproctitle
 parameter_list|(
 name|ngx_log_t
@@ -55,7 +55,7 @@ modifier|*
 name|log
 parameter_list|)
 block|{
-name|char
+name|u_char
 modifier|*
 name|p
 decl_stmt|;
@@ -217,6 +217,10 @@ name|ngx_cpystrn
 argument_list|(
 name|p
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 name|environ
 index|[
 name|i
@@ -230,6 +234,10 @@ index|[
 name|i
 index|]
 operator|=
+operator|(
+name|char
+operator|*
+operator|)
 name|p
 expr_stmt|;
 name|p
@@ -248,8 +256,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_setproctitle (char * title)
 name|void
+DECL|function|ngx_setproctitle (char * title)
 name|ngx_setproctitle
 parameter_list|(
 name|char
@@ -548,8 +556,8 @@ argument_list|)
 end_elif
 
 begin_function
-DECL|function|ngx_init_setproctitle (ngx_log_t * log)
 name|ngx_int_t
+DECL|function|ngx_init_setproctitle (ngx_log_t * log)
 name|ngx_init_setproctitle
 parameter_list|(
 name|ngx_log_t
@@ -564,8 +572,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_setproctitle (char * title)
 name|void
+DECL|function|ngx_setproctitle (char * title)
 name|ngx_setproctitle
 parameter_list|(
 name|char
@@ -573,6 +581,7 @@ modifier|*
 name|title
 parameter_list|)
 block|{
+return|return;
 block|}
 end_function
 

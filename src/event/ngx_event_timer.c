@@ -59,8 +59,8 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_event_timer_init (ngx_log_t * log)
 name|ngx_int_t
+DECL|function|ngx_event_timer_init (ngx_log_t * log)
 name|ngx_event_timer_init
 parameter_list|(
 name|ngx_log_t
@@ -128,8 +128,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_event_find_timer (void)
 name|ngx_msec_t
+DECL|function|ngx_event_find_timer (void)
 name|ngx_event_find_timer
 parameter_list|(
 name|void
@@ -225,8 +225,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_event_expire_timers (ngx_msec_t timer)
 name|void
+DECL|function|ngx_event_expire_timers (ngx_msec_t timer)
 name|ngx_event_expire_timers
 parameter_list|(
 name|ngx_msec_t

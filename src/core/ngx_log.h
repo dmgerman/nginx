@@ -223,7 +223,7 @@ modifier|*
 name|file
 decl_stmt|;
 DECL|member|connection
-name|ngx_uint_t
+name|ngx_atomic_int_t
 name|connection
 decl_stmt|;
 DECL|member|handler

@@ -21,12 +21,6 @@ directive|include
 file|<ngx_event.h>
 end_include
 
-begin_include
-include|#
-directive|include
-file|<nginx.h>
-end_include
-
 begin_function_decl
 specifier|static
 name|void
@@ -63,8 +57,8 @@ function_decl|;
 end_function_decl
 
 begin_function
-DECL|function|ngx_event_accept (ngx_event_t * ev)
 name|void
+DECL|function|ngx_event_accept (ngx_event_t * ev)
 name|ngx_event_accept
 parameter_list|(
 name|ngx_event_t
@@ -214,7 +208,7 @@ operator|==
 name|NULL
 condition|)
 block|{
-comment|/*              * Create the pool before accept() to avoid the copying of              * the sockaddr.  Although accept() can fail it is uncommon              * case and besides the pool can be got from the free pool list              */
+comment|/*              * Create the pool before accept() to avoid the copying of              * the sockaddr.  Although accept() can fail it is uncommon              * case and besides the pool can be got from the free pool list.              */
 if|if
 condition|(
 operator|!
@@ -444,11 +438,10 @@ directive|if
 operator|(
 name|NGX_STAT_STUB
 operator|)
-operator|(
-operator|*
+name|ngx_atomic_inc
+argument_list|(
 name|ngx_stat_accepted
-operator|)
-operator|++
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
@@ -525,11 +518,10 @@ directive|if
 operator|(
 name|NGX_STAT_STUB
 operator|)
-operator|(
-operator|*
+name|ngx_atomic_inc
+argument_list|(
 name|ngx_stat_active
-operator|)
-operator|++
+argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
@@ -953,7 +945,7 @@ name|NGX_USE_RTSIG_EVENT
 operator|)
 condition|)
 block|{
-comment|/* epoll, rtsig, aio, iocp */
+comment|/* rtsig, aio, iocp */
 name|rev
 operator|->
 name|ready
@@ -1375,8 +1367,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_trylock_accept_mutex (ngx_cycle_t * cycle)
 name|ngx_int_t
+DECL|function|ngx_trylock_accept_mutex (ngx_cycle_t * cycle)
 name|ngx_trylock_accept_mutex
 parameter_list|(
 name|ngx_cycle_t
@@ -1479,8 +1471,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_enable_accept_events (ngx_cycle_t * cycle)
 name|ngx_int_t
+DECL|function|ngx_enable_accept_events (ngx_cycle_t * cycle)
 name|ngx_enable_accept_events
 parameter_list|(
 name|ngx_cycle_t
@@ -1595,8 +1587,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_disable_accept_events (ngx_cycle_t * cycle)
 name|ngx_int_t
+DECL|function|ngx_disable_accept_events (ngx_cycle_t * cycle)
 name|ngx_disable_accept_events
 parameter_list|(
 name|ngx_cycle_t
@@ -1755,9 +1747,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_close_accepted_socket (ngx_socket_t s,ngx_log_t * log)
 specifier|static
 name|void
+DECL|function|ngx_close_accepted_socket (ngx_socket_t s,ngx_log_t * log)
 name|ngx_close_accepted_socket
 parameter_list|(
 name|ngx_socket_t
@@ -1796,10 +1788,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_accept_log_error (ngx_log_t * log,u_char * buf,size_t len)
 specifier|static
 name|u_char
 modifier|*
+DECL|function|ngx_accept_log_error (ngx_log_t * log,u_char * buf,size_t len)
 name|ngx_accept_log_error
 parameter_list|(
 name|ngx_log_t

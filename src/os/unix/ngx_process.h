@@ -45,7 +45,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c93056a0108
+DECL|struct|__anon2a32dc1e0108
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c93056a0208
+DECL|struct|__anon2a32dc1e0208
 typedef|typedef
 struct|struct
 block|{
@@ -293,6 +293,43 @@ name|ngx_sched_yield
 parameter_list|()
 value|usleep(1)
 end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
+name|ngx_setproctitle
+argument_list|)
+end_if
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_init_setproctitle
+parameter_list|(
+name|ngx_log_t
+modifier|*
+name|log
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_setproctitle
+parameter_list|(
+name|char
+modifier|*
+name|title
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_endif
 endif|#

@@ -15,6 +15,10 @@ directive|include
 file|<ngx_core.h>
 end_include
 
+begin_comment
+comment|/*  * TODO: the P4 optimized assembler version with the "pause" operation  */
+end_comment
+
 begin_function
 DECL|function|ngx_spinlock (ngx_atomic_t * lock,ngx_uint_t spin)
 name|void

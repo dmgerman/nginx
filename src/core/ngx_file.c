@@ -18,7 +18,7 @@ end_include
 begin_decl_stmt
 DECL|variable|ngx_temp_number
 specifier|static
-name|ngx_uint_t
+name|ngx_atomic_int_t
 name|ngx_temp_number
 decl_stmt|;
 end_decl_stmt
@@ -26,14 +26,14 @@ end_decl_stmt
 begin_decl_stmt
 DECL|variable|ngx_random
 specifier|static
-name|ngx_uint_t
+name|ngx_atomic_int_t
 name|ngx_random
 decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_write_chain_to_temp_file (ngx_temp_file_t * tf,ngx_chain_t * chain)
 name|ssize_t
+DECL|function|ngx_write_chain_to_temp_file (ngx_temp_file_t * tf,ngx_chain_t * chain)
 name|ngx_write_chain_to_temp_file
 parameter_list|(
 name|ngx_temp_file_t
@@ -150,8 +150,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_create_temp_file (ngx_file_t * file,ngx_path_t * path,ngx_pool_t * pool,int persistent)
 name|ngx_int_t
+DECL|function|ngx_create_temp_file (ngx_file_t * file,ngx_path_t * path,ngx_pool_t * pool,int persistent)
 name|ngx_create_temp_file
 parameter_list|(
 name|ngx_file_t
@@ -173,8 +173,8 @@ block|{
 name|ngx_err_t
 name|err
 decl_stmt|;
-name|uint32_t
-name|num
+name|ngx_atomic_int_t
+name|n
 decl_stmt|;
 name|file
 operator|->
@@ -194,7 +194,7 @@ name|path
 operator|->
 name|len
 operator|+
-literal|10
+name|NGX_ATOMIC_T_LEN
 expr_stmt|;
 if|if
 condition|(
@@ -252,11 +252,8 @@ operator|.
 name|len
 argument_list|)
 expr_stmt|;
-name|num
+name|n
 operator|=
-operator|(
-name|uint32_t
-operator|)
 name|ngx_next_temp_number
 argument_list|(
 literal|0
@@ -288,9 +285,9 @@ name|path
 operator|->
 name|len
 argument_list|,
-literal|"%010ui%Z"
+literal|"%0muA%Z"
 argument_list|,
-name|num
+name|n
 argument_list|)
 expr_stmt|;
 name|ngx_create_hashed_filename
@@ -378,7 +375,7 @@ operator|==
 name|NGX_EEXIST
 condition|)
 block|{
-name|num
+name|n
 operator|=
 name|ngx_next_temp_number
 argument_list|(
@@ -463,8 +460,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_create_hashed_filename (ngx_file_t * file,ngx_path_t * path)
 name|void
+DECL|function|ngx_create_hashed_filename (ngx_file_t * file,ngx_path_t * path)
 name|ngx_create_hashed_filename
 parameter_list|(
 name|ngx_file_t
@@ -626,8 +623,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_create_path (ngx_file_t * file,ngx_path_t * path)
 name|ngx_int_t
+DECL|function|ngx_create_path (ngx_file_t * file,ngx_path_t * path)
 name|ngx_create_path
 parameter_list|(
 name|ngx_file_t
@@ -793,37 +790,25 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_init_temp_number ()
 name|void
+DECL|function|ngx_init_temp_number ()
 name|ngx_init_temp_number
 parameter_list|()
 block|{
-name|ngx_random
+name|ngx_temp_number
 operator|=
 literal|0
 expr_stmt|;
-name|ngx_temp_number
-operator|=
-name|ngx_random
-expr_stmt|;
-while|while
-condition|(
-name|ngx_random
-operator|<
-literal|10000
-condition|)
-block|{
 name|ngx_random
 operator|=
 literal|123456
 expr_stmt|;
 block|}
-block|}
 end_function
 
 begin_function
+name|ngx_atomic_int_t
 DECL|function|ngx_next_temp_number (ngx_uint_t collision)
-name|ngx_uint_t
 name|ngx_next_temp_number
 parameter_list|(
 name|ngx_uint_t
@@ -848,9 +833,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_conf_set_path_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|char
 modifier|*
+DECL|function|ngx_conf_set_path_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_conf_set_path_slot
 parameter_list|(
 name|ngx_conf_t
@@ -1122,8 +1107,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_add_path (ngx_conf_t * cf,ngx_path_t ** slot)
 name|ngx_int_t
+DECL|function|ngx_add_path (ngx_conf_t * cf,ngx_path_t ** slot)
 name|ngx_add_path
 parameter_list|(
 name|ngx_conf_t
@@ -1450,8 +1435,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_create_pathes (ngx_cycle_t * cycle,ngx_uid_t user)
 name|ngx_int_t
+DECL|function|ngx_create_pathes (ngx_cycle_t * cycle,ngx_uid_t user)
 name|ngx_create_pathes
 parameter_list|(
 name|ngx_cycle_t
