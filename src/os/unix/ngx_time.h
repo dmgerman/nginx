@@ -113,6 +113,14 @@ name|ngx_tm_wday
 value|tm_wday
 end_define
 
+begin_define
+DECL|macro|ngx_tm_gmtoff
+define|#
+directive|define
+name|ngx_tm_gmtoff
+value|tm_gmtoff
+end_define
+
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -220,13 +228,6 @@ name|ms
 parameter_list|)
 value|usleep(ms * 1000)
 end_define
-
-begin_decl_stmt
-specifier|extern
-name|time_t
-name|ngx_cached_time
-decl_stmt|;
-end_decl_stmt
 
 begin_endif
 endif|#

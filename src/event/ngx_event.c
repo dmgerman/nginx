@@ -340,6 +340,13 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_accept_disabled
+name|ngx_int_t
+name|ngx_accept_disabled
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_events_commands
 specifier|static
 name|ngx_command_t
@@ -2003,7 +2010,7 @@ name|ecf
 operator|->
 name|connections
 operator|!=
-name|NGX_CONF_UNSET
+name|NGX_CONF_UNSET_UINT
 condition|)
 block|{
 return|return
@@ -2045,6 +2052,9 @@ name|ecf
 operator|->
 name|connections
 operator|==
+operator|(
+name|ngx_uint_t
+operator|)
 name|NGX_ERROR
 condition|)
 block|{
@@ -2590,7 +2600,7 @@ name|ecf
 operator|->
 name|connections
 operator|=
-name|NGX_CONF_UNSET
+name|NGX_CONF_UNSET_UINT
 expr_stmt|;
 name|ecf
 operator|->
@@ -2686,7 +2696,7 @@ directive|if
 operator|(
 name|HAVE_KQUEUE
 operator|)
-name|ngx_conf_init_value
+name|ngx_conf_init_unsigned_value
 argument_list|(
 name|ecf
 operator|->
@@ -2724,7 +2734,7 @@ directive|elif
 operator|(
 name|HAVE_DEVPOLL
 operator|)
-name|ngx_conf_init_value
+name|ngx_conf_init_unsigned_value
 argument_list|(
 name|ecf
 operator|->
@@ -2762,7 +2772,7 @@ directive|elif
 operator|(
 name|HAVE_EPOLL
 operator|)
-name|ngx_conf_init_value
+name|ngx_conf_init_unsigned_value
 argument_list|(
 name|ecf
 operator|->
@@ -2800,7 +2810,7 @@ directive|elif
 operator|(
 name|HAVE_SELECT
 operator|)
-name|ngx_conf_init_value
+name|ngx_conf_init_unsigned_value
 argument_list|(
 name|ecf
 operator|->

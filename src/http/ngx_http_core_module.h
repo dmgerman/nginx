@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2957d5470108
+DECL|struct|__anon2a1535a80108
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2957d5470203
+DECL|enum|__anon2a1535a80203
 typedef|typedef
 enum|enum
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2957d5470308
+DECL|struct|__anon2a1535a80308
 typedef|typedef
 struct|struct
 block|{
@@ -112,7 +112,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2957d5470408
+DECL|struct|__anon2a1535a80408
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2957d5470508
+DECL|struct|__anon2a1535a80508
 typedef|typedef
 struct|struct
 block|{
@@ -199,7 +199,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2957d5470608
+DECL|struct|__anon2a1535a80608
 typedef|typedef
 struct|struct
 block|{
@@ -223,7 +223,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2957d5470708
+DECL|struct|__anon2a1535a80708
 typedef|typedef
 struct|struct
 block|{
@@ -255,7 +255,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2957d5470808
+DECL|struct|__anon2a1535a80808
 typedef|typedef
 struct|struct
 block|{
@@ -298,7 +298,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon2957d5470908
+DECL|struct|__anon2a1535a80908
 typedef|typedef
 struct|struct
 block|{
@@ -317,13 +317,17 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2957d5470a08
+DECL|struct|__anon2a1535a80a08
 typedef|typedef
 struct|struct
 block|{
 DECL|member|code
 name|int
 name|code
+decl_stmt|;
+DECL|member|overwrite
+name|int
+name|overwrite
 decl_stmt|;
 DECL|member|uri
 name|ngx_str_t
@@ -336,7 +340,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2957d5470b08
+DECL|struct|__anon2a1535a80b08
 typedef|typedef
 struct|struct
 block|{

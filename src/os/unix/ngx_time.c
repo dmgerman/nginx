@@ -28,6 +28,10 @@ name|HAVE_LOCALTIME_R
 operator|)
 name|localtime_r
 argument_list|(
+operator|(
+name|time_t
+operator|*
+operator|)
 operator|&
 name|ngx_cached_time
 argument_list|,
@@ -44,6 +48,10 @@ name|t
 operator|=
 name|localtime
 argument_list|(
+operator|(
+name|time_t
+operator|*
+operator|)
 operator|&
 name|ngx_cached_time
 argument_list|)

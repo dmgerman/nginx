@@ -109,7 +109,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon295bc44e0108
+DECL|struct|__anon27d7ffc20108
 typedef|typedef
 struct|struct
 block|{
@@ -932,6 +932,19 @@ condition|)
 block|{
 if|if
 condition|(
+name|ngx_accept_disabled
+operator|>
+literal|0
+condition|)
+block|{
+name|ngx_accept_disabled
+operator|--
+expr_stmt|;
+block|}
+else|else
+block|{
+if|if
+condition|(
 name|ngx_trylock_accept_mutex
 argument_list|(
 name|cycle
@@ -969,6 +982,7 @@ name|expire
 operator|=
 literal|0
 expr_stmt|;
+block|}
 block|}
 block|}
 if|if
@@ -1287,6 +1301,13 @@ operator|->
 name|accept
 condition|)
 block|{
+if|if
+condition|(
+name|ngx_accept_disabled
+operator|>
+literal|0
+condition|)
+block|{
 name|c
 operator|->
 name|read
@@ -1298,6 +1319,7 @@ operator|->
 name|read
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{

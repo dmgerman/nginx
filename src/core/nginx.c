@@ -358,6 +358,7 @@ name|ctx
 decl_stmt|;
 if|#
 directive|if
+name|defined
 name|__FreeBSD__
 name|ngx_debug_init
 argument_list|()

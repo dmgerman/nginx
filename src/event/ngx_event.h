@@ -57,7 +57,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2ac541910108
+DECL|struct|__anon2c8886830108
 typedef|typedef
 struct|struct
 block|{
@@ -86,7 +86,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2ac541910208
+DECL|struct|__anon2c8886830208
 typedef|typedef
 struct|struct
 block|{
@@ -424,7 +424,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2ac541910308
+DECL|struct|__anon2c8886830308
 typedef|typedef
 struct|struct
 block|{
@@ -1215,12 +1215,12 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon2ac541910408
+DECL|struct|__anon2c8886830408
 typedef|typedef
 struct|struct
 block|{
 DECL|member|connections
-name|ngx_int_t
+name|ngx_uint_t
 name|connections
 decl_stmt|;
 DECL|member|use
@@ -1262,7 +1262,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac541910508
+DECL|struct|__anon2c8886830508
 typedef|typedef
 struct|struct
 block|{
@@ -1346,6 +1346,13 @@ begin_decl_stmt
 specifier|extern
 name|ngx_msec_t
 name|ngx_accept_mutex_delay
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_int_t
+name|ngx_accept_disabled
 decl_stmt|;
 end_decl_stmt
 

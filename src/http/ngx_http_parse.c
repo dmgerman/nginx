@@ -36,7 +36,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon2901387a0103
+DECL|enum|__anon28ebfb140103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -165,6 +165,19 @@ name|p
 operator|-
 literal|1
 expr_stmt|;
+if|if
+condition|(
+name|ch
+operator|==
+name|CR
+operator|||
+name|ch
+operator|==
+name|LF
+condition|)
+block|{
+break|break;
+block|}
 if|if
 condition|(
 name|ch
@@ -1499,7 +1512,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2901387a0203
+DECL|enum|__anon28ebfb140203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2134,7 +2147,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2901387a0303
+DECL|enum|__anon28ebfb140303
 enum|enum
 block|{
 DECL|enumerator|sw_usual

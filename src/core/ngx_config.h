@@ -15,42 +15,12 @@ end_define
 begin_if
 if|#
 directive|if
-literal|0
-end_if
-
-begin_comment
-comment|/* STUB to allocate a big ngx_connections */
-end_comment
-
-begin_undef
-undef|#
-directive|undef
-name|FD_SETSIZE
-end_undef
-
-begin_define
-define|#
-directive|define
-name|FD_SETSIZE
-value|5000
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_if
-if|#
-directive|if
 name|defined
 name|__DragonFly__
 operator|&&
 operator|!
 name|defined
-argument_list|(
 name|__FreeBSD__
-argument_list|)
 end_if
 
 begin_define
@@ -78,9 +48,7 @@ begin_if
 if|#
 directive|if
 name|defined
-argument_list|(
 name|__FreeBSD__
-argument_list|)
 end_if
 
 begin_include
@@ -93,9 +61,7 @@ begin_elif
 elif|#
 directive|elif
 name|defined
-argument_list|(
 name|__linux__
-argument_list|)
 end_elif
 
 begin_include
@@ -112,20 +78,14 @@ begin_elif
 elif|#
 directive|elif
 name|defined
-argument_list|(
 name|sun
-argument_list|)
 operator|&&
 operator|(
 name|defined
-argument_list|(
 name|__svr4__
-argument_list|)
 operator|||
 name|defined
-argument_list|(
 name|__SVR4
-argument_list|)
 operator|)
 end_elif
 
@@ -450,6 +410,14 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_define
+DECL|macro|NGX_ACCEPT_THRESHOLD
+define|#
+directive|define
+name|NGX_ACCEPT_THRESHOLD
+value|50
+end_define
 
 begin_ifndef
 ifndef|#

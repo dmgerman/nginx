@@ -24,7 +24,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon276ea4870108
+DECL|struct|__anon29257e1a0108
 typedef|typedef
 struct|struct
 block|{
@@ -143,7 +143,7 @@ value|0x0200
 end_define
 
 begin_typedef
-DECL|struct|__anon276ea4870208
+DECL|struct|__anon29257e1a0208
 typedef|typedef
 struct|struct
 block|{
@@ -2275,6 +2275,26 @@ operator|->
 name|redo
 condition|)
 block|{
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"gzip in: "
+name|PTR_FMT
+argument_list|,
+name|ctx
+operator|->
+name|in
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|ctx
@@ -2336,6 +2356,76 @@ name|in_hunk
 operator|->
 name|pos
 expr_stmt|;
+name|ngx_log_debug3
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"gzip in_hunk:"
+name|PTR_FMT
+literal|" ni:"
+name|PTR_FMT
+literal|" ai:%d"
+argument_list|,
+name|ctx
+operator|->
+name|in_hunk
+argument_list|,
+name|ctx
+operator|->
+name|zstream
+operator|.
+name|next_in
+argument_list|,
+name|ctx
+operator|->
+name|zstream
+operator|.
+name|avail_in
+argument_list|)
+expr_stmt|;
+comment|/* STUB */
+if|if
+condition|(
+name|ctx
+operator|->
+name|in_hunk
+operator|->
+name|last
+operator|<
+name|ctx
+operator|->
+name|in_hunk
+operator|->
+name|pos
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"zstream.avail_in is huge"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
 if|if
 condition|(
 name|ctx
@@ -2555,7 +2645,7 @@ operator|.
 name|size
 expr_stmt|;
 block|}
-name|ngx_log_debug5
+name|ngx_log_debug6
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
@@ -2567,7 +2657,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"deflate in: ni:%X no:%X ai:%d ao:%d fl:%d"
+literal|"deflate in: ni:%X no:%X ai:%d ao:%d fl:%d redo:%d"
 argument_list|,
 name|ctx
 operator|->
@@ -2596,6 +2686,10 @@ argument_list|,
 name|ctx
 operator|->
 name|flush
+argument_list|,
+name|ctx
+operator|->
+name|redo
 argument_list|)
 expr_stmt|;
 name|rc
@@ -2692,6 +2786,34 @@ argument_list|,
 name|rc
 argument_list|)
 expr_stmt|;
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"gzip in_hunk:"
+name|PTR_FMT
+literal|" pos:"
+name|PTR_FMT
+argument_list|,
+name|ctx
+operator|->
+name|in_hunk
+argument_list|,
+name|ctx
+operator|->
+name|in_hunk
+operator|->
+name|pos
+argument_list|)
+expr_stmt|;
 name|ctx
 operator|->
 name|in_hunk
@@ -2767,9 +2889,8 @@ name|redo
 operator|=
 literal|1
 expr_stmt|;
+continue|continue;
 block|}
-else|else
-block|{
 name|ctx
 operator|->
 name|redo
@@ -2835,7 +2956,7 @@ name|next
 expr_stmt|;
 break|break;
 block|}
-if|else if
+if|if
 condition|(
 name|ctx
 operator|->
@@ -3137,7 +3258,7 @@ endif|#
 directive|endif
 break|break;
 block|}
-if|else if
+if|if
 condition|(
 name|conf
 operator|->
@@ -3187,24 +3308,48 @@ expr_stmt|;
 break|break;
 block|}
 block|}
-block|}
 if|if
 condition|(
 name|ctx
 operator|->
 name|out
-operator|==
-name|NULL
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
 name|last
-operator|!=
-name|NGX_NONE
+operator|==
+name|NGX_AGAIN
 condition|)
 block|{
 return|return
 name|last
 return|;
 block|}
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|last
+operator|==
+name|NGX_NONE
+condition|)
+block|{
+return|return
+name|NGX_OK
+return|;
+block|}
+return|return
+name|last
+return|;
+block|}
+if|#
+directive|if
+literal|0
+block_content|if (ctx->out == NULL&& last != NGX_NONE) {             return last;         }
+endif|#
+directive|endif
 name|last
 operator|=
 name|ngx_http_next_body_filter

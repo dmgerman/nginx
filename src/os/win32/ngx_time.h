@@ -184,14 +184,6 @@ name|ngx_msleep
 value|Sleep
 end_define
 
-begin_define
-DECL|macro|ngx_localtime
-define|#
-directive|define
-name|ngx_localtime
-value|GetLocalTime
-end_define
-
 begin_function_decl
 name|void
 name|ngx_gettimeofday

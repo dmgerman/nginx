@@ -24,7 +24,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b87ff760108
+DECL|struct|__anon2b1d5f300108
 typedef|typedef
 struct|struct
 block|{
@@ -515,17 +515,27 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|ngx_accept_disabled
+operator|=
+operator|(
+name|ngx_uint_t
+operator|)
+name|s
+operator|+
+name|NGX_ACCEPT_THRESHOLD
+operator|-
+name|ecf
+operator|->
+name|connections
+expr_stmt|;
 comment|/* disable warning: Win32 SOCKET is u_int while UNIX socket is int */
 if|if
 condition|(
 operator|(
-name|unsigned
+name|ngx_uint_t
 operator|)
 name|s
 operator|>=
-operator|(
-name|unsigned
-operator|)
 name|ecf
 operator|->
 name|connections
@@ -584,7 +594,6 @@ literal|"failed"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* TODO: disable temporary accept() event */
 name|ngx_destroy_pool
 argument_list|(
 name|pool

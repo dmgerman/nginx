@@ -2284,6 +2284,10 @@ condition|(
 name|ngx_quit
 condition|)
 block|{
+name|ngx_quit
+operator|=
+literal|0
+expr_stmt|;
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_INFO
@@ -2324,6 +2328,10 @@ condition|(
 name|ngx_reopen
 condition|)
 block|{
+name|ngx_reopen
+operator|=
+literal|0
+expr_stmt|;
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_INFO
@@ -2344,10 +2352,6 @@ argument_list|,
 operator|-
 literal|1
 argument_list|)
-expr_stmt|;
-name|ngx_reopen
-operator|=
-literal|0
 expr_stmt|;
 block|}
 block|}
