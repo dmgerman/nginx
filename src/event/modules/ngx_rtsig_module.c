@@ -109,7 +109,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2bbe8de90108
+DECL|struct|__anon2c2eeb110108
 typedef|typedef
 struct|struct
 block|{
@@ -196,7 +196,7 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|int
-name|ngx_rtsig_process_overlow
+name|ngx_rtsig_process_overflow
 parameter_list|(
 name|ngx_log_t
 modifier|*
@@ -1364,10 +1364,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_rtsig_process_overlow (ngx_log_t * log)
+DECL|function|ngx_rtsig_process_overflow (ngx_log_t * log)
 specifier|static
 name|int
-name|ngx_rtsig_process_overlow
+name|ngx_rtsig_process_overflow
 parameter_list|(
 name|ngx_log_t
 modifier|*

@@ -73,6 +73,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<limits.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<sys/types.h>
 end_include
 
@@ -348,6 +354,25 @@ include|#
 directive|include
 file|<sys/event.h>
 end_include
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|IOV_MAX
+end_ifndef
+
+begin_define
+DECL|macro|IOV_MAX
+define|#
+directive|define
+name|IOV_MAX
+value|1024
+end_define
 
 begin_endif
 endif|#

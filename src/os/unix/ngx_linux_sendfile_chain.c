@@ -164,6 +164,12 @@ operator|=
 name|in
 init|;
 name|cl
+operator|&&
+name|header
+operator|.
+name|nelts
+operator|<
+name|IOV_MAX
 condition|;
 name|cl
 operator|=

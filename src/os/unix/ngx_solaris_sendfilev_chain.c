@@ -70,6 +70,9 @@ decl_stmt|;
 name|ngx_chain_t
 modifier|*
 name|cl
+decl_stmt|,
+modifier|*
+name|tail
 decl_stmt|;
 name|wev
 operator|=
@@ -141,6 +144,12 @@ operator|=
 name|in
 init|;
 name|cl
+operator|&&
+name|vec
+operator|.
+name|nelts
+operator|<
+name|IOV_MAX
 condition|;
 name|cl
 operator|=
@@ -390,6 +399,11 @@ name|file_last
 expr_stmt|;
 block|}
 block|}
+comment|/*          * the tail is the rest of the chain that exceeded a single          * sendfilev() capability, IOV_MAX in Solaris is only 16          */
+name|tail
+operator|=
+name|cl
+expr_stmt|;
 name|n
 operator|=
 name|sendfilev
@@ -661,9 +675,18 @@ name|in
 operator|=
 name|cl
 expr_stmt|;
+comment|/* "tail == in" means that a single sendfilev() is complete */
 block|}
 do|while
 condition|(
+operator|(
+name|tail
+operator|&&
+name|tail
+operator|==
+name|in
+operator|)
+operator|||
 name|eintr
 condition|)
 do|;

@@ -231,6 +231,12 @@ operator|=
 name|in
 init|;
 name|cl
+operator|&&
+name|header
+operator|.
+name|nelts
+operator|<
+name|IOV_MAX
 condition|;
 name|cl
 operator|=
@@ -498,6 +504,12 @@ control|(
 comment|/* void */
 init|;
 name|cl
+operator|&&
+name|trailer
+operator|.
+name|nelts
+operator|<
+name|IOV_MAX
 condition|;
 name|cl
 operator|=

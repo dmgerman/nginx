@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2bc364660108
+DECL|struct|__anon28c1364e0108
 typedef|typedef
 struct|struct
 block|{
@@ -364,7 +364,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bc364660208
+DECL|struct|__anon28c1364e0208
 typedef|typedef
 struct|struct
 block|{
@@ -816,6 +816,14 @@ name|NGX_LEVEL_EVENT
 value|0
 end_define
 
+begin_define
+DECL|macro|NGX_ONESHOT_EVENT
+define|#
+directive|define
+name|NGX_ONESHOT_EVENT
+value|1
+end_define
+
 begin_elif
 elif|#
 directive|elif
@@ -1135,7 +1143,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon2bc364660308
+DECL|struct|__anon28c1364e0308
 typedef|typedef
 struct|struct
 block|{
@@ -1163,7 +1171,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc364660408
+DECL|struct|__anon28c1364e0408
 typedef|typedef
 struct|struct
 block|{
