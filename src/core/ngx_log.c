@@ -166,8 +166,6 @@ argument_list|,
 name|tm
 operator|.
 name|ngx_tm_year
-operator|+
-literal|1900
 argument_list|,
 name|tm
 operator|.

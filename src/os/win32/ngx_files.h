@@ -93,8 +93,12 @@ parameter_list|,
 name|flags
 parameter_list|)
 define|\
-value|CreateFile(name, flags,                                         \                        FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_SHARE_DELETE,  \                        NULL, OPEN_EXISTING, 0, NULL)
+value|CreateFile(name, flags,                                         \                        FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_SHARE_DELETE,  \                        NULL, OPEN_EXISTING, FILE_FLAG_BACKUP_SEMANTICS, NULL)
 end_define
+
+begin_comment
+comment|/*                        NULL, OPEN_EXISTING, 0, NULL) */
+end_comment
 
 begin_define
 DECL|macro|ngx_open_file_n

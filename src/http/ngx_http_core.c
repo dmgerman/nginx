@@ -487,9 +487,9 @@ empty_stmt|;
 if|#
 directive|if
 operator|(
-name|WIN32
+name|WIN9X
 operator|)
-comment|/* There is no way to open file or directory in Win32 with        one syscall: CreateFile() returns ERROR_ACCESS_DENIED on directory,        so we need to check its type before opening */
+comment|/* There is no way to open file or directory in Win9X with        one syscall: Win9X has not FILE_FLAG_BACKUP_SEMANTICS flag.        so we need to check its type before opening */
 if|#
 directive|if
 literal|0
@@ -639,7 +639,7 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"ngx_http_static_handler: "
+literal|"ngx_http_core_handler: "
 name|ngx_open_file_n
 literal|" %s failed"
 argument_list|,
@@ -709,7 +709,7 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"ngx_http_static_handler: "
+literal|"ngx_http_core_handler: "
 name|ngx_stat_fd_n
 literal|" %s failed"
 argument_list|,
@@ -747,7 +747,7 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"ngx_http_static_handler: "
+literal|"ngx_http_core_handler: "
 name|ngx_close_file_n
 literal|" %s failed"
 argument_list|,
@@ -799,7 +799,7 @@ if|#
 directive|if
 operator|!
 operator|(
-name|WIN32
+name|WIN9X
 operator|)
 if|if
 condition|(
@@ -826,7 +826,7 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"ngx_http_static_handler: "
+literal|"ngx_http_core_handler: "
 name|ngx_close_file_n
 literal|" %s failed"
 argument_list|,

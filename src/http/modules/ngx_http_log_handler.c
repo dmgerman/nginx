@@ -101,6 +101,18 @@ decl_stmt|;
 name|ngx_tm_t
 name|tm
 decl_stmt|;
+name|ngx_log_debug
+argument_list|(
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|"log handler"
+argument_list|)
+expr_stmt|;
+comment|/* %a, 20:%c, 22:%d, 3:%s, 20:%b, 5*" ", "2/1: "\r\n" */
 if|#
 directive|if
 operator|(
@@ -110,6 +122,8 @@ name|len
 operator|=
 literal|2
 operator|+
+literal|20
+operator|+
 literal|22
 operator|+
 literal|3
@@ -118,7 +132,6 @@ literal|20
 operator|+
 literal|5
 operator|+
-literal|20
 operator|+
 literal|2
 expr_stmt|;
@@ -128,6 +141,8 @@ name|len
 operator|=
 literal|2
 operator|+
+literal|20
+operator|+
 literal|22
 operator|+
 literal|3
@@ -136,7 +151,6 @@ literal|20
 operator|+
 literal|5
 operator|+
-literal|20
 operator|+
 literal|1
 expr_stmt|;
@@ -160,6 +174,14 @@ name|request_line
 operator|.
 name|len
 expr_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|r->connection->log
+argument_list|,
+literal|"log handler: %d"
+argument|_ len
+argument_list|)
+empty_stmt|;
 name|ngx_test_null
 argument_list|(
 name|line
@@ -217,12 +239,56 @@ operator|++
 operator|=
 literal|' '
 expr_stmt|;
+name|p
+operator|+=
+name|ngx_snprintf
+argument_list|(
+name|p
+argument_list|,
+literal|21
+argument_list|,
+literal|"%u"
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|number
+argument_list|)
+expr_stmt|;
+operator|*
+name|p
+operator|++
+operator|=
+literal|' '
+expr_stmt|;
+operator|*
+name|p
+operator|=
+literal|'\0'
+expr_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|r->connection->log
+argument_list|,
+literal|"log handler: %s"
+argument|_ line
+argument_list|)
+empty_stmt|;
 name|ngx_localtime
 argument_list|(
 operator|&
 name|tm
 argument_list|)
 expr_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|r->connection->log
+argument_list|,
+literal|"log handler: %s"
+argument|_ line
+argument_list|)
+empty_stmt|;
 operator|*
 name|p
 operator|++
@@ -248,13 +314,13 @@ index|[
 name|tm
 operator|.
 name|ngx_tm_mon
+operator|-
+literal|1
 index|]
 argument_list|,
 name|tm
 operator|.
 name|ngx_tm_year
-operator|+
-literal|1900
 argument_list|,
 name|tm
 operator|.
@@ -281,6 +347,19 @@ operator|++
 operator|=
 literal|' '
 expr_stmt|;
+operator|*
+name|p
+operator|=
+literal|'\0'
+expr_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|r->connection->log
+argument_list|,
+literal|"log handler: %s"
+argument|_ line
+argument_list|)
+empty_stmt|;
 operator|*
 name|p
 operator|++
@@ -366,27 +445,17 @@ argument_list|)
 expr_stmt|;
 operator|*
 name|p
-operator|++
 operator|=
-literal|' '
+literal|'\0'
 expr_stmt|;
-name|p
-operator|+=
-name|ngx_snprintf
+name|ngx_log_debug
 argument_list|(
-name|p
+argument|r->connection->log
 argument_list|,
-literal|21
-argument_list|,
-literal|"%u"
-argument_list|,
-name|r
-operator|->
-name|connection
-operator|->
-name|number
+literal|"log handler: %s"
+argument|_ line
 argument_list|)
-expr_stmt|;
+empty_stmt|;
 if|#
 directive|if
 operator|(
@@ -414,6 +483,19 @@ name|LF
 expr_stmt|;
 endif|#
 directive|endif
+operator|*
+name|p
+operator|=
+literal|'\0'
+expr_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|r->connection->log
+argument_list|,
+literal|"log handler: %s"
+argument|_ line
+argument_list|)
+empty_stmt|;
 name|write
 argument_list|(
 literal|1

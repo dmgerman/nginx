@@ -38,6 +38,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_array.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_listen.h>
 end_include
 

@@ -37,6 +37,17 @@ argument_list|,
 name|tm
 argument_list|)
 expr_stmt|;
+name|tm
+operator|->
+name|ngx_tm_mon
+operator|++
+expr_stmt|;
+name|tm
+operator|->
+name|ngx_tm_year
+operator|+=
+literal|1900
+expr_stmt|;
 block|}
 end_function
 

@@ -27,13 +27,19 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_alloc.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_hunk.h>
 end_include
 
 begin_include
 include|#
 directive|include
-file|<ngx_alloc.h>
+file|<ngx_array.h>
 end_include
 
 begin_include
