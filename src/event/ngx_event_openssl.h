@@ -37,7 +37,7 @@ file|<openssl/err.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ae52a7e0108
+DECL|struct|__anon2bc9f51d0108
 typedef|typedef
 struct|struct
 block|{
@@ -54,6 +54,12 @@ decl_stmt|;
 DECL|member|saved_handler
 name|ngx_event_handler_pt
 name|saved_handler
+decl_stmt|;
+DECL|member|buffer
+name|unsigned
+name|buffer
+range|:
+literal|1
 decl_stmt|;
 DECL|member|no_rcv_shut
 name|unsigned
