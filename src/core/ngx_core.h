@@ -138,6 +138,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_types.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_shared.h>
 end_include
 
@@ -205,12 +211,6 @@ begin_include
 include|#
 directive|include
 file|<ngx_table.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_types.h>
 end_include
 
 begin_include
