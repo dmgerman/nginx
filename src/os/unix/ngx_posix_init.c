@@ -36,7 +36,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon2a0d22440108
+DECL|struct|__anon277b858d0108
 typedef|typedef
 struct|struct
 block|{
@@ -572,23 +572,14 @@ argument_list|)
 case|:
 if|if
 condition|(
-operator|(
-name|ngx_inherited
-operator|&&
 name|getppid
 argument_list|()
 operator|>
 literal|1
-operator|)
 operator|||
-operator|(
-operator|!
-name|ngx_inherited
-operator|&&
 name|ngx_new_binary
 operator|>
 literal|0
-operator|)
 condition|)
 block|{
 comment|/*                  * Ignore the signal in the new binary if its parent is                  * not the init process, i.e. the old binary's process                  * is still running.  Or ingore the signal in the old binary's                  * process if the new binary's process is already running.                  */

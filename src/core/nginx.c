@@ -24,7 +24,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b38f7bd0108
+DECL|struct|__anon2c1b03860108
 typedef|typedef
 struct|struct
 block|{
@@ -63,7 +63,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b38f7bd0208
+DECL|struct|__anon2c1b03860208
 typedef|typedef
 struct|struct
 block|{
@@ -1763,6 +1763,7 @@ name|ngx_new_binary
 operator|=
 literal|0
 expr_stmt|;
+comment|/* TODO: if (ngx_noaccept) ngx_configure = 1 */
 block|}
 if|if
 condition|(
@@ -1999,6 +2000,16 @@ argument_list|(
 name|NGX_REOPEN_SIGNAL
 argument_list|)
 expr_stmt|;
+name|ngx_reopen
+operator|=
+literal|0
+expr_stmt|;
+block|}
+if|else if
+condition|(
+name|ngx_noaccept
+condition|)
+block|{
 name|ngx_reopen
 operator|=
 literal|0
