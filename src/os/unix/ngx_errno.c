@@ -125,9 +125,6 @@ name|char
 modifier|*
 name|str
 decl_stmt|;
-name|size_t
-name|len
-decl_stmt|;
 if|if
 condition|(
 name|size

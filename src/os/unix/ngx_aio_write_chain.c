@@ -65,9 +65,6 @@ name|n
 decl_stmt|,
 name|size
 decl_stmt|;
-name|ngx_err_t
-name|err
-decl_stmt|;
 name|ngx_chain_t
 modifier|*
 name|cl

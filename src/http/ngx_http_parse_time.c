@@ -89,7 +89,7 @@ name|min
 decl_stmt|,
 name|sec
 decl_stmt|;
-DECL|enum|__anon27e9c8160103
+DECL|enum|__anon275d456f0103
 enum|enum
 block|{
 DECL|enumerator|no
@@ -1214,15 +1214,15 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-if|if
-condition|(
-sizeof|sizeof
-argument_list|(
-name|time_t
-argument_list|)
+if|#
+directive|if
+operator|(
+name|NGX_TIME_T_SIZE
 operator|<=
 literal|4
-operator|&&
+operator|)
+if|if
+condition|(
 name|year
 operator|>=
 literal|2038
@@ -1232,6 +1232,8 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+endif|#
+directive|endif
 comment|/*      * shift new year to March 1 and start months from 1 (not 0),      * it is needed for Gauss's formula      */
 if|if
 condition|(

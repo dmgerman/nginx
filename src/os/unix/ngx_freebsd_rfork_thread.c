@@ -814,10 +814,6 @@ name|NGX_ERROR
 return|;
 block|}
 comment|/* create the thread errno' array */
-if|if
-condition|(
-operator|!
-operator|(
 name|errnos
 operator|=
 name|ngx_calloc
@@ -833,7 +829,12 @@ name|cycle
 operator|->
 name|log
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|errnos
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -841,10 +842,6 @@ name|NGX_ERROR
 return|;
 block|}
 comment|/* create the thread tids array */
-if|if
-condition|(
-operator|!
-operator|(
 name|tids
 operator|=
 name|ngx_calloc
@@ -864,7 +861,12 @@ name|cycle
 operator|->
 name|log
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|tids
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -954,11 +956,8 @@ name|ngx_tid_t
 name|ngx_thread_self
 parameter_list|()
 block|{
-name|int
+name|ngx_int_t
 name|tid
-decl_stmt|;
-name|ngx_tid_t
-name|pid
 decl_stmt|;
 name|tid
 operator|=
@@ -1082,10 +1081,6 @@ name|union
 name|semun
 name|op
 decl_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
 name|m
 operator|=
 name|ngx_alloc
@@ -1097,7 +1092,12 @@ argument_list|)
 argument_list|,
 name|log
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|m
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -1317,8 +1317,6 @@ parameter_list|)
 block|{
 name|uint32_t
 name|lock
-decl_stmt|,
-name|new
 decl_stmt|,
 name|old
 decl_stmt|;
@@ -1775,8 +1773,6 @@ block|{
 name|uint32_t
 name|lock
 decl_stmt|,
-name|new
-decl_stmt|,
 name|old
 decl_stmt|;
 name|struct
@@ -2071,10 +2067,6 @@ name|ngx_cond_t
 modifier|*
 name|cv
 decl_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
 name|cv
 operator|=
 name|ngx_alloc
@@ -2086,7 +2078,12 @@ argument_list|)
 argument_list|,
 name|log
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|cv
+operator|==
+name|NULL
 condition|)
 block|{
 return|return

@@ -60,8 +60,8 @@ comment|/*  * on completion ngx_http_read_client_request_body() adds to  * r->re
 end_comment
 
 begin_function
-DECL|function|ngx_http_read_client_request_body (ngx_http_request_t * r,ngx_http_client_body_handler_pt post_handler)
 name|ngx_int_t
+DECL|function|ngx_http_read_client_request_body (ngx_http_request_t * r,ngx_http_client_body_handler_pt post_handler)
 name|ngx_http_read_client_request_body
 parameter_list|(
 name|ngx_http_request_t
@@ -83,6 +83,10 @@ name|ngx_chain_t
 modifier|*
 name|cl
 decl_stmt|;
+name|ngx_connection_t
+modifier|*
+name|c
+decl_stmt|;
 name|ngx_http_request_body_t
 modifier|*
 name|rb
@@ -91,10 +95,6 @@ name|ngx_http_core_loc_conf_t
 modifier|*
 name|clcf
 decl_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
 name|rb
 operator|=
 name|ngx_pcalloc
@@ -108,7 +108,12 @@ argument_list|(
 name|ngx_http_request_body_t
 argument_list|)
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|rb
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -121,6 +126,66 @@ name|request_body
 operator|=
 name|rb
 expr_stmt|;
+comment|/* STUB */
+if|if
+condition|(
+name|r
+operator|->
+name|file
+operator|.
+name|fd
+operator|!=
+name|NGX_INVALID_FILE
+condition|)
+block|{
+if|if
+condition|(
+name|ngx_close_file
+argument_list|(
+name|r
+operator|->
+name|file
+operator|.
+name|fd
+argument_list|)
+operator|==
+name|NGX_FILE_ERROR
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+name|ngx_errno
+argument_list|,
+name|ngx_close_file_n
+literal|" \"%V\" failed"
+argument_list|,
+operator|&
+name|r
+operator|->
+name|file
+operator|.
+name|name
+argument_list|)
+expr_stmt|;
+block|}
+name|r
+operator|->
+name|file
+operator|.
+name|fd
+operator|=
+name|NGX_INVALID_FILE
+expr_stmt|;
+block|}
+comment|/**/
 if|if
 condition|(
 name|r
@@ -168,10 +233,6 @@ name|size
 condition|)
 block|{
 comment|/* there is the pre-read part of the request body */
-if|if
-condition|(
-operator|!
-operator|(
 name|b
 operator|=
 name|ngx_calloc_buf
@@ -180,7 +241,12 @@ name|r
 operator|->
 name|pool
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|b
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -221,10 +287,6 @@ name|header_in
 operator|->
 name|last
 expr_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
 name|rb
 operator|->
 name|bufs
@@ -235,7 +297,14 @@ name|r
 operator|->
 name|pool
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|rb
+operator|->
+name|bufs
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -376,10 +445,6 @@ operator|->
 name|client_body_buffer_size
 expr_stmt|;
 block|}
-if|if
-condition|(
-operator|!
-operator|(
 name|rb
 operator|->
 name|buf
@@ -392,17 +457,20 @@ name|pool
 argument_list|,
 name|size
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|rb
+operator|->
+name|buf
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
 block|}
-if|if
-condition|(
-operator|!
-operator|(
 name|cl
 operator|=
 name|ngx_alloc_chain_link
@@ -411,7 +479,12 @@ name|r
 operator|->
 name|pool
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|cl
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -457,9 +530,13 @@ operator|=
 name|cl
 expr_stmt|;
 block|}
+name|c
+operator|=
 name|r
 operator|->
 name|connection
+expr_stmt|;
+name|c
 operator|->
 name|read
 operator|->
@@ -472,18 +549,16 @@ name|ngx_http_do_read_client_request_body
 argument_list|(
 name|r
 argument_list|,
-name|r
-operator|->
-name|connection
+name|c
 argument_list|)
 return|;
 block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_read_client_request_body_handler (ngx_event_t * rev)
 specifier|static
 name|void
+DECL|function|ngx_http_read_client_request_body_handler (ngx_event_t * rev)
 name|ngx_http_read_client_request_body_handler
 parameter_list|(
 name|ngx_event_t
@@ -558,9 +633,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_do_read_client_request_body (ngx_http_request_t * r,ngx_connection_t * c)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_do_read_client_request_body (ngx_http_request_t * r,ngx_connection_t * c)
 name|ngx_http_do_read_client_request_body
 parameter_list|(
 name|ngx_http_request_t
@@ -643,10 +718,6 @@ operator|==
 name|NULL
 condition|)
 block|{
-if|if
-condition|(
-operator|!
-operator|(
 name|tf
 operator|=
 name|ngx_pcalloc
@@ -660,7 +731,12 @@ argument_list|(
 name|ngx_temp_file_t
 argument_list|)
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|tf
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -1071,10 +1147,6 @@ return|return
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
 block|}
-if|if
-condition|(
-operator|!
-operator|(
 name|b
 operator|=
 name|ngx_calloc_buf
@@ -1083,7 +1155,12 @@ name|r
 operator|->
 name|pool
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|b
+operator|==
+name|NULL
 condition|)
 block|{
 return|return

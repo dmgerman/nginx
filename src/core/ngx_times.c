@@ -307,8 +307,8 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_time_init (void)
 name|void
+DECL|function|ngx_time_init (void)
 name|ngx_time_init
 parameter_list|(
 name|void
@@ -455,8 +455,8 @@ operator|)
 end_if
 
 begin_function
-DECL|function|ngx_time_mutex_init (ngx_log_t * log)
 name|ngx_int_t
+DECL|function|ngx_time_mutex_init (ngx_log_t * log)
 name|ngx_time_mutex_init
 parameter_list|(
 name|ngx_log_t
@@ -464,10 +464,6 @@ modifier|*
 name|log
 parameter_list|)
 block|{
-if|if
-condition|(
-operator|!
-operator|(
 name|ngx_time_mutex
 operator|=
 name|ngx_mutex_init
@@ -476,7 +472,12 @@ name|log
 argument_list|,
 name|NGX_MUTEX_LIGHT
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|ngx_time_mutex
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -495,8 +496,8 @@ directive|endif
 end_endif
 
 begin_function
-DECL|function|ngx_time_update (time_t s)
 name|void
+DECL|function|ngx_time_update (time_t s)
 name|ngx_time_update
 parameter_list|(
 name|time_t
@@ -838,9 +839,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_time (u_char * buf,time_t t)
 name|u_char
 modifier|*
+DECL|function|ngx_http_time (u_char * buf,time_t t)
 name|ngx_http_time
 parameter_list|(
 name|u_char
@@ -910,9 +911,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_cookie_time (u_char * buf,time_t t)
 name|u_char
 modifier|*
+DECL|function|ngx_http_cookie_time (u_char * buf,time_t t)
 name|ngx_http_cookie_time
 parameter_list|(
 name|u_char
@@ -1007,8 +1008,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_gmtime (time_t t,ngx_tm_t * tp)
 name|void
+DECL|function|ngx_gmtime (time_t t,ngx_tm_t * tp)
 name|ngx_gmtime
 parameter_list|(
 name|time_t

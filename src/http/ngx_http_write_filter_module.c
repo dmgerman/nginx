@@ -28,7 +28,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2929ccfe0108
+DECL|struct|__anon2bda44f20108
 typedef|typedef
 struct|struct
 block|{
@@ -114,8 +114,8 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_http_write_filter (ngx_http_request_t * r,ngx_chain_t * in)
 name|ngx_int_t
+DECL|function|ngx_http_write_filter (ngx_http_request_t * r,ngx_chain_t * in)
 name|ngx_http_write_filter
 parameter_list|(
 name|ngx_http_request_t
@@ -187,20 +187,38 @@ operator|==
 name|NULL
 condition|)
 block|{
-name|ngx_http_create_ctx
+name|ctx
+operator|=
+name|ngx_pcalloc
+argument_list|(
+name|r
+operator|->
+name|pool
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|ngx_http_write_filter_ctx_t
+argument_list|)
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|ctx
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+name|ngx_http_set_ctx
 argument_list|(
 name|r
 argument_list|,
 name|ctx
 argument_list|,
 name|ngx_http_write_filter_module
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|ngx_http_write_filter_ctx_t
-argument_list|)
-argument_list|,
-name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 block|}
@@ -480,10 +498,6 @@ operator|->
 name|next
 control|)
 block|{
-if|if
-condition|(
-operator|!
-operator|(
 name|cl
 operator|=
 name|ngx_alloc_chain_link
@@ -492,7 +506,12 @@ name|r
 operator|->
 name|pool
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|cl
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -846,9 +865,8 @@ condition|(
 name|flush
 condition|)
 block|{
-while|while
-condition|(
-operator|(
+do|do
+block|{
 name|ctx
 operator|->
 name|out
@@ -858,11 +876,15 @@ operator|->
 name|out
 operator|->
 name|next
-operator|)
-condition|)
-block|{
-comment|/* void */
+expr_stmt|;
 block|}
+do|while
+condition|(
+name|ctx
+operator|->
+name|out
+condition|)
+do|;
 return|return
 name|NGX_OK
 return|;
@@ -1014,9 +1036,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_write_filter_init (ngx_cycle_t * cycle)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_write_filter_init (ngx_cycle_t * cycle)
 name|ngx_http_write_filter_init
 parameter_list|(
 name|ngx_cycle_t

@@ -796,10 +796,6 @@ literal|"is duplicate"
 return|;
 block|}
 comment|/* ngx_calloc_shared() */
-if|if
-condition|(
-operator|!
-operator|(
 name|bl
 operator|=
 name|ngx_pcalloc
@@ -813,7 +809,12 @@ argument_list|(
 name|ngx_http_busy_lock_t
 argument_list|)
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|bl
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -826,10 +827,6 @@ operator|=
 name|bl
 expr_stmt|;
 comment|/* ngx_calloc_shared() */
-if|if
-condition|(
-operator|!
-operator|(
 name|bl
 operator|->
 name|mutex
@@ -845,7 +842,14 @@ argument_list|(
 name|ngx_event_mutex_t
 argument_list|)
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|bl
+operator|->
+name|mutex
+operator|==
+name|NULL
 condition|)
 block|{
 return|return

@@ -70,6 +70,15 @@ name|ngx_http_in_addr_t
 typedef|;
 end_typedef
 
+begin_typedef
+DECL|typedef|ngx_http_variable_value_t
+typedef|typedef
+name|struct
+name|ngx_http_variable_value_s
+name|ngx_http_variable_value_t
+typedef|;
+end_typedef
+
 begin_if
 if|#
 directive|if
@@ -126,7 +135,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_http_log_handler.h>
+file|<ngx_http_log_module.h>
 end_include
 
 begin_include
@@ -205,34 +214,6 @@ parameter_list|)
 define|\
 value|((r)->err_ctx ? (r)->err_ctx[module.ctx_index] : (r)->ctx[module.ctx_index])
 end_define
-
-begin_comment
-comment|/* STUB */
-end_comment
-
-begin_define
-DECL|macro|ngx_http_create_ctx (r,cx,module,size,error)
-define|#
-directive|define
-name|ngx_http_create_ctx
-parameter_list|(
-name|r
-parameter_list|,
-name|cx
-parameter_list|,
-name|module
-parameter_list|,
-name|size
-parameter_list|,
-name|error
-parameter_list|)
-define|\
-value|do {                                                              \                 ngx_test_null(cx, ngx_pcalloc(r->pool, size), error);         \                 r->ctx[module.ctx_index] = cx;                                \             } while (0)
-end_define
-
-begin_comment
-comment|/**/
-end_comment
 
 begin_define
 DECL|macro|ngx_http_set_ctx (r,c,module)

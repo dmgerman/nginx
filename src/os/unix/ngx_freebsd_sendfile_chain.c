@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_comment
-comment|/*  * Although FreeBSD sendfile() allows to pass a header and a trailer,  * it can not send a header with a part of the file in one packet until  * FreeBSD 5.3.  Besides, over the fast ethernet connection sendfile()  * may send the partially filled packets, i.e. the 8 file pages may be sent  * as the 11 full 1460-bytes packets, then one incomplete 324-bytes packet,  * and then again the 11 full 1460-bytes packets.  *  * Threfore we use the TCP_NOPUSH option (similar to Linux's TCP_CORK)  * to postpone the sending - it not only sends a header and the first part of  * the file in one packet, but also sends the file pages in the full packets.  *  * But until FreeBSD 4.5 the turning TCP_NOPUSH off does not flush a pending  * data that less than MSS so that data may be sent with 5 second delay.  * So we do not use TCP_NOPUSH on FreeBSD prior to 4.5 although it can be used  * for non-keepalive HTTP connections.  */
+comment|/*  * Although FreeBSD sendfile() allows to pass a header and a trailer,  * it can not send a header with a part of the file in one packet until  * FreeBSD 5.3.  Besides, over the fast ethernet connection sendfile()  * may send the partially filled packets, i.e. the 8 file pages may be sent  * as the 11 full 1460-bytes packets, then one incomplete 324-bytes packet,  * and then again the 11 full 1460-bytes packets.  *  * Threfore we use the TCP_NOPUSH option (similar to Linux's TCP_CORK)  * to postpone the sending - it not only sends a header and the first part of  * the file in one packet, but also sends the file pages in the full packets.  *  * But until FreeBSD 4.5 turning TCP_NOPUSH off does not flush a pending  * data that less than MSS, so that data may be sent with 5 second delay.  * So we do not use TCP_NOPUSH on FreeBSD prior to 4.5, although it can be used  * for non-keepalive HTTP connections.  */
 end_comment
 
 begin_define
@@ -38,13 +38,13 @@ DECL|macro|NGX_TRAILERS
 define|#
 directive|define
 name|NGX_TRAILERS
-value|4
+value|8
 end_define
 
 begin_function
-DECL|function|ngx_freebsd_sendfile_chain (ngx_connection_t * c,ngx_chain_t * in,off_t limit)
 name|ngx_chain_t
 modifier|*
+DECL|function|ngx_freebsd_sendfile_chain (ngx_connection_t * c,ngx_chain_t * in,off_t limit)
 name|ngx_freebsd_sendfile_chain
 parameter_list|(
 name|ngx_connection_t
@@ -436,10 +436,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-operator|!
-operator|(
 name|iov
 operator|=
 name|ngx_array_push
@@ -447,7 +443,12 @@ argument_list|(
 operator|&
 name|header
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|iov
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -781,10 +782,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-operator|!
-operator|(
 name|iov
 operator|=
 name|ngx_array_push
@@ -792,7 +789,12 @@ argument_list|(
 operator|&
 name|trailer
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|iov
+operator|==
+name|NULL
 condition|)
 block|{
 return|return

@@ -57,9 +57,6 @@ decl_stmt|;
 name|ssize_t
 name|total
 decl_stmt|;
-name|ngx_err_t
-name|err
-decl_stmt|;
 if|if
 condition|(
 name|c

@@ -26,7 +26,7 @@ comment|/* AF_INET only */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2a53a7350108
+DECL|struct|__anon2bd588490108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a53a7350208
+DECL|struct|__anon2bd588490208
 typedef|typedef
 struct|struct
 block|{
@@ -261,9 +261,9 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_http_access_handler (ngx_http_request_t * r)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_access_handler (ngx_http_request_t * r)
 name|ngx_http_access_handler
 parameter_list|(
 name|ngx_http_request_t
@@ -450,10 +450,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_access_rule (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_access_rule (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_http_access_rule
 parameter_list|(
 name|ngx_conf_t
@@ -499,7 +499,7 @@ name|alcf
 operator|->
 name|rules
 operator|=
-name|ngx_create_array
+name|ngx_array_create
 argument_list|(
 name|cf
 operator|->
@@ -527,19 +527,20 @@ name|NGX_CONF_ERROR
 return|;
 block|}
 block|}
-if|if
-condition|(
-operator|!
-operator|(
 name|rule
 operator|=
-name|ngx_push_array
+name|ngx_array_push
 argument_list|(
 name|alcf
 operator|->
 name|rules
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|rule
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -716,10 +717,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_access_create_loc_conf (ngx_conf_t * cf)
 specifier|static
 name|void
 modifier|*
+DECL|function|ngx_http_access_create_loc_conf (ngx_conf_t * cf)
 name|ngx_http_access_create_loc_conf
 parameter_list|(
 name|ngx_conf_t
@@ -731,10 +732,6 @@ name|ngx_http_access_loc_conf_t
 modifier|*
 name|conf
 decl_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
 name|conf
 operator|=
 name|ngx_pcalloc
@@ -748,7 +745,12 @@ argument_list|(
 name|ngx_http_access_loc_conf_t
 argument_list|)
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|conf
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -762,10 +764,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_access_merge_loc_conf (ngx_conf_t * cf,void * parent,void * child)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_access_merge_loc_conf (ngx_conf_t * cf,void * parent,void * child)
 name|ngx_http_access_merge_loc_conf
 parameter_list|(
 name|ngx_conf_t
@@ -818,9 +820,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_access_init (ngx_cycle_t * cycle)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_access_init (ngx_cycle_t * cycle)
 name|ngx_http_access_init
 parameter_list|(
 name|ngx_cycle_t
@@ -847,7 +849,7 @@ argument_list|)
 expr_stmt|;
 name|h
 operator|=
-name|ngx_push_array
+name|ngx_array_push
 argument_list|(
 operator|&
 name|cmcf

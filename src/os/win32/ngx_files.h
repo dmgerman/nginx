@@ -539,18 +539,20 @@ parameter_list|)
 value|ngx_strlen((dir)->fd.cFileName)
 end_define
 
-begin_define
-DECL|macro|ngx_de_info (name,dir)
-define|#
-directive|define
+begin_function_decl
+name|ngx_int_t
 name|ngx_de_info
 parameter_list|(
+name|u_char
+modifier|*
 name|name
 parameter_list|,
+name|ngx_dir_t
+modifier|*
 name|dir
 parameter_list|)
-value|NGX_OK
-end_define
+function_decl|;
+end_function_decl
 
 begin_define
 DECL|macro|ngx_de_info_n
@@ -560,18 +562,20 @@ name|ngx_de_info_n
 value|"dummy()"
 end_define
 
-begin_define
-DECL|macro|ngx_de_link_info (name,dir)
-define|#
-directive|define
+begin_function_decl
+name|ngx_int_t
 name|ngx_de_link_info
 parameter_list|(
+name|u_char
+modifier|*
 name|name
 parameter_list|,
+name|ngx_dir_t
+modifier|*
 name|dir
 parameter_list|)
-value|NGX_OK
-end_define
+function_decl|;
+end_function_decl
 
 begin_define
 DECL|macro|ngx_de_link_info_n

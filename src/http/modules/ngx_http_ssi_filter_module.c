@@ -62,7 +62,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon29c392210108
+DECL|struct|__anon28d6159c0108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c392210208
+DECL|struct|__anon28d6159c0208
 typedef|typedef
 struct|struct
 block|{
@@ -210,7 +210,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c392210308
+DECL|struct|__anon28d6159c0308
 typedef|typedef
 struct|struct
 block|{
@@ -233,7 +233,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c392210408
+DECL|struct|__anon28d6159c0408
 typedef|typedef
 struct|struct
 block|{
@@ -262,7 +262,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29c392210503
+DECL|enum|__anon28d6159c0503
 typedef|typedef
 enum|enum
 block|{
@@ -332,22 +332,6 @@ block|}
 name|ngx_http_ssi_state_e
 typedef|;
 end_typedef
-
-begin_function_decl
-specifier|static
-name|ngx_int_t
-name|ngx_http_ssi_error
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|,
-name|ngx_http_ssi_ctx_t
-modifier|*
-name|ctx
-parameter_list|)
-function_decl|;
-end_function_decl
 
 begin_function_decl
 specifier|static
@@ -4513,6 +4497,9 @@ modifier|*
 name|params
 parameter_list|)
 block|{
+name|ngx_uint_t
+name|i
+decl_stmt|;
 name|ngx_buf_t
 modifier|*
 name|b
@@ -4530,7 +4517,7 @@ name|cl
 decl_stmt|;
 name|ngx_http_variable_value_t
 modifier|*
-name|v
+name|vv
 decl_stmt|;
 name|var
 operator|=
@@ -4539,11 +4526,41 @@ index|[
 name|NGX_HTTP_SSI_ECHO_VAR
 index|]
 expr_stmt|;
-name|value
+for|for
+control|(
+name|i
 operator|=
-name|NULL
+literal|0
+init|;
+name|i
+operator|<
+name|var
+operator|->
+name|len
+condition|;
+name|i
+operator|++
+control|)
+block|{
+name|var
+operator|->
+name|data
+index|[
+name|i
+index|]
+operator|=
+name|ngx_toupper
+argument_list|(
+name|var
+operator|->
+name|data
+index|[
+name|i
+index|]
+argument_list|)
 expr_stmt|;
-name|v
+block|}
+name|vv
 operator|=
 name|ngx_http_get_variable
 argument_list|(
@@ -4554,7 +4571,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|v
+name|vv
 operator|==
 name|NULL
 condition|)
@@ -4565,7 +4582,7 @@ return|;
 block|}
 if|if
 condition|(
-name|v
+name|vv
 operator|==
 name|NGX_HTTP_VARIABLE_NOT_FOUND
 condition|)
@@ -4609,7 +4626,7 @@ block|{
 name|value
 operator|=
 operator|&
-name|v
+name|vv
 operator|->
 name|text
 expr_stmt|;

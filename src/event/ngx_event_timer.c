@@ -100,10 +100,6 @@ directive|if
 operator|(
 name|NGX_THREADS
 operator|)
-if|if
-condition|(
-operator|!
-operator|(
 name|ngx_event_timer_mutex
 operator|=
 name|ngx_mutex_init
@@ -112,7 +108,12 @@ name|log
 argument_list|,
 literal|0
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|ngx_event_timer_mutex
+operator|==
+name|NULL
 condition|)
 block|{
 return|return

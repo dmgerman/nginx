@@ -238,5 +238,45 @@ return|;
 block|}
 end_function
 
+begin_comment
+comment|/* STUB */
+end_comment
+
+begin_function
+name|ngx_int_t
+DECL|function|ngx_mutex_lock (ngx_mutex_t * m)
+name|ngx_mutex_lock
+parameter_list|(
+name|ngx_mutex_t
+modifier|*
+name|m
+parameter_list|)
+block|{
+return|return
+name|NGX_OK
+return|;
+block|}
+end_function
+
+begin_function
+name|ngx_int_t
+DECL|function|ngx_mutex_trylock (ngx_mutex_t * m)
+name|ngx_mutex_trylock
+parameter_list|(
+name|ngx_mutex_t
+modifier|*
+name|m
+parameter_list|)
+block|{
+return|return
+name|NGX_OK
+return|;
+block|}
+end_function
+
+begin_comment
+comment|/**/
+end_comment
+
 end_unit
 

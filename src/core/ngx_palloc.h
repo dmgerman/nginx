@@ -48,21 +48,6 @@ name|NGX_DEFAULT_POOL_SIZE
 value|(16 * 1024)
 end_define
 
-begin_define
-DECL|macro|ngx_test_null (p,alloc,rc)
-define|#
-directive|define
-name|ngx_test_null
-parameter_list|(
-name|p
-parameter_list|,
-name|alloc
-parameter_list|,
-name|rc
-parameter_list|)
-value|if ((p = alloc) == NULL) { return rc; }
-end_define
-
 begin_typedef
 DECL|typedef|ngx_pool_large_t
 typedef|typedef

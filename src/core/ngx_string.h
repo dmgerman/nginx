@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c7294b00108
+DECL|struct|__anon2b0d11bc0108
 typedef|typedef
 struct|struct
 block|{
@@ -76,6 +76,17 @@ parameter_list|(
 name|c
 parameter_list|)
 value|(u_char) ((c>= 'A'&& c<= 'Z') ? (c | 0x20) : c)
+end_define
+
+begin_define
+DECL|macro|ngx_toupper (c)
+define|#
+directive|define
+name|ngx_toupper
+parameter_list|(
+name|c
+parameter_list|)
+value|(u_char) ((c>= 'a'&& c<= 'z') ? (c& ~0x20) : c)
 end_define
 
 begin_if
@@ -428,6 +439,48 @@ end_function_decl
 begin_function_decl
 name|ngx_int_t
 name|ngx_atoi
+parameter_list|(
+name|u_char
+modifier|*
+name|line
+parameter_list|,
+name|size_t
+name|n
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ssize_t
+name|ngx_atosz
+parameter_list|(
+name|u_char
+modifier|*
+name|line
+parameter_list|,
+name|size_t
+name|n
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|off_t
+name|ngx_atoof
+parameter_list|(
+name|u_char
+modifier|*
+name|line
+parameter_list|,
+name|size_t
+name|n
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|time_t
+name|ngx_atotm
 parameter_list|(
 name|u_char
 modifier|*

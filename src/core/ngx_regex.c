@@ -295,7 +295,7 @@ end_function
 
 begin_function
 DECL|function|ngx_regex_capture_count (ngx_regex_t * re)
-name|ngx_uint_t
+name|ngx_int_t
 name|ngx_regex_capture_count
 parameter_list|(
 name|ngx_regex_t
@@ -326,9 +326,23 @@ operator|&
 name|n
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|rc
+operator|<
+literal|0
+condition|)
+block|{
 return|return
 operator|(
-name|ngx_uint_t
+name|ngx_int_t
+operator|)
+name|rc
+return|;
+block|}
+return|return
+operator|(
+name|ngx_int_t
 operator|)
 name|n
 return|;

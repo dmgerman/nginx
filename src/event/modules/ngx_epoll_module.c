@@ -327,7 +327,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29555d810108
+DECL|struct|__anon29eb85fd0108
 typedef|typedef
 struct|struct
 block|{
@@ -638,9 +638,6 @@ modifier|*
 name|cycle
 parameter_list|)
 block|{
-name|size_t
-name|n
-decl_stmt|;
 name|ngx_event_conf_t
 modifier|*
 name|ecf
@@ -1615,9 +1612,6 @@ parameter_list|)
 block|{
 name|int
 name|events
-decl_stmt|;
-name|size_t
-name|n
 decl_stmt|;
 name|uint32_t
 name|revents
@@ -2614,10 +2608,8 @@ name|ngx_epoll_conf_t
 modifier|*
 name|epcf
 decl_stmt|;
-name|ngx_test_null
-argument_list|(
 name|epcf
-argument_list|,
+operator|=
 name|ngx_palloc
 argument_list|(
 name|cycle
@@ -2629,10 +2621,18 @@ argument_list|(
 name|ngx_epoll_conf_t
 argument_list|)
 argument_list|)
-argument_list|,
-name|NGX_CONF_ERROR
-argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|epcf
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
 name|epcf
 operator|->
 name|events

@@ -439,10 +439,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-operator|!
-operator|(
 name|iov
 operator|=
 name|ngx_array_push
@@ -450,7 +446,12 @@ argument_list|(
 operator|&
 name|header
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|iov
+operator|==
+name|NULL
 condition|)
 block|{
 return|return

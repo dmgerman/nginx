@@ -145,17 +145,10 @@ block|{
 name|ngx_int_t
 name|i
 decl_stmt|;
-name|ngx_uint_t
-name|busy
-decl_stmt|;
-name|ngx_event_t
-modifier|*
-name|ev
-decl_stmt|;
 if|#
 directive|if
 literal|0
-block_content|busy = 1;      if (ngx_mutex_lock(ngx_posted_events_mutex) == NGX_ERROR) {         return;     }      for (ev = (ngx_event_t *) ngx_posted_events; ev; ev = ev->next) {         if (*(ev->lock) == 0) {             busy = 0;             break;         }     }      ngx_mutex_unlock(ngx_posted_events_mutex);      if (busy) {         return;     }
+block_content|ngx_uint_t    busy;     ngx_event_t  *ev;      busy = 1;      if (ngx_mutex_lock(ngx_posted_events_mutex) == NGX_ERROR) {         return;     }      for (ev = (ngx_event_t *) ngx_posted_events; ev; ev = ev->next) {         if (*(ev->lock) == 0) {             busy = 0;             break;         }     }      ngx_mutex_unlock(ngx_posted_events_mutex);      if (busy) {         return;     }
 endif|#
 directive|endif
 for|for

@@ -29,7 +29,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon294a11ea0108
+DECL|struct|__anon27a6adf50108
 typedef|typedef
 struct|struct
 block|{
@@ -58,7 +58,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294a11ea0208
+DECL|struct|__anon27a6adf50208
 typedef|typedef
 struct|struct
 block|{
@@ -360,7 +360,7 @@ parameter_list|,
 name|module
 parameter_list|)
 define|\
-value|((ngx_http_conf_ctx_t *)                                               \            cycle->conf_ctx[ngx_http_module.index])->main_conf[module.ctx_index]
+value|((ngx_http_conf_ctx_t *)                                                  \          cycle->conf_ctx[ngx_http_module.index])->main_conf[module.ctx_index]
 end_define
 
 begin_endif

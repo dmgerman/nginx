@@ -329,9 +329,9 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_iocp_init (ngx_cycle_t * cycle)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_iocp_init (ngx_cycle_t * cycle)
 name|ngx_iocp_init
 parameter_list|(
 name|ngx_cycle_t
@@ -424,9 +424,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_iocp_done (ngx_cycle_t * cycle)
 specifier|static
 name|void
+DECL|function|ngx_iocp_done (ngx_cycle_t * cycle)
 name|ngx_iocp_done
 parameter_list|(
 name|ngx_cycle_t
@@ -467,9 +467,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_iocp_add_event (ngx_event_t * ev,int event,u_int key)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_iocp_add_event (ngx_event_t * ev,int event,u_int key)
 name|ngx_iocp_add_event
 parameter_list|(
 name|ngx_event_t
@@ -582,9 +582,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_iocp_del_connection (ngx_connection_t * c,u_int flags)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_iocp_del_connection (ngx_connection_t * c,u_int flags)
 name|ngx_iocp_del_connection
 parameter_list|(
 name|ngx_connection_t
@@ -608,8 +608,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_iocp_process_events (ngx_cycle_t * cycle)
 specifier|static
+DECL|function|ngx_iocp_process_events (ngx_cycle_t * cycle)
 name|ngx_int_t
 name|ngx_iocp_process_events
 parameter_list|(
@@ -1101,10 +1101,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_iocp_create_conf (ngx_cycle_t * cycle)
 specifier|static
 name|void
 modifier|*
+DECL|function|ngx_iocp_create_conf (ngx_cycle_t * cycle)
 name|ngx_iocp_create_conf
 parameter_list|(
 name|ngx_cycle_t
@@ -1116,10 +1116,8 @@ name|ngx_iocp_conf_t
 modifier|*
 name|cf
 decl_stmt|;
-name|ngx_test_null
-argument_list|(
 name|cf
-argument_list|,
+operator|=
 name|ngx_palloc
 argument_list|(
 name|cycle
@@ -1131,10 +1129,18 @@ argument_list|(
 name|ngx_iocp_conf_t
 argument_list|)
 argument_list|)
-argument_list|,
-name|NGX_CONF_ERROR
-argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|cf
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
 name|cf
 operator|->
 name|threads
@@ -1160,10 +1166,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_iocp_init_conf (ngx_cycle_t * cycle,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_iocp_init_conf (ngx_cycle_t * cycle,void * conf)
 name|ngx_iocp_init_conf
 parameter_list|(
 name|ngx_cycle_t

@@ -805,11 +805,11 @@ operator|*
 operator|)
 name|ngx_cycle
 expr_stmt|;
-for|for
-control|(
-init|;
-condition|;
-control|)
+while|while
+condition|(
+operator|!
+name|ngx_quit
+condition|)
 block|{
 name|ngx_log_debug0
 argument_list|(

@@ -28,8 +28,8 @@ operator|)
 end_if
 
 begin_function
-DECL|function|ngx_nonblocking (ngx_socket_t s)
 name|int
+DECL|function|ngx_nonblocking (ngx_socket_t s)
 name|ngx_nonblocking
 parameter_list|(
 name|ngx_socket_t
@@ -58,8 +58,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_blocking (ngx_socket_t s)
 name|int
+DECL|function|ngx_blocking (ngx_socket_t s)
 name|ngx_blocking
 parameter_list|(
 name|ngx_socket_t
@@ -101,8 +101,8 @@ operator|)
 end_if
 
 begin_function
-DECL|function|ngx_tcp_nopush (ngx_socket_t s)
 name|int
+DECL|function|ngx_tcp_nopush (ngx_socket_t s)
 name|ngx_tcp_nopush
 parameter_list|(
 name|ngx_socket_t
@@ -143,8 +143,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_tcp_push (ngx_socket_t s)
 name|int
+DECL|function|ngx_tcp_push (ngx_socket_t s)
 name|ngx_tcp_push
 parameter_list|(
 name|ngx_socket_t
@@ -193,8 +193,8 @@ operator|)
 end_elif
 
 begin_function
-DECL|function|ngx_tcp_nopush (ngx_socket_t s)
 name|int
+DECL|function|ngx_tcp_nopush (ngx_socket_t s)
 name|ngx_tcp_nopush
 parameter_list|(
 name|ngx_socket_t
@@ -235,8 +235,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_tcp_push (ngx_socket_t s)
 name|int
+DECL|function|ngx_tcp_push (ngx_socket_t s)
 name|ngx_tcp_push
 parameter_list|(
 name|ngx_socket_t
@@ -282,8 +282,8 @@ directive|else
 end_else
 
 begin_function
-DECL|function|ngx_tcp_nopush (ngx_socket_t s)
 name|int
+DECL|function|ngx_tcp_nopush (ngx_socket_t s)
 name|ngx_tcp_nopush
 parameter_list|(
 name|ngx_socket_t
@@ -291,14 +291,14 @@ name|s
 parameter_list|)
 block|{
 return|return
-name|NGX_OK
+literal|0
 return|;
 block|}
 end_function
 
 begin_function
-DECL|function|ngx_tcp_push (ngx_socket_t s)
 name|int
+DECL|function|ngx_tcp_push (ngx_socket_t s)
 name|ngx_tcp_push
 parameter_list|(
 name|ngx_socket_t
@@ -306,7 +306,7 @@ name|s
 parameter_list|)
 block|{
 return|return
-name|NGX_OK
+literal|0
 return|;
 block|}
 end_function

@@ -131,7 +131,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon2909f5010108
+DECL|struct|__anon289101ed0108
 typedef|typedef
 struct|struct
 block|{
@@ -657,7 +657,7 @@ literal|1
 expr_stmt|;
 name|action
 operator|=
-literal|", stop the accepting connections"
+literal|", stop accepting connections"
 expr_stmt|;
 break|break;
 case|case

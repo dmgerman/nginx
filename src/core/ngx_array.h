@@ -116,10 +116,10 @@ function_decl|;
 end_function_decl
 
 begin_function
-DECL|function|ngx_array_init (ngx_array_t * array,ngx_pool_t * pool,ngx_uint_t n,size_t size)
 specifier|static
 name|ngx_inline
 name|ngx_int_t
+DECL|function|ngx_array_init (ngx_array_t * array,ngx_pool_t * pool,ngx_uint_t n,size_t size)
 name|ngx_array_init
 parameter_list|(
 name|ngx_array_t
@@ -137,10 +137,6 @@ name|size_t
 name|size
 parameter_list|)
 block|{
-if|if
-condition|(
-operator|!
-operator|(
 name|array
 operator|->
 name|elts
@@ -153,7 +149,14 @@ name|n
 operator|*
 name|size
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|array
+operator|->
+name|elts
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -189,50 +192,6 @@ name|NGX_OK
 return|;
 block|}
 end_function
-
-begin_comment
-comment|/* STUB */
-end_comment
-
-begin_define
-DECL|macro|ngx_init_array (a,p,n,s,rc)
-define|#
-directive|define
-name|ngx_init_array
-parameter_list|(
-name|a
-parameter_list|,
-name|p
-parameter_list|,
-name|n
-parameter_list|,
-name|s
-parameter_list|,
-name|rc
-parameter_list|)
-define|\
-value|ngx_test_null(a.elts, ngx_palloc(p, n * s), rc);                         \     a.nelts = 0; a.size = s; a.nalloc = n; a.pool = p;
-end_define
-
-begin_define
-DECL|macro|ngx_create_array
-define|#
-directive|define
-name|ngx_create_array
-value|ngx_array_create
-end_define
-
-begin_define
-DECL|macro|ngx_push_array
-define|#
-directive|define
-name|ngx_push_array
-value|ngx_array_push
-end_define
-
-begin_comment
-comment|/**/
-end_comment
 
 begin_endif
 endif|#

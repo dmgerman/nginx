@@ -314,9 +314,9 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_select_init (ngx_cycle_t * cycle)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_select_init (ngx_cycle_t * cycle)
 name|ngx_select_init
 parameter_list|(
 name|ngx_cycle_t
@@ -376,10 +376,8 @@ operator|->
 name|connection_n
 condition|)
 block|{
-name|ngx_test_null
-argument_list|(
 name|index
-argument_list|,
+operator|=
 name|ngx_alloc
 argument_list|(
 sizeof|sizeof
@@ -398,10 +396,18 @@ name|cycle
 operator|->
 name|log
 argument_list|)
-argument_list|,
-name|NGX_ERROR
-argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|index
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
 if|if
 condition|(
 name|event_index
@@ -435,7 +441,7 @@ expr_stmt|;
 if|#
 directive|if
 literal|0
-block_content|if (ready_index) {             ngx_free(ready_index);         }         ngx_test_null(ready_index,                       ngx_alloc(sizeof(ngx_event_t *) * 2 * cycle->connection_n,                       cycle->log),                       NGX_ERROR);
+block_content|if (ready_index) {             ngx_free(ready_index);         }          ready_index = ngx_alloc(sizeof(ngx_event_t *) * 2 * cycle->connection_n,                                 cycle->log);         if (ready_index == NULL) {             return NGX_ERROR;         }
 endif|#
 directive|endif
 block|}
@@ -482,9 +488,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_select_done (ngx_cycle_t * cycle)
 specifier|static
 name|void
+DECL|function|ngx_select_done (ngx_cycle_t * cycle)
 name|ngx_select_done
 parameter_list|(
 name|ngx_cycle_t
@@ -511,9 +517,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_select_add_event (ngx_event_t * ev,int event,u_int flags)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_select_add_event (ngx_event_t * ev,int event,u_int flags)
 name|ngx_select_add_event
 parameter_list|(
 name|ngx_event_t
@@ -791,9 +797,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_select_del_event (ngx_event_t * ev,int event,u_int flags)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_select_del_event (ngx_event_t * ev,int event,u_int flags)
 name|ngx_select_del_event
 parameter_list|(
 name|ngx_event_t
@@ -1009,9 +1015,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_select_process_events (ngx_cycle_t * cycle)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_select_process_events (ngx_cycle_t * cycle)
 name|ngx_select_process_events
 parameter_list|(
 name|ngx_cycle_t
@@ -2274,10 +2280,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_select_init_conf (ngx_cycle_t * cycle,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_select_init_conf (ngx_cycle_t * cycle,void * conf)
 name|ngx_select_init_conf
 parameter_list|(
 name|ngx_cycle_t

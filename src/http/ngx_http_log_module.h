@@ -6,14 +6,14 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|_NGX_HTTP_LOG_HANDLER_H_INCLUDED_
+name|_NGX_HTTP_LOG_MODULE_H_INCLUDED_
 end_ifndef
 
 begin_define
-DECL|macro|_NGX_HTTP_LOG_HANDLER_H_INCLUDED_
+DECL|macro|_NGX_HTTP_LOG_MODULE_H_INCLUDED_
 define|#
 directive|define
-name|_NGX_HTTP_LOG_HANDLER_H_INCLUDED_
+name|_NGX_HTTP_LOG_MODULE_H_INCLUDED_
 end_define
 
 begin_include
@@ -96,6 +96,10 @@ modifier|*
 name|ngx_http_log_op_compile_pt
 function_decl|)
 parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
 name|ngx_http_log_op_t
 modifier|*
 name|op
@@ -133,7 +137,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bb5642a0108
+DECL|struct|__anon276e76c60108
 typedef|typedef
 struct|struct
 block|{
@@ -154,7 +158,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb5642a0208
+DECL|struct|__anon276e76c60208
 typedef|typedef
 struct|struct
 block|{
@@ -185,7 +189,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb5642a0308
+DECL|struct|__anon276e76c60308
 typedef|typedef
 struct|struct
 block|{
@@ -201,7 +205,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb5642a0408
+DECL|struct|__anon276e76c60408
 typedef|typedef
 struct|struct
 block|{
@@ -223,7 +227,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb5642a0508
+DECL|struct|__anon276e76c60508
 typedef|typedef
 struct|struct
 block|{
@@ -258,7 +262,7 @@ directive|endif
 end_endif
 
 begin_comment
-comment|/* _NGX_HTTP_LOG_HANDLER_H_INCLUDED_ */
+comment|/* _NGX_HTTP_LOG_MODULE_H_INCLUDED_ */
 end_comment
 
 end_unit

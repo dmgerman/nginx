@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon298959f20108
+DECL|struct|__anon28fb13320108
 typedef|typedef
 struct|struct
 block|{
@@ -65,7 +65,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298959f20208
+DECL|struct|__anon28fb13320208
 typedef|typedef
 struct|struct
 block|{
@@ -886,16 +886,9 @@ expr_stmt|;
 if|if
 condition|(
 name|err
-operator|==
+operator|!=
 name|NGX_ENOMOREFILES
 condition|)
-block|{
-name|rc
-operator|=
-name|NGX_OK
-expr_stmt|;
-block|}
-else|else
 block|{
 name|ngx_log_error
 argument_list|(
@@ -1050,10 +1043,6 @@ name|len
 operator|+
 literal|32
 expr_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
 name|fname
 operator|.
 name|data
@@ -1066,7 +1055,14 @@ name|fname
 operator|.
 name|len
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|fname
+operator|.
+name|data
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -1235,10 +1231,6 @@ return|;
 block|}
 block|}
 block|}
-if|if
-condition|(
-operator|!
-operator|(
 name|entry
 operator|=
 name|ngx_array_push
@@ -1246,7 +1238,12 @@ argument_list|(
 operator|&
 name|entries
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|entry
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -1292,10 +1289,6 @@ argument_list|,
 name|NGX_ESCAPE_HTML
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
 name|entry
 operator|->
 name|name
@@ -1314,7 +1307,16 @@ name|escape
 operator|+
 literal|1
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|entry
+operator|->
+name|name
+operator|.
+name|data
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -1555,10 +1557,6 @@ operator|+
 literal|2
 expr_stmt|;
 block|}
-if|if
-condition|(
-operator|!
-operator|(
 name|b
 operator|=
 name|ngx_create_temp_buf
@@ -1569,7 +1567,12 @@ name|pool
 argument_list|,
 name|len
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|b
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -2478,7 +2481,7 @@ literal|0
 end_if
 
 begin_endif
-unit|static ngx_buf_t * ngx_http_autoindex_alloc(ngx_http_autoindex_ctx_t *ctx, size_t size) {     ngx_chain_t  *cl;      if (ctx->buf) {          if ((size_t) (ctx->buf->end - ctx->buf->last)>= size) {             return ctx->buf;         }          ctx->size += ctx->buf->last - ctx->buf->pos;     }      if (!(ctx->buf = ngx_create_temp_buf(ctx->pool, ctx->alloc_size))) {         return NULL;     }      if (!(cl = ngx_alloc_chain_link(ctx->pool))) {         return NULL;     }      cl->buf = ctx->buf;     cl->next = NULL;      *ctx->last_out = cl;     ctx->last_out =&cl->next;      return ctx->buf; }
+unit|static ngx_buf_t * ngx_http_autoindex_alloc(ngx_http_autoindex_ctx_t *ctx, size_t size) {     ngx_chain_t  *cl;      if (ctx->buf) {          if ((size_t) (ctx->buf->end - ctx->buf->last)>= size) {             return ctx->buf;         }          ctx->size += ctx->buf->last - ctx->buf->pos;     }      ctx->buf = ngx_create_temp_buf(ctx->pool, ctx->alloc_size);     if (ctx->buf == NULL) {         return NULL;     }      cl = ngx_alloc_chain_link(ctx->pool);     if (cl == NULL) {         return NULL;     }      cl->buf = ctx->buf;     cl->next = NULL;      *ctx->last_out = cl;     ctx->last_out =&cl->next;      return ctx->buf; }
 endif|#
 directive|endif
 end_endif

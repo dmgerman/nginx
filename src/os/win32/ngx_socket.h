@@ -365,22 +365,15 @@ name|transmitfile
 decl_stmt|;
 end_decl_stmt
 
-begin_function
-DECL|function|ngx_tcp_push (ngx_socket_t s)
-specifier|static
-name|ngx_inline
+begin_function_decl
 name|int
 name|ngx_tcp_push
 parameter_list|(
 name|ngx_socket_t
 name|s
 parameter_list|)
-block|{
-return|return
-literal|0
-return|;
-block|}
-end_function
+function_decl|;
+end_function_decl
 
 begin_define
 DECL|macro|ngx_tcp_push_n

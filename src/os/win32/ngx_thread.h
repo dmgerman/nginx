@@ -45,7 +45,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a9a2c4a0108
+DECL|struct|__anon2c21fa4d0108
 typedef|typedef
 struct|struct
 block|{
@@ -201,6 +201,28 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_function_decl
+name|ngx_int_t
+name|ngx_mutex_lock
+parameter_list|(
+name|ngx_mutex_t
+modifier|*
+name|m
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_mutex_trylock
+parameter_list|(
+name|ngx_mutex_t
+modifier|*
+name|m
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_comment
 comment|/* STUB */
 end_comment
@@ -214,28 +236,6 @@ value|0
 end_define
 
 begin_define
-DECL|macro|ngx_mutex_lock (m)
-define|#
-directive|define
-name|ngx_mutex_lock
-parameter_list|(
-name|m
-parameter_list|)
-value|NGX_OK
-end_define
-
-begin_define
-DECL|macro|ngx_mutex_trylock (m)
-define|#
-directive|define
-name|ngx_mutex_trylock
-parameter_list|(
-name|m
-parameter_list|)
-value|NGX_OK
-end_define
-
-begin_define
 DECL|macro|ngx_mutex_unlock (m)
 define|#
 directive|define
@@ -246,7 +246,7 @@ parameter_list|)
 end_define
 
 begin_comment
-comment|/* */
+comment|/**/
 end_comment
 
 begin_decl_stmt

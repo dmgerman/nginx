@@ -30,9 +30,9 @@ value|8
 end_define
 
 begin_function
-DECL|function|ngx_wsasend_chain (ngx_connection_t * c,ngx_chain_t * in,off_t limit)
 name|ngx_chain_t
 modifier|*
+DECL|function|ngx_wsasend_chain (ngx_connection_t * c,ngx_chain_t * in,off_t limit)
 name|ngx_wsasend_chain
 parameter_list|(
 name|ngx_connection_t
@@ -76,6 +76,10 @@ decl_stmt|;
 name|ngx_array_t
 name|vec
 decl_stmt|;
+name|ngx_chain_t
+modifier|*
+name|cl
+decl_stmt|;
 name|LPWSABUF
 name|wsabuf
 decl_stmt|;
@@ -84,10 +88,6 @@ name|wsabufs
 index|[
 name|NGX_WSABUFS
 index|]
-decl_stmt|;
-name|ngx_chain_t
-modifier|*
-name|cl
 decl_stmt|;
 name|wev
 operator|=
@@ -293,10 +293,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-operator|!
-operator|(
 name|wsabuf
 operator|=
 name|ngx_array_push
@@ -304,7 +300,12 @@ argument_list|(
 operator|&
 name|vec
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|wsabuf
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -608,9 +609,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_overlapped_wsasend_chain (ngx_connection_t * c,ngx_chain_t * in,off_t limit)
 name|ngx_chain_t
 modifier|*
+DECL|function|ngx_overlapped_wsasend_chain (ngx_connection_t * c,ngx_chain_t * in,off_t limit)
 name|ngx_overlapped_wsasend_chain
 parameter_list|(
 name|ngx_connection_t
@@ -639,9 +640,6 @@ name|send
 decl_stmt|,
 name|sent
 decl_stmt|;
-name|LPWSABUF
-name|wsabuf
-decl_stmt|;
 name|ngx_err_t
 name|err
 decl_stmt|;
@@ -658,6 +656,9 @@ name|cl
 decl_stmt|;
 name|LPWSAOVERLAPPED
 name|ovlp
+decl_stmt|;
+name|LPWSABUF
+name|wsabuf
 decl_stmt|;
 name|WSABUF
 name|wsabufs
@@ -881,10 +882,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-operator|!
-operator|(
 name|wsabuf
 operator|=
 name|ngx_array_push
@@ -892,7 +889,12 @@ argument_list|(
 operator|&
 name|vec
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|wsabuf
+operator|==
+name|NULL
 condition|)
 block|{
 return|return

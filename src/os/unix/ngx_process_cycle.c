@@ -180,21 +180,17 @@ endif|#
 directive|endif
 end_endif
 
-begin_function_decl
-specifier|static
-name|void
-name|ngx_garbage_collector_cycle
-parameter_list|(
-name|ngx_cycle_t
-modifier|*
-name|cycle
-parameter_list|,
-name|void
-modifier|*
-name|data
-parameter_list|)
-function_decl|;
-end_function_decl
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
+begin_endif
+unit|static void ngx_garbage_collector_cycle(ngx_cycle_t *cycle, void *data);
+endif|#
+directive|endif
+end_endif
 
 begin_decl_stmt
 DECL|variable|ngx_process
@@ -371,8 +367,8 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_master_process_cycle (ngx_cycle_t * cycle)
 name|void
+DECL|function|ngx_master_process_cycle (ngx_cycle_t * cycle)
 name|ngx_master_process_cycle
 parameter_list|(
 name|ngx_cycle_t
@@ -1274,8 +1270,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_single_process_cycle (ngx_cycle_t * cycle)
 name|void
+DECL|function|ngx_single_process_cycle (ngx_cycle_t * cycle)
 name|ngx_single_process_cycle
 parameter_list|(
 name|ngx_cycle_t
@@ -1465,9 +1461,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_start_worker_processes (ngx_cycle_t * cycle,ngx_int_t n,ngx_int_t type)
 specifier|static
 name|void
+DECL|function|ngx_start_worker_processes (ngx_cycle_t * cycle,ngx_int_t n,ngx_int_t type)
 name|ngx_start_worker_processes
 parameter_list|(
 name|ngx_cycle_t
@@ -1751,9 +1747,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_start_garbage_collector (ngx_cycle_t * cycle,ngx_int_t type)
 specifier|static
 name|void
+DECL|function|ngx_start_garbage_collector (ngx_cycle_t * cycle,ngx_int_t type)
 name|ngx_start_garbage_collector
 parameter_list|(
 name|ngx_cycle_t
@@ -1764,200 +1760,21 @@ name|ngx_int_t
 name|type
 parameter_list|)
 block|{
-name|ngx_int_t
-name|i
-decl_stmt|;
-name|ngx_channel_t
-name|ch
-decl_stmt|;
-return|return;
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_NOTICE
-argument_list|,
-name|cycle
-operator|->
-name|log
-argument_list|,
+if|#
+directive|if
 literal|0
-argument_list|,
-literal|"start garbage collector"
-argument_list|)
-expr_stmt|;
-name|ch
-operator|.
-name|command
-operator|=
-name|NGX_CMD_OPEN_CHANNEL
-expr_stmt|;
-name|ngx_spawn_process
-argument_list|(
-name|cycle
-argument_list|,
-name|ngx_garbage_collector_cycle
-argument_list|,
-name|NULL
-argument_list|,
-literal|"garbage collector"
-argument_list|,
-name|type
-argument_list|)
-expr_stmt|;
-name|ch
-operator|.
-name|pid
-operator|=
-name|ngx_processes
-index|[
-name|ngx_process_slot
-index|]
-operator|.
-name|pid
-expr_stmt|;
-name|ch
-operator|.
-name|slot
-operator|=
-name|ngx_process_slot
-expr_stmt|;
-name|ch
-operator|.
-name|fd
-operator|=
-name|ngx_processes
-index|[
-name|ngx_process_slot
-index|]
-operator|.
-name|channel
-index|[
-literal|0
-index|]
-expr_stmt|;
-for|for
-control|(
-name|i
-operator|=
-literal|0
-init|;
-name|i
-operator|<
-name|ngx_last_process
-condition|;
-name|i
-operator|++
-control|)
-block|{
-if|if
-condition|(
-name|i
-operator|==
-name|ngx_process_slot
-operator|||
-name|ngx_processes
-index|[
-name|i
-index|]
-operator|.
-name|pid
-operator|==
-operator|-
-literal|1
-operator|||
-name|ngx_processes
-index|[
-name|i
-index|]
-operator|.
-name|channel
-index|[
-literal|0
-index|]
-operator|==
-operator|-
-literal|1
-condition|)
-block|{
-continue|continue;
-block|}
-name|ngx_log_debug6
-argument_list|(
-name|NGX_LOG_DEBUG_CORE
-argument_list|,
-name|cycle
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"pass channel s:%d pid:%P fd:%d to s:%i pid:%P fd:%d"
-argument_list|,
-name|ch
-operator|.
-name|slot
-argument_list|,
-name|ch
-operator|.
-name|pid
-argument_list|,
-name|ch
-operator|.
-name|fd
-argument_list|,
-name|i
-argument_list|,
-name|ngx_processes
-index|[
-name|i
-index|]
-operator|.
-name|pid
-argument_list|,
-name|ngx_processes
-index|[
-name|i
-index|]
-operator|.
-name|channel
-index|[
-literal|0
-index|]
-argument_list|)
-expr_stmt|;
+block_content|ngx_int_t      i;     ngx_channel_t  ch;      ngx_log_error(NGX_LOG_NOTICE, cycle->log, 0, "start garbage collector");      ch.command = NGX_CMD_OPEN_CHANNEL;      ngx_spawn_process(cycle, ngx_garbage_collector_cycle, NULL,                       "garbage collector", type);      ch.pid = ngx_processes[ngx_process_slot].pid;     ch.slot = ngx_process_slot;     ch.fd = ngx_processes[ngx_process_slot].channel[0];      for (i = 0; i< ngx_last_process; i++) {          if (i == ngx_process_slot             || ngx_processes[i].pid == -1             || ngx_processes[i].channel[0] == -1)         {             continue;         }          ngx_log_debug6(NGX_LOG_DEBUG_CORE, cycle->log, 0,                       "pass channel s:%d pid:%P fd:%d to s:%i pid:%P fd:%d",                       ch.slot, ch.pid, ch.fd,                       i, ngx_processes[i].pid,                       ngx_processes[i].channel[0]);
 comment|/* TODO: NGX_AGAIN */
-name|ngx_write_channel
-argument_list|(
-name|ngx_processes
-index|[
-name|i
-index|]
-operator|.
-name|channel
-index|[
-literal|0
-index|]
-argument_list|,
-operator|&
-name|ch
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|ngx_channel_t
-argument_list|)
-argument_list|,
-name|cycle
-operator|->
-name|log
-argument_list|)
-expr_stmt|;
-block|}
+block_content|ngx_write_channel(ngx_processes[i].channel[0],&ch, sizeof(ngx_channel_t), cycle->log);     }
+endif|#
+directive|endif
 block|}
 end_function
 
 begin_function
-DECL|function|ngx_signal_worker_processes (ngx_cycle_t * cycle,int signo)
 specifier|static
 name|void
+DECL|function|ngx_signal_worker_processes (ngx_cycle_t * cycle,int signo)
 name|ngx_signal_worker_processes
 parameter_list|(
 name|ngx_cycle_t
@@ -2352,9 +2169,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_reap_childs (ngx_cycle_t * cycle)
 specifier|static
 name|ngx_uint_t
+DECL|function|ngx_reap_childs (ngx_cycle_t * cycle)
 name|ngx_reap_childs
 parameter_list|(
 name|ngx_cycle_t
@@ -2987,9 +2804,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_master_exit (ngx_cycle_t * cycle)
 specifier|static
 name|void
+DECL|function|ngx_master_exit (ngx_cycle_t * cycle)
 name|ngx_master_exit
 parameter_list|(
 name|ngx_cycle_t
@@ -3031,9 +2848,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_worker_process_cycle (ngx_cycle_t * cycle,void * data)
 specifier|static
 name|void
+DECL|function|ngx_worker_process_cycle (ngx_cycle_t * cycle,void * data)
 name|ngx_worker_process_cycle
 parameter_list|(
 name|ngx_cycle_t
@@ -3045,6 +2862,11 @@ modifier|*
 name|data
 parameter_list|)
 block|{
+if|#
+directive|if
+operator|(
+name|NGX_THREADS
+operator|)
 name|ngx_int_t
 name|n
 decl_stmt|;
@@ -3055,6 +2877,8 @@ name|ngx_core_conf_t
 modifier|*
 name|ccf
 decl_stmt|;
+endif|#
+directive|endif
 name|ngx_worker_process_init
 argument_list|(
 name|cycle
@@ -3184,10 +3008,6 @@ name|n
 operator|++
 control|)
 block|{
-if|if
-condition|(
-operator|!
-operator|(
 name|ngx_threads
 index|[
 name|n
@@ -3201,7 +3021,17 @@ name|cycle
 operator|->
 name|log
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|ngx_threads
+index|[
+name|n
+index|]
+operator|.
+name|cv
+operator|==
+name|NULL
 condition|)
 block|{
 comment|/* fatal */
@@ -3454,9 +3284,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_worker_process_init (ngx_cycle_t * cycle,ngx_uint_t priority)
 specifier|static
 name|void
+DECL|function|ngx_worker_process_init (ngx_cycle_t * cycle,ngx_uint_t priority)
 name|ngx_worker_process_init
 parameter_list|(
 name|ngx_cycle_t
@@ -4029,9 +3859,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_channel_handler (ngx_event_t * ev)
 specifier|static
 name|void
+DECL|function|ngx_channel_handler (ngx_event_t * ev)
 name|ngx_channel_handler
 parameter_list|(
 name|ngx_event_t
@@ -4386,9 +4216,9 @@ operator|)
 end_if
 
 begin_function
-DECL|function|ngx_wakeup_worker_threads (ngx_cycle_t * cycle)
 specifier|static
 name|void
+DECL|function|ngx_wakeup_worker_threads (ngx_cycle_t * cycle)
 name|ngx_wakeup_worker_threads
 parameter_list|(
 name|ngx_cycle_t
@@ -4552,10 +4382,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_worker_thread_cycle (void * data)
 specifier|static
 name|void
 modifier|*
+DECL|function|ngx_worker_thread_cycle (void * data)
 name|ngx_worker_thread_cycle
 parameter_list|(
 name|void
@@ -4692,10 +4522,6 @@ argument_list|(
 literal|"worker thread"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
 name|tls
 operator|=
 name|ngx_calloc
@@ -4709,7 +4535,12 @@ name|cycle
 operator|->
 name|log
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|tls
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -4929,221 +4760,30 @@ endif|#
 directive|endif
 end_endif
 
-begin_function
-DECL|function|ngx_garbage_collector_cycle (ngx_cycle_t * cycle,void * data)
-specifier|static
-name|void
-name|ngx_garbage_collector_cycle
-parameter_list|(
-name|ngx_cycle_t
-modifier|*
-name|cycle
-parameter_list|,
-name|void
-modifier|*
-name|data
-parameter_list|)
-block|{
-name|ngx_uint_t
-name|i
-decl_stmt|;
-name|ngx_gc_t
-name|ctx
-decl_stmt|;
-name|ngx_path_t
-modifier|*
-modifier|*
-name|path
-decl_stmt|;
-name|ngx_event_t
-modifier|*
-name|ev
-decl_stmt|;
-name|ngx_worker_process_init
-argument_list|(
-name|cycle
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
-name|ev
-operator|=
-operator|&
-name|cycle
-operator|->
-name|read_events
-index|[
-name|ngx_channel
-index|]
-expr_stmt|;
-name|ngx_accept_mutex
-operator|=
-name|NULL
-expr_stmt|;
-name|ngx_setproctitle
-argument_list|(
-literal|"garbage collector"
-argument_list|)
-expr_stmt|;
+begin_if
 if|#
 directive|if
 literal|0
-block_content|ngx_add_timer(ev, 60 * 1000);
+end_if
+
+begin_if
+unit|static void ngx_garbage_collector_cycle(ngx_cycle_t *cycle, void *data) {     ngx_uint_t         i;     ngx_gc_t           ctx;     ngx_path_t       **path;     ngx_event_t       *ev;      ngx_worker_process_init(cycle, 0);      ev =&cycle->read_events[ngx_channel];      ngx_accept_mutex = NULL;      ngx_setproctitle("garbage collector");
+if|#
+directive|if
+literal|0
+end_if
+
+begin_endif
+unit|ngx_add_timer(ev, 60 * 1000);
 endif|#
 directive|endif
-for|for
-control|(
-init|;
-condition|;
-control|)
-block|{
-if|if
-condition|(
-name|ngx_terminate
-operator|||
-name|ngx_quit
-condition|)
-block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_NOTICE
-argument_list|,
-name|cycle
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"exiting"
-argument_list|)
-expr_stmt|;
-name|exit
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|ngx_reopen
-condition|)
-block|{
-name|ngx_reopen
-operator|=
-literal|0
-expr_stmt|;
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_NOTICE
-argument_list|,
-name|cycle
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"reopening logs"
-argument_list|)
-expr_stmt|;
-name|ngx_reopen_files
-argument_list|(
-name|cycle
-argument_list|,
-operator|-
-literal|1
-argument_list|)
-expr_stmt|;
-block|}
-name|path
-operator|=
-name|cycle
-operator|->
-name|pathes
-operator|.
-name|elts
-expr_stmt|;
-for|for
-control|(
-name|i
-operator|=
-literal|0
-init|;
-name|i
-operator|<
-name|cycle
-operator|->
-name|pathes
-operator|.
-name|nelts
-condition|;
-name|i
-operator|++
-control|)
-block|{
-name|ctx
-operator|.
-name|path
-operator|=
-name|path
-index|[
-name|i
-index|]
-expr_stmt|;
-name|ctx
-operator|.
-name|log
-operator|=
-name|cycle
-operator|->
-name|log
-expr_stmt|;
-name|ctx
-operator|.
-name|handler
-operator|=
-name|path
-index|[
-name|i
-index|]
-operator|->
-name|cleaner
-expr_stmt|;
-name|ngx_collect_garbage
-argument_list|(
-operator|&
-name|ctx
-argument_list|,
-operator|&
-name|path
-index|[
-name|i
-index|]
-operator|->
-name|name
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
-block|}
-name|ngx_add_timer
-argument_list|(
-name|ev
-argument_list|,
-literal|60
-operator|*
-literal|60
-operator|*
-literal|1000
-argument_list|)
-expr_stmt|;
-name|ngx_process_events
-argument_list|(
-name|cycle
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-end_function
+end_endif
+
+begin_endif
+unit|for ( ;; ) {          if (ngx_terminate || ngx_quit) {             ngx_log_error(NGX_LOG_NOTICE, cycle->log, 0, "exiting");             exit(0);         }          if (ngx_reopen) {             ngx_reopen = 0;             ngx_log_error(NGX_LOG_NOTICE, cycle->log, 0, "reopening logs");             ngx_reopen_files(cycle, -1);         }          path = cycle->pathes.elts;         for (i = 0; i< cycle->pathes.nelts; i++) {             ctx.path = path[i];             ctx.log = cycle->log;             ctx.handler = path[i]->cleaner;              ngx_collect_garbage(&ctx,&path[i]->name, 0);         }          ngx_add_timer(ev, 60 * 60 * 1000);          ngx_process_events(cycle);     } }
+endif|#
+directive|endif
+end_endif
 
 end_unit
 

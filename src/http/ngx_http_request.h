@@ -417,7 +417,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon296584cf0103
+DECL|enum|__anon2a9e9aa90103
 typedef|typedef
 enum|enum
 block|{
@@ -438,7 +438,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon296584cf0203
+DECL|enum|__anon2a9e9aa90203
 typedef|typedef
 enum|enum
 block|{
@@ -477,7 +477,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296584cf0308
+DECL|struct|__anon2a9e9aa90308
 typedef|typedef
 struct|struct
 block|{
@@ -496,7 +496,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296584cf0408
+DECL|struct|__anon2a9e9aa90408
 typedef|typedef
 struct|struct
 block|{
@@ -622,13 +622,15 @@ DECL|member|content_length_n
 name|ssize_t
 name|content_length_n
 decl_stmt|;
-DECL|member|connection_type
-name|size_t
-name|connection_type
-decl_stmt|;
 DECL|member|keep_alive_n
-name|ssize_t
+name|time_t
 name|keep_alive_n
+decl_stmt|;
+DECL|member|connection_type
+name|unsigned
+name|connection_type
+range|:
+literal|2
 decl_stmt|;
 DECL|member|msie
 name|unsigned
@@ -667,7 +669,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296584cf0508
+DECL|struct|__anon2a9e9aa90508
 typedef|typedef
 struct|struct
 block|{
@@ -690,7 +692,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296584cf0608
+DECL|struct|__anon2a9e9aa90608
 typedef|typedef
 struct|struct
 block|{
@@ -809,7 +811,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296584cf0708
+DECL|struct|__anon2a9e9aa90708
 typedef|typedef
 struct|struct
 block|{
@@ -847,10 +849,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon296584cf080a
+DECL|union|__anon2a9e9aa9080a
 union|union
 block|{
-DECL|struct|__anon296584cf0908
+DECL|struct|__anon2a9e9aa90908
 struct|struct
 block|{
 DECL|member|fd
@@ -866,7 +868,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon296584cf0a08
+DECL|struct|__anon2a9e9aa90a08
 struct|struct
 block|{
 DECL|member|hash
@@ -904,7 +906,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon296584cf0b08
+DECL|struct|__anon2a9e9aa90b08
 typedef|typedef
 struct|struct
 block|{
@@ -1128,12 +1130,8 @@ DECL|member|content_handler
 name|ngx_http_handler_pt
 name|content_handler
 decl_stmt|;
-DECL|member|nvariables
-name|ngx_uint_t
-name|nvariables
-decl_stmt|;
 DECL|member|variables
-name|void
+name|ngx_http_variable_value_t
 modifier|*
 modifier|*
 name|variables
@@ -1250,7 +1248,7 @@ decl_stmt|;
 if|#
 directive|if
 literal|0
-block|unsigned             cachable:1;
+block|unsigned                          cachable:1;
 endif|#
 directive|endif
 DECL|member|pipeline

@@ -16,9 +16,9 @@ file|<ngx_core.h>
 end_include
 
 begin_function
-DECL|function|ngx_create_pool (size_t size,ngx_log_t * log)
 name|ngx_pool_t
 modifier|*
+DECL|function|ngx_create_pool (size_t size,ngx_log_t * log)
 name|ngx_create_pool
 parameter_list|(
 name|size_t
@@ -33,10 +33,6 @@ name|ngx_pool_t
 modifier|*
 name|p
 decl_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
 name|p
 operator|=
 name|ngx_alloc
@@ -45,7 +41,12 @@ name|size
 argument_list|,
 name|log
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|p
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -104,8 +105,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_destroy_pool (ngx_pool_t * pool)
 name|void
+DECL|function|ngx_destroy_pool (ngx_pool_t * pool)
 name|ngx_destroy_pool
 parameter_list|(
 name|ngx_pool_t
@@ -284,9 +285,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_palloc (ngx_pool_t * pool,size_t size)
 name|void
 modifier|*
+DECL|function|ngx_palloc (ngx_pool_t * pool,size_t size)
 name|ngx_palloc
 parameter_list|(
 name|ngx_pool_t
@@ -426,10 +427,6 @@ break|break;
 block|}
 block|}
 comment|/* allocate a new pool block */
-if|if
-condition|(
-operator|!
-operator|(
 name|n
 operator|=
 name|ngx_create_pool
@@ -453,7 +450,12 @@ name|p
 operator|->
 name|log
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|n
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -559,10 +561,6 @@ operator|==
 name|NULL
 condition|)
 block|{
-if|if
-condition|(
-operator|!
-operator|(
 name|large
 operator|=
 name|ngx_palloc
@@ -574,7 +572,12 @@ argument_list|(
 name|ngx_pool_large_t
 argument_list|)
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|large
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -591,13 +594,9 @@ block|}
 if|#
 directive|if
 literal|0
-block_content|if (!(p = ngx_memalign(ngx_pagesize, size, pool->log))) {         return NULL;     }
+block_content|p = ngx_memalign(ngx_pagesize, size, pool->log);     if (p == NULL) {         return NULL;     }
 else|#
 directive|else
-if|if
-condition|(
-operator|!
-operator|(
 name|p
 operator|=
 name|ngx_alloc
@@ -608,7 +607,12 @@ name|pool
 operator|->
 name|log
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|p
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -658,8 +662,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_pfree (ngx_pool_t * pool,void * p)
 name|ngx_int_t
+DECL|function|ngx_pfree (ngx_pool_t * pool,void * p)
 name|ngx_pfree
 parameter_list|(
 name|ngx_pool_t
@@ -743,9 +747,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_pcalloc (ngx_pool_t * pool,size_t size)
 name|void
 modifier|*
+DECL|function|ngx_pcalloc (ngx_pool_t * pool,size_t size)
 name|ngx_pcalloc
 parameter_list|(
 name|ngx_pool_t
@@ -795,7 +799,7 @@ literal|0
 end_if
 
 begin_endif
-unit|static void *ngx_get_cached_block(size_t size) {     void                     *p;     ngx_cached_block_slot_t  *slot;      if (ngx_cycle->cache == NULL) {         return NULL;     }      slot =&ngx_cycle->cache[(size + ngx_pagesize - 1) / ngx_pagesize];      slot->tries++;      if (slot->number) {         p = slot->block;         slot->block = slot->block->next;         slot->number--;         return p;     }      return NULL; }
+unit|static void * ngx_get_cached_block(size_t size) {     void                     *p;     ngx_cached_block_slot_t  *slot;      if (ngx_cycle->cache == NULL) {         return NULL;     }      slot =&ngx_cycle->cache[(size + ngx_pagesize - 1) / ngx_pagesize];      slot->tries++;      if (slot->number) {         p = slot->block;         slot->block = slot->block->next;         slot->number--;         return p;     }      return NULL; }
 endif|#
 directive|endif
 end_endif

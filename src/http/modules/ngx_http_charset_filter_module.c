@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon290b5f720108
+DECL|struct|__anon28e9bd3f0108
 typedef|typedef
 struct|struct
 block|{
@@ -48,7 +48,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290b5f720208
+DECL|struct|__anon28e9bd3f0208
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290b5f720308
+DECL|struct|__anon28e9bd3f0308
 typedef|typedef
 struct|struct
 block|{
@@ -98,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290b5f720408
+DECL|struct|__anon28e9bd3f0408
 typedef|typedef
 struct|struct
 block|{
@@ -125,7 +125,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290b5f720508
+DECL|struct|__anon28e9bd3f0508
 typedef|typedef
 struct|struct
 block|{
@@ -535,9 +535,9 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_http_charset_header_filter (ngx_http_request_t * r)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_charset_header_filter (ngx_http_request_t * r)
 name|ngx_http_charset_header_filter
 parameter_list|(
 name|ngx_http_request_t
@@ -697,7 +697,7 @@ operator|.
 name|status
 operator|==
 name|NGX_HTTP_MOVED_PERMANENTLY
-operator|&&
+operator|||
 name|r
 operator|->
 name|headers_out
@@ -784,20 +784,38 @@ name|r
 argument_list|)
 return|;
 block|}
-name|ngx_http_create_ctx
+name|ctx
+operator|=
+name|ngx_pcalloc
+argument_list|(
+name|r
+operator|->
+name|pool
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|ngx_http_charset_ctx_t
+argument_list|)
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|ctx
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+name|ngx_http_set_ctx
 argument_list|(
 name|r
 argument_list|,
 name|ctx
 argument_list|,
 name|ngx_http_charset_filter_module
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|ngx_http_charset_ctx_t
-argument_list|)
-argument_list|,
-name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 name|r
@@ -816,9 +834,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_charset_body_filter (ngx_http_request_t * r,ngx_chain_t * in)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_charset_body_filter (ngx_http_request_t * r,ngx_chain_t * in)
 name|ngx_http_charset_body_filter
 parameter_list|(
 name|ngx_http_request_t
@@ -958,9 +976,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_charset_recode (ngx_buf_t * b,char * table)
 specifier|static
 name|ngx_uint_t
+DECL|function|ngx_charset_recode (ngx_buf_t * b,char * table)
 name|ngx_charset_recode
 parameter_list|(
 name|ngx_buf_t
@@ -1061,10 +1079,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_charset_map_block (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_charset_map_block (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_charset_map_block
 parameter_list|(
 name|ngx_conf_t
@@ -1292,20 +1310,21 @@ name|NGX_CONF_ERROR
 return|;
 block|}
 block|}
-if|if
-condition|(
-operator|!
-operator|(
 name|table
 operator|=
-name|ngx_push_array
+name|ngx_array_push
 argument_list|(
 operator|&
 name|mcf
 operator|->
 name|tables
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|table
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -1324,10 +1343,6 @@ name|dst
 operator|=
 name|dst
 expr_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
 name|table
 operator|->
 name|src2dst
@@ -1340,17 +1355,20 @@ name|pool
 argument_list|,
 literal|256
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|table
+operator|->
+name|src2dst
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
-if|if
-condition|(
-operator|!
-operator|(
 name|table
 operator|->
 name|dst2src
@@ -1363,7 +1381,14 @@ name|pool
 argument_list|,
 literal|256
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|table
+operator|->
+name|dst2src
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -1484,10 +1509,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_charset_map (ngx_conf_t * cf,ngx_command_t * dummy,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_charset_map (ngx_conf_t * cf,ngx_command_t * dummy,void * conf)
 name|ngx_charset_map
 parameter_list|(
 name|ngx_conf_t
@@ -1689,10 +1714,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_set_charset_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_set_charset_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_http_set_charset_slot
 parameter_list|(
 name|ngx_conf_t
@@ -1842,9 +1867,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_add_charset (ngx_array_t * charsets,ngx_str_t * name)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_add_charset (ngx_array_t * charsets,ngx_str_t * name)
 name|ngx_http_add_charset
 parameter_list|(
 name|ngx_array_t
@@ -1940,17 +1965,18 @@ return|return
 name|i
 return|;
 block|}
-if|if
-condition|(
-operator|!
-operator|(
 name|c
 operator|=
-name|ngx_push_array
+name|ngx_array_push
 argument_list|(
 name|charsets
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|c
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -1983,9 +2009,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_charset_filter_init (ngx_cycle_t * cycle)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_charset_filter_init (ngx_cycle_t * cycle)
 name|ngx_http_charset_filter_init
 parameter_list|(
 name|ngx_cycle_t
@@ -2016,10 +2042,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_charset_create_main_conf (ngx_conf_t * cf)
 specifier|static
 name|void
 modifier|*
+DECL|function|ngx_http_charset_create_main_conf (ngx_conf_t * cf)
 name|ngx_http_charset_create_main_conf
 parameter_list|(
 name|ngx_conf_t
@@ -2031,10 +2057,6 @@ name|ngx_http_charset_main_conf_t
 modifier|*
 name|mcf
 decl_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
 name|mcf
 operator|=
 name|ngx_pcalloc
@@ -2048,15 +2070,23 @@ argument_list|(
 name|ngx_http_charset_main_conf_t
 argument_list|)
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|mcf
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
-name|ngx_init_array
+if|if
+condition|(
+name|ngx_array_init
 argument_list|(
+operator|&
 name|mcf
 operator|->
 name|charsets
@@ -2071,12 +2101,20 @@ sizeof|sizeof
 argument_list|(
 name|ngx_http_charset_t
 argument_list|)
-argument_list|,
-name|NGX_CONF_ERROR
 argument_list|)
-expr_stmt|;
-name|ngx_init_array
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
+if|if
+condition|(
+name|ngx_array_init
 argument_list|(
+operator|&
 name|mcf
 operator|->
 name|tables
@@ -2091,10 +2129,15 @@ sizeof|sizeof
 argument_list|(
 name|ngx_http_charset_tables_t
 argument_list|)
-argument_list|,
-name|NGX_CONF_ERROR
 argument_list|)
-expr_stmt|;
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
 return|return
 name|mcf
 return|;
@@ -2102,10 +2145,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_charset_init_main_conf (ngx_conf_t * cf,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_charset_init_main_conf (ngx_conf_t * cf,void * conf)
 name|ngx_http_charset_init_main_conf
 parameter_list|(
 name|ngx_conf_t
@@ -2437,10 +2480,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_charset_create_loc_conf (ngx_conf_t * cf)
 specifier|static
 name|void
 modifier|*
+DECL|function|ngx_http_charset_create_loc_conf (ngx_conf_t * cf)
 name|ngx_http_charset_create_loc_conf
 parameter_list|(
 name|ngx_conf_t
@@ -2452,10 +2495,6 @@ name|ngx_http_charset_loc_conf_t
 modifier|*
 name|lcf
 decl_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
 name|lcf
 operator|=
 name|ngx_pcalloc
@@ -2469,7 +2508,12 @@ argument_list|(
 name|ngx_http_charset_loc_conf_t
 argument_list|)
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|lcf
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -2507,10 +2551,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_charset_merge_loc_conf (ngx_conf_t * cf,void * parent,void * child)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_charset_merge_loc_conf (ngx_conf_t * cf,void * parent,void * child)
 name|ngx_http_charset_merge_loc_conf
 parameter_list|(
 name|ngx_conf_t

@@ -30,9 +30,9 @@ value|16
 end_define
 
 begin_function
-DECL|function|ngx_writev_chain (ngx_connection_t * c,ngx_chain_t * in,off_t limit)
 name|ngx_chain_t
 modifier|*
+DECL|function|ngx_writev_chain (ngx_connection_t * c,ngx_chain_t * in,off_t limit)
 name|ngx_writev_chain
 parameter_list|(
 name|ngx_connection_t
@@ -350,10 +350,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-operator|!
-operator|(
 name|iov
 operator|=
 name|ngx_array_push
@@ -361,7 +357,12 @@ argument_list|(
 operator|&
 name|vec
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|iov
+operator|==
+name|NULL
 condition|)
 block|{
 return|return

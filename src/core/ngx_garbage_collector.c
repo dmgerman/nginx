@@ -339,10 +339,6 @@ name|len
 operator|+
 name|NGX_DIR_MASK_LEN
 expr_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
 name|buf
 operator|.
 name|data
@@ -359,7 +355,14 @@ name|ctx
 operator|->
 name|log
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|buf
+operator|.
+name|data
+operator|==
+name|NULL
 condition|)
 block|{
 return|return

@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27ecda680108
+DECL|struct|__anon2b2e17120108
 typedef|typedef
 struct|struct
 block|{
@@ -107,6 +107,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
+specifier|static
 name|char
 modifier|*
 name|ngx_http_headers_expires
@@ -229,9 +230,9 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_http_headers_filter (ngx_http_request_t * r)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_headers_filter (ngx_http_request_t * r)
 name|ngx_http_headers_filter
 parameter_list|(
 name|ngx_http_request_t
@@ -289,10 +290,6 @@ operator|!=
 name|NGX_HTTP_EXPIRES_OFF
 condition|)
 block|{
-if|if
-condition|(
-operator|!
-operator|(
 name|expires
 operator|=
 name|ngx_list_push
@@ -304,7 +301,12 @@ name|headers_out
 operator|.
 name|headers
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|expires
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -319,10 +321,6 @@ name|expires
 operator|=
 name|expires
 expr_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
 name|cc
 operator|=
 name|ngx_list_push
@@ -334,7 +332,12 @@ name|headers_out
 operator|.
 name|headers
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|cc
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -682,9 +685,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_headers_filter_init (ngx_cycle_t * cycle)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_headers_filter_init (ngx_cycle_t * cycle)
 name|ngx_http_headers_filter_init
 parameter_list|(
 name|ngx_cycle_t
@@ -707,10 +710,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_headers_create_conf (ngx_conf_t * cf)
 specifier|static
 name|void
 modifier|*
+DECL|function|ngx_http_headers_create_conf (ngx_conf_t * cf)
 name|ngx_http_headers_create_conf
 parameter_list|(
 name|ngx_conf_t
@@ -722,10 +725,6 @@ name|ngx_http_headers_conf_t
 modifier|*
 name|conf
 decl_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
 name|conf
 operator|=
 name|ngx_palloc
@@ -739,7 +738,12 @@ argument_list|(
 name|ngx_http_headers_conf_t
 argument_list|)
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|conf
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -759,10 +763,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_headers_merge_conf (ngx_conf_t * cf,void * parent,void * child)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_headers_merge_conf (ngx_conf_t * cf,void * parent,void * child)
 name|ngx_http_headers_merge_conf
 parameter_list|(
 name|ngx_conf_t
@@ -825,9 +829,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_headers_expires (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
+specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_headers_expires (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_http_headers_expires
 parameter_list|(
 name|ngx_conf_t

@@ -370,10 +370,6 @@ literal|3
 operator|*
 name|NGX_ATOMIC_T_LEN
 expr_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
 name|b
 operator|=
 name|ngx_create_temp_buf
@@ -384,7 +380,12 @@ name|pool
 argument_list|,
 name|size
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|b
+operator|==
+name|NULL
 condition|)
 block|{
 return|return

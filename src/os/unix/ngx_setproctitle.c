@@ -97,10 +97,6 @@ operator|+
 literal|1
 expr_stmt|;
 block|}
-if|if
-condition|(
-operator|!
-operator|(
 name|p
 operator|=
 name|ngx_alloc
@@ -109,7 +105,12 @@ name|size
 argument_list|,
 name|log
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|p
+operator|==
+name|NULL
 condition|)
 block|{
 return|return

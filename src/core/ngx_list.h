@@ -61,7 +61,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28816b310108
+DECL|struct|__anon2b9321b70108
 typedef|typedef
 struct|struct
 block|{
@@ -94,9 +94,9 @@ typedef|;
 end_typedef
 
 begin_function
-DECL|function|ngx_list_init (ngx_list_t * list,ngx_pool_t * pool,ngx_uint_t n,size_t size)
 specifier|static
 name|ngx_inline
+DECL|function|ngx_list_init (ngx_list_t * list,ngx_pool_t * pool,ngx_uint_t n,size_t size)
 name|ngx_int_t
 name|ngx_list_init
 parameter_list|(
@@ -115,10 +115,6 @@ name|size_t
 name|size
 parameter_list|)
 block|{
-if|if
-condition|(
-operator|!
-operator|(
 name|list
 operator|->
 name|part
@@ -133,7 +129,16 @@ name|n
 operator|*
 name|size
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|list
+operator|->
+name|part
+operator|.
+name|elts
+operator|==
+name|NULL
 condition|)
 block|{
 return|return

@@ -16,8 +16,8 @@ file|<ngx_core.h>
 end_include
 
 begin_function
-DECL|function|ngx_nonblocking (ngx_socket_t s)
 name|int
+DECL|function|ngx_nonblocking (ngx_socket_t s)
 name|ngx_nonblocking
 parameter_list|(
 name|ngx_socket_t
@@ -45,8 +45,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_blocking (ngx_socket_t s)
 name|int
+DECL|function|ngx_blocking (ngx_socket_t s)
 name|ngx_blocking
 parameter_list|(
 name|ngx_socket_t
@@ -69,6 +69,21 @@ argument_list|,
 operator|&
 name|nb
 argument_list|)
+return|;
+block|}
+end_function
+
+begin_function
+name|int
+DECL|function|ngx_tcp_push (ngx_socket_t s)
+name|ngx_tcp_push
+parameter_list|(
+name|ngx_socket_t
+name|s
+parameter_list|)
+block|{
+return|return
+literal|0
 return|;
 block|}
 end_function

@@ -91,7 +91,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|ngx_uint_t
+name|ngx_int_t
 name|ngx_regex_capture_count
 parameter_list|(
 name|ngx_regex_t
@@ -129,6 +129,14 @@ define|#
 directive|define
 name|ngx_regex_exec_n
 value|"pcre_exec()"
+end_define
+
+begin_define
+DECL|macro|ngx_regex_capture_count_n
+define|#
+directive|define
+name|ngx_regex_capture_count_n
+value|"pcre_fullinfo()"
 end_define
 
 begin_endif

@@ -1059,10 +1059,6 @@ decl_stmt|;
 name|ngx_uint_t
 name|one
 decl_stmt|;
-name|struct
-name|timeval
-name|tv
-decl_stmt|;
 name|one
 operator|=
 literal|0

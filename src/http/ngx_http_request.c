@@ -601,8 +601,8 @@ directive|endif
 end_endif
 
 begin_function
-DECL|function|ngx_http_init_connection (ngx_connection_t * c)
 name|void
+DECL|function|ngx_http_init_connection (ngx_connection_t * c)
 name|ngx_http_init_connection
 parameter_list|(
 name|ngx_connection_t
@@ -618,10 +618,6 @@ name|ngx_http_log_ctx_t
 modifier|*
 name|ctx
 decl_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
 name|ctx
 operator|=
 name|ngx_palloc
@@ -635,7 +631,12 @@ argument_list|(
 name|ngx_http_log_ctx_t
 argument_list|)
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|ctx
+operator|==
+name|NULL
 condition|)
 block|{
 name|ngx_http_close_connection
@@ -847,8 +848,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_init_request (ngx_event_t * rev)
 specifier|static
+DECL|function|ngx_http_init_request (ngx_event_t * rev)
 name|void
 name|ngx_http_init_request
 parameter_list|(
@@ -981,10 +982,6 @@ directive|endif
 block|}
 else|else
 block|{
-if|if
-condition|(
-operator|!
-operator|(
 name|hc
 operator|=
 name|ngx_pcalloc
@@ -998,7 +995,12 @@ argument_list|(
 name|ngx_http_connection_t
 argument_list|)
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|hc
+operator|==
+name|NULL
 condition|)
 block|{
 if|#
@@ -1072,10 +1074,6 @@ block|}
 block|}
 else|else
 block|{
-if|if
-condition|(
-operator|!
-operator|(
 name|r
 operator|=
 name|ngx_pcalloc
@@ -1089,7 +1087,12 @@ argument_list|(
 name|ngx_http_request_t
 argument_list|)
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|r
+operator|==
+name|NULL
 condition|)
 block|{
 if|#
@@ -1606,10 +1609,6 @@ operator|->
 name|buffer
 expr_stmt|;
 block|}
-if|if
-condition|(
-operator|!
-operator|(
 name|r
 operator|->
 name|pool
@@ -1624,7 +1623,14 @@ name|c
 operator|->
 name|log
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|r
+operator|->
+name|pool
+operator|==
+name|NULL
 condition|)
 block|{
 name|ngx_http_close_connection
@@ -1865,9 +1871,9 @@ operator|)
 end_if
 
 begin_function
-DECL|function|ngx_http_ssl_handshake (ngx_event_t * rev)
 specifier|static
 name|void
+DECL|function|ngx_http_ssl_handshake (ngx_event_t * rev)
 name|ngx_http_ssl_handshake
 parameter_list|(
 name|ngx_event_t
@@ -2106,9 +2112,9 @@ directive|endif
 end_endif
 
 begin_function
-DECL|function|ngx_http_process_request_line (ngx_event_t * rev)
 specifier|static
 name|void
+DECL|function|ngx_http_process_request_line (ngx_event_t * rev)
 name|ngx_http_process_request_line
 parameter_list|(
 name|ngx_event_t
@@ -2312,10 +2318,6 @@ operator|->
 name|quoted_uri
 condition|)
 block|{
-if|if
-condition|(
-operator|!
-operator|(
 name|r
 operator|->
 name|uri
@@ -2336,7 +2338,16 @@ name|len
 operator|+
 literal|1
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|r
+operator|->
+name|uri
+operator|.
+name|data
+operator|==
+name|NULL
 condition|)
 block|{
 name|ngx_http_close_request
@@ -2905,9 +2916,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_process_request_headers (ngx_event_t * rev)
 specifier|static
 name|void
+DECL|function|ngx_http_process_request_headers (ngx_event_t * rev)
 name|ngx_http_process_request_headers
 parameter_list|(
 name|ngx_event_t
@@ -3110,10 +3121,6 @@ operator|->
 name|headers_n
 operator|++
 expr_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
 name|h
 operator|=
 name|ngx_list_push
@@ -3125,7 +3132,12 @@ name|headers_in
 operator|.
 name|headers
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|h
+operator|==
+name|NULL
 condition|)
 block|{
 name|ngx_http_close_request
@@ -3249,10 +3261,6 @@ operator|==
 literal|0
 condition|)
 block|{
-if|if
-condition|(
-operator|!
-operator|(
 name|cookie
 operator|=
 name|ngx_array_push
@@ -3264,7 +3272,12 @@ name|headers_in
 operator|.
 name|cookies
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|cookie
+operator|==
+name|NULL
 condition|)
 block|{
 name|ngx_http_close_request
@@ -3646,9 +3659,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_read_request_header (ngx_http_request_t * r)
 specifier|static
 name|ssize_t
+DECL|function|ngx_http_read_request_header (ngx_http_request_t * r)
 name|ngx_http_read_request_header
 parameter_list|(
 name|ngx_http_request_t
@@ -3884,9 +3897,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_alloc_large_header_buffer (ngx_http_request_t * r,ngx_uint_t request_line)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_alloc_large_header_buffer (ngx_http_request_t * r,ngx_uint_t request_line)
 name|ngx_http_alloc_large_header_buffer
 parameter_list|(
 name|ngx_http_request_t
@@ -4644,9 +4657,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_process_request_header (ngx_http_request_t * r)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_process_request_header (ngx_http_request_t * r)
 name|ngx_http_process_request_header
 parameter_list|(
 name|ngx_http_request_t
@@ -4802,7 +4815,7 @@ name|headers_in
 operator|.
 name|content_length_n
 operator|=
-name|ngx_atoi
+name|ngx_atosz
 argument_list|(
 name|r
 operator|->
@@ -4979,7 +4992,7 @@ name|headers_in
 operator|.
 name|keep_alive_n
 operator|=
-name|ngx_atoi
+name|ngx_atotm
 argument_list|(
 name|r
 operator|->
@@ -5209,9 +5222,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_find_virtual_server (ngx_http_request_t * r)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_find_virtual_server (ngx_http_request_t * r)
 name|ngx_http_find_virtual_server
 parameter_list|(
 name|ngx_http_request_t
@@ -5809,8 +5822,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_finalize_request (ngx_http_request_t * r,int rc)
 name|void
+DECL|function|ngx_http_finalize_request (ngx_http_request_t * r,int rc)
 name|ngx_http_finalize_request
 parameter_list|(
 name|ngx_http_request_t
@@ -6165,9 +6178,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_set_write_handler (ngx_http_request_t * r)
 specifier|static
 name|void
+DECL|function|ngx_http_set_write_handler (ngx_http_request_t * r)
 name|ngx_http_set_write_handler
 parameter_list|(
 name|ngx_http_request_t
@@ -6285,8 +6298,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_writer (ngx_event_t * wev)
 name|void
+DECL|function|ngx_http_writer (ngx_event_t * wev)
 name|ngx_http_writer
 parameter_list|(
 name|ngx_event_t
@@ -6635,9 +6648,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_block_read (ngx_event_t * rev)
 specifier|static
 name|void
+DECL|function|ngx_http_block_read (ngx_event_t * rev)
 name|ngx_http_block_read
 parameter_list|(
 name|ngx_event_t
@@ -6724,8 +6737,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_discard_body (ngx_http_request_t * r)
 name|ngx_int_t
+DECL|function|ngx_http_discard_body (ngx_http_request_t * r)
 name|ngx_http_discard_body
 parameter_list|(
 name|ngx_http_request_t
@@ -6885,9 +6898,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_read_discarded_body_event (ngx_event_t * rev)
 specifier|static
 name|void
+DECL|function|ngx_http_read_discarded_body_event (ngx_event_t * rev)
 name|ngx_http_read_discarded_body_event
 parameter_list|(
 name|ngx_event_t
@@ -6981,9 +6994,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_read_discarded_body (ngx_http_request_t * r)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_read_discarded_body (ngx_http_request_t * r)
 name|ngx_http_read_discarded_body
 parameter_list|(
 name|ngx_http_request_t
@@ -7113,9 +7126,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_set_keepalive (ngx_http_request_t * r)
 specifier|static
 name|void
+DECL|function|ngx_http_set_keepalive (ngx_http_request_t * r)
 name|ngx_http_set_keepalive
 parameter_list|(
 name|ngx_http_request_t
@@ -7794,7 +7807,8 @@ operator|->
 name|fd
 argument_list|)
 operator|==
-name|NGX_ERROR
+operator|-
+literal|1
 condition|)
 block|{
 name|ngx_connection_error
@@ -7941,9 +7955,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_keepalive_handler (ngx_event_t * rev)
 specifier|static
 name|void
+DECL|function|ngx_http_keepalive_handler (ngx_event_t * rev)
 name|ngx_http_keepalive_handler
 parameter_list|(
 name|ngx_event_t
@@ -7964,10 +7978,6 @@ decl_stmt|;
 name|ngx_connection_t
 modifier|*
 name|c
-decl_stmt|;
-name|ngx_http_connection_t
-modifier|*
-name|hc
 decl_stmt|;
 name|c
 operator|=
@@ -8083,12 +8093,6 @@ block|}
 block|}
 endif|#
 directive|endif
-name|hc
-operator|=
-name|c
-operator|->
-name|data
-expr_stmt|;
 name|b
 operator|=
 name|c
@@ -8115,10 +8119,6 @@ name|NULL
 condition|)
 block|{
 comment|/*          * The c->buffer's memory was freed by ngx_http_set_keepalive().          * However, the c->buffer->start and c->buffer->end were not changed          * to keep the buffer size.          */
-if|if
-condition|(
-operator|!
-operator|(
 name|b
 operator|->
 name|pos
@@ -8131,7 +8131,14 @@ name|pool
 argument_list|,
 name|size
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|b
+operator|->
+name|pos
+operator|==
+name|NULL
 condition|)
 block|{
 name|ngx_http_close_connection
@@ -8311,9 +8318,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_set_lingering_close (ngx_http_request_t * r)
 specifier|static
 name|void
+DECL|function|ngx_http_set_lingering_close (ngx_http_request_t * r)
 name|ngx_http_set_lingering_close
 parameter_list|(
 name|ngx_http_request_t
@@ -8557,9 +8564,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_lingering_close_handler (ngx_event_t * rev)
 specifier|static
 name|void
+DECL|function|ngx_http_lingering_close_handler (ngx_event_t * rev)
 name|ngx_http_lingering_close_handler
 parameter_list|(
 name|ngx_event_t
@@ -8794,8 +8801,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_empty_handler (ngx_event_t * wev)
 name|void
+DECL|function|ngx_http_empty_handler (ngx_event_t * wev)
 name|ngx_http_empty_handler
 parameter_list|(
 name|ngx_event_t
@@ -8821,8 +8828,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_send_last (ngx_http_request_t * r)
 name|ngx_int_t
+DECL|function|ngx_http_send_last (ngx_http_request_t * r)
 name|ngx_http_send_last
 parameter_list|(
 name|ngx_http_request_t
@@ -8837,10 +8844,6 @@ decl_stmt|;
 name|ngx_chain_t
 name|out
 decl_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
 name|b
 operator|=
 name|ngx_calloc_buf
@@ -8849,7 +8852,12 @@ name|r
 operator|->
 name|pool
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|b
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -8887,8 +8895,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_close_request (ngx_http_request_t * r,int error)
 name|void
+DECL|function|ngx_http_close_request (ngx_http_request_t * r,int error)
 name|ngx_http_close_request
 parameter_list|(
 name|ngx_http_request_t
@@ -9413,8 +9421,8 @@ operator|)
 end_if
 
 begin_function
-DECL|function|ngx_ssl_close_handler (ngx_event_t * ev)
 name|void
+DECL|function|ngx_ssl_close_handler (ngx_event_t * ev)
 name|ngx_ssl_close_handler
 parameter_list|(
 name|ngx_event_t
@@ -9471,8 +9479,8 @@ directive|endif
 end_endif
 
 begin_function
-DECL|function|ngx_http_close_connection (ngx_connection_t * c)
 name|void
+DECL|function|ngx_http_close_connection (ngx_connection_t * c)
 name|ngx_http_close_connection
 parameter_list|(
 name|ngx_connection_t
@@ -9569,8 +9577,6 @@ argument_list|)
 expr_stmt|;
 name|ngx_destroy_pool
 argument_list|(
-name|c
-operator|->
 name|pool
 argument_list|)
 expr_stmt|;
@@ -9578,9 +9584,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_client_error (ngx_http_request_t * r,int client_error,int error)
 specifier|static
 name|void
+DECL|function|ngx_http_client_error (ngx_http_request_t * r,int client_error,int error)
 name|ngx_http_client_error
 parameter_list|(
 name|ngx_http_request_t
@@ -10043,10 +10049,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_log_error (ngx_log_t * log,u_char * buf,size_t len)
 specifier|static
 name|u_char
 modifier|*
+DECL|function|ngx_http_log_error (ngx_log_t * log,u_char * buf,size_t len)
 name|ngx_http_log_error
 parameter_list|(
 name|ngx_log_t

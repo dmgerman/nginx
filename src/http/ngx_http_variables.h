@@ -48,10 +48,10 @@ name|NGX_HTTP_VARIABLE_NOT_FOUND
 value|(ngx_http_variable_value_t *) -1
 end_define
 
-begin_typedef
-DECL|struct|__anon298ef6b60108
-typedef|typedef
+begin_struct
+DECL|struct|ngx_http_variable_value_s
 struct|struct
+name|ngx_http_variable_value_s
 block|{
 DECL|member|value
 name|ngx_uint_t
@@ -61,11 +61,9 @@ DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|typedef|ngx_http_variable_value_t
 block|}
-name|ngx_http_variable_value_t
-typedef|;
-end_typedef
+struct|;
+end_struct
 
 begin_typedef
 DECL|typedef|ngx_http_variable_t
@@ -90,9 +88,8 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|void
-modifier|*
-name|var
+name|uintptr_t
+name|data
 parameter_list|)
 function_decl|;
 end_typedef
@@ -115,40 +112,15 @@ name|ngx_http_get_variable_pt
 name|handler
 decl_stmt|;
 DECL|member|data
-name|void
-modifier|*
+name|uintptr_t
 name|data
-decl_stmt|;
-DECL|member|uses
-name|ngx_uint_t
-name|uses
 decl_stmt|;
 block|}
 struct|;
 end_struct
 
 begin_typedef
-typedef|typedef
-name|ngx_http_variable_value_t
-modifier|*
-DECL|typedef|ngx_http_get_core_variable_pt
-function_decl|(
-modifier|*
-name|ngx_http_get_core_variable_pt
-function_decl|)
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|,
-name|uintptr_t
-name|data
-parameter_list|)
-function_decl|;
-end_typedef
-
-begin_typedef
-DECL|struct|__anon298ef6b60208
+DECL|struct|__anon29fc649d0108
 typedef|typedef
 struct|struct
 block|{
@@ -157,7 +129,7 @@ name|ngx_str_t
 name|name
 decl_stmt|;
 DECL|member|handler
-name|ngx_http_get_core_variable_pt
+name|ngx_http_get_variable_pt
 name|handler
 decl_stmt|;
 DECL|member|data
@@ -178,6 +150,13 @@ parameter_list|(
 name|ngx_conf_t
 modifier|*
 name|cf
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|name
+parameter_list|,
+name|ngx_uint_t
+name|set
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -230,7 +209,7 @@ end_function_decl
 
 begin_function_decl
 name|ngx_int_t
-name|ngx_http_core_variables_init
+name|ngx_http_variables_init
 parameter_list|(
 name|ngx_cycle_t
 modifier|*

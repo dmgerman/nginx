@@ -196,7 +196,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b71b8ff0108
+DECL|struct|__anon2a33df2e0108
 typedef|typedef
 struct|struct
 block|{
@@ -235,7 +235,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b71b8ff0208
+DECL|struct|__anon2a33df2e0208
 typedef|typedef
 struct|struct
 block|{
@@ -304,7 +304,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b71b8ff0308
+DECL|struct|__anon2a33df2e0308
 typedef|typedef
 struct|struct
 block|{
@@ -455,40 +455,6 @@ parameter_list|(
 name|pool
 parameter_list|)
 value|ngx_palloc(pool, sizeof(ngx_chain_t))
-end_define
-
-begin_define
-DECL|macro|ngx_alloc_link_and_set_buf (chain,b,pool,error)
-define|#
-directive|define
-name|ngx_alloc_link_and_set_buf
-parameter_list|(
-name|chain
-parameter_list|,
-name|b
-parameter_list|,
-name|pool
-parameter_list|,
-name|error
-parameter_list|)
-define|\
-value|do {                                                                     \         ngx_test_null(chain, ngx_alloc_chain_link(pool), error);             \         chain->buf = b;                                                      \         chain->next = NULL;                                                  \     } while (0);
-end_define
-
-begin_define
-DECL|macro|ngx_chain_add_link (chain,last,cl)
-define|#
-directive|define
-name|ngx_chain_add_link
-parameter_list|(
-name|chain
-parameter_list|,
-name|last
-parameter_list|,
-name|cl
-parameter_list|)
-define|\
-value|if (chain) {                                                             \         *last = cl;                                                          \     } else {                                                                 \         chain = cl;                                                          \     }                                                                        \     last =&cl->next
 end_define
 
 begin_function_decl

@@ -109,9 +109,9 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_http_chunked_header_filter (ngx_http_request_t * r)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_chunked_header_filter (ngx_http_request_t * r)
 name|ngx_http_chunked_header_filter
 parameter_list|(
 name|ngx_http_request_t
@@ -185,9 +185,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_chunked_body_filter (ngx_http_request_t * r,ngx_chain_t * in)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_chunked_body_filter (ngx_http_request_t * r,ngx_chain_t * in)
 name|ngx_http_chunked_body_filter
 parameter_list|(
 name|ngx_http_request_t
@@ -330,10 +330,6 @@ operator|->
 name|in_file
 condition|)
 block|{
-if|if
-condition|(
-operator|!
-operator|(
 name|tl
 operator|=
 name|ngx_alloc_chain_link
@@ -342,7 +338,12 @@ name|r
 operator|->
 name|pool
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|tl
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -393,10 +394,6 @@ condition|(
 name|size
 condition|)
 block|{
-if|if
-condition|(
-operator|!
-operator|(
 name|b
 operator|=
 name|ngx_calloc_buf
@@ -405,13 +402,19 @@ name|r
 operator|->
 name|pool
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|b
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
 name|NGX_ERROR
 return|;
 block|}
+comment|/* the "0000000000000000" is 64-bit hexadimal string */
 name|chunk
 operator|=
 name|ngx_palloc
@@ -482,10 +485,6 @@ operator|->
 name|last_buf
 condition|)
 block|{
-if|if
-condition|(
-operator|!
-operator|(
 name|b
 operator|=
 name|ngx_calloc_buf
@@ -494,7 +493,12 @@ name|r
 operator|->
 name|pool
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|b
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -605,10 +609,6 @@ name|next
 argument_list|)
 return|;
 block|}
-if|if
-condition|(
-operator|!
-operator|(
 name|b
 operator|=
 name|ngx_calloc_buf
@@ -617,7 +617,12 @@ name|r
 operator|->
 name|pool
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|b
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -682,9 +687,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_chunked_filter_init (ngx_cycle_t * cycle)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_chunked_filter_init (ngx_cycle_t * cycle)
 name|ngx_http_chunked_filter_init
 parameter_list|(
 name|ngx_cycle_t

@@ -129,7 +129,7 @@ DECL|macro|NGX_EAGAIN
 define|#
 directive|define
 name|NGX_EAGAIN
-value|EWOULDBLOCK
+value|EAGAIN
 end_define
 
 begin_define
@@ -292,7 +292,7 @@ directive|else
 end_else
 
 begin_comment
-comment|/* Solaris has threads-safe strerror() */
+comment|/* Solaris has thread-safe strerror() */
 end_comment
 
 begin_define

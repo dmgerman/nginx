@@ -110,7 +110,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2a345e8a0108
+DECL|struct|__anon294fecba0108
 typedef|typedef
 struct|struct
 block|{
@@ -1192,14 +1192,9 @@ name|signo
 decl_stmt|;
 name|ngx_int_t
 name|instance
-decl_stmt|,
-name|i
 decl_stmt|;
 name|ngx_uint_t
 name|expire
-decl_stmt|;
-name|size_t
-name|n
 decl_stmt|;
 name|ngx_msec_t
 name|timer
@@ -3036,10 +3031,8 @@ name|ngx_rtsig_conf_t
 modifier|*
 name|rtscf
 decl_stmt|;
-name|ngx_test_null
-argument_list|(
 name|rtscf
-argument_list|,
+operator|=
 name|ngx_palloc
 argument_list|(
 name|cycle
@@ -3051,10 +3044,18 @@ argument_list|(
 name|ngx_rtsig_conf_t
 argument_list|)
 argument_list|)
-argument_list|,
-name|NGX_CONF_ERROR
-argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|rtscf
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
 name|rtscf
 operator|->
 name|signo

@@ -66,7 +66,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon27d3e9270108
+DECL|struct|__anon2b8c06180108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d3e9270208
+DECL|struct|__anon2b8c06180208
 typedef|typedef
 struct|struct
 block|{
@@ -2982,9 +2982,7 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
-name|p
-operator|=
-name|ngx_cpymem
+name|ngx_memcpy
 argument_list|(
 name|p
 argument_list|,
@@ -3100,9 +3098,7 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
-name|p
-operator|=
-name|ngx_cpymem
+name|ngx_memcpy
 argument_list|(
 name|p
 argument_list|,

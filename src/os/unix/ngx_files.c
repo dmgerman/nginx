@@ -588,9 +588,6 @@ decl_stmt|;
 name|ssize_t
 name|n
 decl_stmt|;
-name|ngx_err_t
-name|err
-decl_stmt|;
 name|ngx_array_t
 name|vec
 decl_stmt|;
@@ -736,10 +733,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-operator|!
-operator|(
 name|iov
 operator|=
 name|ngx_array_push
@@ -747,7 +740,12 @@ argument_list|(
 operator|&
 name|vec
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|iov
+operator|==
+name|NULL
 condition|)
 block|{
 return|return

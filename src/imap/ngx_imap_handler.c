@@ -83,19 +83,17 @@ name|CRLF
 decl_stmt|;
 end_decl_stmt
 
-begin_decl_stmt
-DECL|variable|imap_greeting
-specifier|static
-name|u_char
-name|imap_greeting
-index|[]
-init|=
-literal|"* OK "
-name|NGINX_VER
-literal|" ready"
-name|CRLF
-decl_stmt|;
-end_decl_stmt
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
+begin_endif
+unit|static u_char imap_greeting[] = "* OK " NGINX_VER " ready" CRLF;
+endif|#
+directive|endif
+end_endif
 
 begin_decl_stmt
 DECL|variable|pop3_ok
@@ -288,10 +286,6 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-if|if
-condition|(
-operator|!
-operator|(
 name|s
 operator|=
 name|ngx_pcalloc
@@ -305,7 +299,12 @@ argument_list|(
 name|ngx_imap_session_t
 argument_list|)
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|s
+operator|==
+name|NULL
 condition|)
 block|{
 name|ngx_imap_close_connection
@@ -1220,8 +1219,6 @@ argument_list|)
 expr_stmt|;
 name|ngx_destroy_pool
 argument_list|(
-name|c
-operator|->
 name|pool
 argument_list|)
 expr_stmt|;

@@ -299,10 +299,10 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_http_ssl_create_main_conf (ngx_conf_t * cf)
 specifier|static
 name|void
 modifier|*
+DECL|function|ngx_http_ssl_create_main_conf (ngx_conf_t * cf)
 name|ngx_http_ssl_create_main_conf
 parameter_list|(
 name|ngx_conf_t
@@ -314,10 +314,6 @@ name|ngx_http_ssl_main_conf_t
 modifier|*
 name|mcf
 decl_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
 name|mcf
 operator|=
 name|ngx_pcalloc
@@ -331,7 +327,12 @@ argument_list|(
 name|ngx_http_ssl_main_conf_t
 argument_list|)
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|mcf
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -346,10 +347,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_ssl_init_main_conf (ngx_conf_t * cf,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_ssl_init_main_conf (ngx_conf_t * cf,void * conf)
 name|ngx_http_ssl_init_main_conf
 parameter_list|(
 name|ngx_conf_t
@@ -477,10 +478,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_ssl_create_srv_conf (ngx_conf_t * cf)
 specifier|static
 name|void
 modifier|*
+DECL|function|ngx_http_ssl_create_srv_conf (ngx_conf_t * cf)
 name|ngx_http_ssl_create_srv_conf
 parameter_list|(
 name|ngx_conf_t
@@ -492,10 +493,6 @@ name|ngx_http_ssl_srv_conf_t
 modifier|*
 name|scf
 decl_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
 name|scf
 operator|=
 name|ngx_pcalloc
@@ -509,7 +506,12 @@ argument_list|(
 name|ngx_http_ssl_srv_conf_t
 argument_list|)
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|scf
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
@@ -530,10 +532,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_ssl_merge_srv_conf (ngx_conf_t * cf,void * parent,void * child)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_ssl_merge_srv_conf (ngx_conf_t * cf,void * parent,void * child)
 name|ngx_http_ssl_merge_srv_conf
 parameter_list|(
 name|ngx_conf_t

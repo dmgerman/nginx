@@ -23,9 +23,9 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_alloc (size_t size,ngx_log_t * log)
 name|void
 modifier|*
+DECL|function|ngx_alloc (size_t size,ngx_log_t * log)
 name|ngx_alloc
 parameter_list|(
 name|size_t
@@ -40,17 +40,18 @@ name|void
 modifier|*
 name|p
 decl_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
 name|p
 operator|=
 name|malloc
 argument_list|(
 name|size
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|p
+operator|==
+name|NULL
 condition|)
 block|{
 name|ngx_log_error
@@ -89,9 +90,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_calloc (size_t size,ngx_log_t * log)
 name|void
 modifier|*
+DECL|function|ngx_calloc (size_t size,ngx_log_t * log)
 name|ngx_calloc
 parameter_list|(
 name|size_t
@@ -143,9 +144,9 @@ operator|)
 end_if
 
 begin_function
-DECL|function|ngx_memalign (size_t alignment,size_t size,ngx_log_t * log)
 name|void
 modifier|*
+DECL|function|ngx_memalign (size_t alignment,size_t size,ngx_log_t * log)
 name|ngx_memalign
 parameter_list|(
 name|size_t
@@ -225,9 +226,9 @@ operator|)
 end_elif
 
 begin_function
-DECL|function|ngx_memalign (size_t alignment,size_t size,ngx_log_t * log)
 name|void
 modifier|*
+DECL|function|ngx_memalign (size_t alignment,size_t size,ngx_log_t * log)
 name|ngx_memalign
 parameter_list|(
 name|size_t
@@ -245,10 +246,6 @@ name|void
 modifier|*
 name|p
 decl_stmt|;
-if|if
-condition|(
-operator|!
-operator|(
 name|p
 operator|=
 name|memalign
@@ -257,7 +254,12 @@ name|alignment
 argument_list|,
 name|size
 argument_list|)
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|p
+operator|==
+name|NULL
 condition|)
 block|{
 name|ngx_log_error

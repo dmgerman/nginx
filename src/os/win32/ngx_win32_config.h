@@ -185,7 +185,7 @@ name|)
 end_pragma
 
 begin_comment
-comment|/* conditional expression is constant */
+comment|/* FD_SET() and FD_CLR(): conditional expression is constant */
 end_comment
 
 begin_pragma
@@ -199,20 +199,11 @@ name|4127
 name|)
 end_pragma
 
-begin_comment
-comment|/* unreachable code */
-end_comment
-
-begin_pragma
-pragma|#
-directive|pragma
-name|warning
-name|(
-name|disable
-name|:
-name|4702
-name|)
-end_pragma
+begin_if
+if|#
+directive|if
+literal|0
+end_if
 
 begin_comment
 comment|/* assignment within conditional expression */
@@ -228,6 +219,11 @@ name|:
 name|4706
 name|)
 end_pragma
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_comment
 comment|/* function 'ngx_handle_write_event' not inlined */
@@ -254,19 +250,6 @@ ifdef|#
 directive|ifdef
 name|__WATCOMC__
 end_ifdef
-
-begin_comment
-comment|/* unreachable code */
-end_comment
-
-begin_pragma
-pragma|#
-directive|pragma
-name|disable_message
-name|(
-name|201
-name|)
-end_pragma
 
 begin_comment
 comment|/* symbol 'ngx_rbtree_min' has been defined, but not referenced */
@@ -303,30 +286,6 @@ name|hdrstop
 end_pragma
 
 begin_comment
-comment|/*  * 'fd' is assigned a value that is never used in function ngx_event_init_conf  */
-end_comment
-
-begin_pragma
-pragma|#
-directive|pragma
-name|warn
-name|-
-name|8004
-end_pragma
-
-begin_comment
-comment|/* condition is always false */
-end_comment
-
-begin_pragma
-pragma|#
-directive|pragma
-name|warn
-name|-
-name|8008
-end_pragma
-
-begin_comment
 comment|/* functions containing (for|while|some if) are not expanded inline */
 end_comment
 
@@ -350,6 +309,12 @@ name|-
 name|8057
 end_pragma
 
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
 begin_comment
 comment|/* assignment within conditional expression */
 end_comment
@@ -362,17 +327,10 @@ name|-
 name|8060
 end_pragma
 
-begin_comment
-comment|/* unreachable code */
-end_comment
-
-begin_pragma
-pragma|#
-directive|pragma
-name|warn
-name|-
-name|8066
-end_pragma
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_endif
 endif|#

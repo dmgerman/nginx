@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29d4fe430108
+DECL|struct|__anon28a78f4d0108
 typedef|typedef
 struct|struct
 block|{
@@ -190,8 +190,9 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_http_copy_filter (ngx_http_request_t * r,ngx_chain_t * in)
+specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_copy_filter (ngx_http_request_t * r,ngx_chain_t * in)
 name|ngx_http_copy_filter
 parameter_list|(
 name|ngx_http_request_t
@@ -267,20 +268,38 @@ argument_list|,
 name|ngx_http_copy_filter_module
 argument_list|)
 expr_stmt|;
-name|ngx_http_create_ctx
+name|ctx
+operator|=
+name|ngx_pcalloc
+argument_list|(
+name|r
+operator|->
+name|pool
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|ngx_output_chain_ctx_t
+argument_list|)
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|ctx
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+name|ngx_http_set_ctx
 argument_list|(
 name|r
 argument_list|,
 name|ctx
 argument_list|,
 name|ngx_http_copy_filter_module
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|ngx_output_chain_ctx_t
-argument_list|)
-argument_list|,
-name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 name|ctx
@@ -363,10 +382,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_copy_filter_create_conf (ngx_conf_t * cf)
 specifier|static
 name|void
 modifier|*
+DECL|function|ngx_http_copy_filter_create_conf (ngx_conf_t * cf)
 name|ngx_http_copy_filter_create_conf
 parameter_list|(
 name|ngx_conf_t
@@ -378,10 +397,8 @@ name|ngx_http_copy_filter_conf_t
 modifier|*
 name|conf
 decl_stmt|;
-name|ngx_test_null
-argument_list|(
 name|conf
-argument_list|,
+operator|=
 name|ngx_palloc
 argument_list|(
 name|cf
@@ -393,10 +410,18 @@ argument_list|(
 name|ngx_http_copy_filter_conf_t
 argument_list|)
 argument_list|)
-argument_list|,
-name|NULL
-argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|conf
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NULL
+return|;
+block|}
 name|conf
 operator|->
 name|bufs
@@ -412,10 +437,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_copy_filter_merge_conf (ngx_conf_t * cf,void * parent,void * child)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_http_copy_filter_merge_conf (ngx_conf_t * cf,void * parent,void * child)
 name|ngx_http_copy_filter_merge_conf
 parameter_list|(
 name|ngx_conf_t
@@ -465,9 +490,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_copy_filter_init (ngx_cycle_t * cycle)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_http_copy_filter_init (ngx_cycle_t * cycle)
 name|ngx_http_copy_filter_init
 parameter_list|(
 name|ngx_cycle_t
