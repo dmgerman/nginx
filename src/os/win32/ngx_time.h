@@ -40,14 +40,6 @@ name|ngx_msec_t
 typedef|;
 end_typedef
 
-begin_define
-DECL|macro|NGX_MAX_MSEC
-define|#
-directive|define
-name|NGX_MAX_MSEC
-value|(ngx_msec_t) -1
-end_define
-
 begin_typedef
 DECL|typedef|ngx_tm_t
 typedef|typedef
@@ -185,16 +177,16 @@ value|Sleep
 end_define
 
 begin_define
-DECL|macro|HAVE_TIMEZONE
+DECL|macro|HAVE_GETIMEZONE
 define|#
 directive|define
-name|HAVE_TIMEZONE
+name|HAVE_GETIMEZONE
 value|1
 end_define
 
 begin_function_decl
 name|ngx_int_t
-name|ngx_timezone
+name|ngx_gettimezone
 parameter_list|(
 name|void
 parameter_list|)

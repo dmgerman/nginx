@@ -4372,6 +4372,10 @@ block|{
 comment|/*          * check some widespread browsers while the headers are still          * in CPU cache          */
 name|ua
 operator|=
+operator|(
+name|u_char
+operator|*
+operator|)
 name|ngx_strstr
 argument_list|(
 name|r

@@ -90,9 +90,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_timezone (void)
+DECL|function|ngx_gettimezone (void)
 name|ngx_int_t
-name|ngx_timezone
+name|ngx_gettimezone
 parameter_list|(
 name|void
 parameter_list|)

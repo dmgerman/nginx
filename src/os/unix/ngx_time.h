@@ -40,14 +40,6 @@ name|ngx_msec_t
 typedef|;
 end_typedef
 
-begin_define
-DECL|macro|NGX_MAX_MSEC
-define|#
-directive|define
-name|NGX_MAX_MSEC
-value|(ngx_msec_t) -1
-end_define
-
 begin_typedef
 DECL|typedef|ngx_tm_t
 typedef|typedef
@@ -114,31 +106,12 @@ value|tm_wday
 end_define
 
 begin_define
-DECL|macro|ngx_tm_gmtoff
+DECL|macro|ngx_tm_isdst
 define|#
 directive|define
-name|ngx_tm_gmtoff
-value|tm_gmtoff
+name|ngx_tm_isdst
+value|tm_isdst
 end_define
-
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|SOLARIS
-end_ifndef
-
-begin_define
-DECL|macro|ngx_tm_zone
-define|#
-directive|define
-name|ngx_tm_zone
-value|tm_zone
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
 
 begin_define
 DECL|macro|ngx_tm_sec_t
@@ -200,49 +173,48 @@ begin_if
 if|#
 directive|if
 operator|(
+name|HAVE_GMTOFF
+operator|)
+end_if
+
+begin_define
+DECL|macro|ngx_tm_gmtoff
+define|#
+directive|define
+name|ngx_tm_gmtoff
+value|tm_gmtoff
+end_define
+
+begin_define
+DECL|macro|ngx_tm_zone
+define|#
+directive|define
+name|ngx_tm_zone
+value|tm_zone
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_if
+if|#
+directive|if
+operator|(
 name|SOLARIS
 operator|)
 end_if
 
 begin_define
-DECL|macro|HAVE_TIMEZONE
-define|#
-directive|define
-name|HAVE_TIMEZONE
-value|1
-end_define
-
-begin_define
-DECL|macro|ngx_timezone ()
+DECL|macro|ngx_timezone (isdst)
 define|#
 directive|define
 name|ngx_timezone
-parameter_list|()
-value|(- (daylight ? altzone : timezone) / 60)
-end_define
-
-begin_elif
-elif|#
-directive|elif
-name|defined
-name|__linux__
-end_elif
-
-begin_define
-DECL|macro|HAVE_TIMEZONE
-define|#
-directive|define
-name|HAVE_TIMEZONE
-value|1
-end_define
-
-begin_define
-DECL|macro|ngx_timezone ()
-define|#
-directive|define
-name|ngx_timezone
-parameter_list|()
-value|(- timezone / 60 + daylight * 60)
+parameter_list|(
+name|isdst
+parameter_list|)
+value|(- (isdst ? altzone : timezone) / 60)
 end_define
 
 begin_endif

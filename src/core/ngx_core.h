@@ -138,6 +138,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_shared.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_process.h>
 end_include
 
