@@ -266,7 +266,6 @@ name|NULL
 block|,
 comment|/* create location configuration */
 name|NULL
-block|,
 comment|/* merge location configuration */
 block|}
 decl_stmt|;

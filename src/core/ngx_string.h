@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b528fee0108
+DECL|struct|__anon2af858f70108
 typedef|typedef
 struct|struct
 block|{
@@ -312,6 +312,22 @@ end_function_decl
 begin_function_decl
 name|u_char
 modifier|*
+name|ngx_pstrdup
+parameter_list|(
+name|ngx_pool_t
+modifier|*
+name|pool
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|src
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|u_char
+modifier|*
 name|ngx_sprintf
 parameter_list|(
 name|u_char
@@ -513,15 +529,23 @@ value|0
 end_define
 
 begin_define
+DECL|macro|NGX_ESCAPE_ARGS
+define|#
+directive|define
+name|NGX_ESCAPE_ARGS
+value|1
+end_define
+
+begin_define
 DECL|macro|NGX_ESCAPE_HTML
 define|#
 directive|define
 name|NGX_ESCAPE_HTML
-value|1
+value|2
 end_define
 
 begin_function_decl
-name|ngx_uint_t
+name|uintptr_t
 name|ngx_escape_uri
 parameter_list|(
 name|u_char

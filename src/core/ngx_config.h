@@ -469,7 +469,7 @@ name|ngx_align
 parameter_list|(
 name|p
 parameter_list|)
-value|(char *) ((NGX_ALIGN_CAST p + NGX_ALIGN)& ~NGX_ALIGN)
+value|(u_char *) ((NGX_ALIGN_CAST p + NGX_ALIGN)& ~NGX_ALIGN)
 end_define
 
 begin_comment

@@ -417,7 +417,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon2b2debbf0103
+DECL|enum|__anon28db63520103
 typedef|typedef
 enum|enum
 block|{
@@ -438,7 +438,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b2debbf0203
+DECL|enum|__anon28db63520203
 typedef|typedef
 enum|enum
 block|{
@@ -477,7 +477,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2debbf0308
+DECL|struct|__anon28db63520308
 typedef|typedef
 struct|struct
 block|{
@@ -496,7 +496,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2debbf0408
+DECL|struct|__anon28db63520408
 typedef|typedef
 struct|struct
 block|{
@@ -650,7 +650,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2debbf0508
+DECL|struct|__anon28db63520508
 typedef|typedef
 struct|struct
 block|{
@@ -673,7 +673,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2debbf0608
+DECL|struct|__anon28db63520608
 typedef|typedef
 struct|struct
 block|{
@@ -792,7 +792,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2debbf0708
+DECL|struct|__anon28db63520708
 typedef|typedef
 struct|struct
 block|{
@@ -830,10 +830,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon2b2debbf080a
+DECL|union|__anon28db6352080a
 union|union
 block|{
-DECL|struct|__anon2b2debbf0908
+DECL|struct|__anon28db63520908
 struct|struct
 block|{
 DECL|member|fd
@@ -849,7 +849,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon2b2debbf0a08
+DECL|struct|__anon28db63520a08
 struct|struct
 block|{
 DECL|member|hash
@@ -887,7 +887,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b2debbf0b08
+DECL|struct|__anon28db63520b08
 typedef|typedef
 struct|struct
 block|{
@@ -1107,6 +1107,16 @@ DECL|member|content_handler
 name|ngx_http_handler_pt
 name|content_handler
 decl_stmt|;
+DECL|member|nvariables
+name|ngx_uint_t
+name|nvariables
+decl_stmt|;
+DECL|member|variables
+name|void
+modifier|*
+modifier|*
+name|variables
+decl_stmt|;
 DECL|member|cleanup
 name|ngx_array_t
 name|cleanup
@@ -1146,13 +1156,6 @@ name|http_state
 range|:
 literal|4
 decl_stmt|;
-if|#
-directive|if
-literal|0
-comment|/* URI is not started with '/' - "GET http://" */
-block|unsigned             unusual_uri:1;
-endif|#
-directive|endif
 comment|/* URI with "/." and on Win32 with "//" */
 DECL|member|complex_uri
 name|unsigned
@@ -1164,6 +1167,31 @@ comment|/* URI with "%" */
 DECL|member|quoted_uri
 name|unsigned
 name|quoted_uri
+range|:
+literal|1
+decl_stmt|;
+comment|/* URI with "+" */
+DECL|member|plus_in_uri
+name|unsigned
+name|plus_in_uri
+range|:
+literal|1
+decl_stmt|;
+DECL|member|uri_changed
+name|unsigned
+name|uri_changed
+range|:
+literal|1
+decl_stmt|;
+DECL|member|uri_changes
+name|unsigned
+name|uri_changes
+range|:
+literal|4
+decl_stmt|;
+DECL|member|low_case_exten
+name|unsigned
+name|low_case_exten
 range|:
 literal|1
 decl_stmt|;

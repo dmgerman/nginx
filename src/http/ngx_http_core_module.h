@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c7bfb4b0108
+DECL|struct|__anon2aeec16c0108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c7bfb4b0203
+DECL|enum|__anon2aeec16c0203
 typedef|typedef
 enum|enum
 block|{
@@ -99,7 +99,86 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7bfb4b0308
+DECL|struct|__anon2aeec16c0308
+typedef|typedef
+struct|struct
+block|{
+DECL|member|value
+name|ngx_uint_t
+name|value
+decl_stmt|;
+DECL|member|text
+name|ngx_str_t
+name|text
+decl_stmt|;
+DECL|typedef|ngx_http_variable_value_t
+block|}
+name|ngx_http_variable_value_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|typedef|ngx_http_variable_t
+typedef|typedef
+name|struct
+name|ngx_http_variable_s
+name|ngx_http_variable_t
+typedef|;
+end_typedef
+
+begin_typedef
+typedef|typedef
+name|ngx_http_variable_value_t
+DECL|typedef|ngx_http_get_variable_pt
+modifier|*
+function_decl|(
+modifier|*
+name|ngx_http_get_variable_pt
+function_decl|)
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|void
+modifier|*
+name|var
+parameter_list|)
+function_decl|;
+end_typedef
+
+begin_struct
+DECL|struct|ngx_http_variable_s
+struct|struct
+name|ngx_http_variable_s
+block|{
+DECL|member|name
+name|ngx_str_t
+name|name
+decl_stmt|;
+DECL|member|index
+name|ngx_uint_t
+name|index
+decl_stmt|;
+DECL|member|handler
+name|ngx_http_get_variable_pt
+name|handler
+decl_stmt|;
+DECL|member|data
+name|void
+modifier|*
+name|data
+decl_stmt|;
+DECL|member|uses
+name|ngx_uint_t
+name|uses
+decl_stmt|;
+block|}
+struct|;
+end_struct
+
+begin_typedef
+DECL|struct|__anon2aeec16c0408
 typedef|typedef
 struct|struct
 block|{
@@ -119,7 +198,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7bfb4b0408
+DECL|struct|__anon2aeec16c0508
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +206,7 @@ DECL|member|servers
 name|ngx_array_t
 name|servers
 decl_stmt|;
-comment|/* array of ngx_http_core_srv_conf_t */
+comment|/* ngx_http_core_srv_conf_t */
 DECL|member|phases
 name|ngx_http_phase_t
 name|phases
@@ -151,6 +230,11 @@ DECL|member|max_server_name_len
 name|size_t
 name|max_server_name_len
 decl_stmt|;
+DECL|member|variables
+name|ngx_array_t
+name|variables
+decl_stmt|;
+comment|/* ngx_http_variable_t */
 DECL|typedef|ngx_http_core_main_conf_t
 block|}
 name|ngx_http_core_main_conf_t
@@ -158,21 +242,21 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7bfb4b0508
+DECL|struct|__anon2aeec16c0608
 typedef|typedef
 struct|struct
 block|{
-comment|/*      * array of ngx_http_core_loc_conf_t, used in the translation handler      * and in the merge phase      */
+comment|/*      * array of the ngx_http_core_loc_conf_t,      * used in the translation handler and in the merge phase      */
 DECL|member|locations
 name|ngx_array_t
 name|locations
 decl_stmt|;
-comment|/* "listen", array of ngx_http_listen_t */
+comment|/* array of the ngx_http_listen_t, "listen" directive */
 DECL|member|listen
 name|ngx_array_t
 name|listen
 decl_stmt|;
-comment|/* "server_name", array of ngx_http_server_name_t */
+comment|/* array of the ngx_http_server_name_t, "server_name" directive */
 DECL|member|server_names
 name|ngx_array_t
 name|server_names
@@ -222,7 +306,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2c7bfb4b0608
+DECL|struct|__anon2aeec16c0708
 typedef|typedef
 struct|struct
 block|{
@@ -286,7 +370,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c7bfb4b0708
+DECL|struct|__anon2aeec16c0808
 typedef|typedef
 struct|struct
 block|{
@@ -352,7 +436,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon2c7bfb4b0808
+DECL|struct|__anon2aeec16c0908
 typedef|typedef
 struct|struct
 block|{
@@ -371,7 +455,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7bfb4b0908
+DECL|struct|__anon2aeec16c0a08
 typedef|typedef
 struct|struct
 block|{
@@ -424,6 +508,13 @@ name|regex
 decl_stmt|;
 endif|#
 directive|endif
+DECL|member|noname
+name|unsigned
+name|noname
+range|:
+literal|1
+decl_stmt|;
+comment|/* "if () {}" block */
 DECL|member|exact_match
 name|unsigned
 name|exact_match
@@ -580,11 +671,12 @@ name|ngx_log_t
 modifier|*
 name|err_log
 decl_stmt|;
-DECL|member|prev_location
-name|ngx_http_core_loc_conf_t
-modifier|*
-name|prev_location
-decl_stmt|;
+if|#
+directive|if
+literal|0
+block|ngx_http_core_loc_conf_t  *prev_location;
+endif|#
+directive|endif
 block|}
 struct|;
 end_struct
@@ -605,7 +697,7 @@ end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
-name|int
+name|ngx_uint_t
 name|ngx_http_max_module
 decl_stmt|;
 end_decl_stmt
@@ -613,17 +705,6 @@ end_decl_stmt
 begin_function_decl
 name|ngx_int_t
 name|ngx_http_find_location_config
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-name|ngx_int_t
-name|ngx_http_core_translate_handler
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
@@ -669,6 +750,33 @@ parameter_list|,
 name|ngx_str_t
 modifier|*
 name|args
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_http_variable_t
+modifier|*
+name|ngx_http_add_variable
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_http_variable_value_t
+modifier|*
+name|ngx_http_get_variable
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_uint_t
+name|index
 parameter_list|)
 function_decl|;
 end_function_decl

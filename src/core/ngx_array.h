@@ -62,7 +62,7 @@ end_struct
 begin_function_decl
 name|ngx_array_t
 modifier|*
-name|ngx_create_array
+name|ngx_array_create
 parameter_list|(
 name|ngx_pool_t
 modifier|*
@@ -79,7 +79,7 @@ end_function_decl
 
 begin_function_decl
 name|void
-name|ngx_destroy_array
+name|ngx_array_destroy
 parameter_list|(
 name|ngx_array_t
 modifier|*
@@ -91,11 +91,26 @@ end_function_decl
 begin_function_decl
 name|void
 modifier|*
-name|ngx_push_array
+name|ngx_array_push
 parameter_list|(
 name|ngx_array_t
 modifier|*
 name|a
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+modifier|*
+name|ngx_array_push_n
+parameter_list|(
+name|ngx_array_t
+modifier|*
+name|a
+parameter_list|,
+name|ngx_uint_t
+name|n
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -175,6 +190,10 @@ return|;
 block|}
 end_function
 
+begin_comment
+comment|/* STUB */
+end_comment
+
 begin_define
 DECL|macro|ngx_init_array (a,p,n,s,rc)
 define|#
@@ -196,20 +215,24 @@ value|ngx_test_null(a.elts, ngx_palloc(p, n * s), rc);                         \
 end_define
 
 begin_define
-DECL|macro|ngx_array_create
+DECL|macro|ngx_create_array
 define|#
 directive|define
-name|ngx_array_create
-value|ngx_create_array
+name|ngx_create_array
+value|ngx_array_create
 end_define
 
 begin_define
-DECL|macro|ngx_array_push
+DECL|macro|ngx_push_array
 define|#
 directive|define
-name|ngx_array_push
-value|ngx_push_array
+name|ngx_push_array
+value|ngx_array_push
 end_define
+
+begin_comment
+comment|/**/
+end_comment
 
 begin_endif
 endif|#

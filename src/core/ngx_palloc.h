@@ -97,12 +97,12 @@ struct|struct
 name|ngx_pool_s
 block|{
 DECL|member|last
-name|char
+name|u_char
 modifier|*
 name|last
 decl_stmt|;
 DECL|member|end
-name|char
+name|u_char
 modifier|*
 name|end
 decl_stmt|;

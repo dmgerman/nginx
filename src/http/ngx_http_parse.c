@@ -44,7 +44,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon2b9494db0103
+DECL|enum|__anon2b26266c0103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -815,6 +815,16 @@ literal|1
 expr_stmt|;
 break|break;
 case|case
+literal|'+'
+case|:
+name|r
+operator|->
+name|plus_in_uri
+operator|=
+literal|1
+expr_stmt|;
+break|break;
+case|case
 literal|'?'
 case|:
 name|r
@@ -947,6 +957,16 @@ name|sw_after_slash_in_uri
 expr_stmt|;
 break|break;
 case|case
+literal|'+'
+case|:
+name|r
+operator|->
+name|plus_in_uri
+operator|=
+literal|1
+expr_stmt|;
+break|break;
+case|case
 literal|'%'
 case|:
 name|r
@@ -1025,6 +1045,16 @@ expr_stmt|;
 goto|goto
 name|done
 goto|;
+case|case
+literal|'+'
+case|:
+name|r
+operator|->
+name|plus_in_uri
+operator|=
+literal|1
+expr_stmt|;
+break|break;
 case|case
 literal|' '
 case|:
@@ -1498,7 +1528,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2b9494db0203
+DECL|enum|__anon2b26266c0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2086,7 +2116,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2b9494db0303
+DECL|enum|__anon2b26266c0303
 enum|enum
 block|{
 DECL|enumerator|sw_usual

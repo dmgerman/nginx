@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon297490820108
+DECL|struct|__anon297354a30108
 typedef|typedef
 struct|struct
 block|{
@@ -81,7 +81,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297490820208
+DECL|struct|__anon297354a30208
 typedef|typedef
 struct|struct
 block|{
@@ -172,7 +172,7 @@ value|0x0200
 end_define
 
 begin_typedef
-DECL|struct|__anon297490820308
+DECL|struct|__anon297354a30308
 typedef|typedef
 struct|struct
 block|{
@@ -672,6 +672,8 @@ operator||
 name|NGX_HTTP_SRV_CONF
 operator||
 name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_HTTP_LIF_CONF
 operator||
 name|NGX_CONF_FLAG
 block|,

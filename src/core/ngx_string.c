@@ -88,6 +88,65 @@ return|;
 block|}
 end_function
 
+begin_function
+DECL|function|ngx_pstrdup (ngx_pool_t * pool,ngx_str_t * src)
+name|u_char
+modifier|*
+name|ngx_pstrdup
+parameter_list|(
+name|ngx_pool_t
+modifier|*
+name|pool
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|src
+parameter_list|)
+block|{
+name|u_char
+modifier|*
+name|dst
+decl_stmt|;
+if|if
+condition|(
+operator|!
+operator|(
+name|dst
+operator|=
+name|ngx_palloc
+argument_list|(
+name|pool
+argument_list|,
+name|src
+operator|->
+name|len
+argument_list|)
+operator|)
+condition|)
+block|{
+return|return
+name|NULL
+return|;
+block|}
+name|ngx_memcpy
+argument_list|(
+name|dst
+argument_list|,
+name|src
+operator|->
+name|data
+argument_list|,
+name|src
+operator|->
+name|len
+argument_list|)
+expr_stmt|;
+return|return
+name|dst
+return|;
+block|}
+end_function
+
 begin_comment
 comment|/*  * supported formats:  *    %[0][width][x][X]O        off_t  *    %[0][width]T              time_t  *    %[0][width][u][x|X]z      ssize_t/size_t  *    %[0][width][u][x|X]d      int/u_int  *    %[0][width][u][x|X]l      long  *    %[0][width|m][u][x|X]i    ngx_int_t/ngx_uint_t  *    %[0][width][u][x|X]D      int32_t/uint32_t  *    %[0][width][u][x|X]L      int64_t/uint64_t  *    %P                        ngx_pid_t  *    %r                        rlim_t  *    %p                        pointer  *    %V                        pointer to ngx_str_t  *    %s                        null-terminated string  *    %Z                        '\0'  *    %c                        char  *    %%                        %  *  *  TODO:  *    %M                        ngx_msec_t  *    %A                        ngx_atomic_t  *  *  reserved:  *    %t                        ptrdiff_t  *    %S                        null-teminated wchar string  *    %C                        wchar  */
 end_comment
@@ -2839,7 +2898,7 @@ end_function
 
 begin_function
 DECL|function|ngx_escape_uri (u_char * dst,u_char * src,size_t size,ngx_uint_t type)
-name|ngx_uint_t
+name|uintptr_t
 name|ngx_escape_uri
 parameter_list|(
 name|u_char
@@ -2873,6 +2932,7 @@ index|[]
 init|=
 literal|"0123456789abcdef"
 decl_stmt|;
+comment|/* " ", "%", "?", %00-%1F, %7F-%FF */
 specifier|static
 name|uint32_t
 name|uri
@@ -2907,6 +2967,42 @@ literal|0xffffffff
 comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
 block|}
 decl_stmt|;
+comment|/* " ", "%", "+", "?", %00-%1F, %7F-%FF */
+specifier|static
+name|uint32_t
+name|args
+index|[]
+init|=
+block|{
+literal|0xffffffff
+block|,
+comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
+comment|/* ?>=< ;:98 7654 3210  /.-, +*)( '&%$ #"!  */
+literal|0x80000821
+block|,
+comment|/* 1000 0000 0000 0000  0000 1000 0010 0001 */
+comment|/* _^]\ [ZYX WVUT SRQP  ONML KJIH GFED CBA@ */
+literal|0x00000000
+block|,
+comment|/* 0000 0000 0000 0000  0000 0000 0000 0000 */
+comment|/*  ~}| {zyx wvut srqp  onml kjih gfed cba` */
+literal|0x80000000
+block|,
+comment|/* 1000 0000 0000 0000  0000 0000 0000 0000 */
+literal|0xffffffff
+block|,
+comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
+literal|0xffffffff
+block|,
+comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
+literal|0xffffffff
+block|,
+comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
+literal|0xffffffff
+comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
+block|}
+decl_stmt|;
+comment|/* " ", """, "%", "'", %00-%1F, %7F-%FF */
 specifier|static
 name|uint32_t
 name|html
@@ -2941,24 +3037,33 @@ literal|0xffffffff
 comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
 block|}
 decl_stmt|;
-if|if
+switch|switch
 condition|(
 name|type
-operator|==
-name|NGX_ESCAPE_HTML
 condition|)
 block|{
+case|case
+name|NGX_ESCAPE_HTML
+case|:
 name|escape
 operator|=
 name|html
 expr_stmt|;
-block|}
-else|else
-block|{
+break|break;
+case|case
+name|NGX_ESCAPE_ARGS
+case|:
+name|escape
+operator|=
+name|args
+expr_stmt|;
+break|break;
+default|default:
 name|escape
 operator|=
 name|uri
 expr_stmt|;
+break|break;
 block|}
 if|if
 condition|(
@@ -3017,6 +3122,9 @@ operator|++
 expr_stmt|;
 block|}
 return|return
+operator|(
+name|uintptr_t
+operator|)
 name|n
 return|;
 block|}
@@ -3103,7 +3211,10 @@ expr_stmt|;
 block|}
 block|}
 return|return
-literal|0
+operator|(
+name|uintptr_t
+operator|)
+name|dst
 return|;
 block|}
 end_function

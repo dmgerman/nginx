@@ -26,7 +26,7 @@ comment|/* AF_INET only */
 end_comment
 
 begin_typedef
-DECL|struct|__anon278bf98a0108
+DECL|struct|__anon2c6bd6320108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278bf98a0208
+DECL|struct|__anon2c6bd6320208
 typedef|typedef
 struct|struct
 block|{
@@ -680,7 +680,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"invalid paramter \"%V\""
+literal|"invalid parameter \"%V\""
 argument_list|,
 operator|&
 name|value

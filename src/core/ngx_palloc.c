@@ -57,7 +57,7 @@ operator|->
 name|last
 operator|=
 operator|(
-name|char
+name|u_char
 operator|*
 operator|)
 name|p
@@ -72,7 +72,7 @@ operator|->
 name|end
 operator|=
 operator|(
-name|char
+name|u_char
 operator|*
 operator|)
 name|p
@@ -297,7 +297,7 @@ name|size_t
 name|size
 parameter_list|)
 block|{
-name|char
+name|u_char
 modifier|*
 name|m
 decl_stmt|;
@@ -335,7 +335,7 @@ operator|->
 name|end
 operator|-
 operator|(
-name|char
+name|u_char
 operator|*
 operator|)
 name|pool
@@ -443,7 +443,7 @@ operator|->
 name|end
 operator|-
 operator|(
-name|char
+name|u_char
 operator|*
 operator|)
 name|p

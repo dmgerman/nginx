@@ -4345,7 +4345,7 @@ name|fmt
 operator|->
 name|ops
 operator|=
-name|ngx_create_array
+name|ngx_array_create
 argument_list|(
 name|cf
 operator|->

@@ -28,6 +28,14 @@ directive|include
 file|<ngx_core.h>
 end_include
 
+begin_define
+DECL|macro|NGX_RADIX_NO_VALUE
+define|#
+directive|define
+name|NGX_RADIX_NO_VALUE
+value|(uintptr_t) -1
+end_define
+
 begin_typedef
 DECL|typedef|ngx_radix_node_t
 typedef|typedef
@@ -66,7 +74,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29102d750108
+DECL|struct|__anon2ad540f60108
 typedef|typedef
 struct|struct
 block|{
