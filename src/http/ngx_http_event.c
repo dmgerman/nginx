@@ -1748,14 +1748,12 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-name|ngx_log_debug
-argument_list|(
-argument|r->connection->log
-argument_list|,
-literal|"HTTP: %d, %d, %s %s"
-argument|_                       r->method _ r->http_version _                       r->uri.data _ r->exten.data
-argument_list|)
-empty_stmt|;
+if|#
+directive|if
+literal|0
+block_content|ngx_log_debug(r->connection->log, "HTTP: %d, %d, %s %s" _                       r->method _ r->http_version _                       r->uri.data _ r->exten.data);
+endif|#
+directive|endif
 if|if
 condition|(
 name|r

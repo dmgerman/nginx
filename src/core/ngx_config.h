@@ -291,6 +291,16 @@ endif|#
 directive|endif
 end_endif
 
+begin_include
+include|#
+directive|include
+file|<sys/stropts.h>
+end_include
+
+begin_comment
+comment|/* INFTIM */
+end_comment
+
 begin_endif
 endif|#
 directive|endif
@@ -413,6 +423,10 @@ include|#
 directive|include
 file|<poll.h>
 end_include
+
+begin_comment
+comment|/* #ifndef INFTIM #define INFTIM    -1 #endif */
+end_comment
 
 begin_endif
 endif|#
