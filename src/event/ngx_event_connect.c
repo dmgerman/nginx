@@ -66,6 +66,7 @@ name|peers
 operator|->
 name|last_cached
 index|]
+expr_stmt|;
 name|pc
 operator|->
 name|peers
@@ -801,6 +802,20 @@ name|data
 operator|=
 operator|???
 expr_stmt|;
+block|}
+end_function
+
+begin_function
+DECL|function|ngx_event_connect_peer_failed (ngx_peer_connection_t * pc)
+name|void
+name|ngx_event_connect_peer_failed
+parameter_list|(
+name|ngx_peer_connection_t
+modifier|*
+name|pc
+parameter_list|)
+block|{
+return|return;
 block|}
 end_function
 

@@ -74,10 +74,15 @@ value|5
 end_define
 
 begin_typedef
-DECL|struct|__anon2b6147a20108
+DECL|struct|__anon29fbc7460108
 typedef|typedef
 struct|struct
 block|{
+DECL|member|hunk
+name|ngx_hunk_t
+modifier|*
+name|hunk
+decl_stmt|;
 DECL|member|param
 name|ngx_table_elt_t
 modifier|*
@@ -104,10 +109,10 @@ name|char
 modifier|*
 name|pos
 decl_stmt|;
-DECL|member|out
+DECL|member|incoming
 name|ngx_chain_t
 modifier|*
-name|out
+name|incoming
 decl_stmt|;
 DECL|member|new_hunk
 name|int
@@ -293,6 +298,9 @@ modifier|*
 name|in
 parameter_list|)
 block|{
+name|int
+name|rc
+decl_stmt|;
 name|ngx_chain_t
 name|chain
 decl_stmt|;
@@ -324,7 +332,7 @@ name|NULL
 operator|&&
 name|ctx
 operator|->
-name|out
+name|incoming
 operator|==
 name|NULL
 operator|)
@@ -497,7 +505,7 @@ block|}
 if|#
 directive|if
 literal|0
-block_content|add in to ctx->out chain      while (ctx->out) {         rc == ngx_http_ssi_exec(r, ctx);          if (rc != NGX_ERROR) {             return rc;         }          ctx->out = ctx->out->next;     }
+block_content|add in to ctx->incoming chain      while (ctx->incoming) {         rc == ngx_http_ssi_exec(r, ctx);          if (rc != NGX_ERROR) {             return rc;         }          ctx->incoming = ctx->incoming->next;     }
 endif|#
 directive|endif
 return|return
@@ -513,7 +521,7 @@ literal|0
 end_if
 
 begin_endif
-unit|while (ctx->out) {         rc = ngx_http_ssi_parse(r, ctx, ctx->out->hunk);          if (rc == NGX_ERROR) {             return rc;         }          if (rc == NGX_OK) {             ngx_test_null(temp, ngx_calloc_hunk(r->pool), NGX_ERROR);             temp->type = NGX_HUNK_IN_MEMORY|NGX_HUNK_TEMP;             temp->pos = comment_string;             temp->last = comment_string + looked;         }          if (rc == NGX_HTTP_SSI_DONE) {               - looked              chain.hunk = ctx->out->hunk;             chain.next = NULL;              rc = next_body_filter(r,&chain);              if (rc != NGX_OK) {                 ctx->out = ctx->out->next;                 return rc;             }          } else if (rc == NGX_HTTP_SSI_INVALID_COMMAND) {         } else if (rc == NGX_HTTP_SSI_INVALID_PARAM) {         } else if (rc == NGX_HTTP_SSI_INVALID_VALUE) {         } else if (rc == NGX_HTTP_SSI_LONG_VALUE) {         }          ctx->out = ctx->out->next;     }
+unit|while (ctx->incoming) {         rc = ngx_http_ssi_parse(r, ctx, ctx->incoming->hunk);          if (rc == NGX_ERROR) {             return rc;         }          if (rc == NGX_OK) {             ngx_test_null(temp, ngx_calloc_hunk(r->pool), NGX_ERROR);             temp->type = NGX_HUNK_IN_MEMORY|NGX_HUNK_TEMP;             temp->pos = comment_string;             temp->last = comment_string + looked;         }          if (rc == NGX_HTTP_SSI_DONE) {               - looked              chain.hunk = ctx->incoming->hunk;             chain.next = NULL;              rc = next_body_filter(r,&chain);              if (rc != NGX_OK) {                 ctx->incoming = ctx->incoming->next;                 return rc;             }          } else if (rc == NGX_HTTP_SSI_INVALID_COMMAND) {         } else if (rc == NGX_HTTP_SSI_INVALID_PARAM) {         } else if (rc == NGX_HTTP_SSI_INVALID_VALUE) {         } else if (rc == NGX_HTTP_SSI_LONG_VALUE) {         }          ctx->incoming = ctx->incoming->next;     }
 endif|#
 directive|endif
 end_endif
@@ -525,7 +533,7 @@ literal|0
 end_if
 
 begin_comment
-unit|static int ngx_http_ssi_copy_opcode(ngx_http_request_t *r,                                     ngx_http_ssi_ctx_t *ctx, void *data) {     ngx_http_ssi_copy_t *copy = data;      ngx_hunk_t   *h;     ngx_chain_t   chain;      h = ctx->out->hunk;      if (ctx->looked == 0&& ctx->pos == h->last) {         chain.hunk = h;         chain.next = NULL;          return next_body_filter(r,&chain);     }      if (ctx->hunk == NULL) {         ngx_test_null(ctx->hunk, ngx_calloc_hunk(r->pool), NGX_ERROR);         ctx->hunk->type = h->type& NGX_HUNK_STORAGE;     }       if (h->type& NGX_HUNK_FILE) {         if (copy->start<= h->file_pos) {             ctx->hunk->file_pos = h->file_pos;         } else if (copy->start< h->file_last) {             ctx->hunk->file_pos = copy->file_pos;         }          if (copy->end>= h->file_last) {             ctx->hunk->file_last = h->file_last;         } else if (copy->end> h->file_pos) {         }      }      if (h->type& NGX_HUNK_IN_MEMORY) {         if (copy->start<= ctx->offset + (h->pos - h->start)) {             ctx->hunk->pos = h->pos;         } else if (copy->start< ctx->offset + (h->last - h->start)) {             ctx->hunk->pos = h->start + (copy->start - ctx->offset);         }          if (copy->end>= ctx->offset + (h->last - h->start) {             ctx->hunk->last = h->last;         } else if (copy->end> ctx->offset + (h->pos - h->start)) {             ctx->hunk->last = h->start + (copy->end - ctx->offset);         }     }
+unit|static int ngx_http_ssi_copy_opcode(ngx_http_request_t *r,                                     ngx_http_ssi_ctx_t *ctx, void *data) {     ngx_http_ssi_copy_t *copy = data;      ngx_hunk_t   *h;     ngx_chain_t   chain;      h = ctx->incoming->hunk;      if (ctx->looked == 0&& ctx->pos == h->last) {         chain.hunk = h;         chain.next = NULL;          return next_body_filter(r,&chain);     }      if (ctx->hunk == NULL) {         ngx_test_null(ctx->hunk, ngx_calloc_hunk(r->pool), NGX_ERROR);         ctx->hunk->type = h->type& NGX_HUNK_STORAGE;     }       if (h->type& NGX_HUNK_FILE) {         if (copy->start<= h->file_pos) {             ctx->hunk->file_pos = h->file_pos;         } else if (copy->start< h->file_last) {             ctx->hunk->file_pos = copy->file_pos;         }          if (copy->end>= h->file_last) {             ctx->hunk->file_last = h->file_last;         } else if (copy->end> h->file_pos) {         }      }      if (h->type& NGX_HUNK_IN_MEMORY) {         if (copy->start<= ctx->offset + (h->pos - h->start)) {             ctx->hunk->pos = h->pos;         } else if (copy->start< ctx->offset + (h->last - h->start)) {             ctx->hunk->pos = h->start + (copy->start - ctx->offset);         }          if (copy->end>= ctx->offset + (h->last - h->start) {             ctx->hunk->last = h->last;         } else if (copy->end> ctx->offset + (h->pos - h->start)) {             ctx->hunk->last = h->start + (copy->end - ctx->offset);         }     }
 comment|/* TODO: NGX_HUNK_FLUSH */
 end_comment
 
@@ -575,7 +583,7 @@ decl_stmt|;
 name|ngx_chain_t
 name|chain
 decl_stmt|;
-DECL|enum|__anon2b6147a20203
+DECL|enum|__anon29fbc7460203
 enum|enum
 block|{
 DECL|enumerator|ssi_start_state
