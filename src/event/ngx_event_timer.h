@@ -31,7 +31,7 @@ file|<ngx_event.h>
 end_include
 
 begin_comment
-comment|/*  * 1 msec - 49 days  * 10 msec - 1 years 4 months  * 50 msec - 6 years 10 months  * 100 msec - 13 years 8 months  */
+comment|/*  * 32 bit key value resolution  *  * 1 msec - 49 days  * 10 msec - 1 years 4 months  * 50 msec - 6 years 10 months  * 100 msec - 13 years 8 months  */
 end_comment
 
 begin_define
@@ -65,7 +65,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|int
+name|ngx_msec_t
 name|ngx_event_find_timer
 parameter_list|(
 name|void
@@ -120,10 +120,14 @@ argument_list|(
 operator|&
 name|ngx_event_timer_rbtree
 argument_list|,
+operator|(
+name|ngx_rbtree_t
+operator|*
+operator|)
 operator|&
 name|ev
 operator|->
-name|rbtree
+name|rbtree_key
 argument_list|)
 expr_stmt|;
 name|ev
@@ -165,9 +169,7 @@ expr_stmt|;
 block|}
 name|ev
 operator|->
-name|rbtree
-operator|.
-name|key
+name|rbtree_key
 operator|=
 operator|(
 name|ngx_int_t
@@ -185,10 +187,14 @@ argument_list|(
 operator|&
 name|ngx_event_timer_rbtree
 argument_list|,
+operator|(
+name|ngx_rbtree_t
+operator|*
+operator|)
 operator|&
 name|ev
 operator|->
-name|rbtree
+name|rbtree_key
 argument_list|)
 expr_stmt|;
 name|ev

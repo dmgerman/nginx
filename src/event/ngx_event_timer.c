@@ -82,7 +82,7 @@ end_function
 
 begin_function
 DECL|function|ngx_event_find_timer (void)
-name|int
+name|ngx_msec_t
 name|ngx_event_find_timer
 parameter_list|(
 name|void
@@ -114,6 +114,10 @@ block|}
 else|else
 block|{
 return|return
+operator|(
+name|ngx_msec_t
+operator|)
+operator|(
 name|node
 operator|->
 name|key
@@ -121,6 +125,7 @@ operator|*
 name|NGX_TIMER_RESOLUTION
 operator|-
 name|ngx_elapsed_msec
+operator|)
 return|;
 block|}
 block|}
@@ -176,6 +181,9 @@ operator|->
 name|key
 operator|<=
 operator|(
+name|ngx_msec_t
+operator|)
+operator|(
 name|ngx_elapsed_msec
 operator|+
 name|timer
@@ -201,7 +209,7 @@ name|offsetof
 argument_list|(
 name|ngx_event_t
 argument_list|,
-name|rbtree
+name|rbtree_key
 argument_list|)
 operator|)
 expr_stmt|;

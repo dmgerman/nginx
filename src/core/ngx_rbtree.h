@@ -57,10 +57,9 @@ name|ngx_rbtree_t
 modifier|*
 name|parent
 decl_stmt|;
-DECL|member|data
-name|void
-modifier|*
-name|data
+DECL|member|color
+name|char
+name|color
 decl_stmt|;
 block|}
 struct|;

@@ -23,7 +23,7 @@ name|ngx_rbt_red
 parameter_list|(
 name|node
 parameter_list|)
-value|((uintptr_t) (node)->data |= 1)
+value|((node)->color = 1)
 end_define
 
 begin_define
@@ -34,7 +34,7 @@ name|ngx_rbt_black
 parameter_list|(
 name|node
 parameter_list|)
-value|((uintptr_t) (node)->data&= ~1)
+value|((node)->color = 0)
 end_define
 
 begin_define
@@ -45,7 +45,7 @@ name|ngx_rbt_is_red
 parameter_list|(
 name|node
 parameter_list|)
-value|((uintptr_t) (node)->data& 1)
+value|((node)->color)
 end_define
 
 begin_define
@@ -69,8 +69,7 @@ name|n1
 parameter_list|,
 name|n2
 parameter_list|)
-define|\
-value|((uintptr_t) (n1)->data |= (uintptr_t) (n2)->data& 1)
+value|(n1->color = n2->color)
 end_define
 
 begin_function_decl
@@ -733,11 +732,11 @@ name|key
 expr_stmt|;
 name|node
 operator|->
-name|data
+name|color
 operator|=
 name|subst
 operator|->
-name|data
+name|color
 expr_stmt|;
 block|}
 if|if

@@ -2278,6 +2278,7 @@ operator|->
 name|handler
 condition|)
 block|{
+comment|/*          * if the location already has content handler then skip          * the translation phase          */
 name|r
 operator|->
 name|content_handler
@@ -2285,6 +2286,11 @@ operator|=
 name|clcf
 operator|->
 name|handler
+expr_stmt|;
+name|r
+operator|->
+name|phase
+operator|++
 expr_stmt|;
 block|}
 return|return
