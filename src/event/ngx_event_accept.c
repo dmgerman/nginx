@@ -24,7 +24,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c645b700108
+DECL|struct|__anon2a43e2830108
 typedef|typedef
 struct|struct
 block|{
@@ -417,6 +417,20 @@ operator|==
 name|NGX_EAGAIN
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+operator|(
+name|ngx_event_flags
+operator|&
+operator|(
+name|NGX_USE_EDGE_EVENT
+operator||
+name|NGX_USE_SIGIO_EVENT
+operator|)
+operator|)
+condition|)
+block|{
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_NOTICE
@@ -430,6 +444,7 @@ argument_list|,
 name|accepted
 argument_list|)
 expr_stmt|;
+block|}
 name|ngx_destroy_pool
 argument_list|(
 name|pool
