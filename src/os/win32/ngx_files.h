@@ -70,22 +70,64 @@ value|0
 end_define
 
 begin_define
-DECL|macro|ngx_open_file (name,flags)
+DECL|macro|ngx_open_file (name,access,create)
 define|#
 directive|define
 name|ngx_open_file
 parameter_list|(
 name|name
 parameter_list|,
-name|flags
+name|access
+parameter_list|,
+name|create
 parameter_list|)
 define|\
-value|CreateFile(name, flags,                                         \                        FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_SHARE_DELETE,  \                        NULL, OPEN_EXISTING, FILE_FLAG_BACKUP_SEMANTICS, NULL)
+value|CreateFile(name, flags,                                         \                        FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_SHARE_DELETE,  \                        NULL, create, FILE_FLAG_BACKUP_SEMANTICS, NULL)
 end_define
 
 begin_comment
 comment|/*                        NULL, OPEN_EXISTING, 0, NULL) */
 end_comment
+
+begin_define
+DECL|macro|ngx_open_file_n
+define|#
+directive|define
+name|ngx_open_file_n
+value|"CreateFile()"
+end_define
+
+begin_define
+DECL|macro|NGX_FILE_RDONLY
+define|#
+directive|define
+name|NGX_FILE_RDONLY
+value|GENERIC_READ
+end_define
+
+begin_define
+DECL|macro|NGX_FILE_RDWR
+define|#
+directive|define
+name|NGX_FILE_RDWR
+value|GENERIC_READ|GENERIC_WRITE
+end_define
+
+begin_define
+DECL|macro|NGX_FILE_CREATE_OR_OPEN
+define|#
+directive|define
+name|NGX_FILE_CREATE_OR_OPEN
+value|OPEN_ALWAYS
+end_define
+
+begin_define
+DECL|macro|NGX_FILE_OPEN
+define|#
+directive|define
+name|NGX_FILE_OPEN
+value|OPEN_EXISTING
+end_define
 
 begin_define
 DECL|macro|ngx_open_tempfile (name,persistent)
@@ -107,22 +149,6 @@ define|#
 directive|define
 name|ngx_open_tempfile_n
 value|"CreateFile()"
-end_define
-
-begin_define
-DECL|macro|ngx_open_file_n
-define|#
-directive|define
-name|ngx_open_file_n
-value|"CreateFile()"
-end_define
-
-begin_define
-DECL|macro|NGX_FILE_RDONLY
-define|#
-directive|define
-name|NGX_FILE_RDONLY
-value|GENERIC_READ
 end_define
 
 begin_define

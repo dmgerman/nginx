@@ -128,6 +128,8 @@ operator|->
 name|data
 argument_list|,
 name|NGX_FILE_RDONLY
+argument_list|,
+name|NGX_FILE_OPEN
 argument_list|)
 expr_stmt|;
 if|if
@@ -640,7 +642,7 @@ name|cmd
 operator|->
 name|type
 operator|&
-name|NGX_CONF_ANY1
+name|NGX_CONF_1MORE
 condition|)
 block|{
 if|if

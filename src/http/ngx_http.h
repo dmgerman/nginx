@@ -75,11 +75,17 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_http_filter.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_http_core_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28ade51f0108
+DECL|struct|__anon2be755830108
 typedef|typedef
 struct|struct
 block|{

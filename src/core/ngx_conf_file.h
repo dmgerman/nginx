@@ -111,10 +111,10 @@ value|0x00010000
 end_define
 
 begin_define
-DECL|macro|NGX_CONF_ANY1
+DECL|macro|NGX_CONF_1MORE
 define|#
 directive|define
-name|NGX_CONF_ANY1
+name|NGX_CONF_1MORE
 value|0x00020000
 end_define
 
@@ -312,7 +312,7 @@ value|{ngx_null_string, 0, NULL, 0, 0, NULL}
 end_define
 
 begin_typedef
-DECL|struct|__anon28b1b1df0108
+DECL|struct|__anon290310380108
 typedef|typedef
 struct|struct
 block|{
@@ -357,7 +357,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b1b1df0208
+DECL|struct|__anon290310380208
 typedef|typedef
 struct|struct
 block|{

@@ -1,4 +1,8 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
+begin_comment
+comment|/*  * small file in malloc()ed memory, mmap()ed file, file descriptor only,  * file access time only (to estimate can pages pages still be in memory),  * translated URI (ngx_http_index_hanlder),  * compiled script (ngx_http_ssi_filter).  */
+end_comment
+
 begin_define
 DECL|macro|NGX_HTTP_CACHE_ENTRY_DELETED
 define|#
@@ -27,6 +31,18 @@ name|NGX_HTTP_CACHE_ENTRY_URI
 value|0x00000004
 end_define
 
+begin_comment
+comment|/* complied script */
+end_comment
+
+begin_define
+DECL|macro|NGX_HTTP_CACHE_ENTRY_SCRIPT
+define|#
+directive|define
+name|NGX_HTTP_CACHE_ENTRY_SCRIPT
+value|0x00000008
+end_define
+
 begin_define
 DECL|macro|NGX_HTTP_CACHE_FILTER_FLAGS
 define|#
@@ -36,7 +52,7 @@ value|0xFFFF0000
 end_define
 
 begin_typedef
-DECL|struct|__anon2c61aac20408
+DECL|struct|__anon2bcf8cec0408
 typedef|typedef
 struct|struct
 block|{
@@ -81,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c61aac20508
+DECL|struct|__anon2bcf8cec0508
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +121,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c61aac20608
+DECL|struct|__anon2bcf8cec0608
 typedef|typedef
 struct|struct
 block|{
@@ -157,7 +173,7 @@ name|h
 operator|->
 name|crc
 operator|=
-name|ngx_crc32
+name|ngx_crc
 argument_list|(
 name|uri
 operator|->
@@ -283,6 +299,61 @@ block|}
 block|}
 return|return
 name|NGX_ERROR
+return|;
+block|}
+end_function
+
+begin_comment
+comment|/* 32-bit crc16 */
+end_comment
+
+begin_function
+name|int
+name|ngx_crc
+parameter_list|(
+name|char
+modifier|*
+name|data
+parameter_list|,
+name|size_t
+name|len
+parameter_list|)
+block|{
+name|u_int32_t
+name|sum
+decl_stmt|;
+for|for
+control|(
+name|sum
+operator|=
+literal|0
+init|;
+name|len
+condition|;
+name|len
+operator|--
+control|)
+block|{
+comment|/*          * gcc 2.95.2 x86 compiles that operator into the single rol opcode.          * msvc 6.0sp2 compiles it into four opcodes.          */
+name|sum
+operator|=
+name|sum
+operator|>>
+literal|1
+operator||
+name|sum
+operator|<<
+literal|31
+expr_stmt|;
+name|sum
+operator|+=
+operator|*
+name|data
+operator|++
+expr_stmt|;
+block|}
+return|return
+name|sum
 return|;
 block|}
 end_function

@@ -150,6 +150,27 @@ end_decl_stmt
 begin_decl_stmt
 specifier|extern
 name|ngx_module_t
+name|ngx_http_chunked_filter_module
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_module_t
+name|ngx_http_range_filter_module
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_module_t
+name|ngx_http_charset_filter_module
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_module_t
 name|ngx_http_index_module
 decl_stmt|;
 end_decl_stmt
@@ -165,6 +186,13 @@ begin_decl_stmt
 specifier|extern
 name|ngx_module_t
 name|ngx_http_proxy_module
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_module_t
+name|ngx_http_log_module
 decl_stmt|;
 end_decl_stmt
 
@@ -242,14 +270,25 @@ block|,
 operator|&
 name|ngx_http_header_filter_module
 block|,
+operator|&
+name|ngx_http_chunked_filter_module
+block|,
 comment|/*&ngx_http_gzip_filter_module, */
-comment|/*&ngx_http_range_filter_module, */
+operator|&
+name|ngx_http_range_filter_module
+block|,
 comment|/*&ngx_http_ssi_filter_module, */
+operator|&
+name|ngx_http_charset_filter_module
+block|,
 operator|&
 name|ngx_http_index_module
 block|,
 comment|/*&ngx_http_static_module, */
 comment|/*&ngx_http_proxy_module, */
+operator|&
+name|ngx_http_log_module
+block|,
 name|NULL
 block|}
 decl_stmt|;

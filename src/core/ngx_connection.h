@@ -243,6 +243,12 @@ name|unexpected_eof
 range|:
 literal|1
 decl_stmt|;
+DECL|member|tcp_nopush
+name|unsigned
+name|tcp_nopush
+range|:
+literal|1
+decl_stmt|;
 block|}
 struct|;
 end_struct

@@ -2,8 +2,47 @@ begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_include
 include|#
 directive|include
-file|<ngx_http_index_handler.h>
+file|<ngx_config.h>
 end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_core.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_http.h>
+end_include
+
+begin_typedef
+DECL|struct|__anon2a9510540108
+typedef|typedef
+struct|struct
+block|{
+DECL|member|indices
+name|ngx_array_t
+name|indices
+decl_stmt|;
+DECL|member|max_index_len
+name|size_t
+name|max_index_len
+decl_stmt|;
+DECL|typedef|ngx_http_index_conf_t
+block|}
+name|ngx_http_index_conf_t
+typedef|;
+end_typedef
+
+begin_define
+DECL|macro|NGX_HTTP_DEFAULT_INDEX
+define|#
+directive|define
+name|NGX_HTTP_DEFAULT_INDEX
+value|"index.html"
+end_define
 
 begin_function_decl
 specifier|static
@@ -100,7 +139,7 @@ argument_list|)
 block|,
 name|NGX_HTTP_LOC_CONF
 operator||
-name|NGX_CONF_ANY1
+name|NGX_CONF_1MORE
 block|,
 name|ngx_http_index_set_index
 block|,
@@ -168,7 +207,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_comment
-comment|/*    Try to open first index file before the test of the directory existence    because the valid requests should be many more then invalid ones.    If open() failed then stat() should be more quickly because some data    is already cached in the kernel.    Besides Win32 has ERROR_PATH_NOT_FOUND (NGX_ENOTDIR).    Unix has ENOTDIR error, although it less helpfull - it shows only    that path contains the usual file in place of the directory. */
+comment|/*    Try to open the first index file before the directory existence test    because the valid requests should be many more than invalid ones.    If open() failed then stat() should be more quickly because some data    is already cached in the kernel.    Besides Win32 has ERROR_PATH_NOT_FOUND (NGX_ENOTDIR).    Unix has ENOTDIR error, although it less helpfull - it shows only    that path contains the usual file in place of the directory. */
 end_comment
 
 begin_function
@@ -187,6 +226,8 @@ decl_stmt|,
 name|rc
 decl_stmt|,
 name|test_dir
+decl_stmt|,
+name|path_not_found
 decl_stmt|;
 name|char
 modifier|*
@@ -333,6 +374,10 @@ name|test_dir
 operator|=
 literal|1
 expr_stmt|;
+name|path_not_found
+operator|=
+literal|1
+expr_stmt|;
 name|index
 operator|=
 name|icf
@@ -423,6 +468,8 @@ argument_list|(
 name|name
 argument_list|,
 name|NGX_FILE_RDONLY
+argument_list|,
+name|NGX_FILE_OPEN
 argument_list|)
 expr_stmt|;
 if|if
@@ -462,8 +509,6 @@ operator|==
 name|NGX_ENOTDIR
 condition|)
 block|{
-name|r
-operator|->
 name|path_not_found
 operator|=
 literal|1
@@ -493,8 +538,6 @@ condition|)
 block|{
 if|if
 condition|(
-name|r
-operator|->
 name|path_not_found
 condition|)
 block|{

@@ -14,13 +14,13 @@ end_include
 begin_include
 include|#
 directive|include
-file|<nginx.h>
+file|<ngx_event.h>
 end_include
 
 begin_include
 include|#
 directive|include
-file|<ngx_event.h>
+file|<nginx.h>
 end_include
 
 begin_function
@@ -101,7 +101,7 @@ literal|0
 expr_stmt|;
 do|do
 block|{
-comment|/* Create the pool before accept() to avoid copy the sockaddr.            Although accept() can fail it's uncommon case            and the pool can be got from the free pool list */
+comment|/*          * Create the pool before accept() to avoid copy the sockaddr.          * Although accept() can fail it's uncommon case          * and the pool can be got from the free pool list          */
 name|pool
 operator|=
 name|ngx_create_pool
@@ -749,7 +749,7 @@ name|c
 operator|->
 name|log
 expr_stmt|;
-comment|/* STUB: x86: MT: lock xadd, MP: lock xadd, shared */
+comment|/* TODO: x86: MT: lock xadd, MP: lock xadd, shared */
 name|c
 operator|->
 name|number

@@ -34,7 +34,7 @@ name|char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2b0d0ea50103
+DECL|enum|__anon2c41ad9c0103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -472,7 +472,7 @@ expr_stmt|;
 break|break;
 block|}
 break|break;
-comment|/* check "/." or "//" */
+comment|/* check "/.", "//", and "%" in URI */
 case|case
 name|sw_after_slash_in_uri
 case|:
@@ -544,6 +544,9 @@ break|break;
 case|case
 literal|'.'
 case|:
+case|case
+literal|'%'
+case|:
 name|r
 operator|->
 name|complex_uri
@@ -594,7 +597,7 @@ expr_stmt|;
 break|break;
 block|}
 break|break;
-comment|/* check slash in URI */
+comment|/* check "/" and "%" in URI */
 case|case
 name|sw_check_uri
 case|:
@@ -685,6 +688,20 @@ expr_stmt|;
 name|state
 operator|=
 name|sw_after_slash_in_uri
+expr_stmt|;
+break|break;
+case|case
+literal|'%'
+case|:
+name|r
+operator|->
+name|complex_uri
+operator|=
+literal|1
+expr_stmt|;
+name|state
+operator|=
+name|sw_uri
 expr_stmt|;
 break|break;
 case|case
@@ -1235,7 +1252,7 @@ name|char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2b0d0ea50203
+DECL|enum|__anon2c41ad9c0203
 enum|enum
 block|{
 DECL|enumerator|sw_start

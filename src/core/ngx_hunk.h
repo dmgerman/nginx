@@ -307,6 +307,17 @@ value|ngx_palloc(pool, sizeof(ngx_hunk_t))
 end_define
 
 begin_define
+DECL|macro|ngx_calloc_hunk (pool)
+define|#
+directive|define
+name|ngx_calloc_hunk
+parameter_list|(
+name|pool
+parameter_list|)
+value|ngx_pcalloc(pool, sizeof(ngx_hunk_t))
+end_define
+
+begin_define
 DECL|macro|ngx_alloc_chain_entry (pool)
 define|#
 directive|define
@@ -316,25 +327,6 @@ name|pool
 parameter_list|)
 value|ngx_palloc(pool, sizeof(ngx_chain_t))
 end_define
-
-begin_comment
-comment|/* STUB */
-end_comment
-
-begin_define
-DECL|macro|ngx_create_chain_entry (pool)
-define|#
-directive|define
-name|ngx_create_chain_entry
-parameter_list|(
-name|pool
-parameter_list|)
-value|ngx_palloc(pool, sizeof(ngx_chain_t))
-end_define
-
-begin_comment
-comment|/**/
-end_comment
 
 begin_define
 DECL|macro|ngx_add_hunk_to_chain (chain,h,pool,error)

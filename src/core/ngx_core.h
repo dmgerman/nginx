@@ -105,6 +105,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_inet.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_conf_file.h>
 end_include
 

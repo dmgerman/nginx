@@ -59,11 +59,19 @@ value|-1
 end_define
 
 begin_define
-DECL|macro|ngx_open_file
+DECL|macro|ngx_open_file (name,access,create)
 define|#
 directive|define
 name|ngx_open_file
-value|open
+parameter_list|(
+name|name
+parameter_list|,
+name|access
+parameter_list|,
+name|create
+parameter_list|)
+define|\
+value|open(name, access|create, 0644)
 end_define
 
 begin_define
@@ -72,6 +80,46 @@ define|#
 directive|define
 name|ngx_open_file_n
 value|"open()"
+end_define
+
+begin_define
+DECL|macro|NGX_FILE_RDONLY
+define|#
+directive|define
+name|NGX_FILE_RDONLY
+value|O_RDONLY
+end_define
+
+begin_define
+DECL|macro|NGX_FILE_RDWR
+define|#
+directive|define
+name|NGX_FILE_RDWR
+value|O_RDWR
+end_define
+
+begin_define
+DECL|macro|NGX_FILE_CREATE_OR_OPEN
+define|#
+directive|define
+name|NGX_FILE_CREATE_OR_OPEN
+value|O_CREAT
+end_define
+
+begin_define
+DECL|macro|NGX_FILE_OPEN
+define|#
+directive|define
+name|NGX_FILE_OPEN
+value|0
+end_define
+
+begin_define
+DECL|macro|NGX_FILE_APPEND
+define|#
+directive|define
+name|NGX_FILE_APPEND
+value|O_APPEND
 end_define
 
 begin_define
@@ -139,14 +187,6 @@ define|#
 directive|define
 name|ngx_read_file_n
 value|"read()"
-end_define
-
-begin_define
-DECL|macro|NGX_FILE_RDONLY
-define|#
-directive|define
-name|NGX_FILE_RDONLY
-value|O_RDONLY
 end_define
 
 begin_function_decl

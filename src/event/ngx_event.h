@@ -24,59 +24,6 @@ directive|include
 file|<ngx_core.h>
 end_include
 
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-
-begin_include
-include|#
-directive|include
-file|<ngx_types.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_time.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_socket.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_log.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_alloc.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_array.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_conf_file.h>
-end_include
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
 begin_define
 DECL|macro|NGX_INVALID_INDEX
 define|#
@@ -106,7 +53,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2bb465650108
+DECL|struct|__anon28af18d70108
 typedef|typedef
 struct|struct
 block|{
@@ -401,7 +348,7 @@ literal|1
 end_if
 
 begin_typedef
-DECL|enum|__anon2bb465650203
+DECL|enum|__anon28af18d70203
 typedef|typedef
 enum|enum
 block|{
@@ -475,7 +422,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2bb465650308
+DECL|struct|__anon28af18d70308
 typedef|typedef
 struct|struct
 block|{
@@ -1245,31 +1192,6 @@ endif|#
 directive|endif
 end_endif
 
-begin_if
-if|#
-directive|if
-operator|!
-operator|(
-name|HAVE_EPOLL
-operator|)
-end_if
-
-begin_define
-DECL|macro|ngx_edge_add_event (ev)
-define|#
-directive|define
-name|ngx_edge_add_event
-parameter_list|(
-name|ev
-parameter_list|)
-value|NGX_ERROR
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
 begin_define
 DECL|macro|NGX_EVENT_MODULE
 define|#
@@ -1292,7 +1214,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon2bb465650408
+DECL|struct|__anon28af18d70408
 typedef|typedef
 struct|struct
 block|{
@@ -1315,7 +1237,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb465650508
+DECL|struct|__anon28af18d70508
 typedef|typedef
 struct|struct
 block|{

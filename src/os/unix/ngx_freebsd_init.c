@@ -57,6 +57,13 @@ name|ngx_freebsd_sendfile_nbytes_bug
 decl_stmt|;
 end_decl_stmt
 
+begin_decl_stmt
+DECL|variable|ngx_freebsd_tcp_nopush_flush
+name|int
+name|ngx_freebsd_tcp_nopush_flush
+decl_stmt|;
+end_decl_stmt
+
 begin_comment
 comment|/* FreeBSD 5.0 */
 end_comment
@@ -90,7 +97,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2bf5ac000108
+DECL|struct|__anon2afba49c0108
 typedef|typedef
 struct|struct
 block|{
@@ -145,6 +152,7 @@ name|int
 operator|)
 block|}
 block|,
+comment|/* FreeBSD 5.0 */
 block|{
 literal|"kern.ipc.zero_copy.send"
 block|,
@@ -180,6 +188,8 @@ parameter_list|)
 block|{
 name|int
 name|i
+decl_stmt|,
+name|version
 decl_stmt|;
 name|size_t
 name|size
@@ -320,6 +330,10 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|version
+operator|=
+name|ngx_freebsd_kern_osreldate
+expr_stmt|;
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_INFO
@@ -330,7 +344,7 @@ literal|0
 argument_list|,
 literal|"kern.osreldate: %d, built on %d"
 argument_list|,
-name|ngx_freebsd_kern_osreldate
+name|version
 argument_list|,
 name|__FreeBSD_version
 argument_list|)
@@ -340,8 +354,8 @@ directive|if
 operator|(
 name|HAVE_FREEBSD_SENDFILE
 operator|)
-comment|/* The determination of the sendfile() nbytes bug is complex enough.        There're two sendfile() syscalls: a new 393 has no bug while        an old 336 has the bug in some versions and has not in others.        libc_r wrapper also emulates the bug in some versions.        There's no way to say exactly if a given FreeBSD version has bug.        Here is the algorithm that work at least for RELEASEs        and for syscalls only (not libc_r wrapper). */
-comment|/* detect was the new sendfile() version available at the compile time        to allow an old binary to run correctly on an updated FreeBSD system. */
+comment|/* The determination of the sendfile() nbytes bug is complex enough.        There're two sendfile() syscalls: a new 393 has no bug while        an old 336 has the bug in some versions and has not in others.        Besides libc_r wrapper also emulates the bug in some versions.        There's no way to say exactly if a given FreeBSD version has bug.        Here is the algorithm that works at least for RELEASEs        and for syscalls only (not libc_r wrapper). */
+comment|/* detect the new sendfile() version available at the compile time        to allow an old binary to run correctly on an updated FreeBSD system. */
 if|#
 directive|if
 operator|(
@@ -379,6 +393,28 @@ directive|endif
 endif|#
 directive|endif
 comment|/* HAVE_FREEBSD_SENDFILE */
+if|if
+condition|(
+operator|(
+name|version
+operator|<
+literal|500000
+operator|&&
+name|version
+operator|>=
+literal|440003
+operator|)
+operator|||
+name|version
+operator|>=
+literal|500017
+condition|)
+block|{
+name|ngx_freebsd_tcp_nopush_flush
+operator|=
+literal|1
+expr_stmt|;
+block|}
 for|for
 control|(
 name|i

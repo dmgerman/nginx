@@ -30,12 +30,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_http_output_filter.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<nginx.h>
 end_include
 
@@ -528,12 +522,18 @@ argument_list|(
 literal|"listen"
 argument_list|)
 block|,
-name|NGX_HTTP_MAIN_CONF
-operator||
+if|#
+directive|if
+literal|0
+block|NGX_HTTP_MAIN_CONF|NGX_HTTP_SRV_CONF|NGX_CONF_TAKE1,
+else|#
+directive|else
 name|NGX_HTTP_SRV_CONF
 operator||
 name|NGX_CONF_TAKE1
 block|,
+endif|#
+directive|endif
 name|ngx_set_listen
 block|,
 name|NGX_HTTP_SRV_CONF_OFFSET
@@ -551,7 +551,7 @@ argument_list|)
 block|,
 name|NGX_HTTP_SRV_CONF
 operator||
-name|NGX_CONF_ANY1
+name|NGX_CONF_1MORE
 block|,
 name|ngx_set_server_name
 block|,
@@ -854,6 +854,10 @@ name|rc
 decl_stmt|,
 name|i
 decl_stmt|;
+name|ngx_http_log_ctx_t
+modifier|*
+name|lcx
+decl_stmt|;
 name|ngx_http_handler_pt
 modifier|*
 name|h
@@ -877,6 +881,22 @@ operator|->
 name|unexpected_eof
 operator|=
 literal|0
+expr_stmt|;
+name|lcx
+operator|=
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+operator|->
+name|data
+expr_stmt|;
+name|lcx
+operator|->
+name|action
+operator|=
+name|NULL
 expr_stmt|;
 name|r
 operator|->
@@ -1496,6 +1516,8 @@ operator|.
 name|data
 argument_list|,
 name|NGX_FILE_RDONLY
+argument_list|,
+name|NGX_FILE_OPEN
 argument_list|)
 expr_stmt|;
 block|}
@@ -1665,6 +1687,14 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
+name|r
+operator|->
+name|file
+operator|.
+name|fd
+operator|=
+name|NGX_INVALID_FILE
+expr_stmt|;
 return|return
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
@@ -1745,6 +1775,14 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
+name|r
+operator|->
+name|file
+operator|.
+name|fd
+operator|=
+name|NGX_INVALID_FILE
+expr_stmt|;
 endif|#
 directive|endif
 comment|/* BROKEN: need to include server name */
@@ -3708,7 +3746,7 @@ name|ngx_http_server_name_t
 modifier|*
 name|n
 decl_stmt|;
-comment|/* TODO: it does not merge, it init only */
+comment|/* TODO: it does not merge, it inits only */
 if|if
 condition|(
 name|conf
@@ -3741,10 +3779,20 @@ name|addr
 operator|=
 name|INADDR_ANY
 expr_stmt|;
+comment|/* STUB: getuid() should be cached */
 name|l
 operator|->
 name|port
 operator|=
+operator|(
+name|getuid
+argument_list|()
+operator|==
+literal|0
+operator|)
+condition|?
+literal|80
+else|:
 literal|8000
 expr_stmt|;
 name|l
