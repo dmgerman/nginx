@@ -120,7 +120,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2acad5c60108
+DECL|struct|__anon2c81f8aa0108
 typedef|typedef
 struct|struct
 block|{
@@ -232,13 +232,13 @@ operator|>=
 literal|500014
 name|_malloc_options
 operator|=
-literal|"JAV"
+literal|"J"
 expr_stmt|;
 else|#
 directive|else
 name|malloc_options
 operator|=
-literal|"JAV"
+literal|"J"
 expr_stmt|;
 endif|#
 directive|endif

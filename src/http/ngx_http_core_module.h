@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2981663a0108
+DECL|struct|__anon29415d8c0108
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2981663a0203
+DECL|enum|__anon29415d8c0203
 typedef|typedef
 enum|enum
 block|{
@@ -95,7 +95,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2981663a0308
+DECL|struct|__anon29415d8c0308
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2981663a0408
+DECL|struct|__anon29415d8c0408
 typedef|typedef
 struct|struct
 block|{
@@ -146,7 +146,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2981663a0508
+DECL|struct|__anon29415d8c0508
 typedef|typedef
 struct|struct
 block|{
@@ -210,7 +210,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2981663a0608
+DECL|struct|__anon29415d8c0608
 typedef|typedef
 struct|struct
 block|{
@@ -234,7 +234,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2981663a0708
+DECL|struct|__anon29415d8c0708
 typedef|typedef
 struct|struct
 block|{
@@ -266,7 +266,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2981663a0808
+DECL|struct|__anon29415d8c0808
 typedef|typedef
 struct|struct
 block|{
@@ -309,7 +309,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon2981663a0908
+DECL|struct|__anon29415d8c0908
 typedef|typedef
 struct|struct
 block|{
@@ -328,7 +328,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2981663a0a08
+DECL|struct|__anon29415d8c0a08
 typedef|typedef
 struct|struct
 block|{
@@ -484,11 +484,6 @@ name|time_t
 name|keepalive_header
 decl_stmt|;
 comment|/* keepalive_timeout */
-DECL|member|keepalive_buffers
-name|ngx_flag_t
-name|keepalive_buffers
-decl_stmt|;
-comment|/* keepalive_buffers */
 DECL|member|sendfile
 name|ngx_flag_t
 name|sendfile
