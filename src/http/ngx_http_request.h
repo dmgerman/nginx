@@ -181,6 +181,14 @@ value|18
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_PARSE_INVALID_HOST
+define|#
+directive|define
+name|NGX_HTTP_PARSE_INVALID_HOST
+value|19
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_OK
 define|#
 directive|define
@@ -293,6 +301,30 @@ value|416
 end_define
 
 begin_comment
+comment|/* Our own HTTP codes */
+end_comment
+
+begin_define
+DECL|macro|NGX_HTTP_NGX_CODES
+define|#
+directive|define
+name|NGX_HTTP_NGX_CODES
+value|NGX_HTTP_INVALID_HOST
+end_define
+
+begin_comment
+comment|/*  * We use the special code for the requests with invalid host name  * to distinguish it from 4XX in an error page redirection   */
+end_comment
+
+begin_define
+DECL|macro|NGX_HTTP_INVALID_HOST
+define|#
+directive|define
+name|NGX_HTTP_INVALID_HOST
+value|498
+end_define
+
+begin_comment
 comment|/*  * HTTP does not define the code for the case when a client closed  * the connection while we are processing its request so we introduce  * own code to log such situation when a client has closed the connection  * before we even try to send the HTTP header to it  */
 end_comment
 
@@ -345,7 +377,28 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon2c25a0060103
+DECL|enum|__anon2c82015b0103
+typedef|typedef
+enum|enum
+block|{
+DECL|enumerator|NGX_HTTP_RESTRICT_HOST_OFF
+name|NGX_HTTP_RESTRICT_HOST_OFF
+init|=
+literal|0
+block|,
+DECL|enumerator|NGX_HTTP_RESTRICT_HOST_ON
+name|NGX_HTTP_RESTRICT_HOST_ON
+block|,
+DECL|enumerator|NGX_HTTP_RESTRICT_HOST_CLOSE
+name|NGX_HTTP_RESTRICT_HOST_CLOSE
+DECL|typedef|ngx_http_restrict_host_e
+block|}
+name|ngx_http_restrict_host_e
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|enum|__anon2c82015b0203
 typedef|typedef
 enum|enum
 block|{
@@ -384,7 +437,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c25a0060208
+DECL|struct|__anon2c82015b0308
 typedef|typedef
 struct|struct
 block|{
@@ -403,7 +456,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c25a0060308
+DECL|struct|__anon2c82015b0408
 typedef|typedef
 struct|struct
 block|{
@@ -509,7 +562,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c25a0060408
+DECL|struct|__anon2c82015b0508
 typedef|typedef
 struct|struct
 block|{
@@ -532,7 +585,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c25a0060508
+DECL|struct|__anon2c82015b0608
 typedef|typedef
 struct|struct
 block|{
@@ -636,7 +689,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c25a0060608
+DECL|struct|__anon2c82015b0708
 typedef|typedef
 struct|struct
 block|{
@@ -687,10 +740,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon2c25a006070a
+DECL|union|__anon2c82015b080a
 union|union
 block|{
-DECL|struct|__anon2c25a0060808
+DECL|struct|__anon2c82015b0908
 struct|struct
 block|{
 DECL|member|fd
@@ -706,7 +759,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon2c25a0060908
+DECL|struct|__anon2c82015b0a08
 struct|struct
 block|{
 DECL|member|hash

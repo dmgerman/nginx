@@ -425,6 +425,15 @@ argument_list|)
 block|,
 name|ngx_string
 argument_list|(
+name|error_404_page
+argument_list|)
+block|,
+comment|/* 498 */
+name|ngx_null_string
+block|,
+comment|/* 499 */
+name|ngx_string
+argument_list|(
 name|error_500_page
 argument_list|)
 block|,
@@ -718,7 +727,7 @@ if|else if
 condition|(
 name|error
 operator|<
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_HTTP_NGX_CODES
 condition|)
 block|{
 comment|/* 4XX */
@@ -733,17 +742,39 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|/* 5XX */
+comment|/* 49X, 5XX */
 name|err
 operator|=
 name|error
 operator|-
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_HTTP_NGX_CODES
 operator|+
 literal|3
 operator|+
 literal|17
 expr_stmt|;
+switch|switch
+condition|(
+name|error
+condition|)
+block|{
+case|case
+name|NGX_HTTP_INVALID_HOST
+case|:
+name|r
+operator|->
+name|headers_out
+operator|.
+name|status
+operator|=
+name|NGX_HTTP_NOT_FOUND
+expr_stmt|;
+name|error
+operator|=
+name|NGX_HTTP_NOT_FOUND
+expr_stmt|;
+break|break;
+block|}
 block|}
 if|if
 condition|(

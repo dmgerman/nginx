@@ -22,7 +22,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon28917dec0108
+DECL|struct|__anon280318ab0108
 typedef|typedef
 struct|struct
 block|{
@@ -269,19 +269,6 @@ operator|&
 name|NGX_HTTP_FILTER_ALLOW_RANGES
 operator|)
 condition|)
-if|#
-directive|if
-literal|0
-comment|/* STUB: we currently support ranges for file hunks only */
-if||| !r->sendfile         || r->filter& NGX_HTTP_FILTER_NEED_IN_MEMORY
-endif|#
-directive|endif
-if|#
-directive|if
-literal|0
-if||| (r->headers_out.content_encoding&& r->headers_out.content_encoding->value.len))
-endif|#
-directive|endif
 block|{
 return|return
 name|ngx_http_next_header_filter
@@ -2262,7 +2249,7 @@ name|out
 argument_list|)
 return|;
 block|}
-comment|/* TODO: several incoming hunks of proxied responses              and memory hunks on platforms that have no sendfile() */
+comment|/* TODO: alert */
 return|return
 name|ngx_http_next_body_filter
 argument_list|(

@@ -24,7 +24,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a10ef820108
+DECL|struct|__anon27e5e8fa0108
 typedef|typedef
 struct|struct
 block|{
@@ -61,7 +61,7 @@ name|size_t
 name|memlevel
 decl_stmt|;
 DECL|member|min_length
-name|size_t
+name|ssize_t
 name|min_length
 decl_stmt|;
 DECL|typedef|ngx_http_gzip_conf_t
@@ -143,7 +143,7 @@ value|0x0200
 end_define
 
 begin_typedef
-DECL|struct|__anon2a10ef820208
+DECL|struct|__anon27e5e8fa0208
 typedef|typedef
 struct|struct
 block|{
@@ -4270,7 +4270,7 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
-name|ngx_conf_merge_size_value
+name|ngx_conf_merge_value
 argument_list|(
 name|conf
 operator|->
