@@ -1509,7 +1509,7 @@ name|write
 operator|->
 name|event_handler
 operator|=
-name|ngx_http_writer
+name|ngx_http_empty_handler
 expr_stmt|;
 name|rc
 operator|=

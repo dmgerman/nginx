@@ -109,7 +109,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2912ac400108
+DECL|struct|__anon2b936ee60108
 typedef|typedef
 struct|struct
 block|{
@@ -216,17 +216,10 @@ end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_cycle
+specifier|volatile
 name|ngx_cycle_t
 modifier|*
 name|ngx_cycle
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-DECL|variable|ngx_temp_pool
-name|ngx_pool_t
-modifier|*
-name|ngx_temp_pool
 decl_stmt|;
 end_decl_stmt
 
@@ -238,7 +231,17 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_temp_pool
+specifier|static
+name|ngx_pool_t
+modifier|*
+name|ngx_temp_pool
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_cleaner_event
+specifier|static
 name|ngx_event_t
 name|ngx_cleaner_event
 decl_stmt|;
@@ -250,6 +253,7 @@ end_comment
 
 begin_decl_stmt
 DECL|variable|dumb
+specifier|static
 name|ngx_connection_t
 name|dumb
 decl_stmt|;
@@ -257,7 +261,7 @@ end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_connection_counter
-name|int
+name|u_int
 name|ngx_connection_counter
 decl_stmt|;
 end_decl_stmt
@@ -442,7 +446,7 @@ operator|*
 operator|)
 name|ngx_get_conf
 argument_list|(
-name|ngx_cycle
+name|cycle
 operator|->
 name|conf_ctx
 argument_list|,
@@ -462,7 +466,7 @@ if|if
 condition|(
 name|ngx_daemon
 argument_list|(
-name|ngx_cycle
+name|cycle
 operator|->
 name|log
 argument_list|)
@@ -479,7 +483,7 @@ if|if
 condition|(
 name|dup2
 argument_list|(
-name|ngx_cycle
+name|cycle
 operator|->
 name|log
 operator|->
@@ -498,7 +502,7 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_EMERG
 argument_list|,
-name|ngx_cycle
+name|cycle
 operator|->
 name|log
 argument_list|,
@@ -521,7 +525,7 @@ condition|;
 control|)
 block|{
 comment|/* STUB */
-name|ngx_cycle
+name|cycle
 operator|->
 name|log
 operator|->
@@ -529,7 +533,22 @@ name|log_level
 operator|=
 name|NGX_LOG_DEBUG
 expr_stmt|;
-comment|/* forks */
+if|#
+directive|if
+literal|0
+if|#
+directive|if
+operator|!
+operator|(
+name|WIN32
+operator|)
+block_content|ngx_spawn_process(cycle->log);
+endif|#
+directive|endif
+block_content|stub_init(cycle);
+endif|#
+directive|endif
+comment|/* TODO: forks */
 name|ngx_init_temp_number
 argument_list|()
 expr_stmt|;
@@ -567,7 +586,7 @@ index|]
 operator|->
 name|init_child
 argument_list|(
-name|ngx_cycle
+name|cycle
 argument_list|)
 operator|==
 name|NGX_ERROR
@@ -582,7 +601,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/* threads */
+comment|/* TODO: threads */
 name|restart
 operator|=
 literal|0
@@ -605,7 +624,7 @@ control|)
 block|{
 name|ngx_log_debug
 argument_list|(
-name|ngx_cycle
+name|cycle
 operator|->
 name|log
 argument_list|,
@@ -614,7 +633,7 @@ argument_list|)
 expr_stmt|;
 name|ngx_process_events
 argument_list|(
-name|ngx_cycle
+name|cycle
 operator|->
 name|log
 argument_list|)
@@ -626,7 +645,7 @@ condition|)
 block|{
 name|ngx_log_debug
 argument_list|(
-name|ngx_cycle
+name|cycle
 operator|->
 name|log
 argument_list|,
@@ -714,7 +733,7 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_EMERG
 argument_list|,
-name|ngx_cycle
+name|cycle
 operator|->
 name|log
 argument_list|,
@@ -754,7 +773,7 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_EMERG
 argument_list|,
-name|ngx_cycle
+name|cycle
 operator|->
 name|log
 argument_list|,
@@ -787,7 +806,7 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_EMERG
 argument_list|,
-name|ngx_cycle
+name|cycle
 operator|->
 name|log
 argument_list|,
@@ -830,7 +849,7 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_EMERG
 argument_list|,
-name|ngx_cycle
+name|cycle
 operator|->
 name|log
 argument_list|,
@@ -868,7 +887,7 @@ condition|)
 block|{
 name|ngx_log_debug
 argument_list|(
-name|ngx_cycle
+name|cycle
 operator|->
 name|log
 argument_list|,
@@ -882,9 +901,9 @@ name|cycle
 operator|=
 name|ngx_init_cycle
 argument_list|(
-name|ngx_cycle
+name|cycle
 argument_list|,
-name|ngx_cycle
+name|cycle
 operator|->
 name|log
 argument_list|)
@@ -896,6 +915,14 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|cycle
+operator|=
+operator|(
+name|ngx_cycle_t
+operator|*
+operator|)
+name|ngx_cycle
+expr_stmt|;
 continue|continue;
 block|}
 name|ngx_cycle
@@ -2193,11 +2220,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-name|stub_init
-argument_list|(
-name|cycle
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|old_cycle
@@ -3134,23 +3156,29 @@ name|found
 decl_stmt|,
 name|live
 decl_stmt|;
+name|ngx_log_t
+modifier|*
+name|log
+decl_stmt|;
 name|ngx_cycle_t
 modifier|*
 modifier|*
 name|cycle
 decl_stmt|;
-name|ngx_temp_pool
-operator|->
 name|log
 operator|=
 name|ngx_cycle
 operator|->
 name|log
 expr_stmt|;
+name|ngx_temp_pool
+operator|->
+name|log
+operator|=
+name|log
+expr_stmt|;
 name|ngx_log_debug
 argument_list|(
-name|ngx_cycle
-operator|->
 name|log
 argument_list|,
 literal|"clean old cycles"
@@ -3241,7 +3269,7 @@ literal|1
 expr_stmt|;
 name|ngx_log_debug
 argument_list|(
-argument|ngx_cycle->log
+argument|log
 argument_list|,
 literal|"live fd: %d"
 argument|_ n
@@ -3263,7 +3291,7 @@ continue|continue;
 block|}
 name|ngx_log_debug
 argument_list|(
-argument|ngx_cycle->log
+argument|log
 argument_list|,
 literal|"clean old cycle: %d"
 argument|_ i
@@ -3289,7 +3317,7 @@ expr_stmt|;
 block|}
 name|ngx_log_debug
 argument_list|(
-argument|ngx_cycle->log
+argument|log
 argument_list|,
 literal|"old cycles status: %d"
 argument|_ live
@@ -3302,8 +3330,6 @@ condition|)
 block|{
 name|ngx_log_debug
 argument_list|(
-name|ngx_cycle
-operator|->
 name|log
 argument_list|,
 literal|"TIMER"

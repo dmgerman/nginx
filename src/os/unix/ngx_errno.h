@@ -121,6 +121,14 @@ value|ECANCELED
 end_define
 
 begin_define
+DECL|macro|NGX_ECHILD
+define|#
+directive|define
+name|NGX_ECHILD
+value|ECHILD
+end_define
+
+begin_define
 DECL|macro|NGX_ENOMOREFILES
 define|#
 directive|define

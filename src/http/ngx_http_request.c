@@ -182,18 +182,6 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|void
-name|ngx_http_empty_handler
-parameter_list|(
-name|ngx_event_t
-modifier|*
-name|wev
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-specifier|static
-name|void
 name|ngx_http_client_error
 parameter_list|(
 name|ngx_http_request_t
@@ -291,7 +279,7 @@ name|rev
 decl_stmt|;
 name|ngx_http_log_ctx_t
 modifier|*
-name|lctx
+name|ctx
 decl_stmt|;
 name|c
 operator|->
@@ -383,7 +371,7 @@ if|if
 condition|(
 operator|!
 operator|(
-name|lctx
+name|ctx
 operator|=
 name|ngx_pcalloc
 argument_list|(
@@ -406,7 +394,15 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|lctx
+name|ctx
+operator|->
+name|connection
+operator|=
+name|c
+operator|->
+name|number
+expr_stmt|;
+name|ctx
 operator|->
 name|client
 operator|=
@@ -416,7 +412,7 @@ name|addr_text
 operator|.
 name|data
 expr_stmt|;
-name|lctx
+name|ctx
 operator|->
 name|action
 operator|=
@@ -428,7 +424,7 @@ name|log
 operator|->
 name|data
 operator|=
-name|lctx
+name|ctx
 expr_stmt|;
 name|c
 operator|->
@@ -1225,7 +1221,7 @@ name|r
 decl_stmt|;
 name|ngx_http_log_ctx_t
 modifier|*
-name|lctx
+name|ctx
 decl_stmt|;
 name|ngx_http_core_srv_conf_t
 modifier|*
@@ -2046,7 +2042,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|lctx
+name|ctx
 operator|=
 name|c
 operator|->
@@ -2054,13 +2050,13 @@ name|log
 operator|->
 name|data
 expr_stmt|;
-name|lctx
+name|ctx
 operator|->
 name|action
 operator|=
 literal|"reading client request headers"
 expr_stmt|;
-name|lctx
+name|ctx
 operator|->
 name|url
 operator|=
@@ -4135,6 +4131,15 @@ name|ngx_http_core_loc_conf_t
 modifier|*
 name|clcf
 decl_stmt|;
+name|ngx_log_debug
+argument_list|(
+name|wev
+operator|->
+name|log
+argument_list|,
+literal|"http writer handler"
+argument_list|)
+expr_stmt|;
 name|c
 operator|=
 name|wev
@@ -5174,7 +5179,7 @@ name|c
 decl_stmt|;
 name|ngx_http_log_ctx_t
 modifier|*
-name|lctx
+name|ctx
 decl_stmt|;
 name|c
 operator|=
@@ -5275,7 +5280,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|lctx
+name|ctx
 operator|=
 operator|(
 name|ngx_http_log_ctx_t
@@ -5314,7 +5319,7 @@ name|ngx_socket_errno
 argument_list|,
 literal|"client %s closed keepalive connection"
 argument_list|,
-name|lctx
+name|ctx
 operator|->
 name|client
 argument_list|)
@@ -5342,7 +5347,7 @@ name|handler
 operator|=
 name|ngx_http_log_error
 expr_stmt|;
-name|lctx
+name|ctx
 operator|->
 name|action
 operator|=
@@ -5849,7 +5854,6 @@ end_function
 
 begin_function
 DECL|function|ngx_http_empty_handler (ngx_event_t * wev)
-specifier|static
 name|void
 name|ngx_http_empty_handler
 parameter_list|(
@@ -6446,10 +6450,6 @@ name|ngx_http_log_ctx_t
 modifier|*
 name|ctx
 init|=
-operator|(
-name|ngx_http_log_ctx_t
-operator|*
-operator|)
 name|data
 decl_stmt|;
 if|if

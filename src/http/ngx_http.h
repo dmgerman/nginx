@@ -73,10 +73,14 @@ file|<ngx_http_core_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b2b03930108
+DECL|struct|__anon27fcbc350108
 typedef|typedef
 struct|struct
 block|{
+DECL|member|connection
+name|u_int
+name|connection
+decl_stmt|;
 DECL|member|action
 name|char
 modifier|*
@@ -270,6 +274,17 @@ end_function_decl
 begin_function_decl
 name|void
 name|ngx_http_writer
+parameter_list|(
+name|ngx_event_t
+modifier|*
+name|wev
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_http_empty_handler
 parameter_list|(
 name|ngx_event_t
 modifier|*

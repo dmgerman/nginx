@@ -40,7 +40,7 @@ name|NGX_LOG_EMERG
 argument_list|,
 name|log
 argument_list|,
-name|errno
+name|ngx_errno
 argument_list|,
 literal|"fork() failed"
 argument_list|)
@@ -74,7 +74,7 @@ name|NGX_LOG_EMERG
 argument_list|,
 name|log
 argument_list|,
-name|errno
+name|ngx_errno
 argument_list|,
 literal|"setsid() failed"
 argument_list|)
@@ -111,7 +111,7 @@ name|NGX_LOG_EMERG
 argument_list|,
 name|log
 argument_list|,
-name|errno
+name|ngx_errno
 argument_list|,
 literal|"open(\"/dev/null\") failed"
 argument_list|)
@@ -139,7 +139,7 @@ name|NGX_LOG_EMERG
 argument_list|,
 name|log
 argument_list|,
-name|errno
+name|ngx_errno
 argument_list|,
 literal|"dup2(STDIN) failed"
 argument_list|)
@@ -167,7 +167,7 @@ name|NGX_LOG_EMERG
 argument_list|,
 name|log
 argument_list|,
-name|errno
+name|ngx_errno
 argument_list|,
 literal|"dup2(STDOUT) failed"
 argument_list|)
@@ -179,7 +179,7 @@ block|}
 if|#
 directive|if
 literal|0
-block_content|if (dup2(fd, STDERR_FILENO) == -1) {         ngx_log_error(NGX_LOG_EMERG, log, errno, "dup2(STDERR) failed");         return NGX_ERROR;     }
+block_content|if (dup2(fd, STDERR_FILENO) == -1) {         ngx_log_error(NGX_LOG_EMERG, log, ngx_errno, "dup2(STDERR) failed");         return NGX_ERROR;     }
 endif|#
 directive|endif
 if|if
@@ -206,7 +206,7 @@ name|NGX_LOG_EMERG
 argument_list|,
 name|log
 argument_list|,
-name|errno
+name|ngx_errno
 argument_list|,
 literal|"close() failed"
 argument_list|)

@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|enum|__anon287137ae0103
+DECL|enum|__anon2a9e25b60103
 typedef|typedef
 enum|enum
 block|{
@@ -90,10 +90,10 @@ parameter_list|)
 function_decl|;
 end_typedef
 
-begin_typedef
-DECL|struct|__anon287137ae0208
-typedef|typedef
+begin_struct
+DECL|struct|ngx_log_s
 struct|struct
+name|ngx_log_s
 block|{
 DECL|member|log_level
 name|int
@@ -121,11 +121,9 @@ block|char     *action;     char     *context;
 comment|/* */
 endif|#
 directive|endif
-DECL|typedef|ngx_log_t
 block|}
-name|ngx_log_t
-typedef|;
-end_typedef
+struct|;
+end_struct
 
 begin_define
 DECL|macro|MAX_ERROR_STR

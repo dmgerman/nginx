@@ -23,6 +23,25 @@ directive|include
 file|<nginx.h>
 end_include
 
+begin_function_decl
+specifier|static
+name|size_t
+name|ngx_accept_log_error
+parameter_list|(
+name|void
+modifier|*
+name|data
+parameter_list|,
+name|char
+modifier|*
+name|buf
+parameter_list|,
+name|size_t
+name|len
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_function
 DECL|function|ngx_event_accept (ngx_event_t * ev)
 name|void
@@ -35,6 +54,8 @@ parameter_list|)
 block|{
 name|int
 name|instance
+decl_stmt|,
+name|accepted
 decl_stmt|;
 name|socklen_t
 name|len
@@ -46,6 +67,10 @@ name|sa
 decl_stmt|;
 name|ngx_err_t
 name|err
+decl_stmt|;
+name|ngx_log_t
+modifier|*
+name|log
 decl_stmt|;
 name|ngx_pool_t
 modifier|*
@@ -93,8 +118,8 @@ name|ngx_log_debug
 argument_list|(
 argument|ev->log
 argument_list|,
-literal|"ngx_event_accept: accept ready: %d"
-argument|_                   ev->available
+literal|"accept on %s ready: %d"
+argument|_                   ls->listening->addr_text.data _                   ev->available
 argument_list|)
 empty_stmt|;
 name|ev
@@ -103,9 +128,17 @@ name|ready
 operator|=
 literal|0
 expr_stmt|;
+name|accepted
+operator|=
+literal|0
+expr_stmt|;
 do|do
 block|{
-comment|/*          * Create the pool before accept() to avoid copy the sockaddr.          * Although accept() can fail it's an uncommon case          * and the pool can be got from the free pool list          */
+comment|/*          * Create the pool before accept() to avoid copy the sockaddr.          * Although accept() can fail it's an uncommon case          * and besides the pool can be got from the free pool list          */
+if|if
+condition|(
+operator|!
+operator|(
 name|pool
 operator|=
 name|ngx_create_pool
@@ -120,16 +153,15 @@ name|ev
 operator|->
 name|log
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|pool
-operator|==
-name|NULL
+operator|)
 condition|)
 block|{
 return|return;
 block|}
+if|if
+condition|(
+operator|!
+operator|(
 name|sa
 operator|=
 name|ngx_palloc
@@ -142,16 +174,69 @@ name|listening
 operator|->
 name|socklen
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|sa
-operator|==
-name|NULL
+operator|)
 condition|)
 block|{
 return|return;
 block|}
+if|if
+condition|(
+operator|!
+operator|(
+name|log
+operator|=
+name|ngx_palloc
+argument_list|(
+name|pool
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|ngx_log_t
+argument_list|)
+argument_list|)
+operator|)
+condition|)
+block|{
+return|return;
+block|}
+name|ngx_memcpy
+argument_list|(
+name|log
+argument_list|,
+name|ls
+operator|->
+name|log
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|ngx_log_t
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|pool
+operator|->
+name|log
+operator|=
+name|log
+expr_stmt|;
+name|log
+operator|->
+name|data
+operator|=
+name|ls
+operator|->
+name|listening
+operator|->
+name|addr_text
+operator|.
+name|data
+expr_stmt|;
+name|log
+operator|->
+name|handler
+operator|=
+name|ngx_accept_log_error
+expr_stmt|;
 name|len
 operator|=
 name|ls
@@ -160,14 +245,6 @@ name|listening
 operator|->
 name|socklen
 expr_stmt|;
-name|ngx_log_debug
-argument_list|(
-argument|ev->log
-argument_list|,
-literal|"ADDR %s"
-argument|_ ls->listening->addr_text.data
-argument_list|)
-empty_stmt|;
 name|s
 operator|=
 name|accept
@@ -205,21 +282,13 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_NOTICE
 argument_list|,
-name|ev
-operator|->
 name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"EAGAIN while accept() %s"
+literal|"EAGAIN after %d accepted connection(s)"
 argument_list|,
-name|ls
-operator|->
-name|listening
-operator|->
-name|addr_text
-operator|.
-name|data
+name|accepted
 argument_list|)
 expr_stmt|;
 return|return;
@@ -234,7 +303,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"accept() %s failed"
+literal|"accept() on %s failed"
 argument_list|,
 name|ls
 operator|->
@@ -278,7 +347,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"accept() %s returned socket #%d while "
+literal|"accept() on %s returned socket #%d while "
 literal|"only %d connections was configured, "
 literal|"sleeping for 1 second"
 argument_list|,
@@ -312,22 +381,12 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
-name|ev
-operator|->
 name|log
 argument_list|,
 name|ngx_socket_errno
 argument_list|,
 name|ngx_close_socket_n
-literal|" %s failed"
-argument_list|,
-name|ls
-operator|->
-name|listening
-operator|->
-name|addr_text
-operator|.
-name|data
+literal|"failed"
 argument_list|)
 expr_stmt|;
 block|}
@@ -373,22 +432,12 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
-name|ev
-operator|->
 name|log
 argument_list|,
 name|ngx_socket_errno
 argument_list|,
 name|ngx_blocking_n
-literal|" %s failed"
-argument_list|,
-name|ls
-operator|->
-name|listening
-operator|->
-name|addr_text
-operator|.
-name|data
+literal|" failed"
 argument_list|)
 expr_stmt|;
 if|if
@@ -406,22 +455,12 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
-name|ev
-operator|->
 name|log
 argument_list|,
 name|ngx_socket_errno
 argument_list|,
 name|ngx_close_socket_n
-literal|" %s failed"
-argument_list|,
-name|ls
-operator|->
-name|listening
-operator|->
-name|addr_text
-operator|.
-name|data
+literal|" failed"
 argument_list|)
 expr_stmt|;
 block|}
@@ -462,22 +501,12 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
-name|ev
-operator|->
 name|log
 argument_list|,
 name|ngx_socket_errno
 argument_list|,
 name|ngx_nonblocking_n
-literal|" %s failed"
-argument_list|,
-name|ls
-operator|->
-name|listening
-operator|->
-name|addr_text
-operator|.
-name|data
+literal|" failed"
 argument_list|)
 expr_stmt|;
 if|if
@@ -495,22 +524,12 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
-name|ev
-operator|->
 name|log
 argument_list|,
 name|ngx_socket_errno
 argument_list|,
 name|ngx_close_socket_n
-literal|" %s failed"
-argument_list|,
-name|ls
-operator|->
-name|listening
-operator|->
-name|addr_text
-operator|.
-name|data
+literal|" failed"
 argument_list|)
 expr_stmt|;
 block|}
@@ -540,14 +559,22 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_EMERG
 argument_list|,
-name|ls
+name|ev
 operator|->
 name|log
 argument_list|,
 literal|0
 argument_list|,
-name|ngx_socket_n
-literal|" created socket %d, not divisible by 4"
+literal|"accept() on %s returned socket #%d, "
+literal|"not divisible by 4"
+argument_list|,
+name|ls
+operator|->
+name|listening
+operator|->
+name|addr_text
+operator|.
+name|data
 argument_list|,
 name|s
 argument_list|)
@@ -694,6 +721,9 @@ name|rev
 operator|->
 name|instance
 operator|=
+operator|!
+name|instance
+expr_stmt|;
 name|wev
 operator|->
 name|instance
@@ -705,6 +735,8 @@ name|rev
 operator|->
 name|index
 operator|=
+name|NGX_INVALID_INDEX
+expr_stmt|;
 name|wev
 operator|->
 name|index
@@ -715,6 +747,8 @@ name|rev
 operator|->
 name|data
 operator|=
+name|c
+expr_stmt|;
 name|wev
 operator|->
 name|data
@@ -796,55 +830,18 @@ name|c
 operator|->
 name|log
 operator|=
-name|ngx_palloc
-argument_list|(
-name|c
-operator|->
-name|pool
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|ngx_log_t
-argument_list|)
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|c
-operator|->
 name|log
-operator|==
-name|NULL
-condition|)
-block|{
-return|return;
-block|}
-name|ngx_memcpy
-argument_list|(
-name|c
-operator|->
-name|log
-argument_list|,
-name|ls
-operator|->
-name|log
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|ngx_log_t
-argument_list|)
-argument_list|)
 expr_stmt|;
 name|rev
 operator|->
 name|log
 operator|=
+name|log
+expr_stmt|;
 name|wev
 operator|->
 name|log
 operator|=
-name|c
-operator|->
 name|log
 expr_stmt|;
 comment|/* TODO: x86: MT: lock xadd, MP: lock xadd, shared */
@@ -914,15 +911,7 @@ argument_list|,
 name|ngx_socket_errno
 argument_list|,
 name|ngx_close_socket_n
-literal|" %s failed"
-argument_list|,
-name|ls
-operator|->
-name|listening
-operator|->
-name|addr_text
-operator|.
-name|data
+literal|" failed"
 argument_list|)
 expr_stmt|;
 block|}
@@ -934,6 +923,18 @@ expr_stmt|;
 return|return;
 block|}
 block|}
+name|log
+operator|->
+name|data
+operator|=
+name|NULL
+expr_stmt|;
+name|log
+operator|->
+name|handler
+operator|=
+name|NULL
+expr_stmt|;
 name|ls
 operator|->
 name|listening
@@ -943,19 +944,15 @@ argument_list|(
 name|c
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|ngx_event_flags
-operator|&
-name|NGX_HAVE_KQUEUE_EVENT
-condition|)
-block|{
-name|ev
-operator|->
-name|available
-operator|--
+if|#
+directive|if
+literal|0
+block_content|if (ngx_event_flags& NGX_HAVE_KQUEUE_EVENT) {             ev->available--;         }
+endif|#
+directive|endif
+name|accepted
+operator|++
 expr_stmt|;
-block|}
 block|}
 do|while
 condition|(
@@ -965,6 +962,45 @@ name|available
 condition|)
 do|;
 return|return;
+block|}
+end_function
+
+begin_function
+DECL|function|ngx_accept_log_error (void * data,char * buf,size_t len)
+specifier|static
+name|size_t
+name|ngx_accept_log_error
+parameter_list|(
+name|void
+modifier|*
+name|data
+parameter_list|,
+name|char
+modifier|*
+name|buf
+parameter_list|,
+name|size_t
+name|len
+parameter_list|)
+block|{
+name|char
+modifier|*
+name|sock
+init|=
+name|data
+decl_stmt|;
+return|return
+name|ngx_snprintf
+argument_list|(
+name|buf
+argument_list|,
+name|len
+argument_list|,
+literal|" while accept() on %s"
+argument_list|,
+name|sock
+argument_list|)
+return|;
 block|}
 end_function
 

@@ -477,7 +477,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27ede69a0108
+DECL|struct|__anon2b8751820108
 typedef|typedef
 struct|struct
 block|{
@@ -612,7 +612,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ede69a0208
+DECL|struct|__anon2b8751820208
 typedef|typedef
 struct|struct
 block|{
@@ -627,7 +627,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ede69a0308
+DECL|struct|__anon2b8751820308
 typedef|typedef
 struct|struct
 block|{
@@ -658,7 +658,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon27ede69a0408
+DECL|struct|__anon2b8751820408
 typedef|typedef
 struct|struct
 block|{
@@ -1126,6 +1126,7 @@ end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
+specifier|volatile
 name|ngx_cycle_t
 modifier|*
 name|ngx_cycle
