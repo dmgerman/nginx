@@ -223,8 +223,8 @@ name|ngx_log_debug
 argument_list|(
 argument|bc->event->log
 argument_list|,
-literal|"BUSYLOCK: %d"
-argument|_ rc
+literal|"BUSYLOCK: %d %d:%d"
+argument|_               rc _ bl->waiting _ bl->max_waiting
 argument_list|)
 empty_stmt|;
 if|if

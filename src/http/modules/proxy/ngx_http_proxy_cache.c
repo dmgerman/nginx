@@ -1435,6 +1435,14 @@ operator|->
 name|try_busy_lock
 argument_list|)
 expr_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|p->request->connection->log
+argument_list|,
+literal|"LOCK CACHABLE: %d"
+argument|_ rc
+argument_list|)
+empty_stmt|;
 if|if
 condition|(
 name|rc
@@ -1852,6 +1860,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|rc
+operator|==
+name|NGX_DECLINED
+operator|||
 name|rc
 operator|==
 name|NGX_HTTP_CACHE_THE_SAME
