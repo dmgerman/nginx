@@ -63,12 +63,11 @@ name|send
 decl_stmt|,
 name|aligned
 decl_stmt|;
-name|size_t
+name|ssize_t
 name|size
 decl_stmt|,
 name|sent
-decl_stmt|;
-name|ssize_t
+decl_stmt|,
 name|n
 decl_stmt|;
 name|ngx_int_t

@@ -370,9 +370,13 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
+name|NGX_THREADS
+operator|&&
+operator|(
 name|TIME_T_SIZE
 operator|>
 name|SIG_ATOMIC_T_SIZE
+operator|)
 operator|)
 name|ngx_cached_time
 operator|=
@@ -548,9 +552,13 @@ block|}
 if|#
 directive|if
 operator|(
+name|NGX_THREADS
+operator|&&
+operator|(
 name|TIME_T_SIZE
 operator|>
 name|SIG_ATOMIC_T_SIZE
+operator|)
 operator|)
 name|ngx_cached_time
 operator|=

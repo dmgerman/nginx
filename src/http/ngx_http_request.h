@@ -405,7 +405,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon29a9d6bf0103
+DECL|enum|__anon2c75e30f0103
 typedef|typedef
 enum|enum
 block|{
@@ -426,7 +426,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29a9d6bf0203
+DECL|enum|__anon2c75e30f0203
 typedef|typedef
 enum|enum
 block|{
@@ -465,7 +465,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a9d6bf0308
+DECL|struct|__anon2c75e30f0308
 typedef|typedef
 struct|struct
 block|{
@@ -484,7 +484,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a9d6bf0408
+DECL|struct|__anon2c75e30f0408
 typedef|typedef
 struct|struct
 block|{
@@ -623,7 +623,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a9d6bf0508
+DECL|struct|__anon2c75e30f0508
 typedef|typedef
 struct|struct
 block|{
@@ -646,7 +646,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a9d6bf0608
+DECL|struct|__anon2c75e30f0608
 typedef|typedef
 struct|struct
 block|{
@@ -749,7 +749,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a9d6bf0708
+DECL|struct|__anon2c75e30f0708
 typedef|typedef
 struct|struct
 block|{
@@ -800,10 +800,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon29a9d6bf080a
+DECL|union|__anon2c75e30f080a
 union|union
 block|{
-DECL|struct|__anon29a9d6bf0908
+DECL|struct|__anon2c75e30f0908
 struct|struct
 block|{
 DECL|member|fd
@@ -819,7 +819,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon29a9d6bf0a08
+DECL|struct|__anon2c75e30f0a08
 struct|struct
 block|{
 DECL|member|hash
@@ -857,7 +857,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29a9d6bf0b08
+DECL|struct|__anon2c75e30f0b08
 typedef|typedef
 struct|struct
 block|{
@@ -866,9 +866,25 @@ name|ngx_http_request_t
 modifier|*
 name|request
 decl_stmt|;
-DECL|member|large_buffers
-name|ngx_array_t
-name|large_buffers
+DECL|member|busy
+name|ngx_buf_t
+modifier|*
+modifier|*
+name|busy
+decl_stmt|;
+DECL|member|nbusy
+name|ngx_uint_t
+name|nbusy
+decl_stmt|;
+DECL|member|free
+name|ngx_buf_t
+modifier|*
+modifier|*
+name|free
+decl_stmt|;
+DECL|member|nfree
+name|ngx_uint_t
+name|nfree
 decl_stmt|;
 DECL|member|pipeline
 name|ngx_uint_t

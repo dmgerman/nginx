@@ -213,7 +213,7 @@ name|new
 expr_stmt|;
 asm|__asm__
 specifier|volatile
-asm|(          "casa [%1]ASI_P, %2, %0"          : "+r" (res) : "r" (value), "r" (old));
+asm|(          "casa [%1] 0x80, %2, %0"          : "+r" (res) : "r" (value), "r" (old));
 if|if
 condition|(
 name|res
@@ -280,7 +280,7 @@ name|set
 decl_stmt|;
 asm|__asm__
 specifier|volatile
-asm|(      "casa [%1]ASI_P, %2, %0"      : "+r" (res) : "r" (lock), "r" (old));
+asm|(      "casa [%1] 0x80, %2, %0"      : "+r" (res) : "r" (lock), "r" (old));
 return|return
 operator|(
 name|res
@@ -317,7 +317,7 @@ name|ngx_atomic_inc
 parameter_list|(
 name|x
 parameter_list|)
-value|(*(x))++;
+value|++(*(x));
 end_define
 
 begin_define
@@ -328,7 +328,7 @@ name|ngx_atomic_dec
 parameter_list|(
 name|x
 parameter_list|)
-value|(*(x))--;
+value|--(*(x));
 end_define
 
 begin_define
