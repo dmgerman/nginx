@@ -24,7 +24,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29a1784c0108
+DECL|struct|__anon2b38f7bd0108
 typedef|typedef
 struct|struct
 block|{
@@ -63,7 +63,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a1784c0208
+DECL|struct|__anon2b38f7bd0208
 typedef|typedef
 struct|struct
 block|{
@@ -997,7 +997,7 @@ block|}
 end_function
 
 begin_comment
-comment|/* TODO: broken single process */
+comment|/* TODO: broken NGX_PROCESS_SINGLE */
 end_comment
 
 begin_function
@@ -2816,6 +2816,37 @@ operator|->
 name|log
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|ngx_reopen
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"reopen logs"
+argument_list|)
+expr_stmt|;
+name|ngx_reopen_files
+argument_list|(
+name|cycle
+argument_list|,
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+name|ngx_reopen
+operator|=
+literal|0
+expr_stmt|;
+block|}
 block|}
 block|}
 end_function

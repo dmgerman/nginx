@@ -36,7 +36,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon29806b8c0108
+DECL|struct|__anon2a0d22440108
 typedef|typedef
 struct|struct
 block|{
@@ -555,18 +555,6 @@ argument_list|(
 name|NGX_REOPEN_SIGNAL
 argument_list|)
 case|:
-if|if
-condition|(
-name|ngx_noaccept
-condition|)
-block|{
-name|action
-operator|=
-literal|", ignoring"
-expr_stmt|;
-block|}
-else|else
-block|{
 name|ngx_reopen
 operator|=
 literal|1
@@ -576,7 +564,6 @@ operator|=
 literal|", reopen logs"
 expr_stmt|;
 break|break;
-block|}
 case|case
 name|ngx_signal_value
 argument_list|(

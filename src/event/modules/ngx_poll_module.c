@@ -1433,6 +1433,22 @@ name|revents
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|event_list
+index|[
+name|i
+index|]
+operator|.
+name|fd
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+comment|/* the disabled event, workaround for our possible bug */
+continue|continue;
+block|}
 name|c
 operator|=
 operator|&
