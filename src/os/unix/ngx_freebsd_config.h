@@ -374,6 +374,14 @@ name|HAVE_LITTLE_ENDIAN
 value|1
 end_define
 
+begin_decl_stmt
+specifier|extern
+name|char
+modifier|*
+name|malloc_options
+decl_stmt|;
+end_decl_stmt
+
 begin_endif
 endif|#
 directive|endif

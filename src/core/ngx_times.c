@@ -26,6 +26,13 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_old_elapsed_msec
+name|ngx_epoch_msec_t
+name|ngx_old_elapsed_msec
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_start_msec
 name|ngx_epoch_msec_t
 name|ngx_start_msec
@@ -230,6 +237,10 @@ operator|.
 name|tv_usec
 operator|/
 literal|1000
+expr_stmt|;
+name|ngx_old_elapsed_msec
+operator|=
+literal|0
 expr_stmt|;
 name|ngx_elapsed_msec
 operator|=

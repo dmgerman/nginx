@@ -25,6 +25,13 @@ name|ngx_event_timer_rbtree
 decl_stmt|;
 end_decl_stmt
 
+begin_decl_stmt
+DECL|variable|ngx_event_timer_sentinel
+name|ngx_rbtree_t
+name|ngx_event_timer_sentinel
+decl_stmt|;
+end_decl_stmt
+
 begin_function
 DECL|function|ngx_event_timer_init (ngx_cycle_t * cycle)
 name|int
@@ -38,28 +45,28 @@ block|{
 name|ngx_event_timer_rbtree
 operator|=
 operator|&
-name|sentinel
+name|ngx_event_timer_sentinel
 expr_stmt|;
-name|sentinel
+name|ngx_event_timer_sentinel
 operator|.
 name|left
 operator|=
 operator|&
-name|sentinel
+name|ngx_event_timer_sentinel
 expr_stmt|;
-name|sentinel
+name|ngx_event_timer_sentinel
 operator|.
 name|right
 operator|=
 operator|&
-name|sentinel
+name|ngx_event_timer_sentinel
 expr_stmt|;
-name|sentinel
+name|ngx_event_timer_sentinel
 operator|.
 name|parent
 operator|=
 operator|&
-name|sentinel
+name|ngx_event_timer_sentinel
 expr_stmt|;
 return|return
 name|NGX_OK
@@ -97,6 +104,9 @@ operator|=
 name|ngx_rbtree_min
 argument_list|(
 name|ngx_event_timer_rbtree
+argument_list|,
+operator|&
+name|ngx_event_timer_sentinel
 argument_list|)
 expr_stmt|;
 if|if
@@ -104,7 +114,7 @@ condition|(
 name|node
 operator|==
 operator|&
-name|sentinel
+name|ngx_event_timer_sentinel
 condition|)
 block|{
 return|return
@@ -159,6 +169,9 @@ operator|=
 name|ngx_rbtree_min
 argument_list|(
 name|ngx_event_timer_rbtree
+argument_list|,
+operator|&
+name|ngx_event_timer_sentinel
 argument_list|)
 expr_stmt|;
 if|if
@@ -166,7 +179,7 @@ condition|(
 name|node
 operator|==
 operator|&
-name|sentinel
+name|ngx_event_timer_sentinel
 condition|)
 block|{
 break|break;
@@ -184,7 +197,7 @@ operator|(
 name|ngx_msec_t
 operator|)
 operator|(
-name|ngx_elapsed_msec
+name|ngx_old_elapsed_msec
 operator|+
 name|timer
 operator|)

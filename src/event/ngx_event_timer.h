@@ -103,6 +103,13 @@ name|ngx_event_timer_rbtree
 decl_stmt|;
 end_decl_stmt
 
+begin_decl_stmt
+specifier|extern
+name|ngx_rbtree_t
+name|ngx_event_timer_sentinel
+decl_stmt|;
+end_decl_stmt
+
 begin_function
 DECL|function|ngx_event_del_timer (ngx_event_t * ev)
 name|ngx_inline
@@ -119,6 +126,9 @@ name|ngx_rbtree_delete
 argument_list|(
 operator|&
 name|ngx_event_timer_rbtree
+argument_list|,
+operator|&
+name|ngx_event_timer_sentinel
 argument_list|,
 operator|(
 name|ngx_rbtree_t
@@ -186,6 +196,9 @@ name|ngx_rbtree_insert
 argument_list|(
 operator|&
 name|ngx_event_timer_rbtree
+argument_list|,
+operator|&
+name|ngx_event_timer_sentinel
 argument_list|,
 operator|(
 name|ngx_rbtree_t

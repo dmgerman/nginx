@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2c5b19a90108
+DECL|struct|__anon27bc97b50108
 typedef|typedef
 struct|struct
 block|{
@@ -79,7 +79,7 @@ name|void
 modifier|*
 name|data
 decl_stmt|;
-comment|/* TODO rename to handler, move flags to struct start */
+comment|/* TODO rename to handler */
 DECL|member|event_handler
 name|void
 function_decl|(
@@ -107,18 +107,12 @@ name|ngx_event_t
 modifier|*
 name|next
 decl_stmt|;
-if|#
-directive|if
-literal|0
-block|ngx_event_t     *timer_prev;     ngx_event_t     *timer_next;      ngx_msec_t       timer_delta;
-endif|#
-directive|endif
 DECL|member|log
 name|ngx_log_t
 modifier|*
 name|log
 decl_stmt|;
-comment|/*      * ngx_rbtree_t     rbtree;      */
+comment|/*      * The inline of "ngx_rbtree_t  rbtree;".      *      * It allows to pack rbtree_color and variuos event bit flags into      * the single int.  We also use "unsigned char" and then "usigned short"      * because otherwise MSVC 6.0 uses an additional int for bit flags.      */
 DECL|member|rbtree_key
 name|ngx_int_t
 name|rbtree_key
@@ -370,7 +364,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c5b19a90208
+DECL|struct|__anon27bc97b50208
 typedef|typedef
 struct|struct
 block|{
@@ -1060,7 +1054,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon2c5b19a90308
+DECL|struct|__anon27bc97b50308
 typedef|typedef
 struct|struct
 block|{
@@ -1083,7 +1077,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5b19a90408
+DECL|struct|__anon27bc97b50408
 typedef|typedef
 struct|struct
 block|{

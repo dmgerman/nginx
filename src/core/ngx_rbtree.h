@@ -65,13 +65,6 @@ block|}
 struct|;
 end_struct
 
-begin_decl_stmt
-specifier|extern
-name|ngx_rbtree_t
-name|sentinel
-decl_stmt|;
-end_decl_stmt
-
 begin_function_decl
 name|void
 name|ngx_rbtree_insert
@@ -80,6 +73,10 @@ name|ngx_rbtree_t
 modifier|*
 modifier|*
 name|root
+parameter_list|,
+name|ngx_rbtree_t
+modifier|*
+name|sentinel
 parameter_list|,
 name|ngx_rbtree_t
 modifier|*
@@ -99,13 +96,17 @@ name|root
 parameter_list|,
 name|ngx_rbtree_t
 modifier|*
+name|sentinel
+parameter_list|,
+name|ngx_rbtree_t
+modifier|*
 name|node
 parameter_list|)
 function_decl|;
 end_function_decl
 
 begin_function
-DECL|function|ngx_rbtree_min (ngx_rbtree_t * root)
+DECL|function|ngx_rbtree_min (ngx_rbtree_t * root,ngx_rbtree_t * sentinel)
 name|ngx_inline
 specifier|static
 name|ngx_rbtree_t
@@ -115,6 +116,10 @@ parameter_list|(
 name|ngx_rbtree_t
 modifier|*
 name|root
+parameter_list|,
+name|ngx_rbtree_t
+modifier|*
+name|sentinel
 parameter_list|)
 block|{
 while|while
@@ -123,7 +128,6 @@ name|root
 operator|->
 name|left
 operator|!=
-operator|&
 name|sentinel
 condition|)
 block|{

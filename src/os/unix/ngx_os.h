@@ -109,7 +109,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2892fd6e0108
+DECL|struct|__anon2c0c1b920108
 typedef|typedef
 struct|struct
 block|{
@@ -193,6 +193,13 @@ block|}
 name|ngx_os_io_t
 typedef|;
 end_typedef
+
+begin_function_decl
+name|void
+name|ngx_debug_init
+parameter_list|()
+function_decl|;
+end_function_decl
 
 begin_function_decl
 name|int

@@ -113,7 +113,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2b4fe1310108
+DECL|struct|__anon2b66884b0108
 typedef|typedef
 struct|struct
 block|{
@@ -191,6 +191,39 @@ block|}
 block|}
 decl_stmt|;
 end_decl_stmt
+
+begin_function
+DECL|function|ngx_debug_init ()
+name|void
+name|ngx_debug_init
+parameter_list|()
+block|{
+if|#
+directive|if
+operator|(
+name|NGX_DEBUG
+operator|)
+if|#
+directive|if
+name|__FreeBSD_version
+operator|>=
+literal|500014
+name|_malloc_options
+operator|=
+literal|"J"
+expr_stmt|;
+else|#
+directive|else
+name|malloc_options
+operator|=
+literal|"J"
+expr_stmt|;
+endif|#
+directive|endif
+endif|#
+directive|endif
+block|}
+end_function
 
 begin_function
 DECL|function|ngx_os_init (ngx_log_t * log)

@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ba5cfe00108
+DECL|struct|__anon293e8f260108
 typedef|typedef
 struct|struct
 block|{
@@ -1506,6 +1506,10 @@ operator|=
 name|ngx_event_find_timer
 argument_list|()
 expr_stmt|;
+name|ngx_old_elapsed_msec
+operator|=
+name|ngx_elapsed_msec
+expr_stmt|;
 if|if
 condition|(
 name|timer
@@ -1671,14 +1675,6 @@ name|ngx_elapsed_msec
 operator|-
 name|delta
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|delta = tv.tv_sec * 1000 + tv.tv_usec / 1000 - delta;
-comment|/*          * The expired timers must be handled before a processing of the events          * because the new timers can be added during a processing          */
-block_content|ngx_event_expire_timers((ngx_msec_t) delta);          ngx_event_set_timer_delta((ngx_msec_t) delta);
-endif|#
-directive|endif
 block|}
 else|else
 block|{
@@ -2074,12 +2070,6 @@ name|delta
 argument_list|)
 expr_stmt|;
 block|}
-if|#
-directive|if
-literal|0
-block_content|if (timer) {         ngx_event_expire_timers((ngx_msec_t) delta);     }
-endif|#
-directive|endif
 return|return
 name|NGX_OK
 return|;

@@ -84,6 +84,10 @@ name|root
 parameter_list|,
 name|ngx_rbtree_t
 modifier|*
+name|sentinel
+parameter_list|,
+name|ngx_rbtree_t
+modifier|*
 name|node
 parameter_list|)
 function_decl|;
@@ -101,20 +105,17 @@ name|root
 parameter_list|,
 name|ngx_rbtree_t
 modifier|*
+name|sentinel
+parameter_list|,
+name|ngx_rbtree_t
+modifier|*
 name|node
 parameter_list|)
 function_decl|;
 end_function_decl
 
-begin_decl_stmt
-DECL|variable|sentinel
-name|ngx_rbtree_t
-name|sentinel
-decl_stmt|;
-end_decl_stmt
-
 begin_function
-DECL|function|ngx_rbtree_insert (ngx_rbtree_t ** root,ngx_rbtree_t * node)
+DECL|function|ngx_rbtree_insert (ngx_rbtree_t ** root,ngx_rbtree_t * sentinel,ngx_rbtree_t * node)
 name|void
 name|ngx_rbtree_insert
 parameter_list|(
@@ -122,6 +123,10 @@ name|ngx_rbtree_t
 modifier|*
 modifier|*
 name|root
+parameter_list|,
+name|ngx_rbtree_t
+modifier|*
+name|sentinel
 parameter_list|,
 name|ngx_rbtree_t
 modifier|*
@@ -138,7 +143,6 @@ condition|(
 operator|*
 name|root
 operator|==
-operator|&
 name|sentinel
 condition|)
 block|{
@@ -146,21 +150,18 @@ name|node
 operator|->
 name|parent
 operator|=
-operator|&
 name|sentinel
 expr_stmt|;
 name|node
 operator|->
 name|left
 operator|=
-operator|&
 name|sentinel
 expr_stmt|;
 name|node
 operator|->
 name|right
 operator|=
-operator|&
 name|sentinel
 expr_stmt|;
 name|ngx_rbt_black
@@ -203,7 +204,6 @@ name|temp
 operator|->
 name|left
 operator|==
-operator|&
 name|sentinel
 condition|)
 block|{
@@ -229,7 +229,6 @@ name|temp
 operator|->
 name|right
 operator|==
-operator|&
 name|sentinel
 condition|)
 block|{
@@ -259,14 +258,12 @@ name|node
 operator|->
 name|left
 operator|=
-operator|&
 name|sentinel
 expr_stmt|;
 name|node
 operator|->
 name|right
 operator|=
-operator|&
 name|sentinel
 expr_stmt|;
 comment|/* re-balance tree */
@@ -375,6 +372,8 @@ name|ngx_rbtree_left_rotate
 argument_list|(
 name|root
 argument_list|,
+name|sentinel
+argument_list|,
 name|node
 argument_list|)
 expr_stmt|;
@@ -398,6 +397,8 @@ expr_stmt|;
 name|ngx_rbtree_right_rotate
 argument_list|(
 name|root
+argument_list|,
+name|sentinel
 argument_list|,
 name|node
 operator|->
@@ -481,6 +482,8 @@ name|ngx_rbtree_right_rotate
 argument_list|(
 name|root
 argument_list|,
+name|sentinel
+argument_list|,
 name|node
 argument_list|)
 expr_stmt|;
@@ -505,6 +508,8 @@ name|ngx_rbtree_left_rotate
 argument_list|(
 name|root
 argument_list|,
+name|sentinel
+argument_list|,
 name|node
 operator|->
 name|parent
@@ -525,7 +530,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_rbtree_delete (ngx_rbtree_t ** root,ngx_rbtree_t * node)
+DECL|function|ngx_rbtree_delete (ngx_rbtree_t ** root,ngx_rbtree_t * sentinel,ngx_rbtree_t * node)
 name|void
 name|ngx_rbtree_delete
 parameter_list|(
@@ -533,6 +538,10 @@ name|ngx_rbtree_t
 modifier|*
 modifier|*
 name|root
+parameter_list|,
+name|ngx_rbtree_t
+modifier|*
+name|sentinel
 parameter_list|,
 name|ngx_rbtree_t
 modifier|*
@@ -556,14 +565,12 @@ name|node
 operator|->
 name|left
 operator|==
-operator|&
 name|sentinel
 operator|||
 name|node
 operator|->
 name|right
 operator|==
-operator|&
 name|sentinel
 condition|)
 block|{
@@ -581,7 +588,6 @@ name|node
 operator|->
 name|right
 operator|==
-operator|&
 name|sentinel
 condition|)
 block|{
@@ -599,7 +605,6 @@ while|while
 condition|(
 name|subst
 operator|!=
-operator|&
 name|sentinel
 operator|&&
 name|temp
@@ -630,6 +635,8 @@ argument_list|(
 name|node
 operator|->
 name|right
+argument_list|,
+name|sentinel
 argument_list|)
 expr_stmt|;
 block|}
@@ -640,7 +647,6 @@ name|subst
 operator|->
 name|left
 operator|!=
-operator|&
 name|sentinel
 condition|)
 block|{
@@ -674,7 +680,6 @@ name|subst
 operator|->
 name|parent
 operator|==
-operator|&
 name|sentinel
 condition|)
 block|{
@@ -756,7 +761,6 @@ name|temp
 operator|->
 name|parent
 operator|!=
-operator|&
 name|sentinel
 operator|&&
 name|ngx_rbt_is_black
@@ -808,6 +812,8 @@ name|ngx_rbtree_left_rotate
 argument_list|(
 name|root
 argument_list|,
+name|sentinel
+argument_list|,
 name|temp
 operator|->
 name|parent
@@ -879,6 +885,8 @@ name|ngx_rbtree_right_rotate
 argument_list|(
 name|root
 argument_list|,
+name|sentinel
+argument_list|,
 name|w
 argument_list|)
 expr_stmt|;
@@ -917,6 +925,8 @@ expr_stmt|;
 name|ngx_rbtree_left_rotate
 argument_list|(
 name|root
+argument_list|,
+name|sentinel
 argument_list|,
 name|temp
 operator|->
@@ -964,6 +974,8 @@ name|ngx_rbtree_right_rotate
 argument_list|(
 name|root
 argument_list|,
+name|sentinel
+argument_list|,
 name|temp
 operator|->
 name|parent
@@ -1035,6 +1047,8 @@ name|ngx_rbtree_left_rotate
 argument_list|(
 name|root
 argument_list|,
+name|sentinel
+argument_list|,
 name|w
 argument_list|)
 expr_stmt|;
@@ -1074,6 +1088,8 @@ name|ngx_rbtree_right_rotate
 argument_list|(
 name|root
 argument_list|,
+name|sentinel
+argument_list|,
 name|temp
 operator|->
 name|parent
@@ -1096,7 +1112,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_rbtree_left_rotate (ngx_rbtree_t ** root,ngx_rbtree_t * node)
+DECL|function|ngx_rbtree_left_rotate (ngx_rbtree_t ** root,ngx_rbtree_t * sentinel,ngx_rbtree_t * node)
 name|ngx_inline
 name|void
 name|ngx_rbtree_left_rotate
@@ -1105,6 +1121,10 @@ name|ngx_rbtree_t
 modifier|*
 modifier|*
 name|root
+parameter_list|,
+name|ngx_rbtree_t
+modifier|*
+name|sentinel
 parameter_list|,
 name|ngx_rbtree_t
 modifier|*
@@ -1135,7 +1155,6 @@ name|temp
 operator|->
 name|left
 operator|!=
-operator|&
 name|sentinel
 condition|)
 block|{
@@ -1162,7 +1181,6 @@ name|node
 operator|->
 name|parent
 operator|==
-operator|&
 name|sentinel
 condition|)
 block|{
@@ -1219,7 +1237,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_rbtree_right_rotate (ngx_rbtree_t ** root,ngx_rbtree_t * node)
+DECL|function|ngx_rbtree_right_rotate (ngx_rbtree_t ** root,ngx_rbtree_t * sentinel,ngx_rbtree_t * node)
 name|ngx_inline
 name|void
 name|ngx_rbtree_right_rotate
@@ -1228,6 +1246,10 @@ name|ngx_rbtree_t
 modifier|*
 modifier|*
 name|root
+parameter_list|,
+name|ngx_rbtree_t
+modifier|*
+name|sentinel
 parameter_list|,
 name|ngx_rbtree_t
 modifier|*
@@ -1258,7 +1280,6 @@ name|temp
 operator|->
 name|right
 operator|!=
-operator|&
 name|sentinel
 condition|)
 block|{
@@ -1285,7 +1306,6 @@ name|node
 operator|->
 name|parent
 operator|==
-operator|&
 name|sentinel
 condition|)
 block|{

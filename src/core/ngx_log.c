@@ -69,7 +69,7 @@ argument_list|)
 block|,
 name|NGX_MAIN_CONF
 operator||
-name|NGX_CONF_TAKE1
+name|NGX_CONF_TAKE12
 block|,
 name|ngx_set_error_log
 block|,
@@ -928,7 +928,7 @@ operator|==
 name|NGX_INVALID_FILE
 condition|)
 block|{
-comment|/* TODO: where we can log error ? */
+comment|/* TODO: where can we log error ? */
 return|return
 name|NULL
 return|;
@@ -943,7 +943,7 @@ name|NULL
 condition|)
 block|{
 comment|/* there are no associated standard handles */
-comment|/* TODO: where we can log possible errors ? */
+comment|/* TODO: where can we can log possible errors ? */
 name|ngx_stderr
 operator|.
 name|fd
@@ -974,13 +974,13 @@ name|log_level
 operator|=
 name|NGX_LOG_INFO
 expr_stmt|;
+if|#
+directive|if
+literal|0
 comment|/* STUB */
-name|ngx_log
-operator|.
-name|log_level
-operator|=
-name|NGX_LOG_DEBUG
-expr_stmt|;
+block_content|ngx_log.log_level = NGX_LOG_DEBUG;
+endif|#
+directive|endif
 return|return
 operator|&
 name|ngx_log
@@ -1042,13 +1042,13 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+literal|0
 comment|/* STUB */
-name|log
-operator|->
-name|log_level
-operator|=
-name|NGX_LOG_DEBUG
-expr_stmt|;
+block_content|log->log_level = NGX_LOG_DEBUG;
+endif|#
+directive|endif
 return|return
 name|log
 return|;
@@ -1075,6 +1075,9 @@ modifier|*
 name|conf
 parameter_list|)
 block|{
+name|ngx_int_t
+name|i
+decl_stmt|;
 name|ngx_str_t
 modifier|*
 name|value
@@ -1143,38 +1146,100 @@ literal|1
 index|]
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|cf
+operator|->
+name|args
+operator|->
+name|nelts
+operator|==
+literal|3
+condition|)
+block|{
+for|for
+control|(
+name|i
+operator|=
+literal|1
+init|;
+name|i
+operator|<=
+comment|/* STUB ??? */
+name|NGX_LOG_DEBUG
+condition|;
+name|i
+operator|++
+control|)
+block|{
+if|if
+condition|(
+name|ngx_strcmp
+argument_list|(
+name|value
+index|[
+literal|2
+index|]
+operator|.
+name|data
+argument_list|,
+name|err_levels
+index|[
+name|i
+index|]
+argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+name|cf
+operator|->
+name|cycle
+operator|->
+name|log
+operator|->
+name|log_level
+operator|=
+name|i
+expr_stmt|;
+break|break;
+block|}
+block|}
+if|if
+condition|(
+name|i
+operator|>
+name|NGX_LOG_DEBUG
+condition|)
+block|{
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"invalid log level \"%s\""
+argument_list|,
+name|value
+index|[
+literal|2
+index|]
+operator|.
+name|data
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
+block|}
 return|return
 name|NGX_CONF_OK
 return|;
 block|}
 end_function
-
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-
-begin_if
-unit|char *ngx_log_set_errlog(ngx_conf_t *cf, ngx_command_t *cmd, ngx_log_t *log) {     int         len;     ngx_err_t   err;     ngx_str_t  *value;      value = cf->args->elts;      log->file->fd = ngx_open_file(value[1].data,                             NGX_FILE_RDWR,                             NGX_FILE_CREATE_OR_OPEN|NGX_FILE_APPEND);      if (log->file->fd == NGX_INVALID_FILE) {         err = ngx_errno;         len = ngx_snprintf(ngx_conf_errstr, sizeof(ngx_conf_errstr) - 1,                           ngx_open_file_n " \"%s\" failed (%d: ",                           value[1].data, err);         len += ngx_strerror_r(err, ngx_conf_errstr + len,                               sizeof(ngx_conf_errstr) - len - 1);         ngx_conf_errstr[len++] = ')';         ngx_conf_errstr[len++] = '\0';         return ngx_conf_errstr;     }
-if|#
-directive|if
-operator|(
-name|WIN32
-operator|)
-end_if
-
-begin_endif
-unit|if (ngx_file_append_mode(log->file->fd) == NGX_ERROR) {         err = ngx_errno;         len = ngx_snprintf(ngx_conf_errstr, sizeof(ngx_conf_errstr) - 1,                           ngx_file_append_mode_n " \"%s\" failed (%d: ",                           value[1].data, err);         len += ngx_strerror_r(err, ngx_conf_errstr + len,                               sizeof(ngx_conf_errstr) - len - 1);         ngx_conf_errstr[len++] = ')';         ngx_conf_errstr[len++] = '\0';         return ngx_conf_errstr;     }
-endif|#
-directive|endif
-end_endif
-
-begin_endif
-unit|return NGX_CONF_OK; }
-endif|#
-directive|endif
-end_endif
 
 end_unit
 
