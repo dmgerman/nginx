@@ -5194,7 +5194,7 @@ name|ngx_strstr
 argument_list|(
 name|user_agent
 argument_list|,
-literal|"Gecko"
+literal|"Gecko/"
 argument_list|)
 condition|)
 block|{
