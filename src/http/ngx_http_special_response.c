@@ -807,6 +807,10 @@ operator|&&
 name|error
 operator|>=
 name|NGX_HTTP_BAD_REQUEST
+operator|&&
+name|error
+operator|!=
+name|NGX_HTTP_REQUEST_URI_TOO_LARGE
 condition|)
 block|{
 if|if

@@ -251,7 +251,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a2b5c280108
+DECL|struct|__anon27d93d6c0108
 typedef|typedef
 struct|struct
 block|{
@@ -375,6 +375,37 @@ name|error
 parameter_list|)
 define|\
 value|do {                                                             \                 ngx_test_null(chain, ngx_alloc_chain_entry(pool), error);    \                 chain->hunk = h;                                             \                 chain->next = NULL;                                          \             } while (0);
+end_define
+
+begin_define
+DECL|macro|ngx_alloc_ce_and_set_hunk
+define|#
+directive|define
+name|ngx_alloc_ce_and_set_hunk
+value|ngx_add_hunk_to_chain
+end_define
+
+begin_define
+DECL|macro|ngx_chain_add_ce (ngx_chain_t,chain,ngx_chain_t,last,ngx_chain_t,ce)
+define|#
+directive|define
+name|ngx_chain_add_ce
+parameter_list|(
+name|ngx_chain_t
+modifier|*
+name|chain
+parameter|,
+name|ngx_chain_t
+modifier|*
+modifier|*
+name|last
+parameter|,             \
+name|ngx_chain_t
+modifier|*
+name|ce
+parameter_list|)
+define|\
+value|if (chain) {                                                     \                 last->next = ce;                                             \             } else {                                                         \                 chain = ce;                                                  \             }                                                                \             last = ce;
 end_define
 
 begin_function_decl
