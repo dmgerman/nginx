@@ -173,6 +173,14 @@ value|17
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_PARSE_POST_WO_CL_HEADER
+define|#
+directive|define
+name|NGX_HTTP_PARSE_POST_WO_CL_HEADER
+value|18
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_OK
 define|#
 directive|define
@@ -337,7 +345,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon2afcf0870103
+DECL|enum|__anon2be268390103
 typedef|typedef
 enum|enum
 block|{
@@ -376,7 +384,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2afcf0870208
+DECL|struct|__anon2be268390208
 typedef|typedef
 struct|struct
 block|{
@@ -395,7 +403,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2afcf0870308
+DECL|struct|__anon2be268390308
 typedef|typedef
 struct|struct
 block|{
@@ -496,7 +504,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2afcf0870408
+DECL|struct|__anon2be268390408
 typedef|typedef
 struct|struct
 block|{
@@ -519,7 +527,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2afcf0870508
+DECL|struct|__anon2be268390508
 typedef|typedef
 struct|struct
 block|{
@@ -613,7 +621,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2afcf0870608
+DECL|struct|__anon2be268390608
 typedef|typedef
 struct|struct
 block|{
@@ -668,10 +676,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon2afcf087070a
+DECL|union|__anon2be26839070a
 union|union
 block|{
-DECL|struct|__anon2afcf0870808
+DECL|struct|__anon2be268390808
 struct|struct
 block|{
 DECL|member|fd
@@ -687,7 +695,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon2afcf0870908
+DECL|struct|__anon2be268390908
 struct|struct
 block|{
 DECL|member|hash

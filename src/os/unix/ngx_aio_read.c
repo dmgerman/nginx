@@ -47,7 +47,7 @@ comment|/*  * the ready data requires 3 syscalls:  *     aio_write(), aio_error(
 end_comment
 
 begin_function
-DECL|function|ngx_aio_read (ngx_connection_t * c,char * buf,size_t size)
+DECL|function|ngx_aio_read (ngx_connection_t * c,u_char * buf,size_t size)
 name|ssize_t
 name|ngx_aio_read
 parameter_list|(
@@ -55,7 +55,7 @@ name|ngx_connection_t
 modifier|*
 name|c
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,

@@ -49,7 +49,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|enum|__anon288923850103
+DECL|enum|__anon2b6714a90103
 typedef|typedef
 enum|enum
 block|{
@@ -85,7 +85,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon288923850203
+DECL|enum|__anon2b6714a90203
 typedef|typedef
 enum|enum
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288923850308
+DECL|struct|__anon2b6714a90308
 typedef|typedef
 struct|struct
 block|{
@@ -164,7 +164,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288923850408
+DECL|struct|__anon2b6714a90408
 typedef|typedef
 struct|struct
 block|{
@@ -288,7 +288,7 @@ comment|/*  * "EXPR/10/5/- 200/EXP/60 4"  * "MISS/-/-/B 503/-/- -"  * "EXPR/10/2
 end_comment
 
 begin_typedef
-DECL|struct|__anon288923850508
+DECL|struct|__anon2b6714a90508
 typedef|typedef
 struct|struct
 block|{
@@ -336,7 +336,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288923850608
+DECL|struct|__anon2b6714a90608
 typedef|typedef
 struct|struct
 block|{
@@ -411,7 +411,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288923850708
+DECL|struct|__anon2b6714a90708
 typedef|typedef
 struct|struct
 block|{
@@ -438,7 +438,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288923850808
+DECL|struct|__anon2b6714a90808
 typedef|typedef
 struct|struct
 block|{
@@ -622,7 +622,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon288923850908
+DECL|struct|__anon2b6714a90908
 typedef|typedef
 struct|struct
 block|{
@@ -790,7 +790,7 @@ name|ngx_http_proxy_check_broken_connection
 parameter_list|(
 name|ngx_event_t
 modifier|*
-name|wev
+name|ev
 parameter_list|)
 function_decl|;
 end_function_decl

@@ -1641,13 +1641,13 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_proxy_check_broken_connection (ngx_event_t * wev)
+DECL|function|ngx_http_proxy_check_broken_connection (ngx_event_t * ev)
 name|void
 name|ngx_http_proxy_check_broken_connection
 parameter_list|(
 name|ngx_event_t
 modifier|*
-name|wev
+name|ev
 parameter_list|)
 block|{
 name|ngx_connection_t
@@ -1662,22 +1662,26 @@ name|ngx_http_proxy_ctx_t
 modifier|*
 name|p
 decl_stmt|;
-name|ngx_log_debug0
+name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-name|wev
+name|ev
 operator|->
 name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http proxy check client"
+literal|"http proxy check client, write event:%d"
+argument_list|,
+name|ev
+operator|->
+name|write
 argument_list|)
 expr_stmt|;
 name|c
 operator|=
-name|wev
+name|ev
 operator|->
 name|data
 expr_stmt|;
@@ -1703,12 +1707,12 @@ name|HAVE_KQUEUE
 operator|)
 if|if
 condition|(
-name|wev
+name|ev
 operator|->
 name|kq_eof
 condition|)
 block|{
-name|wev
+name|ev
 operator|->
 name|eof
 operator|=
@@ -1716,12 +1720,12 @@ literal|1
 expr_stmt|;
 if|if
 condition|(
-name|wev
+name|ev
 operator|->
 name|kq_errno
 condition|)
 block|{
-name|wev
+name|ev
 operator|->
 name|error
 operator|=
@@ -1748,11 +1752,11 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_INFO
 argument_list|,
-name|wev
+name|ev
 operator|->
 name|log
 argument_list|,
-name|wev
+name|ev
 operator|->
 name|kq_errno
 argument_list|,
@@ -1774,11 +1778,11 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_INFO
 argument_list|,
-name|wev
+name|ev
 operator|->
 name|log
 argument_list|,
-name|wev
+name|ev
 operator|->
 name|kq_errno
 argument_list|,

@@ -40,7 +40,7 @@ block|{
 name|int
 name|n
 decl_stmt|;
-name|char
+name|u_char
 modifier|*
 name|buf
 decl_stmt|,

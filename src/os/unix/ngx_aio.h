@@ -26,7 +26,7 @@ name|ngx_connection_t
 modifier|*
 name|c
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,
@@ -59,7 +59,7 @@ name|ngx_connection_t
 modifier|*
 name|c
 parameter_list|,
-name|char
+name|u_char
 modifier|*
 name|buf
 parameter_list|,

@@ -443,10 +443,19 @@ operator|->
 name|headers_in
 operator|.
 name|content_length_n
-operator|>
+operator|<=
 literal|0
 condition|)
 block|{
+name|ngx_http_proxy_init_upstream
+argument_list|(
+name|p
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_DONE
+return|;
+block|}
 if|if
 condition|(
 operator|!
@@ -557,17 +566,6 @@ expr_stmt|;
 if|if
 condition|(
 name|rc
-operator|==
-name|NGX_AGAIN
-condition|)
-block|{
-return|return
-name|NGX_DONE
-return|;
-block|}
-if|if
-condition|(
-name|rc
 operator|>=
 name|NGX_HTTP_SPECIAL_RESPONSE
 condition|)
@@ -576,12 +574,6 @@ return|return
 name|rc
 return|;
 block|}
-block|}
-name|ngx_http_proxy_init_upstream
-argument_list|(
-name|p
-argument_list|)
-expr_stmt|;
 return|return
 name|NGX_DONE
 return|;
@@ -1897,7 +1889,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http proxy set timer: %d"
+literal|"http proxy init upstream, client timer: %d"
 argument_list|,
 name|r
 operator|->
@@ -1929,6 +1921,16 @@ name|read
 argument_list|)
 expr_stmt|;
 block|}
+name|r
+operator|->
+name|connection
+operator|->
+name|read
+operator|->
+name|event_handler
+operator|=
+name|ngx_http_proxy_check_broken_connection
+expr_stmt|;
 if|if
 condition|(
 operator|(

@@ -244,6 +244,7 @@ block|,
 literal|"client %s sent HTTP/1.1 request without \"Host\" header, URL: %s"
 block|,
 literal|"client %s sent invalid \"Content-Length\" header, URL: %s"
+literal|"client %s sent POST method without \"Content-Length\" header, URL: %s"
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -4096,6 +4097,27 @@ if|if
 condition|(
 name|r
 operator|->
+name|method
+operator|==
+name|NGX_HTTP_POST
+operator|&&
+name|r
+operator|->
+name|headers_in
+operator|.
+name|content_length_n
+operator|<=
+literal|0
+condition|)
+block|{
+return|return
+name|NGX_HTTP_PARSE_POST_WO_CL_HEADER
+return|;
+block|}
+if|if
+condition|(
+name|r
+operator|->
 name|headers_in
 operator|.
 name|connection
@@ -5552,6 +5574,40 @@ name|event_handler
 operator|=
 name|ngx_http_empty_handler
 expr_stmt|;
+comment|/* skip the tralling "\r\n" before the possible pipelined request */
+while|while
+condition|(
+name|h
+operator|->
+name|pos
+operator|<
+name|h
+operator|->
+name|last
+operator|&&
+operator|(
+operator|*
+name|h
+operator|->
+name|pos
+operator|==
+name|CR
+operator|||
+operator|*
+name|h
+operator|->
+name|pos
+operator|==
+name|LF
+operator|)
+condition|)
+block|{
+name|h
+operator|->
+name|pos
+operator|++
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|h
@@ -5563,7 +5619,7 @@ operator|->
 name|last
 condition|)
 block|{
-comment|/*          * Pipelined request.          *          * We do not know here whether the pipelined request is complete          * so if the large client headers are not enabled          * we need to copy the data to the start of c->buffer.          * This copy should be rare because clients that support          * pipelined requests (Mozilla 1.x, Opera 6.x+) are still rare.          */
+comment|/*          * The pipelined request.          *          * We do not know here whether the pipelined request is complete          * so if the large client headers are not enabled          * we need to copy the data to the start of c->buffer.          * This copy should be rare because clients that support          * pipelined requests (Mozilla 1.x, Opera 6.x+) are still rare.          */
 name|cscf
 operator|=
 name|ngx_http_get_module_srv_conf
