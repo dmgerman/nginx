@@ -455,10 +455,6 @@ name|cl
 operator|->
 name|buf
 expr_stmt|;
-name|fsize
-operator|=
-literal|0
-expr_stmt|;
 comment|/* coalesce the neighbouring file bufs */
 do|do
 block|{

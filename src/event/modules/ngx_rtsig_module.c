@@ -110,7 +110,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b9cdbae0108
+DECL|struct|__anon29e07b2f0108
 typedef|typedef
 struct|struct
 block|{
@@ -2565,13 +2565,14 @@ expr_stmt|;
 if|if
 condition|(
 name|err
-operator|!=
+operator|==
 name|NGX_EINTR
 condition|)
 block|{
+continue|continue;
+block|}
+block|}
 break|break;
-block|}
-block|}
 block|}
 if|if
 condition|(
@@ -2582,11 +2583,6 @@ condition|)
 block|{
 continue|continue;
 block|}
-if|if
-condition|(
-name|n
-condition|)
-block|{
 if|if
 condition|(
 name|ngx_mutex_lock
@@ -2600,7 +2596,6 @@ block|{
 return|return
 name|NGX_ERROR
 return|;
-block|}
 block|}
 for|for
 control|(
@@ -2788,17 +2783,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
-if|if
-condition|(
-name|n
-condition|)
-block|{
 name|ngx_mutex_unlock
 argument_list|(
 name|ngx_posted_events_mutex
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|tested
@@ -2942,7 +2931,7 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-comment|/*                  * drain rt signal queue if the /proc/sys/kernel/rtsig-nr                  * is bigger than                  *    /proc/sys/kernel/rtsig-max / rtsig_overflow_threshold                  */
+comment|/*                  * drain the rt signal queue if the /proc/sys/kernel/rtsig-nr                  * is bigger than                  *    /proc/sys/kernel/rtsig-max / rtsig_overflow_threshold                  */
 if|if
 condition|(
 name|rtsig_max
@@ -2987,7 +2976,7 @@ block|}
 block|}
 else|else
 block|{
-comment|/*                  * Linux has not KERN_RTSIGMAX since 2.6.6-mm2                  * so drain rt signal queue unconditionally                  */
+comment|/*                  * Linux has not KERN_RTSIGMAX since 2.6.6-mm2                  * so drain the rt signal queue unconditionally                  */
 while|while
 condition|(
 name|ngx_rtsig_process_events
