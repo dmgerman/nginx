@@ -24,7 +24,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a0517790108
+DECL|struct|__anon2ae79a660108
 typedef|typedef
 struct|struct
 block|{
@@ -59,7 +59,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a0517790208
+DECL|struct|__anon2ae79a660208
 typedef|typedef
 struct|struct
 block|{
@@ -2720,7 +2720,7 @@ name|uintptr_t
 name|data
 parameter_list|)
 block|{
-name|int
+name|u_int
 name|zint
 decl_stmt|,
 name|zfrac
