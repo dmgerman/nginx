@@ -71,6 +71,12 @@ directive|include
 file|<ngx_listen.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_conf_file.h>
+end_include
+
 begin_comment
 comment|/* STUB */
 end_comment
@@ -272,6 +278,12 @@ name|log
 operator|=
 operator|&
 name|ngx_log
+expr_stmt|;
+name|conf
+operator|.
+name|type
+operator|=
+name|NGX_CORE_MODULE_TYPE
 expr_stmt|;
 name|conf_file
 operator|.

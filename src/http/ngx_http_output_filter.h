@@ -21,6 +21,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_conf_file.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_http.h>
 end_include
 
@@ -41,7 +47,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2771ad290108
+DECL|struct|__anon2976ad250108
 typedef|typedef
 struct|struct
 block|{
@@ -56,7 +62,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2771ad290208
+DECL|struct|__anon2976ad250208
 typedef|typedef
 struct|struct
 block|{

@@ -1,4 +1,8 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
+begin_comment
+comment|/* TODO:     ngx_http_conf_ctx_t   ctx; on stack or in pool ? */
+end_comment
+
 begin_include
 include|#
 directive|include
@@ -14,7 +18,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_config_file.h>
+file|<ngx_conf_file.h>
 end_include
 
 begin_include
@@ -185,7 +189,7 @@ comment|/* module context */
 name|ngx_http_commands
 block|,
 comment|/* module directives */
-literal|0
+name|NGX_CORE_MODULE_TYPE
 block|,
 comment|/* module type */
 name|NULL
@@ -326,7 +330,6 @@ modifier|*
 name|module
 decl_stmt|;
 name|ngx_http_conf_ctx_t
-modifier|*
 name|ctx
 decl_stmt|;
 for|for
@@ -402,19 +405,19 @@ name|NGX_CONF_ERROR
 argument_list|)
 expr_stmt|;
 name|ctx
-operator|->
+operator|.
 name|srv_conf
 operator|=
 name|NULL
 expr_stmt|;
 name|ctx
-operator|->
+operator|.
 name|loc_conf
 operator|=
 name|null_loc_conf
 expr_stmt|;
 name|ctx
-operator|->
+operator|.
 name|locations
 operator|=
 name|NULL
@@ -495,6 +498,7 @@ name|cf
 operator|->
 name|ctx
 operator|=
+operator|&
 name|ctx
 expr_stmt|;
 name|cf

@@ -14,7 +14,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_config_file.h>
+file|<ngx_conf_file.h>
 end_include
 
 begin_decl_stmt
@@ -367,14 +367,23 @@ control|)
 block|{
 if|if
 condition|(
-name|cf
-operator|->
-name|type
-operator|!=
 name|ngx_modules
 index|[
 name|i
 index|]
+operator|->
+name|type
+operator|!=
+name|NULL
+operator|&&
+name|ngx_modules
+index|[
+name|i
+index|]
+operator|->
+name|type
+operator|!=
+name|cf
 operator|->
 name|type
 condition|)

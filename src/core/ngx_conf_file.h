@@ -2,14 +2,14 @@ begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|_NGX_HTTP_CONFIG_FILE_H_INCLUDED_
+name|_NGX_HTTP_CONF_FILE_H_INCLUDED_
 end_ifndef
 
 begin_define
-DECL|macro|_NGX_HTTP_CONFIG_FILE_H_INCLUDED_
+DECL|macro|_NGX_HTTP_CONF_FILE_H_INCLUDED_
 define|#
 directive|define
-name|_NGX_HTTP_CONFIG_FILE_H_INCLUDED_
+name|_NGX_HTTP_CONF_FILE_H_INCLUDED_
 end_define
 
 begin_include
@@ -85,6 +85,14 @@ value|4
 end_define
 
 begin_define
+DECL|macro|NGX_CONF_ARGS_NUMBER
+define|#
+directive|define
+name|NGX_CONF_ARGS_NUMBER
+value|0x0ffff
+end_define
+
+begin_define
 DECL|macro|NGX_CONF_ANY
 define|#
 directive|define
@@ -109,6 +117,14 @@ value|-1
 end_define
 
 begin_define
+DECL|macro|NGX_CONF_ERROR
+define|#
+directive|define
+name|NGX_CONF_ERROR
+value|(char *) -1
+end_define
+
+begin_define
 DECL|macro|NGX_CONF_BLOCK_DONE
 define|#
 directive|define
@@ -125,12 +141,17 @@ value|2
 end_define
 
 begin_define
-DECL|macro|NGX_CONF_ERROR
+DECL|macro|NGX_CORE_MODULE_TYPE
 define|#
 directive|define
-name|NGX_CONF_ERROR
-value|(char *) -1
+name|NGX_CORE_MODULE_TYPE
+value|0x45524f43
 end_define
+
+begin_comment
+DECL|macro|NGX_CORE_MODULE_TYPE
+comment|/* "CORE" */
+end_comment
 
 begin_typedef
 DECL|typedef|ngx_conf_t
@@ -197,7 +218,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon299d42a20108
+DECL|struct|__anon2b1f010c0108
 typedef|typedef
 struct|struct
 block|{
@@ -234,7 +255,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299d42a20208
+DECL|struct|__anon2b1f010c0208
 typedef|typedef
 struct|struct
 block|{
@@ -379,7 +400,7 @@ end_decl_stmt
 begin_endif
 endif|#
 directive|endif
-endif|_NGX_HTTP_CONFIG_FILE_H_INCLUDED_
+endif|_NGX_HTTP_CONF_FILE_H_INCLUDED_
 end_endif
 
 end_unit
