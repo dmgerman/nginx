@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29fd0fd90108
+DECL|struct|__anon2b66e2640108
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29fd0fd90203
+DECL|enum|__anon2b66e2640203
 typedef|typedef
 enum|enum
 block|{
@@ -79,6 +79,9 @@ literal|0
 block|,
 DECL|enumerator|NGX_HTTP_FIND_CONFIG_PHASE
 name|NGX_HTTP_FIND_CONFIG_PHASE
+block|,
+DECL|enumerator|NGX_HTTP_MISC_PHASE
+name|NGX_HTTP_MISC_PHASE
 block|,
 DECL|enumerator|NGX_HTTP_ACCESS_PHASE
 name|NGX_HTTP_ACCESS_PHASE
@@ -95,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fd0fd90308
+DECL|struct|__anon2b66e2640308
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fd0fd90408
+DECL|struct|__anon2b66e2640408
 typedef|typedef
 struct|struct
 block|{
@@ -146,7 +149,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fd0fd90508
+DECL|struct|__anon2b66e2640508
 typedef|typedef
 struct|struct
 block|{
@@ -210,7 +213,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon29fd0fd90608
+DECL|struct|__anon2b66e2640608
 typedef|typedef
 struct|struct
 block|{
@@ -234,7 +237,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fd0fd90708
+DECL|struct|__anon2b66e2640708
 typedef|typedef
 struct|struct
 block|{
@@ -266,7 +269,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fd0fd90808
+DECL|struct|__anon2b66e2640808
 typedef|typedef
 struct|struct
 block|{
@@ -309,7 +312,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon29fd0fd90908
+DECL|struct|__anon2b66e2640908
 typedef|typedef
 struct|struct
 block|{
@@ -328,7 +331,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fd0fd90a08
+DECL|struct|__anon2b66e2640a08
 typedef|typedef
 struct|struct
 block|{

@@ -22,7 +22,7 @@ comment|/* AF_INET only */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2c03d0a80108
+DECL|struct|__anon2a0bfd120108
 typedef|typedef
 struct|struct
 block|{
@@ -45,7 +45,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c03d0a80208
+DECL|struct|__anon2a0bfd120208
 typedef|typedef
 struct|struct
 block|{
@@ -251,7 +251,7 @@ name|ngx_http_access_init
 block|,
 comment|/* init module */
 name|NULL
-comment|/* init child */
+comment|/* init process */
 block|}
 decl_stmt|;
 end_decl_stmt

@@ -457,7 +457,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b5005900108
+DECL|struct|__anon298b81e20108
 typedef|typedef
 struct|struct
 block|{
@@ -502,7 +502,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5005900208
+DECL|struct|__anon298b81e20208
 typedef|typedef
 struct|struct
 block|{
@@ -637,7 +637,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5005900308
+DECL|struct|__anon298b81e20308
 typedef|typedef
 struct|struct
 block|{
@@ -652,7 +652,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5005900408
+DECL|struct|__anon298b81e20408
 typedef|typedef
 struct|struct
 block|{
@@ -675,7 +675,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5005900508
+DECL|struct|__anon298b81e20508
 typedef|typedef
 struct|struct
 block|{
@@ -702,7 +702,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2b5005900608
+DECL|struct|__anon298b81e20608
 typedef|typedef
 struct|struct
 block|{
@@ -1100,26 +1100,6 @@ begin_function_decl
 name|char
 modifier|*
 name|ngx_conf_set_sec_slot
-parameter_list|(
-name|ngx_conf_t
-modifier|*
-name|cf
-parameter_list|,
-name|ngx_command_t
-modifier|*
-name|cmd
-parameter_list|,
-name|void
-modifier|*
-name|conf
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-name|char
-modifier|*
-name|ngx_conf_set_time_slot
 parameter_list|(
 name|ngx_conf_t
 modifier|*
