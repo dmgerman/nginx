@@ -88,7 +88,7 @@ comment|/* STUB */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2b53daf80108
+DECL|struct|__anon2c8549e80108
 typedef|typedef
 struct|struct
 block|{
@@ -4471,18 +4471,6 @@ name|log
 expr_stmt|;
 name|ep
 operator|->
-name|number
-operator|=
-literal|10
-expr_stmt|;
-name|ep
-operator|->
-name|random
-operator|=
-literal|5
-expr_stmt|;
-name|ep
-operator|->
 name|max_temp_file_size
 operator|=
 name|p
@@ -5871,7 +5859,7 @@ name|char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2b53daf80203
+DECL|enum|__anon2c8549e80203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6478,10 +6466,6 @@ operator|&
 name|path
 argument_list|,
 name|pool
-argument_list|,
-literal|123456789
-argument_list|,
-literal|2
 argument_list|,
 literal|0
 argument_list|)

@@ -146,9 +146,23 @@ literal|'0'
 operator|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|value
+operator|<
+literal|0
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+else|else
+block|{
 return|return
 name|value
 return|;
+block|}
 block|}
 end_function
 

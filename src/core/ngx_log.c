@@ -4,7 +4,7 @@ comment|/*    TODO: log pid and tid */
 end_comment
 
 begin_comment
-comment|/*    "[time as ctime()] [alert] 412:3 (32)Broken pipe: anything"     "[time as ctime()] [alert] (32)Broken pipe: anything"    "[time as ctime()] [alert] anything" */
+comment|/*    "[time as ctime()] [alert] 412#3 (32)Broken pipe: anything"     "[time as ctime()] [alert] (32)Broken pipe: anything"    "[time as ctime()] [alert] anything" */
 end_comment
 
 begin_include
@@ -329,6 +329,7 @@ name|err
 operator|>=
 literal|0x80000000
 condition|)
+block|{
 name|len
 operator|+=
 name|ngx_snprintf
@@ -351,9 +352,9 @@ argument_list|,
 name|err
 argument_list|)
 expr_stmt|;
+block|}
 else|else
-endif|#
-directive|endif
+block|{
 name|len
 operator|+=
 name|ngx_snprintf
@@ -376,6 +377,33 @@ argument_list|,
 name|err
 argument_list|)
 expr_stmt|;
+block|}
+else|#
+directive|else
+name|len
+operator|+=
+name|ngx_snprintf
+argument_list|(
+name|errstr
+operator|+
+name|len
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|errstr
+argument_list|)
+operator|-
+name|len
+operator|-
+literal|1
+argument_list|,
+literal|" (%d: "
+argument_list|,
+name|err
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|len
 operator|+=
 name|ngx_strerror_r

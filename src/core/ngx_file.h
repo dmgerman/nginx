@@ -82,7 +82,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c2267600108
+DECL|struct|__anon29d365fb0108
 typedef|typedef
 struct|struct
 block|{
@@ -124,12 +124,6 @@ modifier|*
 name|pool
 parameter_list|,
 name|int
-name|num
-parameter_list|,
-name|int
-name|step
-parameter_list|,
-name|int
 name|persistent
 parameter_list|)
 function_decl|;
@@ -161,6 +155,23 @@ parameter_list|,
 name|ngx_path_t
 modifier|*
 name|path
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_init_temp_number
+parameter_list|()
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|int
+name|ngx_next_temp_number
+parameter_list|(
+name|int
+name|collision
 parameter_list|)
 function_decl|;
 end_function_decl

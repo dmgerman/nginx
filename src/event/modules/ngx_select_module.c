@@ -1204,6 +1204,7 @@ condition|(
 name|timer
 condition|)
 block|{
+comment|/* TODO: Linux returns time in tv */
 name|delta
 operator|=
 name|ngx_msec

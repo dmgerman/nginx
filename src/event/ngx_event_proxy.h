@@ -290,14 +290,6 @@ name|ngx_path_t
 modifier|*
 name|temp_path
 decl_stmt|;
-DECL|member|number
-name|int
-name|number
-decl_stmt|;
-DECL|member|random
-name|int
-name|random
-decl_stmt|;
 DECL|member|temp_file_warn
 name|char
 modifier|*

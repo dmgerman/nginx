@@ -143,10 +143,12 @@ name|NGX_HTTP_LOC_CONF_OFFSET
 block|,
 name|offsetof
 argument_list|(
-argument|ngx_http_output_filter_conf_t
+name|ngx_http_output_filter_conf_t
 argument_list|,
-argument|hunk_size
+name|hunk_size
 argument_list|)
+block|,
+name|NULL
 block|}
 block|,
 block|{
@@ -159,6 +161,8 @@ block|,
 literal|0
 block|,
 literal|0
+block|,
+name|NULL
 block|}
 block|}
 decl_stmt|;

@@ -242,12 +242,17 @@ DECL|member|offset
 name|int
 name|offset
 decl_stmt|;
+DECL|member|bounds
+name|void
+modifier|*
+name|bounds
+decl_stmt|;
 block|}
 struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bf096f20108
+DECL|struct|__anon2a8f12e30108
 typedef|typedef
 struct|struct
 block|{
@@ -288,7 +293,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf096f20208
+DECL|struct|__anon2a8f12e30208
 typedef|typedef
 struct|struct
 block|{

@@ -2280,14 +2280,6 @@ name|pool
 argument_list|,
 name|p
 operator|->
-name|number
-argument_list|,
-name|p
-operator|->
-name|random
-argument_list|,
-name|p
-operator|->
 name|cachable
 argument_list|)
 expr_stmt|;

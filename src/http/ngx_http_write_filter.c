@@ -123,10 +123,12 @@ name|NGX_HTTP_LOC_CONF_OFFSET
 block|,
 name|offsetof
 argument_list|(
-argument|ngx_http_write_filter_conf_t
+name|ngx_http_write_filter_conf_t
 argument_list|,
-argument|buffer_output
+name|buffer_output
 argument_list|)
+block|,
+name|NULL
 block|}
 block|,
 block|{
@@ -139,6 +141,8 @@ block|,
 literal|0
 block|,
 literal|0
+block|,
+name|NULL
 block|}
 block|}
 decl_stmt|;

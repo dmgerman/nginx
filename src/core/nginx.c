@@ -396,6 +396,9 @@ return|return
 literal|1
 return|;
 block|}
+name|ngx_init_temp_number
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 name|i
@@ -442,14 +445,6 @@ return|;
 block|}
 block|}
 block|}
-if|#
-directive|if
-literal|0
-comment|/* STUB */
-comment|/* TODO: init chain of global modules (like ngx_http.c),        they would init its modules and ngx_listening_sockets */
-block_content|ngx_http_init(ngx_pool,&ngx_log);
-endif|#
-directive|endif
 name|ngx_open_listening_sockets
 argument_list|(
 operator|&

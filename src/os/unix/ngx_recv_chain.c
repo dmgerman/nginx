@@ -30,7 +30,7 @@ file|<ngx_connection.h>
 end_include
 
 begin_function
-DECL|function|ngx_recv_chain (ngx_connection_t * c,ngx_chain_t * ce)
+DECL|function|ngx_recv_chain (ngx_connection_t * c,ngx_chain_t * entry)
 name|ssize_t
 name|ngx_recv_chain
 parameter_list|(
@@ -40,7 +40,7 @@ name|c
 parameter_list|,
 name|ngx_chain_t
 modifier|*
-name|ce
+name|entry
 parameter_list|)
 block|{
 name|ssize_t
@@ -78,7 +78,7 @@ argument_list|)
 expr_stmt|;
 while|while
 condition|(
-name|ce
+name|entry
 condition|)
 block|{
 name|ngx_test_null
@@ -98,7 +98,7 @@ name|iov
 operator|->
 name|iov_base
 operator|=
-name|ce
+name|entry
 operator|->
 name|hunk
 operator|->
@@ -108,21 +108,21 @@ name|iov
 operator|->
 name|iov_len
 operator|=
-name|ce
+name|entry
 operator|->
 name|hunk
 operator|->
 name|end
 operator|-
-name|ce
+name|entry
 operator|->
 name|hunk
 operator|->
 name|last
 expr_stmt|;
-name|ce
+name|entry
 operator|=
-name|ce
+name|entry
 operator|->
 name|next
 expr_stmt|;
