@@ -100,19 +100,6 @@ function_decl|;
 end_function_decl
 
 begin_decl_stmt
-DECL|variable|http_name
-specifier|static
-name|ngx_str_t
-name|http_name
-init|=
-name|ngx_string
-argument_list|(
-literal|"http"
-argument_list|)
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
 DECL|variable|ngx_http_commands
 specifier|static
 name|ngx_command_t
@@ -147,6 +134,25 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_http_module_ctx
+specifier|static
+name|ngx_core_module_t
+name|ngx_http_module_ctx
+init|=
+block|{
+name|ngx_string
+argument_list|(
+literal|"http"
+argument_list|)
+block|,
+name|NULL
+block|,
+name|NULL
+block|}
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_http_module
 name|ngx_module_t
 name|ngx_http_module
@@ -155,7 +161,7 @@ block|{
 name|NGX_MODULE
 block|,
 operator|&
-name|http_name
+name|ngx_http_module_ctx
 block|,
 comment|/* module context */
 name|ngx_http_commands

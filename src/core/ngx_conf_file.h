@@ -93,22 +93,6 @@ value|0x00000080
 end_define
 
 begin_define
-DECL|macro|NGX_CONF_TAKE8
-define|#
-directive|define
-name|NGX_CONF_TAKE8
-value|0x00000100
-end_define
-
-begin_define
-DECL|macro|NGX_CONF_TAKE9
-define|#
-directive|define
-name|NGX_CONF_TAKE9
-value|0x00000200
-end_define
-
-begin_define
 DECL|macro|NGX_CONF_TAKE12
 define|#
 directive|define
@@ -145,7 +129,7 @@ DECL|macro|NGX_CONF_ARGS_NUMBER
 define|#
 directive|define
 name|NGX_CONF_ARGS_NUMBER
-value|0x0000ffff
+value|0x000000ff
 end_define
 
 begin_define
@@ -153,7 +137,7 @@ DECL|macro|NGX_CONF_BLOCK
 define|#
 directive|define
 name|NGX_CONF_BLOCK
-value|0x00010000
+value|0x00000100
 end_define
 
 begin_define
@@ -161,7 +145,7 @@ DECL|macro|NGX_CONF_FLAG
 define|#
 directive|define
 name|NGX_CONF_FLAG
-value|0x00020000
+value|0x00000200
 end_define
 
 begin_define
@@ -169,7 +153,7 @@ DECL|macro|NGX_CONF_ANY
 define|#
 directive|define
 name|NGX_CONF_ANY
-value|0x00040000
+value|0x00000400
 end_define
 
 begin_define
@@ -177,7 +161,7 @@ DECL|macro|NGX_CONF_1MORE
 define|#
 directive|define
 name|NGX_CONF_1MORE
-value|0x00080000
+value|0x00000800
 end_define
 
 begin_define
@@ -185,7 +169,15 @@ DECL|macro|NGX_CONF_2MORE
 define|#
 directive|define
 name|NGX_CONF_2MORE
-value|0x00100000
+value|0x00001000
+end_define
+
+begin_define
+DECL|macro|NGX_DIRECT_CONF
+define|#
+directive|define
+name|NGX_DIRECT_CONF
+value|0x00010000
 end_define
 
 begin_define
@@ -441,7 +433,52 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b739cc70108
+DECL|struct|__anon2b3f7afb0108
+typedef|typedef
+struct|struct
+block|{
+DECL|member|name
+name|ngx_str_t
+name|name
+decl_stmt|;
+DECL|member|create_conf
+name|void
+modifier|*
+function_decl|(
+modifier|*
+name|create_conf
+function_decl|)
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|)
+function_decl|;
+DECL|member|init_conf
+name|char
+modifier|*
+function_decl|(
+modifier|*
+name|init_conf
+function_decl|)
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|,
+name|void
+modifier|*
+name|conf
+parameter_list|)
+function_decl|;
+DECL|typedef|ngx_core_module_t
+block|}
+name|ngx_core_module_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2b3f7afb0208
 typedef|typedef
 struct|struct
 block|{
@@ -576,7 +613,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b739cc70208
+DECL|struct|__anon2b3f7afb0308
 typedef|typedef
 struct|struct
 block|{
@@ -591,7 +628,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b739cc70308
+DECL|struct|__anon2b3f7afb0408
 typedef|typedef
 struct|struct
 block|{
@@ -622,7 +659,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2b739cc70408
+DECL|struct|__anon2b3f7afb0508
 typedef|typedef
 struct|struct
 block|{
@@ -1054,66 +1091,6 @@ begin_function_decl
 name|char
 modifier|*
 name|ngx_conf_set_bitmask_slot
-parameter_list|(
-name|ngx_conf_t
-modifier|*
-name|cf
-parameter_list|,
-name|ngx_command_t
-modifier|*
-name|cmd
-parameter_list|,
-name|void
-modifier|*
-name|conf
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-name|char
-modifier|*
-name|ngx_conf_set_core_flag_slot
-parameter_list|(
-name|ngx_conf_t
-modifier|*
-name|cf
-parameter_list|,
-name|ngx_command_t
-modifier|*
-name|cmd
-parameter_list|,
-name|void
-modifier|*
-name|conf
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-name|char
-modifier|*
-name|ngx_conf_set_core_num_slot
-parameter_list|(
-name|ngx_conf_t
-modifier|*
-name|cf
-parameter_list|,
-name|ngx_command_t
-modifier|*
-name|cmd
-parameter_list|,
-name|void
-modifier|*
-name|conf
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-name|char
-modifier|*
-name|ngx_conf_set_core_str_slot
 parameter_list|(
 name|ngx_conf_t
 modifier|*
