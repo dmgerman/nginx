@@ -5725,6 +5725,13 @@ name|header_in
 operator|->
 name|pos
 expr_stmt|;
+if|if
+condition|(
+name|p
+operator|->
+name|cachable
+condition|)
+block|{
 name|ep
 operator|->
 name|hunk_to_file
@@ -5740,7 +5747,7 @@ if|if
 condition|(
 name|ep
 operator|->
-name|preread_hunks
+name|hunk_to_file
 operator|==
 name|NULL
 condition|)
@@ -5788,6 +5795,7 @@ name|NGX_HUNK_IN_MEMORY
 operator||
 name|NGX_HUNK_TEMP
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|ngx_event_flags

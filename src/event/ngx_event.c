@@ -585,6 +585,12 @@ modifier|*
 name|cycle
 parameter_list|)
 block|{
+if|#
+directive|if
+operator|!
+operator|(
+name|WIN32
+operator|)
 name|ngx_core_conf_t
 modifier|*
 name|ccf
@@ -694,6 +700,8 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+endif|#
+directive|endif
 return|return
 name|NGX_OK
 return|;

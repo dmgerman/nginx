@@ -289,6 +289,7 @@ operator|->
 name|timer_set
 condition|)
 block|{
+comment|/*          * Use the previous timer value if a difference between them is less          * then 100 milliseconds.  It allows to minimize the rbtree operations          * for the fast connections.          */
 if|if
 condition|(
 name|key
@@ -297,7 +298,9 @@ name|ev
 operator|->
 name|rbtree_key
 operator|<
-literal|50
+literal|100
+operator|/
+name|NGX_TIMER_RESOLUTION
 condition|)
 block|{
 name|ngx_log_debug3
