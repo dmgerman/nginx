@@ -1770,7 +1770,7 @@ operator|->
 name|large_client_header
 condition|)
 block|{
-comment|/*             * if the large client headers are enabled then             * we need to copy a request line             */
+comment|/*             * if the large client headers are enabled then             * we need to copy the request line             */
 name|r
 operator|->
 name|request_line
@@ -2349,6 +2349,14 @@ name|r
 argument_list|,
 name|rc
 argument_list|,
+operator|(
+name|rc
+operator|==
+name|NGX_HTTP_PARSE_INVALID_METHOD
+operator|)
+condition|?
+name|NGX_HTTP_NOT_IMPLEMENTED
+else|:
 name|NGX_HTTP_BAD_REQUEST
 argument_list|)
 expr_stmt|;
@@ -5350,7 +5358,7 @@ operator|->
 name|last
 condition|)
 block|{
-comment|/*          * Pipelined request.          *          * We do not know here whether a pipelined request is complete          * so if the large client headers are not enabled          * we need to copy the data to the start of c->buffer.          * This copy should be rare because clients that support          * pipelined requests (Mozilla 1.x, Opera 6.x+) are still rare.          */
+comment|/*          * Pipelined request.          *          * We do not know here whether the pipelined request is complete          * so if the large client headers are not enabled          * we need to copy the data to the start of c->buffer.          * This copy should be rare because clients that support          * pipelined requests (Mozilla 1.x, Opera 6.x+) are still rare.          */
 name|cscf
 operator|=
 name|ngx_http_get_module_srv_conf

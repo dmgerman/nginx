@@ -285,7 +285,7 @@ value|416
 end_define
 
 begin_comment
-comment|/*  * HTTP does not define a code for the case when a client closed a connection  * while we are processing request so we introduce own code to log such  * situation when client has closed a connection before we even try to  * send HTTP header to it  */
+comment|/*  * HTTP does not define the code for the case when a client closed  * the connection while we are processing its request so we introduce  * own code to log such situation when a client has closed the connection  * before we even try to send the HTTP header to it  */
 end_comment
 
 begin_define
@@ -337,7 +337,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon2b4241630103
+DECL|enum|__anon2aac09f20103
 typedef|typedef
 enum|enum
 block|{
@@ -376,7 +376,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4241630208
+DECL|struct|__anon2aac09f20208
 typedef|typedef
 struct|struct
 block|{
@@ -395,7 +395,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4241630308
+DECL|struct|__anon2aac09f20308
 typedef|typedef
 struct|struct
 block|{
@@ -478,7 +478,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4241630408
+DECL|struct|__anon2aac09f20408
 typedef|typedef
 struct|struct
 block|{
@@ -529,7 +529,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4241630508
+DECL|struct|__anon2aac09f20508
 typedef|typedef
 struct|struct
 block|{
@@ -552,7 +552,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4241630608
+DECL|struct|__anon2aac09f20608
 typedef|typedef
 struct|struct
 block|{
@@ -651,10 +651,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon2b424163070a
+DECL|union|__anon2aac09f2070a
 union|union
 block|{
-DECL|struct|__anon2b4241630808
+DECL|struct|__anon2aac09f20808
 struct|struct
 block|{
 DECL|member|fd
@@ -670,7 +670,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon2b4241630908
+DECL|struct|__anon2aac09f20908
 struct|struct
 block|{
 DECL|member|hash

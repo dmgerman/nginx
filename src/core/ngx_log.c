@@ -1,12 +1,4 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
-begin_comment
-comment|/*    TODO: log pid and tid */
-end_comment
-
-begin_comment
-comment|/*    "[time as ctime()] [alert] 412#3 (32)Broken pipe: anything"     "[time as ctime()] [alert] (32)Broken pipe: anything"    "[time as ctime()] [alert] anything" */
-end_comment
-
 begin_include
 include|#
 directive|include
@@ -348,6 +340,7 @@ argument_list|,
 name|ngx_getpid
 argument_list|()
 argument_list|,
+comment|/* STUB */
 literal|0
 argument_list|)
 expr_stmt|;
