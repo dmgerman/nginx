@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a22ae8d0108
+DECL|struct|__anon2b9234370108
 typedef|typedef
 struct|struct
 block|{
@@ -333,11 +333,12 @@ name|r
 operator|->
 name|cache
 operator|&&
+operator|!
 name|r
 operator|->
 name|cache
 operator|->
-name|valid
+name|expired
 condition|)
 block|{
 return|return
@@ -598,9 +599,10 @@ if|if
 condition|(
 name|file
 operator|&&
+operator|!
 name|file
 operator|->
-name|valid
+name|expired
 condition|)
 block|{
 name|r
@@ -667,9 +669,10 @@ if|if
 condition|(
 name|redirect
 operator|&&
+operator|!
 name|redirect
 operator|->
-name|valid
+name|expired
 condition|)
 block|{
 comment|/*              * We do not copy a cached value so the cache entry is locked              * until the end of the request.  In a single threaded model              * the redirected request should complete before other event              * will be processed.  In a multithreaded model this locking              * should keep more popular redirects in cache.              */
@@ -1314,12 +1317,6 @@ name|ngx_cached_time
 expr_stmt|;
 name|redirect
 operator|->
-name|valid
-operator|=
-literal|1
-expr_stmt|;
-name|redirect
-operator|->
 name|memory
 operator|=
 literal|1
@@ -1480,9 +1477,9 @@ name|ngx_cached_time
 expr_stmt|;
 name|file
 operator|->
-name|valid
+name|expired
 operator|=
-literal|1
+literal|0
 expr_stmt|;
 name|r
 operator|->
@@ -1643,12 +1640,6 @@ operator|->
 name|updated
 operator|=
 name|ngx_cached_time
-expr_stmt|;
-name|file
-operator|->
-name|valid
-operator|=
-literal|1
 expr_stmt|;
 name|r
 operator|->

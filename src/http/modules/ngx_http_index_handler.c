@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29ce58710108
+DECL|struct|__anon274c69180108
 typedef|typedef
 struct|struct
 block|{
@@ -42,7 +42,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ce58710208
+DECL|struct|__anon274c69180208
 typedef|typedef
 struct|struct
 block|{
@@ -493,11 +493,12 @@ name|ctx
 operator|->
 name|cache
 operator|&&
+operator|!
 name|ctx
 operator|->
 name|cache
 operator|->
-name|valid
+name|expired
 condition|)
 block|{
 name|ctx
@@ -1336,14 +1337,6 @@ operator|->
 name|updated
 operator|=
 name|ngx_cached_time
-expr_stmt|;
-name|ctx
-operator|->
-name|cache
-operator|->
-name|valid
-operator|=
-literal|1
 expr_stmt|;
 name|ctx
 operator|->

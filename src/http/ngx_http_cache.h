@@ -43,7 +43,7 @@ value|3
 end_define
 
 begin_typedef
-DECL|struct|__anon2c513a820108
+DECL|struct|__anon27e902410108
 typedef|typedef
 struct|struct
 block|{
@@ -72,15 +72,15 @@ name|count
 range|:
 name|NGX_HTTP_CACHE_LAZY_ALLOCATION_BITS
 decl_stmt|;
-DECL|member|valid
-name|unsigned
-name|valid
-range|:
-literal|1
-decl_stmt|;
 DECL|member|deleted
 name|unsigned
 name|deleted
+range|:
+literal|1
+decl_stmt|;
+DECL|member|expired
+name|unsigned
+name|expired
 range|:
 literal|1
 decl_stmt|;
@@ -126,7 +126,7 @@ DECL|member|updated
 name|time_t
 name|updated
 decl_stmt|;
-DECL|union|__anon2c513a82020a
+DECL|union|__anon27e90241020a
 union|union
 block|{
 DECL|member|size
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c513a820308
+DECL|struct|__anon27e902410308
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +202,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2c513a820408
+DECL|struct|__anon27e902410408
 typedef|typedef
 struct|struct
 block|{
@@ -239,7 +239,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c513a820508
+DECL|struct|__anon27e902410508
 typedef|typedef
 struct|struct
 block|{
