@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29b31fb90108
+DECL|struct|__anon296893480108
 typedef|typedef
 struct|struct
 block|{
@@ -219,6 +219,14 @@ name|lcf
 decl_stmt|;
 if|if
 condition|(
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_type
+operator|==
+name|NULL
+operator|||
 name|ngx_strncasecmp
 argument_list|(
 name|r
@@ -237,6 +245,23 @@ literal|5
 argument_list|)
 operator|!=
 literal|0
+operator|||
+name|ngx_strstr
+argument_list|(
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_type
+operator|->
+name|value
+operator|.
+name|data
+argument_list|,
+literal|"charset"
+argument_list|)
+operator|!=
+name|NULL
 condition|)
 block|{
 return|return

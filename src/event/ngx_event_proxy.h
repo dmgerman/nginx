@@ -27,25 +27,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_hunk.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_file.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_files.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_connection.h>
+file|<ngx_event.h>
 end_include
 
 begin_typedef

@@ -37,7 +37,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27b369e70108
+DECL|struct|__anon2a5530640108
 typedef|typedef
 struct|struct
 block|{
@@ -57,6 +57,29 @@ DECL|member|read_timeout
 name|ngx_msec_t
 name|read_timeout
 decl_stmt|;
+comment|/* STUB */
+DECL|member|block_size
+name|int
+name|block_size
+decl_stmt|;
+DECL|member|max_block_size
+name|int
+name|max_block_size
+decl_stmt|;
+DECL|member|max_temp_file_size
+name|int
+name|max_temp_file_size
+decl_stmt|;
+DECL|member|temp_file_write_size
+name|int
+name|temp_file_write_size
+decl_stmt|;
+comment|/* */
+DECL|member|temp_path
+name|ngx_path_t
+modifier|*
+name|temp_path
+decl_stmt|;
 DECL|member|peers
 name|ngx_peers_t
 modifier|*
@@ -69,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b369e70208
+DECL|struct|__anon2a5530640208
 typedef|typedef
 struct|struct
 block|{
@@ -102,6 +125,11 @@ DECL|member|last_modified
 name|ngx_table_elt_t
 modifier|*
 name|last_modified
+decl_stmt|;
+DECL|member|accept_ranges
+name|ngx_table_elt_t
+modifier|*
+name|accept_ranges
 decl_stmt|;
 DECL|member|headers
 name|ngx_table_t
@@ -189,6 +217,29 @@ decl_stmt|;
 DECL|member|host_header
 name|ngx_str_t
 name|host_header
+decl_stmt|;
+DECL|member|event_proxy
+name|ngx_event_proxy_t
+modifier|*
+name|event_proxy
+decl_stmt|;
+DECL|member|accel
+name|unsigned
+name|accel
+range|:
+literal|1
+decl_stmt|;
+DECL|member|fatal_error
+name|unsigned
+name|fatal_error
+range|:
+literal|1
+decl_stmt|;
+DECL|member|header_sent
+name|unsigned
+name|header_sent
+range|:
+literal|1
 decl_stmt|;
 comment|/* used to parse an upstream HTTP header */
 DECL|member|status_start

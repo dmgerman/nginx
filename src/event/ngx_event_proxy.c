@@ -2,6 +2,24 @@ begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_include
 include|#
 directive|include
+file|<ngx_config.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_core.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_event.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_event_proxy.h>
 end_include
 
@@ -170,7 +188,7 @@ operator|)
 comment|/* kqueue notifies about the end of file or a pending error */
 if|if
 condition|(
-name|ngx_event_type
+name|ngx_event_flags
 operator|==
 name|NGX_HAVE_KQUEUE_EVENT
 condition|)
