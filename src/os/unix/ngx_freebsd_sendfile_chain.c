@@ -52,7 +52,8 @@ name|size_t
 name|hsize
 decl_stmt|,
 name|fsize
-decl_stmt|,
+decl_stmt|;
+name|ssize_t
 name|size
 decl_stmt|;
 name|ngx_int_t

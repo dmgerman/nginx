@@ -2466,7 +2466,7 @@ name|p
 init|=
 name|conf
 decl_stmt|;
-name|int
+name|ngx_flag_t
 name|flag
 decl_stmt|;
 name|ngx_str_t
@@ -2477,7 +2477,7 @@ if|if
 condition|(
 operator|*
 operator|(
-name|int
+name|ngx_flag_t
 operator|*
 operator|)
 operator|(
@@ -2584,7 +2584,7 @@ return|;
 block|}
 operator|*
 operator|(
-name|int
+name|ngx_flag_t
 operator|*
 operator|)
 operator|(
@@ -2711,7 +2711,7 @@ name|p
 init|=
 name|conf
 decl_stmt|;
-name|int
+name|ngx_int_t
 modifier|*
 name|np
 decl_stmt|;
@@ -2726,7 +2726,7 @@ decl_stmt|;
 name|np
 operator|=
 operator|(
-name|int
+name|ngx_int_t
 operator|*
 operator|)
 operator|(
@@ -2850,9 +2850,9 @@ name|p
 init|=
 name|conf
 decl_stmt|;
-name|int
+name|ssize_t
 modifier|*
-name|np
+name|sp
 decl_stmt|;
 name|ngx_str_t
 modifier|*
@@ -2862,10 +2862,10 @@ name|ngx_conf_post_t
 modifier|*
 name|post
 decl_stmt|;
-name|np
+name|sp
 operator|=
 operator|(
-name|int
+name|ssize_t
 operator|*
 operator|)
 operator|(
@@ -2879,7 +2879,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|*
-name|np
+name|sp
 operator|!=
 name|NGX_CONF_UNSET
 condition|)
@@ -2901,7 +2901,7 @@ operator|->
 name|elts
 expr_stmt|;
 operator|*
-name|np
+name|sp
 operator|=
 name|ngx_parse_size
 argument_list|(
@@ -2915,7 +2915,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|*
-name|np
+name|sp
 operator|==
 name|NGX_ERROR
 condition|)
@@ -2946,7 +2946,7 @@ name|cf
 argument_list|,
 name|post
 argument_list|,
-name|np
+name|sp
 argument_list|)
 return|;
 block|}
@@ -2981,9 +2981,9 @@ name|p
 init|=
 name|conf
 decl_stmt|;
-name|int
+name|ngx_msec_t
 modifier|*
-name|np
+name|msp
 decl_stmt|;
 name|ngx_str_t
 modifier|*
@@ -2993,10 +2993,10 @@ name|ngx_conf_post_t
 modifier|*
 name|post
 decl_stmt|;
-name|np
+name|msp
 operator|=
 operator|(
-name|int
+name|ngx_msec_t
 operator|*
 operator|)
 operator|(
@@ -3010,8 +3010,11 @@ expr_stmt|;
 if|if
 condition|(
 operator|*
-name|np
+name|msp
 operator|!=
+operator|(
+name|ngx_msec_t
+operator|)
 name|NGX_CONF_UNSET
 condition|)
 block|{
@@ -3032,7 +3035,7 @@ operator|->
 name|elts
 expr_stmt|;
 operator|*
-name|np
+name|msp
 operator|=
 name|ngx_parse_time
 argument_list|(
@@ -3048,8 +3051,11 @@ expr_stmt|;
 if|if
 condition|(
 operator|*
-name|np
+name|msp
 operator|==
+operator|(
+name|ngx_msec_t
+operator|)
 name|NGX_ERROR
 condition|)
 block|{
@@ -3060,8 +3066,11 @@ block|}
 if|if
 condition|(
 operator|*
-name|np
+name|msp
 operator|==
+operator|(
+name|ngx_msec_t
+operator|)
 name|NGX_PARSE_LARGE_TIME
 condition|)
 block|{
@@ -3091,7 +3100,7 @@ name|cf
 argument_list|,
 name|post
 argument_list|,
-name|np
+name|msp
 argument_list|)
 return|;
 block|}
@@ -3126,9 +3135,9 @@ name|p
 init|=
 name|conf
 decl_stmt|;
-name|int
+name|time_t
 modifier|*
-name|np
+name|sp
 decl_stmt|;
 name|ngx_str_t
 modifier|*
@@ -3138,10 +3147,10 @@ name|ngx_conf_post_t
 modifier|*
 name|post
 decl_stmt|;
-name|np
+name|sp
 operator|=
 operator|(
-name|int
+name|time_t
 operator|*
 operator|)
 operator|(
@@ -3155,7 +3164,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|*
-name|np
+name|sp
 operator|!=
 name|NGX_CONF_UNSET
 condition|)
@@ -3177,7 +3186,7 @@ operator|->
 name|elts
 expr_stmt|;
 operator|*
-name|np
+name|sp
 operator|=
 name|ngx_parse_time
 argument_list|(
@@ -3193,7 +3202,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|*
-name|np
+name|sp
 operator|==
 name|NGX_ERROR
 condition|)
@@ -3205,7 +3214,7 @@ block|}
 if|if
 condition|(
 operator|*
-name|np
+name|sp
 operator|==
 name|NGX_PARSE_LARGE_TIME
 condition|)
@@ -3236,7 +3245,7 @@ name|cf
 argument_list|,
 name|post
 argument_list|,
-name|np
+name|sp
 argument_list|)
 return|;
 block|}
@@ -3422,7 +3431,7 @@ name|p
 init|=
 name|conf
 decl_stmt|;
-name|int
+name|ngx_int_t
 modifier|*
 name|np
 decl_stmt|,
@@ -3441,7 +3450,7 @@ decl_stmt|;
 name|np
 operator|=
 operator|(
-name|int
+name|ngx_int_t
 operator|*
 operator|)
 operator|(
@@ -3691,7 +3700,7 @@ name|bounds
 init|=
 name|post
 decl_stmt|;
-name|int
+name|ngx_int_t
 modifier|*
 name|np
 init|=

@@ -17,11 +17,35 @@ directive|include
 file|<ngx_http.h>
 end_include
 
+begin_if
+if|#
+directive|if
+operator|(
+name|HAVE_OPENSSL_MD5_H
+operator|)
+end_if
+
+begin_include
+include|#
+directive|include
+file|<openssl/md5.h>
+end_include
+
+begin_else
+else|#
+directive|else
+end_else
+
 begin_include
 include|#
 directive|include
 file|<md5.h>
 end_include
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_if
 if|#

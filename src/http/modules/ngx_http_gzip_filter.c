@@ -24,7 +24,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c7e9a790108
+DECL|struct|__anon27bc84830108
 typedef|typedef
 struct|struct
 block|{
@@ -41,11 +41,11 @@ name|int
 name|level
 decl_stmt|;
 DECL|member|wbits
-name|int
+name|ssize_t
 name|wbits
 decl_stmt|;
 DECL|member|memlevel
-name|int
+name|ssize_t
 name|memlevel
 decl_stmt|;
 DECL|member|no_buffer
@@ -59,7 +59,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7e9a790208
+DECL|struct|__anon27bc84830208
 typedef|typedef
 struct|struct
 block|{
@@ -3187,7 +3187,7 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-name|ngx_conf_merge_value
+name|ngx_conf_merge_size_value
 argument_list|(
 name|conf
 operator|->
@@ -3200,7 +3200,7 @@ argument_list|,
 name|MAX_WBITS
 argument_list|)
 expr_stmt|;
-name|ngx_conf_merge_value
+name|ngx_conf_merge_size_value
 argument_list|(
 name|conf
 operator|->
