@@ -59,6 +59,19 @@ parameter_list|)
 value|if ((p = alloc) == NULL) { return rc; }
 end_define
 
+begin_define
+DECL|macro|ngx_is_null (p,alloc)
+define|#
+directive|define
+name|ngx_is_null
+parameter_list|(
+name|p
+parameter_list|,
+name|alloc
+parameter_list|)
+value|if ((p = alloc) == NULL)
+end_define
+
 begin_typedef
 DECL|typedef|ngx_pool_large_t
 typedef|typedef

@@ -190,6 +190,24 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|error_413_page
+specifier|static
+name|char
+name|error_413_page
+index|[]
+init|=
+literal|"<html>"
+name|CRLF
+literal|"<head><title>413 Request Entity Too Large</title></head>"
+name|CRLF
+literal|"<body bgcolor=\"white\">"
+name|CRLF
+literal|"<center><h1>413 Request Entity Too Large</h1></center>"
+name|CRLF
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|error_414_page
 specifier|static
 name|char
@@ -257,6 +275,24 @@ name|CRLF
 literal|"<body bgcolor=\"white\">"
 name|CRLF
 literal|"<center><h1>502 Bad Gateway</h1></center>"
+name|CRLF
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|error_503_page
+specifier|static
+name|char
+name|error_503_page
+index|[]
+init|=
+literal|"<html>"
+name|CRLF
+literal|"<head><title>503 Service Temporarily Unavailable</title></head>"
+name|CRLF
+literal|"<body bgcolor=\"white\">"
+name|CRLF
+literal|"<center><h1>503 Service Temporarily Unavailable</h1></center>"
 name|CRLF
 decl_stmt|;
 end_decl_stmt
@@ -351,9 +387,11 @@ comment|/* 411 */
 name|ngx_null_string
 block|,
 comment|/* 412 */
-name|ngx_null_string
+name|ngx_string
+argument_list|(
+name|error_413_page
+argument_list|)
 block|,
-comment|/* 413 */
 name|ngx_string
 argument_list|(
 name|error_414_page
@@ -380,9 +418,11 @@ argument_list|(
 name|error_502_page
 argument_list|)
 block|,
-name|ngx_null_string
+name|ngx_string
+argument_list|(
+name|error_503_page
+argument_list|)
 block|,
-comment|/* 503 */
 name|ngx_string
 argument_list|(
 argument|error_504_page
@@ -516,6 +556,9 @@ condition|)
 block|{
 case|case
 name|NGX_HTTP_BAD_REQUEST
+case|:
+case|case
+name|NGX_HTTP_REQUEST_ENTITY_TOO_LARGE
 case|:
 case|case
 name|NGX_HTTP_REQUEST_URI_TOO_LARGE

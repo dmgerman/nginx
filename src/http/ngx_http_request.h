@@ -261,6 +261,14 @@ value|408
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_REQUEST_ENTITY_TOO_LARGE
+define|#
+directive|define
+name|NGX_HTTP_REQUEST_ENTITY_TOO_LARGE
+value|413
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_REQUEST_URI_TOO_LARGE
 define|#
 directive|define
@@ -333,7 +341,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2976993e0108
+DECL|struct|__anon2999e0d20108
 typedef|typedef
 struct|struct
 block|{
@@ -352,7 +360,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2976993e0208
+DECL|struct|__anon2999e0d20208
 typedef|typedef
 struct|struct
 block|{
@@ -424,7 +432,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2976993e0308
+DECL|struct|__anon2999e0d20308
 typedef|typedef
 struct|struct
 block|{
@@ -475,7 +483,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2976993e0408
+DECL|struct|__anon2999e0d20408
 typedef|typedef
 struct|struct
 block|{
@@ -498,7 +506,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2976993e0508
+DECL|struct|__anon2999e0d20508
 typedef|typedef
 struct|struct
 block|{
