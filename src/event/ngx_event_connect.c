@@ -773,8 +773,11 @@ name|c
 operator|->
 name|number
 operator|=
+name|ngx_atomic_inc
+argument_list|(
+operator|&
 name|ngx_connection_counter
-operator|++
+argument_list|)
 expr_stmt|;
 if|if
 condition|(

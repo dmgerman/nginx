@@ -2403,6 +2403,44 @@ block|}
 end_function
 
 begin_function
+DECL|function|ngx_conf_set_core_num_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
+name|char
+modifier|*
+name|ngx_conf_set_core_num_slot
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_command_t
+modifier|*
+name|cmd
+parameter_list|,
+name|void
+modifier|*
+name|conf
+parameter_list|)
+block|{
+return|return
+name|ngx_conf_set_num_slot
+argument_list|(
+name|cf
+argument_list|,
+name|cmd
+argument_list|,
+operator|*
+operator|(
+name|void
+operator|*
+operator|*
+operator|)
+name|conf
+argument_list|)
+return|;
+block|}
+end_function
+
+begin_function
 DECL|function|ngx_conf_set_core_str_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|char
 modifier|*

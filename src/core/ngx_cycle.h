@@ -92,7 +92,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b0958320108
+DECL|struct|__anon27b07fa80108
 typedef|typedef
 struct|struct
 block|{
@@ -104,9 +104,9 @@ DECL|member|master
 name|ngx_flag_t
 name|master
 decl_stmt|;
-DECL|member|worker_reopen
-name|ngx_flag_t
-name|worker_reopen
+DECL|member|worker_processes
+name|ngx_int_t
+name|worker_processes
 decl_stmt|;
 DECL|member|user
 name|ngx_uid_t

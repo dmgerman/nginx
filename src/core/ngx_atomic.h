@@ -56,7 +56,7 @@ DECL|macro|NGX_SMP_LOCK
 define|#
 directive|define
 name|NGX_SMP_LOCK
-value|"lock"
+value|"lock;"
 end_define
 
 begin_else
@@ -91,13 +91,9 @@ block|{
 name|uint32_t
 name|old
 decl_stmt|;
-name|old
-operator|=
-literal|1
-expr_stmt|;
 asm|__asm__
 specifier|volatile
-asm|(          NGX_SMP_LOCK     "   xaddl  %0, %1;   "      : "+q" (old) : "m" (*value));
+asm|(          NGX_SMP_LOCK     "   xaddl  %0, %2;   "      : "=q" (old) : "0" (1), "m" (*value));
 return|return
 name|old
 return|;
@@ -119,17 +115,9 @@ block|{
 name|uint32_t
 name|old
 decl_stmt|;
-name|old
-operator|=
-operator|(
-name|uint32_t
-operator|)
-operator|-
-literal|1
-expr_stmt|;
 asm|__asm__
 specifier|volatile
-asm|(          NGX_SMP_LOCK     "   xaddl  %0, %1;   "      : "+q" (old) : "m" (*value));
+asm|(          NGX_SMP_LOCK     "   xaddl  %0, %1;   "      : "=q" (old) : "0" (-1), "m" (*value));
 return|return
 name|old
 return|;

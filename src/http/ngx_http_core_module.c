@@ -6622,8 +6622,12 @@ operator|.
 name|data
 condition|)
 block|{
+comment|/* the (ngx_uint_t) cast is required by gcc 2.7.2.3 */
 if|if
 condition|(
+operator|(
+name|ngx_uint_t
+operator|)
 name|lcf
 operator|->
 name|alias
