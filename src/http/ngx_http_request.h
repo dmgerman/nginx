@@ -317,7 +317,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2b68c5c90108
+DECL|struct|__anon2b0c8b010108
 typedef|typedef
 struct|struct
 block|{
@@ -336,7 +336,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b68c5c90208
+DECL|struct|__anon2b0c8b010208
 typedef|typedef
 struct|struct
 block|{
@@ -383,6 +383,11 @@ name|ngx_table_elt_t
 modifier|*
 name|user_agent
 decl_stmt|;
+DECL|member|keep_alive
+name|ngx_table_elt_t
+modifier|*
+name|keep_alive
+decl_stmt|;
 DECL|member|headers
 name|ngx_table_t
 modifier|*
@@ -395,7 +400,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b68c5c90308
+DECL|struct|__anon2b0c8b010308
 typedef|typedef
 struct|struct
 block|{
@@ -446,7 +451,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b68c5c90408
+DECL|struct|__anon2b0c8b010408
 typedef|typedef
 struct|struct
 block|{
@@ -469,7 +474,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b68c5c90508
+DECL|struct|__anon2b0c8b010508
 typedef|typedef
 struct|struct
 block|{

@@ -416,6 +416,14 @@ name|free_raw_hunks
 operator|=
 name|NULL
 expr_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|p->log
+argument_list|,
+literal|"FREE: %08X:%d"
+argument|_ chain->hunk->pos _ chain->hunk->end - chain->hunk->last
+argument_list|)
+empty_stmt|;
 block|}
 if|else if
 condition|(
@@ -644,6 +652,12 @@ literal|"recv_chain: %d"
 argument|_ n
 argument_list|)
 empty_stmt|;
+name|p
+operator|->
+name|free_raw_hunks
+operator|=
+name|chain
+expr_stmt|;
 if|if
 condition|(
 name|n
@@ -686,12 +700,6 @@ condition|)
 block|{
 name|p
 operator|->
-name|free_raw_hunks
-operator|=
-name|chain
-expr_stmt|;
-name|p
-operator|->
 name|upstream_eof
 operator|=
 literal|1
@@ -699,24 +707,18 @@ expr_stmt|;
 break|break;
 block|}
 block|}
-for|for
-control|(
 name|ce
 operator|=
 name|chain
-init|;
+expr_stmt|;
+while|while
+condition|(
 name|ce
 operator|&&
 name|n
 operator|>
 literal|0
-condition|;
-name|ce
-operator|=
-name|ce
-operator|->
-name|next
-control|)
+condition|)
 block|{
 name|ngx_remove_shadow_links
 argument_list|(
@@ -782,7 +784,7 @@ name|n
 operator|-=
 name|size
 expr_stmt|;
-name|chain
+name|ce
 operator|=
 name|ce
 operator|->
@@ -791,6 +793,14 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|ngx_log_debug
+argument_list|(
+argument|p->log
+argument_list|,
+literal|"PART: %08X:%d:%d"
+argument|_ ce->hunk->pos _ ce->hunk->last - ce->hunk->pos _ n
+argument_list|)
+empty_stmt|;
 name|ce
 operator|->
 name|hunk
@@ -799,6 +809,14 @@ name|last
 operator|+=
 name|n
 expr_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|p->log
+argument_list|,
+literal|"PART: %08X:%d"
+argument|_ ce->hunk->pos _ ce->hunk->end - ce->hunk->last
+argument_list|)
+empty_stmt|;
 name|n
 operator|=
 literal|0
@@ -809,7 +827,7 @@ name|p
 operator|->
 name|free_raw_hunks
 operator|=
-name|chain
+name|ce
 expr_stmt|;
 block|}
 if|if
@@ -1141,7 +1159,15 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
-comment|/* TODO */
+name|p
+operator|->
+name|downstream_error
+operator|=
+literal|1
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
 block|}
 name|ngx_chain_update_chains
 argument_list|(
@@ -1213,6 +1239,14 @@ operator|->
 name|next
 control|)
 block|{
+name|ngx_log_debug
+argument_list|(
+argument|p->log
+argument_list|,
+literal|"SHADOW %08X"
+argument|_ ce->hunk->shadow
+argument_list|)
+empty_stmt|;
 if|if
 condition|(
 name|ce
@@ -1255,11 +1289,7 @@ name|ngx_alloc_ce_and_set_hunk
 argument_list|(
 name|te
 argument_list|,
-name|ce
-operator|->
-name|hunk
-operator|->
-name|shadow
+name|h
 argument_list|,
 name|p
 operator|->
@@ -1278,6 +1308,14 @@ argument_list|,
 name|te
 argument_list|)
 expr_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|p->log
+argument_list|,
+literal|"RAW %08X"
+argument|_ h->pos
+argument_list|)
+empty_stmt|;
 name|ce
 operator|->
 name|hunk
@@ -1305,11 +1343,29 @@ block_content|if (p->upstream->read->ready) {             return;         }
 endif|#
 directive|endif
 block|}
+name|ngx_log_debug
+argument_list|(
+argument|p->log
+argument_list|,
+literal|"STATE %d:%d:%d:%X:%X"
+argument|_                   p->upstream_eof _                   p->upstream_error _                   p->upstream_done _                   p->in _                   p->out
+argument_list|)
+empty_stmt|;
 if|if
 condition|(
+operator|(
+name|p
+operator|->
+name|upstream_eof
+operator|||
+name|p
+operator|->
+name|upstream_error
+operator|||
 name|p
 operator|->
 name|upstream_done
+operator|)
 operator|&&
 name|p
 operator|->
@@ -1490,6 +1546,29 @@ name|in
 expr_stmt|;
 do|do
 block|{
+if|if
+condition|(
+name|size
+operator|+
+name|ce
+operator|->
+name|hunk
+operator|->
+name|last
+operator|-
+name|ce
+operator|->
+name|hunk
+operator|->
+name|pos
+operator|>=
+name|p
+operator|->
+name|temp_file_write_size
+condition|)
+block|{
+break|break;
+block|}
 name|size
 operator|+=
 name|ce
@@ -1504,17 +1583,6 @@ name|hunk
 operator|->
 name|pos
 expr_stmt|;
-if|if
-condition|(
-name|size
-operator|>=
-name|p
-operator|->
-name|temp_file_write_size
-condition|)
-block|{
-break|break;
-block|}
 name|ce
 operator|=
 name|ce
@@ -1527,6 +1595,11 @@ condition|(
 name|ce
 condition|)
 do|;
+if|if
+condition|(
+name|ce
+condition|)
+block|{
 name|in
 operator|=
 name|ce
@@ -1546,6 +1619,21 @@ name|next
 operator|=
 name|NULL
 expr_stmt|;
+block|}
+else|else
+block|{
+name|in
+operator|=
+name|NULL
+expr_stmt|;
+name|last
+operator|=
+operator|&
+name|p
+operator|->
+name|in
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{

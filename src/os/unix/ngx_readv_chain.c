@@ -102,7 +102,7 @@ name|entry
 operator|->
 name|hunk
 operator|->
-name|pos
+name|last
 expr_stmt|;
 name|iov
 operator|->

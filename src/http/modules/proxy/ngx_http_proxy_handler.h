@@ -37,7 +37,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c82e6360108
+DECL|struct|__anon28e193120108
 typedef|typedef
 struct|struct
 block|{
@@ -73,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c82e6360208
+DECL|struct|__anon28e193120208
 typedef|typedef
 struct|struct
 block|{
@@ -133,7 +133,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c82e6360308
+DECL|struct|__anon28e193120308
 typedef|typedef
 struct|struct
 block|{
@@ -267,6 +267,12 @@ decl_stmt|;
 DECL|member|accel
 name|unsigned
 name|accel
+range|:
+literal|1
+decl_stmt|;
+DECL|member|cachable
+name|unsigned
+name|cachable
 range|:
 literal|1
 decl_stmt|;
