@@ -61,7 +61,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2ae5ac5c0108
+DECL|struct|__anon2b8a8f8a0108
 typedef|typedef
 struct|struct
 block|{
@@ -87,7 +87,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae5ac5c0208
+DECL|struct|__anon2b8a8f8a0208
 typedef|typedef
 struct|struct
 block|{
@@ -95,8 +95,13 @@ DECL|member|file
 name|ngx_file_t
 name|file
 decl_stmt|;
+DECL|member|offset
+name|off_t
+name|offset
+decl_stmt|;
 DECL|member|path
 name|ngx_path_t
+modifier|*
 name|path
 decl_stmt|;
 DECL|member|pool

@@ -423,6 +423,14 @@ return|return;
 block|}
 name|r
 operator|->
+name|temp_file
+operator|->
+name|offset
+operator|+=
+name|n
+expr_stmt|;
+name|r
+operator|->
 name|request_body_hunk
 operator|->
 name|pos

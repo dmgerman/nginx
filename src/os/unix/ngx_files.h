@@ -233,6 +233,22 @@ function_decl|;
 end_function_decl
 
 begin_define
+DECL|macro|ngx_rename_file
+define|#
+directive|define
+name|ngx_rename_file
+value|rename
+end_define
+
+begin_define
+DECL|macro|ngx_rename_file_n
+define|#
+directive|define
+name|ngx_rename_file_n
+value|"rename"
+end_define
+
+begin_define
 DECL|macro|ngx_mkdir (name)
 define|#
 directive|define

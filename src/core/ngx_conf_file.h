@@ -449,7 +449,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a4e29bd0108
+DECL|struct|__anon28fccaa70108
 typedef|typedef
 struct|struct
 block|{
@@ -584,7 +584,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4e29bd0208
+DECL|struct|__anon28fccaa70208
 typedef|typedef
 struct|struct
 block|{
@@ -599,7 +599,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4e29bd0308
+DECL|struct|__anon28fccaa70308
 typedef|typedef
 struct|struct
 block|{
@@ -621,8 +621,16 @@ name|ngx_conf_num_bounds_t
 typedef|;
 end_typedef
 
+begin_define
+DECL|macro|NGX_CONF_BITMASK_SET
+define|#
+directive|define
+name|NGX_CONF_BITMASK_SET
+value|1
+end_define
+
 begin_typedef
-DECL|struct|__anon2a4e29bd0408
+DECL|struct|__anon28fccaa70408
 typedef|typedef
 struct|struct
 block|{

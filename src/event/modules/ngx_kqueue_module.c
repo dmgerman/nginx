@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2738acec0108
+DECL|struct|__anon2afcfe7c0108
 typedef|typedef
 struct|struct
 block|{
@@ -1602,6 +1602,19 @@ operator|.
 name|ident
 operator|>
 literal|0x8000000
+operator|&&
+name|event_list
+index|[
+name|i
+index|]
+operator|.
+name|ident
+operator|!=
+operator|(
+name|unsigned
+operator|)
+operator|-
+literal|1
 condition|)
 block|{
 name|ngx_log_debug

@@ -222,10 +222,6 @@ DECL|member|busy_size
 name|size_t
 name|busy_size
 decl_stmt|;
-DECL|member|temp_offset
-name|off_t
-name|temp_offset
-decl_stmt|;
 DECL|member|max_temp_file_size
 name|off_t
 name|max_temp_file_size
@@ -276,19 +272,9 @@ name|int
 name|preread_size
 decl_stmt|;
 DECL|member|temp_file
-name|ngx_file_t
+name|ngx_temp_file_t
 modifier|*
 name|temp_file
-decl_stmt|;
-DECL|member|temp_path
-name|ngx_path_t
-modifier|*
-name|temp_path
-decl_stmt|;
-DECL|member|temp_file_warn
-name|char
-modifier|*
-name|temp_file_warn
 decl_stmt|;
 DECL|member|num
 comment|/* STUB */

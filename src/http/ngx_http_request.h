@@ -341,7 +341,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2bbb83bd0108
+DECL|struct|__anon2b798a270108
 typedef|typedef
 struct|struct
 block|{
@@ -360,7 +360,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bbb83bd0208
+DECL|struct|__anon2b798a270208
 typedef|typedef
 struct|struct
 block|{
@@ -433,7 +433,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bbb83bd0308
+DECL|struct|__anon2b798a270308
 typedef|typedef
 struct|struct
 block|{
@@ -484,7 +484,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bbb83bd0408
+DECL|struct|__anon2b798a270408
 typedef|typedef
 struct|struct
 block|{
@@ -507,7 +507,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bbb83bd0508
+DECL|struct|__anon2b798a270508
 typedef|typedef
 struct|struct
 block|{
@@ -840,6 +840,12 @@ decl_stmt|;
 DECL|member|proxy
 name|unsigned
 name|proxy
+range|:
+literal|1
+decl_stmt|;
+DECL|member|bypass_cache
+name|unsigned
+name|bypass_cache
 range|:
 literal|1
 decl_stmt|;

@@ -39,6 +39,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_http_cache.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_http_filter.h>
 end_include
 
@@ -49,7 +55,7 @@ file|<ngx_http_core_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bc9335f0108
+DECL|struct|__anon28ef54b60108
 typedef|typedef
 struct|struct
 block|{

@@ -1627,14 +1627,6 @@ operator|.
 name|len
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug
-argument_list|(
-argument|r->connection->log
-argument_list|,
-literal|"rc: %d"
-argument|_ rc
-argument_list|)
-empty_stmt|;
 if|if
 condition|(
 name|rc

@@ -64,7 +64,6 @@ name|tf
 operator|->
 name|file
 argument_list|,
-operator|&
 name|tf
 operator|->
 name|path
@@ -136,8 +135,6 @@ name|chain
 argument_list|,
 name|tf
 operator|->
-name|file
-operator|.
 name|offset
 argument_list|,
 name|tf

@@ -93,7 +93,7 @@ DECL|macro|NGX_HUNK_FILE
 define|#
 directive|define
 name|NGX_HUNK_FILE
-value|0x0100
+value|0x0020
 end_define
 
 begin_define
@@ -121,7 +121,7 @@ DECL|macro|NGX_HUNK_FLUSH
 define|#
 directive|define
 name|NGX_HUNK_FLUSH
-value|0x1000
+value|0x0100
 end_define
 
 begin_comment
@@ -133,6 +133,14 @@ DECL|macro|NGX_HUNK_LAST
 define|#
 directive|define
 name|NGX_HUNK_LAST
+value|0x0200
+end_define
+
+begin_define
+DECL|macro|NGX_HUNK_PREREAD
+define|#
+directive|define
+name|NGX_HUNK_PREREAD
 value|0x2000
 end_define
 
@@ -261,7 +269,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2ac178d40108
+DECL|struct|__anon2b8996670108
 typedef|typedef
 struct|struct
 block|{
@@ -300,7 +308,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac178d40208
+DECL|struct|__anon2b8996670208
 typedef|typedef
 struct|struct
 block|{
@@ -369,7 +377,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac178d40308
+DECL|struct|__anon2b8996670308
 typedef|typedef
 struct|struct
 block|{

@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon289b0c930108
+DECL|struct|__anon291541eb0108
 typedef|typedef
 struct|struct
 block|{
@@ -79,6 +79,7 @@ name|void
 modifier|*
 name|data
 decl_stmt|;
+comment|/* TODO rename to handler, move flags to struct start */
 DECL|member|event_handler
 name|void
 function_decl|(
@@ -339,7 +340,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon289b0c930208
+DECL|struct|__anon291541eb0208
 typedef|typedef
 struct|struct
 block|{
@@ -951,7 +952,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon289b0c930308
+DECL|struct|__anon291541eb0308
 typedef|typedef
 struct|struct
 block|{
@@ -974,7 +975,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289b0c930408
+DECL|struct|__anon291541eb0408
 typedef|typedef
 struct|struct
 block|{
