@@ -1384,6 +1384,16 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|(
+name|ngx_io
+operator|.
+name|flags
+operator|&
+name|NGX_IO_SENDFILE
+operator|)
+operator|==
+literal|0
+operator|||
 name|lcf
 operator|->
 name|sendfile

@@ -12,6 +12,14 @@ directive|define
 name|_NGX_LINUX_CONFIG_H_INCLUDED_
 end_define
 
+begin_define
+DECL|macro|_XOPEN_SOURCE
+define|#
+directive|define
+name|_XOPEN_SOURCE
+value|500
+end_define
+
 begin_include
 include|#
 directive|include
@@ -43,12 +51,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<stdarg.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<fcntl.h>
 end_include
 
@@ -61,14 +63,27 @@ end_include
 begin_include
 include|#
 directive|include
-file|<string.h>
+file|<time.h>
 end_include
+
+begin_define
+DECL|macro|__USE_BSD
+define|#
+directive|define
+name|__USE_BSD
+end_define
 
 begin_include
 include|#
 directive|include
-file|<time.h>
+file|<string.h>
 end_include
+
+begin_undef
+undef|#
+directive|undef
+name|__USE_BSD
+end_undef
 
 begin_include
 include|#
@@ -79,19 +94,13 @@ end_include
 begin_include
 include|#
 directive|include
-file|<sys/mman.h>
+file|<sys/time.h>
 end_include
 
 begin_include
 include|#
 directive|include
-file|<sys/wait.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<sys/socket.h>
+file|<sys/select.h>
 end_include
 
 begin_include
@@ -103,7 +112,19 @@ end_include
 begin_include
 include|#
 directive|include
+file|<sys/ioctl.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<sys/resource.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<sys/socket.h>
 end_include
 
 begin_include
@@ -118,11 +139,23 @@ directive|include
 file|<arpa/inet.h>
 end_include
 
-begin_include
-include|#
-directive|include
-file|<netdb.h>
-end_include
+begin_typedef
+DECL|typedef|u_int
+typedef|typedef
+name|unsigned
+name|int
+name|u_int
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|typedef|u_char
+typedef|typedef
+name|unsigned
+name|char
+name|u_char
+typedef|;
+end_typedef
 
 begin_ifndef
 ifndef|#

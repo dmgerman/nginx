@@ -21,6 +21,13 @@ value|1
 end_define
 
 begin_define
+DECL|macro|_REENTRANT
+define|#
+directive|define
+name|_REENTRANT
+end_define
+
+begin_define
 DECL|macro|_FILE_OFFSET_BITS
 define|#
 directive|define
@@ -64,19 +71,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<stdarg.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<fcntl.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<time.h>
 end_include
 
 begin_include
@@ -88,18 +83,8 @@ end_include
 begin_include
 include|#
 directive|include
-file|<string.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<strings.h>
 end_include
-
-begin_comment
-comment|/* bzero() */
-end_comment
 
 begin_include
 include|#
@@ -130,31 +115,7 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<sys/mman.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<sys/wait.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<sys/socket.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<sys/uio.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<sys/resource.h>
 end_include
 
 begin_include
@@ -167,12 +128,6 @@ begin_include
 include|#
 directive|include
 file|<arpa/inet.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<netdb.h>
 end_include
 
 begin_typedef

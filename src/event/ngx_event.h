@@ -118,7 +118,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon278453f40108
+DECL|struct|__anon29b01d5b0108
 typedef|typedef
 struct|struct
 block|{
@@ -420,7 +420,7 @@ literal|1
 end_if
 
 begin_typedef
-DECL|enum|__anon278453f40203
+DECL|enum|__anon29b01d5b0203
 typedef|typedef
 enum|enum
 block|{
@@ -494,7 +494,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon278453f40308
+DECL|struct|__anon29b01d5b0308
 typedef|typedef
 struct|struct
 block|{
@@ -1087,6 +1087,14 @@ name|ngx_del_event
 value|ngx_event_actions.del
 end_define
 
+begin_define
+DECL|macro|ngx_del_conn
+define|#
+directive|define
+name|ngx_del_conn
+value|ngx_event_actions.del_conn
+end_define
+
 begin_if
 if|#
 directive|if
@@ -1303,7 +1311,7 @@ value|0
 end_define
 
 begin_typedef
-DECL|struct|__anon278453f40408
+DECL|struct|__anon29b01d5b0408
 typedef|typedef
 struct|struct
 block|{
@@ -1326,7 +1334,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278453f40508
+DECL|struct|__anon29b01d5b0508
 typedef|typedef
 struct|struct
 block|{

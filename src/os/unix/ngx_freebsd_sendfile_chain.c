@@ -60,10 +60,10 @@ file|<ngx_freebsd_init.h>
 end_include
 
 begin_function
-DECL|function|ngx_freebsd_write_chain (ngx_connection_t * c,ngx_chain_t * in)
+DECL|function|ngx_freebsd_sendfile_chain (ngx_connection_t * c,ngx_chain_t * in)
 name|ngx_chain_t
 modifier|*
-name|ngx_freebsd_write_chain
+name|ngx_freebsd_sendfile_chain
 parameter_list|(
 name|ngx_connection_t
 modifier|*

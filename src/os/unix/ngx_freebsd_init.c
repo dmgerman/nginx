@@ -65,7 +65,7 @@ name|ngx_readv_chain
 block|,
 name|NULL
 block|,
-name|ngx_freebsd_write_chain
+name|ngx_freebsd_sendfile_chain
 block|,
 name|NGX_HAVE_SENDFILE
 operator||
@@ -237,7 +237,9 @@ argument_list|)
 expr_stmt|;
 if|#
 directive|if
+operator|(
 name|HAVE_FREEBSD_SENDFILE
+operator|)
 comment|/* The determination of the sendfile() nbytes bug is complex enough.        There're two sendfile() syscalls: a new 393 has no bug while        an old 336 has the bug in some versions and has not in others.        libc_r wrapper also emulates the bug in some versions.        There's no way to say exactly if a given FreeBSD version has bug.        Here is the algorithm that work at least for RELEASEs        and for syscalls only (not libc_r wrapper). */
 comment|/* detect was the new sendfile() version available at the compile time        to allow an old binary to run correctly on an updated FreeBSD system. */
 if|#

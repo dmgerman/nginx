@@ -340,7 +340,7 @@ end_if
 begin_function_decl
 name|ngx_chain_t
 modifier|*
-name|ngx_freebsd_write_chain
+name|ngx_freebsd_sendfile_chain
 parameter_list|(
 name|ngx_connection_t
 modifier|*
