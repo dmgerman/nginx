@@ -156,7 +156,7 @@ name|r
 operator|->
 name|headers_out
 operator|.
-name|content_length
+name|content_length_n
 operator|==
 operator|-
 literal|1

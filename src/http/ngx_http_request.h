@@ -61,19 +61,19 @@ value|3
 end_define
 
 begin_define
-DECL|macro|NGX_HTTP_CONN_CLOSE
+DECL|macro|NGX_HTTP_CONNECTION_CLOSE
 define|#
 directive|define
-name|NGX_HTTP_CONN_CLOSE
-value|0
+name|NGX_HTTP_CONNECTION_CLOSE
+value|1
 end_define
 
 begin_define
-DECL|macro|NGX_HTTP_CONN_KEEP_ALIVE
+DECL|macro|NGX_HTTP_CONNECTION_KEEP_ALIVE
 define|#
 directive|define
-name|NGX_HTTP_CONN_KEEP_ALIVE
-value|1
+name|NGX_HTTP_CONNECTION_KEEP_ALIVE
+value|2
 end_define
 
 begin_define
@@ -317,7 +317,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2b0c8b010108
+DECL|struct|__anon2b1aae3f0108
 typedef|typedef
 struct|struct
 block|{
@@ -336,18 +336,10 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0c8b010208
+DECL|struct|__anon2b1aae3f0208
 typedef|typedef
 struct|struct
 block|{
-DECL|member|host_name_len
-name|size_t
-name|host_name_len
-decl_stmt|;
-DECL|member|content_length_n
-name|ssize_t
-name|content_length_n
-decl_stmt|;
 DECL|member|host
 name|ngx_table_elt_t
 modifier|*
@@ -388,6 +380,22 @@ name|ngx_table_elt_t
 modifier|*
 name|keep_alive
 decl_stmt|;
+DECL|member|host_name_len
+name|size_t
+name|host_name_len
+decl_stmt|;
+DECL|member|content_length_n
+name|ssize_t
+name|content_length_n
+decl_stmt|;
+DECL|member|connection_type
+name|size_t
+name|connection_type
+decl_stmt|;
+DECL|member|keep_alive_n
+name|ssize_t
+name|keep_alive_n
+decl_stmt|;
 DECL|member|headers
 name|ngx_table_t
 modifier|*
@@ -400,7 +408,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0c8b010308
+DECL|struct|__anon2b1aae3f0308
 typedef|typedef
 struct|struct
 block|{
@@ -451,7 +459,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0c8b010408
+DECL|struct|__anon2b1aae3f0408
 typedef|typedef
 struct|struct
 block|{
@@ -474,7 +482,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0c8b010508
+DECL|struct|__anon2b1aae3f0508
 typedef|typedef
 struct|struct
 block|{
@@ -500,6 +508,11 @@ DECL|member|content_type
 name|ngx_table_elt_t
 modifier|*
 name|content_type
+decl_stmt|;
+DECL|member|content_length
+name|ngx_table_elt_t
+modifier|*
+name|content_length
 decl_stmt|;
 DECL|member|content_encoding
 name|ngx_table_elt_t
@@ -539,9 +552,9 @@ name|ngx_table_t
 modifier|*
 name|headers
 decl_stmt|;
-DECL|member|content_length
+DECL|member|content_length_n
 name|off_t
-name|content_length
+name|content_length_n
 decl_stmt|;
 DECL|member|etag
 name|char

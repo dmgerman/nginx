@@ -20,15 +20,39 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_event_proxy.h>
+file|<ngx_event_pipe.h>
 end_include
 
 begin_function_decl
 specifier|static
 name|int
-name|ngx_event_proxy_write_chain_to_temp_file
+name|ngx_event_pipe_read_upstream
 parameter_list|(
-name|ngx_event_proxy_t
+name|ngx_event_pipe_t
+modifier|*
+name|p
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
+name|int
+name|ngx_event_pipe_write_to_downstream
+parameter_list|(
+name|ngx_event_pipe_t
+modifier|*
+name|p
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
+name|int
+name|ngx_event_pipe_write_chain_to_temp_file
+parameter_list|(
+name|ngx_event_pipe_t
 modifier|*
 name|p
 parameter_list|)
@@ -89,7 +113,7 @@ specifier|static
 name|int
 name|ngx_drain_chains
 parameter_list|(
-name|ngx_event_proxy_t
+name|ngx_event_pipe_t
 modifier|*
 name|p
 parameter_list|)
@@ -97,11 +121,11 @@ function_decl|;
 end_function_decl
 
 begin_function
-DECL|function|ngx_event_proxy (ngx_event_proxy_t * p,int do_write)
+DECL|function|ngx_event_pipe (ngx_event_pipe_t * p,int do_write)
 name|int
-name|ngx_event_proxy
+name|ngx_event_pipe
 parameter_list|(
-name|ngx_event_proxy_t
+name|ngx_event_pipe_t
 modifier|*
 name|p
 parameter_list|,
@@ -122,7 +146,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|ngx_event_proxy_write_to_downstream
+name|ngx_event_pipe_write_to_downstream
 argument_list|(
 name|p
 argument_list|)
@@ -143,7 +167,7 @@ literal|0
 expr_stmt|;
 if|if
 condition|(
-name|ngx_event_proxy_read_upstream
+name|ngx_event_pipe_read_upstream
 argument_list|(
 name|p
 argument_list|)
@@ -216,11 +240,11 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_event_proxy_read_upstream (ngx_event_proxy_t * p)
+DECL|function|ngx_event_pipe_read_upstream (ngx_event_pipe_t * p)
 name|int
-name|ngx_event_proxy_read_upstream
+name|ngx_event_pipe_read_upstream
 parameter_list|(
-name|ngx_event_proxy_t
+name|ngx_event_pipe_t
 modifier|*
 name|p
 parameter_list|)
@@ -468,14 +492,6 @@ name|free_raw_hunks
 operator|=
 name|NULL
 expr_stmt|;
-name|ngx_log_debug
-argument_list|(
-argument|p->log
-argument_list|,
-literal|"FREE: %08X:%d"
-argument|_ chain->hunk->pos _ chain->hunk->end - chain->hunk->last
-argument_list|)
-empty_stmt|;
 block|}
 if|else if
 condition|(
@@ -554,7 +570,7 @@ operator|->
 name|ready
 condition|)
 block|{
-comment|/*                  * If the hunks are not needed to be saved in a cache and                  * a downstream is ready then write the hunks to a downstream.                  */
+comment|/*                  * if the hunks are not needed to be saved in a cache and                  * a downstream is ready then write the hunks to a downstream                  */
 name|ngx_log_debug
 argument_list|(
 name|p
@@ -570,6 +586,10 @@ if|else if
 condition|(
 name|p
 operator|->
+name|cachable
+operator|||
+name|p
+operator|->
 name|temp_offset
 operator|<
 name|p
@@ -577,10 +597,10 @@ operator|->
 name|max_temp_file_size
 condition|)
 block|{
-comment|/*                  * If it's allowed then save some hunks from r->in                  * to a temporary file, and add them to a r->out chain.                  */
+comment|/*                  * if it's allowed then save some hunks from r->in                  * to a temporary file, and add them to a r->out chain                  */
 name|rc
 operator|=
-name|ngx_event_proxy_write_chain_to_temp_file
+name|ngx_event_pipe_write_chain_to_temp_file
 argument_list|(
 name|p
 argument_list|)
@@ -844,14 +864,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|ngx_log_debug
-argument_list|(
-argument|p->log
-argument_list|,
-literal|"PART: %08X:%d:%d"
-argument|_ ce->hunk->pos _ ce->hunk->last - ce->hunk->pos _ n
-argument_list|)
-empty_stmt|;
 name|ce
 operator|->
 name|hunk
@@ -860,14 +872,6 @@ name|last
 operator|+=
 name|n
 expr_stmt|;
-name|ngx_log_debug
-argument_list|(
-argument|p->log
-argument_list|,
-literal|"PART: %08X:%d"
-argument|_ ce->hunk->pos _ ce->hunk->end - ce->hunk->last
-argument_list|)
-empty_stmt|;
 name|n
 operator|=
 literal|0
@@ -945,7 +949,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|ngx_event_proxy_write_chain_to_temp_file
+name|ngx_event_pipe_write_chain_to_temp_file
 argument_list|(
 name|p
 argument_list|)
@@ -965,11 +969,11 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_event_proxy_write_to_downstream (ngx_event_proxy_t * p)
+DECL|function|ngx_event_pipe_write_to_downstream (ngx_event_pipe_t * p)
 name|int
-name|ngx_event_proxy_write_to_downstream
+name|ngx_event_pipe_write_to_downstream
 parameter_list|(
-name|ngx_event_proxy_t
+name|ngx_event_pipe_t
 modifier|*
 name|p
 parameter_list|)
@@ -984,6 +988,10 @@ decl_stmt|;
 name|ngx_chain_t
 modifier|*
 name|out
+decl_stmt|,
+modifier|*
+modifier|*
+name|le
 decl_stmt|,
 modifier|*
 name|ce
@@ -1121,6 +1129,20 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|out
+operator|=
+name|NULL
+expr_stmt|;
+name|le
+operator|=
+name|NULL
+expr_stmt|;
+for|for
+control|(
+init|;
+condition|;
+control|)
+block|{
 if|if
 condition|(
 name|p
@@ -1128,7 +1150,7 @@ operator|->
 name|out
 condition|)
 block|{
-name|out
+name|ce
 operator|=
 name|p
 operator|->
@@ -1156,7 +1178,7 @@ name|busy_len
 operator|+
 name|ngx_hunk_size
 argument_list|(
-name|out
+name|ce
 operator|->
 name|hunk
 argument_list|)
@@ -1186,7 +1208,7 @@ name|p
 operator|->
 name|free_raw_hunks
 argument_list|,
-name|out
+name|ce
 operator|->
 name|hunk
 argument_list|)
@@ -1204,7 +1226,7 @@ operator|->
 name|in
 condition|)
 block|{
-name|out
+name|ce
 operator|=
 name|p
 operator|->
@@ -1232,7 +1254,7 @@ name|busy_len
 operator|+
 name|ngx_hunk_size
 argument_list|(
-name|out
+name|ce
 operator|->
 name|hunk
 argument_list|)
@@ -1260,12 +1282,40 @@ else|else
 block|{
 break|break;
 block|}
-name|out
+name|busy_len
+operator|+=
+name|ngx_hunk_size
+argument_list|(
+name|ce
+operator|->
+name|hunk
+argument_list|)
+expr_stmt|;
+name|ce
 operator|->
 name|next
 operator|=
 name|NULL
 expr_stmt|;
+name|ngx_chain_add_ce
+argument_list|(
+name|out
+argument_list|,
+name|le
+argument_list|,
+name|ce
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|out
+operator|==
+name|NULL
+condition|)
+block|{
+break|break;
+block|}
 if|if
 condition|(
 name|p
@@ -1277,8 +1327,6 @@ operator|->
 name|output_ctx
 argument_list|,
 name|out
-operator|->
-name|hunk
 argument_list|)
 operator|==
 name|NGX_ERROR
@@ -1326,14 +1374,6 @@ operator|->
 name|next
 control|)
 block|{
-name|ngx_log_debug
-argument_list|(
-argument|p->log
-argument_list|,
-literal|"SHADOW %08X"
-argument|_ ce->hunk->shadow
-argument_list|)
-empty_stmt|;
 if|if
 condition|(
 name|ce
@@ -1395,14 +1435,6 @@ argument_list|,
 name|te
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug
-argument_list|(
-argument|p->log
-argument_list|,
-literal|"RAW %08X"
-argument|_ h->pos
-argument_list|)
-empty_stmt|;
 name|ce
 operator|->
 name|hunk
@@ -1423,14 +1455,6 @@ name|NULL
 expr_stmt|;
 block|}
 block|}
-name|ngx_log_debug
-argument_list|(
-argument|p->log
-argument_list|,
-literal|"STATE %d:%d:%d:%X:%X"
-argument|_                   p->upstream_eof _                   p->upstream_error _                   p->upstream_done _                   p->in _                   p->out
-argument_list|)
-empty_stmt|;
 return|return
 name|NGX_OK
 return|;
@@ -1438,12 +1462,12 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_event_proxy_write_chain_to_temp_file (ngx_event_proxy_t * p)
+DECL|function|ngx_event_pipe_write_chain_to_temp_file (ngx_event_pipe_t * p)
 specifier|static
 name|int
-name|ngx_event_proxy_write_chain_to_temp_file
+name|ngx_event_pipe_write_chain_to_temp_file
 parameter_list|(
-name|ngx_event_proxy_t
+name|ngx_event_pipe_t
 modifier|*
 name|p
 parameter_list|)
@@ -1470,7 +1494,7 @@ modifier|*
 name|next
 decl_stmt|,
 modifier|*
-name|in
+name|out
 decl_stmt|,
 modifier|*
 modifier|*
@@ -1572,6 +1596,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|out
+operator|=
+name|p
+operator|->
+name|in
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -1689,6 +1719,8 @@ condition|(
 name|ce
 condition|)
 block|{
+name|p
+operator|->
 name|in
 operator|=
 name|ce
@@ -1701,6 +1733,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|p
+operator|->
 name|in
 operator|=
 name|NULL
@@ -1718,6 +1752,8 @@ block|}
 block|}
 else|else
 block|{
+name|p
+operator|->
 name|in
 operator|=
 name|NULL
@@ -1740,9 +1776,7 @@ name|p
 operator|->
 name|temp_file
 argument_list|,
-name|p
-operator|->
-name|in
+name|out
 argument_list|,
 name|p
 operator|->
@@ -1791,9 +1825,7 @@ for|for
 control|(
 name|ce
 operator|=
-name|p
-operator|->
-name|in
+name|out
 init|;
 name|ce
 condition|;
@@ -1931,12 +1963,6 @@ name|next
 expr_stmt|;
 block|}
 block|}
-name|p
-operator|->
-name|in
-operator|=
-name|in
-expr_stmt|;
 return|return
 name|NGX_OK
 return|;
@@ -1948,11 +1974,11 @@ comment|/* the copy input filter */
 end_comment
 
 begin_function
-DECL|function|ngx_event_proxy_copy_input_filter (ngx_event_proxy_t * p,ngx_hunk_t * hunk)
+DECL|function|ngx_event_pipe_copy_input_filter (ngx_event_pipe_t * p,ngx_hunk_t * hunk)
 name|int
-name|ngx_event_proxy_copy_input_filter
+name|ngx_event_pipe_copy_input_filter
 parameter_list|(
-name|ngx_event_proxy_t
+name|ngx_event_pipe_t
 modifier|*
 name|p
 parameter_list|,
@@ -2422,12 +2448,12 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_drain_chains (ngx_event_proxy_t * p)
+DECL|function|ngx_drain_chains (ngx_event_pipe_t * p)
 specifier|static
 name|int
 name|ngx_drain_chains
 parameter_list|(
-name|ngx_event_proxy_t
+name|ngx_event_pipe_t
 modifier|*
 name|p
 parameter_list|)

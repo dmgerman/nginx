@@ -660,6 +660,17 @@ operator|->
 name|headers_out
 operator|.
 name|content_length
+operator|==
+name|NULL
+condition|)
+block|{
+if|if
+condition|(
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_length_n
 operator|>=
 literal|0
 condition|)
@@ -669,6 +680,7 @@ name|len
 operator|+=
 literal|48
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
@@ -1365,7 +1377,6 @@ operator|=
 name|LF
 expr_stmt|;
 block|}
-comment|/* 2^64 is 20 characters  */
 if|if
 condition|(
 name|r
@@ -1373,6 +1384,18 @@ operator|->
 name|headers_out
 operator|.
 name|content_length
+operator|==
+name|NULL
+condition|)
+block|{
+comment|/* 2^64 is 20 characters  */
+if|if
+condition|(
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_length_n
 operator|>=
 literal|0
 condition|)
@@ -1390,9 +1413,10 @@ argument_list|,
 literal|"Content-Length: "
 argument|OFF_FMT CRLF
 argument_list|,
-argument|r->headers_out.content_length
+argument|r->headers_out.content_length_n
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(

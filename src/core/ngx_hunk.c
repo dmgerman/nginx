@@ -825,12 +825,6 @@ break|break;
 block|}
 if|#
 directive|if
-literal|0
-block_content|if ((*busy)->hunk->type& NGX_HUNK_IN_MEMORY) {             if ((*busy)->hunk->pos != (*busy)->hunk->last) {                 break;             }          } else {             if ((*busy)->hunk->file_pos != (*busy)->hunk->file_last) {                 break;             }         }
-endif|#
-directive|endif
-if|#
-directive|if
 operator|(
 name|HAVE_WRITE_ZEROCOPY
 operator|)

@@ -690,6 +690,7 @@ name|trailer
 operator|.
 name|nelts
 expr_stmt|;
+comment|/*              * the old sendfile() "nbytes bug":              * http://www.freebsd.org/cgi/query-pr.cgi?pr=33771              */
 if|if
 condition|(
 name|ngx_freebsd_sendfile_nbytes_bug
@@ -875,10 +876,6 @@ operator|==
 name|NGX_EAGAIN
 condition|)
 block|{
-name|eagain
-operator|=
-literal|1
-expr_stmt|;
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_INFO
@@ -1127,6 +1124,7 @@ condition|(
 name|eagain
 condition|)
 block|{
+comment|/*              * sendfile() can return EAGAIN even if it has sent              * a whole file part and successive sendfile() would              * return EAGAIN right away and would not send anything.              */
 name|c
 operator|->
 name|write

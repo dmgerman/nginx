@@ -2,14 +2,14 @@ begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|_NGX_EVENT_PROXY_H_INCLUDED_
+name|_NGX_EVENT_PIPE_H_INCLUDED_
 end_ifndef
 
 begin_define
-DECL|macro|_NGX_EVENT_PROXY_H_INCLUDED_
+DECL|macro|_NGX_EVENT_PIPE_H_INCLUDED_
 define|#
 directive|define
-name|_NGX_EVENT_PROXY_H_INCLUDED_
+name|_NGX_EVENT_PIPE_H_INCLUDED_
 end_define
 
 begin_include
@@ -31,24 +31,24 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|typedef|ngx_event_proxy_t
+DECL|typedef|ngx_event_pipe_t
 typedef|typedef
 name|struct
-name|ngx_event_proxy_s
-name|ngx_event_proxy_t
+name|ngx_event_pipe_s
+name|ngx_event_pipe_t
 typedef|;
 end_typedef
 
 begin_typedef
-DECL|typedef|ngx_event_proxy_input_filter_pt
+DECL|typedef|ngx_event_pipe_input_filter_pt
 typedef|typedef
 name|int
 function_decl|(
 modifier|*
-name|ngx_event_proxy_input_filter_pt
+name|ngx_event_pipe_input_filter_pt
 function_decl|)
 parameter_list|(
-name|ngx_event_proxy_t
+name|ngx_event_pipe_t
 modifier|*
 name|p
 parameter_list|,
@@ -60,29 +60,29 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|typedef|ngx_event_proxy_output_filter_pt
+DECL|typedef|ngx_event_pipe_output_filter_pt
 typedef|typedef
 name|int
 function_decl|(
 modifier|*
-name|ngx_event_proxy_output_filter_pt
+name|ngx_event_pipe_output_filter_pt
 function_decl|)
 parameter_list|(
 name|void
 modifier|*
 name|data
 parameter_list|,
-name|ngx_hunk_t
+name|ngx_chain_t
 modifier|*
-name|hunk
+name|chain
 parameter_list|)
 function_decl|;
 end_typedef
 
 begin_struct
-DECL|struct|ngx_event_proxy_s
+DECL|struct|ngx_event_pipe_s
 struct|struct
-name|ngx_event_proxy_s
+name|ngx_event_pipe_s
 block|{
 DECL|member|free_raw_hunks
 name|ngx_chain_t
@@ -123,7 +123,7 @@ name|busy
 decl_stmt|;
 comment|/*      * the input filter i.e. that moves HTTP/1.1 chunks      * from the raw hunks to an incoming chain      */
 DECL|member|input_filter
-name|ngx_event_proxy_input_filter_pt
+name|ngx_event_pipe_input_filter_pt
 name|input_filter
 decl_stmt|;
 DECL|member|input_ctx
@@ -132,7 +132,7 @@ modifier|*
 name|input_ctx
 decl_stmt|;
 DECL|member|output_filter
-name|ngx_event_proxy_output_filter_pt
+name|ngx_event_pipe_output_filter_pt
 name|output_filter
 decl_stmt|;
 DECL|member|output_ctx
@@ -256,9 +256,9 @@ end_struct
 
 begin_function_decl
 name|int
-name|ngx_event_proxy
+name|ngx_event_pipe
 parameter_list|(
-name|ngx_event_proxy_t
+name|ngx_event_pipe_t
 modifier|*
 name|p
 parameter_list|,
@@ -270,9 +270,9 @@ end_function_decl
 
 begin_function_decl
 name|int
-name|ngx_event_proxy_copy_input_filter
+name|ngx_event_pipe_copy_input_filter
 parameter_list|(
-name|ngx_event_proxy_t
+name|ngx_event_pipe_t
 modifier|*
 name|p
 parameter_list|,
@@ -283,39 +283,13 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
-begin_comment
-comment|/* STUB */
-end_comment
-
-begin_function_decl
-name|int
-name|ngx_event_proxy_read_upstream
-parameter_list|(
-name|ngx_event_proxy_t
-modifier|*
-name|p
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-name|int
-name|ngx_event_proxy_write_to_downstream
-parameter_list|(
-name|ngx_event_proxy_t
-modifier|*
-name|p
-parameter_list|)
-function_decl|;
-end_function_decl
-
 begin_endif
 endif|#
 directive|endif
 end_endif
 
 begin_comment
-comment|/* _NGX_EVENT_PROXY_H_INCLUDED_ */
+comment|/* _NGX_EVENT_PIPE_H_INCLUDED_ */
 end_comment
 
 end_unit

@@ -24,7 +24,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28ee20200108
+DECL|struct|__anon29e9a0590108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ee20200208
+DECL|struct|__anon29e9a0590208
 typedef|typedef
 struct|struct
 block|{
@@ -706,7 +706,16 @@ name|r
 operator|->
 name|headers_out
 operator|.
-name|content_length
+name|content_length_n
+expr_stmt|;
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_length_n
+operator|=
+operator|-
+literal|1
 expr_stmt|;
 name|r
 operator|->
@@ -714,8 +723,7 @@ name|headers_out
 operator|.
 name|content_length
 operator|=
-operator|-
-literal|1
+name|NULL
 expr_stmt|;
 name|r
 operator|->

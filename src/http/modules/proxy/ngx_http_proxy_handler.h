@@ -37,7 +37,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28e193120108
+DECL|struct|__anon2947b6210108
 typedef|typedef
 struct|struct
 block|{
@@ -73,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e193120208
+DECL|struct|__anon2947b6210208
 typedef|typedef
 struct|struct
 block|{
@@ -133,7 +133,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e193120308
+DECL|struct|__anon2947b6210308
 typedef|typedef
 struct|struct
 block|{
@@ -171,6 +171,10 @@ DECL|member|accept_ranges
 name|ngx_table_elt_t
 modifier|*
 name|accept_ranges
+decl_stmt|;
+DECL|member|content_length_n
+name|off_t
+name|content_length_n
 decl_stmt|;
 DECL|member|headers
 name|ngx_table_t
@@ -259,10 +263,10 @@ DECL|member|host_header
 name|ngx_str_t
 name|host_header
 decl_stmt|;
-DECL|member|event_proxy
-name|ngx_event_proxy_t
+DECL|member|event_pipe
+name|ngx_event_pipe_t
 modifier|*
-name|event_proxy
+name|event_pipe
 decl_stmt|;
 DECL|member|accel
 name|unsigned

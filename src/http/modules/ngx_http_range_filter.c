@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28e604770108
+DECL|struct|__anon2adf7b970108
 typedef|typedef
 struct|struct
 block|{
@@ -197,7 +197,7 @@ name|r
 operator|->
 name|headers_out
 operator|.
-name|content_length
+name|content_length_n
 operator|==
 operator|-
 literal|1
@@ -499,7 +499,7 @@ name|r
 operator|->
 name|headers_out
 operator|.
-name|content_length
+name|content_length_n
 condition|)
 block|{
 name|rc
@@ -564,7 +564,7 @@ name|r
 operator|->
 name|headers_out
 operator|.
-name|content_length
+name|content_length_n
 expr_stmt|;
 if|if
 condition|(
@@ -663,7 +663,7 @@ name|r
 operator|->
 name|headers_out
 operator|.
-name|content_length
+name|content_length_n
 operator|||
 name|start
 operator|>=
@@ -826,8 +826,17 @@ name|r
 operator|->
 name|headers_out
 operator|.
-name|content_length
+name|content_length_n
 argument_list|)
+expr_stmt|;
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_length_n
+operator|=
+operator|-
+literal|1
 expr_stmt|;
 name|r
 operator|->
@@ -835,8 +844,7 @@ name|headers_out
 operator|.
 name|content_length
 operator|=
-operator|-
-literal|1
+name|NULL
 expr_stmt|;
 return|return
 name|rc
@@ -978,14 +986,14 @@ name|r
 operator|->
 name|headers_out
 operator|.
-name|content_length
+name|content_length_n
 argument_list|)
 expr_stmt|;
 name|r
 operator|->
 name|headers_out
 operator|.
-name|content_length
+name|content_length_n
 operator|=
 name|range
 operator|->
@@ -1372,7 +1380,7 @@ argument_list|,
 argument|range[i].end -
 literal|1
 argument_list|,
-argument|r->headers_out.content_length
+argument|r->headers_out.content_length_n
 argument_list|)
 expr_stmt|;
 name|len
@@ -1416,9 +1424,17 @@ name|r
 operator|->
 name|headers_out
 operator|.
-name|content_length
+name|content_length_n
 operator|=
 name|len
+expr_stmt|;
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_length
+operator|=
+name|NULL
 expr_stmt|;
 block|}
 block|}
