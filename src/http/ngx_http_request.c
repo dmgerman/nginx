@@ -889,12 +889,12 @@ name|port
 expr_stmt|;
 name|r
 operator|->
-name|port_name
+name|port_text
 operator|=
 operator|&
 name|in_port
 operator|->
-name|port_name
+name|port_text
 expr_stmt|;
 name|i
 operator|=

@@ -449,7 +449,7 @@ function_decl|;
 if|#
 directive|if
 literal|0
-block|ngx_int_t     (*init_thread)(ngx_cycle_t *cycle);
+block|ngx_int_t      (*init_thread)(ngx_cycle_t *cycle);
 endif|#
 directive|endif
 block|}
@@ -457,7 +457,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon298b81e20108
+DECL|struct|__anon2bf5f4bf0108
 typedef|typedef
 struct|struct
 block|{
@@ -502,7 +502,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298b81e20208
+DECL|struct|__anon2bf5f4bf0208
 typedef|typedef
 struct|struct
 block|{
@@ -637,7 +637,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298b81e20308
+DECL|struct|__anon2bf5f4bf0308
 typedef|typedef
 struct|struct
 block|{
@@ -652,7 +652,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298b81e20408
+DECL|struct|__anon2bf5f4bf0408
 typedef|typedef
 struct|struct
 block|{
@@ -675,7 +675,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298b81e20508
+DECL|struct|__anon2bf5f4bf0508
 typedef|typedef
 struct|struct
 block|{
@@ -702,7 +702,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon298b81e20608
+DECL|struct|__anon2bf5f4bf0608
 typedef|typedef
 struct|struct
 block|{

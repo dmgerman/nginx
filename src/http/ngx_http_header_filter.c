@@ -1014,7 +1014,7 @@ name|len
 operator|+=
 name|r
 operator|->
-name|port_name
+name|port_text
 operator|->
 name|len
 expr_stmt|;
@@ -1843,13 +1843,13 @@ name|last
 argument_list|,
 name|r
 operator|->
-name|port_name
+name|port_text
 operator|->
 name|data
 argument_list|,
 name|r
 operator|->
-name|port_name
+name|port_text
 operator|->
 name|len
 argument_list|)

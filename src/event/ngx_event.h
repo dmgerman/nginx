@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2a34f7a70108
+DECL|struct|__anon28f571d60108
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +70,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2a34f7a70208
+DECL|struct|__anon28f571d60208
 typedef|typedef
 struct|struct
 block|{
@@ -461,7 +461,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a34f7a70308
+DECL|struct|__anon28f571d60308
 typedef|typedef
 struct|struct
 block|{
@@ -1275,11 +1275,11 @@ DECL|macro|NGX_EVENT_CONF
 define|#
 directive|define
 name|NGX_EVENT_CONF
-value|0x00200000
+value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2a34f7a70408
+DECL|struct|__anon28f571d60408
 typedef|typedef
 struct|struct
 block|{
@@ -1326,7 +1326,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a34f7a70508
+DECL|struct|__anon28f571d60508
 typedef|typedef
 struct|struct
 block|{

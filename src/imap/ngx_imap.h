@@ -37,7 +37,7 @@ file|<ngx_event_connect.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a2c02b00108
+DECL|struct|__anon2a1f0f130108
 typedef|typedef
 struct|struct
 block|{
@@ -57,7 +57,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a2c02b00203
+DECL|enum|__anon2a1f0f130203
 typedef|typedef
 enum|enum
 block|{
@@ -75,7 +75,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2c02b00308
+DECL|struct|__anon2a1f0f130308
 typedef|typedef
 struct|struct
 block|{
@@ -258,6 +258,27 @@ define|#
 directive|define
 name|NGX_IMAP_PROXY_ERROR
 value|11
+end_define
+
+begin_define
+DECL|macro|NGX_IMAP_MODULE
+define|#
+directive|define
+name|NGX_IMAP_MODULE
+value|0x50414D49
+end_define
+
+begin_comment
+DECL|macro|NGX_IMAP_MODULE
+comment|/* "IMAP" */
+end_comment
+
+begin_define
+DECL|macro|NGX_IMAP_CONF
+define|#
+directive|define
+name|NGX_IMAP_CONF
+value|0x02000000
 end_define
 
 begin_function_decl

@@ -1721,7 +1721,7 @@ name|ngx_test_null
 argument_list|(
 name|in_port
 operator|->
-name|port_name
+name|port_text
 operator|.
 name|data
 argument_list|,
@@ -1739,7 +1739,7 @@ argument_list|)
 expr_stmt|;
 name|in_port
 operator|->
-name|port_name
+name|port_text
 operator|.
 name|len
 operator|=
@@ -1751,7 +1751,7 @@ operator|*
 operator|)
 name|in_port
 operator|->
-name|port_name
+name|port_text
 operator|.
 name|data
 argument_list|,
@@ -2276,14 +2276,14 @@ name|port
 expr_stmt|;
 name|inport
 operator|->
-name|port_name
+name|port_text
 operator|=
 name|in_port
 index|[
 name|p
 index|]
 operator|.
-name|port_name
+name|port_text
 expr_stmt|;
 comment|/* init list of the addresses ... */
 name|ngx_init_array

@@ -257,7 +257,33 @@ name|rev
 operator|->
 name|data
 expr_stmt|;
-comment|/* TODO: timeout */
+if|if
+condition|(
+name|rev
+operator|->
+name|timedout
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+name|NGX_ETIMEDOUT
+argument_list|,
+literal|"client timed out"
+argument_list|)
+expr_stmt|;
+name|ngx_imap_close_connection
+argument_list|(
+name|c
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 if|if
 condition|(
 operator|!
@@ -439,7 +465,33 @@ argument_list|,
 literal|"pop3 auth state"
 argument_list|)
 expr_stmt|;
-comment|/* TODO: timeout */
+if|if
+condition|(
+name|rev
+operator|->
+name|timedout
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+name|NGX_ETIMEDOUT
+argument_list|,
+literal|"client timed out"
+argument_list|)
+expr_stmt|;
+name|ngx_imap_close_connection
+argument_list|(
+name|c
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|rc
 operator|=
 name|ngx_pop3_read_command
