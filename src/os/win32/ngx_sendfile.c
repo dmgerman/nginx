@@ -44,6 +44,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_connection.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_sendv.h>
 end_include
 
@@ -66,12 +72,13 @@ operator|)
 end_if
 
 begin_function
-DECL|function|ngx_sendfile (ngx_socket_t s,ngx_iovec_t * headers,int hdr_cnt,ngx_fd_t fd,off_t offset,size_t nbytes,ngx_iovec_t * trailers,int trl_cnt,off_t * sent,ngx_log_t * log)
+DECL|function|ngx_sendfile (ngx_connection_t * c,ngx_iovec_t * headers,int hdr_cnt,ngx_fd_t fd,off_t offset,size_t nbytes,ngx_iovec_t * trailers,int trl_cnt,off_t * sent,u_int flags)
 name|int
 name|ngx_sendfile
 parameter_list|(
-name|ngx_socket_t
-name|s
+name|ngx_connection_t
+modifier|*
+name|c
 parameter_list|,
 name|ngx_iovec_t
 modifier|*
@@ -100,9 +107,8 @@ name|off_t
 modifier|*
 name|sent
 parameter_list|,
-name|ngx_log_t
-modifier|*
-name|log
+name|u_int
+name|flags
 parameter_list|)
 block|{
 name|int
@@ -124,6 +130,23 @@ decl_stmt|,
 modifier|*
 name|ptfb
 decl_stmt|;
+if|#
+directive|if
+literal|0
+block_content|ev = c->write;      if (ev->timedout) {         ngx_set_socket_errno(NGX_ETIMEDOUT);         ngx_log_error(NGX_LOG_ERR, ev->log, 0, "TransmitFile() timed out");          return NGX_ERROR;     }      if (ev->ready) {         ev->ready = 0;
+if|#
+directive|if
+operator|(
+name|HAVE_IOCP_EVENT
+operator|)
+comment|/* iocp */
+block_content|if (ngx_event_flags& NGX_HAVE_IOCP_EVENT) {             if (ev->ovlp.error) {                 ngx_log_error(NGX_LOG_ERR, ev->log, 0, "TransmitFile() failed");                 return NGX_ERROR;             }              return ev->available;             }         }
+endif|#
+directive|endif
+comment|/* TODO: WSAGetOverlappedResult stuff */
+block_content|}
+endif|#
+directive|endif
 name|tf_err
 operator|=
 literal|0
@@ -226,12 +249,17 @@ expr_stmt|;
 block|}
 if|#
 directive|if
-literal|1
+literal|0
+block_content|flags = TF_DISCONNECT|TF_REUSE_SOCKET;
+endif|#
+directive|endif
 name|tfrc
 operator|=
 name|TransmitFile
 argument_list|(
-name|s
+name|c
+operator|->
+name|fd
 argument_list|,
 name|fd
 argument_list|,
@@ -244,30 +272,21 @@ name|olp
 argument_list|,
 name|ptfb
 argument_list|,
-literal|0
+name|flags
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+literal|0
+if|#
+directive|if
+literal|1
+block_content|tfrc = TransmitFile(c->fd, fd, nbytes, 0,&olp, ptfb, 0);
 else|#
 directive|else
-name|tfrc
-operator|=
-name|TransmitFile
-argument_list|(
-name|s
-argument_list|,
-name|fd
-argument_list|,
-name|nbytes
-argument_list|,
-literal|0
-argument_list|,
-name|NULL
-argument_list|,
-name|ptfb
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
+block_content|tfrc = TransmitFile(c->fd, fd, nbytes, 0, NULL, ptfb, 0);
+endif|#
+directive|endif
 endif|#
 directive|endif
 if|if
@@ -276,15 +295,41 @@ name|tfrc
 operator|==
 literal|0
 condition|)
+block|{
 name|tf_err
 operator|=
 name|ngx_socket_errno
 expr_stmt|;
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_NOTICE
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+name|tf_err
+argument_list|,
+literal|"ngx_sendfile: TransmitFile failed"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|tf_err
+operator|==
+name|WSA_IO_PENDING
+condition|)
+block|{
+return|return
+name|NGX_AGAIN
+return|;
+block|}
+block|}
 comment|/* set sent */
 if|#
 directive|if
 literal|0
-block_content|rc = WSAGetOverlappedResult(s,&olp, (unsigned long *) sent, 0, NULL);
+block_content|rc = WSAGetOverlappedResult(c->fd,&olp, (unsigned long *) sent, 0, NULL);
 else|#
 directive|else
 operator|*
@@ -302,9 +347,9 @@ endif|#
 directive|endif
 name|ngx_log_debug
 argument_list|(
-argument|log
+argument|c->log
 argument_list|,
-literal|"ngx_sendfile: %d, @%I64d %I64d:%d"
+literal|"TransmitFile: %d, @%I64d %I64d:%d"
 argument|_                   tfrc _ offset _ *sent _ nbytes
 argument_list|)
 empty_stmt|;
@@ -323,6 +368,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ERR
 argument_list|,
+name|c
+operator|->
 name|log
 argument_list|,
 name|err
@@ -349,6 +396,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ERR
 argument_list|,
+name|c
+operator|->
 name|log
 argument_list|,
 name|tf_err
@@ -364,6 +413,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_INFO
 argument_list|,
+name|c
+operator|->
 name|log
 argument_list|,
 name|tf_err

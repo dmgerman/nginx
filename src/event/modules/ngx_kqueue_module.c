@@ -99,6 +99,24 @@ begin_comment
 comment|/* should be per-thread */
 end_comment
 
+begin_if
+if|#
+directive|if
+literal|1
+end_if
+
+begin_decl_stmt
+DECL|variable|kq
+name|int
+name|kq
+decl_stmt|;
+end_decl_stmt
+
+begin_else
+else|#
+directive|else
+end_else
+
 begin_decl_stmt
 DECL|variable|kq
 specifier|static
@@ -106,6 +124,11 @@ name|int
 name|kq
 decl_stmt|;
 end_decl_stmt
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_decl_stmt
 DECL|variable|change_list
@@ -306,9 +329,21 @@ operator|=
 name|NGX_HAVE_LEVEL_EVENT
 operator||
 name|NGX_HAVE_ONESHOT_EVENT
+if|#
+directive|if
+operator|(
+name|HAVE_AIO_EVENT
+operator|)
+operator||
+name|NGX_HAVE_AIO_EVENT
+expr_stmt|;
+else|#
+directive|else
 operator||
 name|NGX_HAVE_CLEAR_EVENT
 expr_stmt|;
+endif|#
+directive|endif
 endif|#
 directive|endif
 return|return
@@ -1046,14 +1081,38 @@ directive|if
 operator|(
 name|NGX_DEBUG_EVENT
 operator|)
+if|if
+condition|(
+name|event_list
+index|[
+name|i
+index|]
+operator|.
+name|ident
+operator|>
+literal|0x8000000
+condition|)
+block|{
+name|ngx_log_debug
+argument_list|(
+argument|log
+argument_list|,
+literal|"kevent: %08x: ft:%d f:%08x ff:%08x d:%d ud:%08x"
+argument|_                           event_list[i].ident _ event_list[i].filter _                           event_list[i].flags _ event_list[i].fflags _                           event_list[i].data _ event_list[i].udata
+argument_list|)
+empty_stmt|;
+block|}
+else|else
+block|{
 name|ngx_log_debug
 argument_list|(
 argument|log
 argument_list|,
 literal|"kevent: %d: ft:%d f:%08x ff:%08x d:%d ud:%08x"
-argument|_                       event_list[i].ident _ event_list[i].filter _                       event_list[i].flags _ event_list[i].fflags _                       event_list[i].data _ event_list[i].udata
+argument|_                           event_list[i].ident _ event_list[i].filter _                           event_list[i].flags _ event_list[i].fflags _                           event_list[i].data _ event_list[i].udata
 argument_list|)
 empty_stmt|;
+block|}
 endif|#
 directive|endif
 if|if
@@ -1134,12 +1193,6 @@ name|EVFILT_WRITE
 case|:
 name|ev
 operator|->
-name|ready
-operator|=
-literal|1
-expr_stmt|;
-name|ev
-operator|->
 name|available
 operator|=
 name|event_list
@@ -1192,6 +1245,16 @@ name|ev
 argument_list|)
 expr_stmt|;
 block|}
+comment|/* fall through */
+case|case
+name|EVFILT_AIO
+case|:
+name|ev
+operator|->
+name|ready
+operator|=
+literal|1
+expr_stmt|;
 if|if
 condition|(
 name|ev

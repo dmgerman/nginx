@@ -28,12 +28,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_file.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<ngx_socket.h>
 end_include
 
@@ -52,6 +46,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_connection.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_sendv.h>
 end_include
 
@@ -62,16 +62,17 @@ file|<ngx_sendfile.h>
 end_include
 
 begin_comment
-comment|/*   CHECK:        check sent if errno == EINTR then should return right sent. */
+comment|/*   CHECK:        check sent if errno == EINTR then should return right sent.        EINTR should not occur according to man. */
 end_comment
 
 begin_function
-DECL|function|ngx_sendfile (ngx_socket_t s,ngx_iovec_t * headers,int hdr_cnt,ngx_fd_t fd,off_t offset,size_t nbytes,ngx_iovec_t * trailers,int trl_cnt,off_t * sent,ngx_log_t * log)
+DECL|function|ngx_sendfile (ngx_connection_t * c,ngx_iovec_t * headers,int hdr_cnt,ngx_fd_t fd,off_t offset,size_t nbytes,ngx_iovec_t * trailers,int trl_cnt,off_t * sent,u_int flags)
 name|int
 name|ngx_sendfile
 parameter_list|(
-name|ngx_socket_t
-name|s
+name|ngx_connection_t
+modifier|*
+name|c
 parameter_list|,
 name|ngx_iovec_t
 modifier|*
@@ -100,9 +101,8 @@ name|off_t
 modifier|*
 name|sent
 parameter_list|,
-name|ngx_log_t
-modifier|*
-name|log
+name|u_int
+name|flags
 parameter_list|)
 block|{
 name|int
@@ -159,6 +159,7 @@ condition|;
 name|i
 operator|++
 control|)
+block|{
 name|nbytes
 operator|+=
 name|headers
@@ -168,6 +169,7 @@ index|]
 operator|.
 name|iov_len
 expr_stmt|;
+block|}
 endif|#
 directive|endif
 name|rc
@@ -176,7 +178,9 @@ name|sendfile
 argument_list|(
 name|fd
 argument_list|,
-name|s
+name|c
+operator|->
+name|fd
 argument_list|,
 name|offset
 argument_list|,
@@ -187,7 +191,7 @@ name|hdtr
 argument_list|,
 name|sent
 argument_list|,
-literal|0
+name|flags
 argument_list|)
 expr_stmt|;
 if|if
@@ -200,7 +204,7 @@ condition|)
 block|{
 name|err
 operator|=
-name|ngx_socket_errno
+name|ngx_errno
 expr_stmt|;
 if|if
 condition|(
@@ -217,11 +221,13 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ERR
 argument_list|,
+name|c
+operator|->
 name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"ngx_sendfile: sendfile failed"
+literal|"sendfile failed"
 argument_list|)
 expr_stmt|;
 return|return
@@ -234,23 +240,28 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_INFO
 argument_list|,
+name|c
+operator|->
 name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"ngx_sendfile: sendfile sent only %qd bytes"
+literal|"sendfile sent only %qd bytes"
 argument_list|,
 operator|*
 name|sent
 argument_list|)
 expr_stmt|;
+return|return
+name|NGX_AGAIN
+return|;
 block|}
 block|}
 name|ngx_log_debug
 argument_list|(
-argument|log
+argument|c->log
 argument_list|,
-literal|"ngx_sendfile: %d, @%qd %qd:%d"
+literal|"sendfile: %d, @%qd %qd:%d"
 argument|_                   rc _ offset _ *sent _ nbytes
 argument_list|)
 empty_stmt|;

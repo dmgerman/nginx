@@ -263,7 +263,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2c12ae530108
+DECL|struct|__anon29194c960108
 typedef|typedef
 struct|struct
 block|{
@@ -311,12 +311,12 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c12ae530208
+DECL|struct|__anon29194c960208
 typedef|typedef
 struct|struct
 block|{
 DECL|member|len
-name|int
+name|size_t
 name|len
 decl_stmt|;
 DECL|member|data
@@ -335,12 +335,12 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c12ae530308
+DECL|struct|__anon29194c960308
 typedef|typedef
 struct|struct
 block|{
 DECL|member|host_name_len
-name|int
+name|size_t
 name|host_name_len
 decl_stmt|;
 DECL|member|host
@@ -380,7 +380,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c12ae530408
+DECL|struct|__anon29194c960408
 typedef|typedef
 struct|struct
 block|{
@@ -718,7 +718,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c12ae530508
+DECL|struct|__anon29194c960508
 typedef|typedef
 struct|struct
 block|{
@@ -796,7 +796,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c12ae530608
+DECL|struct|__anon29194c960608
 typedef|typedef
 struct|struct
 block|{
@@ -1068,7 +1068,44 @@ end_function_decl
 
 begin_function_decl
 name|int
-name|ngx_http_discard_body
+name|ngx_read_http_request_line
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|int
+name|ngx_read_http_header_line
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_hunk_t
+modifier|*
+name|h
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|int
+name|ngx_http_handler
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|int
+name|ngx_http_send_header
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
@@ -1087,6 +1124,45 @@ name|r
 parameter_list|,
 name|int
 name|error
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|time_t
+name|ngx_http_parse_time
+parameter_list|(
+name|char
+modifier|*
+name|value
+parameter_list|,
+name|size_t
+name|len
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|size_t
+name|ngx_http_get_time
+parameter_list|(
+name|char
+modifier|*
+name|buf
+parameter_list|,
+name|time_t
+name|t
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|int
+name|ngx_http_discard_body
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -1176,6 +1252,25 @@ name|ngx_http_modules
 index|[]
 decl_stmt|;
 end_decl_stmt
+
+begin_comment
+comment|/* STUB */
+end_comment
+
+begin_function_decl
+name|int
+name|ngx_http_log_handler
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_comment
+comment|/**/
+end_comment
 
 begin_endif
 endif|#

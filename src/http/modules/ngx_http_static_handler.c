@@ -29,6 +29,12 @@ directive|include
 file|<ngx_http.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_http_output_filter.h>
+end_include
+
 begin_decl_stmt
 DECL|variable|ngx_http_static_module
 name|ngx_http_module_t

@@ -25,7 +25,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29026e540108
+DECL|struct|__anon2b2f15540108
 typedef|typedef
 struct|struct
 block|{
@@ -146,8 +146,11 @@ end_decl_stmt
 begin_endif
 endif|#
 directive|endif
-endif|_NGX_HTTP_CONFIG_H_INCLUDED_
 end_endif
+
+begin_comment
+comment|/* _NGX_HTTP_CONFIG_H_INCLUDED_ */
+end_comment
 
 end_unit
 

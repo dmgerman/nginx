@@ -57,7 +57,7 @@ typedef|;
 end_typedef
 
 begin_function_decl
-name|void
+name|int
 name|ngx_init_sockets
 parameter_list|(
 name|ngx_log_t
@@ -103,12 +103,30 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_function_decl
+name|int
+name|ngx_blocking
+parameter_list|(
+name|ngx_socket_t
+name|s
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_define
 DECL|macro|ngx_nonblocking_n
 define|#
 directive|define
 name|ngx_nonblocking_n
 value|"ioctlsocket(FIONBIO)"
+end_define
+
+begin_define
+DECL|macro|ngx_blocking_n
+define|#
+directive|define
+name|ngx_blocking_n
+value|"ioctlsocket(!FIONBIO)"
 end_define
 
 begin_define
@@ -142,6 +160,27 @@ directive|define
 name|ngx_close_socket_n
 value|"closesocket()"
 end_define
+
+begin_decl_stmt
+specifier|extern
+name|LPFN_ACCEPTEX
+name|acceptex
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|LPFN_GETACCEPTEXSOCKADDRS
+name|getacceptexsockaddrs
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|LPFN_TRANSMITFILE
+name|transmitfile
+decl_stmt|;
+end_decl_stmt
 
 begin_endif
 endif|#

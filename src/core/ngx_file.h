@@ -78,8 +78,11 @@ end_struct
 begin_endif
 endif|#
 directive|endif
-endif|_NGX_FILE_H_INCLUDED_
 end_endif
+
+begin_comment
+comment|/* _NGX_FILE_H_INCLUDED_ */
+end_comment
 
 end_unit
 

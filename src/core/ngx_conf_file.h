@@ -239,7 +239,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bc0827b0108
+DECL|struct|__anon2a1e93c70108
 typedef|typedef
 struct|struct
 block|{
@@ -280,7 +280,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc0827b0208
+DECL|struct|__anon2a1e93c70208
 typedef|typedef
 struct|struct
 block|{
@@ -372,6 +372,19 @@ parameter_list|,
 define|default)                                  \     if (conf == NGX_CONF_UNSET) {                                            \         conf = (prev == NGX_CONF_UNSET) ? default : prev;                    \     }
 end_define
 
+begin_define
+DECL|macro|ngx_conf_size_merge (conf,prev,default)
+define|#
+directive|define
+name|ngx_conf_size_merge
+parameter_list|(
+name|conf
+parameter_list|,
+name|prev
+parameter_list|,
+define|default)                             \     if (conf == (size_t) NGX_CONF_UNSET) {                                   \         conf = (prev == (size_t) NGX_CONF_UNSET) ? default : prev;           \     }
+end_define
+
 begin_function_decl
 name|char
 modifier|*
@@ -460,8 +473,11 @@ end_decl_stmt
 begin_endif
 endif|#
 directive|endif
-endif|_NGX_HTTP_CONF_FILE_H_INCLUDED_
 end_endif
+
+begin_comment
+comment|/* _NGX_HTTP_CONF_FILE_H_INCLUDED_ */
+end_comment
 
 end_unit
 

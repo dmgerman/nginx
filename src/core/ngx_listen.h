@@ -43,7 +43,7 @@ file|<ngx_connection.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon296313180108
+DECL|struct|__anon28a8198d0108
 typedef|typedef
 struct|struct
 block|{
@@ -149,6 +149,12 @@ range|:
 literal|1
 decl_stmt|;
 comment|/* inherited from previous process */
+DECL|member|nonblocking_accept
+name|unsigned
+name|nonblocking_accept
+range|:
+literal|1
+decl_stmt|;
 DECL|member|nonblocking
 name|unsigned
 name|nonblocking

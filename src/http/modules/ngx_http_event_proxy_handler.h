@@ -47,7 +47,7 @@ value|21
 end_define
 
 begin_typedef
-DECL|struct|__anon29f6dab00108
+DECL|struct|__anon28ae62a30108
 typedef|typedef
 struct|struct
 block|{
@@ -86,7 +86,6 @@ name|last_hunk
 decl_stmt|;
 DECL|member|hunks
 name|ngx_array_t
-modifier|*
 name|hunks
 decl_stmt|;
 DECL|member|hunk_n

@@ -31,7 +31,7 @@ DECL|macro|NGX_MAX_MSEC
 define|#
 directive|define
 name|NGX_MAX_MSEC
-value|~0
+value|(u_int) ~0
 end_define
 
 begin_typedef

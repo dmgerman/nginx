@@ -436,10 +436,6 @@ directive|include
 file|<poll.h>
 end_include
 
-begin_comment
-comment|/* #ifndef INFTIM #define INFTIM    -1 #endif */
-end_comment
-
 begin_endif
 endif|#
 directive|endif
@@ -456,12 +452,37 @@ end_if
 begin_include
 include|#
 directive|include
+file|<sys/ioctl.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<sys/devpoll.h>
 end_include
 
 begin_comment
 comment|/* Solaris, HP/UX */
 end_comment
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_if
+if|#
+directive|if
+operator|(
+name|HAVE_AIO
+operator|)
+end_if
+
+begin_include
+include|#
+directive|include
+file|<aio.h>
+end_include
 
 begin_endif
 endif|#

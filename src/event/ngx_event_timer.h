@@ -81,14 +81,6 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
-begin_decl_stmt
-specifier|extern
-name|ngx_event_t
-modifier|*
-name|ngx_timer_queue
-decl_stmt|;
-end_decl_stmt
-
 begin_function
 DECL|function|ngx_event_del_timer (ngx_event_t * ev)
 name|ngx_inline
@@ -201,8 +193,11 @@ end_function
 begin_endif
 endif|#
 directive|endif
-endif|_NGX_EVENT_TIMER_H_INCLUDED_
 end_endif
+
+begin_comment
+comment|/* _NGX_EVENT_TIMER_H_INCLUDED_ */
+end_comment
 
 end_unit
 

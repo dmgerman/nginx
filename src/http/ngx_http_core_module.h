@@ -31,12 +31,12 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29e22f260108
+DECL|struct|__anon29318e330108
 typedef|typedef
 struct|struct
 block|{
 DECL|member|addr
-name|int
+name|u_int32_t
 name|addr
 decl_stmt|;
 DECL|member|port
@@ -67,7 +67,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e22f260208
+DECL|struct|__anon29318e330208
 typedef|typedef
 struct|struct
 block|{
@@ -103,7 +103,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon29e22f260308
+DECL|struct|__anon29318e330308
 typedef|typedef
 struct|struct
 block|{
@@ -123,7 +123,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e22f260408
+DECL|struct|__anon29318e330408
 typedef|typedef
 struct|struct
 block|{
@@ -161,7 +161,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon29e22f260508
+DECL|struct|__anon29318e330508
 typedef|typedef
 struct|struct
 block|{
@@ -182,7 +182,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e22f260608
+DECL|struct|__anon29318e330608
 typedef|typedef
 struct|struct
 block|{
@@ -284,6 +284,20 @@ parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|int
+name|ngx_http_internal_redirect
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_str_t
+name|uri
 parameter_list|)
 function_decl|;
 end_function_decl

@@ -120,6 +120,24 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_if
+if|#
+directive|if
+literal|1
+end_if
+
+begin_decl_stmt
+specifier|extern
+name|int
+name|kq
+decl_stmt|;
+end_decl_stmt
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_endif
 endif|#
 directive|endif

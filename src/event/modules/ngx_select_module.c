@@ -134,7 +134,7 @@ end_endif
 begin_decl_stmt
 DECL|variable|nevents
 specifier|static
-name|int
+name|u_int
 name|nevents
 decl_stmt|;
 end_decl_stmt
@@ -894,11 +894,11 @@ name|int
 name|ready
 decl_stmt|,
 name|found
-decl_stmt|,
-name|nready
 decl_stmt|;
 name|u_int
 name|i
+decl_stmt|,
+name|nready
 decl_stmt|;
 name|ngx_msec_t
 name|timer

@@ -312,14 +312,12 @@ name|cf
 argument_list|)
 expr_stmt|;
 comment|/* NGX_OK, NGX_ERROR, NGX_CONF_FILE_DONE, NGX_CONF_BLOCK_DONE */
-name|ngx_log_debug
-argument_list|(
-argument|cf->log
-argument_list|,
-literal|"token %d"
-argument|_ rc
-argument_list|)
-empty_stmt|;
+if|#
+directive|if
+literal|0
+block_content|ngx_log_debug(cf->log, "token %d" _ rc);
+endif|#
+directive|endif
 if|if
 condition|(
 name|rc
@@ -484,14 +482,12 @@ operator|==
 literal|0
 condition|)
 block|{
-name|ngx_log_debug
-argument_list|(
-argument|cf->log
-argument_list|,
-literal|"command '%s'"
-argument|_ cmd->name.data
-argument_list|)
-empty_stmt|;
+if|#
+directive|if
+literal|0
+block_content|ngx_log_debug(cf->log, "command '%s'" _ cmd->name.data);
+endif|#
+directive|endif
 if|if
 condition|(
 operator|!
@@ -625,14 +621,12 @@ argument_list|,
 name|conf
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug
-argument_list|(
-argument|cf->log
-argument_list|,
-literal|"rv: %d"
-argument|_ rv
-argument_list|)
-empty_stmt|;
+if|#
+directive|if
+literal|0
+block_content|ngx_log_debug(cf->log, "rv: %d" _ rv);
+endif|#
+directive|endif
 if|if
 condition|(
 name|rv
@@ -885,15 +879,12 @@ name|pos
 operator|.
 name|mem
 expr_stmt|;
-name|ngx_log_debug
-argument_list|(
-name|cf
-operator|->
-name|log
-argument_list|,
-literal|"TOKEN START"
-argument_list|)
-expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|ngx_log_debug(cf->log, "TOKEN START");
+endif|#
+directive|endif
 for|for
 control|(
 init|;
@@ -1601,14 +1592,12 @@ name|len
 operator|=
 name|len
 expr_stmt|;
-name|ngx_log_debug
-argument_list|(
-argument|cf->log
-argument_list|,
-literal|"FOUND %d:'%s'"
-argument|_ word->len _ word->data
-argument_list|)
-empty_stmt|;
+if|#
+directive|if
+literal|0
+block_content|ngx_log_debug(cf->log, "FOUND %d:'%s'" _ word->len _ word->data);
+endif|#
+directive|endif
 if|if
 condition|(
 name|ch

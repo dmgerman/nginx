@@ -95,16 +95,11 @@ directive|include
 file|<ngx_http_core_module.h>
 end_include
 
-begin_function_decl
-name|int
-name|ngx_http_init_connection
-parameter_list|(
-name|ngx_connection_t
-modifier|*
-name|c
-parameter_list|)
-function_decl|;
-end_function_decl
+begin_include
+include|#
+directive|include
+file|<ngx_http_output_filter.h>
+end_include
 
 begin_function_decl
 specifier|static
@@ -589,6 +584,7 @@ directive|if
 operator|(
 name|HAVE_CLEAR_EVENT
 operator|)
+comment|/* kqueue */
 if|if
 condition|(
 name|ngx_event_flags
@@ -614,6 +610,7 @@ directive|if
 operator|(
 name|HAVE_EDGE_EVENT
 operator|)
+comment|/* epoll */
 if|if
 condition|(
 name|ngx_event_flags
@@ -653,6 +650,7 @@ directive|if
 operator|(
 name|HAVE_AIO_EVENT
 operator|)
+comment|/* aio, iocp */
 if|if
 condition|(
 name|ngx_event_flags
@@ -669,6 +667,8 @@ return|;
 block|}
 endif|#
 directive|endif
+comment|/* HAVE_AIO_EVENT */
+comment|/* select, poll, /dev/poll */
 return|return
 name|ngx_add_event
 argument_list|(
@@ -993,6 +993,15 @@ argument_list|,
 literal|"http process request"
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|HAVE_AIO_EVENT
+operator|)
+do|do
+block|{
+endif|#
+directive|endif
 if|if
 condition|(
 name|r
@@ -1011,7 +1020,7 @@ argument_list|(
 argument|ev->log
 argument_list|,
 literal|"http preread %d"
-argument|_                       r->header_in->last.mem - r->header_in->pos.mem
+argument|_                           r->header_in->last.mem - r->header_in->pos.mem
 argument_list|)
 empty_stmt|;
 block|}
@@ -1159,7 +1168,7 @@ operator|+=
 name|n
 expr_stmt|;
 block|}
-comment|/* state_handlers are called in following order:         ngx_http_process_request_line(r)         ngx_http_process_request_headers(r) */
+comment|/* state_handlers are called in following order:             ngx_http_process_request_line(r)             ngx_http_process_request_headers(r) */
 do|do
 block|{
 name|rc
@@ -1206,6 +1215,26 @@ operator|.
 name|mem
 condition|)
 do|;
+if|#
+directive|if
+operator|(
+name|HAVE_AIO_EVENT
+operator|)
+comment|/* aio, iocp */
+block|}
+do|while
+condition|(
+name|rc
+operator|==
+name|NGX_AGAIN
+operator|&&
+name|ngx_event_flags
+operator|&
+name|NGX_HAVE_AIO_EVENT
+condition|)
+do|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|rc
@@ -1742,7 +1771,8 @@ parameter_list|)
 block|{
 name|int
 name|rc
-decl_stmt|,
+decl_stmt|;
+name|size_t
 name|len
 decl_stmt|;
 name|ngx_http_log_ctx_t
@@ -2261,6 +2291,8 @@ parameter_list|)
 block|{
 name|int
 name|rc
+decl_stmt|,
+name|event
 decl_stmt|;
 name|ngx_msec_t
 name|timeout
@@ -2336,7 +2368,7 @@ condition|)
 return|return
 name|rc
 return|;
-comment|/* handler has done its work but transfer is not completed */
+comment|/* handler has done its work but transfer is still not completed */
 if|if
 condition|(
 name|rc
@@ -2344,50 +2376,6 @@ operator|==
 name|NGX_AGAIN
 condition|)
 block|{
-if|#
-directive|if
-operator|(
-name|HAVE_CLEAR_EVENT
-operator|)
-if|if
-condition|(
-name|ngx_add_event
-argument_list|(
-name|wev
-argument_list|,
-name|NGX_WRITE_EVENT
-argument_list|,
-name|NGX_CLEAR_EVENT
-argument_list|)
-operator|==
-name|NGX_ERROR
-condition|)
-block|{
-else|#
-directive|else
-if|if
-condition|(
-name|ngx_add_event
-argument_list|(
-name|wev
-argument_list|,
-name|NGX_WRITE_EVENT
-argument_list|,
-name|NGX_ONESHOT_EVENT
-argument_list|)
-operator|==
-name|NGX_ERROR
-condition|)
-block|{
-endif|#
-directive|endif
-return|return
-name|ngx_http_close_request
-argument_list|(
-name|r
-argument_list|)
-return|;
-block|}
 if|if
 condition|(
 name|r
@@ -2404,7 +2392,7 @@ argument_list|(
 argument|r->connection->log
 argument_list|,
 literal|"sent: "
-argument|QD_FMT _                           r->connection->sent
+argument|OFF_FMT _                           r->connection->sent
 argument_list|)
 empty_stmt|;
 name|timeout
@@ -2454,9 +2442,167 @@ name|event_handler
 operator|=
 name|ngx_http_writer
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|USE_KQUEUE
+operator|)
+if|if
+condition|(
+name|ngx_add_event
+argument_list|(
+name|wev
+argument_list|,
+name|NGX_WRITE_EVENT
+argument_list|,
+name|NGX_CLEAR_EVENT
+argument_list|)
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+return|return
+name|ngx_http_close_request
+argument_list|(
+name|r
+argument_list|)
+return|;
+block|}
 return|return
 name|rc
 return|;
+else|#
+directive|else
+if|#
+directive|if
+operator|(
+name|HAVE_AIO_EVENT
+operator|)
+comment|/* aio, iocp */
+if|if
+condition|(
+name|ngx_event_flags
+operator|&
+name|NGX_HAVE_AIO_EVENT
+condition|)
+block|{
+return|return
+name|rc
+return|;
+block|}
+endif|#
+directive|endif
+if|#
+directive|if
+operator|(
+name|HAVE_CLEAR_EVENT
+operator|)
+comment|/* kqueue */
+if|if
+condition|(
+name|ngx_event_flags
+operator|&
+name|NGX_HAVE_CLEAR_EVENT
+condition|)
+block|{
+name|event
+operator|=
+name|NGX_CLEAR_EVENT
+expr_stmt|;
+block|}
+else|else
+block|{
+name|event
+operator|=
+name|NGX_ONESHOT_EVENT
+expr_stmt|;
+block|}
+elif|#
+directive|elif
+operator|(
+name|HAVE_EDGE_EVENT
+operator|)
+comment|/* epoll */
+if|if
+condition|(
+name|ngx_event_flags
+operator|&
+name|NGX_HAVE_EDGE_EVENT
+condition|)
+block|{
+name|event
+operator|=
+name|NGX_EDGE_EVENT
+expr_stmt|;
+block|}
+else|else
+block|{
+name|event
+operator|=
+name|NGX_ONESHOT_EVENT
+expr_stmt|;
+block|}
+elif|#
+directive|elif
+operator|(
+name|HAVE_DEVPOLL_EVENT
+operator|)
+comment|/* /dev/poll */
+if|if
+condition|(
+name|ngx_event_flags
+operator|&
+name|NGX_HAVE_LEVEL_EVENT
+condition|)
+block|{
+name|event
+operator|=
+name|NGX_LEVEL_EVENT
+expr_stmt|;
+block|}
+else|else
+block|{
+name|event
+operator|=
+name|NGX_ONESHOT_EVENT
+expr_stmt|;
+block|}
+else|#
+directive|else
+comment|/* select, poll */
+name|event
+operator|=
+name|NGX_ONESHOT_EVENT
+expr_stmt|;
+endif|#
+directive|endif
+if|if
+condition|(
+name|ngx_add_event
+argument_list|(
+name|wev
+argument_list|,
+name|NGX_WRITE_EVENT
+argument_list|,
+name|event
+argument_list|)
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+return|return
+name|ngx_http_close_request
+argument_list|(
+name|r
+argument_list|)
+return|;
+block|}
+return|return
+name|rc
+return|;
+endif|#
+directive|endif
+comment|/* USE_KQUEUE */
 block|}
 if|if
 condition|(
@@ -2521,11 +2667,6 @@ return|;
 block|}
 block|}
 comment|/* keepalive */
-name|ngx_http_close_request
-argument_list|(
-name|r
-argument_list|)
-expr_stmt|;
 name|r
 operator|->
 name|connection
@@ -2560,7 +2701,18 @@ name|event_handler
 operator|=
 name|ngx_http_keepalive_handler
 expr_stmt|;
+name|ngx_http_close_request
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_OK
+return|;
 block|}
+end_function
+
+begin_function
 DECL|function|ngx_http_writer (ngx_event_t * ev)
 specifier|static
 name|int
@@ -2683,7 +2835,7 @@ argument_list|(
 argument|ev->log
 argument_list|,
 literal|"sent: "
-argument|QD_FMT _ c->sent
+argument|OFF_FMT _ c->sent
 argument_list|)
 empty_stmt|;
 name|ngx_log_debug
@@ -2724,6 +2876,7 @@ name|timeout
 argument_list|)
 expr_stmt|;
 block|}
+comment|/* TODO: /dev/poll, epoll, aio_write */
 if|if
 condition|(
 name|ev
@@ -2807,11 +2960,6 @@ return|;
 block|}
 block|}
 comment|/* keepalive */
-name|ngx_http_close_request
-argument_list|(
-name|r
-argument_list|)
-expr_stmt|;
 name|c
 operator|->
 name|buffer
@@ -2842,7 +2990,18 @@ name|event_handler
 operator|=
 name|ngx_http_keepalive_handler
 expr_stmt|;
+name|ngx_http_close_request
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_OK
+return|;
 block|}
+end_function
+
+begin_function
 DECL|function|ngx_http_block_read (ngx_event_t * ev)
 specifier|static
 name|int
@@ -2862,6 +3021,56 @@ argument_list|,
 literal|"http read blocked"
 argument_list|)
 expr_stmt|;
+comment|/* aio does not call this handler */
+if|#
+directive|if
+operator|(
+name|USE_KQUEUE
+operator|)
+return|return
+name|NGX_OK
+return|;
+else|#
+directive|else
+if|#
+directive|if
+operator|(
+name|HAVE_CLEAR_EVENT
+operator|)
+comment|/* kqueue */
+if|if
+condition|(
+name|ngx_event_flags
+operator|&
+name|NGX_HAVE_CLEAR_EVENT
+condition|)
+block|{
+return|return
+name|NGX_OK
+return|;
+block|}
+endif|#
+directive|endif
+if|#
+directive|if
+operator|(
+name|HAVE_EDGE_EVENT
+operator|)
+comment|/* epoll */
+if|if
+condition|(
+name|ngx_event_flags
+operator|&
+name|NGX_HAVE_EDGE_EVENT
+condition|)
+block|{
+return|return
+name|NGX_OK
+return|;
+block|}
+endif|#
+directive|endif
+comment|/* select, poll, /dev/poll */
 name|ev
 operator|->
 name|blocked
@@ -2878,7 +3087,13 @@ argument_list|,
 literal|0
 argument_list|)
 return|;
+endif|#
+directive|endif
+comment|/* USE_KQUEUE */
 block|}
+end_function
+
+begin_function
 DECL|function|ngx_http_discard_body (ngx_http_request_t * r)
 name|int
 name|ngx_http_discard_body
@@ -2936,16 +3151,23 @@ name|r
 operator|->
 name|client_content_length
 condition|)
+block|{
 name|ev
 operator|->
 name|event_handler
 operator|=
 name|ngx_http_read_discarded_body
 expr_stmt|;
+comment|/* if blocked - read */
+comment|/* else add timer */
+block|}
 return|return
 name|NGX_OK
 return|;
 block|}
+end_function
+
+begin_function
 DECL|function|ngx_http_read_discarded_body (ngx_event_t * ev)
 specifier|static
 name|int
@@ -3115,6 +3337,9 @@ return|return
 name|NGX_OK
 return|;
 block|}
+end_function
+
+begin_function
 DECL|function|ngx_http_keepalive_handler (ngx_event_t * ev)
 specifier|static
 name|int
@@ -3285,6 +3510,9 @@ name|ev
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 DECL|function|ngx_http_set_lingering_close (ngx_http_request_t * r)
 specifier|static
 name|int
@@ -3417,12 +3645,11 @@ name|r
 argument_list|)
 return|;
 block|}
-block|}
 end_function
 
-begin_if_stmt
-if|if
-condition|(
+begin_expr_stmt
+unit|}      if
+operator|(
 name|ngx_shutdown_socket
 argument_list|(
 name|r
@@ -3436,7 +3663,7 @@ argument_list|)
 operator|==
 operator|-
 literal|1
-condition|)
+operator|)
 block|{
 name|ngx_log_error
 argument_list|(
@@ -3453,7 +3680,7 @@ argument_list|,
 name|ngx_shutdown_socket_n
 literal|" failed"
 argument_list|)
-expr_stmt|;
+block|;
 return|return
 name|ngx_http_close_request
 argument_list|(
@@ -3461,7 +3688,7 @@ name|r
 argument_list|)
 return|;
 block|}
-end_if_stmt
+end_expr_stmt
 
 begin_return
 return|return
@@ -3588,6 +3815,10 @@ condition|)
 block|{
 if|if
 condition|(
+operator|(
+name|size_t
+operator|)
+operator|(
 name|r
 operator|->
 name|header_in
@@ -3601,6 +3832,7 @@ operator|->
 name|last
 operator|.
 name|mem
+operator|)
 operator|>=
 name|lcf
 operator|->
@@ -3754,18 +3986,6 @@ modifier|*
 name|ev
 parameter_list|)
 block|{
-name|ngx_connection_t
-modifier|*
-name|c
-init|=
-operator|(
-name|ngx_connection_t
-operator|*
-operator|)
-name|ev
-operator|->
-name|data
-decl_stmt|;
 return|return
 name|ngx_event_close_connection
 argument_list|(

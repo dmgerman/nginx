@@ -247,6 +247,9 @@ name|rc
 decl_stmt|,
 name|once
 decl_stmt|;
+name|u_int
+name|flags
+decl_stmt|;
 name|size_t
 name|size
 decl_stmt|;
@@ -1260,11 +1263,10 @@ modifier|*
 name|src
 parameter_list|)
 block|{
-name|size_t
-name|size
-decl_stmt|;
 name|ssize_t
 name|n
+decl_stmt|,
+name|size
 decl_stmt|;
 name|size
 operator|=
@@ -1284,6 +1286,7 @@ if|if
 condition|(
 name|size
 operator|>
+operator|(
 name|dst
 operator|->
 name|end
@@ -1293,6 +1296,7 @@ operator|->
 name|pos
 operator|.
 name|mem
+operator|)
 condition|)
 block|{
 name|size
@@ -1558,7 +1562,7 @@ operator|*
 operator|)
 name|child
 decl_stmt|;
-name|ngx_conf_merge
+name|ngx_conf_size_merge
 argument_list|(
 name|conf
 operator|->

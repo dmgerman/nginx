@@ -71,6 +71,43 @@ name|ngx_event_t
 typedef|;
 end_typedef
 
+begin_if
+if|#
+directive|if
+operator|(
+name|HAVE_IOCP
+operator|)
+end_if
+
+begin_typedef
+DECL|struct|__anon29aec63c0108
+typedef|typedef
+struct|struct
+block|{
+DECL|member|ovlp
+name|WSAOVERLAPPED
+name|ovlp
+decl_stmt|;
+DECL|member|event
+name|ngx_event_t
+modifier|*
+name|event
+decl_stmt|;
+DECL|member|error
+name|int
+name|error
+decl_stmt|;
+DECL|typedef|ngx_event_ovlp_t
+block|}
+name|ngx_event_ovlp_t
+typedef|;
+end_typedef
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_struct
 DECL|struct|ngx_event_s
 struct|struct
@@ -178,19 +215,18 @@ comment|/*   read:   bytes to read                   */
 comment|/*   write:  available space in buffer       */
 comment|/* otherwise:                                */
 comment|/*   accept: 1 if accept many, 0 otherwise   */
-comment|/* flags - int are probably faster on write then bits ??? */
 DECL|member|oneshot
 name|unsigned
 name|oneshot
 range|:
 literal|1
 decl_stmt|;
-DECL|member|listening
-name|unsigned
-name|listening
-range|:
-literal|1
-decl_stmt|;
+if|#
+directive|if
+literal|0
+block|unsigned         listening:1;
+endif|#
+directive|endif
 DECL|member|write
 name|unsigned
 name|write
@@ -277,6 +313,31 @@ endif|#
 directive|endif
 if|#
 directive|if
+operator|(
+name|HAVE_AIO
+operator|)
+if|#
+directive|if
+operator|(
+name|HAVE_IOCP
+operator|)
+DECL|member|ovlp
+name|ngx_event_ovlp_t
+name|ovlp
+decl_stmt|;
+else|#
+directive|else
+DECL|member|aiocb
+name|struct
+name|aiocb
+name|aiocb
+decl_stmt|;
+endif|#
+directive|endif
+endif|#
+directive|endif
+if|#
+directive|if
 literal|0
 block|void            *thr_ctx;
 comment|/* event thread context if $(CC) doesn't                                    understand __thread declaration                                    and pthread_getspecific() is too costly */
@@ -296,7 +357,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2c32fcd40103
+DECL|enum|__anon29aec63c0203
 typedef|typedef
 enum|enum
 block|{
@@ -335,6 +396,19 @@ name|NGX_KQUEUE_EVENT
 block|,
 endif|#
 directive|endif
+if|#
+directive|if
+operator|(
+name|HAVE_IOCP
+operator|)
+DECL|enumerator|NGX_IOCP_EVENT
+name|NGX_IOCP_EVENT
+block|,
+endif|#
+directive|endif
+DECL|enumerator|NGX_DUMMY_EVENT
+name|NGX_DUMMY_EVENT
+comment|/* avoid comma at end of enumerator list */
 DECL|typedef|ngx_event_type_e
 block|}
 name|ngx_event_type_e
@@ -342,7 +416,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c32fcd40208
+DECL|struct|__anon29aec63c0308
 typedef|typedef
 struct|struct
 block|{
@@ -493,6 +567,18 @@ define|#
 directive|define
 name|NGX_HAVE_AIO_EVENT
 value|16
+end_define
+
+begin_comment
+comment|/* Need to add socket or halde only once - i/o completion port.    It also requires to set HAVE_AIO_EVENT and NGX_HAVE_AIO_EVENT */
+end_comment
+
+begin_define
+DECL|macro|NGX_HAVE_IOCP_EVENT
+define|#
+directive|define
+name|NGX_HAVE_IOCP_EVENT
+value|32
 end_define
 
 begin_comment
@@ -824,6 +910,43 @@ endif|#
 directive|endif
 end_endif
 
+begin_if
+if|#
+directive|if
+operator|(
+name|HAVE_IOCP_EVENT
+operator|)
+end_if
+
+begin_define
+DECL|macro|ngx_event_recv
+define|#
+directive|define
+name|ngx_event_recv
+value|ngx_event_wsarecv
+end_define
+
+begin_elif
+elif|#
+directive|elif
+operator|(
+name|HAVE_AIO_EVENT
+operator|)
+end_elif
+
+begin_define
+DECL|macro|ngx_event_recv
+define|#
+directive|define
+name|ngx_event_recv
+value|ngx_event_aio_read
+end_define
+
+begin_else
+else|#
+directive|else
+end_else
+
 begin_define
 DECL|macro|ngx_event_recv
 define|#
@@ -837,6 +960,11 @@ endif|#
 directive|endif
 end_endif
 
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_define
 DECL|macro|ngx_del_timer
 define|#
@@ -844,37 +972,6 @@ directive|define
 name|ngx_del_timer
 value|ngx_event_del_timer
 end_define
-
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-
-begin_if
-unit|ngx_inline static void ngx_del_timer(ngx_event_t *ev) {
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG_EVENT
-operator|)
-end_if
-
-begin_comment
-comment|/* STUB - we can not cast (ngx_connection_t *) here */
-end_comment
-
-begin_endif
-unit|ngx_log_debug(ev->log, "del timer: %d" _ *(int *)(ev->data));
-endif|#
-directive|endif
-end_endif
-
-begin_endif
-unit|if (ev->timer_prev) {         ev->timer_prev->timer_next = ev->timer_next;     }      if (ev->timer_next) {         ev->timer_next->timer_delta += ev->timer_delta;         ev->timer_next->timer_prev = ev->timer_prev;         ev->timer_next = NULL;     }      if (ev->timer_prev) {         ev->timer_prev = NULL;     } }
-endif|#
-directive|endif
-end_endif
 
 begin_decl_stmt
 specifier|extern
@@ -934,6 +1031,35 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_function_decl
+name|ssize_t
+name|ngx_event_recv_core
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|,
+name|char
+modifier|*
+name|buf
+parameter_list|,
+name|size_t
+name|size
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|int
+name|ngx_event_close_connection
+parameter_list|(
+name|ngx_event_t
+modifier|*
+name|ev
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_function_decl
 name|void

@@ -148,7 +148,7 @@ literal|1
 condition|)
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_ERR
+name|NGX_LOG_ALERT
 argument_list|,
 name|c
 operator|->

@@ -135,6 +135,13 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_sendfile_flags
+name|u_int
+name|ngx_sendfile_flags
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_server
 name|ngx_server_t
 name|ngx_server
@@ -223,12 +230,23 @@ directive|if
 operator|(
 name|WIN32
 operator|)
+if|if
+condition|(
 name|ngx_init_sockets
 argument_list|(
 operator|&
 name|ngx_log
 argument_list|)
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+name|exit
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
+block|}
 else|#
 directive|else
 name|ngx_set_signals

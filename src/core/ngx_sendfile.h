@@ -45,6 +45,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_connection.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_sendv.h>
 end_include
 
@@ -52,8 +58,9 @@ begin_function_decl
 name|int
 name|ngx_sendfile
 parameter_list|(
-name|ngx_socket_t
-name|s
+name|ngx_connection_t
+modifier|*
+name|c
 parameter_list|,
 name|ngx_iovec_t
 modifier|*
@@ -82,12 +89,18 @@ name|off_t
 modifier|*
 name|sent
 parameter_list|,
-name|ngx_log_t
-modifier|*
-name|log
+name|u_int
+name|flags
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_decl_stmt
+specifier|extern
+name|u_int
+name|ngx_sendfile_flags
+decl_stmt|;
+end_decl_stmt
 
 begin_endif
 endif|#

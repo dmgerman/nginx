@@ -75,6 +75,24 @@ endif|#
 directive|endif
 end_endif
 
+begin_function_decl
+specifier|static
+name|int
+name|ngx_devpoll_set_event
+parameter_list|(
+name|ngx_event_t
+modifier|*
+name|ev
+parameter_list|,
+name|int
+name|event
+parameter_list|,
+name|u_int
+name|flags
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_comment
 comment|/* STUB */
 end_comment
@@ -611,6 +629,7 @@ end_function
 
 begin_function
 DECL|function|ngx_devpoll_set_event (ngx_event_t * ev,int event,u_int flags)
+specifier|static
 name|int
 name|ngx_devpoll_set_event
 parameter_list|(
@@ -852,10 +871,6 @@ decl_stmt|;
 name|ngx_err_t
 name|err
 decl_stmt|;
-name|ngx_event_t
-modifier|*
-name|ev
-decl_stmt|;
 name|ngx_connection_t
 modifier|*
 name|c
@@ -1031,6 +1046,9 @@ literal|0
 expr_stmt|;
 if|if
 condition|(
+operator|(
+name|int
+operator|)
 name|timer
 operator|!=
 name|INFTIM
@@ -1389,6 +1407,9 @@ block|}
 block|}
 if|if
 condition|(
+operator|(
+name|int
+operator|)
 name|timer
 operator|!=
 name|INFTIM

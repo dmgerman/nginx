@@ -97,6 +97,14 @@ value|ETIMEDOUT
 end_define
 
 begin_define
+DECL|macro|NGX_ECANCELED
+define|#
+directive|define
+name|NGX_ECANCELED
+value|ECANCELED
+end_define
+
+begin_define
 DECL|macro|ngx_errno
 define|#
 directive|define

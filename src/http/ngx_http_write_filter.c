@@ -720,7 +720,7 @@ operator|*
 operator|)
 name|child
 decl_stmt|;
-name|ngx_conf_merge
+name|ngx_conf_size_merge
 argument_list|(
 name|conf
 operator|->
