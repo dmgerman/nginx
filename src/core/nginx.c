@@ -36,21 +36,6 @@ function_decl|;
 end_function_decl
 
 begin_decl_stmt
-DECL|variable|ngx_log
-name|ngx_log_t
-name|ngx_log
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-DECL|variable|ngx_pool
-name|ngx_pool_t
-modifier|*
-name|ngx_pool
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
 DECL|variable|ngx_conf_ctx
 name|void
 modifier|*
@@ -122,6 +107,13 @@ name|ngx_log_t
 modifier|*
 name|log
 decl_stmt|;
+name|ngx_pool_t
+modifier|*
+name|pool
+decl_stmt|,
+modifier|*
+name|old_pool
+decl_stmt|;
 name|ngx_conf_t
 name|conf
 decl_stmt|;
@@ -130,14 +122,6 @@ operator|=
 operator|-
 literal|1
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|ngx_log.fd = STDERR_FILENO;     ngx_log.log_level = NGX_LOG_INFO;
-comment|/* STUB */
-block_content|ngx_log.log_level = NGX_LOG_DEBUG;
-endif|#
-directive|endif
 name|log
 operator|=
 name|ngx_log_init_errlog
@@ -157,18 +141,6 @@ return|return
 literal|1
 return|;
 block|}
-name|ngx_pool
-operator|=
-name|ngx_create_pool
-argument_list|(
-literal|16
-operator|*
-literal|1024
-argument_list|,
-name|log
-argument_list|)
-expr_stmt|;
-comment|/* */
 name|ngx_max_module
 operator|=
 literal|0
@@ -199,13 +171,42 @@ name|ngx_max_module
 operator|++
 expr_stmt|;
 block|}
+if|#
+directive|if
+literal|0
+block_content|ngx_test_null(cycle->pool, ngx_create_pool(16 * 1024, log), 1);      if (ngx_init_conf(cycle) == NGX_ERROR) {         ngx_destroy_pool(cycle->pool);         return 1;     }
+comment|/* daemon */
+comment|/* life cycle */
+block_content|{
+comment|/* forks */
+comment|/* threads */
+block_content|for ( ;; ) {             worker;              new_cycle = ngx_calloc(sizeof(ngx_cycle_t), cycle->log);              if (new_cycle == NULL) {                 continue;             }              new_cycle->pool = ngx_create_pool(16 * 1024, cycle->log);              if (new_cycle->pool == NULL) {                 ngx_free(new_cycle);                 continue;             }              if (ngx_init_conf(new_cycle) == NGX_ERROR) {                 ngx_destroy_pool(new_cycle->pool);                 ngx_free(new_cycle);                 continue;             }
+comment|/* update bound listening */
+block_content|ngx_destroy_pool(cycle->pool);             ngx_free(cycle);              cycle = new_cycle;             break;         }     }      return 0;
+endif|#
+directive|endif
 comment|/* life cycle */
 block|{
+name|old_pool
+operator|=
+name|pool
+expr_stmt|;
+name|pool
+operator|=
+name|ngx_create_pool
+argument_list|(
+literal|16
+operator|*
+literal|1024
+argument_list|,
+name|log
+argument_list|)
+expr_stmt|;
 name|ngx_init_array
 argument_list|(
 name|ngx_listening_sockets
 argument_list|,
-name|ngx_pool
+name|pool
 argument_list|,
 literal|10
 argument_list|,
@@ -236,7 +237,7 @@ name|args
 argument_list|,
 name|ngx_create_array
 argument_list|(
-name|ngx_pool
+name|pool
 argument_list|,
 literal|10
 argument_list|,
@@ -255,7 +256,7 @@ name|ngx_conf_ctx
 argument_list|,
 name|ngx_pcalloc
 argument_list|(
-name|ngx_pool
+name|pool
 argument_list|,
 name|ngx_max_module
 operator|*
@@ -279,7 +280,7 @@ name|conf
 operator|.
 name|pool
 operator|=
-name|ngx_pool
+name|pool
 expr_stmt|;
 name|conf
 operator|.
@@ -383,7 +384,7 @@ index|]
 operator|->
 name|init_module
 argument_list|(
-name|ngx_pool
+name|pool
 argument_list|)
 operator|==
 name|NGX_ERROR
@@ -416,7 +417,7 @@ argument_list|(
 operator|&
 name|ngx_listening_sockets
 argument_list|,
-name|ngx_pool
+name|pool
 argument_list|,
 name|log
 argument_list|)
@@ -434,6 +435,18 @@ literal|0
 return|;
 block|}
 end_function
+
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
+begin_endif
+unit|static int ngx_init_conf(ngx_cycle_t *cycle) {     ngx_conf_t   conf;      ngx_init_array(cycle->listening, cycle->pool, 10, sizeof(ngx_listening_t),                    NGX_ERROR);      ngx_memzero(&conf, sizeof(ngx_conf_t));      ngx_test_null(conf.args,                   ngx_create_array(cycle->pool, 10, sizeof(ngx_str_t)),                   NGX_ERROR);      ngx_test_null(ngx_conf_ctx,                   ngx_pcalloc(cycle->pool, ngx_max_module * sizeof(void *)),                   NGX_ERROR);      conf.ctx = ngx_conf_ctx;     conf.pool = cycle->pool;     conf.log = cycle->log;     conf.module_type = NGX_CORE_MODULE;     conf.cmd_type = NGX_MAIN_CONF;      conf_file.len = sizeof(NGINX_CONF) - 1;     conf_file.data = NGINX_CONF;      if (ngx_conf_parse(&conf,&conf_file) != NGX_CONF_OK) {         return NGX_ERROR;     }      return NGX_OK; }
+endif|#
+directive|endif
+end_endif
 
 begin_function
 DECL|function|ngx_open_listening_sockets (ngx_log_t * log)

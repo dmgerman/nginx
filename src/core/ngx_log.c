@@ -110,6 +110,14 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_stderr
+specifier|static
+name|ngx_open_file_t
+name|ngx_stderr
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_log
 specifier|static
 name|ngx_log_t
@@ -628,12 +636,16 @@ if|if
 condition|(
 name|log
 operator|->
+name|file
+operator|->
 name|fd
 condition|)
 block|{
 name|WriteFile
 argument_list|(
 name|log
+operator|->
+name|file
 operator|->
 name|fd
 argument_list|,
@@ -661,6 +673,8 @@ expr_stmt|;
 name|write
 argument_list|(
 name|log
+operator|->
+name|file
 operator|->
 name|fd
 argument_list|,
@@ -912,7 +926,7 @@ directive|if
 operator|(
 name|WIN32
 operator|)
-name|ngx_log
+name|ngx_stderr
 operator|.
 name|fd
 operator|=
@@ -923,7 +937,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|ngx_log
+name|ngx_stderr
 operator|.
 name|fd
 operator|==
@@ -937,7 +951,7 @@ return|;
 block|}
 if|else if
 condition|(
-name|ngx_log
+name|ngx_stderr
 operator|.
 name|fd
 operator|==
@@ -949,7 +963,7 @@ comment|/* TODO: where we can log possible errors ? */
 block|}
 else|#
 directive|else
-name|ngx_log
+name|ngx_stderr
 operator|.
 name|fd
 operator|=
@@ -957,6 +971,13 @@ name|STDERR_FILENO
 expr_stmt|;
 endif|#
 directive|endif
+name|ngx_log
+operator|.
+name|file
+operator|=
+operator|&
+name|ngx_stderr
+expr_stmt|;
 name|ngx_log
 operator|.
 name|log_level
@@ -1016,6 +1037,8 @@ name|elts
 expr_stmt|;
 name|log
 operator|->
+name|file
+operator|->
 name|fd
 operator|=
 name|ngx_open_file
@@ -1037,6 +1060,8 @@ expr_stmt|;
 if|if
 condition|(
 name|log
+operator|->
+name|file
 operator|->
 name|fd
 operator|==
@@ -1123,6 +1148,8 @@ condition|(
 name|ngx_file_append_mode
 argument_list|(
 name|log
+operator|->
+name|file
 operator|->
 name|fd
 argument_list|)

@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|enum|__anon29028e9c0103
+DECL|enum|__anon2c62cecb0103
 typedef|typedef
 enum|enum
 block|{
@@ -68,7 +68,7 @@ comment|/*     "[%time] [%level] %pid#%tid: %message:(%errno)%errstr, while %act
 end_comment
 
 begin_typedef
-DECL|struct|__anon29028e9c0208
+DECL|struct|__anon2c62cecb0208
 typedef|typedef
 struct|struct
 block|{
@@ -76,9 +76,10 @@ DECL|member|log_level
 name|int
 name|log_level
 decl_stmt|;
-DECL|member|fd
-name|ngx_fd_t
-name|fd
+DECL|member|file
+name|ngx_open_file_t
+modifier|*
+name|file
 decl_stmt|;
 DECL|member|data
 name|void
