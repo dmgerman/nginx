@@ -24,7 +24,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b0bdbc80108
+DECL|struct|__anon2744a0290108
 typedef|typedef
 struct|struct
 block|{
@@ -39,7 +39,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0bdbc80208
+DECL|struct|__anon2744a0290208
 typedef|typedef
 struct|struct
 block|{
@@ -539,9 +539,6 @@ literal|0
 operator|&&
 name|size
 operator|<
-operator|(
-name|off_t
-operator|)
 name|conf
 operator|->
 name|postpone_output
