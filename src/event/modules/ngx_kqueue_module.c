@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a8efa1f0108
+DECL|struct|__anon29cfa6ed0108
 typedef|typedef
 struct|struct
 block|{
@@ -830,7 +830,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"previous event were not passed in kernel"
+literal|"previous event on #%d were not passed in kernel"
 argument_list|,
 name|c
 operator|->

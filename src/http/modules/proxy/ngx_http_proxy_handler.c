@@ -2332,6 +2332,14 @@ block|}
 block|}
 return|return;
 block|}
+name|ngx_event_connect_peer_failed
+argument_list|(
+operator|&
+name|p
+operator|->
+name|upstream
+argument_list|)
+expr_stmt|;
 name|ngx_http_proxy_close_connection
 argument_list|(
 name|c
@@ -4831,7 +4839,7 @@ name|char
 modifier|*
 name|pos
 decl_stmt|;
-DECL|enum|__anon277f5a830103
+DECL|enum|__anon2c09ec010103
 enum|enum
 block|{
 DECL|enumerator|sw_start

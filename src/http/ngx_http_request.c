@@ -3079,9 +3079,9 @@ return|return;
 block|}
 if|if
 condition|(
-name|r
+name|rev
 operator|->
-name|header_timeout_set
+name|timer_set
 condition|)
 block|{
 name|ngx_del_timer
