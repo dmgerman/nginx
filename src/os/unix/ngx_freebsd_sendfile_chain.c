@@ -490,6 +490,11 @@ name|next
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|file
+condition|)
+block|{
 comment|/* create the tailer iovec and coalesce the neighbouring hunks */
 name|prev
 operator|=
@@ -621,6 +626,7 @@ name|hunk
 operator|->
 name|last
 expr_stmt|;
+block|}
 block|}
 comment|/*          * the tail is the rest of the chain that exceeded          * a single sendfile() capability          */
 name|tail
