@@ -1314,11 +1314,15 @@ name|c
 operator|->
 name|data
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug0
 argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
 name|rev
 operator|->
 name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"http process request line"
 argument_list|)

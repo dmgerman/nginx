@@ -42,6 +42,17 @@ modifier|*
 name|cycle
 parameter_list|)
 block|{
+if|if
+condition|(
+name|cycle
+operator|->
+name|old_cycle
+condition|)
+block|{
+return|return
+name|NGX_OK
+return|;
+block|}
 name|ngx_event_timer_rbtree
 operator|=
 operator|&

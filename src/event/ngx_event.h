@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon29e71e020108
+DECL|struct|__anon2b89a9ba0108
 typedef|typedef
 struct|struct
 block|{
@@ -364,7 +364,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29e71e020208
+DECL|struct|__anon2b89a9ba0208
 typedef|typedef
 struct|struct
 block|{
@@ -1054,7 +1054,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon29e71e020308
+DECL|struct|__anon2b89a9ba0308
 typedef|typedef
 struct|struct
 block|{
@@ -1070,6 +1070,11 @@ DECL|member|use
 name|int
 name|use
 decl_stmt|;
+DECL|member|name
+name|char
+modifier|*
+name|name
+decl_stmt|;
 DECL|typedef|ngx_event_conf_t
 block|}
 name|ngx_event_conf_t
@@ -1077,7 +1082,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e71e020408
+DECL|struct|__anon2b89a9ba0408
 typedef|typedef
 struct|struct
 block|{

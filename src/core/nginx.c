@@ -84,7 +84,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon2c0b56730108
+DECL|struct|__anon28e65b1b0108
 typedef|typedef
 struct|struct
 block|{
@@ -916,6 +916,9 @@ decl_stmt|,
 name|n
 decl_stmt|,
 name|failed
+decl_stmt|;
+name|ngx_fd_t
+name|fd
 decl_stmt|;
 name|ngx_str_t
 name|conf_file
@@ -1799,6 +1802,70 @@ operator|==
 literal|0
 condition|)
 block|{
+name|fd
+operator|=
+name|ls
+index|[
+name|i
+index|]
+operator|.
+name|fd
+expr_stmt|;
+if|#
+directive|if
+operator|(
+name|WIN32
+operator|)
+comment|/*                          * Winsock assignes a socket number divisible by 4 so                          * to find a connection we divide a socket number by 4.                          */
+name|fd
+operator|/=
+literal|4
+expr_stmt|;
+endif|#
+directive|endif
+if|if
+condition|(
+name|fd
+operator|>=
+name|cycle
+operator|->
+name|connection_n
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"%d connections is not enough to hold "
+literal|"an open listening socket on %s, "
+literal|"required at least %d connections"
+argument_list|,
+name|cycle
+operator|->
+name|connection_n
+argument_list|,
+name|ls
+index|[
+name|i
+index|]
+operator|.
+name|addr_text
+operator|.
+name|data
+argument_list|,
+name|fd
+argument_list|)
+expr_stmt|;
+name|failed
+operator|=
+literal|1
+expr_stmt|;
+break|break;
+block|}
 name|nls
 index|[
 name|n
@@ -1900,6 +1967,12 @@ block|}
 block|}
 if|if
 condition|(
+operator|!
+name|failed
+condition|)
+block|{
+if|if
+condition|(
 name|ngx_open_listening_sockets
 argument_list|(
 name|cycle
@@ -1914,6 +1987,7 @@ name|failed
 operator|=
 literal|1
 expr_stmt|;
+block|}
 block|}
 block|}
 if|if
@@ -2727,7 +2801,7 @@ argument_list|,
 name|ngx_socket_errno
 argument_list|,
 name|ngx_socket_n
-literal|" %s falied"
+literal|" %s failed"
 argument_list|,
 name|ls
 index|[

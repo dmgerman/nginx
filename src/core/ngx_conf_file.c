@@ -979,7 +979,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"\"%s\" directive %s in %s:%d"
+literal|"the \"%s\" directive %s in %s:%d"
 argument_list|,
 name|name
 operator|->

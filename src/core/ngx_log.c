@@ -1318,7 +1318,7 @@ init|;
 name|n
 operator|<
 comment|/* STUB */
-literal|3
+literal|4
 condition|;
 name|n
 operator|++
@@ -1390,12 +1390,11 @@ name|log_level
 operator||=
 name|d
 expr_stmt|;
+block|}
 name|d
 operator|<<=
 literal|1
 expr_stmt|;
-continue|continue;
-block|}
 block|}
 if|if
 condition|(
