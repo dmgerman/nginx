@@ -293,13 +293,6 @@ name|ngx_max_module
 decl_stmt|;
 end_decl_stmt
 
-begin_decl_stmt
-DECL|variable|ngx_inherited
-name|ngx_uint_t
-name|ngx_inherited
-decl_stmt|;
-end_decl_stmt
-
 begin_function
 DECL|function|main (int argc,char * const * argv)
 name|int
@@ -643,7 +636,7 @@ operator|)
 if|#
 directive|if
 literal|0
-block_content|if (ccf->run_as_service) {         if (ngx_service(cycle->log) == NGX_ERROR) {             return 1;         }          return 0;     }
+block_content|TODO:      if (ccf->run_as_service) {         if (ngx_service(cycle->log) == NGX_ERROR) {             return 1;         }          return 0;     }
 endif|#
 directive|endif
 else|#
@@ -674,6 +667,10 @@ return|return
 literal|1
 return|;
 block|}
+name|ngx_daemonized
+operator|=
+literal|1
+expr_stmt|;
 block|}
 if|if
 condition|(
