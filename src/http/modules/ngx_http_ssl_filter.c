@@ -46,7 +46,7 @@ value|"cert.pem"
 end_define
 
 begin_typedef
-DECL|struct|__anon27ffca010108
+DECL|struct|__anon2a52e88a0108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ffca010208
+DECL|struct|__anon2a52e88a0208
 typedef|typedef
 struct|struct
 block|{
@@ -809,7 +809,7 @@ argument_list|,
 name|mode
 argument_list|)
 expr_stmt|;
-name|SSL_smart_shutdown
+name|SSL_shutdown
 argument_list|(
 name|ssl
 argument_list|)

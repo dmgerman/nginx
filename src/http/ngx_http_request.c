@@ -3693,12 +3693,8 @@ return|;
 block|}
 if|#
 directive|if
-literal|1
-name|ngx_http_ssl_read
-argument_list|(
-name|r
-argument_list|)
-expr_stmt|;
+literal|0
+block_content|ngx_http_ssl_read(r);
 else|#
 directive|else
 name|n
