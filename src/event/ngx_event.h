@@ -88,12 +88,13 @@ name|ngx_event_t
 modifier|*
 name|prev
 decl_stmt|;
-comment|/* queue in select(), poll() */
+comment|/* queue in select(), poll(), mutex(),        */
 DECL|member|next
 name|ngx_event_t
 modifier|*
 name|next
 decl_stmt|;
+comment|/*   aio_read(), aio_write()                  */
 DECL|member|timer_handler
 name|int
 function_decl|(
@@ -207,9 +208,9 @@ name|eof
 range|:
 literal|1
 decl_stmt|;
-DECL|member|errno
+DECL|member|error
 name|int
-name|errno
+name|error
 decl_stmt|;
 endif|#
 directive|endif
@@ -218,7 +219,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2b0b88ac0103
+DECL|enum|__anon2918c48d0103
 typedef|typedef
 enum|enum
 block|{
@@ -254,7 +255,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0b88ac0208
+DECL|struct|__anon2918c48d0208
 typedef|typedef
 struct|struct
 block|{
@@ -303,12 +304,35 @@ modifier|*
 name|log
 parameter_list|)
 function_decl|;
-comment|/*     int  (*read)(ngx_event_t *ev, char *buf, size_t size);     int  (*write)(ngx_event_t *ev, char *buf, size_t size); */
+DECL|member|read
+name|int
+function_decl|(
+modifier|*
+name|read
+function_decl|)
+parameter_list|(
+name|ngx_event_t
+modifier|*
+name|ev
+parameter_list|,
+name|char
+modifier|*
+name|buf
+parameter_list|,
+name|size_t
+name|size
+parameter_list|)
+function_decl|;
+comment|/*     int  (*write)(ngx_event_t *ev, char *buf, size_t size); */
 DECL|typedef|ngx_event_actions_t
 block|}
 name|ngx_event_actions_t
 typedef|;
 end_typedef
+
+begin_comment
+comment|/*  NGX_LEVEL_EVENT (default)  select, poll, kqueue                                 requires to read whole data NGX_ONESHOT_EVENT          kqueue NGX_CLEAR_EVENT            kqueue  */
+end_comment
 
 begin_if
 if|#
@@ -448,6 +472,14 @@ name|ngx_del_event
 value|ngx_kqueue_del_event
 end_define
 
+begin_define
+DECL|macro|ngx_event_recv
+define|#
+directive|define
+name|ngx_event_recv
+value|ngx_event_recv_core
+end_define
+
 begin_else
 else|#
 directive|else
@@ -483,6 +515,14 @@ define|#
 directive|define
 name|ngx_del_event
 value|ngx_event_actions.del
+end_define
+
+begin_define
+DECL|macro|ngx_event_recv
+define|#
+directive|define
+name|ngx_event_recv
+value|ngx_event_recv_core
 end_define
 
 begin_endif

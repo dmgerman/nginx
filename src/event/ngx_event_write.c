@@ -54,10 +54,10 @@ file|<ngx_event_write.h>
 end_include
 
 begin_function
-DECL|function|ngx_event_writer (ngx_connection_t * cn,ngx_chain_t * in,off_t flush)
+DECL|function|ngx_event_write (ngx_connection_t * cn,ngx_chain_t * in,off_t flush)
 name|ngx_chain_t
 modifier|*
-name|ngx_event_writer
+name|ngx_event_write
 parameter_list|(
 name|ngx_connection_t
 modifier|*
@@ -182,11 +182,7 @@ name|hunk
 operator|->
 name|type
 operator|&
-operator|(
 name|NGX_HUNK_IN_MEMORY
-operator||
-name|NGX_HUNK_FLUSH
-operator|)
 condition|)
 block|{
 name|last
@@ -208,25 +204,10 @@ name|hunk
 operator|->
 name|type
 operator|&
-operator|(
 name|NGX_HUNK_IN_MEMORY
-operator||
-name|NGX_HUNK_FLUSH
-operator|)
 operator|)
 condition|)
 block|{
-if|if
-condition|(
-name|ch
-operator|->
-name|hunk
-operator|->
-name|type
-operator|&
-name|NGX_HUNK_FLUSH
-condition|)
-continue|continue;
 if|if
 condition|(
 name|last
@@ -237,7 +218,7 @@ name|hunk
 operator|->
 name|pos
 operator|.
-name|p
+name|mem
 condition|)
 block|{
 name|iov
@@ -250,7 +231,7 @@ name|hunk
 operator|->
 name|last
 operator|.
-name|p
+name|mem
 operator|-
 name|ch
 operator|->
@@ -258,7 +239,7 @@ name|hunk
 operator|->
 name|pos
 operator|.
-name|p
+name|mem
 expr_stmt|;
 block|}
 else|else
@@ -290,7 +271,7 @@ name|hunk
 operator|->
 name|pos
 operator|.
-name|p
+name|mem
 expr_stmt|;
 name|iov
 operator|->
@@ -302,7 +283,7 @@ name|hunk
 operator|->
 name|last
 operator|.
-name|p
+name|mem
 operator|-
 name|ch
 operator|->
@@ -310,7 +291,7 @@ name|hunk
 operator|->
 name|pos
 operator|.
-name|p
+name|mem
 expr_stmt|;
 name|last
 operator|=
@@ -320,7 +301,7 @@ name|hunk
 operator|->
 name|last
 operator|.
-name|p
+name|mem
 expr_stmt|;
 block|}
 name|ch
@@ -414,11 +395,7 @@ name|hunk
 operator|->
 name|type
 operator|&
-operator|(
 name|NGX_HUNK_IN_MEMORY
-operator||
-name|NGX_HUNK_FLUSH
-operator|)
 condition|)
 block|{
 name|last
@@ -440,25 +417,10 @@ name|hunk
 operator|->
 name|type
 operator|&
-operator|(
 name|NGX_HUNK_IN_MEMORY
-operator||
-name|NGX_HUNK_FLUSH
-operator|)
 operator|)
 condition|)
 block|{
-if|if
-condition|(
-name|ch
-operator|->
-name|hunk
-operator|->
-name|type
-operator|&
-name|NGX_HUNK_FLUSH
-condition|)
-continue|continue;
 if|if
 condition|(
 name|last
@@ -469,7 +431,7 @@ name|hunk
 operator|->
 name|pos
 operator|.
-name|p
+name|mem
 condition|)
 block|{
 name|iov
@@ -482,7 +444,7 @@ name|hunk
 operator|->
 name|last
 operator|.
-name|p
+name|mem
 operator|-
 name|ch
 operator|->
@@ -490,7 +452,7 @@ name|hunk
 operator|->
 name|pos
 operator|.
-name|p
+name|mem
 expr_stmt|;
 block|}
 else|else
@@ -522,7 +484,7 @@ name|hunk
 operator|->
 name|pos
 operator|.
-name|p
+name|mem
 expr_stmt|;
 name|iov
 operator|->
@@ -534,7 +496,7 @@ name|hunk
 operator|->
 name|last
 operator|.
-name|p
+name|mem
 operator|-
 name|ch
 operator|->
@@ -542,7 +504,7 @@ name|hunk
 operator|->
 name|pos
 operator|.
-name|p
+name|mem
 expr_stmt|;
 name|last
 operator|=
@@ -552,7 +514,7 @@ name|hunk
 operator|->
 name|last
 operator|.
-name|p
+name|mem
 expr_stmt|;
 block|}
 name|ch
@@ -596,7 +558,7 @@ name|file
 operator|->
 name|pos
 operator|.
-name|f
+name|file
 argument_list|,
 operator|(
 name|size_t
@@ -606,13 +568,13 @@ name|file
 operator|->
 name|last
 operator|.
-name|f
+name|file
 operator|-
 name|file
 operator|->
 name|pos
 operator|.
-name|f
+name|file
 operator|)
 argument_list|,
 operator|(
@@ -731,7 +693,7 @@ name|hunk
 operator|->
 name|last
 operator|.
-name|f
+name|file
 operator|-
 name|ch
 operator|->
@@ -739,7 +701,7 @@ name|hunk
 operator|->
 name|pos
 operator|.
-name|f
+name|file
 condition|)
 block|{
 name|sent
@@ -750,7 +712,7 @@ name|hunk
 operator|->
 name|last
 operator|.
-name|f
+name|file
 operator|-
 name|ch
 operator|->
@@ -758,7 +720,7 @@ name|hunk
 operator|->
 name|pos
 operator|.
-name|f
+name|file
 expr_stmt|;
 name|ch
 operator|->
@@ -766,7 +728,7 @@ name|hunk
 operator|->
 name|last
 operator|.
-name|f
+name|file
 operator|=
 name|ch
 operator|->
@@ -774,7 +736,7 @@ name|hunk
 operator|->
 name|pos
 operator|.
-name|f
+name|file
 expr_stmt|;
 continue|continue;
 block|}
@@ -784,15 +746,22 @@ name|hunk
 operator|->
 name|pos
 operator|.
-name|f
+name|file
 operator|+=
 name|sent
 expr_stmt|;
 break|break;
 block|}
+comment|/* flush hunks if threaded state */
 block|}
 do|while
 condition|(
+name|cn
+operator|->
+name|write
+operator|->
+name|context
+operator|&&
 name|flush
 operator|>
 literal|0

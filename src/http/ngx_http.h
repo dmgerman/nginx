@@ -111,7 +111,41 @@ value|200
 end_define
 
 begin_typedef
-DECL|struct|__anon288fe8cb0108
+DECL|struct|__anon27a839540108
+typedef|typedef
+struct|struct
+block|{
+DECL|member|ctx
+name|void
+modifier|*
+name|ctx
+decl_stmt|;
+comment|/* STUB */
+DECL|typedef|ngx_http_module_t
+block|}
+name|ngx_http_module_t
+typedef|;
+end_typedef
+
+begin_comment
+comment|/* STUB */
+end_comment
+
+begin_define
+DECL|macro|ngx_get_module_ctx (r,module)
+define|#
+directive|define
+name|ngx_get_module_ctx
+parameter_list|(
+name|r
+parameter_list|,
+name|module
+parameter_list|)
+value|(module)->ctx
+end_define
+
+begin_typedef
+DECL|struct|__anon27a839540208
 typedef|typedef
 struct|struct
 block|{
@@ -142,7 +176,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288fe8cb0208
+DECL|struct|__anon27a839540308
 typedef|typedef
 struct|struct
 block|{

@@ -20,17 +20,23 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_recv.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_connection.h>
 end_include
 
 begin_function
-DECL|function|ngx_event_recv (ngx_connection_t * c,char * buf,size_t size)
+DECL|function|ngx_event_recv_core (ngx_event_t * ev,char * buf,size_t size)
 name|int
-name|ngx_event_recv
+name|ngx_event_recv_core
 parameter_list|(
-name|ngx_connection_t
+name|ngx_event_t
 modifier|*
-name|c
+name|ev
 parameter_list|,
 name|char
 modifier|*
@@ -46,19 +52,33 @@ decl_stmt|;
 name|ngx_err_t
 name|err
 decl_stmt|;
-name|ngx_event_t
+name|ngx_connection_t
 modifier|*
-name|ev
-init|=
 name|c
-operator|->
-name|read
 decl_stmt|;
+name|c
+operator|=
+operator|(
+name|ngx_connection_t
+operator|*
+operator|)
+name|ev
+operator|->
+name|data
+expr_stmt|;
 if|#
 directive|if
 operator|(
 name|HAVE_KQUEUE
 operator|)
+name|ngx_log_debug
+argument_list|(
+argument|ev->log
+argument_list|,
+literal|"ngx_event_recv: eof:%d, avail:%d, err:%d"
+argument|_                   ev->eof _ ev->available _ ev->error
+argument_list|)
+empty_stmt|;
 if|#
 directive|if
 operator|!
@@ -127,7 +147,7 @@ endif|#
 directive|endif
 name|n
 operator|=
-name|recv
+name|ngx_recv
 argument_list|(
 name|c
 operator|->

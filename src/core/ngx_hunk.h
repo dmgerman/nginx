@@ -31,7 +31,15 @@ file|<ngx_alloc.h>
 end_include
 
 begin_comment
-comment|/* type */
+comment|/* hunk type */
+end_comment
+
+begin_comment
+comment|/* temp means that hunk's content can be changed */
+end_comment
+
+begin_comment
+comment|/* other type means that hunk's content can not be changed */
 end_comment
 
 begin_define
@@ -66,16 +74,28 @@ name|NGX_HUNK_FILE
 value|0x0008
 end_define
 
+begin_comment
+comment|/* hunk flags */
+end_comment
+
+begin_comment
+comment|/* in thread state flush means to write the hunk completely before return */
+end_comment
+
+begin_comment
+comment|/* in event state flush means to start to write the hunk */
+end_comment
+
 begin_define
 DECL|macro|NGX_HUNK_FLUSH
 define|#
 directive|define
 name|NGX_HUNK_FLUSH
-value|0x0010
+value|0x0100
 end_define
 
 begin_comment
-comment|/* in thread state flush means to write the hunk completely before return    in event-driven state flush means to start to write the hunk */
+comment|/* last hunk */
 end_comment
 
 begin_define
@@ -83,27 +103,11 @@ DECL|macro|NGX_HUNK_LAST
 define|#
 directive|define
 name|NGX_HUNK_LAST
-value|0x0020
-end_define
-
-begin_define
-DECL|macro|NGX_HUNK_IN_MEMORY
-define|#
-directive|define
-name|NGX_HUNK_IN_MEMORY
-value|(NGX_HUNK_TEMP | NGX_HUNK_MEMORY | NGX_HUNK_MMAP )
-end_define
-
-begin_define
-DECL|macro|NGX_HUNK_TYPE
-define|#
-directive|define
-name|NGX_HUNK_TYPE
-value|0x0ffff
+value|0x0200
 end_define
 
 begin_comment
-comment|/* flags */
+comment|/* can be used with NGX_HUNK_LAST only */
 end_comment
 
 begin_define
@@ -111,12 +115,16 @@ DECL|macro|NGX_HUNK_SHUTDOWN
 define|#
 directive|define
 name|NGX_HUNK_SHUTDOWN
-value|0x10000
+value|0x0400
 end_define
 
-begin_comment
-comment|/* can be used with NGX_HUNK_LAST only */
-end_comment
+begin_define
+DECL|macro|NGX_HUNK_IN_MEMORY
+define|#
+directive|define
+name|NGX_HUNK_IN_MEMORY
+value|(NGX_HUNK_TEMP|NGX_HUNK_MEMORY|NGX_HUNK_MMAP)
+end_define
 
 begin_typedef
 DECL|typedef|ngx_hunk_t
@@ -132,35 +140,35 @@ DECL|struct|ngx_hunk_s
 struct|struct
 name|ngx_hunk_s
 block|{
-DECL|union|__anon28890fee010a
+DECL|union|__anon299b3bb3010a
 union|union
 block|{
-DECL|member|p
+DECL|member|mem
 name|char
 modifier|*
-name|p
+name|mem
 decl_stmt|;
 comment|/* start of current data */
-DECL|member|f
+DECL|member|file
 name|off_t
-name|f
+name|file
 decl_stmt|;
 DECL|member|pos
 block|}
 name|pos
 union|;
-DECL|union|__anon28890fee020a
+DECL|union|__anon299b3bb3020a
 union|union
 block|{
-DECL|member|p
+DECL|member|mem
 name|char
 modifier|*
-name|p
+name|mem
 decl_stmt|;
 comment|/* end of current data */
-DECL|member|f
+DECL|member|file
 name|off_t
-name|f
+name|file
 decl_stmt|;
 DECL|member|last
 block|}

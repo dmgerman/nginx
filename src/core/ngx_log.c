@@ -217,6 +217,7 @@ argument_list|,
 name|err
 argument_list|)
 expr_stmt|;
+else|else
 name|len
 operator|+=
 name|ngx_snprintf
