@@ -36,7 +36,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon2abeac790108
+DECL|struct|__anon2b1dc7bd0108
 typedef|typedef
 struct|struct
 block|{
@@ -494,7 +494,7 @@ literal|1
 expr_stmt|;
 name|action
 operator|=
-literal|", shutdowning"
+literal|", shutting down"
 expr_stmt|;
 break|break;
 case|case
@@ -650,7 +650,7 @@ literal|1
 expr_stmt|;
 name|action
 operator|=
-literal|", shutdowning"
+literal|", shutting down"
 expr_stmt|;
 break|break;
 case|case

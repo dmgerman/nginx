@@ -248,7 +248,7 @@ argument_list|)
 block|,
 name|ngx_null_string
 block|,
-comment|/* "414 Request-URI Too Large" but we never send it                          because we treat such requests as the HTTP/0.9 requests                          and send only the body without the header */
+comment|/* "414 Request-URI Too Large" but we never send it                        * because we treat such requests as the HTTP/0.9                        * requests and send only a body without a header                        */
 name|ngx_null_string
 block|,
 comment|/* "415 Unsupported Media Type" */

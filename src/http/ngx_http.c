@@ -1121,7 +1121,7 @@ name|type
 operator|=
 name|NGX_OK
 expr_stmt|;
-comment|/* create the lists of the ports, the addresses and the server names        to allow quickly find the server core module configuration at run-time */
+comment|/*      * create the lists of the ports, the addresses and the server names      * to allow quickly find the server core module configuration at run-time      */
 name|ngx_init_array
 argument_list|(
 name|in_ports
@@ -1336,7 +1336,7 @@ name|n
 operator|++
 control|)
 block|{
-comment|/* add the server name and server core module                                    configuration to the address:port */
+comment|/*                                  * add the server name and server core module                                  * configuration to the address:port                                  */
 comment|/* TODO: duplicate names can be checked here */
 name|ngx_test_null
 argument_list|(
@@ -1379,7 +1379,7 @@ operator|.
 name|core_srv_conf
 expr_stmt|;
 block|}
-comment|/* check duplicate "default" server that                                serves this address:port */
+comment|/*                              * check duplicate "default" server that                              * serves this address:port                              */
 if|if
 condition|(
 name|lscf
@@ -1477,7 +1477,7 @@ operator|==
 name|INADDR_ANY
 condition|)
 block|{
-comment|/* "*:port" must be the last resort so move it                                to the end of the address list and add                                the new address at its place */
+comment|/*                              * "*:port" must be the last resort so move it                              * to the end of the address list and add                              * the new address at its place                              */
 name|ngx_test_null
 argument_list|(
 name|inaddr
@@ -1552,7 +1552,7 @@ index|[
 name|s
 index|]
 expr_stmt|;
-comment|/* create the empty list of the server names that                                can be served on this address:port */
+comment|/*                              * create the empty list of the server names that                              * can be served on this address:port                              */
 name|ngx_init_array
 argument_list|(
 name|inaddr
@@ -1586,7 +1586,7 @@ operator|!
 name|addr_found
 condition|)
 block|{
-comment|/* add the address to the addresses list that                            bound to this port */
+comment|/*                          * add the address to the addresses list that                          * bound to this port                          */
 name|ngx_test_null
 argument_list|(
 name|inaddr
@@ -1636,7 +1636,7 @@ index|[
 name|s
 index|]
 expr_stmt|;
-comment|/* create the empty list of the server names that                            can be served on this address:port */
+comment|/*                          * create the empty list of the server names that                          * can be served on this address:port                          */
 name|ngx_init_array
 argument_list|(
 name|inaddr
@@ -1802,7 +1802,7 @@ index|[
 name|s
 index|]
 expr_stmt|;
-comment|/* create the empty list of the server names that                    can be served on this address:port */
+comment|/*                  * create the empty list of the server names that                  * can be served on this address:port                  */
 name|ngx_init_array
 argument_list|(
 name|inaddr
@@ -1943,7 +1943,7 @@ expr_stmt|;
 break|break;
 block|}
 block|}
-comment|/* if the all server names point to the same server                then we do not need to check them at run-time */
+comment|/*              * if the all server names point to the same server              * then we do not need to check them at run-time              */
 if|if
 condition|(
 operator|!
@@ -1963,7 +1963,7 @@ literal|0
 expr_stmt|;
 block|}
 block|}
-comment|/* if there's the binding to "*:port" then we need to bind()            to "*:port" only and ignore the other bindings */
+comment|/*          * if there's the binding to "*:port" then we need to bind()          * to "*:port" only and ignore the other bindings          */
 if|if
 condition|(
 name|in_addr
@@ -2408,7 +2408,7 @@ operator|!=
 name|INADDR_ANY
 condition|)
 block|{
-comment|/* if this port has not the "*:port" binding then create                        the separate ngx_http_in_port_t for the all bindings */
+comment|/*                      * if this port has not the "*:port" binding then create                      * the separate ngx_http_in_port_t for the all bindings                      */
 name|ngx_test_null
 argument_list|(
 name|inport

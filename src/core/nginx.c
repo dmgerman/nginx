@@ -24,7 +24,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27c0940e0108
+DECL|struct|__anon2b0c7e0d0108
 typedef|typedef
 struct|struct
 block|{
@@ -63,7 +63,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c0940e0208
+DECL|struct|__anon2b0c7e0d0208
 typedef|typedef
 struct|struct
 block|{
@@ -2786,12 +2786,12 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"gracefully shutdowning"
+literal|"gracefully shutting down"
 argument_list|)
 expr_stmt|;
 name|ngx_setproctitle
 argument_list|(
-literal|"worker process is shutdowning"
+literal|"worker process is shutting down"
 argument_list|)
 expr_stmt|;
 break|break;
