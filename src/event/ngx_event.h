@@ -92,7 +92,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2a2bbe1b0108
+DECL|struct|__anon2bd4bb2e0108
 typedef|typedef
 struct|struct
 block|{
@@ -245,12 +245,13 @@ name|write
 range|:
 literal|1
 decl_stmt|;
-DECL|member|first
+DECL|member|instance
 name|unsigned
-name|first
+name|instance
 range|:
 literal|1
 decl_stmt|;
+comment|/* used to detect stale events in kqueue,                                      rt signals and epoll */
 DECL|member|active
 name|unsigned
 name|active
@@ -399,7 +400,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2a2bbe1b0203
+DECL|enum|__anon2bd4bb2e0203
 typedef|typedef
 enum|enum
 block|{
@@ -468,7 +469,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2bbe1b0308
+DECL|struct|__anon2bd4bb2e0308
 typedef|typedef
 struct|struct
 block|{

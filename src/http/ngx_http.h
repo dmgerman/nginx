@@ -343,7 +343,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon27b08dcd0108
+DECL|struct|__anon2ac2ca1b0108
 typedef|typedef
 struct|struct
 block|{
@@ -362,7 +362,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b08dcd0208
+DECL|struct|__anon2ac2ca1b0208
 typedef|typedef
 struct|struct
 block|{
@@ -416,7 +416,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b08dcd0308
+DECL|struct|__anon2ac2ca1b0308
 typedef|typedef
 struct|struct
 block|{
@@ -467,7 +467,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b08dcd0408
+DECL|struct|__anon2ac2ca1b0408
 typedef|typedef
 struct|struct
 block|{
@@ -844,7 +844,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27b08dcd0508
+DECL|struct|__anon2ac2ca1b0508
 typedef|typedef
 struct|struct
 block|{
@@ -990,7 +990,7 @@ comment|/**/
 end_comment
 
 begin_function_decl
-name|int
+name|void
 name|ngx_http_init_connection
 parameter_list|(
 name|ngx_connection_t
@@ -1002,7 +1002,7 @@ end_function_decl
 
 begin_function_decl
 name|int
-name|ngx_read_http_request_line
+name|ngx_parse_http_request_line
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
@@ -1013,7 +1013,7 @@ end_function_decl
 
 begin_function_decl
 name|int
-name|ngx_read_http_header_line
+name|ngx_parse_http_header_line
 parameter_list|(
 name|ngx_http_request_t
 modifier|*

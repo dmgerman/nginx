@@ -88,7 +88,7 @@ comment|/* STUB */
 end_comment
 
 begin_typedef
-DECL|struct|__anon28b10c8e0108
+DECL|struct|__anon27bb924e0108
 typedef|typedef
 struct|struct
 block|{
@@ -2473,6 +2473,8 @@ name|int
 name|rc
 decl_stmt|,
 name|event
+decl_stmt|,
+name|instance
 decl_stmt|;
 name|struct
 name|sockaddr_in
@@ -2946,6 +2948,12 @@ index|[
 name|s
 index|]
 expr_stmt|;
+name|instance
+operator|=
+name|rev
+operator|->
+name|instance
+expr_stmt|;
 name|ngx_memzero
 argument_list|(
 name|c
@@ -3010,13 +3018,14 @@ name|wev
 expr_stmt|;
 name|rev
 operator|->
-name|first
+name|instance
 operator|=
 name|wev
 operator|->
-name|first
+name|instance
 operator|=
-literal|1
+operator|!
+name|instance
 expr_stmt|;
 name|rev
 operator|->
@@ -4844,7 +4853,7 @@ control|)
 block|{
 name|rc
 operator|=
-name|ngx_read_http_header_line
+name|ngx_parse_http_header_line
 argument_list|(
 name|r
 argument_list|,
@@ -5773,7 +5782,7 @@ name|char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon28b10c8e0203
+DECL|enum|__anon27bb924e0203
 enum|enum
 block|{
 DECL|enumerator|sw_start

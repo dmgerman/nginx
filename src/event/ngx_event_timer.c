@@ -212,8 +212,8 @@ name|ngx_log_debug
 argument_list|(
 argument|ev->log
 argument_list|,
-literal|"set timer: %d:%d"
-argument|_ c->fd _ timer
+literal|"set timer: %d:%d, slot: %d"
+argument|_                   c->fd _ timer _ ngx_timer_cur_queue
 argument_list|)
 empty_stmt|;
 endif|#
@@ -244,21 +244,6 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG_EVENT
-operator|)
-name|ngx_log_debug
-argument_list|(
-argument|ev->log
-argument_list|,
-literal|"timer slot: %d"
-argument|_ ngx_timer_cur_queue
-argument_list|)
-empty_stmt|;
-endif|#
-directive|endif
 for|for
 control|(
 name|e

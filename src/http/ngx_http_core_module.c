@@ -2621,13 +2621,12 @@ name|c
 operator|->
 name|log
 argument_list|,
-literal|"http closed"
+literal|"http request closed"
 argument_list|)
 expr_stmt|;
 return|return
-name|NGX_ERROR
+literal|0
 return|;
-comment|/* to close connection */
 block|}
 end_function
 
