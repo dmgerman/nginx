@@ -174,14 +174,6 @@ name|request_line
 operator|.
 name|len
 expr_stmt|;
-name|ngx_log_debug
-argument_list|(
-argument|r->connection->log
-argument_list|,
-literal|"log handler: %d"
-argument|_ len
-argument_list|)
-empty_stmt|;
 name|ngx_test_null
 argument_list|(
 name|line
@@ -262,33 +254,12 @@ operator|++
 operator|=
 literal|' '
 expr_stmt|;
-operator|*
-name|p
-operator|=
-literal|'\0'
-expr_stmt|;
-name|ngx_log_debug
-argument_list|(
-argument|r->connection->log
-argument_list|,
-literal|"log handler: %s"
-argument|_ line
-argument_list|)
-empty_stmt|;
 name|ngx_localtime
 argument_list|(
 operator|&
 name|tm
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug
-argument_list|(
-argument|r->connection->log
-argument_list|,
-literal|"log handler: %s"
-argument|_ line
-argument_list|)
-empty_stmt|;
 operator|*
 name|p
 operator|++
@@ -347,19 +318,6 @@ operator|++
 operator|=
 literal|' '
 expr_stmt|;
-operator|*
-name|p
-operator|=
-literal|'\0'
-expr_stmt|;
-name|ngx_log_debug
-argument_list|(
-argument|r->connection->log
-argument_list|,
-literal|"log handler: %s"
-argument|_ line
-argument_list|)
-empty_stmt|;
 operator|*
 name|p
 operator|++
@@ -443,19 +401,6 @@ operator|->
 name|sent
 argument_list|)
 expr_stmt|;
-operator|*
-name|p
-operator|=
-literal|'\0'
-expr_stmt|;
-name|ngx_log_debug
-argument_list|(
-argument|r->connection->log
-argument_list|,
-literal|"log handler: %s"
-argument|_ line
-argument_list|)
-empty_stmt|;
 if|#
 directive|if
 operator|(
@@ -483,26 +428,15 @@ name|LF
 expr_stmt|;
 endif|#
 directive|endif
-operator|*
-name|p
-operator|=
-literal|'\0'
-expr_stmt|;
-name|ngx_log_debug
-argument_list|(
-argument|r->connection->log
-argument_list|,
-literal|"log handler: %s"
-argument|_ line
-argument_list|)
-empty_stmt|;
 name|write
 argument_list|(
 literal|1
 argument_list|,
 name|line
 argument_list|,
-name|len
+name|p
+operator|-
+name|line
 argument_list|)
 expr_stmt|;
 return|return

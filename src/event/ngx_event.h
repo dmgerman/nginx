@@ -267,7 +267,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2b057a560103
+DECL|enum|__anon27cc02c60103
 typedef|typedef
 enum|enum
 block|{
@@ -303,7 +303,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b057a560208
+DECL|struct|__anon27cc02c60208
 typedef|typedef
 struct|struct
 block|{
@@ -571,7 +571,7 @@ DECL|macro|ngx_del_event
 define|#
 directive|define
 name|ngx_del_event
-value|ngx_kqueue_add_event
+value|ngx_kqueue_del_event
 end_define
 
 begin_define

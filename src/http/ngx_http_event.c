@@ -635,7 +635,7 @@ operator|->
 name|addr_text
 operator|.
 name|len
-operator|=
+operator|==
 literal|0
 condition|)
 return|return

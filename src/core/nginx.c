@@ -540,6 +540,8 @@ name|i
 index|]
 operator|.
 name|addr_text
+operator|.
+name|data
 argument_list|)
 expr_stmt|;
 name|exit
@@ -592,6 +594,8 @@ name|i
 index|]
 operator|.
 name|addr_text
+operator|.
+name|data
 argument_list|)
 expr_stmt|;
 name|exit
@@ -639,6 +643,8 @@ name|i
 index|]
 operator|.
 name|addr_text
+operator|.
+name|data
 argument_list|)
 expr_stmt|;
 name|exit
@@ -693,6 +699,8 @@ name|i
 index|]
 operator|.
 name|addr_text
+operator|.
+name|data
 argument_list|)
 expr_stmt|;
 if|if
@@ -733,6 +741,8 @@ name|i
 index|]
 operator|.
 name|addr_text
+operator|.
+name|data
 argument_list|)
 expr_stmt|;
 name|failed
@@ -775,6 +785,8 @@ name|i
 index|]
 operator|.
 name|addr_text
+operator|.
+name|data
 argument_list|)
 expr_stmt|;
 name|exit

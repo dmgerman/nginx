@@ -26,7 +26,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_config_command.h>
+file|<ngx_config_file.h>
 end_include
 
 begin_include
