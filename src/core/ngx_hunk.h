@@ -251,7 +251,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27a234320108
+DECL|struct|__anon2b1793290108
 typedef|typedef
 struct|struct
 block|{
@@ -306,15 +306,15 @@ value|(h->type == (h->type& (NGX_HUNK_FLUSH|NGX_HUNK_LAST)))
 end_define
 
 begin_define
-DECL|macro|nxg_hunk_size (h)
+DECL|macro|ngx_hunk_size (h)
 define|#
 directive|define
-name|nxg_hunk_size
+name|ngx_hunk_size
 parameter_list|(
 name|h
 parameter_list|)
 define|\
-value|(h->type& NGX_HUNK_IN_MEMORY) ? h->last - h->pos:                   \                                          (size_t) h->file_last - h->file_pos
+value|((h->type& NGX_HUNK_IN_MEMORY) ? h->last - h->pos:                  \                                          (size_t) (h->file_last - h->file_pos))
 end_define
 
 begin_function_decl
@@ -398,26 +398,19 @@ value|ngx_add_hunk_to_chain
 end_define
 
 begin_define
-DECL|macro|ngx_chain_add_ce (ngx_chain_t,chain,ngx_chain_t,last,ngx_chain_t,ce)
+DECL|macro|ngx_chain_add_ce (chain,last,ce)
 define|#
 directive|define
 name|ngx_chain_add_ce
 parameter_list|(
-name|ngx_chain_t
-modifier|*
 name|chain
-parameter|,
-name|ngx_chain_t
-modifier|*
-modifier|*
+parameter_list|,
 name|last
-parameter|,             \
-name|ngx_chain_t
-modifier|*
+parameter_list|,
 name|ce
 parameter_list|)
 define|\
-value|if (chain) {                                                     \                 last->next = ce;                                             \             } else {                                                         \                 chain = ce;                                                  \             }                                                                \             last = ce;
+value|if (chain) {                                                     \                 *last = ce;                                                  \             } else {                                                         \                 chain = ce;                                                  \             }                                                                \             last =&ce->next
 end_define
 
 begin_function_decl

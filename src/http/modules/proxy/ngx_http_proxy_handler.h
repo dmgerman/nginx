@@ -37,7 +37,43 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a5530640108
+DECL|struct|__anon2c82e6360108
+typedef|typedef
+struct|struct
+block|{
+DECL|member|host
+name|ngx_str_t
+name|host
+decl_stmt|;
+DECL|member|uri
+name|ngx_str_t
+name|uri
+decl_stmt|;
+DECL|member|location
+name|ngx_str_t
+modifier|*
+name|location
+decl_stmt|;
+DECL|member|host_header
+name|ngx_str_t
+name|host_header
+decl_stmt|;
+DECL|member|port_text
+name|ngx_str_t
+name|port_text
+decl_stmt|;
+DECL|member|port
+name|int
+name|port
+decl_stmt|;
+DECL|typedef|ngx_http_proxy_upstream_t
+block|}
+name|ngx_http_proxy_upstream_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2c82e6360208
 typedef|typedef
 struct|struct
 block|{
@@ -57,14 +93,14 @@ DECL|member|read_timeout
 name|ngx_msec_t
 name|read_timeout
 decl_stmt|;
-comment|/* STUB */
-DECL|member|block_size
-name|int
-name|block_size
+DECL|member|bufs
+name|ngx_bufs_t
+name|bufs
 decl_stmt|;
-DECL|member|max_block_size
+comment|/* STUB */
+DECL|member|max_busy_len
 name|int
-name|max_block_size
+name|max_busy_len
 decl_stmt|;
 DECL|member|max_temp_file_size
 name|int
@@ -80,6 +116,11 @@ name|ngx_path_t
 modifier|*
 name|temp_path
 decl_stmt|;
+DECL|member|upstream
+name|ngx_http_proxy_upstream_t
+modifier|*
+name|upstream
+decl_stmt|;
 DECL|member|peers
 name|ngx_peers_t
 modifier|*
@@ -92,7 +133,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a5530640208
+DECL|struct|__anon2c82e6360308
 typedef|typedef
 struct|struct
 block|{

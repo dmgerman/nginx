@@ -917,6 +917,12 @@ return|return
 name|NGX_AGAIN
 return|;
 block|}
+name|wev
+operator|->
+name|ready
+operator|=
+literal|1
+expr_stmt|;
 if|if
 condition|(
 name|ngx_add_event

@@ -211,6 +211,14 @@ value|-2
 end_define
 
 begin_define
+DECL|macro|NGX_DONE
+define|#
+directive|define
+name|NGX_DONE
+value|-3
+end_define
+
+begin_define
 DECL|macro|NGX_DECLINED
 define|#
 directive|define
@@ -227,7 +235,7 @@ value|-5
 end_define
 
 begin_comment
-comment|/* #define  NGX_DONE       -3 #define  NGX_BUSY       -3 #define  NGX_ALERT      -5 */
+comment|/* #define  NGX_BUSY       -3 #define  NGX_ALERT      -5 */
 end_comment
 
 begin_define

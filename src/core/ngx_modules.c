@@ -344,7 +344,9 @@ comment|/*&ngx_http_ssi_filter_module, */
 operator|&
 name|ngx_http_charset_filter_module
 block|,
-comment|/*&ngx_http_static_module, */
+operator|&
+name|ngx_http_static_module
+block|,
 operator|&
 name|ngx_http_index_module
 block|,

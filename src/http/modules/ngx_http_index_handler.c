@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b73acf00108
+DECL|struct|__anon29c73d4e0108
 typedef|typedef
 struct|struct
 block|{
@@ -37,7 +37,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b73acf00208
+DECL|struct|__anon29c73d4e0208
 typedef|typedef
 struct|struct
 block|{
@@ -268,13 +268,7 @@ name|r
 parameter_list|)
 block|{
 name|int
-name|i
-decl_stmt|,
 name|rc
-decl_stmt|,
-name|test_dir
-decl_stmt|,
-name|path_not_found
 decl_stmt|;
 name|char
 modifier|*
@@ -637,6 +631,9 @@ if|if
 condition|(
 name|fd
 operator|==
+operator|(
+name|ngx_fd_t
+operator|)
 name|NGX_AGAIN
 condition|)
 block|{

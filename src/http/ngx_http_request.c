@@ -3727,6 +3727,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|rc
+operator|==
+name|NGX_DONE
+operator|||
 name|r
 operator|->
 expr|main

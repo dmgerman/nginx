@@ -450,7 +450,7 @@ name|error
 operator|-
 name|NGX_HTTP_BAD_REQUEST
 operator|+
-literal|4
+literal|3
 expr_stmt|;
 block|}
 else|else
@@ -462,7 +462,7 @@ name|error
 operator|-
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 operator|+
-literal|4
+literal|3
 operator|+
 literal|17
 expr_stmt|;
