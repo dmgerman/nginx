@@ -394,7 +394,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon290e526a0108
+DECL|struct|__anon27b482a50108
 typedef|typedef
 struct|struct
 block|{
@@ -743,6 +743,26 @@ begin_function_decl
 name|char
 modifier|*
 name|ngx_conf_set_time_slot
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_command_t
+modifier|*
+name|cmd
+parameter_list|,
+name|void
+modifier|*
+name|conf
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|char
+modifier|*
+name|ngx_conf_set_core_flag_slot
 parameter_list|(
 name|ngx_conf_t
 modifier|*

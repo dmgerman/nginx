@@ -14,6 +14,13 @@ end_include
 begin_decl_stmt
 specifier|extern
 name|ngx_module_t
+name|ngx_core_module
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_module_t
 name|ngx_errlog_module
 decl_stmt|;
 end_decl_stmt
@@ -227,6 +234,9 @@ index|[]
 init|=
 block|{
 comment|/* core */
+operator|&
+name|ngx_core_module
+block|,
 operator|&
 name|ngx_errlog_module
 block|,
