@@ -1643,10 +1643,6 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|1
-comment|/* THINK: needed to log url on errors in proxy only ? */
 comment|/* copy unparsed URI */
 name|r
 operator|->
@@ -1729,8 +1725,6 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|r
 operator|->
 name|request_line

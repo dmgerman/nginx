@@ -37,7 +37,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a1e0ab50108
+DECL|struct|__anon2894780a0108
 typedef|typedef
 struct|struct
 block|{
@@ -49,11 +49,6 @@ DECL|member|uri
 name|ngx_str_t
 name|uri
 decl_stmt|;
-DECL|member|location
-name|ngx_str_t
-modifier|*
-name|location
-decl_stmt|;
 DECL|member|host_header
 name|ngx_str_t
 name|host_header
@@ -61,6 +56,11 @@ decl_stmt|;
 DECL|member|port_text
 name|ngx_str_t
 name|port_text
+decl_stmt|;
+DECL|member|location
+name|ngx_str_t
+modifier|*
+name|location
 decl_stmt|;
 DECL|member|port
 name|int
@@ -73,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1e0ab50208
+DECL|struct|__anon2894780a0208
 typedef|typedef
 struct|struct
 block|{
@@ -135,7 +135,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1e0ab50308
+DECL|struct|__anon2894780a0308
 typedef|typedef
 struct|struct
 block|{
@@ -253,14 +253,6 @@ DECL|member|method
 name|int
 name|method
 decl_stmt|;
-DECL|member|uri
-name|ngx_str_t
-name|uri
-decl_stmt|;
-DECL|member|location_len
-name|int
-name|location_len
-decl_stmt|;
 DECL|member|event_pipe
 name|ngx_event_pipe_t
 modifier|*
@@ -281,6 +273,18 @@ decl_stmt|;
 DECL|member|fatal_error
 name|unsigned
 name|fatal_error
+range|:
+literal|1
+decl_stmt|;
+DECL|member|request_sent
+name|unsigned
+name|request_sent
+range|:
+literal|1
+decl_stmt|;
+DECL|member|timedout
+name|unsigned
+name|timedout
 range|:
 literal|1
 decl_stmt|;
@@ -313,6 +317,11 @@ DECL|member|action
 name|char
 modifier|*
 name|action
+decl_stmt|;
+DECL|member|saved_ctx
+name|ngx_http_log_ctx_t
+modifier|*
+name|saved_ctx
 decl_stmt|;
 block|}
 struct|;

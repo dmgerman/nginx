@@ -24,7 +24,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon297564db0108
+DECL|struct|__anon2c94ac520108
 typedef|typedef
 struct|struct
 block|{
@@ -59,7 +59,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297564db0208
+DECL|struct|__anon2c94ac520208
 typedef|typedef
 struct|struct
 block|{
@@ -1766,6 +1766,22 @@ name|zstream
 operator|.
 name|next_in
 expr_stmt|;
+name|ctx
+operator|->
+name|out_hunk
+operator|->
+name|last
+operator|=
+operator|(
+name|char
+operator|*
+operator|)
+name|ctx
+operator|->
+name|zstream
+operator|.
+name|next_out
+expr_stmt|;
 if|if
 condition|(
 name|ctx
@@ -1777,18 +1793,6 @@ operator|==
 literal|0
 condition|)
 block|{
-name|ctx
-operator|->
-name|out_hunk
-operator|->
-name|last
-operator|+=
-name|conf
-operator|->
-name|bufs
-operator|.
-name|size
-expr_stmt|;
 name|ngx_alloc_link_and_set_hunk
 argument_list|(
 name|cl
@@ -1832,22 +1836,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|ctx
-operator|->
-name|out_hunk
-operator|->
-name|last
-operator|=
-operator|(
-name|char
-operator|*
-operator|)
-name|ctx
-operator|->
-name|zstream
-operator|.
-name|next_out
-expr_stmt|;
 name|ctx
 operator|->
 name|redo
@@ -2425,8 +2413,15 @@ name|alloc
 expr_stmt|;
 if|#
 directive|if
-literal|0
-block_content|ngx_log_debug(ctx->request->connection->log, "ALLOC: %d:%d:%d:%08X" _                       items _ size _ alloc _ p);
+literal|1
+name|ngx_log_debug
+argument_list|(
+argument|ctx->request->connection->log
+argument_list|,
+literal|"ALLOC: %d:%d:%d:%08X"
+argument|_                       items _ size _ alloc _ p
+argument_list|)
+empty_stmt|;
 endif|#
 directive|endif
 return|return

@@ -1010,11 +1010,21 @@ break|break;
 block|}
 if|#
 directive|if
+literal|1
+comment|/* TEST STUB */
+name|r
+operator|->
+name|http_version
+operator|=
+name|NGX_HTTP_VERSION_10
+expr_stmt|;
+comment|/* TEST STUB */
+name|r
+operator|->
+name|keepalive
+operator|=
 literal|0
-comment|/* TEST STUB */
-block_content|r->http_version = NGX_HTTP_VERSION_10;
-comment|/* TEST STUB */
-block_content|r->keepalive = 0;
+expr_stmt|;
 endif|#
 directive|endif
 if|if
