@@ -327,7 +327,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29bbd4cd0108
+DECL|struct|__anon2c886a580108
 typedef|typedef
 struct|struct
 block|{
@@ -1765,6 +1765,36 @@ operator|=
 name|instance
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|c
+operator|->
+name|read
+operator|->
+name|instance
+operator|!=
+name|instance
+condition|)
+block|{
+comment|/*              * the stale event from a file descriptor              * that was just closed in this iteration              */
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"epoll: stale event "
+name|PTR_FMT
+argument_list|,
+name|c
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
 if|#
 directive|if
 operator|(
@@ -1786,34 +1816,6 @@ name|log
 expr_stmt|;
 endif|#
 directive|endif
-if|if
-condition|(
-name|c
-operator|->
-name|read
-operator|->
-name|instance
-operator|!=
-name|instance
-condition|)
-block|{
-comment|/*              * the stale event from a file descriptor              * that was just closed in this iteration              */
-name|ngx_log_debug1
-argument_list|(
-name|NGX_LOG_DEBUG_EVENT
-argument_list|,
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"epoll: stale event "
-name|PTR_FMT
-argument_list|,
-name|c
-argument_list|)
-expr_stmt|;
-continue|continue;
-block|}
 name|ngx_log_debug3
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
