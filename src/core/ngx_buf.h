@@ -331,7 +331,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29c5d6240108
+DECL|struct|__anon2c2b65ec0108
 typedef|typedef
 struct|struct
 block|{
@@ -370,7 +370,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c5d6240208
+DECL|struct|__anon2c2b65ec0208
 typedef|typedef
 struct|struct
 block|{
@@ -439,7 +439,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c5d6240308
+DECL|struct|__anon2c2b65ec0308
 typedef|typedef
 struct|struct
 block|{
@@ -509,7 +509,7 @@ parameter_list|(
 name|b
 parameter_list|)
 define|\
-value|((b->flush || b->last)&& !ngx_buf_in_memory(b)&& !b->in_file)
+value|((b->flush || b->last_buf)&& !ngx_buf_in_memory(b)&& !b->in_file)
 end_define
 
 begin_define
