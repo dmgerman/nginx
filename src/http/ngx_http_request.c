@@ -2018,8 +2018,6 @@ name|ngx_int_t
 name|rc
 decl_stmt|,
 name|rv
-decl_stmt|,
-name|offset
 decl_stmt|;
 name|ngx_connection_t
 modifier|*
@@ -3110,8 +3108,6 @@ decl_stmt|,
 name|rv
 decl_stmt|,
 name|i
-decl_stmt|,
-name|offset
 decl_stmt|;
 name|ngx_table_elt_t
 modifier|*
@@ -4099,9 +4095,6 @@ name|old
 decl_stmt|,
 modifier|*
 name|new
-decl_stmt|;
-name|ngx_int_t
-name|offset
 decl_stmt|;
 name|ngx_buf_t
 modifier|*
@@ -6900,9 +6893,6 @@ block|{
 name|ngx_int_t
 name|i
 decl_stmt|;
-name|size_t
-name|len
-decl_stmt|;
 name|ngx_buf_t
 modifier|*
 name|b
@@ -7013,7 +7003,7 @@ operator|->
 name|buffer
 condition|)
 block|{
-comment|/* move the large header buffers to the free list */
+comment|/*              * If the large header buffers were allocated while the previous              * request processing then we do not use c->buffer for              * the pipelined request (see ngx_http_init_request()).              *               * Now we would move the large header buffers to the free list.              */
 name|cscf
 operator|=
 name|ngx_http_get_module_srv_conf
@@ -7254,6 +7244,7 @@ name|pipeline
 operator|=
 literal|0
 expr_stmt|;
+comment|/*      * To keep a memory footprint as small as possible for an idle      * keepalive connection we try to free the ngx_http_request_t and      * c->buffer's memory if they were allocated outside the c->pool.      * The large header buffers are always allocated outside the c->pool and      * are freed too.      */
 if|if
 condition|(
 name|ngx_pfree
@@ -7297,6 +7288,7 @@ operator|==
 name|NGX_OK
 condition|)
 block|{
+comment|/*          * the special note for ngx_http_keepalive_handler() that          * c->buffer's memory was freed          */
 name|b
 operator|->
 name|pos
@@ -7603,7 +7595,7 @@ block|}
 if|#
 directive|if
 literal|0
-comment|/* if "keepalive_buffers off" then we need some other place */
+comment|/* if ngx_http_request_t was freed then we need some other place */
 block_content|r->http_state = NGX_HTTP_KEEPALIVE_STATE;
 endif|#
 directive|endif
@@ -7781,6 +7773,7 @@ operator|==
 name|NULL
 condition|)
 block|{
+comment|/*          * The c->buffer's memory was freed by ngx_http_set_keepalive().          * However, the c->buffer->start and c->buffer->end were not changed          * to keep the buffer size.          */
 if|if
 condition|(
 operator|!

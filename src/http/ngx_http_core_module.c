@@ -3741,7 +3741,7 @@ literal|0
 end_if
 
 begin_endif
-unit|ngx_http_core_init_module:      ngx_http_handler_pt         *h;      ngx_test_null(h, ngx_push_array(&cmcf->phases[NGX_HTTP_TRANSLATE_PHASE].handlers),                   NGX_ERROR);     *h = ngx_http_delay_handler;
+unit|ngx_http_core_init_module:      ngx_http_handler_pt         *h;      if (!(h = ngx_array_push(&cmcf->phases[NGX_HTTP_TRANSLATE_PHASE].handlers)))         return NGX_ERROR;     }     *h = ngx_http_delay_handler;
 endif|#
 directive|endif
 end_endif
@@ -3805,10 +3805,12 @@ modifier|*
 modifier|*
 name|cscfp
 decl_stmt|;
-name|ngx_test_null
-argument_list|(
+if|if
+condition|(
+operator|!
+operator|(
 name|ctx
-argument_list|,
+operator|=
 name|ngx_pcalloc
 argument_list|(
 name|cf
@@ -3820,10 +3822,13 @@ argument_list|(
 name|ngx_http_conf_ctx_t
 argument_list|)
 argument_list|)
-argument_list|,
+operator|)
+condition|)
+block|{
+return|return
 name|NGX_CONF_ERROR
-argument_list|)
-expr_stmt|;
+return|;
+block|}
 name|http_ctx
 operator|=
 name|cf
@@ -3839,12 +3844,10 @@ operator|->
 name|main_conf
 expr_stmt|;
 comment|/* the server{}'s srv_conf */
-name|ngx_test_null
-argument_list|(
 name|ctx
 operator|->
 name|srv_conf
-argument_list|,
+operator|=
 name|ngx_pcalloc
 argument_list|(
 name|cf
@@ -3859,17 +3862,25 @@ argument_list|)
 operator|*
 name|ngx_http_max_module
 argument_list|)
-argument_list|,
-name|NGX_CONF_ERROR
-argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|ctx
+operator|->
+name|srv_conf
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
 comment|/* the server{}'s loc_conf */
-name|ngx_test_null
-argument_list|(
 name|ctx
 operator|->
 name|loc_conf
-argument_list|,
+operator|=
 name|ngx_pcalloc
 argument_list|(
 name|cf
@@ -3884,10 +3895,20 @@ argument_list|)
 operator|*
 name|ngx_http_max_module
 argument_list|)
-argument_list|,
-name|NGX_CONF_ERROR
-argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|ctx
+operator|->
+name|loc_conf
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
 for|for
 control|(
 name|m
@@ -5869,7 +5890,7 @@ name|prev
 operator|->
 name|connection_pool_size
 argument_list|,
-literal|2048
+literal|256
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_msec_value
@@ -5882,7 +5903,7 @@ name|prev
 operator|->
 name|post_accept_timeout
 argument_list|,
-literal|30000
+literal|60000
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_size_value
@@ -5895,7 +5916,10 @@ name|prev
 operator|->
 name|request_pool_size
 argument_list|,
-literal|16384
+operator|(
+name|size_t
+operator|)
+name|ngx_pagesize
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_msec_value
@@ -6527,7 +6551,12 @@ name|prev
 operator|->
 name|client_body_buffer_size
 argument_list|,
-literal|8192
+operator|(
+name|size_t
+operator|)
+literal|4
+operator|*
+name|ngx_pagesize
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_msec_value
