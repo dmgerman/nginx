@@ -47,7 +47,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1994930108
+DECL|struct|__anon277e325c0108
 typedef|typedef
 struct|struct
 block|{
@@ -66,7 +66,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1994930208
+DECL|struct|__anon277e325c0208
 typedef|typedef
 struct|struct
 block|{
@@ -87,7 +87,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1994930308
+DECL|struct|__anon277e325c0308
 typedef|typedef
 struct|struct
 block|{
@@ -119,6 +119,10 @@ DECL|member|no_referer
 name|ngx_flag_t
 name|no_referer
 decl_stmt|;
+DECL|member|blocked_referer
+name|ngx_flag_t
+name|blocked_referer
+decl_stmt|;
 DECL|typedef|ngx_http_rewrite_loc_conf_t
 block|}
 name|ngx_http_rewrite_loc_conf_t
@@ -126,7 +130,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1994930408
+DECL|struct|__anon277e325c0408
 typedef|typedef
 struct|struct
 block|{
@@ -197,7 +201,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1994930508
+DECL|struct|__anon277e325c0508
 typedef|typedef
 struct|struct
 block|{
@@ -231,7 +235,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1994930608
+DECL|struct|__anon277e325c0608
 typedef|typedef
 struct|struct
 block|{
@@ -250,7 +254,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1994930708
+DECL|struct|__anon277e325c0708
 typedef|typedef
 struct|struct
 block|{
@@ -269,7 +273,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1994930808
+DECL|struct|__anon277e325c0808
 typedef|typedef
 struct|struct
 block|{
@@ -292,7 +296,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1994930908
+DECL|struct|__anon277e325c0908
 typedef|typedef
 struct|struct
 block|{
@@ -317,7 +321,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1994930a08
+DECL|struct|__anon277e325c0a08
 typedef|typedef
 struct|struct
 block|{
@@ -344,7 +348,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1994930b08
+DECL|struct|__anon277e325c0b08
 typedef|typedef
 struct|struct
 block|{
@@ -1590,6 +1594,12 @@ block|{
 name|r
 operator|->
 name|uri_changed
+operator|=
+literal|1
+expr_stmt|;
+name|r
+operator|->
+name|valid_unparsed_uri
 operator|=
 literal|1
 expr_stmt|;
@@ -3470,6 +3480,54 @@ literal|0
 operator|)
 condition|)
 block|{
+if|if
+condition|(
+name|cf
+operator|->
+name|blocked_referer
+condition|)
+block|{
+name|e
+operator|->
+name|sp
+operator|->
+name|value
+operator|=
+literal|0
+expr_stmt|;
+name|e
+operator|->
+name|sp
+operator|->
+name|text
+operator|.
+name|len
+operator|=
+literal|0
+expr_stmt|;
+name|e
+operator|->
+name|sp
+operator|->
+name|text
+operator|.
+name|data
+operator|=
+operator|(
+name|u_char
+operator|*
+operator|)
+literal|"0"
+expr_stmt|;
+name|e
+operator|->
+name|sp
+operator|++
+expr_stmt|;
+return|return;
+block|}
+else|else
+block|{
 name|e
 operator|->
 name|sp
@@ -3508,6 +3566,7 @@ name|sp
 operator|++
 expr_stmt|;
 return|return;
+block|}
 block|}
 name|len
 operator|-=
@@ -4016,6 +4075,12 @@ name|no_referer
 operator|=
 name|NGX_CONF_UNSET
 expr_stmt|;
+name|conf
+operator|->
+name|blocked_referer
+operator|=
+name|NGX_CONF_UNSET
+expr_stmt|;
 return|return
 name|conf
 return|;
@@ -4121,6 +4186,19 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+name|ngx_conf_merge_value
+argument_list|(
+name|conf
+operator|->
+name|blocked_referer
+argument_list|,
+name|prev
+operator|->
+name|blocked_referer
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -4134,6 +4212,22 @@ block|{
 name|conf
 operator|->
 name|no_referer
+operator|=
+literal|0
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|conf
+operator|->
+name|blocked_referer
+operator|==
+name|NGX_CONF_UNSET
+condition|)
+block|{
+name|conf
+operator|->
+name|blocked_referer
 operator|=
 literal|0
 expr_stmt|;
@@ -7323,6 +7417,31 @@ block|{
 name|lcf
 operator|->
 name|no_referer
+operator|=
+literal|1
+expr_stmt|;
+continue|continue;
+block|}
+if|if
+condition|(
+name|ngx_strcmp
+argument_list|(
+name|value
+index|[
+name|i
+index|]
+operator|.
+name|data
+argument_list|,
+literal|"blocked"
+argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+name|lcf
+operator|->
+name|blocked_referer
 operator|=
 literal|1
 expr_stmt|;

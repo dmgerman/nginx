@@ -2832,13 +2832,13 @@ argument_list|,
 literal|"exit"
 argument_list|)
 expr_stmt|;
-name|ngx_destroy_pool
-argument_list|(
-name|cycle
-operator|->
-name|pool
-argument_list|)
-expr_stmt|;
+comment|/*      * we do not destroy cycle->pool here because a signal handler      * that uses cycle->log can be called at this point      */
+if|#
+directive|if
+literal|0
+block_content|ngx_destroy_pool(cycle->pool);
+endif|#
+directive|endif
 name|exit
 argument_list|(
 literal|0
@@ -3143,6 +3143,12 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/*              * we do not destroy cycle->pool here because a signal handler              * that uses cycle->log can be called at this point              */
+if|#
+directive|if
+literal|0
+block_content|ngx_destroy_pool(cycle->pool);
+endif|#
+directive|endif
 name|exit
 argument_list|(
 literal|0
@@ -3198,6 +3204,12 @@ expr_stmt|;
 endif|#
 directive|endif
 comment|/*              * we do not destroy cycle->pool here because a signal handler              * that uses cycle->log can be called at this point              */
+if|#
+directive|if
+literal|0
+block_content|ngx_destroy_pool(cycle->pool);
+endif|#
+directive|endif
 name|exit
 argument_list|(
 literal|0

@@ -1710,6 +1710,12 @@ name|ngx_http_core_phase_event_handler
 expr_stmt|;
 name|r
 operator|->
+name|valid_unparsed_uri
+operator|=
+literal|1
+expr_stmt|;
+name|r
+operator|->
 name|uri_changed
 operator|=
 literal|1

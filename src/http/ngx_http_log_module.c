@@ -2773,7 +2773,7 @@ operator|.
 name|len
 return|;
 block|}
-comment|/*      * No header pointer was found.      * However, some headers: "Date", "Server", "Content-Length",      * and "Last-Modified" have a special handling in the header filter      * but we do not set up their pointers in the filter because      * they are too seldom needed to be logged.      */
+comment|/*      * No header pointer was found.      * However, some headers: "Date", "Server", "Content-Length",      * and "Last-Modified" have a special handling in the header filter,      * but we do not set up their pointers in the filter,      * because they are too seldom needed to be logged.      */
 if|if
 condition|(
 name|data
@@ -2961,7 +2961,7 @@ name|len
 argument_list|)
 return|;
 block|}
-comment|/*      * No header pointer was found.      * However, some headers: "Date", "Server", "Content-Length",      * and "Last-Modified" have a special handling in the header filter      * but we do not set up their pointers in the filter because      * they are too seldom needed to be logged.      */
+comment|/*      * No header pointer was found.      * However, some headers: "Date", "Server", "Content-Length",      * and "Last-Modified" have a special handling in the header filter,      * but we do not set up their pointers in the filter,      * because they are too seldom needed to be logged.      */
 if|if
 condition|(
 name|op

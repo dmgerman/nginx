@@ -137,19 +137,11 @@ value|11
 end_define
 
 begin_define
-DECL|macro|NGX_HTTP_PARSE_TOO_LONG_URI
-define|#
-directive|define
-name|NGX_HTTP_PARSE_TOO_LONG_URI
-value|12
-end_define
-
-begin_define
 DECL|macro|NGX_HTTP_PARSE_INVALID_09_METHOD
 define|#
 directive|define
 name|NGX_HTTP_PARSE_INVALID_09_METHOD
-value|13
+value|12
 end_define
 
 begin_define
@@ -157,7 +149,7 @@ DECL|macro|NGX_HTTP_PARSE_HEADER_ERROR
 define|#
 directive|define
 name|NGX_HTTP_PARSE_HEADER_ERROR
-value|14
+value|13
 end_define
 
 begin_define
@@ -165,55 +157,7 @@ DECL|macro|NGX_HTTP_PARSE_INVALID_HEADER
 define|#
 directive|define
 name|NGX_HTTP_PARSE_INVALID_HEADER
-value|14
-end_define
-
-begin_define
-DECL|macro|NGX_HTTP_PARSE_TOO_LONG_HEADER
-define|#
-directive|define
-name|NGX_HTTP_PARSE_TOO_LONG_HEADER
-value|15
-end_define
-
-begin_define
-DECL|macro|NGX_HTTP_PARSE_NO_HOST_HEADER
-define|#
-directive|define
-name|NGX_HTTP_PARSE_NO_HOST_HEADER
-value|16
-end_define
-
-begin_define
-DECL|macro|NGX_HTTP_PARSE_INVALID_CL_HEADER
-define|#
-directive|define
-name|NGX_HTTP_PARSE_INVALID_CL_HEADER
-value|17
-end_define
-
-begin_define
-DECL|macro|NGX_HTTP_PARSE_POST_WO_CL_HEADER
-define|#
-directive|define
-name|NGX_HTTP_PARSE_POST_WO_CL_HEADER
-value|18
-end_define
-
-begin_define
-DECL|macro|NGX_HTTP_PARSE_INVALID_HOST
-define|#
-directive|define
-name|NGX_HTTP_PARSE_INVALID_HOST
-value|19
-end_define
-
-begin_define
-DECL|macro|NGX_HTTP_PARSE_HTTP_TO_HTTPS
-define|#
-directive|define
-name|NGX_HTTP_PARSE_HTTP_TO_HTTPS
-value|20
+value|13
 end_define
 
 begin_define
@@ -425,7 +369,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon2bd35ccb0103
+DECL|enum|__anon279271a20103
 typedef|typedef
 enum|enum
 block|{
@@ -446,7 +390,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2bd35ccb0203
+DECL|enum|__anon279271a20203
 typedef|typedef
 enum|enum
 block|{
@@ -485,7 +429,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd35ccb0308
+DECL|struct|__anon279271a20308
 typedef|typedef
 struct|struct
 block|{
@@ -504,7 +448,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd35ccb0408
+DECL|struct|__anon279271a20408
 typedef|typedef
 struct|struct
 block|{
@@ -685,7 +629,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd35ccb0508
+DECL|struct|__anon279271a20508
 typedef|typedef
 struct|struct
 block|{
@@ -708,7 +652,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd35ccb0608
+DECL|struct|__anon279271a20608
 typedef|typedef
 struct|struct
 block|{
@@ -832,7 +776,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd35ccb0708
+DECL|struct|__anon279271a20708
 typedef|typedef
 struct|struct
 block|{
@@ -870,10 +814,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon2bd35ccb080a
+DECL|union|__anon279271a2080a
 union|union
 block|{
-DECL|struct|__anon2bd35ccb0908
+DECL|struct|__anon279271a20908
 struct|struct
 block|{
 DECL|member|fd
@@ -889,7 +833,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon2bd35ccb0a08
+DECL|struct|__anon279271a20a08
 struct|struct
 block|{
 DECL|member|hash
@@ -927,7 +871,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bd35ccb0b08
+DECL|struct|__anon279271a20b08
 typedef|typedef
 struct|struct
 block|{
@@ -1221,6 +1165,12 @@ comment|/* URI with "\0" or "%00" */
 DECL|member|zero_in_uri
 name|unsigned
 name|zero_in_uri
+range|:
+literal|1
+decl_stmt|;
+DECL|member|valid_unparsed_uri
+name|unsigned
+name|valid_unparsed_uri
 range|:
 literal|1
 decl_stmt|;

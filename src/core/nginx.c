@@ -1083,7 +1083,7 @@ literal|0
 argument_list|,
 literal|"invalid socket number \"%s\" in "
 name|NGINX_VAR
-literal|" enviroment variable, "
+literal|" environment variable, "
 literal|"ignoring the rest of the variable"
 argument_list|,
 name|v
