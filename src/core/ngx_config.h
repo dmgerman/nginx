@@ -454,29 +454,6 @@ end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|INFTIM
-end_ifndef
-
-begin_comment
-comment|/* Linux */
-end_comment
-
-begin_define
-DECL|macro|INFTIM
-define|#
-directive|define
-name|INFTIM
-value|-1
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_ifndef
-ifndef|#
-directive|ifndef
 name|INADDR_NONE
 end_ifndef
 

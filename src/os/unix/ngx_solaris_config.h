@@ -159,16 +159,6 @@ end_comment
 begin_include
 include|#
 directive|include
-file|<sys/stropts.h>
-end_include
-
-begin_comment
-comment|/* INFTIM */
-end_comment
-
-begin_include
-include|#
-directive|include
 file|<sys/systeminfo.h>
 end_include
 
@@ -361,6 +351,18 @@ name|ngx_setproctitle
 parameter_list|(
 name|title
 parameter_list|)
+end_define
+
+begin_comment
+comment|/* STUB */
+end_comment
+
+begin_define
+DECL|macro|HAVE_LITTLE_ENDIAN
+define|#
+directive|define
+name|HAVE_LITTLE_ENDIAN
+value|1
 end_define
 
 begin_endif

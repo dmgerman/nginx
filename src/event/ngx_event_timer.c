@@ -147,7 +147,7 @@ name|ngx_event_timer_sentinel
 condition|)
 block|{
 return|return
-literal|0
+name|NGX_TIMER_INFINITE
 return|;
 block|}
 if|if
@@ -215,8 +215,7 @@ literal|0
 condition|?
 name|timer
 else|:
-operator|-
-literal|1
+literal|0
 return|;
 block|}
 end_function
@@ -287,9 +286,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|(
-name|ngx_msec_t
-operator|)
 name|node
 operator|->
 name|key

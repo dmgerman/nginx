@@ -31,11 +31,19 @@ file|<ngx_event.h>
 end_include
 
 begin_define
+DECL|macro|NGX_TIMER_INFINITE
+define|#
+directive|define
+name|NGX_TIMER_INFINITE
+value|-1
+end_define
+
+begin_define
 DECL|macro|NGX_TIMER_ERROR
 define|#
 directive|define
 name|NGX_TIMER_ERROR
-value|(ngx_msec_t) -1
+value|-2
 end_define
 
 begin_comment

@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon288923b20108
+DECL|struct|__anon27d3cf330108
 typedef|typedef
 struct|struct
 block|{
@@ -1532,6 +1532,12 @@ decl_stmt|,
 modifier|*
 name|tp
 decl_stmt|;
+for|for
+control|(
+init|;
+condition|;
+control|)
+block|{
 name|timer
 operator|=
 name|ngx_event_find_timer
@@ -1553,9 +1559,38 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-comment|/*      * TODO: if timer is 0 and any worker thread is still busy      *       then set 500 ms timeout      */
+comment|/*           * TODO: if timer is NGX_TIMER_INFINITE and any worker thread           *       is still busy then set the configurable 500ms timeout           *       to wake up another worker thread           */
 endif|#
 directive|endif
+if|if
+condition|(
+name|timer
+operator|!=
+literal|0
+condition|)
+block|{
+break|break;
+block|}
+name|ngx_log_debug0
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"kevent expired timer"
+argument_list|)
+expr_stmt|;
+name|ngx_event_expire_timers
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+comment|/* TODO: if ngx_threaded then wake up the worker thread */
+block|}
 name|ngx_old_elapsed_msec
 operator|=
 name|ngx_elapsed_msec
@@ -1592,7 +1627,7 @@ operator|&&
 operator|(
 name|timer
 operator|==
-literal|0
+name|NGX_TIMER_INFINITE
 operator|||
 name|timer
 operator|>
@@ -1614,32 +1649,19 @@ if|if
 condition|(
 name|timer
 operator|==
-operator|-
-literal|1
+name|NGX_TIMER_INFINITE
 condition|)
 block|{
-name|ts
-operator|.
-name|tv_sec
-operator|=
-literal|0
-expr_stmt|;
-name|ts
-operator|.
-name|tv_nsec
-operator|=
-literal|0
-expr_stmt|;
 name|tp
 operator|=
-operator|&
-name|ts
+name|NULL
+expr_stmt|;
+name|expire
+operator|=
+literal|0
 expr_stmt|;
 block|}
-if|else if
-condition|(
-name|timer
-condition|)
+else|else
 block|{
 name|ts
 operator|.
@@ -1665,17 +1687,6 @@ name|tp
 operator|=
 operator|&
 name|ts
-expr_stmt|;
-block|}
-else|else
-block|{
-name|tp
-operator|=
-name|NULL
-expr_stmt|;
-name|expire
-operator|=
-literal|0
 expr_stmt|;
 block|}
 name|ngx_log_debug1
@@ -1818,6 +1829,8 @@ block|}
 if|if
 condition|(
 name|timer
+operator|!=
+name|NGX_TIMER_INFINITE
 condition|)
 block|{
 name|delta
@@ -2297,6 +2310,7 @@ block|}
 name|ngx_accept_mutex_unlock
 argument_list|()
 expr_stmt|;
+comment|/* TODO: wake up worker thread */
 if|if
 condition|(
 name|expire
