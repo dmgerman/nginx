@@ -630,10 +630,11 @@ if|if
 condition|(
 name|ngx_freebsd_use_tcp_nopush
 operator|&&
-operator|!
 name|c
 operator|->
 name|tcp_nopush
+operator|==
+literal|0
 condition|)
 block|{
 name|c
@@ -817,6 +818,10 @@ condition|(
 name|err
 operator|==
 name|NGX_EPIPE
+operator|||
+name|err
+operator|==
+name|NGX_ENOTCONN
 condition|)
 block|{
 name|level
@@ -861,6 +866,12 @@ name|error
 operator|=
 literal|1
 expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|ngx_log_error(level, c->log, err,                                   "sendfile() failed");
+else|#
+directive|else
 name|ngx_log_error
 argument_list|(
 name|level
@@ -871,9 +882,15 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"sendfile() failed"
+literal|"sendfile(#%d) failed"
+argument_list|,
+name|c
+operator|->
+name|fd
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 return|return
 name|NGX_CHAIN_ERROR
 return|;

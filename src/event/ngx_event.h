@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2b89a9ba0108
+DECL|struct|__anon27b648280108
 typedef|typedef
 struct|struct
 block|{
@@ -68,6 +68,30 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_typedef
+DECL|enum|__anon27b648280203
+typedef|typedef
+enum|enum
+block|{
+DECL|enumerator|NGX_ERROR_CRIT
+name|NGX_ERROR_CRIT
+init|=
+literal|0
+block|,
+DECL|enumerator|NGX_ERROR_ERR
+name|NGX_ERROR_ERR
+block|,
+DECL|enumerator|NGX_ERROR_INFO
+name|NGX_ERROR_INFO
+block|,
+DECL|enumerator|NGX_ERROR_IGNORE_ECONNRESET
+name|NGX_ERROR_IGNORE_ECONNRESET
+DECL|typedef|ngx_event_log_error_e
+block|}
+name|ngx_event_log_error_e
+typedef|;
+end_typedef
 
 begin_struct
 DECL|struct|ngx_event_s
@@ -112,7 +136,7 @@ name|ngx_log_t
 modifier|*
 name|log
 decl_stmt|;
-comment|/*      * The inline of "ngx_rbtree_t  rbtree;".      *      * It allows to pack the rbtree_color and the variuos event bit flags into      * the single "int".  We also use "unsigned char" and then "usigned short"      * because otherwise MSVC 6.0 uses an additional "int" for the bit flags.      * We use "char rbtree_color" instead of "unsigned int rbtree_color:1"      * because it preserves the bits order on the big endian platforms.      */
+comment|/*      * The inline of "ngx_rbtree_t  rbtree;".      *      * It allows to pack the rbtree_color and the various event bit flags into      * the single "int".  We also use "unsigned char" and then "unsigned short"      * because otherwise MSVC 6.0 uses an additional "int" for the bit flags.      * We use "char rbtree_color" instead of "unsigned int rbtree_color:1"      * because it preserves the bits order on the big endian platforms.      */
 DECL|member|rbtree_key
 name|ngx_int_t
 name|rbtree_key
@@ -166,6 +190,13 @@ name|active
 range|:
 literal|1
 decl_stmt|;
+DECL|member|disabled
+name|unsigned
+name|char
+name|disabled
+range|:
+literal|1
+decl_stmt|;
 comment|/* the ready event; in aio mode 0 means that no operation can be posted */
 DECL|member|ready
 name|unsigned
@@ -184,14 +215,14 @@ literal|1
 decl_stmt|;
 DECL|member|eof
 name|unsigned
-name|char
+name|short
 name|eof
 range|:
 literal|1
 decl_stmt|;
 DECL|member|error
 name|unsigned
-name|char
+name|short
 name|error
 range|:
 literal|1
@@ -224,13 +255,14 @@ name|read_discarded
 range|:
 literal|1
 decl_stmt|;
-DECL|member|ignore_econnreset
+DECL|member|log_error
 name|unsigned
 name|short
-name|ignore_econnreset
+name|log_error
 range|:
-literal|1
+literal|2
 decl_stmt|;
+comment|/* ngx_event_log_error_e */
 DECL|member|unexpected_eof
 name|unsigned
 name|short
@@ -364,7 +396,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b89a9ba0208
+DECL|struct|__anon27b648280308
 typedef|typedef
 struct|struct
 block|{
@@ -1054,7 +1086,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon2b89a9ba0308
+DECL|struct|__anon27b648280408
 typedef|typedef
 struct|struct
 block|{
@@ -1082,7 +1114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b89a9ba0408
+DECL|struct|__anon27b648280508
 typedef|typedef
 struct|struct
 block|{
@@ -1214,6 +1246,21 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_comment
+comment|/* used in ngx_log_debugX() */
+end_comment
+
+begin_define
+DECL|macro|ngx_event_ident (p)
+define|#
+directive|define
+name|ngx_event_ident
+parameter_list|(
+name|p
+parameter_list|)
+value|((ngx_connection_t *) (p))->fd
+end_define
 
 begin_include
 include|#

@@ -171,6 +171,8 @@ init|=
 block|{
 literal|"debug"
 block|,
+literal|"debug_core"
+block|,
 literal|"debug_alloc"
 block|,
 literal|"debug_event"

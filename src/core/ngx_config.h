@@ -267,18 +267,18 @@ comment|/* TODO: #ifndef */
 end_comment
 
 begin_define
-DECL|macro|NGX_RESTART_SIGNAL
+DECL|macro|NGX_RECONFIGURE_SIGNAL
 define|#
 directive|define
-name|NGX_RESTART_SIGNAL
+name|NGX_RECONFIGURE_SIGNAL
 value|HUP
 end_define
 
 begin_define
-DECL|macro|NGX_ROTATE_SIGNAL
+DECL|macro|NGX_REOPEN_SIGNAL
 define|#
 directive|define
-name|NGX_ROTATE_SIGNAL
+name|NGX_REOPEN_SIGNAL
 value|USR1
 end_define
 
@@ -287,6 +287,14 @@ DECL|macro|NGX_SHUTDOWN_SIGNAL
 define|#
 directive|define
 name|NGX_SHUTDOWN_SIGNAL
+value|QUIT
+end_define
+
+begin_define
+DECL|macro|NGX_TERMINATE_SIGNAL
+define|#
+directive|define
+name|NGX_TERMINATE_SIGNAL
 value|TERM
 end_define
 
@@ -296,6 +304,14 @@ define|#
 directive|define
 name|NGX_INTERRUPT_SIGNAL
 value|INT
+end_define
+
+begin_define
+DECL|macro|NGX_CHANGEBIN_SIGNAL
+define|#
+directive|define
+name|NGX_CHANGEBIN_SIGNAL
+value|USR2
 end_define
 
 begin_endif
@@ -313,6 +329,34 @@ define|#
 directive|define
 name|NGX_INVALID_ARRAY_INDEX
 value|0x80000000
+end_define
+
+begin_comment
+comment|/* TODO: auto */
+end_comment
+
+begin_define
+DECL|macro|NGX_INT32_LEN
+define|#
+directive|define
+name|NGX_INT32_LEN
+value|sizeof("-2147483648") - 1
+end_define
+
+begin_define
+DECL|macro|NGX_TIME_T_LEN
+define|#
+directive|define
+name|NGX_TIME_T_LEN
+value|sizeof("-2147483648") - 1
+end_define
+
+begin_define
+DECL|macro|NGX_OFF_T_LEN
+define|#
+directive|define
+name|NGX_OFF_T_LEN
+value|sizeof("-9223372036854775808") - 1
 end_define
 
 begin_comment

@@ -48,9 +48,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|cycle
-operator|->
-name|old_cycle
+name|ngx_event_timer_rbtree
 condition|)
 block|{
 return|return

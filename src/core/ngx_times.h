@@ -34,7 +34,10 @@ end_function_decl
 begin_function_decl
 name|void
 name|ngx_time_update
-parameter_list|()
+parameter_list|(
+name|time_t
+name|s
+parameter_list|)
 function_decl|;
 end_function_decl
 

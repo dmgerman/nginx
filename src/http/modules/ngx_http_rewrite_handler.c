@@ -42,7 +42,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon28dd88f10108
+DECL|struct|__anon2bdeea9e0108
 typedef|typedef
 struct|struct
 block|{
@@ -65,7 +65,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28dd88f10208
+DECL|struct|__anon2bdeea9e0208
 typedef|typedef
 struct|struct
 block|{
@@ -107,7 +107,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28dd88f10308
+DECL|struct|__anon2bdeea9e0308
 typedef|typedef
 struct|struct
 block|{
@@ -463,7 +463,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"\"%s\" is not matched"
+literal|"\"%s\" does not match"
 argument_list|,
 name|rule
 index|[
@@ -541,7 +541,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"\"%s\" matched"
+literal|"\"%s\" matches"
 argument_list|,
 name|rule
 index|[
@@ -1458,6 +1458,13 @@ block|}
 block|}
 block|}
 block|}
+if|if
+condition|(
+name|rule
+operator|->
+name|msize
+condition|)
+block|{
 name|rule
 operator|->
 name|msize
@@ -1469,6 +1476,7 @@ name|msize
 operator|*=
 literal|3
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|cf

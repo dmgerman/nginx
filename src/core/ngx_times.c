@@ -220,9 +220,7 @@ argument_list|)
 expr_stmt|;
 name|ngx_cached_time
 operator|=
-name|tv
-operator|.
-name|tv_sec
+literal|0
 expr_stmt|;
 name|ngx_start_msec
 operator|=
@@ -247,20 +245,40 @@ operator|=
 literal|0
 expr_stmt|;
 name|ngx_time_update
-argument_list|()
+argument_list|(
+name|tv
+operator|.
+name|tv_sec
+argument_list|)
 expr_stmt|;
 block|}
 end_function
 
 begin_function
-DECL|function|ngx_time_update ()
+DECL|function|ngx_time_update (time_t s)
 name|void
 name|ngx_time_update
-parameter_list|()
+parameter_list|(
+name|time_t
+name|s
+parameter_list|)
 block|{
 name|ngx_tm_t
 name|tm
 decl_stmt|;
+if|if
+condition|(
+name|ngx_cached_time
+operator|==
+name|s
+condition|)
+block|{
+return|return;
+block|}
+name|ngx_cached_time
+operator|=
+name|s
+expr_stmt|;
 name|ngx_gmtime
 argument_list|(
 name|ngx_cached_time

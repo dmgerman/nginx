@@ -78,36 +78,8 @@ name|NGX_HTTP_LOG_ARG
 value|(u_int) -1
 end_define
 
-begin_comment
-comment|/* STUB */
-end_comment
-
-begin_define
-DECL|macro|NGX_INT32_LEN
-define|#
-directive|define
-name|NGX_INT32_LEN
-value|sizeof("-2147483648") - 1
-end_define
-
-begin_define
-DECL|macro|NGX_TIME_T_LEN
-define|#
-directive|define
-name|NGX_TIME_T_LEN
-value|sizeof("-2147483648") - 1
-end_define
-
-begin_define
-DECL|macro|NGX_OFF_T_LEN
-define|#
-directive|define
-name|NGX_OFF_T_LEN
-value|sizeof("-9223372036854775808") - 1
-end_define
-
 begin_typedef
-DECL|struct|__anon27e4c4b10108
+DECL|struct|__anon2aeafc480108
 typedef|typedef
 struct|struct
 block|{
@@ -130,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e4c4b10208
+DECL|struct|__anon2aeafc480208
 typedef|typedef
 struct|struct
 block|{
@@ -151,7 +123,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e4c4b10308
+DECL|struct|__anon2aeafc480308
 typedef|typedef
 struct|struct
 block|{
@@ -174,7 +146,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e4c4b10408
+DECL|struct|__anon2aeafc480408
 typedef|typedef
 struct|struct
 block|{
@@ -190,7 +162,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e4c4b10508
+DECL|struct|__anon2aeafc480508
 typedef|typedef
 struct|struct
 block|{
@@ -212,7 +184,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e4c4b10608
+DECL|struct|__anon2aeafc480608
 typedef|typedef
 struct|struct
 block|{

@@ -97,11 +97,19 @@ value|8
 end_define
 
 begin_define
+DECL|macro|NGX_LOG_DEBUG_CORE
+define|#
+directive|define
+name|NGX_LOG_DEBUG_CORE
+value|0x10
+end_define
+
+begin_define
 DECL|macro|NGX_LOG_DEBUG_ALLOC
 define|#
 directive|define
 name|NGX_LOG_DEBUG_ALLOC
-value|0x10
+value|0x20
 end_define
 
 begin_define
@@ -109,7 +117,7 @@ DECL|macro|NGX_LOG_DEBUG_EVENT
 define|#
 directive|define
 name|NGX_LOG_DEBUG_EVENT
-value|0x20
+value|0x40
 end_define
 
 begin_define
@@ -117,7 +125,7 @@ DECL|macro|NGX_LOG_DEBUG_HTTP
 define|#
 directive|define
 name|NGX_LOG_DEBUG_HTTP
-value|0x40
+value|0x80
 end_define
 
 begin_define

@@ -971,7 +971,7 @@ index|]
 argument_list|,
 name|NGX_READ_EVENT
 argument_list|,
-literal|0
+name|NGX_CLOSE_EVENT
 argument_list|)
 operator|==
 name|NGX_ERROR

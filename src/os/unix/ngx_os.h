@@ -109,7 +109,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c8589800108
+DECL|struct|__anon2b55e9cd0108
 typedef|typedef
 struct|struct
 block|{
@@ -317,22 +317,43 @@ end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
-name|int
-name|done
+name|ngx_int_t
+name|ngx_master
 decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
-name|int
-name|restart
+name|ngx_int_t
+name|ngx_quit
 decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
-name|int
-name|rotate
+name|ngx_int_t
+name|ngx_terminate
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_int_t
+name|ngx_reconfigure
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_int_t
+name|ngx_reopen
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_int_t
+name|ngx_change_binary
 decl_stmt|;
 end_decl_stmt
 

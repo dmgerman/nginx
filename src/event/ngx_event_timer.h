@@ -118,17 +118,6 @@ name|ngx_event_timer_sentinel
 decl_stmt|;
 end_decl_stmt
 
-begin_define
-DECL|macro|ngx_event_ident (p)
-define|#
-directive|define
-name|ngx_event_ident
-parameter_list|(
-name|p
-parameter_list|)
-value|((ngx_connection_t *) (p))->fd
-end_define
-
 begin_function
 DECL|function|ngx_event_del_timer (ngx_event_t * ev)
 name|ngx_inline

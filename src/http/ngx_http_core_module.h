@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon299b68670108
+DECL|struct|__anon289dfc510108
 typedef|typedef
 struct|struct
 block|{
@@ -67,7 +67,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon299b68670203
+DECL|enum|__anon289dfc510203
 typedef|typedef
 enum|enum
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299b68670308
+DECL|struct|__anon289dfc510308
 typedef|typedef
 struct|struct
 block|{
@@ -111,7 +111,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299b68670408
+DECL|struct|__anon289dfc510408
 typedef|typedef
 struct|struct
 block|{
@@ -138,7 +138,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299b68670508
+DECL|struct|__anon289dfc510508
 typedef|typedef
 struct|struct
 block|{
@@ -198,7 +198,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon299b68670608
+DECL|struct|__anon289dfc510608
 typedef|typedef
 struct|struct
 block|{
@@ -222,7 +222,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299b68670708
+DECL|struct|__anon289dfc510708
 typedef|typedef
 struct|struct
 block|{
@@ -264,7 +264,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon299b68670808
+DECL|struct|__anon289dfc510808
 typedef|typedef
 struct|struct
 block|{
@@ -307,7 +307,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon299b68670908
+DECL|struct|__anon289dfc510908
 typedef|typedef
 struct|struct
 block|{
@@ -326,7 +326,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299b68670a08
+DECL|struct|__anon289dfc510a08
 typedef|typedef
 struct|struct
 block|{
@@ -345,7 +345,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299b68670b08
+DECL|struct|__anon289dfc510b08
 typedef|typedef
 struct|struct
 block|{
@@ -397,6 +397,11 @@ name|int
 name|sendfile
 decl_stmt|;
 comment|/* sendfile */
+DECL|member|tcp_nopush
+name|int
+name|tcp_nopush
+decl_stmt|;
+comment|/* tcp_nopush */
 DECL|member|send_timeout
 name|ngx_msec_t
 name|send_timeout

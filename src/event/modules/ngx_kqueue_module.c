@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28d55e770108
+DECL|struct|__anon2b25fb250108
 typedef|typedef
 struct|struct
 block|{
@@ -382,22 +382,6 @@ argument_list|,
 name|ngx_kqueue_module
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug
-argument_list|(
-argument|cycle->log
-argument_list|,
-literal|"CH: %d"
-argument|_ kcf->changes
-argument_list|)
-empty_stmt|;
-name|ngx_log_debug
-argument_list|(
-argument|cycle->log
-argument_list|,
-literal|"EV: %d"
-argument|_ kcf->events
-argument_list|)
-empty_stmt|;
 if|if
 condition|(
 name|ngx_kqueue
@@ -782,6 +766,12 @@ literal|1
 expr_stmt|;
 name|ev
 operator|->
+name|disabled
+operator|=
+literal|0
+expr_stmt|;
+name|ev
+operator|->
 name|oneshot
 operator|=
 operator|(
@@ -849,34 +839,29 @@ operator|==
 name|EV_DISABLE
 condition|)
 block|{
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG_EVENT
-operator|)
-name|ngx_connection_t
-modifier|*
-name|c
-init|=
-operator|(
-name|ngx_connection_t
-operator|*
-operator|)
+comment|/*              * if the EV_DISABLE is still not passed to a kernel              * we will not pass it              */
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|ev
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"kevent activated: %d: ft:%d"
+argument_list|,
+name|ngx_event_ident
+argument_list|(
 name|ev
 operator|->
 name|data
-decl_stmt|;
-name|ngx_log_debug
-argument_list|(
-argument|ev->log
-argument_list|,
-literal|"kqueue event activated: %d: ft:%d"
-argument|_                           c->fd _ event
 argument_list|)
-empty_stmt|;
-endif|#
-directive|endif
-comment|/*             * if the EV_DISABLE is still not passed to a kernel             * we will not pass it             */
+argument_list|,
+name|event
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|ev
@@ -999,6 +984,12 @@ name|active
 operator|=
 literal|0
 expr_stmt|;
+name|ev
+operator|->
+name|disabled
+operator|=
+literal|0
+expr_stmt|;
 if|if
 condition|(
 name|nchanges
@@ -1040,33 +1031,28 @@ operator|)
 name|ev
 condition|)
 block|{
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG_EVENT
-operator|)
-name|ngx_connection_t
-modifier|*
-name|c
-init|=
-operator|(
-name|ngx_connection_t
-operator|*
-operator|)
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|ev
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"kevent deleted: %d: ft:%d"
+argument_list|,
+name|ngx_event_ident
+argument_list|(
 name|ev
 operator|->
 name|data
-decl_stmt|;
-name|ngx_log_debug
-argument_list|(
-argument|ev->log
-argument_list|,
-literal|"kqueue event deleted: %d: ft:%d"
-argument|_                       c->fd _ event
 argument_list|)
-empty_stmt|;
-endif|#
-directive|endif
+argument_list|,
+name|event
+argument_list|)
+expr_stmt|;
 comment|/* if the event is still not passed to a kernel we will not pass it */
 if|if
 condition|(
@@ -1130,6 +1116,20 @@ block|{
 return|return
 name|NGX_OK
 return|;
+block|}
+if|if
+condition|(
+name|flags
+operator|&
+name|NGX_DISABLE_EVENT
+condition|)
+block|{
+name|ev
+operator|->
+name|disabled
+operator|=
+literal|1
+expr_stmt|;
 block|}
 return|return
 name|ngx_kqueue_set_event
@@ -1488,7 +1488,7 @@ modifier|*
 name|log
 parameter_list|)
 block|{
-name|int
+name|ngx_int_t
 name|events
 decl_stmt|,
 name|instance
@@ -1661,25 +1661,13 @@ literal|1000
 operator|-
 name|ngx_start_msec
 expr_stmt|;
-if|if
-condition|(
-name|ngx_cached_time
-operator|!=
-name|tv
-operator|.
-name|tv_sec
-condition|)
-block|{
-name|ngx_cached_time
-operator|=
-name|tv
-operator|.
-name|tv_sec
-expr_stmt|;
 name|ngx_time_update
-argument_list|()
+argument_list|(
+name|tv
+operator|.
+name|tv_sec
+argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|timer
@@ -1717,21 +1705,24 @@ name|NGX_ERROR
 return|;
 block|}
 block|}
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG_EVENT
-operator|)
-name|ngx_log_debug
+name|ngx_log_debug2
 argument_list|(
-argument|log
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|log
+argument_list|,
+literal|0
 argument_list|,
 literal|"kevent timer: %d, delta: %d"
-argument|_ timer _ (int) delta
+argument_list|,
+name|timer
+argument_list|,
+operator|(
+name|int
+operator|)
+name|delta
 argument_list|)
-empty_stmt|;
-endif|#
-directive|endif
+expr_stmt|;
 if|if
 condition|(
 name|err
@@ -1739,6 +1730,14 @@ condition|)
 block|{
 name|ngx_log_error
 argument_list|(
+operator|(
+name|err
+operator|==
+name|NGX_EINTR
+operator|)
+condition|?
+name|NGX_LOG_INFO
+else|:
 name|NGX_LOG_ALERT
 argument_list|,
 name|log

@@ -109,7 +109,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c6ac18f0108
+DECL|struct|__anon28c5285e0108
 typedef|typedef
 struct|struct
 block|{
@@ -319,14 +319,14 @@ end_decl_stmt
 begin_decl_stmt
 specifier|extern
 name|int
-name|restart
+name|reconfigure
 decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
 name|int
-name|rotate
+name|reopen
 decl_stmt|;
 end_decl_stmt
 

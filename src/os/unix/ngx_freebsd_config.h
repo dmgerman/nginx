@@ -155,6 +155,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<pwd.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<osreldate.h>
 end_include
 
