@@ -573,6 +573,29 @@ operator|==
 name|NULL
 condition|)
 block|{
+if|if
+condition|(
+name|ngx_test_config
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"the configuration file %s test failed"
+argument_list|,
+name|init_cycle
+operator|.
+name|conf_file
+operator|.
+name|data
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 literal|1
 return|;
@@ -586,13 +609,17 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_INFO
 argument_list|,
-name|cycle
-operator|->
 name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"config syntax is ok"
+literal|"the configuration file %s was tested successfully"
+argument_list|,
+name|init_cycle
+operator|.
+name|conf_file
+operator|.
+name|data
 argument_list|)
 expr_stmt|;
 return|return

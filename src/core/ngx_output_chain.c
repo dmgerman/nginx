@@ -96,7 +96,7 @@ modifier|*
 modifier|*
 name|last_out
 decl_stmt|;
-comment|/*      * the short path for the case when the chain ctx->in is empty      * and the incoming chain is empty too or it has the single hunk      * that does not require the copy      */
+comment|/*      * the short path for the case when the ctx->in chain is empty      * and the incoming chain is empty too or it has the single hunk      * that does not require the copy      */
 if|if
 condition|(
 name|ctx
@@ -217,6 +217,7 @@ operator|->
 name|in
 condition|)
 block|{
+comment|/*              * cycle while there are the ctx->in hunks              * or there are the free output hunks to copy in              */
 if|if
 condition|(
 operator|!
@@ -232,7 +233,7 @@ name|hunk
 argument_list|)
 condition|)
 block|{
-comment|/* move the chain link to the chain out */
+comment|/* move the chain link to the output chain */
 name|cl
 operator|=
 name|ctx
@@ -500,7 +501,7 @@ return|return
 name|rc
 return|;
 block|}
-comment|/* delete the completed hunk from the chain ctx->in */
+comment|/* delete the completed hunk from the ctx->in chain */
 if|if
 condition|(
 name|ngx_hunk_size
@@ -624,6 +625,17 @@ operator|=
 operator|&
 name|out
 expr_stmt|;
+if|if
+condition|(
+name|last
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+return|return
+name|last
+return|;
+block|}
 block|}
 block|}
 end_function
