@@ -27,6 +27,14 @@ name|ngx_msec_t
 typedef|;
 end_typedef
 
+begin_define
+DECL|macro|NGX_MAX_MSEC
+define|#
+directive|define
+name|NGX_MAX_MSEC
+value|~0
+end_define
+
 begin_typedef
 DECL|typedef|ngx_tm_t
 typedef|typedef

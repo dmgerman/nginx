@@ -60,6 +60,16 @@ directive|include
 file|<ngx_conf_file.h>
 end_include
 
+begin_comment
+comment|/* STUB */
+end_comment
+
+begin_include
+include|#
+directive|include
+file|<ngx_event_timer.h>
+end_include
+
 begin_define
 DECL|macro|NGX_HTTP_VERSION_10
 define|#
@@ -253,7 +263,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2c3dd9f50108
+DECL|struct|__anon2b943a090108
 typedef|typedef
 struct|struct
 block|{
@@ -301,7 +311,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3dd9f50208
+DECL|struct|__anon2b943a090208
 typedef|typedef
 struct|struct
 block|{
@@ -325,7 +335,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3dd9f50308
+DECL|struct|__anon2b943a090308
 typedef|typedef
 struct|struct
 block|{
@@ -366,7 +376,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3dd9f50408
+DECL|struct|__anon2b943a090408
 typedef|typedef
 struct|struct
 block|{
@@ -692,7 +702,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c3dd9f50508
+DECL|struct|__anon2b943a090508
 typedef|typedef
 struct|struct
 block|{
@@ -770,7 +780,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3dd9f50608
+DECL|struct|__anon2b943a090608
 typedef|typedef
 struct|struct
 block|{

@@ -50,6 +50,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_event_timer.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_poll_module.h>
 end_include
 
