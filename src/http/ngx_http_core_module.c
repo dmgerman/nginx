@@ -93,6 +93,9 @@ parameter_list|,
 name|ngx_array_t
 modifier|*
 name|locations
+parameter_list|,
+name|size_t
+name|len
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -2067,6 +2070,8 @@ operator|&
 name|cscf
 operator|->
 name|locations
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 if|if
@@ -2341,7 +2346,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_find_location (ngx_http_request_t * r,ngx_array_t * locations)
+DECL|function|ngx_http_find_location (ngx_http_request_t * r,ngx_array_t * locations,size_t len)
 specifier|static
 name|ngx_int_t
 name|ngx_http_find_location
@@ -2353,6 +2358,9 @@ parameter_list|,
 name|ngx_array_t
 modifier|*
 name|locations
+parameter_list|,
+name|size_t
+name|len
 parameter_list|)
 block|{
 name|ngx_int_t
@@ -2648,27 +2656,8 @@ return|return
 name|NGX_HTTP_LOCATION_EXACT
 return|;
 block|}
-name|clcf
-operator|=
-name|ngx_http_get_module_loc_conf
-argument_list|(
-name|r
-argument_list|,
-name|ngx_http_core_module
-argument_list|)
-expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|ngx_log_debug2(NGX_LOG_DEBUG_HTTP, r->connection->log, 0,                            "p:%d c:%d", clcf->name.len, clcfp[i]->name.len);
-endif|#
-directive|endif
 if|if
 condition|(
-name|clcf
-operator|->
-name|name
-operator|.
 name|len
 operator|>
 name|clcfp
@@ -2734,6 +2723,8 @@ operator|&
 name|clcf
 operator|->
 name|locations
+argument_list|,
+name|len
 argument_list|)
 expr_stmt|;
 if|if
@@ -7403,6 +7394,37 @@ index|[
 literal|1
 index|]
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|alias
+operator|&&
+name|lcf
+operator|->
+name|root
+operator|.
+name|data
+index|[
+name|lcf
+operator|->
+name|root
+operator|.
+name|len
+operator|-
+literal|1
+index|]
+operator|==
+literal|'/'
+condition|)
+block|{
+name|lcf
+operator|->
+name|root
+operator|.
+name|len
+operator|--
+expr_stmt|;
+block|}
 return|return
 name|NGX_CONF_OK
 return|;
