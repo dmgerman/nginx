@@ -112,7 +112,7 @@ argument_list|,
 literal|"log handler"
 argument_list|)
 expr_stmt|;
-comment|/* 10:%con, 22:%date, 2:%"%r", 3:%status, 20:%bytes, 5*" ", 2/1: "\r\n" */
+comment|/* 10:%con, 1:%pipe, 22:%date, 2:"%r", 3:%status, 20:%bytes,        6*" ", 2/1: "\r\n" */
 if|#
 directive|if
 operator|(
@@ -122,6 +122,8 @@ name|len
 operator|=
 literal|10
 operator|+
+literal|1
+operator|+
 literal|22
 operator|+
 literal|2
@@ -130,7 +132,7 @@ literal|3
 operator|+
 literal|20
 operator|+
-literal|5
+literal|6
 operator|+
 literal|2
 expr_stmt|;
@@ -140,6 +142,8 @@ name|len
 operator|=
 literal|10
 operator|+
+literal|1
+operator|+
 literal|22
 operator|+
 literal|2
@@ -148,7 +152,7 @@ literal|3
 operator|+
 literal|20
 operator|+
-literal|5
+literal|6
 operator|+
 literal|1
 expr_stmt|;
@@ -246,6 +250,35 @@ operator|->
 name|number
 argument_list|)
 expr_stmt|;
+operator|*
+name|p
+operator|++
+operator|=
+literal|' '
+expr_stmt|;
+if|if
+condition|(
+name|r
+operator|->
+name|pipeline
+condition|)
+block|{
+operator|*
+name|p
+operator|++
+operator|=
+literal|'p'
+expr_stmt|;
+block|}
+else|else
+block|{
+operator|*
+name|p
+operator|++
+operator|=
+literal|'.'
+expr_stmt|;
+block|}
 operator|*
 name|p
 operator|++

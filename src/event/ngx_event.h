@@ -92,7 +92,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon274e7ecf0108
+DECL|struct|__anon27cc68e30108
 typedef|typedef
 struct|struct
 block|{
@@ -227,6 +227,12 @@ comment|/*   read:   bytes to read                   */
 comment|/*   write:  available space in buffer       */
 comment|/* otherwise:                                */
 comment|/*   accept: 1 if accept many, 0 otherwise   */
+DECL|member|level
+name|unsigned
+name|level
+range|:
+literal|1
+decl_stmt|;
 DECL|member|oneshot
 name|unsigned
 name|oneshot
@@ -381,7 +387,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon274e7ecf0203
+DECL|enum|__anon27cc68e30203
 typedef|typedef
 enum|enum
 block|{
@@ -450,7 +456,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon274e7ecf0308
+DECL|struct|__anon27cc68e30308
 typedef|typedef
 struct|struct
 block|{

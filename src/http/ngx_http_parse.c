@@ -34,7 +34,7 @@ name|char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon295b5cb20103
+DECL|enum|__anon2b57addb0103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -133,6 +133,14 @@ comment|/* HTTP methods: GET, HEAD, POST */
 case|case
 name|sw_start
 case|:
+name|r
+operator|->
+name|request_start
+operator|=
+name|p
+operator|-
+literal|1
+expr_stmt|;
 switch|switch
 condition|(
 name|ch
@@ -1166,7 +1174,7 @@ name|char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon295b5cb20203
+DECL|enum|__anon2b57addb0203
 enum|enum
 block|{
 DECL|enumerator|sw_start

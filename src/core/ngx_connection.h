@@ -211,6 +211,12 @@ DECL|member|number
 name|int
 name|number
 decl_stmt|;
+DECL|member|pipeline
+name|unsigned
+name|pipeline
+range|:
+literal|1
+decl_stmt|;
 DECL|member|unexpected_eof
 name|unsigned
 name|unexpected_eof

@@ -295,7 +295,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon276028360108
+DECL|struct|__anon2bae39610108
 typedef|typedef
 struct|struct
 block|{
@@ -343,7 +343,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276028360208
+DECL|struct|__anon2bae39610208
 typedef|typedef
 struct|struct
 block|{
@@ -367,7 +367,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276028360308
+DECL|struct|__anon2bae39610308
 typedef|typedef
 struct|struct
 block|{
@@ -412,7 +412,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276028360408
+DECL|struct|__anon2bae39610408
 typedef|typedef
 struct|struct
 block|{
@@ -623,6 +623,12 @@ DECL|member|path_err
 name|int
 name|path_err
 decl_stmt|;
+DECL|member|pipeline
+name|unsigned
+name|pipeline
+range|:
+literal|1
+decl_stmt|;
 DECL|member|keepalive
 name|unsigned
 name|keepalive
@@ -714,6 +720,11 @@ name|char
 modifier|*
 name|args_start
 decl_stmt|;
+DECL|member|request_start
+name|char
+modifier|*
+name|request_start
+decl_stmt|;
 DECL|member|request_end
 name|char
 modifier|*
@@ -761,7 +772,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon276028360508
+DECL|struct|__anon2bae39610508
 typedef|typedef
 struct|struct
 block|{
@@ -839,7 +850,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276028360608
+DECL|struct|__anon2bae39610608
 typedef|typedef
 struct|struct
 block|{
