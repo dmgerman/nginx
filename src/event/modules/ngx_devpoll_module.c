@@ -78,7 +78,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon27a0e2290108
+DECL|struct|__anon2c7fe3130108
 typedef|typedef
 struct|struct
 block|{
@@ -967,12 +967,6 @@ block|}
 name|ev
 operator|->
 name|active
-operator|=
-literal|0
-expr_stmt|;
-name|ev
-operator|->
-name|posted
 operator|=
 literal|0
 expr_stmt|;

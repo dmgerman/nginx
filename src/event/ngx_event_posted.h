@@ -39,12 +39,20 @@ parameter_list|(
 name|ev
 parameter_list|)
 define|\
-value|if (!ev->posted) {                                                \                 ev->next = (ngx_event_t *) ngx_posted_events;                 \                 ngx_posted_events = ev;                                       \                 ev->posted = 1;                                               \ \    ngx_log_debug3(NGX_LOG_DEBUG_CORE, ngx_cycle->log, 0, \                "POST: %08X %08X %08X", ngx_posted_events, \                (ngx_posted_events ? ngx_posted_events->next: 0), \                ((ngx_posted_events&& ngx_posted_events->next) ? \                                ngx_posted_events->next->next: 0)); \ \ }
+value|if (ev->prev == NULL) {                                           \                 ev->next = (ngx_event_t *) ngx_posted_events;                 \                 ev->prev = (ngx_event_t **)&ngx_posted_events;               \                 ngx_posted_events = ev;                                       \                 ngx_log_debug1(NGX_LOG_DEBUG_CORE, ngx_cycle->log, 0,         \                                "post event " PTR_FMT, ev);                    \             }
 end_define
 
-begin_comment
-comment|/* \ { int i; ngx_event_t *e;\   e = (ngx_event_t *) ngx_posted_events; \ for (i = 0; e&& i< 10; e = e->next, i++) { \    ngx_log_debug2(NGX_LOG_DEBUG_CORE, ngx_cycle->log, 0, \                   "POST: %d %08X", i, e);\ }} \ \ */
-end_comment
+begin_define
+DECL|macro|ngx_delete_posted_event (ev)
+define|#
+directive|define
+name|ngx_delete_posted_event
+parameter_list|(
+name|ev
+parameter_list|)
+define|\
+value|*(ev->prev) = ev->next;                                               \         if (ev->next) {                                                       \             ev->next->prev = ev->prev;                                        \         }                                                                     \         ev->prev = NULL;
+end_define
 
 begin_function_decl
 name|void

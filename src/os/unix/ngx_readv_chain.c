@@ -90,7 +90,7 @@ literal|"readv: eof:%d, avail:%d, err:%d"
 argument_list|,
 name|rev
 operator|->
-name|kq_eof
+name|pending_eof
 argument_list|,
 name|rev
 operator|->
@@ -114,7 +114,7 @@ if|if
 condition|(
 name|rev
 operator|->
-name|kq_eof
+name|pending_eof
 condition|)
 block|{
 name|rev
@@ -406,7 +406,7 @@ condition|(
 operator|!
 name|rev
 operator|->
-name|kq_eof
+name|pending_eof
 condition|)
 block|{
 name|rev

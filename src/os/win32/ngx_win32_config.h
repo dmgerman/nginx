@@ -184,21 +184,6 @@ name|)
 end_pragma
 
 begin_comment
-comment|/* nonstandard extension used : bit field types other than int */
-end_comment
-
-begin_pragma
-pragma|#
-directive|pragma
-name|warning
-name|(
-name|disable
-name|:
-name|4214
-name|)
-end_pragma
-
-begin_comment
 comment|/* unreachable code */
 end_comment
 

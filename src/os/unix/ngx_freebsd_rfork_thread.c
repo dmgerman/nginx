@@ -1428,7 +1428,7 @@ name|op
 operator|.
 name|sem_flg
 operator|=
-name|SEM_UNDO
+literal|0
 expr_stmt|;
 if|if
 condition|(
@@ -1840,7 +1840,7 @@ name|op
 operator|.
 name|sem_flg
 operator|=
-name|SEM_UNDO
+literal|0
 expr_stmt|;
 if|if
 condition|(
@@ -2175,7 +2175,7 @@ name|op
 operator|.
 name|sem_flg
 operator|=
-name|SEM_UNDO
+literal|0
 expr_stmt|;
 if|if
 condition|(
@@ -2299,7 +2299,7 @@ name|op
 operator|.
 name|sem_flg
 operator|=
-name|SEM_UNDO
+literal|0
 expr_stmt|;
 if|if
 condition|(

@@ -3268,7 +3268,7 @@ name|c
 operator|->
 name|write
 operator|->
-name|kq_eof
+name|pending_eof
 condition|)
 block|{
 name|ngx_log_error

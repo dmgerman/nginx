@@ -62,7 +62,7 @@ name|c
 operator|->
 name|read
 operator|->
-name|aio_eof
+name|pending_eof
 condition|)
 block|{
 name|c
@@ -231,7 +231,7 @@ name|c
 operator|->
 name|read
 operator|->
-name|aio_eof
+name|pending_eof
 operator|=
 literal|1
 expr_stmt|;

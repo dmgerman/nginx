@@ -108,7 +108,7 @@ operator|)
 operator|&&
 name|wev
 operator|->
-name|kq_eof
+name|pending_eof
 condition|)
 block|{
 name|ngx_log_error

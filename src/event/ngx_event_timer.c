@@ -325,6 +325,8 @@ name|NGX_THREADS
 operator|)
 if|if
 condition|(
+name|ngx_threaded
+operator|&&
 name|ngx_trylock
 argument_list|(
 name|ev
@@ -335,6 +337,7 @@ operator|==
 literal|0
 condition|)
 block|{
+comment|/*                  * We can not change the timer of the event that is been                  * handling by another thread.  And we can not easy walk                  * the rbtree to find a next expired timer so we exit the loop.                  * However it should be rare case when the event that is                  * been handling has expired timer.                  */
 break|break;
 block|}
 endif|#
@@ -422,6 +425,11 @@ name|timer_set
 operator|=
 literal|0
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_THREADS
+operator|)
 if|if
 condition|(
 name|ngx_threaded
@@ -445,6 +453,14 @@ name|posted_timedout
 operator|=
 literal|1
 expr_stmt|;
+name|ev
+operator|->
+name|returned_instance
+operator|=
+name|ev
+operator|->
+name|instance
+expr_stmt|;
 name|ngx_post_event
 argument_list|(
 name|ev
@@ -455,8 +471,17 @@ argument_list|(
 name|ngx_posted_events_mutex
 argument_list|)
 expr_stmt|;
+name|ngx_unlock
+argument_list|(
+name|ev
+operator|->
+name|lock
+argument_list|)
+expr_stmt|;
 continue|continue;
 block|}
+endif|#
+directive|endif
 name|ev
 operator|->
 name|timedout

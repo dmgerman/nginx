@@ -327,7 +327,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon27976cd90108
+DECL|struct|__anon2bb08a520108
 typedef|typedef
 struct|struct
 block|{
@@ -1141,12 +1141,6 @@ name|active
 operator|=
 literal|0
 expr_stmt|;
-name|ev
-operator|->
-name|posted
-operator|=
-literal|0
-expr_stmt|;
 return|return
 name|NGX_OK
 return|;
@@ -1319,12 +1313,6 @@ block|}
 name|ev
 operator|->
 name|active
-operator|=
-literal|0
-expr_stmt|;
-name|ev
-operator|->
-name|posted
 operator|=
 literal|0
 expr_stmt|;

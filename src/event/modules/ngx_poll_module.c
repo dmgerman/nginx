@@ -681,12 +681,6 @@ name|active
 operator|=
 literal|0
 expr_stmt|;
-name|ev
-operator|->
-name|posted
-operator|=
-literal|0
-expr_stmt|;
 if|if
 condition|(
 name|ev

@@ -1708,7 +1708,7 @@ condition|(
 operator|!
 name|ev
 operator|->
-name|kq_eof
+name|pending_eof
 condition|)
 block|{
 return|return;
@@ -2693,7 +2693,7 @@ name|c
 operator|->
 name|read
 operator|->
-name|posted
+name|disabled
 condition|)
 block|{
 name|ngx_del_event
@@ -2720,7 +2720,7 @@ name|c
 operator|->
 name|read
 operator|->
-name|posted
+name|disabled
 condition|)
 block|{
 name|ngx_del_event
