@@ -598,7 +598,7 @@ init|=
 name|ngx_string
 argument_list|(
 literal|"%addr - - [%time] \"%request\" %status %apache_length "
-literal|"\"%{Referer}i\" %{User-Agent}i\""
+literal|"\"%{Referer}i\" \"%{User-Agent}i\""
 argument_list|)
 decl_stmt|;
 end_decl_stmt

@@ -2972,7 +2972,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http header: \"%s: %s\"'"
+literal|"http header: \"%s: %s\""
 argument_list|,
 name|h
 operator|->
