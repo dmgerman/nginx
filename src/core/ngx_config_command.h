@@ -37,7 +37,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon27dff7b20108
+DECL|struct|__anon29fb8ac50108
 typedef|typedef
 struct|struct
 block|{
@@ -82,6 +82,25 @@ begin_function_decl
 name|char
 modifier|*
 name|ngx_conf_set_size_slot
+parameter_list|(
+name|char
+modifier|*
+name|conf
+parameter_list|,
+name|int
+name|offset
+parameter_list|,
+name|char
+modifier|*
+name|value
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|char
+modifier|*
+name|ngx_conf_set_time_slot
 parameter_list|(
 name|char
 modifier|*

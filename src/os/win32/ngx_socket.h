@@ -25,6 +25,14 @@ file|<ngx_log.h>
 end_include
 
 begin_define
+DECL|macro|NGX_WRITE_SHUTDOWN
+define|#
+directive|define
+name|NGX_WRITE_SHUTDOWN
+value|SD_SEND
+end_define
+
+begin_define
 DECL|macro|INET_ADDRSTRLEN
 define|#
 directive|define
@@ -101,6 +109,22 @@ define|#
 directive|define
 name|ngx_nonblocking_n
 value|"ioctlsocket(FIONBIO)"
+end_define
+
+begin_define
+DECL|macro|ngx_shutdown_socket
+define|#
+directive|define
+name|ngx_shutdown_socket
+value|shutdown
+end_define
+
+begin_define
+DECL|macro|ngx_shutdown_socket_n
+define|#
+directive|define
+name|ngx_shutdown_socket_n
+value|"shutdown()"
 end_define
 
 begin_define

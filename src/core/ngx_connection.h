@@ -27,6 +27,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_hunk.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_alloc.h>
 end_include
 
@@ -153,6 +159,11 @@ decl_stmt|;
 DECL|member|addr_textlen
 name|size_t
 name|addr_textlen
+decl_stmt|;
+DECL|member|buffer
+name|ngx_hunk_t
+modifier|*
+name|buffer
 decl_stmt|;
 DECL|member|post_accept_timeout
 name|unsigned

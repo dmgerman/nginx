@@ -36,7 +36,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ad7c5930108
+DECL|struct|__anon28d109590108
 typedef|typedef
 struct|struct
 block|{
@@ -131,7 +131,7 @@ name|last
 operator|.
 name|mem
 argument_list|,
-literal|"HTTP/1.0 "
+literal|"HTTP/1.1 "
 argument_list|,
 literal|9
 argument_list|)
@@ -204,7 +204,40 @@ operator|)
 operator|=
 name|LF
 expr_stmt|;
-comment|/*     memcpy(h->last.mem, "Date: ", 6);     h->last.mem += 6;     h->last.mem += ngx_http_get_time(h->last.mem, time(NULL));     *(h->last.mem++) = CR; *(h->last.mem++) = LF; */
+if|#
+directive|if
+literal|1
+name|r
+operator|->
+name|keepalive
+operator|=
+literal|1
+expr_stmt|;
+name|ngx_memcpy
+argument_list|(
+name|h
+operator|->
+name|last
+operator|.
+name|mem
+argument_list|,
+literal|"Connection: keep-alive"
+name|CRLF
+argument_list|,
+literal|24
+argument_list|)
+expr_stmt|;
+name|h
+operator|->
+name|last
+operator|.
+name|mem
+operator|+=
+literal|24
+expr_stmt|;
+endif|#
+directive|endif
+comment|/*     ngx_memcpy(h->last.mem, "Date: ", 6);     h->last.mem += 6;     h->last.mem += ngx_http_get_time(h->last.mem, time(NULL));     *(h->last.mem++) = CR; *(h->last.mem++) = LF; */
 comment|/* 2^64 is 20 characters  */
 if|if
 condition|(
@@ -241,7 +274,41 @@ name|content_length
 argument_list|)
 expr_stmt|;
 comment|/* check */
-name|memcpy
+if|if
+condition|(
+name|r
+operator|->
+name|headers_out
+operator|->
+name|content_type
+condition|)
+name|h
+operator|->
+name|last
+operator|.
+name|mem
+operator|+=
+name|ngx_snprintf
+argument_list|(
+name|h
+operator|->
+name|last
+operator|.
+name|mem
+argument_list|,
+literal|100
+argument_list|,
+literal|"Content-Type: %s"
+name|CRLF
+argument_list|,
+name|r
+operator|->
+name|headers_out
+operator|->
+name|content_type
+argument_list|)
+expr_stmt|;
+name|ngx_memcpy
 argument_list|(
 name|h
 operator|->
@@ -320,6 +387,8 @@ sizeof|sizeof
 argument_list|(
 name|NGINX_VER
 argument_list|)
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 name|h
@@ -332,6 +401,8 @@ sizeof|sizeof
 argument_list|(
 name|NGINX_VER
 argument_list|)
+operator|-
+literal|1
 expr_stmt|;
 block|}
 operator|*

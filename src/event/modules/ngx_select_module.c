@@ -944,7 +944,7 @@ name|ngx_log_debug
 argument_list|(
 argument|log
 argument_list|,
-literal|"ngx_select_process_events: timer: %d"
+literal|"select timer: %d"
 argument|_ timer
 argument_list|)
 empty_stmt|;
@@ -1012,7 +1012,7 @@ name|log
 argument_list|,
 name|ngx_socket_errno
 argument_list|,
-literal|"ngx_select_process_events: select failed"
+literal|"select() failed"
 argument_list|)
 expr_stmt|;
 return|return
@@ -1023,7 +1023,7 @@ name|ngx_log_debug
 argument_list|(
 argument|log
 argument_list|,
-literal|"ngx_select_process_events: ready %d"
+literal|"select ready %d"
 argument|_ ready
 argument_list|)
 empty_stmt|;
@@ -1052,8 +1052,7 @@ argument|return NGX_ERROR
 argument_list|,
 argument|log
 argument_list|,
-literal|"ngx_select_process_events: "
-literal|"select returns no events without timeout"
+literal|"select() returns no events without timeout"
 argument_list|)
 empty_stmt|;
 block|}
@@ -1061,8 +1060,7 @@ name|ngx_log_debug
 argument_list|(
 argument|log
 argument_list|,
-literal|"ngx_select_process_events: "
-literal|"timer: %d, delta: %d"
+literal|"select timer: %d, delta: %d"
 argument|_ timer _ delta
 argument_list|)
 empty_stmt|;
@@ -1173,11 +1171,7 @@ operator|!=
 operator|&
 name|event_queue
 condition|;
-name|ev
-operator|=
-name|ev
-operator|->
-name|next
+comment|/* void */
 control|)
 block|{
 name|c
@@ -1218,7 +1212,7 @@ name|ngx_log_debug
 argument_list|(
 argument|log
 argument_list|,
-literal|"ngx_select_process_events: write %d"
+literal|"select write %d"
 argument|_                               c->fd
 argument_list|)
 empty_stmt|;
@@ -1247,7 +1241,7 @@ name|ngx_log_debug
 argument_list|(
 argument|log
 argument_list|,
-literal|"ngx_select_process_events: read %d"
+literal|"select read %d"
 argument|_                               c->fd
 argument_list|)
 empty_stmt|;
@@ -1257,6 +1251,12 @@ literal|1
 expr_stmt|;
 block|}
 block|}
+name|nx
+operator|=
+name|ev
+operator|->
+name|next
+expr_stmt|;
 if|if
 condition|(
 name|found
@@ -1325,6 +1325,10 @@ name|ready
 operator|--
 expr_stmt|;
 block|}
+name|ev
+operator|=
+name|nx
+expr_stmt|;
 block|}
 name|ngx_assert
 argument_list|(
@@ -1337,7 +1341,7 @@ argument|;
 argument_list|,
 argument|log
 argument_list|,
-literal|"ngx_select_process_events: ready != events"
+literal|"select ready != events"
 argument_list|)
 empty_stmt|;
 return|return
