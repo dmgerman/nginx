@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c580a920108
+DECL|struct|__anon273d8df30108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c580a920208
+DECL|struct|__anon273d8df30208
 typedef|typedef
 struct|struct
 block|{
@@ -59,6 +59,15 @@ DECL|member|hunk
 name|ngx_hunk_t
 modifier|*
 name|hunk
+decl_stmt|;
+DECL|member|last_hunk
+name|int
+name|last_hunk
+decl_stmt|;
+DECL|member|hunks
+name|ngx_array_t
+modifier|*
+name|hunks
 decl_stmt|;
 DECL|member|header_in
 name|ngx_http_proxy_header_in_t

@@ -45,11 +45,19 @@ value|-2
 end_define
 
 begin_define
+DECL|macro|NGX_WAITING
+define|#
+directive|define
+name|NGX_WAITING
+value|-3
+end_define
+
+begin_define
 DECL|macro|NGX_DECLINED
 define|#
 directive|define
 name|NGX_DECLINED
-value|-3
+value|-4
 end_define
 
 begin_endif

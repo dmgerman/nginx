@@ -2659,6 +2659,15 @@ argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|rc
+operator|==
+name|NGX_WAITING
+condition|)
+return|return
+name|rc
+return|;
 comment|/* transfer not completed */
 if|if
 condition|(
