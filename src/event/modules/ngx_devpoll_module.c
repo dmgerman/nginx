@@ -78,7 +78,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon297ec4960108
+DECL|struct|__anon2b5466720108
 typedef|typedef
 struct|struct
 block|{
@@ -179,9 +179,9 @@ specifier|static
 name|int
 name|ngx_devpoll_process_events
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -1263,20 +1263,22 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_devpoll_process_events (ngx_log_t * log)
+DECL|function|ngx_devpoll_process_events (ngx_cycle_t * cycle)
 name|int
 name|ngx_devpoll_process_events
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 block|{
 name|int
 name|events
-decl_stmt|,
+decl_stmt|;
+name|ngx_int_t
 name|i
-decl_stmt|,
+decl_stmt|;
+name|ngx_uint_t
 name|j
 decl_stmt|;
 name|size_t
@@ -1291,7 +1293,7 @@ decl_stmt|;
 name|ngx_cycle_t
 modifier|*
 modifier|*
-name|cycle
+name|old_cycle
 decl_stmt|;
 name|ngx_connection_t
 modifier|*
@@ -1336,6 +1338,8 @@ name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1381,6 +1385,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 name|ngx_errno
@@ -1497,6 +1503,8 @@ name|NGX_LOG_INFO
 else|:
 name|NGX_LOG_ALERT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 name|err
@@ -1528,6 +1536,8 @@ name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1556,6 +1566,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1607,7 +1619,7 @@ operator|-
 literal|1
 condition|)
 block|{
-name|cycle
+name|old_cycle
 operator|=
 name|ngx_old_cycles
 operator|.
@@ -1631,9 +1643,9 @@ control|)
 block|{
 if|if
 condition|(
-name|cycle
+name|old_cycle
 index|[
-name|i
+name|j
 index|]
 operator|==
 name|NULL
@@ -1644,7 +1656,7 @@ block|}
 name|c
 operator|=
 operator|&
-name|cycle
+name|old_cycle
 index|[
 name|j
 index|]
@@ -1687,6 +1699,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_EMERG
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1704,6 +1718,8 @@ name|ngx_log_debug3
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1754,6 +1770,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1810,6 +1828,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0

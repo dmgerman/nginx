@@ -327,7 +327,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2aa231d50108
+DECL|struct|__anon293da41e0108
 typedef|typedef
 struct|struct
 block|{
@@ -430,9 +430,9 @@ specifier|static
 name|int
 name|ngx_epoll_process_events
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -1332,13 +1332,13 @@ directive|endif
 end_endif
 
 begin_function
-DECL|function|ngx_epoll_process_events (ngx_log_t * log)
+DECL|function|ngx_epoll_process_events (ngx_cycle_t * cycle)
 name|int
 name|ngx_epoll_process_events
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 block|{
 name|int
@@ -1357,11 +1357,6 @@ name|timer
 decl_stmt|;
 name|ngx_err_t
 name|err
-decl_stmt|;
-name|ngx_cycle_t
-modifier|*
-modifier|*
-name|cycle
 decl_stmt|;
 name|struct
 name|timeval
@@ -1403,6 +1398,8 @@ name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1499,6 +1496,8 @@ name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1527,6 +1526,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1556,6 +1557,8 @@ name|NGX_LOG_INFO
 else|:
 name|NGX_LOG_ALERT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 name|err
@@ -1620,10 +1623,54 @@ operator|~
 literal|1
 operator|)
 expr_stmt|;
+if|if
+condition|(
+name|event_list
+index|[
+name|i
+index|]
+operator|.
+name|events
+operator|&
+name|EPOLLIN
+condition|)
+block|{
+name|c
+operator|->
+name|read
+operator|->
+name|returned_instance
+operator|=
+name|instance
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|event_list
+index|[
+name|i
+index|]
+operator|.
+name|events
+operator|&
+name|EPOLLOUT
+condition|)
+block|{
+name|c
+operator|->
+name|write
+operator|->
+name|returned_instance
+operator|=
+name|instance
+expr_stmt|;
+block|}
 name|ngx_log_debug3
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1666,6 +1713,8 @@ name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1698,6 +1747,8 @@ name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1742,6 +1793,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0

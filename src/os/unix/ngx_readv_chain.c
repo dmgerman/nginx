@@ -576,7 +576,7 @@ modifier|*
 name|chain
 parameter_list|)
 block|{
-name|char
+name|u_char
 modifier|*
 name|prev
 decl_stmt|;

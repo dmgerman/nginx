@@ -495,6 +495,10 @@ name|rev
 operator|->
 name|next
 operator|=
+operator|(
+name|ngx_event_t
+operator|*
+operator|)
 name|ngx_posted_events
 expr_stmt|;
 name|ngx_posted_events

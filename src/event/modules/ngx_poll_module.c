@@ -85,9 +85,9 @@ begin_function_decl
 name|int
 name|ngx_poll_process_events
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -202,7 +202,7 @@ name|NULL
 block|,
 comment|/* init module */
 name|NULL
-comment|/* init child */
+comment|/* init process */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -665,7 +665,7 @@ name|u_int
 name|flags
 parameter_list|)
 block|{
-name|ngx_int_t
+name|ngx_uint_t
 name|i
 decl_stmt|;
 name|ngx_cycle_t
@@ -1067,13 +1067,13 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_poll_process_events (ngx_log_t * log)
+DECL|function|ngx_poll_process_events (ngx_cycle_t * cycle)
 name|int
 name|ngx_poll_process_events
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 block|{
 name|int
@@ -1082,9 +1082,10 @@ decl_stmt|;
 name|ngx_int_t
 name|i
 decl_stmt|,
-name|j
-decl_stmt|,
 name|nready
+decl_stmt|;
+name|ngx_uint_t
+name|n
 decl_stmt|,
 name|found
 decl_stmt|;
@@ -1097,7 +1098,7 @@ decl_stmt|;
 name|ngx_cycle_t
 modifier|*
 modifier|*
-name|cycle
+name|old_cycle
 decl_stmt|;
 name|ngx_event_t
 modifier|*
@@ -1176,6 +1177,8 @@ name|ngx_log_debug3
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1204,6 +1207,8 @@ name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1289,6 +1294,8 @@ name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1317,6 +1324,8 @@ name|NGX_LOG_INFO
 else|:
 name|NGX_LOG_ALERT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 name|err
@@ -1348,6 +1357,8 @@ name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1376,6 +1387,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1427,7 +1440,7 @@ block|{
 if|#
 directive|if
 literal|0
-block_content|ngx_log_debug4(NGX_LOG_DEBUG_EVENT, log, 0,                        "poll: %d: fd:%d ev:%04X rev:%04X",                        i, event_list[i].fd,                        event_list[i].events, event_list[i].revents);
+block_content|ngx_log_debug4(NGX_LOG_DEBUG_EVENT, cycle->log, 0,                        "poll: %d: fd:%d ev:%04X rev:%04X",                        i, event_list[i].fd,                        event_list[i].events, event_list[i].revents);
 else|#
 directive|else
 if|if
@@ -1444,6 +1457,8 @@ name|ngx_log_debug4
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1499,6 +1514,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1555,6 +1572,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1625,7 +1644,7 @@ operator|-
 literal|1
 condition|)
 block|{
-name|cycle
+name|old_cycle
 operator|=
 name|ngx_old_cycles
 operator|.
@@ -1633,25 +1652,25 @@ name|elts
 expr_stmt|;
 for|for
 control|(
-name|j
+name|n
 operator|=
 literal|0
 init|;
-name|j
+name|n
 operator|<
 name|ngx_old_cycles
 operator|.
 name|nelts
 condition|;
-name|j
+name|n
 operator|++
 control|)
 block|{
 if|if
 condition|(
-name|cycle
+name|old_cycle
 index|[
-name|j
+name|n
 index|]
 operator|==
 name|NULL
@@ -1662,9 +1681,9 @@ block|}
 name|c
 operator|=
 operator|&
-name|cycle
+name|old_cycle
 index|[
-name|j
+name|n
 index|]
 operator|->
 name|connections
@@ -1705,6 +1724,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1932,6 +1953,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0

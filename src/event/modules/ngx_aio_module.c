@@ -122,9 +122,9 @@ specifier|static
 name|int
 name|ngx_aio_process_events
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -230,7 +230,7 @@ name|NULL
 block|,
 comment|/* init module */
 name|NULL
-comment|/* init child */
+comment|/* init process */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -572,14 +572,14 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_aio_process_events (ngx_log_t * log)
+DECL|function|ngx_aio_process_events (ngx_cycle_t * cycle)
 specifier|static
 name|int
 name|ngx_aio_process_events
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 block|{
 return|return
@@ -589,7 +589,7 @@ name|actions
 operator|.
 name|process
 argument_list|(
-name|log
+name|cycle
 argument_list|)
 return|;
 block|}

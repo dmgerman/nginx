@@ -653,6 +653,10 @@ return|;
 block|}
 name|ngx_accept_mutex_ptr
 operator|=
+operator|(
+name|ngx_atomic_t
+operator|*
+operator|)
 name|mmap
 argument_list|(
 name|NULL

@@ -179,6 +179,10 @@ argument_list|,
 name|size
 argument_list|)
 operator|-
+operator|(
+name|u_char
+operator|*
+operator|)
 name|errstr
 return|;
 block|}

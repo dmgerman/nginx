@@ -131,6 +131,24 @@ end_include
 begin_include
 include|#
 directive|include
+file|<sys/mman.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<sys/socket.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<sys/sendfile.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<sys/filio.h>
 end_include
 
@@ -147,18 +165,6 @@ end_include
 begin_comment
 comment|/* INFTIM */
 end_comment
-
-begin_include
-include|#
-directive|include
-file|<sys/socket.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<sys/sendfile.h>
-end_include
 
 begin_include
 include|#

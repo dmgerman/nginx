@@ -109,7 +109,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c2eeb110108
+DECL|struct|__anon299087430108
 typedef|typedef
 struct|struct
 block|{
@@ -186,9 +186,9 @@ specifier|static
 name|int
 name|ngx_rtsig_process_events
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -198,9 +198,9 @@ specifier|static
 name|int
 name|ngx_rtsig_process_overflow
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -815,13 +815,13 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_rtsig_process_events (ngx_log_t * log)
+DECL|function|ngx_rtsig_process_events (ngx_cycle_t * cycle)
 name|int
 name|ngx_rtsig_process_events
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 block|{
 name|int
@@ -840,11 +840,6 @@ name|timer
 decl_stmt|;
 name|ngx_err_t
 name|err
-decl_stmt|;
-name|ngx_cycle_t
-modifier|*
-modifier|*
-name|cycle
 decl_stmt|;
 name|siginfo_t
 name|si
@@ -926,6 +921,8 @@ name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1019,6 +1016,8 @@ name|NGX_LOG_INFO
 else|:
 name|NGX_LOG_ALERT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 name|err
@@ -1045,6 +1044,8 @@ name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1064,6 +1065,8 @@ name|ngx_log_debug3
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1217,6 +1220,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 name|ngx_errno
@@ -1282,6 +1287,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 name|ngx_errno
@@ -1322,6 +1329,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -1364,14 +1373,14 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_rtsig_process_overflow (ngx_log_t * log)
+DECL|function|ngx_rtsig_process_overflow (ngx_cycle_t * cycle)
 specifier|static
 name|int
 name|ngx_rtsig_process_overflow
 parameter_list|(
-name|ngx_log_t
+name|ngx_cycle_t
 modifier|*
-name|log
+name|cycle
 parameter_list|)
 block|{
 if|if
@@ -1382,7 +1391,7 @@ name|actions
 operator|.
 name|process
 argument_list|(
-name|log
+name|cycle
 argument_list|)
 operator|==
 name|NGX_OK
