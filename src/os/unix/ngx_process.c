@@ -11,6 +11,12 @@ directive|include
 file|<ngx_core.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_event.h>
+end_include
+
 begin_function_decl
 specifier|static
 name|void
@@ -624,6 +630,22 @@ literal|"waitpid() failed"
 argument_list|)
 expr_stmt|;
 return|return;
+block|}
+if|if
+condition|(
+name|ngx_accept_mutex_ptr
+condition|)
+block|{
+comment|/*              * unlock the accept mutex if the abnormally exited process              * held it              */
+name|ngx_atomic_cmp_set
+argument_list|(
+name|ngx_accept_mutex_ptr
+argument_list|,
+name|pid
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
 block|}
 name|one
 operator|=

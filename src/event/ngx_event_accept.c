@@ -24,7 +24,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27e65ff30108
+DECL|struct|__anon2918fcdb0108
 typedef|typedef
 struct|struct
 block|{
@@ -918,6 +918,19 @@ name|socklen
 operator|=
 name|len
 expr_stmt|;
+if|if
+condition|(
+name|ngx_event_flags
+operator|&
+name|NGX_HAVE_INSTANCE_EVENT
+condition|)
+block|{
+name|rev
+operator|->
+name|use_instance
+operator|=
+literal|1
+expr_stmt|;
 name|rev
 operator|->
 name|instance
@@ -939,6 +952,12 @@ name|rinstance
 expr_stmt|;
 name|wev
 operator|->
+name|use_instance
+operator|=
+literal|1
+expr_stmt|;
+name|wev
+operator|->
 name|instance
 operator|=
 operator|(
@@ -956,6 +975,7 @@ name|u_char
 operator|)
 name|winstance
 expr_stmt|;
+block|}
 name|rev
 operator|->
 name|index
@@ -1239,7 +1259,7 @@ name|ngx_accept_mutex
 argument_list|,
 literal|0
 argument_list|,
-literal|1
+name|ngx_pid
 argument_list|)
 condition|)
 block|{

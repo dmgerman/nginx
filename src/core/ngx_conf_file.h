@@ -441,7 +441,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bc0ff690108
+DECL|struct|__anon2b739cc70108
 typedef|typedef
 struct|struct
 block|{
@@ -576,7 +576,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc0ff690208
+DECL|struct|__anon2b739cc70208
 typedef|typedef
 struct|struct
 block|{
@@ -591,7 +591,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc0ff690308
+DECL|struct|__anon2b739cc70308
 typedef|typedef
 struct|struct
 block|{
@@ -622,7 +622,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2bc0ff690408
+DECL|struct|__anon2b739cc70408
 typedef|typedef
 struct|struct
 block|{
@@ -714,7 +714,7 @@ name|ngx_conf_init_size_value
 parameter_list|(
 name|conf
 parameter_list|,
-define|default)                              \     if (conf == NGX_CONF_UNSET) {                                            \         conf = default;                                                      \     }
+define|default)                              \     if (conf == NGX_CONF_UNSET_SIZE) {                                       \         conf = default;                                                      \     }
 end_define
 
 begin_define
@@ -725,7 +725,7 @@ name|ngx_conf_init_msec_value
 parameter_list|(
 name|conf
 parameter_list|,
-define|default)                              \     if (conf == NGX_CONF_UNSET) {                                            \         conf = default;                                                      \     }
+define|default)                              \     if (conf == NGX_CONF_UNSET_MSEC) {                                       \         conf = default;                                                      \     }
 end_define
 
 begin_define

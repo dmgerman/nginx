@@ -57,7 +57,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon27a274340108
+DECL|struct|__anon2bc2c9870108
 typedef|typedef
 struct|struct
 block|{
@@ -86,7 +86,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon27a274340208
+DECL|struct|__anon2bc2c9870208
 typedef|typedef
 struct|struct
 block|{
@@ -179,6 +179,13 @@ range|:
 literal|1
 decl_stmt|;
 comment|/* used to detect the stale events in kqueue, rt signals and epoll */
+DECL|member|use_instance
+name|unsigned
+name|char
+name|use_instance
+range|:
+literal|1
+decl_stmt|;
 DECL|member|instance
 name|unsigned
 name|char
@@ -218,7 +225,7 @@ decl_stmt|;
 comment|/* the ready event; in aio mode 0 means that no operation can be posted */
 DECL|member|ready
 name|unsigned
-name|char
+name|short
 name|ready
 range|:
 literal|1
@@ -417,7 +424,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27a274340308
+DECL|struct|__anon2bc2c9870308
 typedef|typedef
 struct|struct
 block|{
@@ -630,6 +637,18 @@ value|0x00000010
 end_define
 
 begin_comment
+comment|/*  * The event filter allows to pass instance information to check stale events -  * kqueue, epoll, rt signals.  */
+end_comment
+
+begin_define
+DECL|macro|NGX_HAVE_INSTANCE_EVENT
+define|#
+directive|define
+name|NGX_HAVE_INSTANCE_EVENT
+value|0x00000020
+end_define
+
+begin_comment
 comment|/*  * The event filter notifies only the changes (the edges)  * but not an initial level - early epoll patches.  */
 end_comment
 
@@ -638,7 +657,7 @@ DECL|macro|NGX_USE_EDGE_EVENT
 define|#
 directive|define
 name|NGX_USE_EDGE_EVENT
-value|0x00000020
+value|0x00000040
 end_define
 
 begin_comment
@@ -650,7 +669,7 @@ DECL|macro|NGX_USE_SIGIO_EVENT
 define|#
 directive|define
 name|NGX_USE_SIGIO_EVENT
-value|0x00000040
+value|0x00000080
 end_define
 
 begin_comment
@@ -662,7 +681,7 @@ DECL|macro|NGX_OVERFLOW_EVENT
 define|#
 directive|define
 name|NGX_OVERFLOW_EVENT
-value|0x00000080
+value|0x00000100
 end_define
 
 begin_comment
@@ -674,7 +693,7 @@ DECL|macro|NGX_USE_AIO_EVENT
 define|#
 directive|define
 name|NGX_USE_AIO_EVENT
-value|0x00000100
+value|0x00000200
 end_define
 
 begin_comment
@@ -686,7 +705,7 @@ DECL|macro|NGX_USE_IOCP_EVENT
 define|#
 directive|define
 name|NGX_USE_IOCP_EVENT
-value|0x00000200
+value|0x00000400
 end_define
 
 begin_comment
@@ -1196,7 +1215,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon27a274340408
+DECL|struct|__anon2bc2c9870408
 typedef|typedef
 struct|struct
 block|{
@@ -1216,6 +1235,10 @@ DECL|member|accept_mutex
 name|ngx_flag_t
 name|accept_mutex
 decl_stmt|;
+DECL|member|accept_mutex_delay
+name|ngx_msec_t
+name|accept_mutex_delay
+decl_stmt|;
 DECL|member|name
 name|u_char
 modifier|*
@@ -1228,7 +1251,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a274340508
+DECL|struct|__anon2bc2c9870508
 typedef|typedef
 struct|struct
 block|{
@@ -1279,36 +1302,6 @@ end_typedef
 
 begin_decl_stmt
 specifier|extern
-name|ngx_thread_volatile
-name|ngx_event_t
-modifier|*
-name|ngx_posted_events
-decl_stmt|;
-end_decl_stmt
-
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_THREADS
-operator|)
-end_if
-
-begin_decl_stmt
-specifier|extern
-name|ngx_mutex_t
-modifier|*
-name|ngx_posted_events_mutex
-decl_stmt|;
-end_decl_stmt
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_decl_stmt
-specifier|extern
 name|ngx_atomic_t
 modifier|*
 name|ngx_accept_mutex_ptr
@@ -1327,6 +1320,13 @@ begin_decl_stmt
 specifier|extern
 name|ngx_uint_t
 name|ngx_accept_mutex_held
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_msec_t
+name|ngx_accept_mutex_delay
 decl_stmt|;
 end_decl_stmt
 
@@ -1476,6 +1476,12 @@ begin_include
 include|#
 directive|include
 file|<ngx_event_timer.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_event_posted.h>
 end_include
 
 begin_include
