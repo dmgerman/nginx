@@ -103,7 +103,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2be3ae040108
+DECL|struct|__anon28a1d8480108
 typedef|typedef
 struct|struct
 block|{
@@ -2059,7 +2059,7 @@ operator|=
 name|ngx_rtsig_process_overflow
 expr_stmt|;
 return|return
-name|NGX_OK
+name|NGX_ERROR
 return|;
 block|}
 if|else if

@@ -781,7 +781,7 @@ if|if
 condition|(
 name|shared
 operator|==
-name|NULL
+name|MAP_FAILED
 condition|)
 block|{
 name|ngx_log_error
