@@ -316,10 +316,6 @@ name|cscf
 decl_stmt|;
 name|ngx_http_core_loc_conf_t
 modifier|*
-modifier|*
-name|clcfp
-decl_stmt|,
-modifier|*
 name|clcf
 decl_stmt|;
 name|ngx_http_core_main_conf_t

@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b44924b0108
+DECL|struct|__anon2bb698b00108
 typedef|typedef
 struct|struct
 block|{
@@ -42,7 +42,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b44924b0208
+DECL|struct|__anon2bb698b00208
 typedef|typedef
 struct|struct
 block|{
@@ -331,9 +331,6 @@ block|{
 name|u_char
 modifier|*
 name|name
-decl_stmt|;
-name|size_t
-name|len
 decl_stmt|;
 name|ngx_fd_t
 name|fd

@@ -5577,10 +5577,6 @@ name|ngx_http_listen_t
 modifier|*
 name|l
 decl_stmt|;
-name|ngx_http_conf_ctx_t
-modifier|*
-name|ctx
-decl_stmt|;
 name|ngx_http_server_name_t
 modifier|*
 name|n
@@ -7059,10 +7055,6 @@ decl_stmt|;
 name|ngx_str_t
 modifier|*
 name|value
-decl_stmt|;
-name|ngx_http_conf_ctx_t
-modifier|*
-name|ctx
 decl_stmt|;
 name|ngx_http_server_name_t
 modifier|*
