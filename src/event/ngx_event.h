@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2b6866080108
+DECL|struct|__anon2acea3670108
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +70,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b6866080208
+DECL|struct|__anon2acea3670208
 typedef|typedef
 struct|struct
 block|{
@@ -461,7 +461,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b6866080308
+DECL|struct|__anon2acea3670308
 typedef|typedef
 struct|struct
 block|{
@@ -1242,6 +1242,14 @@ value|ngx_io.recv_chain
 end_define
 
 begin_define
+DECL|macro|ngx_send
+define|#
+directive|define
+name|ngx_send
+value|ngx_io.send
+end_define
+
+begin_define
 DECL|macro|ngx_send_chain
 define|#
 directive|define
@@ -1271,7 +1279,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon2b6866080408
+DECL|struct|__anon2acea3670408
 typedef|typedef
 struct|struct
 block|{
@@ -1318,7 +1326,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b6866080508
+DECL|struct|__anon2acea3670508
 typedef|typedef
 struct|struct
 block|{

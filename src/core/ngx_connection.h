@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a0c340a0108
+DECL|struct|__anon298a4b690108
 typedef|typedef
 struct|struct
 block|{
@@ -200,7 +200,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a0c340a0203
+DECL|enum|__anon298a4b690203
 typedef|typedef
 enum|enum
 block|{
@@ -224,7 +224,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a0c340a0303
+DECL|enum|__anon298a4b690303
 typedef|typedef
 enum|enum
 block|{
@@ -453,6 +453,24 @@ directive|endif
 end_endif
 
 begin_function_decl
+name|ngx_listening_t
+modifier|*
+name|ngx_listening_inet_stream_socket
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|in_addr_t
+name|addr
+parameter_list|,
+name|in_port_t
+name|port
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
 name|ngx_int_t
 name|ngx_set_inherited_sockets
 parameter_list|(
@@ -481,6 +499,17 @@ parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_close_connection
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
 parameter_list|)
 function_decl|;
 end_function_decl

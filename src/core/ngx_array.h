@@ -191,6 +191,14 @@ define|\
 value|ngx_test_null(a.elts, ngx_palloc(p, n * s), rc);                         \     a.nelts = 0; a.size = s; a.nalloc = n; a.pool = p;
 end_define
 
+begin_define
+DECL|macro|ngx_array_push
+define|#
+directive|define
+name|ngx_array_push
+value|ngx_push_array
+end_define
+
 begin_endif
 endif|#
 directive|endif

@@ -62,7 +62,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon273d10170108
+DECL|struct|__anon2baba7ec0108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon273d10170208
+DECL|struct|__anon2baba7ec0208
 typedef|typedef
 struct|struct
 block|{
@@ -1307,9 +1307,6 @@ decl_stmt|;
 name|struct
 name|sockaddr_in
 name|addr_in
-decl_stmt|;
-name|uint32_t
-name|service
 decl_stmt|;
 name|ngx_str_t
 name|src
@@ -2712,6 +2709,10 @@ name|domain
 operator|->
 name|data
 operator|=
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"."
 expr_stmt|;
 block|}

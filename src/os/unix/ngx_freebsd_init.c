@@ -98,7 +98,7 @@ name|ngx_unix_recv
 block|,
 name|ngx_readv_chain
 block|,
-name|NULL
+name|ngx_unix_send
 block|,
 if|#
 directive|if
@@ -120,7 +120,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon28921ee20108
+DECL|struct|__anon2b62a6ae0108
 typedef|typedef
 struct|struct
 block|{

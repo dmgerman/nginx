@@ -6690,7 +6690,10 @@ name|u_char
 modifier|*
 name|addr
 decl_stmt|;
-name|u_int
+name|ngx_int_t
+name|port
+decl_stmt|;
+name|ngx_uint_t
 name|p
 decl_stmt|;
 name|struct
@@ -6832,8 +6835,6 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-name|ls
-operator|->
 name|port
 operator|=
 name|ngx_atoi
@@ -6856,8 +6857,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|ls
-operator|->
 name|port
 operator|==
 name|NGX_ERROR
@@ -6878,8 +6877,6 @@ block|}
 if|else if
 condition|(
 operator|(
-name|ls
-operator|->
 name|port
 operator|==
 name|NGX_ERROR
@@ -6891,16 +6888,12 @@ operator|)
 comment|/* "listen host:NONNUMBER" */
 operator|||
 operator|(
-name|ls
-operator|->
 name|port
-operator|<
+argument_list|<
 literal|1
 operator|||
-name|ls
-operator|->
 name|port
-operator|>
+argument_list|>
 literal|65536
 operator|)
 condition|)
@@ -6946,6 +6939,15 @@ operator|->
 name|addr
 operator|=
 name|INADDR_ANY
+expr_stmt|;
+name|ls
+operator|->
+name|port
+operator|=
+operator|(
+name|in_port_t
+operator|)
+name|port
 expr_stmt|;
 return|return
 name|NGX_CONF_OK

@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29fd0fd90108
+DECL|struct|__anon278f8be60108
 typedef|typedef
 struct|struct
 block|{
@@ -40,7 +40,7 @@ name|in_addr_t
 name|addr
 decl_stmt|;
 DECL|member|port
-name|int
+name|in_port_t
 name|port
 decl_stmt|;
 DECL|member|family
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29fd0fd90203
+DECL|enum|__anon278f8be60203
 typedef|typedef
 enum|enum
 block|{
@@ -95,7 +95,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fd0fd90308
+DECL|struct|__anon278f8be60308
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fd0fd90408
+DECL|struct|__anon278f8be60408
 typedef|typedef
 struct|struct
 block|{
@@ -146,7 +146,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fd0fd90508
+DECL|struct|__anon278f8be60508
 typedef|typedef
 struct|struct
 block|{
@@ -210,12 +210,12 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon29fd0fd90608
+DECL|struct|__anon278f8be60608
 typedef|typedef
 struct|struct
 block|{
 DECL|member|port
-name|int
+name|in_port_t
 name|port
 decl_stmt|;
 DECL|member|port_name
@@ -234,7 +234,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fd0fd90708
+DECL|struct|__anon278f8be60708
 typedef|typedef
 struct|struct
 block|{
@@ -266,7 +266,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fd0fd90808
+DECL|struct|__anon278f8be60808
 typedef|typedef
 struct|struct
 block|{
@@ -309,7 +309,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon29fd0fd90908
+DECL|struct|__anon278f8be60908
 typedef|typedef
 struct|struct
 block|{
@@ -328,7 +328,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fd0fd90a08
+DECL|struct|__anon278f8be60a08
 typedef|typedef
 struct|struct
 block|{

@@ -199,7 +199,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf974390108
+DECL|struct|__anon2c2ede570108
 typedef|typedef
 struct|struct
 block|{
@@ -220,7 +220,7 @@ name|ngx_send_chain_pt
 name|send_chain
 decl_stmt|;
 DECL|member|flags
-name|int
+name|ngx_uint_t
 name|flags
 decl_stmt|;
 DECL|typedef|ngx_os_io_t
@@ -309,6 +309,24 @@ parameter_list|,
 name|ngx_chain_t
 modifier|*
 name|entry
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ssize_t
+name|ngx_unix_send
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|,
+name|u_char
+modifier|*
+name|buf
+parameter_list|,
+name|size_t
+name|size
 parameter_list|)
 function_decl|;
 end_function_decl

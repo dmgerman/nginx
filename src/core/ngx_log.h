@@ -137,6 +137,18 @@ value|0x100
 end_define
 
 begin_define
+DECL|macro|NGX_LOG_DEBUG_IMAP
+define|#
+directive|define
+name|NGX_LOG_DEBUG_IMAP
+value|0x200
+end_define
+
+begin_comment
+comment|/*  * after the adding a new debug level do not forget to update  * debug_levels[] in src/core/ngx_log.c  */
+end_comment
+
+begin_define
 DECL|macro|NGX_LOG_DEBUG_FIRST
 define|#
 directive|define
@@ -149,7 +161,7 @@ DECL|macro|NGX_LOG_DEBUG_LAST
 define|#
 directive|define
 name|NGX_LOG_DEBUG_LAST
-value|NGX_LOG_DEBUG_HTTP
+value|NGX_LOG_DEBUG_IMAP
 end_define
 
 begin_define

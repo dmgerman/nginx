@@ -199,7 +199,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b493510108
+DECL|struct|__anon29a0caed0108
 typedef|typedef
 struct|struct
 block|{
@@ -220,7 +220,7 @@ name|ngx_send_chain_pt
 name|send_chain
 decl_stmt|;
 DECL|member|flags
-name|int
+name|ngx_uint_t
 name|flags
 decl_stmt|;
 DECL|typedef|ngx_os_io_t

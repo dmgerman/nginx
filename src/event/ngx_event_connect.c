@@ -1021,9 +1021,6 @@ name|addr
 operator|.
 name|sin_port
 operator|=
-operator|(
-name|u_short
-operator|)
 name|peer
 operator|->
 name|port

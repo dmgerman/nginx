@@ -5777,9 +5777,6 @@ name|port
 operator|=
 name|htons
 argument_list|(
-operator|(
-name|u_short
-operator|)
 name|u
 operator|->
 name|port
@@ -5958,9 +5955,6 @@ name|port
 operator|=
 name|htons
 argument_list|(
-operator|(
-name|u_short
-operator|)
 name|u
 operator|->
 name|port

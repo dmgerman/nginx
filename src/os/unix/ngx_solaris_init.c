@@ -51,7 +51,7 @@ name|ngx_unix_recv
 block|,
 name|ngx_readv_chain
 block|,
-name|NULL
+name|ngx_unix_send
 block|,
 if|#
 directive|if
