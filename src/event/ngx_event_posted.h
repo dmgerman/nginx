@@ -65,6 +65,17 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_function_decl
+name|void
+name|ngx_wakeup_worker_thread
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_decl_stmt
 specifier|extern
 name|ngx_thread_volatile
@@ -98,14 +109,6 @@ specifier|extern
 name|ngx_mutex_t
 modifier|*
 name|ngx_posted_events_mutex
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-specifier|extern
-name|ngx_cond_t
-modifier|*
-name|ngx_posted_events_cv
 decl_stmt|;
 end_decl_stmt
 

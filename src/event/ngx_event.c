@@ -448,7 +448,7 @@ name|NULL
 block|,
 comment|/* init module */
 name|NULL
-comment|/* init child */
+comment|/* init process */
 block|}
 decl_stmt|;
 end_decl_stmt

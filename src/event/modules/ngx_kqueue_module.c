@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c02457d0108
+DECL|struct|__anon293601050108
 typedef|typedef
 struct|struct
 block|{
@@ -1175,19 +1175,19 @@ name|flags
 parameter_list|)
 block|{
 name|struct
+name|kevent
+modifier|*
+name|kev
+decl_stmt|,
+name|kv
+decl_stmt|;
+name|struct
 name|timespec
 name|ts
 decl_stmt|;
 name|ngx_connection_t
 modifier|*
 name|c
-decl_stmt|;
-name|struct
-name|kevent
-modifier|*
-name|kev
-decl_stmt|,
-name|kv
 decl_stmt|;
 name|c
 operator|=
@@ -1598,7 +1598,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_THREADS
+name|NGX_THREADS0
 operator|)
 if|if
 condition|(
@@ -2537,9 +2537,9 @@ condition|(
 name|ngx_threaded
 condition|)
 block|{
-name|ngx_cond_signal
+name|ngx_wakeup_worker_thread
 argument_list|(
-name|ngx_posted_events_cv
+name|cycle
 argument_list|)
 expr_stmt|;
 block|}

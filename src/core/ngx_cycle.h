@@ -101,7 +101,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29a933c50108
+DECL|struct|__anon294952b10108
 typedef|typedef
 struct|struct
 block|{
@@ -133,6 +133,21 @@ DECL|member|newpid
 name|ngx_str_t
 name|newpid
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_THREADS
+operator|)
+DECL|member|worker_threads
+name|ngx_int_t
+name|worker_threads
+decl_stmt|;
+DECL|member|thread_stack_size
+name|size_t
+name|thread_stack_size
+decl_stmt|;
+endif|#
+directive|endif
 DECL|typedef|ngx_core_conf_t
 block|}
 name|ngx_core_conf_t
