@@ -80,10 +80,11 @@ name|rc
 decl_stmt|,
 name|last
 decl_stmt|;
+name|size_t
+name|hsize
+decl_stmt|;
 name|ssize_t
 name|size
-decl_stmt|,
-name|hsize
 decl_stmt|;
 name|ngx_chain_t
 modifier|*

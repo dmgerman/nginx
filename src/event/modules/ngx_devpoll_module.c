@@ -78,7 +78,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b14882f0108
+DECL|struct|__anon2b64c4ef0108
 typedef|typedef
 struct|struct
 block|{
@@ -221,6 +221,9 @@ DECL|variable|dp
 specifier|static
 name|int
 name|dp
+init|=
+operator|-
+literal|1
 decl_stmt|;
 end_decl_stmt
 

@@ -3204,6 +3204,9 @@ name|bufs
 operator|->
 name|size
 operator|==
+operator|(
+name|size_t
+operator|)
 name|NGX_ERROR
 operator|||
 name|bufs

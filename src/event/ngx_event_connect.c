@@ -882,10 +882,62 @@ name|NGX_USE_AIO_EVENT
 condition|)
 block|{
 comment|/* aio, iocp */
-if|#
-directive|if
+if|if
+condition|(
+name|ngx_blocking
+argument_list|(
+name|s
+argument_list|)
+operator|==
+operator|-
 literal|1
-comment|/* TODO: NGX_EINPROGRESS */
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|pc
+operator|->
+name|log
+argument_list|,
+name|ngx_socket_errno
+argument_list|,
+name|ngx_blocking_n
+literal|" failed"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|ngx_close_socket
+argument_list|(
+name|s
+argument_list|)
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|pc
+operator|->
+name|log
+argument_list|,
+name|ngx_socket_errno
+argument_list|,
+name|ngx_close_socket_n
+literal|" failed"
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|NGX_ERROR
+return|;
+block|}
+comment|/*          * aio allows to post operation on non-connected socket          * at least in FreeBSD          *           * TODO: check in Win32, etc.          */
 name|rev
 operator|->
 name|ready
@@ -901,8 +953,6 @@ expr_stmt|;
 return|return
 name|NGX_OK
 return|;
-endif|#
-directive|endif
 block|}
 comment|/* TODO: epoll */
 if|if
