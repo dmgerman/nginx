@@ -131,19 +131,7 @@ block|,
 name|NULL
 block|}
 block|,
-block|{
-name|ngx_null_string
-block|,
-literal|0
-block|,
-name|NULL
-block|,
-literal|0
-block|,
-literal|0
-block|,
-name|NULL
-block|}
+name|ngx_null_command
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -154,8 +142,6 @@ name|ngx_http_module_t
 name|ngx_http_write_filter_module_ctx
 init|=
 block|{
-name|NGX_HTTP_MODULE
-block|,
 name|NULL
 block|,
 comment|/* create main configuration */
@@ -183,17 +169,16 @@ name|ngx_module_t
 name|ngx_http_write_filter_module
 init|=
 block|{
+name|NGX_MODULE
+block|,
 operator|&
 name|ngx_http_write_filter_module_ctx
 block|,
 comment|/* module context */
-literal|0
-block|,
-comment|/* module index */
 name|ngx_http_write_filter_commands
 block|,
 comment|/* module directives */
-name|NGX_HTTP_MODULE_TYPE
+name|NGX_HTTP_MODULE
 block|,
 comment|/* module type */
 name|ngx_http_write_filter_init
@@ -257,7 +242,7 @@ expr|main
 operator|:
 name|r
 argument_list|,
-name|ngx_http_write_filter_module_ctx
+name|ngx_http_write_filter_module
 argument_list|)
 expr_stmt|;
 if|if
@@ -273,7 +258,7 @@ name|r
 argument_list|,
 name|ctx
 argument_list|,
-name|ngx_http_write_filter_module_ctx
+name|ngx_http_write_filter_module
 argument_list|,
 sizeof|sizeof
 argument_list|(
@@ -559,7 +544,7 @@ expr|main
 operator|:
 name|r
 argument_list|,
-name|ngx_http_write_filter_module_ctx
+name|ngx_http_write_filter_module
 argument_list|)
 expr_stmt|;
 if|#

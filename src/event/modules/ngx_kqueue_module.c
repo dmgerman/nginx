@@ -262,22 +262,7 @@ block|,
 name|NULL
 block|}
 block|,
-block|{
-name|ngx_string
-argument_list|(
-literal|""
-argument_list|)
-block|,
-literal|0
-block|,
-name|NULL
-block|,
-literal|0
-block|,
-literal|0
-block|,
-name|NULL
-block|}
+name|ngx_null_command
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -288,8 +273,6 @@ name|ngx_event_module_t
 name|ngx_kqueue_module_ctx
 init|=
 block|{
-name|NGX_EVENT_MODULE
-block|,
 operator|&
 name|kqueue_name
 block|,
@@ -337,17 +320,16 @@ name|ngx_module_t
 name|ngx_kqueue_module
 init|=
 block|{
+name|NGX_MODULE
+block|,
 operator|&
 name|ngx_kqueue_module_ctx
 block|,
 comment|/* module context */
-literal|0
-block|,
-comment|/* module index */
 name|ngx_kqueue_commands
 block|,
 comment|/* module directives */
-name|NGX_EVENT_MODULE_TYPE
+name|NGX_EVENT_MODULE
 block|,
 comment|/* module type */
 name|NULL
@@ -375,7 +357,7 @@ name|kcf
 operator|=
 name|ngx_event_get_conf
 argument_list|(
-name|ngx_kqueue_module_ctx
+name|ngx_kqueue_module
 argument_list|)
 expr_stmt|;
 name|ngx_log_debug

@@ -82,6 +82,22 @@ begin_comment
 comment|/* */
 end_comment
 
+begin_function_decl
+name|ngx_chain_t
+modifier|*
+name|ngx_freebsd_sendfile_chain
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|,
+name|ngx_chain_t
+modifier|*
+name|in
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_decl_stmt
 specifier|extern
 name|int

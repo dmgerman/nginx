@@ -24,6 +24,16 @@ file|<ngx_conf_file.h>
 end_include
 
 begin_decl_stmt
+DECL|variable|ngx_conf_errstr
+name|char
+name|ngx_conf_errstr
+index|[
+name|MAX_CONF_ERRSTR
+index|]
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|argument_number
 specifier|static
 name|int
@@ -68,7 +78,7 @@ name|filename
 parameter_list|)
 block|{
 name|int
-name|i
+name|m
 decl_stmt|,
 name|rc
 decl_stmt|,
@@ -135,7 +145,6 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"ngx_conf_file: "
 name|ngx_open_file_n
 literal|" %s failed"
 argument_list|,
@@ -205,7 +214,6 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"ngx_conf_file: "
 name|ngx_stat_fd_n
 literal|" %s failed"
 argument_list|,
@@ -443,7 +451,7 @@ literal|0
 expr_stmt|;
 for|for
 control|(
-name|i
+name|m
 operator|=
 literal|0
 init|;
@@ -452,10 +460,10 @@ name|found
 operator|&&
 name|ngx_modules
 index|[
-name|i
+name|m
 index|]
 condition|;
-name|i
+name|m
 operator|++
 control|)
 block|{
@@ -464,16 +472,16 @@ if|if
 condition|(
 name|ngx_modules
 index|[
-name|i
+name|m
 index|]
 operator|->
 name|type
 operator|!=
-name|NGX_CONF_MODULE_TYPE
+name|NGX_CONF_MODULE
 operator|&&
 name|ngx_modules
 index|[
-name|i
+name|m
 index|]
 operator|->
 name|type
@@ -489,7 +497,7 @@ name|cmd
 operator|=
 name|ngx_modules
 index|[
-name|i
+name|m
 index|]
 operator|->
 name|commands
@@ -709,7 +717,7 @@ name|cf
 operator|->
 name|module_type
 operator|==
-name|NGX_CORE_MODULE_TYPE
+name|NGX_CORE_MODULE
 condition|)
 block|{
 name|conf
@@ -729,7 +737,7 @@ operator|)
 index|[
 name|ngx_modules
 index|[
-name|i
+name|m
 index|]
 operator|->
 name|index
@@ -775,19 +783,12 @@ name|conf
 operator|=
 name|confp
 index|[
-operator|*
-operator|(
-name|int
-operator|*
-operator|)
-operator|(
 name|ngx_modules
 index|[
-name|i
+name|m
 index|]
 operator|->
-name|ctx
-operator|)
+name|ctx_index
 index|]
 expr_stmt|;
 block|}
@@ -837,6 +838,47 @@ return|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|rv
+operator|==
+name|ngx_conf_errstr
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"%s in %s:%d"
+argument_list|,
+name|rv
+argument_list|,
+name|cf
+operator|->
+name|conf_file
+operator|->
+name|file
+operator|.
+name|name
+operator|.
+name|data
+argument_list|,
+name|cf
+operator|->
+name|conf_file
+operator|->
+name|line
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_EMERG
@@ -872,6 +914,7 @@ operator|->
 name|line
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|NGX_CONF_ERROR
 return|;
@@ -1798,7 +1841,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_conf_set_flag_slot (ngx_conf_t * cf,ngx_command_t * cmd,char * conf)
+DECL|function|ngx_conf_set_flag_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|char
 modifier|*
 name|ngx_conf_set_flag_slot
@@ -1811,7 +1854,7 @@ name|ngx_command_t
 modifier|*
 name|cmd
 parameter_list|,
-name|char
+name|void
 modifier|*
 name|conf
 parameter_list|)
@@ -1929,7 +1972,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_conf_set_str_slot (ngx_conf_t * cf,ngx_command_t * cmd,char * conf)
+DECL|function|ngx_conf_set_str_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|char
 modifier|*
 name|ngx_conf_set_str_slot
@@ -1942,7 +1985,7 @@ name|ngx_command_t
 modifier|*
 name|cmd
 parameter_list|,
-name|char
+name|void
 modifier|*
 name|conf
 parameter_list|)
@@ -1972,9 +2015,7 @@ if|if
 condition|(
 name|field
 operator|->
-name|len
-operator|>
-literal|0
+name|data
 condition|)
 block|{
 return|return
@@ -2022,7 +2063,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_conf_set_num_slot (ngx_conf_t * cf,ngx_command_t * cmd,char * conf)
+DECL|function|ngx_conf_set_num_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|char
 modifier|*
 name|ngx_conf_set_num_slot
@@ -2035,7 +2076,7 @@ name|ngx_command_t
 modifier|*
 name|cmd
 parameter_list|,
-name|char
+name|void
 modifier|*
 name|conf
 parameter_list|)
@@ -2139,7 +2180,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_conf_set_size_slot (ngx_conf_t * cf,ngx_command_t * cmd,char * conf)
+DECL|function|ngx_conf_set_size_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|char
 modifier|*
 name|ngx_conf_set_size_slot
@@ -2152,7 +2193,7 @@ name|ngx_command_t
 modifier|*
 name|cmd
 parameter_list|,
-name|char
+name|void
 modifier|*
 name|conf
 parameter_list|)
@@ -2320,7 +2361,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_conf_set_msec_slot (ngx_conf_t * cf,ngx_command_t * cmd,char * conf)
+DECL|function|ngx_conf_set_msec_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|char
 modifier|*
 name|ngx_conf_set_msec_slot
@@ -2333,7 +2374,7 @@ name|ngx_command_t
 modifier|*
 name|cmd
 parameter_list|,
-name|char
+name|void
 modifier|*
 name|conf
 parameter_list|)
@@ -2722,7 +2763,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_conf_set_sec_slot (ngx_conf_t * cf,ngx_command_t * cmd,char * conf)
+DECL|function|ngx_conf_set_sec_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|char
 modifier|*
 name|ngx_conf_set_sec_slot
@@ -2735,7 +2776,7 @@ name|ngx_command_t
 modifier|*
 name|cmd
 parameter_list|,
-name|char
+name|void
 modifier|*
 name|conf
 parameter_list|)
@@ -3151,7 +3192,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_conf_unsupported (ngx_conf_t * cf,ngx_command_t * cmd,char * conf)
+DECL|function|ngx_conf_unsupported (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|char
 modifier|*
 name|ngx_conf_unsupported
@@ -3164,7 +3205,7 @@ name|ngx_command_t
 modifier|*
 name|cmd
 parameter_list|,
-name|char
+name|void
 modifier|*
 name|conf
 parameter_list|)

@@ -21,7 +21,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_array.h>
+file|<ngx_core.h>
 end_include
 
 begin_include
@@ -31,21 +31,20 @@ file|<ngx_http.h>
 end_include
 
 begin_define
-DECL|macro|NGX_HTTP_INDEX
+DECL|macro|NGX_HTTP_DEFAULT_INDEX
 define|#
 directive|define
-name|NGX_HTTP_INDEX
+name|NGX_HTTP_DEFAULT_INDEX
 value|"index.html"
 end_define
 
 begin_typedef
-DECL|struct|__anon28da5f320108
+DECL|struct|__anon28fd09840108
 typedef|typedef
 struct|struct
 block|{
 DECL|member|indices
 name|ngx_array_t
-modifier|*
 name|indices
 decl_stmt|;
 DECL|member|max_index_len

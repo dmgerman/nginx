@@ -377,7 +377,7 @@ name|conf
 operator|.
 name|module_type
 operator|=
-name|NGX_CORE_MODULE_TYPE
+name|NGX_CORE_MODULE
 expr_stmt|;
 name|conf
 operator|.

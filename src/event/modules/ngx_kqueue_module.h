@@ -13,7 +13,7 @@ name|_NGX_KQUEUE_MODULE_H_INCLUDED_
 end_define
 
 begin_typedef
-DECL|struct|__anon29b1f7380108
+DECL|struct|__anon2b53d5600108
 typedef|typedef
 struct|struct
 block|{
@@ -38,9 +38,12 @@ name|ngx_kqueue
 decl_stmt|;
 end_decl_stmt
 
-begin_comment
-comment|/* STUB */
-end_comment
+begin_decl_stmt
+specifier|extern
+name|ngx_module_t
+name|ngx_kqueue_module
+decl_stmt|;
+end_decl_stmt
 
 begin_decl_stmt
 specifier|extern

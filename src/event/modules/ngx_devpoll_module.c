@@ -84,7 +84,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c521cd80108
+DECL|struct|__anon2771b3370108
 typedef|typedef
 struct|struct
 block|{
@@ -362,22 +362,7 @@ block|,
 name|NULL
 block|}
 block|,
-block|{
-name|ngx_string
-argument_list|(
-literal|""
-argument_list|)
-block|,
-literal|0
-block|,
-name|NULL
-block|,
-literal|0
-block|,
-literal|0
-block|,
-name|NULL
-block|}
+name|ngx_null_command
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -388,8 +373,6 @@ name|ngx_event_module_t
 name|ngx_devpoll_module_ctx
 init|=
 block|{
-name|NGX_EVENT_MODULE
-block|,
 operator|&
 name|devpoll_name
 block|,
@@ -438,17 +421,16 @@ name|ngx_module_t
 name|ngx_devpoll_module
 init|=
 block|{
+name|NGX_MODULE
+block|,
 operator|&
 name|ngx_devpoll_module_ctx
 block|,
 comment|/* module context */
-literal|0
-block|,
-comment|/* module index */
 name|ngx_devpoll_commands
 block|,
 comment|/* module directives */
-name|NGX_EVENT_MODULE_TYPE
+name|NGX_EVENT_MODULE
 block|,
 comment|/* module type */
 name|NULL
@@ -476,7 +458,7 @@ name|dpcf
 operator|=
 name|ngx_event_get_conf
 argument_list|(
-name|ngx_devpoll_module_ctx
+name|ngx_devpoll_module
 argument_list|)
 expr_stmt|;
 name|ngx_log_debug
@@ -845,10 +827,6 @@ name|ngx_connection_t
 modifier|*
 name|c
 init|=
-operator|(
-name|ngx_connection_t
-operator|*
-operator|)
 name|ev
 operator|->
 name|data

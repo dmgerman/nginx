@@ -25,7 +25,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28c6ab060108
+DECL|struct|__anon2bf84ade0108
 typedef|typedef
 struct|struct
 block|{
@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c6ab060208
+DECL|struct|__anon2bf84ade0208
 typedef|typedef
 struct|struct
 block|{
@@ -93,14 +93,10 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c6ab060308
+DECL|struct|__anon2bf84ade0308
 typedef|typedef
 struct|struct
 block|{
-DECL|member|index
-name|int
-name|index
-decl_stmt|;
 DECL|member|create_main_conf
 name|void
 modifier|*
@@ -206,25 +202,17 @@ typedef|;
 end_typedef
 
 begin_define
-DECL|macro|NGX_HTTP_MODULE_TYPE
-define|#
-directive|define
-name|NGX_HTTP_MODULE_TYPE
-value|0x50545448
-end_define
-
-begin_comment
-DECL|macro|NGX_HTTP_MODULE_TYPE
-comment|/* "HTTP" */
-end_comment
-
-begin_define
 DECL|macro|NGX_HTTP_MODULE
 define|#
 directive|define
 name|NGX_HTTP_MODULE
-value|0
+value|0x50545448
 end_define
+
+begin_comment
+DECL|macro|NGX_HTTP_MODULE
+comment|/* "HTTP" */
+end_comment
 
 begin_define
 DECL|macro|NGX_HTTP_MAIN_CONF
@@ -275,59 +263,43 @@ value|offsetof(ngx_http_conf_ctx_t, loc_conf)
 end_define
 
 begin_define
-DECL|macro|ngx_http_get_module_main_conf (r,ctx)
+DECL|macro|ngx_http_get_module_main_conf (r,module)
 define|#
 directive|define
 name|ngx_http_get_module_main_conf
 parameter_list|(
 name|r
 parameter_list|,
-name|ctx
+name|module
 parameter_list|)
-value|r->main_conf[ctx.index]
+value|r->main_conf[module.ctx_index]
 end_define
 
 begin_define
-DECL|macro|ngx_http_get_module_srv_conf (r,ctx)
+DECL|macro|ngx_http_get_module_srv_conf (r,module)
 define|#
 directive|define
 name|ngx_http_get_module_srv_conf
 parameter_list|(
 name|r
 parameter_list|,
-name|ctx
+name|module
 parameter_list|)
-value|r->srv_conf[ctx.index]
+value|r->srv_conf[module.ctx_index]
 end_define
 
 begin_define
-DECL|macro|ngx_http_get_module_loc_conf (r,ctx)
+DECL|macro|ngx_http_get_module_loc_conf (r,module)
 define|#
 directive|define
 name|ngx_http_get_module_loc_conf
 parameter_list|(
 name|r
 parameter_list|,
-name|ctx
+name|module
 parameter_list|)
-value|r->loc_conf[ctx.index]
+value|r->loc_conf[module.ctx_index]
 end_define
-
-begin_function_decl
-name|int
-name|ngx_http_config_modules
-parameter_list|(
-name|ngx_pool_t
-modifier|*
-name|pool
-parameter_list|,
-name|ngx_module_t
-modifier|*
-modifier|*
-name|modules
-parameter_list|)
-function_decl|;
-end_function_decl
 
 begin_function_decl
 specifier|extern

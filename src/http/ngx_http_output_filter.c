@@ -103,22 +103,6 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
-begin_function_decl
-specifier|static
-name|void
-name|ngx_http_output_filter_init
-parameter_list|(
-name|ngx_pool_t
-modifier|*
-name|pool
-parameter_list|,
-name|ngx_http_conf_filter_t
-modifier|*
-name|cf
-parameter_list|)
-function_decl|;
-end_function_decl
-
 begin_decl_stmt
 DECL|variable|ngx_http_output_filter_commands
 specifier|static
@@ -155,19 +139,7 @@ block|,
 name|NULL
 block|}
 block|,
-block|{
-name|ngx_null_string
-block|,
-literal|0
-block|,
-name|NULL
-block|,
-literal|0
-block|,
-literal|0
-block|,
-name|NULL
-block|}
+name|ngx_null_command
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -179,8 +151,6 @@ name|ngx_http_module_t
 name|ngx_http_output_filter_module_ctx
 init|=
 block|{
-name|NGX_HTTP_MODULE
-block|,
 name|NULL
 block|,
 comment|/* create main configuration */
@@ -208,17 +178,16 @@ name|ngx_module_t
 name|ngx_http_output_filter_module
 init|=
 block|{
+name|NGX_MODULE
+block|,
 operator|&
 name|ngx_http_output_filter_module_ctx
 block|,
 comment|/* module context */
-literal|0
-block|,
-comment|/* module index */
 name|ngx_http_output_filter_commands
 block|,
 comment|/* module directives */
-name|NGX_HTTP_MODULE_TYPE
+name|NGX_HTTP_MODULE
 block|,
 comment|/* module type */
 name|NULL
@@ -286,10 +255,6 @@ name|conf
 decl_stmt|;
 name|ctx
 operator|=
-operator|(
-name|ngx_http_output_filter_ctx_t
-operator|*
-operator|)
 name|ngx_http_get_module_ctx
 argument_list|(
 name|r
@@ -302,7 +267,7 @@ expr|main
 operator|:
 name|r
 argument_list|,
-name|ngx_http_output_filter_module_ctx
+name|ngx_http_output_filter_module
 argument_list|)
 expr_stmt|;
 if|if
@@ -318,7 +283,7 @@ name|r
 argument_list|,
 name|ctx
 argument_list|,
-name|ngx_http_output_filter_module_ctx
+name|ngx_http_output_filter_module
 argument_list|,
 sizeof|sizeof
 argument_list|(
@@ -491,10 +456,6 @@ condition|)
 block|{
 name|conf
 operator|=
-operator|(
-name|ngx_http_output_filter_conf_t
-operator|*
-operator|)
 name|ngx_http_get_module_loc_conf
 argument_list|(
 name|r
@@ -507,7 +468,7 @@ expr|main
 operator|:
 name|r
 argument_list|,
-name|ngx_http_output_filter_module_ctx
+name|ngx_http_output_filter_module
 argument_list|)
 expr_stmt|;
 if|if
@@ -1322,30 +1283,6 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_output_filter_init (ngx_pool_t * pool,ngx_http_conf_filter_t * cf)
-specifier|static
-name|void
-name|ngx_http_output_filter_init
-parameter_list|(
-name|ngx_pool_t
-modifier|*
-name|pool
-parameter_list|,
-name|ngx_http_conf_filter_t
-modifier|*
-name|cf
-parameter_list|)
-block|{
-if|#
-directive|if
-literal|0
-block_content|next_filter = cf->output_body_filter;     cf->output_body_filter = NULL;
-endif|#
-directive|endif
-block|}
-end_function
-
-begin_function
 DECL|function|ngx_http_output_filter_create_conf (ngx_pool_t * pool)
 specifier|static
 name|void
@@ -1365,7 +1302,7 @@ name|ngx_test_null
 argument_list|(
 name|conf
 argument_list|,
-name|ngx_pcalloc
+name|ngx_palloc
 argument_list|(
 name|pool
 argument_list|,
@@ -1414,20 +1351,12 @@ name|ngx_http_output_filter_conf_t
 modifier|*
 name|prev
 init|=
-operator|(
-name|ngx_http_output_filter_conf_t
-operator|*
-operator|)
 name|parent
 decl_stmt|;
 name|ngx_http_output_filter_conf_t
 modifier|*
 name|conf
 init|=
-operator|(
-name|ngx_http_output_filter_conf_t
-operator|*
-operator|)
 name|child
 decl_stmt|;
 name|ngx_conf_merge_size_value

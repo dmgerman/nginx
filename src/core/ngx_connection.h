@@ -60,16 +60,16 @@ directive|include
 file|<ngx_string.h>
 end_include
 
-begin_endif
-endif|#
-directive|endif
-end_endif
-
 begin_include
 include|#
 directive|include
 file|<ngx_server.h>
 end_include
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_if
 if|#
@@ -151,7 +151,7 @@ modifier|*
 name|ctx
 decl_stmt|;
 DECL|member|servers
-name|ngx_server_t
+name|void
 modifier|*
 name|servers
 decl_stmt|;
@@ -336,22 +336,6 @@ operator|(
 name|__FreeBSD__
 operator|)
 end_if
-
-begin_function_decl
-name|ngx_chain_t
-modifier|*
-name|ngx_freebsd_sendfile_chain
-parameter_list|(
-name|ngx_connection_t
-modifier|*
-name|c
-parameter_list|,
-name|ngx_chain_t
-modifier|*
-name|in
-parameter_list|)
-function_decl|;
-end_function_decl
 
 begin_function_decl
 name|ngx_chain_t

@@ -272,6 +272,14 @@ value|404
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_NOT_ALLOWED
+define|#
+directive|define
+name|NGX_HTTP_NOT_ALLOWED
+value|405
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_REQUEST_TIME_OUT
 define|#
 directive|define
@@ -344,7 +352,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon277094910108
+DECL|struct|__anon29b5d36c0108
 typedef|typedef
 struct|struct
 block|{
@@ -363,7 +371,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277094910208
+DECL|struct|__anon29b5d36c0208
 typedef|typedef
 struct|struct
 block|{
@@ -417,7 +425,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277094910308
+DECL|struct|__anon29b5d36c0308
 typedef|typedef
 struct|struct
 block|{
@@ -468,7 +476,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277094910408
+DECL|struct|__anon29b5d36c0408
 typedef|typedef
 struct|struct
 block|{
@@ -675,7 +683,19 @@ name|port
 decl_stmt|;
 DECL|member|port_name
 name|ngx_str_t
+modifier|*
 name|port_name
+decl_stmt|;
+comment|/* ":80" */
+DECL|member|server_name
+name|ngx_str_t
+modifier|*
+name|server_name
+decl_stmt|;
+DECL|member|virtual_names
+name|ngx_array_t
+modifier|*
+name|virtual_names
 decl_stmt|;
 DECL|member|filter
 name|int

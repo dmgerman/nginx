@@ -237,8 +237,6 @@ name|ngx_event_module_t
 name|ngx_select_module_ctx
 init|=
 block|{
-name|NGX_EVENT_MODULE
-block|,
 operator|&
 name|select_name
 block|,
@@ -286,17 +284,16 @@ name|ngx_module_t
 name|ngx_select_module
 init|=
 block|{
+name|NGX_MODULE
+block|,
 operator|&
 name|ngx_select_module_ctx
 block|,
 comment|/* module context */
-literal|0
-block|,
-comment|/* module index */
 name|NULL
 block|,
 comment|/* module directives */
-name|NGX_EVENT_MODULE_TYPE
+name|NGX_EVENT_MODULE
 block|,
 comment|/* module type */
 name|NULL
@@ -324,7 +321,7 @@ name|ecf
 operator|=
 name|ngx_event_get_conf
 argument_list|(
-name|ngx_event_module_ctx
+name|ngx_event_module
 argument_list|)
 expr_stmt|;
 name|FD_ZERO
@@ -1621,7 +1618,7 @@ name|ecf
 operator|=
 name|ngx_event_get_conf
 argument_list|(
-name|ngx_event_module_ctx
+name|ngx_event_module
 argument_list|)
 expr_stmt|;
 if|if

@@ -77,18 +77,6 @@ endif|#
 directive|endif
 end_endif
 
-begin_comment
-comment|/* STUB */
-end_comment
-
-begin_define
-DECL|macro|NGX_LOWAT
-define|#
-directive|define
-name|NGX_LOWAT
-value|10000
-end_define
-
 begin_define
 DECL|macro|NGX_INVALID_INDEX
 define|#
@@ -118,7 +106,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon29b01d5b0108
+DECL|struct|__anon2a9f755e0108
 typedef|typedef
 struct|struct
 block|{
@@ -420,7 +408,7 @@ literal|1
 end_if
 
 begin_typedef
-DECL|enum|__anon29b01d5b0203
+DECL|enum|__anon2a9f755e0203
 typedef|typedef
 enum|enum
 block|{
@@ -494,7 +482,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29b01d5b0308
+DECL|struct|__anon2a9f755e0308
 typedef|typedef
 struct|struct
 block|{
@@ -1282,15 +1270,15 @@ directive|endif
 end_endif
 
 begin_define
-DECL|macro|NGX_EVENT_MODULE_TYPE
+DECL|macro|NGX_EVENT_MODULE
 define|#
 directive|define
-name|NGX_EVENT_MODULE_TYPE
+name|NGX_EVENT_MODULE
 value|0x544E5645
 end_define
 
 begin_comment
-DECL|macro|NGX_EVENT_MODULE_TYPE
+DECL|macro|NGX_EVENT_MODULE
 comment|/* "EVNT" */
 end_comment
 
@@ -1302,16 +1290,8 @@ name|NGX_EVENT_CONF
 value|0x00200000
 end_define
 
-begin_define
-DECL|macro|NGX_EVENT_MODULE
-define|#
-directive|define
-name|NGX_EVENT_MODULE
-value|0
-end_define
-
 begin_typedef
-DECL|struct|__anon29b01d5b0408
+DECL|struct|__anon2a9f755e0408
 typedef|typedef
 struct|struct
 block|{
@@ -1334,14 +1314,10 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b01d5b0508
+DECL|struct|__anon2a9f755e0508
 typedef|typedef
 struct|struct
 block|{
-DECL|member|index
-name|int
-name|index
-decl_stmt|;
 DECL|member|name
 name|ngx_str_t
 modifier|*
@@ -1396,8 +1372,8 @@ end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
-name|ngx_event_module_t
-name|ngx_event_module_ctx
+name|ngx_module_t
+name|ngx_event_module
 decl_stmt|;
 end_decl_stmt
 
@@ -1410,7 +1386,7 @@ parameter_list|(
 name|module
 parameter_list|)
 define|\
-value|(*(ngx_get_conf(ngx_events_module))) [module.index];
+value|(*(ngx_get_conf(ngx_events_module))) [module.ctx_index];
 end_define
 
 begin_function_decl

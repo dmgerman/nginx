@@ -66,8 +66,20 @@ directive|include
 file|<ngx_http_request.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_http_config.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_http_core_module.h>
+end_include
+
 begin_typedef
-DECL|struct|__anon2c3f12470108
+DECL|struct|__anon28ade51f0108
 typedef|typedef
 struct|struct
 block|{
@@ -154,7 +166,7 @@ name|r
 parameter_list|,
 name|module
 parameter_list|)
-value|r->ctx[module.index]
+value|r->ctx[module.ctx_index]
 end_define
 
 begin_define
@@ -174,7 +186,7 @@ parameter_list|,
 name|error
 parameter_list|)
 define|\
-value|do {                                                              \                 ngx_test_null(cx, ngx_pcalloc(r->pool, size), error);         \                 r->ctx[module.index] = cx;                                    \             } while (0)
+value|do {                                                              \                 ngx_test_null(cx, ngx_pcalloc(r->pool, size), error);         \                 r->ctx[module.ctx_index] = cx;                                \             } while (0)
 end_define
 
 begin_comment

@@ -87,7 +87,7 @@ name|ecf
 operator|=
 name|ngx_event_get_conf
 argument_list|(
-name|ngx_event_module_ctx
+name|ngx_event_module
 argument_list|)
 expr_stmt|;
 name|ngx_timer_queue_num

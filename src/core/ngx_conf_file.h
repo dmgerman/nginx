@@ -175,30 +175,56 @@ value|2
 end_define
 
 begin_define
-DECL|macro|NGX_CORE_MODULE_TYPE
+DECL|macro|NGX_MODULE
 define|#
 directive|define
-name|NGX_CORE_MODULE_TYPE
+name|NGX_MODULE
+value|0, 0
+end_define
+
+begin_define
+DECL|macro|NGX_CORE_MODULE
+define|#
+directive|define
+name|NGX_CORE_MODULE
 value|0x45524F43
 end_define
 
 begin_comment
-DECL|macro|NGX_CORE_MODULE_TYPE
+DECL|macro|NGX_CORE_MODULE
 comment|/* "CORE" */
 end_comment
 
 begin_define
-DECL|macro|NGX_CONF_MODULE_TYPE
+DECL|macro|NGX_CONF_MODULE
 define|#
 directive|define
-name|NGX_CONF_MODULE_TYPE
+name|NGX_CONF_MODULE
 value|0x464E4F43
 end_define
 
 begin_comment
-DECL|macro|NGX_CONF_MODULE_TYPE
+DECL|macro|NGX_CONF_MODULE
 comment|/* "CONF" */
 end_comment
+
+begin_define
+DECL|macro|MAX_CONF_ERRSTR
+define|#
+directive|define
+name|MAX_CONF_ERRSTR
+value|256
+end_define
+
+begin_decl_stmt
+specifier|extern
+name|char
+name|ngx_conf_errstr
+index|[
+name|MAX_CONF_ERRSTR
+index|]
+decl_stmt|;
+end_decl_stmt
 
 begin_typedef
 DECL|typedef|ngx_conf_t
@@ -247,7 +273,7 @@ name|ngx_command_t
 modifier|*
 name|cmd
 parameter_list|,
-name|char
+name|void
 modifier|*
 name|conf
 parameter_list|)
@@ -269,19 +295,31 @@ block|}
 struct|;
 end_struct
 
+begin_define
+DECL|macro|ngx_null_command
+define|#
+directive|define
+name|ngx_null_command
+value|{ngx_null_string, 0, NULL, 0, 0, NULL}
+end_define
+
 begin_typedef
-DECL|struct|__anon29ea34e80108
+DECL|struct|__anon2b04944b0108
 typedef|typedef
 struct|struct
 block|{
-DECL|member|ctx
-name|void
-modifier|*
-name|ctx
+DECL|member|ctx_index
+name|int
+name|ctx_index
 decl_stmt|;
 DECL|member|index
 name|int
 name|index
+decl_stmt|;
+DECL|member|ctx
+name|void
+modifier|*
+name|ctx
 decl_stmt|;
 DECL|member|commands
 name|ngx_command_t
@@ -311,7 +349,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ea34e80208
+DECL|struct|__anon2b04944b0208
 typedef|typedef
 struct|struct
 block|{
@@ -499,6 +537,19 @@ define|default)                       \     if (conf == (size_t) NGX_CONF_UNSET)
 end_define
 
 begin_define
+DECL|macro|ngx_conf_merge_str_value (conf,prev,default)
+define|#
+directive|define
+name|ngx_conf_merge_str_value
+parameter_list|(
+name|conf
+parameter_list|,
+name|prev
+parameter_list|,
+define|default)                        \     if (conf.len == 0) {                                                     \         if (prev.len) {                                                      \             conf.len = prev.len;                                             \             conf.data = prev.data;                                           \         } else {                                                             \             conf.len = sizeof(default) - 1;                                  \             conf.data = default;                                             \         }                                                                    \     }
+end_define
+
+begin_define
 DECL|macro|addressof (addr)
 define|#
 directive|define
@@ -538,7 +589,7 @@ name|ngx_command_t
 modifier|*
 name|cmd
 parameter_list|,
-name|char
+name|void
 modifier|*
 name|conf
 parameter_list|)
@@ -558,7 +609,7 @@ name|ngx_command_t
 modifier|*
 name|cmd
 parameter_list|,
-name|char
+name|void
 modifier|*
 name|conf
 parameter_list|)
@@ -578,7 +629,7 @@ name|ngx_command_t
 modifier|*
 name|cmd
 parameter_list|,
-name|char
+name|void
 modifier|*
 name|conf
 parameter_list|)
@@ -598,7 +649,7 @@ name|ngx_command_t
 modifier|*
 name|cmd
 parameter_list|,
-name|char
+name|void
 modifier|*
 name|conf
 parameter_list|)
@@ -618,7 +669,7 @@ name|ngx_command_t
 modifier|*
 name|cmd
 parameter_list|,
-name|char
+name|void
 modifier|*
 name|conf
 parameter_list|)
@@ -638,7 +689,7 @@ name|ngx_command_t
 modifier|*
 name|cmd
 parameter_list|,
-name|char
+name|void
 modifier|*
 name|conf
 parameter_list|)

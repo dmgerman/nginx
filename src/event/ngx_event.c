@@ -52,13 +52,6 @@ name|HAVE_KQUEUE
 operator|)
 end_if
 
-begin_decl_stmt
-specifier|extern
-name|ngx_event_module_t
-name|ngx_kqueue_module_ctx
-decl_stmt|;
-end_decl_stmt
-
 begin_include
 include|#
 directive|include
@@ -80,8 +73,8 @@ end_if
 
 begin_decl_stmt
 specifier|extern
-name|ngx_event_module_t
-name|ngx_devpoll_module_ctx
+name|ngx_module_t
+name|ngx_devpoll_module
 decl_stmt|;
 end_decl_stmt
 
@@ -148,9 +141,9 @@ name|ngx_command_t
 modifier|*
 name|cmd
 parameter_list|,
-name|char
+name|void
 modifier|*
-name|dummy
+name|conf
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -169,7 +162,7 @@ name|ngx_command_t
 modifier|*
 name|cmd
 parameter_list|,
-name|char
+name|void
 modifier|*
 name|conf
 parameter_list|)
@@ -311,22 +304,7 @@ block|,
 name|NULL
 block|}
 block|,
-block|{
-name|ngx_string
-argument_list|(
-literal|""
-argument_list|)
-block|,
-literal|0
-block|,
-name|NULL
-block|,
-literal|0
-block|,
-literal|0
-block|,
-name|NULL
-block|}
+name|ngx_null_command
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -337,17 +315,16 @@ name|ngx_module_t
 name|ngx_events_module
 init|=
 block|{
+name|NGX_MODULE
+block|,
 operator|&
 name|events_name
 block|,
 comment|/* module context */
-literal|0
-block|,
-comment|/* module index */
 name|ngx_events_commands
 block|,
 comment|/* module directives */
-name|NGX_CORE_MODULE_TYPE
+name|NGX_CORE_MODULE
 block|,
 comment|/* module type */
 name|NULL
@@ -431,22 +408,7 @@ block|,
 name|NULL
 block|}
 block|,
-block|{
-name|ngx_string
-argument_list|(
-literal|""
-argument_list|)
-block|,
-literal|0
-block|,
-name|NULL
-block|,
-literal|0
-block|,
-literal|0
-block|,
-name|NULL
-block|}
+name|ngx_null_command
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -457,8 +419,6 @@ name|ngx_event_module_t
 name|ngx_event_module_ctx
 init|=
 block|{
-name|NGX_EVENT_MODULE
-block|,
 operator|&
 name|event_name
 block|,
@@ -497,17 +457,16 @@ name|ngx_module_t
 name|ngx_event_module
 init|=
 block|{
+name|NGX_MODULE
+block|,
 operator|&
 name|ngx_event_module_ctx
 block|,
 comment|/* module context */
-literal|0
-block|,
-comment|/* module index */
 name|ngx_event_commands
 block|,
 comment|/* module directives */
-name|NGX_EVENT_MODULE_TYPE
+name|NGX_EVENT_MODULE
 block|,
 comment|/* module type */
 name|NULL
@@ -565,7 +524,7 @@ name|ecf
 operator|=
 name|ngx_event_get_conf
 argument_list|(
-name|ngx_event_module_ctx
+name|ngx_event_module
 argument_list|)
 expr_stmt|;
 name|ngx_log_debug
@@ -608,11 +567,25 @@ index|]
 operator|->
 name|type
 operator|!=
-name|NGX_EVENT_MODULE_TYPE
+name|NGX_EVENT_MODULE
 condition|)
 block|{
 continue|continue;
 block|}
+if|if
+condition|(
+name|ngx_modules
+index|[
+name|m
+index|]
+operator|->
+name|ctx_index
+operator|==
+name|ecf
+operator|->
+name|use
+condition|)
+block|{
 name|module
 operator|=
 name|ngx_modules
@@ -622,17 +595,6 @@ index|]
 operator|->
 name|ctx
 expr_stmt|;
-if|if
-condition|(
-name|module
-operator|->
-name|index
-operator|==
-name|ecf
-operator|->
-name|use
-condition|)
-block|{
 if|if
 condition|(
 name|module
@@ -1131,7 +1093,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_events_block (ngx_conf_t * cf,ngx_command_t * cmd,char * conf)
+DECL|function|ngx_events_block (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 specifier|static
 name|char
 modifier|*
@@ -1145,7 +1107,7 @@ name|ngx_command_t
 modifier|*
 name|cmd
 parameter_list|,
-name|char
+name|void
 modifier|*
 name|conf
 parameter_list|)
@@ -1199,23 +1161,17 @@ index|]
 operator|->
 name|type
 operator|!=
-name|NGX_EVENT_MODULE_TYPE
+name|NGX_EVENT_MODULE
 condition|)
 block|{
 continue|continue;
 block|}
-name|module
-operator|=
 name|ngx_modules
 index|[
 name|m
 index|]
 operator|->
-name|ctx
-expr_stmt|;
-name|module
-operator|->
-name|index
+name|ctx_index
 operator|=
 name|ngx_event_max_module
 operator|++
@@ -1298,7 +1254,7 @@ index|]
 operator|->
 name|type
 operator|!=
-name|NGX_EVENT_MODULE_TYPE
+name|NGX_EVENT_MODULE
 condition|)
 block|{
 continue|continue;
@@ -1326,9 +1282,12 @@ operator|*
 name|ctx
 operator|)
 index|[
-name|module
+name|ngx_modules
+index|[
+name|m
+index|]
 operator|->
-name|index
+name|ctx_index
 index|]
 argument_list|,
 name|module
@@ -1360,7 +1319,7 @@ name|cf
 operator|->
 name|module_type
 operator|=
-name|NGX_EVENT_MODULE_TYPE
+name|NGX_EVENT_MODULE
 expr_stmt|;
 name|cf
 operator|->
@@ -1415,7 +1374,7 @@ index|]
 operator|->
 name|type
 operator|!=
-name|NGX_EVENT_MODULE_TYPE
+name|NGX_EVENT_MODULE
 condition|)
 block|{
 continue|continue;
@@ -1451,9 +1410,12 @@ operator|*
 name|ctx
 operator|)
 index|[
-name|module
+name|ngx_modules
+index|[
+name|m
+index|]
 operator|->
-name|index
+name|ctx_index
 index|]
 argument_list|)
 expr_stmt|;
@@ -1477,7 +1439,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_event_use (ngx_conf_t * cf,ngx_command_t * cmd,char * conf)
+DECL|function|ngx_event_use (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 specifier|static
 name|char
 modifier|*
@@ -1491,7 +1453,7 @@ name|ngx_command_t
 modifier|*
 name|cmd
 parameter_list|,
-name|char
+name|void
 modifier|*
 name|conf
 parameter_list|)
@@ -1500,10 +1462,6 @@ name|ngx_event_conf_t
 modifier|*
 name|ecf
 init|=
-operator|(
-name|ngx_event_conf_t
-operator|*
-operator|)
 name|conf
 decl_stmt|;
 name|int
@@ -1562,7 +1520,7 @@ index|]
 operator|->
 name|type
 operator|!=
-name|NGX_EVENT_MODULE_TYPE
+name|NGX_EVENT_MODULE
 condition|)
 block|{
 continue|continue;
@@ -1617,9 +1575,12 @@ name|ecf
 operator|->
 name|use
 operator|=
-name|module
+name|ngx_modules
+index|[
+name|m
+index|]
 operator|->
-name|index
+name|ctx_index
 expr_stmt|;
 return|return
 name|NGX_CONF_OK
@@ -1738,9 +1699,9 @@ name|ecf
 operator|->
 name|use
 argument_list|,
-name|ngx_kqueue_module_ctx
+name|ngx_kqueue_module
 operator|.
-name|index
+name|ctx_index
 argument_list|)
 expr_stmt|;
 elif|#
@@ -1763,9 +1724,9 @@ name|ecf
 operator|->
 name|use
 argument_list|,
-name|ngx_devpoll_module_ctx
+name|ngx_devpoll_module
 operator|.
-name|index
+name|ctx_index
 argument_list|)
 expr_stmt|;
 else|#
@@ -1792,9 +1753,9 @@ name|ecf
 operator|->
 name|use
 argument_list|,
-name|ngx_select_module_ctx
+name|ngx_select_module
 operator|.
-name|index
+name|ctx_index
 argument_list|)
 expr_stmt|;
 endif|#

@@ -97,7 +97,23 @@ end_include
 begin_include
 include|#
 directive|include
+file|<netinet/tcp.h>
+end_include
+
+begin_comment
+comment|/* TCP_NOPUSH */
+end_comment
+
+begin_include
+include|#
+directive|include
 file|<arpa/inet.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<netdb.h>
 end_include
 
 begin_include
