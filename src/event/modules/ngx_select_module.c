@@ -47,6 +47,10 @@ directive|include
 file|<ngx_select_module.h>
 end_include
 
+begin_comment
+comment|/* should be per-thread */
+end_comment
+
 begin_decl_stmt
 DECL|variable|master_read_fd_set
 specifier|static
@@ -156,6 +160,10 @@ name|ngx_event_t
 name|timer_queue
 decl_stmt|;
 end_decl_stmt
+
+begin_comment
+comment|/* */
+end_comment
 
 begin_function_decl
 specifier|static
@@ -630,7 +638,7 @@ block|}
 end_block
 
 begin_function
-DECL|function|ngx_select_del_event (ngx_event_t * ev,int event)
+DECL|function|ngx_select_del_event (ngx_event_t * ev,int event,u_int flags)
 name|int
 name|ngx_select_del_event
 parameter_list|(
@@ -640,6 +648,9 @@ name|ev
 parameter_list|,
 name|int
 name|event
+parameter_list|,
+name|u_int
+name|flags
 parameter_list|)
 block|{
 name|ngx_connection_t
@@ -656,12 +667,23 @@ name|ev
 operator|->
 name|data
 expr_stmt|;
+if|if
+condition|(
+name|ev
+operator|->
+name|index
+operator|==
+name|NGX_INVALID_INDEX
+condition|)
+return|return
+name|NGX_OK
+return|;
 name|ngx_log_debug
 argument_list|(
 argument|c->log
 argument_list|,
-literal|"del event: %d"
-argument|_ c->fd
+literal|"del event: %d, %d"
+argument|_ c->fd _ event
 argument_list|)
 empty_stmt|;
 if|#
@@ -760,15 +782,13 @@ literal|1
 expr_stmt|;
 endif|#
 directive|endif
-name|nevents
-operator|--
-expr_stmt|;
 if|if
 condition|(
 name|ev
 operator|->
 name|index
 operator|<
+operator|--
 name|nevents
 condition|)
 block|{
@@ -798,6 +818,12 @@ operator|->
 name|index
 expr_stmt|;
 block|}
+name|ev
+operator|->
+name|index
+operator|=
+name|NGX_INVALID_INDEX
+expr_stmt|;
 return|return
 name|NGX_OK
 return|;
@@ -831,9 +857,6 @@ decl_stmt|;
 name|ngx_event_t
 modifier|*
 name|ev
-decl_stmt|,
-modifier|*
-name|nx
 decl_stmt|;
 name|ngx_connection_t
 modifier|*
@@ -985,6 +1008,52 @@ empty_stmt|;
 block|}
 endif|#
 directive|endif
+if|#
+directive|if
+literal|1
+comment|/* DEBUG */
+for|for
+control|(
+name|i
+operator|=
+literal|0
+init|;
+name|i
+operator|<
+name|nevents
+condition|;
+name|i
+operator|++
+control|)
+block|{
+name|ev
+operator|=
+name|event_index
+index|[
+name|i
+index|]
+expr_stmt|;
+name|c
+operator|=
+operator|(
+name|ngx_connection_t
+operator|*
+operator|)
+name|ev
+operator|->
+name|data
+expr_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|log
+argument_list|,
+literal|"select: %d"
+argument|_ c->fd
+argument_list|)
+empty_stmt|;
+block|}
+endif|#
+directive|endif
 name|ngx_log_debug
 argument_list|(
 argument|log
@@ -1123,37 +1192,35 @@ condition|)
 block|{
 for|for
 control|(
+init|;
+condition|;
+control|)
+block|{
 name|ev
 operator|=
 name|timer_queue
 operator|.
 name|timer_next
-init|;
+expr_stmt|;
+if|if
+condition|(
 name|ev
-operator|!=
+operator|==
 operator|&
 name|timer_queue
-operator|&&
+operator|||
 name|delta
-operator|>=
+operator|<
 name|ev
 operator|->
 name|timer_delta
-condition|;
-comment|/* void */
-control|)
-block|{
+condition|)
+break|break;
 name|delta
 operator|-=
 name|ev
 operator|->
 name|timer_delta
-expr_stmt|;
-name|nx
-operator|=
-name|ev
-operator|->
-name|timer_next
 expr_stmt|;
 name|ngx_del_timer
 argument_list|(
@@ -1175,8 +1242,7 @@ argument_list|(
 name|ev
 argument_list|)
 operator|==
-operator|-
-literal|1
+name|NGX_ERROR
 condition|)
 name|ev
 operator|->
@@ -1184,10 +1250,6 @@ name|close_handler
 argument_list|(
 name|ev
 argument_list|)
-expr_stmt|;
-name|ev
-operator|=
-name|nx
 expr_stmt|;
 block|}
 block|}
@@ -1267,7 +1329,7 @@ argument_list|(
 argument|log
 argument_list|,
 literal|"select write %d"
-argument|_                               c->fd
+argument|_ c->fd
 argument_list|)
 empty_stmt|;
 name|found
@@ -1296,7 +1358,7 @@ argument_list|(
 argument|log
 argument_list|,
 literal|"select read %d"
-argument|_                               c->fd
+argument|_ c->fd
 argument_list|)
 empty_stmt|;
 name|found
@@ -1370,6 +1432,8 @@ argument_list|(
 name|ev
 argument_list|,
 name|NGX_WRITE_EVENT
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 else|else
@@ -1378,6 +1442,8 @@ argument_list|(
 name|ev
 argument_list|,
 name|NGX_READ_EVENT
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -1390,8 +1456,7 @@ argument_list|(
 name|ev
 argument_list|)
 operator|==
-operator|-
-literal|1
+name|NGX_ERROR
 condition|)
 name|ev
 operator|->

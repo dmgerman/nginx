@@ -30,6 +30,37 @@ name|FD_SETSIZE
 value|1024
 end_define
 
+begin_comment
+comment|/* auto_conf */
+end_comment
+
+begin_define
+DECL|macro|NGX_ALIGN
+define|#
+directive|define
+name|NGX_ALIGN
+value|(4 - 1)
+end_define
+
+begin_define
+DECL|macro|NGX_ALIGN_TYPE
+define|#
+directive|define
+name|NGX_ALIGN_TYPE
+value|unsigned
+end_define
+
+begin_define
+DECL|macro|ngx_align (p)
+define|#
+directive|define
+name|ngx_align
+parameter_list|(
+name|p
+parameter_list|)
+value|(char *) (((NGX_ALIGN_TYPE) p + NGX_ALIGN)& ~NGX_ALIGN)
+end_define
+
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -84,22 +115,6 @@ define|#
 directive|define
 name|ngx_inline
 value|__inline
-end_define
-
-begin_define
-DECL|macro|ngx_memzero
-define|#
-directive|define
-name|ngx_memzero
-value|ZeroMemory
-end_define
-
-begin_define
-DECL|macro|ngx_close_socket
-define|#
-directive|define
-name|ngx_close_socket
-value|closesocket
 end_define
 
 begin_ifndef
@@ -301,22 +316,6 @@ define|#
 directive|define
 name|ngx_inline
 value|inline
-end_define
-
-begin_define
-DECL|macro|ngx_memzero
-define|#
-directive|define
-name|ngx_memzero
-value|bzero
-end_define
-
-begin_define
-DECL|macro|ngx_close_socket
-define|#
-directive|define
-name|ngx_close_socket
-value|close
 end_define
 
 begin_endif

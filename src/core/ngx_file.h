@@ -24,6 +24,12 @@ directive|include
 file|<ngx_log.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_string.h>
+end_include
+
 begin_typedef
 DECL|typedef|ngx_file_t
 typedef|typedef
@@ -42,10 +48,24 @@ DECL|member|fd
 name|ngx_fd_t
 name|fd
 decl_stmt|;
+DECL|member|name
+name|ngx_str_t
+name|name
+decl_stmt|;
+DECL|member|info
+name|ngx_file_info_t
+name|info
+decl_stmt|;
 DECL|member|log
 name|ngx_log_t
 modifier|*
 name|log
+decl_stmt|;
+DECL|member|info_valid
+name|unsigned
+name|info_valid
+range|:
+literal|1
 decl_stmt|;
 block|}
 struct|;

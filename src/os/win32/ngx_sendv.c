@@ -35,6 +35,12 @@ directive|include
 file|<ngx_sendv.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_string.h>
+end_include
+
 begin_function
 DECL|function|ngx_sendv (ngx_connection_t * c,ngx_iovec_t * iovec,int n)
 name|ssize_t
@@ -61,15 +67,25 @@ decl_stmt|;
 name|ngx_err_t
 name|err
 decl_stmt|;
+if|#
+directive|if
+literal|0
+comment|/* STUB: WSABUF must be 4-byte aligned. Undocumented WSAEINVAL error */
+block_content|ngx_iovec_t iov[10];     ngx_memcpy(iov, iovec, n * sizeof(ngx_iovec_t));
+endif|#
+directive|endif
+name|sent
+operator|=
+literal|0
+expr_stmt|;
 name|ngx_log_debug
 argument_list|(
-name|c
-operator|->
-name|log
+argument|c->log
 argument_list|,
-literal|"WSASend() start"
+literal|"WSASend: %d, %d, %08x"
+argument|_ c->fd _ n _ iovec
 argument_list|)
-expr_stmt|;
+empty_stmt|;
 name|rc
 operator|=
 name|WSASend
@@ -105,8 +121,7 @@ if|if
 condition|(
 name|rc
 operator|==
-operator|-
-literal|1
+name|SOCKET_ERROR
 condition|)
 block|{
 name|err

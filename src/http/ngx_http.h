@@ -177,7 +177,23 @@ DECL|macro|NGX_HTTP_MOVED_PERMANENTLY
 define|#
 directive|define
 name|NGX_HTTP_MOVED_PERMANENTLY
+value|301
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_MOVED_TEMPORARILY
+define|#
+directive|define
+name|NGX_HTTP_MOVED_TEMPORARILY
 value|302
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_NOT_MODIFIED
+define|#
+directive|define
+name|NGX_HTTP_NOT_MODIFIED
+value|304
 end_define
 
 begin_define
@@ -209,7 +225,7 @@ DECL|macro|NGX_HTTP_INTERNAL_SERVER_ERROR
 define|#
 directive|define
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
-value|503
+value|500
 end_define
 
 begin_define
@@ -229,7 +245,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2bf328ef0108
+DECL|struct|__anon2b5c0d940108
 typedef|typedef
 struct|struct
 block|{
@@ -277,7 +293,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf328ef0208
+DECL|struct|__anon2b5c0d940208
 typedef|typedef
 struct|struct
 block|{
@@ -301,7 +317,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf328ef0308
+DECL|struct|__anon2b5c0d940308
 typedef|typedef
 struct|struct
 block|{
@@ -314,6 +330,11 @@ DECL|member|connection
 name|ngx_table_elt_t
 modifier|*
 name|connection
+decl_stmt|;
+DECL|member|if_modified_since
+name|ngx_table_elt_t
+modifier|*
+name|if_modified_since
 decl_stmt|;
 DECL|member|user_agent
 name|ngx_table_elt_t
@@ -337,7 +358,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf328ef0408
+DECL|struct|__anon2b5c0d940408
 typedef|typedef
 struct|struct
 block|{
@@ -421,14 +442,16 @@ DECL|struct|ngx_http_request_s
 struct|struct
 name|ngx_http_request_s
 block|{
-DECL|member|filename
-name|ngx_str_t
-name|filename
+DECL|member|file
+name|ngx_file_t
+name|file
 decl_stmt|;
-DECL|member|fd
-name|ngx_fd_t
-name|fd
-decl_stmt|;
+if|#
+directive|if
+literal|0
+block|ngx_str_t   filename;     ngx_file_info_t fileinfo;     ngx_fd_t  fd;     int    filename_len;
+endif|#
+directive|endif
 DECL|member|ctx
 name|void
 modifier|*
@@ -465,10 +488,6 @@ DECL|member|headers_out
 name|ngx_http_headers_out_t
 name|headers_out
 decl_stmt|;
-DECL|member|filename_len
-name|int
-name|filename_len
-decl_stmt|;
 DECL|member|handler
 name|int
 function_decl|(
@@ -481,10 +500,6 @@ modifier|*
 name|r
 parameter_list|)
 function_decl|;
-DECL|member|fileinfo
-name|ngx_file_info_t
-name|fileinfo
-decl_stmt|;
 DECL|member|method
 name|int
 name|method
@@ -594,7 +609,7 @@ name|complex_uri
 range|:
 literal|1
 decl_stmt|;
-comment|/* URI with "./" or with "//" */
+comment|/* URI with "/." or with "//" (WIN32) */
 DECL|member|state
 name|int
 name|state
@@ -666,7 +681,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bf328ef0508
+DECL|struct|__anon2b5c0d940508
 typedef|typedef
 struct|struct
 block|{
@@ -692,7 +707,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf328ef0608
+DECL|struct|__anon2b5c0d940608
 typedef|typedef
 struct|struct
 block|{
@@ -755,18 +770,43 @@ modifier|*
 name|r
 parameter_list|)
 function_decl|;
-DECL|member|init_output_body_filter
+DECL|member|output_header_filter
 name|int
 function_decl|(
 modifier|*
-name|init_output_body_filter
+name|output_header_filter
 function_decl|)
 parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|)
+function_decl|;
+DECL|member|next_output_header_filter
 name|int
 function_decl|(
 modifier|*
+name|next_output_header_filter
+function_decl|)
+parameter_list|(
+name|ngx_http_request_t
 modifier|*
-name|next_filter
+name|r
+parameter_list|)
+function_decl|;
+DECL|member|output_body_filter
+name|int
+function_decl|(
+modifier|*
+name|output_body_filter
+function_decl|)
+parameter_list|()
+function_decl|;
+DECL|member|next_output_body_filter
+name|int
+function_decl|(
+modifier|*
+name|next_output_body_filter
 function_decl|)
 parameter_list|(
 name|ngx_http_request_t
@@ -777,8 +817,13 @@ name|ngx_chain_t
 modifier|*
 name|ch
 parameter_list|)
-parameter_list|)
 function_decl|;
+if|#
+directive|if
+literal|0
+block|int             (*next_output_body_filter)(int (**next_filter)                                      (ngx_http_request_t *r, ngx_chain_t *ch));
+endif|#
+directive|endif
 DECL|typedef|ngx_http_module_t
 block|}
 name|ngx_http_module_t
@@ -868,6 +913,10 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_comment
+comment|/**/
+end_comment
+
 begin_function_decl
 name|int
 name|ngx_http_init_connection
@@ -875,6 +924,17 @@ parameter_list|(
 name|ngx_connection_t
 modifier|*
 name|c
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|int
+name|ngx_http_discard_body
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
 parameter_list|)
 function_decl|;
 end_function_decl

@@ -48,6 +48,21 @@ file|<ngx_http_output_filter.h>
 end_include
 
 begin_function_decl
+name|int
+name|ngx_http_output_filter
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_hunk_t
+modifier|*
+name|hunk
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
 specifier|static
 name|int
 name|ngx_http_output_filter_copy_hunk
@@ -63,29 +78,17 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
-begin_function_decl
-specifier|static
-name|int
-name|ngx_http_output_filter_init
-parameter_list|(
-name|int
-function_decl|(
-modifier|*
-modifier|*
-name|next_filter
-function_decl|)
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|,
-name|ngx_chain_t
-modifier|*
-name|ch
-parameter_list|)
-parameter_list|)
-function_decl|;
-end_function_decl
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
+begin_endif
+unit|static int ngx_http_output_filter_init(             int (**next_filter)(ngx_http_request_t *r, ngx_chain_t *ch));
+endif|#
+directive|endif
+end_endif
 
 begin_function_decl
 specifier|static
@@ -99,44 +102,6 @@ name|pool
 parameter_list|)
 function_decl|;
 end_function_decl
-
-begin_decl_stmt
-DECL|variable|ngx_http_output_filter_commands
-specifier|static
-name|ngx_command_t
-name|ngx_http_output_filter_commands
-index|[]
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-DECL|variable|ngx_http_output_filter_module
-name|ngx_http_module_t
-name|ngx_http_output_filter_module
-init|=
-block|{
-name|NGX_HTTP_MODULE
-block|,
-name|NULL
-block|,
-comment|/* create server config */
-name|ngx_http_output_filter_create_conf
-block|,
-comment|/* create location config */
-name|ngx_http_output_filter_commands
-block|,
-comment|/* module directives */
-name|NULL
-block|,
-comment|/* init module */
-name|NULL
-block|,
-comment|/* translate handler */
-name|ngx_http_output_filter_init
-comment|/* init output body filter */
-block|}
-decl_stmt|;
-end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_http_output_filter_commands
@@ -172,25 +137,55 @@ block|}
 decl_stmt|;
 end_decl_stmt
 
-begin_function_decl
-DECL|variable|ngx_http_output_next_filter
-specifier|static
-name|int
-function_decl|(
-modifier|*
-name|ngx_http_output_next_filter
-function_decl|)
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|,
-name|ngx_chain_t
-modifier|*
-name|ch
-parameter_list|)
-function_decl|;
-end_function_decl
+begin_decl_stmt
+DECL|variable|ngx_http_output_filter_module
+name|ngx_http_module_t
+name|ngx_http_output_filter_module
+init|=
+block|{
+name|NGX_HTTP_MODULE
+block|,
+name|NULL
+block|,
+comment|/* create server config */
+name|ngx_http_output_filter_create_conf
+block|,
+comment|/* create location config */
+name|ngx_http_output_filter_commands
+block|,
+comment|/* module directives */
+name|NULL
+block|,
+comment|/* init module */
+name|NULL
+block|,
+comment|/* translate handler */
+name|NULL
+block|,
+comment|/* output header filter */
+name|NULL
+block|,
+comment|/* next output header filter */
+name|ngx_http_output_filter
+block|,
+comment|/* output body filter */
+name|NULL
+comment|/* next output body filter */
+block|}
+decl_stmt|;
+end_decl_stmt
+
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
+begin_endif
+unit|static int (*ngx_http_output_next_filter)(ngx_http_request_t *r,                                           ngx_chain_t *ch);
+endif|#
+directive|endif
+end_endif
 
 begin_function
 DECL|function|ngx_http_output_filter (ngx_http_request_t * r,ngx_hunk_t * hunk)
@@ -271,12 +266,12 @@ name|ngx_http_output_filter_ctx_t
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ctx
-operator|->
-name|next_filter
-operator|=
-name|ngx_http_output_next_filter
-expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|ctx->next_filter = ngx_http_output_next_filter;
+endif|#
+directive|endif
 block|}
 if|if
 condition|(
@@ -387,15 +382,21 @@ condition|)
 block|{
 name|rc
 operator|=
-name|ctx
-operator|->
-name|next_filter
+name|ngx_http_output_filter_module
+operator|.
+name|next_output_body_filter
 argument_list|(
 name|r
 argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|rc = ctx->next_filter(r, NULL);
+endif|#
+directive|endif
 comment|/* our hunk is free */
 block|}
 else|else
@@ -525,9 +526,11 @@ name|hunk
 operator|->
 name|type
 operator|&
+operator|(
 name|NGX_HUNK_MEMORY
 operator||
 name|NGX_HUNK_MMAP
+operator|)
 operator|)
 operator|&&
 operator|(
@@ -562,9 +565,9 @@ expr_stmt|;
 block|}
 name|rc
 operator|=
-name|ctx
-operator|->
-name|next_filter
+name|ngx_http_output_filter_module
+operator|.
+name|next_output_body_filter
 argument_list|(
 name|r
 argument_list|,
@@ -574,6 +577,13 @@ operator|->
 name|out
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|rc = ctx->next_filter(r,&ctx->out);
+endif|#
+directive|endif
+endif|;
 block|}
 comment|/* delete completed hunks from input chain */
 for|for
@@ -669,15 +679,22 @@ condition|)
 block|{
 name|rc
 operator|=
-name|ctx
-operator|->
-name|next_filter
+name|ngx_http_output_filter_module
+operator|.
+name|next_output_body_filter
 argument_list|(
 name|r
 argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|rc = ctx->next_filter(r, NULL);
+endif|#
+directive|endif
+endif|;
 block|}
 else|else
 block|{
@@ -716,9 +733,11 @@ name|hunk
 operator|->
 name|type
 operator|&
+operator|(
 name|NGX_HUNK_MEMORY
 operator||
 name|NGX_HUNK_MMAP
+operator|)
 operator|)
 operator|)
 condition|)
@@ -764,15 +783,21 @@ argument_list|)
 expr_stmt|;
 name|rc
 operator|=
-name|ctx
-operator|->
-name|next_filter
+name|ngx_http_output_filter_module
+operator|.
+name|next_output_body_filter
 argument_list|(
 name|r
 argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|rc = ctx->next_filter(r, NULL);
+endif|#
+directive|endif
 block|}
 else|else
 block|{
@@ -986,9 +1011,9 @@ name|NULL
 expr_stmt|;
 name|rc
 operator|=
-name|ctx
-operator|->
-name|next_filter
+name|ngx_http_output_filter_module
+operator|.
+name|next_output_body_filter
 argument_list|(
 name|r
 argument_list|,
@@ -998,6 +1023,12 @@ operator|->
 name|out
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|rc = ctx->next_filter(r,&ctx->out);
+endif|#
+directive|endif
 block|}
 block|}
 block|}
@@ -1021,9 +1052,9 @@ name|NULL
 expr_stmt|;
 name|rc
 operator|=
-name|ctx
-operator|->
-name|next_filter
+name|ngx_http_output_filter_module
+operator|.
+name|next_output_body_filter
 argument_list|(
 name|r
 argument_list|,
@@ -1033,6 +1064,12 @@ operator|->
 name|out
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|rc = ctx->next_filter(r,&ctx->out);
+endif|#
+directive|endif
 block|}
 block|}
 block|}
@@ -1332,6 +1369,25 @@ operator|+=
 name|size
 expr_stmt|;
 block|}
+if|#
+directive|if
+literal|1
+if|if
+condition|(
+name|src
+operator|->
+name|type
+operator|&
+name|NGX_HUNK_LAST
+condition|)
+name|dst
+operator|->
+name|type
+operator||=
+name|NGX_HUNK_LAST
+expr_stmt|;
+endif|#
+directive|endif
 return|return
 name|NGX_OK
 return|;
@@ -1383,44 +1439,17 @@ return|;
 block|}
 end_function
 
-begin_function
-DECL|function|ngx_http_output_filter_init (int (** next_filter)(ngx_http_request_t * r,ngx_chain_t * ch))
-specifier|static
-name|int
-name|ngx_http_output_filter_init
-parameter_list|(
-name|int
-function_decl|(
-modifier|*
-modifier|*
-name|next_filter
-function_decl|)
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|,
-name|ngx_chain_t
-modifier|*
-name|ch
-parameter_list|)
-parameter_list|)
-block|{
-name|ngx_http_output_next_filter
-operator|=
-operator|*
-name|next_filter
-expr_stmt|;
-operator|*
-name|next_filter
-operator|=
-name|NULL
-expr_stmt|;
-return|return
-name|NGX_OK
-return|;
-block|}
-end_function
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
+begin_endif
+unit|static int ngx_http_output_filter_init(             int (**next_filter)(ngx_http_request_t *r, ngx_chain_t *ch)) {     ngx_http_output_next_filter = *next_filter;     *next_filter = NULL;      return NGX_OK; }
+endif|#
+directive|endif
+end_endif
 
 end_unit
 

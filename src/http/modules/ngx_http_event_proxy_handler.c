@@ -1663,13 +1663,12 @@ argument_list|,
 literal|"CLOSE proxy"
 argument_list|)
 expr_stmt|;
-name|ngx_del_event
-argument_list|(
-name|ev
-argument_list|,
-name|NGX_READ_EVENT
-argument_list|)
-expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|ngx_del_event(ev, NGX_READ_EVENT, NGX_CLOSE_EVENT);
+endif|#
+directive|endif
 name|ngx_event_close_connection
 argument_list|(
 name|ev
@@ -2205,13 +2204,12 @@ argument_list|,
 literal|"CLOSE proxy"
 argument_list|)
 expr_stmt|;
-name|ngx_del_event
-argument_list|(
-name|ev
-argument_list|,
-name|NGX_READ_EVENT
-argument_list|)
-expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|ngx_del_event(ev, NGX_READ_EVENT, NGX_CLOSE_EVENT);
+endif|#
+directive|endif
 name|ngx_event_close_connection
 argument_list|(
 name|ev
@@ -2400,7 +2398,7 @@ name|char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon29b6737f0103
+DECL|enum|__anon27c185450103
 enum|enum
 block|{
 DECL|enumerator|sw_start

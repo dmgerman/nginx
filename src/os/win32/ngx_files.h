@@ -49,6 +49,22 @@ name|ngx_fd_t
 typedef|;
 end_typedef
 
+begin_define
+DECL|macro|NGX_INVALID_FILE
+define|#
+directive|define
+name|NGX_INVALID_FILE
+value|INVALID_HANDLE_VALUE
+end_define
+
+begin_define
+DECL|macro|NGX_FILE_ERROR
+define|#
+directive|define
+name|NGX_FILE_ERROR
+value|0
+end_define
+
 begin_typedef
 DECL|typedef|off_t
 typedef|typedef
@@ -94,6 +110,22 @@ define|#
 directive|define
 name|NGX_FILE_RDONLY
 value|GENERIC_READ
+end_define
+
+begin_define
+DECL|macro|ngx_close_file
+define|#
+directive|define
+name|ngx_close_file
+value|CloseHandle
+end_define
+
+begin_define
+DECL|macro|ngx_close_file_n
+define|#
+directive|define
+name|ngx_close_file_n
+value|"CloseHandle()"
 end_define
 
 begin_function_decl
@@ -152,6 +184,17 @@ value|(fi.dwFileAttributes& FILE_ATTRIBUTE_DIRECTORY)
 end_define
 
 begin_define
+DECL|macro|ngx_is_file (fi)
+define|#
+directive|define
+name|ngx_is_file
+parameter_list|(
+name|fi
+parameter_list|)
+value|!(fi.dwFileAttributes& FILE_ATTRIBUTE_DIRECTORY)
+end_define
+
+begin_define
 DECL|macro|ngx_file_size (fi)
 define|#
 directive|define
@@ -160,11 +203,11 @@ parameter_list|(
 name|fi
 parameter_list|)
 define|\
-value|fi.nFileSizeLow
+value|(((off_t) fi.nFileSizeHigh<< 32) | fi.nFileSizeLow)
 end_define
 
 begin_comment
-comment|/* #define ngx_file_size(fi)                                                   \             ((off_t) fi.nFileSizeHigh<< 32& fi.nFileSizeLow) */
+comment|/* There are 134774 days between 1 Jan 1970 and 1 Jan 1601,    11644473600 seconds or 11644473600,000,000,0 100-nanosecond intervals */
 end_comment
 
 begin_define
@@ -175,12 +218,9 @@ name|ngx_file_mtime
 parameter_list|(
 name|fi
 parameter_list|)
-value|fi.ftLastWriteTime
+define|\
+value|(time_t) (((((unsigned __int64) fi.ftLastWriteTime.dwHighDateTime<< 32) \                                  | fi.ftLastWriteTime.dwLowDateTime)        \                                           - 116444736000000000) / 10000000)
 end_define
-
-begin_comment
-comment|/* 1970 - 1601: 	116444736000000000 	19DB1DED53E8000 */
-end_comment
 
 begin_define
 DECL|macro|ngx_read_file_n

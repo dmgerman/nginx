@@ -47,14 +47,20 @@ directive|include
 file|<ngx_http_write_filter.h>
 end_include
 
-begin_decl_stmt
-DECL|variable|ngx_http_write_filter_commands
-specifier|static
-name|ngx_command_t
-name|ngx_http_write_filter_commands
-index|[]
-decl_stmt|;
-end_decl_stmt
+begin_function_decl
+name|int
+name|ngx_http_write_filter
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_chain_t
+modifier|*
+name|in
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_function_decl
 specifier|static
@@ -68,35 +74,6 @@ name|pool
 parameter_list|)
 function_decl|;
 end_function_decl
-
-begin_decl_stmt
-DECL|variable|ngx_http_write_filter_module
-name|ngx_http_module_t
-name|ngx_http_write_filter_module
-init|=
-block|{
-name|NGX_HTTP_MODULE
-block|,
-name|NULL
-block|,
-comment|/* create server config */
-name|ngx_http_write_filter_create_conf
-block|,
-comment|/* create location config */
-name|ngx_http_write_filter_commands
-block|,
-comment|/* module directives */
-name|NULL
-block|,
-comment|/* init module */
-name|NULL
-block|,
-comment|/* translate handler */
-name|NULL
-comment|/* init output body filter */
-block|}
-decl_stmt|;
-end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_http_write_filter_commands
@@ -128,6 +105,45 @@ block|,
 block|{
 name|NULL
 block|}
+block|}
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_http_write_filter_module
+name|ngx_http_module_t
+name|ngx_http_write_filter_module
+init|=
+block|{
+name|NGX_HTTP_MODULE
+block|,
+name|NULL
+block|,
+comment|/* create server config */
+name|ngx_http_write_filter_create_conf
+block|,
+comment|/* create location config */
+name|ngx_http_write_filter_commands
+block|,
+comment|/* module directives */
+name|NULL
+block|,
+comment|/* init module */
+name|NULL
+block|,
+comment|/* translate handler */
+name|NULL
+block|,
+comment|/* output header filter */
+name|NULL
+block|,
+comment|/* next output header filter */
+name|ngx_http_write_filter
+block|,
+comment|/* output body filter */
+name|NULL
+block|,
+comment|/* next output body filter */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -292,9 +308,11 @@ name|hunk
 operator|->
 name|type
 operator|&
+operator|(
 name|NGX_HUNK_FLUSH
 operator||
 name|NGX_HUNK_RECYCLED
+operator|)
 condition|)
 name|flush
 operator|=
@@ -410,9 +428,11 @@ name|hunk
 operator|->
 name|type
 operator|&
+operator|(
 name|NGX_HUNK_FLUSH
 operator||
 name|NGX_HUNK_RECYCLED
+operator|)
 condition|)
 name|flush
 operator|=
@@ -454,6 +474,14 @@ argument_list|,
 name|ngx_http_write_filter_module
 argument_list|)
 expr_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|r->connection->log
+argument_list|,
+literal|"l:%d f:%d"
+argument|_ last _ flush
+argument_list|)
+empty_stmt|;
 if|if
 condition|(
 operator|!

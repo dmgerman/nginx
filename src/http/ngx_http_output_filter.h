@@ -41,7 +41,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2b657dde0108
+DECL|struct|__anon291b0ef20108
 typedef|typedef
 struct|struct
 block|{
@@ -56,26 +56,16 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b657dde0208
+DECL|struct|__anon291b0ef20208
 typedef|typedef
 struct|struct
 block|{
-DECL|member|next_filter
-name|int
-function_decl|(
-modifier|*
-name|next_filter
-function_decl|)
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|,
-name|ngx_chain_t
-modifier|*
-name|ch
-parameter_list|)
-function_decl|;
+if|#
+directive|if
+literal|0
+block|int         (*next_filter)(ngx_http_request_t *r, ngx_chain_t *ch);
+endif|#
+directive|endif
 DECL|member|hunk
 name|ngx_hunk_t
 modifier|*

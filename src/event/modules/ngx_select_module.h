@@ -71,6 +71,9 @@ name|ev
 parameter_list|,
 name|int
 name|event
+parameter_list|,
+name|u_int
+name|flags
 parameter_list|)
 function_decl|;
 end_function_decl

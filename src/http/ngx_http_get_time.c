@@ -11,6 +11,12 @@ directive|include
 file|<ngx_config.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_types.h>
+end_include
+
 begin_macro
 DECL|function|ngx_http_get_time (char * buf,time_t t)
 name|ngx_http_get_time

@@ -34,7 +34,7 @@ name|char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon287d70e40103
+DECL|enum|__anon292be9e30103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -390,7 +390,7 @@ expr_stmt|;
 break|break;
 block|}
 break|break;
-comment|/* check dot after slash */
+comment|/* check "/." or "//" */
 case|case
 name|sw_after_slash_in_uri
 case|:
@@ -476,16 +476,19 @@ break|break;
 case|case
 literal|'/'
 case|:
+if|#
+directive|if
+operator|(
+name|WIN32
+operator|)
 name|r
 operator|->
 name|complex_uri
 operator|=
 literal|1
 expr_stmt|;
-name|state
-operator|=
-name|sw_uri
-expr_stmt|;
+endif|#
+directive|endif
 break|break;
 case|case
 literal|'?'
@@ -1135,7 +1138,7 @@ name|char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon287d70e40203
+DECL|enum|__anon292be9e30203
 enum|enum
 block|{
 DECL|enumerator|sw_start

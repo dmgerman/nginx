@@ -20,6 +20,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_string.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_alloc.h>
 end_include
 
@@ -71,7 +77,7 @@ name|ngx_log_debug
 argument_list|(
 argument|log
 argument_list|,
-literal|"malloc: %x:%d"
+literal|"malloc: %08x:%d"
 argument|_ p _ size
 argument_list|)
 empty_stmt|;
@@ -250,7 +256,7 @@ name|ngx_log_debug
 argument_list|(
 argument|pool->log
 argument_list|,
-literal|"free: %x"
+literal|"free: %08x"
 argument|_ l->alloc
 argument_list|)
 empty_stmt|;
@@ -291,7 +297,7 @@ name|ngx_log_debug
 argument_list|(
 argument|pool->log
 argument_list|,
-literal|"free: %x"
+literal|"free: %08x"
 argument|_ p
 argument_list|)
 empty_stmt|;
@@ -385,9 +391,12 @@ name|p
 operator|->
 name|end
 operator|-
+name|ngx_align
+argument_list|(
 name|p
 operator|->
 name|last
+argument_list|)
 operator|)
 operator|>=
 name|size
@@ -395,9 +404,23 @@ condition|)
 block|{
 name|m
 operator|=
+name|ngx_align
+argument_list|(
 name|p
 operator|->
 name|last
+argument_list|)
+expr_stmt|;
+name|p
+operator|->
+name|last
+operator|=
+name|ngx_align
+argument_list|(
+name|p
+operator|->
+name|last
+argument_list|)
 expr_stmt|;
 name|p
 operator|->

@@ -32,6 +32,22 @@ name|ngx_fd_t
 typedef|;
 end_typedef
 
+begin_define
+DECL|macro|NGX_INVALID_FILE
+define|#
+directive|define
+name|NGX_INVALID_FILE
+value|-1
+end_define
+
+begin_define
+DECL|macro|NGX_FILE_ERROR
+define|#
+directive|define
+name|NGX_FILE_ERROR
+value|-1
+end_define
+
 begin_typedef
 DECL|typedef|ngx_file_info_t
 typedef|typedef
@@ -140,6 +156,17 @@ parameter_list|(
 name|sb
 parameter_list|)
 value|(S_ISDIR(sb.st_mode))
+end_define
+
+begin_define
+DECL|macro|ngx_is_file (sb)
+define|#
+directive|define
+name|ngx_is_file
+parameter_list|(
+name|sb
+parameter_list|)
+value|(S_ISREG(sb.st_mode))
 end_define
 
 begin_define

@@ -54,6 +54,14 @@ directive|include
 file|<ngx_array.h>
 end_include
 
+begin_define
+DECL|macro|NGX_INVALID_INDEX
+define|#
+directive|define
+name|NGX_INVALID_INDEX
+value|0x80000000
+end_define
+
 begin_typedef
 DECL|typedef|ngx_event_t
 typedef|typedef
@@ -259,7 +267,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2c8a507b0103
+DECL|enum|__anon2c14e9a40103
 typedef|typedef
 enum|enum
 block|{
@@ -295,7 +303,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c8a507b0208
+DECL|struct|__anon2c14e9a40208
 typedef|typedef
 struct|struct
 block|{
@@ -330,6 +338,9 @@ name|ev
 parameter_list|,
 name|int
 name|event
+parameter_list|,
+name|u_int
+name|flags
 parameter_list|)
 function_decl|;
 DECL|member|timer
@@ -386,8 +397,16 @@ typedef|;
 end_typedef
 
 begin_comment
-comment|/* NGX_LEVEL_EVENT (default)  select, poll, /dev/poll, kqueue                                 requires to read whole data NGX_ONESHOT_EVENT          select, poll, kqueue NGX_CLEAR_EVENT            kqueue NGX_AIO_EVENT              overlapped, aio_read, aioread                                 no need to add or delete events */
+comment|/* NGX_LEVEL_EVENT (default)  select, poll, /dev/poll, kqueue                                 requires to read whole data NGX_ONESHOT_EVENT          select, poll, kqueue NGX_CLEAR_EVENT            kqueue NGX_AIO_EVENT              overlapped, aio_read, aioread                                 no need to add or delete events  NGX_CLOSE_EVENT            kqueue: kqueue deletes events for file that closed */
 end_comment
+
+begin_define
+DECL|macro|NGX_CLOSE_EVENT
+define|#
+directive|define
+name|NGX_CLOSE_EVENT
+value|1
+end_define
 
 begin_if
 if|#
@@ -536,31 +555,19 @@ value|ngx_kqueue_process_events
 end_define
 
 begin_define
-DECL|macro|ngx_kqueue_add_event (ev,event)
+DECL|macro|ngx_add_event
 define|#
 directive|define
-name|ngx_kqueue_add_event
-parameter_list|(
-name|ev
-parameter_list|,
-name|event
-parameter_list|)
-define|\
-value|ngx_kqueue_set_event(ev, event, EV_ADD | flags)
+name|ngx_add_event
+value|ngx_kqueue_add_event
 end_define
 
 begin_define
-DECL|macro|ngx_kqueue_del_event (ev,event)
+DECL|macro|ngx_del_event
 define|#
 directive|define
-name|ngx_kqueue_del_event
-parameter_list|(
-name|ev
-parameter_list|,
-name|event
-parameter_list|)
-define|\
-value|ngx_kqueue_set_event(ev, event, EV_DELETE)
+name|ngx_del_event
+value|ngx_kqueue_add_event
 end_define
 
 begin_define

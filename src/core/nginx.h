@@ -20,6 +20,13 @@ name|NGINX_VER
 value|"nginx/0.0.1"
 end_define
 
+begin_decl_stmt
+specifier|extern
+name|int
+name|ngx_connection_counter
+decl_stmt|;
+end_decl_stmt
+
 begin_endif
 endif|#
 directive|endif

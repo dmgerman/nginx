@@ -149,6 +149,13 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_connection_counter
+name|int
+name|ngx_connection_counter
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_listening_sockets
 name|ngx_array_t
 modifier|*
@@ -191,12 +198,20 @@ name|ngx_log
 argument_list|)
 expr_stmt|;
 comment|/* */
+if|#
+directive|if
+operator|!
+operator|(
+name|WIN32
+operator|)
 name|ngx_set_signals
 argument_list|(
 operator|&
 name|ngx_log
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|ngx_init_sockets
 argument_list|(
 operator|&
@@ -264,6 +279,15 @@ literal|0
 return|;
 block|}
 end_function
+
+begin_if
+if|#
+directive|if
+operator|!
+operator|(
+name|WIN32
+operator|)
+end_if
 
 begin_function
 DECL|function|ngx_set_signals (ngx_log_t * log)
@@ -341,6 +365,11 @@ expr_stmt|;
 block|}
 block|}
 end_function
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_function
 DECL|function|ngx_open_listening_sockets (ngx_log_t * log)

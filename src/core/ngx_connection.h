@@ -181,6 +181,10 @@ name|unsigned
 name|int
 name|post_accept_timeout
 decl_stmt|;
+DECL|member|number
+name|int
+name|number
+decl_stmt|;
 DECL|member|unexpected_eof
 name|unsigned
 name|unexpected_eof

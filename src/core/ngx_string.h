@@ -19,12 +19,12 @@ file|<ngx_config.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b072b4c0108
+DECL|struct|__anon2b50a0660108
 typedef|typedef
 struct|struct
 block|{
 DECL|member|len
-name|int
+name|size_t
 name|len
 decl_stmt|;
 DECL|member|data
@@ -47,6 +47,22 @@ operator|)
 end_if
 
 begin_define
+DECL|macro|ngx_memzero
+define|#
+directive|define
+name|ngx_memzero
+value|ZeroMemory
+end_define
+
+begin_define
+DECL|macro|strcasecmp
+define|#
+directive|define
+name|strcasecmp
+value|stricmp
+end_define
+
+begin_define
 DECL|macro|ngx_snprintf
 define|#
 directive|define
@@ -66,6 +82,14 @@ begin_else
 else|#
 directive|else
 end_else
+
+begin_define
+DECL|macro|ngx_memzero
+define|#
+directive|define
+name|ngx_memzero
+value|bzero
+end_define
 
 begin_define
 DECL|macro|ngx_snprintf

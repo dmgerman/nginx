@@ -69,6 +69,10 @@ endif|#
 directive|endif
 end_endif
 
+begin_comment
+comment|/* should be per-thread */
+end_comment
+
 begin_decl_stmt
 DECL|variable|kq
 specifier|static
@@ -109,6 +113,10 @@ name|ngx_event_t
 name|timer_queue
 decl_stmt|;
 end_decl_stmt
+
+begin_comment
+comment|/* */
+end_comment
 
 begin_function
 DECL|function|ngx_kqueue_init (int max_connections,ngx_log_t * log)
@@ -296,7 +304,7 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_kqueue_del_event (ngx_event_t * ev,int event)
+DECL|function|ngx_kqueue_del_event (ngx_event_t * ev,int event,u_int flags)
 name|int
 name|ngx_kqueue_del_event
 parameter_list|(
@@ -306,6 +314,9 @@ name|ev
 parameter_list|,
 name|int
 name|event
+parameter_list|,
+name|u_int
+name|flags
 parameter_list|)
 block|{
 name|ngx_event_t
@@ -317,7 +328,7 @@ condition|(
 name|ev
 operator|->
 name|index
-operator|<=
+operator|<
 name|nchanges
 operator|&&
 name|change_list
@@ -332,18 +343,36 @@ operator|==
 name|ev
 condition|)
 block|{
-name|change_list
-index|[
+name|ngx_connection_t
+modifier|*
+name|cn
+init|=
+operator|(
+name|ngx_connection_t
+operator|*
+operator|)
+name|ev
+operator|->
+name|data
+decl_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|ev->log
+argument_list|,
+literal|"kqueue del event: %d: ft:%d"
+argument|_                       cn->fd _ event
+argument_list|)
+empty_stmt|;
+if|if
+condition|(
 name|ev
 operator|->
 name|index
-index|]
-operator|=
-name|change_list
-index|[
+operator|<
+operator|--
 name|nchanges
-index|]
-expr_stmt|;
+condition|)
+block|{
 name|e
 operator|=
 operator|(
@@ -352,12 +381,22 @@ operator|*
 operator|)
 name|change_list
 index|[
+name|nchanges
+index|]
+operator|.
+name|udata
+expr_stmt|;
+name|change_list
+index|[
 name|ev
 operator|->
 name|index
 index|]
-operator|.
-name|udata
+operator|=
+name|change_list
+index|[
+name|nchanges
+index|]
 expr_stmt|;
 name|e
 operator|->
@@ -367,13 +406,20 @@ name|ev
 operator|->
 name|index
 expr_stmt|;
-name|nchanges
-operator|--
-expr_stmt|;
+block|}
 return|return
 name|NGX_OK
 return|;
 block|}
+if|if
+condition|(
+name|flags
+operator|&
+name|NGX_CLOSE_EVENT
+condition|)
+return|return
+name|NGX_OK
+return|;
 return|return
 name|ngx_kqueue_set_event
 argument_list|(
@@ -591,12 +637,8 @@ name|i
 decl_stmt|;
 name|u_int
 name|timer
-init|=
-literal|0
 decl_stmt|,
 name|delta
-init|=
-literal|0
 decl_stmt|;
 name|ngx_event_t
 modifier|*
@@ -612,9 +654,19 @@ name|ts
 decl_stmt|,
 modifier|*
 name|tp
-init|=
-name|NULL
 decl_stmt|;
+name|timer
+operator|=
+literal|0
+expr_stmt|;
+name|delta
+operator|=
+literal|0
+expr_stmt|;
+name|tp
+operator|=
+name|NULL
+expr_stmt|;
 if|if
 condition|(
 name|timer_queue
