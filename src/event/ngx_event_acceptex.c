@@ -23,6 +23,12 @@ directive|include
 file|<ngx_event.h>
 end_include
 
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
 begin_include
 include|#
 directive|include
@@ -35,20 +41,19 @@ directive|include
 file|<ngx_iocp_module.h>
 end_include
 
-begin_include
-include|#
-directive|include
-file|<ngx_event_acceptex.h>
-end_include
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_function
-DECL|function|ngx_event_acceptex (ngx_event_t * ev)
+DECL|function|ngx_event_acceptex (ngx_event_t * rev)
 name|void
 name|ngx_event_acceptex
 parameter_list|(
 name|ngx_event_t
 modifier|*
-name|ev
+name|rev
 parameter_list|)
 block|{
 name|ngx_connection_t
@@ -61,13 +66,21 @@ operator|(
 name|ngx_connection_t
 operator|*
 operator|)
-name|ev
+name|rev
 operator|->
 name|data
 expr_stmt|;
+name|ngx_log_debug
+argument_list|(
+argument|rev->log
+argument_list|,
+literal|"ADDR: %s"
+argument|_ c->addr_text.data
+argument_list|)
+empty_stmt|;
 if|if
 condition|(
-name|ev
+name|rev
 operator|->
 name|ovlp
 operator|.
@@ -78,17 +91,17 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_CRIT
 argument_list|,
-name|ev
+name|rev
 operator|->
 name|log
 argument_list|,
-name|ev
+name|rev
 operator|->
 name|ovlp
 operator|.
 name|error
 argument_list|,
-literal|"AcceptEx() falied for %s"
+literal|"AcceptEx() failed for %s"
 argument_list|,
 name|c
 operator|->
@@ -99,7 +112,6 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-comment|/* TODO: can we do SO_UPDATE_ACCEPT_CONTEXT just before shutdown() ???        or AcceptEx's context will be lost ??? */
 comment|/* SO_UPDATE_ACCEPT_CONTEXT is required for shutdown() to work */
 if|if
 condition|(
@@ -153,7 +165,13 @@ operator|.
 name|data
 argument_list|)
 expr_stmt|;
-comment|/* non fatal - we can not only do lingering close */
+block|}
+else|else
+block|{
+name|accept_context_updated
+operator|=
+literal|1
+expr_stmt|;
 block|}
 name|getacceptexsockaddrs
 argument_list|(
@@ -327,13 +345,7 @@ argument_list|,
 name|ngx_socket_errno
 argument_list|,
 name|ngx_socket_n
-literal|" for AcceptEx(%s) falied"
-argument_list|,
-name|ls
-operator|->
-name|addr_text
-operator|.
-name|data
+literal|" for AcceptEx() post failed"
 argument_list|)
 expr_stmt|;
 return|return
@@ -671,9 +683,13 @@ name|log
 expr_stmt|;
 if|if
 condition|(
-name|ngx_iocp_add_event
+name|ngx_add_event
 argument_list|(
 name|rev
+argument_list|,
+literal|0
+argument_list|,
+name|NGX_IOCP_IO
 argument_list|)
 operator|==
 name|NGX_ERROR

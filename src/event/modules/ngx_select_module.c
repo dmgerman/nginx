@@ -18,12 +18,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_connection.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<ngx_event.h>
 end_include
 

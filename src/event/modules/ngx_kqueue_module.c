@@ -18,12 +18,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_connection.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<ngx_event.h>
 end_include
 
@@ -32,6 +26,25 @@ include|#
 directive|include
 file|<ngx_kqueue_module.h>
 end_include
+
+begin_typedef
+DECL|struct|__anon2b0cdd530108
+typedef|typedef
+struct|struct
+block|{
+DECL|member|changes
+name|int
+name|changes
+decl_stmt|;
+DECL|member|events
+name|int
+name|events
+decl_stmt|;
+DECL|typedef|ngx_kqueue_conf_t
+block|}
+name|ngx_kqueue_conf_t
+typedef|;
+end_typedef
 
 begin_function_decl
 specifier|static
@@ -895,7 +908,7 @@ name|ngx_log_debug
 argument_list|(
 argument|ev->log
 argument_list|,
-literal|"kqueue set event: %d: ft:%d f:%08x"
+literal|"kqueue set event: %d: ft:%d fl:%08x"
 argument|_                   c->fd _ filter _ flags
 argument_list|)
 empty_stmt|;
@@ -1408,7 +1421,7 @@ name|ngx_log_debug
 argument_list|(
 argument|log
 argument_list|,
-literal|"kevent: %08x: ft:%d f:%08x ff:%08x d:%d ud:%08x"
+literal|"kevent: %08x: ft:%d fl:%08x ff:%08x d:%d ud:%08x"
 argument|_                           event_list[i].ident _ event_list[i].filter _                           event_list[i].flags _ event_list[i].fflags _                           event_list[i].data _ event_list[i].udata
 argument_list|)
 empty_stmt|;
@@ -1419,7 +1432,7 @@ name|ngx_log_debug
 argument_list|(
 argument|log
 argument_list|,
-literal|"kevent: %d: ft:%d f:%08x ff:%08x d:%d ud:%08x"
+literal|"kevent: %d: ft:%d fl:%08x ff:%08x d:%d ud:%08x"
 argument|_                           event_list[i].ident _ event_list[i].filter _                           event_list[i].flags _ event_list[i].fflags _                           event_list[i].data _ event_list[i].udata
 argument_list|)
 empty_stmt|;

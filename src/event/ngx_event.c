@@ -34,7 +34,7 @@ DECL|macro|DEF_CONNECTIONS
 define|#
 directive|define
 name|DEF_CONNECTIONS
-value|1024
+value|512
 end_define
 
 begin_decl_stmt
@@ -1678,12 +1678,6 @@ directive|if
 operator|(
 name|HAVE_KQUEUE
 operator|)
-if|#
-directive|if
-literal|0
-block_content|if (ecf->connections != NGX_CONF_UNSET) {         ecf->connections = (ngx_max_connections< DEF_CONNECTIONS) ?                                         ngx_max_connections : DEF_CONNECTIONS;      } else if (ecf->connections> ngx_max_connections) {     }
-endif|#
-directive|endif
 name|ngx_conf_init_value
 argument_list|(
 name|ecf
@@ -1758,6 +1752,14 @@ operator|.
 name|ctx_index
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
+operator|(
+name|WIN32
+operator|)
+comment|/*      * Winsock assignes a socket number according to 4 * N + M,      * where M is the constant 32 (98SE), 88 (NT) or 100 (W2K).      * So to find a connection we divide a socket number by 4.      */
 endif|#
 directive|endif
 name|ngx_conf_init_value

@@ -12,25 +12,6 @@ directive|define
 name|_NGX_KQUEUE_MODULE_H_INCLUDED_
 end_define
 
-begin_typedef
-DECL|struct|__anon2b53d5600108
-typedef|typedef
-struct|struct
-block|{
-DECL|member|changes
-name|int
-name|changes
-decl_stmt|;
-DECL|member|events
-name|int
-name|events
-decl_stmt|;
-DECL|typedef|ngx_kqueue_conf_t
-block|}
-name|ngx_kqueue_conf_t
-typedef|;
-end_typedef
-
 begin_decl_stmt
 specifier|extern
 name|int

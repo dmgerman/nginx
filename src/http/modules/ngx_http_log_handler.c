@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon298e50ab0108
+DECL|struct|__anon2ad3c7020108
 typedef|typedef
 struct|struct
 block|{
@@ -1016,7 +1016,7 @@ argument_list|)
 operator|-
 literal|1
 argument_list|,
-name|ngx_file_appned_mode_n
+name|ngx_file_append_mode_n
 literal|" \"%s\" failed (%d: "
 argument_list|,
 name|lcf

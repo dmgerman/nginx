@@ -13,6 +13,18 @@ name|_NGX_LINUX_CONFIG_H_INCLUDED_
 end_define
 
 begin_define
+DECL|macro|_GNU_SOURCE
+define|#
+directive|define
+name|_GNU_SOURCE
+end_define
+
+begin_comment
+DECL|macro|_GNU_SOURCE
+comment|/* pread, pwrite, gethostname, bzero */
+end_comment
+
+begin_define
 DECL|macro|_FILE_OFFSET_BITS
 define|#
 directive|define
@@ -27,31 +39,11 @@ directive|define
 name|_LARGEFILE_SOURCE
 end_define
 
-begin_define
-DECL|macro|_XOPEN_SOURCE
-define|#
-directive|define
-name|_XOPEN_SOURCE
-value|500
-end_define
-
-begin_comment
-DECL|macro|_XOPEN_SOURCE
-comment|/* pread, pwrite */
-end_comment
-
 begin_include
 include|#
 directive|include
 file|<unistd.h>
 end_include
-
-begin_undef
-undef|#
-directive|undef
-name|_XOPEN_SOURCE
-name|500
-end_undef
 
 begin_include
 include|#
@@ -93,29 +85,11 @@ directive|include
 file|<time.h>
 end_include
 
-begin_define
-DECL|macro|__USE_BSD
-define|#
-directive|define
-name|__USE_BSD
-end_define
-
-begin_comment
-DECL|macro|__USE_BSD
-comment|/* bzero */
-end_comment
-
 begin_include
 include|#
 directive|include
 file|<string.h>
 end_include
-
-begin_undef
-undef|#
-directive|undef
-name|__USE_BSD
-end_undef
 
 begin_include
 include|#
@@ -209,6 +183,30 @@ name|char
 name|u_char
 typedef|;
 end_typedef
+
+begin_define
+DECL|macro|QD_FMT
+define|#
+directive|define
+name|QD_FMT
+value|"%qd"
+end_define
+
+begin_define
+DECL|macro|QX_FMT
+define|#
+directive|define
+name|QX_FMT
+value|"%qx"
+end_define
+
+begin_define
+DECL|macro|OFF_FMT
+define|#
+directive|define
+name|OFF_FMT
+value|"%qd"
+end_define
 
 begin_ifndef
 ifndef|#

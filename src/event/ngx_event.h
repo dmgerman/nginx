@@ -35,25 +35,13 @@ end_define
 begin_if
 if|#
 directive|if
-literal|0
-end_if
-
-begin_endif
-unit|typedef struct ngx_event_s       ngx_event_t;
-endif|#
-directive|endif
-end_endif
-
-begin_if
-if|#
-directive|if
 operator|(
 name|HAVE_IOCP
 operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon28af18d70108
+DECL|struct|__anon27b3d1150108
 typedef|typedef
 struct|struct
 block|{
@@ -270,6 +258,19 @@ decl_stmt|;
 if|#
 directive|if
 operator|(
+name|WIN32
+operator|)
+DECL|member|accept_context_updated
+name|unsigned
+name|accept_context_updated
+range|:
+literal|1
+decl_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
+operator|(
 name|HAVE_KQUEUE
 operator|)
 DECL|member|eof
@@ -348,7 +349,7 @@ literal|1
 end_if
 
 begin_typedef
-DECL|enum|__anon28af18d70203
+DECL|enum|__anon27b3d1150203
 typedef|typedef
 enum|enum
 block|{
@@ -422,7 +423,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28af18d70308
+DECL|struct|__anon27b3d1150308
 typedef|typedef
 struct|struct
 block|{
@@ -1125,6 +1126,35 @@ endif|#
 directive|endif
 end_endif
 
+begin_if
+if|#
+directive|if
+operator|(
+name|HAVE_IOCP_EVENT
+operator|)
+end_if
+
+begin_define
+DECL|macro|NGX_IOCP_ACCEPT
+define|#
+directive|define
+name|NGX_IOCP_ACCEPT
+value|0
+end_define
+
+begin_define
+DECL|macro|NGX_IOCP_IO
+define|#
+directive|define
+name|NGX_IOCP_IO
+value|1
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_define
 DECL|macro|ngx_del_timer
 define|#
@@ -1214,7 +1244,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon28af18d70408
+DECL|struct|__anon27b3d1150408
 typedef|typedef
 struct|struct
 block|{
@@ -1237,7 +1267,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28af18d70508
+DECL|struct|__anon27b3d1150508
 typedef|typedef
 struct|struct
 block|{
