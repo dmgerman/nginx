@@ -18,13 +18,17 @@ file|<ngx_http.h>
 end_include
 
 begin_function
-DECL|function|ngx_http_parse_request_line (ngx_http_request_t * r)
+DECL|function|ngx_http_parse_request_line (ngx_http_request_t * r,ngx_buf_t * b)
 name|ngx_int_t
 name|ngx_http_parse_request_line
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
+parameter_list|,
+name|ngx_buf_t
+modifier|*
+name|b
 parameter_list|)
 block|{
 name|u_char
@@ -36,7 +40,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon2932a0d60103
+DECL|enum|__anon275e6b620103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -120,9 +124,7 @@ name|state
 expr_stmt|;
 name|p
 operator|=
-name|r
-operator|->
-name|header_in
+name|b
 operator|->
 name|pos
 expr_stmt|;
@@ -130,9 +132,7 @@ while|while
 condition|(
 name|p
 operator|<
-name|r
-operator|->
-name|header_in
+name|b
 operator|->
 name|last
 operator|&&
@@ -1389,9 +1389,7 @@ case|:
 break|break;
 block|}
 block|}
-name|r
-operator|->
-name|header_in
+name|b
 operator|->
 name|pos
 operator|=
@@ -1502,7 +1500,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2932a0d60203
+DECL|enum|__anon275e6b620203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2137,7 +2135,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2932a0d60303
+DECL|enum|__anon275e6b620303
 enum|enum
 block|{
 DECL|enumerator|sw_usual

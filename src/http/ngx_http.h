@@ -127,7 +127,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2886fc9e0108
+DECL|struct|__anon2b5335230108
 typedef|typedef
 struct|struct
 block|{
@@ -236,6 +236,10 @@ parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
+parameter_list|,
+name|ngx_buf_t
+modifier|*
+name|b
 parameter_list|)
 function_decl|;
 end_function_decl

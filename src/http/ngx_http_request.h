@@ -405,7 +405,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon29eb15be0103
+DECL|enum|__anon29a9d6bf0103
 typedef|typedef
 enum|enum
 block|{
@@ -426,7 +426,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29eb15be0203
+DECL|enum|__anon29a9d6bf0203
 typedef|typedef
 enum|enum
 block|{
@@ -465,7 +465,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29eb15be0308
+DECL|struct|__anon29a9d6bf0308
 typedef|typedef
 struct|struct
 block|{
@@ -484,7 +484,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29eb15be0408
+DECL|struct|__anon29a9d6bf0408
 typedef|typedef
 struct|struct
 block|{
@@ -623,7 +623,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29eb15be0508
+DECL|struct|__anon29a9d6bf0508
 typedef|typedef
 struct|struct
 block|{
@@ -646,7 +646,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29eb15be0608
+DECL|struct|__anon29a9d6bf0608
 typedef|typedef
 struct|struct
 block|{
@@ -749,7 +749,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29eb15be0708
+DECL|struct|__anon29a9d6bf0708
 typedef|typedef
 struct|struct
 block|{
@@ -800,10 +800,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon29eb15be080a
+DECL|union|__anon29a9d6bf080a
 union|union
 block|{
-DECL|struct|__anon29eb15be0908
+DECL|struct|__anon29a9d6bf0908
 struct|struct
 block|{
 DECL|member|fd
@@ -819,7 +819,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon29eb15be0a08
+DECL|struct|__anon29a9d6bf0a08
 struct|struct
 block|{
 DECL|member|hash
@@ -855,6 +855,31 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+
+begin_typedef
+DECL|struct|__anon29a9d6bf0b08
+typedef|typedef
+struct|struct
+block|{
+DECL|member|request
+name|ngx_http_request_t
+modifier|*
+name|request
+decl_stmt|;
+DECL|member|large_buffers
+name|ngx_array_t
+name|large_buffers
+decl_stmt|;
+DECL|member|pipeline
+name|ngx_uint_t
+name|pipeline
+decl_stmt|;
+comment|/* unsigned  pipeline:1; */
+DECL|typedef|ngx_http_connection_t
+block|}
+name|ngx_http_connection_t
+typedef|;
+end_typedef
 
 begin_typedef
 DECL|typedef|ngx_http_handler_pt
@@ -1051,6 +1076,11 @@ decl_stmt|;
 DECL|member|err_status
 name|ngx_uint_t
 name|err_status
+decl_stmt|;
+DECL|member|http_connection
+name|ngx_http_connection_t
+modifier|*
+name|http_connection
 decl_stmt|;
 DECL|member|http_state
 name|unsigned

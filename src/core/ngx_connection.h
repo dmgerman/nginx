@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27c779f80108
+DECL|struct|__anon291a26410108
 typedef|typedef
 struct|struct
 block|{
@@ -206,7 +206,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27c779f80203
+DECL|enum|__anon291a26410203
 typedef|typedef
 enum|enum
 block|{
@@ -230,7 +230,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27c779f80303
+DECL|enum|__anon291a26410303
 typedef|typedef
 enum|enum
 block|{
@@ -382,12 +382,6 @@ decl_stmt|;
 DECL|member|single_connection
 name|unsigned
 name|single_connection
-range|:
-literal|1
-decl_stmt|;
-DECL|member|pipeline
-name|unsigned
-name|pipeline
 range|:
 literal|1
 decl_stmt|;

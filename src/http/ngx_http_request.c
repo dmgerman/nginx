@@ -761,6 +761,10 @@ name|ngx_http_in_addr_t
 modifier|*
 name|in_addr
 decl_stmt|;
+name|ngx_http_connection_t
+modifier|*
+name|hc
+decl_stmt|;
 name|ngx_http_server_name_t
 modifier|*
 name|server_name
@@ -837,11 +841,17 @@ operator|->
 name|data
 condition|)
 block|{
-name|r
+name|hc
 operator|=
 name|c
 operator|->
 name|data
+expr_stmt|;
+name|r
+operator|=
+name|hc
+operator|->
+name|request
 expr_stmt|;
 name|ngx_memzero
 argument_list|(
@@ -852,6 +862,14 @@ argument_list|(
 name|ngx_http_request_t
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|r
+operator|->
+name|pipeline
+operator|=
+name|hc
+operator|->
+name|pipeline
 expr_stmt|;
 if|#
 directive|if
@@ -869,6 +887,46 @@ directive|endif
 block|}
 else|else
 block|{
+if|if
+condition|(
+operator|!
+operator|(
+name|hc
+operator|=
+name|ngx_pcalloc
+argument_list|(
+name|c
+operator|->
+name|pool
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|ngx_http_connection_t
+argument_list|)
+argument_list|)
+operator|)
+condition|)
+block|{
+if|#
+directive|if
+operator|(
+name|NGX_STAT_STUB
+operator|)
+operator|(
+operator|*
+name|ngx_stat_reading
+operator|)
+operator|--
+expr_stmt|;
+endif|#
+directive|endif
+name|ngx_http_close_connection
+argument_list|(
+name|c
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 if|if
 condition|(
 operator|!
@@ -909,9 +967,9 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|c
+name|hc
 operator|->
-name|data
+name|request
 operator|=
 name|r
 expr_stmt|;
@@ -929,6 +987,18 @@ literal|1
 expr_stmt|;
 endif|#
 directive|endif
+name|c
+operator|->
+name|data
+operator|=
+name|r
+expr_stmt|;
+name|r
+operator|->
+name|http_connection
+operator|=
+name|hc
+expr_stmt|;
 name|c
 operator|->
 name|sent
@@ -1547,14 +1617,6 @@ name|c
 expr_stmt|;
 name|r
 operator|->
-name|pipeline
-operator|=
-name|c
-operator|->
-name|pipeline
-expr_stmt|;
-name|r
-operator|->
 name|header_in
 operator|=
 name|c
@@ -1990,6 +2052,10 @@ operator|=
 name|ngx_http_parse_request_line
 argument_list|(
 name|r
+argument_list|,
+name|r
+operator|->
+name|header_in
 argument_list|)
 expr_stmt|;
 if|if
@@ -2000,20 +2066,6 @@ name|NGX_OK
 condition|)
 block|{
 comment|/* the request line has been parsed successfully */
-if|#
-directive|if
-literal|0
-comment|/* TODO: we need to handle proxy URIs */
-block_content|if (r->unusual_uri) {             r->request_line.len = r->request_end - r->request_start;             r->request_line.data = r->request_start;
-if|#
-directive|if
-literal|0
-block_content|r->request_line.data[r->request_line.len] = '\0';
-endif|#
-directive|endif
-block_content|ngx_http_client_error(r, NGX_HTTP_PARSE_INVALID_REQUEST,                                   NGX_HTTP_BAD_REQUEST);             return;         }
-endif|#
-directive|endif
 name|cscf
 operator|=
 name|ngx_http_get_module_srv_conf
@@ -6648,6 +6700,10 @@ name|ngx_connection_t
 modifier|*
 name|c
 decl_stmt|;
+name|ngx_http_connection_t
+modifier|*
+name|hc
+decl_stmt|;
 name|ngx_http_log_ctx_t
 modifier|*
 name|ctx
@@ -6703,12 +6759,24 @@ name|action
 operator|=
 literal|"closing request"
 expr_stmt|;
+name|hc
+operator|=
+name|r
+operator|->
+name|http_connection
+expr_stmt|;
 name|ngx_http_close_request
 argument_list|(
 name|r
 argument_list|,
 literal|0
 argument_list|)
+expr_stmt|;
+name|c
+operator|->
+name|data
+operator|=
+name|hc
 expr_stmt|;
 name|clcf
 operator|=
@@ -6847,7 +6915,7 @@ argument_list|,
 literal|"pipelined request"
 argument_list|)
 expr_stmt|;
-name|c
+name|hc
 operator|->
 name|pipeline
 operator|=
@@ -6866,7 +6934,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|c
+name|hc
 operator|->
 name|pipeline
 operator|=
@@ -7225,6 +7293,12 @@ name|action
 operator|=
 literal|"reading client request line"
 expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|if (!(hc = ngx_pcalloc(c->pool, sizeof(ngx_http_connection_t)) {         ngx_http_close_connection(c);         return;     }      hc->request = r;     c->data = r;
+endif|#
+directive|endif
 name|ngx_http_init_request
 argument_list|(
 name|rev
