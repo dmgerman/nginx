@@ -24,7 +24,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2baafe270108
+DECL|struct|__anon2ba570c20108
 typedef|typedef
 struct|struct
 block|{
@@ -143,7 +143,7 @@ value|0x0200
 end_define
 
 begin_typedef
-DECL|struct|__anon2baafe270208
+DECL|struct|__anon2ba570c20208
 typedef|typedef
 struct|struct
 block|{
@@ -1971,7 +1971,7 @@ operator|--
 expr_stmt|;
 block|}
 block|}
-comment|/*          * We preallocate a memory for zlib in one buffer (200K-400K), this          * dicreases a number of malloc() and free() calls and also probably          * dicreases a number of syscalls (sbrk() or so).          * Besides we free this memory as soon as the gzipping will complete          * and do not wait while a whole response will be sent to a client.          *          * 8K is for zlib deflate_state (~6K).          *          * TODO: 64-bit, autoconf of deflate_state size          */
+comment|/*          * We preallocate a memory for zlib in one buffer (200K-400K), this          * dicreases a number of malloc() and free() calls and also probably          * dicreases a number of syscalls (sbrk() or so).          * Besides we free this memory as soon as the gzipping will complete          * and do not wait while a whole response will be sent to a client.          *          * 8K is for zlib deflate_state.  It takes 5816 bytes on x86          * and 5920 bytes on amd64.          */
 name|ctx
 operator|->
 name|allocated
@@ -3659,7 +3659,7 @@ operator|!=
 literal|0
 condition|)
 block|{
-comment|/*          * allocate the zlib deflate_state, it takes about 6K on x86,          * we allocate 8K          */
+comment|/*          * The zlib deflate_state allocation, it takes 5816 bytes on x86          * and 5920 bytes on amd64.          * We allocate 8K.          */
 name|alloc
 operator|=
 operator|(

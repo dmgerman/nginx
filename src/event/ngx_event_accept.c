@@ -24,7 +24,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c5256f40108
+DECL|struct|__anon2c401c380108
 typedef|typedef
 struct|struct
 block|{
@@ -511,12 +511,6 @@ name|ngx_stat_accepted
 operator|)
 operator|++
 expr_stmt|;
-operator|(
-operator|*
-name|ngx_stat_active
-operator|)
-operator|++
-expr_stmt|;
 endif|#
 directive|endif
 name|ngx_accept_disabled
@@ -588,6 +582,19 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+if|#
+directive|if
+operator|(
+name|NGX_STAT_STUB
+operator|)
+operator|(
+operator|*
+name|ngx_stat_active
+operator|)
+operator|++
+expr_stmt|;
+endif|#
+directive|endif
 comment|/* set a blocking mode for aio and non-blocking mode for the others */
 if|if
 condition|(
