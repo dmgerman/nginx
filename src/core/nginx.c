@@ -344,7 +344,7 @@ name|NULL
 block|,
 comment|/* init module */
 name|NULL
-comment|/* init child */
+comment|/* init process */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -548,21 +548,6 @@ operator|=
 name|NGX_LOG_INFO
 expr_stmt|;
 block|}
-else|else
-block|{
-if|if
-condition|(
-name|ngx_log_init_error_log
-argument_list|()
-operator|==
-name|NGX_ERROR
-condition|)
-block|{
-return|return
-literal|1
-return|;
-block|}
-block|}
 if|if
 condition|(
 name|ngx_os_init
@@ -690,6 +675,13 @@ return|return
 literal|0
 return|;
 block|}
+name|ngx_os_status
+argument_list|(
+name|cycle
+operator|->
+name|log
+argument_list|)
+expr_stmt|;
 name|ngx_cycle
 operator|=
 name|cycle

@@ -78,7 +78,7 @@ end_decl_stmt
 
 begin_function
 DECL|function|ngx_os_init (ngx_log_t * log)
-name|int
+name|ngx_int_t
 name|ngx_os_init
 parameter_list|(
 name|ngx_log_t
@@ -185,6 +185,25 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+return|return
+name|ngx_posix_init
+argument_list|(
+name|log
+argument_list|)
+return|;
+block|}
+end_function
+
+begin_function
+DECL|function|ngx_os_status (ngx_log_t * log)
+name|void
+name|ngx_os_status
+parameter_list|(
+name|ngx_log_t
+modifier|*
+name|log
+parameter_list|)
+block|{
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_INFO
@@ -213,12 +232,11 @@ argument_list|,
 name|ngx_solaris_version
 argument_list|)
 expr_stmt|;
-return|return
-name|ngx_posix_init
+name|ngx_posix_status
 argument_list|(
 name|log
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 end_function
 

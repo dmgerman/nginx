@@ -75,7 +75,7 @@ end_decl_stmt
 
 begin_function
 DECL|function|ngx_os_init (ngx_log_t * log)
-name|int
+name|ngx_int_t
 name|ngx_os_init
 parameter_list|(
 name|ngx_log_t
@@ -90,8 +90,6 @@ literal|2
 index|]
 decl_stmt|,
 name|len
-decl_stmt|,
-name|rtsig_max
 decl_stmt|;
 name|name
 index|[
@@ -215,21 +213,6 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_INFO
-argument_list|,
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"OS: %s %s"
-argument_list|,
-name|ngx_linux_kern_ostype
-argument_list|,
-name|ngx_linux_kern_osrelease
-argument_list|)
-expr_stmt|;
 name|name
 index|[
 literal|0
@@ -263,7 +246,7 @@ name|name
 argument_list|)
 argument_list|,
 operator|&
-name|rtsig_max
+name|ngx_linux_rtsig_max
 argument_list|,
 operator|&
 name|len
@@ -288,12 +271,9 @@ argument_list|,
 literal|"sysctl(KERN_RTSIGMAX) failed"
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
 name|ngx_linux_rtsig_max
 operator|=
-literal|1
+literal|0
 expr_stmt|;
 block|}
 return|return
@@ -302,6 +282,52 @@ argument_list|(
 name|log
 argument_list|)
 return|;
+block|}
+end_function
+
+begin_function
+DECL|function|ngx_os_status (ngx_log_t * log)
+name|void
+name|ngx_os_status
+parameter_list|(
+name|ngx_log_t
+modifier|*
+name|log
+parameter_list|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"OS: %s %s"
+argument_list|,
+name|ngx_linux_kern_ostype
+argument_list|,
+name|ngx_linux_kern_osrelease
+argument_list|)
+expr_stmt|;
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"sysctl(KERN_RTSIGMAX): %d"
+argument_list|,
+name|ngx_linux_rtsig_max
+argument_list|)
+expr_stmt|;
+name|ngx_posix_status
+argument_list|(
+name|log
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 

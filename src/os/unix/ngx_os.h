@@ -203,7 +203,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a52e3ee0108
+DECL|struct|__anon2b4dc7dc0108
 typedef|typedef
 struct|struct
 block|{
@@ -241,7 +241,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|int
+name|ngx_int_t
 name|ngx_os_init
 parameter_list|(
 name|ngx_log_t
@@ -252,7 +252,18 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|int
+name|void
+name|ngx_os_status
+parameter_list|(
+name|ngx_log_t
+modifier|*
+name|log
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
 name|ngx_daemon
 parameter_list|(
 name|ngx_log_t
@@ -263,7 +274,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|int
+name|ngx_int_t
 name|ngx_posix_init
 parameter_list|(
 name|ngx_log_t
@@ -274,7 +285,18 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|int
+name|void
+name|ngx_posix_status
+parameter_list|(
+name|ngx_log_t
+modifier|*
+name|log
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
 name|ngx_posix_post_conf_init
 parameter_list|(
 name|ngx_log_t
@@ -363,24 +385,32 @@ end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
-name|int
+name|ngx_int_t
 name|ngx_ncpu
 decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
-name|int
+name|ngx_int_t
 name|ngx_max_sockets
 decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
-name|int
+name|ngx_int_t
 name|ngx_inherited_nonblocking
 decl_stmt|;
 end_decl_stmt
+
+begin_define
+DECL|macro|ngx_stderr_fileno
+define|#
+directive|define
+name|ngx_stderr_fileno
+value|STDERR_FILENO
+end_define
 
 begin_ifdef
 ifdef|#

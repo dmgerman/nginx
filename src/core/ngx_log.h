@@ -1151,12 +1151,17 @@ parameter_list|()
 function_decl|;
 end_function_decl
 
-begin_function_decl
-name|ngx_int_t
-name|ngx_log_init_error_log
-parameter_list|()
-function_decl|;
-end_function_decl
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
+begin_endif
+unit|ngx_int_t ngx_log_init_error_log();
+endif|#
+directive|endif
+end_endif
 
 begin_function_decl
 name|ngx_log_t

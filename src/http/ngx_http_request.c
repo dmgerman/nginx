@@ -285,8 +285,6 @@ literal|"client %s sent invalid header, URL: %s"
 block|,
 literal|"client %s sent too long header line, URL: %s"
 block|,
-literal|"client %s sent too many headers, URL: %s"
-block|,
 literal|"client %s sent HTTP/1.1 request without \"Host\" header, URL: %s"
 block|,
 literal|"client %s sent invalid \"Content-Length\" header, URL: %s"
@@ -3273,26 +3271,6 @@ condition|)
 block|{
 return|return;
 block|}
-block|}
-if|if
-condition|(
-name|r
-operator|->
-name|headers_n
-operator|>
-literal|100
-condition|)
-block|{
-name|ngx_http_client_error
-argument_list|(
-name|r
-argument_list|,
-name|NGX_HTTP_PARSE_TOO_MANY_HEADERS
-argument_list|,
-name|NGX_HTTP_BAD_REQUEST
-argument_list|)
-expr_stmt|;
-return|return;
 block|}
 name|rc
 operator|=

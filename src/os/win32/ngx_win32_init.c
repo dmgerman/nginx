@@ -17,31 +17,38 @@ end_include
 
 begin_decl_stmt
 DECL|variable|ngx_win32_version
-name|int
+name|ngx_uint_t
 name|ngx_win32_version
 decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_ncpu
-name|int
+name|ngx_uint_t
 name|ngx_ncpu
 decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_max_sockets
-name|int
+name|ngx_int_t
 name|ngx_max_sockets
 decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_inherited_nonblocking
-name|int
+name|ngx_uint_t
 name|ngx_inherited_nonblocking
 init|=
 literal|1
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_stderr_fileno
+name|ngx_fd_t
+name|ngx_stderr_fileno
 decl_stmt|;
 end_decl_stmt
 
@@ -65,7 +72,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon295adc0f0108
+DECL|struct|__anon29356bfe0108
 typedef|typedef
 struct|struct
 block|{
@@ -144,7 +151,7 @@ end_decl_stmt
 
 begin_function
 DECL|function|ngx_os_init (ngx_log_t * log)
-name|int
+name|ngx_int_t
 name|ngx_os_init
 parameter_list|(
 name|ngx_log_t
@@ -696,6 +703,19 @@ block|}
 return|return
 name|NGX_OK
 return|;
+block|}
+end_function
+
+begin_function
+DECL|function|ngx_os_status (ngx_log_t * log)
+name|void
+name|ngx_os_status
+parameter_list|(
+name|ngx_log_t
+modifier|*
+name|log
+parameter_list|)
+block|{
 block|}
 end_function
 

@@ -17,22 +17,30 @@ end_include
 
 begin_decl_stmt
 DECL|variable|ngx_ncpu
-name|int
+name|ngx_int_t
 name|ngx_ncpu
 decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_max_sockets
-name|int
+name|ngx_int_t
 name|ngx_max_sockets
 decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_inherited_nonblocking
-name|int
+name|ngx_int_t
 name|ngx_inherited_nonblocking
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|rlmt
+name|struct
+name|rlimit
+name|rlmt
 decl_stmt|;
 end_decl_stmt
 
@@ -98,7 +106,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon28d6289c0108
+DECL|struct|__anon2906c7170108
 typedef|typedef
 struct|struct
 block|{
@@ -278,7 +286,7 @@ end_decl_stmt
 
 begin_function
 DECL|function|ngx_posix_init (ngx_log_t * log)
-name|int
+name|ngx_int_t
 name|ngx_posix_init
 parameter_list|(
 name|ngx_log_t
@@ -289,10 +297,6 @@ block|{
 name|ngx_signal_t
 modifier|*
 name|sig
-decl_stmt|;
-name|struct
-name|rlimit
-name|rlmt
 decl_stmt|;
 name|struct
 name|sigaction
@@ -426,28 +430,6 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_INFO
-argument_list|,
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"getrlimit(RLIMIT_NOFILE): "
-name|RLIM_T_FMT
-literal|":"
-name|RLIM_T_FMT
-argument_list|,
-name|rlmt
-operator|.
-name|rlim_cur
-argument_list|,
-name|rlmt
-operator|.
-name|rlim_max
-argument_list|)
-expr_stmt|;
 name|ngx_max_sockets
 operator|=
 name|rlmt
@@ -474,6 +456,41 @@ directive|endif
 return|return
 name|NGX_OK
 return|;
+block|}
+end_function
+
+begin_function
+DECL|function|ngx_posix_status (ngx_log_t * log)
+name|void
+name|ngx_posix_status
+parameter_list|(
+name|ngx_log_t
+modifier|*
+name|log
+parameter_list|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"getrlimit(RLIMIT_NOFILE): "
+name|RLIM_T_FMT
+literal|":"
+name|RLIM_T_FMT
+argument_list|,
+name|rlmt
+operator|.
+name|rlim_cur
+argument_list|,
+name|rlmt
+operator|.
+name|rlim_max
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 

@@ -203,7 +203,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7024350108
+DECL|struct|__anon28a7dd5d0108
 typedef|typedef
 struct|struct
 block|{
@@ -234,8 +234,19 @@ typedef|;
 end_typedef
 
 begin_function_decl
-name|int
+name|ngx_int_t
 name|ngx_os_init
+parameter_list|(
+name|ngx_log_t
+modifier|*
+name|log
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_os_status
 parameter_list|(
 name|ngx_log_t
 modifier|*
@@ -342,29 +353,36 @@ end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
-name|int
+name|ngx_uint_t
 name|ngx_ncpu
 decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
-name|int
+name|ngx_int_t
 name|ngx_max_sockets
 decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
-name|int
+name|ngx_uint_t
 name|ngx_inherited_nonblocking
 decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
-name|int
+name|ngx_uint_t
 name|ngx_win32_version
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_fd_t
+name|ngx_stderr_fileno
 decl_stmt|;
 end_decl_stmt
 
