@@ -56,10 +56,20 @@ name|NGX_HTTP_CACHE
 operator|)
 end_if
 
+begin_include
+include|#
+directive|include
+file|<ngx_http_cache.h>
+end_include
+
 begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_comment
+comment|/* STUB */
+end_comment
 
 begin_include
 include|#
@@ -97,8 +107,27 @@ directive|include
 file|<ngx_http_core_module.h>
 end_include
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_SSL
+operator|)
+end_if
+
+begin_include
+include|#
+directive|include
+file|<ngx_http_ssl_filter.h>
+end_include
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_typedef
-DECL|struct|__anon2a45f85d0108
+DECL|struct|__anon2c716b850108
 typedef|typedef
 struct|struct
 block|{
@@ -188,41 +217,6 @@ parameter_list|)
 define|\
 value|r->ctx[module.ctx_index] = NULL;
 end_define
-
-begin_comment
-comment|/* STUB */
-end_comment
-
-begin_define
-DECL|macro|NGX_INDEX
-define|#
-directive|define
-name|NGX_INDEX
-value|"index.html"
-end_define
-
-begin_comment
-comment|/* STUB */
-end_comment
-
-begin_function_decl
-name|int
-name|ngx_http_init
-parameter_list|(
-name|ngx_pool_t
-modifier|*
-name|pool
-parameter_list|,
-name|ngx_log_t
-modifier|*
-name|log
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_comment
-comment|/**/
-end_comment
 
 begin_function_decl
 name|void

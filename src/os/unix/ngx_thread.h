@@ -195,7 +195,7 @@ value|0
 end_define
 
 begin_typedef
-DECL|struct|__anon2be67f4e0108
+DECL|struct|__anon28da002b0108
 typedef|typedef
 struct|struct
 block|{
@@ -215,7 +215,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be67f4e0208
+DECL|struct|__anon28da002b0208
 typedef|typedef
 struct|struct
 block|{
@@ -324,7 +324,7 @@ value|volatile
 end_define
 
 begin_typedef
-DECL|struct|__anon2be67f4e0308
+DECL|struct|__anon28da002b0308
 typedef|typedef
 struct|struct
 block|{
@@ -550,6 +550,17 @@ define|#
 directive|define
 name|TID_T_FMT
 value|"%d"
+end_define
+
+begin_define
+DECL|macro|ngx_mutex_trylock (m)
+define|#
+directive|define
+name|ngx_mutex_trylock
+parameter_list|(
+name|m
+parameter_list|)
+value|NGX_OK
 end_define
 
 begin_define

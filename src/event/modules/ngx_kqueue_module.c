@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28fb438a0108
+DECL|struct|__anon2c2cc2c60108
 typedef|typedef
 struct|struct
 block|{
@@ -830,11 +830,18 @@ operator|=
 operator|-
 literal|1
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_THREADS
+operator|)
 name|ngx_mutex_destroy
 argument_list|(
 name|ngx_kqueue_mutex
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|ngx_free
 argument_list|(
 name|change_list1

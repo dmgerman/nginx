@@ -3691,6 +3691,16 @@ return|return
 name|NGX_AGAIN
 return|;
 block|}
+if|#
+directive|if
+literal|1
+name|ngx_http_ssl_read
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|n
 operator|=
 name|ngx_recv
@@ -3718,6 +3728,8 @@ operator|->
 name|last
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|n

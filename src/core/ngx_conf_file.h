@@ -213,6 +213,14 @@ value|(ngx_uint_t) -1
 end_define
 
 begin_define
+DECL|macro|NGX_CONF_UNSET_PTR
+define|#
+directive|define
+name|NGX_CONF_UNSET_PTR
+value|(void *) -1
+end_define
+
+begin_define
 DECL|macro|NGX_CONF_UNSET_SIZE
 define|#
 directive|define
@@ -449,7 +457,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29e46cfc0108
+DECL|struct|__anon2b5005900108
 typedef|typedef
 struct|struct
 block|{
@@ -494,7 +502,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e46cfc0208
+DECL|struct|__anon2b5005900208
 typedef|typedef
 struct|struct
 block|{
@@ -629,7 +637,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e46cfc0308
+DECL|struct|__anon2b5005900308
 typedef|typedef
 struct|struct
 block|{
@@ -644,7 +652,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e46cfc0408
+DECL|struct|__anon2b5005900408
 typedef|typedef
 struct|struct
 block|{
@@ -667,7 +675,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e46cfc0508
+DECL|struct|__anon2b5005900508
 typedef|typedef
 struct|struct
 block|{
@@ -694,7 +702,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon29e46cfc0608
+DECL|struct|__anon2b5005900608
 typedef|typedef
 struct|struct
 block|{
@@ -764,7 +772,7 @@ name|ngx_conf_init_ptr_value
 parameter_list|(
 name|conf
 parameter_list|,
-define|default)                               \     if (conf == (void *) NGX_CONF_UNSET) {                                   \         conf = default;                                                      \     }
+define|default)                               \     if (conf == NGX_CONF_UNSET_PTR) {                                        \         conf = default;                                                      \     }
 end_define
 
 begin_define
@@ -811,6 +819,19 @@ parameter_list|,
 name|prev
 parameter_list|,
 define|default)                            \     if (conf == NGX_CONF_UNSET) {                                            \         conf = (prev == NGX_CONF_UNSET) ? default : prev;                    \     }
+end_define
+
+begin_define
+DECL|macro|ngx_conf_merge_ptr_value (conf,prev,default)
+define|#
+directive|define
+name|ngx_conf_merge_ptr_value
+parameter_list|(
+name|conf
+parameter_list|,
+name|prev
+parameter_list|,
+define|default)                        \     if (conf == NULL) {                                                      \         conf = (prev == NULL) ? default : prev;                              \     }
 end_define
 
 begin_define
