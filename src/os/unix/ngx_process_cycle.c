@@ -2903,6 +2903,15 @@ continue|continue;
 block|}
 if|if
 condition|(
+name|n
+operator|==
+name|ngx_process_slot
+condition|)
+block|{
+continue|continue;
+block|}
+if|if
+condition|(
 name|close
 argument_list|(
 name|ngx_processes

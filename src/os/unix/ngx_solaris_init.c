@@ -106,7 +106,7 @@ name|NGX_LOG_ALERT
 argument_list|,
 name|log
 argument_list|,
-name|errno
+name|ngx_errno
 argument_list|,
 literal|"sysinfo(SI_SYSNAME) failed"
 argument_list|)
@@ -139,7 +139,7 @@ name|NGX_LOG_ALERT
 argument_list|,
 name|log
 argument_list|,
-name|errno
+name|ngx_errno
 argument_list|,
 literal|"sysinfo(SI_RELEASE) failed"
 argument_list|)
@@ -172,7 +172,7 @@ name|NGX_LOG_ALERT
 argument_list|,
 name|log
 argument_list|,
-name|errno
+name|ngx_errno
 argument_list|,
 literal|"sysinfo(SI_SYSNAME) failed"
 argument_list|)

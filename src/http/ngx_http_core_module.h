@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c1278cc0108
+DECL|struct|__anon29b63a1b0108
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c1278cc0203
+DECL|enum|__anon29b63a1b0203
 typedef|typedef
 enum|enum
 block|{
@@ -95,7 +95,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1278cc0308
+DECL|struct|__anon29b63a1b0308
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1278cc0408
+DECL|struct|__anon29b63a1b0408
 typedef|typedef
 struct|struct
 block|{
@@ -146,7 +146,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1278cc0508
+DECL|struct|__anon29b63a1b0508
 typedef|typedef
 struct|struct
 block|{
@@ -210,7 +210,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2c1278cc0608
+DECL|struct|__anon29b63a1b0608
 typedef|typedef
 struct|struct
 block|{
@@ -234,7 +234,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1278cc0708
+DECL|struct|__anon29b63a1b0708
 typedef|typedef
 struct|struct
 block|{
@@ -266,7 +266,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1278cc0808
+DECL|struct|__anon29b63a1b0808
 typedef|typedef
 struct|struct
 block|{
@@ -309,7 +309,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon2c1278cc0908
+DECL|struct|__anon29b63a1b0908
 typedef|typedef
 struct|struct
 block|{
@@ -328,7 +328,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1278cc0a08
+DECL|struct|__anon29b63a1b0a08
 typedef|typedef
 struct|struct
 block|{
@@ -351,7 +351,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1278cc0b08
+DECL|struct|__anon29b63a1b0b08
 typedef|typedef
 struct|struct
 block|{
@@ -405,6 +405,16 @@ name|size_t
 name|send_lowat
 decl_stmt|;
 comment|/* send_lowat */
+DECL|member|postpone_output
+name|size_t
+name|postpone_output
+decl_stmt|;
+comment|/* postpone_output */
+DECL|member|limit_rate
+name|size_t
+name|limit_rate
+decl_stmt|;
+comment|/* limit_rate */
 DECL|member|client_body_timeout
 name|ngx_msec_t
 name|client_body_timeout

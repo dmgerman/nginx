@@ -31,7 +31,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bd1d66a0108
+DECL|struct|__anon28e575e30108
 typedef|typedef
 struct|struct
 block|{
@@ -115,6 +115,21 @@ name|event
 parameter_list|,
 name|ngx_event_handler_pt
 name|handler
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_close_channel
+parameter_list|(
+name|ngx_fd_t
+modifier|*
+name|fd
+parameter_list|,
+name|ngx_log_t
+modifier|*
+name|log
 parameter_list|)
 function_decl|;
 end_function_decl

@@ -41,7 +41,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3f4d550108
+DECL|struct|__anon27b019b30108
 typedef|typedef
 struct|struct
 block|{
@@ -111,7 +111,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3f4d550208
+DECL|struct|__anon27b019b30208
 typedef|typedef
 struct|struct
 block|{
@@ -246,21 +246,6 @@ name|void
 name|ngx_process_get_status
 parameter_list|(
 name|void
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-name|void
-name|ngx_close_channel
-parameter_list|(
-name|ngx_fd_t
-modifier|*
-name|fd
-parameter_list|,
-name|ngx_log_t
-modifier|*
-name|log
 parameter_list|)
 function_decl|;
 end_function_decl

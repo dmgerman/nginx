@@ -97,13 +97,20 @@ return|;
 block|}
 end_function
 
+begin_decl_stmt
+DECL|variable|ngx_linux_rtsig_max
+name|int
+name|ngx_linux_rtsig_max
+decl_stmt|;
+end_decl_stmt
+
 begin_endif
 endif|#
 directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2a3ca8540108
+DECL|struct|__anon2b9cdbae0108
 typedef|typedef
 struct|struct
 block|{
@@ -241,6 +248,27 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_function_decl
+specifier|static
+name|char
+modifier|*
+name|ngx_check_ngx_overflow_threshold_bounds
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|void
+modifier|*
+name|post
+parameter_list|,
+name|void
+modifier|*
+name|data
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_decl_stmt
 DECL|variable|set
 specifier|static
@@ -290,7 +318,7 @@ name|ngx_conf_num_bounds_t
 name|ngx_overflow_threshold_bounds
 init|=
 block|{
-name|ngx_conf_check_num_bounds
+name|ngx_check_ngx_overflow_threshold_bounds
 block|,
 literal|2
 block|,
@@ -2615,6 +2643,11 @@ name|rev
 operator|->
 name|active
 operator|&&
+operator|!
+name|rev
+operator|->
+name|closed
+operator|&&
 name|rev
 operator|->
 name|event_handler
@@ -2687,6 +2720,11 @@ condition|(
 name|wev
 operator|->
 name|active
+operator|&&
+operator|!
+name|wev
+operator|->
+name|closed
 operator|&&
 name|wev
 operator|->
@@ -2770,7 +2808,12 @@ operator|->
 name|overflow_test
 condition|)
 block|{
-comment|/*              * Check the current rt queue length to prevent the new overflow.              *              * Learn the /proc/sys/kernel/rtsig-max value because              * it can be changed sisnce the last checking.              */
+if|if
+condition|(
+name|ngx_linux_rtsig_max
+condition|)
+block|{
+comment|/*                  * Check the current rt queue length to prevent                  * the new overflow.                  *                  * Learn the /proc/sys/kernel/rtsig-max value because                  * it can be changed sisnce the last checking.                  */
 name|name
 index|[
 literal|0
@@ -2899,7 +2942,7 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-comment|/*              * drain rt signal queue if the /proc/sys/kernel/rtsig-nr is bigger              * than "/proc/sys/kernel/rtsig-max / rtsig_overflow_threshold"              */
+comment|/*                  * drain rt signal queue if the /proc/sys/kernel/rtsig-nr                  * is bigger than                  *    /proc/sys/kernel/rtsig-max / rtsig_overflow_threshold                  */
 if|if
 condition|(
 name|rtsig_max
@@ -2928,6 +2971,23 @@ argument_list|,
 name|rtsig_max
 argument_list|)
 expr_stmt|;
+while|while
+condition|(
+name|ngx_rtsig_process_events
+argument_list|(
+name|cycle
+argument_list|)
+operator|==
+name|NGX_OK
+condition|)
+block|{
+comment|/* void */
+block|}
+block|}
+block|}
+else|else
+block|{
+comment|/*                  * Linux has not KERN_RTSIGMAX since 2.6.6-mm2                  * so drain rt signal queue unconditionally                  */
 while|while
 condition|(
 name|ngx_rtsig_process_events
@@ -3125,6 +3185,60 @@ operator|->
 name|overflow_threshold
 argument_list|,
 literal|10
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CONF_OK
+return|;
+block|}
+end_function
+
+begin_function
+DECL|function|ngx_check_ngx_overflow_threshold_bounds (ngx_conf_t * cf,void * post,void * data)
+specifier|static
+name|char
+modifier|*
+name|ngx_check_ngx_overflow_threshold_bounds
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|void
+modifier|*
+name|post
+parameter_list|,
+name|void
+modifier|*
+name|data
+parameter_list|)
+block|{
+if|if
+condition|(
+name|ngx_linux_rtsig_max
+condition|)
+block|{
+return|return
+name|ngx_conf_check_num_bounds
+argument_list|(
+name|cf
+argument_list|,
+name|post
+argument_list|,
+name|data
+argument_list|)
+return|;
+block|}
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_WARN
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"\"rtsig_overflow_threshold\" is not supported "
+literal|"since Linux 2.6.6-mm2, ignored"
 argument_list|)
 expr_stmt|;
 return|return

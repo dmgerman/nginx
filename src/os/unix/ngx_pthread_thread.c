@@ -554,6 +554,17 @@ expr_stmt|;
 if|if
 condition|(
 name|err
+operator|==
+name|NGX_EBUSY
+condition|)
+block|{
+return|return
+name|NGX_AGAIN
+return|;
+block|}
+if|if
+condition|(
+name|err
 operator|!=
 literal|0
 condition|)

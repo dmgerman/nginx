@@ -107,6 +107,14 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|write_filter
+specifier|static
+name|ngx_http_output_body_filter_pt
+name|write_filter
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|server_string
 specifier|static
 name|char
@@ -2142,7 +2150,7 @@ operator|=
 name|NULL
 expr_stmt|;
 return|return
-name|ngx_http_write_filter
+name|write_filter
 argument_list|(
 name|r
 argument_list|,
@@ -2166,6 +2174,10 @@ block|{
 name|ngx_http_top_header_filter
 operator|=
 name|ngx_http_header_filter
+expr_stmt|;
+name|write_filter
+operator|=
+name|ngx_http_top_body_filter
 expr_stmt|;
 return|return
 name|NGX_OK

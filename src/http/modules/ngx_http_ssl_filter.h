@@ -71,6 +71,21 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
+name|ngx_int_t
+name|ngx_http_ssl_writer
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_chain_t
+modifier|*
+name|in
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
 name|void
 name|ngx_http_ssl_close_connection
 parameter_list|(

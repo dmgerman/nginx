@@ -120,7 +120,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon27dc24170108
+DECL|struct|__anon28921ee20108
 typedef|typedef
 struct|struct
 block|{
@@ -298,7 +298,7 @@ name|NGX_LOG_ALERT
 argument_list|,
 name|log
 argument_list|,
-name|errno
+name|ngx_errno
 argument_list|,
 literal|"sysctlbyname(kern.ostype) failed"
 argument_list|)
@@ -340,7 +340,7 @@ name|NGX_LOG_ALERT
 argument_list|,
 name|log
 argument_list|,
-name|errno
+name|ngx_errno
 argument_list|,
 literal|"sysctlbyname(kern.osrelease) failed"
 argument_list|)
@@ -398,7 +398,7 @@ name|NGX_LOG_ALERT
 argument_list|,
 name|log
 argument_list|,
-name|errno
+name|ngx_errno
 argument_list|,
 literal|"sysctlbyname(kern.osreldate) failed"
 argument_list|)
@@ -581,7 +581,7 @@ condition|)
 block|{
 name|err
 operator|=
-name|errno
+name|ngx_errno
 expr_stmt|;
 if|if
 condition|(
