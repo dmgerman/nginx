@@ -140,6 +140,64 @@ directive|include
 file|<osreldate.h>
 end_include
 
+begin_comment
+comment|/* TODO: autoconf */
+end_comment
+
+begin_if
+if|#
+directive|if
+name|__FreeBSD_version
+operator|<
+literal|300007
+end_if
+
+begin_typedef
+DECL|typedef|uint64_t
+typedef|typedef
+name|u_int64_t
+name|uint64_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|typedef|uintptr_t
+typedef|typedef
+name|u_int32_t
+name|uintptr_t
+typedef|;
+end_typedef
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_if
+if|#
+directive|if
+name|__FreeBSD_version
+operator|<
+literal|330002
+end_if
+
+begin_comment
+comment|/* exactly */
+end_comment
+
+begin_typedef
+DECL|typedef|socklen_t
+typedef|typedef
+name|uint32_t
+name|socklen_t
+typedef|;
+end_typedef
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_if
 if|#
 directive|if
@@ -170,14 +228,6 @@ define|#
 directive|define
 name|SIZEX_FMT
 value|"%x"
-end_define
-
-begin_define
-DECL|macro|TIME_FMT
-define|#
-directive|define
-name|TIME_FMT
-value|"%lu"
 end_define
 
 begin_else
@@ -213,6 +263,11 @@ name|SIZEX_FMT
 value|"%lx"
 end_define
 
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_define
 DECL|macro|TIME_FMT
 define|#
@@ -221,17 +276,20 @@ name|TIME_FMT
 value|"%lu"
 end_define
 
-begin_endif
-endif|#
-directive|endif
-end_endif
-
 begin_define
 DECL|macro|PID_FMT
 define|#
 directive|define
 name|PID_FMT
 value|"%d"
+end_define
+
+begin_define
+DECL|macro|RLIM_FMT
+define|#
+directive|define
+name|RLIM_FMT
+value|"%lld"
 end_define
 
 begin_ifndef

@@ -2,79 +2,15 @@ begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|_NGX_FREEBSD_INIT_H_INCLUDED_
+name|_NGX_FREEBSD_H_INCLUDED_
 end_ifndef
 
 begin_define
-DECL|macro|_NGX_FREEBSD_INIT_H_INCLUDED_
+DECL|macro|_NGX_FREEBSD_H_INCLUDED_
 define|#
 directive|define
-name|_NGX_FREEBSD_INIT_H_INCLUDED_
+name|_NGX_FREEBSD_H_INCLUDED_
 end_define
-
-begin_include
-include|#
-directive|include
-file|<ngx_config.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_core.h>
-end_include
-
-begin_comment
-comment|/* STUB */
-end_comment
-
-begin_function_decl
-name|int
-name|ngx_posix_init
-parameter_list|(
-name|ngx_log_t
-modifier|*
-name|log
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-name|ssize_t
-name|ngx_unix_recv
-parameter_list|(
-name|ngx_connection_t
-modifier|*
-name|c
-parameter_list|,
-name|char
-modifier|*
-name|buf
-parameter_list|,
-name|size_t
-name|size
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-name|ssize_t
-name|ngx_readv_chain
-parameter_list|(
-name|ngx_connection_t
-modifier|*
-name|c
-parameter_list|,
-name|ngx_chain_t
-modifier|*
-name|entry
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_comment
-comment|/* */
-end_comment
 
 begin_function_decl
 name|ngx_chain_t
@@ -140,7 +76,7 @@ directive|endif
 end_endif
 
 begin_comment
-comment|/* _NGX_FREEBSD_INIT_H_INCLUDED_ */
+comment|/* _NGX_FREEBSD_H_INCLUDED_ */
 end_comment
 
 end_unit

@@ -247,7 +247,10 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"getrlimit(RLIMIT_NOFILE): %qd:%qd"
+literal|"getrlimit(RLIMIT_NOFILE): "
+name|RLIM_FMT
+literal|":"
+name|RLIM_FMT
 argument_list|,
 name|rlmt
 operator|.

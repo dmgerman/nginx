@@ -29,23 +29,6 @@ directive|include
 file|<nginx.h>
 end_include
 
-begin_if
-if|#
-directive|if
-name|__FreeBSD__
-end_if
-
-begin_include
-include|#
-directive|include
-file|<ngx_freebsd_init.h>
-end_include
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
 begin_function_decl
 specifier|static
 name|void

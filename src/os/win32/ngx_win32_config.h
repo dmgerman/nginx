@@ -20,10 +20,6 @@ name|WIN32
 value|1
 end_define
 
-begin_comment
-comment|/* STUB */
-end_comment
-
 begin_define
 DECL|macro|NGX_WIN_NT
 define|#
@@ -31,17 +27,6 @@ directive|define
 name|NGX_WIN_NT
 value|200000
 end_define
-
-begin_decl_stmt
-specifier|extern
-name|int
-name|ngx_win32_version
-decl_stmt|;
-end_decl_stmt
-
-begin_comment
-comment|/**/
-end_comment
 
 begin_include
 include|#

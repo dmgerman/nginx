@@ -2,14 +2,14 @@ begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|_NGX_OS_INIT_H_INCLUDED_
+name|_NGX_OS_H_INCLUDED_
 end_ifndef
 
 begin_define
-DECL|macro|_NGX_OS_INIT_H_INCLUDED_
+DECL|macro|_NGX_OS_H_INCLUDED_
 define|#
 directive|define
-name|_NGX_OS_INIT_H_INCLUDED_
+name|_NGX_OS_H_INCLUDED_
 end_define
 
 begin_include
@@ -109,7 +109,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2a443b780108
+DECL|struct|__anon28ee33540108
 typedef|typedef
 struct|struct
 block|{
@@ -205,15 +205,6 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
-begin_if
-if|#
-directive|if
-operator|!
-operator|(
-name|WIN32
-operator|)
-end_if
-
 begin_function_decl
 name|int
 name|ngx_daemon
@@ -225,10 +216,65 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
-begin_endif
-endif|#
-directive|endif
-end_endif
+begin_function_decl
+name|int
+name|ngx_posix_init
+parameter_list|(
+name|ngx_log_t
+modifier|*
+name|log
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ssize_t
+name|ngx_unix_recv
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|,
+name|char
+modifier|*
+name|buf
+parameter_list|,
+name|size_t
+name|size
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ssize_t
+name|ngx_readv_chain
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|,
+name|ngx_chain_t
+modifier|*
+name|entry
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_chain_t
+modifier|*
+name|ngx_writev_chain
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|,
+name|ngx_chain_t
+modifier|*
+name|in
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_decl_stmt
 specifier|extern
@@ -265,13 +311,30 @@ name|rotate
 decl_stmt|;
 end_decl_stmt
 
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|__FreeBSD__
+end_ifdef
+
+begin_include
+include|#
+directive|include
+file|<ngx_freebsd.h>
+end_include
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_endif
 endif|#
 directive|endif
 end_endif
 
 begin_comment
-comment|/* _NGX_OS_INIT_H_INCLUDED_ */
+comment|/* _NGX_OS_H_INCLUDED_ */
 end_comment
 
 end_unit

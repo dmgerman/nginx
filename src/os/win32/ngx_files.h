@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_comment
-comment|/* INVALID_FILE_ATTRIBUTES specified but not defined at least in MSVC6SP2 */
+comment|/* INVALID_FILE_ATTRIBUTES is specified but not defined at least in MSVC6SP2 */
 end_comment
 
 begin_ifndef
@@ -39,7 +39,30 @@ DECL|macro|INVALID_FILE_ATTRIBUTES
 define|#
 directive|define
 name|INVALID_FILE_ATTRIBUTES
-value|0xFFFFFFFF
+value|0xffffffff
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_comment
+comment|/* INVALID_SET_FILE_POINTER is not defined at least in MSVC6SP2 */
+end_comment
+
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|INVALID_SET_FILE_POINTER
+end_ifndef
+
+begin_define
+DECL|macro|INVALID_SET_FILE_POINTER
+define|#
+directive|define
+name|INVALID_SET_FILE_POINTER
+value|0xffffffff
 end_define
 
 begin_endif

@@ -113,6 +113,12 @@ name|ngx_tm_wday
 value|tm_wday
 end_define
 
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|SOLARIS
+end_ifndef
+
 begin_define
 DECL|macro|ngx_tm_zone
 define|#
@@ -120,6 +126,11 @@ directive|define
 name|ngx_tm_zone
 value|tm_zone
 end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_function_decl
 name|void

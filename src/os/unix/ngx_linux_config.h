@@ -188,6 +188,14 @@ value|"%x"
 end_define
 
 begin_define
+DECL|macro|TIME_FMT
+define|#
+directive|define
+name|TIME_FMT
+value|"%lu"
+end_define
+
+begin_define
 DECL|macro|PID_FMT
 define|#
 directive|define
@@ -196,10 +204,10 @@ value|"%d"
 end_define
 
 begin_define
-DECL|macro|TIME_FMT
+DECL|macro|RLIM_FMT
 define|#
 directive|define
-name|TIME_FMT
+name|RLIM_FMT
 value|"%lu"
 end_define
 

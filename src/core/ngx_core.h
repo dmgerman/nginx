@@ -189,7 +189,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_os_init.h>
+file|<ngx_os.h>
 end_include
 
 begin_include

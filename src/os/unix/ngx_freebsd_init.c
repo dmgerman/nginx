@@ -2,7 +2,13 @@ begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_include
 include|#
 directive|include
-file|<ngx_freebsd_init.h>
+file|<ngx_config.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_core.h>
 end_include
 
 begin_comment
@@ -109,7 +115,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2b3937f70108
+DECL|struct|__anon2b1ae5cc0108
 typedef|typedef
 struct|struct
 block|{
