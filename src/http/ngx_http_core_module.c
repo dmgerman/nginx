@@ -3932,6 +3932,12 @@ operator|-
 literal|1
 condition|)
 block|{
+if|#
+directive|if
+literal|0
+block_content|ngx_conf_log_error(NGX_LOG_EMERG, cf, ngx_errno,                                "gethostname() failed");             return NGX_CONF_ERROR;
+endif|#
+directive|endif
 name|err
 operator|=
 name|ngx_errno
@@ -4822,18 +4828,15 @@ operator|)
 condition|)
 block|{
 comment|/* "listen 99999" */
-name|ngx_snprintf
+name|ngx_conf_log_error
 argument_list|(
-name|ngx_conf_errstr
+name|NGX_LOG_EMERG
 argument_list|,
-sizeof|sizeof
-argument_list|(
-name|ngx_conf_errstr
-argument_list|)
-operator|-
-literal|1
+name|cf
 argument_list|,
-literal|"invalid port \"%s\", "
+literal|0
+argument_list|,
+literal|"invalid port \"%s\" in \"%s\" directive, "
 literal|"it must be a number between 1 and 65535"
 argument_list|,
 operator|&
@@ -4841,10 +4844,16 @@ name|addr
 index|[
 name|p
 index|]
+argument_list|,
+name|cmd
+operator|->
+name|name
+operator|.
+name|data
 argument_list|)
 expr_stmt|;
 return|return
-name|ngx_conf_errstr
+name|NGX_CONF_ERROR
 return|;
 block|}
 if|else if
@@ -4905,24 +4914,28 @@ operator|==
 name|NULL
 condition|)
 block|{
-name|ngx_snprintf
+name|ngx_conf_log_error
 argument_list|(
-name|ngx_conf_errstr
+name|NGX_LOG_EMERG
 argument_list|,
-sizeof|sizeof
-argument_list|(
-name|ngx_conf_errstr
-argument_list|)
-operator|-
-literal|1
+name|cf
 argument_list|,
-literal|"can not resolve host \"%s\""
+literal|0
+argument_list|,
+literal|"can not resolve host \"%s\" "
+literal|"in \"%s\" directive"
 argument_list|,
 name|addr
+argument_list|,
+name|cmd
+operator|->
+name|name
+operator|.
+name|data
 argument_list|)
 expr_stmt|;
 return|return
-name|ngx_conf_errstr
+name|NGX_CONF_ERROR
 return|;
 block|}
 name|ls
@@ -5027,18 +5040,16 @@ operator|==
 literal|0
 condition|)
 block|{
-name|ngx_snprintf
+name|ngx_conf_log_error
 argument_list|(
-name|ngx_conf_errstr
+name|NGX_LOG_EMERG
 argument_list|,
-sizeof|sizeof
-argument_list|(
-name|ngx_conf_errstr
-argument_list|)
-operator|-
-literal|1
+name|cf
 argument_list|,
-literal|"server name \"%s\" is invalid"
+literal|0
+argument_list|,
+literal|"server name \"%s\" is invalid "
+literal|"in \"%s\" directive"
 argument_list|,
 name|value
 index|[
@@ -5046,10 +5057,16 @@ name|i
 index|]
 operator|.
 name|data
+argument_list|,
+name|cmd
+operator|->
+name|name
+operator|.
+name|data
 argument_list|)
 expr_stmt|;
 return|return
-name|ngx_conf_errstr
+name|NGX_CONF_ERROR
 return|;
 block|}
 name|ngx_test_null

@@ -94,7 +94,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29e9935f0108
+DECL|struct|__anon2bef18a80108
 typedef|typedef
 struct|struct
 block|{
@@ -300,10 +300,20 @@ operator|&&
 operator|(
 name|__FreeBSD__
 operator|)
+if|#
+directive|if
+name|__FreeBSD_version
+operator|>=
+literal|500014
+name|_malloc_options
+else|#
+directive|else
 name|malloc_options
-operator|=
+endif|#
+directive|endif
+init|=
 literal|"J"
-expr_stmt|;
+decl_stmt|;
 endif|#
 directive|endif
 comment|/* TODO */

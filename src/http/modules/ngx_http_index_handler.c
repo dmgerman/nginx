@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28ea06bc0108
+DECL|struct|__anon277fdd4b0108
 typedef|typedef
 struct|struct
 block|{
@@ -1363,18 +1363,16 @@ operator|==
 literal|0
 condition|)
 block|{
-name|ngx_snprintf
+name|ngx_conf_log_error
 argument_list|(
-name|ngx_conf_errstr
+name|NGX_LOG_EMERG
 argument_list|,
-sizeof|sizeof
-argument_list|(
-name|ngx_conf_errstr
-argument_list|)
-operator|-
-literal|1
+name|cf
 argument_list|,
-literal|"first index \"%s\" must not be absolute"
+literal|0
+argument_list|,
+literal|"first index \"%s\" in \"%s\" directive "
+literal|"must not be absolute"
 argument_list|,
 name|value
 index|[
@@ -1382,10 +1380,16 @@ literal|1
 index|]
 operator|.
 name|data
+argument_list|,
+name|cmd
+operator|->
+name|name
+operator|.
+name|data
 argument_list|)
 expr_stmt|;
 return|return
-name|ngx_conf_errstr
+name|NGX_CONF_ERROR
 return|;
 block|}
 for|for
@@ -1418,29 +1422,32 @@ operator|==
 literal|0
 condition|)
 block|{
-name|ngx_snprintf
+name|ngx_conf_log_error
 argument_list|(
-name|ngx_conf_errstr
+name|NGX_LOG_EMERG
 argument_list|,
-sizeof|sizeof
-argument_list|(
-name|ngx_conf_errstr
-argument_list|)
-operator|-
-literal|1
+name|cf
 argument_list|,
-literal|"index \"%s\" is invalid"
+literal|0
+argument_list|,
+literal|"index \"%s\" in \"%s\" directive is invalid"
 argument_list|,
 name|value
 index|[
-name|i
+literal|1
 index|]
+operator|.
+name|data
+argument_list|,
+name|cmd
+operator|->
+name|name
 operator|.
 name|data
 argument_list|)
 expr_stmt|;
 return|return
-name|ngx_conf_errstr
+name|NGX_CONF_ERROR
 return|;
 block|}
 name|ngx_test_null
