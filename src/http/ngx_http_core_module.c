@@ -7016,6 +7016,12 @@ return|;
 block|}
 name|ls
 operator|->
+name|port
+operator|=
+name|port
+expr_stmt|;
+name|ls
+operator|->
 name|addr
 operator|=
 name|inet_addr
