@@ -24,7 +24,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c94ac520108
+DECL|struct|__anon29d1911c0108
 typedef|typedef
 struct|struct
 block|{
@@ -59,7 +59,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c94ac520208
+DECL|struct|__anon29d1911c0208
 typedef|typedef
 struct|struct
 block|{
@@ -721,10 +721,6 @@ operator|||
 name|r
 operator|->
 name|header_only
-operator|||
-name|r
-operator|->
-expr|main
 comment|/* TODO: conf->http_version */
 operator|||
 operator|(

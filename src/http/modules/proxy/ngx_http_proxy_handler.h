@@ -37,7 +37,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2894780a0108
+DECL|struct|__anon296eee840108
 typedef|typedef
 struct|struct
 block|{
@@ -73,10 +73,14 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2894780a0208
+DECL|struct|__anon296eee840208
 typedef|typedef
 struct|struct
 block|{
+DECL|member|request_buffer_size
+name|ssize_t
+name|request_buffer_size
+decl_stmt|;
 DECL|member|connect_timeout
 name|ngx_msec_t
 name|connect_timeout
@@ -113,6 +117,10 @@ DECL|member|cyclic_temp_file
 name|int
 name|cyclic_temp_file
 decl_stmt|;
+DECL|member|next_upstream
+name|int
+name|next_upstream
+decl_stmt|;
 DECL|member|temp_path
 name|ngx_path_t
 modifier|*
@@ -135,7 +143,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2894780a0308
+DECL|struct|__anon296eee840308
 typedef|typedef
 struct|struct
 block|{
@@ -239,15 +247,10 @@ DECL|member|status_line
 name|ngx_str_t
 name|status_line
 decl_stmt|;
-DECL|member|work_request_hunks
-name|ngx_chain_t
+DECL|member|output_chain_ctx
+name|ngx_output_chain_ctx_t
 modifier|*
-name|work_request_hunks
-decl_stmt|;
-DECL|member|request_hunks
-name|ngx_chain_t
-modifier|*
-name|request_hunks
+name|output_chain_ctx
 decl_stmt|;
 DECL|member|method
 name|int
@@ -323,6 +326,10 @@ name|ngx_http_log_ctx_t
 modifier|*
 name|saved_ctx
 decl_stmt|;
+DECL|member|saved_handler
+name|ngx_log_handler_pt
+name|saved_handler
+decl_stmt|;
 block|}
 struct|;
 end_struct
@@ -333,6 +340,38 @@ define|#
 directive|define
 name|NGX_HTTP_PROXY_PARSE_NO_HEADER
 value|20
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_PROXY_FT_ERROR
+define|#
+directive|define
+name|NGX_HTTP_PROXY_FT_ERROR
+value|1
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_PROXY_FT_TIMEOUT
+define|#
+directive|define
+name|NGX_HTTP_PROXY_FT_TIMEOUT
+value|2
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_PROXY_FT_HTTP_HEADER
+define|#
+directive|define
+name|NGX_HTTP_PROXY_FT_HTTP_HEADER
+value|4
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_PROXY_FT_HTTP_500
+define|#
+directive|define
+name|NGX_HTTP_PROXY_FT_HTTP_500
+value|8
 end_define
 
 begin_endif

@@ -17,8 +17,12 @@ directive|include
 file|<ngx_http.h>
 end_include
 
+begin_comment
+comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF  * ... header ...  * "Content-Type: image/jpeg" CRLF  * "Content-Length: SIZE" CRLF  * "Content-Range: bytes START-END/SIZE" CRLF  * CRLF  * ... data ...  *  *  * the mutlipart format:  *  * "HTTP/1.0 206 Partial Content" CRLF  * ... header ...  * "Content-Type: multipart/byteranges; boundary=0123456789" CRLF  * CRLF  * CRLF  * "--0123456789" CRLF  * "Content-Type: image/jpeg" CRLF  * "Content-Range: bytes START0-END0/SIZE" CRLF  * CRLF  * ... data ...  * CRLF  * "--0123456789" CRLF  * "Content-Type: image/jpeg" CRLF  * "Content-Range: bytes START1-END1/SIZE" CRLF  * CRLF  * ... data ...  * CRLF  * "--0123456789--" CRLF  */
+end_comment
+
 begin_typedef
-DECL|struct|__anon2be0d8160108
+DECL|struct|__anon278ae5b00108
 typedef|typedef
 struct|struct
 block|{
@@ -157,10 +161,6 @@ if|if
 condition|(
 name|r
 operator|->
-expr|main
-operator|||
-name|r
-operator|->
 name|http_version
 operator|<
 name|NGX_HTTP_VERSION_10
@@ -182,6 +182,11 @@ operator|==
 operator|-
 literal|1
 comment|/* STUB: we currently support ranges for file hunks only */
+operator|||
+operator|!
+name|r
+operator|->
+name|sendfile
 operator|||
 name|r
 operator|->
@@ -346,20 +351,13 @@ argument_list|,
 name|NGX_ERROR
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_SUPPRESS_WARN
-operator|)
-name|range
-operator|=
-name|NULL
-expr_stmt|;
-endif|#
-directive|endif
 name|rc
 operator|=
 literal|0
+expr_stmt|;
+name|range
+operator|=
+name|NULL
 expr_stmt|;
 name|p
 operator|=
@@ -705,6 +703,7 @@ condition|(
 name|rc
 condition|)
 block|{
+comment|/* rc == NGX_HTTP_RANGE_NOT_SATISFIABLE */
 name|r
 operator|->
 name|headers_out
@@ -909,6 +908,7 @@ argument_list|,
 name|NGX_ERROR
 argument_list|)
 expr_stmt|;
+comment|/* "Content-Range: bytes SSSS-EEEE/TTTT" header */
 name|r
 operator|->
 name|headers_out
@@ -1086,6 +1086,7 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+comment|/*              * The boundary header of the range:              * CRLF              * "--0123456789" CRLF              * "Content-Type: image/jpeg" CRLF              * "Content-Range: bytes "              */
 if|if
 condition|(
 name|r
@@ -1219,6 +1220,7 @@ argument_list|,
 name|NGX_ERROR
 argument_list|)
 expr_stmt|;
+comment|/* "Content-Type: multipart/byteranges; boundary=0123456789" */
 name|r
 operator|->
 name|headers_out
@@ -1252,7 +1254,7 @@ argument_list|,
 name|boundary
 argument_list|)
 expr_stmt|;
-comment|/* the last "CRLF--BOUNDARY--CRLF" */
+comment|/* the size of the last boundary CRLF "--0123456789--" CRLF */
 name|len
 operator|=
 literal|4
@@ -1324,6 +1326,7 @@ argument_list|,
 name|NGX_ERROR
 argument_list|)
 expr_stmt|;
+comment|/* the size of the range: "SSSS-EEEE/TTTT" CRLF CRLF */
 name|range
 index|[
 name|i
@@ -1518,6 +1521,16 @@ operator|&
 name|NGX_HUNK_LAST
 condition|)
 block|{
+name|range
+operator|=
+name|r
+operator|->
+name|headers_out
+operator|.
+name|ranges
+operator|.
+name|elts
+expr_stmt|;
 if|if
 condition|(
 name|r
@@ -1531,16 +1544,6 @@ operator|==
 literal|1
 condition|)
 block|{
-name|range
-operator|=
-name|r
-operator|->
-name|headers_out
-operator|.
-name|ranges
-operator|.
-name|elts
-expr_stmt|;
 name|in
 operator|->
 name|hunk
@@ -1584,16 +1587,6 @@ operator|=
 operator|&
 name|out
 expr_stmt|;
-name|range
-operator|=
-name|r
-operator|->
-name|headers_out
-operator|.
-name|ranges
-operator|.
-name|elts
-expr_stmt|;
 for|for
 control|(
 name|i
@@ -1614,6 +1607,7 @@ name|i
 operator|++
 control|)
 block|{
+comment|/*              * The boundary header of the range:              * CRLF              * "--0123456789" CRLF              * "Content-Type: image/jpeg" CRLF              * "Content-Range: bytes "              */
 name|ngx_test_null
 argument_list|(
 name|h
@@ -1682,6 +1676,7 @@ name|hunk
 operator|=
 name|h
 expr_stmt|;
+comment|/* "SSSS-EEEE/TTTT" CRLF CRLF */
 name|ngx_test_null
 argument_list|(
 name|h
@@ -1759,6 +1754,7 @@ name|hunk
 operator|=
 name|h
 expr_stmt|;
+comment|/* the range data */
 name|ngx_test_null
 argument_list|(
 name|h
@@ -1849,6 +1845,7 @@ operator|->
 name|next
 expr_stmt|;
 block|}
+comment|/* the last boundary CRLF "--0123456789--" CRLF  */
 name|ngx_test_null
 argument_list|(
 name|h

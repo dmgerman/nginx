@@ -61,7 +61,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon276ee19d0108
+DECL|struct|__anon2ae5ac5c0108
 typedef|typedef
 struct|struct
 block|{
@@ -85,6 +85,56 @@ block|}
 name|ngx_path_t
 typedef|;
 end_typedef
+
+begin_typedef
+DECL|struct|__anon2ae5ac5c0208
+typedef|typedef
+struct|struct
+block|{
+DECL|member|file
+name|ngx_file_t
+name|file
+decl_stmt|;
+DECL|member|path
+name|ngx_path_t
+name|path
+decl_stmt|;
+DECL|member|pool
+name|ngx_pool_t
+modifier|*
+name|pool
+decl_stmt|;
+DECL|member|warn
+name|char
+modifier|*
+name|warn
+decl_stmt|;
+DECL|member|persistent
+name|unsigned
+name|persistent
+range|:
+literal|1
+decl_stmt|;
+DECL|typedef|ngx_temp_file_t
+block|}
+name|ngx_temp_file_t
+typedef|;
+end_typedef
+
+begin_function_decl
+name|int
+name|ngx_write_chain_to_temp_file
+parameter_list|(
+name|ngx_temp_file_t
+modifier|*
+name|tf
+parameter_list|,
+name|ngx_chain_t
+modifier|*
+name|chain
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_function_decl
 name|int
@@ -196,7 +246,7 @@ parameter_list|,
 name|pool
 parameter_list|)
 define|\
-value|if (conf == NULL) {                                                      \         if (prev == NULL) {                                                  \             ngx_test_null(conf, ngx_palloc(pool, sizeof(ngx_path_t)), NULL); \             conf->name.len = sizeof(path) - 1;                               \             conf->name.data = path;                                          \             conf->level[0] = l1;                                             \             conf->level[1] = l2;                                             \             conf->level[2] = l3;                                             \             conf->len = l1 + l2 + l3 + l1 ? 1:0 + l2 ? 1:0 + l3 ? 1:0;       \         } else {                                                             \             conf = prev;                                                     \         }                                                                    \     }
+value|if (conf == NULL) {                                                      \         if (prev == NULL) {                                                  \             ngx_test_null(conf, ngx_palloc(pool, sizeof(ngx_path_t)), NULL); \             conf->name.len = sizeof(path) - 1;                               \             conf->name.data = path;                                          \             conf->level[0] = l1;                                             \             conf->level[1] = l2;                                             \             conf->level[2] = l3;                                             \             conf->len = l1 + l2 + l3 + (l1 ? 1:0) + (l2 ? 1:0) + (l3 ? 1:0); \         } else {                                                             \             conf = prev;                                                     \         }                                                                    \     }
 end_define
 
 begin_endif

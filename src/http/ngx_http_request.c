@@ -194,14 +194,14 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|void
-name|ngx_http_header_parse_error
+name|ngx_http_client_error
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
 name|int
-name|parse_err
+name|client_error
 parameter_list|,
 name|int
 name|error
@@ -229,15 +229,15 @@ function_decl|;
 end_function_decl
 
 begin_comment
-comment|/* NGX_HTTP_PARSE_ ... errors */
+comment|/* NGX_HTTP_PARSE_... errors */
 end_comment
 
 begin_decl_stmt
-DECL|variable|header_errors
+DECL|variable|client_header_errors
 specifier|static
 name|char
 modifier|*
-name|header_errors
+name|client_header_errors
 index|[]
 init|=
 block|{
@@ -394,6 +394,21 @@ block|}
 block|}
 decl_stmt|;
 end_decl_stmt
+
+begin_function
+DECL|function|ngx_http_dummy (ngx_event_t * wev)
+specifier|static
+name|void
+name|ngx_http_dummy
+parameter_list|(
+name|ngx_event_t
+modifier|*
+name|wev
+parameter_list|)
+block|{
+return|return;
+block|}
+end_function
 
 begin_function
 DECL|function|ngx_http_init_connection (ngx_connection_t * c)
@@ -633,6 +648,12 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+if|#
+directive|if
+literal|0
+block_content|c->write->ready = 0;     c->write->event_handler = ngx_http_dummy;      if (ngx_handle_write_event(c->write, 0) == NGX_ERROR) {         ngx_http_close_connection(c);         return;     }
+endif|#
+directive|endif
 block|}
 end_function
 
@@ -691,6 +712,33 @@ name|rev
 operator|->
 name|data
 expr_stmt|;
+if|if
+condition|(
+name|rev
+operator|->
+name|timedout
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+name|NGX_ETIMEDOUT
+argument_list|,
+literal|"client timed out"
+argument_list|)
+expr_stmt|;
+name|ngx_http_close_connection
+argument_list|(
+name|c
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 if|if
 condition|(
 name|c
@@ -1375,16 +1423,13 @@ operator|->
 name|timedout
 condition|)
 block|{
-name|ngx_http_close_request
+name|ngx_http_client_error
 argument_list|(
 name|r
 argument_list|,
+literal|0
+argument_list|,
 name|NGX_HTTP_REQUEST_TIME_OUT
-argument_list|)
-expr_stmt|;
-name|ngx_http_close_connection
-argument_list|(
-name|c
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1475,7 +1520,7 @@ index|]
 operator|=
 literal|'\0'
 expr_stmt|;
-name|ngx_http_header_parse_error
+name|ngx_http_client_error
 argument_list|(
 name|r
 argument_list|,
@@ -1523,7 +1568,7 @@ name|end
 condition|)
 block|{
 comment|/* no space for "\r\n" at the end of the header */
-name|ngx_http_header_parse_error
+name|ngx_http_client_error
 argument_list|(
 name|r
 argument_list|,
@@ -2278,7 +2323,7 @@ name|NGX_AGAIN
 condition|)
 block|{
 comment|/* there was error while a request line parsing */
-name|ngx_http_header_parse_error
+name|ngx_http_client_error
 argument_list|(
 name|r
 argument_list|,
@@ -2341,7 +2386,7 @@ operator|==
 literal|0
 condition|)
 block|{
-name|ngx_http_header_parse_error
+name|ngx_http_client_error
 argument_list|(
 name|r
 argument_list|,
@@ -2450,7 +2495,7 @@ block|}
 block|}
 else|else
 block|{
-name|ngx_http_header_parse_error
+name|ngx_http_client_error
 argument_list|(
 name|r
 argument_list|,
@@ -2530,16 +2575,13 @@ operator|->
 name|timedout
 condition|)
 block|{
-name|ngx_http_close_request
+name|ngx_http_client_error
 argument_list|(
 name|r
 argument_list|,
+literal|0
+argument_list|,
 name|NGX_HTTP_REQUEST_TIME_OUT
-argument_list|)
-expr_stmt|;
-name|ngx_http_close_connection
-argument_list|(
-name|c
 argument_list|)
 expr_stmt|;
 return|return;
@@ -3024,7 +3066,7 @@ operator|!=
 name|NGX_OK
 condition|)
 block|{
-name|ngx_http_header_parse_error
+name|ngx_http_client_error
 argument_list|(
 name|r
 argument_list|,
@@ -3069,7 +3111,7 @@ name|NGX_AGAIN
 condition|)
 block|{
 comment|/* there was error while a header line parsing */
-name|ngx_http_header_parse_error
+name|ngx_http_client_error
 argument_list|(
 name|r
 argument_list|,
@@ -3123,7 +3165,7 @@ operator|==
 literal|0
 condition|)
 block|{
-name|ngx_http_header_parse_error
+name|ngx_http_client_error
 argument_list|(
 name|r
 argument_list|,
@@ -3204,7 +3246,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|ngx_http_header_parse_error
+name|ngx_http_client_error
 argument_list|(
 name|r
 argument_list|,
@@ -3911,6 +3953,20 @@ name|int
 name|rc
 parameter_list|)
 block|{
+comment|/* r can be already destroyed when rc == NGX_DONE */
+if|if
+condition|(
+name|rc
+operator|==
+name|NGX_DONE
+operator|||
+name|r
+operator|->
+expr|main
+condition|)
+block|{
+return|return;
+block|}
 name|ngx_log_debug
 argument_list|(
 name|r
@@ -3922,23 +3978,6 @@ argument_list|,
 literal|"finalize http request"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|rc
-operator|==
-name|NGX_DONE
-operator|||
-name|r
-operator|->
-expr|main
-operator|||
-name|r
-operator|->
-name|closed
-condition|)
-block|{
-return|return;
-block|}
 if|if
 condition|(
 name|rc
@@ -4272,6 +4311,31 @@ name|c
 operator|->
 name|data
 expr_stmt|;
+if|#
+directive|if
+literal|0
+comment|/* TODO: THINK */
+block_content|if (wev->delayed) {         return;     }
+endif|#
+directive|endif
+if|if
+condition|(
+name|wev
+operator|->
+name|timedout
+condition|)
+block|{
+name|ngx_http_client_error
+argument_list|(
+name|r
+argument_list|,
+literal|0
+argument_list|,
+name|NGX_HTTP_REQUEST_TIME_OUT
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|rc
 operator|=
 name|ngx_http_output_filter
@@ -6192,12 +6256,6 @@ operator|->
 name|pool
 argument_list|)
 expr_stmt|;
-name|r
-operator|->
-name|closed
-operator|=
-literal|1
-expr_stmt|;
 return|return;
 block|}
 end_function
@@ -6381,17 +6439,17 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_header_parse_error (ngx_http_request_t * r,int parse_err,int error)
+DECL|function|ngx_http_client_error (ngx_http_request_t * r,int client_error,int error)
 specifier|static
 name|void
-name|ngx_http_header_parse_error
+name|ngx_http_client_error
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
 name|int
-name|parse_err
+name|client_error
 parameter_list|,
 name|int
 name|error
@@ -6411,6 +6469,44 @@ name|log
 operator|->
 name|data
 expr_stmt|;
+if|if
+condition|(
+name|error
+operator|==
+name|NGX_HTTP_REQUEST_TIME_OUT
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+name|NGX_ETIMEDOUT
+argument_list|,
+literal|"client timed out"
+argument_list|)
+expr_stmt|;
+name|ngx_http_close_request
+argument_list|(
+name|r
+argument_list|,
+name|error
+argument_list|)
+expr_stmt|;
+name|ngx_http_close_connection
+argument_list|(
+name|r
+operator|->
+name|connection
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|r
 operator|->
 name|connection
@@ -6440,11 +6536,11 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-name|header_errors
+name|client_header_errors
 index|[
-name|parse_err
+name|client_error
 operator|-
-name|NGX_HTTP_PARSE_INVALID_METHOD
+name|NGX_HTTP_CLIENT_ERROR
 index|]
 argument_list|,
 name|ctx
@@ -6471,11 +6567,11 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-name|header_errors
+name|client_header_errors
 index|[
-name|parse_err
+name|client_error
 operator|-
-name|NGX_HTTP_PARSE_INVALID_METHOD
+name|NGX_HTTP_CLIENT_ERROR
 index|]
 argument_list|,
 name|ctx

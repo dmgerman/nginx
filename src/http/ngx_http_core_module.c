@@ -1010,21 +1010,11 @@ break|break;
 block|}
 if|#
 directive|if
-literal|1
-comment|/* TEST STUB */
-name|r
-operator|->
-name|http_version
-operator|=
-name|NGX_HTTP_VERSION_10
-expr_stmt|;
-comment|/* TEST STUB */
-name|r
-operator|->
-name|keepalive
-operator|=
 literal|0
-expr_stmt|;
+comment|/* TEST STUB */
+block_content|r->http_version = NGX_HTTP_VERSION_10;
+comment|/* TEST STUB */
+block_content|r->keepalive = 0;
 endif|#
 directive|endif
 if|if
@@ -1245,16 +1235,6 @@ condition|(
 name|rc
 operator|==
 name|NGX_DONE
-condition|)
-block|{
-return|return;
-block|}
-comment|/* TODO THINK: is it dupliate NGX_DONE ??? */
-if|if
-condition|(
-name|r
-operator|->
-name|closed
 condition|)
 block|{
 return|return;
@@ -1694,6 +1674,17 @@ modifier|*
 name|r
 parameter_list|)
 block|{
+if|if
+condition|(
+name|r
+operator|->
+expr|main
+condition|)
+block|{
+return|return
+name|NGX_OK
+return|;
+block|}
 return|return
 call|(
 modifier|*

@@ -93,6 +93,14 @@ value|1
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_CLIENT_ERROR
+define|#
+directive|define
+name|NGX_HTTP_CLIENT_ERROR
+value|10
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_PARSE_INVALID_METHOD
 define|#
 directive|define
@@ -122,6 +130,14 @@ define|#
 directive|define
 name|NGX_HTTP_PARSE_INVALID_09_METHOD
 value|13
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_PARSE_HEADER_ERROR
+define|#
+directive|define
+name|NGX_HTTP_PARSE_HEADER_ERROR
+value|14
 end_define
 
 begin_define
@@ -317,7 +333,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon27b08db00108
+DECL|struct|__anon2976993e0108
 typedef|typedef
 struct|struct
 block|{
@@ -336,7 +352,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b08db00208
+DECL|struct|__anon2976993e0208
 typedef|typedef
 struct|struct
 block|{
@@ -408,7 +424,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b08db00308
+DECL|struct|__anon2976993e0308
 typedef|typedef
 struct|struct
 block|{
@@ -459,7 +475,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b08db00408
+DECL|struct|__anon2976993e0408
 typedef|typedef
 struct|struct
 block|{
@@ -482,7 +498,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b08db00508
+DECL|struct|__anon2976993e0508
 typedef|typedef
 struct|struct
 block|{
@@ -750,6 +766,42 @@ DECL|member|content_handler
 name|ngx_http_handler_pt
 name|content_handler
 decl_stmt|;
+DECL|member|temp_file
+name|ngx_temp_file_t
+modifier|*
+name|temp_file
+decl_stmt|;
+DECL|member|request_hunks
+name|ngx_chain_t
+modifier|*
+name|request_hunks
+decl_stmt|;
+DECL|member|request_body_hunk
+name|ngx_hunk_t
+modifier|*
+name|request_body_hunk
+decl_stmt|;
+DECL|member|request_body_len
+name|int
+name|request_body_len
+decl_stmt|;
+DECL|member|request_body_handler
+name|void
+function_decl|(
+modifier|*
+name|request_body_handler
+function_decl|)
+parameter_list|(
+name|void
+modifier|*
+name|data
+parameter_list|)
+function_decl|;
+DECL|member|data
+name|void
+modifier|*
+name|data
+decl_stmt|;
 DECL|member|discarded_buffer
 name|char
 modifier|*
@@ -824,12 +876,12 @@ name|lingering_close
 range|:
 literal|1
 decl_stmt|;
-DECL|member|closed
-name|unsigned
-name|closed
-range|:
-literal|1
-decl_stmt|;
+if|#
+directive|if
+literal|0
+block|unsigned             closed:1;
+endif|#
+directive|endif
 comment|/* TODO: use filter or bits ???? */
 DECL|member|filter
 name|int
