@@ -18,7 +18,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon274e9f780108
+DECL|struct|__anon288fe2dc0108
 typedef|typedef
 struct|struct
 block|{
@@ -1364,14 +1364,14 @@ name|headers_out
 operator|.
 name|location
 operator|=
-name|ngx_http_add_header
+name|ngx_push_list
 argument_list|(
 operator|&
 name|r
 operator|->
 name|headers_out
-argument_list|,
-name|ngx_http_headers_out
+operator|.
+name|headers
 argument_list|)
 operator|)
 condition|)

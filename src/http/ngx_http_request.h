@@ -157,11 +157,19 @@ value|15
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_PARSE_TOO_MANY_HEADERS
+define|#
+directive|define
+name|NGX_HTTP_PARSE_TOO_MANY_HEADERS
+value|16
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_PARSE_NO_HOST_HEADER
 define|#
 directive|define
 name|NGX_HTTP_PARSE_NO_HOST_HEADER
-value|16
+value|17
 end_define
 
 begin_define
@@ -169,7 +177,7 @@ DECL|macro|NGX_HTTP_PARSE_INVALID_CL_HEADER
 define|#
 directive|define
 name|NGX_HTTP_PARSE_INVALID_CL_HEADER
-value|17
+value|18
 end_define
 
 begin_define
@@ -177,7 +185,7 @@ DECL|macro|NGX_HTTP_PARSE_POST_WO_CL_HEADER
 define|#
 directive|define
 name|NGX_HTTP_PARSE_POST_WO_CL_HEADER
-value|18
+value|19
 end_define
 
 begin_define
@@ -185,7 +193,7 @@ DECL|macro|NGX_HTTP_PARSE_HTTP_TO_HTTPS
 define|#
 directive|define
 name|NGX_HTTP_PARSE_HTTP_TO_HTTPS
-value|19
+value|20
 end_define
 
 begin_define
@@ -193,7 +201,7 @@ DECL|macro|NGX_HTTP_PARSE_INVALID_HOST
 define|#
 directive|define
 name|NGX_HTTP_PARSE_INVALID_HOST
-value|20
+value|21
 end_define
 
 begin_define
@@ -397,7 +405,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon277a64590103
+DECL|enum|__anon2798fc900103
 typedef|typedef
 enum|enum
 block|{
@@ -418,7 +426,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon277a64590203
+DECL|enum|__anon2798fc900203
 typedef|typedef
 enum|enum
 block|{
@@ -457,7 +465,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277a64590308
+DECL|struct|__anon2798fc900308
 typedef|typedef
 struct|struct
 block|{
@@ -476,15 +484,14 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277a64590408
+DECL|struct|__anon2798fc900408
 typedef|typedef
 struct|struct
 block|{
 DECL|member|headers
-name|ngx_table_t
+name|ngx_list_t
 name|headers
 decl_stmt|;
-comment|/* it must be first field */
 DECL|member|host
 name|ngx_table_elt_t
 modifier|*
@@ -594,7 +601,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277a64590508
+DECL|struct|__anon2798fc900508
 typedef|typedef
 struct|struct
 block|{
@@ -617,15 +624,21 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277a64590608
+DECL|struct|__anon2798fc900608
 typedef|typedef
 struct|struct
 block|{
 DECL|member|headers
-name|ngx_table_t
+name|ngx_list_t
 name|headers
 decl_stmt|;
+if|#
+directive|if
+literal|0
+block|ngx_table_t       headers;
 comment|/* it must be first field */
+endif|#
+directive|endif
 DECL|member|status
 name|ngx_uint_t
 name|status
@@ -721,7 +734,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277a64590708
+DECL|struct|__anon2798fc900708
 typedef|typedef
 struct|struct
 block|{
@@ -772,10 +785,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon277a6459080a
+DECL|union|__anon2798fc90080a
 union|union
 block|{
-DECL|struct|__anon277a64590908
+DECL|struct|__anon2798fc900908
 struct|struct
 block|{
 DECL|member|fd
@@ -791,7 +804,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon277a64590a08
+DECL|struct|__anon2798fc900a08
 struct|struct
 block|{
 DECL|member|hash
@@ -1146,6 +1159,10 @@ name|unsigned
 name|filter_allow_ranges
 range|:
 literal|1
+decl_stmt|;
+DECL|member|headers_n
+name|ngx_uint_t
+name|headers_n
 decl_stmt|;
 comment|/* used to parse HTTP headers */
 DECL|member|state

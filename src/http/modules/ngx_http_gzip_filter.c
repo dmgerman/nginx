@@ -24,7 +24,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon298ac46c0108
+DECL|struct|__anon2bce9d6d0108
 typedef|typedef
 struct|struct
 block|{
@@ -143,7 +143,7 @@ value|0x0200
 end_define
 
 begin_typedef
-DECL|struct|__anon298ac46c0208
+DECL|struct|__anon2bce9d6d0208
 typedef|typedef
 struct|struct
 block|{
@@ -1357,14 +1357,14 @@ name|headers_out
 operator|.
 name|content_encoding
 operator|=
-name|ngx_http_add_header
+name|ngx_push_list
 argument_list|(
 operator|&
 name|r
 operator|->
 name|headers_out
-argument_list|,
-name|ngx_http_headers_out
+operator|.
+name|headers
 argument_list|)
 expr_stmt|;
 if|if

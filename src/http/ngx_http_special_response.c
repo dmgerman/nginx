@@ -915,14 +915,14 @@ name|headers_out
 operator|.
 name|content_type
 operator|=
-name|ngx_http_add_header
+name|ngx_push_list
 argument_list|(
 operator|&
 name|r
 operator|->
 name|headers_out
-argument_list|,
-name|ngx_http_headers_out
+operator|.
+name|headers
 argument_list|)
 operator|)
 condition|)

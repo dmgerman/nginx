@@ -18,9 +18,9 @@ file|<ngx_event.h>
 end_include
 
 begin_function
-DECL|function|ngx_imap_proxy_init_connection (ngx_connection_t * c)
+DECL|function|ngx_imap_init_connection (ngx_connection_t * c)
 name|void
-name|ngx_imap_proxy_init_connection
+name|ngx_imap_init_connection
 parameter_list|(
 name|ngx_connection_t
 modifier|*
@@ -37,7 +37,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"imap proxy init connection"
+literal|"imap init connection"
 argument_list|)
 expr_stmt|;
 if|if
