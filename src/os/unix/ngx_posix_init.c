@@ -36,7 +36,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon2b1dc7bd0108
+DECL|struct|__anon29806b8c0108
 typedef|typedef
 struct|struct
 block|{
@@ -159,6 +159,14 @@ name|ngx_value
 argument_list|(
 name|NGX_CHANGEBIN_SIGNAL
 argument_list|)
+block|,
+name|ngx_signal_handler
+block|}
+block|,
+block|{
+name|SIGALRM
+block|,
+literal|"SIGALRM"
 block|,
 name|ngx_signal_handler
 block|}
@@ -409,10 +417,6 @@ name|ngx_signal_t
 modifier|*
 name|sig
 decl_stmt|;
-name|ngx_signal
-operator|=
-literal|1
-expr_stmt|;
 name|ignore
 operator|=
 literal|0
@@ -619,6 +623,25 @@ name|action
 operator|=
 literal|", changing binary"
 expr_stmt|;
+break|break;
+case|case
+name|SIGALRM
+case|:
+if|if
+condition|(
+operator|!
+name|ngx_terminate
+condition|)
+block|{
+name|ngx_timer
+operator|=
+literal|1
+expr_stmt|;
+name|action
+operator|=
+literal|", shutting down old worker process"
+expr_stmt|;
+block|}
 break|break;
 case|case
 name|SIGCHLD

@@ -74,7 +74,7 @@ value|5
 end_define
 
 begin_typedef
-DECL|struct|__anon29f7622a0108
+DECL|struct|__anon291422ed0108
 typedef|typedef
 struct|struct
 block|{
@@ -93,7 +93,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f7622a0208
+DECL|struct|__anon291422ed0208
 typedef|typedef
 struct|struct
 block|{ }
@@ -103,7 +103,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f7622a0308
+DECL|struct|__anon291422ed0308
 typedef|typedef
 struct|struct
 block|{
@@ -196,7 +196,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f7622a0408
+DECL|struct|__anon291422ed0408
 typedef|typedef
 struct|struct
 block|{
@@ -215,7 +215,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29f7622a0503
+DECL|enum|__anon291422ed0503
 typedef|typedef
 enum|enum
 block|{
@@ -811,7 +811,7 @@ name|ngx_http_next_body_filter
 argument_list|(
 name|r
 argument_list|,
-name|NULL
+name|in
 argument_list|)
 return|;
 block|}
