@@ -56,6 +56,20 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
+name|size_t
+name|ngx_http_cookie_time
+parameter_list|(
+name|u_char
+modifier|*
+name|buf
+parameter_list|,
+name|time_t
+name|t
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
 name|void
 name|ngx_gmtime
 parameter_list|(

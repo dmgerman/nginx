@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29c6ef8f0108
+DECL|struct|__anon2a3cba580108
 typedef|typedef
 struct|struct
 block|{
@@ -373,14 +373,32 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_define
+DECL|macro|ngx_base64_encoded_length (len)
+define|#
+directive|define
+name|ngx_base64_encoded_length
+parameter_list|(
+name|len
+parameter_list|)
+value|(((len + 2) / 3) * 4)
+end_define
+
+begin_define
+DECL|macro|ngx_base64_decoded_length (len)
+define|#
+directive|define
+name|ngx_base64_decoded_length
+parameter_list|(
+name|len
+parameter_list|)
+value|(((len + 3) / 4) * 3)
+end_define
+
 begin_function_decl
-name|ngx_int_t
+name|void
 name|ngx_encode_base64
 parameter_list|(
-name|ngx_pool_t
-modifier|*
-name|pool
-parameter_list|,
 name|ngx_str_t
 modifier|*
 name|src
@@ -396,10 +414,6 @@ begin_function_decl
 name|ngx_int_t
 name|ngx_decode_base64
 parameter_list|(
-name|ngx_pool_t
-modifier|*
-name|pool
-parameter_list|,
 name|ngx_str_t
 modifier|*
 name|src
