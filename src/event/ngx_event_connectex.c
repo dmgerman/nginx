@@ -87,6 +87,8 @@ name|WSAEVENT
 name|events
 index|[
 name|WSA_MAXIMUM_WAIT_EVENTS
+operator|+
+literal|1
 index|]
 decl_stmt|;
 end_decl_stmt
@@ -104,6 +106,8 @@ modifier|*
 name|conn
 index|[
 name|WSA_MAXIMUM_WAIT_EVENTS
+operator|+
+literal|1
 index|]
 decl_stmt|;
 end_decl_stmt
@@ -505,6 +509,8 @@ operator|(
 name|nevents
 operator|==
 name|WSA_MAXIMUM_WAIT_EVENTS
+operator|+
+literal|1
 operator|)
 condition|?
 literal|1
@@ -577,7 +583,7 @@ if|if
 condition|(
 name|nevents
 operator|==
-literal|1
+literal|2
 operator|&&
 operator|!
 expr|main
@@ -609,12 +615,15 @@ name|WSA_WAIT_EVENT_0
 expr_stmt|;
 if|if
 condition|(
+name|events
+index|[
 name|n
+index|]
 operator|==
-literal|0
+name|NULL
 condition|)
 block|{
-comment|/* the first event is pending_connect_event */
+comment|/* the pending_connect_event */
 if|if
 condition|(
 name|nevents
