@@ -83,11 +83,9 @@ name|ngx_cycle_t
 modifier|*
 name|old_cycle
 decl_stmt|;
-DECL|member|one_process
-name|unsigned
-name|one_process
-range|:
-literal|1
+DECL|member|conf_file
+name|ngx_str_t
+name|conf_file
 decl_stmt|;
 block|}
 struct|;
