@@ -1198,7 +1198,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"busy lock waiting is useless with zero timeout"
+literal|"busy lock waiting is useless with zero timeout, ignoring"
 argument_list|)
 expr_stmt|;
 block|}

@@ -24,6 +24,22 @@ directive|include
 file|<ngx_core.h>
 end_include
 
+begin_typedef
+DECL|typedef|ngx_event_handler_pt
+typedef|typedef
+name|void
+function_decl|(
+modifier|*
+name|ngx_event_handler_pt
+function_decl|)
+parameter_list|(
+name|ngx_event_t
+modifier|*
+name|ev
+parameter_list|)
+function_decl|;
+end_typedef
+
 begin_define
 DECL|macro|NGX_INVALID_INDEX
 define|#
@@ -41,7 +57,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon288113710108
+DECL|struct|__anon2c9154f20108
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +86,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon288113710208
+DECL|struct|__anon2c9154f20208
 typedef|typedef
 struct|struct
 block|{
@@ -106,17 +122,9 @@ name|data
 decl_stmt|;
 comment|/* TODO rename to handler */
 DECL|member|event_handler
-name|void
-function_decl|(
-modifier|*
+name|ngx_event_handler_pt
 name|event_handler
-function_decl|)
-parameter_list|(
-name|ngx_event_t
-modifier|*
-name|ev
-parameter_list|)
-function_decl|;
+decl_stmt|;
 DECL|member|index
 name|u_int
 name|index
@@ -384,7 +392,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon288113710308
+DECL|struct|__anon2c9154f20308
 typedef|typedef
 struct|struct
 block|{
@@ -1163,7 +1171,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon288113710408
+DECL|struct|__anon2c9154f20408
 typedef|typedef
 struct|struct
 block|{
@@ -1191,7 +1199,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288113710508
+DECL|struct|__anon2c9154f20508
 typedef|typedef
 struct|struct
 block|{
@@ -1242,12 +1250,33 @@ end_typedef
 
 begin_decl_stmt
 specifier|extern
-specifier|volatile
+name|ngx_thread_volatile
 name|ngx_event_t
 modifier|*
 name|ngx_posted_events
 decl_stmt|;
 end_decl_stmt
+
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_THREADS
+operator|)
+end_if
+
+begin_decl_stmt
+specifier|extern
+name|ngx_mutex_t
+modifier|*
+name|ngx_posted_events_mutex
+decl_stmt|;
+end_decl_stmt
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_decl_stmt
 specifier|extern
@@ -1352,6 +1381,12 @@ begin_include
 include|#
 directive|include
 file|<ngx_event_timer.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_event_busy_lock.h>
 end_include
 
 begin_if
