@@ -352,12 +352,38 @@ return|return
 name|NGX_AGAIN
 return|;
 block|}
+if|if
+condition|(
+name|sslerr
+operator|==
+name|SSL_ERROR_WANT_WRITE
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+name|err
+argument_list|,
+literal|"SSL wants to write%s"
+argument_list|,
+name|handshake
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
 if|#
 directive|if
 literal|0
-block_content|if (sslerr == SSL_ERROR_WANT_WRITE) {         return NGX_AGAIN;     }
+block_content|return NGX_AGAIN;
 endif|#
 directive|endif
+block|}
 if|if
 condition|(
 operator|!
@@ -1065,10 +1091,35 @@ return|return
 name|NGX_AGAIN
 return|;
 block|}
+if|if
+condition|(
+name|sslerr
+operator|==
+name|SSL_ERROR_WANT_READ
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+name|err
+argument_list|,
+literal|"SSL wants to read%s"
+argument_list|,
+name|handshake
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
 if|#
 directive|if
 literal|0
-block_content|if (sslerr == SSL_ERROR_WANT_READ) {         return NGX_AGAIN;     }
+block_content|return NGX_AGAIN;     }
 endif|#
 directive|endif
 name|c
@@ -1096,9 +1147,6 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-end_function
-
-begin_function
 DECL|function|ngx_ssl_shutdown (ngx_connection_t * c)
 name|ngx_int_t
 name|ngx_ssl_shutdown
@@ -1380,9 +1428,6 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-end_function
-
-begin_function
 DECL|function|ngx_ssl_error (ngx_uint_t level,ngx_log_t * log,ngx_err_t err,char * fmt,...)
 name|void
 name|ngx_ssl_error
