@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b8bd5b10108
+DECL|struct|__anon2bf6c8d60108
 typedef|typedef
 struct|struct
 block|{
@@ -621,7 +621,7 @@ argument_list|(
 literal|"max-age="
 argument_list|)
 operator|+
-name|TIME_T_LEN
+name|NGX_TIME_T_LEN
 operator|+
 literal|1
 argument_list|)

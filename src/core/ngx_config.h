@@ -367,10 +367,6 @@ endif|#
 directive|endif
 end_endif
 
-begin_comment
-comment|/* TODO: auto */
-end_comment
-
 begin_define
 DECL|macro|NGX_INT32_LEN
 define|#
@@ -385,22 +381,6 @@ define|#
 directive|define
 name|NGX_INT64_LEN
 value|sizeof("-9223372036854775808") - 1
-end_define
-
-begin_define
-DECL|macro|NGX_OFF_T_LEN
-define|#
-directive|define
-name|NGX_OFF_T_LEN
-value|sizeof("-9223372036854775808") - 1
-end_define
-
-begin_define
-DECL|macro|NGX_MAX_INT_LEN
-define|#
-directive|define
-name|NGX_MAX_INT_LEN
-value|(sizeof("-9223372036854775808") - 1)
 end_define
 
 begin_if

@@ -674,7 +674,7 @@ argument_list|(
 literal|"msec"
 argument_list|)
 block|,
-name|TIME_T_LEN
+name|NGX_TIME_T_LEN
 operator|+
 literal|4
 block|,
@@ -731,7 +731,7 @@ argument_list|(
 literal|"request_length"
 argument_list|)
 block|,
-name|NGX_OFF_T_LEN
+name|NGX_SIZE_T_LEN
 block|,
 name|ngx_http_log_request_length
 block|}
@@ -1639,7 +1639,7 @@ name|ngx_sprintf
 argument_list|(
 name|buf
 argument_list|,
-literal|"%O"
+literal|"%z"
 argument_list|,
 name|r
 operator|->

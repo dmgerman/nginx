@@ -1187,7 +1187,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"still can not bind()"
+literal|"still could not bind()"
 argument_list|)
 expr_stmt|;
 return|return

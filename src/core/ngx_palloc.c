@@ -165,7 +165,7 @@ operator|->
 name|alloc
 condition|)
 block|{
-name|free
+name|ngx_free
 argument_list|(
 name|l
 operator|->
@@ -265,7 +265,7 @@ operator|->
 name|next
 control|)
 block|{
-name|free
+name|ngx_free
 argument_list|(
 name|p
 argument_list|)
@@ -718,7 +718,7 @@ operator|->
 name|alloc
 argument_list|)
 expr_stmt|;
-name|free
+name|ngx_free
 argument_list|(
 name|l
 operator|->

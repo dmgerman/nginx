@@ -47,7 +47,7 @@ value|3
 end_define
 
 begin_typedef
-DECL|struct|__anon29fffafd0108
+DECL|struct|__anon28b02e9f0108
 typedef|typedef
 struct|struct
 block|{
@@ -130,7 +130,7 @@ DECL|member|updated
 name|time_t
 name|updated
 decl_stmt|;
-DECL|union|__anon29fffafd020a
+DECL|union|__anon28b02e9f020a
 union|union
 block|{
 DECL|member|size
@@ -152,7 +152,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fffafd0308
+DECL|struct|__anon28b02e9f0308
 typedef|typedef
 struct|struct
 block|{
@@ -206,7 +206,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon29fffafd0408
+DECL|struct|__anon28b02e9f0408
 typedef|typedef
 struct|struct
 block|{
@@ -254,7 +254,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fffafd0508
+DECL|struct|__anon28b02e9f0508
 typedef|typedef
 struct|struct
 block|{
@@ -313,13 +313,17 @@ DECL|member|length
 name|off_t
 name|length
 decl_stmt|;
-DECL|member|header_size
-name|ssize_t
-name|header_size
+DECL|member|key_len
+name|size_t
+name|key_len
 decl_stmt|;
 DECL|member|file_start
 name|size_t
 name|file_start
+decl_stmt|;
+DECL|member|uniq
+name|ngx_file_uniq_t
+name|uniq
 decl_stmt|;
 DECL|member|log
 name|ngx_log_t
@@ -327,6 +331,10 @@ modifier|*
 name|log
 decl_stmt|;
 comment|/* STUB */
+DECL|member|header_size
+name|ssize_t
+name|header_size
+decl_stmt|;
 DECL|member|key0
 name|ngx_str_t
 name|key0
@@ -338,17 +346,41 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fffafd0608
+DECL|struct|__anon28b02e9f0608
 typedef|typedef
 struct|struct
 block|{
 DECL|member|path
 name|ngx_path_t
+modifier|*
 name|path
 decl_stmt|;
 DECL|member|key
 name|ngx_str_t
 name|key
+decl_stmt|;
+DECL|member|buf
+name|ngx_buf_t
+modifier|*
+name|buf
+decl_stmt|;
+DECL|member|file
+name|unsigned
+name|file
+range|:
+literal|1
+decl_stmt|;
+DECL|member|memory
+name|unsigned
+name|memory
+range|:
+literal|1
+decl_stmt|;
+DECL|member|primary
+name|unsigned
+name|primary
+range|:
+literal|1
 decl_stmt|;
 DECL|typedef|ngx_http_cache_ctx_t
 block|}
@@ -380,6 +412,66 @@ name|NGX_HTTP_CACHE_THE_SAME
 value|3
 end_define
 
+begin_function_decl
+name|ngx_int_t
+name|ngx_http_cache_get
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_http_cache_ctx_t
+modifier|*
+name|ctx
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_http_file_cache_get
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_http_cache_ctx_t
+modifier|*
+name|ctx
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_http_file_cache_open
+parameter_list|(
+name|ngx_http_cache_t
+modifier|*
+name|c
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_http_cache_cleaner_handler
+parameter_list|(
+name|ngx_gc_t
+modifier|*
+name|gc
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|name
+parameter_list|,
+name|ngx_dir_t
+modifier|*
+name|dir
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_if
 if|#
 directive|if
@@ -387,7 +479,7 @@ literal|0
 end_if
 
 begin_endif
-unit|ngx_http_cache_t *ngx_http_cache_get(ngx_http_cache_hash_t *cache,                                      ngx_http_cleanup_t *cleanup,                                      ngx_str_t *key, uint32_t *crc);  ngx_http_cache_t *ngx_http_cache_alloc(ngx_http_cache_hash_t *hash,                                        ngx_http_cache_t *cache,                                        ngx_http_cleanup_t *cleanup,                                        ngx_str_t *key, uint32_t crc,                                        ngx_str_t *value, ngx_log_t *log); void ngx_http_cache_free(ngx_http_cache_t *cache,                          ngx_str_t *key, ngx_str_t *value, ngx_log_t *log); void ngx_http_cache_lock(ngx_http_cache_hash_t *hash, ngx_http_cache_t *cache); void ngx_http_cache_unlock(ngx_http_cache_hash_t *hash,                            ngx_http_cache_t *cache, ngx_log_t *log);  int ngx_http_cache_get_file(ngx_http_request_t *r, ngx_http_cache_ctx_t *ctx); int ngx_http_cache_open_file(ngx_http_cache_ctx_t *ctx, ngx_file_uniq_t uniq); int ngx_http_cache_update_file(ngx_http_request_t *r,ngx_http_cache_ctx_t *ctx,                                ngx_str_t *temp_file);  int ngx_http_send_cached(ngx_http_request_t *r);   int ngx_garbage_collector_http_cache_handler(ngx_gc_t *gc, ngx_str_t *name,                                              ngx_dir_t *dir);  char *ngx_http_set_cache_slot(ngx_conf_t *cf, ngx_command_t *cmd, void *conf);
+unit|ngx_http_cache_t *ngx_http_cache_get(ngx_http_cache_hash_t *cache,                                      ngx_http_cleanup_t *cleanup,                                      ngx_str_t *key, uint32_t *crc);  ngx_http_cache_t *ngx_http_cache_alloc(ngx_http_cache_hash_t *hash,                                        ngx_http_cache_t *cache,                                        ngx_http_cleanup_t *cleanup,                                        ngx_str_t *key, uint32_t crc,                                        ngx_str_t *value, ngx_log_t *log); void ngx_http_cache_free(ngx_http_cache_t *cache,                          ngx_str_t *key, ngx_str_t *value, ngx_log_t *log); void ngx_http_cache_lock(ngx_http_cache_hash_t *hash, ngx_http_cache_t *cache); void ngx_http_cache_unlock(ngx_http_cache_hash_t *hash,                            ngx_http_cache_t *cache, ngx_log_t *log);  int ngx_http_cache_update_file(ngx_http_request_t *r,ngx_http_cache_ctx_t *ctx,                                ngx_str_t *temp_file);  int ngx_http_send_cached(ngx_http_request_t *r);   char *ngx_http_set_cache_slot(ngx_conf_t *cf, ngx_command_t *cmd, void *conf);
 endif|#
 directive|endif
 end_endif

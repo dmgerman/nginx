@@ -81,14 +81,14 @@ literal|0
 operator|||
 name|limit
 operator|>
-name|MAX_SIZE_T_VALUE
+name|NGX_MAX_SIZE_T_VALUE
 operator|-
 name|ngx_pagesize
 condition|)
 block|{
 name|limit
 operator|=
-name|MAX_SIZE_T_VALUE
+name|NGX_MAX_SIZE_T_VALUE
 operator|-
 name|ngx_pagesize
 expr_stmt|;

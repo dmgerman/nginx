@@ -120,9 +120,9 @@ operator|(
 name|NGX_THREADS
 operator|&&
 operator|(
-name|TIME_T_SIZE
+name|NGX_TIME_T_SIZE
 operator|>
-name|SIG_ATOMIC_T_SIZE
+name|NGX_SIG_ATOMIC_T_SIZE
 operator|)
 operator|)
 end_if

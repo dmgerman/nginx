@@ -131,7 +131,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon2c1083370108
+DECL|struct|__anon2921521f0108
 typedef|typedef
 struct|struct
 block|{
@@ -687,7 +687,7 @@ literal|1
 expr_stmt|;
 name|action
 operator|=
-literal|", reopen logs"
+literal|", reopening logs"
 expr_stmt|;
 break|break;
 case|case
@@ -776,6 +776,16 @@ block|{
 case|case
 name|ngx_signal_value
 argument_list|(
+name|NGX_NOACCEPT_SIGNAL
+argument_list|)
+case|:
+name|ngx_debug_quit
+operator|=
+literal|1
+expr_stmt|;
+case|case
+name|ngx_signal_value
+argument_list|(
 name|NGX_SHUTDOWN_SIGNAL
 argument_list|)
 case|:
@@ -818,19 +828,13 @@ literal|1
 expr_stmt|;
 name|action
 operator|=
-literal|", reopen logs"
+literal|", reopening logs"
 expr_stmt|;
 break|break;
 case|case
 name|ngx_signal_value
 argument_list|(
 name|NGX_RECONFIGURE_SIGNAL
-argument_list|)
-case|:
-case|case
-name|ngx_signal_value
-argument_list|(
-name|NGX_NOACCEPT_SIGNAL
 argument_list|)
 case|:
 case|case
@@ -852,7 +856,7 @@ break|break;
 block|}
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_NOTICE
 argument_list|,
 name|ngx_cycle
 operator|->

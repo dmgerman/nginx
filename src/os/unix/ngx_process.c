@@ -731,9 +731,9 @@ break|break;
 default|default:
 break|break;
 block|}
-name|ngx_log_debug2
+name|ngx_log_error
 argument_list|(
-name|NGX_LOG_DEBUG_CORE
+name|NGX_LOG_NOTICE
 argument_list|,
 name|cycle
 operator|->
@@ -741,7 +741,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"spawn %s: %P"
+literal|"start %s %P"
 argument_list|,
 name|name
 argument_list|,
@@ -1295,7 +1295,7 @@ else|else
 block|{
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_NOTICE
 argument_list|,
 name|ngx_cycle
 operator|->

@@ -521,19 +521,51 @@ typedef|;
 end_typedef
 
 begin_define
-DECL|macro|TIME_T_LEN
+DECL|macro|NGX_SIZE_T_LEN
 define|#
 directive|define
-name|TIME_T_LEN
+name|NGX_SIZE_T_LEN
 value|sizeof("-2147483648") - 1
 end_define
 
 begin_define
-DECL|macro|OFF_T_MAX_VALUE
+DECL|macro|NGX_TIME_T_LEN
 define|#
 directive|define
-name|OFF_T_MAX_VALUE
+name|NGX_TIME_T_LEN
+value|sizeof("-2147483648") - 1
+end_define
+
+begin_define
+DECL|macro|NGX_TIME_T_SIZE
+define|#
+directive|define
+name|NGX_TIME_T_SIZE
+value|4
+end_define
+
+begin_define
+DECL|macro|NGX_OFF_T_LEN
+define|#
+directive|define
+name|NGX_OFF_T_LEN
+value|sizeof("-9223372036854775807") - 1
+end_define
+
+begin_define
+DECL|macro|NGX_MAX_OFF_T_VALUE
+define|#
+directive|define
+name|NGX_MAX_OFF_T_VALUE
 value|9223372036854775807
+end_define
+
+begin_define
+DECL|macro|NGX_SIG_ATOMIC_T_SIZE
+define|#
+directive|define
+name|NGX_SIG_ATOMIC_T_SIZE
+value|4
 end_define
 
 begin_define

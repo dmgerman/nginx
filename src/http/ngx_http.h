@@ -52,6 +52,15 @@ name|ngx_http_cleanup_t
 typedef|;
 end_typedef
 
+begin_typedef
+DECL|typedef|ngx_http_in_addr_t
+typedef|typedef
+name|struct
+name|ngx_http_in_addr_s
+name|ngx_http_in_addr_t
+typedef|;
+end_typedef
+
 begin_if
 if|#
 directive|if
@@ -131,7 +140,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2bb6f47f0108
+DECL|struct|__anon297a89600108
 typedef|typedef
 struct|struct
 block|{

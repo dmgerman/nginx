@@ -253,6 +253,13 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_debug_quit
+name|sig_atomic_t
+name|ngx_debug_quit
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_exiting
 name|ngx_uint_t
 name|ngx_exiting
@@ -1019,19 +1026,6 @@ condition|(
 name|ngx_new_binary
 condition|)
 block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_INFO
-argument_list|,
-name|cycle
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"start new workers"
-argument_list|)
-expr_stmt|;
 name|ngx_start_worker_processes
 argument_list|(
 name|cycle
@@ -1058,7 +1052,7 @@ continue|continue;
 block|}
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_NOTICE
 argument_list|,
 name|cycle
 operator|->
@@ -1188,7 +1182,7 @@ literal|0
 expr_stmt|;
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_NOTICE
 argument_list|,
 name|cycle
 operator|->
@@ -1230,7 +1224,7 @@ literal|0
 expr_stmt|;
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_NOTICE
 argument_list|,
 name|cycle
 operator|->
@@ -1392,7 +1386,7 @@ literal|0
 expr_stmt|;
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_NOTICE
 argument_list|,
 name|cycle
 operator|->
@@ -1443,7 +1437,7 @@ literal|0
 expr_stmt|;
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_NOTICE
 argument_list|,
 name|cycle
 operator|->
@@ -1499,7 +1493,7 @@ name|itv
 decl_stmt|;
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_NOTICE
 argument_list|,
 name|cycle
 operator|->
@@ -1779,7 +1773,7 @@ decl_stmt|;
 return|return;
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_NOTICE
 argument_list|,
 name|cycle
 operator|->
@@ -3010,7 +3004,7 @@ argument_list|)
 expr_stmt|;
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_NOTICE
 argument_list|,
 name|cycle
 operator|->
@@ -3282,7 +3276,7 @@ condition|)
 block|{
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_NOTICE
 argument_list|,
 name|cycle
 operator|->
@@ -3309,6 +3303,15 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+if|if
+condition|(
+name|ngx_debug_quit
+condition|)
+block|{
+name|ngx_debug_point
+argument_list|()
+expr_stmt|;
+block|}
 comment|/*              * we do not destroy cycle->pool here because a signal handler              * that uses cycle->log can be called at this point              */
 name|exit
 argument_list|(
@@ -3341,7 +3344,7 @@ condition|)
 block|{
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_NOTICE
 argument_list|,
 name|cycle
 operator|->
@@ -3382,7 +3385,7 @@ literal|0
 expr_stmt|;
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_NOTICE
 argument_list|,
 name|cycle
 operator|->
@@ -3426,7 +3429,7 @@ literal|0
 expr_stmt|;
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_NOTICE
 argument_list|,
 name|cycle
 operator|->
@@ -3434,7 +3437,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"reopen logs"
+literal|"reopening logs"
 argument_list|)
 expr_stmt|;
 name|ngx_reopen_files
@@ -5003,7 +5006,7 @@ condition|)
 block|{
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_NOTICE
 argument_list|,
 name|cycle
 operator|->
@@ -5031,7 +5034,7 @@ literal|0
 expr_stmt|;
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_NOTICE
 argument_list|,
 name|cycle
 operator|->
@@ -5039,7 +5042,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"reopen logs"
+literal|"reopening logs"
 argument_list|)
 expr_stmt|;
 name|ngx_reopen_files

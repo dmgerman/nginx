@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c64cf130108
+DECL|struct|__anon2bdc64e60108
 typedef|typedef
 struct|struct
 block|{
@@ -65,6 +65,17 @@ define|#
 directive|define
 name|ngx_null_string
 value|{ 0, NULL }
+end_define
+
+begin_define
+DECL|macro|ngx_tolower (c)
+define|#
+directive|define
+name|ngx_tolower
+parameter_list|(
+name|c
+parameter_list|)
+value|(u_char) ((c>= 'A'&& c<= 'Z') ? (c | 0x20) : c)
 end_define
 
 begin_if

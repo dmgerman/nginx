@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27e8a50c0108
+DECL|struct|__anon27ea3ed60108
 typedef|typedef
 struct|struct
 block|{
@@ -56,7 +56,7 @@ name|ngx_str_t
 name|file_name
 decl_stmt|;
 DECL|member|line
-name|int
+name|ngx_int_t
 name|line
 decl_stmt|;
 DECL|member|default_server
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27e8a50c0203
+DECL|enum|__anon27ea3ed60203
 typedef|typedef
 enum|enum
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e8a50c0308
+DECL|struct|__anon27ea3ed60308
 typedef|typedef
 struct|struct
 block|{
@@ -119,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e8a50c0408
+DECL|struct|__anon27ea3ed60408
 typedef|typedef
 struct|struct
 block|{
@@ -139,6 +139,14 @@ DECL|member|index_handlers
 name|ngx_array_t
 name|index_handlers
 decl_stmt|;
+DECL|member|server_names_hash
+name|ngx_uint_t
+name|server_names_hash
+decl_stmt|;
+DECL|member|server_names_hash_threshold
+name|ngx_uint_t
+name|server_names_hash_threshold
+decl_stmt|;
 DECL|member|max_server_name_len
 name|size_t
 name|max_server_name_len
@@ -150,7 +158,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e8a50c0508
+DECL|struct|__anon27ea3ed60508
 typedef|typedef
 struct|struct
 block|{
@@ -214,7 +222,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon27e8a50c0608
+DECL|struct|__anon27ea3ed60608
 typedef|typedef
 struct|struct
 block|{
@@ -237,10 +245,10 @@ name|ngx_http_in_port_t
 typedef|;
 end_typedef
 
-begin_typedef
-DECL|struct|__anon27e8a50c0708
-typedef|typedef
+begin_struct
+DECL|struct|ngx_http_in_addr_s
 struct|struct
+name|ngx_http_in_addr_s
 block|{
 DECL|member|addr
 name|in_addr_t
@@ -251,25 +259,34 @@ name|ngx_array_t
 name|names
 decl_stmt|;
 comment|/* array of ngx_http_server_name_t */
+DECL|member|hash
+name|ngx_array_t
+modifier|*
+name|hash
+decl_stmt|;
+comment|/* hash of ngx_http_server_name_t */
+DECL|member|wildcards
+name|ngx_array_t
+name|wildcards
+decl_stmt|;
+comment|/* array of ngx_http_server_name_t */
+comment|/* the default server configuration for this address:port */
 DECL|member|core_srv_conf
 name|ngx_http_core_srv_conf_t
 modifier|*
 name|core_srv_conf
 decl_stmt|;
-comment|/* default server conf                                                   for this address:port */
 DECL|member|default_server
 name|ngx_uint_t
 name|default_server
 decl_stmt|;
 comment|/* unsigned  default_server:1; */
-DECL|typedef|ngx_http_in_addr_t
 block|}
-name|ngx_http_in_addr_t
-typedef|;
-end_typedef
+struct|;
+end_struct
 
 begin_typedef
-DECL|struct|__anon27e8a50c0808
+DECL|struct|__anon27ea3ed60708
 typedef|typedef
 struct|struct
 block|{
@@ -287,12 +304,30 @@ DECL|member|wildcard
 name|ngx_uint_t
 name|wildcard
 decl_stmt|;
-comment|/*unsigned  wildcard:1; */
+comment|/* unsigned  wildcard:1 */
 DECL|typedef|ngx_http_server_name_t
 block|}
 name|ngx_http_server_name_t
 typedef|;
 end_typedef
+
+begin_define
+DECL|macro|ngx_http_server_names_hash_key (key,name,len,prime)
+define|#
+directive|define
+name|ngx_http_server_names_hash_key
+parameter_list|(
+name|key
+parameter_list|,
+name|name
+parameter_list|,
+name|len
+parameter_list|,
+name|prime
+parameter_list|)
+define|\
+value|{                                                                   \             ngx_uint_t  n;                                                  \             for (key = 0, n = 0; n< len; n++) {                            \                 key += name[n];                                             \             }                                                               \             key %= prime;                                                   \         }
+end_define
 
 begin_define
 DECL|macro|NGX_HTTP_TYPES_HASH_PRIME
@@ -313,11 +348,11 @@ parameter_list|,
 name|ext
 parameter_list|)
 define|\
-value|{                                                                   \             u_int n;                                                        \             for (key = 0, n = 0; n< ext.len; n++) {                        \                 key += ext.data[n];                                         \             }                                                               \             key %= NGX_HTTP_TYPES_HASH_PRIME;                               \         }
+value|{                                                                   \             ngx_uint_t  n;                                                  \             for (key = 0, n = 0; n< ext.len; n++) {                        \                 key += ext.data[n];                                         \             }                                                               \             key %= NGX_HTTP_TYPES_HASH_PRIME;                               \         }
 end_define
 
 begin_typedef
-DECL|struct|__anon27e8a50c0908
+DECL|struct|__anon27ea3ed60808
 typedef|typedef
 struct|struct
 block|{
@@ -336,7 +371,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e8a50c0a08
+DECL|struct|__anon27ea3ed60908
 typedef|typedef
 struct|struct
 block|{

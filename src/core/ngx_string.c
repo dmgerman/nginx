@@ -241,7 +241,7 @@ name|last
 decl_stmt|,
 name|temp
 index|[
-name|NGX_MAX_INT_LEN
+name|NGX_INT64_LEN
 index|]
 decl_stmt|;
 name|int
@@ -363,7 +363,7 @@ name|p
 operator|=
 name|temp
 operator|+
-name|NGX_MAX_INT_LEN
+name|NGX_INT64_LEN
 expr_stmt|;
 while|while
 condition|(
@@ -1142,7 +1142,7 @@ operator|=
 operator|(
 name|temp
 operator|+
-name|NGX_MAX_INT_LEN
+name|NGX_INT64_LEN
 operator|)
 operator|-
 name|p
@@ -1171,7 +1171,7 @@ operator|=
 operator|(
 name|temp
 operator|+
-name|NGX_MAX_INT_LEN
+name|NGX_INT64_LEN
 operator|)
 operator|-
 name|p

@@ -417,7 +417,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon27a35ec60103
+DECL|enum|__anon2b539e040103
 typedef|typedef
 enum|enum
 block|{
@@ -438,7 +438,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27a35ec60203
+DECL|enum|__anon2b539e040203
 typedef|typedef
 enum|enum
 block|{
@@ -477,7 +477,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a35ec60308
+DECL|struct|__anon2b539e040308
 typedef|typedef
 struct|struct
 block|{
@@ -496,7 +496,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a35ec60408
+DECL|struct|__anon2b539e040408
 typedef|typedef
 struct|struct
 block|{
@@ -645,7 +645,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a35ec60508
+DECL|struct|__anon2b539e040508
 typedef|typedef
 struct|struct
 block|{
@@ -668,7 +668,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a35ec60608
+DECL|struct|__anon2b539e040608
 typedef|typedef
 struct|struct
 block|{
@@ -771,7 +771,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a35ec60708
+DECL|struct|__anon2b539e040708
 typedef|typedef
 struct|struct
 block|{
@@ -822,10 +822,10 @@ DECL|struct|ngx_http_cleanup_s
 struct|struct
 name|ngx_http_cleanup_s
 block|{
-DECL|union|__anon27a35ec6080a
+DECL|union|__anon2b539e04080a
 union|union
 block|{
-DECL|struct|__anon27a35ec60908
+DECL|struct|__anon2b539e040908
 struct|struct
 block|{
 DECL|member|fd
@@ -841,7 +841,7 @@ DECL|member|file
 block|}
 name|file
 struct|;
-DECL|struct|__anon27a35ec60a08
+DECL|struct|__anon2b539e040a08
 struct|struct
 block|{
 DECL|member|hash
@@ -879,7 +879,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27a35ec60b08
+DECL|struct|__anon2b539e040b08
 typedef|typedef
 struct|struct
 block|{
@@ -975,7 +975,7 @@ modifier|*
 name|loc_conf
 decl_stmt|;
 DECL|member|cache
-name|ngx_http_cache_entry_t
+name|ngx_http_cache_t
 modifier|*
 name|cache
 decl_stmt|;
@@ -1074,7 +1074,7 @@ name|ngx_str_t
 name|server_name
 decl_stmt|;
 DECL|member|virtual_names
-name|ngx_array_t
+name|ngx_http_in_addr_t
 modifier|*
 name|virtual_names
 decl_stmt|;

@@ -1214,7 +1214,7 @@ argument_list|)
 operator|-
 literal|1
 operator|+
-name|TIME_T_LEN
+name|NGX_TIME_T_LEN
 operator|+
 literal|2
 expr_stmt|;
