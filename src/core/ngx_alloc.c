@@ -50,7 +50,9 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"malloc() %d bytes failed"
+literal|"malloc() "
+name|SIZE_T_FMT
+literal|" bytes failed"
 argument_list|,
 name|size
 argument_list|)
@@ -64,7 +66,10 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"malloc: %08x:%d"
+literal|"malloc: "
+name|PTR_FMT
+literal|":"
+name|SIZE_T_FMT
 argument_list|,
 name|p
 argument_list|,
@@ -259,7 +264,8 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"free: %08x"
+literal|"free: "
+name|PTR_FMT
 argument_list|,
 name|l
 operator|->
@@ -323,7 +329,8 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"free: %08x"
+literal|"free: "
+name|PTR_FMT
 argument_list|,
 name|p
 argument_list|)
@@ -771,7 +778,8 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"free: %08x"
+literal|"free: "
+name|PTR_FMT
 argument_list|,
 name|l
 operator|->

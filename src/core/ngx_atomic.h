@@ -24,15 +24,20 @@ directive|include
 file|<ngx_core.h>
 end_include
 
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+operator|(
 name|__i386__
-end_ifdef
+operator|||
+name|__amd64__
+operator|)
+end_if
 
 begin_typedef
 DECL|typedef|ngx_atomic_t
 typedef|typedef
+specifier|volatile
 name|uint32_t
 name|ngx_atomic_t
 typedef|;
@@ -86,25 +91,9 @@ block|{
 name|uint32_t
 name|old
 decl_stmt|;
-name|__asm__
-name|__volatile
-argument_list|(
-literal|"          movl   $1, %0     "
-name|NGX_SMP_LOCK
-literal|"   xaddl  %0, %1      "
-operator|:
-literal|"=a"
-operator|(
-name|old
-operator|)
-operator|:
-literal|"m"
-operator|(
-operator|*
-name|value
-operator|)
-argument_list|)
-decl_stmt|;
+asm|__asm__
+specifier|volatile
+asm|(      "   movl   $1, %0;   "         NGX_SMP_LOCK     "   xaddl  %0, %1;   "      : "=a" (old) : "m" (*value));
 return|return
 name|old
 return|;
@@ -126,25 +115,9 @@ block|{
 name|uint32_t
 name|old
 decl_stmt|;
-name|__asm__
-name|__volatile
-argument_list|(
-literal|"          movl   $-1, %0     "
-name|NGX_SMP_LOCK
-literal|"   xaddl  %0, %1      "
-operator|:
-literal|"=a"
-operator|(
-name|old
-operator|)
-operator|:
-literal|"m"
-operator|(
-operator|*
-name|value
-operator|)
-argument_list|)
-decl_stmt|;
+asm|__asm__
+specifier|volatile
+asm|(      "   movl   $-1, %0;  "         NGX_SMP_LOCK     "   xaddl  %0, %1;   "      : "=a" (old) : "m" (*value));
 return|return
 name|old
 return|;
@@ -172,35 +145,9 @@ block|{
 name|uint32_t
 name|res
 decl_stmt|;
-name|__asm__
-name|__volatile
-argument_list|(
-literal|"      "
-name|NGX_SMP_LOCK
-literal|"   cmpxchgl  %3, %1         setzb     %%al         movzbl    %%al, %0      "
-operator|:
-literal|"=a"
-operator|(
-name|res
-operator|)
-operator|:
-literal|"m"
-operator|(
-operator|*
-name|lock
-operator|)
-argument_list|,
-literal|"a"
-operator|(
-name|old
-operator|)
-argument_list|,
-literal|"q"
-operator|(
-name|set
-operator|)
-argument_list|)
-decl_stmt|;
+asm|__asm__
+specifier|volatile
+asm|(          NGX_SMP_LOCK     "   cmpxchgl  %3, %1;   "     "   setzb     %%al;     "     "   movzbl    %%al, %0; "      : "=a" (res) : "m" (*lock), "a" (old), "q" (set));
 return|return
 name|res
 return|;
@@ -215,6 +162,7 @@ end_else
 begin_typedef
 DECL|typedef|ngx_atomic_t
 typedef|typedef
+specifier|volatile
 name|uint32_t
 name|ngx_atomic_t
 typedef|;

@@ -121,8 +121,9 @@ value|0x80000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2bcb40ad0108
+DECL|struct|__anon29a411eb0108
 typedef|typedef
+specifier|volatile
 struct|struct
 block|{
 DECL|member|lock

@@ -12,15 +12,8 @@ file|<ngx_core.h>
 end_include
 
 begin_comment
-comment|/*  * The threads implementation uses the rfork(RFPROC|RFTHREAD|RFMEM)  * to create threads.  All threads use the stacks of the same size mmap()ed  * below the main stack.  Thus the stack pointer is used to determine  * the current thread id.  *  * The mutex implementation uses the ngx_atomic_cmp_set() operation  * to acquire mutex and the SysV semaphore to wait on a mutex or to wake up  * the waiting threads.  *  * The condition variable implementation uses the SysV semaphore set of two  * semaphores. The first is used by the CV mutex, and the second is used  * by CV itself.  */
+comment|/*  * The threads implementation uses the rfork(RFPROC|RFTHREAD|RFMEM)  * to create threads.  All threads use the stacks of the same size mmap()ed  * below the main stack.  Thus the stack pointer is used to determine  * the current thread id.  *  * The mutex implementation uses the ngx_atomic_cmp_set() operation  * to acquire mutex and the SysV semaphore to wait on a mutex or to wake up  * the waiting threads.  *  * The condition variable implementation uses the SysV semaphore set of two  * semaphores. The first is used by the CV mutex, and the second is used  * by CV itself.  *  * This threads implementation currently works on i486 and amd64  * platforms only.  */
 end_comment
-
-begin_decl_stmt
-specifier|extern
-name|int
-name|__isthreaded
-decl_stmt|;
-end_decl_stmt
 
 begin_function_decl
 specifier|static
@@ -107,7 +100,7 @@ comment|/* the threads tids array */
 end_comment
 
 begin_comment
-comment|/* the thread-safe errno */
+comment|/* the thread-safe libc errno */
 end_comment
 
 begin_decl_stmt
@@ -166,6 +159,89 @@ else|:
 operator|&
 name|errno0
 return|;
+block|}
+end_function
+
+begin_comment
+comment|/*  * __isthreaded enables spinlock() in some libc functions, i.e. in malloc()  * and some other places.  Nevertheless we protect our malloc()/free() calls  * by own mutex that is more efficient than the spinlock.  *  * We define own _spinlock() because a weak referenced _spinlock() stub in  * src/lib/libc/gen/_spinlock_stub.c does nothing.  */
+end_comment
+
+begin_decl_stmt
+specifier|extern
+name|int
+name|__isthreaded
+decl_stmt|;
+end_decl_stmt
+
+begin_function
+DECL|function|_spinlock (ngx_atomic_t * lock)
+name|void
+name|_spinlock
+parameter_list|(
+name|ngx_atomic_t
+modifier|*
+name|lock
+parameter_list|)
+block|{
+name|ngx_int_t
+name|tries
+decl_stmt|;
+name|tries
+operator|=
+literal|0
+expr_stmt|;
+for|for
+control|(
+init|;
+condition|;
+control|)
+block|{
+if|if
+condition|(
+operator|*
+name|lock
+condition|)
+block|{
+if|if
+condition|(
+name|ngx_freebsd_hw_ncpu
+operator|>
+literal|1
+operator|&&
+name|tries
+operator|++
+operator|<
+literal|1000
+condition|)
+block|{
+continue|continue;
+block|}
+name|sched_yield
+argument_list|()
+expr_stmt|;
+name|tries
+operator|=
+literal|0
+expr_stmt|;
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|ngx_atomic_cmp_set
+argument_list|(
+name|lock
+argument_list|,
+literal|0
+argument_list|,
+literal|1
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
+block|}
+block|}
 block|}
 end_function
 
@@ -273,7 +349,11 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"mmap(%08X:%d, MAP_STACK) thread stack failed"
+literal|"mmap("
+name|PTR_FMT
+literal|":"
+name|SIZE_T_FMT
+literal|", MAP_STACK) thread stack failed"
 argument_list|,
 name|last_stack
 argument_list|,
@@ -317,7 +397,10 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"thread stack: %08X-%08X"
+literal|"thread stack: "
+name|PTR_FMT
+literal|"-"
+name|PTR_FMT
 argument_list|,
 name|stack
 argument_list|,
@@ -477,7 +560,7 @@ modifier|*
 name|log
 parameter_list|)
 block|{
-name|int
+name|size_t
 name|len
 decl_stmt|;
 name|char
@@ -493,7 +576,10 @@ name|n
 expr_stmt|;
 name|len
 operator|=
-literal|4
+sizeof|sizeof
+argument_list|(
+name|usrstack
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -550,7 +636,10 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"usrstack: %08X, red zone: %08X"
+literal|"usrstack: "
+name|PTR_FMT
+literal|" red zone: "
+name|PTR_FMT
 argument_list|,
 name|usrstack
 argument_list|,
@@ -590,7 +679,11 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"mmap(%08X:%d, PROT_NONE, MAP_ANON) red zone failed"
+literal|"mmap("
+name|PTR_FMT
+literal|":"
+name|SIZE_T_FMT
+literal|", PROT_NONE, MAP_ANON) red zone failed"
 argument_list|,
 name|red_zone
 argument_list|,
@@ -735,7 +828,24 @@ return|return
 literal|0
 return|;
 block|}
-asm|__asm__ ("mov %%esp, %0" : "=q" (sp));
+if|#
+directive|if
+operator|(
+name|__i386__
+operator|)
+asm|__asm__
+specifier|volatile
+asm|("mov %%esp, %0" : "=q" (sp));
+elif|#
+directive|elif
+operator|(
+name|__amd64__
+operator|)
+asm|__asm__
+specifier|volatile
+asm|("mov %%rsp, %0" : "=q" (sp));
+endif|#
+directive|endif
 return|return
 operator|(
 name|usrstack
@@ -1055,6 +1165,10 @@ expr_stmt|;
 block|}
 name|ngx_free
 argument_list|(
+operator|(
+name|void
+operator|*
+operator|)
 name|m
 argument_list|)
 expr_stmt|;
@@ -1108,7 +1222,9 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"try lock mutex %08X lock:%X"
+literal|"try lock mutex "
+name|PTR_FMT
+literal|" lock:%X"
 argument_list|,
 name|m
 argument_list|,
@@ -1130,7 +1246,9 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"lock mutex %08X lock:%X"
+literal|"lock mutex "
+name|PTR_FMT
+literal|" lock:%X"
 argument_list|,
 name|m
 argument_list|,
@@ -1230,7 +1348,9 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"mutex %08X lock:%X"
+literal|"mutex "
+name|PTR_FMT
+literal|" lock:%X"
 argument_list|,
 name|m
 argument_list|,
@@ -1268,8 +1388,9 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"%d threads wait for mutex %0X, "
-literal|"while only %d threads are available"
+literal|"%d threads wait for mutex "
+name|PTR_FMT
+literal|", while only %d threads are available"
 argument_list|,
 name|lock
 operator|&
@@ -1310,7 +1431,9 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"wait mutex %08X lock:%X"
+literal|"wait mutex "
+name|PTR_FMT
+literal|" lock:%X"
 argument_list|,
 name|m
 argument_list|,
@@ -1368,7 +1491,8 @@ argument_list|,
 name|ngx_errno
 argument_list|,
 literal|"semop() failed while waiting "
-literal|"on mutex %08X"
+literal|"on mutex "
+name|PTR_FMT
 argument_list|,
 name|m
 argument_list|)
@@ -1447,7 +1571,9 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"mutex %08X is contested"
+literal|"mutex "
+name|PTR_FMT
+literal|" is contested"
 argument_list|,
 name|m
 argument_list|)
@@ -1478,7 +1604,9 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"mutex %08X is locked, lock:%X"
+literal|"mutex "
+name|PTR_FMT
+literal|" is locked, lock:%X"
 argument_list|,
 name|m
 argument_list|,
@@ -1540,7 +1668,8 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"tring to unlock the free mutex %0X"
+literal|"tring to unlock the free mutex "
+name|PTR_FMT
 argument_list|,
 name|m
 argument_list|)
@@ -1607,7 +1736,9 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"mutex %08X is unlocked"
+literal|"mutex "
+name|PTR_FMT
+literal|" is unlocked"
 argument_list|,
 name|m
 argument_list|)
@@ -1717,7 +1848,8 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"semop() failed while waking up on mutex %08X"
+literal|"semop() failed while waking up on mutex "
+name|PTR_FMT
 argument_list|,
 name|m
 argument_list|)
@@ -1745,7 +1877,9 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"mutex %08X is unlocked"
+literal|"mutex "
+name|PTR_FMT
+literal|" is unlocked"
 argument_list|,
 name|m
 argument_list|)

@@ -24,7 +24,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28f822eb0108
+DECL|struct|__anon278b8dce0108
 typedef|typedef
 struct|struct
 block|{
@@ -63,7 +63,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f822eb0208
+DECL|struct|__anon278b8dce0208
 typedef|typedef
 struct|struct
 block|{
@@ -2909,6 +2909,8 @@ directive|if
 operator|(
 name|NGX_THREADS
 operator|)
+if|if
+condition|(
 name|ngx_init_threads
 argument_list|(
 literal|5
@@ -2923,7 +2925,17 @@ name|cycle
 operator|->
 name|log
 argument_list|)
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+comment|/* fatal */
+name|exit
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
+block|}
 for|for
 control|(
 name|i
@@ -2938,6 +2950,8 @@ name|i
 operator|++
 control|)
 block|{
+if|if
+condition|(
 name|ngx_create_thread
 argument_list|(
 operator|&
@@ -2951,7 +2965,17 @@ name|cycle
 operator|->
 name|log
 argument_list|)
+operator|!=
+literal|0
+condition|)
+block|{
+comment|/* fatal */
+name|exit
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
+block|}
 block|}
 endif|#
 directive|endif

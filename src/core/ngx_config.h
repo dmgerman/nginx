@@ -176,18 +176,6 @@ name|ngx_flag_t
 typedef|;
 end_typedef
 
-begin_comment
-comment|/* STUB: autoconf */
-end_comment
-
-begin_define
-DECL|macro|PTR_FMT
-define|#
-directive|define
-name|PTR_FMT
-value|"%08X"
-end_define
-
 begin_ifndef
 ifndef|#
 directive|ifndef
