@@ -1385,6 +1385,13 @@ operator|/
 literal|1000
 operator|)
 expr_stmt|;
+if|#
+directive|if
+literal|0
+comment|/*          * update the cached time if the sum of the last deltas          * is more than 0.5 seconds          */
+block_content|deltas += delta;         if (deltas> 500000) {             ngx_cached_time = ngx_real_time();             deltas = 0;         }
+endif|#
+directive|endif
 else|#
 directive|else
 name|delta

@@ -6,13 +6,13 @@ file|<ngx_event_connect.h>
 end_include
 
 begin_function
-DECL|function|ngx_event_connect_peer (ngx_connect_peer_t * cp)
+DECL|function|ngx_event_connect_peer (ngx_peer_connecttion_t * pc)
 name|int
 name|ngx_event_connect_peer
 parameter_list|(
-name|ngx_connect_peer_t
+name|ngx_peer_connecttion_t
 modifier|*
-name|cp
+name|pc
 parameter_list|)
 block|{
 name|time_t
@@ -26,7 +26,7 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|cp
+name|pc
 operator|->
 name|peers
 operator|->
@@ -38,11 +38,11 @@ block|{
 comment|/* there are several peers */
 if|if
 condition|(
-name|cp
+name|pc
 operator|->
 name|tries
 operator|==
-name|cp
+name|pc
 operator|->
 name|peers
 operator|->
@@ -51,11 +51,11 @@ condition|)
 block|{
 comment|/* it's a first try - get a current peer */
 comment|/* Here is the race condition when the peers are shared between                the threads or the processes but it should not be serious */
-name|cp
+name|pc
 operator|->
 name|cur_peer
 operator|=
-name|cp
+name|pc
 operator|->
 name|peers
 operator|->
@@ -77,7 +77,7 @@ operator|->
 name|number
 condition|)
 block|{
-name|cp
+name|pc
 operator|->
 name|peers
 operator|->
@@ -97,18 +97,18 @@ operator|)
 comment|/* eliminate the sequences of the race condition */
 if|if
 condition|(
-name|cp
+name|pc
 operator|->
 name|cur_peer
 operator|>=
-name|cp
+name|pc
 operator|->
 name|peers
 operator|->
 name|number
 condition|)
 block|{
-name|cp
+name|pc
 operator|->
 name|cur_peer
 operator|=
@@ -120,7 +120,7 @@ directive|endif
 block|}
 if|if
 condition|(
-name|cp
+name|pc
 operator|->
 name|peers
 operator|->
@@ -139,13 +139,13 @@ block|{
 name|peer
 operator|=
 operator|&
-name|cp
+name|pc
 operator|->
 name|peers
 operator|->
 name|peers
 index|[
-name|cp
+name|pc
 operator|->
 name|cur_peer
 index|]
@@ -157,7 +157,7 @@ name|peer
 operator|->
 name|fails
 operator|<=
-name|cp
+name|pc
 operator|->
 name|peers
 operator|->
@@ -170,7 +170,7 @@ name|peer
 operator|->
 name|accessed
 operator|>
-name|cp
+name|pc
 operator|->
 name|peers
 operator|->
@@ -181,39 +181,39 @@ block|{
 break|break;
 block|}
 comment|/* the end of the race condition */
-name|cp
+name|pc
 operator|->
 name|cur_peer
 operator|++
 expr_stmt|;
 if|if
 condition|(
-name|cp
+name|pc
 operator|->
 name|cur_peer
 operator|>=
-name|cp
+name|pc
 operator|->
 name|peers
 operator|->
 name|number
 condition|)
 block|{
-name|cp
+name|pc
 operator|->
 name|cur_peer
 operator|=
 literal|0
 expr_stmt|;
 block|}
-name|cp
+name|pc
 operator|->
 name|tries
 operator|--
 expr_stmt|;
 if|if
 condition|(
-name|cp
+name|pc
 operator|->
 name|tries
 operator|==

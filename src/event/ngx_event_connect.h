@@ -31,7 +31,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b53883a0108
+DECL|struct|__anon2c25e0f40108
 typedef|typedef
 struct|struct
 block|{
@@ -66,7 +66,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b53883a0208
+DECL|struct|__anon2c25e0f40208
 typedef|typedef
 struct|struct
 block|{
@@ -87,7 +87,11 @@ name|int
 name|fail_timeout
 decl_stmt|;
 comment|/* ngx_mutex_t       *mutex; */
-comment|/* ngx_connection_t  *cached; */
+DECL|member|cached
+name|ngx_connection_t
+modifier|*
+name|cached
+decl_stmt|;
 DECL|member|peers
 name|ngx_peer_t
 name|peers
@@ -102,7 +106,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b53883a0308
+DECL|struct|__anon2c25e0f40308
 typedef|typedef
 struct|struct
 block|{
@@ -119,15 +123,20 @@ DECL|member|tries
 name|int
 name|tries
 decl_stmt|;
+DECL|member|connection
+name|ngx_connection_t
+modifier|*
+name|connection
+decl_stmt|;
 DECL|member|cached
 name|unsigned
 name|cached
 range|:
 literal|1
 decl_stmt|;
-DECL|typedef|ngx_connect_peer_t
+DECL|typedef|ngx_peer_connection_t
 block|}
-name|ngx_connect_peer_t
+name|ngx_peer_connection_t
 typedef|;
 end_typedef
 
