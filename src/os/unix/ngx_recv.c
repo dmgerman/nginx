@@ -161,7 +161,7 @@ name|kq_errno
 operator|==
 name|NGX_ECONNRESET
 operator|&&
-name|rev
+name|c
 operator|->
 name|log_error
 operator|==

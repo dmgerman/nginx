@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon292dcae20108
+DECL|struct|__anon2a5084110108
 typedef|typedef
 struct|struct
 block|{
@@ -199,6 +199,30 @@ name|ngx_listening_t
 typedef|;
 end_typedef
 
+begin_typedef
+DECL|enum|__anon2a5084110203
+typedef|typedef
+enum|enum
+block|{
+DECL|enumerator|NGX_ERROR_CRIT
+name|NGX_ERROR_CRIT
+init|=
+literal|0
+block|,
+DECL|enumerator|NGX_ERROR_ERR
+name|NGX_ERROR_ERR
+block|,
+DECL|enumerator|NGX_ERROR_INFO
+name|NGX_ERROR_INFO
+block|,
+DECL|enumerator|NGX_ERROR_IGNORE_ECONNRESET
+name|NGX_ERROR_IGNORE_ECONNRESET
+DECL|typedef|ngx_connection_log_error_e
+block|}
+name|ngx_connection_log_error_e
+typedef|;
+end_typedef
+
 begin_struct
 DECL|struct|ngx_connection_s
 struct|struct
@@ -292,6 +316,13 @@ DECL|member|number
 name|ngx_int_t
 name|number
 decl_stmt|;
+DECL|member|log_error
+name|unsigned
+name|log_error
+range|:
+literal|2
+decl_stmt|;
+comment|/* ngx_connection_log_error_e */
 DECL|member|pipeline
 name|unsigned
 name|pipeline

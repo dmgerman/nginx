@@ -15,13 +15,13 @@ end_define
 begin_include
 include|#
 directive|include
-file|<errno.h>
+file|<ngx_config.h>
 end_include
 
 begin_include
 include|#
 directive|include
-file|<string.h>
+file|<ngx_core.h>
 end_include
 
 begin_typedef
@@ -211,6 +211,8 @@ if|#
 directive|if
 operator|(
 name|HAVE_STRERROR_R
+operator|||
+name|HAVE_GNU_STRERROR_R
 operator|)
 end_if
 

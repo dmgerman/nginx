@@ -431,6 +431,12 @@ name|handler
 operator|=
 name|ngx_http_log_error
 expr_stmt|;
+name|c
+operator|->
+name|log_error
+operator|=
+name|NGX_ERROR_INFO
+expr_stmt|;
 name|rev
 operator|=
 name|c
@@ -442,12 +448,6 @@ operator|->
 name|event_handler
 operator|=
 name|ngx_http_init_request
-expr_stmt|;
-name|rev
-operator|->
-name|log_error
-operator|=
-name|NGX_ERROR_INFO
 expr_stmt|;
 comment|/* STUB: epoll */
 name|c
@@ -5708,7 +5708,7 @@ expr_stmt|;
 return|return;
 block|}
 comment|/*      * MSIE closes a keepalive connection with RST flag      * so we ignore ECONNRESET here.      */
-name|rev
+name|c
 operator|->
 name|log_error
 operator|=
@@ -5744,7 +5744,7 @@ operator|->
 name|last
 argument_list|)
 expr_stmt|;
-name|rev
+name|c
 operator|->
 name|log_error
 operator|=

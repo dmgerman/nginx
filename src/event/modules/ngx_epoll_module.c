@@ -327,7 +327,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29b59b770108
+DECL|struct|__anon2957d4080108
 typedef|typedef
 struct|struct
 block|{
@@ -635,10 +635,25 @@ block|{
 name|size_t
 name|n
 decl_stmt|;
+name|ngx_event_conf_t
+modifier|*
+name|ecf
+decl_stmt|;
 name|ngx_epoll_conf_t
 modifier|*
 name|epcf
 decl_stmt|;
+name|ecf
+operator|=
+name|ngx_event_get_conf
+argument_list|(
+name|cycle
+operator|->
+name|conf_ctx
+argument_list|,
+name|ngx_event_core_module
+argument_list|)
+expr_stmt|;
 name|epcf
 operator|=
 name|ngx_event_get_conf
@@ -662,8 +677,11 @@ name|ep
 operator|=
 name|epoll_create
 argument_list|(
-comment|/* STUB: open_files / 2 */
-literal|512
+name|ecf
+operator|->
+name|connections
+operator|/
+literal|2
 argument_list|)
 expr_stmt|;
 if|if

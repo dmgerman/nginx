@@ -83,19 +83,25 @@ end_include
 begin_include
 include|#
 directive|include
+file|<errno.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<fcntl.h>
 end_include
 
 begin_include
 include|#
 directive|include
-file|<signal.h>
+file|<string.h>
 end_include
 
 begin_include
 include|#
 directive|include
-file|<strings.h>
+file|<signal.h>
 end_include
 
 begin_include

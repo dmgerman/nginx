@@ -1088,8 +1088,6 @@ name|NGX_ECONNRESET
 operator|&&
 name|c
 operator|->
-name|read
-operator|->
 name|log_error
 operator|==
 name|NGX_ERROR_IGNORE_ECONNRESET
@@ -1117,8 +1115,6 @@ block|{
 switch|switch
 condition|(
 name|c
-operator|->
-name|read
 operator|->
 name|log_error
 condition|)

@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon276c7b4f0108
+DECL|struct|__anon2a1c5adf0108
 typedef|typedef
 struct|struct
 block|{
@@ -68,30 +68,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-
-begin_typedef
-DECL|enum|__anon276c7b4f0203
-typedef|typedef
-enum|enum
-block|{
-DECL|enumerator|NGX_ERROR_CRIT
-name|NGX_ERROR_CRIT
-init|=
-literal|0
-block|,
-DECL|enumerator|NGX_ERROR_ERR
-name|NGX_ERROR_ERR
-block|,
-DECL|enumerator|NGX_ERROR_INFO
-name|NGX_ERROR_INFO
-block|,
-DECL|enumerator|NGX_ERROR_IGNORE_ECONNRESET
-name|NGX_ERROR_IGNORE_ECONNRESET
-DECL|typedef|ngx_event_log_error_e
-block|}
-name|ngx_event_log_error_e
-typedef|;
-end_typedef
 
 begin_struct
 DECL|struct|ngx_event_s
@@ -255,14 +231,6 @@ name|read_discarded
 range|:
 literal|1
 decl_stmt|;
-DECL|member|log_error
-name|unsigned
-name|short
-name|log_error
-range|:
-literal|2
-decl_stmt|;
-comment|/* ngx_event_log_error_e */
 DECL|member|unexpected_eof
 name|unsigned
 name|short
@@ -396,7 +364,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon276c7b4f0308
+DECL|struct|__anon2a1c5adf0208
 typedef|typedef
 struct|struct
 block|{
@@ -1086,7 +1054,7 @@ value|0x00200000
 end_define
 
 begin_typedef
-DECL|struct|__anon276c7b4f0408
+DECL|struct|__anon2a1c5adf0308
 typedef|typedef
 struct|struct
 block|{
@@ -1114,7 +1082,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276c7b4f0508
+DECL|struct|__anon2a1c5adf0408
 typedef|typedef
 struct|struct
 block|{
