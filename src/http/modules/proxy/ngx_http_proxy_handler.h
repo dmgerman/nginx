@@ -49,7 +49,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|enum|__anon2b2802b70103
+DECL|enum|__anon2c1da7320103
 typedef|typedef
 enum|enum
 block|{
@@ -85,7 +85,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b2802b70203
+DECL|enum|__anon2c1da7320203
 typedef|typedef
 enum|enum
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2802b70308
+DECL|struct|__anon2c1da7320308
 typedef|typedef
 struct|struct
 block|{
@@ -158,7 +158,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2802b70408
+DECL|struct|__anon2c1da7320408
 typedef|typedef
 struct|struct
 block|{
@@ -244,6 +244,11 @@ name|ngx_path_t
 modifier|*
 name|temp_path
 decl_stmt|;
+DECL|member|busy_lock
+name|ngx_http_busy_lock_t
+modifier|*
+name|busy_lock
+decl_stmt|;
 DECL|member|upstream
 name|ngx_http_proxy_upstream_conf_t
 modifier|*
@@ -261,7 +266,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2802b70508
+DECL|struct|__anon2c1da7320508
 typedef|typedef
 struct|struct
 block|{
@@ -289,7 +294,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2802b70608
+DECL|struct|__anon2c1da7320608
 typedef|typedef
 struct|struct
 block|{
@@ -360,7 +365,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2802b70708
+DECL|struct|__anon2c1da7320708
 typedef|typedef
 struct|struct
 block|{
@@ -387,7 +392,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2802b70808
+DECL|struct|__anon2c1da7320808
 typedef|typedef
 struct|struct
 block|{
@@ -481,6 +486,12 @@ decl_stmt|;
 DECL|member|stale
 name|unsigned
 name|stale
+range|:
+literal|1
+decl_stmt|;
+DECL|member|valid_header_in
+name|unsigned
+name|valid_header_in
 range|:
 literal|1
 decl_stmt|;

@@ -31,7 +31,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b15db830108
+DECL|struct|__anon2b0d190c0108
 typedef|typedef
 struct|struct
 block|{
@@ -70,6 +70,26 @@ block|}
 name|ngx_http_busy_lock_t
 typedef|;
 end_typedef
+
+begin_function_decl
+name|char
+modifier|*
+name|ngx_http_set_busy_lock_slot
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_command_t
+modifier|*
+name|cmd
+parameter_list|,
+name|void
+modifier|*
+name|conf
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_endif
 endif|#

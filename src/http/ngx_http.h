@@ -45,6 +45,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_http_busy_lock.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_http_filter.h>
 end_include
 
@@ -55,7 +61,7 @@ file|<ngx_http_core_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28ef54b60108
+DECL|struct|__anon28b68d100108
 typedef|typedef
 struct|struct
 block|{

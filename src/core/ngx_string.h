@@ -25,7 +25,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon275e4b0a0108
+DECL|struct|__anon29ad68b40108
 typedef|typedef
 struct|struct
 block|{
@@ -319,6 +319,21 @@ name|line
 parameter_list|,
 name|size_t
 name|n
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_print_md5
+parameter_list|(
+name|char
+modifier|*
+name|text
+parameter_list|,
+name|u_char
+modifier|*
+name|md5
 parameter_list|)
 function_decl|;
 end_function_decl
