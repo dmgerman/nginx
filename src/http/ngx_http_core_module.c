@@ -6709,22 +6709,27 @@ name|ngx_http_listen_t
 modifier|*
 name|ls
 decl_stmt|;
-comment|/* TODO: check duplicate 'listen' directives,              add resolved name to server names ??? */
-name|ngx_test_null
-argument_list|(
+comment|/*      * TODO: check duplicate 'listen' directives,      *       add resolved name to server names ???      */
+if|if
+condition|(
+operator|!
+operator|(
 name|ls
-argument_list|,
-name|ngx_push_array
+operator|=
+name|ngx_array_push
 argument_list|(
 operator|&
 name|scf
 operator|->
 name|listen
 argument_list|)
-argument_list|,
+operator|)
+condition|)
+block|{
+return|return
 name|NGX_CONF_ERROR
-argument_list|)
-expr_stmt|;
+return|;
+block|}
 comment|/* AF_INET only */
 name|ls
 operator|->

@@ -804,5 +804,32 @@ return|;
 block|}
 end_function
 
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
+begin_comment
+unit|ngx_int_t ngx_inet_addr_port(ngx_conf_t *cf, ngx_command_t *cmd,                              ngx_str_t *addr_port) {     u_char          *host;     ngx_int_t        port;     ngx_uint_t       p;     struct hostent  *h;      for (p = 0; p< addr_port->len; p++) {         if (addr_port->data[p] == ':') {             break;         }     }      in_addr->host.len = p;     if (!(in_addr->host.data = ngx_palloc(pool, p + 1))) {         return NGX_ERROR;     }      ngx_cpystrn(in_addr->host.data, addr_port->data, p + 1);      if (p == addr_port->len) {         p = 0;     }      port = ngx_atoi(&addr[p], args[1].len - p);     if (port == NGX_ERROR&& p == 0) {
+comment|/* default port */
+end_comment
+
+begin_comment
+unit|iap->port = 0;      } else if ((port == NGX_ERROR&& p != 0)
+comment|/* "listen host:NONNUMBER" */
+end_comment
+
+begin_comment
+unit||| (port< 1 || port> 65536)) {
+comment|/* "listen 99999" */
+end_comment
+
+begin_endif
+unit|ngx_conf_log_error(NGX_LOG_EMERG, cf, 0,                            "invalid port \"%s\" in \"%s\" directive, "                            "it must be a number between 1 and 65535",&addr[p], cmd->name.data);          return NGX_CONF_ERROR;      } else if (p == 0) {         ls->addr = INADDR_ANY;         ls->port = (in_port_t) port;         return NGX_CONF_OK;     }      return NGX_OK; }
+endif|#
+directive|endif
+end_endif
+
 end_unit
 

@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b52d0440108
+DECL|struct|__anon2b0762740108
 typedef|typedef
 struct|struct
 block|{

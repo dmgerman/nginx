@@ -24,7 +24,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b30c8c80108
+DECL|struct|__anon2bd272c30108
 typedef|typedef
 struct|struct
 block|{
@@ -428,30 +428,12 @@ operator|==
 name|NGX_EAGAIN
 condition|)
 block|{
-if|if
-condition|(
-operator|!
-operator|(
-name|ngx_event_flags
-operator|&
-name|NGX_USE_RTSIG_EVENT
-operator|)
-condition|)
-block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_NOTICE
-argument_list|,
-name|log
-argument_list|,
-name|err
-argument_list|,
-literal|"EAGAIN after %d accepted connection(s)"
-argument_list|,
-name|accepted
-argument_list|)
-expr_stmt|;
-block|}
+if|#
+directive|if
+literal|0
+block_content|if (!(ngx_event_flags& NGX_USE_RTSIG_EVENT))                 {                     ngx_log_error(NGX_LOG_NOTICE, log, err,                                   "EAGAIN after %d accepted connection(s)",                                   accepted);                 }
+endif|#
+directive|endif
 name|ngx_destroy_pool
 argument_list|(
 name|pool
