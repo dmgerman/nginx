@@ -1,6 +1,6 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_comment
-comment|/*    TODO:      add WSA error messages      test for English only messages */
+comment|/*    TODO:      add WSA error messages for NT and 98      test for English only messages */
 end_comment
 
 begin_include
@@ -12,13 +12,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_string.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_errno.h>
+file|<ngx_core.h>
 end_include
 
 begin_function

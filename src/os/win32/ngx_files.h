@@ -283,6 +283,14 @@ name|ngx_read_file_n
 value|"ReadFile()"
 end_define
 
+begin_define
+DECL|macro|STDERR_FILENO
+define|#
+directive|define
+name|STDERR_FILENO
+value|(HANDLE) 2
+end_define
+
 begin_endif
 endif|#
 directive|endif

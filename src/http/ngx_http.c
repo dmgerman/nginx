@@ -666,11 +666,6 @@ index|]
 expr_stmt|;
 name|cscfp
 operator|=
-operator|(
-name|ngx_http_core_srv_conf_t
-operator|*
-operator|*
-operator|)
 name|cmcf
 operator|->
 name|servers
@@ -708,10 +703,6 @@ continue|continue;
 block|}
 name|module
 operator|=
-operator|(
-name|ngx_http_module_t
-operator|*
-operator|)
 name|ngx_modules
 index|[
 name|m
@@ -1028,11 +1019,6 @@ expr_stmt|;
 comment|/* "server" directives */
 name|cscfp
 operator|=
-operator|(
-name|ngx_http_core_srv_conf_t
-operator|*
-operator|*
-operator|)
 name|cmcf
 operator|->
 name|servers
@@ -1060,10 +1046,6 @@ block|{
 comment|/* "listen" directives */
 name|lscf
 operator|=
-operator|(
-name|ngx_http_listen_t
-operator|*
-operator|)
 name|cscfp
 index|[
 name|s
@@ -1101,10 +1083,6 @@ expr_stmt|;
 comment|/* AF_INET only */
 name|in_port
 operator|=
-operator|(
-name|ngx_http_in_port_t
-operator|*
-operator|)
 name|in_ports
 operator|.
 name|elts
@@ -1153,10 +1131,6 @@ literal|0
 expr_stmt|;
 name|in_addr
 operator|=
-operator|(
-name|ngx_http_in_addr_t
-operator|*
-operator|)
 name|in_port
 index|[
 name|p
@@ -1208,10 +1182,6 @@ comment|/* the address is already bound to this port */
 comment|/* "server_name" directives */
 name|s_name
 operator|=
-operator|(
-name|ngx_http_server_name_t
-operator|*
-operator|)
 name|cscfp
 index|[
 name|s
@@ -1736,10 +1706,6 @@ comment|/* optimize the lists of the ports, the addresses and the server names *
 comment|/* AF_INET only */
 name|in_port
 operator|=
-operator|(
-name|ngx_http_in_port_t
-operator|*
-operator|)
 name|in_ports
 operator|.
 name|elts
@@ -1763,10 +1729,6 @@ block|{
 comment|/* check whether the all server names point to the same server */
 name|in_addr
 operator|=
-operator|(
-name|ngx_http_in_addr_t
-operator|*
-operator|)
 name|in_port
 index|[
 name|p
@@ -1803,10 +1765,6 @@ literal|0
 expr_stmt|;
 name|name
 operator|=
-operator|(
-name|ngx_http_server_name_t
-operator|*
-operator|)
 name|in_addr
 index|[
 name|a
@@ -1909,10 +1867,6 @@ expr_stmt|;
 block|}
 name|in_addr
 operator|=
-operator|(
-name|ngx_http_in_addr_t
-operator|*
-operator|)
 name|in_port
 index|[
 name|p
@@ -2004,6 +1958,9 @@ name|sin_port
 operator|=
 name|htons
 argument_list|(
+operator|(
+name|u_short
+operator|)
 name|in_port
 index|[
 name|p
@@ -2220,10 +2177,6 @@ condition|)
 block|{
 name|in_addr
 operator|=
-operator|(
-name|ngx_http_in_addr_t
-operator|*
-operator|)
 name|in_port
 index|[
 name|p
@@ -2420,10 +2373,6 @@ block|}
 comment|/* DEBUG STUFF */
 name|in_port
 operator|=
-operator|(
-name|ngx_http_in_port_t
-operator|*
-operator|)
 name|in_ports
 operator|.
 name|elts
@@ -2454,10 +2403,6 @@ argument_list|)
 empty_stmt|;
 name|in_addr
 operator|=
-operator|(
-name|ngx_http_in_addr_t
-operator|*
-operator|)
 name|in_port
 index|[
 name|p
@@ -2523,6 +2468,47 @@ literal|"%s %08x"
 argument|_ ip _ in_addr[a].core_srv_conf
 argument_list|)
 empty_stmt|;
+name|s_name
+operator|=
+name|in_addr
+index|[
+name|a
+index|]
+operator|.
+name|names
+operator|.
+name|elts
+expr_stmt|;
+for|for
+control|(
+name|n
+operator|=
+literal|0
+init|;
+name|n
+operator|<
+name|in_addr
+index|[
+name|a
+index|]
+operator|.
+name|names
+operator|.
+name|nelts
+condition|;
+name|n
+operator|++
+control|)
+block|{
+name|ngx_log_debug
+argument_list|(
+argument|cf->log
+argument_list|,
+literal|"%s %08x"
+argument|_ s_name[n].name.data _               s_name[n].core_srv_conf
+argument_list|)
+empty_stmt|;
+block|}
 block|}
 block|}
 comment|/**/

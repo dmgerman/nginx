@@ -19,7 +19,7 @@ file|<ngx_config.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c300cd80108
+DECL|struct|__anon291e7ec20108
 typedef|typedef
 struct|struct
 block|{
@@ -230,7 +230,7 @@ name|src
 parameter_list|,
 name|n
 parameter_list|)
-value|memcpy(dst, src, n) + n
+value|((char *) memcpy(dst, src, n)) + n
 end_define
 
 begin_function_decl

@@ -100,7 +100,7 @@ argument_list|)
 block|,
 name|NGX_HTTP_LOC_CONF
 operator||
-name|NGX_CONF_ANY
+name|NGX_CONF_ANY1
 block|,
 name|ngx_http_index_set_index
 block|,
@@ -1351,7 +1351,7 @@ literal|"index \"%s\" is invalid"
 argument_list|,
 name|value
 index|[
-literal|1
+name|i
 index|]
 operator|.
 name|data

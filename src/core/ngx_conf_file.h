@@ -111,11 +111,19 @@ value|0x00010000
 end_define
 
 begin_define
+DECL|macro|NGX_CONF_ANY1
+define|#
+directive|define
+name|NGX_CONF_ANY1
+value|0x00020000
+end_define
+
+begin_define
 DECL|macro|NGX_CONF_BLOCK
 define|#
 directive|define
 name|NGX_CONF_BLOCK
-value|0x00020000
+value|0x00040000
 end_define
 
 begin_define
@@ -123,7 +131,7 @@ DECL|macro|NGX_CONF_FLAG
 define|#
 directive|define
 name|NGX_CONF_FLAG
-value|0x00040000
+value|0x00080000
 end_define
 
 begin_define
@@ -304,7 +312,7 @@ value|{ngx_null_string, 0, NULL, 0, 0, NULL}
 end_define
 
 begin_typedef
-DECL|struct|__anon2b04944b0108
+DECL|struct|__anon28b1b1df0108
 typedef|typedef
 struct|struct
 block|{
@@ -349,7 +357,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b04944b0208
+DECL|struct|__anon28b1b1df0208
 typedef|typedef
 struct|struct
 block|{
@@ -390,7 +398,7 @@ name|ngx_command_t
 modifier|*
 name|dummy
 parameter_list|,
-name|char
+name|void
 modifier|*
 name|conf
 parameter_list|)

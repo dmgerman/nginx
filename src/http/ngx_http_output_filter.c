@@ -504,6 +504,10 @@ else|else
 block|{
 name|size
 operator|=
+operator|(
+name|size_t
+operator|)
+operator|(
 name|hunk
 operator|->
 name|file_last
@@ -511,6 +515,7 @@ operator|-
 name|hunk
 operator|->
 name|file_pos
+operator|)
 expr_stmt|;
 block|}
 if|if
@@ -853,6 +858,10 @@ else|else
 block|{
 name|size
 operator|=
+operator|(
+name|size_t
+operator|)
+operator|(
 name|ctx
 operator|->
 name|incoming
@@ -868,6 +877,7 @@ operator|->
 name|hunk
 operator|->
 name|file_pos
+operator|)
 expr_stmt|;
 block|}
 comment|/* delete the completed hunk from the incoming chain */
@@ -1020,6 +1030,10 @@ else|else
 block|{
 name|size
 operator|=
+operator|(
+name|size_t
+operator|)
+operator|(
 name|src
 operator|->
 name|file_last
@@ -1027,6 +1041,7 @@ operator|-
 name|src
 operator|->
 name|file_pos
+operator|)
 expr_stmt|;
 block|}
 if|if

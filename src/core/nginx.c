@@ -2,12 +2,6 @@ begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_include
 include|#
 directive|include
-file|<nginx.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<ngx_config.h>
 end_include
 
@@ -20,62 +14,18 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_connection.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_os_init.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_server.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<ngx_listen.h>
 end_include
 
 begin_include
 include|#
 directive|include
-file|<ngx_conf_file.h>
+file|<nginx.h>
 end_include
-
-begin_comment
-comment|/* STUB */
-end_comment
-
-begin_include
-include|#
-directive|include
-file|<ngx_http.h>
-end_include
-
-begin_comment
-comment|/* */
-end_comment
 
 begin_function_decl
 specifier|static
-name|void
-name|ngx_set_signals
-parameter_list|(
-name|ngx_log_t
-modifier|*
-name|log
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-specifier|static
-name|void
+name|int
 name|ngx_open_listening_sockets
 parameter_list|(
 name|ngx_log_t
@@ -84,37 +34,6 @@ name|log
 parameter_list|)
 function_decl|;
 end_function_decl
-
-begin_comment
-comment|/* STUB */
-end_comment
-
-begin_decl_stmt
-DECL|variable|ngx_max_conn
-name|int
-name|ngx_max_conn
-init|=
-literal|512
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-DECL|variable|ngx_sendfile_flags
-name|u_int
-name|ngx_sendfile_flags
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-DECL|variable|ngx_server
-name|ngx_server_t
-name|ngx_server
-decl_stmt|;
-end_decl_stmt
-
-begin_comment
-comment|/* */
-end_comment
 
 begin_decl_stmt
 DECL|variable|ngx_log
@@ -473,12 +392,21 @@ return|;
 block|}
 block|}
 block|}
+if|if
+condition|(
 name|ngx_open_listening_sockets
 argument_list|(
 operator|&
 name|ngx_log
 argument_list|)
-expr_stmt|;
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+return|return
+literal|1
+return|;
+block|}
 comment|/* TODO: daemon, once only */
 comment|/* TODO: fork */
 name|ngx_pre_thread
@@ -510,7 +438,7 @@ end_function
 begin_function
 DECL|function|ngx_open_listening_sockets (ngx_log_t * log)
 specifier|static
-name|void
+name|int
 name|ngx_open_listening_sockets
 parameter_list|(
 name|ngx_log_t
@@ -680,11 +608,9 @@ operator|.
 name|data
 argument_list|)
 expr_stmt|;
-name|exit
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
 block|}
 if|if
 condition|(
@@ -734,11 +660,9 @@ operator|.
 name|data
 argument_list|)
 expr_stmt|;
-name|exit
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
 block|}
 comment|/* TODO: close on exit */
 if|if
@@ -783,11 +707,9 @@ operator|.
 name|data
 argument_list|)
 expr_stmt|;
-name|exit
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
 block|}
 block|}
 if|if
@@ -845,11 +767,9 @@ name|err
 operator|!=
 name|NGX_EADDRINUSE
 condition|)
-name|exit
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
 if|if
 condition|(
 name|ngx_close_socket
@@ -925,11 +845,9 @@ operator|.
 name|data
 argument_list|)
 expr_stmt|;
-name|exit
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
 block|}
 comment|/* TODO: deferred accept */
 name|ls
@@ -990,12 +908,13 @@ argument_list|,
 literal|"can not bind(), exiting"
 argument_list|)
 expr_stmt|;
-name|exit
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
 block|}
+return|return
+name|NGX_OK
+return|;
 block|}
 end_function
 

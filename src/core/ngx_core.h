@@ -197,7 +197,7 @@ DECL|macro|NGX_MAXHOSTNAMELEN
 define|#
 directive|define
 name|NGX_MAXHOSTNAMELEN
-value|32
+value|64
 end_define
 
 begin_comment
