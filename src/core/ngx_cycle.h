@@ -28,6 +28,25 @@ directive|include
 file|<ngx_core.h>
 end_include
 
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|NGX_CYCLE_POOL_SIZE
+end_ifndef
+
+begin_define
+DECL|macro|NGX_CYCLE_POOL_SIZE
+define|#
+directive|define
+name|NGX_CYCLE_POOL_SIZE
+value|16384
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_define
 DECL|macro|NGX_DEBUG_POINTS_STOP
 define|#
@@ -121,7 +140,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a0454090108
+DECL|struct|__anon2a3ec5ee0108
 typedef|typedef
 struct|struct
 block|{
@@ -188,7 +207,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a0454090208
+DECL|struct|__anon2a3ec5ee0208
 typedef|typedef
 struct|struct
 block|{

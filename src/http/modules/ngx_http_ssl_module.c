@@ -665,6 +665,12 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
+if|#
+directive|if
+literal|0
+block_content|SSL_CTX_set_options(conf->ssl_ctx, SSL_OP_ALL);     SSL_CTX_set_options(conf->ssl_ctx, SSL_OP_NO_SSLv3);     SSL_CTX_set_options(conf->ssl_ctx, SSL_OP_SINGLE_DH_USE);
+endif|#
+directive|endif
 if|if
 condition|(
 name|conf

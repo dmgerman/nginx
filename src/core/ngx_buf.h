@@ -167,15 +167,6 @@ block|}
 struct|;
 end_struct
 
-begin_typedef
-DECL|typedef|ngx_chain_t
-typedef|typedef
-name|struct
-name|ngx_chain_s
-name|ngx_chain_t
-typedef|;
-end_typedef
-
 begin_struct
 DECL|struct|ngx_chain_s
 struct|struct
@@ -196,7 +187,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a33df2e0108
+DECL|struct|__anon27c11a2f0108
 typedef|typedef
 struct|struct
 block|{
@@ -235,7 +226,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a33df2e0208
+DECL|struct|__anon27c11a2f0208
 typedef|typedef
 struct|struct
 block|{
@@ -304,7 +295,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a33df2e0308
+DECL|struct|__anon27c11a2f0308
 typedef|typedef
 struct|struct
 block|{
@@ -446,15 +437,30 @@ parameter_list|)
 value|ngx_pcalloc(pool, sizeof(ngx_buf_t))
 end_define
 
-begin_define
-DECL|macro|ngx_alloc_chain_link (pool)
-define|#
-directive|define
+begin_function_decl
+name|ngx_chain_t
+modifier|*
 name|ngx_alloc_chain_link
 parameter_list|(
+name|ngx_pool_t
+modifier|*
 name|pool
 parameter_list|)
-value|ngx_palloc(pool, sizeof(ngx_chain_t))
+function_decl|;
+end_function_decl
+
+begin_define
+DECL|macro|ngx_free_chain (pool,cl)
+define|#
+directive|define
+name|ngx_free_chain
+parameter_list|(
+name|pool
+parameter_list|,
+name|cl
+parameter_list|)
+define|\
+value|cl->next = pool->chain;                                                  \     pool->chain = cl
 end_define
 
 begin_function_decl

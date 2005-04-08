@@ -47,7 +47,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277e325c0108
+DECL|struct|__anon2976ddf00108
 typedef|typedef
 struct|struct
 block|{
@@ -66,7 +66,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277e325c0208
+DECL|struct|__anon2976ddf00208
 typedef|typedef
 struct|struct
 block|{
@@ -87,7 +87,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277e325c0308
+DECL|struct|__anon2976ddf00308
 typedef|typedef
 struct|struct
 block|{
@@ -130,7 +130,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277e325c0408
+DECL|struct|__anon2976ddf00408
 typedef|typedef
 struct|struct
 block|{
@@ -201,7 +201,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277e325c0508
+DECL|struct|__anon2976ddf00508
 typedef|typedef
 struct|struct
 block|{
@@ -235,7 +235,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277e325c0608
+DECL|struct|__anon2976ddf00608
 typedef|typedef
 struct|struct
 block|{
@@ -254,7 +254,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277e325c0708
+DECL|struct|__anon2976ddf00708
 typedef|typedef
 struct|struct
 block|{
@@ -273,7 +273,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277e325c0808
+DECL|struct|__anon2976ddf00808
 typedef|typedef
 struct|struct
 block|{
@@ -296,7 +296,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277e325c0908
+DECL|struct|__anon2976ddf00908
 typedef|typedef
 struct|struct
 block|{
@@ -321,7 +321,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277e325c0a08
+DECL|struct|__anon2976ddf00a08
 typedef|typedef
 struct|struct
 block|{
@@ -348,7 +348,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277e325c0b08
+DECL|struct|__anon2976ddf00b08
 typedef|typedef
 struct|struct
 block|{
@@ -4826,6 +4826,12 @@ literal|0
 expr_stmt|;
 name|regex
 operator|->
+name|break_cycle
+operator|=
+literal|0
+expr_stmt|;
+name|regex
+operator|->
 name|name
 operator|=
 name|value
@@ -7003,6 +7009,12 @@ expr_stmt|;
 name|regex
 operator|->
 name|redirect
+operator|=
+literal|0
+expr_stmt|;
+name|regex
+operator|->
+name|break_cycle
 operator|=
 literal|0
 expr_stmt|;

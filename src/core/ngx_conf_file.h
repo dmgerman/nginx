@@ -332,7 +332,7 @@ name|ngx_str_t
 name|name
 decl_stmt|;
 DECL|member|type
-name|int
+name|ngx_uint_t
 name|type
 decl_stmt|;
 DECL|member|set
@@ -357,11 +357,11 @@ name|conf
 parameter_list|)
 function_decl|;
 DECL|member|conf
-name|int
+name|ngx_uint_t
 name|conf
 decl_stmt|;
 DECL|member|offset
-name|int
+name|ngx_uint_t
 name|offset
 decl_stmt|;
 DECL|member|post
@@ -398,9 +398,9 @@ if|#
 directive|if
 literal|0
 comment|/* e.g. append mode, error_log */
-block|int        flags;
+block|ngx_uint_t            flags;
 comment|/* e.g. reopen db file */
-block|int      (*handler)(void *data, ngx_open_file_t *file);     void      *data;
+block|ngx_uint_t          (*handler)(void *data, ngx_open_file_t *file);     void                 *data;
 endif|#
 directive|endif
 block|}
@@ -461,7 +461,7 @@ function_decl|;
 if|#
 directive|if
 literal|0
-block|ngx_int_t      (*init_thread)(ngx_cycle_t *cycle);
+block|ngx_int_t           (*init_thread)(ngx_cycle_t *cycle);
 endif|#
 directive|endif
 block|}
@@ -469,7 +469,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27ebf53f0108
+DECL|struct|__anon29f2b4390108
 typedef|typedef
 struct|struct
 block|{
@@ -514,7 +514,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ebf53f0208
+DECL|struct|__anon29f2b4390208
 typedef|typedef
 struct|struct
 block|{
@@ -649,7 +649,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ebf53f0308
+DECL|struct|__anon29f2b4390308
 typedef|typedef
 struct|struct
 block|{
@@ -664,7 +664,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ebf53f0408
+DECL|struct|__anon29f2b4390408
 typedef|typedef
 struct|struct
 block|{
@@ -673,11 +673,11 @@ name|ngx_conf_post_handler_pt
 name|post_handler
 decl_stmt|;
 DECL|member|low
-name|int
+name|ngx_int_t
 name|low
 decl_stmt|;
 DECL|member|high
-name|int
+name|ngx_int_t
 name|high
 decl_stmt|;
 DECL|typedef|ngx_conf_num_bounds_t
@@ -687,7 +687,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ebf53f0508
+DECL|struct|__anon29f2b4390508
 typedef|typedef
 struct|struct
 block|{
@@ -714,7 +714,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon27ebf53f0608
+DECL|struct|__anon29f2b4390608
 typedef|typedef
 struct|struct
 block|{

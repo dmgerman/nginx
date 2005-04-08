@@ -91,6 +91,11 @@ name|u_char
 modifier|*
 name|end
 decl_stmt|;
+DECL|member|chain
+name|ngx_chain_t
+modifier|*
+name|chain
+decl_stmt|;
 DECL|member|next
 name|ngx_pool_t
 modifier|*

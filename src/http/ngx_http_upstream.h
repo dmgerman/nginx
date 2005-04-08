@@ -117,7 +117,7 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon289cb2520108
+DECL|struct|__anon278080a10108
 typedef|typedef
 struct|struct
 block|{
@@ -149,7 +149,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289cb2520208
+DECL|struct|__anon278080a10208
 typedef|typedef
 struct|struct
 block|{
@@ -196,6 +196,10 @@ decl_stmt|;
 DECL|member|redirect_errors
 name|ngx_flag_t
 name|redirect_errors
+decl_stmt|;
+DECL|member|pass_unparsed_uri
+name|ngx_flag_t
+name|pass_unparsed_uri
 decl_stmt|;
 DECL|member|x_powered_by
 name|ngx_flag_t
@@ -339,18 +343,18 @@ DECL|member|method
 name|ngx_uint_t
 name|method
 decl_stmt|;
-DECL|member|schema
+DECL|member|schema0
 name|ngx_str_t
-name|schema
+name|schema0
 decl_stmt|;
-DECL|member|uri
+DECL|member|uri0
 name|ngx_str_t
-name|uri
+name|uri0
 decl_stmt|;
-DECL|member|location
+DECL|member|location0
 name|ngx_str_t
 modifier|*
-name|location
+name|location0
 decl_stmt|;
 DECL|member|log_ctx
 name|ngx_http_log_ctx_t

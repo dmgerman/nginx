@@ -4615,7 +4615,7 @@ name|u_char
 modifier|*
 name|p
 decl_stmt|;
-name|ngx_int_t
+name|uintptr_t
 name|escape
 decl_stmt|;
 name|ngx_http_log_ctx_t
@@ -4694,7 +4694,7 @@ argument_list|,
 operator|&
 name|u
 operator|->
-name|schema
+name|schema0
 argument_list|,
 operator|&
 name|peer
@@ -4726,7 +4726,7 @@ argument_list|,
 operator|&
 name|u
 operator|->
-name|uri
+name|uri0
 argument_list|)
 expr_stmt|;
 name|len
@@ -4762,7 +4762,7 @@ name|data
 operator|+
 name|u
 operator|->
-name|location
+name|location0
 operator|->
 name|len
 argument_list|,
@@ -4774,7 +4774,7 @@ name|len
 operator|-
 name|u
 operator|->
-name|location
+name|location0
 operator|->
 name|len
 argument_list|,
@@ -4806,7 +4806,7 @@ name|len
 operator|-
 name|u
 operator|->
-name|location
+name|location0
 operator|->
 name|len
 operator|+
@@ -4825,7 +4825,7 @@ name|data
 operator|+
 name|u
 operator|->
-name|location
+name|location0
 operator|->
 name|len
 argument_list|,
@@ -4837,7 +4837,7 @@ name|len
 operator|-
 name|u
 operator|->
-name|location
+name|location0
 operator|->
 name|len
 argument_list|,
@@ -4854,7 +4854,7 @@ name|len
 operator|-
 name|u
 operator|->
-name|location
+name|location0
 operator|->
 name|len
 operator|+
@@ -4870,7 +4870,7 @@ name|len
 operator|-
 name|u
 operator|->
-name|location
+name|location0
 operator|->
 name|len
 operator|+
@@ -4939,7 +4939,7 @@ name|len
 operator|-
 name|u
 operator|->
-name|location
+name|location0
 operator|->
 name|len
 operator|+
@@ -4969,7 +4969,7 @@ name|data
 operator|+
 name|u
 operator|->
-name|location
+name|location0
 operator|->
 name|len
 argument_list|,
@@ -4981,7 +4981,7 @@ name|len
 operator|-
 name|u
 operator|->
-name|location
+name|location0
 operator|->
 name|len
 argument_list|,
@@ -5004,7 +5004,7 @@ name|len
 operator|-
 name|u
 operator|->
-name|location
+name|location0
 operator|->
 name|len
 operator|+
@@ -5028,7 +5028,7 @@ name|data
 operator|+
 name|u
 operator|->
-name|location
+name|location0
 operator|->
 name|len
 argument_list|,
@@ -5040,7 +5040,7 @@ name|len
 operator|-
 name|u
 operator|->
-name|location
+name|location0
 operator|->
 name|len
 argument_list|)

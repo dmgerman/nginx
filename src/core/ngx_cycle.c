@@ -242,9 +242,7 @@ name|pool
 operator|=
 name|ngx_create_pool
 argument_list|(
-literal|16
-operator|*
-literal|1024
+name|NGX_CYCLE_POOL_SIZE
 argument_list|,
 name|log
 argument_list|)

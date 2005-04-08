@@ -94,6 +94,12 @@ name|NULL
 expr_stmt|;
 name|p
 operator|->
+name|chain
+operator|=
+name|NULL
+expr_stmt|;
+name|p
+operator|->
 name|log
 operator|=
 name|log

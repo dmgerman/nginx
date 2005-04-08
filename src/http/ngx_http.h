@@ -150,6 +150,12 @@ directive|include
 file|<ngx_http_variables.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_http_script.h>
+end_include
+
 begin_if
 if|#
 directive|if

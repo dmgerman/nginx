@@ -53,6 +53,15 @@ typedef|;
 end_typedef
 
 begin_typedef
+DECL|typedef|ngx_chain_t
+typedef|typedef
+name|struct
+name|ngx_chain_s
+name|ngx_chain_t
+typedef|;
+end_typedef
+
+begin_typedef
 DECL|typedef|ngx_log_t
 typedef|typedef
 name|struct
@@ -301,7 +310,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_table.h>
+file|<ngx_hash.h>
 end_include
 
 begin_include

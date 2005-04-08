@@ -303,6 +303,10 @@ index|[
 literal|0
 index|]
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"nginx: "
 argument_list|,
 name|ngx_os_argv_last

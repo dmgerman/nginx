@@ -512,7 +512,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"%s in %s:%d"
+literal|"%s in %s:%ui"
 argument_list|,
 name|rv
 argument_list|,
@@ -793,7 +793,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"directive \"%s\" in %s:%d "
+literal|"directive \"%s\" in %s:%ui "
 literal|"is not allowed here"
 argument_list|,
 name|name
@@ -847,7 +847,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"directive \"%s\" in %s:%d "
+literal|"directive \"%s\" in %s:%ui "
 literal|"is not terminated by \";\""
 argument_list|,
 name|name
@@ -900,7 +900,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"directive \"%s\" in %s:%d "
+literal|"directive \"%s\" in %s:%ui "
 literal|"has not the opening \"{\""
 argument_list|,
 name|name
@@ -1099,7 +1099,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"invalid number arguments in "
-literal|"directive \"%s\" in %s:%d"
+literal|"directive \"%s\" in %s:%ui"
 argument_list|,
 name|name
 operator|->
@@ -1289,7 +1289,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"the \"%s\" directive %s in %s:%d"
+literal|"the \"%s\" directive %s in %s:%ui"
 argument_list|,
 name|name
 operator|->
@@ -1333,7 +1333,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"unknown directive \"%s\" in %s:%d"
+literal|"unknown directive \"%s\" in %s:%ui"
 argument_list|,
 name|name
 operator|->
@@ -1522,7 +1522,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"unexpected end of file in %s:%d, "
+literal|"unexpected end of file in %s:%ui, "
 literal|"expecting \";\" or \"}\""
 argument_list|,
 name|cf
@@ -1786,7 +1786,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"unexpected \"%c\" in %s:%d"
+literal|"unexpected \"%c\" in %s:%ui"
 argument_list|,
 name|ch
 argument_list|,
@@ -1877,7 +1877,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"unexpected \"%c\" in %s:%d"
+literal|"unexpected \"%c\" in %s:%ui"
 argument_list|,
 name|ch
 argument_list|,
@@ -1940,7 +1940,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"unexpected \"}\" in %s:%d"
+literal|"unexpected \"}\" in %s:%ui"
 argument_list|,
 name|cf
 operator|->
@@ -3059,7 +3059,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"%s in %s:%d"
+literal|"%s in %s:%ui"
 argument_list|,
 name|errstr
 argument_list|,
@@ -4580,7 +4580,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"value must be equal or more than %d"
+literal|"value must be equal or more than %i"
 argument_list|,
 name|bounds
 operator|->
@@ -4620,7 +4620,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"value must be between %d and %d"
+literal|"value must be between %i and %i"
 argument_list|,
 name|bounds
 operator|->
