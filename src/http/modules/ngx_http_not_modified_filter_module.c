@@ -42,7 +42,10 @@ init|=
 block|{
 name|NULL
 block|,
-comment|/* pre conf */
+comment|/* preconfiguration */
+name|NULL
+block|,
+comment|/* postconfiguration */
 name|NULL
 block|,
 comment|/* create main configuration */
@@ -70,7 +73,7 @@ name|ngx_module_t
 name|ngx_http_not_modified_filter_module
 init|=
 block|{
-name|NGX_MODULE
+name|NGX_MODULE_V1
 block|,
 operator|&
 name|ngx_http_not_modified_filter_module_ctx
@@ -122,6 +125,10 @@ operator|.
 name|status
 operator|!=
 name|NGX_HTTP_OK
+operator|||
+name|r
+operator|->
+expr|main
 operator|||
 name|r
 operator|->
@@ -225,20 +232,10 @@ operator|->
 name|headers_out
 operator|.
 name|content_type
-operator|->
-name|key
 operator|.
 name|len
 operator|=
 literal|0
-expr_stmt|;
-name|r
-operator|->
-name|headers_out
-operator|.
-name|content_type
-operator|=
-name|NULL
 expr_stmt|;
 name|r
 operator|->
@@ -260,7 +257,7 @@ expr_stmt|;
 if|#
 directive|if
 literal|0
-block_content|r->headers_out.accept_ranges->key.len = 0;
+block_content|r->headers_out.accept_ranges->hash = 0;
 endif|#
 directive|endif
 block|}

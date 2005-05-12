@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b78f4a60108
+DECL|struct|__anon27fa99330108
 typedef|typedef
 struct|struct
 block|{
@@ -65,7 +65,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b78f4a60208
+DECL|struct|__anon27fa99330208
 typedef|typedef
 struct|struct
 block|{
@@ -221,7 +221,10 @@ init|=
 block|{
 name|NULL
 block|,
-comment|/* pre conf */
+comment|/* preconfiguration */
+name|NULL
+block|,
+comment|/* postconfiguration */
 name|NULL
 block|,
 comment|/* create main configuration */
@@ -249,7 +252,7 @@ name|ngx_module_t
 name|ngx_http_autoindex_module
 init|=
 block|{
-name|NGX_MODULE
+name|NGX_MODULE_V1
 block|,
 operator|&
 name|ngx_http_autoindex_module_ctx
@@ -2233,63 +2236,6 @@ operator|->
 name|headers_out
 operator|.
 name|content_type
-operator|=
-name|ngx_list_push
-argument_list|(
-operator|&
-name|r
-operator|->
-name|headers_out
-operator|.
-name|headers
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|r
-operator|->
-name|headers_out
-operator|.
-name|content_type
-operator|==
-name|NULL
-condition|)
-block|{
-return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
-return|;
-block|}
-name|r
-operator|->
-name|headers_out
-operator|.
-name|content_type
-operator|->
-name|key
-operator|.
-name|len
-operator|=
-literal|0
-expr_stmt|;
-name|r
-operator|->
-name|headers_out
-operator|.
-name|content_type
-operator|->
-name|key
-operator|.
-name|data
-operator|=
-name|NULL
-expr_stmt|;
-name|r
-operator|->
-name|headers_out
-operator|.
-name|content_type
-operator|->
-name|value
 operator|.
 name|len
 operator|=
@@ -2305,8 +2251,6 @@ operator|->
 name|headers_out
 operator|.
 name|content_type
-operator|->
-name|value
 operator|.
 name|data
 operator|=
@@ -2344,10 +2288,11 @@ return|;
 block|}
 if|if
 condition|(
-operator|!
 name|r
 operator|->
 expr|main
+operator|==
+name|NULL
 condition|)
 block|{
 name|b
@@ -2357,6 +2302,12 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
+name|b
+operator|->
+name|last_in_chain
+operator|=
+literal|1
+expr_stmt|;
 name|out
 operator|.
 name|buf

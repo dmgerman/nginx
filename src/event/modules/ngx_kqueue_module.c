@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b62619f0108
+DECL|struct|__anon2b2106000108
 typedef|typedef
 struct|struct
 block|{
@@ -416,7 +416,7 @@ name|ngx_module_t
 name|ngx_kqueue_module
 init|=
 block|{
-name|NGX_MODULE
+name|NGX_MODULE_V1
 block|,
 operator|&
 name|ngx_kqueue_module_ctx
@@ -792,6 +792,9 @@ operator|=
 name|NGX_USE_ONESHOT_EVENT
 if|#
 directive|if
+literal|1
+if|#
+directive|if
 operator|(
 name|NGX_HAVE_CLEAR_EVENT
 operator|)
@@ -801,6 +804,8 @@ else|#
 directive|else
 operator||
 name|NGX_USE_LEVEL_EVENT
+endif|#
+directive|endif
 endif|#
 directive|endif
 if|#
@@ -2476,6 +2481,20 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|ev
+operator|->
+name|oneshot
+condition|)
+block|{
+name|ev
+operator|->
+name|active
+operator|=
+literal|0
+expr_stmt|;
+block|}
 if|#
 directive|if
 operator|(
@@ -2655,7 +2674,7 @@ condition|)
 block|{
 name|ev
 operator|->
-name|event_handler
+name|handler
 argument_list|(
 name|ev
 argument_list|)
@@ -2693,7 +2712,7 @@ argument_list|)
 expr_stmt|;
 name|ev
 operator|->
-name|event_handler
+name|handler
 argument_list|(
 name|ev
 argument_list|)

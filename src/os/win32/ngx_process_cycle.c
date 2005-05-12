@@ -143,8 +143,8 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_master_process_cycle (ngx_cycle_t * cycle)
 name|void
+DECL|function|ngx_master_process_cycle (ngx_cycle_t * cycle)
 name|ngx_master_process_cycle
 parameter_list|(
 name|ngx_cycle_t
@@ -174,8 +174,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_single_process_cycle (ngx_cycle_t * cycle)
 name|void
+DECL|function|ngx_single_process_cycle (ngx_cycle_t * cycle)
 name|ngx_single_process_cycle
 parameter_list|(
 name|ngx_cycle_t
@@ -659,8 +659,8 @@ operator|*
 operator|)
 literal|" nginx"
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 name|ngx_log_error
@@ -782,10 +782,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_worker_thread_cycle (void * data)
 specifier|static
 name|void
 modifier|*
+DECL|function|ngx_worker_thread_cycle (void * data)
 name|ngx_worker_thread_cycle
 parameter_list|(
 name|void
@@ -837,10 +837,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_window_procedure (HWND window,u_int message,u_int wparam,long lparam)
 specifier|static
 name|long
 name|__stdcall
+DECL|function|ngx_window_procedure (HWND window,u_int message,u_int wparam,long lparam)
 name|ngx_window_procedure
 parameter_list|(
 name|HWND
@@ -995,7 +995,7 @@ argument_list|,
 literal|0
 argument_list|,
 argument|NGINX_VER CRLF
-literal|"(C) 2002-2004 Igor Sysoev"
+literal|"(C) 2002-2005 Igor Sysoev"
 argument_list|)
 empty_stmt|;
 return|return
@@ -1021,8 +1021,8 @@ name|NULL
 argument_list|,
 name|NULL
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 name|ngx_log_error

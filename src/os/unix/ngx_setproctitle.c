@@ -15,6 +15,12 @@ directive|include
 file|<ngx_core.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_setproctitle.h>
+end_include
+
 begin_if
 if|#
 directive|if
@@ -550,50 +556,14 @@ expr_stmt|;
 block|}
 end_function
 
-begin_elif
-elif|#
-directive|elif
-operator|!
-name|defined
-argument_list|(
-name|ngx_setproctitle
-argument_list|)
-end_elif
-
-begin_function
-name|ngx_int_t
-DECL|function|ngx_init_setproctitle (ngx_log_t * log)
-name|ngx_init_setproctitle
-parameter_list|(
-name|ngx_log_t
-modifier|*
-name|log
-parameter_list|)
-block|{
-return|return
-name|NGX_OK
-return|;
-block|}
-end_function
-
-begin_function
-name|void
-DECL|function|ngx_setproctitle (char * title)
-name|ngx_setproctitle
-parameter_list|(
-name|char
-modifier|*
-name|title
-parameter_list|)
-block|{
-return|return;
-block|}
-end_function
-
 begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_comment
+comment|/* NGX_SETPROCTITLE_USES_ENV */
+end_comment
 
 end_unit
 

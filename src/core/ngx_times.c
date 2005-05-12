@@ -37,18 +37,17 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_cached_gmtime
-specifier|static
-name|ngx_tm_t
-name|ngx_cached_gmtime
+DECL|variable|ngx_gmtoff
+name|ngx_int_t
+name|ngx_gmtoff
 decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_gmtoff
+DECL|variable|ngx_cached_gmtime
 specifier|static
-name|ngx_int_t
-name|ngx_gmtoff
+name|ngx_tm_t
+name|ngx_cached_gmtime
 decl_stmt|;
 end_decl_stmt
 

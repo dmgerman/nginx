@@ -80,7 +80,10 @@ init|=
 block|{
 name|NULL
 block|,
-comment|/* pre conf */
+comment|/* preconfiguration */
+name|NULL
+block|,
+comment|/* postconfiguration */
 name|NULL
 block|,
 comment|/* create main configuration */
@@ -108,7 +111,7 @@ name|ngx_module_t
 name|ngx_http_stub_status_module
 init|=
 block|{
-name|NGX_MODULE
+name|NGX_MODULE_V1
 block|,
 operator|&
 name|ngx_http_stub_status_module_ctx
@@ -212,63 +215,6 @@ operator|->
 name|headers_out
 operator|.
 name|content_type
-operator|=
-name|ngx_list_push
-argument_list|(
-operator|&
-name|r
-operator|->
-name|headers_out
-operator|.
-name|headers
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|r
-operator|->
-name|headers_out
-operator|.
-name|content_type
-operator|==
-name|NULL
-condition|)
-block|{
-return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
-return|;
-block|}
-name|r
-operator|->
-name|headers_out
-operator|.
-name|content_type
-operator|->
-name|key
-operator|.
-name|len
-operator|=
-literal|0
-expr_stmt|;
-name|r
-operator|->
-name|headers_out
-operator|.
-name|content_type
-operator|->
-name|key
-operator|.
-name|data
-operator|=
-name|NULL
-expr_stmt|;
-name|r
-operator|->
-name|headers_out
-operator|.
-name|content_type
-operator|->
-name|value
 operator|.
 name|len
 operator|=
@@ -284,8 +230,6 @@ operator|->
 name|headers_out
 operator|.
 name|content_type
-operator|->
-name|value
 operator|.
 name|data
 operator|=
@@ -444,7 +388,7 @@ name|b
 operator|->
 name|last
 argument_list|,
-literal|"Active connections: %A \n"
+literal|"Active connections: %uA \n"
 argument_list|,
 name|ac
 argument_list|)
@@ -479,7 +423,7 @@ name|b
 operator|->
 name|last
 argument_list|,
-literal|" %A %A %A \n"
+literal|" %uA %uA %uA \n"
 argument_list|,
 name|ap
 argument_list|,
@@ -498,7 +442,7 @@ name|b
 operator|->
 name|last
 argument_list|,
-literal|"Reading: %A Writing: %A Waiting: %A \n"
+literal|"Reading: %uA Writing: %uA Waiting: %uA \n"
 argument_list|,
 name|rd
 argument_list|,

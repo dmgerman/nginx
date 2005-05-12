@@ -111,6 +111,46 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
+name|__WATCOMC__
+end_ifdef
+
+begin_define
+DECL|macro|_TIME_T_DEFINED
+define|#
+directive|define
+name|_TIME_T_DEFINED
+end_define
+
+begin_typedef
+DECL|typedef|time_t
+typedef|typedef
+name|long
+name|time_t
+typedef|;
+end_typedef
+
+begin_comment
+comment|/* OpenWatcom defines time_t as "unsigned long" */
+end_comment
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_include
+include|#
+directive|include
+file|<time.h>
+end_include
+
+begin_comment
+comment|/* localtime(), strftime() */
+end_comment
+
+begin_ifdef
+ifdef|#
+directive|ifdef
 name|_MSC_VER
 end_ifdef
 
@@ -199,32 +239,6 @@ name|4127
 name|)
 end_pragma
 
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-
-begin_comment
-comment|/* assignment within conditional expression */
-end_comment
-
-begin_pragma
-pragma|#
-directive|pragma
-name|warning
-name|(
-name|disable
-name|:
-name|4706
-name|)
-end_pragma
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
 begin_comment
 comment|/* function 'ngx_handle_write_event' not inlined */
 end_comment
@@ -308,29 +322,6 @@ name|warn
 name|-
 name|8057
 end_pragma
-
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-
-begin_comment
-comment|/* assignment within conditional expression */
-end_comment
-
-begin_pragma
-pragma|#
-directive|pragma
-name|warn
-name|-
-name|8060
-end_pragma
-
-begin_endif
-endif|#
-directive|endif
-end_endif
 
 begin_endif
 endif|#
@@ -490,14 +481,6 @@ DECL|typedef|ssize_t
 typedef|typedef
 name|int
 name|ssize_t
-typedef|;
-end_typedef
-
-begin_typedef
-DECL|typedef|time_t
-typedef|typedef
-name|long
-name|time_t
 typedef|;
 end_typedef
 

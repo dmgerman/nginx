@@ -495,7 +495,7 @@ name|connection
 operator|->
 name|read
 operator|->
-name|event_handler
+name|handler
 operator|=
 name|ngx_imap_proxy_block_read
 expr_stmt|;
@@ -507,7 +507,7 @@ name|connection
 operator|->
 name|read
 operator|->
-name|event_handler
+name|handler
 operator|=
 name|ngx_imap_proxy_auth_handler
 expr_stmt|;
@@ -519,7 +519,7 @@ name|connection
 operator|->
 name|write
 operator|->
-name|event_handler
+name|handler
 operator|=
 name|ngx_imap_proxy_dummy_handler
 expr_stmt|;
@@ -1120,7 +1120,7 @@ name|connection
 operator|->
 name|read
 operator|->
-name|event_handler
+name|handler
 operator|=
 name|ngx_imap_proxy_handler
 expr_stmt|;
@@ -1130,13 +1130,13 @@ name|connection
 operator|->
 name|write
 operator|->
-name|event_handler
+name|handler
 operator|=
 name|ngx_imap_proxy_handler
 expr_stmt|;
 name|rev
 operator|->
-name|event_handler
+name|handler
 operator|=
 name|ngx_imap_proxy_handler
 expr_stmt|;
@@ -1144,7 +1144,7 @@ name|c
 operator|->
 name|write
 operator|->
-name|event_handler
+name|handler
 operator|=
 name|ngx_imap_proxy_handler
 expr_stmt|;

@@ -249,7 +249,10 @@ init|=
 block|{
 name|NULL
 block|,
-comment|/* pre conf */
+comment|/* preconfiguration */
+name|NULL
+block|,
+comment|/* postconfiguration */
 name|ngx_http_ssl_create_main_conf
 block|,
 comment|/* create main configuration */
@@ -277,7 +280,7 @@ name|ngx_module_t
 name|ngx_http_ssl_module
 init|=
 block|{
-name|NGX_MODULE
+name|NGX_MODULE_V1
 block|,
 operator|&
 name|ngx_http_ssl_module_ctx
@@ -661,6 +664,28 @@ argument_list|,
 literal|"SSL_CTX_new() failed"
 argument_list|)
 expr_stmt|;
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
+if|if
+condition|(
+name|ngx_pool_cleanup_add
+argument_list|(
+name|cf
+operator|->
+name|pool
+argument_list|,
+name|ngx_ssl_cleanup_ctx
+argument_list|,
+name|conf
+operator|->
+name|ssl_ctx
+argument_list|)
+operator|==
+name|NULL
+condition|)
+block|{
 return|return
 name|NGX_CONF_ERROR
 return|;

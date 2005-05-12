@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28a78f4d0108
+DECL|struct|__anon2ae6f8c00108
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,10 @@ init|=
 block|{
 name|NULL
 block|,
-comment|/* pre conf */
+comment|/* preconfiguration */
+name|NULL
+block|,
+comment|/* postconfiguration */
 name|NULL
 block|,
 comment|/* create main configuration */
@@ -160,7 +163,7 @@ name|ngx_module_t
 name|ngx_http_copy_filter_module
 init|=
 block|{
-name|NGX_MODULE
+name|NGX_MODULE_V1
 block|,
 operator|&
 name|ngx_http_copy_filter_module_ctx
@@ -204,6 +207,9 @@ modifier|*
 name|in
 parameter_list|)
 block|{
+name|ngx_int_t
+name|rc
+decl_stmt|;
 name|ngx_output_chain_ctx_t
 modifier|*
 name|ctx
@@ -227,18 +233,30 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"copy filter: \"%V\""
+argument_list|,
+operator|&
+name|r
+operator|->
+name|uri
+argument_list|)
+expr_stmt|;
 name|ctx
 operator|=
 name|ngx_http_get_module_ctx
 argument_list|(
-name|r
-operator|->
-expr|main
-operator|?
-name|r
-operator|->
-expr|main
-operator|:
 name|r
 argument_list|,
 name|ngx_http_copy_filter_module
@@ -255,14 +273,6 @@ name|conf
 operator|=
 name|ngx_http_get_module_loc_conf
 argument_list|(
-name|r
-operator|->
-expr|main
-operator|?
-name|r
-operator|->
-expr|main
-operator|:
 name|r
 argument_list|,
 name|ngx_http_copy_filter_module
@@ -370,13 +380,39 @@ operator|=
 name|r
 expr_stmt|;
 block|}
-return|return
+name|rc
+operator|=
 name|ngx_output_chain
 argument_list|(
 name|ctx
 argument_list|,
 name|in
 argument_list|)
+expr_stmt|;
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"copy filter: %i \"%V\""
+argument_list|,
+name|rc
+argument_list|,
+operator|&
+name|r
+operator|->
+name|uri
+argument_list|)
+expr_stmt|;
+return|return
+name|rc
 return|;
 block|}
 end_function

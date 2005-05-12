@@ -30,7 +30,7 @@ value|2048
 end_define
 
 begin_typedef
-DECL|struct|__anon2bc3c4d60108
+DECL|struct|__anon2973a68c0108
 typedef|typedef
 struct|struct
 block|{
@@ -45,7 +45,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc3c4d60208
+DECL|struct|__anon2973a68c0208
 typedef|typedef
 struct|struct
 block|{
@@ -282,7 +282,10 @@ init|=
 block|{
 name|NULL
 block|,
-comment|/* pre conf */
+comment|/* preconfiguration */
+name|NULL
+block|,
+comment|/* postconfiguration */
 name|NULL
 block|,
 comment|/* create main configuration */
@@ -310,7 +313,7 @@ name|ngx_module_t
 name|ngx_http_auth_basic_module
 init|=
 block|{
-name|NGX_MODULE
+name|NGX_MODULE_V1
 block|,
 operator|&
 name|ngx_http_auth_basic_module_ctx
@@ -386,7 +389,7 @@ index|[
 name|NGX_HTTP_AUTH_BUF_SIZE
 index|]
 decl_stmt|;
-DECL|enum|__anon2bc3c4d60303
+DECL|enum|__anon2973a68c0303
 enum|enum
 block|{
 DECL|enumerator|sw_login
@@ -1489,6 +1492,16 @@ return|return
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
 block|}
+name|r
+operator|->
+name|headers_out
+operator|.
+name|www_authenticate
+operator|->
+name|hash
+operator|=
+literal|1
+expr_stmt|;
 name|r
 operator|->
 name|headers_out

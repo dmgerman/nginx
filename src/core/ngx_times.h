@@ -227,6 +227,13 @@ name|ngx_old_elapsed_msec
 decl_stmt|;
 end_decl_stmt
 
+begin_decl_stmt
+specifier|extern
+name|ngx_int_t
+name|ngx_gmtoff
+decl_stmt|;
+end_decl_stmt
+
 begin_endif
 endif|#
 directive|endif

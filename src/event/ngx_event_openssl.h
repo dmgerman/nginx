@@ -41,7 +41,7 @@ file|<openssl/err.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b81d20c0108
+DECL|struct|__anon2c0845290108
 typedef|typedef
 struct|struct
 block|{
@@ -241,6 +241,17 @@ modifier|*
 name|fmt
 parameter_list|,
 modifier|...
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_ssl_cleanup_ctx
+parameter_list|(
+name|void
+modifier|*
+name|data
 parameter_list|)
 function_decl|;
 end_function_decl

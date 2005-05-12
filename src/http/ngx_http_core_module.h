@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bf62ada0108
+DECL|struct|__anon2b82d45d0108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2bf62ada0203
+DECL|enum|__anon2b82d45d0203
 typedef|typedef
 enum|enum
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf62ada0308
+DECL|struct|__anon2b82d45d0308
 typedef|typedef
 struct|struct
 block|{
@@ -119,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf62ada0408
+DECL|struct|__anon2b82d45d0408
 typedef|typedef
 struct|struct
 block|{
@@ -143,6 +143,10 @@ DECL|member|headers_in_hash
 name|ngx_hash_t
 name|headers_in_hash
 decl_stmt|;
+DECL|member|variables_hash
+name|ngx_hash_t
+name|variables_hash
+decl_stmt|;
 DECL|member|server_names_hash
 name|ngx_uint_t
 name|server_names_hash
@@ -160,6 +164,11 @@ name|ngx_array_t
 name|variables
 decl_stmt|;
 comment|/* ngx_http_variable_t */
+DECL|member|all_variables
+name|ngx_array_t
+name|all_variables
+decl_stmt|;
+comment|/* ngx_http_variable_t */
 DECL|typedef|ngx_http_core_main_conf_t
 block|}
 name|ngx_http_core_main_conf_t
@@ -167,7 +176,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf62ada0508
+DECL|struct|__anon2b82d45d0508
 typedef|typedef
 struct|struct
 block|{
@@ -231,7 +240,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2bf62ada0608
+DECL|struct|__anon2b82d45d0608
 typedef|typedef
 struct|struct
 block|{
@@ -295,7 +304,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bf62ada0708
+DECL|struct|__anon2b82d45d0708
 typedef|typedef
 struct|struct
 block|{
@@ -361,7 +370,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon2bf62ada0808
+DECL|struct|__anon2b82d45d0808
 typedef|typedef
 struct|struct
 block|{
@@ -380,7 +389,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf62ada0908
+DECL|struct|__anon2b82d45d0908
 typedef|typedef
 struct|struct
 block|{
@@ -549,6 +558,11 @@ name|time_t
 name|keepalive_header
 decl_stmt|;
 comment|/* keepalive_timeout */
+DECL|member|internal
+name|ngx_flag_t
+name|internal
+decl_stmt|;
+comment|/* internal */
 DECL|member|sendfile
 name|ngx_flag_t
 name|sendfile
@@ -656,6 +670,25 @@ parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_http_subrequest
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|uri
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|args
 parameter_list|)
 function_decl|;
 end_function_decl

@@ -42,7 +42,10 @@ init|=
 block|{
 name|NULL
 block|,
-comment|/* pre conf */
+comment|/* preconfiguration */
+name|NULL
+block|,
+comment|/* postconfiguration */
 name|NULL
 block|,
 comment|/* create main configuration */
@@ -71,7 +74,7 @@ name|ngx_module_t
 name|ngx_http_chunked_filter_module
 init|=
 block|{
-name|NGX_MODULE
+name|NGX_MODULE_V1
 block|,
 operator|&
 name|ngx_http_chunked_filter_module_ctx
@@ -128,6 +131,10 @@ operator|.
 name|status
 operator|==
 name|NGX_HTTP_NOT_MODIFIED
+operator|||
+name|r
+operator|->
+expr|main
 condition|)
 block|{
 return|return

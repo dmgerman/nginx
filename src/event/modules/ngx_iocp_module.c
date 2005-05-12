@@ -280,7 +280,7 @@ name|ngx_module_t
 name|ngx_iocp_module
 init|=
 block|{
-name|NGX_MODULE
+name|NGX_MODULE_V1
 block|,
 operator|&
 name|ngx_iocp_module_ctx
@@ -1066,12 +1066,12 @@ literal|"iocp event handler: %p"
 argument_list|,
 name|ev
 operator|->
-name|event_handler
+name|handler
 argument_list|)
 expr_stmt|;
 name|ev
 operator|->
-name|event_handler
+name|handler
 argument_list|(
 name|ev
 argument_list|)

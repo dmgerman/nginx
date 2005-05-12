@@ -185,11 +185,6 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-name|ngx_init_setproctitle
-argument_list|(
-name|log
-argument_list|)
-expr_stmt|;
 return|return
 name|ngx_posix_init
 argument_list|(

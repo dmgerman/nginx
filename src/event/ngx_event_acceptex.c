@@ -618,7 +618,7 @@ name|wev
 expr_stmt|;
 name|rev
 operator|->
-name|event_handler
+name|handler
 operator|=
 name|ngx_event_acceptex
 expr_stmt|;

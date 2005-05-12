@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b81328c0108
+DECL|struct|__anon29db1d7a0108
 typedef|typedef
 struct|struct
 block|{
@@ -131,7 +131,10 @@ init|=
 block|{
 name|NULL
 block|,
-comment|/* pre conf */
+comment|/* preconfiguration */
+name|NULL
+block|,
+comment|/* postconfiguration */
 name|NULL
 block|,
 comment|/* create main configuration */
@@ -159,7 +162,7 @@ name|ngx_module_t
 name|ngx_http_geo_module
 init|=
 block|{
-name|NGX_MODULE
+name|NGX_MODULE_V1
 block|,
 operator|&
 name|ngx_http_geo_module_ctx
@@ -431,7 +434,7 @@ argument_list|,
 operator|&
 name|name
 argument_list|,
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 if|if

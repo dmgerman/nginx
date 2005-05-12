@@ -112,7 +112,7 @@ name|ngx_module_t
 name|ngx_errlog_module
 init|=
 block|{
-name|NGX_MODULE
+name|NGX_MODULE_V1
 block|,
 operator|&
 name|ngx_errlog_module_ctx

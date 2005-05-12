@@ -38,9 +38,9 @@ name|sun
 end_undef
 
 begin_function
-DECL|function|ngx_unix_upstream_parse (ngx_conf_t * cf,ngx_unix_domain_upstream_t * u)
 name|ngx_peers_t
 modifier|*
+DECL|function|ngx_unix_upstream_parse (ngx_conf_t * cf,ngx_unix_domain_upstream_t * u)
 name|ngx_unix_upstream_parse
 parameter_list|(
 name|ngx_conf_t

@@ -327,7 +327,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29eb85fd0108
+DECL|struct|__anon2946d6090108
 typedef|typedef
 struct|struct
 block|{
@@ -606,7 +606,7 @@ name|ngx_module_t
 name|ngx_epoll_module
 init|=
 block|{
-name|NGX_MODULE
+name|NGX_MODULE_V1
 block|,
 operator|&
 name|ngx_epoll_module_ctx
@@ -2360,7 +2360,7 @@ condition|)
 block|{
 name|wev
 operator|->
-name|event_handler
+name|handler
 argument_list|(
 name|wev
 argument_list|)
@@ -2430,7 +2430,7 @@ condition|)
 block|{
 name|rev
 operator|->
-name|event_handler
+name|handler
 argument_list|(
 name|rev
 argument_list|)
@@ -2464,7 +2464,7 @@ argument_list|)
 expr_stmt|;
 name|rev
 operator|->
-name|event_handler
+name|handler
 argument_list|(
 name|rev
 argument_list|)

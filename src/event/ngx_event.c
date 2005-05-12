@@ -480,7 +480,7 @@ name|ngx_module_t
 name|ngx_events_module
 init|=
 block|{
-name|NGX_MODULE
+name|NGX_MODULE_V1
 block|,
 operator|&
 name|ngx_events_module_ctx
@@ -715,7 +715,7 @@ name|ngx_module_t
 name|ngx_event_core_module
 init|=
 block|{
-name|NGX_MODULE
+name|NGX_MODULE_V1
 block|,
 operator|&
 name|ngx_event_core_module_ctx
@@ -737,9 +737,423 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_event_module_init (ngx_cycle_t * cycle)
+name|ngx_int_t
+DECL|function|ngx_handle_read_event (ngx_event_t * rev,u_int flags)
+name|ngx_handle_read_event
+parameter_list|(
+name|ngx_event_t
+modifier|*
+name|rev
+parameter_list|,
+name|u_int
+name|flags
+parameter_list|)
+block|{
+if|if
+condition|(
+name|ngx_event_flags
+operator|&
+name|NGX_USE_CLEAR_EVENT
+condition|)
+block|{
+comment|/* kqueue, epoll */
+if|if
+condition|(
+operator|!
+name|rev
+operator|->
+name|active
+operator|&&
+operator|!
+name|rev
+operator|->
+name|ready
+condition|)
+block|{
+if|if
+condition|(
+name|ngx_add_event
+argument_list|(
+name|rev
+argument_list|,
+name|NGX_READ_EVENT
+argument_list|,
+name|NGX_CLEAR_EVENT
+argument_list|)
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+block|}
+return|return
+name|NGX_OK
+return|;
+block|}
+if|else if
+condition|(
+name|ngx_event_flags
+operator|&
+name|NGX_USE_LEVEL_EVENT
+condition|)
+block|{
+comment|/* select, poll, /dev/poll */
+if|if
+condition|(
+operator|!
+name|rev
+operator|->
+name|active
+operator|&&
+operator|!
+name|rev
+operator|->
+name|ready
+condition|)
+block|{
+if|if
+condition|(
+name|ngx_add_event
+argument_list|(
+name|rev
+argument_list|,
+name|NGX_READ_EVENT
+argument_list|,
+name|NGX_LEVEL_EVENT
+argument_list|)
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+return|return
+name|NGX_OK
+return|;
+block|}
+if|if
+condition|(
+name|rev
+operator|->
+name|active
+operator|&&
+operator|(
+name|rev
+operator|->
+name|ready
+operator|||
+operator|(
+name|flags
+operator|&
+name|NGX_CLOSE_EVENT
+operator|)
+operator|)
+condition|)
+block|{
+if|if
+condition|(
+name|ngx_del_event
+argument_list|(
+name|rev
+argument_list|,
+name|NGX_READ_EVENT
+argument_list|,
+name|NGX_LEVEL_EVENT
+operator||
+name|flags
+argument_list|)
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+return|return
+name|NGX_OK
+return|;
+block|}
+block|}
+if|else if
+condition|(
+name|ngx_event_flags
+operator|&
+name|NGX_USE_ONESHOT_EVENT
+condition|)
+block|{
+comment|/* event ports */
+if|if
+condition|(
+operator|!
+name|rev
+operator|->
+name|active
+condition|)
+block|{
+if|if
+condition|(
+name|ngx_add_event
+argument_list|(
+name|rev
+argument_list|,
+name|NGX_READ_EVENT
+argument_list|,
+name|NGX_ONESHOT_EVENT
+argument_list|)
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+block|}
+return|return
+name|NGX_OK
+return|;
+block|}
+comment|/* aio, iocp, rtsig */
+return|return
+name|NGX_OK
+return|;
+block|}
+end_function
+
+begin_function
+name|ngx_int_t
+DECL|function|ngx_handle_write_event (ngx_event_t * wev,size_t lowat)
+name|ngx_handle_write_event
+parameter_list|(
+name|ngx_event_t
+modifier|*
+name|wev
+parameter_list|,
+name|size_t
+name|lowat
+parameter_list|)
+block|{
+name|ngx_connection_t
+modifier|*
+name|c
+decl_stmt|;
+if|if
+condition|(
+name|lowat
+condition|)
+block|{
+name|c
+operator|=
+operator|(
+name|ngx_connection_t
+operator|*
+operator|)
+name|wev
+operator|->
+name|data
+expr_stmt|;
+if|if
+condition|(
+name|ngx_send_lowat
+argument_list|(
+name|c
+argument_list|,
+name|lowat
+argument_list|)
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+block|}
+if|if
+condition|(
+name|ngx_event_flags
+operator|&
+name|NGX_USE_CLEAR_EVENT
+condition|)
+block|{
+comment|/* kqueue, epoll */
+if|if
+condition|(
+operator|!
+name|wev
+operator|->
+name|active
+operator|&&
+operator|!
+name|wev
+operator|->
+name|ready
+condition|)
+block|{
+if|if
+condition|(
+name|ngx_add_event
+argument_list|(
+name|wev
+argument_list|,
+name|NGX_WRITE_EVENT
+argument_list|,
+name|NGX_CLEAR_EVENT
+operator||
+operator|(
+name|lowat
+condition|?
+name|NGX_LOWAT_EVENT
+else|:
+literal|0
+operator|)
+argument_list|)
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+block|}
+return|return
+name|NGX_OK
+return|;
+block|}
+if|else if
+condition|(
+name|ngx_event_flags
+operator|&
+name|NGX_USE_LEVEL_EVENT
+condition|)
+block|{
+comment|/* select, poll, /dev/poll */
+if|if
+condition|(
+operator|!
+name|wev
+operator|->
+name|active
+operator|&&
+operator|!
+name|wev
+operator|->
+name|ready
+condition|)
+block|{
+if|if
+condition|(
+name|ngx_add_event
+argument_list|(
+name|wev
+argument_list|,
+name|NGX_WRITE_EVENT
+argument_list|,
+name|NGX_LEVEL_EVENT
+argument_list|)
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+return|return
+name|NGX_OK
+return|;
+block|}
+if|if
+condition|(
+name|wev
+operator|->
+name|active
+operator|&&
+name|wev
+operator|->
+name|ready
+condition|)
+block|{
+if|if
+condition|(
+name|ngx_del_event
+argument_list|(
+name|wev
+argument_list|,
+name|NGX_WRITE_EVENT
+argument_list|,
+name|NGX_LEVEL_EVENT
+argument_list|)
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+return|return
+name|NGX_OK
+return|;
+block|}
+block|}
+if|else if
+condition|(
+name|ngx_event_flags
+operator|&
+name|NGX_USE_ONESHOT_EVENT
+condition|)
+block|{
+comment|/* event ports */
+if|if
+condition|(
+operator|!
+name|wev
+operator|->
+name|active
+condition|)
+block|{
+if|if
+condition|(
+name|ngx_add_event
+argument_list|(
+name|wev
+argument_list|,
+name|NGX_WRITE_EVENT
+argument_list|,
+name|NGX_ONESHOT_EVENT
+argument_list|)
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+block|}
+return|return
+name|NGX_OK
+return|;
+block|}
+comment|/* aio, iocp, rtsig */
+return|return
+name|NGX_OK
+return|;
+block|}
+end_function
+
+begin_function
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_event_module_init (ngx_cycle_t * cycle)
 name|ngx_event_module_init
 parameter_list|(
 name|ngx_cycle_t
@@ -1064,9 +1478,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_event_process_init (ngx_cycle_t * cycle)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_event_process_init (ngx_cycle_t * cycle)
 name|ngx_event_process_init
 parameter_list|(
 name|ngx_cycle_t
@@ -1924,7 +2338,7 @@ condition|)
 block|{
 name|rev
 operator|->
-name|event_handler
+name|handler
 operator|=
 name|ngx_event_acceptex
 expr_stmt|;
@@ -1984,7 +2398,7 @@ else|else
 block|{
 name|rev
 operator|->
-name|event_handler
+name|handler
 operator|=
 name|ngx_event_accept
 expr_stmt|;
@@ -2011,7 +2425,7 @@ else|#
 directive|else
 name|rev
 operator|->
-name|event_handler
+name|handler
 operator|=
 name|ngx_event_accept
 expr_stmt|;
@@ -2075,8 +2489,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_send_lowat (ngx_connection_t * c,size_t lowat)
 name|ngx_int_t
+DECL|function|ngx_send_lowat (ngx_connection_t * c,size_t lowat)
 name|ngx_send_lowat
 parameter_list|(
 name|ngx_connection_t
@@ -2194,10 +2608,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_events_block (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_events_block (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_events_block
 parameter_list|(
 name|ngx_conf_t
@@ -2570,10 +2984,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_event_connections (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_event_connections (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_event_connections
 parameter_list|(
 name|ngx_conf_t
@@ -2691,10 +3105,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_event_use (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_event_use (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_event_use
 parameter_list|(
 name|ngx_conf_t
@@ -2959,10 +3373,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_event_debug_connection (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_event_debug_connection (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 name|ngx_event_debug_connection
 parameter_list|(
 name|ngx_conf_t
@@ -3155,10 +3569,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_event_create_conf (ngx_cycle_t * cycle)
 specifier|static
 name|void
 modifier|*
+DECL|function|ngx_event_create_conf (ngx_cycle_t * cycle)
 name|ngx_event_create_conf
 parameter_list|(
 name|ngx_cycle_t
@@ -3277,10 +3691,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_event_init_conf (ngx_cycle_t * cycle,void * conf)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_event_init_conf (ngx_cycle_t * cycle,void * conf)
 name|ngx_event_init_conf
 parameter_list|(
 name|ngx_cycle_t
@@ -3763,10 +4177,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_accept_mutex_check (ngx_conf_t * cf,void * post,void * data)
 specifier|static
 name|char
 modifier|*
+DECL|function|ngx_accept_mutex_check (ngx_conf_t * cf,void * post,void * data)
 name|ngx_accept_mutex_check
 parameter_list|(
 name|ngx_conf_t

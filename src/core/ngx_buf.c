@@ -75,7 +75,7 @@ return|return
 name|NULL
 return|;
 block|}
-comment|/*      * set by ngx_calloc_buf():      *      *     b->file_pos = 0;      *     b->file_last = 0;      *     b->file = NULL;      *     b->shadow = NULL;      *     b->tag = 0;      *      */
+comment|/*      * set by ngx_calloc_buf():      *      *     b->file_pos = 0;      *     b->file_last = 0;      *     b->file = NULL;      *     b->shadow = NULL;      *     b->tag = 0;      *     and flags      */
 name|b
 operator|->
 name|pos
@@ -283,7 +283,7 @@ return|return
 name|NULL
 return|;
 block|}
-comment|/*          * set by ngx_calloc_buf():          *          *     b->file_pos = 0;          *     b->file_last = 0;          *     b->file = NULL;          *     b->shadow = NULL;          *     b->tag = 0;          *          */
+comment|/*          * set by ngx_calloc_buf():          *          *     b->file_pos = 0;          *     b->file_last = 0;          *     b->file = NULL;          *     b->shadow = NULL;          *     b->tag = 0;          *     and flags          *          */
 name|b
 operator|->
 name|pos

@@ -24,9 +24,9 @@ value|2048
 end_define
 
 begin_function
-DECL|function|ngx_message_box (char * title,ngx_uint_t type,ngx_err_t err,const char * fmt,...)
 name|void
-name|ngx_cdecl
+name|__cdecl
+DECL|function|ngx_message_box (char * title,ngx_uint_t type,ngx_err_t err,const char * fmt,...)
 name|ngx_message_box
 parameter_list|(
 name|char

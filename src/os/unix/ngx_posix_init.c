@@ -15,6 +15,12 @@ directive|include
 file|<ngx_core.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_setproctitle.h>
+end_include
+
 begin_decl_stmt
 DECL|variable|ngx_ncpu
 name|ngx_int_t
@@ -131,7 +137,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon289101ed0108
+DECL|struct|__anon2c274eeb0108
 typedef|typedef
 struct|struct
 block|{
@@ -327,6 +333,11 @@ name|struct
 name|sigaction
 name|sa
 decl_stmt|;
+name|ngx_init_setproctitle
+argument_list|(
+name|log
+argument_list|)
+expr_stmt|;
 name|ngx_pagesize
 operator|=
 name|getpagesize

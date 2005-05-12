@@ -78,7 +78,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon277db5100108
+DECL|struct|__anon28ee15430108
 typedef|typedef
 struct|struct
 block|{
@@ -396,7 +396,7 @@ name|ngx_module_t
 name|ngx_devpoll_module
 init|=
 block|{
-name|NGX_MODULE
+name|NGX_MODULE_V1
 block|,
 operator|&
 name|ngx_devpoll_module_ctx
@@ -2048,7 +2048,7 @@ condition|)
 block|{
 name|wev
 operator|->
-name|event_handler
+name|handler
 argument_list|(
 name|wev
 argument_list|)
@@ -2100,7 +2100,7 @@ condition|)
 block|{
 name|rev
 operator|->
-name|event_handler
+name|handler
 argument_list|(
 name|rev
 argument_list|)
@@ -2136,7 +2136,7 @@ name|c
 operator|->
 name|read
 operator|->
-name|event_handler
+name|handler
 argument_list|(
 name|rev
 argument_list|)

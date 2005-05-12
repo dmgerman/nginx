@@ -26,7 +26,7 @@ comment|/* AF_INET only */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2bd588490108
+DECL|struct|__anon2b8a76f80108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd588490208
+DECL|struct|__anon2b8a76f80208
 typedef|typedef
 struct|struct
 block|{
@@ -211,7 +211,10 @@ init|=
 block|{
 name|NULL
 block|,
-comment|/* pre conf */
+comment|/* preconfiguration */
+name|NULL
+block|,
+comment|/* postconfiguration */
 name|NULL
 block|,
 comment|/* create main configuration */
@@ -239,7 +242,7 @@ name|ngx_module_t
 name|ngx_http_access_module
 init|=
 block|{
-name|NGX_MODULE
+name|NGX_MODULE_V1
 block|,
 operator|&
 name|ngx_http_access_module_ctx

@@ -386,6 +386,14 @@ return|return;
 block|}
 name|ngx_log_error
 argument_list|(
+operator|(
+name|err
+operator|==
+name|NGX_ECONNABORTED
+operator|)
+condition|?
+name|NGX_LOG_CRIT
+else|:
 name|NGX_LOG_ALERT
 argument_list|,
 name|ev

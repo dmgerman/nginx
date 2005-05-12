@@ -259,7 +259,7 @@ name|c
 argument_list|,
 name|err
 argument_list|,
-literal|"recv() failed"
+literal|"send() failed"
 argument_list|)
 expr_stmt|;
 return|return

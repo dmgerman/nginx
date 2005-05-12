@@ -32,8 +32,8 @@ comment|/*  * ngx_sock_ntop() and ngx_inet_ntop() may be implemented as  * "ngx_
 end_comment
 
 begin_function
-DECL|function|ngx_sprint_uchar (u_char * text,u_char c,size_t len)
 specifier|static
+DECL|function|ngx_sprint_uchar (u_char * text,u_char c,size_t len)
 name|ngx_inline
 name|size_t
 name|ngx_sprint_uchar
@@ -189,8 +189,8 @@ comment|/* AF_INET only */
 end_comment
 
 begin_function
-DECL|function|ngx_sock_ntop (int family,struct sockaddr * sa,u_char * text,size_t len)
 name|size_t
+DECL|function|ngx_sock_ntop (int family,struct sockaddr * sa,u_char * text,size_t len)
 name|ngx_sock_ntop
 parameter_list|(
 name|int
@@ -407,8 +407,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_inet_ntop (int family,void * addr,u_char * text,size_t len)
 name|size_t
+DECL|function|ngx_inet_ntop (int family,void * addr,u_char * text,size_t len)
 name|ngx_inet_ntop
 parameter_list|(
 name|int
@@ -611,8 +611,8 @@ comment|/* AF_INET only */
 end_comment
 
 begin_function
-DECL|function|ngx_ptocidr (ngx_str_t * text,void * cidr)
 name|ngx_int_t
+DECL|function|ngx_ptocidr (ngx_str_t * text,void * cidr)
 name|ngx_ptocidr
 parameter_list|(
 name|ngx_str_t
@@ -813,9 +813,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_inet_upstream_parse (ngx_conf_t * cf,ngx_inet_upstream_t * u)
 name|ngx_peers_t
 modifier|*
+DECL|function|ngx_inet_upstream_parse (ngx_conf_t * cf,ngx_inet_upstream_t * u)
 name|ngx_inet_upstream_parse
 parameter_list|(
 name|ngx_conf_t
@@ -1850,9 +1850,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_inet_parse_host_port (ngx_inet_upstream_t * u)
 name|char
 modifier|*
+DECL|function|ngx_inet_parse_host_port (ngx_inet_upstream_t * u)
 name|ngx_inet_parse_host_port
 parameter_list|(
 name|ngx_inet_upstream_t

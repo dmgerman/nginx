@@ -218,7 +218,7 @@ name|ngx_module_t
 name|ngx_poll_module
 init|=
 block|{
-name|NGX_MODULE
+name|NGX_MODULE_V1
 block|,
 operator|&
 name|ngx_poll_module_ctx
@@ -2074,7 +2074,7 @@ block|}
 if|#
 directive|if
 literal|0
-block_content|for (i = 0; i< nready; i++) {         ev = ready_index[i];          if (!ev->active) {             continue;         }          ev->ready = 1;          if (ev->oneshot) {             if (ev->timer_set) {                 ngx_del_timer(ev);             }              if (ev->write) {                 ngx_poll_del_event(ev, NGX_WRITE_EVENT, 0);             } else {                 ngx_poll_del_event(ev, NGX_READ_EVENT, 0);             }         }          ev->event_handler(ev);     }
+block_content|for (i = 0; i< nready; i++) {         ev = ready_index[i];          if (!ev->active) {             continue;         }          ev->ready = 1;          if (ev->oneshot) {             if (ev->timer_set) {                 ngx_del_timer(ev);             }              if (ev->write) {                 ngx_poll_del_event(ev, NGX_WRITE_EVENT, 0);             } else {                 ngx_poll_del_event(ev, NGX_READ_EVENT, 0);             }         }          ev->handler(ev);     }
 endif|#
 directive|endif
 name|ev
@@ -2118,7 +2118,7 @@ argument_list|)
 expr_stmt|;
 name|ev
 operator|->
-name|event_handler
+name|handler
 argument_list|(
 name|ev
 argument_list|)

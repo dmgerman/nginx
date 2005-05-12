@@ -177,7 +177,7 @@ name|ctx
 operator|->
 name|event
 operator|->
-name|event_handler
+name|handler
 operator|=
 name|ngx_event_busy_lock_handler
 expr_stmt|;
@@ -347,7 +347,7 @@ name|ctx
 operator|->
 name|event
 operator|->
-name|event_handler
+name|handler
 operator|=
 name|ngx_event_busy_lock_handler
 expr_stmt|;
@@ -1097,7 +1097,7 @@ argument_list|)
 expr_stmt|;
 name|ev
 operator|->
-name|event_handler
+name|handler
 operator|=
 name|ngx_event_busy_lock_posted_handler
 expr_stmt|;

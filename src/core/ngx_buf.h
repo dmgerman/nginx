@@ -134,9 +134,21 @@ name|flush
 range|:
 literal|1
 decl_stmt|;
+DECL|member|sync
+name|unsigned
+name|sync
+range|:
+literal|1
+decl_stmt|;
 DECL|member|last_buf
 name|unsigned
 name|last_buf
+range|:
+literal|1
+decl_stmt|;
+DECL|member|last_in_chain
+name|unsigned
+name|last_in_chain
 range|:
 literal|1
 decl_stmt|;
@@ -187,7 +199,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27c11a2f0108
+DECL|struct|__anon294e80540108
 typedef|typedef
 struct|struct
 block|{
@@ -226,7 +238,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c11a2f0208
+DECL|struct|__anon294e80540208
 typedef|typedef
 struct|struct
 block|{
@@ -295,7 +307,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c11a2f0308
+DECL|struct|__anon294e80540308
 typedef|typedef
 struct|struct
 block|{
@@ -369,7 +381,7 @@ parameter_list|(
 name|b
 parameter_list|)
 define|\
-value|((b->flush || b->last_buf)&& !ngx_buf_in_memory(b)&& !b->in_file)
+value|((b->flush || b->last_buf || b->sync)                                    \&& !ngx_buf_in_memory(b)&& !b->in_file)
 end_define
 
 begin_define

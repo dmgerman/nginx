@@ -253,6 +253,30 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_function_decl
+name|void
+name|ngx_libc_localtime
+parameter_list|(
+name|struct
+name|tm
+modifier|*
+name|tm
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_libc_gmtime
+parameter_list|(
+name|struct
+name|tm
+modifier|*
+name|tm
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_define
 DECL|macro|ngx_gettimeofday (tp)
 define|#

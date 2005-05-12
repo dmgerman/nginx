@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28e9bd3f0108
+DECL|struct|__anon28b75b080108
 typedef|typedef
 struct|struct
 block|{
@@ -48,7 +48,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e9bd3f0208
+DECL|struct|__anon28b75b080208
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e9bd3f0308
+DECL|struct|__anon28b75b080308
 typedef|typedef
 struct|struct
 block|{
@@ -98,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e9bd3f0408
+DECL|struct|__anon28b75b080408
 typedef|typedef
 struct|struct
 block|{
@@ -125,7 +125,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e9bd3f0508
+DECL|struct|__anon28b75b080508
 typedef|typedef
 struct|struct
 block|{
@@ -469,7 +469,10 @@ init|=
 block|{
 name|NULL
 block|,
-comment|/* pre conf */
+comment|/* preconfiguration */
+name|NULL
+block|,
+comment|/* postconfiguration */
 name|ngx_http_charset_create_main_conf
 block|,
 comment|/* create main configuration */
@@ -497,7 +500,7 @@ name|ngx_module_t
 name|ngx_http_charset_filter_module
 init|=
 block|{
-name|NGX_MODULE
+name|NGX_MODULE_V1
 block|,
 operator|&
 name|ngx_http_charset_filter_module_ctx
@@ -602,8 +605,10 @@ operator|->
 name|headers_out
 operator|.
 name|content_type
+operator|.
+name|len
 operator|==
-name|NULL
+literal|0
 condition|)
 block|{
 return|return
@@ -622,8 +627,6 @@ operator|->
 name|headers_out
 operator|.
 name|content_type
-operator|->
-name|value
 operator|.
 name|data
 argument_list|,
@@ -641,8 +644,6 @@ operator|->
 name|headers_out
 operator|.
 name|content_type
-operator|->
-name|value
 operator|.
 name|data
 argument_list|,
@@ -670,8 +671,6 @@ operator|->
 name|headers_out
 operator|.
 name|content_type
-operator|->
-name|value
 operator|.
 name|data
 argument_list|,

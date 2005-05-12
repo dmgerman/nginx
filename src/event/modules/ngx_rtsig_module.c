@@ -110,7 +110,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon294fecba0108
+DECL|struct|__anon27aa8c6e0108
 typedef|typedef
 struct|struct
 block|{
@@ -494,7 +494,7 @@ name|ngx_module_t
 name|ngx_rtsig_module
 init|=
 block|{
-name|NGX_MODULE
+name|NGX_MODULE_V1
 block|,
 operator|&
 name|ngx_rtsig_module_ctx
@@ -1886,7 +1886,7 @@ condition|)
 block|{
 name|rev
 operator|->
-name|event_handler
+name|handler
 argument_list|(
 name|rev
 argument_list|)
@@ -1908,7 +1908,7 @@ condition|)
 block|{
 name|rev
 operator|->
-name|event_handler
+name|handler
 argument_list|(
 name|rev
 argument_list|)
@@ -2012,7 +2012,7 @@ condition|)
 block|{
 name|wev
 operator|->
-name|event_handler
+name|handler
 argument_list|(
 name|wev
 argument_list|)
@@ -2410,7 +2410,7 @@ name|c
 operator|->
 name|read
 operator|->
-name|event_handler
+name|handler
 condition|)
 block|{
 name|events
@@ -2430,7 +2430,7 @@ name|c
 operator|->
 name|write
 operator|->
-name|event_handler
+name|handler
 condition|)
 block|{
 name|events
@@ -2622,7 +2622,7 @@ name|closed
 operator|&&
 name|rev
 operator|->
-name|event_handler
+name|handler
 operator|&&
 operator|(
 name|overflow_list
@@ -2674,7 +2674,7 @@ literal|1
 expr_stmt|;
 name|rev
 operator|->
-name|event_handler
+name|handler
 argument_list|(
 name|rev
 argument_list|)
@@ -2700,7 +2700,7 @@ name|closed
 operator|&&
 name|wev
 operator|->
-name|event_handler
+name|handler
 operator|&&
 operator|(
 name|overflow_list
@@ -2752,7 +2752,7 @@ literal|1
 expr_stmt|;
 name|wev
 operator|->
-name|event_handler
+name|handler
 argument_list|(
 name|wev
 argument_list|)

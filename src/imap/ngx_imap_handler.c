@@ -194,7 +194,7 @@ name|c
 operator|->
 name|read
 operator|->
-name|event_handler
+name|handler
 operator|=
 name|ngx_imap_init_session
 expr_stmt|;
@@ -395,7 +395,7 @@ name|c
 operator|->
 name|read
 operator|->
-name|event_handler
+name|handler
 operator|=
 name|ngx_pop3_auth_state
 expr_stmt|;

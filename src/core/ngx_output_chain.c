@@ -208,7 +208,6 @@ operator|)
 endif|#
 directive|endif
 operator|&&
-operator|(
 operator|!
 name|ngx_output_chain_need_to_copy
 argument_list|(
@@ -218,7 +217,6 @@ name|in
 operator|->
 name|buf
 argument_list|)
-operator|)
 condition|)
 block|{
 return|return
@@ -557,7 +555,7 @@ name|in
 operator|->
 name|buf
 operator|->
-name|last_buf
+name|last_in_chain
 condition|)
 block|{
 if|if
@@ -818,6 +816,17 @@ operator|!=
 name|NGX_NONE
 condition|)
 block|{
+if|if
+condition|(
+name|ctx
+operator|->
+name|in
+condition|)
+block|{
+return|return
+name|NGX_AGAIN
+return|;
+block|}
 return|return
 name|last
 return|;

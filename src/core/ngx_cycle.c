@@ -2447,7 +2447,7 @@ name|ngx_temp_pool
 expr_stmt|;
 name|ngx_cleaner_event
 operator|.
-name|event_handler
+name|handler
 operator|=
 name|ngx_clean_old_cycles
 expr_stmt|;

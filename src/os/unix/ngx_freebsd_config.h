@@ -446,14 +446,6 @@ endif|#
 directive|endif
 end_endif
 
-begin_define
-DECL|macro|ngx_setproctitle
-define|#
-directive|define
-name|ngx_setproctitle
-value|setproctitle
-end_define
-
 begin_decl_stmt
 specifier|extern
 name|char

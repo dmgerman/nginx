@@ -53,7 +53,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|enum|__anon2af890550103
+DECL|enum|__anon2b74baf80103
 typedef|typedef
 enum|enum
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2af890550203
+DECL|enum|__anon2b74baf80203
 typedef|typedef
 enum|enum
 block|{
@@ -122,7 +122,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af890550308
+DECL|struct|__anon2b74baf80308
 typedef|typedef
 struct|struct
 block|{
@@ -173,7 +173,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af890550408
+DECL|struct|__anon2b74baf80408
 typedef|typedef
 struct|struct
 block|{
@@ -310,7 +310,7 @@ comment|/*  * "EXPR/10/5/- 200/EXP/60 4"  * "MISS/-/-/B 503/-/- -"  * "EXPR/10/2
 end_comment
 
 begin_typedef
-DECL|struct|__anon2af890550508
+DECL|struct|__anon2b74baf80508
 typedef|typedef
 struct|struct
 block|{
@@ -358,7 +358,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af890550608
+DECL|struct|__anon2b74baf80608
 typedef|typedef
 struct|struct
 block|{
@@ -461,7 +461,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af890550708
+DECL|struct|__anon2b74baf80708
 typedef|typedef
 struct|struct
 block|{
@@ -488,7 +488,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af890550808
+DECL|struct|__anon2b74baf80808
 typedef|typedef
 struct|struct
 block|{
@@ -672,7 +672,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2af890550908
+DECL|struct|__anon2b74baf80908
 typedef|typedef
 struct|struct
 block|{
@@ -836,8 +836,34 @@ end_endif
 
 begin_function_decl
 name|void
+name|ngx_http_proxy_rd_check_broken_connection
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_http_proxy_wr_check_broken_connection
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
 name|ngx_http_proxy_check_broken_connection
 parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
 name|ngx_event_t
 modifier|*
 name|ev
@@ -946,7 +972,7 @@ end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
-name|ngx_http_header_t
+name|ngx_http_header0_t
 name|ngx_http_proxy_headers_in
 index|[]
 decl_stmt|;

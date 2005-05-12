@@ -26,7 +26,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon2b6c9d490108
+DECL|struct|__anon2b6990f40108
 typedef|typedef
 struct|struct
 block|{
@@ -73,7 +73,10 @@ init|=
 block|{
 name|NULL
 block|,
-comment|/* pre conf */
+comment|/* preconfiguration */
+name|NULL
+block|,
+comment|/* postconfiguration */
 name|NULL
 block|,
 comment|/* create main configuration */
@@ -102,7 +105,7 @@ name|ngx_module_t
 name|ngx_http_range_header_filter_module
 init|=
 block|{
-name|NGX_MODULE
+name|NGX_MODULE_V1
 block|,
 operator|&
 name|ngx_http_range_header_filter_module_ctx
@@ -132,7 +135,10 @@ init|=
 block|{
 name|NULL
 block|,
-comment|/* pre conf */
+comment|/* preconfiguration */
+name|NULL
+block|,
+comment|/* postconfiguration */
 name|NULL
 block|,
 comment|/* create main configuration */
@@ -161,7 +167,7 @@ name|ngx_module_t
 name|ngx_http_range_body_filter_module
 init|=
 block|{
-name|NGX_MODULE
+name|NGX_MODULE_V1
 block|,
 operator|&
 name|ngx_http_range_body_filter_module_ctx
@@ -262,6 +268,10 @@ name|NGX_HTTP_OK
 operator|||
 name|r
 operator|->
+expr|main
+operator|||
+name|r
+operator|->
 name|headers_out
 operator|.
 name|content_length_n
@@ -355,6 +365,16 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|r
+operator|->
+name|headers_out
+operator|.
+name|accept_ranges
+operator|->
+name|hash
+operator|=
+literal|1
+expr_stmt|;
 name|r
 operator|->
 name|headers_out
@@ -942,6 +962,12 @@ name|content_range
 expr_stmt|;
 name|content_range
 operator|->
+name|hash
+operator|=
+literal|1
+expr_stmt|;
+name|content_range
+operator|->
 name|key
 operator|.
 name|len
@@ -1128,6 +1154,12 @@ name|content_range
 expr_stmt|;
 name|content_range
 operator|->
+name|hash
+operator|=
+literal|1
+expr_stmt|;
+name|content_range
+operator|->
 name|key
 operator|.
 name|len
@@ -1311,8 +1343,6 @@ operator|->
 name|headers_out
 operator|.
 name|content_type
-operator|->
-name|value
 operator|.
 name|len
 operator|+
@@ -1431,8 +1461,6 @@ operator|->
 name|headers_out
 operator|.
 name|content_type
-operator|->
-name|value
 argument_list|,
 operator|&
 name|r
@@ -1490,8 +1518,6 @@ operator|->
 name|headers_out
 operator|.
 name|content_type
-operator|->
-name|value
 argument_list|)
 operator|-
 name|ctx
@@ -1506,8 +1532,6 @@ operator|->
 name|headers_out
 operator|.
 name|content_type
-operator|->
-name|value
 operator|.
 name|data
 operator|=
@@ -1534,8 +1558,6 @@ operator|->
 name|headers_out
 operator|.
 name|content_type
-operator|->
-name|value
 operator|.
 name|data
 operator|==
@@ -1552,8 +1574,6 @@ operator|->
 name|headers_out
 operator|.
 name|content_type
-operator|->
-name|value
 operator|.
 name|len
 operator|=
@@ -1564,8 +1584,6 @@ operator|->
 name|headers_out
 operator|.
 name|content_type
-operator|->
-name|value
 operator|.
 name|data
 argument_list|,
@@ -1579,8 +1597,6 @@ operator|->
 name|headers_out
 operator|.
 name|content_type
-operator|->
-name|value
 operator|.
 name|data
 expr_stmt|;

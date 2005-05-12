@@ -110,7 +110,7 @@ argument_list|)
 expr_stmt|;
 name|ev
 operator|->
-name|event_handler
+name|handler
 argument_list|(
 name|ev
 argument_list|)
@@ -459,7 +459,7 @@ argument_list|)
 expr_stmt|;
 name|ev
 operator|->
-name|event_handler
+name|handler
 argument_list|(
 name|ev
 argument_list|)
