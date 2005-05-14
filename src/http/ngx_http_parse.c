@@ -46,7 +46,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon2c7485c60103
+DECL|enum|__anon27fdd65b0103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1656,7 +1656,7 @@ decl_stmt|;
 name|ngx_uint_t
 name|hash
 decl_stmt|;
-DECL|enum|__anon2c7485c60203
+DECL|enum|__anon27fdd65b0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1731,6 +1731,12 @@ comment|/* first char */
 case|case
 name|sw_start
 case|:
+name|r
+operator|->
+name|invalid_header
+operator|=
+literal|0
+expr_stmt|;
 switch|switch
 condition|(
 name|ch
@@ -1818,6 +1824,12 @@ name|ch
 expr_stmt|;
 break|break;
 block|}
+name|r
+operator|->
+name|invalid_header
+operator|=
+literal|1
+expr_stmt|;
 break|break;
 block|}
 break|break;
@@ -2001,6 +2013,12 @@ name|sw_ignore_line
 expr_stmt|;
 break|break;
 block|}
+name|r
+operator|->
+name|invalid_header
+operator|=
+literal|1
+expr_stmt|;
 break|break;
 comment|/* space* before header value */
 case|case
@@ -2307,7 +2325,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2c7485c60303
+DECL|enum|__anon27fdd65b0303
 enum|enum
 block|{
 DECL|enumerator|sw_usual

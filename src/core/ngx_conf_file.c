@@ -1050,7 +1050,7 @@ name|args
 operator|->
 name|nelts
 operator|<=
-literal|10
+name|NGX_CONF_MAX_ARGS
 operator|&&
 operator|(
 name|cmd

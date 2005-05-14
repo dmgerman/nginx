@@ -437,6 +437,14 @@ name|error_pages
 index|[]
 init|=
 block|{
+name|ngx_null_string
+block|,
+comment|/* 204 */
+DECL|macro|NGX_HTTP_LEVEL_200
+define|#
+directive|define
+name|NGX_HTTP_LEVEL_200
+value|1
 comment|/* ngx_null_string, */
 comment|/* 300 */
 name|ngx_string
@@ -835,6 +843,19 @@ block|}
 if|if
 condition|(
 name|error
+operator|==
+name|NGX_HTTP_NO_CONTENT
+condition|)
+block|{
+comment|/* 204 */
+name|err
+operator|=
+literal|0
+expr_stmt|;
+block|}
+if|else if
+condition|(
+name|error
 operator|<
 name|NGX_HTTP_BAD_REQUEST
 condition|)
@@ -861,6 +882,8 @@ name|error
 operator|-
 name|NGX_HTTP_BAD_REQUEST
 operator|+
+name|NGX_HTTP_LEVEL_200
+operator|+
 name|NGX_HTTP_LEVEL_300
 expr_stmt|;
 block|}
@@ -872,6 +895,8 @@ operator|=
 name|error
 operator|-
 name|NGX_HTTP_NGX_CODES
+operator|+
+name|NGX_HTTP_LEVEL_200
 operator|+
 name|NGX_HTTP_LEVEL_300
 operator|+
