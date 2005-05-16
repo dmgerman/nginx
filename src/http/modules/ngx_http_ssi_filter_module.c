@@ -70,7 +70,7 @@ value|2048
 end_define
 
 begin_typedef
-DECL|struct|__anon28c81fa10108
+DECL|struct|__anon2c7575160108
 typedef|typedef
 struct|struct
 block|{
@@ -101,7 +101,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c81fa10208
+DECL|struct|__anon2c7575160208
 typedef|typedef
 struct|struct
 block|{
@@ -231,7 +231,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c81fa10308
+DECL|struct|__anon2c7575160308
 typedef|typedef
 struct|struct
 block|{
@@ -254,7 +254,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c81fa10408
+DECL|struct|__anon2c7575160408
 typedef|typedef
 struct|struct
 block|{
@@ -290,7 +290,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28c81fa10503
+DECL|enum|__anon2c7575160503
 typedef|typedef
 enum|enum
 block|{
@@ -1422,12 +1422,6 @@ name|filter_need_in_memory
 operator|=
 literal|1
 expr_stmt|;
-name|r
-operator|->
-name|filter_ssi_need_in_memory
-operator|=
-literal|1
-expr_stmt|;
 if|if
 condition|(
 name|r
@@ -2118,18 +2112,6 @@ argument_list|)
 expr_stmt|;
 name|b
 operator|->
-name|last_buf
-operator|=
-literal|0
-expr_stmt|;
-name|b
-operator|->
-name|recycled
-operator|=
-literal|0
-expr_stmt|;
-name|b
-operator|->
 name|pos
 operator|=
 name|ctx
@@ -2143,6 +2125,24 @@ operator|=
 name|ctx
 operator|->
 name|copy_end
+expr_stmt|;
+name|b
+operator|->
+name|shadow
+operator|=
+name|NULL
+expr_stmt|;
+name|b
+operator|->
+name|last_buf
+operator|=
+literal|0
+expr_stmt|;
+name|b
+operator|->
+name|recycled
+operator|=
+literal|0
 expr_stmt|;
 if|if
 condition|(

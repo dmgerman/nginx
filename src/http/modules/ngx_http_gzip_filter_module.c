@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon289b3d920108
+DECL|struct|__anon29d5311f0108
 typedef|typedef
 struct|struct
 block|{
@@ -81,7 +81,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289b3d920208
+DECL|struct|__anon29d5311f0208
 typedef|typedef
 struct|struct
 block|{
@@ -172,7 +172,7 @@ value|0x0200
 end_define
 
 begin_typedef
-DECL|struct|__anon289b3d920308
+DECL|struct|__anon29d5311f0308
 typedef|typedef
 struct|struct
 block|{
@@ -1745,7 +1745,7 @@ expr_stmt|;
 block|}
 name|r
 operator|->
-name|filter_need_in_memory
+name|main_filter_need_in_memory
 operator|=
 literal|1
 expr_stmt|;

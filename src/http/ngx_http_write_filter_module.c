@@ -742,13 +742,6 @@ return|return
 name|NGX_OK
 return|;
 block|}
-if|#
-directive|if
-literal|0
-comment|/*      * avoid the output if there are no incoming bufs but there are      * the postponed requests or data      */
-block_content|if (in == NULL&& r->postponed) {         return NGX_OK;     }
-endif|#
-directive|endif
 if|if
 condition|(
 name|c
@@ -982,13 +975,9 @@ if|if
 condition|(
 name|chain
 operator|||
-operator|(
-name|last
-operator|&&
 name|c
 operator|->
 name|buffered
-operator|)
 condition|)
 block|{
 return|return

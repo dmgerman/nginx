@@ -394,6 +394,13 @@ operator|->
 name|out
 operator|==
 name|NULL
+operator|&&
+operator|!
+name|r
+operator|->
+name|connection
+operator|->
+name|buffered
 condition|)
 block|{
 return|return

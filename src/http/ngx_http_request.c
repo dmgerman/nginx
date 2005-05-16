@@ -1574,7 +1574,7 @@ expr_stmt|;
 block|}
 name|r
 operator|->
-name|filter_need_in_memory
+name|main_filter_need_in_memory
 operator|=
 literal|1
 expr_stmt|;

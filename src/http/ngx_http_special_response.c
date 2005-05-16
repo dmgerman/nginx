@@ -866,6 +866,8 @@ operator|=
 name|error
 operator|-
 name|NGX_HTTP_MOVED_PERMANENTLY
+operator|+
+name|NGX_HTTP_LEVEL_200
 expr_stmt|;
 block|}
 if|else if
