@@ -46,21 +46,22 @@ name|ngx_setproctitle
 value|setproctitle
 end_define
 
-begin_elif
-elif|#
-directive|elif
+begin_else
+else|#
+directive|else
+end_else
+
+begin_comment
+comment|/* !NGX_HAVE_SETPROCTITLE */
+end_comment
+
+begin_if
+if|#
+directive|if
 operator|!
 name|defined
 name|NGX_SETPROCTITLE_USES_ENV
-end_elif
-
-begin_define
-DECL|macro|NGX_SETPROCTITLE_USES_ENV
-define|#
-directive|define
-name|NGX_SETPROCTITLE_USES_ENV
-value|1
-end_define
+end_if
 
 begin_if
 if|#
@@ -71,12 +72,42 @@ operator|)
 end_if
 
 begin_define
+DECL|macro|NGX_SETPROCTITLE_USES_ENV
+define|#
+directive|define
+name|NGX_SETPROCTITLE_USES_ENV
+value|1
+end_define
+
+begin_define
 DECL|macro|NGX_SETPROCTITLE_PAD
 define|#
 directive|define
 name|NGX_SETPROCTITLE_PAD
 value|' '
 end_define
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_init_setproctitle
+parameter_list|(
+name|ngx_log_t
+modifier|*
+name|log
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_setproctitle
+parameter_list|(
+name|char
+modifier|*
+name|title
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_elif
 elif|#
@@ -91,17 +122,20 @@ operator|)
 end_elif
 
 begin_define
+DECL|macro|NGX_SETPROCTITLE_USES_ENV
+define|#
+directive|define
+name|NGX_SETPROCTITLE_USES_ENV
+value|1
+end_define
+
+begin_define
 DECL|macro|NGX_SETPROCTITLE_PAD
 define|#
 directive|define
 name|NGX_SETPROCTITLE_PAD
 value|'\0'
 end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
 
 begin_function_decl
 name|ngx_int_t
@@ -130,10 +164,6 @@ else|#
 directive|else
 end_else
 
-begin_comment
-comment|/* !NGX_SETPROCTITLE_USES_ENV */
-end_comment
-
 begin_define
 DECL|macro|ngx_init_setproctitle (log)
 define|#
@@ -158,6 +188,28 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_comment
+comment|/* OSes */
+end_comment
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_comment
+comment|/* NGX_SETPROCTITLE_USES_ENV */
+end_comment
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_comment
+comment|/* NGX_HAVE_SETPROCTITLE */
+end_comment
 
 begin_endif
 endif|#

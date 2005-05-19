@@ -100,8 +100,8 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_spawn_process (ngx_cycle_t * cycle,ngx_spawn_proc_pt proc,void * data,char * name,ngx_int_t respawn)
 name|ngx_pid_t
+DECL|function|ngx_spawn_process (ngx_cycle_t * cycle,ngx_spawn_proc_pt proc,void * data,char * name,ngx_int_t respawn)
 name|ngx_spawn_process
 parameter_list|(
 name|ngx_cycle_t
@@ -930,8 +930,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_execute (ngx_cycle_t * cycle,ngx_exec_ctx_t * ctx)
 name|ngx_pid_t
+DECL|function|ngx_execute (ngx_cycle_t * cycle,ngx_exec_ctx_t * ctx)
 name|ngx_execute
 parameter_list|(
 name|ngx_cycle_t
@@ -963,9 +963,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_execute_proc (ngx_cycle_t * cycle,void * data)
 specifier|static
 name|void
+DECL|function|ngx_execute_proc (ngx_cycle_t * cycle,void * data)
 name|ngx_execute_proc
 parameter_list|(
 name|ngx_cycle_t
@@ -1035,10 +1035,12 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_process_get_status ()
 name|void
+DECL|function|ngx_process_get_status (void)
 name|ngx_process_get_status
-parameter_list|()
+parameter_list|(
+name|void
+parameter_list|)
 block|{
 name|int
 name|status
@@ -1366,10 +1368,12 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_debug_point ()
 name|void
+DECL|function|ngx_debug_point (void)
 name|ngx_debug_point
-parameter_list|()
+parameter_list|(
+name|void
+parameter_list|)
 block|{
 name|ngx_core_conf_t
 modifier|*

@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon290fda220108
+DECL|struct|__anon2877a10c0108
 typedef|typedef
 struct|struct
 block|{
@@ -67,7 +67,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon290fda220203
+DECL|enum|__anon2877a10c0203
 typedef|typedef
 enum|enum
 block|{
@@ -102,14 +102,14 @@ name|ngx_http_fastcgi_st_data
 block|,
 DECL|enumerator|ngx_http_fastcgi_st_padding
 name|ngx_http_fastcgi_st_padding
-block|, }
 DECL|typedef|ngx_http_fastcgi_state_e
+block|}
 name|ngx_http_fastcgi_state_e
 typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290fda220308
+DECL|struct|__anon2877a10c0308
 typedef|typedef
 struct|struct
 block|{
@@ -222,7 +222,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon290fda220408
+DECL|struct|__anon2877a10c0408
 typedef|typedef
 struct|struct
 block|{
@@ -265,7 +265,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290fda220508
+DECL|struct|__anon2877a10c0508
 typedef|typedef
 struct|struct
 block|{
@@ -295,7 +295,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290fda220608
+DECL|struct|__anon2877a10c0608
 typedef|typedef
 struct|struct
 block|{
@@ -322,7 +322,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290fda220708
+DECL|struct|__anon2877a10c0708
 typedef|typedef
 struct|struct
 block|{

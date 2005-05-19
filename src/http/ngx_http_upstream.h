@@ -117,7 +117,7 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon2931221e0108
+DECL|struct|__anon2a06d9170108
 typedef|typedef
 struct|struct
 block|{
@@ -149,7 +149,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2931221e0208
+DECL|struct|__anon2a06d9170208
 typedef|typedef
 struct|struct
 block|{
@@ -164,7 +164,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2931221e0308
+DECL|struct|__anon2a06d9170308
 typedef|typedef
 struct|struct
 block|{
@@ -278,7 +278,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2931221e0408
+DECL|struct|__anon2a06d9170408
 typedef|typedef
 struct|struct
 block|{
@@ -302,6 +302,11 @@ DECL|member|conf
 name|ngx_uint_t
 name|conf
 decl_stmt|;
+DECL|member|redirect
+name|ngx_uint_t
+name|redirect
+decl_stmt|;
+comment|/* unsigned   redirect:1; */
 DECL|typedef|ngx_http_upstream_header_t
 block|}
 name|ngx_http_upstream_header_t
@@ -309,7 +314,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2931221e0508
+DECL|struct|__anon2a06d9170508
 typedef|typedef
 struct|struct
 block|{
@@ -351,6 +356,11 @@ DECL|member|x_accel_expires
 name|ngx_table_elt_t
 modifier|*
 name|x_accel_expires
+decl_stmt|;
+DECL|member|x_accel_redirect
+name|ngx_table_elt_t
+modifier|*
+name|x_accel_redirect
 decl_stmt|;
 DECL|member|content_type
 name|ngx_table_elt_t

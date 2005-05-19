@@ -19,16 +19,20 @@ end_define
 begin_if
 if|#
 directive|if
-literal|0
+operator|(
+name|NGX_HPUX
+operator|)
 end_if
 
 begin_define
+DECL|macro|_XOPEN_SOURCE
 define|#
 directive|define
 name|_XOPEN_SOURCE
 end_define
 
 begin_define
+DECL|macro|_XOPEN_SOURCE_EXTENDED
 define|#
 directive|define
 name|_XOPEN_SOURCE_EXTENDED
@@ -43,10 +47,13 @@ end_endif
 begin_if
 if|#
 directive|if
-literal|0
+operator|(
+name|NGX_TRU64
+operator|)
 end_if
 
 begin_define
+DECL|macro|_REENTRANT
 define|#
 directive|define
 name|_REENTRANT

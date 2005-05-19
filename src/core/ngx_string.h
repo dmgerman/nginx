@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27edd61d0108
+DECL|struct|__anon2b7b1f7a0108
 typedef|typedef
 struct|struct
 block|{
@@ -237,7 +237,7 @@ name|buf
 parameter_list|,
 name|n
 parameter_list|)
-value|memset(buf, 0, n)
+value|(void) memset(buf, 0, n)
 end_define
 
 begin_define
@@ -252,7 +252,7 @@ name|c
 parameter_list|,
 name|n
 parameter_list|)
-value|memset(buf, c, n)
+value|(void) memset(buf, c, n)
 end_define
 
 begin_comment
@@ -271,7 +271,7 @@ name|src
 parameter_list|,
 name|n
 parameter_list|)
-value|memcpy(dst, src, n)
+value|(void) memcpy(dst, src, n)
 end_define
 
 begin_define
