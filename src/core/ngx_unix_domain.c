@@ -318,6 +318,9 @@ name|sun_family
 operator|=
 name|AF_UNIX
 expr_stmt|;
+operator|(
+name|void
+operator|)
 name|ngx_cpystrn
 argument_list|(
 operator|(

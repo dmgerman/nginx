@@ -76,14 +76,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon2af0140e010a
+DECL|union|__anon27fe0de2010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon2af0140e0208
+DECL|struct|__anon27fe0de20208
 struct|struct
 block|{
 DECL|member|lengths
@@ -114,7 +114,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2af0140e0308
+DECL|struct|__anon27fe0de20308
 typedef|typedef
 struct|struct
 block|{
@@ -176,7 +176,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af0140e0408
+DECL|struct|__anon27fe0de20408
 typedef|typedef
 struct|struct
 block|{
@@ -1356,7 +1356,7 @@ name|ngx_string
 argument_list|(
 literal|"$proxy_host"
 argument_list|)
-block|, }
+block|}
 block|,
 block|{
 literal|0
@@ -1370,7 +1370,7 @@ name|ngx_string
 argument_list|(
 literal|"close"
 argument_list|)
-block|, }
+block|}
 block|,
 block|{
 literal|0
@@ -3587,7 +3587,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2af0140e0503
+DECL|enum|__anon27fe0de20503
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -7006,6 +7006,14 @@ name|s
 operator|=
 operator|*
 name|h
+expr_stmt|;
+name|src
+operator|=
+name|conf
+operator|->
+name|headers_source
+operator|->
+name|elts
 expr_stmt|;
 name|next
 label|:

@@ -1524,6 +1524,9 @@ name|NGX_ERROR
 condition|)
 block|{
 return|return
+operator|(
+name|ngx_int_t
+operator|)
 name|n
 return|;
 block|}
@@ -1540,6 +1543,9 @@ name|NGX_AGAIN
 condition|)
 block|{
 return|return
+operator|(
+name|ngx_int_t
+operator|)
 name|n
 return|;
 block|}

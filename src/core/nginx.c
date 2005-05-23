@@ -1788,6 +1788,9 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+operator|(
+name|void
+operator|)
 name|ngx_cpystrn
 argument_list|(
 operator|(
@@ -1900,7 +1903,7 @@ operator|=
 operator|(
 name|ngx_uid_t
 operator|)
-name|NGX_CONF_UNSET
+name|NGX_CONF_UNSET_UINT
 expr_stmt|;
 name|ccf
 operator|->
@@ -1909,7 +1912,7 @@ operator|=
 operator|(
 name|ngx_gid_t
 operator|)
-name|NGX_CONF_UNSET
+name|NGX_CONF_UNSET_UINT
 expr_stmt|;
 if|#
 directive|if
@@ -2062,7 +2065,7 @@ operator|==
 operator|(
 name|uid_t
 operator|)
-name|NGX_CONF_UNSET
+name|NGX_CONF_UNSET_UINT
 operator|&&
 name|geteuid
 argument_list|()
@@ -2379,7 +2382,7 @@ operator|!=
 operator|(
 name|uid_t
 operator|)
-name|NGX_CONF_UNSET
+name|NGX_CONF_UNSET_UINT
 condition|)
 block|{
 return|return

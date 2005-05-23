@@ -598,6 +598,9 @@ index|[
 name|slot
 index|]
 expr_stmt|;
+operator|(
+name|void
+operator|)
 name|ngx_sprintf
 argument_list|(
 name|p
@@ -682,11 +685,16 @@ argument_list|)
 expr_stmt|;
 name|ngx_gmtoff
 operator|=
+operator|(
+name|ngx_int_t
+operator|)
+operator|(
 name|tm
 operator|.
 name|ngx_tm_gmtoff
 operator|/
 literal|60
+operator|)
 expr_stmt|;
 else|#
 directive|else
@@ -714,6 +722,9 @@ index|[
 name|slot
 index|]
 expr_stmt|;
+operator|(
+name|void
+operator|)
 name|ngx_sprintf
 argument_list|(
 name|p
@@ -758,6 +769,9 @@ index|[
 name|slot
 index|]
 expr_stmt|;
+operator|(
+name|void
+operator|)
 name|ngx_sprintf
 argument_list|(
 name|p

@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29aa25780108
+DECL|struct|__anon2c6e3b3a0108
 typedef|typedef
 struct|struct
 block|{
@@ -49,12 +49,12 @@ name|socklen
 decl_stmt|;
 comment|/* size of sockaddr */
 DECL|member|addr
-name|int
+name|size_t
 name|addr
 decl_stmt|;
 comment|/* offset to address in sockaddr */
 DECL|member|addr_text_max_len
-name|int
+name|size_t
 name|addr_text_max_len
 decl_stmt|;
 DECL|member|addr_text
@@ -194,7 +194,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29aa25780203
+DECL|enum|__anon2c6e3b3a0203
 typedef|typedef
 enum|enum
 block|{
@@ -218,7 +218,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29aa25780303
+DECL|enum|__anon2c6e3b3a0303
 typedef|typedef
 enum|enum
 block|{
@@ -239,7 +239,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29aa25780403
+DECL|enum|__anon2c6e3b3a0403
 typedef|typedef
 enum|enum
 block|{

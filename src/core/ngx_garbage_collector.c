@@ -15,12 +15,6 @@ directive|include
 file|<ngx_core.h>
 end_include
 
-begin_include
-include|#
-directive|include
-file|<ngx_garbage_collector.h>
-end_include
-
 begin_function
 DECL|function|ngx_collect_garbage (ngx_gc_t * ctx,ngx_str_t * dname,ngx_int_t level)
 name|ngx_int_t

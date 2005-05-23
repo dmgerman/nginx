@@ -835,13 +835,14 @@ name|u_char
 modifier|*
 name|host
 decl_stmt|;
+name|size_t
+name|len
+decl_stmt|;
 name|in_addr_t
 name|in_addr
 decl_stmt|;
 name|ngx_uint_t
 name|i
-decl_stmt|,
-name|len
 decl_stmt|;
 name|ngx_peers_t
 modifier|*
@@ -1116,6 +1117,9 @@ return|return
 name|NULL
 return|;
 block|}
+operator|(
+name|void
+operator|)
 name|ngx_cpystrn
 argument_list|(
 name|host

@@ -100,11 +100,11 @@ name|ngx_str_t
 name|name
 decl_stmt|;
 DECL|member|len
-name|ngx_uint_t
+name|size_t
 name|len
 decl_stmt|;
 DECL|member|level
-name|ngx_uint_t
+name|size_t
 name|level
 index|[
 literal|3
@@ -128,7 +128,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon288ff4e90108
+DECL|struct|__anon2972f65a0108
 typedef|typedef
 struct|struct
 block|{

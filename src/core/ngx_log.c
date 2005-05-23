@@ -705,6 +705,9 @@ index|]
 operator|=
 name|LF
 expr_stmt|;
+operator|(
+name|void
+operator|)
 name|write
 argument_list|(
 name|log

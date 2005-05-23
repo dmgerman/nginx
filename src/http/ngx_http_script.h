@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c4c8c4b0108
+DECL|struct|__anon2b3230c00108
 typedef|typedef
 struct|struct
 block|{
@@ -111,7 +111,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4c8c4b0208
+DECL|struct|__anon2b3230c00208
 typedef|typedef
 struct|struct
 block|{
@@ -223,7 +223,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4c8c4b0308
+DECL|struct|__anon2b3230c00308
 typedef|typedef
 struct|struct
 block|{
@@ -242,7 +242,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4c8c4b0408
+DECL|struct|__anon2b3230c00408
 typedef|typedef
 struct|struct
 block|{
@@ -261,7 +261,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4c8c4b0508
+DECL|struct|__anon2b3230c00508
 typedef|typedef
 struct|struct
 block|{
@@ -279,8 +279,16 @@ name|ngx_http_script_copy_capture_code_t
 typedef|;
 end_typedef
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_PCRE
+operator|)
+end_if
+
 begin_typedef
-DECL|struct|__anon2c4c8c4b0608
+DECL|struct|__anon2b3230c00608
 typedef|typedef
 struct|struct
 block|{
@@ -362,7 +370,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4c8c4b0708
+DECL|struct|__anon2b3230c00708
 typedef|typedef
 struct|struct
 block|{
@@ -401,8 +409,13 @@ name|ngx_http_script_regex_end_code_t
 typedef|;
 end_typedef
 
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_typedef
-DECL|struct|__anon2c4c8c4b0808
+DECL|struct|__anon2b3230c00808
 typedef|typedef
 struct|struct
 block|{
@@ -425,7 +438,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4c8c4b0908
+DECL|struct|__anon2b3230c00908
 typedef|typedef
 struct|struct
 block|{
@@ -450,7 +463,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4c8c4b0a08
+DECL|struct|__anon2b3230c00a08
 typedef|typedef
 struct|struct
 block|{
@@ -470,7 +483,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4c8c4b0b08
+DECL|struct|__anon2b3230c00b08
 typedef|typedef
 struct|struct
 block|{
@@ -625,6 +638,25 @@ end_function_decl
 
 begin_function_decl
 name|void
+name|ngx_http_script_start_args_code
+parameter_list|(
+name|ngx_http_script_engine_t
+modifier|*
+name|e
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_PCRE
+operator|)
+end_if
+
+begin_function_decl
+name|void
 name|ngx_http_script_regex_start_code
 parameter_list|(
 name|ngx_http_script_engine_t
@@ -645,27 +677,10 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
-begin_function_decl
-name|void
-name|ngx_http_script_copy_capture_code
-parameter_list|(
-name|ngx_http_script_engine_t
-modifier|*
-name|e
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-name|void
-name|ngx_http_script_start_args_code
-parameter_list|(
-name|ngx_http_script_engine_t
-modifier|*
-name|e
-parameter_list|)
-function_decl|;
-end_function_decl
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_function_decl
 name|void

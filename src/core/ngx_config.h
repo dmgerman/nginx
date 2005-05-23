@@ -563,7 +563,7 @@ DECL|macro|NGX_MAX_UINT32_VALUE
 define|#
 directive|define
 name|NGX_MAX_UINT32_VALUE
-value|0xffffffffLL
+value|(uint32_t) 0xffffffffLL
 end_define
 
 begin_else
@@ -576,7 +576,7 @@ DECL|macro|NGX_MAX_UINT32_VALUE
 define|#
 directive|define
 name|NGX_MAX_UINT32_VALUE
-value|0xffffffff
+value|(uint32_t) 0xffffffff
 end_define
 
 begin_endif

@@ -285,7 +285,7 @@ name|ngx_gettimeofday
 parameter_list|(
 name|tp
 parameter_list|)
-value|gettimeofday(tp, NULL);
+value|(void) gettimeofday(tp, NULL);
 end_define
 
 begin_define
@@ -296,7 +296,7 @@ name|ngx_msleep
 parameter_list|(
 name|ms
 parameter_list|)
-value|usleep(ms * 1000)
+value|(void) usleep(ms * 1000)
 end_define
 
 begin_define
@@ -307,7 +307,7 @@ name|ngx_sleep
 parameter_list|(
 name|s
 parameter_list|)
-value|sleep(s)
+value|(void) sleep(s)
 end_define
 
 begin_endif

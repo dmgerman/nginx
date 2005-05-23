@@ -2196,6 +2196,14 @@ expr_stmt|;
 block|}
 end_function
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_PCRE
+operator|)
+end_if
+
 begin_function
 name|void
 DECL|function|ngx_http_script_regex_start_code (ngx_http_script_engine_t * e)
@@ -3431,6 +3439,11 @@ argument_list|)
 expr_stmt|;
 block|}
 end_function
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_function
 name|void

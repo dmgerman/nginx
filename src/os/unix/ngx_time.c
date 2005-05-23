@@ -38,6 +38,9 @@ operator|=
 name|ngx_time
 argument_list|()
 expr_stmt|;
+operator|(
+name|void
+operator|)
 name|localtime_r
 argument_list|(
 operator|&
@@ -114,6 +117,9 @@ operator|=
 name|ngx_time
 argument_list|()
 expr_stmt|;
+operator|(
+name|void
+operator|)
 name|localtime_r
 argument_list|(
 operator|&
@@ -180,6 +186,9 @@ operator|=
 name|ngx_time
 argument_list|()
 expr_stmt|;
+operator|(
+name|void
+operator|)
 name|gmtime_r
 argument_list|(
 operator|&

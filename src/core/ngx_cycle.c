@@ -3359,8 +3359,7 @@ operator|!=
 operator|(
 name|ngx_uid_t
 operator|)
-operator|-
-literal|1
+name|NGX_CONF_UNSET_UINT
 condition|)
 block|{
 if|if

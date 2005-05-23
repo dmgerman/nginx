@@ -292,7 +292,7 @@ directive|else
 end_else
 
 begin_comment
-comment|/* Solaris has thread-safe strerror() */
+comment|/* Solaris and Tru64 UNIX have thread-safe strerror() */
 end_comment
 
 begin_define
