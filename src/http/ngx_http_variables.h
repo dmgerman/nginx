@@ -49,7 +49,7 @@ value|(ngx_http_variable_value_t *) -1
 end_define
 
 begin_typedef
-DECL|struct|__anon2b81db280108
+DECL|struct|__anon27549b4b0108
 typedef|typedef
 struct|struct
 block|{
@@ -110,6 +110,14 @@ define|#
 directive|define
 name|NGX_HTTP_VAR_NOCACHABLE
 value|2
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_VAR_INDEXED
+define|#
+directive|define
+name|NGX_HTTP_VAR_INDEXED
+value|4
 end_define
 
 begin_struct

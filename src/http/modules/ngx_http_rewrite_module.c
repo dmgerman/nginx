@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon295ab14e0108
+DECL|struct|__anon27b00a1b0108
 typedef|typedef
 struct|struct
 block|{
@@ -41,7 +41,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295ab14e0208
+DECL|struct|__anon27b00a1b0208
 typedef|typedef
 struct|struct
 block|{
@@ -1423,7 +1423,7 @@ name|variables
 operator|.
 name|elts
 expr_stmt|;
-comment|/*      * the ngx_http_rewrite_module sets variables directly in r->variables,      * and they should be handle by ngx_http_get_indexed_variable(),      * so the handler is called only if the variable is not initialized      */
+comment|/*      * the ngx_http_rewrite_module sets variables directly in r->variables,      * and they should be handled by ngx_http_get_indexed_variable(),      * so the handler is called only if the variable is not initialized      */
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
