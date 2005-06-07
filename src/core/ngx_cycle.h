@@ -140,7 +140,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a3ec5ee0108
+DECL|struct|__anon2c5fc4640108
 typedef|typedef
 struct|struct
 block|{
@@ -177,6 +177,10 @@ DECL|member|group
 name|ngx_gid_t
 name|group
 decl_stmt|;
+DECL|member|working_directory
+name|ngx_str_t
+name|working_directory
+decl_stmt|;
 DECL|member|pid
 name|ngx_str_t
 name|pid
@@ -207,7 +211,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3ec5ee0208
+DECL|struct|__anon2c5fc4640208
 typedef|typedef
 struct|struct
 block|{

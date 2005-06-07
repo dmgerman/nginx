@@ -1524,7 +1524,7 @@ name|cf
 operator|->
 name|pool
 argument_list|,
-literal|10
+literal|2
 argument_list|,
 sizeof|sizeof
 argument_list|(
@@ -1845,6 +1845,17 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
+name|in_addr
+operator|=
+name|in_port
+index|[
+name|p
+index|]
+operator|.
+name|addrs
+operator|.
+name|elts
+expr_stmt|;
 comment|/*                              * the INADDR_ANY must be the last resort                              * so we move it to the end of the address list                              * and put the new address in its place                              */
 name|ngx_memcpy
 argument_list|(
@@ -2479,7 +2490,7 @@ name|cf
 operator|->
 name|pool
 argument_list|,
-literal|5
+literal|4
 argument_list|,
 sizeof|sizeof
 argument_list|(
@@ -2581,6 +2592,17 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
+name|name
+operator|=
+name|in_addr
+index|[
+name|a
+index|]
+operator|.
+name|names
+operator|.
+name|elts
+expr_stmt|;
 operator|*
 name|s_name
 operator|=
@@ -3352,7 +3374,7 @@ name|cf
 operator|->
 name|pool
 argument_list|,
-literal|10
+literal|4
 argument_list|,
 sizeof|sizeof
 argument_list|(
@@ -3557,7 +3579,7 @@ name|cf
 operator|->
 name|pool
 argument_list|,
-literal|10
+literal|4
 argument_list|,
 sizeof|sizeof
 argument_list|(
@@ -3597,7 +3619,7 @@ name|cf
 operator|->
 name|pool
 argument_list|,
-literal|10
+literal|1
 argument_list|,
 sizeof|sizeof
 argument_list|(
@@ -3756,6 +3778,14 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|server_names
+operator|=
+name|cscf
+operator|->
+name|server_names
+operator|.
+name|elts
+expr_stmt|;
 operator|*
 name|name
 operator|=

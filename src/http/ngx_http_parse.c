@@ -46,7 +46,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon27fdd65b0103
+DECL|enum|__anon2c7336630103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -416,7 +416,7 @@ literal|'a'
 operator|&&
 name|c
 operator|<=
-literal|'f'
+literal|'z'
 condition|)
 block|{
 name|r
@@ -482,7 +482,7 @@ literal|'a'
 operator|&&
 name|c
 operator|<=
-literal|'f'
+literal|'z'
 condition|)
 block|{
 break|break;
@@ -584,7 +584,7 @@ literal|'a'
 operator|&&
 name|c
 operator|<=
-literal|'f'
+literal|'z'
 condition|)
 block|{
 break|break;
@@ -727,7 +727,7 @@ literal|'a'
 operator|&&
 name|c
 operator|<=
-literal|'f'
+literal|'z'
 condition|)
 block|{
 name|state
@@ -940,7 +940,7 @@ literal|'a'
 operator|&&
 name|c
 operator|<=
-literal|'f'
+literal|'z'
 condition|)
 block|{
 break|break;
@@ -1656,7 +1656,7 @@ decl_stmt|;
 name|ngx_uint_t
 name|hash
 decl_stmt|;
-DECL|enum|__anon27fdd65b0203
+DECL|enum|__anon2c7336630203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2325,7 +2325,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon27fdd65b0303
+DECL|enum|__anon2c7336630303
 enum|enum
 block|{
 DECL|enumerator|sw_usual

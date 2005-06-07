@@ -29,9 +29,9 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_listening_inet_stream_socket (ngx_conf_t * cf,in_addr_t addr,in_port_t port)
 name|ngx_listening_t
 modifier|*
+DECL|function|ngx_listening_inet_stream_socket (ngx_conf_t * cf,in_addr_t addr,in_port_t port)
 name|ngx_listening_inet_stream_socket
 parameter_list|(
 name|ngx_conf_t
@@ -291,8 +291,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_set_inherited_sockets (ngx_cycle_t * cycle)
 name|ngx_int_t
+DECL|function|ngx_set_inherited_sockets (ngx_cycle_t * cycle)
 name|ngx_set_inherited_sockets
 parameter_list|(
 name|ngx_cycle_t
@@ -664,8 +664,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_open_listening_sockets (ngx_cycle_t * cycle)
 name|ngx_int_t
+DECL|function|ngx_open_listening_sockets (ngx_cycle_t * cycle)
 name|ngx_open_listening_sockets
 parameter_list|(
 name|ngx_cycle_t
@@ -1192,8 +1192,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_close_listening_sockets (ngx_cycle_t * cycle)
 name|void
+DECL|function|ngx_close_listening_sockets (ngx_cycle_t * cycle)
 name|ngx_close_listening_sockets
 parameter_list|(
 name|ngx_cycle_t
@@ -1396,8 +1396,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_close_connection (ngx_connection_t * c)
 name|void
+DECL|function|ngx_close_connection (ngx_connection_t * c)
 name|ngx_close_connection
 parameter_list|(
 name|ngx_connection_t
@@ -1748,8 +1748,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_connection_error (ngx_connection_t * c,ngx_err_t err,char * text)
 name|ngx_int_t
+DECL|function|ngx_connection_error (ngx_connection_t * c,ngx_err_t err,char * text)
 name|ngx_connection_error
 parameter_list|(
 name|ngx_connection_t

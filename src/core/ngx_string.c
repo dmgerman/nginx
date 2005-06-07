@@ -3376,11 +3376,54 @@ literal|0xffffffff
 comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
 block|}
 decl_stmt|;
+comment|/* " ", """, "%", "'", %00-%1F, %7F-%FF */
+specifier|static
+name|uint32_t
+name|utf
+index|[]
+init|=
+block|{
+literal|0xffffffff
+block|,
+comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
+comment|/* ?>=< ;:98 7654 3210  /.-, +*)( '&%$ #"!  */
+literal|0x800000ad
+block|,
+comment|/* 0000 0000 0000 0000  0000 0000 1010 1101 */
+comment|/* _^]\ [ZYX WVUT SRQP  ONML KJIH GFED CBA@ */
+literal|0x00000000
+block|,
+comment|/* 0000 0000 0000 0000  0000 0000 0000 0000 */
+comment|/*  ~}| {zyx wvut srqp  onml kjih gfed cba` */
+literal|0x80000000
+block|,
+comment|/* 1000 0000 0000 0000  0000 0000 0000 0000 */
+literal|0x00000000
+block|,
+comment|/* 0000 0000 0000 0000  0000 0000 0000 0000 */
+literal|0x00000000
+block|,
+comment|/* 0000 0000 0000 0000  0000 0000 0000 0000 */
+literal|0x00000000
+block|,
+comment|/* 0000 0000 0000 0000  0000 0000 0000 0000 */
+literal|0x00000000
+comment|/* 0000 0000 0000 0000  0000 0000 0000 0000 */
+block|}
+decl_stmt|;
 switch|switch
 condition|(
 name|type
 condition|)
 block|{
+case|case
+name|NGX_ESCAPE_UTF
+case|:
+name|escape
+operator|=
+name|utf
+expr_stmt|;
+break|break;
 case|case
 name|NGX_ESCAPE_HTML
 case|:

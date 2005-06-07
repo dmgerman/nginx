@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c6e3b3a0108
+DECL|struct|__anon29e9743f0108
 typedef|typedef
 struct|struct
 block|{
@@ -194,7 +194,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c6e3b3a0203
+DECL|enum|__anon29e9743f0203
 typedef|typedef
 enum|enum
 block|{
@@ -218,7 +218,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c6e3b3a0303
+DECL|enum|__anon29e9743f0303
 typedef|typedef
 enum|enum
 block|{
@@ -239,7 +239,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c6e3b3a0403
+DECL|enum|__anon29e9743f0403
 typedef|typedef
 enum|enum
 block|{

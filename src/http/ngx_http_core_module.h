@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b3048010108
+DECL|struct|__anon297caf980108
 typedef|typedef
 struct|struct
 block|{
@@ -60,11 +60,10 @@ name|ngx_int_t
 name|line
 decl_stmt|;
 DECL|member|default_server
-name|unsigned
+name|ngx_uint_t
 name|default_server
-range|:
-literal|1
 decl_stmt|;
+comment|/* unsigned  default_server:1; */
 DECL|typedef|ngx_http_listen_t
 block|}
 name|ngx_http_listen_t
@@ -72,7 +71,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b3048010203
+DECL|enum|__anon297caf980203
 typedef|typedef
 enum|enum
 block|{
@@ -99,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3048010308
+DECL|struct|__anon297caf980308
 typedef|typedef
 struct|struct
 block|{
@@ -119,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3048010408
+DECL|struct|__anon297caf980408
 typedef|typedef
 struct|struct
 block|{
@@ -176,7 +175,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3048010508
+DECL|struct|__anon297caf980508
 typedef|typedef
 struct|struct
 block|{
@@ -244,7 +243,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2b3048010608
+DECL|struct|__anon297caf980608
 typedef|typedef
 struct|struct
 block|{
@@ -308,7 +307,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b3048010708
+DECL|struct|__anon297caf980708
 typedef|typedef
 struct|struct
 block|{
@@ -374,7 +373,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon2b3048010808
+DECL|struct|__anon297caf980808
 typedef|typedef
 struct|struct
 block|{
@@ -393,7 +392,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3048010908
+DECL|struct|__anon297caf980908
 typedef|typedef
 struct|struct
 block|{
@@ -587,6 +586,11 @@ name|ngx_flag_t
 name|reset_timedout_connection
 decl_stmt|;
 comment|/* reset_timedout_connection */
+DECL|member|port_in_redirect
+name|ngx_flag_t
+name|port_in_redirect
+decl_stmt|;
+comment|/* port_in_redirect */
 DECL|member|msie_padding
 name|ngx_flag_t
 name|msie_padding

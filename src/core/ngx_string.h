@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b7b1f7a0108
+DECL|struct|__anon277215a50108
 typedef|typedef
 struct|struct
 block|{
@@ -597,6 +597,14 @@ define|#
 directive|define
 name|NGX_ESCAPE_HTML
 value|2
+end_define
+
+begin_define
+DECL|macro|NGX_ESCAPE_UTF
+define|#
+directive|define
+name|NGX_ESCAPE_UTF
+value|3
 end_define
 
 begin_function_decl

@@ -7716,6 +7716,17 @@ name|ngx_event_t
 modifier|*
 name|rev
 decl_stmt|;
+if|if
+condition|(
+name|r
+operator|->
+expr|main
+condition|)
+block|{
+return|return
+name|NGX_OK
+return|;
+block|}
 name|rev
 operator|=
 name|r

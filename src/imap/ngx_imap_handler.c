@@ -69,31 +69,44 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
-begin_decl_stmt
-DECL|variable|pop3_greeting
+begin_function_decl
 specifier|static
-name|u_char
-name|pop3_greeting
+name|void
+name|ngx_imap_auth_state
+parameter_list|(
+name|ngx_event_t
+modifier|*
+name|rev
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_decl_stmt
+DECL|variable|greetings
+specifier|static
+name|ngx_str_t
+name|greetings
 index|[]
 init|=
+block|{
+name|ngx_string
+argument_list|(
 literal|"+OK "
 name|NGINX_VER
 literal|" ready"
 name|CRLF
+argument_list|)
+block|,
+name|ngx_string
+argument_list|(
+literal|"* OK "
+argument|NGINX_VER
+literal|" ready"
+argument|CRLF
+argument_list|)
+block|}
 decl_stmt|;
 end_decl_stmt
-
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-
-begin_endif
-unit|static u_char imap_greeting[] = "* OK " NGINX_VER " ready" CRLF;
-endif|#
-directive|endif
-end_endif
 
 begin_decl_stmt
 DECL|variable|pop3_ok
@@ -120,8 +133,8 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_imap_init_connection (ngx_connection_t * c)
 name|void
+DECL|function|ngx_imap_init_connection (ngx_connection_t * c)
 name|ngx_imap_init_connection
 parameter_list|(
 name|ngx_connection_t
@@ -129,12 +142,16 @@ modifier|*
 name|c
 parameter_list|)
 block|{
-name|u_char
-modifier|*
-name|greeting
-decl_stmt|;
 name|ssize_t
 name|size
+decl_stmt|;
+name|ngx_imap_conf_ctx_t
+modifier|*
+name|ctx
+decl_stmt|;
+name|ngx_imap_core_srv_conf_t
+modifier|*
+name|cscf
 decl_stmt|;
 name|ngx_log_debug0
 argument_list|(
@@ -155,18 +172,31 @@ name|log_error
 operator|=
 name|NGX_ERROR_INFO
 expr_stmt|;
-name|greeting
+name|ctx
 operator|=
-name|pop3_greeting
+name|c
+operator|->
+name|ctx
+expr_stmt|;
+name|cscf
+operator|=
+name|ngx_imap_get_module_srv_conf
+argument_list|(
+name|ctx
+argument_list|,
+name|ngx_imap_core_module
+argument_list|)
 expr_stmt|;
 name|size
 operator|=
-sizeof|sizeof
-argument_list|(
-name|pop3_greeting
-argument_list|)
-operator|-
-literal|1
+name|greetings
+index|[
+name|cscf
+operator|->
+name|protocol
+index|]
+operator|.
+name|len
 expr_stmt|;
 if|if
 condition|(
@@ -174,7 +204,14 @@ name|ngx_send
 argument_list|(
 name|c
 argument_list|,
-name|greeting
+name|greetings
+index|[
+name|cscf
+operator|->
+name|protocol
+index|]
+operator|.
+name|data
 argument_list|,
 name|size
 argument_list|)
@@ -204,8 +241,9 @@ name|c
 operator|->
 name|read
 argument_list|,
-comment|/* STUB */
-literal|60000
+name|cscf
+operator|->
+name|timeout
 argument_list|)
 expr_stmt|;
 if|if
@@ -232,9 +270,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_imap_init_session (ngx_event_t * rev)
 specifier|static
 name|void
+DECL|function|ngx_imap_init_session (ngx_event_t * rev)
 name|ngx_imap_init_session
 parameter_list|(
 name|ngx_event_t
@@ -252,6 +290,14 @@ decl_stmt|;
 name|ngx_imap_session_t
 modifier|*
 name|s
+decl_stmt|;
+name|ngx_imap_conf_ctx_t
+modifier|*
+name|ctx
+decl_stmt|;
+name|ngx_imap_core_srv_conf_t
+modifier|*
+name|cscf
 decl_stmt|;
 name|c
 operator|=
@@ -326,6 +372,63 @@ name|connection
 operator|=
 name|c
 expr_stmt|;
+name|s
+operator|->
+name|ctx
+operator|=
+name|ngx_pcalloc
+argument_list|(
+name|c
+operator|->
+name|pool
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|void
+operator|*
+argument_list|)
+operator|*
+name|ngx_imap_max_module
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|s
+operator|->
+name|ctx
+operator|==
+name|NULL
+condition|)
+block|{
+name|ngx_imap_close_connection
+argument_list|(
+name|c
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+name|ctx
+operator|=
+name|c
+operator|->
+name|ctx
+expr_stmt|;
+name|s
+operator|->
+name|main_conf
+operator|=
+name|ctx
+operator|->
+name|main_conf
+expr_stmt|;
+name|s
+operator|->
+name|srv_conf
+operator|=
+name|ctx
+operator|->
+name|srv_conf
+expr_stmt|;
 if|if
 condition|(
 name|ngx_array_init
@@ -357,11 +460,62 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|cscf
+operator|=
+name|ngx_imap_get_module_srv_conf
+argument_list|(
+name|s
+argument_list|,
+name|ngx_imap_core_module
+argument_list|)
+expr_stmt|;
+name|s
+operator|->
+name|protocol
+operator|=
+name|cscf
+operator|->
+name|protocol
+expr_stmt|;
+if|if
+condition|(
+name|cscf
+operator|->
+name|protocol
+operator|==
+name|NGX_IMAP_POP3_PROTOCOL
+condition|)
+block|{
 name|size
 operator|=
-comment|/* STUB: pop3: 128, imap: configurable 4K default */
 literal|128
 expr_stmt|;
+name|c
+operator|->
+name|read
+operator|->
+name|handler
+operator|=
+name|ngx_pop3_auth_state
+expr_stmt|;
+block|}
+else|else
+block|{
+name|size
+operator|=
+name|cscf
+operator|->
+name|imap_client_buffer_size
+expr_stmt|;
+name|c
+operator|->
+name|read
+operator|->
+name|handler
+operator|=
+name|ngx_imap_auth_state
+expr_stmt|;
+block|}
 name|s
 operator|->
 name|buffer
@@ -396,10 +550,6 @@ operator|->
 name|read
 operator|->
 name|handler
-operator|=
-name|ngx_pop3_auth_state
-expr_stmt|;
-name|ngx_pop3_auth_state
 argument_list|(
 name|rev
 argument_list|)
@@ -408,9 +558,38 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_pop3_auth_state (ngx_event_t * rev)
 specifier|static
 name|void
+DECL|function|ngx_imap_auth_state (ngx_event_t * rev)
+name|ngx_imap_auth_state
+parameter_list|(
+name|ngx_event_t
+modifier|*
+name|rev
+parameter_list|)
+block|{
+name|ngx_connection_t
+modifier|*
+name|c
+decl_stmt|;
+name|c
+operator|=
+name|rev
+operator|->
+name|data
+expr_stmt|;
+name|ngx_imap_close_connection
+argument_list|(
+name|c
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+
+begin_function
+specifier|static
+name|void
+DECL|function|ngx_pop3_auth_state (ngx_event_t * rev)
 name|ngx_pop3_auth_state
 parameter_list|(
 name|ngx_event_t
@@ -868,7 +1047,7 @@ name|buffer
 operator|->
 name|start
 expr_stmt|;
-name|ngx_imap_proxy_init
+name|ngx_imap_auth_http_init
 argument_list|(
 name|s
 argument_list|)
@@ -998,9 +1177,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_pop3_read_command (ngx_imap_session_t * s)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_pop3_read_command (ngx_imap_session_t * s)
 name|ngx_pop3_read_command
 parameter_list|(
 name|ngx_imap_session_t
@@ -1176,8 +1355,8 @@ directive|endif
 end_endif
 
 begin_function
-DECL|function|ngx_imap_close_connection (ngx_connection_t * c)
 name|void
+DECL|function|ngx_imap_close_connection (ngx_connection_t * c)
 name|ngx_imap_close_connection
 parameter_list|(
 name|ngx_connection_t
