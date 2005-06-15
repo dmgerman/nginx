@@ -1007,6 +1007,11 @@ argument_list|,
 literal|"%s in \"%V\" of the \"listen\" directive"
 argument_list|,
 name|err
+argument_list|,
+operator|&
+name|inet_upstream
+operator|.
+name|url
 argument_list|)
 expr_stmt|;
 return|return

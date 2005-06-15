@@ -3609,6 +3609,10 @@ if|if
 condition|(
 name|chdir
 argument_list|(
+operator|(
+name|char
+operator|*
+operator|)
 name|ccf
 operator|->
 name|working_directory

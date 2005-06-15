@@ -339,12 +339,14 @@ end_endif
 begin_if
 if|#
 directive|if
+operator|(
 name|defined
 name|SO_ACCEPTFILTER
 operator|&&
 operator|!
 name|defined
 name|NGX_HAVE_DEFERRED_ACCEPT
+operator|)
 end_if
 
 begin_define

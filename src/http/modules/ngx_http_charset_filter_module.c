@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28b75b080108
+DECL|struct|__anon293364ba0108
 typedef|typedef
 struct|struct
 block|{
@@ -37,10 +37,17 @@ name|ngx_str_t
 name|name
 decl_stmt|;
 DECL|member|server
-name|ngx_uint_t
+name|unsigned
 name|server
+range|:
+literal|1
 decl_stmt|;
-comment|/* unsigned     server:1; */
+DECL|member|utf8
+name|unsigned
+name|utf8
+range|:
+literal|1
+decl_stmt|;
 DECL|typedef|ngx_http_charset_t
 block|}
 name|ngx_http_charset_t
@@ -48,7 +55,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b75b080208
+DECL|struct|__anon293364ba0208
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +84,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b75b080308
+DECL|struct|__anon293364ba0308
 typedef|typedef
 struct|struct
 block|{
@@ -98,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b75b080408
+DECL|struct|__anon293364ba0408
 typedef|typedef
 struct|struct
 block|{
@@ -125,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b75b080508
+DECL|struct|__anon293364ba0508
 typedef|typedef
 struct|struct
 block|{
@@ -764,6 +771,19 @@ name|default_charset
 index|]
 operator|.
 name|name
+expr_stmt|;
+name|r
+operator|->
+name|utf8
+operator|=
+name|charsets
+index|[
+name|lcf
+operator|->
+name|default_charset
+index|]
+operator|.
+name|utf8
 expr_stmt|;
 if|if
 condition|(
@@ -2001,6 +2021,27 @@ name|server
 operator|=
 literal|0
 expr_stmt|;
+if|if
+condition|(
+name|ngx_strcasecmp
+argument_list|(
+name|name
+operator|->
+name|data
+argument_list|,
+literal|"utf-8"
+argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+name|c
+operator|->
+name|utf8
+operator|=
+literal|1
+expr_stmt|;
+block|}
 return|return
 name|i
 return|;

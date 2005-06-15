@@ -35,7 +35,63 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon297caf980108
+DECL|struct|__anon27f2ee4e0108
+typedef|typedef
+struct|struct
+block|{
+DECL|member|default_server
+name|unsigned
+name|default_server
+range|:
+literal|1
+decl_stmt|;
+DECL|member|bind
+name|unsigned
+name|bind
+range|:
+literal|1
+decl_stmt|;
+DECL|member|backlog
+name|int
+name|backlog
+decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_DEFERRED_ACCEPT
+operator|&&
+name|defined
+name|SO_ACCEPTFILTER
+operator|)
+DECL|member|accept_filter
+name|char
+modifier|*
+name|accept_filter
+decl_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_DEFERRED_ACCEPT
+operator|&&
+name|defined
+name|TCP_DEFER_ACCEPT
+operator|)
+DECL|member|deferred_accept
+name|ngx_uint_t
+name|deferred_accept
+decl_stmt|;
+endif|#
+directive|endif
+DECL|typedef|ngx_http_listen_conf_t
+block|}
+name|ngx_http_listen_conf_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon27f2ee4e0208
 typedef|typedef
 struct|struct
 block|{
@@ -59,11 +115,10 @@ DECL|member|line
 name|ngx_int_t
 name|line
 decl_stmt|;
-DECL|member|default_server
-name|ngx_uint_t
-name|default_server
+DECL|member|conf
+name|ngx_http_listen_conf_t
+name|conf
 decl_stmt|;
-comment|/* unsigned  default_server:1; */
 DECL|typedef|ngx_http_listen_t
 block|}
 name|ngx_http_listen_t
@@ -71,7 +126,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon297caf980203
+DECL|enum|__anon27f2ee4e0303
 typedef|typedef
 enum|enum
 block|{
@@ -98,7 +153,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297caf980308
+DECL|struct|__anon27f2ee4e0408
 typedef|typedef
 struct|struct
 block|{
@@ -118,7 +173,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297caf980408
+DECL|struct|__anon27f2ee4e0508
 typedef|typedef
 struct|struct
 block|{
@@ -175,7 +230,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297caf980508
+DECL|struct|__anon27f2ee4e0608
 typedef|typedef
 struct|struct
 block|{
@@ -216,10 +271,6 @@ DECL|member|large_client_header_buffers
 name|ngx_bufs_t
 name|large_client_header_buffers
 decl_stmt|;
-DECL|member|post_accept_timeout
-name|ngx_msec_t
-name|post_accept_timeout
-decl_stmt|;
 DECL|member|client_header_timeout
 name|ngx_msec_t
 name|client_header_timeout
@@ -243,7 +294,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon297caf980608
+DECL|struct|__anon27f2ee4e0708
 typedef|typedef
 struct|struct
 block|{
@@ -297,17 +348,16 @@ name|ngx_http_core_srv_conf_t
 modifier|*
 name|core_srv_conf
 decl_stmt|;
-DECL|member|default_server
-name|ngx_uint_t
-name|default_server
+DECL|member|conf
+name|ngx_http_listen_conf_t
+name|conf
 decl_stmt|;
-comment|/* unsigned  default_server:1; */
 block|}
 struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon297caf980708
+DECL|struct|__anon27f2ee4e0808
 typedef|typedef
 struct|struct
 block|{
@@ -373,7 +423,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon297caf980808
+DECL|struct|__anon27f2ee4e0908
 typedef|typedef
 struct|struct
 block|{
@@ -392,7 +442,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297caf980908
+DECL|struct|__anon27f2ee4e0a08
 typedef|typedef
 struct|struct
 block|{

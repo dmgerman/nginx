@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29e9743f0108
+DECL|struct|__anon2b56d3810108
 typedef|typedef
 struct|struct
 block|{
@@ -168,6 +168,12 @@ range|:
 literal|1
 decl_stmt|;
 comment|/* shared between threads or processes */
+DECL|member|addr_ntop
+name|unsigned
+name|addr_ntop
+range|:
+literal|1
+decl_stmt|;
 if|#
 directive|if
 operator|(
@@ -179,14 +185,30 @@ name|deferred_accept
 range|:
 literal|1
 decl_stmt|;
-endif|#
-directive|endif
-DECL|member|addr_ntop
+DECL|member|delete_deferred
 name|unsigned
-name|addr_ntop
+name|delete_deferred
 range|:
 literal|1
 decl_stmt|;
+DECL|member|add_deferred
+name|unsigned
+name|add_deferred
+range|:
+literal|1
+decl_stmt|;
+ifdef|#
+directive|ifdef
+name|SO_ACCEPTFILTER
+DECL|member|accept_filter
+name|char
+modifier|*
+name|accept_filter
+decl_stmt|;
+endif|#
+directive|endif
+endif|#
+directive|endif
 DECL|typedef|ngx_listening_t
 block|}
 name|ngx_listening_t
@@ -194,7 +216,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29e9743f0203
+DECL|enum|__anon2b56d3810203
 typedef|typedef
 enum|enum
 block|{
@@ -218,7 +240,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29e9743f0303
+DECL|enum|__anon2b56d3810303
 typedef|typedef
 enum|enum
 block|{
@@ -239,7 +261,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29e9743f0403
+DECL|enum|__anon2b56d3810403
 typedef|typedef
 enum|enum
 block|{

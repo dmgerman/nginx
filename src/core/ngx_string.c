@@ -3236,6 +3236,106 @@ block|}
 end_function
 
 begin_function
+name|size_t
+DECL|function|ngx_utf_length (ngx_str_t * utf)
+name|ngx_utf_length
+parameter_list|(
+name|ngx_str_t
+modifier|*
+name|utf
+parameter_list|)
+block|{
+name|u_char
+name|c
+decl_stmt|;
+name|size_t
+name|len
+decl_stmt|;
+name|ngx_uint_t
+name|i
+decl_stmt|;
+for|for
+control|(
+name|len
+operator|=
+literal|0
+operator|,
+name|i
+operator|=
+literal|0
+init|;
+name|i
+operator|<
+name|utf
+operator|->
+name|len
+condition|;
+name|len
+operator|++
+operator|,
+name|i
+operator|++
+control|)
+block|{
+name|c
+operator|=
+name|utf
+operator|->
+name|data
+index|[
+name|i
+index|]
+expr_stmt|;
+if|if
+condition|(
+name|c
+operator|<
+literal|0x80
+condition|)
+block|{
+continue|continue;
+block|}
+if|if
+condition|(
+name|c
+operator|<
+literal|0xC0
+condition|)
+block|{
+comment|/* invalid utf */
+return|return
+name|utf
+operator|->
+name|len
+return|;
+block|}
+for|for
+control|(
+name|c
+operator|<<=
+literal|1
+init|;
+name|c
+operator|&
+literal|0x80
+condition|;
+name|c
+operator|<<=
+literal|1
+control|)
+block|{
+name|i
+operator|++
+expr_stmt|;
+block|}
+block|}
+return|return
+name|len
+return|;
+block|}
+end_function
+
+begin_function
 name|uintptr_t
 DECL|function|ngx_escape_uri (u_char * dst,u_char * src,size_t size,ngx_uint_t type)
 name|ngx_escape_uri
@@ -3376,54 +3476,11 @@ literal|0xffffffff
 comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
 block|}
 decl_stmt|;
-comment|/* " ", """, "%", "'", %00-%1F, %7F-%FF */
-specifier|static
-name|uint32_t
-name|utf
-index|[]
-init|=
-block|{
-literal|0xffffffff
-block|,
-comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
-comment|/* ?>=< ;:98 7654 3210  /.-, +*)( '&%$ #"!  */
-literal|0x800000ad
-block|,
-comment|/* 0000 0000 0000 0000  0000 0000 1010 1101 */
-comment|/* _^]\ [ZYX WVUT SRQP  ONML KJIH GFED CBA@ */
-literal|0x00000000
-block|,
-comment|/* 0000 0000 0000 0000  0000 0000 0000 0000 */
-comment|/*  ~}| {zyx wvut srqp  onml kjih gfed cba` */
-literal|0x80000000
-block|,
-comment|/* 1000 0000 0000 0000  0000 0000 0000 0000 */
-literal|0x00000000
-block|,
-comment|/* 0000 0000 0000 0000  0000 0000 0000 0000 */
-literal|0x00000000
-block|,
-comment|/* 0000 0000 0000 0000  0000 0000 0000 0000 */
-literal|0x00000000
-block|,
-comment|/* 0000 0000 0000 0000  0000 0000 0000 0000 */
-literal|0x00000000
-comment|/* 0000 0000 0000 0000  0000 0000 0000 0000 */
-block|}
-decl_stmt|;
 switch|switch
 condition|(
 name|type
 condition|)
 block|{
-case|case
-name|NGX_ESCAPE_UTF
-case|:
-name|escape
-operator|=
-name|utf
-expr_stmt|;
-break|break;
 case|case
 name|NGX_ESCAPE_HTML
 case|:

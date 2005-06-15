@@ -1144,6 +1144,16 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|ngx_memzero
+argument_list|(
+name|ls
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|ngx_listening_t
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|ls
 operator|->
 name|fd

@@ -385,7 +385,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon2aa2f4da0103
+DECL|enum|__anon2b65a6320103
 typedef|typedef
 enum|enum
 block|{
@@ -406,7 +406,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2aa2f4da0203
+DECL|enum|__anon2b65a6320203
 typedef|typedef
 enum|enum
 block|{
@@ -445,7 +445,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa2f4da0308
+DECL|struct|__anon2b65a6320308
 typedef|typedef
 struct|struct
 block|{
@@ -468,7 +468,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa2f4da0408
+DECL|struct|__anon2b65a6320408
 typedef|typedef
 struct|struct
 block|{
@@ -487,7 +487,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa2f4da0508
+DECL|struct|__anon2b65a6320508
 typedef|typedef
 struct|struct
 block|{
@@ -571,16 +571,6 @@ DECL|member|x_forwarded_for
 name|ngx_table_elt_t
 modifier|*
 name|x_forwarded_for
-decl_stmt|;
-DECL|member|x_real_ip
-name|ngx_table_elt_t
-modifier|*
-name|x_real_ip
-decl_stmt|;
-DECL|member|x_url
-name|ngx_table_elt_t
-modifier|*
-name|x_url
 decl_stmt|;
 endif|#
 directive|endif
@@ -668,7 +658,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa2f4da0608
+DECL|struct|__anon2b65a6320608
 typedef|typedef
 struct|struct
 block|{
@@ -691,7 +681,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa2f4da0708
+DECL|struct|__anon2b65a6320708
 typedef|typedef
 struct|struct
 block|{
@@ -813,7 +803,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa2f4da0808
+DECL|struct|__anon2b65a6320808
 typedef|typedef
 struct|struct
 block|{
@@ -847,7 +837,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa2f4da0908
+DECL|struct|__anon2b65a6320908
 typedef|typedef
 struct|struct
 block|{
@@ -1324,6 +1314,12 @@ decl_stmt|;
 DECL|member|done
 name|unsigned
 name|done
+range|:
+literal|1
+decl_stmt|;
+DECL|member|utf8
+name|unsigned
+name|utf8
 range|:
 literal|1
 decl_stmt|;
