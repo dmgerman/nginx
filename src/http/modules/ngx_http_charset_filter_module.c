@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon293364ba0108
+DECL|struct|__anon28a066710108
 typedef|typedef
 struct|struct
 block|{
@@ -55,7 +55,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293364ba0208
+DECL|struct|__anon28a066710208
 typedef|typedef
 struct|struct
 block|{
@@ -84,7 +84,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293364ba0308
+DECL|struct|__anon28a066710308
 typedef|typedef
 struct|struct
 block|{
@@ -105,17 +105,13 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293364ba0408
+DECL|struct|__anon28a066710408
 typedef|typedef
 struct|struct
 block|{
 DECL|member|enable
 name|ngx_flag_t
 name|enable
-decl_stmt|;
-DECL|member|autodetect
-name|ngx_flag_t
-name|autodetect
 decl_stmt|;
 DECL|member|default_charset
 name|ngx_int_t
@@ -132,7 +128,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293364ba0508
+DECL|struct|__anon28a066710508
 typedef|typedef
 struct|struct
 block|{
@@ -429,34 +425,6 @@ argument_list|(
 name|ngx_http_charset_loc_conf_t
 argument_list|,
 name|enable
-argument_list|)
-block|,
-name|NULL
-block|}
-block|,
-block|{
-name|ngx_string
-argument_list|(
-literal|"autodetect_charset"
-argument_list|)
-block|,
-name|NGX_HTTP_MAIN_CONF
-operator||
-name|NGX_HTTP_SRV_CONF
-operator||
-name|NGX_HTTP_LOC_CONF
-operator||
-name|NGX_CONF_FLAG
-block|,
-name|ngx_conf_set_flag_slot
-block|,
-name|NGX_HTTP_LOC_CONF_OFFSET
-block|,
-name|offsetof
-argument_list|(
-name|ngx_http_charset_loc_conf_t
-argument_list|,
-name|autodetect
 argument_list|)
 block|,
 name|NULL
@@ -2568,12 +2536,6 @@ name|NGX_CONF_UNSET
 expr_stmt|;
 name|lcf
 operator|->
-name|autodetect
-operator|=
-name|NGX_CONF_UNSET
-expr_stmt|;
-name|lcf
-operator|->
 name|default_charset
 operator|=
 name|NGX_CONF_UNSET
@@ -2631,19 +2593,6 @@ argument_list|,
 name|prev
 operator|->
 name|enable
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
-name|ngx_conf_merge_value
-argument_list|(
-name|conf
-operator|->
-name|autodetect
-argument_list|,
-name|prev
-operator|->
-name|autodetect
 argument_list|,
 literal|0
 argument_list|)

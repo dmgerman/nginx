@@ -637,6 +637,8 @@ elif|#
 directive|elif
 operator|(
 name|__ppc__
+operator|||
+name|__powerpc__
 operator|)
 end_elif
 

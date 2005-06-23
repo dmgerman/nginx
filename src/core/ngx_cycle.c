@@ -3564,7 +3564,7 @@ name|ngx_sprintf
 argument_list|(
 name|pid
 argument_list|,
-literal|"%P"
+literal|"%P%N"
 argument_list|,
 name|ngx_pid
 argument_list|)

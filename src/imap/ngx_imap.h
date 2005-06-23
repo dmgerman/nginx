@@ -41,7 +41,7 @@ file|<ngx_event_connect.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27c48f880108
+DECL|struct|__anon28a5515a0108
 typedef|typedef
 struct|struct
 block|{
@@ -64,7 +64,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c48f880208
+DECL|struct|__anon28a5515a0208
 typedef|typedef
 struct|struct
 block|{
@@ -96,7 +96,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon27c48f880308
+DECL|struct|__anon28a5515a0308
 typedef|typedef
 struct|struct
 block|{
@@ -129,7 +129,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c48f880408
+DECL|struct|__anon28a5515a0408
 typedef|typedef
 struct|struct
 block|{
@@ -204,7 +204,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27c48f880503
+DECL|enum|__anon28a5515a0503
 typedef|typedef
 enum|enum
 block|{
@@ -222,7 +222,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c48f880608
+DECL|struct|__anon28a5515a0608
 typedef|typedef
 struct|struct
 block|{
@@ -242,7 +242,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c48f880708
+DECL|struct|__anon28a5515a0708
 typedef|typedef
 struct|struct
 block|{
@@ -582,6 +582,17 @@ parameter_list|(
 name|ngx_connection_t
 modifier|*
 name|c
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_imap_session_internal_server_error
+parameter_list|(
+name|ngx_imap_session_t
+modifier|*
+name|s
 parameter_list|)
 function_decl|;
 end_function_decl

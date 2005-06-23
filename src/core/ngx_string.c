@@ -149,7 +149,7 @@ block|}
 end_function
 
 begin_comment
-comment|/*  * supported formats:  *    %[0][width][x][X]O        off_t  *    %[0][width]T              time_t  *    %[0][width][u][x|X]z      ssize_t/size_t  *    %[0][width][u][x|X]d      int/u_int  *    %[0][width][u][x|X]l      long  *    %[0][width|m][u][x|X]i    ngx_int_t/ngx_uint_t  *    %[0][width][u][x|X]D      int32_t/uint32_t  *    %[0][width][u][x|X]L      int64_t/uint64_t  *    %[0][width|m][u][x|X]A    ngx_atomic_int_t/ngx_atomic_uint_t  *    %P                        ngx_pid_t  *    %r                        rlim_t  *    %p                        pointer  *    %V                        pointer to ngx_str_t  *    %s                        null-terminated string  *    %Z                        '\0'  *    %c                        char  *    %%                        %  *  *  TODO:  *    %M                        ngx_msec_t  *  *  reserved:  *    %t                        ptrdiff_t  *    %S                        null-teminated wchar string  *    %C                        wchar  */
+comment|/*  * supported formats:  *    %[0][width][x][X]O        off_t  *    %[0][width]T              time_t  *    %[0][width][u][x|X]z      ssize_t/size_t  *    %[0][width][u][x|X]d      int/u_int  *    %[0][width][u][x|X]l      long  *    %[0][width|m][u][x|X]i    ngx_int_t/ngx_uint_t  *    %[0][width][u][x|X]D      int32_t/uint32_t  *    %[0][width][u][x|X]L      int64_t/uint64_t  *    %[0][width|m][u][x|X]A    ngx_atomic_int_t/ngx_atomic_uint_t  *    %P                        ngx_pid_t  *    %r                        rlim_t  *    %p                        pointer  *    %V                        pointer to ngx_str_t  *    %s                        null-terminated string  *    %Z                        '\0'  *    %N                        '\n'  *    %c                        char  *    %%                        %  *  *  TODO:  *    %M                        ngx_msec_t  *  *  reserved:  *    %t                        ptrdiff_t  *    %S                        null-teminated wchar string  *    %C                        wchar  */
 end_comment
 
 begin_function
@@ -1059,6 +1059,32 @@ name|buf
 operator|++
 operator|=
 literal|'\0'
+expr_stmt|;
+name|fmt
+operator|++
+expr_stmt|;
+continue|continue;
+case|case
+literal|'N'
+case|:
+if|#
+directive|if
+operator|(
+name|NGX_WIN32
+operator|)
+operator|*
+name|buf
+operator|++
+operator|=
+name|CR
+expr_stmt|;
+endif|#
+directive|endif
+operator|*
+name|buf
+operator|++
+operator|=
+name|LF
 expr_stmt|;
 name|fmt
 operator|++

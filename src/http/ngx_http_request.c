@@ -210,7 +210,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|void
+name|ngx_int_t
 name|ngx_http_set_write_handler
 parameter_list|(
 name|ngx_http_request_t
@@ -6522,12 +6522,18 @@ operator|==
 name|NGX_AGAIN
 condition|)
 block|{
+if|if
+condition|(
+name|ngx_http_set_write_handler
+argument_list|(
 name|r
-operator|->
-name|write_event_handler
-operator|=
-name|ngx_http_writer
-expr_stmt|;
+argument_list|)
+operator|!=
+name|NGX_OK
+condition|)
+block|{
+return|return;
+block|}
 block|}
 name|r
 operator|->
@@ -6787,6 +6793,9 @@ operator|->
 name|out
 condition|)
 block|{
+operator|(
+name|void
+operator|)
 name|ngx_http_set_write_handler
 argument_list|(
 name|r
@@ -6977,7 +6986,7 @@ end_function
 
 begin_function
 specifier|static
-name|void
+name|ngx_int_t
 DECL|function|ngx_http_set_write_handler (ngx_http_request_t * r)
 name|ngx_http_set_write_handler
 parameter_list|(
@@ -7000,6 +7009,12 @@ name|http_state
 operator|=
 name|NGX_HTTP_WRITING_REQUEST_STATE
 expr_stmt|;
+name|r
+operator|->
+name|write_event_handler
+operator|=
+name|ngx_http_writer
+expr_stmt|;
 name|wev
 operator|=
 name|r
@@ -7019,7 +7034,9 @@ operator|->
 name|delayed
 condition|)
 block|{
-return|return;
+return|return
+name|NGX_OK
+return|;
 block|}
 name|clcf
 operator|=
@@ -7076,7 +7093,13 @@ operator|->
 name|connection
 argument_list|)
 expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
 block|}
+return|return
+name|NGX_OK
+return|;
 block|}
 end_function
 

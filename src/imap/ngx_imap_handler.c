@@ -109,6 +109,29 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|internal_server_errors
+specifier|static
+name|ngx_str_t
+name|internal_server_errors
+index|[]
+init|=
+block|{
+name|ngx_string
+argument_list|(
+literal|"-ERR internal server error"
+name|CRLF
+argument_list|)
+block|,
+name|ngx_string
+argument_list|(
+literal|"* BAD internal server error"
+name|CRLF
+argument_list|)
+block|, }
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|pop3_ok
 specifier|static
 name|u_char
@@ -1353,6 +1376,54 @@ unit|void ngx_imap_close_session(ngx_imap_session_t *s) {     ngx_log_debug0(NGX
 endif|#
 directive|endif
 end_endif
+
+begin_function
+name|void
+DECL|function|ngx_imap_session_internal_server_error (ngx_imap_session_t * s)
+name|ngx_imap_session_internal_server_error
+parameter_list|(
+name|ngx_imap_session_t
+modifier|*
+name|s
+parameter_list|)
+block|{
+operator|(
+name|void
+operator|)
+name|ngx_send
+argument_list|(
+name|s
+operator|->
+name|connection
+argument_list|,
+name|internal_server_errors
+index|[
+name|s
+operator|->
+name|protocol
+index|]
+operator|.
+name|data
+argument_list|,
+name|internal_server_errors
+index|[
+name|s
+operator|->
+name|protocol
+index|]
+operator|.
+name|len
+argument_list|)
+expr_stmt|;
+name|ngx_imap_close_connection
+argument_list|(
+name|s
+operator|->
+name|connection
+argument_list|)
+expr_stmt|;
+block|}
+end_function
 
 begin_function
 name|void

@@ -1362,17 +1362,25 @@ end_function
 
 begin_function
 name|void
-DECL|function|ngx_event_connect_peer_failed (ngx_peer_connection_t * pc)
+DECL|function|ngx_event_connect_peer_failed (ngx_peer_connection_t * pc,ngx_uint_t down)
 name|ngx_event_connect_peer_failed
 parameter_list|(
 name|ngx_peer_connection_t
 modifier|*
 name|pc
+parameter_list|,
+name|ngx_uint_t
+name|down
 parameter_list|)
 block|{
 name|time_t
 name|now
 decl_stmt|;
+if|if
+condition|(
+name|down
+condition|)
+block|{
 name|now
 operator|=
 name|ngx_time
@@ -1409,6 +1417,7 @@ operator|=
 name|now
 expr_stmt|;
 comment|/* ngx_unlock_mutex(pc->peers->mutex); */
+block|}
 name|pc
 operator|->
 name|cur_peer

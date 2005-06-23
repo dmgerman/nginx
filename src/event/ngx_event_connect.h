@@ -43,7 +43,7 @@ value|-10
 end_define
 
 begin_typedef
-DECL|struct|__anon2c4cb5f90108
+DECL|struct|__anon28e0fd2c0108
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c4cb5f90208
+DECL|struct|__anon28e0fd2c0208
 typedef|typedef
 struct|struct
 block|{
@@ -212,6 +212,9 @@ parameter_list|(
 name|ngx_peer_connection_t
 modifier|*
 name|pc
+parameter_list|,
+name|ngx_uint_t
+name|down
 parameter_list|)
 function_decl|;
 end_function_decl
