@@ -385,7 +385,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon2b65a6320103
+DECL|enum|__anon27f1d2880103
 typedef|typedef
 enum|enum
 block|{
@@ -406,7 +406,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b65a6320203
+DECL|enum|__anon27f1d2880203
 typedef|typedef
 enum|enum
 block|{
@@ -445,7 +445,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b65a6320308
+DECL|struct|__anon27f1d2880308
 typedef|typedef
 struct|struct
 block|{
@@ -468,7 +468,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b65a6320408
+DECL|struct|__anon27f1d2880408
 typedef|typedef
 struct|struct
 block|{
@@ -487,7 +487,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b65a6320508
+DECL|struct|__anon27f1d2880508
 typedef|typedef
 struct|struct
 block|{
@@ -658,7 +658,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b65a6320608
+DECL|struct|__anon27f1d2880608
 typedef|typedef
 struct|struct
 block|{
@@ -681,7 +681,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b65a6320708
+DECL|struct|__anon27f1d2880708
 typedef|typedef
 struct|struct
 block|{
@@ -803,7 +803,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b65a6320808
+DECL|struct|__anon27f1d2880808
 typedef|typedef
 struct|struct
 block|{
@@ -837,7 +837,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b65a6320908
+DECL|struct|__anon27f1d2880908
 typedef|typedef
 struct|struct
 block|{
@@ -1135,6 +1135,10 @@ modifier|*
 modifier|*
 name|variables
 decl_stmt|;
+DECL|member|limit_rate
+name|size_t
+name|limit_rate
+decl_stmt|;
 comment|/* used to learn the Apache compatible response length without a header */
 DECL|member|header_size
 name|size_t
@@ -1302,12 +1306,6 @@ decl_stmt|;
 DECL|member|internal
 name|unsigned
 name|internal
-range|:
-literal|1
-decl_stmt|;
-DECL|member|closed
-name|unsigned
-name|closed
 range|:
 literal|1
 decl_stmt|;

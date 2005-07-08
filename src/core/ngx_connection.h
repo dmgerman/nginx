@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b56d3810108
+DECL|struct|__anon2a2118fe0108
 typedef|typedef
 struct|struct
 block|{
@@ -216,7 +216,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b56d3810203
+DECL|enum|__anon2a2118fe0203
 typedef|typedef
 enum|enum
 block|{
@@ -240,7 +240,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b56d3810303
+DECL|enum|__anon2a2118fe0303
 typedef|typedef
 enum|enum
 block|{
@@ -261,7 +261,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b56d3810403
+DECL|enum|__anon2a2118fe0403
 typedef|typedef
 enum|enum
 block|{
@@ -422,6 +422,12 @@ decl_stmt|;
 DECL|member|timedout
 name|unsigned
 name|timedout
+range|:
+literal|1
+decl_stmt|;
+DECL|member|closed
+name|unsigned
+name|closed
 range|:
 literal|1
 decl_stmt|;

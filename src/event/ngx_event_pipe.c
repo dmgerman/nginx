@@ -807,6 +807,15 @@ operator|->
 name|write
 operator|->
 name|ready
+operator|&&
+operator|!
+name|p
+operator|->
+name|downstream
+operator|->
+name|write
+operator|->
+name|delayed
 condition|)
 block|{
 comment|/*                  * if the bufs are not needed to be saved in a cache and                  * a downstream is ready then write the bufs to a downstream                  */
@@ -2127,6 +2136,14 @@ operator|->
 name|write
 operator|->
 name|ready
+operator|||
+name|p
+operator|->
+name|downstream
+operator|->
+name|write
+operator|->
+name|delayed
 condition|)
 block|{
 break|break;

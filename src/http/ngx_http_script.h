@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b3230c00108
+DECL|struct|__anon2759d38c0108
 typedef|typedef
 struct|struct
 block|{
@@ -111,7 +111,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3230c00208
+DECL|struct|__anon2759d38c0208
 typedef|typedef
 struct|struct
 block|{
@@ -223,7 +223,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3230c00308
+DECL|struct|__anon2759d38c0308
 typedef|typedef
 struct|struct
 block|{
@@ -242,7 +242,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3230c00408
+DECL|struct|__anon2759d38c0408
 typedef|typedef
 struct|struct
 block|{
@@ -261,7 +261,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3230c00508
+DECL|struct|__anon2759d38c0508
 typedef|typedef
 struct|struct
 block|{
@@ -288,7 +288,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2b3230c00608
+DECL|struct|__anon2759d38c0608
 typedef|typedef
 struct|struct
 block|{
@@ -370,7 +370,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3230c00708
+DECL|struct|__anon2759d38c0708
 typedef|typedef
 struct|struct
 block|{
@@ -415,7 +415,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b3230c00808
+DECL|struct|__anon2759d38c0808
 typedef|typedef
 struct|struct
 block|{
@@ -438,7 +438,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3230c00908
+DECL|struct|__anon2759d38c0908
 typedef|typedef
 struct|struct
 block|{
@@ -463,7 +463,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3230c00a08
+DECL|struct|__anon2759d38c0a08
 typedef|typedef
 struct|struct
 block|{
@@ -483,7 +483,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3230c00b08
+DECL|struct|__anon2759d38c0b08
 typedef|typedef
 struct|struct
 block|{
@@ -685,6 +685,17 @@ end_endif
 begin_function_decl
 name|void
 name|ngx_http_script_return_code
+parameter_list|(
+name|ngx_http_script_engine_t
+modifier|*
+name|e
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_http_script_break_code
 parameter_list|(
 name|ngx_http_script_engine_t
 modifier|*

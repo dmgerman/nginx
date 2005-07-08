@@ -110,7 +110,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon27aa8c6e0108
+DECL|struct|__anon2be41a9c0108
 typedef|typedef
 struct|struct
 block|{
@@ -2988,7 +2988,7 @@ block|}
 block|}
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_ALERT
 argument_list|,
 name|cycle
 operator|->

@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29d5311f0108
+DECL|struct|__anon274f53f70108
 typedef|typedef
 struct|struct
 block|{
@@ -45,7 +45,7 @@ name|ngx_array_t
 modifier|*
 name|types
 decl_stmt|;
-comment|/* array of ngx_http_gzip_type_t */
+comment|/* array of ngx_str_t */
 DECL|member|bufs
 name|ngx_bufs_t
 name|bufs
@@ -77,25 +77,6 @@ decl_stmt|;
 DECL|typedef|ngx_http_gzip_conf_t
 block|}
 name|ngx_http_gzip_conf_t
-typedef|;
-end_typedef
-
-begin_typedef
-DECL|struct|__anon29d5311f0208
-typedef|typedef
-struct|struct
-block|{
-DECL|member|name
-name|ngx_str_t
-name|name
-decl_stmt|;
-DECL|member|enable
-name|ngx_uint_t
-name|enable
-decl_stmt|;
-DECL|typedef|ngx_http_gzip_type_t
-block|}
-name|ngx_http_gzip_type_t
 typedef|;
 end_typedef
 
@@ -172,7 +153,7 @@ value|0x0200
 end_define
 
 begin_typedef
-DECL|struct|__anon29d5311f0308
+DECL|struct|__anon274f53f70208
 typedef|typedef
 struct|struct
 block|{
@@ -425,7 +406,7 @@ begin_function_decl
 specifier|static
 name|char
 modifier|*
-name|ngx_http_gzip_set_types
+name|ngx_http_gzip_types
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -446,7 +427,7 @@ begin_function_decl
 specifier|static
 name|char
 modifier|*
-name|ngx_http_gzip_set_window
+name|ngx_http_gzip_window
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -467,7 +448,7 @@ begin_function_decl
 specifier|static
 name|char
 modifier|*
-name|ngx_http_gzip_set_hash
+name|ngx_http_gzip_hash
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -501,22 +482,22 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_http_gzip_set_window_p
+DECL|variable|ngx_http_gzip_window_p
 specifier|static
 name|ngx_conf_post_handler_pt
-name|ngx_http_gzip_set_window_p
+name|ngx_http_gzip_window_p
 init|=
-name|ngx_http_gzip_set_window
+name|ngx_http_gzip_window
 decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_http_gzip_set_hash_p
+DECL|variable|ngx_http_gzip_hash_p
 specifier|static
 name|ngx_conf_post_handler_pt
-name|ngx_http_gzip_set_hash_p
+name|ngx_http_gzip_hash_p
 init|=
-name|ngx_http_gzip_set_hash
+name|ngx_http_gzip_hash
 decl_stmt|;
 end_decl_stmt
 
@@ -733,7 +714,7 @@ name|NGX_HTTP_LOC_CONF
 operator||
 name|NGX_CONF_1MORE
 block|,
-name|ngx_http_gzip_set_types
+name|ngx_http_gzip_types
 block|,
 name|NGX_HTTP_LOC_CONF_OFFSET
 block|,
@@ -797,7 +778,7 @@ name|wbits
 argument_list|)
 block|,
 operator|&
-name|ngx_http_gzip_set_window_p
+name|ngx_http_gzip_window_p
 block|}
 block|,
 block|{
@@ -826,7 +807,7 @@ name|memlevel
 argument_list|)
 block|,
 operator|&
-name|ngx_http_gzip_set_hash_p
+name|ngx_http_gzip_hash_p
 block|}
 block|,
 block|{
@@ -1212,10 +1193,12 @@ modifier|*
 name|r
 parameter_list|)
 block|{
+name|ngx_str_t
+modifier|*
+name|type
+decl_stmt|;
 name|ngx_uint_t
 name|i
-decl_stmt|,
-name|found
 decl_stmt|;
 name|ngx_http_gzip_ctx_t
 modifier|*
@@ -1224,10 +1207,6 @@ decl_stmt|;
 name|ngx_http_gzip_conf_t
 modifier|*
 name|conf
-decl_stmt|;
-name|ngx_http_gzip_type_t
-modifier|*
-name|type
 decl_stmt|;
 name|conf
 operator|=
@@ -1369,10 +1348,6 @@ name|r
 argument_list|)
 return|;
 block|}
-name|found
-operator|=
-literal|0
-expr_stmt|;
 name|type
 operator|=
 name|conf
@@ -1414,8 +1389,6 @@ index|[
 name|i
 index|]
 operator|.
-name|name
-operator|.
 name|len
 operator|&&
 name|ngx_strncasecmp
@@ -1433,8 +1406,6 @@ index|[
 name|i
 index|]
 operator|.
-name|name
-operator|.
 name|data
 argument_list|,
 name|type
@@ -1442,34 +1413,25 @@ index|[
 name|i
 index|]
 operator|.
-name|name
-operator|.
 name|len
 argument_list|)
 operator|==
 literal|0
 condition|)
 block|{
+goto|goto
 name|found
-operator|=
-literal|1
-expr_stmt|;
-break|break;
+goto|;
 block|}
 block|}
-if|if
-condition|(
-operator|!
-name|found
-condition|)
-block|{
 return|return
 name|ngx_http_next_header_filter
 argument_list|(
 name|r
 argument_list|)
 return|;
-block|}
+name|found
+label|:
 if|if
 condition|(
 name|r
@@ -4684,7 +4646,7 @@ name|conf
 init|=
 name|child
 decl_stmt|;
-name|ngx_http_gzip_type_t
+name|ngx_str_t
 modifier|*
 name|type
 decl_stmt|;
@@ -4845,7 +4807,7 @@ literal|1
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|ngx_http_gzip_type_t
+name|ngx_str_t
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4884,8 +4846,6 @@ return|;
 block|}
 name|type
 operator|->
-name|name
-operator|.
 name|len
 operator|=
 sizeof|sizeof
@@ -4897,8 +4857,6 @@ literal|1
 expr_stmt|;
 name|type
 operator|->
-name|name
-operator|.
 name|data
 operator|=
 operator|(
@@ -4906,12 +4864,6 @@ name|u_char
 operator|*
 operator|)
 literal|"text/html"
-expr_stmt|;
-name|type
-operator|->
-name|enable
-operator|=
-literal|1
 expr_stmt|;
 block|}
 else|else
@@ -4936,8 +4888,8 @@ begin_function
 specifier|static
 name|char
 modifier|*
-DECL|function|ngx_http_gzip_set_types (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
-name|ngx_http_gzip_set_types
+DECL|function|ngx_http_gzip_types (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
+name|ngx_http_gzip_types
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -4961,13 +4913,12 @@ decl_stmt|;
 name|ngx_str_t
 modifier|*
 name|value
+decl_stmt|,
+modifier|*
+name|type
 decl_stmt|;
 name|ngx_uint_t
 name|i
-decl_stmt|;
-name|ngx_http_gzip_type_t
-modifier|*
-name|type
 decl_stmt|;
 if|if
 condition|(
@@ -4992,7 +4943,7 @@ literal|4
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|ngx_http_gzip_type_t
+name|ngx_str_t
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5031,8 +4982,6 @@ return|;
 block|}
 name|type
 operator|->
-name|name
-operator|.
 name|len
 operator|=
 sizeof|sizeof
@@ -5044,8 +4993,6 @@ literal|1
 expr_stmt|;
 name|type
 operator|->
-name|name
-operator|.
 name|data
 operator|=
 operator|(
@@ -5053,12 +5000,6 @@ name|u_char
 operator|*
 operator|)
 literal|"text/html"
-expr_stmt|;
-name|type
-operator|->
-name|enable
-operator|=
-literal|1
 expr_stmt|;
 block|}
 name|value
@@ -5128,8 +5069,6 @@ return|;
 block|}
 name|type
 operator|->
-name|name
-operator|.
 name|len
 operator|=
 name|value
@@ -5141,8 +5080,6 @@ name|len
 expr_stmt|;
 name|type
 operator|->
-name|name
-operator|.
 name|data
 operator|=
 name|ngx_palloc
@@ -5153,8 +5090,6 @@ name|pool
 argument_list|,
 name|type
 operator|->
-name|name
-operator|.
 name|len
 operator|+
 literal|1
@@ -5164,8 +5099,6 @@ if|if
 condition|(
 name|type
 operator|->
-name|name
-operator|.
 name|data
 operator|==
 name|NULL
@@ -5179,8 +5112,6 @@ name|ngx_cpystrn
 argument_list|(
 name|type
 operator|->
-name|name
-operator|.
 name|data
 argument_list|,
 name|value
@@ -5192,8 +5123,6 @@ name|data
 argument_list|,
 name|type
 operator|->
-name|name
-operator|.
 name|len
 operator|+
 literal|1
@@ -5210,8 +5139,8 @@ begin_function
 specifier|static
 name|char
 modifier|*
-DECL|function|ngx_http_gzip_set_window (ngx_conf_t * cf,void * post,void * data)
-name|ngx_http_gzip_set_window
+DECL|function|ngx_http_gzip_window (ngx_conf_t * cf,void * post,void * data)
+name|ngx_http_gzip_window
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -5289,8 +5218,8 @@ begin_function
 specifier|static
 name|char
 modifier|*
-DECL|function|ngx_http_gzip_set_hash (ngx_conf_t * cf,void * post,void * data)
-name|ngx_http_gzip_set_hash
+DECL|function|ngx_http_gzip_hash (ngx_conf_t * cf,void * post,void * data)
+name|ngx_http_gzip_hash
 parameter_list|(
 name|ngx_conf_t
 modifier|*

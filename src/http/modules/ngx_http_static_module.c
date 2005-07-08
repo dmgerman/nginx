@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a1182300108
+DECL|struct|__anon2a4d3ec10108
 typedef|typedef
 struct|struct
 block|{
@@ -897,6 +897,17 @@ operator|=
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|rc
+operator|!=
+name|NGX_HTTP_NOT_FOUND
+operator|||
+name|clcf
+operator|->
+name|log_not_found
+condition|)
+block|{
 name|ngx_log_error
 argument_list|(
 name|level
@@ -913,6 +924,7 @@ operator|.
 name|data
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|rc
 return|;

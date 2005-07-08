@@ -3630,6 +3630,15 @@ index|]
 operator|.
 name|data
 expr_stmt|;
+name|av
+index|[
+name|n
+index|]
+operator|.
+name|flags
+operator||=
+name|NGX_HTTP_VAR_INDEXED
+expr_stmt|;
 name|v
 index|[
 name|i
@@ -3643,8 +3652,6 @@ name|n
 index|]
 operator|.
 name|flags
-operator||
-name|NGX_HTTP_VAR_INDEXED
 expr_stmt|;
 goto|goto
 name|next

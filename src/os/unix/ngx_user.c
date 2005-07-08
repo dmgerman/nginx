@@ -31,7 +31,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|NGX_LINUX
+name|NGX_HAVE_GNU_CRYPT_R
 operator|)
 end_if
 
@@ -80,6 +80,13 @@ expr_stmt|;
 name|cd
 operator|.
 name|initialized
+operator|=
+literal|0
+expr_stmt|;
+comment|/* work around the glibc-2.2.5 bug */
+name|cd
+operator|.
+name|current_saltbits
 operator|=
 literal|0
 expr_stmt|;

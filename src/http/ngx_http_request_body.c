@@ -929,7 +929,7 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
-name|r
+name|c
 operator|->
 name|closed
 operator|=

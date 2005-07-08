@@ -117,7 +117,7 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon2a06d9170108
+DECL|struct|__anon2964b86a0108
 typedef|typedef
 struct|struct
 block|{
@@ -149,7 +149,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a06d9170208
+DECL|struct|__anon2964b86a0208
 typedef|typedef
 struct|struct
 block|{
@@ -164,7 +164,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a06d9170308
+DECL|struct|__anon2964b86a0308
 typedef|typedef
 struct|struct
 block|{
@@ -179,6 +179,10 @@ decl_stmt|;
 DECL|member|read_timeout
 name|ngx_msec_t
 name|read_timeout
+decl_stmt|;
+DECL|member|timeout
+name|ngx_msec_t
+name|timeout
 decl_stmt|;
 DECL|member|send_lowat
 name|size_t
@@ -278,7 +282,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a06d9170408
+DECL|struct|__anon2964b86a0408
 typedef|typedef
 struct|struct
 block|{
@@ -314,7 +318,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a06d9170508
+DECL|struct|__anon2964b86a0508
 typedef|typedef
 struct|struct
 block|{
@@ -361,6 +365,11 @@ DECL|member|x_accel_redirect
 name|ngx_table_elt_t
 modifier|*
 name|x_accel_redirect
+decl_stmt|;
+DECL|member|x_accel_limit_rate
+name|ngx_table_elt_t
+modifier|*
+name|x_accel_limit_rate
 decl_stmt|;
 DECL|member|content_type
 name|ngx_table_elt_t
@@ -414,11 +423,6 @@ DECL|struct|ngx_http_upstream_s
 struct|struct
 name|ngx_http_upstream_s
 block|{
-DECL|member|request
-name|ngx_http_request_t
-modifier|*
-name|request
-decl_stmt|;
 DECL|member|peer
 name|ngx_peer_connection_t
 name|peer
@@ -535,6 +539,10 @@ name|size_t
 name|prefix
 parameter_list|)
 function_decl|;
+DECL|member|timeout
+name|ngx_msec_t
+name|timeout
+decl_stmt|;
 DECL|member|method
 name|ngx_uint_t
 name|method

@@ -526,12 +526,6 @@ block|}
 block|,
 if|#
 directive|if
-literal|0
-block|{ ngx_string("If-Range"), offsetof(ngx_http_headers_in_t, if_range),                  ngx_http_process_header_line },
-endif|#
-directive|endif
-if|#
-directive|if
 operator|(
 name|NGX_HTTP_GZIP
 operator|)
@@ -6552,6 +6546,26 @@ operator|->
 name|data
 condition|)
 block|{
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http finalize non-active request: \"%V\""
+argument_list|,
+operator|&
+name|r
+operator|->
+name|uri
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 if|if
@@ -6566,6 +6580,26 @@ operator|=
 name|r
 operator|->
 name|parent
+expr_stmt|;
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http parent request: \"%V\""
+argument_list|,
+operator|&
+name|pr
+operator|->
+name|uri
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -6590,6 +6624,26 @@ operator|->
 name|postponed
 condition|)
 block|{
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http request: \"%V\" has postponed"
+argument_list|,
+operator|&
+name|pr
+operator|->
+name|uri
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|rc
@@ -6627,6 +6681,26 @@ block|{
 return|return;
 block|}
 block|}
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http request: \"%V\" still has postponed"
+argument_list|,
+operator|&
+name|pr
+operator|->
+name|uri
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|pr
@@ -6646,7 +6720,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http wake request: \"%V\""
+literal|"http wake parent request: \"%V\""
 argument_list|,
 operator|&
 name|pr
@@ -6720,11 +6794,9 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|rc
-operator|==
-name|NGX_HTTP_CLIENT_CLOSED_REQUEST
-operator|||
 name|r
+operator|->
+name|connection
 operator|->
 name|closed
 condition|)
@@ -6759,11 +6831,17 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-if|else if
+if|if
 condition|(
 name|rc
 operator|==
 name|NGX_ERROR
+operator|||
+name|r
+operator|->
+name|connection
+operator|->
+name|closed
 condition|)
 block|{
 name|ngx_http_close_request
@@ -6782,7 +6860,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-if|else if
+if|if
 condition|(
 name|rc
 operator|==
@@ -7015,6 +7093,19 @@ name|write_event_handler
 operator|=
 name|ngx_http_writer
 expr_stmt|;
+if|if
+condition|(
+name|r
+operator|->
+name|connection
+operator|->
+name|closed
+condition|)
+block|{
+return|return
+name|NGX_OK
+return|;
+block|}
 name|wev
 operator|=
 name|r
@@ -7533,6 +7624,12 @@ block|{
 name|ngx_int_t
 name|rc
 decl_stmt|;
+if|#
+directive|if
+literal|0
+block_content|ngx_http_request_t            *mr;
+endif|#
+directive|endif
 name|ngx_http_postponed_request_t
 modifier|*
 name|pr
@@ -7633,35 +7730,7 @@ return|return
 name|rc
 return|;
 block|}
-if|if
-condition|(
-name|rc
-operator|==
-name|NGX_ERROR
-condition|)
-block|{
-comment|/* NGX_ERROR may be returned by any filter */
-name|r
-operator|->
-name|connection
-operator|->
-name|write
-operator|->
-name|error
-operator|=
-literal|1
-expr_stmt|;
-name|ngx_http_finalize_request
-argument_list|(
-name|r
-argument_list|,
-name|rc
-argument_list|)
-expr_stmt|;
-return|return
-name|NGX_DONE
-return|;
-block|}
+comment|/*          * we treat NGX_ERROR as NGX_OK, because we need to complete          * all postponed requests          */
 name|pr
 operator|=
 name|r
@@ -7706,7 +7775,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http postponed request \"%V\""
+literal|"http wake child request \"%V\""
 argument_list|,
 operator|&
 name|r
@@ -8165,6 +8234,8 @@ name|NGX_ERROR
 condition|)
 block|{
 name|r
+operator|->
+name|connection
 operator|->
 name|closed
 operator|=
