@@ -83,12 +83,19 @@ name|initialized
 operator|=
 literal|0
 expr_stmt|;
-comment|/* work around the glibc-2.2.5 bug */
+comment|/* work around the glibc bug */
 name|cd
 operator|.
-name|current_saltbits
-operator|=
+name|current_salt
+index|[
 literal|0
+index|]
+operator|=
+operator|~
+name|salt
+index|[
+literal|0
+index|]
 expr_stmt|;
 name|value
 operator|=

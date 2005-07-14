@@ -117,7 +117,7 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon2964b86a0108
+DECL|struct|__anon29c4678a0108
 typedef|typedef
 struct|struct
 block|{
@@ -149,7 +149,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2964b86a0208
+DECL|struct|__anon29c4678a0208
 typedef|typedef
 struct|struct
 block|{
@@ -164,7 +164,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2964b86a0308
+DECL|struct|__anon29c4678a0308
 typedef|typedef
 struct|struct
 block|{
@@ -203,6 +203,18 @@ decl_stmt|;
 DECL|member|temp_file_write_size
 name|size_t
 name|temp_file_write_size
+decl_stmt|;
+DECL|member|busy_buffers_size_conf
+name|size_t
+name|busy_buffers_size_conf
+decl_stmt|;
+DECL|member|max_temp_file_size_conf
+name|size_t
+name|max_temp_file_size_conf
+decl_stmt|;
+DECL|member|temp_file_write_size_conf
+name|size_t
+name|temp_file_write_size_conf
 decl_stmt|;
 DECL|member|next_upstream
 name|ngx_uint_t
@@ -282,7 +294,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2964b86a0408
+DECL|struct|__anon29c4678a0408
 typedef|typedef
 struct|struct
 block|{
@@ -318,13 +330,21 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2964b86a0508
+DECL|struct|__anon29c4678a0508
 typedef|typedef
 struct|struct
 block|{
 DECL|member|headers
 name|ngx_list_t
 name|headers
+decl_stmt|;
+DECL|member|status_n
+name|ngx_uint_t
+name|status_n
+decl_stmt|;
+DECL|member|status_line
+name|ngx_str_t
+name|status_line
 decl_stmt|;
 DECL|member|status
 name|ngx_table_elt_t
@@ -395,6 +415,11 @@ DECL|member|accept_ranges
 name|ngx_table_elt_t
 modifier|*
 name|accept_ranges
+decl_stmt|;
+DECL|member|www_authenticate
+name|ngx_table_elt_t
+modifier|*
+name|www_authenticate
 decl_stmt|;
 if|#
 directive|if

@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b887c770108
+DECL|struct|__anon2b2168d30108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b887c770208
+DECL|struct|__anon2b2168d30208
 typedef|typedef
 struct|struct
 block|{
@@ -1414,27 +1414,6 @@ name|len
 expr_stmt|;
 name|entry
 operator|->
-name|escape
-operator|=
-literal|2
-operator|*
-name|ngx_escape_uri
-argument_list|(
-name|NULL
-argument_list|,
-name|ngx_de_name
-argument_list|(
-operator|&
-name|dir
-argument_list|)
-argument_list|,
-name|len
-argument_list|,
-name|NGX_ESCAPE_HTML
-argument_list|)
-expr_stmt|;
-name|entry
-operator|->
 name|name
 operator|.
 name|data
@@ -1444,10 +1423,6 @@ argument_list|(
 name|pool
 argument_list|,
 name|len
-operator|+
-name|entry
-operator|->
-name|escape
 operator|+
 literal|1
 argument_list|)
@@ -1494,6 +1469,27 @@ argument_list|,
 name|len
 operator|+
 literal|1
+argument_list|)
+expr_stmt|;
+name|entry
+operator|->
+name|escape
+operator|=
+literal|2
+operator|*
+name|ngx_escape_uri
+argument_list|(
+name|NULL
+argument_list|,
+name|ngx_de_name
+argument_list|(
+operator|&
+name|dir
+argument_list|)
+argument_list|,
+name|len
+argument_list|,
+name|NGX_ESCAPE_HTML
 argument_list|)
 expr_stmt|;
 if|if
@@ -1676,9 +1672,6 @@ argument_list|)
 operator|-
 literal|1
 operator|+
-literal|1
-comment|/* 1 is for "/" */
-operator|+
 name|entry
 index|[
 name|i
@@ -1694,6 +1687,9 @@ name|i
 index|]
 operator|.
 name|escape
+operator|+
+literal|1
+comment|/* 1 is for "/" */
 operator|+
 sizeof|sizeof
 argument_list|(
@@ -1742,6 +1738,7 @@ operator|-
 literal|1
 operator|+
 literal|20
+comment|/* the file size */
 operator|+
 literal|2
 expr_stmt|;
@@ -2097,6 +2094,15 @@ name|utf_len
 expr_stmt|;
 if|if
 condition|(
+name|entry
+index|[
+name|i
+index|]
+operator|.
+name|name
+operator|.
+name|len
+operator|-
 name|len
 condition|)
 block|{

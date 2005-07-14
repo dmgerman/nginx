@@ -50,7 +50,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon2b9dcc120103
+DECL|enum|__anon2ba28c130103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1162,6 +1162,10 @@ name|sw_literal_argument
 case|:
 if|if
 condition|(
+name|s
+operator|->
+name|literal_len
+operator|&&
 operator|--
 name|s
 operator|->
@@ -1268,9 +1272,11 @@ goto|goto
 name|done
 goto|;
 default|default:
-goto|goto
-name|invalid
-goto|;
+name|state
+operator|=
+name|sw_spaces_before_argument
+expr_stmt|;
+break|break;
 block|}
 break|break;
 case|case
@@ -1462,7 +1468,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon2b9dcc120203
+DECL|enum|__anon2ba28c130203
 enum|enum
 block|{
 DECL|enumerator|sw_start

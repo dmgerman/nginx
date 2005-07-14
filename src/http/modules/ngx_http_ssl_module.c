@@ -750,7 +750,7 @@ block|}
 block|}
 if|if
 condition|(
-name|SSL_CTX_use_certificate_file
+name|SSL_CTX_use_certificate_chain_file
 argument_list|(
 name|conf
 operator|->
@@ -765,8 +765,6 @@ operator|->
 name|certificate
 operator|.
 name|data
-argument_list|,
-name|SSL_FILETYPE_PEM
 argument_list|)
 operator|==
 literal|0
@@ -782,7 +780,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"SSL_CTX_use_certificate_file(\"%s\") failed"
+literal|"SSL_CTX_use_certificate_chain_file(\"%s\") failed"
 argument_list|,
 name|conf
 operator|->

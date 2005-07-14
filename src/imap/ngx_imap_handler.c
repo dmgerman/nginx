@@ -67,7 +67,7 @@ argument_list|)
 block|,
 name|ngx_string
 argument_list|(
-literal|"* OK IMAP ready"
+literal|"* OK IMAP4 ready"
 argument|CRLF
 argument_list|)
 block|}
@@ -128,7 +128,7 @@ name|u_char
 name|imap_ok
 index|[]
 init|=
-literal|"OK"
+literal|"OK completed"
 name|CRLF
 decl_stmt|;
 end_decl_stmt

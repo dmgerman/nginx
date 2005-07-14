@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2877a10c0108
+DECL|struct|__anon2b0abc5a0108
 typedef|typedef
 struct|struct
 block|{
@@ -67,7 +67,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2877a10c0203
+DECL|enum|__anon2b0abc5a0203
 typedef|typedef
 enum|enum
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2877a10c0308
+DECL|struct|__anon2b0abc5a0308
 typedef|typedef
 struct|struct
 block|{
@@ -222,7 +222,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2877a10c0408
+DECL|struct|__anon2b0abc5a0408
 typedef|typedef
 struct|struct
 block|{
@@ -265,7 +265,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2877a10c0508
+DECL|struct|__anon2b0abc5a0508
 typedef|typedef
 struct|struct
 block|{
@@ -295,7 +295,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2877a10c0608
+DECL|struct|__anon2b0abc5a0608
 typedef|typedef
 struct|struct
 block|{
@@ -322,7 +322,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2877a10c0708
+DECL|struct|__anon2b0abc5a0708
 typedef|typedef
 struct|struct
 block|{
@@ -1183,7 +1183,7 @@ name|ngx_http_fastcgi_loc_conf_t
 argument_list|,
 name|upstream
 operator|.
-name|busy_buffers_size
+name|busy_buffers_size_conf
 argument_list|)
 block|,
 name|NULL
@@ -1247,7 +1247,7 @@ name|ngx_http_fastcgi_loc_conf_t
 argument_list|,
 name|upstream
 operator|.
-name|max_temp_file_size
+name|max_temp_file_size_conf
 argument_list|)
 block|,
 name|NULL
@@ -1277,7 +1277,7 @@ name|ngx_http_fastcgi_loc_conf_t
 argument_list|,
 name|upstream
 operator|.
-name|temp_file_write_size
+name|temp_file_write_size_conf
 argument_list|)
 block|,
 name|NULL
@@ -4800,17 +4800,17 @@ return|return
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
 block|}
-name|r
+name|u
 operator|->
-name|headers_out
+name|headers_in
 operator|.
-name|status
+name|status_n
 operator|=
 name|status
 expr_stmt|;
-name|r
+name|u
 operator|->
-name|headers_out
+name|headers_in
 operator|.
 name|status_line
 operator|=
@@ -4820,17 +4820,17 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|r
+name|u
 operator|->
-name|headers_out
+name|headers_in
 operator|.
-name|status
+name|status_n
 operator|=
 literal|200
 expr_stmt|;
-name|r
+name|u
 operator|->
-name|headers_out
+name|headers_in
 operator|.
 name|status_line
 operator|.
@@ -4843,9 +4843,9 @@ argument_list|)
 operator|-
 literal|1
 expr_stmt|;
-name|r
+name|u
 operator|->
-name|headers_out
+name|headers_in
 operator|.
 name|status_line
 operator|.
@@ -4864,11 +4864,11 @@ name|state
 operator|->
 name|status
 operator|=
-name|r
+name|u
 operator|->
-name|headers_out
+name|headers_in
 operator|.
-name|status
+name|status_n
 expr_stmt|;
 if|#
 directive|if
@@ -6451,7 +6451,7 @@ name|conf
 operator|->
 name|upstream
 operator|.
-name|busy_buffers_size
+name|busy_buffers_size_conf
 operator|=
 name|NGX_CONF_UNSET_SIZE
 expr_stmt|;
@@ -6459,7 +6459,7 @@ name|conf
 operator|->
 name|upstream
 operator|.
-name|max_temp_file_size
+name|max_temp_file_size_conf
 operator|=
 name|NGX_CONF_UNSET_SIZE
 expr_stmt|;
@@ -6467,7 +6467,7 @@ name|conf
 operator|->
 name|upstream
 operator|.
-name|temp_file_write_size
+name|temp_file_write_size_conf
 operator|=
 name|NGX_CONF_UNSET_SIZE
 expr_stmt|;
@@ -6781,13 +6781,13 @@ name|conf
 operator|->
 name|upstream
 operator|.
-name|busy_buffers_size
+name|busy_buffers_size_conf
 argument_list|,
 name|prev
 operator|->
 name|upstream
 operator|.
-name|busy_buffers_size
+name|busy_buffers_size_conf
 argument_list|,
 name|NGX_CONF_UNSET_SIZE
 argument_list|)
@@ -6798,7 +6798,7 @@ name|conf
 operator|->
 name|upstream
 operator|.
-name|busy_buffers_size
+name|busy_buffers_size_conf
 operator|==
 name|NGX_CONF_UNSET_SIZE
 condition|)
@@ -6814,7 +6814,22 @@ operator|*
 name|size
 expr_stmt|;
 block|}
-if|else if
+else|else
+block|{
+name|conf
+operator|->
+name|upstream
+operator|.
+name|busy_buffers_size
+operator|=
+name|conf
+operator|->
+name|upstream
+operator|.
+name|busy_buffers_size_conf
+expr_stmt|;
+block|}
+if|if
 condition|(
 name|conf
 operator|->
@@ -6842,7 +6857,7 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
-if|else if
+if|if
 condition|(
 name|conf
 operator|->
@@ -6893,13 +6908,13 @@ name|conf
 operator|->
 name|upstream
 operator|.
-name|temp_file_write_size
+name|temp_file_write_size_conf
 argument_list|,
 name|prev
 operator|->
 name|upstream
 operator|.
-name|temp_file_write_size
+name|temp_file_write_size_conf
 argument_list|,
 name|NGX_CONF_UNSET_SIZE
 argument_list|)
@@ -6910,7 +6925,7 @@ name|conf
 operator|->
 name|upstream
 operator|.
-name|temp_file_write_size
+name|temp_file_write_size_conf
 operator|==
 name|NGX_CONF_UNSET_SIZE
 condition|)
@@ -6926,7 +6941,22 @@ operator|*
 name|size
 expr_stmt|;
 block|}
-if|else if
+else|else
+block|{
+name|conf
+operator|->
+name|upstream
+operator|.
+name|temp_file_write_size
+operator|=
+name|conf
+operator|->
+name|upstream
+operator|.
+name|temp_file_write_size_conf
+expr_stmt|;
+block|}
+if|if
 condition|(
 name|conf
 operator|->
@@ -6960,13 +6990,13 @@ name|conf
 operator|->
 name|upstream
 operator|.
-name|max_temp_file_size
+name|max_temp_file_size_conf
 argument_list|,
 name|prev
 operator|->
 name|upstream
 operator|.
-name|max_temp_file_size
+name|max_temp_file_size_conf
 argument_list|,
 name|NGX_CONF_UNSET_SIZE
 argument_list|)
@@ -6977,7 +7007,7 @@ name|conf
 operator|->
 name|upstream
 operator|.
-name|max_temp_file_size
+name|max_temp_file_size_conf
 operator|==
 name|NGX_CONF_UNSET_SIZE
 condition|)
@@ -6995,7 +7025,22 @@ operator|*
 literal|1024
 expr_stmt|;
 block|}
-if|else if
+else|else
+block|{
+name|conf
+operator|->
+name|upstream
+operator|.
+name|max_temp_file_size
+operator|=
+name|conf
+operator|->
+name|upstream
+operator|.
+name|max_temp_file_size_conf
+expr_stmt|;
+block|}
+if|if
 condition|(
 name|conf
 operator|->
@@ -7082,7 +7127,7 @@ argument_list|,
 name|cf
 argument_list|)
 expr_stmt|;
-name|ngx_conf_merge_msec_value
+name|ngx_conf_merge_value
 argument_list|(
 name|conf
 operator|->
@@ -7194,7 +7239,7 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-name|ngx_conf_merge_msec_value
+name|ngx_conf_merge_value
 argument_list|(
 name|conf
 operator|->
@@ -7211,7 +7256,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|ngx_conf_merge_msec_value
+name|ngx_conf_merge_value
 argument_list|(
 name|conf
 operator|->
@@ -7257,14 +7302,6 @@ operator|=
 name|prev
 operator|->
 name|peers
-expr_stmt|;
-name|conf
-operator|->
-name|upstream
-operator|=
-name|prev
-operator|->
-name|upstream
 expr_stmt|;
 block|}
 if|if
