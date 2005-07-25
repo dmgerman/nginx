@@ -3732,34 +3732,6 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_http_redirect (ngx_http_request_t * r,int redirect)
-name|ngx_http_redirect
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|,
-name|int
-name|redirect
-parameter_list|)
-block|{
-comment|/* STUB */
-comment|/* log request */
-name|ngx_http_close_request
-argument_list|(
-name|r
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
-return|return
-name|NGX_OK
-return|;
-block|}
-end_function
-
-begin_function
-name|ngx_int_t
 DECL|function|ngx_http_set_exten (ngx_http_request_t * r)
 name|ngx_http_set_exten
 parameter_list|(

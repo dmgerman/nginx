@@ -135,7 +135,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2c2dd1e30108
+DECL|struct|__anon297792ea0108
 typedef|typedef
 struct|struct
 block|{
@@ -750,7 +750,7 @@ name|i
 decl_stmt|;
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_NOTICE
 argument_list|,
 name|log
 argument_list|,
@@ -768,7 +768,7 @@ directive|ifdef
 name|__DragonFly_version
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_NOTICE
 argument_list|,
 name|log
 argument_list|,
@@ -785,7 +785,7 @@ else|#
 directive|else
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_NOTICE
 argument_list|,
 name|log
 argument_list|,
@@ -829,7 +829,7 @@ condition|)
 block|{
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_NOTICE
 argument_list|,
 name|log
 argument_list|,

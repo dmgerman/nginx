@@ -34,7 +34,7 @@ file|<ngx_imap.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b2889850108
+DECL|struct|__anon294887930108
 typedef|typedef
 struct|struct
 block|{
@@ -1264,6 +1264,13 @@ name|handler
 operator|=
 name|ngx_imap_proxy_handler
 expr_stmt|;
+name|ngx_del_timer
+argument_list|(
+name|c
+operator|->
+name|read
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_function
@@ -1871,6 +1878,13 @@ operator|->
 name|handler
 operator|=
 name|ngx_imap_proxy_handler
+expr_stmt|;
+name|ngx_del_timer
+argument_list|(
+name|c
+operator|->
+name|read
+argument_list|)
 expr_stmt|;
 block|}
 block|}

@@ -206,7 +206,7 @@ parameter_list|)
 block|{
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_NOTICE
 argument_list|,
 name|log
 argument_list|,
@@ -221,7 +221,7 @@ argument_list|)
 expr_stmt|;
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_NOTICE
 argument_list|,
 name|log
 argument_list|,

@@ -16,6 +16,12 @@ directive|define
 name|_NGX_PROCESS_H_INCLUDED_
 end_define
 
+begin_include
+include|#
+directive|include
+file|<ngx_setproctitle.h>
+end_include
+
 begin_typedef
 DECL|typedef|ngx_pid_t
 typedef|typedef
@@ -45,7 +51,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c719f0a0108
+DECL|struct|__anon27c54f4b0108
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +121,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c719f0a0208
+DECL|struct|__anon27c54f4b0208
 typedef|typedef
 struct|struct
 block|{
