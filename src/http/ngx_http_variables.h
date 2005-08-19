@@ -49,7 +49,7 @@ value|(ngx_http_variable_value_t *) -1
 end_define
 
 begin_typedef
-DECL|struct|__anon27549b4b0108
+DECL|struct|__anon2a2dda150108
 typedef|typedef
 struct|struct
 block|{
@@ -141,6 +141,10 @@ decl_stmt|;
 DECL|member|flags
 name|ngx_uint_t
 name|flags
+decl_stmt|;
+DECL|member|index
+name|ngx_uint_t
+name|index
 decl_stmt|;
 block|}
 struct|;

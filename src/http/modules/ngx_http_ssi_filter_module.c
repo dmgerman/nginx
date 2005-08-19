@@ -70,7 +70,7 @@ value|2048
 end_define
 
 begin_typedef
-DECL|struct|__anon2c0612e30108
+DECL|struct|__anon2bdfaa9e0108
 typedef|typedef
 struct|struct
 block|{
@@ -107,7 +107,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0612e30208
+DECL|struct|__anon2bdfaa9e0208
 typedef|typedef
 struct|struct
 block|{
@@ -237,7 +237,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0612e30308
+DECL|struct|__anon2bdfaa9e0308
 typedef|typedef
 struct|struct
 block|{
@@ -260,7 +260,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0612e30408
+DECL|struct|__anon2bdfaa9e0408
 typedef|typedef
 struct|struct
 block|{
@@ -296,7 +296,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c0612e30503
+DECL|enum|__anon2bdfaa9e0503
 typedef|typedef
 enum|enum
 block|{
@@ -1236,6 +1236,8 @@ block|,
 literal|0
 block|,
 name|NGX_HTTP_VAR_NOCACHABLE
+block|,
+literal|0
 block|}
 block|,
 block|{
@@ -1249,12 +1251,16 @@ block|,
 literal|1
 block|,
 name|NGX_HTTP_VAR_NOCACHABLE
+block|,
+literal|0
 block|}
 block|,
 block|{
 name|ngx_null_string
 block|,
 name|NULL
+block|,
+literal|0
 block|,
 literal|0
 block|,

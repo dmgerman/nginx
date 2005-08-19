@@ -233,6 +233,8 @@ name|host
 argument_list|)
 block|,
 literal|0
+block|,
+literal|0
 block|}
 block|,
 block|{
@@ -253,6 +255,8 @@ name|user_agent
 argument_list|)
 block|,
 literal|0
+block|,
+literal|0
 block|}
 block|,
 block|{
@@ -271,6 +275,8 @@ name|headers_in
 operator|.
 name|referer
 argument_list|)
+block|,
+literal|0
 block|,
 literal|0
 block|}
@@ -296,6 +302,8 @@ name|headers_in
 operator|.
 name|via
 argument_list|)
+block|,
+literal|0
 block|,
 literal|0
 block|}
@@ -325,6 +333,8 @@ name|x_forwarded_for
 argument_list|)
 block|,
 literal|0
+block|,
+literal|0
 block|}
 block|,
 endif|#
@@ -347,6 +357,8 @@ name|cookies
 argument_list|)
 block|,
 literal|0
+block|,
+literal|0
 block|}
 block|,
 block|{
@@ -365,6 +377,8 @@ name|headers_in
 operator|.
 name|content_length
 argument_list|)
+block|,
+literal|0
 block|,
 literal|0
 block|}
@@ -387,6 +401,8 @@ name|content_type
 argument_list|)
 block|,
 literal|0
+block|,
+literal|0
 block|}
 block|,
 block|{
@@ -396,6 +412,8 @@ literal|"host"
 argument_list|)
 block|,
 name|ngx_http_variable_host
+block|,
+literal|0
 block|,
 literal|0
 block|,
@@ -413,6 +431,8 @@ block|,
 literal|0
 block|,
 literal|0
+block|,
+literal|0
 block|}
 block|,
 block|{
@@ -422,6 +442,8 @@ literal|"remote_port"
 argument_list|)
 block|,
 name|ngx_http_variable_remote_port
+block|,
+literal|0
 block|,
 literal|0
 block|,
@@ -439,6 +461,8 @@ block|,
 literal|0
 block|,
 literal|0
+block|,
+literal|0
 block|}
 block|,
 block|{
@@ -448,6 +472,8 @@ literal|"server_port"
 argument_list|)
 block|,
 name|ngx_http_variable_server_port
+block|,
+literal|0
 block|,
 literal|0
 block|,
@@ -470,6 +496,8 @@ name|http_protocol
 argument_list|)
 block|,
 literal|0
+block|,
+literal|0
 block|}
 block|,
 block|{
@@ -486,6 +514,8 @@ name|ngx_http_request_t
 argument_list|,
 name|unparsed_uri
 argument_list|)
+block|,
+literal|0
 block|,
 literal|0
 block|}
@@ -506,6 +536,8 @@ name|uri
 argument_list|)
 block|,
 literal|0
+block|,
+literal|0
 block|}
 block|,
 block|{
@@ -515,6 +547,8 @@ literal|"document_root"
 argument_list|)
 block|,
 name|ngx_http_variable_document_root
+block|,
+literal|0
 block|,
 literal|0
 block|,
@@ -537,6 +571,8 @@ name|args
 argument_list|)
 block|,
 name|NGX_HTTP_VAR_NOCACHABLE
+block|,
+literal|0
 block|}
 block|,
 block|{
@@ -550,6 +586,8 @@ block|,
 literal|0
 block|,
 name|NGX_HTTP_VAR_NOCACHABLE
+block|,
+literal|0
 block|}
 block|,
 block|{
@@ -568,6 +606,8 @@ name|server_name
 argument_list|)
 block|,
 literal|0
+block|,
+literal|0
 block|}
 block|,
 block|{
@@ -584,6 +624,8 @@ name|ngx_http_request_t
 argument_list|,
 name|method_name
 argument_list|)
+block|,
+literal|0
 block|,
 literal|0
 block|}
@@ -606,12 +648,16 @@ name|user
 argument_list|)
 block|,
 literal|0
+block|,
+literal|0
 block|}
 block|,
 block|{
 name|ngx_null_string
 block|,
 name|NULL
+block|,
+literal|0
 block|,
 literal|0
 block|,
@@ -882,6 +928,12 @@ name|flags
 operator|=
 name|flags
 expr_stmt|;
+name|v
+operator|->
+name|index
+operator|=
+literal|0
+expr_stmt|;
 return|return
 name|v
 return|;
@@ -1147,6 +1199,18 @@ operator|->
 name|flags
 operator|=
 literal|0
+expr_stmt|;
+name|v
+operator|->
+name|index
+operator|=
+name|cmcf
+operator|->
+name|variables
+operator|.
+name|nelts
+operator|-
+literal|1
 expr_stmt|;
 return|return
 name|cmcf
@@ -1509,7 +1573,7 @@ index|[
 name|key
 index|]
 operator|.
-name|data
+name|index
 argument_list|)
 return|;
 block|}
@@ -3652,6 +3716,15 @@ name|n
 index|]
 operator|.
 name|flags
+expr_stmt|;
+name|av
+index|[
+name|n
+index|]
+operator|.
+name|index
+operator|=
+name|i
 expr_stmt|;
 goto|goto
 name|next

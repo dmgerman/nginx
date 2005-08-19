@@ -76,14 +76,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon2956ef9a010a
+DECL|union|__anon2b0708c5010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon2956ef9a0208
+DECL|struct|__anon2b0708c50208
 struct|struct
 block|{
 DECL|member|lengths
@@ -114,7 +114,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2956ef9a0308
+DECL|struct|__anon2b0708c50308
 typedef|typedef
 struct|struct
 block|{
@@ -176,7 +176,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2956ef9a0408
+DECL|struct|__anon2b0708c50408
 typedef|typedef
 struct|struct
 block|{
@@ -1402,6 +1402,8 @@ block|,
 literal|0
 block|,
 name|NGX_HTTP_VAR_CHANGABLE
+block|,
+literal|0
 block|}
 block|,
 block|{
@@ -1415,6 +1417,8 @@ block|,
 literal|0
 block|,
 name|NGX_HTTP_VAR_CHANGABLE
+block|,
+literal|0
 block|}
 block|,
 block|{
@@ -1428,18 +1432,22 @@ block|,
 literal|0
 block|,
 literal|0
+block|,
+literal|0
 block|}
 block|,
 if|#
 directive|if
 literal|0
-block|{ ngx_string("proxy_add_via"), NULL, 0, 0 },
+block|{ ngx_string("proxy_add_via"), NULL, 0, 0, 0 },
 endif|#
 directive|endif
 block|{
 name|ngx_null_string
 block|,
 name|NULL
+block|,
+literal|0
 block|,
 literal|0
 block|,
@@ -3587,7 +3595,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2956ef9a0503
+DECL|enum|__anon2b0708c50503
 enum|enum
 block|{
 DECL|enumerator|sw_start
