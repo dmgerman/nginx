@@ -370,7 +370,7 @@ literal|"<head><title>501 Method Not Implemented</title></head>"
 name|CRLF
 literal|"<body bgcolor=\"white\">"
 name|CRLF
-literal|"<center><h1>500 Method Not Implemented</h1></center>"
+literal|"<center><h1>501 Method Not Implemented</h1></center>"
 name|CRLF
 decl_stmt|;
 end_decl_stmt

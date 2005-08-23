@@ -385,7 +385,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon27f1d2880103
+DECL|enum|__anon27a8707c0103
 typedef|typedef
 enum|enum
 block|{
@@ -406,7 +406,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27f1d2880203
+DECL|enum|__anon27a8707c0203
 typedef|typedef
 enum|enum
 block|{
@@ -445,7 +445,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27f1d2880308
+DECL|struct|__anon27a8707c0308
 typedef|typedef
 struct|struct
 block|{
@@ -468,7 +468,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27f1d2880408
+DECL|struct|__anon27a8707c0408
 typedef|typedef
 struct|struct
 block|{
@@ -487,7 +487,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27f1d2880508
+DECL|struct|__anon27a8707c0508
 typedef|typedef
 struct|struct
 block|{
@@ -658,7 +658,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27f1d2880608
+DECL|struct|__anon27a8707c0608
 typedef|typedef
 struct|struct
 block|{
@@ -681,7 +681,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27f1d2880708
+DECL|struct|__anon27a8707c0708
 typedef|typedef
 struct|struct
 block|{
@@ -803,7 +803,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27f1d2880808
+DECL|struct|__anon27a8707c0808
 typedef|typedef
 struct|struct
 block|{
@@ -837,7 +837,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27f1d2880908
+DECL|struct|__anon27a8707c0908
 typedef|typedef
 struct|struct
 block|{

@@ -7707,12 +7707,6 @@ block|{
 name|ngx_int_t
 name|rc
 decl_stmt|;
-if|#
-directive|if
-literal|0
-block_content|ngx_http_request_t            *mr;
-endif|#
-directive|endif
 name|ngx_http_postponed_request_t
 modifier|*
 name|pr
