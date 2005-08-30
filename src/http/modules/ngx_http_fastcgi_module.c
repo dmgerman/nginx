@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b0abc5a0108
+DECL|struct|__anon27b2fc980108
 typedef|typedef
 struct|struct
 block|{
@@ -67,7 +67,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b0abc5a0203
+DECL|enum|__anon27b2fc980203
 typedef|typedef
 enum|enum
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0abc5a0308
+DECL|struct|__anon27b2fc980308
 typedef|typedef
 struct|struct
 block|{
@@ -222,7 +222,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2b0abc5a0408
+DECL|struct|__anon27b2fc980408
 typedef|typedef
 struct|struct
 block|{
@@ -265,7 +265,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0abc5a0508
+DECL|struct|__anon27b2fc980508
 typedef|typedef
 struct|struct
 block|{
@@ -295,7 +295,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0abc5a0608
+DECL|struct|__anon27b2fc980608
 typedef|typedef
 struct|struct
 block|{
@@ -322,7 +322,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0abc5a0708
+DECL|struct|__anon27b2fc980708
 typedef|typedef
 struct|struct
 block|{
@@ -621,18 +621,6 @@ comment|/* request_id_lo */
 block|}
 decl_stmt|;
 end_decl_stmt
-
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-
-begin_endif
-unit|static ngx_str_t ngx_http_fastcgi_methods[] = {     ngx_string("GET"),     ngx_string("HEAD"),     ngx_string("POST") };
-endif|#
-directive|endif
-end_endif
 
 begin_decl_stmt
 DECL|variable|ngx_http_fastcgi_script_name
@@ -1823,11 +1811,6 @@ argument_list|(
 name|uintptr_t
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|val_len
-condition|)
-block|{
 name|len
 operator|+=
 literal|1
@@ -1848,7 +1831,6 @@ operator|)
 operator|+
 name|val_len
 expr_stmt|;
-block|}
 block|}
 block|}
 if|if
@@ -2364,11 +2346,6 @@ argument_list|(
 name|uintptr_t
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|val_len
-condition|)
-block|{
 operator|*
 name|e
 operator|.
@@ -2478,17 +2455,6 @@ operator|)
 name|val_len
 expr_stmt|;
 block|}
-block|}
-name|e
-operator|.
-name|skip
-operator|=
-name|val_len
-condition|?
-literal|0
-else|:
-literal|1
-expr_stmt|;
 while|while
 condition|(
 operator|*

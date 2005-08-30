@@ -92,6 +92,10 @@ condition|(
 name|r
 operator|->
 name|request_body
+operator|||
+name|r
+operator|->
+name|discard_body
 condition|)
 block|{
 name|post_handler

@@ -689,6 +689,16 @@ name|addr_text
 operator|.
 name|data
 expr_stmt|;
+name|ls
+index|[
+name|i
+index|]
+operator|.
+name|backlog
+operator|=
+operator|-
+literal|1
+expr_stmt|;
 if|#
 directive|if
 operator|(
@@ -2074,6 +2084,10 @@ return|;
 block|}
 if|if
 condition|(
+name|err
+operator|==
+literal|0
+operator|||
 name|err
 operator|==
 name|NGX_ECONNRESET

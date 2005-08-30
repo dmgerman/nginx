@@ -166,13 +166,12 @@ operator|->
 name|pending_eof
 condition|)
 block|{
-name|ngx_log_error
+operator|(
+name|void
+operator|)
+name|ngx_connection_error
 argument_list|(
-name|NGX_LOG_INFO
-argument_list|,
 name|c
-operator|->
-name|log
 argument_list|,
 name|wev
 operator|->
@@ -896,6 +895,9 @@ name|error
 operator|=
 literal|1
 expr_stmt|;
+operator|(
+name|void
+operator|)
 name|ngx_connection_error
 argument_list|(
 name|c
@@ -1089,6 +1091,9 @@ name|error
 operator|=
 literal|1
 expr_stmt|;
+operator|(
+name|void
+operator|)
 name|ngx_connection_error
 argument_list|(
 name|c
