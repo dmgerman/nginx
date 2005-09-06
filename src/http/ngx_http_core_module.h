@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29d9e3830108
+DECL|struct|__anon27ca019b0108
 typedef|typedef
 struct|struct
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d9e3830208
+DECL|struct|__anon27ca019b0208
 typedef|typedef
 struct|struct
 block|{
@@ -126,7 +126,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29d9e3830303
+DECL|enum|__anon27ca019b0303
 typedef|typedef
 enum|enum
 block|{
@@ -153,7 +153,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d9e3830408
+DECL|struct|__anon27ca019b0408
 typedef|typedef
 struct|struct
 block|{
@@ -173,7 +173,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d9e3830508
+DECL|struct|__anon27ca019b0508
 typedef|typedef
 struct|struct
 block|{
@@ -230,7 +230,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d9e3830608
+DECL|struct|__anon27ca019b0608
 typedef|typedef
 struct|struct
 block|{
@@ -294,7 +294,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon29d9e3830708
+DECL|struct|__anon27ca019b0708
 typedef|typedef
 struct|struct
 block|{
@@ -357,7 +357,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29d9e3830808
+DECL|struct|__anon27ca019b0808
 typedef|typedef
 struct|struct
 block|{
@@ -423,7 +423,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon29d9e3830908
+DECL|struct|__anon27ca019b0908
 typedef|typedef
 struct|struct
 block|{
@@ -442,7 +442,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d9e3830a08
+DECL|struct|__anon27ca019b0a08
 typedef|typedef
 struct|struct
 block|{
@@ -729,6 +729,17 @@ end_function_decl
 begin_function_decl
 name|ngx_int_t
 name|ngx_http_set_exten
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_http_auth_basic_user
 parameter_list|(
 name|ngx_http_request_t
 modifier|*

@@ -471,14 +471,6 @@ endif|#
 directive|endif
 end_endif
 
-begin_define
-DECL|macro|NGX_POSIX_IO
-define|#
-directive|define
-name|NGX_POSIX_IO
-value|1
-end_define
-
 begin_endif
 endif|#
 directive|endif

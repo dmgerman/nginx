@@ -135,7 +135,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2accbf2f0108
+DECL|struct|__anon28f79b330108
 typedef|typedef
 struct|struct
 block|{
@@ -198,18 +198,7 @@ end_function_decl
 
 begin_function_decl
 name|ngx_int_t
-name|ngx_daemon
-parameter_list|(
-name|ngx_log_t
-modifier|*
-name|log
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-name|ngx_int_t
-name|ngx_posix_init
+name|ngx_os_specific_init
 parameter_list|(
 name|ngx_log_t
 modifier|*
@@ -220,7 +209,7 @@ end_function_decl
 
 begin_function_decl
 name|void
-name|ngx_posix_status
+name|ngx_os_specific_status
 parameter_list|(
 name|ngx_log_t
 modifier|*
@@ -231,7 +220,7 @@ end_function_decl
 
 begin_function_decl
 name|ngx_int_t
-name|ngx_posix_post_conf_init
+name|ngx_daemon
 parameter_list|(
 name|ngx_log_t
 modifier|*

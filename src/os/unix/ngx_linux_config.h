@@ -469,6 +469,14 @@ endif|#
 directive|endif
 end_endif
 
+begin_define
+DECL|macro|NGX_HAVE_OS_SPECIFIC_INIT
+define|#
+directive|define
+name|NGX_HAVE_OS_SPECIFIC_INIT
+value|1
+end_define
+
 begin_endif
 endif|#
 directive|endif

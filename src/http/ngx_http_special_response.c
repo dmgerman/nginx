@@ -843,6 +843,12 @@ name|r
 operator|->
 name|ctx
 expr_stmt|;
+name|r
+operator|->
+name|method
+operator|=
+name|NGX_HTTP_GET
+expr_stmt|;
 return|return
 name|ngx_http_internal_redirect
 argument_list|(

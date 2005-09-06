@@ -40,8 +40,27 @@ directive|include
 file|<ngx_event_connect.h>
 end_include
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_IMAP_SSL
+operator|)
+end_if
+
+begin_include
+include|#
+directive|include
+file|<ngx_imap_ssl_module.h>
+end_include
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_typedef
-DECL|struct|__anon2b5dade90108
+DECL|struct|__anon2bf604990108
 typedef|typedef
 struct|struct
 block|{
@@ -64,7 +83,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5dade90208
+DECL|struct|__anon2bf604990208
 typedef|typedef
 struct|struct
 block|{
@@ -96,7 +115,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2b5dade90308
+DECL|struct|__anon2bf604990308
 typedef|typedef
 struct|struct
 block|{
@@ -107,10 +126,6 @@ decl_stmt|;
 DECL|member|imap_client_buffer_size
 name|size_t
 name|imap_client_buffer_size
-decl_stmt|;
-DECL|member|proxy_buffer_size
-name|size_t
-name|proxy_buffer_size
 decl_stmt|;
 DECL|member|protocol
 name|ngx_uint_t
@@ -147,7 +162,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5dade90408
+DECL|struct|__anon2bf604990408
 typedef|typedef
 struct|struct
 block|{
@@ -222,7 +237,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b5dade90503
+DECL|enum|__anon2bf604990503
 typedef|typedef
 enum|enum
 block|{
@@ -246,7 +261,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b5dade90603
+DECL|enum|__anon2bf604990603
 typedef|typedef
 enum|enum
 block|{
@@ -267,7 +282,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5dade90708
+DECL|struct|__anon2bf604990708
 typedef|typedef
 struct|struct
 block|{
@@ -287,7 +302,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5dade90808
+DECL|struct|__anon2bf604990808
 typedef|typedef
 struct|struct
 block|{
@@ -301,14 +316,14 @@ name|ngx_connection_t
 modifier|*
 name|connection
 decl_stmt|;
+DECL|member|out
+name|ngx_str_t
+name|out
+decl_stmt|;
 DECL|member|buffer
 name|ngx_buf_t
 modifier|*
 name|buffer
-decl_stmt|;
-DECL|member|out
-name|ngx_str_t
-name|out
 decl_stmt|;
 DECL|member|ctx
 name|void
@@ -337,6 +352,18 @@ DECL|member|imap_state
 name|ngx_uint_t
 name|imap_state
 decl_stmt|;
+DECL|member|blocked
+name|unsigned
+name|blocked
+range|:
+literal|1
+decl_stmt|;
+DECL|member|quit
+name|unsigned
+name|quit
+range|:
+literal|1
+decl_stmt|;
 DECL|member|protocol
 name|unsigned
 name|protocol
@@ -360,6 +387,10 @@ decl_stmt|;
 DECL|member|tag
 name|ngx_str_t
 name|tag
+decl_stmt|;
+DECL|member|tagged_line
+name|ngx_str_t
+name|tagged_line
 decl_stmt|;
 DECL|member|command
 name|ngx_uint_t
@@ -691,6 +722,17 @@ parameter_list|(
 name|ngx_connection_t
 modifier|*
 name|c
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_imap_send
+parameter_list|(
+name|ngx_event_t
+modifier|*
+name|wev
 parameter_list|)
 function_decl|;
 end_function_decl

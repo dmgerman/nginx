@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c3729250108
+DECL|struct|__anon2b5faba20108
 typedef|typedef
 struct|struct
 block|{
@@ -222,7 +222,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c3729250203
+DECL|enum|__anon2b5faba20203
 typedef|typedef
 enum|enum
 block|{
@@ -246,7 +246,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c3729250303
+DECL|enum|__anon2b5faba20303
 typedef|typedef
 enum|enum
 block|{
@@ -267,7 +267,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c3729250403
+DECL|enum|__anon2b5faba20403
 typedef|typedef
 enum|enum
 block|{
@@ -314,6 +314,10 @@ decl_stmt|;
 DECL|member|recv
 name|ngx_recv_pt
 name|recv
+decl_stmt|;
+DECL|member|send
+name|ngx_send_pt
+name|send
 decl_stmt|;
 DECL|member|send_chain
 name|ngx_send_chain_pt

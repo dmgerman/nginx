@@ -46,9 +46,10 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_os_io
+DECL|variable|ngx_solaris_io
+specifier|static
 name|ngx_os_io_t
-name|ngx_os_io
+name|ngx_solaris_io
 init|=
 block|{
 name|ngx_unix_recv
@@ -77,9 +78,9 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_os_init (ngx_log_t * log)
 name|ngx_int_t
-name|ngx_os_init
+DECL|function|ngx_os_specific_init (ngx_log_t * log)
+name|ngx_os_specific_init
 parameter_list|(
 name|ngx_log_t
 modifier|*
@@ -185,19 +186,21 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|ngx_os_io
+operator|=
+name|ngx_solaris_io
+expr_stmt|;
 return|return
-name|ngx_posix_init
-argument_list|(
-name|log
-argument_list|)
+name|NGX_OK
 return|;
+empty_stmt|;
 block|}
 end_function
 
 begin_function
-DECL|function|ngx_os_status (ngx_log_t * log)
 name|void
-name|ngx_os_status
+DECL|function|ngx_os_specific_status (ngx_log_t * log)
+name|ngx_os_specific_status
 parameter_list|(
 name|ngx_log_t
 modifier|*
@@ -230,11 +233,6 @@ argument_list|,
 literal|"version: %s"
 argument_list|,
 name|ngx_solaris_version
-argument_list|)
-expr_stmt|;
-name|ngx_posix_status
-argument_list|(
-name|log
 argument_list|)
 expr_stmt|;
 block|}

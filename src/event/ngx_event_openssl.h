@@ -41,7 +41,7 @@ file|<openssl/err.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c0845290108
+DECL|struct|__anon288aade30108
 typedef|typedef
 struct|struct
 block|{
@@ -185,6 +185,24 @@ parameter_list|,
 name|u_char
 modifier|*
 name|buf
+parameter_list|,
+name|size_t
+name|size
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ssize_t
+name|ngx_ssl_write
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|,
+name|u_char
+modifier|*
+name|data
 parameter_list|,
 name|size_t
 name|size
