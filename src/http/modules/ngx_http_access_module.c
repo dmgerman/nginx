@@ -26,7 +26,7 @@ comment|/* AF_INET only */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2b8a76f80108
+DECL|struct|__anon2c754af20108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8a76f80208
+DECL|struct|__anon2c754af20208
 typedef|typedef
 struct|struct
 block|{
@@ -254,11 +254,28 @@ comment|/* module directives */
 name|NGX_HTTP_MODULE
 block|,
 comment|/* module type */
+name|NULL
+block|,
+comment|/* init master */
 name|ngx_http_access_init
 block|,
 comment|/* init module */
 name|NULL
+block|,
 comment|/* init process */
+name|NULL
+block|,
+comment|/* init thread */
+name|NULL
+block|,
+comment|/* exit thread */
+name|NULL
+block|,
+comment|/* exit process */
+name|NULL
+block|,
+comment|/* exit master */
+name|NGX_MODULE_V1_PADDING
 block|}
 decl_stmt|;
 end_decl_stmt

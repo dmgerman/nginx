@@ -289,14 +289,6 @@ value|3
 end_define
 
 begin_define
-DECL|macro|NGX_MODULE_V1
-define|#
-directive|define
-name|NGX_MODULE_V1
-value|0, 0, 1, 0, 0
-end_define
-
-begin_define
 DECL|macro|NGX_CORE_MODULE
 define|#
 directive|define
@@ -415,6 +407,22 @@ block|}
 struct|;
 end_struct
 
+begin_define
+DECL|macro|NGX_MODULE_V1
+define|#
+directive|define
+name|NGX_MODULE_V1
+value|0, 0, 1, 0, 0, 0, 0
+end_define
+
+begin_define
+DECL|macro|NGX_MODULE_V1_PADDING
+define|#
+directive|define
+name|NGX_MODULE_V1_PADDING
+value|0, 0, 0, 0, 0, 0, 0, 0
+end_define
+
 begin_struct
 DECL|struct|ngx_module_s
 struct|struct
@@ -440,6 +448,14 @@ DECL|member|spare1
 name|ngx_uint_t
 name|spare1
 decl_stmt|;
+DECL|member|spare2
+name|ngx_uint_t
+name|spare2
+decl_stmt|;
+DECL|member|spare3
+name|ngx_uint_t
+name|spare3
+decl_stmt|;
 DECL|member|ctx
 name|void
 modifier|*
@@ -454,6 +470,18 @@ DECL|member|type
 name|ngx_uint_t
 name|type
 decl_stmt|;
+DECL|member|init_master
+name|ngx_int_t
+function_decl|(
+modifier|*
+name|init_master
+function_decl|)
+parameter_list|(
+name|ngx_log_t
+modifier|*
+name|log
+parameter_list|)
+function_decl|;
 DECL|member|init_module
 name|ngx_int_t
 function_decl|(
@@ -478,18 +506,92 @@ modifier|*
 name|cycle
 parameter_list|)
 function_decl|;
-if|#
-directive|if
-literal|0
-block|ngx_int_t           (*init_thread)(ngx_cycle_t *cycle);
-endif|#
-directive|endif
+DECL|member|init_thread
+name|ngx_int_t
+function_decl|(
+modifier|*
+name|init_thread
+function_decl|)
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|)
+function_decl|;
+DECL|member|exit_thread
+name|ngx_int_t
+function_decl|(
+modifier|*
+name|exit_thread
+function_decl|)
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|)
+function_decl|;
+DECL|member|exit_process
+name|ngx_int_t
+function_decl|(
+modifier|*
+name|exit_process
+function_decl|)
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|)
+function_decl|;
+DECL|member|exit_master
+name|ngx_int_t
+function_decl|(
+modifier|*
+name|exit_master
+function_decl|)
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|)
+function_decl|;
+DECL|member|spare_hook0
+name|uintptr_t
+name|spare_hook0
+decl_stmt|;
+DECL|member|spare_hook1
+name|uintptr_t
+name|spare_hook1
+decl_stmt|;
+DECL|member|spare_hook2
+name|uintptr_t
+name|spare_hook2
+decl_stmt|;
+DECL|member|spare_hook3
+name|uintptr_t
+name|spare_hook3
+decl_stmt|;
+DECL|member|spare_hook4
+name|uintptr_t
+name|spare_hook4
+decl_stmt|;
+DECL|member|spare_hook5
+name|uintptr_t
+name|spare_hook5
+decl_stmt|;
+DECL|member|spare_hook6
+name|uintptr_t
+name|spare_hook6
+decl_stmt|;
+DECL|member|spare_hook7
+name|uintptr_t
+name|spare_hook7
+decl_stmt|;
 block|}
 struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c2efeed0108
+DECL|struct|__anon2911b9ea0108
 typedef|typedef
 struct|struct
 block|{
@@ -534,7 +636,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2efeed0208
+DECL|struct|__anon2911b9ea0208
 typedef|typedef
 struct|struct
 block|{
@@ -669,7 +771,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2efeed0308
+DECL|struct|__anon2911b9ea0308
 typedef|typedef
 struct|struct
 block|{
@@ -684,7 +786,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2efeed0408
+DECL|struct|__anon2911b9ea0408
 typedef|typedef
 struct|struct
 block|{
@@ -707,7 +809,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2efeed0508
+DECL|struct|__anon2911b9ea0508
 typedef|typedef
 struct|struct
 block|{
@@ -734,7 +836,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2c2efeed0608
+DECL|struct|__anon2911b9ea0608
 typedef|typedef
 struct|struct
 block|{

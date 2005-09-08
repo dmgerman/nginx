@@ -60,7 +60,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2bf604990108
+DECL|struct|__anon2b1803df0108
 typedef|typedef
 struct|struct
 block|{
@@ -83,7 +83,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf604990208
+DECL|struct|__anon2b1803df0208
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2bf604990308
+DECL|struct|__anon2b1803df0308
 typedef|typedef
 struct|struct
 block|{
@@ -162,7 +162,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf604990408
+DECL|struct|__anon2b1803df0408
 typedef|typedef
 struct|struct
 block|{
@@ -237,7 +237,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2bf604990503
+DECL|enum|__anon2b1803df0503
 typedef|typedef
 enum|enum
 block|{
@@ -261,7 +261,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2bf604990603
+DECL|enum|__anon2b1803df0603
 typedef|typedef
 enum|enum
 block|{
@@ -282,7 +282,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf604990708
+DECL|struct|__anon2b1803df0708
 typedef|typedef
 struct|struct
 block|{
@@ -302,7 +302,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf604990808
+DECL|struct|__anon2b1803df0808
 typedef|typedef
 struct|struct
 block|{
@@ -431,6 +431,27 @@ decl_stmt|;
 DECL|typedef|ngx_imap_session_t
 block|}
 name|ngx_imap_session_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2b1803df0908
+typedef|typedef
+struct|struct
+block|{
+DECL|member|client
+name|ngx_str_t
+modifier|*
+name|client
+decl_stmt|;
+DECL|member|session
+name|ngx_imap_session_t
+modifier|*
+name|session
+decl_stmt|;
+DECL|typedef|ngx_imap_log_ctx_t
+block|}
+name|ngx_imap_log_ctx_t
 typedef|;
 end_typedef
 

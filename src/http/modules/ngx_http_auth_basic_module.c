@@ -30,7 +30,7 @@ value|2048
 end_define
 
 begin_typedef
-DECL|struct|__anon2ac6a0830108
+DECL|struct|__anon29e8ee700108
 typedef|typedef
 struct|struct
 block|{
@@ -45,7 +45,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac6a0830208
+DECL|struct|__anon29e8ee700208
 typedef|typedef
 struct|struct
 block|{
@@ -325,11 +325,28 @@ comment|/* module directives */
 name|NGX_HTTP_MODULE
 block|,
 comment|/* module type */
+name|NULL
+block|,
+comment|/* init master */
 name|ngx_http_auth_basic_init
 block|,
 comment|/* init module */
 name|NULL
+block|,
 comment|/* init process */
+name|NULL
+block|,
+comment|/* init thread */
+name|NULL
+block|,
+comment|/* exit thread */
+name|NULL
+block|,
+comment|/* exit process */
+name|NULL
+block|,
+comment|/* exit master */
+name|NGX_MODULE_V1_PADDING
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -386,7 +403,7 @@ index|[
 name|NGX_HTTP_AUTH_BUF_SIZE
 index|]
 decl_stmt|;
-DECL|enum|__anon2ac6a0830303
+DECL|enum|__anon29e8ee700303
 enum|enum
 block|{
 DECL|enumerator|sw_login

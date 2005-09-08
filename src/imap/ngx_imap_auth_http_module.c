@@ -34,7 +34,7 @@ file|<ngx_imap.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c2e12a40108
+DECL|struct|__anon2a2dc9bd0108
 typedef|typedef
 struct|struct
 block|{
@@ -449,9 +449,26 @@ block|,
 comment|/* module type */
 name|NULL
 block|,
+comment|/* init master */
+name|NULL
+block|,
 comment|/* init module */
 name|NULL
+block|,
 comment|/* init process */
+name|NULL
+block|,
+comment|/* init thread */
+name|NULL
+block|,
+comment|/* exit thread */
+name|NULL
+block|,
+comment|/* exit process */
+name|NULL
+block|,
+comment|/* exit master */
+name|NGX_MODULE_V1_PADDING
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -493,6 +510,16 @@ name|ngx_imap_auth_http_conf_t
 modifier|*
 name|ahcf
 decl_stmt|;
+name|s
+operator|->
+name|connection
+operator|->
+name|log
+operator|->
+name|action
+operator|=
+literal|"in http auth state"
+expr_stmt|;
 name|ctx
 operator|=
 name|ngx_pcalloc
@@ -613,6 +640,10 @@ condition|(
 name|rc
 operator|==
 name|NGX_ERROR
+operator|||
+name|rc
+operator|==
+name|NGX_CONNECT_ERROR
 condition|)
 block|{
 name|ngx_imap_session_internal_server_error
@@ -686,26 +717,6 @@ name|handler
 operator|=
 name|ngx_imap_auth_http_ignore_status_line
 expr_stmt|;
-if|if
-condition|(
-name|rc
-operator|==
-name|NGX_OK
-condition|)
-block|{
-name|ngx_imap_auth_http_write_handler
-argument_list|(
-name|ctx
-operator|->
-name|peer
-operator|.
-name|connection
-operator|->
-name|write
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
 name|ngx_add_timer
 argument_list|(
 name|ctx
@@ -736,6 +747,26 @@ operator|->
 name|timeout
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|rc
+operator|==
+name|NGX_OK
+condition|)
+block|{
+name|ngx_imap_auth_http_write_handler
+argument_list|(
+name|ctx
+operator|->
+name|peer
+operator|.
+name|connection
+operator|->
+name|write
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 block|}
 end_function
 
@@ -822,7 +853,21 @@ name|log
 argument_list|,
 name|NGX_ETIMEDOUT
 argument_list|,
-literal|"auth http server timed out"
+literal|"auth http server %V timed out"
+argument_list|,
+operator|&
+name|ctx
+operator|->
+name|peer
+operator|.
+name|peers
+operator|->
+name|peer
+index|[
+literal|0
+index|]
+operator|.
+name|name
 argument_list|)
 expr_stmt|;
 name|ngx_close_connection
@@ -1046,7 +1091,21 @@ name|log
 argument_list|,
 name|NGX_ETIMEDOUT
 argument_list|,
-literal|"auth http server timed out"
+literal|"auth http server %V timed out"
+argument_list|,
+operator|&
+name|ctx
+operator|->
+name|peer
+operator|.
+name|peers
+operator|->
+name|peer
+index|[
+literal|0
+index|]
+operator|.
+name|name
 argument_list|)
 expr_stmt|;
 name|ngx_close_connection
@@ -1217,7 +1276,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon2c2e12a40203
+DECL|enum|__anon2a2dc9bd0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1446,7 +1505,21 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"auth http server sent invalid response"
+literal|"auth http server&V sent invalid response"
+argument_list|,
+operator|&
+name|ctx
+operator|->
+name|peer
+operator|.
+name|peers
+operator|->
+name|peer
+index|[
+literal|0
+index|]
+operator|.
+name|name
 argument_list|)
 expr_stmt|;
 name|ngx_close_connection
@@ -2256,7 +2329,6 @@ name|quit
 operator|=
 literal|1
 expr_stmt|;
-block|}
 name|ngx_imap_send
 argument_list|(
 name|s
@@ -2266,6 +2338,8 @@ operator|->
 name|write
 argument_list|)
 expr_stmt|;
+return|return;
+block|}
 name|ngx_add_timer
 argument_list|(
 name|s
@@ -2324,7 +2398,21 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"auth http server did not send server or port"
+literal|"auth http server %V did not send server or port"
+argument_list|,
+operator|&
+name|ctx
+operator|->
+name|peer
+operator|.
+name|peers
+operator|->
+name|peer
+index|[
+literal|0
+index|]
+operator|.
+name|name
 argument_list|)
 expr_stmt|;
 name|ngx_imap_session_internal_server_error
@@ -2449,8 +2537,22 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"auth http server sent invalid server "
+literal|"auth http server %V sent invalid server "
 literal|"port:\"%V\""
+argument_list|,
+operator|&
+name|ctx
+operator|->
+name|peer
+operator|.
+name|peers
+operator|->
+name|peer
+index|[
+literal|0
+index|]
+operator|.
+name|name
 argument_list|,
 operator|&
 name|ctx
@@ -2534,8 +2636,22 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"auth http server sent invalid server "
+literal|"auth http server %V sent invalid server "
 literal|"address:\"%V\""
+argument_list|,
+operator|&
+name|ctx
+operator|->
+name|peer
+operator|.
+name|peers
+operator|->
+name|peer
+index|[
+literal|0
+index|]
+operator|.
+name|name
 argument_list|,
 operator|&
 name|ctx
@@ -2800,7 +2916,21 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"auth http server sent invalid header in response"
+literal|"auth http server %V sent invalid header in response"
+argument_list|,
+operator|&
+name|ctx
+operator|->
+name|peer
+operator|.
+name|peers
+operator|->
+name|peer
+index|[
+literal|0
+index|]
+operator|.
+name|name
 argument_list|)
 expr_stmt|;
 name|ngx_close_connection
@@ -2964,6 +3094,15 @@ name|connection
 argument_list|)
 expr_stmt|;
 block|}
+name|ngx_imap_send
+argument_list|(
+name|s
+operator|->
+name|connection
+operator|->
+name|write
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 if|if
@@ -3023,7 +3162,7 @@ decl_stmt|;
 name|ngx_uint_t
 name|hash
 decl_stmt|;
-DECL|enum|__anon2c2e12a40303
+DECL|enum|__anon2a2dc9bd0303
 enum|enum
 block|{
 DECL|enumerator|sw_start

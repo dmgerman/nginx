@@ -323,6 +323,9 @@ operator|&&
 name|defined
 name|SO_ACCEPTFILTER
 operator|)
+name|ngx_err_t
+name|err
+decl_stmt|;
 name|socklen_t
 name|aflen
 decl_stmt|;
@@ -753,6 +756,19 @@ operator|-
 literal|1
 condition|)
 block|{
+name|err
+operator|=
+name|ngx_errno
+expr_stmt|;
+if|if
+condition|(
+name|err
+operator|==
+name|NGX_EINVAL
+condition|)
+block|{
+continue|continue;
+block|}
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_NOTICE
@@ -761,7 +777,7 @@ name|cycle
 operator|->
 name|log
 argument_list|,
-name|ngx_errno
+name|err
 argument_list|,
 literal|"getsockopt(SO_ACCEPTFILTER) for %V failed, ignored"
 argument_list|,

@@ -35,22 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon288b94f00108
-typedef|typedef
-struct|struct
-block|{
-DECL|member|engine
-name|ngx_str_t
-name|engine
-decl_stmt|;
-DECL|typedef|ngx_http_ssl_main_conf_t
-block|}
-name|ngx_http_ssl_main_conf_t
-typedef|;
-end_typedef
-
-begin_typedef
-DECL|struct|__anon288b94f00208
+DECL|struct|__anon299d8bd50108
 typedef|typedef
 struct|struct
 block|{

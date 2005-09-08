@@ -66,7 +66,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon2c728d390108
+DECL|struct|__anon2b0f0ca70108
 typedef|typedef
 struct|struct
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c728d390208
+DECL|struct|__anon2b0f0ca70208
 typedef|typedef
 struct|struct
 block|{
@@ -815,11 +815,28 @@ comment|/* module directives */
 name|NGX_HTTP_MODULE
 block|,
 comment|/* module type */
+name|NULL
+block|,
+comment|/* init master */
 name|ngx_http_userid_init
 block|,
 comment|/* init module */
 name|NULL
+block|,
 comment|/* init process */
+name|NULL
+block|,
+comment|/* init thread */
+name|NULL
+block|,
+comment|/* exit thread */
+name|NULL
+block|,
+comment|/* exit process */
+name|NULL
+block|,
+comment|/* exit master */
+name|NGX_MODULE_V1_PADDING
 block|}
 decl_stmt|;
 end_decl_stmt

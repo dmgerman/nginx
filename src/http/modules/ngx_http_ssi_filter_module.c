@@ -70,7 +70,7 @@ value|2048
 end_define
 
 begin_typedef
-DECL|struct|__anon2bdfaa9e0108
+DECL|struct|__anon29c3fcdc0108
 typedef|typedef
 struct|struct
 block|{
@@ -107,7 +107,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bdfaa9e0208
+DECL|struct|__anon29c3fcdc0208
 typedef|typedef
 struct|struct
 block|{
@@ -237,7 +237,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bdfaa9e0308
+DECL|struct|__anon29c3fcdc0308
 typedef|typedef
 struct|struct
 block|{
@@ -260,7 +260,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bdfaa9e0408
+DECL|struct|__anon29c3fcdc0408
 typedef|typedef
 struct|struct
 block|{
@@ -296,7 +296,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2bdfaa9e0503
+DECL|enum|__anon29c3fcdc0503
 typedef|typedef
 enum|enum
 block|{
@@ -820,11 +820,28 @@ comment|/* module directives */
 name|NGX_HTTP_MODULE
 block|,
 comment|/* module type */
+name|NULL
+block|,
+comment|/* init master */
 name|ngx_http_ssi_filter_init
 block|,
 comment|/* init module */
 name|NULL
+block|,
 comment|/* init process */
+name|NULL
+block|,
+comment|/* init thread */
+name|NULL
+block|,
+comment|/* exit thread */
+name|NULL
+block|,
+comment|/* exit process */
+name|NULL
+block|,
+comment|/* exit master */
+name|NGX_MODULE_V1_PADDING
 block|}
 decl_stmt|;
 end_decl_stmt

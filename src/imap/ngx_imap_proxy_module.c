@@ -34,7 +34,7 @@ file|<ngx_imap.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b6224d20108
+DECL|struct|__anon28d9509f0108
 typedef|typedef
 struct|struct
 block|{
@@ -338,9 +338,26 @@ block|,
 comment|/* module type */
 name|NULL
 block|,
+comment|/* init master */
+name|NULL
+block|,
 comment|/* init module */
 name|NULL
+block|,
 comment|/* init process */
+name|NULL
+block|,
+comment|/* init thread */
+name|NULL
+block|,
+comment|/* exit thread */
+name|NULL
+block|,
+comment|/* exit process */
+name|NULL
+block|,
+comment|/* exit master */
+name|NGX_MODULE_V1_PADDING
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -434,6 +451,16 @@ name|log_error
 operator|=
 name|NGX_ERROR_ERR
 expr_stmt|;
+name|s
+operator|->
+name|connection
+operator|->
+name|log
+operator|->
+name|action
+operator|=
+literal|"in upstream auth state"
+expr_stmt|;
 name|rc
 operator|=
 name|ngx_event_connect_peer
@@ -449,6 +476,10 @@ condition|(
 name|rc
 operator|==
 name|NGX_ERROR
+operator|||
+name|rc
+operator|==
+name|NGX_CONNECT_ERROR
 condition|)
 block|{
 name|ngx_imap_session_internal_server_error
@@ -1355,6 +1386,14 @@ operator|->
 name|read
 argument_list|)
 expr_stmt|;
+name|c
+operator|->
+name|log
+operator|->
+name|action
+operator|=
+literal|"proxying"
+expr_stmt|;
 block|}
 block|}
 end_function
@@ -1993,6 +2032,14 @@ name|c
 operator|->
 name|read
 argument_list|)
+expr_stmt|;
+name|c
+operator|->
+name|log
+operator|->
+name|action
+operator|=
+literal|"proxying"
 expr_stmt|;
 block|}
 block|}

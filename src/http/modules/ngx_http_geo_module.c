@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29db1d7a0108
+DECL|struct|__anon28be92510108
 typedef|typedef
 struct|struct
 block|{
@@ -176,9 +176,26 @@ block|,
 comment|/* module type */
 name|NULL
 block|,
+comment|/* init master */
+name|NULL
+block|,
 comment|/* init module */
 name|NULL
+block|,
 comment|/* init process */
+name|NULL
+block|,
+comment|/* init thread */
+name|NULL
+block|,
+comment|/* exit thread */
+name|NULL
+block|,
+comment|/* exit process */
+name|NULL
+block|,
+comment|/* exit master */
+name|NGX_MODULE_V1_PADDING
 block|}
 decl_stmt|;
 end_decl_stmt

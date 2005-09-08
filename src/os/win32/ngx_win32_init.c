@@ -15,6 +15,12 @@ directive|include
 file|<ngx_core.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<nginx.h>
+end_include
+
 begin_decl_stmt
 DECL|variable|ngx_win32_version
 name|ngx_uint_t
@@ -86,7 +92,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2b7794530108
+DECL|struct|__anon28ff2a890108
 typedef|typedef
 struct|struct
 block|{
@@ -630,6 +636,17 @@ name|ngx_osviex_stub_t
 modifier|*
 name|osviex_stub
 decl_stmt|;
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_NOTICE
+argument_list|,
+name|log
+argument_list|,
+literal|0
+argument_list|,
+name|NGINX_VER
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|osviex

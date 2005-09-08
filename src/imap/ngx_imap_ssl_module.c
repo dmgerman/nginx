@@ -230,9 +230,26 @@ block|,
 comment|/* module type */
 name|NULL
 block|,
+comment|/* init master */
+name|NULL
+block|,
 comment|/* init module */
 name|NULL
+block|,
 comment|/* init process */
+name|NULL
+block|,
+comment|/* init thread */
+name|NULL
+block|,
+comment|/* exit thread */
+name|NULL
+block|,
+comment|/* exit process */
+name|NULL
+block|,
+comment|/* exit master */
+name|NGX_MODULE_V1_PADDING
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -597,6 +614,17 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
+name|SSL_CTX_set_verify
+argument_list|(
+name|conf
+operator|->
+name|ssl_ctx
+argument_list|,
+name|SSL_VERIFY_NONE
+argument_list|,
+name|NULL
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_CONF_OK
 return|;
