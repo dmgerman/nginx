@@ -412,7 +412,7 @@ DECL|macro|NGX_MODULE_V1
 define|#
 directive|define
 name|NGX_MODULE_V1
-value|0, 0, 1, 0, 0, 0, 0
+value|0, 0, 0, 0, 0, 0, 1
 end_define
 
 begin_define
@@ -436,10 +436,6 @@ DECL|member|index
 name|ngx_uint_t
 name|index
 decl_stmt|;
-DECL|member|version
-name|ngx_uint_t
-name|version
-decl_stmt|;
 DECL|member|spare0
 name|ngx_uint_t
 name|spare0
@@ -455,6 +451,10 @@ decl_stmt|;
 DECL|member|spare3
 name|ngx_uint_t
 name|spare3
+decl_stmt|;
+DECL|member|version
+name|ngx_uint_t
+name|version
 decl_stmt|;
 DECL|member|ctx
 name|void
@@ -591,7 +591,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2911b9ea0108
+DECL|struct|__anon275ed5510108
 typedef|typedef
 struct|struct
 block|{
@@ -636,7 +636,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2911b9ea0208
+DECL|struct|__anon275ed5510208
 typedef|typedef
 struct|struct
 block|{
@@ -771,7 +771,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2911b9ea0308
+DECL|struct|__anon275ed5510308
 typedef|typedef
 struct|struct
 block|{
@@ -786,7 +786,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2911b9ea0408
+DECL|struct|__anon275ed5510408
 typedef|typedef
 struct|struct
 block|{
@@ -809,7 +809,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2911b9ea0508
+DECL|struct|__anon275ed5510508
 typedef|typedef
 struct|struct
 block|{
@@ -836,7 +836,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2911b9ea0608
+DECL|struct|__anon275ed5510608
 typedef|typedef
 struct|struct
 block|{

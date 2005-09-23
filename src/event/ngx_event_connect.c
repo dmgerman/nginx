@@ -1349,11 +1349,19 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|pc
+operator|->
+name|tries
+condition|)
+block|{
 name|pc
 operator|->
 name|tries
 operator|--
 expr_stmt|;
+block|}
 block|}
 end_function
 
