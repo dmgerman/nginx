@@ -34,16 +34,8 @@ directive|include
 file|<ngx_event.h>
 end_include
 
-begin_define
-DECL|macro|NGX_CONNECT_ERROR
-define|#
-directive|define
-name|NGX_CONNECT_ERROR
-value|-10
-end_define
-
 begin_typedef
-DECL|struct|__anon28e0fd2c0108
+DECL|struct|__anon28eb7e110108
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +124,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28e0fd2c0208
+DECL|struct|__anon28eb7e110208
 typedef|typedef
 struct|struct
 block|{

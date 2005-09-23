@@ -30,6 +30,14 @@ name|ngx_pid_t
 typedef|;
 end_typedef
 
+begin_define
+DECL|macro|NGX_INVALID_PID
+define|#
+directive|define
+name|NGX_INVALID_PID
+value|-1
+end_define
+
 begin_typedef
 DECL|typedef|ngx_spawn_proc_pt
 typedef|typedef
@@ -51,7 +59,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2792ceb10108
+DECL|struct|__anon28e898da0108
 typedef|typedef
 struct|struct
 block|{
@@ -121,7 +129,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2792ceb10208
+DECL|struct|__anon28e898da0208
 typedef|typedef
 struct|struct
 block|{

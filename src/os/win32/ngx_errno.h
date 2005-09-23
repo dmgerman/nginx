@@ -197,6 +197,14 @@ value|WSAECONNREFUSED
 end_define
 
 begin_define
+DECL|macro|NGX_ENAMETOOLONG
+define|#
+directive|define
+name|NGX_ENAMETOOLONG
+value|ERROR_BAD_PATHNAME
+end_define
+
+begin_define
 DECL|macro|NGX_EHOSTUNREACH
 define|#
 directive|define

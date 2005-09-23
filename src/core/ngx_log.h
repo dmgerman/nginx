@@ -287,7 +287,7 @@ name|args
 modifier|...
 parameter_list|)
 define|\
-value|if (log->log_level>= level) ngx_log_error_core(level, log, args)
+value|if ((log)->log_level>= level) ngx_log_error_core(level, log, args)
 end_define
 
 begin_function_decl
@@ -328,7 +328,7 @@ name|args
 modifier|...
 parameter_list|)
 define|\
-value|if (log->log_level& level)                                               \         ngx_log_error_core(NGX_LOG_DEBUG, log, args)
+value|if ((log)->log_level& level)                                             \         ngx_log_error_core(NGX_LOG_DEBUG, log, args)
 end_define
 
 begin_comment
@@ -364,7 +364,7 @@ parameter_list|,
 modifier|...
 parameter_list|)
 define|\
-value|if (log->log_level>= level) ngx_log_error_core(level, log, __VA_ARGS__)
+value|if ((log)->log_level>= level) ngx_log_error_core(level, log, __VA_ARGS__)
 end_define
 
 begin_function_decl
@@ -404,7 +404,7 @@ parameter_list|,
 modifier|...
 parameter_list|)
 define|\
-value|if (log->log_level& level)                                               \         ngx_log_error_core(NGX_LOG_DEBUG, log, __VA_ARGS__)
+value|if ((log)->log_level& level)                                             \         ngx_log_error_core(NGX_LOG_DEBUG, log, __VA_ARGS__)
 end_define
 
 begin_comment
@@ -625,7 +625,7 @@ parameter_list|,
 name|fmt
 parameter_list|)
 define|\
-value|if (log->log_level& level)                                               \         ngx_log_debug_core(log, err, fmt)
+value|if ((log)->log_level& level)                                             \         ngx_log_debug_core(log, err, fmt)
 end_define
 
 begin_define
@@ -645,7 +645,7 @@ parameter_list|,
 name|arg1
 parameter_list|)
 define|\
-value|if (log->log_level& level)                                               \         ngx_log_debug_core(log, err, fmt, arg1)
+value|if ((log)->log_level& level)                                             \         ngx_log_debug_core(log, err, fmt, arg1)
 end_define
 
 begin_define
@@ -667,7 +667,7 @@ parameter_list|,
 name|arg2
 parameter_list|)
 define|\
-value|if (log->log_level& level)                                               \         ngx_log_debug_core(log, err, fmt, arg1, arg2)
+value|if ((log)->log_level& level)                                             \         ngx_log_debug_core(log, err, fmt, arg1, arg2)
 end_define
 
 begin_define
@@ -691,7 +691,7 @@ parameter_list|,
 name|arg3
 parameter_list|)
 define|\
-value|if (log->log_level& level)                                               \         ngx_log_debug_core(log, err, fmt, arg1, arg2, arg3)
+value|if ((log)->log_level& level)                                             \         ngx_log_debug_core(log, err, fmt, arg1, arg2, arg3)
 end_define
 
 begin_define
@@ -717,7 +717,7 @@ parameter_list|,
 name|arg4
 parameter_list|)
 define|\
-value|if (log->log_level& level)                                               \         ngx_log_debug_core(log, err, fmt, arg1, arg2, arg3, arg4)
+value|if ((log)->log_level& level)                                             \         ngx_log_debug_core(log, err, fmt, arg1, arg2, arg3, arg4)
 end_define
 
 begin_define
@@ -745,7 +745,7 @@ parameter_list|,
 name|arg5
 parameter_list|)
 define|\
-value|if (log->log_level& level)                                               \         ngx_log_debug_core(log, err, fmt, arg1, arg2, arg3, arg4, arg5)
+value|if ((log)->log_level& level)                                             \         ngx_log_debug_core(log, err, fmt, arg1, arg2, arg3, arg4, arg5)
 end_define
 
 begin_define
@@ -775,7 +775,7 @@ parameter_list|,
 name|arg6
 parameter_list|)
 define|\
-value|if (log->log_level& level)                                               \         ngx_log_debug_core(log, err, fmt, arg1, arg2, arg3, arg4, arg5, arg6)
+value|if ((log)->log_level& level)                                             \         ngx_log_debug_core(log, err, fmt, arg1, arg2, arg3, arg4, arg5, arg6)
 end_define
 
 begin_define
@@ -807,7 +807,7 @@ parameter_list|,
 name|arg7
 parameter_list|)
 define|\
-value|if (log->log_level& level)                                               \         ngx_log_debug_core(log, err, fmt,                                     \                        arg1, arg2, arg3, arg4, arg5, arg6, arg7)
+value|if ((log)->log_level& level)                                             \         ngx_log_debug_core(log, err, fmt,                                     \                        arg1, arg2, arg3, arg4, arg5, arg6, arg7)
 end_define
 
 begin_define
@@ -841,7 +841,7 @@ parameter_list|,
 name|arg8
 parameter_list|)
 define|\
-value|if (log->log_level& level)                                               \         ngx_log_debug_core(log, err, fmt,                                     \                        arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8)
+value|if ((log)->log_level& level)                                             \         ngx_log_debug_core(log, err, fmt,                                     \                        arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8)
 end_define
 
 begin_endif

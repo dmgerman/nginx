@@ -78,7 +78,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2bcc0b0b0108
+DECL|struct|__anon2a4d91e60108
 typedef|typedef
 struct|struct
 block|{
@@ -728,6 +728,8 @@ expr_stmt|;
 name|ngx_event_flags
 operator|=
 name|NGX_USE_LEVEL_EVENT
+operator||
+name|NGX_USE_FD_EVENT
 expr_stmt|;
 return|return
 name|NGX_OK
@@ -1801,10 +1803,9 @@ control|)
 block|{
 name|c
 operator|=
-operator|&
 name|ngx_cycle
 operator|->
-name|connections
+name|files
 index|[
 name|event_list
 index|[
@@ -1826,18 +1827,10 @@ condition|)
 block|{
 if|if
 condition|(
-name|ngx_cycle
+name|c
 operator|->
-name|read_events
-index|[
-name|event_list
-index|[
-name|i
-index|]
-operator|.
-name|fd
-index|]
-operator|.
+name|read
+operator|->
 name|closed
 condition|)
 block|{
@@ -1858,12 +1851,6 @@ argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
-if|#
-directive|if
-literal|0
-block_content|if (c->fd == -1) {             old_cycle = ngx_old_cycles.elts;             for (j = 0; j< ngx_old_cycles.nelts; j++) {                 if (old_cycle[j] == NULL) {                     continue;                 }                 c =&old_cycle[j]->connections[event_list[i].fd];                 if (c->fd != -1) {                     break;                 }             }         }          if (c->fd == -1) {             ngx_log_error(NGX_LOG_EMERG, cycle->log, 0, "unknown cycle");             exit(1);         }
-endif|#
-directive|endif
 name|revents
 operator|=
 name|event_list

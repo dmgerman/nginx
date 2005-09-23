@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon27856e4e0108
+DECL|struct|__anon2aaad3b00108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27856e4e0208
+DECL|struct|__anon2aaad3b00208
 typedef|typedef
 struct|struct
 block|{
@@ -821,6 +821,10 @@ operator|||
 name|err
 operator|==
 name|NGX_ENOTDIR
+operator|||
+name|err
+operator|==
+name|NGX_ENAMETOOLONG
 condition|)
 block|{
 name|level

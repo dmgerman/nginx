@@ -189,6 +189,14 @@ value|ECONNREFUSED
 end_define
 
 begin_define
+DECL|macro|NGX_ENAMETOOLONG
+define|#
+directive|define
+name|NGX_ENAMETOOLONG
+value|ENAMETOOLONG
+end_define
+
+begin_define
 DECL|macro|NGX_EHOSTUNREACH
 define|#
 directive|define

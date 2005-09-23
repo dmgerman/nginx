@@ -28,7 +28,7 @@ file|<ngx_channel.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29c7b5320108
+DECL|struct|__anon2b8a06850108
 typedef|typedef
 struct|struct
 block|{
@@ -399,7 +399,7 @@ name|NGX_MAX_PROCESSES
 argument_list|)
 expr_stmt|;
 return|return
-name|NGX_ERROR
+name|NGX_INVALID_PID
 return|;
 block|}
 block|}
@@ -449,7 +449,7 @@ name|name
 argument_list|)
 expr_stmt|;
 return|return
-name|NGX_ERROR
+name|NGX_INVALID_PID
 return|;
 block|}
 name|ngx_log_debug2
@@ -535,7 +535,7 @@ name|log
 argument_list|)
 expr_stmt|;
 return|return
-name|NGX_ERROR
+name|NGX_INVALID_PID
 return|;
 block|}
 if|if
@@ -588,7 +588,7 @@ name|log
 argument_list|)
 expr_stmt|;
 return|return
-name|NGX_ERROR
+name|NGX_INVALID_PID
 return|;
 block|}
 name|on
@@ -649,7 +649,7 @@ name|log
 argument_list|)
 expr_stmt|;
 return|return
-name|NGX_ERROR
+name|NGX_INVALID_PID
 return|;
 block|}
 if|if
@@ -705,7 +705,7 @@ name|log
 argument_list|)
 expr_stmt|;
 return|return
-name|NGX_ERROR
+name|NGX_INVALID_PID
 return|;
 block|}
 if|if
@@ -761,7 +761,7 @@ name|log
 argument_list|)
 expr_stmt|;
 return|return
-name|NGX_ERROR
+name|NGX_INVALID_PID
 return|;
 block|}
 if|if
@@ -817,7 +817,7 @@ name|log
 argument_list|)
 expr_stmt|;
 return|return
-name|NGX_ERROR
+name|NGX_INVALID_PID
 return|;
 block|}
 name|ngx_channel
@@ -910,7 +910,7 @@ name|log
 argument_list|)
 expr_stmt|;
 return|return
-name|NGX_ERROR
+name|NGX_INVALID_PID
 return|;
 case|case
 literal|0

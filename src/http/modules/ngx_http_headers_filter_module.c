@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2743afb50108
+DECL|struct|__anon28a811660108
 typedef|typedef
 struct|struct
 block|{
@@ -283,6 +283,7 @@ name|conf
 decl_stmt|;
 if|if
 condition|(
+operator|(
 name|r
 operator|->
 name|headers_out
@@ -290,6 +291,15 @@ operator|.
 name|status
 operator|!=
 name|NGX_HTTP_OK
+operator|&&
+name|r
+operator|->
+name|headers_out
+operator|.
+name|status
+operator|!=
+name|NGX_HTTP_NOT_MODIFIED
+operator|)
 operator|||
 name|r
 operator|->

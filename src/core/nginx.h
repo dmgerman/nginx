@@ -21,7 +21,7 @@ DECL|macro|NGINX_VER
 define|#
 directive|define
 name|NGINX_VER
-value|"nginx/0.1.45"
+value|"nginx/0.2.0"
 end_define
 
 begin_define
@@ -33,11 +33,11 @@ value|"NGINX"
 end_define
 
 begin_define
-DECL|macro|NGX_NEWPID_EXT
+DECL|macro|NGX_OLDPID_EXT
 define|#
 directive|define
-name|NGX_NEWPID_EXT
-value|".newbin"
+name|NGX_OLDPID_EXT
+value|".oldbin"
 end_define
 
 begin_endif

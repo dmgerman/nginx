@@ -34,7 +34,7 @@ file|<ngx_imap.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28d9509f0108
+DECL|struct|__anon2945e1640108
 typedef|typedef
 struct|struct
 block|{
@@ -479,10 +479,14 @@ name|NGX_ERROR
 operator|||
 name|rc
 operator|==
-name|NGX_CONNECT_ERROR
+name|NGX_BUSY
+operator|||
+name|rc
+operator|==
+name|NGX_DECLINED
 condition|)
 block|{
-name|ngx_imap_session_internal_server_error
+name|ngx_imap_proxy_internal_server_error
 argument_list|(
 name|s
 argument_list|)

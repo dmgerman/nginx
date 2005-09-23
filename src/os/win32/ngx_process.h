@@ -25,6 +25,14 @@ typedef|;
 end_typedef
 
 begin_define
+DECL|macro|NGX_INVALID_PID
+define|#
+directive|define
+name|NGX_INVALID_PID
+value|0
+end_define
+
+begin_define
 DECL|macro|ngx_getpid
 define|#
 directive|define
@@ -41,7 +49,7 @@ value|ngx_pid
 end_define
 
 begin_typedef
-DECL|struct|__anon292258340108
+DECL|struct|__anon28d3764c0108
 typedef|typedef
 struct|struct
 block|{

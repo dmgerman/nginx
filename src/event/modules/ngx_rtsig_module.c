@@ -110,7 +110,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c3860530108
+DECL|struct|__anon28fbf1340108
 typedef|typedef
 struct|struct
 block|{
@@ -683,6 +683,8 @@ operator|=
 name|NGX_USE_RTSIG_EVENT
 operator||
 name|NGX_USE_GREEDY_EVENT
+operator||
+name|NGX_USE_FD_EVENT
 expr_stmt|;
 return|return
 name|NGX_OK
@@ -1760,10 +1762,9 @@ block|}
 comment|/* TODO: old_cycles */
 name|c
 operator|=
-operator|&
 name|ngx_cycle
 operator|->
-name|connections
+name|files
 index|[
 name|si
 operator|.
@@ -2390,10 +2391,9 @@ break|break;
 block|}
 name|c
 operator|=
-operator|&
 name|cycle
 operator|->
-name|connections
+name|files
 index|[
 name|overflow_current
 operator|++
@@ -2607,10 +2607,9 @@ control|)
 block|{
 name|c
 operator|=
-operator|&
 name|cycle
 operator|->
-name|connections
+name|files
 index|[
 name|overflow_list
 index|[

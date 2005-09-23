@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27ec97030108
+DECL|struct|__anon2c80f4380108
 typedef|typedef
 struct|struct
 block|{
@@ -876,6 +876,10 @@ operator|||
 name|err
 operator|==
 name|NGX_ENOTDIR
+operator|||
+name|err
+operator|==
+name|NGX_ENAMETOOLONG
 condition|)
 block|{
 name|level

@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon276e953f0108
+DECL|struct|__anon2bd059e10108
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon276e953f0208
+DECL|struct|__anon2bd059e10208
 typedef|typedef
 struct|struct
 block|{
@@ -464,7 +464,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon276e953f0308
+DECL|struct|__anon2bd059e10308
 typedef|typedef
 struct|struct
 block|{
@@ -632,7 +632,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_comment
-comment|/*  * The event filter requires to read/write the whole data -  * select, poll, /dev/poll, kqueue, epoll.  */
+comment|/*  * The event filter requires to read/write the whole data:  * select, poll, /dev/poll, kqueue, epoll.  */
 end_comment
 
 begin_define
@@ -644,7 +644,7 @@ value|0x00000001
 end_define
 
 begin_comment
-comment|/*  * The event filter is deleted after a notification without an additional  * syscall - select, poll, kqueue, epoll, Solaris 10's event ports.  */
+comment|/*  * The event filter is deleted after a notification without an additional  * syscall: select, poll, kqueue, epoll, Solaris 10's event ports.  */
 end_comment
 
 begin_define
@@ -656,7 +656,7 @@ value|0x00000002
 end_define
 
 begin_comment
-comment|/*  * The event filter notifies only the changes and an initial level -  * kqueue, epoll.  */
+comment|/*  * The event filter notifies only the changes and an initial level:  * kqueue, epoll.  */
 end_comment
 
 begin_define
@@ -668,7 +668,7 @@ value|0x00000004
 end_define
 
 begin_comment
-comment|/*  * The event filter has kqueue features - the eof flag, errno,  * available data, etc.  */
+comment|/*  * The event filter has kqueue features: the eof flag, errno,  * available data, etc.  */
 end_comment
 
 begin_define
@@ -680,7 +680,7 @@ value|0x00000008
 end_define
 
 begin_comment
-comment|/*  * The event filter supports low water mark - kqueue's NOTE_LOWAT.  * kqueue in FreeBSD 4.1-4.2 has no NOTE_LOWAT so we need a separate flag.  */
+comment|/*  * The event filter supports low water mark: kqueue's NOTE_LOWAT.  * kqueue in FreeBSD 4.1-4.2 has no NOTE_LOWAT so we need a separate flag.  */
 end_comment
 
 begin_define
@@ -692,7 +692,7 @@ value|0x00000010
 end_define
 
 begin_comment
-comment|/*  * The event filter requires to do i/o operation until EAGAIN -  * epoll, rt signals.  */
+comment|/*  * The event filter requires to do i/o operation until EAGAIN:  * epoll, rt signals.  */
 end_comment
 
 begin_define
@@ -704,7 +704,7 @@ value|0x00000020
 end_define
 
 begin_comment
-comment|/*  * The event filter is epoll,  */
+comment|/*  * The event filter is epoll.  */
 end_comment
 
 begin_define
@@ -716,7 +716,7 @@ value|0x00000040
 end_define
 
 begin_comment
-comment|/*  * No need to add or delete the event filters - rt signals.  */
+comment|/*  * No need to add or delete the event filters: rt signals.  */
 end_comment
 
 begin_define
@@ -728,7 +728,7 @@ value|0x00000080
 end_define
 
 begin_comment
-comment|/*  * No need to add or delete the event filters - overlapped, aio_read,  * aioread, io_submit.  */
+comment|/*  * No need to add or delete the event filters: overlapped, aio_read,  * aioread, io_submit.  */
 end_comment
 
 begin_define
@@ -740,7 +740,7 @@ value|0x00000100
 end_define
 
 begin_comment
-comment|/*  * Need to add socket or handle only once - i/o completion port.  * It also requires NGX_HAVE_AIO and NGX_USE_AIO_EVENT to be set.  */
+comment|/*  * Need to add socket or handle only once: i/o completion port.  * It also requires NGX_HAVE_AIO and NGX_USE_AIO_EVENT to be set.  */
 end_comment
 
 begin_define
@@ -749,6 +749,18 @@ define|#
 directive|define
 name|NGX_USE_IOCP_EVENT
 value|0x00000200
+end_define
+
+begin_comment
+comment|/*  * The event filter has no opaque data and requires file descriptors table:  * poll, /dev/poll, rt signals.  */
+end_comment
+
+begin_define
+DECL|macro|NGX_USE_FD_EVENT
+define|#
+directive|define
+name|NGX_USE_FD_EVENT
+value|0x00000400
 end_define
 
 begin_comment
@@ -1228,6 +1240,13 @@ name|ngx_del_timer
 value|ngx_event_del_timer
 end_define
 
+begin_decl_stmt
+specifier|extern
+name|ngx_os_io_t
+name|ngx_io
+decl_stmt|;
+end_decl_stmt
+
 begin_define
 DECL|macro|ngx_recv
 define|#
@@ -1282,7 +1301,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon276e953f0408
+DECL|struct|__anon2bd059e10408
 typedef|typedef
 struct|struct
 block|{
@@ -1329,7 +1348,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276e953f0508
+DECL|struct|__anon2bd059e10508
 typedef|typedef
 struct|struct
 block|{
@@ -1574,6 +1593,25 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
+name|u_char
+modifier|*
+name|ngx_accept_log_error
+parameter_list|(
+name|ngx_log_t
+modifier|*
+name|log
+parameter_list|,
+name|u_char
+modifier|*
+name|buf
+parameter_list|,
+name|size_t
+name|len
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
 name|ngx_int_t
 name|ngx_handle_read_event
 parameter_list|(
@@ -1621,15 +1659,34 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|int
+name|ngx_int_t
 name|ngx_event_post_acceptex
 parameter_list|(
 name|ngx_listening_t
 modifier|*
 name|ls
 parameter_list|,
-name|int
+name|ngx_uint_t
 name|n
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|u_char
+modifier|*
+name|ngx_acceptex_log_error
+parameter_list|(
+name|ngx_log_t
+modifier|*
+name|log
+parameter_list|,
+name|u_char
+modifier|*
+name|buf
+parameter_list|,
+name|size_t
+name|len
 parameter_list|)
 function_decl|;
 end_function_decl

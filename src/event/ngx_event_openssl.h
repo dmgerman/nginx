@@ -76,14 +76,14 @@ value|"OpenSSL"
 end_define
 
 begin_typedef
-DECL|struct|__anon2b2d75f70108
+DECL|struct|__anon2b3158b60108
 typedef|typedef
 struct|struct
 block|{
-DECL|member|ssl
+DECL|member|connection
 name|SSL
 modifier|*
-name|ssl
+name|connection
 decl_stmt|;
 DECL|member|last
 name|ngx_int_t
@@ -182,7 +182,7 @@ end_function_decl
 
 begin_function_decl
 name|ngx_int_t
-name|ngx_ssl_create_session
+name|ngx_ssl_create_connection
 parameter_list|(
 name|ngx_ssl_ctx_t
 modifier|*

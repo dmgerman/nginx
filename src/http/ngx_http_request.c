@@ -1555,7 +1555,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|ngx_ssl_create_session
+name|ngx_ssl_create_connection
 argument_list|(
 name|sscf
 operator|->
@@ -7870,17 +7870,6 @@ argument_list|,
 name|rc
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|rc
-operator|==
-name|NGX_AGAIN
-condition|)
-block|{
-return|return
-name|rc
-return|;
-block|}
 comment|/*          * we treat NGX_ERROR as NGX_OK, because we need to complete          * all postponed requests          */
 name|pr
 operator|=
@@ -7895,6 +7884,17 @@ operator|==
 name|NULL
 condition|)
 block|{
+if|if
+condition|(
+name|rc
+operator|==
+name|NGX_AGAIN
+condition|)
+block|{
+return|return
+name|NGX_AGAIN
+return|;
+block|}
 return|return
 name|NGX_OK
 return|;

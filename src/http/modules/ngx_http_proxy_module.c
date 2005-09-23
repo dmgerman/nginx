@@ -76,14 +76,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon2ae78529010a
+DECL|union|__anon29ae1a0d010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon2ae785290208
+DECL|struct|__anon29ae1a0d0208
 struct|struct
 block|{
 DECL|member|lengths
@@ -114,7 +114,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2ae785290308
+DECL|struct|__anon29ae1a0d0308
 typedef|typedef
 struct|struct
 block|{
@@ -176,7 +176,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae785290408
+DECL|struct|__anon29ae1a0d0408
 typedef|typedef
 struct|struct
 block|{
@@ -756,10 +756,6 @@ argument_list|(
 literal|"proxy_pass_unparsed_uri"
 argument_list|)
 block|,
-name|NGX_HTTP_MAIN_CONF
-operator||
-name|NGX_HTTP_SRV_CONF
-operator||
 name|NGX_HTTP_LOC_CONF
 operator||
 name|NGX_CONF_FLAG
@@ -3610,7 +3606,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2ae785290503
+DECL|enum|__anon29ae1a0d0503
 enum|enum
 block|{
 DECL|enumerator|sw_start

@@ -22,8 +22,8 @@ file|<ngx_channel.h>
 end_include
 
 begin_function
-DECL|function|ngx_write_channel (ngx_socket_t s,ngx_channel_t * ch,size_t size,ngx_log_t * log)
 name|ngx_int_t
+DECL|function|ngx_write_channel (ngx_socket_t s,ngx_channel_t * ch,size_t size,ngx_log_t * log)
 name|ngx_write_channel
 parameter_list|(
 name|ngx_socket_t
@@ -63,7 +63,7 @@ directive|if
 operator|(
 name|NGX_HAVE_MSGHDR_MSG_CONTROL
 operator|)
-DECL|union|__anon2b6714d7010a
+DECL|union|__anon29f83ac1010a
 union|union
 block|{
 DECL|member|cm
@@ -336,8 +336,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_read_channel (ngx_socket_t s,ngx_channel_t * ch,size_t size,ngx_log_t * log)
 name|ngx_int_t
+DECL|function|ngx_read_channel (ngx_socket_t s,ngx_channel_t * ch,size_t size,ngx_log_t * log)
 name|ngx_read_channel
 parameter_list|(
 name|ngx_socket_t
@@ -377,7 +377,7 @@ directive|if
 operator|(
 name|NGX_HAVE_MSGHDR_MSG_CONTROL
 operator|)
-DECL|union|__anon2b6714d7020a
+DECL|union|__anon29f83ac1020a
 union|union
 block|{
 DECL|member|cm
@@ -793,8 +793,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_add_channel_event (ngx_cycle_t * cycle,ngx_fd_t fd,ngx_int_t event,ngx_event_handler_pt handler)
 name|ngx_int_t
+DECL|function|ngx_add_channel_event (ngx_cycle_t * cycle,ngx_fd_t fd,ngx_int_t event,ngx_event_handler_pt handler)
 name|ngx_add_channel_event
 parameter_list|(
 name|ngx_cycle_t
@@ -827,33 +827,37 @@ name|c
 decl_stmt|;
 name|c
 operator|=
-operator|&
+name|ngx_get_connection
+argument_list|(
+name|fd
+argument_list|,
 name|cycle
 operator|->
-name|connections
-index|[
-name|fd
-index|]
+name|log
+argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|c
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
 name|rev
 operator|=
-operator|&
-name|cycle
+name|c
 operator|->
-name|read_events
-index|[
-name|fd
-index|]
+name|read
 expr_stmt|;
 name|wev
 operator|=
-operator|&
-name|cycle
+name|c
 operator|->
-name|write_events
-index|[
-name|fd
-index|]
+name|write
 expr_stmt|;
 name|ngx_memzero
 argument_list|(
@@ -864,40 +868,6 @@ argument_list|(
 name|ngx_connection_t
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ngx_memzero
-argument_list|(
-name|rev
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|ngx_event_t
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|ngx_memzero
-argument_list|(
-name|wev
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|ngx_event_t
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|c
-operator|->
-name|fd
-operator|=
-name|fd
-expr_stmt|;
-name|c
-operator|->
-name|pool
-operator|=
-name|cycle
-operator|->
-name|pool
 expr_stmt|;
 name|c
 operator|->
@@ -913,11 +883,45 @@ name|wev
 expr_stmt|;
 name|c
 operator|->
+name|fd
+operator|=
+name|fd
+expr_stmt|;
+name|c
+operator|->
 name|log
 operator|=
 name|cycle
 operator|->
 name|log
+expr_stmt|;
+name|c
+operator|->
+name|pool
+operator|=
+name|cycle
+operator|->
+name|pool
+expr_stmt|;
+name|ngx_memzero
+argument_list|(
+name|rev
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|ngx_event_t
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|ngx_memzero
+argument_list|(
+name|wev
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|ngx_event_t
+argument_list|)
+argument_list|)
 expr_stmt|;
 name|rev
 operator|->
@@ -1043,6 +1047,11 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
+name|ngx_free_connection
+argument_list|(
+name|c
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
@@ -1064,6 +1073,11 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
+name|ngx_free_connection
+argument_list|(
+name|c
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
@@ -1076,8 +1090,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_close_channel (ngx_fd_t * fd,ngx_log_t * log)
 name|void
+DECL|function|ngx_close_channel (ngx_fd_t * fd,ngx_log_t * log)
 name|ngx_close_channel
 parameter_list|(
 name|ngx_fd_t

@@ -29,9 +29,18 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b5faba20108
+DECL|typedef|ngx_listening_t
 typedef|typedef
+name|struct
+name|ngx_listening_s
+name|ngx_listening_t
+typedef|;
+end_typedef
+
+begin_struct
+DECL|struct|ngx_listening_s
 struct|struct
+name|ngx_listening_s
 block|{
 DECL|member|fd
 name|ngx_socket_t
@@ -69,6 +78,11 @@ DECL|member|type
 name|int
 name|type
 decl_stmt|;
+DECL|member|backlog
+name|int
+name|backlog
+decl_stmt|;
+comment|/* handler of accepted connection */
 DECL|member|handler
 name|void
 function_decl|(
@@ -81,7 +95,6 @@ modifier|*
 name|c
 parameter_list|)
 function_decl|;
-comment|/* handler of accepted                                                         connection */
 DECL|member|ctx
 name|void
 modifier|*
@@ -96,27 +109,32 @@ decl_stmt|;
 comment|/* array of ngx_http_in_addr_t, for example */
 DECL|member|log
 name|ngx_log_t
-modifier|*
 name|log
-decl_stmt|;
-DECL|member|backlog
-name|int
-name|backlog
 decl_stmt|;
 DECL|member|pool_size
 name|size_t
 name|pool_size
 decl_stmt|;
+comment|/* should be here because of the AcceptEx() preread */
 DECL|member|post_accept_buffer_size
 name|size_t
 name|post_accept_buffer_size
 decl_stmt|;
-comment|/* should be here because                                                   of the AcceptEx() preread */
+comment|/* should be here because of the deferred accept */
 DECL|member|post_accept_timeout
 name|time_t
 name|post_accept_timeout
 decl_stmt|;
-comment|/* should be here because                                                   of the deferred accept */
+DECL|member|previous
+name|ngx_listening_t
+modifier|*
+name|previous
+decl_stmt|;
+DECL|member|connection
+name|ngx_connection_t
+modifier|*
+name|connection
+decl_stmt|;
 DECL|member|open
 name|unsigned
 name|open
@@ -215,14 +233,12 @@ endif|#
 directive|endif
 endif|#
 directive|endif
-DECL|typedef|ngx_listening_t
 block|}
-name|ngx_listening_t
-typedef|;
-end_typedef
+struct|;
+end_struct
 
 begin_typedef
-DECL|enum|__anon2b5faba20203
+DECL|enum|__anon290bed100103
 typedef|typedef
 enum|enum
 block|{
@@ -246,7 +262,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b5faba20303
+DECL|enum|__anon290bed100203
 typedef|typedef
 enum|enum
 block|{
@@ -267,7 +283,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b5faba20403
+DECL|enum|__anon290bed100303
 typedef|typedef
 enum|enum
 block|{
@@ -596,12 +612,31 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
-begin_decl_stmt
-specifier|extern
-name|ngx_os_io_t
-name|ngx_io
-decl_stmt|;
-end_decl_stmt
+begin_function_decl
+name|ngx_connection_t
+modifier|*
+name|ngx_get_connection
+parameter_list|(
+name|ngx_socket_t
+name|s
+parameter_list|,
+name|ngx_log_t
+modifier|*
+name|log
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_free_connection
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_endif
 endif|#
