@@ -70,7 +70,7 @@ value|2048
 end_define
 
 begin_typedef
-DECL|struct|__anon29c3fcdc0108
+DECL|struct|__anon2a172b4f0108
 typedef|typedef
 struct|struct
 block|{
@@ -107,7 +107,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c3fcdc0208
+DECL|struct|__anon2a172b4f0208
 typedef|typedef
 struct|struct
 block|{
@@ -206,6 +206,10 @@ DECL|member|timefmt
 name|ngx_str_t
 name|timefmt
 decl_stmt|;
+DECL|member|errmsg
+name|ngx_str_t
+name|errmsg
+decl_stmt|;
 DECL|typedef|ngx_http_ssi_ctx_t
 block|}
 name|ngx_http_ssi_ctx_t
@@ -237,7 +241,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c3fcdc0308
+DECL|struct|__anon2a172b4f0308
 typedef|typedef
 struct|struct
 block|{
@@ -260,7 +264,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c3fcdc0408
+DECL|struct|__anon2a172b4f0408
 typedef|typedef
 struct|struct
 block|{
@@ -296,7 +300,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29c3fcdc0503
+DECL|enum|__anon2a172b4f0503
 typedef|typedef
 enum|enum
 block|{
@@ -894,17 +898,6 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_http_ssi_error_string
-specifier|static
-name|u_char
-name|ngx_http_ssi_error_string
-index|[]
-init|=
-literal|"[an error occurred while processing the directive]"
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
 DECL|variable|ngx_http_ssi_none
 specifier|static
 name|ngx_str_t
@@ -934,11 +927,19 @@ value|1
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_SSI_CONFIG_ERRMSG
+define|#
+directive|define
+name|NGX_HTTP_SSI_CONFIG_ERRMSG
+value|0
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_SSI_CONFIG_TIMEFMT
 define|#
 directive|define
 name|NGX_HTTP_SSI_CONFIG_TIMEFMT
-value|0
+value|1
 end_define
 
 begin_define
@@ -1050,6 +1051,17 @@ name|ngx_http_ssi_config_params
 index|[]
 init|=
 block|{
+block|{
+name|ngx_string
+argument_list|(
+literal|"errmsg"
+argument_list|)
+block|,
+name|NGX_HTTP_SSI_CONFIG_ERRMSG
+block|,
+literal|0
+block|}
+block|,
 block|{
 name|ngx_string
 argument_list|(
@@ -1551,6 +1563,31 @@ name|u_char
 operator|*
 operator|)
 literal|"%A, %d-%b-%Y %H:%M:%S %Z"
+expr_stmt|;
+name|ctx
+operator|->
+name|errmsg
+operator|.
+name|len
+operator|=
+sizeof|sizeof
+argument_list|(
+literal|"[an error occurred while processing the directive]"
+argument_list|)
+operator|-
+literal|1
+expr_stmt|;
+name|ctx
+operator|->
+name|errmsg
+operator|.
+name|data
+operator|=
+operator|(
+name|u_char
+operator|*
+operator|)
+literal|"[an error occurred while processing the directive]"
 expr_stmt|;
 name|r
 operator|->
@@ -3005,20 +3042,27 @@ name|b
 operator|->
 name|pos
 operator|=
-name|ngx_http_ssi_error_string
+name|ctx
+operator|->
+name|errmsg
+operator|.
+name|data
 expr_stmt|;
 name|b
 operator|->
 name|last
 operator|=
-name|ngx_http_ssi_error_string
+name|ctx
+operator|->
+name|errmsg
+operator|.
+name|data
 operator|+
-sizeof|sizeof
-argument_list|(
-name|ngx_http_ssi_error_string
-argument_list|)
-operator|-
-literal|1
+name|ctx
+operator|->
+name|errmsg
+operator|.
+name|len
 expr_stmt|;
 name|cl
 operator|->
@@ -5565,6 +5609,26 @@ block|{
 name|ctx
 operator|->
 name|timefmt
+operator|=
+operator|*
+name|value
+expr_stmt|;
+block|}
+name|value
+operator|=
+name|params
+index|[
+name|NGX_HTTP_SSI_CONFIG_ERRMSG
+index|]
+expr_stmt|;
+if|if
+condition|(
+name|value
+condition|)
+block|{
+name|ctx
+operator|->
+name|errmsg
 operator|=
 operator|*
 name|value

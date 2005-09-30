@@ -136,7 +136,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon29b5e4d00108
+DECL|struct|__anon298f42030108
 typedef|typedef
 struct|struct
 block|{
@@ -263,10 +263,7 @@ block|{
 if|#
 directive|if
 operator|(
-name|NGX_DEBUG
-operator|&&
-operator|!
-name|NGX_NO_DEBUG_MALLOC
+name|NGX_DEBUG_MALLOC
 operator|)
 if|#
 directive|if

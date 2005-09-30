@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2aaad3b00108
+DECL|struct|__anon2a0eabb20108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aaad3b00208
+DECL|struct|__anon2a0eabb20208
 typedef|typedef
 struct|struct
 block|{
@@ -1122,10 +1122,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|len
-operator|==
-literal|1
-operator|&&
 name|ngx_de_name
 argument_list|(
 operator|&
@@ -1133,37 +1129,6 @@ name|dir
 argument_list|)
 index|[
 literal|0
-index|]
-operator|==
-literal|'.'
-condition|)
-block|{
-continue|continue;
-block|}
-if|if
-condition|(
-name|len
-operator|==
-literal|2
-operator|&&
-name|ngx_de_name
-argument_list|(
-operator|&
-name|dir
-argument_list|)
-index|[
-literal|0
-index|]
-operator|==
-literal|'.'
-operator|&&
-name|ngx_de_name
-argument_list|(
-operator|&
-name|dir
-argument_list|)
-index|[
-literal|1
 index|]
 operator|==
 literal|'.'
@@ -1188,6 +1153,8 @@ operator|+
 literal|1
 operator|+
 name|len
+operator|+
+literal|1
 operator|>
 name|fname
 operator|.
@@ -1205,6 +1172,8 @@ operator|+
 literal|1
 operator|+
 name|len
+operator|+
+literal|1
 operator|+
 literal|32
 expr_stmt|;
@@ -2465,11 +2434,11 @@ name|b
 operator|->
 name|last
 argument_list|,
-literal|"     -"
+literal|"      -"
 argument_list|,
 sizeof|sizeof
 argument_list|(
-literal|"     -"
+literal|"      -"
 argument_list|)
 operator|-
 literal|1
@@ -2658,9 +2627,14 @@ name|length
 expr_stmt|;
 name|scale
 operator|=
-literal|' '
+literal|'\0'
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|scale
+condition|)
+block|{
 name|b
 operator|->
 name|last
@@ -2671,25 +2645,30 @@ name|b
 operator|->
 name|last
 argument_list|,
-literal|"%6i"
+literal|"%6i%c"
 argument_list|,
 name|size
+argument_list|,
+name|scale
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|scale
-operator|!=
-literal|' '
-condition|)
+block|}
+else|else
 block|{
-operator|*
 name|b
 operator|->
 name|last
-operator|++
 operator|=
-name|scale
+name|ngx_sprintf
+argument_list|(
+name|b
+operator|->
+name|last
+argument_list|,
+literal|" %6i"
+argument_list|,
+name|size
+argument_list|)
 expr_stmt|;
 block|}
 block|}

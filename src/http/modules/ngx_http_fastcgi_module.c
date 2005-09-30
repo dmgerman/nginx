@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon292495720108
+DECL|struct|__anon2c7d90180108
 typedef|typedef
 struct|struct
 block|{
@@ -67,7 +67,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon292495720203
+DECL|enum|__anon2c7d90180203
 typedef|typedef
 enum|enum
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292495720308
+DECL|struct|__anon2c7d90180308
 typedef|typedef
 struct|struct
 block|{
@@ -222,7 +222,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon292495720408
+DECL|struct|__anon2c7d90180408
 typedef|typedef
 struct|struct
 block|{
@@ -265,7 +265,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292495720508
+DECL|struct|__anon2c7d90180508
 typedef|typedef
 struct|struct
 block|{
@@ -295,7 +295,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292495720608
+DECL|struct|__anon2c7d90180608
 typedef|typedef
 struct|struct
 block|{
@@ -322,7 +322,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292495720708
+DECL|struct|__anon2c7d90180708
 typedef|typedef
 struct|struct
 block|{
@@ -1283,7 +1283,7 @@ name|NGX_HTTP_SRV_CONF
 operator||
 name|NGX_HTTP_LOC_CONF
 operator||
-name|NGX_CONF_ANY
+name|NGX_CONF_1MORE
 block|,
 name|ngx_conf_set_bitmask_slot
 block|,

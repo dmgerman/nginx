@@ -84,17 +84,9 @@ name|backlog
 decl_stmt|;
 comment|/* handler of accepted connection */
 DECL|member|handler
-name|void
-function_decl|(
-modifier|*
+name|ngx_connection_handler_pt
 name|handler
-function_decl|)
-parameter_list|(
-name|ngx_connection_t
-modifier|*
-name|c
-parameter_list|)
-function_decl|;
+decl_stmt|;
 DECL|member|ctx
 name|void
 modifier|*
@@ -238,7 +230,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon290bed100103
+DECL|enum|__anon29009ec90103
 typedef|typedef
 enum|enum
 block|{
@@ -262,7 +254,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon290bed100203
+DECL|enum|__anon29009ec90203
 typedef|typedef
 enum|enum
 block|{
@@ -283,7 +275,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon290bed100303
+DECL|enum|__anon29009ec90303
 typedef|typedef
 enum|enum
 block|{
@@ -388,7 +380,7 @@ operator|(
 name|NGX_OPENSSL
 operator|)
 DECL|member|ssl
-name|ngx_ssl_t
+name|ngx_ssl_connection_t
 modifier|*
 name|ssl
 decl_stmt|;

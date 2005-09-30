@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28c72da80108
+DECL|struct|__anon2980b5240108
 typedef|typedef
 struct|struct
 block|{
@@ -153,7 +153,7 @@ value|0x0200
 end_define
 
 begin_typedef
-DECL|struct|__anon28c72da80208
+DECL|struct|__anon2980b5240208
 typedef|typedef
 struct|struct
 block|{
@@ -879,7 +879,7 @@ name|NGX_HTTP_SRV_CONF
 operator||
 name|NGX_HTTP_LOC_CONF
 operator||
-name|NGX_CONF_ANY
+name|NGX_CONF_1MORE
 block|,
 name|ngx_conf_set_bitmask_slot
 block|,

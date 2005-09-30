@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28be92510108
+DECL|struct|__anon2a0521240108
 typedef|typedef
 struct|struct
 block|{
@@ -451,7 +451,7 @@ argument_list|,
 operator|&
 name|name
 argument_list|,
-literal|0
+name|NGX_HTTP_VAR_CHANGABLE
 argument_list|)
 expr_stmt|;
 if|if

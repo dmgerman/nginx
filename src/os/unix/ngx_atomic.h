@@ -33,6 +33,8 @@ if|#
 directive|if
 operator|(
 name|__i386__
+operator|||
+name|__i386
 operator|)
 end_if
 
@@ -201,6 +203,8 @@ elif|#
 directive|elif
 operator|(
 name|__amd64__
+operator|||
+name|__amd64
 operator|)
 end_elif
 
@@ -369,6 +373,8 @@ elif|#
 directive|elif
 operator|(
 name|__sparc__
+operator|||
+name|__sparcv9
 operator|)
 end_elif
 
