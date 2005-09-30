@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2801e9240108
+DECL|struct|__anon2b91dcd10108
 typedef|typedef
 struct|struct
 block|{
@@ -1337,7 +1337,7 @@ name|ev
 operator|->
 name|data
 expr_stmt|;
-name|ngx_log_debug0
+name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
