@@ -110,7 +110,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28fbf1340108
+DECL|struct|__anon2ad099090108
 typedef|typedef
 struct|struct
 block|{
@@ -1759,7 +1759,6 @@ return|return
 name|NGX_OK
 return|;
 block|}
-comment|/* TODO: old_cycles */
 name|c
 operator|=
 name|ngx_cycle
@@ -1771,6 +1770,21 @@ operator|.
 name|si_fd
 index|]
 expr_stmt|;
+if|if
+condition|(
+name|c
+operator|==
+name|NULL
+condition|)
+block|{
+comment|/* the stale event */
+name|ngx_accept_mutex_unlock
+argument_list|()
+expr_stmt|;
+return|return
+name|NGX_OK
+return|;
+block|}
 name|instance
 operator|=
 name|signo

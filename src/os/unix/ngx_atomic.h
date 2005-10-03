@@ -734,7 +734,7 @@ typedef|;
 end_typedef
 
 begin_comment
-comment|/*  * the ppc assembler treats ";" as comment, so we have to use "\n".  * the minus in "bne-" is a hint for the branch prediction unit that  * this branch is unlikely to be taken.  *  * the "=&r" means that no input registers can be used.  * the "=&b" means that the base registers can be used only, i.e. any register  * except r0.  the r0 register can not be used in "addi  r0, r0, 1".  * the "1b" means the nearest backward label "1" and the "1f" means  * the nearest forward label "1".  */
+comment|/*  * the ppc assembler treats ";" as comment, so we have to use "\n".  * the minus in "bne-" is a hint for the branch prediction unit that  * this branch is unlikely to be taken.  *  * the "=&r" means that no input registers can be used.  * the "=&b" means that the base registers can be used only, i.e.  * any register except r0.  the r0 register always has a zero value and  * could not be used in "addi  r0, r0, 1".  * the "1b" means the nearest backward label "1" and the "1f" means  * the nearest forward label "1".  */
 end_comment
 
 begin_function
