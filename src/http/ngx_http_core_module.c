@@ -2049,6 +2049,8 @@ operator|&&
 name|r
 operator|->
 expr|main
+operator|!=
+name|r
 condition|)
 block|{
 continue|continue;
@@ -4851,12 +4853,6 @@ operator|=
 name|r
 operator|->
 expr|main
-operator|?
-name|r
-operator|->
-expr|main
-operator|:
-name|r
 expr_stmt|;
 name|sr
 operator|->

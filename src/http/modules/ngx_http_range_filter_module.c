@@ -26,7 +26,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon29b3e1a50108
+DECL|struct|__anon29aa0c9c0108
 typedef|typedef
 struct|struct
 block|{
@@ -303,6 +303,8 @@ operator|||
 name|r
 operator|->
 expr|main
+operator|!=
+name|r
 operator|||
 name|r
 operator|->

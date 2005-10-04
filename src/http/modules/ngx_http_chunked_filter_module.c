@@ -152,6 +152,8 @@ operator|||
 name|r
 operator|->
 expr|main
+operator|!=
+name|r
 condition|)
 block|{
 return|return

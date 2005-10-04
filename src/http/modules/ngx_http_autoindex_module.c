@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2a0eabb20108
+DECL|struct|__anon2c18c7a30108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a0eabb20208
+DECL|struct|__anon2c18c7a30208
 typedef|typedef
 struct|struct
 block|{
@@ -2737,7 +2737,7 @@ name|r
 operator|->
 expr|main
 operator|==
-name|NULL
+name|r
 condition|)
 block|{
 name|b

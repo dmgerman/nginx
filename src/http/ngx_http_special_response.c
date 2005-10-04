@@ -1417,7 +1417,7 @@ name|r
 operator|->
 expr|main
 operator|==
-name|NULL
+name|r
 condition|)
 block|{
 name|b

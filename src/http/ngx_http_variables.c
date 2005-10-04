@@ -1274,14 +1274,6 @@ name|cmcf
 operator|->
 name|variables
 operator|.
-name|elts
-operator|==
-name|NULL
-operator|||
-name|cmcf
-operator|->
-name|variables
-operator|.
 name|nelts
 operator|<=
 name|index

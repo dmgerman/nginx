@@ -2309,7 +2309,7 @@ name|r
 operator|->
 expr|main
 operator|==
-name|NULL
+name|r
 condition|)
 block|{
 comment|/*              * the r->request_body->buf can be reused for one request only,              * the subrequests should allocate their own temporay bufs              */
@@ -2607,6 +2607,8 @@ operator|&&
 name|r
 operator|->
 expr|main
+operator|!=
+name|r
 operator|&&
 name|u
 operator|->
@@ -6248,7 +6250,7 @@ name|r
 operator|->
 expr|main
 operator|==
-name|NULL
+name|r
 condition|)
 block|{
 name|rc
