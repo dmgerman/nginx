@@ -30,7 +30,7 @@ value|-2
 end_define
 
 begin_typedef
-DECL|struct|__anon29014de80108
+DECL|struct|__anon2ad6e7010108
 typedef|typedef
 struct|struct
 block|{
@@ -56,7 +56,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29014de80208
+DECL|struct|__anon2ad6e7010208
 typedef|typedef
 struct|struct
 block|{
@@ -75,7 +75,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29014de80308
+DECL|struct|__anon2ad6e7010308
 typedef|typedef
 struct|struct
 block|{
@@ -104,7 +104,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29014de80408
+DECL|struct|__anon2ad6e7010408
 typedef|typedef
 struct|struct
 block|{
@@ -130,7 +130,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29014de80508
+DECL|struct|__anon2ad6e7010508
 typedef|typedef
 struct|struct
 block|{
@@ -149,7 +149,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29014de80608
+DECL|struct|__anon2ad6e7010608
 typedef|typedef
 struct|struct
 block|{
@@ -652,6 +652,12 @@ return|;
 block|}
 if|if
 condition|(
+name|r
+operator|->
+expr|main
+operator|==
+name|r
+operator|&&
 name|ngx_strstr
 argument_list|(
 name|r

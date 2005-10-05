@@ -324,6 +324,9 @@ condition|)
 block|{
 name|size
 operator|=
+operator|(
+name|ssize_t
+operator|)
 name|limit
 operator|-
 name|send

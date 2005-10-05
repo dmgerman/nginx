@@ -117,7 +117,7 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon29c4678a0108
+DECL|struct|__anon2c2329070108
 typedef|typedef
 struct|struct
 block|{
@@ -149,7 +149,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c4678a0208
+DECL|struct|__anon2c2329070208
 typedef|typedef
 struct|struct
 block|{
@@ -164,7 +164,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c4678a0308
+DECL|struct|__anon2c2329070308
 typedef|typedef
 struct|struct
 block|{
@@ -240,10 +240,6 @@ DECL|member|redirect_errors
 name|ngx_flag_t
 name|redirect_errors
 decl_stmt|;
-DECL|member|pass_unparsed_uri
-name|ngx_flag_t
-name|pass_unparsed_uri
-decl_stmt|;
 DECL|member|cyclic_temp_file
 name|ngx_flag_t
 name|cyclic_temp_file
@@ -294,7 +290,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c4678a0408
+DECL|struct|__anon2c2329070408
 typedef|typedef
 struct|struct
 block|{
@@ -330,7 +326,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c4678a0508
+DECL|struct|__anon2c2329070508
 typedef|typedef
 struct|struct
 block|{
@@ -586,6 +582,10 @@ name|ngx_array_t
 name|states
 decl_stmt|;
 comment|/* of ngx_http_upstream_state_t */
+DECL|member|uri
+name|ngx_str_t
+name|uri
+decl_stmt|;
 DECL|member|cachable
 name|unsigned
 name|cachable

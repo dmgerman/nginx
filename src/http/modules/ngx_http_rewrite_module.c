@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b8a98cf0108
+DECL|struct|__anon290e7b3b0108
 typedef|typedef
 struct|struct
 block|{
@@ -41,7 +41,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8a98cf0208
+DECL|struct|__anon290e7b3b0208
 typedef|typedef
 struct|struct
 block|{
@@ -3495,6 +3495,13 @@ operator|*
 operator|)
 name|if_code
 expr_stmt|;
+comment|/* the code array belong to parent block */
+name|nlcf
+operator|->
+name|codes
+operator|=
+name|NULL
+expr_stmt|;
 return|return
 name|NGX_CONF_OK
 return|;
@@ -5016,6 +5023,15 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
+if|if
+condition|(
+name|v
+operator|->
+name|handler
+operator|==
+name|NULL
+condition|)
+block|{
 name|v
 operator|->
 name|handler
@@ -5028,6 +5044,7 @@ name|data
 operator|=
 name|index
 expr_stmt|;
+block|}
 name|n
 operator|=
 name|ngx_http_script_variables_count

@@ -1574,7 +1574,7 @@ index|]
 operator|.
 name|fail_timeout
 operator|=
-literal|60
+literal|10
 expr_stmt|;
 block|}
 block|}
@@ -2228,8 +2228,14 @@ operator|==
 literal|0
 condition|)
 block|{
+name|u
+operator|->
+name|default_port
+operator|=
+literal|1
+expr_stmt|;
 return|return
-literal|"no URI"
+name|NULL
 return|;
 block|}
 name|port
