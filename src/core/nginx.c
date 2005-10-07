@@ -861,7 +861,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"the configuration file \"%s\" test failed"
+literal|"the configuration file %s test failed"
 argument_list|,
 name|init_cycle
 operator|.
@@ -888,7 +888,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"the configuration file \"%s\" was tested successfully"
+literal|"the configuration file %s was tested successfully"
 argument_list|,
 name|cycle
 operator|->

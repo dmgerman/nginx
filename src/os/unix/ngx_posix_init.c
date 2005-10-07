@@ -208,6 +208,23 @@ argument_list|,
 name|NGINX_VER
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|NGX_COMPILER
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_NOTICE
+argument_list|,
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"built by "
+name|NGX_COMPILER
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 if|#
 directive|if
 operator|(

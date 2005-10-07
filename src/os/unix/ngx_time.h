@@ -29,17 +29,9 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|typedef|ngx_epoch_msec_t
-typedef|typedef
-name|uint64_t
-name|ngx_epoch_msec_t
-typedef|;
-end_typedef
-
-begin_typedef
 DECL|typedef|ngx_msec_t
 typedef|typedef
-name|ngx_int_t
+name|ngx_rbtree_key_t
 name|ngx_msec_t
 typedef|;
 end_typedef

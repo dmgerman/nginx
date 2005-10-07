@@ -193,26 +193,12 @@ operator|=
 operator|(
 name|ngx_msec_t
 operator|)
-operator|(
 name|node
 operator|->
 name|key
-operator|*
-name|NGX_TIMER_RESOLUTION
 operator|-
-name|ngx_elapsed_msec
-operator|/
-name|NGX_TIMER_RESOLUTION
-operator|*
-name|NGX_TIMER_RESOLUTION
-operator|)
+name|ngx_current_time
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|(node->key * NGX_TIMER_RESOLUTION - ngx_elapsed_msec);
-endif|#
-directive|endif
 return|return
 name|timer
 operator|>
@@ -227,11 +213,10 @@ end_function
 
 begin_function
 name|void
-DECL|function|ngx_event_expire_timers (ngx_msec_t timer)
+DECL|function|ngx_event_expire_timers (void)
 name|ngx_event_expire_timers
 parameter_list|(
-name|ngx_msec_t
-name|timer
+name|void
 parameter_list|)
 block|{
 name|ngx_event_t
@@ -242,19 +227,6 @@ name|ngx_rbtree_t
 modifier|*
 name|node
 decl_stmt|;
-if|if
-condition|(
-name|timer
-operator|<
-literal|0
-condition|)
-block|{
-comment|/* avoid the endless loop if the time goes backward for some reason */
-name|timer
-operator|=
-literal|0
-expr_stmt|;
-block|}
 for|for
 control|(
 init|;
@@ -297,22 +269,22 @@ operator|&
 name|ngx_event_timer_sentinel
 argument_list|)
 expr_stmt|;
+comment|/* node->key<= ngx_current_time */
 if|if
 condition|(
+operator|(
+name|ngx_rbtree_key_int_t
+operator|)
 name|node
 operator|->
 name|key
+operator|-
+operator|(
+name|ngx_rbtree_key_int_t
+operator|)
+name|ngx_current_time
 operator|<=
-operator|(
-name|ngx_msec_t
-operator|)
-operator|(
-name|ngx_old_elapsed_msec
-operator|+
-name|timer
-operator|)
-operator|/
-name|NGX_TIMER_RESOLUTION
+literal|0
 condition|)
 block|{
 name|ev
@@ -385,7 +357,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"event timer del: %d: %i"
+literal|"event timer del: %d: %M"
 argument_list|,
 name|ngx_event_ident
 argument_list|(

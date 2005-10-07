@@ -16,23 +16,9 @@ file|<ngx_core.h>
 end_include
 
 begin_decl_stmt
-DECL|variable|ngx_elapsed_msec
-name|ngx_epoch_msec_t
-name|ngx_elapsed_msec
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-DECL|variable|ngx_old_elapsed_msec
-name|ngx_epoch_msec_t
-name|ngx_old_elapsed_msec
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-DECL|variable|ngx_start_msec
-name|ngx_epoch_msec_t
-name|ngx_start_msec
+DECL|variable|ngx_current_time
+name|ngx_msec_t
+name|ngx_current_time
 decl_stmt|;
 end_decl_stmt
 
@@ -399,10 +385,10 @@ operator|&
 name|tv
 argument_list|)
 expr_stmt|;
-name|ngx_start_msec
+name|ngx_current_time
 operator|=
 operator|(
-name|ngx_epoch_msec_t
+name|ngx_msec_t
 operator|)
 name|tv
 operator|.
@@ -415,14 +401,6 @@ operator|.
 name|tv_usec
 operator|/
 literal|1000
-expr_stmt|;
-name|ngx_old_elapsed_msec
-operator|=
-literal|0
-expr_stmt|;
-name|ngx_elapsed_msec
-operator|=
-literal|0
 expr_stmt|;
 if|#
 directive|if

@@ -9734,11 +9734,16 @@ operator|=
 name|ngx_time
 argument_list|()
 operator|+
+operator|(
+name|time_t
+operator|)
+operator|(
 name|clcf
 operator|->
 name|lingering_time
 operator|/
 literal|1000
+operator|)
 expr_stmt|;
 name|ngx_add_timer
 argument_list|(

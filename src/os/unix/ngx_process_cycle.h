@@ -173,13 +173,6 @@ end_decl_stmt
 begin_decl_stmt
 specifier|extern
 name|sig_atomic_t
-name|ngx_timer
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-specifier|extern
-name|sig_atomic_t
 name|ngx_sigio
 decl_stmt|;
 end_decl_stmt

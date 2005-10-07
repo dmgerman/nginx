@@ -28,7 +28,7 @@ file|<ngx_channel.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b8a06850108
+DECL|struct|__anon296a20dc0108
 typedef|typedef
 struct|struct
 block|{
@@ -1555,21 +1555,6 @@ break|break;
 case|case
 name|SIGALRM
 case|:
-if|if
-condition|(
-operator|!
-name|ngx_terminate
-condition|)
-block|{
-name|ngx_timer
-operator|=
-literal|1
-expr_stmt|;
-name|action
-operator|=
-literal|", shutting down old worker processes"
-expr_stmt|;
-block|}
 break|break;
 case|case
 name|SIGIO

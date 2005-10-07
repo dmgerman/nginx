@@ -230,6 +230,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_rbtree.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_time.h>
 end_include
 
@@ -369,12 +375,6 @@ end_endif
 begin_include
 include|#
 directive|include
-file|<ngx_rbtree.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<ngx_radix_tree.h>
 end_include
 
@@ -480,6 +480,17 @@ define|#
 directive|define
 name|CRLF
 value|"\x0d\x0a"
+end_define
+
+begin_define
+DECL|macro|ngx_abs (value)
+define|#
+directive|define
+name|ngx_abs
+parameter_list|(
+name|value
+parameter_list|)
+value|(((value)>= 0) ? (value) : - (value))
 end_define
 
 begin_endif

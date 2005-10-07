@@ -29,6 +29,22 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
+DECL|typedef|ngx_rbtree_key_t
+typedef|typedef
+name|ngx_uint_t
+name|ngx_rbtree_key_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|typedef|ngx_rbtree_key_int_t
+typedef|typedef
+name|ngx_int_t
+name|ngx_rbtree_key_int_t
+typedef|;
+end_typedef
+
+begin_typedef
 DECL|typedef|ngx_rbtree_t
 typedef|typedef
 name|struct
@@ -43,7 +59,7 @@ struct|struct
 name|ngx_rbtree_s
 block|{
 DECL|member|key
-name|ngx_int_t
+name|ngx_rbtree_key_t
 name|key
 decl_stmt|;
 DECL|member|left

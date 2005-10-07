@@ -193,15 +193,24 @@ init|;
 condition|;
 control|)
 block|{
+comment|/*  node->key< temp->key */
 if|if
 condition|(
+operator|(
+name|ngx_rbtree_key_int_t
+operator|)
 name|node
 operator|->
 name|key
-operator|<
+operator|-
+operator|(
+name|ngx_rbtree_key_int_t
+operator|)
 name|temp
 operator|->
 name|key
+operator|<
+literal|0
 condition|)
 block|{
 if|if

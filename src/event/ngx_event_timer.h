@@ -50,18 +50,6 @@ name|NGX_TIMER_ERROR
 value|(ngx_msec_t) -2
 end_define
 
-begin_comment
-comment|/*  * the 32-bit timer key value resolution  *  * 1 msec - 24 days  * 10 msec - 8 months  * 50 msec - 3 years 5 months  * 100 msec - 6 years 10 months  */
-end_comment
-
-begin_define
-DECL|macro|NGX_TIMER_RESOLUTION
-define|#
-directive|define
-name|NGX_TIMER_RESOLUTION
-value|1
-end_define
-
 begin_define
 DECL|macro|NGX_TIMER_LAZY_DELAY
 define|#
@@ -94,8 +82,7 @@ begin_function_decl
 name|void
 name|ngx_event_expire_timers
 parameter_list|(
-name|ngx_msec_t
-name|timer
+name|void
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -159,7 +146,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"event timer del: %d: %d"
+literal|"event timer del: %d: %M"
 argument_list|,
 name|ngx_event_ident
 argument_list|(
@@ -262,32 +249,18 @@ name|ngx_msec_t
 name|timer
 parameter_list|)
 block|{
-name|ngx_int_t
+name|ngx_rbtree_key_t
 name|key
+decl_stmt|;
+name|ngx_rbtree_key_int_t
+name|diff
 decl_stmt|;
 name|key
 operator|=
-operator|(
-name|ngx_int_t
-operator|)
-operator|(
-name|ngx_elapsed_msec
-operator|/
-name|NGX_TIMER_RESOLUTION
-operator|*
-name|NGX_TIMER_RESOLUTION
+name|ngx_current_time
 operator|+
 name|timer
-operator|)
-operator|/
-name|NGX_TIMER_RESOLUTION
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|(ngx_elapsed_msec + timer) / NGX_TIMER_RESOLUTION;
-endif|#
-directive|endif
 if|if
 condition|(
 name|ev
@@ -296,20 +269,27 @@ name|timer_set
 condition|)
 block|{
 comment|/*          * Use the previous timer value if a difference between them is less          * then NGX_TIMER_LAZY_DELAY milliseconds.  It allows to minimize          * the rbtree operations for the fast connections.          */
-if|if
-condition|(
-name|abs
-argument_list|(
+name|diff
+operator|=
+operator|(
+name|ngx_rbtree_key_int_t
+operator|)
+operator|(
 name|key
 operator|-
 name|ev
 operator|->
 name|rbtree_key
+operator|)
+expr_stmt|;
+if|if
+condition|(
+name|ngx_abs
+argument_list|(
+name|diff
 argument_list|)
 operator|<
 name|NGX_TIMER_LAZY_DELAY
-operator|/
-name|NGX_TIMER_RESOLUTION
 condition|)
 block|{
 name|ngx_log_debug3
@@ -322,7 +302,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"event timer: %d, old: %i, new: %i"
+literal|"event timer: %d, old: %M, new: %M"
 argument_list|,
 name|ngx_event_ident
 argument_list|(
@@ -352,7 +332,7 @@ name|rbtree_key
 operator|=
 name|key
 expr_stmt|;
-name|ngx_log_debug2
+name|ngx_log_debug3
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
@@ -362,7 +342,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"event timer add: %d: %i"
+literal|"event timer add: %d: %M:%M"
 argument_list|,
 name|ngx_event_ident
 argument_list|(
@@ -370,6 +350,8 @@ name|ev
 operator|->
 name|data
 argument_list|)
+argument_list|,
+name|timer
 argument_list|,
 name|ev
 operator|->

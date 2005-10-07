@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29e567b60108
+DECL|struct|__anon2c2f7c810108
 typedef|typedef
 struct|struct
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e567b60208
+DECL|struct|__anon2c2f7c810208
 typedef|typedef
 struct|struct
 block|{
@@ -126,7 +126,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29e567b60303
+DECL|enum|__anon2c2f7c810303
 typedef|typedef
 enum|enum
 block|{
@@ -153,7 +153,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e567b60408
+DECL|struct|__anon2c2f7c810408
 typedef|typedef
 struct|struct
 block|{
@@ -173,7 +173,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e567b60508
+DECL|struct|__anon2c2f7c810508
 typedef|typedef
 struct|struct
 block|{
@@ -230,7 +230,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e567b60608
+DECL|struct|__anon2c2f7c810608
 typedef|typedef
 struct|struct
 block|{
@@ -294,7 +294,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon29e567b60708
+DECL|struct|__anon2c2f7c810708
 typedef|typedef
 struct|struct
 block|{
@@ -357,7 +357,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29e567b60808
+DECL|struct|__anon2c2f7c810808
 typedef|typedef
 struct|struct
 block|{
@@ -423,7 +423,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon29e567b60908
+DECL|struct|__anon2c2f7c810908
 typedef|typedef
 struct|struct
 block|{
@@ -442,7 +442,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e567b60a08
+DECL|struct|__anon2c2f7c810a08
 typedef|typedef
 struct|struct
 block|{
@@ -738,6 +738,25 @@ parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|u_char
+modifier|*
+name|ngx_http_map_uri_to_path
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|name
+parameter_list|,
+name|size_t
+name|reserved
 parameter_list|)
 function_decl|;
 end_function_decl
