@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b25b6680108
+DECL|struct|__anon28ff21280108
 typedef|typedef
 struct|struct
 block|{
@@ -1854,7 +1854,6 @@ name|timer
 operator|=
 literal|500
 expr_stmt|;
-break|break;
 block|}
 endif|#
 directive|endif

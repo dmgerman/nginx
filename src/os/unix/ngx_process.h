@@ -59,7 +59,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e898da0108
+DECL|struct|__anon2c1435dc0108
 typedef|typedef
 struct|struct
 block|{
@@ -129,7 +129,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e898da0208
+DECL|struct|__anon2c1435dc0208
 typedef|typedef
 struct|struct
 block|{
@@ -211,6 +211,12 @@ name|ngx_getpid
 value|getpid
 end_define
 
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|ngx_log_pid
+end_ifndef
+
 begin_define
 DECL|macro|ngx_log_pid
 define|#
@@ -218,6 +224,11 @@ directive|define
 name|ngx_log_pid
 value|ngx_pid
 end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_function_decl
 name|ngx_pid_t

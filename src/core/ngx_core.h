@@ -224,7 +224,19 @@ end_define
 begin_include
 include|#
 directive|include
+file|<ngx_errno.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_atomic.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_thread.h>
 end_include
 
 begin_include
@@ -248,12 +260,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_errno.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<ngx_types.h>
 end_include
 
@@ -267,12 +273,6 @@ begin_include
 include|#
 directive|include
 file|<ngx_process.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_thread.h>
 end_include
 
 begin_include

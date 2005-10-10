@@ -42,12 +42,6 @@ name|ngx_tid_t
 typedef|;
 end_typedef
 
-begin_undef
-undef|#
-directive|undef
-name|ngx_log_pid
-end_undef
-
 begin_define
 DECL|macro|ngx_log_pid
 define|#
@@ -89,7 +83,7 @@ value|0x80000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2b26ed120108
+DECL|struct|__anon27593d6c0108
 typedef|typedef
 specifier|volatile
 struct|struct
@@ -122,7 +116,7 @@ value|64
 end_define
 
 begin_typedef
-DECL|struct|__anon2b26ed120208
+DECL|struct|__anon27593d6c0208
 typedef|typedef
 struct|struct
 block|{

@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b91dcd10108
+DECL|struct|__anon2be758d20108
 typedef|typedef
 struct|struct
 block|{
@@ -575,6 +575,22 @@ modifier|*
 name|ssl
 parameter_list|)
 block|{
+if|if
+condition|(
+name|SSL_CTX_need_tmp_RSA
+argument_list|(
+name|ssl
+operator|->
+name|ctx
+argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+name|NGX_OK
+return|;
+block|}
 name|ssl
 operator|->
 name|rsa512_key
@@ -3379,6 +3395,13 @@ name|ssl
 init|=
 name|data
 decl_stmt|;
+if|if
+condition|(
+name|ssl
+operator|->
+name|rsa512_key
+condition|)
+block|{
 name|RSA_free
 argument_list|(
 name|ssl
@@ -3386,6 +3409,7 @@ operator|->
 name|rsa512_key
 argument_list|)
 expr_stmt|;
+block|}
 name|SSL_CTX_free
 argument_list|(
 name|ssl

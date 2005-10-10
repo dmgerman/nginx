@@ -16,7 +16,7 @@ file|<ngx_core.h>
 end_include
 
 begin_comment
-comment|/*  * The code is based on the algorithm described in the "Introduction  * to Algorithms" by Cormen, Leiserson and Rivest.  */
+comment|/*  * The red-black tree code is based on the algorithm described in  * the "Introduction to Algorithms" by Cormen, Leiserson and Rivest.  */
 end_comment
 
 begin_define
@@ -82,16 +82,16 @@ name|ngx_inline
 name|void
 name|ngx_rbtree_left_rotate
 parameter_list|(
-name|ngx_rbtree_t
+name|ngx_rbtree_node_t
 modifier|*
 modifier|*
 name|root
 parameter_list|,
-name|ngx_rbtree_t
+name|ngx_rbtree_node_t
 modifier|*
 name|sentinel
 parameter_list|,
-name|ngx_rbtree_t
+name|ngx_rbtree_node_t
 modifier|*
 name|node
 parameter_list|)
@@ -104,16 +104,16 @@ name|ngx_inline
 name|void
 name|ngx_rbtree_right_rotate
 parameter_list|(
-name|ngx_rbtree_t
+name|ngx_rbtree_node_t
 modifier|*
 modifier|*
 name|root
 parameter_list|,
-name|ngx_rbtree_t
+name|ngx_rbtree_node_t
 modifier|*
 name|sentinel
 parameter_list|,
-name|ngx_rbtree_t
+name|ngx_rbtree_node_t
 modifier|*
 name|node
 parameter_list|)
@@ -122,28 +122,49 @@ end_function_decl
 
 begin_function
 name|void
-DECL|function|ngx_rbtree_insert (ngx_rbtree_t ** root,ngx_rbtree_t * sentinel,ngx_rbtree_t * node)
+DECL|function|ngx_rbtree_insert (ngx_thread_volatile ngx_rbtree_t * tree,ngx_rbtree_node_t * node)
 name|ngx_rbtree_insert
 parameter_list|(
+name|ngx_thread_volatile
 name|ngx_rbtree_t
 modifier|*
-modifier|*
-name|root
+name|tree
 parameter_list|,
-name|ngx_rbtree_t
-modifier|*
-name|sentinel
-parameter_list|,
-name|ngx_rbtree_t
+name|ngx_rbtree_node_t
 modifier|*
 name|node
 parameter_list|)
 block|{
-name|ngx_rbtree_t
+name|ngx_rbtree_node_t
+modifier|*
+modifier|*
+name|root
+decl_stmt|,
 modifier|*
 name|temp
+decl_stmt|,
+modifier|*
+name|sentinel
 decl_stmt|;
 comment|/* a binary tree insert */
+name|root
+operator|=
+operator|(
+name|ngx_rbtree_node_t
+operator|*
+operator|*
+operator|)
+operator|&
+name|tree
+operator|->
+name|root
+expr_stmt|;
+name|sentinel
+operator|=
+name|tree
+operator|->
+name|sentinel
+expr_stmt|;
 if|if
 condition|(
 operator|*
@@ -182,6 +203,7 @@ name|node
 expr_stmt|;
 return|return;
 block|}
+comment|/*      * The rbtree is currently used by event timers only.  Timer values      * 1) are spread in small range, usually several minutes,      * 2) and overflow each 49 days, if milliseconds are stored in 32 bits.      * The below comparison takes into account that overflow.      *      * If there will be a necessity to use the rbtree for values with      * other comparison rules, then a whole "for ( ;; )" loop should      * be made as tree->insert() function.      */
 name|temp
 operator|=
 operator|*
@@ -547,19 +569,15 @@ end_function
 
 begin_function
 name|void
-DECL|function|ngx_rbtree_delete (ngx_rbtree_t ** root,ngx_rbtree_t * sentinel,ngx_rbtree_t * node)
+DECL|function|ngx_rbtree_delete (ngx_thread_volatile ngx_rbtree_t * tree,ngx_rbtree_node_t * node)
 name|ngx_rbtree_delete
 parameter_list|(
+name|ngx_thread_volatile
 name|ngx_rbtree_t
 modifier|*
-modifier|*
-name|root
+name|tree
 parameter_list|,
-name|ngx_rbtree_t
-modifier|*
-name|sentinel
-parameter_list|,
-name|ngx_rbtree_t
+name|ngx_rbtree_node_t
 modifier|*
 name|node
 parameter_list|)
@@ -567,7 +585,14 @@ block|{
 name|ngx_int_t
 name|is_red
 decl_stmt|;
-name|ngx_rbtree_t
+name|ngx_rbtree_node_t
+modifier|*
+modifier|*
+name|root
+decl_stmt|,
+modifier|*
+name|sentinel
+decl_stmt|,
 modifier|*
 name|subst
 decl_stmt|,
@@ -578,6 +603,24 @@ modifier|*
 name|w
 decl_stmt|;
 comment|/* a binary tree delete */
+name|root
+operator|=
+operator|(
+name|ngx_rbtree_node_t
+operator|*
+operator|*
+operator|)
+operator|&
+name|tree
+operator|->
+name|root
+expr_stmt|;
+name|sentinel
+operator|=
+name|tree
+operator|->
+name|sentinel
+expr_stmt|;
 if|if
 condition|(
 name|node
@@ -1293,24 +1336,24 @@ begin_function
 specifier|static
 name|ngx_inline
 name|void
-DECL|function|ngx_rbtree_left_rotate (ngx_rbtree_t ** root,ngx_rbtree_t * sentinel,ngx_rbtree_t * node)
+DECL|function|ngx_rbtree_left_rotate (ngx_rbtree_node_t ** root,ngx_rbtree_node_t * sentinel,ngx_rbtree_node_t * node)
 name|ngx_rbtree_left_rotate
 parameter_list|(
-name|ngx_rbtree_t
+name|ngx_rbtree_node_t
 modifier|*
 modifier|*
 name|root
 parameter_list|,
-name|ngx_rbtree_t
+name|ngx_rbtree_node_t
 modifier|*
 name|sentinel
 parameter_list|,
-name|ngx_rbtree_t
+name|ngx_rbtree_node_t
 modifier|*
 name|node
 parameter_list|)
 block|{
-name|ngx_rbtree_t
+name|ngx_rbtree_node_t
 modifier|*
 name|temp
 decl_stmt|;
@@ -1418,24 +1461,24 @@ begin_function
 specifier|static
 name|ngx_inline
 name|void
-DECL|function|ngx_rbtree_right_rotate (ngx_rbtree_t ** root,ngx_rbtree_t * sentinel,ngx_rbtree_t * node)
+DECL|function|ngx_rbtree_right_rotate (ngx_rbtree_node_t ** root,ngx_rbtree_node_t * sentinel,ngx_rbtree_node_t * node)
 name|ngx_rbtree_right_rotate
 parameter_list|(
-name|ngx_rbtree_t
+name|ngx_rbtree_node_t
 modifier|*
 modifier|*
 name|root
 parameter_list|,
-name|ngx_rbtree_t
+name|ngx_rbtree_node_t
 modifier|*
 name|sentinel
 parameter_list|,
-name|ngx_rbtree_t
+name|ngx_rbtree_node_t
 modifier|*
 name|node
 parameter_list|)
 block|{
-name|ngx_rbtree_t
+name|ngx_rbtree_node_t
 modifier|*
 name|temp
 decl_stmt|;

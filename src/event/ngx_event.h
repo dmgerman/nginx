@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2b4f1b630108
+DECL|struct|__anon2ac19d000108
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b4f1b630208
+DECL|struct|__anon2ac19d000208
 typedef|typedef
 struct|struct
 block|{
@@ -323,30 +323,9 @@ name|ngx_log_t
 modifier|*
 name|log
 decl_stmt|;
-comment|/* TODO: threads: padding to cache line */
-comment|/*      * STUB: The inline of "ngx_rbtree_t  rbtree;"      */
-DECL|member|rbtree_key
-name|ngx_rbtree_key_t
-name|rbtree_key
-decl_stmt|;
-DECL|member|rbtree_left
-name|void
-modifier|*
-name|rbtree_left
-decl_stmt|;
-DECL|member|rbtree_right
-name|void
-modifier|*
-name|rbtree_right
-decl_stmt|;
-DECL|member|rbtree_parent
-name|void
-modifier|*
-name|rbtree_parent
-decl_stmt|;
-DECL|member|rbtree_color
-name|char
-name|rbtree_color
+DECL|member|timer
+name|ngx_rbtree_node_t
+name|timer
 decl_stmt|;
 DECL|member|closed
 name|unsigned
@@ -464,7 +443,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b4f1b630308
+DECL|struct|__anon2ac19d000308
 typedef|typedef
 struct|struct
 block|{
@@ -1301,7 +1280,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2b4f1b630408
+DECL|struct|__anon2ac19d000408
 typedef|typedef
 struct|struct
 block|{
@@ -1348,7 +1327,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4f1b630508
+DECL|struct|__anon2ac19d000508
 typedef|typedef
 struct|struct
 block|{

@@ -3131,9 +3131,12 @@ condition|(
 name|ngx_exiting
 operator|&&
 name|ngx_event_timer_rbtree
+operator|.
+name|root
 operator|==
-operator|&
-name|ngx_event_timer_sentinel
+name|ngx_event_timer_rbtree
+operator|.
+name|sentinel
 condition|)
 block|{
 name|ngx_log_error

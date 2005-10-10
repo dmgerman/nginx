@@ -327,7 +327,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c9bb4d20108
+DECL|struct|__anon2bf9e0330108
 typedef|typedef
 struct|struct
 block|{
@@ -1706,7 +1706,6 @@ name|timer
 operator|=
 literal|500
 expr_stmt|;
-break|break;
 block|}
 endif|#
 directive|endif

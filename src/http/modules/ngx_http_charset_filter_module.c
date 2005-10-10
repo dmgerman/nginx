@@ -30,7 +30,7 @@ value|-2
 end_define
 
 begin_typedef
-DECL|struct|__anon2ad6e7010108
+DECL|struct|__anon29c699f30108
 typedef|typedef
 struct|struct
 block|{
@@ -56,7 +56,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad6e7010208
+DECL|struct|__anon29c699f30208
 typedef|typedef
 struct|struct
 block|{
@@ -75,7 +75,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad6e7010308
+DECL|struct|__anon29c699f30308
 typedef|typedef
 struct|struct
 block|{
@@ -104,7 +104,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad6e7010408
+DECL|struct|__anon29c699f30408
 typedef|typedef
 struct|struct
 block|{
@@ -130,7 +130,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad6e7010508
+DECL|struct|__anon29c699f30508
 typedef|typedef
 struct|struct
 block|{
@@ -149,7 +149,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad6e7010608
+DECL|struct|__anon29c699f30608
 typedef|typedef
 struct|struct
 block|{
@@ -351,8 +351,6 @@ name|NGX_HTTP_MAIN_CONF
 operator||
 name|NGX_HTTP_SRV_CONF
 operator||
-name|NGX_HTTP_SIF_CONF
-operator||
 name|NGX_HTTP_LOC_CONF
 operator||
 name|NGX_HTTP_LIF_CONF
@@ -382,8 +380,6 @@ block|,
 name|NGX_HTTP_MAIN_CONF
 operator||
 name|NGX_HTTP_SRV_CONF
-operator||
-name|NGX_HTTP_SIF_CONF
 operator||
 name|NGX_HTTP_LOC_CONF
 operator||

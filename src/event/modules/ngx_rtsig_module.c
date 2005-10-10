@@ -110,7 +110,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29429cd30108
+DECL|struct|__anon2b1ee68d0108
 typedef|typedef
 struct|struct
 block|{
@@ -1301,7 +1301,6 @@ name|timer
 operator|=
 literal|500
 expr_stmt|;
-break|break;
 block|}
 endif|#
 directive|endif
@@ -2320,6 +2319,10 @@ expr_stmt|;
 if|if
 condition|(
 name|c
+operator|==
+name|NULL
+operator|||
+name|c
 operator|->
 name|fd
 operator|==
@@ -2537,6 +2540,15 @@ operator|.
 name|fd
 index|]
 expr_stmt|;
+if|if
+condition|(
+name|c
+operator|==
+name|NULL
+condition|)
+block|{
+continue|continue;
+block|}
 name|rev
 operator|=
 name|c
