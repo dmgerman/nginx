@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28ff21280108
+DECL|struct|__anon2a5680e60108
 typedef|typedef
 struct|struct
 block|{
@@ -2011,7 +2011,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"kevent timer: %d, changes: %d"
+literal|"kevent timer: %M, changes: %d"
 argument_list|,
 name|timer
 argument_list|,

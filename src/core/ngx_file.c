@@ -151,7 +151,7 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_create_temp_file (ngx_file_t * file,ngx_path_t * path,ngx_pool_t * pool,int persistent)
+DECL|function|ngx_create_temp_file (ngx_file_t * file,ngx_path_t * path,ngx_pool_t * pool,ngx_uint_t persistent)
 name|ngx_create_temp_file
 parameter_list|(
 name|ngx_file_t
@@ -166,7 +166,7 @@ name|ngx_pool_t
 modifier|*
 name|pool
 parameter_list|,
-name|int
+name|ngx_uint_t
 name|persistent
 parameter_list|)
 block|{

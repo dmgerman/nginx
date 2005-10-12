@@ -237,10 +237,10 @@ name|ngx_msec_t
 name|timer
 parameter_list|)
 block|{
-name|ngx_rbtree_key_t
+name|ngx_msec_t
 name|key
 decl_stmt|;
-name|ngx_rbtree_key_int_t
+name|ngx_msec_int_t
 name|diff
 decl_stmt|;
 name|key
@@ -260,7 +260,7 @@ comment|/*          * Use the previous timer value if a difference between them 
 name|diff
 operator|=
 operator|(
-name|ngx_rbtree_key_int_t
+name|ngx_msec_int_t
 operator|)
 operator|(
 name|key

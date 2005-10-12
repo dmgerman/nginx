@@ -16,8 +16,8 @@ file|<ngx_core.h>
 end_include
 
 begin_function
-DECL|function|ngx_read_file (ngx_file_t * file,u_char * buf,size_t size,off_t offset)
 name|ssize_t
+DECL|function|ngx_read_file (ngx_file_t * file,u_char * buf,size_t size,off_t offset)
 name|ngx_read_file
 parameter_list|(
 name|ngx_file_t
@@ -236,8 +236,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_write_file (ngx_file_t * file,u_char * buf,size_t size,off_t offset)
 name|ssize_t
+DECL|function|ngx_write_file (ngx_file_t * file,u_char * buf,size_t size,off_t offset)
 name|ngx_write_file
 parameter_list|(
 name|ngx_file_t
@@ -456,8 +456,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_write_chain_to_file (ngx_file_t * file,ngx_chain_t * cl,off_t offset,ngx_pool_t * pool)
 name|ssize_t
+DECL|function|ngx_write_chain_to_file (ngx_file_t * file,ngx_chain_t * cl,off_t offset,ngx_pool_t * pool)
 name|ngx_write_chain_to_file
 parameter_list|(
 name|ngx_file_t
@@ -599,8 +599,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_win32_rename_file (ngx_str_t * from,ngx_str_t * to,ngx_pool_t * pool)
 name|ngx_int_t
+DECL|function|ngx_win32_rename_file (ngx_str_t * from,ngx_str_t * to,ngx_pool_t * pool)
 name|ngx_win32_rename_file
 parameter_list|(
 name|ngx_str_t
@@ -875,8 +875,8 @@ directive|endif
 end_endif
 
 begin_function
-DECL|function|ngx_file_info (u_char * file,ngx_file_info_t * sb)
 name|ngx_int_t
+DECL|function|ngx_file_info (u_char * file,ngx_file_info_t * sb)
 name|ngx_file_info
 parameter_list|(
 name|u_char
@@ -923,8 +923,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_open_dir (ngx_str_t * name,ngx_dir_t * dir)
 name|ngx_int_t
+DECL|function|ngx_open_dir (ngx_str_t * name,ngx_dir_t * dir)
 name|ngx_open_dir
 parameter_list|(
 name|ngx_str_t
@@ -1006,8 +1006,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_read_dir (ngx_dir_t * dir)
 name|ngx_int_t
+DECL|function|ngx_read_dir (ngx_dir_t * dir)
 name|ngx_read_dir
 parameter_list|(
 name|ngx_dir_t
@@ -1100,8 +1100,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_file_append_mode (ngx_fd_t fd)
 name|ngx_int_t
+DECL|function|ngx_file_append_mode (ngx_fd_t fd)
 name|ngx_file_append_mode
 parameter_list|(
 name|ngx_fd_t

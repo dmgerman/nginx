@@ -752,6 +752,10 @@ name|iov
 operator|->
 name|iov_base
 operator|=
+operator|(
+name|void
+operator|*
+operator|)
 name|chain
 operator|->
 name|buf

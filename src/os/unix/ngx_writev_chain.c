@@ -327,9 +327,11 @@ operator|=
 operator|(
 name|ssize_t
 operator|)
+operator|(
 name|limit
 operator|-
 name|send
+operator|)
 expr_stmt|;
 block|}
 if|if

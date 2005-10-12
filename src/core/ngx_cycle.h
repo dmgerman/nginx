@@ -126,20 +126,20 @@ DECL|member|files_n
 name|ngx_uint_t
 name|files_n
 decl_stmt|;
-DECL|member|connections0
+DECL|member|connections
 name|ngx_connection_t
 modifier|*
-name|connections0
+name|connections
 decl_stmt|;
-DECL|member|read_events0
+DECL|member|read_events
 name|ngx_event_t
 modifier|*
-name|read_events0
+name|read_events
 decl_stmt|;
-DECL|member|write_events0
+DECL|member|write_events
 name|ngx_event_t
 modifier|*
-name|write_events0
+name|write_events
 decl_stmt|;
 DECL|member|old_cycle
 name|ngx_cycle_t
@@ -159,7 +159,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b15f8c60108
+DECL|struct|__anon2bd06ea80108
 typedef|typedef
 struct|struct
 block|{
@@ -238,7 +238,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b15f8c60208
+DECL|struct|__anon2bd06ea80208
 typedef|typedef
 struct|struct
 block|{

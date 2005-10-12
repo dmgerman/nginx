@@ -117,7 +117,7 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon2c2329070108
+DECL|struct|__anon2c1717810108
 typedef|typedef
 struct|struct
 block|{
@@ -149,7 +149,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2329070208
+DECL|struct|__anon2c1717810208
 typedef|typedef
 struct|struct
 block|{
@@ -164,7 +164,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2329070308
+DECL|struct|__anon2c1717810308
 typedef|typedef
 struct|struct
 block|{
@@ -220,9 +220,13 @@ DECL|member|next_upstream
 name|ngx_uint_t
 name|next_upstream
 decl_stmt|;
-DECL|member|method
+DECL|member|max_fails
 name|ngx_uint_t
-name|method
+name|max_fails
+decl_stmt|;
+DECL|member|fail_timeout
+name|time_t
+name|fail_timeout
 decl_stmt|;
 DECL|member|bufs
 name|ngx_bufs_t
@@ -290,7 +294,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2329070408
+DECL|struct|__anon2c1717810408
 typedef|typedef
 struct|struct
 block|{
@@ -326,7 +330,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2329070508
+DECL|struct|__anon2c1717810508
 typedef|typedef
 struct|struct
 block|{
@@ -565,7 +569,7 @@ name|ngx_msec_t
 name|timeout
 decl_stmt|;
 DECL|member|method
-name|ngx_uint_t
+name|ngx_str_t
 name|method
 decl_stmt|;
 DECL|member|saved_log_handler

@@ -3161,7 +3161,7 @@ block|}
 if|#
 directive|if
 operator|(
-name|NGX_DEBUG
+name|NGX_DEBUG0
 operator|)
 block|{
 name|u_char
@@ -3175,7 +3175,7 @@ name|p
 decl_stmt|,
 name|a
 decl_stmt|,
-name|n
+name|nn
 decl_stmt|;
 name|in_port
 operator|=

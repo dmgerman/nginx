@@ -69,28 +69,6 @@ name|NGX_ATOMIC_T_LEN
 value|sizeof("-2147483648") - 1
 end_define
 
-begin_define
-DECL|macro|ngx_atomic_inc (p)
-define|#
-directive|define
-name|ngx_atomic_inc
-parameter_list|(
-name|p
-parameter_list|)
-value|InterlockedIncrement((long *) p)
-end_define
-
-begin_define
-DECL|macro|ngx_atomic_dec (p)
-define|#
-directive|define
-name|ngx_atomic_dec
-parameter_list|(
-name|p
-parameter_list|)
-value|InterlockedDecrement((long *) p)
-end_define
-
 begin_if
 if|#
 directive|if
@@ -160,6 +138,19 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_define
+DECL|macro|ngx_atomic_fetch_add (p,add)
+define|#
+directive|define
+name|ngx_atomic_fetch_add
+parameter_list|(
+name|p
+parameter_list|,
+name|add
+parameter_list|)
+value|InterlockedExchangeAdd((long *) p, add)
+end_define
 
 begin_function_decl
 name|void

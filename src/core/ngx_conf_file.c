@@ -2677,7 +2677,7 @@ if|if
 condition|(
 name|cycle
 operator|->
-name|connections0
+name|connections
 condition|)
 block|{
 name|name

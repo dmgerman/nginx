@@ -128,7 +128,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2972f65a0108
+DECL|struct|__anon28fa465f0108
 typedef|typedef
 struct|struct
 block|{
@@ -198,7 +198,7 @@ name|ngx_pool_t
 modifier|*
 name|pool
 parameter_list|,
-name|int
+name|ngx_uint_t
 name|persistent
 parameter_list|)
 function_decl|;

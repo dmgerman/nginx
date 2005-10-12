@@ -37,6 +37,14 @@ typedef|;
 end_typedef
 
 begin_typedef
+DECL|typedef|ngx_msec_int_t
+typedef|typedef
+name|ngx_rbtree_key_int_t
+name|ngx_msec_int_t
+typedef|;
+end_typedef
+
+begin_typedef
 DECL|typedef|ngx_tm_t
 typedef|typedef
 name|struct

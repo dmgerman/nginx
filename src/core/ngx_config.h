@@ -466,7 +466,7 @@ DECL|macro|ngx_inline
 define|#
 directive|define
 name|ngx_inline
-value|__inline
+value|inline
 end_define
 
 begin_endif

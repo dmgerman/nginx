@@ -3064,7 +3064,7 @@ if|if
 condition|(
 name|old_cycle
 operator|->
-name|connections0
+name|connections
 operator|==
 name|NULL
 condition|)
@@ -4703,7 +4703,7 @@ index|[
 name|i
 index|]
 operator|->
-name|connections0
+name|connections
 index|[
 name|n
 index|]
