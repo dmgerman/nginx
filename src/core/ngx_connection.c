@@ -1090,7 +1090,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-name|tlen
+name|olen
 operator|<
 sizeof|sizeof
 argument_list|(
