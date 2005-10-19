@@ -82,6 +82,14 @@ DECL|member|backlog
 name|int
 name|backlog
 decl_stmt|;
+DECL|member|rcvbuf
+name|int
+name|rcvbuf
+decl_stmt|;
+DECL|member|sndbuf
+name|int
+name|sndbuf
+decl_stmt|;
 comment|/* handler of accepted connection */
 DECL|member|handler
 name|ngx_connection_handler_pt
@@ -165,9 +173,9 @@ name|nonblocking_accept
 range|:
 literal|1
 decl_stmt|;
-DECL|member|change_backlog
+DECL|member|listen
 name|unsigned
-name|change_backlog
+name|listen
 range|:
 literal|1
 decl_stmt|;
@@ -230,7 +238,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2b08c7940103
+DECL|enum|__anon2b02cd560103
 typedef|typedef
 enum|enum
 block|{
@@ -254,7 +262,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b08c7940203
+DECL|enum|__anon2b02cd560203
 typedef|typedef
 enum|enum
 block|{
@@ -275,7 +283,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b08c7940303
+DECL|enum|__anon2b02cd560303
 typedef|typedef
 enum|enum
 block|{
@@ -556,6 +564,17 @@ end_function_decl
 begin_function_decl
 name|ngx_int_t
 name|ngx_open_listening_sockets
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_configure_listening_socket
 parameter_list|(
 name|ngx_cycle_t
 modifier|*

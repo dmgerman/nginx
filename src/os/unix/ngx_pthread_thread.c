@@ -40,16 +40,15 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_create_thread (ngx_tid_t * tid,void * (* func)(void * arg),void * arg,ngx_log_t * log)
 name|ngx_err_t
+DECL|function|ngx_create_thread (ngx_tid_t * tid,ngx_thread_value_t (* func)(void * arg),void * arg,ngx_log_t * log)
 name|ngx_create_thread
 parameter_list|(
 name|ngx_tid_t
 modifier|*
 name|tid
 parameter_list|,
-name|void
-modifier|*
+name|ngx_thread_value_t
 function_decl|(
 modifier|*
 name|func
@@ -157,8 +156,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_init_threads (int n,size_t size,ngx_cycle_t * cycle)
 name|ngx_int_t
+DECL|function|ngx_init_threads (int n,size_t size,ngx_cycle_t * cycle)
 name|ngx_init_threads
 parameter_list|(
 name|int
@@ -256,9 +255,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_mutex_init (ngx_log_t * log,ngx_uint_t flags)
 name|ngx_mutex_t
 modifier|*
+DECL|function|ngx_mutex_init (ngx_log_t * log,ngx_uint_t flags)
 name|ngx_mutex_init
 parameter_list|(
 name|ngx_log_t
@@ -348,8 +347,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_mutex_destroy (ngx_mutex_t * m)
 name|void
+DECL|function|ngx_mutex_destroy (ngx_mutex_t * m)
 name|ngx_mutex_destroy
 parameter_list|(
 name|ngx_mutex_t
@@ -402,8 +401,8 @@ block|}
 end_function
 
 begin_function
+name|void
 DECL|function|ngx_mutex_lock (ngx_mutex_t * m)
-name|ngx_int_t
 name|ngx_mutex_lock
 parameter_list|(
 name|ngx_mutex_t
@@ -420,9 +419,7 @@ operator|!
 name|ngx_threaded
 condition|)
 block|{
-return|return
-name|NGX_OK
-return|;
+return|return;
 block|}
 name|ngx_log_debug1
 argument_list|(
@@ -471,9 +468,9 @@ argument_list|,
 name|m
 argument_list|)
 expr_stmt|;
-return|return
-name|NGX_ERROR
-return|;
+name|ngx_abort
+argument_list|()
+expr_stmt|;
 block|}
 name|ngx_log_debug1
 argument_list|(
@@ -490,15 +487,13 @@ argument_list|,
 name|m
 argument_list|)
 expr_stmt|;
-return|return
-name|NGX_OK
-return|;
+return|return;
 block|}
 end_function
 
 begin_function
-DECL|function|ngx_mutex_trylock (ngx_mutex_t * m)
 name|ngx_int_t
+DECL|function|ngx_mutex_trylock (ngx_mutex_t * m)
 name|ngx_mutex_trylock
 parameter_list|(
 name|ngx_mutex_t
@@ -577,9 +572,9 @@ argument_list|,
 name|m
 argument_list|)
 expr_stmt|;
-return|return
-name|NGX_ERROR
-return|;
+name|ngx_abort
+argument_list|()
+expr_stmt|;
 block|}
 name|ngx_log_debug1
 argument_list|(
@@ -603,8 +598,8 @@ block|}
 end_function
 
 begin_function
+name|void
 DECL|function|ngx_mutex_unlock (ngx_mutex_t * m)
-name|ngx_int_t
 name|ngx_mutex_unlock
 parameter_list|(
 name|ngx_mutex_t
@@ -621,9 +616,7 @@ operator|!
 name|ngx_threaded
 condition|)
 block|{
-return|return
-name|NGX_OK
-return|;
+return|return;
 block|}
 name|ngx_log_debug1
 argument_list|(
@@ -672,9 +665,9 @@ argument_list|,
 name|m
 argument_list|)
 expr_stmt|;
-return|return
-name|NGX_ERROR
-return|;
+name|ngx_abort
+argument_list|()
+expr_stmt|;
 block|}
 name|ngx_log_debug1
 argument_list|(
@@ -691,16 +684,14 @@ argument_list|,
 name|m
 argument_list|)
 expr_stmt|;
-return|return
-name|NGX_OK
-return|;
+return|return;
 block|}
 end_function
 
 begin_function
-DECL|function|ngx_cond_init (ngx_log_t * log)
 name|ngx_cond_t
 modifier|*
+DECL|function|ngx_cond_init (ngx_log_t * log)
 name|ngx_cond_init
 parameter_list|(
 name|ngx_log_t
@@ -787,8 +778,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_cond_destroy (ngx_cond_t * cv)
 name|void
+DECL|function|ngx_cond_destroy (ngx_cond_t * cv)
 name|ngx_cond_destroy
 parameter_list|(
 name|ngx_cond_t
@@ -841,8 +832,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_cond_wait (ngx_cond_t * cv,ngx_mutex_t * m)
 name|ngx_int_t
+DECL|function|ngx_cond_wait (ngx_cond_t * cv,ngx_mutex_t * m)
 name|ngx_cond_wait
 parameter_list|(
 name|ngx_cond_t
@@ -950,8 +941,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_cond_signal (ngx_cond_t * cv)
 name|ngx_int_t
+DECL|function|ngx_cond_signal (ngx_cond_t * cv)
 name|ngx_cond_signal
 parameter_list|(
 name|ngx_cond_t

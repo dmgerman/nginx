@@ -169,7 +169,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b8cec050108
+DECL|struct|__anon2a9e2be70108
 typedef|typedef
 struct|struct
 block|{
@@ -303,12 +303,8 @@ name|ngx_pool_t
 modifier|*
 name|p
 parameter_list|,
-name|ngx_pool_cleanup_pt
-name|handler
-parameter_list|,
-name|void
-modifier|*
-name|data
+name|size_t
+name|size
 parameter_list|)
 function_decl|;
 end_function_decl

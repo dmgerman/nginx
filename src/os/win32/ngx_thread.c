@@ -31,17 +31,17 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_create_thread (ngx_tid_t * tid,void * (* func)(void * arg),void * arg,ngx_log_t * log)
 name|ngx_err_t
+DECL|function|ngx_create_thread (ngx_tid_t * tid,ngx_thread_value_t (__stdcall * func)(void * arg),void * arg,ngx_log_t * log)
 name|ngx_create_thread
 parameter_list|(
 name|ngx_tid_t
 modifier|*
 name|tid
 parameter_list|,
-name|void
-modifier|*
+name|ngx_thread_value_t
 function_decl|(
+name|__stdcall
 modifier|*
 name|func
 function_decl|)
@@ -72,9 +72,6 @@ name|NULL
 argument_list|,
 name|stack_size
 argument_list|,
-operator|(
-name|LPTHREAD_START_ROUTINE
-operator|)
 name|func
 argument_list|,
 name|arg
@@ -118,8 +115,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_init_threads (int n,size_t size,ngx_cycle_t * cycle)
 name|ngx_int_t
+DECL|function|ngx_init_threads (int n,size_t size,ngx_cycle_t * cycle)
 name|ngx_init_threads
 parameter_list|(
 name|int
@@ -144,8 +141,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_thread_key_create (ngx_tls_key_t * key)
 name|ngx_err_t
+DECL|function|ngx_thread_key_create (ngx_tls_key_t * key)
 name|ngx_thread_key_create
 parameter_list|(
 name|ngx_tls_key_t
@@ -178,8 +175,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_thread_set_tls (ngx_tls_key_t * key,void * data)
 name|ngx_err_t
+DECL|function|ngx_thread_set_tls (ngx_tls_key_t * key,void * data)
 name|ngx_thread_set_tls
 parameter_list|(
 name|ngx_tls_key_t
@@ -215,9 +212,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_mutex_init (ngx_log_t * log,ngx_uint_t flags)
 name|ngx_mutex_t
 modifier|*
+DECL|function|ngx_mutex_init (ngx_log_t * log,ngx_uint_t flags)
 name|ngx_mutex_init
 parameter_list|(
 name|ngx_log_t
@@ -243,7 +240,7 @@ comment|/* STUB */
 end_comment
 
 begin_function
-name|ngx_int_t
+name|void
 DECL|function|ngx_mutex_lock (ngx_mutex_t * m)
 name|ngx_mutex_lock
 parameter_list|(
@@ -252,9 +249,7 @@ modifier|*
 name|m
 parameter_list|)
 block|{
-return|return
-name|NGX_OK
-return|;
+return|return;
 block|}
 end_function
 
@@ -271,6 +266,20 @@ block|{
 return|return
 name|NGX_OK
 return|;
+block|}
+end_function
+
+begin_function
+name|void
+DECL|function|ngx_mutex_unlock (ngx_mutex_t * m)
+name|ngx_mutex_unlock
+parameter_list|(
+name|ngx_mutex_t
+modifier|*
+name|m
+parameter_list|)
+block|{
+return|return;
 block|}
 end_function
 

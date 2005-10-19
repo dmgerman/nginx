@@ -54,6 +54,9 @@ parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
+parameter_list|,
+name|ngx_msec_t
+name|timer
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -129,6 +132,12 @@ parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
+parameter_list|,
+name|ngx_msec_t
+name|timer
+parameter_list|,
+name|ngx_uint_t
+name|flags
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -270,12 +279,15 @@ end_if
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_aio_init (ngx_cycle_t * cycle)
+DECL|function|ngx_aio_init (ngx_cycle_t * cycle,ngx_msec_t timer)
 name|ngx_aio_init
 parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
+parameter_list|,
+name|ngx_msec_t
+name|timer
 parameter_list|)
 block|{
 if|if
@@ -287,6 +299,8 @@ operator|.
 name|init
 argument_list|(
 name|cycle
+argument_list|,
+name|timer
 argument_list|)
 operator|==
 name|NGX_ERROR
@@ -609,12 +623,18 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_aio_process_events (ngx_cycle_t * cycle)
+DECL|function|ngx_aio_process_events (ngx_cycle_t * cycle,ngx_msec_t timer,ngx_uint_t flags)
 name|ngx_aio_process_events
 parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
+parameter_list|,
+name|ngx_msec_t
+name|timer
+parameter_list|,
+name|ngx_uint_t
+name|flags
 parameter_list|)
 block|{
 return|return
@@ -625,6 +645,10 @@ operator|.
 name|process_events
 argument_list|(
 name|cycle
+argument_list|,
+name|timer
+argument_list|,
+name|flags
 argument_list|)
 return|;
 block|}

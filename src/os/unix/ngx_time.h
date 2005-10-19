@@ -246,6 +246,9 @@ begin_function_decl
 name|void
 name|ngx_localtime
 parameter_list|(
+name|time_t
+name|s
+parameter_list|,
 name|ngx_tm_t
 modifier|*
 name|tm
@@ -257,6 +260,9 @@ begin_function_decl
 name|void
 name|ngx_libc_localtime
 parameter_list|(
+name|time_t
+name|s
+parameter_list|,
 name|struct
 name|tm
 modifier|*
@@ -269,6 +275,9 @@ begin_function_decl
 name|void
 name|ngx_libc_gmtime
 parameter_list|(
+name|time_t
+name|s
+parameter_list|,
 name|struct
 name|tm
 modifier|*

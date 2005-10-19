@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c2f7c810108
+DECL|struct|__anon2aa618640108
 typedef|typedef
 struct|struct
 block|{
@@ -54,6 +54,14 @@ decl_stmt|;
 DECL|member|backlog
 name|int
 name|backlog
+decl_stmt|;
+DECL|member|rcvbuf
+name|int
+name|rcvbuf
+decl_stmt|;
+DECL|member|sndbuf
+name|int
+name|sndbuf
 decl_stmt|;
 if|#
 directive|if
@@ -91,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2f7c810208
+DECL|struct|__anon2aa618640208
 typedef|typedef
 struct|struct
 block|{
@@ -126,7 +134,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c2f7c810303
+DECL|enum|__anon2aa618640303
 typedef|typedef
 enum|enum
 block|{
@@ -153,7 +161,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2f7c810408
+DECL|struct|__anon2aa618640408
 typedef|typedef
 struct|struct
 block|{
@@ -173,7 +181,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2f7c810508
+DECL|struct|__anon2aa618640508
 typedef|typedef
 struct|struct
 block|{
@@ -230,7 +238,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2f7c810608
+DECL|struct|__anon2aa618640608
 typedef|typedef
 struct|struct
 block|{
@@ -294,7 +302,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2c2f7c810708
+DECL|struct|__anon2aa618640708
 typedef|typedef
 struct|struct
 block|{
@@ -357,7 +365,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c2f7c810808
+DECL|struct|__anon2aa618640808
 typedef|typedef
 struct|struct
 block|{
@@ -423,7 +431,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon2c2f7c810908
+DECL|struct|__anon2aa618640908
 typedef|typedef
 struct|struct
 block|{
@@ -442,7 +450,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2f7c810a08
+DECL|struct|__anon2aa618640a08
 typedef|typedef
 struct|struct
 block|{

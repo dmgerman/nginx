@@ -98,5 +98,14 @@ return|;
 block|}
 end_function
 
+begin_define
+DECL|macro|ngx_memory_barrier ()
+define|#
+directive|define
+name|ngx_memory_barrier
+parameter_list|()
+value|__asm__ volatile ("" ::: "memory")
+end_define
+
 end_unit
 

@@ -133,5 +133,42 @@ block|}
 block|}
 end_function
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_SMP
+operator|)
+end_if
+
+begin_define
+DECL|macro|ngx_memory_barrier ()
+define|#
+directive|define
+name|ngx_memory_barrier
+parameter_list|()
+define|\
+value|__asm__ volatile (                                                \             "membar #LoadLoad | #LoadStore | #StoreStore | #StoreLoad"        \             ::: "memory")
+end_define
+
+begin_else
+else|#
+directive|else
+end_else
+
+begin_define
+DECL|macro|ngx_memory_barrier ()
+define|#
+directive|define
+name|ngx_memory_barrier
+parameter_list|()
+value|__asm__ volatile ("" ::: "memory")
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 end_unit
 

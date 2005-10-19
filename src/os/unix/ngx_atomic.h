@@ -122,6 +122,15 @@ begin_comment
 comment|/* the code in src/os/unix/ngx_sunpro_x86.il */
 end_comment
 
+begin_define
+DECL|macro|ngx_memory_barrier ()
+define|#
+directive|define
+name|ngx_memory_barrier
+parameter_list|()
+value|__asm (".volatile"); __asm (".nonvolatile")
+end_define
+
 begin_else
 else|#
 directive|else
@@ -243,6 +252,15 @@ end_function_decl
 begin_comment
 comment|/* the code in src/os/unix/ngx_sunpro_amd64.il */
 end_comment
+
+begin_define
+DECL|macro|ngx_memory_barrier ()
+define|#
+directive|define
+name|ngx_memory_barrier
+parameter_list|()
+value|__asm (".volatile"); __asm (".nonvolatile")
+end_define
 
 begin_else
 else|#

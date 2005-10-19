@@ -450,25 +450,6 @@ endif|#
 directive|endif
 end_endif
 
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|NGX_HAVE_SELECT_CHANGE_TIMEOUT
-end_ifndef
-
-begin_define
-DECL|macro|NGX_HAVE_SELECT_CHANGE_TIMEOUT
-define|#
-directive|define
-name|NGX_HAVE_SELECT_CHANGE_TIMEOUT
-value|1
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
 begin_define
 DECL|macro|NGX_HAVE_OS_SPECIFIC_INIT
 define|#

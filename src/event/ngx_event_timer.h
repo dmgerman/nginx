@@ -43,14 +43,6 @@ value|(ngx_msec_t) -1
 end_define
 
 begin_define
-DECL|macro|NGX_TIMER_ERROR
-define|#
-directive|define
-name|NGX_TIMER_ERROR
-value|(ngx_msec_t) -2
-end_define
-
-begin_define
 DECL|macro|NGX_TIMER_LAZY_DELAY
 define|#
 directive|define
@@ -154,18 +146,11 @@ operator|.
 name|key
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
 name|ngx_mutex_lock
 argument_list|(
 name|ngx_event_timer_mutex
 argument_list|)
-operator|==
-name|NGX_ERROR
-condition|)
-block|{
-return|return;
-block|}
+expr_stmt|;
 name|ngx_rbtree_delete
 argument_list|(
 operator|&
@@ -245,7 +230,7 @@ name|diff
 decl_stmt|;
 name|key
 operator|=
-name|ngx_current_time
+name|ngx_current_msec
 operator|+
 name|timer
 expr_stmt|;
@@ -354,18 +339,11 @@ operator|.
 name|key
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
 name|ngx_mutex_lock
 argument_list|(
 name|ngx_event_timer_mutex
 argument_list|)
-operator|==
-name|NGX_ERROR
-condition|)
-block|{
-return|return;
-block|}
+expr_stmt|;
 name|ngx_rbtree_insert
 argument_list|(
 operator|&

@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2ac19d000108
+DECL|struct|__anon2bf0b0900108
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2ac19d000208
+DECL|struct|__anon2bf0b0900208
 typedef|typedef
 struct|struct
 block|{
@@ -333,6 +333,13 @@ name|closed
 range|:
 literal|1
 decl_stmt|;
+comment|/* to test on worker exit */
+DECL|member|channel
+name|unsigned
+name|channel
+range|:
+literal|1
+decl_stmt|;
 if|#
 directive|if
 operator|(
@@ -443,7 +450,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2ac19d000308
+DECL|struct|__anon2bf0b0900308
 typedef|typedef
 struct|struct
 block|{
@@ -571,6 +578,12 @@ parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
+parameter_list|,
+name|ngx_msec_t
+name|timer
+parameter_list|,
+name|ngx_uint_t
+name|flags
 parameter_list|)
 function_decl|;
 DECL|member|init
@@ -583,6 +596,9 @@ parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
+parameter_list|,
+name|ngx_msec_t
+name|timer
 parameter_list|)
 function_decl|;
 DECL|member|done
@@ -623,7 +639,7 @@ value|0x00000001
 end_define
 
 begin_comment
-comment|/*  * The event filter is deleted after a notification without an additional  * syscall: select, poll, kqueue, epoll, Solaris 10's event ports.  */
+comment|/*  * The event filter is deleted after a notification without an additional  * syscall: kqueue, epoll, Solaris 10's event ports.  */
 end_comment
 
 begin_define
@@ -740,6 +756,18 @@ define|#
 directive|define
 name|NGX_USE_FD_EVENT
 value|0x00000400
+end_define
+
+begin_comment
+comment|/*  * The event module handles periodic or absolute timer event by itself:  * kqueue in FreeBSD 4.4 and NetBSD 2.0, Solaris 10's event ports.  */
+end_comment
+
+begin_define
+DECL|macro|NGX_USE_TIMER_EVENT
+define|#
+directive|define
+name|NGX_USE_TIMER_EVENT
+value|0x00000800
 end_define
 
 begin_comment
@@ -1280,7 +1308,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2ac19d000408
+DECL|struct|__anon2bf0b0900408
 typedef|typedef
 struct|struct
 block|{
@@ -1327,7 +1355,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac19d000508
+DECL|struct|__anon2bf0b0900508
 typedef|typedef
 struct|struct
 block|{
@@ -1483,14 +1511,35 @@ directive|endif
 end_endif
 
 begin_define
-DECL|macro|ngx_accept_mutex_unlock ()
+DECL|macro|NGX_UPDATE_TIME
 define|#
 directive|define
-name|ngx_accept_mutex_unlock
-parameter_list|()
-define|\
-value|if (ngx_accept_mutex_held) {                                       \                *ngx_accept_mutex = 0;                                         \            }
+name|NGX_UPDATE_TIME
+value|1
 end_define
+
+begin_define
+DECL|macro|NGX_POST_EVENTS
+define|#
+directive|define
+name|NGX_POST_EVENTS
+value|2
+end_define
+
+begin_define
+DECL|macro|NGX_POST_THREAD_EVENTS
+define|#
+directive|define
+name|NGX_POST_THREAD_EVENTS
+value|4
+end_define
+
+begin_decl_stmt
+specifier|extern
+name|sig_atomic_t
+name|ngx_event_timer_alarm
+decl_stmt|;
+end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
@@ -1586,6 +1635,17 @@ name|buf
 parameter_list|,
 name|size_t
 name|len
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_process_events_and_timers
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
 parameter_list|)
 function_decl|;
 end_function_decl

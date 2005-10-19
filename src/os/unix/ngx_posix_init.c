@@ -160,6 +160,9 @@ return|;
 block|}
 name|ngx_max_sockets
 operator|=
+operator|(
+name|ngx_int_t
+operator|)
 name|rlmt
 operator|.
 name|rlim_cur

@@ -83,7 +83,7 @@ value|0x80000000
 end_define
 
 begin_typedef
-DECL|struct|__anon27593d6c0108
+DECL|struct|__anon2b1f136d0108
 typedef|typedef
 specifier|volatile
 struct|struct
@@ -116,7 +116,7 @@ value|64
 end_define
 
 begin_typedef
-DECL|struct|__anon27593d6c0208
+DECL|struct|__anon2b1f136d0208
 typedef|typedef
 struct|struct
 block|{
@@ -206,10 +206,10 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_gettid ()
 specifier|static
 name|ngx_inline
 name|ngx_int_t
+DECL|function|ngx_gettid ()
 name|ngx_gettid
 parameter_list|()
 block|{
@@ -337,10 +337,10 @@ value|"the tls key setting"
 end_define
 
 begin_function
-DECL|function|ngx_thread_get_tls (ngx_tls_key_t key)
 specifier|static
 name|void
 modifier|*
+DECL|function|ngx_thread_get_tls (ngx_tls_key_t key)
 name|ngx_thread_get_tls
 parameter_list|(
 name|ngx_tls_key_t
@@ -391,7 +391,7 @@ name|ngx_mutex_lock
 parameter_list|(
 name|m
 parameter_list|)
-value|ngx_mutex_dolock(m, 0)
+value|(void) ngx_mutex_dolock(m, 0)
 end_define
 
 begin_function_decl
@@ -409,7 +409,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|ngx_int_t
+name|void
 name|ngx_mutex_unlock
 parameter_list|(
 name|ngx_mutex_t

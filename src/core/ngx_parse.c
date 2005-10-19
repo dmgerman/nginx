@@ -16,8 +16,8 @@ file|<ngx_core.h>
 end_include
 
 begin_function
+name|ssize_t
 DECL|function|ngx_parse_size (ngx_str_t * line)
-name|ngx_int_t
 name|ngx_parse_size
 parameter_list|(
 name|ngx_str_t
@@ -31,10 +31,11 @@ decl_stmt|;
 name|size_t
 name|len
 decl_stmt|;
+name|ssize_t
+name|size
+decl_stmt|;
 name|ngx_int_t
 name|scale
-decl_stmt|,
-name|size
 decl_stmt|;
 name|len
 operator|=
@@ -96,7 +97,7 @@ expr_stmt|;
 block|}
 name|size
 operator|=
-name|ngx_atoi
+name|ngx_atosz
 argument_list|(
 name|line
 operator|->
@@ -127,8 +128,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_parse_time (ngx_str_t * line,ngx_int_t sec)
 name|ngx_int_t
+DECL|function|ngx_parse_time (ngx_str_t * line,ngx_int_t sec)
 name|ngx_parse_time
 parameter_list|(
 name|ngx_str_t
@@ -160,7 +161,7 @@ name|max
 decl_stmt|,
 name|i
 decl_stmt|;
-DECL|enum|__anon291ed1a80103
+DECL|enum|__anon29ec9b160103
 enum|enum
 block|{
 DECL|enumerator|st_start

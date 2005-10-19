@@ -917,13 +917,12 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"AcceptEx() %s falied"
+literal|"AcceptEx() %V falied"
 argument_list|,
+operator|&
 name|ls
 operator|->
 name|addr_text
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 name|ngx_close_posted_connection

@@ -179,5 +179,15 @@ block|}
 block|}
 end_function
 
+begin_define
+DECL|macro|ngx_memory_barrier ()
+define|#
+directive|define
+name|ngx_memory_barrier
+parameter_list|()
+define|\
+value|__asm (".volatile");                                                  \         __asm ("membar #LoadLoad | #LoadStore | #StoreStore | #StoreLoad");   \         __asm (".nonvolatile")
+end_define
+
 end_unit
 

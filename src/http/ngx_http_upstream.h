@@ -117,12 +117,12 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon2c1717810108
+DECL|struct|__anon2bc0fb7b0108
 typedef|typedef
 struct|struct
 block|{
 DECL|member|bl_time
-name|time_t
+name|ngx_msec_t
 name|bl_time
 decl_stmt|;
 DECL|member|bl_state
@@ -133,9 +133,9 @@ DECL|member|status
 name|ngx_uint_t
 name|status
 decl_stmt|;
-DECL|member|time
-name|time_t
-name|time
+DECL|member|response_time
+name|ngx_msec_t
+name|response_time
 decl_stmt|;
 DECL|member|peer
 name|ngx_str_t
@@ -149,7 +149,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1717810208
+DECL|struct|__anon2bc0fb7b0208
 typedef|typedef
 struct|struct
 block|{
@@ -164,7 +164,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1717810308
+DECL|struct|__anon2bc0fb7b0308
 typedef|typedef
 struct|struct
 block|{
@@ -294,7 +294,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1717810408
+DECL|struct|__anon2bc0fb7b0408
 typedef|typedef
 struct|struct
 block|{
@@ -330,7 +330,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1717810508
+DECL|struct|__anon2bc0fb7b0508
 typedef|typedef
 struct|struct
 block|{

@@ -20,8 +20,8 @@ comment|/*  * TODO: the P4 optimized assembler version with the "pause" operatio
 end_comment
 
 begin_function
-DECL|function|ngx_spinlock (ngx_atomic_t * lock,ngx_uint_t spin)
 name|void
+DECL|function|ngx_spinlock (ngx_atomic_t * lock,ngx_uint_t spin)
 name|ngx_spinlock
 parameter_list|(
 name|ngx_atomic_t

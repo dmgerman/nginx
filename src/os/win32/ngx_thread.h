@@ -45,7 +45,15 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c21fa4d0108
+DECL|typedef|ngx_thread_value_t
+typedef|typedef
+name|DWORD
+name|ngx_thread_value_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2c3cb1570108
 typedef|typedef
 struct|struct
 block|{
@@ -72,9 +80,9 @@ name|ngx_tid_t
 modifier|*
 name|tid
 parameter_list|,
-name|void
-modifier|*
+name|ngx_thread_value_t
 function_decl|(
+name|__stdcall
 modifier|*
 name|func
 function_decl|)
@@ -202,7 +210,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|ngx_int_t
+name|void
 name|ngx_mutex_lock
 parameter_list|(
 name|ngx_mutex_t
@@ -223,6 +231,17 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_function_decl
+name|void
+name|ngx_mutex_unlock
+parameter_list|(
+name|ngx_mutex_t
+modifier|*
+name|m
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_comment
 comment|/* STUB */
 end_comment
@@ -233,16 +252,6 @@ define|#
 directive|define
 name|NGX_MUTEX_LIGHT
 value|0
-end_define
-
-begin_define
-DECL|macro|ngx_mutex_unlock (m)
-define|#
-directive|define
-name|ngx_mutex_unlock
-parameter_list|(
-name|m
-parameter_list|)
 end_define
 
 begin_comment

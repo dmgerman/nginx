@@ -17,6 +17,22 @@ name|_NGX_WIN32_CONFIG_H_INCLUDED_
 end_define
 
 begin_define
+DECL|macro|WIN32
+define|#
+directive|define
+name|WIN32
+value|0x0400
+end_define
+
+begin_define
+DECL|macro|_WIN32_WINNT
+define|#
+directive|define
+name|_WIN32_WINNT
+value|0x0400
+end_define
+
+begin_define
 DECL|macro|STRICT
 define|#
 directive|define

@@ -16,7 +16,7 @@ file|<ngx_core.h>
 end_include
 
 begin_comment
-comment|/*  * ioctl(FIONBIO) sets a blocking mode with the single syscall  * while fcntl(F_SETFL, ~O_NONBLOCK) needs to learn before  * the previous state using fcntl(F_GETFL).  *  * ioctl() and fcntl() are syscalls on at least FreeBSD 2.x, Linux 2.2  * and Solaris 7.  *  * ioctl() in Linux 2.4 and 2.6 uses BKL, however, fcntl(F_SETFL) uses it too.  */
+comment|/*  * ioctl(FIONBIO) sets a blocking mode with the single syscall  * while fcntl(F_SETFL, ~O_NONBLOCK) needs to learn before  * the previous state using fcntl(F_GETFL).  *  * ioctl() and fcntl() are syscalls at least in FreeBSD 2.x, Linux 2.2  * and Solaris 7.  *  * ioctl() in Linux 2.4 and 2.6 uses BKL, however, fcntl(F_SETFL) uses it too.  */
 end_comment
 
 begin_if

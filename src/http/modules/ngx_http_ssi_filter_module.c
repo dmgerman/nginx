@@ -78,7 +78,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon27c350fe0108
+DECL|struct|__anon2bc2f81c0108
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c350fe0208
+DECL|struct|__anon2bc2f81c0208
 typedef|typedef
 struct|struct
 block|{
@@ -134,7 +134,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c350fe0308
+DECL|struct|__anon2bc2f81c0308
 typedef|typedef
 struct|struct
 block|{
@@ -272,7 +272,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c350fe0408
+DECL|struct|__anon2bc2f81c0408
 typedef|typedef
 struct|struct
 block|{
@@ -295,7 +295,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c350fe0508
+DECL|struct|__anon2bc2f81c0508
 typedef|typedef
 struct|struct
 block|{
@@ -331,7 +331,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27c350fe0603
+DECL|enum|__anon2bc2f81c0603
 typedef|typedef
 enum|enum
 block|{
@@ -8276,6 +8276,10 @@ name|ngx_http_variable_value_t
 modifier|*
 name|vv
 decl_stmt|;
+name|ngx_time_t
+modifier|*
+name|tp
+decl_stmt|;
 name|struct
 name|tm
 name|tm
@@ -8311,6 +8315,11 @@ return|return
 name|NULL
 return|;
 block|}
+name|tp
+operator|=
+name|ngx_timeofday
+argument_list|()
+expr_stmt|;
 name|ctx
 operator|=
 name|ngx_http_get_module_ctx
@@ -8362,15 +8371,18 @@ name|vv
 operator|->
 name|value
 operator|=
-name|ngx_time
-argument_list|()
+name|tp
+operator|->
+name|sec
 operator|+
 operator|(
 name|gmt
 condition|?
 literal|0
 else|:
-name|ngx_gmtoff
+name|tp
+operator|->
+name|gmtoff
 operator|)
 expr_stmt|;
 name|vv
@@ -8441,6 +8453,10 @@ condition|)
 block|{
 name|ngx_libc_gmtime
 argument_list|(
+name|tp
+operator|->
+name|sec
+argument_list|,
 operator|&
 name|tm
 argument_list|)
@@ -8450,6 +8466,10 @@ else|else
 block|{
 name|ngx_libc_localtime
 argument_list|(
+name|tp
+operator|->
+name|sec
+argument_list|,
 operator|&
 name|tm
 argument_list|)
@@ -8459,15 +8479,18 @@ name|vv
 operator|->
 name|value
 operator|=
-name|ngx_time
-argument_list|()
+name|tp
+operator|->
+name|sec
 operator|+
 operator|(
 name|gmt
 condition|?
 literal|0
 else|:
-name|ngx_gmtoff
+name|tp
+operator|->
+name|gmtoff
 operator|)
 expr_stmt|;
 name|vv

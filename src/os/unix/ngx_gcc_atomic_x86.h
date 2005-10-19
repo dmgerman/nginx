@@ -158,5 +158,18 @@ endif|#
 directive|endif
 end_endif
 
+begin_comment
+comment|/*  * on x86 the write operations go in a program order, so we need only  * to disable the gcc reorder optimizations  */
+end_comment
+
+begin_define
+DECL|macro|ngx_memory_barrier ()
+define|#
+directive|define
+name|ngx_memory_barrier
+parameter_list|()
+value|__asm__ volatile ("" ::: "memory")
+end_define
+
 end_unit
 

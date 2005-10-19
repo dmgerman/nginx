@@ -197,7 +197,7 @@ value|0
 end_define
 
 begin_typedef
-DECL|struct|__anon2b3e356e0108
+DECL|struct|__anon276b9a390108
 typedef|typedef
 struct|struct
 block|{
@@ -217,7 +217,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3e356e0208
+DECL|struct|__anon276b9a390208
 typedef|typedef
 struct|struct
 block|{
@@ -287,7 +287,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|ngx_int_t
+name|void
 name|ngx_mutex_lock
 parameter_list|(
 name|ngx_mutex_t
@@ -298,7 +298,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|ngx_int_t
+name|void
 name|ngx_mutex_unlock
 parameter_list|(
 name|ngx_mutex_t
@@ -322,7 +322,7 @@ value|volatile
 end_define
 
 begin_typedef
-DECL|struct|__anon2b3e356e0308
+DECL|struct|__anon276b9a390308
 typedef|typedef
 struct|struct
 block|{
@@ -395,6 +395,15 @@ index|]
 decl_stmt|;
 end_decl_stmt
 
+begin_typedef
+DECL|typedef|ngx_thread_value_t
+typedef|typedef
+name|void
+modifier|*
+name|ngx_thread_value_t
+typedef|;
+end_typedef
+
 begin_function_decl
 name|ngx_int_t
 name|ngx_init_threads
@@ -420,8 +429,7 @@ name|ngx_tid_t
 modifier|*
 name|tid
 parameter_list|,
-name|void
-modifier|*
+name|ngx_thread_value_t
 function_decl|(
 modifier|*
 name|func
@@ -569,7 +577,6 @@ name|ngx_mutex_lock
 parameter_list|(
 name|m
 parameter_list|)
-value|NGX_OK
 end_define
 
 begin_define

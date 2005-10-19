@@ -103,7 +103,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2790cbec0108
+DECL|struct|__anon2a0808300108
 typedef|typedef
 struct|struct
 block|{
@@ -196,7 +196,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|ngx_int_t
+name|void
 name|ngx_event_busy_unlock
 parameter_list|(
 name|ngx_event_busy_lock_t
@@ -211,7 +211,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|ngx_int_t
+name|void
 name|ngx_event_busy_lock_cancel
 parameter_list|(
 name|ngx_event_busy_lock_t

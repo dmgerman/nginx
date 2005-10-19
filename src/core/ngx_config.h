@@ -451,6 +451,14 @@ parameter_list|)
 value|(u_char *) (((uintptr_t) p + NGX_ALIGN)& ~NGX_ALIGN)
 end_define
 
+begin_define
+DECL|macro|ngx_abort
+define|#
+directive|define
+name|ngx_abort
+value|abort
+end_define
+
 begin_comment
 comment|/* TODO: auto_conf: ngx_inline   inline __inline __inline__ */
 end_comment

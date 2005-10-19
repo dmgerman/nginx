@@ -66,8 +66,8 @@ comment|/*  * NGX_OK:     the busy lock is held  * NGX_AGAIN:  the all busy lock
 end_comment
 
 begin_function
-DECL|function|ngx_event_busy_lock (ngx_event_busy_lock_t * bl,ngx_event_busy_lock_ctx_t * ctx)
 name|ngx_int_t
+DECL|function|ngx_event_busy_lock (ngx_event_busy_lock_t * bl,ngx_event_busy_lock_ctx_t * ctx)
 name|ngx_event_busy_lock
 parameter_list|(
 name|ngx_event_busy_lock_t
@@ -82,22 +82,13 @@ block|{
 name|ngx_int_t
 name|rc
 decl_stmt|;
-if|if
-condition|(
 name|ngx_mutex_lock
 argument_list|(
 name|bl
 operator|->
 name|mutex
 argument_list|)
-operator|==
-name|NGX_ERROR
-condition|)
-block|{
-return|return
-name|NGX_ERROR
-return|;
-block|}
+expr_stmt|;
 name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
@@ -238,8 +229,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_event_busy_lock_cachable (ngx_event_busy_lock_t * bl,ngx_event_busy_lock_ctx_t * ctx)
 name|ngx_int_t
+DECL|function|ngx_event_busy_lock_cachable (ngx_event_busy_lock_t * bl,ngx_event_busy_lock_ctx_t * ctx)
 name|ngx_event_busy_lock_cachable
 parameter_list|(
 name|ngx_event_busy_lock_t
@@ -254,22 +245,13 @@ block|{
 name|ngx_int_t
 name|rc
 decl_stmt|;
-if|if
-condition|(
 name|ngx_mutex_lock
 argument_list|(
 name|bl
 operator|->
 name|mutex
 argument_list|)
-operator|==
-name|NGX_ERROR
-condition|)
-block|{
-return|return
-name|NGX_ERROR
-return|;
-block|}
+expr_stmt|;
 name|rc
 operator|=
 name|ngx_event_busy_lock_look_cachable
@@ -407,8 +389,8 @@ block|}
 end_function
 
 begin_function
+name|void
 DECL|function|ngx_event_busy_unlock (ngx_event_busy_lock_t * bl,ngx_event_busy_lock_ctx_t * ctx)
-name|ngx_int_t
 name|ngx_event_busy_unlock
 parameter_list|(
 name|ngx_event_busy_lock_t
@@ -428,22 +410,13 @@ name|ngx_event_busy_lock_ctx_t
 modifier|*
 name|wakeup
 decl_stmt|;
-if|if
-condition|(
 name|ngx_mutex_lock
 argument_list|(
 name|bl
 operator|->
 name|mutex
 argument_list|)
-operator|==
-name|NGX_ERROR
-condition|)
-block|{
-return|return
-name|NGX_ERROR
-return|;
-block|}
+expr_stmt|;
 if|if
 condition|(
 name|bl
@@ -495,9 +468,7 @@ operator|->
 name|mutex
 argument_list|)
 expr_stmt|;
-return|return
-name|NGX_OK
-return|;
+return|return;
 block|}
 if|if
 condition|(
@@ -560,28 +531,12 @@ name|wakeup
 operator|->
 name|event
 expr_stmt|;
-if|if
-condition|(
-name|ngx_mutex_lock
-argument_list|(
-name|ngx_posted_events_mutex
-argument_list|)
-operator|==
-name|NGX_ERROR
-condition|)
-block|{
-return|return
-name|NGX_ERROR
-return|;
-block|}
 name|ngx_post_event
 argument_list|(
 name|ev
-argument_list|)
-expr_stmt|;
-name|ngx_mutex_unlock
-argument_list|(
-name|ngx_posted_events_mutex
+argument_list|,
+operator|&
+name|ngx_posted_events
 argument_list|)
 expr_stmt|;
 block|}
@@ -638,40 +593,21 @@ name|ev
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|ngx_mutex_lock
-argument_list|(
-name|ngx_posted_events_mutex
-argument_list|)
-operator|==
-name|NGX_ERROR
-condition|)
-block|{
-return|return
-name|NGX_ERROR
-return|;
-block|}
 name|ngx_post_event
 argument_list|(
 name|ev
-argument_list|)
-expr_stmt|;
-name|ngx_mutex_unlock
-argument_list|(
-name|ngx_posted_events_mutex
+argument_list|,
+operator|&
+name|ngx_posted_events
 argument_list|)
 expr_stmt|;
 block|}
-return|return
-name|NGX_OK
-return|;
 block|}
 end_function
 
 begin_function
+name|void
 DECL|function|ngx_event_busy_lock_cancel (ngx_event_busy_lock_t * bl,ngx_event_busy_lock_ctx_t * ctx)
-name|ngx_int_t
 name|ngx_event_busy_lock_cancel
 parameter_list|(
 name|ngx_event_busy_lock_t
@@ -690,22 +626,13 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-if|if
-condition|(
 name|ngx_mutex_lock
 argument_list|(
 name|bl
 operator|->
 name|mutex
 argument_list|)
-operator|==
-name|NGX_ERROR
-condition|)
-block|{
-return|return
-name|NGX_ERROR
-return|;
-block|}
+expr_stmt|;
 name|bl
 operator|->
 name|waiting
@@ -786,16 +713,13 @@ operator|->
 name|mutex
 argument_list|)
 expr_stmt|;
-return|return
-name|NGX_OK
-return|;
 block|}
 end_function
 
 begin_function
-DECL|function|ngx_event_busy_lock_look_cachable (ngx_event_busy_lock_t * bl,ngx_event_busy_lock_ctx_t * ctx)
 specifier|static
-name|int
+name|ngx_int_t
+DECL|function|ngx_event_busy_lock_look_cachable (ngx_event_busy_lock_t * bl,ngx_event_busy_lock_ctx_t * ctx)
 name|ngx_event_busy_lock_look_cachable
 parameter_list|(
 name|ngx_event_busy_lock_t
@@ -1063,9 +987,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_event_busy_lock_handler (ngx_event_t * ev)
 specifier|static
 name|void
+DECL|function|ngx_event_busy_lock_handler (ngx_event_t * ev)
 name|ngx_event_busy_lock_handler
 parameter_list|(
 name|ngx_event_t
@@ -1073,41 +997,27 @@ modifier|*
 name|ev
 parameter_list|)
 block|{
-if|if
-condition|(
-name|ngx_mutex_lock
-argument_list|(
-name|ngx_posted_events_mutex
-argument_list|)
-operator|==
-name|NGX_ERROR
-condition|)
-block|{
-return|return;
-block|}
-name|ngx_post_event
-argument_list|(
-name|ev
-argument_list|)
-expr_stmt|;
-name|ngx_mutex_unlock
-argument_list|(
-name|ngx_posted_events_mutex
-argument_list|)
-expr_stmt|;
 name|ev
 operator|->
 name|handler
 operator|=
 name|ngx_event_busy_lock_posted_handler
 expr_stmt|;
+name|ngx_post_event
+argument_list|(
+name|ev
+argument_list|,
+operator|&
+name|ngx_posted_events
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 
 begin_function
-DECL|function|ngx_event_busy_lock_posted_handler (ngx_event_t * ev)
 specifier|static
 name|void
+DECL|function|ngx_event_busy_lock_posted_handler (ngx_event_t * ev)
 name|ngx_event_busy_lock_posted_handler
 parameter_list|(
 name|ngx_event_t

@@ -28,7 +28,7 @@ file|<ngx_channel.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon296a20dc0108
+DECL|struct|__anon2aaa7ba10108
 typedef|typedef
 struct|struct
 block|{
@@ -1353,10 +1353,6 @@ name|char
 modifier|*
 name|action
 decl_stmt|;
-name|struct
-name|timeval
-name|tv
-decl_stmt|;
 name|ngx_int_t
 name|ignore
 decl_stmt|;
@@ -1403,17 +1399,11 @@ block|{
 break|break;
 block|}
 block|}
-name|ngx_gettimeofday
-argument_list|(
-operator|&
-name|tv
-argument_list|)
-expr_stmt|;
 name|ngx_time_update
 argument_list|(
-name|tv
-operator|.
-name|tv_sec
+literal|0
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|action
@@ -1842,6 +1832,7 @@ argument_list|,
 literal|"waitpid() failed"
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 endif|#
 directive|endif
@@ -2104,7 +2095,7 @@ break|break;
 case|case
 name|NGX_DEBUG_POINTS_ABORT
 case|:
-name|abort
+name|ngx_abort
 argument_list|()
 expr_stmt|;
 block|}

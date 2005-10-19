@@ -152,6 +152,14 @@ parameter_list|)
 value|InterlockedExchangeAdd((long *) p, add)
 end_define
 
+begin_define
+DECL|macro|ngx_memory_barrier ()
+define|#
+directive|define
+name|ngx_memory_barrier
+parameter_list|()
+end_define
+
 begin_function_decl
 name|void
 name|ngx_spinlock

@@ -16,8 +16,8 @@ file|<ngx_core.h>
 end_include
 
 begin_function
-DECL|function|ngx_gettimeofday (struct timeval * tp)
 name|void
+DECL|function|ngx_gettimeofday (struct timeval * tp)
 name|ngx_gettimeofday
 parameter_list|(
 name|struct
@@ -94,35 +94,30 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_libc_localtime (struct tm * tm)
 name|void
+DECL|function|ngx_libc_localtime (time_t s,struct tm * tm)
 name|ngx_libc_localtime
 parameter_list|(
+name|time_t
+name|s
+parameter_list|,
 name|struct
 name|tm
 modifier|*
 name|tm
 parameter_list|)
 block|{
-name|time_t
-name|now
-decl_stmt|;
 name|struct
 name|tm
 modifier|*
 name|t
 decl_stmt|;
-name|now
-operator|=
-name|ngx_time
-argument_list|()
-expr_stmt|;
 name|t
 operator|=
 name|localtime
 argument_list|(
 operator|&
-name|now
+name|s
 argument_list|)
 expr_stmt|;
 operator|*
@@ -135,35 +130,30 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_libc_gmtime (struct tm * tm)
 name|void
+DECL|function|ngx_libc_gmtime (time_t s,struct tm * tm)
 name|ngx_libc_gmtime
 parameter_list|(
+name|time_t
+name|s
+parameter_list|,
 name|struct
 name|tm
 modifier|*
 name|tm
 parameter_list|)
 block|{
-name|time_t
-name|now
-decl_stmt|;
 name|struct
 name|tm
 modifier|*
 name|t
 decl_stmt|;
-name|now
-operator|=
-name|ngx_time
-argument_list|()
-expr_stmt|;
 name|t
 operator|=
 name|gmtime
 argument_list|(
 operator|&
-name|now
+name|s
 argument_list|)
 expr_stmt|;
 operator|*
@@ -176,8 +166,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_gettimezone (void)
 name|ngx_int_t
+DECL|function|ngx_gettimezone (void)
 name|ngx_gettimezone
 parameter_list|(
 name|void

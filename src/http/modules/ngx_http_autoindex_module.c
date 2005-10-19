@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2bdb36a20108
+DECL|struct|__anon28f779ad0108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bdb36a20208
+DECL|struct|__anon28f779ad0208
 typedef|typedef
 struct|struct
 block|{
@@ -467,6 +467,10 @@ decl_stmt|;
 name|ngx_pool_t
 modifier|*
 name|pool
+decl_stmt|;
+name|ngx_time_t
+modifier|*
+name|tp
 decl_stmt|;
 name|ngx_chain_t
 name|out
@@ -1736,6 +1740,11 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
+name|tp
+operator|=
+name|ngx_timeofday
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 name|i
@@ -2124,7 +2133,9 @@ index|]
 operator|.
 name|mtime
 operator|+
-name|ngx_gmtoff
+name|tp
+operator|->
+name|gmtoff
 operator|*
 literal|60
 operator|*

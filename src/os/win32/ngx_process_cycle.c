@@ -29,8 +29,8 @@ end_include
 
 begin_function_decl
 specifier|static
-name|void
-modifier|*
+name|ngx_thread_value_t
+name|__stdcall
 name|ngx_worker_thread_cycle
 parameter_list|(
 name|void
@@ -783,8 +783,8 @@ end_function
 
 begin_function
 specifier|static
-name|void
-modifier|*
+name|ngx_thread_value_t
+name|__stdcall
 DECL|function|ngx_worker_thread_cycle (void * data)
 name|ngx_worker_thread_cycle
 parameter_list|(
@@ -824,14 +824,14 @@ argument_list|,
 literal|"worker cycle"
 argument_list|)
 expr_stmt|;
-name|ngx_process_events
+name|ngx_process_events_and_timers
 argument_list|(
 name|cycle
 argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|NULL
+literal|0
 return|;
 block|}
 end_function

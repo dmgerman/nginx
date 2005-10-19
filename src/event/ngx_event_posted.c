@@ -22,6 +22,15 @@ file|<ngx_event.h>
 end_include
 
 begin_decl_stmt
+DECL|variable|ngx_posted_accept_events
+name|ngx_thread_volatile
+name|ngx_event_t
+modifier|*
+name|ngx_posted_accept_events
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_posted_events
 name|ngx_thread_volatile
 name|ngx_event_t
@@ -52,13 +61,19 @@ directive|endif
 end_endif
 
 begin_function
-DECL|function|ngx_event_process_posted (ngx_cycle_t * cycle)
 name|void
+DECL|function|ngx_event_process_posted (ngx_cycle_t * cycle,ngx_thread_volatile ngx_event_t ** posted)
 name|ngx_event_process_posted
 parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
+parameter_list|,
+name|ngx_thread_volatile
+name|ngx_event_t
+modifier|*
+modifier|*
+name|posted
 parameter_list|)
 block|{
 name|ngx_event_t
@@ -77,7 +92,8 @@ operator|(
 name|ngx_event_t
 operator|*
 operator|)
-name|ngx_posted_events
+operator|*
+name|posted
 expr_stmt|;
 name|ngx_log_debug1
 argument_list|(
@@ -133,8 +149,8 @@ operator|)
 end_if
 
 begin_function
-DECL|function|ngx_wakeup_worker_thread (ngx_cycle_t * cycle)
 name|void
+DECL|function|ngx_wakeup_worker_thread (ngx_cycle_t * cycle)
 name|ngx_wakeup_worker_thread
 parameter_list|(
 name|ngx_cycle_t
@@ -194,8 +210,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_event_thread_process_posted (ngx_cycle_t * cycle)
 name|ngx_int_t
+DECL|function|ngx_event_thread_process_posted (ngx_cycle_t * cycle)
 name|ngx_event_thread_process_posted
 parameter_list|(
 name|ngx_cycle_t
@@ -464,20 +480,11 @@ argument_list|(
 name|ev
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
 name|ngx_mutex_lock
 argument_list|(
 name|ngx_posted_events_mutex
 argument_list|)
-operator|==
-name|NGX_ERROR
-condition|)
-block|{
-return|return
-name|NGX_ERROR
-return|;
-block|}
+expr_stmt|;
 if|if
 condition|(
 name|ev
@@ -539,8 +546,8 @@ directive|else
 end_else
 
 begin_function
-DECL|function|ngx_wakeup_worker_thread (ngx_cycle_t * cycle)
 name|void
+DECL|function|ngx_wakeup_worker_thread (ngx_cycle_t * cycle)
 name|ngx_wakeup_worker_thread
 parameter_list|(
 name|ngx_cycle_t
