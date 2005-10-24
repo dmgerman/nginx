@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2aa618640108
+DECL|struct|__anon2791f8ac0108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa618640208
+DECL|struct|__anon2791f8ac0208
 typedef|typedef
 struct|struct
 block|{
@@ -134,7 +134,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2aa618640303
+DECL|enum|__anon2791f8ac0303
 typedef|typedef
 enum|enum
 block|{
@@ -161,7 +161,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa618640408
+DECL|struct|__anon2791f8ac0408
 typedef|typedef
 struct|struct
 block|{
@@ -181,7 +181,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa618640508
+DECL|struct|__anon2791f8ac0508
 typedef|typedef
 struct|struct
 block|{
@@ -197,9 +197,9 @@ index|[
 name|NGX_HTTP_LAST_PHASE
 index|]
 decl_stmt|;
-DECL|member|index_handlers
-name|ngx_array_t
-name|index_handlers
+DECL|member|log_handler
+name|ngx_http_handler_pt
+name|log_handler
 decl_stmt|;
 DECL|member|headers_in_hash
 name|ngx_hash_t
@@ -238,7 +238,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa618640608
+DECL|struct|__anon2791f8ac0608
 typedef|typedef
 struct|struct
 block|{
@@ -302,7 +302,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2aa618640708
+DECL|struct|__anon2791f8ac0708
 typedef|typedef
 struct|struct
 block|{
@@ -365,7 +365,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2aa618640808
+DECL|struct|__anon2791f8ac0808
 typedef|typedef
 struct|struct
 block|{
@@ -431,7 +431,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon2aa618640908
+DECL|struct|__anon2791f8ac0908
 typedef|typedef
 struct|struct
 block|{
@@ -450,7 +450,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa618640a08
+DECL|struct|__anon2791f8ac0a08
 typedef|typedef
 struct|struct
 block|{
@@ -814,6 +814,21 @@ parameter_list|,
 name|ngx_str_t
 modifier|*
 name|args
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_http_cleanup_t
+modifier|*
+name|ngx_http_cleanup_add
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|size_t
+name|size
 parameter_list|)
 function_decl|;
 end_function_decl

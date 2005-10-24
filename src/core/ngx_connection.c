@@ -1782,7 +1782,14 @@ name|log
 argument_list|,
 name|ngx_socket_errno
 argument_list|,
-literal|"setsockopt(SO_RCVBUF) %V failed, ignored"
+literal|"setsockopt(SO_RCVBUF, %d) %V failed, ignored"
+argument_list|,
+name|ls
+index|[
+name|i
+index|]
+operator|.
+name|rcvbuf
 argument_list|,
 operator|&
 name|ls
@@ -1793,7 +1800,6 @@ operator|.
 name|addr_text
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
 block|}
 if|if
@@ -1857,7 +1863,14 @@ name|log
 argument_list|,
 name|ngx_socket_errno
 argument_list|,
-literal|"setsockopt(SO_SNDBUF) %V failed, ignored"
+literal|"setsockopt(SO_SNDBUF, %d) %V failed, ignored"
+argument_list|,
+name|ls
+index|[
+name|i
+index|]
+operator|.
+name|sndbuf
 argument_list|,
 operator|&
 name|ls
@@ -1868,7 +1881,6 @@ operator|.
 name|addr_text
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
 block|}
 if|if

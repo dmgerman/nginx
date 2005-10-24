@@ -78,7 +78,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2bc2f81c0108
+DECL|struct|__anon2927356e0108
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc2f81c0208
+DECL|struct|__anon2927356e0208
 typedef|typedef
 struct|struct
 block|{
@@ -134,7 +134,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc2f81c0308
+DECL|struct|__anon2927356e0308
 typedef|typedef
 struct|struct
 block|{
@@ -272,7 +272,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc2f81c0408
+DECL|struct|__anon2927356e0408
 typedef|typedef
 struct|struct
 block|{
@@ -295,7 +295,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc2f81c0508
+DECL|struct|__anon2927356e0508
 typedef|typedef
 struct|struct
 block|{
@@ -331,7 +331,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2bc2f81c0603
+DECL|enum|__anon2927356e0603
 typedef|typedef
 enum|enum
 block|{
@@ -942,41 +942,21 @@ block|}
 decl_stmt|;
 end_decl_stmt
 
-begin_function_decl
+begin_decl_stmt
 DECL|variable|ngx_http_next_header_filter
 specifier|static
-name|ngx_int_t
-function_decl|(
-modifier|*
+name|ngx_http_output_header_filter_pt
 name|ngx_http_next_header_filter
-function_decl|)
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|)
-function_decl|;
-end_function_decl
+decl_stmt|;
+end_decl_stmt
 
-begin_function_decl
+begin_decl_stmt
 DECL|variable|ngx_http_next_body_filter
 specifier|static
-name|ngx_int_t
-function_decl|(
-modifier|*
+name|ngx_http_output_body_filter_pt
 name|ngx_http_next_body_filter
-function_decl|)
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|,
-name|ngx_chain_t
-modifier|*
-name|in
-parameter_list|)
-function_decl|;
-end_function_decl
+decl_stmt|;
+end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_http_ssi_string
@@ -1889,6 +1869,10 @@ decl_stmt|;
 name|ngx_table_elt_t
 modifier|*
 name|param
+decl_stmt|;
+name|ngx_connection_t
+modifier|*
+name|c
 decl_stmt|;
 name|ngx_http_ssi_ctx_t
 modifier|*
@@ -3081,8 +3065,14 @@ name|NGX_ERROR
 return|;
 block|}
 block|}
-if|if
-condition|(
+name|c
+operator|=
+name|r
+operator|->
+name|connection
+expr_stmt|;
+name|rc
+operator|=
 name|cmd
 operator|->
 name|handler
@@ -3093,6 +3083,21 @@ name|ctx
 argument_list|,
 name|params
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|c
+operator|->
+name|closed
+condition|)
+block|{
+return|return
+name|NGX_DONE
+return|;
+block|}
+if|if
+condition|(
+name|rc
 operator|==
 name|NGX_OK
 condition|)

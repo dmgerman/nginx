@@ -385,7 +385,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon2c27b5ac0103
+DECL|enum|__anon2abac50a0103
 typedef|typedef
 enum|enum
 block|{
@@ -406,7 +406,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c27b5ac0203
+DECL|enum|__anon2abac50a0203
 typedef|typedef
 enum|enum
 block|{
@@ -445,7 +445,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c27b5ac0308
+DECL|struct|__anon2abac50a0308
 typedef|typedef
 struct|struct
 block|{
@@ -468,7 +468,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c27b5ac0408
+DECL|struct|__anon2abac50a0408
 typedef|typedef
 struct|struct
 block|{
@@ -480,14 +480,14 @@ DECL|member|offset
 name|ngx_uint_t
 name|offset
 decl_stmt|;
-DECL|typedef|ngx_http_header0_t
+DECL|typedef|ngx_http_header_out_t
 block|}
-name|ngx_http_header0_t
+name|ngx_http_header_out_t
 typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c27b5ac0508
+DECL|struct|__anon2abac50a0508
 typedef|typedef
 struct|struct
 block|{
@@ -658,7 +658,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c27b5ac0608
+DECL|struct|__anon2abac50a0608
 typedef|typedef
 struct|struct
 block|{
@@ -681,7 +681,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c27b5ac0708
+DECL|struct|__anon2abac50a0708
 typedef|typedef
 struct|struct
 block|{
@@ -803,7 +803,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c27b5ac0808
+DECL|struct|__anon2abac50a0808
 typedef|typedef
 struct|struct
 block|{
@@ -837,7 +837,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c27b5ac0908
+DECL|struct|__anon2abac50a0908
 typedef|typedef
 struct|struct
 block|{
@@ -876,6 +876,54 @@ block|}
 name|ngx_http_connection_t
 typedef|;
 end_typedef
+
+begin_typedef
+DECL|typedef|ngx_http_cleanup_pt
+typedef|typedef
+name|void
+function_decl|(
+modifier|*
+name|ngx_http_cleanup_pt
+function_decl|)
+parameter_list|(
+name|void
+modifier|*
+name|data
+parameter_list|)
+function_decl|;
+end_typedef
+
+begin_typedef
+DECL|typedef|ngx_http_cleanup_t
+typedef|typedef
+name|struct
+name|ngx_http_cleanup_s
+name|ngx_http_cleanup_t
+typedef|;
+end_typedef
+
+begin_struct
+DECL|struct|ngx_http_cleanup_s
+struct|struct
+name|ngx_http_cleanup_s
+block|{
+DECL|member|handler
+name|ngx_http_cleanup_pt
+name|handler
+decl_stmt|;
+DECL|member|data
+name|void
+modifier|*
+name|data
+decl_stmt|;
+DECL|member|next
+name|ngx_http_cleanup_t
+modifier|*
+name|next
+decl_stmt|;
+block|}
+struct|;
+end_struct
 
 begin_typedef
 DECL|typedef|ngx_http_postponed_request_t
@@ -1170,6 +1218,11 @@ decl_stmt|;
 DECL|member|log_handler
 name|ngx_http_log_handler_pt
 name|log_handler
+decl_stmt|;
+DECL|member|cleanup
+name|ngx_http_cleanup_t
+modifier|*
+name|cleanup
 decl_stmt|;
 DECL|member|http_state
 name|unsigned
@@ -1482,7 +1535,7 @@ end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
-name|ngx_http_header0_t
+name|ngx_http_header_out_t
 name|ngx_http_headers_out
 index|[]
 decl_stmt|;

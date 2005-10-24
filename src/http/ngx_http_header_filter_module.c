@@ -354,7 +354,7 @@ end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_http_headers_out
-name|ngx_http_header0_t
+name|ngx_http_header_out_t
 name|ngx_http_headers_out
 index|[]
 init|=
