@@ -246,6 +246,33 @@ function_decl|;
 end_function_decl
 
 begin_define
+DECL|macro|ngx_write_fd
+define|#
+directive|define
+name|ngx_write_fd
+value|write
+end_define
+
+begin_define
+DECL|macro|ngx_linefeed (p)
+define|#
+directive|define
+name|ngx_linefeed
+parameter_list|(
+name|p
+parameter_list|)
+value|*p++ = LF;
+end_define
+
+begin_define
+DECL|macro|NGX_LINEFEED_SIZE
+define|#
+directive|define
+name|NGX_LINEFEED_SIZE
+value|1
+end_define
+
+begin_define
 DECL|macro|ngx_rename_file
 define|#
 directive|define

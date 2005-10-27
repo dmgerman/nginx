@@ -607,6 +607,7 @@ operator|*
 name|lock
 operator|==
 name|old
+condition|)
 block|{
 operator|*
 name|lock
@@ -627,6 +628,7 @@ begin_function
 specifier|static
 name|ngx_inline
 name|ngx_atomic_int_t
+DECL|function|ngx_atomic_fetch_add (ngx_atomic_t * value,ngx_atomic_int_t add)
 name|ngx_atomic_fetch_add
 parameter_list|(
 name|ngx_atomic_t
@@ -656,6 +658,14 @@ return|;
 block|}
 end_function
 
+begin_define
+DECL|macro|ngx_memory_barrier ()
+define|#
+directive|define
+name|ngx_memory_barrier
+parameter_list|()
+end_define
+
 begin_endif
 endif|#
 directive|endif
@@ -676,6 +686,7 @@ function_decl|;
 end_function_decl
 
 begin_define
+DECL|macro|ngx_trylock (lock)
 define|#
 directive|define
 name|ngx_trylock
@@ -686,6 +697,7 @@ value|(*(lock) == 0&& ngx_atomic_cmp_set(lock, 0, 1))
 end_define
 
 begin_define
+DECL|macro|ngx_unlock (lock)
 define|#
 directive|define
 name|ngx_unlock

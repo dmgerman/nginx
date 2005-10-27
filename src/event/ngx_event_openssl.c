@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a3481f10108
+DECL|struct|__anon29002c860108
 typedef|typedef
 struct|struct
 block|{
@@ -135,6 +135,18 @@ parameter_list|,
 name|void
 modifier|*
 name|conf
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
+name|void
+name|ngx_openssl_exit
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -279,7 +291,7 @@ comment|/* exit thread */
 name|NULL
 block|,
 comment|/* exit process */
-name|NULL
+name|ngx_openssl_exit
 block|,
 comment|/* exit master */
 name|NGX_MODULE_V1_PADDING
@@ -3734,6 +3746,30 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_function
+specifier|static
+name|void
+DECL|function|ngx_openssl_exit (ngx_cycle_t * cycle)
+name|ngx_openssl_exit
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|)
+block|{
+if|#
+directive|if
+operator|(
+name|NGX_SSL_ENGINE
+operator|)
+name|ENGINE_cleanup
+argument_list|()
+expr_stmt|;
+endif|#
+directive|endif
+block|}
+end_function
 
 end_unit
 

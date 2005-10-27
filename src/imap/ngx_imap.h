@@ -60,7 +60,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c9864420108
+DECL|struct|__anon28896a380108
 typedef|typedef
 struct|struct
 block|{
@@ -83,7 +83,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c9864420208
+DECL|struct|__anon28896a380208
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2c9864420308
+DECL|struct|__anon28896a380308
 typedef|typedef
 struct|struct
 block|{
@@ -162,7 +162,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c9864420408
+DECL|struct|__anon28896a380408
 typedef|typedef
 struct|struct
 block|{
@@ -237,7 +237,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c9864420503
+DECL|enum|__anon28896a380503
 typedef|typedef
 enum|enum
 block|{
@@ -261,7 +261,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c9864420603
+DECL|enum|__anon28896a380603
 typedef|typedef
 enum|enum
 block|{
@@ -282,7 +282,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c9864420708
+DECL|struct|__anon28896a380708
 typedef|typedef
 struct|struct
 block|{
@@ -302,7 +302,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c9864420808
+DECL|struct|__anon28896a380808
 typedef|typedef
 struct|struct
 block|{
@@ -447,7 +447,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c9864420908
+DECL|struct|__anon28896a380908
 typedef|typedef
 struct|struct
 block|{
@@ -617,22 +617,6 @@ define|#
 directive|define
 name|NGX_IMAP_PARSE_INVALID_COMMAND
 value|20
-end_define
-
-begin_define
-DECL|macro|NGX_IMAP_PROXY_INVALID
-define|#
-directive|define
-name|NGX_IMAP_PROXY_INVALID
-value|10
-end_define
-
-begin_define
-DECL|macro|NGX_IMAP_PROXY_ERROR
-define|#
-directive|define
-name|NGX_IMAP_PROXY_ERROR
-value|11
 end_define
 
 begin_define

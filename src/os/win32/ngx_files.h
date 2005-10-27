@@ -215,6 +215,40 @@ value|"CloseHandle()"
 end_define
 
 begin_define
+DECL|macro|ngx_write_fd (fd,buf,size)
+define|#
+directive|define
+name|ngx_write_fd
+parameter_list|(
+name|fd
+parameter_list|,
+name|buf
+parameter_list|,
+name|size
+parameter_list|)
+value|WriteFile(fd, buf, size, NULL, NULL)
+end_define
+
+begin_define
+DECL|macro|ngx_linefeed (p)
+define|#
+directive|define
+name|ngx_linefeed
+parameter_list|(
+name|p
+parameter_list|)
+value|*p++ = CR; *p++ = LF;
+end_define
+
+begin_define
+DECL|macro|NGX_LINEFEED_SIZE
+define|#
+directive|define
+name|NGX_LINEFEED_SIZE
+value|2
+end_define
+
+begin_define
 DECL|macro|ngx_delete_file (name)
 define|#
 directive|define
