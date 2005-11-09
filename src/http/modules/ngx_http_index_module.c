@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon289d9c270108
+DECL|struct|__anon2b0922b90108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289d9c270208
+DECL|struct|__anon2b0922b90208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289d9c270308
+DECL|struct|__anon2b0922b90308
 typedef|typedef
 struct|struct
 block|{
@@ -663,6 +663,12 @@ name|request
 operator|=
 name|r
 expr_stmt|;
+name|e
+operator|.
+name|flushed
+operator|=
+literal|1
+expr_stmt|;
 comment|/* 1 byte for terminating '\0' */
 name|len
 operator|=
@@ -1234,7 +1240,7 @@ return|;
 block|}
 name|last
 operator|=
-name|ngx_cpymem
+name|ngx_copy
 argument_list|(
 name|uri
 operator|.
@@ -2086,7 +2092,7 @@ operator|.
 name|len
 expr_stmt|;
 block|}
-comment|/* include the terminating '\0' to the length to use ngx_memcpy() */
+comment|/* include the terminating '\0' to the length to use ngx_copy() */
 name|index
 operator|->
 name|name

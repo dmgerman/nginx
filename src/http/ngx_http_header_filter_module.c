@@ -1495,7 +1495,7 @@ name|b
 operator|->
 name|last
 operator|=
-name|ngx_cpymem
+name|ngx_copy
 argument_list|(
 name|b
 operator|->
@@ -1525,7 +1525,7 @@ name|b
 operator|->
 name|last
 operator|=
-name|ngx_cpymem
+name|ngx_copy
 argument_list|(
 name|b
 operator|->
@@ -1703,7 +1703,7 @@ name|b
 operator|->
 name|last
 operator|=
-name|ngx_cpymem
+name|ngx_copy
 argument_list|(
 name|b
 operator|->
@@ -1761,7 +1761,7 @@ name|b
 operator|->
 name|last
 operator|=
-name|ngx_cpymem
+name|ngx_copy
 argument_list|(
 name|b
 operator|->
@@ -2061,7 +2061,7 @@ name|b
 operator|->
 name|last
 operator|=
-name|ngx_cpymem
+name|ngx_copy
 argument_list|(
 name|b
 operator|->
@@ -2114,7 +2114,7 @@ name|b
 operator|->
 name|last
 operator|=
-name|ngx_cpymem
+name|ngx_copy
 argument_list|(
 name|b
 operator|->
@@ -2152,7 +2152,7 @@ name|b
 operator|->
 name|last
 operator|=
-name|ngx_cpymem
+name|ngx_copy
 argument_list|(
 name|b
 operator|->
@@ -2178,7 +2178,7 @@ name|b
 operator|->
 name|last
 operator|=
-name|ngx_cpymem
+name|ngx_copy
 argument_list|(
 name|b
 operator|->
@@ -2446,7 +2446,7 @@ name|b
 operator|->
 name|last
 operator|=
-name|ngx_cpymem
+name|ngx_copy
 argument_list|(
 name|b
 operator|->
@@ -2491,7 +2491,7 @@ name|b
 operator|->
 name|last
 operator|=
-name|ngx_cpymem
+name|ngx_copy
 argument_list|(
 name|b
 operator|->

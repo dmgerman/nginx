@@ -35,6 +35,30 @@ end_define
 
 begin_function_decl
 specifier|static
+name|ngx_int_t
+name|ngx_enable_accept_events
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
+name|ngx_int_t
+name|ngx_disable_accept_events
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
 name|void
 name|ngx_close_accepted_connection
 parameter_list|(
@@ -1070,10 +1094,30 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
 name|ngx_accept_mutex_held
+operator|&&
+operator|(
+operator|!
+operator|(
+name|ngx_event_flags
+operator|&
+name|NGX_USE_RTSIG_EVENT
+operator|)
+operator|||
+operator|*
+name|ngx_accept_mutex_last_owner
+operator|==
+operator|(
+name|ngx_atomic_t
+operator|)
+name|ngx_pid
+operator|)
 condition|)
 block|{
+return|return
+name|NGX_OK
+return|;
+block|}
 if|if
 condition|(
 name|ngx_enable_accept_events
@@ -1097,7 +1141,6 @@ name|ngx_accept_mutex_held
 operator|=
 literal|1
 expr_stmt|;
-block|}
 return|return
 name|NGX_OK
 return|;
@@ -1133,6 +1176,7 @@ block|}
 end_function
 
 begin_function
+specifier|static
 name|ngx_int_t
 DECL|function|ngx_enable_accept_events (ngx_cycle_t * cycle)
 name|ngx_enable_accept_events
@@ -1197,6 +1241,20 @@ condition|)
 block|{
 if|if
 condition|(
+name|ngx_accept_mutex_held
+condition|)
+block|{
+name|c
+operator|->
+name|read
+operator|->
+name|disabled
+operator|=
+literal|1
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|ngx_add_conn
 argument_list|(
 name|c
@@ -1209,6 +1267,11 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+operator|*
+name|ngx_accept_mutex_last_owner
+operator|=
+name|ngx_pid
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -1241,6 +1304,7 @@ block|}
 end_function
 
 begin_function
+specifier|static
 name|ngx_int_t
 DECL|function|ngx_disable_accept_events (ngx_cycle_t * cycle)
 name|ngx_disable_accept_events

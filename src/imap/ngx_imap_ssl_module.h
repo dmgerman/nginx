@@ -35,7 +35,7 @@ file|<ngx_imap.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b216e400108
+DECL|struct|__anon2a0e24f40108
 typedef|typedef
 struct|struct
 block|{
@@ -54,6 +54,10 @@ decl_stmt|;
 DECL|member|protocols
 name|ngx_uint_t
 name|protocols
+decl_stmt|;
+DECL|member|session_timeout
+name|time_t
+name|session_timeout
 decl_stmt|;
 DECL|member|certificate
 name|ngx_str_t

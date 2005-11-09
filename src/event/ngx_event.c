@@ -289,6 +289,14 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_accept_mutex_last_owner
+name|ngx_atomic_t
+modifier|*
+name|ngx_accept_mutex_last_owner
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_accept_mutex
 name|ngx_atomic_t
 modifier|*
@@ -980,15 +988,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|delta
-condition|)
-block|{
-name|ngx_event_expire_timers
-argument_list|()
-expr_stmt|;
-block|}
-if|if
-condition|(
 name|ngx_posted_accept_events
 condition|)
 block|{
@@ -1010,6 +1009,15 @@ operator|*
 name|ngx_accept_mutex
 operator|=
 literal|0
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|delta
+condition|)
+block|{
+name|ngx_event_expire_timers
+argument_list|()
 expr_stmt|;
 block|}
 name|ngx_log_debug1
@@ -1738,6 +1746,9 @@ literal|128
 comment|/* ngx_accept_mutex */
 operator|+
 literal|128
+comment|/* ngx_accept_mutex_last_owner */
+operator|+
+literal|128
 expr_stmt|;
 comment|/* ngx_connection_counter */
 if|#
@@ -1797,6 +1808,20 @@ operator|*
 operator|)
 name|shared
 expr_stmt|;
+name|ngx_accept_mutex_last_owner
+operator|=
+operator|(
+name|ngx_atomic_t
+operator|*
+operator|)
+operator|(
+name|shared
+operator|+
+literal|1
+operator|*
+literal|128
+operator|)
+expr_stmt|;
 name|ngx_connection_counter
 operator|=
 operator|(
@@ -1806,6 +1831,8 @@ operator|)
 operator|(
 name|shared
 operator|+
+literal|2
+operator|*
 literal|128
 operator|)
 expr_stmt|;
@@ -1823,7 +1850,7 @@ operator|)
 operator|(
 name|shared
 operator|+
-literal|2
+literal|3
 operator|*
 literal|128
 operator|)
@@ -1837,7 +1864,7 @@ operator|)
 operator|(
 name|shared
 operator|+
-literal|3
+literal|4
 operator|*
 literal|128
 operator|)
@@ -1851,7 +1878,7 @@ operator|)
 operator|(
 name|shared
 operator|+
-literal|4
+literal|5
 operator|*
 literal|128
 operator|)
@@ -1865,7 +1892,7 @@ operator|)
 operator|(
 name|shared
 operator|+
-literal|5
+literal|6
 operator|*
 literal|128
 operator|)
@@ -1879,7 +1906,7 @@ operator|)
 operator|(
 name|shared
 operator|+
-literal|6
+literal|7
 operator|*
 literal|128
 operator|)
@@ -1893,7 +1920,7 @@ operator|)
 operator|(
 name|shared
 operator|+
-literal|7
+literal|8
 operator|*
 literal|128
 operator|)
@@ -4484,6 +4511,10 @@ operator|)
 name|ngx_uint_t
 name|rtsig
 decl_stmt|;
+name|ngx_core_conf_t
+modifier|*
+name|ccf
+decl_stmt|;
 endif|#
 directive|endif
 name|ngx_int_t
@@ -4494,10 +4525,6 @@ decl_stmt|;
 name|ngx_module_t
 modifier|*
 name|module
-decl_stmt|;
-name|ngx_core_conf_t
-modifier|*
-name|ccf
 decl_stmt|;
 name|ngx_event_module_t
 modifier|*
@@ -4865,8 +4892,6 @@ return|return
 name|NGX_CONF_OK
 return|;
 block|}
-endif|#
-directive|endif
 if|if
 condition|(
 name|ecf
@@ -4922,6 +4947,13 @@ expr_stmt|;
 return|return
 name|NGX_CONF_ERROR
 return|;
+else|#
+directive|else
+return|return
+name|NGX_CONF_OK
+return|;
+endif|#
+directive|endif
 block|}
 end_function
 

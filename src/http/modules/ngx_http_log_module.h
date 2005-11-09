@@ -137,28 +137,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon276e76c60108
-typedef|typedef
-struct|struct
-block|{
-DECL|member|name
-name|ngx_str_t
-name|name
-decl_stmt|;
-DECL|member|ops
-name|ngx_array_t
-modifier|*
-name|ops
-decl_stmt|;
-comment|/* array of ngx_http_log_op_t */
-DECL|typedef|ngx_http_log_fmt_t
-block|}
-name|ngx_http_log_fmt_t
-typedef|;
-end_typedef
-
-begin_typedef
-DECL|struct|__anon276e76c60208
+DECL|struct|__anon297d11240108
 typedef|typedef
 struct|struct
 block|{
@@ -185,66 +164,6 @@ decl_stmt|;
 DECL|typedef|ngx_http_log_op_name_t
 block|}
 name|ngx_http_log_op_name_t
-typedef|;
-end_typedef
-
-begin_typedef
-DECL|struct|__anon276e76c60308
-typedef|typedef
-struct|struct
-block|{
-DECL|member|formats
-name|ngx_array_t
-name|formats
-decl_stmt|;
-comment|/* array of ngx_http_log_fmt_t */
-DECL|typedef|ngx_http_log_main_conf_t
-block|}
-name|ngx_http_log_main_conf_t
-typedef|;
-end_typedef
-
-begin_typedef
-DECL|struct|__anon276e76c60408
-typedef|typedef
-struct|struct
-block|{
-DECL|member|file
-name|ngx_open_file_t
-modifier|*
-name|file
-decl_stmt|;
-DECL|member|ops
-name|ngx_array_t
-modifier|*
-name|ops
-decl_stmt|;
-comment|/* array of ngx_http_log_op_t */
-DECL|typedef|ngx_http_log_t
-block|}
-name|ngx_http_log_t
-typedef|;
-end_typedef
-
-begin_typedef
-DECL|struct|__anon276e76c60508
-typedef|typedef
-struct|struct
-block|{
-DECL|member|logs
-name|ngx_array_t
-modifier|*
-name|logs
-decl_stmt|;
-comment|/* array of ngx_http_log_t */
-DECL|member|off
-name|ngx_uint_t
-name|off
-decl_stmt|;
-comment|/* unsigned  off:1 */
-DECL|typedef|ngx_http_log_loc_conf_t
-block|}
-name|ngx_http_log_loc_conf_t
 typedef|;
 end_typedef
 

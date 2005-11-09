@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c41ed2f0108
+DECL|struct|__anon2b57bf470108
 typedef|typedef
 struct|struct
 block|{
@@ -759,7 +759,7 @@ return|;
 block|}
 name|last
 operator|=
-name|ngx_cpymem
+name|ngx_copy
 argument_list|(
 name|location
 argument_list|,

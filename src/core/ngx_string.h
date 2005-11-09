@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ae509490108
+DECL|struct|__anon29c14f120108
 typedef|typedef
 struct|struct
 block|{
@@ -183,7 +183,7 @@ value|strncmp((const char *) s1, (const char *) s2, n)
 end_define
 
 begin_comment
-comment|/* msvc and icc compile strcmp() to inline loop */
+comment|/* msvc and icc7 compile strcmp() to inline loop */
 end_comment
 
 begin_define
@@ -224,7 +224,7 @@ value|strlen((const char *) s)
 end_define
 
 begin_comment
-comment|/*  * msvc and icc compile memset() to the inline "rep stos"  * while ZeroMemory() and bzero() are the calls.  * icc may also inline several mov's of a zeroed register for small blocks.  */
+comment|/*  * msvc and icc7 compile memset() to the inline "rep stos"  * while ZeroMemory() and bzero() are the calls.  * icc7 may also inline several mov's of a zeroed register for small blocks.  */
 end_comment
 
 begin_define
@@ -256,7 +256,7 @@ value|(void) memset(buf, c, n)
 end_define
 
 begin_comment
-comment|/* msvc and icc compile memcpy() to the inline "rep movs" */
+comment|/*  * gcc3, msvc, and icc7 compile memcpy() to the inline "rep movs".  * gcc3 compiles memcpy(d, s, 4) to the inline "mov"es.  * icc8 compile memcpy(d, s, 4) to the inline "mov"es or XMM moves.  */
 end_comment
 
 begin_define
@@ -289,8 +289,104 @@ parameter_list|)
 value|((u_char *) memcpy(dst, src, n)) + (n)
 end_define
 
+begin_if
+if|#
+directive|if
+operator|(
+name|__INTEL_COMPILER
+operator|>=
+literal|800
+operator|)
+end_if
+
 begin_comment
-comment|/* msvc and icc compile memcmp() to the inline loop */
+comment|/*  * the simple inline cycle copies the variable length strings up to 16  * bytes faster than icc8 autodetecting _intel_fast_memcpy()  */
+end_comment
+
+begin_function
+specifier|static
+name|ngx_inline
+name|u_char
+modifier|*
+DECL|function|ngx_copy (u_char * dst,u_char * src,size_t len)
+name|ngx_copy
+parameter_list|(
+name|u_char
+modifier|*
+name|dst
+parameter_list|,
+name|u_char
+modifier|*
+name|src
+parameter_list|,
+name|size_t
+name|len
+parameter_list|)
+block|{
+if|if
+condition|(
+name|len
+operator|<
+literal|17
+condition|)
+block|{
+while|while
+condition|(
+name|len
+condition|)
+block|{
+operator|*
+name|dst
+operator|++
+operator|=
+operator|*
+name|src
+operator|++
+expr_stmt|;
+name|len
+operator|--
+expr_stmt|;
+block|}
+return|return
+name|dst
+return|;
+block|}
+else|else
+block|{
+return|return
+name|ngx_cpymem
+argument_list|(
+name|dst
+argument_list|,
+name|src
+argument_list|,
+name|len
+argument_list|)
+return|;
+block|}
+block|}
+end_function
+
+begin_else
+else|#
+directive|else
+end_else
+
+begin_define
+DECL|macro|ngx_copy
+define|#
+directive|define
+name|ngx_copy
+value|ngx_cpymem
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_comment
+comment|/* msvc and icc7 compile memcmp() to the inline loop */
 end_comment
 
 begin_define

@@ -110,18 +110,6 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|ngx_int_t
-name|ngx_http_core_postconfiguration
-parameter_list|(
-name|ngx_conf_t
-modifier|*
-name|cf
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-specifier|static
 name|void
 modifier|*
 name|ngx_http_core_create_main_conf
@@ -1613,7 +1601,7 @@ block|{
 name|ngx_http_core_preconfiguration
 block|,
 comment|/* preconfiguration */
-name|ngx_http_core_postconfiguration
+name|NULL
 block|,
 comment|/* postconfiguration */
 name|ngx_http_core_create_main_conf
@@ -1868,7 +1856,17 @@ name|r
 operator|->
 name|phase
 operator|=
-name|NGX_HTTP_REWRITE_PHASE
+operator|(
+name|r
+operator|->
+expr|main
+operator|==
+name|r
+operator|)
+condition|?
+name|NGX_HTTP_POST_READ_PHASE
+else|:
+name|NGX_HTTP_SERVER_REWRITE_PHASE
 expr_stmt|;
 name|r
 operator|->
@@ -4261,7 +4259,7 @@ return|;
 block|}
 name|last
 operator|=
-name|ngx_cpymem
+name|ngx_copy
 argument_list|(
 name|path
 operator|->
@@ -4640,6 +4638,10 @@ if|if
 condition|(
 name|len
 operator|==
+literal|0
+operator|||
+name|len
+operator|==
 name|auth
 operator|.
 name|len
@@ -4727,7 +4729,7 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_http_subrequest (ngx_http_request_t * r,ngx_str_t * uri,ngx_str_t * args)
+DECL|function|ngx_http_subrequest (ngx_http_request_t * r,ngx_str_t * uri,ngx_str_t * args,ngx_uint_t flags)
 name|ngx_http_subrequest
 parameter_list|(
 name|ngx_http_request_t
@@ -4741,6 +4743,9 @@ parameter_list|,
 name|ngx_str_t
 modifier|*
 name|args
+parameter_list|,
+name|ngx_uint_t
+name|flags
 parameter_list|)
 block|{
 name|ngx_http_request_t
@@ -4984,6 +4989,23 @@ operator|=
 operator|*
 name|uri
 expr_stmt|;
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http subrequest \"%V\""
+argument_list|,
+name|uri
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|args
@@ -4995,6 +5017,37 @@ name|args
 operator|=
 operator|*
 name|args
+expr_stmt|;
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http subrequest args \"%V\""
+argument_list|,
+name|args
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|flags
+operator|&
+name|NGX_HTTP_ZERO_IN_URI
+condition|)
+block|{
+name|sr
+operator|->
+name|zero_in_uri
+operator|=
+literal|1
 expr_stmt|;
 block|}
 name|sr
@@ -5238,23 +5291,6 @@ name|r
 operator|->
 name|main_filter_need_in_memory
 expr_stmt|;
-name|ngx_log_debug1
-argument_list|(
-name|NGX_LOG_DEBUG_HTTP
-argument_list|,
-name|r
-operator|->
-name|connection
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"http subrequest \"%V\""
-argument_list|,
-name|uri
-argument_list|)
-expr_stmt|;
 name|ngx_http_handler
 argument_list|(
 name|sr
@@ -5324,6 +5360,23 @@ name|args
 operator|=
 operator|*
 name|args
+expr_stmt|;
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"internal redirect args: \"%V\""
+argument_list|,
+name|args
+argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -7407,26 +7460,6 @@ parameter_list|)
 block|{
 return|return
 name|ngx_http_variables_add_core_vars
-argument_list|(
-name|cf
-argument_list|)
-return|;
-block|}
-end_function
-
-begin_function
-specifier|static
-name|ngx_int_t
-DECL|function|ngx_http_core_postconfiguration (ngx_conf_t * cf)
-name|ngx_http_core_postconfiguration
-parameter_list|(
-name|ngx_conf_t
-modifier|*
-name|cf
-parameter_list|)
-block|{
-return|return
-name|ngx_http_variables_init_vars
 argument_list|(
 name|cf
 argument_list|)

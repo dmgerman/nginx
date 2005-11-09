@@ -40,32 +40,56 @@ directive|include
 file|<ngx_http.h>
 end_include
 
-begin_define
-DECL|macro|NGX_HTTP_VAR_NOT_FOUND
-define|#
-directive|define
-name|NGX_HTTP_VAR_NOT_FOUND
-value|(ngx_http_variable_value_t *) -1
-end_define
-
 begin_typedef
-DECL|struct|__anon2a2dda150108
+DECL|struct|__anon28f8b8750108
 typedef|typedef
 struct|struct
 block|{
-DECL|member|value
-name|ngx_uint_t
-name|value
+DECL|member|len
+name|unsigned
+name|len
+range|:
+literal|29
 decl_stmt|;
-DECL|member|text
-name|ngx_str_t
-name|text
+DECL|member|valid
+name|unsigned
+name|valid
+range|:
+literal|1
+decl_stmt|;
+DECL|member|no_cachable
+name|unsigned
+name|no_cachable
+range|:
+literal|1
+decl_stmt|;
+DECL|member|not_found
+name|unsigned
+name|not_found
+range|:
+literal|1
+decl_stmt|;
+DECL|member|data
+name|u_char
+modifier|*
+name|data
 decl_stmt|;
 DECL|typedef|ngx_http_variable_value_t
 block|}
 name|ngx_http_variable_value_t
 typedef|;
 end_typedef
+
+begin_define
+DECL|macro|ngx_http_variable (v)
+define|#
+directive|define
+name|ngx_http_variable
+parameter_list|(
+name|v
+parameter_list|)
+value|{ sizeof(v) - 1, 1, 0, 0, (u_char *) v }
+end_define
 
 begin_typedef
 DECL|typedef|ngx_http_variable_t
@@ -77,10 +101,9 @@ typedef|;
 end_typedef
 
 begin_typedef
-typedef|typedef
-name|ngx_http_variable_value_t
-modifier|*
 DECL|typedef|ngx_http_get_variable_pt
+typedef|typedef
+name|ngx_int_t
 function_decl|(
 modifier|*
 name|ngx_http_get_variable_pt
@@ -89,6 +112,10 @@ parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
+parameter_list|,
+name|ngx_http_variable_value_t
+modifier|*
+name|v
 parameter_list|,
 name|uintptr_t
 name|data
@@ -202,6 +229,21 @@ end_function_decl
 begin_function_decl
 name|ngx_http_variable_value_t
 modifier|*
+name|ngx_http_get_flushed_variable
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_uint_t
+name|index
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_http_variable_value_t
+modifier|*
 name|ngx_http_get_variable
 parameter_list|(
 name|ngx_http_request_t
@@ -214,6 +256,19 @@ name|name
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_define
+DECL|macro|ngx_http_clear_variable (r,index)
+define|#
+directive|define
+name|ngx_http_clear_variable
+parameter_list|(
+name|r
+parameter_list|,
+name|index
+parameter_list|)
+value|r->variables0[index].text.data = NULL;
+end_define
 
 begin_function_decl
 name|ngx_int_t

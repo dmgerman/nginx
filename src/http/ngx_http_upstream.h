@@ -117,7 +117,7 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon28b884440108
+DECL|struct|__anon2c39170c0108
 typedef|typedef
 struct|struct
 block|{
@@ -149,7 +149,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b884440208
+DECL|struct|__anon2c39170c0208
 typedef|typedef
 struct|struct
 block|{
@@ -164,7 +164,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b884440308
+DECL|struct|__anon2c39170c0308
 typedef|typedef
 struct|struct
 block|{
@@ -279,7 +279,6 @@ name|uri
 decl_stmt|;
 DECL|member|location
 name|ngx_str_t
-modifier|*
 name|location
 decl_stmt|;
 DECL|member|url
@@ -294,7 +293,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b884440408
+DECL|struct|__anon2c39170c0408
 typedef|typedef
 struct|struct
 block|{
@@ -330,7 +329,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b884440508
+DECL|struct|__anon2c39170c0508
 typedef|typedef
 struct|struct
 block|{

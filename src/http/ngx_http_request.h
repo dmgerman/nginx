@@ -169,6 +169,14 @@ value|13
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_ZERO_IN_URI
+define|#
+directive|define
+name|NGX_HTTP_ZERO_IN_URI
+value|1
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_OK
 define|#
 directive|define
@@ -385,7 +393,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon2abac50a0103
+DECL|enum|__anon29a1d1c50103
 typedef|typedef
 enum|enum
 block|{
@@ -406,7 +414,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2abac50a0203
+DECL|enum|__anon29a1d1c50203
 typedef|typedef
 enum|enum
 block|{
@@ -445,7 +453,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2abac50a0308
+DECL|struct|__anon29a1d1c50308
 typedef|typedef
 struct|struct
 block|{
@@ -468,7 +476,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2abac50a0408
+DECL|struct|__anon29a1d1c50408
 typedef|typedef
 struct|struct
 block|{
@@ -487,7 +495,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2abac50a0508
+DECL|struct|__anon29a1d1c50508
 typedef|typedef
 struct|struct
 block|{
@@ -566,11 +574,25 @@ if|#
 directive|if
 operator|(
 name|NGX_HTTP_PROXY
+operator|||
+name|NGX_HTTP_REALIP
 operator|)
 DECL|member|x_forwarded_for
 name|ngx_table_elt_t
 modifier|*
 name|x_forwarded_for
+decl_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_REALIP
+operator|)
+DECL|member|x_real_ip
+name|ngx_table_elt_t
+modifier|*
+name|x_real_ip
 decl_stmt|;
 endif|#
 directive|endif
@@ -658,7 +680,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2abac50a0608
+DECL|struct|__anon29a1d1c50608
 typedef|typedef
 struct|struct
 block|{
@@ -681,7 +703,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2abac50a0708
+DECL|struct|__anon29a1d1c50708
 typedef|typedef
 struct|struct
 block|{
@@ -803,7 +825,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2abac50a0808
+DECL|struct|__anon29a1d1c50808
 typedef|typedef
 struct|struct
 block|{
@@ -837,7 +859,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2abac50a0908
+DECL|struct|__anon29a1d1c50908
 typedef|typedef
 struct|struct
 block|{
@@ -1184,7 +1206,6 @@ decl_stmt|;
 DECL|member|variables
 name|ngx_http_variable_value_t
 modifier|*
-modifier|*
 name|variables
 decl_stmt|;
 DECL|member|limit_rate
@@ -1318,6 +1339,20 @@ name|no_cache
 range|:
 literal|1
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_REALIP
+operator|)
+comment|/*      * instead of using the request context data in ngx_http_realip_module      * we use the single bit in the request structure      */
+DECL|member|realip_set
+name|unsigned
+name|realip_set
+range|:
+literal|1
+decl_stmt|;
+endif|#
+directive|endif
 if|#
 directive|if
 literal|0
