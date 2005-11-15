@@ -76,14 +76,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon2a2ddc58010a
+DECL|union|__anon27709fc9010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon2a2ddc580208
+DECL|struct|__anon27709fc90208
 struct|struct
 block|{
 DECL|member|lengths
@@ -114,7 +114,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a2ddc580308
+DECL|struct|__anon27709fc90308
 typedef|typedef
 struct|struct
 block|{
@@ -199,7 +199,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2ddc580408
+DECL|struct|__anon27709fc90408
 typedef|typedef
 struct|struct
 block|{
@@ -3296,7 +3296,6 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 name|b
 operator|->
 name|last
@@ -3305,6 +3304,7 @@ name|e
 operator|.
 name|pos
 expr_stmt|;
+block|}
 if|#
 directive|if
 operator|(
@@ -3844,7 +3844,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2a2ddc580503
+DECL|enum|__anon27709fc90503
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -7254,9 +7254,15 @@ if|if
 condition|(
 name|conf
 operator|->
+name|body_source
+operator|.
+name|data
+operator|&&
+name|conf
+operator|->
 name|body_set_len
 operator|==
-literal|0
+name|NULL
 condition|)
 block|{
 name|ngx_memzero
