@@ -1849,7 +1849,7 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
-comment|/*                              * check the duplicate "default" server                               * for this address:port                              */
+comment|/*                              * check the duplicate "default" server                              * for this address:port                              */
 if|if
 condition|(
 name|lscf

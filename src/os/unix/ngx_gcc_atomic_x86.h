@@ -37,7 +37,7 @@ directive|endif
 end_endif
 
 begin_comment
-comment|/*  * "cmpxchgl  r, [m]":  *  *     if (eax == [m]) {  *         zf = 1;  *         [m] = r;  *     } else {  *         zf = 0;  *         eax = [m];  *     }  *  *   * The "q" is any of the %eax, %ebx, %ecx, or %edx registers.  * The "=a" and "a" are the %eax register.  Although we can return result  * in any register, we use %eax because it is used in cmpxchgl anyway.  * The "cc" means that flags were changed.  */
+comment|/*  * "cmpxchgl  r, [m]":  *  *     if (eax == [m]) {  *         zf = 1;  *         [m] = r;  *     } else {  *         zf = 0;  *         eax = [m];  *     }  *  *  * The "q" is any of the %eax, %ebx, %ecx, or %edx registers.  * The "=a" and "a" are the %eax register.  Although we can return result  * in any register, we use %eax because it is used in cmpxchgl anyway.  * The "cc" means that flags were changed.  */
 end_comment
 
 begin_function

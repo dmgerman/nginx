@@ -522,6 +522,14 @@ operator|->
 name|timedout
 condition|)
 block|{
+name|r
+operator|->
+name|connection
+operator|->
+name|timedout
+operator|=
+literal|1
+expr_stmt|;
 name|ngx_http_finalize_request
 argument_list|(
 name|r

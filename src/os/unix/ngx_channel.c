@@ -63,7 +63,7 @@ directive|if
 operator|(
 name|NGX_HAVE_MSGHDR_MSG_CONTROL
 operator|)
-DECL|union|__anon27b1d899010a
+DECL|union|__anon28927cf5010a
 union|union
 block|{
 DECL|member|cm
@@ -377,7 +377,7 @@ directive|if
 operator|(
 name|NGX_HAVE_MSGHDR_MSG_CONTROL
 operator|)
-DECL|union|__anon27b1d899020a
+DECL|union|__anon28927cf5020a
 union|union
 block|{
 DECL|member|cm

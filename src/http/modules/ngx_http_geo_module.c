@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c3c99960108
+DECL|struct|__anon27563d790108
 typedef|typedef
 struct|struct
 block|{
@@ -197,19 +197,6 @@ block|,
 comment|/* exit master */
 name|NGX_MODULE_V1_PADDING
 block|}
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-DECL|variable|ngx_http_geo_null_value
-specifier|static
-name|ngx_http_variable_value_t
-name|ngx_http_geo_null_value
-init|=
-name|ngx_http_variable
-argument_list|(
-literal|""
-argument_list|)
 decl_stmt|;
 end_decl_stmt
 
@@ -655,7 +642,7 @@ operator|(
 name|uintptr_t
 operator|)
 operator|&
-name|ngx_http_geo_null_value
+name|ngx_http_variable_null_value
 argument_list|)
 operator|==
 name|NGX_ERROR

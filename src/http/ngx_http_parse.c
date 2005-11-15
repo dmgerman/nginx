@@ -46,7 +46,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon295a0ef10103
+DECL|enum|__anon2b30346e0103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1656,7 +1656,7 @@ decl_stmt|;
 name|ngx_uint_t
 name|hash
 decl_stmt|;
-DECL|enum|__anon295a0ef10203
+DECL|enum|__anon2b30346e0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2325,7 +2325,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon295a0ef10303
+DECL|enum|__anon2b30346e0303
 enum|enum
 block|{
 DECL|enumerator|sw_usual

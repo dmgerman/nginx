@@ -28,8 +28,8 @@ file|<ngx_aio.h>
 end_include
 
 begin_function
-DECL|function|ngx_aio_read_chain (ngx_connection_t * c,ngx_chain_t * cl)
 name|ssize_t
+DECL|function|ngx_aio_read_chain (ngx_connection_t * c,ngx_chain_t * cl)
 name|ngx_aio_read_chain
 parameter_list|(
 name|ngx_connection_t

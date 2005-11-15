@@ -505,7 +505,7 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
-comment|/*      * set by ngx_pcalloc():        *      *     scf->protocols = 0;      *      *     scf->certificate.len = 0;      *     scf->certificate.data = NULL;      *     scf->certificate_key.len = 0;      *     scf->certificate_key.data = NULL;      *     scf->ciphers.len = 0;      *     scf->ciphers.data = NULL;      */
+comment|/*      * set by ngx_pcalloc():      *      *     scf->protocols = 0;      *      *     scf->certificate.len = 0;      *     scf->certificate.data = NULL;      *     scf->certificate_key.len = 0;      *     scf->certificate_key.data = NULL;      *     scf->ciphers.len = 0;      *     scf->ciphers.data = NULL;      */
 name|scf
 operator|->
 name|enable

@@ -2925,7 +2925,7 @@ operator|==
 name|NULL
 condition|)
 block|{
-comment|/*          * do not create the pid file in the first ngx_init_cycle() call          * because we need to write the demonized process pid           */
+comment|/*          * do not create the pid file in the first ngx_init_cycle() call          * because we need to write the demonized process pid          */
 return|return
 name|NGX_OK
 return|;

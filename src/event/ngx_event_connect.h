@@ -35,7 +35,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28eb7e110108
+DECL|struct|__anon29ea36170108
 typedef|typedef
 struct|struct
 block|{
@@ -78,6 +78,18 @@ DECL|member|fail_timeout
 name|time_t
 name|fail_timeout
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_SSL
+operator|)
+DECL|member|ssl_session
+name|ngx_ssl_session_t
+modifier|*
+name|ssl_session
+decl_stmt|;
+endif|#
+directive|endif
 DECL|typedef|ngx_peer_t
 block|}
 name|ngx_peer_t
@@ -124,7 +136,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28eb7e110208
+DECL|struct|__anon29ea36170208
 typedef|typedef
 struct|struct
 block|{

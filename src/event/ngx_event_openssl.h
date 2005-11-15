@@ -76,7 +76,7 @@ value|"OpenSSL"
 end_define
 
 begin_typedef
-DECL|struct|__anon2c89647b0108
+DECL|struct|__anon27710b350108
 typedef|typedef
 struct|struct
 block|{
@@ -102,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c89647b0208
+DECL|struct|__anon27710b350208
 typedef|typedef
 struct|struct
 block|{
@@ -163,6 +163,14 @@ typedef|;
 end_typedef
 
 begin_define
+DECL|macro|ngx_ssl_session_t
+define|#
+directive|define
+name|ngx_ssl_session_t
+value|SSL_SESSION
+end_define
+
+begin_define
 DECL|macro|NGX_SSL_SSLv2
 define|#
 directive|define
@@ -192,6 +200,14 @@ define|#
 directive|define
 name|NGX_SSL_BUFFER
 value|1
+end_define
+
+begin_define
+DECL|macro|NGX_SSL_CLIENT
+define|#
+directive|define
+name|NGX_SSL_CLIENT
+value|2
 end_define
 
 begin_define
@@ -281,6 +297,40 @@ end_function_decl
 
 begin_function_decl
 name|ngx_int_t
+name|ngx_ssl_set_session
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|,
+name|ngx_ssl_session_t
+modifier|*
+name|session
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_define
+DECL|macro|ngx_ssl_get_session (c)
+define|#
+directive|define
+name|ngx_ssl_get_session
+parameter_list|(
+name|c
+parameter_list|)
+value|SSL_get1_session(c->ssl->connection)
+end_define
+
+begin_define
+DECL|macro|ngx_ssl_free_session
+define|#
+directive|define
+name|ngx_ssl_free_session
+value|SSL_SESSION_free
+end_define
+
+begin_function_decl
+name|ngx_int_t
 name|ngx_ssl_handshake
 parameter_list|(
 name|ngx_connection_t
@@ -322,6 +372,21 @@ name|data
 parameter_list|,
 name|size_t
 name|size
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ssize_t
+name|ngx_ssl_recv_chain
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|,
+name|ngx_chain_t
+modifier|*
+name|cl
 parameter_list|)
 function_decl|;
 end_function_decl

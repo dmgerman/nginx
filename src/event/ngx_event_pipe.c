@@ -107,8 +107,8 @@ function_decl|;
 end_function_decl
 
 begin_function
-DECL|function|ngx_event_pipe (ngx_event_pipe_t * p,int do_write)
 name|ngx_int_t
+DECL|function|ngx_event_pipe (ngx_event_pipe_t * p,int do_write)
 name|ngx_event_pipe
 parameter_list|(
 name|ngx_event_pipe_t
@@ -370,9 +370,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_event_pipe_read_upstream (ngx_event_pipe_t * p)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_event_pipe_read_upstream (ngx_event_pipe_t * p)
 name|ngx_event_pipe_read_upstream
 parameter_list|(
 name|ngx_event_pipe_t
@@ -541,7 +541,7 @@ block|}
 block|}
 else|else
 block|{
-comment|/*              * kqueue notifies about the end of file or a pending error.              * This test allows not to allocate a buf on these conditions              * and not to call ngx_recv_chain().              */
+comment|/*              * kqueue notifies about the end of file or a pending error.              * This test allows not to allocate a buf on these conditions              * and not to call c->recv_chain().              */
 if|if
 condition|(
 name|p
@@ -1018,7 +1018,11 @@ break|break;
 block|}
 name|n
 operator|=
-name|ngx_recv_chain
+name|p
+operator|->
+name|upstream
+operator|->
+name|recv_chain
 argument_list|(
 name|p
 operator|->
@@ -1816,9 +1820,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_event_pipe_write_to_downstream (ngx_event_pipe_t * p)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_event_pipe_write_to_downstream (ngx_event_pipe_t * p)
 name|ngx_event_pipe_write_to_downstream
 parameter_list|(
 name|ngx_event_pipe_t
@@ -2620,9 +2624,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_event_pipe_write_chain_to_temp_file (ngx_event_pipe_t * p)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_event_pipe_write_chain_to_temp_file (ngx_event_pipe_t * p)
 name|ngx_event_pipe_write_chain_to_temp_file
 parameter_list|(
 name|ngx_event_pipe_t
@@ -3217,8 +3221,8 @@ comment|/* the copy input filter */
 end_comment
 
 begin_function
-DECL|function|ngx_event_pipe_copy_input_filter (ngx_event_pipe_t * p,ngx_buf_t * buf)
 name|ngx_int_t
+DECL|function|ngx_event_pipe_copy_input_filter (ngx_event_pipe_t * p,ngx_buf_t * buf)
 name|ngx_event_pipe_copy_input_filter
 parameter_list|(
 name|ngx_event_pipe_t
@@ -3446,10 +3450,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_event_pipe_remove_shadow_links (ngx_buf_t * buf)
 specifier|static
 name|ngx_inline
 name|void
+DECL|function|ngx_event_pipe_remove_shadow_links (ngx_buf_t * buf)
 name|ngx_event_pipe_remove_shadow_links
 parameter_list|(
 name|ngx_buf_t
@@ -3550,10 +3554,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_event_pipe_free_shadow_raw_buf (ngx_chain_t ** free,ngx_buf_t * buf)
 specifier|static
 name|ngx_inline
 name|void
+DECL|function|ngx_event_pipe_free_shadow_raw_buf (ngx_chain_t ** free,ngx_buf_t * buf)
 name|ngx_event_pipe_free_shadow_raw_buf
 parameter_list|(
 name|ngx_chain_t
@@ -3672,8 +3676,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_event_pipe_add_free_buf (ngx_event_pipe_t * p,ngx_buf_t * b)
 name|ngx_int_t
+DECL|function|ngx_event_pipe_add_free_buf (ngx_event_pipe_t * p,ngx_buf_t * b)
 name|ngx_event_pipe_add_free_buf
 parameter_list|(
 name|ngx_event_pipe_t
@@ -3826,9 +3830,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_event_pipe_drain_chains (ngx_event_pipe_t * p)
 specifier|static
 name|ngx_int_t
+DECL|function|ngx_event_pipe_drain_chains (ngx_event_pipe_t * p)
 name|ngx_event_pipe_drain_chains
 parameter_list|(
 name|ngx_event_pipe_t

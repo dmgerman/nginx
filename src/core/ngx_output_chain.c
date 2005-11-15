@@ -1925,7 +1925,11 @@ name|ctx
 operator|->
 name|out
 operator|=
-name|ngx_send_chain
+name|ctx
+operator|->
+name|connection
+operator|->
+name|send_chain
 argument_list|(
 name|ctx
 operator|->

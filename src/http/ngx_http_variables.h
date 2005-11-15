@@ -41,7 +41,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28f8b8750108
+DECL|struct|__anon2c3be4c00108
 typedef|typedef
 struct|struct
 block|{
@@ -291,6 +291,20 @@ name|cf
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_decl_stmt
+specifier|extern
+name|ngx_http_variable_value_t
+name|ngx_http_variable_null_value
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_http_variable_value_t
+name|ngx_http_variable_true_value
+decl_stmt|;
+end_decl_stmt
 
 begin_endif
 endif|#

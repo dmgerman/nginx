@@ -238,7 +238,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2b02cd560103
+DECL|enum|__anon2acd99240103
 typedef|typedef
 enum|enum
 block|{
@@ -262,7 +262,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b02cd560203
+DECL|enum|__anon2acd99240203
 typedef|typedef
 enum|enum
 block|{
@@ -283,7 +283,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b02cd560303
+DECL|enum|__anon2acd99240303
 typedef|typedef
 enum|enum
 block|{
@@ -335,6 +335,10 @@ DECL|member|send
 name|ngx_send_pt
 name|send
 decl_stmt|;
+DECL|member|recv_chain
+name|ngx_recv_chain_pt
+name|recv_chain
+decl_stmt|;
 DECL|member|send_chain
 name|ngx_send_chain_pt
 name|send_chain
@@ -385,7 +389,7 @@ decl_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_OPENSSL
+name|NGX_SSL
 operator|)
 DECL|member|ssl
 name|ngx_ssl_connection_t

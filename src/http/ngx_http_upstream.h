@@ -117,7 +117,7 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon2c39170c0108
+DECL|struct|__anon29135aee0108
 typedef|typedef
 struct|struct
 block|{
@@ -149,7 +149,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c39170c0208
+DECL|struct|__anon29135aee0208
 typedef|typedef
 struct|struct
 block|{
@@ -164,7 +164,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c39170c0308
+DECL|struct|__anon29135aee0308
 typedef|typedef
 struct|struct
 block|{
@@ -286,6 +286,18 @@ name|ngx_str_t
 name|url
 decl_stmt|;
 comment|/* used in proxy_rewrite_location */
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_SSL
+operator|)
+DECL|member|ssl
+name|ngx_ssl_t
+modifier|*
+name|ssl
+decl_stmt|;
+endif|#
+directive|endif
 DECL|typedef|ngx_http_upstream_conf_t
 block|}
 name|ngx_http_upstream_conf_t
@@ -293,7 +305,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c39170c0408
+DECL|struct|__anon29135aee0408
 typedef|typedef
 struct|struct
 block|{
@@ -329,7 +341,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c39170c0508
+DECL|struct|__anon29135aee0508
 typedef|typedef
 struct|struct
 block|{

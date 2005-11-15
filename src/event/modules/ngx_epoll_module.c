@@ -327,7 +327,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2bf32aee0108
+DECL|struct|__anon29bc97a50108
 typedef|typedef
 struct|struct
 block|{
@@ -1990,6 +1990,8 @@ name|i
 index|]
 operator|.
 name|data
+operator|.
+name|ptr
 argument_list|)
 expr_stmt|;
 if|if

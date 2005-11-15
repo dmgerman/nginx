@@ -159,7 +159,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b2e3f680108
+DECL|struct|__anon286d2fa90108
 typedef|typedef
 struct|struct
 block|{
@@ -194,6 +194,15 @@ decl_stmt|;
 DECL|member|priority
 name|int
 name|priority
+decl_stmt|;
+DECL|member|cpu_affinity_n
+name|ngx_uint_t
+name|cpu_affinity_n
+decl_stmt|;
+DECL|member|cpu_affinity
+name|u_long
+modifier|*
+name|cpu_affinity
 decl_stmt|;
 DECL|member|username
 name|char
@@ -242,7 +251,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2e3f680208
+DECL|struct|__anon286d2fa90208
 typedef|typedef
 struct|struct
 block|{
@@ -323,6 +332,16 @@ modifier|*
 specifier|const
 modifier|*
 name|argv
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|u_long
+name|ngx_get_cpu_affinity
+parameter_list|(
+name|ngx_uint_t
+name|n
 parameter_list|)
 function_decl|;
 end_function_decl

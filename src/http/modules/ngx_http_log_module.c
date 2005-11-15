@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon278e47530108
+DECL|struct|__anon2878967a0108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278e47530208
+DECL|struct|__anon2878967a0208
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +70,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278e47530308
+DECL|struct|__anon2878967a0308
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278e47530408
+DECL|struct|__anon2878967a0408
 typedef|typedef
 struct|struct
 block|{
@@ -114,7 +114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278e47530508
+DECL|struct|__anon2878967a0508
 typedef|typedef
 struct|struct
 block|{
@@ -308,7 +308,7 @@ begin_function_decl
 specifier|static
 name|u_char
 modifier|*
-name|ngx_http_log_apache_bytes_sent
+name|ngx_http_log_body_bytes_sent
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
@@ -975,7 +975,7 @@ init|=
 name|ngx_string
 argument_list|(
 literal|"$remote_addr - $remote_user [$time_gmt] "
-literal|"\"$request\" $status $apache_bytes_sent "
+literal|"\"$request\" $status $body_bytes_sent "
 literal|"\"$http_referer\" \"$http_user_agent\""
 argument_list|)
 decl_stmt|;
@@ -1076,12 +1076,23 @@ block|,
 block|{
 name|ngx_string
 argument_list|(
+literal|"body_bytes_sent"
+argument_list|)
+block|,
+name|NGX_OFF_T_LEN
+block|,
+name|ngx_http_log_body_bytes_sent
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
 literal|"apache_bytes_sent"
 argument_list|)
 block|,
 name|NGX_OFF_T_LEN
 block|,
-name|ngx_http_log_apache_bytes_sent
+name|ngx_http_log_body_bytes_sent
 block|}
 block|,
 block|{
@@ -1254,7 +1265,7 @@ name|NULL
 block|,
 name|NULL
 block|,
-name|ngx_http_log_apache_bytes_sent
+name|ngx_http_log_body_bytes_sent
 block|}
 block|,
 block|{
@@ -2290,8 +2301,8 @@ begin_function
 specifier|static
 name|u_char
 modifier|*
-DECL|function|ngx_http_log_apache_bytes_sent (ngx_http_request_t * r,u_char * buf,ngx_http_log_op_t * op)
-name|ngx_http_log_apache_bytes_sent
+DECL|function|ngx_http_log_body_bytes_sent (ngx_http_request_t * r,u_char * buf,ngx_http_log_op_t * op)
+name|ngx_http_log_body_bytes_sent
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
@@ -6211,6 +6222,35 @@ block|{
 goto|goto
 name|invalid
 goto|;
+block|}
+if|if
+condition|(
+name|ngx_strncmp
+argument_list|(
+name|var
+operator|.
+name|data
+argument_list|,
+literal|"apache_bytes_sent"
+argument_list|,
+literal|17
+argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_WARN
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"use \"$body_bytes_sent\" instead of "
+literal|"\"$apache_bytes_sent\""
+argument_list|)
+expr_stmt|;
 block|}
 for|for
 control|(

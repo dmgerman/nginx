@@ -78,7 +78,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon288cf5710108
+DECL|struct|__anon27bb2f0a0108
 typedef|typedef
 struct|struct
 block|{
@@ -1825,7 +1825,7 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|/*              * if the error events were returned without POLLIN or POLLOUT,              * then add these flags to handle the events at least in one              * active handler               */
+comment|/*              * if the error events were returned without POLLIN or POLLOUT,              * then add these flags to handle the events at least in one              * active handler              */
 name|revents
 operator||=
 name|POLLIN

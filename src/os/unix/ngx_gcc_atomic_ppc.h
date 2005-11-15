@@ -4,7 +4,7 @@ comment|/*  * Copyright (C) Igor Sysoev  */
 end_comment
 
 begin_comment
-comment|/*  * The ppc assembler treats ";" as comment, so we have to use "\n".  * The minus in "bne-" is a hint for the branch prediction unit that  * this branch is unlikely to be taken.  * The "1b" means the nearest backward label "1" and the "1f" means  * the nearest forward label "1".  *    * The "b" means that the base registers can be used only, i.e.  * any register except r0.  The r0 register always has a zero value and  * could not be used in "addi  r0, r0, 1".  * The "=&b" means that no input registers can be used.  */
+comment|/*  * The ppc assembler treats ";" as comment, so we have to use "\n".  * The minus in "bne-" is a hint for the branch prediction unit that  * this branch is unlikely to be taken.  * The "1b" means the nearest backward label "1" and the "1f" means  * the nearest forward label "1".  *  * The "b" means that the base registers can be used only, i.e.  * any register except r0.  The r0 register always has a zero value and  * could not be used in "addi  r0, r0, 1".  * The "=&b" means that no input registers can be used.  */
 end_comment
 
 begin_function

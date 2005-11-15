@@ -317,7 +317,7 @@ value|NGX_HTTP_TO_HTTPS
 end_define
 
 begin_comment
-comment|/*  * We use the special code for the plain HTTP requests that are sent to  * HTTPS port to distinguish it from 4XX in an error page redirection   */
+comment|/*  * We use the special code for the plain HTTP requests that are sent to  * HTTPS port to distinguish it from 4XX in an error page redirection  */
 end_comment
 
 begin_define
@@ -329,7 +329,7 @@ value|497
 end_define
 
 begin_comment
-comment|/*  * We use the special code for the requests with invalid host name  * to distinguish it from 4XX in an error page redirection   */
+comment|/*  * We use the special code for the requests with invalid host name  * to distinguish it from 4XX in an error page redirection  */
 end_comment
 
 begin_define
@@ -393,7 +393,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon29a1d1c50103
+DECL|enum|__anon2a51aa280103
 typedef|typedef
 enum|enum
 block|{
@@ -414,7 +414,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29a1d1c50203
+DECL|enum|__anon2a51aa280203
 typedef|typedef
 enum|enum
 block|{
@@ -453,7 +453,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a1d1c50308
+DECL|struct|__anon2a51aa280308
 typedef|typedef
 struct|struct
 block|{
@@ -476,7 +476,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a1d1c50408
+DECL|struct|__anon2a51aa280408
 typedef|typedef
 struct|struct
 block|{
@@ -495,7 +495,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a1d1c50508
+DECL|struct|__anon2a51aa280508
 typedef|typedef
 struct|struct
 block|{
@@ -680,7 +680,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a1d1c50608
+DECL|struct|__anon2a51aa280608
 typedef|typedef
 struct|struct
 block|{
@@ -703,7 +703,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a1d1c50708
+DECL|struct|__anon2a51aa280708
 typedef|typedef
 struct|struct
 block|{
@@ -825,7 +825,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a1d1c50808
+DECL|struct|__anon2a51aa280808
 typedef|typedef
 struct|struct
 block|{
@@ -859,7 +859,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a1d1c50908
+DECL|struct|__anon2a51aa280908
 typedef|typedef
 struct|struct
 block|{

@@ -28,9 +28,9 @@ file|<ngx_aio.h>
 end_include
 
 begin_function
-DECL|function|ngx_aio_write_chain (ngx_connection_t * c,ngx_chain_t * in,off_t limit)
 name|ngx_chain_t
 modifier|*
+DECL|function|ngx_aio_write_chain (ngx_connection_t * c,ngx_chain_t * in,off_t limit)
 name|ngx_aio_write_chain
 parameter_list|(
 name|ngx_connection_t

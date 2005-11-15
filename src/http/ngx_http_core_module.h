@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27ca26f60108
+DECL|struct|__anon2c300ed40108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ca26f60208
+DECL|struct|__anon2c300ed40208
 typedef|typedef
 struct|struct
 block|{
@@ -134,7 +134,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27ca26f60303
+DECL|enum|__anon2c300ed40303
 typedef|typedef
 enum|enum
 block|{
@@ -167,7 +167,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ca26f60408
+DECL|struct|__anon2c300ed40408
 typedef|typedef
 struct|struct
 block|{
@@ -187,7 +187,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ca26f60508
+DECL|struct|__anon2c300ed40508
 typedef|typedef
 struct|struct
 block|{
@@ -244,7 +244,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ca26f60608
+DECL|struct|__anon2c300ed40608
 typedef|typedef
 struct|struct
 block|{
@@ -308,7 +308,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon27ca26f60708
+DECL|struct|__anon2c300ed40708
 typedef|typedef
 struct|struct
 block|{
@@ -371,7 +371,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27ca26f60808
+DECL|struct|__anon2c300ed40808
 typedef|typedef
 struct|struct
 block|{
@@ -411,7 +411,7 @@ parameter_list|,
 name|prime
 parameter_list|)
 define|\
-value|{                                                                   \             ngx_uint_t  n;                                                  \             for (key = 0, n = 0; n< len; n++) {                            \                 key += name[n];                                             \             }                                                               \             key %= prime;                                                   \         }
+value|{                                                                   \             ngx_uint_t  n0;                                                 \             for (key = 0, n0 = 0; n0< len; n0++) {                         \                 key += name[n0];                                            \             }                                                               \             key %= prime;                                                   \         }
 end_define
 
 begin_define
@@ -437,7 +437,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon27ca26f60908
+DECL|struct|__anon2c300ed40908
 typedef|typedef
 struct|struct
 block|{
@@ -456,7 +456,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ca26f60a08
+DECL|struct|__anon2c300ed40a08
 typedef|typedef
 struct|struct
 block|{
@@ -556,11 +556,6 @@ DECL|member|handler
 name|ngx_http_handler_pt
 name|handler
 decl_stmt|;
-DECL|member|root
-name|ngx_str_t
-name|root
-decl_stmt|;
-comment|/* root, alias */
 DECL|member|types
 name|ngx_array_t
 modifier|*
@@ -569,6 +564,15 @@ decl_stmt|;
 DECL|member|default_type
 name|ngx_str_t
 name|default_type
+decl_stmt|;
+DECL|member|root
+name|ngx_str_t
+name|root
+decl_stmt|;
+comment|/* root, alias */
+DECL|member|post_action
+name|ngx_str_t
+name|post_action
 decl_stmt|;
 DECL|member|client_max_body_size
 name|size_t
@@ -701,27 +705,6 @@ directive|endif
 block|}
 struct|;
 end_struct
-
-begin_decl_stmt
-specifier|extern
-name|ngx_http_module_t
-name|ngx_http_core_module_ctx
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-specifier|extern
-name|ngx_module_t
-name|ngx_http_core_module
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-specifier|extern
-name|ngx_uint_t
-name|ngx_http_max_module
-decl_stmt|;
-end_decl_stmt
 
 begin_function_decl
 name|ngx_int_t
@@ -907,6 +890,104 @@ name|chain
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_decl_stmt
+specifier|extern
+name|ngx_http_module_t
+name|ngx_http_core_module_ctx
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_module_t
+name|ngx_http_core_module
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_uint_t
+name|ngx_http_max_module
+decl_stmt|;
+end_decl_stmt
+
+begin_define
+DECL|macro|ngx_http_clear_content_length (r)
+define|#
+directive|define
+name|ngx_http_clear_content_length
+parameter_list|(
+name|r
+parameter_list|)
+define|\                                                                               \
+value|r->headers_out.content_length_n = -1;                                     \     if (r->headers_out.content_length) {                                      \         r->headers_out.content_length->hash = 0;                              \         r->headers_out.content_length = NULL;                                 \     }
+end_define
+
+begin_expr_stmt
+unit|\
+DECL|macro|ngx_http_clear_accept_ranges (r)
+operator|#
+name|define
+name|ngx_http_clear_accept_ranges
+argument_list|(
+argument|r
+argument_list|)
+expr|\                                                                               \
+name|r
+operator|->
+name|filter_allow_ranges
+operator|=
+literal|0
+expr_stmt|;
+end_expr_stmt
+
+begin_if_stmt
+unit|\
+if|if
+condition|(
+name|r
+operator|->
+name|headers_out
+operator|.
+name|accept_ranges
+condition|)
+block|{
+block_content|\
+name|r
+operator|->
+name|headers_out
+operator|.
+name|accept_ranges
+operator|->
+name|hash
+operator|=
+literal|0
+expr_stmt|;
+block_content|\
+name|r
+operator|->
+name|headers_out
+operator|.
+name|accept_ranges
+operator|=
+name|NULL
+expr_stmt|;
+block_content|\
+block|}
+end_if_stmt
+
+begin_define
+DECL|macro|ngx_http_clear_last_modified (r)
+define|#
+directive|define
+name|ngx_http_clear_last_modified
+parameter_list|(
+name|r
+parameter_list|)
+define|\                                                                               \
+value|r->headers_out.last_modified_time = -1;                                   \     if (r->headers_out.last_modified) {                                       \         r->headers_out.last_modified->hash = 0;                               \         r->headers_out.last_modified = NULL;                                  \     }
+end_define
 
 begin_endif
 endif|#

@@ -595,6 +595,12 @@ name|ngx_send
 expr_stmt|;
 name|c
 operator|->
+name|recv_chain
+operator|=
+name|ngx_recv_chain
+expr_stmt|;
+name|c
+operator|->
 name|send_chain
 operator|=
 name|ngx_send_chain

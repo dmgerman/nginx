@@ -25,7 +25,7 @@ begin_function_decl
 specifier|static
 name|char
 modifier|*
-name|ngx_http_set_status
+name|ngx_http_empty_gif
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -43,26 +43,24 @@ function_decl|;
 end_function_decl
 
 begin_decl_stmt
-DECL|variable|ngx_http_status_commands
+DECL|variable|ngx_http_empty_gif_commands
 specifier|static
 name|ngx_command_t
-name|ngx_http_status_commands
+name|ngx_http_empty_gif_commands
 index|[]
 init|=
 block|{
 block|{
 name|ngx_string
 argument_list|(
-literal|"stub_status"
+literal|"empty_gif"
 argument_list|)
 block|,
-name|NGX_HTTP_SRV_CONF
-operator||
 name|NGX_HTTP_LOC_CONF
 operator||
-name|NGX_CONF_FLAG
+name|NGX_CONF_NOARGS
 block|,
-name|ngx_http_set_status
+name|ngx_http_empty_gif
 block|,
 literal|0
 block|,
@@ -76,10 +74,148 @@ block|}
 decl_stmt|;
 end_decl_stmt
 
+begin_comment
+comment|/* the minimal single pixel transparent GIF, 43 bytes */
+end_comment
+
 begin_decl_stmt
-DECL|variable|ngx_http_stub_status_module_ctx
+DECL|variable|ngx_empty_gif
+specifier|static
+name|u_char
+name|ngx_empty_gif
+index|[]
+init|=
+block|{
+literal|'G'
+block|,
+literal|'I'
+block|,
+literal|'F'
+block|,
+literal|'8'
+block|,
+literal|'9'
+block|,
+literal|'a'
+block|,
+comment|/* header */
+comment|/* logical screen descriptor */
+literal|0x01
+block|,
+literal|0x00
+block|,
+comment|/* logical screen width */
+literal|0x01
+block|,
+literal|0x00
+block|,
+comment|/* logical screen height */
+literal|0x80
+block|,
+comment|/* global 1-bit color table */
+literal|0x01
+block|,
+comment|/* background color #1 */
+literal|0x00
+block|,
+comment|/* no aspect ratio */
+comment|/* global color table */
+literal|0x00
+block|,
+literal|0x00
+block|,
+literal|0x00
+block|,
+comment|/* #0: black */
+literal|0xff
+block|,
+literal|0xff
+block|,
+literal|0xff
+block|,
+comment|/* #1: white */
+comment|/* graphic control extension */
+literal|0x21
+block|,
+comment|/* extension introducer */
+literal|0xf9
+block|,
+comment|/* graphic control label */
+literal|0x04
+block|,
+comment|/* block size */
+literal|0x01
+block|,
+comment|/* transparent color is given, */
+comment|/*     no disposal specified, */
+comment|/*     user input is not expected */
+literal|0x00
+block|,
+literal|0x00
+block|,
+comment|/* delay time */
+literal|0x01
+block|,
+comment|/* transparent color #1 */
+literal|0x00
+block|,
+comment|/* block terminator */
+comment|/* image descriptor */
+literal|0x2c
+block|,
+comment|/* image separator */
+literal|0x00
+block|,
+literal|0x00
+block|,
+comment|/* image left position */
+literal|0x00
+block|,
+literal|0x00
+block|,
+comment|/* image top position */
+literal|0x01
+block|,
+literal|0x00
+block|,
+comment|/* image width */
+literal|0x01
+block|,
+literal|0x00
+block|,
+comment|/* image height */
+literal|0x00
+block|,
+comment|/* no local color table, no interlaced */
+comment|/* table based image data */
+literal|0x02
+block|,
+comment|/* LZW minimum code size, */
+comment|/*     must be at least 2-bit */
+literal|0x02
+block|,
+comment|/* block size */
+literal|0x4c
+block|,
+literal|0x01
+block|,
+comment|/* compressed bytes 01_001_100, 0000000_1 */
+comment|/* 100: clear code */
+comment|/* 001: 1 */
+comment|/* 101: end of information code */
+literal|0x00
+block|,
+comment|/* block terminator */
+literal|0x3B
+comment|/* trailer */
+block|}
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_http_empty_gif_module_ctx
 name|ngx_http_module_t
-name|ngx_http_stub_status_module_ctx
+name|ngx_http_empty_gif_module_ctx
 init|=
 block|{
 name|NULL
@@ -110,18 +246,18 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_http_stub_status_module
+DECL|variable|ngx_http_empty_gif_module
 name|ngx_module_t
-name|ngx_http_stub_status_module
+name|ngx_http_empty_gif_module
 init|=
 block|{
 name|NGX_MODULE_V1
 block|,
 operator|&
-name|ngx_http_stub_status_module_ctx
+name|ngx_http_empty_gif_module_ctx
 block|,
 comment|/* module context */
-name|ngx_http_status_commands
+name|ngx_http_empty_gif_commands
 block|,
 comment|/* module directives */
 name|NGX_HTTP_MODULE
@@ -154,19 +290,16 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_http_status_handler (ngx_http_request_t * r)
 specifier|static
 name|ngx_int_t
-name|ngx_http_status_handler
+DECL|function|ngx_http_empty_gif_handler (ngx_http_request_t * r)
+name|ngx_http_empty_gif_handler
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|)
 block|{
-name|size_t
-name|size
-decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
@@ -176,19 +309,6 @@ name|b
 decl_stmt|;
 name|ngx_chain_t
 name|out
-decl_stmt|;
-name|ngx_atomic_int_t
-name|ap
-decl_stmt|,
-name|hn
-decl_stmt|,
-name|ac
-decl_stmt|,
-name|rq
-decl_stmt|,
-name|rd
-decl_stmt|,
-name|wr
 decl_stmt|;
 if|if
 condition|(
@@ -241,7 +361,7 @@ name|len
 operator|=
 sizeof|sizeof
 argument_list|(
-literal|"text/plain"
+literal|"image/gif"
 argument_list|)
 operator|-
 literal|1
@@ -258,7 +378,7 @@ operator|(
 name|u_char
 operator|*
 operator|)
-literal|"text/plain"
+literal|"image/gif"
 expr_stmt|;
 if|if
 condition|(
@@ -304,37 +424,6 @@ name|rc
 return|;
 block|}
 block|}
-name|size
-operator|=
-sizeof|sizeof
-argument_list|(
-literal|"Active connections:  \n"
-argument_list|)
-operator|+
-name|NGX_ATOMIC_T_LEN
-operator|+
-sizeof|sizeof
-argument_list|(
-literal|"server accepts handled requests\n"
-argument_list|)
-operator|-
-literal|1
-operator|+
-literal|6
-operator|+
-literal|3
-operator|*
-name|NGX_ATOMIC_T_LEN
-operator|+
-sizeof|sizeof
-argument_list|(
-literal|"Reading:  Writing:  Waiting:  \n"
-argument_list|)
-operator|+
-literal|3
-operator|*
-name|NGX_ATOMIC_T_LEN
-expr_stmt|;
 name|b
 operator|=
 name|ngx_create_temp_buf
@@ -343,7 +432,10 @@ name|r
 operator|->
 name|pool
 argument_list|,
-name|size
+sizeof|sizeof
+argument_list|(
+name|ngx_empty_gif
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -369,114 +461,28 @@ name|next
 operator|=
 name|NULL
 expr_stmt|;
-name|ap
+name|b
+operator|->
+name|pos
 operator|=
-operator|*
-name|ngx_stat_accepted
-expr_stmt|;
-name|hn
-operator|=
-operator|*
-name|ngx_stat_handled
-expr_stmt|;
-name|ac
-operator|=
-operator|*
-name|ngx_stat_active
-expr_stmt|;
-name|rq
-operator|=
-operator|*
-name|ngx_stat_requests
-expr_stmt|;
-name|rd
-operator|=
-operator|*
-name|ngx_stat_reading
-expr_stmt|;
-name|wr
-operator|=
-operator|*
-name|ngx_stat_writing
+name|ngx_empty_gif
 expr_stmt|;
 name|b
 operator|->
 name|last
 operator|=
-name|ngx_sprintf
-argument_list|(
-name|b
-operator|->
-name|last
-argument_list|,
-literal|"Active connections: %uA \n"
-argument_list|,
-name|ac
-argument_list|)
-expr_stmt|;
-name|b
-operator|->
-name|last
-operator|=
-name|ngx_cpymem
-argument_list|(
-name|b
-operator|->
-name|last
-argument_list|,
-literal|"server accepts handled requests\n"
-argument_list|,
+name|ngx_empty_gif
+operator|+
 sizeof|sizeof
 argument_list|(
-literal|"server accepts handled requests\n"
+name|ngx_empty_gif
 argument_list|)
-operator|-
+expr_stmt|;
+name|b
+operator|->
+name|last_buf
+operator|=
 literal|1
-argument_list|)
-expr_stmt|;
-name|b
-operator|->
-name|last
-operator|=
-name|ngx_sprintf
-argument_list|(
-name|b
-operator|->
-name|last
-argument_list|,
-literal|" %uA %uA %uA \n"
-argument_list|,
-name|ap
-argument_list|,
-name|hn
-argument_list|,
-name|rq
-argument_list|)
-expr_stmt|;
-name|b
-operator|->
-name|last
-operator|=
-name|ngx_sprintf
-argument_list|(
-name|b
-operator|->
-name|last
-argument_list|,
-literal|"Reading: %uA Writing: %uA Waiting: %uA \n"
-argument_list|,
-name|rd
-argument_list|,
-name|wr
-argument_list|,
-name|ac
-operator|-
-operator|(
-name|rd
-operator|+
-name|wr
-operator|)
-argument_list|)
 expr_stmt|;
 name|r
 operator|->
@@ -500,11 +506,13 @@ name|b
 operator|->
 name|pos
 expr_stmt|;
-name|b
+name|r
 operator|->
-name|last_buf
+name|headers_out
+operator|.
+name|last_modified_time
 operator|=
-literal|1
+literal|23349600
 expr_stmt|;
 name|rc
 operator|=
@@ -546,11 +554,11 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_set_status (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 specifier|static
 name|char
 modifier|*
-name|ngx_http_set_status
+DECL|function|ngx_http_empty_gif (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
+name|ngx_http_empty_gif
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -582,7 +590,7 @@ name|clcf
 operator|->
 name|handler
 operator|=
-name|ngx_http_status_handler
+name|ngx_http_empty_gif_handler
 expr_stmt|;
 return|return
 name|NGX_CONF_OK

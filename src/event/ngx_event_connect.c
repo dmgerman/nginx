@@ -709,6 +709,12 @@ name|ngx_send
 expr_stmt|;
 name|c
 operator|->
+name|recv_chain
+operator|=
+name|ngx_recv_chain
+expr_stmt|;
+name|c
+operator|->
 name|send_chain
 operator|=
 name|ngx_send_chain
@@ -1054,7 +1060,7 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-comment|/*          * FreeBSD's aio allows to post an operation on non-connected socket.          * NT does not support it.          *           * TODO: check in Win32, etc. As workaround we can use NGX_ONESHOT_EVENT          */
+comment|/*          * FreeBSD's aio allows to post an operation on non-connected socket.          * NT does not support it.          *          * TODO: check in Win32, etc. As workaround we can use NGX_ONESHOT_EVENT          */
 name|rev
 operator|->
 name|ready

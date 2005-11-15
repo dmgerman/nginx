@@ -50,7 +50,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon2b3f88d90103
+DECL|enum|__anon2b4f01550103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1593,7 +1593,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon2b3f88d90203
+DECL|enum|__anon2b4f01550203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2002,7 +2002,7 @@ condition|(
 name|ch
 condition|)
 block|{
-comment|/*            * the space should be considered part of the at username           * or password, but not of argument in other commands           *           * case ' ':           */
+comment|/*           * the space should be considered part of the at username           * or password, but not of argument in other commands           *           * case ' ':           */
 case|case
 name|CR
 case|:

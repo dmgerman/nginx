@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28f779ad0108
+DECL|struct|__anon2769f47c0108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f779ad0208
+DECL|struct|__anon2769f47c0208
 typedef|typedef
 struct|struct
 block|{

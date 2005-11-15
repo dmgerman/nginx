@@ -34,7 +34,7 @@ file|<ngx_imap.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b6604280108
+DECL|struct|__anon298ff60e0108
 typedef|typedef
 struct|struct
 block|{
@@ -758,6 +758,12 @@ argument_list|,
 literal|"upstream timed out"
 argument_list|)
 expr_stmt|;
+name|c
+operator|->
+name|timedout
+operator|=
+literal|1
+expr_stmt|;
 name|ngx_imap_proxy_internal_server_error
 argument_list|(
 name|s
@@ -1446,6 +1452,12 @@ name|NGX_ETIMEDOUT
 argument_list|,
 literal|"upstream timed out"
 argument_list|)
+expr_stmt|;
+name|c
+operator|->
+name|timedout
+operator|=
+literal|1
 expr_stmt|;
 name|ngx_imap_proxy_internal_server_error
 argument_list|(
@@ -2428,6 +2440,12 @@ name|NGX_ETIMEDOUT
 argument_list|,
 literal|"client timed out"
 argument_list|)
+expr_stmt|;
+name|c
+operator|->
+name|timedout
+operator|=
+literal|1
 expr_stmt|;
 block|}
 else|else
