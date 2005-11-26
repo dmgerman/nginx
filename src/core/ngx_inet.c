@@ -28,7 +28,7 @@ file|<ngx_event_connect.h>
 end_include
 
 begin_comment
-comment|/*  * ngx_sock_ntop() and ngx_inet_ntop() may be implemented as  * "ngx_sprintf(text, "%ud.%ud.%ud.%ud", p[0], p[1], p[2], p[3])",  * however, they were implemented long before the ngx_sprintf() appeared  * and they are faster by 1.5-2.5 times, so it is worth to keep them.  *  * By the way, the implementation using ngx_sprintf() is faster by 2.5-3 times  * than using FreeBSD libc's snprintf().  */
+comment|/*  * ngx_sock_ntop() and ngx_inet_ntop() may be implemented as  * "ngx_sprintf(text, "%ud.%ud.%ud.%ud", p[0], p[1], p[2], p[3])", however,  * they had been implemented long before the ngx_sprintf() had appeared  * and they are faster by 1.5-2.5 times, so it is worth to keep them.  *  * By the way, the implementation using ngx_sprintf() is faster by 2.5-3 times  * than using FreeBSD libc's snprintf().  */
 end_comment
 
 begin_function

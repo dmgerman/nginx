@@ -139,6 +139,11 @@ name|u_char
 modifier|*
 name|end
 decl_stmt|;
+DECL|member|current
+name|ngx_pool_t
+modifier|*
+name|current
+decl_stmt|;
 DECL|member|chain
 name|ngx_chain_t
 modifier|*
@@ -169,7 +174,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a9e2be70108
+DECL|struct|__anon28d1c52c0108
 typedef|typedef
 struct|struct
 block|{

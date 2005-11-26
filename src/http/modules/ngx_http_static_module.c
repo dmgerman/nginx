@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ae629230108
+DECL|struct|__anon296547150108
 typedef|typedef
 struct|struct
 block|{
@@ -1027,7 +1027,7 @@ return|;
 block|}
 name|r
 operator|->
-name|filter_allow_ranges
+name|allow_ranges
 operator|=
 literal|1
 expr_stmt|;

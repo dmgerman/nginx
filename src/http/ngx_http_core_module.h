@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c300ed40108
+DECL|struct|__anon2bce7e480108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c300ed40208
+DECL|struct|__anon2bce7e480208
 typedef|typedef
 struct|struct
 block|{
@@ -134,7 +134,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c300ed40303
+DECL|enum|__anon2bce7e480303
 typedef|typedef
 enum|enum
 block|{
@@ -152,14 +152,17 @@ block|,
 DECL|enumerator|NGX_HTTP_REWRITE_PHASE
 name|NGX_HTTP_REWRITE_PHASE
 block|,
+DECL|enumerator|NGX_HTTP_PREACCESS_PHASE
+name|NGX_HTTP_PREACCESS_PHASE
+block|,
 DECL|enumerator|NGX_HTTP_ACCESS_PHASE
 name|NGX_HTTP_ACCESS_PHASE
 block|,
 DECL|enumerator|NGX_HTTP_CONTENT_PHASE
 name|NGX_HTTP_CONTENT_PHASE
 block|,
-DECL|enumerator|NGX_HTTP_LAST_PHASE
-name|NGX_HTTP_LAST_PHASE
+DECL|enumerator|NGX_HTTP_LOG_PHASE
+name|NGX_HTTP_LOG_PHASE
 DECL|typedef|ngx_http_phases
 block|}
 name|ngx_http_phases
@@ -167,7 +170,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c300ed40408
+DECL|struct|__anon2bce7e480408
 typedef|typedef
 struct|struct
 block|{
@@ -187,7 +190,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c300ed40508
+DECL|struct|__anon2bce7e480508
 typedef|typedef
 struct|struct
 block|{
@@ -200,12 +203,10 @@ DECL|member|phases
 name|ngx_http_phase_t
 name|phases
 index|[
-name|NGX_HTTP_LAST_PHASE
+name|NGX_HTTP_LOG_PHASE
+operator|+
+literal|1
 index|]
-decl_stmt|;
-DECL|member|log_handler
-name|ngx_http_handler_pt
-name|log_handler
 decl_stmt|;
 DECL|member|headers_in_hash
 name|ngx_hash_t
@@ -244,11 +245,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c300ed40608
+DECL|struct|__anon2bce7e480608
 typedef|typedef
 struct|struct
 block|{
-comment|/*      * array of the ngx_http_core_loc_conf_t,      * used in the translation handler and in the merge phase      */
+comment|/*      * array of the ngx_http_core_loc_conf_t *,      * used in the ngx_http_core_find_location() and in the merge phase      */
 DECL|member|locations
 name|ngx_array_t
 name|locations
@@ -308,7 +309,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2c300ed40708
+DECL|struct|__anon2bce7e480708
 typedef|typedef
 struct|struct
 block|{
@@ -371,7 +372,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c300ed40808
+DECL|struct|__anon2bce7e480808
 typedef|typedef
 struct|struct
 block|{
@@ -437,7 +438,7 @@ value|{                                                                   \     
 end_define
 
 begin_typedef
-DECL|struct|__anon2c300ed40908
+DECL|struct|__anon2bce7e480908
 typedef|typedef
 struct|struct
 block|{
@@ -456,7 +457,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c300ed40a08
+DECL|struct|__anon2bce7e480a08
 typedef|typedef
 struct|struct
 block|{
@@ -936,7 +937,7 @@ argument_list|)
 expr|\                                                                               \
 name|r
 operator|->
-name|filter_allow_ranges
+name|allow_ranges
 operator|=
 literal|0
 expr_stmt|;

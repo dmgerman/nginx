@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2c8429630108
+DECL|struct|__anon2b6f14c30108
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c8429630208
+DECL|struct|__anon2b6f14c30208
 typedef|typedef
 struct|struct
 block|{
@@ -450,7 +450,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c8429630308
+DECL|struct|__anon2b6f14c30308
 typedef|typedef
 struct|struct
 block|{
@@ -1308,7 +1308,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2c8429630408
+DECL|struct|__anon2b6f14c30408
 typedef|typedef
 struct|struct
 block|{
@@ -1355,7 +1355,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c8429630508
+DECL|struct|__anon2b6f14c30508
 typedef|typedef
 struct|struct
 block|{
@@ -1417,14 +1417,6 @@ specifier|extern
 name|ngx_atomic_t
 modifier|*
 name|ngx_accept_mutex_ptr
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-specifier|extern
-name|ngx_atomic_t
-modifier|*
-name|ngx_accept_mutex_last_owner
 decl_stmt|;
 end_decl_stmt
 

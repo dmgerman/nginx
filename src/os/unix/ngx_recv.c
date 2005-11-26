@@ -105,9 +105,24 @@ condition|)
 block|{
 if|if
 condition|(
+operator|!
 name|rev
 operator|->
 name|pending_eof
+condition|)
+block|{
+return|return
+name|NGX_AGAIN
+return|;
+block|}
+comment|/* FreeBSD 5.x-6.x may erroneously report ETIMEDOUT */
+if|if
+condition|(
+name|rev
+operator|->
+name|kq_errno
+operator|!=
+name|NGX_ETIMEDOUT
 condition|)
 block|{
 name|rev
@@ -157,12 +172,6 @@ return|;
 block|}
 return|return
 literal|0
-return|;
-block|}
-else|else
-block|{
-return|return
-name|NGX_AGAIN
 return|;
 block|}
 block|}

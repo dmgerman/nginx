@@ -1970,7 +1970,7 @@ name|r
 operator|->
 name|phase
 operator|<
-name|NGX_HTTP_LAST_PHASE
+name|NGX_HTTP_LOG_PHASE
 condition|;
 name|r
 operator|->

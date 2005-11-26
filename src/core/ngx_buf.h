@@ -199,7 +199,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon294e80540108
+DECL|struct|__anon2770ebaf0108
 typedef|typedef
 struct|struct
 block|{
@@ -238,7 +238,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294e80540208
+DECL|struct|__anon2770ebaf0208
 typedef|typedef
 struct|struct
 block|{
@@ -307,7 +307,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294e80540308
+DECL|struct|__anon2770ebaf0308
 typedef|typedef
 struct|struct
 block|{
@@ -521,6 +521,23 @@ parameter_list|,
 name|ngx_chain_t
 modifier|*
 name|in
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_chain_t
+modifier|*
+name|ngx_chain_get_free_buf
+parameter_list|(
+name|ngx_pool_t
+modifier|*
+name|p
+parameter_list|,
+name|ngx_chain_t
+modifier|*
+modifier|*
+name|free
 parameter_list|)
 function_decl|;
 end_function_decl

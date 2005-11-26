@@ -26,7 +26,7 @@ comment|/* AF_INET only */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2baeb5c60108
+DECL|struct|__anon2ad501cb0108
 typedef|typedef
 struct|struct
 block|{
@@ -45,7 +45,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baeb5c60208
+DECL|struct|__anon2ad501cb0208
 typedef|typedef
 struct|struct
 block|{
@@ -1073,7 +1073,7 @@ name|cmcf
 operator|->
 name|phases
 index|[
-name|NGX_HTTP_ACCESS_PHASE
+name|NGX_HTTP_PREACCESS_PHASE
 index|]
 operator|.
 name|handlers

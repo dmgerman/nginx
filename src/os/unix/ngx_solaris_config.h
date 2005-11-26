@@ -238,6 +238,14 @@ directive|include
 file|<crypt.h>
 end_include
 
+begin_define
+DECL|macro|NGX_ALIGNMENT
+define|#
+directive|define
+name|NGX_ALIGNMENT
+value|_MAX_ALIGNMENT
+end_define
+
 begin_include
 include|#
 directive|include

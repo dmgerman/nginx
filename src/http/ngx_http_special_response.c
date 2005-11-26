@@ -266,6 +266,24 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|error_411_page
+specifier|static
+name|char
+name|error_411_page
+index|[]
+init|=
+literal|"<html>"
+name|CRLF
+literal|"<head><title>411 Length Required</title></head>"
+name|CRLF
+literal|"<body bgcolor=\"white\">"
+name|CRLF
+literal|"<center><h1>411 Length Required</h1></center>"
+name|CRLF
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|error_413_page
 specifier|static
 name|char
@@ -516,9 +534,11 @@ argument_list|(
 name|error_410_page
 argument_list|)
 block|,
-name|ngx_null_string
+name|ngx_string
+argument_list|(
+name|error_411_page
+argument_list|)
 block|,
-comment|/* 411 */
 name|ngx_null_string
 block|,
 comment|/* 412 */

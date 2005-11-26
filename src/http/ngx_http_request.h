@@ -281,6 +281,14 @@ value|408
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_LENGTH_REQUIRED
+define|#
+directive|define
+name|NGX_HTTP_LENGTH_REQUIRED
+value|411
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_REQUEST_ENTITY_TOO_LARGE
 define|#
 directive|define
@@ -393,7 +401,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon2a51aa280103
+DECL|enum|__anon2abc084c0103
 typedef|typedef
 enum|enum
 block|{
@@ -414,7 +422,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a51aa280203
+DECL|enum|__anon2abc084c0203
 typedef|typedef
 enum|enum
 block|{
@@ -453,7 +461,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a51aa280308
+DECL|struct|__anon2abc084c0308
 typedef|typedef
 struct|struct
 block|{
@@ -476,7 +484,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a51aa280408
+DECL|struct|__anon2abc084c0408
 typedef|typedef
 struct|struct
 block|{
@@ -495,7 +503,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a51aa280508
+DECL|struct|__anon2abc084c0508
 typedef|typedef
 struct|struct
 block|{
@@ -542,6 +550,11 @@ DECL|member|range
 name|ngx_table_elt_t
 modifier|*
 name|range
+decl_stmt|;
+DECL|member|transfer_encoding
+name|ngx_table_elt_t
+modifier|*
+name|transfer_encoding
 decl_stmt|;
 if|#
 directive|if
@@ -680,7 +693,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a51aa280608
+DECL|struct|__anon2abc084c0608
 typedef|typedef
 struct|struct
 block|{
@@ -703,7 +716,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a51aa280708
+DECL|struct|__anon2abc084c0708
 typedef|typedef
 struct|struct
 block|{
@@ -825,7 +838,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a51aa280808
+DECL|struct|__anon2abc084c0808
 typedef|typedef
 struct|struct
 block|{
@@ -859,7 +872,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a51aa280908
+DECL|struct|__anon2abc084c0908
 typedef|typedef
 struct|struct
 block|{
@@ -1437,9 +1450,9 @@ name|filter_need_temporary
 range|:
 literal|1
 decl_stmt|;
-DECL|member|filter_allow_ranges
+DECL|member|allow_ranges
 name|unsigned
-name|filter_allow_ranges
+name|allow_ranges
 range|:
 literal|1
 decl_stmt|;

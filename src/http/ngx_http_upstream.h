@@ -117,7 +117,7 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon29135aee0108
+DECL|struct|__anon27a368f00108
 typedef|typedef
 struct|struct
 block|{
@@ -149,7 +149,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29135aee0208
+DECL|struct|__anon27a368f00208
 typedef|typedef
 struct|struct
 block|{
@@ -164,7 +164,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29135aee0308
+DECL|struct|__anon27a368f00308
 typedef|typedef
 struct|struct
 block|{
@@ -188,9 +188,9 @@ DECL|member|send_lowat
 name|size_t
 name|send_lowat
 decl_stmt|;
-DECL|member|header_buffer_size
+DECL|member|buffer_size
 name|size_t
-name|header_buffer_size
+name|buffer_size
 decl_stmt|;
 DECL|member|busy_buffers_size
 name|size_t
@@ -231,6 +231,10 @@ decl_stmt|;
 DECL|member|bufs
 name|ngx_bufs_t
 name|bufs
+decl_stmt|;
+DECL|member|buffering
+name|ngx_flag_t
+name|buffering
 decl_stmt|;
 DECL|member|pass_request_headers
 name|ngx_flag_t
@@ -286,6 +290,11 @@ name|ngx_str_t
 name|url
 decl_stmt|;
 comment|/* used in proxy_rewrite_location */
+DECL|member|redirect_404
+name|ngx_uint_t
+name|redirect_404
+decl_stmt|;
+comment|/* unsigned redirect_404:1; */
 if|#
 directive|if
 operator|(
@@ -305,7 +314,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29135aee0408
+DECL|struct|__anon27a368f00408
 typedef|typedef
 struct|struct
 block|{
@@ -341,7 +350,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29135aee0508
+DECL|struct|__anon27a368f00508
 typedef|typedef
 struct|struct
 block|{
@@ -465,6 +474,7 @@ name|peer
 decl_stmt|;
 DECL|member|pipe
 name|ngx_event_pipe_t
+modifier|*
 name|pipe
 decl_stmt|;
 DECL|member|request_bufs
@@ -489,9 +499,60 @@ DECL|member|headers_in
 name|ngx_http_upstream_headers_in_t
 name|headers_in
 decl_stmt|;
-DECL|member|header_in
+DECL|member|buffer
 name|ngx_buf_t
-name|header_in
+name|buffer
+decl_stmt|;
+DECL|member|length
+name|size_t
+name|length
+decl_stmt|;
+DECL|member|out_bufs
+name|ngx_chain_t
+modifier|*
+name|out_bufs
+decl_stmt|;
+DECL|member|busy_bufs
+name|ngx_chain_t
+modifier|*
+name|busy_bufs
+decl_stmt|;
+DECL|member|free_bufs
+name|ngx_chain_t
+modifier|*
+name|free_bufs
+decl_stmt|;
+DECL|member|input_filter_init
+name|ngx_int_t
+function_decl|(
+modifier|*
+name|input_filter_init
+function_decl|)
+parameter_list|(
+name|void
+modifier|*
+name|data
+parameter_list|)
+function_decl|;
+DECL|member|input_filter
+name|ngx_int_t
+function_decl|(
+modifier|*
+name|input_filter
+function_decl|)
+parameter_list|(
+name|void
+modifier|*
+name|data
+parameter_list|,
+name|ssize_t
+name|bytes
+parameter_list|)
+function_decl|;
+DECL|member|input_filter_ctx
+name|void
+modifier|*
+name|input_filter_ctx
 decl_stmt|;
 DECL|member|create_request
 name|ngx_int_t

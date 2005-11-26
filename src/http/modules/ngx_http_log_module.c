@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2878967a0108
+DECL|struct|__anon2963699e0108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2878967a0208
+DECL|struct|__anon2963699e0208
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +70,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2878967a0308
+DECL|struct|__anon2963699e0308
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2878967a0408
+DECL|struct|__anon2963699e0408
 typedef|typedef
 struct|struct
 block|{
@@ -114,7 +114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2878967a0508
+DECL|struct|__anon2963699e0508
 typedef|typedef
 struct|struct
 block|{
@@ -974,7 +974,7 @@ name|ngx_http_combined_fmt
 init|=
 name|ngx_string
 argument_list|(
-literal|"$remote_addr - $remote_user [$time_gmt] "
+literal|"$remote_addr - $remote_user [$time_local] "
 literal|"\"$request\" $status $body_bytes_sent "
 literal|"\"$http_referer\" \"$http_user_agent\""
 argument_list|)
@@ -1014,7 +1014,7 @@ block|,
 block|{
 name|ngx_string
 argument_list|(
-literal|"time_gmt"
+literal|"time_local"
 argument_list|)
 block|,
 sizeof|sizeof
@@ -4796,6 +4796,27 @@ index|[
 literal|2
 index|]
 expr_stmt|;
+if|if
+condition|(
+name|ngx_strcmp
+argument_list|(
+name|name
+operator|.
+name|data
+argument_list|,
+literal|"combined"
+argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+name|lmcf
+operator|->
+name|combined_used
+operator|=
+literal|1
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -6570,6 +6591,10 @@ decl_stmt|;
 name|ngx_array_t
 name|a
 decl_stmt|;
+name|ngx_http_handler_pt
+modifier|*
+name|h
+decl_stmt|;
 name|ngx_http_log_fmt_t
 modifier|*
 name|fmt
@@ -6689,9 +6714,34 @@ argument_list|,
 name|ngx_http_core_module
 argument_list|)
 expr_stmt|;
+name|h
+operator|=
+name|ngx_array_push
+argument_list|(
+operator|&
 name|cmcf
 operator|->
-name|log_handler
+name|phases
+index|[
+name|NGX_HTTP_LOG_PHASE
+index|]
+operator|.
+name|handlers
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|h
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+operator|*
+name|h
 operator|=
 name|ngx_http_log_handler
 expr_stmt|;

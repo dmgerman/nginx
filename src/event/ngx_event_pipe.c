@@ -541,6 +541,11 @@ block|}
 block|}
 else|else
 block|{
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_KQUEUE
+operator|)
 comment|/*              * kqueue notifies about the end of file or a pending error.              * This test allows not to allocate a buf on these conditions              * and not to call c->recv_chain().              */
 if|if
 condition|(
@@ -561,6 +566,17 @@ operator|->
 name|read
 operator|->
 name|pending_eof
+comment|/* FreeBSD 5.x-6.x may erroneously report ETIMEDOUT */
+operator|&&
+name|p
+operator|->
+name|upstream
+operator|->
+name|read
+operator|->
+name|kq_errno
+operator|!=
+name|NGX_ETIMEDOUT
 condition|)
 block|{
 name|p
@@ -595,11 +611,6 @@ name|read
 operator|=
 literal|1
 expr_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_HAVE_KQUEUE
-operator|)
 if|if
 condition|(
 name|p
@@ -649,14 +660,15 @@ name|read
 operator|->
 name|kq_errno
 argument_list|,
-literal|"readv() failed"
+literal|"kevent() reported that upstream "
+literal|"closed connection"
 argument_list|)
 expr_stmt|;
 block|}
-endif|#
-directive|endif
 break|break;
 block|}
+endif|#
+directive|endif
 if|if
 condition|(
 name|p

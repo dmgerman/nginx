@@ -541,6 +541,14 @@ value|sizeof("-2147483648") - 1
 end_define
 
 begin_define
+DECL|macro|NGX_MAX_SIZE_T_VALUE
+define|#
+directive|define
+name|NGX_MAX_SIZE_T_VALUE
+value|2147483647
+end_define
+
+begin_define
 DECL|macro|NGX_TIME_T_LEN
 define|#
 directive|define

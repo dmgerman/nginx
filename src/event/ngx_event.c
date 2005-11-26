@@ -289,14 +289,6 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_accept_mutex_last_owner
-name|ngx_atomic_t
-modifier|*
-name|ngx_accept_mutex_last_owner
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
 DECL|variable|ngx_accept_mutex
 name|ngx_atomic_t
 modifier|*
@@ -1005,10 +997,17 @@ condition|(
 name|ngx_accept_mutex_held
 condition|)
 block|{
-operator|*
+operator|(
+name|void
+operator|)
+name|ngx_atomic_cmp_set
+argument_list|(
 name|ngx_accept_mutex
-operator|=
+argument_list|,
+name|ngx_pid
+argument_list|,
 literal|0
+argument_list|)
 expr_stmt|;
 block|}
 if|if
@@ -1746,9 +1745,6 @@ literal|128
 comment|/* ngx_accept_mutex */
 operator|+
 literal|128
-comment|/* ngx_accept_mutex_last_owner */
-operator|+
-literal|128
 expr_stmt|;
 comment|/* ngx_connection_counter */
 if|#
@@ -1808,20 +1804,6 @@ operator|*
 operator|)
 name|shared
 expr_stmt|;
-name|ngx_accept_mutex_last_owner
-operator|=
-operator|(
-name|ngx_atomic_t
-operator|*
-operator|)
-operator|(
-name|shared
-operator|+
-literal|1
-operator|*
-literal|128
-operator|)
-expr_stmt|;
 name|ngx_connection_counter
 operator|=
 operator|(
@@ -1831,7 +1813,7 @@ operator|)
 operator|(
 name|shared
 operator|+
-literal|2
+literal|1
 operator|*
 literal|128
 operator|)
@@ -1850,7 +1832,7 @@ operator|)
 operator|(
 name|shared
 operator|+
-literal|3
+literal|2
 operator|*
 literal|128
 operator|)
@@ -1864,7 +1846,7 @@ operator|)
 operator|(
 name|shared
 operator|+
-literal|4
+literal|3
 operator|*
 literal|128
 operator|)
@@ -1878,7 +1860,7 @@ operator|)
 operator|(
 name|shared
 operator|+
-literal|5
+literal|4
 operator|*
 literal|128
 operator|)
@@ -1892,7 +1874,7 @@ operator|)
 operator|(
 name|shared
 operator|+
-literal|6
+literal|5
 operator|*
 literal|128
 operator|)
@@ -1906,7 +1888,7 @@ operator|)
 operator|(
 name|shared
 operator|+
-literal|7
+literal|6
 operator|*
 literal|128
 operator|)
@@ -1920,7 +1902,7 @@ operator|)
 operator|(
 name|shared
 operator|+
-literal|8
+literal|7
 operator|*
 literal|128
 operator|)
@@ -3801,6 +3783,35 @@ block|{
 return|return
 literal|"is duplicate"
 return|;
+block|}
+if|if
+condition|(
+name|ngx_strcmp
+argument_list|(
+name|cmd
+operator|->
+name|name
+operator|.
+name|data
+argument_list|,
+literal|"connections"
+argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_WARN
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"the \"connections\" directive is deprecated, "
+literal|"use the \"worker_connections\" directive instead"
+argument_list|)
+expr_stmt|;
 block|}
 name|value
 operator|=

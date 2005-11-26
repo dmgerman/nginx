@@ -164,7 +164,7 @@ operator|&&
 name|wev
 operator|->
 name|pending_eof
-comment|/* FreeBSD 6.0 may erroneously report ETIMEDOUT */
+comment|/* FreeBSD 5.x-6.x may erroneously report ETIMEDOUT */
 operator|&&
 name|wev
 operator|->

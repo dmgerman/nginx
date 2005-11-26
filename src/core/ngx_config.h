@@ -397,41 +397,22 @@ name|NGX_INT64_LEN
 value|sizeof("-9223372036854775808") - 1
 end_define
 
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_SOLARIS
-operator|)
-end_if
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|NGX_ALIGNMENT
+end_ifndef
 
 begin_define
-DECL|macro|NGX_ALIGN
+DECL|macro|NGX_ALIGNMENT
 define|#
 directive|define
-name|NGX_ALIGN
-value|(_MAX_ALIGNMENT - 1)
-end_define
-
-begin_else
-else|#
-directive|else
-end_else
-
-begin_comment
-comment|/* TODO: auto_conf */
-end_comment
-
-begin_define
-DECL|macro|NGX_ALIGN
-define|#
-directive|define
-name|NGX_ALIGN
-value|(sizeof(unsigned long) - 1)
+name|NGX_ALIGNMENT
+value|sizeof(unsigned long)
 end_define
 
 begin_comment
-DECL|macro|NGX_ALIGN
+DECL|macro|NGX_ALIGNMENT
 comment|/* platform word */
 end_comment
 
@@ -448,7 +429,7 @@ name|ngx_align
 parameter_list|(
 name|p
 parameter_list|)
-value|(u_char *) (((uintptr_t) p + NGX_ALIGN)& ~NGX_ALIGN)
+value|(u_char *) (((uintptr_t) p + (NGX_ALIGNMENT - 1))     \& ~(NGX_ALIGNMENT - 1))
 end_define
 
 begin_define

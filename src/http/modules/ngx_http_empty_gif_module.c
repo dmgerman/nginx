@@ -98,116 +98,116 @@ literal|'9'
 block|,
 literal|'a'
 block|,
-comment|/* header */
-comment|/* logical screen descriptor */
+comment|/* header                                 */
+comment|/* logical screen descriptor              */
 literal|0x01
 block|,
 literal|0x00
 block|,
-comment|/* logical screen width */
+comment|/* logical screen width                   */
 literal|0x01
 block|,
 literal|0x00
 block|,
-comment|/* logical screen height */
+comment|/* logical screen height                  */
 literal|0x80
 block|,
-comment|/* global 1-bit color table */
+comment|/* global 1-bit color table               */
 literal|0x01
 block|,
-comment|/* background color #1 */
+comment|/* background color #1                    */
 literal|0x00
 block|,
-comment|/* no aspect ratio */
-comment|/* global color table */
+comment|/* no aspect ratio                        */
+comment|/* global color table                     */
 literal|0x00
 block|,
 literal|0x00
 block|,
 literal|0x00
 block|,
-comment|/* #0: black */
+comment|/* #0: black                              */
 literal|0xff
 block|,
 literal|0xff
 block|,
 literal|0xff
 block|,
-comment|/* #1: white */
-comment|/* graphic control extension */
+comment|/* #1: white                              */
+comment|/* graphic control extension              */
 literal|0x21
 block|,
-comment|/* extension introducer */
+comment|/* extension introducer                   */
 literal|0xf9
 block|,
-comment|/* graphic control label */
+comment|/* graphic control label                  */
 literal|0x04
 block|,
-comment|/* block size */
+comment|/* block size                             */
 literal|0x01
 block|,
-comment|/* transparent color is given, */
-comment|/*     no disposal specified, */
-comment|/*     user input is not expected */
+comment|/* transparent color is given,            */
+comment|/*     no disposal specified,             */
+comment|/*     user input is not expected         */
 literal|0x00
 block|,
 literal|0x00
 block|,
-comment|/* delay time */
+comment|/* delay time                             */
 literal|0x01
 block|,
-comment|/* transparent color #1 */
+comment|/* transparent color #1                   */
 literal|0x00
 block|,
-comment|/* block terminator */
-comment|/* image descriptor */
+comment|/* block terminator                       */
+comment|/* image descriptor                       */
 literal|0x2c
 block|,
-comment|/* image separator */
+comment|/* image separator                        */
 literal|0x00
 block|,
 literal|0x00
 block|,
-comment|/* image left position */
+comment|/* image left position                    */
 literal|0x00
 block|,
 literal|0x00
 block|,
-comment|/* image top position */
+comment|/* image top position                     */
 literal|0x01
 block|,
 literal|0x00
 block|,
-comment|/* image width */
+comment|/* image width                            */
 literal|0x01
 block|,
 literal|0x00
 block|,
-comment|/* image height */
+comment|/* image height                           */
 literal|0x00
 block|,
-comment|/* no local color table, no interlaced */
-comment|/* table based image data */
+comment|/* no local color table, no interlaced    */
+comment|/* table based image data                 */
 literal|0x02
 block|,
-comment|/* LZW minimum code size, */
-comment|/*     must be at least 2-bit */
+comment|/* LZW minimum code size,                 */
+comment|/*     must be at least 2-bit             */
 literal|0x02
 block|,
-comment|/* block size */
+comment|/* block size                             */
 literal|0x4c
 block|,
 literal|0x01
 block|,
 comment|/* compressed bytes 01_001_100, 0000000_1 */
-comment|/* 100: clear code */
-comment|/* 001: 1 */
-comment|/* 101: end of information code */
+comment|/* 100: clear code                        */
+comment|/* 001: 1                                 */
+comment|/* 101: end of information code           */
 literal|0x00
 block|,
-comment|/* block terminator */
+comment|/* block terminator                       */
 literal|0x3B
-comment|/* trailer */
+comment|/* trailer                                */
 block|}
 decl_stmt|;
 end_decl_stmt

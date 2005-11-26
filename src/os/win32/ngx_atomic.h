@@ -106,7 +106,7 @@ parameter_list|,
 name|set
 parameter_list|)
 define|\
-value|(InterlockedCompareExchange((long *) lock, set, old) == old)
+value|((ngx_atomic_uint_t) InterlockedCompareExchange((long *) lock, set, old) \                           == old)
 end_define
 
 begin_else

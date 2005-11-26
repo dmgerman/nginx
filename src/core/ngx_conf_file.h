@@ -614,7 +614,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a19f7af0108
+DECL|struct|__anon2945bea30108
 typedef|typedef
 struct|struct
 block|{
@@ -659,7 +659,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a19f7af0208
+DECL|struct|__anon2945bea30208
 typedef|typedef
 struct|struct
 block|{
@@ -794,7 +794,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a19f7af0308
+DECL|struct|__anon2945bea30308
 typedef|typedef
 struct|struct
 block|{
@@ -809,7 +809,32 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a19f7af0408
+DECL|struct|__anon2945bea30408
+typedef|typedef
+struct|struct
+block|{
+DECL|member|post_handler
+name|ngx_conf_post_handler_pt
+name|post_handler
+decl_stmt|;
+DECL|member|old_name
+name|char
+modifier|*
+name|old_name
+decl_stmt|;
+DECL|member|new_name
+name|char
+modifier|*
+name|new_name
+decl_stmt|;
+DECL|typedef|ngx_conf_deprecated_t
+block|}
+name|ngx_conf_deprecated_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2945bea30508
 typedef|typedef
 struct|struct
 block|{
@@ -832,7 +857,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a19f7af0508
+DECL|struct|__anon2945bea30608
 typedef|typedef
 struct|struct
 block|{
@@ -859,7 +884,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2a19f7af0608
+DECL|struct|__anon2945bea30708
 typedef|typedef
 struct|struct
 block|{
@@ -876,6 +901,26 @@ block|}
 name|ngx_conf_bitmask_t
 typedef|;
 end_typedef
+
+begin_function_decl
+name|char
+modifier|*
+name|ngx_conf_deprecated
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|void
+modifier|*
+name|post
+parameter_list|,
+name|void
+modifier|*
+name|data
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_function_decl
 name|char
