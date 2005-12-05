@@ -34,9 +34,9 @@ value|8
 end_define
 
 begin_function
-DECL|function|ngx_linux_sendfile_chain (ngx_connection_t * c,ngx_chain_t * in,off_t limit)
 name|ngx_chain_t
 modifier|*
+DECL|function|ngx_linux_sendfile_chain (ngx_connection_t * c,ngx_chain_t * in,off_t limit)
 name|ngx_linux_sendfile_chain
 parameter_list|(
 name|ngx_connection_t
