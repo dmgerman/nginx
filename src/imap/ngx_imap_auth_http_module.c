@@ -34,7 +34,7 @@ file|<ngx_imap.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29a5176b0108
+DECL|struct|__anon27f166e70108
 typedef|typedef
 struct|struct
 block|{
@@ -1435,7 +1435,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon29a5176b0203
+DECL|enum|__anon27f166e70203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -3409,7 +3409,7 @@ if|if
 condition|(
 name|c
 operator|->
-name|closed
+name|destroyed
 condition|)
 block|{
 return|return;
@@ -3531,7 +3531,7 @@ decl_stmt|;
 name|ngx_uint_t
 name|hash
 decl_stmt|;
-DECL|enum|__anon29a5176b0303
+DECL|enum|__anon27f166e70303
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -5570,6 +5570,14 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
+name|ahcf
+operator|->
+name|peers
+operator|->
+name|number
+operator|=
+literal|1
+expr_stmt|;
 name|ahcf
 operator|->
 name|host_header

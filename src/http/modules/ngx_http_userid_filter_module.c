@@ -66,7 +66,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon2b84def80108
+DECL|struct|__anon28ef17a90108
 typedef|typedef
 struct|struct
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b84def80208
+DECL|struct|__anon28ef17a90208
 typedef|typedef
 struct|struct
 block|{
@@ -2713,7 +2713,7 @@ argument_list|,
 operator|&
 name|ngx_http_userid_got
 argument_list|,
-literal|0
+name|NGX_HTTP_VAR_NOHASH
 argument_list|)
 expr_stmt|;
 if|if
@@ -2753,7 +2753,7 @@ argument_list|,
 operator|&
 name|ngx_http_userid_set
 argument_list|,
-literal|0
+name|NGX_HTTP_VAR_NOHASH
 argument_list|)
 expr_stmt|;
 if|if

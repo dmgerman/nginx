@@ -481,7 +481,7 @@ operator|<
 name|NGX_ALIGNMENT
 condition|)
 block|{
-name|p
+name|pool
 operator|->
 name|current
 operator|=
@@ -540,14 +540,14 @@ return|;
 block|}
 if|if
 condition|(
-name|p
+name|pool
 operator|->
 name|current
 operator|==
 name|NULL
 condition|)
 block|{
-name|p
+name|pool
 operator|->
 name|current
 operator|=

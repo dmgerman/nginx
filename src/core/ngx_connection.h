@@ -238,7 +238,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2acd99240103
+DECL|enum|__anon299f631d0103
 typedef|typedef
 enum|enum
 block|{
@@ -262,7 +262,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2acd99240203
+DECL|enum|__anon299f631d0203
 typedef|typedef
 enum|enum
 block|{
@@ -283,7 +283,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2acd99240303
+DECL|enum|__anon299f631d0303
 typedef|typedef
 enum|enum
 block|{
@@ -455,9 +455,15 @@ name|timedout
 range|:
 literal|1
 decl_stmt|;
-DECL|member|closed
+DECL|member|error
 name|unsigned
-name|closed
+name|error
+range|:
+literal|1
+decl_stmt|;
+DECL|member|destroyed
+name|unsigned
+name|destroyed
 range|:
 literal|1
 decl_stmt|;

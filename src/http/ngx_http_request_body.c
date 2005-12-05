@@ -903,7 +903,7 @@ condition|)
 block|{
 name|c
 operator|->
-name|closed
+name|error
 operator|=
 literal|1
 expr_stmt|;

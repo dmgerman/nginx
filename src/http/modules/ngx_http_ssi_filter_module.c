@@ -78,7 +78,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon290a33910108
+DECL|struct|__anon2961a58b0108
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290a33910208
+DECL|struct|__anon2961a58b0208
 typedef|typedef
 struct|struct
 block|{
@@ -134,7 +134,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290a33910308
+DECL|struct|__anon2961a58b0308
 typedef|typedef
 struct|struct
 block|{
@@ -272,7 +272,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290a33910408
+DECL|struct|__anon2961a58b0408
 typedef|typedef
 struct|struct
 block|{
@@ -295,7 +295,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290a33910508
+DECL|struct|__anon2961a58b0508
 typedef|typedef
 struct|struct
 block|{
@@ -331,7 +331,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon290a33910603
+DECL|enum|__anon2961a58b0603
 typedef|typedef
 enum|enum
 block|{
@@ -3039,7 +3039,7 @@ if|if
 condition|(
 name|c
 operator|->
-name|closed
+name|destroyed
 condition|)
 block|{
 return|return
@@ -3054,6 +3054,17 @@ name|NGX_OK
 condition|)
 block|{
 continue|continue;
+block|}
+if|if
+condition|(
+name|rc
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
 block|}
 block|}
 comment|/* rc == NGX_HTTP_SSI_ERROR */

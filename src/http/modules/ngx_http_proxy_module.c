@@ -76,14 +76,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon2a1e8e1e010a
+DECL|union|__anon2797d43d010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon2a1e8e1e0208
+DECL|struct|__anon2797d43d0208
 struct|struct
 block|{
 DECL|member|lengths
@@ -114,7 +114,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a1e8e1e0308
+DECL|struct|__anon2797d43d0308
 typedef|typedef
 struct|struct
 block|{
@@ -199,7 +199,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1e8e1e0408
+DECL|struct|__anon2797d43d0408
 typedef|typedef
 struct|struct
 block|{
@@ -1569,6 +1569,8 @@ block|,
 literal|0
 block|,
 name|NGX_HTTP_VAR_CHANGABLE
+operator||
+name|NGX_HTTP_VAR_NOHASH
 block|,
 literal|0
 block|}
@@ -1584,6 +1586,8 @@ block|,
 literal|0
 block|,
 name|NGX_HTTP_VAR_CHANGABLE
+operator||
+name|NGX_HTTP_VAR_NOHASH
 block|,
 literal|0
 block|}
@@ -1598,7 +1602,7 @@ name|ngx_http_proxy_add_x_forwarded_for_variable
 block|,
 literal|0
 block|,
-literal|0
+name|NGX_HTTP_VAR_NOHASH
 block|,
 literal|0
 block|}
@@ -1606,7 +1610,7 @@ block|,
 if|#
 directive|if
 literal|0
-block|{ ngx_string("proxy_add_via"), NULL, 0, 0, 0 },
+block|{ ngx_string("proxy_add_via"), NULL, 0, NGX_HTTP_VAR_NOHASH, 0 },
 endif|#
 directive|endif
 block|{
@@ -1619,7 +1623,7 @@ name|ngx_http_proxy_internal_body_length_variable
 block|,
 literal|0
 block|,
-literal|0
+name|NGX_HTTP_VAR_NOHASH
 block|,
 literal|0
 block|}
@@ -3974,7 +3978,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2a1e8e1e0503
+DECL|enum|__anon2797d43d0503
 enum|enum
 block|{
 DECL|enumerator|sw_start

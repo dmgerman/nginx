@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon293593d70108
+DECL|struct|__anon292bbff90108
 typedef|typedef
 struct|struct
 block|{
@@ -255,6 +255,53 @@ parameter_list|)
 value|(void) memset(buf, c, n)
 end_define
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_MEMCPY_LIMIT
+operator|)
+end_if
+
+begin_function_decl
+name|void
+modifier|*
+name|ngx_memcpy
+parameter_list|(
+name|void
+modifier|*
+name|dst
+parameter_list|,
+name|void
+modifier|*
+name|src
+parameter_list|,
+name|size_t
+name|n
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_define
+DECL|macro|ngx_cpymem (dst,src,n)
+define|#
+directive|define
+name|ngx_cpymem
+parameter_list|(
+name|dst
+parameter_list|,
+name|src
+parameter_list|,
+name|n
+parameter_list|)
+value|((u_char *) ngx_memcpy(dst, src, n)) + (n)
+end_define
+
+begin_else
+else|#
+directive|else
+end_else
+
 begin_comment
 comment|/*  * gcc3, msvc, and icc7 compile memcpy() to the inline "rep movs".  * gcc3 compiles memcpy(d, s, 4) to the inline "mov"es.  * icc8 compile memcpy(d, s, 4) to the inline "mov"es or XMM moves.  */
 end_comment
@@ -288,6 +335,11 @@ name|n
 parameter_list|)
 value|((u_char *) memcpy(dst, src, n)) + (n)
 end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_if
 if|#

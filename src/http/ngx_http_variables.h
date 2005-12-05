@@ -41,7 +41,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c3be4c00108
+DECL|struct|__anon2a24436c0108
 typedef|typedef
 struct|struct
 block|{
@@ -145,6 +145,14 @@ define|#
 directive|define
 name|NGX_HTTP_VAR_INDEXED
 value|4
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_VAR_NOHASH
+define|#
+directive|define
+name|NGX_HTTP_VAR_NOHASH
+value|8
 end_define
 
 begin_struct

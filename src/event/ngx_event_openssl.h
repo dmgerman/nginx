@@ -76,7 +76,7 @@ value|"OpenSSL"
 end_define
 
 begin_typedef
-DECL|struct|__anon27710b350108
+DECL|struct|__anon2b65ea960108
 typedef|typedef
 struct|struct
 block|{
@@ -102,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27710b350208
+DECL|struct|__anon2b65ea960208
 typedef|typedef
 struct|struct
 block|{
@@ -423,6 +423,7 @@ end_function_decl
 
 begin_function_decl
 name|void
+name|ngx_cdecl
 name|ngx_ssl_error
 parameter_list|(
 name|ngx_uint_t

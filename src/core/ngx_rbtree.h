@@ -97,7 +97,7 @@ end_typedef
 begin_typedef
 DECL|typedef|ngx_rbtree_insert_pt
 typedef|typedef
-name|ngx_rbtree_t
+name|ngx_rbtree_node_t
 modifier|*
 function_decl|(
 modifier|*

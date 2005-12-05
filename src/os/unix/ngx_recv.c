@@ -234,7 +234,7 @@ name|available
 operator|-=
 name|n
 expr_stmt|;
-comment|/*                  * rev->available can be negative here because some additional                  * bytes can be received between kevent() and recv()                  */
+comment|/*                  * rev->available may be negative here because some additional                  * bytes can be received between kevent() and recv()                  */
 if|if
 condition|(
 name|rev

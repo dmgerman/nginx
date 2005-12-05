@@ -60,7 +60,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28896a380108
+DECL|struct|__anon2c823a1d0108
 typedef|typedef
 struct|struct
 block|{
@@ -83,7 +83,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28896a380208
+DECL|struct|__anon2c823a1d0208
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon28896a380308
+DECL|struct|__anon2c823a1d0308
 typedef|typedef
 struct|struct
 block|{
@@ -132,14 +132,24 @@ name|ngx_uint_t
 name|protocol
 decl_stmt|;
 DECL|member|pop3_capability
-name|ngx_buf_t
-modifier|*
+name|ngx_str_t
 name|pop3_capability
 decl_stmt|;
+DECL|member|pop3_starttls_capability
+name|ngx_str_t
+name|pop3_starttls_capability
+decl_stmt|;
 DECL|member|imap_capability
-name|ngx_buf_t
-modifier|*
+name|ngx_str_t
 name|imap_capability
+decl_stmt|;
+DECL|member|imap_starttls_capability
+name|ngx_str_t
+name|imap_starttls_capability
+decl_stmt|;
+DECL|member|imap_starttls_only_capability
+name|ngx_str_t
+name|imap_starttls_only_capability
 decl_stmt|;
 DECL|member|pop3_capabilities
 name|ngx_array_t
@@ -162,7 +172,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28896a380408
+DECL|struct|__anon2c823a1d0408
 typedef|typedef
 struct|struct
 block|{
@@ -237,7 +247,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28896a380503
+DECL|enum|__anon2c823a1d0503
 typedef|typedef
 enum|enum
 block|{
@@ -261,7 +271,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28896a380603
+DECL|enum|__anon2c823a1d0603
 typedef|typedef
 enum|enum
 block|{
@@ -282,7 +292,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28896a380708
+DECL|struct|__anon2c823a1d0708
 typedef|typedef
 struct|struct
 block|{
@@ -302,7 +312,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28896a380808
+DECL|struct|__anon2c823a1d0808
 typedef|typedef
 struct|struct
 block|{
@@ -447,7 +457,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28896a380908
+DECL|struct|__anon2c823a1d0908
 typedef|typedef
 struct|struct
 block|{
@@ -508,11 +518,19 @@ value|5
 end_define
 
 begin_define
+DECL|macro|NGX_POP3_STLS
+define|#
+directive|define
+name|NGX_POP3_STLS
+value|6
+end_define
+
+begin_define
 DECL|macro|NGX_POP3_APOP
 define|#
 directive|define
 name|NGX_POP3_APOP
-value|6
+value|7
 end_define
 
 begin_define
@@ -520,7 +538,7 @@ DECL|macro|NGX_POP3_STAT
 define|#
 directive|define
 name|NGX_POP3_STAT
-value|7
+value|8
 end_define
 
 begin_define
@@ -528,7 +546,7 @@ DECL|macro|NGX_POP3_LIST
 define|#
 directive|define
 name|NGX_POP3_LIST
-value|8
+value|9
 end_define
 
 begin_define
@@ -536,7 +554,7 @@ DECL|macro|NGX_POP3_RETR
 define|#
 directive|define
 name|NGX_POP3_RETR
-value|9
+value|10
 end_define
 
 begin_define
@@ -544,7 +562,7 @@ DECL|macro|NGX_POP3_DELE
 define|#
 directive|define
 name|NGX_POP3_DELE
-value|10
+value|11
 end_define
 
 begin_define
@@ -552,7 +570,7 @@ DECL|macro|NGX_POP3_RSET
 define|#
 directive|define
 name|NGX_POP3_RSET
-value|11
+value|12
 end_define
 
 begin_define
@@ -560,7 +578,7 @@ DECL|macro|NGX_POP3_TOP
 define|#
 directive|define
 name|NGX_POP3_TOP
-value|12
+value|13
 end_define
 
 begin_define
@@ -568,7 +586,7 @@ DECL|macro|NGX_POP3_UIDL
 define|#
 directive|define
 name|NGX_POP3_UIDL
-value|13
+value|14
 end_define
 
 begin_define
@@ -604,11 +622,19 @@ value|4
 end_define
 
 begin_define
+DECL|macro|NGX_IMAP_STARTTLS
+define|#
+directive|define
+name|NGX_IMAP_STARTTLS
+value|5
+end_define
+
+begin_define
 DECL|macro|NGX_IMAP_NEXT
 define|#
 directive|define
 name|NGX_IMAP_NEXT
-value|5
+value|6
 end_define
 
 begin_define

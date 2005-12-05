@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c00f1430108
+DECL|struct|__anon2895f5f90108
 typedef|typedef
 struct|struct
 block|{
@@ -153,7 +153,7 @@ value|0x0200
 end_define
 
 begin_typedef
-DECL|struct|__anon2c00f1430208
+DECL|struct|__anon2895f5f90208
 typedef|typedef
 struct|struct
 block|{
@@ -4446,7 +4446,7 @@ argument_list|,
 operator|&
 name|ngx_http_gzip_ratio
 argument_list|,
-literal|0
+name|NGX_HTTP_VAR_NOHASH
 argument_list|)
 expr_stmt|;
 if|if

@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b1ebb8f0108
+DECL|struct|__anon296acea90108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b1ebb8f0203
+DECL|enum|__anon296acea90203
 typedef|typedef
 enum|enum
 block|{
@@ -114,7 +114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1ebb8f0308
+DECL|struct|__anon296acea90308
 typedef|typedef
 struct|struct
 block|{
@@ -227,7 +227,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2b1ebb8f0408
+DECL|struct|__anon296acea90408
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +270,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1ebb8f0508
+DECL|struct|__anon296acea90508
 typedef|typedef
 struct|struct
 block|{
@@ -300,7 +300,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1ebb8f0608
+DECL|struct|__anon296acea90608
 typedef|typedef
 struct|struct
 block|{
@@ -327,7 +327,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1ebb8f0708
+DECL|struct|__anon296acea90708
 typedef|typedef
 struct|struct
 block|{
@@ -6405,7 +6405,7 @@ argument_list|,
 operator|&
 name|ngx_http_fastcgi_script_name
 argument_list|,
-literal|0
+name|NGX_HTTP_VAR_NOHASH
 argument_list|)
 expr_stmt|;
 if|if

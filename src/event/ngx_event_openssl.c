@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c6ca1f60108
+DECL|struct|__anon2c62d0fd0108
 typedef|typedef
 struct|struct
 block|{
@@ -1274,7 +1274,7 @@ name|d
 operator|=
 literal|'\0'
 expr_stmt|;
-name|ngx_log_debug1
+name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
@@ -1314,7 +1314,7 @@ name|connection
 argument_list|)
 condition|)
 block|{
-name|ngx_log_debug1
+name|ngx_log_debug0
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
@@ -2516,6 +2516,12 @@ operator|->
 name|buf
 operator|->
 name|last_buf
+operator|||
+name|in
+operator|->
+name|buf
+operator|->
+name|flush
 condition|)
 block|{
 name|flush
@@ -2579,7 +2585,6 @@ operator|->
 name|last
 expr_stmt|;
 block|}
-comment|/*              * TODO: the taking in->buf->flush into account can be              *       implemented using the limit on the higher level              */
 if|if
 condition|(
 name|send
@@ -3718,6 +3723,7 @@ end_function
 
 begin_function
 name|void
+name|ngx_cdecl
 DECL|function|ngx_ssl_error (ngx_uint_t level,ngx_log_t * log,ngx_err_t err,char * fmt,...)
 name|ngx_ssl_error
 parameter_list|(
@@ -3814,15 +3820,22 @@ condition|(
 name|p
 operator|<
 name|last
-operator|&&
-operator|(
+condition|)
+block|{
 name|n
 operator|=
 name|ERR_get_error
 argument_list|()
-operator|)
+expr_stmt|;
+if|if
+condition|(
+name|n
+operator|==
+literal|0
 condition|)
 block|{
+break|break;
+block|}
 operator|*
 name|p
 operator|++

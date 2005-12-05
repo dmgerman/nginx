@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27563d790108
+DECL|struct|__anon28933daf0108
 typedef|typedef
 struct|struct
 block|{
@@ -492,14 +492,11 @@ name|uintptr_t
 operator|)
 name|tree
 expr_stmt|;
-comment|/*      * create the temporary pool of a huge initial size      * to process quickly a large number of geo lines      */
 name|pool
 operator|=
 name|ngx_create_pool
 argument_list|(
-literal|512
-operator|*
-literal|1024
+literal|16384
 argument_list|,
 name|cf
 operator|->

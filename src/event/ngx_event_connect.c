@@ -750,6 +750,20 @@ name|tcp_nodelay
 operator|=
 name|NGX_TCP_NODELAY_DISABLED
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_SOLARIS
+operator|)
+comment|/* Solaris's sendfilev() supports AF_NCA, AF_INET, and AF_INET6 */
+name|c
+operator|->
+name|sendfile
+operator|=
+literal|0
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 name|rev
 operator|=
