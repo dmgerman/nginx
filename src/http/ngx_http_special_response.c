@@ -1021,7 +1021,7 @@ if|else if
 condition|(
 name|error
 operator|<
-name|NGX_HTTP_NGX_CODES
+name|NGX_HTTP_OWN_CODES
 condition|)
 block|{
 comment|/* 4XX */
@@ -1043,7 +1043,7 @@ name|err
 operator|=
 name|error
 operator|-
-name|NGX_HTTP_NGX_CODES
+name|NGX_HTTP_OWN_CODES
 operator|+
 name|NGX_HTTP_LEVEL_200
 operator|+

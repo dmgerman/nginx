@@ -4230,6 +4230,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|ngx_quit
+condition|)
+block|{
 name|c
 operator|=
 name|cycle
@@ -4315,7 +4320,7 @@ argument_list|,
 name|i
 argument_list|)
 expr_stmt|;
-name|ngx_abort
+name|ngx_debug_point
 argument_list|()
 expr_stmt|;
 block|}
@@ -4328,6 +4333,7 @@ block|{
 name|ngx_debug_point
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 comment|/*      * we do not destroy cycle->pool here because a signal handler      * that uses cycle->log can be called at this point      */
 if|#

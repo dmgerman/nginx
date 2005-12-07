@@ -164,13 +164,6 @@ operator|&&
 name|wev
 operator|->
 name|pending_eof
-comment|/* FreeBSD 5.x-6.x may erroneously report ETIMEDOUT */
-operator|&&
-name|wev
-operator|->
-name|kq_errno
-operator|!=
-name|NGX_ETIMEDOUT
 condition|)
 block|{
 operator|(

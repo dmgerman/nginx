@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b1a37980108
+DECL|struct|__anon28f819690108
 typedef|typedef
 struct|struct
 block|{
@@ -970,19 +970,8 @@ return|return
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
 block|}
-name|r
-operator|->
-name|allow_ranges
-operator|=
-literal|1
-expr_stmt|;
 if|if
 condition|(
-name|r
-operator|->
-name|header_only
-operator|||
-operator|(
 name|r
 operator|->
 expr|main
@@ -996,7 +985,6 @@ name|fi
 argument_list|)
 operator|==
 literal|0
-operator|)
 condition|)
 block|{
 return|return
@@ -1006,6 +994,12 @@ name|r
 argument_list|)
 return|;
 block|}
+name|r
+operator|->
+name|allow_ranges
+operator|=
+literal|1
+expr_stmt|;
 comment|/* we need to allocate all before the header would be sent */
 name|b
 operator|=

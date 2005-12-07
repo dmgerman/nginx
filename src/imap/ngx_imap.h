@@ -60,7 +60,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c823a1d0108
+DECL|struct|__anon276cb87c0108
 typedef|typedef
 struct|struct
 block|{
@@ -83,7 +83,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c823a1d0208
+DECL|struct|__anon276cb87c0208
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2c823a1d0308
+DECL|struct|__anon276cb87c0308
 typedef|typedef
 struct|struct
 block|{
@@ -130,6 +130,10 @@ decl_stmt|;
 DECL|member|protocol
 name|ngx_uint_t
 name|protocol
+decl_stmt|;
+DECL|member|so_keepalive
+name|ngx_flag_t
+name|so_keepalive
 decl_stmt|;
 DECL|member|pop3_capability
 name|ngx_str_t
@@ -172,7 +176,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c823a1d0408
+DECL|struct|__anon276cb87c0408
 typedef|typedef
 struct|struct
 block|{
@@ -247,7 +251,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c823a1d0503
+DECL|enum|__anon276cb87c0503
 typedef|typedef
 enum|enum
 block|{
@@ -271,7 +275,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c823a1d0603
+DECL|enum|__anon276cb87c0603
 typedef|typedef
 enum|enum
 block|{
@@ -292,7 +296,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c823a1d0708
+DECL|struct|__anon276cb87c0708
 typedef|typedef
 struct|struct
 block|{
@@ -312,7 +316,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c823a1d0808
+DECL|struct|__anon276cb87c0808
 typedef|typedef
 struct|struct
 block|{
@@ -457,7 +461,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c823a1d0908
+DECL|struct|__anon276cb87c0908
 typedef|typedef
 struct|struct
 block|{

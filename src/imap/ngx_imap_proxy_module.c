@@ -34,7 +34,7 @@ file|<ngx_imap.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c4095460108
+DECL|struct|__anon2aef76a00108
 typedef|typedef
 struct|struct
 block|{
@@ -376,6 +376,9 @@ modifier|*
 name|peers
 parameter_list|)
 block|{
+name|int
+name|keepalive
+decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
@@ -387,6 +390,85 @@ name|ngx_imap_core_srv_conf_t
 modifier|*
 name|cscf
 decl_stmt|;
+name|s
+operator|->
+name|connection
+operator|->
+name|log
+operator|->
+name|action
+operator|=
+literal|"connecting to upstream"
+expr_stmt|;
+name|cscf
+operator|=
+name|ngx_imap_get_module_srv_conf
+argument_list|(
+name|s
+argument_list|,
+name|ngx_imap_core_module
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|cscf
+operator|->
+name|so_keepalive
+condition|)
+block|{
+name|keepalive
+operator|=
+literal|1
+expr_stmt|;
+if|if
+condition|(
+name|setsockopt
+argument_list|(
+name|s
+operator|->
+name|connection
+operator|->
+name|fd
+argument_list|,
+name|SOL_SOCKET
+argument_list|,
+name|SO_KEEPALIVE
+argument_list|,
+operator|(
+specifier|const
+name|void
+operator|*
+operator|)
+operator|&
+name|keepalive
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|int
+argument_list|)
+argument_list|)
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|s
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+name|ngx_socket_errno
+argument_list|,
+literal|"setsockopt(SO_KEEPALIVE) failed"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 name|p
 operator|=
 name|ngx_pcalloc
@@ -451,16 +533,6 @@ name|log_error
 operator|=
 name|NGX_ERROR_ERR
 expr_stmt|;
-name|s
-operator|->
-name|connection
-operator|->
-name|log
-operator|->
-name|action
-operator|=
-literal|"in upstream auth state"
-expr_stmt|;
 name|rc
 operator|=
 name|ngx_event_connect_peer
@@ -493,15 +565,6 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|cscf
-operator|=
-name|ngx_imap_get_module_srv_conf
-argument_list|(
-name|s
-argument_list|,
-name|ngx_imap_core_module
-argument_list|)
-expr_stmt|;
 name|ngx_add_timer
 argument_list|(
 name|p
@@ -890,6 +953,16 @@ argument_list|,
 literal|"imap proxy send login"
 argument_list|)
 expr_stmt|;
+name|s
+operator|->
+name|connection
+operator|->
+name|log
+operator|->
+name|action
+operator|=
+literal|"sending LOGIN command to upstream"
+expr_stmt|;
 name|line
 operator|.
 name|len
@@ -998,6 +1071,16 @@ argument_list|,
 literal|"imap proxy send user"
 argument_list|)
 expr_stmt|;
+name|s
+operator|->
+name|connection
+operator|->
+name|log
+operator|->
+name|action
+operator|=
+literal|"sending user name to upstream"
+expr_stmt|;
 name|line
 operator|.
 name|len
@@ -1100,6 +1183,16 @@ literal|0
 argument_list|,
 literal|"imap proxy send passwd"
 argument_list|)
+expr_stmt|;
+name|s
+operator|->
+name|connection
+operator|->
+name|log
+operator|->
+name|action
+operator|=
+literal|"sending password to upstream"
 expr_stmt|;
 name|line
 operator|.
@@ -1569,6 +1662,16 @@ argument_list|,
 literal|"imap proxy send user"
 argument_list|)
 expr_stmt|;
+name|s
+operator|->
+name|connection
+operator|->
+name|log
+operator|->
+name|action
+operator|=
+literal|"sending user name to upstream"
+expr_stmt|;
 name|line
 operator|.
 name|len
@@ -1689,6 +1792,16 @@ literal|0
 argument_list|,
 literal|"imap proxy send pass"
 argument_list|)
+expr_stmt|;
+name|s
+operator|->
+name|connection
+operator|->
+name|log
+operator|->
+name|action
+operator|=
+literal|"sending password to upstream"
 expr_stmt|;
 name|line
 operator|.
@@ -2069,6 +2182,16 @@ name|ngx_buf_t
 modifier|*
 name|b
 decl_stmt|;
+name|s
+operator|->
+name|connection
+operator|->
+name|log
+operator|->
+name|action
+operator|=
+literal|"reading response from upstream"
+expr_stmt|;
 name|b
 operator|=
 name|s

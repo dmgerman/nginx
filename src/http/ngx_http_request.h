@@ -316,11 +316,23 @@ begin_comment
 comment|/* Our own HTTP codes */
 end_comment
 
+begin_comment
+comment|/* The special code to close connection without any response */
+end_comment
+
 begin_define
-DECL|macro|NGX_HTTP_NGX_CODES
+DECL|macro|NGX_HTTP_CLOSE
 define|#
 directive|define
-name|NGX_HTTP_NGX_CODES
+name|NGX_HTTP_CLOSE
+value|444
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_OWN_CODES
+define|#
+directive|define
+name|NGX_HTTP_OWN_CODES
 value|NGX_HTTP_TO_HTTPS
 end_define
 
@@ -401,7 +413,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon2abc084c0103
+DECL|enum|__anon2be706220103
 typedef|typedef
 enum|enum
 block|{
@@ -422,7 +434,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2abc084c0203
+DECL|enum|__anon2be706220203
 typedef|typedef
 enum|enum
 block|{
@@ -461,7 +473,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2abc084c0308
+DECL|struct|__anon2be706220308
 typedef|typedef
 struct|struct
 block|{
@@ -484,7 +496,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2abc084c0408
+DECL|struct|__anon2be706220408
 typedef|typedef
 struct|struct
 block|{
@@ -503,7 +515,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2abc084c0508
+DECL|struct|__anon2be706220508
 typedef|typedef
 struct|struct
 block|{
@@ -693,7 +705,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2abc084c0608
+DECL|struct|__anon2be706220608
 typedef|typedef
 struct|struct
 block|{
@@ -716,7 +728,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2abc084c0708
+DECL|struct|__anon2be706220708
 typedef|typedef
 struct|struct
 block|{
@@ -838,7 +850,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2abc084c0808
+DECL|struct|__anon2be706220808
 typedef|typedef
 struct|struct
 block|{
@@ -872,7 +884,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2abc084c0908
+DECL|struct|__anon2be706220908
 typedef|typedef
 struct|struct
 block|{

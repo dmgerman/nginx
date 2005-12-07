@@ -566,17 +566,6 @@ operator|->
 name|read
 operator|->
 name|pending_eof
-comment|/* FreeBSD 5.x-6.x may erroneously report ETIMEDOUT */
-operator|&&
-name|p
-operator|->
-name|upstream
-operator|->
-name|read
-operator|->
-name|kq_errno
-operator|!=
-name|NGX_ETIMEDOUT
 condition|)
 block|{
 name|p
