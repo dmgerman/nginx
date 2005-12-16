@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bce7e480108
+DECL|struct|__anon2b0d99680108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bce7e480208
+DECL|struct|__anon2b0d99680208
 typedef|typedef
 struct|struct
 block|{
@@ -134,7 +134,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2bce7e480303
+DECL|enum|__anon2b0d99680303
 typedef|typedef
 enum|enum
 block|{
@@ -170,7 +170,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bce7e480408
+DECL|struct|__anon2b0d99680408
 typedef|typedef
 struct|struct
 block|{
@@ -190,7 +190,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bce7e480508
+DECL|struct|__anon2b0d99680508
 typedef|typedef
 struct|struct
 block|{
@@ -209,11 +209,11 @@ literal|1
 index|]
 decl_stmt|;
 DECL|member|headers_in_hash
-name|ngx_hash_t
+name|ngx_hash0_t
 name|headers_in_hash
 decl_stmt|;
 DECL|member|variables_hash
-name|ngx_hash_t
+name|ngx_hash0_t
 name|variables_hash
 decl_stmt|;
 DECL|member|server_names_hash
@@ -245,7 +245,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bce7e480608
+DECL|struct|__anon2b0d99680608
 typedef|typedef
 struct|struct
 block|{
@@ -309,7 +309,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2bce7e480708
+DECL|struct|__anon2b0d99680708
 typedef|typedef
 struct|struct
 block|{
@@ -372,7 +372,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bce7e480808
+DECL|struct|__anon2b0d99680808
 typedef|typedef
 struct|struct
 block|{
@@ -415,49 +415,8 @@ define|\
 value|{                                                                   \             ngx_uint_t  n0;                                                 \             for (key = 0, n0 = 0; n0< len; n0++) {                         \                 key += name[n0];                                            \             }                                                               \             key %= prime;                                                   \         }
 end_define
 
-begin_define
-DECL|macro|NGX_HTTP_TYPES_HASH_PRIME
-define|#
-directive|define
-name|NGX_HTTP_TYPES_HASH_PRIME
-value|13
-end_define
-
-begin_define
-DECL|macro|ngx_http_types_hash_key (key,ext)
-define|#
-directive|define
-name|ngx_http_types_hash_key
-parameter_list|(
-name|key
-parameter_list|,
-name|ext
-parameter_list|)
-define|\
-value|{                                                                   \             ngx_uint_t  n;                                                  \             for (key = 0, n = 0; n< ext.len; n++) {                        \                 key += ext.data[n];                                         \             }                                                               \             key %= NGX_HTTP_TYPES_HASH_PRIME;                               \         }
-end_define
-
 begin_typedef
-DECL|struct|__anon2bce7e480908
-typedef|typedef
-struct|struct
-block|{
-DECL|member|exten
-name|ngx_str_t
-name|exten
-decl_stmt|;
-DECL|member|type
-name|ngx_str_t
-name|type
-decl_stmt|;
-DECL|typedef|ngx_http_type_t
-block|}
-name|ngx_http_type_t
-typedef|;
-end_typedef
-
-begin_typedef
-DECL|struct|__anon2bce7e480a08
+DECL|struct|__anon2b0d99680908
 typedef|typedef
 struct|struct
 block|{
@@ -557,15 +516,6 @@ DECL|member|handler
 name|ngx_http_handler_pt
 name|handler
 decl_stmt|;
-DECL|member|types
-name|ngx_array_t
-modifier|*
-name|types
-decl_stmt|;
-DECL|member|default_type
-name|ngx_str_t
-name|default_type
-decl_stmt|;
 DECL|member|root
 name|ngx_str_t
 name|root
@@ -574,6 +524,19 @@ comment|/* root, alias */
 DECL|member|post_action
 name|ngx_str_t
 name|post_action
+decl_stmt|;
+DECL|member|types
+name|ngx_array_t
+modifier|*
+name|types
+decl_stmt|;
+DECL|member|types_hash
+name|ngx_hash_t
+name|types_hash
+decl_stmt|;
+DECL|member|default_type
+name|ngx_str_t
+name|default_type
 decl_stmt|;
 DECL|member|client_max_body_size
 name|size_t
@@ -696,6 +659,14 @@ DECL|member|err_log
 name|ngx_log_t
 modifier|*
 name|err_log
+decl_stmt|;
+DECL|member|types_hash_max_size
+name|ngx_uint_t
+name|types_hash_max_size
+decl_stmt|;
+DECL|member|types_hash_bucket_size
+name|ngx_uint_t
+name|types_hash_bucket_size
 decl_stmt|;
 if|#
 directive|if

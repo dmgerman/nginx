@@ -79,6 +79,7 @@ if|#
 directive|if
 operator|!
 operator|(
+operator|(
 name|__GNUC__
 operator|==
 literal|2
@@ -87,7 +88,18 @@ name|__GNUC_MINOR__
 operator|<=
 literal|7
 operator|)
+operator|||
+operator|(
+name|__INTEL_COMPILER
+operator|>=
+literal|800
+operator|)
+operator|)
 end_if
+
+begin_comment
+comment|/*  * icc 8.1 and 9.0 compile broken code with -march=pentium4 option:  * ngx_atomic_fetch_add() always return the input "add" value,  * so we use the gcc 2.7 version.  *  * icc 8.1 and 9.0 with -march=pentiumpro option or icc 7.1 compile  * correct code.  */
+end_comment
 
 begin_function
 specifier|static
@@ -117,10 +129,6 @@ begin_else
 else|#
 directive|else
 end_else
-
-begin_comment
-comment|/* (__GNUC__ == 2&& __GNUC_MINOR__<= 7) */
-end_comment
 
 begin_comment
 comment|/*  * gcc 2.7 does not support "+q", so we have to use the fixed %eax ("=a" and  * "a") and this adds two superfluous instructions in the end of code,  * something like this: "mov %eax, %edx / mov %edx, %eax".  */

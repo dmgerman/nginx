@@ -10853,7 +10853,7 @@ literal|"upstream_headers_in"
 expr_stmt|;
 if|if
 condition|(
-name|ngx_hash_init
+name|ngx_hash0_init
 argument_list|(
 operator|&
 name|umcf

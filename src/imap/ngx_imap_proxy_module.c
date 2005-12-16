@@ -34,7 +34,7 @@ file|<ngx_imap.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2aef76a00108
+DECL|struct|__anon27f1dda20108
 typedef|typedef
 struct|struct
 block|{
@@ -2718,11 +2718,11 @@ condition|)
 block|{
 name|recv_action
 operator|=
-literal|"proxying and reading from upstream"
+literal|"proxying and reading from client"
 expr_stmt|;
 name|send_action
 operator|=
-literal|"proxying and sending to client"
+literal|"proxying and sending to upstream"
 expr_stmt|;
 name|src
 operator|=
@@ -2745,11 +2745,11 @@ else|else
 block|{
 name|recv_action
 operator|=
-literal|"proxying and reading from client"
+literal|"proxying and reading from upstream"
 expr_stmt|;
 name|send_action
 operator|=
-literal|"proxying and sending to upstream"
+literal|"proxying and sending to client"
 expr_stmt|;
 name|src
 operator|=

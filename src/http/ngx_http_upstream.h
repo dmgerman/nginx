@@ -117,7 +117,7 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon27a368f00108
+DECL|struct|__anon2c3b7e9f0108
 typedef|typedef
 struct|struct
 block|{
@@ -149,12 +149,12 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a368f00208
+DECL|struct|__anon2c3b7e9f0208
 typedef|typedef
 struct|struct
 block|{
 DECL|member|headers_in_hash
-name|ngx_hash_t
+name|ngx_hash0_t
 name|headers_in_hash
 decl_stmt|;
 DECL|typedef|ngx_http_upstream_main_conf_t
@@ -164,7 +164,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a368f00308
+DECL|struct|__anon2c3b7e9f0308
 typedef|typedef
 struct|struct
 block|{
@@ -314,7 +314,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a368f00408
+DECL|struct|__anon2c3b7e9f0408
 typedef|typedef
 struct|struct
 block|{
@@ -350,7 +350,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a368f00508
+DECL|struct|__anon2c3b7e9f0508
 typedef|typedef
 struct|struct
 block|{

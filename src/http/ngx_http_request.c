@@ -7182,6 +7182,17 @@ name|write
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|r
+operator|->
+name|connection
+operator|->
+name|destroyed
+condition|)
+block|{
+return|return;
+block|}
 if|#
 directive|if
 literal|0

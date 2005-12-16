@@ -422,14 +422,29 @@ directive|endif
 end_endif
 
 begin_define
-DECL|macro|ngx_align (p)
+DECL|macro|ngx_align (d,a)
 define|#
 directive|define
 name|ngx_align
 parameter_list|(
-name|p
+name|d
+parameter_list|,
+name|a
 parameter_list|)
-value|(u_char *) (((uintptr_t) p + (NGX_ALIGNMENT - 1))     \& ~(NGX_ALIGNMENT - 1))
+value|(((d) + (a - 1))& ~(a - 1))
+end_define
+
+begin_define
+DECL|macro|ngx_align_ptr (p,a)
+define|#
+directive|define
+name|ngx_align_ptr
+parameter_list|(
+name|p
+parameter_list|,
+name|a
+parameter_list|)
+value|(u_char *) (((uintptr_t) (p) + (a - 1))& ~(a - 1))
 end_define
 
 begin_define

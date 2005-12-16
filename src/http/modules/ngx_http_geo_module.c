@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28933daf0108
+DECL|struct|__anon29911abe0108
 typedef|typedef
 struct|struct
 block|{
@@ -40,9 +40,9 @@ DECL|member|values
 name|ngx_array_t
 name|values
 decl_stmt|;
-DECL|typedef|ngx_http_geo_conf_t
+DECL|typedef|ngx_http_geo_conf_ctx_t
 block|}
-name|ngx_http_geo_conf_t
+name|ngx_http_geo_conf_ctx_t
 typedef|;
 end_typedef
 
@@ -366,8 +366,8 @@ name|ngx_radix_tree_t
 modifier|*
 name|tree
 decl_stmt|;
-name|ngx_http_geo_conf_t
-name|geo
+name|ngx_http_geo_conf_ctx_t
+name|ctx
 decl_stmt|;
 name|ngx_http_variable_t
 modifier|*
@@ -519,7 +519,7 @@ condition|(
 name|ngx_array_init
 argument_list|(
 operator|&
-name|geo
+name|ctx
 operator|.
 name|values
 argument_list|,
@@ -533,8 +533,8 @@ name|ngx_http_variable_value_t
 operator|*
 argument_list|)
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 name|ngx_destroy_pool
@@ -546,13 +546,13 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
-name|geo
+name|ctx
 operator|.
 name|tree
 operator|=
 name|tree
 expr_stmt|;
-name|geo
+name|ctx
 operator|.
 name|pool
 operator|=
@@ -576,7 +576,7 @@ operator|->
 name|ctx
 operator|=
 operator|&
-name|geo
+name|ctx
 expr_stmt|;
 name|cf
 operator|->
@@ -694,9 +694,9 @@ decl_stmt|;
 name|ngx_inet_cidr_t
 name|cidrin
 decl_stmt|;
-name|ngx_http_geo_conf_t
+name|ngx_http_geo_conf_ctx_t
 modifier|*
-name|geo
+name|ctx
 decl_stmt|;
 name|ngx_http_variable_value_t
 modifier|*
@@ -709,7 +709,7 @@ modifier|*
 modifier|*
 name|v
 decl_stmt|;
-name|geo
+name|ctx
 operator|=
 name|cf
 operator|->
@@ -918,7 +918,7 @@ name|NULL
 expr_stmt|;
 name|v
 operator|=
-name|geo
+name|ctx
 operator|->
 name|values
 operator|.
@@ -932,7 +932,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|geo
+name|ctx
 operator|->
 name|values
 operator|.
@@ -1014,7 +1014,7 @@ name|var
 operator|=
 name|ngx_palloc
 argument_list|(
-name|geo
+name|ctx
 operator|->
 name|pool
 argument_list|,
@@ -1052,7 +1052,7 @@ name|data
 operator|=
 name|ngx_pstrdup
 argument_list|(
-name|geo
+name|ctx
 operator|->
 name|pool
 argument_list|,
@@ -1099,7 +1099,7 @@ operator|=
 name|ngx_array_push
 argument_list|(
 operator|&
-name|geo
+name|ctx
 operator|->
 name|values
 argument_list|)
@@ -1137,7 +1137,7 @@ name|rc
 operator|=
 name|ngx_radix32tree_insert
 argument_list|(
-name|geo
+name|ctx
 operator|->
 name|tree
 argument_list|,
@@ -1186,7 +1186,7 @@ operator|*
 operator|)
 name|ngx_radix32tree_find
 argument_list|(
-name|geo
+name|ctx
 operator|->
 name|tree
 argument_list|,
@@ -1225,7 +1225,7 @@ name|rc
 operator|=
 name|ngx_radix32tree_delete
 argument_list|(
-name|geo
+name|ctx
 operator|->
 name|tree
 argument_list|,

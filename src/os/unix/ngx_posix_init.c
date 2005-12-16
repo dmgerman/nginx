@@ -117,6 +117,10 @@ operator|=
 name|getpagesize
 argument_list|()
 expr_stmt|;
+name|ngx_cacheline_size
+operator|=
+name|NGX_CPU_CACHE_LINE
+expr_stmt|;
 if|if
 condition|(
 name|ngx_ncpu

@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2895f5f90108
+DECL|struct|__anon2a324c4e0108
 typedef|typedef
 struct|struct
 block|{
@@ -59,7 +59,7 @@ name|ngx_uint_t
 name|proxied
 decl_stmt|;
 DECL|member|level
-name|int
+name|ngx_int_t
 name|level
 decl_stmt|;
 DECL|member|wbits
@@ -153,7 +153,7 @@ value|0x0200
 end_define
 
 begin_typedef
-DECL|struct|__anon2895f5f90208
+DECL|struct|__anon2a324c4e0208
 typedef|typedef
 struct|struct
 block|{
@@ -2316,6 +2316,9 @@ name|ctx
 operator|->
 name|zstream
 argument_list|,
+operator|(
+name|int
+operator|)
 name|conf
 operator|->
 name|level

@@ -92,7 +92,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon28ff2a890108
+DECL|struct|__anon2c7fdb1e0108
 typedef|typedef
 struct|struct
 block|{
@@ -343,6 +343,10 @@ operator|=
 name|si
 operator|.
 name|dwNumberOfProcessors
+expr_stmt|;
+name|ngx_cacheline_size
+operator|=
+name|NGX_CPU_CACHE_LINE
 expr_stmt|;
 comment|/* init Winsock */
 if|if

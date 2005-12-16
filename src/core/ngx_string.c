@@ -3898,7 +3898,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon2afb78c70103
+DECL|enum|__anon2b7bdadc0103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -4061,17 +4061,25 @@ name|sw_quoted_second
 expr_stmt|;
 break|break;
 block|}
-comment|/* skip the invalid quoted character */
-name|s
-operator|++
+comment|/* the invalid quoted character */
+name|state
+operator|=
+name|sw_usual
 expr_stmt|;
-name|size
-operator|--
+operator|*
+name|d
+operator|++
+operator|=
+name|ch
 expr_stmt|;
 break|break;
 case|case
 name|sw_quoted_second
 case|:
+name|state
+operator|=
+name|sw_usual
+expr_stmt|;
 if|if
 condition|(
 name|ch
@@ -4099,10 +4107,6 @@ name|ch
 operator|-
 literal|'0'
 operator|)
-expr_stmt|;
-name|state
-operator|=
-name|sw_usual
 expr_stmt|;
 if|if
 condition|(
@@ -4211,10 +4215,6 @@ goto|goto
 name|done
 goto|;
 block|}
-name|state
-operator|=
-name|sw_usual
-expr_stmt|;
 if|if
 condition|(
 name|ch
@@ -4264,7 +4264,7 @@ operator|)
 expr_stmt|;
 break|break;
 block|}
-comment|/* skip the invalid quoted character */
+comment|/* the invalid quoted character */
 break|break;
 block|}
 block|}

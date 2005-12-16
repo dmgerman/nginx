@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_comment
-comment|/*  * NGX_MAX_ALLOC_FROM_POOL should be (ngx_page_size - 1), i.e. 4095 on x86.  * On FreeBSD 5.x it allows to use the zero copy sending.  * On Windows NT it decreases a number of locked pages in a kernel.  */
+comment|/*  * NGX_MAX_ALLOC_FROM_POOL should be (ngx_pagesize - 1), i.e. 4095 on x86.  * On FreeBSD 5.x it allows to use the zero copy sending.  * On Windows NT it decreases a number of locked pages in a kernel.  */
 end_comment
 
 begin_define
@@ -174,7 +174,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28d1c52c0108
+DECL|struct|__anon27559fff0108
 typedef|typedef
 struct|struct
 block|{

@@ -22,6 +22,13 @@ name|ngx_pagesize
 decl_stmt|;
 end_decl_stmt
 
+begin_decl_stmt
+DECL|variable|ngx_cacheline_size
+name|ngx_uint_t
+name|ngx_cacheline_size
+decl_stmt|;
+end_decl_stmt
+
 begin_function
 DECL|function|ngx_alloc (size_t size,ngx_log_t * log)
 name|void
