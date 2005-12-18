@@ -76,14 +76,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon276b038c010a
+DECL|union|__anon2c74cb4f010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon276b038c0208
+DECL|struct|__anon2c74cb4f0208
 struct|struct
 block|{
 DECL|member|lengths
@@ -114,7 +114,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon276b038c0308
+DECL|struct|__anon2c74cb4f0308
 typedef|typedef
 struct|struct
 block|{
@@ -199,7 +199,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276b038c0408
+DECL|struct|__anon2c74cb4f0408
 typedef|typedef
 struct|struct
 block|{
@@ -3978,7 +3978,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon276b038c0503
+DECL|enum|__anon2c74cb4f0503
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -8958,6 +8958,9 @@ decl_stmt|,
 modifier|*
 name|url
 decl_stmt|;
+name|ngx_uint_t
+name|port
+decl_stmt|;
 name|ngx_inet_upstream_t
 name|inet_upstream
 decl_stmt|;
@@ -9037,6 +9040,10 @@ name|add
 operator|=
 literal|7
 expr_stmt|;
+name|port
+operator|=
+literal|80
+expr_stmt|;
 block|}
 if|else if
 condition|(
@@ -9062,6 +9069,10 @@ operator|)
 name|add
 operator|=
 literal|8
+expr_stmt|;
+name|port
+operator|=
+literal|443
 expr_stmt|;
 name|plcf
 operator|->
@@ -9405,7 +9416,7 @@ name|inet_upstream
 operator|.
 name|default_port_value
 operator|=
-literal|80
+name|port
 expr_stmt|;
 name|inet_upstream
 operator|.
@@ -9473,12 +9484,7 @@ name|schema
 operator|.
 name|len
 operator|=
-sizeof|sizeof
-argument_list|(
-literal|"http://"
-argument_list|)
-operator|-
-literal|1
+name|add
 expr_stmt|;
 name|plcf
 operator|->
@@ -9488,11 +9494,9 @@ name|schema
 operator|.
 name|data
 operator|=
-operator|(
-name|u_char
-operator|*
-operator|)
-literal|"http://"
+name|url
+operator|->
+name|data
 expr_stmt|;
 name|clcf
 operator|=

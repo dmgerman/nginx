@@ -234,17 +234,6 @@ name|n
 operator|--
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|n
-operator|==
-literal|0
-condition|)
-block|{
-return|return
-name|NULL
-return|;
-block|}
 name|key
 operator|=
 literal|0
@@ -309,6 +298,7 @@ condition|(
 name|value
 condition|)
 block|{
+comment|/*          * the 2 low bits of value have the special meaning:          *     00 - value is data pointer,          *     01 - value is pointer to wildcard hash allowing          *          "*.example.com" only,          *     11 - value is pointer to wildcard hash allowing          *          both "example.com" and "*.example.com".          */
 if|if
 condition|(
 operator|(
@@ -335,9 +325,39 @@ operator|(
 name|uintptr_t
 operator|)
 operator|~
-literal|1
+literal|3
 operator|)
 expr_stmt|;
+if|if
+condition|(
+name|n
+operator|==
+literal|0
+condition|)
+block|{
+if|if
+condition|(
+operator|(
+name|uintptr_t
+operator|)
+name|value
+operator|&
+literal|2
+condition|)
+block|{
+return|return
+name|hwc
+operator|->
+name|value
+return|;
+block|}
+else|else
+block|{
+return|return
+name|NULL
+return|;
+block|}
+block|}
 name|value
 operator|=
 name|ngx_hash_find_wildcard
@@ -1405,6 +1425,8 @@ name|ngx_uint_t
 name|i
 decl_stmt|,
 name|n
+decl_stmt|,
+name|dot
 decl_stmt|;
 name|ngx_array_t
 name|curr_names
@@ -1498,6 +1520,10 @@ literal|0
 block_content|ngx_log_error(NGX_LOG_ALERT, hinit->pool->log, 0,                       "wc0: \"%V\"",&names[n].key);
 endif|#
 directive|endif
+name|dot
+operator|=
+literal|0
+expr_stmt|;
 for|for
 control|(
 name|len
@@ -1536,8 +1562,9 @@ operator|==
 literal|'.'
 condition|)
 block|{
-name|len
-operator|++
+name|dot
+operator|=
+literal|1
 expr_stmt|;
 break|break;
 block|}
@@ -1568,8 +1595,6 @@ operator|.
 name|len
 operator|=
 name|len
-operator|-
-literal|1
 expr_stmt|;
 name|name
 operator|->
@@ -1624,6 +1649,15 @@ literal|0
 block_content|ngx_log_error(NGX_LOG_ALERT, hinit->pool->log, 0,                       "wc1: \"%V\"",&name->key);
 endif|#
 directive|endif
+if|if
+condition|(
+name|dot
+condition|)
+block|{
+name|len
+operator|++
+expr_stmt|;
+block|}
 name|next_names
 operator|.
 name|nelts
@@ -1840,7 +1874,7 @@ expr_stmt|;
 if|#
 directive|if
 literal|0
-block_content|ngx_log_error(NGX_LOG_ALERT, hinit->pool->log, 0,                           "wc2: \"%V\"",&next_name->key);
+block_content|ngx_log_error(NGX_LOG_ALERT, hinit->pool->log, 0,                           "wc3: \"%V\"",&next_name->key);
 endif|#
 directive|endif
 block|}
@@ -1945,7 +1979,13 @@ name|uintptr_t
 operator|)
 name|wdc
 operator||
+operator|(
+name|dot
+condition|?
 literal|1
+else|:
+literal|3
+operator|)
 operator|)
 expr_stmt|;
 block|}
