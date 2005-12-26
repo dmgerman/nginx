@@ -413,7 +413,7 @@ value|504
 end_define
 
 begin_typedef
-DECL|enum|__anon2be706220103
+DECL|enum|__anon2768fb690103
 typedef|typedef
 enum|enum
 block|{
@@ -434,7 +434,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2be706220203
+DECL|enum|__anon2768fb690203
 typedef|typedef
 enum|enum
 block|{
@@ -473,7 +473,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be706220308
+DECL|struct|__anon2768fb690308
 typedef|typedef
 struct|struct
 block|{
@@ -496,7 +496,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be706220408
+DECL|struct|__anon2768fb690408
 typedef|typedef
 struct|struct
 block|{
@@ -515,7 +515,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be706220508
+DECL|struct|__anon2768fb690508
 typedef|typedef
 struct|struct
 block|{
@@ -705,7 +705,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be706220608
+DECL|struct|__anon2768fb690608
 typedef|typedef
 struct|struct
 block|{
@@ -728,7 +728,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be706220708
+DECL|struct|__anon2768fb690708
 typedef|typedef
 struct|struct
 block|{
@@ -850,7 +850,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be706220808
+DECL|struct|__anon2768fb690808
 typedef|typedef
 struct|struct
 block|{
@@ -884,7 +884,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be706220908
+DECL|struct|__anon2768fb690908
 typedef|typedef
 struct|struct
 block|{
@@ -921,6 +921,26 @@ comment|/* unsigned  pipeline:1; */
 DECL|typedef|ngx_http_connection_t
 block|}
 name|ngx_http_connection_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2768fb690a08
+typedef|typedef
+struct|struct
+block|{
+DECL|member|hash
+name|ngx_hash_t
+name|hash
+decl_stmt|;
+DECL|member|dns_wildcards
+name|ngx_hash_wildcard_t
+modifier|*
+name|dns_wildcards
+decl_stmt|;
+DECL|typedef|ngx_http_virtual_names_t
+block|}
+name|ngx_http_virtual_names_t
 typedef|;
 end_typedef
 
@@ -1208,7 +1228,7 @@ name|ngx_str_t
 name|server_name
 decl_stmt|;
 DECL|member|virtual_names
-name|ngx_http_in_addr_t
+name|ngx_http_virtual_names_t
 modifier|*
 name|virtual_names
 decl_stmt|;

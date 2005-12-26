@@ -614,7 +614,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2945bea30108
+DECL|struct|__anon27b9c7130108
 typedef|typedef
 struct|struct
 block|{
@@ -659,7 +659,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2945bea30208
+DECL|struct|__anon27b9c7130208
 typedef|typedef
 struct|struct
 block|{
@@ -732,6 +732,11 @@ name|ngx_pool_t
 modifier|*
 name|pool
 decl_stmt|;
+DECL|member|temp_pool
+name|ngx_pool_t
+modifier|*
+name|temp_pool
+decl_stmt|;
 DECL|member|conf_file
 name|ngx_conf_file_t
 modifier|*
@@ -794,7 +799,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2945bea30308
+DECL|struct|__anon27b9c7130308
 typedef|typedef
 struct|struct
 block|{
@@ -809,7 +814,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2945bea30408
+DECL|struct|__anon27b9c7130408
 typedef|typedef
 struct|struct
 block|{
@@ -834,7 +839,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2945bea30508
+DECL|struct|__anon27b9c7130508
 typedef|typedef
 struct|struct
 block|{
@@ -857,7 +862,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2945bea30608
+DECL|struct|__anon27b9c7130608
 typedef|typedef
 struct|struct
 block|{
@@ -884,7 +889,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2945bea30708
+DECL|struct|__anon27b9c7130708
 typedef|typedef
 struct|struct
 block|{

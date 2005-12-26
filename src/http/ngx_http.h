@@ -62,15 +62,6 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|typedef|ngx_http_in_addr_t
-typedef|typedef
-name|struct
-name|ngx_http_in_addr_s
-name|ngx_http_in_addr_t
-typedef|;
-end_typedef
-
-begin_typedef
 DECL|typedef|ngx_http_header_handler_pt
 typedef|typedef
 name|ngx_int_t

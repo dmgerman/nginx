@@ -1813,11 +1813,7 @@ name|ngx_http_cleanup_add
 argument_list|(
 name|r
 argument_list|,
-sizeof|sizeof
-argument_list|(
-name|void
-operator|*
-argument_list|)
+literal|0
 argument_list|)
 expr_stmt|;
 if|if

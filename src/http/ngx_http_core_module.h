@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b0d99680108
+DECL|struct|__anon27d621960108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0d99680208
+DECL|struct|__anon27d621960208
 typedef|typedef
 struct|struct
 block|{
@@ -134,7 +134,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b0d99680303
+DECL|enum|__anon27d621960303
 typedef|typedef
 enum|enum
 block|{
@@ -170,7 +170,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0d99680408
+DECL|struct|__anon27d621960408
 typedef|typedef
 struct|struct
 block|{
@@ -190,7 +190,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0d99680508
+DECL|struct|__anon27d621960508
 typedef|typedef
 struct|struct
 block|{
@@ -216,17 +216,13 @@ DECL|member|variables_hash
 name|ngx_hash0_t
 name|variables_hash
 decl_stmt|;
-DECL|member|server_names_hash
+DECL|member|server_names_hash_max_size
 name|ngx_uint_t
-name|server_names_hash
+name|server_names_hash_max_size
 decl_stmt|;
-DECL|member|server_names_hash_threshold
+DECL|member|server_names_hash_bucket_size
 name|ngx_uint_t
-name|server_names_hash_threshold
-decl_stmt|;
-DECL|member|max_server_name_len
-name|size_t
-name|max_server_name_len
+name|server_names_hash_bucket_size
 decl_stmt|;
 DECL|member|variables
 name|ngx_array_t
@@ -245,7 +241,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0d99680608
+DECL|struct|__anon27d621960608
 typedef|typedef
 struct|struct
 block|{
@@ -269,6 +265,10 @@ DECL|member|ctx
 name|ngx_http_conf_ctx_t
 modifier|*
 name|ctx
+decl_stmt|;
+DECL|member|server_name
+name|ngx_str_t
+name|server_name
 decl_stmt|;
 DECL|member|connection_pool_size
 name|size_t
@@ -309,7 +309,33 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2b0d99680708
+DECL|struct|__anon27d621960708
+typedef|typedef
+struct|struct
+block|{
+DECL|member|addr
+name|in_addr_t
+name|addr
+decl_stmt|;
+comment|/* the default server configuration for this address:port */
+DECL|member|core_srv_conf
+name|ngx_http_core_srv_conf_t
+modifier|*
+name|core_srv_conf
+decl_stmt|;
+DECL|member|virtual_names
+name|ngx_http_virtual_names_t
+modifier|*
+name|virtual_names
+decl_stmt|;
+DECL|typedef|ngx_http_in_addr_t
+block|}
+name|ngx_http_in_addr_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon27d621960808
 typedef|typedef
 struct|struct
 block|{
@@ -322,39 +348,61 @@ name|ngx_str_t
 name|port_text
 decl_stmt|;
 DECL|member|addrs
-name|ngx_array_t
+name|ngx_http_in_addr_t
+modifier|*
 name|addrs
 decl_stmt|;
-comment|/* array of ngx_http_in_addr_t */
+DECL|member|naddrs
+name|ngx_uint_t
+name|naddrs
+decl_stmt|;
 DECL|typedef|ngx_http_in_port_t
 block|}
 name|ngx_http_in_port_t
 typedef|;
 end_typedef
 
-begin_struct
-DECL|struct|ngx_http_in_addr_s
+begin_typedef
+DECL|struct|__anon27d621960908
+typedef|typedef
 struct|struct
-name|ngx_http_in_addr_s
+block|{
+DECL|member|port
+name|in_port_t
+name|port
+decl_stmt|;
+DECL|member|addrs
+name|ngx_array_t
+name|addrs
+decl_stmt|;
+comment|/* array of ngx_http_conf_in_addr_t */
+DECL|typedef|ngx_http_conf_in_port_t
+block|}
+name|ngx_http_conf_in_port_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon27d621960a08
+typedef|typedef
+struct|struct
 block|{
 DECL|member|addr
 name|in_addr_t
 name|addr
 decl_stmt|;
+DECL|member|hash
+name|ngx_hash_t
+name|hash
+decl_stmt|;
+DECL|member|dns_wildcards
+name|ngx_hash_wildcard_t
+modifier|*
+name|dns_wildcards
+decl_stmt|;
 DECL|member|names
 name|ngx_array_t
 name|names
-decl_stmt|;
-comment|/* array of ngx_http_server_name_t */
-DECL|member|hash
-name|ngx_array_t
-modifier|*
-name|hash
-decl_stmt|;
-comment|/* hash of ngx_http_server_name_t */
-DECL|member|wildcards
-name|ngx_array_t
-name|wildcards
 decl_stmt|;
 comment|/* array of ngx_http_server_name_t */
 comment|/* the default server configuration for this address:port */
@@ -363,16 +411,31 @@ name|ngx_http_core_srv_conf_t
 modifier|*
 name|core_srv_conf
 decl_stmt|;
-DECL|member|conf
-name|ngx_http_listen_conf_t
-name|conf
+DECL|member|default_server
+name|unsigned
+name|default_server
+range|:
+literal|1
 decl_stmt|;
+DECL|member|bind
+name|unsigned
+name|bind
+range|:
+literal|1
+decl_stmt|;
+DECL|member|listen_conf
+name|ngx_http_listen_conf_t
+modifier|*
+name|listen_conf
+decl_stmt|;
+DECL|typedef|ngx_http_conf_in_addr_t
 block|}
-struct|;
-end_struct
+name|ngx_http_conf_in_addr_t
+typedef|;
+end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0d99680808
+DECL|struct|__anon27d621960b08
 typedef|typedef
 struct|struct
 block|{
@@ -386,37 +449,14 @@ modifier|*
 name|core_srv_conf
 decl_stmt|;
 comment|/* virtual name server conf */
-DECL|member|wildcard
-name|ngx_uint_t
-name|wildcard
-decl_stmt|;
-comment|/* unsigned  wildcard:1 */
 DECL|typedef|ngx_http_server_name_t
 block|}
 name|ngx_http_server_name_t
 typedef|;
 end_typedef
 
-begin_define
-DECL|macro|ngx_http_server_names_hash_key (key,name,len,prime)
-define|#
-directive|define
-name|ngx_http_server_names_hash_key
-parameter_list|(
-name|key
-parameter_list|,
-name|name
-parameter_list|,
-name|len
-parameter_list|,
-name|prime
-parameter_list|)
-define|\
-value|{                                                                   \             ngx_uint_t  n0;                                                 \             for (key = 0, n0 = 0; n0< len; n0++) {                         \                 key += name[n0];                                            \             }                                                               \             key %= prime;                                                   \         }
-end_define
-
 begin_typedef
-DECL|struct|__anon2b0d99680908
+DECL|struct|__anon27d621960c08
 typedef|typedef
 struct|struct
 block|{
