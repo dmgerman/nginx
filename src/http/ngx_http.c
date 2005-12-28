@@ -50,25 +50,6 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|int
-name|ngx_libc_cdecl
-name|ngx_cmp_server_names
-parameter_list|(
-specifier|const
-name|void
-modifier|*
-name|one
-parameter_list|,
-specifier|const
-name|void
-modifier|*
-name|two
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-specifier|static
 name|ngx_int_t
 name|ngx_http_add_address
 parameter_list|(

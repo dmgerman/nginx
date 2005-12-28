@@ -199,7 +199,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2770ebaf0108
+DECL|struct|__anon28d706ff0108
 typedef|typedef
 struct|struct
 block|{
@@ -238,7 +238,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2770ebaf0208
+DECL|struct|__anon28d706ff0208
 typedef|typedef
 struct|struct
 block|{
@@ -307,7 +307,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2770ebaf0308
+DECL|struct|__anon28d706ff0308
 typedef|typedef
 struct|struct
 block|{
@@ -382,6 +382,18 @@ name|b
 parameter_list|)
 define|\
 value|((b->flush || b->last_buf || b->sync)                                    \&& !ngx_buf_in_memory(b)&& !b->in_file)
+end_define
+
+begin_define
+DECL|macro|ngx_buf_sync_only (b)
+define|#
+directive|define
+name|ngx_buf_sync_only
+parameter_list|(
+name|b
+parameter_list|)
+define|\
+value|(b->sync                                                                 \&& !ngx_buf_in_memory(b)&& !b->in_file&& !b->flush&& !b->last_buf)
 end_define
 
 begin_define

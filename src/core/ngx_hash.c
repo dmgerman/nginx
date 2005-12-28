@@ -407,7 +407,7 @@ parameter_list|(
 name|name
 parameter_list|)
 define|\
-value|sizeof(void *) + ngx_align((name)->key.len + 1, sizeof(void *))
+value|(sizeof(void *) + ngx_align((name)->key.len + 1, sizeof(void *)))
 end_define
 
 begin_function
@@ -432,10 +432,11 @@ modifier|*
 name|elts
 decl_stmt|;
 name|size_t
+name|len
+decl_stmt|;
+name|u_short
 modifier|*
 name|test
-decl_stmt|,
-name|len
 decl_stmt|;
 name|ngx_uint_t
 name|i
@@ -557,7 +558,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"could not build the %s hash, you should "
+literal|"could not build the %s, you should "
 literal|"increase %s_bucket_size: %i"
 argument_list|,
 name|hinit
@@ -588,7 +589,7 @@ name|max_size
 operator|*
 sizeof|sizeof
 argument_list|(
-name|size_t
+name|u_short
 argument_list|)
 argument_list|,
 name|hinit
@@ -673,7 +674,7 @@ name|size
 operator|*
 sizeof|sizeof
 argument_list|(
-name|size_t
+name|u_short
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -722,7 +723,16 @@ name|test
 index|[
 name|key
 index|]
-operator|+=
+operator|=
+operator|(
+name|u_short
+operator|)
+operator|(
+name|test
+index|[
+name|key
+index|]
+operator|+
 name|NGX_HASH_ELT_SIZE
 argument_list|(
 operator|&
@@ -731,6 +741,7 @@ index|[
 name|n
 index|]
 argument_list|)
+operator|)
 expr_stmt|;
 if|#
 directive|if
@@ -745,6 +756,9 @@ index|[
 name|key
 index|]
 operator|>
+operator|(
+name|u_short
+operator|)
 name|bucket_size
 condition|)
 block|{
@@ -772,7 +786,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"could not build the %s hash, you should increase "
+literal|"could not build the %s, you should increase "
 literal|"either %s_max_size: %i or %s_bucket_size: %i"
 argument_list|,
 name|hinit
@@ -877,7 +891,16 @@ name|test
 index|[
 name|key
 index|]
-operator|+=
+operator|=
+operator|(
+name|u_short
+operator|)
+operator|(
+name|test
+index|[
+name|key
+index|]
+operator|+
 name|NGX_HASH_ELT_SIZE
 argument_list|(
 operator|&
@@ -886,6 +909,7 @@ index|[
 name|n
 index|]
 argument_list|)
+operator|)
 expr_stmt|;
 block|}
 name|len
@@ -927,6 +951,10 @@ index|[
 name|i
 index|]
 operator|=
+operator|(
+name|u_short
+operator|)
+operator|(
 name|ngx_align
 argument_list|(
 name|test
@@ -936,6 +964,7 @@ index|]
 argument_list|,
 name|ngx_cacheline_size
 argument_list|)
+operator|)
 expr_stmt|;
 name|len
 operator|+=
@@ -1302,7 +1331,16 @@ name|test
 index|[
 name|key
 index|]
-operator|+=
+operator|=
+operator|(
+name|u_short
+operator|)
+operator|(
+name|test
+index|[
+name|key
+index|]
+operator|+
 name|NGX_HASH_ELT_SIZE
 argument_list|(
 operator|&
@@ -1311,6 +1349,7 @@ index|[
 name|n
 index|]
 argument_list|)
+operator|)
 expr_stmt|;
 block|}
 for|for

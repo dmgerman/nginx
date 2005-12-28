@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27d621960108
+DECL|struct|__anon27e818060108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d621960208
+DECL|struct|__anon27e818060208
 typedef|typedef
 struct|struct
 block|{
@@ -134,7 +134,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27d621960303
+DECL|enum|__anon27e818060303
 typedef|typedef
 enum|enum
 block|{
@@ -170,7 +170,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d621960408
+DECL|struct|__anon27e818060408
 typedef|typedef
 struct|struct
 block|{
@@ -190,7 +190,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d621960508
+DECL|struct|__anon27e818060508
 typedef|typedef
 struct|struct
 block|{
@@ -241,7 +241,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d621960608
+DECL|struct|__anon27e818060608
 typedef|typedef
 struct|struct
 block|{
@@ -309,7 +309,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon27d621960708
+DECL|struct|__anon27e818060708
 typedef|typedef
 struct|struct
 block|{
@@ -335,7 +335,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d621960808
+DECL|struct|__anon27e818060808
 typedef|typedef
 struct|struct
 block|{
@@ -363,7 +363,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d621960908
+DECL|struct|__anon27e818060908
 typedef|typedef
 struct|struct
 block|{
@@ -383,7 +383,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d621960a08
+DECL|struct|__anon27e818060a08
 typedef|typedef
 struct|struct
 block|{
@@ -435,7 +435,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d621960b08
+DECL|struct|__anon27e818060b08
 typedef|typedef
 struct|struct
 block|{
@@ -456,7 +456,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d621960c08
+DECL|struct|__anon27e818060c08
 typedef|typedef
 struct|struct
 block|{
@@ -564,6 +564,16 @@ comment|/* root, alias */
 DECL|member|post_action
 name|ngx_str_t
 name|post_action
+decl_stmt|;
+DECL|member|root_lengths
+name|ngx_array_t
+modifier|*
+name|root_lengths
+decl_stmt|;
+DECL|member|root_values
+name|ngx_array_t
+modifier|*
+name|root_values
 decl_stmt|;
 DECL|member|types
 name|ngx_array_t
