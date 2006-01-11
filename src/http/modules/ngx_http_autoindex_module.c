@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2769f47c0108
+DECL|struct|__anon29eac5fa0108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2769f47c0208
+DECL|struct|__anon29eac5fa0208
 typedef|typedef
 struct|struct
 block|{
@@ -2569,10 +2569,10 @@ expr_stmt|;
 if|if
 condition|(
 name|r
-operator|->
-expr|main
 operator|==
 name|r
+operator|->
+expr|main
 condition|)
 block|{
 name|b

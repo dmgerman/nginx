@@ -66,7 +66,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon28ef17a90108
+DECL|struct|__anon2b39005d0108
 typedef|typedef
 struct|struct
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ef17a90208
+DECL|struct|__anon2b39005d0208
 typedef|typedef
 struct|struct
 block|{
@@ -964,10 +964,10 @@ decl_stmt|;
 if|if
 condition|(
 name|r
-operator|->
-expr|main
 operator|!=
 name|r
+operator|->
+expr|main
 condition|)
 block|{
 return|return

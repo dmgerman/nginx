@@ -238,7 +238,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon299f631d0103
+DECL|enum|__anon2af9bebf0103
 typedef|typedef
 enum|enum
 block|{
@@ -262,7 +262,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon299f631d0203
+DECL|enum|__anon2af9bebf0203
 typedef|typedef
 enum|enum
 block|{
@@ -283,7 +283,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon299f631d0303
+DECL|enum|__anon2af9bebf0303
 typedef|typedef
 enum|enum
 block|{
@@ -302,6 +302,22 @@ block|}
 name|ngx_connection_tcp_nopush_e
 typedef|;
 end_typedef
+
+begin_define
+DECL|macro|NGX_LOWLEVEL_BUFFERED
+define|#
+directive|define
+name|NGX_LOWLEVEL_BUFFERED
+value|0x0000000f
+end_define
+
+begin_define
+DECL|macro|NGX_SSL_BUFFERED
+define|#
+directive|define
+name|NGX_SSL_BUFFERED
+value|0x00000001
+end_define
 
 begin_struct
 DECL|struct|ngx_connection_s
@@ -424,6 +440,10 @@ DECL|member|number
 name|ngx_atomic_uint_t
 name|number
 decl_stmt|;
+DECL|member|buffered
+name|ngx_uint_t
+name|buffered
+decl_stmt|;
 DECL|member|log_error
 name|unsigned
 name|log_error
@@ -431,12 +451,6 @@ range|:
 literal|2
 decl_stmt|;
 comment|/* ngx_connection_log_error_e */
-DECL|member|buffered
-name|unsigned
-name|buffered
-range|:
-literal|1
-decl_stmt|;
 DECL|member|single_connection
 name|unsigned
 name|single_connection

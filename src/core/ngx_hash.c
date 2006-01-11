@@ -3312,6 +3312,16 @@ name|i
 operator|++
 control|)
 block|{
+if|if
+condition|(
+operator|!
+operator|(
+name|flags
+operator|&
+name|NGX_HASH_READONLY_KEY
+operator|)
+condition|)
+block|{
 name|key
 operator|->
 name|data
@@ -3329,6 +3339,7 @@ name|i
 index|]
 argument_list|)
 expr_stmt|;
+block|}
 name|k
 operator|=
 name|ngx_hash

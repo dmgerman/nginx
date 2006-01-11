@@ -1543,10 +1543,10 @@ block|}
 if|if
 condition|(
 name|r
-operator|->
-expr|main
 operator|==
 name|r
+operator|->
+expr|main
 condition|)
 block|{
 name|b

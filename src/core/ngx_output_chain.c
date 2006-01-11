@@ -118,16 +118,19 @@ modifier|*
 name|in
 parameter_list|)
 block|{
-name|int
-name|rc
-decl_stmt|,
-name|last
-decl_stmt|;
 name|off_t
 name|bsize
 decl_stmt|;
 name|size_t
 name|size
+decl_stmt|;
+name|ngx_int_t
+name|rc
+decl_stmt|,
+name|last
+decl_stmt|;
+name|ngx_uint_t
+name|recycled
 decl_stmt|;
 name|ngx_chain_t
 modifier|*
@@ -547,6 +550,10 @@ name|bufs
 operator|.
 name|size
 expr_stmt|;
+name|recycled
+operator|=
+literal|1
+expr_stmt|;
 if|if
 condition|(
 name|ctx
@@ -579,6 +586,10 @@ operator|(
 name|size_t
 operator|)
 name|bsize
+expr_stmt|;
+name|recycled
+operator|=
+literal|0
 expr_stmt|;
 block|}
 if|else if
@@ -625,6 +636,10 @@ name|size_t
 operator|)
 name|bsize
 expr_stmt|;
+name|recycled
+operator|=
+literal|0
+expr_stmt|;
 block|}
 block|}
 name|ctx
@@ -669,7 +684,7 @@ name|buf
 operator|->
 name|recycled
 operator|=
-literal|1
+name|recycled
 expr_stmt|;
 name|ctx
 operator|->

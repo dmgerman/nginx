@@ -412,8 +412,48 @@ name|NGX_HTTP_GATEWAY_TIME_OUT
 value|504
 end_define
 
+begin_define
+DECL|macro|NGX_HTTP_LOWLEVEL_BUFFERED
+define|#
+directive|define
+name|NGX_HTTP_LOWLEVEL_BUFFERED
+value|0x000000f0
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_WRITE_BUFFERED
+define|#
+directive|define
+name|NGX_HTTP_WRITE_BUFFERED
+value|0x00000010
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_GZIP_BUFFERED
+define|#
+directive|define
+name|NGX_HTTP_GZIP_BUFFERED
+value|0x00000020
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_SSI_BUFFERED
+define|#
+directive|define
+name|NGX_HTTP_SSI_BUFFERED
+value|0x00000100
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_COPY_BUFFERED
+define|#
+directive|define
+name|NGX_HTTP_COPY_BUFFERED
+value|0x00000200
+end_define
+
 begin_typedef
-DECL|enum|__anon2a22e4550103
+DECL|enum|__anon2b8b736e0103
 typedef|typedef
 enum|enum
 block|{
@@ -434,7 +474,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a22e4550203
+DECL|enum|__anon2b8b736e0203
 typedef|typedef
 enum|enum
 block|{
@@ -473,7 +513,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a22e4550308
+DECL|struct|__anon2b8b736e0308
 typedef|typedef
 struct|struct
 block|{
@@ -496,7 +536,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a22e4550408
+DECL|struct|__anon2b8b736e0408
 typedef|typedef
 struct|struct
 block|{
@@ -515,7 +555,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a22e4550508
+DECL|struct|__anon2b8b736e0508
 typedef|typedef
 struct|struct
 block|{
@@ -705,7 +745,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a22e4550608
+DECL|struct|__anon2b8b736e0608
 typedef|typedef
 struct|struct
 block|{
@@ -728,7 +768,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a22e4550708
+DECL|struct|__anon2b8b736e0708
 typedef|typedef
 struct|struct
 block|{
@@ -850,7 +890,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a22e4550808
+DECL|struct|__anon2b8b736e0808
 typedef|typedef
 struct|struct
 block|{
@@ -884,7 +924,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a22e4550908
+DECL|struct|__anon2b8b736e0908
 typedef|typedef
 struct|struct
 block|{
@@ -925,7 +965,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a22e4550a08
+DECL|struct|__anon2b8b736e0a08
 typedef|typedef
 struct|struct
 block|{
@@ -1357,6 +1397,12 @@ name|unsigned
 name|uri_changes
 range|:
 literal|4
+decl_stmt|;
+DECL|member|fast_subrequest
+name|unsigned
+name|fast_subrequest
+range|:
+literal|1
 decl_stmt|;
 DECL|member|low_case_exten
 name|unsigned

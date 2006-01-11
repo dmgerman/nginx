@@ -25,12 +25,22 @@ begin_comment
 comment|/*  * Although FreeBSD sendfile() allows to pass a header and a trailer,  * it can not send a header with a part of the file in one packet until  * FreeBSD 5.3.  Besides, over the fast ethernet connection sendfile()  * may send the partially filled packets, i.e. the 8 file pages may be sent  * as the 11 full 1460-bytes packets, then one incomplete 324-bytes packet,  * and then again the 11 full 1460-bytes packets.  *  * Threfore we use the TCP_NOPUSH option (similar to Linux's TCP_CORK)  * to postpone the sending - it not only sends a header and the first part of  * the file in one packet, but also sends the file pages in the full packets.  *  * But until FreeBSD 4.5 turning TCP_NOPUSH off does not flush a pending  * data that less than MSS, so that data may be sent with 5 second delay.  * So we do not use TCP_NOPUSH on FreeBSD prior to 4.5, although it can be used  * for non-keepalive HTTP connections.  */
 end_comment
 
+begin_if
+if|#
+directive|if
+operator|(
+name|IOV_MAX
+operator|>
+literal|64
+operator|)
+end_if
+
 begin_define
 DECL|macro|NGX_HEADERS
 define|#
 directive|define
 name|NGX_HEADERS
-value|8
+value|64
 end_define
 
 begin_define
@@ -38,8 +48,34 @@ DECL|macro|NGX_TRAILERS
 define|#
 directive|define
 name|NGX_TRAILERS
-value|8
+value|64
 end_define
+
+begin_else
+else|#
+directive|else
+end_else
+
+begin_define
+DECL|macro|NGX_HEADERS
+define|#
+directive|define
+name|NGX_HEADERS
+value|IOV_MAX
+end_define
+
+begin_define
+DECL|macro|NGX_TRAILERS
+define|#
+directive|define
+name|NGX_TRAILERS
+value|IOV_MAX
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_function
 name|ngx_chain_t

@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon275d9a210108
+DECL|struct|__anon2bbfccb40108
 typedef|typedef
 struct|struct
 block|{
@@ -56,7 +56,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275d9a210208
+DECL|struct|__anon2bbfccb40208
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275d9a210308
+DECL|struct|__anon2bbfccb40308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275d9a210408
+DECL|struct|__anon2bbfccb40408
 typedef|typedef
 struct|struct
 block|{
@@ -140,7 +140,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275d9a210508
+DECL|struct|__anon2bbfccb40508
 typedef|typedef
 struct|struct
 block|{
@@ -222,8 +222,16 @@ name|NGX_HASH_WILDCARD_KEY
 value|1
 end_define
 
+begin_define
+DECL|macro|NGX_HASH_READONLY_KEY
+define|#
+directive|define
+name|NGX_HASH_READONLY_KEY
+value|2
+end_define
+
 begin_typedef
-DECL|struct|__anon275d9a210608
+DECL|struct|__anon2bbfccb40608
 typedef|typedef
 struct|struct
 block|{
@@ -266,7 +274,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275d9a210708
+DECL|struct|__anon2bbfccb40708
 typedef|typedef
 struct|struct
 block|{
@@ -308,7 +316,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275d9a210808
+DECL|struct|__anon2bbfccb40808
 typedef|typedef
 struct|struct
 block|{
@@ -483,6 +491,19 @@ name|flags
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_define
+DECL|macro|ngx_hash0 (key,c)
+define|#
+directive|define
+name|ngx_hash0
+parameter_list|(
+name|key
+parameter_list|,
+name|c
+parameter_list|)
+value|key + c
+end_define
 
 begin_function_decl
 name|ngx_int_t

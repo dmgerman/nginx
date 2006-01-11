@@ -150,10 +150,10 @@ operator|==
 name|NGX_HTTP_NOT_MODIFIED
 operator|||
 name|r
-operator|->
-expr|main
 operator|!=
 name|r
+operator|->
+expr|main
 condition|)
 block|{
 return|return

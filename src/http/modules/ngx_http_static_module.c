@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28f819690108
+DECL|struct|__anon279d06d60108
 typedef|typedef
 struct|struct
 block|{
@@ -973,10 +973,10 @@ block|}
 if|if
 condition|(
 name|r
-operator|->
-expr|main
 operator|!=
 name|r
+operator|->
+expr|main
 operator|&&
 name|ngx_file_size
 argument_list|(
@@ -1115,10 +1115,10 @@ name|last_buf
 operator|=
 operator|(
 name|r
-operator|->
-expr|main
 operator|==
 name|r
+operator|->
+expr|main
 operator|)
 condition|?
 literal|1

@@ -25,13 +25,41 @@ begin_comment
 comment|/*  * On Linux up to 2.4.21 sendfile() (syscall #187) works with 32-bit  * offsets only, and the including<sys/sendfile.h> breaks the compiling,  * if off_t is 64 bit wide.  So we use own sendfile() definition, where offset  * parameter is int32_t, and use sendfile() for the file parts below 2G only,  * see src/os/unix/ngx_linux_config.h  *  * Linux 2.4.21 has a new sendfile64() syscall #239.  */
 end_comment
 
+begin_if
+if|#
+directive|if
+operator|(
+name|IOV_MAX
+operator|>
+literal|64
+operator|)
+end_if
+
 begin_define
 DECL|macro|NGX_HEADERS
 define|#
 directive|define
 name|NGX_HEADERS
-value|8
+value|64
 end_define
+
+begin_else
+else|#
+directive|else
+end_else
+
+begin_define
+DECL|macro|NGX_HEADERS
+define|#
+directive|define
+name|NGX_HEADERS
+value|IOV_MAX
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_function
 name|ngx_chain_t

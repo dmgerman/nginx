@@ -144,10 +144,10 @@ operator|!=
 name|NGX_HTTP_OK
 operator|||
 name|r
-operator|->
-expr|main
 operator|!=
 name|r
+operator|->
+expr|main
 operator|||
 name|r
 operator|->
