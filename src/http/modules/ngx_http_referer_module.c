@@ -30,7 +30,7 @@ value|((void *) 4)
 end_define
 
 begin_typedef
-DECL|struct|__anon2b9fc3310108
+DECL|struct|__anon2af23c0c0108
 typedef|typedef
 struct|struct
 block|{
@@ -656,17 +656,6 @@ name|last
 operator|-
 name|p
 expr_stmt|;
-if|if
-condition|(
-name|len
-operator|==
-literal|0
-condition|)
-block|{
-goto|goto
-name|invalid
-goto|;
-block|}
 if|if
 condition|(
 name|uri

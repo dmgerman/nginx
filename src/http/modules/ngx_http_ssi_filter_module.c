@@ -46,7 +46,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2b9830ec0108
+DECL|struct|__anon2a48ad020108
 typedef|typedef
 struct|struct
 block|{
@@ -83,7 +83,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b9830ec0208
+DECL|struct|__anon2a48ad020208
 typedef|typedef
 struct|struct
 block|{
@@ -102,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b9830ec0303
+DECL|enum|__anon2a48ad020303
 typedef|typedef
 enum|enum
 block|{
@@ -1707,6 +1707,8 @@ modifier|*
 name|params
 index|[
 name|NGX_HTTP_SSI_MAX_PARAMS
+operator|+
+literal|1
 index|]
 decl_stmt|;
 name|ctx
@@ -2573,7 +2575,11 @@ name|ngx_memzero
 argument_list|(
 name|params
 argument_list|,
+operator|(
 name|NGX_HTTP_SSI_MAX_PARAMS
+operator|+
+literal|1
+operator|)
 operator|*
 sizeof|sizeof
 argument_list|(

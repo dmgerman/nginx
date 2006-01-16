@@ -184,6 +184,8 @@ argument_list|(
 literal|"ssl"
 argument_list|)
 block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
 name|NGX_HTTP_SRV_CONF
 operator||
 name|NGX_CONF_FLAG
@@ -208,6 +210,8 @@ argument_list|(
 literal|"ssl_certificate"
 argument_list|)
 block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
 name|NGX_HTTP_SRV_CONF
 operator||
 name|NGX_CONF_TAKE1
@@ -232,6 +236,8 @@ argument_list|(
 literal|"ssl_certificate_key"
 argument_list|)
 block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
 name|NGX_HTTP_SRV_CONF
 operator||
 name|NGX_CONF_TAKE1
