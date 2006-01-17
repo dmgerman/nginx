@@ -30,7 +30,7 @@ value|((void *) 4)
 end_define
 
 begin_typedef
-DECL|struct|__anon2af23c0c0108
+DECL|struct|__anon27cc5a9e0108
 typedef|typedef
 struct|struct
 block|{
@@ -347,16 +347,6 @@ operator|->
 name|dns_wildcards
 operator|==
 name|NULL
-operator|&&
-name|rlcf
-operator|->
-name|dns_wildcards
-operator|->
-name|hash
-operator|.
-name|buckets
-operator|==
-name|NULL
 condition|)
 block|{
 goto|goto
@@ -582,14 +572,6 @@ condition|(
 name|rlcf
 operator|->
 name|dns_wildcards
-operator|&&
-name|rlcf
-operator|->
-name|dns_wildcards
-operator|->
-name|hash
-operator|.
-name|buckets
 condition|)
 block|{
 name|uri

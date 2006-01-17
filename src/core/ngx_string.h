@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon292bbff90108
+DECL|struct|__anon29c2fb0d0108
 typedef|typedef
 struct|struct
 block|{
@@ -777,6 +777,14 @@ name|NGX_ESCAPE_HTML
 value|2
 end_define
 
+begin_define
+DECL|macro|NGX_UNESCAPE_URI
+define|#
+directive|define
+name|NGX_UNESCAPE_URI
+value|1
+end_define
+
 begin_function_decl
 name|uintptr_t
 name|ngx_escape_uri
@@ -814,6 +822,9 @@ name|src
 parameter_list|,
 name|size_t
 name|size
+parameter_list|,
+name|ngx_uint_t
+name|type
 parameter_list|)
 function_decl|;
 end_function_decl

@@ -675,6 +675,17 @@ name|ngx_max_module
 decl_stmt|;
 end_decl_stmt
 
+begin_decl_stmt
+DECL|variable|ngx_null_environ
+specifier|static
+name|char
+modifier|*
+name|ngx_null_environ
+init|=
+name|NULL
+decl_stmt|;
+end_decl_stmt
+
 begin_function
 name|int
 name|ngx_cdecl
@@ -897,6 +908,11 @@ return|return
 literal|1
 return|;
 block|}
+name|environ
+operator|=
+operator|&
+name|ngx_null_environ
+expr_stmt|;
 name|ngx_max_module
 operator|=
 literal|0

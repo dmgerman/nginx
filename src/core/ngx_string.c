@@ -3868,7 +3868,7 @@ end_function
 
 begin_function
 name|void
-DECL|function|ngx_unescape_uri (u_char ** dst,u_char ** src,size_t size)
+DECL|function|ngx_unescape_uri (u_char ** dst,u_char ** src,size_t size,ngx_uint_t type)
 name|ngx_unescape_uri
 parameter_list|(
 name|u_char
@@ -3883,6 +3883,9 @@ name|src
 parameter_list|,
 name|size_t
 name|size
+parameter_list|,
+name|ngx_uint_t
+name|type
 parameter_list|)
 block|{
 name|u_char
@@ -3898,7 +3901,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon2b7bdadc0103
+DECL|enum|__anon2a31b2aa0103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -3957,6 +3960,10 @@ condition|(
 name|ch
 operator|==
 literal|'?'
+operator|&&
+name|type
+operator|==
+name|NGX_UNESCAPE_URI
 condition|)
 block|{
 operator|*
@@ -4110,6 +4117,13 @@ operator|)
 expr_stmt|;
 if|if
 condition|(
+name|type
+operator|==
+name|NGX_UNESCAPE_URI
+condition|)
+block|{
+if|if
+condition|(
 name|ch
 operator|>
 literal|'%'
@@ -4157,6 +4171,14 @@ operator|)
 expr_stmt|;
 break|break;
 block|}
+operator|*
+name|d
+operator|++
+operator|=
+name|ch
+expr_stmt|;
+break|break;
+block|}
 name|c
 operator|=
 operator|(
@@ -4198,6 +4220,13 @@ operator|+
 literal|10
 operator|)
 expr_stmt|;
+if|if
+condition|(
+name|type
+operator|==
+name|NGX_UNESCAPE_URI
+condition|)
+block|{
 if|if
 condition|(
 name|ch
@@ -4261,6 +4290,14 @@ name|s
 operator|-
 literal|1
 operator|)
+expr_stmt|;
+break|break;
+block|}
+operator|*
+name|d
+operator|++
+operator|=
+name|ch
 expr_stmt|;
 break|break;
 block|}

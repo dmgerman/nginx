@@ -471,6 +471,15 @@ endif|#
 directive|endif
 end_endif
 
+begin_decl_stmt
+specifier|extern
+name|char
+modifier|*
+modifier|*
+name|environ
+decl_stmt|;
+end_decl_stmt
+
 begin_endif
 endif|#
 directive|endif

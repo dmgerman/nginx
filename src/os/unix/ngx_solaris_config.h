@@ -384,6 +384,15 @@ name|NGX_HAVE_OS_SPECIFIC_INIT
 value|1
 end_define
 
+begin_decl_stmt
+specifier|extern
+name|char
+modifier|*
+modifier|*
+name|environ
+decl_stmt|;
+end_decl_stmt
+
 begin_endif
 endif|#
 directive|endif
