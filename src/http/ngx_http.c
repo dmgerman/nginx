@@ -354,8 +354,6 @@ name|p
 decl_stmt|,
 name|a
 decl_stmt|,
-name|n
-decl_stmt|,
 name|i
 decl_stmt|;
 name|ngx_uint_t
@@ -2199,7 +2197,7 @@ argument_list|,
 name|ngx_http_cmp_conf_in_addrs
 argument_list|)
 expr_stmt|;
-comment|/*          * check whether all name-based servers have the same configuraiton          * as the default server, or some servers restrict the host names          */
+comment|/*          * check whether all name-based servers have the same configuraiton          *     as the default server,          * or some servers restrict the host names,          * or some servers disable optimizing the host names          */
 name|in_addr
 operator|=
 name|in_port
@@ -2245,11 +2243,11 @@ name|elts
 expr_stmt|;
 for|for
 control|(
-name|n
+name|s
 operator|=
 literal|0
 init|;
-name|n
+name|s
 operator|<
 name|in_addr
 index|[
@@ -2260,7 +2258,7 @@ name|names
 operator|.
 name|nelts
 condition|;
-name|n
+name|s
 operator|++
 control|)
 block|{
@@ -2275,14 +2273,25 @@ name|core_srv_conf
 operator|!=
 name|name
 index|[
-name|n
+name|s
 index|]
 operator|.
 name|core_srv_conf
 operator|||
 name|name
 index|[
-name|n
+name|s
+index|]
+operator|.
+name|core_srv_conf
+operator|->
+name|optimize_host_names
+operator|==
+literal|0
+operator|||
+name|name
+index|[
+name|s
 index|]
 operator|.
 name|core_srv_conf
@@ -2297,7 +2306,7 @@ name|virtual_names
 goto|;
 block|}
 block|}
-comment|/*              * if all name-based servers have the same configuration              * as the default server, and no servers restrict the host names              * then we do not need to check them at run-time at all              */
+comment|/*              * if all name-based servers have the same configuration              *         as the default server,              *     and no servers restrict the host names,              *     and no servers disable optimizing the host names              * then we do not need to check them at run-time at all              */
 name|in_addr
 index|[
 name|a
