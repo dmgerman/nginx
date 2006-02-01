@@ -16,9 +16,9 @@ file|<ngx_core.h>
 end_include
 
 begin_function
-DECL|function|ngx_array_create (ngx_pool_t * p,ngx_uint_t n,size_t size)
 name|ngx_array_t
 modifier|*
+DECL|function|ngx_array_create (ngx_pool_t * p,ngx_uint_t n,size_t size)
 name|ngx_array_create
 parameter_list|(
 name|ngx_pool_t
@@ -116,8 +116,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_array_destroy (ngx_array_t * a)
 name|void
+DECL|function|ngx_array_destroy (ngx_array_t * a)
 name|ngx_array_destroy
 parameter_list|(
 name|ngx_array_t
@@ -204,9 +204,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_array_push (ngx_array_t * a)
 name|void
 modifier|*
+DECL|function|ngx_array_push (ngx_array_t * a)
 name|ngx_array_push
 parameter_list|(
 name|ngx_array_t
@@ -380,9 +380,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_array_push_n (ngx_array_t * a,ngx_uint_t n)
 name|void
 modifier|*
+DECL|function|ngx_array_push_n (ngx_array_t * a,ngx_uint_t n)
 name|ngx_array_push_n
 parameter_list|(
 name|ngx_array_t

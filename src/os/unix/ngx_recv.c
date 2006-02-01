@@ -267,6 +267,45 @@ literal|0
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|n
+operator|==
+literal|0
+condition|)
+block|{
+comment|/*                      * on FreeBSD recv() may return 0 on closed socket                      * even if kqueue reported about available data                      */
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"recv() returned 0 while keevnt() reported "
+literal|"%d available bytes"
+argument_list|,
+name|rev
+operator|->
+name|available
+argument_list|)
+expr_stmt|;
+name|rev
+operator|->
+name|eof
+operator|=
+literal|1
+expr_stmt|;
+name|rev
+operator|->
+name|available
+operator|=
+literal|0
+expr_stmt|;
+block|}
 return|return
 name|n
 return|;

@@ -106,6 +106,20 @@ DECL|member|free_connection_n
 name|ngx_uint_t
 name|free_connection_n
 decl_stmt|;
+DECL|member|shm
+name|ngx_shm_t
+name|shm
+decl_stmt|;
+DECL|member|shm_last
+name|u_char
+modifier|*
+name|shm_last
+decl_stmt|;
+DECL|member|shm_end
+name|u_char
+modifier|*
+name|shm_end
+decl_stmt|;
 DECL|member|listening
 name|ngx_array_t
 name|listening
@@ -159,7 +173,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b5213ed0108
+DECL|struct|__anon29d7b9860108
 typedef|typedef
 struct|struct
 block|{
@@ -255,7 +269,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5213ed0208
+DECL|struct|__anon29d7b9860208
 typedef|typedef
 struct|struct
 block|{
@@ -270,6 +284,17 @@ block|}
 name|ngx_core_tls_t
 typedef|;
 end_typedef
+
+begin_define
+DECL|macro|ngx_is_init_cycle (old)
+define|#
+directive|define
+name|ngx_is_init_cycle
+parameter_list|(
+name|old
+parameter_list|)
+value|(old&& old->conf_ctx == NULL)
+end_define
 
 begin_function_decl
 name|ngx_cycle_t

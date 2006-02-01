@@ -444,7 +444,8 @@ name|p
 parameter_list|,
 name|a
 parameter_list|)
-value|(u_char *) (((uintptr_t) (p) + (a - 1))& ~(a - 1))
+define|\
+value|(u_char *) (((uintptr_t) (p) + ((uintptr_t) a - 1))& ~((uintptr_t) a - 1))
 end_define
 
 begin_define

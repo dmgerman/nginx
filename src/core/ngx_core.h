@@ -266,7 +266,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_shared.h>
+file|<ngx_shmem.h>
 end_include
 
 begin_include
