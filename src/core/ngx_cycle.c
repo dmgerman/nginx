@@ -2902,6 +2902,17 @@ modifier|*
 name|conf
 parameter_list|)
 block|{
+if|if
+condition|(
+name|conf
+operator|->
+name|cycle
+operator|->
+name|shm
+operator|.
+name|addr
+condition|)
+block|{
 name|ngx_shm_free
 argument_list|(
 operator|&
@@ -2912,6 +2923,7 @@ operator|->
 name|shm
 argument_list|)
 expr_stmt|;
+block|}
 name|ngx_destroy_pool
 argument_list|(
 name|conf
