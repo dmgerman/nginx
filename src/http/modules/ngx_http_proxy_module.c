@@ -76,14 +76,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon2bee0278010a
+DECL|union|__anon28e61315010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon2bee02780208
+DECL|struct|__anon28e613150208
 struct|struct
 block|{
 DECL|member|lengths
@@ -114,7 +114,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bee02780308
+DECL|struct|__anon28e613150308
 typedef|typedef
 struct|struct
 block|{
@@ -199,7 +199,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bee02780408
+DECL|struct|__anon28e613150408
 typedef|typedef
 struct|struct
 block|{
@@ -1933,6 +1933,8 @@ name|ngx_uint_t
 name|i
 decl_stmt|,
 name|key
+decl_stmt|,
+name|unparsed_uri
 decl_stmt|;
 name|uintptr_t
 name|escape
@@ -2151,8 +2153,18 @@ operator|&&
 name|r
 operator|->
 name|valid_unparsed_uri
+operator|&&
+name|r
+operator|==
+name|r
+operator|->
+expr|main
 condition|)
 block|{
+name|unparsed_uri
+operator|=
+literal|1
+expr_stmt|;
 name|len
 operator|+=
 name|r
@@ -2164,6 +2176,10 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|unparsed_uri
+operator|=
+literal|0
+expr_stmt|;
 if|if
 condition|(
 name|r
@@ -2646,19 +2662,7 @@ name|last
 expr_stmt|;
 if|if
 condition|(
-name|u
-operator|->
-name|conf
-operator|->
-name|uri
-operator|.
-name|len
-operator|==
-literal|0
-operator|&&
-name|r
-operator|->
-name|valid_unparsed_uri
+name|unparsed_uri
 condition|)
 block|{
 name|b
@@ -3978,7 +3982,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2bee02780503
+DECL|enum|__anon28e613150503
 enum|enum
 block|{
 DECL|enumerator|sw_start

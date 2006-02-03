@@ -47,7 +47,7 @@ DECL|macro|NGX_HTTP_SSI_COMMAND_LEN
 define|#
 directive|define
 name|NGX_HTTP_SSI_COMMAND_LEN
-value|31
+value|32
 end_define
 
 begin_define
@@ -55,7 +55,7 @@ DECL|macro|NGX_HTTP_SSI_PARAM_LEN
 define|#
 directive|define
 name|NGX_HTTP_SSI_PARAM_LEN
-value|31
+value|32
 end_define
 
 begin_define
@@ -67,7 +67,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2bf32eb70108
+DECL|struct|__anon29b3960f0108
 typedef|typedef
 struct|struct
 block|{
@@ -86,7 +86,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf32eb70208
+DECL|struct|__anon29b3960f0208
 typedef|typedef
 struct|struct
 block|{
@@ -189,6 +189,11 @@ name|ngx_uint_t
 name|output
 decl_stmt|;
 comment|/* unsigned  output:1; */
+DECL|member|value_buf
+name|void
+modifier|*
+name|value_buf
+decl_stmt|;
 DECL|member|timefmt
 name|ngx_str_t
 name|timefmt
@@ -228,7 +233,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf32eb70308
+DECL|struct|__anon29b3960f0308
 typedef|typedef
 struct|struct
 block|{
@@ -259,7 +264,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf32eb70408
+DECL|struct|__anon29b3960f0408
 typedef|typedef
 struct|struct
 block|{

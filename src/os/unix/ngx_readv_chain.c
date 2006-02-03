@@ -491,7 +491,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"recv() returned 0 while kevent() reported "
+literal|"readv() returned 0 while kevent() reported "
 literal|"%d available bytes"
 argument_list|,
 name|rev
