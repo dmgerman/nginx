@@ -76,7 +76,7 @@ value|"OpenSSL"
 end_define
 
 begin_typedef
-DECL|struct|__anon2b65ea960108
+DECL|struct|__anon29bd3d4d0108
 typedef|typedef
 struct|struct
 block|{
@@ -102,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b65ea960208
+DECL|struct|__anon29bd3d4d0208
 typedef|typedef
 struct|struct
 block|{
@@ -328,6 +328,30 @@ directive|define
 name|ngx_ssl_free_session
 value|SSL_SESSION_free
 end_define
+
+begin_function_decl
+name|u_char
+modifier|*
+name|ngx_ssl_get_protocol
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|u_char
+modifier|*
+name|ngx_ssl_get_cipher_name
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_function_decl
 name|ngx_int_t

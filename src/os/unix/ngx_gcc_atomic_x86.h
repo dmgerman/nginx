@@ -179,5 +179,18 @@ parameter_list|()
 value|__asm__ volatile ("" ::: "memory")
 end_define
 
+begin_comment
+comment|/* old as does not support "pause" opcode */
+end_comment
+
+begin_define
+DECL|macro|ngx_cpu_pause ()
+define|#
+directive|define
+name|ngx_cpu_pause
+parameter_list|()
+value|__asm__ (".byte 0xf3, 0x90")
+end_define
+
 end_unit
 

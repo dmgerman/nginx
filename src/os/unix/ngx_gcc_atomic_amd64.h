@@ -107,5 +107,14 @@ parameter_list|()
 value|__asm__ volatile ("" ::: "memory")
 end_define
 
+begin_define
+DECL|macro|ngx_cpu_pause ()
+define|#
+directive|define
+name|ngx_cpu_pause
+parameter_list|()
+value|__asm__ ("pause")
+end_define
+
 end_unit
 

@@ -189,5 +189,13 @@ define|\
 value|__asm (".volatile");                                                  \         __asm ("membar #LoadLoad | #LoadStore | #StoreStore | #StoreLoad");   \         __asm (".nonvolatile")
 end_define
 
+begin_define
+DECL|macro|ngx_cpu_pause ()
+define|#
+directive|define
+name|ngx_cpu_pause
+parameter_list|()
+end_define
+
 end_unit
 

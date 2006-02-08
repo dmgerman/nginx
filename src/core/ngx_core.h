@@ -387,6 +387,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_shmtx.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_inet.h>
 end_include
 
@@ -492,6 +498,15 @@ name|value
 parameter_list|)
 value|(((value)>= 0) ? (value) : - (value))
 end_define
+
+begin_function_decl
+name|void
+name|ngx_cpuinfo
+parameter_list|(
+name|void
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_endif
 endif|#

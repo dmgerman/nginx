@@ -30,7 +30,7 @@ value|((void *) 4)
 end_define
 
 begin_typedef
-DECL|struct|__anon27e0299c0108
+DECL|struct|__anon288c9fe70108
 typedef|typedef
 struct|struct
 block|{
@@ -1115,6 +1115,12 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+name|conf
+operator|->
+name|keys
+operator|=
+name|NULL
+expr_stmt|;
 return|return
 name|NGX_CONF_OK
 return|;

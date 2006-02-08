@@ -131,6 +131,15 @@ parameter_list|()
 value|__asm (".volatile"); __asm (".nonvolatile")
 end_define
 
+begin_define
+DECL|macro|ngx_cpu_pause ()
+define|#
+directive|define
+name|ngx_cpu_pause
+parameter_list|()
+value|__asm ("pause")
+end_define
+
 begin_else
 else|#
 directive|else
@@ -260,6 +269,15 @@ directive|define
 name|ngx_memory_barrier
 parameter_list|()
 value|__asm (".volatile"); __asm (".nonvolatile")
+end_define
+
+begin_define
+DECL|macro|ngx_cpu_pause ()
+define|#
+directive|define
+name|ngx_cpu_pause
+parameter_list|()
+value|__asm ("pause")
 end_define
 
 begin_else
@@ -666,6 +684,14 @@ name|ngx_memory_barrier
 parameter_list|()
 end_define
 
+begin_define
+DECL|macro|ngx_cpu_pause ()
+define|#
+directive|define
+name|ngx_cpu_pause
+parameter_list|()
+end_define
+
 begin_endif
 endif|#
 directive|endif
@@ -678,6 +704,9 @@ parameter_list|(
 name|ngx_atomic_t
 modifier|*
 name|lock
+parameter_list|,
+name|ngx_atomic_int_t
+name|value
 parameter_list|,
 name|ngx_uint_t
 name|spin

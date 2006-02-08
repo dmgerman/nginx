@@ -160,6 +160,39 @@ name|ngx_memory_barrier
 parameter_list|()
 end_define
 
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|__BORLANDC__
+end_ifdef
+
+begin_define
+DECL|macro|ngx_cpu_pause ()
+define|#
+directive|define
+name|ngx_cpu_pause
+parameter_list|()
+end_define
+
+begin_else
+else|#
+directive|else
+end_else
+
+begin_define
+DECL|macro|ngx_cpu_pause ()
+define|#
+directive|define
+name|ngx_cpu_pause
+parameter_list|()
+value|__asm { pause }
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_function_decl
 name|void
 name|ngx_spinlock
@@ -167,6 +200,9 @@ parameter_list|(
 name|ngx_atomic_t
 modifier|*
 name|lock
+parameter_list|,
+name|ngx_atomic_int_t
+name|value
 parameter_list|,
 name|ngx_uint_t
 name|spin

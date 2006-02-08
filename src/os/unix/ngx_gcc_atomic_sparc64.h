@@ -170,5 +170,13 @@ endif|#
 directive|endif
 end_endif
 
+begin_define
+DECL|macro|ngx_cpu_pause ()
+define|#
+directive|define
+name|ngx_cpu_pause
+parameter_list|()
+end_define
+
 end_unit
 

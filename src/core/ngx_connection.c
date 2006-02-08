@@ -2318,9 +2318,9 @@ name|ngx_accept_mutex_held
 operator|=
 literal|0
 expr_stmt|;
-name|ngx_accept_mutex
+name|ngx_use_accept_mutex
 operator|=
-name|NULL
+literal|0
 expr_stmt|;
 name|ls
 operator|=

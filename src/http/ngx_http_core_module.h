@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c09e74f0108
+DECL|struct|__anon29d8c0fd0108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c09e74f0208
+DECL|struct|__anon29d8c0fd0208
 typedef|typedef
 struct|struct
 block|{
@@ -134,7 +134,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c09e74f0303
+DECL|enum|__anon29d8c0fd0303
 typedef|typedef
 enum|enum
 block|{
@@ -170,7 +170,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c09e74f0408
+DECL|struct|__anon29d8c0fd0408
 typedef|typedef
 struct|struct
 block|{
@@ -190,7 +190,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c09e74f0508
+DECL|struct|__anon29d8c0fd0508
 typedef|typedef
 struct|struct
 block|{
@@ -213,9 +213,14 @@ name|ngx_hash0_t
 name|headers_in_hash
 decl_stmt|;
 DECL|member|variables_hash
-name|ngx_hash0_t
+name|ngx_hash_t
 name|variables_hash
 decl_stmt|;
+DECL|member|variables
+name|ngx_array_t
+name|variables
+decl_stmt|;
+comment|/* ngx_http_variable_t */
 DECL|member|server_names_hash_max_size
 name|ngx_uint_t
 name|server_names_hash_max_size
@@ -224,16 +229,19 @@ DECL|member|server_names_hash_bucket_size
 name|ngx_uint_t
 name|server_names_hash_bucket_size
 decl_stmt|;
-DECL|member|variables
-name|ngx_array_t
-name|variables
+DECL|member|variables_hash_max_size
+name|ngx_uint_t
+name|variables_hash_max_size
 decl_stmt|;
-comment|/* ngx_http_variable_t */
-DECL|member|all_variables
-name|ngx_array_t
-name|all_variables
+DECL|member|variables_hash_bucket_size
+name|ngx_uint_t
+name|variables_hash_bucket_size
 decl_stmt|;
-comment|/* ngx_http_variable_t */
+DECL|member|variables_keys
+name|ngx_hash_keys_arrays_t
+modifier|*
+name|variables_keys
+decl_stmt|;
 DECL|typedef|ngx_http_core_main_conf_t
 block|}
 name|ngx_http_core_main_conf_t
@@ -241,7 +249,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c09e74f0608
+DECL|struct|__anon29d8c0fd0608
 typedef|typedef
 struct|struct
 block|{
@@ -313,7 +321,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2c09e74f0708
+DECL|struct|__anon29d8c0fd0708
 typedef|typedef
 struct|struct
 block|{
@@ -339,7 +347,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c09e74f0808
+DECL|struct|__anon29d8c0fd0808
 typedef|typedef
 struct|struct
 block|{
@@ -367,7 +375,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c09e74f0908
+DECL|struct|__anon29d8c0fd0908
 typedef|typedef
 struct|struct
 block|{
@@ -387,7 +395,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c09e74f0a08
+DECL|struct|__anon29d8c0fd0a08
 typedef|typedef
 struct|struct
 block|{
@@ -439,7 +447,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c09e74f0b08
+DECL|struct|__anon29d8c0fd0b08
 typedef|typedef
 struct|struct
 block|{
@@ -460,7 +468,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c09e74f0c08
+DECL|struct|__anon29d8c0fd0c08
 typedef|typedef
 struct|struct
 block|{

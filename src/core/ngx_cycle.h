@@ -173,7 +173,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29d7b9860108
+DECL|struct|__anon2b44ba9e0108
 typedef|typedef
 struct|struct
 block|{
@@ -239,6 +239,10 @@ DECL|member|working_directory
 name|ngx_str_t
 name|working_directory
 decl_stmt|;
+DECL|member|lock_file
+name|ngx_str_t
+name|lock_file
+decl_stmt|;
 DECL|member|pid
 name|ngx_str_t
 name|pid
@@ -269,7 +273,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d7b9860208
+DECL|struct|__anon2b44ba9e0208
 typedef|typedef
 struct|struct
 block|{
@@ -286,14 +290,14 @@ typedef|;
 end_typedef
 
 begin_define
-DECL|macro|ngx_is_init_cycle (old)
+DECL|macro|ngx_is_init_cycle (cycle)
 define|#
 directive|define
 name|ngx_is_init_cycle
 parameter_list|(
-name|old
+name|cycle
 parameter_list|)
-value|(old&& old->conf_ctx == NULL)
+value|(cycle->conf_ctx == NULL)
 end_define
 
 begin_function_decl
@@ -312,13 +316,13 @@ begin_function_decl
 name|ngx_int_t
 name|ngx_create_pidfile
 parameter_list|(
-name|ngx_cycle_t
+name|ngx_str_t
 modifier|*
-name|cycle
+name|name
 parameter_list|,
-name|ngx_cycle_t
+name|ngx_log_t
 modifier|*
-name|old_cycle
+name|log
 parameter_list|)
 function_decl|;
 end_function_decl

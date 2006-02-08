@@ -907,7 +907,7 @@ block|{
 comment|/* the deferred accept(), rtsig, aio, iocp */
 if|if
 condition|(
-name|ngx_accept_mutex
+name|ngx_use_accept_mutex
 condition|)
 block|{
 name|ngx_post_event
