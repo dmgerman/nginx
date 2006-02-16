@@ -498,13 +498,10 @@ name|headers_out
 operator|.
 name|content_length_n
 operator|=
-name|b
-operator|->
-name|last
-operator|-
-name|b
-operator|->
-name|pos
+sizeof|sizeof
+argument_list|(
+name|ngx_empty_gif
+argument_list|)
 expr_stmt|;
 name|r
 operator|->

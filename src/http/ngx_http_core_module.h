@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29d8c0fd0108
+DECL|struct|__anon2755f0de0108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d8c0fd0208
+DECL|struct|__anon2755f0de0208
 typedef|typedef
 struct|struct
 block|{
@@ -134,7 +134,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29d8c0fd0303
+DECL|enum|__anon2755f0de0303
 typedef|typedef
 enum|enum
 block|{
@@ -170,7 +170,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d8c0fd0408
+DECL|struct|__anon2755f0de0408
 typedef|typedef
 struct|struct
 block|{
@@ -190,7 +190,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d8c0fd0508
+DECL|struct|__anon2755f0de0508
 typedef|typedef
 struct|struct
 block|{
@@ -249,7 +249,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d8c0fd0608
+DECL|struct|__anon2755f0de0608
 typedef|typedef
 struct|struct
 block|{
@@ -298,10 +298,6 @@ DECL|member|client_header_timeout
 name|ngx_msec_t
 name|client_header_timeout
 decl_stmt|;
-DECL|member|restrict_host_names
-name|ngx_uint_t
-name|restrict_host_names
-decl_stmt|;
 DECL|member|optimize_server_names
 name|ngx_flag_t
 name|optimize_server_names
@@ -321,7 +317,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon29d8c0fd0708
+DECL|struct|__anon2755f0de0708
 typedef|typedef
 struct|struct
 block|{
@@ -347,7 +343,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d8c0fd0808
+DECL|struct|__anon2755f0de0808
 typedef|typedef
 struct|struct
 block|{
@@ -375,7 +371,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d8c0fd0908
+DECL|struct|__anon2755f0de0908
 typedef|typedef
 struct|struct
 block|{
@@ -395,7 +391,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d8c0fd0a08
+DECL|struct|__anon2755f0de0a08
 typedef|typedef
 struct|struct
 block|{
@@ -447,7 +443,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d8c0fd0b08
+DECL|struct|__anon2755f0de0b08
 typedef|typedef
 struct|struct
 block|{
@@ -468,7 +464,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d8c0fd0c08
+DECL|struct|__anon2755f0de0c08
 typedef|typedef
 struct|struct
 block|{

@@ -30,7 +30,7 @@ value|((void *) 4)
 end_define
 
 begin_typedef
-DECL|struct|__anon288c9fe70108
+DECL|struct|__anon2bcb21420108
 typedef|typedef
 struct|struct
 block|{
@@ -1425,6 +1425,12 @@ operator|.
 name|len
 operator|=
 literal|0
+expr_stmt|;
+name|uri
+operator|.
+name|data
+operator|=
+name|NULL
 expr_stmt|;
 if|if
 condition|(

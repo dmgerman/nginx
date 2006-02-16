@@ -533,6 +533,14 @@ typedef|;
 end_typedef
 
 begin_define
+DECL|macro|NGX_PTR_SIZE
+define|#
+directive|define
+name|NGX_PTR_SIZE
+value|4
+end_define
+
+begin_define
 DECL|macro|NGX_SIZE_T_LEN
 define|#
 directive|define

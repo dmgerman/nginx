@@ -5421,6 +5421,19 @@ operator|||
 name|rc
 operator|>
 name|NGX_OK
+comment|/* post_action */
+operator|||
+operator|(
+name|r
+operator|->
+name|http_version
+operator|==
+name|NGX_HTTP_VERSION_9
+operator|&&
+name|r
+operator|->
+name|header_only
+operator|)
 condition|)
 block|{
 name|ngx_http_upstream_finalize_request

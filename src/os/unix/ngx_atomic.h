@@ -449,9 +449,9 @@ begin_elif
 elif|#
 directive|elif
 operator|(
-name|__ppc__
-operator|||
 name|__powerpc__
+operator|||
+name|__POWERPC__
 operator|)
 end_elif
 

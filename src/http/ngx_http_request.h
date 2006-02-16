@@ -349,16 +349,8 @@ value|497
 end_define
 
 begin_comment
-comment|/*  * We use the special code for the requests with invalid host name  * to distinguish it from 4XX in an error page redirection  */
+comment|/* 498 is the canceled code for the requests with invalid host name */
 end_comment
-
-begin_define
-DECL|macro|NGX_HTTP_INVALID_HOST
-define|#
-directive|define
-name|NGX_HTTP_INVALID_HOST
-value|498
-end_define
 
 begin_comment
 comment|/*  * HTTP does not define the code for the case when a client closed  * the connection while we are processing its request so we introduce  * own code to log such situation when a client has closed the connection  * before we even try to send the HTTP header to it  */
@@ -453,28 +445,7 @@ value|0x00000200
 end_define
 
 begin_typedef
-DECL|enum|__anon2b8b736e0103
-typedef|typedef
-enum|enum
-block|{
-DECL|enumerator|NGX_HTTP_RESTRICT_HOST_OFF
-name|NGX_HTTP_RESTRICT_HOST_OFF
-init|=
-literal|0
-block|,
-DECL|enumerator|NGX_HTTP_RESTRICT_HOST_ON
-name|NGX_HTTP_RESTRICT_HOST_ON
-block|,
-DECL|enumerator|NGX_HTTP_RESTRICT_HOST_CLOSE
-name|NGX_HTTP_RESTRICT_HOST_CLOSE
-DECL|typedef|ngx_http_restrict_host_e
-block|}
-name|ngx_http_restrict_host_e
-typedef|;
-end_typedef
-
-begin_typedef
-DECL|enum|__anon2b8b736e0203
+DECL|enum|__anon277b7ab90103
 typedef|typedef
 enum|enum
 block|{
@@ -513,7 +484,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8b736e0308
+DECL|struct|__anon277b7ab90208
 typedef|typedef
 struct|struct
 block|{
@@ -536,7 +507,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8b736e0408
+DECL|struct|__anon277b7ab90308
 typedef|typedef
 struct|struct
 block|{
@@ -555,7 +526,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8b736e0508
+DECL|struct|__anon277b7ab90408
 typedef|typedef
 struct|struct
 block|{
@@ -745,7 +716,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8b736e0608
+DECL|struct|__anon277b7ab90508
 typedef|typedef
 struct|struct
 block|{
@@ -768,7 +739,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8b736e0708
+DECL|struct|__anon277b7ab90608
 typedef|typedef
 struct|struct
 block|{
@@ -890,7 +861,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8b736e0808
+DECL|struct|__anon277b7ab90708
 typedef|typedef
 struct|struct
 block|{
@@ -924,7 +895,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8b736e0908
+DECL|struct|__anon277b7ab90808
 typedef|typedef
 struct|struct
 block|{
@@ -965,7 +936,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8b736e0a08
+DECL|struct|__anon277b7ab90908
 typedef|typedef
 struct|struct
 block|{

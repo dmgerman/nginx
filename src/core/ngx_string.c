@@ -1077,7 +1077,9 @@ literal|'0'
 expr_stmt|;
 name|width
 operator|=
-literal|8
+name|NGX_PTR_SIZE
+operator|*
+literal|2
 expr_stmt|;
 break|break;
 case|case
@@ -3901,7 +3903,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon2a31b2aa0103
+DECL|enum|__anon29aced410103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
