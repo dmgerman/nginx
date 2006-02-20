@@ -1496,6 +1496,23 @@ name|read
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+operator|(
+name|r
+operator|->
+name|http_version
+operator|==
+name|NGX_HTTP_VERSION_9
+operator|&&
+name|r
+operator|->
+name|header_only
+operator|)
+condition|)
+block|{
+comment|/* not a post_action */
 name|r
 operator|->
 name|read_event_handler
@@ -1508,6 +1525,7 @@ name|write_event_handler
 operator|=
 name|ngx_http_upstream_wr_check_broken_connection
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|ngx_event_flags
