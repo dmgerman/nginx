@@ -258,7 +258,7 @@ operator|==
 name|NGX_ECONNABORTED
 operator|)
 condition|?
-name|NGX_LOG_CRIT
+name|NGX_LOG_ERR
 else|:
 name|NGX_LOG_ALERT
 argument_list|,

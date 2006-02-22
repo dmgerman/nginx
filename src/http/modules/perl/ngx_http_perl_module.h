@@ -56,7 +56,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b318a9a0108
+DECL|struct|__anon29865f080108
 typedef|typedef
 struct|struct
 block|{
@@ -78,11 +78,18 @@ DECL|member|redirect_args
 name|ngx_str_t
 name|redirect_args
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_SSI
+operator|)
 DECL|member|ssi
 name|ngx_http_ssi_ctx_t
 modifier|*
 name|ssi
 decl_stmt|;
+endif|#
+directive|endif
 DECL|typedef|ngx_http_perl_ctx_t
 block|}
 name|ngx_http_perl_ctx_t

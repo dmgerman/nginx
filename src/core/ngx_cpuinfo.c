@@ -49,6 +49,43 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_if
+if|#
+directive|if
+operator|(
+name|__i386__
+operator|)
+end_if
+
+begin_function
+specifier|static
+name|ngx_inline
+name|void
+DECL|function|ngx_cpuid (uint32_t i,uint32_t * buf)
+name|ngx_cpuid
+parameter_list|(
+name|uint32_t
+name|i
+parameter_list|,
+name|uint32_t
+modifier|*
+name|buf
+parameter_list|)
+block|{
+comment|/*      * we could not use %ebx as output parameter if gcc builds PIC,      * and we could not save %ebx on stack, because %esp is used,      * when the -fomit-frame-pointer optimization is specified.      */
+asm|__asm__ (      "    mov    %%ebx, %%esi;  "      "    cpuid;                "     "    mov    %%eax, %0;     "     "    mov    %%ebx, %1;     "     "    mov    %%edx, %2;     "     "    mov    %%ecx, %3;     "      "    mov    %%esi, %%ebx;  "      : "=m" (buf[0]), "=m" (buf[1]), "=m" (buf[2]), "=m" (buf[3])     : "a" (i)     : "ecx", "edx", "esi" );
+block|}
+end_function
+
+begin_else
+else|#
+directive|else
+end_else
+
+begin_comment
+comment|/* __amd64__ */
+end_comment
+
 begin_function
 specifier|static
 name|ngx_inline
@@ -104,6 +141,11 @@ name|ecx
 expr_stmt|;
 block|}
 end_function
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_comment
 comment|/* auto detect the L2 cache line size of modern and widespread CPUs */

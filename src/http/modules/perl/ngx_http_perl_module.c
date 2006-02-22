@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29517eb80108
+DECL|struct|__anon2b3c48290108
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +70,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29517eb80208
+DECL|struct|__anon2b3c48290208
 typedef|typedef
 struct|struct
 block|{
@@ -90,7 +90,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29517eb80308
+DECL|struct|__anon2b3c48290308
 typedef|typedef
 struct|struct
 block|{
@@ -108,6 +108,14 @@ block|}
 name|ngx_http_perl_variable_t
 typedef|;
 end_typedef
+
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_SSI
+operator|)
+end_if
 
 begin_function_decl
 specifier|static
@@ -129,6 +137,11 @@ name|params
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_function_decl
 specifier|static
@@ -629,6 +642,14 @@ block|}
 decl_stmt|;
 end_decl_stmt
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_SSI
+operator|)
+end_if
+
 begin_define
 DECL|macro|NGX_HTTP_PERL_SSI_SUB
 define|#
@@ -714,6 +735,11 @@ literal|1
 block|}
 decl_stmt|;
 end_decl_stmt
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_function
 specifier|static
@@ -1307,6 +1333,14 @@ return|;
 block|}
 end_function
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_SSI
+operator|)
+end_if
+
 begin_function
 specifier|static
 name|ngx_int_t
@@ -1560,6 +1594,11 @@ name|rc
 return|;
 block|}
 end_function
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_function
 specifier|static
@@ -3049,6 +3088,11 @@ modifier|*
 name|cf
 parameter_list|)
 block|{
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_SSI
+operator|)
 name|ngx_int_t
 name|rc
 decl_stmt|;
@@ -3120,6 +3164,8 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+endif|#
+directive|endif
 return|return
 name|NGX_OK
 return|;
