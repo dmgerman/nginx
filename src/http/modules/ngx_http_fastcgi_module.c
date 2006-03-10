@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon290b568a0108
+DECL|struct|__anon28e359030108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon290b568a0203
+DECL|enum|__anon28e359030203
 typedef|typedef
 enum|enum
 block|{
@@ -114,7 +114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290b568a0308
+DECL|struct|__anon28e359030308
 typedef|typedef
 struct|struct
 block|{
@@ -227,7 +227,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon290b568a0408
+DECL|struct|__anon28e359030408
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +270,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290b568a0508
+DECL|struct|__anon28e359030508
 typedef|typedef
 struct|struct
 block|{
@@ -300,7 +300,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290b568a0608
+DECL|struct|__anon28e359030608
 typedef|typedef
 struct|struct
 block|{
@@ -327,7 +327,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290b568a0708
+DECL|struct|__anon28e359030708
 typedef|typedef
 struct|struct
 block|{
@@ -4983,12 +4983,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-name|ngx_http_upstream_header_errors
-index|[
-name|rc
-operator|-
-name|NGX_HTTP_PARSE_HEADER_ERROR
-index|]
+literal|"upstream sent invalid header"
 argument_list|)
 expr_stmt|;
 return|return

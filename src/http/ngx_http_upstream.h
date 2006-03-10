@@ -117,7 +117,7 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon2c3b7e9f0108
+DECL|struct|__anon296ed50c0108
 typedef|typedef
 struct|struct
 block|{
@@ -149,7 +149,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3b7e9f0208
+DECL|struct|__anon296ed50c0208
 typedef|typedef
 struct|struct
 block|{
@@ -164,7 +164,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3b7e9f0308
+DECL|struct|__anon296ed50c0308
 typedef|typedef
 struct|struct
 block|{
@@ -314,7 +314,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3b7e9f0408
+DECL|struct|__anon296ed50c0408
 typedef|typedef
 struct|struct
 block|{
@@ -350,7 +350,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3b7e9f0508
+DECL|struct|__anon296ed50c0508
 typedef|typedef
 struct|struct
 block|{
@@ -710,15 +710,6 @@ begin_decl_stmt
 specifier|extern
 name|ngx_module_t
 name|ngx_http_upstream_module
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-specifier|extern
-name|char
-modifier|*
-name|ngx_http_upstream_header_errors
-index|[]
 decl_stmt|;
 end_decl_stmt
 

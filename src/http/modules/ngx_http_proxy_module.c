@@ -76,14 +76,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon2962c7d2010a
+DECL|union|__anon2ba97589010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon2962c7d20208
+DECL|struct|__anon2ba975890208
 struct|struct
 block|{
 DECL|member|lengths
@@ -114,7 +114,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2962c7d20308
+DECL|struct|__anon2ba975890308
 typedef|typedef
 struct|struct
 block|{
@@ -199,7 +199,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2962c7d20408
+DECL|struct|__anon2ba975890408
 typedef|typedef
 struct|struct
 block|{
@@ -3793,17 +3793,12 @@ argument_list|,
 literal|"upstream sent no valid HTTP/1.0 header"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|u
-operator|->
-name|accel
-condition|)
-block|{
-return|return
-name|NGX_HTTP_UPSTREAM_INVALID_HEADER
-return|;
-block|}
+if|#
+directive|if
+literal|0
+block_content|if (u->accel) {             return NGX_HTTP_UPSTREAM_INVALID_HEADER;         }
+endif|#
+directive|endif
 name|r
 operator|->
 name|http_version
@@ -3988,7 +3983,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2962c7d20503
+DECL|enum|__anon2ba975890503
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -4307,6 +4302,15 @@ comment|/* HTTP status code */
 case|case
 name|sw_status
 case|:
+if|if
+condition|(
+name|ch
+operator|==
+literal|' '
+condition|)
+block|{
+break|break;
+block|}
 if|if
 condition|(
 name|ch
@@ -4920,12 +4924,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-name|ngx_http_upstream_header_errors
-index|[
-name|rc
-operator|-
-name|NGX_HTTP_PARSE_HEADER_ERROR
-index|]
+literal|"upstream sent invalid header"
 argument_list|)
 expr_stmt|;
 return|return

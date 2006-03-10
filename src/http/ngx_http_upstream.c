@@ -1409,21 +1409,6 @@ block|}
 decl_stmt|;
 end_decl_stmt
 
-begin_decl_stmt
-DECL|variable|ngx_http_upstream_header_errors
-name|char
-modifier|*
-name|ngx_http_upstream_header_errors
-index|[]
-init|=
-block|{
-literal|"upstream sent invalid header"
-block|,
-literal|"upstream sent too long header line"
-block|}
-decl_stmt|;
-end_decl_stmt
-
 begin_function
 name|void
 DECL|function|ngx_http_upstream_init (ngx_http_request_t * r)
@@ -2936,6 +2921,14 @@ return|return;
 block|}
 name|c
 operator|->
+name|sendfile
+operator|=
+literal|0
+expr_stmt|;
+name|u
+operator|->
+name|output
+operator|.
 name|sendfile
 operator|=
 literal|0
