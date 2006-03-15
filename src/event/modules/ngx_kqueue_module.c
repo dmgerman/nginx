@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c75cd210108
+DECL|struct|__anon29fc87f80108
 typedef|typedef
 struct|struct
 block|{
@@ -1802,7 +1802,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|/*          * 64-bit MacOSX kernel has the bug: kernel level ts.tv_nsec is          * the int32_t while user level ts.tv_nsec is the long (64-bit),          * so on the big endian PowerPC all nanoseconds are lost.          * NGX_MACOSX_KEVENT_BUG_SHIFT on these machines is "<< 32".          */
 name|ts
 operator|.
 name|tv_sec
@@ -1816,19 +1815,27 @@ operator|.
 name|tv_nsec
 operator|=
 operator|(
-name|long
-operator|)
-operator|(
-operator|(
 name|timer
 operator|%
 literal|1000
 operator|)
 operator|*
 literal|1000000
-operator|)
-name|NGX_MACOSX_KEVENT_BUG_SHIFT
 expr_stmt|;
+comment|/*          * 64-bit Darwin kernel has the bug: kernel level ts.tv_nsec is          * the int32_t while user level ts.tv_nsec is the long (64-bit),          * so on the big endian PowerPC all nanoseconds are lost.          */
+if|#
+directive|if
+operator|(
+name|NGX_DARWIN_KEVENT_BUG
+operator|)
+name|ts
+operator|.
+name|tv_nsec
+operator|<<=
+literal|32
+expr_stmt|;
+endif|#
+directive|endif
 name|tp
 operator|=
 operator|&

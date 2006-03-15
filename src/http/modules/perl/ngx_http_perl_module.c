@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b39bfd40108
+DECL|struct|__anon2c3d39380108
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +70,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b39bfd40208
+DECL|struct|__anon2c3d39380208
 typedef|typedef
 struct|struct
 block|{
@@ -90,7 +90,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b39bfd40308
+DECL|struct|__anon2c3d39380308
 typedef|typedef
 struct|struct
 block|{
@@ -2775,13 +2775,56 @@ modifier|*
 name|sv
 parameter_list|)
 block|{
+name|u_char
+modifier|*
+name|p
+decl_stmt|;
+for|for
+control|(
+name|p
+operator|=
+name|handler
+operator|->
+name|data
+init|;
+operator|*
+name|p
+condition|;
+name|p
+operator|++
+control|)
+block|{
+if|if
+condition|(
+operator|*
+name|p
+operator|!=
+literal|' '
+operator|&&
+operator|*
+name|p
+operator|!=
+literal|'\t'
+operator|&&
+operator|*
+name|p
+operator|!=
+name|CR
+operator|&&
+operator|*
+name|p
+operator|!=
+name|LF
+condition|)
+block|{
+break|break;
+block|}
+block|}
 if|if
 condition|(
 name|ngx_strncmp
 argument_list|(
-name|handler
-operator|->
-name|data
+name|p
 argument_list|,
 literal|"sub "
 argument_list|,
@@ -2792,9 +2835,7 @@ literal|0
 operator|||
 name|ngx_strncmp
 argument_list|(
-name|handler
-operator|->
-name|data
+name|p
 argument_list|,
 literal|"use "
 argument_list|,
@@ -2813,9 +2854,7 @@ operator|(
 name|char
 operator|*
 operator|)
-name|handler
-operator|->
-name|data
+name|p
 argument_list|,
 name|FALSE
 argument_list|)

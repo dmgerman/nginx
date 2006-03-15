@@ -46,7 +46,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon2b30346e0103
+DECL|enum|__anon29d799020103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1656,7 +1656,7 @@ decl_stmt|;
 name|ngx_uint_t
 name|hash
 decl_stmt|;
-DECL|enum|__anon2b30346e0203
+DECL|enum|__anon29d799020203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2202,6 +2202,10 @@ name|ch
 condition|)
 block|{
 case|case
+name|CR
+case|:
+break|break;
+case|case
 name|LF
 case|:
 goto|goto
@@ -2325,7 +2329,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2b30346e0303
+DECL|enum|__anon29d799020303
 enum|enum
 block|{
 DECL|enumerator|sw_usual

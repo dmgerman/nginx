@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28e359030108
+DECL|struct|__anon29e9ee120108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28e359030203
+DECL|enum|__anon29e9ee120203
 typedef|typedef
 enum|enum
 block|{
@@ -114,7 +114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e359030308
+DECL|struct|__anon29e9ee120308
 typedef|typedef
 struct|struct
 block|{
@@ -227,7 +227,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon28e359030408
+DECL|struct|__anon29e9ee120408
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +270,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e359030508
+DECL|struct|__anon29e9ee120508
 typedef|typedef
 struct|struct
 block|{
@@ -300,7 +300,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e359030608
+DECL|struct|__anon29e9ee120608
 typedef|typedef
 struct|struct
 block|{
@@ -327,7 +327,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e359030708
+DECL|struct|__anon29e9ee120708
 typedef|typedef
 struct|struct
 block|{
@@ -713,6 +713,15 @@ literal|"http_500"
 argument_list|)
 block|,
 name|NGX_HTTP_UPSTREAM_FT_HTTP_500
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"http_503"
+argument_list|)
+block|,
+name|NGX_HTTP_UPSTREAM_FT_HTTP_503
 block|}
 block|,
 block|{

@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28a88e670108
+DECL|struct|__anon28b6ca1f0108
 typedef|typedef
 struct|struct
 block|{
@@ -117,7 +117,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a88e670208
+DECL|struct|__anon28b6ca1f0208
 typedef|typedef
 struct|struct
 block|{
@@ -235,7 +235,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a88e670308
+DECL|struct|__anon28b6ca1f0308
 typedef|typedef
 struct|struct
 block|{
@@ -254,7 +254,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a88e670408
+DECL|struct|__anon28b6ca1f0408
 typedef|typedef
 struct|struct
 block|{
@@ -273,7 +273,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a88e670508
+DECL|struct|__anon28b6ca1f0508
 typedef|typedef
 struct|struct
 block|{
@@ -300,7 +300,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon28a88e670608
+DECL|struct|__anon28b6ca1f0608
 typedef|typedef
 struct|struct
 block|{
@@ -382,7 +382,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a88e670708
+DECL|struct|__anon28b6ca1f0708
 typedef|typedef
 struct|struct
 block|{
@@ -427,7 +427,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28a88e670808
+DECL|struct|__anon28b6ca1f0808
 typedef|typedef
 struct|struct
 block|{
@@ -450,7 +450,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a88e670908
+DECL|struct|__anon28b6ca1f0908
 typedef|typedef
 struct|struct
 block|{
@@ -475,7 +475,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a88e670a08
+DECL|struct|__anon28b6ca1f0a08
 typedef|typedef
 struct|struct
 block|{
@@ -495,7 +495,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a88e670b08
+DECL|struct|__anon28b6ca1f0b08
 typedef|typedef
 struct|struct
 block|{
@@ -539,6 +539,33 @@ parameter_list|(
 name|ngx_http_script_compile_t
 modifier|*
 name|sc
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|u_char
+modifier|*
+name|ngx_http_script_run
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|value
+parameter_list|,
+name|void
+modifier|*
+name|code_lengths
+parameter_list|,
+name|size_t
+name|reserved
+parameter_list|,
+name|void
+modifier|*
+name|code_values
 parameter_list|)
 function_decl|;
 end_function_decl

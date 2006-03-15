@@ -57,7 +57,7 @@ DECL|macro|NGX_HTTP_UPSTREAM_FT_ERROR
 define|#
 directive|define
 name|NGX_HTTP_UPSTREAM_FT_ERROR
-value|0x02
+value|0x002
 end_define
 
 begin_define
@@ -65,7 +65,7 @@ DECL|macro|NGX_HTTP_UPSTREAM_FT_TIMEOUT
 define|#
 directive|define
 name|NGX_HTTP_UPSTREAM_FT_TIMEOUT
-value|0x04
+value|0x004
 end_define
 
 begin_define
@@ -73,7 +73,7 @@ DECL|macro|NGX_HTTP_UPSTREAM_FT_INVALID_HEADER
 define|#
 directive|define
 name|NGX_HTTP_UPSTREAM_FT_INVALID_HEADER
-value|0x08
+value|0x008
 end_define
 
 begin_define
@@ -81,7 +81,15 @@ DECL|macro|NGX_HTTP_UPSTREAM_FT_HTTP_500
 define|#
 directive|define
 name|NGX_HTTP_UPSTREAM_FT_HTTP_500
-value|0x10
+value|0x010
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_UPSTREAM_FT_HTTP_503
+define|#
+directive|define
+name|NGX_HTTP_UPSTREAM_FT_HTTP_503
+value|0x020
 end_define
 
 begin_define
@@ -89,7 +97,7 @@ DECL|macro|NGX_HTTP_UPSTREAM_FT_HTTP_404
 define|#
 directive|define
 name|NGX_HTTP_UPSTREAM_FT_HTTP_404
-value|0x20
+value|0x040
 end_define
 
 begin_define
@@ -97,7 +105,7 @@ DECL|macro|NGX_HTTP_UPSTREAM_FT_BUSY_LOCK
 define|#
 directive|define
 name|NGX_HTTP_UPSTREAM_FT_BUSY_LOCK
-value|0x40
+value|0x080
 end_define
 
 begin_define
@@ -105,7 +113,7 @@ DECL|macro|NGX_HTTP_UPSTREAM_FT_MAX_WAITING
 define|#
 directive|define
 name|NGX_HTTP_UPSTREAM_FT_MAX_WAITING
-value|0x80
+value|0x100
 end_define
 
 begin_define
@@ -117,7 +125,7 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon296ed50c0108
+DECL|struct|__anon2b40af1e0108
 typedef|typedef
 struct|struct
 block|{
@@ -149,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296ed50c0208
+DECL|struct|__anon2b40af1e0208
 typedef|typedef
 struct|struct
 block|{
@@ -164,7 +172,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296ed50c0308
+DECL|struct|__anon2b40af1e0308
 typedef|typedef
 struct|struct
 block|{
@@ -314,7 +322,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296ed50c0408
+DECL|struct|__anon2b40af1e0408
 typedef|typedef
 struct|struct
 block|{
@@ -350,7 +358,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296ed50c0508
+DECL|struct|__anon2b40af1e0508
 typedef|typedef
 struct|struct
 block|{

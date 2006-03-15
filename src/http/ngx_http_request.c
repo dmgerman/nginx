@@ -9593,6 +9593,26 @@ return|return
 name|NGX_DECLINED
 return|;
 block|}
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"post action: \"%V\""
+argument_list|,
+operator|&
+name|clcf
+operator|->
+name|post_action
+argument_list|)
+expr_stmt|;
 name|r
 operator|->
 name|http_version

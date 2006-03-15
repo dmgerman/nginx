@@ -614,7 +614,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27b9c7130108
+DECL|struct|__anon27c357710108
 typedef|typedef
 struct|struct
 block|{
@@ -659,7 +659,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b9c7130208
+DECL|struct|__anon27c357710208
 typedef|typedef
 struct|struct
 block|{
@@ -799,7 +799,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b9c7130308
+DECL|struct|__anon27c357710308
 typedef|typedef
 struct|struct
 block|{
@@ -814,7 +814,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b9c7130408
+DECL|struct|__anon27c357710408
 typedef|typedef
 struct|struct
 block|{
@@ -839,7 +839,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b9c7130508
+DECL|struct|__anon27c357710508
 typedef|typedef
 struct|struct
 block|{
@@ -862,7 +862,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b9c7130608
+DECL|struct|__anon27c357710608
 typedef|typedef
 struct|struct
 block|{
@@ -889,7 +889,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon27b9c7130708
+DECL|struct|__anon27c357710708
 typedef|typedef
 struct|struct
 block|{
@@ -1103,7 +1103,7 @@ name|conf
 parameter_list|,
 name|prev
 parameter_list|,
-define|default)                        \     if (conf.data == NULL) {                                                 \         if (prev.data) {                                                      \             conf.len = prev.len;                                             \             conf.data = prev.data;                                           \         } else {                                                             \             conf.len = sizeof(default) - 1;                                  \             conf.data = (u_char *) default;                                  \         }                                                                    \     }
+define|default)                        \     if (conf.data == NULL) {                                                 \         if (prev.data) {                                                     \             conf.len = prev.len;                                             \             conf.data = prev.data;                                           \         } else {                                                             \             conf.len = sizeof(default) - 1;                                  \             conf.data = (u_char *) default;                                  \         }                                                                    \     }
 end_define
 
 begin_define
