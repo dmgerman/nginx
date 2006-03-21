@@ -8915,6 +8915,14 @@ condition|)
 block|{
 name|conf
 operator|->
+name|alias
+operator|=
+name|prev
+operator|->
+name|alias
+expr_stmt|;
+name|conf
+operator|->
 name|root
 operator|=
 name|prev

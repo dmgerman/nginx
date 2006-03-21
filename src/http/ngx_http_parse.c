@@ -46,7 +46,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon29d799020103
+DECL|enum|__anon28d68deb0103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1656,7 +1656,7 @@ decl_stmt|;
 name|ngx_uint_t
 name|hash
 decl_stmt|;
-DECL|enum|__anon29d799020203
+DECL|enum|__anon28d68deb0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2216,6 +2216,7 @@ return|return
 name|NGX_HTTP_PARSE_INVALID_HEADER
 return|;
 block|}
+break|break;
 comment|/* end of header */
 case|case
 name|sw_header_almost_done
@@ -2329,7 +2330,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon29d799020303
+DECL|enum|__anon28d68deb0303
 enum|enum
 block|{
 DECL|enumerator|sw_usual
