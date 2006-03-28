@@ -481,24 +481,12 @@ literal|0
 condition|)
 block|{
 comment|/*                      * on FreeBSD recv() may return 0 on closed socket                      * even if kqueue reported about available data                      */
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_ALERT
-argument_list|,
-name|c
-operator|->
-name|log
-argument_list|,
+if|#
+directive|if
 literal|0
-argument_list|,
-literal|"readv() returned 0 while kevent() reported "
-literal|"%d available bytes"
-argument_list|,
-name|rev
-operator|->
-name|available
-argument_list|)
-expr_stmt|;
+block_content|ngx_log_error(NGX_LOG_ALERT, c->log, 0,                                   "readv() returned 0 while kevent() reported "                                   "%d available bytes", rev->available);
+endif|#
+directive|endif
 name|rev
 operator|->
 name|eof
