@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29e9ee120108
+DECL|struct|__anon29a56b130108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29e9ee120203
+DECL|enum|__anon29a56b130203
 typedef|typedef
 enum|enum
 block|{
@@ -114,7 +114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e9ee120308
+DECL|struct|__anon29a56b130308
 typedef|typedef
 struct|struct
 block|{
@@ -227,7 +227,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon29e9ee120408
+DECL|struct|__anon29a56b130408
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +270,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e9ee120508
+DECL|struct|__anon29a56b130508
 typedef|typedef
 struct|struct
 block|{
@@ -300,7 +300,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e9ee120608
+DECL|struct|__anon29a56b130608
 typedef|typedef
 struct|struct
 block|{
@@ -327,7 +327,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e9ee120708
+DECL|struct|__anon29a56b130708
 typedef|typedef
 struct|struct
 block|{
@@ -758,6 +758,8 @@ argument_list|)
 block|,
 name|NGX_HTTP_LOC_CONF
 operator||
+name|NGX_HTTP_LIF_CONF
+operator||
 name|NGX_CONF_TAKE1
 block|,
 name|ngx_http_fastcgi_pass
@@ -792,6 +794,36 @@ argument_list|(
 name|ngx_http_fastcgi_loc_conf_t
 argument_list|,
 name|index
+argument_list|)
+block|,
+name|NULL
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"fastcgi_ignore_client_abort"
+argument_list|)
+block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
+name|NGX_HTTP_SRV_CONF
+operator||
+name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_CONF_FLAG
+block|,
+name|ngx_conf_set_flag_slot
+block|,
+name|NGX_HTTP_LOC_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+name|ngx_http_fastcgi_loc_conf_t
+argument_list|,
+name|upstream
+operator|.
+name|ignore_client_abort
 argument_list|)
 block|,
 name|NULL
@@ -6523,6 +6555,14 @@ name|conf
 operator|->
 name|upstream
 operator|.
+name|ignore_client_abort
+operator|=
+name|NGX_CONF_UNSET
+expr_stmt|;
+name|conf
+operator|->
+name|upstream
+operator|.
 name|connect_timeout
 operator|=
 name|NGX_CONF_UNSET_MSEC
@@ -6735,6 +6775,23 @@ operator|.
 name|buffering
 argument_list|,
 literal|1
+argument_list|)
+expr_stmt|;
+name|ngx_conf_merge_value
+argument_list|(
+name|conf
+operator|->
+name|upstream
+operator|.
+name|ignore_client_abort
+argument_list|,
+name|prev
+operator|->
+name|upstream
+operator|.
+name|ignore_client_abort
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_msec_value
@@ -7469,6 +7526,18 @@ operator|=
 name|prev
 operator|->
 name|peers
+expr_stmt|;
+name|conf
+operator|->
+name|upstream
+operator|.
+name|schema
+operator|=
+name|prev
+operator|->
+name|upstream
+operator|.
+name|schema
 expr_stmt|;
 block|}
 if|if

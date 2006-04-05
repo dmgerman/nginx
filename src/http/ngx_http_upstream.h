@@ -125,7 +125,7 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon2b40af1e0108
+DECL|struct|__anon29145cc70108
 typedef|typedef
 struct|struct
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b40af1e0208
+DECL|struct|__anon29145cc70208
 typedef|typedef
 struct|struct
 block|{
@@ -172,7 +172,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b40af1e0308
+DECL|struct|__anon29145cc70308
 typedef|typedef
 struct|struct
 block|{
@@ -252,6 +252,10 @@ DECL|member|pass_request_body
 name|ngx_flag_t
 name|pass_request_body
 decl_stmt|;
+DECL|member|ignore_client_abort
+name|ngx_flag_t
+name|ignore_client_abort
+decl_stmt|;
 DECL|member|redirect_errors
 name|ngx_flag_t
 name|redirect_errors
@@ -322,7 +326,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b40af1e0408
+DECL|struct|__anon29145cc70408
 typedef|typedef
 struct|struct
 block|{
@@ -358,7 +362,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b40af1e0508
+DECL|struct|__anon29145cc70508
 typedef|typedef
 struct|struct
 block|{

@@ -28,7 +28,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b8ab6210108
+DECL|struct|__anon2c41a9be0108
 typedef|typedef
 struct|struct
 block|{
@@ -48,7 +48,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8ab6210208
+DECL|struct|__anon2c41a9be0208
 typedef|typedef
 struct|struct
 block|{
@@ -2272,6 +2272,22 @@ operator|=
 literal|0
 expr_stmt|;
 comment|/* the hardcoded values */
+name|conf
+operator|->
+name|upstream
+operator|.
+name|buffering
+operator|=
+literal|0
+expr_stmt|;
+name|conf
+operator|->
+name|upstream
+operator|.
+name|ignore_client_abort
+operator|=
+literal|0
+expr_stmt|;
 name|conf
 operator|->
 name|upstream

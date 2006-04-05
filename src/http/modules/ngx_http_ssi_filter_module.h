@@ -66,8 +66,24 @@ name|NGX_HTTP_SSI_PARAMS_N
 value|4
 end_define
 
+begin_define
+DECL|macro|NGX_HTTP_SSI_COND_IF
+define|#
+directive|define
+name|NGX_HTTP_SSI_COND_IF
+value|1
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_SSI_COND_ELSE
+define|#
+directive|define
+name|NGX_HTTP_SSI_COND_ELSE
+value|2
+end_define
+
 begin_typedef
-DECL|struct|__anon29b3960f0108
+DECL|struct|__anon298c25640108
 typedef|typedef
 struct|struct
 block|{
@@ -86,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b3960f0208
+DECL|struct|__anon298c25640208
 typedef|typedef
 struct|struct
 block|{
@@ -184,11 +200,24 @@ DECL|member|variables
 name|ngx_array_t
 name|variables
 decl_stmt|;
-DECL|member|output
-name|ngx_uint_t
-name|output
+DECL|member|conditional
+name|unsigned
+name|conditional
+range|:
+literal|2
 decl_stmt|;
-comment|/* unsigned  output:1; */
+DECL|member|output
+name|unsigned
+name|output
+range|:
+literal|1
+decl_stmt|;
+DECL|member|output_chosen
+name|unsigned
+name|output_chosen
+range|:
+literal|1
+decl_stmt|;
 DECL|member|value_buf
 name|void
 modifier|*
@@ -233,7 +262,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b3960f0308
+DECL|struct|__anon298c25640308
 typedef|typedef
 struct|struct
 block|{
@@ -264,7 +293,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b3960f0408
+DECL|struct|__anon298c25640408
 typedef|typedef
 struct|struct
 block|{
@@ -285,7 +314,7 @@ DECL|member|conditional
 name|unsigned
 name|conditional
 range|:
-literal|1
+literal|2
 decl_stmt|;
 DECL|member|flush
 name|unsigned
