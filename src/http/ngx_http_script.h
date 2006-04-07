@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28b6ca1f0108
+DECL|struct|__anon2bf563460108
 typedef|typedef
 struct|struct
 block|{
@@ -117,7 +117,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b6ca1f0208
+DECL|struct|__anon2bf563460208
 typedef|typedef
 struct|struct
 block|{
@@ -169,12 +169,6 @@ decl_stmt|;
 DECL|member|compile_args
 name|unsigned
 name|compile_args
-range|:
-literal|1
-decl_stmt|;
-DECL|member|compile_null
-name|unsigned
-name|compile_null
 range|:
 literal|1
 decl_stmt|;
@@ -235,7 +229,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b6ca1f0308
+DECL|struct|__anon2bf563460308
 typedef|typedef
 struct|struct
 block|{
@@ -254,7 +248,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b6ca1f0408
+DECL|struct|__anon2bf563460408
 typedef|typedef
 struct|struct
 block|{
@@ -273,7 +267,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b6ca1f0508
+DECL|struct|__anon2bf563460508
 typedef|typedef
 struct|struct
 block|{
@@ -300,7 +294,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon28b6ca1f0608
+DECL|struct|__anon2bf563460608
 typedef|typedef
 struct|struct
 block|{
@@ -337,6 +331,12 @@ decl_stmt|;
 DECL|member|test
 name|uintptr_t
 name|test
+range|:
+literal|1
+decl_stmt|;
+DECL|member|negative_test
+name|uintptr_t
+name|negative_test
 range|:
 literal|1
 decl_stmt|;
@@ -382,7 +382,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b6ca1f0708
+DECL|struct|__anon2bf563460708
 typedef|typedef
 struct|struct
 block|{
@@ -427,7 +427,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28b6ca1f0808
+DECL|struct|__anon2bf563460808
 typedef|typedef
 struct|struct
 block|{
@@ -450,7 +450,44 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b6ca1f0908
+DECL|enum|__anon2bf563460903
+typedef|typedef
+enum|enum
+block|{
+DECL|enumerator|ngx_http_script_file_plain
+name|ngx_http_script_file_plain
+init|=
+literal|0
+block|,
+DECL|enumerator|ngx_http_script_file_not_plain
+name|ngx_http_script_file_not_plain
+DECL|typedef|ngx_http_script_file_op_e
+block|}
+name|ngx_http_script_file_op_e
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2bf563460a08
+typedef|typedef
+struct|struct
+block|{
+DECL|member|code
+name|ngx_http_script_code_pt
+name|code
+decl_stmt|;
+DECL|member|op
+name|uintptr_t
+name|op
+decl_stmt|;
+DECL|typedef|ngx_http_script_file_code_t
+block|}
+name|ngx_http_script_file_code_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2bf563460b08
 typedef|typedef
 struct|struct
 block|{
@@ -475,7 +512,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b6ca1f0a08
+DECL|struct|__anon2bf563460c08
 typedef|typedef
 struct|struct
 block|{
@@ -495,7 +532,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b6ca1f0b08
+DECL|struct|__anon2bf563460d08
 typedef|typedef
 struct|struct
 block|{
@@ -783,6 +820,17 @@ end_function_decl
 begin_function_decl
 name|void
 name|ngx_http_script_not_equal_code
+parameter_list|(
+name|ngx_http_script_engine_t
+modifier|*
+name|e
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_http_script_file_code
 parameter_list|(
 name|ngx_http_script_engine_t
 modifier|*

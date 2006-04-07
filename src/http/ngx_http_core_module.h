@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2755f0de0108
+DECL|struct|__anon29fbd58a0108
 typedef|typedef
 struct|struct
 block|{
@@ -92,6 +92,15 @@ name|deferred_accept
 decl_stmt|;
 endif|#
 directive|endif
+DECL|member|addr
+name|u_char
+name|addr
+index|[
+name|INET_ADDRSTRLEN
+operator|+
+literal|6
+index|]
+decl_stmt|;
 DECL|typedef|ngx_http_listen_conf_t
 block|}
 name|ngx_http_listen_conf_t
@@ -99,7 +108,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2755f0de0208
+DECL|struct|__anon29fbd58a0208
 typedef|typedef
 struct|struct
 block|{
@@ -134,7 +143,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2755f0de0303
+DECL|enum|__anon29fbd58a0303
 typedef|typedef
 enum|enum
 block|{
@@ -170,7 +179,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2755f0de0408
+DECL|struct|__anon29fbd58a0408
 typedef|typedef
 struct|struct
 block|{
@@ -190,7 +199,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2755f0de0508
+DECL|struct|__anon29fbd58a0508
 typedef|typedef
 struct|struct
 block|{
@@ -249,7 +258,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2755f0de0608
+DECL|struct|__anon29fbd58a0608
 typedef|typedef
 struct|struct
 block|{
@@ -317,7 +326,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2755f0de0708
+DECL|struct|__anon29fbd58a0708
 typedef|typedef
 struct|struct
 block|{
@@ -343,7 +352,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2755f0de0808
+DECL|struct|__anon29fbd58a0808
 typedef|typedef
 struct|struct
 block|{
@@ -371,7 +380,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2755f0de0908
+DECL|struct|__anon29fbd58a0908
 typedef|typedef
 struct|struct
 block|{
@@ -391,7 +400,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2755f0de0a08
+DECL|struct|__anon29fbd58a0a08
 typedef|typedef
 struct|struct
 block|{
@@ -443,7 +452,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2755f0de0b08
+DECL|struct|__anon29fbd58a0b08
 typedef|typedef
 struct|struct
 block|{
@@ -464,7 +473,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2755f0de0c08
+DECL|struct|__anon29fbd58a0c08
 typedef|typedef
 struct|struct
 block|{
@@ -559,6 +568,16 @@ name|void
 modifier|*
 modifier|*
 name|loc_conf
+decl_stmt|;
+DECL|member|limit_except
+name|uint32_t
+name|limit_except
+decl_stmt|;
+DECL|member|limit_except_loc_conf
+name|void
+modifier|*
+modifier|*
+name|limit_except_loc_conf
 decl_stmt|;
 DECL|member|handler
 name|ngx_http_handler_pt

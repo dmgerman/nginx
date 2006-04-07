@@ -30,7 +30,7 @@ value|((void *) 4)
 end_define
 
 begin_typedef
-DECL|struct|__anon2bcb21420108
+DECL|struct|__anon2b3df31a0108
 typedef|typedef
 struct|struct
 block|{
@@ -872,6 +872,8 @@ operator|->
 name|dns_wildcards
 operator|.
 name|nelts
+operator|==
+literal|0
 condition|)
 block|{
 name|ngx_log_error

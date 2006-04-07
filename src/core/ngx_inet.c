@@ -33,9 +33,9 @@ end_comment
 
 begin_function
 specifier|static
-DECL|function|ngx_sprint_uchar (u_char * text,u_char c,size_t len)
 name|ngx_inline
 name|size_t
+DECL|function|ngx_sprint_uchar (u_char * text,u_char c,size_t len)
 name|ngx_sprint_uchar
 parameter_list|(
 name|u_char

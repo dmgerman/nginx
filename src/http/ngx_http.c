@@ -2491,7 +2491,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"conflicting server name \"%V\", ignored"
+literal|"conflicting server name \"%V\" on %s, ignored"
 argument_list|,
 operator|&
 name|name
@@ -2500,6 +2500,15 @@ name|s
 index|]
 operator|.
 name|name
+argument_list|,
+name|in_addr
+index|[
+name|a
+index|]
+operator|.
+name|listen_conf
+operator|->
+name|addr
 argument_list|)
 expr_stmt|;
 block|}
@@ -2605,7 +2614,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"conflicting server name \"%V\", ignored"
+literal|"conflicting server name \"%V\" on %s, ignored"
 argument_list|,
 operator|&
 name|name
@@ -2614,6 +2623,15 @@ name|s
 index|]
 operator|.
 name|name
+argument_list|,
+name|in_addr
+index|[
+name|a
+index|]
+operator|.
+name|listen_conf
+operator|->
+name|addr
 argument_list|)
 expr_stmt|;
 block|}

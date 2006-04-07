@@ -1871,6 +1871,12 @@ argument_list|()
 expr_stmt|;
 name|r
 operator|->
+name|method
+operator|=
+name|NGX_HTTP_UNKNOWN
+expr_stmt|;
+name|r
+operator|->
 name|headers_in
 operator|.
 name|content_length_n

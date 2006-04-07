@@ -26,7 +26,7 @@ comment|/* AF_INET only */
 end_comment
 
 begin_typedef
-DECL|struct|__anon298fdfd30108
+DECL|struct|__anon293214360108
 typedef|typedef
 struct|struct
 block|{
@@ -50,7 +50,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298fdfd30208
+DECL|struct|__anon293214360208
 typedef|typedef
 struct|struct
 block|{
@@ -165,6 +165,8 @@ name|NGX_HTTP_SRV_CONF
 operator||
 name|NGX_HTTP_LOC_CONF
 operator||
+name|NGX_HTTP_LMT_CONF
+operator||
 name|NGX_CONF_TAKE1
 block|,
 name|ngx_http_access_rule
@@ -187,6 +189,8 @@ operator||
 name|NGX_HTTP_SRV_CONF
 operator||
 name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_HTTP_LMT_CONF
 operator||
 name|NGX_CONF_TAKE1
 block|,

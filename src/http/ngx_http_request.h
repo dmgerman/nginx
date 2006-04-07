@@ -65,11 +65,19 @@ value|1001
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_UNKNOWN
+define|#
+directive|define
+name|NGX_HTTP_UNKNOWN
+value|1
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_GET
 define|#
 directive|define
 name|NGX_HTTP_GET
-value|1
+value|2
 end_define
 
 begin_define
@@ -77,7 +85,7 @@ DECL|macro|NGX_HTTP_HEAD
 define|#
 directive|define
 name|NGX_HTTP_HEAD
-value|2
+value|4
 end_define
 
 begin_define
@@ -85,7 +93,7 @@ DECL|macro|NGX_HTTP_POST
 define|#
 directive|define
 name|NGX_HTTP_POST
-value|3
+value|8
 end_define
 
 begin_define
@@ -437,7 +445,7 @@ value|0x00000200
 end_define
 
 begin_typedef
-DECL|enum|__anon2b964aea0103
+DECL|enum|__anon28c9fd8d0103
 typedef|typedef
 enum|enum
 block|{
@@ -476,7 +484,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b964aea0208
+DECL|struct|__anon28c9fd8d0208
 typedef|typedef
 struct|struct
 block|{
@@ -499,7 +507,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b964aea0308
+DECL|struct|__anon28c9fd8d0308
 typedef|typedef
 struct|struct
 block|{
@@ -518,7 +526,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b964aea0408
+DECL|struct|__anon28c9fd8d0408
 typedef|typedef
 struct|struct
 block|{
@@ -708,7 +716,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b964aea0508
+DECL|struct|__anon28c9fd8d0508
 typedef|typedef
 struct|struct
 block|{
@@ -731,7 +739,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b964aea0608
+DECL|struct|__anon28c9fd8d0608
 typedef|typedef
 struct|struct
 block|{
@@ -853,7 +861,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b964aea0708
+DECL|struct|__anon28c9fd8d0708
 typedef|typedef
 struct|struct
 block|{
@@ -887,7 +895,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b964aea0808
+DECL|struct|__anon28c9fd8d0808
 typedef|typedef
 struct|struct
 block|{
@@ -928,7 +936,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b964aea0908
+DECL|struct|__anon28c9fd8d0908
 typedef|typedef
 struct|struct
 block|{
