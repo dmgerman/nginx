@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29fbd58a0108
+DECL|struct|__anon2750ae960108
 typedef|typedef
 struct|struct
 block|{
@@ -108,7 +108,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fbd58a0208
+DECL|struct|__anon2750ae960208
 typedef|typedef
 struct|struct
 block|{
@@ -143,7 +143,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29fbd58a0303
+DECL|enum|__anon2750ae960303
 typedef|typedef
 enum|enum
 block|{
@@ -179,7 +179,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fbd58a0408
+DECL|struct|__anon2750ae960408
 typedef|typedef
 struct|struct
 block|{
@@ -199,7 +199,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fbd58a0508
+DECL|struct|__anon2750ae960508
 typedef|typedef
 struct|struct
 block|{
@@ -258,7 +258,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fbd58a0608
+DECL|struct|__anon2750ae960608
 typedef|typedef
 struct|struct
 block|{
@@ -326,7 +326,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon29fbd58a0708
+DECL|struct|__anon2750ae960708
 typedef|typedef
 struct|struct
 block|{
@@ -352,7 +352,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fbd58a0808
+DECL|struct|__anon2750ae960808
 typedef|typedef
 struct|struct
 block|{
@@ -380,7 +380,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fbd58a0908
+DECL|struct|__anon2750ae960908
 typedef|typedef
 struct|struct
 block|{
@@ -400,7 +400,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fbd58a0a08
+DECL|struct|__anon2750ae960a08
 typedef|typedef
 struct|struct
 block|{
@@ -452,7 +452,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fbd58a0b08
+DECL|struct|__anon2750ae960b08
 typedef|typedef
 struct|struct
 block|{
@@ -473,7 +473,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fbd58a0c08
+DECL|struct|__anon2750ae960c08
 typedef|typedef
 struct|struct
 block|{
@@ -680,6 +680,11 @@ name|ngx_flag_t
 name|internal
 decl_stmt|;
 comment|/* internal */
+DECL|member|client_body_in_file_only
+name|ngx_flag_t
+name|client_body_in_file_only
+decl_stmt|;
+comment|/* client_body_in_file_only */
 DECL|member|sendfile
 name|ngx_flag_t
 name|sendfile

@@ -69,7 +69,7 @@ DECL|macro|NGX_HTTP_UNKNOWN
 define|#
 directive|define
 name|NGX_HTTP_UNKNOWN
-value|1
+value|0x0001
 end_define
 
 begin_define
@@ -77,7 +77,7 @@ DECL|macro|NGX_HTTP_GET
 define|#
 directive|define
 name|NGX_HTTP_GET
-value|2
+value|0x0002
 end_define
 
 begin_define
@@ -85,7 +85,7 @@ DECL|macro|NGX_HTTP_HEAD
 define|#
 directive|define
 name|NGX_HTTP_HEAD
-value|4
+value|0x0004
 end_define
 
 begin_define
@@ -93,7 +93,23 @@ DECL|macro|NGX_HTTP_POST
 define|#
 directive|define
 name|NGX_HTTP_POST
-value|8
+value|0x0008
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_PUT
+define|#
+directive|define
+name|NGX_HTTP_PUT
+value|0x0010
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_DELETE
+define|#
+directive|define
+name|NGX_HTTP_DELETE
+value|0x0020
 end_define
 
 begin_define
@@ -182,6 +198,14 @@ define|#
 directive|define
 name|NGX_HTTP_OK
 value|200
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_CREATED
+define|#
+directive|define
+name|NGX_HTTP_CREATED
+value|201
 end_define
 
 begin_define
@@ -445,7 +469,7 @@ value|0x00000200
 end_define
 
 begin_typedef
-DECL|enum|__anon28c9fd8d0103
+DECL|enum|__anon2b9de6e80103
 typedef|typedef
 enum|enum
 block|{
@@ -484,7 +508,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c9fd8d0208
+DECL|struct|__anon2b9de6e80208
 typedef|typedef
 struct|struct
 block|{
@@ -507,7 +531,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c9fd8d0308
+DECL|struct|__anon2b9de6e80308
 typedef|typedef
 struct|struct
 block|{
@@ -526,7 +550,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c9fd8d0408
+DECL|struct|__anon2b9de6e80408
 typedef|typedef
 struct|struct
 block|{
@@ -716,7 +740,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c9fd8d0508
+DECL|struct|__anon2b9de6e80508
 typedef|typedef
 struct|struct
 block|{
@@ -739,7 +763,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c9fd8d0608
+DECL|struct|__anon2b9de6e80608
 typedef|typedef
 struct|struct
 block|{
@@ -861,7 +885,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c9fd8d0708
+DECL|struct|__anon2b9de6e80708
 typedef|typedef
 struct|struct
 block|{
@@ -884,6 +908,11 @@ DECL|member|rest
 name|size_t
 name|rest
 decl_stmt|;
+DECL|member|to_write
+name|ngx_chain_t
+modifier|*
+name|to_write
+decl_stmt|;
 DECL|member|post_handler
 name|ngx_http_client_body_handler_pt
 name|post_handler
@@ -895,7 +924,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c9fd8d0808
+DECL|struct|__anon2b9de6e80808
 typedef|typedef
 struct|struct
 block|{
@@ -936,7 +965,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c9fd8d0908
+DECL|struct|__anon2b9de6e80908
 typedef|typedef
 struct|struct
 block|{
@@ -1368,6 +1397,36 @@ name|unsigned
 name|uri_changes
 range|:
 literal|4
+decl_stmt|;
+DECL|member|request_body_in_single_buf
+name|unsigned
+name|request_body_in_single_buf
+range|:
+literal|1
+decl_stmt|;
+DECL|member|request_body_in_file_only
+name|unsigned
+name|request_body_in_file_only
+range|:
+literal|1
+decl_stmt|;
+DECL|member|request_body_in_persistent_file
+name|unsigned
+name|request_body_in_persistent_file
+range|:
+literal|1
+decl_stmt|;
+DECL|member|request_body_delete_incomplete_file
+name|unsigned
+name|request_body_delete_incomplete_file
+range|:
+literal|1
+decl_stmt|;
+DECL|member|request_body_file_group_access
+name|unsigned
+name|request_body_file_group_access
+range|:
+literal|1
 decl_stmt|;
 DECL|member|fast_subrequest
 name|unsigned

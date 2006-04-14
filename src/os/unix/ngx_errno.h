@@ -117,6 +117,14 @@ value|EINVAL
 end_define
 
 begin_define
+DECL|macro|NGX_ENOSPC
+define|#
+directive|define
+name|NGX_ENOSPC
+value|ENOSPC
+end_define
+
+begin_define
 DECL|macro|NGX_EPIPE
 define|#
 directive|define

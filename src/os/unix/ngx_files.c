@@ -487,7 +487,7 @@ end_function
 
 begin_function
 name|ngx_fd_t
-DECL|function|ngx_open_tempfile (u_char * name,ngx_uint_t persistent)
+DECL|function|ngx_open_tempfile (u_char * name,ngx_uint_t persistent,ngx_uint_t mode)
 name|ngx_open_tempfile
 parameter_list|(
 name|u_char
@@ -496,6 +496,9 @@ name|name
 parameter_list|,
 name|ngx_uint_t
 name|persistent
+parameter_list|,
+name|ngx_uint_t
+name|mode
 parameter_list|)
 block|{
 name|ngx_fd_t
@@ -518,6 +521,10 @@ name|O_EXCL
 operator||
 name|O_RDWR
 argument_list|,
+name|mode
+condition|?
+name|mode
+else|:
 literal|0600
 argument_list|)
 expr_stmt|;

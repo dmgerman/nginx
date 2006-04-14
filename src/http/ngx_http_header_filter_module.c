@@ -156,9 +156,11 @@ argument_list|(
 literal|"200 OK"
 argument_list|)
 block|,
-name|ngx_null_string
+name|ngx_string
+argument_list|(
+literal|"201 Created"
+argument_list|)
 block|,
-comment|/* "201 Created" */
 name|ngx_null_string
 block|,
 comment|/* "202 Accepted" */

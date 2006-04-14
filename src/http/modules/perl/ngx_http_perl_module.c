@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a323a0c0108
+DECL|struct|__anon273c896e0108
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +70,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a323a0c0208
+DECL|struct|__anon273c896e0208
 typedef|typedef
 struct|struct
 block|{
@@ -90,7 +90,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a323a0c0308
+DECL|struct|__anon273c896e0308
 typedef|typedef
 struct|struct
 block|{
@@ -753,6 +753,15 @@ endif|#
 directive|endif
 end_endif
 
+begin_decl_stmt
+DECL|variable|nginx_stash
+specifier|static
+name|HV
+modifier|*
+name|nginx_stash
+decl_stmt|;
+end_decl_stmt
+
 begin_function
 specifier|static
 name|void
@@ -769,6 +778,15 @@ argument_list|,
 name|boot_DynaLoader
 argument_list|,
 name|__FILE__
+argument_list|)
+expr_stmt|;
+name|nginx_stash
+operator|=
+name|gv_stashpv
+argument_list|(
+literal|"nginx"
+argument_list|,
+name|TRUE
 argument_list|)
 expr_stmt|;
 block|}
@@ -800,6 +818,18 @@ return|return
 name|NGX_HTTP_NOT_FOUND
 return|;
 block|}
+name|r
+operator|->
+name|request_body_in_single_buf
+operator|=
+literal|1
+expr_stmt|;
+name|r
+operator|->
+name|request_body_in_persistent_file
+operator|=
+literal|1
+expr_stmt|;
 name|rc
 operator|=
 name|ngx_http_read_client_request_body
@@ -1096,6 +1126,8 @@ block|}
 name|ctx
 operator|->
 name|filename
+operator|.
+name|data
 operator|=
 name|NULL
 expr_stmt|;
@@ -1395,6 +1427,8 @@ block|}
 name|ctx
 operator|->
 name|filename
+operator|.
+name|data
 operator|=
 name|NULL
 expr_stmt|;
@@ -1651,6 +1685,8 @@ expr_stmt|;
 name|ctx
 operator|->
 name|filename
+operator|.
+name|data
 operator|=
 name|NULL
 expr_stmt|;
@@ -2489,16 +2525,23 @@ argument_list|)
 expr_stmt|;
 name|sv
 operator|=
-name|sv_newmortal
-argument_list|()
-expr_stmt|;
-name|sv_setref_pv
+name|sv_2mortal
 argument_list|(
-name|sv
-argument_list|,
-literal|"nginx"
-argument_list|,
+name|sv_bless
+argument_list|(
+name|newRV_noinc
+argument_list|(
+name|newSViv
+argument_list|(
+name|PTR2IV
+argument_list|(
 name|r
+argument_list|)
+argument_list|)
+argument_list|)
+argument_list|,
+name|nginx_stash
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|XPUSHs

@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2963699e0108
+DECL|struct|__anon275655cb0108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2963699e0208
+DECL|struct|__anon275655cb0208
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +70,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2963699e0308
+DECL|struct|__anon275655cb0308
 typedef|typedef
 struct|struct
 block|{
@@ -78,6 +78,10 @@ DECL|member|file
 name|ngx_open_file_t
 modifier|*
 name|file
+decl_stmt|;
+DECL|member|disk_full_time
+name|time_t
+name|disk_full_time
 decl_stmt|;
 DECL|member|ops
 name|ngx_array_t
@@ -92,7 +96,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2963699e0408
+DECL|struct|__anon275655cb0408
 typedef|typedef
 struct|struct
 block|{
@@ -114,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2963699e0508
+DECL|struct|__anon275655cb0508
 typedef|typedef
 struct|struct
 block|{
@@ -1460,6 +1464,22 @@ name|l
 operator|++
 control|)
 block|{
+if|if
+condition|(
+name|ngx_time
+argument_list|()
+operator|==
+name|log
+index|[
+name|l
+index|]
+operator|.
+name|disk_full_time
+condition|)
+block|{
+comment|/*              * On FreeBSD writing to a full filesystem with enabled softupdates              * may block process for much longer time than writing to non-full              * filesystem, so we skip writing the log for one second.              */
+continue|continue;
+block|}
 name|len
 operator|=
 literal|0
@@ -1579,6 +1599,8 @@ name|pos
 operator|)
 condition|)
 block|{
+if|if
+condition|(
 name|ngx_write_fd
 argument_list|(
 name|file
@@ -1597,7 +1619,26 @@ name|file
 operator|->
 name|buffer
 argument_list|)
+operator|==
+operator|-
+literal|1
+operator|&&
+name|ngx_errno
+operator|==
+name|NGX_ENOSPC
+condition|)
+block|{
+name|log
+index|[
+name|l
+index|]
+operator|.
+name|disk_full_time
+operator|=
+name|ngx_time
+argument_list|()
 expr_stmt|;
+block|}
 name|file
 operator|->
 name|pos
@@ -1760,6 +1801,8 @@ argument_list|(
 name|p
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|ngx_write_fd
 argument_list|(
 name|file
@@ -1772,7 +1815,26 @@ name|p
 operator|-
 name|line
 argument_list|)
+operator|==
+operator|-
+literal|1
+operator|&&
+name|ngx_errno
+operator|==
+name|NGX_ENOSPC
+condition|)
+block|{
+name|log
+index|[
+name|l
+index|]
+operator|.
+name|disk_full_time
+operator|=
+name|ngx_time
+argument_list|()
 expr_stmt|;
+block|}
 block|}
 return|return
 name|NGX_OK
@@ -4778,6 +4840,12 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
+name|log
+operator|->
+name|disk_full_time
+operator|=
+literal|0
+expr_stmt|;
 if|if
 condition|(
 name|cf

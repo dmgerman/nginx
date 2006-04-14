@@ -457,7 +457,7 @@ init|=
 block|{
 name|ngx_null_string
 block|,
-comment|/* 204 */
+comment|/* 201, 204 */
 DECL|macro|NGX_HTTP_LEVEL_200
 define|#
 directive|define
@@ -988,6 +988,19 @@ block|}
 block|}
 block|}
 if|if
+condition|(
+name|error
+operator|==
+name|NGX_HTTP_CREATED
+condition|)
+block|{
+comment|/* 201 */
+name|err
+operator|=
+literal|0
+expr_stmt|;
+block|}
+if|else if
 condition|(
 name|error
 operator|==

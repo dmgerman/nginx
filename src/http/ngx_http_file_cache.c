@@ -869,7 +869,7 @@ directive|endif
 end_endif
 
 begin_endif
-unit|if (retry || (err != NGX_ENOENT&& err != NGX_ENOTDIR)) {             ngx_log_error(NGX_LOG_CRIT, r->connection->log, ngx_errno,                           ngx_rename_file_n "(\"%s\", \"%s\") failed",                           temp_file->data, ctx->file.name.data);              return NGX_ERROR;         }          if (ngx_create_path(&ctx->file, ctx->path) == NGX_ERROR) {             return NGX_ERROR;         }          retry = 1;     } }
+unit|if (retry || (err != NGX_ENOENT&& err != NGX_ENOTDIR)) {             ngx_log_error(NGX_LOG_CRIT, r->connection->log, err,                           ngx_rename_file_n "(\"%s\", \"%s\") failed",                           temp_file->data, ctx->file.name.data);              return NGX_ERROR;         }          if (ngx_create_path(&ctx->file, ctx->path) == NGX_ERROR) {             return NGX_ERROR;         }          retry = 1;     } }
 endif|#
 directive|endif
 end_endif

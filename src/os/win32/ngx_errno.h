@@ -125,6 +125,14 @@ value|ERROR_PATH_NOT_FOUND
 end_define
 
 begin_define
+DECL|macro|NGX_ENOSPC
+define|#
+directive|define
+name|NGX_ENOSPC
+value|ERROR_DISK_FULL
+end_define
+
+begin_define
 DECL|macro|NGX_EPIPE
 define|#
 directive|define

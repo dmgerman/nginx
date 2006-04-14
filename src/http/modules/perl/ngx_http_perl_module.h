@@ -56,7 +56,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29865f080108
+DECL|struct|__anon2b578ace0108
 typedef|typedef
 struct|struct
 block|{
@@ -66,8 +66,7 @@ modifier|*
 name|perl
 decl_stmt|;
 DECL|member|filename
-name|char
-modifier|*
+name|ngx_str_t
 name|filename
 decl_stmt|;
 DECL|member|redirect_uri

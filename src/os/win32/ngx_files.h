@@ -177,7 +177,7 @@ value|"SetFilePointer()"
 end_define
 
 begin_define
-DECL|macro|ngx_open_tempfile (name,persistent)
+DECL|macro|ngx_open_tempfile (name,persistent,mode)
 define|#
 directive|define
 name|ngx_open_tempfile
@@ -185,6 +185,8 @@ parameter_list|(
 name|name
 parameter_list|,
 name|persistent
+parameter_list|,
+name|mode
 parameter_list|)
 define|\
 value|CreateFile((const char *) name,                                         \                GENERIC_READ|GENERIC_WRITE,                                  \                FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_SHARE_DELETE,          \                NULL,                                                        \                CREATE_NEW,                                                  \                persistent ? 0:                                              \                    FILE_ATTRIBUTE_TEMPORARY|FILE_FLAG_DELETE_ON_CLOSE,      \                NULL);
@@ -268,11 +270,16 @@ value|"DeleteFile()"
 end_define
 
 begin_define
-DECL|macro|ngx_rename_file
+DECL|macro|ngx_rename_file (o,n)
 define|#
 directive|define
 name|ngx_rename_file
-value|MoveFile
+parameter_list|(
+name|o
+parameter_list|,
+name|n
+parameter_list|)
+value|MoveFile((const char *) o, (const char *) n)
 end_define
 
 begin_define

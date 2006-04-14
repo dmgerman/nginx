@@ -79,6 +79,10 @@ argument_list|,
 name|tf
 operator|->
 name|persistent
+argument_list|,
+name|tf
+operator|->
+name|mode
 argument_list|)
 expr_stmt|;
 if|if
@@ -151,7 +155,7 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_create_temp_file (ngx_file_t * file,ngx_path_t * path,ngx_pool_t * pool,ngx_uint_t persistent)
+DECL|function|ngx_create_temp_file (ngx_file_t * file,ngx_path_t * path,ngx_pool_t * pool,ngx_uint_t persistent,ngx_uint_t mode)
 name|ngx_create_temp_file
 parameter_list|(
 name|ngx_file_t
@@ -168,6 +172,9 @@ name|pool
 parameter_list|,
 name|ngx_uint_t
 name|persistent
+parameter_list|,
+name|ngx_uint_t
+name|mode
 parameter_list|)
 block|{
 name|ngx_err_t
@@ -336,9 +343,6 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-if|#
-directive|if
-literal|1
 name|file
 operator|->
 name|fd
@@ -352,27 +356,10 @@ operator|.
 name|data
 argument_list|,
 name|persistent
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
-name|file
-operator|->
-name|fd
-operator|=
-name|ngx_open_tempfile
-argument_list|(
-name|file
-operator|->
-name|name
-operator|.
-name|data
 argument_list|,
-literal|1
+name|mode
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_CORE

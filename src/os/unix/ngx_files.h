@@ -161,6 +161,9 @@ name|name
 parameter_list|,
 name|ngx_uint_t
 name|persistent
+parameter_list|,
+name|ngx_uint_t
+name|mode
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -273,11 +276,16 @@ value|1
 end_define
 
 begin_define
-DECL|macro|ngx_rename_file
+DECL|macro|ngx_rename_file (o,n)
 define|#
 directive|define
 name|ngx_rename_file
-value|rename
+parameter_list|(
+name|o
+parameter_list|,
+name|n
+parameter_list|)
+value|rename((const char *) o, (const char *) n)
 end_define
 
 begin_define

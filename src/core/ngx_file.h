@@ -128,7 +128,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28fa465f0108
+DECL|struct|__anon2b54f8ad0108
 typedef|typedef
 struct|struct
 block|{
@@ -154,6 +154,10 @@ DECL|member|warn
 name|char
 modifier|*
 name|warn
+decl_stmt|;
+DECL|member|mode
+name|ngx_uint_t
+name|mode
 decl_stmt|;
 DECL|member|persistent
 name|unsigned
@@ -200,6 +204,9 @@ name|pool
 parameter_list|,
 name|ngx_uint_t
 name|persistent
+parameter_list|,
+name|ngx_uint_t
+name|mode
 parameter_list|)
 function_decl|;
 end_function_decl
