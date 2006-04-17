@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29bbef7b0108
+DECL|struct|__anon2bbfd9530108
 typedef|typedef
 struct|struct
 block|{
@@ -2006,7 +2006,7 @@ operator|==
 name|NGX_HTTP_POST
 condition|)
 block|{
-comment|/*              * MSIE may wait for some time if the response for the POST request              * is sent over the keepalive connection              */
+comment|/*              * MSIE may wait for some time if the response for              * the POST request is sent over the keepalive connection              */
 name|r
 operator|->
 name|keepalive

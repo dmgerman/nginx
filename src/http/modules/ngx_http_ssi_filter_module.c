@@ -53,8 +53,16 @@ name|NGX_HTTP_SSI_ADD_ZERO
 value|2
 end_define
 
+begin_define
+DECL|macro|NGX_HTTP_SSI_EXPR_TEST
+define|#
+directive|define
+name|NGX_HTTP_SSI_EXPR_TEST
+value|4
+end_define
+
 begin_typedef
-DECL|struct|__anon2b17db750108
+DECL|struct|__anon27b3dc330108
 typedef|typedef
 struct|struct
 block|{
@@ -91,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b17db750208
+DECL|struct|__anon27b3dc330208
 typedef|typedef
 struct|struct
 block|{
@@ -114,7 +122,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b17db750303
+DECL|enum|__anon27b3dc330303
 typedef|typedef
 enum|enum
 block|{
@@ -6392,6 +6400,10 @@ operator|&
 name|var
 argument_list|,
 name|key
+argument_list|,
+name|flags
+operator|&
+name|NGX_HTTP_SSI_EXPR_TEST
 argument_list|)
 expr_stmt|;
 if|if
@@ -7161,6 +7173,8 @@ argument_list|,
 name|var
 argument_list|,
 name|key
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 if|if
@@ -8029,6 +8043,18 @@ name|p
 operator|++
 expr_stmt|;
 block|}
+name|flags
+operator|=
+operator|(
+name|p
+operator|==
+name|last
+operator|)
+condition|?
+name|NGX_HTTP_SSI_EXPR_TEST
+else|:
+literal|0
+expr_stmt|;
 name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
@@ -8058,7 +8084,7 @@ argument_list|,
 operator|&
 name|left
 argument_list|,
-literal|0
+name|flags
 argument_list|)
 operator|!=
 name|NGX_OK

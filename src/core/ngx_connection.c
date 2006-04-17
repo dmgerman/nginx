@@ -1906,6 +1906,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|#
+directive|if
+literal|0
+block_content|if (1) {             int tcp_nodelay = 1;              if (setsockopt(ls[i].fd, IPPROTO_TCP, TCP_NODELAY,                        (const void *)&tcp_nodelay, sizeof(int))                 == -1)             {                 ngx_log_error(NGX_LOG_ALERT, cycle->log, ngx_socket_errno,                               "setsockopt(TCP_NODELAY) %V failed, ignored",&ls[i].addr_text);             }         }
+endif|#
+directive|endif
 if|if
 condition|(
 name|ls

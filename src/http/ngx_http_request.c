@@ -6640,12 +6640,6 @@ argument_list|(
 name|pr
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|ngx_log_debug2(NGX_LOG_DEBUG_HTTP, r->connection->log, 0,                            "http request: \"%V?%V\" still has postponed",&pr->uri,&pr->args);              if (pr->done || pr->postponed->out) {                 ngx_log_debug2(NGX_LOG_DEBUG_HTTP, r->connection->log, 0,                                "http wake parent request: \"%V?%V\"",&pr->uri,&pr->args);                  pr->write_event_handler(pr);             }
-endif|#
-directive|endif
 block|}
 return|return;
 block|}
