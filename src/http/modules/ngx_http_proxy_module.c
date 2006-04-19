@@ -76,14 +76,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon2adf9727010a
+DECL|union|__anon2a1b4324010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon2adf97270208
+DECL|struct|__anon2a1b43240208
 struct|struct
 block|{
 DECL|member|lengths
@@ -114,7 +114,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2adf97270308
+DECL|struct|__anon2a1b43240308
 typedef|typedef
 struct|struct
 block|{
@@ -199,7 +199,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2adf97270408
+DECL|struct|__anon2a1b43240408
 typedef|typedef
 struct|struct
 block|{
@@ -1605,6 +1605,8 @@ argument_list|(
 literal|"proxy_host"
 argument_list|)
 block|,
+name|NULL
+block|,
 name|ngx_http_proxy_host_variable
 block|,
 literal|0
@@ -1621,6 +1623,8 @@ name|ngx_string
 argument_list|(
 literal|"proxy_port"
 argument_list|)
+block|,
+name|NULL
 block|,
 name|ngx_http_proxy_port_variable
 block|,
@@ -1639,6 +1643,8 @@ argument_list|(
 literal|"proxy_add_x_forwarded_for"
 argument_list|)
 block|,
+name|NULL
+block|,
 name|ngx_http_proxy_add_x_forwarded_for_variable
 block|,
 literal|0
@@ -1651,7 +1657,7 @@ block|,
 if|#
 directive|if
 literal|0
-block|{ ngx_string("proxy_add_via"), NULL, 0, NGX_HTTP_VAR_NOHASH, 0 },
+block|{ ngx_string("proxy_add_via"), NULL, NULL, 0, NGX_HTTP_VAR_NOHASH, 0 },
 endif|#
 directive|endif
 block|{
@@ -1659,6 +1665,8 @@ name|ngx_string
 argument_list|(
 literal|"proxy_internal_body_length"
 argument_list|)
+block|,
+name|NULL
 block|,
 name|ngx_http_proxy_internal_body_length_variable
 block|,
@@ -1671,6 +1679,8 @@ block|}
 block|,
 block|{
 name|ngx_null_string
+block|,
+name|NULL
 block|,
 name|NULL
 block|,
@@ -4034,7 +4044,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2adf97270503
+DECL|enum|__anon2a1b43240503
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6188,11 +6198,11 @@ return|;
 block|}
 name|var
 operator|->
-name|handler
+name|get_handler
 operator|=
 name|v
 operator|->
-name|handler
+name|get_handler
 expr_stmt|;
 name|var
 operator|->

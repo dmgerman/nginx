@@ -1576,7 +1576,7 @@ name|headers_in_hash
 operator|.
 name|max_size
 operator|=
-literal|100
+literal|200
 expr_stmt|;
 name|cmcf
 operator|->

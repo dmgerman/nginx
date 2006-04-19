@@ -1370,6 +1370,8 @@ argument_list|(
 literal|"upstream_status"
 argument_list|)
 block|,
+name|NULL
+block|,
 name|ngx_http_upstream_status_variable
 block|,
 literal|0
@@ -1385,6 +1387,8 @@ argument_list|(
 literal|"upstream_response_time"
 argument_list|)
 block|,
+name|NULL
+block|,
 name|ngx_http_upstream_response_time_variable
 block|,
 literal|0
@@ -1396,6 +1400,8 @@ block|}
 block|,
 block|{
 name|ngx_null_string
+block|,
+name|NULL
 block|,
 name|NULL
 block|,
@@ -10293,11 +10299,11 @@ return|;
 block|}
 name|var
 operator|->
-name|handler
+name|get_handler
 operator|=
 name|v
 operator|->
-name|handler
+name|get_handler
 expr_stmt|;
 name|var
 operator|->

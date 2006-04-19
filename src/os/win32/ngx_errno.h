@@ -75,6 +75,14 @@ value|WSASetLastError(err)
 end_define
 
 begin_define
+DECL|macro|NGX_EPERM
+define|#
+directive|define
+name|NGX_EPERM
+value|ERROR_ACCESS_DENIED
+end_define
+
+begin_define
 DECL|macro|NGX_ENOENT
 define|#
 directive|define

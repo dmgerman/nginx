@@ -1501,6 +1501,14 @@ literal|"a client request body is buffered to a temporary file"
 expr_stmt|;
 name|tf
 operator|->
+name|log_level
+operator|=
+name|r
+operator|->
+name|request_body_file_log_level
+expr_stmt|;
+name|tf
+operator|->
 name|persistent
 operator|=
 name|r

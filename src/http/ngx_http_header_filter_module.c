@@ -285,9 +285,11 @@ block|,
 name|ngx_null_string
 block|,
 comment|/* "414 Request-URI Too Large", but we never send it                        * because we treat such requests as the HTTP/0.9                        * requests and send only a body without a header                        */
-name|ngx_null_string
+name|ngx_string
+argument_list|(
+literal|"415 Unsupported Media Type"
+argument_list|)
 block|,
-comment|/* "415 Unsupported Media Type" */
 name|ngx_string
 argument_list|(
 literal|"416 Requested Range Not Satisfiable"
@@ -338,12 +340,18 @@ name|ngx_string
 argument_list|(
 literal|"504 Gateway Time-out"
 argument_list|)
-comment|/* ngx_null_string, */
+block|,
+name|ngx_null_string
+block|,
 comment|/* "505 HTTP Version Not Supported" */
-comment|/* ngx_null_string, */
+name|ngx_null_string
+block|,
 comment|/* "506 Variant Also Negotiates" */
-comment|/* ngx_null_string, */
-comment|/* "507 Insufficient Storage" */
+name|ngx_string
+argument_list|(
+literal|"507 Insufficient Storage"
+argument_list|)
+block|,
 comment|/* ngx_null_string, */
 comment|/* "508 unused" */
 comment|/* ngx_null_string, */

@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29fd71930108
+DECL|struct|__anon2adc3b1b0108
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +70,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fd71930208
+DECL|struct|__anon2adc3b1b0208
 typedef|typedef
 struct|struct
 block|{
@@ -90,7 +90,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fd71930308
+DECL|struct|__anon2adc3b1b0308
 typedef|typedef
 struct|struct
 block|{
@@ -836,6 +836,20 @@ name|request_body_delete_incomplete_file
 operator|=
 literal|1
 expr_stmt|;
+if|if
+condition|(
+name|r
+operator|->
+name|request_body_in_file_only
+condition|)
+block|{
+name|r
+operator|->
+name|request_body_file_log_level
+operator|=
+literal|0
+expr_stmt|;
+block|}
 name|rc
 operator|=
 name|ngx_http_read_client_request_body
@@ -4098,7 +4112,7 @@ block|}
 block|}
 name|v
 operator|->
-name|handler
+name|get_handler
 operator|=
 name|ngx_http_perl_variable
 expr_stmt|;

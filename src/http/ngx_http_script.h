@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bf563460108
+DECL|struct|__anon2c64b42e0108
 typedef|typedef
 struct|struct
 block|{
@@ -117,7 +117,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf563460208
+DECL|struct|__anon2c64b42e0208
 typedef|typedef
 struct|struct
 block|{
@@ -229,7 +229,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf563460308
+DECL|struct|__anon2c64b42e0308
 typedef|typedef
 struct|struct
 block|{
@@ -248,7 +248,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf563460408
+DECL|struct|__anon2c64b42e0408
 typedef|typedef
 struct|struct
 block|{
@@ -267,7 +267,30 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf563460508
+DECL|struct|__anon2c64b42e0508
+typedef|typedef
+struct|struct
+block|{
+DECL|member|code
+name|ngx_http_script_code_pt
+name|code
+decl_stmt|;
+DECL|member|handler
+name|ngx_http_set_variable_pt
+name|handler
+decl_stmt|;
+DECL|member|data
+name|uintptr_t
+name|data
+decl_stmt|;
+DECL|typedef|ngx_http_script_var_handler_code_t
+block|}
+name|ngx_http_script_var_handler_code_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2c64b42e0608
 typedef|typedef
 struct|struct
 block|{
@@ -294,7 +317,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2bf563460608
+DECL|struct|__anon2c64b42e0708
 typedef|typedef
 struct|struct
 block|{
@@ -382,7 +405,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf563460708
+DECL|struct|__anon2c64b42e0808
 typedef|typedef
 struct|struct
 block|{
@@ -427,7 +450,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2bf563460808
+DECL|struct|__anon2c64b42e0908
 typedef|typedef
 struct|struct
 block|{
@@ -450,7 +473,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2bf563460903
+DECL|enum|__anon2c64b42e0a03
 typedef|typedef
 enum|enum
 block|{
@@ -468,7 +491,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf563460a08
+DECL|struct|__anon2c64b42e0b08
 typedef|typedef
 struct|struct
 block|{
@@ -487,7 +510,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf563460b08
+DECL|struct|__anon2c64b42e0c08
 typedef|typedef
 struct|struct
 block|{
@@ -512,7 +535,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf563460c08
+DECL|struct|__anon2c64b42e0d08
 typedef|typedef
 struct|struct
 block|{
@@ -532,7 +555,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf563460d08
+DECL|struct|__anon2c64b42e0e08
 typedef|typedef
 struct|struct
 block|{
@@ -864,6 +887,17 @@ end_function_decl
 begin_function_decl
 name|void
 name|ngx_http_script_set_var_code
+parameter_list|(
+name|ngx_http_script_engine_t
+modifier|*
+name|e
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_http_script_var_set_handler_code
 parameter_list|(
 name|ngx_http_script_engine_t
 modifier|*

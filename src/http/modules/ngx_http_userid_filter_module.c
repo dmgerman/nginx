@@ -66,7 +66,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon2b39005d0108
+DECL|struct|__anon2abcc9690108
 typedef|typedef
 struct|struct
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b39005d0208
+DECL|struct|__anon2abcc9690208
 typedef|typedef
 struct|struct
 block|{
@@ -2729,7 +2729,7 @@ return|;
 block|}
 name|var
 operator|->
-name|handler
+name|get_handler
 operator|=
 name|ngx_http_userid_variable
 expr_stmt|;
@@ -2769,7 +2769,7 @@ return|;
 block|}
 name|var
 operator|->
-name|handler
+name|get_handler
 operator|=
 name|ngx_http_userid_variable
 expr_stmt|;

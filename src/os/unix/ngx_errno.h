@@ -37,6 +37,14 @@ typedef|;
 end_typedef
 
 begin_define
+DECL|macro|NGX_EPERM
+define|#
+directive|define
+name|NGX_EPERM
+value|EPERM
+end_define
+
+begin_define
 DECL|macro|NGX_ENOENT
 define|#
 directive|define

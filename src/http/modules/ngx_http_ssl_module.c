@@ -526,6 +526,8 @@ argument_list|(
 literal|"ssl_protocol"
 argument_list|)
 block|,
+name|NULL
+block|,
 name|ngx_http_ssl_variable
 block|,
 operator|(
@@ -544,6 +546,8 @@ argument_list|(
 literal|"ssl_cipher"
 argument_list|)
 block|,
+name|NULL
+block|,
 name|ngx_http_ssl_variable
 block|,
 operator|(
@@ -558,6 +562,8 @@ block|}
 block|,
 block|{
 name|ngx_null_string
+block|,
+name|NULL
 block|,
 name|NULL
 block|,
@@ -759,11 +765,11 @@ return|;
 block|}
 name|var
 operator|->
-name|handler
+name|get_handler
 operator|=
 name|v
 operator|->
-name|handler
+name|get_handler
 expr_stmt|;
 name|var
 operator|->

@@ -62,7 +62,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon27b3dc330108
+DECL|struct|__anon297c4cb60108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b3dc330208
+DECL|struct|__anon297c4cb60208
 typedef|typedef
 struct|struct
 block|{
@@ -122,7 +122,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27b3dc330303
+DECL|enum|__anon297c4cb60303
 typedef|typedef
 enum|enum
 block|{
@@ -1309,6 +1309,8 @@ argument_list|(
 literal|"date_local"
 argument_list|)
 block|,
+name|NULL
+block|,
 name|ngx_http_ssi_date_gmt_local_variable
 block|,
 literal|0
@@ -1324,6 +1326,8 @@ argument_list|(
 literal|"date_gmt"
 argument_list|)
 block|,
+name|NULL
+block|,
 name|ngx_http_ssi_date_gmt_local_variable
 block|,
 literal|1
@@ -1335,6 +1339,8 @@ block|}
 block|,
 block|{
 name|ngx_null_string
+block|,
+name|NULL
 block|,
 name|NULL
 block|,
@@ -9364,11 +9370,11 @@ return|;
 block|}
 name|var
 operator|->
-name|handler
+name|get_handler
 operator|=
 name|v
 operator|->
-name|handler
+name|get_handler
 expr_stmt|;
 name|var
 operator|->

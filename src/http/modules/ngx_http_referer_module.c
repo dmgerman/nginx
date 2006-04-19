@@ -30,7 +30,7 @@ value|((void *) 4)
 end_define
 
 begin_typedef
-DECL|struct|__anon2b3df31a0108
+DECL|struct|__anon2ae85dda0108
 typedef|typedef
 struct|struct
 block|{
@@ -1232,7 +1232,7 @@ return|;
 block|}
 name|var
 operator|->
-name|handler
+name|get_handler
 operator|=
 name|ngx_http_referer_variable
 expr_stmt|;

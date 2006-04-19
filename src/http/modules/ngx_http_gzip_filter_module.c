@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c839bd00108
+DECL|struct|__anon27c5c1f50108
 typedef|typedef
 struct|struct
 block|{
@@ -153,7 +153,7 @@ value|0x0200
 end_define
 
 begin_typedef
-DECL|struct|__anon2c839bd00208
+DECL|struct|__anon27c5c1f50208
 typedef|typedef
 struct|struct
 block|{
@@ -4482,7 +4482,7 @@ return|;
 block|}
 name|var
 operator|->
-name|handler
+name|get_handler
 operator|=
 name|ngx_http_gzip_ratio_variable
 expr_stmt|;

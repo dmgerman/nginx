@@ -128,7 +128,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b54f8ad0108
+DECL|struct|__anon2c517a690108
 typedef|typedef
 struct|struct
 block|{
@@ -158,6 +158,12 @@ decl_stmt|;
 DECL|member|mode
 name|ngx_uint_t
 name|mode
+decl_stmt|;
+DECL|member|log_level
+name|unsigned
+name|log_level
+range|:
+literal|8
 decl_stmt|;
 DECL|member|persistent
 name|unsigned
@@ -237,6 +243,17 @@ parameter_list|,
 name|ngx_path_t
 modifier|*
 name|path
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_err_t
+name|ngx_create_full_path
+parameter_list|(
+name|u_char
+modifier|*
+name|dir
 parameter_list|)
 function_decl|;
 end_function_decl

@@ -248,6 +248,24 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|error_409_page
+specifier|static
+name|char
+name|error_409_page
+index|[]
+init|=
+literal|"<html>"
+name|CRLF
+literal|"<head><title>409 Conflict</title></head>"
+name|CRLF
+literal|"<body bgcolor=\"white\">"
+name|CRLF
+literal|"<center><h1>409 Conflict</h1></center>"
+name|CRLF
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|error_410_page
 specifier|static
 name|char
@@ -315,6 +333,24 @@ name|CRLF
 literal|"<body bgcolor=\"white\">"
 name|CRLF
 literal|"<center><h1>414 Request-URI Too Large</h1></center>"
+name|CRLF
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|error_415_page
+specifier|static
+name|char
+name|error_415_page
+index|[]
+init|=
+literal|"<html>"
+name|CRLF
+literal|"<head><title>415 Unsupported Media Type</title></head>"
+name|CRLF
+literal|"<body bgcolor=\"white\">"
+name|CRLF
+literal|"<center><h1>415 Unsupported Media Type</h1></center>"
 name|CRLF
 decl_stmt|;
 end_decl_stmt
@@ -448,6 +484,24 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|error_507_page
+specifier|static
+name|char
+name|error_507_page
+index|[]
+init|=
+literal|"<html>"
+name|CRLF
+literal|"<head><title>507 Insufficient Storage</title></head>"
+name|CRLF
+literal|"<body bgcolor=\"white\">"
+name|CRLF
+literal|"<center><h1>507 Insufficient Storage</h1></center>"
+name|CRLF
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|error_pages
 specifier|static
 name|ngx_str_t
@@ -526,9 +580,11 @@ argument_list|(
 name|error_408_page
 argument_list|)
 block|,
-name|ngx_null_string
+name|ngx_string
+argument_list|(
+name|error_409_page
+argument_list|)
 block|,
-comment|/* 409 */
 name|ngx_string
 argument_list|(
 name|error_410_page
@@ -552,9 +608,11 @@ argument_list|(
 name|error_414_page
 argument_list|)
 block|,
-name|ngx_null_string
+name|ngx_string
+argument_list|(
+name|error_415_page
+argument_list|)
 block|,
-comment|/* 415 */
 name|ngx_string
 argument_list|(
 name|error_416_page
@@ -602,7 +660,18 @@ argument_list|)
 block|,
 name|ngx_string
 argument_list|(
-argument|error_504_page
+name|error_504_page
+argument_list|)
+block|,
+name|ngx_null_string
+block|,
+comment|/* 505 */
+name|ngx_null_string
+block|,
+comment|/* 506 */
+name|ngx_string
+argument_list|(
+argument|error_507_page
 argument_list|)
 block|}
 decl_stmt|;
@@ -998,6 +1067,12 @@ comment|/* 201 */
 name|err
 operator|=
 literal|0
+expr_stmt|;
+name|r
+operator|->
+name|header_only
+operator|=
+literal|1
 expr_stmt|;
 block|}
 if|else if

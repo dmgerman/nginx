@@ -41,7 +41,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27a6b3990108
+DECL|struct|__anon2980fc830108
 typedef|typedef
 struct|struct
 block|{
@@ -98,6 +98,29 @@ name|struct
 name|ngx_http_variable_s
 name|ngx_http_variable_t
 typedef|;
+end_typedef
+
+begin_typedef
+DECL|typedef|ngx_http_set_variable_pt
+typedef|typedef
+name|void
+function_decl|(
+modifier|*
+name|ngx_http_set_variable_pt
+function_decl|)
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_http_variable_value_t
+modifier|*
+name|v
+parameter_list|,
+name|uintptr_t
+name|data
+parameter_list|)
+function_decl|;
 end_typedef
 
 begin_typedef
@@ -165,9 +188,13 @@ name|ngx_str_t
 name|name
 decl_stmt|;
 comment|/* must be first to build the hash */
-DECL|member|handler
+DECL|member|set_handler
+name|ngx_http_set_variable_pt
+name|set_handler
+decl_stmt|;
+DECL|member|get_handler
 name|ngx_http_get_variable_pt
-name|handler
+name|get_handler
 decl_stmt|;
 DECL|member|data
 name|uintptr_t

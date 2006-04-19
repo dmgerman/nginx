@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon278addda0108
+DECL|struct|__anon2c36ca1a0108
 typedef|typedef
 struct|struct
 block|{
@@ -41,7 +41,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278addda0208
+DECL|struct|__anon2c36ca1a0208
 typedef|typedef
 struct|struct
 block|{
@@ -71,7 +71,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278addda0308
+DECL|struct|__anon2c36ca1a0308
 typedef|typedef
 struct|struct
 block|{
@@ -942,7 +942,7 @@ return|;
 block|}
 name|var
 operator|->
-name|handler
+name|get_handler
 operator|=
 name|ngx_http_map_variable
 expr_stmt|;

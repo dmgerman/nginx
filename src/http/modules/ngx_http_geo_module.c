@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29911abe0108
+DECL|struct|__anon2bde94410108
 typedef|typedef
 struct|struct
 block|{
@@ -479,7 +479,7 @@ return|;
 block|}
 name|var
 operator|->
-name|handler
+name|get_handler
 operator|=
 name|ngx_http_geo_variable
 expr_stmt|;

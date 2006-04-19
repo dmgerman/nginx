@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29a56b130108
+DECL|struct|__anon27d5d6070108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29a56b130203
+DECL|enum|__anon27d5d6070203
 typedef|typedef
 enum|enum
 block|{
@@ -114,7 +114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a56b130308
+DECL|struct|__anon27d5d6070308
 typedef|typedef
 struct|struct
 block|{
@@ -227,7 +227,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon29a56b130408
+DECL|struct|__anon27d5d6070408
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +270,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a56b130508
+DECL|struct|__anon27d5d6070508
 typedef|typedef
 struct|struct
 block|{
@@ -300,7 +300,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a56b130608
+DECL|struct|__anon27d5d6070608
 typedef|typedef
 struct|struct
 block|{
@@ -327,7 +327,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a56b130708
+DECL|struct|__anon27d5d6070708
 typedef|typedef
 struct|struct
 block|{
@@ -6491,7 +6491,7 @@ return|;
 block|}
 name|var
 operator|->
-name|handler
+name|get_handler
 operator|=
 name|ngx_http_fastcgi_script_name_variable
 expr_stmt|;
