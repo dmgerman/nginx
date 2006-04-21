@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2adc3b1b0108
+DECL|struct|__anon2b0d5dbf0108
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +70,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2adc3b1b0208
+DECL|struct|__anon2b0d5dbf0208
 typedef|typedef
 struct|struct
 block|{
@@ -90,7 +90,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2adc3b1b0308
+DECL|struct|__anon2b0d5dbf0308
 typedef|typedef
 struct|struct
 block|{
@@ -1935,6 +1935,15 @@ endif|#
 directive|endif
 if|if
 condition|(
+name|pmcf
+operator|->
+name|modules
+operator|.
+name|data
+condition|)
+block|{
+if|if
+condition|(
 name|ngx_conf_full_name
 argument_list|(
 name|cf
@@ -1953,6 +1962,7 @@ block|{
 return|return
 name|NGX_CONF_ERROR
 return|;
+block|}
 block|}
 name|PERL_SYS_INIT
 argument_list|(

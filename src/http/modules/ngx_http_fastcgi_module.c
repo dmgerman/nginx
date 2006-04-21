@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27d5d6070108
+DECL|struct|__anon2892579f0108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27d5d6070203
+DECL|enum|__anon2892579f0203
 typedef|typedef
 enum|enum
 block|{
@@ -114,7 +114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d5d6070308
+DECL|struct|__anon2892579f0308
 typedef|typedef
 struct|struct
 block|{
@@ -227,7 +227,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon27d5d6070408
+DECL|struct|__anon2892579f0408
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +270,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d5d6070508
+DECL|struct|__anon2892579f0508
 typedef|typedef
 struct|struct
 block|{
@@ -300,7 +300,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d5d6070608
+DECL|struct|__anon2892579f0608
 typedef|typedef
 struct|struct
 block|{
@@ -327,7 +327,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d5d6070708
+DECL|struct|__anon2892579f0708
 typedef|typedef
 struct|struct
 block|{
@@ -5465,6 +5465,19 @@ operator|->
 name|length
 condition|)
 block|{
+if|if
+condition|(
+name|f
+operator|->
+name|pos
+operator|==
+name|f
+operator|->
+name|last
+condition|)
+block|{
+break|break;
+block|}
 name|line
 operator|.
 name|data
@@ -5655,6 +5668,19 @@ block|}
 continue|continue;
 block|}
 comment|/* f->type == NGX_HTTP_FASTCGI_STDOUT */
+if|if
+condition|(
+name|f
+operator|->
+name|pos
+operator|==
+name|f
+operator|->
+name|last
+condition|)
+block|{
+break|break;
+block|}
 if|if
 condition|(
 name|p

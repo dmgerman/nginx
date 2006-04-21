@@ -37,6 +37,10 @@ name|shm
 operator|->
 name|addr
 operator|=
+operator|(
+name|u_char
+operator|*
+operator|)
 name|mmap
 argument_list|(
 name|NULL
@@ -109,6 +113,10 @@ if|if
 condition|(
 name|munmap
 argument_list|(
+operator|(
+name|void
+operator|*
+operator|)
 name|shm
 operator|->
 name|addr
@@ -206,6 +214,10 @@ name|shm
 operator|->
 name|addr
 operator|=
+operator|(
+name|u_char
+operator|*
+operator|)
 name|mmap
 argument_list|(
 name|NULL
@@ -307,6 +319,10 @@ if|if
 condition|(
 name|munmap
 argument_list|(
+operator|(
+name|void
+operator|*
+operator|)
 name|shm
 operator|->
 name|addr

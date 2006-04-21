@@ -783,6 +783,13 @@ directive|if
 operator|(
 name|NGX_WIN32
 operator|)
+name|ngx_stderr_fileno
+operator|=
+name|GetStdHandle
+argument_list|(
+name|STD_ERROR_HANDLE
+argument_list|)
+expr_stmt|;
 name|ngx_stderr
 operator|.
 name|fd

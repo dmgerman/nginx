@@ -30,7 +30,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon27aff8ea0108
+DECL|struct|__anon292b05600108
 typedef|typedef
 struct|struct
 block|{
@@ -458,21 +458,6 @@ condition|)
 block|{
 return|return
 name|NGX_DECLINED
-return|;
-block|}
-if|if
-condition|(
-name|r
-operator|->
-name|headers_in
-operator|.
-name|content_length_n
-operator|<
-literal|0
-condition|)
-block|{
-return|return
-name|NGX_HTTP_BAD_REQUEST
 return|;
 block|}
 name|r
@@ -1288,6 +1273,14 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_length_n
+operator|=
+literal|0
+expr_stmt|;
 block|}
 name|r
 operator|->

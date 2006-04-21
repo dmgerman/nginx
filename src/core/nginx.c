@@ -702,6 +702,14 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_show_version
+specifier|static
+name|ngx_uint_t
+name|ngx_show_version
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_null_environ
 specifier|static
 name|char
@@ -891,6 +899,46 @@ condition|)
 block|{
 return|return
 literal|1
+return|;
+block|}
+if|if
+condition|(
+name|ngx_show_version
+condition|)
+block|{
+name|ngx_write_fd
+argument_list|(
+argument|ngx_stderr_fileno
+argument_list|,
+literal|"nginx version: "
+argument|NGINX_VER CRLF
+argument_list|,
+argument|sizeof(
+literal|"nginx version: "
+argument|NGINX_VER CRLF) -
+literal|1
+argument_list|)
+empty_stmt|;
+ifdef|#
+directive|ifdef
+name|NGX_COMPILER
+name|ngx_write_fd
+argument_list|(
+argument|ngx_stderr_fileno
+argument_list|,
+literal|"built by "
+argument|NGX_COMPILER CRLF
+argument_list|,
+argument|sizeof(
+literal|"built by "
+argument|NGX_COMPILER CRLF) -
+literal|1
+argument_list|)
+empty_stmt|;
+endif|#
+directive|endif
+return|return
+literal|0
 return|;
 block|}
 if|if
@@ -1875,6 +1923,14 @@ literal|1
 index|]
 condition|)
 block|{
+case|case
+literal|'v'
+case|:
+name|ngx_show_version
+operator|=
+literal|1
+expr_stmt|;
+break|break;
 case|case
 literal|'t'
 case|:

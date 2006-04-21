@@ -46,7 +46,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon27aaab400103
+DECL|enum|__anon28d4b1ba0103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -221,15 +221,16 @@ name|r
 operator|->
 name|request_start
 expr_stmt|;
-if|if
+switch|switch
 condition|(
 name|p
 operator|-
 name|m
-operator|==
-literal|3
 condition|)
 block|{
+case|case
+literal|3
+case|:
 if|if
 condition|(
 name|m
@@ -292,16 +293,10 @@ operator|=
 name|NGX_HTTP_PUT
 expr_stmt|;
 block|}
-block|}
-if|else if
-condition|(
-name|p
-operator|-
-name|m
-operator|==
+break|break;
+case|case
 literal|4
-condition|)
-block|{
+case|:
 if|if
 condition|(
 name|m
@@ -378,16 +373,10 @@ operator|=
 name|NGX_HTTP_HEAD
 expr_stmt|;
 block|}
-block|}
-if|else if
-condition|(
-name|p
-operator|-
-name|m
-operator|==
+break|break;
+case|case
 literal|5
-condition|)
-block|{
+case|:
 if|if
 condition|(
 name|m
@@ -433,16 +422,10 @@ operator|=
 name|NGX_HTTP_MKCOL
 expr_stmt|;
 block|}
-block|}
-if|else if
-condition|(
-name|p
-operator|-
-name|m
-operator|==
+break|break;
+case|case
 literal|6
-condition|)
-block|{
+case|:
 if|if
 condition|(
 name|m
@@ -495,6 +478,7 @@ operator|=
 name|NGX_HTTP_DELETE
 expr_stmt|;
 block|}
+break|break;
 block|}
 name|state
 operator|=
@@ -1804,7 +1788,7 @@ decl_stmt|;
 name|ngx_uint_t
 name|hash
 decl_stmt|;
-DECL|enum|__anon27aaab400203
+DECL|enum|__anon28d4b1ba0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2478,7 +2462,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon27aaab400303
+DECL|enum|__anon28d4b1ba0303
 enum|enum
 block|{
 DECL|enumerator|sw_usual
