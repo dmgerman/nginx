@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c2dd6170108
+DECL|struct|__anon279676670108
 typedef|typedef
 struct|struct
 block|{
@@ -1739,6 +1739,11 @@ operator|.
 name|variables
 operator|==
 literal|0
+operator|&&
+operator|!
+name|sc
+operator|.
+name|dup_capture
 condition|)
 block|{
 name|regex

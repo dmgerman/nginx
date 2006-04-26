@@ -1004,8 +1004,8 @@ end_function
 
 begin_function
 specifier|static
-DECL|function|ngx_http_init_request (ngx_event_t * rev)
 name|void
+DECL|function|ngx_http_init_request (ngx_event_t * rev)
 name|ngx_http_init_request
 parameter_list|(
 name|ngx_event_t
@@ -1013,11 +1013,11 @@ modifier|*
 name|rev
 parameter_list|)
 block|{
-name|ngx_uint_t
-name|i
-decl_stmt|;
 name|socklen_t
 name|len
+decl_stmt|;
+name|ngx_uint_t
+name|i
 decl_stmt|;
 name|struct
 name|sockaddr_in
@@ -1276,6 +1276,8 @@ name|hip
 operator|=
 name|c
 operator|->
+name|listening
+operator|->
 name|servers
 expr_stmt|;
 name|hia
@@ -1410,7 +1412,7 @@ operator|.
 name|s_addr
 expr_stmt|;
 block|}
-comment|/* the last in_port->addrs address is "*" */
+comment|/* the last address is "*" */
 for|for
 control|(
 comment|/* void */
@@ -6319,6 +6321,30 @@ operator|->
 name|error
 condition|)
 block|{
+if|if
+condition|(
+name|rc
+operator|==
+name|NGX_HTTP_CLIENT_CLOSED_REQUEST
+operator|&&
+name|r
+operator|->
+name|headers_out
+operator|.
+name|status
+operator|==
+literal|0
+condition|)
+block|{
+name|r
+operator|->
+name|headers_out
+operator|.
+name|status
+operator|=
+name|NGX_HTTP_CLIENT_CLOSED_REQUEST
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|ngx_http_post_action

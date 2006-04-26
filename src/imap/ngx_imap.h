@@ -60,7 +60,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon276cb87c0108
+DECL|struct|__anon2bc30b1b0108
 typedef|typedef
 struct|struct
 block|{
@@ -83,7 +83,133 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276cb87c0208
+DECL|struct|__anon2bc30b1b0208
+typedef|typedef
+struct|struct
+block|{
+DECL|member|addr
+name|in_addr_t
+name|addr
+decl_stmt|;
+DECL|member|port
+name|in_port_t
+name|port
+decl_stmt|;
+DECL|member|family
+name|int
+name|family
+decl_stmt|;
+comment|/* server ctx */
+DECL|member|ctx
+name|ngx_imap_conf_ctx_t
+modifier|*
+name|ctx
+decl_stmt|;
+DECL|member|bind
+name|unsigned
+name|bind
+range|:
+literal|1
+decl_stmt|;
+DECL|typedef|ngx_imap_listen_t
+block|}
+name|ngx_imap_listen_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2bc30b1b0308
+typedef|typedef
+struct|struct
+block|{
+DECL|member|addr
+name|in_addr_t
+name|addr
+decl_stmt|;
+DECL|member|ctx
+name|ngx_imap_conf_ctx_t
+modifier|*
+name|ctx
+decl_stmt|;
+DECL|member|addr_text
+name|ngx_str_t
+name|addr_text
+decl_stmt|;
+DECL|typedef|ngx_imap_in_addr_t
+block|}
+name|ngx_imap_in_addr_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2bc30b1b0408
+typedef|typedef
+struct|struct
+block|{
+DECL|member|addrs
+name|ngx_imap_in_addr_t
+modifier|*
+name|addrs
+decl_stmt|;
+comment|/* array of ngx_imap_in_addr_t */
+DECL|member|naddrs
+name|ngx_uint_t
+name|naddrs
+decl_stmt|;
+DECL|typedef|ngx_imap_in_port_t
+block|}
+name|ngx_imap_in_port_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2bc30b1b0508
+typedef|typedef
+struct|struct
+block|{
+DECL|member|port
+name|in_port_t
+name|port
+decl_stmt|;
+DECL|member|addrs
+name|ngx_array_t
+name|addrs
+decl_stmt|;
+comment|/* array of ngx_imap_conf_in_addr_t */
+DECL|typedef|ngx_imap_conf_in_port_t
+block|}
+name|ngx_imap_conf_in_port_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2bc30b1b0608
+typedef|typedef
+struct|struct
+block|{
+DECL|member|addr
+name|in_addr_t
+name|addr
+decl_stmt|;
+DECL|member|ctx
+name|ngx_imap_conf_ctx_t
+modifier|*
+name|ctx
+decl_stmt|;
+DECL|member|bind
+name|unsigned
+name|bind
+range|:
+literal|1
+decl_stmt|;
+DECL|typedef|ngx_imap_conf_in_addr_t
+block|}
+name|ngx_imap_conf_in_addr_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2bc30b1b0708
 typedef|typedef
 struct|struct
 block|{
@@ -92,6 +218,11 @@ name|ngx_array_t
 name|servers
 decl_stmt|;
 comment|/* ngx_imap_core_srv_conf_t */
+DECL|member|listen
+name|ngx_array_t
+name|listen
+decl_stmt|;
+comment|/* ngx_imap_listen_t */
 DECL|typedef|ngx_imap_core_main_conf_t
 block|}
 name|ngx_imap_core_main_conf_t
@@ -115,7 +246,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon276cb87c0308
+DECL|struct|__anon2bc30b1b0808
 typedef|typedef
 struct|struct
 block|{
@@ -176,7 +307,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276cb87c0408
+DECL|struct|__anon2bc30b1b0908
 typedef|typedef
 struct|struct
 block|{
@@ -251,7 +382,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon276cb87c0503
+DECL|enum|__anon2bc30b1b0a03
 typedef|typedef
 enum|enum
 block|{
@@ -275,7 +406,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon276cb87c0603
+DECL|enum|__anon2bc30b1b0b03
 typedef|typedef
 enum|enum
 block|{
@@ -296,7 +427,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276cb87c0708
+DECL|struct|__anon2bc30b1b0c08
 typedef|typedef
 struct|struct
 block|{
@@ -316,7 +447,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276cb87c0808
+DECL|struct|__anon2bc30b1b0d08
 typedef|typedef
 struct|struct
 block|{
@@ -402,6 +533,12 @@ name|no_sync_literal
 range|:
 literal|1
 decl_stmt|;
+DECL|member|starttls
+name|unsigned
+name|starttls
+range|:
+literal|1
+decl_stmt|;
 DECL|member|login
 name|ngx_str_t
 name|login
@@ -417,6 +554,11 @@ decl_stmt|;
 DECL|member|tagged_line
 name|ngx_str_t
 name|tagged_line
+decl_stmt|;
+DECL|member|addr_text
+name|ngx_str_t
+modifier|*
+name|addr_text
 decl_stmt|;
 DECL|member|command
 name|ngx_uint_t
@@ -461,7 +603,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276cb87c0908
+DECL|struct|__anon2bc30b1b0e08
 typedef|typedef
 struct|struct
 block|{
@@ -760,6 +902,20 @@ parameter_list|,
 name|module
 parameter_list|)
 value|(s)->srv_conf[module.ctx_index]
+end_define
+
+begin_define
+DECL|macro|ngx_imap_conf_get_module_main_conf (cf,module)
+define|#
+directive|define
+name|ngx_imap_conf_get_module_main_conf
+parameter_list|(
+name|cf
+parameter_list|,
+name|module
+parameter_list|)
+define|\
+value|((ngx_imap_conf_ctx_t *) cf->ctx)->main_conf[module.ctx_index]
 end_define
 
 begin_function_decl

@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29d8529c0108
+DECL|struct|__anon27a2037c0108
 typedef|typedef
 struct|struct
 block|{
@@ -5828,6 +5828,12 @@ operator|->
 name|internal
 operator|=
 literal|1
+expr_stmt|;
+name|r
+operator|->
+name|method
+operator|=
+name|NGX_HTTP_GET
 expr_stmt|;
 name|ngx_http_handler
 argument_list|(
@@ -11672,6 +11678,16 @@ name|uint32_t
 operator|)
 operator|~
 name|NGX_HTTP_HEAD
+block|}
+block|,
+block|{
+literal|"POST"
+block|,
+operator|(
+name|uint32_t
+operator|)
+operator|~
+name|NGX_HTTP_POST
 block|}
 block|,
 block|{

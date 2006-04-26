@@ -1078,6 +1078,23 @@ block|,
 block|{
 name|ngx_string
 argument_list|(
+literal|"Keep-Alive"
+argument_list|)
+block|,
+name|ngx_http_upstream_ignore_header_line
+block|,
+literal|0
+block|,
+name|ngx_http_upstream_ignore_header_line
+block|,
+literal|0
+block|,
+literal|0
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
 literal|"X-Pad"
 argument_list|)
 block|,
@@ -2980,6 +2997,16 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+operator|->
+name|action
+operator|=
+literal|"SSL handshaking to upstream"
+expr_stmt|;
 name|rc
 operator|=
 name|ngx_ssl_handshake
@@ -3833,14 +3860,6 @@ operator|->
 name|timedout
 condition|)
 block|{
-name|c
-operator|->
-name|log
-operator|->
-name|action
-operator|=
-literal|"sending request to upstream"
-expr_stmt|;
 name|ngx_http_upstream_next
 argument_list|(
 name|r

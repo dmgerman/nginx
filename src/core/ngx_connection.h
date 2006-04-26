@@ -95,12 +95,6 @@ DECL|member|handler
 name|ngx_connection_handler_pt
 name|handler
 decl_stmt|;
-DECL|member|ctx
-name|void
-modifier|*
-name|ctx
-decl_stmt|;
-comment|/* ngx_http_conf_ctx_t, for example */
 DECL|member|servers
 name|void
 modifier|*
@@ -238,7 +232,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2af9bebf0103
+DECL|enum|__anon2b75da010103
 typedef|typedef
 enum|enum
 block|{
@@ -262,7 +256,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2af9bebf0203
+DECL|enum|__anon2b75da010203
 typedef|typedef
 enum|enum
 block|{
@@ -283,7 +277,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2af9bebf0303
+DECL|enum|__anon2b75da010303
 typedef|typedef
 enum|enum
 block|{
@@ -367,16 +361,6 @@ decl_stmt|;
 DECL|member|sent
 name|off_t
 name|sent
-decl_stmt|;
-DECL|member|ctx
-name|void
-modifier|*
-name|ctx
-decl_stmt|;
-DECL|member|servers
-name|void
-modifier|*
-name|servers
 decl_stmt|;
 DECL|member|log
 name|ngx_log_t

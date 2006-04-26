@@ -937,9 +937,16 @@ argument_list|)
 empty_stmt|;
 endif|#
 directive|endif
+if|if
+condition|(
+operator|!
+name|ngx_test_config
+condition|)
+block|{
 return|return
 literal|0
 return|;
+block|}
 block|}
 if|if
 condition|(

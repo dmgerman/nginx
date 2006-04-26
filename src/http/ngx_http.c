@@ -3163,12 +3163,6 @@ name|deferred_accept
 expr_stmt|;
 endif|#
 directive|endif
-name|ls
-operator|->
-name|ctx
-operator|=
-name|ctx
-expr_stmt|;
 name|hip
 operator|=
 name|ngx_palloc
