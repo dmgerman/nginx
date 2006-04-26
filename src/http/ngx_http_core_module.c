@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27a2037c0108
+DECL|struct|__anon2c3cab650108
 typedef|typedef
 struct|struct
 block|{
@@ -2980,6 +2980,15 @@ name|ngx_http_core_module
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|r
+operator|==
+name|r
+operator|->
+expr|main
+condition|)
+block|{
 name|r
 operator|->
 name|connection
@@ -3024,6 +3033,7 @@ name|err_log
 operator|->
 name|log_level
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(

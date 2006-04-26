@@ -62,7 +62,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2b1cb5aa0108
+DECL|struct|__anon2ae7d8a30108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1cb5aa0208
+DECL|struct|__anon2ae7d8a30208
 typedef|typedef
 struct|struct
 block|{
@@ -122,7 +122,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b1cb5aa0303
+DECL|enum|__anon2ae7d8a30303
 typedef|typedef
 enum|enum
 block|{
@@ -3496,6 +3496,31 @@ operator|->
 name|next
 control|)
 block|{
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"ssi out: %p %p"
+argument_list|,
+name|cl
+operator|->
+name|buf
+argument_list|,
+name|cl
+operator|->
+name|buf
+operator|->
+name|pos
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|cl
@@ -7164,6 +7189,23 @@ index|[
 name|NGX_HTTP_SSI_ECHO_VAR
 index|]
 expr_stmt|;
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"ssi echo \"%V\""
+argument_list|,
+name|var
+argument_list|)
+expr_stmt|;
 name|key
 operator|=
 literal|0
@@ -7681,6 +7723,25 @@ index|[
 name|NGX_HTTP_SSI_SET_VALUE
 index|]
 expr_stmt|;
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"ssi set \"%V\" \"%V\""
+argument_list|,
+name|name
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|ngx_http_ssi_evaluate_string
@@ -7971,6 +8032,23 @@ name|params
 index|[
 name|NGX_HTTP_SSI_IF_EXPR
 index|]
+expr_stmt|;
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"ssi if expr=\"%V\""
+argument_list|,
+name|expr
+argument_list|)
 expr_stmt|;
 name|left
 operator|.
@@ -8750,6 +8828,21 @@ modifier|*
 name|params
 parameter_list|)
 block|{
+name|ngx_log_debug0
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"ssi else"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|ctx
@@ -8805,6 +8898,21 @@ modifier|*
 name|params
 parameter_list|)
 block|{
+name|ngx_log_debug0
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"ssi endif"
+argument_list|)
+expr_stmt|;
 name|ctx
 operator|->
 name|output

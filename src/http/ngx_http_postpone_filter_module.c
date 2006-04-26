@@ -399,7 +399,13 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"the same buf was used in postponed"
+literal|"the same buf was used in postponed %p %p"
+argument_list|,
+name|b
+argument_list|,
+name|b
+operator|->
+name|pos
 argument_list|)
 expr_stmt|;
 name|ngx_debug_point
