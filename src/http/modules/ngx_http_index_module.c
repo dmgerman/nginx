@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27debba90108
+DECL|struct|__anon27e0211d0108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27debba90208
+DECL|struct|__anon27e0211d0208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27debba90308
+DECL|struct|__anon27e0211d0308
 typedef|typedef
 struct|struct
 block|{
@@ -465,17 +465,18 @@ return|;
 block|}
 if|if
 condition|(
+operator|!
+operator|(
 name|r
 operator|->
 name|method
-operator|!=
+operator|&
+operator|(
 name|NGX_HTTP_GET
-operator|&&
-name|r
-operator|->
-name|method
-operator|!=
+operator||
 name|NGX_HTTP_HEAD
+operator|)
+operator|)
 condition|)
 block|{
 return|return

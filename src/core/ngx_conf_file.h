@@ -193,6 +193,14 @@ value|0x00001000
 end_define
 
 begin_define
+DECL|macro|NGX_CONF_MULTI
+define|#
+directive|define
+name|NGX_CONF_MULTI
+value|0x00002000
+end_define
+
+begin_define
 DECL|macro|NGX_DIRECT_CONF
 define|#
 directive|define
@@ -614,7 +622,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27c357710108
+DECL|struct|__anon278647240108
 typedef|typedef
 struct|struct
 block|{
@@ -659,7 +667,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c357710208
+DECL|struct|__anon278647240208
 typedef|typedef
 struct|struct
 block|{
@@ -799,7 +807,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c357710308
+DECL|struct|__anon278647240308
 typedef|typedef
 struct|struct
 block|{
@@ -814,7 +822,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c357710408
+DECL|struct|__anon278647240408
 typedef|typedef
 struct|struct
 block|{
@@ -839,7 +847,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c357710508
+DECL|struct|__anon278647240508
 typedef|typedef
 struct|struct
 block|{
@@ -862,7 +870,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c357710608
+DECL|struct|__anon278647240608
 typedef|typedef
 struct|struct
 block|{
@@ -889,7 +897,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon27c357710708
+DECL|struct|__anon278647240708
 typedef|typedef
 struct|struct
 block|{

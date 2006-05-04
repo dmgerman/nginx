@@ -148,6 +148,14 @@ name|NGX_LOG_DEBUG_IMAP
 value|0x200
 end_define
 
+begin_define
+DECL|macro|NGX_LOG_DEBUG_MYSQL
+define|#
+directive|define
+name|NGX_LOG_DEBUG_MYSQL
+value|0x400
+end_define
+
 begin_comment
 comment|/*  * do not forget to update debug_levels[] in src/core/ngx_log.c  * after the adding a new debug level  */
 end_comment

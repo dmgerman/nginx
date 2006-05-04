@@ -83,7 +83,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon298c25640108
+DECL|struct|__anon29e322980108
 typedef|typedef
 struct|struct
 block|{
@@ -102,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298c25640208
+DECL|struct|__anon29e322980208
 typedef|typedef
 struct|struct
 block|{
@@ -218,6 +218,12 @@ name|output_chosen
 range|:
 literal|1
 decl_stmt|;
+DECL|member|wait
+name|unsigned
+name|wait
+range|:
+literal|1
+decl_stmt|;
 DECL|member|value_buf
 name|void
 modifier|*
@@ -262,7 +268,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298c25640308
+DECL|struct|__anon29e322980308
 typedef|typedef
 struct|struct
 block|{
@@ -293,7 +299,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298c25640408
+DECL|struct|__anon29e322980408
 typedef|typedef
 struct|struct
 block|{

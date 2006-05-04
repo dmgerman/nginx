@@ -111,7 +111,7 @@ name|ngx_nonblocking
 parameter_list|(
 name|s
 parameter_list|)
-value|fcntl(s, F_SETFL, O_NONBLOCK)
+value|fcntl(s, F_SETFL, fcntl(s, F_GETFL) | O_NONBLOCK)
 end_define
 
 begin_define
@@ -120,6 +120,25 @@ define|#
 directive|define
 name|ngx_nonblocking_n
 value|"fcntl(O_NONBLOCK)"
+end_define
+
+begin_define
+DECL|macro|ngx_blocking (s)
+define|#
+directive|define
+name|ngx_blocking
+parameter_list|(
+name|s
+parameter_list|)
+value|fcntl(s, F_SETFL, fcntl(s, F_GETFL)& ~O_NONBLOCK)
+end_define
+
+begin_define
+DECL|macro|ngx_blocking_n
+define|#
+directive|define
+name|ngx_blocking_n
+value|"fcntl(!O_NONBLOCK)"
 end_define
 
 begin_endif

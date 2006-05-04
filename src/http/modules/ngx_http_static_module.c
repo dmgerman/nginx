@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28b11dae0108
+DECL|struct|__anon2ae3fe320108
 typedef|typedef
 struct|struct
 block|{
@@ -281,17 +281,18 @@ name|clcf
 decl_stmt|;
 if|if
 condition|(
+operator|!
+operator|(
 name|r
 operator|->
 name|method
-operator|!=
+operator|&
+operator|(
 name|NGX_HTTP_GET
-operator|&&
-name|r
-operator|->
-name|method
-operator|!=
+operator||
 name|NGX_HTTP_HEAD
+operator|)
+operator|)
 condition|)
 block|{
 return|return

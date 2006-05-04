@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2ba9b7d10108
+DECL|struct|__anon2c7138d60108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ba9b7d10208
+DECL|struct|__anon2c7138d60208
 typedef|typedef
 struct|struct
 block|{
@@ -556,17 +556,18 @@ return|;
 block|}
 if|if
 condition|(
+operator|!
+operator|(
 name|r
 operator|->
 name|method
-operator|!=
+operator|&
+operator|(
 name|NGX_HTTP_GET
-operator|&&
-name|r
-operator|->
-name|method
-operator|!=
+operator||
 name|NGX_HTTP_HEAD
+operator|)
+operator|)
 condition|)
 block|{
 return|return

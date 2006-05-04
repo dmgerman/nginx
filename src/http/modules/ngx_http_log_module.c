@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon275655cb0108
+DECL|struct|__anon29187d060108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275655cb0208
+DECL|struct|__anon29187d060208
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +70,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275655cb0308
+DECL|struct|__anon29187d060308
 typedef|typedef
 struct|struct
 block|{
@@ -96,7 +96,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275655cb0408
+DECL|struct|__anon29187d060408
 typedef|typedef
 struct|struct
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275655cb0508
+DECL|struct|__anon29187d060508
 typedef|typedef
 struct|struct
 block|{
@@ -864,6 +864,8 @@ operator||
 name|NGX_HTTP_SRV_CONF
 operator||
 name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_HTTP_LIF_CONF
 operator||
 name|NGX_CONF_TAKE123
 block|,

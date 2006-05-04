@@ -28,7 +28,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c41a9be0108
+DECL|struct|__anon2b4f87c90108
 typedef|typedef
 struct|struct
 block|{
@@ -48,7 +48,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c41a9be0208
+DECL|struct|__anon2b4f87c90208
 typedef|typedef
 struct|struct
 block|{
@@ -638,17 +638,18 @@ name|mlcf
 decl_stmt|;
 if|if
 condition|(
+operator|!
+operator|(
 name|r
 operator|->
 name|method
-operator|!=
+operator|&
+operator|(
 name|NGX_HTTP_GET
-operator|&&
-name|r
-operator|->
-name|method
-operator|!=
+operator||
 name|NGX_HTTP_HEAD
+operator|)
+operator|)
 condition|)
 block|{
 return|return
