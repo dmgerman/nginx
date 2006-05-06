@@ -381,7 +381,23 @@ DECL|macro|NGX_HTTP_OWN_CODES
 define|#
 directive|define
 name|NGX_HTTP_OWN_CODES
-value|NGX_HTTP_TO_HTTPS
+value|495
+end_define
+
+begin_define
+DECL|macro|NGX_HTTPS_CERT_ERROR
+define|#
+directive|define
+name|NGX_HTTPS_CERT_ERROR
+value|495
+end_define
+
+begin_define
+DECL|macro|NGX_HTTPS_NO_CERT
+define|#
+directive|define
+name|NGX_HTTPS_NO_CERT
+value|496
 end_define
 
 begin_comment
@@ -501,7 +517,7 @@ value|0x00000200
 end_define
 
 begin_typedef
-DECL|enum|__anon290ce4230103
+DECL|enum|__anon294423ab0103
 typedef|typedef
 enum|enum
 block|{
@@ -540,7 +556,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290ce4230208
+DECL|struct|__anon294423ab0208
 typedef|typedef
 struct|struct
 block|{
@@ -563,7 +579,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290ce4230308
+DECL|struct|__anon294423ab0308
 typedef|typedef
 struct|struct
 block|{
@@ -582,7 +598,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290ce4230408
+DECL|struct|__anon294423ab0408
 typedef|typedef
 struct|struct
 block|{
@@ -789,7 +805,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290ce4230508
+DECL|struct|__anon294423ab0508
 typedef|typedef
 struct|struct
 block|{
@@ -812,7 +828,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290ce4230608
+DECL|struct|__anon294423ab0608
 typedef|typedef
 struct|struct
 block|{
@@ -934,7 +950,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290ce4230708
+DECL|struct|__anon294423ab0708
 typedef|typedef
 struct|struct
 block|{
@@ -973,7 +989,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290ce4230808
+DECL|struct|__anon294423ab0808
 typedef|typedef
 struct|struct
 block|{
@@ -1014,7 +1030,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290ce4230908
+DECL|struct|__anon294423ab0908
 typedef|typedef
 struct|struct
 block|{

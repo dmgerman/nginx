@@ -374,6 +374,46 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|error_495_page
+specifier|static
+name|char
+name|error_495_page
+index|[]
+init|=
+literal|"<html>"
+name|CRLF
+literal|"<head><title>400 The SSL certificate error</title></head>"
+name|CRLF
+literal|"<body bgcolor=\"white\">"
+name|CRLF
+literal|"<center><h1>400 Bad Request</h1></center>"
+name|CRLF
+literal|"<center>The SSL certificate error</center>"
+name|CRLF
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|error_496_page
+specifier|static
+name|char
+name|error_496_page
+index|[]
+init|=
+literal|"<html>"
+name|CRLF
+literal|"<head><title>400 No required SSL certificate was sent</title></head>"
+name|CRLF
+literal|"<body bgcolor=\"white\">"
+name|CRLF
+literal|"<center><h1>400 Bad Request</h1></center>"
+name|CRLF
+literal|"<center>No required SSL certificate was sent</center>"
+name|CRLF
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|error_497_page
 specifier|static
 name|char
@@ -625,6 +665,18 @@ name|NGX_HTTP_LEVEL_400
 value|17
 name|ngx_string
 argument_list|(
+name|error_495_page
+argument_list|)
+block|,
+comment|/* 495, https certificate error */
+name|ngx_string
+argument_list|(
+name|error_496_page
+argument_list|)
+block|,
+comment|/* 496, https no certificate */
+name|ngx_string
+argument_list|(
 name|error_497_page
 argument_list|)
 block|,
@@ -795,6 +847,12 @@ case|case
 name|NGX_HTTP_TO_HTTPS
 case|:
 case|case
+name|NGX_HTTPS_CERT_ERROR
+case|:
+case|case
+name|NGX_HTTPS_NO_CERT
+case|:
+case|case
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 case|:
 name|r
@@ -824,6 +882,12 @@ name|NGX_HTTP_BAD_REQUEST
 case|:
 case|case
 name|NGX_HTTP_TO_HTTPS
+case|:
+case|case
+name|NGX_HTTPS_CERT_ERROR
+case|:
+case|case
+name|NGX_HTTPS_NO_CERT
 case|:
 name|r
 operator|->
@@ -1146,6 +1210,12 @@ condition|)
 block|{
 case|case
 name|NGX_HTTP_TO_HTTPS
+case|:
+case|case
+name|NGX_HTTPS_CERT_ERROR
+case|:
+case|case
+name|NGX_HTTPS_NO_CERT
 case|:
 name|r
 operator|->

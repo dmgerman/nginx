@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon297e59710108
+DECL|struct|__anon2c5e0f4b0108
 typedef|typedef
 struct|struct
 block|{
@@ -55,6 +55,14 @@ DECL|member|protocols
 name|ngx_uint_t
 name|protocols
 decl_stmt|;
+DECL|member|verify
+name|ngx_int_t
+name|verify
+decl_stmt|;
+DECL|member|verify_depth
+name|ngx_int_t
+name|verify_depth
+decl_stmt|;
 DECL|member|session_timeout
 name|time_t
 name|session_timeout
@@ -66,6 +74,10 @@ decl_stmt|;
 DECL|member|certificate_key
 name|ngx_str_t
 name|certificate_key
+decl_stmt|;
+DECL|member|client_certificate
+name|ngx_str_t
+name|client_certificate
 decl_stmt|;
 DECL|member|ciphers
 name|ngx_str_t
