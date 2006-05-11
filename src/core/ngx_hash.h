@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bbfccb40108
+DECL|struct|__anon29541c6b0108
 typedef|typedef
 struct|struct
 block|{
@@ -56,7 +56,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bbfccb40208
+DECL|struct|__anon29541c6b0208
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bbfccb40308
+DECL|struct|__anon29541c6b0308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bbfccb40408
+DECL|struct|__anon29541c6b0408
 typedef|typedef
 struct|struct
 block|{
@@ -140,7 +140,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bbfccb40508
+DECL|struct|__anon29541c6b0508
 typedef|typedef
 struct|struct
 block|{
@@ -231,7 +231,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2bbfccb40608
+DECL|struct|__anon29541c6b0608
 typedef|typedef
 struct|struct
 block|{
@@ -274,7 +274,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bbfccb40708
+DECL|struct|__anon29541c6b0708
 typedef|typedef
 struct|struct
 block|{
@@ -316,7 +316,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bbfccb40808
+DECL|struct|__anon29541c6b0808
 typedef|typedef
 struct|struct
 block|{
@@ -331,6 +331,11 @@ decl_stmt|;
 DECL|member|value
 name|ngx_str_t
 name|value
+decl_stmt|;
+DECL|member|lowcase_key
+name|u_char
+modifier|*
+name|lowcase_key
 decl_stmt|;
 DECL|typedef|ngx_table_elt_t
 block|}
@@ -425,7 +430,7 @@ name|key
 parameter_list|,
 name|c
 parameter_list|)
-value|key * 31 + c
+value|((ngx_uint_t) key * 31 + c)
 end_define
 
 begin_function_decl
@@ -488,41 +493,6 @@ name|value
 parameter_list|,
 name|ngx_uint_t
 name|flags
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_define
-DECL|macro|ngx_hash0 (key,c)
-define|#
-directive|define
-name|ngx_hash0
-parameter_list|(
-name|key
-parameter_list|,
-name|c
-parameter_list|)
-value|key + c
-end_define
-
-begin_function_decl
-name|ngx_int_t
-name|ngx_hash0_init
-parameter_list|(
-name|ngx_hash0_t
-modifier|*
-name|hash
-parameter_list|,
-name|ngx_pool_t
-modifier|*
-name|pool
-parameter_list|,
-name|void
-modifier|*
-name|names
-parameter_list|,
-name|ngx_uint_t
-name|nelts
 parameter_list|)
 function_decl|;
 end_function_decl

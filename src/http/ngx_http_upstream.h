@@ -125,7 +125,7 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon29145cc70108
+DECL|struct|__anon2b1f80240108
 typedef|typedef
 struct|struct
 block|{
@@ -157,12 +157,12 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29145cc70208
+DECL|struct|__anon2b1f80240208
 typedef|typedef
 struct|struct
 block|{
 DECL|member|headers_in_hash
-name|ngx_hash0_t
+name|ngx_hash_t
 name|headers_in_hash
 decl_stmt|;
 DECL|typedef|ngx_http_upstream_main_conf_t
@@ -172,7 +172,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29145cc70308
+DECL|struct|__anon2b1f80240308
 typedef|typedef
 struct|struct
 block|{
@@ -264,26 +264,24 @@ DECL|member|cyclic_temp_file
 name|ngx_flag_t
 name|cyclic_temp_file
 decl_stmt|;
-DECL|member|pass_x_powered_by
-name|ngx_flag_t
-name|pass_x_powered_by
-decl_stmt|;
-DECL|member|pass_server
-name|ngx_flag_t
-name|pass_server
-decl_stmt|;
-DECL|member|pass_date
-name|ngx_flag_t
-name|pass_date
-decl_stmt|;
-DECL|member|pass_x_accel_expires
-name|ngx_flag_t
-name|pass_x_accel_expires
-decl_stmt|;
 DECL|member|temp_path
 name|ngx_path_t
 modifier|*
 name|temp_path
+decl_stmt|;
+DECL|member|hide_headers_hash
+name|ngx_hash_t
+name|hide_headers_hash
+decl_stmt|;
+DECL|member|hide_headers
+name|ngx_array_t
+modifier|*
+name|hide_headers
+decl_stmt|;
+DECL|member|pass_headers
+name|ngx_array_t
+modifier|*
+name|pass_headers
 decl_stmt|;
 DECL|member|schema
 name|ngx_str_t
@@ -303,10 +301,17 @@ name|url
 decl_stmt|;
 comment|/* used in proxy_rewrite_location */
 DECL|member|redirect_404
-name|ngx_uint_t
+name|unsigned
 name|redirect_404
+range|:
+literal|1
 decl_stmt|;
-comment|/* unsigned redirect_404:1; */
+DECL|member|change_buffering
+name|unsigned
+name|change_buffering
+range|:
+literal|1
+decl_stmt|;
 if|#
 directive|if
 operator|(
@@ -326,7 +331,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29145cc70408
+DECL|struct|__anon2b1f80240408
 typedef|typedef
 struct|struct
 block|{
@@ -362,7 +367,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29145cc70508
+DECL|struct|__anon2b1f80240508
 typedef|typedef
 struct|struct
 block|{
@@ -688,6 +693,12 @@ decl_stmt|;
 DECL|member|accel
 name|unsigned
 name|accel
+range|:
+literal|1
+decl_stmt|;
+DECL|member|buffering
+name|unsigned
+name|buffering
 range|:
 literal|1
 decl_stmt|;

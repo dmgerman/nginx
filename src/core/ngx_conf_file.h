@@ -622,7 +622,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon278647240108
+DECL|struct|__anon29a16b280108
 typedef|typedef
 struct|struct
 block|{
@@ -667,7 +667,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278647240208
+DECL|struct|__anon29a16b280208
 typedef|typedef
 struct|struct
 block|{
@@ -807,7 +807,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278647240308
+DECL|struct|__anon29a16b280308
 typedef|typedef
 struct|struct
 block|{
@@ -822,7 +822,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278647240408
+DECL|struct|__anon29a16b280408
 typedef|typedef
 struct|struct
 block|{
@@ -847,7 +847,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278647240508
+DECL|struct|__anon29a16b280508
 typedef|typedef
 struct|struct
 block|{
@@ -870,7 +870,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278647240608
+DECL|struct|__anon29a16b280608
 typedef|typedef
 struct|struct
 block|{
@@ -897,7 +897,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon278647240708
+DECL|struct|__anon29a16b280708
 typedef|typedef
 struct|struct
 block|{
@@ -1270,7 +1270,27 @@ end_function_decl
 begin_function_decl
 name|char
 modifier|*
-name|ngx_conf_set_table_elt_slot
+name|ngx_conf_set_str_array_slot
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_command_t
+modifier|*
+name|cmd
+parameter_list|,
+name|void
+modifier|*
+name|conf
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|char
+modifier|*
+name|ngx_conf_set_keyval_slot
 parameter_list|(
 name|ngx_conf_t
 modifier|*

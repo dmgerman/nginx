@@ -24,6 +24,18 @@ name|NGX_HTTP_MAX_REWRITE_CYCLES
 value|10
 end_define
 
+begin_comment
+comment|/* must be 2^n */
+end_comment
+
+begin_define
+DECL|macro|NGX_HTTP_LC_HEADER_LEN
+define|#
+directive|define
+name|NGX_HTTP_LC_HEADER_LEN
+value|32
+end_define
+
 begin_define
 DECL|macro|NGX_HTTP_DISCARD_BUFFER_SIZE
 define|#
@@ -517,7 +529,7 @@ value|0x00000200
 end_define
 
 begin_typedef
-DECL|enum|__anon294423ab0103
+DECL|enum|__anon293ed7580103
 typedef|typedef
 enum|enum
 block|{
@@ -556,7 +568,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294423ab0208
+DECL|struct|__anon293ed7580208
 typedef|typedef
 struct|struct
 block|{
@@ -579,7 +591,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294423ab0308
+DECL|struct|__anon293ed7580308
 typedef|typedef
 struct|struct
 block|{
@@ -598,7 +610,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294423ab0408
+DECL|struct|__anon293ed7580408
 typedef|typedef
 struct|struct
 block|{
@@ -805,7 +817,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294423ab0508
+DECL|struct|__anon293ed7580508
 typedef|typedef
 struct|struct
 block|{
@@ -828,7 +840,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294423ab0608
+DECL|struct|__anon293ed7580608
 typedef|typedef
 struct|struct
 block|{
@@ -950,7 +962,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294423ab0708
+DECL|struct|__anon293ed7580708
 typedef|typedef
 struct|struct
 block|{
@@ -989,7 +1001,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294423ab0808
+DECL|struct|__anon293ed7580808
 typedef|typedef
 struct|struct
 block|{
@@ -1030,7 +1042,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294423ab0908
+DECL|struct|__anon293ed7580908
 typedef|typedef
 struct|struct
 block|{
@@ -1505,12 +1517,6 @@ name|fast_subrequest
 range|:
 literal|1
 decl_stmt|;
-DECL|member|low_case_exten
-name|unsigned
-name|low_case_exten
-range|:
-literal|1
-decl_stmt|;
 DECL|member|header_timeout_set
 name|unsigned
 name|header_timeout_set
@@ -1763,6 +1769,17 @@ decl_stmt|;
 DECL|member|header_hash
 name|ngx_uint_t
 name|header_hash
+decl_stmt|;
+DECL|member|lowcase_index
+name|ngx_uint_t
+name|lowcase_index
+decl_stmt|;
+DECL|member|lowcase_header
+name|u_char
+name|lowcase_header
+index|[
+name|NGX_HTTP_LC_HEADER_LEN
+index|]
 decl_stmt|;
 block|}
 struct|;

@@ -28,7 +28,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b4f87c90108
+DECL|struct|__anon2b3c8b860108
 typedef|typedef
 struct|struct
 block|{
@@ -48,7 +48,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4f87c90208
+DECL|struct|__anon2b3c8b860208
 typedef|typedef
 struct|struct
 block|{
@@ -2335,14 +2335,6 @@ name|conf
 operator|->
 name|upstream
 operator|.
-name|pass_x_powered_by
-operator|=
-literal|0
-expr_stmt|;
-name|conf
-operator|->
-name|upstream
-operator|.
 name|redirect_errors
 operator|=
 literal|1
@@ -2352,22 +2344,6 @@ operator|->
 name|upstream
 operator|.
 name|redirect_404
-operator|=
-literal|1
-expr_stmt|;
-name|conf
-operator|->
-name|upstream
-operator|.
-name|pass_server
-operator|=
-literal|1
-expr_stmt|;
-name|conf
-operator|->
-name|upstream
-operator|.
-name|pass_date
 operator|=
 literal|1
 expr_stmt|;

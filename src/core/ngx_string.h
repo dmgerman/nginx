@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29c2fb0d0108
+DECL|struct|__anon2ae46fbe0108
 typedef|typedef
 struct|struct
 block|{
@@ -45,6 +45,25 @@ decl_stmt|;
 DECL|typedef|ngx_str_t
 block|}
 name|ngx_str_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2ae46fbe0208
+typedef|typedef
+struct|struct
+block|{
+DECL|member|key
+name|ngx_str_t
+name|key
+decl_stmt|;
+DECL|member|value
+name|ngx_str_t
+name|value
+decl_stmt|;
+DECL|typedef|ngx_keyval_t
+block|}
+name|ngx_keyval_t
 typedef|;
 end_typedef
 
