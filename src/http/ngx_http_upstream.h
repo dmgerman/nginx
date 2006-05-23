@@ -125,7 +125,7 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon2b1f80240108
+DECL|struct|__anon2aa846560108
 typedef|typedef
 struct|struct
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1f80240208
+DECL|struct|__anon2aa846560208
 typedef|typedef
 struct|struct
 block|{
@@ -165,6 +165,11 @@ DECL|member|headers_in_hash
 name|ngx_hash_t
 name|headers_in_hash
 decl_stmt|;
+DECL|member|upstreams
+name|ngx_array_t
+name|upstreams
+decl_stmt|;
+comment|/* ngx_http_upstream_srv_conf_t */
 DECL|typedef|ngx_http_upstream_main_conf_t
 block|}
 name|ngx_http_upstream_main_conf_t
@@ -172,7 +177,49 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1f80240308
+DECL|struct|__anon2aa846560308
+typedef|typedef
+struct|struct
+block|{
+DECL|member|peers
+name|ngx_peers_t
+modifier|*
+name|peers
+decl_stmt|;
+DECL|member|servers
+name|ngx_array_t
+modifier|*
+name|servers
+decl_stmt|;
+DECL|member|host
+name|ngx_str_t
+name|host
+decl_stmt|;
+DECL|member|file_name
+name|ngx_str_t
+name|file_name
+decl_stmt|;
+DECL|member|line
+name|ngx_uint_t
+name|line
+decl_stmt|;
+DECL|member|port
+name|in_port_t
+name|port
+decl_stmt|;
+DECL|member|balanced
+name|ngx_uint_t
+name|balanced
+decl_stmt|;
+comment|/* unsigned  balanced:1; */
+DECL|typedef|ngx_http_upstream_srv_conf_t
+block|}
+name|ngx_http_upstream_srv_conf_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2aa846560408
 typedef|typedef
 struct|struct
 block|{
@@ -331,7 +378,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1f80240408
+DECL|struct|__anon2aa846560508
 typedef|typedef
 struct|struct
 block|{
@@ -367,7 +414,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1f80240508
+DECL|struct|__anon2aa846560608
 typedef|typedef
 struct|struct
 block|{
@@ -725,6 +772,22 @@ parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_http_upstream_srv_conf_t
+modifier|*
+name|ngx_http_upstream_add
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_url_t
+modifier|*
+name|u
 parameter_list|)
 function_decl|;
 end_function_decl

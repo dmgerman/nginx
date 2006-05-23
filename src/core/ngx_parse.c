@@ -161,7 +161,7 @@ name|max
 decl_stmt|,
 name|i
 decl_stmt|;
-DECL|enum|__anon29ec9b160103
+DECL|enum|__anon27b4060b0103
 enum|enum
 block|{
 DECL|enumerator|st_start

@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28ca075f0108
+DECL|struct|__anon275d33b80108
 typedef|typedef
 struct|struct
 block|{
@@ -659,6 +659,8 @@ block|,
 name|NGX_HTTP_MAIN_CONF
 operator||
 name|NGX_CONF_BLOCK
+operator||
+name|NGX_CONF_MULTI
 operator||
 name|NGX_CONF_NOARGS
 block|,
@@ -2068,14 +2070,6 @@ literal|1
 expr_stmt|;
 name|r
 operator|->
-name|uri_changes
-operator|=
-name|NGX_HTTP_MAX_REWRITE_CYCLES
-operator|+
-literal|1
-expr_stmt|;
-name|r
-operator|->
 name|phase
 operator|=
 operator|(
@@ -2231,7 +2225,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"rewrite cycle"
+literal|"rewrite or internal redirection cycle"
 argument_list|)
 expr_stmt|;
 name|ngx_http_finalize_request
@@ -5529,6 +5523,14 @@ name|r
 operator|->
 name|main_filter_need_in_memory
 expr_stmt|;
+name|sr
+operator|->
+name|uri_changes
+operator|=
+name|NGX_HTTP_MAX_URI_CHANGES
+operator|+
+literal|1
+expr_stmt|;
 name|ngx_http_handler
 argument_list|(
 name|sr
@@ -5789,6 +5791,11 @@ operator|->
 name|method
 operator|=
 name|NGX_HTTP_GET
+expr_stmt|;
+name|r
+operator|->
+name|uri_changes
+operator|--
 expr_stmt|;
 name|ngx_http_handler
 argument_list|(
@@ -7956,8 +7963,8 @@ name|ngx_http_core_srv_conf_t
 operator|*
 argument_list|)
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 return|return

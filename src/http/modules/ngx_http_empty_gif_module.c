@@ -427,7 +427,7 @@ block|}
 block|}
 name|b
 operator|=
-name|ngx_create_temp_buf
+name|ngx_pcalloc
 argument_list|(
 name|r
 operator|->
@@ -435,7 +435,7 @@ name|pool
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|ngx_empty_gif
+name|ngx_buf_t
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -478,6 +478,12 @@ sizeof|sizeof
 argument_list|(
 name|ngx_empty_gif
 argument_list|)
+expr_stmt|;
+name|b
+operator|->
+name|memory
+operator|=
+literal|1
 expr_stmt|;
 name|b
 operator|->

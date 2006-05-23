@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c777c4d0108
+DECL|struct|__anon2c09508a0108
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +70,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c777c4d0208
+DECL|struct|__anon2c09508a0208
 typedef|typedef
 struct|struct
 block|{
@@ -90,7 +90,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c777c4d0308
+DECL|struct|__anon2c09508a0308
 typedef|typedef
 struct|struct
 block|{
@@ -1692,6 +1692,13 @@ operator|->
 name|perl
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+literal|0
+comment|/* the code is disabled to force the precompiled perl code using only */
+block_content|ngx_http_perl_eval_anon_sub(aTHX_ handler,&sv);      if (sv ==&PL_sv_undef) {         ngx_log_error(NGX_LOG_ERR, r->connection->log, 0,                       "eval_pv(\"%V\") failed", handler);         return NGX_ERROR;     }      if (sv == NULL) {         sv = newSVpvn((char *) handler->data, handler->len);     }
+endif|#
+directive|endif
 name|sv
 operator|=
 name|newSVpvn

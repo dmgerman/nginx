@@ -17,10 +17,10 @@ name|_NGX_HTTP_REQUEST_H_INCLUDED_
 end_define
 
 begin_define
-DECL|macro|NGX_HTTP_MAX_REWRITE_CYCLES
+DECL|macro|NGX_HTTP_MAX_URI_CHANGES
 define|#
 directive|define
-name|NGX_HTTP_MAX_REWRITE_CYCLES
+name|NGX_HTTP_MAX_URI_CHANGES
 value|10
 end_define
 
@@ -529,7 +529,7 @@ value|0x00000200
 end_define
 
 begin_typedef
-DECL|enum|__anon293ed7580103
+DECL|enum|__anon28e8a2650103
 typedef|typedef
 enum|enum
 block|{
@@ -568,7 +568,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293ed7580208
+DECL|struct|__anon28e8a2650208
 typedef|typedef
 struct|struct
 block|{
@@ -591,7 +591,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293ed7580308
+DECL|struct|__anon28e8a2650308
 typedef|typedef
 struct|struct
 block|{
@@ -610,7 +610,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293ed7580408
+DECL|struct|__anon28e8a2650408
 typedef|typedef
 struct|struct
 block|{
@@ -817,7 +817,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293ed7580508
+DECL|struct|__anon28e8a2650508
 typedef|typedef
 struct|struct
 block|{
@@ -840,7 +840,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293ed7580608
+DECL|struct|__anon28e8a2650608
 typedef|typedef
 struct|struct
 block|{
@@ -962,7 +962,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293ed7580708
+DECL|struct|__anon28e8a2650708
 typedef|typedef
 struct|struct
 block|{
@@ -1001,7 +1001,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293ed7580808
+DECL|struct|__anon28e8a2650808
 typedef|typedef
 struct|struct
 block|{
@@ -1042,7 +1042,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293ed7580908
+DECL|struct|__anon28e8a2650908
 typedef|typedef
 struct|struct
 block|{
