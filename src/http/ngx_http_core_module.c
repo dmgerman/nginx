@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon275d33b80108
+DECL|struct|__anon2b3ec2340108
 typedef|typedef
 struct|struct
 block|{
@@ -5785,12 +5785,6 @@ operator|->
 name|internal
 operator|=
 literal|1
-expr_stmt|;
-name|r
-operator|->
-name|method
-operator|=
-name|NGX_HTTP_GET
 expr_stmt|;
 name|r
 operator|->

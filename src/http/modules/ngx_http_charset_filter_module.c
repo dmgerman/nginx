@@ -30,7 +30,7 @@ value|-2
 end_define
 
 begin_typedef
-DECL|struct|__anon2baa51110108
+DECL|struct|__anon29ec12710108
 typedef|typedef
 struct|struct
 block|{
@@ -56,7 +56,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baa51110208
+DECL|struct|__anon29ec12710208
 typedef|typedef
 struct|struct
 block|{
@@ -75,7 +75,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baa51110308
+DECL|struct|__anon29ec12710308
 typedef|typedef
 struct|struct
 block|{
@@ -104,7 +104,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baa51110408
+DECL|struct|__anon29ec12710408
 typedef|typedef
 struct|struct
 block|{
@@ -130,7 +130,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baa51110508
+DECL|struct|__anon29ec12710508
 typedef|typedef
 struct|struct
 block|{
@@ -153,7 +153,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baa51110608
+DECL|struct|__anon29ec12710608
 typedef|typedef
 struct|struct
 block|{
@@ -593,6 +593,9 @@ decl_stmt|;
 name|ngx_http_charset_loc_conf_t
 modifier|*
 name|lcf
+decl_stmt|,
+modifier|*
+name|mlcf
 decl_stmt|;
 name|ngx_http_charset_main_conf_t
 modifier|*
@@ -625,7 +628,7 @@ operator|==
 name|NULL
 condition|)
 block|{
-name|lcf
+name|mlcf
 operator|=
 name|ngx_http_get_module_loc_conf
 argument_list|(
@@ -638,7 +641,7 @@ argument_list|)
 expr_stmt|;
 name|charset
 operator|=
-name|lcf
+name|mlcf
 operator|->
 name|charset
 expr_stmt|;
@@ -666,6 +669,23 @@ operator|->
 name|charset
 expr_stmt|;
 block|}
+name|charsets
+operator|=
+name|mcf
+operator|->
+name|charsets
+operator|.
+name|elts
+expr_stmt|;
+if|if
+condition|(
+name|r
+operator|==
+name|r
+operator|->
+expr|main
+condition|)
+block|{
 if|if
 condition|(
 name|r
@@ -730,14 +750,44 @@ name|r
 argument_list|)
 return|;
 block|}
-name|charsets
-operator|=
-name|mcf
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|r
 operator|->
-name|charsets
+name|headers_out
 operator|.
-name|elts
+name|content_type
+operator|.
+name|len
+operator|==
+literal|0
+condition|)
+block|{
+name|mlcf
+operator|=
+name|ngx_http_get_module_loc_conf
+argument_list|(
+name|r
+operator|->
+expr|main
+argument_list|,
+name|ngx_http_charset_filter_module
+argument_list|)
 expr_stmt|;
+name|source_charset
+operator|=
+name|mlcf
+operator|->
+name|source_charset
+expr_stmt|;
+goto|goto
+name|found
+goto|;
+block|}
+block|}
 name|lcf
 operator|=
 name|ngx_http_get_module_loc_conf
