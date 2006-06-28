@@ -45,7 +45,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon27c403590108
+DECL|struct|__anon2742c1d60108
 typedef|typedef
 struct|struct
 block|{
@@ -64,7 +64,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c403590208
+DECL|struct|__anon2742c1d60208
 typedef|typedef
 struct|struct
 block|{
@@ -165,7 +165,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27c403590308
+DECL|struct|__anon2742c1d60308
 typedef|typedef
 struct|struct
 block|{
@@ -248,7 +248,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c403590408
+DECL|struct|__anon2742c1d60408
 typedef|typedef
 struct|struct
 block|{
@@ -309,12 +309,6 @@ decl_stmt|;
 DECL|member|port_only
 name|unsigned
 name|port_only
-range|:
-literal|1
-decl_stmt|;
-DECL|member|virtual
-name|unsigned
-name|virtual
 range|:
 literal|1
 decl_stmt|;

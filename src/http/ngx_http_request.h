@@ -24,6 +24,14 @@ name|NGX_HTTP_MAX_URI_CHANGES
 value|10
 end_define
 
+begin_define
+DECL|macro|NGX_HTTP_MAX_SUBREQUESTS
+define|#
+directive|define
+name|NGX_HTTP_MAX_SUBREQUESTS
+value|50
+end_define
+
 begin_comment
 comment|/* must be 2^n */
 end_comment
@@ -529,7 +537,7 @@ value|0x00000200
 end_define
 
 begin_typedef
-DECL|enum|__anon28e8a2650103
+DECL|enum|__anon2783b0260103
 typedef|typedef
 enum|enum
 block|{
@@ -568,7 +576,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e8a2650208
+DECL|struct|__anon2783b0260208
 typedef|typedef
 struct|struct
 block|{
@@ -591,7 +599,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e8a2650308
+DECL|struct|__anon2783b0260308
 typedef|typedef
 struct|struct
 block|{
@@ -610,7 +618,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e8a2650408
+DECL|struct|__anon2783b0260408
 typedef|typedef
 struct|struct
 block|{
@@ -817,7 +825,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e8a2650508
+DECL|struct|__anon2783b0260508
 typedef|typedef
 struct|struct
 block|{
@@ -840,7 +848,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e8a2650608
+DECL|struct|__anon2783b0260608
 typedef|typedef
 struct|struct
 block|{
@@ -911,6 +919,15 @@ name|ngx_table_elt_t
 modifier|*
 name|etag
 decl_stmt|;
+DECL|member|override_charset
+name|ngx_str_t
+modifier|*
+name|override_charset
+decl_stmt|;
+DECL|member|content_type_len
+name|size_t
+name|content_type_len
+decl_stmt|;
 DECL|member|content_type
 name|ngx_str_t
 name|content_type
@@ -962,7 +979,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e8a2650708
+DECL|struct|__anon2783b0260708
 typedef|typedef
 struct|struct
 block|{
@@ -1001,7 +1018,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e8a2650808
+DECL|struct|__anon2783b0260808
 typedef|typedef
 struct|struct
 block|{
@@ -1042,7 +1059,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e8a2650908
+DECL|struct|__anon2783b0260908
 typedef|typedef
 struct|struct
 block|{
@@ -1676,6 +1693,12 @@ literal|1
 decl_stmt|;
 endif|#
 directive|endif
+DECL|member|subrequests
+name|unsigned
+name|subrequests
+range|:
+literal|8
+decl_stmt|;
 comment|/* used to parse HTTP headers */
 DECL|member|state
 name|ngx_uint_t

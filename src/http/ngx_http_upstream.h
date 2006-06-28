@@ -125,7 +125,7 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon2aa846560108
+DECL|struct|__anon2a05078c0108
 typedef|typedef
 struct|struct
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa846560208
+DECL|struct|__anon2a05078c0208
 typedef|typedef
 struct|struct
 block|{
@@ -177,7 +177,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa846560308
+DECL|struct|__anon2a05078c0308
 typedef|typedef
 struct|struct
 block|{
@@ -219,7 +219,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa846560408
+DECL|struct|__anon2a05078c0408
 typedef|typedef
 struct|struct
 block|{
@@ -303,9 +303,9 @@ DECL|member|ignore_client_abort
 name|ngx_flag_t
 name|ignore_client_abort
 decl_stmt|;
-DECL|member|redirect_errors
+DECL|member|intercept_errors
 name|ngx_flag_t
-name|redirect_errors
+name|intercept_errors
 decl_stmt|;
 DECL|member|cyclic_temp_file
 name|ngx_flag_t
@@ -378,7 +378,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa846560508
+DECL|struct|__anon2a05078c0508
 typedef|typedef
 struct|struct
 block|{
@@ -414,7 +414,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa846560608
+DECL|struct|__anon2a05078c0608
 typedef|typedef
 struct|struct
 block|{

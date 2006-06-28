@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c7138d60108
+DECL|struct|__anon296d88380108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7138d60208
+DECL|struct|__anon296d88380208
 typedef|typedef
 struct|struct
 block|{
@@ -1344,10 +1344,17 @@ name|utf_len
 operator|=
 name|ngx_utf_length
 argument_list|(
-operator|&
 name|entry
 operator|->
 name|name
+operator|.
+name|data
+argument_list|,
+name|entry
+operator|->
+name|name
+operator|.
+name|len
 argument_list|)
 expr_stmt|;
 block|}

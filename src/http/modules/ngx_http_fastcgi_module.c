@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b7b618a0108
+DECL|struct|__anon297e79970108
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b7b618a0203
+DECL|enum|__anon297e79970203
 typedef|typedef
 enum|enum
 block|{
@@ -119,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7b618a0308
+DECL|struct|__anon297e79970308
 typedef|typedef
 struct|struct
 block|{
@@ -232,7 +232,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2b7b618a0408
+DECL|struct|__anon297e79970408
 typedef|typedef
 struct|struct
 block|{
@@ -275,7 +275,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7b618a0508
+DECL|struct|__anon297e79970508
 typedef|typedef
 struct|struct
 block|{
@@ -305,7 +305,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7b618a0608
+DECL|struct|__anon297e79970608
 typedef|typedef
 struct|struct
 block|{
@@ -332,7 +332,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7b618a0708
+DECL|struct|__anon297e79970708
 typedef|typedef
 struct|struct
 block|{
@@ -672,6 +672,22 @@ block|,
 literal|"fastcgi_header_buffer_size"
 block|,
 literal|"fastcgi_buffer_size"
+block|}
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_conf_deprecated_fastcgi_redirect_errors
+specifier|static
+name|ngx_conf_deprecated_t
+name|ngx_conf_deprecated_fastcgi_redirect_errors
+init|=
+block|{
+name|ngx_conf_deprecated
+block|,
+literal|"fastcgi_redirect_errors"
+block|,
+literal|"fastcgi_intercept_errors"
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -1049,6 +1065,36 @@ block|,
 block|{
 name|ngx_string
 argument_list|(
+literal|"fastcgi_intercept_errors"
+argument_list|)
+block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
+name|NGX_HTTP_SRV_CONF
+operator||
+name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_CONF_FLAG
+block|,
+name|ngx_conf_set_flag_slot
+block|,
+name|NGX_HTTP_LOC_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+name|ngx_http_fastcgi_loc_conf_t
+argument_list|,
+name|upstream
+operator|.
+name|intercept_errors
+argument_list|)
+block|,
+name|NULL
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
 literal|"fastcgi_redirect_errors"
 argument_list|)
 block|,
@@ -1070,10 +1116,11 @@ name|ngx_http_fastcgi_loc_conf_t
 argument_list|,
 name|upstream
 operator|.
-name|redirect_errors
+name|intercept_errors
 argument_list|)
 block|,
-name|NULL
+operator|&
+name|ngx_conf_deprecated_fastcgi_redirect_errors
 block|}
 block|,
 block|{
@@ -6829,7 +6876,7 @@ name|conf
 operator|->
 name|upstream
 operator|.
-name|redirect_errors
+name|intercept_errors
 operator|=
 name|NGX_CONF_UNSET
 expr_stmt|;
@@ -7637,13 +7684,13 @@ name|conf
 operator|->
 name|upstream
 operator|.
-name|redirect_errors
+name|intercept_errors
 argument_list|,
 name|prev
 operator|->
 name|upstream
 operator|.
-name|redirect_errors
+name|intercept_errors
 argument_list|,
 literal|0
 argument_list|)

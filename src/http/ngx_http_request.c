@@ -2971,6 +2971,14 @@ name|NGX_HTTP_MAX_URI_CHANGES
 operator|+
 literal|1
 expr_stmt|;
+name|r
+operator|->
+name|subrequests
+operator|=
+name|NGX_HTTP_MAX_SUBREQUESTS
+operator|+
+literal|1
+expr_stmt|;
 name|ngx_http_handler
 argument_list|(
 name|r

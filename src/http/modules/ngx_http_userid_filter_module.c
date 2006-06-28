@@ -66,7 +66,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon2abcc9690108
+DECL|struct|__anon28d734170108
 typedef|typedef
 struct|struct
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2abcc9690208
+DECL|struct|__anon28d734170208
 typedef|typedef
 struct|struct
 block|{
@@ -2890,24 +2890,6 @@ name|ngx_http_userid_conf_t
 modifier|*
 name|conf
 decl_stmt|;
-name|v
-operator|->
-name|valid
-operator|=
-literal|1
-expr_stmt|;
-name|v
-operator|->
-name|no_cachable
-operator|=
-literal|0
-expr_stmt|;
-name|v
-operator|->
-name|not_found
-operator|=
-literal|0
-expr_stmt|;
 name|ctx
 operator|=
 name|ngx_http_get_module_ctx
@@ -3011,6 +2993,24 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|v
+operator|->
+name|valid
+operator|=
+literal|1
+expr_stmt|;
+name|v
+operator|->
+name|no_cachable
+operator|=
+literal|0
+expr_stmt|;
+name|v
+operator|->
+name|not_found
+operator|=
+literal|0
+expr_stmt|;
 name|ngx_sprintf
 argument_list|(
 name|v
