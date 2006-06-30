@@ -50,7 +50,7 @@ value|(sizeof("&#1114111;") - 1)
 end_define
 
 begin_typedef
-DECL|struct|__anon2bb991e80108
+DECL|struct|__anon2ad5b2450108
 typedef|typedef
 struct|struct
 block|{
@@ -83,7 +83,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb991e80208
+DECL|struct|__anon2ad5b2450208
 typedef|typedef
 struct|struct
 block|{
@@ -102,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb991e80308
+DECL|struct|__anon2ad5b2450308
 typedef|typedef
 struct|struct
 block|{
@@ -131,7 +131,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb991e80408
+DECL|struct|__anon2ad5b2450408
 typedef|typedef
 struct|struct
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb991e80508
+DECL|struct|__anon2ad5b2450508
 typedef|typedef
 struct|struct
 block|{
@@ -180,7 +180,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb991e80608
+DECL|struct|__anon2ad5b2450608
 typedef|typedef
 struct|struct
 block|{
@@ -244,7 +244,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb991e80708
+DECL|struct|__anon2ad5b2450708
 typedef|typedef
 struct|struct
 block|{
@@ -928,7 +928,6 @@ literal|0
 argument_list|,
 literal|"unknown charset \"%V\" to override"
 argument_list|,
-operator|&
 name|r
 operator|->
 name|headers_out

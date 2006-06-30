@@ -62,7 +62,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon292ffd0c0108
+DECL|struct|__anon2af79a880108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292ffd0c0208
+DECL|struct|__anon2af79a880208
 typedef|typedef
 struct|struct
 block|{
@@ -122,7 +122,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon292ffd0c0303
+DECL|enum|__anon2af79a880303
 typedef|typedef
 enum|enum
 block|{
@@ -4203,12 +4203,24 @@ block|{
 case|case
 literal|'#'
 case|:
+if|if
+condition|(
+name|p
+operator|-
+name|ctx
+operator|->
+name|pos
+operator|<
+literal|4
+condition|)
+block|{
 name|ctx
 operator|->
 name|saved
 operator|=
 literal|0
 expr_stmt|;
+block|}
 name|looked
 operator|=
 literal|0
