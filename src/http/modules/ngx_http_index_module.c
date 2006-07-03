@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27e0211d0108
+DECL|struct|__anon28eff9380108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e0211d0208
+DECL|struct|__anon28eff9380208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e0211d0308
+DECL|struct|__anon28eff9380308
 typedef|typedef
 struct|struct
 block|{
@@ -457,26 +457,6 @@ condition|(
 name|r
 operator|->
 name|zero_in_uri
-condition|)
-block|{
-return|return
-name|NGX_DECLINED
-return|;
-block|}
-if|if
-condition|(
-operator|!
-operator|(
-name|r
-operator|->
-name|method
-operator|&
-operator|(
-name|NGX_HTTP_GET
-operator||
-name|NGX_HTTP_HEAD
-operator|)
-operator|)
 condition|)
 block|{
 return|return
