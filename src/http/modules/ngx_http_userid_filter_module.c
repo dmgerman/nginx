@@ -66,7 +66,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon28d734170108
+DECL|struct|__anon2b043f520108
 typedef|typedef
 struct|struct
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28d734170208
+DECL|struct|__anon2b043f520208
 typedef|typedef
 struct|struct
 block|{
@@ -3183,7 +3183,7 @@ name|conf
 init|=
 name|child
 decl_stmt|;
-name|ngx_conf_merge_unsigned_value
+name|ngx_conf_merge_uint_value
 argument_list|(
 name|conf
 operator|->

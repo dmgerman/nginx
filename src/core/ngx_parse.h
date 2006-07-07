@@ -48,6 +48,17 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
+name|off_t
+name|ngx_parse_offset
+parameter_list|(
+name|ngx_str_t
+modifier|*
+name|line
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
 name|ngx_int_t
 name|ngx_parse_time
 parameter_list|(

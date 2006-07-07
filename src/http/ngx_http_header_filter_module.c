@@ -261,9 +261,11 @@ argument_list|(
 literal|"408 Request Time-out"
 argument_list|)
 block|,
-name|ngx_null_string
+name|ngx_string
+argument_list|(
+literal|"409 Conflict"
+argument_list|)
 block|,
-comment|/* "409 Conflict" */
 name|ngx_string
 argument_list|(
 literal|"410 Gone"

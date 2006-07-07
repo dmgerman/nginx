@@ -26,7 +26,7 @@ comment|/* AF_INET only */
 end_comment
 
 begin_typedef
-DECL|struct|__anon293214360108
+DECL|struct|__anon287833fd0108
 typedef|typedef
 struct|struct
 block|{
@@ -50,7 +50,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293214360208
+DECL|struct|__anon287833fd0208
 typedef|typedef
 struct|struct
 block|{
@@ -308,6 +308,10 @@ name|ngx_http_access_rule_t
 modifier|*
 name|rule
 decl_stmt|;
+name|ngx_http_core_loc_conf_t
+modifier|*
+name|clcf
+decl_stmt|;
 name|ngx_http_access_loc_conf_t
 modifier|*
 name|alcf
@@ -444,6 +448,23 @@ operator|.
 name|deny
 condition|)
 block|{
+name|clcf
+operator|=
+name|ngx_http_get_module_loc_conf
+argument_list|(
+name|r
+argument_list|,
+name|ngx_http_core_module
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|clcf
+operator|->
+name|satisfy_any
+condition|)
+block|{
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ERR
@@ -459,6 +480,7 @@ argument_list|,
 literal|"access forbidden by rule"
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|NGX_HTTP_FORBIDDEN
 return|;

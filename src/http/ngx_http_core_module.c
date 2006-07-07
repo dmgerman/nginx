@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c3044510108
+DECL|struct|__anon29ad62140108
 typedef|typedef
 struct|struct
 block|{
@@ -1131,7 +1131,7 @@ name|NGX_HTTP_LOC_CONF
 operator||
 name|NGX_CONF_TAKE1
 block|,
-name|ngx_conf_set_size_slot
+name|ngx_conf_set_off_slot
 block|,
 name|NGX_HTTP_LOC_CONF_OFFSET
 block|,
@@ -2544,6 +2544,31 @@ operator|->
 name|access_code
 condition|)
 block|{
+if|if
+condition|(
+name|r
+operator|->
+name|access_code
+operator|==
+name|NGX_HTTP_FORBIDDEN
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"access forbidden by rule"
+argument_list|)
+expr_stmt|;
+block|}
 name|ngx_http_finalize_request
 argument_list|(
 name|r
@@ -2797,7 +2822,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http cl:%z max:%uz"
+literal|"http cl:%O max:%O"
 argument_list|,
 name|r
 operator|->
@@ -2829,9 +2854,6 @@ name|clcf
 operator|->
 name|client_max_body_size
 operator|<
-operator|(
-name|size_t
-operator|)
 name|r
 operator|->
 name|headers_in
@@ -2851,7 +2873,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"client intented to send too large body: %z bytes"
+literal|"client intented to send too large body: %O bytes"
 argument_list|,
 name|r
 operator|->
@@ -8816,7 +8838,7 @@ name|lcf
 operator|->
 name|client_max_body_size
 operator|=
-name|NGX_CONF_UNSET_SIZE
+name|NGX_CONF_UNSET
 expr_stmt|;
 name|lcf
 operator|->
@@ -9214,7 +9236,7 @@ operator|->
 name|post_action
 expr_stmt|;
 block|}
-name|ngx_conf_merge_unsigned_value
+name|ngx_conf_merge_uint_value
 argument_list|(
 name|conf
 operator|->
@@ -9227,7 +9249,7 @@ argument_list|,
 literal|1024
 argument_list|)
 expr_stmt|;
-name|ngx_conf_merge_unsigned_value
+name|ngx_conf_merge_uint_value
 argument_list|(
 name|conf
 operator|->
@@ -9666,7 +9688,7 @@ argument_list|,
 literal|"text/plain"
 argument_list|)
 expr_stmt|;
-name|ngx_conf_merge_size_value
+name|ngx_conf_merge_off_value
 argument_list|(
 name|conf
 operator|->
@@ -11224,6 +11246,30 @@ index|[
 literal|0
 index|]
 expr_stmt|;
+if|if
+condition|(
+name|value
+index|[
+name|i
+index|]
+operator|.
+name|len
+operator|==
+literal|1
+operator|&&
+name|ch
+operator|==
+literal|'*'
+condition|)
+block|{
+name|cscf
+operator|->
+name|wildcard
+operator|=
+literal|1
+expr_stmt|;
+continue|continue;
+block|}
 if|if
 condition|(
 name|value

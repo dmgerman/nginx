@@ -622,7 +622,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c5196c60108
+DECL|struct|__anon2c1417a70108
 typedef|typedef
 struct|struct
 block|{
@@ -667,7 +667,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5196c60208
+DECL|struct|__anon2c1417a70208
 typedef|typedef
 struct|struct
 block|{
@@ -807,7 +807,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5196c60308
+DECL|struct|__anon2c1417a70308
 typedef|typedef
 struct|struct
 block|{
@@ -822,7 +822,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5196c60408
+DECL|struct|__anon2c1417a70408
 typedef|typedef
 struct|struct
 block|{
@@ -847,7 +847,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5196c60508
+DECL|struct|__anon2c1417a70508
 typedef|typedef
 struct|struct
 block|{
@@ -870,7 +870,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5196c60608
+DECL|struct|__anon2c1417a70608
 typedef|typedef
 struct|struct
 block|{
@@ -897,7 +897,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2c5196c60708
+DECL|struct|__anon2c1417a70708
 typedef|typedef
 struct|struct
 block|{
@@ -991,14 +991,14 @@ define|default)                               \     if (conf == NGX_CONF_UNSET_P
 end_define
 
 begin_define
-DECL|macro|ngx_conf_init_unsigned_value (conf,default)
+DECL|macro|ngx_conf_init_uint_value (conf,default)
 define|#
 directive|define
-name|ngx_conf_init_unsigned_value
+name|ngx_conf_init_uint_value
 parameter_list|(
 name|conf
 parameter_list|,
-define|default)                          \     if (conf == (unsigned) NGX_CONF_UNSET) {                                 \         conf = default;                                                      \     }
+define|default)                              \     if (conf == NGX_CONF_UNSET_UINT) {                                       \         conf = default;                                                      \     }
 end_define
 
 begin_define
@@ -1050,16 +1050,16 @@ define|default)                        \     if (conf == NULL) {                
 end_define
 
 begin_define
-DECL|macro|ngx_conf_merge_unsigned_value (conf,prev,default)
+DECL|macro|ngx_conf_merge_uint_value (conf,prev,default)
 define|#
 directive|define
-name|ngx_conf_merge_unsigned_value
+name|ngx_conf_merge_uint_value
 parameter_list|(
 name|conf
 parameter_list|,
 name|prev
 parameter_list|,
-define|default)                   \     if (conf == NGX_CONF_UNSET_UINT) {                                       \         conf = (prev == NGX_CONF_UNSET_UINT) ? default : prev;               \     }
+define|default)                       \     if (conf == NGX_CONF_UNSET_UINT) {                                       \         conf = (prev == NGX_CONF_UNSET_UINT) ? default : prev;               \     }
 end_define
 
 begin_define
@@ -1099,6 +1099,19 @@ parameter_list|,
 name|prev
 parameter_list|,
 define|default)                       \     if (conf == NGX_CONF_UNSET_SIZE) {                                       \         conf = (prev == NGX_CONF_UNSET_SIZE) ? default : prev;               \     }
+end_define
+
+begin_define
+DECL|macro|ngx_conf_merge_off_value (conf,prev,default)
+define|#
+directive|define
+name|ngx_conf_merge_off_value
+parameter_list|(
+name|conf
+parameter_list|,
+name|prev
+parameter_list|,
+define|default)                        \     if (conf == NGX_CONF_UNSET) {                                            \         conf = (prev == NGX_CONF_UNSET) ? default : prev;                    \     }
 end_define
 
 begin_define
@@ -1331,6 +1344,26 @@ begin_function_decl
 name|char
 modifier|*
 name|ngx_conf_set_size_slot
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_command_t
+modifier|*
+name|cmd
+parameter_list|,
+name|void
+modifier|*
+name|conf
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|char
+modifier|*
+name|ngx_conf_set_off_slot
 parameter_list|(
 name|ngx_conf_t
 modifier|*

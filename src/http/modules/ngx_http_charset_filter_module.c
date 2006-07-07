@@ -50,7 +50,7 @@ value|(sizeof("&#1114111;") - 1)
 end_define
 
 begin_typedef
-DECL|struct|__anon2b7930710108
+DECL|struct|__anon2882b7b10108
 typedef|typedef
 struct|struct
 block|{
@@ -83,7 +83,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7930710208
+DECL|struct|__anon2882b7b10208
 typedef|typedef
 struct|struct
 block|{
@@ -102,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7930710308
+DECL|struct|__anon2882b7b10308
 typedef|typedef
 struct|struct
 block|{
@@ -131,7 +131,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7930710408
+DECL|struct|__anon2882b7b10408
 typedef|typedef
 struct|struct
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7930710508
+DECL|struct|__anon2882b7b10508
 typedef|typedef
 struct|struct
 block|{
@@ -180,7 +180,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7930710608
+DECL|struct|__anon2882b7b10608
 typedef|typedef
 struct|struct
 block|{
@@ -244,7 +244,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7930710708
+DECL|struct|__anon2882b7b10708
 typedef|typedef
 struct|struct
 block|{
@@ -795,6 +795,12 @@ decl_stmt|;
 name|ngx_str_t
 modifier|*
 name|mc
+decl_stmt|,
+modifier|*
+name|from
+decl_stmt|,
+modifier|*
+name|to
 decl_stmt|;
 name|ngx_uint_t
 name|n
@@ -1227,21 +1233,8 @@ name|r
 argument_list|)
 return|;
 block|}
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_ERR
-argument_list|,
-name|r
-operator|->
-name|connection
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"no \"charset_map\" between the charsets "
-literal|"\"%V\" and \"%V\""
-argument_list|,
+name|from
+operator|=
 operator|&
 name|charsets
 index|[
@@ -1251,7 +1244,9 @@ name|source_charset
 index|]
 operator|.
 name|name
-argument_list|,
+expr_stmt|;
+name|to
+operator|=
 operator|&
 name|r
 operator|->
@@ -1260,14 +1255,10 @@ operator|->
 name|headers_out
 operator|.
 name|charset
-argument_list|)
 expr_stmt|;
-return|return
-name|ngx_http_next_header_filter
-argument_list|(
-name|r
-argument_list|)
-return|;
+goto|goto
+name|no_charset_map
+goto|;
 block|}
 name|source_charset
 operator|=
@@ -1327,28 +1318,23 @@ operator|!=
 literal|0
 condition|)
 block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_ERR
-argument_list|,
-name|r
-operator|->
-name|connection
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"no \"charset_map\" between the charsets "
-literal|"\"%V\" and \"%V\""
-argument_list|,
+name|from
+operator|=
 operator|&
 name|r
 operator|->
 name|headers_out
 operator|.
 name|charset
-argument_list|,
+expr_stmt|;
+name|to
+operator|=
+operator|(
+name|charset
+operator|==
+name|NGX_HTTP_NO_CHARSET
+operator|)
+condition|?
 operator|&
 name|r
 operator|->
@@ -1357,8 +1343,18 @@ operator|->
 name|headers_out
 operator|.
 name|charset
-argument_list|)
+else|:
+operator|&
+name|charsets
+index|[
+name|charset
+index|]
+operator|.
+name|name
 expr_stmt|;
+goto|goto
+name|no_charset_map
+goto|;
 block|}
 return|return
 name|ngx_http_next_header_filter
@@ -1397,21 +1393,8 @@ name|NULL
 operator|)
 condition|)
 block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_ERR
-argument_list|,
-name|r
-operator|->
-name|connection
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"no \"charset_map\" between the charsets "
-literal|"\"%V\" and \"%V\""
-argument_list|,
+name|from
+operator|=
 operator|&
 name|charsets
 index|[
@@ -1419,7 +1402,9 @@ name|source_charset
 index|]
 operator|.
 name|name
-argument_list|,
+expr_stmt|;
+name|to
+operator|=
 operator|&
 name|charsets
 index|[
@@ -1427,14 +1412,10 @@ name|charset
 index|]
 operator|.
 name|name
-argument_list|)
 expr_stmt|;
-return|return
-name|ngx_http_next_header_filter
-argument_list|(
-name|r
-argument_list|)
-return|;
+goto|goto
+name|no_charset_map
+goto|;
 block|}
 name|r
 operator|->
@@ -1464,6 +1445,34 @@ argument_list|,
 name|charset
 argument_list|,
 name|source_charset
+argument_list|)
+return|;
+name|no_charset_map
+label|:
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"no \"charset_map\" between the charsets "
+literal|"\"%V\" and \"%V\""
+argument_list|,
+name|from
+argument_list|,
+name|to
+argument_list|)
+expr_stmt|;
+return|return
+name|ngx_http_next_header_filter
+argument_list|(
+name|r
 argument_list|)
 return|;
 block|}
@@ -1725,6 +1734,12 @@ index|]
 operator|.
 name|utf8
 expr_stmt|;
+name|r
+operator|->
+name|filter_need_in_memory
+operator|=
+literal|1
+expr_stmt|;
 if|if
 condition|(
 operator|(
@@ -1750,12 +1765,15 @@ name|r
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
 name|r
 operator|->
-name|filter_need_in_memory
+name|filter_need_temporary
 operator|=
 literal|1
 expr_stmt|;
+block|}
 return|return
 name|ngx_http_next_header_filter
 argument_list|(

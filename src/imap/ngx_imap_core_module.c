@@ -811,7 +811,7 @@ argument_list|,
 literal|60000
 argument_list|)
 expr_stmt|;
-name|ngx_conf_merge_unsigned_value
+name|ngx_conf_merge_uint_value
 argument_list|(
 name|conf
 operator|->

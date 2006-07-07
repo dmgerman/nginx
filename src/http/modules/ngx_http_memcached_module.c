@@ -28,7 +28,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b961bd00108
+DECL|struct|__anon29cc2afd0108
 typedef|typedef
 struct|struct
 block|{
@@ -48,7 +48,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b961bd00208
+DECL|struct|__anon29cc2afd0208
 typedef|typedef
 struct|struct
 block|{
@@ -2498,7 +2498,7 @@ name|NGX_HTTP_UPSTREAM_FT_TIMEOUT
 operator|)
 argument_list|)
 expr_stmt|;
-name|ngx_conf_merge_unsigned_value
+name|ngx_conf_merge_uint_value
 argument_list|(
 name|conf
 operator|->

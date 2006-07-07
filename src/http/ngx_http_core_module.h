@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon289d70940108
+DECL|struct|__anon2b81f4320108
 typedef|typedef
 struct|struct
 block|{
@@ -108,7 +108,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289d70940208
+DECL|struct|__anon2b81f4320208
 typedef|typedef
 struct|struct
 block|{
@@ -143,7 +143,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon289d70940303
+DECL|enum|__anon2b81f4320303
 typedef|typedef
 enum|enum
 block|{
@@ -179,7 +179,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289d70940408
+DECL|struct|__anon2b81f4320408
 typedef|typedef
 struct|struct
 block|{
@@ -199,7 +199,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289d70940508
+DECL|struct|__anon2b81f4320508
 typedef|typedef
 struct|struct
 block|{
@@ -258,7 +258,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289d70940608
+DECL|struct|__anon2b81f4320608
 typedef|typedef
 struct|struct
 block|{
@@ -315,6 +315,11 @@ DECL|member|ignore_invalid_headers
 name|ngx_flag_t
 name|ignore_invalid_headers
 decl_stmt|;
+DECL|member|wildcard
+name|ngx_uint_t
+name|wildcard
+decl_stmt|;
+comment|/* unsigned  wildcard:1 */
 DECL|typedef|ngx_http_core_srv_conf_t
 block|}
 name|ngx_http_core_srv_conf_t
@@ -326,7 +331,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon289d70940708
+DECL|struct|__anon2b81f4320708
 typedef|typedef
 struct|struct
 block|{
@@ -352,7 +357,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289d70940808
+DECL|struct|__anon2b81f4320808
 typedef|typedef
 struct|struct
 block|{
@@ -380,7 +385,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289d70940908
+DECL|struct|__anon2b81f4320908
 typedef|typedef
 struct|struct
 block|{
@@ -400,7 +405,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289d70940a08
+DECL|struct|__anon2b81f4320a08
 typedef|typedef
 struct|struct
 block|{
@@ -452,7 +457,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289d70940b08
+DECL|struct|__anon2b81f4320b08
 typedef|typedef
 struct|struct
 block|{
@@ -473,7 +478,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289d70940c08
+DECL|struct|__anon2b81f4320c08
 typedef|typedef
 struct|struct
 block|{
@@ -616,7 +621,7 @@ name|ngx_str_t
 name|default_type
 decl_stmt|;
 DECL|member|client_max_body_size
-name|size_t
+name|off_t
 name|client_max_body_size
 decl_stmt|;
 comment|/* client_max_body_size */

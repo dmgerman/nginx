@@ -117,6 +117,14 @@ value|ENOTDIR
 end_define
 
 begin_define
+DECL|macro|NGX_EISDIR
+define|#
+directive|define
+name|NGX_EISDIR
+value|EISDIR
+end_define
+
+begin_define
 DECL|macro|NGX_EINVAL
 define|#
 directive|define

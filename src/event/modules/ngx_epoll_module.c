@@ -327,7 +327,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b4444ab0108
+DECL|struct|__anon295982740108
 typedef|typedef
 struct|struct
 block|{
@@ -2041,40 +2041,12 @@ name|revents
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|revents
-operator|&
-operator|~
-operator|(
-name|EPOLLIN
-operator||
-name|EPOLLOUT
-operator||
-name|EPOLLERR
-operator||
-name|EPOLLHUP
-operator|)
-condition|)
-block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_ALERT
-argument_list|,
-name|log
-argument_list|,
+if|#
+directive|if
 literal|0
-argument_list|,
-literal|"strange epoll_wait() events fd:%d ev:%04XD"
-argument_list|,
-name|c
-operator|->
-name|fd
-argument_list|,
-name|revents
-argument_list|)
-expr_stmt|;
-block|}
+block_content|if (revents& ~(EPOLLIN|EPOLLOUT|EPOLLERR|EPOLLHUP)) {             ngx_log_error(NGX_LOG_ALERT, log, 0,                           "strange epoll_wait() events fd:%d ev:%04XD",                           c->fd, revents);         }
+endif|#
+directive|endif
 if|if
 condition|(
 operator|(
@@ -2352,7 +2324,7 @@ name|epcf
 init|=
 name|conf
 decl_stmt|;
-name|ngx_conf_init_unsigned_value
+name|ngx_conf_init_uint_value
 argument_list|(
 name|epcf
 operator|->

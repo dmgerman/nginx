@@ -45,7 +45,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2742c1d60108
+DECL|struct|__anon2c2a424d0108
 typedef|typedef
 struct|struct
 block|{
@@ -64,7 +64,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2742c1d60208
+DECL|struct|__anon2c2a424d0208
 typedef|typedef
 struct|struct
 block|{
@@ -86,6 +86,10 @@ DECL|member|uri_separator
 name|char
 modifier|*
 name|uri_separator
+decl_stmt|;
+DECL|member|current_weight
+name|ngx_uint_t
+name|current_weight
 decl_stmt|;
 DECL|member|weight
 name|ngx_uint_t
@@ -134,10 +138,6 @@ DECL|member|current
 name|ngx_uint_t
 name|current
 decl_stmt|;
-DECL|member|weight
-name|ngx_uint_t
-name|weight
-decl_stmt|;
 DECL|member|number
 name|ngx_uint_t
 name|number
@@ -165,7 +165,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2742c1d60308
+DECL|struct|__anon2c2a424d0308
 typedef|typedef
 struct|struct
 block|{
@@ -248,7 +248,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2742c1d60408
+DECL|struct|__anon2c2a424d0408
 typedef|typedef
 struct|struct
 block|{

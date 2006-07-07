@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27c5c1f50108
+DECL|struct|__anon27b033a50108
 typedef|typedef
 struct|struct
 block|{
@@ -153,7 +153,7 @@ value|0x0200
 end_define
 
 begin_typedef
-DECL|struct|__anon27c5c1f50208
+DECL|struct|__anon27b033a50208
 typedef|typedef
 struct|struct
 block|{
@@ -4962,7 +4962,7 @@ argument_list|,
 name|ngx_pagesize
 argument_list|)
 expr_stmt|;
-name|ngx_conf_merge_unsigned_value
+name|ngx_conf_merge_uint_value
 argument_list|(
 name|conf
 operator|->

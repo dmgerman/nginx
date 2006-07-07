@@ -30,7 +30,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2c08e1610108
+DECL|struct|__anon29b02e020108
 typedef|typedef
 struct|struct
 block|{
@@ -1054,7 +1054,6 @@ name|status
 operator|=
 name|NGX_HTTP_NO_CONTENT
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|ngx_is_dir
@@ -1064,6 +1063,25 @@ name|fi
 argument_list|)
 condition|)
 block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+name|NGX_EISDIR
+argument_list|,
+literal|"\"%s\" could not be created"
+argument_list|,
+name|path
+operator|.
+name|data
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|ngx_delete_file
@@ -1105,6 +1123,7 @@ name|NGX_HTTP_CONFLICT
 argument_list|)
 expr_stmt|;
 return|return;
+block|}
 block|}
 if|if
 condition|(

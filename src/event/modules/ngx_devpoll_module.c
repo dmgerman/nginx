@@ -78,7 +78,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon27bb2f0a0108
+DECL|struct|__anon2c79bd8a0108
 typedef|typedef
 struct|struct
 block|{
@@ -2089,7 +2089,7 @@ name|dpcf
 init|=
 name|conf
 decl_stmt|;
-name|ngx_conf_init_unsigned_value
+name|ngx_conf_init_uint_value
 argument_list|(
 name|dpcf
 operator|->
@@ -2098,7 +2098,7 @@ argument_list|,
 literal|32
 argument_list|)
 expr_stmt|;
-name|ngx_conf_init_unsigned_value
+name|ngx_conf_init_uint_value
 argument_list|(
 name|dpcf
 operator|->

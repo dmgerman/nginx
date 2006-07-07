@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c6212af0108
+DECL|struct|__anon2b3ab6270108
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +70,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6212af0208
+DECL|struct|__anon2b3ab6270208
 typedef|typedef
 struct|struct
 block|{
@@ -90,7 +90,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6212af0308
+DECL|struct|__anon2b3ab6270308
 typedef|typedef
 struct|struct
 block|{
@@ -110,7 +110,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6212af0408
+DECL|struct|__anon2b3ab6270408
 typedef|typedef
 struct|struct
 block|{
@@ -3337,7 +3337,7 @@ name|NGX_HAVE_PERL_CLONE
 operator|||
 name|NGX_HAVE_PERL_MULTIPLICITY
 operator|)
-name|ngx_conf_init_unsigned_value
+name|ngx_conf_init_uint_value
 argument_list|(
 name|pmcf
 operator|->
@@ -3348,7 +3348,7 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
-name|ngx_conf_init_unsigned_value
+name|ngx_conf_init_uint_value
 argument_list|(
 name|pmcf
 operator|->

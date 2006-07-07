@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bd2299b0108
+DECL|struct|__anon278706700108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd2299b0208
+DECL|struct|__anon278706700208
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +70,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd2299b0308
+DECL|struct|__anon278706700308
 typedef|typedef
 struct|struct
 block|{
@@ -96,7 +96,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd2299b0408
+DECL|struct|__anon278706700408
 typedef|typedef
 struct|struct
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd2299b0508
+DECL|struct|__anon278706700508
 typedef|typedef
 struct|struct
 block|{
@@ -2452,7 +2452,7 @@ name|ngx_sprintf
 argument_list|(
 name|buf
 argument_list|,
-literal|"%z"
+literal|"%O"
 argument_list|,
 name|r
 operator|->

@@ -4858,7 +4858,7 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
-name|ngx_conf_init_unsigned_value
+name|ngx_conf_init_uint_value
 argument_list|(
 name|ecf
 operator|->
@@ -4875,7 +4875,7 @@ name|ecf
 operator|->
 name|connections
 expr_stmt|;
-name|ngx_conf_init_unsigned_value
+name|ngx_conf_init_uint_value
 argument_list|(
 name|ecf
 operator|->

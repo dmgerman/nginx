@@ -26,7 +26,7 @@ comment|/* AF_INET only */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2ad501cb0108
+DECL|struct|__anon2a3559360108
 typedef|typedef
 struct|struct
 block|{
@@ -45,7 +45,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad501cb0208
+DECL|struct|__anon2a3559360208
 typedef|typedef
 struct|struct
 block|{
@@ -986,7 +986,7 @@ operator|->
 name|from
 expr_stmt|;
 block|}
-name|ngx_conf_merge_unsigned_value
+name|ngx_conf_merge_uint_value
 argument_list|(
 name|conf
 operator|->

@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon279676670108
+DECL|struct|__anon293533630108
 typedef|typedef
 struct|struct
 block|{
@@ -1002,7 +1002,7 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-name|ngx_conf_merge_unsigned_value
+name|ngx_conf_merge_uint_value
 argument_list|(
 name|conf
 operator|->
