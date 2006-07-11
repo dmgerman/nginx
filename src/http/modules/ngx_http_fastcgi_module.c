@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b7a39a20108
+DECL|struct|__anon2b8744290108
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b7a39a20203
+DECL|enum|__anon2b8744290203
 typedef|typedef
 enum|enum
 block|{
@@ -119,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7a39a20308
+DECL|struct|__anon2b8744290308
 typedef|typedef
 struct|struct
 block|{
@@ -232,7 +232,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2b7a39a20408
+DECL|struct|__anon2b8744290408
 typedef|typedef
 struct|struct
 block|{
@@ -275,7 +275,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7a39a20508
+DECL|struct|__anon2b8744290508
 typedef|typedef
 struct|struct
 block|{
@@ -305,7 +305,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7a39a20608
+DECL|struct|__anon2b8744290608
 typedef|typedef
 struct|struct
 block|{
@@ -332,7 +332,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7a39a20708
+DECL|struct|__anon2b8744290708
 typedef|typedef
 struct|struct
 block|{
@@ -752,6 +752,15 @@ literal|"http_404"
 argument_list|)
 block|,
 name|NGX_HTTP_UPSTREAM_FT_HTTP_404
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"off"
+argument_list|)
+block|,
+name|NGX_HTTP_UPSTREAM_FT_OFF
 block|}
 block|,
 block|{
@@ -7498,6 +7507,28 @@ name|NGX_HTTP_UPSTREAM_FT_TIMEOUT
 operator|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|conf
+operator|->
+name|upstream
+operator|.
+name|next_upstream
+operator|&
+name|NGX_HTTP_UPSTREAM_FT_OFF
+condition|)
+block|{
+name|conf
+operator|->
+name|upstream
+operator|.
+name|next_upstream
+operator|=
+name|NGX_CONF_BITMASK_SET
+operator||
+name|NGX_HTTP_UPSTREAM_FT_OFF
+expr_stmt|;
+block|}
 name|ngx_conf_merge_uint_value
 argument_list|(
 name|conf

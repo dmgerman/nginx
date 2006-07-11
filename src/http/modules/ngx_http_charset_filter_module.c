@@ -50,7 +50,7 @@ value|(sizeof("&#1114111;") - 1)
 end_define
 
 begin_typedef
-DECL|struct|__anon2882b7b10108
+DECL|struct|__anon2bf752660108
 typedef|typedef
 struct|struct
 block|{
@@ -83,7 +83,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2882b7b10208
+DECL|struct|__anon2bf752660208
 typedef|typedef
 struct|struct
 block|{
@@ -102,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2882b7b10308
+DECL|struct|__anon2bf752660308
 typedef|typedef
 struct|struct
 block|{
@@ -131,7 +131,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2882b7b10408
+DECL|struct|__anon2bf752660408
 typedef|typedef
 struct|struct
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2882b7b10508
+DECL|struct|__anon2bf752660508
 typedef|typedef
 struct|struct
 block|{
@@ -180,7 +180,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2882b7b10608
+DECL|struct|__anon2bf752660608
 typedef|typedef
 struct|struct
 block|{
@@ -244,7 +244,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2882b7b10708
+DECL|struct|__anon2bf752660708
 typedef|typedef
 struct|struct
 block|{
@@ -1908,6 +1908,56 @@ operator|==
 literal|0
 condition|)
 block|{
+operator|*
+name|ll
+operator|=
+name|ngx_alloc_chain_link
+argument_list|(
+name|r
+operator|->
+name|pool
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|*
+name|ll
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+operator|(
+operator|*
+name|ll
+operator|)
+operator|->
+name|buf
+operator|=
+name|b
+expr_stmt|;
+operator|(
+operator|*
+name|ll
+operator|)
+operator|->
+name|next
+operator|=
+name|NULL
+expr_stmt|;
+name|ll
+operator|=
+operator|&
+operator|(
+operator|*
+name|ll
+operator|)
+operator|->
+name|next
+expr_stmt|;
 continue|continue;
 block|}
 if|if

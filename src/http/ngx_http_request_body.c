@@ -372,6 +372,9 @@ name|NULL
 expr_stmt|;
 if|if
 condition|(
+operator|(
+name|off_t
+operator|)
 name|preread
 operator|>=
 name|r
@@ -480,7 +483,7 @@ operator|->
 name|rest
 operator|<=
 operator|(
-name|size_t
+name|off_t
 operator|)
 operator|(
 name|b
@@ -999,6 +1002,9 @@ name|last
 expr_stmt|;
 if|if
 condition|(
+operator|(
+name|off_t
+operator|)
 name|size
 operator|>
 name|rb

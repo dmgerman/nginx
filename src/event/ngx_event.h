@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon297e2b870108
+DECL|struct|__anon2ac4706d0108
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon297e2b870208
+DECL|struct|__anon2ac4706d0208
 typedef|typedef
 struct|struct
 block|{
@@ -450,7 +450,26 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon297e2b870308
+DECL|struct|__anon2ac4706d0308
+typedef|typedef
+struct|struct
+block|{
+DECL|member|mask
+name|in_addr_t
+name|mask
+decl_stmt|;
+DECL|member|addr
+name|in_addr_t
+name|addr
+decl_stmt|;
+DECL|typedef|ngx_event_debug_t
+block|}
+name|ngx_event_debug_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2ac4706d0408
 typedef|typedef
 struct|struct
 block|{
@@ -1308,7 +1327,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon297e2b870408
+DECL|struct|__anon2ac4706d0508
 typedef|typedef
 struct|struct
 block|{
@@ -1355,7 +1374,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297e2b870508
+DECL|struct|__anon2ac4706d0608
 typedef|typedef
 struct|struct
 block|{

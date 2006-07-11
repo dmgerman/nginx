@@ -28,7 +28,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29cc2afd0108
+DECL|struct|__anon29482be10108
 typedef|typedef
 struct|struct
 block|{
@@ -48,7 +48,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29cc2afd0208
+DECL|struct|__anon29482be10208
 typedef|typedef
 struct|struct
 block|{
@@ -258,6 +258,15 @@ literal|"not_found"
 argument_list|)
 block|,
 name|NGX_HTTP_UPSTREAM_FT_HTTP_404
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"off"
+argument_list|)
+block|,
+name|NGX_HTTP_UPSTREAM_FT_OFF
 block|}
 block|,
 block|{
@@ -2498,6 +2507,28 @@ name|NGX_HTTP_UPSTREAM_FT_TIMEOUT
 operator|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|conf
+operator|->
+name|upstream
+operator|.
+name|next_upstream
+operator|&
+name|NGX_HTTP_UPSTREAM_FT_OFF
+condition|)
+block|{
+name|conf
+operator|->
+name|upstream
+operator|.
+name|next_upstream
+operator|=
+name|NGX_CONF_BITMASK_SET
+operator||
+name|NGX_HTTP_UPSTREAM_FT_OFF
+expr_stmt|;
+block|}
 name|ngx_conf_merge_uint_value
 argument_list|(
 name|conf

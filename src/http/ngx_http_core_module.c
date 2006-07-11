@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29ad62140108
+DECL|struct|__anon28afb8ea0108
 typedef|typedef
 struct|struct
 block|{
@@ -5042,6 +5042,10 @@ name|ngx_http_request_t
 modifier|*
 name|sr
 decl_stmt|;
+name|ngx_http_log_ctx_t
+modifier|*
+name|ctx
+decl_stmt|;
 name|ngx_http_core_srv_conf_t
 modifier|*
 name|cscf
@@ -5579,6 +5583,20 @@ operator|=
 name|pr
 expr_stmt|;
 block|}
+name|ctx
+operator|=
+name|c
+operator|->
+name|log
+operator|->
+name|data
+expr_stmt|;
+name|ctx
+operator|->
+name|current_request
+operator|=
+name|sr
+expr_stmt|;
 name|sr
 operator|->
 name|internal

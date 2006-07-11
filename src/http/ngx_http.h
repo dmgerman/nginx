@@ -98,6 +98,10 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
+name|ngx_http_request_t
+modifier|*
+name|sr
+parameter_list|,
 name|u_char
 modifier|*
 name|buf
@@ -237,6 +241,11 @@ DECL|member|request
 name|ngx_http_request_t
 modifier|*
 name|request
+decl_stmt|;
+DECL|member|current_request
+name|ngx_http_request_t
+modifier|*
+name|current_request
 decl_stmt|;
 block|}
 struct|;
