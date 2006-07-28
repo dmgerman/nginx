@@ -404,7 +404,7 @@ name|NGX_HTTP_MAIN_CONF
 operator||
 name|NGX_HTTP_SRV_CONF
 operator||
-name|NGX_CONF_1MORE
+name|NGX_CONF_FLAG
 block|,
 name|ngx_conf_set_flag_slot
 block|,

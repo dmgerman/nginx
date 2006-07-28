@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon293533630108
+DECL|struct|__anon295a78450108
 typedef|typedef
 struct|struct
 block|{
@@ -466,6 +466,7 @@ end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_http_rewrite_module_ctx
+specifier|static
 name|ngx_http_module_t
 name|ngx_http_rewrite_module_ctx
 init|=

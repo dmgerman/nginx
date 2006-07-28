@@ -83,7 +83,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon29e322980108
+DECL|struct|__anon29c6cf7a0108
 typedef|typedef
 struct|struct
 block|{
@@ -102,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e322980208
+DECL|struct|__anon29c6cf7a0208
 typedef|typedef
 struct|struct
 block|{
@@ -198,13 +198,25 @@ name|value_len
 decl_stmt|;
 DECL|member|variables
 name|ngx_array_t
+modifier|*
 name|variables
+decl_stmt|;
+DECL|member|blocks
+name|ngx_array_t
+modifier|*
+name|blocks
 decl_stmt|;
 DECL|member|conditional
 name|unsigned
 name|conditional
 range|:
 literal|2
+decl_stmt|;
+DECL|member|block
+name|unsigned
+name|block
+range|:
+literal|1
 decl_stmt|;
 DECL|member|output
 name|unsigned
@@ -268,7 +280,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e322980308
+DECL|struct|__anon29c6cf7a0308
 typedef|typedef
 struct|struct
 block|{
@@ -299,7 +311,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e322980408
+DECL|struct|__anon29c6cf7a0408
 typedef|typedef
 struct|struct
 block|{
@@ -321,6 +333,12 @@ name|unsigned
 name|conditional
 range|:
 literal|2
+decl_stmt|;
+DECL|member|block
+name|unsigned
+name|block
+range|:
+literal|1
 decl_stmt|;
 DECL|member|flush
 name|unsigned

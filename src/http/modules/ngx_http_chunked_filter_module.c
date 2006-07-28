@@ -357,6 +357,12 @@ name|buf
 operator|->
 name|flush
 operator|||
+name|cl
+operator|->
+name|buf
+operator|->
+name|sync
+operator|||
 name|ngx_buf_in_memory
 argument_list|(
 name|cl

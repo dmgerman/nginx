@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b81f4320108
+DECL|struct|__anon2a2e527d0108
 typedef|typedef
 struct|struct
 block|{
@@ -108,7 +108,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b81f4320208
+DECL|struct|__anon2a2e527d0208
 typedef|typedef
 struct|struct
 block|{
@@ -143,7 +143,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b81f4320303
+DECL|enum|__anon2a2e527d0303
 typedef|typedef
 enum|enum
 block|{
@@ -179,7 +179,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b81f4320408
+DECL|struct|__anon2a2e527d0408
 typedef|typedef
 struct|struct
 block|{
@@ -199,7 +199,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b81f4320508
+DECL|struct|__anon2a2e527d0508
 typedef|typedef
 struct|struct
 block|{
@@ -258,7 +258,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b81f4320608
+DECL|struct|__anon2a2e527d0608
 typedef|typedef
 struct|struct
 block|{
@@ -331,7 +331,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2b81f4320708
+DECL|struct|__anon2a2e527d0708
 typedef|typedef
 struct|struct
 block|{
@@ -357,7 +357,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b81f4320808
+DECL|struct|__anon2a2e527d0808
 typedef|typedef
 struct|struct
 block|{
@@ -385,7 +385,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b81f4320908
+DECL|struct|__anon2a2e527d0908
 typedef|typedef
 struct|struct
 block|{
@@ -405,7 +405,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b81f4320a08
+DECL|struct|__anon2a2e527d0a08
 typedef|typedef
 struct|struct
 block|{
@@ -457,7 +457,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b81f4320b08
+DECL|struct|__anon2a2e527d0b08
 typedef|typedef
 struct|struct
 block|{
@@ -478,7 +478,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b81f4320c08
+DECL|struct|__anon2a2e527d0c08
 typedef|typedef
 struct|struct
 block|{
@@ -844,6 +844,10 @@ name|ngx_str_t
 modifier|*
 name|args
 parameter_list|,
+name|ngx_chain_t
+modifier|*
+name|out
+parameter_list|,
 name|ngx_uint_t
 name|flags
 parameter_list|)
@@ -949,13 +953,6 @@ name|chain
 parameter_list|)
 function_decl|;
 end_function_decl
-
-begin_decl_stmt
-specifier|extern
-name|ngx_http_module_t
-name|ngx_http_core_module_ctx
-decl_stmt|;
-end_decl_stmt
 
 begin_decl_stmt
 specifier|extern

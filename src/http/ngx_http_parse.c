@@ -50,7 +50,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon295095dd0103
+DECL|enum|__anon29ca07e50103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1783,7 +1783,7 @@ name|hash
 decl_stmt|,
 name|i
 decl_stmt|;
-DECL|enum|__anon295095dd0203
+DECL|enum|__anon29ca07e50203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2461,7 +2461,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon295095dd0303
+DECL|enum|__anon29ca07e50303
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -3192,6 +3192,12 @@ directive|endif
 case|case
 name|sw_quoted
 case|:
+name|r
+operator|->
+name|quoted_uri
+operator|=
+literal|1
+expr_stmt|;
 if|if
 condition|(
 name|ch

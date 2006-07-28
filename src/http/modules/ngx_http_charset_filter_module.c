@@ -50,7 +50,7 @@ value|(sizeof("&#1114111;") - 1)
 end_define
 
 begin_typedef
-DECL|struct|__anon2bf752660108
+DECL|struct|__anon29a205540108
 typedef|typedef
 struct|struct
 block|{
@@ -83,7 +83,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf752660208
+DECL|struct|__anon29a205540208
 typedef|typedef
 struct|struct
 block|{
@@ -102,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf752660308
+DECL|struct|__anon29a205540308
 typedef|typedef
 struct|struct
 block|{
@@ -131,7 +131,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf752660408
+DECL|struct|__anon29a205540408
 typedef|typedef
 struct|struct
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf752660508
+DECL|struct|__anon29a205540508
 typedef|typedef
 struct|struct
 block|{
@@ -180,7 +180,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf752660608
+DECL|struct|__anon29a205540608
 typedef|typedef
 struct|struct
 block|{
@@ -244,7 +244,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf752660708
+DECL|struct|__anon29a205540708
 typedef|typedef
 struct|struct
 block|{
@@ -5872,6 +5872,15 @@ operator|->
 name|utf8
 operator|=
 literal|1
+expr_stmt|;
+block|}
+else|else
+block|{
+name|c
+operator|->
+name|utf8
+operator|=
+literal|0
 expr_stmt|;
 block|}
 return|return

@@ -30,7 +30,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon29b02e020108
+DECL|struct|__anon277ea1f10108
 typedef|typedef
 struct|struct
 block|{
@@ -284,6 +284,7 @@ end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_http_dav_module_ctx
+specifier|static
 name|ngx_http_module_t
 name|ngx_http_dav_module_ctx
 init|=

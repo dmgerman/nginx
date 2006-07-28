@@ -41,6 +41,7 @@ end_function_decl
 
 begin_decl_stmt
 DECL|variable|ngx_http_write_filter_module_ctx
+specifier|static
 name|ngx_http_module_t
 name|ngx_http_write_filter_module_ctx
 init|=
@@ -230,9 +231,7 @@ name|ngx_log_debug7
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
-name|r
-operator|->
-name|connection
+name|c
 operator|->
 name|log
 argument_list|,
@@ -323,9 +322,7 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
-name|r
-operator|->
-name|connection
+name|c
 operator|->
 name|log
 argument_list|,
@@ -502,9 +499,7 @@ name|ngx_log_debug7
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
-name|r
-operator|->
-name|connection
+name|c
 operator|->
 name|log
 argument_list|,
@@ -595,9 +590,7 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
-name|r
-operator|->
-name|connection
+name|c
 operator|->
 name|log
 argument_list|,
@@ -869,9 +862,7 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
-name|r
-operator|->
-name|connection
+name|c
 operator|->
 name|log
 argument_list|,
@@ -932,9 +923,7 @@ literal|1
 expr_stmt|;
 name|ngx_add_timer
 argument_list|(
-name|r
-operator|->
-name|connection
+name|c
 operator|->
 name|write
 argument_list|,
@@ -1064,9 +1053,7 @@ literal|1
 expr_stmt|;
 name|ngx_add_timer
 argument_list|(
-name|r
-operator|->
-name|connection
+name|c
 operator|->
 name|write
 argument_list|,

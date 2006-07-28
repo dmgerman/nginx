@@ -28,7 +28,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27653b260108
+DECL|struct|__anon28d632eb0108
 typedef|typedef
 struct|struct
 block|{
@@ -135,6 +135,7 @@ end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_http_mysql_test_module_ctx
+specifier|static
 name|ngx_http_module_t
 name|ngx_http_mysql_test_module_ctx
 init|=

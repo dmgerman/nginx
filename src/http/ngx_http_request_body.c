@@ -370,6 +370,12 @@ name|next
 operator|=
 name|NULL
 expr_stmt|;
+name|rb
+operator|->
+name|buf
+operator|=
+name|b
+expr_stmt|;
 if|if
 condition|(
 operator|(
@@ -497,12 +503,6 @@ operator|)
 condition|)
 block|{
 comment|/* the whole request body may be placed in r->header_in */
-name|rb
-operator|->
-name|buf
-operator|=
-name|b
-expr_stmt|;
 name|r
 operator|->
 name|read_event_handler

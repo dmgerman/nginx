@@ -613,7 +613,7 @@ argument_list|)
 block|,
 name|NGX_EVENT_CONF
 operator||
-name|NGX_CONF_TAKE1
+name|NGX_CONF_FLAG
 block|,
 name|ngx_conf_set_flag_slot
 block|,
@@ -637,7 +637,7 @@ argument_list|)
 block|,
 name|NGX_EVENT_CONF
 operator||
-name|NGX_CONF_TAKE1
+name|NGX_CONF_FLAG
 block|,
 name|ngx_conf_set_flag_slot
 block|,

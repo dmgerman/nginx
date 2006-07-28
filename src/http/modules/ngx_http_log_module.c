@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon278706700108
+DECL|struct|__anon2c84f6390108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278706700208
+DECL|struct|__anon2c84f6390208
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +70,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278706700308
+DECL|struct|__anon2c84f6390308
 typedef|typedef
 struct|struct
 block|{
@@ -96,7 +96,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278706700408
+DECL|struct|__anon2c84f6390408
 typedef|typedef
 struct|struct
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278706700508
+DECL|struct|__anon2c84f6390508
 typedef|typedef
 struct|struct
 block|{
@@ -885,6 +885,7 @@ end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_http_log_module_ctx
+specifier|static
 name|ngx_http_module_t
 name|ngx_http_log_module_ctx
 init|=

@@ -6227,6 +6227,14 @@ name|p
 operator|->
 name|temp_file
 operator|->
+name|log_level
+operator|=
+name|NGX_LOG_WARN
+expr_stmt|;
+name|p
+operator|->
+name|temp_file
+operator|->
 name|warn
 operator|=
 literal|"an upstream response is buffered "

@@ -568,6 +568,12 @@ name|ngx_http_core_loc_conf_t
 modifier|*
 name|clcf
 decl_stmt|;
+name|r
+operator|->
+name|header_sent
+operator|=
+literal|1
+expr_stmt|;
 if|if
 condition|(
 name|r

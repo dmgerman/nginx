@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b3ab6270108
+DECL|struct|__anon29c58a1c0108
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +70,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3ab6270208
+DECL|struct|__anon29c58a1c0208
 typedef|typedef
 struct|struct
 block|{
@@ -90,7 +90,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3ab6270308
+DECL|struct|__anon29c58a1c0308
 typedef|typedef
 struct|struct
 block|{
@@ -110,7 +110,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3ab6270408
+DECL|struct|__anon29c58a1c0408
 typedef|typedef
 struct|struct
 block|{
@@ -805,6 +805,8 @@ block|,
 name|ngx_http_perl_ssi
 block|,
 name|ngx_http_perl_ssi_params
+block|,
+literal|0
 block|,
 literal|0
 block|,

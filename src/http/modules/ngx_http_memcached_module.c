@@ -28,7 +28,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29482be10108
+DECL|struct|__anon2be6363d0108
 typedef|typedef
 struct|struct
 block|{
@@ -48,7 +48,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29482be10208
+DECL|struct|__anon2be6363d0208
 typedef|typedef
 struct|struct
 block|{
@@ -523,6 +523,7 @@ end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_http_memcached_module_ctx
+specifier|static
 name|ngx_http_module_t
 name|ngx_http_memcached_module_ctx
 init|=

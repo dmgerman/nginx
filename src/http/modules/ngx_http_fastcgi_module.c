@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b8744290108
+DECL|struct|__anon2a0a8f100108
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b8744290203
+DECL|enum|__anon2a0a8f100203
 typedef|typedef
 enum|enum
 block|{
@@ -119,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8744290308
+DECL|struct|__anon2a0a8f100308
 typedef|typedef
 struct|struct
 block|{
@@ -232,7 +232,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2b8744290408
+DECL|struct|__anon2a0a8f100408
 typedef|typedef
 struct|struct
 block|{
@@ -275,7 +275,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8744290508
+DECL|struct|__anon2a0a8f100508
 typedef|typedef
 struct|struct
 block|{
@@ -305,7 +305,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8744290608
+DECL|struct|__anon2a0a8f100608
 typedef|typedef
 struct|struct
 block|{
@@ -332,7 +332,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8744290708
+DECL|struct|__anon2a0a8f100708
 typedef|typedef
 struct|struct
 block|{
@@ -1502,6 +1502,7 @@ end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_http_fastcgi_module_ctx
+specifier|static
 name|ngx_http_module_t
 name|ngx_http_fastcgi_module_ctx
 init|=

@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon296d88380108
+DECL|struct|__anon2a4555a50108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296d88380208
+DECL|struct|__anon2a4555a50208
 typedef|typedef
 struct|struct
 block|{
@@ -291,6 +291,7 @@ end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_http_autoindex_module_ctx
+specifier|static
 name|ngx_http_module_t
 name|ngx_http_autoindex_module_ctx
 init|=

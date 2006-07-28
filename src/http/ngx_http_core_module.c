@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28afb8ea0108
+DECL|struct|__anon298edd9c0108
 typedef|typedef
 struct|struct
 block|{
@@ -1818,6 +1818,7 @@ end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_http_core_module_ctx
+specifier|static
 name|ngx_http_module_t
 name|ngx_http_core_module_ctx
 init|=
@@ -4519,8 +4520,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|last
-operator|=
+if|if
+condition|(
 name|ngx_http_script_run
 argument_list|(
 name|r
@@ -4541,12 +4542,28 @@ name|root_values
 operator|->
 name|elts
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|last
 operator|==
 name|NULL
+condition|)
+block|{
+return|return
+name|NULL
+return|;
+block|}
+if|if
+condition|(
+name|ngx_conf_full_name
+argument_list|(
+operator|(
+name|ngx_cycle_t
+operator|*
+operator|)
+name|ngx_cycle
+argument_list|,
+name|path
+argument_list|)
+operator|==
+name|NGX_ERROR
 condition|)
 block|{
 return|return
@@ -4562,6 +4579,16 @@ operator|->
 name|len
 operator|-
 name|reserved
+expr_stmt|;
+name|last
+operator|=
+name|path
+operator|->
+name|data
+operator|+
+name|r
+operator|->
+name|root_length
 expr_stmt|;
 block|}
 name|last
@@ -5015,7 +5042,7 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_http_subrequest (ngx_http_request_t * r,ngx_str_t * uri,ngx_str_t * args,ngx_uint_t flags)
+DECL|function|ngx_http_subrequest (ngx_http_request_t * r,ngx_str_t * uri,ngx_str_t * args,ngx_chain_t * out,ngx_uint_t flags)
 name|ngx_http_subrequest
 parameter_list|(
 name|ngx_http_request_t
@@ -5029,6 +5056,10 @@ parameter_list|,
 name|ngx_str_t
 modifier|*
 name|args
+parameter_list|,
+name|ngx_chain_t
+modifier|*
+name|out
 parameter_list|,
 name|ngx_uint_t
 name|flags
@@ -5406,6 +5437,12 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|sr
+operator|->
+name|out
+operator|=
+name|out
+expr_stmt|;
 name|sr
 operator|->
 expr|main
@@ -11611,6 +11648,20 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|lcf
+operator|->
+name|root
+operator|.
+name|data
+index|[
+literal|0
+index|]
+operator|!=
+literal|'$'
+condition|)
+block|{
+if|if
+condition|(
 name|ngx_conf_full_name
 argument_list|(
 name|cf
@@ -11629,6 +11680,7 @@ block|{
 return|return
 name|NGX_CONF_ERROR
 return|;
+block|}
 block|}
 name|n
 operator|=

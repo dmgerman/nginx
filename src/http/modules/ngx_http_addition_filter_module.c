@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b54a6a60108
+DECL|struct|__anon2c2e925e0108
 typedef|typedef
 struct|struct
 block|{
@@ -41,7 +41,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b54a6a60208
+DECL|struct|__anon2c2e925e0208
 typedef|typedef
 struct|struct
 block|{
@@ -550,6 +550,8 @@ name|before_body
 argument_list|,
 name|NULL
 argument_list|,
+name|NULL
+argument_list|,
 literal|0
 argument_list|)
 operator|==
@@ -653,6 +655,8 @@ operator|&
 name|conf
 operator|->
 name|after_body
+argument_list|,
+name|NULL
 argument_list|,
 name|NULL
 argument_list|,

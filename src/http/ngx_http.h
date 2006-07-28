@@ -500,25 +500,6 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|u_char
-modifier|*
-name|ngx_http_log_error_info
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|,
-name|u_char
-modifier|*
-name|buf
-parameter_list|,
-name|size_t
-name|len
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
 name|ngx_int_t
 name|ngx_http_read_client_request_body
 parameter_list|(
