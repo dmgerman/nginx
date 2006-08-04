@@ -128,7 +128,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c517a690108
+DECL|struct|__anon2bf754190108
 typedef|typedef
 struct|struct
 block|{
@@ -254,6 +254,9 @@ parameter_list|(
 name|u_char
 modifier|*
 name|dir
+parameter_list|,
+name|ngx_uint_t
+name|access
 parameter_list|)
 function_decl|;
 end_function_decl

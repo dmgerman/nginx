@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bd31e6e0108
+DECL|struct|__anon2c7ebae50108
 typedef|typedef
 struct|struct
 block|{
@@ -117,7 +117,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd31e6e0208
+DECL|struct|__anon2c7ebae50208
 typedef|typedef
 struct|struct
 block|{
@@ -239,7 +239,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd31e6e0308
+DECL|struct|__anon2c7ebae50308
 typedef|typedef
 struct|struct
 block|{
@@ -258,7 +258,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd31e6e0408
+DECL|struct|__anon2c7ebae50408
 typedef|typedef
 struct|struct
 block|{
@@ -277,7 +277,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd31e6e0508
+DECL|struct|__anon2c7ebae50508
 typedef|typedef
 struct|struct
 block|{
@@ -300,7 +300,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd31e6e0608
+DECL|struct|__anon2c7ebae50608
 typedef|typedef
 struct|struct
 block|{
@@ -327,7 +327,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2bd31e6e0708
+DECL|struct|__anon2c7ebae50708
 typedef|typedef
 struct|struct
 block|{
@@ -415,7 +415,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd31e6e0808
+DECL|struct|__anon2c7ebae50808
 typedef|typedef
 struct|struct
 block|{
@@ -460,7 +460,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2bd31e6e0908
+DECL|struct|__anon2c7ebae50908
 typedef|typedef
 struct|struct
 block|{
@@ -483,7 +483,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2bd31e6e0a03
+DECL|enum|__anon2c7ebae50a03
 typedef|typedef
 enum|enum
 block|{
@@ -494,6 +494,24 @@ literal|0
 block|,
 DECL|enumerator|ngx_http_script_file_not_plain
 name|ngx_http_script_file_not_plain
+block|,
+DECL|enumerator|ngx_http_script_file_dir
+name|ngx_http_script_file_dir
+block|,
+DECL|enumerator|ngx_http_script_file_not_dir
+name|ngx_http_script_file_not_dir
+block|,
+DECL|enumerator|ngx_http_script_file_exists
+name|ngx_http_script_file_exists
+block|,
+DECL|enumerator|ngx_http_script_file_not_exists
+name|ngx_http_script_file_not_exists
+block|,
+DECL|enumerator|ngx_http_script_file_exec
+name|ngx_http_script_file_exec
+block|,
+DECL|enumerator|ngx_http_script_file_not_exec
+name|ngx_http_script_file_not_exec
 DECL|typedef|ngx_http_script_file_op_e
 block|}
 name|ngx_http_script_file_op_e
@@ -501,7 +519,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd31e6e0b08
+DECL|struct|__anon2c7ebae50b08
 typedef|typedef
 struct|struct
 block|{
@@ -520,7 +538,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd31e6e0c08
+DECL|struct|__anon2c7ebae50c08
 typedef|typedef
 struct|struct
 block|{
@@ -545,7 +563,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd31e6e0d08
+DECL|struct|__anon2c7ebae50d08
 typedef|typedef
 struct|struct
 block|{
@@ -565,7 +583,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd31e6e0e08
+DECL|struct|__anon2c7ebae50e08
 typedef|typedef
 struct|struct
 block|{

@@ -376,6 +376,17 @@ value|!((fi)->dwFileAttributes& FILE_ATTRIBUTE_DIRECTORY)
 end_define
 
 begin_define
+DECL|macro|ngx_is_link (fi)
+define|#
+directive|define
+name|ngx_is_link
+parameter_list|(
+name|fi
+parameter_list|)
+value|0
+end_define
+
+begin_define
 DECL|macro|ngx_file_size (fi)
 define|#
 directive|define
@@ -521,12 +532,14 @@ value|"FindClose()"
 end_define
 
 begin_define
-DECL|macro|ngx_create_dir (name)
+DECL|macro|ngx_create_dir (name,access)
 define|#
 directive|define
 name|ngx_create_dir
 parameter_list|(
 name|name
+parameter_list|,
+name|access
 parameter_list|)
 value|CreateDirectory((const char *) name, NULL)
 end_define

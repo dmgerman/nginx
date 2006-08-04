@@ -802,6 +802,8 @@ operator|->
 name|name
 operator|.
 name|data
+argument_list|,
+literal|0700
 argument_list|)
 operator|==
 name|NGX_FILE_ERROR
@@ -863,12 +865,15 @@ end_function
 
 begin_function
 name|ngx_err_t
-DECL|function|ngx_create_full_path (u_char * dir)
+DECL|function|ngx_create_full_path (u_char * dir,ngx_uint_t access)
 name|ngx_create_full_path
 parameter_list|(
 name|u_char
 modifier|*
 name|dir
+parameter_list|,
+name|ngx_uint_t
+name|access
 parameter_list|)
 block|{
 name|u_char
@@ -919,6 +924,8 @@ condition|(
 name|ngx_create_dir
 argument_list|(
 name|dir
+argument_list|,
+name|access
 argument_list|)
 operator|==
 name|NGX_FILE_ERROR
@@ -1723,6 +1730,8 @@ operator|->
 name|name
 operator|.
 name|data
+argument_list|,
+literal|0700
 argument_list|)
 operator|==
 name|NGX_FILE_ERROR

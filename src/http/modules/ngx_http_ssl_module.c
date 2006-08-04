@@ -63,6 +63,21 @@ end_define
 
 begin_function_decl
 specifier|static
+name|int
+name|ngx_http_ssl_verify_callback
+parameter_list|(
+name|int
+name|ok
+parameter_list|,
+name|X509_STORE_CTX
+modifier|*
+name|x509_store
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
 name|ngx_int_t
 name|ngx_http_ssl_variable
 parameter_list|(
@@ -1549,7 +1564,7 @@ name|ctx
 argument_list|,
 name|NGX_SSL_VERIFY
 argument_list|,
-name|NULL
+name|ngx_http_ssl_verify_callback
 argument_list|)
 expr_stmt|;
 name|SSL_CTX_set_verify_depth
@@ -1686,6 +1701,26 @@ argument_list|)
 expr_stmt|;
 return|return
 name|NGX_CONF_OK
+return|;
+block|}
+end_function
+
+begin_function
+specifier|static
+name|int
+DECL|function|ngx_http_ssl_verify_callback (int ok,X509_STORE_CTX * x509_store)
+name|ngx_http_ssl_verify_callback
+parameter_list|(
+name|int
+name|ok
+parameter_list|,
+name|X509_STORE_CTX
+modifier|*
+name|x509_store
+parameter_list|)
+block|{
+return|return
+literal|1
 return|;
 block|}
 end_function

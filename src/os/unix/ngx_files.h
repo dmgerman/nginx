@@ -297,6 +297,27 @@ value|"rename"
 end_define
 
 begin_define
+DECL|macro|ngx_change_file_access (n,a)
+define|#
+directive|define
+name|ngx_change_file_access
+parameter_list|(
+name|n
+parameter_list|,
+name|a
+parameter_list|)
+value|chmod((const char *) n, a)
+end_define
+
+begin_define
+DECL|macro|ngx_change_file_access_n
+define|#
+directive|define
+name|ngx_change_file_access_n
+value|"chmod"
+end_define
+
+begin_define
 DECL|macro|ngx_file_info (file,sb)
 define|#
 directive|define
@@ -358,6 +379,28 @@ parameter_list|(
 name|sb
 parameter_list|)
 value|(S_ISREG((sb)->st_mode))
+end_define
+
+begin_define
+DECL|macro|ngx_is_link (sb)
+define|#
+directive|define
+name|ngx_is_link
+parameter_list|(
+name|sb
+parameter_list|)
+value|(S_ISLNK((sb)->st_mode))
+end_define
+
+begin_define
+DECL|macro|ngx_is_exec (sb)
+define|#
+directive|define
+name|ngx_is_exec
+parameter_list|(
+name|sb
+parameter_list|)
+value|((sb)->st_mode& S_IXUSR)
 end_define
 
 begin_define
@@ -493,14 +536,16 @@ value|"readdir()"
 end_define
 
 begin_define
-DECL|macro|ngx_create_dir (name)
+DECL|macro|ngx_create_dir (name,access)
 define|#
 directive|define
 name|ngx_create_dir
 parameter_list|(
 name|name
+parameter_list|,
+name|access
 parameter_list|)
-value|mkdir((const char *) name, 0700)
+value|mkdir((const char *) name, access)
 end_define
 
 begin_define
