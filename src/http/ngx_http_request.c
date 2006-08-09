@@ -6154,7 +6154,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"client SSL certificate verify error: (%l:%s) "
+literal|"client SSL certificate verify error: (%l:%s)"
 argument_list|,
 name|rc
 argument_list|,

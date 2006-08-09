@@ -4674,6 +4674,9 @@ case|case
 name|ngx_http_script_file_not_dir
 case|:
 case|case
+name|ngx_http_script_file_not_exists
+case|:
+case|case
 name|ngx_http_script_file_not_exec
 case|:
 goto|goto
