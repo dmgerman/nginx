@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29c58a1c0108
+DECL|struct|__anon2af99cc60108
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +70,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c58a1c0208
+DECL|struct|__anon2af99cc60208
 typedef|typedef
 struct|struct
 block|{
@@ -90,7 +90,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c58a1c0308
+DECL|struct|__anon2af99cc60308
 typedef|typedef
 struct|struct
 block|{
@@ -110,7 +110,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c58a1c0408
+DECL|struct|__anon2af99cc60408
 typedef|typedef
 struct|struct
 block|{
@@ -989,26 +989,6 @@ argument_list|,
 literal|"perl handler"
 argument_list|)
 expr_stmt|;
-comment|/* mod_perl's content handler assumes that content type was already set */
-if|if
-condition|(
-name|ngx_http_set_content_type
-argument_list|(
-name|r
-argument_list|)
-operator|!=
-name|NGX_OK
-condition|)
-block|{
-name|ngx_http_finalize_request
-argument_list|(
-name|r
-argument_list|,
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
 name|ctx
 operator|=
 name|ngx_http_get_module_ctx

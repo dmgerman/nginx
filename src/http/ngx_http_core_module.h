@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a2e527d0108
+DECL|struct|__anon296e43480108
 typedef|typedef
 struct|struct
 block|{
@@ -108,7 +108,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2e527d0208
+DECL|struct|__anon296e43480208
 typedef|typedef
 struct|struct
 block|{
@@ -143,7 +143,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a2e527d0303
+DECL|enum|__anon296e43480303
 typedef|typedef
 enum|enum
 block|{
@@ -179,7 +179,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2e527d0408
+DECL|struct|__anon296e43480408
 typedef|typedef
 struct|struct
 block|{
@@ -199,7 +199,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2e527d0508
+DECL|struct|__anon296e43480508
 typedef|typedef
 struct|struct
 block|{
@@ -258,7 +258,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2e527d0608
+DECL|struct|__anon296e43480608
 typedef|typedef
 struct|struct
 block|{
@@ -331,7 +331,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2a2e527d0708
+DECL|struct|__anon296e43480708
 typedef|typedef
 struct|struct
 block|{
@@ -357,7 +357,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2e527d0808
+DECL|struct|__anon296e43480808
 typedef|typedef
 struct|struct
 block|{
@@ -385,7 +385,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2e527d0908
+DECL|struct|__anon296e43480908
 typedef|typedef
 struct|struct
 block|{
@@ -405,7 +405,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2e527d0a08
+DECL|struct|__anon296e43480a08
 typedef|typedef
 struct|struct
 block|{
@@ -457,7 +457,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2e527d0b08
+DECL|struct|__anon296e43480b08
 typedef|typedef
 struct|struct
 block|{
@@ -478,7 +478,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2e527d0c08
+DECL|struct|__anon296e43480c08
 typedef|typedef
 struct|struct
 block|{
@@ -493,6 +493,16 @@ decl_stmt|;
 DECL|member|uri
 name|ngx_str_t
 name|uri
+decl_stmt|;
+DECL|member|uri_lengths
+name|ngx_array_t
+modifier|*
+name|uri_lengths
+decl_stmt|;
+DECL|member|uri_values
+name|ngx_array_t
+modifier|*
+name|uri_values
 decl_stmt|;
 DECL|typedef|ngx_http_err_page_t
 block|}

@@ -1701,6 +1701,10 @@ operator|!=
 name|r
 operator|->
 expr|main
+operator|||
+name|r
+operator|->
+name|discard_body
 condition|)
 block|{
 return|return

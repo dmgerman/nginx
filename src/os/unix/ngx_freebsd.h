@@ -51,7 +51,7 @@ end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
-name|int
+name|u_long
 name|ngx_freebsd_net_inet_tcp_sendspace
 decl_stmt|;
 end_decl_stmt

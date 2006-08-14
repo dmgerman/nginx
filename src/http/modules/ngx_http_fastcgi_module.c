@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a0a8f100108
+DECL|struct|__anon278056dd0108
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a0a8f100203
+DECL|enum|__anon278056dd0203
 typedef|typedef
 enum|enum
 block|{
@@ -119,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a0a8f100308
+DECL|struct|__anon278056dd0308
 typedef|typedef
 struct|struct
 block|{
@@ -232,7 +232,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2a0a8f100408
+DECL|struct|__anon278056dd0408
 typedef|typedef
 struct|struct
 block|{
@@ -275,7 +275,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a0a8f100508
+DECL|struct|__anon278056dd0508
 typedef|typedef
 struct|struct
 block|{
@@ -305,7 +305,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a0a8f100608
+DECL|struct|__anon278056dd0608
 typedef|typedef
 struct|struct
 block|{
@@ -332,7 +332,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a0a8f100708
+DECL|struct|__anon278056dd0708
 typedef|typedef
 struct|struct
 block|{
@@ -9499,6 +9499,9 @@ name|data
 decl_stmt|;
 if|if
 condition|(
+operator|(
+name|u_long
+operator|)
 operator|*
 name|np
 operator|>=

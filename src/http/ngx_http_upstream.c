@@ -848,7 +848,7 @@ name|ngx_http_upstream_copy_content_type
 block|,
 literal|0
 block|,
-literal|0
+literal|1
 block|}
 block|,
 block|{
