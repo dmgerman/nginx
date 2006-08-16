@@ -133,7 +133,7 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon2b0a43910108
+DECL|struct|__anon2c50057b0108
 typedef|typedef
 struct|struct
 block|{
@@ -165,7 +165,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0a43910208
+DECL|struct|__anon2c50057b0208
 typedef|typedef
 struct|struct
 block|{
@@ -185,7 +185,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0a43910308
+DECL|struct|__anon2c50057b0308
 typedef|typedef
 struct|struct
 block|{
@@ -222,7 +222,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0a43910408
+DECL|struct|__anon2c50057b0408
 typedef|typedef
 struct|struct
 block|{
@@ -350,9 +350,9 @@ name|ngx_str_t
 name|url
 decl_stmt|;
 comment|/* used in proxy_rewrite_location */
-DECL|member|redirect_404
+DECL|member|intercept_404
 name|unsigned
-name|redirect_404
+name|intercept_404
 range|:
 literal|1
 decl_stmt|;
@@ -381,7 +381,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0a43910508
+DECL|struct|__anon2c50057b0508
 typedef|typedef
 struct|struct
 block|{
@@ -417,7 +417,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0a43910608
+DECL|struct|__anon2c50057b0608
 typedef|typedef
 struct|struct
 block|{

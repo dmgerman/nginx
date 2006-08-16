@@ -30,7 +30,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2c0ae12f0108
+DECL|struct|__anon2c0472960108
 typedef|typedef
 struct|struct
 block|{
@@ -314,7 +314,7 @@ name|NGX_HTTP_SRV_CONF
 operator||
 name|NGX_HTTP_LOC_CONF
 operator||
-name|NGX_CONF_TAKE12
+name|NGX_CONF_TAKE123
 block|,
 name|ngx_http_dav_access
 block|,

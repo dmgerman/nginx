@@ -265,20 +265,6 @@ value|(r)->ctx[module.ctx_index]
 end_define
 
 begin_define
-DECL|macro|ngx_http_get_module_err_ctx (r,module)
-define|#
-directive|define
-name|ngx_http_get_module_err_ctx
-parameter_list|(
-name|r
-parameter_list|,
-name|module
-parameter_list|)
-define|\
-value|((r)->err_ctx ? (r)->err_ctx[module.ctx_index] : (r)->ctx[module.ctx_index])
-end_define
-
-begin_define
 DECL|macro|ngx_http_set_ctx (r,c,module)
 define|#
 directive|define
@@ -291,19 +277,6 @@ parameter_list|,
 name|module
 parameter_list|)
 value|r->ctx[module.ctx_index] = c;
-end_define
-
-begin_define
-DECL|macro|ngx_http_delete_ctx (r,module)
-define|#
-directive|define
-name|ngx_http_delete_ctx
-parameter_list|(
-name|r
-parameter_list|,
-name|module
-parameter_list|)
-value|r->ctx[module.ctx_index] = NULL;
 end_define
 
 begin_function_decl

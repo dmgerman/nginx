@@ -28,7 +28,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2be6363d0108
+DECL|struct|__anon2a4dd2ae0108
 typedef|typedef
 struct|struct
 block|{
@@ -48,7 +48,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be6363d0208
+DECL|struct|__anon2a4dd2ae0208
 typedef|typedef
 struct|struct
 block|{
@@ -2353,7 +2353,7 @@ name|conf
 operator|->
 name|upstream
 operator|.
-name|redirect_404
+name|intercept_404
 operator|=
 literal|1
 expr_stmt|;
