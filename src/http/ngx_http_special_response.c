@@ -824,6 +824,12 @@ name|status
 operator|=
 name|error
 expr_stmt|;
+name|r
+operator|->
+name|err_status
+operator|=
+name|error
+expr_stmt|;
 if|if
 condition|(
 name|r
@@ -922,6 +928,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|r
+operator|->
+name|uri_changes
+operator|&&
 name|clcf
 operator|->
 name|error_pages
