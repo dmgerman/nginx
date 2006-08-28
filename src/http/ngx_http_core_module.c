@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a32dbf20108
+DECL|struct|__anon292409220108
 typedef|typedef
 struct|struct
 block|{
@@ -1673,6 +1673,34 @@ block|,
 block|{
 name|ngx_string
 argument_list|(
+literal|"msie_refresh"
+argument_list|)
+block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
+name|NGX_HTTP_SRV_CONF
+operator||
+name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_CONF_FLAG
+block|,
+name|ngx_conf_set_flag_slot
+block|,
+name|NGX_HTTP_LOC_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+name|ngx_http_core_loc_conf_t
+argument_list|,
+name|msie_refresh
+argument_list|)
+block|,
+name|NULL
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
 literal|"log_not_found"
 argument_list|)
 block|,
@@ -1693,6 +1721,34 @@ argument_list|(
 name|ngx_http_core_loc_conf_t
 argument_list|,
 name|log_not_found
+argument_list|)
+block|,
+name|NULL
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"recursive_error_pages"
+argument_list|)
+block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
+name|NGX_HTTP_SRV_CONF
+operator||
+name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_CONF_FLAG
+block|,
+name|ngx_conf_set_flag_slot
+block|,
+name|NGX_HTTP_LOC_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+name|ngx_http_core_loc_conf_t
+argument_list|,
+name|recursive_error_pages
 argument_list|)
 block|,
 name|NULL
@@ -2227,7 +2283,13 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"rewrite or internal redirection cycle"
+literal|"rewrite or internal redirection cycle "
+literal|"while processing \"%V\""
+argument_list|,
+operator|&
+name|r
+operator|->
+name|uri
 argument_list|)
 expr_stmt|;
 name|ngx_http_finalize_request
@@ -5136,7 +5198,9 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"subrequests cycle"
+literal|"subrequests cycle while processing \"%V\""
+argument_list|,
+name|uri
 argument_list|)
 expr_stmt|;
 return|return
@@ -5804,7 +5868,10 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"rewrite or internal redirection cycle"
+literal|"rewrite or internal redirection cycle "
+literal|"while internal redirect to \"%V\""
+argument_list|,
+name|uri
 argument_list|)
 expr_stmt|;
 name|ngx_http_finalize_request
@@ -9027,7 +9094,19 @@ name|NGX_CONF_UNSET
 expr_stmt|;
 name|lcf
 operator|->
+name|msie_refresh
+operator|=
+name|NGX_CONF_UNSET
+expr_stmt|;
+name|lcf
+operator|->
 name|log_not_found
+operator|=
+name|NGX_CONF_UNSET
+expr_stmt|;
+name|lcf
+operator|->
+name|recursive_error_pages
 operator|=
 name|NGX_CONF_UNSET
 expr_stmt|;
@@ -9882,7 +9961,7 @@ name|prev
 operator|->
 name|tcp_nodelay
 argument_list|,
-literal|0
+literal|1
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_msec_value
@@ -10055,6 +10134,19 @@ name|ngx_conf_merge_value
 argument_list|(
 name|conf
 operator|->
+name|msie_refresh
+argument_list|,
+name|prev
+operator|->
+name|msie_refresh
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+name|ngx_conf_merge_value
+argument_list|(
+name|conf
+operator|->
 name|log_not_found
 argument_list|,
 name|prev
@@ -10062,6 +10154,19 @@ operator|->
 name|log_not_found
 argument_list|,
 literal|1
+argument_list|)
+expr_stmt|;
+name|ngx_conf_merge_value
+argument_list|(
+name|conf
+operator|->
+name|recursive_error_pages
+argument_list|,
+name|prev
+operator|->
+name|recursive_error_pages
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 if|if

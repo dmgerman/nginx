@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon296e43480108
+DECL|struct|__anon2b4019ee0108
 typedef|typedef
 struct|struct
 block|{
@@ -108,7 +108,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296e43480208
+DECL|struct|__anon2b4019ee0208
 typedef|typedef
 struct|struct
 block|{
@@ -143,7 +143,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon296e43480303
+DECL|enum|__anon2b4019ee0303
 typedef|typedef
 enum|enum
 block|{
@@ -179,7 +179,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296e43480408
+DECL|struct|__anon2b4019ee0408
 typedef|typedef
 struct|struct
 block|{
@@ -199,7 +199,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296e43480508
+DECL|struct|__anon2b4019ee0508
 typedef|typedef
 struct|struct
 block|{
@@ -258,7 +258,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296e43480608
+DECL|struct|__anon2b4019ee0608
 typedef|typedef
 struct|struct
 block|{
@@ -331,7 +331,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon296e43480708
+DECL|struct|__anon2b4019ee0708
 typedef|typedef
 struct|struct
 block|{
@@ -357,7 +357,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296e43480808
+DECL|struct|__anon2b4019ee0808
 typedef|typedef
 struct|struct
 block|{
@@ -385,7 +385,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296e43480908
+DECL|struct|__anon2b4019ee0908
 typedef|typedef
 struct|struct
 block|{
@@ -405,7 +405,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296e43480a08
+DECL|struct|__anon2b4019ee0a08
 typedef|typedef
 struct|struct
 block|{
@@ -457,7 +457,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296e43480b08
+DECL|struct|__anon2b4019ee0b08
 typedef|typedef
 struct|struct
 block|{
@@ -478,7 +478,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296e43480c08
+DECL|struct|__anon2b4019ee0c08
 typedef|typedef
 struct|struct
 block|{
@@ -730,11 +730,21 @@ name|ngx_flag_t
 name|msie_padding
 decl_stmt|;
 comment|/* msie_padding */
+DECL|member|msie_refresh
+name|ngx_flag_t
+name|msie_refresh
+decl_stmt|;
+comment|/* msie_refresh */
 DECL|member|log_not_found
 name|ngx_flag_t
 name|log_not_found
 decl_stmt|;
 comment|/* log_not_found */
+DECL|member|recursive_error_pages
+name|ngx_flag_t
+name|recursive_error_pages
+decl_stmt|;
+comment|/* recursive_error_pages */
 DECL|member|error_pages
 name|ngx_array_t
 modifier|*
