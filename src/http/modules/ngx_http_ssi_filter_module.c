@@ -62,7 +62,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon29fc16a50108
+DECL|struct|__anon28f01f600108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fc16a50208
+DECL|struct|__anon28f01f600208
 typedef|typedef
 struct|struct
 block|{
@@ -122,7 +122,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fc16a50308
+DECL|struct|__anon28f01f600308
 typedef|typedef
 struct|struct
 block|{
@@ -146,7 +146,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29fc16a50403
+DECL|enum|__anon28f01f600403
 typedef|typedef
 enum|enum
 block|{
@@ -602,9 +602,9 @@ specifier|static
 name|ngx_int_t
 name|ngx_http_ssi_filter_init
 parameter_list|(
-name|ngx_cycle_t
+name|ngx_conf_t
 modifier|*
-name|cycle
+name|cf
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -628,6 +628,8 @@ operator||
 name|NGX_HTTP_SRV_CONF
 operator||
 name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_HTTP_LIF_CONF
 operator||
 name|NGX_CONF_FLAG
 block|,
@@ -795,7 +797,7 @@ block|{
 name|ngx_http_ssi_preconfiguration
 block|,
 comment|/* preconfiguration */
-name|NULL
+name|ngx_http_ssi_filter_init
 block|,
 comment|/* postconfiguration */
 name|ngx_http_ssi_create_main_conf
@@ -840,7 +842,7 @@ comment|/* module type */
 name|NULL
 block|,
 comment|/* init master */
-name|ngx_http_ssi_filter_init
+name|NULL
 block|,
 comment|/* init module */
 name|NULL
@@ -11729,12 +11731,12 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_http_ssi_filter_init (ngx_cycle_t * cycle)
+DECL|function|ngx_http_ssi_filter_init (ngx_conf_t * cf)
 name|ngx_http_ssi_filter_init
 parameter_list|(
-name|ngx_cycle_t
+name|ngx_conf_t
 modifier|*
-name|cycle
+name|cf
 parameter_list|)
 block|{
 name|ngx_http_next_header_filter

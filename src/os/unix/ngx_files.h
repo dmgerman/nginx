@@ -293,7 +293,7 @@ DECL|macro|ngx_rename_file_n
 define|#
 directive|define
 name|ngx_rename_file_n
-value|"rename"
+value|"rename()"
 end_define
 
 begin_define
@@ -314,7 +314,32 @@ DECL|macro|ngx_change_file_access_n
 define|#
 directive|define
 name|ngx_change_file_access_n
-value|"chmod"
+value|"chmod()"
+end_define
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_set_file_time
+parameter_list|(
+name|u_char
+modifier|*
+name|name
+parameter_list|,
+name|ngx_fd_t
+name|fd
+parameter_list|,
+name|time_t
+name|s
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_define
+DECL|macro|ngx_set_file_time_n
+define|#
+directive|define
+name|ngx_set_file_time_n
+value|"utimes()"
 end_define
 
 begin_define

@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c4b21ed0108
+DECL|struct|__anon295566bb0108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4b21ed0208
+DECL|struct|__anon295566bb0208
 typedef|typedef
 struct|struct
 block|{
@@ -96,18 +96,6 @@ end_define
 
 begin_function_decl
 specifier|static
-name|ngx_int_t
-name|ngx_http_headers_filter_init
-parameter_list|(
-name|ngx_cycle_t
-modifier|*
-name|cycle
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-specifier|static
 name|void
 modifier|*
 name|ngx_http_headers_create_conf
@@ -136,6 +124,18 @@ parameter_list|,
 name|void
 modifier|*
 name|child
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
+name|ngx_int_t
+name|ngx_http_headers_filter_init
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -255,7 +255,7 @@ block|{
 name|NULL
 block|,
 comment|/* preconfiguration */
-name|NULL
+name|ngx_http_headers_filter_init
 block|,
 comment|/* postconfiguration */
 name|NULL
@@ -300,7 +300,7 @@ comment|/* module type */
 name|NULL
 block|,
 comment|/* init master */
-name|ngx_http_headers_filter_init
+name|NULL
 block|,
 comment|/* init module */
 name|NULL
@@ -1278,31 +1278,6 @@ end_function
 
 begin_function
 specifier|static
-name|ngx_int_t
-DECL|function|ngx_http_headers_filter_init (ngx_cycle_t * cycle)
-name|ngx_http_headers_filter_init
-parameter_list|(
-name|ngx_cycle_t
-modifier|*
-name|cycle
-parameter_list|)
-block|{
-name|ngx_http_next_header_filter
-operator|=
-name|ngx_http_top_header_filter
-expr_stmt|;
-name|ngx_http_top_header_filter
-operator|=
-name|ngx_http_headers_filter
-expr_stmt|;
-return|return
-name|NGX_OK
-return|;
-block|}
-end_function
-
-begin_function
-specifier|static
 name|void
 modifier|*
 DECL|function|ngx_http_headers_create_conf (ngx_conf_t * cf)
@@ -1455,6 +1430,31 @@ expr_stmt|;
 block|}
 return|return
 name|NGX_CONF_OK
+return|;
+block|}
+end_function
+
+begin_function
+specifier|static
+name|ngx_int_t
+DECL|function|ngx_http_headers_filter_init (ngx_conf_t * cf)
+name|ngx_http_headers_filter_init
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|)
+block|{
+name|ngx_http_next_header_filter
+operator|=
+name|ngx_http_top_header_filter
+expr_stmt|;
+name|ngx_http_top_header_filter
+operator|=
+name|ngx_http_headers_filter
+expr_stmt|;
+return|return
+name|NGX_OK
 return|;
 block|}
 end_function

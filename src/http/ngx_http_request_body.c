@@ -1745,6 +1745,12 @@ name|rev
 argument_list|)
 expr_stmt|;
 block|}
+name|r
+operator|->
+name|discard_body
+operator|=
+literal|1
+expr_stmt|;
 if|if
 condition|(
 name|r
@@ -1760,12 +1766,6 @@ return|return
 name|NGX_OK
 return|;
 block|}
-name|r
-operator|->
-name|discard_body
-operator|=
-literal|1
-expr_stmt|;
 name|size
 operator|=
 name|r

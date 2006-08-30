@@ -56,7 +56,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b578ace0108
+DECL|struct|__anon2c4b6a8e0108
 typedef|typedef
 struct|struct
 block|{
@@ -77,6 +77,16 @@ DECL|member|redirect_args
 name|ngx_str_t
 name|redirect_args
 decl_stmt|;
+DECL|member|next
+name|SV
+modifier|*
+name|next
+decl_stmt|;
+DECL|member|done
+name|ngx_uint_t
+name|done
+decl_stmt|;
+comment|/* unsigned  done:1; */
 if|#
 directive|if
 operator|(
@@ -142,6 +152,17 @@ name|pTHX_
 name|CV
 modifier|*
 name|cv
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_http_perl_handle_request
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
 parameter_list|)
 function_decl|;
 end_function_decl

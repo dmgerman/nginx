@@ -311,6 +311,31 @@ end_function_decl
 
 begin_function_decl
 name|ngx_int_t
+name|ngx_set_file_time
+parameter_list|(
+name|u_char
+modifier|*
+name|name
+parameter_list|,
+name|ngx_fd_t
+name|fd
+parameter_list|,
+name|time_t
+name|s
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_define
+DECL|macro|ngx_set_file_time_n
+define|#
+directive|define
+name|ngx_set_file_time_n
+value|"SetFileTime()"
+end_define
+
+begin_function_decl
+name|ngx_int_t
 name|ngx_file_info
 parameter_list|(
 name|u_char
@@ -350,7 +375,7 @@ DECL|macro|ngx_fd_info_n
 define|#
 directive|define
 name|ngx_fd_info_n
-value|"GetFileInformationByHandle"
+value|"GetFileInformationByHandle()"
 end_define
 
 begin_define

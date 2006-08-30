@@ -66,7 +66,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon295a1e650108
+DECL|struct|__anon29f68ec90108
 typedef|typedef
 struct|struct
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295a1e650208
+DECL|struct|__anon29f68ec90208
 typedef|typedef
 struct|struct
 block|{
@@ -285,9 +285,9 @@ specifier|static
 name|ngx_int_t
 name|ngx_http_userid_init
 parameter_list|(
-name|ngx_cycle_t
+name|ngx_conf_t
 modifier|*
-name|cycle
+name|cf
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -793,7 +793,7 @@ block|{
 name|ngx_http_userid_add_variables
 block|,
 comment|/* preconfiguration */
-name|NULL
+name|ngx_http_userid_init
 block|,
 comment|/* postconfiguration */
 name|NULL
@@ -838,7 +838,7 @@ comment|/* module type */
 name|NULL
 block|,
 comment|/* init master */
-name|ngx_http_userid_init
+name|NULL
 block|,
 comment|/* init module */
 name|NULL
@@ -3054,31 +3054,6 @@ end_function
 
 begin_function
 specifier|static
-name|ngx_int_t
-DECL|function|ngx_http_userid_init (ngx_cycle_t * cycle)
-name|ngx_http_userid_init
-parameter_list|(
-name|ngx_cycle_t
-modifier|*
-name|cycle
-parameter_list|)
-block|{
-name|ngx_http_next_header_filter
-operator|=
-name|ngx_http_top_header_filter
-expr_stmt|;
-name|ngx_http_top_header_filter
-operator|=
-name|ngx_http_userid_filter
-expr_stmt|;
-return|return
-name|NGX_OK
-return|;
-block|}
-end_function
-
-begin_function
-specifier|static
 name|void
 modifier|*
 DECL|function|ngx_http_userid_create_conf (ngx_conf_t * cf)
@@ -3320,6 +3295,31 @@ block|}
 block|}
 return|return
 name|NGX_CONF_OK
+return|;
+block|}
+end_function
+
+begin_function
+specifier|static
+name|ngx_int_t
+DECL|function|ngx_http_userid_init (ngx_conf_t * cf)
+name|ngx_http_userid_init
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|)
+block|{
+name|ngx_http_next_header_filter
+operator|=
+name|ngx_http_top_header_filter
+expr_stmt|;
+name|ngx_http_top_header_filter
+operator|=
+name|ngx_http_userid_filter
+expr_stmt|;
+return|return
+name|NGX_OK
 return|;
 block|}
 end_function

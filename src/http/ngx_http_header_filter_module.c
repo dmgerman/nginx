@@ -32,9 +32,9 @@ specifier|static
 name|ngx_int_t
 name|ngx_http_header_filter_init
 parameter_list|(
-name|ngx_cycle_t
+name|ngx_conf_t
 modifier|*
-name|cycle
+name|cf
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -61,7 +61,7 @@ block|{
 name|NULL
 block|,
 comment|/* preconfiguration */
-name|NULL
+name|ngx_http_header_filter_init
 block|,
 comment|/* postconfiguration */
 name|NULL
@@ -107,7 +107,7 @@ comment|/* module type */
 name|NULL
 block|,
 comment|/* init master */
-name|ngx_http_header_filter_init
+name|NULL
 block|,
 comment|/* init module */
 name|NULL
@@ -544,14 +544,14 @@ decl_stmt|;
 name|size_t
 name|len
 decl_stmt|;
+name|ngx_buf_t
+modifier|*
+name|b
+decl_stmt|;
 name|ngx_uint_t
 name|status
 decl_stmt|,
 name|i
-decl_stmt|;
-name|ngx_buf_t
-modifier|*
-name|b
 decl_stmt|;
 name|ngx_chain_t
 name|out
@@ -2715,12 +2715,12 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_http_header_filter_init (ngx_cycle_t * cycle)
+DECL|function|ngx_http_header_filter_init (ngx_conf_t * cf)
 name|ngx_http_header_filter_init
 parameter_list|(
-name|ngx_cycle_t
+name|ngx_conf_t
 modifier|*
-name|cycle
+name|cf
 parameter_list|)
 block|{
 name|ngx_http_top_header_filter

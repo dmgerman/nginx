@@ -26,9 +26,9 @@ specifier|static
 name|ngx_int_t
 name|ngx_http_not_modified_filter_init
 parameter_list|(
-name|ngx_cycle_t
+name|ngx_conf_t
 modifier|*
-name|cycle
+name|cf
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -43,7 +43,7 @@ block|{
 name|NULL
 block|,
 comment|/* preconfiguration */
-name|NULL
+name|ngx_http_not_modified_filter_init
 block|,
 comment|/* postconfiguration */
 name|NULL
@@ -88,7 +88,7 @@ comment|/* module type */
 name|NULL
 block|,
 comment|/* init master */
-name|ngx_http_not_modified_filter_init
+name|NULL
 block|,
 comment|/* init module */
 name|NULL
@@ -120,8 +120,8 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_http_not_modified_header_filter (ngx_http_request_t * r)
 specifier|static
+DECL|function|ngx_http_not_modified_header_filter (ngx_http_request_t * r)
 name|ngx_int_t
 name|ngx_http_not_modified_header_filter
 parameter_list|(
@@ -277,14 +277,14 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_not_modified_filter_init (ngx_cycle_t * cycle)
 specifier|static
+DECL|function|ngx_http_not_modified_filter_init (ngx_conf_t * cf)
 name|ngx_int_t
 name|ngx_http_not_modified_filter_init
 parameter_list|(
-name|ngx_cycle_t
+name|ngx_conf_t
 modifier|*
-name|cycle
+name|cf
 parameter_list|)
 block|{
 name|ngx_http_next_header_filter

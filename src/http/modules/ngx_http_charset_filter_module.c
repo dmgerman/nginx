@@ -50,7 +50,7 @@ value|(sizeof("&#1114111;") - 1)
 end_define
 
 begin_typedef
-DECL|struct|__anon29a205540108
+DECL|struct|__anon2ab2a4420108
 typedef|typedef
 struct|struct
 block|{
@@ -83,7 +83,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a205540208
+DECL|struct|__anon2ab2a4420208
 typedef|typedef
 struct|struct
 block|{
@@ -102,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a205540308
+DECL|struct|__anon2ab2a4420308
 typedef|typedef
 struct|struct
 block|{
@@ -131,7 +131,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a205540408
+DECL|struct|__anon2ab2a4420408
 typedef|typedef
 struct|struct
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a205540508
+DECL|struct|__anon2ab2a4420508
 typedef|typedef
 struct|struct
 block|{
@@ -180,7 +180,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a205540608
+DECL|struct|__anon2ab2a4420608
 typedef|typedef
 struct|struct
 block|{
@@ -244,7 +244,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a205540708
+DECL|struct|__anon2ab2a4420708
 typedef|typedef
 struct|struct
 block|{
@@ -479,18 +479,6 @@ parameter_list|,
 name|ngx_str_t
 modifier|*
 name|name
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-specifier|static
-name|ngx_int_t
-name|ngx_http_charset_filter_init
-parameter_list|(
-name|ngx_cycle_t
-modifier|*
-name|cycle
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -733,7 +721,7 @@ comment|/* module type */
 name|NULL
 block|,
 comment|/* init master */
-name|ngx_http_charset_filter_init
+name|NULL
 block|,
 comment|/* init module */
 name|NULL
@@ -5891,39 +5879,6 @@ end_function
 
 begin_function
 specifier|static
-name|ngx_int_t
-DECL|function|ngx_http_charset_filter_init (ngx_cycle_t * cycle)
-name|ngx_http_charset_filter_init
-parameter_list|(
-name|ngx_cycle_t
-modifier|*
-name|cycle
-parameter_list|)
-block|{
-name|ngx_http_next_header_filter
-operator|=
-name|ngx_http_top_header_filter
-expr_stmt|;
-name|ngx_http_top_header_filter
-operator|=
-name|ngx_http_charset_header_filter
-expr_stmt|;
-name|ngx_http_next_body_filter
-operator|=
-name|ngx_http_top_body_filter
-expr_stmt|;
-name|ngx_http_top_body_filter
-operator|=
-name|ngx_http_charset_body_filter
-expr_stmt|;
-return|return
-name|NGX_OK
-return|;
-block|}
-end_function
-
-begin_function
-specifier|static
 name|void
 modifier|*
 DECL|function|ngx_http_charset_create_main_conf (ngx_conf_t * cf)
@@ -6754,6 +6709,22 @@ operator|.
 name|dst2src
 expr_stmt|;
 block|}
+name|ngx_http_next_header_filter
+operator|=
+name|ngx_http_top_header_filter
+expr_stmt|;
+name|ngx_http_top_header_filter
+operator|=
+name|ngx_http_charset_header_filter
+expr_stmt|;
+name|ngx_http_next_body_filter
+operator|=
+name|ngx_http_top_body_filter
+expr_stmt|;
+name|ngx_http_top_body_filter
+operator|=
+name|ngx_http_charset_body_filter
+expr_stmt|;
 return|return
 name|NGX_OK
 return|;

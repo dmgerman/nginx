@@ -30,7 +30,7 @@ value|2048
 end_define
 
 begin_typedef
-DECL|struct|__anon2bb9d8280108
+DECL|struct|__anon2a351ead0108
 typedef|typedef
 struct|struct
 block|{
@@ -45,7 +45,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb9d8280208
+DECL|struct|__anon2a351ead0208
 typedef|typedef
 struct|struct
 block|{
@@ -166,9 +166,9 @@ specifier|static
 name|ngx_int_t
 name|ngx_http_auth_basic_init
 parameter_list|(
-name|ngx_cycle_t
+name|ngx_conf_t
 modifier|*
-name|cycle
+name|cf
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -288,7 +288,7 @@ block|{
 name|NULL
 block|,
 comment|/* preconfiguration */
-name|NULL
+name|ngx_http_auth_basic_init
 block|,
 comment|/* postconfiguration */
 name|NULL
@@ -333,7 +333,7 @@ comment|/* module type */
 name|NULL
 block|,
 comment|/* init master */
-name|ngx_http_auth_basic_init
+name|NULL
 block|,
 comment|/* init module */
 name|NULL
@@ -408,7 +408,7 @@ index|[
 name|NGX_HTTP_AUTH_BUF_SIZE
 index|]
 decl_stmt|;
-DECL|enum|__anon2bb9d8280303
+DECL|enum|__anon2a351ead0303
 enum|enum
 block|{
 DECL|enumerator|sw_login
@@ -1482,12 +1482,12 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_http_auth_basic_init (ngx_cycle_t * cycle)
+DECL|function|ngx_http_auth_basic_init (ngx_conf_t * cf)
 name|ngx_http_auth_basic_init
 parameter_list|(
-name|ngx_cycle_t
+name|ngx_conf_t
 modifier|*
-name|cycle
+name|cf
 parameter_list|)
 block|{
 name|ngx_http_handler_pt
@@ -1500,9 +1500,9 @@ name|cmcf
 decl_stmt|;
 name|cmcf
 operator|=
-name|ngx_http_cycle_get_module_main_conf
+name|ngx_http_conf_get_module_main_conf
 argument_list|(
-name|cycle
+name|cf
 argument_list|,
 name|ngx_http_core_module
 argument_list|)
