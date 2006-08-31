@@ -89,7 +89,7 @@ name|min
 decl_stmt|,
 name|sec
 decl_stmt|;
-DECL|enum|__anon275d456f0103
+DECL|enum|__anon2c30a5590103
 enum|enum
 block|{
 DECL|enumerator|no
@@ -100,7 +100,7 @@ block|,
 DECL|enumerator|rfc822
 name|rfc822
 block|,
-comment|/* Tue 10 Nov 2002 23:50:13    */
+comment|/* Tue, 10 Nov 2002 23:50:13   */
 DECL|enumerator|rfc850
 name|rfc850
 block|,
