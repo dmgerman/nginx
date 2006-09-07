@@ -22,8 +22,16 @@ file|<ngx_event.h>
 end_include
 
 begin_comment
-comment|/*  * On Linux up to 2.4.21 sendfile() (syscall #187) works with 32-bit  * offsets only, and the including<sys/sendfile.h> breaks the compiling,  * if off_t is 64 bit wide.  So we use own sendfile() definition, where offset  * parameter is int32_t, and use sendfile() for the file parts below 2G only,  * see src/os/unix/ngx_linux_config.h  *  * Linux 2.4.21 has a new sendfile64() syscall #239.  */
+comment|/*  * On Linux up to 2.4.21 sendfile() (syscall #187) works with 32-bit  * offsets only, and the including<sys/sendfile.h> breaks the compiling,  * if off_t is 64 bit wide.  So we use own sendfile() definition, where offset  * parameter is int32_t, and use sendfile() for the file parts below 2G only,  * see src/os/unix/ngx_linux_config.h  *  * Linux 2.4.21 has the new sendfile64() syscall #239.  *  * On Linux up to 2.6.16 sendfile() does not allow to pass the count parameter  * more than 2G-1 bytes even on 64-bit platforms: it returns EINVAL,  * so we limit it to 2G-1 bytes.  */
 end_comment
+
+begin_define
+DECL|macro|NGX_SENDFILE_LIMIT
+define|#
+directive|define
+name|NGX_SENDFILE_LIMIT
+value|2147483647L
+end_define
 
 begin_if
 if|#
@@ -170,7 +178,7 @@ return|return
 name|in
 return|;
 block|}
-comment|/* the maximum limit size is the maximum size_t value - the page size */
+comment|/* the maximum limit size is 2G-1 - the page size */
 if|if
 condition|(
 name|limit
@@ -179,14 +187,14 @@ literal|0
 operator|||
 name|limit
 operator|>
-name|NGX_MAX_SIZE_T_VALUE
+name|NGX_SENDFILE_LIMIT
 operator|-
 name|ngx_pagesize
 condition|)
 block|{
 name|limit
 operator|=
-name|NGX_MAX_SIZE_T_VALUE
+name|NGX_SENDFILE_LIMIT
 operator|-
 name|ngx_pagesize
 expr_stmt|;
