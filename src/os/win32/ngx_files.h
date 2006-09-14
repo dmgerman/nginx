@@ -158,14 +158,6 @@ name|NGX_FILE_APPEND
 value|0
 end_define
 
-begin_define
-DECL|macro|NGX_FILE_NOATIME
-define|#
-directive|define
-name|NGX_FILE_NOATIME
-value|0
-end_define
-
 begin_function_decl
 name|ngx_int_t
 name|ngx_file_append_mode

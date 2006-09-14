@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28f505600108
+DECL|struct|__anon27a650820108
 typedef|typedef
 struct|struct
 block|{
@@ -438,8 +438,6 @@ operator|.
 name|data
 argument_list|,
 name|NGX_FILE_RDONLY
-operator||
-name|NGX_FILE_NOATIME
 argument_list|,
 name|NGX_FILE_OPEN
 argument_list|)
