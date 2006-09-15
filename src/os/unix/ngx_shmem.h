@@ -6,14 +6,14 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|_NGX_SHARED_H_INCLUDED_
+name|_NGX_SHMEM_H_INCLUDED_
 end_ifndef
 
 begin_define
-DECL|macro|_NGX_SHARED_H_INCLUDED_
+DECL|macro|_NGX_SHMEM_H_INCLUDED_
 define|#
 directive|define
-name|_NGX_SHARED_H_INCLUDED_
+name|_NGX_SHMEM_H_INCLUDED_
 end_define
 
 begin_include
@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon278ed2130108
+DECL|struct|__anon2c9bca2e0108
 typedef|typedef
 struct|struct
 block|{
@@ -81,7 +81,7 @@ directive|endif
 end_endif
 
 begin_comment
-comment|/* _NGX_SHARED_H_INCLUDED_ */
+comment|/* _NGX_SHMEM_H_INCLUDED_ */
 end_comment
 
 end_unit
