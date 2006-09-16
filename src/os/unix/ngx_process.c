@@ -28,7 +28,7 @@ file|<ngx_channel.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2aaa7ba10108
+DECL|struct|__anon29fc06050108
 typedef|typedef
 struct|struct
 block|{
@@ -1522,7 +1522,7 @@ operator|>
 literal|0
 condition|)
 block|{
-comment|/*                  * Ignore the signal in the new binary if its parent is                  * not the init process, i.e. the old binary's process                  * is still running.  Or ingore the signal in the old binary's                  * process if the new binary's process is already running.                  */
+comment|/*                  * Ignore the signal in the new binary if its parent is                  * not the init process, i.e. the old binary's process                  * is still running.  Or ignore the signal in the old binary's                  * process if the new binary's process is already running.                  */
 name|action
 operator|=
 literal|", ignoring"
