@@ -26,7 +26,7 @@ comment|/*  * The module can check browser versions conforming to the following 
 end_comment
 
 begin_typedef
-DECL|struct|__anon2bceb4510108
+DECL|struct|__anon2ad5b8e00108
 typedef|typedef
 struct|struct
 block|{
@@ -59,7 +59,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bceb4510208
+DECL|struct|__anon2ad5b8e00208
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bceb4510308
+DECL|struct|__anon2ad5b8e00308
 typedef|typedef
 struct|struct
 block|{
@@ -108,7 +108,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bceb4510408
+DECL|struct|__anon2ad5b8e00408
 typedef|typedef
 struct|struct
 block|{
@@ -1789,25 +1789,6 @@ operator|+=
 name|ver
 operator|*
 name|scale
-expr_stmt|;
-name|ngx_conf_log_error
-argument_list|(
-name|NGX_LOG_NOTICE
-argument_list|,
-name|cf
-argument_list|,
-literal|0
-argument_list|,
-literal|"browser version \"%V\", %ui"
-argument_list|,
-operator|&
-name|value
-index|[
-literal|2
-index|]
-argument_list|,
-name|version
-argument_list|)
 expr_stmt|;
 name|browser
 operator|->
