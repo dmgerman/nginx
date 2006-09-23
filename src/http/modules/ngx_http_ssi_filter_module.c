@@ -62,7 +62,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon28f01f600108
+DECL|struct|__anon2c5b4f5f0108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f01f600208
+DECL|struct|__anon2c5b4f5f0208
 typedef|typedef
 struct|struct
 block|{
@@ -122,7 +122,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f01f600308
+DECL|struct|__anon2c5b4f5f0308
 typedef|typedef
 struct|struct
 block|{
@@ -146,7 +146,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28f01f600403
+DECL|enum|__anon2c5b4f5f0403
 typedef|typedef
 enum|enum
 block|{
@@ -4136,11 +4136,12 @@ name|buf
 operator|->
 name|last_buf
 operator|||
+name|ngx_buf_in_memory
+argument_list|(
 name|ctx
 operator|->
 name|buf
-operator|->
-name|recycled
+argument_list|)
 condition|)
 block|{
 if|if
