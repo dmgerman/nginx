@@ -892,6 +892,14 @@ name|type
 operator|=
 name|NGX_PARSE_URL_UNIX
 expr_stmt|;
+name|u
+operator|->
+name|uri
+operator|=
+name|u
+operator|->
+name|url
+expr_stmt|;
 name|p
 operator|+=
 literal|5
