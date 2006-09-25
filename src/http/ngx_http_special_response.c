@@ -761,6 +761,10 @@ init|=
 block|{
 literal|3
 block|,
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"GET "
 block|}
 decl_stmt|;
