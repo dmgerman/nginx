@@ -752,6 +752,20 @@ block|}
 decl_stmt|;
 end_decl_stmt
 
+begin_decl_stmt
+DECL|variable|ngx_http_get_name
+specifier|static
+name|ngx_str_t
+name|ngx_http_get_name
+init|=
+block|{
+literal|3
+block|,
+literal|"GET "
+block|}
+decl_stmt|;
+end_decl_stmt
+
 begin_function
 name|ngx_int_t
 DECL|function|ngx_http_special_response_handler (ngx_http_request_t * r,ngx_int_t error)
@@ -1035,6 +1049,12 @@ operator|->
 name|method
 operator|=
 name|NGX_HTTP_GET
+expr_stmt|;
+name|r
+operator|->
+name|method_name
+operator|=
+name|ngx_http_get_name
 expr_stmt|;
 name|uri
 operator|=
