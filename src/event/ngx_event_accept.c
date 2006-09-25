@@ -80,7 +80,7 @@ name|ev
 parameter_list|)
 block|{
 name|socklen_t
-name|sl
+name|socklen
 decl_stmt|;
 name|ngx_err_t
 name|err
@@ -206,7 +206,7 @@ argument_list|)
 expr_stmt|;
 do|do
 block|{
-name|sl
+name|socklen
 operator|=
 name|NGX_SOCKLEN
 expr_stmt|;
@@ -226,7 +226,7 @@ operator|)
 name|sa
 argument_list|,
 operator|&
-name|sl
+name|socklen
 argument_list|)
 expr_stmt|;
 if|if
@@ -426,7 +426,7 @@ name|c
 operator|->
 name|pool
 argument_list|,
-name|sl
+name|socklen
 argument_list|)
 expr_stmt|;
 if|if
@@ -453,7 +453,7 @@ name|sockaddr
 argument_list|,
 name|sa
 argument_list|,
-name|sl
+name|socklen
 argument_list|)
 expr_stmt|;
 name|log
@@ -636,7 +636,7 @@ name|c
 operator|->
 name|socklen
 operator|=
-name|sl
+name|socklen
 expr_stmt|;
 name|c
 operator|->
