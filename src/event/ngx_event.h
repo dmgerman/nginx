@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2ac4706d0108
+DECL|struct|__anon2b79c7200108
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2ac4706d0208
+DECL|struct|__anon2b79c7200208
 typedef|typedef
 struct|struct
 block|{
@@ -120,12 +120,6 @@ name|accept
 range|:
 literal|1
 decl_stmt|;
-DECL|member|oneshot
-name|unsigned
-name|oneshot
-range|:
-literal|1
-decl_stmt|;
 comment|/* used to detect the stale events in kqueue, rt signals and epoll */
 DECL|member|instance
 name|unsigned
@@ -150,6 +144,12 @@ comment|/* the ready event; in aio mode 0 means that no operation can be posted 
 DECL|member|ready
 name|unsigned
 name|ready
+range|:
+literal|1
+decl_stmt|;
+DECL|member|oneshot
+name|unsigned
+name|oneshot
 range|:
 literal|1
 decl_stmt|;
@@ -450,7 +450,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2ac4706d0308
+DECL|struct|__anon2b79c7200308
 typedef|typedef
 struct|struct
 block|{
@@ -469,7 +469,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac4706d0408
+DECL|struct|__anon2b79c7200408
 typedef|typedef
 struct|struct
 block|{
@@ -658,7 +658,7 @@ value|0x00000001
 end_define
 
 begin_comment
-comment|/*  * The event filter is deleted after a notification without an additional  * syscall: kqueue, epoll, Solaris 10's event ports.  */
+comment|/*  * The event filter is deleted after a notification without an additional  * syscall: kqueue, epoll.  */
 end_comment
 
 begin_define
@@ -790,7 +790,19 @@ value|0x00000800
 end_define
 
 begin_comment
-comment|/*  * The event filter is deleted before the closing file.  * Has no meaning for select, poll, epoll.  *  * kqueue:     kqueue deletes event filters for file that closed  *             so we need only to delete filters in user-level batch array  * /dev/poll:  we need to flush POLLREMOVE event before closing file  */
+comment|/*  * All event filters on file descriptor are deleted after a notification:  * Solaris 10's event ports.  */
+end_comment
+
+begin_define
+DECL|macro|NGX_USE_EVENTPORT_EVENT
+define|#
+directive|define
+name|NGX_USE_EVENTPORT_EVENT
+value|0x00001000
+end_define
+
+begin_comment
+comment|/*  * The event filter is deleted before the closing file.  * Has no meaning for select, poll, kqueue, epoll.  * /dev/poll:  we need to flush POLLREMOVE event before closing file  */
 end_comment
 
 begin_define
@@ -942,6 +954,8 @@ elif|#
 directive|elif
 operator|(
 name|NGX_HAVE_DEVPOLL
+operator|||
+name|NGX_HAVE_EVENTPORT
 operator|)
 end_elif
 
@@ -1327,7 +1341,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2ac4706d0508
+DECL|struct|__anon2b79c7200508
 typedef|typedef
 struct|struct
 block|{
@@ -1374,7 +1388,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac4706d0608
+DECL|struct|__anon2b79c7200608
 typedef|typedef
 struct|struct
 block|{
@@ -1450,6 +1464,13 @@ begin_decl_stmt
 specifier|extern
 name|ngx_uint_t
 name|ngx_use_accept_mutex
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_uint_t
+name|ngx_accept_events
 decl_stmt|;
 end_decl_stmt
 

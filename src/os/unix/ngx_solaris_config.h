@@ -334,6 +334,25 @@ endif|#
 directive|endif
 end_endif
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_EVENTPORT
+operator|)
+end_if
+
+begin_include
+include|#
+directive|include
+file|<port.h>
+end_include
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_ifndef
 ifndef|#
 directive|ifndef

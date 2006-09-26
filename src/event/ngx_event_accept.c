@@ -248,6 +248,19 @@ operator|==
 name|NGX_EAGAIN
 condition|)
 block|{
+name|ngx_log_debug0
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|ev
+operator|->
+name|log
+argument_list|,
+name|err
+argument_list|,
+literal|"accept() not ready"
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 name|ngx_log_error
@@ -1101,6 +1114,10 @@ if|if
 condition|(
 name|ngx_accept_mutex_held
 operator|&&
+name|ngx_accept_events
+operator|==
+literal|0
+operator|&&
 operator|!
 operator|(
 name|ngx_event_flags
@@ -1133,6 +1150,10 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|ngx_accept_events
+operator|=
+literal|0
+expr_stmt|;
 name|ngx_accept_mutex_held
 operator|=
 literal|1
@@ -1141,6 +1162,21 @@ return|return
 name|NGX_OK
 return|;
 block|}
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"accept mutex lock failed: %ui"
+argument_list|,
+name|ngx_accept_mutex_held
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|ngx_accept_mutex_held
