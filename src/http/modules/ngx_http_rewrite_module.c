@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c8fb2a70108
+DECL|struct|__anon27a161fb0108
 typedef|typedef
 struct|struct
 block|{
@@ -759,10 +759,25 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|r
+operator|->
+name|err_status
+operator|==
+literal|0
+condition|)
+block|{
 return|return
 name|e
 operator|->
 name|status
+return|;
+block|}
+return|return
+name|r
+operator|->
+name|err_status
 return|;
 block|}
 end_function
