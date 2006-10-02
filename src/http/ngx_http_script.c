@@ -4133,6 +4133,14 @@ name|header_only
 operator|=
 literal|1
 expr_stmt|;
+name|e
+operator|->
+name|request
+operator|->
+name|zero_body
+operator|=
+literal|1
+expr_stmt|;
 block|}
 name|e
 operator|->
