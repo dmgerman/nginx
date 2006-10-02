@@ -604,7 +604,7 @@ name|ngx_de_name
 parameter_list|(
 name|dir
 parameter_list|)
-value|((u_char *) (dir)->fd.cFileName)
+value|((u_char *) (dir)->finddata.cFileName)
 end_define
 
 begin_define
@@ -615,7 +615,7 @@ name|ngx_de_namelen
 parameter_list|(
 name|dir
 parameter_list|)
-value|ngx_strlen((dir)->fd.cFileName)
+value|ngx_strlen((dir)->finddata.cFileName)
 end_define
 
 begin_function_decl
@@ -673,7 +673,7 @@ parameter_list|(
 name|dir
 parameter_list|)
 define|\
-value|((dir)->fd.dwFileAttributes& FILE_ATTRIBUTE_DIRECTORY)
+value|((dir)->finddata.dwFileAttributes& FILE_ATTRIBUTE_DIRECTORY)
 end_define
 
 begin_define
@@ -685,7 +685,7 @@ parameter_list|(
 name|dir
 parameter_list|)
 define|\
-value|!((dir)->fd.dwFileAttributes& FILE_ATTRIBUTE_DIRECTORY)
+value|!((dir)->finddata.dwFileAttributes& FILE_ATTRIBUTE_DIRECTORY)
 end_define
 
 begin_define
@@ -708,7 +708,7 @@ parameter_list|(
 name|dir
 parameter_list|)
 define|\
-value|(((off_t) (dir)->fd.nFileSizeHigh<< 32) | (dir)->fd.nFileSizeLow)
+value|(((off_t) (dir)->finddata.nFileSizeHigh<< 32) | (dir)->finddata.nFileSizeLow)
 end_define
 
 begin_comment
@@ -724,8 +724,86 @@ parameter_list|(
 name|dir
 parameter_list|)
 define|\
-value|(time_t) (((((unsigned __int64)                                           \                            (dir)->fd.ftLastWriteTime.dwHighDateTime<< 32)    \                             | (dir)->fd.ftLastWriteTime.dwLowDateTime)        \                                           - 116444736000000000) / 10000000)
+value|(time_t) (((((unsigned __int64)                                           \                      (dir)->finddata.ftLastWriteTime.dwHighDateTime<< 32)    \                       | (dir)->finddata.ftLastWriteTime.dwLowDateTime)        \                                           - 116444736000000000) / 10000000)
 end_define
+
+begin_typedef
+DECL|struct|__anon29c75cd90108
+typedef|typedef
+struct|struct
+block|{
+DECL|member|dir
+name|HANDLE
+name|dir
+decl_stmt|;
+DECL|member|finddata
+name|WIN32_FIND_DATA
+name|finddata
+decl_stmt|;
+DECL|member|ready
+name|ngx_int_t
+name|ready
+decl_stmt|;
+DECL|member|pattern
+name|u_char
+modifier|*
+name|pattern
+decl_stmt|;
+DECL|member|log
+name|ngx_log_t
+modifier|*
+name|log
+decl_stmt|;
+DECL|typedef|ngx_glob_t
+block|}
+name|ngx_glob_t
+typedef|;
+end_typedef
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_open_glob
+parameter_list|(
+name|ngx_glob_t
+modifier|*
+name|gl
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_define
+DECL|macro|ngx_open_glob_n
+define|#
+directive|define
+name|ngx_open_glob_n
+value|"FindFirstFile()"
+end_define
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_read_glob
+parameter_list|(
+name|ngx_glob_t
+modifier|*
+name|gl
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|name
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_close_glob
+parameter_list|(
+name|ngx_glob_t
+modifier|*
+name|gl
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_function_decl
 name|ssize_t

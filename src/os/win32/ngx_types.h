@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a427f00108
+DECL|struct|__anon2bc857a50108
 typedef|typedef
 struct|struct
 block|{
@@ -61,9 +61,9 @@ DECL|member|dir
 name|HANDLE
 name|dir
 decl_stmt|;
-DECL|member|fd
+DECL|member|finddata
 name|WIN32_FIND_DATA
-name|fd
+name|finddata
 decl_stmt|;
 DECL|member|valid_info
 name|unsigned

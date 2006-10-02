@@ -995,8 +995,13 @@ name|NGX_MAIN_CONF
 expr_stmt|;
 if|#
 directive|if
-literal|0
-block_content|log->log_level = NGX_LOG_DEBUG_ALL;
+literal|1
+name|log
+operator|->
+name|log_level
+operator|=
+name|NGX_LOG_DEBUG_ALL
+expr_stmt|;
 endif|#
 directive|endif
 if|if

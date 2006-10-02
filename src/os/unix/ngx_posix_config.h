@@ -178,6 +178,12 @@ directive|include
 file|<dirent.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<glob.h>
+end_include
+
 begin_if
 if|#
 directive|if
