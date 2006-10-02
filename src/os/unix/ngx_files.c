@@ -1172,7 +1172,7 @@ name|gl
 operator|->
 name|pattern
 argument_list|,
-literal|0
+name|GLOB_NOSORT
 argument_list|,
 name|NULL
 argument_list|,
@@ -1215,6 +1215,9 @@ name|gl
 operator|->
 name|n
 operator|<
+operator|(
+name|size_t
+operator|)
 name|gl
 operator|->
 name|pglob

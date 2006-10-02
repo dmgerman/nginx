@@ -749,12 +749,12 @@ value|(dir)->info.st_mtime
 end_define
 
 begin_typedef
-DECL|struct|__anon2a2de6ff0108
+DECL|struct|__anon2b81ed620108
 typedef|typedef
 struct|struct
 block|{
 DECL|member|n
-name|int
+name|size_t
 name|n
 decl_stmt|;
 DECL|member|pglob
