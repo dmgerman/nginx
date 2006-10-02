@@ -4042,6 +4042,10 @@ name|v
 operator|->
 name|data
 operator|=
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"https"
 expr_stmt|;
 return|return
@@ -4083,6 +4087,10 @@ name|v
 operator|->
 name|data
 operator|=
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"http"
 expr_stmt|;
 return|return
