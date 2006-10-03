@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27a161fb0108
+DECL|struct|__anon2af0d71c0108
 typedef|typedef
 struct|struct
 block|{
@@ -758,6 +758,19 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|e
+operator|->
+name|status
+operator|==
+name|NGX_DECLINED
+condition|)
+block|{
+return|return
+name|NGX_DECLINED
+return|;
 block|}
 if|if
 condition|(
