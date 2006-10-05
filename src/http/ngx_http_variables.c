@@ -3350,6 +3350,17 @@ operator|==
 name|var
 operator|->
 name|len
+operator|&&
+name|n
+operator|==
+name|header
+index|[
+name|i
+index|]
+operator|.
+name|key
+operator|.
+name|len
 condition|)
 block|{
 name|v
