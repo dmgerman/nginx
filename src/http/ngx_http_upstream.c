@@ -12799,7 +12799,7 @@ name|hash
 operator|.
 name|bucket_size
 operator|=
-name|ngx_cacheline_size
+literal|64
 expr_stmt|;
 name|hash
 operator|.

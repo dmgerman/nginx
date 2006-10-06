@@ -76,14 +76,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon29fb844a010a
+DECL|union|__anon2bb16787010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon29fb844a0208
+DECL|struct|__anon2bb167870208
 struct|struct
 block|{
 DECL|member|lengths
@@ -114,7 +114,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29fb844a0308
+DECL|struct|__anon2bb167870308
 typedef|typedef
 struct|struct
 block|{
@@ -198,7 +198,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fb844a0408
+DECL|struct|__anon2bb167870408
 typedef|typedef
 struct|struct
 block|{
@@ -4055,7 +4055,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon29fb844a0503
+DECL|enum|__anon2bb167870503
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -8344,7 +8344,7 @@ name|hash
 operator|.
 name|bucket_size
 operator|=
-name|ngx_cacheline_size
+literal|64
 expr_stmt|;
 name|hash
 operator|.
