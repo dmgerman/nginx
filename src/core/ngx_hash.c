@@ -638,8 +638,6 @@ name|void
 operator|*
 argument_list|)
 operator|)
-operator|-
-literal|1
 operator|)
 expr_stmt|;
 name|start
