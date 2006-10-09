@@ -12799,7 +12799,12 @@ name|hash
 operator|.
 name|bucket_size
 operator|=
+name|ngx_align
+argument_list|(
 literal|64
+argument_list|,
+name|ngx_cacheline_size
+argument_list|)
 expr_stmt|;
 name|hash
 operator|.

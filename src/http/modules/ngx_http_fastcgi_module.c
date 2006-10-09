@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bae0ce00108
+DECL|struct|__anon296c6b8c0108
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2bae0ce00203
+DECL|enum|__anon296c6b8c0203
 typedef|typedef
 enum|enum
 block|{
@@ -119,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bae0ce00308
+DECL|struct|__anon296c6b8c0308
 typedef|typedef
 struct|struct
 block|{
@@ -232,7 +232,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2bae0ce00408
+DECL|struct|__anon296c6b8c0408
 typedef|typedef
 struct|struct
 block|{
@@ -275,7 +275,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bae0ce00508
+DECL|struct|__anon296c6b8c0508
 typedef|typedef
 struct|struct
 block|{
@@ -305,7 +305,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bae0ce00608
+DECL|struct|__anon296c6b8c0608
 typedef|typedef
 struct|struct
 block|{
@@ -332,7 +332,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bae0ce00708
+DECL|struct|__anon296c6b8c0708
 typedef|typedef
 struct|struct
 block|{
@@ -8264,7 +8264,12 @@ name|hash
 operator|.
 name|bucket_size
 operator|=
+name|ngx_align
+argument_list|(
 literal|64
+argument_list|,
+name|ngx_cacheline_size
+argument_list|)
 expr_stmt|;
 name|hash
 operator|.
