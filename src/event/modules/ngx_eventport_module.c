@@ -114,7 +114,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2bff89060108
+DECL|struct|__anon2b42e87c0108
 typedef|typedef
 struct|struct
 block|{
@@ -373,7 +373,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2bff89060208
+DECL|struct|__anon2b42e87c0208
 typedef|typedef
 struct|struct
 block|{
