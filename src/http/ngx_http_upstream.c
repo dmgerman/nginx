@@ -6739,6 +6739,16 @@ literal|"upstream timed out"
 argument_list|)
 expr_stmt|;
 block|}
+name|ngx_http_upstream_finalize_request
+argument_list|(
+name|r
+argument_list|,
+name|u
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+return|return;
 block|}
 name|r
 operator|=
