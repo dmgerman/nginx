@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2946e6db0108
+DECL|struct|__anon2b4c42d20108
 typedef|typedef
 struct|struct
 block|{
@@ -5449,7 +5449,7 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_http_subrequest (ngx_http_request_t * r,ngx_str_t * uri,ngx_str_t * args,ngx_chain_t * out,ngx_uint_t flags)
+DECL|function|ngx_http_subrequest (ngx_http_request_t * r,ngx_str_t * uri,ngx_str_t * args,ngx_http_request_t ** psr,ngx_chain_t * out,ngx_uint_t flags)
 name|ngx_http_subrequest
 parameter_list|(
 name|ngx_http_request_t
@@ -5463,6 +5463,11 @@ parameter_list|,
 name|ngx_str_t
 modifier|*
 name|args
+parameter_list|,
+name|ngx_http_request_t
+modifier|*
+modifier|*
+name|psr
 parameter_list|,
 name|ngx_chain_t
 modifier|*
@@ -6111,6 +6116,11 @@ name|sr
 operator|->
 name|args
 argument_list|)
+expr_stmt|;
+operator|*
+name|psr
+operator|=
+name|sr
 expr_stmt|;
 if|if
 condition|(

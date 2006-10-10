@@ -83,7 +83,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon29c6cf7a0108
+DECL|struct|__anon2ad243890108
 typedef|typedef
 struct|struct
 block|{
@@ -102,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c6cf7a0208
+DECL|struct|__anon2ad243890208
 typedef|typedef
 struct|struct
 block|{
@@ -231,10 +231,9 @@ range|:
 literal|1
 decl_stmt|;
 DECL|member|wait
-name|unsigned
+name|ngx_http_request_t
+modifier|*
 name|wait
-range|:
-literal|1
 decl_stmt|;
 DECL|member|value_buf
 name|void
@@ -280,7 +279,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c6cf7a0308
+DECL|struct|__anon2ad243890308
 typedef|typedef
 struct|struct
 block|{
@@ -311,7 +310,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c6cf7a0408
+DECL|struct|__anon2ad243890408
 typedef|typedef
 struct|struct
 block|{

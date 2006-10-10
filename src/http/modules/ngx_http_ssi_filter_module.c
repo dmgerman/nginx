@@ -62,7 +62,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2c5b4f5f0108
+DECL|struct|__anon2c875ec60108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5b4f5f0208
+DECL|struct|__anon2c875ec60208
 typedef|typedef
 struct|struct
 block|{
@@ -122,7 +122,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5b4f5f0308
+DECL|struct|__anon2c875ec60308
 typedef|typedef
 struct|struct
 block|{
@@ -146,7 +146,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c5b4f5f0403
+DECL|enum|__anon2c875ec60403
 typedef|typedef
 enum|enum
 block|{
@@ -2094,6 +2094,15 @@ return|return
 name|NGX_AGAIN
 return|;
 block|}
+if|if
+condition|(
+name|ctx
+operator|->
+name|wait
+operator|==
+name|r
+condition|)
+block|{
 name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
@@ -2118,8 +2127,9 @@ name|ctx
 operator|->
 name|wait
 operator|=
-literal|0
+name|NULL
 expr_stmt|;
+block|}
 block|}
 name|slcf
 operator|=
@@ -7895,6 +7905,10 @@ modifier|*
 modifier|*
 name|ll
 decl_stmt|;
+name|ngx_http_request_t
+modifier|*
+name|sr
+decl_stmt|;
 name|ngx_http_ssi_ctx_t
 modifier|*
 name|mctx
@@ -8482,6 +8496,9 @@ argument_list|,
 operator|&
 name|args
 argument_list|,
+operator|&
+name|sr
+argument_list|,
 name|out
 argument_list|,
 name|flags
@@ -8516,12 +8533,40 @@ operator|==
 name|NGX_AGAIN
 condition|)
 block|{
+if|if
+condition|(
+name|ctx
+operator|->
+name|wait
+operator|==
+name|NULL
+condition|)
+block|{
 name|ctx
 operator|->
 name|wait
 operator|=
-literal|1
+name|sr
 expr_stmt|;
+block|}
+else|else
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"only one subrequest may be waited at the same time"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 return|return
 name|rc

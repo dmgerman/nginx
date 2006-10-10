@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2922b1730108
+DECL|struct|__anon28c993fd0108
 typedef|typedef
 struct|struct
 block|{
@@ -41,7 +41,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2922b1730208
+DECL|struct|__anon28c993fd0208
 typedef|typedef
 struct|struct
 block|{
@@ -452,6 +452,10 @@ name|ngx_chain_t
 modifier|*
 name|cl
 decl_stmt|;
+name|ngx_http_request_t
+modifier|*
+name|sr
+decl_stmt|;
 name|ngx_http_addition_ctx_t
 modifier|*
 name|ctx
@@ -549,6 +553,9 @@ operator|->
 name|before_body
 argument_list|,
 name|NULL
+argument_list|,
+operator|&
+name|sr
 argument_list|,
 name|NULL
 argument_list|,
@@ -657,6 +664,9 @@ operator|->
 name|after_body
 argument_list|,
 name|NULL
+argument_list|,
+operator|&
+name|sr
 argument_list|,
 name|NULL
 argument_list|,
