@@ -5128,11 +5128,9 @@ operator|!=
 name|NGX_OK
 condition|)
 block|{
-name|ngx_http_upstream_finalize_request
+name|ngx_http_finalize_request
 argument_list|(
 name|r
-argument_list|,
-name|u
 argument_list|,
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 argument_list|)
@@ -5188,11 +5186,9 @@ operator|!=
 name|NGX_OK
 condition|)
 block|{
-name|ngx_http_upstream_finalize_request
+name|ngx_http_finalize_request
 argument_list|(
 name|r
-argument_list|,
-name|u
 argument_list|,
 name|NGX_HTTP_NOT_FOUND
 argument_list|)
