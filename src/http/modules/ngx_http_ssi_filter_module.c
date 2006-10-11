@@ -62,7 +62,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2c875ec60108
+DECL|struct|__anon28a764e90108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c875ec60208
+DECL|struct|__anon28a764e90208
 typedef|typedef
 struct|struct
 block|{
@@ -122,7 +122,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c875ec60308
+DECL|struct|__anon28a764e90308
 typedef|typedef
 struct|struct
 block|{
@@ -146,7 +146,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c875ec60403
+DECL|enum|__anon28a764e90403
 typedef|typedef
 enum|enum
 block|{
@@ -2061,11 +2061,9 @@ condition|)
 block|{
 if|if
 condition|(
-name|r
+name|ctx
 operator|->
-name|connection
-operator|->
-name|data
+name|wait
 operator|!=
 name|r
 condition|)
@@ -2094,15 +2092,6 @@ return|return
 name|NGX_AGAIN
 return|;
 block|}
-if|if
-condition|(
-name|ctx
-operator|->
-name|wait
-operator|==
-name|r
-condition|)
-block|{
 name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
@@ -2129,7 +2118,6 @@ name|wait
 operator|=
 name|NULL
 expr_stmt|;
-block|}
 block|}
 name|slcf
 operator|=
