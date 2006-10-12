@@ -537,7 +537,7 @@ value|0x00000200
 end_define
 
 begin_typedef
-DECL|enum|__anon2ab31b590103
+DECL|enum|__anon2b3242450103
 typedef|typedef
 enum|enum
 block|{
@@ -576,7 +576,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab31b590208
+DECL|struct|__anon2b3242450208
 typedef|typedef
 struct|struct
 block|{
@@ -599,7 +599,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab31b590308
+DECL|struct|__anon2b3242450308
 typedef|typedef
 struct|struct
 block|{
@@ -618,7 +618,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab31b590408
+DECL|struct|__anon2b3242450408
 typedef|typedef
 struct|struct
 block|{
@@ -830,7 +830,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab31b590508
+DECL|struct|__anon2b3242450508
 typedef|typedef
 struct|struct
 block|{
@@ -853,7 +853,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab31b590608
+DECL|struct|__anon2b3242450608
 typedef|typedef
 struct|struct
 block|{
@@ -984,7 +984,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab31b590708
+DECL|struct|__anon2b3242450708
 typedef|typedef
 struct|struct
 block|{
@@ -1023,7 +1023,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab31b590808
+DECL|struct|__anon2b3242450808
 typedef|typedef
 struct|struct
 block|{
@@ -1064,7 +1064,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab31b590908
+DECL|struct|__anon2b3242450908
 typedef|typedef
 struct|struct
 block|{
@@ -1291,14 +1291,6 @@ decl_stmt|;
 DECL|member|http_version
 name|ngx_uint_t
 name|http_version
-decl_stmt|;
-DECL|member|http_major
-name|ngx_uint_t
-name|http_major
-decl_stmt|;
-DECL|member|http_minor
-name|ngx_uint_t
-name|http_minor
 decl_stmt|;
 DECL|member|request_line
 name|ngx_str_t
@@ -1807,6 +1799,18 @@ DECL|member|header_end
 name|u_char
 modifier|*
 name|header_end
+decl_stmt|;
+DECL|member|http_minor
+name|unsigned
+name|http_minor
+range|:
+literal|16
+decl_stmt|;
+DECL|member|http_major
+name|unsigned
+name|http_major
+range|:
+literal|16
 decl_stmt|;
 DECL|member|header_hash
 name|ngx_uint_t
