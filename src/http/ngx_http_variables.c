@@ -4341,6 +4341,9 @@ name|uintptr_t
 name|data
 parameter_list|)
 block|{
+name|size_t
+name|root
+decl_stmt|;
 name|ngx_str_t
 name|path
 decl_stmt|;
@@ -4352,6 +4355,9 @@ name|r
 argument_list|,
 operator|&
 name|path
+argument_list|,
+operator|&
+name|root
 argument_list|,
 literal|0
 argument_list|)

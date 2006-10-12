@@ -30,7 +30,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon279218010108
+DECL|struct|__anon2949d54f0108
 typedef|typedef
 struct|struct
 block|{
@@ -423,6 +423,9 @@ name|char
 modifier|*
 name|failed
 decl_stmt|;
+name|size_t
+name|root
+decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
@@ -608,6 +611,9 @@ name|r
 argument_list|,
 operator|&
 name|path
+argument_list|,
+operator|&
+name|root
 argument_list|,
 literal|0
 argument_list|)
@@ -925,6 +931,9 @@ argument_list|,
 operator|&
 name|path
 argument_list|,
+operator|&
+name|root
+argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
@@ -1027,6 +1036,9 @@ name|u_char
 modifier|*
 name|name
 decl_stmt|;
+name|size_t
+name|root
+decl_stmt|;
 name|time_t
 name|date
 decl_stmt|;
@@ -1055,6 +1067,9 @@ name|r
 argument_list|,
 operator|&
 name|path
+argument_list|,
+operator|&
+name|root
 argument_list|,
 literal|0
 argument_list|)

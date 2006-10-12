@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon277112d60108
+DECL|struct|__anon28eca3200108
 typedef|typedef
 struct|struct
 block|{
@@ -3129,6 +3129,9 @@ modifier|*
 name|ph
 parameter_list|)
 block|{
+name|size_t
+name|root
+decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
@@ -3275,6 +3278,9 @@ name|r
 argument_list|,
 operator|&
 name|path
+argument_list|,
+operator|&
+name|root
 argument_list|,
 literal|0
 argument_list|)
@@ -4748,7 +4754,7 @@ end_function
 begin_function
 name|u_char
 modifier|*
-DECL|function|ngx_http_map_uri_to_path (ngx_http_request_t * r,ngx_str_t * path,size_t reserved)
+DECL|function|ngx_http_map_uri_to_path (ngx_http_request_t * r,ngx_str_t * path,size_t * root_length,size_t reserved)
 name|ngx_http_map_uri_to_path
 parameter_list|(
 name|ngx_http_request_t
@@ -4758,6 +4764,10 @@ parameter_list|,
 name|ngx_str_t
 modifier|*
 name|path
+parameter_list|,
+name|size_t
+modifier|*
+name|root_length
 parameter_list|,
 name|size_t
 name|reserved
@@ -4853,8 +4863,7 @@ operator|==
 name|NULL
 condition|)
 block|{
-name|r
-operator|->
+operator|*
 name|root_length
 operator|=
 name|clcf
@@ -4977,8 +4986,7 @@ return|return
 name|NULL
 return|;
 block|}
-name|r
-operator|->
+operator|*
 name|root_length
 operator|=
 name|path
@@ -4993,8 +5001,7 @@ name|path
 operator|->
 name|data
 operator|+
-name|r
-operator|->
+operator|*
 name|root_length
 expr_stmt|;
 block|}

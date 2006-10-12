@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b564a920108
+DECL|struct|__anon2b1b58d70108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b564a920208
+DECL|struct|__anon2b1b58d70208
 typedef|typedef
 struct|struct
 block|{
@@ -438,6 +438,8 @@ decl_stmt|,
 name|copy
 decl_stmt|,
 name|allocated
+decl_stmt|,
+name|root
 decl_stmt|;
 name|ngx_tm_t
 name|tm
@@ -605,6 +607,9 @@ name|r
 argument_list|,
 operator|&
 name|path
+argument_list|,
+operator|&
+name|root
 argument_list|,
 name|NGX_HTTP_AUTOINDEX_PREALLOCATE
 argument_list|)

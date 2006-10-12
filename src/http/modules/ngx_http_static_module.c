@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27a650820108
+DECL|struct|__anon29fc96fc0108
 typedef|typedef
 struct|struct
 block|{
@@ -238,6 +238,9 @@ decl_stmt|,
 modifier|*
 name|location
 decl_stmt|;
+name|size_t
+name|root
+decl_stmt|;
 name|ngx_fd_t
 name|fd
 decl_stmt|;
@@ -374,6 +377,9 @@ name|r
 argument_list|,
 operator|&
 name|path
+argument_list|,
+operator|&
+name|root
 argument_list|,
 literal|0
 argument_list|)

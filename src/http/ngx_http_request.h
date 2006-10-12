@@ -537,7 +537,7 @@ value|0x00000200
 end_define
 
 begin_typedef
-DECL|enum|__anon2b3242450103
+DECL|enum|__anon2b97c3230103
 typedef|typedef
 enum|enum
 block|{
@@ -576,7 +576,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3242450208
+DECL|struct|__anon2b97c3230208
 typedef|typedef
 struct|struct
 block|{
@@ -599,7 +599,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3242450308
+DECL|struct|__anon2b97c3230308
 typedef|typedef
 struct|struct
 block|{
@@ -618,7 +618,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3242450408
+DECL|struct|__anon2b97c3230408
 typedef|typedef
 struct|struct
 block|{
@@ -830,7 +830,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3242450508
+DECL|struct|__anon2b97c3230508
 typedef|typedef
 struct|struct
 block|{
@@ -853,7 +853,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3242450608
+DECL|struct|__anon2b97c3230608
 typedef|typedef
 struct|struct
 block|{
@@ -984,7 +984,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3242450708
+DECL|struct|__anon2b97c3230708
 typedef|typedef
 struct|struct
 block|{
@@ -1023,7 +1023,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3242450808
+DECL|struct|__anon2b97c3230808
 typedef|typedef
 struct|struct
 block|{
@@ -1064,7 +1064,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3242450908
+DECL|struct|__anon2b97c3230908
 typedef|typedef
 struct|struct
 block|{
@@ -1379,10 +1379,6 @@ DECL|member|variables
 name|ngx_http_variable_value_t
 modifier|*
 name|variables
-decl_stmt|;
-DECL|member|root_length
-name|size_t
-name|root_length
 decl_stmt|;
 DECL|member|limit_rate
 name|size_t
