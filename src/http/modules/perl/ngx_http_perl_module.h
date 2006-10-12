@@ -37,6 +37,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<nginx.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<EXTERN.h>
 end_include
 
@@ -56,7 +62,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4b6a8e0108
+DECL|struct|__anon298e0a290108
 typedef|typedef
 struct|struct
 block|{

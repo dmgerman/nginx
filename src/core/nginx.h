@@ -17,11 +17,19 @@ name|_NGINX_H_INCLUDED_
 end_define
 
 begin_define
+DECL|macro|NGINX_VERSION
+define|#
+directive|define
+name|NGINX_VERSION
+value|"0.4.9"
+end_define
+
+begin_define
 DECL|macro|NGINX_VER
 define|#
 directive|define
 name|NGINX_VER
-value|"nginx/0.4.9"
+value|"nginx/" NGINX_VERSION
 end_define
 
 begin_define

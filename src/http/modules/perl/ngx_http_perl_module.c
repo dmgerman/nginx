@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon275650e70108
+DECL|struct|__anon2c6433b40108
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +70,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275650e70208
+DECL|struct|__anon2c6433b40208
 typedef|typedef
 struct|struct
 block|{
@@ -90,7 +90,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275650e70308
+DECL|struct|__anon2c6433b40308
 typedef|typedef
 struct|struct
 block|{
@@ -110,7 +110,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275650e70408
+DECL|struct|__anon2c6433b40408
 typedef|typedef
 struct|struct
 block|{
@@ -2191,7 +2191,17 @@ block|{
 name|int
 name|n
 decl_stmt|;
+name|STRLEN
+name|len
+decl_stmt|;
+name|SV
+modifier|*
+name|sv
+decl_stmt|;
 name|char
+modifier|*
+name|ver
+decl_stmt|,
 modifier|*
 name|embedding
 index|[
@@ -2439,6 +2449,56 @@ argument_list|,
 literal|"perl_parse() failed: %d"
 argument_list|,
 name|n
+argument_list|)
+expr_stmt|;
+goto|goto
+name|fail
+goto|;
+block|}
+name|sv
+operator|=
+name|get_sv
+argument_list|(
+literal|"nginx::VERSION"
+argument_list|,
+name|FALSE
+argument_list|)
+expr_stmt|;
+name|ver
+operator|=
+name|SvPV
+argument_list|(
+name|sv
+argument_list|,
+name|len
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|ngx_strcmp
+argument_list|(
+name|ver
+argument_list|,
+name|NGINX_VERSION
+argument_list|)
+operator|!=
+literal|0
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"version "
+name|NGINX_VERSION
+literal|" of nginx.pm is required, "
+literal|"but %s was found"
+argument_list|,
+name|ver
 argument_list|)
 expr_stmt|;
 goto|goto
