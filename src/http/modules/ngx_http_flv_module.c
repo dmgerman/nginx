@@ -183,6 +183,9 @@ name|start
 decl_stmt|,
 name|len
 decl_stmt|;
+name|size_t
+name|root
+decl_stmt|;
 name|ngx_fd_t
 name|fd
 decl_stmt|;
@@ -315,6 +318,9 @@ name|r
 argument_list|,
 operator|&
 name|path
+argument_list|,
+operator|&
+name|root
 argument_list|,
 literal|0
 argument_list|)
