@@ -21,10 +21,10 @@ comment|/* 32-bit crc16 */
 end_comment
 
 begin_function
-DECL|function|ngx_crc (char * data,size_t len)
 specifier|static
 name|ngx_inline
 name|uint32_t
+DECL|function|ngx_crc (char * data,size_t len)
 name|ngx_crc
 parameter_list|(
 name|char
@@ -50,7 +50,7 @@ name|len
 operator|--
 control|)
 block|{
-comment|/*          * gcc 2.95.2 x86 and icc 7.1.006 compile that operator          *                                into the single "rol" opcode.          * msvc 6.0sp2 compiles it into four opcodes.          */
+comment|/*          * gcc 2.95.2 x86 and icc 7.1.006 compile          * that operator into the single "rol" opcode,          * msvc 6.0sp2 compiles it into four opcodes.          */
 name|sum
 operator|=
 name|sum
