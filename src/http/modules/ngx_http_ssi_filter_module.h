@@ -83,7 +83,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2ad243890108
+DECL|struct|__anon2a5974540108
 typedef|typedef
 struct|struct
 block|{
@@ -102,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad243890208
+DECL|struct|__anon2a5974540208
 typedef|typedef
 struct|struct
 block|{
@@ -197,7 +197,7 @@ name|size_t
 name|value_len
 decl_stmt|;
 DECL|member|variables
-name|ngx_array_t
+name|ngx_list_t
 modifier|*
 name|variables
 decl_stmt|;
@@ -279,7 +279,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad243890308
+DECL|struct|__anon2a5974540308
 typedef|typedef
 struct|struct
 block|{
@@ -310,7 +310,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad243890408
+DECL|struct|__anon2a5974540408
 typedef|typedef
 struct|struct
 block|{

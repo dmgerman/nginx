@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon296c6b8c0108
+DECL|struct|__anon29ecf1740108
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon296c6b8c0203
+DECL|enum|__anon29ecf1740203
 typedef|typedef
 enum|enum
 block|{
@@ -119,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296c6b8c0308
+DECL|struct|__anon29ecf1740308
 typedef|typedef
 struct|struct
 block|{
@@ -232,7 +232,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon296c6b8c0408
+DECL|struct|__anon29ecf1740408
 typedef|typedef
 struct|struct
 block|{
@@ -275,7 +275,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296c6b8c0508
+DECL|struct|__anon29ecf1740508
 typedef|typedef
 struct|struct
 block|{
@@ -305,7 +305,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296c6b8c0608
+DECL|struct|__anon29ecf1740608
 typedef|typedef
 struct|struct
 block|{
@@ -332,7 +332,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296c6b8c0708
+DECL|struct|__anon29ecf1740708
 typedef|typedef
 struct|struct
 block|{
@@ -1638,6 +1638,33 @@ name|ngx_http_fastcgi_loc_conf_t
 modifier|*
 name|flcf
 decl_stmt|;
+if|if
+condition|(
+name|r
+operator|->
+name|subrequest_in_memory
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"ngx_http_fastcgi_module does not support "
+literal|"subrequest in memeory"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
+return|;
+block|}
 name|flcf
 operator|=
 name|ngx_http_get_module_loc_conf

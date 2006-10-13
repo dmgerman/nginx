@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28eca3200108
+DECL|struct|__anon2b304b6e0108
 typedef|typedef
 struct|struct
 block|{
@@ -5456,7 +5456,7 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_http_subrequest (ngx_http_request_t * r,ngx_str_t * uri,ngx_str_t * args,ngx_http_request_t ** psr,ngx_chain_t * out,ngx_uint_t flags)
+DECL|function|ngx_http_subrequest (ngx_http_request_t * r,ngx_str_t * uri,ngx_str_t * args,ngx_http_request_t ** psr,ngx_http_post_subrequest_t * ps,ngx_uint_t flags)
 name|ngx_http_subrequest
 parameter_list|(
 name|ngx_http_request_t
@@ -5476,9 +5476,9 @@ modifier|*
 modifier|*
 name|psr
 parameter_list|,
-name|ngx_chain_t
+name|ngx_http_post_subrequest_t
 modifier|*
-name|out
+name|ps
 parameter_list|,
 name|ngx_uint_t
 name|flags
@@ -5798,20 +5798,30 @@ operator|->
 name|args
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|flags
-operator|&
-name|NGX_HTTP_ZERO_IN_URI
-condition|)
-block|{
 name|sr
 operator|->
 name|zero_in_uri
 operator|=
-literal|1
+operator|(
+name|flags
+operator|&
+name|NGX_HTTP_ZERO_IN_URI
+operator|)
+operator|!=
+literal|0
 expr_stmt|;
-block|}
+name|sr
+operator|->
+name|subrequest_in_memory
+operator|=
+operator|(
+name|flags
+operator|&
+name|NGX_HTTP_SUBREQUEST_IN_MEMORY
+operator|)
+operator|!=
+literal|0
+expr_stmt|;
 name|sr
 operator|->
 name|unparsed_uri
@@ -5852,12 +5862,6 @@ return|;
 block|}
 name|sr
 operator|->
-name|out
-operator|=
-name|out
-expr_stmt|;
-name|sr
-operator|->
 expr|main
 operator|=
 name|r
@@ -5869,6 +5873,12 @@ operator|->
 name|parent
 operator|=
 name|r
+expr_stmt|;
+name|sr
+operator|->
+name|post_subrequest
+operator|=
+name|ps
 expr_stmt|;
 name|sr
 operator|->
@@ -6151,7 +6161,7 @@ name|NGX_AGAIN
 return|;
 block|}
 return|return
-name|NGX_OK
+name|NGX_DONE
 return|;
 block|}
 end_function

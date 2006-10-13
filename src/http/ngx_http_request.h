@@ -221,6 +221,14 @@ value|1
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_SUBREQUEST_IN_MEMORY
+define|#
+directive|define
+name|NGX_HTTP_SUBREQUEST_IN_MEMORY
+value|2
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_OK
 define|#
 directive|define
@@ -537,7 +545,7 @@ value|0x00000200
 end_define
 
 begin_typedef
-DECL|enum|__anon2b97c3230103
+DECL|enum|__anon2a5913610103
 typedef|typedef
 enum|enum
 block|{
@@ -576,7 +584,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b97c3230208
+DECL|struct|__anon2a5913610208
 typedef|typedef
 struct|struct
 block|{
@@ -599,7 +607,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b97c3230308
+DECL|struct|__anon2a5913610308
 typedef|typedef
 struct|struct
 block|{
@@ -618,7 +626,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b97c3230408
+DECL|struct|__anon2a5913610408
 typedef|typedef
 struct|struct
 block|{
@@ -830,7 +838,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b97c3230508
+DECL|struct|__anon2a5913610508
 typedef|typedef
 struct|struct
 block|{
@@ -853,7 +861,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b97c3230608
+DECL|struct|__anon2a5913610608
 typedef|typedef
 struct|struct
 block|{
@@ -984,7 +992,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b97c3230708
+DECL|struct|__anon2a5913610708
 typedef|typedef
 struct|struct
 block|{
@@ -1023,7 +1031,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b97c3230808
+DECL|struct|__anon2a5913610808
 typedef|typedef
 struct|struct
 block|{
@@ -1064,7 +1072,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b97c3230908
+DECL|struct|__anon2a5913610908
 typedef|typedef
 struct|struct
 block|{
@@ -1130,6 +1138,49 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+
+begin_typedef
+DECL|typedef|ngx_http_post_subrequest_pt
+typedef|typedef
+name|ngx_int_t
+function_decl|(
+modifier|*
+name|ngx_http_post_subrequest_pt
+function_decl|)
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|void
+modifier|*
+name|data
+parameter_list|,
+name|ngx_int_t
+name|rc
+parameter_list|)
+function_decl|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2a5913610a08
+typedef|typedef
+struct|struct
+block|{
+DECL|member|handler
+name|ngx_http_post_subrequest_pt
+name|handler
+decl_stmt|;
+DECL|member|data
+name|void
+modifier|*
+name|data
+decl_stmt|;
+DECL|typedef|ngx_http_post_subrequest_t
+block|}
+name|ngx_http_post_subrequest_t
+typedef|;
+end_typedef
 
 begin_typedef
 DECL|typedef|ngx_http_postponed_request_t
@@ -1340,6 +1391,11 @@ name|ngx_http_postponed_request_t
 modifier|*
 name|postponed
 decl_stmt|;
+DECL|member|post_subrequest
+name|ngx_http_post_subrequest_t
+modifier|*
+name|post_subrequest
+decl_stmt|;
 DECL|member|in_addr
 name|uint32_t
 name|in_addr
@@ -1514,6 +1570,12 @@ decl_stmt|;
 DECL|member|fast_subrequest
 name|unsigned
 name|fast_subrequest
+range|:
+literal|1
+decl_stmt|;
+DECL|member|subrequest_in_memory
+name|unsigned
+name|subrequest_in_memory
 range|:
 literal|1
 decl_stmt|;
