@@ -876,6 +876,15 @@ literal|1
 index|]
 expr_stmt|;
 block|}
+else|else
+block|{
+name|r
+operator|->
+name|allow_ranges
+operator|=
+literal|1
+expr_stmt|;
+block|}
 name|b
 operator|=
 name|ngx_pcalloc
