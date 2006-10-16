@@ -62,7 +62,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2a4329200108
+DECL|struct|__anon29db76db0108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4329200208
+DECL|struct|__anon29db76db0208
 typedef|typedef
 struct|struct
 block|{
@@ -122,7 +122,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4329200308
+DECL|struct|__anon29db76db0308
 typedef|typedef
 struct|struct
 block|{
@@ -146,7 +146,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a4329200403
+DECL|enum|__anon29db76db0403
 typedef|typedef
 enum|enum
 block|{
@@ -8085,6 +8085,9 @@ decl_stmt|,
 modifier|*
 modifier|*
 name|ll
+decl_stmt|,
+modifier|*
+name|out
 decl_stmt|;
 name|ngx_http_request_t
 modifier|*
@@ -8586,15 +8589,8 @@ condition|)
 block|{
 name|ll
 operator|=
-operator|(
-name|ngx_chain_t
-operator|*
-operator|*
-operator|)
 operator|&
-name|psr
-operator|->
-name|data
+name|out
 expr_stmt|;
 for|for
 control|(
@@ -8736,6 +8732,12 @@ operator|->
 name|next
 expr_stmt|;
 block|}
+name|psr
+operator|->
+name|data
+operator|=
+name|out
+expr_stmt|;
 block|}
 else|else
 block|{
