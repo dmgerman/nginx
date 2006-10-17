@@ -50,7 +50,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon291f978a0103
+DECL|enum|__anon2b37fdca0103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1783,7 +1783,7 @@ name|hash
 decl_stmt|,
 name|i
 decl_stmt|;
-DECL|enum|__anon291f978a0203
+DECL|enum|__anon2b37fdca0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1814,6 +1814,7 @@ name|sw_header_almost_done
 block|}
 name|state
 enum|;
+comment|/* the last '\0' is not needed because string is zero terminated */
 specifier|static
 name|u_char
 name|lowcase
@@ -1827,7 +1828,7 @@ literal|"\0abcdefghijklmnopqrstuvwxyz\0\0\0\0\0"
 literal|"\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
 literal|"\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
 literal|"\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
-literal|"\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
+literal|"\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
 decl_stmt|;
 name|state
 operator|=
@@ -2461,7 +2462,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon291f978a0303
+DECL|enum|__anon2b37fdca0303
 enum|enum
 block|{
 DECL|enumerator|sw_usual
