@@ -16,7 +16,7 @@ file|<ngx_core.h>
 end_include
 
 begin_comment
-comment|/*  * The code and lookup table is based on the algorithm  * described at http://www.w3.org/TR/PNG/  */
+comment|/*  * The code and lookup table are based on the algorithm  * described at http://www.w3.org/TR/PNG/  */
 end_comment
 
 begin_decl_stmt
