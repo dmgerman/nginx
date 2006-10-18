@@ -24,10 +24,10 @@ begin_function
 specifier|static
 name|ngx_inline
 name|uint32_t
-DECL|function|ngx_crc (char * data,size_t len)
+DECL|function|ngx_crc (u_char * data,size_t len)
 name|ngx_crc
 parameter_list|(
-name|char
+name|u_char
 modifier|*
 name|data
 parameter_list|,
