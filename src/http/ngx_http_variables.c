@@ -3882,13 +3882,9 @@ operator|-
 literal|1
 condition|)
 block|{
-name|ngx_log_error
+name|ngx_connection_error
 argument_list|(
-name|NGX_LOG_CRIT
-argument_list|,
 name|c
-operator|->
-name|log
 argument_list|,
 name|ngx_socket_errno
 argument_list|,

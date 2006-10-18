@@ -66,7 +66,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon29f68ec90108
+DECL|struct|__anon2b85302c0108
 typedef|typedef
 struct|struct
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f68ec90208
+DECL|struct|__anon2b85302c0208
 typedef|typedef
 struct|struct
 block|{
@@ -1606,21 +1606,20 @@ operator|-
 literal|1
 condition|)
 block|{
-name|ngx_log_error
+name|ngx_connection_error
 argument_list|(
-name|NGX_LOG_CRIT
-argument_list|,
 name|r
 operator|->
 name|connection
-operator|->
-name|log
 argument_list|,
 name|ngx_socket_errno
 argument_list|,
 literal|"getsockname() failed"
 argument_list|)
 expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
 block|}
 name|r
 operator|->
