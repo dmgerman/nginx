@@ -16,6 +16,18 @@ directive|define
 name|_NGX_CRC_H_INCLUDED_
 end_define
 
+begin_include
+include|#
+directive|include
+file|<ngx_config.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_core.h>
+end_include
+
 begin_comment
 comment|/* 32-bit crc16 */
 end_comment
