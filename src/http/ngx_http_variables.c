@@ -2163,13 +2163,7 @@ operator|=
 literal|1
 expr_stmt|;
 return|return
-operator|&
-name|r
-operator|->
-name|variables
-index|[
-name|index
-index|]
+name|NULL
 return|;
 block|}
 end_function
