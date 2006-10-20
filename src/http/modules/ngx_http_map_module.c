@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c36ca1a0108
+DECL|struct|__anon2bca85790108
 typedef|typedef
 struct|struct
 block|{
@@ -41,7 +41,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c36ca1a0208
+DECL|struct|__anon2bca85790208
 typedef|typedef
 struct|struct
 block|{
@@ -71,7 +71,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c36ca1a0308
+DECL|struct|__anon2bca85790308
 typedef|typedef
 struct|struct
 block|{
@@ -411,6 +411,29 @@ operator|->
 name|index
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|vv
+operator|==
+name|NULL
+operator|||
+name|vv
+operator|->
+name|not_found
+condition|)
+block|{
+operator|*
+name|v
+operator|=
+operator|*
+name|map
+operator|->
+name|default_value
+expr_stmt|;
+return|return
+name|NGX_OK
+return|;
+block|}
 name|len
 operator|=
 name|vv

@@ -58,7 +58,7 @@ value|(sizeof("&#1114111;") - 1)
 end_define
 
 begin_typedef
-DECL|struct|__anon2a8bc74f0108
+DECL|struct|__anon28fc44010108
 typedef|typedef
 struct|struct
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a8bc74f0208
+DECL|struct|__anon28fc44010208
 typedef|typedef
 struct|struct
 block|{
@@ -110,7 +110,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a8bc74f0308
+DECL|struct|__anon28fc44010308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a8bc74f0408
+DECL|struct|__anon28fc44010408
 typedef|typedef
 struct|struct
 block|{
@@ -165,7 +165,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a8bc74f0508
+DECL|struct|__anon28fc44010508
 typedef|typedef
 struct|struct
 block|{
@@ -188,7 +188,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a8bc74f0608
+DECL|struct|__anon28fc44010608
 typedef|typedef
 struct|struct
 block|{
@@ -252,7 +252,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a8bc74f0708
+DECL|struct|__anon28fc44010708
 typedef|typedef
 struct|struct
 block|{
@@ -1069,6 +1069,21 @@ operator|-
 name|NGX_HTTP_CHARSET_VAR
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|vv
+operator|==
+name|NULL
+operator|||
+name|vv
+operator|->
+name|not_found
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
 name|charset
 operator|=
 name|ngx_http_charset_get_charset
@@ -1245,6 +1260,21 @@ operator|-
 name|NGX_HTTP_CHARSET_VAR
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|vv
+operator|==
+name|NULL
+operator|||
+name|vv
+operator|->
+name|not_found
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
 name|source_charset
 operator|=
 name|ngx_http_charset_get_charset
