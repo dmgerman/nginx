@@ -180,6 +180,14 @@ parameter_list|)
 value|ngx_signal_helper(n)
 end_define
 
+begin_define
+DECL|macro|ngx_random
+define|#
+directive|define
+name|ngx_random
+value|random
+end_define
+
 begin_comment
 comment|/* TODO: #ifndef */
 end_comment

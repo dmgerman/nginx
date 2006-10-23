@@ -50,7 +50,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon29d69af80103
+DECL|enum|__anon27a161850103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1748,7 +1748,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon29d69af80203
+DECL|enum|__anon27a161850203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1931,6 +1931,32 @@ operator|->
 name|command
 operator|=
 name|NGX_POP3_PASS
+expr_stmt|;
+block|}
+if|else if
+condition|(
+name|c0
+operator|==
+literal|'A'
+operator|&&
+name|c1
+operator|==
+literal|'P'
+operator|&&
+name|c2
+operator|==
+literal|'O'
+operator|&&
+name|c3
+operator|==
+literal|'P'
+condition|)
+block|{
+name|s
+operator|->
+name|command
+operator|=
+name|NGX_POP3_APOP
 expr_stmt|;
 block|}
 if|else if
@@ -2190,7 +2216,28 @@ condition|(
 name|ch
 condition|)
 block|{
-comment|/*           * the space should be considered part of the at username           * or password, but not of argument in other commands           *           * case ' ':           */
+case|case
+literal|' '
+case|:
+comment|/*                  * the space should be considered as part of the at username                  * or password, but not of argument in other commands                  */
+if|if
+condition|(
+name|s
+operator|->
+name|command
+operator|==
+name|NGX_POP3_USER
+operator|||
+name|s
+operator|->
+name|command
+operator|==
+name|NGX_POP3_PASS
+condition|)
+block|{
+break|break;
+block|}
+comment|/* fall through */
 case|case
 name|CR
 case|:

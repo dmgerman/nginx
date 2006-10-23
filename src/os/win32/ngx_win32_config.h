@@ -769,6 +769,14 @@ endif|#
 directive|endif
 end_endif
 
+begin_define
+DECL|macro|ngx_random
+define|#
+directive|define
+name|ngx_random
+value|rand
+end_define
+
 begin_endif
 endif|#
 directive|endif

@@ -191,6 +191,12 @@ literal|0
 expr_stmt|;
 endif|#
 directive|endif
+name|srandom
+argument_list|(
+name|ngx_time
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_OK
 return|;

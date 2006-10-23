@@ -24,10 +24,10 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_random
+DECL|variable|ngx_random_number
 specifier|static
 name|ngx_atomic_uint_t
-name|ngx_random
+name|ngx_random_number
 decl_stmt|;
 end_decl_stmt
 
@@ -971,7 +971,7 @@ name|ngx_temp_number
 operator|=
 literal|0
 expr_stmt|;
-name|ngx_random
+name|ngx_random_number
 operator|=
 literal|123456
 expr_stmt|;
@@ -994,7 +994,7 @@ condition|)
 block|{
 name|ngx_temp_number
 operator|+=
-name|ngx_random
+name|ngx_random_number
 expr_stmt|;
 block|}
 return|return
