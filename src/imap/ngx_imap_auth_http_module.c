@@ -34,7 +34,7 @@ file|<ngx_imap.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c01346a0108
+DECL|struct|__anon2b08b23c0108
 typedef|typedef
 struct|struct
 block|{
@@ -584,6 +584,11 @@ block|,
 name|ngx_string
 argument_list|(
 literal|"apop"
+argument_list|)
+block|,
+name|ngx_string
+argument_list|(
+literal|"cram-md5"
 argument_list|)
 block|}
 decl_stmt|;
@@ -1510,7 +1515,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon2c01346a0203
+DECL|enum|__anon2b08b23c0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -3786,7 +3791,7 @@ decl_stmt|;
 name|ngx_uint_t
 name|hash
 decl_stmt|;
-DECL|enum|__anon2c01346a0303
+DECL|enum|__anon2b08b23c0303
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -5036,6 +5041,12 @@ name|LF
 expr_stmt|;
 if|if
 condition|(
+name|s
+operator|->
+name|auth_method
+operator|!=
+name|NGX_IMAP_AUTH_PLAIN
+operator|&&
 name|s
 operator|->
 name|salt

@@ -60,7 +60,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2a4c97ee0108
+DECL|struct|__anon27d4b99b0108
 typedef|typedef
 struct|struct
 block|{
@@ -83,7 +83,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4c97ee0208
+DECL|struct|__anon27d4b99b0208
 typedef|typedef
 struct|struct
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4c97ee0308
+DECL|struct|__anon27d4b99b0308
 typedef|typedef
 struct|struct
 block|{
@@ -142,7 +142,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4c97ee0408
+DECL|struct|__anon27d4b99b0408
 typedef|typedef
 struct|struct
 block|{
@@ -163,7 +163,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4c97ee0508
+DECL|struct|__anon27d4b99b0508
 typedef|typedef
 struct|struct
 block|{
@@ -183,7 +183,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4c97ee0608
+DECL|struct|__anon27d4b99b0608
 typedef|typedef
 struct|struct
 block|{
@@ -209,7 +209,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4c97ee0708
+DECL|struct|__anon27d4b99b0708
 typedef|typedef
 struct|struct
 block|{
@@ -246,7 +246,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2a4c97ee0808
+DECL|struct|__anon27d4b99b0808
 typedef|typedef
 struct|struct
 block|{
@@ -273,6 +273,10 @@ decl_stmt|;
 DECL|member|pop3_starttls_capability
 name|ngx_str_t
 name|pop3_starttls_capability
+decl_stmt|;
+DECL|member|pop3_auth_capability
+name|ngx_str_t
+name|pop3_auth_capability
 decl_stmt|;
 DECL|member|imap_capability
 name|ngx_str_t
@@ -315,7 +319,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4c97ee0908
+DECL|struct|__anon27d4b99b0908
 typedef|typedef
 struct|struct
 block|{
@@ -390,7 +394,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a4c97ee0a03
+DECL|enum|__anon27d4b99b0a03
 typedef|typedef
 enum|enum
 block|{
@@ -414,7 +418,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a4c97ee0b03
+DECL|enum|__anon27d4b99b0b03
 typedef|typedef
 enum|enum
 block|{
@@ -428,6 +432,18 @@ name|ngx_pop3_user
 block|,
 DECL|enumerator|ngx_pop3_passwd
 name|ngx_pop3_passwd
+block|,
+DECL|enumerator|ngx_pop3_auth_login_username
+name|ngx_pop3_auth_login_username
+block|,
+DECL|enumerator|ngx_pop3_auth_login_password
+name|ngx_pop3_auth_login_password
+block|,
+DECL|enumerator|ngx_pop3_auth_plain
+name|ngx_pop3_auth_plain
+block|,
+DECL|enumerator|ngx_pop3_auth_cram_md5
+name|ngx_pop3_auth_cram_md5
 DECL|typedef|ngx_po3_state_e
 block|}
 name|ngx_po3_state_e
@@ -435,7 +451,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4c97ee0c08
+DECL|struct|__anon27d4b99b0c08
 typedef|typedef
 struct|struct
 block|{
@@ -455,7 +471,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4c97ee0d08
+DECL|struct|__anon27d4b99b0d08
 typedef|typedef
 struct|struct
 block|{
@@ -551,7 +567,7 @@ DECL|member|auth_method
 name|unsigned
 name|auth_method
 range|:
-literal|1
+literal|2
 decl_stmt|;
 DECL|member|login
 name|ngx_str_t
@@ -621,7 +637,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4c97ee0e08
+DECL|struct|__anon27d4b99b0e08
 typedef|typedef
 struct|struct
 block|{
@@ -698,11 +714,19 @@ value|7
 end_define
 
 begin_define
+DECL|macro|NGX_POP3_AUTH
+define|#
+directive|define
+name|NGX_POP3_AUTH
+value|8
+end_define
+
+begin_define
 DECL|macro|NGX_POP3_STAT
 define|#
 directive|define
 name|NGX_POP3_STAT
-value|8
+value|9
 end_define
 
 begin_define
@@ -710,7 +734,7 @@ DECL|macro|NGX_POP3_LIST
 define|#
 directive|define
 name|NGX_POP3_LIST
-value|9
+value|10
 end_define
 
 begin_define
@@ -718,7 +742,7 @@ DECL|macro|NGX_POP3_RETR
 define|#
 directive|define
 name|NGX_POP3_RETR
-value|10
+value|11
 end_define
 
 begin_define
@@ -726,7 +750,7 @@ DECL|macro|NGX_POP3_DELE
 define|#
 directive|define
 name|NGX_POP3_DELE
-value|11
+value|12
 end_define
 
 begin_define
@@ -734,7 +758,7 @@ DECL|macro|NGX_POP3_RSET
 define|#
 directive|define
 name|NGX_POP3_RSET
-value|12
+value|13
 end_define
 
 begin_define
@@ -742,7 +766,7 @@ DECL|macro|NGX_POP3_TOP
 define|#
 directive|define
 name|NGX_POP3_TOP
-value|13
+value|14
 end_define
 
 begin_define
@@ -750,7 +774,7 @@ DECL|macro|NGX_POP3_UIDL
 define|#
 directive|define
 name|NGX_POP3_UIDL
-value|14
+value|15
 end_define
 
 begin_define
@@ -818,6 +842,14 @@ value|1
 end_define
 
 begin_define
+DECL|macro|NGX_IMAP_AUTH_CRAM_MD5
+define|#
+directive|define
+name|NGX_IMAP_AUTH_CRAM_MD5
+value|2
+end_define
+
+begin_define
 DECL|macro|NGX_IMAP_AUTH_PLAIN_ENABLED
 define|#
 directive|define
@@ -831,6 +863,14 @@ define|#
 directive|define
 name|NGX_IMAP_AUTH_APOP_ENABLED
 value|0x0004
+end_define
+
+begin_define
+DECL|macro|NGX_IMAP_AUTH_CRAM_MD5_ENABLED
+define|#
+directive|define
+name|NGX_IMAP_AUTH_CRAM_MD5_ENABLED
+value|0x0008
 end_define
 
 begin_define
