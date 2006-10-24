@@ -45,7 +45,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2c2a424d0108
+DECL|struct|__anon2987bc100108
 typedef|typedef
 struct|struct
 block|{
@@ -64,7 +64,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2a424d0208
+DECL|struct|__anon2987bc100208
 typedef|typedef
 struct|struct
 block|{
@@ -165,7 +165,22 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c2a424d0308
+DECL|union|__anon2987bc10030a
+typedef|typedef
+union|union
+block|{
+DECL|member|in_addr
+name|in_addr_t
+name|in_addr
+decl_stmt|;
+DECL|typedef|ngx_url_addr_t
+block|}
+name|ngx_url_addr_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2987bc100408
 typedef|typedef
 struct|struct
 block|{
@@ -236,6 +251,10 @@ name|wildcard
 range|:
 literal|1
 decl_stmt|;
+DECL|member|addr
+name|ngx_url_addr_t
+name|addr
+decl_stmt|;
 DECL|member|err
 name|char
 modifier|*
@@ -248,7 +267,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2a424d0408
+DECL|struct|__anon2987bc100508
 typedef|typedef
 struct|struct
 block|{
@@ -407,18 +426,6 @@ name|name
 parameter_list|,
 name|in_port_t
 name|port
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-name|char
-modifier|*
-name|ngx_inet_parse_host_port
-parameter_list|(
-name|ngx_inet_upstream_t
-modifier|*
-name|u
 parameter_list|)
 function_decl|;
 end_function_decl
