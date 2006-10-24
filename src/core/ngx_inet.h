@@ -45,7 +45,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2987bc100108
+DECL|struct|__anon2c6be6030108
 typedef|typedef
 struct|struct
 block|{
@@ -64,7 +64,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2987bc100208
+DECL|struct|__anon2c6be6030208
 typedef|typedef
 struct|struct
 block|{
@@ -165,7 +165,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|union|__anon2987bc10030a
+DECL|union|__anon2c6be603030a
 typedef|typedef
 union|union
 block|{
@@ -180,7 +180,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2987bc100408
+DECL|struct|__anon2c6be6030408
 typedef|typedef
 struct|struct
 block|{
@@ -266,77 +266,6 @@ name|ngx_url_t
 typedef|;
 end_typedef
 
-begin_typedef
-DECL|struct|__anon2987bc100508
-typedef|typedef
-struct|struct
-block|{
-DECL|member|name
-name|ngx_str_t
-name|name
-decl_stmt|;
-comment|/* "schema:host:port/uri" */
-DECL|member|url
-name|ngx_str_t
-name|url
-decl_stmt|;
-comment|/* "host:port/uri" */
-DECL|member|host
-name|ngx_str_t
-name|host
-decl_stmt|;
-DECL|member|uri
-name|ngx_str_t
-name|uri
-decl_stmt|;
-DECL|member|host_header
-name|ngx_str_t
-name|host_header
-decl_stmt|;
-comment|/* "host:port" */
-DECL|member|port_text
-name|ngx_str_t
-name|port_text
-decl_stmt|;
-comment|/* "port" */
-DECL|member|port
-name|in_port_t
-name|port
-decl_stmt|;
-DECL|member|default_port_value
-name|in_port_t
-name|default_port_value
-decl_stmt|;
-DECL|member|default_port
-name|unsigned
-name|default_port
-range|:
-literal|1
-decl_stmt|;
-DECL|member|wildcard
-name|unsigned
-name|wildcard
-range|:
-literal|1
-decl_stmt|;
-DECL|member|uri_part
-name|unsigned
-name|uri_part
-range|:
-literal|1
-decl_stmt|;
-DECL|member|port_only
-name|unsigned
-name|port_only
-range|:
-literal|1
-decl_stmt|;
-DECL|typedef|ngx_inet_upstream_t
-block|}
-name|ngx_inet_upstream_t
-typedef|;
-end_typedef
-
 begin_function_decl
 name|size_t
 name|ngx_sock_ntop
@@ -396,15 +325,14 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|ngx_peers_t
-modifier|*
-name|ngx_inet_upstream_parse
+name|ngx_int_t
+name|ngx_parse_url
 parameter_list|(
 name|ngx_conf_t
 modifier|*
 name|cf
 parameter_list|,
-name|ngx_inet_upstream_t
+name|ngx_url_t
 modifier|*
 name|u
 parameter_list|)
@@ -426,21 +354,6 @@ name|name
 parameter_list|,
 name|in_port_t
 name|port
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-name|ngx_int_t
-name|ngx_parse_url
-parameter_list|(
-name|ngx_conf_t
-modifier|*
-name|cf
-parameter_list|,
-name|ngx_url_t
-modifier|*
-name|u
 parameter_list|)
 function_decl|;
 end_function_decl
