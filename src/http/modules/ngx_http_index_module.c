@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bf317670108
+DECL|struct|__anon2c53736a0108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf317670208
+DECL|struct|__anon2c53736a0208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf317670308
+DECL|struct|__anon2c53736a0308
 typedef|typedef
 struct|struct
 block|{
@@ -1340,12 +1340,20 @@ modifier|*
 name|ctx
 parameter_list|)
 block|{
+name|u_char
+name|c
+decl_stmt|;
+name|ngx_uint_t
+name|i
+decl_stmt|;
 name|ngx_err_t
 name|err
 decl_stmt|;
 name|ngx_file_info_t
 name|fi
 decl_stmt|;
+name|c
+operator|=
 operator|*
 operator|(
 name|ctx
@@ -1355,6 +1363,29 @@ operator|.
 name|data
 operator|-
 literal|1
+operator|)
+expr_stmt|;
+name|i
+operator|=
+operator|(
+name|c
+operator|==
+literal|'/'
+operator|)
+condition|?
+literal|1
+else|:
+literal|0
+expr_stmt|;
+operator|*
+operator|(
+name|ctx
+operator|->
+name|index
+operator|.
+name|data
+operator|-
+name|i
 operator|)
 operator|=
 literal|'\0'
@@ -1417,10 +1448,10 @@ name|index
 operator|.
 name|data
 operator|-
-literal|1
+name|i
 operator|)
 operator|=
-literal|'/'
+name|c
 expr_stmt|;
 return|return
 name|ngx_http_index_error
@@ -1467,10 +1498,10 @@ name|index
 operator|.
 name|data
 operator|-
-literal|1
+name|i
 operator|)
 operator|=
-literal|'/'
+name|c
 expr_stmt|;
 if|if
 condition|(
