@@ -50,7 +50,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon2b64a94d0103
+DECL|enum|__anon27b683520103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1748,7 +1748,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon2b64a94d0203
+DECL|enum|__anon27b683520203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2479,6 +2479,12 @@ operator|->
 name|state
 operator|=
 name|sw_start
+expr_stmt|;
+name|s
+operator|->
+name|arg_start
+operator|=
+name|NULL
 expr_stmt|;
 return|return
 name|NGX_IMAP_PARSE_INVALID_COMMAND
