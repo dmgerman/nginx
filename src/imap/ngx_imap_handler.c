@@ -4846,7 +4846,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"client sent invalid login/password "
+literal|"client sent invalid login "
 literal|"in AUTH PLAIN command"
 argument_list|)
 expr_stmt|;
@@ -4895,7 +4895,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"client sent invalid login/password "
+literal|"client sent invalid password "
 literal|"in AUTH PLAIN command"
 argument_list|)
 expr_stmt|;
