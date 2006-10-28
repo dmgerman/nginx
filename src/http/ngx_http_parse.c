@@ -88,7 +88,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon2a38cc580103
+DECL|enum|__anon29f71cd70103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1826,7 +1826,7 @@ name|hash
 decl_stmt|,
 name|i
 decl_stmt|;
-DECL|enum|__anon2a38cc580203
+DECL|enum|__anon29f71cd70203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2505,7 +2505,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2a38cc580303
+DECL|enum|__anon29f71cd70303
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -4083,10 +4083,6 @@ continue|continue;
 block|}
 if|if
 condition|(
-name|len
-operator|>
-literal|2
-operator|&&
 operator|(
 name|ch
 operator|==
@@ -4103,6 +4099,10 @@ literal|'\\'
 endif|#
 directive|endif
 operator|)
+operator|&&
+name|len
+operator|>
+literal|2
 condition|)
 block|{
 comment|/* detect "/../" */
