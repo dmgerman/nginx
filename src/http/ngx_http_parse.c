@@ -50,7 +50,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon27f777890103
+DECL|enum|__anon28b135b50103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -60,9 +60,6 @@ literal|0
 block|,
 DECL|enumerator|sw_method
 name|sw_method
-block|,
-DECL|enumerator|sw_space_after_method
-name|sw_space_after_method
 block|,
 DECL|enumerator|sw_spaces_before_uri
 name|sw_spaces_before_uri
@@ -500,29 +497,6 @@ argument_list|>
 literal|'Z'
 condition|)
 block|{
-return|return
-name|NGX_HTTP_PARSE_INVALID_METHOD
-return|;
-block|}
-break|break;
-comment|/* single space after method */
-case|case
-name|sw_space_after_method
-case|:
-switch|switch
-condition|(
-name|ch
-condition|)
-block|{
-case|case
-literal|' '
-case|:
-name|state
-operator|=
-name|sw_spaces_before_uri
-expr_stmt|;
-break|break;
-default|default:
 return|return
 name|NGX_HTTP_PARSE_INVALID_METHOD
 return|;
@@ -1821,7 +1795,7 @@ name|hash
 decl_stmt|,
 name|i
 decl_stmt|;
-DECL|enum|__anon27f777890203
+DECL|enum|__anon28b135b50203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2500,7 +2474,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon27f777890303
+DECL|enum|__anon28b135b50303
 enum|enum
 block|{
 DECL|enumerator|sw_usual
