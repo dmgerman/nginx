@@ -97,8 +97,7 @@ end_typedef
 begin_typedef
 DECL|typedef|ngx_rbtree_insert_pt
 typedef|typedef
-name|ngx_rbtree_node_t
-modifier|*
+name|void
 function_decl|(
 modifier|*
 name|ngx_rbtree_insert_pt
@@ -134,7 +133,10 @@ name|ngx_rbtree_node_t
 modifier|*
 name|sentinel
 decl_stmt|;
-comment|/* ngx_rbtree_insert_pt   insert; */
+DECL|member|insert
+name|ngx_rbtree_insert_pt
+name|insert
+decl_stmt|;
 block|}
 struct|;
 end_struct
@@ -167,6 +169,25 @@ parameter_list|,
 name|ngx_rbtree_node_t
 modifier|*
 name|node
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_rbtree_insert_timer_value
+parameter_list|(
+name|ngx_rbtree_node_t
+modifier|*
+name|root
+parameter_list|,
+name|ngx_rbtree_node_t
+modifier|*
+name|node
+parameter_list|,
+name|ngx_rbtree_node_t
+modifier|*
+name|sentinel
 parameter_list|)
 function_decl|;
 end_function_decl
