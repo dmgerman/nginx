@@ -4071,7 +4071,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon2a35abaf0103
+DECL|enum|__anon27ee7e930103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
