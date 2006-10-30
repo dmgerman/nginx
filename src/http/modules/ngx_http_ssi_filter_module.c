@@ -62,7 +62,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2c0a1f7a0108
+DECL|struct|__anon290d5ff10108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0a1f7a0208
+DECL|struct|__anon290d5ff10208
 typedef|typedef
 struct|struct
 block|{
@@ -122,7 +122,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0a1f7a0308
+DECL|struct|__anon290d5ff10308
 typedef|typedef
 struct|struct
 block|{
@@ -146,7 +146,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c0a1f7a0403
+DECL|enum|__anon290d5ff10403
 typedef|typedef
 enum|enum
 block|{
@@ -4794,6 +4794,34 @@ operator|=
 name|cl
 expr_stmt|;
 block|}
+block|}
+if|if
+condition|(
+name|ctx
+operator|->
+name|in
+operator|||
+name|ctx
+operator|->
+name|buf
+condition|)
+block|{
+name|r
+operator|->
+name|buffered
+operator||=
+name|NGX_HTTP_SSI_BUFFERED
+expr_stmt|;
+block|}
+else|else
+block|{
+name|r
+operator|->
+name|buffered
+operator|&=
+operator|~
+name|NGX_HTTP_SSI_BUFFERED
+expr_stmt|;
 block|}
 return|return
 name|rc

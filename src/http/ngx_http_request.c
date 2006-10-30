@@ -7819,6 +7819,10 @@ operator|==
 name|r
 operator|->
 expr|main
+operator|||
+name|r
+operator|->
+name|buffered
 condition|)
 block|{
 return|return;

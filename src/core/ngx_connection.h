@@ -232,7 +232,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2b75da010103
+DECL|enum|__anon2b2faeb00103
 typedef|typedef
 enum|enum
 block|{
@@ -256,7 +256,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b75da010203
+DECL|enum|__anon2b2faeb00203
 typedef|typedef
 enum|enum
 block|{
@@ -277,7 +277,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b75da010303
+DECL|enum|__anon2b2faeb00303
 typedef|typedef
 enum|enum
 block|{
@@ -302,7 +302,7 @@ DECL|macro|NGX_LOWLEVEL_BUFFERED
 define|#
 directive|define
 name|NGX_LOWLEVEL_BUFFERED
-value|0x0000000f
+value|0x0f
 end_define
 
 begin_define
@@ -310,7 +310,7 @@ DECL|macro|NGX_SSL_BUFFERED
 define|#
 directive|define
 name|NGX_SSL_BUFFERED
-value|0x00000001
+value|0x01
 end_define
 
 begin_struct
@@ -425,8 +425,10 @@ name|ngx_atomic_uint_t
 name|number
 decl_stmt|;
 DECL|member|buffered
-name|ngx_uint_t
+name|unsigned
 name|buffered
+range|:
+literal|8
 decl_stmt|;
 DECL|member|log_error
 name|unsigned
