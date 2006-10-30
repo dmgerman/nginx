@@ -37,9 +37,21 @@ literal|0x7fff37d6
 block|,
 comment|/* 0111 1111 1111 1111  0011 0111 1101 0110 */
 comment|/* _^]\ [ZYX WVUT SRQP  ONML KJIH GFED CBA@ */
+if|#
+directive|if
+operator|(
+name|NGX_WIN32
+operator|)
 literal|0xefffffff
 block|,
 comment|/* 1110 1111 1111 1111  1111 1111 1111 1111 */
+else|#
+directive|else
+literal|0xffffffff
+block|,
+comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
+endif|#
+directive|endif
 comment|/*  ~}| {zyx wvut srqp  onml kjih gfed cba` */
 literal|0xffffffff
 block|,
@@ -88,7 +100,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon2ad4169f0103
+DECL|enum|__anon295748f70103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1826,7 +1838,7 @@ name|hash
 decl_stmt|,
 name|i
 decl_stmt|;
-DECL|enum|__anon2ad4169f0203
+DECL|enum|__anon295748f70203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2505,7 +2517,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2ad4169f0303
+DECL|enum|__anon295748f70303
 enum|enum
 block|{
 DECL|enumerator|sw_usual
