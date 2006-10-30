@@ -1789,7 +1789,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"chain writer buf size: %uz"
+literal|"chain writer buf size: %uO"
 argument_list|,
 name|ngx_buf_size
 argument_list|(
