@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27b5ab470108
+DECL|struct|__anon295a59f80108
 typedef|typedef
 struct|struct
 block|{
@@ -5541,6 +5541,14 @@ literal|"subrequests cycle while processing \"%V\""
 argument_list|,
 name|uri
 argument_list|)
+expr_stmt|;
+name|r
+operator|->
+expr|main
+operator|->
+name|subrequests
+operator|=
+literal|1
 expr_stmt|;
 return|return
 name|NGX_ERROR
