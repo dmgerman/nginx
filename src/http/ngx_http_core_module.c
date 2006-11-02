@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2be611fc0108
+DECL|struct|__anon27b5ab470108
 typedef|typedef
 struct|struct
 block|{
@@ -6125,6 +6125,13 @@ name|sr
 operator|->
 name|args
 argument_list|)
+expr_stmt|;
+name|r
+operator|->
+expr|main
+operator|->
+name|subrequests
+operator|++
 expr_stmt|;
 operator|*
 name|psr
