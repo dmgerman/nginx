@@ -2302,6 +2302,12 @@ name|buf
 operator|->
 name|recycled
 operator|&&
+name|cl
+operator|->
+name|buf
+operator|->
+name|last_shadow
+operator|&&
 name|bsize
 operator|+
 name|cl
@@ -2375,6 +2381,12 @@ operator|->
 name|buf
 operator|->
 name|recycled
+operator|&&
+name|cl
+operator|->
+name|buf
+operator|->
+name|last_shadow
 operator|&&
 name|bsize
 operator|+
