@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b1b58d70108
+DECL|struct|__anon2953170a0108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1b58d70208
+DECL|struct|__anon2953170a0208
 typedef|typedef
 struct|struct
 block|{
@@ -832,6 +832,19 @@ operator|.
 name|status
 operator|=
 name|NGX_HTTP_OK
+expr_stmt|;
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_type_len
+operator|=
+sizeof|sizeof
+argument_list|(
+literal|"text/html"
+argument_list|)
+operator|-
+literal|1
 expr_stmt|;
 name|r
 operator|->
