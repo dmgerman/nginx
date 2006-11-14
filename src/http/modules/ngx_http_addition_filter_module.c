@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c74cafa0108
+DECL|struct|__anon2bcd9bd50108
 typedef|typedef
 struct|struct
 block|{
@@ -41,7 +41,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c74cafa0208
+DECL|struct|__anon2bcd9bd50208
 typedef|typedef
 struct|struct
 block|{
@@ -578,6 +578,35 @@ name|rc
 return|;
 block|}
 block|}
+block|}
+if|if
+condition|(
+name|conf
+operator|->
+name|after_body
+operator|.
+name|len
+operator|==
+literal|0
+condition|)
+block|{
+name|ngx_http_set_ctx
+argument_list|(
+name|r
+argument_list|,
+name|NULL
+argument_list|,
+name|ngx_http_addition_filter_module
+argument_list|)
+expr_stmt|;
+return|return
+name|ngx_http_next_body_filter
+argument_list|(
+name|r
+argument_list|,
+name|in
+argument_list|)
+return|;
 block|}
 name|last
 operator|=
