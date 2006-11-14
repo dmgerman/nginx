@@ -1934,13 +1934,6 @@ literal|1
 operator|)
 operator|)
 expr_stmt|;
-if|if
-condition|(
-name|e
-operator|->
-name|log
-condition|)
-block|{
 name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
@@ -1963,7 +1956,6 @@ operator|->
 name|buf
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 end_function
 
@@ -2174,13 +2166,6 @@ operator|->
 name|len
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|e
-operator|->
-name|log
-condition|)
-block|{
 name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
@@ -2203,7 +2188,6 @@ operator|->
 name|buf
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
