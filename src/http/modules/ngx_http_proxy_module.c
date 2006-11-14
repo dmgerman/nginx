@@ -76,14 +76,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon2b9a6466010a
+DECL|union|__anon27cdd783010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon2b9a64660208
+DECL|struct|__anon27cdd7830208
 struct|struct
 block|{
 DECL|member|lengths
@@ -114,7 +114,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b9a64660308
+DECL|struct|__anon27cdd7830308
 typedef|typedef
 struct|struct
 block|{
@@ -198,7 +198,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b9a64660408
+DECL|struct|__anon27cdd7830408
 typedef|typedef
 struct|struct
 block|{
@@ -674,6 +674,8 @@ block|,
 name|NGX_HTTP_LOC_CONF
 operator||
 name|NGX_HTTP_LIF_CONF
+operator||
+name|NGX_HTTP_LMT_CONF
 operator||
 name|NGX_CONF_TAKE1
 block|,
@@ -4055,7 +4057,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2b9a64660503
+DECL|enum|__anon27cdd7830503
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -10447,8 +10449,9 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"\"proxy_pass\" may not have URI part in "
-literal|"location given by regular expression or "
-literal|"inside the \"if\" statement"
+literal|"location given by regular expression, "
+literal|"or inside the \"if\" statement, "
+literal|"or inside the \"limit_except\" block"
 argument_list|)
 expr_stmt|;
 return|return
