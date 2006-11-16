@@ -583,7 +583,7 @@ name|node
 parameter_list|)
 block|{
 name|ngx_int_t
-name|is_red
+name|red
 decl_stmt|;
 name|ngx_rbtree_node_t
 modifier|*
@@ -745,7 +745,7 @@ literal|0
 expr_stmt|;
 return|return;
 block|}
-name|is_red
+name|red
 operator|=
 name|ngx_rbt_is_red
 argument_list|(
@@ -971,7 +971,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|is_red
+name|red
 condition|)
 block|{
 return|return;
