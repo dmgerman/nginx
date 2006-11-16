@@ -82,6 +82,12 @@ operator|=
 operator|&
 name|ngx_event_timer_sentinel
 expr_stmt|;
+name|ngx_event_timer_rbtree
+operator|.
+name|insert
+operator|=
+name|ngx_rbtree_insert_timer_value
+expr_stmt|;
 if|#
 directive|if
 operator|(
