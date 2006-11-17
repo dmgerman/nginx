@@ -34,7 +34,7 @@ file|<ngx_imap.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b08b23c0108
+DECL|struct|__anon29e4acfa0108
 typedef|typedef
 struct|struct
 block|{
@@ -1515,7 +1515,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon2b08b23c0203
+DECL|enum|__anon29e4acfa0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2111,7 +2111,7 @@ name|size
 operator|=
 sizeof|sizeof
 argument_list|(
-literal|"-ERR"
+literal|"-ERR "
 argument_list|)
 operator|-
 literal|1
@@ -2138,7 +2138,7 @@ name|len
 operator|+
 sizeof|sizeof
 argument_list|(
-literal|"NO"
+literal|"NO "
 argument_list|)
 operator|-
 literal|1
@@ -3791,7 +3791,7 @@ decl_stmt|;
 name|ngx_uint_t
 name|hash
 decl_stmt|;
-DECL|enum|__anon2b08b23c0303
+DECL|enum|__anon29e4acfa0303
 enum|enum
 block|{
 DECL|enumerator|sw_start
