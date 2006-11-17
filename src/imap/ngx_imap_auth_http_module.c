@@ -34,7 +34,7 @@ file|<ngx_imap.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29e4acfa0108
+DECL|struct|__anon278b37be0108
 typedef|typedef
 struct|struct
 block|{
@@ -1515,7 +1515,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon29e4acfa0203
+DECL|enum|__anon278b37be0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -3791,7 +3791,7 @@ decl_stmt|;
 name|ngx_uint_t
 name|hash
 decl_stmt|;
-DECL|enum|__anon29e4acfa0303
+DECL|enum|__anon278b37be0303
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -4612,7 +4612,22 @@ literal|1
 operator|+
 sizeof|sizeof
 argument_list|(
-literal|"Auth-Method: plain"
+literal|"Auth-Method: "
+argument_list|)
+operator|-
+literal|1
+operator|+
+name|ngx_imap_auth_http_method
+index|[
+name|s
+operator|->
+name|auth_method
+index|]
+operator|.
+name|len
+operator|+
+sizeof|sizeof
+argument_list|(
 name|CRLF
 argument_list|)
 operator|-
