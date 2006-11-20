@@ -179,6 +179,25 @@ end_function_decl
 
 begin_function_decl
 name|void
+name|ngx_rbtree_insert_value
+parameter_list|(
+name|ngx_rbtree_node_t
+modifier|*
+name|root
+parameter_list|,
+name|ngx_rbtree_node_t
+modifier|*
+name|node
+parameter_list|,
+name|ngx_rbtree_node_t
+modifier|*
+name|sentinel
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
 name|ngx_rbtree_insert_timer_value
 parameter_list|(
 name|ngx_rbtree_node_t
