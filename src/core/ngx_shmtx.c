@@ -25,7 +25,7 @@ end_if
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_shmtx_create (ngx_shmtx_t * mtx,void * addr,u_char * name,ngx_log_t * log)
+DECL|function|ngx_shmtx_create (ngx_shmtx_t * mtx,void * addr,u_char * name)
 name|ngx_shmtx_create
 parameter_list|(
 name|ngx_shmtx_t
@@ -39,10 +39,6 @@ parameter_list|,
 name|u_char
 modifier|*
 name|name
-parameter_list|,
-name|ngx_log_t
-modifier|*
-name|log
 parameter_list|)
 block|{
 name|mtx
@@ -64,7 +60,7 @@ end_else
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_shmtx_create (ngx_shmtx_t * mtx,void * addr,u_char * name,ngx_log_t * log)
+DECL|function|ngx_shmtx_create (ngx_shmtx_t * mtx,void * addr,u_char * name)
 name|ngx_shmtx_create
 parameter_list|(
 name|ngx_shmtx_t
@@ -78,10 +74,6 @@ parameter_list|,
 name|u_char
 modifier|*
 name|name
-parameter_list|,
-name|ngx_log_t
-modifier|*
-name|log
 parameter_list|)
 block|{
 if|if
@@ -110,12 +102,6 @@ operator|->
 name|name
 operator|=
 name|name
-expr_stmt|;
-name|mtx
-operator|->
-name|log
-operator|=
-name|log
 expr_stmt|;
 return|return
 name|NGX_OK
@@ -153,6 +139,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_EMERG
 argument_list|,
+name|ngx_cycle
+operator|->
 name|log
 argument_list|,
 name|ngx_errno
@@ -181,6 +169,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
+name|ngx_cycle
+operator|->
 name|log
 argument_list|,
 name|ngx_errno
@@ -197,12 +187,6 @@ operator|->
 name|name
 operator|=
 name|name
-expr_stmt|;
-name|mtx
-operator|->
-name|log
-operator|=
-name|log
 expr_stmt|;
 return|return
 name|NGX_OK
@@ -236,7 +220,7 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
-name|mtx
+name|ngx_cycle
 operator|->
 name|log
 argument_list|,

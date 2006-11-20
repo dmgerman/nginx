@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b7b07340108
+DECL|struct|__anon2c519f510108
 typedef|typedef
 struct|struct
 block|{
@@ -51,10 +51,6 @@ decl_stmt|;
 name|u_char
 modifier|*
 name|name
-decl_stmt|;
-name|ngx_log_t
-modifier|*
-name|log
 decl_stmt|;
 endif|#
 directive|endif
@@ -79,10 +75,6 @@ parameter_list|,
 name|u_char
 modifier|*
 name|name
-parameter_list|,
-name|ngx_log_t
-modifier|*
-name|log
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -221,22 +213,13 @@ return|return
 literal|0
 return|;
 block|}
-name|ngx_log_error
+name|ngx_log_abort
 argument_list|(
-name|NGX_LOG_ALERT
-argument_list|,
-name|mtx
-operator|->
-name|log
-argument_list|,
 name|err
 argument_list|,
 name|ngx_trylock_fd_n
 literal|" failed"
 argument_list|)
-expr_stmt|;
-name|ngx_abort
-argument_list|()
 expr_stmt|;
 block|}
 end_function
@@ -274,22 +257,13 @@ condition|)
 block|{
 return|return;
 block|}
-name|ngx_log_error
+name|ngx_log_abort
 argument_list|(
-name|NGX_LOG_ALERT
-argument_list|,
-name|mtx
-operator|->
-name|log
-argument_list|,
 name|err
 argument_list|,
 name|ngx_lock_fd_n
 literal|" failed"
 argument_list|)
-expr_stmt|;
-name|ngx_abort
-argument_list|()
 expr_stmt|;
 block|}
 end_function
@@ -327,22 +301,13 @@ condition|)
 block|{
 return|return;
 block|}
-name|ngx_log_error
+name|ngx_log_abort
 argument_list|(
-name|NGX_LOG_ALERT
-argument_list|,
-name|mtx
-operator|->
-name|log
-argument_list|,
 name|err
 argument_list|,
 name|ngx_unlock_fd_n
 literal|" failed"
 argument_list|)
-expr_stmt|;
-name|ngx_abort
-argument_list|()
 expr_stmt|;
 block|}
 end_function

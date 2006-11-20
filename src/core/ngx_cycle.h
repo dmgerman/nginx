@@ -63,6 +63,25 @@ name|NGX_DEBUG_POINTS_ABORT
 value|2
 end_define
 
+begin_typedef
+DECL|struct|__anon2b44fc5d0108
+typedef|typedef
+struct|struct
+block|{
+DECL|member|shm
+name|ngx_shm_t
+name|shm
+decl_stmt|;
+DECL|member|name
+name|ngx_str_t
+name|name
+decl_stmt|;
+DECL|typedef|ngx_shm_zone_t
+block|}
+name|ngx_shm_zone_t
+typedef|;
+end_typedef
+
 begin_struct
 DECL|struct|ngx_cycle_s
 struct|struct
@@ -106,20 +125,6 @@ DECL|member|free_connection_n
 name|ngx_uint_t
 name|free_connection_n
 decl_stmt|;
-DECL|member|shm
-name|ngx_shm_t
-name|shm
-decl_stmt|;
-DECL|member|shm_last
-name|u_char
-modifier|*
-name|shm_last
-decl_stmt|;
-DECL|member|shm_end
-name|u_char
-modifier|*
-name|shm_end
-decl_stmt|;
 DECL|member|listening
 name|ngx_array_t
 name|listening
@@ -131,6 +136,10 @@ decl_stmt|;
 DECL|member|open_files
 name|ngx_list_t
 name|open_files
+decl_stmt|;
+DECL|member|shared_memory
+name|ngx_list_t
+name|shared_memory
 decl_stmt|;
 DECL|member|connection_n
 name|ngx_uint_t
@@ -168,12 +177,16 @@ DECL|member|root
 name|ngx_str_t
 name|root
 decl_stmt|;
+DECL|member|lock_file
+name|ngx_str_t
+name|lock_file
+decl_stmt|;
 block|}
 struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b44ba9e0108
+DECL|struct|__anon2b44fc5d0208
 typedef|typedef
 struct|struct
 block|{
@@ -273,7 +286,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b44ba9e0208
+DECL|struct|__anon2b44fc5d0308
 typedef|typedef
 struct|struct
 block|{

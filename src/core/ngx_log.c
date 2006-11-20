@@ -757,6 +757,36 @@ directive|endif
 end_endif
 
 begin_function
+name|void
+DECL|function|ngx_log_abort (ngx_err_t err,const char * text)
+name|ngx_log_abort
+parameter_list|(
+name|ngx_err_t
+name|err
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|text
+parameter_list|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|ngx_cycle
+operator|->
+name|log
+argument_list|,
+name|err
+argument_list|,
+name|text
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+
+begin_function
 name|ngx_log_t
 modifier|*
 DECL|function|ngx_log_init (void)

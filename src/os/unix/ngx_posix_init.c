@@ -86,6 +86,9 @@ modifier|*
 name|log
 parameter_list|)
 block|{
+name|ngx_uint_t
+name|n
+decl_stmt|;
 if|#
 directive|if
 operator|(
@@ -121,6 +124,26 @@ name|ngx_cacheline_size
 operator|=
 name|NGX_CPU_CACHE_LINE
 expr_stmt|;
+name|n
+operator|=
+name|ngx_pagesize
+expr_stmt|;
+for|for
+control|(
+name|n
+operator|=
+name|ngx_pagesize
+init|;
+name|n
+operator|>>=
+literal|1
+condition|;
+name|ngx_pagesize_shift
+operator|++
+control|)
+block|{
+comment|/* void */
+block|}
 if|if
 condition|(
 name|ngx_ncpu

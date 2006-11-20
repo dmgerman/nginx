@@ -125,8 +125,15 @@ end_endif
 
 begin_decl_stmt
 specifier|extern
-name|int
+name|ngx_uint_t
 name|ngx_pagesize
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_uint_t
+name|ngx_pagesize_shift
 decl_stmt|;
 end_decl_stmt
 

@@ -396,6 +396,12 @@ directive|include
 file|<ngx_shmtx.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_slab.h>
+end_include
+
 begin_if
 if|#
 directive|if

@@ -1159,6 +1159,21 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_function_decl
+name|void
+name|ngx_log_abort
+parameter_list|(
+name|ngx_err_t
+name|err
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|text
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_decl_stmt
 specifier|extern
 name|ngx_module_t

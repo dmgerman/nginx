@@ -91,6 +91,14 @@ value|ERROR_FILE_NOT_FOUND
 end_define
 
 begin_define
+DECL|macro|NGX_ENOMEM
+define|#
+directive|define
+name|NGX_ENOMEM
+value|ERROR_NOT_ENOUGH_MEMORY
+end_define
+
+begin_define
 DECL|macro|NGX_EACCES
 define|#
 directive|define

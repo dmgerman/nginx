@@ -92,7 +92,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2c7fdb1e0108
+DECL|struct|__anon2a059ce90108
 typedef|typedef
 struct|struct
 block|{
@@ -203,6 +203,9 @@ name|s
 decl_stmt|;
 name|WSADATA
 name|wsd
+decl_stmt|;
+name|ngx_uint_t
+name|n
 decl_stmt|;
 name|SYSTEM_INFO
 name|si
@@ -348,6 +351,22 @@ name|ngx_cacheline_size
 operator|=
 name|NGX_CPU_CACHE_LINE
 expr_stmt|;
+for|for
+control|(
+name|n
+operator|=
+name|ngx_pagesize
+init|;
+name|n
+operator|>>=
+literal|1
+condition|;
+name|ngx_pagesize_shift
+operator|++
+control|)
+block|{
+comment|/* void */
+block|}
 comment|/* init Winsock */
 if|if
 condition|(
