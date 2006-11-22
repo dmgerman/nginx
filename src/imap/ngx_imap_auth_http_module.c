@@ -34,7 +34,7 @@ file|<ngx_imap.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon278b37be0108
+DECL|struct|__anon28e7da170108
 typedef|typedef
 struct|struct
 block|{
@@ -802,6 +802,15 @@ operator|==
 name|NGX_DECLINED
 condition|)
 block|{
+if|if
+condition|(
+name|ctx
+operator|->
+name|peer
+operator|.
+name|connection
+condition|)
+block|{
 name|ngx_close_connection
 argument_list|(
 name|ctx
@@ -811,6 +820,7 @@ operator|.
 name|connection
 argument_list|)
 expr_stmt|;
+block|}
 name|ngx_destroy_pool
 argument_list|(
 name|ctx
@@ -1515,7 +1525,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon278b37be0203
+DECL|enum|__anon28e7da170203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -3791,7 +3801,7 @@ decl_stmt|;
 name|ngx_uint_t
 name|hash
 decl_stmt|;
-DECL|enum|__anon278b37be0303
+DECL|enum|__anon28e7da170303
 enum|enum
 block|{
 DECL|enumerator|sw_start
