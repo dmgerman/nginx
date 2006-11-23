@@ -2212,6 +2212,10 @@ if|if
 condition|(
 name|ccf
 operator|->
+name|master
+operator|&&
+name|ccf
+operator|->
 name|worker_processes
 operator|>
 literal|1
