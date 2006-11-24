@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c6433b40108
+DECL|struct|__anon293823d60108
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +70,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6433b40208
+DECL|struct|__anon293823d60208
 typedef|typedef
 struct|struct
 block|{
@@ -90,7 +90,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6433b40308
+DECL|struct|__anon293823d60308
 typedef|typedef
 struct|struct
 block|{
@@ -110,7 +110,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6433b40408
+DECL|struct|__anon293823d60408
 typedef|typedef
 struct|struct
 block|{
@@ -888,12 +888,6 @@ expr_stmt|;
 return|return
 name|NGX_DONE
 return|;
-if|#
-directive|if
-literal|0
-block_content|r->request_body_in_single_buf = 1;     r->request_body_in_persistent_file = 1;     r->request_body_delete_incomplete_file = 1;      if (r->request_body_in_file_only) {         r->request_body_file_log_level = 0;     }      rc = ngx_http_read_client_request_body(r, ngx_http_perl_handle_request);      if (rc>= NGX_HTTP_SPECIAL_RESPONSE) {         return rc;     }      return NGX_DONE;
-endif|#
-directive|endif
 block|}
 end_function
 
