@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon293823d60108
+DECL|struct|__anon27f75bed0108
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +70,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293823d60208
+DECL|struct|__anon27f75bed0208
 typedef|typedef
 struct|struct
 block|{
@@ -90,7 +90,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293823d60308
+DECL|struct|__anon27f75bed0308
 typedef|typedef
 struct|struct
 block|{
@@ -110,7 +110,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293823d60408
+DECL|struct|__anon27f75bed0408
 typedef|typedef
 struct|struct
 block|{
@@ -1302,6 +1302,9 @@ decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
+name|ngx_uint_t
+name|recursive
+decl_stmt|;
 name|ngx_str_t
 name|value
 decl_stmt|;
@@ -1378,7 +1381,6 @@ argument_list|,
 name|ngx_http_perl_module
 argument_list|)
 expr_stmt|;
-block|}
 name|pmcf
 operator|=
 name|ngx_http_get_module_main_conf
@@ -1417,6 +1419,22 @@ return|return
 name|rc
 return|;
 block|}
+name|recursive
+operator|=
+literal|0
+expr_stmt|;
+block|}
+else|else
+block|{
+name|pmcf
+operator|=
+name|NULL
+expr_stmt|;
+name|recursive
+operator|=
+literal|1
+expr_stmt|;
+block|}
 name|value
 operator|.
 name|data
@@ -1447,6 +1465,13 @@ argument|&value
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|recursive
+operator|==
+literal|0
+condition|)
+block|{
 name|ngx_http_perl_free_interpreter
 argument_list|(
 name|pmcf
@@ -1456,6 +1481,7 @@ operator|->
 name|perl
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|value
