@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27f75bed0108
+DECL|struct|__anon28a6fd200108
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +70,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27f75bed0208
+DECL|struct|__anon28a6fd200208
 typedef|typedef
 struct|struct
 block|{
@@ -90,7 +90,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27f75bed0308
+DECL|struct|__anon28a6fd200308
 typedef|typedef
 struct|struct
 block|{
@@ -110,7 +110,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27f75bed0408
+DECL|struct|__anon28a6fd200408
 typedef|typedef
 struct|struct
 block|{
@@ -1549,6 +1549,21 @@ name|len
 operator|=
 literal|0
 expr_stmt|;
+name|ngx_log_debug0
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"perl variable done"
+argument_list|)
+expr_stmt|;
 return|return
 name|rc
 return|;
@@ -1813,6 +1828,21 @@ operator|->
 name|ssi
 operator|=
 name|NULL
+expr_stmt|;
+name|ngx_log_debug0
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"perl ssi done"
+argument_list|)
 expr_stmt|;
 return|return
 name|rc
