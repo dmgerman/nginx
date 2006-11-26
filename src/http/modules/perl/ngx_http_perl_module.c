@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c630c310108
+DECL|struct|__anon2c1995780108
 typedef|typedef
 struct|struct
 block|{
@@ -36,6 +36,11 @@ DECL|member|perl
 name|PerlInterpreter
 modifier|*
 name|perl
+decl_stmt|;
+DECL|member|nginx
+name|HV
+modifier|*
+name|nginx
 decl_stmt|;
 DECL|member|modules
 name|ngx_str_t
@@ -52,7 +57,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c630c310208
+DECL|struct|__anon2c1995780208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c630c310308
+DECL|struct|__anon2c1995780308
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c630c310408
+DECL|struct|__anon2c1995780408
 typedef|typedef
 struct|struct
 block|{
@@ -206,6 +211,10 @@ name|pTHX_
 name|ngx_http_request_t
 modifier|*
 name|r
+parameter_list|,
+name|HV
+modifier|*
+name|nginx
 parameter_list|,
 name|SV
 modifier|*
@@ -902,6 +911,13 @@ operator|->
 name|perl
 argument_list|)
 expr_stmt|;
+name|PERL_SET_CONTEXT
+argument_list|(
+name|pmcf
+operator|->
+name|perl
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|ctx
@@ -959,6 +975,8 @@ operator|=
 name|ngx_http_perl_call_handler
 argument_list|(
 argument|aTHX_ r
+argument_list|,
+argument|pmcf->nginx
 argument_list|,
 argument|sub
 argument_list|,
@@ -1245,11 +1263,20 @@ operator|->
 name|perl
 argument_list|)
 expr_stmt|;
+name|PERL_SET_CONTEXT
+argument_list|(
+name|pmcf
+operator|->
+name|perl
+argument_list|)
+expr_stmt|;
 name|rc
 operator|=
 name|ngx_http_perl_call_handler
 argument_list|(
 argument|aTHX_ r
+argument_list|,
+argument|pmcf->nginx
 argument_list|,
 argument|pv->sub
 argument_list|,
@@ -1503,6 +1530,13 @@ operator|->
 name|perl
 argument_list|)
 expr_stmt|;
+name|PERL_SET_CONTEXT
+argument_list|(
+name|pmcf
+operator|->
+name|perl
+argument_list|)
+expr_stmt|;
 if|#
 directive|if
 literal|0
@@ -1532,6 +1566,8 @@ operator|=
 name|ngx_http_perl_call_handler
 argument_list|(
 argument|aTHX_ r
+argument_list|,
+argument|pmcf->nginx
 argument_list|,
 argument|sv
 argument_list|,
@@ -1791,6 +1827,12 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
+name|pmcf
+operator|->
+name|nginx
+operator|=
+name|nginx_stash
+expr_stmt|;
 if|#
 directive|if
 operator|(
@@ -1904,13 +1946,18 @@ return|return
 name|NULL
 return|;
 block|}
-name|perl_construct
+block|{
+name|dTHXa
 argument_list|(
 name|perl
 argument_list|)
 expr_stmt|;
-block|{
-name|dTHXa
+name|PERL_SET_CONTEXT
+argument_list|(
+name|perl
+argument_list|)
+expr_stmt|;
+name|perl_construct
 argument_list|(
 name|perl
 argument_list|)
@@ -2285,13 +2332,17 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_http_perl_call_handler (pTHX_ ngx_http_request_t * r,SV * sub,ngx_str_t ** args,ngx_str_t * handler,ngx_str_t * rv)
+DECL|function|ngx_http_perl_call_handler (pTHX_ ngx_http_request_t * r,HV * nginx,SV * sub,ngx_str_t ** args,ngx_str_t * handler,ngx_str_t * rv)
 name|ngx_http_perl_call_handler
 parameter_list|(
 name|pTHX_
 name|ngx_http_request_t
 modifier|*
 name|r
+parameter_list|,
+name|HV
+modifier|*
+name|nginx
 parameter_list|,
 name|SV
 modifier|*
@@ -2367,7 +2418,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 argument_list|,
-name|nginx_stash
+name|nginx
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2970,6 +3021,11 @@ name|perl
 init|=
 name|data
 decl_stmt|;
+name|PERL_SET_CONTEXT
+argument_list|(
+name|perl
+argument_list|)
+expr_stmt|;
 operator|(
 name|void
 operator|)
@@ -3012,6 +3068,13 @@ init|=
 name|data
 decl_stmt|;
 name|dTHXa
+argument_list|(
+name|cln
+operator|->
+name|perl
+argument_list|)
+expr_stmt|;
+name|PERL_SET_CONTEXT
 argument_list|(
 name|cln
 operator|->
@@ -3476,6 +3539,13 @@ operator|->
 name|perl
 argument_list|)
 expr_stmt|;
+name|PERL_SET_CONTEXT
+argument_list|(
+name|pmcf
+operator|->
+name|perl
+argument_list|)
+expr_stmt|;
 name|ngx_http_perl_eval_anon_sub
 argument_list|(
 name|aTHX_
@@ -3860,6 +3930,13 @@ index|]
 expr_stmt|;
 block|{
 name|dTHXa
+argument_list|(
+name|pmcf
+operator|->
+name|perl
+argument_list|)
+expr_stmt|;
+name|PERL_SET_CONTEXT
 argument_list|(
 name|pmcf
 operator|->
