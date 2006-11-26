@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c1995780108
+DECL|struct|__anon2c5b271e0108
 typedef|typedef
 struct|struct
 block|{
@@ -57,7 +57,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1995780208
+DECL|struct|__anon2c5b271e0208
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1995780308
+DECL|struct|__anon2c5b271e0308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1995780408
+DECL|struct|__anon2c5b271e0408
 typedef|typedef
 struct|struct
 block|{
@@ -2856,6 +2856,7 @@ argument_list|,
 name|FALSE
 argument_list|)
 expr_stmt|;
+comment|/* eval_pv() does not set ERRSV on failure */
 return|return;
 block|}
 operator|*
