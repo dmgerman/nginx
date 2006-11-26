@@ -62,15 +62,10 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aaae0d80108
+DECL|struct|__anon2882d73a0108
 typedef|typedef
 struct|struct
 block|{
-DECL|member|perl
-name|PerlInterpreter
-modifier|*
-name|perl
-decl_stmt|;
 DECL|member|filename
 name|ngx_str_t
 name|filename
