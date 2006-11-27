@@ -174,12 +174,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_http_log_module.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<ngx_http_core_module.h>
 end_include
 
