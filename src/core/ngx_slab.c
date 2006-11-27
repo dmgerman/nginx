@@ -673,6 +673,10 @@ decl_stmt|;
 name|uintptr_t
 name|p
 decl_stmt|,
+name|n
+decl_stmt|,
+name|m
+decl_stmt|,
 name|mask
 decl_stmt|,
 modifier|*
@@ -680,10 +684,6 @@ name|bitmap
 decl_stmt|;
 name|ngx_uint_t
 name|i
-decl_stmt|,
-name|n
-decl_stmt|,
-name|m
 decl_stmt|,
 name|slot
 decl_stmt|,
@@ -1352,6 +1352,9 @@ for|for
 control|(
 name|m
 operator|=
+operator|(
+name|uintptr_t
+operator|)
 literal|1
 operator|<<
 name|NGX_SLAB_MAP_SHIFT
@@ -1784,6 +1787,9 @@ operator|->
 name|slab
 operator|=
 operator|(
+operator|(
+name|uintptr_t
+operator|)
 literal|1
 operator|<<
 name|NGX_SLAB_MAP_SHIFT
