@@ -34,7 +34,7 @@ file|<ngx_imap.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2962de2b0108
+DECL|struct|__anon2c51bff10108
 typedef|typedef
 struct|struct
 block|{
@@ -390,16 +390,16 @@ end_decl_stmt
 
 begin_function
 name|void
-DECL|function|ngx_imap_proxy_init (ngx_imap_session_t * s,ngx_peers_t * peers)
+DECL|function|ngx_imap_proxy_init (ngx_imap_session_t * s,ngx_peer_addr_t * peer)
 name|ngx_imap_proxy_init
 parameter_list|(
 name|ngx_imap_session_t
 modifier|*
 name|s
 parameter_list|,
-name|ngx_peers_t
+name|ngx_peer_addr_t
 modifier|*
-name|peers
+name|peer
 parameter_list|)
 block|{
 name|int
@@ -535,9 +535,40 @@ name|p
 operator|->
 name|upstream
 operator|.
-name|peers
+name|sockaddr
 operator|=
-name|peers
+name|peer
+operator|->
+name|sockaddr
+expr_stmt|;
+name|p
+operator|->
+name|upstream
+operator|.
+name|socklen
+operator|=
+name|peer
+operator|->
+name|socklen
+expr_stmt|;
+name|p
+operator|->
+name|upstream
+operator|.
+name|name
+operator|=
+operator|&
+name|peer
+operator|->
+name|name
+expr_stmt|;
+name|p
+operator|->
+name|upstream
+operator|.
+name|get
+operator|=
+name|ngx_event_get_peer
 expr_stmt|;
 name|p
 operator|->

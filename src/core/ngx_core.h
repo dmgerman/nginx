@@ -116,15 +116,6 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|typedef|ngx_peers_t
-typedef|typedef
-name|struct
-name|ngx_peers_s
-name|ngx_peers_t
-typedef|;
-end_typedef
-
-begin_typedef
 DECL|typedef|ngx_connection_t
 typedef|typedef
 name|struct

@@ -162,6 +162,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_http_upstream_round_robin.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_http_config.h>
 end_include
 

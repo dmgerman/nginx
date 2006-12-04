@@ -108,7 +108,7 @@ value|3
 end_define
 
 begin_typedef
-DECL|struct|__anon2c050e3b0108
+DECL|struct|__anon2a421d9a0108
 typedef|typedef
 struct|struct
 block|{
@@ -142,7 +142,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c050e3b0208
+DECL|struct|__anon2a421d9a0208
 typedef|typedef
 struct|struct
 block|{
@@ -199,7 +199,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c050e3b0308
+DECL|struct|__anon2a421d9a0308
 typedef|typedef
 struct|struct
 block|{
@@ -255,7 +255,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c050e3b0408
+DECL|struct|__anon2a421d9a0408
 typedef|typedef
 struct|struct
 block|{
@@ -281,7 +281,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c050e3b0508
+DECL|struct|__anon2a421d9a0508
 typedef|typedef
 struct|struct
 block|{
@@ -322,7 +322,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c050e3b0608
+DECL|struct|__anon2a421d9a0608
 typedef|typedef
 struct|struct
 block|{
@@ -621,17 +621,9 @@ name|NGX_ETIMEDOUT
 argument_list|,
 literal|"mysql server %V timed out"
 argument_list|,
-operator|&
 name|m
 operator|->
 name|peer
-operator|.
-name|peers
-operator|->
-name|peer
-index|[
-literal|0
-index|]
 operator|.
 name|name
 argument_list|)
@@ -780,17 +772,9 @@ literal|0
 argument_list|,
 literal|"mysql server %V sent incomplete greeting packet"
 argument_list|,
-operator|&
 name|m
 operator|->
 name|peer
-operator|.
-name|peers
-operator|->
-name|peer
-index|[
-literal|0
-index|]
 operator|.
 name|name
 argument_list|)
@@ -825,17 +809,9 @@ literal|0
 argument_list|,
 literal|"mysql server %V sent unsupported protocol version %ud"
 argument_list|,
-operator|&
 name|m
 operator|->
 name|peer
-operator|.
-name|peers
-operator|->
-name|peer
-index|[
-literal|0
-index|]
 operator|.
 name|name
 argument_list|,
@@ -1335,17 +1311,9 @@ literal|0
 argument_list|,
 literal|"the incomplete packet was sent to mysql server %V"
 argument_list|,
-operator|&
 name|m
 operator|->
 name|peer
-operator|.
-name|peers
-operator|->
-name|peer
-index|[
-literal|0
-index|]
 operator|.
 name|name
 argument_list|)
@@ -1573,17 +1541,9 @@ literal|0
 argument_list|,
 literal|"mysql server %V sent incomplete response packet"
 argument_list|,
-operator|&
 name|m
 operator|->
 name|peer
-operator|.
-name|peers
-operator|->
-name|peer
-index|[
-literal|0
-index|]
 operator|.
 name|name
 argument_list|)
@@ -1686,17 +1646,9 @@ literal|0
 argument_list|,
 literal|"mysql server %V sent error (%ud): \"%V\""
 argument_list|,
-operator|&
 name|m
 operator|->
 name|peer
-operator|.
-name|peers
-operator|->
-name|peer
-index|[
-literal|0
-index|]
 operator|.
 name|name
 argument_list|,
@@ -1834,17 +1786,9 @@ literal|0
 argument_list|,
 literal|"the incomplete packet was sent to mysql server %V"
 argument_list|,
-operator|&
 name|m
 operator|->
 name|peer
-operator|.
-name|peers
-operator|->
-name|peer
-index|[
-literal|0
-index|]
 operator|.
 name|name
 argument_list|)
@@ -2050,17 +1994,9 @@ literal|0
 argument_list|,
 literal|"mysql server %V sent incomplete response packet"
 argument_list|,
-operator|&
 name|m
 operator|->
 name|peer
-operator|.
-name|peers
-operator|->
-name|peer
-index|[
-literal|0
-index|]
 operator|.
 name|name
 argument_list|)
@@ -2165,17 +2101,9 @@ literal|0
 argument_list|,
 literal|"mysql server %V sent error (%ud): \"%V\""
 argument_list|,
-operator|&
 name|m
 operator|->
 name|peer
-operator|.
-name|peers
-operator|->
-name|peer
-index|[
-literal|0
-index|]
 operator|.
 name|name
 argument_list|,

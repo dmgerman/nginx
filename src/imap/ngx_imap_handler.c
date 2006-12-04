@@ -5765,19 +5765,11 @@ name|len
 argument_list|,
 literal|", upstream: %V"
 argument_list|,
-operator|&
 name|s
 operator|->
 name|proxy
 operator|->
 name|upstream
-operator|.
-name|peers
-operator|->
-name|peer
-index|[
-literal|0
-index|]
 operator|.
 name|name
 argument_list|)
