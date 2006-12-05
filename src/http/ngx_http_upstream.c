@@ -2349,6 +2349,9 @@ argument_list|()
 expr_stmt|;
 name|ms
 operator|=
+operator|(
+name|ngx_msec_t
+operator|)
 name|tp
 operator|->
 name|sec
@@ -2437,6 +2440,9 @@ name|state
 operator|->
 name|response_time
 operator|=
+operator|(
+name|ngx_msec_t
+operator|)
 name|tp
 operator|->
 name|sec
@@ -8832,6 +8838,9 @@ argument_list|()
 expr_stmt|;
 name|ms
 operator|=
+operator|(
+name|ngx_msec_t
+operator|)
 name|tp
 operator|->
 name|sec
