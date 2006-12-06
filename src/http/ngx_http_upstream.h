@@ -133,7 +133,7 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon2c73765b0108
+DECL|struct|__anon2bf6cdc20108
 typedef|typedef
 struct|struct
 block|{
@@ -149,9 +149,13 @@ DECL|member|status
 name|ngx_uint_t
 name|status
 decl_stmt|;
-DECL|member|response_time
-name|ngx_msec_t
-name|response_time
+DECL|member|response_sec
+name|time_t
+name|response_sec
+decl_stmt|;
+DECL|member|response_msec
+name|ngx_uint_t
+name|response_msec
 decl_stmt|;
 DECL|member|peer
 name|ngx_str_t
@@ -165,7 +169,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c73765b0208
+DECL|struct|__anon2bf6cdc20208
 typedef|typedef
 struct|struct
 block|{
@@ -234,7 +238,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c73765b0308
+DECL|struct|__anon2bf6cdc20308
 typedef|typedef
 struct|struct
 block|{
@@ -258,7 +262,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c73765b0408
+DECL|struct|__anon2bf6cdc20408
 typedef|typedef
 struct|struct
 block|{
@@ -395,7 +399,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c73765b0508
+DECL|struct|__anon2bf6cdc20508
 typedef|typedef
 struct|struct
 block|{
@@ -551,7 +555,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c73765b0608
+DECL|struct|__anon2bf6cdc20608
 typedef|typedef
 struct|struct
 block|{
@@ -587,7 +591,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c73765b0708
+DECL|struct|__anon2bf6cdc20708
 typedef|typedef
 struct|struct
 block|{
