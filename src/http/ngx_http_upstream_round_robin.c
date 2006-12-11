@@ -418,7 +418,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"%s in upstream host \"%V\" is not found in %s:%ui"
+literal|"%s in upstream \"%V\" in %s:%ui"
 argument_list|,
 name|u
 operator|.
@@ -441,6 +441,47 @@ name|line
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|NGX_ERROR
+return|;
+block|}
+if|if
+condition|(
+name|us
+operator|->
+name|port
+operator|==
+literal|0
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"no port in upstream \"%V\" in %s:%ui"
+argument_list|,
+operator|&
+name|us
+operator|->
+name|host
+argument_list|,
+name|us
+operator|->
+name|file_name
+operator|.
+name|data
+argument_list|,
+name|us
+operator|->
+name|line
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
