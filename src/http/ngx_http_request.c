@@ -9802,6 +9802,12 @@ name|post_action
 operator|=
 literal|1
 expr_stmt|;
+name|r
+operator|->
+name|read_event_handler
+operator|=
+name|ngx_http_block_read
+expr_stmt|;
 name|ngx_http_internal_redirect
 argument_list|(
 name|r
