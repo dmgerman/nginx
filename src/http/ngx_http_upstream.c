@@ -12198,6 +12198,17 @@ index|[
 name|i
 index|]
 operator|->
+name|port
+operator|!=
+name|u
+operator|->
+name|portn
+operator|||
+name|uscfp
+index|[
+name|i
+index|]
+operator|->
 name|host
 operator|.
 name|len
