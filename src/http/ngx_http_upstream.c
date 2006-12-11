@@ -12193,6 +12193,14 @@ control|)
 block|{
 if|if
 condition|(
+operator|(
+name|uscfp
+index|[
+name|i
+index|]
+operator|->
+name|port
+operator|&&
 name|uscfp
 index|[
 name|i
@@ -12203,6 +12211,7 @@ operator|!=
 name|u
 operator|->
 name|portn
+operator|)
 operator|||
 name|uscfp
 index|[
