@@ -62,7 +62,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8cb4930108
+DECL|struct|__anon2bd311c60108
 typedef|typedef
 struct|struct
 block|{
@@ -92,6 +92,12 @@ name|ngx_uint_t
 name|done
 decl_stmt|;
 comment|/* unsigned  done:1; */
+DECL|member|variables
+name|ngx_array_t
+modifier|*
+name|variables
+decl_stmt|;
+comment|/* array of ngx_http_perl_var_t */
 if|#
 directive|if
 operator|(
@@ -107,6 +113,29 @@ directive|endif
 DECL|typedef|ngx_http_perl_ctx_t
 block|}
 name|ngx_http_perl_ctx_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2bd311c60208
+typedef|typedef
+struct|struct
+block|{
+DECL|member|hash
+name|ngx_uint_t
+name|hash
+decl_stmt|;
+DECL|member|name
+name|ngx_str_t
+name|name
+decl_stmt|;
+DECL|member|value
+name|ngx_str_t
+name|value
+decl_stmt|;
+DECL|typedef|ngx_http_perl_var_t
+block|}
+name|ngx_http_perl_var_t
 typedef|;
 end_typedef
 
