@@ -62,7 +62,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2882d73a0108
+DECL|struct|__anon2b8cb4930108
 typedef|typedef
 struct|struct
 block|{
@@ -82,6 +82,10 @@ DECL|member|next
 name|SV
 modifier|*
 name|next
+decl_stmt|;
+DECL|member|sleep
+name|int
+name|sleep
 decl_stmt|;
 DECL|member|done
 name|ngx_uint_t

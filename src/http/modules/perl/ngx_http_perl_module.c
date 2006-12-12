@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon296bd7c00108
+DECL|struct|__anon2b5a84480108
 typedef|typedef
 struct|struct
 block|{
@@ -57,7 +57,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296bd7c00208
+DECL|struct|__anon2b5a84480208
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296bd7c00308
+DECL|struct|__anon2b5a84480308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296bd7c00408
+DECL|struct|__anon2b5a84480408
 typedef|typedef
 struct|struct
 block|{
@@ -150,6 +150,18 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_function_decl
+specifier|static
+name|void
+name|ngx_http_perl_sleep_handler
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_function_decl
 specifier|static
@@ -1056,6 +1068,42 @@ if|if
 condition|(
 name|ctx
 operator|->
+name|sleep
+condition|)
+block|{
+name|ngx_add_timer
+argument_list|(
+name|r
+operator|->
+name|connection
+operator|->
+name|write
+argument_list|,
+operator|(
+name|ngx_msec_t
+operator|)
+name|ctx
+operator|->
+name|sleep
+argument_list|)
+expr_stmt|;
+name|r
+operator|->
+name|write_event_handler
+operator|=
+name|ngx_http_perl_sleep_handler
+expr_stmt|;
+name|ctx
+operator|->
+name|sleep
+operator|=
+literal|0
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|ctx
+operator|->
 name|done
 operator|||
 name|ctx
@@ -1115,6 +1163,40 @@ argument_list|(
 name|r
 argument_list|,
 name|rc
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+
+begin_function
+specifier|static
+name|void
+DECL|function|ngx_http_perl_sleep_handler (ngx_http_request_t * r)
+name|ngx_http_perl_sleep_handler
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|)
+block|{
+name|ngx_log_debug0
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"perl sleep handler"
+argument_list|)
+expr_stmt|;
+name|ngx_http_perl_handle_request
+argument_list|(
+name|r
 argument_list|)
 expr_stmt|;
 block|}
