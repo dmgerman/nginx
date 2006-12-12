@@ -2510,7 +2510,7 @@ name|port
 operator|!=
 name|u
 operator|.
-name|portn
+name|port
 condition|)
 block|{
 continue|continue;
@@ -2582,7 +2582,7 @@ name|port
 operator|=
 name|u
 operator|.
-name|portn
+name|port
 expr_stmt|;
 name|imls
 operator|->

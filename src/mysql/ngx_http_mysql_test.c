@@ -28,7 +28,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b7bd74f0108
+DECL|struct|__anon29acec9c0108
 typedef|typedef
 struct|struct
 block|{
@@ -761,7 +761,7 @@ index|]
 expr_stmt|;
 name|u
 operator|.
-name|default_portn
+name|default_port
 operator|=
 literal|3306
 expr_stmt|;

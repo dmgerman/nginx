@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2aba547e0108
+DECL|struct|__anon28fd87ef0108
 typedef|typedef
 struct|struct
 block|{
@@ -67,7 +67,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2aba547e0203
+DECL|enum|__anon28fd87ef0203
 typedef|typedef
 enum|enum
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aba547e0308
+DECL|struct|__anon28fd87ef0308
 typedef|typedef
 struct|struct
 block|{
@@ -222,7 +222,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2aba547e0408
+DECL|struct|__anon28fd87ef0408
 typedef|typedef
 struct|struct
 block|{
@@ -265,7 +265,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aba547e0508
+DECL|struct|__anon28fd87ef0508
 typedef|typedef
 struct|struct
 block|{
@@ -295,7 +295,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aba547e0608
+DECL|struct|__anon28fd87ef0608
 typedef|typedef
 struct|struct
 block|{
@@ -322,7 +322,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aba547e0708
+DECL|struct|__anon28fd87ef0708
 typedef|typedef
 struct|struct
 block|{
@@ -9226,12 +9226,6 @@ name|value
 index|[
 literal|1
 index|]
-expr_stmt|;
-name|u
-operator|.
-name|upstream
-operator|=
-literal|1
 expr_stmt|;
 name|u
 operator|.

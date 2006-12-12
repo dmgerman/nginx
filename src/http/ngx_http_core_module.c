@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29e94c660108
+DECL|struct|__anon2c3abe080108
 typedef|typedef
 struct|struct
 block|{
@@ -10637,7 +10637,7 @@ literal|1
 expr_stmt|;
 name|u
 operator|.
-name|default_portn
+name|default_port
 operator|=
 literal|80
 expr_stmt|;
@@ -10739,7 +10739,7 @@ name|port
 operator|=
 name|u
 operator|.
-name|portn
+name|port
 expr_stmt|;
 name|ls
 operator|->

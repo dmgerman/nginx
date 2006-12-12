@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon277a31ba0108
+DECL|struct|__anon2be428010108
 typedef|typedef
 struct|struct
 block|{
@@ -48,7 +48,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|union|__anon277a31ba020a
+DECL|union|__anon2be42801020a
 typedef|typedef
 union|union
 block|{
@@ -63,7 +63,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277a31ba0308
+DECL|struct|__anon2be428010308
 typedef|typedef
 struct|struct
 block|{
@@ -88,7 +88,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277a31ba0408
+DECL|struct|__anon2be428010408
 typedef|typedef
 struct|struct
 block|{
@@ -104,25 +104,17 @@ DECL|member|host
 name|ngx_str_t
 name|host
 decl_stmt|;
-DECL|member|host_header
-name|ngx_str_t
-name|host_header
-decl_stmt|;
-DECL|member|port
-name|ngx_str_t
-name|port
-decl_stmt|;
 DECL|member|uri
 name|ngx_str_t
 name|uri
 decl_stmt|;
-DECL|member|portn
+DECL|member|port
 name|in_port_t
-name|portn
+name|port
 decl_stmt|;
-DECL|member|default_portn
+DECL|member|default_port
 name|in_port_t
-name|default_portn
+name|default_port
 decl_stmt|;
 DECL|member|listen
 name|unsigned
@@ -133,12 +125,6 @@ decl_stmt|;
 DECL|member|uri_part
 name|unsigned
 name|uri_part
-range|:
-literal|1
-decl_stmt|;
-DECL|member|upstream
-name|unsigned
-name|upstream
 range|:
 literal|1
 decl_stmt|;
@@ -163,6 +149,12 @@ decl_stmt|;
 DECL|member|no_port
 name|unsigned
 name|no_port
+range|:
+literal|1
+decl_stmt|;
+DECL|member|unix_socket
+name|unsigned
+name|unix_socket
 range|:
 literal|1
 decl_stmt|;
