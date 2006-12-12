@@ -106,7 +106,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon292ca0470108
+DECL|struct|__anon2ad914860108
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292ca0470208
+DECL|struct|__anon2ad914860208
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292ca0470308
+DECL|struct|__anon2ad914860308
 typedef|typedef
 struct|struct
 block|{
@@ -174,7 +174,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292ca0470408
+DECL|struct|__anon2ad914860408
 typedef|typedef
 struct|struct
 block|{
@@ -196,7 +196,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292ca0470508
+DECL|struct|__anon2ad914860508
 typedef|typedef
 struct|struct
 block|{
@@ -2456,6 +2456,12 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
+name|log
+operator|->
+name|disk_full_time
+operator|=
+literal|0
+expr_stmt|;
 name|lmcf
 operator|=
 name|ngx_http_conf_get_module_main_conf
