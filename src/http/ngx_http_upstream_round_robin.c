@@ -431,6 +431,10 @@ name|u
 operator|.
 name|port
 operator|=
+operator|(
+name|in_port_t
+operator|)
+operator|(
 name|us
 operator|->
 name|port
@@ -442,6 +446,7 @@ else|:
 name|us
 operator|->
 name|default_port
+operator|)
 expr_stmt|;
 if|if
 condition|(
