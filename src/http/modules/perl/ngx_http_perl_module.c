@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b5a84480108
+DECL|struct|__anon2c88160b0108
 typedef|typedef
 struct|struct
 block|{
@@ -57,7 +57,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5a84480208
+DECL|struct|__anon2c88160b0208
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5a84480308
+DECL|struct|__anon2c88160b0308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5a84480408
+DECL|struct|__anon2c88160b0408
 typedef|typedef
 struct|struct
 block|{
@@ -1179,6 +1179,10 @@ modifier|*
 name|r
 parameter_list|)
 block|{
+name|ngx_event_t
+modifier|*
+name|wev
+decl_stmt|;
 name|ngx_log_debug0
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
@@ -1194,11 +1198,54 @@ argument_list|,
 literal|"perl sleep handler"
 argument_list|)
 expr_stmt|;
+name|wev
+operator|=
+name|r
+operator|->
+name|connection
+operator|->
+name|write
+expr_stmt|;
+if|if
+condition|(
+name|wev
+operator|->
+name|timedout
+condition|)
+block|{
+name|wev
+operator|->
+name|timedout
+operator|=
+literal|0
+expr_stmt|;
 name|ngx_http_perl_handle_request
 argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
+return|return;
+block|}
+if|if
+condition|(
+name|ngx_handle_write_event
+argument_list|(
+name|wev
+argument_list|,
+literal|0
+argument_list|)
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+name|ngx_http_finalize_request
+argument_list|(
+name|r
+argument_list|,
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_function
 
