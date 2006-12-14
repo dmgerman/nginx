@@ -100,7 +100,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon2b51a24c0103
+DECL|enum|__anon2b1bf5790103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1189,6 +1189,12 @@ name|sw_after_slash_in_uri
 expr_stmt|;
 break|break;
 default|default:
+name|r
+operator|->
+name|host_end
+operator|=
+name|p
+expr_stmt|;
 return|return
 name|NGX_HTTP_PARSE_INVALID_REQUEST
 return|;
@@ -2211,7 +2217,7 @@ name|hash
 decl_stmt|,
 name|i
 decl_stmt|;
-DECL|enum|__anon2b51a24c0203
+DECL|enum|__anon2b1bf5790203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2890,7 +2896,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2b51a24c0303
+DECL|enum|__anon2b1bf5790303
 enum|enum
 block|{
 DECL|enumerator|sw_usual
