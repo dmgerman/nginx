@@ -30,7 +30,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2949d54f0108
+DECL|struct|__anon29381fd20108
 typedef|typedef
 struct|struct
 block|{
@@ -2008,7 +2008,11 @@ literal|1
 init|;
 name|i
 operator|<
-literal|3
+name|cf
+operator|->
+name|args
+operator|->
+name|nelts
 condition|;
 name|i
 operator|++
