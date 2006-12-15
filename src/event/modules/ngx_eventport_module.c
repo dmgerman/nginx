@@ -114,7 +114,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2b42e87c0108
+DECL|struct|__anon277af1950108
 typedef|typedef
 struct|struct
 block|{
@@ -373,7 +373,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b42e87c0208
+DECL|struct|__anon277af1950208
 typedef|typedef
 struct|struct
 block|{
@@ -1981,7 +1981,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"prot_getn() error fd:%d ev:%04Xd"
+literal|"port_getn() error fd:%d ev:%04Xd"
 argument_list|,
 name|event_list
 index|[
