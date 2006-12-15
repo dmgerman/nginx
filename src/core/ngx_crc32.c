@@ -596,12 +596,10 @@ end_decl_stmt
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_crc32_init (ngx_pool_t * pool)
+DECL|function|ngx_crc32_init (void)
 name|ngx_crc32_init
 parameter_list|(
-name|ngx_pool_t
-modifier|*
-name|pool
+name|void
 parameter_list|)
 block|{
 name|void
@@ -639,10 +637,8 @@ return|;
 block|}
 name|p
 operator|=
-name|ngx_palloc
+name|ngx_alloc
 argument_list|(
-name|pool
-argument_list|,
 literal|16
 operator|*
 sizeof|sizeof
@@ -651,6 +647,10 @@ name|uint32_t
 argument_list|)
 operator|+
 name|ngx_cacheline_size
+argument_list|,
+name|ngx_cycle
+operator|->
+name|log
 argument_list|)
 expr_stmt|;
 if|if

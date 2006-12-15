@@ -198,9 +198,7 @@ begin_function_decl
 name|ngx_int_t
 name|ngx_crc32_init
 parameter_list|(
-name|ngx_pool_t
-modifier|*
-name|pool
+name|void
 parameter_list|)
 function_decl|;
 end_function_decl
