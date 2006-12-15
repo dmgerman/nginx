@@ -3545,7 +3545,12 @@ name|data
 expr_stmt|;
 block|}
 block|}
-else|else
+if|else if
+condition|(
+name|r
+operator|->
+name|host_end
+condition|)
 block|{
 name|v
 operator|->
@@ -3567,6 +3572,18 @@ name|r
 operator|->
 name|host_start
 expr_stmt|;
+block|}
+else|else
+block|{
+name|v
+operator|->
+name|not_found
+operator|=
+literal|1
+expr_stmt|;
+return|return
+name|NGX_OK
+return|;
 block|}
 name|v
 operator|->

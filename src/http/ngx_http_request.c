@@ -4961,6 +4961,13 @@ operator|-
 name|old
 operator|)
 expr_stmt|;
+if|if
+condition|(
+name|r
+operator|->
+name|host_end
+condition|)
+block|{
 name|r
 operator|->
 name|host_end
@@ -4975,6 +4982,7 @@ operator|-
 name|old
 operator|)
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
