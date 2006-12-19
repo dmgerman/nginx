@@ -323,8 +323,12 @@ name|len
 expr_stmt|;
 name|p
 operator|=
-name|ngx_sprintf
+name|ngx_snprintf
 argument_list|(
+name|p
+argument_list|,
+name|last
+operator|-
 name|p
 argument_list|,
 literal|" [%s] "
@@ -338,8 +342,12 @@ expr_stmt|;
 comment|/* pid#tid */
 name|p
 operator|=
-name|ngx_sprintf
+name|ngx_snprintf
 argument_list|(
+name|p
+argument_list|,
+name|last
+operator|-
 name|p
 argument_list|,
 literal|"%P#"
@@ -360,8 +368,12 @@ condition|)
 block|{
 name|p
 operator|=
-name|ngx_sprintf
+name|ngx_snprintf
 argument_list|(
+name|p
+argument_list|,
+name|last
+operator|-
 name|p
 argument_list|,
 literal|"*%uA "
