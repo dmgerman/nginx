@@ -32,8 +32,6 @@ DECL|variable|slot
 specifier|static
 name|ngx_uint_t
 name|slot
-init|=
-name|NGX_TIME_SLOTS
 decl_stmt|;
 end_decl_stmt
 
