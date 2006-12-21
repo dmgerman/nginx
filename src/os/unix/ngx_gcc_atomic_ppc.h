@@ -4,7 +4,7 @@ comment|/*  * Copyright (C) Igor Sysoev  */
 end_comment
 
 begin_comment
-comment|/*  * The ppc assembler treats ";" as comment, so we have to use "\n".  * The minus in "bne-" is a hint for the branch prediction unit that  * this branch is unlikely to be taken.  * The "1b" means the nearest backward label "1" and the "1f" means  * the nearest forward label "1".  *  * The "b" means that the base registers can be used only, i.e.  * any register except r0.  The r0 register always has a zero value and  * could not be used in "addi  r0, r0, 1".  * The "=&b" means that no input registers can be used.  */
+comment|/*  * The ppc assembler treats ";" as comment, so we have to use "\n".  * The minus in "bne-" is a hint for the branch prediction unit that  * this branch is unlikely to be taken.  * The "1b" means the nearest backward label "1" and the "1f" means  * the nearest forward label "1".  *  * The "b" means that the base registers can be used only, i.e.  * any register except r0.  The r0 register always has a zero value and  * could not be used in "addi  r0, r0, 1".  * The "=&b" means that no input registers can be used.  *  * "sync"    read and write barriers  * "isync"   read barrier, is faster than "sync"  * "eieio"   write barrier, is faster than "sync"  * "lwsync"  write barrier, is faster than "eieio" on ppc64  */
 end_comment
 
 begin_if
@@ -44,6 +44,8 @@ asm|__asm__
 specifier|volatile
 asm|(      "    li      %0, 0       \n"
 comment|/* preset "0" to "res"                      */
+asm|"    lwsync              \n"
+comment|/* write barrier                            */
 asm|"1:                      \n"     "    ldarx   %1, 0, %2   \n"
 comment|/* load from [lock] into "temp"             */
 comment|/*   and store reservation                  */
@@ -56,6 +58,8 @@ comment|/* store "set" into [lock] if reservation   */
 comment|/*   is not cleared                         */
 asm|"    bne-    1b          \n"
 comment|/* the reservation was cleared              */
+asm|"    isync               \n"
+comment|/* read barrier                             */
 asm|"    li      %0, 1       \n"
 comment|/* set "1" to "res"                         */
 asm|"2:                      \n"      : "=&b" (res), "=&b" (temp)     : "b" (lock), "b" (old), "b" (set)     : "cc", "memory");
@@ -87,7 +91,9 @@ name|temp
 decl_stmt|;
 asm|__asm__
 specifier|volatile
-asm|(      "1:  ldarx   %0, 0, %2   \n"
+asm|(      "    lwsync              \n"
+comment|/* write barrier                            */
+asm|"1:  ldarx   %0, 0, %2   \n"
 comment|/* load from [value] into "res"             */
 comment|/*   and store reservation                  */
 asm|"    add     %1, %0, %3  \n"
@@ -97,6 +103,8 @@ comment|/* store "temp" into [value] if reservation */
 comment|/*   is not cleared                         */
 asm|"    bne-    1b          \n"
 comment|/* try again if reservation was cleared     */
+asm|"    isync               \n"
+comment|/* read barrier                             */
 asm|: "=&b" (res), "=&b" (temp)     : "b" (value), "b" (add)     : "cc", "memory");
 return|return
 name|res
@@ -118,7 +126,8 @@ define|#
 directive|define
 name|ngx_memory_barrier
 parameter_list|()
-value|__asm__ volatile ("lwsync\n" ::: "memory")
+define|\
+value|__asm__ volatile ("isync  \n  lwsync  \n" ::: "memory")
 end_define
 
 begin_else
@@ -172,6 +181,8 @@ asm|__asm__
 specifier|volatile
 asm|(      "    li      %0, 0       \n"
 comment|/* preset "0" to "res"                      */
+asm|"    eieio               \n"
+comment|/* write barrier                            */
 asm|"1:                      \n"     "    lwarx   %1, 0, %2   \n"
 comment|/* load from [lock] into "temp"             */
 comment|/*   and store reservation                  */
@@ -184,6 +195,8 @@ comment|/* store "set" into [lock] if reservation   */
 comment|/*   is not cleared                         */
 asm|"    bne-    1b          \n"
 comment|/* the reservation was cleared              */
+asm|"    isync               \n"
+comment|/* read barrier                             */
 asm|"    li      %0, 1       \n"
 comment|/* set "1" to "res"                         */
 asm|"2:                      \n"      : "=&b" (res), "=&b" (temp)     : "b" (lock), "b" (old), "b" (set)     : "cc", "memory");
@@ -215,7 +228,9 @@ name|temp
 decl_stmt|;
 asm|__asm__
 specifier|volatile
-asm|(      "1:  lwarx   %0, 0, %2   \n"
+asm|(      "    eieio               \n"
+comment|/* write barrier                            */
+asm|"1:  lwarx   %0, 0, %2   \n"
 comment|/* load from [value] into "res"             */
 comment|/*   and store reservation                  */
 asm|"    add     %1, %0, %3  \n"
@@ -225,6 +240,8 @@ comment|/* store "temp" into [value] if reservation */
 comment|/*   is not cleared                         */
 asm|"    bne-    1b          \n"
 comment|/* try again if reservation was cleared     */
+asm|"    isync               \n"
+comment|/* read barrier                             */
 asm|: "=&b" (res), "=&b" (temp)     : "b" (value), "b" (add)     : "cc", "memory");
 return|return
 name|res
@@ -246,7 +263,8 @@ define|#
 directive|define
 name|ngx_memory_barrier
 parameter_list|()
-value|__asm__ volatile ("sync\n" ::: "memory")
+define|\
+value|__asm__ volatile ("isync  \n  eieio  \n" ::: "memory")
 end_define
 
 begin_else
