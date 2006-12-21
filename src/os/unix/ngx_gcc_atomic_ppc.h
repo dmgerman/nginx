@@ -44,21 +44,21 @@ asm|__asm__
 specifier|volatile
 asm|(      "    li      %0, 0       \n"
 comment|/* preset "0" to "res"                      */
-asm|"    ldarx   %1, 0, %2   \n"
+asm|"1:                      \n"     "    ldarx   %1, 0, %2   \n"
 comment|/* load from [lock] into "temp"             */
 comment|/*   and store reservation                  */
 asm|"    cmpd    %1, %3      \n"
 comment|/* compare "temp" and "old"                 */
-asm|"    bne-    1f          \n"
+asm|"    bne-    2f          \n"
 comment|/* not equal                                */
 asm|"    stdcx.  %4, 0, %2   \n"
 comment|/* store "set" into [lock] if reservation   */
 comment|/*   is not cleared                         */
-asm|"    bne-    1f          \n"
+asm|"    bne-    1b          \n"
 comment|/* the reservation was cleared              */
 asm|"    li      %0, 1       \n"
 comment|/* set "1" to "res"                         */
-asm|"1:                      \n"      : "=&b" (res), "=&b" (temp)     : "b" (lock), "b" (old), "b" (set)     : "cc", "memory");
+asm|"2:                      \n"      : "=&b" (res), "=&b" (temp)     : "b" (lock), "b" (old), "b" (set)     : "cc", "memory");
 return|return
 name|res
 return|;
@@ -172,21 +172,21 @@ asm|__asm__
 specifier|volatile
 asm|(      "    li      %0, 0       \n"
 comment|/* preset "0" to "res"                      */
-asm|"    lwarx   %1, 0, %2   \n"
+asm|"1:                      \n"     "    lwarx   %1, 0, %2   \n"
 comment|/* load from [lock] into "temp"             */
 comment|/*   and store reservation                  */
 asm|"    cmpw    %1, %3      \n"
 comment|/* compare "temp" and "old"                 */
-asm|"    bne-    1f          \n"
+asm|"    bne-    2f          \n"
 comment|/* not equal                                */
 asm|"    stwcx.  %4, 0, %2   \n"
 comment|/* store "set" into [lock] if reservation   */
 comment|/*   is not cleared                         */
-asm|"    bne-    1f          \n"
+asm|"    bne-    1b          \n"
 comment|/* the reservation was cleared              */
 asm|"    li      %0, 1       \n"
 comment|/* set "1" to "res"                         */
-asm|"1:                      \n"      : "=&b" (res), "=&b" (temp)     : "b" (lock), "b" (old), "b" (set)     : "cc", "memory");
+asm|"2:                      \n"      : "=&b" (res), "=&b" (temp)     : "b" (lock), "b" (old), "b" (set)     : "cc", "memory");
 return|return
 name|res
 return|;
