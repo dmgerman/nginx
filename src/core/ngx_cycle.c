@@ -3653,6 +3653,8 @@ name|u_char
 name|pid
 index|[
 name|NGX_INT64_LEN
+operator|+
+literal|2
 index|]
 decl_stmt|;
 name|ngx_memzero
@@ -3745,9 +3747,13 @@ condition|)
 block|{
 name|len
 operator|=
-name|ngx_sprintf
+name|ngx_snprintf
 argument_list|(
 name|pid
+argument_list|,
+name|NGX_INT64_LEN
+operator|+
+literal|2
 argument_list|,
 literal|"%P%N"
 argument_list|,
