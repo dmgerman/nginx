@@ -32,12 +32,12 @@ begin_if
 if|#
 directive|if
 operator|(
-name|NGX_DARWIN
+name|NGX_DARWIN_ATOMIC
 operator|)
 end_if
 
 begin_comment
-comment|/*  * use MacOSX atomic(3) and barrier(3) operations  * optimized at run time for UP and SMP  */
+comment|/*  * use Darwin 8 atomic(3) and barrier(3) operations  * optimized at run-time for UP and SMP  */
 end_comment
 
 begin_include
