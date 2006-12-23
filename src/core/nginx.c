@@ -710,6 +710,14 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_show_configure
+specifier|static
+name|ngx_uint_t
+name|ngx_show_configure
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_null_environ
 specifier|static
 name|char
@@ -919,6 +927,14 @@ argument|NGINX_VER CRLF) -
 literal|1
 argument_list|)
 empty_stmt|;
+ifndef|#
+directive|ifndef
+name|__WATCOMC__
+if|if
+condition|(
+name|ngx_show_configure
+condition|)
+block|{
 ifdef|#
 directive|ifdef
 name|NGX_COMPILER
@@ -935,6 +951,22 @@ argument|NGX_COMPILER CRLF) -
 literal|1
 argument_list|)
 empty_stmt|;
+endif|#
+directive|endif
+name|ngx_write_fd
+argument_list|(
+argument|ngx_stderr_fileno
+argument_list|,
+literal|"configure arguments "
+argument|NGX_CONFIGURE CRLF
+argument_list|,
+argument|sizeof(
+literal|"configure arguments "
+argument|NGX_CONFIGURE CRLF) -
+literal|1
+argument_list|)
+empty_stmt|;
+block|}
 endif|#
 directive|endif
 if|if
@@ -1947,6 +1979,18 @@ case|case
 literal|'v'
 case|:
 name|ngx_show_version
+operator|=
+literal|1
+expr_stmt|;
+break|break;
+case|case
+literal|'V'
+case|:
+name|ngx_show_version
+operator|=
+literal|1
+expr_stmt|;
+name|ngx_show_configure
 operator|=
 literal|1
 expr_stmt|;
