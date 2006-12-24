@@ -927,9 +927,6 @@ argument|NGINX_VER CRLF) -
 literal|1
 argument_list|)
 empty_stmt|;
-ifndef|#
-directive|ifndef
-name|__WATCOMC__
 if|if
 condition|(
 name|ngx_show_configure
@@ -953,22 +950,26 @@ argument_list|)
 empty_stmt|;
 endif|#
 directive|endif
+ifndef|#
+directive|ifndef
+name|__WATCOMC__
+comment|/* OpenWatcomC could not build the long NGX_CONFIGURE string */
 name|ngx_write_fd
 argument_list|(
 argument|ngx_stderr_fileno
 argument_list|,
-literal|"configure arguments "
+literal|"configure arguments: "
 argument|NGX_CONFIGURE CRLF
 argument_list|,
 argument|sizeof(
-literal|"configure arguments "
+literal|"configure arguments :"
 argument|NGX_CONFIGURE CRLF) -
 literal|1
 argument_list|)
 empty_stmt|;
-block|}
 endif|#
 directive|endif
+block|}
 if|if
 condition|(
 operator|!
