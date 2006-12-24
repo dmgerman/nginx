@@ -64,7 +64,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2b44fc5d0108
+DECL|struct|__anon275b35910108
 typedef|typedef
 struct|struct
 block|{
@@ -186,7 +186,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b44fc5d0208
+DECL|struct|__anon275b35910208
 typedef|typedef
 struct|struct
 block|{
@@ -214,13 +214,13 @@ DECL|member|rlimit_nofile
 name|ngx_int_t
 name|rlimit_nofile
 decl_stmt|;
-DECL|member|rlimit_core
-name|ngx_int_t
-name|rlimit_core
-decl_stmt|;
 DECL|member|rlimit_sigpending
 name|ngx_int_t
 name|rlimit_sigpending
+decl_stmt|;
+DECL|member|rlimit_core
+name|size_t
+name|rlimit_core
 decl_stmt|;
 DECL|member|priority
 name|int
@@ -286,7 +286,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b44fc5d0308
+DECL|struct|__anon275b35910308
 typedef|typedef
 struct|struct
 block|{

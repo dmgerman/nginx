@@ -3542,7 +3542,7 @@ name|ccf
 operator|->
 name|rlimit_core
 operator|!=
-name|NGX_CONF_UNSET
+name|NGX_CONF_UNSET_SIZE
 condition|)
 block|{
 name|rlmt
