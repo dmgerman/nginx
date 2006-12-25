@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c53736a0108
+DECL|struct|__anon29f816950108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c53736a0208
+DECL|struct|__anon29f816950208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c53736a0308
+DECL|struct|__anon29f816950308
 typedef|typedef
 struct|struct
 block|{
@@ -450,6 +450,28 @@ literal|1
 index|]
 operator|!=
 literal|'/'
+condition|)
+block|{
+return|return
+name|NGX_DECLINED
+return|;
+block|}
+if|if
+condition|(
+operator|!
+operator|(
+name|r
+operator|->
+name|method
+operator|&
+operator|(
+name|NGX_HTTP_GET
+operator||
+name|NGX_HTTP_HEAD
+operator||
+name|NGX_HTTP_POST
+operator|)
+operator|)
 condition|)
 block|{
 return|return
