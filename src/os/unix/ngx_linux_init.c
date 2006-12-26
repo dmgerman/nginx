@@ -53,7 +53,7 @@ DECL|variable|ngx_linux_kern_osrelease
 name|char
 name|ngx_linux_kern_osrelease
 index|[
-literal|20
+literal|50
 index|]
 decl_stmt|;
 end_decl_stmt
