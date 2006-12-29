@@ -26,7 +26,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon2b0aabeb0108
+DECL|struct|__anon2a5525640108
 typedef|typedef
 struct|struct
 block|{
@@ -1908,6 +1908,13 @@ operator|.
 name|nelts
 operator|==
 literal|0
+operator|||
+name|ngx_buf_special
+argument_list|(
+name|in
+operator|->
+name|buf
+argument_list|)
 condition|)
 block|{
 return|return
