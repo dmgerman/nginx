@@ -215,6 +215,21 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_comment
+comment|/* a sentinel must be black */
+end_comment
+
+begin_define
+DECL|macro|ngx_rbtree_sentinel_init (node)
+define|#
+directive|define
+name|ngx_rbtree_sentinel_init
+parameter_list|(
+name|node
+parameter_list|)
+value|node->color = 0
+end_define
+
 begin_function
 specifier|static
 name|ngx_inline
