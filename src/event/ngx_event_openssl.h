@@ -51,6 +51,12 @@ end_if
 begin_include
 include|#
 directive|include
+file|<openssl/conf.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<openssl/engine.h>
 end_include
 
@@ -92,7 +98,7 @@ value|SSL
 end_define
 
 begin_typedef
-DECL|struct|__anon298f73eb0108
+DECL|struct|__anon2baf808b0108
 typedef|typedef
 struct|struct
 block|{
@@ -113,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298f73eb0208
+DECL|struct|__anon2baf808b0208
 typedef|typedef
 struct|struct
 block|{

@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon288c18800108
+DECL|struct|__anon2b93a6720108
 typedef|typedef
 struct|struct
 block|{
@@ -380,6 +380,18 @@ modifier|*
 name|log
 parameter_list|)
 block|{
+if|#
+directive|if
+name|OPENSSL_VERSION_NUMBER
+operator|>=
+literal|0x00907000
+name|OPENSSL_config
+argument_list|(
+name|NULL
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|SSL_library_init
 argument_list|()
 expr_stmt|;
