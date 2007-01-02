@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b93a6720108
+DECL|struct|__anon2b9695e40108
 typedef|typedef
 struct|struct
 block|{
@@ -364,9 +364,16 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_connection_index
+DECL|variable|ngx_ssl_connection_index
 name|int
-name|ngx_connection_index
+name|ngx_ssl_connection_index
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_ssl_server_conf_index
+name|int
+name|ngx_ssl_server_conf_index
 decl_stmt|;
 end_decl_stmt
 
@@ -408,7 +415,7 @@ argument_list|()
 expr_stmt|;
 endif|#
 directive|endif
-name|ngx_connection_index
+name|ngx_ssl_connection_index
 operator|=
 name|SSL_get_ex_new_index
 argument_list|(
@@ -425,7 +432,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|ngx_connection_index
+name|ngx_ssl_connection_index
 operator|==
 operator|-
 literal|1
@@ -446,6 +453,44 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|ngx_ssl_server_conf_index
+operator|=
+name|SSL_CTX_get_ex_new_index
+argument_list|(
+literal|0
+argument_list|,
+name|NULL
+argument_list|,
+name|NULL
+argument_list|,
+name|NULL
+argument_list|,
+name|NULL
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|ngx_ssl_server_conf_index
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+name|ngx_ssl_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"SSL_CTX_get_ex_new_index() failed"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
 return|return
 name|NGX_OK
 return|;
@@ -454,7 +499,7 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_ssl_create (ngx_ssl_t * ssl,ngx_uint_t protocols)
+DECL|function|ngx_ssl_create (ngx_ssl_t * ssl,ngx_uint_t protocols,void * data)
 name|ngx_ssl_create
 parameter_list|(
 name|ngx_ssl_t
@@ -463,6 +508,10 @@ name|ssl
 parameter_list|,
 name|ngx_uint_t
 name|protocols
+parameter_list|,
+name|void
+modifier|*
+name|data
 parameter_list|)
 block|{
 name|ssl
@@ -495,6 +544,39 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"SSL_CTX_new() failed"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
+if|if
+condition|(
+name|SSL_CTX_set_ex_data
+argument_list|(
+name|ssl
+operator|->
+name|ctx
+argument_list|,
+name|ngx_ssl_server_conf_index
+argument_list|,
+name|data
+argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+name|ngx_ssl_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|ssl
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"SSL_CTX_set_ex_data() failed"
 argument_list|)
 expr_stmt|;
 return|return
@@ -1408,7 +1490,7 @@ name|sc
 operator|->
 name|connection
 argument_list|,
-name|ngx_connection_index
+name|ngx_ssl_connection_index
 argument_list|,
 name|c
 argument_list|)

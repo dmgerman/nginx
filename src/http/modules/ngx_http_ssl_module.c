@@ -1342,6 +1342,8 @@ argument_list|,
 name|conf
 operator|->
 name|protocols
+argument_list|,
+name|conf
 argument_list|)
 operator|!=
 name|NGX_OK

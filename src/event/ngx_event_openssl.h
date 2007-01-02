@@ -98,7 +98,7 @@ value|SSL
 end_define
 
 begin_typedef
-DECL|struct|__anon2baf808b0108
+DECL|struct|__anon2989fb3a0108
 typedef|typedef
 struct|struct
 block|{
@@ -119,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baf808b0208
+DECL|struct|__anon2989fb3a0208
 typedef|typedef
 struct|struct
 block|{
@@ -248,6 +248,10 @@ name|ssl
 parameter_list|,
 name|ngx_uint_t
 name|protocols
+parameter_list|,
+name|void
+modifier|*
+name|data
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -361,14 +365,27 @@ value|SSL_SESSION_free
 end_define
 
 begin_define
-DECL|macro|ngx_ssl_get_connection (sc)
+DECL|macro|ngx_ssl_get_connection (ssl_conn)
 define|#
 directive|define
 name|ngx_ssl_get_connection
 parameter_list|(
-name|sc
+name|ssl_conn
 parameter_list|)
-value|SSL_get_ex_data(sc, ngx_connection_index)
+define|\
+value|SSL_get_ex_data(ssl_conn, ngx_ssl_connection_index)
+end_define
+
+begin_define
+DECL|macro|ngx_ssl_get_server_conf (ssl_ctx)
+define|#
+directive|define
+name|ngx_ssl_get_server_conf
+parameter_list|(
+name|ssl_ctx
+parameter_list|)
+define|\
+value|SSL_CTX_get_ex_data(ssl_ctx, ngx_ssl_server_conf_index)
 end_define
 
 begin_function_decl
@@ -596,7 +613,14 @@ end_function_decl
 begin_decl_stmt
 specifier|extern
 name|int
-name|ngx_connection_index
+name|ngx_ssl_connection_index
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|int
+name|ngx_ssl_server_conf_index
 decl_stmt|;
 end_decl_stmt
 
