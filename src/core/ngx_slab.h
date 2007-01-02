@@ -60,7 +60,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2abda62f0108
+DECL|struct|__anon29244bbb0108
 typedef|typedef
 struct|struct
 block|{
@@ -133,7 +133,37 @@ end_function_decl
 
 begin_function_decl
 name|void
+modifier|*
+name|ngx_slab_alloc_locked
+parameter_list|(
+name|ngx_slab_pool_t
+modifier|*
+name|pool
+parameter_list|,
+name|size_t
+name|size
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
 name|ngx_slab_free
+parameter_list|(
+name|ngx_slab_pool_t
+modifier|*
+name|pool
+parameter_list|,
+name|void
+modifier|*
+name|p
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_slab_free_locked
 parameter_list|(
 name|ngx_slab_pool_t
 modifier|*
