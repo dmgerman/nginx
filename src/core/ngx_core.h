@@ -393,6 +393,18 @@ directive|include
 file|<ngx_slab.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_inet.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_cycle.h>
+end_include
+
 begin_if
 if|#
 directive|if
@@ -411,18 +423,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-
-begin_include
-include|#
-directive|include
-file|<ngx_inet.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_cycle.h>
-end_include
 
 begin_include
 include|#
