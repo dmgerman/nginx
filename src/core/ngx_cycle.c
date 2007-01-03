@@ -5087,6 +5087,25 @@ literal|0
 argument_list|,
 literal|"the size %uz of shared memory zone \"%V\" "
 literal|"conflicts with already declared size %uz"
+argument_list|,
+name|size
+argument_list|,
+operator|&
+name|shm_zone
+index|[
+name|i
+index|]
+operator|.
+name|name
+argument_list|,
+name|shm_zone
+index|[
+name|i
+index|]
+operator|.
+name|shm
+operator|.
+name|size
 argument_list|)
 expr_stmt|;
 return|return
@@ -5115,6 +5134,14 @@ literal|0
 argument_list|,
 literal|"the shared memory zone \"%V\" is "
 literal|"already declared for a different use"
+argument_list|,
+operator|&
+name|shm_zone
+index|[
+name|i
+index|]
+operator|.
+name|name
 argument_list|)
 expr_stmt|;
 return|return
