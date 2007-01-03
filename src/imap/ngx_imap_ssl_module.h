@@ -59,7 +59,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon274aacf50108
+DECL|struct|__anon2b25990c0108
 typedef|typedef
 struct|struct
 block|{
@@ -83,6 +83,10 @@ DECL|member|protocols
 name|ngx_uint_t
 name|protocols
 decl_stmt|;
+DECL|member|builtin_session_cache
+name|ssize_t
+name|builtin_session_cache
+decl_stmt|;
 DECL|member|session_timeout
 name|time_t
 name|session_timeout
@@ -98,6 +102,11 @@ decl_stmt|;
 DECL|member|ciphers
 name|ngx_str_t
 name|ciphers
+decl_stmt|;
+DECL|member|shm_zone
+name|ngx_shm_zone_t
+modifier|*
+name|shm_zone
 decl_stmt|;
 DECL|typedef|ngx_imap_ssl_conf_t
 block|}
