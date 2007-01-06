@@ -6775,6 +6775,10 @@ name|rc
 operator|==
 name|NGX_HTTP_REQUEST_TIME_OUT
 operator|||
+name|rc
+operator|==
+name|NGX_HTTP_CLIENT_CLOSED_REQUEST
+operator|||
 name|r
 operator|->
 name|connection
