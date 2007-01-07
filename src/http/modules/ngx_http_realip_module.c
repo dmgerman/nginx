@@ -26,7 +26,7 @@ comment|/* AF_INET only */
 end_comment
 
 begin_typedef
-DECL|struct|__anon291dbcfd0108
+DECL|struct|__anon2794c0a90108
 typedef|typedef
 struct|struct
 block|{
@@ -45,7 +45,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291dbcfd0208
+DECL|struct|__anon2794c0a90208
 typedef|typedef
 struct|struct
 block|{
@@ -367,7 +367,7 @@ name|realip_set
 condition|)
 block|{
 return|return
-name|NGX_OK
+name|NGX_DECLINED
 return|;
 block|}
 name|rlcf
@@ -389,7 +389,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_OK
+name|NGX_DECLINED
 return|;
 block|}
 if|if
@@ -413,7 +413,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_OK
+name|NGX_DECLINED
 return|;
 block|}
 name|len
@@ -455,7 +455,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_OK
+name|NGX_DECLINED
 return|;
 block|}
 name|len
@@ -670,12 +670,12 @@ operator|=
 literal|1
 expr_stmt|;
 return|return
-name|NGX_OK
+name|NGX_DECLINED
 return|;
 block|}
 block|}
 return|return
-name|NGX_OK
+name|NGX_DECLINED
 return|;
 block|}
 end_function
