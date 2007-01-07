@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a1244880108
+DECL|struct|__anon2b65aa5d0108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1244880208
+DECL|struct|__anon2b65aa5d0208
 typedef|typedef
 struct|struct
 block|{
@@ -73,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1244880308
+DECL|struct|__anon2b65aa5d0308
 typedef|typedef
 struct|struct
 block|{
@@ -383,6 +383,17 @@ name|ngx_http_limit_zone_cleanup_t
 modifier|*
 name|lzcln
 decl_stmt|;
+if|if
+condition|(
+name|r
+operator|->
+name|limit_zone_set
+condition|)
+block|{
+return|return
+name|NGX_DECLINED
+return|;
+block|}
 name|lzcf
 operator|=
 name|ngx_http_get_module_loc_conf
@@ -431,6 +442,12 @@ return|return
 name|NGX_DECLINED
 return|;
 block|}
+name|r
+operator|->
+name|limit_zone_set
+operator|=
+literal|1
+expr_stmt|;
 name|len
 operator|=
 name|vv

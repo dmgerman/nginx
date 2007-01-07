@@ -601,7 +601,7 @@ value|0x02
 end_define
 
 begin_typedef
-DECL|enum|__anon2b03b13b0103
+DECL|enum|__anon29c6bb840103
 typedef|typedef
 enum|enum
 block|{
@@ -640,7 +640,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b03b13b0208
+DECL|struct|__anon29c6bb840208
 typedef|typedef
 struct|struct
 block|{
@@ -663,7 +663,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b03b13b0308
+DECL|struct|__anon29c6bb840308
 typedef|typedef
 struct|struct
 block|{
@@ -682,7 +682,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b03b13b0408
+DECL|struct|__anon29c6bb840408
 typedef|typedef
 struct|struct
 block|{
@@ -894,7 +894,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b03b13b0508
+DECL|struct|__anon29c6bb840508
 typedef|typedef
 struct|struct
 block|{
@@ -1021,7 +1021,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b03b13b0608
+DECL|struct|__anon29c6bb840608
 typedef|typedef
 struct|struct
 block|{
@@ -1060,7 +1060,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b03b13b0708
+DECL|struct|__anon29c6bb840708
 typedef|typedef
 struct|struct
 block|{
@@ -1101,7 +1101,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b03b13b0808
+DECL|struct|__anon29c6bb840808
 typedef|typedef
 struct|struct
 block|{
@@ -1192,7 +1192,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b03b13b0908
+DECL|struct|__anon29c6bb840908
 typedef|typedef
 struct|struct
 block|{
@@ -1646,6 +1646,13 @@ literal|1
 decl_stmt|;
 endif|#
 directive|endif
+comment|/*      * instead of using the request context data in ngx_http_limit_zone_module      * we use the single bit in the request structure      */
+DECL|member|limit_zone_set
+name|unsigned
+name|limit_zone_set
+range|:
+literal|1
+decl_stmt|;
 if|#
 directive|if
 literal|0
