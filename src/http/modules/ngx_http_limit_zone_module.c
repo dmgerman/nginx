@@ -22,12 +22,16 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2772aae00108
+DECL|struct|__anon2a1244880108
 typedef|typedef
 struct|struct
 block|{
+DECL|member|color
+name|u_char
+name|color
+decl_stmt|;
 DECL|member|len
-name|u_short
+name|u_char
 name|len
 decl_stmt|;
 DECL|member|conn
@@ -48,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2772aae00208
+DECL|struct|__anon2a1244880208
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2772aae00308
+DECL|struct|__anon2a1244880308
 typedef|typedef
 struct|struct
 block|{
@@ -570,7 +574,7 @@ operator|)
 operator|&
 name|node
 operator|->
-name|data
+name|color
 expr_stmt|;
 if|if
 condition|(
@@ -601,13 +605,13 @@ condition|)
 block|{
 if|if
 condition|(
+operator|(
+name|ngx_uint_t
+operator|)
 name|lz
 operator|->
 name|conn
 operator|<
-operator|(
-name|u_short
-operator|)
 name|lzcf
 operator|->
 name|conn
@@ -642,7 +646,7 @@ name|offsetof
 argument_list|(
 name|ngx_rbtree_node_t
 argument_list|,
-name|data
+name|color
 argument_list|)
 operator|+
 name|offsetof
@@ -691,7 +695,7 @@ operator|)
 operator|&
 name|node
 operator|->
-name|data
+name|color
 expr_stmt|;
 name|node
 operator|->
@@ -704,7 +708,7 @@ operator|->
 name|len
 operator|=
 operator|(
-name|u_short
+name|u_char
 operator|)
 name|len
 expr_stmt|;
@@ -869,7 +873,7 @@ operator|)
 operator|&
 name|node
 operator|->
-name|data
+name|color
 expr_stmt|;
 name|ngx_shmtx_lock
 argument_list|(
