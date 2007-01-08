@@ -4323,9 +4323,7 @@ name|c
 operator|->
 name|error
 operator|=
-name|rev
-operator|->
-name|error
+literal|1
 expr_stmt|;
 name|c
 operator|->
@@ -4339,7 +4337,7 @@ name|ngx_http_finalize_request
 argument_list|(
 name|r
 argument_list|,
-name|NGX_HTTP_CLIENT_CLOSED_REQUEST
+name|NGX_HTTP_BAD_REQUEST
 argument_list|)
 expr_stmt|;
 return|return
