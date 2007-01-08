@@ -4331,7 +4331,7 @@ name|log
 operator|->
 name|action
 operator|=
-literal|"sending response to client"
+literal|"reading client request headers"
 expr_stmt|;
 name|ngx_http_finalize_request
 argument_list|(
