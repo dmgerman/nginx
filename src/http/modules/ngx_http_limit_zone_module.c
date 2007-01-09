@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon296ac69f0108
+DECL|struct|__anon296e3e6e0108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296ac69f0208
+DECL|struct|__anon296e3e6e0208
 typedef|typedef
 struct|struct
 block|{
@@ -73,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296ac69f0308
+DECL|struct|__anon296e3e6e0308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296ac69f0408
+DECL|struct|__anon296e3e6e0408
 typedef|typedef
 struct|struct
 block|{
@@ -1071,7 +1071,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"limit_zone \"%V\" use the \"%V\" variable "
+literal|"limit_zone \"%V\" uses the \"%V\" variable "
 literal|"while previously it used the \"%V\" variable"
 argument_list|,
 operator|&
