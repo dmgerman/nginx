@@ -2012,7 +2012,7 @@ name|failed
 goto|;
 block|}
 goto|goto
-name|found
+name|shm_zone_found
 goto|;
 block|}
 name|ngx_shm_free
@@ -2240,7 +2240,7 @@ goto|goto
 name|failed
 goto|;
 block|}
-name|found
+name|shm_zone_found
 label|:
 continue|continue;
 block|}
