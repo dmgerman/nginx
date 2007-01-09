@@ -2929,7 +2929,7 @@ block|}
 block|}
 block|}
 comment|/* close and delete stuff that lefts from an old cycle */
-comment|/* close the unneeded listening sockets */
+comment|/* close the unnecessary listening sockets */
 name|ls
 operator|=
 name|old_cycle
@@ -3006,7 +3006,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/* close the unneeded open files */
+comment|/* close the unnecessary open files */
 name|part
 operator|=
 operator|&
