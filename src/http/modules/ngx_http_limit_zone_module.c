@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon296e3e6e0108
+DECL|struct|__anon29a44dc70108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296e3e6e0208
+DECL|struct|__anon29a44dc70208
 typedef|typedef
 struct|struct
 block|{
@@ -73,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296e3e6e0308
+DECL|struct|__anon29a44dc70308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296e3e6e0408
+DECL|struct|__anon29a44dc70408
 typedef|typedef
 struct|struct
 block|{
@@ -473,6 +473,8 @@ name|NGX_DECLINED
 return|;
 block|}
 name|r
+operator|->
+expr|main
 operator|->
 name|limit_zone_set
 operator|=
