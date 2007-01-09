@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27a046160108
+DECL|struct|__anon2c29b2b30108
 typedef|typedef
 struct|struct
 block|{
@@ -144,6 +144,10 @@ parameter_list|(
 name|ngx_shm_zone_t
 modifier|*
 name|shm_zone
+parameter_list|,
+name|void
+modifier|*
+name|data
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -4839,12 +4843,16 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_ssl_session_cache_init (ngx_shm_zone_t * shm_zone)
+DECL|function|ngx_ssl_session_cache_init (ngx_shm_zone_t * shm_zone,void * data)
 name|ngx_ssl_session_cache_init
 parameter_list|(
 name|ngx_shm_zone_t
 modifier|*
 name|shm_zone
+parameter_list|,
+name|void
+modifier|*
+name|data
 parameter_list|)
 block|{
 name|ngx_slab_pool_t
@@ -4859,6 +4867,21 @@ name|ngx_ssl_session_cache_t
 modifier|*
 name|cache
 decl_stmt|;
+if|if
+condition|(
+name|data
+condition|)
+block|{
+name|shm_zone
+operator|->
+name|data
+operator|=
+name|data
+expr_stmt|;
+return|return
+name|NGX_OK
+return|;
+block|}
 name|shpool
 operator|=
 operator|(

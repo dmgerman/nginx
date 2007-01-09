@@ -84,6 +84,10 @@ parameter_list|(
 name|ngx_shm_zone_t
 modifier|*
 name|zone
+parameter_list|,
+name|void
+modifier|*
+name|data
 parameter_list|)
 function_decl|;
 end_typedef
@@ -223,7 +227,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c2e1dfa0108
+DECL|struct|__anon2beff7ca0108
 typedef|typedef
 struct|struct
 block|{
@@ -323,7 +327,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2e1dfa0208
+DECL|struct|__anon2beff7ca0208
 typedef|typedef
 struct|struct
 block|{
