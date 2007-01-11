@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29a44dc70108
+DECL|struct|__anon297bbe820108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a44dc70208
+DECL|struct|__anon297bbe820208
 typedef|typedef
 struct|struct
 block|{
@@ -73,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a44dc70308
+DECL|struct|__anon297bbe820308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a44dc70408
+DECL|struct|__anon297bbe820408
 typedef|typedef
 struct|struct
 block|{
@@ -472,6 +472,57 @@ return|return
 name|NGX_DECLINED
 return|;
 block|}
+name|len
+operator|=
+name|vv
+operator|->
+name|len
+expr_stmt|;
+if|if
+condition|(
+name|len
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+name|NGX_DECLINED
+return|;
+block|}
+if|if
+condition|(
+name|len
+operator|>
+literal|255
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"the value of the \"%V\" variable "
+literal|"is more than 255 bytes: \"%V\""
+argument_list|,
+operator|&
+name|ctx
+operator|->
+name|var
+argument_list|,
+name|vv
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_DECLINED
+return|;
+block|}
 name|r
 operator|->
 expr|main
@@ -479,12 +530,6 @@ operator|->
 name|limit_zone_set
 operator|=
 literal|1
-expr_stmt|;
-name|len
-operator|=
-name|vv
-operator|->
-name|len
 expr_stmt|;
 name|hash
 operator|=
@@ -1739,6 +1784,28 @@ name|value
 index|[
 literal|2
 index|]
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
+if|if
+condition|(
+name|n
+operator|>
+literal|65535
+condition|)
+block|{
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"connection limit must be less 65536"
 argument_list|)
 expr_stmt|;
 return|return
