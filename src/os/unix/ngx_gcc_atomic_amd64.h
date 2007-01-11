@@ -37,7 +37,7 @@ directive|endif
 end_endif
 
 begin_comment
-comment|/*  * "cmpxchgq  r, [m]":  *  *     if (rax == [m]) {  *         zf = 1;  *         [m] = r;  *     } else {  *         zf = 0;  *         rax = [m];  *     }  *  *  * The "r" is any register, %rax (%r0) - %r16.  * The "=a" and "a" are the %rax register.  Although we can return result  * in any register, we use %rax because it is used in cmpxchgq anyway.  * The "cc" means that flags were changed.  */
+comment|/*  * "cmpxchgq  r, [m]":  *  *     if (rax == [m]) {  *         zf = 1;  *         [m] = r;  *     } else {  *         zf = 0;  *         rax = [m];  *     }  *  *  * The "r" is any register, %rax (%r0) - %r16.  * The "=a" and "a" are the %rax register.  * Although we can return result in any register, we use "a" because it is  * used in cmpxchgq anyway.  The result is actually in %al but not in $rax,  * however as the code is inlined gcc can test %al as well as %rax.  *  * The "cc" means that flags were changed.  */
 end_comment
 
 begin_function
@@ -58,12 +58,12 @@ name|ngx_atomic_uint_t
 name|set
 parameter_list|)
 block|{
-name|ngx_atomic_uint_t
+name|u_char
 name|res
 decl_stmt|;
 asm|__asm__
 specifier|volatile
-asm|(           NGX_SMP_LOCK     "    cmpxchgq  %3, %1;   "     "    setz      %b0;      "     "    movzbq    %b0, %0;  "      : "=a" (res) : "m" (*lock), "a" (old), "r" (set) : "cc", "memory");
+asm|(           NGX_SMP_LOCK     "    cmpxchgq  %3, %1;   "     "    sete      %0;       "      : "=a" (res) : "m" (*lock), "a" (old), "r" (set) : "cc", "memory");
 return|return
 name|res
 return|;

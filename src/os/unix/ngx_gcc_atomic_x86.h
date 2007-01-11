@@ -37,7 +37,7 @@ directive|endif
 end_endif
 
 begin_comment
-comment|/*  * "cmpxchgl  r, [m]":  *  *     if (eax == [m]) {  *         zf = 1;  *         [m] = r;  *     } else {  *         zf = 0;  *         eax = [m];  *     }  *  *  * The "q" is any of the %eax, %ebx, %ecx, or %edx registers.  * The "=a" and "a" are the %eax register.  Although we can return result  * in any register, we use %eax because it is used in cmpxchgl anyway.  * The "cc" means that flags were changed.  */
+comment|/*  * "cmpxchgl  r, [m]":  *  *     if (eax == [m]) {  *         zf = 1;  *         [m] = r;  *     } else {  *         zf = 0;  *         eax = [m];  *     }  *  *  * The "r" means the general register.  * The "=a" and "a" are the %eax register.  * Although we can return result in any register, we use "a" because it is  * used in cmpxchgl anyway.  The result is actually in %al but not in %eax,  * however, as the code is inlined gcc can test %al as well as %eax,  * and icc adds "movzbl %al, %eax" by itself.  *  * The "cc" means that flags were changed.  */
 end_comment
 
 begin_function
@@ -58,12 +58,12 @@ name|ngx_atomic_uint_t
 name|set
 parameter_list|)
 block|{
-name|ngx_atomic_uint_t
+name|u_char
 name|res
 decl_stmt|;
 asm|__asm__
 specifier|volatile
-asm|(           NGX_SMP_LOCK     "    cmpxchgl  %3, %1;   "     "    setz      %b0;      "     "    movzbl    %b0, %0;  "      : "=a" (res) : "m" (*lock), "a" (old), "q" (set) : "cc", "memory");
+asm|(           NGX_SMP_LOCK     "    cmpxchgl  %3, %1;   "     "    sete      %0;       "      : "=a" (res) : "m" (*lock), "a" (old), "r" (set) : "cc", "memory");
 return|return
 name|res
 return|;
@@ -71,7 +71,7 @@ block|}
 end_function
 
 begin_comment
-comment|/*  * "xaddl  r, [m]":  *  *     temp = [m];  *     [m] += r;  *     r = temp;  *  *  * The "+q" is any of the %eax, %ebx, %ecx, or %edx registers.  * The "cc" means that flags were changed.  */
+comment|/*  * "xaddl  r, [m]":  *  *     temp = [m];  *     [m] += r;  *     r = temp;  *  *  * The "+r" means the general register.  * The "cc" means that flags were changed.  */
 end_comment
 
 begin_if
@@ -118,7 +118,7 @@ parameter_list|)
 block|{
 asm|__asm__
 specifier|volatile
-asm|(           NGX_SMP_LOCK     "    xaddl  %0, %1;   "      : "+q" (add) : "m" (*value) : "cc", "memory");
+asm|(           NGX_SMP_LOCK     "    xaddl  %0, %1;   "      : "+r" (add) : "m" (*value) : "cc", "memory");
 return|return
 name|add
 return|;
@@ -131,7 +131,7 @@ directive|else
 end_else
 
 begin_comment
-comment|/*  * gcc 2.7 does not support "+q", so we have to use the fixed %eax ("=a" and  * "a") and this adds two superfluous instructions in the end of code,  * something like this: "mov %eax, %edx / mov %edx, %eax".  */
+comment|/*  * gcc 2.7 does not support "+r", so we have to use the fixed  * %eax ("=a" and "a") and this adds two superfluous instructions in the end  * of code, something like this: "mov %eax, %edx / mov %edx, %eax".  */
 end_comment
 
 begin_function
