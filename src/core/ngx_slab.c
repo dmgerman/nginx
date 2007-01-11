@@ -2020,13 +2020,13 @@ decl_stmt|;
 name|uintptr_t
 name|slab
 decl_stmt|,
+name|m
+decl_stmt|,
 modifier|*
 name|bitmap
 decl_stmt|;
 name|ngx_uint_t
 name|n
-decl_stmt|,
-name|m
 decl_stmt|,
 name|type
 decl_stmt|,
