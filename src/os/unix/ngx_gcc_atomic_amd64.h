@@ -91,7 +91,7 @@ parameter_list|)
 block|{
 asm|__asm__
 specifier|volatile
-asm|(           NGX_SMP_LOCK     "    xaddq  %0, %1;   "      : "+q" (add) : "m" (*value) : "cc", "memory");
+asm|(           NGX_SMP_LOCK     "    xaddq  %0, %1;   "      : "+r" (add) : "m" (*value) : "cc", "memory");
 return|return
 name|add
 return|;
