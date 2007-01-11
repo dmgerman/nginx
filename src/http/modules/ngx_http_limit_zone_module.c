@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon297bbe820108
+DECL|struct|__anon2b9b5b080108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297bbe820208
+DECL|struct|__anon2b9b5b080208
 typedef|typedef
 struct|struct
 block|{
@@ -73,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297bbe820308
+DECL|struct|__anon2b9b5b080308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297bbe820408
+DECL|struct|__anon2b9b5b080408
 typedef|typedef
 struct|struct
 block|{
@@ -646,14 +646,8 @@ name|right
 expr_stmt|;
 continue|continue;
 block|}
-if|if
-condition|(
-name|hash
-operator|==
-name|node
-operator|->
-name|key
-condition|)
+comment|/* hash == node->key */
+do|do
 block|{
 name|lz
 operator|=
@@ -728,7 +722,27 @@ return|return
 name|NGX_HTTP_SERVICE_UNAVAILABLE
 return|;
 block|}
+name|node
+operator|=
+name|node
+operator|->
+name|right
+expr_stmt|;
 block|}
+do|while
+condition|(
+name|node
+operator|!=
+name|sentinel
+operator|&&
+name|hash
+operator|==
+name|node
+operator|->
+name|key
+condition|)
+do|;
+break|break;
 block|}
 name|n
 operator|=
