@@ -98,7 +98,7 @@ value|SSL
 end_define
 
 begin_typedef
-DECL|struct|__anon294489110108
+DECL|struct|__anon29fc13370108
 typedef|typedef
 struct|struct
 block|{
@@ -119,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294489110208
+DECL|struct|__anon29fc13370208
 typedef|typedef
 struct|struct
 block|{
@@ -249,12 +249,33 @@ DECL|member|expire
 name|time_t
 name|expire
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_PTR_SIZE
+operator|==
+literal|8
+operator|)
+DECL|member|stub
+name|void
+modifier|*
+name|stub
+decl_stmt|;
+DECL|member|sess_id
+name|u_char
+name|sess_id
+index|[
+literal|32
+index|]
+decl_stmt|;
+endif|#
+directive|endif
 block|}
 struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon294489110308
+DECL|struct|__anon29fc13370308
 typedef|typedef
 struct|struct
 block|{
