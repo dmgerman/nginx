@@ -591,7 +591,7 @@ operator|(
 name|u_char
 operator|*
 operator|)
-name|ngx_align
+name|ngx_align_ptr
 argument_list|(
 operator|(
 name|uintptr_t
@@ -1389,6 +1389,9 @@ expr_stmt|;
 name|n
 operator|=
 operator|(
+operator|(
+name|uintptr_t
+operator|)
 literal|1
 operator|<<
 name|n
@@ -2192,6 +2195,9 @@ name|shift
 expr_stmt|;
 name|m
 operator|=
+operator|(
+name|uintptr_t
+operator|)
 literal|1
 operator|<<
 operator|(
@@ -2385,6 +2391,9 @@ operator|&
 operator|~
 operator|(
 operator|(
+operator|(
+name|uintptr_t
+operator|)
 literal|1
 operator|<<
 name|n
@@ -2467,6 +2476,9 @@ name|NGX_SLAB_EXACT
 case|:
 name|m
 operator|=
+operator|(
+name|uintptr_t
+operator|)
 literal|1
 operator|<<
 operator|(
@@ -2667,6 +2679,9 @@ goto|;
 block|}
 name|m
 operator|=
+operator|(
+name|uintptr_t
+operator|)
 literal|1
 operator|<<
 operator|(
