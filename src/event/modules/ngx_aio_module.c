@@ -663,54 +663,5 @@ begin_comment
 comment|/* NGX_HAVE_KQUEUE */
 end_comment
 
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-
-begin_comment
-comment|/* 1 */
-end_comment
-
-begin_comment
-unit|int ngx_posix_aio_process_events(ngx_log_t *log) {     listen via SIGIO;     aio_* via SIGxxx;      sigsuspend()/sigwaitinfo()/sigtimedwait(); }
-comment|/* 2 */
-end_comment
-
-begin_comment
-unit|int ngx_posix_aio_process_events(ngx_log_t *log) {     unmask signal      listen via SIGIO;
-comment|/* BUG: SIGIO can be delivered before aio_*() */
-end_comment
-
-begin_comment
-unit|aio_suspend()/aiowait()/aio_waitcomplete() with timeout      mask signal      if (ngx_socket_errno == NGX_EINTR)         look listen         select()/accept() nb listen sockets     else         aio }
-comment|/* 3 */
-end_comment
-
-begin_if
-unit|int ngx_posix_aio_process_events(ngx_log_t *log) {
-if|#
-directive|if
-literal|0
-end_if
-
-begin_comment
-unit|unmask signal
-comment|/* BUG: AIO signal can be delivered before select() */
-end_comment
-
-begin_endif
-unit|select(listen);      mask signal
-endif|#
-directive|endif
-end_endif
-
-begin_endif
-unit|pselect(listen, mask);      if (ngx_socket_errno == NGX_EINTR)         look ready array }  void aio_sig_handler(int signo, siginfo_t *siginfo, void *context) {     push siginfo->si_value.sival_ptr }
-endif|#
-directive|endif
-end_endif
-
 end_unit
 
