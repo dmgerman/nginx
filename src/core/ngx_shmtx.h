@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c519f510108
+DECL|struct|__anon28b17b6d0108
 typedef|typedef
 struct|struct
 block|{
@@ -99,8 +99,8 @@ modifier|*
 name|mtx
 parameter_list|)
 block|{
-if|if
-condition|(
+return|return
+operator|(
 operator|*
 name|mtx
 operator|->
@@ -118,14 +118,7 @@ literal|0
 argument_list|,
 name|ngx_pid
 argument_list|)
-condition|)
-block|{
-return|return
-literal|1
-return|;
-block|}
-return|return
-literal|0
+operator|)
 return|;
 block|}
 end_function
