@@ -58,6 +58,10 @@ name|ngx_event_timer_sentinel
 decl_stmt|;
 end_decl_stmt
 
+begin_comment
+comment|/*  * the event timer rbtree may contain the duplicate keys, however,  * it should not be a problem, because we use the rbtree to find  * a minimum timer value only  */
+end_comment
+
 begin_function
 name|ngx_int_t
 DECL|function|ngx_event_timer_init (ngx_log_t * log)
