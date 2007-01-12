@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon298d426c0108
+DECL|struct|__anon2b80b1e30108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298d426c0208
+DECL|struct|__anon2b80b1e30208
 typedef|typedef
 struct|struct
 block|{
@@ -73,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298d426c0308
+DECL|struct|__anon2b80b1e30308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298d426c0408
+DECL|struct|__anon2b80b1e30408
 typedef|typedef
 struct|struct
 block|{
@@ -665,7 +665,7 @@ name|color
 expr_stmt|;
 name|rc
 operator|=
-name|ngx_strn2cmp
+name|ngx_memn2cmp
 argument_list|(
 name|lz
 operator|->
@@ -1053,7 +1053,7 @@ name|color
 expr_stmt|;
 if|if
 condition|(
-name|ngx_strn2cmp
+name|ngx_memn2cmp
 argument_list|(
 name|lzn
 operator|->

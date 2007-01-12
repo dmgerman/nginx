@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ad8cacc0108
+DECL|struct|__anon2b399b4a0108
 typedef|typedef
 struct|struct
 block|{
@@ -5817,7 +5817,7 @@ name|node
 expr_stmt|;
 name|rc
 operator|=
-name|ngx_strn2cmp
+name|ngx_memn2cmp
 argument_list|(
 name|id
 argument_list|,
@@ -6220,7 +6220,7 @@ name|node
 expr_stmt|;
 name|rc
 operator|=
-name|ngx_strn2cmp
+name|ngx_memn2cmp
 argument_list|(
 name|id
 argument_list|,
@@ -6645,7 +6645,7 @@ name|temp
 expr_stmt|;
 if|if
 condition|(
-name|ngx_strn2cmp
+name|ngx_memn2cmp
 argument_list|(
 name|sess_id
 operator|->

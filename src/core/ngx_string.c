@@ -1644,8 +1644,8 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_strn2cmp (u_char * s1,u_char * s2,size_t n1,size_t n2)
-name|ngx_strn2cmp
+DECL|function|ngx_memn2cmp (u_char * s1,u_char * s2,size_t n1,size_t n2)
+name|ngx_memn2cmp
 parameter_list|(
 name|u_char
 modifier|*
@@ -1700,7 +1700,7 @@ expr_stmt|;
 block|}
 name|m
 operator|=
-name|ngx_strncmp
+name|ngx_memcmp
 argument_list|(
 name|s1
 argument_list|,
@@ -4157,7 +4157,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon2b53428d0103
+DECL|enum|__anon28da5c330103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
