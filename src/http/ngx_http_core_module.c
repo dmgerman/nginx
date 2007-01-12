@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c3abe080108
+DECL|struct|__anon2bc90dbb0108
 typedef|typedef
 struct|struct
 block|{
