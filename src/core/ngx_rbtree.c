@@ -19,63 +19,6 @@ begin_comment
 comment|/*  * The red-black tree code is based on the algorithm described in  * the "Introduction to Algorithms" by Cormen, Leiserson and Rivest.  */
 end_comment
 
-begin_define
-DECL|macro|ngx_rbt_red (node)
-define|#
-directive|define
-name|ngx_rbt_red
-parameter_list|(
-name|node
-parameter_list|)
-value|((node)->color = 1)
-end_define
-
-begin_define
-DECL|macro|ngx_rbt_black (node)
-define|#
-directive|define
-name|ngx_rbt_black
-parameter_list|(
-name|node
-parameter_list|)
-value|((node)->color = 0)
-end_define
-
-begin_define
-DECL|macro|ngx_rbt_is_red (node)
-define|#
-directive|define
-name|ngx_rbt_is_red
-parameter_list|(
-name|node
-parameter_list|)
-value|((node)->color)
-end_define
-
-begin_define
-DECL|macro|ngx_rbt_is_black (node)
-define|#
-directive|define
-name|ngx_rbt_is_black
-parameter_list|(
-name|node
-parameter_list|)
-value|(!ngx_rbt_is_red(node))
-end_define
-
-begin_define
-DECL|macro|ngx_rbt_copy_color (n1,n2)
-define|#
-directive|define
-name|ngx_rbt_copy_color
-parameter_list|(
-name|n1
-parameter_list|,
-name|n2
-parameter_list|)
-value|(n1->color = n2->color)
-end_define
-
 begin_function_decl
 specifier|static
 name|ngx_inline
