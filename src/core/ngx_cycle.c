@@ -1805,6 +1805,21 @@ goto|goto
 name|failed
 goto|;
 block|}
+if|if
+condition|(
+name|shm_zone
+index|[
+name|i
+index|]
+operator|.
+name|init
+operator|==
+name|NULL
+condition|)
+block|{
+comment|/* unused shared zone */
+continue|continue;
+block|}
 name|shm_zone
 index|[
 name|i
