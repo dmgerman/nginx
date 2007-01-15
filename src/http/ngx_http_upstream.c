@@ -5979,6 +5979,10 @@ operator|||
 name|r
 operator|->
 name|post_action
+operator|||
+name|r
+operator|->
+name|header_only
 condition|)
 block|{
 name|ngx_http_upstream_finalize_request
