@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28fd87ef0108
+DECL|struct|__anon2bccfab10108
 typedef|typedef
 struct|struct
 block|{
@@ -67,7 +67,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28fd87ef0203
+DECL|enum|__anon2bccfab10203
 typedef|typedef
 enum|enum
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28fd87ef0308
+DECL|struct|__anon2bccfab10308
 typedef|typedef
 struct|struct
 block|{
@@ -222,7 +222,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon28fd87ef0408
+DECL|struct|__anon2bccfab10408
 typedef|typedef
 struct|struct
 block|{
@@ -265,7 +265,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28fd87ef0508
+DECL|struct|__anon2bccfab10508
 typedef|typedef
 struct|struct
 block|{
@@ -295,7 +295,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28fd87ef0608
+DECL|struct|__anon2bccfab10608
 typedef|typedef
 struct|struct
 block|{
@@ -322,7 +322,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28fd87ef0708
+DECL|struct|__anon2bccfab10708
 typedef|typedef
 struct|struct
 block|{
@@ -6105,6 +6105,31 @@ operator|->
 name|num
 argument_list|)
 expr_stmt|;
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|p
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"input buf %p %z"
+argument_list|,
+name|b
+operator|->
+name|pos
+argument_list|,
+name|b
+operator|->
+name|last
+operator|-
+name|b
+operator|->
+name|pos
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|f
@@ -6247,6 +6272,31 @@ operator|->
 name|last_shadow
 operator|=
 literal|1
+expr_stmt|;
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|p
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"input buf last %p %z"
+argument_list|,
+name|b
+operator|->
+name|pos
+argument_list|,
+name|b
+operator|->
+name|last
+operator|-
+name|b
+operator|->
+name|pos
+argument_list|)
 expr_stmt|;
 return|return
 name|NGX_OK
