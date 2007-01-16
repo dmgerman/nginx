@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bccfab10108
+DECL|struct|__anon296e96b00108
 typedef|typedef
 struct|struct
 block|{
@@ -67,7 +67,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2bccfab10203
+DECL|enum|__anon296e96b00203
 typedef|typedef
 enum|enum
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bccfab10308
+DECL|struct|__anon296e96b00308
 typedef|typedef
 struct|struct
 block|{
@@ -222,7 +222,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2bccfab10408
+DECL|struct|__anon296e96b00408
 typedef|typedef
 struct|struct
 block|{
@@ -265,7 +265,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bccfab10508
+DECL|struct|__anon296e96b00508
 typedef|typedef
 struct|struct
 block|{
@@ -295,7 +295,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bccfab10608
+DECL|struct|__anon296e96b00608
 typedef|typedef
 struct|struct
 block|{
@@ -322,7 +322,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bccfab10708
+DECL|struct|__anon296e96b00708
 typedef|typedef
 struct|struct
 block|{
@@ -6088,23 +6088,6 @@ name|buf
 operator|->
 name|num
 expr_stmt|;
-name|ngx_log_debug1
-argument_list|(
-name|NGX_LOG_DEBUG_EVENT
-argument_list|,
-name|p
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"input buf #%d"
-argument_list|,
-name|b
-operator|->
-name|num
-argument_list|)
-expr_stmt|;
 name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
@@ -6115,16 +6098,12 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"input buf %p %z"
+literal|"input buf #%d %p"
 argument_list|,
 name|b
 operator|->
-name|pos
+name|num
 argument_list|,
-name|b
-operator|->
-name|last
-operator|-
 name|b
 operator|->
 name|pos
@@ -6283,7 +6262,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"input buf last %p %z"
+literal|"input buf %p %z"
 argument_list|,
 name|b
 operator|->
