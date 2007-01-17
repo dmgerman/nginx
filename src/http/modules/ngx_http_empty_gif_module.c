@@ -554,7 +554,6 @@ operator|&
 name|out
 argument_list|)
 return|;
-empty_stmt|;
 block|}
 end_function
 
