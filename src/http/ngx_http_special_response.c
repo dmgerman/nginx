@@ -325,6 +325,24 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|error_412_page
+specifier|static
+name|char
+name|error_412_page
+index|[]
+init|=
+literal|"<html>"
+name|CRLF
+literal|"<head><title>412 Precondition Failed</title></head>"
+name|CRLF
+literal|"<body bgcolor=\"white\">"
+name|CRLF
+literal|"<center><h1>412 Precondition Failed</h1></center>"
+name|CRLF
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|error_413_page
 specifier|static
 name|char
@@ -658,9 +676,11 @@ argument_list|(
 name|error_411_page
 argument_list|)
 block|,
-name|ngx_null_string
+name|ngx_string
+argument_list|(
+name|error_412_page
+argument_list|)
 block|,
-comment|/* 412 */
 name|ngx_string
 argument_list|(
 name|error_413_page

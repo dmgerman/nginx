@@ -276,9 +276,11 @@ argument_list|(
 literal|"411 Length Required"
 argument_list|)
 block|,
-name|ngx_null_string
+name|ngx_string
+argument_list|(
+literal|"412 Precondition Failed"
+argument_list|)
 block|,
-comment|/* "412 Precondition Failed" */
 name|ngx_string
 argument_list|(
 literal|"413 Request Entity Too Large"
