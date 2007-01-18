@@ -90,6 +90,10 @@ name|NGX_FILE_ERROR
 value|0
 end_define
 
+begin_comment
+comment|/*  * FILE_FLAG_BACKUP_SEMANTICS allows to obtain a handle to a directory  */
+end_comment
+
 begin_define
 DECL|macro|ngx_open_file (name,mode,create,access)
 define|#
@@ -734,7 +738,7 @@ value|(time_t) (((((unsigned __int64)                                          \
 end_define
 
 begin_typedef
-DECL|struct|__anon2b9365370108
+DECL|struct|__anon29382da30108
 typedef|typedef
 struct|struct
 block|{
