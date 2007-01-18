@@ -343,7 +343,7 @@ condition|)
 block|{
 name|tf
 operator|->
-name|mode
+name|access
 operator|=
 literal|0660
 expr_stmt|;
@@ -377,7 +377,7 @@ name|persistent
 argument_list|,
 name|tf
 operator|->
-name|mode
+name|access
 argument_list|)
 operator|!=
 name|NGX_OK
@@ -1726,7 +1726,7 @@ condition|)
 block|{
 name|tf
 operator|->
-name|mode
+name|access
 operator|=
 literal|0660
 expr_stmt|;

@@ -163,7 +163,7 @@ name|ngx_uint_t
 name|persistent
 parameter_list|,
 name|ngx_uint_t
-name|mode
+name|access
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -749,7 +749,7 @@ value|(dir)->info.st_mtime
 end_define
 
 begin_typedef
-DECL|struct|__anon2b81ed620108
+DECL|struct|__anon2880f0e90108
 typedef|typedef
 struct|struct
 block|{

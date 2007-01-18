@@ -82,7 +82,7 @@ name|persistent
 argument_list|,
 name|tf
 operator|->
-name|mode
+name|access
 argument_list|)
 expr_stmt|;
 if|if
@@ -161,7 +161,7 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_create_temp_file (ngx_file_t * file,ngx_path_t * path,ngx_pool_t * pool,ngx_uint_t persistent,ngx_uint_t mode)
+DECL|function|ngx_create_temp_file (ngx_file_t * file,ngx_path_t * path,ngx_pool_t * pool,ngx_uint_t persistent,ngx_uint_t access)
 name|ngx_create_temp_file
 parameter_list|(
 name|ngx_file_t
@@ -180,7 +180,7 @@ name|ngx_uint_t
 name|persistent
 parameter_list|,
 name|ngx_uint_t
-name|mode
+name|access
 parameter_list|)
 block|{
 name|ngx_err_t
@@ -363,7 +363,7 @@ name|data
 argument_list|,
 name|persistent
 argument_list|,
-name|mode
+name|access
 argument_list|)
 expr_stmt|;
 name|ngx_log_debug1
