@@ -790,13 +790,6 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|ngx_win32_version
-operator|>=
-name|NGX_WIN_NT
-condition|)
-block|{
-if|if
-condition|(
 name|DeleteFile
 argument_list|(
 operator|(
@@ -823,11 +816,6 @@ argument_list|,
 literal|"DeleteFile() failed"
 argument_list|)
 expr_stmt|;
-block|}
-block|}
-else|else
-block|{
-comment|/* TODO: Win9X: update the open files table */
 block|}
 if|if
 condition|(
