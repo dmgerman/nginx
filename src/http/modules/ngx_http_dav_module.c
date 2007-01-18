@@ -30,7 +30,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2af99aff0108
+DECL|struct|__anon2b801ca30108
 typedef|typedef
 struct|struct
 block|{
@@ -580,7 +580,7 @@ literal|'/'
 condition|)
 block|{
 return|return
-name|NGX_DECLINED
+name|NGX_HTTP_BAD_REQUEST
 return|;
 block|}
 name|r
