@@ -30,7 +30,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2c4087770108
+DECL|struct|__anon2af99aff0108
 typedef|typedef
 struct|struct
 block|{
@@ -69,11 +69,11 @@ specifier|static
 name|ngx_int_t
 name|ngx_http_dav_no_init
 parameter_list|(
-name|ngx_tree_ctx_t
+name|void
 modifier|*
 name|ctx
 parameter_list|,
-name|ngx_tree_ctx_t
+name|void
 modifier|*
 name|prev
 parameter_list|)
@@ -846,7 +846,7 @@ name|NULL
 expr_stmt|;
 name|tree
 operator|.
-name|size
+name|alloc
 operator|=
 literal|0
 expr_stmt|;
@@ -1163,14 +1163,14 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_http_dav_no_init (ngx_tree_ctx_t * ctx,ngx_tree_ctx_t * prev)
+DECL|function|ngx_http_dav_no_init (void * ctx,void * prev)
 name|ngx_http_dav_no_init
 parameter_list|(
-name|ngx_tree_ctx_t
+name|void
 modifier|*
 name|ctx
 parameter_list|,
-name|ngx_tree_ctx_t
+name|void
 modifier|*
 name|prev
 parameter_list|)

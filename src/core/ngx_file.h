@@ -128,7 +128,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28a0d9ee0108
+DECL|struct|__anon2b140de70108
 typedef|typedef
 struct|struct
 block|{
@@ -195,11 +195,11 @@ modifier|*
 name|ngx_tree_init_handler_pt
 function_decl|)
 parameter_list|(
-name|ngx_tree_ctx_t
+name|void
 modifier|*
 name|ctx
 parameter_list|,
-name|ngx_tree_ctx_t
+name|void
 modifier|*
 name|prev
 parameter_list|)
@@ -231,6 +231,18 @@ DECL|struct|ngx_tree_ctx_s
 struct|struct
 name|ngx_tree_ctx_s
 block|{
+DECL|member|size
+name|off_t
+name|size
+decl_stmt|;
+DECL|member|access
+name|ngx_uint_t
+name|access
+decl_stmt|;
+DECL|member|mtime
+name|time_t
+name|mtime
+decl_stmt|;
 DECL|member|init_handler
 name|ngx_tree_init_handler_pt
 name|init_handler
@@ -256,9 +268,9 @@ name|void
 modifier|*
 name|data
 decl_stmt|;
-DECL|member|size
+DECL|member|alloc
 name|size_t
-name|size
+name|alloc
 decl_stmt|;
 DECL|member|log
 name|ngx_log_t
