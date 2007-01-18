@@ -79,6 +79,14 @@ value|O_RDONLY
 end_define
 
 begin_define
+DECL|macro|NGX_FILE_WRONLY
+define|#
+directive|define
+name|NGX_FILE_WRONLY
+value|O_WRONLY
+end_define
+
+begin_define
 DECL|macro|NGX_FILE_RDWR
 define|#
 directive|define
@@ -781,7 +789,7 @@ value|(dir)->info.st_mtime
 end_define
 
 begin_typedef
-DECL|struct|__anon29114b320108
+DECL|struct|__anon2b4509430108
 typedef|typedef
 struct|struct
 block|{

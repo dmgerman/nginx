@@ -129,6 +129,14 @@ value|GENERIC_READ
 end_define
 
 begin_define
+DECL|macro|NGX_FILE_WRONLY
+define|#
+directive|define
+name|NGX_FILE_WRONLY
+value|GENERIC_WRITE
+end_define
+
+begin_define
 DECL|macro|NGX_FILE_RDWR
 define|#
 directive|define
@@ -760,7 +768,7 @@ value|(time_t) (((((unsigned __int64)                                          \
 end_define
 
 begin_typedef
-DECL|struct|__anon2c236fb60108
+DECL|struct|__anon297c340a0108
 typedef|typedef
 struct|struct
 block|{
