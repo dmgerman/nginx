@@ -108,10 +108,6 @@ define|\
 value|CreateFile((const char *) name, mode,                                    \                FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_SHARE_DELETE,           \                NULL, create, FILE_FLAG_BACKUP_SEMANTICS, NULL)
 end_define
 
-begin_comment
-comment|/*                NULL, OPEN_EXISTING, 0, NULL) */
-end_comment
-
 begin_define
 DECL|macro|ngx_open_file_n
 define|#
@@ -738,7 +734,7 @@ value|(time_t) (((((unsigned __int64)                                          \
 end_define
 
 begin_typedef
-DECL|struct|__anon28fcc9e60108
+DECL|struct|__anon2b9365370108
 typedef|typedef
 struct|struct
 block|{
