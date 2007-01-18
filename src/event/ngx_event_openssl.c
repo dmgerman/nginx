@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b399b4a0108
+DECL|struct|__anon2c52cfc80108
 typedef|typedef
 struct|struct
 block|{
