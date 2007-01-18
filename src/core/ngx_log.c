@@ -1134,7 +1134,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"invalid log level \"%s\""
+literal|"duplicate log level \"%s\""
 argument_list|,
 name|value
 index|[
