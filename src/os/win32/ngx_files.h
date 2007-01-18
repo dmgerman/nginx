@@ -422,6 +422,17 @@ value|0
 end_define
 
 begin_define
+DECL|macro|ngx_file_access (fi)
+define|#
+directive|define
+name|ngx_file_access
+parameter_list|(
+name|fi
+parameter_list|)
+value|0
+end_define
+
+begin_define
 DECL|macro|ngx_file_size (fi)
 define|#
 directive|define
@@ -710,6 +721,17 @@ value|0
 end_define
 
 begin_define
+DECL|macro|ngx_de_access (dir)
+define|#
+directive|define
+name|ngx_de_access
+parameter_list|(
+name|dir
+parameter_list|)
+value|0
+end_define
+
+begin_define
 DECL|macro|ngx_de_size (dir)
 define|#
 directive|define
@@ -738,7 +760,7 @@ value|(time_t) (((((unsigned __int64)                                          \
 end_define
 
 begin_typedef
-DECL|struct|__anon29382da30108
+DECL|struct|__anon2c236fb60108
 typedef|typedef
 struct|struct
 block|{

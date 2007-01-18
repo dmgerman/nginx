@@ -439,6 +439,17 @@ value|((sb)->st_mode& S_IXUSR)
 end_define
 
 begin_define
+DECL|macro|ngx_file_access (sb)
+define|#
+directive|define
+name|ngx_file_access
+parameter_list|(
+name|sb
+parameter_list|)
+value|((sb)->st_mode& 0777)
+end_define
+
+begin_define
 DECL|macro|ngx_file_size (sb)
 define|#
 directive|define
@@ -737,6 +748,17 @@ value|(S_ISLNK((dir)->info.st_mode))
 end_define
 
 begin_define
+DECL|macro|ngx_de_access (dir)
+define|#
+directive|define
+name|ngx_de_access
+parameter_list|(
+name|dir
+parameter_list|)
+value|(((dir)->info.st_mode)& 0777)
+end_define
+
+begin_define
 DECL|macro|ngx_de_size (dir)
 define|#
 directive|define
@@ -759,7 +781,7 @@ value|(dir)->info.st_mtime
 end_define
 
 begin_typedef
-DECL|struct|__anon2b1f9cf80108
+DECL|struct|__anon29114b320108
 typedef|typedef
 struct|struct
 block|{
