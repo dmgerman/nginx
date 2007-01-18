@@ -845,6 +845,8 @@ argument_list|,
 name|NGX_FILE_CREATE_OR_OPEN
 operator||
 name|NGX_FILE_APPEND
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 if|if

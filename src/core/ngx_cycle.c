@@ -1501,6 +1501,8 @@ argument_list|,
 name|NGX_FILE_CREATE_OR_OPEN
 operator||
 name|NGX_FILE_APPEND
+argument_list|,
+name|NGX_FILE_DEFAULT_ACCESS
 argument_list|)
 expr_stmt|;
 name|ngx_log_debug3
@@ -4051,6 +4053,8 @@ argument_list|,
 name|NGX_FILE_CREATE_OR_OPEN
 operator||
 name|trunc
+argument_list|,
+name|NGX_FILE_DEFAULT_ACCESS
 argument_list|)
 expr_stmt|;
 if|if
@@ -4576,6 +4580,8 @@ argument_list|,
 name|NGX_FILE_CREATE_OR_OPEN
 operator||
 name|NGX_FILE_APPEND
+argument_list|,
+name|NGX_FILE_DEFAULT_ACCESS
 argument_list|)
 expr_stmt|;
 name|ngx_log_debug3

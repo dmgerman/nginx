@@ -30,7 +30,7 @@ value|2048
 end_define
 
 begin_typedef
-DECL|struct|__anon27f26bc90108
+DECL|struct|__anon277296d10108
 typedef|typedef
 struct|struct
 block|{
@@ -45,7 +45,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27f26bc90208
+DECL|struct|__anon277296d10208
 typedef|typedef
 struct|struct
 block|{
@@ -408,7 +408,7 @@ index|[
 name|NGX_HTTP_AUTH_BUF_SIZE
 index|]
 decl_stmt|;
-DECL|enum|__anon27f26bc90303
+DECL|enum|__anon277296d10303
 enum|enum
 block|{
 DECL|enumerator|sw_login
@@ -537,6 +537,8 @@ argument_list|,
 name|NGX_FILE_RDONLY
 argument_list|,
 name|NGX_FILE_OPEN
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 if|if

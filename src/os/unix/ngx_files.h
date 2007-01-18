@@ -45,19 +45,21 @@ value|-1
 end_define
 
 begin_define
-DECL|macro|ngx_open_file (name,access,create)
+DECL|macro|ngx_open_file (name,mode,create,access)
 define|#
 directive|define
 name|ngx_open_file
 parameter_list|(
 name|name
 parameter_list|,
-name|access
+name|mode
 parameter_list|,
 name|create
+parameter_list|,
+name|access
 parameter_list|)
 define|\
-value|open((const char *) name, access|create, 0644)
+value|open((const char *) name, mode|create, access)
 end_define
 
 begin_define
@@ -114,6 +116,14 @@ define|#
 directive|define
 name|NGX_FILE_APPEND
 value|O_APPEND
+end_define
+
+begin_define
+DECL|macro|NGX_FILE_DEFAULT_ACCESS
+define|#
+directive|define
+name|NGX_FILE_DEFAULT_ACCESS
+value|0644
 end_define
 
 begin_define
@@ -749,7 +759,7 @@ value|(dir)->info.st_mtime
 end_define
 
 begin_typedef
-DECL|struct|__anon2880f0e90108
+DECL|struct|__anon2b1f9cf80108
 typedef|typedef
 struct|struct
 block|{

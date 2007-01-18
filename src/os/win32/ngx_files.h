@@ -91,19 +91,21 @@ value|0
 end_define
 
 begin_define
-DECL|macro|ngx_open_file (name,access,create)
+DECL|macro|ngx_open_file (name,mode,create,access)
 define|#
 directive|define
 name|ngx_open_file
 parameter_list|(
 name|name
 parameter_list|,
-name|access
+name|mode
 parameter_list|,
 name|create
+parameter_list|,
+name|access
 parameter_list|)
 define|\
-value|CreateFile((const char *) name, access,                                  \                FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_SHARE_DELETE,           \                NULL, create, FILE_FLAG_BACKUP_SEMANTICS, NULL)
+value|CreateFile((const char *) name, mode,                                    \                FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_SHARE_DELETE,           \                NULL, create, FILE_FLAG_BACKUP_SEMANTICS, NULL)
 end_define
 
 begin_comment
@@ -155,6 +157,14 @@ DECL|macro|NGX_FILE_APPEND
 define|#
 directive|define
 name|NGX_FILE_APPEND
+value|0
+end_define
+
+begin_define
+DECL|macro|NGX_FILE_DEFAULT_ACCESS
+define|#
+directive|define
+name|NGX_FILE_DEFAULT_ACCESS
 value|0
 end_define
 
@@ -728,7 +738,7 @@ value|(time_t) (((((unsigned __int64)                                          \
 end_define
 
 begin_typedef
-DECL|struct|__anon294979800108
+DECL|struct|__anon28fcc9e60108
 typedef|typedef
 struct|struct
 block|{
