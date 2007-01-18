@@ -2523,13 +2523,6 @@ operator|=
 name|cl
 expr_stmt|;
 block|}
-name|ll
-operator|=
-operator|&
-name|cl
-operator|->
-name|next
-expr_stmt|;
 block|}
 name|flush
 operator|=
