@@ -267,11 +267,35 @@ function_decl|;
 end_function_decl
 
 begin_define
+DECL|macro|ngx_read_fd
+define|#
+directive|define
+name|ngx_read_fd
+value|read
+end_define
+
+begin_define
+DECL|macro|ngx_read_fd_n
+define|#
+directive|define
+name|ngx_read_fd_n
+value|"read()"
+end_define
+
+begin_define
 DECL|macro|ngx_write_fd
 define|#
 directive|define
 name|ngx_write_fd
 value|write
+end_define
+
+begin_define
+DECL|macro|ngx_write_fd_n
+define|#
+directive|define
+name|ngx_write_fd_n
+value|"write()"
 end_define
 
 begin_define
@@ -789,7 +813,7 @@ value|(dir)->info.st_mtime
 end_define
 
 begin_typedef
-DECL|struct|__anon2b4509430108
+DECL|struct|__anon2b4135ab0108
 typedef|typedef
 struct|struct
 block|{

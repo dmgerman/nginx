@@ -235,6 +235,29 @@ value|"CloseHandle()"
 end_define
 
 begin_define
+DECL|macro|ngx_read_fd (fd,buf,size)
+define|#
+directive|define
+name|ngx_read_fd
+parameter_list|(
+name|fd
+parameter_list|,
+name|buf
+parameter_list|,
+name|size
+parameter_list|)
+value|ReadFile(fd, buf, size, NULL, NULL)
+end_define
+
+begin_define
+DECL|macro|ngx_read_fd_n
+define|#
+directive|define
+name|ngx_read_fd_n
+value|"ReadFile()"
+end_define
+
+begin_define
 DECL|macro|ngx_write_fd (fd,buf,size)
 define|#
 directive|define
@@ -247,6 +270,14 @@ parameter_list|,
 name|size
 parameter_list|)
 value|WriteFile(fd, buf, size, NULL, NULL)
+end_define
+
+begin_define
+DECL|macro|ngx_write_fd_n
+define|#
+directive|define
+name|ngx_write_fd_n
+value|"WriteFile()"
 end_define
 
 begin_define
@@ -768,7 +799,7 @@ value|(time_t) (((((unsigned __int64)                                          \
 end_define
 
 begin_typedef
-DECL|struct|__anon297c340a0108
+DECL|struct|__anon27b8a57b0108
 typedef|typedef
 struct|struct
 block|{
