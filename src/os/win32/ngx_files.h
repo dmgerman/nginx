@@ -103,7 +103,7 @@ parameter_list|,
 name|create
 parameter_list|)
 define|\
-value|CreateFile((const char *) name, access,                                 \                FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_SHARE_DELETE,          \                NULL, create, FILE_FLAG_BACKUP_SEMANTICS, NULL)
+value|CreateFile((const char *) name, access,                                  \                FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_SHARE_DELETE,           \                NULL, create, FILE_FLAG_BACKUP_SEMANTICS, NULL)
 end_define
 
 begin_comment
@@ -189,7 +189,7 @@ parameter_list|,
 name|access
 parameter_list|)
 define|\
-value|CreateFile((const char *) name,                                         \                GENERIC_READ|GENERIC_WRITE,                                  \                FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_SHARE_DELETE,          \                NULL,                                                        \                CREATE_NEW,                                                  \                persistent ? 0:                                              \                    FILE_ATTRIBUTE_TEMPORARY|FILE_FLAG_DELETE_ON_CLOSE,      \                NULL);
+value|CreateFile((const char *) name,                                          \                GENERIC_READ|GENERIC_WRITE,                                   \                FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_SHARE_DELETE,           \                NULL,                                                         \                CREATE_NEW,                                                   \                persistent ? 0:                                               \                    FILE_ATTRIBUTE_TEMPORARY|FILE_FLAG_DELETE_ON_CLOSE,       \                NULL);
 end_define
 
 begin_define
@@ -724,11 +724,11 @@ parameter_list|(
 name|dir
 parameter_list|)
 define|\
-value|(time_t) (((((unsigned __int64)                                           \                      (dir)->finddata.ftLastWriteTime.dwHighDateTime<< 32)    \                       | (dir)->finddata.ftLastWriteTime.dwLowDateTime)        \                                           - 116444736000000000) / 10000000)
+value|(time_t) (((((unsigned __int64)                                          \                      (dir)->finddata.ftLastWriteTime.dwHighDateTime<< 32)   \                       | (dir)->finddata.ftLastWriteTime.dwLowDateTime)       \                                           - 116444736000000000) / 10000000)
 end_define
 
 begin_typedef
-DECL|struct|__anon274bd1ac0108
+DECL|struct|__anon294979800108
 typedef|typedef
 struct|struct
 block|{
