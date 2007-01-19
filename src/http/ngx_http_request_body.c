@@ -680,6 +680,14 @@ operator|)
 condition|)
 block|{
 comment|/* the whole request body may be placed in r->header_in */
+name|rb
+operator|->
+name|to_write
+operator|=
+name|rb
+operator|->
+name|bufs
+expr_stmt|;
 name|r
 operator|->
 name|read_event_handler
