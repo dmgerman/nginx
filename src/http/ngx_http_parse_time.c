@@ -89,7 +89,7 @@ name|min
 decl_stmt|,
 name|sec
 decl_stmt|;
-DECL|enum|__anon2c30a5590103
+DECL|enum|__anon2c122c190103
 enum|enum
 block|{
 DECL|enumerator|no
@@ -1280,7 +1280,7 @@ operator|-
 literal|31
 operator|+
 name|day
-comment|/*              * 719527 days were between March 1, 1 BC and March 1, 1970,              * 31 and 28 days in January and February 1970              */
+comment|/*              * 719527 days were between March 1, 1 BC and March 1, 1970,              * 31 and 28 days were in January and February 1970              */
 operator|-
 literal|719527
 operator|+
