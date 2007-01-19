@@ -7435,6 +7435,13 @@ operator|->
 name|write
 operator|->
 name|active
+operator|&&
+operator|!
+name|downstream
+operator|->
+name|write
+operator|->
+name|ready
 condition|)
 block|{
 name|ngx_add_timer
@@ -7498,6 +7505,13 @@ operator|->
 name|read
 operator|->
 name|active
+operator|&&
+operator|!
+name|upstream
+operator|->
+name|read
+operator|->
+name|ready
 condition|)
 block|{
 name|ngx_add_timer
