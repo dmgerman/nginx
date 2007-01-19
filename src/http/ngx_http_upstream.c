@@ -2698,6 +2698,12 @@ name|r
 operator|->
 name|request_body
 operator|->
+name|buf
+operator|&&
+name|r
+operator|->
+name|request_body
+operator|->
 name|temp_file
 operator|&&
 name|r
