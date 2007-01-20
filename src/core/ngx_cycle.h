@@ -227,7 +227,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2beff7ca0108
+DECL|struct|__anon29f773340108
 typedef|typedef
 struct|struct
 block|{
@@ -305,6 +305,16 @@ DECL|member|oldpid
 name|ngx_str_t
 name|oldpid
 decl_stmt|;
+DECL|member|env
+name|ngx_array_t
+name|env
+decl_stmt|;
+DECL|member|environment
+name|char
+modifier|*
+modifier|*
+name|environment
+decl_stmt|;
 if|#
 directive|if
 operator|(
@@ -327,7 +337,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2beff7ca0208
+DECL|struct|__anon29f773340208
 typedef|typedef
 struct|struct
 block|{
@@ -402,6 +412,23 @@ name|cycle
 parameter_list|,
 name|ngx_uid_t
 name|user
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|char
+modifier|*
+modifier|*
+name|ngx_set_environment
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|,
+name|ngx_uint_t
+modifier|*
+name|last
 parameter_list|)
 function_decl|;
 end_function_decl

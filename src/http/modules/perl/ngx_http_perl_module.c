@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c89b4690108
+DECL|struct|__anon2b3747360108
 typedef|typedef
 struct|struct
 block|{
@@ -57,7 +57,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c89b4690208
+DECL|struct|__anon2b3747360208
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c89b4690308
+DECL|struct|__anon2b3747360308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c89b4690408
+DECL|struct|__anon2b3747360408
 typedef|typedef
 struct|struct
 block|{
@@ -186,13 +186,13 @@ name|PerlInterpreter
 modifier|*
 name|ngx_http_perl_create_interpreter
 parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
 name|ngx_http_perl_main_conf_t
 modifier|*
 name|pmcf
-parameter_list|,
-name|ngx_log_t
-modifier|*
-name|log
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -1923,11 +1923,9 @@ name|perl
 operator|=
 name|ngx_http_perl_create_interpreter
 argument_list|(
-name|pmcf
-argument_list|,
 name|cf
-operator|->
-name|log
+argument_list|,
+name|pmcf
 argument_list|)
 expr_stmt|;
 if|if
@@ -1991,16 +1989,16 @@ begin_function
 specifier|static
 name|PerlInterpreter
 modifier|*
-DECL|function|ngx_http_perl_create_interpreter (ngx_http_perl_main_conf_t * pmcf,ngx_log_t * log)
+DECL|function|ngx_http_perl_create_interpreter (ngx_conf_t * cf,ngx_http_perl_main_conf_t * pmcf)
 name|ngx_http_perl_create_interpreter
 parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
 name|ngx_http_perl_main_conf_t
 modifier|*
 name|pmcf
-parameter_list|,
-name|ngx_log_t
-modifier|*
-name|log
 parameter_list|)
 block|{
 name|int
@@ -2031,6 +2029,8 @@ name|ngx_log_debug0
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
+name|cf
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -2038,6 +2038,24 @@ argument_list|,
 literal|"create perl interpreter"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|ngx_set_environment
+argument_list|(
+name|cf
+operator|->
+name|cycle
+argument_list|,
+name|NULL
+argument_list|)
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NULL
+return|;
+block|}
 name|perl
 operator|=
 name|perl_alloc
@@ -2054,6 +2072,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
+name|cf
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -2190,6 +2210,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
+name|cf
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -2237,6 +2259,8 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
+name|cf
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -2263,6 +2287,8 @@ name|pmcf
 operator|->
 name|requires
 argument_list|,
+name|cf
+operator|->
 name|log
 argument_list|)
 operator|!=
