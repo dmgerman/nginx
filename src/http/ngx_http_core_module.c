@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bc90dbb0108
+DECL|struct|__anon27cc80b90108
 typedef|typedef
 struct|struct
 block|{
@@ -1261,7 +1261,9 @@ name|NGX_HTTP_SRV_CONF
 operator||
 name|NGX_HTTP_LOC_CONF
 operator||
-name|NGX_CONF_FLAG
+name|NGX_HTTP_LIF_CONF
+operator||
+name|NGX_CONF_TAKE1
 block|,
 name|ngx_conf_set_flag_slot
 block|,
