@@ -106,7 +106,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a4d37270108
+DECL|struct|__anon2c64931d0108
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4d37270208
+DECL|struct|__anon2c64931d0208
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4d37270308
+DECL|struct|__anon2c64931d0308
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4d37270408
+DECL|struct|__anon2c64931d0408
 typedef|typedef
 struct|struct
 block|{
@@ -200,7 +200,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4d37270508
+DECL|struct|__anon2c64931d0508
 typedef|typedef
 struct|struct
 block|{
@@ -757,7 +757,7 @@ end_decl_stmt
 begin_decl_stmt
 specifier|static
 name|ngx_str_t
-name|http_access_log
+name|ngx_http_access_log
 init|=
 name|ngx_string
 argument_list|(
@@ -2499,12 +2499,7 @@ condition|(
 name|conf
 operator|->
 name|logs
-operator|==
-name|NULL
-condition|)
-block|{
-if|if
-condition|(
+operator|||
 name|conf
 operator|->
 name|off
@@ -2514,39 +2509,23 @@ return|return
 name|NGX_CONF_OK
 return|;
 block|}
+operator|*
+name|conf
+operator|=
+operator|*
+name|prev
+expr_stmt|;
 if|if
 condition|(
-name|prev
-operator|->
-name|logs
-condition|)
-block|{
 name|conf
 operator|->
 name|logs
-operator|=
-name|prev
-operator|->
-name|logs
-expr_stmt|;
-block|}
-else|else
-block|{
-if|if
-condition|(
-name|prev
+operator|||
+name|conf
 operator|->
 name|off
 condition|)
 block|{
-name|conf
-operator|->
-name|off
-operator|=
-name|prev
-operator|->
-name|off
-expr_stmt|;
 return|return
 name|NGX_CONF_OK
 return|;
@@ -2613,7 +2592,7 @@ operator|->
 name|cycle
 argument_list|,
 operator|&
-name|http_access_log
+name|ngx_http_access_log
 argument_list|)
 expr_stmt|;
 if|if
@@ -2676,8 +2655,6 @@ name|combined_used
 operator|=
 literal|1
 expr_stmt|;
-block|}
-block|}
 return|return
 name|NGX_CONF_OK
 return|;
