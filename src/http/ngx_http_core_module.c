@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c45c3a60108
+DECL|struct|__anon277c06f50108
 typedef|typedef
 struct|struct
 block|{
@@ -102,10 +102,10 @@ value|1
 end_define
 
 begin_define
-DECL|macro|NGX_HTTP_REQUEST_BODY_FILE_ANY
+DECL|macro|NGX_HTTP_REQUEST_BODY_FILE_CLEAN
 define|#
 directive|define
-name|NGX_HTTP_REQUEST_BODY_FILE_ANY
+name|NGX_HTTP_REQUEST_BODY_FILE_CLEAN
 value|2
 end_define
 
@@ -587,10 +587,10 @@ block|,
 block|{
 name|ngx_string
 argument_list|(
-literal|"any"
+literal|"clean"
 argument_list|)
 block|,
-name|NGX_HTTP_REQUEST_BODY_FILE_ANY
+name|NGX_HTTP_REQUEST_BODY_FILE_CLEAN
 block|}
 block|,
 block|{
@@ -3580,26 +3580,20 @@ literal|1
 expr_stmt|;
 name|r
 operator|->
-name|request_body_file_log_level
+name|request_body_in_clean_file
 operator|=
-name|NGX_LOG_NOTICE
-expr_stmt|;
-if|if
-condition|(
 name|clcf
 operator|->
 name|client_body_in_file_only
 operator|==
-name|NGX_HTTP_REQUEST_BODY_FILE_ON
-condition|)
-block|{
+name|NGX_HTTP_REQUEST_BODY_FILE_CLEAN
+expr_stmt|;
 name|r
 operator|->
-name|request_body_delete_incomplete_file
+name|request_body_file_log_level
 operator|=
-literal|1
+name|NGX_LOG_NOTICE
 expr_stmt|;
-block|}
 block|}
 else|else
 block|{

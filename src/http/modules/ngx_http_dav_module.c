@@ -30,7 +30,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2b801ca30108
+DECL|struct|__anon2b81aea80108
 typedef|typedef
 struct|struct
 block|{
@@ -597,7 +597,7 @@ literal|1
 expr_stmt|;
 name|r
 operator|->
-name|request_body_delete_incomplete_file
+name|request_body_in_clean_file
 operator|=
 literal|1
 expr_stmt|;

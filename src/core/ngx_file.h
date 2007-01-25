@@ -128,7 +128,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b140de70108
+DECL|struct|__anon29adf4df0108
 typedef|typedef
 struct|struct
 block|{
@@ -168,6 +168,12 @@ decl_stmt|;
 DECL|member|persistent
 name|unsigned
 name|persistent
+range|:
+literal|1
+decl_stmt|;
+DECL|member|clean
+name|unsigned
+name|clean
 range|:
 literal|1
 decl_stmt|;
@@ -314,6 +320,9 @@ name|pool
 parameter_list|,
 name|ngx_uint_t
 name|persistent
+parameter_list|,
+name|ngx_uint_t
+name|clean
 parameter_list|,
 name|ngx_uint_t
 name|access

@@ -174,7 +174,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27559fff0108
+DECL|struct|__anon27b9272f0108
 typedef|typedef
 struct|struct
 block|{
@@ -317,6 +317,17 @@ end_function_decl
 begin_function_decl
 name|void
 name|ngx_pool_cleanup_file
+parameter_list|(
+name|void
+modifier|*
+name|data
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_pool_delete_file
 parameter_list|(
 name|void
 modifier|*

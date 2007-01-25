@@ -82,6 +82,10 @@ name|persistent
 argument_list|,
 name|tf
 operator|->
+name|clean
+argument_list|,
+name|tf
+operator|->
 name|access
 argument_list|)
 expr_stmt|;
@@ -161,7 +165,7 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_create_temp_file (ngx_file_t * file,ngx_path_t * path,ngx_pool_t * pool,ngx_uint_t persistent,ngx_uint_t access)
+DECL|function|ngx_create_temp_file (ngx_file_t * file,ngx_path_t * path,ngx_pool_t * pool,ngx_uint_t persistent,ngx_uint_t clean,ngx_uint_t access)
 name|ngx_create_temp_file
 parameter_list|(
 name|ngx_file_t
@@ -178,6 +182,9 @@ name|pool
 parameter_list|,
 name|ngx_uint_t
 name|persistent
+parameter_list|,
+name|ngx_uint_t
+name|clean
 parameter_list|,
 name|ngx_uint_t
 name|access
@@ -396,6 +403,10 @@ name|cln
 operator|->
 name|handler
 operator|=
+name|clean
+condition|?
+name|ngx_pool_delete_file
+else|:
 name|ngx_pool_cleanup_file
 expr_stmt|;
 name|clnf
