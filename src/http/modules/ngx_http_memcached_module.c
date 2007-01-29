@@ -28,7 +28,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28b8c9150108
+DECL|struct|__anon2c6fe4360108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b8c9150208
+DECL|struct|__anon2c6fe4360208
 typedef|typedef
 struct|struct
 block|{
@@ -1053,7 +1053,6 @@ name|len
 operator|+
 sizeof|sizeof
 argument_list|(
-literal|" "
 name|CRLF
 argument_list|)
 operator|-
@@ -1242,14 +1241,6 @@ name|ctx
 operator|->
 name|key
 argument_list|)
-expr_stmt|;
-operator|*
-name|b
-operator|->
-name|last
-operator|++
-operator|=
-literal|' '
 expr_stmt|;
 operator|*
 name|b
