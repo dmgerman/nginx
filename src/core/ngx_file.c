@@ -222,7 +222,7 @@ name|path
 operator|->
 name|len
 operator|+
-name|NGX_ATOMIC_T_LEN
+literal|10
 expr_stmt|;
 name|file
 operator|->
