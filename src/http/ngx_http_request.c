@@ -6799,8 +6799,8 @@ block|{
 if|if
 condition|(
 name|rc
-operator|==
-name|NGX_HTTP_CLIENT_CLOSED_REQUEST
+operator|>
+literal|0
 operator|&&
 name|r
 operator|->
@@ -6817,7 +6817,7 @@ name|headers_out
 operator|.
 name|status
 operator|=
-name|NGX_HTTP_CLIENT_CLOSED_REQUEST
+name|rc
 expr_stmt|;
 block|}
 if|if
