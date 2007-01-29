@@ -657,6 +657,17 @@ value|"RemoveDirectory()"
 end_define
 
 begin_define
+DECL|macro|ngx_dir_access (a)
+define|#
+directive|define
+name|ngx_dir_access
+parameter_list|(
+name|a
+parameter_list|)
+value|(a)
+end_define
+
+begin_define
 DECL|macro|ngx_de_name (dir)
 define|#
 directive|define
@@ -799,7 +810,7 @@ value|(time_t) (((((unsigned __int64)                                          \
 end_define
 
 begin_typedef
-DECL|struct|__anon27b8a57b0108
+DECL|struct|__anon2b5fddea0108
 typedef|typedef
 struct|struct
 block|{

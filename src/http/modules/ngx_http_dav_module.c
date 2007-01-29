@@ -30,7 +30,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2b81aea80108
+DECL|struct|__anon2bc296a10108
 typedef|typedef
 struct|struct
 block|{
@@ -1107,9 +1107,12 @@ name|path
 operator|.
 name|data
 argument_list|,
+name|ngx_dir_access
+argument_list|(
 name|dlcf
 operator|->
 name|access
+argument_list|)
 argument_list|)
 operator|!=
 name|NGX_FILE_ERROR
@@ -1505,9 +1508,6 @@ argument_list|,
 name|dlcf
 operator|->
 name|access
-operator|&
-operator|~
-literal|0111
 argument_list|)
 operator|==
 name|NGX_FILE_ERROR
@@ -1674,9 +1674,12 @@ name|path
 operator|.
 name|data
 argument_list|,
+name|ngx_dir_access
+argument_list|(
 name|dlcf
 operator|->
 name|access
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -2273,7 +2276,7 @@ name|lcf
 operator|->
 name|access
 operator|=
-literal|0700
+literal|0600
 expr_stmt|;
 for|for
 control|(
@@ -2421,7 +2424,7 @@ condition|)
 block|{
 name|right
 operator|=
-literal|7
+literal|6
 expr_stmt|;
 block|}
 if|else if
@@ -2438,7 +2441,7 @@ condition|)
 block|{
 name|right
 operator|=
-literal|5
+literal|4
 expr_stmt|;
 block|}
 else|else
@@ -2450,7 +2453,7 @@ block|}
 name|lcf
 operator|->
 name|access
-operator|+=
+operator||=
 name|right
 operator|<<
 name|shift

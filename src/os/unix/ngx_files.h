@@ -654,6 +654,17 @@ value|"rmdir()"
 end_define
 
 begin_define
+DECL|macro|ngx_dir_access (a)
+define|#
+directive|define
+name|ngx_dir_access
+parameter_list|(
+name|a
+parameter_list|)
+value|(a | (a& 0444)>> 2)
+end_define
+
+begin_define
 DECL|macro|ngx_de_name (dir)
 define|#
 directive|define
@@ -813,7 +824,7 @@ value|(dir)->info.st_mtime
 end_define
 
 begin_typedef
-DECL|struct|__anon2b4135ab0108
+DECL|struct|__anon28fd0c8f0108
 typedef|typedef
 struct|struct
 block|{
