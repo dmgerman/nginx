@@ -190,11 +190,11 @@ name|ngx_uint_t
 name|access
 parameter_list|)
 block|{
+name|uint32_t
+name|n
+decl_stmt|;
 name|ngx_err_t
 name|err
-decl_stmt|;
-name|ngx_atomic_uint_t
-name|n
 decl_stmt|;
 name|ngx_pool_cleanup_t
 modifier|*
@@ -287,6 +287,9 @@ argument_list|)
 expr_stmt|;
 name|n
 operator|=
+operator|(
+name|uint32_t
+operator|)
 name|ngx_next_temp_number
 argument_list|(
 literal|0
@@ -321,7 +324,7 @@ name|path
 operator|->
 name|len
 argument_list|,
-literal|"%0muA%Z"
+literal|"%010uD%Z"
 argument_list|,
 name|n
 argument_list|)
@@ -458,6 +461,9 @@ condition|)
 block|{
 name|n
 operator|=
+operator|(
+name|uint32_t
+operator|)
 name|ngx_next_temp_number
 argument_list|(
 literal|1
