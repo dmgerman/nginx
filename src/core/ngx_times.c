@@ -400,6 +400,8 @@ condition|(
 name|slot
 operator|==
 name|NGX_TIME_SLOTS
+operator|-
+literal|1
 condition|)
 block|{
 name|slot
