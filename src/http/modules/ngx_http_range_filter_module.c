@@ -26,7 +26,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon296a9a040108
+DECL|struct|__anon28a51f500108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296a9a040208
+DECL|struct|__anon28a51f500208
 typedef|typedef
 struct|struct
 block|{
@@ -2451,7 +2451,7 @@ operator|->
 name|in_file
 condition|)
 block|{
-name|buf
+name|b
 operator|->
 name|file_pos
 operator|=
@@ -2462,7 +2462,7 @@ index|]
 operator|.
 name|start
 expr_stmt|;
-name|buf
+name|b
 operator|->
 name|file_last
 operator|=
@@ -2482,7 +2482,7 @@ name|buf
 argument_list|)
 condition|)
 block|{
-name|buf
+name|b
 operator|->
 name|pos
 operator|=
@@ -2500,7 +2500,7 @@ index|]
 operator|.
 name|start
 expr_stmt|;
-name|buf
+name|b
 operator|->
 name|last
 operator|=
