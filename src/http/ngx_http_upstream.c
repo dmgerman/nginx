@@ -7794,6 +7794,10 @@ decl_stmt|,
 modifier|*
 name|downstream
 decl_stmt|;
+name|ngx_http_log_ctx_t
+modifier|*
+name|ctx
+decl_stmt|;
 name|ngx_http_request_t
 modifier|*
 name|r
@@ -7877,6 +7881,20 @@ operator|->
 name|action
 operator|=
 literal|"reading upstream"
+expr_stmt|;
+name|ctx
+operator|=
+name|c
+operator|->
+name|log
+operator|->
+name|data
+expr_stmt|;
+name|ctx
+operator|->
+name|current_request
+operator|=
+name|r
 expr_stmt|;
 block|}
 name|p
