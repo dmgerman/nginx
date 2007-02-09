@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon296e96b00108
+DECL|struct|__anon2b87b92f0108
 typedef|typedef
 struct|struct
 block|{
@@ -67,7 +67,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon296e96b00203
+DECL|enum|__anon2b87b92f0203
 typedef|typedef
 enum|enum
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296e96b00308
+DECL|struct|__anon2b87b92f0308
 typedef|typedef
 struct|struct
 block|{
@@ -222,7 +222,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon296e96b00408
+DECL|struct|__anon2b87b92f0408
 typedef|typedef
 struct|struct
 block|{
@@ -265,7 +265,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296e96b00508
+DECL|struct|__anon2b87b92f0508
 typedef|typedef
 struct|struct
 block|{
@@ -295,7 +295,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296e96b00608
+DECL|struct|__anon2b87b92f0608
 typedef|typedef
 struct|struct
 block|{
@@ -322,7 +322,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296e96b00708
+DECL|struct|__anon2b87b92f0708
 typedef|typedef
 struct|struct
 block|{
@@ -9017,6 +9017,15 @@ name|ngx_http_fastcgi_loc_conf_t
 modifier|*
 name|flcf
 decl_stmt|;
+if|if
+condition|(
+name|r
+operator|->
+name|uri
+operator|.
+name|len
+condition|)
+block|{
 name|v
 operator|->
 name|valid
@@ -9170,6 +9179,43 @@ operator|.
 name|len
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|v
+operator|->
+name|len
+operator|=
+literal|0
+expr_stmt|;
+name|v
+operator|->
+name|valid
+operator|=
+literal|1
+expr_stmt|;
+name|v
+operator|->
+name|no_cachable
+operator|=
+literal|0
+expr_stmt|;
+name|v
+operator|->
+name|not_found
+operator|=
+literal|0
+expr_stmt|;
+name|v
+operator|->
+name|data
+operator|=
+name|NULL
+expr_stmt|;
+return|return
+name|NGX_OK
+return|;
+block|}
 return|return
 name|NGX_OK
 return|;
