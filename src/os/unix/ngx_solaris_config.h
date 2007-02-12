@@ -16,12 +16,23 @@ directive|define
 name|_NGX_SOLARIS_CONFIG_H_INCLUDED_
 end_define
 
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|_REENTRANT
+end_ifndef
+
 begin_define
 DECL|macro|_REENTRANT
 define|#
 directive|define
 name|_REENTRANT
 end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_define
 DECL|macro|_FILE_OFFSET_BITS
