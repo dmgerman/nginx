@@ -26,7 +26,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon28a51f500108
+DECL|struct|__anon2a4fb6d60108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a51f500208
+DECL|struct|__anon2a4fb6d60208
 typedef|typedef
 struct|struct
 block|{
@@ -393,6 +393,10 @@ name|value
 operator|.
 name|data
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"bytes="
 argument_list|,
 literal|6

@@ -3711,6 +3711,10 @@ index|]
 operator|.
 name|data
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"LOGIN"
 argument_list|,
 literal|5
@@ -3768,6 +3772,10 @@ index|]
 operator|.
 name|data
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"PLAIN"
 argument_list|,
 literal|5
@@ -3891,6 +3899,10 @@ index|]
 operator|.
 name|data
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"CRAM-MD5"
 argument_list|,
 literal|8

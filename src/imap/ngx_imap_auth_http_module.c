@@ -34,7 +34,7 @@ file|<ngx_imap.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ac3fe350108
+DECL|struct|__anon2c5c09030108
 typedef|typedef
 struct|struct
 block|{
@@ -1544,7 +1544,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon2ac3fe350203
+DECL|enum|__anon2c5c09030203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2051,6 +2051,10 @@ name|ctx
 operator|->
 name|header_name_start
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"Auth-Status"
 argument_list|,
 sizeof|sizeof
@@ -2408,6 +2412,10 @@ name|ctx
 operator|->
 name|header_name_start
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"Auth-Server"
 argument_list|,
 sizeof|sizeof
@@ -2464,6 +2472,10 @@ name|ctx
 operator|->
 name|header_name_start
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"Auth-Port"
 argument_list|,
 sizeof|sizeof
@@ -2520,6 +2532,10 @@ name|ctx
 operator|->
 name|header_name_start
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"Auth-User"
 argument_list|,
 sizeof|sizeof
@@ -2640,6 +2656,10 @@ name|ctx
 operator|->
 name|header_name_start
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"Auth-Pass"
 argument_list|,
 sizeof|sizeof
@@ -2760,6 +2780,10 @@ name|ctx
 operator|->
 name|header_name_start
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"Auth-Wait"
 argument_list|,
 sizeof|sizeof
@@ -3845,7 +3869,7 @@ decl_stmt|;
 name|ngx_uint_t
 name|hash
 decl_stmt|;
-DECL|enum|__anon2ac3fe350303
+DECL|enum|__anon2c5c09030303
 enum|enum
 block|{
 DECL|enumerator|sw_start

@@ -9968,6 +9968,10 @@ name|ngx_strncasecmp
 argument_list|(
 name|p
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"charset="
 argument_list|,
 literal|8

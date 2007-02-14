@@ -34,12 +34,12 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon277c06f50108
+DECL|struct|__anon289bec250108
 typedef|typedef
 struct|struct
 block|{
 DECL|member|name
-name|char
+name|u_char
 modifier|*
 name|name
 decl_stmt|;
@@ -5220,6 +5220,10 @@ name|encoded
 operator|.
 name|data
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"Basic "
 argument_list|,
 sizeof|sizeof
@@ -12199,6 +12203,10 @@ index|[]
 init|=
 block|{
 block|{
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"GET"
 block|,
 operator|(
@@ -12209,6 +12217,10 @@ name|NGX_HTTP_GET
 block|}
 block|,
 block|{
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"HEAD"
 block|,
 operator|(
@@ -12219,6 +12231,10 @@ name|NGX_HTTP_HEAD
 block|}
 block|,
 block|{
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"POST"
 block|,
 operator|(
@@ -12229,6 +12245,10 @@ name|NGX_HTTP_POST
 block|}
 block|,
 block|{
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"PUT"
 block|,
 operator|(
@@ -12239,6 +12259,10 @@ name|NGX_HTTP_PUT
 block|}
 block|,
 block|{
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"DELETE"
 block|,
 operator|(
@@ -12249,6 +12273,10 @@ name|NGX_HTTP_DELETE
 block|}
 block|,
 block|{
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"MKCOL"
 block|,
 operator|(
@@ -12259,6 +12287,10 @@ name|NGX_HTTP_MKCOL
 block|}
 block|,
 block|{
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"COPY"
 block|,
 operator|(
@@ -12269,6 +12301,10 @@ name|NGX_HTTP_COPY
 block|}
 block|,
 block|{
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"MOVE"
 block|,
 operator|(
@@ -12279,6 +12315,10 @@ name|NGX_HTTP_MOVE
 block|}
 block|,
 block|{
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"OPTIONS"
 block|,
 operator|(
@@ -12289,6 +12329,10 @@ name|NGX_HTTP_OPTIONS
 block|}
 block|,
 block|{
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"PROPFIND"
 block|,
 operator|(
@@ -12299,6 +12343,10 @@ name|NGX_HTTP_PROPFIND
 block|}
 block|,
 block|{
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"PROPPATCH"
 block|,
 operator|(
@@ -12309,6 +12357,10 @@ name|NGX_HTTP_PROPPATCH
 block|}
 block|,
 block|{
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"LOCK"
 block|,
 operator|(
@@ -12319,6 +12371,10 @@ name|NGX_HTTP_LOCK
 block|}
 block|,
 block|{
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"UNLOCK"
 block|,
 operator|(

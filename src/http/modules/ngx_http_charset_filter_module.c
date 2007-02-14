@@ -58,7 +58,7 @@ value|(sizeof("&#1114111;") - 1)
 end_define
 
 begin_typedef
-DECL|struct|__anon28fc44010108
+DECL|struct|__anon288ed0870108
 typedef|typedef
 struct|struct
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28fc44010208
+DECL|struct|__anon288ed0870208
 typedef|typedef
 struct|struct
 block|{
@@ -110,7 +110,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28fc44010308
+DECL|struct|__anon288ed0870308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28fc44010408
+DECL|struct|__anon288ed0870408
 typedef|typedef
 struct|struct
 block|{
@@ -165,7 +165,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28fc44010508
+DECL|struct|__anon288ed0870508
 typedef|typedef
 struct|struct
 block|{
@@ -188,7 +188,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28fc44010608
+DECL|struct|__anon288ed0870608
 typedef|typedef
 struct|struct
 block|{
@@ -252,7 +252,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28fc44010708
+DECL|struct|__anon288ed0870708
 typedef|typedef
 struct|struct
 block|{
@@ -1024,6 +1024,10 @@ name|ngx_strncasecmp
 argument_list|(
 name|ct
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"text/"
 argument_list|,
 literal|5
@@ -1035,6 +1039,10 @@ name|ngx_strncasecmp
 argument_list|(
 name|ct
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"application/x-javascript"
 argument_list|,
 literal|24
@@ -4733,6 +4741,10 @@ index|]
 operator|.
 name|data
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"utf-8"
 argument_list|)
 operator|==
@@ -6060,6 +6072,10 @@ name|name
 operator|->
 name|data
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"utf-8"
 argument_list|)
 operator|==

@@ -3687,6 +3687,10 @@ index|]
 operator|.
 name|data
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"on"
 argument_list|)
 operator|==
@@ -3710,6 +3714,10 @@ index|]
 operator|.
 name|data
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"off"
 argument_list|)
 operator|==

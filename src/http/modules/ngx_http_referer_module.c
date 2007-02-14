@@ -30,7 +30,7 @@ value|((void *) 4)
 end_define
 
 begin_typedef
-DECL|struct|__anon2ae85dda0108
+DECL|struct|__anon2acf1fa40108
 typedef|typedef
 struct|struct
 block|{
@@ -419,6 +419,10 @@ name|ngx_strncasecmp
 argument_list|(
 name|ref
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"http://"
 argument_list|,
 literal|7

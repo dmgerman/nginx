@@ -874,6 +874,10 @@ name|ngx_strncasecmp
 argument_list|(
 name|p
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"unix:"
 argument_list|,
 literal|5

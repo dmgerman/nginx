@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29586e490108
+DECL|struct|__anon29c94e530108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29586e490208
+DECL|struct|__anon29c94e530208
 typedef|typedef
 struct|struct
 block|{
@@ -107,84 +107,6 @@ name|c
 parameter_list|)
 value|(u_char) ((c>= 'a'&& c<= 'z') ? (c& ~0x20) : c)
 end_define
-
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_WIN32
-operator|)
-end_if
-
-begin_define
-DECL|macro|ngx_strncasecmp (s1,s2,n)
-define|#
-directive|define
-name|ngx_strncasecmp
-parameter_list|(
-name|s1
-parameter_list|,
-name|s2
-parameter_list|,
-name|n
-parameter_list|)
-define|\
-value|strnicmp((const char *) s1, (const char *) s2, n)
-end_define
-
-begin_define
-DECL|macro|ngx_strcasecmp (s1,s2)
-define|#
-directive|define
-name|ngx_strcasecmp
-parameter_list|(
-name|s1
-parameter_list|,
-name|s2
-parameter_list|)
-define|\
-value|stricmp((const char *) s1, (const char *) s2)
-end_define
-
-begin_else
-else|#
-directive|else
-end_else
-
-begin_define
-DECL|macro|ngx_strncasecmp (s1,s2,n)
-define|#
-directive|define
-name|ngx_strncasecmp
-parameter_list|(
-name|s1
-parameter_list|,
-name|s2
-parameter_list|,
-name|n
-parameter_list|)
-define|\
-value|strncasecmp((const char *) s1, (const char *) s2, n)
-end_define
-
-begin_define
-DECL|macro|ngx_strcasecmp (s1,s2)
-define|#
-directive|define
-name|ngx_strcasecmp
-parameter_list|(
-name|s1
-parameter_list|,
-name|s2
-parameter_list|)
-define|\
-value|strcasecmp((const char *) s1, (const char *) s2)
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
 
 begin_define
 DECL|macro|ngx_strncmp (s1,s2,n)
@@ -565,6 +487,39 @@ name|fmt
 parameter_list|,
 name|va_list
 name|args
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_strcasecmp
+parameter_list|(
+name|u_char
+modifier|*
+name|s1
+parameter_list|,
+name|u_char
+modifier|*
+name|s2
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_strncasecmp
+parameter_list|(
+name|u_char
+modifier|*
+name|s1
+parameter_list|,
+name|u_char
+modifier|*
+name|s2
+parameter_list|,
+name|size_t
+name|n
 parameter_list|)
 function_decl|;
 end_function_decl

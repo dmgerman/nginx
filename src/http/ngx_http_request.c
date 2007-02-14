@@ -5872,6 +5872,10 @@ name|value
 operator|.
 name|data
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"close"
 argument_list|)
 operator|==
@@ -5913,6 +5917,10 @@ name|value
 operator|.
 name|data
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"keep-alive"
 argument_list|)
 operator|==

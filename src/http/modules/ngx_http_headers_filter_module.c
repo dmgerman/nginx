@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c3733af0108
+DECL|struct|__anon299724d90108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3733af0208
+DECL|struct|__anon299724d90208
 typedef|typedef
 struct|struct
 block|{
@@ -1850,6 +1850,10 @@ index|]
 operator|.
 name|data
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"cache-control"
 argument_list|)
 operator|==
