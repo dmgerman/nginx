@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28b17b6d0108
+DECL|struct|__anon297cdd0c0108
 typedef|typedef
 struct|struct
 block|{
@@ -214,6 +214,9 @@ name|ngx_trylock_fd_n
 literal|" failed"
 argument_list|)
 expr_stmt|;
+return|return
+literal|0
+return|;
 block|}
 end_function
 
