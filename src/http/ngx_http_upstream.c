@@ -2093,6 +2093,21 @@ name|err
 operator|=
 name|ngx_socket_errno
 expr_stmt|;
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|ev
+operator|->
+name|log
+argument_list|,
+name|err
+argument_list|,
+literal|"http upstream recv(): %d"
+argument_list|,
+name|n
+argument_list|)
+expr_stmt|;
 comment|/*      * we do not need to disable the write event because      * that event has NGX_USE_CLEAR_EVENT type      */
 if|if
 condition|(
