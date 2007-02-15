@@ -1343,7 +1343,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http client request body rest %uz"
+literal|"http client request body rest %O"
 argument_list|,
 name|rb
 operator|->
