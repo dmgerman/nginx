@@ -5621,6 +5621,12 @@ operator|&
 name|l
 argument_list|)
 expr_stmt|;
+name|s
+operator|->
+name|quit
+operator|=
+literal|1
+expr_stmt|;
 return|return
 name|NGX_IMAP_PARSE_INVALID_COMMAND
 return|;
