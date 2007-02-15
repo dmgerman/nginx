@@ -8171,14 +8171,13 @@ argument_list|,
 literal|"client closed prematurely connection"
 argument_list|)
 expr_stmt|;
-name|ngx_http_close_request
+name|ngx_http_finalize_request
 argument_list|(
 name|r
 argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
 end_function
 
