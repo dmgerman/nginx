@@ -667,6 +667,8 @@ if|#
 directive|if
 operator|(
 name|NGX_HTTP_PROXY
+operator|||
+name|NGX_HTTP_REALIP
 operator|)
 block|{
 name|ngx_string
