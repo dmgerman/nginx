@@ -7449,6 +7449,12 @@ name|NGX_HTTP_WRITING_REQUEST_STATE
 expr_stmt|;
 name|r
 operator|->
+name|read_event_handler
+operator|=
+name|ngx_http_block_read
+expr_stmt|;
+name|r
+operator|->
 name|write_event_handler
 operator|=
 name|ngx_http_writer
