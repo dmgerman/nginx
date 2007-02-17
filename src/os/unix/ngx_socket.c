@@ -36,7 +36,7 @@ name|ngx_socket_t
 name|s
 parameter_list|)
 block|{
-name|u_long
+name|int
 name|nb
 decl_stmt|;
 name|nb
@@ -66,7 +66,7 @@ name|ngx_socket_t
 name|s
 parameter_list|)
 block|{
-name|u_long
+name|int
 name|nb
 decl_stmt|;
 name|nb
