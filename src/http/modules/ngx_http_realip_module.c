@@ -26,7 +26,7 @@ comment|/* AF_INET only */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2c50ee4a0108
+DECL|struct|__anon28c482c90108
 typedef|typedef
 struct|struct
 block|{
@@ -45,7 +45,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c50ee4a0208
+DECL|struct|__anon28c482c90208
 typedef|typedef
 struct|struct
 block|{
@@ -678,6 +678,39 @@ return|return
 name|NGX_DECLINED
 return|;
 block|}
+name|p
+operator|=
+name|ngx_palloc
+argument_list|(
+name|r
+operator|->
+name|connection
+operator|->
+name|pool
+argument_list|,
+name|len
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|p
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
+return|;
+block|}
+name|ngx_memcpy
+argument_list|(
+name|p
+argument_list|,
+name|ip
+argument_list|,
+name|len
+argument_list|)
+expr_stmt|;
 name|sin
 operator|->
 name|sin_addr
@@ -704,7 +737,7 @@ name|addr_text
 operator|.
 name|data
 operator|=
-name|ip
+name|p
 expr_stmt|;
 return|return
 name|NGX_DECLINED
