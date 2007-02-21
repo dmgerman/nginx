@@ -76,14 +76,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon2bef77a8010a
+DECL|union|__anon2bdefd68010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon2bef77a80208
+DECL|struct|__anon2bdefd680208
 struct|struct
 block|{
 DECL|member|lengths
@@ -114,7 +114,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bef77a80308
+DECL|struct|__anon2bdefd680308
 typedef|typedef
 struct|struct
 block|{
@@ -193,7 +193,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bef77a80408
+DECL|struct|__anon2bdefd680408
 typedef|typedef
 struct|struct
 block|{
@@ -4054,7 +4054,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2bef77a80503
+DECL|enum|__anon2bdefd680503
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -7113,7 +7113,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"\"proxy_busy_buffers_size\" must be equal or bigger than "
-literal|"maximum of the value of \"proxy_header_buffer_size\" and "
+literal|"maximum of the value of \"proxy_buffer_size\" and "
 literal|"one of the \"proxy_buffers\""
 argument_list|)
 expr_stmt|;
@@ -7240,7 +7240,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"\"proxy_temp_file_write_size\" must be equal or bigger than "
-literal|"maximum of the value of \"proxy_header_buffer_size\" and "
+literal|"maximum of the value of \"proxy_buffer_size\" and "
 literal|"one of the \"proxy_buffers\""
 argument_list|)
 expr_stmt|;
@@ -7333,7 +7333,7 @@ literal|0
 argument_list|,
 literal|"\"proxy_max_temp_file_size\" must be equal to zero to disable "
 literal|"the temporary files usage or must be equal or bigger than "
-literal|"maximum of the value of \"proxy_header_buffer_size\" and "
+literal|"maximum of the value of \"proxy_buffer_size\" and "
 literal|"one of the \"proxy_buffers\""
 argument_list|)
 expr_stmt|;

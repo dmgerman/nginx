@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b87b92f0108
+DECL|struct|__anon29d0706f0108
 typedef|typedef
 struct|struct
 block|{
@@ -67,7 +67,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b87b92f0203
+DECL|enum|__anon29d0706f0203
 typedef|typedef
 enum|enum
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b87b92f0308
+DECL|struct|__anon29d0706f0308
 typedef|typedef
 struct|struct
 block|{
@@ -222,7 +222,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2b87b92f0408
+DECL|struct|__anon29d0706f0408
 typedef|typedef
 struct|struct
 block|{
@@ -265,7 +265,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b87b92f0508
+DECL|struct|__anon29d0706f0508
 typedef|typedef
 struct|struct
 block|{
@@ -295,7 +295,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b87b92f0608
+DECL|struct|__anon29d0706f0608
 typedef|typedef
 struct|struct
 block|{
@@ -322,7 +322,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b87b92f0708
+DECL|struct|__anon29d0706f0708
 typedef|typedef
 struct|struct
 block|{
@@ -7285,7 +7285,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"\"fastcgi_busy_buffers_size\" must be equal or bigger than "
-literal|"maximum of the value of \"fastcgi_header_buffer_size\" and "
+literal|"maximum of the value of \"fastcgi_buffer_size\" and "
 literal|"one of the \"fastcgi_buffers\""
 argument_list|)
 expr_stmt|;
@@ -7412,7 +7412,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"\"fastcgi_temp_file_write_size\" must be equal or bigger than "
-literal|"maximum of the value of \"fastcgi_header_buffer_size\" and "
+literal|"maximum of the value of \"fastcgi_buffer_size\" and "
 literal|"one of the \"fastcgi_buffers\""
 argument_list|)
 expr_stmt|;
@@ -7505,7 +7505,7 @@ literal|0
 argument_list|,
 literal|"\"fastcgi_max_temp_file_size\" must be equal to zero to disable "
 literal|"the temporary files usage or must be equal or bigger than "
-literal|"maximum of the value of \"fastcgi_header_buffer_size\" and "
+literal|"maximum of the value of \"fastcgi_buffer_size\" and "
 literal|"one of the \"fastcgi_buffers\""
 argument_list|)
 expr_stmt|;
