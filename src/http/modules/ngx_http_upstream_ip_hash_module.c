@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c4d8eac0108
+DECL|struct|__anon2a165b630108
 typedef|typedef
 struct|struct
 block|{
@@ -752,8 +752,6 @@ expr_stmt|;
 break|break;
 block|}
 block|}
-else|else
-block|{
 name|iphp
 operator|->
 name|rrp
@@ -765,7 +763,6 @@ index|]
 operator||=
 name|m
 expr_stmt|;
-block|}
 comment|/* ngx_unlock_mutex(iphp->rrp.peers->mutex); */
 name|pc
 operator|->
