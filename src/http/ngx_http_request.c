@@ -8974,6 +8974,12 @@ comment|/* if ngx_http_request_t was freed then we need some other place */
 block_content|r->http_state = NGX_HTTP_KEEPALIVE_STATE;
 endif|#
 directive|endif
+name|c
+operator|->
+name|idle
+operator|=
+literal|1
+expr_stmt|;
 if|if
 condition|(
 name|rev
@@ -9039,6 +9045,10 @@ condition|(
 name|rev
 operator|->
 name|timedout
+operator|||
+name|c
+operator|->
+name|close
 condition|)
 block|{
 name|ngx_http_close_connection
@@ -9360,6 +9370,12 @@ operator|->
 name|action
 operator|=
 literal|"reading client request line"
+expr_stmt|;
+name|c
+operator|->
+name|idle
+operator|=
+literal|0
 expr_stmt|;
 name|ngx_http_init_request
 argument_list|(
