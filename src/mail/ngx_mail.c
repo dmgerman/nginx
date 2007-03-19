@@ -24,14 +24,14 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_imap.h>
+file|<ngx_mail.h>
 end_include
 
 begin_function_decl
 specifier|static
 name|char
 modifier|*
-name|ngx_imap_block
+name|ngx_mail_block
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -52,7 +52,7 @@ begin_function_decl
 specifier|static
 name|int
 name|ngx_libc_cdecl
-name|ngx_imap_cmp_conf_in_addrs
+name|ngx_mail_cmp_conf_in_addrs
 parameter_list|(
 specifier|const
 name|void
@@ -68,20 +68,41 @@ function_decl|;
 end_function_decl
 
 begin_decl_stmt
-DECL|variable|ngx_imap_max_module
+DECL|variable|ngx_mail_max_module
 name|ngx_uint_t
-name|ngx_imap_max_module
+name|ngx_mail_max_module
 decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_imap_commands
+DECL|variable|ngx_mail_commands
 specifier|static
 name|ngx_command_t
-name|ngx_imap_commands
+name|ngx_mail_commands
 index|[]
 init|=
 block|{
+block|{
+name|ngx_string
+argument_list|(
+literal|"mail"
+argument_list|)
+block|,
+name|NGX_MAIN_CONF
+operator||
+name|NGX_CONF_BLOCK
+operator||
+name|NGX_CONF_NOARGS
+block|,
+name|ngx_mail_block
+block|,
+literal|0
+block|,
+literal|0
+block|,
+name|NULL
+block|}
+block|,
 block|{
 name|ngx_string
 argument_list|(
@@ -94,7 +115,7 @@ name|NGX_CONF_BLOCK
 operator||
 name|NGX_CONF_NOARGS
 block|,
-name|ngx_imap_block
+name|ngx_mail_block
 block|,
 literal|0
 block|,
@@ -109,15 +130,15 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_imap_module_ctx
+DECL|variable|ngx_mail_module_ctx
 specifier|static
 name|ngx_core_module_t
-name|ngx_imap_module_ctx
+name|ngx_mail_module_ctx
 init|=
 block|{
 name|ngx_string
 argument_list|(
-literal|"imap"
+literal|"mail"
 argument_list|)
 block|,
 name|NULL
@@ -128,18 +149,18 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_imap_module
+DECL|variable|ngx_mail_module
 name|ngx_module_t
-name|ngx_imap_module
+name|ngx_mail_module
 init|=
 block|{
 name|NGX_MODULE_V1
 block|,
 operator|&
-name|ngx_imap_module_ctx
+name|ngx_mail_module_ctx
 block|,
 comment|/* module context */
-name|ngx_imap_commands
+name|ngx_mail_commands
 block|,
 comment|/* module directives */
 name|NGX_CORE_MODULE
@@ -175,8 +196,8 @@ begin_function
 specifier|static
 name|char
 modifier|*
-DECL|function|ngx_imap_block (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
-name|ngx_imap_block
+DECL|function|ngx_mail_block (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
+name|ngx_mail_block
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -233,40 +254,67 @@ name|ngx_listening_t
 modifier|*
 name|ls
 decl_stmt|;
-name|ngx_imap_listen_t
+name|ngx_mail_listen_t
 modifier|*
 name|imls
 decl_stmt|;
-name|ngx_imap_module_t
+name|ngx_mail_module_t
 modifier|*
 name|module
 decl_stmt|;
-name|ngx_imap_in_port_t
+name|ngx_mail_in_port_t
 modifier|*
 name|imip
 decl_stmt|;
-name|ngx_imap_conf_ctx_t
+name|ngx_mail_conf_ctx_t
 modifier|*
 name|ctx
 decl_stmt|;
-name|ngx_imap_conf_in_port_t
+name|ngx_mail_conf_in_port_t
 modifier|*
 name|in_port
 decl_stmt|;
-name|ngx_imap_conf_in_addr_t
+name|ngx_mail_conf_in_addr_t
 modifier|*
 name|in_addr
 decl_stmt|;
-name|ngx_imap_core_srv_conf_t
+name|ngx_mail_core_srv_conf_t
 modifier|*
 modifier|*
 name|cscfp
 decl_stmt|;
-name|ngx_imap_core_main_conf_t
+name|ngx_mail_core_main_conf_t
 modifier|*
 name|cmcf
 decl_stmt|;
-comment|/* the main imap context */
+if|if
+condition|(
+name|cmd
+operator|->
+name|name
+operator|.
+name|data
+index|[
+literal|0
+index|]
+operator|==
+literal|'i'
+condition|)
+block|{
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_WARN
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"the \"imap\" directive is deprecated, "
+literal|"use the \"mail\" directive instead"
+argument_list|)
+expr_stmt|;
+block|}
+comment|/* the main mail context */
 name|ctx
 operator|=
 name|ngx_pcalloc
@@ -277,7 +325,7 @@ name|pool
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|ngx_imap_conf_ctx_t
+name|ngx_mail_conf_ctx_t
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -294,7 +342,7 @@ return|;
 block|}
 operator|*
 operator|(
-name|ngx_imap_conf_ctx_t
+name|ngx_mail_conf_ctx_t
 operator|*
 operator|*
 operator|)
@@ -303,7 +351,7 @@ operator|=
 name|ctx
 expr_stmt|;
 comment|/* count the number of the http modules and set up their indices */
-name|ngx_imap_max_module
+name|ngx_mail_max_module
 operator|=
 literal|0
 expr_stmt|;
@@ -331,7 +379,7 @@ index|]
 operator|->
 name|type
 operator|!=
-name|NGX_IMAP_MODULE
+name|NGX_MAIL_MODULE
 condition|)
 block|{
 continue|continue;
@@ -343,11 +391,11 @@ index|]
 operator|->
 name|ctx_index
 operator|=
-name|ngx_imap_max_module
+name|ngx_mail_max_module
 operator|++
 expr_stmt|;
 block|}
-comment|/* the imap main_conf context, it is the same in the all imap contexts */
+comment|/* the mail main_conf context, it is the same in the all mail contexts */
 name|ctx
 operator|->
 name|main_conf
@@ -364,7 +412,7 @@ name|void
 operator|*
 argument_list|)
 operator|*
-name|ngx_imap_max_module
+name|ngx_mail_max_module
 argument_list|)
 expr_stmt|;
 if|if
@@ -380,7 +428,7 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
-comment|/*      * the imap null srv_conf context, it is used to merge      * the server{}s' srv_conf's      */
+comment|/*      * the mail null srv_conf context, it is used to merge      * the server{}s' srv_conf's      */
 name|ctx
 operator|->
 name|srv_conf
@@ -397,7 +445,7 @@ name|void
 operator|*
 argument_list|)
 operator|*
-name|ngx_imap_max_module
+name|ngx_mail_max_module
 argument_list|)
 expr_stmt|;
 if|if
@@ -413,7 +461,7 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
-comment|/*      * create the main_conf's, the null srv_conf's, and the null loc_conf's      * of the all imap modules      */
+comment|/*      * create the main_conf's, the null srv_conf's, and the null loc_conf's      * of the all mail modules      */
 for|for
 control|(
 name|m
@@ -438,7 +486,7 @@ index|]
 operator|->
 name|type
 operator|!=
-name|NGX_IMAP_MODULE
+name|NGX_MAIL_MODULE
 condition|)
 block|{
 continue|continue;
@@ -538,7 +586,7 @@ return|;
 block|}
 block|}
 block|}
-comment|/* parse inside the imap{} block */
+comment|/* parse inside the mail{} block */
 name|pcf
 operator|=
 operator|*
@@ -554,13 +602,13 @@ name|cf
 operator|->
 name|module_type
 operator|=
-name|NGX_IMAP_MODULE
+name|NGX_MAIL_MODULE
 expr_stmt|;
 name|cf
 operator|->
 name|cmd_type
 operator|=
-name|NGX_IMAP_MAIN_CONF
+name|NGX_MAIL_MAIN_CONF
 expr_stmt|;
 name|rv
 operator|=
@@ -587,14 +635,14 @@ return|return
 name|rv
 return|;
 block|}
-comment|/* init imap{} main_conf's, merge the server{}s' srv_conf's */
+comment|/* init mail{} main_conf's, merge the server{}s' srv_conf's */
 name|cmcf
 operator|=
 name|ctx
 operator|->
 name|main_conf
 index|[
-name|ngx_imap_core_module
+name|ngx_mail_core_module
 operator|.
 name|ctx_index
 index|]
@@ -631,7 +679,7 @@ index|]
 operator|->
 name|type
 operator|!=
-name|NGX_IMAP_MODULE
+name|NGX_MAIL_MODULE
 condition|)
 block|{
 continue|continue;
@@ -654,7 +702,7 @@ index|]
 operator|->
 name|ctx_index
 expr_stmt|;
-comment|/* init imap{} main_conf's */
+comment|/* init mail{} main_conf's */
 if|if
 condition|(
 name|module
@@ -768,7 +816,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/* imap{}'s cf->ctx was needed while the configuration merging */
+comment|/* mail{}'s cf->ctx was needed while the configuration merging */
 operator|*
 name|cf
 operator|=
@@ -789,7 +837,7 @@ literal|4
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|ngx_imap_conf_in_port_t
+name|ngx_mail_conf_in_port_t
 argument_list|)
 argument_list|)
 operator|!=
@@ -926,7 +974,7 @@ literal|2
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|ngx_imap_conf_in_addr_t
+name|ngx_mail_conf_in_addr_t
 argument_list|)
 argument_list|)
 operator|!=
@@ -1043,10 +1091,10 @@ name|nelts
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|ngx_imap_conf_in_addr_t
+name|ngx_mail_conf_in_addr_t
 argument_list|)
 argument_list|,
-name|ngx_imap_cmp_conf_in_addrs
+name|ngx_mail_cmp_conf_in_addrs
 argument_list|)
 expr_stmt|;
 name|in_addr
@@ -1204,7 +1252,7 @@ name|ls
 operator|->
 name|handler
 operator|=
-name|ngx_imap_init_connection
+name|ngx_mail_init_connection
 expr_stmt|;
 name|ls
 operator|->
@@ -1254,7 +1302,7 @@ name|pool
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|ngx_imap_in_port_t
+name|ngx_mail_in_port_t
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1387,7 +1435,7 @@ name|naddrs
 operator|*
 sizeof|sizeof
 argument_list|(
-name|ngx_imap_in_addr_t
+name|ngx_mail_in_addr_t
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1589,8 +1637,8 @@ begin_function
 specifier|static
 name|int
 name|ngx_libc_cdecl
-DECL|function|ngx_imap_cmp_conf_in_addrs (const void * one,const void * two)
-name|ngx_imap_cmp_conf_in_addrs
+DECL|function|ngx_mail_cmp_conf_in_addrs (const void * one,const void * two)
+name|ngx_mail_cmp_conf_in_addrs
 parameter_list|(
 specifier|const
 name|void
@@ -1603,7 +1651,7 @@ modifier|*
 name|two
 parameter_list|)
 block|{
-name|ngx_imap_conf_in_addr_t
+name|ngx_mail_conf_in_addr_t
 modifier|*
 name|first
 decl_stmt|,
@@ -1613,7 +1661,7 @@ decl_stmt|;
 name|first
 operator|=
 operator|(
-name|ngx_imap_conf_in_addr_t
+name|ngx_mail_conf_in_addr_t
 operator|*
 operator|)
 name|one
@@ -1621,7 +1669,7 @@ expr_stmt|;
 name|second
 operator|=
 operator|(
-name|ngx_imap_conf_in_addr_t
+name|ngx_mail_conf_in_addr_t
 operator|*
 operator|)
 name|two

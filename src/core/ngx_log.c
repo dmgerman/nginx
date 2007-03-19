@@ -198,7 +198,9 @@ literal|"debug_event"
 block|,
 literal|"debug_http"
 block|,
-literal|"debug_imap"
+literal|"debug_mail"
+block|,
+literal|"debug_mysql"
 block|}
 decl_stmt|;
 end_decl_stmt

@@ -30,11 +30,11 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_imap.h>
+file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c5c09030108
+DECL|struct|__anon2a2dd7800108
 typedef|typedef
 struct|struct
 block|{
@@ -64,35 +64,35 @@ name|ngx_array_t
 modifier|*
 name|headers
 decl_stmt|;
-DECL|typedef|ngx_imap_auth_http_conf_t
+DECL|typedef|ngx_mail_auth_http_conf_t
 block|}
-name|ngx_imap_auth_http_conf_t
+name|ngx_mail_auth_http_conf_t
 typedef|;
 end_typedef
 
 begin_typedef
-DECL|typedef|ngx_imap_auth_http_ctx_t
+DECL|typedef|ngx_mail_auth_http_ctx_t
 typedef|typedef
 name|struct
-name|ngx_imap_auth_http_ctx_s
-name|ngx_imap_auth_http_ctx_t
+name|ngx_mail_auth_http_ctx_s
+name|ngx_mail_auth_http_ctx_t
 typedef|;
 end_typedef
 
 begin_typedef
-DECL|typedef|ngx_imap_auth_http_handler_pt
+DECL|typedef|ngx_mail_auth_http_handler_pt
 typedef|typedef
 name|void
 function_decl|(
 modifier|*
-name|ngx_imap_auth_http_handler_pt
+name|ngx_mail_auth_http_handler_pt
 function_decl|)
 parameter_list|(
-name|ngx_imap_session_t
+name|ngx_mail_session_t
 modifier|*
 name|s
 parameter_list|,
-name|ngx_imap_auth_http_ctx_t
+name|ngx_mail_auth_http_ctx_t
 modifier|*
 name|ctx
 parameter_list|)
@@ -100,9 +100,9 @@ function_decl|;
 end_typedef
 
 begin_struct
-DECL|struct|ngx_imap_auth_http_ctx_s
+DECL|struct|ngx_mail_auth_http_ctx_s
 struct|struct
-name|ngx_imap_auth_http_ctx_s
+name|ngx_mail_auth_http_ctx_s
 block|{
 DECL|member|request
 name|ngx_buf_t
@@ -119,7 +119,7 @@ name|ngx_peer_connection_t
 name|peer
 decl_stmt|;
 DECL|member|handler
-name|ngx_imap_auth_http_handler_pt
+name|ngx_mail_auth_http_handler_pt
 name|handler
 decl_stmt|;
 DECL|member|state
@@ -167,6 +167,10 @@ DECL|member|errmsg
 name|ngx_str_t
 name|errmsg
 decl_stmt|;
+DECL|member|errcode
+name|ngx_str_t
+name|errcode
+decl_stmt|;
 DECL|member|sleep
 name|time_t
 name|sleep
@@ -183,7 +187,7 @@ end_struct
 begin_function_decl
 specifier|static
 name|void
-name|ngx_imap_auth_http_write_handler
+name|ngx_mail_auth_http_write_handler
 parameter_list|(
 name|ngx_event_t
 modifier|*
@@ -195,7 +199,7 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|void
-name|ngx_imap_auth_http_read_handler
+name|ngx_mail_auth_http_read_handler
 parameter_list|(
 name|ngx_event_t
 modifier|*
@@ -207,13 +211,13 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|void
-name|ngx_imap_auth_http_ignore_status_line
+name|ngx_mail_auth_http_ignore_status_line
 parameter_list|(
-name|ngx_imap_session_t
+name|ngx_mail_session_t
 modifier|*
 name|s
 parameter_list|,
-name|ngx_imap_auth_http_ctx_t
+name|ngx_mail_auth_http_ctx_t
 modifier|*
 name|ctx
 parameter_list|)
@@ -223,13 +227,13 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|void
-name|ngx_imap_auth_http_process_headers
+name|ngx_mail_auth_http_process_headers
 parameter_list|(
-name|ngx_imap_session_t
+name|ngx_mail_session_t
 modifier|*
 name|s
 parameter_list|,
-name|ngx_imap_auth_http_ctx_t
+name|ngx_mail_auth_http_ctx_t
 modifier|*
 name|ctx
 parameter_list|)
@@ -239,7 +243,7 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|void
-name|ngx_imap_auth_sleep_handler
+name|ngx_mail_auth_sleep_handler
 parameter_list|(
 name|ngx_event_t
 modifier|*
@@ -251,13 +255,13 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|ngx_int_t
-name|ngx_imap_auth_http_parse_header_line
+name|ngx_mail_auth_http_parse_header_line
 parameter_list|(
-name|ngx_imap_session_t
+name|ngx_mail_session_t
 modifier|*
 name|s
 parameter_list|,
-name|ngx_imap_auth_http_ctx_t
+name|ngx_mail_auth_http_ctx_t
 modifier|*
 name|ctx
 parameter_list|)
@@ -267,7 +271,7 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|void
-name|ngx_imap_auth_http_block_read
+name|ngx_mail_auth_http_block_read
 parameter_list|(
 name|ngx_event_t
 modifier|*
@@ -279,7 +283,7 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|void
-name|ngx_imap_auth_http_dummy_handler
+name|ngx_mail_auth_http_dummy_handler
 parameter_list|(
 name|ngx_event_t
 modifier|*
@@ -292,9 +296,9 @@ begin_function_decl
 specifier|static
 name|ngx_buf_t
 modifier|*
-name|ngx_imap_auth_http_create_request
+name|ngx_mail_auth_http_create_request
 parameter_list|(
-name|ngx_imap_session_t
+name|ngx_mail_session_t
 modifier|*
 name|s
 parameter_list|,
@@ -302,7 +306,7 @@ name|ngx_pool_t
 modifier|*
 name|pool
 parameter_list|,
-name|ngx_imap_auth_http_conf_t
+name|ngx_mail_auth_http_conf_t
 modifier|*
 name|ahcf
 parameter_list|)
@@ -312,7 +316,7 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|ngx_int_t
-name|ngx_imap_auth_http_escape
+name|ngx_mail_auth_http_escape
 parameter_list|(
 name|ngx_pool_t
 modifier|*
@@ -333,7 +337,7 @@ begin_function_decl
 specifier|static
 name|void
 modifier|*
-name|ngx_imap_auth_http_create_conf
+name|ngx_mail_auth_http_create_conf
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -346,7 +350,7 @@ begin_function_decl
 specifier|static
 name|char
 modifier|*
-name|ngx_imap_auth_http_merge_conf
+name|ngx_mail_auth_http_merge_conf
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -367,7 +371,7 @@ begin_function_decl
 specifier|static
 name|char
 modifier|*
-name|ngx_imap_auth_http
+name|ngx_mail_auth_http
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -388,7 +392,7 @@ begin_function_decl
 specifier|static
 name|char
 modifier|*
-name|ngx_imap_auth_http_header
+name|ngx_mail_auth_http_header
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -406,10 +410,10 @@ function_decl|;
 end_function_decl
 
 begin_decl_stmt
-DECL|variable|ngx_imap_auth_http_commands
+DECL|variable|ngx_mail_auth_http_commands
 specifier|static
 name|ngx_command_t
-name|ngx_imap_auth_http_commands
+name|ngx_mail_auth_http_commands
 index|[]
 init|=
 block|{
@@ -419,15 +423,15 @@ argument_list|(
 literal|"auth_http"
 argument_list|)
 block|,
-name|NGX_IMAP_MAIN_CONF
+name|NGX_MAIL_MAIN_CONF
 operator||
-name|NGX_IMAP_SRV_CONF
+name|NGX_MAIL_SRV_CONF
 operator||
 name|NGX_CONF_TAKE1
 block|,
-name|ngx_imap_auth_http
+name|ngx_mail_auth_http
 block|,
-name|NGX_IMAP_SRV_CONF_OFFSET
+name|NGX_MAIL_SRV_CONF_OFFSET
 block|,
 literal|0
 block|,
@@ -440,19 +444,19 @@ argument_list|(
 literal|"auth_http_timeout"
 argument_list|)
 block|,
-name|NGX_IMAP_MAIN_CONF
+name|NGX_MAIL_MAIN_CONF
 operator||
-name|NGX_IMAP_SRV_CONF
+name|NGX_MAIL_SRV_CONF
 operator||
 name|NGX_CONF_TAKE1
 block|,
 name|ngx_conf_set_msec_slot
 block|,
-name|NGX_IMAP_SRV_CONF_OFFSET
+name|NGX_MAIL_SRV_CONF_OFFSET
 block|,
 name|offsetof
 argument_list|(
-name|ngx_imap_auth_http_conf_t
+name|ngx_mail_auth_http_conf_t
 argument_list|,
 name|timeout
 argument_list|)
@@ -466,15 +470,15 @@ argument_list|(
 literal|"auth_http_header"
 argument_list|)
 block|,
-name|NGX_IMAP_MAIN_CONF
+name|NGX_MAIL_MAIN_CONF
 operator||
-name|NGX_IMAP_SRV_CONF
+name|NGX_MAIL_SRV_CONF
 operator||
 name|NGX_CONF_TAKE2
 block|,
-name|ngx_imap_auth_http_header
+name|ngx_mail_auth_http_header
 block|,
-name|NGX_IMAP_SRV_CONF_OFFSET
+name|NGX_MAIL_SRV_CONF_OFFSET
 block|,
 literal|0
 block|,
@@ -487,10 +491,10 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_imap_auth_http_module_ctx
+DECL|variable|ngx_mail_auth_http_module_ctx
 specifier|static
-name|ngx_imap_module_t
-name|ngx_imap_auth_http_module_ctx
+name|ngx_mail_module_t
+name|ngx_mail_auth_http_module_ctx
 init|=
 block|{
 name|NULL
@@ -499,31 +503,31 @@ comment|/* create main configuration */
 name|NULL
 block|,
 comment|/* init main configuration */
-name|ngx_imap_auth_http_create_conf
+name|ngx_mail_auth_http_create_conf
 block|,
 comment|/* create server configuration */
-name|ngx_imap_auth_http_merge_conf
+name|ngx_mail_auth_http_merge_conf
 comment|/* merge server configuration */
 block|}
 decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_imap_auth_http_module
+DECL|variable|ngx_mail_auth_http_module
 name|ngx_module_t
-name|ngx_imap_auth_http_module
+name|ngx_mail_auth_http_module
 init|=
 block|{
 name|NGX_MODULE_V1
 block|,
 operator|&
-name|ngx_imap_auth_http_module_ctx
+name|ngx_mail_auth_http_module_ctx
 block|,
 comment|/* module context */
-name|ngx_imap_auth_http_commands
+name|ngx_mail_auth_http_commands
 block|,
 comment|/* module directives */
-name|NGX_IMAP_MODULE
+name|NGX_MAIL_MODULE
 block|,
 comment|/* module type */
 name|NULL
@@ -553,29 +557,36 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_imap_auth_http_protocol
+DECL|variable|ngx_mail_auth_http_protocol
 specifier|static
 name|char
 modifier|*
-name|ngx_imap_auth_http_protocol
+name|ngx_mail_auth_http_protocol
 index|[]
 init|=
 block|{
 literal|"pop3"
 block|,
 literal|"imap"
+block|,
+literal|"smtp"
 block|}
 decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_imap_auth_http_method
+DECL|variable|ngx_mail_auth_http_method
 specifier|static
 name|ngx_str_t
-name|ngx_imap_auth_http_method
+name|ngx_mail_auth_http_method
 index|[]
 init|=
 block|{
+name|ngx_string
+argument_list|(
+literal|"plain"
+argument_list|)
+block|,
 name|ngx_string
 argument_list|(
 literal|"plain"
@@ -594,12 +605,25 @@ block|}
 decl_stmt|;
 end_decl_stmt
 
+begin_decl_stmt
+DECL|variable|ngx_mail_smtp_errcode
+specifier|static
+name|ngx_str_t
+name|ngx_mail_smtp_errcode
+init|=
+name|ngx_string
+argument_list|(
+literal|"535 5.7.0"
+argument_list|)
+decl_stmt|;
+end_decl_stmt
+
 begin_function
 name|void
-DECL|function|ngx_imap_auth_http_init (ngx_imap_session_t * s)
-name|ngx_imap_auth_http_init
+DECL|function|ngx_mail_auth_http_init (ngx_mail_session_t * s)
+name|ngx_mail_auth_http_init
 parameter_list|(
-name|ngx_imap_session_t
+name|ngx_mail_session_t
 modifier|*
 name|s
 parameter_list|)
@@ -611,11 +635,11 @@ name|ngx_pool_t
 modifier|*
 name|pool
 decl_stmt|;
-name|ngx_imap_auth_http_ctx_t
+name|ngx_mail_auth_http_ctx_t
 modifier|*
 name|ctx
 decl_stmt|;
-name|ngx_imap_auth_http_conf_t
+name|ngx_mail_auth_http_conf_t
 modifier|*
 name|ahcf
 decl_stmt|;
@@ -649,7 +673,7 @@ operator|==
 name|NULL
 condition|)
 block|{
-name|ngx_imap_session_internal_server_error
+name|ngx_mail_session_internal_server_error
 argument_list|(
 name|s
 argument_list|)
@@ -664,7 +688,7 @@ name|pool
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|ngx_imap_auth_http_ctx_t
+name|ngx_mail_auth_http_ctx_t
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -680,7 +704,7 @@ argument_list|(
 name|pool
 argument_list|)
 expr_stmt|;
-name|ngx_imap_session_internal_server_error
+name|ngx_mail_session_internal_server_error
 argument_list|(
 name|s
 argument_list|)
@@ -695,18 +719,18 @@ name|pool
 expr_stmt|;
 name|ahcf
 operator|=
-name|ngx_imap_get_module_srv_conf
+name|ngx_mail_get_module_srv_conf
 argument_list|(
 name|s
 argument_list|,
-name|ngx_imap_auth_http_module
+name|ngx_mail_auth_http_module
 argument_list|)
 expr_stmt|;
 name|ctx
 operator|->
 name|request
 operator|=
-name|ngx_imap_auth_http_create_request
+name|ngx_mail_auth_http_create_request
 argument_list|(
 name|s
 argument_list|,
@@ -731,20 +755,20 @@ operator|->
 name|pool
 argument_list|)
 expr_stmt|;
-name|ngx_imap_session_internal_server_error
+name|ngx_mail_session_internal_server_error
 argument_list|(
 name|s
 argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|ngx_imap_set_ctx
+name|ngx_mail_set_ctx
 argument_list|(
 name|s
 argument_list|,
 name|ctx
 argument_list|,
-name|ngx_imap_auth_http_module
+name|ngx_mail_auth_http_module
 argument_list|)
 expr_stmt|;
 name|ctx
@@ -863,7 +887,7 @@ operator|->
 name|pool
 argument_list|)
 expr_stmt|;
-name|ngx_imap_session_internal_server_error
+name|ngx_mail_session_internal_server_error
 argument_list|(
 name|s
 argument_list|)
@@ -902,7 +926,7 @@ name|read
 operator|->
 name|handler
 operator|=
-name|ngx_imap_auth_http_block_read
+name|ngx_mail_auth_http_block_read
 expr_stmt|;
 name|ctx
 operator|->
@@ -914,7 +938,7 @@ name|read
 operator|->
 name|handler
 operator|=
-name|ngx_imap_auth_http_read_handler
+name|ngx_mail_auth_http_read_handler
 expr_stmt|;
 name|ctx
 operator|->
@@ -926,13 +950,13 @@ name|write
 operator|->
 name|handler
 operator|=
-name|ngx_imap_auth_http_write_handler
+name|ngx_mail_auth_http_write_handler
 expr_stmt|;
 name|ctx
 operator|->
 name|handler
 operator|=
-name|ngx_imap_auth_http_ignore_status_line
+name|ngx_mail_auth_http_ignore_status_line
 expr_stmt|;
 name|ngx_add_timer
 argument_list|(
@@ -971,7 +995,7 @@ operator|==
 name|NGX_OK
 condition|)
 block|{
-name|ngx_imap_auth_http_write_handler
+name|ngx_mail_auth_http_write_handler
 argument_list|(
 name|ctx
 operator|->
@@ -990,8 +1014,8 @@ end_function
 begin_function
 specifier|static
 name|void
-DECL|function|ngx_imap_auth_http_write_handler (ngx_event_t * wev)
-name|ngx_imap_auth_http_write_handler
+DECL|function|ngx_mail_auth_http_write_handler (ngx_event_t * wev)
+name|ngx_mail_auth_http_write_handler
 parameter_list|(
 name|ngx_event_t
 modifier|*
@@ -1007,15 +1031,15 @@ name|ngx_connection_t
 modifier|*
 name|c
 decl_stmt|;
-name|ngx_imap_session_t
+name|ngx_mail_session_t
 modifier|*
 name|s
 decl_stmt|;
-name|ngx_imap_auth_http_ctx_t
+name|ngx_mail_auth_http_ctx_t
 modifier|*
 name|ctx
 decl_stmt|;
-name|ngx_imap_auth_http_conf_t
+name|ngx_mail_auth_http_conf_t
 modifier|*
 name|ahcf
 decl_stmt|;
@@ -1033,16 +1057,16 @@ name|data
 expr_stmt|;
 name|ctx
 operator|=
-name|ngx_imap_get_module_ctx
+name|ngx_mail_get_module_ctx
 argument_list|(
 name|s
 argument_list|,
-name|ngx_imap_auth_http_module
+name|ngx_mail_auth_http_module
 argument_list|)
 expr_stmt|;
 name|ngx_log_debug0
 argument_list|(
-name|NGX_LOG_DEBUG_IMAP
+name|NGX_LOG_DEBUG_MAIL
 argument_list|,
 name|wev
 operator|->
@@ -1050,7 +1074,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"imap auth http write handler"
+literal|"mail auth http write handler"
 argument_list|)
 expr_stmt|;
 if|if
@@ -1095,7 +1119,7 @@ operator|->
 name|pool
 argument_list|)
 expr_stmt|;
-name|ngx_imap_session_internal_server_error
+name|ngx_mail_session_internal_server_error
 argument_list|(
 name|s
 argument_list|)
@@ -1154,7 +1178,7 @@ operator|->
 name|pool
 argument_list|)
 expr_stmt|;
-name|ngx_imap_session_internal_server_error
+name|ngx_mail_session_internal_server_error
 argument_list|(
 name|s
 argument_list|)
@@ -1187,7 +1211,7 @@ name|wev
 operator|->
 name|handler
 operator|=
-name|ngx_imap_auth_http_dummy_handler
+name|ngx_mail_auth_http_dummy_handler
 expr_stmt|;
 if|if
 condition|(
@@ -1230,7 +1254,7 @@ operator|->
 name|pool
 argument_list|)
 expr_stmt|;
-name|ngx_imap_session_internal_server_error
+name|ngx_mail_session_internal_server_error
 argument_list|(
 name|s
 argument_list|)
@@ -1249,11 +1273,11 @@ condition|)
 block|{
 name|ahcf
 operator|=
-name|ngx_imap_get_module_srv_conf
+name|ngx_mail_get_module_srv_conf
 argument_list|(
 name|s
 argument_list|,
-name|ngx_imap_auth_http_module
+name|ngx_mail_auth_http_module
 argument_list|)
 expr_stmt|;
 name|ngx_add_timer
@@ -1272,8 +1296,8 @@ end_function
 begin_function
 specifier|static
 name|void
-DECL|function|ngx_imap_auth_http_read_handler (ngx_event_t * rev)
-name|ngx_imap_auth_http_read_handler
+DECL|function|ngx_mail_auth_http_read_handler (ngx_event_t * rev)
+name|ngx_mail_auth_http_read_handler
 parameter_list|(
 name|ngx_event_t
 modifier|*
@@ -1289,11 +1313,11 @@ name|ngx_connection_t
 modifier|*
 name|c
 decl_stmt|;
-name|ngx_imap_session_t
+name|ngx_mail_session_t
 modifier|*
 name|s
 decl_stmt|;
-name|ngx_imap_auth_http_ctx_t
+name|ngx_mail_auth_http_ctx_t
 modifier|*
 name|ctx
 decl_stmt|;
@@ -1311,7 +1335,7 @@ name|data
 expr_stmt|;
 name|ngx_log_debug0
 argument_list|(
-name|NGX_LOG_DEBUG_IMAP
+name|NGX_LOG_DEBUG_MAIL
 argument_list|,
 name|rev
 operator|->
@@ -1319,16 +1343,16 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"imap auth http read handler"
+literal|"mail auth http read handler"
 argument_list|)
 expr_stmt|;
 name|ctx
 operator|=
-name|ngx_imap_get_module_ctx
+name|ngx_mail_get_module_ctx
 argument_list|(
 name|s
 argument_list|,
-name|ngx_imap_auth_http_module
+name|ngx_mail_auth_http_module
 argument_list|)
 expr_stmt|;
 if|if
@@ -1373,7 +1397,7 @@ operator|->
 name|pool
 argument_list|)
 expr_stmt|;
-name|ngx_imap_session_internal_server_error
+name|ngx_mail_session_internal_server_error
 argument_list|(
 name|s
 argument_list|)
@@ -1427,7 +1451,7 @@ operator|->
 name|pool
 argument_list|)
 expr_stmt|;
-name|ngx_imap_session_internal_server_error
+name|ngx_mail_session_internal_server_error
 argument_list|(
 name|s
 argument_list|)
@@ -1515,7 +1539,7 @@ operator|->
 name|pool
 argument_list|)
 expr_stmt|;
-name|ngx_imap_session_internal_server_error
+name|ngx_mail_session_internal_server_error
 argument_list|(
 name|s
 argument_list|)
@@ -1526,14 +1550,14 @@ end_function
 begin_function
 specifier|static
 name|void
-DECL|function|ngx_imap_auth_http_ignore_status_line (ngx_imap_session_t * s,ngx_imap_auth_http_ctx_t * ctx)
-name|ngx_imap_auth_http_ignore_status_line
+DECL|function|ngx_mail_auth_http_ignore_status_line (ngx_mail_session_t * s,ngx_mail_auth_http_ctx_t * ctx)
+name|ngx_mail_auth_http_ignore_status_line
 parameter_list|(
-name|ngx_imap_session_t
+name|ngx_mail_session_t
 modifier|*
 name|s
 parameter_list|,
-name|ngx_imap_auth_http_ctx_t
+name|ngx_mail_auth_http_ctx_t
 modifier|*
 name|ctx
 parameter_list|)
@@ -1544,7 +1568,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon2c5c09030203
+DECL|enum|__anon2a2dd7800203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1574,7 +1598,7 @@ name|state
 enum|;
 name|ngx_log_debug0
 argument_list|(
-name|NGX_LOG_DEBUG_IMAP
+name|NGX_LOG_DEBUG_MAIL
 argument_list|,
 name|s
 operator|->
@@ -1584,7 +1608,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"imap auth http process status line"
+literal|"mail auth http process status line"
 argument_list|)
 expr_stmt|;
 name|state
@@ -1798,7 +1822,7 @@ operator|->
 name|pool
 argument_list|)
 expr_stmt|;
-name|ngx_imap_session_internal_server_error
+name|ngx_mail_session_internal_server_error
 argument_list|(
 name|s
 argument_list|)
@@ -1855,7 +1879,7 @@ name|ctx
 operator|->
 name|handler
 operator|=
-name|ngx_imap_auth_http_process_headers
+name|ngx_mail_auth_http_process_headers
 expr_stmt|;
 name|ctx
 operator|->
@@ -1872,14 +1896,14 @@ end_function
 begin_function
 specifier|static
 name|void
-DECL|function|ngx_imap_auth_http_process_headers (ngx_imap_session_t * s,ngx_imap_auth_http_ctx_t * ctx)
-name|ngx_imap_auth_http_process_headers
+DECL|function|ngx_mail_auth_http_process_headers (ngx_mail_session_t * s,ngx_mail_auth_http_ctx_t * ctx)
+name|ngx_mail_auth_http_process_headers
 parameter_list|(
-name|ngx_imap_session_t
+name|ngx_mail_session_t
 modifier|*
 name|s
 parameter_list|,
-name|ngx_imap_auth_http_ctx_t
+name|ngx_mail_auth_http_ctx_t
 modifier|*
 name|ctx
 parameter_list|)
@@ -1914,7 +1938,7 @@ name|sin
 decl_stmt|;
 name|ngx_log_debug0
 argument_list|(
-name|NGX_LOG_DEBUG_IMAP
+name|NGX_LOG_DEBUG_MAIL
 argument_list|,
 name|s
 operator|->
@@ -1924,7 +1948,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"imap auth http process headers"
+literal|"mail auth http process headers"
 argument_list|)
 expr_stmt|;
 for|for
@@ -1935,7 +1959,7 @@ control|)
 block|{
 name|rc
 operator|=
-name|ngx_imap_auth_http_parse_header_line
+name|ngx_mail_auth_http_parse_header_line
 argument_list|(
 name|s
 argument_list|,
@@ -2002,7 +2026,7 @@ name|header_start
 expr_stmt|;
 name|ngx_log_debug2
 argument_list|(
-name|NGX_LOG_DEBUG_IMAP
+name|NGX_LOG_DEBUG_MAIL
 argument_list|,
 name|s
 operator|->
@@ -2012,7 +2036,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"auth http header: \"%V: %V\""
+literal|"mail auth http header: \"%V: %V\""
 argument_list|,
 operator|&
 name|key
@@ -2174,15 +2198,16 @@ name|ctx
 operator|->
 name|header_start
 expr_stmt|;
-if|if
+switch|switch
 condition|(
 name|s
 operator|->
 name|protocol
-operator|==
-name|NGX_IMAP_POP3_PROTOCOL
 condition|)
 block|{
+case|case
+name|NGX_MAIL_POP3_PROTOCOL
+case|:
 name|size
 operator|=
 sizeof|sizeof
@@ -2201,9 +2226,10 @@ argument_list|)
 operator|-
 literal|1
 expr_stmt|;
-block|}
-else|else
-block|{
+break|break;
+case|case
+name|NGX_MAIL_IMAP_PROTOCOL
+case|:
 name|size
 operator|=
 name|s
@@ -2228,6 +2254,18 @@ argument_list|)
 operator|-
 literal|1
 expr_stmt|;
+break|break;
+default|default:
+comment|/* NGX_MAIL_SMTP_PROTOCOL */
+name|ctx
+operator|->
+name|err
+operator|=
+name|ctx
+operator|->
+name|errmsg
+expr_stmt|;
+continue|continue;
 block|}
 name|p
 operator|=
@@ -2265,7 +2303,7 @@ operator|->
 name|pool
 argument_list|)
 expr_stmt|;
-name|ngx_imap_session_internal_server_error
+name|ngx_mail_session_internal_server_error
 argument_list|(
 name|s
 argument_list|)
@@ -2280,15 +2318,16 @@ name|data
 operator|=
 name|p
 expr_stmt|;
-if|if
+switch|switch
 condition|(
 name|s
 operator|->
 name|protocol
-operator|==
-name|NGX_IMAP_POP3_PROTOCOL
 condition|)
 block|{
+case|case
+name|NGX_MAIL_POP3_PROTOCOL
+case|:
 operator|*
 name|p
 operator|++
@@ -2313,9 +2352,16 @@ operator|++
 operator|=
 literal|'R'
 expr_stmt|;
-block|}
-else|else
-block|{
+operator|*
+name|p
+operator|++
+operator|=
+literal|' '
+expr_stmt|;
+break|break;
+case|case
+name|NGX_MAIL_IMAP_PROTOCOL
+case|:
 name|p
 operator|=
 name|ngx_cpymem
@@ -2347,13 +2393,17 @@ operator|++
 operator|=
 literal|'O'
 expr_stmt|;
-block|}
 operator|*
 name|p
 operator|++
 operator|=
 literal|' '
 expr_stmt|;
+break|break;
+default|default:
+comment|/* NGX_MAIL_SMTP_PROTOCOL */
+break|break;
+block|}
 name|p
 operator|=
 name|ngx_cpymem
@@ -2611,7 +2661,7 @@ operator|->
 name|pool
 argument_list|)
 expr_stmt|;
-name|ngx_imap_session_internal_server_error
+name|ngx_mail_session_internal_server_error
 argument_list|(
 name|s
 argument_list|)
@@ -2735,7 +2785,7 @@ operator|->
 name|pool
 argument_list|)
 expr_stmt|;
-name|ngx_imap_session_internal_server_error
+name|ngx_mail_session_internal_server_error
 argument_list|(
 name|s
 argument_list|)
@@ -2830,6 +2880,130 @@ expr_stmt|;
 block|}
 continue|continue;
 block|}
+if|if
+condition|(
+name|len
+operator|==
+sizeof|sizeof
+argument_list|(
+literal|"Auth-Error-Code"
+argument_list|)
+operator|-
+literal|1
+operator|&&
+name|ngx_strncasecmp
+argument_list|(
+name|ctx
+operator|->
+name|header_name_start
+argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
+literal|"Auth-Error-Code"
+argument_list|,
+sizeof|sizeof
+argument_list|(
+literal|"Auth-Error-Code"
+argument_list|)
+operator|-
+literal|1
+argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+name|ctx
+operator|->
+name|errcode
+operator|.
+name|len
+operator|=
+name|ctx
+operator|->
+name|header_end
+operator|-
+name|ctx
+operator|->
+name|header_start
+expr_stmt|;
+name|ctx
+operator|->
+name|errcode
+operator|.
+name|data
+operator|=
+name|ngx_palloc
+argument_list|(
+name|s
+operator|->
+name|connection
+operator|->
+name|pool
+argument_list|,
+name|ctx
+operator|->
+name|errcode
+operator|.
+name|len
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|ctx
+operator|->
+name|errcode
+operator|.
+name|data
+operator|==
+name|NULL
+condition|)
+block|{
+name|ngx_close_connection
+argument_list|(
+name|ctx
+operator|->
+name|peer
+operator|.
+name|connection
+argument_list|)
+expr_stmt|;
+name|ngx_destroy_pool
+argument_list|(
+name|ctx
+operator|->
+name|pool
+argument_list|)
+expr_stmt|;
+name|ngx_mail_session_internal_server_error
+argument_list|(
+name|s
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+name|ngx_memcpy
+argument_list|(
+name|ctx
+operator|->
+name|errcode
+operator|.
+name|data
+argument_list|,
+name|ctx
+operator|->
+name|header_start
+argument_list|,
+name|ctx
+operator|->
+name|errcode
+operator|.
+name|len
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
 comment|/* ignore other headers */
 continue|continue;
 block|}
@@ -2842,7 +3016,7 @@ condition|)
 block|{
 name|ngx_log_debug0
 argument_list|(
-name|NGX_LOG_DEBUG_IMAP
+name|NGX_LOG_DEBUG_MAIL
 argument_list|,
 name|s
 operator|->
@@ -2852,7 +3026,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"auth http header done"
+literal|"mail auth http header done"
 argument_list|)
 expr_stmt|;
 name|ngx_close_connection
@@ -2893,6 +3067,170 @@ operator|->
 name|errmsg
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|s
+operator|->
+name|protocol
+operator|==
+name|NGX_MAIL_SMTP_PROTOCOL
+condition|)
+block|{
+if|if
+condition|(
+name|ctx
+operator|->
+name|errcode
+operator|.
+name|len
+operator|==
+literal|0
+condition|)
+block|{
+name|ctx
+operator|->
+name|errcode
+operator|=
+name|ngx_mail_smtp_errcode
+expr_stmt|;
+block|}
+name|ctx
+operator|->
+name|err
+operator|.
+name|len
+operator|=
+name|ctx
+operator|->
+name|errcode
+operator|.
+name|len
+operator|+
+name|ctx
+operator|->
+name|errmsg
+operator|.
+name|len
+operator|+
+sizeof|sizeof
+argument_list|(
+literal|" "
+name|CRLF
+argument_list|)
+operator|-
+literal|1
+expr_stmt|;
+name|p
+operator|=
+name|ngx_palloc
+argument_list|(
+name|s
+operator|->
+name|connection
+operator|->
+name|pool
+argument_list|,
+name|ctx
+operator|->
+name|err
+operator|.
+name|len
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|p
+operator|==
+name|NULL
+condition|)
+block|{
+name|ngx_close_connection
+argument_list|(
+name|ctx
+operator|->
+name|peer
+operator|.
+name|connection
+argument_list|)
+expr_stmt|;
+name|ngx_destroy_pool
+argument_list|(
+name|ctx
+operator|->
+name|pool
+argument_list|)
+expr_stmt|;
+name|ngx_mail_session_internal_server_error
+argument_list|(
+name|s
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+name|ctx
+operator|->
+name|err
+operator|.
+name|data
+operator|=
+name|p
+expr_stmt|;
+name|p
+operator|=
+name|ngx_cpymem
+argument_list|(
+name|p
+argument_list|,
+name|ctx
+operator|->
+name|errcode
+operator|.
+name|data
+argument_list|,
+name|ctx
+operator|->
+name|errcode
+operator|.
+name|len
+argument_list|)
+expr_stmt|;
+operator|*
+name|p
+operator|++
+operator|=
+literal|' '
+expr_stmt|;
+name|p
+operator|=
+name|ngx_cpymem
+argument_list|(
+name|p
+argument_list|,
+name|ctx
+operator|->
+name|errmsg
+operator|.
+name|data
+argument_list|,
+name|ctx
+operator|->
+name|errmsg
+operator|.
+name|len
+argument_list|)
+expr_stmt|;
+operator|*
+name|p
+operator|++
+operator|=
+name|CR
+expr_stmt|;
+operator|*
+name|p
+operator|=
+name|LF
+expr_stmt|;
+block|}
 name|s
 operator|->
 name|out
@@ -2927,7 +3265,7 @@ name|quit
 operator|=
 literal|1
 expr_stmt|;
-name|ngx_imap_send
+name|ngx_mail_send
 argument_list|(
 name|s
 operator|->
@@ -2959,7 +3297,7 @@ name|read
 operator|->
 name|handler
 operator|=
-name|ngx_imap_auth_sleep_handler
+name|ngx_mail_auth_sleep_handler
 expr_stmt|;
 return|return;
 block|}
@@ -2990,7 +3328,7 @@ operator|==
 literal|0
 condition|)
 block|{
-name|ngx_imap_auth_http_init
+name|ngx_mail_auth_http_init
 argument_list|(
 name|s
 argument_list|)
@@ -3018,7 +3356,7 @@ name|read
 operator|->
 name|handler
 operator|=
-name|ngx_imap_auth_sleep_handler
+name|ngx_mail_auth_sleep_handler
 expr_stmt|;
 return|return;
 block|}
@@ -3069,7 +3407,7 @@ operator|->
 name|pool
 argument_list|)
 expr_stmt|;
-name|ngx_imap_session_internal_server_error
+name|ngx_mail_session_internal_server_error
 argument_list|(
 name|s
 argument_list|)
@@ -3085,6 +3423,12 @@ operator|.
 name|data
 operator|==
 name|NULL
+operator|&&
+name|s
+operator|->
+name|protocol
+operator|!=
+name|NGX_MAIL_SMTP_PROTOCOL
 condition|)
 block|{
 name|ngx_log_error
@@ -3115,7 +3459,7 @@ operator|->
 name|pool
 argument_list|)
 expr_stmt|;
-name|ngx_imap_session_internal_server_error
+name|ngx_mail_session_internal_server_error
 argument_list|(
 name|s
 argument_list|)
@@ -3152,7 +3496,7 @@ operator|->
 name|pool
 argument_list|)
 expr_stmt|;
-name|ngx_imap_session_internal_server_error
+name|ngx_mail_session_internal_server_error
 argument_list|(
 name|s
 argument_list|)
@@ -3190,7 +3534,7 @@ operator|->
 name|pool
 argument_list|)
 expr_stmt|;
-name|ngx_imap_session_internal_server_error
+name|ngx_mail_session_internal_server_error
 argument_list|(
 name|s
 argument_list|)
@@ -3269,7 +3613,7 @@ operator|->
 name|pool
 argument_list|)
 expr_stmt|;
-name|ngx_imap_session_internal_server_error
+name|ngx_mail_session_internal_server_error
 argument_list|(
 name|s
 argument_list|)
@@ -3367,7 +3711,7 @@ operator|->
 name|pool
 argument_list|)
 expr_stmt|;
-name|ngx_imap_session_internal_server_error
+name|ngx_mail_session_internal_server_error
 argument_list|(
 name|s
 argument_list|)
@@ -3454,7 +3798,7 @@ operator|->
 name|pool
 argument_list|)
 expr_stmt|;
-name|ngx_imap_session_internal_server_error
+name|ngx_mail_session_internal_server_error
 argument_list|(
 name|s
 argument_list|)
@@ -3528,7 +3872,7 @@ operator|->
 name|pool
 argument_list|)
 expr_stmt|;
-name|ngx_imap_proxy_init
+name|ngx_mail_proxy_init
 argument_list|(
 name|s
 argument_list|,
@@ -3584,7 +3928,7 @@ operator|->
 name|pool
 argument_list|)
 expr_stmt|;
-name|ngx_imap_session_internal_server_error
+name|ngx_mail_session_internal_server_error
 argument_list|(
 name|s
 argument_list|)
@@ -3597,8 +3941,8 @@ end_function
 begin_function
 specifier|static
 name|void
-DECL|function|ngx_imap_auth_sleep_handler (ngx_event_t * rev)
-name|ngx_imap_auth_sleep_handler
+DECL|function|ngx_mail_auth_sleep_handler (ngx_event_t * rev)
+name|ngx_mail_auth_sleep_handler
 parameter_list|(
 name|ngx_event_t
 modifier|*
@@ -3609,17 +3953,17 @@ name|ngx_connection_t
 modifier|*
 name|c
 decl_stmt|;
-name|ngx_imap_session_t
+name|ngx_mail_session_t
 modifier|*
 name|s
 decl_stmt|;
-name|ngx_imap_core_srv_conf_t
+name|ngx_mail_core_srv_conf_t
 modifier|*
 name|cscf
 decl_stmt|;
 name|ngx_log_debug0
 argument_list|(
-name|NGX_LOG_DEBUG_IMAP
+name|NGX_LOG_DEBUG_MAIL
 argument_list|,
 name|rev
 operator|->
@@ -3627,7 +3971,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"imap auth sleep handler"
+literal|"mail auth sleep handler"
 argument_list|)
 expr_stmt|;
 name|c
@@ -3668,25 +4012,26 @@ name|auth_wait
 operator|=
 literal|0
 expr_stmt|;
-name|ngx_imap_auth_http_init
+name|ngx_mail_auth_http_init
 argument_list|(
 name|s
 argument_list|)
 expr_stmt|;
 return|return;
 block|}
-if|if
+switch|switch
 condition|(
 name|s
 operator|->
 name|protocol
-operator|==
-name|NGX_IMAP_POP3_PROTOCOL
 condition|)
 block|{
+case|case
+name|NGX_MAIL_POP3_PROTOCOL
+case|:
 name|s
 operator|->
-name|imap_state
+name|mail_state
 operator|=
 name|ngx_pop3_start
 expr_stmt|;
@@ -3700,12 +4045,13 @@ name|handler
 operator|=
 name|ngx_pop3_auth_state
 expr_stmt|;
-block|}
-else|else
-block|{
+break|break;
+case|case
+name|NGX_MAIL_IMAP_PROTOCOL
+case|:
 name|s
 operator|->
-name|imap_state
+name|mail_state
 operator|=
 name|ngx_imap_start
 expr_stmt|;
@@ -3719,12 +4065,32 @@ name|handler
 operator|=
 name|ngx_imap_auth_state
 expr_stmt|;
+break|break;
+default|default:
+comment|/* NGX_MAIL_SMTP_PROTOCOL */
+name|s
+operator|->
+name|mail_state
+operator|=
+name|ngx_smtp_start
+expr_stmt|;
+name|s
+operator|->
+name|connection
+operator|->
+name|read
+operator|->
+name|handler
+operator|=
+name|ngx_smtp_auth_state
+expr_stmt|;
+break|break;
 block|}
 name|s
 operator|->
 name|auth_method
 operator|=
-name|NGX_IMAP_AUTH_PLAIN
+name|NGX_MAIL_AUTH_PLAIN
 expr_stmt|;
 name|c
 operator|->
@@ -3734,7 +4100,7 @@ name|action
 operator|=
 literal|"in auth state"
 expr_stmt|;
-name|ngx_imap_send
+name|ngx_mail_send
 argument_list|(
 name|s
 operator|->
@@ -3754,11 +4120,11 @@ return|return;
 block|}
 name|cscf
 operator|=
-name|ngx_imap_get_module_srv_conf
+name|ngx_mail_get_module_srv_conf
 argument_list|(
 name|s
 argument_list|,
-name|ngx_imap_core_module
+name|ngx_mail_core_module
 argument_list|)
 expr_stmt|;
 name|ngx_add_timer
@@ -3802,7 +4168,7 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
-name|ngx_imap_close_connection
+name|ngx_mail_close_connection
 argument_list|(
 name|s
 operator|->
@@ -3831,7 +4197,7 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
-name|ngx_imap_close_connection
+name|ngx_mail_close_connection
 argument_list|(
 name|s
 operator|->
@@ -3846,14 +4212,14 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_imap_auth_http_parse_header_line (ngx_imap_session_t * s,ngx_imap_auth_http_ctx_t * ctx)
-name|ngx_imap_auth_http_parse_header_line
+DECL|function|ngx_mail_auth_http_parse_header_line (ngx_mail_session_t * s,ngx_mail_auth_http_ctx_t * ctx)
+name|ngx_mail_auth_http_parse_header_line
 parameter_list|(
-name|ngx_imap_session_t
+name|ngx_mail_session_t
 modifier|*
 name|s
 parameter_list|,
-name|ngx_imap_auth_http_ctx_t
+name|ngx_mail_auth_http_ctx_t
 modifier|*
 name|ctx
 parameter_list|)
@@ -3869,7 +4235,7 @@ decl_stmt|;
 name|ngx_uint_t
 name|hash
 decl_stmt|;
-DECL|enum|__anon2c5c09030303
+DECL|enum|__anon2a2dd7800303
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -4451,8 +4817,8 @@ end_function
 begin_function
 specifier|static
 name|void
-DECL|function|ngx_imap_auth_http_block_read (ngx_event_t * rev)
-name|ngx_imap_auth_http_block_read
+DECL|function|ngx_mail_auth_http_block_read (ngx_event_t * rev)
+name|ngx_mail_auth_http_block_read
 parameter_list|(
 name|ngx_event_t
 modifier|*
@@ -4463,17 +4829,17 @@ name|ngx_connection_t
 modifier|*
 name|c
 decl_stmt|;
-name|ngx_imap_session_t
+name|ngx_mail_session_t
 modifier|*
 name|s
 decl_stmt|;
-name|ngx_imap_auth_http_ctx_t
+name|ngx_mail_auth_http_ctx_t
 modifier|*
 name|ctx
 decl_stmt|;
 name|ngx_log_debug0
 argument_list|(
-name|NGX_LOG_DEBUG_IMAP
+name|NGX_LOG_DEBUG_MAIL
 argument_list|,
 name|rev
 operator|->
@@ -4481,7 +4847,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"imap auth http block read"
+literal|"mail auth http block read"
 argument_list|)
 expr_stmt|;
 if|if
@@ -4510,11 +4876,11 @@ name|data
 expr_stmt|;
 name|ctx
 operator|=
-name|ngx_imap_get_module_ctx
+name|ngx_mail_get_module_ctx
 argument_list|(
 name|s
 argument_list|,
-name|ngx_imap_auth_http_module
+name|ngx_mail_auth_http_module
 argument_list|)
 expr_stmt|;
 name|ngx_close_connection
@@ -4533,7 +4899,7 @@ operator|->
 name|pool
 argument_list|)
 expr_stmt|;
-name|ngx_imap_session_internal_server_error
+name|ngx_mail_session_internal_server_error
 argument_list|(
 name|s
 argument_list|)
@@ -4545,8 +4911,8 @@ end_function
 begin_function
 specifier|static
 name|void
-DECL|function|ngx_imap_auth_http_dummy_handler (ngx_event_t * ev)
-name|ngx_imap_auth_http_dummy_handler
+DECL|function|ngx_mail_auth_http_dummy_handler (ngx_event_t * ev)
+name|ngx_mail_auth_http_dummy_handler
 parameter_list|(
 name|ngx_event_t
 modifier|*
@@ -4555,7 +4921,7 @@ parameter_list|)
 block|{
 name|ngx_log_debug0
 argument_list|(
-name|NGX_LOG_DEBUG_IMAP
+name|NGX_LOG_DEBUG_MAIL
 argument_list|,
 name|ev
 operator|->
@@ -4563,7 +4929,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"imap auth http dummy handler"
+literal|"mail auth http dummy handler"
 argument_list|)
 expr_stmt|;
 block|}
@@ -4573,10 +4939,10 @@ begin_function
 specifier|static
 name|ngx_buf_t
 modifier|*
-DECL|function|ngx_imap_auth_http_create_request (ngx_imap_session_t * s,ngx_pool_t * pool,ngx_imap_auth_http_conf_t * ahcf)
-name|ngx_imap_auth_http_create_request
+DECL|function|ngx_mail_auth_http_create_request (ngx_mail_session_t * s,ngx_pool_t * pool,ngx_mail_auth_http_conf_t * ahcf)
+name|ngx_mail_auth_http_create_request
 parameter_list|(
-name|ngx_imap_session_t
+name|ngx_mail_session_t
 modifier|*
 name|s
 parameter_list|,
@@ -4584,7 +4950,7 @@ name|ngx_pool_t
 modifier|*
 name|pool
 parameter_list|,
-name|ngx_imap_auth_http_conf_t
+name|ngx_mail_auth_http_conf_t
 modifier|*
 name|ahcf
 parameter_list|)
@@ -4603,7 +4969,7 @@ name|passwd
 decl_stmt|;
 if|if
 condition|(
-name|ngx_imap_auth_http_escape
+name|ngx_mail_auth_http_escape
 argument_list|(
 name|pool
 argument_list|,
@@ -4625,7 +4991,7 @@ return|;
 block|}
 if|if
 condition|(
-name|ngx_imap_auth_http_escape
+name|ngx_mail_auth_http_escape
 argument_list|(
 name|pool
 argument_list|,
@@ -4695,7 +5061,7 @@ argument_list|)
 operator|-
 literal|1
 operator|+
-name|ngx_imap_auth_http_method
+name|ngx_mail_auth_http_method
 index|[
 name|s
 operator|->
@@ -4987,7 +5353,7 @@ name|b
 operator|->
 name|last
 argument_list|,
-name|ngx_imap_auth_http_method
+name|ngx_mail_auth_http_method
 index|[
 name|s
 operator|->
@@ -4996,7 +5362,7 @@ index|]
 operator|.
 name|data
 argument_list|,
-name|ngx_imap_auth_http_method
+name|ngx_mail_auth_http_method
 index|[
 name|s
 operator|->
@@ -5138,7 +5504,7 @@ name|s
 operator|->
 name|auth_method
 operator|!=
-name|NGX_IMAP_AUTH_PLAIN
+name|NGX_MAIL_AUTH_PLAIN
 operator|&&
 name|s
 operator|->
@@ -5229,7 +5595,7 @@ name|b
 operator|->
 name|last
 argument_list|,
-name|ngx_imap_auth_http_protocol
+name|ngx_mail_auth_http_protocol
 index|[
 name|s
 operator|->
@@ -5394,7 +5760,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_DEBUG_IMAP_PASSWD
+name|NGX_DEBUG_MAIL_PASSWD
 operator|)
 block|{
 name|ngx_str_t
@@ -5422,7 +5788,7 @@ name|pos
 expr_stmt|;
 name|ngx_log_debug1
 argument_list|(
-name|NGX_LOG_DEBUG_IMAP
+name|NGX_LOG_DEBUG_MAIL
 argument_list|,
 name|s
 operator|->
@@ -5432,7 +5798,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"imap auth http header:\n\"%V\""
+literal|"mail auth http header:\n\"%V\""
 argument_list|,
 operator|&
 name|l
@@ -5450,8 +5816,8 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_imap_auth_http_escape (ngx_pool_t * pool,ngx_str_t * text,ngx_str_t * escaped)
-name|ngx_imap_auth_http_escape
+DECL|function|ngx_mail_auth_http_escape (ngx_pool_t * pool,ngx_str_t * text,ngx_str_t * escaped)
+name|ngx_mail_auth_http_escape
 parameter_list|(
 name|ngx_pool_t
 modifier|*
@@ -5675,15 +6041,15 @@ begin_function
 specifier|static
 name|void
 modifier|*
-DECL|function|ngx_imap_auth_http_create_conf (ngx_conf_t * cf)
-name|ngx_imap_auth_http_create_conf
+DECL|function|ngx_mail_auth_http_create_conf (ngx_conf_t * cf)
+name|ngx_mail_auth_http_create_conf
 parameter_list|(
 name|ngx_conf_t
 modifier|*
 name|cf
 parameter_list|)
 block|{
-name|ngx_imap_auth_http_conf_t
+name|ngx_mail_auth_http_conf_t
 modifier|*
 name|ahcf
 decl_stmt|;
@@ -5697,7 +6063,7 @@ name|pool
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|ngx_imap_auth_http_conf_t
+name|ngx_mail_auth_http_conf_t
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5728,8 +6094,8 @@ begin_function
 specifier|static
 name|char
 modifier|*
-DECL|function|ngx_imap_auth_http_merge_conf (ngx_conf_t * cf,void * parent,void * child)
-name|ngx_imap_auth_http_merge_conf
+DECL|function|ngx_mail_auth_http_merge_conf (ngx_conf_t * cf,void * parent,void * child)
+name|ngx_mail_auth_http_merge_conf
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -5744,13 +6110,13 @@ modifier|*
 name|child
 parameter_list|)
 block|{
-name|ngx_imap_auth_http_conf_t
+name|ngx_mail_auth_http_conf_t
 modifier|*
 name|prev
 init|=
 name|parent
 decl_stmt|;
-name|ngx_imap_auth_http_conf_t
+name|ngx_mail_auth_http_conf_t
 modifier|*
 name|conf
 init|=
@@ -6055,8 +6421,8 @@ begin_function
 specifier|static
 name|char
 modifier|*
-DECL|function|ngx_imap_auth_http (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
-name|ngx_imap_auth_http
+DECL|function|ngx_mail_auth_http (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
+name|ngx_mail_auth_http
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -6071,7 +6437,7 @@ modifier|*
 name|conf
 parameter_list|)
 block|{
-name|ngx_imap_auth_http_conf_t
+name|ngx_mail_auth_http_conf_t
 modifier|*
 name|ahcf
 init|=
@@ -6243,8 +6609,8 @@ begin_function
 specifier|static
 name|char
 modifier|*
-DECL|function|ngx_imap_auth_http_header (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
-name|ngx_imap_auth_http_header
+DECL|function|ngx_mail_auth_http_header (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
+name|ngx_mail_auth_http_header
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -6259,7 +6625,7 @@ modifier|*
 name|conf
 parameter_list|)
 block|{
-name|ngx_imap_auth_http_conf_t
+name|ngx_mail_auth_http_conf_t
 modifier|*
 name|ahcf
 init|=

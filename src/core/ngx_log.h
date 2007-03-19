@@ -141,10 +141,10 @@ value|0x100
 end_define
 
 begin_define
-DECL|macro|NGX_LOG_DEBUG_IMAP
+DECL|macro|NGX_LOG_DEBUG_MAIL
 define|#
 directive|define
-name|NGX_LOG_DEBUG_IMAP
+name|NGX_LOG_DEBUG_MAIL
 value|0x200
 end_define
 
@@ -173,7 +173,7 @@ DECL|macro|NGX_LOG_DEBUG_LAST
 define|#
 directive|define
 name|NGX_LOG_DEBUG_LAST
-value|NGX_LOG_DEBUG_IMAP
+value|NGX_LOG_DEBUG_MYSQL
 end_define
 
 begin_define

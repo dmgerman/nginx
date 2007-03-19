@@ -6,14 +6,14 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|_NGX_IMAP_SSL_H_INCLUDED_
+name|_NGX_MAIL_SSL_H_INCLUDED_
 end_ifndef
 
 begin_define
-DECL|macro|_NGX_IMAP_SSL_H_INCLUDED_
+DECL|macro|_NGX_MAIL_SSL_H_INCLUDED_
 define|#
 directive|define
-name|_NGX_IMAP_SSL_H_INCLUDED_
+name|_NGX_MAIL_SSL_H_INCLUDED_
 end_define
 
 begin_include
@@ -31,35 +31,35 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_imap.h>
+file|<ngx_mail.h>
 end_include
 
 begin_define
-DECL|macro|NGX_IMAP_STARTTLS_OFF
+DECL|macro|NGX_MAIL_STARTTLS_OFF
 define|#
 directive|define
-name|NGX_IMAP_STARTTLS_OFF
+name|NGX_MAIL_STARTTLS_OFF
 value|0
 end_define
 
 begin_define
-DECL|macro|NGX_IMAP_STARTTLS_ON
+DECL|macro|NGX_MAIL_STARTTLS_ON
 define|#
 directive|define
-name|NGX_IMAP_STARTTLS_ON
+name|NGX_MAIL_STARTTLS_ON
 value|1
 end_define
 
 begin_define
-DECL|macro|NGX_IMAP_STARTTLS_ONLY
+DECL|macro|NGX_MAIL_STARTTLS_ONLY
 define|#
 directive|define
-name|NGX_IMAP_STARTTLS_ONLY
+name|NGX_MAIL_STARTTLS_ONLY
 value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2b25990c0108
+DECL|struct|__anon28af88050108
 typedef|typedef
 struct|struct
 block|{
@@ -108,16 +108,16 @@ name|ngx_shm_zone_t
 modifier|*
 name|shm_zone
 decl_stmt|;
-DECL|typedef|ngx_imap_ssl_conf_t
+DECL|typedef|ngx_mail_ssl_conf_t
 block|}
-name|ngx_imap_ssl_conf_t
+name|ngx_mail_ssl_conf_t
 typedef|;
 end_typedef
 
 begin_decl_stmt
 specifier|extern
 name|ngx_module_t
-name|ngx_imap_ssl_module
+name|ngx_mail_ssl_module
 decl_stmt|;
 end_decl_stmt
 
@@ -127,7 +127,7 @@ directive|endif
 end_endif
 
 begin_comment
-comment|/* _NGX_IMAP_SSL_H_INCLUDED_ */
+comment|/* _NGX_MAIL_SSL_H_INCLUDED_ */
 end_comment
 
 end_unit

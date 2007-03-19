@@ -18,7 +18,7 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_imap.h>
+file|<ngx_mail.h>
 end_include
 
 begin_define
@@ -49,7 +49,7 @@ begin_function_decl
 specifier|static
 name|void
 modifier|*
-name|ngx_imap_ssl_create_conf
+name|ngx_mail_ssl_create_conf
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -62,7 +62,7 @@ begin_function_decl
 specifier|static
 name|char
 modifier|*
-name|ngx_imap_ssl_merge_conf
+name|ngx_mail_ssl_merge_conf
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -83,7 +83,7 @@ begin_function_decl
 specifier|static
 name|char
 modifier|*
-name|ngx_imap_ssl_session_cache
+name|ngx_mail_ssl_session_cache
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -114,7 +114,7 @@ begin_function_decl
 specifier|static
 name|char
 modifier|*
-name|ngx_imap_ssl_nosupported
+name|ngx_mail_ssl_nosupported
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -132,10 +132,10 @@ function_decl|;
 end_function_decl
 
 begin_decl_stmt
-DECL|variable|ngx_imap_ssl_openssl097
+DECL|variable|ngx_mail_ssl_openssl097
 specifier|static
 name|char
-name|ngx_imap_ssl_openssl097
+name|ngx_mail_ssl_openssl097
 index|[]
 init|=
 literal|"OpenSSL 0.9.7 and higher"
@@ -161,7 +161,7 @@ argument_list|(
 literal|"off"
 argument_list|)
 block|,
-name|NGX_IMAP_STARTTLS_OFF
+name|NGX_MAIL_STARTTLS_OFF
 block|}
 block|,
 block|{
@@ -170,7 +170,7 @@ argument_list|(
 literal|"on"
 argument_list|)
 block|,
-name|NGX_IMAP_STARTTLS_ON
+name|NGX_MAIL_STARTTLS_ON
 block|}
 block|,
 block|{
@@ -179,7 +179,7 @@ argument_list|(
 literal|"only"
 argument_list|)
 block|,
-name|NGX_IMAP_STARTTLS_ONLY
+name|NGX_MAIL_STARTTLS_ONLY
 block|}
 block|,
 block|{
@@ -192,10 +192,10 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_imap_ssl_protocols
+DECL|variable|ngx_mail_ssl_protocols
 specifier|static
 name|ngx_conf_bitmask_t
-name|ngx_imap_ssl_protocols
+name|ngx_mail_ssl_protocols
 index|[]
 init|=
 block|{
@@ -236,10 +236,10 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_imap_ssl_commands
+DECL|variable|ngx_mail_ssl_commands
 specifier|static
 name|ngx_command_t
-name|ngx_imap_ssl_commands
+name|ngx_mail_ssl_commands
 index|[]
 init|=
 block|{
@@ -249,19 +249,19 @@ argument_list|(
 literal|"ssl"
 argument_list|)
 block|,
-name|NGX_IMAP_MAIN_CONF
+name|NGX_MAIL_MAIN_CONF
 operator||
-name|NGX_IMAP_SRV_CONF
+name|NGX_MAIL_SRV_CONF
 operator||
 name|NGX_CONF_FLAG
 block|,
 name|ngx_conf_set_flag_slot
 block|,
-name|NGX_IMAP_SRV_CONF_OFFSET
+name|NGX_MAIL_SRV_CONF_OFFSET
 block|,
 name|offsetof
 argument_list|(
-name|ngx_imap_ssl_conf_t
+name|ngx_mail_ssl_conf_t
 argument_list|,
 name|enable
 argument_list|)
@@ -275,19 +275,19 @@ argument_list|(
 literal|"starttls"
 argument_list|)
 block|,
-name|NGX_IMAP_MAIN_CONF
+name|NGX_MAIL_MAIN_CONF
 operator||
-name|NGX_IMAP_SRV_CONF
+name|NGX_MAIL_SRV_CONF
 operator||
 name|NGX_CONF_TAKE1
 block|,
 name|ngx_conf_set_enum_slot
 block|,
-name|NGX_IMAP_SRV_CONF_OFFSET
+name|NGX_MAIL_SRV_CONF_OFFSET
 block|,
 name|offsetof
 argument_list|(
-name|ngx_imap_ssl_conf_t
+name|ngx_mail_ssl_conf_t
 argument_list|,
 name|starttls
 argument_list|)
@@ -301,19 +301,19 @@ argument_list|(
 literal|"ssl_certificate"
 argument_list|)
 block|,
-name|NGX_IMAP_MAIN_CONF
+name|NGX_MAIL_MAIN_CONF
 operator||
-name|NGX_IMAP_SRV_CONF
+name|NGX_MAIL_SRV_CONF
 operator||
 name|NGX_CONF_TAKE1
 block|,
 name|ngx_conf_set_str_slot
 block|,
-name|NGX_IMAP_SRV_CONF_OFFSET
+name|NGX_MAIL_SRV_CONF_OFFSET
 block|,
 name|offsetof
 argument_list|(
-name|ngx_imap_ssl_conf_t
+name|ngx_mail_ssl_conf_t
 argument_list|,
 name|certificate
 argument_list|)
@@ -327,19 +327,19 @@ argument_list|(
 literal|"ssl_certificate_key"
 argument_list|)
 block|,
-name|NGX_IMAP_MAIN_CONF
+name|NGX_MAIL_MAIN_CONF
 operator||
-name|NGX_IMAP_SRV_CONF
+name|NGX_MAIL_SRV_CONF
 operator||
 name|NGX_CONF_TAKE1
 block|,
 name|ngx_conf_set_str_slot
 block|,
-name|NGX_IMAP_SRV_CONF_OFFSET
+name|NGX_MAIL_SRV_CONF_OFFSET
 block|,
 name|offsetof
 argument_list|(
-name|ngx_imap_ssl_conf_t
+name|ngx_mail_ssl_conf_t
 argument_list|,
 name|certificate_key
 argument_list|)
@@ -353,25 +353,25 @@ argument_list|(
 literal|"ssl_protocols"
 argument_list|)
 block|,
-name|NGX_IMAP_MAIN_CONF
+name|NGX_MAIL_MAIN_CONF
 operator||
-name|NGX_IMAP_SRV_CONF
+name|NGX_MAIL_SRV_CONF
 operator||
 name|NGX_CONF_1MORE
 block|,
 name|ngx_conf_set_bitmask_slot
 block|,
-name|NGX_IMAP_SRV_CONF_OFFSET
+name|NGX_MAIL_SRV_CONF_OFFSET
 block|,
 name|offsetof
 argument_list|(
-name|ngx_imap_ssl_conf_t
+name|ngx_mail_ssl_conf_t
 argument_list|,
 name|protocols
 argument_list|)
 block|,
 operator|&
-name|ngx_imap_ssl_protocols
+name|ngx_mail_ssl_protocols
 block|}
 block|,
 block|{
@@ -380,19 +380,19 @@ argument_list|(
 literal|"ssl_ciphers"
 argument_list|)
 block|,
-name|NGX_IMAP_MAIN_CONF
+name|NGX_MAIL_MAIN_CONF
 operator||
-name|NGX_IMAP_SRV_CONF
+name|NGX_MAIL_SRV_CONF
 operator||
 name|NGX_CONF_TAKE1
 block|,
 name|ngx_conf_set_str_slot
 block|,
-name|NGX_IMAP_SRV_CONF_OFFSET
+name|NGX_MAIL_SRV_CONF_OFFSET
 block|,
 name|offsetof
 argument_list|(
-name|ngx_imap_ssl_conf_t
+name|ngx_mail_ssl_conf_t
 argument_list|,
 name|ciphers
 argument_list|)
@@ -406,9 +406,9 @@ argument_list|(
 literal|"ssl_prefer_server_ciphers"
 argument_list|)
 block|,
-name|NGX_IMAP_MAIN_CONF
+name|NGX_MAIL_MAIN_CONF
 operator||
-name|NGX_IMAP_SRV_CONF
+name|NGX_MAIL_SRV_CONF
 operator||
 name|NGX_CONF_FLAG
 block|,
@@ -417,11 +417,11 @@ directive|ifdef
 name|SSL_OP_CIPHER_SERVER_PREFERENCE
 name|ngx_conf_set_flag_slot
 block|,
-name|NGX_IMAP_SRV_CONF_OFFSET
+name|NGX_MAIL_SRV_CONF_OFFSET
 block|,
 name|offsetof
 argument_list|(
-name|ngx_imap_ssl_conf_t
+name|ngx_mail_ssl_conf_t
 argument_list|,
 name|prefer_server_ciphers
 argument_list|)
@@ -431,13 +431,13 @@ block|}
 block|,
 else|#
 directive|else
-name|ngx_imap_ssl_nosupported
+name|ngx_mail_ssl_nosupported
 block|,
 literal|0
 block|,
 literal|0
 block|,
-name|ngx_imap_ssl_openssl097
+name|ngx_mail_ssl_openssl097
 block|}
 decl_stmt|,
 endif|#
@@ -448,15 +448,15 @@ argument_list|(
 literal|"ssl_session_cache"
 argument_list|)
 operator|,
-name|NGX_IMAP_MAIN_CONF
+name|NGX_MAIL_MAIN_CONF
 operator||
-name|NGX_IMAP_SRV_CONF
+name|NGX_MAIL_SRV_CONF
 operator||
 name|NGX_CONF_TAKE12
 operator|,
-name|ngx_imap_ssl_session_cache
+name|ngx_mail_ssl_session_cache
 operator|,
-name|NGX_IMAP_SRV_CONF_OFFSET
+name|NGX_MAIL_SRV_CONF_OFFSET
 operator|,
 literal|0
 operator|,
@@ -475,19 +475,19 @@ argument_list|(
 literal|"ssl_session_timeout"
 argument_list|)
 operator|,
-name|NGX_IMAP_MAIN_CONF
+name|NGX_MAIL_MAIN_CONF
 operator||
-name|NGX_IMAP_SRV_CONF
+name|NGX_MAIL_SRV_CONF
 operator||
 name|NGX_CONF_TAKE1
 operator|,
 name|ngx_conf_set_sec_slot
 operator|,
-name|NGX_IMAP_SRV_CONF_OFFSET
+name|NGX_MAIL_SRV_CONF_OFFSET
 operator|,
 name|offsetof
 argument_list|(
-name|ngx_imap_ssl_conf_t
+name|ngx_mail_ssl_conf_t
 argument_list|,
 name|session_timeout
 argument_list|)
@@ -506,10 +506,10 @@ end_expr_stmt
 
 begin_decl_stmt
 unit|};
-DECL|variable|ngx_imap_ssl_module_ctx
+DECL|variable|ngx_mail_ssl_module_ctx
 specifier|static
-name|ngx_imap_module_t
-name|ngx_imap_ssl_module_ctx
+name|ngx_mail_module_t
+name|ngx_mail_ssl_module_ctx
 init|=
 block|{
 name|NULL
@@ -518,31 +518,31 @@ comment|/* create main configuration */
 name|NULL
 block|,
 comment|/* init main configuration */
-name|ngx_imap_ssl_create_conf
+name|ngx_mail_ssl_create_conf
 block|,
 comment|/* create server configuration */
-name|ngx_imap_ssl_merge_conf
+name|ngx_mail_ssl_merge_conf
 comment|/* merge server configuration */
 block|}
 decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_imap_ssl_module
+DECL|variable|ngx_mail_ssl_module
 name|ngx_module_t
-name|ngx_imap_ssl_module
+name|ngx_mail_ssl_module
 init|=
 block|{
 name|NGX_MODULE_V1
 block|,
 operator|&
-name|ngx_imap_ssl_module_ctx
+name|ngx_mail_ssl_module_ctx
 block|,
 comment|/* module context */
-name|ngx_imap_ssl_commands
+name|ngx_mail_ssl_commands
 block|,
 comment|/* module directives */
-name|NGX_IMAP_MODULE
+name|NGX_MAIL_MODULE
 block|,
 comment|/* module type */
 name|NULL
@@ -572,14 +572,14 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_imap_ssl_sess_id_ctx
+DECL|variable|ngx_mail_ssl_sess_id_ctx
 specifier|static
 name|ngx_str_t
-name|ngx_imap_ssl_sess_id_ctx
+name|ngx_mail_ssl_sess_id_ctx
 init|=
 name|ngx_string
 argument_list|(
-literal|"IMAP"
+literal|"MAIL"
 argument_list|)
 decl_stmt|;
 end_decl_stmt
@@ -588,15 +588,15 @@ begin_function
 specifier|static
 name|void
 modifier|*
-DECL|function|ngx_imap_ssl_create_conf (ngx_conf_t * cf)
-name|ngx_imap_ssl_create_conf
+DECL|function|ngx_mail_ssl_create_conf (ngx_conf_t * cf)
+name|ngx_mail_ssl_create_conf
 parameter_list|(
 name|ngx_conf_t
 modifier|*
 name|cf
 parameter_list|)
 block|{
-name|ngx_imap_ssl_conf_t
+name|ngx_mail_ssl_conf_t
 modifier|*
 name|scf
 decl_stmt|;
@@ -610,7 +610,7 @@ name|pool
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|ngx_imap_ssl_conf_t
+name|ngx_mail_ssl_conf_t
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -666,8 +666,8 @@ begin_function
 specifier|static
 name|char
 modifier|*
-DECL|function|ngx_imap_ssl_merge_conf (ngx_conf_t * cf,void * parent,void * child)
-name|ngx_imap_ssl_merge_conf
+DECL|function|ngx_mail_ssl_merge_conf (ngx_conf_t * cf,void * parent,void * child)
+name|ngx_mail_ssl_merge_conf
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -682,13 +682,13 @@ modifier|*
 name|child
 parameter_list|)
 block|{
-name|ngx_imap_ssl_conf_t
+name|ngx_mail_ssl_conf_t
 modifier|*
 name|prev
 init|=
 name|parent
 decl_stmt|;
-name|ngx_imap_ssl_conf_t
+name|ngx_mail_ssl_conf_t
 modifier|*
 name|conf
 init|=
@@ -721,7 +721,7 @@ name|prev
 operator|->
 name|starttls
 argument_list|,
-name|NGX_IMAP_STARTTLS_OFF
+name|NGX_MAIL_STARTTLS_OFF
 argument_list|)
 expr_stmt|;
 if|if
@@ -736,7 +736,7 @@ name|conf
 operator|->
 name|starttls
 operator|==
-name|NGX_IMAP_STARTTLS_OFF
+name|NGX_MAIL_STARTTLS_OFF
 condition|)
 block|{
 return|return
@@ -1064,7 +1064,7 @@ operator|->
 name|ssl
 argument_list|,
 operator|&
-name|ngx_imap_ssl_sess_id_ctx
+name|ngx_mail_ssl_sess_id_ctx
 argument_list|,
 name|conf
 operator|->
@@ -1096,8 +1096,8 @@ begin_function
 specifier|static
 name|char
 modifier|*
-DECL|function|ngx_imap_ssl_session_cache (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
-name|ngx_imap_ssl_session_cache
+DECL|function|ngx_mail_ssl_session_cache (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
+name|ngx_mail_ssl_session_cache
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -1112,7 +1112,7 @@ modifier|*
 name|conf
 parameter_list|)
 block|{
-name|ngx_imap_ssl_conf_t
+name|ngx_mail_ssl_conf_t
 modifier|*
 name|scf
 init|=
@@ -1497,7 +1497,7 @@ argument_list|,
 name|n
 argument_list|,
 operator|&
-name|ngx_imap_ssl_module
+name|ngx_mail_ssl_module
 argument_list|)
 expr_stmt|;
 if|if
@@ -1581,8 +1581,8 @@ begin_function
 specifier|static
 name|char
 modifier|*
-DECL|function|ngx_imap_ssl_nosupported (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
-name|ngx_imap_ssl_nosupported
+DECL|function|ngx_mail_ssl_nosupported (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
+name|ngx_mail_ssl_nosupported
 parameter_list|(
 name|ngx_conf_t
 modifier|*
