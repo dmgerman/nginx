@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29d0706f0108
+DECL|struct|__anon2bb6e1c70108
 typedef|typedef
 struct|struct
 block|{
@@ -67,7 +67,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29d0706f0203
+DECL|enum|__anon2bb6e1c70203
 typedef|typedef
 enum|enum
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d0706f0308
+DECL|struct|__anon2bb6e1c70308
 typedef|typedef
 struct|struct
 block|{
@@ -222,7 +222,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon29d0706f0408
+DECL|struct|__anon2bb6e1c70408
 typedef|typedef
 struct|struct
 block|{
@@ -265,7 +265,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d0706f0508
+DECL|struct|__anon2bb6e1c70508
 typedef|typedef
 struct|struct
 block|{
@@ -295,7 +295,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d0706f0608
+DECL|struct|__anon2bb6e1c70608
 typedef|typedef
 struct|struct
 block|{
@@ -322,7 +322,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d0706f0708
+DECL|struct|__anon2bb6e1c70708
 typedef|typedef
 struct|struct
 block|{
@@ -3477,7 +3477,7 @@ expr_stmt|;
 if|if
 condition|(
 name|file_pos
-operator|>
+operator|>=
 name|body
 operator|->
 name|buf
@@ -3535,7 +3535,7 @@ expr_stmt|;
 if|if
 condition|(
 name|pos
-operator|>
+operator|>=
 name|body
 operator|->
 name|buf
