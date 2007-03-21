@@ -78,7 +78,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon276cc61c0108
+DECL|struct|__anon2c2c70a80108
 typedef|typedef
 struct|struct
 block|{
@@ -1719,7 +1719,7 @@ name|POLLNVAL
 operator|)
 condition|)
 block|{
-name|ngx_log_debug2
+name|ngx_log_debug3
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
