@@ -10047,6 +10047,9 @@ name|data
 operator|=
 name|p
 expr_stmt|;
+return|return
+name|NGX_OK
+return|;
 block|}
 return|return
 name|NGX_OK
