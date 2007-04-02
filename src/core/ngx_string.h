@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29c94e530108
+DECL|struct|__anon2c2b07a10108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c94e530208
+DECL|struct|__anon2c2b07a10208
 typedef|typedef
 struct|struct
 block|{
@@ -151,6 +151,19 @@ parameter_list|,
 name|s2
 parameter_list|)
 value|strstr((const char *) s1, (const char *) s2)
+end_define
+
+begin_define
+DECL|macro|ngx_strchr (s1,c)
+define|#
+directive|define
+name|ngx_strchr
+parameter_list|(
+name|s1
+parameter_list|,
+name|c
+parameter_list|)
+value|strchr((const char *) s1, (int) c)
 end_define
 
 begin_define
