@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2aadafcb0108
+DECL|struct|__anon299171c20108
 typedef|typedef
 struct|struct
 block|{
@@ -12093,8 +12093,6 @@ name|data
 argument_list|,
 literal|"$document_root"
 argument_list|)
-operator|!=
-literal|0
 operator|||
 name|ngx_strstr
 argument_list|(
@@ -12107,8 +12105,6 @@ name|data
 argument_list|,
 literal|"${document_root}"
 argument_list|)
-operator|!=
-literal|0
 condition|)
 block|{
 name|ngx_conf_log_error
