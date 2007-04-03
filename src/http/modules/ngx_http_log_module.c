@@ -106,7 +106,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c64931d0108
+DECL|struct|__anon2b2ef4460108
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c64931d0208
+DECL|struct|__anon2b2ef4460208
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c64931d0308
+DECL|struct|__anon2b2ef4460308
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c64931d0408
+DECL|struct|__anon2b2ef4460408
 typedef|typedef
 struct|struct
 block|{
@@ -200,7 +200,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c64931d0508
+DECL|struct|__anon2b2ef4460508
 typedef|typedef
 struct|struct
 block|{
@@ -1460,7 +1460,7 @@ name|log
 operator|->
 name|error_log_time
 operator|>
-literal|60
+literal|59
 condition|)
 block|{
 name|ngx_log_error
@@ -1503,7 +1503,7 @@ name|log
 operator|->
 name|error_log_time
 operator|>
-literal|60
+literal|59
 condition|)
 block|{
 name|ngx_log_error
