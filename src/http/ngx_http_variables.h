@@ -41,7 +41,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2980fc830108
+DECL|struct|__anon2b8152f20108
 typedef|typedef
 struct|struct
 block|{
@@ -294,6 +294,28 @@ name|key
 parameter_list|,
 name|ngx_uint_t
 name|nowarn
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_http_variable_unknown_header
+parameter_list|(
+name|ngx_http_variable_value_t
+modifier|*
+name|v
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|var
+parameter_list|,
+name|ngx_list_part_t
+modifier|*
+name|part
+parameter_list|,
+name|size_t
+name|prefix
 parameter_list|)
 function_decl|;
 end_function_decl
