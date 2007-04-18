@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ba588640108
+DECL|struct|__anon29a3b0cb0108
 typedef|typedef
 struct|struct
 block|{
@@ -57,7 +57,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ba588640208
+DECL|struct|__anon29a3b0cb0208
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ba588640308
+DECL|struct|__anon29a3b0cb0308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ba588640408
+DECL|struct|__anon29a3b0cb0408
 typedef|typedef
 struct|struct
 block|{
@@ -1874,6 +1874,24 @@ condition|(
 name|perl
 condition|)
 block|{
+if|if
+condition|(
+name|ngx_set_environment
+argument_list|(
+name|cf
+operator|->
+name|cycle
+argument_list|,
+name|NULL
+argument_list|)
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
 if|if
 condition|(
 name|ngx_http_perl_run_requires
