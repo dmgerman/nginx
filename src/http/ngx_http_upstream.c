@@ -5647,7 +5647,7 @@ argument_list|(
 name|int
 argument_list|)
 expr_stmt|;
-comment|/* 	 * BSDs and Linux return 0 and set a pending error in err 	 * Solaris returns -1 and sets errno 	 */
+comment|/*          * BSDs and Linux return 0 and set a pending error in err          * Solaris returns -1 and sets errno          */
 if|if
 condition|(
 name|getsockopt

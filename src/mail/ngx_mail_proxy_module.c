@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a0937740108
+DECL|struct|__anon2a1cc1650108
 typedef|typedef
 struct|struct
 block|{
