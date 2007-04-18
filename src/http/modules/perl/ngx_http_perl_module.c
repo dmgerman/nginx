@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b3747360108
+DECL|struct|__anon2ba588640108
 typedef|typedef
 struct|struct
 block|{
@@ -57,7 +57,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3747360208
+DECL|struct|__anon2ba588640208
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3747360308
+DECL|struct|__anon2ba588640308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3747360408
+DECL|struct|__anon2ba588640408
 typedef|typedef
 struct|struct
 block|{
@@ -1901,6 +1901,12 @@ operator|->
 name|perl
 operator|=
 name|perl
+expr_stmt|;
+name|pmcf
+operator|->
+name|nginx
+operator|=
+name|nginx_stash
 expr_stmt|;
 return|return
 name|NGX_CONF_OK
