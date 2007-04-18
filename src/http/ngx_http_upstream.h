@@ -133,7 +133,7 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon2af471d20108
+DECL|struct|__anon2b2dee830108
 typedef|typedef
 struct|struct
 block|{
@@ -169,7 +169,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af471d20208
+DECL|struct|__anon2b2dee830208
 typedef|typedef
 struct|struct
 block|{
@@ -238,7 +238,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af471d20308
+DECL|struct|__anon2b2dee830308
 typedef|typedef
 struct|struct
 block|{
@@ -262,7 +262,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af471d20408
+DECL|struct|__anon2b2dee830408
 typedef|typedef
 struct|struct
 block|{
@@ -403,7 +403,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2af471d20508
+DECL|struct|__anon2b2dee830508
 typedef|typedef
 struct|struct
 block|{
@@ -559,7 +559,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af471d20608
+DECL|struct|__anon2b2dee830608
 typedef|typedef
 struct|struct
 block|{
@@ -595,7 +595,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af471d20708
+DECL|struct|__anon2b2dee830708
 typedef|typedef
 struct|struct
 block|{
@@ -894,11 +894,6 @@ name|ngx_http_upstream_state_t
 modifier|*
 name|state
 decl_stmt|;
-DECL|member|states
-name|ngx_array_t
-name|states
-decl_stmt|;
-comment|/* of ngx_http_upstream_state_t */
 DECL|member|uri
 name|ngx_str_t
 name|uri
