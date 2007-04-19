@@ -62,7 +62,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon27d321090108
+DECL|struct|__anon29b3e7fc0108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d321090208
+DECL|struct|__anon29b3e7fc0208
 typedef|typedef
 struct|struct
 block|{
@@ -122,7 +122,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d321090308
+DECL|struct|__anon29b3e7fc0308
 typedef|typedef
 struct|struct
 block|{
@@ -146,7 +146,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27d321090403
+DECL|enum|__anon29b3e7fc0403
 typedef|typedef
 enum|enum
 block|{
@@ -605,7 +605,7 @@ begin_function_decl
 specifier|static
 name|void
 modifier|*
-name|ngx_http_ssi_create_conf
+name|ngx_http_ssi_create_loc_conf
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -618,7 +618,7 @@ begin_function_decl
 specifier|static
 name|char
 modifier|*
-name|ngx_http_ssi_merge_conf
+name|ngx_http_ssi_merge_loc_conf
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -850,10 +850,10 @@ comment|/* create server configuration */
 name|NULL
 block|,
 comment|/* merge server configuration */
-name|ngx_http_ssi_create_conf
+name|ngx_http_ssi_create_loc_conf
 block|,
 comment|/* create location configuration */
-name|ngx_http_ssi_merge_conf
+name|ngx_http_ssi_merge_loc_conf
 comment|/* merge location configuration */
 block|}
 decl_stmt|;
@@ -12219,8 +12219,8 @@ begin_function
 specifier|static
 name|void
 modifier|*
-DECL|function|ngx_http_ssi_create_conf (ngx_conf_t * cf)
-name|ngx_http_ssi_create_conf
+DECL|function|ngx_http_ssi_create_loc_conf (ngx_conf_t * cf)
+name|ngx_http_ssi_create_loc_conf
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -12297,8 +12297,8 @@ begin_function
 specifier|static
 name|char
 modifier|*
-DECL|function|ngx_http_ssi_merge_conf (ngx_conf_t * cf,void * parent,void * child)
-name|ngx_http_ssi_merge_conf
+DECL|function|ngx_http_ssi_merge_loc_conf (ngx_conf_t * cf,void * parent,void * child)
+name|ngx_http_ssi_merge_loc_conf
 parameter_list|(
 name|ngx_conf_t
 modifier|*
