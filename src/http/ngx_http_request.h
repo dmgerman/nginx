@@ -609,15 +609,23 @@ value|0x01
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_SUB_BUFFERED
+define|#
+directive|define
+name|NGX_HTTP_SUB_BUFFERED
+value|0x02
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_COPY_BUFFERED
 define|#
 directive|define
 name|NGX_HTTP_COPY_BUFFERED
-value|0x02
+value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon2924d4ac0103
+DECL|enum|__anon2c3ea34d0103
 typedef|typedef
 enum|enum
 block|{
@@ -656,7 +664,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2924d4ac0208
+DECL|struct|__anon2c3ea34d0208
 typedef|typedef
 struct|struct
 block|{
@@ -679,7 +687,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2924d4ac0308
+DECL|struct|__anon2c3ea34d0308
 typedef|typedef
 struct|struct
 block|{
@@ -698,7 +706,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2924d4ac0408
+DECL|struct|__anon2c3ea34d0408
 typedef|typedef
 struct|struct
 block|{
@@ -915,7 +923,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2924d4ac0508
+DECL|struct|__anon2c3ea34d0508
 typedef|typedef
 struct|struct
 block|{
@@ -1042,7 +1050,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2924d4ac0608
+DECL|struct|__anon2c3ea34d0608
 typedef|typedef
 struct|struct
 block|{
@@ -1081,7 +1089,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2924d4ac0708
+DECL|struct|__anon2c3ea34d0708
 typedef|typedef
 struct|struct
 block|{
@@ -1122,7 +1130,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2924d4ac0808
+DECL|struct|__anon2c3ea34d0808
 typedef|typedef
 struct|struct
 block|{
@@ -1213,7 +1221,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2924d4ac0908
+DECL|struct|__anon2c3ea34d0908
 typedef|typedef
 struct|struct
 block|{
