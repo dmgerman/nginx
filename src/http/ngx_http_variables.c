@@ -6396,6 +6396,15 @@ index|]
 operator|.
 name|name
 expr_stmt|;
+name|v
+index|[
+name|i
+index|]
+operator|.
+name|flags
+operator|=
+name|NGX_HTTP_VAR_NOCACHABLE
+expr_stmt|;
 continue|continue;
 block|}
 name|ngx_log_error
