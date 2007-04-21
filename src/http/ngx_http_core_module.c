@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c85c40e0108
+DECL|struct|__anon289032c80108
 typedef|typedef
 struct|struct
 block|{
@@ -5798,13 +5798,6 @@ operator|=
 name|r
 operator|->
 name|headers_in
-expr_stmt|;
-name|sr
-operator|->
-name|start_time
-operator|=
-name|ngx_time
-argument_list|()
 expr_stmt|;
 name|ngx_http_clear_content_length
 argument_list|(
