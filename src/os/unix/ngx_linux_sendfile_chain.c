@@ -815,6 +815,9 @@ operator|)
 operator|&
 operator|~
 operator|(
+operator|(
+name|off_t
+operator|)
 name|ngx_pagesize
 operator|-
 literal|1
