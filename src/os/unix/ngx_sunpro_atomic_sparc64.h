@@ -95,6 +95,8 @@ name|ngx_atomic_uint_t
 name|set
 parameter_list|)
 block|{
+name|set
+operator|=
 name|NGX_CASA
 argument_list|(
 name|set
@@ -151,6 +153,8 @@ name|old
 operator|+
 name|add
 expr_stmt|;
+name|res
+operator|=
 name|NGX_CASA
 argument_list|(
 name|res
