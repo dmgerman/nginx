@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a27fbc40108
+DECL|struct|__anon2a5235230108
 typedef|typedef
 struct|struct
 block|{
@@ -4350,6 +4350,10 @@ index|]
 operator|.
 name|data
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"http_"
 argument_list|,
 literal|5
@@ -4366,6 +4370,10 @@ index|]
 operator|.
 name|data
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"sent_http_"
 argument_list|,
 literal|10
@@ -4382,6 +4390,10 @@ index|]
 operator|.
 name|data
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"upstream_http_"
 argument_list|,
 literal|14
