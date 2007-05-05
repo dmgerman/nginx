@@ -137,7 +137,7 @@ name|size
 decl_stmt|,
 name|sent
 decl_stmt|,
-name|to_send
+name|limit
 decl_stmt|;
 name|ngx_uint_t
 name|last
@@ -885,7 +885,7 @@ operator|->
 name|limit_rate
 condition|)
 block|{
-name|to_send
+name|limit
 operator|=
 name|r
 operator|->
@@ -908,7 +908,7 @@ name|sent
 expr_stmt|;
 if|if
 condition|(
-name|to_send
+name|limit
 operator|<=
 literal|0
 condition|)
@@ -932,7 +932,7 @@ name|ngx_msec_t
 operator|)
 operator|(
 operator|-
-name|to_send
+name|limit
 operator|*
 literal|1000
 operator|/
@@ -957,7 +957,7 @@ block|}
 block|}
 else|else
 block|{
-name|to_send
+name|limit
 operator|=
 literal|0
 expr_stmt|;
@@ -978,9 +978,9 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http write filter to send %O"
+literal|"http write filter limit %O"
 argument_list|,
-name|to_send
+name|limit
 argument_list|)
 expr_stmt|;
 name|chain
@@ -995,7 +995,7 @@ name|r
 operator|->
 name|out
 argument_list|,
-name|to_send
+name|limit
 argument_list|)
 expr_stmt|;
 name|ngx_log_debug1
@@ -1032,7 +1032,7 @@ return|;
 block|}
 if|if
 condition|(
-name|to_send
+name|limit
 condition|)
 block|{
 name|sent
