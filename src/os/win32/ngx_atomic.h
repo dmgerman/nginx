@@ -160,11 +160,24 @@ name|ngx_memory_barrier
 parameter_list|()
 end_define
 
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
 name|__BORLANDC__
-end_ifdef
+argument_list|)
+operator|||
+operator|(
+name|__WATCOMC__
+operator|<
+literal|1230
+operator|)
+end_if
+
+begin_comment
+comment|/*  * Borland C++ 5.5 (tasm32) and Open Watcom C prior to 1.3  * do not understand the "pause" instruction  */
+end_comment
 
 begin_define
 DECL|macro|ngx_cpu_pause ()
