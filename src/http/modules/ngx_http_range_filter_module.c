@@ -26,7 +26,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon2a4fb6d60108
+DECL|struct|__anon2bd435070108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4fb6d60208
+DECL|struct|__anon2bd435070208
 typedef|typedef
 struct|struct
 block|{
@@ -2665,9 +2665,15 @@ name|boundary_header
 operator|.
 name|data
 argument_list|,
-literal|4
+sizeof|sizeof
+argument_list|(
+name|CRLF
+literal|"--"
+argument_list|)
+operator|-
+literal|1
 operator|+
-literal|10
+name|NGX_ATOMIC_T_LEN
 argument_list|)
 expr_stmt|;
 operator|*
