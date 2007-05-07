@@ -960,6 +960,25 @@ name|file_pos
 expr_stmt|;
 endif|#
 directive|endif
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"sendfile: @%O %uz"
+argument_list|,
+name|file
+operator|->
+name|file_pos
+argument_list|,
+name|file_size
+argument_list|)
+expr_stmt|;
 name|rc
 operator|=
 name|sendfile
