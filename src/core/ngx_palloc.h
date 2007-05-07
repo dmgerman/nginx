@@ -48,6 +48,15 @@ name|NGX_DEFAULT_POOL_SIZE
 value|(16 * 1024)
 end_define
 
+begin_define
+DECL|macro|NGX_MIN_POOL_SIZE
+define|#
+directive|define
+name|NGX_MIN_POOL_SIZE
+define|\
+value|(sizeof(ngx_pool_t) + 2 * sizeof(ngx_pool_large_t))
+end_define
+
 begin_typedef
 DECL|typedef|ngx_pool_cleanup_pt
 typedef|typedef
@@ -174,7 +183,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27b9272f0108
+DECL|struct|__anon2b4213a80108
 typedef|typedef
 struct|struct
 block|{
