@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b20415c0108
+DECL|struct|__anon2be44a970108
 typedef|typedef
 struct|struct
 block|{
@@ -108,7 +108,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b20415c0208
+DECL|struct|__anon2be44a970208
 typedef|typedef
 struct|struct
 block|{
@@ -143,7 +143,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b20415c0303
+DECL|enum|__anon2be44a970303
 typedef|typedef
 enum|enum
 block|{
@@ -235,7 +235,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b20415c0408
+DECL|struct|__anon2be44a970408
 typedef|typedef
 struct|struct
 block|{
@@ -255,7 +255,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b20415c0508
+DECL|struct|__anon2be44a970508
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +270,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b20415c0608
+DECL|struct|__anon2be44a970608
 typedef|typedef
 struct|struct
 block|{
@@ -333,7 +333,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b20415c0708
+DECL|struct|__anon2be44a970708
 typedef|typedef
 struct|struct
 block|{
@@ -406,7 +406,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2b20415c0808
+DECL|struct|__anon2be44a970808
 typedef|typedef
 struct|struct
 block|{
@@ -432,7 +432,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b20415c0908
+DECL|struct|__anon2be44a970908
 typedef|typedef
 struct|struct
 block|{
@@ -460,7 +460,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b20415c0a08
+DECL|struct|__anon2be44a970a08
 typedef|typedef
 struct|struct
 block|{
@@ -480,7 +480,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b20415c0b08
+DECL|struct|__anon2be44a970b08
 typedef|typedef
 struct|struct
 block|{
@@ -532,7 +532,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b20415c0c08
+DECL|struct|__anon2be44a970c08
 typedef|typedef
 struct|struct
 block|{
@@ -553,7 +553,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b20415c0d08
+DECL|struct|__anon2be44a970d08
 typedef|typedef
 struct|struct
 block|{
@@ -730,6 +730,11 @@ name|size_t
 name|limit_rate
 decl_stmt|;
 comment|/* limit_rate */
+DECL|member|sendfile_max_chunk
+name|size_t
+name|sendfile_max_chunk
+decl_stmt|;
+comment|/* sendfile_max_chunk */
 DECL|member|client_body_timeout
 name|ngx_msec_t
 name|client_body_timeout
