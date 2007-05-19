@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c2b07a10108
+DECL|struct|__anon27aec95d0108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2b07a10208
+DECL|struct|__anon27aec95d0208
 typedef|typedef
 struct|struct
 block|{
