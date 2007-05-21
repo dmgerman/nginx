@@ -51,7 +51,6 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|int
-name|ngx_libc_cdecl
 name|ngx_mail_cmp_conf_in_addrs
 parameter_list|(
 specifier|const
@@ -1066,7 +1065,7 @@ name|p
 operator|++
 control|)
 block|{
-name|ngx_qsort
+name|ngx_sort
 argument_list|(
 name|in_port
 index|[
@@ -1636,7 +1635,6 @@ end_function
 begin_function
 specifier|static
 name|int
-name|ngx_libc_cdecl
 DECL|function|ngx_mail_cmp_conf_in_addrs (const void * one,const void * two)
 name|ngx_mail_cmp_conf_in_addrs
 parameter_list|(

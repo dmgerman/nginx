@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28c261e10108
+DECL|struct|__anon291341110108
 typedef|typedef
 struct|struct
 block|{
@@ -283,7 +283,6 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|int
-name|ngx_libc_cdecl
 name|ngx_http_core_cmp_locations
 parameter_list|(
 specifier|const
@@ -7040,7 +7039,7 @@ return|return
 name|rv
 return|;
 block|}
-name|ngx_qsort
+name|ngx_sort
 argument_list|(
 name|cscf
 operator|->
@@ -7951,7 +7950,7 @@ return|return
 name|rv
 return|;
 block|}
-name|ngx_qsort
+name|ngx_sort
 argument_list|(
 name|clcf
 operator|->
@@ -7986,7 +7985,6 @@ end_function
 begin_function
 specifier|static
 name|int
-name|ngx_libc_cdecl
 DECL|function|ngx_http_core_cmp_locations (const void * one,const void * two)
 name|ngx_http_core_cmp_locations
 parameter_list|(
