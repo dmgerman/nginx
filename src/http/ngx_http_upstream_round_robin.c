@@ -1169,6 +1169,9 @@ operator|)
 expr_stmt|;
 name|m
 operator|=
+operator|(
+name|uintptr_t
+operator|)
 literal|1
 operator|<<
 name|rrp
@@ -1404,6 +1407,9 @@ operator|)
 expr_stmt|;
 name|m
 operator|=
+operator|(
+name|uintptr_t
+operator|)
 literal|1
 operator|<<
 name|rrp
