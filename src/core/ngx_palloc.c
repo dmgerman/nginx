@@ -429,6 +429,12 @@ init|;
 condition|;
 control|)
 block|{
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_NONALIGNED
+operator|)
+comment|/*              * allow non-aligned memory blocks for small allocations (1, 2,              * or 3 bytes) and for odd length strings (struct's have aligned              * size)              */
 if|if
 condition|(
 name|size
@@ -453,6 +459,8 @@ name|last
 expr_stmt|;
 block|}
 else|else
+endif|#
+directive|endif
 block|{
 name|m
 operator|=
