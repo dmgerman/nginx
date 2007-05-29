@@ -1955,15 +1955,7 @@ name|log
 argument_list|,
 name|ngx_socket_errno
 argument_list|,
-literal|"changing the listen() backlog to %d "
-literal|"for %V failed, ignored"
-argument_list|,
-name|ls
-index|[
-name|i
-index|]
-operator|.
-name|backlog
+literal|"listen() to %V, backlog %d failed, ignored"
 argument_list|,
 operator|&
 name|ls
@@ -1972,6 +1964,13 @@ name|i
 index|]
 operator|.
 name|addr_text
+argument_list|,
+name|ls
+index|[
+name|i
+index|]
+operator|.
+name|backlog
 argument_list|)
 expr_stmt|;
 block|}
