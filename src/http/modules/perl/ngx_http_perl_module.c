@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29a3b0cb0108
+DECL|struct|__anon29e6ba6e0108
 typedef|typedef
 struct|struct
 block|{
@@ -57,7 +57,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a3b0cb0208
+DECL|struct|__anon29e6ba6e0208
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a3b0cb0308
+DECL|struct|__anon29e6ba6e0308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a3b0cb0408
+DECL|struct|__anon29e6ba6e0408
 typedef|typedef
 struct|struct
 block|{
@@ -430,6 +430,18 @@ endif|#
 directive|endif
 end_endif
 
+begin_function_decl
+specifier|static
+name|void
+name|ngx_http_perl_exit
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_decl_stmt
 DECL|variable|ngx_http_perl_commands
 specifier|static
@@ -596,7 +608,7 @@ comment|/* exit thread */
 name|NULL
 block|,
 comment|/* exit process */
-name|NULL
+name|ngx_http_perl_exit
 block|,
 comment|/* exit master */
 name|NGX_MODULE_V1_PADDING
@@ -1932,6 +1944,13 @@ return|;
 block|}
 endif|#
 directive|endif
+if|if
+condition|(
+name|nginx_stash
+operator|==
+name|NULL
+condition|)
+block|{
 name|PERL_SYS_INIT
 argument_list|(
 operator|&
@@ -1941,6 +1960,7 @@ operator|&
 name|ngx_argv
 argument_list|)
 expr_stmt|;
+block|}
 name|pmcf
 operator|->
 name|perl
@@ -1961,9 +1981,6 @@ operator|==
 name|NULL
 condition|)
 block|{
-name|PERL_SYS_TERM
-argument_list|()
-expr_stmt|;
 return|return
 name|NGX_CONF_ERROR
 return|;
@@ -3209,9 +3226,6 @@ argument_list|(
 name|perl
 argument_list|)
 expr_stmt|;
-name|PERL_SYS_TERM
-argument_list|()
-expr_stmt|;
 block|}
 end_function
 
@@ -4078,6 +4092,23 @@ expr_stmt|;
 return|return
 name|NGX_CONF_OK
 return|;
+block|}
+end_function
+
+begin_function
+specifier|static
+name|void
+DECL|function|ngx_http_perl_exit (ngx_cycle_t * cycle)
+name|ngx_http_perl_exit
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|)
+block|{
+name|PERL_SYS_TERM
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 
