@@ -1958,6 +1958,13 @@ argument_list|,
 literal|"changing the listen() backlog to %d "
 literal|"for %V failed, ignored"
 argument_list|,
+name|ls
+index|[
+name|i
+index|]
+operator|.
+name|backlog
+argument_list|,
 operator|&
 name|ls
 index|[
@@ -1965,13 +1972,6 @@ name|i
 index|]
 operator|.
 name|addr_text
-argument_list|,
-name|ls
-index|[
-name|i
-index|]
-operator|.
-name|backlog
 argument_list|)
 expr_stmt|;
 block|}
