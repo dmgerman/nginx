@@ -2016,7 +2016,6 @@ name|ctx
 operator|->
 name|out
 expr_stmt|;
-block|}
 if|if
 condition|(
 operator|!
@@ -2030,6 +2029,7 @@ block|{
 return|return
 name|NGX_OK
 return|;
+block|}
 block|}
 return|return
 name|NGX_AGAIN
