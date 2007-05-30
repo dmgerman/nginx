@@ -1373,6 +1373,7 @@ operator|==
 operator|-
 literal|1
 condition|)
+block|{
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_EMERG
@@ -1393,6 +1394,7 @@ operator|.
 name|addr_text
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|NGX_ERROR
 return|;
@@ -1449,6 +1451,7 @@ operator|==
 operator|-
 literal|1
 condition|)
+block|{
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_EMERG
@@ -1469,6 +1472,7 @@ operator|.
 name|addr_text
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|NGX_ERROR
 return|;
@@ -1566,6 +1570,7 @@ operator|==
 operator|-
 literal|1
 condition|)
+block|{
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_EMERG
@@ -1586,6 +1591,7 @@ operator|.
 name|addr_text
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|err
