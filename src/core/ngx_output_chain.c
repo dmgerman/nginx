@@ -1777,7 +1777,7 @@ operator|->
 name|buf
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug1
+name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_CORE
 argument_list|,
@@ -1789,7 +1789,13 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"chain writer buf size: %uO"
+literal|"chain writer buf fl:%d s:%uO"
+argument_list|,
+name|in
+operator|->
+name|buf
+operator|->
+name|flush
 argument_list|,
 name|ngx_buf_size
 argument_list|(
