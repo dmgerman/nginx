@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2be44a970108
+DECL|struct|__anon29a440240108
 typedef|typedef
 struct|struct
 block|{
@@ -108,7 +108,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be44a970208
+DECL|struct|__anon29a440240208
 typedef|typedef
 struct|struct
 block|{
@@ -143,7 +143,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2be44a970303
+DECL|enum|__anon29a440240303
 typedef|typedef
 enum|enum
 block|{
@@ -235,7 +235,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2be44a970408
+DECL|struct|__anon29a440240408
 typedef|typedef
 struct|struct
 block|{
@@ -255,7 +255,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be44a970508
+DECL|struct|__anon29a440240508
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +270,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be44a970608
+DECL|struct|__anon29a440240608
 typedef|typedef
 struct|struct
 block|{
@@ -333,7 +333,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be44a970708
+DECL|struct|__anon29a440240708
 typedef|typedef
 struct|struct
 block|{
@@ -406,7 +406,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2be44a970808
+DECL|struct|__anon29a440240808
 typedef|typedef
 struct|struct
 block|{
@@ -432,7 +432,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be44a970908
+DECL|struct|__anon29a440240908
 typedef|typedef
 struct|struct
 block|{
@@ -460,7 +460,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be44a970a08
+DECL|struct|__anon29a440240a08
 typedef|typedef
 struct|struct
 block|{
@@ -480,7 +480,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be44a970b08
+DECL|struct|__anon29a440240b08
 typedef|typedef
 struct|struct
 block|{
@@ -532,7 +532,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be44a970c08
+DECL|struct|__anon29a440240c08
 typedef|typedef
 struct|struct
 block|{
@@ -553,7 +553,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be44a970d08
+DECL|struct|__anon29a440240d08
 typedef|typedef
 struct|struct
 block|{
