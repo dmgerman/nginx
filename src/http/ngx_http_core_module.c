@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon291341110108
+DECL|struct|__anon2791b9ff0108
 typedef|typedef
 struct|struct
 block|{
@@ -12176,6 +12176,38 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
+if|#
+directive|if
+operator|(
+name|NGX_PCRE
+operator|)
+if|if
+condition|(
+name|lcf
+operator|->
+name|regex
+operator|&&
+name|alias
+condition|)
+block|{
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"the \"alias\" directive may not be used "
+literal|"inside location given by regular expression"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
+endif|#
+directive|endif
 name|value
 operator|=
 name|cf
