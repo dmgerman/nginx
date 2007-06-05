@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29a440240108
+DECL|struct|__anon2bde5ce60108
 typedef|typedef
 struct|struct
 block|{
@@ -108,7 +108,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a440240208
+DECL|struct|__anon2bde5ce60208
 typedef|typedef
 struct|struct
 block|{
@@ -143,7 +143,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29a440240303
+DECL|enum|__anon2bde5ce60303
 typedef|typedef
 enum|enum
 block|{
@@ -235,7 +235,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29a440240408
+DECL|struct|__anon2bde5ce60408
 typedef|typedef
 struct|struct
 block|{
@@ -255,7 +255,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a440240508
+DECL|struct|__anon2bde5ce60508
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +270,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a440240608
+DECL|struct|__anon2bde5ce60608
 typedef|typedef
 struct|struct
 block|{
@@ -333,7 +333,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a440240708
+DECL|struct|__anon2bde5ce60708
 typedef|typedef
 struct|struct
 block|{
@@ -341,6 +341,18 @@ comment|/*      * array of the ngx_http_core_loc_conf_t *,      * used in the ng
 DECL|member|locations
 name|ngx_array_t
 name|locations
+decl_stmt|;
+DECL|member|regex_start
+name|unsigned
+name|regex_start
+range|:
+literal|16
+decl_stmt|;
+DECL|member|wildcard
+name|unsigned
+name|wildcard
+range|:
+literal|1
 decl_stmt|;
 comment|/* array of the ngx_http_listen_t, "listen" directive */
 DECL|member|listen
@@ -390,11 +402,6 @@ DECL|member|ignore_invalid_headers
 name|ngx_flag_t
 name|ignore_invalid_headers
 decl_stmt|;
-DECL|member|wildcard
-name|ngx_uint_t
-name|wildcard
-decl_stmt|;
-comment|/* unsigned  wildcard:1 */
 DECL|typedef|ngx_http_core_srv_conf_t
 block|}
 name|ngx_http_core_srv_conf_t
@@ -406,7 +413,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon29a440240808
+DECL|struct|__anon2bde5ce60808
 typedef|typedef
 struct|struct
 block|{
@@ -432,7 +439,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a440240908
+DECL|struct|__anon2bde5ce60908
 typedef|typedef
 struct|struct
 block|{
@@ -460,7 +467,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a440240a08
+DECL|struct|__anon2bde5ce60a08
 typedef|typedef
 struct|struct
 block|{
@@ -480,7 +487,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a440240b08
+DECL|struct|__anon2bde5ce60b08
 typedef|typedef
 struct|struct
 block|{
@@ -532,7 +539,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a440240c08
+DECL|struct|__anon2bde5ce60c08
 typedef|typedef
 struct|struct
 block|{
@@ -553,7 +560,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a440240d08
+DECL|struct|__anon2bde5ce60d08
 typedef|typedef
 struct|struct
 block|{
@@ -616,6 +623,12 @@ name|regex
 decl_stmt|;
 endif|#
 directive|endif
+DECL|member|regex_start
+name|unsigned
+name|regex_start
+range|:
+literal|16
+decl_stmt|;
 DECL|member|noname
 name|unsigned
 name|noname
