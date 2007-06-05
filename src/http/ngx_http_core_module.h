@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bde5ce60108
+DECL|struct|__anon28fda81b0108
 typedef|typedef
 struct|struct
 block|{
@@ -108,7 +108,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bde5ce60208
+DECL|struct|__anon28fda81b0208
 typedef|typedef
 struct|struct
 block|{
@@ -143,7 +143,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2bde5ce60303
+DECL|enum|__anon28fda81b0303
 typedef|typedef
 enum|enum
 block|{
@@ -235,7 +235,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bde5ce60408
+DECL|struct|__anon28fda81b0408
 typedef|typedef
 struct|struct
 block|{
@@ -255,7 +255,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bde5ce60508
+DECL|struct|__anon28fda81b0508
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +270,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bde5ce60608
+DECL|struct|__anon28fda81b0608
 typedef|typedef
 struct|struct
 block|{
@@ -333,7 +333,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bde5ce60708
+DECL|struct|__anon28fda81b0708
 typedef|typedef
 struct|struct
 block|{
@@ -413,7 +413,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2bde5ce60808
+DECL|struct|__anon28fda81b0808
 typedef|typedef
 struct|struct
 block|{
@@ -439,7 +439,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bde5ce60908
+DECL|struct|__anon28fda81b0908
 typedef|typedef
 struct|struct
 block|{
@@ -467,7 +467,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bde5ce60a08
+DECL|struct|__anon28fda81b0a08
 typedef|typedef
 struct|struct
 block|{
@@ -487,7 +487,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bde5ce60b08
+DECL|struct|__anon28fda81b0b08
 typedef|typedef
 struct|struct
 block|{
@@ -539,7 +539,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bde5ce60c08
+DECL|struct|__anon28fda81b0c08
 typedef|typedef
 struct|struct
 block|{
@@ -560,7 +560,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bde5ce60d08
+DECL|struct|__anon28fda81b0d08
 typedef|typedef
 struct|struct
 block|{
@@ -663,6 +663,7 @@ decl_stmt|;
 comment|/* array of inclusive ngx_http_core_loc_conf_t */
 DECL|member|locations
 name|ngx_array_t
+modifier|*
 name|locations
 decl_stmt|;
 comment|/* pointer to the modules' loc_conf */
