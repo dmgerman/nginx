@@ -1338,7 +1338,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"the \"%s\" directive %s"
+literal|"\"%s\" directive %s"
 argument_list|,
 name|name
 operator|->
@@ -1388,7 +1388,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"directive \"%s\" is not allowed here"
+literal|"\"%s\" directive is not allowed here"
 argument_list|,
 name|name
 operator|->
@@ -1408,7 +1408,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"invalid number arguments in directive \"%s\""
+literal|"invalid number arguments in \"%s\" directive"
 argument_list|,
 name|name
 operator|->
