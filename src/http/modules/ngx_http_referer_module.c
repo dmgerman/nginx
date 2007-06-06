@@ -30,7 +30,7 @@ value|((void *) 4)
 end_define
 
 begin_typedef
-DECL|struct|__anon2acf1fa40108
+DECL|struct|__anon287f58050108
 typedef|typedef
 struct|struct
 block|{
@@ -1528,7 +1528,7 @@ operator|(
 name|u_char
 operator|*
 operator|)
-name|ngx_strstr
+name|ngx_strchr
 argument_list|(
 name|value
 index|[
@@ -1537,7 +1537,7 @@ index|]
 operator|.
 name|data
 argument_list|,
-literal|"/"
+literal|'/'
 argument_list|)
 expr_stmt|;
 if|if
