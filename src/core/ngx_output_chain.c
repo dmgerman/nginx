@@ -1678,11 +1678,11 @@ if|if
 condition|(
 name|src
 operator|->
-name|pos
+name|file_pos
 operator|==
 name|src
 operator|->
-name|last
+name|file_last
 condition|)
 block|{
 name|dst
