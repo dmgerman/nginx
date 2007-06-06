@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29541c6b0108
+DECL|struct|__anon27b1c7240108
 typedef|typedef
 struct|struct
 block|{
@@ -56,7 +56,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29541c6b0208
+DECL|struct|__anon27b1c7240208
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29541c6b0308
+DECL|struct|__anon27b1c7240308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29541c6b0408
+DECL|struct|__anon27b1c7240408
 typedef|typedef
 struct|struct
 block|{
@@ -140,7 +140,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29541c6b0508
+DECL|struct|__anon27b1c7240508
 typedef|typedef
 struct|struct
 block|{
@@ -231,7 +231,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon29541c6b0608
+DECL|struct|__anon27b1c7240608
 typedef|typedef
 struct|struct
 block|{
@@ -274,49 +274,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29541c6b0708
-typedef|typedef
-struct|struct
-block|{
-DECL|member|buckets
-name|void
-modifier|*
-modifier|*
-name|buckets
-decl_stmt|;
-DECL|member|hash_size
-name|ngx_uint_t
-name|hash_size
-decl_stmt|;
-DECL|member|max_size
-name|ngx_uint_t
-name|max_size
-decl_stmt|;
-DECL|member|bucket_limit
-name|ngx_uint_t
-name|bucket_limit
-decl_stmt|;
-DECL|member|bucket_size
-name|size_t
-name|bucket_size
-decl_stmt|;
-DECL|member|name
-name|char
-modifier|*
-name|name
-decl_stmt|;
-DECL|member|min_buckets
-name|ngx_uint_t
-name|min_buckets
-decl_stmt|;
-DECL|typedef|ngx_hash0_t
-block|}
-name|ngx_hash0_t
-typedef|;
-end_typedef
-
-begin_typedef
-DECL|struct|__anon29541c6b0808
+DECL|struct|__anon27b1c7240708
 typedef|typedef
 struct|struct
 block|{
