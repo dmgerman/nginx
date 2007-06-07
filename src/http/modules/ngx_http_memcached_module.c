@@ -28,7 +28,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c6fe4360108
+DECL|struct|__anon2a55faa60108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6fe4360208
+DECL|struct|__anon2a55faa60208
 typedef|typedef
 struct|struct
 block|{
@@ -2624,7 +2624,6 @@ name|no_resolve
 operator|=
 literal|1
 expr_stmt|;
-comment|/* u.uri_part = 1;  may be used as namespace */
 name|lcf
 operator|->
 name|upstream
