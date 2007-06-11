@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28fda81b0108
+DECL|struct|__anon28a7600a0108
 typedef|typedef
 struct|struct
 block|{
@@ -108,7 +108,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28fda81b0208
+DECL|struct|__anon28a7600a0208
 typedef|typedef
 struct|struct
 block|{
@@ -143,7 +143,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28fda81b0303
+DECL|enum|__anon28a7600a0303
 typedef|typedef
 enum|enum
 block|{
@@ -235,7 +235,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28fda81b0408
+DECL|struct|__anon28a7600a0408
 typedef|typedef
 struct|struct
 block|{
@@ -255,7 +255,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28fda81b0508
+DECL|struct|__anon28a7600a0508
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +270,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28fda81b0608
+DECL|struct|__anon28a7600a0608
 typedef|typedef
 struct|struct
 block|{
@@ -333,7 +333,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28fda81b0708
+DECL|struct|__anon28a7600a0708
 typedef|typedef
 struct|struct
 block|{
@@ -413,7 +413,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon28fda81b0808
+DECL|struct|__anon28a7600a0808
 typedef|typedef
 struct|struct
 block|{
@@ -439,7 +439,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28fda81b0908
+DECL|struct|__anon28a7600a0908
 typedef|typedef
 struct|struct
 block|{
@@ -467,7 +467,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28fda81b0a08
+DECL|struct|__anon28a7600a0a08
 typedef|typedef
 struct|struct
 block|{
@@ -487,7 +487,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28fda81b0b08
+DECL|struct|__anon28a7600a0b08
 typedef|typedef
 struct|struct
 block|{
@@ -499,10 +499,15 @@ DECL|member|hash
 name|ngx_hash_t
 name|hash
 decl_stmt|;
-DECL|member|dns_wildcards
+DECL|member|wc_head
 name|ngx_hash_wildcard_t
 modifier|*
-name|dns_wildcards
+name|wc_head
+decl_stmt|;
+DECL|member|wc_tail
+name|ngx_hash_wildcard_t
+modifier|*
+name|wc_tail
 decl_stmt|;
 DECL|member|names
 name|ngx_array_t
@@ -539,7 +544,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28fda81b0c08
+DECL|struct|__anon28a7600a0c08
 typedef|typedef
 struct|struct
 block|{
@@ -560,7 +565,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28fda81b0d08
+DECL|struct|__anon28a7600a0d08
 typedef|typedef
 struct|struct
 block|{

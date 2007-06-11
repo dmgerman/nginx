@@ -625,7 +625,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon2797dca50103
+DECL|enum|__anon28c1511d0103
 typedef|typedef
 enum|enum
 block|{
@@ -664,7 +664,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2797dca50208
+DECL|struct|__anon28c1511d0208
 typedef|typedef
 struct|struct
 block|{
@@ -687,7 +687,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2797dca50308
+DECL|struct|__anon28c1511d0308
 typedef|typedef
 struct|struct
 block|{
@@ -706,7 +706,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2797dca50408
+DECL|struct|__anon28c1511d0408
 typedef|typedef
 struct|struct
 block|{
@@ -923,7 +923,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2797dca50508
+DECL|struct|__anon28c1511d0508
 typedef|typedef
 struct|struct
 block|{
@@ -1050,7 +1050,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2797dca50608
+DECL|struct|__anon28c1511d0608
 typedef|typedef
 struct|struct
 block|{
@@ -1089,7 +1089,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2797dca50708
+DECL|struct|__anon28c1511d0708
 typedef|typedef
 struct|struct
 block|{
@@ -1130,21 +1130,9 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2797dca50808
-typedef|typedef
-struct|struct
-block|{
-DECL|member|hash
-name|ngx_hash_t
-name|hash
-decl_stmt|;
-DECL|member|dns_wildcards
-name|ngx_hash_wildcard_t
-modifier|*
-name|dns_wildcards
-decl_stmt|;
 DECL|typedef|ngx_http_virtual_names_t
-block|}
+typedef|typedef
+name|ngx_hash_combined_t
 name|ngx_http_virtual_names_t
 typedef|;
 end_typedef
@@ -1221,7 +1209,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2797dca50908
+DECL|struct|__anon28c1511d0808
 typedef|typedef
 struct|struct
 block|{

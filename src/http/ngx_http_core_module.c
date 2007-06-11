@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c5fc8b20108
+DECL|struct|__anon299edd530108
 typedef|typedef
 struct|struct
 block|{
@@ -11878,9 +11878,17 @@ condition|)
 block|{
 if|if
 condition|(
-name|ch
-operator|==
+name|ngx_strchr
+argument_list|(
+name|value
+index|[
+literal|1
+index|]
+operator|.
+name|data
+argument_list|,
 literal|'*'
+argument_list|)
 condition|)
 block|{
 name|ngx_conf_log_error
