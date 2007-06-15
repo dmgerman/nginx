@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29e6ba6e0108
+DECL|struct|__anon2af133090108
 typedef|typedef
 struct|struct
 block|{
@@ -57,7 +57,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e6ba6e0208
+DECL|struct|__anon2af133090208
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e6ba6e0308
+DECL|struct|__anon2af133090308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e6ba6e0408
+DECL|struct|__anon2af133090408
 typedef|typedef
 struct|struct
 block|{
@@ -432,6 +432,18 @@ end_endif
 
 begin_function_decl
 specifier|static
+name|ngx_int_t
+name|ngx_http_perl_init_worker
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
 name|void
 name|ngx_http_perl_exit
 parameter_list|(
@@ -596,7 +608,7 @@ comment|/* init master */
 name|NULL
 block|,
 comment|/* init module */
-name|NULL
+name|ngx_http_perl_init_worker
 block|,
 comment|/* init process */
 name|NULL
@@ -4091,6 +4103,44 @@ name|pv
 expr_stmt|;
 return|return
 name|NGX_CONF_OK
+return|;
+block|}
+end_function
+
+begin_function
+specifier|static
+name|ngx_int_t
+DECL|function|ngx_http_perl_init_worker (ngx_cycle_t * cycle)
+name|ngx_http_perl_init_worker
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|)
+block|{
+comment|/* set worker's $$ */
+name|sv_setiv
+argument_list|(
+name|GvSV
+argument_list|(
+name|gv_fetchpv
+argument_list|(
+literal|"$"
+argument_list|,
+name|TRUE
+argument_list|,
+name|SVt_PV
+argument_list|)
+argument_list|)
+argument_list|,
+operator|(
+name|I32
+operator|)
+name|ngx_pid
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_OK
 return|;
 block|}
 end_function
