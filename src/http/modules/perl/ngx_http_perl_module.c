@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2af133090108
+DECL|struct|__anon2c60dcc70108
 typedef|typedef
 struct|struct
 block|{
@@ -57,7 +57,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af133090208
+DECL|struct|__anon2c60dcc70208
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af133090308
+DECL|struct|__anon2c60dcc70308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af133090408
+DECL|struct|__anon2c60dcc70408
 typedef|typedef
 struct|struct
 block|{
@@ -4118,6 +4118,34 @@ modifier|*
 name|cycle
 parameter_list|)
 block|{
+name|ngx_http_perl_main_conf_t
+modifier|*
+name|pmcf
+decl_stmt|;
+name|pmcf
+operator|=
+name|ngx_http_cycle_get_module_main_conf
+argument_list|(
+name|cycle
+argument_list|,
+name|ngx_http_perl_module
+argument_list|)
+expr_stmt|;
+block|{
+name|dTHXa
+argument_list|(
+name|pmcf
+operator|->
+name|perl
+argument_list|)
+expr_stmt|;
+name|PERL_SET_CONTEXT
+argument_list|(
+name|pmcf
+operator|->
+name|perl
+argument_list|)
+expr_stmt|;
 comment|/* set worker's $$ */
 name|sv_setiv
 argument_list|(
@@ -4139,6 +4167,7 @@ operator|)
 name|ngx_pid
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|NGX_OK
 return|;
