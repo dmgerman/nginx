@@ -62,7 +62,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon29ce8fb60108
+DECL|struct|__anon27d5bc460108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ce8fb60208
+DECL|struct|__anon27d5bc460208
 typedef|typedef
 struct|struct
 block|{
@@ -122,7 +122,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ce8fb60308
+DECL|struct|__anon27d5bc460308
 typedef|typedef
 struct|struct
 block|{
@@ -146,7 +146,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29ce8fb60403
+DECL|enum|__anon27d5bc460403
 typedef|typedef
 enum|enum
 block|{
@@ -4049,7 +4049,10 @@ condition|(
 name|cmd
 operator|->
 name|flush
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
 name|ctx
 operator|->
 name|out
@@ -4064,6 +4067,19 @@ argument_list|,
 name|ctx
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|rc
+operator|=
+name|ngx_http_next_body_filter
+argument_list|(
+name|r
+argument_list|,
+name|NULL
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|rc
