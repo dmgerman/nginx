@@ -106,7 +106,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c7f4a100108
+DECL|struct|__anon2bf471e60108
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7f4a100208
+DECL|struct|__anon2bf471e60208
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7f4a100308
+DECL|struct|__anon2bf471e60308
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7f4a100408
+DECL|struct|__anon2bf471e60408
 typedef|typedef
 struct|struct
 block|{
@@ -200,7 +200,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7f4a100508
+DECL|struct|__anon2bf471e60508
 typedef|typedef
 struct|struct
 block|{
@@ -1993,6 +1993,10 @@ argument_list|)
 return|;
 block|}
 end_function
+
+begin_comment
+comment|/*  * although there is a real $body_bytes_sent variable,  * this log operation code function is more optimized for logging  */
+end_comment
 
 begin_function
 specifier|static
