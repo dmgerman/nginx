@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon295a91c70108
+DECL|struct|__anon288c78770108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon295a91c70203
+DECL|enum|__anon288c78770203
 typedef|typedef
 enum|enum
 block|{
@@ -114,7 +114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295a91c70308
+DECL|struct|__anon288c78770308
 typedef|typedef
 struct|struct
 block|{
@@ -227,7 +227,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon295a91c70408
+DECL|struct|__anon288c78770408
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +270,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295a91c70508
+DECL|struct|__anon288c78770508
 typedef|typedef
 struct|struct
 block|{
@@ -300,7 +300,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295a91c70608
+DECL|struct|__anon288c78770608
 typedef|typedef
 struct|struct
 block|{
@@ -327,7 +327,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295a91c70708
+DECL|struct|__anon288c78770708
 typedef|typedef
 struct|struct
 block|{
@@ -5439,6 +5439,10 @@ return|;
 block|}
 if|if
 condition|(
+name|rc
+operator|==
+name|NGX_OK
+operator|&&
 name|u
 operator|->
 name|buffer
