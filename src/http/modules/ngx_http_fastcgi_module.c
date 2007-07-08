@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon288c78770108
+DECL|struct|__anon276a6d830108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon288c78770203
+DECL|enum|__anon276a6d830203
 typedef|typedef
 enum|enum
 block|{
@@ -114,7 +114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288c78770308
+DECL|struct|__anon276a6d830308
 typedef|typedef
 struct|struct
 block|{
@@ -227,7 +227,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon288c78770408
+DECL|struct|__anon276a6d830408
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +270,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288c78770508
+DECL|struct|__anon276a6d830508
 typedef|typedef
 struct|struct
 block|{
@@ -300,7 +300,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288c78770608
+DECL|struct|__anon276a6d830608
 typedef|typedef
 struct|struct
 block|{
@@ -327,7 +327,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288c78770708
+DECL|struct|__anon276a6d830708
 typedef|typedef
 struct|struct
 block|{
@@ -5442,31 +5442,13 @@ condition|(
 name|rc
 operator|==
 name|NGX_OK
-operator|&&
-name|u
-operator|->
-name|buffer
-operator|.
-name|pos
-operator|==
-name|u
-operator|->
-name|buffer
-operator|.
-name|last
 condition|)
 block|{
 return|return
 name|NGX_AGAIN
 return|;
 block|}
-if|if
-condition|(
-name|rc
-operator|==
-name|NGX_AGAIN
-condition|)
-block|{
+comment|/* rc == NGX_AGAIN */
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
@@ -5485,7 +5467,6 @@ expr_stmt|;
 return|return
 name|NGX_HTTP_UPSTREAM_INVALID_HEADER
 return|;
-block|}
 block|}
 block|}
 end_function
