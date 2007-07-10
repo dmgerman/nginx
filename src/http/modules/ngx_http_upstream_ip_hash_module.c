@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28e534790108
+DECL|struct|__anon2c2a97ad0108
 typedef|typedef
 struct|struct
 block|{
@@ -801,21 +801,6 @@ name|peer
 operator|->
 name|name
 expr_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_SSL
-operator|)
-name|pc
-operator|->
-name|ssl_session
-operator|=
-name|peer
-operator|->
-name|ssl_session
-expr_stmt|;
-endif|#
-directive|endif
 comment|/* ngx_unlock_mutex(iphp->rrp.peers->mutex); */
 name|iphp
 operator|->

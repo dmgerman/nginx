@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27d6575c0108
+DECL|struct|__anon27b6995d0108
 typedef|typedef
 struct|struct
 block|{
@@ -92,6 +92,7 @@ name|ngx_ssl_session_t
 modifier|*
 name|ssl_session
 decl_stmt|;
+comment|/* local to a process */
 endif|#
 directive|endif
 DECL|typedef|ngx_http_upstream_rr_peer_t
@@ -101,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d6575c0208
+DECL|struct|__anon27b6995d0208
 typedef|typedef
 struct|struct
 block|{
@@ -143,7 +144,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d6575c0308
+DECL|struct|__anon27b6995d0308
 typedef|typedef
 struct|struct
 block|{
@@ -243,8 +244,23 @@ operator|)
 end_if
 
 begin_function_decl
+name|ngx_int_t
+name|ngx_http_upstream_set_round_robin_peer_session
+parameter_list|(
+name|ngx_peer_connection_t
+modifier|*
+name|pc
+parameter_list|,
 name|void
-name|ngx_http_upstream_save_round_robin_peer
+modifier|*
+name|data
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_http_upstream_save_round_robin_peer_session
 parameter_list|(
 name|ngx_peer_connection_t
 modifier|*
