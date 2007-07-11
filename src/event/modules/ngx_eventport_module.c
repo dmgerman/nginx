@@ -114,7 +114,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon27a146f60108
+DECL|struct|__anon27ae9ca00108
 typedef|typedef
 struct|struct
 block|{
@@ -373,7 +373,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon27a146f60208
+DECL|struct|__anon27ae9ca00208
 typedef|typedef
 struct|struct
 block|{
@@ -2180,6 +2180,15 @@ argument_list|(
 name|rev
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|ev
+operator|->
+name|closed
+condition|)
+block|{
+continue|continue;
+block|}
 block|}
 if|if
 condition|(
