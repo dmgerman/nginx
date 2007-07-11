@@ -3310,6 +3310,11 @@ operator|==
 literal|0
 condition|)
 block|{
+name|ngx_set_errno
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 name|pwd
 operator|=
 name|getpwnam
@@ -3356,6 +3361,11 @@ operator|=
 name|pwd
 operator|->
 name|pw_uid
+expr_stmt|;
+name|ngx_set_errno
+argument_list|(
+literal|0
+argument_list|)
 expr_stmt|;
 name|grp
 operator|=
@@ -3940,6 +3950,11 @@ index|]
 operator|.
 name|data
 expr_stmt|;
+name|ngx_set_errno
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 name|pwd
 operator|=
 name|getpwnam
@@ -4025,6 +4040,11 @@ index|]
 operator|.
 name|data
 operator|)
+expr_stmt|;
+name|ngx_set_errno
+argument_list|(
+literal|0
+argument_list|)
 expr_stmt|;
 name|grp
 operator|=
