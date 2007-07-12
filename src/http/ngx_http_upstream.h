@@ -133,7 +133,7 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon2b2dee830108
+DECL|struct|__anon27b5c4690108
 typedef|typedef
 struct|struct
 block|{
@@ -169,7 +169,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2dee830208
+DECL|struct|__anon27b5c4690208
 typedef|typedef
 struct|struct
 block|{
@@ -238,7 +238,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2dee830308
+DECL|struct|__anon27b5c4690308
 typedef|typedef
 struct|struct
 block|{
@@ -262,7 +262,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2dee830408
+DECL|struct|__anon27b5c4690408
 typedef|typedef
 struct|struct
 block|{
@@ -403,7 +403,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b2dee830508
+DECL|struct|__anon27b5c4690508
 typedef|typedef
 struct|struct
 block|{
@@ -463,6 +463,10 @@ decl_stmt|;
 DECL|member|next_upstream
 name|ngx_uint_t
 name|next_upstream
+decl_stmt|;
+DECL|member|store
+name|ngx_uint_t
+name|store
 decl_stmt|;
 DECL|member|bufs
 name|ngx_bufs_t
@@ -559,7 +563,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2dee830608
+DECL|struct|__anon27b5c4690608
 typedef|typedef
 struct|struct
 block|{
@@ -595,7 +599,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2dee830708
+DECL|struct|__anon27b5c4690708
 typedef|typedef
 struct|struct
 block|{
@@ -902,6 +906,12 @@ DECL|member|cleanup
 name|ngx_http_cleanup_pt
 modifier|*
 name|cleanup
+decl_stmt|;
+DECL|member|store
+name|unsigned
+name|store
+range|:
+literal|1
 decl_stmt|;
 DECL|member|cachable
 name|unsigned

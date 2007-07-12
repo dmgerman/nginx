@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c76d9630108
+DECL|struct|__anon28c85ff40108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c76d9630203
+DECL|enum|__anon28c85ff40203
 typedef|typedef
 enum|enum
 block|{
@@ -114,7 +114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c76d9630308
+DECL|struct|__anon28c85ff40308
 typedef|typedef
 struct|struct
 block|{
@@ -135,7 +135,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c76d9630408
+DECL|struct|__anon28c85ff40408
 typedef|typedef
 struct|struct
 block|{
@@ -254,7 +254,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2c76d9630508
+DECL|struct|__anon28c85ff40508
 typedef|typedef
 struct|struct
 block|{
@@ -297,7 +297,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c76d9630608
+DECL|struct|__anon28c85ff40608
 typedef|typedef
 struct|struct
 block|{
@@ -327,7 +327,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c76d9630708
+DECL|struct|__anon28c85ff40708
 typedef|typedef
 struct|struct
 block|{
@@ -354,7 +354,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c76d9630808
+DECL|struct|__anon28c85ff40808
 typedef|typedef
 struct|struct
 block|{
@@ -888,6 +888,36 @@ argument_list|(
 name|ngx_http_fastcgi_loc_conf_t
 argument_list|,
 name|index
+argument_list|)
+block|,
+name|NULL
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"fastcgi_store"
+argument_list|)
+block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
+name|NGX_HTTP_SRV_CONF
+operator||
+name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_CONF_TAKE123
+block|,
+name|ngx_conf_set_access_slot
+block|,
+name|NGX_HTTP_LOC_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+name|ngx_http_fastcgi_loc_conf_t
+argument_list|,
+name|upstream
+operator|.
+name|store
 argument_list|)
 block|,
 name|NULL
@@ -7336,6 +7366,14 @@ name|conf
 operator|->
 name|upstream
 operator|.
+name|store
+operator|=
+name|NGX_CONF_UNSET_UINT
+expr_stmt|;
+name|conf
+operator|->
+name|upstream
+operator|.
 name|buffering
 operator|=
 name|NGX_CONF_UNSET
@@ -7524,6 +7562,23 @@ name|ngx_http_script_copy_code_t
 modifier|*
 name|copy
 decl_stmt|;
+name|ngx_conf_merge_uint_value
+argument_list|(
+name|conf
+operator|->
+name|upstream
+operator|.
+name|store
+argument_list|,
+name|prev
+operator|->
+name|upstream
+operator|.
+name|store
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
 name|ngx_conf_merge_value
 argument_list|(
 name|conf
