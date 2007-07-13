@@ -4172,34 +4172,64 @@ literal|0xffffffff
 comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
 block|}
 decl_stmt|;
-switch|switch
-condition|(
-name|type
-condition|)
+comment|/* " ", """, "'", %00-%1F, %7F-%FF */
+specifier|static
+name|uint32_t
+name|refresh
+index|[]
+init|=
 block|{
-case|case
-name|NGX_ESCAPE_HTML
-case|:
-name|escape
-operator|=
-name|html
-expr_stmt|;
-break|break;
-case|case
-name|NGX_ESCAPE_ARGS
-case|:
-name|escape
-operator|=
-name|args
-expr_stmt|;
-break|break;
-default|default:
-name|escape
-operator|=
-name|uri
-expr_stmt|;
-break|break;
+literal|0xffffffff
+block|,
+comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
+comment|/* ?>=< ;:98 7654 3210  /.-, +*)( '&%$ #"!  */
+literal|0x00000085
+block|,
+comment|/* 0000 0000 0000 0000  0000 0000 1000 0101 */
+comment|/* _^]\ [ZYX WVUT SRQP  ONML KJIH GFED CBA@ */
+literal|0x00000000
+block|,
+comment|/* 0000 0000 0000 0000  0000 0000 0000 0000 */
+comment|/*  ~}| {zyx wvut srqp  onml kjih gfed cba` */
+literal|0x80000000
+block|,
+comment|/* 1000 0000 0000 0000  0000 0000 0000 0000 */
+literal|0xffffffff
+block|,
+comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
+literal|0xffffffff
+block|,
+comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
+literal|0xffffffff
+block|,
+comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
+literal|0xffffffff
+comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
 block|}
+decl_stmt|;
+specifier|static
+name|uint32_t
+modifier|*
+name|map
+index|[]
+init|=
+block|{
+name|uri
+block|,
+name|args
+block|,
+name|html
+block|,
+name|refresh
+block|}
+decl_stmt|;
+name|escape
+operator|=
+name|map
+index|[
+name|type
+index|]
+expr_stmt|;
 if|if
 condition|(
 name|dst
@@ -4389,7 +4419,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon2a3de73c0103
+DECL|enum|__anon28a5cb850103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
