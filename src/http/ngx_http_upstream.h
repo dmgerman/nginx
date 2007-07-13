@@ -133,7 +133,7 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon27b5c4690108
+DECL|struct|__anon2b18f33d0108
 typedef|typedef
 struct|struct
 block|{
@@ -169,7 +169,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b5c4690208
+DECL|struct|__anon2b18f33d0208
 typedef|typedef
 struct|struct
 block|{
@@ -238,7 +238,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b5c4690308
+DECL|struct|__anon2b18f33d0308
 typedef|typedef
 struct|struct
 block|{
@@ -262,7 +262,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b5c4690408
+DECL|struct|__anon2b18f33d0408
 typedef|typedef
 struct|struct
 block|{
@@ -403,7 +403,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27b5c4690508
+DECL|struct|__anon2b18f33d0508
 typedef|typedef
 struct|struct
 block|{
@@ -464,9 +464,9 @@ DECL|member|next_upstream
 name|ngx_uint_t
 name|next_upstream
 decl_stmt|;
-DECL|member|store
+DECL|member|store_access
 name|ngx_uint_t
-name|store
+name|store_access
 decl_stmt|;
 DECL|member|bufs
 name|ngx_bufs_t
@@ -532,6 +532,22 @@ name|ngx_str_t
 name|url
 decl_stmt|;
 comment|/* used in proxy_rewrite_location */
+DECL|member|store_lengths
+name|ngx_array_t
+modifier|*
+name|store_lengths
+decl_stmt|;
+DECL|member|store_values
+name|ngx_array_t
+modifier|*
+name|store_values
+decl_stmt|;
+DECL|member|store
+name|signed
+name|store
+range|:
+literal|2
+decl_stmt|;
 DECL|member|intercept_404
 name|unsigned
 name|intercept_404
@@ -563,7 +579,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b5c4690608
+DECL|struct|__anon2b18f33d0608
 typedef|typedef
 struct|struct
 block|{
@@ -599,7 +615,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b5c4690708
+DECL|struct|__anon2b18f33d0708
 typedef|typedef
 struct|struct
 block|{
