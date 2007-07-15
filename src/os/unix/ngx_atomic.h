@@ -525,6 +525,8 @@ directive|elif
 operator|(
 name|__sparc__
 operator|||
+name|__sparc
+operator|||
 name|__sparcv9
 operator|)
 end_elif
