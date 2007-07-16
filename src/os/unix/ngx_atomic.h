@@ -330,6 +330,19 @@ function_decl|;
 end_function_decl
 
 begin_comment
+comment|/*  * Sun Studio 12 exits with segmentation fault on '__asm ("pause")',  * so ngx_cpu_pause is declared in src/os/unix/ngx_sunpro_x86.il  */
+end_comment
+
+begin_function_decl
+name|void
+name|ngx_cpu_pause
+parameter_list|(
+name|void
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_comment
 comment|/* the code in src/os/unix/ngx_sunpro_x86.il */
 end_comment
 
@@ -340,15 +353,6 @@ directive|define
 name|ngx_memory_barrier
 parameter_list|()
 value|__asm (".volatile"); __asm (".nonvolatile")
-end_define
-
-begin_define
-DECL|macro|ngx_cpu_pause ()
-define|#
-directive|define
-name|ngx_cpu_pause
-parameter_list|()
-value|__asm ("pause")
 end_define
 
 begin_else
@@ -470,6 +474,19 @@ function_decl|;
 end_function_decl
 
 begin_comment
+comment|/*  * Sun Studio 12 exits with segmentation fault on '__asm ("pause")',  * so ngx_cpu_pause is declared in src/os/unix/ngx_sunpro_amd64.il  */
+end_comment
+
+begin_function_decl
+name|void
+name|ngx_cpu_pause
+parameter_list|(
+name|void
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_comment
 comment|/* the code in src/os/unix/ngx_sunpro_amd64.il */
 end_comment
 
@@ -480,15 +497,6 @@ directive|define
 name|ngx_memory_barrier
 parameter_list|()
 value|__asm (".volatile"); __asm (".nonvolatile")
-end_define
-
-begin_define
-DECL|macro|ngx_cpu_pause ()
-define|#
-directive|define
-name|ngx_cpu_pause
-parameter_list|()
-value|__asm ("pause")
 end_define
 
 begin_else
