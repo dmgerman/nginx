@@ -58,7 +58,7 @@ value|(sizeof("&#1114111;") - 1)
 end_define
 
 begin_typedef
-DECL|struct|__anon288ed0870108
+DECL|struct|__anon2b8ce97a0108
 typedef|typedef
 struct|struct
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288ed0870208
+DECL|struct|__anon2b8ce97a0208
 typedef|typedef
 struct|struct
 block|{
@@ -110,7 +110,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288ed0870308
+DECL|struct|__anon2b8ce97a0308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288ed0870408
+DECL|struct|__anon2b8ce97a0408
 typedef|typedef
 struct|struct
 block|{
@@ -165,7 +165,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288ed0870508
+DECL|struct|__anon2b8ce97a0508
 typedef|typedef
 struct|struct
 block|{
@@ -188,7 +188,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288ed0870608
+DECL|struct|__anon2b8ce97a0608
 typedef|typedef
 struct|struct
 block|{
@@ -252,7 +252,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288ed0870708
+DECL|struct|__anon2b8ce97a0708
 typedef|typedef
 struct|struct
 block|{
@@ -797,6 +797,8 @@ name|from
 decl_stmt|,
 modifier|*
 name|to
+decl_stmt|,
+name|s
 decl_stmt|;
 name|ngx_uint_t
 name|n
@@ -1092,6 +1094,22 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|s
+operator|.
+name|len
+operator|=
+name|vv
+operator|->
+name|len
+expr_stmt|;
+name|s
+operator|.
+name|data
+operator|=
+name|vv
+operator|->
+name|data
+expr_stmt|;
 name|charset
 operator|=
 name|ngx_http_charset_get_charset
@@ -1100,11 +1118,8 @@ name|charsets
 argument_list|,
 name|n
 argument_list|,
-operator|(
-name|ngx_str_t
-operator|*
-operator|)
-name|vv
+operator|&
+name|s
 argument_list|)
 expr_stmt|;
 block|}
@@ -1283,6 +1298,22 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|s
+operator|.
+name|len
+operator|=
+name|vv
+operator|->
+name|len
+expr_stmt|;
+name|s
+operator|.
+name|data
+operator|=
+name|vv
+operator|->
+name|data
+expr_stmt|;
 name|source_charset
 operator|=
 name|ngx_http_charset_get_charset
@@ -1291,11 +1322,8 @@ name|charsets
 argument_list|,
 name|n
 argument_list|,
-operator|(
-name|ngx_str_t
-operator|*
-operator|)
-name|vv
+operator|&
+name|s
 argument_list|)
 expr_stmt|;
 block|}
@@ -1597,20 +1625,9 @@ modifier|*
 name|charset
 parameter_list|)
 block|{
-name|size_t
-name|len
-decl_stmt|;
 name|ngx_uint_t
 name|i
 decl_stmt|;
-name|len
-operator|=
-name|charset
-operator|->
-name|len
-operator|&
-literal|0xffff
-expr_stmt|;
 for|for
 control|(
 name|i
@@ -1636,6 +1653,8 @@ name|name
 operator|.
 name|len
 operator|!=
+name|charset
+operator|->
 name|len
 condition|)
 block|{
@@ -1658,6 +1677,8 @@ name|charset
 operator|->
 name|data
 argument_list|,
+name|charset
+operator|->
 name|len
 argument_list|)
 operator|==

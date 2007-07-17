@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bad31010108
+DECL|struct|__anon2b8afe690108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bad31010208
+DECL|struct|__anon2b8afe690208
 typedef|typedef
 struct|struct
 block|{
@@ -64,6 +64,46 @@ decl_stmt|;
 DECL|typedef|ngx_keyval_t
 block|}
 name|ngx_keyval_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2b8afe690308
+typedef|typedef
+struct|struct
+block|{
+DECL|member|len
+name|unsigned
+name|len
+range|:
+literal|29
+decl_stmt|;
+DECL|member|valid
+name|unsigned
+name|valid
+range|:
+literal|1
+decl_stmt|;
+DECL|member|no_cachable
+name|unsigned
+name|no_cachable
+range|:
+literal|1
+decl_stmt|;
+DECL|member|not_found
+name|unsigned
+name|not_found
+range|:
+literal|1
+decl_stmt|;
+DECL|member|data
+name|u_char
+modifier|*
+name|data
+decl_stmt|;
+DECL|typedef|ngx_variable_value_t
+block|}
+name|ngx_variable_value_t
 typedef|;
 end_typedef
 

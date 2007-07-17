@@ -2700,8 +2700,6 @@ operator|=
 name|v
 operator|->
 name|len
-operator|&
-literal|0xffff
 expr_stmt|;
 name|val
 operator|.
