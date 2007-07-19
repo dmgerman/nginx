@@ -1686,6 +1686,17 @@ operator|->
 name|env
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|var
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NULL
+return|;
+block|}
 name|var
 operator|->
 name|len
