@@ -60,7 +60,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29fbf0270108
+DECL|struct|__anon28e2c3790108
 typedef|typedef
 struct|struct
 block|{
@@ -83,7 +83,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fbf0270208
+DECL|struct|__anon28e2c3790208
 typedef|typedef
 struct|struct
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fbf0270308
+DECL|struct|__anon28e2c3790308
 typedef|typedef
 struct|struct
 block|{
@@ -142,7 +142,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fbf0270408
+DECL|struct|__anon28e2c3790408
 typedef|typedef
 struct|struct
 block|{
@@ -163,7 +163,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fbf0270508
+DECL|struct|__anon28e2c3790508
 typedef|typedef
 struct|struct
 block|{
@@ -183,7 +183,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fbf0270608
+DECL|struct|__anon28e2c3790608
 typedef|typedef
 struct|struct
 block|{
@@ -209,7 +209,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fbf0270708
+DECL|struct|__anon28e2c3790708
 typedef|typedef
 struct|struct
 block|{
@@ -254,7 +254,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon29fbf0270808
+DECL|struct|__anon28e2c3790808
 typedef|typedef
 struct|struct
 block|{
@@ -306,6 +306,14 @@ DECL|member|smtp_capability
 name|ngx_str_t
 name|smtp_capability
 decl_stmt|;
+DECL|member|smtp_starttls_capability
+name|ngx_str_t
+name|smtp_starttls_capability
+decl_stmt|;
+DECL|member|smtp_starttls_only_capability
+name|ngx_str_t
+name|smtp_starttls_only_capability
+decl_stmt|;
 DECL|member|server_name
 name|ngx_str_t
 name|server_name
@@ -351,7 +359,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fbf0270908
+DECL|struct|__anon28e2c3790908
 typedef|typedef
 struct|struct
 block|{
@@ -426,7 +434,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29fbf0270a03
+DECL|enum|__anon28e2c3790a03
 typedef|typedef
 enum|enum
 block|{
@@ -459,7 +467,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29fbf0270b03
+DECL|enum|__anon28e2c3790b03
 typedef|typedef
 enum|enum
 block|{
@@ -483,7 +491,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29fbf0270c03
+DECL|enum|__anon28e2c3790c03
 typedef|typedef
 enum|enum
 block|{
@@ -519,7 +527,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fbf0270d08
+DECL|struct|__anon28e2c3790d08
 typedef|typedef
 struct|struct
 block|{
@@ -539,7 +547,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fbf0270e08
+DECL|struct|__anon28e2c3790e08
 typedef|typedef
 struct|struct
 block|{
@@ -721,7 +729,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fbf0270f08
+DECL|struct|__anon28e2c3790f08
 typedef|typedef
 struct|struct
 block|{
@@ -966,6 +974,54 @@ value|7
 end_define
 
 begin_define
+DECL|macro|NGX_SMTP_RCPT
+define|#
+directive|define
+name|NGX_SMTP_RCPT
+value|8
+end_define
+
+begin_define
+DECL|macro|NGX_SMTP_DATA
+define|#
+directive|define
+name|NGX_SMTP_DATA
+value|9
+end_define
+
+begin_define
+DECL|macro|NGX_SMTP_VRFY
+define|#
+directive|define
+name|NGX_SMTP_VRFY
+value|10
+end_define
+
+begin_define
+DECL|macro|NGX_SMTP_EXPN
+define|#
+directive|define
+name|NGX_SMTP_EXPN
+value|11
+end_define
+
+begin_define
+DECL|macro|NGX_SMTP_HELP
+define|#
+directive|define
+name|NGX_SMTP_HELP
+value|12
+end_define
+
+begin_define
+DECL|macro|NGX_SMTP_STARTTLS
+define|#
+directive|define
+name|NGX_SMTP_STARTTLS
+value|13
+end_define
+
+begin_define
 DECL|macro|NGX_MAIL_AUTH_PLAIN
 define|#
 directive|define
@@ -1162,6 +1218,20 @@ name|module
 parameter_list|)
 define|\
 value|((ngx_mail_conf_ctx_t *) cf->ctx)->main_conf[module.ctx_index]
+end_define
+
+begin_define
+DECL|macro|ngx_mail_conf_get_module_srv_conf (cf,module)
+define|#
+directive|define
+name|ngx_mail_conf_get_module_srv_conf
+parameter_list|(
+name|cf
+parameter_list|,
+name|module
+parameter_list|)
+define|\
+value|((ngx_mail_conf_ctx_t *) cf->ctx)->srv_conf[module.ctx_index]
 end_define
 
 begin_function_decl
