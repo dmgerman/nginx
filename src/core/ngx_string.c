@@ -4205,6 +4205,42 @@ literal|0xffffffff
 comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
 block|}
 decl_stmt|;
+comment|/* " ", %00-%1F */
+specifier|static
+name|uint32_t
+name|memcached
+index|[]
+init|=
+block|{
+literal|0xffffffff
+block|,
+comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
+comment|/* ?>=< ;:98 7654 3210  /.-, +*)( '&%$ #"!  */
+literal|0x00000001
+block|,
+comment|/* 0000 0000 0000 0000  0000 0000 0000 0001 */
+comment|/* _^]\ [ZYX WVUT SRQP  ONML KJIH GFED CBA@ */
+literal|0x00000000
+block|,
+comment|/* 0000 0000 0000 0000  0000 0000 0000 0000 */
+comment|/*  ~}| {zyx wvut srqp  onml kjih gfed cba` */
+literal|0x00000000
+block|,
+comment|/* 0000 0000 0000 0000  0000 0000 0000 0000 */
+literal|0x00000000
+block|,
+comment|/* 0000 0000 0000 0000  0000 0000 0000 0000 */
+literal|0x00000000
+block|,
+comment|/* 0000 0000 0000 0000  0000 0000 0000 0000 */
+literal|0x00000000
+block|,
+comment|/* 0000 0000 0000 0000  0000 0000 0000 0000 */
+literal|0x00000000
+block|,
+comment|/* 0000 0000 0000 0000  0000 0000 0000 0000 */
+block|}
+decl_stmt|;
 specifier|static
 name|uint32_t
 modifier|*
@@ -4219,6 +4255,8 @@ block|,
 name|html
 block|,
 name|refresh
+block|,
+name|memcached
 block|}
 decl_stmt|;
 name|escape
@@ -4417,7 +4455,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon279524860103
+DECL|enum|__anon29bfc9f20103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
