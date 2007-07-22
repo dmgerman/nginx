@@ -28,7 +28,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a55faa60108
+DECL|struct|__anon2b5e39fd0108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a55faa60208
+DECL|struct|__anon2b5e39fd0208
 typedef|typedef
 struct|struct
 block|{
@@ -1058,22 +1058,6 @@ argument_list|)
 operator|-
 literal|1
 expr_stmt|;
-if|if
-condition|(
-name|vv
-operator|->
-name|len
-condition|)
-block|{
-name|len
-operator|+=
-literal|1
-operator|+
-name|vv
-operator|->
-name|len
-expr_stmt|;
-block|}
 name|b
 operator|=
 name|ngx_create_temp_buf
