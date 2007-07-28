@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27b6995d0108
+DECL|struct|__anon29c673f30108
 typedef|typedef
 struct|struct
 block|{
@@ -54,11 +54,11 @@ name|ngx_str_t
 name|name
 decl_stmt|;
 DECL|member|current_weight
-name|ngx_uint_t
+name|ngx_int_t
 name|current_weight
 decl_stmt|;
 DECL|member|weight
-name|ngx_uint_t
+name|ngx_int_t
 name|weight
 decl_stmt|;
 DECL|member|fails
@@ -85,7 +85,7 @@ comment|/* unsigned  down:1; */
 if|#
 directive|if
 operator|(
-name|NGX_SSL
+name|NGX_HTTP_SSL
 operator|)
 DECL|member|ssl_session
 name|ngx_ssl_session_t
@@ -102,14 +102,10 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b6995d0208
+DECL|struct|__anon29c673f30208
 typedef|typedef
 struct|struct
 block|{
-DECL|member|current
-name|ngx_uint_t
-name|current
-decl_stmt|;
 DECL|member|number
 name|ngx_uint_t
 name|number
@@ -144,7 +140,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b6995d0308
+DECL|struct|__anon29c673f30308
 typedef|typedef
 struct|struct
 block|{
