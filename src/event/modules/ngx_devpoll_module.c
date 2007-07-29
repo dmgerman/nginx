@@ -78,16 +78,16 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c2c70a80108
+DECL|struct|__anon2b8a2db40108
 typedef|typedef
 struct|struct
 block|{
 DECL|member|changes
-name|u_int
+name|ngx_uint_t
 name|changes
 decl_stmt|;
 DECL|member|events
-name|u_int
+name|ngx_uint_t
 name|events
 decl_stmt|;
 DECL|typedef|ngx_devpoll_conf_t
@@ -132,10 +132,10 @@ name|ngx_event_t
 modifier|*
 name|ev
 parameter_list|,
-name|int
+name|ngx_int_t
 name|event
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 function_decl|;
@@ -150,10 +150,10 @@ name|ngx_event_t
 modifier|*
 name|ev
 parameter_list|,
-name|int
+name|ngx_int_t
 name|event
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 function_decl|;
@@ -168,10 +168,10 @@ name|ngx_event_t
 modifier|*
 name|ev
 parameter_list|,
-name|int
+name|ngx_int_t
 name|event
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 function_decl|;
@@ -255,7 +255,7 @@ DECL|variable|nchanges
 DECL|variable|max_changes
 DECL|variable|nevents
 specifier|static
-name|u_int
+name|ngx_uint_t
 name|nchanges
 decl_stmt|,
 name|max_changes
@@ -835,17 +835,17 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_devpoll_add_event (ngx_event_t * ev,int event,u_int flags)
+DECL|function|ngx_devpoll_add_event (ngx_event_t * ev,ngx_int_t event,ngx_uint_t flags)
 name|ngx_devpoll_add_event
 parameter_list|(
 name|ngx_event_t
 modifier|*
 name|ev
 parameter_list|,
-name|int
+name|ngx_int_t
 name|event
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 block|{
@@ -902,7 +902,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"devpoll add event: fd:%d ev:%04Xd"
+literal|"devpoll add event: fd:%d ev:%04Xi"
 argument_list|,
 name|c
 operator|->
@@ -935,17 +935,17 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_devpoll_del_event (ngx_event_t * ev,int event,u_int flags)
+DECL|function|ngx_devpoll_del_event (ngx_event_t * ev,ngx_int_t event,ngx_uint_t flags)
 name|ngx_devpoll_del_event
 parameter_list|(
 name|ngx_event_t
 modifier|*
 name|ev
 parameter_list|,
-name|int
+name|ngx_int_t
 name|event
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 block|{
@@ -994,7 +994,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"devpoll del event: fd:%d ev:%04Xd"
+literal|"devpoll del event: fd:%d ev:%04Xi"
 argument_list|,
 name|c
 operator|->
@@ -1099,17 +1099,17 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_devpoll_set_event (ngx_event_t * ev,int event,u_int flags)
+DECL|function|ngx_devpoll_set_event (ngx_event_t * ev,ngx_int_t event,ngx_uint_t flags)
 name|ngx_devpoll_set_event
 parameter_list|(
 name|ngx_event_t
 modifier|*
 name|ev
 parameter_list|,
-name|int
+name|ngx_int_t
 name|event
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 block|{
@@ -1136,7 +1136,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"devpoll fd:%d ev:%04Xd fl:%04Xd"
+literal|"devpoll fd:%d ev:%04Xi fl:%04Xi"
 argument_list|,
 name|c
 operator|->
@@ -1234,6 +1234,9 @@ index|]
 operator|.
 name|events
 operator|=
+operator|(
+name|short
+operator|)
 name|event
 expr_stmt|;
 name|change_list
@@ -1455,6 +1458,9 @@ name|dvp
 operator|.
 name|dp_nfds
 operator|=
+operator|(
+name|int
+operator|)
 name|nevents
 expr_stmt|;
 name|dvp

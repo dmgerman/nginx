@@ -191,9 +191,14 @@ literal|0
 operator|||
 name|limit
 operator|>
+operator|(
+name|off_t
+operator|)
+operator|(
 name|NGX_MAX_SIZE_T_VALUE
 operator|-
 name|ngx_pagesize
+operator|)
 condition|)
 block|{
 name|limit

@@ -327,12 +327,12 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon295982740108
+DECL|struct|__anon28e4a03e0108
 typedef|typedef
 struct|struct
 block|{
 DECL|member|events
-name|u_int
+name|ngx_uint_t
 name|events
 decl_stmt|;
 DECL|typedef|ngx_epoll_conf_t
@@ -377,10 +377,10 @@ name|ngx_event_t
 modifier|*
 name|ev
 parameter_list|,
-name|int
+name|ngx_int_t
 name|event
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 function_decl|;
@@ -395,10 +395,10 @@ name|ngx_event_t
 modifier|*
 name|ev
 parameter_list|,
-name|int
+name|ngx_int_t
 name|event
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 function_decl|;
@@ -425,7 +425,7 @@ name|ngx_connection_t
 modifier|*
 name|c
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 function_decl|;
@@ -503,7 +503,7 @@ end_decl_stmt
 begin_decl_stmt
 DECL|variable|nevents
 specifier|static
-name|u_int
+name|ngx_uint_t
 name|nevents
 decl_stmt|;
 end_decl_stmt
@@ -895,17 +895,17 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_epoll_add_event (ngx_event_t * ev,int event,u_int flags)
+DECL|function|ngx_epoll_add_event (ngx_event_t * ev,ngx_int_t event,ngx_uint_t flags)
 name|ngx_epoll_add_event
 parameter_list|(
 name|ngx_event_t
 modifier|*
 name|ev
 parameter_list|,
-name|int
+name|ngx_int_t
 name|event
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 block|{
@@ -1028,6 +1028,9 @@ name|events
 operator|=
 name|events
 operator||
+operator|(
+name|uint32_t
+operator|)
 name|flags
 expr_stmt|;
 name|ee
@@ -1138,17 +1141,17 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_epoll_del_event (ngx_event_t * ev,int event,u_int flags)
+DECL|function|ngx_epoll_del_event (ngx_event_t * ev,ngx_int_t event,ngx_uint_t flags)
 name|ngx_epoll_del_event
 parameter_list|(
 name|ngx_event_t
 modifier|*
 name|ev
 parameter_list|,
-name|int
+name|ngx_int_t
 name|event
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 block|{
@@ -1242,6 +1245,9 @@ name|events
 operator|=
 name|prev
 operator||
+operator|(
+name|uint32_t
+operator|)
 name|flags
 expr_stmt|;
 name|ee
@@ -1500,14 +1506,14 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_epoll_del_connection (ngx_connection_t * c,u_int flags)
+DECL|function|ngx_epoll_del_connection (ngx_connection_t * c,ngx_uint_t flags)
 name|ngx_epoll_del_connection
 parameter_list|(
 name|ngx_connection_t
 modifier|*
 name|c
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 block|{
@@ -1723,6 +1729,9 @@ name|ep
 argument_list|,
 name|event_list
 argument_list|,
+operator|(
+name|int
+operator|)
 name|nevents
 argument_list|,
 name|timer

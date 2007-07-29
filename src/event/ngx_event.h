@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2b79c7200108
+DECL|struct|__anon28e89da10108
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b79c7200208
+DECL|struct|__anon28e89da10208
 typedef|typedef
 struct|struct
 block|{
@@ -315,7 +315,7 @@ directive|endif
 endif|#
 directive|endif
 DECL|member|index
-name|u_int
+name|ngx_uint_t
 name|index
 decl_stmt|;
 DECL|member|log
@@ -440,7 +440,7 @@ operator|(
 name|NGX_EVENT_T_PADDING
 operator|)
 comment|/* event should not cross cache line in SMP */
-block|int              padding[NGX_EVENT_T_PADDING];
+block|uint32_t         padding[NGX_EVENT_T_PADDING];
 endif|#
 directive|endif
 endif|#
@@ -450,7 +450,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b79c7200308
+DECL|struct|__anon28e89da10308
 typedef|typedef
 struct|struct
 block|{
@@ -469,7 +469,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b79c7200408
+DECL|struct|__anon28e89da10408
 typedef|typedef
 struct|struct
 block|{
@@ -484,10 +484,10 @@ name|ngx_event_t
 modifier|*
 name|ev
 parameter_list|,
-name|int
+name|ngx_int_t
 name|event
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 function_decl|;
@@ -502,10 +502,10 @@ name|ngx_event_t
 modifier|*
 name|ev
 parameter_list|,
-name|int
+name|ngx_int_t
 name|event
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 function_decl|;
@@ -520,10 +520,10 @@ name|ngx_event_t
 modifier|*
 name|ev
 parameter_list|,
-name|int
+name|ngx_int_t
 name|event
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 function_decl|;
@@ -538,10 +538,10 @@ name|ngx_event_t
 modifier|*
 name|ev
 parameter_list|,
-name|int
+name|ngx_int_t
 name|event
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 function_decl|;
@@ -568,7 +568,7 @@ name|ngx_connection_t
 modifier|*
 name|c
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 function_decl|;
@@ -1341,7 +1341,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2b79c7200508
+DECL|struct|__anon28e89da10508
 typedef|typedef
 struct|struct
 block|{
@@ -1388,7 +1388,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b79c7200608
+DECL|struct|__anon28e89da10608
 typedef|typedef
 struct|struct
 block|{
@@ -1682,7 +1682,7 @@ name|ngx_event_t
 modifier|*
 name|rev
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 function_decl|;

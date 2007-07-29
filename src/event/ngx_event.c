@@ -1047,14 +1047,14 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_handle_read_event (ngx_event_t * rev,u_int flags)
+DECL|function|ngx_handle_read_event (ngx_event_t * rev,ngx_uint_t flags)
 name|ngx_handle_read_event
 parameter_list|(
 name|ngx_event_t
 modifier|*
 name|rev
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 block|{

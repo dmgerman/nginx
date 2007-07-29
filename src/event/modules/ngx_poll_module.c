@@ -57,10 +57,10 @@ name|ngx_event_t
 modifier|*
 name|ev
 parameter_list|,
-name|int
+name|ngx_int_t
 name|event
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 function_decl|;
@@ -75,10 +75,10 @@ name|ngx_event_t
 modifier|*
 name|ev
 parameter_list|,
-name|int
+name|ngx_int_t
 name|event
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 function_decl|;
@@ -132,7 +132,7 @@ end_decl_stmt
 begin_decl_stmt
 DECL|variable|nevents
 specifier|static
-name|int
+name|ngx_int_t
 name|nevents
 decl_stmt|;
 end_decl_stmt
@@ -407,17 +407,17 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_poll_add_event (ngx_event_t * ev,int event,u_int flags)
+DECL|function|ngx_poll_add_event (ngx_event_t * ev,ngx_int_t event,ngx_uint_t flags)
 name|ngx_poll_add_event
 parameter_list|(
 name|ngx_event_t
 modifier|*
 name|ev
 parameter_list|,
-name|int
+name|ngx_int_t
 name|event
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 block|{
@@ -460,7 +460,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"poll event fd:%d ev:%d is already set"
+literal|"poll event fd:%d ev:%i is already set"
 argument_list|,
 name|c
 operator|->
@@ -532,7 +532,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"poll add event: fd:%d ev:%d"
+literal|"poll add event: fd:%d ev:%i"
 argument_list|,
 name|c
 operator|->
@@ -572,6 +572,9 @@ index|]
 operator|.
 name|events
 operator|=
+operator|(
+name|short
+operator|)
 name|event
 expr_stmt|;
 name|event_list
@@ -605,7 +608,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"poll add index: %d"
+literal|"poll add index: %i"
 argument_list|,
 name|e
 operator|->
@@ -621,6 +624,9 @@ index|]
 operator|.
 name|events
 operator||=
+operator|(
+name|short
+operator|)
 name|event
 expr_stmt|;
 name|ev
@@ -641,17 +647,17 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_poll_del_event (ngx_event_t * ev,int event,u_int flags)
+DECL|function|ngx_poll_del_event (ngx_event_t * ev,ngx_int_t event,ngx_uint_t flags)
 name|ngx_poll_del_event
 parameter_list|(
 name|ngx_event_t
 modifier|*
 name|ev
 parameter_list|,
-name|int
+name|ngx_int_t
 name|event
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 block|{
@@ -694,7 +700,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"poll event fd:%d ev:%d is already deleted"
+literal|"poll event fd:%d ev:%i is already deleted"
 argument_list|,
 name|c
 operator|->
@@ -766,7 +772,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"poll del event: fd:%d ev:%d"
+literal|"poll del event: fd:%d ev:%i"
 argument_list|,
 name|c
 operator|->
@@ -798,7 +804,7 @@ operator|->
 name|index
 operator|<
 operator|(
-name|u_int
+name|ngx_uint_t
 operator|)
 name|nevents
 condition|)
@@ -813,7 +819,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"index: copy event %d to %d"
+literal|"index: copy event %ui to %i"
 argument_list|,
 name|nevents
 argument_list|,
@@ -883,7 +889,7 @@ operator|->
 name|index
 operator|==
 operator|(
-name|u_int
+name|ngx_uint_t
 operator|)
 name|nevents
 condition|)
@@ -908,7 +914,7 @@ operator|->
 name|index
 operator|==
 operator|(
-name|u_int
+name|ngx_uint_t
 operator|)
 name|nevents
 condition|)
@@ -939,7 +945,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"poll del index: %d"
+literal|"poll del index: %i"
 argument_list|,
 name|e
 operator|->
@@ -955,6 +961,9 @@ index|]
 operator|.
 name|events
 operator|&=
+operator|(
+name|short
+operator|)
 operator|~
 name|event
 expr_stmt|;

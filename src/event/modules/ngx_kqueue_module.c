@@ -28,16 +28,16 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29fc87f80108
+DECL|struct|__anon2b9edbc40108
 typedef|typedef
 struct|struct
 block|{
 DECL|member|changes
-name|int
+name|ngx_uint_t
 name|changes
 decl_stmt|;
 DECL|member|events
-name|int
+name|ngx_uint_t
 name|events
 decl_stmt|;
 DECL|typedef|ngx_kqueue_conf_t
@@ -82,10 +82,10 @@ name|ngx_event_t
 modifier|*
 name|ev
 parameter_list|,
-name|int
+name|ngx_int_t
 name|event
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 function_decl|;
@@ -100,10 +100,10 @@ name|ngx_event_t
 modifier|*
 name|ev
 parameter_list|,
-name|int
+name|ngx_int_t
 name|event
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 function_decl|;
@@ -118,10 +118,10 @@ name|ngx_event_t
 modifier|*
 name|ev
 parameter_list|,
-name|int
+name|ngx_int_t
 name|filter
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 function_decl|;
@@ -255,7 +255,7 @@ DECL|variable|max_changes
 DECL|variable|nchanges
 DECL|variable|nevents
 specifier|static
-name|int
+name|ngx_uint_t
 name|max_changes
 decl_stmt|,
 name|nchanges
@@ -631,6 +631,9 @@ name|ngx_kqueue
 argument_list|,
 name|change_list
 argument_list|,
+operator|(
+name|int
+operator|)
 name|nchanges
 argument_list|,
 name|NULL
@@ -1085,17 +1088,17 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_kqueue_add_event (ngx_event_t * ev,int event,u_int flags)
+DECL|function|ngx_kqueue_add_event (ngx_event_t * ev,ngx_int_t event,ngx_uint_t flags)
 name|ngx_kqueue_add_event
 parameter_list|(
 name|ngx_event_t
 modifier|*
 name|ev
 parameter_list|,
-name|int
+name|ngx_int_t
 name|event
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 block|{
@@ -1142,9 +1145,9 @@ expr_stmt|;
 if|#
 directive|if
 literal|0
-block_content|if (ev->index< (u_int) nchanges&& ((uintptr_t) change_list[ev->index].udata& (uintptr_t) ~1)             == (uintptr_t) ev)     {         if (change_list[ev->index].flags == EV_DISABLE) {
+block_content|if (ev->index< nchanges&& ((uintptr_t) change_list[ev->index].udata& (uintptr_t) ~1)             == (uintptr_t) ev)     {         if (change_list[ev->index].flags == EV_DISABLE) {
 comment|/*              * if the EV_DISABLE is still not passed to a kernel              * we will not pass it              */
-block_content|ngx_log_debug2(NGX_LOG_DEBUG_EVENT, ev->log, 0,                            "kevent activated: %d: ft:%d",                            ngx_event_ident(ev->data), event);              if (ev->index< (u_int) --nchanges) {                 e = (ngx_event_t *)                     ((uintptr_t) change_list[nchanges].udata& (uintptr_t) ~1);                 change_list[ev->index] = change_list[nchanges];                 e->index = ev->index;             }              ngx_mutex_unlock(list_mutex);              return NGX_OK;         }          c = ev->data;          ngx_log_error(NGX_LOG_ALERT, ev->log, 0,                       "previous event on #%d were not passed in kernel", c->fd);          ngx_mutex_unlock(list_mutex);          return NGX_ERROR;     }
+block_content|ngx_log_debug2(NGX_LOG_DEBUG_EVENT, ev->log, 0,                            "kevent activated: %d: ft:%i",                            ngx_event_ident(ev->data), event);              if (ev->index< --nchanges) {                 e = (ngx_event_t *)                     ((uintptr_t) change_list[nchanges].udata& (uintptr_t) ~1);                 change_list[ev->index] = change_list[nchanges];                 e->index = ev->index;             }              ngx_mutex_unlock(list_mutex);              return NGX_OK;         }          c = ev->data;          ngx_log_error(NGX_LOG_ALERT, ev->log, 0,                       "previous event on #%d were not passed in kernel", c->fd);          ngx_mutex_unlock(list_mutex);          return NGX_ERROR;     }
 endif|#
 directive|endif
 name|rc
@@ -1176,17 +1179,17 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_kqueue_del_event (ngx_event_t * ev,int event,u_int flags)
+DECL|function|ngx_kqueue_del_event (ngx_event_t * ev,ngx_int_t event,ngx_uint_t flags)
 name|ngx_kqueue_del_event
 parameter_list|(
 name|ngx_event_t
 modifier|*
 name|ev
 parameter_list|,
-name|int
+name|ngx_int_t
 name|event
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 block|{
@@ -1220,9 +1223,6 @@ name|ev
 operator|->
 name|index
 operator|<
-operator|(
-name|u_int
-operator|)
 name|nchanges
 operator|&&
 operator|(
@@ -1261,7 +1261,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"kevent deleted: %d: ft:%d"
+literal|"kevent deleted: %d: ft:%i"
 argument_list|,
 name|ngx_event_ident
 argument_list|(
@@ -1283,9 +1283,6 @@ name|ev
 operator|->
 name|index
 operator|<
-operator|(
-name|u_int
-operator|)
 name|nchanges
 condition|)
 block|{
@@ -1405,17 +1402,17 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_kqueue_set_event (ngx_event_t * ev,int filter,u_int flags)
+DECL|function|ngx_kqueue_set_event (ngx_event_t * ev,ngx_int_t filter,ngx_uint_t flags)
 name|ngx_kqueue_set_event
 parameter_list|(
 name|ngx_event_t
 modifier|*
 name|ev
 parameter_list|,
-name|int
+name|ngx_int_t
 name|filter
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 block|{
@@ -1448,7 +1445,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"kevent set event: %d: ft:%d fl:%04Xd"
+literal|"kevent set event: %d: ft:%i fl:%04Xi"
 argument_list|,
 name|c
 operator|->
@@ -1499,6 +1496,9 @@ name|ngx_kqueue
 argument_list|,
 name|change_list
 argument_list|,
+operator|(
+name|int
+operator|)
 name|nchanges
 argument_list|,
 name|NULL
@@ -1555,12 +1555,18 @@ name|kev
 operator|->
 name|filter
 operator|=
+operator|(
+name|short
+operator|)
 name|filter
 expr_stmt|;
 name|kev
 operator|->
 name|flags
 operator|=
+operator|(
+name|u_short
+operator|)
 name|flags
 expr_stmt|;
 name|kev
@@ -1781,6 +1787,9 @@ else|else
 block|{
 name|n
 operator|=
+operator|(
+name|int
+operator|)
 name|nchanges
 expr_stmt|;
 name|nchanges
@@ -1871,6 +1880,9 @@ name|n
 argument_list|,
 name|event_list
 argument_list|,
+operator|(
+name|int
+operator|)
 name|nevents
 argument_list|,
 name|tp
@@ -2578,6 +2590,9 @@ expr_stmt|;
 block|}
 name|n
 operator|=
+operator|(
+name|int
+operator|)
 name|nchanges
 expr_stmt|;
 name|nchanges
@@ -2842,7 +2857,7 @@ name|kcf
 init|=
 name|conf
 decl_stmt|;
-name|ngx_conf_init_value
+name|ngx_conf_init_uint_value
 argument_list|(
 name|kcf
 operator|->
@@ -2851,7 +2866,7 @@ argument_list|,
 literal|512
 argument_list|)
 expr_stmt|;
-name|ngx_conf_init_value
+name|ngx_conf_init_uint_value
 argument_list|(
 name|kcf
 operator|->

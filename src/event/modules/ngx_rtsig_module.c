@@ -110,24 +110,24 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b8cbecf0108
+DECL|struct|__anon2951945f0108
 typedef|typedef
 struct|struct
 block|{
 DECL|member|signo
-name|int
+name|ngx_uint_t
 name|signo
 decl_stmt|;
 DECL|member|overflow_events
-name|ngx_int_t
+name|ngx_uint_t
 name|overflow_events
 decl_stmt|;
 DECL|member|overflow_test
-name|ngx_int_t
+name|ngx_uint_t
 name|overflow_test
 decl_stmt|;
 DECL|member|overflow_threshold
-name|ngx_int_t
+name|ngx_uint_t
 name|overflow_threshold
 decl_stmt|;
 DECL|typedef|ngx_rtsig_conf_t
@@ -191,7 +191,7 @@ name|ngx_connection_t
 modifier|*
 name|c
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 function_decl|;
@@ -587,6 +587,9 @@ argument_list|(
 operator|&
 name|set
 argument_list|,
+operator|(
+name|int
+operator|)
 name|rtscf
 operator|->
 name|signo
@@ -597,6 +600,9 @@ argument_list|(
 operator|&
 name|set
 argument_list|,
+operator|(
+name|int
+operator|)
 name|rtscf
 operator|->
 name|signo
@@ -752,7 +758,7 @@ modifier|*
 name|c
 parameter_list|)
 block|{
-name|int
+name|ngx_uint_t
 name|signo
 decl_stmt|;
 name|ngx_rtsig_conf_t
@@ -875,7 +881,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"rtsig add connection: fd:%d signo:%d"
+literal|"rtsig add connection: fd:%d signo:%ui"
 argument_list|,
 name|c
 operator|->
@@ -932,6 +938,9 @@ name|fd
 argument_list|,
 name|F_SETSIG
 argument_list|,
+operator|(
+name|int
+operator|)
 name|signo
 argument_list|)
 operator|==
@@ -1056,14 +1065,14 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_rtsig_del_connection (ngx_connection_t * c,u_int flags)
+DECL|function|ngx_rtsig_del_connection (ngx_connection_t * c,ngx_uint_t flags)
 name|ngx_rtsig_del_connection
 parameter_list|(
 name|ngx_connection_t
 modifier|*
 name|c
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 block|{
@@ -1505,12 +1514,18 @@ if|if
 condition|(
 name|signo
 operator|==
+operator|(
+name|int
+operator|)
 name|rtscf
 operator|->
 name|signo
 operator|||
 name|signo
 operator|==
+operator|(
+name|int
+operator|)
 name|rtscf
 operator|->
 name|signo
@@ -1563,6 +1578,9 @@ name|instance
 operator|=
 name|signo
 operator|-
+operator|(
+name|int
+operator|)
 name|rtscf
 operator|->
 name|signo
@@ -1952,15 +1970,15 @@ decl_stmt|;
 name|size_t
 name|len
 decl_stmt|;
-name|ngx_int_t
+name|ngx_err_t
+name|err
+decl_stmt|;
+name|ngx_uint_t
 name|tested
 decl_stmt|,
 name|n
 decl_stmt|,
 name|i
-decl_stmt|;
-name|ngx_err_t
-name|err
 decl_stmt|;
 name|ngx_event_t
 modifier|*
@@ -2643,6 +2661,9 @@ if|if
 condition|(
 name|rtsig_max
 operator|/
+operator|(
+name|int
+operator|)
 name|rtscf
 operator|->
 name|overflow_threshold
@@ -2849,7 +2870,7 @@ init|=
 name|conf
 decl_stmt|;
 comment|/* LinuxThreads use the first 3 RT signals */
-name|ngx_conf_init_value
+name|ngx_conf_init_uint_value
 argument_list|(
 name|rtscf
 operator|->
@@ -2860,7 +2881,7 @@ operator|+
 literal|10
 argument_list|)
 expr_stmt|;
-name|ngx_conf_init_value
+name|ngx_conf_init_uint_value
 argument_list|(
 name|rtscf
 operator|->
@@ -2869,7 +2890,7 @@ argument_list|,
 literal|16
 argument_list|)
 expr_stmt|;
-name|ngx_conf_init_value
+name|ngx_conf_init_uint_value
 argument_list|(
 name|rtscf
 operator|->
@@ -2878,7 +2899,7 @@ argument_list|,
 literal|32
 argument_list|)
 expr_stmt|;
-name|ngx_conf_init_value
+name|ngx_conf_init_uint_value
 argument_list|(
 name|rtscf
 operator|->

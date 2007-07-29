@@ -187,9 +187,14 @@ literal|0
 operator|||
 name|limit
 operator|>
+operator|(
+name|off_t
+operator|)
+operator|(
 name|NGX_SENDFILE_LIMIT
 operator|-
 name|ngx_pagesize
+operator|)
 condition|)
 block|{
 name|limit

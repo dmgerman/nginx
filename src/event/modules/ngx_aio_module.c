@@ -82,10 +82,10 @@ name|ngx_event_t
 modifier|*
 name|ev
 parameter_list|,
-name|int
+name|ngx_int_t
 name|event
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 function_decl|;
@@ -100,10 +100,10 @@ name|ngx_event_t
 modifier|*
 name|ev
 parameter_list|,
-name|int
+name|ngx_int_t
 name|event
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 function_decl|;
@@ -118,7 +118,7 @@ name|ngx_connection_t
 modifier|*
 name|c
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 function_decl|;
@@ -360,17 +360,17 @@ end_comment
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_aio_add_event (ngx_event_t * ev,int event,u_int flags)
+DECL|function|ngx_aio_add_event (ngx_event_t * ev,ngx_int_t event,ngx_uint_t flags)
 name|ngx_aio_add_event
 parameter_list|(
 name|ngx_event_t
 modifier|*
 name|ev
 parameter_list|,
-name|int
+name|ngx_int_t
 name|event
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 block|{
@@ -394,17 +394,17 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_aio_del_event (ngx_event_t * ev,int event,u_int flags)
+DECL|function|ngx_aio_del_event (ngx_event_t * ev,ngx_int_t event,ngx_uint_t flags)
 name|ngx_aio_del_event
 parameter_list|(
 name|ngx_event_t
 modifier|*
 name|ev
 parameter_list|,
-name|int
+name|ngx_int_t
 name|event
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 block|{
@@ -428,14 +428,14 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_aio_del_connection (ngx_connection_t * c,u_int flags)
+DECL|function|ngx_aio_del_connection (ngx_connection_t * c,ngx_uint_t flags)
 name|ngx_aio_del_connection
 parameter_list|(
 name|ngx_connection_t
 modifier|*
 name|c
 parameter_list|,
-name|u_int
+name|ngx_uint_t
 name|flags
 parameter_list|)
 block|{

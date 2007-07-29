@@ -513,6 +513,14 @@ typedef|;
 end_typedef
 
 begin_typedef
+DECL|typedef|intptr_t
+typedef|typedef
+name|int
+name|intptr_t
+typedef|;
+end_typedef
+
+begin_typedef
 DECL|typedef|uintptr_t
 typedef|typedef
 name|u_int

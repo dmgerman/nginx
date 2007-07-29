@@ -23,7 +23,7 @@ end_include
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_event_busy_lock_look_cachable
 parameter_list|(
 name|ngx_event_busy_lock_t

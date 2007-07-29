@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29b341e40108
+DECL|struct|__anon2c5c81850108
 typedef|typedef
 struct|struct
 block|{
@@ -3235,9 +3235,14 @@ literal|0
 operator|||
 name|limit
 operator|>
+operator|(
+name|off_t
+operator|)
+operator|(
 name|NGX_MAX_UINT32_VALUE
 operator|-
 name|ngx_pagesize
+operator|)
 condition|)
 block|{
 name|limit
