@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c2b6beb0108
+DECL|struct|__anon29b341e40108
 typedef|typedef
 struct|struct
 block|{
@@ -919,6 +919,8 @@ operator|->
 name|cycle
 argument_list|,
 name|cert
+argument_list|,
+literal|1
 argument_list|)
 operator|==
 name|NGX_ERROR
@@ -978,6 +980,8 @@ operator|->
 name|cycle
 argument_list|,
 name|key
+argument_list|,
+literal|1
 argument_list|)
 operator|==
 name|NGX_ERROR
@@ -1106,6 +1110,8 @@ operator|->
 name|cycle
 argument_list|,
 name|cert
+argument_list|,
+literal|1
 argument_list|)
 operator|==
 name|NGX_ERROR

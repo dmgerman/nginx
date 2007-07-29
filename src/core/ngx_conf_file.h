@@ -622,7 +622,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c1417a70108
+DECL|struct|__anon2bb124ef0108
 typedef|typedef
 struct|struct
 block|{
@@ -667,7 +667,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1417a70208
+DECL|struct|__anon2bb124ef0208
 typedef|typedef
 struct|struct
 block|{
@@ -807,7 +807,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1417a70308
+DECL|struct|__anon2bb124ef0308
 typedef|typedef
 struct|struct
 block|{
@@ -822,7 +822,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1417a70408
+DECL|struct|__anon2bb124ef0408
 typedef|typedef
 struct|struct
 block|{
@@ -847,7 +847,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1417a70508
+DECL|struct|__anon2bb124ef0508
 typedef|typedef
 struct|struct
 block|{
@@ -870,7 +870,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1417a70608
+DECL|struct|__anon2bb124ef0608
 typedef|typedef
 struct|struct
 block|{
@@ -897,7 +897,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2c1417a70708
+DECL|struct|__anon2bb124ef0708
 typedef|typedef
 struct|struct
 block|{
@@ -1196,6 +1196,9 @@ parameter_list|,
 name|ngx_str_t
 modifier|*
 name|name
+parameter_list|,
+name|ngx_uint_t
+name|conf_prefix
 parameter_list|)
 function_decl|;
 end_function_decl

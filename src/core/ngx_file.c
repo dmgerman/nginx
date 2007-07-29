@@ -1173,6 +1173,8 @@ operator|&
 name|path
 operator|->
 name|name
+argument_list|,
+literal|0
 argument_list|)
 operator|==
 name|NGX_ERROR

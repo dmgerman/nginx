@@ -2752,6 +2752,8 @@ operator|&
 name|cycle
 operator|->
 name|conf_file
+argument_list|,
+literal|1
 argument_list|)
 operator|==
 name|NGX_ERROR
@@ -3467,6 +3469,8 @@ operator|&
 name|ccf
 operator|->
 name|pid
+argument_list|,
+literal|0
 argument_list|)
 operator|==
 name|NGX_ERROR
@@ -3605,6 +3609,8 @@ operator|&
 name|ccf
 operator|->
 name|lock_file
+argument_list|,
+literal|0
 argument_list|)
 operator|==
 name|NGX_ERROR

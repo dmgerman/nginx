@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bde94410108
+DECL|struct|__anon2c057dfe0108
 typedef|typedef
 struct|struct
 block|{
@@ -783,6 +783,8 @@ name|cycle
 argument_list|,
 operator|&
 name|file
+argument_list|,
+literal|1
 argument_list|)
 operator|==
 name|NGX_ERROR

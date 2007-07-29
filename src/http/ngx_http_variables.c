@@ -4698,6 +4698,8 @@ name|ngx_cycle
 argument_list|,
 operator|&
 name|path
+argument_list|,
+literal|0
 argument_list|)
 operator|==
 name|NGX_ERROR

@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon299edd530108
+DECL|struct|__anon2b73a9b30108
 typedef|typedef
 struct|struct
 block|{
@@ -5118,6 +5118,8 @@ operator|)
 name|ngx_cycle
 argument_list|,
 name|path
+argument_list|,
+literal|0
 argument_list|)
 operator|==
 name|NGX_ERROR
@@ -8529,6 +8531,8 @@ name|cycle
 argument_list|,
 operator|&
 name|file
+argument_list|,
+literal|1
 argument_list|)
 operator|==
 name|NGX_ERROR
@@ -10080,6 +10084,8 @@ operator|&
 name|conf
 operator|->
 name|root
+argument_list|,
+literal|0
 argument_list|)
 operator|==
 name|NGX_ERROR
@@ -12493,6 +12499,8 @@ operator|&
 name|lcf
 operator|->
 name|root
+argument_list|,
+literal|0
 argument_list|)
 operator|==
 name|NGX_ERROR
