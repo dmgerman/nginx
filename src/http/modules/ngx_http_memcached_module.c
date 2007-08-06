@@ -28,7 +28,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon275b67ee0108
+DECL|struct|__anon28a1b9f10108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275b67ee0208
+DECL|struct|__anon28a1b9f10208
 typedef|typedef
 struct|struct
 block|{
@@ -708,7 +708,7 @@ return|;
 block|}
 name|rc
 operator|=
-name|ngx_http_discard_body
+name|ngx_http_discard_request_body
 argument_list|(
 name|r
 argument_list|)

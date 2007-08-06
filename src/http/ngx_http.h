@@ -571,7 +571,7 @@ end_function_decl
 
 begin_function_decl
 name|ngx_int_t
-name|ngx_http_discard_body
+name|ngx_http_discard_request_body
 parameter_list|(
 name|ngx_http_request_t
 modifier|*

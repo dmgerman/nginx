@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c4d6b9f0108
+DECL|struct|__anon2bf7c4a60108
 typedef|typedef
 struct|struct
 block|{
@@ -340,7 +340,7 @@ return|;
 block|}
 name|rc
 operator|=
-name|ngx_http_discard_body
+name|ngx_http_discard_request_body
 argument_list|(
 name|r
 argument_list|)

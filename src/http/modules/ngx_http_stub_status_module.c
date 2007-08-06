@@ -212,7 +212,7 @@ return|;
 block|}
 name|rc
 operator|=
-name|ngx_http_discard_body
+name|ngx_http_discard_request_body
 argument_list|(
 name|r
 argument_list|)

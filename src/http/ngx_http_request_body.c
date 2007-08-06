@@ -70,7 +70,7 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|void
-name|ngx_http_read_discarded_body_handler
+name|ngx_http_read_discarded_request_body_handler
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
@@ -82,7 +82,7 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|ngx_int_t
-name|ngx_http_read_discarded_body
+name|ngx_http_read_discarded_request_body
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
@@ -1790,8 +1790,8 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_http_discard_body (ngx_http_request_t * r)
-name|ngx_http_discard_body
+DECL|function|ngx_http_discard_request_body (ngx_http_request_t * r)
+name|ngx_http_discard_request_body
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
@@ -1950,7 +1950,7 @@ name|r
 operator|->
 name|read_event_handler
 operator|=
-name|ngx_http_read_discarded_body_handler
+name|ngx_http_read_discarded_request_body_handler
 expr_stmt|;
 if|if
 condition|(
@@ -1969,7 +1969,7 @@ name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
 block|}
 return|return
-name|ngx_http_read_discarded_body
+name|ngx_http_read_discarded_request_body
 argument_list|(
 name|r
 argument_list|)
@@ -1980,8 +1980,8 @@ end_function
 begin_function
 specifier|static
 name|void
-DECL|function|ngx_http_read_discarded_body_handler (ngx_http_request_t * r)
-name|ngx_http_read_discarded_body_handler
+DECL|function|ngx_http_read_discarded_request_body_handler (ngx_http_request_t * r)
+name|ngx_http_read_discarded_request_body_handler
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
@@ -1993,7 +1993,7 @@ name|rc
 decl_stmt|;
 name|rc
 operator|=
-name|ngx_http_read_discarded_body
+name|ngx_http_read_discarded_request_body
 argument_list|(
 name|r
 argument_list|)
@@ -2052,8 +2052,8 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_http_read_discarded_body (ngx_http_request_t * r)
-name|ngx_http_read_discarded_body
+DECL|function|ngx_http_read_discarded_request_body (ngx_http_request_t * r)
+name|ngx_http_read_discarded_request_body
 parameter_list|(
 name|ngx_http_request_t
 modifier|*

@@ -62,7 +62,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon27f16d900108
+DECL|struct|__anon29e6b0050108
 typedef|typedef
 struct|struct
 block|{
@@ -85,7 +85,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27f16d900208
+DECL|struct|__anon29e6b0050208
 typedef|typedef
 struct|struct
 block|{
@@ -1501,7 +1501,7 @@ return|;
 block|}
 name|rc
 operator|=
-name|ngx_http_discard_body
+name|ngx_http_discard_request_body
 argument_list|(
 name|r
 argument_list|)
@@ -1943,7 +1943,7 @@ return|;
 block|}
 name|rc
 operator|=
-name|ngx_http_discard_body
+name|ngx_http_discard_request_body
 argument_list|(
 name|r
 argument_list|)
@@ -2551,7 +2551,7 @@ name|overwrite_done
 label|:
 name|rc
 operator|=
-name|ngx_http_discard_body
+name|ngx_http_discard_request_body
 argument_list|(
 name|r
 argument_list|)
