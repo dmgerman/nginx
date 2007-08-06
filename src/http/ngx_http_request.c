@@ -232,19 +232,7 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|void
-name|ngx_http_block_read
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-specifier|static
-name|void
-name|ngx_http_test_read
+name|ngx_http_test_reading
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
@@ -6576,7 +6564,7 @@ name|r
 operator|->
 name|read_event_handler
 operator|=
-name|ngx_http_block_read
+name|ngx_http_block_reading
 expr_stmt|;
 name|ngx_http_handler
 argument_list|(
@@ -7640,7 +7628,7 @@ name|r
 operator|->
 name|read_event_handler
 operator|=
-name|ngx_http_test_read
+name|ngx_http_test_reading
 expr_stmt|;
 name|r
 operator|->
@@ -8116,10 +8104,9 @@ block|}
 end_function
 
 begin_function
-specifier|static
 name|void
-DECL|function|ngx_http_block_read (ngx_http_request_t * r)
-name|ngx_http_block_read
+DECL|function|ngx_http_block_reading (ngx_http_request_t * r)
+name|ngx_http_block_reading
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
@@ -8138,7 +8125,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http read blocked"
+literal|"http reading blocked"
 argument_list|)
 expr_stmt|;
 comment|/* aio does not call this handler */
@@ -8192,8 +8179,8 @@ end_function
 begin_function
 specifier|static
 name|void
-DECL|function|ngx_http_test_read (ngx_http_request_t * r)
-name|ngx_http_test_read
+DECL|function|ngx_http_test_reading (ngx_http_request_t * r)
+name|ngx_http_test_reading
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
@@ -8242,7 +8229,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http test read"
+literal|"http test reading"
 argument_list|)
 expr_stmt|;
 if|#
@@ -10302,7 +10289,7 @@ name|r
 operator|->
 name|read_event_handler
 operator|=
-name|ngx_http_block_read
+name|ngx_http_block_reading
 expr_stmt|;
 name|ngx_http_internal_redirect
 argument_list|(
