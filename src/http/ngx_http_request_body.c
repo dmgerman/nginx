@@ -2087,6 +2087,8 @@ argument_list|,
 literal|"http read discarded body"
 argument_list|)
 expr_stmt|;
+do|do
+block|{
 if|if
 condition|(
 name|r
@@ -2157,7 +2159,7 @@ name|error
 operator|=
 literal|1
 expr_stmt|;
-comment|/*          * if a client request body is discarded then we already set          * some HTTP response code for client and we can ignore the error          */
+comment|/*              * if a client request body is discarded then we already set              * some HTTP response code for client and we can ignore the error              */
 return|return
 name|NGX_OK
 return|;
@@ -2181,6 +2183,18 @@ name|content_length_n
 operator|-=
 name|n
 expr_stmt|;
+block|}
+do|while
+condition|(
+name|r
+operator|->
+name|connection
+operator|->
+name|read
+operator|->
+name|ready
+condition|)
+do|;
 return|return
 name|NGX_OK
 return|;
