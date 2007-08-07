@@ -343,10 +343,6 @@ condition|(
 name|rc
 operator|!=
 name|NGX_OK
-operator|&&
-name|rc
-operator|!=
-name|NGX_AGAIN
 condition|)
 block|{
 return|return

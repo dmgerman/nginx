@@ -62,7 +62,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon29e6b0050108
+DECL|struct|__anon29549a170108
 typedef|typedef
 struct|struct
 block|{
@@ -85,7 +85,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e6b0050208
+DECL|struct|__anon29549a170208
 typedef|typedef
 struct|struct
 block|{
@@ -1511,10 +1511,6 @@ condition|(
 name|rc
 operator|!=
 name|NGX_OK
-operator|&&
-name|rc
-operator|!=
-name|NGX_AGAIN
 condition|)
 block|{
 return|return
@@ -1953,10 +1949,6 @@ condition|(
 name|rc
 operator|!=
 name|NGX_OK
-operator|&&
-name|rc
-operator|!=
-name|NGX_AGAIN
 condition|)
 block|{
 return|return
@@ -2561,10 +2553,6 @@ condition|(
 name|rc
 operator|!=
 name|NGX_OK
-operator|&&
-name|rc
-operator|!=
-name|NGX_AGAIN
 condition|)
 block|{
 return|return
