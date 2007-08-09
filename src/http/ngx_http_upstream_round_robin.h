@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29c673f30108
+DECL|struct|__anon2c29f81d0108
 typedef|typedef
 struct|struct
 block|{
@@ -102,10 +102,24 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c673f30208
+DECL|typedef|ngx_http_upstream_rr_peers_t
 typedef|typedef
+name|struct
+name|ngx_http_upstream_rr_peers_s
+name|ngx_http_upstream_rr_peers_t
+typedef|;
+end_typedef
+
+begin_struct
+DECL|struct|ngx_http_upstream_rr_peers_s
 struct|struct
+name|ngx_http_upstream_rr_peers_s
 block|{
+DECL|member|single
+name|ngx_uint_t
+name|single
+decl_stmt|;
+comment|/* unsigned  single:1; */
 DECL|member|number
 name|ngx_uint_t
 name|number
@@ -126,6 +140,11 @@ name|ngx_str_t
 modifier|*
 name|name
 decl_stmt|;
+DECL|member|next
+name|ngx_http_upstream_rr_peers_t
+modifier|*
+name|next
+decl_stmt|;
 DECL|member|peer
 name|ngx_http_upstream_rr_peer_t
 name|peer
@@ -133,14 +152,12 @@ index|[
 literal|1
 index|]
 decl_stmt|;
-DECL|typedef|ngx_http_upstream_rr_peers_t
 block|}
-name|ngx_http_upstream_rr_peers_t
-typedef|;
-end_typedef
+struct|;
+end_struct
 
 begin_typedef
-DECL|struct|__anon29c673f30308
+DECL|struct|__anon2c29f81d0208
 typedef|typedef
 struct|struct
 block|{

@@ -117,6 +117,14 @@ value|0x00000100
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_UPSTREAM_FT_NOLIVE
+define|#
+directive|define
+name|NGX_HTTP_UPSTREAM_FT_NOLIVE
+value|0x40000000
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_UPSTREAM_FT_OFF
 define|#
 directive|define
@@ -133,7 +141,7 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon2b18f33d0108
+DECL|struct|__anon28d17ca20108
 typedef|typedef
 struct|struct
 block|{
@@ -169,7 +177,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b18f33d0208
+DECL|struct|__anon28d17ca20208
 typedef|typedef
 struct|struct
 block|{
@@ -238,7 +246,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b18f33d0308
+DECL|struct|__anon28d17ca20308
 typedef|typedef
 struct|struct
 block|{
@@ -262,7 +270,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b18f33d0408
+DECL|struct|__anon28d17ca20408
 typedef|typedef
 struct|struct
 block|{
@@ -403,7 +411,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b18f33d0508
+DECL|struct|__anon28d17ca20508
 typedef|typedef
 struct|struct
 block|{
@@ -579,7 +587,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b18f33d0608
+DECL|struct|__anon28d17ca20608
 typedef|typedef
 struct|struct
 block|{
@@ -615,7 +623,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b18f33d0708
+DECL|struct|__anon28d17ca20708
 typedef|typedef
 struct|struct
 block|{
