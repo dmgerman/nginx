@@ -1224,8 +1224,7 @@ name|ls
 operator|->
 name|backlog
 operator|=
-operator|-
-literal|1
+name|NGX_LISTEN_BACKLOG
 expr_stmt|;
 name|ls
 operator|->

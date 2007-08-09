@@ -696,8 +696,7 @@ index|]
 operator|.
 name|backlog
 operator|=
-operator|-
-literal|1
+name|NGX_LISTEN_BACKLOG
 expr_stmt|;
 name|olen
 operator|=

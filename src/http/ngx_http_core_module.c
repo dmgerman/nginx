@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c038a180108
+DECL|struct|__anon2c14485f0108
 typedef|typedef
 struct|struct
 block|{
@@ -9734,8 +9734,7 @@ name|conf
 operator|.
 name|backlog
 operator|=
-operator|-
-literal|1
+name|NGX_LISTEN_BACKLOG
 expr_stmt|;
 name|ls
 operator|->
@@ -11527,8 +11526,7 @@ name|conf
 operator|.
 name|backlog
 operator|=
-operator|-
-literal|1
+name|NGX_LISTEN_BACKLOG
 expr_stmt|;
 name|ls
 operator|->

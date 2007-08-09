@@ -342,6 +342,14 @@ endif|#
 directive|endif
 end_endif
 
+begin_define
+DECL|macro|NGX_LISTEN_BACKLOG
+define|#
+directive|define
+name|NGX_LISTEN_BACKLOG
+value|-1
+end_define
+
 begin_if
 if|#
 directive|if
