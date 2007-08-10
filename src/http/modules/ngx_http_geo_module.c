@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c057dfe0108
+DECL|struct|__anon28e5cf5c0108
 typedef|typedef
 struct|struct
 block|{
@@ -853,8 +853,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
+name|rc
+operator|=
 name|ngx_ptocidr
 argument_list|(
 operator|&
@@ -866,6 +866,10 @@ argument_list|,
 operator|&
 name|cidrin
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|rc
 operator|==
 name|NGX_ERROR
 condition|)
@@ -890,6 +894,31 @@ expr_stmt|;
 return|return
 name|NGX_CONF_ERROR
 return|;
+block|}
+if|if
+condition|(
+name|rc
+operator|==
+name|NGX_DONE
+condition|)
+block|{
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_WARN
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"low address bits of %V are meaningless"
+argument_list|,
+operator|&
+name|value
+index|[
+literal|0
+index|]
+argument_list|)
+expr_stmt|;
 block|}
 name|cidrin
 operator|.

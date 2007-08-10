@@ -26,7 +26,7 @@ comment|/* AF_INET only */
 end_comment
 
 begin_typedef
-DECL|struct|__anon28c482c90108
+DECL|struct|__anon2b7768e60108
 typedef|typedef
 struct|struct
 block|{
@@ -45,7 +45,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c482c90208
+DECL|struct|__anon2b7768e60208
 typedef|typedef
 struct|struct
 block|{
@@ -776,6 +776,9 @@ name|rlcf
 init|=
 name|conf
 decl_stmt|;
+name|ngx_int_t
+name|rc
+decl_stmt|;
 name|ngx_str_t
 modifier|*
 name|value
@@ -893,8 +896,8 @@ return|return
 name|NGX_CONF_OK
 return|;
 block|}
-if|if
-condition|(
+name|rc
+operator|=
 name|ngx_ptocidr
 argument_list|(
 operator|&
@@ -906,6 +909,10 @@ argument_list|,
 operator|&
 name|in_cidr
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|rc
 operator|==
 name|NGX_ERROR
 condition|)
@@ -930,6 +937,31 @@ expr_stmt|;
 return|return
 name|NGX_CONF_ERROR
 return|;
+block|}
+if|if
+condition|(
+name|rc
+operator|==
+name|NGX_DONE
+condition|)
+block|{
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_WARN
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"low address bits of %V are meaningless"
+argument_list|,
+operator|&
+name|value
+index|[
+literal|1
+index|]
+argument_list|)
+expr_stmt|;
 block|}
 name|from
 operator|->
