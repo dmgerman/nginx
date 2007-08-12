@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b3750710108
+DECL|struct|__anon29bcbeea0108
 typedef|typedef
 struct|struct
 block|{
@@ -108,7 +108,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3750710208
+DECL|struct|__anon29bcbeea0208
 typedef|typedef
 struct|struct
 block|{
@@ -143,7 +143,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b3750710303
+DECL|enum|__anon29bcbeea0303
 typedef|typedef
 enum|enum
 block|{
@@ -235,7 +235,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b3750710408
+DECL|struct|__anon29bcbeea0408
 typedef|typedef
 struct|struct
 block|{
@@ -259,7 +259,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3750710508
+DECL|struct|__anon29bcbeea0508
 typedef|typedef
 struct|struct
 block|{
@@ -274,7 +274,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3750710608
+DECL|struct|__anon29bcbeea0608
 typedef|typedef
 struct|struct
 block|{
@@ -337,7 +337,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3750710708
+DECL|struct|__anon29bcbeea0708
 typedef|typedef
 struct|struct
 block|{
@@ -423,7 +423,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2b3750710808
+DECL|struct|__anon29bcbeea0808
 typedef|typedef
 struct|struct
 block|{
@@ -449,7 +449,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3750710908
+DECL|struct|__anon29bcbeea0908
 typedef|typedef
 struct|struct
 block|{
@@ -477,7 +477,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3750710a08
+DECL|struct|__anon29bcbeea0a08
 typedef|typedef
 struct|struct
 block|{
@@ -497,7 +497,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3750710b08
+DECL|struct|__anon29bcbeea0b08
 typedef|typedef
 struct|struct
 block|{
@@ -524,6 +524,22 @@ name|ngx_array_t
 name|names
 decl_stmt|;
 comment|/* array of ngx_http_server_name_t */
+if|#
+directive|if
+operator|(
+name|NGX_PCRE
+operator|)
+DECL|member|nregex
+name|ngx_uint_t
+name|nregex
+decl_stmt|;
+DECL|member|regex
+name|ngx_http_server_name_t
+modifier|*
+name|regex
+decl_stmt|;
+endif|#
+directive|endif
 comment|/* the default server configuration for this address:port */
 DECL|member|core_srv_conf
 name|ngx_http_core_srv_conf_t
@@ -553,29 +569,39 @@ name|ngx_http_conf_in_addr_t
 typedef|;
 end_typedef
 
-begin_typedef
-DECL|struct|__anon2b3750710c08
-typedef|typedef
+begin_struct
+DECL|struct|ngx_http_server_name_s
 struct|struct
+name|ngx_http_server_name_s
 block|{
-DECL|member|name
-name|ngx_str_t
-name|name
+if|#
+directive|if
+operator|(
+name|NGX_PCRE
+operator|)
+DECL|member|regex
+name|ngx_regex_t
+modifier|*
+name|regex
 decl_stmt|;
+endif|#
+directive|endif
 DECL|member|core_srv_conf
 name|ngx_http_core_srv_conf_t
 modifier|*
 name|core_srv_conf
 decl_stmt|;
 comment|/* virtual name server conf */
-DECL|typedef|ngx_http_server_name_t
+DECL|member|name
+name|ngx_str_t
+name|name
+decl_stmt|;
 block|}
-name|ngx_http_server_name_t
-typedef|;
-end_typedef
+struct|;
+end_struct
 
 begin_typedef
-DECL|struct|__anon2b3750710d08
+DECL|struct|__anon29bcbeea0c08
 typedef|typedef
 struct|struct
 block|{
