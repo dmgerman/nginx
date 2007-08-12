@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c14485f0108
+DECL|struct|__anon29e8c3dd0108
 typedef|typedef
 struct|struct
 block|{
@@ -3776,8 +3776,6 @@ name|ngx_uint_t
 name|i
 decl_stmt|,
 name|found
-decl_stmt|,
-name|noregex
 decl_stmt|;
 name|ngx_http_core_loc_conf_t
 modifier|*
@@ -3787,6 +3785,16 @@ modifier|*
 modifier|*
 name|clcfp
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_PCRE
+operator|)
+name|ngx_uint_t
+name|noregex
+decl_stmt|;
+endif|#
+directive|endif
 name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
@@ -3811,10 +3819,17 @@ name|found
 operator|=
 literal|0
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_PCRE
+operator|)
 name|noregex
 operator|=
 literal|0
 expr_stmt|;
+endif|#
+directive|endif
 name|clcfp
 operator|=
 name|locations
@@ -4106,6 +4121,10 @@ block|{
 comment|/* the previous match is longer */
 break|break;
 block|}
+name|found
+operator|=
+literal|1
+expr_stmt|;
 name|r
 operator|->
 name|loc_conf
@@ -4117,6 +4136,11 @@ index|]
 operator|->
 name|loc_conf
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_PCRE
+operator|)
 name|noregex
 operator|=
 name|clcfp
@@ -4126,10 +4150,8 @@ index|]
 operator|->
 name|noregex
 expr_stmt|;
-name|found
-operator|=
-literal|1
-expr_stmt|;
+endif|#
+directive|endif
 block|}
 block|}
 if|if
