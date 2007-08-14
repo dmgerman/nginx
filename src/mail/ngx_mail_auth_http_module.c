@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bad84470108
+DECL|struct|__anon2c703de00108
 typedef|typedef
 struct|struct
 block|{
@@ -1568,7 +1568,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon2bad84470203
+DECL|enum|__anon2c703de00203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -4235,7 +4235,7 @@ decl_stmt|;
 name|ngx_uint_t
 name|hash
 decl_stmt|;
-DECL|enum|__anon2bad84470303
+DECL|enum|__anon2c703de00303
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6543,6 +6543,9 @@ name|url
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|NGX_CONF_ERROR
+return|;
 block|}
 name|ahcf
 operator|->
