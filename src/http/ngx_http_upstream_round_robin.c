@@ -2154,7 +2154,7 @@ name|i
 operator|<
 name|n
 condition|;
-name|n
+name|i
 operator|++
 control|)
 block|{
@@ -2248,7 +2248,7 @@ name|i
 operator|<
 name|n
 condition|;
-name|n
+name|i
 operator|++
 control|)
 block|{
