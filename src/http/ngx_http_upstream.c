@@ -2780,7 +2780,7 @@ expr_stmt|;
 name|c
 operator|->
 name|sendfile
-operator|=
+operator|&=
 name|r
 operator|->
 name|connection
