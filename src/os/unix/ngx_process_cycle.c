@@ -3520,14 +3520,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|geteuid
-argument_list|()
-operator|==
-literal|0
-condition|)
-block|{
-if|if
-condition|(
 name|priority
 operator|&&
 name|ccf
@@ -3556,7 +3548,7 @@ condition|)
 block|{
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_EMERG
+name|NGX_LOG_ALERT
 argument_list|,
 name|cycle
 operator|->
@@ -3620,7 +3612,7 @@ condition|)
 block|{
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_EMERG
+name|NGX_LOG_ALERT
 argument_list|,
 name|cycle
 operator|->
@@ -3684,7 +3676,7 @@ condition|)
 block|{
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_EMERG
+name|NGX_LOG_ALERT
 argument_list|,
 name|cycle
 operator|->
@@ -3751,7 +3743,7 @@ condition|)
 block|{
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_EMERG
+name|NGX_LOG_ALERT
 argument_list|,
 name|cycle
 operator|->
@@ -3770,6 +3762,14 @@ block|}
 block|}
 endif|#
 directive|endif
+if|if
+condition|(
+name|geteuid
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
 if|if
 condition|(
 name|setgid
