@@ -58,7 +58,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon27bc91660103
+DECL|enum|__anon2aaca7be0103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -825,7 +825,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon27bc91660203
+DECL|enum|__anon2aaca7be0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2098,6 +2098,19 @@ break|break;
 case|case
 name|sw_argument
 case|:
+if|if
+condition|(
+name|ch
+operator|==
+literal|' '
+operator|&&
+name|s
+operator|->
+name|quoted
+condition|)
+block|{
+break|break;
+block|}
 switch|switch
 condition|(
 name|ch
@@ -2745,7 +2758,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon27bc91660303
+DECL|enum|__anon2aaca7be0303
 enum|enum
 block|{
 DECL|enumerator|sw_start

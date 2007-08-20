@@ -4135,7 +4135,7 @@ literal|0xffffffff
 comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
 block|}
 decl_stmt|;
-comment|/* " ", """, "%", "'", %00-%1F, %7F-%FF */
+comment|/* " ", "#", """, "%", "'", %00-%1F, %7F-%FF */
 specifier|static
 name|uint32_t
 name|html
@@ -4170,7 +4170,7 @@ literal|0xffffffff
 comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
 block|}
 decl_stmt|;
-comment|/* " ", """, "'", %00-%1F, %7F-%FF */
+comment|/* " ", """, "%", "'", %00-%1F, %7F-%FF */
 specifier|static
 name|uint32_t
 name|refresh
@@ -4181,9 +4181,9 @@ literal|0xffffffff
 block|,
 comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
 comment|/* ?>=< ;:98 7654 3210  /.-, +*)( '&%$ #"!  */
-literal|0x00000085
+literal|0x000000a5
 block|,
-comment|/* 0000 0000 0000 0000  0000 0000 1000 0101 */
+comment|/* 0000 0000 0000 0000  0000 0000 1010 0101 */
 comment|/* _^]\ [ZYX WVUT SRQP  ONML KJIH GFED CBA@ */
 literal|0x00000000
 block|,
@@ -4205,7 +4205,7 @@ literal|0xffffffff
 comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
 block|}
 decl_stmt|;
-comment|/* " ", %00-%1F */
+comment|/* " ", "%", %00-%1F */
 specifier|static
 name|uint32_t
 name|memcached
@@ -4216,9 +4216,9 @@ literal|0xffffffff
 block|,
 comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
 comment|/* ?>=< ;:98 7654 3210  /.-, +*)( '&%$ #"!  */
-literal|0x00000001
+literal|0x00000021
 block|,
-comment|/* 0000 0000 0000 0000  0000 0000 0000 0001 */
+comment|/* 0000 0000 0000 0000  0000 0000 0010 0001 */
 comment|/* _^]\ [ZYX WVUT SRQP  ONML KJIH GFED CBA@ */
 literal|0x00000000
 block|,
@@ -4241,6 +4241,7 @@ block|,
 comment|/* 0000 0000 0000 0000  0000 0000 0000 0000 */
 block|}
 decl_stmt|;
+comment|/* mail_auth is the same as memcached */
 specifier|static
 name|uint32_t
 modifier|*
@@ -4255,6 +4256,8 @@ block|,
 name|html
 block|,
 name|refresh
+block|,
+name|memcached
 block|,
 name|memcached
 block|}
@@ -4455,7 +4458,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon29bfc9f20103
+DECL|enum|__anon27b3840c0103
 enum|enum
 block|{
 DECL|enumerator|sw_usual

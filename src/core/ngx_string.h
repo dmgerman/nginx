@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c5318970108
+DECL|struct|__anon2bf1abd40108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5318970208
+DECL|struct|__anon2bf1abd40208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5318970308
+DECL|struct|__anon2bf1abd40308
 typedef|typedef
 struct|struct
 block|{
@@ -857,6 +857,14 @@ define|#
 directive|define
 name|NGX_ESCAPE_MEMCACHED
 value|4
+end_define
+
+begin_define
+DECL|macro|NGX_ESCAPE_MAIL_AUTH
+define|#
+directive|define
+name|NGX_ESCAPE_MAIL_AUTH
+value|5
 end_define
 
 begin_define
