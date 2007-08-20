@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28e5cf5c0108
+DECL|struct|__anon2b1d51190108
 typedef|typedef
 struct|struct
 block|{
@@ -307,7 +307,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http geo: %V %V"
+literal|"http geo: %V %v"
 argument_list|,
 operator|&
 name|r
@@ -366,12 +366,12 @@ name|ngx_radix_tree_t
 modifier|*
 name|tree
 decl_stmt|;
-name|ngx_http_geo_conf_ctx_t
-name|ctx
-decl_stmt|;
 name|ngx_http_variable_t
 modifier|*
 name|var
+decl_stmt|;
+name|ngx_http_geo_conf_ctx_t
+name|ctx
 decl_stmt|;
 name|value
 operator|=
@@ -1238,8 +1238,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"duplicate parameter \"%V\", value: \"%V\", "
-literal|"old value: \"%V\""
+literal|"duplicate parameter \"%V\", value: \"%v\", old value: \"%v\""
 argument_list|,
 operator|&
 name|value

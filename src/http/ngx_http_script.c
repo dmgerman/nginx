@@ -5664,7 +5664,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http script var: \"%V\""
+literal|"http script var: \"%v\""
 argument_list|,
 name|value
 argument_list|)

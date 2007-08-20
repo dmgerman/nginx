@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27735eef0108
+DECL|struct|__anon290764f30108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27735eef0208
+DECL|struct|__anon290764f30208
 typedef|typedef
 struct|struct
 block|{
@@ -73,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27735eef0308
+DECL|struct|__anon290764f30308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27735eef0408
+DECL|struct|__anon290764f30408
 typedef|typedef
 struct|struct
 block|{
@@ -512,7 +512,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"the value of the \"%V\" variable "
-literal|"is more than 255 bytes: \"%V\""
+literal|"is more than 255 bytes: \"%v\""
 argument_list|,
 operator|&
 name|ctx
