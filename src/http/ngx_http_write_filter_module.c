@@ -1102,11 +1102,16 @@ name|clcf
 operator|->
 name|sendfile_max_chunk
 operator|&&
+operator|(
+name|size_t
+operator|)
+operator|(
 name|c
 operator|->
 name|sent
 operator|-
 name|sent
+operator|)
 operator|>=
 name|clcf
 operator|->
