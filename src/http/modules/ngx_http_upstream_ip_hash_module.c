@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2addf8ab0108
+DECL|struct|__anon2b6048550108
 typedef|typedef
 struct|struct
 block|{
@@ -515,9 +515,7 @@ name|rrp
 operator|.
 name|peers
 operator|->
-name|number
-operator|==
-literal|1
+name|single
 condition|)
 block|{
 return|return
