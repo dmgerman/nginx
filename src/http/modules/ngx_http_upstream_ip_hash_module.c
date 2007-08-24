@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29ed20af0108
+DECL|struct|__anon2addf8ab0108
 typedef|typedef
 struct|struct
 block|{
@@ -779,6 +779,14 @@ argument_list|)
 return|;
 block|}
 block|}
+name|iphp
+operator|->
+name|rrp
+operator|.
+name|current
+operator|=
+name|p
+expr_stmt|;
 name|pc
 operator|->
 name|sockaddr
