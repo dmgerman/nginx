@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c5c81850108
+DECL|struct|__anon2ac629310108
 typedef|typedef
 struct|struct
 block|{
@@ -2950,6 +2950,14 @@ operator|->
 name|no_send_shutdown
 operator|=
 literal|1
+expr_stmt|;
+name|c
+operator|->
+name|read
+operator|->
+name|ready
+operator|=
+literal|0
 expr_stmt|;
 name|c
 operator|->
