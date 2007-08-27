@@ -2597,7 +2597,7 @@ name|i
 index|]
 operator|.
 name|current_weight
-operator|+=
+operator|=
 name|peer
 index|[
 name|i
