@@ -2332,6 +2332,17 @@ return|return
 name|NGX_AGAIN
 return|;
 block|}
+if|if
+condition|(
+name|n
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+name|NGX_OK
+return|;
+block|}
 name|r
 operator|->
 name|headers_in
