@@ -3291,7 +3291,9 @@ argument_list|,
 name|ngx_socket_errno
 argument_list|,
 name|ngx_close_socket_n
-literal|" failed"
+literal|" %d failed"
+argument_list|,
+name|fd
 argument_list|)
 expr_stmt|;
 block|}
