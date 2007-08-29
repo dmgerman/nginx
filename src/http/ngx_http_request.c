@@ -497,7 +497,7 @@ argument_list|,
 name|if_modified_since
 argument_list|)
 block|,
-name|ngx_http_process_header_line
+name|ngx_http_process_unique_header_line
 block|}
 block|,
 block|{
