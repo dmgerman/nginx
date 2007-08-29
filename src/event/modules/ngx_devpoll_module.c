@@ -78,7 +78,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2ad8e4230108
+DECL|struct|__anon2b5c0f8d0108
 typedef|typedef
 struct|struct
 block|{
@@ -1066,7 +1066,7 @@ return|return
 name|NGX_OK
 return|;
 block|}
-comment|/* restore the paired event if it exists */
+comment|/* restore the pair event if it exists */
 if|if
 condition|(
 name|event
