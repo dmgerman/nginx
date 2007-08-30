@@ -461,6 +461,17 @@ value|0
 end_define
 
 begin_define
+DECL|macro|ngx_is_exec (fi)
+define|#
+directive|define
+name|ngx_is_exec
+parameter_list|(
+name|fi
+parameter_list|)
+value|0
+end_define
+
+begin_define
 DECL|macro|ngx_file_access (fi)
 define|#
 directive|define
@@ -810,7 +821,7 @@ value|(time_t) (((((unsigned __int64)                                          \
 end_define
 
 begin_typedef
-DECL|struct|__anon2b5fddea0108
+DECL|struct|__anon2793c8560108
 typedef|typedef
 struct|struct
 block|{
