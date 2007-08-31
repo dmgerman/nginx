@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon28c524b20108
+DECL|struct|__anon2bc10c900108
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28c524b20208
+DECL|struct|__anon2bc10c900208
 typedef|typedef
 struct|struct
 block|{
@@ -450,7 +450,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28c524b20308
+DECL|struct|__anon2bc10c900308
 typedef|typedef
 struct|struct
 block|{
@@ -469,7 +469,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c524b20408
+DECL|struct|__anon2bc10c900408
 typedef|typedef
 struct|struct
 block|{
@@ -778,7 +778,7 @@ value|0x00000400
 end_define
 
 begin_comment
-comment|/*  * The event module handles periodic or absolute timer event by itself:  * kqueue in FreeBSD 4.4 and NetBSD 2.0, Solaris 10's event ports.  */
+comment|/*  * The event module handles periodic or absolute timer event by itself:  * kqueue in FreeBSD 4.4, NetBSD 2.0, and MacOSX 10.4, Solaris 10's event ports.  */
 end_comment
 
 begin_define
@@ -1341,7 +1341,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon28c524b20508
+DECL|struct|__anon2bc10c900508
 typedef|typedef
 struct|struct
 block|{
@@ -1388,7 +1388,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c524b20608
+DECL|struct|__anon2bc10c900608
 typedef|typedef
 struct|struct
 block|{
