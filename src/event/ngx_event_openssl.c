@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon278aab230108
+DECL|struct|__anon2c3f1ef40108
 typedef|typedef
 struct|struct
 block|{
@@ -6506,7 +6506,7 @@ operator|->
 name|sec
 condition|)
 block|{
-break|break;
+return|return;
 block|}
 name|sess_id
 operator|->
