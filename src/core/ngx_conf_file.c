@@ -1408,7 +1408,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"invalid number arguments in \"%s\" directive"
+literal|"invalid number of arguments in \"%s\" directive"
 argument_list|,
 name|name
 operator|->
