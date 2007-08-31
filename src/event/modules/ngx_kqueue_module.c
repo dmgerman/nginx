@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b9edbc40108
+DECL|struct|__anon2c73b63c0108
 typedef|typedef
 struct|struct
 block|{
@@ -1439,7 +1439,7 @@ name|ngx_log_debug3
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
-name|c
+name|ev
 operator|->
 name|log
 argument_list|,
