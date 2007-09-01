@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2bc10c900108
+DECL|struct|__anon27a9cba50108
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2bc10c900208
+DECL|struct|__anon27a9cba50208
 typedef|typedef
 struct|struct
 block|{
@@ -120,7 +120,7 @@ name|accept
 range|:
 literal|1
 decl_stmt|;
-comment|/* used to detect the stale events in kqueue, rt signals and epoll */
+comment|/* used to detect the stale events in kqueue, rtsig, and epoll */
 DECL|member|instance
 name|unsigned
 name|instance
@@ -450,7 +450,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bc10c900308
+DECL|struct|__anon27a9cba50308
 typedef|typedef
 struct|struct
 block|{
@@ -469,7 +469,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc10c900408
+DECL|struct|__anon27a9cba50408
 typedef|typedef
 struct|struct
 block|{
@@ -706,7 +706,7 @@ value|0x00000010
 end_define
 
 begin_comment
-comment|/*  * The event filter requires to do i/o operation until EAGAIN:  * epoll, rt signals.  */
+comment|/*  * The event filter requires to do i/o operation until EAGAIN: epoll, rtsig.  */
 end_comment
 
 begin_define
@@ -730,7 +730,7 @@ value|0x00000040
 end_define
 
 begin_comment
-comment|/*  * No need to add or delete the event filters: rt signals.  */
+comment|/*  * No need to add or delete the event filters: rtsig.  */
 end_comment
 
 begin_define
@@ -766,7 +766,7 @@ value|0x00000200
 end_define
 
 begin_comment
-comment|/*  * The event filter has no opaque data and requires file descriptors table:  * poll, /dev/poll, rt signals.  */
+comment|/*  * The event filter has no opaque data and requires file descriptors table:  * poll, /dev/poll, rtsig.  */
 end_comment
 
 begin_define
@@ -802,7 +802,7 @@ value|0x00001000
 end_define
 
 begin_comment
-comment|/*  * The event filter is deleted before the closing file.  * Has no meaning for select, poll, kqueue, epoll.  * /dev/poll:  we need to flush POLLREMOVE event before closing file  */
+comment|/*  * The event filter is deleted just before the closing file.  * Has no meaning for select and poll.  * kqueue, epoll, rtsig, eventport:  allows to avoid explicit delete,  *                                   because filter automatically is deleted  *                                   on file close,  *  * /dev/poll:                        we need to flush POLLREMOVE event  *                                   before closing file.  */
 end_comment
 
 begin_define
@@ -1341,7 +1341,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2bc10c900508
+DECL|struct|__anon27a9cba50508
 typedef|typedef
 struct|struct
 block|{
@@ -1388,7 +1388,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc10c900608
+DECL|struct|__anon27a9cba50608
 typedef|typedef
 struct|struct
 block|{
