@@ -1871,12 +1871,6 @@ return|return
 name|NGX_OK
 return|;
 block|}
-name|r
-operator|->
-name|discard_body
-operator|=
-literal|1
-expr_stmt|;
 name|size
 operator|=
 name|r
@@ -1946,6 +1940,12 @@ name|NGX_OK
 return|;
 block|}
 block|}
+name|r
+operator|->
+name|discard_body
+operator|=
+literal|1
+expr_stmt|;
 name|r
 operator|->
 name|read_event_handler
