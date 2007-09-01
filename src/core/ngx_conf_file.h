@@ -622,7 +622,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bb124ef0108
+DECL|struct|__anon29faff330108
 typedef|typedef
 struct|struct
 block|{
@@ -667,7 +667,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb124ef0208
+DECL|struct|__anon29faff330208
 typedef|typedef
 struct|struct
 block|{
@@ -807,7 +807,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb124ef0308
+DECL|struct|__anon29faff330308
 typedef|typedef
 struct|struct
 block|{
@@ -822,7 +822,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb124ef0408
+DECL|struct|__anon29faff330408
 typedef|typedef
 struct|struct
 block|{
@@ -847,7 +847,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb124ef0508
+DECL|struct|__anon29faff330508
 typedef|typedef
 struct|struct
 block|{
@@ -870,7 +870,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb124ef0608
+DECL|struct|__anon29faff330608
 typedef|typedef
 struct|struct
 block|{
@@ -897,7 +897,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2bb124ef0708
+DECL|struct|__anon29faff330708
 typedef|typedef
 struct|struct
 block|{
@@ -1046,7 +1046,7 @@ name|conf
 parameter_list|,
 name|prev
 parameter_list|,
-define|default)                        \     if (conf == NULL) {                                                      \         conf = (prev == NULL) ? default : prev;                              \     }
+define|default)                        \     if (conf == NGX_CONF_UNSET_PTR) {                                        \         conf = (prev == NGX_CONF_UNSET_PTR) ? default : prev;                \     }
 end_define
 
 begin_define

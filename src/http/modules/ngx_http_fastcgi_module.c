@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29a463b70108
+DECL|struct|__anon27f169330108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29a463b70203
+DECL|enum|__anon27f169330203
 typedef|typedef
 enum|enum
 block|{
@@ -114,7 +114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a463b70308
+DECL|struct|__anon27f169330308
 typedef|typedef
 struct|struct
 block|{
@@ -135,7 +135,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a463b70408
+DECL|struct|__anon27f169330408
 typedef|typedef
 struct|struct
 block|{
@@ -254,7 +254,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon29a463b70508
+DECL|struct|__anon27f169330508
 typedef|typedef
 struct|struct
 block|{
@@ -297,7 +297,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a463b70608
+DECL|struct|__anon27f169330608
 typedef|typedef
 struct|struct
 block|{
@@ -327,7 +327,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a463b70708
+DECL|struct|__anon27f169330708
 typedef|typedef
 struct|struct
 block|{
@@ -354,7 +354,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a463b70808
+DECL|struct|__anon27f169330808
 typedef|typedef
 struct|struct
 block|{
@@ -7405,7 +7405,7 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
-comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.bufs.num = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.temp_path = NULL;      *     conf->upstream.hide_headers_hash = { NULL, 0 };      *     conf->upstream.hide_headers = NULL;      *     conf->upstream.pass_headers = NULL;      *     conf->upstream.catch_stderr = NULL;      *     conf->upstream.schema = { 0, NULL };      *     conf->upstream.uri = { 0, NULL };      *     conf->upstream.location = NULL;      *     conf->upstream.store_lengths = NULL;      *     conf->upstream.store_values = NULL;      *      *     conf->index.len = 0;      *     conf->index.data = NULL;      */
+comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.bufs.num = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.temp_path = NULL;      *     conf->upstream.hide_headers_hash = { NULL, 0 };      *     conf->upstream.hide_headers = NULL;      *     conf->upstream.pass_headers = NULL;      *     conf->upstream.schema = { 0, NULL };      *     conf->upstream.uri = { 0, NULL };      *     conf->upstream.location = NULL;      *     conf->upstream.store_lengths = NULL;      *     conf->upstream.store_values = NULL;      *      *     conf->index.len = 0;      *     conf->index.data = NULL;      */
 name|conf
 operator|->
 name|upstream
@@ -7534,6 +7534,12 @@ operator|.
 name|cyclic_temp_file
 operator|=
 literal|0
+expr_stmt|;
+name|conf
+operator|->
+name|catch_stderr
+operator|=
+name|NGX_CONF_UNSET_PTR
 expr_stmt|;
 return|return
 name|conf
