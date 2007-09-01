@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2bcc728f0108
+DECL|struct|__anon28b8d5820108
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2bcc728f0208
+DECL|struct|__anon28b8d5820208
 typedef|typedef
 struct|struct
 block|{
@@ -450,7 +450,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bcc728f0308
+DECL|struct|__anon28b8d5820308
 typedef|typedef
 struct|struct
 block|{
@@ -469,7 +469,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bcc728f0408
+DECL|struct|__anon28b8d5820408
 typedef|typedef
 struct|struct
 block|{
@@ -802,6 +802,18 @@ value|0x00001000
 end_define
 
 begin_comment
+comment|/*  * The event filter support vnode notifications: kqueue.  */
+end_comment
+
+begin_define
+DECL|macro|NGX_USE_VNODE_EVENT
+define|#
+directive|define
+name|NGX_USE_VNODE_EVENT
+value|0x00002000
+end_define
+
+begin_comment
 comment|/*  * The event filter is deleted just before the closing file.  * Has no meaning for select and poll.  * kqueue, epoll, rtsig, eventport:  allows to avoid explicit delete,  *                                   because filter automatically is deleted  *                                   on file close,  *  * /dev/poll:                        we need to flush POLLREMOVE event  *                                   before closing file.  */
 end_comment
 
@@ -823,6 +835,18 @@ define|#
 directive|define
 name|NGX_DISABLE_EVENT
 value|2
+end_define
+
+begin_comment
+comment|/*  * event must be passed to kernel right now, do not wait until batch processing.  */
+end_comment
+
+begin_define
+DECL|macro|NGX_FLUSH_EVENT
+define|#
+directive|define
+name|NGX_FLUSH_EVENT
+value|4
 end_define
 
 begin_comment
@@ -884,7 +908,7 @@ value|EVFILT_VNODE
 end_define
 
 begin_comment
-comment|/*  * NGX_CLOSE_EVENT and NGX_LOWAT_EVENT are the module flags and they would  * not go into a kernel so we need to choose the value that would not interfere  * with any existent and future kqueue flags.  kqueue has such values -  * EV_FLAG1, EV_EOF and EV_ERROR.  They are reserved and cleared on a kernel  * entrance.  */
+comment|/*  * NGX_CLOSE_EVENT, NGX_LOWAT_EVENT, and NGX_FLUSH_EVENT are the module flags  * and they must not go into a kernel so we need to choose the value  * that must not interfere with any existent and future kqueue flags.  * kqueue has such values - EV_FLAG1, EV_EOF, and EV_ERROR:  * they are reserved and cleared on a kernel entrance.  */
 end_comment
 
 begin_undef
@@ -913,6 +937,20 @@ define|#
 directive|define
 name|NGX_LOWAT_EVENT
 value|EV_FLAG1
+end_define
+
+begin_undef
+undef|#
+directive|undef
+name|NGX_FLUSH_EVENT
+end_undef
+
+begin_define
+DECL|macro|NGX_FLUSH_EVENT
+define|#
+directive|define
+name|NGX_FLUSH_EVENT
+value|EV_ERROR
 end_define
 
 begin_define
@@ -1345,7 +1383,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2bcc728f0508
+DECL|struct|__anon28b8d5820508
 typedef|typedef
 struct|struct
 block|{
@@ -1392,7 +1430,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bcc728f0608
+DECL|struct|__anon28b8d5820608
 typedef|typedef
 struct|struct
 block|{
