@@ -2147,6 +2147,12 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
+name|c
+operator|->
+name|error
+operator|=
+literal|1
+expr_stmt|;
 name|ngx_http_finalize_request
 argument_list|(
 name|r
