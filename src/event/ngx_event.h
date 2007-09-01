@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon27a9cba50108
+DECL|struct|__anon2bcc728f0108
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon27a9cba50208
+DECL|struct|__anon2bcc728f0208
 typedef|typedef
 struct|struct
 block|{
@@ -450,7 +450,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27a9cba50308
+DECL|struct|__anon2bcc728f0308
 typedef|typedef
 struct|struct
 block|{
@@ -469,7 +469,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a9cba50408
+DECL|struct|__anon2bcc728f0408
 typedef|typedef
 struct|struct
 block|{
@@ -812,6 +812,10 @@ directive|define
 name|NGX_CLOSE_EVENT
 value|1
 end_define
+
+begin_comment
+comment|/*  * disable temporarily event filter, this may avoid locks  * in kernel malloc()/free(): kqueue.  */
+end_comment
 
 begin_define
 DECL|macro|NGX_DISABLE_EVENT
@@ -1341,7 +1345,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon27a9cba50508
+DECL|struct|__anon2bcc728f0508
 typedef|typedef
 struct|struct
 block|{
@@ -1388,7 +1392,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a9cba50608
+DECL|struct|__anon2bcc728f0608
 typedef|typedef
 struct|struct
 block|{
