@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29bcbeea0108
+DECL|struct|__anon2b4e291f0108
 typedef|typedef
 struct|struct
 block|{
@@ -108,7 +108,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29bcbeea0208
+DECL|struct|__anon2b4e291f0208
 typedef|typedef
 struct|struct
 block|{
@@ -143,7 +143,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29bcbeea0303
+DECL|enum|__anon2b4e291f0303
 typedef|typedef
 enum|enum
 block|{
@@ -235,7 +235,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29bcbeea0408
+DECL|struct|__anon2b4e291f0408
 typedef|typedef
 struct|struct
 block|{
@@ -259,7 +259,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29bcbeea0508
+DECL|struct|__anon2b4e291f0508
 typedef|typedef
 struct|struct
 block|{
@@ -274,7 +274,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29bcbeea0608
+DECL|struct|__anon2b4e291f0608
 typedef|typedef
 struct|struct
 block|{
@@ -337,7 +337,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29bcbeea0708
+DECL|struct|__anon2b4e291f0708
 typedef|typedef
 struct|struct
 block|{
@@ -423,7 +423,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon29bcbeea0808
+DECL|struct|__anon2b4e291f0808
 typedef|typedef
 struct|struct
 block|{
@@ -449,7 +449,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29bcbeea0908
+DECL|struct|__anon2b4e291f0908
 typedef|typedef
 struct|struct
 block|{
@@ -477,7 +477,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29bcbeea0a08
+DECL|struct|__anon2b4e291f0a08
 typedef|typedef
 struct|struct
 block|{
@@ -497,7 +497,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29bcbeea0b08
+DECL|struct|__anon2b4e291f0b08
 typedef|typedef
 struct|struct
 block|{
@@ -601,7 +601,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29bcbeea0c08
+DECL|struct|__anon2b4e291f0c08
 typedef|typedef
 struct|struct
 block|{
@@ -898,10 +898,18 @@ modifier|*
 name|client_body_temp_path
 decl_stmt|;
 comment|/* client_body_temp_path */
-DECL|member|open_files
-name|ngx_http_cache_hash_t
+DECL|member|open_file_cache
+name|ngx_open_file_cache_t
 modifier|*
-name|open_files
+name|open_file_cache
+decl_stmt|;
+DECL|member|open_file_cache_retest
+name|time_t
+name|open_file_cache_retest
+decl_stmt|;
+DECL|member|open_file_cache_errors
+name|ngx_flag_t
+name|open_file_cache_errors
 decl_stmt|;
 DECL|member|err_log
 name|ngx_log_t
