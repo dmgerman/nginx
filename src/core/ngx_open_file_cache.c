@@ -1513,9 +1513,15 @@ name|update
 label|:
 if|if
 condition|(
+operator|(
 name|ngx_event_flags
 operator|&
 name|NGX_USE_VNODE_EVENT
+operator|)
+operator|&&
+name|of
+operator|->
+name|events
 operator|&&
 name|of
 operator|->

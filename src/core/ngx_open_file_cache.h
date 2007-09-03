@@ -29,7 +29,7 @@ name|_NGX_OPEN_FILE_CACHE_H_INCLUDED_
 end_define
 
 begin_typedef
-DECL|struct|__anon2ad2b6c60108
+DECL|struct|__anon2b64c5350108
 typedef|typedef
 struct|struct
 block|{
@@ -66,6 +66,12 @@ decl_stmt|;
 DECL|member|errors
 name|unsigned
 name|errors
+range|:
+literal|1
+decl_stmt|;
+DECL|member|events
+name|unsigned
+name|events
 range|:
 literal|1
 decl_stmt|;
@@ -206,7 +212,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2ad2b6c60208
+DECL|struct|__anon2b64c5350208
 typedef|typedef
 struct|struct
 block|{
@@ -241,7 +247,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad2b6c60308
+DECL|struct|__anon2b64c5350308
 typedef|typedef
 struct|struct
 block|{
@@ -267,7 +273,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad2b6c60408
+DECL|struct|__anon2b64c5350408
 typedef|typedef
 struct|struct
 block|{

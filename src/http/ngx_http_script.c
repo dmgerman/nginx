@@ -4750,6 +4750,14 @@ name|clcf
 operator|->
 name|open_file_cache_errors
 expr_stmt|;
+name|of
+operator|.
+name|events
+operator|=
+name|clcf
+operator|->
+name|open_file_cache_events
+expr_stmt|;
 if|if
 condition|(
 name|ngx_open_cached_file
