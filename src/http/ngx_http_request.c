@@ -5887,9 +5887,7 @@ name|r
 operator|->
 name|method
 operator|&
-operator|(
 name|NGX_HTTP_TRACE
-operator|)
 condition|)
 block|{
 name|ngx_log_error
