@@ -5789,6 +5789,14 @@ operator|->
 name|pending_eof
 condition|)
 block|{
+name|c
+operator|->
+name|log
+operator|->
+name|action
+operator|=
+literal|"connecting to upstream"
+expr_stmt|;
 operator|(
 name|void
 operator|)
@@ -5863,6 +5871,14 @@ condition|(
 name|err
 condition|)
 block|{
+name|c
+operator|->
+name|log
+operator|->
+name|action
+operator|=
+literal|"connecting to upstream"
+expr_stmt|;
 operator|(
 name|void
 operator|)
