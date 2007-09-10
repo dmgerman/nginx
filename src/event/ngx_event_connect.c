@@ -40,7 +40,7 @@ block|{
 name|int
 name|rc
 decl_stmt|;
-name|u_int
+name|ngx_int_t
 name|event
 decl_stmt|;
 name|ngx_err_t
