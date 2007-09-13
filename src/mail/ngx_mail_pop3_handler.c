@@ -560,9 +560,9 @@ name|read
 operator|->
 name|handler
 operator|=
-name|ngx_pop3_auth_state
+name|ngx_mail_pop3_auth_state
 expr_stmt|;
-name|ngx_pop3_auth_state
+name|ngx_mail_pop3_auth_state
 argument_list|(
 name|rev
 argument_list|)
@@ -572,8 +572,8 @@ end_function
 
 begin_function
 name|void
-DECL|function|ngx_pop3_auth_state (ngx_event_t * rev)
-name|ngx_pop3_auth_state
+DECL|function|ngx_mail_pop3_auth_state (ngx_event_t * rev)
+name|ngx_mail_pop3_auth_state
 parameter_list|(
 name|ngx_event_t
 modifier|*

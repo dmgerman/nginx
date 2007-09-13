@@ -115,18 +115,18 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_mail_parse
+DECL|variable|ngx_mail_parse_commands
 specifier|static
-name|ngx_mail_parse_pt
-name|ngx_mail_parse
+name|ngx_mail_parse_command_pt
+name|ngx_mail_parse_commands
 index|[]
 init|=
 block|{
-name|ngx_pop3_parse_command
+name|ngx_mail_pop3_parse_command
 block|,
-name|ngx_imap_parse_command
+name|ngx_mail_imap_parse_command
 block|,
-name|ngx_smtp_parse_command
+name|ngx_mail_smtp_parse_command
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -2326,7 +2326,7 @@ return|;
 block|}
 name|rc
 operator|=
-name|ngx_mail_parse
+name|ngx_mail_parse_commands
 index|[
 name|s
 operator|->

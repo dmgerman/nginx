@@ -28,9 +28,9 @@ file|<ngx_mail.h>
 end_include
 
 begin_function
-DECL|function|ngx_pop3_parse_command (ngx_mail_session_t * s)
 name|ngx_int_t
-name|ngx_pop3_parse_command
+DECL|function|ngx_mail_pop3_parse_command (ngx_mail_session_t * s)
+name|ngx_mail_pop3_parse_command
 parameter_list|(
 name|ngx_mail_session_t
 modifier|*
@@ -58,7 +58,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon2aaca7be0103
+DECL|enum|__anon2a2c7d680103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -803,9 +803,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_imap_parse_command (ngx_mail_session_t * s)
 name|ngx_int_t
-name|ngx_imap_parse_command
+DECL|function|ngx_mail_imap_parse_command (ngx_mail_session_t * s)
+name|ngx_mail_imap_parse_command
 parameter_list|(
 name|ngx_mail_session_t
 modifier|*
@@ -825,7 +825,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon2aaca7be0203
+DECL|enum|__anon2a2c7d680203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2728,9 +2728,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_smtp_parse_command (ngx_mail_session_t * s)
 name|ngx_int_t
-name|ngx_smtp_parse_command
+DECL|function|ngx_mail_smtp_parse_command (ngx_mail_session_t * s)
+name|ngx_mail_smtp_parse_command
 parameter_list|(
 name|ngx_mail_session_t
 modifier|*
@@ -2758,7 +2758,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon2aaca7be0303
+DECL|enum|__anon2a2c7d680303
 enum|enum
 block|{
 DECL|enumerator|sw_start

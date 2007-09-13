@@ -60,7 +60,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28a2eba40108
+DECL|struct|__anon2c5128490108
 typedef|typedef
 struct|struct
 block|{
@@ -83,7 +83,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a2eba40208
+DECL|struct|__anon2c5128490208
 typedef|typedef
 struct|struct
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a2eba40308
+DECL|struct|__anon2c5128490308
 typedef|typedef
 struct|struct
 block|{
@@ -142,7 +142,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a2eba40408
+DECL|struct|__anon2c5128490408
 typedef|typedef
 struct|struct
 block|{
@@ -163,7 +163,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a2eba40508
+DECL|struct|__anon2c5128490508
 typedef|typedef
 struct|struct
 block|{
@@ -183,7 +183,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a2eba40608
+DECL|struct|__anon2c5128490608
 typedef|typedef
 struct|struct
 block|{
@@ -209,7 +209,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a2eba40708
+DECL|struct|__anon2c5128490708
 typedef|typedef
 struct|struct
 block|{
@@ -254,7 +254,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon28a2eba40808
+DECL|struct|__anon2c5128490808
 typedef|typedef
 struct|struct
 block|{
@@ -363,7 +363,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a2eba40908
+DECL|struct|__anon2c5128490908
 typedef|typedef
 struct|struct
 block|{
@@ -438,7 +438,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28a2eba40a03
+DECL|enum|__anon2c5128490a03
 typedef|typedef
 enum|enum
 block|{
@@ -471,7 +471,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28a2eba40b03
+DECL|enum|__anon2c5128490b03
 typedef|typedef
 enum|enum
 block|{
@@ -507,7 +507,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28a2eba40c03
+DECL|enum|__anon2c5128490c03
 typedef|typedef
 enum|enum
 block|{
@@ -543,7 +543,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a2eba40d08
+DECL|struct|__anon2c5128490d08
 typedef|typedef
 struct|struct
 block|{
@@ -563,7 +563,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a2eba40e08
+DECL|struct|__anon2c5128490e08
 typedef|typedef
 struct|struct
 block|{
@@ -749,7 +749,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a2eba40f08
+DECL|struct|__anon2c5128490f08
 typedef|typedef
 struct|struct
 block|{
@@ -1299,12 +1299,28 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|typedef|ngx_mail_parse_pt
+DECL|typedef|ngx_mail_auth_state_pt
+typedef|typedef
+name|void
+function_decl|(
+modifier|*
+name|ngx_mail_auth_state_pt
+function_decl|)
+parameter_list|(
+name|ngx_event_t
+modifier|*
+name|rev
+parameter_list|)
+function_decl|;
+end_typedef
+
+begin_typedef
+DECL|typedef|ngx_mail_parse_command_pt
 typedef|typedef
 name|ngx_int_t
 function_decl|(
 modifier|*
-name|ngx_mail_parse_pt
+name|ngx_mail_parse_command_pt
 function_decl|)
 parameter_list|(
 name|ngx_mail_session_t
@@ -1351,7 +1367,7 @@ end_function_decl
 
 begin_function_decl
 name|void
-name|ngx_pop3_auth_state
+name|ngx_mail_pop3_auth_state
 parameter_list|(
 name|ngx_event_t
 modifier|*
@@ -1362,7 +1378,7 @@ end_function_decl
 
 begin_function_decl
 name|void
-name|ngx_imap_auth_state
+name|ngx_mail_imap_auth_state
 parameter_list|(
 name|ngx_event_t
 modifier|*
@@ -1373,7 +1389,7 @@ end_function_decl
 
 begin_function_decl
 name|void
-name|ngx_smtp_auth_state
+name|ngx_mail_smtp_auth_state
 parameter_list|(
 name|ngx_event_t
 modifier|*
@@ -1618,7 +1634,7 @@ end_function_decl
 
 begin_function_decl
 name|ngx_int_t
-name|ngx_pop3_parse_command
+name|ngx_mail_pop3_parse_command
 parameter_list|(
 name|ngx_mail_session_t
 modifier|*
@@ -1629,7 +1645,7 @@ end_function_decl
 
 begin_function_decl
 name|ngx_int_t
-name|ngx_imap_parse_command
+name|ngx_mail_imap_parse_command
 parameter_list|(
 name|ngx_mail_session_t
 modifier|*
@@ -1640,7 +1656,7 @@ end_function_decl
 
 begin_function_decl
 name|ngx_int_t
-name|ngx_smtp_parse_command
+name|ngx_mail_smtp_parse_command
 parameter_list|(
 name|ngx_mail_session_t
 modifier|*
