@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29eceb5b0108
+DECL|struct|__anon27afeca50108
 typedef|typedef
 struct|struct
 block|{
@@ -1148,11 +1148,7 @@ argument_list|)
 expr_stmt|;
 name|ngx_close_connection
 argument_list|(
-name|ctx
-operator|->
-name|peer
-operator|.
-name|connection
+name|c
 argument_list|)
 expr_stmt|;
 name|ngx_destroy_pool
@@ -1207,11 +1203,7 @@ condition|)
 block|{
 name|ngx_close_connection
 argument_list|(
-name|ctx
-operator|->
-name|peer
-operator|.
-name|connection
+name|c
 argument_list|)
 expr_stmt|;
 name|ngx_destroy_pool
@@ -1283,11 +1275,7 @@ condition|)
 block|{
 name|ngx_close_connection
 argument_list|(
-name|ctx
-operator|->
-name|peer
-operator|.
-name|connection
+name|c
 argument_list|)
 expr_stmt|;
 name|ngx_destroy_pool
@@ -1426,11 +1414,7 @@ argument_list|)
 expr_stmt|;
 name|ngx_close_connection
 argument_list|(
-name|ctx
-operator|->
-name|peer
-operator|.
-name|connection
+name|c
 argument_list|)
 expr_stmt|;
 name|ngx_destroy_pool
@@ -1480,11 +1464,7 @@ condition|)
 block|{
 name|ngx_close_connection
 argument_list|(
-name|ctx
-operator|->
-name|peer
-operator|.
-name|connection
+name|c
 argument_list|)
 expr_stmt|;
 name|ngx_destroy_pool
@@ -1568,11 +1548,7 @@ return|return;
 block|}
 name|ngx_close_connection
 argument_list|(
-name|ctx
-operator|->
-name|peer
-operator|.
-name|connection
+name|c
 argument_list|)
 expr_stmt|;
 name|ngx_destroy_pool
@@ -1611,7 +1587,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon29eceb5b0203
+DECL|enum|__anon27afeca50203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -4223,7 +4199,7 @@ decl_stmt|;
 name|ngx_uint_t
 name|hash
 decl_stmt|;
-DECL|enum|__anon29eceb5b0303
+DECL|enum|__anon27afeca50303
 enum|enum
 block|{
 DECL|enumerator|sw_start
