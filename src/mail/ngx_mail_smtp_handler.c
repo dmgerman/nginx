@@ -477,6 +477,12 @@ argument_list|,
 literal|"delay greeting"
 argument_list|)
 expr_stmt|;
+name|rev
+operator|->
+name|timedout
+operator|=
+literal|0
+expr_stmt|;
 name|cscf
 operator|=
 name|ngx_mail_get_module_srv_conf
