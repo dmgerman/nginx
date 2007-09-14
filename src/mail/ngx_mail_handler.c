@@ -2391,12 +2391,16 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_mail_read_command (ngx_mail_session_t * s)
+DECL|function|ngx_mail_read_command (ngx_mail_session_t * s,ngx_connection_t * c)
 name|ngx_mail_read_command
 parameter_list|(
 name|ngx_mail_session_t
 modifier|*
 name|s
+parameter_list|,
+name|ngx_connection_t
+modifier|*
+name|c
 parameter_list|)
 block|{
 name|ssize_t
@@ -2410,15 +2414,11 @@ name|l
 decl_stmt|;
 name|n
 operator|=
-name|s
-operator|->
-name|connection
+name|c
 operator|->
 name|recv
 argument_list|(
-name|s
-operator|->
-name|connection
+name|c
 argument_list|,
 name|s
 operator|->
@@ -2452,9 +2452,7 @@ condition|)
 block|{
 name|ngx_mail_close_connection
 argument_list|(
-name|s
-operator|->
-name|connection
+name|c
 argument_list|)
 expr_stmt|;
 return|return
@@ -2488,9 +2486,7 @@ if|if
 condition|(
 name|ngx_handle_read_event
 argument_list|(
-name|s
-operator|->
-name|connection
+name|c
 operator|->
 name|read
 argument_list|,
@@ -2581,9 +2577,7 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_INFO
 argument_list|,
-name|s
-operator|->
-name|connection
+name|c
 operator|->
 name|log
 argument_list|,
@@ -2629,9 +2623,7 @@ condition|)
 block|{
 name|ngx_mail_close_connection
 argument_list|(
-name|s
-operator|->
-name|connection
+name|c
 argument_list|)
 expr_stmt|;
 return|return
@@ -2646,12 +2638,16 @@ end_function
 
 begin_function
 name|void
-DECL|function|ngx_mail_auth (ngx_mail_session_t * s)
+DECL|function|ngx_mail_auth (ngx_mail_session_t * s,ngx_connection_t * c)
 name|ngx_mail_auth
 parameter_list|(
 name|ngx_mail_session_t
 modifier|*
 name|s
+parameter_list|,
+name|ngx_connection_t
+modifier|*
+name|c
 parameter_list|)
 block|{
 name|s
@@ -2694,9 +2690,7 @@ literal|0
 expr_stmt|;
 if|if
 condition|(
-name|s
-operator|->
-name|connection
+name|c
 operator|->
 name|read
 operator|->
@@ -2705,9 +2699,7 @@ condition|)
 block|{
 name|ngx_del_timer
 argument_list|(
-name|s
-operator|->
-name|connection
+name|c
 operator|->
 name|read
 argument_list|)

@@ -867,6 +867,8 @@ operator|=
 name|ngx_mail_read_command
 argument_list|(
 name|s
+argument_list|,
+name|c
 argument_list|)
 expr_stmt|;
 if|if
@@ -1122,6 +1124,8 @@ case|:
 name|ngx_mail_auth
 argument_list|(
 name|s
+argument_list|,
+name|c
 argument_list|)
 expr_stmt|;
 return|return;
