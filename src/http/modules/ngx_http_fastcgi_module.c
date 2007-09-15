@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27f169330108
+DECL|struct|__anon2a1647720108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27f169330203
+DECL|enum|__anon2a1647720203
 typedef|typedef
 enum|enum
 block|{
@@ -114,7 +114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27f169330308
+DECL|struct|__anon2a1647720308
 typedef|typedef
 struct|struct
 block|{
@@ -135,7 +135,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27f169330408
+DECL|struct|__anon2a1647720408
 typedef|typedef
 struct|struct
 block|{
@@ -254,7 +254,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon27f169330508
+DECL|struct|__anon2a1647720508
 typedef|typedef
 struct|struct
 block|{
@@ -297,7 +297,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27f169330608
+DECL|struct|__anon2a1647720608
 typedef|typedef
 struct|struct
 block|{
@@ -327,7 +327,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27f169330708
+DECL|struct|__anon2a1647720708
 typedef|typedef
 struct|struct
 block|{
@@ -354,7 +354,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27f169330808
+DECL|struct|__anon2a1647720808
 typedef|typedef
 struct|struct
 block|{
@@ -5522,7 +5522,9 @@ name|ngx_tolower
 argument_list|(
 name|h
 operator|->
-name|lowcase_key
+name|key
+operator|.
+name|data
 index|[
 name|i
 index|]
