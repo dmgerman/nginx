@@ -13946,8 +13946,6 @@ name|i
 index|]
 operator|->
 name|file_name
-operator|.
-name|data
 argument_list|,
 name|uscfp
 index|[
@@ -14061,6 +14059,8 @@ operator|->
 name|file
 operator|.
 name|name
+operator|.
+name|data
 expr_stmt|;
 name|uscf
 operator|->

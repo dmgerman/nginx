@@ -848,8 +848,6 @@ argument_list|,
 name|us
 operator|->
 name|file_name
-operator|.
-name|data
 argument_list|,
 name|us
 operator|->
@@ -944,8 +942,6 @@ argument_list|,
 name|us
 operator|->
 name|file_name
-operator|.
-name|data
 argument_list|,
 name|us
 operator|->
