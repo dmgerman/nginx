@@ -514,6 +514,9 @@ init|=
 block|{
 name|NULL
 block|,
+comment|/* protocol */
+name|NULL
+block|,
 comment|/* create main configuration */
 name|NULL
 block|,

@@ -702,6 +702,12 @@ operator|->
 name|ctx_index
 expr_stmt|;
 comment|/* init mail{} main_conf's */
+name|cf
+operator|->
+name|ctx
+operator|=
+name|ctx
+expr_stmt|;
 if|if
 condition|(
 name|module
@@ -761,6 +767,17 @@ operator|++
 control|)
 block|{
 comment|/* merge the server{}s' srv_conf's */
+name|cf
+operator|->
+name|ctx
+operator|=
+name|cscfp
+index|[
+name|s
+index|]
+operator|->
+name|ctx
+expr_stmt|;
 if|if
 condition|(
 name|module
@@ -815,7 +832,6 @@ block|}
 block|}
 block|}
 block|}
-comment|/* mail{}'s cf->ctx was needed while the configuration merging */
 operator|*
 name|cf
 operator|=

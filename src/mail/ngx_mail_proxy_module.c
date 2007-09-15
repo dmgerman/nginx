@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28b5d1fc0108
+DECL|struct|__anon2c3d572e0108
 typedef|typedef
 struct|struct
 block|{
@@ -371,6 +371,9 @@ name|ngx_mail_module_t
 name|ngx_mail_proxy_module_ctx
 init|=
 block|{
+name|NULL
+block|,
+comment|/* protocol */
 name|NULL
 block|,
 comment|/* create main configuration */
