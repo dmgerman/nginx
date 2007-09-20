@@ -2938,7 +2938,15 @@ name|buf
 argument_list|,
 name|len
 argument_list|,
-literal|", server: %V"
+literal|"%s, server: %V"
+argument_list|,
+name|s
+operator|->
+name|starttls
+condition|?
+literal|" using starttls"
+else|:
+literal|""
 argument_list|,
 name|s
 operator|->
