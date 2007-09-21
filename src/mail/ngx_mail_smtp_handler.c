@@ -2291,32 +2291,7 @@ index|[
 name|i
 index|]
 operator|=
-literal|' '
-expr_stmt|;
-block|}
-while|while
-condition|(
-name|i
-condition|)
-block|{
-if|if
-condition|(
-name|cmd
-operator|.
-name|data
-index|[
-name|i
-operator|-
-literal|1
-index|]
-operator|!=
-literal|' '
-condition|)
-block|{
-break|break;
-block|}
-name|i
-operator|--
+literal|'_'
 expr_stmt|;
 block|}
 name|cmd
