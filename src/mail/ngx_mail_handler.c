@@ -1175,7 +1175,7 @@ argument_list|,
 operator|&
 name|arg
 index|[
-literal|0
+name|n
 index|]
 argument_list|)
 operator|!=
