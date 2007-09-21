@@ -3787,8 +3787,6 @@ operator|->
 name|data
 argument_list|,
 name|last
-operator|-
-literal|1
 argument_list|)
 expr_stmt|;
 name|hwc
