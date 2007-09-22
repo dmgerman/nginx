@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2953170a0108
+DECL|struct|__anon2b7e1c740108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2953170a0208
+DECL|struct|__anon2b7e1c740208
 typedef|typedef
 struct|struct
 block|{
@@ -897,6 +897,37 @@ operator|->
 name|header_only
 condition|)
 block|{
+if|if
+condition|(
+name|ngx_close_dir
+argument_list|(
+operator|&
+name|dir
+argument_list|)
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+name|ngx_errno
+argument_list|,
+name|ngx_close_dir_n
+literal|" \"%V\" failed"
+argument_list|,
+operator|&
+name|path
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|rc
 return|;
