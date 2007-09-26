@@ -1499,7 +1499,7 @@ block|}
 end_function
 
 begin_comment
-comment|/*  * We use ngx_strcasecmp()/ngx_strncasecmp() for 7-bit ASCII string only,  * and implement our own ngx_strcasecmp()/ngx_strncasecmp()  * to avoid libc locale overhead.  Besides, we use the ngx_uint_t's  * instead of the u_char's, because they are slightly faster.  */
+comment|/*  * We use ngx_strcasecmp()/ngx_strncasecmp() for 7-bit ASCII strings only,  * and implement our own ngx_strcasecmp()/ngx_strncasecmp()  * to avoid libc locale overhead.  Besides, we use the ngx_uint_t's  * instead of the u_char's, because they are slightly faster.  */
 end_comment
 
 begin_function
@@ -4519,7 +4519,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon2c3e89be0103
+DECL|enum|__anon28af01de0103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
