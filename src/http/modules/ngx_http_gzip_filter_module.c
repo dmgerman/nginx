@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c3ed0f70108
+DECL|struct|__anon2b6fe2f10108
 typedef|typedef
 struct|struct
 block|{
@@ -153,7 +153,7 @@ value|0x0200
 end_define
 
 begin_typedef
-DECL|struct|__anon2c3ed0f70208
+DECL|struct|__anon2b6fe2f10208
 typedef|typedef
 struct|struct
 block|{
@@ -1313,7 +1313,7 @@ operator|->
 name|min_length
 operator|)
 operator|||
-name|ngx_strstr
+name|ngx_strcasestrn
 argument_list|(
 name|r
 operator|->
@@ -1326,9 +1326,9 @@ operator|.
 name|data
 argument_list|,
 literal|"gzip"
+argument_list|,
+literal|3
 argument_list|)
-operator|==
-name|NULL
 condition|)
 block|{
 return|return

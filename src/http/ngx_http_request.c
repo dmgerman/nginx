@@ -5452,7 +5452,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|ngx_strstr
+name|ngx_strcasestrn
 argument_list|(
 name|h
 operator|->
@@ -5461,6 +5461,8 @@ operator|.
 name|data
 argument_list|,
 literal|"close"
+argument_list|,
+literal|4
 argument_list|)
 condition|)
 block|{
@@ -5475,7 +5477,7 @@ expr_stmt|;
 block|}
 if|else if
 condition|(
-name|ngx_strstr
+name|ngx_strcasestrn
 argument_list|(
 name|h
 operator|->
@@ -5484,6 +5486,8 @@ operator|.
 name|data
 argument_list|,
 literal|"keep-alive"
+argument_list|,
+literal|9
 argument_list|)
 condition|)
 block|{
@@ -6013,7 +6017,7 @@ name|headers_in
 operator|.
 name|transfer_encoding
 operator|&&
-name|ngx_strstr
+name|ngx_strcasestrn
 argument_list|(
 name|r
 operator|->
@@ -6026,6 +6030,8 @@ operator|.
 name|data
 argument_list|,
 literal|"chunked"
+argument_list|,
+literal|6
 argument_list|)
 condition|)
 block|{
@@ -6163,15 +6169,13 @@ name|data
 expr_stmt|;
 name|ua
 operator|=
-operator|(
-name|u_char
-operator|*
-operator|)
-name|ngx_strstr
+name|ngx_strstrn
 argument_list|(
 name|user_agent
 argument_list|,
 literal|"MSIE"
+argument_list|,
+literal|3
 argument_list|)
 expr_stmt|;
 if|if
@@ -6246,11 +6250,13 @@ directive|endif
 block|}
 if|if
 condition|(
-name|ngx_strstr
+name|ngx_strstrn
 argument_list|(
 name|user_agent
 argument_list|,
 literal|"Opera"
+argument_list|,
+literal|4
 argument_list|)
 condition|)
 block|{
@@ -6298,11 +6304,13 @@ condition|)
 block|{
 if|if
 condition|(
-name|ngx_strstr
+name|ngx_strstrn
 argument_list|(
 name|user_agent
 argument_list|,
 literal|"Gecko/"
+argument_list|,
+literal|5
 argument_list|)
 condition|)
 block|{
@@ -6317,11 +6325,13 @@ expr_stmt|;
 block|}
 if|else if
 condition|(
-name|ngx_strstr
+name|ngx_strstrn
 argument_list|(
 name|user_agent
 argument_list|,
 literal|"Konqueror"
+argument_list|,
+literal|8
 argument_list|)
 condition|)
 block|{

@@ -11382,11 +11382,7 @@ condition|)
 block|{
 name|p
 operator|=
-operator|(
-name|u_char
-operator|*
-operator|)
-name|ngx_strstr
+name|ngx_strcasestrn
 argument_list|(
 name|ho
 operator|->
@@ -11395,6 +11391,8 @@ operator|.
 name|data
 argument_list|,
 literal|"url="
+argument_list|,
+literal|3
 argument_list|)
 expr_stmt|;
 if|if
