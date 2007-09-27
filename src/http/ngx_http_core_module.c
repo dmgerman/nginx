@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27e058320108
+DECL|struct|__anon27ee736d0108
 typedef|typedef
 struct|struct
 block|{
@@ -3669,10 +3669,11 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"directory index of \"%V\" is forbidden"
+literal|"directory index of \"%s\" is forbidden"
 argument_list|,
-operator|&
 name|path
+operator|.
+name|data
 argument_list|)
 expr_stmt|;
 block|}
