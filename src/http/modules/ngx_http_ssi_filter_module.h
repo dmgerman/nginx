@@ -82,8 +82,32 @@ name|NGX_HTTP_SSI_COND_ELSE
 value|2
 end_define
 
+begin_define
+DECL|macro|NGX_HTTP_SSI_NO_ENCODING
+define|#
+directive|define
+name|NGX_HTTP_SSI_NO_ENCODING
+value|0
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_SSI_URL_ENCODING
+define|#
+directive|define
+name|NGX_HTTP_SSI_URL_ENCODING
+value|1
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_SSI_ENTITY_ENCODING
+define|#
+directive|define
+name|NGX_HTTP_SSI_ENTITY_ENCODING
+value|2
+end_define
+
 begin_typedef
-DECL|struct|__anon2a5974540108
+DECL|struct|__anon29c3679f0108
 typedef|typedef
 struct|struct
 block|{
@@ -102,7 +126,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a5974540208
+DECL|struct|__anon29c3679f0208
 typedef|typedef
 struct|struct
 block|{
@@ -212,6 +236,12 @@ name|conditional
 range|:
 literal|2
 decl_stmt|;
+DECL|member|encoding
+name|unsigned
+name|encoding
+range|:
+literal|2
+decl_stmt|;
 DECL|member|block
 name|unsigned
 name|block
@@ -279,7 +309,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a5974540308
+DECL|struct|__anon29c3679f0308
 typedef|typedef
 struct|struct
 block|{
@@ -310,7 +340,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a5974540408
+DECL|struct|__anon29c3679f0408
 typedef|typedef
 struct|struct
 block|{
