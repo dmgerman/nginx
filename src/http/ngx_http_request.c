@@ -5462,7 +5462,9 @@ name|data
 argument_list|,
 literal|"close"
 argument_list|,
-literal|4
+literal|5
+operator|-
+literal|1
 argument_list|)
 condition|)
 block|{
@@ -5487,7 +5489,9 @@ name|data
 argument_list|,
 literal|"keep-alive"
 argument_list|,
-literal|9
+literal|10
+operator|-
+literal|1
 argument_list|)
 condition|)
 block|{
@@ -6031,7 +6035,9 @@ name|data
 argument_list|,
 literal|"chunked"
 argument_list|,
-literal|6
+literal|7
+operator|-
+literal|1
 argument_list|)
 condition|)
 block|{
@@ -6175,7 +6181,9 @@ name|user_agent
 argument_list|,
 literal|"MSIE"
 argument_list|,
-literal|3
+literal|4
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 if|if
@@ -6256,7 +6264,9 @@ name|user_agent
 argument_list|,
 literal|"Opera"
 argument_list|,
-literal|4
+literal|5
+operator|-
+literal|1
 argument_list|)
 condition|)
 block|{
@@ -6310,7 +6320,9 @@ name|user_agent
 argument_list|,
 literal|"Gecko/"
 argument_list|,
-literal|5
+literal|6
+operator|-
+literal|1
 argument_list|)
 condition|)
 block|{
@@ -6331,7 +6343,9 @@ name|user_agent
 argument_list|,
 literal|"Konqueror"
 argument_list|,
-literal|8
+literal|9
+operator|-
+literal|1
 argument_list|)
 condition|)
 block|{
