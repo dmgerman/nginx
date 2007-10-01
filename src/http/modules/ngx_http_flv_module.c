@@ -583,7 +583,7 @@ operator|(
 name|u_char
 operator|*
 operator|)
-name|ngx_strstr
+name|ngx_strnstr
 argument_list|(
 name|r
 operator|->
@@ -592,6 +592,12 @@ operator|.
 name|data
 argument_list|,
 literal|"start="
+argument_list|,
+name|r
+operator|->
+name|args
+operator|.
+name|len
 argument_list|)
 expr_stmt|;
 if|if
