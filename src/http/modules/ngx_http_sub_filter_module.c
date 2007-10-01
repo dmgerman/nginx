@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29433e8a0108
+DECL|struct|__anon2750248e0108
 typedef|typedef
 struct|struct
 block|{
@@ -61,7 +61,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29433e8a0203
+DECL|enum|__anon2750248e0203
 typedef|typedef
 enum|enum
 block|{
@@ -79,7 +79,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29433e8a0308
+DECL|struct|__anon2750248e0308
 typedef|typedef
 struct|struct
 block|{
@@ -1587,6 +1587,15 @@ name|NGX_ERROR
 return|;
 block|}
 block|}
+if|if
+condition|(
+name|ctx
+operator|->
+name|sub
+operator|.
+name|len
+condition|)
+block|{
 name|b
 operator|->
 name|memory
@@ -1619,6 +1628,16 @@ name|sub
 operator|.
 name|len
 expr_stmt|;
+block|}
+else|else
+block|{
+name|b
+operator|->
+name|sync
+operator|=
+literal|1
+expr_stmt|;
+block|}
 name|cl
 operator|->
 name|buf
