@@ -1730,6 +1730,10 @@ return|;
 block|}
 end_function
 
+begin_comment
+comment|/*  * ngx_strstrn() and ngx_strcasestrn() are intended to search for static  * substring with known length in null-terminated string. The argument n  * must be length of the second substring - 1.  */
+end_comment
+
 begin_function
 name|u_char
 modifier|*
@@ -4737,7 +4741,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon295185180103
+DECL|enum|__anon27ded48d0103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
