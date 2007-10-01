@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b6fe2f10108
+DECL|struct|__anon278985c40108
 typedef|typedef
 struct|struct
 block|{
@@ -153,7 +153,7 @@ value|0x0200
 end_define
 
 begin_typedef
-DECL|struct|__anon2b6fe2f10208
+DECL|struct|__anon278985c40208
 typedef|typedef
 struct|struct
 block|{
@@ -1327,8 +1327,12 @@ name|data
 argument_list|,
 literal|"gzip"
 argument_list|,
-literal|3
+literal|4
+operator|-
+literal|1
 argument_list|)
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
