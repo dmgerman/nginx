@@ -2594,7 +2594,10 @@ operator|.
 name|fails
 operator|<
 name|peer
-operator|->
+index|[
+name|i
+index|]
+operator|.
 name|max_fails
 condition|)
 block|{
