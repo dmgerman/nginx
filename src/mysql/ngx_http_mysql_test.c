@@ -28,7 +28,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29acec9c0108
+DECL|struct|__anon2bad39d50108
 typedef|typedef
 struct|struct
 block|{
@@ -770,6 +770,8 @@ condition|(
 name|ngx_parse_url
 argument_list|(
 name|cf
+operator|->
+name|pool
 argument_list|,
 operator|&
 name|u

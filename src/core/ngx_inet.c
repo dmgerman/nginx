@@ -831,12 +831,12 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_parse_url (ngx_conf_t * cf,ngx_url_t * u)
+DECL|function|ngx_parse_url (ngx_pool_t * pool,ngx_url_t * u)
 name|ngx_parse_url
 parameter_list|(
-name|ngx_conf_t
+name|ngx_pool_t
 modifier|*
-name|cf
+name|pool
 parameter_list|,
 name|ngx_url_t
 modifier|*
@@ -1050,8 +1050,6 @@ name|addrs
 operator|=
 name|ngx_pcalloc
 argument_list|(
-name|cf
-operator|->
 name|pool
 argument_list|,
 sizeof|sizeof
@@ -1077,8 +1075,6 @@ name|saun
 operator|=
 name|ngx_pcalloc
 argument_list|(
-name|cf
-operator|->
 name|pool
 argument_list|,
 sizeof|sizeof
@@ -1661,12 +1657,8 @@ condition|)
 block|{
 name|host
 operator|=
-name|ngx_palloc
+name|ngx_alloc
 argument_list|(
-name|cf
-operator|->
-name|temp_pool
-argument_list|,
 name|u
 operator|->
 name|host
@@ -1674,6 +1666,10 @@ operator|.
 name|len
 operator|+
 literal|1
+argument_list|,
+name|pool
+operator|->
+name|log
 argument_list|)
 expr_stmt|;
 if|if
@@ -1764,6 +1760,11 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|ngx_free
+argument_list|(
+name|host
+argument_list|)
+expr_stmt|;
 name|u
 operator|->
 name|err
@@ -1795,6 +1796,11 @@ index|]
 operator|)
 expr_stmt|;
 block|}
+name|ngx_free
+argument_list|(
+name|host
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -1882,7 +1888,7 @@ if|if
 condition|(
 name|ngx_inet_resolve_host
 argument_list|(
-name|cf
+name|pool
 argument_list|,
 name|u
 argument_list|)
@@ -1902,12 +1908,12 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_inet_resolve_host (ngx_conf_t * cf,ngx_url_t * u)
+DECL|function|ngx_inet_resolve_host (ngx_pool_t * pool,ngx_url_t * u)
 name|ngx_inet_resolve_host
 parameter_list|(
-name|ngx_conf_t
+name|ngx_pool_t
 modifier|*
-name|cf
+name|pool
 parameter_list|,
 name|ngx_url_t
 modifier|*
@@ -1942,12 +1948,8 @@ name|sin
 decl_stmt|;
 name|host
 operator|=
-name|ngx_palloc
+name|ngx_alloc
 argument_list|(
-name|cf
-operator|->
-name|temp_pool
-argument_list|,
 name|u
 operator|->
 name|host
@@ -1955,6 +1957,10 @@ operator|.
 name|len
 operator|+
 literal|1
+argument_list|,
+name|pool
+operator|->
+name|log
 argument_list|)
 expr_stmt|;
 if|if
@@ -2017,6 +2023,11 @@ operator|(
 name|char
 operator|*
 operator|)
+name|host
+argument_list|)
+expr_stmt|;
+name|ngx_free
+argument_list|(
 name|host
 argument_list|)
 expr_stmt|;
@@ -2091,8 +2102,6 @@ name|addrs
 operator|=
 name|ngx_pcalloc
 argument_list|(
-name|cf
-operator|->
 name|pool
 argument_list|,
 name|i
@@ -2145,8 +2154,6 @@ name|sin
 operator|=
 name|ngx_pcalloc
 argument_list|(
-name|cf
-operator|->
 name|pool
 argument_list|,
 sizeof|sizeof
@@ -2254,8 +2261,6 @@ name|p
 operator|=
 name|ngx_palloc
 argument_list|(
-name|cf
-operator|->
 name|pool
 argument_list|,
 name|len
@@ -2335,6 +2340,11 @@ block|}
 block|}
 else|else
 block|{
+name|ngx_free
+argument_list|(
+name|host
+argument_list|)
+expr_stmt|;
 comment|/* MP: ngx_shared_palloc() */
 name|u
 operator|->
@@ -2342,8 +2352,6 @@ name|addrs
 operator|=
 name|ngx_pcalloc
 argument_list|(
-name|cf
-operator|->
 name|pool
 argument_list|,
 sizeof|sizeof
@@ -2369,8 +2377,6 @@ name|sin
 operator|=
 name|ngx_pcalloc
 argument_list|(
-name|cf
-operator|->
 name|pool
 argument_list|,
 sizeof|sizeof
@@ -2457,8 +2463,6 @@ name|p
 operator|=
 name|ngx_palloc
 argument_list|(
-name|cf
-operator|->
 name|pool
 argument_list|,
 name|u

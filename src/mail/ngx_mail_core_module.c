@@ -1146,6 +1146,8 @@ condition|(
 name|ngx_parse_url
 argument_list|(
 name|cf
+operator|->
+name|pool
 argument_list|,
 operator|&
 name|u

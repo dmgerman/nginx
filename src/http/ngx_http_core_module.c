@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27ee736d0108
+DECL|struct|__anon27ebfa480108
 typedef|typedef
 struct|struct
 block|{
@@ -11715,6 +11715,8 @@ condition|(
 name|ngx_parse_url
 argument_list|(
 name|cf
+operator|->
+name|pool
 argument_list|,
 operator|&
 name|u
