@@ -106,7 +106,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bf471e60108
+DECL|struct|__anon2781a8260108
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf471e60208
+DECL|struct|__anon2781a8260208
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf471e60308
+DECL|struct|__anon2781a8260308
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf471e60408
+DECL|struct|__anon2781a8260408
 typedef|typedef
 struct|struct
 block|{
@@ -200,7 +200,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf471e60508
+DECL|struct|__anon2781a8260508
 typedef|typedef
 struct|struct
 block|{
@@ -659,6 +659,8 @@ operator||
 name|NGX_HTTP_LOC_CONF
 operator||
 name|NGX_HTTP_LIF_CONF
+operator||
+name|NGX_HTTP_LMT_CONF
 operator||
 name|NGX_CONF_TAKE123
 block|,
