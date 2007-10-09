@@ -4862,7 +4862,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon29c8e0610103
+DECL|enum|__anon28fbe40d0103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
