@@ -500,7 +500,6 @@ name|cf
 operator|->
 name|log
 expr_stmt|;
-empty_stmt|;
 name|cf
 operator|->
 name|conf_file

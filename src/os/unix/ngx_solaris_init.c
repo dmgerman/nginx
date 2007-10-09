@@ -193,7 +193,6 @@ expr_stmt|;
 return|return
 name|NGX_OK
 return|;
-empty_stmt|;
 block|}
 end_function
 

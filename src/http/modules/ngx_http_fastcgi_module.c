@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a1647720108
+DECL|struct|__anon2ab38a650108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a1647720203
+DECL|enum|__anon2ab38a650203
 typedef|typedef
 enum|enum
 block|{
@@ -114,7 +114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1647720308
+DECL|struct|__anon2ab38a650308
 typedef|typedef
 struct|struct
 block|{
@@ -135,7 +135,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1647720408
+DECL|struct|__anon2ab38a650408
 typedef|typedef
 struct|struct
 block|{
@@ -254,7 +254,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2a1647720508
+DECL|struct|__anon2ab38a650508
 typedef|typedef
 struct|struct
 block|{
@@ -297,7 +297,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1647720608
+DECL|struct|__anon2ab38a650608
 typedef|typedef
 struct|struct
 block|{
@@ -327,7 +327,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1647720708
+DECL|struct|__anon2ab38a650708
 typedef|typedef
 struct|struct
 block|{
@@ -354,7 +354,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1647720808
+DECL|struct|__anon2ab38a650808
 typedef|typedef
 struct|struct
 block|{
@@ -10324,7 +10324,6 @@ literal|1
 index|]
 argument_list|)
 expr_stmt|;
-empty_stmt|;
 name|sc
 operator|.
 name|complete_lengths
