@@ -1022,10 +1022,6 @@ name|us
 operator|->
 name|host
 expr_stmt|;
-name|n
-operator|=
-literal|0
-expr_stmt|;
 for|for
 control|(
 name|i
@@ -1046,7 +1042,7 @@ name|peers
 operator|->
 name|peer
 index|[
-name|n
+name|i
 index|]
 operator|.
 name|sockaddr
@@ -1064,7 +1060,7 @@ name|peers
 operator|->
 name|peer
 index|[
-name|n
+name|i
 index|]
 operator|.
 name|socklen
@@ -1082,7 +1078,7 @@ name|peers
 operator|->
 name|peer
 index|[
-name|n
+name|i
 index|]
 operator|.
 name|name
@@ -1100,7 +1096,7 @@ name|peers
 operator|->
 name|peer
 index|[
-name|n
+name|i
 index|]
 operator|.
 name|weight
@@ -1111,7 +1107,7 @@ name|peers
 operator|->
 name|peer
 index|[
-name|n
+name|i
 index|]
 operator|.
 name|current_weight
@@ -1122,7 +1118,7 @@ name|peers
 operator|->
 name|peer
 index|[
-name|n
+name|i
 index|]
 operator|.
 name|max_fails
@@ -1133,15 +1129,12 @@ name|peers
 operator|->
 name|peer
 index|[
-name|n
+name|i
 index|]
 operator|.
 name|fail_timeout
 operator|=
 literal|10
-expr_stmt|;
-name|n
-operator|++
 expr_stmt|;
 block|}
 name|us
