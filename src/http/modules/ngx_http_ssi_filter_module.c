@@ -62,7 +62,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2a9d1ac20108
+DECL|struct|__anon28ca6ce90108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a9d1ac20208
+DECL|struct|__anon28ca6ce90208
 typedef|typedef
 struct|struct
 block|{
@@ -122,7 +122,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a9d1ac20308
+DECL|struct|__anon28ca6ce90308
 typedef|typedef
 struct|struct
 block|{
@@ -146,7 +146,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a9d1ac20403
+DECL|enum|__anon28ca6ce90403
 typedef|typedef
 enum|enum
 block|{
@@ -11742,6 +11742,11 @@ expr_stmt|;
 if|if
 condition|(
 name|ctx
+operator|==
+name|NULL
+operator|||
+operator|(
+name|ctx
 operator|->
 name|timefmt
 operator|.
@@ -11775,6 +11780,7 @@ literal|1
 index|]
 operator|==
 literal|'s'
+operator|)
 condition|)
 block|{
 name|v
