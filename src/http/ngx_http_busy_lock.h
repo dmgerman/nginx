@@ -41,7 +41,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bdce62c0108
+DECL|struct|__anon2b9f79670108
 typedef|typedef
 struct|struct
 block|{
@@ -55,9 +55,9 @@ name|char
 modifier|*
 name|md5
 decl_stmt|;
-DECL|member|cachable
+DECL|member|cacheable
 name|int
-name|cachable
+name|cacheable
 decl_stmt|;
 DECL|member|busy
 name|int
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bdce62c0208
+DECL|struct|__anon2b9f79670208
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ end_function_decl
 
 begin_function_decl
 name|int
-name|ngx_http_busy_lock_cachable
+name|ngx_http_busy_lock_cacheable
 parameter_list|(
 name|ngx_http_busy_lock_t
 modifier|*

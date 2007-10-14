@@ -66,7 +66,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon2b64acec0108
+DECL|struct|__anon2934eb0d0108
 typedef|typedef
 struct|struct
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b64acec0208
+DECL|struct|__anon2934eb0d0208
 typedef|typedef
 struct|struct
 block|{
@@ -2380,7 +2380,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;

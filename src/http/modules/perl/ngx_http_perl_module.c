@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28907e620108
+DECL|struct|__anon2c620b930108
 typedef|typedef
 struct|struct
 block|{
@@ -57,7 +57,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28907e620208
+DECL|struct|__anon2c620b930208
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28907e620308
+DECL|struct|__anon2c620b930308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28907e620408
+DECL|struct|__anon2c620b930408
 typedef|typedef
 struct|struct
 block|{
@@ -1454,7 +1454,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -3884,7 +3884,7 @@ index|[
 literal|1
 index|]
 argument_list|,
-name|NGX_HTTP_VAR_CHANGABLE
+name|NGX_HTTP_VAR_CHANGEABLE
 argument_list|)
 expr_stmt|;
 if|if

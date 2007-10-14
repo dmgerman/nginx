@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28fd748b0108
+DECL|struct|__anon29c288730108
 typedef|typedef
 struct|struct
 block|{
@@ -41,7 +41,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28fd748b0208
+DECL|struct|__anon29c288730208
 typedef|typedef
 struct|struct
 block|{
@@ -71,7 +71,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28fd748b0308
+DECL|struct|__anon29c288730308
 typedef|typedef
 struct|struct
 block|{
@@ -875,7 +875,7 @@ argument_list|,
 operator|&
 name|name
 argument_list|,
-name|NGX_HTTP_VAR_CHANGABLE
+name|NGX_HTTP_VAR_CHANGEABLE
 argument_list|)
 expr_stmt|;
 if|if
@@ -1954,7 +1954,7 @@ literal|1
 expr_stmt|;
 name|var
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;

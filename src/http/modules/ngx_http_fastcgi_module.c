@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ab38a650108
+DECL|struct|__anon2aef8e560108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2ab38a650203
+DECL|enum|__anon2aef8e560203
 typedef|typedef
 enum|enum
 block|{
@@ -114,7 +114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab38a650308
+DECL|struct|__anon2aef8e560308
 typedef|typedef
 struct|struct
 block|{
@@ -135,7 +135,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab38a650408
+DECL|struct|__anon2aef8e560408
 typedef|typedef
 struct|struct
 block|{
@@ -254,7 +254,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2ab38a650508
+DECL|struct|__anon2aef8e560508
 typedef|typedef
 struct|struct
 block|{
@@ -297,7 +297,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab38a650608
+DECL|struct|__anon2aef8e560608
 typedef|typedef
 struct|struct
 block|{
@@ -327,7 +327,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab38a650708
+DECL|struct|__anon2aef8e560708
 typedef|typedef
 struct|struct
 block|{
@@ -354,7 +354,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab38a650808
+DECL|struct|__anon2aef8e560808
 typedef|typedef
 struct|struct
 block|{
@@ -2132,7 +2132,7 @@ name|ngx_http_script_engine_t
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ngx_http_script_flush_no_cachable_variables
+name|ngx_http_script_flush_no_cacheable_variables
 argument_list|(
 name|r
 argument_list|,
@@ -5763,7 +5763,7 @@ expr_stmt|;
 if|#
 directive|if
 literal|0
-block_content|if (u->cachable) {                     u->cachable = ngx_http_upstream_is_cachable(r);                 }
+block_content|if (u->cacheable) {                     u->cacheable = ngx_http_upstream_is_cacheable(r);                 }
 endif|#
 directive|endif
 break|break;
@@ -7340,7 +7340,7 @@ name|ngx_http_fastcgi_script_name
 argument_list|,
 name|NGX_HTTP_VAR_NOHASH
 operator||
-name|NGX_HTTP_VAR_NOCACHABLE
+name|NGX_HTTP_VAR_NOCACHEABLE
 argument_list|)
 expr_stmt|;
 if|if
@@ -9741,7 +9741,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -9903,7 +9903,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;

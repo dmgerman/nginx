@@ -38,7 +38,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon298f5cab0108
+DECL|struct|__anon2796b5dc0108
 typedef|typedef
 struct|struct
 block|{
@@ -76,7 +76,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon298f5cab0208
+DECL|struct|__anon2796b5dc0208
 typedef|typedef
 struct|struct
 block|{
@@ -1528,7 +1528,7 @@ argument_list|,
 operator|&
 name|name
 argument_list|,
-name|NGX_HTTP_VAR_CHANGABLE
+name|NGX_HTTP_VAR_CHANGEABLE
 operator||
 name|NGX_HTTP_VAR_NOHASH
 argument_list|)

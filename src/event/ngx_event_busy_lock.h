@@ -103,7 +103,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a0808300108
+DECL|struct|__anon2a322dc20108
 typedef|typedef
 struct|struct
 block|{
@@ -117,9 +117,9 @@ name|char
 modifier|*
 name|md5
 decl_stmt|;
-DECL|member|cachable
+DECL|member|cacheable
 name|ngx_uint_t
-name|cachable
+name|cacheable
 decl_stmt|;
 DECL|member|busy
 name|ngx_uint_t
@@ -182,7 +182,7 @@ end_function_decl
 
 begin_function_decl
 name|ngx_int_t
-name|ngx_event_busy_lock_cachable
+name|ngx_event_busy_lock_cacheable
 parameter_list|(
 name|ngx_event_busy_lock_t
 modifier|*

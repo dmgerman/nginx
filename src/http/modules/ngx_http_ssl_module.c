@@ -688,7 +688,7 @@ name|uintptr_t
 operator|)
 name|ngx_ssl_get_protocol
 block|,
-name|NGX_HTTP_VAR_CHANGABLE
+name|NGX_HTTP_VAR_CHANGEABLE
 block|,
 literal|0
 block|}
@@ -708,7 +708,7 @@ name|uintptr_t
 operator|)
 name|ngx_ssl_get_cipher_name
 block|,
-name|NGX_HTTP_VAR_CHANGABLE
+name|NGX_HTTP_VAR_CHANGEABLE
 block|,
 literal|0
 block|}
@@ -728,7 +728,7 @@ name|uintptr_t
 operator|)
 name|ngx_ssl_get_subject_dn
 block|,
-name|NGX_HTTP_VAR_CHANGABLE
+name|NGX_HTTP_VAR_CHANGEABLE
 block|,
 literal|0
 block|}
@@ -748,7 +748,7 @@ name|uintptr_t
 operator|)
 name|ngx_ssl_get_issuer_dn
 block|,
-name|NGX_HTTP_VAR_CHANGABLE
+name|NGX_HTTP_VAR_CHANGEABLE
 block|,
 literal|0
 block|}
@@ -768,7 +768,7 @@ name|uintptr_t
 operator|)
 name|ngx_ssl_get_serial_number
 block|,
-name|NGX_HTTP_VAR_CHANGABLE
+name|NGX_HTTP_VAR_CHANGEABLE
 block|,
 literal|0
 block|}
@@ -900,7 +900,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -1018,7 +1018,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;

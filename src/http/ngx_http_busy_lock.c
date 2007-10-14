@@ -24,7 +24,7 @@ end_include
 begin_function_decl
 specifier|static
 name|int
-name|ngx_http_busy_lock_look_cachable
+name|ngx_http_busy_lock_look_cacheable
 parameter_list|(
 name|ngx_http_busy_lock_t
 modifier|*
@@ -180,9 +180,9 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_busy_lock_cachable (ngx_http_busy_lock_t * bl,ngx_http_busy_lock_ctx_t * bc,int lock)
+DECL|function|ngx_http_busy_lock_cacheable (ngx_http_busy_lock_t * bl,ngx_http_busy_lock_ctx_t * bc,int lock)
 name|int
-name|ngx_http_busy_lock_cachable
+name|ngx_http_busy_lock_cacheable
 parameter_list|(
 name|ngx_http_busy_lock_t
 modifier|*
@@ -201,7 +201,7 @@ name|rc
 decl_stmt|;
 name|rc
 operator|=
-name|ngx_http_busy_lock_look_cachable
+name|ngx_http_busy_lock_look_cacheable
 argument_list|(
 name|bl
 argument_list|,
@@ -400,7 +400,7 @@ operator|)
 expr_stmt|;
 name|bl
 operator|->
-name|cachable
+name|cacheable
 operator|--
 expr_stmt|;
 block|}
@@ -413,10 +413,10 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_busy_lock_look_cachable (ngx_http_busy_lock_t * bl,ngx_http_busy_lock_ctx_t * bc,int lock)
+DECL|function|ngx_http_busy_lock_look_cacheable (ngx_http_busy_lock_t * bl,ngx_http_busy_lock_ctx_t * bc,int lock)
 specifier|static
 name|int
-name|ngx_http_busy_lock_look_cachable
+name|ngx_http_busy_lock_look_cacheable
 parameter_list|(
 name|ngx_http_busy_lock_t
 modifier|*
@@ -435,7 +435,7 @@ name|i
 decl_stmt|,
 name|b
 decl_stmt|,
-name|cachable
+name|cacheable
 decl_stmt|,
 name|free
 decl_stmt|;
@@ -446,7 +446,7 @@ name|b
 operator|=
 literal|0
 expr_stmt|;
-name|cachable
+name|cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -540,7 +540,7 @@ return|return
 name|NGX_AGAIN
 return|;
 block|}
-name|cachable
+name|cacheable
 operator|++
 expr_stmt|;
 block|}
@@ -562,11 +562,11 @@ directive|if
 literal|1
 if|if
 condition|(
-name|cachable
+name|cacheable
 operator|==
 name|bl
 operator|->
-name|cachable
+name|cacheable
 condition|)
 block|{
 if|if
@@ -576,7 +576,7 @@ operator|==
 operator|-
 literal|1
 operator|&&
-name|cachable
+name|cacheable
 operator|<
 name|bl
 operator|->
@@ -678,7 +678,7 @@ name|free
 expr_stmt|;
 name|bl
 operator|->
-name|cachable
+name|cacheable
 operator|++
 expr_stmt|;
 name|bl

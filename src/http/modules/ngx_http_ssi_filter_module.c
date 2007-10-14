@@ -62,7 +62,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2b0222a90108
+DECL|struct|__anon2a9d1ac20108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0222a90208
+DECL|struct|__anon2a9d1ac20208
 typedef|typedef
 struct|struct
 block|{
@@ -122,7 +122,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0222a90308
+DECL|struct|__anon2a9d1ac20308
 typedef|typedef
 struct|struct
 block|{
@@ -146,7 +146,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b0222a90403
+DECL|enum|__anon2a9d1ac20403
 typedef|typedef
 enum|enum
 block|{
@@ -1609,7 +1609,7 @@ name|ngx_http_ssi_date_gmt_local_variable
 block|,
 literal|0
 block|,
-name|NGX_HTTP_VAR_NOCACHABLE
+name|NGX_HTTP_VAR_NOCACHEABLE
 block|,
 literal|0
 block|}
@@ -1626,7 +1626,7 @@ name|ngx_http_ssi_date_gmt_local_variable
 block|,
 literal|1
 block|,
-name|NGX_HTTP_VAR_NOCACHABLE
+name|NGX_HTTP_VAR_NOCACHEABLE
 block|,
 literal|0
 block|}
@@ -11715,7 +11715,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;

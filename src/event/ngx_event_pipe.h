@@ -160,9 +160,9 @@ name|read
 range|:
 literal|1
 decl_stmt|;
-DECL|member|cachable
+DECL|member|cacheable
 name|unsigned
-name|cachable
+name|cacheable
 range|:
 literal|1
 decl_stmt|;

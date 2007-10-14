@@ -2164,7 +2164,7 @@ condition|(
 operator|!
 name|u
 operator|->
-name|cachable
+name|cacheable
 operator|&&
 operator|!
 name|u
@@ -2398,7 +2398,7 @@ condition|(
 operator|!
 name|u
 operator|->
-name|cachable
+name|cacheable
 operator|&&
 operator|!
 name|u
@@ -6696,7 +6696,7 @@ comment|/* TODO: preallocate event_pipe bufs, look "Content-Length" */
 if|#
 directive|if
 literal|0
-block_content|if (u->cache&& u->cache->ctx.file.fd != NGX_INVALID_FILE) {         if (ngx_close_file(u->cache->ctx.file.fd) == NGX_FILE_ERROR) {             ngx_log_error(NGX_LOG_ALERT, c->log, ngx_errno,                           ngx_close_file_n " \"%s\" failed",                           u->cache->ctx.file.name.data);         }     }      if (u->cachable) {         header = (ngx_http_cache_header_t *) u->buffer->start;          header->expires = u->cache->ctx.expires;         header->last_modified = u->cache->ctx.last_modified;         header->date = u->cache->ctx.date;         header->length = r->headers_out.content_length_n;         u->cache->ctx.length = r->headers_out.content_length_n;          header->key_len = u->cache->ctx.key0.len;         ngx_memcpy(&header->key, u->cache->ctx.key0.data, header->key_len);         header->key[header->key_len] = LF;     }
+block_content|if (u->cache&& u->cache->ctx.file.fd != NGX_INVALID_FILE) {         if (ngx_close_file(u->cache->ctx.file.fd) == NGX_FILE_ERROR) {             ngx_log_error(NGX_LOG_ALERT, c->log, ngx_errno,                           ngx_close_file_n " \"%s\" failed",                           u->cache->ctx.file.name.data);         }     }      if (u->cacheable) {         header = (ngx_http_cache_header_t *) u->buffer->start;          header->expires = u->cache->ctx.expires;         header->last_modified = u->cache->ctx.last_modified;         header->date = u->cache->ctx.date;         header->length = r->headers_out.content_length_n;         u->cache->ctx.length = r->headers_out.content_length_n;          header->key_len = u->cache->ctx.key0.len;         ngx_memcpy(&header->key, u->cache->ctx.key0.data, header->key_len);         header->key[header->key_len] = LF;     }
 endif|#
 directive|endif
 name|p
@@ -6784,11 +6784,11 @@ name|log
 expr_stmt|;
 name|p
 operator|->
-name|cachable
+name|cacheable
 operator|=
 name|u
 operator|->
-name|cachable
+name|cacheable
 operator|||
 name|u
 operator|->
@@ -6878,7 +6878,7 @@ if|if
 condition|(
 name|u
 operator|->
-name|cachable
+name|cacheable
 operator|||
 name|u
 operator|->
@@ -7012,7 +7012,7 @@ if|if
 condition|(
 name|u
 operator|->
-name|cachable
+name|cacheable
 condition|)
 block|{
 name|p
@@ -8569,7 +8569,7 @@ name|upstream_done
 operator|&&
 name|u
 operator|->
-name|cachable
+name|cacheable
 condition|)
 block|{
 if|if
@@ -8616,7 +8616,7 @@ name|upstream_eof
 operator|&&
 name|u
 operator|->
-name|cachable
+name|cacheable
 condition|)
 block|{
 comment|/* TODO: check length& update cache */
@@ -8733,7 +8733,7 @@ condition|(
 operator|!
 name|u
 operator|->
-name|cachable
+name|cacheable
 operator|&&
 name|u
 operator|->
@@ -11682,7 +11682,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -11985,7 +11985,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -12251,7 +12251,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;

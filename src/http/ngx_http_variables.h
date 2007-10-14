@@ -115,18 +115,18 @@ function_decl|;
 end_typedef
 
 begin_define
-DECL|macro|NGX_HTTP_VAR_CHANGABLE
+DECL|macro|NGX_HTTP_VAR_CHANGEABLE
 define|#
 directive|define
-name|NGX_HTTP_VAR_CHANGABLE
+name|NGX_HTTP_VAR_CHANGEABLE
 value|1
 end_define
 
 begin_define
-DECL|macro|NGX_HTTP_VAR_NOCACHABLE
+DECL|macro|NGX_HTTP_VAR_NOCACHEABLE
 define|#
 directive|define
-name|NGX_HTTP_VAR_NOCACHABLE
+name|NGX_HTTP_VAR_NOCACHEABLE
 value|2
 end_define
 

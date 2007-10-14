@@ -78,7 +78,7 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|ngx_uint_t
-name|ngx_reap_childs
+name|ngx_reap_children
 parameter_list|(
 name|ngx_cycle_t
 modifier|*
@@ -899,12 +899,12 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"reap childs"
+literal|"reap children"
 argument_list|)
 expr_stmt|;
 name|live
 operator|=
-name|ngx_reap_childs
+name|ngx_reap_children
 argument_list|(
 name|cycle
 argument_list|)
@@ -2210,8 +2210,8 @@ end_function
 begin_function
 specifier|static
 name|ngx_uint_t
-DECL|function|ngx_reap_childs (ngx_cycle_t * cycle)
-name|ngx_reap_childs
+DECL|function|ngx_reap_children (ngx_cycle_t * cycle)
+name|ngx_reap_children
 parameter_list|(
 name|ngx_cycle_t
 modifier|*

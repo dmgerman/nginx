@@ -141,7 +141,7 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon2c4ffaba0108
+DECL|struct|__anon29bd43c10108
 typedef|typedef
 struct|struct
 block|{
@@ -177,7 +177,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4ffaba0208
+DECL|struct|__anon29bd43c10208
 typedef|typedef
 struct|struct
 block|{
@@ -246,7 +246,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4ffaba0308
+DECL|struct|__anon29bd43c10308
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +270,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4ffaba0408
+DECL|struct|__anon29bd43c10408
 typedef|typedef
 struct|struct
 block|{
@@ -412,7 +412,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c4ffaba0508
+DECL|struct|__anon29bd43c10508
 typedef|typedef
 struct|struct
 block|{
@@ -588,7 +588,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4ffaba0608
+DECL|struct|__anon29bd43c10608
 typedef|typedef
 struct|struct
 block|{
@@ -624,7 +624,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4ffaba0708
+DECL|struct|__anon29bd43c10708
 typedef|typedef
 struct|struct
 block|{
@@ -938,9 +938,9 @@ name|store
 range|:
 literal|1
 decl_stmt|;
-DECL|member|cachable
+DECL|member|cacheable
 name|unsigned
-name|cachable
+name|cacheable
 range|:
 literal|1
 decl_stmt|;

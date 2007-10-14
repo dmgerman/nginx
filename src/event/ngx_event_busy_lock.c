@@ -24,7 +24,7 @@ end_include
 begin_function_decl
 specifier|static
 name|ngx_int_t
-name|ngx_event_busy_lock_look_cachable
+name|ngx_event_busy_lock_look_cacheable
 parameter_list|(
 name|ngx_event_busy_lock_t
 modifier|*
@@ -230,8 +230,8 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_event_busy_lock_cachable (ngx_event_busy_lock_t * bl,ngx_event_busy_lock_ctx_t * ctx)
-name|ngx_event_busy_lock_cachable
+DECL|function|ngx_event_busy_lock_cacheable (ngx_event_busy_lock_t * bl,ngx_event_busy_lock_ctx_t * ctx)
+name|ngx_event_busy_lock_cacheable
 parameter_list|(
 name|ngx_event_busy_lock_t
 modifier|*
@@ -254,7 +254,7 @@ argument_list|)
 expr_stmt|;
 name|rc
 operator|=
-name|ngx_event_busy_lock_look_cachable
+name|ngx_event_busy_lock_look_cacheable
 argument_list|(
 name|bl
 argument_list|,
@@ -719,8 +719,8 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_event_busy_lock_look_cachable (ngx_event_busy_lock_t * bl,ngx_event_busy_lock_ctx_t * ctx)
-name|ngx_event_busy_lock_look_cachable
+DECL|function|ngx_event_busy_lock_look_cacheable (ngx_event_busy_lock_t * bl,ngx_event_busy_lock_ctx_t * ctx)
+name|ngx_event_busy_lock_look_cacheable
 parameter_list|(
 name|ngx_event_busy_lock_t
 modifier|*
@@ -739,7 +739,7 @@ name|i
 decl_stmt|,
 name|bit
 decl_stmt|,
-name|cachable
+name|cacheable
 decl_stmt|,
 name|mask
 decl_stmt|;
@@ -747,7 +747,7 @@ name|bit
 operator|=
 literal|0
 expr_stmt|;
-name|cachable
+name|cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -853,7 +853,7 @@ return|return
 name|NGX_AGAIN
 return|;
 block|}
-name|cachable
+name|cacheable
 operator|++
 expr_stmt|;
 block|}
@@ -872,11 +872,11 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|cachable
+name|cacheable
 operator|==
 name|bl
 operator|->
-name|cachable
+name|cacheable
 condition|)
 block|{
 if|if
@@ -886,7 +886,7 @@ operator|==
 operator|-
 literal|1
 operator|&&
-name|cachable
+name|cacheable
 operator|<
 name|bl
 operator|->
@@ -972,7 +972,7 @@ name|free
 expr_stmt|;
 name|bl
 operator|->
-name|cachable
+name|cacheable
 operator|++
 expr_stmt|;
 name|bl

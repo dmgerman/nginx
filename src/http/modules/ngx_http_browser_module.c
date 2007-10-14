@@ -42,7 +42,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2bf0f6590108
+DECL|struct|__anon2baf76f50108
 typedef|typedef
 struct|struct
 block|{
@@ -75,7 +75,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf0f6590208
+DECL|struct|__anon2baf76f50208
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf0f6590308
+DECL|struct|__anon2baf76f50308
 typedef|typedef
 struct|struct
 block|{
@@ -128,7 +128,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf0f6590408
+DECL|struct|__anon2baf76f50408
 typedef|typedef
 struct|struct
 block|{
@@ -1452,7 +1452,7 @@ name|var
 operator|->
 name|name
 argument_list|,
-name|NGX_HTTP_VAR_CHANGABLE
+name|NGX_HTTP_VAR_CHANGEABLE
 argument_list|)
 expr_stmt|;
 if|if
@@ -2564,7 +2564,7 @@ name|bcf
 operator|->
 name|modern_browser_value
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -2687,7 +2687,7 @@ name|bcf
 operator|->
 name|ancient_browser_value
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;

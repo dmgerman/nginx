@@ -76,14 +76,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon2c8f36e1010a
+DECL|union|__anon29016dbc010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon2c8f36e10208
+DECL|struct|__anon29016dbc0208
 struct|struct
 block|{
 DECL|member|lengths
@@ -114,7 +114,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c8f36e10308
+DECL|struct|__anon29016dbc0308
 typedef|typedef
 struct|struct
 block|{
@@ -201,7 +201,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c8f36e10408
+DECL|struct|__anon29016dbc0408
 typedef|typedef
 struct|struct
 block|{
@@ -1840,7 +1840,7 @@ name|ngx_http_proxy_host_variable
 block|,
 literal|0
 block|,
-name|NGX_HTTP_VAR_CHANGABLE
+name|NGX_HTTP_VAR_CHANGEABLE
 operator||
 name|NGX_HTTP_VAR_NOHASH
 block|,
@@ -1859,7 +1859,7 @@ name|ngx_http_proxy_port_variable
 block|,
 literal|0
 block|,
-name|NGX_HTTP_VAR_CHANGABLE
+name|NGX_HTTP_VAR_CHANGEABLE
 operator||
 name|NGX_HTTP_VAR_NOHASH
 block|,
@@ -2508,7 +2508,7 @@ operator|.
 name|len
 expr_stmt|;
 block|}
-name|ngx_http_script_flush_no_cachable_variables
+name|ngx_http_script_flush_no_cacheable_variables
 argument_list|(
 name|r
 argument_list|,
@@ -4196,7 +4196,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2c8f36e10503
+DECL|enum|__anon29016dbc0503
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -5553,7 +5553,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -5628,7 +5628,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -5684,7 +5684,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -5914,7 +5914,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;

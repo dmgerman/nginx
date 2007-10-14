@@ -824,7 +824,7 @@ condition|(
 operator|!
 name|p
 operator|->
-name|cachable
+name|cacheable
 operator|&&
 name|p
 operator|->
@@ -880,7 +880,7 @@ if|else if
 condition|(
 name|p
 operator|->
-name|cachable
+name|cacheable
 operator|||
 name|p
 operator|->
@@ -1866,7 +1866,7 @@ if|if
 condition|(
 name|p
 operator|->
-name|cachable
+name|cacheable
 operator|&&
 name|p
 operator|->
@@ -2449,7 +2449,7 @@ condition|(
 operator|!
 name|p
 operator|->
-name|cachable
+name|cacheable
 operator|&&
 name|p
 operator|->
@@ -2768,7 +2768,7 @@ if|if
 condition|(
 name|p
 operator|->
-name|cachable
+name|cacheable
 operator|||
 operator|!
 name|p
@@ -2946,7 +2946,7 @@ condition|(
 operator|!
 name|p
 operator|->
-name|cachable
+name|cacheable
 condition|)
 block|{
 name|size

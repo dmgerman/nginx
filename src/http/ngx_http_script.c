@@ -1441,7 +1441,7 @@ index|[
 name|i
 index|]
 operator|.
-name|no_cachable
+name|no_cacheable
 condition|)
 block|{
 name|r
@@ -1619,8 +1619,8 @@ end_function
 
 begin_function
 name|void
-DECL|function|ngx_http_script_flush_no_cachable_variables (ngx_http_request_t * r,ngx_array_t * indices)
-name|ngx_http_script_flush_no_cachable_variables
+DECL|function|ngx_http_script_flush_no_cacheable_variables (ngx_http_request_t * r,ngx_array_t * indices)
+name|ngx_http_script_flush_no_cacheable_variables
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
@@ -1676,7 +1676,7 @@ name|n
 index|]
 index|]
 operator|.
-name|no_cachable
+name|no_cacheable
 condition|)
 block|{
 name|r
@@ -5492,7 +5492,7 @@ operator|->
 name|index
 index|]
 operator|.
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;

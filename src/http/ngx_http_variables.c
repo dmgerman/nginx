@@ -988,7 +988,7 @@ argument_list|,
 name|uri
 argument_list|)
 block|,
-name|NGX_HTTP_VAR_NOCACHABLE
+name|NGX_HTTP_VAR_NOCACHEABLE
 block|,
 literal|0
 block|}
@@ -1010,7 +1010,7 @@ argument_list|,
 name|uri
 argument_list|)
 block|,
-name|NGX_HTTP_VAR_NOCACHABLE
+name|NGX_HTTP_VAR_NOCACHEABLE
 block|,
 literal|0
 block|}
@@ -1049,7 +1049,7 @@ name|ngx_http_variable_document_root
 block|,
 literal|0
 block|,
-name|NGX_HTTP_VAR_NOCACHABLE
+name|NGX_HTTP_VAR_NOCACHEABLE
 block|,
 literal|0
 block|}
@@ -1071,7 +1071,7 @@ argument_list|,
 name|args
 argument_list|)
 block|,
-name|NGX_HTTP_VAR_NOCACHABLE
+name|NGX_HTTP_VAR_NOCACHEABLE
 block|,
 literal|0
 block|}
@@ -1093,9 +1093,9 @@ argument_list|,
 name|args
 argument_list|)
 block|,
-name|NGX_HTTP_VAR_CHANGABLE
+name|NGX_HTTP_VAR_CHANGEABLE
 operator||
-name|NGX_HTTP_VAR_NOCACHABLE
+name|NGX_HTTP_VAR_NOCACHEABLE
 block|,
 literal|0
 block|}
@@ -1112,7 +1112,7 @@ name|ngx_http_variable_is_args
 block|,
 literal|0
 block|,
-name|NGX_HTTP_VAR_NOCACHABLE
+name|NGX_HTTP_VAR_NOCACHEABLE
 block|,
 literal|0
 block|}
@@ -1129,7 +1129,7 @@ name|ngx_http_variable_request_filename
 block|,
 literal|0
 block|,
-name|NGX_HTTP_VAR_NOCACHABLE
+name|NGX_HTTP_VAR_NOCACHEABLE
 block|,
 literal|0
 block|}
@@ -1384,9 +1384,9 @@ argument_list|,
 name|limit_rate
 argument_list|)
 block|,
-name|NGX_HTTP_VAR_CHANGABLE
+name|NGX_HTTP_VAR_CHANGEABLE
 operator||
-name|NGX_HTTP_VAR_NOCACHABLE
+name|NGX_HTTP_VAR_NOCACHEABLE
 block|,
 literal|0
 block|}
@@ -1581,7 +1581,7 @@ name|v
 operator|->
 name|flags
 operator|&
-name|NGX_HTTP_VAR_CHANGABLE
+name|NGX_HTTP_VAR_CHANGEABLE
 operator|)
 condition|)
 block|{
@@ -2229,7 +2229,7 @@ index|]
 operator|.
 name|flags
 operator|&
-name|NGX_HTTP_VAR_NOCACHABLE
+name|NGX_HTTP_VAR_NOCACHEABLE
 condition|)
 block|{
 name|r
@@ -2239,7 +2239,7 @@ index|[
 name|index
 index|]
 operator|.
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|1
 expr_stmt|;
@@ -2322,7 +2322,7 @@ condition|(
 operator|!
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 condition|)
 block|{
 return|return
@@ -2731,7 +2731,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -2988,7 +2988,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -3110,7 +3110,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -3629,7 +3629,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -3802,7 +3802,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -3872,7 +3872,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -3941,7 +3941,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -4009,7 +4009,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -4282,7 +4282,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -4336,7 +4336,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -4415,7 +4415,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -4460,7 +4460,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -4512,7 +4512,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -4632,7 +4632,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -4725,7 +4725,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -4815,7 +4815,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -4888,7 +4888,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -5002,7 +5002,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -5124,7 +5124,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -5195,7 +5195,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -5286,7 +5286,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -5374,7 +5374,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -5459,7 +5459,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -5550,7 +5550,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -5658,7 +5658,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -5787,7 +5787,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -5864,7 +5864,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -5939,7 +5939,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -5977,7 +5977,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -6072,7 +6072,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -6141,7 +6141,7 @@ literal|1
 expr_stmt|;
 name|v
 operator|->
-name|no_cachable
+name|no_cacheable
 operator|=
 literal|0
 expr_stmt|;
@@ -6711,7 +6711,7 @@ index|]
 operator|.
 name|flags
 operator|=
-name|NGX_HTTP_VAR_NOCACHABLE
+name|NGX_HTTP_VAR_NOCACHEABLE
 expr_stmt|;
 continue|continue;
 block|}
