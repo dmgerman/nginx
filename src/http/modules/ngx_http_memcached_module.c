@@ -28,7 +28,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a0fb6fb0108
+DECL|struct|__anon2925b1680108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a0fb6fb0208
+DECL|struct|__anon2925b1680208
 typedef|typedef
 struct|struct
 block|{
@@ -1670,6 +1670,14 @@ literal|200
 expr_stmt|;
 name|u
 operator|->
+name|state
+operator|->
+name|status
+operator|=
+literal|200
+expr_stmt|;
+name|u
+operator|->
 name|buffer
 operator|.
 name|pos
@@ -1719,6 +1727,14 @@ operator|->
 name|headers_in
 operator|.
 name|status_n
+operator|=
+literal|404
+expr_stmt|;
+name|u
+operator|->
+name|state
+operator|->
+name|status
 operator|=
 literal|404
 expr_stmt|;
