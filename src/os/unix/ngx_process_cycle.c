@@ -4731,7 +4731,7 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
-name|ngx_free_connection
+name|ngx_close_connection
 argument_list|(
 name|c
 argument_list|)
