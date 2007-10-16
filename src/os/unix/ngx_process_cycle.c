@@ -4644,9 +4644,6 @@ block|{
 name|ngx_int_t
 name|n
 decl_stmt|;
-name|ngx_socket_t
-name|fd
-decl_stmt|;
 name|ngx_channel_t
 name|ch
 decl_stmt|;
