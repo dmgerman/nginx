@@ -37,35 +37,11 @@ directive|include
 file|<ngx_mysql.h>
 end_include
 
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_HAVE_OPENSSL_SHA1_H
-operator|)
-end_if
-
 begin_include
 include|#
 directive|include
-file|<openssl/sha.h>
+file|<ngx_sha1.h>
 end_include
-
-begin_else
-else|#
-directive|else
-end_else
-
-begin_include
-include|#
-directive|include
-file|<sha.h>
-end_include
-
-begin_endif
-endif|#
-directive|endif
-end_endif
 
 begin_define
 DECL|macro|NGX_MYSQL_LONG_PASSWORD
@@ -108,7 +84,7 @@ value|3
 end_define
 
 begin_typedef
-DECL|struct|__anon2a421d9a0108
+DECL|struct|__anon2be2d41c0108
 typedef|typedef
 struct|struct
 block|{
@@ -142,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a421d9a0208
+DECL|struct|__anon2be2d41c0208
 typedef|typedef
 struct|struct
 block|{
@@ -199,7 +175,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a421d9a0308
+DECL|struct|__anon2be2d41c0308
 typedef|typedef
 struct|struct
 block|{
@@ -255,7 +231,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a421d9a0408
+DECL|struct|__anon2be2d41c0408
 typedef|typedef
 struct|struct
 block|{
@@ -281,7 +257,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a421d9a0508
+DECL|struct|__anon2be2d41c0508
 typedef|typedef
 struct|struct
 block|{
@@ -322,7 +298,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a421d9a0608
+DECL|struct|__anon2be2d41c0608
 typedef|typedef
 struct|struct
 block|{
@@ -576,7 +552,7 @@ name|ngx_mysql_auth_pkt_t
 modifier|*
 name|auth
 decl_stmt|;
-name|SHA_CTX
+name|ngx_sha1_t
 name|sha
 decl_stmt|;
 name|u_char
@@ -1098,13 +1074,13 @@ name|u_char
 operator|)
 literal|20
 expr_stmt|;
-name|SHA1_Init
+name|ngx_sha1_init
 argument_list|(
 operator|&
 name|sha
 argument_list|)
 expr_stmt|;
-name|SHA1_Update
+name|ngx_sha1_update
 argument_list|(
 operator|&
 name|sha
@@ -1122,7 +1098,7 @@ operator|->
 name|len
 argument_list|)
 expr_stmt|;
-name|SHA1_Final
+name|ngx_sha1_final
 argument_list|(
 name|hash1
 argument_list|,
@@ -1130,13 +1106,13 @@ operator|&
 name|sha
 argument_list|)
 expr_stmt|;
-name|SHA1_Init
+name|ngx_sha1_init
 argument_list|(
 operator|&
 name|sha
 argument_list|)
 expr_stmt|;
-name|SHA1_Update
+name|ngx_sha1_update
 argument_list|(
 operator|&
 name|sha
@@ -1146,7 +1122,7 @@ argument_list|,
 literal|20
 argument_list|)
 expr_stmt|;
-name|SHA1_Final
+name|ngx_sha1_final
 argument_list|(
 name|hash2
 argument_list|,
@@ -1154,13 +1130,13 @@ operator|&
 name|sha
 argument_list|)
 expr_stmt|;
-name|SHA1_Init
+name|ngx_sha1_init
 argument_list|(
 operator|&
 name|sha
 argument_list|)
 expr_stmt|;
-name|SHA1_Update
+name|ngx_sha1_update
 argument_list|(
 operator|&
 name|sha
@@ -1172,7 +1148,7 @@ argument_list|,
 literal|8
 argument_list|)
 expr_stmt|;
-name|SHA1_Update
+name|ngx_sha1_update
 argument_list|(
 operator|&
 name|sha
@@ -1184,7 +1160,7 @@ argument_list|,
 literal|12
 argument_list|)
 expr_stmt|;
-name|SHA1_Update
+name|ngx_sha1_update
 argument_list|(
 operator|&
 name|sha
@@ -1194,7 +1170,7 @@ argument_list|,
 literal|20
 argument_list|)
 expr_stmt|;
-name|SHA1_Final
+name|ngx_sha1_final
 argument_list|(
 name|hash2
 argument_list|,
