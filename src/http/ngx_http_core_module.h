@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27917faf0108
+DECL|struct|__anon28cb32b90108
 typedef|typedef
 struct|struct
 block|{
@@ -108,7 +108,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27917faf0208
+DECL|struct|__anon28cb32b90208
 typedef|typedef
 struct|struct
 block|{
@@ -144,7 +144,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27917faf0303
+DECL|enum|__anon28cb32b90303
 typedef|typedef
 enum|enum
 block|{
@@ -236,7 +236,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27917faf0408
+DECL|struct|__anon28cb32b90408
 typedef|typedef
 struct|struct
 block|{
@@ -260,7 +260,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27917faf0508
+DECL|struct|__anon28cb32b90508
 typedef|typedef
 struct|struct
 block|{
@@ -275,7 +275,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27917faf0608
+DECL|struct|__anon28cb32b90608
 typedef|typedef
 struct|struct
 block|{
@@ -338,7 +338,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27917faf0708
+DECL|struct|__anon28cb32b90708
 typedef|typedef
 struct|struct
 block|{
@@ -424,7 +424,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon27917faf0808
+DECL|struct|__anon28cb32b90808
 typedef|typedef
 struct|struct
 block|{
@@ -450,7 +450,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27917faf0908
+DECL|struct|__anon28cb32b90908
 typedef|typedef
 struct|struct
 block|{
@@ -478,7 +478,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27917faf0a08
+DECL|struct|__anon28cb32b90a08
 typedef|typedef
 struct|struct
 block|{
@@ -498,7 +498,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27917faf0b08
+DECL|struct|__anon28cb32b90b08
 typedef|typedef
 struct|struct
 block|{
@@ -602,7 +602,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27917faf0c08
+DECL|struct|__anon28cb32b90c08
 typedef|typedef
 struct|struct
 block|{
