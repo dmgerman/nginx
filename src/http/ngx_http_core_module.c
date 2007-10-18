@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29800e390108
+DECL|struct|__anon2ac16c430108
 typedef|typedef
 struct|struct
 block|{
@@ -2841,7 +2841,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"client intented to send too large body: %O bytes"
+literal|"client intended to send too large body: %O bytes"
 argument_list|,
 name|r
 operator|->
