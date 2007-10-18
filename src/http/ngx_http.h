@@ -342,6 +342,9 @@ parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
+parameter_list|,
+name|ngx_uint_t
+name|merge_slashes
 parameter_list|)
 function_decl|;
 end_function_decl

@@ -508,7 +508,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon2b9c09b10103
+DECL|enum|__anon2c00d78a0103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2466,7 +2466,7 @@ name|hash
 decl_stmt|,
 name|i
 decl_stmt|;
-DECL|enum|__anon2b9c09b10203
+DECL|enum|__anon2c00d78a0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -3124,12 +3124,15 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_http_parse_complex_uri (ngx_http_request_t * r)
+DECL|function|ngx_http_parse_complex_uri (ngx_http_request_t * r,ngx_uint_t merge_slashes)
 name|ngx_http_parse_complex_uri
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
+parameter_list|,
+name|ngx_uint_t
+name|merge_slashes
 parameter_list|)
 block|{
 name|u_char
@@ -3145,7 +3148,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2b9c09b10303
+DECL|enum|__anon2c00d78a0303
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -3506,11 +3509,24 @@ operator|)
 case|case
 literal|'\\'
 case|:
+break|break;
 endif|#
 directive|endif
 case|case
 literal|'/'
 case|:
+if|if
+condition|(
+name|merge_slashes
+condition|)
+block|{
+operator|*
+name|u
+operator|++
+operator|=
+name|ch
+expr_stmt|;
+block|}
 break|break;
 case|case
 literal|'.'
