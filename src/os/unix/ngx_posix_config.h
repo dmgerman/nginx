@@ -82,6 +82,14 @@ DECL|macro|timezonevar
 comment|/* timezone is variable */
 end_comment
 
+begin_define
+DECL|macro|NGX_BROKEN_SCM_RIGHTS
+define|#
+directive|define
+name|NGX_BROKEN_SCM_RIGHTS
+value|1
+end_define
+
 begin_endif
 endif|#
 directive|endif
