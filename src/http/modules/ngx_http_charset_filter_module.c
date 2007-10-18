@@ -58,7 +58,7 @@ value|(sizeof("&#1114111;") - 1)
 end_define
 
 begin_typedef
-DECL|struct|__anon2b8ce97a0108
+DECL|struct|__anon2bede0ca0108
 typedef|typedef
 struct|struct
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8ce97a0208
+DECL|struct|__anon2bede0ca0208
 typedef|typedef
 struct|struct
 block|{
@@ -110,7 +110,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8ce97a0308
+DECL|struct|__anon2bede0ca0308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8ce97a0408
+DECL|struct|__anon2bede0ca0408
 typedef|typedef
 struct|struct
 block|{
@@ -165,7 +165,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8ce97a0508
+DECL|struct|__anon2bede0ca0508
 typedef|typedef
 struct|struct
 block|{
@@ -188,7 +188,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8ce97a0608
+DECL|struct|__anon2bede0ca0608
 typedef|typedef
 struct|struct
 block|{
@@ -252,7 +252,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8ce97a0708
+DECL|struct|__anon2bede0ca0708
 typedef|typedef
 struct|struct
 block|{
@@ -1590,8 +1590,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"no \"charset_map\" between the charsets "
-literal|"\"%V\" and \"%V\""
+literal|"no \"charset_map\" between the charsets \"%V\" and \"%V\""
 argument_list|,
 name|from
 argument_list|,
