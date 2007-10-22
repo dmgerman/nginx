@@ -1640,6 +1640,10 @@ condition|)
 block|{
 name|p
 operator|=
+operator|(
+name|u_char
+operator|*
+operator|)
 name|ngx_http_server_full_string
 expr_stmt|;
 name|len
@@ -1656,6 +1660,10 @@ else|else
 block|{
 name|p
 operator|=
+operator|(
+name|u_char
+operator|*
+operator|)
 name|ngx_http_server_string
 expr_stmt|;
 name|len
