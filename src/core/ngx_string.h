@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon279e19800108
+DECL|struct|__anon276dcdc40108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon279e19800208
+DECL|struct|__anon276dcdc40208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon279e19800308
+DECL|struct|__anon276dcdc40308
 typedef|typedef
 struct|struct
 block|{
@@ -930,6 +930,14 @@ define|#
 directive|define
 name|NGX_UNESCAPE_URI
 value|1
+end_define
+
+begin_define
+DECL|macro|NGX_UNESCAPE_REDIRECT
+define|#
+directive|define
+name|NGX_UNESCAPE_REDIRECT
+value|2
 end_define
 
 begin_function_decl

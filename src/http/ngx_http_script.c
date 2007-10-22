@@ -3632,7 +3632,7 @@ name|buf
 operator|.
 name|data
 argument_list|,
-name|NGX_UNESCAPE_URI
+name|NGX_UNESCAPE_REDIRECT
 argument_list|)
 expr_stmt|;
 if|if
