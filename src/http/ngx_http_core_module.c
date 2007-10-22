@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ac16c430108
+DECL|struct|__anon2b338ada0108
 typedef|typedef
 struct|struct
 block|{
@@ -7004,7 +7004,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"could not find name location \"%V\""
+literal|"could not find named location \"%V\""
 argument_list|,
 name|name
 argument_list|)
