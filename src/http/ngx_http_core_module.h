@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c6d77110108
+DECL|struct|__anon2b7ac6110108
 typedef|typedef
 struct|struct
 block|{
@@ -108,7 +108,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6d77110208
+DECL|struct|__anon2b7ac6110208
 typedef|typedef
 struct|struct
 block|{
@@ -144,7 +144,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c6d77110303
+DECL|enum|__anon2b7ac6110303
 typedef|typedef
 enum|enum
 block|{
@@ -236,7 +236,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c6d77110408
+DECL|struct|__anon2b7ac6110408
 typedef|typedef
 struct|struct
 block|{
@@ -260,7 +260,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6d77110508
+DECL|struct|__anon2b7ac6110508
 typedef|typedef
 struct|struct
 block|{
@@ -275,7 +275,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6d77110608
+DECL|struct|__anon2b7ac6110608
 typedef|typedef
 struct|struct
 block|{
@@ -338,7 +338,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6d77110708
+DECL|struct|__anon2b7ac6110708
 typedef|typedef
 struct|struct
 block|{
@@ -428,7 +428,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2c6d77110808
+DECL|struct|__anon2b7ac6110808
 typedef|typedef
 struct|struct
 block|{
@@ -454,7 +454,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6d77110908
+DECL|struct|__anon2b7ac6110908
 typedef|typedef
 struct|struct
 block|{
@@ -482,7 +482,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6d77110a08
+DECL|struct|__anon2b7ac6110a08
 typedef|typedef
 struct|struct
 block|{
@@ -502,7 +502,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6d77110b08
+DECL|struct|__anon2b7ac6110b08
 typedef|typedef
 struct|struct
 block|{
@@ -606,7 +606,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c6d77110c08
+DECL|struct|__anon2b7ac6110c08
 typedef|typedef
 struct|struct
 block|{
@@ -891,6 +891,11 @@ name|ngx_flag_t
 name|recursive_error_pages
 decl_stmt|;
 comment|/* recursive_error_pages */
+DECL|member|server_tokens
+name|ngx_flag_t
+name|server_tokens
+decl_stmt|;
+comment|/* server_tokens */
 DECL|member|error_pages
 name|ngx_array_t
 modifier|*
