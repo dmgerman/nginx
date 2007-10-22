@@ -58,7 +58,7 @@ value|(sizeof("&#1114111;") - 1)
 end_define
 
 begin_typedef
-DECL|struct|__anon28b8f6400108
+DECL|struct|__anon2910498f0108
 typedef|typedef
 struct|struct
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b8f6400208
+DECL|struct|__anon2910498f0208
 typedef|typedef
 struct|struct
 block|{
@@ -110,7 +110,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b8f6400308
+DECL|struct|__anon2910498f0308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b8f6400408
+DECL|struct|__anon2910498f0408
 typedef|typedef
 struct|struct
 block|{
@@ -165,7 +165,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b8f6400508
+DECL|struct|__anon2910498f0508
 typedef|typedef
 struct|struct
 block|{
@@ -188,7 +188,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b8f6400608
+DECL|struct|__anon2910498f0608
 typedef|typedef
 struct|struct
 block|{
@@ -252,7 +252,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b8f6400708
+DECL|struct|__anon2910498f0708
 typedef|typedef
 struct|struct
 block|{
@@ -6428,6 +6428,25 @@ operator|==
 name|conf
 operator|->
 name|source_charset
+condition|)
+block|{
+return|return
+name|NGX_CONF_OK
+return|;
+block|}
+if|if
+condition|(
+name|conf
+operator|->
+name|source_charset
+operator|>=
+name|NGX_HTTP_CHARSET_VAR
+operator|||
+name|conf
+operator|->
+name|charset
+operator|>=
+name|NGX_HTTP_CHARSET_VAR
 condition|)
 block|{
 return|return
