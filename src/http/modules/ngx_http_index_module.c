@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b9d28920108
+DECL|struct|__anon27b5e9da0108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b9d28920208
+DECL|struct|__anon27b5e9da0208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b9d28920308
+DECL|struct|__anon27b5e9da0308
 typedef|typedef
 struct|struct
 block|{
@@ -2277,6 +2277,22 @@ name|name
 operator|.
 name|len
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|index
+operator|->
+name|name
+operator|.
+name|data
+index|[
+literal|0
+index|]
+operator|==
+literal|'/'
+condition|)
+block|{
+continue|continue;
 block|}
 comment|/* include the terminating '\0' to the length to use ngx_copy() */
 name|index
