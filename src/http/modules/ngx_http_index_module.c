@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27b5e9da0108
+DECL|struct|__anon2c9aac5a0108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b5e9da0208
+DECL|struct|__anon2c9aac5a0208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b5e9da0308
+DECL|struct|__anon2c9aac5a0308
 typedef|typedef
 struct|struct
 block|{
@@ -2131,19 +2131,16 @@ condition|)
 block|{
 name|ngx_conf_log_error
 argument_list|(
-name|NGX_LOG_EMERG
+name|NGX_LOG_WARN
 argument_list|,
 name|cf
 argument_list|,
 literal|0
 argument_list|,
 literal|"only the last index in \"index\" directive "
-literal|"may be absolute"
+literal|"should be absolute"
 argument_list|)
 expr_stmt|;
-return|return
-name|NGX_CONF_ERROR
-return|;
 block|}
 if|if
 condition|(
