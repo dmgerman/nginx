@@ -108,14 +108,14 @@ end_function_decl
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_event_pipe (ngx_event_pipe_t * p,int do_write)
+DECL|function|ngx_event_pipe (ngx_event_pipe_t * p,ngx_int_t do_write)
 name|ngx_event_pipe
 parameter_list|(
 name|ngx_event_pipe_t
 modifier|*
 name|p
 parameter_list|,
-name|int
+name|ngx_int_t
 name|do_write
 parameter_list|)
 block|{

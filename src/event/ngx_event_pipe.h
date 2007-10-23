@@ -306,7 +306,7 @@ name|ngx_event_pipe_t
 modifier|*
 name|p
 parameter_list|,
-name|int
+name|ngx_int_t
 name|do_write
 parameter_list|)
 function_decl|;
