@@ -508,7 +508,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon2c00d78a0103
+DECL|enum|__anon2abebd730103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -572,6 +572,9 @@ name|sw_first_minor_digit
 block|,
 DECL|enumerator|sw_minor_digit
 name|sw_minor_digit
+block|,
+DECL|enumerator|sw_spaces_after_digit
+name|sw_spaces_after_digit
 block|,
 DECL|enumerator|sw_almost_done
 name|sw_almost_done
@@ -2296,6 +2299,19 @@ block|}
 if|if
 condition|(
 name|ch
+operator|==
+literal|' '
+condition|)
+block|{
+name|state
+operator|=
+name|sw_spaces_after_digit
+expr_stmt|;
+break|break;
+block|}
+if|if
+condition|(
+name|ch
 argument_list|<
 literal|'0'
 operator|||
@@ -2322,6 +2338,38 @@ name|ch
 operator|-
 literal|'0'
 expr_stmt|;
+break|break;
+case|case
+name|sw_spaces_after_digit
+case|:
+switch|switch
+condition|(
+name|ch
+condition|)
+block|{
+case|case
+literal|' '
+case|:
+break|break;
+case|case
+name|CR
+case|:
+name|state
+operator|=
+name|sw_almost_done
+expr_stmt|;
+break|break;
+case|case
+name|LF
+case|:
+goto|goto
+name|done
+goto|;
+default|default:
+return|return
+name|NGX_HTTP_PARSE_INVALID_REQUEST
+return|;
+block|}
 break|break;
 comment|/* end of request line */
 case|case
@@ -2466,7 +2514,7 @@ name|hash
 decl_stmt|,
 name|i
 decl_stmt|;
-DECL|enum|__anon2c00d78a0203
+DECL|enum|__anon2abebd730203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -3148,7 +3196,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2c00d78a0303
+DECL|enum|__anon2abebd730303
 enum|enum
 block|{
 DECL|enumerator|sw_usual
