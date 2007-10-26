@@ -258,6 +258,16 @@ end_include
 begin_include
 include|#
 directive|include
+file|<sys/utsname.h>
+end_include
+
+begin_comment
+comment|/* uname() */
+end_comment
+
+begin_include
+include|#
+directive|include
 file|<ngx_auto_config.h>
 end_include
 
