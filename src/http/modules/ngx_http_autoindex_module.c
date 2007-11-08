@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b7e1c740108
+DECL|struct|__anon2acdf93b0108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7e1c740208
+DECL|struct|__anon2acdf93b0208
 typedef|typedef
 struct|struct
 block|{
@@ -640,9 +640,22 @@ operator|-
 name|path
 operator|.
 name|data
-operator|-
-literal|1
 expr_stmt|;
+if|if
+condition|(
+name|path
+operator|.
+name|len
+operator|>
+literal|1
+condition|)
+block|{
+name|path
+operator|.
+name|len
+operator|--
+expr_stmt|;
+block|}
 name|path
 operator|.
 name|data

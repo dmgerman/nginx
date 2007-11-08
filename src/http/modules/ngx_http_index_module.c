@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b0c67830108
+DECL|struct|__anon2b0e00fd0108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0c67830208
+DECL|struct|__anon2b0e00fd0208
 typedef|typedef
 struct|struct
 block|{
@@ -1241,6 +1241,10 @@ condition|(
 name|c
 operator|!=
 literal|'/'
+operator|||
+name|path
+operator|==
+name|last
 condition|)
 block|{
 comment|/* "alias" without trailing slash */
