@@ -57,8 +57,8 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_http_parse_time (u_char * value,size_t len)
 name|time_t
+DECL|function|ngx_http_parse_time (u_char * value,size_t len)
 name|ngx_http_parse_time
 parameter_list|(
 name|u_char
@@ -89,7 +89,7 @@ name|min
 decl_stmt|,
 name|sec
 decl_stmt|;
-DECL|enum|__anon2c122c190103
+DECL|enum|__anon290a2f420103
 enum|enum
 block|{
 DECL|enumerator|no
@@ -1252,7 +1252,7 @@ operator|-=
 literal|1
 expr_stmt|;
 block|}
-comment|/* Gauss's formula for Grigorian days from 1 March 1 BC */
+comment|/* Gauss's formula for Grigorian days from March 1, 1 BC */
 return|return
 operator|(
 literal|365
