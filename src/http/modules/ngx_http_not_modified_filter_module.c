@@ -226,10 +226,6 @@ comment|/*      * I think that the equality of the dates is correcter      */
 if|if
 condition|(
 name|ims
-operator|!=
-name|NGX_ERROR
-operator|&&
-name|ims
 operator|==
 name|r
 operator|->
