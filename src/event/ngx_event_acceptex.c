@@ -175,7 +175,7 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
-name|getacceptexsockaddrs
+name|ngx_getacceptexsockaddrs
 argument_list|(
 name|c
 operator|->
@@ -840,7 +840,7 @@ return|;
 block|}
 if|if
 condition|(
-name|acceptex
+name|ngx_acceptex
 argument_list|(
 name|ls
 operator|->
