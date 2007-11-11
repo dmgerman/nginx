@@ -234,20 +234,22 @@ name|ngx_close_file_n
 value|"CloseHandle()"
 end_define
 
-begin_define
-DECL|macro|ngx_read_fd (fd,buf,size)
-define|#
-directive|define
+begin_function_decl
+name|ssize_t
 name|ngx_read_fd
 parameter_list|(
+name|ngx_fd_t
 name|fd
 parameter_list|,
+name|void
+modifier|*
 name|buf
 parameter_list|,
+name|size_t
 name|size
 parameter_list|)
-value|ReadFile(fd, buf, size, NULL, NULL)
-end_define
+function_decl|;
+end_function_decl
 
 begin_define
 DECL|macro|ngx_read_fd_n
@@ -257,20 +259,22 @@ name|ngx_read_fd_n
 value|"ReadFile()"
 end_define
 
-begin_define
-DECL|macro|ngx_write_fd (fd,buf,size)
-define|#
-directive|define
+begin_function_decl
+name|ssize_t
 name|ngx_write_fd
 parameter_list|(
+name|ngx_fd_t
 name|fd
 parameter_list|,
+name|void
+modifier|*
 name|buf
 parameter_list|,
+name|size_t
 name|size
 parameter_list|)
-value|WriteFile(fd, buf, size, NULL, NULL)
-end_define
+function_decl|;
+end_function_decl
 
 begin_define
 DECL|macro|ngx_write_fd_n
@@ -821,7 +825,7 @@ value|(time_t) (((((unsigned __int64)                                          \
 end_define
 
 begin_typedef
-DECL|struct|__anon27dfc7c70108
+DECL|struct|__anon28d3416c0108
 typedef|typedef
 struct|struct
 block|{
