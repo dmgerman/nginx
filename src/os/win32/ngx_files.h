@@ -821,7 +821,7 @@ value|(time_t) (((((unsigned __int64)                                          \
 end_define
 
 begin_typedef
-DECL|struct|__anon2793c8560108
+DECL|struct|__anon27dfc7c70108
 typedef|typedef
 struct|struct
 block|{
@@ -841,6 +841,14 @@ DECL|member|pattern
 name|u_char
 modifier|*
 name|pattern
+decl_stmt|;
+DECL|member|name
+name|ngx_str_t
+name|name
+decl_stmt|;
+DECL|member|last
+name|size_t
+name|last
 decl_stmt|;
 DECL|member|log
 name|ngx_log_t
