@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2aef8e560108
+DECL|struct|__anon28b11a7c0108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2aef8e560203
+DECL|enum|__anon28b11a7c0203
 typedef|typedef
 enum|enum
 block|{
@@ -114,7 +114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aef8e560308
+DECL|struct|__anon28b11a7c0308
 typedef|typedef
 struct|struct
 block|{
@@ -135,7 +135,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aef8e560408
+DECL|struct|__anon28b11a7c0408
 typedef|typedef
 struct|struct
 block|{
@@ -254,7 +254,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2aef8e560508
+DECL|struct|__anon28b11a7c0508
 typedef|typedef
 struct|struct
 block|{
@@ -297,7 +297,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aef8e560608
+DECL|struct|__anon28b11a7c0608
 typedef|typedef
 struct|struct
 block|{
@@ -327,7 +327,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aef8e560708
+DECL|struct|__anon28b11a7c0708
 typedef|typedef
 struct|struct
 block|{
@@ -354,7 +354,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aef8e560808
+DECL|struct|__anon28b11a7c0808
 typedef|typedef
 struct|struct
 block|{
@@ -1810,7 +1810,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"ngx_http_fastcgi_module does not support "
-literal|"subrequest in memeory"
+literal|"subrequest in memory"
 argument_list|)
 expr_stmt|;
 return|return
