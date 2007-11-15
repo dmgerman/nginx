@@ -66,7 +66,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon2934eb0d0108
+DECL|struct|__anon2b04f0030108
 typedef|typedef
 struct|struct
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2934eb0d0208
+DECL|struct|__anon2b04f0030208
 typedef|typedef
 struct|struct
 block|{
@@ -1401,6 +1401,9 @@ index|[
 literal|1
 index|]
 operator|=
+operator|(
+name|uint32_t
+operator|)
 name|ngx_time
 argument_list|()
 expr_stmt|;
@@ -1548,6 +1551,9 @@ index|]
 operator|=
 name|htonl
 argument_list|(
+operator|(
+name|uint32_t
+operator|)
 name|ngx_time
 argument_list|()
 argument_list|)

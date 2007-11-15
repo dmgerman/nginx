@@ -937,9 +937,14 @@ name|days
 decl_stmt|;
 name|days
 operator|=
+operator|(
+name|ngx_int_t
+operator|)
+operator|(
 name|t
 operator|/
 literal|86400
+operator|)
 expr_stmt|;
 comment|/* Jaunary 1, 1970 was Thursday */
 name|wday
@@ -958,9 +963,14 @@ literal|86400
 expr_stmt|;
 name|hour
 operator|=
+operator|(
+name|ngx_int_t
+operator|)
+operator|(
 name|t
 operator|/
 literal|3600
+operator|)
 expr_stmt|;
 name|t
 operator|%=
@@ -968,15 +978,25 @@ literal|3600
 expr_stmt|;
 name|min
 operator|=
+operator|(
+name|ngx_int_t
+operator|)
+operator|(
 name|t
 operator|/
 literal|60
+operator|)
 expr_stmt|;
 name|sec
 operator|=
+operator|(
+name|ngx_int_t
+operator|)
+operator|(
 name|t
 operator|%
 literal|60
+operator|)
 expr_stmt|;
 comment|/* the algorithm based on Gauss's formula */
 name|days

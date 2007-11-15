@@ -106,7 +106,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2781a8260108
+DECL|struct|__anon2a1179280108
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2781a8260208
+DECL|struct|__anon2a1179280208
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2781a8260308
+DECL|struct|__anon2a1179280308
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2781a8260408
+DECL|struct|__anon2a1179280408
 typedef|typedef
 struct|struct
 block|{
@@ -200,7 +200,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2781a8260508
+DECL|struct|__anon2a1179280508
 typedef|typedef
 struct|struct
 block|{
@@ -1862,6 +1862,10 @@ expr_stmt|;
 name|ms
 operator|=
 operator|(
+name|ngx_msec_int_t
+operator|)
+operator|(
+operator|(
 name|tp
 operator|->
 name|sec
@@ -1881,6 +1885,7 @@ operator|-
 name|r
 operator|->
 name|start_msec
+operator|)
 operator|)
 expr_stmt|;
 name|ms

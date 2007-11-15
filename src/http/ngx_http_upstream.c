@@ -12362,6 +12362,10 @@ condition|)
 block|{
 name|ms
 operator|=
+operator|(
+name|ngx_msec_int_t
+operator|)
+operator|(
 name|state
 index|[
 name|i
@@ -12377,6 +12381,7 @@ name|i
 index|]
 operator|.
 name|response_msec
+operator|)
 expr_stmt|;
 name|ms
 operator|=

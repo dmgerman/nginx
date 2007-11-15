@@ -10147,12 +10147,17 @@ return|return;
 block|}
 name|timer
 operator|=
+operator|(
+name|ngx_msec_t
+operator|)
+operator|(
 name|r
 operator|->
 name|lingering_time
 operator|-
 name|ngx_time
 argument_list|()
+operator|)
 expr_stmt|;
 if|if
 condition|(
