@@ -47,6 +47,17 @@ name|WIN32_LEAN_AND_MEAN
 end_define
 
 begin_comment
+comment|/* enable getenv() and gmtime() in msvc8 */
+end_comment
+
+begin_define
+DECL|macro|_CRT_SECURE_NO_WARNINGS
+define|#
+directive|define
+name|_CRT_SECURE_NO_WARNINGS
+end_define
+
+begin_comment
 comment|/*  * we need to include<windows.h> explicity before<winsock2.h> because  * the warning 4201 is enabled in<windows.h>  */
 end_comment
 
