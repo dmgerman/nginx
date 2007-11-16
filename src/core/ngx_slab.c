@@ -482,19 +482,13 @@ argument_list|(
 name|ngx_slab_page_t
 argument_list|)
 expr_stmt|;
-comment|/* STUB: possible overflow on 64-bit platform */
 name|pages
 operator|=
 operator|(
 name|ngx_uint_t
 operator|)
 operator|(
-operator|(
-name|uint64_t
-operator|)
 name|size
-operator|*
-name|ngx_pagesize
 operator|/
 operator|(
 name|ngx_pagesize
@@ -504,8 +498,6 @@ argument_list|(
 name|ngx_slab_page_t
 argument_list|)
 operator|)
-operator|/
-name|ngx_pagesize
 operator|)
 expr_stmt|;
 name|ngx_memzero
