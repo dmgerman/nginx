@@ -311,6 +311,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_queue.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_array.h>
 end_include
 
