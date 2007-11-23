@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b88632d0108
+DECL|struct|__anon2c03e1650108
 typedef|typedef
 struct|struct
 block|{
@@ -48,7 +48,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|union|__anon2b88632d020a
+DECL|union|__anon2c03e165020a
 typedef|typedef
 union|union
 block|{
@@ -63,7 +63,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b88632d0308
+DECL|struct|__anon2c03e1650308
 typedef|typedef
 struct|struct
 block|{
@@ -88,7 +88,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b88632d0408
+DECL|struct|__anon2c03e1650408
 typedef|typedef
 struct|struct
 block|{
@@ -181,6 +181,20 @@ block|}
 name|ngx_url_t
 typedef|;
 end_typedef
+
+begin_function_decl
+name|in_addr_t
+name|ngx_inet_addr
+parameter_list|(
+name|u_char
+modifier|*
+name|text
+parameter_list|,
+name|size_t
+name|len
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_function_decl
 name|size_t
