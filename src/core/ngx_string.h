@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon276dcdc40108
+DECL|struct|__anon2882bf660108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276dcdc40208
+DECL|struct|__anon2882bf660208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276dcdc40308
+DECL|struct|__anon2882bf660308
 typedef|typedef
 struct|struct
 block|{
@@ -436,11 +436,18 @@ comment|/* msvc and icc7 compile memcmp() to the inline loop */
 end_comment
 
 begin_define
-DECL|macro|ngx_memcmp
+DECL|macro|ngx_memcmp (s1,s2,n)
 define|#
 directive|define
 name|ngx_memcmp
-value|memcmp
+parameter_list|(
+name|s1
+parameter_list|,
+name|s2
+parameter_list|,
+name|n
+parameter_list|)
+value|memcmp((const char *) s1, (const char *) s2, n)
 end_define
 
 begin_function_decl
