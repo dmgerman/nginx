@@ -445,6 +445,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_resolver.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_open_file_cache.h>
 end_include
 
