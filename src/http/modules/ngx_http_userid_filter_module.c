@@ -66,7 +66,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon2b04f0030108
+DECL|struct|__anon27e0e3ee0108
 typedef|typedef
 struct|struct
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b04f0030208
+DECL|struct|__anon27e0e3ee0208
 typedef|typedef
 struct|struct
 block|{
@@ -358,6 +358,26 @@ name|conf
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_function_decl
+specifier|static
+name|ngx_int_t
+name|ngx_http_userid_init_worker
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_decl_stmt
+DECL|variable|start_value
+specifier|static
+name|uint32_t
+name|start_value
+decl_stmt|;
+end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|sequencer_v1
@@ -769,7 +789,7 @@ comment|/* init master */
 name|NULL
 block|,
 comment|/* init module */
-name|NULL
+name|ngx_http_userid_init_worker
 block|,
 comment|/* init process */
 name|NULL
@@ -1414,7 +1434,7 @@ index|[
 literal|2
 index|]
 operator|=
-name|ngx_pid
+name|start_value
 expr_stmt|;
 name|ctx
 operator|->
@@ -1567,7 +1587,7 @@ index|]
 operator|=
 name|htonl
 argument_list|(
-name|ngx_pid
+name|start_value
 argument_list|)
 expr_stmt|;
 name|ctx
@@ -3395,6 +3415,50 @@ index|]
 expr_stmt|;
 return|return
 name|NGX_CONF_OK
+return|;
+block|}
+end_function
+
+begin_function
+specifier|static
+name|ngx_int_t
+DECL|function|ngx_http_userid_init_worker (ngx_cycle_t * cycle)
+name|ngx_http_userid_init_worker
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|)
+block|{
+name|struct
+name|timeval
+name|tp
+decl_stmt|;
+name|ngx_gettimeofday
+argument_list|(
+operator|&
+name|tp
+argument_list|)
+expr_stmt|;
+comment|/* use the most significant usec part that fits to 16 bits */
+name|start_value
+operator|=
+operator|(
+operator|(
+name|tp
+operator|.
+name|tv_usec
+operator|/
+literal|20
+operator|)
+operator|<<
+literal|16
+operator|)
+operator||
+name|ngx_pid
+expr_stmt|;
+return|return
+name|NGX_OK
 return|;
 block|}
 end_function
