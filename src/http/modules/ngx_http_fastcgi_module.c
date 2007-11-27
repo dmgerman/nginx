@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28b11a7c0108
+DECL|struct|__anon2be6da020108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28b11a7c0203
+DECL|enum|__anon2be6da020203
 typedef|typedef
 enum|enum
 block|{
@@ -114,7 +114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b11a7c0308
+DECL|struct|__anon2be6da020308
 typedef|typedef
 struct|struct
 block|{
@@ -135,7 +135,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b11a7c0408
+DECL|struct|__anon2be6da020408
 typedef|typedef
 struct|struct
 block|{
@@ -254,7 +254,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon28b11a7c0508
+DECL|struct|__anon2be6da020508
 typedef|typedef
 struct|struct
 block|{
@@ -297,7 +297,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b11a7c0608
+DECL|struct|__anon2be6da020608
 typedef|typedef
 struct|struct
 block|{
@@ -327,7 +327,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b11a7c0708
+DECL|struct|__anon2be6da020708
 typedef|typedef
 struct|struct
 block|{
@@ -354,7 +354,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b11a7c0808
+DECL|struct|__anon2be6da020808
 typedef|typedef
 struct|struct
 block|{
@@ -1851,6 +1851,16 @@ return|return
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
 block|}
+name|u
+operator|->
+name|schema
+operator|=
+name|flcf
+operator|->
+name|upstream
+operator|.
+name|schema
+expr_stmt|;
 name|u
 operator|->
 name|peer
@@ -10089,16 +10099,6 @@ operator|->
 name|handler
 operator|=
 name|ngx_http_fastcgi_handler
-expr_stmt|;
-name|lcf
-operator|->
-name|upstream
-operator|.
-name|location
-operator|=
-name|clcf
-operator|->
-name|name
 expr_stmt|;
 if|if
 condition|(

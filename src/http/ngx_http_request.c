@@ -11460,8 +11460,6 @@ argument_list|,
 operator|&
 name|u
 operator|->
-name|conf
-operator|->
 name|schema
 argument_list|,
 name|u

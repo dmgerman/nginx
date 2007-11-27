@@ -141,7 +141,7 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon29bd43c10108
+DECL|struct|__anon2afc7ce50108
 typedef|typedef
 struct|struct
 block|{
@@ -177,7 +177,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29bd43c10208
+DECL|struct|__anon2afc7ce50208
 typedef|typedef
 struct|struct
 block|{
@@ -246,7 +246,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29bd43c10308
+DECL|struct|__anon2afc7ce50308
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +270,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29bd43c10408
+DECL|struct|__anon2afc7ce50408
 typedef|typedef
 struct|struct
 block|{
@@ -412,7 +412,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29bd43c10508
+DECL|struct|__anon2afc7ce50508
 typedef|typedef
 struct|struct
 block|{
@@ -528,19 +528,6 @@ DECL|member|schema
 name|ngx_str_t
 name|schema
 decl_stmt|;
-DECL|member|uri
-name|ngx_str_t
-name|uri
-decl_stmt|;
-DECL|member|location
-name|ngx_str_t
-name|location
-decl_stmt|;
-DECL|member|url
-name|ngx_str_t
-name|url
-decl_stmt|;
-comment|/* used in proxy_rewrite_location */
 DECL|member|store_lengths
 name|ngx_array_t
 modifier|*
@@ -588,7 +575,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29bd43c10608
+DECL|struct|__anon2afc7ce50608
 typedef|typedef
 struct|struct
 block|{
@@ -624,7 +611,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29bd43c10708
+DECL|struct|__anon2afc7ce50708
 typedef|typedef
 struct|struct
 block|{
@@ -737,6 +724,39 @@ name|ngx_http_upstream_headers_in_t
 typedef|;
 end_typedef
 
+begin_typedef
+DECL|struct|__anon2afc7ce50808
+typedef|typedef
+struct|struct
+block|{
+DECL|member|host
+name|ngx_str_t
+name|host
+decl_stmt|;
+DECL|member|port
+name|in_port_t
+name|port
+decl_stmt|;
+DECL|member|naddrs
+name|ngx_uint_t
+name|naddrs
+decl_stmt|;
+DECL|member|addrs
+name|in_addr_t
+modifier|*
+name|addrs
+decl_stmt|;
+DECL|member|ctx
+name|ngx_resolver_ctx_t
+modifier|*
+name|ctx
+decl_stmt|;
+DECL|typedef|ngx_http_upstream_resolved_t
+block|}
+name|ngx_http_upstream_resolved_t
+typedef|;
+end_typedef
+
 begin_struct
 DECL|struct|ngx_http_upstream_s
 struct|struct
@@ -772,6 +792,11 @@ decl_stmt|;
 DECL|member|headers_in
 name|ngx_http_upstream_headers_in_t
 name|headers_in
+decl_stmt|;
+DECL|member|resolved
+name|ngx_http_upstream_resolved_t
+modifier|*
+name|resolved
 decl_stmt|;
 DECL|member|buffer
 name|ngx_buf_t
@@ -914,14 +939,18 @@ DECL|member|timeout
 name|ngx_msec_t
 name|timeout
 decl_stmt|;
-DECL|member|method
-name|ngx_str_t
-name|method
-decl_stmt|;
 DECL|member|state
 name|ngx_http_upstream_state_t
 modifier|*
 name|state
+decl_stmt|;
+DECL|member|method
+name|ngx_str_t
+name|method
+decl_stmt|;
+DECL|member|schema
+name|ngx_str_t
+name|schema
 decl_stmt|;
 DECL|member|uri
 name|ngx_str_t
@@ -947,6 +976,12 @@ decl_stmt|;
 DECL|member|accel
 name|unsigned
 name|accel
+range|:
+literal|1
+decl_stmt|;
+DECL|member|ssl
+name|unsigned
+name|ssl
 range|:
 literal|1
 decl_stmt|;

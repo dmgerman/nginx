@@ -28,7 +28,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2925b1680108
+DECL|struct|__anon297dbea00108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2925b1680208
+DECL|struct|__anon297dbea00208
 typedef|typedef
 struct|struct
 block|{
@@ -772,6 +772,16 @@ return|return
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
 block|}
+name|u
+operator|->
+name|schema
+operator|=
+name|mlcf
+operator|->
+name|upstream
+operator|.
+name|schema
+expr_stmt|;
 name|u
 operator|->
 name|peer
@@ -2742,16 +2752,6 @@ operator|->
 name|handler
 operator|=
 name|ngx_http_memcached_handler
-expr_stmt|;
-name|lcf
-operator|->
-name|upstream
-operator|.
-name|location
-operator|=
-name|clcf
-operator|->
-name|name
 expr_stmt|;
 if|if
 condition|(

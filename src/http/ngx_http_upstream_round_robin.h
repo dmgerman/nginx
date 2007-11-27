@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c29f81d0108
+DECL|struct|__anon2c6079040108
 typedef|typedef
 struct|struct
 block|{
@@ -157,7 +157,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c29f81d0208
+DECL|struct|__anon2c6079040208
 typedef|typedef
 struct|struct
 block|{
@@ -211,6 +211,21 @@ parameter_list|,
 name|ngx_http_upstream_srv_conf_t
 modifier|*
 name|us
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_http_upstream_create_round_robin_peer
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_http_upstream_resolved_t
+modifier|*
+name|ur
 parameter_list|)
 function_decl|;
 end_function_decl
