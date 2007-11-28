@@ -629,25 +629,6 @@ name|ngx_http_top_body_filter
 decl_stmt|;
 end_decl_stmt
 
-begin_comment
-comment|/* STUB */
-end_comment
-
-begin_function_decl
-name|ngx_int_t
-name|ngx_http_log_handler
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_comment
-comment|/**/
-end_comment
-
 begin_endif
 endif|#
 directive|endif
