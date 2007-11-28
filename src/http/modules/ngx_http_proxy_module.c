@@ -76,14 +76,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon2c1682aa010a
+DECL|union|__anon2922367f010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon2c1682aa0208
+DECL|struct|__anon2922367f0208
 struct|struct
 block|{
 DECL|member|lengths
@@ -114,7 +114,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c1682aa0308
+DECL|struct|__anon2922367f0308
 typedef|typedef
 struct|struct
 block|{
@@ -137,7 +137,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1682aa0408
+DECL|struct|__anon2922367f0408
 typedef|typedef
 struct|struct
 block|{
@@ -238,7 +238,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1682aa0508
+DECL|struct|__anon2922367f0508
 typedef|typedef
 struct|struct
 block|{
@@ -2858,22 +2858,6 @@ argument_list|,
 name|ngx_http_proxy_module
 argument_list|)
 expr_stmt|;
-name|len
-operator|=
-sizeof|sizeof
-argument_list|(
-name|ngx_http_proxy_version
-argument_list|)
-operator|-
-literal|1
-operator|+
-sizeof|sizeof
-argument_list|(
-name|CRLF
-argument_list|)
-operator|-
-literal|1
-expr_stmt|;
 if|if
 condition|(
 name|u
@@ -2926,6 +2910,26 @@ name|len
 operator|++
 expr_stmt|;
 block|}
+name|len
+operator|=
+name|method
+operator|.
+name|len
+operator|+
+sizeof|sizeof
+argument_list|(
+name|ngx_http_proxy_version
+argument_list|)
+operator|-
+literal|1
+operator|+
+sizeof|sizeof
+argument_list|(
+name|CRLF
+argument_list|)
+operator|-
+literal|1
+expr_stmt|;
 name|escape
 operator|=
 literal|0
@@ -2956,10 +2960,6 @@ condition|)
 block|{
 name|len
 operator|+=
-name|method
-operator|.
-name|len
-operator|+
 name|ctx
 operator|->
 name|vars
@@ -2998,10 +2998,6 @@ literal|1
 expr_stmt|;
 name|len
 operator|+=
-name|method
-operator|.
-name|len
-operator|+
 name|r
 operator|->
 name|unparsed_uri
@@ -4833,7 +4829,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2c1682aa0603
+DECL|enum|__anon2922367f0603
 enum|enum
 block|{
 DECL|enumerator|sw_start
