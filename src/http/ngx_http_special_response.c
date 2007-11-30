@@ -792,7 +792,7 @@ argument_list|(
 name|ngx_http_error_404_page
 argument_list|)
 block|,
-comment|/* 498, invalid host name */
+comment|/* 498, canceled */
 name|ngx_null_string
 block|,
 comment|/* 499, client has closed connection */
