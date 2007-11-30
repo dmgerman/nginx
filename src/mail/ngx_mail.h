@@ -60,7 +60,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2a31cd410108
+DECL|struct|__anon2be162bd0108
 typedef|typedef
 struct|struct
 block|{
@@ -83,7 +83,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a31cd410208
+DECL|struct|__anon2be162bd0208
 typedef|typedef
 struct|struct
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a31cd410308
+DECL|struct|__anon2be162bd0308
 typedef|typedef
 struct|struct
 block|{
@@ -142,7 +142,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a31cd410408
+DECL|struct|__anon2be162bd0408
 typedef|typedef
 struct|struct
 block|{
@@ -163,7 +163,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a31cd410508
+DECL|struct|__anon2be162bd0508
 typedef|typedef
 struct|struct
 block|{
@@ -183,7 +183,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a31cd410608
+DECL|struct|__anon2be162bd0608
 typedef|typedef
 struct|struct
 block|{
@@ -209,7 +209,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a31cd410708
+DECL|struct|__anon2be162bd0708
 typedef|typedef
 struct|struct
 block|{
@@ -263,7 +263,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a31cd410808
+DECL|struct|__anon2be162bd0808
 typedef|typedef
 struct|struct
 block|{
@@ -306,7 +306,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a31cd410903
+DECL|enum|__anon2be162bd0903
 typedef|typedef
 enum|enum
 block|{
@@ -332,14 +332,14 @@ name|ngx_pop3_auth_plain
 block|,
 DECL|enumerator|ngx_pop3_auth_cram_md5
 name|ngx_pop3_auth_cram_md5
-DECL|typedef|ngx_po3_state_e
+DECL|typedef|ngx_pop3_state_e
 block|}
-name|ngx_po3_state_e
+name|ngx_pop3_state_e
 typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a31cd410a03
+DECL|enum|__anon2be162bd0a03
 typedef|typedef
 enum|enum
 block|{
@@ -375,7 +375,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a31cd410b03
+DECL|enum|__anon2be162bd0b03
 typedef|typedef
 enum|enum
 block|{
@@ -411,7 +411,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a31cd410c08
+DECL|struct|__anon2be162bd0c08
 typedef|typedef
 struct|struct
 block|{
@@ -431,7 +431,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a31cd410d08
+DECL|struct|__anon2be162bd0d08
 typedef|typedef
 struct|struct
 block|{
@@ -617,7 +617,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a31cd410e08
+DECL|struct|__anon2be162bd0e08
 typedef|typedef
 struct|struct
 block|{
@@ -1102,7 +1102,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a31cd410f08
+DECL|struct|__anon2be162bd0f08
 typedef|typedef
 struct|struct
 block|{
