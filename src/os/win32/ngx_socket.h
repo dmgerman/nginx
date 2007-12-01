@@ -511,10 +511,10 @@ DECL|member|cLength
 name|ULONG
 name|cLength
 decl_stmt|;
-DECL|union|__anon2c6f8ab5010a
+DECL|union|__anon29c45a5c010a
 union|union
 block|{
-DECL|struct|__anon2c6f8ab50208
+DECL|struct|__anon29c45a5c0208
 struct|struct
 block|{
 DECL|member|nFileOffset
