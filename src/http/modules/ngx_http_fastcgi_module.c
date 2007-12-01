@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2be6da020108
+DECL|struct|__anon28a17a4e0108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2be6da020203
+DECL|enum|__anon28a17a4e0203
 typedef|typedef
 enum|enum
 block|{
@@ -114,7 +114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be6da020308
+DECL|struct|__anon28a17a4e0308
 typedef|typedef
 struct|struct
 block|{
@@ -135,7 +135,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be6da020408
+DECL|struct|__anon28a17a4e0408
 typedef|typedef
 struct|struct
 block|{
@@ -254,7 +254,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2be6da020508
+DECL|struct|__anon28a17a4e0508
 typedef|typedef
 struct|struct
 block|{
@@ -297,7 +297,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be6da020608
+DECL|struct|__anon28a17a4e0608
 typedef|typedef
 struct|struct
 block|{
@@ -327,7 +327,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be6da020708
+DECL|struct|__anon28a17a4e0708
 typedef|typedef
 struct|struct
 block|{
@@ -354,7 +354,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be6da020808
+DECL|struct|__anon28a17a4e0808
 typedef|typedef
 struct|struct
 block|{
@@ -2439,7 +2439,9 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"fastcgi: the request record is too big"
+literal|"fastcgi request record is too big: %uz"
+argument_list|,
+name|len
 argument_list|)
 expr_stmt|;
 return|return
