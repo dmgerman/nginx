@@ -22,8 +22,8 @@ file|<ngx_event.h>
 end_include
 
 begin_function
-DECL|function|ngx_unix_send (ngx_connection_t * c,u_char * buf,size_t size)
 name|ssize_t
+DECL|function|ngx_unix_send (ngx_connection_t * c,u_char * buf,size_t size)
 name|ngx_unix_send
 parameter_list|(
 name|ngx_connection_t
