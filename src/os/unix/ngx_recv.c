@@ -30,8 +30,8 @@ operator|)
 end_if
 
 begin_function
-DECL|function|ngx_unix_recv (ngx_connection_t * c,u_char * buf,size_t size)
 name|ssize_t
+DECL|function|ngx_unix_recv (ngx_connection_t * c,u_char * buf,size_t size)
 name|ngx_unix_recv
 parameter_list|(
 name|ngx_connection_t
@@ -425,8 +425,8 @@ comment|/* ! NGX_HAVE_KQUEUE */
 end_comment
 
 begin_function
-DECL|function|ngx_unix_recv (ngx_connection_t * c,u_char * buf,size_t size)
 name|ssize_t
+DECL|function|ngx_unix_recv (ngx_connection_t * c,u_char * buf,size_t size)
 name|ngx_unix_recv
 parameter_list|(
 name|ngx_connection_t

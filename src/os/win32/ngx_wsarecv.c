@@ -22,8 +22,8 @@ file|<ngx_event.h>
 end_include
 
 begin_function
-DECL|function|ngx_wsarecv (ngx_connection_t * c,u_char * buf,size_t size)
 name|ssize_t
+DECL|function|ngx_wsarecv (ngx_connection_t * c,u_char * buf,size_t size)
 name|ngx_wsarecv
 parameter_list|(
 name|ngx_connection_t
@@ -237,8 +237,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_overlapped_wsarecv (ngx_connection_t * c,u_char * buf,size_t size)
 name|ssize_t
+DECL|function|ngx_overlapped_wsarecv (ngx_connection_t * c,u_char * buf,size_t size)
 name|ngx_overlapped_wsarecv
 parameter_list|(
 name|ngx_connection_t
