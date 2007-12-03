@@ -145,6 +145,22 @@ block|}
 struct|;
 end_struct
 
+begin_define
+DECL|macro|ngx_rbtree_init (tree,s,i)
+define|#
+directive|define
+name|ngx_rbtree_init
+parameter_list|(
+name|tree
+parameter_list|,
+name|s
+parameter_list|,
+name|i
+parameter_list|)
+define|\
+value|ngx_rbtree_sentinel_init(s);                                              \     (tree)->root = s;                                                         \     (tree)->sentinel = s;                                                     \     (tree)->insert = i
+end_define
+
 begin_function_decl
 name|void
 name|ngx_rbtree_insert
