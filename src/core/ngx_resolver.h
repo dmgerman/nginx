@@ -116,8 +116,16 @@ name|NGX_RESOLVE_TIMEDOUT
 value|NGX_ETIMEDOUT
 end_define
 
+begin_define
+DECL|macro|NGX_NO_RESOLVER
+define|#
+directive|define
+name|NGX_NO_RESOLVER
+value|(void *) -1
+end_define
+
 begin_typedef
-DECL|struct|__anon2a4661bb0108
+DECL|struct|__anon2c0360ff0108
 typedef|typedef
 struct|struct
 block|{
@@ -177,7 +185,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4661bb0208
+DECL|struct|__anon2c0360ff0208
 typedef|typedef
 struct|struct
 block|{
@@ -208,7 +216,7 @@ name|u_char
 modifier|*
 name|query
 decl_stmt|;
-DECL|union|__anon2a4661bb030a
+DECL|union|__anon2c0360ff030a
 union|union
 block|{
 DECL|member|addr
@@ -257,7 +265,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4661bb0408
+DECL|struct|__anon2c0360ff0408
 typedef|typedef
 struct|struct
 block|{
