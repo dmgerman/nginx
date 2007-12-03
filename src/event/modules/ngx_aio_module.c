@@ -152,6 +152,8 @@ name|ngx_aio_read
 block|,
 name|ngx_aio_read_chain
 block|,
+name|NULL
+block|,
 name|ngx_aio_write
 block|,
 name|ngx_aio_write_chain

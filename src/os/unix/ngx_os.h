@@ -135,7 +135,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f79b330108
+DECL|struct|__anon2b849bcf0108
 typedef|typedef
 struct|struct
 block|{
@@ -146,6 +146,10 @@ decl_stmt|;
 DECL|member|recv_chain
 name|ngx_recv_chain_pt
 name|recv_chain
+decl_stmt|;
+DECL|member|udp_recv
+name|ngx_recv_pt
+name|udp_recv
 decl_stmt|;
 DECL|member|send
 name|ngx_send_pt
@@ -258,6 +262,24 @@ parameter_list|,
 name|ngx_chain_t
 modifier|*
 name|entry
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ssize_t
+name|ngx_udp_unix_recv
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|,
+name|u_char
+modifier|*
+name|buf
+parameter_list|,
+name|size_t
+name|size
 parameter_list|)
 function_decl|;
 end_function_decl

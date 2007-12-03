@@ -82,6 +82,8 @@ name|ngx_wsarecv
 block|,
 name|ngx_wsarecv_chain
 block|,
+name|ngx_udp_wsarecv
+block|,
 name|NULL
 block|,
 name|ngx_wsasend_chain
@@ -92,7 +94,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2a1f976b0108
+DECL|struct|__anon2b4349400108
 typedef|typedef
 struct|struct
 block|{

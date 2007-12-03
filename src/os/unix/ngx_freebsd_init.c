@@ -114,6 +114,8 @@ name|ngx_unix_recv
 block|,
 name|ngx_readv_chain
 block|,
+name|ngx_udp_unix_recv
+block|,
 name|ngx_unix_send
 block|,
 if|#
@@ -136,7 +138,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon27a3545b0108
+DECL|struct|__anon27a6661f0108
 typedef|typedef
 struct|struct
 block|{

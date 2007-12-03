@@ -350,6 +350,8 @@ name|ngx_overlapped_wsarecv
 block|,
 name|NULL
 block|,
+name|ngx_udp_overlapped_wsarecv
+block|,
 name|NULL
 block|,
 name|ngx_overlapped_wsasend_chain

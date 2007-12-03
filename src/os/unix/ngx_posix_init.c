@@ -67,6 +67,8 @@ name|ngx_unix_recv
 block|,
 name|ngx_readv_chain
 block|,
+name|ngx_udp_unix_recv
+block|,
 name|NULL
 block|,
 name|ngx_writev_chain
