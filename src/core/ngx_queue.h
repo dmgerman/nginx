@@ -57,6 +57,18 @@ struct|;
 end_struct
 
 begin_define
+DECL|macro|ngx_queue_init (q)
+define|#
+directive|define
+name|ngx_queue_init
+parameter_list|(
+name|q
+parameter_list|)
+define|\
+value|(q)->prev = q;                                                            \     (q)->next = q;
+end_define
+
+begin_define
 DECL|macro|ngx_queue_empty (h)
 define|#
 directive|define
