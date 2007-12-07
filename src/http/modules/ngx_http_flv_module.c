@@ -189,9 +189,6 @@ decl_stmt|;
 name|size_t
 name|root
 decl_stmt|;
-name|ngx_fd_t
-name|fd
-decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
@@ -509,12 +506,6 @@ return|return
 name|rc
 return|;
 block|}
-name|fd
-operator|=
-name|of
-operator|.
-name|fd
-expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -527,6 +518,8 @@ if|if
 condition|(
 name|ngx_close_file
 argument_list|(
+name|of
+operator|.
 name|fd
 argument_list|)
 operator|==
@@ -932,6 +925,8 @@ name|file
 operator|->
 name|fd
 operator|=
+name|of
+operator|.
 name|fd
 expr_stmt|;
 name|b

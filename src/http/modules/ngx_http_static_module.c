@@ -143,9 +143,6 @@ decl_stmt|;
 name|size_t
 name|root
 decl_stmt|;
-name|ngx_fd_t
-name|fd
-decl_stmt|;
 name|ngx_str_t
 name|path
 decl_stmt|;
@@ -460,12 +457,6 @@ return|return
 name|rc
 return|;
 block|}
-name|fd
-operator|=
-name|of
-operator|.
-name|fd
-expr_stmt|;
 name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
@@ -476,6 +467,8 @@ literal|0
 argument_list|,
 literal|"http static fd: %d"
 argument_list|,
+name|of
+operator|.
 name|fd
 argument_list|)
 expr_stmt|;
@@ -894,6 +887,8 @@ name|file
 operator|->
 name|fd
 operator|=
+name|of
+operator|.
 name|fd
 expr_stmt|;
 name|b
