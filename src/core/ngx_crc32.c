@@ -596,8 +596,8 @@ end_decl_stmt
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_crc32_init (void)
-name|ngx_crc32_init
+DECL|function|ngx_crc32_table_init (void)
+name|ngx_crc32_table_init
 parameter_list|(
 name|void
 parameter_list|)

@@ -1048,10 +1048,10 @@ return|return
 literal|1
 return|;
 block|}
-comment|/* ngx_crc32_init() requires ngx_cacheline_size set in ngx_os_init() */
+comment|/*      * ngx_crc32_table_init() requires ngx_cacheline_size set in ngx_os_init()      */
 if|if
 condition|(
-name|ngx_crc32_init
+name|ngx_crc32_table_init
 argument_list|()
 operator|!=
 name|NGX_OK
