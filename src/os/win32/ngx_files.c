@@ -704,7 +704,7 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_win32_rename_file (ngx_str_t * from,ngx_str_t * to,ngx_pool_t * pool)
+DECL|function|ngx_win32_rename_file (ngx_str_t * from,ngx_str_t * to,ngx_log_t * log)
 name|ngx_win32_rename_file
 parameter_list|(
 name|ngx_str_t
@@ -715,9 +715,9 @@ name|ngx_str_t
 modifier|*
 name|to
 parameter_list|,
-name|ngx_pool_t
+name|ngx_log_t
 modifier|*
-name|pool
+name|log
 parameter_list|)
 block|{
 name|u_char
@@ -735,10 +735,8 @@ name|num
 decl_stmt|;
 name|name
 operator|=
-name|ngx_palloc
+name|ngx_alloc
 argument_list|(
-name|pool
-argument_list|,
 name|to
 operator|->
 name|len
@@ -753,6 +751,8 @@ sizeof|sizeof
 argument_list|(
 literal|"DELETE"
 argument_list|)
+argument_list|,
+name|log
 argument_list|)
 expr_stmt|;
 if|if
@@ -842,10 +842,8 @@ literal|1
 expr_stmt|;
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_ERR
+name|NGX_LOG_CRIT
 argument_list|,
-name|pool
-operator|->
 name|log
 argument_list|,
 name|ngx_errno
@@ -909,10 +907,8 @@ condition|)
 block|{
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_ERR
+name|NGX_LOG_CRIT
 argument_list|,
-name|pool
-operator|->
 name|log
 argument_list|,
 name|ngx_errno
@@ -930,10 +926,8 @@ condition|)
 block|{
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_ERR
+name|NGX_LOG_CRIT
 argument_list|,
-name|pool
-operator|->
 name|log
 argument_list|,
 name|ngx_errno
@@ -943,6 +937,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/* mutex_unlock() */
+name|ngx_free
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
 return|return
 name|rc
 return|;

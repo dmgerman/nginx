@@ -9772,10 +9772,12 @@ name|path
 argument_list|,
 name|r
 operator|->
-name|pool
+name|connection
+operator|->
+name|log
 argument_list|)
-operator|!=
-name|NGX_ERROR
+operator|==
+name|NGX_OK
 condition|)
 block|{
 if|if

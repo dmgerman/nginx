@@ -355,9 +355,9 @@ name|ngx_str_t
 modifier|*
 name|to
 parameter_list|,
-name|ngx_pool_t
+name|ngx_log_t
 modifier|*
-name|pool
+name|log
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -825,7 +825,7 @@ value|(time_t) (((((unsigned __int64)                                          \
 end_define
 
 begin_typedef
-DECL|struct|__anon28d3416c0108
+DECL|struct|__anon28a551b80108
 typedef|typedef
 struct|struct
 block|{

@@ -62,7 +62,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon29549a170108
+DECL|struct|__anon279904180108
 typedef|typedef
 struct|struct
 block|{
@@ -85,7 +85,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29549a170208
+DECL|struct|__anon279904180208
 typedef|typedef
 struct|struct
 block|{
@@ -1295,10 +1295,12 @@ name|path
 argument_list|,
 name|r
 operator|->
-name|pool
+name|connection
+operator|->
+name|log
 argument_list|)
-operator|!=
-name|NGX_ERROR
+operator|==
+name|NGX_OK
 condition|)
 block|{
 if|if
