@@ -208,6 +208,7 @@ end_define
 
 begin_function
 specifier|static
+name|ngx_inline
 name|void
 DECL|function|ngx_crc32_update (uint32_t * crc,u_char * p,size_t len)
 name|ngx_crc32_update
