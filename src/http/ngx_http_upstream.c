@@ -5142,10 +5142,6 @@ condition|(
 name|rc
 operator|==
 name|NGX_ERROR
-operator|||
-name|rc
-operator|==
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
 condition|)
 block|{
 name|ngx_http_upstream_finalize_request

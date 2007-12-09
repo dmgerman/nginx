@@ -76,14 +76,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon2b06818c010a
+DECL|union|__anon276fca37010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon2b06818c0208
+DECL|struct|__anon276fca370208
 struct|struct
 block|{
 DECL|member|lengths
@@ -114,7 +114,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b06818c0308
+DECL|struct|__anon276fca370308
 typedef|typedef
 struct|struct
 block|{
@@ -137,7 +137,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b06818c0408
+DECL|struct|__anon276fca370408
 typedef|typedef
 struct|struct
 block|{
@@ -238,7 +238,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b06818c0508
+DECL|struct|__anon276fca370508
 typedef|typedef
 struct|struct
 block|{
@@ -4586,7 +4586,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 return|;
 block|}
 name|rc
@@ -4742,7 +4742,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 return|;
 block|}
 name|ngx_memcpy
@@ -4837,7 +4837,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2b06818c0603
+DECL|enum|__anon276fca370603
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -5464,7 +5464,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 return|;
 block|}
 name|h
@@ -5550,7 +5550,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 return|;
 block|}
 name|h
@@ -5758,7 +5758,7 @@ name|NGX_OK
 condition|)
 block|{
 return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 return|;
 block|}
 name|ngx_log_debug2
@@ -5847,7 +5847,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 return|;
 block|}
 name|h
@@ -5968,7 +5968,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 return|;
 block|}
 name|h

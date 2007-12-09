@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b4cbf8b0108
+DECL|struct|__anon2ad4ab2e0108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b4cbf8b0203
+DECL|enum|__anon2ad4ab2e0203
 typedef|typedef
 enum|enum
 block|{
@@ -114,7 +114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4cbf8b0308
+DECL|struct|__anon2ad4ab2e0308
 typedef|typedef
 struct|struct
 block|{
@@ -135,7 +135,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4cbf8b0408
+DECL|struct|__anon2ad4ab2e0408
 typedef|typedef
 struct|struct
 block|{
@@ -254,7 +254,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2b4cbf8b0508
+DECL|struct|__anon2ad4ab2e0508
 typedef|typedef
 struct|struct
 block|{
@@ -297,7 +297,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4cbf8b0608
+DECL|struct|__anon2ad4ab2e0608
 typedef|typedef
 struct|struct
 block|{
@@ -327,7 +327,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4cbf8b0708
+DECL|struct|__anon2ad4ab2e0708
 typedef|typedef
 struct|struct
 block|{
@@ -354,7 +354,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4cbf8b0808
+DECL|struct|__anon2ad4ab2e0808
 typedef|typedef
 struct|struct
 block|{
@@ -4211,7 +4211,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 return|;
 block|}
 name|ngx_http_set_ctx
@@ -5001,7 +5001,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 return|;
 block|}
 if|if
@@ -5089,7 +5089,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 return|;
 block|}
 name|buf
@@ -5291,7 +5291,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 return|;
 block|}
 block|}
@@ -5372,7 +5372,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 return|;
 block|}
 name|h
@@ -5589,7 +5589,7 @@ name|NGX_OK
 condition|)
 block|{
 return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 return|;
 block|}
 name|ngx_log_debug2
@@ -5951,7 +5951,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 return|;
 block|}
 block|}
