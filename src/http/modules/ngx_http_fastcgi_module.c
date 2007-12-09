@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28a17a4e0108
+DECL|struct|__anon2b4cbf8b0108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28a17a4e0203
+DECL|enum|__anon2b4cbf8b0203
 typedef|typedef
 enum|enum
 block|{
@@ -114,7 +114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a17a4e0308
+DECL|struct|__anon2b4cbf8b0308
 typedef|typedef
 struct|struct
 block|{
@@ -135,7 +135,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a17a4e0408
+DECL|struct|__anon2b4cbf8b0408
 typedef|typedef
 struct|struct
 block|{
@@ -254,7 +254,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon28a17a4e0508
+DECL|struct|__anon2b4cbf8b0508
 typedef|typedef
 struct|struct
 block|{
@@ -297,7 +297,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a17a4e0608
+DECL|struct|__anon2b4cbf8b0608
 typedef|typedef
 struct|struct
 block|{
@@ -327,7 +327,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a17a4e0708
+DECL|struct|__anon2b4cbf8b0708
 typedef|typedef
 struct|struct
 block|{
@@ -354,7 +354,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a17a4e0808
+DECL|struct|__anon2b4cbf8b0808
 typedef|typedef
 struct|struct
 block|{
@@ -5698,8 +5698,25 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"upstream sent invalid status \"%V\""
+argument_list|,
+name|status_line
+argument_list|)
+expr_stmt|;
 return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_HTTP_UPSTREAM_INVALID_HEADER
 return|;
 block|}
 name|u
