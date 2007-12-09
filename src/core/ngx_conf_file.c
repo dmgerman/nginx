@@ -3812,7 +3812,7 @@ condition|(
 operator|*
 name|a
 operator|==
-name|NULL
+name|NGX_CONF_UNSET_PTR
 condition|)
 block|{
 operator|*
