@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ad4ab2e0108
+DECL|struct|__anon293695de0108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2ad4ab2e0203
+DECL|enum|__anon293695de0203
 typedef|typedef
 enum|enum
 block|{
@@ -114,7 +114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad4ab2e0308
+DECL|struct|__anon293695de0308
 typedef|typedef
 struct|struct
 block|{
@@ -135,7 +135,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad4ab2e0408
+DECL|struct|__anon293695de0408
 typedef|typedef
 struct|struct
 block|{
@@ -254,7 +254,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2ad4ab2e0508
+DECL|struct|__anon293695de0508
 typedef|typedef
 struct|struct
 block|{
@@ -297,7 +297,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad4ab2e0608
+DECL|struct|__anon293695de0608
 typedef|typedef
 struct|struct
 block|{
@@ -327,7 +327,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad4ab2e0708
+DECL|struct|__anon293695de0708
 typedef|typedef
 struct|struct
 block|{
@@ -354,7 +354,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad4ab2e0808
+DECL|struct|__anon293695de0808
 typedef|typedef
 struct|struct
 block|{
@@ -4784,7 +4784,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|NGX_HTTP_BAD_GATEWAY
+name|NGX_HTTP_UPSTREAM_INVALID_HEADER
 return|;
 block|}
 block|}
