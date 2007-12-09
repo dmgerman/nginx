@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c620b930108
+DECL|struct|__anon2b74b2490108
 typedef|typedef
 struct|struct
 block|{
@@ -57,7 +57,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c620b930208
+DECL|struct|__anon2b74b2490208
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c620b930308
+DECL|struct|__anon2b74b2490308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c620b930408
+DECL|struct|__anon2b74b2490408
 typedef|typedef
 struct|struct
 block|{
@@ -1013,6 +1013,15 @@ argument_list|,
 argument|NULL
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|rc
+operator|==
+name|NGX_DONE
+condition|)
+block|{
+return|return;
 block|}
 if|if
 condition|(
@@ -2586,6 +2595,10 @@ decl_stmt|;
 name|ngx_uint_t
 name|i
 decl_stmt|;
+name|ngx_connection_t
+modifier|*
+name|c
+decl_stmt|;
 name|dSP
 expr_stmt|;
 name|status
@@ -2705,6 +2718,12 @@ block|}
 block|}
 name|PUTBACK
 expr_stmt|;
+name|c
+operator|=
+name|r
+operator|->
+name|connection
+expr_stmt|;
 name|n
 operator|=
 name|call_sv
@@ -2716,6 +2735,23 @@ argument_list|)
 expr_stmt|;
 name|SPAGAIN
 expr_stmt|;
+if|if
+condition|(
+name|c
+operator|->
+name|destroyed
+condition|)
+block|{
+name|PUTBACK
+expr_stmt|;
+name|FREETMPS
+expr_stmt|;
+name|LEAVE
+expr_stmt|;
+return|return
+name|NGX_DONE
+return|;
+block|}
 if|if
 condition|(
 name|n
@@ -2736,9 +2772,7 @@ name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-name|r
-operator|->
-name|connection
+name|c
 operator|->
 name|log
 argument_list|,
@@ -2877,9 +2911,7 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ERR
 argument_list|,
-name|r
-operator|->
-name|connection
+name|c
 operator|->
 name|log
 argument_list|,
@@ -2917,9 +2949,7 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
-name|r
-operator|->
-name|connection
+name|c
 operator|->
 name|log
 argument_list|,
