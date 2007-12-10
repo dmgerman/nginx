@@ -38,7 +38,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2796b5dc0108
+DECL|struct|__anon29f602a80108
 typedef|typedef
 struct|struct
 block|{
@@ -76,7 +76,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2796b5dc0208
+DECL|struct|__anon29f602a80208
 typedef|typedef
 struct|struct
 block|{
@@ -401,23 +401,6 @@ index|[
 literal|256
 index|]
 decl_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_PCRE
-operator|)
-name|ngx_int_t
-name|n
-decl_stmt|;
-name|ngx_str_t
-name|referer
-decl_stmt|;
-name|ngx_http_referer_regex_t
-modifier|*
-name|regex
-decl_stmt|;
-endif|#
-directive|endif
 name|rlcf
 operator|=
 name|ngx_http_get_module_loc_conf
@@ -689,6 +672,16 @@ operator|->
 name|regex
 condition|)
 block|{
+name|ngx_int_t
+name|n
+decl_stmt|;
+name|ngx_str_t
+name|referer
+decl_stmt|;
+name|ngx_http_referer_regex_t
+modifier|*
+name|regex
+decl_stmt|;
 name|referer
 operator|.
 name|len

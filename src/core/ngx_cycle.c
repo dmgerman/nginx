@@ -4431,17 +4431,6 @@ name|ngx_open_file_t
 modifier|*
 name|file
 decl_stmt|;
-if|#
-directive|if
-operator|!
-operator|(
-name|NGX_WIN32
-operator|)
-name|ngx_file_info_t
-name|fi
-decl_stmt|;
-endif|#
-directive|endif
 name|part
 operator|=
 operator|&
@@ -4765,6 +4754,9 @@ operator|)
 name|NGX_CONF_UNSET_UINT
 condition|)
 block|{
+name|ngx_file_info_t
+name|fi
+decl_stmt|;
 if|if
 condition|(
 name|ngx_file_info

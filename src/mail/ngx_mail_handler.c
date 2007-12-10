@@ -119,17 +119,6 @@ name|ngx_mail_session_t
 modifier|*
 name|s
 decl_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_MAIL_SSL
-operator|)
-name|ngx_mail_ssl_conf_t
-modifier|*
-name|sslcf
-decl_stmt|;
-endif|#
-directive|endif
 comment|/* find the server configuration for the address:port */
 comment|/* AF_INET only */
 name|imip
@@ -476,6 +465,11 @@ directive|if
 operator|(
 name|NGX_MAIL_SSL
 operator|)
+block|{
+name|ngx_mail_ssl_conf_t
+modifier|*
+name|sslcf
+decl_stmt|;
 name|sslcf
 operator|=
 name|ngx_mail_get_module_srv_conf
@@ -503,6 +497,7 @@ name|c
 argument_list|)
 expr_stmt|;
 return|return;
+block|}
 block|}
 endif|#
 directive|endif

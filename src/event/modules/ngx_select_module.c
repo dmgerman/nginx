@@ -1041,17 +1041,6 @@ operator|!
 operator|(
 name|NGX_WIN32
 operator|)
-name|ngx_uint_t
-name|level
-decl_stmt|;
-endif|#
-directive|endif
-if|#
-directive|if
-operator|!
-operator|(
-name|NGX_WIN32
-operator|)
 if|if
 condition|(
 name|max_fd
@@ -1442,6 +1431,9 @@ condition|(
 name|err
 condition|)
 block|{
+name|ngx_uint_t
+name|level
+decl_stmt|;
 if|if
 condition|(
 name|err

@@ -62,7 +62,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon278fcfd60108
+DECL|struct|__anon28a0736c0108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278fcfd60208
+DECL|struct|__anon28a0736c0208
 typedef|typedef
 struct|struct
 block|{
@@ -122,7 +122,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278fcfd60308
+DECL|struct|__anon28a0736c0308
 typedef|typedef
 struct|struct
 block|{
@@ -146,7 +146,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon278fcfd60403
+DECL|enum|__anon28a0736c0403
 typedef|typedef
 enum|enum
 block|{
@@ -10545,26 +10545,6 @@ name|noregex
 decl_stmt|,
 name|flags
 decl_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_PCRE
-operator|)
-name|ngx_str_t
-name|err
-decl_stmt|;
-name|ngx_regex_t
-modifier|*
-name|regex
-decl_stmt|;
-name|u_char
-name|errstr
-index|[
-name|NGX_MAX_CONF_ERRSTR
-index|]
-decl_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 name|ctx
@@ -11186,6 +11166,19 @@ directive|if
 operator|(
 name|NGX_PCRE
 operator|)
+name|ngx_str_t
+name|err
+decl_stmt|;
+name|ngx_regex_t
+modifier|*
+name|regex
+decl_stmt|;
+name|u_char
+name|errstr
+index|[
+name|NGX_MAX_CONF_ERRSTR
+index|]
+decl_stmt|;
 name|err
 operator|.
 name|len

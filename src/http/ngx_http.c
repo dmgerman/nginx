@@ -465,17 +465,6 @@ name|regex
 decl_stmt|;
 endif|#
 directive|endif
-if|#
-directive|if
-operator|(
-name|NGX_WIN32
-operator|)
-name|ngx_iocp_conf_t
-modifier|*
-name|iocpcf
-decl_stmt|;
-endif|#
-directive|endif
 comment|/* the main http context */
 name|ctx
 operator|=
@@ -3552,6 +3541,11 @@ directive|if
 operator|(
 name|NGX_WIN32
 operator|)
+block|{
+name|ngx_iocp_conf_t
+modifier|*
+name|iocpcf
+decl_stmt|;
 name|iocpcf
 operator|=
 name|ngx_event_get_conf
@@ -3580,6 +3574,7 @@ name|cscf
 operator|->
 name|client_header_buffer_size
 expr_stmt|;
+block|}
 block|}
 endif|#
 directive|endif

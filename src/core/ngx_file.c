@@ -1990,17 +1990,6 @@ modifier|*
 modifier|*
 name|path
 decl_stmt|;
-if|#
-directive|if
-operator|!
-operator|(
-name|NGX_WIN32
-operator|)
-name|ngx_file_info_t
-name|fi
-decl_stmt|;
-endif|#
-directive|endif
 name|path
 operator|=
 name|cycle
@@ -2103,6 +2092,10 @@ operator|!
 operator|(
 name|NGX_WIN32
 operator|)
+block|{
+name|ngx_file_info_t
+name|fi
+decl_stmt|;
 if|if
 condition|(
 name|ngx_file_info
@@ -2311,6 +2304,7 @@ expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
+block|}
 block|}
 block|}
 endif|#
