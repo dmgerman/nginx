@@ -9165,6 +9165,8 @@ name|free
 index|[
 name|i
 index|]
+operator|->
+name|start
 argument_list|)
 expr_stmt|;
 name|hc
@@ -9240,6 +9242,8 @@ name|busy
 index|[
 name|i
 index|]
+operator|->
+name|start
 argument_list|)
 expr_stmt|;
 name|hc
