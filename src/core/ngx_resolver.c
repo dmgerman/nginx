@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon288219b50108
+DECL|struct|__anon2c0062fd0108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288219b50208
+DECL|struct|__anon2c0062fd0208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288219b50308
+DECL|struct|__anon2c0062fd0308
 typedef|typedef
 struct|struct
 block|{
@@ -5208,6 +5208,14 @@ literal|"resolver cname:\"%V\""
 argument_list|,
 operator|&
 name|name
+argument_list|)
+expr_stmt|;
+name|ngx_queue_remove
+argument_list|(
+operator|&
+name|rn
+operator|->
+name|queue
 argument_list|)
 expr_stmt|;
 name|rn
