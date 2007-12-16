@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2c0062fd0108
+DECL|struct|__anon28eb621e0108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0062fd0208
+DECL|struct|__anon28eb621e0208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0062fd0308
+DECL|struct|__anon28eb621e0308
 typedef|typedef
 struct|struct
 block|{
@@ -341,7 +341,7 @@ name|ngx_uint_t
 name|nan
 parameter_list|,
 name|ngx_uint_t
-name|i
+name|ans
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -367,6 +367,9 @@ name|ident
 parameter_list|,
 name|ngx_uint_t
 name|code
+parameter_list|,
+name|ngx_uint_t
+name|nan
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -3833,25 +3836,6 @@ goto|goto
 name|done
 goto|;
 block|}
-if|if
-condition|(
-name|code
-operator|==
-literal|0
-operator|&&
-name|nan
-operator|==
-literal|0
-condition|)
-block|{
-name|err
-operator|=
-literal|"no answers in DNS response"
-expr_stmt|;
-goto|goto
-name|done
-goto|;
-block|}
 name|i
 operator|=
 sizeof|sizeof
@@ -4076,6 +4060,8 @@ argument_list|,
 name|ident
 argument_list|,
 name|code
+argument_list|,
+name|nan
 argument_list|)
 expr_stmt|;
 break|break;
@@ -4368,6 +4354,23 @@ expr_stmt|;
 goto|goto
 name|failed
 goto|;
+block|}
+if|if
+condition|(
+name|code
+operator|==
+literal|0
+operator|&&
+name|nan
+operator|==
+literal|0
+condition|)
+block|{
+name|code
+operator|=
+literal|3
+expr_stmt|;
+comment|/* NXDOMAIN */
 block|}
 if|if
 condition|(
@@ -5363,7 +5366,7 @@ end_function
 begin_function
 specifier|static
 name|void
-DECL|function|ngx_resolver_process_ptr (ngx_resolver_t * r,u_char * buf,size_t n,ngx_uint_t ident,ngx_uint_t code)
+DECL|function|ngx_resolver_process_ptr (ngx_resolver_t * r,u_char * buf,size_t n,ngx_uint_t ident,ngx_uint_t code,ngx_uint_t nan)
 name|ngx_resolver_process_ptr
 parameter_list|(
 name|ngx_resolver_t
@@ -5382,6 +5385,9 @@ name|ident
 parameter_list|,
 name|ngx_uint_t
 name|code
+parameter_list|,
+name|ngx_uint_t
+name|nan
 parameter_list|)
 block|{
 name|char
@@ -5693,6 +5699,23 @@ expr_stmt|;
 goto|goto
 name|failed
 goto|;
+block|}
+if|if
+condition|(
+name|code
+operator|==
+literal|0
+operator|&&
+name|nan
+operator|==
+literal|0
+condition|)
+block|{
+name|code
+operator|=
+literal|3
+expr_stmt|;
+comment|/* NXDOMAIN */
 block|}
 if|if
 condition|(
