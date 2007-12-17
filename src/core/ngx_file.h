@@ -128,7 +128,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28b874f60108
+DECL|struct|__anon2c40d0050108
 typedef|typedef
 struct|struct
 block|{
@@ -334,13 +334,16 @@ begin_function_decl
 name|void
 name|ngx_create_hashed_filename
 parameter_list|(
-name|ngx_file_t
-modifier|*
-name|file
-parameter_list|,
 name|ngx_path_t
 modifier|*
 name|path
+parameter_list|,
+name|u_char
+modifier|*
+name|file
+parameter_list|,
+name|size_t
+name|len
 parameter_list|)
 function_decl|;
 end_function_decl
