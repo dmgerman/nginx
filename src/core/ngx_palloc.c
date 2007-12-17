@@ -171,6 +171,21 @@ operator|->
 name|handler
 condition|)
 block|{
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_ALLOC
+argument_list|,
+name|pool
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"run cleanup: %p"
+argument_list|,
+name|c
+argument_list|)
+expr_stmt|;
 name|c
 operator|->
 name|handler
@@ -976,7 +991,7 @@ name|c
 init|=
 name|data
 decl_stmt|;
-name|ngx_log_debug2
+name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_ALLOC
 argument_list|,
@@ -986,9 +1001,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"run cleanup: %p, fd:%d"
-argument_list|,
-name|c
+literal|"file cleanup: fd:%d"
 argument_list|,
 name|c
 operator|->
@@ -1048,7 +1061,7 @@ decl_stmt|;
 name|ngx_err_t
 name|err
 decl_stmt|;
-name|ngx_log_debug3
+name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_ALLOC
 argument_list|,
@@ -1058,9 +1071,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"run cleanup: %p, fd:%d %s"
-argument_list|,
-name|c
+literal|"file cleanup: fd:%d %s"
 argument_list|,
 name|c
 operator|->
