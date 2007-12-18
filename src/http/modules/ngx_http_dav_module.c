@@ -62,7 +62,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon279904180108
+DECL|struct|__anon2987d6b30108
 typedef|typedef
 struct|struct
 block|{
@@ -85,7 +85,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon279904180208
+DECL|struct|__anon2987d6b30208
 typedef|typedef
 struct|struct
 block|{
@@ -4292,7 +4292,7 @@ name|connection
 operator|->
 name|log
 expr_stmt|;
-comment|/* todo: 207 */
+comment|/* TODO: 207 */
 if|if
 condition|(
 name|ngx_walk_tree
