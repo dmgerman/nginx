@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28e3b1810108
+DECL|struct|__anon28f874690108
 typedef|typedef
 struct|struct
 block|{
@@ -5790,19 +5790,6 @@ name|shm_zone
 operator|->
 name|data
 expr_stmt|;
-if|if
-condition|(
-name|cache
-operator|->
-name|session_rbtree
-operator|==
-name|NULL
-condition|)
-block|{
-return|return
-name|NULL
-return|;
-block|}
 name|sess
 operator|=
 name|NULL
