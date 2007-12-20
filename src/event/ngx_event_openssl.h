@@ -98,7 +98,7 @@ value|SSL
 end_define
 
 begin_typedef
-DECL|struct|__anon27dd19f50108
+DECL|struct|__anon2bd202840108
 typedef|typedef
 struct|struct
 block|{
@@ -119,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27dd19f50208
+DECL|struct|__anon2bd202840208
 typedef|typedef
 struct|struct
 block|{
@@ -235,15 +235,9 @@ name|u_char
 modifier|*
 name|session
 decl_stmt|;
-DECL|member|prev
-name|ngx_ssl_sess_id_t
-modifier|*
-name|prev
-decl_stmt|;
-DECL|member|next
-name|ngx_ssl_sess_id_t
-modifier|*
-name|next
+DECL|member|queue
+name|ngx_queue_t
+name|queue
 decl_stmt|;
 DECL|member|expire
 name|time_t
@@ -275,7 +269,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27dd19f50308
+DECL|struct|__anon2bd202840308
 typedef|typedef
 struct|struct
 block|{
@@ -287,13 +281,9 @@ DECL|member|sentinel
 name|ngx_rbtree_node_t
 name|sentinel
 decl_stmt|;
-DECL|member|session_cache_head
-name|ngx_ssl_sess_id_t
-name|session_cache_head
-decl_stmt|;
-DECL|member|session_cache_tail
-name|ngx_ssl_sess_id_t
-name|session_cache_tail
+DECL|member|expire_queue
+name|ngx_queue_t
+name|expire_queue
 decl_stmt|;
 DECL|typedef|ngx_ssl_session_cache_t
 block|}
