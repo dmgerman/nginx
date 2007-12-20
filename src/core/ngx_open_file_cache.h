@@ -29,7 +29,7 @@ name|_NGX_OPEN_FILE_CACHE_H_INCLUDED_
 end_define
 
 begin_typedef
-DECL|struct|__anon2b64c5350108
+DECL|struct|__anon289309ed0108
 typedef|typedef
 struct|struct
 block|{
@@ -212,13 +212,17 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b64c5350208
+DECL|struct|__anon289309ed0208
 typedef|typedef
 struct|struct
 block|{
 DECL|member|rbtree
 name|ngx_rbtree_t
 name|rbtree
+decl_stmt|;
+DECL|member|sentinel
+name|ngx_rbtree_node_t
+name|sentinel
 decl_stmt|;
 DECL|member|list_head
 name|ngx_cached_open_file_t
@@ -247,7 +251,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b64c5350308
+DECL|struct|__anon289309ed0308
 typedef|typedef
 struct|struct
 block|{
@@ -273,7 +277,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b64c5350408
+DECL|struct|__anon289309ed0408
 typedef|typedef
 struct|struct
 block|{
