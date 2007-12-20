@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bcec7850108
+DECL|struct|__anon29b6e09b0108
 typedef|typedef
 struct|struct
 block|{
@@ -876,15 +876,6 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-name|SSL_CTX_set_mode
-argument_list|(
-name|ssl
-operator|->
-name|ctx
-argument_list|,
-name|SSL_MODE_ACCEPT_MOVING_WRITE_BUFFER
-argument_list|)
-expr_stmt|;
 name|SSL_CTX_set_read_ahead
 argument_list|(
 name|ssl
