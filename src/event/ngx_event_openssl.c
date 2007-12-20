@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b30d56d0108
+DECL|struct|__anon2bcec7850108
 typedef|typedef
 struct|struct
 block|{
@@ -132,6 +132,18 @@ parameter_list|,
 name|char
 modifier|*
 name|text
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
+name|void
+name|ngx_ssl_clear_error
+parameter_list|(
+name|ngx_log_t
+modifier|*
+name|log
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -1766,6 +1778,13 @@ decl_stmt|;
 name|ngx_err_t
 name|err
 decl_stmt|;
+name|ngx_ssl_clear_error
+argument_list|(
+name|c
+operator|->
+name|log
+argument_list|)
+expr_stmt|;
 name|n
 operator|=
 name|SSL_do_handshake
@@ -2591,6 +2610,13 @@ block|}
 name|bytes
 operator|=
 literal|0
+expr_stmt|;
+name|ngx_ssl_clear_error
+argument_list|(
+name|c
+operator|->
+name|log
+argument_list|)
 expr_stmt|;
 comment|/*      * SSL_read() may return data in parts, so try to read      * until SSL_read() would return no data      */
 for|for
@@ -3703,6 +3729,13 @@ decl_stmt|;
 name|ngx_err_t
 name|err
 decl_stmt|;
+name|ngx_ssl_clear_error
+argument_list|(
+name|c
+operator|->
+name|log
+argument_list|)
+expr_stmt|;
 name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
@@ -4128,6 +4161,13 @@ operator|->
 name|connection
 argument_list|,
 name|mode
+argument_list|)
+expr_stmt|;
+name|ngx_ssl_clear_error
+argument_list|(
+name|c
+operator|->
+name|log
 argument_list|)
 expr_stmt|;
 name|n
@@ -4558,6 +4598,38 @@ argument_list|,
 name|text
 argument_list|)
 expr_stmt|;
+block|}
+end_function
+
+begin_function
+specifier|static
+name|void
+DECL|function|ngx_ssl_clear_error (ngx_log_t * log)
+name|ngx_ssl_clear_error
+parameter_list|(
+name|ngx_log_t
+modifier|*
+name|log
+parameter_list|)
+block|{
+if|if
+condition|(
+name|ERR_peek_error
+argument_list|()
+condition|)
+block|{
+name|ngx_ssl_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"ignoring stale global SSL error"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_function
 
