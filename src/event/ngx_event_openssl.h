@@ -98,7 +98,7 @@ value|SSL
 end_define
 
 begin_typedef
-DECL|struct|__anon29fc13370108
+DECL|struct|__anon27dd19f50108
 typedef|typedef
 struct|struct
 block|{
@@ -119,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fc13370208
+DECL|struct|__anon27dd19f50208
 typedef|typedef
 struct|struct
 block|{
@@ -275,14 +275,17 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29fc13370308
+DECL|struct|__anon27dd19f50308
 typedef|typedef
 struct|struct
 block|{
 DECL|member|session_rbtree
 name|ngx_rbtree_t
-modifier|*
 name|session_rbtree
+decl_stmt|;
+DECL|member|sentinel
+name|ngx_rbtree_node_t
+name|sentinel
 decl_stmt|;
 DECL|member|session_cache_head
 name|ngx_ssl_sess_id_t
