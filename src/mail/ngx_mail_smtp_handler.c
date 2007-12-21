@@ -190,6 +190,18 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|smtp_starttls
+specifier|static
+name|u_char
+name|smtp_starttls
+index|[]
+init|=
+literal|"220 2.0.0 Start TLS"
+name|CRLF
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|smtp_next
 specifier|static
 name|u_char
@@ -1119,6 +1131,27 @@ name|s
 argument_list|,
 name|c
 argument_list|)
+expr_stmt|;
+name|s
+operator|->
+name|out
+operator|.
+name|len
+operator|=
+sizeof|sizeof
+argument_list|(
+name|smtp_starttls
+argument_list|)
+operator|-
+literal|1
+expr_stmt|;
+name|s
+operator|->
+name|out
+operator|.
+name|data
+operator|=
+name|smtp_starttls
 expr_stmt|;
 break|break;
 default|default:
