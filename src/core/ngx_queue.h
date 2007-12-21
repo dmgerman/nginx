@@ -65,7 +65,7 @@ parameter_list|(
 name|q
 parameter_list|)
 define|\
-value|(q)->prev = q;                                                            \     (q)->next = q;
+value|(q)->prev = q;                                                            \     (q)->next = q
 end_define
 
 begin_define
