@@ -29,7 +29,7 @@ name|_NGX_OPEN_FILE_CACHE_H_INCLUDED_
 end_define
 
 begin_typedef
-DECL|struct|__anon289309ed0108
+DECL|struct|__anon2af9f5b90108
 typedef|typedef
 struct|struct
 block|{
@@ -123,15 +123,9 @@ DECL|member|node
 name|ngx_rbtree_node_t
 name|node
 decl_stmt|;
-DECL|member|prev
-name|ngx_cached_open_file_t
-modifier|*
-name|prev
-decl_stmt|;
-DECL|member|next
-name|ngx_cached_open_file_t
-modifier|*
-name|next
+DECL|member|queue
+name|ngx_queue_t
+name|queue
 decl_stmt|;
 DECL|member|name
 name|u_char
@@ -212,7 +206,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon289309ed0208
+DECL|struct|__anon2af9f5b90208
 typedef|typedef
 struct|struct
 block|{
@@ -224,13 +218,9 @@ DECL|member|sentinel
 name|ngx_rbtree_node_t
 name|sentinel
 decl_stmt|;
-DECL|member|list_head
-name|ngx_cached_open_file_t
-name|list_head
-decl_stmt|;
-DECL|member|list_tail
-name|ngx_cached_open_file_t
-name|list_tail
+DECL|member|expire_queue
+name|ngx_queue_t
+name|expire_queue
 decl_stmt|;
 DECL|member|current
 name|ngx_uint_t
@@ -251,7 +241,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289309ed0308
+DECL|struct|__anon2af9f5b90308
 typedef|typedef
 struct|struct
 block|{
@@ -277,7 +267,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289309ed0408
+DECL|struct|__anon2af9f5b90408
 typedef|typedef
 struct|struct
 block|{
