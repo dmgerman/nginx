@@ -322,7 +322,7 @@ name|expire_queue
 argument_list|)
 condition|)
 block|{
-return|return;
+break|break;
 block|}
 name|q
 operator|=
