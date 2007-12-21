@@ -999,6 +999,7 @@ operator|=
 name|subst
 expr_stmt|;
 block|}
+block|}
 comment|/* DEBUG stuff */
 name|node
 operator|->
@@ -1024,7 +1025,6 @@ name|key
 operator|=
 literal|0
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|red
