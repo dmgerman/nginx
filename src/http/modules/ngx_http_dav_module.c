@@ -62,7 +62,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon2987d6b30108
+DECL|struct|__anon2aa111990108
 typedef|typedef
 struct|struct
 block|{
@@ -85,7 +85,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2987d6b30208
+DECL|struct|__anon2aa111990208
 typedef|typedef
 struct|struct
 block|{
@@ -135,22 +135,6 @@ parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-specifier|static
-name|ngx_int_t
-name|ngx_http_dav_no_init
-parameter_list|(
-name|void
-modifier|*
-name|ctx
-parameter_list|,
-name|void
-modifier|*
-name|prev
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -1717,27 +1701,6 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_http_dav_no_init (void * ctx,void * prev)
-name|ngx_http_dav_no_init
-parameter_list|(
-name|void
-modifier|*
-name|ctx
-parameter_list|,
-name|void
-modifier|*
-name|prev
-parameter_list|)
-block|{
-return|return
-name|NGX_OK
-return|;
-block|}
-end_function
-
-begin_function
-specifier|static
-name|ngx_int_t
 DECL|function|ngx_http_dav_noop (ngx_tree_ctx_t * ctx,ngx_str_t * path)
 name|ngx_http_dav_noop
 parameter_list|(
@@ -3020,7 +2983,7 @@ name|tree
 operator|.
 name|init_handler
 operator|=
-name|ngx_http_dav_no_init
+name|NULL
 expr_stmt|;
 name|tree
 operator|.
@@ -4244,7 +4207,7 @@ name|tree
 operator|.
 name|init_handler
 operator|=
-name|ngx_http_dav_no_init
+name|NULL
 expr_stmt|;
 name|tree
 operator|.
