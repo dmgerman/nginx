@@ -321,11 +321,11 @@ literal|0
 expr_stmt|;
 name|of
 operator|.
-name|retest
+name|valid
 operator|=
 name|clcf
 operator|->
-name|open_file_cache_retest
+name|open_file_cache_valid
 expr_stmt|;
 name|of
 operator|.

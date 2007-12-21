@@ -808,7 +808,7 @@ name|created
 operator|<
 name|of
 operator|->
-name|retest
+name|valid
 condition|)
 block|{
 if|if
