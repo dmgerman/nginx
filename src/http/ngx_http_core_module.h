@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29f57d390108
+DECL|struct|__anon297e001e0108
 typedef|typedef
 struct|struct
 block|{
@@ -108,7 +108,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f57d390208
+DECL|struct|__anon297e001e0208
 typedef|typedef
 struct|struct
 block|{
@@ -144,7 +144,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29f57d390303
+DECL|enum|__anon297e001e0303
 typedef|typedef
 enum|enum
 block|{
@@ -236,7 +236,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29f57d390408
+DECL|struct|__anon297e001e0408
 typedef|typedef
 struct|struct
 block|{
@@ -260,7 +260,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f57d390508
+DECL|struct|__anon297e001e0508
 typedef|typedef
 struct|struct
 block|{
@@ -275,7 +275,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f57d390608
+DECL|struct|__anon297e001e0608
 typedef|typedef
 struct|struct
 block|{
@@ -338,7 +338,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f57d390708
+DECL|struct|__anon297e001e0708
 typedef|typedef
 struct|struct
 block|{
@@ -428,7 +428,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon29f57d390808
+DECL|struct|__anon297e001e0808
 typedef|typedef
 struct|struct
 block|{
@@ -454,7 +454,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f57d390908
+DECL|struct|__anon297e001e0908
 typedef|typedef
 struct|struct
 block|{
@@ -482,7 +482,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f57d390a08
+DECL|struct|__anon297e001e0a08
 typedef|typedef
 struct|struct
 block|{
@@ -502,7 +502,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f57d390b08
+DECL|struct|__anon297e001e0b08
 typedef|typedef
 struct|struct
 block|{
@@ -606,7 +606,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29f57d390c08
+DECL|struct|__anon297e001e0c08
 typedef|typedef
 struct|struct
 block|{
@@ -927,6 +927,10 @@ decl_stmt|;
 DECL|member|open_file_cache_valid
 name|time_t
 name|open_file_cache_valid
+decl_stmt|;
+DECL|member|open_file_cache_min_uses
+name|ngx_uint_t
+name|open_file_cache_min_uses
 decl_stmt|;
 DECL|member|open_file_cache_errors
 name|ngx_flag_t

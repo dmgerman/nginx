@@ -29,7 +29,7 @@ name|_NGX_OPEN_FILE_CACHE_H_INCLUDED_
 end_define
 
 begin_typedef
-DECL|struct|__anon289106cc0108
+DECL|struct|__anon2940fc170108
 typedef|typedef
 struct|struct
 block|{
@@ -56,6 +56,10 @@ decl_stmt|;
 DECL|member|valid
 name|time_t
 name|valid
+decl_stmt|;
+DECL|member|min_uses
+name|ngx_uint_t
+name|min_uses
 decl_stmt|;
 DECL|member|test_dir
 name|unsigned
@@ -160,6 +164,10 @@ DECL|member|err
 name|ngx_err_t
 name|err
 decl_stmt|;
+DECL|member|uses
+name|uint32_t
+name|uses
+decl_stmt|;
 DECL|member|count
 name|unsigned
 name|count
@@ -206,7 +214,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon289106cc0208
+DECL|struct|__anon2940fc170208
 typedef|typedef
 struct|struct
 block|{
@@ -241,7 +249,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289106cc0308
+DECL|struct|__anon2940fc170308
 typedef|typedef
 struct|struct
 block|{
@@ -255,6 +263,10 @@ name|ngx_cached_open_file_t
 modifier|*
 name|file
 decl_stmt|;
+DECL|member|min_uses
+name|ngx_uint_t
+name|min_uses
+decl_stmt|;
 DECL|member|log
 name|ngx_log_t
 modifier|*
@@ -267,7 +279,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289106cc0408
+DECL|struct|__anon2940fc170408
 typedef|typedef
 struct|struct
 block|{

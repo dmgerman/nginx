@@ -4744,6 +4744,14 @@ name|open_file_cache_valid
 expr_stmt|;
 name|of
 operator|.
+name|min_uses
+operator|=
+name|clcf
+operator|->
+name|open_file_cache_min_uses
+expr_stmt|;
+name|of
+operator|.
 name|errors
 operator|=
 name|clcf

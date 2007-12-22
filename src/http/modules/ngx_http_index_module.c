@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2957888e0108
+DECL|struct|__anon2a0abc4a0108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2957888e0208
+DECL|struct|__anon2a0abc4a0208
 typedef|typedef
 struct|struct
 block|{
@@ -909,6 +909,14 @@ name|open_file_cache_valid
 expr_stmt|;
 name|of
 operator|.
+name|min_uses
+operator|=
+name|clcf
+operator|->
+name|open_file_cache_min_uses
+expr_stmt|;
+name|of
+operator|.
 name|errors
 operator|=
 name|clcf
@@ -1307,6 +1315,12 @@ operator|=
 name|clcf
 operator|->
 name|open_file_cache_valid
+expr_stmt|;
+name|of
+operator|.
+name|min_uses
+operator|=
+literal|0
 expr_stmt|;
 name|of
 operator|.
