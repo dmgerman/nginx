@@ -77,6 +77,13 @@ name|ngx_freebsd_use_tcp_nopush
 decl_stmt|;
 end_decl_stmt
 
+begin_decl_stmt
+specifier|extern
+name|ngx_uint_t
+name|ngx_freebsd_debug_malloc
+decl_stmt|;
+end_decl_stmt
+
 begin_endif
 endif|#
 directive|endif

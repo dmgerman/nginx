@@ -221,6 +221,33 @@ else|#
 directive|else
 end_else
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_FREEBSD
+operator|)
+end_if
+
+begin_define
+DECL|macro|ngx_slab_junk (p,size)
+define|#
+directive|define
+name|ngx_slab_junk
+parameter_list|(
+name|p
+parameter_list|,
+name|size
+parameter_list|)
+define|\
+value|if (ngx_freebsd_debug_malloc)  ngx_memset(p, 0xD0, size)
+end_define
+
+begin_else
+else|#
+directive|else
+end_else
+
 begin_define
 DECL|macro|ngx_slab_junk (p,size)
 define|#
@@ -232,6 +259,11 @@ parameter_list|,
 name|size
 parameter_list|)
 end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_endif
 endif|#
