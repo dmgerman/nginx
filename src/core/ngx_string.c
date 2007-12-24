@@ -149,7 +149,7 @@ block|}
 end_function
 
 begin_comment
-comment|/*  * supported formats:  *    %[0][width][x][X]O        off_t  *    %[0][width]T              time_t  *    %[0][width][u][x|X]z      ssize_t/size_t  *    %[0][width][u][x|X]d      int/u_int  *    %[0][width][u][x|X]l      long  *    %[0][width|m][u][x|X]i    ngx_int_t/ngx_uint_t  *    %[0][width][u][x|X]D      int32_t/uint32_t  *    %[0][width][u][x|X]L      int64_t/uint64_t  *    %[0][width|m][u][x|X]A    ngx_atomic_int_t/ngx_atomic_uint_t  *    %P                        ngx_pid_t  *    %M                        ngx_msec_t  *    %r                        rlim_t  *    %p                        void *  *    %V                        ngx_str_t *  *    %v                        ngx_variable_value_t *  *    %s                        null-terminated string  *    %Z                        '\0'  *    %N                        '\n'  *    %c                        char  *    %%                        %  *  *  reserved:  *    %t                        ptrdiff_t  *    %S                        null-teminated wchar string  *    %C                        wchar  */
+comment|/*  * supported formats:  *    %[0][width][x][X]O        off_t  *    %[0][width]T              time_t  *    %[0][width][u][x|X]z      ssize_t/size_t  *    %[0][width][u][x|X]d      int/u_int  *    %[0][width][u][x|X]l      long  *    %[0][width|m][u][x|X]i    ngx_int_t/ngx_uint_t  *    %[0][width][u][x|X]D      int32_t/uint32_t  *    %[0][width][u][x|X]L      int64_t/uint64_t  *    %[0][width|m][u][x|X]A    ngx_atomic_int_t/ngx_atomic_uint_t  *    %P                        ngx_pid_t  *    %M                        ngx_msec_t  *    %r                        rlim_t  *    %p                        void *  *    %V                        ngx_str_t *  *    %v                        ngx_variable_value_t *  *    %s                        null-terminated string  *    %*s                       length and string  *    %Z                        '\0'  *    %N                        '\n'  *    %c                        char  *    %%                        %  *  *  reserved:  *    %t                        ptrdiff_t  *    %S                        null-teminated wchar string  *    %C                        wchar  */
 end_comment
 
 begin_function
@@ -314,6 +314,8 @@ name|d
 decl_stmt|;
 name|size_t
 name|len
+decl_stmt|,
+name|slen
 decl_stmt|;
 name|uint32_t
 name|ui32
@@ -437,6 +439,10 @@ name|max_width
 operator|=
 literal|0
 expr_stmt|;
+name|slen
+operator|=
+literal|0
+expr_stmt|;
 name|p
 operator|=
 name|temp
@@ -528,6 +534,22 @@ expr_stmt|;
 name|sign
 operator|=
 literal|0
+expr_stmt|;
+name|fmt
+operator|++
+expr_stmt|;
+continue|continue;
+case|case
+literal|'*'
+case|:
+name|slen
+operator|=
+name|va_arg
+argument_list|(
+name|args
+argument_list|,
+name|u_int
+argument_list|)
 expr_stmt|;
 name|fmt
 operator|++
@@ -671,6 +693,13 @@ name|u_char
 operator|*
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|slen
+operator|==
+literal|0
+condition|)
+block|{
 while|while
 condition|(
 operator|*
@@ -688,6 +717,21 @@ operator|=
 operator|*
 name|p
 operator|++
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|buf
+operator|=
+name|ngx_cpymem
+argument_list|(
+name|buf
+argument_list|,
+name|p
+argument_list|,
+name|slen
+argument_list|)
 expr_stmt|;
 block|}
 name|fmt
@@ -4850,7 +4894,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon2be5b8ab0103
+DECL|enum|__anon2c666a720103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
