@@ -76,14 +76,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon2c1ddb12010a
+DECL|union|__anon2a283553010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon2c1ddb120208
+DECL|struct|__anon2a2835530208
 struct|struct
 block|{
 DECL|member|lengths
@@ -114,7 +114,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c1ddb120308
+DECL|struct|__anon2a2835530308
 typedef|typedef
 struct|struct
 block|{
@@ -137,7 +137,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1ddb120408
+DECL|struct|__anon2a2835530408
 typedef|typedef
 struct|struct
 block|{
@@ -238,7 +238,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1ddb120508
+DECL|struct|__anon2a2835530508
 typedef|typedef
 struct|struct
 block|{
@@ -4287,36 +4287,7 @@ operator|.
 name|pos
 expr_stmt|;
 block|}
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG
-operator|)
-block|{
-name|ngx_str_t
-name|s
-decl_stmt|;
-name|s
-operator|.
-name|len
-operator|=
-name|b
-operator|->
-name|last
-operator|-
-name|b
-operator|->
-name|pos
-expr_stmt|;
-name|s
-operator|.
-name|data
-operator|=
-name|b
-operator|->
-name|pos
-expr_stmt|;
-name|ngx_log_debug1
+name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
@@ -4328,15 +4299,26 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http proxy header:\n\"%V\""
+literal|"http proxy header:\n\"%*s\""
 argument_list|,
-operator|&
-name|s
+operator|(
+name|size_t
+operator|)
+operator|(
+name|b
+operator|->
+name|last
+operator|-
+name|b
+operator|->
+name|pos
+operator|)
+argument_list|,
+name|b
+operator|->
+name|pos
 argument_list|)
 expr_stmt|;
-block|}
-endif|#
-directive|endif
 if|if
 condition|(
 name|plcf
@@ -4837,7 +4819,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2c1ddb120603
+DECL|enum|__anon2a2835530603
 enum|enum
 block|{
 DECL|enumerator|sw_start
