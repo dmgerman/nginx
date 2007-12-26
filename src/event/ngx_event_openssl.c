@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29148deb0108
+DECL|struct|__anon28be8e580108
 typedef|typedef
 struct|struct
 block|{
@@ -4818,6 +4818,26 @@ block|{
 name|long
 name|cache_mode
 decl_stmt|;
+if|if
+condition|(
+name|builtin_session_cache
+operator|==
+name|NGX_SSL_NO_SCACHE
+condition|)
+block|{
+name|SSL_CTX_set_session_cache_mode
+argument_list|(
+name|ssl
+operator|->
+name|ctx
+argument_list|,
+name|SSL_SESS_CACHE_OFF
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_OK
+return|;
+block|}
 name|cache_mode
 operator|=
 name|SSL_SESS_CACHE_SERVER

@@ -98,7 +98,7 @@ value|SSL
 end_define
 
 begin_typedef
-DECL|struct|__anon2bd202840108
+DECL|struct|__anon2a4b946a0108
 typedef|typedef
 struct|struct
 block|{
@@ -119,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd202840208
+DECL|struct|__anon2a4b946a0208
 typedef|typedef
 struct|struct
 block|{
@@ -196,11 +196,19 @@ value|-3
 end_define
 
 begin_define
+DECL|macro|NGX_SSL_NO_SCACHE
+define|#
+directive|define
+name|NGX_SSL_NO_SCACHE
+value|-4
+end_define
+
+begin_define
 DECL|macro|NGX_SSL_MAX_SESSION_SIZE
 define|#
 directive|define
 name|NGX_SSL_MAX_SESSION_SIZE
-value|(4096)
+value|4096
 end_define
 
 begin_typedef
@@ -269,7 +277,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bd202840308
+DECL|struct|__anon2a4b946a0308
 typedef|typedef
 struct|struct
 block|{
