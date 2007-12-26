@@ -98,7 +98,7 @@ value|SSL
 end_define
 
 begin_typedef
-DECL|struct|__anon2a4b946a0108
+DECL|struct|__anon28e8c2ec0108
 typedef|typedef
 struct|struct
 block|{
@@ -119,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4b946a0208
+DECL|struct|__anon28e8c2ec0208
 typedef|typedef
 struct|struct
 block|{
@@ -277,7 +277,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a4b946a0308
+DECL|struct|__anon28e8c2ec0308
 typedef|typedef
 struct|struct
 block|{
@@ -705,6 +705,17 @@ name|in
 parameter_list|,
 name|off_t
 name|limit
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_ssl_free_buffer
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
 parameter_list|)
 function_decl|;
 end_function_decl
