@@ -34,8 +34,80 @@ directive|include
 file|<ngx_http.h>
 end_include
 
+begin_define
+DECL|macro|NGX_HTTP_GZIP_PROXIED_OFF
+define|#
+directive|define
+name|NGX_HTTP_GZIP_PROXIED_OFF
+value|0x0002
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_GZIP_PROXIED_EXPIRED
+define|#
+directive|define
+name|NGX_HTTP_GZIP_PROXIED_EXPIRED
+value|0x0004
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_GZIP_PROXIED_NO_CACHE
+define|#
+directive|define
+name|NGX_HTTP_GZIP_PROXIED_NO_CACHE
+value|0x0008
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_GZIP_PROXIED_NO_STORE
+define|#
+directive|define
+name|NGX_HTTP_GZIP_PROXIED_NO_STORE
+value|0x0010
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_GZIP_PROXIED_PRIVATE
+define|#
+directive|define
+name|NGX_HTTP_GZIP_PROXIED_PRIVATE
+value|0x0020
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_GZIP_PROXIED_NO_LM
+define|#
+directive|define
+name|NGX_HTTP_GZIP_PROXIED_NO_LM
+value|0x0040
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_GZIP_PROXIED_NO_ETAG
+define|#
+directive|define
+name|NGX_HTTP_GZIP_PROXIED_NO_ETAG
+value|0x0080
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_GZIP_PROXIED_AUTH
+define|#
+directive|define
+name|NGX_HTTP_GZIP_PROXIED_AUTH
+value|0x0100
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_GZIP_PROXIED_ANY
+define|#
+directive|define
+name|NGX_HTTP_GZIP_PROXIED_ANY
+value|0x0200
+end_define
+
 begin_typedef
-DECL|struct|__anon297e001e0108
+DECL|struct|__anon28cc3e980108
 typedef|typedef
 struct|struct
 block|{
@@ -108,7 +180,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297e001e0208
+DECL|struct|__anon28cc3e980208
 typedef|typedef
 struct|struct
 block|{
@@ -144,7 +216,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon297e001e0303
+DECL|enum|__anon28cc3e980303
 typedef|typedef
 enum|enum
 block|{
@@ -236,7 +308,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon297e001e0408
+DECL|struct|__anon28cc3e980408
 typedef|typedef
 struct|struct
 block|{
@@ -260,7 +332,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297e001e0508
+DECL|struct|__anon28cc3e980508
 typedef|typedef
 struct|struct
 block|{
@@ -275,7 +347,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297e001e0608
+DECL|struct|__anon28cc3e980608
 typedef|typedef
 struct|struct
 block|{
@@ -338,7 +410,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297e001e0708
+DECL|struct|__anon28cc3e980708
 typedef|typedef
 struct|struct
 block|{
@@ -428,7 +500,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon297e001e0808
+DECL|struct|__anon28cc3e980808
 typedef|typedef
 struct|struct
 block|{
@@ -454,7 +526,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297e001e0908
+DECL|struct|__anon28cc3e980908
 typedef|typedef
 struct|struct
 block|{
@@ -482,7 +554,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297e001e0a08
+DECL|struct|__anon28cc3e980a08
 typedef|typedef
 struct|struct
 block|{
@@ -502,7 +574,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297e001e0b08
+DECL|struct|__anon28cc3e980b08
 typedef|typedef
 struct|struct
 block|{
@@ -606,7 +678,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon297e001e0c08
+DECL|struct|__anon28cc3e980c08
 typedef|typedef
 struct|struct
 block|{
@@ -907,6 +979,41 @@ name|ngx_flag_t
 name|server_tokens
 decl_stmt|;
 comment|/* server_tokens */
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_GZIP
+operator|)
+DECL|member|gzip_vary
+name|ngx_flag_t
+name|gzip_vary
+decl_stmt|;
+comment|/* gzip_vary */
+DECL|member|gzip_http_version
+name|ngx_uint_t
+name|gzip_http_version
+decl_stmt|;
+comment|/* gzip_http_version */
+DECL|member|gzip_proxied
+name|ngx_uint_t
+name|gzip_proxied
+decl_stmt|;
+comment|/* gzip_proxied */
+if|#
+directive|if
+operator|(
+name|NGX_PCRE
+operator|)
+DECL|member|gzip_disable
+name|ngx_array_t
+modifier|*
+name|gzip_disable
+decl_stmt|;
+comment|/* gzip_disable */
+endif|#
+directive|endif
+endif|#
+directive|endif
 DECL|member|error_pages
 name|ngx_array_t
 modifier|*
@@ -1119,6 +1226,30 @@ name|r
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_GZIP
+operator|)
+end_if
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_http_gzip_ok
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_function_decl
 name|ngx_int_t
