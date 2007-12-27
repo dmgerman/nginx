@@ -28,7 +28,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27a062d80108
+DECL|struct|__anon2a5083520108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a062d80208
+DECL|struct|__anon2a5083520208
 typedef|typedef
 struct|struct
 block|{
@@ -334,6 +334,8 @@ literal|"memcached_pass"
 argument_list|)
 block|,
 name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_HTTP_LIF_CONF
 operator||
 name|NGX_CONF_TAKE1
 block|,
