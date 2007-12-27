@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29fb8abe0108
+DECL|struct|__anon2c4ba0c20108
 typedef|typedef
 struct|struct
 block|{
@@ -4153,6 +4153,23 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|c
+operator|->
+name|ssl
+operator|->
+name|buf
+operator|&&
+name|c
+operator|->
+name|ssl
+operator|->
+name|buf
+operator|->
+name|start
+condition|)
+block|{
+if|if
+condition|(
 name|ngx_pfree
 argument_list|(
 name|c
@@ -4181,6 +4198,7 @@ name|start
 operator|=
 name|NULL
 expr_stmt|;
+block|}
 block|}
 block|}
 end_function
