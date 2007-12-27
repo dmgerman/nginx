@@ -38,7 +38,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon29f602a80108
+DECL|struct|__anon2b553bc60108
 typedef|typedef
 struct|struct
 block|{
@@ -76,7 +76,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29f602a80208
+DECL|struct|__anon2b553bc60208
 typedef|typedef
 struct|struct
 block|{
@@ -932,6 +932,19 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
+if|#
+directive|if
+operator|(
+name|NGX_PCRE
+operator|)
+name|conf
+operator|->
+name|regex
+operator|=
+name|NGX_CONF_UNSET_PTR
+expr_stmt|;
+endif|#
+directive|endif
 name|conf
 operator|->
 name|no_referer
@@ -1001,6 +1014,19 @@ operator|=
 name|prev
 operator|->
 name|hash
+expr_stmt|;
+name|ngx_conf_merge_ptr_value
+argument_list|(
+name|conf
+operator|->
+name|regex
+argument_list|,
+name|prev
+operator|->
+name|regex
+argument_list|,
+name|NULL
+argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_value
 argument_list|(
@@ -1392,6 +1418,19 @@ operator|.
 name|hash
 expr_stmt|;
 block|}
+name|ngx_conf_merge_ptr_value
+argument_list|(
+name|conf
+operator|->
+name|regex
+argument_list|,
+name|prev
+operator|->
+name|regex
+argument_list|,
+name|NULL
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|conf
@@ -2217,7 +2256,7 @@ name|rlcf
 operator|->
 name|regex
 operator|==
-name|NULL
+name|NGX_CONF_UNSET_PTR
 condition|)
 block|{
 name|rlcf
