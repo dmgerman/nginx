@@ -7362,12 +7362,6 @@ block|{
 return|return;
 block|}
 block|}
-name|r
-operator|->
-name|done
-operator|=
-literal|1
-expr_stmt|;
 if|if
 condition|(
 name|r
@@ -7402,6 +7396,12 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|r
+operator|->
+name|done
+operator|=
+literal|1
+expr_stmt|;
 if|if
 condition|(
 name|r
