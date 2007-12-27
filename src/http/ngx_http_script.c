@@ -4784,8 +4784,8 @@ name|r
 operator|->
 name|pool
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 if|if

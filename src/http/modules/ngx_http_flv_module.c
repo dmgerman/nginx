@@ -400,8 +400,8 @@ name|clcf
 operator|->
 name|open_file_cache_events
 expr_stmt|;
-name|rc
-operator|=
+if|if
+condition|(
 name|ngx_open_cached_file
 argument_list|(
 name|clcf
@@ -418,12 +418,8 @@ name|r
 operator|->
 name|pool
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|rc
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 switch|switch

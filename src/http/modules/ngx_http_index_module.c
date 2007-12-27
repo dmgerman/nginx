@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a0abc4a0108
+DECL|struct|__anon2792a0ec0108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a0abc4a0208
+DECL|struct|__anon2792a0ec0208
 typedef|typedef
 struct|struct
 block|{
@@ -931,8 +931,8 @@ name|clcf
 operator|->
 name|open_file_cache_events
 expr_stmt|;
-name|rc
-operator|=
+if|if
+condition|(
 name|ngx_open_cached_file
 argument_list|(
 name|clcf
@@ -949,12 +949,8 @@ name|r
 operator|->
 name|pool
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|rc
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 name|ngx_log_debug1
