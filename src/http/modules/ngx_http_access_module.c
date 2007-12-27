@@ -26,7 +26,7 @@ comment|/* AF_INET only */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2c7ebead0108
+DECL|struct|__anon2ad2fe320108
 typedef|typedef
 struct|struct
 block|{
@@ -50,7 +50,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7ebead0208
+DECL|struct|__anon2ad2fe320208
 typedef|typedef
 struct|struct
 block|{
@@ -336,7 +336,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_OK
+name|NGX_DECLINED
 return|;
 block|}
 comment|/* AF_INET only */
@@ -492,7 +492,7 @@ return|;
 block|}
 block|}
 return|return
-name|NGX_OK
+name|NGX_DECLINED
 return|;
 block|}
 end_function
