@@ -52,7 +52,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29b6dc360108
+DECL|struct|__anon287f76930108
 typedef|typedef
 struct|struct
 block|{
@@ -929,6 +929,11 @@ name|prev
 operator|->
 name|hash
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_PCRE
+operator|)
 name|ngx_conf_merge_ptr_value
 argument_list|(
 name|conf
@@ -942,6 +947,8 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|ngx_conf_merge_value
 argument_list|(
 name|conf
@@ -1332,6 +1339,11 @@ operator|.
 name|hash
 expr_stmt|;
 block|}
+if|#
+directive|if
+operator|(
+name|NGX_PCRE
+operator|)
 name|ngx_conf_merge_ptr_value
 argument_list|(
 name|conf
@@ -1345,6 +1357,8 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|conf

@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27731d970108
+DECL|struct|__anon2bb291e90108
 typedef|typedef
 struct|struct
 block|{
@@ -11645,12 +11645,19 @@ name|gzip_http_version
 operator|=
 name|NGX_CONF_UNSET_UINT
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_PCRE
+operator|)
 name|lcf
 operator|->
 name|gzip_disable
 operator|=
 name|NGX_CONF_UNSET_PTR
 expr_stmt|;
+endif|#
+directive|endif
 endif|#
 directive|endif
 return|return
@@ -12910,6 +12917,11 @@ name|NGX_HTTP_GZIP_PROXIED_OFF
 operator|)
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_PCRE
+operator|)
 name|ngx_conf_merge_ptr_value
 argument_list|(
 name|conf
@@ -12923,6 +12935,8 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 endif|#
 directive|endif
 return|return
