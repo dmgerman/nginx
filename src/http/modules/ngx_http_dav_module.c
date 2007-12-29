@@ -62,7 +62,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon2aa111990108
+DECL|struct|__anon274f8f3c0108
 typedef|typedef
 struct|struct
 block|{
@@ -85,7 +85,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa111990208
+DECL|struct|__anon274f8f3c0208
 typedef|typedef
 struct|struct
 block|{
@@ -3441,16 +3441,6 @@ name|ngx_http_dav_copy_ctx_t
 modifier|*
 name|copy
 decl_stmt|;
-if|#
-directive|if
-operator|(
-name|WIN32
-operator|)
-name|ngx_fd_t
-name|fd
-decl_stmt|;
-endif|#
-directive|endif
 name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
@@ -3573,8 +3563,12 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|WIN32
+name|NGX_WIN32
 operator|)
+block|{
+name|ngx_fd_t
+name|fd
+decl_stmt|;
 name|fd
 operator|=
 name|ngx_open_file
@@ -3676,6 +3670,7 @@ argument_list|,
 name|dir
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|failed
 label|:
