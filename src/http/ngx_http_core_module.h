@@ -107,7 +107,7 @@ value|0x0200
 end_define
 
 begin_typedef
-DECL|struct|__anon28cc3e980108
+DECL|struct|__anon2898c2260108
 typedef|typedef
 struct|struct
 block|{
@@ -180,7 +180,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28cc3e980208
+DECL|struct|__anon2898c2260208
 typedef|typedef
 struct|struct
 block|{
@@ -216,7 +216,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28cc3e980303
+DECL|enum|__anon2898c2260303
 typedef|typedef
 enum|enum
 block|{
@@ -308,7 +308,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28cc3e980408
+DECL|struct|__anon2898c2260408
 typedef|typedef
 struct|struct
 block|{
@@ -332,7 +332,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28cc3e980508
+DECL|struct|__anon2898c2260508
 typedef|typedef
 struct|struct
 block|{
@@ -347,7 +347,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28cc3e980608
+DECL|struct|__anon2898c2260608
 typedef|typedef
 struct|struct
 block|{
@@ -410,7 +410,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28cc3e980708
+DECL|struct|__anon2898c2260708
 typedef|typedef
 struct|struct
 block|{
@@ -430,12 +430,6 @@ name|unsigned
 name|named_start
 range|:
 literal|15
-decl_stmt|;
-DECL|member|wildcard
-name|unsigned
-name|wildcard
-range|:
-literal|1
 decl_stmt|;
 comment|/* array of the ngx_http_listen_t, "listen" directive */
 DECL|member|listen
@@ -500,7 +494,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon28cc3e980808
+DECL|struct|__anon2898c2260808
 typedef|typedef
 struct|struct
 block|{
@@ -526,7 +520,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28cc3e980908
+DECL|struct|__anon2898c2260908
 typedef|typedef
 struct|struct
 block|{
@@ -554,7 +548,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28cc3e980a08
+DECL|struct|__anon2898c2260a08
 typedef|typedef
 struct|struct
 block|{
@@ -574,7 +568,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28cc3e980b08
+DECL|struct|__anon2898c2260b08
 typedef|typedef
 struct|struct
 block|{
@@ -678,7 +672,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28cc3e980c08
+DECL|struct|__anon2898c2260c08
 typedef|typedef
 struct|struct
 block|{
@@ -949,6 +943,11 @@ name|ngx_flag_t
 name|reset_timedout_connection
 decl_stmt|;
 comment|/* reset_timedout_connection */
+DECL|member|server_name_in_redirect
+name|ngx_flag_t
+name|server_name_in_redirect
+decl_stmt|;
+comment|/* server_name_in_redirect */
 DECL|member|port_in_redirect
 name|ngx_flag_t
 name|port_in_redirect
@@ -1223,6 +1222,21 @@ parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_http_server_addr
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|s
 parameter_list|)
 function_decl|;
 end_function_decl
