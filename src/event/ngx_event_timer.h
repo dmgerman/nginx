@@ -241,7 +241,7 @@ operator|->
 name|timer_set
 condition|)
 block|{
-comment|/*          * Use the previous timer value if a difference between them is less          * then NGX_TIMER_LAZY_DELAY milliseconds.  It allows to minimize          * the rbtree operations for the fast connections.          */
+comment|/*          * Use a previous timer value if difference between it and a new          * value is less than NGX_TIMER_LAZY_DELAY milliseconds: this allows          * to minimize the rbtree operations for fast connections.          */
 name|diff
 operator|=
 operator|(
