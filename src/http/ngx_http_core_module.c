@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b2647a70108
+DECL|struct|__anon2890ec5f0108
 typedef|typedef
 struct|struct
 block|{
@@ -11699,7 +11699,7 @@ name|lcf
 operator|->
 name|satisfy
 operator|=
-name|NGX_CONF_UNSET
+name|NGX_CONF_UNSET_UINT
 expr_stmt|;
 name|lcf
 operator|->
