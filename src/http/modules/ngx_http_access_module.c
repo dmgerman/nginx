@@ -26,7 +26,7 @@ comment|/* AF_INET only */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2ad2fe320108
+DECL|struct|__anon29c50ddc0108
 typedef|typedef
 struct|struct
 block|{
@@ -50,7 +50,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad2fe320208
+DECL|struct|__anon29c50ddc0208
 typedef|typedef
 struct|struct
 block|{
@@ -460,10 +460,11 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
 name|clcf
 operator|->
-name|satisfy_any
+name|satisfy
+operator|==
+name|NGX_HTTP_SATISFY_ALL
 condition|)
 block|{
 name|ngx_log_error

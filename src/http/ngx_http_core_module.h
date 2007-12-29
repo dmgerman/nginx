@@ -106,8 +106,24 @@ name|NGX_HTTP_GZIP_PROXIED_ANY
 value|0x0200
 end_define
 
+begin_define
+DECL|macro|NGX_HTTP_SATISFY_ALL
+define|#
+directive|define
+name|NGX_HTTP_SATISFY_ALL
+value|0
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_SATISFY_ANY
+define|#
+directive|define
+name|NGX_HTTP_SATISFY_ANY
+value|1
+end_define
+
 begin_typedef
-DECL|struct|__anon2898c2260108
+DECL|struct|__anon296aa5860108
 typedef|typedef
 struct|struct
 block|{
@@ -180,7 +196,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2898c2260208
+DECL|struct|__anon296aa5860208
 typedef|typedef
 struct|struct
 block|{
@@ -216,7 +232,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2898c2260303
+DECL|enum|__anon296aa5860303
 typedef|typedef
 enum|enum
 block|{
@@ -308,7 +324,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2898c2260408
+DECL|struct|__anon296aa5860408
 typedef|typedef
 struct|struct
 block|{
@@ -332,7 +348,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2898c2260508
+DECL|struct|__anon296aa5860508
 typedef|typedef
 struct|struct
 block|{
@@ -347,7 +363,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2898c2260608
+DECL|struct|__anon296aa5860608
 typedef|typedef
 struct|struct
 block|{
@@ -410,7 +426,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2898c2260708
+DECL|struct|__anon296aa5860708
 typedef|typedef
 struct|struct
 block|{
@@ -494,7 +510,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2898c2260808
+DECL|struct|__anon296aa5860808
 typedef|typedef
 struct|struct
 block|{
@@ -520,7 +536,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2898c2260908
+DECL|struct|__anon296aa5860908
 typedef|typedef
 struct|struct
 block|{
@@ -548,7 +564,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2898c2260a08
+DECL|struct|__anon296aa5860a08
 typedef|typedef
 struct|struct
 block|{
@@ -568,7 +584,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2898c2260b08
+DECL|struct|__anon296aa5860b08
 typedef|typedef
 struct|struct
 block|{
@@ -672,7 +688,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2898c2260c08
+DECL|struct|__anon296aa5860c08
 typedef|typedef
 struct|struct
 block|{
@@ -908,11 +924,11 @@ name|time_t
 name|keepalive_header
 decl_stmt|;
 comment|/* keepalive_timeout */
-DECL|member|satisfy_any
-name|ngx_flag_t
-name|satisfy_any
+DECL|member|satisfy
+name|ngx_uint_t
+name|satisfy
 decl_stmt|;
-comment|/* satisfy_any */
+comment|/* satisfy */
 DECL|member|internal
 name|ngx_flag_t
 name|internal
