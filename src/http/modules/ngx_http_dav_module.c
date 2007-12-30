@@ -62,7 +62,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon2c1e1aed0108
+DECL|struct|__anon2b897ded0108
 typedef|typedef
 struct|struct
 block|{
@@ -85,7 +85,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1e1aed0208
+DECL|struct|__anon2b897ded0208
 typedef|typedef
 struct|struct
 block|{
@@ -1471,6 +1471,9 @@ block|{
 name|size_t
 name|root
 decl_stmt|;
+name|ngx_err_t
+name|err
+decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|,
@@ -1496,6 +1499,21 @@ operator|>
 literal|0
 condition|)
 block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"DELETE with body is unsupported"
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_HTTP_UNSUPPORTED_MEDIA_TYPE
 return|;
@@ -1548,6 +1566,22 @@ operator|-
 literal|1
 condition|)
 block|{
+name|err
+operator|=
+name|ngx_errno
+expr_stmt|;
+name|rc
+operator|=
+operator|(
+name|err
+operator|==
+name|NGX_ENOTDIR
+operator|)
+condition|?
+name|NGX_HTTP_CONFLICT
+else|:
+name|NGX_HTTP_NOT_FOUND
+expr_stmt|;
 return|return
 name|ngx_http_dav_error
 argument_list|(
@@ -1557,9 +1591,9 @@ name|connection
 operator|->
 name|log
 argument_list|,
-name|ngx_errno
+name|err
 argument_list|,
-name|NGX_HTTP_NOT_FOUND
+name|rc
 argument_list|,
 name|ngx_file_info_n
 argument_list|,
@@ -1598,9 +1632,27 @@ operator|!=
 literal|'/'
 condition|)
 block|{
-comment|/* TODO: 301 */
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+name|NGX_EISDIR
+argument_list|,
+literal|"DELETE \"%s\" failed"
+argument_list|,
+name|path
+operator|.
+name|data
+argument_list|)
+expr_stmt|;
 return|return
-name|NGX_HTTP_BAD_REQUEST
+name|NGX_HTTP_CONFLICT
 return|;
 block|}
 name|depth
@@ -1619,6 +1671,21 @@ operator|!=
 name|NGX_HTTP_DAV_INFINITY_DEPTH
 condition|)
 block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"\"Depth\" header must be infinity"
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_HTTP_BAD_REQUEST
 return|;
@@ -1657,6 +1724,21 @@ operator|!=
 name|NGX_HTTP_DAV_INFINITY_DEPTH
 condition|)
 block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"\"Depth\" header must be 0 or infinity"
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_HTTP_BAD_REQUEST
 return|;
