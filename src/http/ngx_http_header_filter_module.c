@@ -585,6 +585,10 @@ name|ngx_http_core_loc_conf_t
 modifier|*
 name|clcf
 decl_stmt|;
+name|ngx_http_core_srv_conf_t
+modifier|*
+name|cscf
+decl_stmt|;
 comment|/* AF_INET only */
 name|u_char
 name|addr
@@ -1205,9 +1209,18 @@ operator|->
 name|server_name_in_redirect
 condition|)
 block|{
+name|cscf
+operator|=
+name|ngx_http_get_module_srv_conf
+argument_list|(
+name|r
+argument_list|,
+name|ngx_http_core_module
+argument_list|)
+expr_stmt|;
 name|host
 operator|=
-name|r
+name|cscf
 operator|->
 name|server_name
 expr_stmt|;
