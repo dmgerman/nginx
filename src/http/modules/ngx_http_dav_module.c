@@ -62,7 +62,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon2b40ffd00108
+DECL|struct|__anon279d84a50108
 typedef|typedef
 struct|struct
 block|{
@@ -85,7 +85,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b40ffd00208
+DECL|struct|__anon279d84a50208
 typedef|typedef
 struct|struct
 block|{
@@ -719,8 +719,23 @@ operator|==
 literal|'/'
 condition|)
 block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"can not PUT to a collection"
+argument_list|)
+expr_stmt|;
 return|return
-name|NGX_HTTP_BAD_REQUEST
+name|NGX_HTTP_CONFLICT
 return|;
 block|}
 name|r
