@@ -62,7 +62,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon279d84a50108
+DECL|struct|__anon2c1e1aed0108
 typedef|typedef
 struct|struct
 block|{
@@ -85,7 +85,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon279d84a50208
+DECL|struct|__anon2c1e1aed0208
 typedef|typedef
 struct|struct
 block|{
@@ -1498,24 +1498,6 @@ condition|)
 block|{
 return|return
 name|NGX_HTTP_UNSUPPORTED_MEDIA_TYPE
-return|;
-block|}
-name|rc
-operator|=
-name|ngx_http_discard_request_body
-argument_list|(
-name|r
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|rc
-operator|!=
-name|NGX_OK
-condition|)
-block|{
-return|return
-name|rc
 return|;
 block|}
 name|ngx_http_map_uri_to_path
