@@ -930,12 +930,9 @@ return|return;
 block|}
 name|ctx
 operator|->
-name|client
+name|connection
 operator|=
-operator|&
 name|c
-operator|->
-name|addr_text
 expr_stmt|;
 name|ctx
 operator|->
@@ -11089,9 +11086,12 @@ name|len
 argument_list|,
 literal|", client: %V"
 argument_list|,
+operator|&
 name|ctx
 operator|->
-name|client
+name|connection
+operator|->
+name|addr_text
 argument_list|)
 expr_stmt|;
 name|len
@@ -11127,6 +11127,29 @@ argument_list|,
 name|len
 argument_list|)
 return|;
+block|}
+else|else
+block|{
+name|p
+operator|=
+name|ngx_snprintf
+argument_list|(
+name|p
+argument_list|,
+name|len
+argument_list|,
+literal|", server: %V"
+argument_list|,
+operator|&
+name|ctx
+operator|->
+name|connection
+operator|->
+name|listening
+operator|->
+name|addr_text
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|p

@@ -232,10 +232,10 @@ DECL|struct|ngx_http_log_ctx_s
 struct|struct
 name|ngx_http_log_ctx_s
 block|{
-DECL|member|client
-name|ngx_str_t
+DECL|member|connection
+name|ngx_connection_t
 modifier|*
-name|client
+name|connection
 decl_stmt|;
 DECL|member|request
 name|ngx_http_request_t
