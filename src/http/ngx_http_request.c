@@ -5963,7 +5963,12 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"client sent POST method without \"Content-Length\" header"
+literal|"client sent %V method without \"Content-Length\" header"
+argument_list|,
+operator|&
+name|r
+operator|->
+name|method_name
 argument_list|)
 expr_stmt|;
 name|ngx_http_finalize_request
