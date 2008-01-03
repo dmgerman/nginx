@@ -62,7 +62,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon276f873b0108
+DECL|struct|__anon2a9dc5a10108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276f873b0208
+DECL|struct|__anon2a9dc5a10208
 typedef|typedef
 struct|struct
 block|{
@@ -3319,6 +3319,36 @@ operator|!
 name|slash
 condition|)
 block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"\"%V\" could not be %Ved to collection \"%V\""
+argument_list|,
+operator|&
+name|r
+operator|->
+name|uri
+argument_list|,
+operator|&
+name|r
+operator|->
+name|method_name
+argument_list|,
+operator|&
+name|dest
+operator|->
+name|value
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_HTTP_CONFLICT
 return|;
@@ -3329,6 +3359,27 @@ operator|!
 name|overwrite
 condition|)
 block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+name|NGX_EEXIST
+argument_list|,
+literal|"\"%s\" could not be created"
+argument_list|,
+name|copy
+operator|.
+name|path
+operator|.
+name|data
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_HTTP_PRECONDITION_FAILED
 return|;
