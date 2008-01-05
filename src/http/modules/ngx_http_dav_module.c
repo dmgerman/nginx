@@ -62,7 +62,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon2b2dfba00108
+DECL|struct|__anon28ab34260108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2dfba00208
+DECL|struct|__anon28ab34260208
 typedef|typedef
 struct|struct
 block|{
@@ -1624,7 +1624,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|/*          * we do not need to test (r->uri.data[r->uri.len - 1] == '/')          * because it ngx_file_info("/file/") returned NGX_ENOTDIR above          */
+comment|/*          * we do not need to test (r->uri.data[r->uri.len - 1] == '/')          * because ngx_file_info("/file/") returned NGX_ENOTDIR above          */
 name|depth
 operator|=
 name|ngx_http_dav_depth
