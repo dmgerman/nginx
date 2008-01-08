@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c9466110108
+DECL|struct|__anon288d9dad0108
 typedef|typedef
 struct|struct
 block|{
@@ -282,7 +282,7 @@ operator|)
 condition|)
 block|{
 return|return
-name|NGX_HTTP_NOT_ALLOWED
+name|NGX_DECLINED
 return|;
 block|}
 if|if
