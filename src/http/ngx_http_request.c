@@ -4369,9 +4369,9 @@ block|{
 if|if
 condition|(
 operator|!
-name|r
+name|rev
 operator|->
-name|header_timeout_set
+name|timer_set
 condition|)
 block|{
 name|cscf
@@ -4391,12 +4391,6 @@ name|cscf
 operator|->
 name|client_header_timeout
 argument_list|)
-expr_stmt|;
-name|r
-operator|->
-name|header_timeout_set
-operator|=
-literal|1
 expr_stmt|;
 block|}
 if|if
