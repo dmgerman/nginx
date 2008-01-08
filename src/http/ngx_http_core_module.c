@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2abe27060108
+DECL|struct|__anon28ec600c0108
 typedef|typedef
 struct|struct
 block|{
@@ -774,6 +774,20 @@ name|ngx_null_string
 block|,
 literal|0
 block|}
+block|}
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_http_core_get_method
+specifier|static
+name|ngx_str_t
+name|ngx_http_core_get_method
+init|=
+block|{
+literal|3
+block|,
+literal|"GET "
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -7568,9 +7582,7 @@ name|sr
 operator|->
 name|method_name
 operator|=
-name|r
-operator|->
-name|method_name
+name|ngx_http_core_get_method
 expr_stmt|;
 name|sr
 operator|->
