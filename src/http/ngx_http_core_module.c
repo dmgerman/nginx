@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28ec600c0108
+DECL|struct|__anon292e7bca0108
 typedef|typedef
 struct|struct
 block|{
@@ -787,6 +787,10 @@ init|=
 block|{
 literal|3
 block|,
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"GET "
 block|}
 decl_stmt|;
