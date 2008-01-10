@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c4ba0c20108
+DECL|struct|__anon2b510bed0108
 typedef|typedef
 struct|struct
 block|{
@@ -4327,7 +4327,7 @@ name|sslerr
 operator|=
 literal|0
 expr_stmt|;
-comment|/* SSL_shutdown() never return -1, on error it return 0 */
+comment|/* SSL_shutdown() never returns -1, on error it returns 0 */
 if|if
 condition|(
 name|n
