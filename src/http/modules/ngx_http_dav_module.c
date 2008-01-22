@@ -62,7 +62,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon29fa4f5f0108
+DECL|struct|__anon2b3fd7ed0108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fa4f5f0208
+DECL|struct|__anon2b3fd7ed0208
 typedef|typedef
 struct|struct
 block|{
@@ -5186,7 +5186,7 @@ name|conf
 operator|->
 name|min_delete_depth
 operator|=
-name|NGX_CONF_UNSET
+name|NGX_CONF_UNSET_UINT
 expr_stmt|;
 name|conf
 operator|->
