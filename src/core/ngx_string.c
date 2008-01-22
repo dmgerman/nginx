@@ -441,7 +441,11 @@ literal|0
 expr_stmt|;
 name|slen
 operator|=
-literal|0
+operator|(
+name|size_t
+operator|)
+operator|-
+literal|1
 expr_stmt|;
 name|p
 operator|=
@@ -697,7 +701,11 @@ if|if
 condition|(
 name|slen
 operator|==
-literal|0
+operator|(
+name|size_t
+operator|)
+operator|-
+literal|1
 condition|)
 block|{
 while|while
@@ -4894,7 +4902,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon2c666a720103
+DECL|enum|__anon2b32ad9b0103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
