@@ -755,7 +755,6 @@ literal|10
 expr_stmt|;
 operator|*
 name|text
-operator|++
 operator|=
 operator|(
 name|u_char
