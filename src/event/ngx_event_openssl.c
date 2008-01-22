@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27dadd8d0108
+DECL|struct|__anon2b5590890108
 typedef|typedef
 struct|struct
 block|{
@@ -4333,6 +4333,9 @@ condition|(
 name|n
 operator|!=
 literal|1
+operator|&&
+name|ERR_peek_error
+argument_list|()
 condition|)
 block|{
 name|sslerr
@@ -4372,17 +4375,11 @@ literal|1
 operator|||
 name|sslerr
 operator|==
-name|SSL_ERROR_ZERO_RETURN
+literal|0
 operator|||
-operator|(
 name|sslerr
 operator|==
-literal|0
-operator|&&
-name|c
-operator|->
-name|timedout
-operator|)
+name|SSL_ERROR_ZERO_RETURN
 condition|)
 block|{
 name|SSL_free
