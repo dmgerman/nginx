@@ -552,7 +552,7 @@ name|va_arg
 argument_list|(
 name|args
 argument_list|,
-name|u_int
+name|size_t
 argument_list|)
 expr_stmt|;
 name|fmt
@@ -4902,7 +4902,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon2b32ad9b0103
+DECL|enum|__anon2ac6f4b10103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
