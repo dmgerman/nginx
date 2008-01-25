@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b5590890108
+DECL|struct|__anon28b9f5af0108
 typedef|typedef
 struct|struct
 block|{
@@ -4736,7 +4736,7 @@ modifier|*
 name|log
 parameter_list|)
 block|{
-if|if
+while|while
 condition|(
 name|ERR_peek_error
 argument_list|()
@@ -4754,6 +4754,9 @@ literal|"ignoring stale global SSL error"
 argument_list|)
 expr_stmt|;
 block|}
+name|ERR_clear_error
+argument_list|()
+expr_stmt|;
 block|}
 end_function
 
