@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28b9f5af0108
+DECL|struct|__anon286d25fb0108
 typedef|typedef
 struct|struct
 block|{
@@ -4672,6 +4672,18 @@ operator|||
 name|err
 operator|==
 name|NGX_ECONNREFUSED
+operator|||
+name|err
+operator|==
+name|NGX_ENETDOWN
+operator|||
+name|err
+operator|==
+name|NGX_ENETUNREACH
+operator|||
+name|err
+operator|==
+name|NGX_EHOSTDOWN
 operator|||
 name|err
 operator|==
