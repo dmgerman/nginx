@@ -114,7 +114,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2c87786e0108
+DECL|struct|__anon29fe8bac0108
 typedef|typedef
 struct|struct
 block|{
@@ -170,31 +170,6 @@ comment|/* user defined */
 DECL|typedef|port_notify_t
 block|}
 name|port_notify_t
-typedef|;
-end_typedef
-
-begin_typedef
-DECL|struct|itimerspec
-typedef|typedef
-struct|struct
-name|itimerspec
-block|{
-comment|/* definition per POSIX.4 */
-DECL|member|it_interval
-name|struct
-name|timespec
-name|it_interval
-decl_stmt|;
-comment|/* timer period */
-DECL|member|it_value
-name|struct
-name|timespec
-name|it_value
-decl_stmt|;
-comment|/* timer expiration */
-DECL|typedef|itimerspec_t
-block|}
-name|itimerspec_t
 typedef|;
 end_typedef
 
@@ -373,7 +348,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c87786e0208
+DECL|struct|__anon29fe8bac0208
 typedef|typedef
 struct|struct
 block|{
@@ -532,6 +507,9 @@ specifier|static
 name|timer_t
 name|event_timer
 init|=
+operator|(
+name|timer_t
+operator|)
 operator|-
 literal|1
 decl_stmt|;
@@ -1031,6 +1009,9 @@ if|if
 condition|(
 name|event_timer
 operator|!=
+operator|(
+name|timer_t
+operator|)
 operator|-
 literal|1
 condition|)
@@ -1062,6 +1043,9 @@ expr_stmt|;
 block|}
 name|event_timer
 operator|=
+operator|(
+name|timer_t
+operator|)
 operator|-
 literal|1
 expr_stmt|;

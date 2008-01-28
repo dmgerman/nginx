@@ -38,19 +38,11 @@ value|10
 end_define
 
 begin_define
-DECL|macro|SIGRTMIN
-define|#
-directive|define
-name|SIGRTMIN
-value|33
-end_define
-
-begin_define
 DECL|macro|si_fd
 define|#
 directive|define
 name|si_fd
-value|__spare__[0]
+value|_reason.__spare__.__spare2__[0]
 end_define
 
 begin_define
@@ -110,7 +102,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2951945f0108
+DECL|struct|__anon2b57bb4f0108
 typedef|typedef
 struct|struct
 block|{
