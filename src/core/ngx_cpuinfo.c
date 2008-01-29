@@ -261,12 +261,16 @@ condition|)
 block|{
 switch|switch
 condition|(
+operator|(
 name|cpu
 index|[
 literal|0
 index|]
 operator|&
 literal|0xf00
+operator|)
+operator|>>
+literal|8
 condition|)
 block|{
 comment|/* Pentium */
