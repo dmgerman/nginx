@@ -277,6 +277,11 @@ comment|/* Pentium */
 case|case
 literal|5
 case|:
+name|ngx_cacheline_size
+operator|=
+literal|32
+expr_stmt|;
+break|break;
 comment|/* Pentium Pro, II, III */
 case|case
 literal|6
@@ -285,6 +290,26 @@ name|ngx_cacheline_size
 operator|=
 literal|32
 expr_stmt|;
+if|if
+condition|(
+operator|(
+name|cpu
+index|[
+literal|0
+index|]
+operator|&
+literal|0xf0
+operator|)
+operator|>=
+literal|0xd0
+condition|)
+block|{
+comment|/* Intel Core */
+name|ngx_cacheline_size
+operator|=
+literal|64
+expr_stmt|;
+block|}
 break|break;
 comment|/*          * Pentium 4, although its cache line size is 64 bytes,          * it prefetches up to two cache lines during memory read          */
 case|case
