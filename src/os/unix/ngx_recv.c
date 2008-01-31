@@ -161,6 +161,12 @@ return|;
 block|}
 else|else
 block|{
+name|rev
+operator|->
+name|ready
+operator|=
+literal|0
+expr_stmt|;
 return|return
 name|NGX_AGAIN
 return|;
