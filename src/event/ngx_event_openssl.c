@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29d765b80108
+DECL|struct|__anon289faa110108
 typedef|typedef
 struct|struct
 block|{
@@ -4763,6 +4763,11 @@ operator|||
 name|n
 operator|==
 name|SSL_R_WRONG_VERSION_NUMBER
+operator|||
+name|n
+operator|==
+literal|1000
+comment|/* SSL_R_SSLV3_ALERT_CLOSE_NOTIFY */
 operator|||
 name|n
 operator|==
