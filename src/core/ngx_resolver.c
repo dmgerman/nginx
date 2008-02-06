@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2b0da1340108
+DECL|struct|__anon2a10c78a0108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0da1340208
+DECL|struct|__anon2a10c78a0208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0da1340308
+DECL|struct|__anon2a10c78a0308
 typedef|typedef
 struct|struct
 block|{
@@ -3424,8 +3424,8 @@ operator|->
 name|queue
 argument_list|)
 expr_stmt|;
-continue|continue;
 block|}
+continue|continue;
 block|}
 name|ngx_rbtree_delete
 argument_list|(
