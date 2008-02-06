@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2bd0c95a0108
+DECL|struct|__anon2b0da1340108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd0c95a0208
+DECL|struct|__anon2b0da1340208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd0c95a0308
+DECL|struct|__anon2b0da1340308
 typedef|typedef
 struct|struct
 block|{
@@ -1073,13 +1073,6 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
-name|ngx_resolver_free_locked
-argument_list|(
-name|r
-argument_list|,
-name|ctx
-argument_list|)
-expr_stmt|;
 comment|/* unlock alloc mutex */
 return|return
 name|NGX_ERROR
