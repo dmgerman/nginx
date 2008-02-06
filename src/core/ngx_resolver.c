@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2a10c78a0108
+DECL|struct|__anon28d9d4b40108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a10c78a0208
+DECL|struct|__anon28d9d4b40208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a10c78a0308
+DECL|struct|__anon28d9d4b40308
 typedef|typedef
 struct|struct
 block|{
@@ -1071,6 +1071,12 @@ name|ctx
 operator|->
 name|event
 argument_list|)
+expr_stmt|;
+name|ctx
+operator|->
+name|event
+operator|=
+name|NULL
 expr_stmt|;
 block|}
 comment|/* unlock alloc mutex */
