@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c4874a70108
+DECL|struct|__anon2ab2b1d40108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c4874a70203
+DECL|enum|__anon2ab2b1d40203
 typedef|typedef
 enum|enum
 block|{
@@ -114,7 +114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4874a70308
+DECL|struct|__anon2ab2b1d40308
 typedef|typedef
 struct|struct
 block|{
@@ -135,7 +135,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4874a70408
+DECL|struct|__anon2ab2b1d40408
 typedef|typedef
 struct|struct
 block|{
@@ -254,7 +254,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2c4874a70508
+DECL|struct|__anon2ab2b1d40508
 typedef|typedef
 struct|struct
 block|{
@@ -297,7 +297,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4874a70608
+DECL|struct|__anon2ab2b1d40608
 typedef|typedef
 struct|struct
 block|{
@@ -327,7 +327,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4874a70708
+DECL|struct|__anon2ab2b1d40708
 typedef|typedef
 struct|struct
 block|{
@@ -354,7 +354,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4874a70808
+DECL|struct|__anon2ab2b1d40808
 typedef|typedef
 struct|struct
 block|{
@@ -640,85 +640,6 @@ name|conf
 parameter_list|)
 function_decl|;
 end_function_decl
-
-begin_decl_stmt
-DECL|variable|ngx_http_fastcgi_request_start
-specifier|static
-name|ngx_http_fastcgi_request_start_t
-name|ngx_http_fastcgi_request_start
-init|=
-block|{
-block|{
-literal|1
-block|,
-comment|/* version */
-name|NGX_HTTP_FASTCGI_BEGIN_REQUEST
-block|,
-comment|/* type */
-literal|0
-block|,
-comment|/* request_id_hi */
-literal|1
-block|,
-comment|/* request_id_lo */
-literal|0
-block|,
-comment|/* content_length_hi */
-sizeof|sizeof
-argument_list|(
-name|ngx_http_fastcgi_begin_request_t
-argument_list|)
-block|,
-comment|/* content_length_lo */
-literal|0
-block|,
-comment|/* padding_length */
-literal|0
-block|}
-block|,
-comment|/* reserved */
-block|{
-literal|0
-block|,
-comment|/* role_hi */
-name|NGX_HTTP_FASTCGI_RESPONDER
-block|,
-comment|/* role_lo */
-literal|0
-block|,
-comment|/* NGX_HTTP_FASTCGI_KEEP_CONN */
-comment|/* flags */
-block|{
-literal|0
-block|,
-literal|0
-block|,
-literal|0
-block|,
-literal|0
-block|,
-literal|0
-block|}
-block|}
-block|,
-comment|/* reserved[5] */
-block|{
-literal|1
-block|,
-comment|/* version */
-name|NGX_HTTP_FASTCGI_PARAMS
-block|,
-comment|/* type */
-literal|0
-block|,
-comment|/* request_id_hi */
-literal|1
-block|}
-block|,
-comment|/* request_id_lo */
-block|}
-decl_stmt|;
-end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_http_fastcgi_script_name
@@ -1726,6 +1647,85 @@ name|NULL
 block|,
 comment|/* exit master */
 name|NGX_MODULE_V1_PADDING
+block|}
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_http_fastcgi_request_start
+specifier|static
+name|ngx_http_fastcgi_request_start_t
+name|ngx_http_fastcgi_request_start
+init|=
+block|{
+block|{
+literal|1
+block|,
+comment|/* version */
+name|NGX_HTTP_FASTCGI_BEGIN_REQUEST
+block|,
+comment|/* type */
+literal|0
+block|,
+comment|/* request_id_hi */
+literal|1
+block|,
+comment|/* request_id_lo */
+literal|0
+block|,
+comment|/* content_length_hi */
+sizeof|sizeof
+argument_list|(
+name|ngx_http_fastcgi_begin_request_t
+argument_list|)
+block|,
+comment|/* content_length_lo */
+literal|0
+block|,
+comment|/* padding_length */
+literal|0
+block|}
+block|,
+comment|/* reserved */
+block|{
+literal|0
+block|,
+comment|/* role_hi */
+name|NGX_HTTP_FASTCGI_RESPONDER
+block|,
+comment|/* role_lo */
+literal|0
+block|,
+comment|/* NGX_HTTP_FASTCGI_KEEP_CONN */
+comment|/* flags */
+block|{
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|,
+literal|0
+block|}
+block|}
+block|,
+comment|/* reserved[5] */
+block|{
+literal|1
+block|,
+comment|/* version */
+name|NGX_HTTP_FASTCGI_PARAMS
+block|,
+comment|/* type */
+literal|0
+block|,
+comment|/* request_id_hi */
+literal|1
+block|}
+block|,
+comment|/* request_id_lo */
 block|}
 decl_stmt|;
 end_decl_stmt
