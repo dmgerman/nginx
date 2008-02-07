@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon292e7bca0108
+DECL|struct|__anon2c064a2f0108
 typedef|typedef
 struct|struct
 block|{
@@ -12946,7 +12946,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_OK
+name|NGX_CONF_ERROR
 return|;
 block|}
 block|}
