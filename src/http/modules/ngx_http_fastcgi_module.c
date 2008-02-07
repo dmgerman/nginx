@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ab2b1d40108
+DECL|struct|__anon2b1525630108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2ab2b1d40203
+DECL|enum|__anon2b1525630203
 typedef|typedef
 enum|enum
 block|{
@@ -114,7 +114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab2b1d40308
+DECL|struct|__anon2b1525630308
 typedef|typedef
 struct|struct
 block|{
@@ -135,7 +135,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab2b1d40408
+DECL|struct|__anon2b1525630408
 typedef|typedef
 struct|struct
 block|{
@@ -254,7 +254,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2ab2b1d40508
+DECL|struct|__anon2b1525630508
 typedef|typedef
 struct|struct
 block|{
@@ -297,7 +297,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab2b1d40608
+DECL|struct|__anon2b1525630608
 typedef|typedef
 struct|struct
 block|{
@@ -327,7 +327,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab2b1d40708
+DECL|struct|__anon2b1525630708
 typedef|typedef
 struct|struct
 block|{
@@ -354,7 +354,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab2b1d40808
+DECL|struct|__anon2b1525630808
 typedef|typedef
 struct|struct
 block|{
@@ -640,19 +640,6 @@ name|conf
 parameter_list|)
 function_decl|;
 end_function_decl
-
-begin_decl_stmt
-DECL|variable|ngx_http_fastcgi_script_name
-specifier|static
-name|ngx_str_t
-name|ngx_http_fastcgi_script_name
-init|=
-name|ngx_string
-argument_list|(
-literal|"fastcgi_script_name"
-argument_list|)
-decl_stmt|;
-end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_http_fastcgi_lowat_post
@@ -1727,6 +1714,19 @@ block|}
 block|,
 comment|/* request_id_lo */
 block|}
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_http_fastcgi_script_name
+specifier|static
+name|ngx_str_t
+name|ngx_http_fastcgi_script_name
+init|=
+name|ngx_string
+argument_list|(
+literal|"fastcgi_script_name"
+argument_list|)
 decl_stmt|;
 end_decl_stmt
 
