@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b1525630108
+DECL|struct|__anon29b0a4a90108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b1525630203
+DECL|enum|__anon29b0a4a90203
 typedef|typedef
 enum|enum
 block|{
@@ -114,7 +114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1525630308
+DECL|struct|__anon29b0a4a90308
 typedef|typedef
 struct|struct
 block|{
@@ -135,7 +135,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1525630408
+DECL|struct|__anon29b0a4a90408
 typedef|typedef
 struct|struct
 block|{
@@ -254,7 +254,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2b1525630508
+DECL|struct|__anon29b0a4a90508
 typedef|typedef
 struct|struct
 block|{
@@ -297,7 +297,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1525630608
+DECL|struct|__anon29b0a4a90608
 typedef|typedef
 struct|struct
 block|{
@@ -327,7 +327,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1525630708
+DECL|struct|__anon29b0a4a90708
 typedef|typedef
 struct|struct
 block|{
@@ -354,7 +354,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1525630808
+DECL|struct|__anon29b0a4a90808
 typedef|typedef
 struct|struct
 block|{
@@ -1760,7 +1760,12 @@ argument_list|)
 block|,
 name|ngx_string
 argument_list|(
-literal|"X-Accel-Buffer"
+literal|"X-Accel-Buffering"
+argument_list|)
+block|,
+name|ngx_string
+argument_list|(
+literal|"X-Accel-Charset"
 argument_list|)
 block|,
 name|ngx_null_string
