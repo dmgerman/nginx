@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c3d572e0108
+DECL|struct|__anon2b5666700108
 typedef|typedef
 struct|struct
 block|{
@@ -2505,8 +2505,7 @@ name|len
 operator|=
 sizeof|sizeof
 argument_list|(
-literal|"XCLIENT PROTO=SMTP HELO= ADDR= LOGIN= "
-literal|"NAME=[UNAVAILABLE]"
+literal|"XCLIENT PROTO=SMTP HELO= ADDR= LOGIN= NAME="
 name|CRLF
 argument_list|)
 operator|-
@@ -2533,6 +2532,12 @@ operator|+
 name|s
 operator|->
 name|login
+operator|.
+name|len
+operator|+
+name|s
+operator|->
+name|host
 operator|.
 name|len
 expr_stmt|;
@@ -2587,7 +2592,7 @@ operator|.
 name|data
 argument_list|,
 literal|"XCLIENT PROTO=%sSMTP HELO=%V ADDR=%V LOGIN=%V "
-literal|"NAME=[UNAVAILABLE]"
+literal|"NAME=%V"
 name|CRLF
 argument_list|,
 operator|(
@@ -2616,6 +2621,11 @@ operator|&
 name|s
 operator|->
 name|login
+argument_list|,
+operator|&
+name|s
+operator|->
+name|host
 argument_list|)
 operator|-
 name|line
@@ -2635,8 +2645,7 @@ name|line
 operator|.
 name|data
 argument_list|,
-literal|"XCLIENT PROTO=SMTP ADDR=%V LOGIN=%V "
-literal|"NAME=[UNAVAILABLE]"
+literal|"XCLIENT PROTO=SMTP ADDR=%V LOGIN=%V NAME=%V"
 name|CRLF
 argument_list|,
 operator|&
@@ -2650,6 +2659,11 @@ operator|&
 name|s
 operator|->
 name|login
+argument_list|,
+operator|&
+name|s
+operator|->
+name|host
 argument_list|)
 operator|-
 name|line
