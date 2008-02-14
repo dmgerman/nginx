@@ -62,7 +62,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon28a0736c0108
+DECL|struct|__anon2b2e55bb0108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a0736c0208
+DECL|struct|__anon2b2e55bb0208
 typedef|typedef
 struct|struct
 block|{
@@ -122,7 +122,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a0736c0308
+DECL|struct|__anon2b2e55bb0308
 typedef|typedef
 struct|struct
 block|{
@@ -146,7 +146,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28a0736c0403
+DECL|enum|__anon2b2e55bb0403
 typedef|typedef
 enum|enum
 block|{
@@ -8751,6 +8751,10 @@ name|count
 operator|++
 condition|)
 block|{
+name|out
+operator|=
+name|NULL
+expr_stmt|;
 name|ll
 operator|=
 operator|&
