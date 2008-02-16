@@ -62,7 +62,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd311c60108
+DECL|struct|__anon2926234d0108
 typedef|typedef
 struct|struct
 block|{
@@ -82,10 +82,6 @@ DECL|member|next
 name|SV
 modifier|*
 name|next
-decl_stmt|;
-DECL|member|sleep
-name|int
-name|sleep
 decl_stmt|;
 DECL|member|done
 name|ngx_uint_t
@@ -117,7 +113,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd311c60208
+DECL|struct|__anon2926234d0208
 typedef|typedef
 struct|struct
 block|{
@@ -193,6 +189,17 @@ end_function_decl
 begin_function_decl
 name|void
 name|ngx_http_perl_handle_request
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_http_perl_sleep_handler
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
