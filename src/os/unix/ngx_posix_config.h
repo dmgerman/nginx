@@ -516,7 +516,7 @@ comment|/* ALIGN() */
 end_comment
 
 begin_comment
-comment|/* FreeBSD 3.x has no CMSG_SPACE() at all and has the broken CMSG_DATA() */
+comment|/*   * FreeBSD 3.x has no CMSG_SPACE() and CMSG_LEN() and has the broken CMSG_DATA()  */
 end_comment
 
 begin_undef
@@ -534,6 +534,23 @@ parameter_list|(
 name|l
 parameter_list|)
 value|(ALIGN(sizeof(struct cmsghdr)) + ALIGN(l))
+end_define
+
+begin_undef
+undef|#
+directive|undef
+name|CMSG_LEN
+end_undef
+
+begin_define
+DECL|macro|CMSG_LEN (l)
+define|#
+directive|define
+name|CMSG_LEN
+parameter_list|(
+name|l
+parameter_list|)
+value|(ALIGN(sizeof(struct cmsghdr)) + (l))
 end_define
 
 begin_undef

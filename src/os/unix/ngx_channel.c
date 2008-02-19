@@ -63,7 +63,7 @@ directive|if
 operator|(
 name|NGX_HAVE_MSGHDR_MSG_CONTROL
 operator|)
-DECL|union|__anon28927cf5010a
+DECL|union|__anon2c2c4af8010a
 union|union
 block|{
 DECL|member|cm
@@ -137,9 +137,12 @@ name|cm
 operator|.
 name|cmsg_len
 operator|=
+name|CMSG_LEN
+argument_list|(
 sizeof|sizeof
 argument_list|(
-name|cmsg
+name|int
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|cmsg
@@ -377,7 +380,7 @@ directive|if
 operator|(
 name|NGX_HAVE_MSGHDR_MSG_CONTROL
 operator|)
-DECL|union|__anon28927cf5020a
+DECL|union|__anon2c2c4af8020a
 union|union
 block|{
 DECL|member|cm
@@ -628,9 +631,12 @@ operator|<
 operator|(
 name|socklen_t
 operator|)
+name|CMSG_LEN
+argument_list|(
 sizeof|sizeof
 argument_list|(
-name|cmsg
+name|int
+argument_list|)
 argument_list|)
 condition|)
 block|{
