@@ -2036,6 +2036,16 @@ name|host
 operator|->
 name|len
 operator|&&
+name|uscf
+operator|->
+name|port
+operator|==
+name|u
+operator|->
+name|resolved
+operator|->
+name|port
+operator|&&
 name|ngx_memcmp
 argument_list|(
 name|uscf
