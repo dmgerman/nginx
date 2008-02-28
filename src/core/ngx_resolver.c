@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon28d9d4b40108
+DECL|struct|__anon290ddace0108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28d9d4b40208
+DECL|struct|__anon290ddace0208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28d9d4b40308
+DECL|struct|__anon290ddace0308
 typedef|typedef
 struct|struct
 block|{
@@ -491,6 +491,22 @@ specifier|static
 name|void
 modifier|*
 name|ngx_resolver_alloc
+parameter_list|(
+name|ngx_resolver_t
+modifier|*
+name|r
+parameter_list|,
+name|size_t
+name|size
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
+name|void
+modifier|*
+name|ngx_resolver_calloc
 parameter_list|(
 name|ngx_resolver_t
 modifier|*
@@ -7842,6 +7858,7 @@ block|}
 end_function
 
 begin_function
+specifier|static
 name|void
 modifier|*
 DECL|function|ngx_resolver_calloc (ngx_resolver_t * r,size_t size)
