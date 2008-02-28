@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ad7f54d0108
+DECL|struct|__anon28b449350108
 typedef|typedef
 struct|struct
 block|{
@@ -12927,13 +12927,11 @@ name|resolver
 operator|=
 name|ngx_resolver_create
 argument_list|(
-name|NULL
-argument_list|,
 name|cf
 operator|->
-name|cycle
-operator|->
-name|new_log
+name|pool
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 if|if
@@ -16987,6 +16985,10 @@ name|resolver
 operator|=
 name|ngx_resolver_create
 argument_list|(
+name|cf
+operator|->
+name|pool
+argument_list|,
 operator|&
 name|u
 operator|.
@@ -16994,12 +16996,6 @@ name|addrs
 index|[
 literal|0
 index|]
-argument_list|,
-name|cf
-operator|->
-name|cycle
-operator|->
-name|new_log
 argument_list|)
 expr_stmt|;
 if|if

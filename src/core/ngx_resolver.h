@@ -125,7 +125,7 @@ value|(void *) -1
 end_define
 
 begin_typedef
-DECL|struct|__anon2a2e76140108
+DECL|struct|__anon2b03cb570108
 typedef|typedef
 struct|struct
 block|{
@@ -185,7 +185,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2e76140208
+DECL|struct|__anon2b03cb570208
 typedef|typedef
 struct|struct
 block|{
@@ -216,7 +216,7 @@ name|u_char
 modifier|*
 name|query
 decl_stmt|;
-DECL|union|__anon2a2e7614030a
+DECL|union|__anon2b03cb57030a
 union|union
 block|{
 DECL|member|addr
@@ -265,7 +265,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2e76140408
+DECL|struct|__anon2b03cb570408
 typedef|typedef
 struct|struct
 block|{
@@ -429,13 +429,13 @@ name|ngx_resolver_t
 modifier|*
 name|ngx_resolver_create
 parameter_list|(
+name|ngx_pool_t
+modifier|*
+name|pool
+parameter_list|,
 name|ngx_peer_addr_t
 modifier|*
 name|addr
-parameter_list|,
-name|ngx_log_t
-modifier|*
-name|log
 parameter_list|)
 function_decl|;
 end_function_decl

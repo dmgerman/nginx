@@ -1887,6 +1887,10 @@ name|resolver
 operator|=
 name|ngx_resolver_create
 argument_list|(
+name|cf
+operator|->
+name|pool
+argument_list|,
 operator|&
 name|u
 operator|.
@@ -1894,12 +1898,6 @@ name|addrs
 index|[
 literal|0
 index|]
-argument_list|,
-name|cf
-operator|->
-name|cycle
-operator|->
-name|new_log
 argument_list|)
 expr_stmt|;
 if|if
