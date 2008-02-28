@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon290ddace0108
+DECL|struct|__anon29ad96440108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290ddace0208
+DECL|struct|__anon29ad96440208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290ddace0308
+DECL|struct|__anon29ad96440308
 typedef|typedef
 struct|struct
 block|{
@@ -1071,7 +1071,7 @@ return|return
 name|NGX_OK
 return|;
 block|}
-comment|/* lock alloc mutex */
+comment|/* NGX_ERROR */
 if|if
 condition|(
 name|ctx
@@ -1079,7 +1079,7 @@ operator|->
 name|event
 condition|)
 block|{
-name|ngx_resolver_free_locked
+name|ngx_resolver_free
 argument_list|(
 name|r
 argument_list|,
@@ -1088,14 +1088,14 @@ operator|->
 name|event
 argument_list|)
 expr_stmt|;
-name|ctx
-operator|->
-name|event
-operator|=
-name|NULL
-expr_stmt|;
 block|}
-comment|/* unlock alloc mutex */
+name|ngx_resolver_free
+argument_list|(
+name|r
+argument_list|,
+name|ctx
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
@@ -1324,13 +1324,32 @@ name|name_expire_queue
 argument_list|)
 expr_stmt|;
 comment|/* unlock name mutex */
-name|ngx_resolver_free
+comment|/* lock alloc mutex */
+if|if
+condition|(
+name|ctx
+operator|->
+name|event
+condition|)
+block|{
+name|ngx_resolver_free_locked
+argument_list|(
+name|r
+argument_list|,
+name|ctx
+operator|->
+name|event
+argument_list|)
+expr_stmt|;
+block|}
+name|ngx_resolver_free_locked
 argument_list|(
 name|r
 argument_list|,
 name|ctx
 argument_list|)
 expr_stmt|;
+comment|/* unlock alloc mutex */
 block|}
 end_function
 
@@ -2585,7 +2604,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/* unlock addr mutex */
-comment|/* lock alloc mutex */
 if|if
 condition|(
 name|ctx
@@ -2593,7 +2611,7 @@ operator|->
 name|event
 condition|)
 block|{
-name|ngx_resolver_free_locked
+name|ngx_resolver_free
 argument_list|(
 name|r
 argument_list|,
@@ -2603,14 +2621,13 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
-name|ngx_resolver_free_locked
+name|ngx_resolver_free
 argument_list|(
 name|r
 argument_list|,
 name|ctx
 argument_list|)
 expr_stmt|;
-comment|/* unlock alloc mutex */
 return|return
 name|NGX_ERROR
 return|;
@@ -2842,13 +2859,32 @@ name|addr_expire_queue
 argument_list|)
 expr_stmt|;
 comment|/* unlock addr mutex */
-name|ngx_resolver_free
+comment|/* lock alloc mutex */
+if|if
+condition|(
+name|ctx
+operator|->
+name|event
+condition|)
+block|{
+name|ngx_resolver_free_locked
+argument_list|(
+name|r
+argument_list|,
+name|ctx
+operator|->
+name|event
+argument_list|)
+expr_stmt|;
+block|}
+name|ngx_resolver_free_locked
 argument_list|(
 name|r
 argument_list|,
 name|ctx
 argument_list|)
 expr_stmt|;
+comment|/* unlock alloc mutex */
 block|}
 end_function
 
