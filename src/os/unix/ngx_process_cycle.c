@@ -4470,7 +4470,7 @@ block|}
 block|}
 if|if
 condition|(
-name|ngx_quit
+name|ngx_exiting
 condition|)
 block|{
 name|c
@@ -4533,6 +4533,16 @@ operator|.
 name|read
 operator|->
 name|channel
+operator|&&
+operator|!
+name|c
+index|[
+name|i
+index|]
+operator|.
+name|read
+operator|->
+name|resolver
 condition|)
 block|{
 name|ngx_log_error
@@ -4545,8 +4555,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"open socket #%d left in %ui connection, "
-literal|"aborting"
+literal|"open socket #%d left in %ui connection %s"
 argument_list|,
 name|c
 index|[
@@ -4556,6 +4565,12 @@ operator|.
 name|fd
 argument_list|,
 name|i
+argument_list|,
+name|ngx_debug_quit
+condition|?
+literal|", aborting"
+else|:
+literal|""
 argument_list|)
 expr_stmt|;
 name|ngx_debug_point
