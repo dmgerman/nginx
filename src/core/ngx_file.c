@@ -2618,7 +2618,7 @@ if|if
 condition|(
 name|ext
 operator|->
-name|delete
+name|delete_file
 condition|)
 block|{
 if|if

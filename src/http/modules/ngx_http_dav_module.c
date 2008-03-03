@@ -62,7 +62,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon2b3fd7ed0108
+DECL|struct|__anon2770f9d80108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3fd7ed0208
+DECL|struct|__anon2770f9d80208
 typedef|typedef
 struct|struct
 block|{
@@ -1101,7 +1101,7 @@ name|create_full_put_path
 expr_stmt|;
 name|ext
 operator|.
-name|delete
+name|delete_file
 operator|=
 literal|1
 expr_stmt|;

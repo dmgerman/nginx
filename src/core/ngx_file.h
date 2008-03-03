@@ -128,7 +128,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b97b87d0108
+DECL|struct|__anon2bd3014c0108
 typedef|typedef
 struct|struct
 block|{
@@ -184,7 +184,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b97b87d0208
+DECL|struct|__anon2bd3014c0208
 typedef|typedef
 struct|struct
 block|{
@@ -206,9 +206,9 @@ name|create_path
 range|:
 literal|1
 decl_stmt|;
-DECL|member|delete
+DECL|member|delete_file
 name|unsigned
-name|delete
+name|delete_file
 range|:
 literal|1
 decl_stmt|;
