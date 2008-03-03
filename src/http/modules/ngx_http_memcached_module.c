@@ -28,7 +28,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a5083520108
+DECL|struct|__anon2c26f3cf0108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a5083520208
+DECL|struct|__anon2c26f3cf0208
 typedef|typedef
 struct|struct
 block|{
@@ -2054,6 +2054,18 @@ operator|=
 name|b
 operator|->
 name|last
+expr_stmt|;
+name|cl
+operator|->
+name|buf
+operator|->
+name|tag
+operator|=
+name|u
+operator|->
+name|output
+operator|.
+name|tag
 expr_stmt|;
 name|ngx_log_debug4
 argument_list|(
