@@ -2346,7 +2346,6 @@ literal|0
 argument_list|,
 literal|"the duplicate default server in %s:%ui"
 argument_list|,
-operator|&
 name|lscf
 index|[
 name|l
