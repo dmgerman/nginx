@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28b449350108
+DECL|struct|__anon290d79120108
 typedef|typedef
 struct|struct
 block|{
@@ -12928,8 +12928,6 @@ operator|=
 name|ngx_resolver_create
 argument_list|(
 name|cf
-operator|->
-name|pool
 argument_list|,
 name|NULL
 argument_list|)
@@ -16986,8 +16984,6 @@ operator|=
 name|ngx_resolver_create
 argument_list|(
 name|cf
-operator|->
-name|pool
 argument_list|,
 operator|&
 name|u

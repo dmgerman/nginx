@@ -1888,8 +1888,6 @@ operator|=
 name|ngx_resolver_create
 argument_list|(
 name|cf
-operator|->
-name|pool
 argument_list|,
 operator|&
 name|u

@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon279f85ad0108
+DECL|struct|__anon2783c7b30108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon279f85ad0208
+DECL|struct|__anon2783c7b30208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon279f85ad0308
+DECL|struct|__anon2783c7b30308
 typedef|typedef
 struct|struct
 block|{
@@ -605,12 +605,12 @@ end_comment
 begin_function
 name|ngx_resolver_t
 modifier|*
-DECL|function|ngx_resolver_create (ngx_pool_t * pool,ngx_peer_addr_t * addr)
+DECL|function|ngx_resolver_create (ngx_conf_t * cf,ngx_peer_addr_t * addr)
 name|ngx_resolver_create
 parameter_list|(
-name|ngx_pool_t
+name|ngx_conf_t
 modifier|*
-name|pool
+name|cf
 parameter_list|,
 name|ngx_peer_addr_t
 modifier|*
@@ -633,6 +633,8 @@ name|cln
 operator|=
 name|ngx_pool_cleanup_add
 argument_list|(
+name|cf
+operator|->
 name|pool
 argument_list|,
 literal|0
@@ -664,7 +666,7 @@ argument_list|(
 name|ngx_resolver_t
 argument_list|)
 argument_list|,
-name|pool
+name|cf
 operator|->
 name|log
 argument_list|)
@@ -697,7 +699,7 @@ argument_list|(
 name|ngx_event_t
 argument_list|)
 argument_list|,
-name|pool
+name|cf
 operator|->
 name|log
 argument_list|)
@@ -799,9 +801,11 @@ name|event
 operator|->
 name|log
 operator|=
-name|pool
+name|cf
 operator|->
-name|log
+name|cycle
+operator|->
+name|new_log
 expr_stmt|;
 name|r
 operator|->
@@ -832,9 +836,11 @@ name|r
 operator|->
 name|log
 operator|=
-name|pool
+name|cf
 operator|->
-name|log
+name|cycle
+operator|->
+name|new_log
 expr_stmt|;
 name|r
 operator|->
@@ -856,7 +862,7 @@ argument_list|(
 name|ngx_udp_connection_t
 argument_list|)
 argument_list|,
-name|pool
+name|cf
 operator|->
 name|log
 argument_list|)
@@ -906,7 +912,7 @@ name|uc
 operator|->
 name|log
 operator|=
-name|pool
+name|cf
 operator|->
 name|log
 expr_stmt|;
