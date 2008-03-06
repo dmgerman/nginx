@@ -1791,6 +1791,19 @@ name|elts
 expr_stmt|;
 if|if
 condition|(
+name|cscf
+operator|->
+name|resolver
+operator|!=
+name|NGX_CONF_UNSET_PTR
+condition|)
+block|{
+return|return
+literal|"is duplicate"
+return|;
+block|}
+if|if
+condition|(
 name|ngx_strcmp
 argument_list|(
 name|value
