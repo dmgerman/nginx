@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a90faee0108
+DECL|struct|__anon2a98cc7a0108
 typedef|typedef
 struct|struct
 block|{
@@ -12910,24 +12910,17 @@ operator|==
 name|NULL
 condition|)
 block|{
-name|conf
-operator|->
-name|resolver
-operator|=
-name|prev
-operator|->
-name|resolver
-expr_stmt|;
 if|if
 condition|(
-name|conf
+name|prev
 operator|->
 name|resolver
 operator|==
 name|NULL
 condition|)
 block|{
-name|conf
+comment|/*              * create dummy resolver in http {} context              * to inherit it in all servers              */
+name|prev
 operator|->
 name|resolver
 operator|=
@@ -12940,7 +12933,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|conf
+name|prev
 operator|->
 name|resolver
 operator|==
@@ -12952,6 +12945,14 @@ name|NGX_CONF_ERROR
 return|;
 block|}
 block|}
+name|conf
+operator|->
+name|resolver
+operator|=
+name|prev
+operator|->
+name|resolver
+expr_stmt|;
 block|}
 name|ngx_conf_merge_path_value
 argument_list|(
@@ -16910,6 +16911,17 @@ name|ngx_str_t
 modifier|*
 name|value
 decl_stmt|;
+if|if
+condition|(
+name|clcf
+operator|->
+name|resolver
+condition|)
+block|{
+return|return
+literal|"is duplicate"
+return|;
+block|}
 name|value
 operator|=
 name|cf
