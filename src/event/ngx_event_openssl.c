@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon289faa110108
+DECL|struct|__anon27c2a79c0108
 typedef|typedef
 struct|struct
 block|{
@@ -6242,6 +6242,37 @@ block|}
 end_function
 
 begin_function
+name|void
+DECL|function|ngx_ssl_remove_cached_session (SSL_CTX * ssl,ngx_ssl_session_t * sess)
+name|ngx_ssl_remove_cached_session
+parameter_list|(
+name|SSL_CTX
+modifier|*
+name|ssl
+parameter_list|,
+name|ngx_ssl_session_t
+modifier|*
+name|sess
+parameter_list|)
+block|{
+name|SSL_CTX_remove_session
+argument_list|(
+name|ssl
+argument_list|,
+name|sess
+argument_list|)
+expr_stmt|;
+name|ngx_ssl_remove_session
+argument_list|(
+name|ssl
+argument_list|,
+name|sess
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+
+begin_function
 specifier|static
 name|void
 DECL|function|ngx_ssl_remove_session (SSL_CTX * ssl,ngx_ssl_session_t * sess)
@@ -6301,6 +6332,15 @@ argument_list|,
 name|ngx_ssl_session_cache_index
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|shm_zone
+operator|==
+name|NULL
+condition|)
+block|{
+return|return;
+block|}
 name|cache
 operator|=
 name|shm_zone

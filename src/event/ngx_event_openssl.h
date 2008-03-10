@@ -98,7 +98,7 @@ value|SSL
 end_define
 
 begin_typedef
-DECL|struct|__anon28e8c2ec0108
+DECL|struct|__anon29d6c96a0108
 typedef|typedef
 struct|struct
 block|{
@@ -119,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e8c2ec0208
+DECL|struct|__anon29d6c96a0208
 typedef|typedef
 struct|struct
 block|{
@@ -277,7 +277,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28e8c2ec0308
+DECL|struct|__anon29d6c96a0308
 typedef|typedef
 struct|struct
 block|{
@@ -471,6 +471,21 @@ name|c
 parameter_list|,
 name|ngx_uint_t
 name|flags
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_ssl_remove_cached_session
+parameter_list|(
+name|SSL_CTX
+modifier|*
+name|ssl
+parameter_list|,
+name|ngx_ssl_session_t
+modifier|*
+name|sess
 parameter_list|)
 function_decl|;
 end_function_decl
