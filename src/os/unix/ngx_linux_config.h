@@ -348,6 +348,8 @@ if|#
 directive|if
 operator|(
 name|NGX_HAVE_POLL
+operator|||
+name|NGX_HAVE_RTSIG
 operator|)
 end_if
 
