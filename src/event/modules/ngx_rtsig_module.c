@@ -29,13 +29,11 @@ name|NGX_TEST_BUILD_RTSIG
 operator|)
 end_if
 
-begin_define
-DECL|macro|F_SETSIG
-define|#
-directive|define
-name|F_SETSIG
-value|10
-end_define
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|SIGRTMIN
+end_ifdef
 
 begin_define
 DECL|macro|si_fd
@@ -43,6 +41,40 @@ define|#
 directive|define
 name|si_fd
 value|_reason.__spare__.__spare2__[0]
+end_define
+
+begin_else
+else|#
+directive|else
+end_else
+
+begin_define
+DECL|macro|SIGRTMIN
+define|#
+directive|define
+name|SIGRTMIN
+value|33
+end_define
+
+begin_define
+DECL|macro|si_fd
+define|#
+directive|define
+name|si_fd
+value|__spare__[0]
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_define
+DECL|macro|F_SETSIG
+define|#
+directive|define
+name|F_SETSIG
+value|10
 end_define
 
 begin_define
@@ -102,7 +134,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b57bb4f0108
+DECL|struct|__anon2c4db0030108
 typedef|typedef
 struct|struct
 block|{

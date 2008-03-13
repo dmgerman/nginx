@@ -114,7 +114,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon29fe8bac0108
+DECL|struct|__anon2a0fa83d0108
 typedef|typedef
 struct|struct
 block|{
@@ -172,6 +172,46 @@ block|}
 name|port_notify_t
 typedef|;
 end_typedef
+
+begin_if
+if|#
+directive|if
+operator|(
+name|__FreeBSD_version
+operator|<
+literal|700005
+operator|)
+end_if
+
+begin_typedef
+DECL|struct|itimerspec
+typedef|typedef
+struct|struct
+name|itimerspec
+block|{
+comment|/* definition per POSIX.4 */
+DECL|member|it_interval
+name|struct
+name|timespec
+name|it_interval
+decl_stmt|;
+comment|/* timer period */
+DECL|member|it_value
+name|struct
+name|timespec
+name|it_value
+decl_stmt|;
+comment|/* timer expiration */
+DECL|typedef|itimerspec_t
+block|}
+name|itimerspec_t
+typedef|;
+end_typedef
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_function
 DECL|function|port_create (void)
@@ -348,7 +388,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29fe8bac0208
+DECL|struct|__anon2a0fa83d0208
 typedef|typedef
 struct|struct
 block|{
