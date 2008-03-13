@@ -1325,10 +1325,6 @@ name|create
 goto|;
 block|}
 comment|/* not found */
-name|file
-operator|=
-name|NULL
-expr_stmt|;
 name|rc
 operator|=
 name|ngx_open_and_stat_file
