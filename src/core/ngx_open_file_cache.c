@@ -1799,7 +1799,7 @@ operator|--
 expr_stmt|;
 if|if
 condition|(
-name|of
+name|file
 operator|->
 name|fd
 operator|!=
