@@ -1799,6 +1799,15 @@ operator|--
 expr_stmt|;
 if|if
 condition|(
+name|of
+operator|->
+name|fd
+operator|!=
+name|NGX_INVALID_FILE
+condition|)
+block|{
+if|if
+condition|(
 name|ngx_close_file
 argument_list|(
 name|file
@@ -1827,6 +1836,7 @@ operator|->
 name|name
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|ngx_free
 argument_list|(
