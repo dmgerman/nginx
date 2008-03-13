@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29ebcf1f0108
+DECL|struct|__anon2790c8c10108
 typedef|typedef
 struct|struct
 block|{
@@ -57,7 +57,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ebcf1f0208
+DECL|struct|__anon2790c8c10208
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ebcf1f0308
+DECL|struct|__anon2790c8c10308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ebcf1f0408
+DECL|struct|__anon2790c8c10408
 typedef|typedef
 struct|struct
 block|{
@@ -2742,7 +2742,7 @@ argument_list|(
 name|sp
 argument_list|,
 operator|(
-name|int
+name|intptr_t
 operator|)
 name|args
 index|[
