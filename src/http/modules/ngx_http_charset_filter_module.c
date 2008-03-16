@@ -58,7 +58,7 @@ value|(sizeof("&#1114111;") - 1)
 end_define
 
 begin_typedef
-DECL|struct|__anon2910498f0108
+DECL|struct|__anon2ae370d80108
 typedef|typedef
 struct|struct
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2910498f0208
+DECL|struct|__anon2ae370d80208
 typedef|typedef
 struct|struct
 block|{
@@ -110,7 +110,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2910498f0308
+DECL|struct|__anon2ae370d80308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2910498f0408
+DECL|struct|__anon2ae370d80408
 typedef|typedef
 struct|struct
 block|{
@@ -165,7 +165,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2910498f0508
+DECL|struct|__anon2ae370d80508
 typedef|typedef
 struct|struct
 block|{
@@ -188,7 +188,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2910498f0608
+DECL|struct|__anon2ae370d80608
 typedef|typedef
 struct|struct
 block|{
@@ -252,7 +252,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2910498f0708
+DECL|struct|__anon2ae370d80708
 typedef|typedef
 struct|struct
 block|{
@@ -2433,7 +2433,16 @@ block|{
 name|u_char
 modifier|*
 name|p
+decl_stmt|,
+modifier|*
+name|last
 decl_stmt|;
+name|last
+operator|=
+name|b
+operator|->
+name|last
+expr_stmt|;
 for|for
 control|(
 name|p
@@ -2444,8 +2453,6 @@ name|pos
 init|;
 name|p
 operator|<
-name|b
-operator|->
 name|last
 condition|;
 name|p
@@ -2456,7 +2463,7 @@ if|if
 condition|(
 operator|*
 name|p
-operator|==
+operator|!=
 name|table
 index|[
 operator|*
@@ -2464,15 +2471,28 @@ name|p
 index|]
 condition|)
 block|{
-continue|continue;
+goto|goto
+name|recode
+goto|;
 block|}
-while|while
+block|}
+return|return
+literal|0
+return|;
+name|recode
+label|:
+do|do
+block|{
+if|if
 condition|(
+operator|*
 name|p
-operator|<
-name|b
-operator|->
-name|last
+operator|!=
+name|table
+index|[
+operator|*
+name|p
+index|]
 condition|)
 block|{
 operator|*
@@ -2484,10 +2504,18 @@ operator|*
 name|p
 index|]
 expr_stmt|;
+block|}
 name|p
 operator|++
 expr_stmt|;
 block|}
+do|while
+condition|(
+name|p
+operator|<
+name|last
+condition|)
+do|;
 name|b
 operator|->
 name|in_file
@@ -2496,10 +2524,6 @@ literal|0
 expr_stmt|;
 return|return
 literal|1
-return|;
-block|}
-return|return
-literal|0
 return|;
 block|}
 end_function
