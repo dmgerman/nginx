@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29b0a4a90108
+DECL|struct|__anon2bf25a5a0108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29b0a4a90203
+DECL|enum|__anon2bf25a5a0203
 typedef|typedef
 enum|enum
 block|{
@@ -114,7 +114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b0a4a90308
+DECL|struct|__anon2bf25a5a0308
 typedef|typedef
 struct|struct
 block|{
@@ -135,7 +135,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b0a4a90408
+DECL|struct|__anon2bf25a5a0408
 typedef|typedef
 struct|struct
 block|{
@@ -254,7 +254,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon29b0a4a90508
+DECL|struct|__anon2bf25a5a0508
 typedef|typedef
 struct|struct
 block|{
@@ -297,7 +297,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b0a4a90608
+DECL|struct|__anon2bf25a5a0608
 typedef|typedef
 struct|struct
 block|{
@@ -327,7 +327,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b0a4a90708
+DECL|struct|__anon2bf25a5a0708
 typedef|typedef
 struct|struct
 block|{
@@ -354,7 +354,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b0a4a90808
+DECL|struct|__anon2bf25a5a0808
 typedef|typedef
 struct|struct
 block|{
@@ -2947,6 +2947,41 @@ operator|+=
 sizeof|sizeof
 argument_list|(
 name|uintptr_t
+argument_list|)
+expr_stmt|;
+name|ngx_log_debug4
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"fastcgi param: \"%*s: %*s\""
+argument_list|,
+name|key_len
+argument_list|,
+name|e
+operator|.
+name|pos
+operator|-
+operator|(
+name|key_len
+operator|+
+name|val_len
+operator|)
+argument_list|,
+name|val_len
+argument_list|,
+name|e
+operator|.
+name|pos
+operator|-
+name|val_len
 argument_list|)
 expr_stmt|;
 block|}
