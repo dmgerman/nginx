@@ -508,7 +508,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon29f807c60103
+DECL|enum|__anon2b9f40600103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2514,7 +2514,7 @@ name|hash
 decl_stmt|,
 name|i
 decl_stmt|;
-DECL|enum|__anon29f807c60203
+DECL|enum|__anon2b9f40600203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2741,8 +2741,11 @@ name|c
 expr_stmt|;
 name|i
 operator|&=
-operator|~
+operator|(
 name|NGX_HTTP_LC_HEADER_LEN
+operator|-
+literal|1
+operator|)
 expr_stmt|;
 break|break;
 block|}
@@ -3196,7 +3199,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon29f807c60303
+DECL|enum|__anon2b9f40600303
 enum|enum
 block|{
 DECL|enumerator|sw_usual
