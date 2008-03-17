@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a0f1b990108
+DECL|struct|__anon27663eeb0108
 typedef|typedef
 struct|struct
 block|{
@@ -57,7 +57,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a0f1b990208
+DECL|struct|__anon27663eeb0208
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a0f1b990308
+DECL|struct|__anon27663eeb0308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a0f1b990408
+DECL|struct|__anon27663eeb0408
 typedef|typedef
 struct|struct
 block|{
@@ -4284,9 +4284,38 @@ modifier|*
 name|cycle
 parameter_list|)
 block|{
+name|ngx_http_perl_main_conf_t
+modifier|*
+name|pmcf
+decl_stmt|;
+name|pmcf
+operator|=
+name|ngx_http_cycle_get_module_main_conf
+argument_list|(
+name|cycle
+argument_list|,
+name|ngx_http_perl_module
+argument_list|)
+expr_stmt|;
+block|{
+name|dTHXa
+argument_list|(
+name|pmcf
+operator|->
+name|perl
+argument_list|)
+expr_stmt|;
+name|PERL_SET_CONTEXT
+argument_list|(
+name|pmcf
+operator|->
+name|perl
+argument_list|)
+expr_stmt|;
 name|PERL_SYS_TERM
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 end_function
 
