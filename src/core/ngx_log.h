@@ -1091,32 +1091,6 @@ begin_comment
 comment|/*********************************/
 end_comment
 
-begin_define
-DECL|macro|ngx_log_alloc_log (pool,log)
-define|#
-directive|define
-name|ngx_log_alloc_log
-parameter_list|(
-name|pool
-parameter_list|,
-name|log
-parameter_list|)
-value|ngx_palloc(pool, log, sizeof(ngx_log_t))
-end_define
-
-begin_define
-DECL|macro|ngx_log_copy_log (new,old)
-define|#
-directive|define
-name|ngx_log_copy_log
-parameter_list|(
-name|new
-parameter_list|,
-name|old
-parameter_list|)
-value|ngx_memcpy(new, old, sizeof(ngx_log_t))
-end_define
-
 begin_function_decl
 name|ngx_log_t
 modifier|*
