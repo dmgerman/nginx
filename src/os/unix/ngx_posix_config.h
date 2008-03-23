@@ -353,13 +353,11 @@ endif|#
 directive|endif
 end_endif
 
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_HAVE_MALLOC_H
-operator|)
-end_if
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|__CYGWIN__
+end_ifdef
 
 begin_include
 include|#
