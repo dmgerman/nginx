@@ -4923,7 +4923,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon28de45a50103
+DECL|enum|__anon2bb9e8c40103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -5627,7 +5627,7 @@ end_comment
 
 begin_function
 name|void
-DECL|function|ngx_sort (void * base,size_t n,size_t size,int (* cmp)(const void *,const void *))
+DECL|function|ngx_sort (void * base,size_t n,size_t size,ngx_int_t (* cmp)(const void *,const void *))
 name|ngx_sort
 parameter_list|(
 name|void
@@ -5640,7 +5640,7 @@ parameter_list|,
 name|size_t
 name|size
 parameter_list|,
-name|int
+name|ngx_int_t
 function_decl|(
 modifier|*
 name|cmp

@@ -23,7 +23,7 @@ end_include
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_upstream_cmp_servers
 parameter_list|(
 specifier|const
@@ -1154,7 +1154,7 @@ end_function
 
 begin_function
 specifier|static
-name|int
+name|ngx_int_t
 DECL|function|ngx_http_upstream_cmp_servers (const void * one,const void * two)
 name|ngx_http_upstream_cmp_servers
 parameter_list|(

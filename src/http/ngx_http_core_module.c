@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27eb9b860108
+DECL|struct|__anon28d557b70108
 typedef|typedef
 struct|struct
 block|{
@@ -285,7 +285,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|int
+name|ngx_int_t
 name|ngx_http_core_cmp_locations
 parameter_list|(
 specifier|const
@@ -10037,7 +10037,7 @@ end_function
 
 begin_function
 specifier|static
-name|int
+name|ngx_int_t
 DECL|function|ngx_http_core_cmp_locations (const void * one,const void * two)
 name|ngx_http_core_cmp_locations
 parameter_list|(
