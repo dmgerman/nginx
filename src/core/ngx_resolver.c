@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2b52ad760108
+DECL|struct|__anon28d204a20108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b52ad760208
+DECL|struct|__anon28d204a20208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b52ad760308
+DECL|struct|__anon28d204a20308
 typedef|typedef
 struct|struct
 block|{
@@ -2046,6 +2046,12 @@ operator|->
 name|query
 argument_list|)
 expr_stmt|;
+name|rn
+operator|->
+name|query
+operator|=
+name|NULL
+expr_stmt|;
 if|if
 condition|(
 name|rn
@@ -2174,6 +2180,12 @@ operator|->
 name|name
 operator|.
 name|len
+expr_stmt|;
+name|rn
+operator|->
+name|query
+operator|=
+name|NULL
 expr_stmt|;
 name|ngx_rbtree_insert
 argument_list|(
@@ -2404,6 +2416,23 @@ operator|->
 name|node
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|rn
+operator|->
+name|query
+condition|)
+block|{
+name|ngx_resolver_free
+argument_list|(
+name|r
+argument_list|,
+name|rn
+operator|->
+name|query
+argument_list|)
+expr_stmt|;
+block|}
 name|ngx_resolver_free
 argument_list|(
 name|r
@@ -2648,6 +2677,12 @@ operator|->
 name|query
 argument_list|)
 expr_stmt|;
+name|rn
+operator|->
+name|query
+operator|=
+name|NULL
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -2683,6 +2718,12 @@ operator|=
 name|ctx
 operator|->
 name|addr
+expr_stmt|;
+name|rn
+operator|->
+name|query
+operator|=
+name|NULL
 expr_stmt|;
 name|ngx_rbtree_insert
 argument_list|(
@@ -2921,6 +2962,23 @@ operator|->
 name|node
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|rn
+operator|->
+name|query
+condition|)
+block|{
+name|ngx_resolver_free
+argument_list|(
+name|r
+argument_list|,
+name|rn
+operator|->
+name|query
+argument_list|)
+expr_stmt|;
+block|}
 name|ngx_resolver_free
 argument_list|(
 name|r
