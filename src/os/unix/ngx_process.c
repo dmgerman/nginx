@@ -28,7 +28,7 @@ file|<ngx_channel.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c6c8a760108
+DECL|struct|__anon29210f190108
 typedef|typedef
 struct|struct
 block|{
@@ -1813,7 +1813,7 @@ name|NGX_SOLARIS
 operator|||
 name|NGX_FREEBSD
 operator|)
-comment|/*              * Solaris always calls the signal handler for each exited process              * despite waitpid() may be already called for this process.              *              * When several processes exit at the same time FreeBSD may              * erroneously call the signal handler for exited process              * despite waitpid() may be already called for this process              */
+comment|/*              * Solaris always calls the signal handler for each exited process              * despite waitpid() may be already called for this process.              *              * When several processes exit at the same time FreeBSD may              * erroneously call the signal handler for exited process              * despite waitpid() may be already called for this process.              */
 if|if
 condition|(
 name|err
@@ -2025,7 +2025,8 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"%s %P exited with fatal code %d and could not respawn"
+literal|"%s %P exited with fatal code %d "
+literal|"and can not be respawn"
 argument_list|,
 name|process
 argument_list|,
