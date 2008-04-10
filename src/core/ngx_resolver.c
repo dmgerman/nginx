@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2b9ffc090108
+DECL|struct|__anon2b1bd3190108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b9ffc090208
+DECL|struct|__anon2b1bd3190208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b9ffc090308
+DECL|struct|__anon2b1bd3190308
 typedef|typedef
 struct|struct
 block|{
@@ -4186,7 +4186,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"resolver DNS response %d fl:%04Xud %d/%d/%d/%d"
+literal|"resolver DNS response %ui fl:%04Xui %ui/%ui/%ui/%ui"
 argument_list|,
 name|ident
 argument_list|,
@@ -4243,7 +4243,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"invalid DNS response %d fl:%04Xud"
+literal|"invalid DNS response %ui fl:%04Xui"
 argument_list|,
 name|ident
 argument_list|,
@@ -4281,7 +4281,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"DNS error (%d: %s), query id:%d"
+literal|"DNS error (%ui: %s), query id:%ui"
 argument_list|,
 name|code
 argument_list|,
@@ -4456,7 +4456,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"resolver DNS response qt:%d cl:%d"
+literal|"resolver DNS response qt:%ui cl:%ui"
 argument_list|,
 name|qtype
 argument_list|,
@@ -4482,7 +4482,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"unknown query class %d in DNS response"
+literal|"unknown query class %ui in DNS response"
 argument_list|,
 name|qclass
 argument_list|)
@@ -4552,7 +4552,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"unknown query type %d in DNS response"
+literal|"unknown query type %ui in DNS response"
 argument_list|,
 name|qtype
 argument_list|)
@@ -4815,7 +4815,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"wrong ident %d response for %V, expect %d"
+literal|"wrong ident %ui response for %V, expect %ui"
 argument_list|,
 name|ident
 argument_list|,
@@ -5836,7 +5836,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"no A or CNAME types in DNS responses, unknown query type: %d"
+literal|"no A or CNAME types in DNS responses, unknown query type: %ui"
 argument_list|,
 name|qtype
 argument_list|)
@@ -6172,7 +6172,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"wrong ident %d response for %ud.%ud.%ud.%ud, expect %d"
+literal|"wrong ident %ui response for %ud.%ud.%ud.%ud, expect %ui"
 argument_list|,
 name|ident
 argument_list|,
@@ -6432,7 +6432,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"resolver qt:%d cl:%d len:%uz"
+literal|"resolver qt:%ui cl:%ui len:%uz"
 argument_list|,
 name|qtype
 argument_list|,
