@@ -69,6 +69,14 @@ value|16
 end_define
 
 begin_define
+DECL|macro|NGX_RESOLVE_DNAME
+define|#
+directive|define
+name|NGX_RESOLVE_DNAME
+value|39
+end_define
+
+begin_define
 DECL|macro|NGX_RESOLVE_FORMERR
 define|#
 directive|define
@@ -125,7 +133,7 @@ value|(void *) -1
 end_define
 
 begin_typedef
-DECL|struct|__anon2b1f3b7f0108
+DECL|struct|__anon278d57d20108
 typedef|typedef
 struct|struct
 block|{
@@ -185,7 +193,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1f3b7f0208
+DECL|struct|__anon278d57d20208
 typedef|typedef
 struct|struct
 block|{
@@ -216,7 +224,7 @@ name|u_char
 modifier|*
 name|query
 decl_stmt|;
-DECL|union|__anon2b1f3b7f030a
+DECL|union|__anon278d57d2030a
 union|union
 block|{
 DECL|member|addr
@@ -265,7 +273,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1f3b7f0408
+DECL|struct|__anon278d57d20408
 typedef|typedef
 struct|struct
 block|{
