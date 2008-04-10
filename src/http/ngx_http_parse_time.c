@@ -89,7 +89,7 @@ name|min
 decl_stmt|,
 name|sec
 decl_stmt|;
-DECL|enum|__anon290a2f420103
+DECL|enum|__anon27c23c340103
 enum|enum
 block|{
 DECL|enumerator|no
@@ -1234,7 +1234,7 @@ return|;
 block|}
 endif|#
 directive|endif
-comment|/*      * shift new year to March 1 and start months from 1 (not 0),      * it is needed for Gauss's formula      */
+comment|/*      * shift new year to March 1 and start months from 1 (not 0),      * it is needed for Gauss' formula      */
 if|if
 condition|(
 operator|--
@@ -1252,9 +1252,10 @@ operator|-=
 literal|1
 expr_stmt|;
 block|}
-comment|/* Gauss's formula for Grigorian days from March 1, 1 BC */
+comment|/* Gauss' formula for Grigorian days since March 1, 1 BC */
 return|return
 operator|(
+comment|/* days in years including leap years since March 1, 1 BC */
 literal|365
 operator|*
 name|year
@@ -1270,6 +1271,7 @@ operator|+
 name|year
 operator|/
 literal|400
+comment|/* days before the month */
 operator|+
 literal|367
 operator|*
@@ -1277,9 +1279,12 @@ name|month
 operator|/
 literal|12
 operator|-
-literal|31
+literal|30
+comment|/* days before the day */
 operator|+
 name|day
+operator|-
+literal|1
 comment|/*              * 719527 days were between March 1, 1 BC and March 1, 1970,              * 31 and 28 days were in January and February 1970              */
 operator|-
 literal|719527
