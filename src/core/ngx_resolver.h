@@ -132,8 +132,16 @@ name|NGX_NO_RESOLVER
 value|(void *) -1
 end_define
 
+begin_define
+DECL|macro|NGX_RESOLVER_MAX_RECURSION
+define|#
+directive|define
+name|NGX_RESOLVER_MAX_RECURSION
+value|50
+end_define
+
 begin_typedef
-DECL|struct|__anon278d57d20108
+DECL|struct|__anon27da19100108
 typedef|typedef
 struct|struct
 block|{
@@ -193,7 +201,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278d57d20208
+DECL|struct|__anon27da19100208
 typedef|typedef
 struct|struct
 block|{
@@ -224,7 +232,7 @@ name|u_char
 modifier|*
 name|query
 decl_stmt|;
-DECL|union|__anon278d57d2030a
+DECL|union|__anon27da1910030a
 union|union
 block|{
 DECL|member|addr
@@ -273,7 +281,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278d57d20408
+DECL|struct|__anon27da19100408
 typedef|typedef
 struct|struct
 block|{
@@ -423,6 +431,10 @@ name|ngx_uint_t
 name|quick
 decl_stmt|;
 comment|/* unsigned  quick:1; */
+DECL|member|recursion
+name|ngx_uint_t
+name|recursion
+decl_stmt|;
 DECL|member|event
 name|ngx_event_t
 modifier|*

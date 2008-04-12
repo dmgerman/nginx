@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2b1bd3190108
+DECL|struct|__anon2bc6f7700108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1bd3190208
+DECL|struct|__anon2bc6f7700208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1bd3190308
+DECL|struct|__anon2bc6f7700308
 typedef|typedef
 struct|struct
 block|{
@@ -1975,6 +1975,16 @@ name|NGX_OK
 return|;
 block|}
 comment|/* NGX_RESOLVE_CNAME */
+if|if
+condition|(
+name|ctx
+operator|->
+name|recursion
+operator|++
+operator|<
+name|NGX_RESOLVER_MAX_RECURSION
+condition|)
+block|{
 name|ctx
 operator|->
 name|name
@@ -2004,6 +2014,56 @@ name|r
 argument_list|,
 name|ctx
 argument_list|)
+return|;
+block|}
+name|ctx
+operator|->
+name|next
+operator|=
+name|rn
+operator|->
+name|waiting
+expr_stmt|;
+name|rn
+operator|->
+name|waiting
+operator|=
+name|NULL
+expr_stmt|;
+comment|/* unlock name mutex */
+do|do
+block|{
+name|ctx
+operator|->
+name|state
+operator|=
+name|NGX_RESOLVE_NXDOMAIN
+expr_stmt|;
+name|next
+operator|=
+name|ctx
+operator|->
+name|next
+expr_stmt|;
+name|ctx
+operator|->
+name|handler
+argument_list|(
+name|ctx
+argument_list|)
+expr_stmt|;
+name|ctx
+operator|=
+name|next
+expr_stmt|;
+block|}
+do|while
+condition|(
+name|ctx
+condition|)
+do|;
+return|return
+name|NGX_OK
 return|;
 block|}
 if|if
