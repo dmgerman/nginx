@@ -26,7 +26,7 @@ name|line
 parameter_list|)
 block|{
 name|u_char
-name|last
+name|unit
 decl_stmt|;
 name|size_t
 name|len
@@ -43,7 +43,7 @@ name|line
 operator|->
 name|len
 expr_stmt|;
-name|last
+name|unit
 operator|=
 name|line
 operator|->
@@ -56,7 +56,7 @@ index|]
 expr_stmt|;
 switch|switch
 condition|(
-name|last
+name|unit
 condition|)
 block|{
 case|case
@@ -138,7 +138,7 @@ name|line
 parameter_list|)
 block|{
 name|u_char
-name|last
+name|unit
 decl_stmt|;
 name|off_t
 name|offset
@@ -155,7 +155,7 @@ name|line
 operator|->
 name|len
 expr_stmt|;
-name|last
+name|unit
 operator|=
 name|line
 operator|->
@@ -168,7 +168,7 @@ index|]
 expr_stmt|;
 switch|switch
 condition|(
-name|last
+name|unit
 condition|)
 block|{
 case|case
@@ -291,7 +291,7 @@ name|max
 decl_stmt|,
 name|i
 decl_stmt|;
-DECL|enum|__anon290f12010103
+DECL|enum|__anon28cb9d030103
 enum|enum
 block|{
 DECL|enumerator|st_start
