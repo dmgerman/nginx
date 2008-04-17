@@ -13909,8 +13909,8 @@ expr_stmt|;
 if|if
 condition|(
 name|fail_timeout
-operator|<
-literal|0
+operator|==
+name|NGX_ERROR
 condition|)
 block|{
 goto|goto
