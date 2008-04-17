@@ -66,7 +66,7 @@ name|ngx_str_t
 modifier|*
 name|line
 parameter_list|,
-name|ngx_int_t
+name|ngx_uint_t
 name|sec
 parameter_list|)
 function_decl|;
