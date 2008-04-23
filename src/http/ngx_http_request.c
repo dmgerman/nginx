@@ -6456,6 +6456,10 @@ block|{
 name|long
 name|rc
 decl_stmt|;
+name|X509
+modifier|*
+name|cert
+decl_stmt|;
 name|ngx_http_ssl_srv_conf_t
 modifier|*
 name|sscf
@@ -6543,8 +6547,8 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-if|if
-condition|(
+name|cert
+operator|=
 name|SSL_get_peer_certificate
 argument_list|(
 name|c
@@ -6553,6 +6557,10 @@ name|ssl
 operator|->
 name|connection
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|cert
 operator|==
 name|NULL
 condition|)
@@ -6599,6 +6607,11 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|X509_free
+argument_list|(
+name|cert
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 endif|#

@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28d91b360108
+DECL|struct|__anon2a9fcfb80108
 typedef|typedef
 struct|struct
 block|{
@@ -7176,6 +7176,11 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|X509_free
+argument_list|(
+name|cert
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
@@ -7239,6 +7244,11 @@ argument_list|(
 name|p
 argument_list|)
 expr_stmt|;
+name|X509_free
+argument_list|(
+name|cert
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
@@ -7257,6 +7267,11 @@ expr_stmt|;
 name|OPENSSL_free
 argument_list|(
 name|p
+argument_list|)
+expr_stmt|;
+name|X509_free
+argument_list|(
+name|cert
 argument_list|)
 expr_stmt|;
 return|return
@@ -7340,6 +7355,11 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|X509_free
+argument_list|(
+name|cert
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
@@ -7403,6 +7423,11 @@ argument_list|(
 name|p
 argument_list|)
 expr_stmt|;
+name|X509_free
+argument_list|(
+name|cert
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
@@ -7421,6 +7446,11 @@ expr_stmt|;
 name|OPENSSL_free
 argument_list|(
 name|p
+argument_list|)
+expr_stmt|;
+name|X509_free
+argument_list|(
+name|cert
 argument_list|)
 expr_stmt|;
 return|return
@@ -7501,6 +7531,11 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|X509_free
+argument_list|(
+name|cert
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
@@ -7553,6 +7588,11 @@ argument_list|(
 name|bio
 argument_list|)
 expr_stmt|;
+name|X509_free
+argument_list|(
+name|cert
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
@@ -7571,6 +7611,11 @@ expr_stmt|;
 name|BIO_free
 argument_list|(
 name|bio
+argument_list|)
+expr_stmt|;
+name|X509_free
+argument_list|(
+name|cert
 argument_list|)
 expr_stmt|;
 return|return
