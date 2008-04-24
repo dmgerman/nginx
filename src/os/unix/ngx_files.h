@@ -44,6 +44,35 @@ name|NGX_FILE_ERROR
 value|-1
 end_define
 
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|__CYGWIN__
+end_ifdef
+
+begin_define
+DECL|macro|ngx_open_file (name,mode,create,access)
+define|#
+directive|define
+name|ngx_open_file
+parameter_list|(
+name|name
+parameter_list|,
+name|mode
+parameter_list|,
+name|create
+parameter_list|,
+name|access
+parameter_list|)
+define|\
+value|open((const char *) name, mode|create|O_BINARY, access)
+end_define
+
+begin_else
+else|#
+directive|else
+end_else
+
 begin_define
 DECL|macro|ngx_open_file (name,mode,create,access)
 define|#
@@ -61,6 +90,11 @@ parameter_list|)
 define|\
 value|open((const char *) name, mode|create, access)
 end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_define
 DECL|macro|ngx_open_file_n
@@ -824,7 +858,7 @@ value|(dir)->info.st_mtime
 end_define
 
 begin_typedef
-DECL|struct|__anon28fd0c8f0108
+DECL|struct|__anon2c26cdea0108
 typedef|typedef
 struct|struct
 block|{
