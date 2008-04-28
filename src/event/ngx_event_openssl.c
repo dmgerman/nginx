@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28da4b340108
+DECL|struct|__anon2aea93bf0108
 typedef|typedef
 struct|struct
 block|{
@@ -1251,6 +1251,11 @@ modifier|*
 name|x509_store
 parameter_list|)
 block|{
+if|#
+directive|if
+operator|(
+name|NGX_DEBUG
+operator|)
 name|char
 modifier|*
 name|subject
@@ -1410,6 +1415,8 @@ name|issuer
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 return|return
 literal|1
 return|;
