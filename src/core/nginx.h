@@ -21,7 +21,7 @@ DECL|macro|NGINX_VERSION
 define|#
 directive|define
 name|NGINX_VERSION
-value|"0.6.30"
+value|"0.6.31"
 end_define
 
 begin_define
