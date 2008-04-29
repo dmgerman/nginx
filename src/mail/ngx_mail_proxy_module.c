@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b5666700108
+DECL|struct|__anon28fbefab0108
 typedef|typedef
 struct|struct
 block|{
@@ -790,6 +790,14 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|s
+operator|->
+name|out
+operator|.
+name|len
+operator|=
+literal|0
+expr_stmt|;
 switch|switch
 condition|(
 name|s
