@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2785a8620108
+DECL|struct|__anon29c287a50108
 typedef|typedef
 struct|struct
 block|{
@@ -61,7 +61,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2785a8620203
+DECL|enum|__anon29c287a50203
 typedef|typedef
 enum|enum
 block|{
@@ -79,7 +79,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2785a8620308
+DECL|struct|__anon29c287a50308
 typedef|typedef
 struct|struct
 block|{
@@ -2561,7 +2561,7 @@ name|ctx
 operator|->
 name|looked
 operator|=
-name|looked
+literal|0
 expr_stmt|;
 name|ctx
 operator|->
