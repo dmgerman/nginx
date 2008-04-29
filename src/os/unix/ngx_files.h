@@ -858,7 +858,7 @@ value|(dir)->info.st_mtime
 end_define
 
 begin_typedef
-DECL|struct|__anon2c26cdea0108
+DECL|struct|__anon29b3a9320108
 typedef|typedef
 struct|struct
 block|{
@@ -879,6 +879,10 @@ DECL|member|log
 name|ngx_log_t
 modifier|*
 name|log
+decl_stmt|;
+DECL|member|test
+name|ngx_uint_t
+name|test
 decl_stmt|;
 DECL|typedef|ngx_glob_t
 block|}

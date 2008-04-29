@@ -825,7 +825,7 @@ value|(time_t) (((((unsigned __int64)                                          \
 end_define
 
 begin_typedef
-DECL|struct|__anon28a551b80108
+DECL|struct|__anon27c247650108
 typedef|typedef
 struct|struct
 block|{
@@ -838,8 +838,22 @@ name|WIN32_FIND_DATA
 name|finddata
 decl_stmt|;
 DECL|member|ready
-name|ngx_int_t
+name|unsigned
 name|ready
+range|:
+literal|1
+decl_stmt|;
+DECL|member|test
+name|unsigned
+name|test
+range|:
+literal|1
+decl_stmt|;
+DECL|member|no_match
+name|unsigned
+name|no_match
+range|:
+literal|1
 decl_stmt|;
 DECL|member|pattern
 name|u_char
