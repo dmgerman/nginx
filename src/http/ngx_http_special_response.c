@@ -1312,10 +1312,6 @@ name|zero_in_uri
 operator|=
 literal|0
 expr_stmt|;
-name|args
-operator|=
-name|NULL
-expr_stmt|;
 if|if
 condition|(
 name|err_page
@@ -1364,6 +1360,10 @@ name|uri
 operator|=
 operator|&
 name|u
+expr_stmt|;
+name|args
+operator|=
+name|NULL
 expr_stmt|;
 if|if
 condition|(
@@ -1485,6 +1485,13 @@ operator|&
 name|err_page
 operator|->
 name|uri
+expr_stmt|;
+name|args
+operator|=
+operator|&
+name|err_page
+operator|->
+name|args
 expr_stmt|;
 block|}
 if|if

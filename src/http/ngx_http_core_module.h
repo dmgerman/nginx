@@ -123,7 +123,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon296aa5860108
+DECL|struct|__anon2b2065660108
 typedef|typedef
 struct|struct
 block|{
@@ -196,7 +196,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296aa5860208
+DECL|struct|__anon2b2065660208
 typedef|typedef
 struct|struct
 block|{
@@ -232,7 +232,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon296aa5860303
+DECL|enum|__anon2b2065660303
 typedef|typedef
 enum|enum
 block|{
@@ -324,7 +324,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon296aa5860408
+DECL|struct|__anon2b2065660408
 typedef|typedef
 struct|struct
 block|{
@@ -348,7 +348,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296aa5860508
+DECL|struct|__anon2b2065660508
 typedef|typedef
 struct|struct
 block|{
@@ -363,7 +363,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296aa5860608
+DECL|struct|__anon2b2065660608
 typedef|typedef
 struct|struct
 block|{
@@ -426,7 +426,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296aa5860708
+DECL|struct|__anon2b2065660708
 typedef|typedef
 struct|struct
 block|{
@@ -510,7 +510,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon296aa5860808
+DECL|struct|__anon2b2065660808
 typedef|typedef
 struct|struct
 block|{
@@ -536,7 +536,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296aa5860908
+DECL|struct|__anon2b2065660908
 typedef|typedef
 struct|struct
 block|{
@@ -564,7 +564,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296aa5860a08
+DECL|struct|__anon2b2065660a08
 typedef|typedef
 struct|struct
 block|{
@@ -584,7 +584,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296aa5860b08
+DECL|struct|__anon2b2065660b08
 typedef|typedef
 struct|struct
 block|{
@@ -688,7 +688,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon296aa5860c08
+DECL|struct|__anon2b2065660c08
 typedef|typedef
 struct|struct
 block|{
@@ -703,6 +703,10 @@ decl_stmt|;
 DECL|member|uri
 name|ngx_str_t
 name|uri
+decl_stmt|;
+DECL|member|args
+name|ngx_str_t
+name|args
 decl_stmt|;
 DECL|member|uri_lengths
 name|ngx_array_t
