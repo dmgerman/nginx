@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bf25a5a0108
+DECL|struct|__anon2c88a2290108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2bf25a5a0203
+DECL|enum|__anon2c88a2290203
 typedef|typedef
 enum|enum
 block|{
@@ -114,7 +114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf25a5a0308
+DECL|struct|__anon2c88a2290308
 typedef|typedef
 struct|struct
 block|{
@@ -135,7 +135,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf25a5a0408
+DECL|struct|__anon2c88a2290408
 typedef|typedef
 struct|struct
 block|{
@@ -254,7 +254,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2bf25a5a0508
+DECL|struct|__anon2c88a2290508
 typedef|typedef
 struct|struct
 block|{
@@ -297,7 +297,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf25a5a0608
+DECL|struct|__anon2c88a2290608
 typedef|typedef
 struct|struct
 block|{
@@ -327,7 +327,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf25a5a0708
+DECL|struct|__anon2c88a2290708
 typedef|typedef
 struct|struct
 block|{
@@ -354,7 +354,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf25a5a0808
+DECL|struct|__anon2c88a2290808
 typedef|typedef
 struct|struct
 block|{
@@ -5934,9 +5934,7 @@ operator|==
 name|NGX_OK
 condition|)
 block|{
-return|return
-name|NGX_AGAIN
-return|;
+continue|continue;
 block|}
 comment|/* rc == NGX_AGAIN */
 name|ngx_log_debug0
