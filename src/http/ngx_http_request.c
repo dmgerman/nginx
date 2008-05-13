@@ -512,12 +512,7 @@ argument_list|(
 literal|"Connection"
 argument_list|)
 block|,
-name|offsetof
-argument_list|(
-name|ngx_http_headers_in_t
-argument_list|,
-name|connection
-argument_list|)
+literal|0
 block|,
 name|ngx_http_process_connection
 block|}
@@ -5717,11 +5712,7 @@ literal|8
 operator|<
 name|user_agent
 operator|+
-name|r
-operator|->
-name|headers_in
-operator|.
-name|user_agent
+name|h
 operator|->
 name|value
 operator|.
