@@ -514,7 +514,7 @@ comment|/* ALIGN() */
 end_comment
 
 begin_comment
-comment|/*   * FreeBSD 3.x has no CMSG_SPACE() and CMSG_LEN() and has the broken CMSG_DATA()  */
+comment|/*  * FreeBSD 3.x has no CMSG_SPACE() and CMSG_LEN() and has the broken CMSG_DATA()  */
 end_comment
 
 begin_undef
