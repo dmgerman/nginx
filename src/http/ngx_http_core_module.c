@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28801c7e0108
+DECL|struct|__anon2af23e760108
 typedef|typedef
 struct|struct
 block|{
@@ -14527,7 +14527,7 @@ index|[
 name|i
 index|]
 argument_list|,
-name|NGX_REGEX_CASELESS
+literal|0
 argument_list|,
 name|cf
 operator|->
