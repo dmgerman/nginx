@@ -56,7 +56,7 @@ name|ngx_http_variable
 parameter_list|(
 name|v
 parameter_list|)
-value|{ sizeof(v) - 1, 1, 0, 0, (u_char *) v }
+value|{ sizeof(v) - 1, 1, 0, 0, 0, (u_char *) v }
 end_define
 
 begin_typedef
