@@ -517,17 +517,37 @@ endif|#
 directive|endif
 end_endif
 
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|MAXHOSTNAMELEN
+end_ifdef
+
 begin_define
 DECL|macro|NGX_MAXHOSTNAMELEN
 define|#
 directive|define
 name|NGX_MAXHOSTNAMELEN
-value|64
+value|MAXHOSTNAMELEN
 end_define
 
-begin_comment
-comment|/* #define NGX_MAXHOSTNAMELEN MAXHOSTNAMELEN */
-end_comment
+begin_else
+else|#
+directive|else
+end_else
+
+begin_define
+DECL|macro|NGX_MAXHOSTNAMELEN
+define|#
+directive|define
+name|NGX_MAXHOSTNAMELEN
+value|256
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_if
 if|#

@@ -222,12 +222,16 @@ DECL|member|lock_file
 name|ngx_str_t
 name|lock_file
 decl_stmt|;
+DECL|member|hostname
+name|ngx_str_t
+name|hostname
+decl_stmt|;
 block|}
 struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29f773340108
+DECL|struct|__anon288b51010108
 typedef|typedef
 struct|struct
 block|{
@@ -337,7 +341,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f773340208
+DECL|struct|__anon288b51010208
 typedef|typedef
 struct|struct
 block|{
