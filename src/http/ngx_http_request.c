@@ -9383,9 +9383,18 @@ name|action
 operator|=
 literal|"reading client pipelined request line"
 expr_stmt|;
+name|rev
+operator|->
+name|handler
+operator|=
 name|ngx_http_init_request
+expr_stmt|;
+name|ngx_post_event
 argument_list|(
 name|rev
+argument_list|,
+operator|&
+name|ngx_posted_events
 argument_list|)
 expr_stmt|;
 return|return;
@@ -9852,9 +9861,12 @@ operator|->
 name|ready
 condition|)
 block|{
-name|ngx_http_keepalive_handler
+name|ngx_post_event
 argument_list|(
 name|rev
+argument_list|,
+operator|&
+name|ngx_posted_events
 argument_list|)
 expr_stmt|;
 block|}
