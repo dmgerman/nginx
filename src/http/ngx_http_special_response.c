@@ -934,8 +934,6 @@ condition|(
 name|r
 operator|->
 name|keepalive
-operator|!=
-literal|0
 condition|)
 block|{
 switch|switch

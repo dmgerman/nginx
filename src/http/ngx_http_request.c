@@ -8107,8 +8107,6 @@ operator|&&
 name|r
 operator|->
 name|keepalive
-operator|!=
-literal|0
 operator|&&
 name|clcf
 operator|->
