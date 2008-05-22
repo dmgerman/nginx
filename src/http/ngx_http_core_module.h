@@ -123,7 +123,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2b2065660108
+DECL|struct|__anon28d614b90108
 typedef|typedef
 struct|struct
 block|{
@@ -196,7 +196,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2065660208
+DECL|struct|__anon28d614b90208
 typedef|typedef
 struct|struct
 block|{
@@ -232,7 +232,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b2065660303
+DECL|enum|__anon28d614b90303
 typedef|typedef
 enum|enum
 block|{
@@ -324,7 +324,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b2065660408
+DECL|struct|__anon28d614b90408
 typedef|typedef
 struct|struct
 block|{
@@ -348,7 +348,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2065660508
+DECL|struct|__anon28d614b90508
 typedef|typedef
 struct|struct
 block|{
@@ -363,7 +363,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2065660608
+DECL|struct|__anon28d614b90608
 typedef|typedef
 struct|struct
 block|{
@@ -426,7 +426,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2065660708
+DECL|struct|__anon28d614b90708
 typedef|typedef
 struct|struct
 block|{
@@ -510,7 +510,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2b2065660808
+DECL|struct|__anon28d614b90808
 typedef|typedef
 struct|struct
 block|{
@@ -536,7 +536,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2065660908
+DECL|struct|__anon28d614b90908
 typedef|typedef
 struct|struct
 block|{
@@ -564,7 +564,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2065660a08
+DECL|struct|__anon28d614b90a08
 typedef|typedef
 struct|struct
 block|{
@@ -584,7 +584,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2065660b08
+DECL|struct|__anon28d614b90b08
 typedef|typedef
 struct|struct
 block|{
@@ -688,7 +688,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b2065660c08
+DECL|struct|__anon28d614b90c08
 typedef|typedef
 struct|struct
 block|{

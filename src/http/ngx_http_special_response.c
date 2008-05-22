@@ -2107,7 +2107,6 @@ name|next
 operator|=
 name|NULL
 expr_stmt|;
-empty_stmt|;
 if|if
 condition|(
 name|msie_padding
@@ -2189,7 +2188,6 @@ name|next
 operator|=
 name|NULL
 expr_stmt|;
-empty_stmt|;
 block|}
 if|if
 condition|(
