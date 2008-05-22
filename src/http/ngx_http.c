@@ -269,20 +269,6 @@ name|ngx_http_max_module
 decl_stmt|;
 end_decl_stmt
 
-begin_decl_stmt
-DECL|variable|ngx_http_total_requests
-name|ngx_uint_t
-name|ngx_http_total_requests
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-DECL|variable|ngx_http_total_sent
-name|uint64_t
-name|ngx_http_total_sent
-decl_stmt|;
-end_decl_stmt
-
 begin_function_decl
 DECL|variable|ngx_http_top_header_filter
 name|ngx_int_t

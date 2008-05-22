@@ -603,20 +603,6 @@ end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
-name|ngx_uint_t
-name|ngx_http_total_requests
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-specifier|extern
-name|uint64_t
-name|ngx_http_total_sent
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-specifier|extern
 name|ngx_http_output_header_filter_pt
 name|ngx_http_top_header_filter
 decl_stmt|;
