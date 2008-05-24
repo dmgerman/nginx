@@ -95,6 +95,28 @@ value|(x)->next = (h)->next;                                                    
 end_define
 
 begin_define
+DECL|macro|ngx_queue_insert_after
+define|#
+directive|define
+name|ngx_queue_insert_after
+value|ngx_queue_insert_head
+end_define
+
+begin_define
+DECL|macro|ngx_queue_insert_tail (h,x)
+define|#
+directive|define
+name|ngx_queue_insert_tail
+parameter_list|(
+name|h
+parameter_list|,
+name|x
+parameter_list|)
+define|\
+value|(x)->prev = (h)->prev;                                                    \     (x)->prev->next = x;                                                      \     (x)->next = h;                                                            \     (h)->prev = x
+end_define
+
+begin_define
 DECL|macro|ngx_queue_head (h)
 define|#
 directive|define
@@ -116,6 +138,42 @@ name|h
 parameter_list|)
 define|\
 value|(h)->prev
+end_define
+
+begin_define
+DECL|macro|ngx_queue_sentinel (h)
+define|#
+directive|define
+name|ngx_queue_sentinel
+parameter_list|(
+name|h
+parameter_list|)
+define|\
+value|(h)
+end_define
+
+begin_define
+DECL|macro|ngx_queue_next (q)
+define|#
+directive|define
+name|ngx_queue_next
+parameter_list|(
+name|q
+parameter_list|)
+define|\
+value|(q)->next
+end_define
+
+begin_define
+DECL|macro|ngx_queue_prev (q)
+define|#
+directive|define
+name|ngx_queue_prev
+parameter_list|(
+name|q
+parameter_list|)
+define|\
+value|(q)->prev
 end_define
 
 begin_if
@@ -161,6 +219,36 @@ directive|endif
 end_endif
 
 begin_define
+DECL|macro|ngx_queue_split (h,q,n)
+define|#
+directive|define
+name|ngx_queue_split
+parameter_list|(
+name|h
+parameter_list|,
+name|q
+parameter_list|,
+name|n
+parameter_list|)
+define|\
+value|(n)->prev = (h)->prev;                                                    \     (n)->prev->next = n;                                                      \     (n)->next = q;                                                            \     (h)->prev = (q)->prev;                                                    \     (h)->prev->next = h;                                                      \     (q)->prev = n;
+end_define
+
+begin_define
+DECL|macro|ngx_queue_add (h,n)
+define|#
+directive|define
+name|ngx_queue_add
+parameter_list|(
+name|h
+parameter_list|,
+name|n
+parameter_list|)
+define|\
+value|(h)->prev->next = (n)->next;                                              \     (n)->next->prev = (h)->prev;                                              \     (h)->prev = (n)->prev;                                                    \     (h)->prev->next = h;
+end_define
+
+begin_define
 DECL|macro|ngx_queue_data (q,type,link)
 define|#
 directive|define
@@ -175,6 +263,44 @@ parameter_list|)
 define|\
 value|(type *) ((u_char *) q - offsetof(type, link))
 end_define
+
+begin_function_decl
+name|ngx_queue_t
+modifier|*
+name|ngx_queue_middle
+parameter_list|(
+name|ngx_queue_t
+modifier|*
+name|queue
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_queue_sort
+parameter_list|(
+name|ngx_queue_t
+modifier|*
+name|queue
+parameter_list|,
+name|ngx_int_t
+function_decl|(
+modifier|*
+name|cmp
+function_decl|)
+parameter_list|(
+specifier|const
+name|ngx_queue_t
+modifier|*
+parameter_list|,
+specifier|const
+name|ngx_queue_t
+modifier|*
+parameter_list|)
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_endif
 endif|#
