@@ -280,6 +280,26 @@ value|r->ctx[module.ctx_index] = c;
 end_define
 
 begin_function_decl
+name|ngx_int_t
+name|ngx_http_add_location
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_queue_t
+modifier|*
+modifier|*
+name|locations
+parameter_list|,
+name|ngx_http_core_loc_conf_t
+modifier|*
+name|clcf
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
 name|void
 name|ngx_http_init_connection
 parameter_list|(

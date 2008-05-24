@@ -123,7 +123,25 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon28d614b90108
+DECL|typedef|ngx_http_location_tree_node_t
+typedef|typedef
+name|struct
+name|ngx_http_location_tree_node_s
+name|ngx_http_location_tree_node_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|typedef|ngx_http_core_loc_conf_t
+typedef|typedef
+name|struct
+name|ngx_http_core_loc_conf_s
+name|ngx_http_core_loc_conf_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2b144c190108
 typedef|typedef
 struct|struct
 block|{
@@ -196,7 +214,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28d614b90208
+DECL|struct|__anon2b144c190208
 typedef|typedef
 struct|struct
 block|{
@@ -232,7 +250,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28d614b90303
+DECL|enum|__anon2b144c190303
 typedef|typedef
 enum|enum
 block|{
@@ -324,7 +342,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28d614b90408
+DECL|struct|__anon2b144c190408
 typedef|typedef
 struct|struct
 block|{
@@ -348,7 +366,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28d614b90508
+DECL|struct|__anon2b144c190508
 typedef|typedef
 struct|struct
 block|{
@@ -363,7 +381,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28d614b90608
+DECL|struct|__anon2b144c190608
 typedef|typedef
 struct|struct
 block|{
@@ -426,27 +444,10 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28d614b90708
+DECL|struct|__anon2b144c190708
 typedef|typedef
 struct|struct
 block|{
-comment|/*      * array of the ngx_http_core_loc_conf_t *,      * used in the ngx_http_core_find_location() and in the merge phase      */
-DECL|member|locations
-name|ngx_array_t
-name|locations
-decl_stmt|;
-DECL|member|regex_start
-name|unsigned
-name|regex_start
-range|:
-literal|15
-decl_stmt|;
-DECL|member|named_start
-name|unsigned
-name|named_start
-range|:
-literal|15
-decl_stmt|;
 comment|/* array of the ngx_http_listen_t, "listen" directive */
 DECL|member|listen
 name|ngx_array_t
@@ -499,6 +500,12 @@ DECL|member|merge_slashes
 name|ngx_flag_t
 name|merge_slashes
 decl_stmt|;
+DECL|member|named_locations
+name|ngx_http_core_loc_conf_t
+modifier|*
+modifier|*
+name|named_locations
+decl_stmt|;
 DECL|typedef|ngx_http_core_srv_conf_t
 block|}
 name|ngx_http_core_srv_conf_t
@@ -510,7 +517,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon28d614b90808
+DECL|struct|__anon2b144c190808
 typedef|typedef
 struct|struct
 block|{
@@ -536,7 +543,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28d614b90908
+DECL|struct|__anon2b144c190908
 typedef|typedef
 struct|struct
 block|{
@@ -564,7 +571,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28d614b90a08
+DECL|struct|__anon2b144c190a08
 typedef|typedef
 struct|struct
 block|{
@@ -584,7 +591,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28d614b90b08
+DECL|struct|__anon2b144c190b08
 typedef|typedef
 struct|struct
 block|{
@@ -688,7 +695,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28d614b90c08
+DECL|struct|__anon2b144c190c08
 typedef|typedef
 struct|struct
 block|{
@@ -724,15 +731,6 @@ name|ngx_http_err_page_t
 typedef|;
 end_typedef
 
-begin_typedef
-DECL|typedef|ngx_http_core_loc_conf_t
-typedef|typedef
-name|struct
-name|ngx_http_core_loc_conf_s
-name|ngx_http_core_loc_conf_t
-typedef|;
-end_typedef
-
 begin_struct
 DECL|struct|ngx_http_core_loc_conf_s
 struct|struct
@@ -755,12 +753,6 @@ name|regex
 decl_stmt|;
 endif|#
 directive|endif
-DECL|member|regex_start
-name|unsigned
-name|regex_start
-range|:
-literal|15
-decl_stmt|;
 DECL|member|noname
 name|unsigned
 name|noname
@@ -798,11 +790,21 @@ name|alias
 range|:
 literal|1
 decl_stmt|;
-comment|/* array of inclusive ngx_http_core_loc_conf_t */
 DECL|member|locations
-name|ngx_array_t
+name|ngx_queue_t
 modifier|*
 name|locations
+decl_stmt|;
+DECL|member|static_locations
+name|ngx_http_location_tree_node_t
+modifier|*
+name|static_locations
+decl_stmt|;
+DECL|member|regex_locations
+name|ngx_http_core_loc_conf_t
+modifier|*
+modifier|*
+name|regex_locations
 decl_stmt|;
 comment|/* pointer to the modules' loc_conf */
 DECL|member|loc_conf
@@ -1085,6 +1087,98 @@ literal|0
 block|ngx_http_core_loc_conf_t  *prev_location;
 endif|#
 directive|endif
+block|}
+struct|;
+end_struct
+
+begin_typedef
+DECL|struct|__anon2b144c190d08
+typedef|typedef
+struct|struct
+block|{
+DECL|member|queue
+name|ngx_queue_t
+name|queue
+decl_stmt|;
+DECL|member|exact
+name|ngx_http_core_loc_conf_t
+modifier|*
+name|exact
+decl_stmt|;
+DECL|member|inclusive
+name|ngx_http_core_loc_conf_t
+modifier|*
+name|inclusive
+decl_stmt|;
+DECL|member|name
+name|ngx_str_t
+modifier|*
+name|name
+decl_stmt|;
+DECL|member|file_name
+name|u_char
+modifier|*
+name|file_name
+decl_stmt|;
+DECL|member|line
+name|ngx_uint_t
+name|line
+decl_stmt|;
+DECL|member|list
+name|ngx_queue_t
+name|list
+decl_stmt|;
+DECL|typedef|ngx_http_location_queue_t
+block|}
+name|ngx_http_location_queue_t
+typedef|;
+end_typedef
+
+begin_struct
+DECL|struct|ngx_http_location_tree_node_s
+struct|struct
+name|ngx_http_location_tree_node_s
+block|{
+DECL|member|left
+name|ngx_http_location_tree_node_t
+modifier|*
+name|left
+decl_stmt|;
+DECL|member|right
+name|ngx_http_location_tree_node_t
+modifier|*
+name|right
+decl_stmt|;
+DECL|member|tree
+name|ngx_http_location_tree_node_t
+modifier|*
+name|tree
+decl_stmt|;
+DECL|member|exact
+name|ngx_http_core_loc_conf_t
+modifier|*
+name|exact
+decl_stmt|;
+DECL|member|inclusive
+name|ngx_http_core_loc_conf_t
+modifier|*
+name|inclusive
+decl_stmt|;
+DECL|member|auto_redirect
+name|u_char
+name|auto_redirect
+decl_stmt|;
+DECL|member|len
+name|u_char
+name|len
+decl_stmt|;
+DECL|member|name
+name|u_char
+name|name
+index|[
+literal|1
+index|]
+decl_stmt|;
 block|}
 struct|;
 end_struct
