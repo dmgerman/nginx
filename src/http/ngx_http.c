@@ -5544,7 +5544,7 @@ argument_list|,
 name|ngx_http_cmp_conf_in_addrs
 argument_list|)
 expr_stmt|;
-comment|/*          * check whether all name-based servers have the same configuraiton          *     as the default server,          * or some servers disable optimizing the server names          */
+comment|/*          * check whether all name-based servers have          * the same configuraiton as the default server          */
 name|in_addr
 operator|=
 name|in_port
@@ -5624,17 +5624,6 @@ name|s
 index|]
 operator|.
 name|core_srv_conf
-operator|||
-name|name
-index|[
-name|s
-index|]
-operator|.
-name|core_srv_conf
-operator|->
-name|optimize_server_names
-operator|==
-literal|0
 condition|)
 block|{
 goto|goto
@@ -5642,7 +5631,7 @@ name|virtual_names
 goto|;
 block|}
 block|}
-comment|/*              * if all name-based servers have the same configuration              *         as the default server,              *     and no servers disable optimizing the server names              * then we do not need to check them at run-time at all              */
+comment|/*              * if all name-based servers have the same configuration              * as the default server, then we do not need to check              * them at run-time at all              */
 name|in_addr
 index|[
 name|a
