@@ -4710,6 +4710,12 @@ argument_list|,
 literal|"channel handler"
 argument_list|)
 expr_stmt|;
+for|for
+control|(
+init|;
+condition|;
+control|)
+block|{
 name|n
 operator|=
 name|ngx_read_channel
@@ -5010,6 +5016,7 @@ operator|-
 literal|1
 expr_stmt|;
 break|break;
+block|}
 block|}
 block|}
 end_function
