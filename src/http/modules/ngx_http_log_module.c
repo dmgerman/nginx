@@ -106,7 +106,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon291b4bcb0108
+DECL|struct|__anon2883eb510108
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291b4bcb0208
+DECL|struct|__anon2883eb510208
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291b4bcb0308
+DECL|struct|__anon2883eb510308
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291b4bcb0408
+DECL|struct|__anon2883eb510408
 typedef|typedef
 struct|struct
 block|{
@@ -200,7 +200,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291b4bcb0508
+DECL|struct|__anon2883eb510508
 typedef|typedef
 struct|struct
 block|{
@@ -3717,8 +3717,25 @@ operator|==
 literal|0
 condition|)
 block|{
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"duplicate \"log_format\" name \"%V\""
+argument_list|,
+operator|&
+name|value
+index|[
+literal|1
+index|]
+argument_list|)
+expr_stmt|;
 return|return
-literal|"duplicate \"log_format\" name"
+name|NGX_CONF_ERROR
 return|;
 block|}
 block|}
