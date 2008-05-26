@@ -894,7 +894,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http special response: %d, \"%V\""
+literal|"http special response: %d, \"%V?%V\""
 argument_list|,
 name|error
 argument_list|,
@@ -902,6 +902,11 @@ operator|&
 name|r
 operator|->
 name|uri
+argument_list|,
+operator|&
+name|r
+operator|->
+name|args
 argument_list|)
 expr_stmt|;
 name|rc
