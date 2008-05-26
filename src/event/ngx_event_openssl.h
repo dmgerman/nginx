@@ -98,7 +98,7 @@ value|SSL
 end_define
 
 begin_typedef
-DECL|struct|__anon29d6c96a0108
+DECL|struct|__anon29e998da0108
 typedef|typedef
 struct|struct
 block|{
@@ -119,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d6c96a0208
+DECL|struct|__anon29e998da0208
 typedef|typedef
 struct|struct
 block|{
@@ -180,11 +180,19 @@ typedef|;
 end_typedef
 
 begin_define
-DECL|macro|NGX_SSL_DFLT_BUILTIN_SCACHE
+DECL|macro|NGX_SSL_NO_SCACHE
 define|#
 directive|define
-name|NGX_SSL_DFLT_BUILTIN_SCACHE
+name|NGX_SSL_NO_SCACHE
 value|-2
+end_define
+
+begin_define
+DECL|macro|NGX_SSL_NONE_SCACHE
+define|#
+directive|define
+name|NGX_SSL_NONE_SCACHE
+value|-3
 end_define
 
 begin_define
@@ -192,15 +200,15 @@ DECL|macro|NGX_SSL_NO_BUILTIN_SCACHE
 define|#
 directive|define
 name|NGX_SSL_NO_BUILTIN_SCACHE
-value|-3
+value|-4
 end_define
 
 begin_define
-DECL|macro|NGX_SSL_NO_SCACHE
+DECL|macro|NGX_SSL_DFLT_BUILTIN_SCACHE
 define|#
 directive|define
-name|NGX_SSL_NO_SCACHE
-value|-4
+name|NGX_SSL_DFLT_BUILTIN_SCACHE
+value|-5
 end_define
 
 begin_define
@@ -277,7 +285,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29d6c96a0308
+DECL|struct|__anon29e998da0308
 typedef|typedef
 struct|struct
 block|{
