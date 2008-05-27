@@ -183,7 +183,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b4213a80108
+DECL|struct|__anon2bbbce030108
 typedef|typedef
 struct|struct
 block|{
@@ -267,6 +267,21 @@ begin_function_decl
 name|void
 modifier|*
 name|ngx_palloc
+parameter_list|(
+name|ngx_pool_t
+modifier|*
+name|pool
+parameter_list|,
+name|size_t
+name|size
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+modifier|*
+name|ngx_palloc_aligned
 parameter_list|(
 name|ngx_pool_t
 modifier|*

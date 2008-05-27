@@ -610,7 +610,7 @@ name|pool
 condition|)
 block|{
 return|return
-name|ngx_palloc
+name|ngx_palloc_aligned
 argument_list|(
 name|pool
 argument_list|,
