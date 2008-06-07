@@ -5478,8 +5478,6 @@ decl_stmt|,
 name|p
 decl_stmt|,
 name|a
-decl_stmt|,
-name|i
 decl_stmt|;
 name|ngx_hash_init_t
 name|hash
@@ -5506,6 +5504,8 @@ name|NGX_PCRE
 operator|)
 name|ngx_uint_t
 name|regex
+decl_stmt|,
+name|i
 decl_stmt|;
 endif|#
 directive|endif
