@@ -59,7 +59,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon28af88050108
+DECL|struct|__anon27e05ccf0108
 typedef|typedef
 struct|struct
 block|{
@@ -98,6 +98,10 @@ decl_stmt|;
 DECL|member|certificate_key
 name|ngx_str_t
 name|certificate_key
+decl_stmt|;
+DECL|member|dhparam
+name|ngx_str_t
+name|dhparam
 decl_stmt|;
 DECL|member|ciphers
 name|ngx_str_t
