@@ -3547,7 +3547,7 @@ name|name
 operator|->
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|ha
 operator|->
@@ -3599,7 +3599,7 @@ block|{
 comment|/*          * convert "*.example.com" to "com.example.\0"          *      and ".example.com" to "com.example\0"          */
 name|p
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|ha
 operator|->
@@ -3758,7 +3758,7 @@ operator|++
 expr_stmt|;
 name|p
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|ha
 operator|->
@@ -3990,7 +3990,7 @@ name|name
 operator|->
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|ha
 operator|->

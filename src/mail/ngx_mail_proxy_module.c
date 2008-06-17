@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28fbefab0108
+DECL|struct|__anon28d12d4b0108
 typedef|typedef
 struct|struct
 block|{
@@ -1118,7 +1118,7 @@ name|line
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|c
 operator|->
@@ -1249,7 +1249,7 @@ name|line
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|c
 operator|->
@@ -1705,7 +1705,7 @@ name|line
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|c
 operator|->
@@ -1818,7 +1818,7 @@ name|line
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|c
 operator|->
@@ -1923,7 +1923,7 @@ name|line
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|c
 operator|->
@@ -2370,7 +2370,7 @@ name|line
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|c
 operator|->
@@ -2553,7 +2553,7 @@ name|line
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|c
 operator|->

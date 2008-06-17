@@ -412,7 +412,7 @@ name|conf_file
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|pool
 argument_list|,
@@ -958,7 +958,7 @@ name|hostname
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|pool
 argument_list|,
@@ -2239,7 +2239,7 @@ else|#
 directive|else
 name|lock_file
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|cycle
 operator|->

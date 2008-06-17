@@ -1697,7 +1697,7 @@ name|name
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|cf
 operator|->
@@ -2028,7 +2028,7 @@ name|name
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|cf
 operator|->
@@ -3263,7 +3263,7 @@ expr_stmt|;
 block|}
 name|p
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->
@@ -4038,7 +4038,7 @@ name|v
 operator|->
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->
@@ -4164,7 +4164,7 @@ name|s
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->
@@ -5101,7 +5101,7 @@ expr_stmt|;
 block|}
 name|p
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->
@@ -5347,7 +5347,7 @@ condition|)
 block|{
 name|p
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->
@@ -5520,7 +5520,7 @@ condition|)
 block|{
 name|p
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->
@@ -5755,7 +5755,7 @@ condition|)
 block|{
 name|p
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->

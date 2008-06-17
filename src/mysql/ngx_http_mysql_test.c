@@ -28,7 +28,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bad39d50108
+DECL|struct|__anon2c0a25160108
 typedef|typedef
 struct|struct
 block|{
@@ -535,7 +535,7 @@ name|query
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->

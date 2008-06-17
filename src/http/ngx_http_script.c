@@ -1575,7 +1575,7 @@ name|value
 operator|->
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->
@@ -3535,7 +3535,7 @@ name|buf
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->
@@ -5306,7 +5306,7 @@ name|buf
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|e
 operator|->

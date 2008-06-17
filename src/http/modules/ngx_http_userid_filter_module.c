@@ -66,7 +66,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon2c1cd0840108
+DECL|struct|__anon28f877510108
 typedef|typedef
 struct|struct
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1cd0840208
+DECL|struct|__anon28f877510208
 typedef|typedef
 struct|struct
 block|{
@@ -1915,7 +1915,7 @@ expr_stmt|;
 block|}
 name|cookie
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->
@@ -2382,7 +2382,7 @@ name|v
 operator|->
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->
@@ -2881,7 +2881,7 @@ return|;
 block|}
 name|new
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|cf
 operator|->
@@ -2997,7 +2997,7 @@ name|new
 decl_stmt|;
 name|new
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|cf
 operator|->

@@ -62,7 +62,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon28c6728f0108
+DECL|struct|__anon273e8f840108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c6728f0208
+DECL|struct|__anon273e8f840208
 typedef|typedef
 struct|struct
 block|{
@@ -5056,7 +5056,7 @@ else|else
 block|{
 name|location
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->

@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b0ca45c0108
+DECL|struct|__anon29c9a2970108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b0ca45c0203
+DECL|enum|__anon29c9a2970203
 typedef|typedef
 enum|enum
 block|{
@@ -114,7 +114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0ca45c0308
+DECL|struct|__anon29c9a2970308
 typedef|typedef
 struct|struct
 block|{
@@ -135,7 +135,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0ca45c0408
+DECL|struct|__anon29c9a2970408
 typedef|typedef
 struct|struct
 block|{
@@ -254,7 +254,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2b0ca45c0508
+DECL|struct|__anon29c9a2970508
 typedef|typedef
 struct|struct
 block|{
@@ -297,7 +297,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0ca45c0608
+DECL|struct|__anon29c9a2970608
 typedef|typedef
 struct|struct
 block|{
@@ -327,7 +327,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0ca45c0708
+DECL|struct|__anon29c9a2970708
 typedef|typedef
 struct|struct
 block|{
@@ -354,7 +354,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0ca45c0808
+DECL|struct|__anon29c9a2970808
 typedef|typedef
 struct|struct
 block|{
@@ -5018,7 +5018,7 @@ expr_stmt|;
 block|}
 name|p
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->
@@ -5214,7 +5214,7 @@ name|h
 operator|->
 name|lowcase_key
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->
@@ -5277,7 +5277,7 @@ name|key
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->
@@ -9288,7 +9288,7 @@ name|v
 operator|->
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->

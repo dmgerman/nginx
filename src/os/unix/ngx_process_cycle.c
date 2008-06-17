@@ -626,7 +626,7 @@ expr_stmt|;
 block|}
 name|title
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|cycle
 operator|->

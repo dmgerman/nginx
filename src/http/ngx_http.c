@@ -4284,7 +4284,7 @@ name|prefix
 expr_stmt|;
 name|node
 operator|=
-name|ngx_palloc_aligned
+name|ngx_palloc
 argument_list|(
 name|cf
 operator|->
@@ -6905,7 +6905,7 @@ name|port_text
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|cf
 operator|->

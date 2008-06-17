@@ -76,14 +76,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon2bbdbb97010a
+DECL|union|__anon2b5499cf010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon2bbdbb970208
+DECL|struct|__anon2b5499cf0208
 struct|struct
 block|{
 DECL|member|lengths
@@ -114,7 +114,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bbdbb970308
+DECL|struct|__anon2b5499cf0308
 typedef|typedef
 struct|struct
 block|{
@@ -137,7 +137,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bbdbb970408
+DECL|struct|__anon2b5499cf0408
 typedef|typedef
 struct|struct
 block|{
@@ -238,7 +238,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bbdbb970508
+DECL|struct|__anon2b5499cf0508
 typedef|typedef
 struct|struct
 block|{
@@ -4622,7 +4622,7 @@ name|status_line
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->
@@ -4746,7 +4746,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2bbdbb970603
+DECL|enum|__anon2b5499cf0603
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -5418,7 +5418,7 @@ name|key
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->
@@ -6356,7 +6356,7 @@ name|len
 expr_stmt|;
 name|p
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->
@@ -6520,7 +6520,7 @@ name|v
 operator|->
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->
@@ -6793,7 +6793,7 @@ name|len
 expr_stmt|;
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->
@@ -7088,7 +7088,7 @@ expr_stmt|;
 block|}
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->

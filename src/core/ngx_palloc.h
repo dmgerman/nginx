@@ -133,10 +133,10 @@ block|}
 struct|;
 end_struct
 
-begin_struct
-DECL|struct|ngx_pool_s
+begin_typedef
+DECL|struct|__anon29e0b1430108
+typedef|typedef
 struct|struct
-name|ngx_pool_s
 block|{
 DECL|member|last
 name|u_char
@@ -148,6 +148,30 @@ name|u_char
 modifier|*
 name|end
 decl_stmt|;
+DECL|member|next
+name|ngx_pool_t
+modifier|*
+name|next
+decl_stmt|;
+DECL|typedef|ngx_pool_data_t
+block|}
+name|ngx_pool_data_t
+typedef|;
+end_typedef
+
+begin_struct
+DECL|struct|ngx_pool_s
+struct|struct
+name|ngx_pool_s
+block|{
+DECL|member|d
+name|ngx_pool_data_t
+name|d
+decl_stmt|;
+DECL|member|max
+name|size_t
+name|max
+decl_stmt|;
 DECL|member|current
 name|ngx_pool_t
 modifier|*
@@ -157,11 +181,6 @@ DECL|member|chain
 name|ngx_chain_t
 modifier|*
 name|chain
-decl_stmt|;
-DECL|member|next
-name|ngx_pool_t
-modifier|*
-name|next
 decl_stmt|;
 DECL|member|large
 name|ngx_pool_large_t
@@ -183,7 +202,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bbbce030108
+DECL|struct|__anon29e0b1430208
 typedef|typedef
 struct|struct
 block|{
@@ -281,7 +300,7 @@ end_function_decl
 begin_function_decl
 name|void
 modifier|*
-name|ngx_palloc_aligned
+name|ngx_pnalloc
 parameter_list|(
 name|ngx_pool_t
 modifier|*

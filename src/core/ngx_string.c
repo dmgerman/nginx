@@ -109,7 +109,7 @@ name|dst
 decl_stmt|;
 name|dst
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|pool
 argument_list|,
@@ -4923,7 +4923,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon2bb9e8c40103
+DECL|enum|__anon2a2f97b60103
 enum|enum
 block|{
 DECL|enumerator|sw_usual

@@ -84,7 +84,7 @@ value|3
 end_define
 
 begin_typedef
-DECL|struct|__anon2be2d41c0108
+DECL|struct|__anon28ebb7b20108
 typedef|typedef
 struct|struct
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be2d41c0208
+DECL|struct|__anon28ebb7b20208
 typedef|typedef
 struct|struct
 block|{
@@ -175,7 +175,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be2d41c0308
+DECL|struct|__anon28ebb7b20308
 typedef|typedef
 struct|struct
 block|{
@@ -231,7 +231,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be2d41c0408
+DECL|struct|__anon28ebb7b20408
 typedef|typedef
 struct|struct
 block|{
@@ -257,7 +257,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be2d41c0508
+DECL|struct|__anon28ebb7b20508
 typedef|typedef
 struct|struct
 block|{
@@ -298,7 +298,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be2d41c0608
+DECL|struct|__anon28ebb7b20608
 typedef|typedef
 struct|struct
 block|{
@@ -942,7 +942,7 @@ expr_stmt|;
 block|}
 name|auth
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|m
 operator|->

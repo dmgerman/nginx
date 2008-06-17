@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2957c9340108
+DECL|struct|__anon2ba4cf720108
 typedef|typedef
 struct|struct
 block|{
@@ -3498,7 +3498,7 @@ name|len
 expr_stmt|;
 name|p
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->
@@ -5236,7 +5236,7 @@ condition|)
 block|{
 name|p
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->
@@ -5810,7 +5810,7 @@ name|path
 operator|->
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->
@@ -6189,7 +6189,7 @@ name|auth
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->

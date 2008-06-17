@@ -2221,7 +2221,7 @@ name|smtp_helo
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|c
 operator|->

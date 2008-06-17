@@ -1651,7 +1651,7 @@ literal|1
 expr_stmt|;
 name|p
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->

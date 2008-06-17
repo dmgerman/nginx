@@ -26,7 +26,7 @@ comment|/* AF_INET only */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2b7768e60108
+DECL|struct|__anon2c5bb27e0108
 typedef|typedef
 struct|struct
 block|{
@@ -45,7 +45,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7768e60208
+DECL|struct|__anon2c5bb27e0208
 typedef|typedef
 struct|struct
 block|{
@@ -680,7 +680,7 @@ return|;
 block|}
 name|p
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->

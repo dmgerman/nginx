@@ -586,7 +586,7 @@ name|len
 expr_stmt|;
 name|p
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|cf
 operator|->
@@ -699,7 +699,7 @@ name|len
 expr_stmt|;
 name|p
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|cf
 operator|->
@@ -941,7 +941,7 @@ block|}
 block|}
 name|p
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|cf
 operator|->
@@ -1243,7 +1243,7 @@ literal|1
 expr_stmt|;
 name|p
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|cf
 operator|->
@@ -1374,7 +1374,7 @@ literal|1
 expr_stmt|;
 name|p
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|cf
 operator|->

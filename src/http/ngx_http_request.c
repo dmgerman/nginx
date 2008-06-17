@@ -2863,7 +2863,7 @@ name|uri
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->
@@ -4072,7 +4072,7 @@ name|h
 operator|->
 name|lowcase_key
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->
@@ -6999,7 +6999,7 @@ else|else
 block|{
 name|server
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->

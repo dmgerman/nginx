@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29d98ada0108
+DECL|struct|__anon2aea114b0108
 typedef|typedef
 struct|struct
 block|{
@@ -1538,7 +1538,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon29d98ada0203
+DECL|enum|__anon2aea114b0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2589,7 +2589,7 @@ name|login
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|s
 operator|->
@@ -2713,7 +2713,7 @@ name|passwd
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|s
 operator|->
@@ -2904,7 +2904,7 @@ name|errcode
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|s
 operator|->
@@ -3092,7 +3092,7 @@ literal|1
 expr_stmt|;
 name|p
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|s
 operator|->
@@ -3749,7 +3749,7 @@ name|name
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|s
 operator|->
@@ -4154,7 +4154,7 @@ decl_stmt|;
 name|ngx_uint_t
 name|hash
 decl_stmt|;
-DECL|enum|__anon29d98ada0303
+DECL|enum|__anon2aea114b0303
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -5841,7 +5841,7 @@ literal|2
 expr_stmt|;
 name|p
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|pool
 argument_list|,
@@ -6193,7 +6193,7 @@ expr_stmt|;
 block|}
 name|p
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|cf
 operator|->

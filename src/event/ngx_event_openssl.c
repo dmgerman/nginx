@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a3f5ee20108
+DECL|struct|__anon2771bb0b0108
 typedef|typedef
 struct|struct
 block|{
@@ -7876,7 +7876,7 @@ name|s
 operator|->
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|pool
 argument_list|,
@@ -8060,7 +8060,7 @@ name|s
 operator|->
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|pool
 argument_list|,
@@ -8239,7 +8239,7 @@ name|s
 operator|->
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|pool
 argument_list|,
@@ -8404,7 +8404,7 @@ name|s
 operator|->
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|pool
 argument_list|,

@@ -138,7 +138,7 @@ expr_stmt|;
 operator|*
 name|encrypted
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|pool
 argument_list|,
@@ -286,7 +286,7 @@ expr_stmt|;
 operator|*
 name|encrypted
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|pool
 argument_list|,

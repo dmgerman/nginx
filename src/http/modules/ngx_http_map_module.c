@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29c288730108
+DECL|struct|__anon29588ebe0108
 typedef|typedef
 struct|struct
 block|{
@@ -41,7 +41,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c288730208
+DECL|struct|__anon29588ebe0208
 typedef|typedef
 struct|struct
 block|{
@@ -71,7 +71,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c288730308
+DECL|struct|__anon29588ebe0308
 typedef|typedef
 struct|struct
 block|{
@@ -480,7 +480,7 @@ return|;
 block|}
 name|name
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->

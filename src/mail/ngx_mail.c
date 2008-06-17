@@ -1516,7 +1516,7 @@ name|ctx
 expr_stmt|;
 name|text
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|cf
 operator|->

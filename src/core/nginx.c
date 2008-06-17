@@ -3471,7 +3471,7 @@ name|oldpid
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|cycle
 operator|->
@@ -3733,7 +3733,7 @@ name|lock_file
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|cycle
 operator|->

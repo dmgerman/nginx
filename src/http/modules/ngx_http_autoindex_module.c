@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2acdf93b0108
+DECL|struct|__anon28e20dff0108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2acdf93b0208
+DECL|struct|__anon28e20dff0208
 typedef|typedef
 struct|struct
 block|{
@@ -1112,7 +1112,7 @@ name|NGX_HTTP_AUTOINDEX_PREALLOCATE
 expr_stmt|;
 name|filename
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|pool
 argument_list|,
@@ -1321,7 +1321,7 @@ name|name
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|pool
 argument_list|,

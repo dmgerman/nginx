@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2792a0ec0108
+DECL|struct|__anon28b9f53c0108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2792a0ec0208
+DECL|struct|__anon28b9f53c0208
 typedef|typedef
 struct|struct
 block|{
@@ -1125,7 +1125,7 @@ name|uri
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->

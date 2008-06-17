@@ -913,7 +913,7 @@ name|salt
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|c
 operator|->
@@ -1130,7 +1130,7 @@ name|plain
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|c
 operator|->
@@ -1411,7 +1411,7 @@ name|login
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|c
 operator|->
@@ -1561,7 +1561,7 @@ name|passwd
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|c
 operator|->
@@ -1693,7 +1693,7 @@ name|n
 decl_stmt|;
 name|p
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|c
 operator|->
@@ -1868,7 +1868,7 @@ name|login
 operator|.
 name|data
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|c
 operator|->
