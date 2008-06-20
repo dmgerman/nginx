@@ -58,7 +58,7 @@ value|(sizeof("&#1114111;") - 1)
 end_define
 
 begin_typedef
-DECL|struct|__anon2ae370d80108
+DECL|struct|__anon2ab1b2be0108
 typedef|typedef
 struct|struct
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae370d80208
+DECL|struct|__anon2ab1b2be0208
 typedef|typedef
 struct|struct
 block|{
@@ -110,7 +110,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae370d80308
+DECL|struct|__anon2ab1b2be0308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae370d80408
+DECL|struct|__anon2ab1b2be0408
 typedef|typedef
 struct|struct
 block|{
@@ -165,7 +165,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae370d80508
+DECL|struct|__anon2ab1b2be0508
 typedef|typedef
 struct|struct
 block|{
@@ -188,7 +188,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae370d80608
+DECL|struct|__anon2ab1b2be0608
 typedef|typedef
 struct|struct
 block|{
@@ -252,7 +252,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae370d80708
+DECL|struct|__anon2ab1b2be0708
 typedef|typedef
 struct|struct
 block|{
@@ -861,6 +861,32 @@ operator|->
 expr|main
 condition|)
 block|{
+if|if
+condition|(
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_encoding
+operator|&&
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_encoding
+operator|->
+name|value
+operator|.
+name|len
+condition|)
+block|{
+return|return
+name|ngx_http_next_header_filter
+argument_list|(
+name|r
+argument_list|)
+return|;
+block|}
 if|if
 condition|(
 name|r
