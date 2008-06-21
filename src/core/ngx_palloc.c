@@ -124,6 +124,15 @@ name|next
 operator|=
 name|NULL
 expr_stmt|;
+name|size
+operator|=
+name|size
+operator|-
+sizeof|sizeof
+argument_list|(
+name|ngx_pool_t
+argument_list|)
+expr_stmt|;
 name|p
 operator|->
 name|max
@@ -135,11 +144,6 @@ name|NGX_MAX_ALLOC_FROM_POOL
 operator|)
 condition|?
 name|size
-operator|-
-sizeof|sizeof
-argument_list|(
-name|ngx_pool_t
-argument_list|)
 else|:
 name|NGX_MAX_ALLOC_FROM_POOL
 expr_stmt|;
