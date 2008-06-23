@@ -327,7 +327,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28e4a03e0108
+DECL|struct|__anon28dd26740108
 typedef|typedef
 struct|struct
 block|{
@@ -667,25 +667,10 @@ name|ngx_msec_t
 name|timer
 parameter_list|)
 block|{
-name|ngx_event_conf_t
-modifier|*
-name|ecf
-decl_stmt|;
 name|ngx_epoll_conf_t
 modifier|*
 name|epcf
 decl_stmt|;
-name|ecf
-operator|=
-name|ngx_event_get_conf
-argument_list|(
-name|cycle
-operator|->
-name|conf_ctx
-argument_list|,
-name|ngx_event_core_module
-argument_list|)
-expr_stmt|;
 name|epcf
 operator|=
 name|ngx_event_get_conf
@@ -709,9 +694,9 @@ name|ep
 operator|=
 name|epoll_create
 argument_list|(
-name|ecf
+name|cycle
 operator|->
-name|connections
+name|connection_n
 operator|/
 literal|2
 argument_list|)

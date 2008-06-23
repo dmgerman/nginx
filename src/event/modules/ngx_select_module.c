@@ -1770,12 +1770,9 @@ name|NGX_WIN32
 operator|)
 if|if
 condition|(
-operator|(
-name|unsigned
-operator|)
-name|ecf
+name|cycle
 operator|->
-name|connections
+name|connection_n
 operator|>
 name|FD_SETSIZE
 condition|)
@@ -1791,11 +1788,9 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"the maximum number of files "
-literal|"supported by select() is "
-name|ngx_value
-argument_list|(
+literal|"supported by select() is %ud"
+argument_list|,
 name|FD_SETSIZE
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
