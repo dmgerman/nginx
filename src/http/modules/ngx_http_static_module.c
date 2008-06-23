@@ -317,6 +317,12 @@ argument_list|)
 expr_stmt|;
 name|of
 operator|.
+name|uniq
+operator|=
+literal|0
+expr_stmt|;
+name|of
+operator|.
 name|test_dir
 operator|=
 literal|0
