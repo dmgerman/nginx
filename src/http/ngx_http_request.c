@@ -11208,6 +11208,12 @@ operator|=
 name|error
 expr_stmt|;
 block|}
+name|log
+operator|->
+name|action
+operator|=
+literal|"logging request"
+expr_stmt|;
 name|cmcf
 operator|=
 name|ngx_http_get_module_main_conf
@@ -11266,6 +11272,12 @@ name|r
 operator|)
 expr_stmt|;
 block|}
+name|log
+operator|->
+name|action
+operator|=
+literal|"closing request"
+expr_stmt|;
 if|if
 condition|(
 name|r

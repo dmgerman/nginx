@@ -106,7 +106,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon287c7e050108
+DECL|struct|__anon2c123cf20108
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon287c7e050208
+DECL|struct|__anon2c123cf20208
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon287c7e050308
+DECL|struct|__anon2c123cf20308
 typedef|typedef
 struct|struct
 block|{
@@ -169,7 +169,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon287c7e050408
+DECL|struct|__anon2c123cf20408
 typedef|typedef
 struct|struct
 block|{
@@ -204,7 +204,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon287c7e050508
+DECL|struct|__anon2c123cf20508
 typedef|typedef
 struct|struct
 block|{
@@ -239,7 +239,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon287c7e050608
+DECL|struct|__anon2c123cf20608
 typedef|typedef
 struct|struct
 block|{
@@ -2049,9 +2049,9 @@ operator|.
 name|data
 argument_list|)
 expr_stmt|;
+comment|/* simulate successfull logging */
 return|return
-operator|-
-literal|1
+name|len
 return|;
 block|}
 name|ngx_log_debug1
