@@ -214,6 +214,10 @@ DECL|member|conf_file
 name|ngx_str_t
 name|conf_file
 decl_stmt|;
+DECL|member|conf_param
+name|ngx_str_t
+name|conf_param
+decl_stmt|;
 DECL|member|root
 name|ngx_str_t
 name|root
@@ -231,7 +235,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon288b51010108
+DECL|struct|__anon29d3312f0108
 typedef|typedef
 struct|struct
 block|{
@@ -341,7 +345,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288b51010208
+DECL|struct|__anon29d3312f0208
 typedef|typedef
 struct|struct
 block|{

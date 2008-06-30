@@ -622,7 +622,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29faff330108
+DECL|struct|__anon2b7ab0f80108
 typedef|typedef
 struct|struct
 block|{
@@ -667,7 +667,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29faff330208
+DECL|struct|__anon2b7ab0f80208
 typedef|typedef
 struct|struct
 block|{
@@ -807,7 +807,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29faff330308
+DECL|struct|__anon2b7ab0f80308
 typedef|typedef
 struct|struct
 block|{
@@ -822,7 +822,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29faff330408
+DECL|struct|__anon2b7ab0f80408
 typedef|typedef
 struct|struct
 block|{
@@ -847,7 +847,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29faff330508
+DECL|struct|__anon2b7ab0f80508
 typedef|typedef
 struct|struct
 block|{
@@ -870,7 +870,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29faff330608
+DECL|struct|__anon2b7ab0f80608
 typedef|typedef
 struct|struct
 block|{
@@ -897,7 +897,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon29faff330708
+DECL|struct|__anon2b7ab0f80708
 typedef|typedef
 struct|struct
 block|{
@@ -1168,6 +1168,18 @@ name|addr
 parameter_list|)
 value|((int)&addr)
 end_define
+
+begin_function_decl
+name|char
+modifier|*
+name|ngx_conf_param
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_function_decl
 name|char
