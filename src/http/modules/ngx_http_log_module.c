@@ -106,7 +106,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c123cf20108
+DECL|struct|__anon2c82eb500108
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c123cf20208
+DECL|struct|__anon2c82eb500208
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c123cf20308
+DECL|struct|__anon2c82eb500308
 typedef|typedef
 struct|struct
 block|{
@@ -169,7 +169,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c123cf20408
+DECL|struct|__anon2c82eb500408
 typedef|typedef
 struct|struct
 block|{
@@ -204,7 +204,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c123cf20508
+DECL|struct|__anon2c82eb500508
 typedef|typedef
 struct|struct
 block|{
@@ -239,7 +239,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c123cf20608
+DECL|struct|__anon2c82eb500608
 typedef|typedef
 struct|struct
 block|{
@@ -3453,11 +3453,21 @@ return|return
 name|NGX_CONF_OK
 return|;
 block|}
-operator|*
 name|conf
+operator|->
+name|logs
 operator|=
-operator|*
 name|prev
+operator|->
+name|logs
+expr_stmt|;
+name|conf
+operator|->
+name|off
+operator|=
+name|prev
+operator|->
+name|off
 expr_stmt|;
 if|if
 condition|(
