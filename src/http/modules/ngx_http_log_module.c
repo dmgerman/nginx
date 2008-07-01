@@ -106,7 +106,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c82eb500108
+DECL|struct|__anon2af348b30108
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c82eb500208
+DECL|struct|__anon2af348b30208
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c82eb500308
+DECL|struct|__anon2af348b30308
 typedef|typedef
 struct|struct
 block|{
@@ -169,7 +169,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c82eb500408
+DECL|struct|__anon2af348b30408
 typedef|typedef
 struct|struct
 block|{
@@ -204,7 +204,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c82eb500508
+DECL|struct|__anon2af348b30508
 typedef|typedef
 struct|struct
 block|{
@@ -239,7 +239,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c82eb500608
+DECL|struct|__anon2af348b30608
 typedef|typedef
 struct|struct
 block|{
@@ -3562,6 +3562,12 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
+name|log
+operator|->
+name|script
+operator|=
+name|NULL
+expr_stmt|;
 name|log
 operator|->
 name|disk_full_time
