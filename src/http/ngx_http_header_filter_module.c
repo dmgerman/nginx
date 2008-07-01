@@ -1472,6 +1472,11 @@ operator|-
 literal|1
 expr_stmt|;
 block|}
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_GZIP
+operator|)
 if|if
 condition|(
 name|r
@@ -1494,6 +1499,8 @@ operator|-
 literal|1
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 name|part
 operator|=
 operator|&
@@ -2591,6 +2598,11 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_GZIP
+operator|)
 if|if
 condition|(
 name|r
@@ -2625,6 +2637,8 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 name|part
 operator|=
 operator|&
