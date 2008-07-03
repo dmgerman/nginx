@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon297e79d50108
+DECL|struct|__anon27ee9e6e0108
 typedef|typedef
 struct|struct
 block|{
@@ -15847,9 +15847,9 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
-return|return
-name|NGX_CONF_ERROR
-return|;
+goto|goto
+name|failed
+goto|;
 block|}
 continue|continue;
 block|}
@@ -15915,9 +15915,9 @@ operator|<
 literal|0
 condition|)
 block|{
-return|return
-name|NGX_CONF_ERROR
-return|;
+goto|goto
+name|failed
+goto|;
 block|}
 continue|continue;
 block|}
@@ -15946,6 +15946,8 @@ name|NULL
 expr_stmt|;
 continue|continue;
 block|}
+name|failed
+label|:
 name|ngx_conf_log_error
 argument_list|(
 name|NGX_LOG_EMERG
