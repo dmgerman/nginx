@@ -106,7 +106,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2af348b30108
+DECL|struct|__anon2961bc550108
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af348b30208
+DECL|struct|__anon2961bc550208
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af348b30308
+DECL|struct|__anon2961bc550308
 typedef|typedef
 struct|struct
 block|{
@@ -169,7 +169,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af348b30408
+DECL|struct|__anon2961bc550408
 typedef|typedef
 struct|struct
 block|{
@@ -204,7 +204,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af348b30508
+DECL|struct|__anon2961bc550508
 typedef|typedef
 struct|struct
 block|{
@@ -239,7 +239,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af348b30608
+DECL|struct|__anon2961bc550608
 typedef|typedef
 struct|struct
 block|{
@@ -1769,11 +1769,10 @@ name|clcf
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|r
 operator|->
-name|err_status
-operator|==
-name|NGX_HTTP_NOT_FOUND
+name|root_tested
 condition|)
 block|{
 comment|/* test root directory existance */
@@ -1881,14 +1880,76 @@ name|pool
 argument_list|)
 operator|!=
 name|NGX_OK
-operator|||
+condition|)
+block|{
+if|if
+condition|(
+name|of
+operator|.
+name|err
+operator|==
+literal|0
+condition|)
+block|{
+comment|/* simulate successfull logging */
+return|return
+name|len
+return|;
+block|}
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+name|of
+operator|.
+name|err
+argument_list|,
+literal|"testing \"%s\" existence failed"
+argument_list|,
+name|path
+operator|.
+name|data
+argument_list|)
+expr_stmt|;
+comment|/* simulate successfull logging */
+return|return
+name|len
+return|;
+block|}
+if|if
+condition|(
 operator|!
 name|of
 operator|.
 name|is_dir
 condition|)
 block|{
-comment|/* no root directory: simulate successfull logging */
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+name|NGX_ENOTDIR
+argument_list|,
+literal|"testing \"%s\" existence failed"
+argument_list|,
+name|path
+operator|.
+name|data
+argument_list|)
+expr_stmt|;
+comment|/* simulate successfull logging */
 return|return
 name|len
 return|;

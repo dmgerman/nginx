@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b81b68e0108
+DECL|struct|__anon2770e0dc0108
 typedef|typedef
 struct|struct
 block|{
@@ -645,6 +645,12 @@ return|;
 block|}
 endif|#
 directive|endif
+name|r
+operator|->
+name|root_tested
+operator|=
+literal|1
+expr_stmt|;
 name|rc
 operator|=
 name|ngx_http_discard_request_body

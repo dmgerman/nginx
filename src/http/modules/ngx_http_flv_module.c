@@ -559,6 +559,12 @@ return|return
 name|NGX_DECLINED
 return|;
 block|}
+name|r
+operator|->
+name|root_tested
+operator|=
+literal|1
+expr_stmt|;
 name|start
 operator|=
 literal|0
