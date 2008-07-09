@@ -570,16 +570,23 @@ name|err
 operator|=
 name|ngx_socket_errno
 expr_stmt|;
-comment|/* Winsock returns WSAEWOULDBLOCK (NGX_EAGAIN) */
 if|if
 condition|(
 name|err
 operator|!=
 name|NGX_EINPROGRESS
+if|#
+directive|if
+operator|(
+name|NGX_WIN32
+operator|)
+comment|/* Winsock returns WSAEWOULDBLOCK (NGX_EAGAIN) */
 operator|&&
 name|err
 operator|!=
 name|NGX_EAGAIN
+endif|#
+directive|endif
 condition|)
 block|{
 if|if
@@ -587,6 +594,18 @@ condition|(
 name|err
 operator|==
 name|NGX_ECONNREFUSED
+if|#
+directive|if
+operator|(
+name|NGX_LINUX
+operator|)
+comment|/*                  * Linux returns EAGAIN instead of ECONNREFUSED                  * for unix sockets if listen queue is full                  */
+operator|||
+name|err
+operator|==
+name|NGX_EAGAIN
+endif|#
+directive|endif
 operator|||
 name|err
 operator|==
