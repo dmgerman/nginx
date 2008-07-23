@@ -26,7 +26,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon2b9995240108
+DECL|struct|__anon2937c75e0108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b9995240208
+DECL|struct|__anon2937c75e0208
 typedef|typedef
 struct|struct
 block|{
@@ -1527,7 +1527,6 @@ decl_stmt|;
 name|ngx_atomic_uint_t
 name|boundary
 decl_stmt|;
-comment|/* TODO: what if no content_type ?? */
 name|len
 operator|=
 sizeof|sizeof
@@ -1697,7 +1696,16 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-else|else
+if|else if
+condition|(
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_type
+operator|.
+name|len
+condition|)
 block|{
 name|ctx
 operator|->
@@ -1728,6 +1736,37 @@ operator|->
 name|headers_out
 operator|.
 name|content_type
+argument_list|)
+operator|-
+name|ctx
+operator|->
+name|boundary_header
+operator|.
+name|data
+expr_stmt|;
+block|}
+else|else
+block|{
+name|ctx
+operator|->
+name|boundary_header
+operator|.
+name|len
+operator|=
+name|ngx_sprintf
+argument_list|(
+name|ctx
+operator|->
+name|boundary_header
+operator|.
+name|data
+argument_list|,
+name|CRLF
+literal|"--%0muA"
+name|CRLF
+literal|"Content-Range: bytes "
+argument_list|,
+name|boundary
 argument_list|)
 operator|-
 name|ctx
