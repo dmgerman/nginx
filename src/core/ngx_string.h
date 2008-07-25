@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29fce1b00108
+DECL|struct|__anon27df5d3b0108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fce1b00208
+DECL|struct|__anon27df5d3b0208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fce1b00308
+DECL|struct|__anon27df5d3b0308
 typedef|typedef
 struct|struct
 block|{
@@ -889,6 +889,9 @@ name|src
 parameter_list|,
 name|size_t
 name|n
+parameter_list|,
+name|size_t
+name|len
 parameter_list|)
 function_decl|;
 end_function_decl

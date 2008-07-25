@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28e20dff0108
+DECL|struct|__anon2baa3f170108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e20dff0208
+DECL|struct|__anon2baa3f170208
 typedef|typedef
 struct|struct
 block|{
@@ -435,7 +435,7 @@ decl_stmt|;
 name|size_t
 name|len
 decl_stmt|,
-name|copy
+name|utf_len
 decl_stmt|,
 name|allocated
 decl_stmt|,
@@ -2015,7 +2015,7 @@ operator|.
 name|name
 operator|.
 name|len
-operator|-
+operator|!=
 name|len
 condition|)
 block|{
@@ -2026,7 +2026,7 @@ operator|>
 name|NGX_HTTP_AUTOINDEX_NAME_LEN
 condition|)
 block|{
-name|copy
+name|utf_len
 operator|=
 name|NGX_HTTP_AUTOINDEX_NAME_LEN
 operator|-
@@ -2037,7 +2037,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|copy
+name|utf_len
 operator|=
 name|NGX_HTTP_AUTOINDEX_NAME_LEN
 operator|+
@@ -2063,7 +2063,18 @@ name|name
 operator|.
 name|data
 argument_list|,
-name|copy
+name|utf_len
+argument_list|,
+name|entry
+index|[
+name|i
+index|]
+operator|.
+name|name
+operator|.
+name|len
+operator|+
+literal|1
 argument_list|)
 expr_stmt|;
 name|last
