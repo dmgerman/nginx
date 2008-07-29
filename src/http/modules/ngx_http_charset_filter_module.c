@@ -58,7 +58,7 @@ value|(sizeof("&#1114111;") - 1)
 end_define
 
 begin_typedef
-DECL|struct|__anon2ab1b2be0108
+DECL|struct|__anon2a04446e0108
 typedef|typedef
 struct|struct
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab1b2be0208
+DECL|struct|__anon2a04446e0208
 typedef|typedef
 struct|struct
 block|{
@@ -110,7 +110,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab1b2be0308
+DECL|struct|__anon2a04446e0308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab1b2be0408
+DECL|struct|__anon2a04446e0408
 typedef|typedef
 struct|struct
 block|{
@@ -165,7 +165,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab1b2be0508
+DECL|struct|__anon2a04446e0508
 typedef|typedef
 struct|struct
 block|{
@@ -188,7 +188,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab1b2be0608
+DECL|struct|__anon2a04446e0608
 typedef|typedef
 struct|struct
 block|{
@@ -252,7 +252,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab1b2be0708
+DECL|struct|__anon2a04446e0708
 typedef|typedef
 struct|struct
 block|{
@@ -2771,7 +2771,7 @@ name|src
 expr_stmt|;
 name|n
 operator|=
-name|ngx_utf_decode
+name|ngx_utf8_decode
 argument_list|(
 operator|&
 name|saved
@@ -3010,7 +3010,7 @@ name|saved
 expr_stmt|;
 name|n
 operator|=
-name|ngx_utf_decode
+name|ngx_utf8_decode
 argument_list|(
 operator|&
 name|saved
@@ -3468,7 +3468,7 @@ name|src
 expr_stmt|;
 name|n
 operator|=
-name|ngx_utf_decode
+name|ngx_utf8_decode
 argument_list|(
 operator|&
 name|src
@@ -5574,7 +5574,7 @@ literal|1
 expr_stmt|;
 name|n
 operator|=
-name|ngx_utf_decode
+name|ngx_utf8_decode
 argument_list|(
 operator|&
 name|p

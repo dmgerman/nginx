@@ -4089,13 +4089,13 @@ block|}
 end_function
 
 begin_comment
-comment|/*  * ngx_utf_decode() decodes two and more bytes UTF sequences only  * the return values:  *    0x80 - 0x10ffff         valid character  *    0x110000 - 0xfffffffd   invalid sequence  *    0xfffffffe              incomplete sequence  *    0xffffffff              error  */
+comment|/*  * ngx_utf8_decode() decodes two and more bytes UTF sequences only  * the return values:  *    0x80 - 0x10ffff         valid character  *    0x110000 - 0xfffffffd   invalid sequence  *    0xfffffffe              incomplete sequence  *    0xffffffff              error  */
 end_comment
 
 begin_function
 name|uint32_t
-DECL|function|ngx_utf_decode (u_char ** p,size_t n)
-name|ngx_utf_decode
+DECL|function|ngx_utf8_decode (u_char ** p,size_t n)
+name|ngx_utf8_decode
 parameter_list|(
 name|u_char
 modifier|*
@@ -4275,8 +4275,8 @@ end_function
 
 begin_function
 name|size_t
-DECL|function|ngx_utf_length (u_char * p,size_t n)
-name|ngx_utf_length
+DECL|function|ngx_utf8_length (u_char * p,size_t n)
+name|ngx_utf8_length
 parameter_list|(
 name|u_char
 modifier|*
@@ -4334,7 +4334,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-name|ngx_utf_decode
+name|ngx_utf8_decode
 argument_list|(
 operator|&
 name|p
@@ -4345,7 +4345,7 @@ operator|>
 literal|0x10ffff
 condition|)
 block|{
-comment|/* invalid utf */
+comment|/* invalid UTF-8 */
 return|return
 name|n
 return|;
@@ -4360,8 +4360,8 @@ end_function
 begin_function
 name|u_char
 modifier|*
-DECL|function|ngx_utf_cpystrn (u_char * dst,u_char * src,size_t n,size_t len)
-name|ngx_utf_cpystrn
+DECL|function|ngx_utf8_cpystrn (u_char * dst,u_char * src,size_t n,size_t len)
+name|ngx_utf8_cpystrn
 parameter_list|(
 name|u_char
 modifier|*
@@ -4446,7 +4446,7 @@ name|src
 expr_stmt|;
 if|if
 condition|(
-name|ngx_utf_decode
+name|ngx_utf8_decode
 argument_list|(
 operator|&
 name|next
@@ -4457,7 +4457,7 @@ operator|>
 literal|0x10ffff
 condition|)
 block|{
-comment|/* invalid utf */
+comment|/* invalid UTF-8 */
 break|break;
 block|}
 name|len
@@ -4923,7 +4923,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon2b43d3630103
+DECL|enum|__anon2c3aa4720103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
