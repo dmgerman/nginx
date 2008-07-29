@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28b093e60108
+DECL|struct|__anon2acea0200108
 typedef|typedef
 struct|struct
 block|{
@@ -56,11 +56,11 @@ name|ngx_uint_t
 name|protocols
 decl_stmt|;
 DECL|member|verify
-name|ngx_int_t
+name|ngx_uint_t
 name|verify
 decl_stmt|;
 DECL|member|verify_depth
-name|ngx_int_t
+name|ngx_uint_t
 name|verify_depth
 decl_stmt|;
 DECL|member|builtin_session_cache

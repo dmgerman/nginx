@@ -6574,6 +6574,8 @@ condition|(
 name|sscf
 operator|->
 name|verify
+operator|==
+literal|1
 condition|)
 block|{
 name|rc
