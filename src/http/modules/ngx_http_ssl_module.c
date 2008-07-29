@@ -46,26 +46,26 @@ function_decl|;
 end_typedef
 
 begin_define
-DECL|macro|NGX_DEFLAUT_CERTIFICATE
+DECL|macro|NGX_DEFAULT_CERTIFICATE
 define|#
 directive|define
-name|NGX_DEFLAUT_CERTIFICATE
+name|NGX_DEFAULT_CERTIFICATE
 value|"cert.pem"
 end_define
 
 begin_define
-DECL|macro|NGX_DEFLAUT_CERTIFICATE_KEY
+DECL|macro|NGX_DEFAULT_CERTIFICATE_KEY
 define|#
 directive|define
-name|NGX_DEFLAUT_CERTIFICATE_KEY
+name|NGX_DEFAULT_CERTIFICATE_KEY
 value|"cert.pem"
 end_define
 
 begin_define
-DECL|macro|NGX_DEFLAUT_CIPHERS
+DECL|macro|NGX_DEFAULT_CIPHERS
 define|#
 directive|define
-name|NGX_DEFLAUT_CIPHERS
+name|NGX_DEFAULT_CIPHERS
 value|"ALL:!ADH:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP"
 end_define
 
@@ -1469,7 +1469,7 @@ name|prev
 operator|->
 name|certificate
 argument_list|,
-name|NGX_DEFLAUT_CERTIFICATE
+name|NGX_DEFAULT_CERTIFICATE
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_str_value
@@ -1482,7 +1482,7 @@ name|prev
 operator|->
 name|certificate_key
 argument_list|,
-name|NGX_DEFLAUT_CERTIFICATE_KEY
+name|NGX_DEFAULT_CERTIFICATE_KEY
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_str_value
@@ -1521,7 +1521,7 @@ name|prev
 operator|->
 name|ciphers
 argument_list|,
-name|NGX_DEFLAUT_CIPHERS
+name|NGX_DEFAULT_CIPHERS
 argument_list|)
 expr_stmt|;
 name|conf
