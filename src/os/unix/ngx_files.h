@@ -51,6 +51,14 @@ name|__CYGWIN__
 end_ifdef
 
 begin_define
+DECL|macro|NGX_HAVE_CASELESS_FILESYSTEM
+define|#
+directive|define
+name|NGX_HAVE_CASELESS_FILESYSTEM
+value|1
+end_define
+
+begin_define
 DECL|macro|ngx_open_file (name,mode,create,access)
 define|#
 directive|define
@@ -548,6 +556,47 @@ parameter_list|)
 value|(sb)->st_ino
 end_define
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_CASELESS_FILESYSTEM
+operator|)
+end_if
+
+begin_define
+DECL|macro|ngx_filename_cmp (s1,s2,n)
+define|#
+directive|define
+name|ngx_filename_cmp
+parameter_list|(
+name|s1
+parameter_list|,
+name|s2
+parameter_list|,
+name|n
+parameter_list|)
+value|strncasecmp((char *) s1, (char *) s2, n)
+end_define
+
+begin_else
+else|#
+directive|else
+end_else
+
+begin_define
+DECL|macro|ngx_filename_cmp
+define|#
+directive|define
+name|ngx_filename_cmp
+value|ngx_memcmp
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_define
 DECL|macro|ngx_getcwd (buf,size)
 define|#
@@ -858,7 +907,7 @@ value|(dir)->info.st_mtime
 end_define
 
 begin_typedef
-DECL|struct|__anon29b3a9320108
+DECL|struct|__anon2a0f32030108
 typedef|typedef
 struct|struct
 block|{

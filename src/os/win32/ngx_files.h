@@ -526,6 +526,21 @@ value|(time_t) (((((unsigned __int64) (fi)->ftLastWriteTime.dwHighDateTime<< 32)
 end_define
 
 begin_define
+DECL|macro|ngx_filename_cmp (s1,s2,n)
+define|#
+directive|define
+name|ngx_filename_cmp
+parameter_list|(
+name|s1
+parameter_list|,
+name|s2
+parameter_list|,
+name|n
+parameter_list|)
+value|strnicmp((char *) s1, (char *) s2, n)
+end_define
+
+begin_define
 DECL|macro|ngx_getcwd (buf,size)
 define|#
 directive|define
@@ -825,7 +840,7 @@ value|(time_t) (((((unsigned __int64)                                          \
 end_define
 
 begin_typedef
-DECL|struct|__anon27c247650108
+DECL|struct|__anon294a8aec0108
 typedef|typedef
 struct|struct
 block|{

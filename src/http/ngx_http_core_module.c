@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27ee9e6e0108
+DECL|struct|__anon277eae940108
 typedef|typedef
 struct|struct
 block|{
@@ -4986,7 +4986,7 @@ name|len
 expr_stmt|;
 name|rc
 operator|=
-name|ngx_memcmp
+name|ngx_filename_cmp
 argument_list|(
 name|uri
 argument_list|,
