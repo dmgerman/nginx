@@ -67,7 +67,7 @@ value|free
 end_define
 
 begin_comment
-comment|/*  * Linux has memalign() or posix_memalign()  * Solaris has memalign()  * FreeBSD has not memalign() or posix_memalign() but its malloc() alignes  * allocations bigger than page size at the page boundary.  */
+comment|/*  * Linux has memalign() or posix_memalign()  * Solaris has memalign()  * FreeBSD 7.0 has posix_memalign(), besides, early version's malloc()  * aligns allocations bigger than page size at the page boundary  */
 end_comment
 
 begin_if

@@ -141,7 +141,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295f859d0108
+DECL|struct|__anon2991f5e50108
 typedef|typedef
 struct|struct
 block|{
@@ -214,7 +214,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295f859d0208
+DECL|struct|__anon2991f5e50208
 typedef|typedef
 struct|struct
 block|{
@@ -250,7 +250,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon295f859d0303
+DECL|enum|__anon2991f5e50303
 typedef|typedef
 enum|enum
 block|{
@@ -342,7 +342,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon295f859d0408
+DECL|struct|__anon2991f5e50408
 typedef|typedef
 struct|struct
 block|{
@@ -366,7 +366,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295f859d0508
+DECL|struct|__anon2991f5e50508
 typedef|typedef
 struct|struct
 block|{
@@ -381,7 +381,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295f859d0608
+DECL|struct|__anon2991f5e50608
 typedef|typedef
 struct|struct
 block|{
@@ -444,7 +444,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295f859d0708
+DECL|struct|__anon2991f5e50708
 typedef|typedef
 struct|struct
 block|{
@@ -513,7 +513,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon295f859d0808
+DECL|struct|__anon2991f5e50808
 typedef|typedef
 struct|struct
 block|{
@@ -539,7 +539,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295f859d0908
+DECL|struct|__anon2991f5e50908
 typedef|typedef
 struct|struct
 block|{
@@ -567,7 +567,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295f859d0a08
+DECL|struct|__anon2991f5e50a08
 typedef|typedef
 struct|struct
 block|{
@@ -587,7 +587,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295f859d0b08
+DECL|struct|__anon2991f5e50b08
 typedef|typedef
 struct|struct
 block|{
@@ -691,7 +691,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon295f859d0c08
+DECL|struct|__anon2991f5e50c08
 typedef|typedef
 struct|struct
 block|{
@@ -855,6 +855,11 @@ name|off_t
 name|client_max_body_size
 decl_stmt|;
 comment|/* client_max_body_size */
+DECL|member|directio
+name|off_t
+name|directio
+decl_stmt|;
+comment|/* directio */
 DECL|member|client_body_buffer_size
 name|size_t
 name|client_body_buffer_size
@@ -1088,7 +1093,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon295f859d0d08
+DECL|struct|__anon2991f5e50d08
 typedef|typedef
 struct|struct
 block|{

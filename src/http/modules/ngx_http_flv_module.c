@@ -378,6 +378,14 @@ argument_list|)
 expr_stmt|;
 name|of
 operator|.
+name|directio
+operator|=
+name|clcf
+operator|->
+name|directio
+expr_stmt|;
+name|of
+operator|.
 name|valid
 operator|=
 name|clcf

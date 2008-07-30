@@ -134,7 +134,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29e0b1430108
+DECL|struct|__anon2a1b5e700108
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +202,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29e0b1430208
+DECL|struct|__anon2a1b5e700208
 typedef|typedef
 struct|struct
 block|{
@@ -323,6 +323,24 @@ name|pool
 parameter_list|,
 name|size_t
 name|size
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+modifier|*
+name|ngx_pmemalign
+parameter_list|(
+name|ngx_pool_t
+modifier|*
+name|pool
+parameter_list|,
+name|size_t
+name|size
+parameter_list|,
+name|size_t
+name|alignment
 parameter_list|)
 function_decl|;
 end_function_decl
