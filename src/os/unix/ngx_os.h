@@ -135,7 +135,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b849bcf0108
+DECL|struct|__anon2913a0f00108
 typedef|typedef
 struct|struct
 block|{
@@ -404,6 +404,20 @@ begin_include
 include|#
 directive|include
 file|<ngx_solaris.h>
+end_include
+
+begin_elif
+elif|#
+directive|elif
+operator|(
+name|NGX_DARWIN
+operator|)
+end_elif
+
+begin_include
+include|#
+directive|include
+file|<ngx_darwin.h>
 end_include
 
 begin_endif
