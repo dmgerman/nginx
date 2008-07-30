@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b0388200108
+DECL|struct|__anon2a1625be0108
 typedef|typedef
 struct|struct
 block|{
@@ -2394,6 +2394,22 @@ operator|==
 literal|1
 condition|)
 block|{
+name|c
+operator|->
+name|read
+operator|->
+name|ready
+operator|=
+literal|0
+expr_stmt|;
+name|c
+operator|->
+name|write
+operator|->
+name|ready
+operator|=
+literal|1
+expr_stmt|;
 if|if
 condition|(
 name|ngx_handle_read_event
