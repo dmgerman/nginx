@@ -47,25 +47,13 @@ file|<libkern/OSAtomic.h>
 end_include
 
 begin_comment
-comment|/* "bool" conflicts with perl's CORE/handy.h  * "true" and "false" conflict with nginx, and of course we can rename them,  * but we need to undef "bool" anyway  */
+comment|/* "bool" conflicts with perl's CORE/handy.h */
 end_comment
 
 begin_undef
 undef|#
 directive|undef
 name|bool
-end_undef
-
-begin_undef
-undef|#
-directive|undef
-name|true
-end_undef
-
-begin_undef
-undef|#
-directive|undef
-name|false
 end_undef
 
 begin_define
