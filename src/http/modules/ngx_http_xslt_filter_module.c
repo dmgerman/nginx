@@ -77,7 +77,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29d1d5a60108
+DECL|struct|__anon2b1c31560108
 typedef|typedef
 struct|struct
 block|{
@@ -98,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d1d5a60208
+DECL|struct|__anon2b1c31560208
 typedef|typedef
 struct|struct
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d1d5a60308
+DECL|struct|__anon2b1c31560308
 typedef|typedef
 struct|struct
 block|{
@@ -131,14 +131,14 @@ name|ngx_array_t
 name|sheets
 decl_stmt|;
 comment|/* ngx_http_xslt_sheet_t */
-DECL|member|types_hash
+DECL|member|types
 name|ngx_hash_t
-name|types_hash
+name|types
 decl_stmt|;
-DECL|member|keys
+DECL|member|types_keys
 name|ngx_array_t
 modifier|*
-name|keys
+name|types_keys
 decl_stmt|;
 DECL|typedef|ngx_http_xslt_filter_conf_t
 block|}
@@ -147,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d1d5a60408
+DECL|struct|__anon2b1c31560408
 typedef|typedef
 struct|struct
 block|{
@@ -995,7 +995,7 @@ name|offsetof
 argument_list|(
 name|ngx_http_xslt_filter_conf_t
 argument_list|,
-name|keys
+name|types_keys
 argument_list|)
 block|,
 operator|&
@@ -1182,7 +1182,7 @@ argument_list|,
 operator|&
 name|conf
 operator|->
-name|types_hash
+name|types
 argument_list|)
 operator|==
 name|NULL
@@ -4968,7 +4968,7 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
-comment|/*      * set by ngx_pcalloc():      *      *     conf->dtd      *     conf->sheets      */
+comment|/*      * set by ngx_pcalloc():      *      *     conf->dtd = NULL;      *     conf->sheets = { NULL };      *     conf->types = { NULL };      *     conf->types_keys = NULL;      */
 return|return
 name|conf
 return|;
@@ -5053,21 +5053,21 @@ name|cf
 argument_list|,
 name|conf
 operator|->
-name|keys
+name|types_keys
 argument_list|,
 operator|&
 name|conf
 operator|->
-name|types_hash
+name|types
 argument_list|,
 name|prev
 operator|->
-name|keys
+name|types_keys
 argument_list|,
 operator|&
 name|prev
 operator|->
-name|types_hash
+name|types
 argument_list|,
 name|ngx_http_xslt_default_types
 argument_list|)
