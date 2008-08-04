@@ -840,7 +840,7 @@ value|(time_t) (((((unsigned __int64)                                          \
 end_define
 
 begin_typedef
-DECL|struct|__anon2bdaca610108
+DECL|struct|__anon2a19f6700108
 typedef|typedef
 struct|struct
 block|{
@@ -1011,16 +1011,15 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
-begin_define
-DECL|macro|ngx_directio (fd)
-define|#
-directive|define
+begin_function_decl
+name|ngx_int_t
 name|ngx_directio
 parameter_list|(
+name|ngx_fd_t
 name|fd
 parameter_list|)
-value|0
-end_define
+function_decl|;
+end_function_decl
 
 begin_define
 DECL|macro|ngx_directio_n

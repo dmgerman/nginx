@@ -1863,5 +1863,20 @@ return|;
 block|}
 end_function
 
+begin_function
+name|ngx_int_t
+DECL|function|ngx_directio (ngx_fd_t fd)
+name|ngx_directio
+parameter_list|(
+name|ngx_fd_t
+name|fd
+parameter_list|)
+block|{
+return|return
+literal|0
+return|;
+block|}
+end_function
+
 end_unit
 
