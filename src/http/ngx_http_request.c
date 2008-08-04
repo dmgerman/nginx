@@ -2821,6 +2821,13 @@ name|r
 operator|->
 name|request_start
 expr_stmt|;
+operator|*
+name|r
+operator|->
+name|request_end
+operator|=
+literal|'\0'
+expr_stmt|;
 if|if
 condition|(
 name|r
