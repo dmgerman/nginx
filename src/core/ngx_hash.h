@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28dad60b0108
+DECL|struct|__anon2b5011e00108
 typedef|typedef
 struct|struct
 block|{
@@ -56,7 +56,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28dad60b0208
+DECL|struct|__anon2b5011e00208
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28dad60b0308
+DECL|struct|__anon2b5011e00308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28dad60b0408
+DECL|struct|__anon2b5011e00408
 typedef|typedef
 struct|struct
 block|{
@@ -140,7 +140,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28dad60b0508
+DECL|struct|__anon2b5011e00508
 typedef|typedef
 struct|struct
 block|{
@@ -165,7 +165,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28dad60b0608
+DECL|struct|__anon2b5011e00608
 typedef|typedef
 struct|struct
 block|{
@@ -256,7 +256,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon28dad60b0708
+DECL|struct|__anon2b5011e00708
 typedef|typedef
 struct|struct
 block|{
@@ -308,7 +308,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28dad60b0808
+DECL|struct|__anon2b5011e00808
 typedef|typedef
 struct|struct
 block|{
@@ -490,6 +490,24 @@ name|data
 parameter_list|,
 name|size_t
 name|len
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_uint_t
+name|ngx_hash_strlow
+parameter_list|(
+name|u_char
+modifier|*
+name|dst
+parameter_list|,
+name|u_char
+modifier|*
+name|src
+parameter_list|,
+name|size_t
+name|n
 parameter_list|)
 function_decl|;
 end_function_decl
