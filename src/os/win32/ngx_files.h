@@ -537,7 +537,7 @@ name|s2
 parameter_list|,
 name|n
 parameter_list|)
-value|strnicmp((char *) s1, (char *) s2, n)
+value|_strnicmp((char *) s1, (char *) s2, n)
 end_define
 
 begin_define
@@ -840,7 +840,7 @@ value|(time_t) (((((unsigned __int64)                                          \
 end_define
 
 begin_typedef
-DECL|struct|__anon2a19f6700108
+DECL|struct|__anon28b7ed250108
 typedef|typedef
 struct|struct
 block|{
