@@ -907,7 +907,7 @@ value|(dir)->info.st_mtime
 end_define
 
 begin_typedef
-DECL|struct|__anon2b9a0ec50108
+DECL|struct|__anon2b30c4000108
 typedef|typedef
 struct|struct
 block|{
@@ -1089,6 +1089,33 @@ define|#
 directive|define
 name|ngx_directio_n
 value|"fcntl(F_NOCACHE)"
+end_define
+
+begin_elif
+elif|#
+directive|elif
+operator|(
+name|NGX_HAVE_DIRECTIO
+operator|)
+end_elif
+
+begin_define
+DECL|macro|ngx_directio (fd)
+define|#
+directive|define
+name|ngx_directio
+parameter_list|(
+name|fd
+parameter_list|)
+value|directio(fd, DIRECTIO_ON)
+end_define
+
+begin_define
+DECL|macro|ngx_directio_n
+define|#
+directive|define
+name|ngx_directio_n
+value|"directio(DIRECTIO_ON)"
 end_define
 
 begin_else
