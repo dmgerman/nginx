@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c0a85ca0108
+DECL|struct|__anon29637bc50108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0a85ca0208
+DECL|struct|__anon29637bc50208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0a85ca0308
+DECL|struct|__anon29637bc50308
 typedef|typedef
 struct|struct
 block|{
@@ -153,6 +153,24 @@ name|c
 parameter_list|)
 value|(u_char) ((c>= 'a'&& c<= 'z') ? (c& ~0x20) : c)
 end_define
+
+begin_function_decl
+name|void
+name|ngx_strlow
+parameter_list|(
+name|u_char
+modifier|*
+name|dst
+parameter_list|,
+name|u_char
+modifier|*
+name|src
+parameter_list|,
+name|size_t
+name|n
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_define
 DECL|macro|ngx_strncmp (s1,s2,n)

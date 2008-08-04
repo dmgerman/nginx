@@ -16,6 +16,48 @@ file|<ngx_core.h>
 end_include
 
 begin_function
+name|void
+DECL|function|ngx_strlow (u_char * dst,u_char * src,size_t n)
+name|ngx_strlow
+parameter_list|(
+name|u_char
+modifier|*
+name|dst
+parameter_list|,
+name|u_char
+modifier|*
+name|src
+parameter_list|,
+name|size_t
+name|n
+parameter_list|)
+block|{
+while|while
+condition|(
+name|n
+operator|--
+condition|)
+block|{
+operator|*
+name|dst
+operator|=
+name|ngx_tolower
+argument_list|(
+operator|*
+name|src
+argument_list|)
+expr_stmt|;
+name|dst
+operator|++
+expr_stmt|;
+name|src
+operator|++
+expr_stmt|;
+block|}
+block|}
+end_function
+
+begin_function
 name|u_char
 modifier|*
 DECL|function|ngx_cpystrn (u_char * dst,u_char * src,size_t n)
@@ -4923,7 +4965,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon2c3aa4720103
+DECL|enum|__anon2bf364980103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
