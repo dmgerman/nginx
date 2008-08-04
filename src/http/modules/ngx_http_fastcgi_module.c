@@ -28,7 +28,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29e4014b0108
+DECL|struct|__anon2ad7e1e20108
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29e4014b0203
+DECL|enum|__anon2ad7e1e20203
 typedef|typedef
 enum|enum
 block|{
@@ -114,7 +114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e4014b0308
+DECL|struct|__anon2ad7e1e20308
 typedef|typedef
 struct|struct
 block|{
@@ -135,7 +135,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e4014b0408
+DECL|struct|__anon2ad7e1e20408
 typedef|typedef
 struct|struct
 block|{
@@ -254,7 +254,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon29e4014b0508
+DECL|struct|__anon2ad7e1e20508
 typedef|typedef
 struct|struct
 block|{
@@ -297,7 +297,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e4014b0608
+DECL|struct|__anon2ad7e1e20608
 typedef|typedef
 struct|struct
 block|{
@@ -327,7 +327,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e4014b0708
+DECL|struct|__anon2ad7e1e20708
 typedef|typedef
 struct|struct
 block|{
@@ -354,7 +354,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e4014b0808
+DECL|struct|__anon2ad7e1e20808
 typedef|typedef
 struct|struct
 block|{
@@ -5662,6 +5662,53 @@ name|status_line
 operator|=
 operator|*
 name|status_line
+expr_stmt|;
+block|}
+if|else if
+condition|(
+name|u
+operator|->
+name|headers_in
+operator|.
+name|location
+condition|)
+block|{
+name|u
+operator|->
+name|headers_in
+operator|.
+name|status_n
+operator|=
+literal|302
+expr_stmt|;
+name|u
+operator|->
+name|headers_in
+operator|.
+name|status_line
+operator|.
+name|len
+operator|=
+sizeof|sizeof
+argument_list|(
+literal|"302 Moved Temporarily"
+argument_list|)
+operator|-
+literal|1
+expr_stmt|;
+name|u
+operator|->
+name|headers_in
+operator|.
+name|status_line
+operator|.
+name|data
+operator|=
+operator|(
+name|u_char
+operator|*
+operator|)
+literal|"302 Moved Temporarily"
 expr_stmt|;
 block|}
 else|else

@@ -965,9 +965,14 @@ argument_list|(
 literal|"Location"
 argument_list|)
 block|,
-name|ngx_http_upstream_ignore_header_line
+name|ngx_http_upstream_process_header_line
 block|,
-literal|0
+name|offsetof
+argument_list|(
+name|ngx_http_upstream_headers_in_t
+argument_list|,
+name|location
+argument_list|)
 block|,
 name|ngx_http_upstream_rewrite_location
 block|,
