@@ -293,6 +293,12 @@ operator|-
 name|n
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|ngx_log_error(NGX_LOG_ALERT, ngx_cycle->log, 0, "value:\"%p\"", value);
+endif|#
+directive|endif
 if|if
 condition|(
 name|value
@@ -2376,12 +2382,6 @@ index|]
 operator|.
 name|value
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|ngx_log_error(NGX_LOG_ALERT, hinit->pool->log, 0,                               "wdc: \"%V\"", wdc->value);
-endif|#
-directive|endif
 block|}
 name|name
 operator|->
