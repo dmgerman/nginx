@@ -458,6 +458,14 @@ name|ngx_libc_cdecl
 value|__cdecl
 end_define
 
+begin_define
+DECL|macro|_strnicmp
+define|#
+directive|define
+name|_strnicmp
+value|strnicmp
+end_define
+
 begin_else
 else|#
 directive|else
