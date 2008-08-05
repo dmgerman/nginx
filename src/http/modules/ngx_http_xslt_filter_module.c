@@ -77,7 +77,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b1c31560108
+DECL|struct|__anon27d781110108
 typedef|typedef
 struct|struct
 block|{
@@ -98,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1c31560208
+DECL|struct|__anon27d781110208
 typedef|typedef
 struct|struct
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1c31560308
+DECL|struct|__anon27d781110308
 typedef|typedef
 struct|struct
 block|{
@@ -147,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1c31560408
+DECL|struct|__anon27d781110408
 typedef|typedef
 struct|struct
 block|{
@@ -939,9 +939,11 @@ argument_list|(
 literal|"xml_entities"
 argument_list|)
 block|,
-name|NGX_HTTP_LOC_CONF
+name|NGX_HTTP_MAIN_CONF
 operator||
-name|NGX_HTTP_LIF_CONF
+name|NGX_HTTP_SRV_CONF
+operator||
+name|NGX_HTTP_LOC_CONF
 operator||
 name|NGX_CONF_TAKE1
 block|,
@@ -960,9 +962,11 @@ argument_list|(
 literal|"xslt_stylesheet"
 argument_list|)
 block|,
-name|NGX_HTTP_LOC_CONF
+name|NGX_HTTP_MAIN_CONF
 operator||
-name|NGX_HTTP_LIF_CONF
+name|NGX_HTTP_SRV_CONF
+operator||
+name|NGX_HTTP_LOC_CONF
 operator||
 name|NGX_CONF_1MORE
 block|,
@@ -981,9 +985,11 @@ argument_list|(
 literal|"xslt_types"
 argument_list|)
 block|,
-name|NGX_HTTP_LOC_CONF
+name|NGX_HTTP_MAIN_CONF
 operator||
-name|NGX_HTTP_LIF_CONF
+name|NGX_HTTP_SRV_CONF
+operator||
+name|NGX_HTTP_LOC_CONF
 operator||
 name|NGX_CONF_1MORE
 block|,
