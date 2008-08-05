@@ -46,7 +46,7 @@ decl_stmt|;
 if|#
 directive|if
 literal|0
-block_content|ngx_str_t  line;      line.len = len;     line.data = name;     ngx_log_error(NGX_LOG_ALERT, ngx_cycle->log, 0, "hf:\"%V\"",&line);
+block_content|ngx_log_error(NGX_LOG_ALERT, ngx_cycle->log, 0, "hf:\"%*s\"", len, name);
 endif|#
 directive|endif
 name|elt
@@ -204,7 +204,7 @@ decl_stmt|;
 if|#
 directive|if
 literal|0
-block_content|ngx_str_t  line;      line.len = len;     line.data = name;     ngx_log_error(NGX_LOG_ALERT, ngx_cycle->log, 0, "wch:\"%V\"",&line);
+block_content|ngx_log_error(NGX_LOG_ALERT, ngx_cycle->log, 0, "wch:\"%*s\"", len, name);
 endif|#
 directive|endif
 name|n
@@ -434,7 +434,7 @@ decl_stmt|;
 if|#
 directive|if
 literal|0
-block_content|ngx_str_t  line;      line.len = len;     line.data = name;     ngx_log_error(NGX_LOG_ALERT, ngx_cycle->log, 0, "wct:\"%V\"",&line);
+block_content|ngx_log_error(NGX_LOG_ALERT, ngx_cycle->log, 0, "wct:\"%*s\"", len, name);
 endif|#
 directive|endif
 name|key
@@ -513,6 +513,12 @@ argument_list|,
 name|i
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|ngx_log_error(NGX_LOG_ALERT, ngx_cycle->log, 0, "value:\"%p\"", value);
+endif|#
+directive|endif
 if|if
 condition|(
 name|value
