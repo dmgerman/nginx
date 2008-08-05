@@ -77,7 +77,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon27d781110108
+DECL|struct|__anon2b2ecea70108
 typedef|typedef
 struct|struct
 block|{
@@ -98,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d781110208
+DECL|struct|__anon2b2ecea70208
 typedef|typedef
 struct|struct
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d781110308
+DECL|struct|__anon2b2ecea70308
 typedef|typedef
 struct|struct
 block|{
@@ -147,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d781110408
+DECL|struct|__anon2b2ecea70408
 typedef|typedef
 struct|struct
 block|{
@@ -962,10 +962,6 @@ argument_list|(
 literal|"xslt_stylesheet"
 argument_list|)
 block|,
-name|NGX_HTTP_MAIN_CONF
-operator||
-name|NGX_HTTP_SRV_CONF
-operator||
 name|NGX_HTTP_LOC_CONF
 operator||
 name|NGX_CONF_1MORE
