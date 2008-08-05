@@ -77,7 +77,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b2ecea70108
+DECL|struct|__anon28d6ef400108
 typedef|typedef
 struct|struct
 block|{
@@ -98,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2ecea70208
+DECL|struct|__anon28d6ef400208
 typedef|typedef
 struct|struct
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2ecea70308
+DECL|struct|__anon28d6ef400308
 typedef|typedef
 struct|struct
 block|{
@@ -147,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2ecea70408
+DECL|struct|__anon28d6ef400408
 typedef|typedef
 struct|struct
 block|{
@@ -2515,15 +2515,6 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|dtd
-operator|->
-name|name
-operator|=
-name|xmlStrdup
-argument_list|(
-name|name
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|doc
