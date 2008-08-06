@@ -77,7 +77,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c0c68890108
+DECL|struct|__anon2c4e51c70108
 typedef|typedef
 struct|struct
 block|{
@@ -98,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0c68890208
+DECL|struct|__anon2c4e51c70208
 typedef|typedef
 struct|struct
 block|{
@@ -119,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0c68890308
+DECL|struct|__anon2c4e51c70308
 typedef|typedef
 struct|struct
 block|{
@@ -140,7 +140,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0c68890408
+DECL|struct|__anon2c4e51c70408
 typedef|typedef
 struct|struct
 block|{
@@ -160,7 +160,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0c68890508
+DECL|struct|__anon2c4e51c70508
 typedef|typedef
 struct|struct
 block|{
@@ -189,7 +189,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0c68890608
+DECL|struct|__anon2c4e51c70608
 typedef|typedef
 struct|struct
 block|{
@@ -1747,12 +1747,6 @@ operator|=
 name|NULL
 expr_stmt|;
 block|}
-name|r
-operator|->
-name|allow_ranges
-operator|=
-literal|1
-expr_stmt|;
 name|rc
 operator|=
 name|ngx_http_next_header_filter
