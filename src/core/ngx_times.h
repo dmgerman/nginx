@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon293199660108
+DECL|struct|__anon289f808d0108
 typedef|typedef
 struct|struct
 block|{
@@ -116,6 +116,24 @@ name|tp
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_function_decl
+name|time_t
+name|ngx_next_time
+parameter_list|(
+name|time_t
+name|when
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_define
+DECL|macro|ngx_next_time_n
+define|#
+directive|define
+name|ngx_next_time_n
+value|"mktime()"
+end_define
 
 begin_decl_stmt
 specifier|extern
