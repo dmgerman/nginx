@@ -55,7 +55,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2908098c0108
+DECL|struct|__anon29aa23450108
 typedef|typedef
 struct|struct
 block|{
@@ -157,7 +157,7 @@ value|5
 end_define
 
 begin_typedef
-DECL|struct|__anon2908098c0208
+DECL|struct|__anon29aa23450208
 typedef|typedef
 struct|struct
 block|{
@@ -2444,6 +2444,29 @@ condition|)
 block|{
 return|return
 literal|"invalid value"
+return|;
+block|}
+if|if
+condition|(
+name|hcf
+operator|->
+name|expires
+operator|==
+name|NGX_HTTP_EXPIRES_DAILY
+operator|&&
+name|hcf
+operator|->
+name|expires_time
+operator|>
+literal|24
+operator|*
+literal|60
+operator|*
+literal|60
+condition|)
+block|{
+return|return
+literal|"daily time value must be less than 24 hours"
 return|;
 block|}
 if|if
