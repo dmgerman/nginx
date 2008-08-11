@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon293fb8bf0108
+DECL|struct|__anon2a337e3b0108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293fb8bf0208
+DECL|struct|__anon2a337e3b0208
 typedef|typedef
 struct|struct
 block|{
@@ -107,6 +107,10 @@ parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
+parameter_list|,
+name|ngx_http_core_loc_conf_t
+modifier|*
+name|clcf
 parameter_list|,
 name|u_char
 modifier|*
@@ -1017,6 +1021,8 @@ name|ngx_http_index_error
 argument_list|(
 name|r
 argument_list|,
+name|clcf
+argument_list|,
 name|path
 operator|.
 name|data
@@ -1392,6 +1398,8 @@ name|ngx_http_index_error
 argument_list|(
 name|r
 argument_list|,
+name|clcf
+argument_list|,
 name|dir
 operator|.
 name|data
@@ -1471,12 +1479,16 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_http_index_error (ngx_http_request_t * r,u_char * file,ngx_err_t err)
+DECL|function|ngx_http_index_error (ngx_http_request_t * r,ngx_http_core_loc_conf_t * clcf,u_char * file,ngx_err_t err)
 name|ngx_http_index_error
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
+parameter_list|,
+name|ngx_http_core_loc_conf_t
+modifier|*
+name|clcf
 parameter_list|,
 name|u_char
 modifier|*
@@ -1514,6 +1526,13 @@ return|return
 name|NGX_HTTP_FORBIDDEN
 return|;
 block|}
+if|if
+condition|(
+name|clcf
+operator|->
+name|log_not_found
+condition|)
+block|{
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ERR
@@ -1531,6 +1550,7 @@ argument_list|,
 name|file
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|NGX_HTTP_NOT_FOUND
 return|;
