@@ -768,6 +768,14 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|c
+operator|->
+name|read
+operator|->
+name|ready
+operator|=
+literal|0
+expr_stmt|;
 name|ngx_mail_init_session
 argument_list|(
 name|c
