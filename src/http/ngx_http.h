@@ -696,6 +696,14 @@ end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
+name|ngx_str_t
+name|ngx_http_html_default_types
+index|[]
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
 name|ngx_http_output_header_filter_pt
 name|ngx_http_top_header_filter
 decl_stmt|;

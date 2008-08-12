@@ -410,6 +410,23 @@ function_decl|;
 end_function_decl
 
 begin_decl_stmt
+DECL|variable|ngx_http_html_default_types
+name|ngx_str_t
+name|ngx_http_html_default_types
+index|[]
+init|=
+block|{
+name|ngx_string
+argument_list|(
+literal|"text/html"
+argument_list|)
+block|,
+name|ngx_null_string
+block|}
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_http_commands
 specifier|static
 name|ngx_command_t
