@@ -58,7 +58,7 @@ value|(sizeof("&#1114111;") - 1)
 end_define
 
 begin_typedef
-DECL|struct|__anon292479420108
+DECL|struct|__anon2ad37e470108
 typedef|typedef
 struct|struct
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292479420208
+DECL|struct|__anon2ad37e470208
 typedef|typedef
 struct|struct
 block|{
@@ -110,7 +110,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292479420308
+DECL|struct|__anon2ad37e470308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292479420408
+DECL|struct|__anon2ad37e470408
 typedef|typedef
 struct|struct
 block|{
@@ -165,7 +165,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292479420508
+DECL|struct|__anon2ad37e470508
 typedef|typedef
 struct|struct
 block|{
@@ -197,7 +197,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292479420608
+DECL|struct|__anon2ad37e470608
 typedef|typedef
 struct|struct
 block|{
@@ -261,7 +261,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292479420708
+DECL|struct|__anon2ad37e470708
 typedef|typedef
 struct|struct
 block|{
@@ -6470,6 +6470,40 @@ name|ngx_http_charset_main_conf_t
 modifier|*
 name|mcf
 decl_stmt|;
+if|if
+condition|(
+name|ngx_http_merge_types
+argument_list|(
+name|cf
+argument_list|,
+name|conf
+operator|->
+name|types_keys
+argument_list|,
+operator|&
+name|conf
+operator|->
+name|types
+argument_list|,
+name|prev
+operator|->
+name|types_keys
+argument_list|,
+operator|&
+name|prev
+operator|->
+name|types
+argument_list|,
+name|ngx_http_charset_default_types
+argument_list|)
+operator|!=
+name|NGX_OK
+condition|)
+block|{
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
 name|ngx_conf_merge_value
 argument_list|(
 name|conf
@@ -6662,40 +6696,6 @@ name|conf
 operator|->
 name|charset
 expr_stmt|;
-if|if
-condition|(
-name|ngx_http_merge_types
-argument_list|(
-name|cf
-argument_list|,
-name|conf
-operator|->
-name|types_keys
-argument_list|,
-operator|&
-name|conf
-operator|->
-name|types
-argument_list|,
-name|prev
-operator|->
-name|types_keys
-argument_list|,
-operator|&
-name|prev
-operator|->
-name|types
-argument_list|,
-name|ngx_http_charset_default_types
-argument_list|)
-operator|!=
-name|NGX_OK
-condition|)
-block|{
-return|return
-name|NGX_CONF_ERROR
-return|;
-block|}
 return|return
 name|NGX_CONF_OK
 return|;

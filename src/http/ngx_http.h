@@ -667,8 +667,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|char
-modifier|*
+name|ngx_int_t
 name|ngx_http_set_default_types
 parameter_list|(
 name|ngx_conf_t
