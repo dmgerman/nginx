@@ -1038,6 +1038,12 @@ operator|&&
 name|clcf
 operator|->
 name|error_pages
+operator|&&
+name|r
+operator|->
+name|uri_changes
+operator|!=
+literal|0
 condition|)
 block|{
 if|if
