@@ -625,7 +625,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon2c5ecc930103
+DECL|enum|__anon2baab6e00103
 typedef|typedef
 enum|enum
 block|{
@@ -664,7 +664,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5ecc930208
+DECL|struct|__anon2baab6e00208
 typedef|typedef
 struct|struct
 block|{
@@ -687,7 +687,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5ecc930308
+DECL|struct|__anon2baab6e00308
 typedef|typedef
 struct|struct
 block|{
@@ -706,7 +706,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5ecc930408
+DECL|struct|__anon2baab6e00408
 typedef|typedef
 struct|struct
 block|{
@@ -933,7 +933,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5ecc930508
+DECL|struct|__anon2baab6e00508
 typedef|typedef
 struct|struct
 block|{
@@ -1074,7 +1074,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5ecc930608
+DECL|struct|__anon2baab6e00608
 typedef|typedef
 struct|struct
 block|{
@@ -1113,7 +1113,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5ecc930708
+DECL|struct|__anon2baab6e00708
 typedef|typedef
 struct|struct
 block|{
@@ -1163,7 +1163,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5ecc930808
+DECL|struct|__anon2baab6e00808
 typedef|typedef
 struct|struct
 block|{
@@ -1258,7 +1258,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5ecc930908
+DECL|struct|__anon2baab6e00908
 typedef|typedef
 struct|struct
 block|{
@@ -1704,20 +1704,6 @@ name|no_cache
 range|:
 literal|1
 decl_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_HTTP_REALIP
-operator|)
-comment|/*      * instead of using the request context data in ngx_http_realip_module      * we use the single bit in the request structure      */
-DECL|member|realip_set
-name|unsigned
-name|realip_set
-range|:
-literal|1
-decl_stmt|;
-endif|#
-directive|endif
 comment|/*      * instead of using the request context data in ngx_http_limit_zone_module      * we use the single bit in the request structure      */
 DECL|member|limit_zone_set
 name|unsigned
