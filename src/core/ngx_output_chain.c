@@ -1657,7 +1657,7 @@ argument_list|,
 literal|0
 argument_list|,
 name|ngx_read_file_n
-literal|" reads only %z of %O from file"
+literal|" read only %z of %O from file"
 argument_list|,
 name|n
 argument_list|,

@@ -257,6 +257,27 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_PREAD
+operator|)
+end_if
+
+begin_define
+DECL|macro|ngx_read_file_n
+define|#
+directive|define
+name|ngx_read_file_n
+value|"pread()"
+end_define
+
+begin_else
+else|#
+directive|else
+end_else
+
 begin_define
 DECL|macro|ngx_read_file_n
 define|#
@@ -264,6 +285,11 @@ directive|define
 name|ngx_read_file_n
 value|"read()"
 end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_function_decl
 name|ssize_t
@@ -907,7 +933,7 @@ value|(dir)->info.st_mtime
 end_define
 
 begin_typedef
-DECL|struct|__anon2b30c4000108
+DECL|struct|__anon2769f8bb0108
 typedef|typedef
 struct|struct
 block|{
