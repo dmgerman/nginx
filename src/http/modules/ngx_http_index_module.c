@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a337e3b0108
+DECL|struct|__anon2b308a730108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a337e3b0208
+DECL|struct|__anon2b308a730208
 typedef|typedef
 struct|struct
 block|{
@@ -1406,6 +1406,25 @@ name|data
 argument_list|,
 name|NGX_ENOENT
 argument_list|)
+return|;
+block|}
+if|if
+condition|(
+name|of
+operator|.
+name|err
+operator|==
+name|NGX_EACCES
+condition|)
+block|{
+operator|*
+name|last
+operator|=
+name|c
+expr_stmt|;
+comment|/*                  * ngx_http_index_test_dir() is called after the first index                  * file testing has returned an error distinct from NGX_EACCES.                  * This means that directory searching is allowed.                  */
+return|return
+name|NGX_OK
 return|;
 block|}
 name|ngx_log_error
