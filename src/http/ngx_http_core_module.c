@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2be4e5e70108
+DECL|struct|__anon2c5327da0108
 typedef|typedef
 struct|struct
 block|{
@@ -3289,7 +3289,7 @@ if|if
 condition|(
 name|rc
 operator|==
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 condition|)
 block|{
 name|ngx_http_finalize_request
@@ -4667,6 +4667,10 @@ block|}
 block|}
 end_function
 
+begin_comment
+comment|/*  * NGX_OK       - exact or regex match  * NGX_DONE     - auto redirect  * NGX_AGAIN    - inclusive match  * NGX_ERROR    - regex error  * NGX_DECLINED - no match  */
+end_comment
+
 begin_function
 specifier|static
 name|ngx_int_t
@@ -4907,7 +4911,7 @@ name|name
 argument_list|)
 expr_stmt|;
 return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 return|;
 block|}
 comment|/* match */
@@ -4923,11 +4927,23 @@ operator|->
 name|loc_conf
 expr_stmt|;
 comment|/* look up nested locations */
-return|return
+name|rc
+operator|=
 name|ngx_http_core_find_location
 argument_list|(
 name|r
 argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|rc
+operator|==
+name|NGX_ERROR
+operator|)
+condition|?
+name|rc
+else|:
+name|NGX_OK
 return|;
 block|}
 block|}
