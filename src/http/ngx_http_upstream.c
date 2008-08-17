@@ -3719,6 +3719,15 @@ if|if
 condition|(
 name|u
 operator|->
+name|conf
+operator|->
+name|ssl_session_reuse
+condition|)
+block|{
+if|if
+condition|(
+name|u
+operator|->
 name|peer
 operator|.
 name|set_session
@@ -3748,6 +3757,7 @@ name|NGX_HTTP_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
+block|}
 block|}
 name|r
 operator|->
@@ -3831,6 +3841,15 @@ operator|->
 name|handshaked
 condition|)
 block|{
+if|if
+condition|(
+name|u
+operator|->
+name|conf
+operator|->
+name|ssl_session_reuse
+condition|)
+block|{
 name|u
 operator|->
 name|peer
@@ -3849,6 +3868,7 @@ operator|.
 name|data
 argument_list|)
 expr_stmt|;
+block|}
 name|c
 operator|->
 name|write

@@ -141,7 +141,7 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon2c8188800108
+DECL|struct|__anon2b81f2ce0108
 typedef|typedef
 struct|struct
 block|{
@@ -177,7 +177,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c8188800208
+DECL|struct|__anon2b81f2ce0208
 typedef|typedef
 struct|struct
 block|{
@@ -246,7 +246,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c8188800308
+DECL|struct|__anon2b81f2ce0308
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +270,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c8188800408
+DECL|struct|__anon2b81f2ce0408
 typedef|typedef
 struct|struct
 block|{
@@ -412,7 +412,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c8188800508
+DECL|struct|__anon2b81f2ce0508
 typedef|typedef
 struct|struct
 block|{
@@ -566,6 +566,10 @@ name|ngx_ssl_t
 modifier|*
 name|ssl
 decl_stmt|;
+DECL|member|ssl_session_reuse
+name|ngx_flag_t
+name|ssl_session_reuse
+decl_stmt|;
 endif|#
 directive|endif
 DECL|typedef|ngx_http_upstream_conf_t
@@ -575,7 +579,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c8188800608
+DECL|struct|__anon2b81f2ce0608
 typedef|typedef
 struct|struct
 block|{
@@ -611,7 +615,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c8188800708
+DECL|struct|__anon2b81f2ce0708
 typedef|typedef
 struct|struct
 block|{
@@ -729,7 +733,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c8188800808
+DECL|struct|__anon2b81f2ce0808
 typedef|typedef
 struct|struct
 block|{
