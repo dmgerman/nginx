@@ -58,7 +58,7 @@ value|(sizeof("&#1114111;") - 1)
 end_define
 
 begin_typedef
-DECL|struct|__anon2ad37e470108
+DECL|struct|__anon28a438900108
 typedef|typedef
 struct|struct
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad37e470208
+DECL|struct|__anon28a438900208
 typedef|typedef
 struct|struct
 block|{
@@ -110,7 +110,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad37e470308
+DECL|struct|__anon28a438900308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad37e470408
+DECL|struct|__anon28a438900408
 typedef|typedef
 struct|struct
 block|{
@@ -165,7 +165,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad37e470508
+DECL|struct|__anon28a438900508
 typedef|typedef
 struct|struct
 block|{
@@ -197,7 +197,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad37e470608
+DECL|struct|__anon28a438900608
 typedef|typedef
 struct|struct
 block|{
@@ -261,7 +261,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad37e470708
+DECL|struct|__anon28a438900708
 typedef|typedef
 struct|struct
 block|{
@@ -569,11 +569,6 @@ block|{
 name|ngx_string
 argument_list|(
 literal|"text/html"
-argument_list|)
-block|,
-name|ngx_string
-argument_list|(
-literal|"text/css"
 argument_list|)
 block|,
 name|ngx_string
