@@ -1508,6 +1508,15 @@ operator|==
 literal|'/'
 condition|)
 block|{
+if|if
+condition|(
+name|r
+operator|->
+name|method
+operator|!=
+name|NGX_HTTP_HEAD
+condition|)
+block|{
 name|r
 operator|->
 name|method
@@ -1520,6 +1529,7 @@ name|method_name
 operator|=
 name|ngx_http_get_name
 expr_stmt|;
+block|}
 return|return
 name|ngx_http_internal_redirect
 argument_list|(
