@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c3f00530108
+DECL|struct|__anon294324ab0108
 typedef|typedef
 struct|struct
 block|{
@@ -626,7 +626,7 @@ comment|/* state */
 operator|+
 literal|1
 operator|+
-name|INET_ADDRSTRLEN
+name|NGX_INET_ADDRSTRLEN
 operator|+
 literal|1
 operator|+
@@ -836,7 +836,7 @@ name|len
 init|;
 name|n
 operator|<
-name|INET_ADDRSTRLEN
+name|NGX_INET_ADDRSTRLEN
 condition|;
 name|n
 operator|++

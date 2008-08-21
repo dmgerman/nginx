@@ -593,7 +593,7 @@ comment|/* AF_INET only */
 name|u_char
 name|addr
 index|[
-name|INET_ADDRSTRLEN
+name|NGX_INET_ADDRSTRLEN
 index|]
 decl_stmt|;
 name|r

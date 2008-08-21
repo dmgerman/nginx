@@ -1636,11 +1636,7 @@ control|)
 block|{
 name|len
 operator|=
-name|INET_ADDRSTRLEN
-operator|-
-literal|1
-operator|+
-literal|1
+name|NGX_INET_ADDRSTRLEN
 operator|+
 sizeof|sizeof
 argument_list|(
@@ -1687,7 +1683,7 @@ index|]
 argument_list|,
 name|p
 argument_list|,
-name|INET_ADDRSTRLEN
+name|NGX_INET_ADDRSTRLEN
 argument_list|)
 expr_stmt|;
 name|len

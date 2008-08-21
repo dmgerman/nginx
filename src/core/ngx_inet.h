@@ -28,8 +28,16 @@ directive|include
 file|<ngx_core.h>
 end_include
 
+begin_define
+DECL|macro|NGX_INET_ADDRSTRLEN
+define|#
+directive|define
+name|NGX_INET_ADDRSTRLEN
+value|(sizeof("255.255.255.255") - 1)
+end_define
+
 begin_typedef
-DECL|struct|__anon2be1dd720108
+DECL|struct|__anon274f06380108
 typedef|typedef
 struct|struct
 block|{
@@ -48,7 +56,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|union|__anon2be1dd72020a
+DECL|union|__anon274f0638020a
 typedef|typedef
 union|union
 block|{
@@ -63,7 +71,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be1dd720308
+DECL|struct|__anon274f06380308
 typedef|typedef
 struct|struct
 block|{
@@ -88,7 +96,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be1dd720408
+DECL|struct|__anon274f06380408
 typedef|typedef
 struct|struct
 block|{

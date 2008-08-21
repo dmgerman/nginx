@@ -151,9 +151,7 @@ name|cf
 operator|->
 name|pool
 argument_list|,
-name|INET_ADDRSTRLEN
-operator|-
-literal|1
+name|NGX_INET_ADDRSTRLEN
 operator|+
 sizeof|sizeof
 argument_list|(
@@ -193,7 +191,7 @@ name|addr_text
 operator|.
 name|data
 argument_list|,
-name|INET_ADDRSTRLEN
+name|NGX_INET_ADDRSTRLEN
 argument_list|)
 expr_stmt|;
 name|ls
@@ -282,7 +280,7 @@ name|ls
 operator|->
 name|addr_text_max_len
 operator|=
-name|INET_ADDRSTRLEN
+name|NGX_INET_ADDRSTRLEN
 expr_stmt|;
 return|return
 name|ls
@@ -549,7 +547,7 @@ index|]
 operator|.
 name|addr_text_max_len
 operator|=
-name|INET_ADDRSTRLEN
+name|NGX_INET_ADDRSTRLEN
 expr_stmt|;
 name|ls
 index|[
@@ -566,9 +564,7 @@ name|cycle
 operator|->
 name|pool
 argument_list|,
-name|INET_ADDRSTRLEN
-operator|-
-literal|1
+name|NGX_INET_ADDRSTRLEN
 operator|+
 sizeof|sizeof
 argument_list|(
@@ -634,7 +630,7 @@ name|addr_text
 operator|.
 name|data
 argument_list|,
-name|INET_ADDRSTRLEN
+name|NGX_INET_ADDRSTRLEN
 argument_list|)
 expr_stmt|;
 if|if

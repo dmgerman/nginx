@@ -4459,7 +4459,7 @@ name|r
 operator|->
 name|pool
 argument_list|,
-name|INET_ADDRSTRLEN
+name|NGX_INET_ADDRSTRLEN
 argument_list|)
 expr_stmt|;
 if|if

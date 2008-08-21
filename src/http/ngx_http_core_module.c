@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bd53cee0108
+DECL|struct|__anon2ac0d3290108
 typedef|typedef
 struct|struct
 block|{
@@ -6927,7 +6927,7 @@ name|s
 operator|->
 name|data
 argument_list|,
-name|INET_ADDRSTRLEN
+name|NGX_INET_ADDRSTRLEN
 argument_list|)
 expr_stmt|;
 return|return
@@ -13042,9 +13042,7 @@ name|conf
 operator|.
 name|addr
 argument_list|,
-name|INET_ADDRSTRLEN
-operator|+
-literal|6
+name|NGX_INET_ADDRSTRLEN
 argument_list|)
 expr_stmt|;
 name|ngx_sprintf
