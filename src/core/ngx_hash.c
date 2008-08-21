@@ -721,6 +721,17 @@ block|}
 block|}
 if|if
 condition|(
+name|len
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+name|NULL
+return|;
+block|}
+if|if
+condition|(
 name|hash
 operator|->
 name|wc_head

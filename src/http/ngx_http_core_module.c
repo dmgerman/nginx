@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c5327da0108
+DECL|struct|__anon2bd53cee0108
 typedef|typedef
 struct|struct
 block|{
@@ -13725,7 +13725,10 @@ operator|.
 name|data
 operator|==
 name|NULL
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
 name|value
 index|[
 literal|1
@@ -13801,6 +13804,24 @@ name|NGX_CONF_ERROR
 return|;
 block|}
 block|}
+else|else
+block|{
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"the first server name must not be empty"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
+block|}
 for|for
 control|(
 name|i
@@ -13833,15 +13854,6 @@ index|]
 expr_stmt|;
 if|if
 condition|(
-name|value
-index|[
-name|i
-index|]
-operator|.
-name|len
-operator|==
-literal|0
-operator|||
 operator|(
 name|ch
 operator|==
