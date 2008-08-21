@@ -77,7 +77,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2af66a560108
+DECL|struct|__anon2bc14b130108
 typedef|typedef
 struct|struct
 block|{
@@ -98,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af66a560208
+DECL|struct|__anon2bc14b130208
 typedef|typedef
 struct|struct
 block|{
@@ -119,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af66a560308
+DECL|struct|__anon2bc14b130308
 typedef|typedef
 struct|struct
 block|{
@@ -140,7 +140,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af66a560408
+DECL|struct|__anon2bc14b130408
 typedef|typedef
 struct|struct
 block|{
@@ -160,7 +160,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af66a560508
+DECL|struct|__anon2bc14b130508
 typedef|typedef
 struct|struct
 block|{
@@ -189,7 +189,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af66a560608
+DECL|struct|__anon2bc14b130608
 typedef|typedef
 struct|struct
 block|{
@@ -992,6 +992,18 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_function_decl
+specifier|static
+name|void
+name|ngx_http_xslt_filter_exit
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_decl_stmt
 DECL|variable|ngx_http_xslt_default_types
 name|ngx_str_t
@@ -1163,10 +1175,10 @@ comment|/* init thread */
 name|NULL
 block|,
 comment|/* exit thread */
-name|NULL
+name|ngx_http_xslt_filter_exit
 block|,
 comment|/* exit process */
-name|NULL
+name|ngx_http_xslt_filter_exit
 block|,
 comment|/* exit master */
 name|NGX_MODULE_V1_PADDING
