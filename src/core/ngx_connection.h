@@ -70,10 +70,6 @@ DECL|member|addr_text
 name|ngx_str_t
 name|addr_text
 decl_stmt|;
-DECL|member|family
-name|int
-name|family
-decl_stmt|;
 DECL|member|type
 name|int
 name|type
@@ -232,7 +228,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon279ba64d0103
+DECL|enum|__anon2a1bcba30103
 typedef|typedef
 enum|enum
 block|{
@@ -256,7 +252,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon279ba64d0203
+DECL|enum|__anon2a1bcba30203
 typedef|typedef
 enum|enum
 block|{
@@ -277,7 +273,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon279ba64d0303
+DECL|enum|__anon2a1bcba30303
 typedef|typedef
 enum|enum
 block|{

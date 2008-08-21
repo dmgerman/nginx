@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ac0d3290108
+DECL|struct|__anon2a4650e40108
 typedef|typedef
 struct|struct
 block|{
@@ -6910,18 +6910,15 @@ name|s
 operator|->
 name|len
 operator|=
-name|ngx_inet_ntop
+name|ngx_sock_ntop
 argument_list|(
-name|c
-operator|->
-name|listening
-operator|->
-name|family
-argument_list|,
+operator|(
+expr|struct
+name|sockaddr
+operator|*
+operator|)
 operator|&
-name|r
-operator|->
-name|in_addr
+name|sin
 argument_list|,
 name|s
 operator|->

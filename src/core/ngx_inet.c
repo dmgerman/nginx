@@ -185,12 +185,9 @@ end_comment
 
 begin_function
 name|size_t
-DECL|function|ngx_sock_ntop (int family,struct sockaddr * sa,u_char * text,size_t len)
+DECL|function|ngx_sock_ntop (struct sockaddr * sa,u_char * text,size_t len)
 name|ngx_sock_ntop
 parameter_list|(
-name|int
-name|family
-parameter_list|,
 name|struct
 name|sockaddr
 modifier|*
@@ -215,7 +212,9 @@ name|sin
 decl_stmt|;
 if|if
 condition|(
-name|family
+name|sa
+operator|->
+name|sa_family
 operator|==
 name|AF_INET
 condition|)
@@ -2056,8 +2055,6 @@ name|len
 operator|=
 name|ngx_sock_ntop
 argument_list|(
-name|AF_INET
-argument_list|,
 operator|(
 expr|struct
 name|sockaddr

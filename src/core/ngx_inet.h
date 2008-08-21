@@ -37,7 +37,7 @@ value|(sizeof("255.255.255.255") - 1)
 end_define
 
 begin_typedef
-DECL|struct|__anon274f06380108
+DECL|struct|__anon27e744040108
 typedef|typedef
 struct|struct
 block|{
@@ -56,7 +56,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|union|__anon274f0638020a
+DECL|union|__anon27e74404020a
 typedef|typedef
 union|union
 block|{
@@ -71,7 +71,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon274f06380308
+DECL|struct|__anon27e744040308
 typedef|typedef
 struct|struct
 block|{
@@ -96,7 +96,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon274f06380408
+DECL|struct|__anon27e744040408
 typedef|typedef
 struct|struct
 block|{
@@ -212,9 +212,6 @@ begin_function_decl
 name|size_t
 name|ngx_sock_ntop
 parameter_list|(
-name|int
-name|family
-parameter_list|,
 name|struct
 name|sockaddr
 modifier|*

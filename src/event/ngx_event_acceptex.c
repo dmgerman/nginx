@@ -325,12 +325,6 @@ name|ngx_sock_ntop
 argument_list|(
 name|c
 operator|->
-name|listening
-operator|->
-name|family
-argument_list|,
-name|c
-operator|->
 name|sockaddr
 argument_list|,
 name|c
@@ -455,7 +449,9 @@ name|ngx_socket
 argument_list|(
 name|ls
 operator|->
-name|family
+name|sockaddr
+operator|->
+name|sa_family
 argument_list|,
 name|ls
 operator|->

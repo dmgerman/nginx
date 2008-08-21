@@ -852,10 +852,6 @@ name|len
 operator|=
 name|ngx_sock_ntop
 argument_list|(
-name|ls
-operator|->
-name|family
-argument_list|,
 name|c
 operator|->
 name|sockaddr
