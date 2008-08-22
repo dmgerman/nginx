@@ -1196,6 +1196,9 @@ return|return
 name|NGX_OK
 return|;
 block|}
+ifdef|#
+directive|ifdef
+name|GLOB_NOMATCH
 if|if
 condition|(
 name|n
@@ -1211,6 +1214,8 @@ return|return
 name|NGX_OK
 return|;
 block|}
+endif|#
+directive|endif
 return|return
 name|NGX_ERROR
 return|;
@@ -1244,7 +1249,7 @@ name|gl
 operator|->
 name|pglob
 operator|.
-name|gl_pathc
+name|gl_matchc
 condition|)
 block|{
 name|name
