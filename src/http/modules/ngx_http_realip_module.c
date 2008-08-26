@@ -26,7 +26,7 @@ comment|/* AF_INET only */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2a45d5410108
+DECL|struct|__anon2b5b9a0f0108
 typedef|typedef
 struct|struct
 block|{
@@ -45,7 +45,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a45d5410208
+DECL|struct|__anon2b5b9a0f0208
 typedef|typedef
 struct|struct
 block|{
@@ -66,7 +66,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a45d5410308
+DECL|struct|__anon2b5b9a0f0308
 typedef|typedef
 struct|struct
 block|{
@@ -1036,43 +1036,6 @@ name|args
 operator|->
 name|elts
 expr_stmt|;
-name|from
-operator|->
-name|addr
-operator|=
-name|inet_addr
-argument_list|(
-operator|(
-name|char
-operator|*
-operator|)
-name|value
-index|[
-literal|1
-index|]
-operator|.
-name|data
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|from
-operator|->
-name|addr
-operator|!=
-name|INADDR_NONE
-condition|)
-block|{
-name|from
-operator|->
-name|mask
-operator|=
-literal|0xffffffff
-expr_stmt|;
-return|return
-name|NGX_CONF_OK
-return|;
-block|}
 name|rc
 operator|=
 name|ngx_ptocidr
