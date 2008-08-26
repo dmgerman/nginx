@@ -141,7 +141,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af8cc7a0108
+DECL|struct|__anon2c88c0230108
 typedef|typedef
 struct|struct
 block|{
@@ -217,7 +217,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af8cc7a0208
+DECL|struct|__anon2c88c0230208
 typedef|typedef
 struct|struct
 block|{
@@ -253,7 +253,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2af8cc7a0303
+DECL|enum|__anon2c88c0230303
 typedef|typedef
 enum|enum
 block|{
@@ -345,7 +345,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2af8cc7a0408
+DECL|struct|__anon2c88c0230408
 typedef|typedef
 struct|struct
 block|{
@@ -369,7 +369,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af8cc7a0508
+DECL|struct|__anon2c88c0230508
 typedef|typedef
 struct|struct
 block|{
@@ -384,7 +384,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af8cc7a0608
+DECL|struct|__anon2c88c0230608
 typedef|typedef
 struct|struct
 block|{
@@ -447,7 +447,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af8cc7a0708
+DECL|struct|__anon2c88c0230708
 typedef|typedef
 struct|struct
 block|{
@@ -516,7 +516,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2af8cc7a0808
+DECL|struct|__anon2c88c0230808
 typedef|typedef
 struct|struct
 block|{
@@ -542,7 +542,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af8cc7a0908
+DECL|struct|__anon2c88c0230908
 typedef|typedef
 struct|struct
 block|{
@@ -570,7 +570,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af8cc7a0a08
+DECL|struct|__anon2c88c0230a08
 typedef|typedef
 struct|struct
 block|{
@@ -590,7 +590,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af8cc7a0b08
+DECL|struct|__anon2c88c0230b08
 typedef|typedef
 struct|struct
 block|{
@@ -694,7 +694,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2af8cc7a0c08
+DECL|struct|__anon2c88c0230c08
 typedef|typedef
 struct|struct
 block|{
@@ -789,6 +789,19 @@ name|alias
 range|:
 literal|1
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_GZIP
+operator|)
+DECL|member|gzip_disable_msie6
+name|unsigned
+name|gzip_disable_msie6
+range|:
+literal|2
+decl_stmt|;
+endif|#
+directive|endif
 DECL|member|static_locations
 name|ngx_http_location_tree_node_t
 modifier|*
@@ -1096,7 +1109,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2af8cc7a0d08
+DECL|struct|__anon2c88c0230d08
 typedef|typedef
 struct|struct
 block|{
