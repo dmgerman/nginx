@@ -622,7 +622,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b7ab0f80108
+DECL|struct|__anon28f6743c0108
 typedef|typedef
 struct|struct
 block|{
@@ -667,7 +667,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7ab0f80208
+DECL|struct|__anon28f6743c0208
 typedef|typedef
 struct|struct
 block|{
@@ -807,7 +807,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7ab0f80308
+DECL|struct|__anon28f6743c0308
 typedef|typedef
 struct|struct
 block|{
@@ -822,7 +822,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7ab0f80408
+DECL|struct|__anon28f6743c0408
 typedef|typedef
 struct|struct
 block|{
@@ -847,7 +847,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7ab0f80508
+DECL|struct|__anon28f6743c0508
 typedef|typedef
 struct|struct
 block|{
@@ -870,7 +870,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7ab0f80608
+DECL|struct|__anon28f6743c0608
 typedef|typedef
 struct|struct
 block|{
@@ -897,7 +897,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2b7ab0f80708
+DECL|struct|__anon28f6743c0708
 typedef|typedef
 struct|struct
 block|{
@@ -1156,17 +1156,6 @@ parameter_list|,
 name|prev
 parameter_list|,
 define|default)                    \     if (conf == 0) {                                                         \         conf = (prev == 0) ? default : prev;                                 \     }
-end_define
-
-begin_define
-DECL|macro|addressof (addr)
-define|#
-directive|define
-name|addressof
-parameter_list|(
-name|addr
-parameter_list|)
-value|((int)&addr)
 end_define
 
 begin_function_decl
