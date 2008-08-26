@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29637bc50108
+DECL|struct|__anon2bc3c6260108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29637bc50208
+DECL|struct|__anon2bc3c6260208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29637bc50308
+DECL|struct|__anon2bc3c6260308
 typedef|typedef
 struct|struct
 block|{
@@ -218,6 +218,17 @@ value|strstr((const char *) s1, (const char *) s2)
 end_define
 
 begin_define
+DECL|macro|ngx_strlen (s)
+define|#
+directive|define
+name|ngx_strlen
+parameter_list|(
+name|s
+parameter_list|)
+value|strlen((const char *) s)
+end_define
+
+begin_define
 DECL|macro|ngx_strchr (s1,c)
 define|#
 directive|define
@@ -230,16 +241,54 @@ parameter_list|)
 value|strchr((const char *) s1, (int) c)
 end_define
 
-begin_define
-DECL|macro|ngx_strlen (s)
-define|#
-directive|define
-name|ngx_strlen
+begin_function
+specifier|static
+name|ngx_inline
+name|u_char
+modifier|*
+DECL|function|ngx_strlchr (u_char * p,u_char * last,u_char c)
+name|ngx_strlchr
 parameter_list|(
-name|s
+name|u_char
+modifier|*
+name|p
+parameter_list|,
+name|u_char
+modifier|*
+name|last
+parameter_list|,
+name|u_char
+name|c
 parameter_list|)
-value|strlen((const char *) s)
-end_define
+block|{
+while|while
+condition|(
+name|p
+operator|<
+name|last
+condition|)
+block|{
+if|if
+condition|(
+operator|*
+name|p
+operator|==
+name|c
+condition|)
+block|{
+return|return
+name|p
+return|;
+block|}
+name|p
+operator|++
+expr_stmt|;
+block|}
+return|return
+name|NULL
+return|;
+block|}
+end_function
 
 begin_comment
 comment|/*  * msvc and icc7 compile memset() to the inline "rep stos"  * while ZeroMemory() and bzero() are the calls.  * icc7 may also inline several mov's of a zeroed register for small blocks.  */
