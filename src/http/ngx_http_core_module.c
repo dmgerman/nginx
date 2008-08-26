@@ -34,7 +34,7 @@ file|<nginx.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a4650e40108
+DECL|struct|__anon295c41240108
 typedef|typedef
 struct|struct
 block|{
@@ -12952,7 +12952,9 @@ name|ls
 operator|->
 name|family
 operator|=
-name|AF_INET
+name|u
+operator|.
+name|family
 expr_stmt|;
 name|ls
 operator|->

@@ -1358,7 +1358,9 @@ name|imls
 operator|->
 name|family
 operator|=
-name|AF_INET
+name|u
+operator|.
+name|family
 expr_stmt|;
 name|imls
 operator|->

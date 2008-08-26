@@ -37,7 +37,7 @@ value|(sizeof("255.255.255.255") - 1)
 end_define
 
 begin_typedef
-DECL|struct|__anon27e744040108
+DECL|struct|__anon2782ea570108
 typedef|typedef
 struct|struct
 block|{
@@ -56,7 +56,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|union|__anon27e74404020a
+DECL|union|__anon2782ea57020a
 typedef|typedef
 union|union
 block|{
@@ -71,7 +71,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e744040308
+DECL|struct|__anon2782ea570308
 typedef|typedef
 struct|struct
 block|{
@@ -96,14 +96,10 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e744040408
+DECL|struct|__anon2782ea570408
 typedef|typedef
 struct|struct
 block|{
-DECL|member|type
-name|ngx_int_t
-name|type
-decl_stmt|;
 DECL|member|url
 name|ngx_str_t
 name|url
@@ -127,6 +123,10 @@ decl_stmt|;
 DECL|member|default_port
 name|in_port_t
 name|default_port
+decl_stmt|;
+DECL|member|family
+name|int
+name|family
 decl_stmt|;
 DECL|member|listen
 name|unsigned
@@ -152,21 +152,9 @@ name|one_addr
 range|:
 literal|1
 decl_stmt|;
-DECL|member|wildcard
-name|unsigned
-name|wildcard
-range|:
-literal|1
-decl_stmt|;
 DECL|member|no_port
 name|unsigned
 name|no_port
-range|:
-literal|1
-decl_stmt|;
-DECL|member|unix_socket
-name|unsigned
-name|unix_socket
 range|:
 literal|1
 decl_stmt|;
