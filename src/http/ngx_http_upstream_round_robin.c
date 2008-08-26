@@ -3288,6 +3288,13 @@ name|accessed
 operator|=
 name|now
 expr_stmt|;
+if|if
+condition|(
+name|peer
+operator|->
+name|max_fails
+condition|)
+block|{
 name|peer
 operator|->
 name|current_weight
@@ -3300,6 +3307,7 @@ name|peer
 operator|->
 name|max_fails
 expr_stmt|;
+block|}
 name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
