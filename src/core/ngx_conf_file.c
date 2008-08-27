@@ -376,7 +376,7 @@ name|ngx_conf_file_t
 modifier|*
 name|prev
 decl_stmt|;
-DECL|enum|__anon294b59590103
+DECL|enum|__anon27d66f820103
 enum|enum
 block|{
 DECL|enumerator|parse_file
@@ -1877,6 +1877,28 @@ name|line
 operator|=
 name|start_line
 expr_stmt|;
+if|if
+condition|(
+name|d_quoted
+condition|)
+block|{
+name|ch
+operator|=
+literal|'"'
+expr_stmt|;
+block|}
+if|else if
+condition|(
+name|s_quoted
+condition|)
+block|{
+name|ch
+operator|=
+literal|'\''
+expr_stmt|;
+block|}
+else|else
+block|{
 name|ngx_conf_log_error
 argument_list|(
 name|NGX_LOG_EMERG
@@ -1890,6 +1912,24 @@ argument_list|,
 literal|10
 argument_list|,
 name|start
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"too long parameter, probably "
+literal|"missing terminating \"%c\" character"
+argument_list|,
+name|ch
 argument_list|)
 expr_stmt|;
 return|return
