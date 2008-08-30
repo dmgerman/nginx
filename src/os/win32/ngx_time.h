@@ -188,6 +188,14 @@ name|NGX_HAVE_GETTIMEZONE
 value|1
 end_define
 
+begin_define
+DECL|macro|ngx_timezone_update ()
+define|#
+directive|define
+name|ngx_timezone_update
+parameter_list|()
+end_define
+
 begin_function_decl
 name|ngx_int_t
 name|ngx_gettimezone

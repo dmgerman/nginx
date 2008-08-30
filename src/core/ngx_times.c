@@ -257,17 +257,6 @@ index|[
 literal|0
 index|]
 expr_stmt|;
-if|#
-directive|if
-operator|!
-operator|(
-name|NGX_WIN32
-operator|)
-name|tzset
-argument_list|()
-expr_stmt|;
-endif|#
-directive|endif
 name|ngx_time_update
 argument_list|(
 literal|0
