@@ -141,7 +141,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c88c0230108
+DECL|struct|__anon2c2c76290108
 typedef|typedef
 struct|struct
 block|{
@@ -157,6 +157,19 @@ name|bind
 range|:
 literal|1
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_SSL
+operator|)
+DECL|member|ssl
+name|unsigned
+name|ssl
+range|:
+literal|1
+decl_stmt|;
+endif|#
+directive|endif
 DECL|member|backlog
 name|int
 name|backlog
@@ -217,7 +230,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c88c0230208
+DECL|struct|__anon2c2c76290208
 typedef|typedef
 struct|struct
 block|{
@@ -253,7 +266,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c88c0230303
+DECL|enum|__anon2c2c76290303
 typedef|typedef
 enum|enum
 block|{
@@ -345,7 +358,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c88c0230408
+DECL|struct|__anon2c2c76290408
 typedef|typedef
 struct|struct
 block|{
@@ -369,7 +382,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c88c0230508
+DECL|struct|__anon2c2c76290508
 typedef|typedef
 struct|struct
 block|{
@@ -384,7 +397,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c88c0230608
+DECL|struct|__anon2c2c76290608
 typedef|typedef
 struct|struct
 block|{
@@ -447,7 +460,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c88c0230708
+DECL|struct|__anon2c2c76290708
 typedef|typedef
 struct|struct
 block|{
@@ -516,7 +529,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2c88c0230808
+DECL|struct|__anon2c2c76290808
 typedef|typedef
 struct|struct
 block|{
@@ -535,6 +548,18 @@ name|ngx_http_virtual_names_t
 modifier|*
 name|virtual_names
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_SSL
+operator|)
+DECL|member|ssl
+name|ngx_uint_t
+name|ssl
+decl_stmt|;
+comment|/* unsigned  ssl:1; */
+endif|#
+directive|endif
 DECL|typedef|ngx_http_in_addr_t
 block|}
 name|ngx_http_in_addr_t
@@ -542,7 +567,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c88c0230908
+DECL|struct|__anon2c2c76290908
 typedef|typedef
 struct|struct
 block|{
@@ -570,7 +595,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c88c0230a08
+DECL|struct|__anon2c2c76290a08
 typedef|typedef
 struct|struct
 block|{
@@ -590,7 +615,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c88c0230b08
+DECL|struct|__anon2c2c76290b08
 typedef|typedef
 struct|struct
 block|{
@@ -651,6 +676,19 @@ name|bind
 range|:
 literal|1
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_SSL
+operator|)
+DECL|member|ssl
+name|unsigned
+name|ssl
+range|:
+literal|1
+decl_stmt|;
+endif|#
+directive|endif
 DECL|member|listen_conf
 name|ngx_http_listen_conf_t
 modifier|*
@@ -694,7 +732,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c88c0230c08
+DECL|struct|__anon2c2c76290c08
 typedef|typedef
 struct|struct
 block|{
@@ -1109,7 +1147,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c88c0230d08
+DECL|struct|__anon2c2c76290d08
 typedef|typedef
 struct|struct
 block|{

@@ -59,7 +59,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon27e05ccf0108
+DECL|struct|__anon2c0968000108
 typedef|typedef
 struct|struct
 block|{
@@ -67,16 +67,16 @@ DECL|member|enable
 name|ngx_flag_t
 name|enable
 decl_stmt|;
-DECL|member|ssl
-name|ngx_ssl_t
-name|ssl
-decl_stmt|;
 DECL|member|prefer_server_ciphers
 name|ngx_flag_t
 name|prefer_server_ciphers
 decl_stmt|;
+DECL|member|ssl
+name|ngx_ssl_t
+name|ssl
+decl_stmt|;
 DECL|member|starttls
-name|ngx_flag_t
+name|ngx_uint_t
 name|starttls
 decl_stmt|;
 DECL|member|protocols
@@ -111,6 +111,15 @@ DECL|member|shm_zone
 name|ngx_shm_zone_t
 modifier|*
 name|shm_zone
+decl_stmt|;
+DECL|member|file
+name|u_char
+modifier|*
+name|file
+decl_stmt|;
+DECL|member|line
+name|ngx_uint_t
+name|line
 decl_stmt|;
 DECL|typedef|ngx_mail_ssl_conf_t
 block|}
