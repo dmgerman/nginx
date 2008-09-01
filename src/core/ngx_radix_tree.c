@@ -864,11 +864,13 @@ name|tree
 operator|->
 name|start
 operator|=
-name|ngx_palloc
+name|ngx_pmemalign
 argument_list|(
 name|tree
 operator|->
 name|pool
+argument_list|,
+name|ngx_pagesize
 argument_list|,
 name|ngx_pagesize
 argument_list|)
