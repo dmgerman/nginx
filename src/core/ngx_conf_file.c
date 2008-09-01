@@ -384,7 +384,7 @@ name|ngx_conf_file_t
 modifier|*
 name|prev
 decl_stmt|;
-DECL|enum|__anon278c12550103
+DECL|enum|__anon2b0d8c890103
 enum|enum
 block|{
 DECL|enumerator|parse_file
@@ -1972,6 +1972,10 @@ expr_stmt|;
 block|}
 name|size
 operator|=
+operator|(
+name|ssize_t
+operator|)
+operator|(
 name|file_size
 operator|-
 name|cf
@@ -1981,6 +1985,7 @@ operator|->
 name|file
 operator|.
 name|offset
+operator|)
 expr_stmt|;
 if|if
 condition|(
