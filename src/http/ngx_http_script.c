@@ -2732,6 +2732,12 @@ argument_list|)
 expr_stmt|;
 name|e
 operator|->
+name|is_args
+operator|=
+literal|1
+expr_stmt|;
+name|e
+operator|->
 name|args
 operator|=
 name|e
