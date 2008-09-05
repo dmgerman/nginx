@@ -15,12 +15,6 @@ directive|include
 file|<ngx_core.h>
 end_include
 
-begin_include
-include|#
-directive|include
-file|<ngx_types.h>
-end_include
-
 begin_decl_stmt
 DECL|variable|mday
 specifier|static
@@ -89,7 +83,7 @@ name|min
 decl_stmt|,
 name|sec
 decl_stmt|;
-DECL|enum|__anon27c23c340103
+DECL|enum|__anon2998ce7d0103
 enum|enum
 block|{
 DECL|enumerator|no

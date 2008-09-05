@@ -21,12 +21,6 @@ directive|include
 file|<ngx_http.h>
 end_include
 
-begin_include
-include|#
-directive|include
-file|<nginx.h>
-end_include
-
 begin_typedef
 DECL|typedef|ngx_http_log_op_t
 typedef|typedef
@@ -106,7 +100,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2961bc550108
+DECL|struct|__anon2a21e8030108
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +121,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2961bc550208
+DECL|struct|__anon2a21e8030208
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +142,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2961bc550308
+DECL|struct|__anon2a21e8030308
 typedef|typedef
 struct|struct
 block|{
@@ -169,7 +163,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2961bc550408
+DECL|struct|__anon2a21e8030408
 typedef|typedef
 struct|struct
 block|{
@@ -204,7 +198,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2961bc550508
+DECL|struct|__anon2a21e8030508
 typedef|typedef
 struct|struct
 block|{
@@ -239,7 +233,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2961bc550608
+DECL|struct|__anon2a21e8030608
 typedef|typedef
 struct|struct
 block|{

@@ -18,12 +18,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_event.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<ngx_http.h>
 end_include
 
@@ -76,14 +70,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon2bc8b783010a
+DECL|union|__anon288be2b4010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon2bc8b7830208
+DECL|struct|__anon288be2b40208
 struct|struct
 block|{
 DECL|member|lengths
@@ -114,7 +108,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bc8b7830308
+DECL|struct|__anon288be2b40308
 typedef|typedef
 struct|struct
 block|{
@@ -137,7 +131,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc8b7830408
+DECL|struct|__anon288be2b40408
 typedef|typedef
 struct|struct
 block|{
@@ -238,7 +232,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc8b7830508
+DECL|struct|__anon288be2b40508
 typedef|typedef
 struct|struct
 block|{
@@ -4795,7 +4789,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2bc8b7830603
+DECL|enum|__anon288be2b40603
 enum|enum
 block|{
 DECL|enumerator|sw_start
