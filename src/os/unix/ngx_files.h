@@ -933,7 +933,7 @@ value|(dir)->info.st_mtime
 end_define
 
 begin_typedef
-DECL|struct|__anon2769f8bb0108
+DECL|struct|__anon2a079be60108
 typedef|typedef
 struct|struct
 block|{
