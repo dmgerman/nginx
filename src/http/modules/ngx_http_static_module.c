@@ -1012,6 +1012,16 @@ name|log
 operator|=
 name|log
 expr_stmt|;
+name|b
+operator|->
+name|file
+operator|->
+name|directio
+operator|=
+name|of
+operator|.
+name|is_directio
+expr_stmt|;
 name|out
 operator|.
 name|buf

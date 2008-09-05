@@ -2174,6 +2174,15 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|of
+operator|->
+name|is_directio
+operator|=
+literal|1
+expr_stmt|;
+block|}
 block|}
 block|}
 name|done

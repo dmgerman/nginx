@@ -199,7 +199,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28d706ff0108
+DECL|struct|__anon2a2cdc640108
 typedef|typedef
 struct|struct
 block|{
@@ -238,7 +238,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28d706ff0208
+DECL|struct|__anon2a2cdc640208
 typedef|typedef
 struct|struct
 block|{
@@ -265,6 +265,10 @@ decl_stmt|;
 DECL|member|sendfile
 name|unsigned
 name|sendfile
+decl_stmt|;
+DECL|member|directio
+name|unsigned
+name|directio
 decl_stmt|;
 DECL|member|need_in_memory
 name|unsigned
@@ -307,7 +311,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28d706ff0308
+DECL|struct|__anon2a2cdc640308
 typedef|typedef
 struct|struct
 block|{
