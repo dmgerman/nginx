@@ -1166,6 +1166,12 @@ literal|1
 expr_stmt|;
 name|dir
 operator|->
+name|valid_type
+operator|=
+literal|1
+expr_stmt|;
+name|dir
+operator|->
 name|ready
 operator|=
 literal|1

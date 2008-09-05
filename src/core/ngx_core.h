@@ -251,7 +251,13 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_types.h>
+file|<ngx_string.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_files.h>
 end_include
 
 begin_include
@@ -270,12 +276,6 @@ begin_include
 include|#
 directive|include
 file|<ngx_user.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_string.h>
 end_include
 
 begin_include
@@ -336,12 +336,6 @@ begin_include
 include|#
 directive|include
 file|<ngx_file.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_files.h>
 end_include
 
 begin_include
