@@ -1295,6 +1295,9 @@ if|if
 condition|(
 name|bsize
 operator|>=
+operator|(
+name|off_t
+operator|)
 name|ctx
 operator|->
 name|bufs
@@ -1324,6 +1327,9 @@ name|size
 expr_stmt|;
 if|if
 condition|(
+operator|(
+name|off_t
+operator|)
 name|size
 operator|>
 name|bsize
