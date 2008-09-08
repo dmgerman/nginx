@@ -508,7 +508,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon28a478cc0103
+DECL|enum|__anon2abe084f0103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2514,7 +2514,7 @@ name|hash
 decl_stmt|,
 name|i
 decl_stmt|;
-DECL|enum|__anon28a478cc0203
+DECL|enum|__anon2abe084f0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2554,7 +2554,7 @@ init|=
 literal|"\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
 literal|"\0\0\0\0\0\0\0\0\0\0\0\0\0-\0\0"
 literal|"0123456789\0\0\0\0\0\0"
-literal|"\0abcdefghijklmnopqrstuvwxyz\0\0\0\0\0"
+literal|"\0abcdefghijklmnopqrstuvwxyz\0\0\0\0_"
 literal|"\0abcdefghijklmnopqrstuvwxyz\0\0\0\0\0"
 literal|"\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
 literal|"\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
@@ -3199,7 +3199,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon28a478cc0303
+DECL|enum|__anon2abe084f0303
 enum|enum
 block|{
 DECL|enumerator|sw_usual
