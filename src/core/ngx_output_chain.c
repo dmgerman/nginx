@@ -1976,11 +1976,19 @@ argument_list|,
 literal|0
 argument_list|,
 name|ngx_read_file_n
-literal|" read only %z of %O from file"
+literal|" read only %z of %O from \"%s\""
 argument_list|,
 name|n
 argument_list|,
 name|size
+argument_list|,
+name|src
+operator|->
+name|file
+operator|->
+name|name
+operator|.
+name|data
 argument_list|)
 expr_stmt|;
 if|if
