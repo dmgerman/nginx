@@ -1646,8 +1646,8 @@ end_if
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_directio (ngx_fd_t fd)
-name|ngx_directio
+DECL|function|ngx_directio_on (ngx_fd_t fd)
+name|ngx_directio_on
 parameter_list|(
 name|ngx_fd_t
 name|fd
@@ -1687,6 +1687,56 @@ name|F_SETFL
 argument_list|,
 name|flags
 operator||
+name|O_DIRECT
+argument_list|)
+return|;
+block|}
+end_function
+
+begin_function
+name|ngx_int_t
+DECL|function|ngx_directio_off (ngx_fd_t fd)
+name|ngx_directio_off
+parameter_list|(
+name|ngx_fd_t
+name|fd
+parameter_list|)
+block|{
+name|int
+name|flags
+decl_stmt|;
+name|flags
+operator|=
+name|fcntl
+argument_list|(
+name|fd
+argument_list|,
+name|F_GETFL
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|flags
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+return|return
+operator|-
+literal|1
+return|;
+block|}
+return|return
+name|fcntl
+argument_list|(
+name|fd
+argument_list|,
+name|F_SETFL
+argument_list|,
+name|flags
+operator|&
+operator|~
 name|O_DIRECT
 argument_list|)
 return|;

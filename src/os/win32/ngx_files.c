@@ -1871,8 +1871,23 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_directio (ngx_fd_t fd)
-name|ngx_directio
+DECL|function|ngx_directio_on (ngx_fd_t fd)
+name|ngx_directio_on
+parameter_list|(
+name|ngx_fd_t
+name|fd
+parameter_list|)
+block|{
+return|return
+literal|0
+return|;
+block|}
+end_function
+
+begin_function
+name|ngx_int_t
+DECL|function|ngx_directio_off (ngx_fd_t fd)
+name|ngx_directio_off
 parameter_list|(
 name|ngx_fd_t
 name|fd

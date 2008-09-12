@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6469630108
+DECL|struct|__anon278437730108
 typedef|typedef
 struct|struct
 block|{
@@ -90,7 +90,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6469630208
+DECL|struct|__anon278437730208
 typedef|typedef
 struct|struct
 block|{
@@ -1074,7 +1074,7 @@ end_function_decl
 
 begin_function_decl
 name|ngx_int_t
-name|ngx_directio
+name|ngx_directio_on
 parameter_list|(
 name|ngx_fd_t
 name|fd
@@ -1083,11 +1083,29 @@ function_decl|;
 end_function_decl
 
 begin_define
-DECL|macro|ngx_directio_n
+DECL|macro|ngx_directio_on_n
 define|#
 directive|define
-name|ngx_directio_n
-value|"ngx_directio_n"
+name|ngx_directio_on_n
+value|"ngx_directio_on_n"
+end_define
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_directio_off
+parameter_list|(
+name|ngx_fd_t
+name|fd
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_define
+DECL|macro|ngx_directio_off_n
+define|#
+directive|define
+name|ngx_directio_off_n
+value|"ngx_directio_off_n"
 end_define
 
 begin_endif

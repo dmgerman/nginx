@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a28ac460108
+DECL|struct|__anon2c2f36de0108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a28ac460208
+DECL|struct|__anon2c2f36de0208
 typedef|typedef
 struct|struct
 block|{
@@ -1194,7 +1194,7 @@ end_if
 
 begin_function_decl
 name|ngx_int_t
-name|ngx_directio
+name|ngx_directio_on
 parameter_list|(
 name|ngx_fd_t
 name|fd
@@ -1203,11 +1203,29 @@ function_decl|;
 end_function_decl
 
 begin_define
-DECL|macro|ngx_directio_n
+DECL|macro|ngx_directio_on_n
 define|#
 directive|define
-name|ngx_directio_n
+name|ngx_directio_on_n
 value|"fcntl(O_DIRECT)"
+end_define
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_directio_off
+parameter_list|(
+name|ngx_fd_t
+name|fd
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_define
+DECL|macro|ngx_directio_off_n
+define|#
+directive|define
+name|ngx_directio_off_n
+value|"fcntl(!O_DIRECT)"
 end_define
 
 begin_elif
@@ -1219,10 +1237,10 @@ operator|)
 end_elif
 
 begin_define
-DECL|macro|ngx_directio (fd)
+DECL|macro|ngx_directio_on (fd)
 define|#
 directive|define
-name|ngx_directio
+name|ngx_directio_on
 parameter_list|(
 name|fd
 parameter_list|)
@@ -1230,11 +1248,11 @@ value|fcntl(fd, F_NOCACHE, 1)
 end_define
 
 begin_define
-DECL|macro|ngx_directio_n
+DECL|macro|ngx_directio_on_n
 define|#
 directive|define
-name|ngx_directio_n
-value|"fcntl(F_NOCACHE)"
+name|ngx_directio_on_n
+value|"fcntl(F_NOCACHE, 1)"
 end_define
 
 begin_elif
@@ -1246,10 +1264,10 @@ operator|)
 end_elif
 
 begin_define
-DECL|macro|ngx_directio (fd)
+DECL|macro|ngx_directio_on (fd)
 define|#
 directive|define
-name|ngx_directio
+name|ngx_directio_on
 parameter_list|(
 name|fd
 parameter_list|)
@@ -1257,10 +1275,10 @@ value|directio(fd, DIRECTIO_ON)
 end_define
 
 begin_define
-DECL|macro|ngx_directio_n
+DECL|macro|ngx_directio_on_n
 define|#
 directive|define
-name|ngx_directio_n
+name|ngx_directio_on_n
 value|"directio(DIRECTIO_ON)"
 end_define
 
@@ -1270,10 +1288,10 @@ directive|else
 end_else
 
 begin_define
-DECL|macro|ngx_directio (fd)
+DECL|macro|ngx_directio_on (fd)
 define|#
 directive|define
-name|ngx_directio
+name|ngx_directio_on
 parameter_list|(
 name|fd
 parameter_list|)
@@ -1281,11 +1299,11 @@ value|0
 end_define
 
 begin_define
-DECL|macro|ngx_directio_n
+DECL|macro|ngx_directio_on_n
 define|#
 directive|define
-name|ngx_directio_n
-value|"ngx_directio_n"
+name|ngx_directio_on_n
+value|"ngx_directio_on_n"
 end_define
 
 begin_endif
