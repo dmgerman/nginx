@@ -961,6 +961,14 @@ name|file
 operator|->
 name|is_exec
 expr_stmt|;
+name|of
+operator|->
+name|is_directio
+operator|=
+name|file
+operator|->
+name|is_directio
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -1579,6 +1587,14 @@ name|of
 operator|->
 name|is_exec
 expr_stmt|;
+name|file
+operator|->
+name|is_directio
+operator|=
+name|of
+operator|->
+name|is_directio
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -2150,7 +2166,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|ngx_directio
+name|ngx_directio_on
 argument_list|(
 name|fd
 argument_list|)
@@ -2167,7 +2183,7 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-name|ngx_directio_n
+name|ngx_directio_on_n
 literal|" \"%s\" failed"
 argument_list|,
 name|name
