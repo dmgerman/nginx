@@ -100,7 +100,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a21e8030108
+DECL|struct|__anon2c51a47c0108
 typedef|typedef
 struct|struct
 block|{
@@ -121,7 +121,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a21e8030208
+DECL|struct|__anon2c51a47c0208
 typedef|typedef
 struct|struct
 block|{
@@ -142,7 +142,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a21e8030308
+DECL|struct|__anon2c51a47c0308
 typedef|typedef
 struct|struct
 block|{
@@ -163,7 +163,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a21e8030408
+DECL|struct|__anon2c51a47c0408
 typedef|typedef
 struct|struct
 block|{
@@ -198,7 +198,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a21e8030508
+DECL|struct|__anon2c51a47c0508
 typedef|typedef
 struct|struct
 block|{
@@ -233,7 +233,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a21e8030608
+DECL|struct|__anon2c51a47c0608
 typedef|typedef
 struct|struct
 block|{
@@ -2061,6 +2061,12 @@ operator|=
 name|llcf
 operator|->
 name|open_file_cache_min_uses
+expr_stmt|;
+name|of
+operator|.
+name|directio
+operator|=
+name|NGX_MAX_OFF_T_VALUE
 expr_stmt|;
 if|if
 condition|(
