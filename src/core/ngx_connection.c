@@ -2719,7 +2719,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"%ui worker_connections is not enough"
+literal|"%ui worker_connections are not enough"
 argument_list|,
 name|ngx_cycle
 operator|->
