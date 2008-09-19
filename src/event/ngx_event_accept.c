@@ -332,7 +332,11 @@ endif|#
 directive|endif
 name|ngx_accept_disabled
 operator|=
-name|NGX_ACCEPT_THRESHOLD
+name|ngx_cycle
+operator|->
+name|connection_n
+operator|/
+literal|8
 operator|-
 name|ngx_cycle
 operator|->
