@@ -403,6 +403,9 @@ parameter_list|,
 name|ngx_buf_t
 modifier|*
 name|b
+parameter_list|,
+name|ngx_uint_t
+name|allow_underscores
 parameter_list|)
 function_decl|;
 end_function_decl
