@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278437730108
+DECL|struct|__anon295b48370108
 typedef|typedef
 struct|struct
 block|{
@@ -90,7 +90,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278437730208
+DECL|struct|__anon295b48370208
 typedef|typedef
 struct|struct
 block|{
@@ -654,6 +654,30 @@ parameter_list|,
 name|n
 parameter_list|)
 value|_strnicmp((char *) s1, (char *) s2, n)
+end_define
+
+begin_function_decl
+name|char
+modifier|*
+name|ngx_realpath
+parameter_list|(
+name|u_char
+modifier|*
+name|path
+parameter_list|,
+name|u_char
+modifier|*
+name|resolved
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_define
+DECL|macro|ngx_realpath_n
+define|#
+directive|define
+name|ngx_realpath_n
+value|""
 end_define
 
 begin_define

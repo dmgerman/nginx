@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2f36de0108
+DECL|struct|__anon2967f5f10108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2f36de0208
+DECL|struct|__anon2967f5f10208
 typedef|typedef
 struct|struct
 block|{
@@ -725,6 +725,27 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_define
+DECL|macro|ngx_realpath (p,r)
+define|#
+directive|define
+name|ngx_realpath
+parameter_list|(
+name|p
+parameter_list|,
+name|r
+parameter_list|)
+value|realpath((char *) p, (char *) r)
+end_define
+
+begin_define
+DECL|macro|ngx_realpath_n
+define|#
+directive|define
+name|ngx_realpath_n
+value|"realpath()"
+end_define
 
 begin_define
 DECL|macro|ngx_getcwd (buf,size)

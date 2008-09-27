@@ -1094,6 +1094,32 @@ block|}
 end_function
 
 begin_function
+name|char
+modifier|*
+DECL|function|ngx_realpath (u_char * path,u_char * resolved)
+name|ngx_realpath
+parameter_list|(
+name|u_char
+modifier|*
+name|path
+parameter_list|,
+name|u_char
+modifier|*
+name|resolved
+parameter_list|)
+block|{
+comment|/* STUB */
+return|return
+operator|(
+name|char
+operator|*
+operator|)
+name|path
+return|;
+block|}
+end_function
+
+begin_function
 name|ngx_int_t
 DECL|function|ngx_open_dir (ngx_str_t * name,ngx_dir_t * dir)
 name|ngx_open_dir
