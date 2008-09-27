@@ -100,13 +100,18 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c51a47c0108
+DECL|struct|__anon296f0feb0108
 typedef|typedef
 struct|struct
 block|{
 DECL|member|name
 name|ngx_str_t
 name|name
+decl_stmt|;
+DECL|member|flushes
+name|ngx_array_t
+modifier|*
+name|flushes
 decl_stmt|;
 DECL|member|ops
 name|ngx_array_t
@@ -121,7 +126,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c51a47c0208
+DECL|struct|__anon296f0feb0208
 typedef|typedef
 struct|struct
 block|{
@@ -142,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c51a47c0308
+DECL|struct|__anon296f0feb0308
 typedef|typedef
 struct|struct
 block|{
@@ -163,7 +168,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c51a47c0408
+DECL|struct|__anon296f0feb0408
 typedef|typedef
 struct|struct
 block|{
@@ -185,12 +190,11 @@ DECL|member|error_log_time
 name|time_t
 name|error_log_time
 decl_stmt|;
-DECL|member|ops
-name|ngx_array_t
+DECL|member|format
+name|ngx_http_log_fmt_t
 modifier|*
-name|ops
+name|format
 decl_stmt|;
-comment|/* array of ngx_http_log_op_t */
 DECL|typedef|ngx_http_log_t
 block|}
 name|ngx_http_log_t
@@ -198,7 +202,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c51a47c0508
+DECL|struct|__anon296f0feb0508
 typedef|typedef
 struct|struct
 block|{
@@ -233,7 +237,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c51a47c0608
+DECL|struct|__anon296f0feb0608
 typedef|typedef
 struct|struct
 block|{
@@ -668,6 +672,10 @@ parameter_list|(
 name|ngx_conf_t
 modifier|*
 name|cf
+parameter_list|,
+name|ngx_array_t
+modifier|*
+name|flushes
 parameter_list|,
 name|ngx_array_t
 modifier|*
@@ -1163,6 +1171,20 @@ block|{
 comment|/*              * on FreeBSD writing to a full filesystem with enabled softupdates              * may block process for much longer time than writing to non-full              * filesystem, so we skip writing to a log for one second              */
 continue|continue;
 block|}
+name|ngx_http_script_flush_no_cacheable_variables
+argument_list|(
+name|r
+argument_list|,
+name|log
+index|[
+name|l
+index|]
+operator|.
+name|format
+operator|->
+name|flushes
+argument_list|)
+expr_stmt|;
 name|len
 operator|=
 literal|0
@@ -1174,6 +1196,8 @@ index|[
 name|l
 index|]
 operator|.
+name|format
+operator|->
 name|ops
 operator|->
 name|elts
@@ -1191,6 +1215,8 @@ index|[
 name|l
 index|]
 operator|.
+name|format
+operator|->
 name|ops
 operator|->
 name|nelts
@@ -1353,6 +1379,8 @@ index|[
 name|l
 index|]
 operator|.
+name|format
+operator|->
 name|ops
 operator|->
 name|nelts
@@ -1435,6 +1463,8 @@ index|[
 name|l
 index|]
 operator|.
+name|format
+operator|->
 name|ops
 operator|->
 name|nelts
@@ -3317,6 +3347,12 @@ literal|"combined"
 expr_stmt|;
 name|fmt
 operator|->
+name|flushes
+operator|=
+name|NULL
+expr_stmt|;
+name|fmt
+operator|->
 name|ops
 operator|=
 name|ngx_array_create
@@ -3661,14 +3697,13 @@ expr_stmt|;
 comment|/* the default "combined" format */
 name|log
 operator|->
-name|ops
+name|format
 operator|=
+operator|&
 name|fmt
 index|[
 literal|0
 index|]
-operator|.
-name|ops
 expr_stmt|;
 name|lmcf
 operator|->
@@ -4171,14 +4206,13 @@ condition|)
 block|{
 name|log
 operator|->
-name|ops
+name|format
 operator|=
+operator|&
 name|fmt
 index|[
 name|i
 index|]
-operator|.
-name|ops
 expr_stmt|;
 goto|goto
 name|buffer
@@ -4612,6 +4646,37 @@ index|]
 expr_stmt|;
 name|fmt
 operator|->
+name|flushes
+operator|=
+name|ngx_array_create
+argument_list|(
+name|cf
+operator|->
+name|pool
+argument_list|,
+literal|4
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|ngx_int_t
+argument_list|)
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|fmt
+operator|->
+name|flushes
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
+name|fmt
+operator|->
 name|ops
 operator|=
 name|ngx_array_create
@@ -4648,6 +4713,10 @@ name|cf
 argument_list|,
 name|fmt
 operator|->
+name|flushes
+argument_list|,
+name|fmt
+operator|->
 name|ops
 argument_list|,
 name|cf
@@ -4664,12 +4733,16 @@ begin_function
 specifier|static
 name|char
 modifier|*
-DECL|function|ngx_http_log_compile_format (ngx_conf_t * cf,ngx_array_t * ops,ngx_array_t * args,ngx_uint_t s)
+DECL|function|ngx_http_log_compile_format (ngx_conf_t * cf,ngx_array_t * flushes,ngx_array_t * ops,ngx_array_t * args,ngx_uint_t s)
 name|ngx_http_log_compile_format
 parameter_list|(
 name|ngx_conf_t
 modifier|*
 name|cf
+parameter_list|,
+name|ngx_array_t
+modifier|*
+name|flushes
 parameter_list|,
 name|ngx_array_t
 modifier|*
@@ -4702,6 +4775,10 @@ modifier|*
 name|value
 decl_stmt|,
 name|var
+decl_stmt|;
+name|ngx_int_t
+modifier|*
+name|flush
 decl_stmt|;
 name|ngx_uint_t
 name|bracket
@@ -5243,6 +5320,38 @@ block|{
 return|return
 name|NGX_CONF_ERROR
 return|;
+block|}
+if|if
+condition|(
+name|flushes
+condition|)
+block|{
+name|flush
+operator|=
+name|ngx_array_push
+argument_list|(
+name|flushes
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|flush
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
+operator|*
+name|flush
+operator|=
+name|op
+operator|->
+name|data
+expr_stmt|;
+comment|/* variable index */
 block|}
 name|found
 label|:
@@ -6018,6 +6127,8 @@ condition|(
 name|ngx_http_log_compile_format
 argument_list|(
 name|cf
+argument_list|,
+name|NULL
 argument_list|,
 name|fmt
 operator|->

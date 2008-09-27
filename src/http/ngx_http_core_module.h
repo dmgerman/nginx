@@ -141,7 +141,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be7e37a0108
+DECL|struct|__anon2a1065390108
 typedef|typedef
 struct|struct
 block|{
@@ -230,7 +230,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be7e37a0208
+DECL|struct|__anon2a1065390208
 typedef|typedef
 struct|struct
 block|{
@@ -266,7 +266,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2be7e37a0303
+DECL|enum|__anon2a1065390303
 typedef|typedef
 enum|enum
 block|{
@@ -358,7 +358,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2be7e37a0408
+DECL|struct|__anon2a1065390408
 typedef|typedef
 struct|struct
 block|{
@@ -382,7 +382,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be7e37a0508
+DECL|struct|__anon2a1065390508
 typedef|typedef
 struct|struct
 block|{
@@ -397,7 +397,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be7e37a0608
+DECL|struct|__anon2a1065390608
 typedef|typedef
 struct|struct
 block|{
@@ -460,7 +460,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be7e37a0708
+DECL|struct|__anon2a1065390708
 typedef|typedef
 struct|struct
 block|{
@@ -533,7 +533,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2be7e37a0808
+DECL|struct|__anon2a1065390808
 typedef|typedef
 struct|struct
 block|{
@@ -571,7 +571,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be7e37a0908
+DECL|struct|__anon2a1065390908
 typedef|typedef
 struct|struct
 block|{
@@ -599,7 +599,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be7e37a0a08
+DECL|struct|__anon2a1065390a08
 typedef|typedef
 struct|struct
 block|{
@@ -619,7 +619,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be7e37a0b08
+DECL|struct|__anon2a1065390b08
 typedef|typedef
 struct|struct
 block|{
@@ -736,7 +736,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2be7e37a0c08
+DECL|struct|__anon2a1065390c08
 typedef|typedef
 struct|struct
 block|{
@@ -1044,6 +1044,11 @@ name|ngx_flag_t
 name|log_not_found
 decl_stmt|;
 comment|/* log_not_found */
+DECL|member|log_subrequest
+name|ngx_flag_t
+name|log_subrequest
+decl_stmt|;
+comment|/* log_subrequest */
 DECL|member|recursive_error_pages
 name|ngx_flag_t
 name|recursive_error_pages
@@ -1151,7 +1156,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2be7e37a0d08
+DECL|struct|__anon2a1065390d08
 typedef|typedef
 struct|struct
 block|{
