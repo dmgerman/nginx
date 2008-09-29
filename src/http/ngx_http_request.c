@@ -8083,6 +8083,7 @@ name|pr
 argument_list|)
 expr_stmt|;
 block|}
+return|return;
 block|}
 if|if
 condition|(
