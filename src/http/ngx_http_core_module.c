@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29db2fa60108
+DECL|struct|__anon2bf8a3af0108
 typedef|typedef
 struct|struct
 block|{
@@ -14596,6 +14596,54 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"the $document_root variable may not be used "
+literal|"in the \"%V\" directive"
+argument_list|,
+operator|&
+name|cmd
+operator|->
+name|name
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
+if|if
+condition|(
+name|ngx_strstr
+argument_list|(
+name|value
+index|[
+literal|1
+index|]
+operator|.
+name|data
+argument_list|,
+literal|"$realpath_root"
+argument_list|)
+operator|||
+name|ngx_strstr
+argument_list|(
+name|value
+index|[
+literal|1
+index|]
+operator|.
+name|data
+argument_list|,
+literal|"${realpath_root}"
+argument_list|)
+condition|)
+block|{
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"the $realpath_root variable may not be used "
 literal|"in the \"%V\" directive"
 argument_list|,
 operator|&
