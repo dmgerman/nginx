@@ -85,11 +85,27 @@ value|0x00000010
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_UPSTREAM_FT_HTTP_502
+define|#
+directive|define
+name|NGX_HTTP_UPSTREAM_FT_HTTP_502
+value|0x00000020
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_UPSTREAM_FT_HTTP_503
 define|#
 directive|define
 name|NGX_HTTP_UPSTREAM_FT_HTTP_503
-value|0x00000020
+value|0x00000040
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_UPSTREAM_FT_HTTP_504
+define|#
+directive|define
+name|NGX_HTTP_UPSTREAM_FT_HTTP_504
+value|0x00000080
 end_define
 
 begin_define
@@ -97,7 +113,7 @@ DECL|macro|NGX_HTTP_UPSTREAM_FT_HTTP_404
 define|#
 directive|define
 name|NGX_HTTP_UPSTREAM_FT_HTTP_404
-value|0x00000040
+value|0x00000100
 end_define
 
 begin_define
@@ -105,7 +121,7 @@ DECL|macro|NGX_HTTP_UPSTREAM_FT_BUSY_LOCK
 define|#
 directive|define
 name|NGX_HTTP_UPSTREAM_FT_BUSY_LOCK
-value|0x00000080
+value|0x00000200
 end_define
 
 begin_define
@@ -113,7 +129,7 @@ DECL|macro|NGX_HTTP_UPSTREAM_FT_MAX_WAITING
 define|#
 directive|define
 name|NGX_HTTP_UPSTREAM_FT_MAX_WAITING
-value|0x00000100
+value|0x00000400
 end_define
 
 begin_define
@@ -133,6 +149,14 @@ value|0x80000000
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_UPSTREAM_FT_STATUS
+define|#
+directive|define
+name|NGX_HTTP_UPSTREAM_FT_STATUS
+value|(NGX_HTTP_UPSTREAM_FT_HTTP_500  \                                              |NGX_HTTP_UPSTREAM_FT_HTTP_502  \                                              |NGX_HTTP_UPSTREAM_FT_HTTP_503  \                                              |NGX_HTTP_UPSTREAM_FT_HTTP_504  \                                              |NGX_HTTP_UPSTREAM_FT_HTTP_404)
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_UPSTREAM_INVALID_HEADER
 define|#
 directive|define
@@ -141,7 +165,7 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon2b81f2ce0108
+DECL|struct|__anon2b4144aa0108
 typedef|typedef
 struct|struct
 block|{
@@ -177,7 +201,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b81f2ce0208
+DECL|struct|__anon2b4144aa0208
 typedef|typedef
 struct|struct
 block|{
@@ -246,7 +270,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b81f2ce0308
+DECL|struct|__anon2b4144aa0308
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +294,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b81f2ce0408
+DECL|struct|__anon2b4144aa0408
 typedef|typedef
 struct|struct
 block|{
@@ -412,7 +436,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b81f2ce0508
+DECL|struct|__anon2b4144aa0508
 typedef|typedef
 struct|struct
 block|{
@@ -579,7 +603,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b81f2ce0608
+DECL|struct|__anon2b4144aa0608
 typedef|typedef
 struct|struct
 block|{
@@ -615,7 +639,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b81f2ce0708
+DECL|struct|__anon2b4144aa0708
 typedef|typedef
 struct|struct
 block|{
@@ -733,7 +757,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b81f2ce0808
+DECL|struct|__anon2b4144aa0808
 typedef|typedef
 struct|struct
 block|{
@@ -1019,6 +1043,25 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+
+begin_typedef
+DECL|struct|__anon2b4144aa0908
+typedef|typedef
+struct|struct
+block|{
+DECL|member|status
+name|ngx_uint_t
+name|status
+decl_stmt|;
+DECL|member|mask
+name|ngx_uint_t
+name|mask
+decl_stmt|;
+DECL|typedef|ngx_http_upstream_next_t
+block|}
+name|ngx_http_upstream_next_t
+typedef|;
+end_typedef
 
 begin_function_decl
 name|ngx_int_t

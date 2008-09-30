@@ -70,14 +70,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon2a209b1a010a
+DECL|union|__anon2a2d20d6010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon2a209b1a0208
+DECL|struct|__anon2a2d20d60208
 struct|struct
 block|{
 DECL|member|lengths
@@ -108,7 +108,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a209b1a0308
+DECL|struct|__anon2a2d20d60308
 typedef|typedef
 struct|struct
 block|{
@@ -131,7 +131,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a209b1a0408
+DECL|struct|__anon2a2d20d60408
 typedef|typedef
 struct|struct
 block|{
@@ -232,7 +232,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a209b1a0508
+DECL|struct|__anon2a2d20d60508
 typedef|typedef
 struct|struct
 block|{
@@ -762,10 +762,28 @@ block|,
 block|{
 name|ngx_string
 argument_list|(
+literal|"http_502"
+argument_list|)
+block|,
+name|NGX_HTTP_UPSTREAM_FT_HTTP_502
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
 literal|"http_503"
 argument_list|)
 block|,
 name|NGX_HTTP_UPSTREAM_FT_HTTP_503
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"http_504"
+argument_list|)
+block|,
+name|NGX_HTTP_UPSTREAM_FT_HTTP_504
 block|}
 block|,
 block|{
@@ -4789,7 +4807,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2a209b1a0603
+DECL|enum|__anon2a2d20d60603
 enum|enum
 block|{
 DECL|enumerator|sw_start
