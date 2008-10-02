@@ -26,7 +26,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon28c8ce8a0108
+DECL|struct|__anon2a2886a40108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c8ce8a0208
+DECL|struct|__anon2a2886a40208
 typedef|typedef
 struct|struct
 block|{
@@ -2731,6 +2731,22 @@ argument_list|,
 literal|"http range body skip"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|buf
+operator|->
+name|in_file
+condition|)
+block|{
+name|buf
+operator|->
+name|file_pos
+operator|=
+name|buf
+operator|->
+name|file_last
+expr_stmt|;
+block|}
 name|buf
 operator|->
 name|pos
@@ -2738,6 +2754,12 @@ operator|=
 name|buf
 operator|->
 name|last
+expr_stmt|;
+name|buf
+operator|->
+name|sync
+operator|=
+literal|1
 expr_stmt|;
 continue|continue;
 block|}
