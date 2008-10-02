@@ -169,6 +169,14 @@ operator|!=
 name|r
 operator|->
 expr|main
+operator|||
+operator|(
+name|r
+operator|->
+name|method
+operator|&
+name|NGX_HTTP_HEAD
+operator|)
 condition|)
 block|{
 return|return
