@@ -28,8 +28,16 @@ directive|define
 name|_NGX_OPEN_FILE_CACHE_H_INCLUDED_
 end_define
 
+begin_define
+DECL|macro|NGX_OPEN_FILE_DIRECTIO_OFF
+define|#
+directive|define
+name|NGX_OPEN_FILE_DIRECTIO_OFF
+value|NGX_MAX_OFF_T_VALUE
+end_define
+
 begin_typedef
-DECL|struct|__anon2a082de60108
+DECL|struct|__anon2b70f8a90108
 typedef|typedef
 struct|struct
 block|{
@@ -242,7 +250,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a082de60208
+DECL|struct|__anon2b70f8a90208
 typedef|typedef
 struct|struct
 block|{
@@ -277,7 +285,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a082de60308
+DECL|struct|__anon2b70f8a90308
 typedef|typedef
 struct|struct
 block|{
@@ -307,7 +315,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a082de60408
+DECL|struct|__anon2b70f8a90408
 typedef|typedef
 struct|struct
 block|{

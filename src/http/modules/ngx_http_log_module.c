@@ -100,7 +100,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon296f0feb0108
+DECL|struct|__anon27cc32650108
 typedef|typedef
 struct|struct
 block|{
@@ -126,7 +126,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296f0feb0208
+DECL|struct|__anon27cc32650208
 typedef|typedef
 struct|struct
 block|{
@@ -147,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296f0feb0308
+DECL|struct|__anon27cc32650308
 typedef|typedef
 struct|struct
 block|{
@@ -168,7 +168,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296f0feb0408
+DECL|struct|__anon27cc32650408
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +202,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296f0feb0508
+DECL|struct|__anon27cc32650508
 typedef|typedef
 struct|struct
 block|{
@@ -237,7 +237,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296f0feb0608
+DECL|struct|__anon27cc32650608
 typedef|typedef
 struct|struct
 block|{
@@ -2096,7 +2096,7 @@ name|of
 operator|.
 name|directio
 operator|=
-name|NGX_MAX_OFF_T_VALUE
+name|NGX_OPEN_FILE_DIRECTIO_OFF
 expr_stmt|;
 if|if
 condition|(

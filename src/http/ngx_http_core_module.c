@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bf8a3af0108
+DECL|struct|__anon27dc0d810108
 typedef|typedef
 struct|struct
 block|{
@@ -15573,7 +15573,7 @@ name|clcf
 operator|->
 name|directio
 operator|=
-name|NGX_MAX_OFF_T_VALUE
+name|NGX_OPEN_FILE_DIRECTIO_OFF
 expr_stmt|;
 return|return
 name|NGX_CONF_OK
