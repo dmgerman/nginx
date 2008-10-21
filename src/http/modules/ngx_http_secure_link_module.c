@@ -28,7 +28,7 @@ file|<ngx_md5.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2774e5870108
+DECL|struct|__anon2bdb08790108
 typedef|typedef
 struct|struct
 block|{
@@ -400,8 +400,8 @@ operator|!=
 literal|32
 operator|||
 name|len
-operator|<
-literal|3
+operator|==
+literal|0
 condition|)
 block|{
 goto|goto
