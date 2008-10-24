@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2c3de6480108
+DECL|struct|__anon2bd3609a0108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3de6480208
+DECL|struct|__anon2bd3609a0208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3de6480308
+DECL|struct|__anon2bd3609a0308
 typedef|typedef
 struct|struct
 block|{
@@ -4164,8 +4164,6 @@ sizeof|sizeof
 argument_list|(
 name|ngx_resolver_query_t
 argument_list|)
-operator|+
-literal|1
 condition|)
 block|{
 goto|goto
