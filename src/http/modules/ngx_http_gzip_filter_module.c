@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a24827e0108
+DECL|struct|__anon2c2697300108
 typedef|typedef
 struct|struct
 block|{
@@ -76,7 +76,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a24827e0208
+DECL|struct|__anon2c2697300208
 typedef|typedef
 struct|struct
 block|{
@@ -1474,7 +1474,13 @@ name|NULL
 condition|)
 block|{
 return|return
+name|ctx
+operator|->
+name|busy
+condition|?
 name|NGX_AGAIN
+else|:
+name|NGX_OK
 return|;
 block|}
 if|if
