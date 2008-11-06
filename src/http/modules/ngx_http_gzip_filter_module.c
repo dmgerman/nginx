@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28aee6d50108
+DECL|struct|__anon2be7d2f80108
 typedef|typedef
 struct|struct
 block|{
@@ -76,7 +76,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28aee6d50208
+DECL|struct|__anon2be7d2f80208
 typedef|typedef
 struct|struct
 block|{
@@ -3981,13 +3981,13 @@ modifier|*
 name|data
 parameter_list|)
 block|{
-name|int
+name|size_t
 modifier|*
 name|np
 init|=
 name|data
 decl_stmt|;
-name|int
+name|size_t
 name|wbits
 decl_stmt|,
 name|wsize
@@ -4060,13 +4060,13 @@ modifier|*
 name|data
 parameter_list|)
 block|{
-name|int
+name|size_t
 modifier|*
 name|np
 init|=
 name|data
 decl_stmt|;
-name|int
+name|size_t
 name|memlevel
 decl_stmt|,
 name|hsize
