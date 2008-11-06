@@ -766,6 +766,15 @@ argument_list|(
 name|ngx_pool_data_t
 argument_list|)
 expr_stmt|;
+name|m
+operator|=
+name|ngx_align_ptr
+argument_list|(
+name|m
+argument_list|,
+name|NGX_ALIGNMENT
+argument_list|)
+expr_stmt|;
 name|new
 operator|->
 name|d
