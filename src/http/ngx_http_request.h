@@ -625,7 +625,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon2c3f62e40103
+DECL|enum|__anon2a4bfe6a0103
 typedef|typedef
 enum|enum
 block|{
@@ -664,7 +664,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3f62e40208
+DECL|struct|__anon2a4bfe6a0208
 typedef|typedef
 struct|struct
 block|{
@@ -687,7 +687,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3f62e40308
+DECL|struct|__anon2a4bfe6a0308
 typedef|typedef
 struct|struct
 block|{
@@ -706,7 +706,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3f62e40408
+DECL|struct|__anon2a4bfe6a0408
 typedef|typedef
 struct|struct
 block|{
@@ -939,7 +939,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3f62e40508
+DECL|struct|__anon2a4bfe6a0508
 typedef|typedef
 struct|struct
 block|{
@@ -1080,7 +1080,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3f62e40608
+DECL|struct|__anon2a4bfe6a0608
 typedef|typedef
 struct|struct
 block|{
@@ -1119,7 +1119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3f62e40708
+DECL|struct|__anon2a4bfe6a0708
 typedef|typedef
 struct|struct
 block|{
@@ -1169,7 +1169,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3f62e40808
+DECL|struct|__anon2a4bfe6a0808
 typedef|typedef
 struct|struct
 block|{
@@ -1264,7 +1264,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3f62e40908
+DECL|struct|__anon2a4bfe6a0908
 typedef|typedef
 struct|struct
 block|{
@@ -1710,10 +1710,16 @@ name|no_cache
 range|:
 literal|1
 decl_stmt|;
-comment|/*      * instead of using the request context data in ngx_http_limit_zone_module      * we use the single bit in the request structure      */
+comment|/*      * instead of using the request context data in      * ngx_http_limit_zone_module and ngx_http_limit_req_module       * we use the single bits in the request structure      */
 DECL|member|limit_zone_set
 name|unsigned
 name|limit_zone_set
+range|:
+literal|1
+decl_stmt|;
+DECL|member|limit_req_set
+name|unsigned
+name|limit_req_set
 range|:
 literal|1
 decl_stmt|;

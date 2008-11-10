@@ -295,18 +295,6 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|void
-name|ngx_http_test_reading
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-specifier|static
-name|void
 name|ngx_http_set_keepalive
 parameter_list|(
 name|ngx_http_request_t
@@ -8863,7 +8851,6 @@ block|}
 end_function
 
 begin_function
-specifier|static
 name|void
 DECL|function|ngx_http_test_reading (ngx_http_request_t * r)
 name|ngx_http_test_reading
