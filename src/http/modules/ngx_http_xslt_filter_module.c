@@ -57,6 +57,25 @@ directive|include
 file|<libxslt/xsltutils.h>
 end_include
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_EXSLT
+operator|)
+end_if
+
+begin_include
+include|#
+directive|include
+file|<libexslt/exslt.h>
+end_include
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -77,7 +96,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2bc14b130108
+DECL|struct|__anon2c39719e0108
 typedef|typedef
 struct|struct
 block|{
@@ -98,7 +117,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc14b130208
+DECL|struct|__anon2c39719e0208
 typedef|typedef
 struct|struct
 block|{
@@ -119,7 +138,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc14b130308
+DECL|struct|__anon2c39719e0308
 typedef|typedef
 struct|struct
 block|{
@@ -140,7 +159,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc14b130408
+DECL|struct|__anon2c39719e0408
 typedef|typedef
 struct|struct
 block|{
@@ -160,7 +179,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc14b130508
+DECL|struct|__anon2c39719e0508
 typedef|typedef
 struct|struct
 block|{
@@ -189,7 +208,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc14b130608
+DECL|struct|__anon2c39719e0608
 typedef|typedef
 struct|struct
 block|{
@@ -5885,6 +5904,16 @@ block|{
 name|xmlInitParser
 argument_list|()
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_EXSLT
+operator|)
+name|exsltRegisterAll
+argument_list|()
+expr_stmt|;
+endif|#
+directive|endif
 name|ngx_http_next_header_filter
 operator|=
 name|ngx_http_top_header_filter
