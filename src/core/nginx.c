@@ -779,6 +779,13 @@ modifier|*
 name|argv
 parameter_list|)
 block|{
+name|char
+modifier|*
+name|p
+decl_stmt|;
+name|ssize_t
+name|n
+decl_stmt|;
 name|ngx_int_t
 name|i
 decl_stmt|;
@@ -949,19 +956,41 @@ condition|(
 name|ngx_show_version
 condition|)
 block|{
+name|p
+operator|=
+literal|"nginx version: "
+name|NGINX_VER
+name|CRLF
+expr_stmt|;
+name|n
+operator|=
+expr|sizeof
+operator|(
+literal|"nginx version: "
+name|NGINX_VER
+name|CRLF
+operator|)
+operator|-
+literal|1
+expr_stmt|;
+if|if
+condition|(
 name|ngx_write_fd
 argument_list|(
-argument|ngx_stderr_fileno
+name|ngx_stderr_fileno
 argument_list|,
-literal|"nginx version: "
-argument|NGINX_VER CRLF
+name|p
 argument_list|,
-argument|sizeof(
-literal|"nginx version: "
-argument|NGINX_VER CRLF) -
-literal|1
+name|n
 argument_list|)
-empty_stmt|;
+operator|!=
+name|n
+condition|)
+block|{
+return|return
+literal|1
+return|;
+block|}
 if|if
 condition|(
 name|ngx_show_configure
@@ -970,40 +999,78 @@ block|{
 ifdef|#
 directive|ifdef
 name|NGX_COMPILER
+name|p
+operator|=
+literal|"built by "
+name|NGX_COMPILER
+name|CRLF
+expr_stmt|;
+name|n
+operator|=
+expr|sizeof
+operator|(
+literal|"built by "
+name|NGX_COMPILER
+name|CRLF
+operator|)
+operator|-
+literal|1
+expr_stmt|;
+if|if
+condition|(
 name|ngx_write_fd
 argument_list|(
-argument|ngx_stderr_fileno
+name|ngx_stderr_fileno
 argument_list|,
-literal|"built by "
-argument|NGX_COMPILER CRLF
+name|p
 argument_list|,
-argument|sizeof(
-literal|"built by "
-argument|NGX_COMPILER CRLF) -
-literal|1
+name|n
 argument_list|)
-empty_stmt|;
+operator|!=
+name|n
+condition|)
+block|{
+return|return
+literal|1
+return|;
+block|}
 endif|#
 directive|endif
-ifndef|#
-directive|ifndef
-name|__WATCOMC__
-comment|/* OpenWatcomC could not build the long NGX_CONFIGURE string */
-name|ngx_write_fd
-argument_list|(
-argument|ngx_stderr_fileno
-argument_list|,
+name|p
+operator|=
 literal|"configure arguments: "
-argument|NGX_CONFIGURE CRLF
-argument_list|,
-argument|sizeof(
+name|NGX_CONFIGURE
+name|CRLF
+expr_stmt|;
+name|n
+operator|=
+expr|sizeof
+operator|(
 literal|"configure arguments :"
-argument|NGX_CONFIGURE CRLF) -
+name|NGX_CONFIGURE
+name|CRLF
+operator|)
+operator|-
 literal|1
+expr_stmt|;
+if|if
+condition|(
+name|ngx_write_fd
+argument_list|(
+name|ngx_stderr_fileno
+argument_list|,
+name|p
+argument_list|,
+name|n
 argument_list|)
-empty_stmt|;
-endif|#
-directive|endif
+operator|!=
+name|n
+condition|)
+block|{
+return|return
+literal|1
+return|;
+block|}
 block|}
 if|if
 condition|(

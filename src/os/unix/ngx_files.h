@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2967f5f10108
+DECL|struct|__anon28ebf5590108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2967f5f10208
+DECL|struct|__anon28ebf5590208
 typedef|typedef
 struct|struct
 block|{
@@ -453,13 +453,40 @@ name|ngx_read_fd_n
 value|"read()"
 end_define
 
-begin_define
-DECL|macro|ngx_write_fd
-define|#
-directive|define
+begin_comment
+comment|/*  * we use inlined function instead of simple #define  * because glibc 2.3 sets warn_unused_result attribute for write()  * and in this case gcc 4.3 ignores (void) cast  */
+end_comment
+
+begin_function
+specifier|static
+name|ngx_inline
+name|ssize_t
+DECL|function|ngx_write_fd (ngx_fd_t fd,void * buf,size_t n)
 name|ngx_write_fd
-value|write
-end_define
+parameter_list|(
+name|ngx_fd_t
+name|fd
+parameter_list|,
+name|void
+modifier|*
+name|buf
+parameter_list|,
+name|size_t
+name|n
+parameter_list|)
+block|{
+return|return
+name|write
+argument_list|(
+name|fd
+argument_list|,
+name|buf
+argument_list|,
+name|n
+argument_list|)
+return|;
+block|}
+end_function
 
 begin_define
 DECL|macro|ngx_write_fd_n
