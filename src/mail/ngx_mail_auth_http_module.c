@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29357c4b0108
+DECL|struct|__anon29245dec0108
 typedef|typedef
 struct|struct
 block|{
@@ -135,11 +135,6 @@ DECL|member|state
 name|ngx_uint_t
 name|state
 decl_stmt|;
-DECL|member|hash
-name|ngx_uint_t
-name|hash
-decl_stmt|;
-comment|/* no needed ? */
 DECL|member|header_name_start
 name|u_char
 modifier|*
@@ -1543,7 +1538,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon29357c4b0203
+DECL|enum|__anon29245dec0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -4156,10 +4151,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-name|ngx_uint_t
-name|hash
-decl_stmt|;
-DECL|enum|__anon29357c4b0303
+DECL|enum|__anon29245dec0303
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -4192,12 +4184,6 @@ operator|=
 name|ctx
 operator|->
 name|state
-expr_stmt|;
-name|hash
-operator|=
-name|ctx
-operator|->
-name|hash
 expr_stmt|;
 for|for
 control|(
@@ -4299,10 +4285,6 @@ operator|<=
 literal|'z'
 condition|)
 block|{
-name|hash
-operator|=
-name|c
-expr_stmt|;
 break|break;
 block|}
 if|if
@@ -4316,10 +4298,6 @@ operator|<=
 literal|'9'
 condition|)
 block|{
-name|hash
-operator|=
-name|ch
-expr_stmt|;
 break|break;
 block|}
 return|return
@@ -4353,10 +4331,6 @@ operator|<=
 literal|'z'
 condition|)
 block|{
-name|hash
-operator|+=
-name|c
-expr_stmt|;
 break|break;
 block|}
 if|if
@@ -4385,10 +4359,6 @@ operator|==
 literal|'-'
 condition|)
 block|{
-name|hash
-operator|+=
-name|ch
-expr_stmt|;
 break|break;
 block|}
 if|if
@@ -4402,10 +4372,6 @@ operator|<=
 literal|'9'
 condition|)
 block|{
-name|hash
-operator|+=
-name|ch
-expr_stmt|;
 break|break;
 block|}
 if|if
@@ -4678,12 +4644,6 @@ name|state
 operator|=
 name|state
 expr_stmt|;
-name|ctx
-operator|->
-name|hash
-operator|=
-name|hash
-expr_stmt|;
 return|return
 name|NGX_AGAIN
 return|;
@@ -4704,12 +4664,6 @@ operator|->
 name|state
 operator|=
 name|sw_start
-expr_stmt|;
-name|ctx
-operator|->
-name|hash
-operator|=
-name|hash
 expr_stmt|;
 return|return
 name|NGX_OK
