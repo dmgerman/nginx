@@ -164,6 +164,9 @@ name|ngx_string
 argument_list|(
 literal|"AUTH=CRAM-MD5"
 argument_list|)
+block|,
+name|ngx_null_string
+comment|/* NONE */
 block|}
 decl_stmt|;
 end_decl_stmt

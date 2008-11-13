@@ -58,7 +58,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon28da4cbb0103
+DECL|enum|__anon2ac41ec00103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -825,7 +825,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon28da4cbb0203
+DECL|enum|__anon2ac41ec00203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2758,7 +2758,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon28da4cbb0303
+DECL|enum|__anon2ac41ec00303
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -3456,7 +3456,7 @@ name|args
 operator|.
 name|nelts
 operator|<=
-literal|2
+literal|10
 condition|)
 block|{
 name|state

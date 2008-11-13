@@ -60,7 +60,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b30f6fe0108
+DECL|struct|__anon29d346120108
 typedef|typedef
 struct|struct
 block|{
@@ -83,7 +83,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b30f6fe0208
+DECL|struct|__anon29d346120208
 typedef|typedef
 struct|struct
 block|{
@@ -131,7 +131,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b30f6fe0308
+DECL|struct|__anon29d346120308
 typedef|typedef
 struct|struct
 block|{
@@ -167,7 +167,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b30f6fe0408
+DECL|struct|__anon29d346120408
 typedef|typedef
 struct|struct
 block|{
@@ -188,7 +188,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b30f6fe0508
+DECL|struct|__anon29d346120508
 typedef|typedef
 struct|struct
 block|{
@@ -208,7 +208,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b30f6fe0608
+DECL|struct|__anon29d346120608
 typedef|typedef
 struct|struct
 block|{
@@ -247,7 +247,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b30f6fe0708
+DECL|struct|__anon29d346120708
 typedef|typedef
 struct|struct
 block|{
@@ -301,7 +301,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b30f6fe0808
+DECL|struct|__anon29d346120808
 typedef|typedef
 struct|struct
 block|{
@@ -353,7 +353,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b30f6fe0903
+DECL|enum|__anon29d346120903
 typedef|typedef
 enum|enum
 block|{
@@ -386,7 +386,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b30f6fe0a03
+DECL|enum|__anon29d346120a03
 typedef|typedef
 enum|enum
 block|{
@@ -422,7 +422,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b30f6fe0b03
+DECL|enum|__anon29d346120b03
 typedef|typedef
 enum|enum
 block|{
@@ -446,11 +446,23 @@ block|,
 DECL|enumerator|ngx_smtp_helo
 name|ngx_smtp_helo
 block|,
-DECL|enumerator|ngx_smtp_noxclient
-name|ngx_smtp_noxclient
+DECL|enumerator|ngx_smtp_helo_xclient
+name|ngx_smtp_helo_xclient
+block|,
+DECL|enumerator|ngx_smtp_helo_from
+name|ngx_smtp_helo_from
 block|,
 DECL|enumerator|ngx_smtp_xclient
 name|ngx_smtp_xclient
+block|,
+DECL|enumerator|ngx_smtp_xclient_from
+name|ngx_smtp_xclient_from
+block|,
+DECL|enumerator|ngx_smtp_from
+name|ngx_smtp_from
+block|,
+DECL|enumerator|ngx_smtp_to
+name|ngx_smtp_to
 DECL|typedef|ngx_smtp_state_e
 block|}
 name|ngx_smtp_state_e
@@ -458,7 +470,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b30f6fe0c08
+DECL|struct|__anon29d346120c08
 typedef|typedef
 struct|struct
 block|{
@@ -478,7 +490,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b30f6fe0d08
+DECL|struct|__anon29d346120d08
 typedef|typedef
 struct|struct
 block|{
@@ -585,7 +597,7 @@ DECL|member|auth_method
 name|unsigned
 name|auth_method
 range|:
-literal|2
+literal|3
 decl_stmt|;
 DECL|member|auth_wait
 name|unsigned
@@ -630,6 +642,14 @@ DECL|member|smtp_helo
 name|ngx_str_t
 name|smtp_helo
 decl_stmt|;
+DECL|member|smtp_from
+name|ngx_str_t
+name|smtp_from
+decl_stmt|;
+DECL|member|smtp_to
+name|ngx_str_t
+name|smtp_to
+decl_stmt|;
 DECL|member|command
 name|ngx_uint_t
 name|command
@@ -673,7 +693,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b30f6fe0e08
+DECL|struct|__anon29d346120e08
 typedef|typedef
 struct|struct
 block|{
@@ -1006,6 +1026,14 @@ value|3
 end_define
 
 begin_define
+DECL|macro|NGX_MAIL_AUTH_NONE
+define|#
+directive|define
+name|NGX_MAIL_AUTH_NONE
+value|4
+end_define
+
+begin_define
 DECL|macro|NGX_MAIL_AUTH_PLAIN_ENABLED
 define|#
 directive|define
@@ -1035,6 +1063,14 @@ define|#
 directive|define
 name|NGX_MAIL_AUTH_CRAM_MD5_ENABLED
 value|0x0010
+end_define
+
+begin_define
+DECL|macro|NGX_MAIL_AUTH_NONE_ENABLED
+define|#
+directive|define
+name|NGX_MAIL_AUTH_NONE_ENABLED
+value|0x0020
 end_define
 
 begin_define
@@ -1158,7 +1194,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b30f6fe0f08
+DECL|struct|__anon29d346120f08
 typedef|typedef
 struct|struct
 block|{
