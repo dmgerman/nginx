@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28b973200108
+DECL|struct|__anon28da81b60108
 typedef|typedef
 struct|struct
 block|{
@@ -47,9 +47,10 @@ name|ngx_msec_t
 name|last
 decl_stmt|;
 DECL|member|excess
-name|float
+name|ngx_uint_t
 name|excess
 decl_stmt|;
+comment|/* integer value, 1 corresponds to 0.001 r/s */
 DECL|member|data
 name|u_char
 name|data
@@ -64,7 +65,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b973200208
+DECL|struct|__anon28da81b60208
 typedef|typedef
 struct|struct
 block|{
@@ -84,9 +85,10 @@ modifier|*
 name|shpool
 decl_stmt|;
 DECL|member|rate
-name|float
+name|ngx_uint_t
 name|rate
 decl_stmt|;
+comment|/* integer value, 1 corresponds to 0.001 r/s */
 DECL|member|index
 name|ngx_int_t
 name|index
@@ -102,7 +104,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b973200308
+DECL|struct|__anon28da81b60308
 typedef|typedef
 struct|struct
 block|{
@@ -112,9 +114,10 @@ modifier|*
 name|shm_zone
 decl_stmt|;
 DECL|member|burst
-name|float
+name|ngx_uint_t
 name|burst
 decl_stmt|;
+comment|/* integer value, 1 corresponds to 0.001 r/s */
 DECL|member|nodelay
 name|ngx_uint_t
 name|nodelay
@@ -412,9 +415,6 @@ modifier|*
 name|r
 parameter_list|)
 block|{
-name|float
-name|excess
-decl_stmt|;
 name|size_t
 name|len
 decl_stmt|,
@@ -425,6 +425,9 @@ name|hash
 decl_stmt|;
 name|ngx_int_t
 name|rc
+decl_stmt|;
+name|ngx_uint_t
+name|excess
 decl_stmt|;
 name|ngx_time_t
 modifier|*
@@ -660,10 +663,10 @@ else|else
 block|{
 name|excess
 operator|=
-literal|0.0
+literal|0
 expr_stmt|;
 block|}
-name|ngx_log_debug2
+name|ngx_log_debug3
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
@@ -675,11 +678,17 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"limit_req: %i %.3f"
+literal|"limit_req: %i %ui.%03ui"
 argument_list|,
 name|rc
 argument_list|,
 name|excess
+operator|/
+literal|1000
+argument_list|,
+name|excess
+operator|%
+literal|1000
 argument_list|)
 expr_stmt|;
 if|if
@@ -711,9 +720,15 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"limiting requests, excess: %.3f"
+literal|"limiting requests, excess: %ui.%03ui"
 argument_list|,
 name|excess
+operator|/
+literal|1000
+argument_list|,
+name|excess
+operator|%
+literal|1000
 argument_list|)
 expr_stmt|;
 return|return
@@ -760,9 +775,15 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"delaying request, excess: %.3f"
+literal|"delaying request, excess: %ui.%03ui"
 argument_list|,
 name|excess
+operator|/
+literal|1000
+argument_list|,
+name|excess
+operator|%
+literal|1000
 argument_list|)
 expr_stmt|;
 if|if
@@ -808,11 +829,7 @@ argument_list|,
 operator|(
 name|ngx_msec_t
 operator|)
-operator|(
 name|excess
-operator|*
-literal|1000
-operator|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -961,7 +978,7 @@ name|lz
 operator|->
 name|excess
 operator|=
-literal|0.0
+literal|0
 expr_stmt|;
 name|ngx_memcpy
 argument_list|(
@@ -1297,6 +1314,8 @@ parameter_list|)
 block|{
 name|ngx_int_t
 name|rc
+decl_stmt|,
+name|excess
 decl_stmt|;
 name|ngx_time_t
 modifier|*
@@ -1464,8 +1483,6 @@ operator|->
 name|last
 operator|)
 expr_stmt|;
-name|lz
-operator|->
 name|excess
 operator|=
 name|lz
@@ -1483,24 +1500,26 @@ argument_list|)
 operator|/
 literal|1000
 operator|+
-literal|1
+literal|1000
 expr_stmt|;
 if|if
 condition|(
-name|lz
-operator|->
 name|excess
 operator|<
-literal|0.0
+literal|0
 condition|)
 block|{
+name|excess
+operator|=
+literal|0
+expr_stmt|;
+block|}
 name|lz
 operator|->
 name|excess
 operator|=
-literal|0.0
+name|excess
 expr_stmt|;
-block|}
 name|lz
 operator|->
 name|last
@@ -1514,8 +1533,9 @@ name|lz
 expr_stmt|;
 if|if
 condition|(
-name|lz
-operator|->
+operator|(
+name|ngx_uint_t
+operator|)
 name|excess
 operator|>
 name|lzcf
@@ -1529,11 +1549,7 @@ return|;
 block|}
 if|if
 condition|(
-name|lz
-operator|->
 name|excess
-operator|>
-literal|0.0
 condition|)
 block|{
 return|return
@@ -1601,7 +1617,7 @@ name|ngx_uint_t
 name|n
 parameter_list|)
 block|{
-name|float
+name|ngx_int_t
 name|excess
 decl_stmt|;
 name|ngx_time_t
@@ -1743,7 +1759,7 @@ if|if
 condition|(
 name|excess
 operator|>
-literal|0.0
+literal|0
 condition|)
 block|{
 return|return;
@@ -2689,10 +2705,9 @@ name|ctx
 operator|->
 name|rate
 operator|=
-operator|(
-name|float
-operator|)
 name|rate
+operator|*
+literal|1000
 operator|/
 name|scale
 expr_stmt|;
@@ -3121,10 +3136,9 @@ name|lzcf
 operator|->
 name|burst
 operator|=
-operator|(
-name|float
-operator|)
 name|burst
+operator|*
+literal|1000
 expr_stmt|;
 return|return
 name|NGX_CONF_OK
