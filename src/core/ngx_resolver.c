@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2c11840a0108
+DECL|struct|__anon28ffcee60108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c11840a0208
+DECL|struct|__anon28ffcee60208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c11840a0308
+DECL|struct|__anon28ffcee60308
 typedef|typedef
 struct|struct
 block|{
@@ -8195,9 +8195,11 @@ block|{
 name|n
 operator|=
 operator|(
+operator|(
 name|n
 operator|&
 literal|0x3f
+operator|)
 operator|<<
 literal|8
 operator|)
@@ -8372,9 +8374,11 @@ block|{
 name|n
 operator|=
 operator|(
+operator|(
 name|n
 operator|&
 literal|0x3f
+operator|)
 operator|<<
 literal|8
 operator|)
