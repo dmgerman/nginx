@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bb9d5620108
+DECL|struct|__anon2b9bf5100108
 typedef|typedef
 struct|struct
 block|{
@@ -5346,22 +5346,37 @@ condition|(
 name|n
 operator|==
 name|SSL_R_DIGEST_CHECK_FAILED
+comment|/*  149 */
+operator|||
+name|n
+operator|==
+name|SSL_R_NO_CIPHERS_PASSED
+comment|/*  182 */
 operator|||
 name|n
 operator|==
 name|SSL_R_NO_SHARED_CIPHER
+comment|/*  193 */
 operator|||
 name|n
 operator|==
 name|SSL_R_UNEXPECTED_MESSAGE
+comment|/*  244 */
+operator|||
+name|n
+operator|==
+name|SSL_R_UNEXPECTED_RECORD
+comment|/*  245 */
 operator|||
 name|n
 operator|==
 name|SSL_R_WRONG_VERSION_NUMBER
+comment|/*  267 */
 operator|||
 name|n
 operator|==
 name|SSL_R_DECRYPTION_FAILED_OR_BAD_RECORD_MAC
+comment|/*  281 */
 operator|||
 name|n
 operator|==
@@ -5371,47 +5386,118 @@ operator|||
 name|n
 operator|==
 name|SSL_R_SSLV3_ALERT_UNEXPECTED_MESSAGE
+comment|/* 1010 */
 operator|||
 name|n
 operator|==
 name|SSL_R_SSLV3_ALERT_BAD_RECORD_MAC
+comment|/* 1020 */
+operator|||
+name|n
+operator|==
+name|SSL_R_TLSV1_ALERT_DECRYPTION_FAILED
+comment|/* 1021 */
+operator|||
+name|n
+operator|==
+name|SSL_R_TLSV1_ALERT_RECORD_OVERFLOW
+comment|/* 1022 */
 operator|||
 name|n
 operator|==
 name|SSL_R_SSLV3_ALERT_DECOMPRESSION_FAILURE
+comment|/* 1030 */
 operator|||
 name|n
 operator|==
 name|SSL_R_SSLV3_ALERT_HANDSHAKE_FAILURE
+comment|/* 1040 */
+operator|||
+name|n
+operator|==
+name|SSL_R_SSLV3_ALERT_NO_CERTIFICATE
+comment|/* 1041 */
 operator|||
 name|n
 operator|==
 name|SSL_R_SSLV3_ALERT_BAD_CERTIFICATE
+comment|/* 1042 */
 operator|||
 name|n
 operator|==
 name|SSL_R_SSLV3_ALERT_UNSUPPORTED_CERTIFICATE
+comment|/* 1043 */
 operator|||
 name|n
 operator|==
 name|SSL_R_SSLV3_ALERT_CERTIFICATE_REVOKED
+comment|/* 1044 */
 operator|||
 name|n
 operator|==
 name|SSL_R_SSLV3_ALERT_CERTIFICATE_EXPIRED
+comment|/* 1045 */
 operator|||
 name|n
 operator|==
 name|SSL_R_SSLV3_ALERT_CERTIFICATE_UNKNOWN
+comment|/* 1046 */
 operator|||
 name|n
 operator|==
 name|SSL_R_SSLV3_ALERT_ILLEGAL_PARAMETER
+comment|/* 1047 */
 operator|||
 name|n
 operator|==
 name|SSL_R_TLSV1_ALERT_UNKNOWN_CA
+comment|/* 1048 */
+operator|||
+name|n
+operator|==
+name|SSL_R_TLSV1_ALERT_ACCESS_DENIED
+comment|/* 1049 */
+operator|||
+name|n
+operator|==
+name|SSL_R_TLSV1_ALERT_DECODE_ERROR
+comment|/* 1050 */
+operator|||
+name|n
+operator|==
+name|SSL_R_TLSV1_ALERT_DECRYPT_ERROR
+comment|/* 1051 */
+operator|||
+name|n
+operator|==
+name|SSL_R_TLSV1_ALERT_EXPORT_RESTRICTION
+comment|/* 1060 */
+operator|||
+name|n
+operator|==
+name|SSL_R_TLSV1_ALERT_PROTOCOL_VERSION
+comment|/* 1070 */
+operator|||
+name|n
+operator|==
+name|SSL_R_TLSV1_ALERT_INSUFFICIENT_SECURITY
+comment|/* 1071 */
+operator|||
+name|n
+operator|==
+name|SSL_R_TLSV1_ALERT_INTERNAL_ERROR
+comment|/* 1080 */
+operator|||
+name|n
+operator|==
+name|SSL_R_TLSV1_ALERT_USER_CANCELLED
+comment|/* 1090 */
+operator|||
+name|n
+operator|==
+name|SSL_R_TLSV1_ALERT_NO_RENEGOTIATION
 condition|)
+comment|/* 1100 */
 block|{
 switch|switch
 condition|(
