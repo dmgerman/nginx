@@ -194,9 +194,9 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_strerror_r (ngx_err_t err,u_char * errstr,size_t size)
 name|u_char
 modifier|*
+DECL|function|ngx_strerror_r (ngx_err_t err,u_char * errstr,size_t size)
 name|ngx_strerror_r
 parameter_list|(
 name|ngx_err_t

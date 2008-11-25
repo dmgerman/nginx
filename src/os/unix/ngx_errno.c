@@ -24,9 +24,9 @@ operator|)
 end_if
 
 begin_function
-DECL|function|ngx_strerror_r (int err,u_char * errstr,size_t size)
 name|u_char
 modifier|*
+DECL|function|ngx_strerror_r (int err,u_char * errstr,size_t size)
 name|ngx_strerror_r
 parameter_list|(
 name|int
@@ -48,7 +48,7 @@ literal|0
 condition|)
 block|{
 return|return
-literal|0
+name|errstr
 return|;
 block|}
 name|errstr
@@ -105,9 +105,9 @@ comment|/* Linux strerror_r() */
 end_comment
 
 begin_function
-DECL|function|ngx_strerror_r (int err,u_char * errstr,size_t size)
 name|u_char
 modifier|*
+DECL|function|ngx_strerror_r (int err,u_char * errstr,size_t size)
 name|ngx_strerror_r
 parameter_list|(
 name|int
@@ -133,7 +133,7 @@ literal|0
 condition|)
 block|{
 return|return
-literal|0
+name|errstr
 return|;
 block|}
 name|errstr
