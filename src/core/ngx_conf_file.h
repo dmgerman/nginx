@@ -335,7 +335,7 @@ DECL|macro|NGX_MAX_CONF_ERRSTR
 define|#
 directive|define
 name|NGX_MAX_CONF_ERRSTR
-value|256
+value|1024
 end_define
 
 begin_struct
@@ -622,7 +622,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28f6743c0108
+DECL|struct|__anon2b3f52910108
 typedef|typedef
 struct|struct
 block|{
@@ -667,7 +667,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f6743c0208
+DECL|struct|__anon2b3f52910208
 typedef|typedef
 struct|struct
 block|{
@@ -807,7 +807,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f6743c0308
+DECL|struct|__anon2b3f52910308
 typedef|typedef
 struct|struct
 block|{
@@ -822,7 +822,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f6743c0408
+DECL|struct|__anon2b3f52910408
 typedef|typedef
 struct|struct
 block|{
@@ -847,7 +847,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f6743c0508
+DECL|struct|__anon2b3f52910508
 typedef|typedef
 struct|struct
 block|{
@@ -870,7 +870,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f6743c0608
+DECL|struct|__anon2b3f52910608
 typedef|typedef
 struct|struct
 block|{
@@ -897,7 +897,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon28f6743c0708
+DECL|struct|__anon2b3f52910708
 typedef|typedef
 struct|struct
 block|{
