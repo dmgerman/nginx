@@ -384,7 +384,7 @@ name|ngx_conf_file_t
 modifier|*
 name|prev
 decl_stmt|;
-DECL|enum|__anon28a7c2ab0103
+DECL|enum|__anon2901b8220103
 enum|enum
 block|{
 DECL|enumerator|parse_file
@@ -950,12 +950,6 @@ operator|->
 name|start
 argument_list|)
 expr_stmt|;
-name|cf
-operator|->
-name|conf_file
-operator|=
-name|prev
-expr_stmt|;
 if|if
 condition|(
 name|ngx_close_file
@@ -994,6 +988,12 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
+name|cf
+operator|->
+name|conf_file
+operator|=
+name|prev
+expr_stmt|;
 block|}
 if|if
 condition|(
