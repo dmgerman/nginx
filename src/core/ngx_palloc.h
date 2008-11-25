@@ -134,7 +134,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a1b5e700108
+DECL|struct|__anon2c3ce70c0108
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +202,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a1b5e700208
+DECL|struct|__anon2c3ce70c0208
 typedef|typedef
 struct|struct
 block|{
@@ -274,6 +274,17 @@ end_function_decl
 begin_function_decl
 name|void
 name|ngx_destroy_pool
+parameter_list|(
+name|ngx_pool_t
+modifier|*
+name|pool
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_reset_pool
 parameter_list|(
 name|ngx_pool_t
 modifier|*
