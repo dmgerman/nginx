@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c0a38cf0108
+DECL|struct|__anon2b96fe610108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0a38cf0208
+DECL|struct|__anon2b96fe610208
 typedef|typedef
 struct|struct
 block|{
@@ -66,7 +66,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0a38cf0308
+DECL|struct|__anon2b96fe610308
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0a38cf0408
+DECL|struct|__anon2b96fe610408
 typedef|typedef
 struct|struct
 block|{
@@ -1183,6 +1183,43 @@ block|}
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|ctx
+operator|.
+name|tree
+operator|==
+name|NULL
+condition|)
+block|{
+name|ctx
+operator|.
+name|tree
+operator|=
+name|ngx_radix_tree_create
+argument_list|(
+name|cf
+operator|->
+name|pool
+argument_list|,
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|ctx
+operator|.
+name|tree
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
+block|}
 name|var
 operator|->
 name|get_handler
