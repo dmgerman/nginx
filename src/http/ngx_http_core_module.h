@@ -141,7 +141,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1065390108
+DECL|struct|__anon28a663c30108
 typedef|typedef
 struct|struct
 block|{
@@ -230,7 +230,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1065390208
+DECL|struct|__anon28a663c30208
 typedef|typedef
 struct|struct
 block|{
@@ -266,7 +266,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a1065390303
+DECL|enum|__anon28a663c30303
 typedef|typedef
 enum|enum
 block|{
@@ -358,7 +358,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a1065390408
+DECL|struct|__anon28a663c30408
 typedef|typedef
 struct|struct
 block|{
@@ -382,7 +382,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1065390508
+DECL|struct|__anon28a663c30508
 typedef|typedef
 struct|struct
 block|{
@@ -397,7 +397,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1065390608
+DECL|struct|__anon28a663c30608
 typedef|typedef
 struct|struct
 block|{
@@ -460,7 +460,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1065390708
+DECL|struct|__anon28a663c30708
 typedef|typedef
 struct|struct
 block|{
@@ -533,7 +533,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2a1065390808
+DECL|struct|__anon28a663c30808
 typedef|typedef
 struct|struct
 block|{
@@ -571,7 +571,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1065390908
+DECL|struct|__anon28a663c30908
 typedef|typedef
 struct|struct
 block|{
@@ -599,7 +599,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1065390a08
+DECL|struct|__anon28a663c30a08
 typedef|typedef
 struct|struct
 block|{
@@ -619,7 +619,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1065390b08
+DECL|struct|__anon28a663c30b08
 typedef|typedef
 struct|struct
 block|{
@@ -736,7 +736,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a1065390c08
+DECL|struct|__anon28a663c30c08
 typedef|typedef
 struct|struct
 block|{
@@ -989,6 +989,11 @@ name|ngx_uint_t
 name|satisfy
 decl_stmt|;
 comment|/* satisfy */
+DECL|member|if_modified_since
+name|ngx_uint_t
+name|if_modified_since
+decl_stmt|;
+comment|/* if_modified_since */
 DECL|member|internal
 name|ngx_flag_t
 name|internal
@@ -1156,7 +1161,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a1065390d08
+DECL|struct|__anon28a663c30d08
 typedef|typedef
 struct|struct
 block|{
