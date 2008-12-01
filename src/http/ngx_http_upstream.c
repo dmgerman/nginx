@@ -5033,6 +5033,12 @@ block_content|if (u->cache) {             u->buffer.pos += u->cache->ctx.header_
 endif|#
 directive|endif
 block|}
+for|for
+control|(
+init|;
+condition|;
+control|)
+block|{
 name|n
 operator|=
 name|c
@@ -5152,7 +5158,7 @@ expr_stmt|;
 if|#
 directive|if
 literal|0
-block_content|u->valid_header_in = 0;      u->peer.cached = 0;
+block_content|u->valid_header_in = 0;          u->peer.cached = 0;
 endif|#
 directive|endif
 name|rc
@@ -5171,12 +5177,6 @@ operator|==
 name|NGX_AGAIN
 condition|)
 block|{
-if|#
-directive|if
-literal|0
-block_content|ngx_add_timer(rev, u->read_timeout);
-endif|#
-directive|endif
 if|if
 condition|(
 name|u
@@ -5216,30 +5216,9 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-if|if
-condition|(
-name|ngx_handle_read_event
-argument_list|(
-name|rev
-argument_list|,
-literal|0
-argument_list|)
-operator|==
-name|NGX_ERROR
-condition|)
-block|{
-name|ngx_http_upstream_finalize_request
-argument_list|(
-name|r
-argument_list|,
-name|u
-argument_list|,
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
-argument_list|)
-expr_stmt|;
-return|return;
+continue|continue;
 block|}
-return|return;
+break|break;
 block|}
 if|if
 condition|(
