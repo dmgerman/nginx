@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b96fe610108
+DECL|struct|__anon289bb6d60108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b96fe610208
+DECL|struct|__anon289bb6d60208
 typedef|typedef
 struct|struct
 block|{
@@ -66,7 +66,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b96fe610308
+DECL|struct|__anon289bb6d60308
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b96fe610408
+DECL|struct|__anon289bb6d60408
 typedef|typedef
 struct|struct
 block|{
@@ -2984,10 +2984,10 @@ argument_list|,
 name|net
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|NGX_CONF_OK
 return|;
-block|}
 block|}
 block|}
 name|val
