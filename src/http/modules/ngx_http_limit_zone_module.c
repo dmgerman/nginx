@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bac3e740108
+DECL|struct|__anon29d3ca120108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bac3e740208
+DECL|struct|__anon29d3ca120208
 typedef|typedef
 struct|struct
 block|{
@@ -73,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bac3e740308
+DECL|struct|__anon29d3ca120308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bac3e740408
+DECL|struct|__anon29d3ca120408
 typedef|typedef
 struct|struct
 block|{
@@ -723,6 +723,28 @@ operator|->
 name|mutex
 argument_list|)
 expr_stmt|;
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"limiting connections by zone \"%V\""
+argument_list|,
+operator|&
+name|lzcf
+operator|->
+name|shm_zone
+operator|->
+name|name
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_HTTP_SERVICE_UNAVAILABLE
 return|;
@@ -799,6 +821,28 @@ operator|&
 name|shpool
 operator|->
 name|mutex
+argument_list|)
+expr_stmt|;
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_CRIT
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"could not allocate memory in zone \"%V\""
+argument_list|,
+operator|&
+name|lzcf
+operator|->
+name|shm_zone
+operator|->
+name|name
 argument_list|)
 expr_stmt|;
 return|return
