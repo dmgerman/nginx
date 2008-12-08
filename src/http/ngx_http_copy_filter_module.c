@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon290d5b950108
+DECL|struct|__anon2c843f910108
 typedef|typedef
 struct|struct
 block|{
@@ -444,24 +444,6 @@ operator|->
 name|buffered
 operator||=
 name|NGX_HTTP_COPY_BUFFERED
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|r
-operator|!=
-name|r
-operator|->
-expr|main
-condition|)
-block|{
-name|r
-operator|->
-name|out
-operator|=
-name|ctx
-operator|->
-name|in
 expr_stmt|;
 block|}
 name|ngx_log_debug3

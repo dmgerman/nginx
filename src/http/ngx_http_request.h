@@ -293,6 +293,14 @@ value|2
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_SUBREQUEST_WAITED
+define|#
+directive|define
+name|NGX_HTTP_SUBREQUEST_WAITED
+value|4
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_OK
 define|#
 directive|define
@@ -625,7 +633,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon2c861d050103
+DECL|enum|__anon2c5202dd0103
 typedef|typedef
 enum|enum
 block|{
@@ -664,7 +672,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c861d050208
+DECL|struct|__anon2c5202dd0208
 typedef|typedef
 struct|struct
 block|{
@@ -687,7 +695,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c861d050308
+DECL|struct|__anon2c5202dd0308
 typedef|typedef
 struct|struct
 block|{
@@ -706,7 +714,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c861d050408
+DECL|struct|__anon2c5202dd0408
 typedef|typedef
 struct|struct
 block|{
@@ -939,7 +947,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c861d050508
+DECL|struct|__anon2c5202dd0508
 typedef|typedef
 struct|struct
 block|{
@@ -1080,7 +1088,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c861d050608
+DECL|struct|__anon2c5202dd0608
 typedef|typedef
 struct|struct
 block|{
@@ -1119,7 +1127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c861d050708
+DECL|struct|__anon2c5202dd0708
 typedef|typedef
 struct|struct
 block|{
@@ -1169,7 +1177,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c861d050808
+DECL|struct|__anon2c5202dd0808
 typedef|typedef
 struct|struct
 block|{
@@ -1264,7 +1272,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c861d050908
+DECL|struct|__anon2c5202dd0908
 typedef|typedef
 struct|struct
 block|{
@@ -1309,6 +1317,34 @@ name|out
 decl_stmt|;
 DECL|member|next
 name|ngx_http_postponed_request_t
+modifier|*
+name|next
+decl_stmt|;
+block|}
+struct|;
+end_struct
+
+begin_typedef
+DECL|typedef|ngx_http_posted_request_t
+typedef|typedef
+name|struct
+name|ngx_http_posted_request_s
+name|ngx_http_posted_request_t
+typedef|;
+end_typedef
+
+begin_struct
+DECL|struct|ngx_http_posted_request_s
+struct|struct
+name|ngx_http_posted_request_s
+block|{
+DECL|member|request
+name|ngx_http_request_t
+modifier|*
+name|request
+decl_stmt|;
+DECL|member|next
+name|ngx_http_posted_request_t
 modifier|*
 name|next
 decl_stmt|;
@@ -1507,6 +1543,11 @@ name|ngx_http_post_subrequest_t
 modifier|*
 name|post_subrequest
 decl_stmt|;
+DECL|member|posted_requests
+name|ngx_http_posted_request_t
+modifier|*
+name|posted_requests
+decl_stmt|;
 DECL|member|in_addr
 name|uint32_t
 name|in_addr
@@ -1674,15 +1715,15 @@ name|request_body_file_log_level
 range|:
 literal|3
 decl_stmt|;
-DECL|member|fast_subrequest
-name|unsigned
-name|fast_subrequest
-range|:
-literal|1
-decl_stmt|;
 DECL|member|subrequest_in_memory
 name|unsigned
 name|subrequest_in_memory
+range|:
+literal|1
+decl_stmt|;
+DECL|member|waited
+name|unsigned
+name|waited
 range|:
 literal|1
 decl_stmt|;

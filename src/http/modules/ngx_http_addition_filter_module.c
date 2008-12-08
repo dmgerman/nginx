@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28ea283c0108
+DECL|struct|__anon2974ed310108
 typedef|typedef
 struct|struct
 block|{
@@ -50,7 +50,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ea283c0208
+DECL|struct|__anon2974ed310208
 typedef|typedef
 struct|struct
 block|{
@@ -572,8 +572,8 @@ operator|.
 name|len
 condition|)
 block|{
-name|rc
-operator|=
+if|if
+condition|(
 name|ngx_http_subrequest
 argument_list|(
 name|r
@@ -592,20 +592,12 @@ name|NULL
 argument_list|,
 literal|0
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|rc
-operator|==
-name|NGX_ERROR
-operator|||
-name|rc
-operator|==
-name|NGX_DONE
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 return|return
-name|rc
+name|NGX_ERROR
 return|;
 block|}
 block|}
@@ -720,8 +712,8 @@ return|return
 name|rc
 return|;
 block|}
-name|rc
-operator|=
+if|if
+condition|(
 name|ngx_http_subrequest
 argument_list|(
 name|r
@@ -740,20 +732,12 @@ name|NULL
 argument_list|,
 literal|0
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|rc
-operator|==
-name|NGX_ERROR
-operator|||
-name|rc
-operator|==
-name|NGX_DONE
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 return|return
-name|rc
+name|NGX_ERROR
 return|;
 block|}
 name|ngx_http_set_ctx

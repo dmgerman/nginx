@@ -165,7 +165,7 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon2aa15afd0108
+DECL|struct|__anon2795ca6e0108
 typedef|typedef
 struct|struct
 block|{
@@ -201,7 +201,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa15afd0208
+DECL|struct|__anon2795ca6e0208
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +270,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa15afd0308
+DECL|struct|__anon2795ca6e0308
 typedef|typedef
 struct|struct
 block|{
@@ -294,7 +294,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa15afd0408
+DECL|struct|__anon2795ca6e0408
 typedef|typedef
 struct|struct
 block|{
@@ -436,7 +436,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2aa15afd0508
+DECL|struct|__anon2795ca6e0508
 typedef|typedef
 struct|struct
 block|{
@@ -603,7 +603,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa15afd0608
+DECL|struct|__anon2795ca6e0608
 typedef|typedef
 struct|struct
 block|{
@@ -639,7 +639,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa15afd0708
+DECL|struct|__anon2795ca6e0708
 typedef|typedef
 struct|struct
 block|{
@@ -757,7 +757,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa15afd0808
+DECL|struct|__anon2795ca6e0808
 typedef|typedef
 struct|struct
 block|{
@@ -799,6 +799,14 @@ DECL|struct|ngx_http_upstream_s
 struct|struct
 name|ngx_http_upstream_s
 block|{
+DECL|member|read_event_handler
+name|ngx_event_handler_pt
+name|read_event_handler
+decl_stmt|;
+DECL|member|write_event_handler
+name|ngx_event_handler_pt
+name|write_event_handler
+decl_stmt|;
 DECL|member|peer
 name|ngx_peer_connection_t
 name|peer
@@ -1045,7 +1053,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2aa15afd0908
+DECL|struct|__anon2795ca6e0908
 typedef|typedef
 struct|struct
 block|{

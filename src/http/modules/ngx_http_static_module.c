@@ -831,12 +831,6 @@ return|;
 block|}
 if|if
 condition|(
-name|r
-operator|!=
-name|r
-operator|->
-expr|main
-operator|&&
 name|of
 operator|.
 name|size
