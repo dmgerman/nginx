@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29190a8b0108
+DECL|struct|__anon28b67a0f0108
 typedef|typedef
 struct|struct
 block|{
@@ -65,7 +65,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29190a8b0208
+DECL|struct|__anon28b67a0f0208
 typedef|typedef
 struct|struct
 block|{
@@ -104,7 +104,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29190a8b0308
+DECL|struct|__anon28b67a0f0308
 typedef|typedef
 struct|struct
 block|{
@@ -720,7 +720,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"limiting requests, excess: %ui.%03ui"
+literal|"limiting requests, excess: %ui.%03ui by zone \"%V\""
 argument_list|,
 name|excess
 operator|/
@@ -729,6 +729,13 @@ argument_list|,
 name|excess
 operator|%
 literal|1000
+argument_list|,
+operator|&
+name|lrcf
+operator|->
+name|shm_zone
+operator|->
+name|name
 argument_list|)
 expr_stmt|;
 return|return
@@ -775,7 +782,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"delaying request, excess: %ui.%03ui"
+literal|"delaying request, excess: %ui.%03ui, by zone \"%V\""
 argument_list|,
 name|excess
 operator|/
@@ -784,6 +791,13 @@ argument_list|,
 name|excess
 operator|%
 literal|1000
+argument_list|,
+operator|&
+name|lrcf
+operator|->
+name|shm_zone
+operator|->
+name|name
 argument_list|)
 expr_stmt|;
 if|if
@@ -917,6 +931,28 @@ operator|->
 name|shpool
 operator|->
 name|mutex
+argument_list|)
+expr_stmt|;
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_CRIT
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"could not allocate memory in zone \"%V\""
+argument_list|,
+operator|&
+name|lrcf
+operator|->
+name|shm_zone
+operator|->
+name|name
 argument_list|)
 expr_stmt|;
 return|return
