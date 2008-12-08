@@ -6393,11 +6393,7 @@ name|r
 operator|->
 name|method
 operator|&
-operator|(
-name|NGX_HTTP_POST
-operator||
 name|NGX_HTTP_PUT
-operator|)
 operator|&&
 name|r
 operator|->
