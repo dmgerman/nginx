@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c10e3270108
+DECL|struct|__anon28fbe09a0108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c10e3270208
+DECL|struct|__anon28fbe09a0208
 typedef|typedef
 struct|struct
 block|{
@@ -1220,6 +1220,15 @@ argument_list|,
 name|filename
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|err
+operator|==
+name|NGX_EACCES
+condition|)
+block|{
+continue|continue;
+block|}
 return|return
 name|ngx_http_autoindex_error
 argument_list|(
