@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28da81b60108
+DECL|struct|__anon2afa7a6e0108
 typedef|typedef
 struct|struct
 block|{
@@ -65,7 +65,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28da81b60208
+DECL|struct|__anon2afa7a6e0208
 typedef|typedef
 struct|struct
 block|{
@@ -104,7 +104,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28da81b60308
+DECL|struct|__anon2afa7a6e0308
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ name|ngx_http_limit_req_lookup
 parameter_list|(
 name|ngx_http_limit_req_conf_t
 modifier|*
-name|lzcf
+name|lrcf
 parameter_list|,
 name|ngx_uint_t
 name|hash
@@ -163,7 +163,7 @@ parameter_list|,
 name|ngx_http_limit_req_node_t
 modifier|*
 modifier|*
-name|lzp
+name|lrp
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -447,11 +447,11 @@ name|ctx
 decl_stmt|;
 name|ngx_http_limit_req_node_t
 modifier|*
-name|lz
+name|lr
 decl_stmt|;
 name|ngx_http_limit_req_conf_t
 modifier|*
-name|lzcf
+name|lrcf
 decl_stmt|;
 if|if
 condition|(
@@ -466,7 +466,7 @@ return|return
 name|NGX_DECLINED
 return|;
 block|}
-name|lzcf
+name|lrcf
 operator|=
 name|ngx_http_get_module_loc_conf
 argument_list|(
@@ -477,7 +477,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|lzcf
+name|lrcf
 operator|->
 name|shm_zone
 operator|==
@@ -490,7 +490,7 @@ return|;
 block|}
 name|ctx
 operator|=
-name|lzcf
+name|lrcf
 operator|->
 name|shm_zone
 operator|->
@@ -613,7 +613,7 @@ name|rc
 operator|=
 name|ngx_http_limit_req_lookup
 argument_list|(
-name|lzcf
+name|lrcf
 argument_list|,
 name|hash
 argument_list|,
@@ -624,18 +624,18 @@ argument_list|,
 name|len
 argument_list|,
 operator|&
-name|lz
+name|lr
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|lz
+name|lr
 condition|)
 block|{
 name|ngx_queue_remove
 argument_list|(
 operator|&
-name|lz
+name|lr
 operator|->
 name|queue
 argument_list|)
@@ -647,14 +647,14 @@ operator|->
 name|queue
 argument_list|,
 operator|&
-name|lz
+name|lr
 operator|->
 name|queue
 argument_list|)
 expr_stmt|;
 name|excess
 operator|=
-name|lz
+name|lr
 operator|->
 name|excess
 expr_stmt|;
@@ -754,7 +754,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|lzcf
+name|lrcf
 operator|->
 name|nodelay
 condition|)
@@ -924,7 +924,7 @@ name|NGX_HTTP_SERVICE_UNAVAILABLE
 return|;
 block|}
 block|}
-name|lz
+name|lr
 operator|=
 operator|(
 name|ngx_http_limit_req_node_t
@@ -941,7 +941,7 @@ name|key
 operator|=
 name|hash
 expr_stmt|;
-name|lz
+name|lr
 operator|->
 name|len
 operator|=
@@ -955,7 +955,7 @@ operator|=
 name|ngx_timeofday
 argument_list|()
 expr_stmt|;
-name|lz
+name|lr
 operator|->
 name|last
 operator|=
@@ -974,7 +974,7 @@ operator|->
 name|msec
 operator|)
 expr_stmt|;
-name|lz
+name|lr
 operator|->
 name|excess
 operator|=
@@ -982,7 +982,7 @@ literal|0
 expr_stmt|;
 name|ngx_memcpy
 argument_list|(
-name|lz
+name|lr
 operator|->
 name|data
 argument_list|,
@@ -1009,7 +1009,7 @@ operator|->
 name|queue
 argument_list|,
 operator|&
-name|lz
+name|lr
 operator|->
 name|queue
 argument_list|)
@@ -1129,10 +1129,10 @@ name|p
 decl_stmt|;
 name|ngx_http_limit_req_node_t
 modifier|*
-name|lzn
+name|lrn
 decl_stmt|,
 modifier|*
-name|lznt
+name|lrnt
 decl_stmt|;
 for|for
 control|(
@@ -1181,7 +1181,7 @@ block|}
 else|else
 block|{
 comment|/* node->key == temp->key */
-name|lzn
+name|lrn
 operator|=
 operator|(
 name|ngx_http_limit_req_node_t
@@ -1192,7 +1192,7 @@ name|node
 operator|->
 name|color
 expr_stmt|;
-name|lznt
+name|lrnt
 operator|=
 operator|(
 name|ngx_http_limit_req_node_t
@@ -1208,19 +1208,19 @@ operator|=
 operator|(
 name|ngx_memn2cmp
 argument_list|(
-name|lzn
+name|lrn
 operator|->
 name|data
 argument_list|,
-name|lznt
+name|lrnt
 operator|->
 name|data
 argument_list|,
-name|lzn
+name|lrn
 operator|->
 name|len
 argument_list|,
-name|lznt
+name|lrnt
 operator|->
 name|len
 argument_list|)
@@ -1289,12 +1289,12 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_http_limit_req_lookup (ngx_http_limit_req_conf_t * lzcf,ngx_uint_t hash,u_char * data,size_t len,ngx_http_limit_req_node_t ** lzp)
+DECL|function|ngx_http_limit_req_lookup (ngx_http_limit_req_conf_t * lrcf,ngx_uint_t hash,u_char * data,size_t len,ngx_http_limit_req_node_t ** lrp)
 name|ngx_http_limit_req_lookup
 parameter_list|(
 name|ngx_http_limit_req_conf_t
 modifier|*
-name|lzcf
+name|lrcf
 parameter_list|,
 name|ngx_uint_t
 name|hash
@@ -1309,7 +1309,7 @@ parameter_list|,
 name|ngx_http_limit_req_node_t
 modifier|*
 modifier|*
-name|lzp
+name|lrp
 parameter_list|)
 block|{
 name|ngx_int_t
@@ -1340,11 +1340,11 @@ name|ctx
 decl_stmt|;
 name|ngx_http_limit_req_node_t
 modifier|*
-name|lz
+name|lr
 decl_stmt|;
 name|ctx
 operator|=
-name|lzcf
+name|lrcf
 operator|->
 name|shm_zone
 operator|->
@@ -1410,7 +1410,7 @@ block|}
 comment|/* hash == node->key */
 do|do
 block|{
-name|lz
+name|lr
 operator|=
 operator|(
 name|ngx_http_limit_req_node_t
@@ -1427,7 +1427,7 @@ name|ngx_memn2cmp
 argument_list|(
 name|data
 argument_list|,
-name|lz
+name|lr
 operator|->
 name|data
 argument_list|,
@@ -1436,7 +1436,7 @@ argument_list|,
 operator|(
 name|size_t
 operator|)
-name|lz
+name|lr
 operator|->
 name|len
 argument_list|)
@@ -1478,14 +1478,14 @@ operator|)
 operator|(
 name|now
 operator|-
-name|lz
+name|lr
 operator|->
 name|last
 operator|)
 expr_stmt|;
 name|excess
 operator|=
-name|lz
+name|lr
 operator|->
 name|excess
 operator|-
@@ -1514,22 +1514,22 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-name|lz
+name|lr
 operator|->
 name|excess
 operator|=
 name|excess
 expr_stmt|;
-name|lz
+name|lr
 operator|->
 name|last
 operator|=
 name|now
 expr_stmt|;
 operator|*
-name|lzp
+name|lrp
 operator|=
-name|lz
+name|lr
 expr_stmt|;
 if|if
 condition|(
@@ -1538,7 +1538,7 @@ name|ngx_uint_t
 operator|)
 name|excess
 operator|>
-name|lzcf
+name|lrcf
 operator|->
 name|burst
 condition|)
@@ -1593,7 +1593,7 @@ do|;
 break|break;
 block|}
 operator|*
-name|lzp
+name|lrp
 operator|=
 name|NULL
 expr_stmt|;
@@ -1640,7 +1640,7 @@ name|node
 decl_stmt|;
 name|ngx_http_limit_req_node_t
 modifier|*
-name|lz
+name|lr
 decl_stmt|;
 name|tp
 operator|=
@@ -1693,7 +1693,7 @@ operator|->
 name|queue
 argument_list|)
 expr_stmt|;
-name|lz
+name|lr
 operator|=
 name|ngx_queue_data
 argument_list|(
@@ -1720,7 +1720,7 @@ operator|)
 operator|(
 name|now
 operator|-
-name|lz
+name|lr
 operator|->
 name|last
 operator|)
@@ -1743,7 +1743,7 @@ return|return;
 block|}
 name|excess
 operator|=
-name|lz
+name|lr
 operator|->
 name|excess
 operator|-
@@ -1781,7 +1781,7 @@ operator|(
 name|u_char
 operator|*
 operator|)
-name|lz
+name|lr
 operator|-
 name|offsetof
 argument_list|(
@@ -2816,7 +2816,7 @@ parameter_list|)
 block|{
 name|ngx_http_limit_req_conf_t
 modifier|*
-name|lzcf
+name|lrcf
 init|=
 name|conf
 decl_stmt|;
@@ -2834,7 +2834,7 @@ name|i
 decl_stmt|;
 if|if
 condition|(
-name|lzcf
+name|lrcf
 operator|->
 name|shm_zone
 condition|)
@@ -2918,7 +2918,7 @@ name|data
 operator|+
 literal|5
 expr_stmt|;
-name|lzcf
+name|lrcf
 operator|->
 name|shm_zone
 operator|=
@@ -2937,7 +2937,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|lzcf
+name|lrcf
 operator|->
 name|shm_zone
 operator|==
@@ -3041,7 +3041,7 @@ operator|==
 literal|0
 condition|)
 block|{
-name|lzcf
+name|lrcf
 operator|->
 name|nodelay
 operator|=
@@ -3072,7 +3072,7 @@ return|;
 block|}
 if|if
 condition|(
-name|lzcf
+name|lrcf
 operator|->
 name|shm_zone
 operator|==
@@ -3101,7 +3101,7 @@ return|;
 block|}
 if|if
 condition|(
-name|lzcf
+name|lrcf
 operator|->
 name|shm_zone
 operator|->
@@ -3121,7 +3121,7 @@ argument_list|,
 literal|"unknown limit_req_zone \"%V\""
 argument_list|,
 operator|&
-name|lzcf
+name|lrcf
 operator|->
 name|shm_zone
 operator|->
@@ -3132,7 +3132,7 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
-name|lzcf
+name|lrcf
 operator|->
 name|burst
 operator|=
