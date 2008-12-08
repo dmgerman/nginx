@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c89a5d00108
+DECL|struct|__anon2bac3e740108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c89a5d00208
+DECL|struct|__anon2bac3e740208
 typedef|typedef
 struct|struct
 block|{
@@ -73,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c89a5d00308
+DECL|struct|__anon2bac3e740308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c89a5d00408
+DECL|struct|__anon2bac3e740408
 typedef|typedef
 struct|struct
 block|{
@@ -1896,6 +1896,17 @@ name|ngx_str_t
 modifier|*
 name|value
 decl_stmt|;
+if|if
+condition|(
+name|lzcf
+operator|->
+name|shm_zone
+condition|)
+block|{
+return|return
+literal|"is duplicate"
+return|;
+block|}
 name|value
 operator|=
 name|cf
