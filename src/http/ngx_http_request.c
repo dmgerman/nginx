@@ -8302,11 +8302,6 @@ operator|->
 name|args
 argument_list|)
 expr_stmt|;
-name|ngx_http_run_posted_requests
-argument_list|(
-name|c
-argument_list|)
-expr_stmt|;
 return|return;
 block|}
 if|if
