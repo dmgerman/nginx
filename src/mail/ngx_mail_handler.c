@@ -2239,8 +2239,8 @@ name|write
 argument_list|,
 literal|0
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 name|ngx_mail_close_connection
@@ -2380,8 +2380,8 @@ name|write
 argument_list|,
 literal|0
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 name|ngx_mail_close_connection
@@ -2501,8 +2501,8 @@ name|read
 argument_list|,
 literal|0
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 name|ngx_mail_session_internal_server_error

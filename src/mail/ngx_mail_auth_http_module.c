@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29245dec0108
+DECL|struct|__anon2b2f18a80108
 typedef|typedef
 struct|struct
 block|{
@@ -1220,8 +1220,8 @@ name|wev
 argument_list|,
 literal|0
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 name|ngx_close_connection
@@ -1538,7 +1538,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon29245dec0203
+DECL|enum|__anon2b2f18a80203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -4087,8 +4087,8 @@ name|rev
 argument_list|,
 literal|0
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 name|ngx_mail_close_connection
@@ -4114,8 +4114,8 @@ name|rev
 argument_list|,
 literal|0
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 name|ngx_mail_close_connection
@@ -4151,7 +4151,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon29245dec0303
+DECL|enum|__anon2b2f18a80303
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -4736,8 +4736,8 @@ name|rev
 argument_list|,
 literal|0
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 name|c

@@ -261,8 +261,8 @@ name|rev
 argument_list|,
 name|flags
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 return|return
@@ -345,8 +345,8 @@ name|p
 operator|->
 name|send_lowat
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 return|return

@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ba7fcb90108
+DECL|struct|__anon2911200b0108
 typedef|typedef
 struct|struct
 block|{
@@ -914,8 +914,8 @@ name|rev
 argument_list|,
 literal|0
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 name|c
@@ -3224,8 +3224,8 @@ name|wev
 argument_list|,
 literal|0
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 name|c
@@ -4532,8 +4532,8 @@ name|write
 argument_list|,
 literal|0
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 name|ngx_mail_proxy_close_session
@@ -4553,8 +4553,8 @@ name|read
 argument_list|,
 literal|0
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 name|ngx_mail_proxy_close_session
@@ -4574,8 +4574,8 @@ name|write
 argument_list|,
 literal|0
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 name|ngx_mail_proxy_close_session
@@ -4595,8 +4595,8 @@ name|read
 argument_list|,
 literal|0
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 name|ngx_mail_proxy_close_session
