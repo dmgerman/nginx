@@ -266,21 +266,6 @@ name|4127
 name|)
 end_pragma
 
-begin_comment
-comment|/* function 'ngx_handle_write_event' not inlined */
-end_comment
-
-begin_pragma
-pragma|#
-directive|pragma
-name|warning
-name|(
-name|disable
-name|:
-name|4710
-name|)
-end_pragma
-
 begin_endif
 endif|#
 directive|endif
