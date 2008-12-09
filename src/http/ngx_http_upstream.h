@@ -165,7 +165,7 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon2795ca6e0108
+DECL|struct|__anon2c808ca60108
 typedef|typedef
 struct|struct
 block|{
@@ -201,7 +201,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2795ca6e0208
+DECL|struct|__anon2c808ca60208
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +270,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2795ca6e0308
+DECL|struct|__anon2c808ca60308
 typedef|typedef
 struct|struct
 block|{
@@ -294,7 +294,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2795ca6e0408
+DECL|struct|__anon2c808ca60408
 typedef|typedef
 struct|struct
 block|{
@@ -436,7 +436,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2795ca6e0508
+DECL|struct|__anon2c808ca60508
 typedef|typedef
 struct|struct
 block|{
@@ -603,7 +603,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2795ca6e0608
+DECL|struct|__anon2c808ca60608
 typedef|typedef
 struct|struct
 block|{
@@ -639,7 +639,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2795ca6e0708
+DECL|struct|__anon2c808ca60708
 typedef|typedef
 struct|struct
 block|{
@@ -757,7 +757,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2795ca6e0808
+DECL|struct|__anon2c808ca60808
 typedef|typedef
 struct|struct
 block|{
@@ -794,17 +794,37 @@ name|ngx_http_upstream_resolved_t
 typedef|;
 end_typedef
 
+begin_typedef
+DECL|typedef|ngx_http_upstream_handler_pt
+typedef|typedef
+name|void
+function_decl|(
+modifier|*
+name|ngx_http_upstream_handler_pt
+function_decl|)
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_http_upstream_t
+modifier|*
+name|u
+parameter_list|)
+function_decl|;
+end_typedef
+
 begin_struct
 DECL|struct|ngx_http_upstream_s
 struct|struct
 name|ngx_http_upstream_s
 block|{
 DECL|member|read_event_handler
-name|ngx_event_handler_pt
+name|ngx_http_upstream_handler_pt
 name|read_event_handler
 decl_stmt|;
 DECL|member|write_event_handler
-name|ngx_event_handler_pt
+name|ngx_http_upstream_handler_pt
 name|write_event_handler
 decl_stmt|;
 DECL|member|peer
@@ -1053,7 +1073,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2795ca6e0908
+DECL|struct|__anon2c808ca60908
 typedef|typedef
 struct|struct
 block|{
