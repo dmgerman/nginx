@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29e2a29a0108
+DECL|struct|__anon29ed321a0108
 typedef|typedef
 struct|struct
 block|{
@@ -76,7 +76,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29e2a29a0203
+DECL|enum|__anon29ed321a0203
 typedef|typedef
 enum|enum
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e2a29a0308
+DECL|struct|__anon29ed321a0308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e2a29a0408
+DECL|struct|__anon29ed321a0408
 typedef|typedef
 struct|struct
 block|{
@@ -258,7 +258,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon29e2a29a0508
+DECL|struct|__anon29ed321a0508
 typedef|typedef
 struct|struct
 block|{
@@ -301,7 +301,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e2a29a0608
+DECL|struct|__anon29ed321a0608
 typedef|typedef
 struct|struct
 block|{
@@ -331,7 +331,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e2a29a0708
+DECL|struct|__anon29ed321a0708
 typedef|typedef
 struct|struct
 block|{
@@ -358,7 +358,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e2a29a0808
+DECL|struct|__anon29ed321a0808
 typedef|typedef
 struct|struct
 block|{
@@ -7653,7 +7653,7 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
-comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.bufs.num = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.temp_path = NULL;      *     conf->upstream.hide_headers_hash = { NULL, 0 };      *     conf->upstream.schema = { 0, NULL };      *     conf->upstream.uri = { 0, NULL };      *     conf->upstream.location = NULL;      *     conf->upstream.store_lengths = NULL;      *     conf->upstream.store_values = NULL;      *      *     conf->index.len = 0;      *     conf->index.data = NULL;      */
+comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.bufs.num = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.temp_path = NULL;      *     conf->upstream.hide_headers_hash = { NULL, 0 };      *     conf->upstream.uri = { 0, NULL };      *     conf->upstream.location = NULL;      *     conf->upstream.store_lengths = NULL;      *     conf->upstream.store_values = NULL;      *      *     conf->index.len = 0;      *     conf->index.data = NULL;      */
 name|conf
 operator|->
 name|upstream
@@ -8679,18 +8679,6 @@ operator|->
 name|upstream
 operator|.
 name|upstream
-expr_stmt|;
-name|conf
-operator|->
-name|upstream
-operator|.
-name|schema
-operator|=
-name|prev
-operator|->
-name|upstream
-operator|.
-name|schema
 expr_stmt|;
 block|}
 if|if
@@ -9744,9 +9732,11 @@ name|flcf
 operator|->
 name|upstream
 operator|.
-name|schema
-operator|.
-name|len
+name|upstream
+operator|||
+name|flcf
+operator|->
+name|fastcgi_lengths
 condition|)
 block|{
 return|return
@@ -9767,35 +9757,6 @@ operator|->
 name|handler
 operator|=
 name|ngx_http_fastcgi_handler
-expr_stmt|;
-name|flcf
-operator|->
-name|upstream
-operator|.
-name|schema
-operator|.
-name|len
-operator|=
-sizeof|sizeof
-argument_list|(
-literal|"fastcgi://"
-argument_list|)
-operator|-
-literal|1
-expr_stmt|;
-name|flcf
-operator|->
-name|upstream
-operator|.
-name|schema
-operator|.
-name|data
-operator|=
-operator|(
-name|u_char
-operator|*
-operator|)
-literal|"fastcgi://"
 expr_stmt|;
 name|value
 operator|=

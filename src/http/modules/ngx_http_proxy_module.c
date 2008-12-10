@@ -70,14 +70,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon295cf37f010a
+DECL|union|__anon274ee310010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon295cf37f0208
+DECL|struct|__anon274ee3100208
 struct|struct
 block|{
 DECL|member|lengths
@@ -108,10 +108,14 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon295cf37f0308
+DECL|struct|__anon274ee3100308
 typedef|typedef
 struct|struct
 block|{
+DECL|member|schema
+name|ngx_str_t
+name|schema
+decl_stmt|;
 DECL|member|host_header
 name|ngx_str_t
 name|host_header
@@ -131,7 +135,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295cf37f0408
+DECL|struct|__anon274ee3100408
 typedef|typedef
 struct|struct
 block|{
@@ -232,7 +236,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295cf37f0508
+DECL|struct|__anon274ee3100508
 typedef|typedef
 struct|struct
 block|{
@@ -2132,7 +2136,7 @@ name|schema
 operator|=
 name|plcf
 operator|->
-name|upstream
+name|vars
 operator|.
 name|schema
 expr_stmt|;
@@ -4900,7 +4904,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon295cf37f0603
+DECL|enum|__anon274ee3100603
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -7491,7 +7495,7 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
-comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.bufs.num = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.temp_path = NULL;      *     conf->upstream.hide_headers_hash = { NULL, 0 };      *     conf->upstream.schema = { 0, NULL };      *     conf->upstream.uri = { 0, NULL };      *     conf->upstream.location = NULL;      *     conf->upstream.store_lengths = NULL;      *     conf->upstream.store_values = NULL;      *      *     conf->method = NULL;      *     conf->headers_source = NULL;      *     conf->headers_set_len = NULL;      *     conf->headers_set = NULL;      *     conf->headers_set_hash = NULL;      *     conf->body_set_len = NULL;      *     conf->body_set = NULL;      *     conf->body_source = { 0, NULL };      *     conf->rewrite_locations = NULL;      */
+comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.bufs.num = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.temp_path = NULL;      *     conf->upstream.hide_headers_hash = { NULL, 0 };      *     conf->upstream.uri = { 0, NULL };      *     conf->upstream.location = NULL;      *     conf->upstream.store_lengths = NULL;      *     conf->upstream.store_values = NULL;      *      *     conf->method = NULL;      *     conf->headers_source = NULL;      *     conf->headers_set_len = NULL;      *     conf->headers_set = NULL;      *     conf->headers_set_hash = NULL;      *     conf->body_set_len = NULL;      *     conf->body_set = NULL;      *     conf->body_source = { 0, NULL };      *     conf->rewrite_locations = NULL;      */
 name|conf
 operator|->
 name|upstream
@@ -8845,18 +8849,6 @@ operator|=
 name|prev
 operator|->
 name|vars
-expr_stmt|;
-name|conf
-operator|->
-name|upstream
-operator|.
-name|schema
-operator|=
-name|prev
-operator|->
-name|upstream
-operator|.
-name|schema
 expr_stmt|;
 block|}
 if|if
@@ -10454,9 +10446,11 @@ name|plcf
 operator|->
 name|upstream
 operator|.
-name|schema
-operator|.
-name|len
+name|upstream
+operator|||
+name|plcf
+operator|->
+name|proxy_lengths
 condition|)
 block|{
 return|return
@@ -10831,7 +10825,7 @@ return|;
 block|}
 name|plcf
 operator|->
-name|upstream
+name|vars
 operator|.
 name|schema
 operator|.
@@ -10841,7 +10835,7 @@ name|add
 expr_stmt|;
 name|plcf
 operator|->
-name|upstream
+name|vars
 operator|.
 name|schema
 operator|.

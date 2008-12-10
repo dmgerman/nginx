@@ -165,7 +165,7 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon2c808ca60108
+DECL|struct|__anon2a1ac7b30108
 typedef|typedef
 struct|struct
 block|{
@@ -201,7 +201,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c808ca60208
+DECL|struct|__anon2a1ac7b30208
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +270,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c808ca60308
+DECL|struct|__anon2a1ac7b30308
 typedef|typedef
 struct|struct
 block|{
@@ -294,7 +294,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c808ca60408
+DECL|struct|__anon2a1ac7b30408
 typedef|typedef
 struct|struct
 block|{
@@ -436,7 +436,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c808ca60508
+DECL|struct|__anon2a1ac7b30508
 typedef|typedef
 struct|struct
 block|{
@@ -548,10 +548,6 @@ name|ngx_array_t
 modifier|*
 name|pass_headers
 decl_stmt|;
-DECL|member|schema
-name|ngx_str_t
-name|schema
-decl_stmt|;
 DECL|member|store_lengths
 name|ngx_array_t
 modifier|*
@@ -603,7 +599,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c808ca60608
+DECL|struct|__anon2a1ac7b30608
 typedef|typedef
 struct|struct
 block|{
@@ -639,7 +635,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c808ca60708
+DECL|struct|__anon2a1ac7b30708
 typedef|typedef
 struct|struct
 block|{
@@ -757,7 +753,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c808ca60808
+DECL|struct|__anon2a1ac7b30808
 typedef|typedef
 struct|struct
 block|{
@@ -1073,7 +1069,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c808ca60908
+DECL|struct|__anon2a1ac7b30908
 typedef|typedef
 struct|struct
 block|{
