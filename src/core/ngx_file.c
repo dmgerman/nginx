@@ -2332,6 +2332,13 @@ name|NGX_WIN32
 operator|)
 if|if
 condition|(
+name|ext
+operator|->
+name|access
+condition|)
+block|{
+if|if
+condition|(
 name|ngx_change_file_access
 argument_list|(
 name|src
@@ -2371,6 +2378,7 @@ expr_stmt|;
 goto|goto
 name|failed
 goto|;
+block|}
 block|}
 endif|#
 directive|endif
@@ -2486,7 +2494,7 @@ name|ngx_dir_access
 argument_list|(
 name|ext
 operator|->
-name|access
+name|path_access
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2656,6 +2664,10 @@ block|}
 if|if
 condition|(
 name|err
+operator|&&
+name|ext
+operator|->
+name|log_rename_error
 condition|)
 block|{
 name|ngx_log_error
@@ -2681,6 +2693,12 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
+name|ext
+operator|->
+name|rename_error
+operator|=
+name|err
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;

@@ -106,23 +106,9 @@ name|NGX_EACCES
 value|ERROR_ACCESS_DENIED
 end_define
 
-begin_if
-if|#
-directive|if
-literal|0
-end_if
-
-begin_define
-define|#
-directive|define
-name|NGX_EEXIST
-value|ERROR_FILE_EXISTS
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
+begin_comment
+comment|/* it's seems that ERROR_FILE_EXISTS is not appropriate error code */
+end_comment
 
 begin_define
 DECL|macro|NGX_EEXIST
@@ -130,6 +116,18 @@ define|#
 directive|define
 name|NGX_EEXIST
 value|ERROR_ALREADY_EXISTS
+end_define
+
+begin_comment
+comment|/*  * could not found cross volume directory move error code,  * so use ERROR_WRONG_DISK as stub one  */
+end_comment
+
+begin_define
+DECL|macro|NGX_EXDEV
+define|#
+directive|define
+name|NGX_EXDEV
+value|ERROR_WRONG_DISK
 end_define
 
 begin_define

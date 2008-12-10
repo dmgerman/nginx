@@ -135,7 +135,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c3588d60108
+DECL|struct|__anon2b39d8420108
 typedef|typedef
 struct|struct
 block|{
@@ -191,13 +191,17 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3588d60208
+DECL|struct|__anon2b39d8420208
 typedef|typedef
 struct|struct
 block|{
 DECL|member|access
 name|ngx_uint_t
 name|access
+decl_stmt|;
+DECL|member|path_access
+name|ngx_uint_t
+name|path_access
 decl_stmt|;
 DECL|member|time
 name|time_t
@@ -206,6 +210,10 @@ decl_stmt|;
 DECL|member|fd
 name|ngx_fd_t
 name|fd
+decl_stmt|;
+DECL|member|rename_error
+name|ngx_err_t
+name|rename_error
 decl_stmt|;
 DECL|member|create_path
 name|unsigned
@@ -216,6 +224,12 @@ decl_stmt|;
 DECL|member|delete_file
 name|unsigned
 name|delete_file
+range|:
+literal|1
+decl_stmt|;
+DECL|member|log_rename_error
+name|unsigned
+name|log_rename_error
 range|:
 literal|1
 decl_stmt|;
