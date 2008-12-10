@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29ed321a0108
+DECL|struct|__anon299f95aa0108
 typedef|typedef
 struct|struct
 block|{
@@ -76,7 +76,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29ed321a0203
+DECL|enum|__anon299f95aa0203
 typedef|typedef
 enum|enum
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ed321a0308
+DECL|struct|__anon299f95aa0308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ed321a0408
+DECL|struct|__anon299f95aa0408
 typedef|typedef
 struct|struct
 block|{
@@ -258,7 +258,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon29ed321a0508
+DECL|struct|__anon299f95aa0508
 typedef|typedef
 struct|struct
 block|{
@@ -301,7 +301,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ed321a0608
+DECL|struct|__anon299f95aa0608
 typedef|typedef
 struct|struct
 block|{
@@ -331,7 +331,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ed321a0708
+DECL|struct|__anon299f95aa0708
 typedef|typedef
 struct|struct
 block|{
@@ -358,7 +358,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ed321a0808
+DECL|struct|__anon299f95aa0808
 typedef|typedef
 struct|struct
 block|{
@@ -1748,6 +1748,15 @@ return|return
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
 block|}
+name|ngx_http_set_ctx
+argument_list|(
+name|r
+argument_list|,
+name|NULL
+argument_list|,
+name|ngx_http_fastcgi_module
+argument_list|)
+expr_stmt|;
 name|u
 operator|=
 name|ngx_pcalloc
