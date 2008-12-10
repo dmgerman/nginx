@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon299f95aa0108
+DECL|struct|__anon2b0dfaca0108
 typedef|typedef
 struct|struct
 block|{
@@ -76,7 +76,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon299f95aa0203
+DECL|enum|__anon2b0dfaca0203
 typedef|typedef
 enum|enum
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299f95aa0308
+DECL|struct|__anon2b0dfaca0308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299f95aa0408
+DECL|struct|__anon2b0dfaca0408
 typedef|typedef
 struct|struct
 block|{
@@ -258,7 +258,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon299f95aa0508
+DECL|struct|__anon2b0dfaca0508
 typedef|typedef
 struct|struct
 block|{
@@ -301,7 +301,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299f95aa0608
+DECL|struct|__anon2b0dfaca0608
 typedef|typedef
 struct|struct
 block|{
@@ -331,7 +331,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299f95aa0708
+DECL|struct|__anon2b0dfaca0708
 typedef|typedef
 struct|struct
 block|{
@@ -358,7 +358,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299f95aa0808
+DECL|struct|__anon2b0dfaca0808
 typedef|typedef
 struct|struct
 block|{
@@ -2129,6 +2129,37 @@ name|url
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|NGX_ERROR
+return|;
+block|}
+if|if
+condition|(
+name|u
+operator|.
+name|no_port
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"no port in upstream \"%V\""
+argument_list|,
+operator|&
+name|u
+operator|.
+name|url
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
