@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b54caf80108
+DECL|struct|__anon27694cea0108
 typedef|typedef
 struct|struct
 block|{
@@ -41,7 +41,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b54caf80208
+DECL|struct|__anon27694cea0208
 typedef|typedef
 struct|struct
 block|{
@@ -2685,7 +2685,7 @@ parameter_list|)
 block|{
 name|ngx_http_memcached_loc_conf_t
 modifier|*
-name|lcf
+name|mlcf
 init|=
 name|conf
 decl_stmt|;
@@ -2702,7 +2702,7 @@ name|clcf
 decl_stmt|;
 if|if
 condition|(
-name|lcf
+name|mlcf
 operator|->
 name|upstream
 operator|.
@@ -2747,7 +2747,7 @@ name|no_resolve
 operator|=
 literal|1
 expr_stmt|;
-name|lcf
+name|mlcf
 operator|->
 name|upstream
 operator|.
@@ -2765,7 +2765,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|lcf
+name|mlcf
 operator|->
 name|upstream
 operator|.
@@ -2820,7 +2820,7 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
-name|lcf
+name|mlcf
 operator|->
 name|index
 operator|=
@@ -2834,7 +2834,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|lcf
+name|mlcf
 operator|->
 name|index
 operator|==
