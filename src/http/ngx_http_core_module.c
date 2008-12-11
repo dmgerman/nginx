@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c8e66150108
+DECL|struct|__anon286da95c0108
 typedef|typedef
 struct|struct
 block|{
@@ -8523,6 +8523,13 @@ argument_list|,
 name|ngx_http_core_module
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|cscf
+operator|->
+name|named_locations
+condition|)
+block|{
 for|for
 control|(
 name|clcfp
@@ -8683,6 +8690,7 @@ expr_stmt|;
 return|return
 name|NGX_DONE
 return|;
+block|}
 block|}
 name|ngx_log_error
 argument_list|(
