@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon289bb6d60108
+DECL|struct|__anon2af1ede30108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289bb6d60208
+DECL|struct|__anon2af1ede30208
 typedef|typedef
 struct|struct
 block|{
@@ -66,7 +66,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289bb6d60308
+DECL|struct|__anon2af1ede30308
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289bb6d60408
+DECL|struct|__anon2af1ede30408
 typedef|typedef
 struct|struct
 block|{
@@ -758,8 +758,6 @@ decl_stmt|;
 name|ngx_str_t
 modifier|*
 name|value
-decl_stmt|,
-name|name
 decl_stmt|;
 name|ngx_uint_t
 name|i
@@ -790,56 +788,6 @@ name|args
 operator|->
 name|elts
 expr_stmt|;
-name|name
-operator|=
-name|value
-index|[
-literal|1
-index|]
-expr_stmt|;
-if|if
-condition|(
-name|name
-operator|.
-name|data
-index|[
-literal|0
-index|]
-operator|!=
-literal|'$'
-condition|)
-block|{
-name|ngx_conf_log_error
-argument_list|(
-name|NGX_LOG_WARN
-argument_list|,
-name|cf
-argument_list|,
-literal|0
-argument_list|,
-literal|"\"%V\" variable name should start with '$'"
-argument_list|,
-operator|&
-name|value
-index|[
-literal|1
-index|]
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|name
-operator|.
-name|len
-operator|--
-expr_stmt|;
-name|name
-operator|.
-name|data
-operator|++
-expr_stmt|;
-block|}
 name|var
 operator|=
 name|ngx_http_add_variable
@@ -847,7 +795,10 @@ argument_list|(
 name|cf
 argument_list|,
 operator|&
-name|name
+name|value
+index|[
+literal|1
+index|]
 argument_list|,
 name|NGX_HTTP_VAR_CHANGEABLE
 argument_list|)
