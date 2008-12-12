@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b308a730108
+DECL|struct|__anon296ca1fe0108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b308a730208
+DECL|struct|__anon296ca1fe0208
 typedef|typedef
 struct|struct
 block|{
@@ -342,10 +342,6 @@ name|path
 decl_stmt|,
 name|uri
 decl_stmt|;
-name|ngx_log_t
-modifier|*
-name|log
-decl_stmt|;
 name|ngx_uint_t
 name|i
 decl_stmt|,
@@ -433,14 +429,6 @@ return|return
 name|NGX_DECLINED
 return|;
 block|}
-name|log
-operator|=
-name|r
-operator|->
-name|connection
-operator|->
-name|log
-expr_stmt|;
 name|ilcf
 operator|=
 name|ngx_http_get_module_loc_conf
@@ -887,6 +875,10 @@ name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -974,6 +966,10 @@ name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
 name|log
 argument_list|,
 name|of
@@ -1087,6 +1083,10 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ERR
 argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
 name|log
 argument_list|,
 name|of
