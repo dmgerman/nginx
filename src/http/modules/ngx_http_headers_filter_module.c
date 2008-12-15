@@ -55,7 +55,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29aa23450108
+DECL|struct|__anon276781ee0108
 typedef|typedef
 struct|struct
 block|{
@@ -157,7 +157,7 @@ value|5
 end_define
 
 begin_typedef
-DECL|struct|__anon29aa23450208
+DECL|struct|__anon276781ee0208
 typedef|typedef
 struct|struct
 block|{
@@ -1504,6 +1504,13 @@ name|ngx_table_elt_t
 modifier|*
 name|h
 decl_stmt|;
+if|if
+condition|(
+name|value
+operator|->
+name|len
+condition|)
+block|{
 name|h
 operator|=
 name|ngx_list_push
@@ -1554,6 +1561,7 @@ operator|=
 operator|*
 name|value
 expr_stmt|;
+block|}
 return|return
 name|NGX_OK
 return|;
