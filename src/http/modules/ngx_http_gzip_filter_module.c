@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29003abc0108
+DECL|struct|__anon2a4c001c0108
 typedef|typedef
 struct|struct
 block|{
@@ -76,7 +76,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29003abc0208
+DECL|struct|__anon2a4c001c0208
 typedef|typedef
 struct|struct
 block|{
@@ -4724,7 +4724,13 @@ name|prev
 operator|->
 name|bufs
 argument_list|,
-literal|4
+operator|(
+literal|128
+operator|*
+literal|1024
+operator|)
+operator|/
+name|ngx_pagesize
 argument_list|,
 name|ngx_pagesize
 argument_list|)
