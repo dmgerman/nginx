@@ -10783,6 +10783,13 @@ argument_list|,
 name|rc
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|u
+operator|->
+name|cleanup
+condition|)
+block|{
 operator|*
 name|u
 operator|->
@@ -10790,6 +10797,7 @@ name|cleanup
 operator|=
 name|NULL
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|u
