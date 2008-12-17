@@ -36,14 +36,6 @@ name|NGX_IO_SENDFILE
 value|1
 end_define
 
-begin_define
-DECL|macro|NGX_IO_ZEROCOPY
-define|#
-directive|define
-name|NGX_IO_ZEROCOPY
-value|2
-end_define
-
 begin_typedef
 DECL|typedef|ngx_recv_pt
 typedef|typedef
@@ -135,7 +127,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2913a0f00108
+DECL|struct|__anon2bc889210108
 typedef|typedef
 struct|struct
 block|{

@@ -62,7 +62,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon29d9d3380108
+DECL|struct|__anon2bc857960108
 typedef|typedef
 struct|struct
 block|{
@@ -102,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d9d3380208
+DECL|struct|__anon2bc857960208
 typedef|typedef
 struct|struct
 block|{
@@ -125,7 +125,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d9d3380308
+DECL|struct|__anon2bc857960308
 typedef|typedef
 struct|struct
 block|{
@@ -149,7 +149,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29d9d3380403
+DECL|enum|__anon2bc857960403
 typedef|typedef
 enum|enum
 block|{
@@ -4637,22 +4637,6 @@ condition|)
 block|{
 break|break;
 block|}
-if|#
-directive|if
-operator|(
-name|NGX_HAVE_WRITE_ZEROCOPY
-operator|)
-if|if
-condition|(
-name|b
-operator|->
-name|zerocopy_busy
-condition|)
-block|{
-break|break;
-block|}
-endif|#
-directive|endif
 if|if
 condition|(
 name|b

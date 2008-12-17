@@ -58,7 +58,7 @@ value|(sizeof("&#1114111;") - 1)
 end_define
 
 begin_typedef
-DECL|struct|__anon28a438900108
+DECL|struct|__anon2bce12ea0108
 typedef|typedef
 struct|struct
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a438900208
+DECL|struct|__anon2bce12ea0208
 typedef|typedef
 struct|struct
 block|{
@@ -110,7 +110,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a438900308
+DECL|struct|__anon2bce12ea0308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a438900408
+DECL|struct|__anon2bce12ea0408
 typedef|typedef
 struct|struct
 block|{
@@ -165,7 +165,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a438900508
+DECL|struct|__anon2bce12ea0508
 typedef|typedef
 struct|struct
 block|{
@@ -197,7 +197,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a438900608
+DECL|struct|__anon2bce12ea0608
 typedef|typedef
 struct|struct
 block|{
@@ -261,7 +261,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a438900708
+DECL|struct|__anon2bce12ea0708
 typedef|typedef
 struct|struct
 block|{
@@ -2350,22 +2350,6 @@ condition|)
 block|{
 break|break;
 block|}
-if|#
-directive|if
-operator|(
-name|NGX_HAVE_WRITE_ZEROCOPY
-operator|)
-if|if
-condition|(
-name|b
-operator|->
-name|zerocopy_busy
-condition|)
-block|{
-break|break;
-block|}
-endif|#
-directive|endif
 name|ctx
 operator|->
 name|busy

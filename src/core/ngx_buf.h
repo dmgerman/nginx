@@ -164,12 +164,6 @@ name|temp_file
 range|:
 literal|1
 decl_stmt|;
-DECL|member|zerocopy_busy
-name|unsigned
-name|zerocopy_busy
-range|:
-literal|1
-decl_stmt|;
 DECL|member|num
 comment|/* STUB */
 name|int
@@ -199,7 +193,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c531a1d0108
+DECL|struct|__anon289bfb6d0108
 typedef|typedef
 struct|struct
 block|{
@@ -238,7 +232,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c531a1d0208
+DECL|struct|__anon289bfb6d0208
 typedef|typedef
 struct|struct
 block|{
@@ -322,7 +316,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c531a1d0308
+DECL|struct|__anon289bfb6d0308
 typedef|typedef
 struct|struct
 block|{

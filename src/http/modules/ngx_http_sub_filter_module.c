@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon296d36c70108
+DECL|struct|__anon297f083f0108
 typedef|typedef
 struct|struct
 block|{
@@ -64,7 +64,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon296d36c70203
+DECL|enum|__anon297f083f0203
 typedef|typedef
 enum|enum
 block|{
@@ -82,7 +82,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296d36c70308
+DECL|struct|__anon297f083f0308
 typedef|typedef
 struct|struct
 block|{
@@ -2019,22 +2019,6 @@ condition|)
 block|{
 break|break;
 block|}
-if|#
-directive|if
-operator|(
-name|NGX_HAVE_WRITE_ZEROCOPY
-operator|)
-if|if
-condition|(
-name|b
-operator|->
-name|zerocopy_busy
-condition|)
-block|{
-break|break;
-block|}
-endif|#
-directive|endif
 if|if
 condition|(
 name|b

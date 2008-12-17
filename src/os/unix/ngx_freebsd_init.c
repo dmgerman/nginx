@@ -78,17 +78,6 @@ name|ngx_freebsd_machdep_hlt_logical_cpus
 decl_stmt|;
 end_decl_stmt
 
-begin_comment
-comment|/* FreeBSD 5.0 */
-end_comment
-
-begin_decl_stmt
-DECL|variable|ngx_freebsd_kern_ipc_zero_copy_send
-name|int
-name|ngx_freebsd_kern_ipc_zero_copy_send
-decl_stmt|;
-end_decl_stmt
-
 begin_decl_stmt
 DECL|variable|ngx_freebsd_sendfile_nbytes_bug
 name|ngx_uint_t
@@ -145,7 +134,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2974899d0108
+DECL|struct|__anon274a82480108
 typedef|typedef
 struct|struct
 block|{
@@ -231,20 +220,6 @@ block|,
 sizeof|sizeof
 argument_list|(
 name|ngx_freebsd_kern_ipc_somaxconn
-argument_list|)
-block|,
-literal|0
-block|}
-block|,
-block|{
-literal|"kern.ipc.zero_copy.send"
-block|,
-operator|&
-name|ngx_freebsd_kern_ipc_zero_copy_send
-block|,
-sizeof|sizeof
-argument_list|(
-name|ngx_freebsd_kern_ipc_zero_copy_send
 argument_list|)
 block|,
 literal|0
