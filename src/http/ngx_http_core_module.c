@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ab378e70108
+DECL|struct|__anon2ab900ec0108
 typedef|typedef
 struct|struct
 block|{
@@ -3642,6 +3642,12 @@ operator|->
 name|headers_in
 operator|.
 name|expect
+operator|&&
+name|r
+operator|->
+name|http_version
+operator|<
+name|NGX_HTTP_VERSION_11
 condition|)
 block|{
 name|expect
