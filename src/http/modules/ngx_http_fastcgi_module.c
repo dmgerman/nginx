@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b0dfaca0108
+DECL|struct|__anon2c06dbca0108
 typedef|typedef
 struct|struct
 block|{
@@ -76,7 +76,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b0dfaca0203
+DECL|enum|__anon2c06dbca0203
 typedef|typedef
 enum|enum
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0dfaca0308
+DECL|struct|__anon2c06dbca0308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0dfaca0408
+DECL|struct|__anon2c06dbca0408
 typedef|typedef
 struct|struct
 block|{
@@ -258,7 +258,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2b0dfaca0508
+DECL|struct|__anon2c06dbca0508
 typedef|typedef
 struct|struct
 block|{
@@ -301,7 +301,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0dfaca0608
+DECL|struct|__anon2c06dbca0608
 typedef|typedef
 struct|struct
 block|{
@@ -331,7 +331,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0dfaca0708
+DECL|struct|__anon2c06dbca0708
 typedef|typedef
 struct|struct
 block|{
@@ -358,7 +358,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0dfaca0808
+DECL|struct|__anon2c06dbca0808
 typedef|typedef
 struct|struct
 block|{
@@ -2197,6 +2197,82 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+if|if
+condition|(
+name|u
+operator|.
+name|addrs
+index|[
+literal|0
+index|]
+operator|.
+name|sockaddr
+condition|)
+block|{
+name|r
+operator|->
+name|upstream
+operator|->
+name|resolved
+operator|->
+name|sockaddr
+operator|=
+name|u
+operator|.
+name|addrs
+index|[
+literal|0
+index|]
+operator|.
+name|sockaddr
+expr_stmt|;
+name|r
+operator|->
+name|upstream
+operator|->
+name|resolved
+operator|->
+name|socklen
+operator|=
+name|u
+operator|.
+name|addrs
+index|[
+literal|0
+index|]
+operator|.
+name|socklen
+expr_stmt|;
+name|r
+operator|->
+name|upstream
+operator|->
+name|resolved
+operator|->
+name|naddrs
+operator|=
+literal|1
+expr_stmt|;
+name|r
+operator|->
+name|upstream
+operator|->
+name|resolved
+operator|->
+name|host
+operator|=
+name|u
+operator|.
+name|addrs
+index|[
+literal|0
+index|]
+operator|.
+name|name
+expr_stmt|;
+block|}
+else|else
+block|{
 name|r
 operator|->
 name|upstream
@@ -2221,6 +2297,7 @@ name|u
 operator|.
 name|port
 expr_stmt|;
+block|}
 return|return
 name|NGX_OK
 return|;

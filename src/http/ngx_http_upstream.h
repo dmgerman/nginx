@@ -165,7 +165,7 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon29991b720108
+DECL|struct|__anon27a1316d0108
 typedef|typedef
 struct|struct
 block|{
@@ -205,7 +205,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29991b720208
+DECL|struct|__anon27a1316d0208
 typedef|typedef
 struct|struct
 block|{
@@ -274,7 +274,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29991b720308
+DECL|struct|__anon27a1316d0308
 typedef|typedef
 struct|struct
 block|{
@@ -298,7 +298,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29991b720408
+DECL|struct|__anon27a1316d0408
 typedef|typedef
 struct|struct
 block|{
@@ -440,7 +440,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29991b720508
+DECL|struct|__anon27a1316d0508
 typedef|typedef
 struct|struct
 block|{
@@ -603,7 +603,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29991b720608
+DECL|struct|__anon27a1316d0608
 typedef|typedef
 struct|struct
 block|{
@@ -639,7 +639,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29991b720708
+DECL|struct|__anon27a1316d0708
 typedef|typedef
 struct|struct
 block|{
@@ -757,7 +757,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29991b720808
+DECL|struct|__anon27a1316d0808
 typedef|typedef
 struct|struct
 block|{
@@ -782,6 +782,16 @@ DECL|member|addrs
 name|in_addr_t
 modifier|*
 name|addrs
+decl_stmt|;
+DECL|member|sockaddr
+name|struct
+name|sockaddr
+modifier|*
+name|sockaddr
+decl_stmt|;
+DECL|member|socklen
+name|socklen_t
+name|socklen
 decl_stmt|;
 DECL|member|ctx
 name|ngx_resolver_ctx_t
@@ -1073,7 +1083,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29991b720908
+DECL|struct|__anon27a1316d0908
 typedef|typedef
 struct|struct
 block|{
