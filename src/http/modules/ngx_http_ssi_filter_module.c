@@ -62,7 +62,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2bc857960108
+DECL|struct|__anon2a98aa290108
 typedef|typedef
 struct|struct
 block|{
@@ -102,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc857960208
+DECL|struct|__anon2a98aa290208
 typedef|typedef
 struct|struct
 block|{
@@ -125,7 +125,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc857960308
+DECL|struct|__anon2a98aa290308
 typedef|typedef
 struct|struct
 block|{
@@ -149,7 +149,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2bc857960403
+DECL|enum|__anon2a98aa290403
 typedef|typedef
 enum|enum
 block|{
@@ -8259,6 +8259,15 @@ block|{
 name|uri
 operator|=
 name|file
+expr_stmt|;
+name|wait
+operator|=
+operator|(
+name|ngx_str_t
+operator|*
+operator|)
+operator|-
+literal|1
 expr_stmt|;
 block|}
 name|rc
