@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c6c546b0108
+DECL|struct|__anon2bb147750108
 typedef|typedef
 struct|struct
 block|{
@@ -4534,12 +4534,6 @@ name|request
 operator|=
 name|r
 expr_stmt|;
-name|e
-operator|.
-name|flushed
-operator|=
-literal|1
-expr_stmt|;
 comment|/* 1 is for terminating '\0' as in static names */
 name|len
 operator|=
@@ -4745,6 +4739,12 @@ operator|.
 name|pos
 operator|=
 name|name
+expr_stmt|;
+name|e
+operator|.
+name|flushed
+operator|=
+literal|1
 expr_stmt|;
 while|while
 condition|(
