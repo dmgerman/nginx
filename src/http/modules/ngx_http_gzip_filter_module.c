@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a4c001c0108
+DECL|struct|__anon2b89dc850108
 typedef|typedef
 struct|struct
 block|{
@@ -76,7 +76,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4c001c0208
+DECL|struct|__anon2b89dc850208
 typedef|typedef
 struct|struct
 block|{
@@ -4116,25 +4116,16 @@ operator|%
 literal|512
 operator|!=
 literal|0
+operator|&&
+name|alloc
+operator|<
+literal|8192
 condition|)
 block|{
 comment|/*          * The zlib deflate_state allocation, it takes about 6K,          * we allocate 8K.  Other allocations are divisible by 512.          */
 name|alloc
 operator|=
-operator|(
-name|alloc
-operator|+
-name|ngx_pagesize
-operator|-
-literal|1
-operator|)
-operator|&
-operator|~
-operator|(
-name|ngx_pagesize
-operator|-
-literal|1
-operator|)
+literal|8192
 expr_stmt|;
 block|}
 if|if
