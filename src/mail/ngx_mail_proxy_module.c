@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2911200b0108
+DECL|struct|__anon29fbdaef0108
 typedef|typedef
 struct|struct
 block|{
@@ -440,7 +440,7 @@ name|u_char
 name|smtp_ok
 index|[]
 init|=
-literal|"250 2.0.0 OK"
+literal|"235 2.0.0 OK"
 name|CRLF
 decl_stmt|;
 end_decl_stmt
