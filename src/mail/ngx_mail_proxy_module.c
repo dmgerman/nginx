@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29fbdaef0108
+DECL|struct|__anon2af889190108
 typedef|typedef
 struct|struct
 block|{
@@ -434,10 +434,10 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|smtp_ok
+DECL|variable|smtp_auth_ok
 specifier|static
 name|u_char
-name|smtp_ok
+name|smtp_auth_ok
 index|[]
 init|=
 literal|"235 2.0.0 OK"
@@ -2974,11 +2974,11 @@ name|b
 operator|->
 name|start
 argument_list|,
-name|smtp_ok
+name|smtp_auth_ok
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|smtp_ok
+name|smtp_auth_ok
 argument_list|)
 operator|-
 literal|1
@@ -2994,7 +2994,7 @@ name|start
 operator|+
 sizeof|sizeof
 argument_list|(
-name|smtp_ok
+name|smtp_auth_ok
 argument_list|)
 operator|-
 literal|1
