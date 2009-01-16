@@ -567,7 +567,10 @@ name|r
 operator|->
 name|root_tested
 operator|=
-literal|1
+operator|!
+name|r
+operator|->
+name|error_page
 expr_stmt|;
 name|start
 operator|=

@@ -464,7 +464,10 @@ name|r
 operator|->
 name|root_tested
 operator|=
-literal|1
+operator|!
+name|r
+operator|->
+name|error_page
 expr_stmt|;
 name|ngx_log_debug1
 argument_list|(
