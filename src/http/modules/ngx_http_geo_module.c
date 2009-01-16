@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29a55e5c0108
+DECL|struct|__anon2b6e5fcb0108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a55e5c0208
+DECL|struct|__anon2b6e5fcb0208
 typedef|typedef
 struct|struct
 block|{
@@ -66,7 +66,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a55e5c0308
+DECL|struct|__anon2b6e5fcb0308
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a55e5c0408
+DECL|struct|__anon2b6e5fcb0408
 typedef|typedef
 struct|struct
 block|{
@@ -138,11 +138,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a55e5c0508
+DECL|struct|__anon2b6e5fcb0508
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon29a55e5c060a
+DECL|union|__anon2b6e5fcb060a
 union|union
 block|{
 DECL|member|tree
@@ -2865,6 +2865,30 @@ goto|goto
 name|next
 goto|;
 block|}
+name|s
+operator|=
+operator|(
+name|ngx_uint_t
+operator|)
+name|range
+index|[
+name|i
+index|]
+operator|.
+name|start
+expr_stmt|;
+name|e
+operator|=
+operator|(
+name|ngx_uint_t
+operator|)
+name|range
+index|[
+name|i
+index|]
+operator|.
+name|end
+expr_stmt|;
 name|ngx_conf_log_error
 argument_list|(
 name|NGX_LOG_EMERG
@@ -2873,11 +2897,43 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"overlapped range \"%V\""
+literal|"range \"%V\" overlaps \"%d.%d.%d.%d-%d.%d.%d.%d\""
 argument_list|,
 name|ctx
 operator|->
 name|net
+argument_list|,
+name|h
+operator|>>
+literal|8
+argument_list|,
+name|h
+operator|&
+literal|0xff
+argument_list|,
+name|s
+operator|>>
+literal|8
+argument_list|,
+name|s
+operator|&
+literal|0xff
+argument_list|,
+name|h
+operator|>>
+literal|8
+argument_list|,
+name|h
+operator|&
+literal|0xff
+argument_list|,
+name|e
+operator|>>
+literal|8
+argument_list|,
+name|e
+operator|&
+literal|0xff
 argument_list|)
 expr_stmt|;
 return|return
