@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29d7ea710108
+DECL|struct|__anon294a57580108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d7ea710208
+DECL|struct|__anon294a57580208
 typedef|typedef
 struct|struct
 block|{
@@ -66,7 +66,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d7ea710308
+DECL|struct|__anon294a57580308
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d7ea710408
+DECL|struct|__anon294a57580408
 typedef|typedef
 struct|struct
 block|{
@@ -138,11 +138,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d7ea710508
+DECL|struct|__anon294a57580508
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon29d7ea71060a
+DECL|union|__anon294a5758060a
 union|union
 block|{
 DECL|member|tree
@@ -3219,6 +3219,11 @@ argument_list|(
 name|ngx_http_geo_range_t
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|a
+operator|->
+name|nelts
+operator|--
 expr_stmt|;
 break|break;
 block|}
