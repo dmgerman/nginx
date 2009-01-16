@@ -1264,6 +1264,22 @@ name|log
 operator|->
 name|log_level
 operator|==
+literal|0
+condition|)
+block|{
+name|log
+operator|->
+name|log_level
+operator|=
+name|NGX_LOG_ERR
+expr_stmt|;
+block|}
+if|else if
+condition|(
+name|log
+operator|->
+name|log_level
+operator|==
 name|NGX_LOG_DEBUG
 condition|)
 block|{

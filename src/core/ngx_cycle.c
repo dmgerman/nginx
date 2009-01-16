@@ -1920,26 +1920,6 @@ name|cycle
 operator|->
 name|new_log
 expr_stmt|;
-if|if
-condition|(
-name|cycle
-operator|->
-name|log
-operator|->
-name|log_level
-operator|==
-literal|0
-condition|)
-block|{
-name|cycle
-operator|->
-name|log
-operator|->
-name|log_level
-operator|=
-name|NGX_LOG_ERR
-expr_stmt|;
-block|}
 comment|/* create shared memory */
 name|part
 operator|=
