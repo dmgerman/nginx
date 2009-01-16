@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b6e5fcb0108
+DECL|struct|__anon29d7ea710108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b6e5fcb0208
+DECL|struct|__anon29d7ea710208
 typedef|typedef
 struct|struct
 block|{
@@ -66,7 +66,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b6e5fcb0308
+DECL|struct|__anon29d7ea710308
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b6e5fcb0408
+DECL|struct|__anon29d7ea710408
 typedef|typedef
 struct|struct
 block|{
@@ -138,11 +138,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b6e5fcb0508
+DECL|struct|__anon29d7ea710508
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon2b6e5fcb060a
+DECL|union|__anon29d7ea71060a
 union|union
 block|{
 DECL|member|tree
@@ -3063,12 +3063,27 @@ name|n
 operator|>>
 literal|16
 expr_stmt|;
+if|if
+condition|(
+name|n
+operator|==
+name|start
+condition|)
+block|{
 name|s
 operator|=
 name|n
 operator|&
 literal|0xffff
 expr_stmt|;
+block|}
+else|else
+block|{
+name|s
+operator|=
+literal|0
+expr_stmt|;
+block|}
 if|if
 condition|(
 operator|(
