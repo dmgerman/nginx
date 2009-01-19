@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon288dd27a0108
+DECL|struct|__anon2ae451d10108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288dd27a0208
+DECL|struct|__anon2ae451d10208
 typedef|typedef
 struct|struct
 block|{
@@ -66,7 +66,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288dd27a0308
+DECL|struct|__anon2ae451d10308
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288dd27a0408
+DECL|struct|__anon2ae451d10408
 typedef|typedef
 struct|struct
 block|{
@@ -138,11 +138,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288dd27a0508
+DECL|struct|__anon2ae451d10508
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon288dd27a060a
+DECL|union|__anon2ae451d1060a
 union|union
 block|{
 DECL|member|tree
@@ -2924,15 +2924,13 @@ name|range
 index|[
 name|i
 operator|+
-literal|2
+literal|1
 index|]
 argument_list|,
 operator|&
 name|range
 index|[
 name|i
-operator|+
-literal|1
 index|]
 argument_list|,
 operator|(
@@ -2940,7 +2938,7 @@ name|a
 operator|->
 name|nelts
 operator|-
-literal|2
+literal|1
 operator|-
 name|i
 operator|)
