@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27e886f10108
+DECL|struct|__anon2909f7480108
 typedef|typedef
 struct|struct
 block|{
@@ -4990,6 +4990,16 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
+continue|continue;
+block|}
+if|if
+condition|(
+operator|!
+name|of
+operator|.
+name|is_file
+condition|)
+block|{
 continue|continue;
 block|}
 name|path
