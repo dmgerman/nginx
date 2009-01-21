@@ -9579,6 +9579,10 @@ condition|(
 name|p
 operator|->
 name|upstream_eof
+operator|||
+name|p
+operator|->
+name|upstream_done
 condition|)
 block|{
 if|if
