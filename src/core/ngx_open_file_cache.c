@@ -1979,9 +1979,11 @@ goto|;
 block|}
 if|if
 condition|(
-name|of
-operator|->
-name|is_dir
+name|ngx_is_dir
+argument_list|(
+operator|&
+name|fi
+argument_list|)
 condition|)
 block|{
 goto|goto
