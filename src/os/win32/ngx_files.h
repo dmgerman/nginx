@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295b48370108
+DECL|struct|__anon291b94dd0108
 typedef|typedef
 struct|struct
 block|{
@@ -90,7 +90,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295b48370208
+DECL|struct|__anon291b94dd0208
 typedef|typedef
 struct|struct
 block|{
@@ -555,7 +555,8 @@ name|ngx_is_dir
 parameter_list|(
 name|fi
 parameter_list|)
-value|((fi)->dwFileAttributes& FILE_ATTRIBUTE_DIRECTORY)
+define|\
+value|(((fi)->dwFileAttributes& FILE_ATTRIBUTE_DIRECTORY) != 0)
 end_define
 
 begin_define
@@ -566,7 +567,8 @@ name|ngx_is_file
 parameter_list|(
 name|fi
 parameter_list|)
-value|!((fi)->dwFileAttributes& FILE_ATTRIBUTE_DIRECTORY)
+define|\
+value|(((fi)->dwFileAttributes& FILE_ATTRIBUTE_DIRECTORY) == 0)
 end_define
 
 begin_define
@@ -914,7 +916,7 @@ parameter_list|(
 name|dir
 parameter_list|)
 define|\
-value|((dir)->finddata.dwFileAttributes& FILE_ATTRIBUTE_DIRECTORY)
+value|(((dir)->finddata.dwFileAttributes& FILE_ATTRIBUTE_DIRECTORY) != 0)
 end_define
 
 begin_define
@@ -926,7 +928,7 @@ parameter_list|(
 name|dir
 parameter_list|)
 define|\
-value|!((dir)->finddata.dwFileAttributes& FILE_ATTRIBUTE_DIRECTORY)
+value|(((dir)->finddata.dwFileAttributes& FILE_ATTRIBUTE_DIRECTORY) == 0)
 end_define
 
 begin_define
