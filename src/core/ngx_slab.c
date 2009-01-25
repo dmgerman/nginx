@@ -3197,11 +3197,6 @@ name|pages
 operator||
 name|NGX_SLAB_PAGE_START
 expr_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG
-operator|)
 name|page
 operator|->
 name|next
@@ -3214,8 +3209,6 @@ name|prev
 operator|=
 name|NGX_SLAB_PAGE
 expr_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 operator|--
@@ -3248,11 +3241,6 @@ name|slab
 operator|=
 name|NGX_SLAB_PAGE_BUSY
 expr_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG
-operator|)
 name|p
 operator|->
 name|next
@@ -3265,8 +3253,6 @@ name|prev
 operator|=
 name|NGX_SLAB_PAGE
 expr_stmt|;
-endif|#
-directive|endif
 name|p
 operator|++
 expr_stmt|;
