@@ -864,6 +864,14 @@ name|cycle
 operator|->
 name|new_log
 operator|->
+name|log_level
+operator|=
+name|NGX_LOG_ERR
+expr_stmt|;
+name|cycle
+operator|->
+name|new_log
+operator|->
 name|file
 operator|->
 name|name
