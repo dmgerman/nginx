@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b89dc850108
+DECL|struct|__anon297ccd410108
 typedef|typedef
 struct|struct
 block|{
@@ -76,7 +76,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b89dc850208
+DECL|struct|__anon297ccd410208
 typedef|typedef
 struct|struct
 block|{
