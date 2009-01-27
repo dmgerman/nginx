@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon280000dc0108
+DECL|struct|__anon27cd99bf0108
 typedef|typedef
 struct|struct
 block|{
@@ -4313,8 +4313,7 @@ decl_stmt|,
 name|root
 decl_stmt|,
 name|alias
-decl_stmt|;
-name|ssize_t
+decl_stmt|,
 name|reserve
 decl_stmt|,
 name|allocated
@@ -4410,12 +4409,7 @@ name|name
 operator|=
 name|NULL
 expr_stmt|;
-name|path
-operator|.
-name|len
-operator|=
-literal|0
-expr_stmt|;
+comment|/* suppress MSVC warning */
 name|path
 operator|.
 name|data
