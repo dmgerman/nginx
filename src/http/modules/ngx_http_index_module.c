@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon296ca1fe0108
+DECL|struct|__anon2c0606da0108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296ca1fe0208
+DECL|struct|__anon2c0606da0208
 typedef|typedef
 struct|struct
 block|{
@@ -328,9 +328,9 @@ decl_stmt|;
 name|size_t
 name|len
 decl_stmt|,
-name|nlen
-decl_stmt|,
 name|root
+decl_stmt|,
+name|reserve
 decl_stmt|,
 name|allocated
 decl_stmt|;
@@ -463,6 +463,7 @@ name|name
 operator|=
 name|NULL
 expr_stmt|;
+comment|/* suppress MSVC warning */
 name|path
 operator|.
 name|data
@@ -544,13 +545,13 @@ name|args
 argument_list|)
 return|;
 block|}
-name|len
+name|reserve
 operator|=
 name|ilcf
 operator|->
 name|max_index_len
 expr_stmt|;
-name|nlen
+name|len
 operator|=
 name|index
 index|[
@@ -600,7 +601,7 @@ name|flushed
 operator|=
 literal|1
 expr_stmt|;
-comment|/* 1 byte for terminating '\0' */
+comment|/* 1 is for terminating '\0' as in static names */
 name|len
 operator|=
 literal|1
@@ -637,32 +638,19 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-name|nlen
+comment|/* 16 bytes are preallocation */
+name|reserve
 operator|=
 name|len
-expr_stmt|;
-comment|/* 16 bytes are preallocation */
-name|len
-operator|+=
+operator|+
 literal|16
 expr_stmt|;
 block|}
 if|if
 condition|(
-name|len
+name|reserve
 operator|>
-operator|(
-name|size_t
-operator|)
-operator|(
-name|path
-operator|.
-name|data
-operator|+
 name|allocated
-operator|-
-name|name
-operator|)
 condition|)
 block|{
 name|name
@@ -677,7 +665,7 @@ argument_list|,
 operator|&
 name|root
 argument_list|,
-name|len
+name|reserve
 argument_list|)
 expr_stmt|;
 if|if
@@ -695,7 +683,13 @@ name|allocated
 operator|=
 name|path
 operator|.
+name|data
+operator|+
+name|path
+operator|.
 name|len
+operator|-
+name|name
 expr_stmt|;
 block|}
 if|if
@@ -825,7 +819,7 @@ name|uri
 operator|.
 name|len
 operator|=
-name|nlen
+name|len
 operator|-
 literal|1
 expr_stmt|;
@@ -1115,7 +1109,7 @@ name|uri
 operator|.
 name|len
 operator|+
-name|nlen
+name|len
 operator|-
 literal|1
 expr_stmt|;
@@ -1195,7 +1189,7 @@ name|p
 argument_list|,
 name|name
 argument_list|,
-name|nlen
+name|len
 operator|-
 literal|1
 argument_list|)
@@ -2176,7 +2170,7 @@ condition|)
 block|{
 continue|continue;
 block|}
-comment|/* include the terminating '\0' to the length to use ngx_copy() */
+comment|/* include the terminating '\0' to the length to use ngx_memcpy() */
 name|index
 operator|->
 name|name
