@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon297370f50108
+DECL|struct|__anon2be0b64d0108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297370f50208
+DECL|struct|__anon2be0b64d0208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297370f50308
+DECL|struct|__anon2be0b64d0308
 typedef|typedef
 struct|struct
 block|{
@@ -5859,6 +5859,8 @@ block|}
 if|if
 condition|(
 name|naddrs
+operator|>
+literal|1
 condition|)
 block|{
 name|ngx_resolver_free
