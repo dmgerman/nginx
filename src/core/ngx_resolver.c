@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2be0b64d0108
+DECL|struct|__anon2be0cd820108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be0b64d0208
+DECL|struct|__anon2be0cd820208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be0b64d0308
+DECL|struct|__anon2be0cd820308
 typedef|typedef
 struct|struct
 block|{
@@ -2594,6 +2594,10 @@ modifier|*
 name|ctx
 parameter_list|)
 block|{
+name|u_char
+modifier|*
+name|name
+decl_stmt|;
 name|ngx_resolver_t
 modifier|*
 name|r
@@ -2691,21 +2695,7 @@ operator|->
 name|queue
 argument_list|)
 expr_stmt|;
-name|ctx
-operator|->
 name|name
-operator|.
-name|len
-operator|=
-name|rn
-operator|->
-name|nlen
-expr_stmt|;
-name|ctx
-operator|->
-name|name
-operator|.
-name|data
 operator|=
 name|ngx_resolver_dup
 argument_list|(
@@ -2722,11 +2712,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|ctx
-operator|->
 name|name
-operator|.
-name|data
 operator|==
 name|NULL
 condition|)
@@ -2735,6 +2721,24 @@ goto|goto
 name|failed
 goto|;
 block|}
+name|ctx
+operator|->
+name|name
+operator|.
+name|len
+operator|=
+name|rn
+operator|->
+name|nlen
+expr_stmt|;
+name|ctx
+operator|->
+name|name
+operator|.
+name|data
+operator|=
+name|name
+expr_stmt|;
 comment|/* unlock addr mutex */
 name|ctx
 operator|->
@@ -2753,11 +2757,7 @@ name|ngx_resolver_free
 argument_list|(
 name|r
 argument_list|,
-name|ctx
-operator|->
 name|name
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 return|return
