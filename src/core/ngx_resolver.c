@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2be0cd820108
+DECL|struct|__anon295400b50108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be0cd820208
+DECL|struct|__anon295400b50208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be0cd820308
+DECL|struct|__anon295400b50308
 typedef|typedef
 struct|struct
 block|{
@@ -6662,10 +6662,6 @@ goto|goto
 name|short_response
 goto|;
 block|}
-name|len
-operator|-=
-literal|2
-expr_stmt|;
 if|if
 condition|(
 name|ngx_resolver_copy
@@ -6713,6 +6709,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|name
+operator|.
 name|len
 operator|!=
 operator|(
@@ -6732,6 +6730,8 @@ name|rn
 operator|->
 name|name
 argument_list|,
+name|name
+operator|.
 name|len
 argument_list|)
 operator|!=
@@ -6759,6 +6759,8 @@ name|rn
 operator|->
 name|nlen
 operator|=
+name|name
+operator|.
 name|len
 expr_stmt|;
 name|rn
@@ -6781,6 +6783,8 @@ name|rn
 operator|->
 name|name
 argument_list|,
+name|name
+operator|.
 name|len
 argument_list|)
 expr_stmt|;
