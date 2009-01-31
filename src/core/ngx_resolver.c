@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon295400b50108
+DECL|struct|__anon2919f21f0108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295400b50208
+DECL|struct|__anon2919f21f0208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295400b50308
+DECL|struct|__anon2919f21f0308
 typedef|typedef
 struct|struct
 block|{
@@ -2785,8 +2785,9 @@ name|waiting
 operator|=
 name|ctx
 expr_stmt|;
+comment|/* unlock addr mutex */
 return|return
-name|NGX_AGAIN
+name|NGX_OK
 return|;
 block|}
 name|ngx_queue_remove
