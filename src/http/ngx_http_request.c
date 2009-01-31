@@ -9483,6 +9483,12 @@ condition|)
 block|{
 name|r
 operator|->
+name|write_event_handler
+operator|=
+name|ngx_http_request_empty_handler
+expr_stmt|;
+name|r
+operator|->
 name|lingering_time
 operator|=
 name|ngx_time
