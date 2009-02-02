@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2919f21f0108
+DECL|struct|__anon28a3fba50108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2919f21f0208
+DECL|struct|__anon28a3fba50208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2919f21f0308
+DECL|struct|__anon28a3fba50308
 typedef|typedef
 struct|struct
 block|{
@@ -6760,6 +6760,9 @@ name|rn
 operator|->
 name|nlen
 operator|=
+operator|(
+name|u_short
+operator|)
 name|name
 operator|.
 name|len
