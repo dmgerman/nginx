@@ -28,7 +28,7 @@ file|<ngx_channel.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29210f190108
+DECL|struct|__anon29623bf80108
 typedef|typedef
 struct|struct
 block|{
@@ -1941,6 +1941,9 @@ name|status
 argument_list|)
 condition|)
 block|{
+ifdef|#
+directive|ifdef
+name|WCOREDUMP
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
@@ -1972,6 +1975,32 @@ else|:
 literal|""
 argument_list|)
 expr_stmt|;
+else|#
+directive|else
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|ngx_cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"%s %P exited on signal %d"
+argument_list|,
+name|process
+argument_list|,
+name|pid
+argument_list|,
+name|WTERMSIG
+argument_list|(
+name|status
+argument_list|)
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 else|else
 block|{
