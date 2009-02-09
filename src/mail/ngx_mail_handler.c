@@ -1440,7 +1440,7 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_mail_auth_login_username (ngx_mail_session_t * s,ngx_connection_t * c)
+DECL|function|ngx_mail_auth_login_username (ngx_mail_session_t * s,ngx_connection_t * c,ngx_uint_t n)
 name|ngx_mail_auth_login_username
 parameter_list|(
 name|ngx_mail_session_t
@@ -1450,6 +1450,9 @@ parameter_list|,
 name|ngx_connection_t
 modifier|*
 name|c
+parameter_list|,
+name|ngx_uint_t
+name|n
 parameter_list|)
 block|{
 name|ngx_str_t
@@ -1479,7 +1482,7 @@ argument_list|,
 operator|&
 name|arg
 index|[
-literal|0
+name|n
 index|]
 argument_list|)
 expr_stmt|;
@@ -1499,7 +1502,7 @@ name|ngx_base64_decoded_length
 argument_list|(
 name|arg
 index|[
-literal|0
+name|n
 index|]
 operator|.
 name|len
@@ -1533,7 +1536,7 @@ argument_list|,
 operator|&
 name|arg
 index|[
-literal|0
+name|n
 index|]
 argument_list|)
 operator|!=

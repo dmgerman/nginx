@@ -60,7 +60,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29d346120108
+DECL|struct|__anon2b13c5310108
 typedef|typedef
 struct|struct
 block|{
@@ -83,7 +83,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d346120208
+DECL|struct|__anon2b13c5310208
 typedef|typedef
 struct|struct
 block|{
@@ -131,7 +131,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d346120308
+DECL|struct|__anon2b13c5310308
 typedef|typedef
 struct|struct
 block|{
@@ -167,7 +167,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d346120408
+DECL|struct|__anon2b13c5310408
 typedef|typedef
 struct|struct
 block|{
@@ -188,7 +188,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d346120508
+DECL|struct|__anon2b13c5310508
 typedef|typedef
 struct|struct
 block|{
@@ -208,7 +208,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d346120608
+DECL|struct|__anon2b13c5310608
 typedef|typedef
 struct|struct
 block|{
@@ -247,7 +247,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d346120708
+DECL|struct|__anon2b13c5310708
 typedef|typedef
 struct|struct
 block|{
@@ -301,7 +301,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d346120808
+DECL|struct|__anon2b13c5310808
 typedef|typedef
 struct|struct
 block|{
@@ -353,7 +353,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29d346120903
+DECL|enum|__anon2b13c5310903
 typedef|typedef
 enum|enum
 block|{
@@ -386,7 +386,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29d346120a03
+DECL|enum|__anon2b13c5310a03
 typedef|typedef
 enum|enum
 block|{
@@ -422,7 +422,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29d346120b03
+DECL|enum|__anon2b13c5310b03
 typedef|typedef
 enum|enum
 block|{
@@ -470,7 +470,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d346120c08
+DECL|struct|__anon2b13c5310c08
 typedef|typedef
 struct|struct
 block|{
@@ -490,7 +490,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d346120d08
+DECL|struct|__anon2b13c5310d08
 typedef|typedef
 struct|struct
 block|{
@@ -693,7 +693,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d346120e08
+DECL|struct|__anon2b13c5310e08
 typedef|typedef
 struct|struct
 block|{
@@ -1010,11 +1010,19 @@ value|1
 end_define
 
 begin_define
+DECL|macro|NGX_MAIL_AUTH_LOGIN_USERNAME
+define|#
+directive|define
+name|NGX_MAIL_AUTH_LOGIN_USERNAME
+value|2
+end_define
+
+begin_define
 DECL|macro|NGX_MAIL_AUTH_APOP
 define|#
 directive|define
 name|NGX_MAIL_AUTH_APOP
-value|2
+value|3
 end_define
 
 begin_define
@@ -1022,7 +1030,7 @@ DECL|macro|NGX_MAIL_AUTH_CRAM_MD5
 define|#
 directive|define
 name|NGX_MAIL_AUTH_CRAM_MD5
-value|3
+value|4
 end_define
 
 begin_define
@@ -1030,7 +1038,7 @@ DECL|macro|NGX_MAIL_AUTH_NONE
 define|#
 directive|define
 name|NGX_MAIL_AUTH_NONE
-value|4
+value|5
 end_define
 
 begin_define
@@ -1194,7 +1202,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29d346120f08
+DECL|struct|__anon2b13c5310f08
 typedef|typedef
 struct|struct
 block|{
@@ -1512,6 +1520,9 @@ parameter_list|,
 name|ngx_connection_t
 modifier|*
 name|c
+parameter_list|,
+name|ngx_uint_t
+name|n
 parameter_list|)
 function_decl|;
 end_function_decl
