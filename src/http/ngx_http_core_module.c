@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27cd99bf0108
+DECL|struct|__anon28af9aa20108
 typedef|typedef
 struct|struct
 block|{
@@ -798,10 +798,19 @@ block|{
 block|{
 name|ngx_string
 argument_list|(
+literal|"off"
+argument_list|)
+block|,
+name|NGX_HTTP_IMS_OFF
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
 literal|"exact"
 argument_list|)
 block|,
-literal|0
+name|NGX_HTTP_IMS_EXACT
 block|}
 block|,
 block|{
@@ -810,7 +819,7 @@ argument_list|(
 literal|"before"
 argument_list|)
 block|,
-literal|1
+name|NGX_HTTP_IMS_BEFORE
 block|}
 block|,
 block|{
@@ -13344,7 +13353,7 @@ name|prev
 operator|->
 name|if_modified_since
 argument_list|,
-literal|0
+name|NGX_HTTP_IMS_EXACT
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_value
