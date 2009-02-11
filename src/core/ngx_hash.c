@@ -2477,7 +2477,7 @@ name|dot
 condition|?
 literal|3
 else|:
-literal|1
+literal|2
 operator|)
 operator|)
 expr_stmt|;
