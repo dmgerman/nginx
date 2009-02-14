@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28af9aa20108
+DECL|struct|__anon2ad98fa30108
 typedef|typedef
 struct|struct
 block|{
@@ -5126,6 +5126,27 @@ operator|.
 name|len
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|ngx_http_set_exten
+argument_list|(
+name|r
+argument_list|)
+operator|!=
+name|NGX_OK
+condition|)
+block|{
+name|ngx_http_finalize_request
+argument_list|(
+name|r
+argument_list|,
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_OK
+return|;
 block|}
 name|ngx_log_debug1
 argument_list|(
