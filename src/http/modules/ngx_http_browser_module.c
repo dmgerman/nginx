@@ -42,7 +42,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2c39f8da0108
+DECL|struct|__anon2b3ab3e60108
 typedef|typedef
 struct|struct
 block|{
@@ -75,7 +75,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c39f8da0208
+DECL|struct|__anon2b3ab3e60208
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c39f8da0308
+DECL|struct|__anon2b3ab3e60308
 typedef|typedef
 struct|struct
 block|{
@@ -128,7 +128,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c39f8da0408
+DECL|struct|__anon2b3ab3e60408
 typedef|typedef
 struct|struct
 block|{
@@ -1134,6 +1134,30 @@ operator|+=
 name|ver
 operator|*
 name|scale
+expr_stmt|;
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"version: \"%ui\" \"%ui\""
+argument_list|,
+name|modern
+index|[
+name|i
+index|]
+operator|.
+name|version
+argument_list|,
+name|version
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
