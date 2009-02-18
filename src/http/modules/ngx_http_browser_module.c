@@ -42,7 +42,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2baf76f50108
+DECL|struct|__anon2c39f8da0108
 typedef|typedef
 struct|struct
 block|{
@@ -75,7 +75,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baf76f50208
+DECL|struct|__anon2c39f8da0208
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baf76f50308
+DECL|struct|__anon2c39f8da0308
 typedef|typedef
 struct|struct
 block|{
@@ -128,7 +128,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baf76f50408
+DECL|struct|__anon2c39f8da0408
 typedef|typedef
 struct|struct
 block|{
@@ -1209,6 +1209,9 @@ return|return
 name|NGX_HTTP_MODERN_BROWSER
 return|;
 block|}
+return|return
+name|NGX_HTTP_ANCIENT_BROWSER
+return|;
 block|}
 if|if
 condition|(
