@@ -54,14 +54,14 @@ value|(NGX_INET6_ADDRSTRLEN + sizeof(":65535") - 1)
 end_define
 
 begin_comment
-comment|/*  * TODO: autoconfigure NGX_SOCKADDRLEN as  *       sizeof(struct sockaddr_storage)  *       sizeof(struct sockaddr_in6)  *       sizeof(struct sockaddr_in)  */
+comment|/*  * TODO: autoconfigure NGX_SOCKADDRLEN as  *       sizeof(struct sockaddr_storage)  *       sizeof(struct sockaddr_un)  *       sizeof(struct sockaddr_in6)  *       sizeof(struct sockaddr_in)  */
 end_comment
 
 begin_if
 if|#
 directive|if
 operator|(
-name|NGX_HAVE_INET6
+name|NGX_HAVE_UNIX_DOMAIN
 operator|)
 end_if
 
@@ -70,7 +70,7 @@ DECL|macro|NGX_SOCKADDRLEN
 define|#
 directive|define
 name|NGX_SOCKADDRLEN
-value|sizeof(struct sockaddr_in6)
+value|sizeof(struct sockaddr_un)
 end_define
 
 begin_else
@@ -83,7 +83,7 @@ DECL|macro|NGX_SOCKADDRLEN
 define|#
 directive|define
 name|NGX_SOCKADDRLEN
-value|sizeof(struct sockaddr_in)
+value|512
 end_define
 
 begin_endif
@@ -92,7 +92,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29c278720108
+DECL|struct|__anon2af09d9b0108
 typedef|typedef
 struct|struct
 block|{
@@ -111,7 +111,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|union|__anon29c27872020a
+DECL|union|__anon2af09d9b020a
 typedef|typedef
 union|union
 block|{
@@ -126,7 +126,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c278720308
+DECL|struct|__anon2af09d9b0308
 typedef|typedef
 struct|struct
 block|{
@@ -151,7 +151,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c278720408
+DECL|struct|__anon2af09d9b0408
 typedef|typedef
 struct|struct
 block|{
