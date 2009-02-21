@@ -338,6 +338,8 @@ operator|->
 name|listening
 operator|->
 name|addr_text_max_len
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 if|if

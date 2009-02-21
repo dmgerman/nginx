@@ -165,7 +165,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c023c5a0108
+DECL|struct|__anon2768dccc0108
 typedef|typedef
 struct|struct
 block|{
@@ -178,6 +178,12 @@ decl_stmt|;
 DECL|member|bind
 name|unsigned
 name|bind
+range|:
+literal|1
+decl_stmt|;
+DECL|member|wildcard
+name|unsigned
+name|wildcard
 range|:
 literal|1
 decl_stmt|;
@@ -239,12 +245,9 @@ DECL|member|addr
 name|u_char
 name|addr
 index|[
-name|NGX_INET_ADDRSTRLEN
+name|NGX_SOCKADDR_STRLEN
 operator|+
-sizeof|sizeof
-argument_list|(
-literal|":65535"
-argument_list|)
+literal|1
 index|]
 decl_stmt|;
 DECL|typedef|ngx_http_listen_conf_t
@@ -254,21 +257,20 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c023c5a0208
+DECL|struct|__anon2768dccc0208
 typedef|typedef
 struct|struct
 block|{
-DECL|member|addr
-name|in_addr_t
-name|addr
+DECL|member|sockaddr
+name|u_char
+name|sockaddr
+index|[
+name|NGX_SOCKADDRLEN
+index|]
 decl_stmt|;
-DECL|member|port
-name|in_port_t
-name|port
-decl_stmt|;
-DECL|member|family
-name|int
-name|family
+DECL|member|socklen
+name|socklen_t
+name|socklen
 decl_stmt|;
 DECL|member|file_name
 name|u_char
@@ -290,7 +292,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c023c5a0303
+DECL|enum|__anon2768dccc0303
 typedef|typedef
 enum|enum
 block|{
@@ -385,7 +387,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c023c5a0408
+DECL|struct|__anon2768dccc0408
 typedef|typedef
 struct|struct
 block|{
@@ -409,7 +411,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c023c5a0508
+DECL|struct|__anon2768dccc0508
 typedef|typedef
 struct|struct
 block|{
@@ -424,7 +426,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c023c5a0608
+DECL|struct|__anon2768dccc0608
 typedef|typedef
 struct|struct
 block|{
@@ -492,7 +494,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c023c5a0708
+DECL|struct|__anon2768dccc0708
 typedef|typedef
 struct|struct
 block|{
@@ -565,14 +567,10 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2c023c5a0808
+DECL|struct|__anon2768dccc0808
 typedef|typedef
 struct|struct
 block|{
-DECL|member|addr
-name|in_addr_t
-name|addr
-decl_stmt|;
 comment|/* the default server configuration for this address:port */
 DECL|member|core_srv_conf
 name|ngx_http_core_srv_conf_t
@@ -596,14 +594,66 @@ decl_stmt|;
 comment|/* unsigned  ssl:1; */
 endif|#
 directive|endif
+DECL|typedef|ngx_http_addr_conf_t
+block|}
+name|ngx_http_addr_conf_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2768dccc0908
+typedef|typedef
+struct|struct
+block|{
+DECL|member|addr
+name|in_addr_t
+name|addr
+decl_stmt|;
+DECL|member|conf
+name|ngx_http_addr_conf_t
+name|conf
+decl_stmt|;
 DECL|typedef|ngx_http_in_addr_t
 block|}
 name|ngx_http_in_addr_t
 typedef|;
 end_typedef
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_INET6
+operator|)
+end_if
+
 begin_typedef
-DECL|struct|__anon2c023c5a0908
+DECL|struct|__anon2768dccc0a08
+typedef|typedef
+struct|struct
+block|{
+DECL|member|addr6
+name|struct
+name|in6_addr
+name|addr6
+decl_stmt|;
+DECL|member|conf
+name|ngx_http_addr_conf_t
+name|conf
+decl_stmt|;
+DECL|typedef|ngx_http_in6_addr_t
+block|}
+name|ngx_http_in6_addr_t
+typedef|;
+end_typedef
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_typedef
+DECL|struct|__anon2768dccc0b08
 typedef|typedef
 struct|struct
 block|{
@@ -615,8 +665,9 @@ DECL|member|port_text
 name|ngx_str_t
 name|port_text
 decl_stmt|;
+comment|/* ngx_http_in_addr_t or ngx_http_in6_addr_t */
 DECL|member|addrs
-name|ngx_http_in_addr_t
+name|void
 modifier|*
 name|addrs
 decl_stmt|;
@@ -624,17 +675,21 @@ DECL|member|naddrs
 name|ngx_uint_t
 name|naddrs
 decl_stmt|;
-DECL|typedef|ngx_http_in_port_t
+DECL|typedef|ngx_http_port_t
 block|}
-name|ngx_http_in_port_t
+name|ngx_http_port_t
 typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c023c5a0a08
+DECL|struct|__anon2768dccc0c08
 typedef|typedef
 struct|struct
 block|{
+DECL|member|family
+name|ngx_int_t
+name|family
+decl_stmt|;
 DECL|member|port
 name|in_port_t
 name|port
@@ -643,21 +698,27 @@ DECL|member|addrs
 name|ngx_array_t
 name|addrs
 decl_stmt|;
-comment|/* array of ngx_http_conf_in_addr_t */
-DECL|typedef|ngx_http_conf_in_port_t
+comment|/* array of ngx_http_conf_addr_t */
+DECL|typedef|ngx_http_conf_port_t
 block|}
-name|ngx_http_conf_in_port_t
+name|ngx_http_conf_port_t
 typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c023c5a0b08
+DECL|struct|__anon2768dccc0d08
 typedef|typedef
 struct|struct
 block|{
-DECL|member|addr
-name|in_addr_t
-name|addr
+DECL|member|sockaddr
+name|struct
+name|sockaddr
+modifier|*
+name|sockaddr
+decl_stmt|;
+DECL|member|socklen
+name|socklen_t
+name|socklen
 decl_stmt|;
 DECL|member|hash
 name|ngx_hash_t
@@ -712,6 +773,12 @@ name|bind
 range|:
 literal|1
 decl_stmt|;
+DECL|member|wildcard
+name|unsigned
+name|wildcard
+range|:
+literal|1
+decl_stmt|;
 if|#
 directive|if
 operator|(
@@ -730,9 +797,9 @@ name|ngx_http_listen_conf_t
 modifier|*
 name|listen_conf
 decl_stmt|;
-DECL|typedef|ngx_http_conf_in_addr_t
+DECL|typedef|ngx_http_conf_addr_t
 block|}
-name|ngx_http_conf_in_addr_t
+name|ngx_http_conf_addr_t
 typedef|;
 end_typedef
 
@@ -768,7 +835,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c023c5a0c08
+DECL|struct|__anon2768dccc0e08
 typedef|typedef
 struct|struct
 block|{
@@ -805,7 +872,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c023c5a0d08
+DECL|struct|__anon2768dccc0f08
 typedef|typedef
 struct|struct
 block|{
@@ -1229,7 +1296,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c023c5a0e08
+DECL|struct|__anon2768dccc1008
 typedef|typedef
 struct|struct
 block|{

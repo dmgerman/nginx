@@ -57,11 +57,6 @@ name|socklen_t
 name|socklen
 decl_stmt|;
 comment|/* size of sockaddr */
-DECL|member|addr
-name|size_t
-name|addr
-decl_stmt|;
-comment|/* offset to address in sockaddr */
 DECL|member|addr_text_max_len
 name|size_t
 name|addr_text_max_len
@@ -228,7 +223,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2a1bcba30103
+DECL|enum|__anon278dacb40103
 typedef|typedef
 enum|enum
 block|{
@@ -252,7 +247,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a1bcba30203
+DECL|enum|__anon278dacb40203
 typedef|typedef
 enum|enum
 block|{
@@ -273,7 +268,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a1bcba30303
+DECL|enum|__anon278dacb40303
 typedef|typedef
 enum|enum
 block|{
@@ -394,11 +389,6 @@ name|ssl
 decl_stmt|;
 endif|#
 directive|endif
-if|#
-directive|if
-operator|(
-name|NGX_HAVE_IOCP
-operator|)
 DECL|member|local_sockaddr
 name|struct
 name|sockaddr
@@ -409,8 +399,6 @@ DECL|member|local_socklen
 name|socklen_t
 name|local_socklen
 decl_stmt|;
-endif|#
-directive|endif
 DECL|member|buffer
 name|ngx_buf_t
 modifier|*

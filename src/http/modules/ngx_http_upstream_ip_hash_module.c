@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b6048550108
+DECL|struct|__anon278ce3220108
 typedef|typedef
 struct|struct
 block|{
@@ -35,7 +35,6 @@ DECL|member|hash
 name|ngx_uint_t
 name|hash
 decl_stmt|;
-comment|/* AF_INET only */
 DECL|member|addr
 name|u_char
 name|addr
@@ -357,6 +356,19 @@ operator|=
 name|ngx_http_upstream_get_ip_hash_peer
 expr_stmt|;
 comment|/* AF_INET only */
+if|if
+condition|(
+name|r
+operator|->
+name|connection
+operator|->
+name|sockaddr
+operator|->
+name|sa_family
+operator|==
+name|AF_INET
+condition|)
+block|{
 name|sin
 operator|=
 operator|(
@@ -419,6 +431,37 @@ index|[
 literal|2
 index|]
 expr_stmt|;
+block|}
+else|else
+block|{
+name|iphp
+operator|->
+name|addr
+index|[
+literal|0
+index|]
+operator|=
+literal|0
+expr_stmt|;
+name|iphp
+operator|->
+name|addr
+index|[
+literal|1
+index|]
+operator|=
+literal|0
+expr_stmt|;
+name|iphp
+operator|->
+name|addr
+index|[
+literal|2
+index|]
+operator|=
+literal|0
+expr_stmt|;
+block|}
 name|iphp
 operator|->
 name|hash

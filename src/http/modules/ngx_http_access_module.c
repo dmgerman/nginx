@@ -21,12 +21,8 @@ directive|include
 file|<ngx_http.h>
 end_include
 
-begin_comment
-comment|/* AF_INET only */
-end_comment
-
 begin_typedef
-DECL|struct|__anon2a14674f0108
+DECL|struct|__anon2a44cda50108
 typedef|typedef
 struct|struct
 block|{
@@ -50,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a14674f0208
+DECL|struct|__anon2a44cda50208
 typedef|typedef
 struct|struct
 block|{
@@ -340,6 +336,23 @@ name|NGX_DECLINED
 return|;
 block|}
 comment|/* AF_INET only */
+if|if
+condition|(
+name|r
+operator|->
+name|connection
+operator|->
+name|sockaddr
+operator|->
+name|sa_family
+operator|!=
+name|AF_INET
+condition|)
+block|{
+return|return
+name|NGX_DECLINED
+return|;
+block|}
 name|sin
 operator|=
 operator|(

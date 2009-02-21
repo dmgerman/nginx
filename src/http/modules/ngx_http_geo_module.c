@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ae451d10108
+DECL|struct|__anon2bc8e7fe0108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae451d10208
+DECL|struct|__anon2bc8e7fe0208
 typedef|typedef
 struct|struct
 block|{
@@ -66,7 +66,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae451d10308
+DECL|struct|__anon2bc8e7fe0308
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae451d10408
+DECL|struct|__anon2bc8e7fe0408
 typedef|typedef
 struct|struct
 block|{
@@ -138,11 +138,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae451d10508
+DECL|struct|__anon2bc8e7fe0508
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon2ae451d1060a
+DECL|union|__anon2bc8e7fe060a
 union|union
 block|{
 DECL|member|tree
@@ -764,6 +764,23 @@ operator|->
 name|addr_text
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|r
+operator|->
+name|connection
+operator|->
+name|sockaddr
+operator|->
+name|sa_family
+operator|!=
+name|AF_INET
+condition|)
+block|{
+return|return
+literal|0
+return|;
+block|}
 name|sin
 operator|=
 operator|(

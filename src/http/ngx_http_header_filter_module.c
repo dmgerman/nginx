@@ -589,11 +589,10 @@ name|ngx_http_core_srv_conf_t
 modifier|*
 name|cscf
 decl_stmt|;
-comment|/* AF_INET only */
 name|u_char
 name|addr
 index|[
-name|NGX_INET_ADDRSTRLEN
+name|NGX_SOCKADDR_STRLEN
 index|]
 decl_stmt|;
 name|r
@@ -1247,6 +1246,12 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|host
+operator|.
+name|len
+operator|=
+name|NGX_SOCKADDR_STRLEN
+expr_stmt|;
 name|host
 operator|.
 name|data

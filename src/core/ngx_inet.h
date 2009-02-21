@@ -36,8 +36,63 @@ name|NGX_INET_ADDRSTRLEN
 value|(sizeof("255.255.255.255") - 1)
 end_define
 
+begin_define
+DECL|macro|NGX_INET6_ADDRSTRLEN
+define|#
+directive|define
+name|NGX_INET6_ADDRSTRLEN
+define|\
+value|(sizeof("ffff:ffff:ffff:ffff:ffff:ffff:255.255.255.255") - 1)
+end_define
+
+begin_define
+DECL|macro|NGX_SOCKADDR_STRLEN
+define|#
+directive|define
+name|NGX_SOCKADDR_STRLEN
+value|(NGX_INET6_ADDRSTRLEN + sizeof(":65535") - 1)
+end_define
+
+begin_comment
+comment|/*  * TODO: autoconfigure NGX_SOCKADDRLEN as  *       sizeof(struct sockaddr_storage)  *       sizeof(struct sockaddr_in6)  *       sizeof(struct sockaddr_in)  */
+end_comment
+
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_INET6
+operator|)
+end_if
+
+begin_define
+DECL|macro|NGX_SOCKADDRLEN
+define|#
+directive|define
+name|NGX_SOCKADDRLEN
+value|sizeof(struct sockaddr_in6)
+end_define
+
+begin_else
+else|#
+directive|else
+end_else
+
+begin_define
+DECL|macro|NGX_SOCKADDRLEN
+define|#
+directive|define
+name|NGX_SOCKADDRLEN
+value|sizeof(struct sockaddr_in)
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_typedef
-DECL|struct|__anon2782ea570108
+DECL|struct|__anon29c278720108
 typedef|typedef
 struct|struct
 block|{
@@ -56,7 +111,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|union|__anon2782ea57020a
+DECL|union|__anon29c27872020a
 typedef|typedef
 union|union
 block|{
@@ -71,7 +126,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2782ea570308
+DECL|struct|__anon29c278720308
 typedef|typedef
 struct|struct
 block|{
@@ -96,7 +151,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2782ea570408
+DECL|struct|__anon29c278720408
 typedef|typedef
 struct|struct
 block|{
@@ -158,9 +213,26 @@ name|no_port
 range|:
 literal|1
 decl_stmt|;
+DECL|member|wildcard
+name|unsigned
+name|wildcard
+range|:
+literal|1
+decl_stmt|;
 DECL|member|addr
 name|ngx_url_addr_t
 name|addr
+decl_stmt|;
+DECL|member|socklen
+name|socklen_t
+name|socklen
+decl_stmt|;
+DECL|member|sockaddr
+name|u_char
+name|sockaddr
+index|[
+name|NGX_SOCKADDRLEN
+index|]
 decl_stmt|;
 DECL|member|addrs
 name|ngx_peer_addr_t
@@ -211,6 +283,9 @@ name|text
 parameter_list|,
 name|size_t
 name|len
+parameter_list|,
+name|ngx_uint_t
+name|port
 parameter_list|)
 function_decl|;
 end_function_decl

@@ -45,12 +45,8 @@ name|NGX_HTTP_REALIP_HEADER
 value|2
 end_define
 
-begin_comment
-comment|/* AF_INET only */
-end_comment
-
 begin_typedef
-DECL|struct|__anon2bdceba90108
+DECL|struct|__anon2746a3500108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +65,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bdceba90208
+DECL|struct|__anon2746a3500208
 typedef|typedef
 struct|struct
 block|{
@@ -98,7 +94,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bdceba90308
+DECL|struct|__anon2746a3500308
 typedef|typedef
 struct|struct
 block|{
@@ -821,6 +817,23 @@ name|ip
 argument_list|)
 expr_stmt|;
 comment|/* AF_INET only */
+if|if
+condition|(
+name|r
+operator|->
+name|connection
+operator|->
+name|sockaddr
+operator|->
+name|sa_family
+operator|!=
+name|AF_INET
+condition|)
+block|{
+return|return
+name|NGX_DECLINED
+return|;
+block|}
 name|sin
 operator|=
 operator|(
