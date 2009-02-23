@@ -4555,7 +4555,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"open socket #%d left in %ui connection %s"
+literal|"open socket #%d left in connection %ui%s"
 argument_list|,
 name|c
 index|[
