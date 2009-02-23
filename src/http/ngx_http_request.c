@@ -1742,17 +1742,6 @@ index|]
 operator|.
 name|conf
 expr_stmt|;
-name|r
-operator|->
-name|in_addr
-operator|=
-name|addr
-index|[
-literal|0
-index|]
-operator|.
-name|addr
-expr_stmt|;
 break|break;
 block|}
 block|}
