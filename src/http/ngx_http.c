@@ -7070,17 +7070,6 @@ name|servers
 operator|=
 name|hport
 expr_stmt|;
-name|hport
-operator|->
-name|port
-operator|=
-name|ntohs
-argument_list|(
-name|port
-operator|->
-name|port
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|i
