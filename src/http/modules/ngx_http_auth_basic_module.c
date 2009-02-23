@@ -30,7 +30,7 @@ value|2048
 end_define
 
 begin_typedef
-DECL|struct|__anon29f26a620108
+DECL|struct|__anon28f5b9c20108
 typedef|typedef
 struct|struct
 block|{
@@ -45,7 +45,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f26a620208
+DECL|struct|__anon28f5b9c20208
 typedef|typedef
 struct|struct
 block|{
@@ -408,7 +408,7 @@ index|[
 name|NGX_HTTP_AUTH_BUF_SIZE
 index|]
 decl_stmt|;
-DECL|enum|__anon29f26a620303
+DECL|enum|__anon28f5b9c20303
 enum|enum
 block|{
 DECL|enumerator|sw_login
@@ -501,6 +501,21 @@ operator|==
 name|NGX_DECLINED
 condition|)
 block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"no user/password was provided for basic authentication"
+argument_list|)
+expr_stmt|;
 return|return
 name|ngx_http_auth_basic_set_realm
 argument_list|(
@@ -1013,6 +1028,33 @@ name|realm
 argument_list|)
 return|;
 block|}
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"user \"%V\" was not found in \"%V\""
+argument_list|,
+operator|&
+name|r
+operator|->
+name|headers_in
+operator|.
+name|user
+argument_list|,
+operator|&
+name|alcf
+operator|->
+name|user_file
+argument_list|)
+expr_stmt|;
 return|return
 name|ngx_http_auth_basic_set_realm
 argument_list|(
@@ -1149,6 +1191,28 @@ argument_list|,
 literal|"encrypted: \"%s\""
 argument_list|,
 name|encrypted
+argument_list|)
+expr_stmt|;
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"user \"%V\": password mismatch"
+argument_list|,
+operator|&
+name|r
+operator|->
+name|headers_in
+operator|.
+name|user
 argument_list|)
 expr_stmt|;
 return|return
