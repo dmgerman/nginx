@@ -92,7 +92,34 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon290e0be80108
+DECL|struct|__anon2af0af030108
+typedef|typedef
+struct|struct
+block|{
+DECL|member|addr
+name|in_addr_t
+name|addr
+decl_stmt|;
+DECL|member|mask
+name|in_addr_t
+name|mask
+decl_stmt|;
+DECL|typedef|ngx_in_cidr_t
+block|}
+name|ngx_in_cidr_t
+typedef|;
+end_typedef
+
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_INET6
+operator|)
+end_if
+
+begin_typedef
+DECL|struct|__anon2af0af030208
 typedef|typedef
 struct|struct
 block|{
@@ -112,40 +139,13 @@ name|ngx_in6_cidr_t
 typedef|;
 end_typedef
 
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_HAVE_INET6
-operator|)
-end_if
-
-begin_typedef
-DECL|struct|__anon290e0be80208
-typedef|typedef
-struct|struct
-block|{
-DECL|member|addr
-name|in_addr_t
-name|addr
-decl_stmt|;
-DECL|member|mask
-name|in_addr_t
-name|mask
-decl_stmt|;
-DECL|typedef|ngx_in_cidr_t
-block|}
-name|ngx_in_cidr_t
-typedef|;
-end_typedef
-
 begin_endif
 endif|#
 directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon290e0be80308
+DECL|struct|__anon2af0af030308
 typedef|typedef
 struct|struct
 block|{
@@ -153,7 +153,7 @@ DECL|member|family
 name|ngx_uint_t
 name|family
 decl_stmt|;
-DECL|union|__anon290e0be8040a
+DECL|union|__anon2af0af03040a
 union|union
 block|{
 DECL|member|in
@@ -182,7 +182,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|union|__anon290e0be8050a
+DECL|union|__anon2af0af03050a
 typedef|typedef
 union|union
 block|{
@@ -197,7 +197,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290e0be80608
+DECL|struct|__anon2af0af030608
 typedef|typedef
 struct|struct
 block|{
@@ -222,7 +222,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290e0be80708
+DECL|struct|__anon2af0af030708
 typedef|typedef
 struct|struct
 block|{
