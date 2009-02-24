@@ -1335,9 +1335,12 @@ name|local_sockaddr
 expr_stmt|;
 name|port
 operator|=
+name|ntohs
+argument_list|(
 name|sin6
 operator|->
 name|sin6_port
+argument_list|)
 expr_stmt|;
 break|break;
 endif|#
@@ -1357,9 +1360,12 @@ name|local_sockaddr
 expr_stmt|;
 name|port
 operator|=
+name|ntohs
+argument_list|(
 name|sin
 operator|->
 name|sin_port
+argument_list|)
 expr_stmt|;
 break|break;
 block|}
