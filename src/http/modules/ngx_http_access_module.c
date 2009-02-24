@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a44cda50108
+DECL|struct|__anon2a8c39e10108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a44cda50208
+DECL|struct|__anon2a8c39e10208
 typedef|typedef
 struct|struct
 block|{
@@ -544,8 +544,8 @@ name|ngx_str_t
 modifier|*
 name|value
 decl_stmt|;
-name|ngx_inet_cidr_t
-name|in_cidr
+name|ngx_cidr_t
+name|cidr
 decl_stmt|;
 name|ngx_http_access_rule_t
 modifier|*
@@ -695,7 +695,7 @@ literal|1
 index|]
 argument_list|,
 operator|&
-name|in_cidr
+name|cidr
 argument_list|)
 expr_stmt|;
 if|if
@@ -720,6 +720,30 @@ name|value
 index|[
 literal|1
 index|]
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
+if|if
+condition|(
+name|cidr
+operator|.
+name|family
+operator|!=
+name|AF_INET
+condition|)
+block|{
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"\"allow\" supports IPv4 only"
 argument_list|)
 expr_stmt|;
 return|return
@@ -755,7 +779,11 @@ name|rule
 operator|->
 name|mask
 operator|=
-name|in_cidr
+name|cidr
+operator|.
+name|u
+operator|.
+name|in
 operator|.
 name|mask
 expr_stmt|;
@@ -763,7 +791,11 @@ name|rule
 operator|->
 name|addr
 operator|=
-name|in_cidr
+name|cidr
+operator|.
+name|u
+operator|.
+name|in
 operator|.
 name|addr
 expr_stmt|;

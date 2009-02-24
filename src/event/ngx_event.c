@@ -4283,8 +4283,8 @@ name|hostent
 modifier|*
 name|h
 decl_stmt|;
-name|ngx_inet_cidr_t
-name|in_cidr
+name|ngx_cidr_t
+name|cidr
 decl_stmt|;
 name|value
 operator|=
@@ -4294,7 +4294,6 @@ name|args
 operator|->
 name|elts
 expr_stmt|;
-comment|/* AF_INET only */
 name|dc
 operator|=
 name|ngx_array_push
@@ -4327,7 +4326,7 @@ literal|1
 index|]
 argument_list|,
 operator|&
-name|in_cidr
+name|cidr
 argument_list|)
 expr_stmt|;
 if|if
@@ -4366,11 +4365,40 @@ operator|==
 name|NGX_OK
 condition|)
 block|{
+comment|/* AF_INET only */
+if|if
+condition|(
+name|cidr
+operator|.
+name|family
+operator|!=
+name|AF_INET
+condition|)
+block|{
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"\"debug_connection\" supports IPv4 only"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
 name|dc
 operator|->
 name|mask
 operator|=
-name|in_cidr
+name|cidr
+operator|.
+name|u
+operator|.
+name|in
 operator|.
 name|mask
 expr_stmt|;
@@ -4378,7 +4406,11 @@ name|dc
 operator|->
 name|addr
 operator|=
-name|in_cidr
+name|cidr
+operator|.
+name|u
+operator|.
+name|in
 operator|.
 name|addr
 expr_stmt|;

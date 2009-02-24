@@ -46,7 +46,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2746a3500108
+DECL|struct|__anon289181770108
 typedef|typedef
 struct|struct
 block|{
@@ -65,7 +65,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2746a3500208
+DECL|struct|__anon289181770208
 typedef|typedef
 struct|struct
 block|{
@@ -94,7 +94,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2746a3500308
+DECL|struct|__anon289181770308
 typedef|typedef
 struct|struct
 block|{
@@ -1159,8 +1159,8 @@ name|ngx_str_t
 modifier|*
 name|value
 decl_stmt|;
-name|ngx_inet_cidr_t
-name|in_cidr
+name|ngx_cidr_t
+name|cidr
 decl_stmt|;
 name|ngx_http_realip_from_t
 modifier|*
@@ -1246,7 +1246,7 @@ literal|1
 index|]
 argument_list|,
 operator|&
-name|in_cidr
+name|cidr
 argument_list|)
 expr_stmt|;
 if|if
@@ -1271,6 +1271,30 @@ name|value
 index|[
 literal|1
 index|]
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
+if|if
+condition|(
+name|cidr
+operator|.
+name|family
+operator|!=
+name|AF_INET
+condition|)
+block|{
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"\"realip_from\" supports IPv4 only"
 argument_list|)
 expr_stmt|;
 return|return
@@ -1306,7 +1330,11 @@ name|from
 operator|->
 name|mask
 operator|=
-name|in_cidr
+name|cidr
+operator|.
+name|u
+operator|.
+name|in
 operator|.
 name|mask
 expr_stmt|;
@@ -1314,7 +1342,11 @@ name|from
 operator|->
 name|addr
 operator|=
-name|in_cidr
+name|cidr
+operator|.
+name|u
+operator|.
+name|in
 operator|.
 name|addr
 expr_stmt|;
