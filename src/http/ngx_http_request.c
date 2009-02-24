@@ -1460,15 +1460,6 @@ name|servers
 expr_stmt|;
 name|r
 operator|->
-name|port_text
-operator|=
-operator|&
-name|port
-operator|->
-name|port_text
-expr_stmt|;
-name|r
-operator|->
 name|connection
 operator|=
 name|c
