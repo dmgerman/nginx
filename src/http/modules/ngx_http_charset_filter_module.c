@@ -58,7 +58,7 @@ value|(sizeof("&#1114111;") - 1)
 end_define
 
 begin_typedef
-DECL|struct|__anon2bce12ea0108
+DECL|struct|__anon290f29090108
 typedef|typedef
 struct|struct
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bce12ea0208
+DECL|struct|__anon290f29090208
 typedef|typedef
 struct|struct
 block|{
@@ -110,7 +110,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bce12ea0308
+DECL|struct|__anon290f29090308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bce12ea0408
+DECL|struct|__anon290f29090408
 typedef|typedef
 struct|struct
 block|{
@@ -165,7 +165,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bce12ea0508
+DECL|struct|__anon290f29090508
 typedef|typedef
 struct|struct
 block|{
@@ -197,7 +197,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bce12ea0608
+DECL|struct|__anon290f29090608
 typedef|typedef
 struct|struct
 block|{
@@ -261,7 +261,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bce12ea0708
+DECL|struct|__anon290f29090708
 typedef|typedef
 struct|struct
 block|{
@@ -6270,8 +6270,8 @@ argument_list|(
 name|ngx_http_charset_t
 argument_list|)
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 return|return
@@ -6298,8 +6298,8 @@ argument_list|(
 name|ngx_http_charset_tables_t
 argument_list|)
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 return|return
@@ -6326,8 +6326,8 @@ argument_list|(
 name|ngx_http_charset_recode_t
 argument_list|)
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 return|return

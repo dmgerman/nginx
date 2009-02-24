@@ -730,8 +730,8 @@ argument_list|(
 name|ngx_open_file_t
 argument_list|)
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 name|ngx_destroy_pool
@@ -818,8 +818,8 @@ argument_list|(
 name|ngx_shm_zone_t
 argument_list|)
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 name|ngx_destroy_pool

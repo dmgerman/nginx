@@ -1867,8 +1867,8 @@ name|c
 argument_list|,
 name|NGX_SSL_BUFFER
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 name|ngx_http_close_connection
@@ -2055,8 +2055,8 @@ argument_list|(
 name|ngx_table_elt_t
 argument_list|)
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 name|ngx_http_close_request
@@ -3613,8 +3613,8 @@ argument_list|(
 name|ngx_table_elt_t
 argument_list|)
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 name|ngx_http_close_request
@@ -3649,8 +3649,8 @@ name|ngx_table_elt_t
 operator|*
 argument_list|)
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 name|ngx_http_close_request

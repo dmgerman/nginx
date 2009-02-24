@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon294150fc0108
+DECL|struct|__anon28a060f90108
 typedef|typedef
 struct|struct
 block|{
@@ -888,8 +888,8 @@ name|cert
 argument_list|,
 literal|1
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 return|return
@@ -949,8 +949,8 @@ name|key
 argument_list|,
 literal|1
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 return|return
@@ -1079,8 +1079,8 @@ name|cert
 argument_list|,
 literal|1
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 return|return
@@ -1899,8 +1899,8 @@ name|file
 argument_list|,
 literal|1
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 return|return

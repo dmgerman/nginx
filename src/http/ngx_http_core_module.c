@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bf32dc50108
+DECL|struct|__anon2c4e6c700108
 typedef|typedef
 struct|struct
 block|{
@@ -6572,7 +6572,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 return|;
 block|}
 name|hash
@@ -7180,8 +7180,8 @@ name|path
 argument_list|,
 literal|0
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 return|return
@@ -8580,8 +8580,8 @@ argument_list|(
 name|ngx_table_elt_t
 argument_list|)
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 return|return
@@ -11251,8 +11251,8 @@ name|file
 argument_list|,
 literal|1
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 return|return
@@ -11805,8 +11805,8 @@ argument_list|(
 name|ngx_http_listen_t
 argument_list|)
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 return|return
@@ -11833,8 +11833,8 @@ argument_list|(
 name|ngx_http_server_name_t
 argument_list|)
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 return|return
@@ -12875,8 +12875,8 @@ name|root
 argument_list|,
 literal|0
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 return|return
@@ -15808,8 +15808,8 @@ name|root
 argument_list|,
 literal|0
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 return|return

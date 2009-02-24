@@ -62,7 +62,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2a98aa290108
+DECL|struct|__anon28ca5d490108
 typedef|typedef
 struct|struct
 block|{
@@ -102,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a98aa290208
+DECL|struct|__anon28ca5d490208
 typedef|typedef
 struct|struct
 block|{
@@ -125,7 +125,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a98aa290308
+DECL|struct|__anon28ca5d490308
 typedef|typedef
 struct|struct
 block|{
@@ -149,7 +149,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a98aa290403
+DECL|enum|__anon28ca5d490403
 typedef|typedef
 enum|enum
 block|{
@@ -2037,8 +2037,8 @@ name|in
 argument_list|,
 name|in
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 return|return
@@ -9101,8 +9101,8 @@ name|ngx_http_set_content_type
 argument_list|(
 name|r
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 return|return

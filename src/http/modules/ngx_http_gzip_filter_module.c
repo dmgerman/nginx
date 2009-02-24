@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon297ccd410108
+DECL|struct|__anon28a296c30108
 typedef|typedef
 struct|struct
 block|{
@@ -76,7 +76,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297ccd410208
+DECL|struct|__anon28a296c30208
 typedef|typedef
 struct|struct
 block|{
@@ -1435,8 +1435,8 @@ name|in
 argument_list|,
 name|in
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 goto|goto

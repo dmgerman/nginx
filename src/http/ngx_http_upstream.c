@@ -4038,8 +4038,8 @@ name|NGX_SSL_BUFFER
 operator||
 name|NGX_SSL_CLIENT
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 name|ngx_http_upstream_finalize_request

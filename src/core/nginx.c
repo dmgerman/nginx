@@ -1466,8 +1466,8 @@ argument_list|(
 name|ngx_listening_t
 argument_list|)
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 return|return
@@ -3560,8 +3560,8 @@ name|pid
 argument_list|,
 literal|0
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 return|return
@@ -3700,8 +3700,8 @@ name|lock_file
 argument_list|,
 literal|0
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 return|return

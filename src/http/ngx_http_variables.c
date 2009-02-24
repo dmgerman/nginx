@@ -2038,8 +2038,8 @@ argument_list|(
 name|ngx_http_variable_t
 argument_list|)
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 return|return
@@ -5416,8 +5416,8 @@ name|path
 argument_list|,
 literal|0
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 return|return
@@ -5585,8 +5585,8 @@ name|path
 argument_list|,
 literal|0
 argument_list|)
-operator|==
-name|NGX_ERROR
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 return|return
