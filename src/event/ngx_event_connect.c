@@ -609,6 +609,10 @@ directive|endif
 operator|||
 name|err
 operator|==
+name|NGX_ECONNRESET
+operator|||
+name|err
+operator|==
 name|NGX_ENETDOWN
 operator|||
 name|err
