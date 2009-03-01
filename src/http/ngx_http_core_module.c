@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c4e6c700108
+DECL|struct|__anon292c74740108
 typedef|typedef
 struct|struct
 block|{
@@ -4534,8 +4534,15 @@ operator|.
 name|len
 expr_stmt|;
 block|}
+comment|/* 16 bytes are preallocation */
 name|reserve
 operator|=
+name|ngx_abs
+argument_list|(
+operator|(
+name|ssize_t
+operator|)
+operator|(
 name|len
 operator|-
 name|r
@@ -4543,23 +4550,12 @@ operator|->
 name|uri
 operator|.
 name|len
-expr_stmt|;
-comment|/* 16 bytes are preallocation */
-name|reserve
-operator|=
-name|reserve
-operator|<
-literal|16
-condition|?
-literal|16
-else|:
-name|reserve
+operator|)
+argument_list|)
+operator|+
+name|alias
 operator|+
 literal|16
-expr_stmt|;
-name|reserve
-operator|+=
-name|alias
 expr_stmt|;
 if|if
 condition|(
