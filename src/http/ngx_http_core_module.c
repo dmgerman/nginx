@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c4e7fbf0108
+DECL|struct|__anon27c7b7a40108
 typedef|typedef
 struct|struct
 block|{
@@ -12270,6 +12270,12 @@ name|regex
 operator|=
 name|NULL
 expr_stmt|;
+name|sn
+operator|->
+name|captures
+operator|=
+literal|0
+expr_stmt|;
 endif|#
 directive|endif
 name|sn
@@ -15380,6 +15386,12 @@ name|regex
 operator|=
 name|NULL
 expr_stmt|;
+name|sn
+operator|->
+name|captures
+operator|=
+literal|0
+expr_stmt|;
 endif|#
 directive|endif
 name|sn
@@ -15507,6 +15519,21 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
+name|sn
+operator|->
+name|captures
+operator|=
+operator|(
+name|ngx_regex_capture_count
+argument_list|(
+name|sn
+operator|->
+name|regex
+argument_list|)
+operator|>
+literal|0
+operator|)
+expr_stmt|;
 name|sn
 operator|->
 name|name
