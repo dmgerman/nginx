@@ -32,6 +32,14 @@ name|NGX_HTTP_MAX_SUBREQUESTS
 value|50
 end_define
 
+begin_define
+DECL|macro|NGX_HTTP_MAX_CAPTURES
+define|#
+directive|define
+name|NGX_HTTP_MAX_CAPTURES
+value|9
+end_define
+
 begin_comment
 comment|/* must be 2^n */
 end_comment
@@ -633,7 +641,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon2b2ba58c0103
+DECL|enum|__anon2b7144f90103
 typedef|typedef
 enum|enum
 block|{
@@ -672,7 +680,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2ba58c0208
+DECL|struct|__anon2b7144f90208
 typedef|typedef
 struct|struct
 block|{
@@ -695,7 +703,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2ba58c0308
+DECL|struct|__anon2b7144f90308
 typedef|typedef
 struct|struct
 block|{
@@ -714,7 +722,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2ba58c0408
+DECL|struct|__anon2b7144f90408
 typedef|typedef
 struct|struct
 block|{
@@ -947,7 +955,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2ba58c0508
+DECL|struct|__anon2b7144f90508
 typedef|typedef
 struct|struct
 block|{
@@ -1088,7 +1096,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2ba58c0608
+DECL|struct|__anon2b7144f90608
 typedef|typedef
 struct|struct
 block|{
@@ -1127,7 +1135,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2ba58c0708
+DECL|struct|__anon2b7144f90708
 typedef|typedef
 struct|struct
 block|{
@@ -1177,7 +1185,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2ba58c0808
+DECL|struct|__anon2b7144f90808
 typedef|typedef
 struct|struct
 block|{
@@ -1272,7 +1280,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2ba58c0908
+DECL|struct|__anon2b7144f90908
 typedef|typedef
 struct|struct
 block|{
@@ -1565,6 +1573,27 @@ name|ngx_http_variable_value_t
 modifier|*
 name|variables
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_PCRE
+operator|)
+DECL|member|ncaptures
+name|ngx_uint_t
+name|ncaptures
+decl_stmt|;
+DECL|member|captures
+name|int
+modifier|*
+name|captures
+decl_stmt|;
+DECL|member|captures_data
+name|u_char
+modifier|*
+name|captures_data
+decl_stmt|;
+endif|#
+directive|endif
 DECL|member|limit_rate
 name|size_t
 name|limit_rate
