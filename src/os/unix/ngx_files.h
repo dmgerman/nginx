@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ebf5590108
+DECL|struct|__anon2bc454f30108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ebf5590208
+DECL|struct|__anon2bc454f30208
 typedef|typedef
 struct|struct
 block|{
@@ -1024,6 +1024,59 @@ name|NGX_HAVE_D_TYPE
 operator|)
 end_if
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_LINUX
+operator|)
+end_if
+
+begin_comment
+comment|/* XFS on Linux does not set dirent.d_type */
+end_comment
+
+begin_define
+DECL|macro|ngx_de_is_dir (dir)
+define|#
+directive|define
+name|ngx_de_is_dir
+parameter_list|(
+name|dir
+parameter_list|)
+define|\
+value|(((dir)->type) ? ((dir)->type == DT_DIR) : (S_ISDIR((dir)->info.st_mode)))
+end_define
+
+begin_define
+DECL|macro|ngx_de_is_file (dir)
+define|#
+directive|define
+name|ngx_de_is_file
+parameter_list|(
+name|dir
+parameter_list|)
+define|\
+value|(((dir)->type) ? ((dir)->type == DT_REG) : (S_ISREG((dir)->info.st_mode)))
+end_define
+
+begin_define
+DECL|macro|ngx_de_is_link (dir)
+define|#
+directive|define
+name|ngx_de_is_link
+parameter_list|(
+name|dir
+parameter_list|)
+define|\
+value|(((dir)->type) ? ((dir)->type == DT_LINK) : (S_ISLNK((dir)->info.st_mode)))
+end_define
+
+begin_else
+else|#
+directive|else
+end_else
+
 begin_define
 DECL|macro|ngx_de_is_dir (dir)
 define|#
@@ -1056,6 +1109,15 @@ name|dir
 parameter_list|)
 value|((dir)->type == DT_LINK)
 end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_comment
+comment|/* NGX_LINUX */
+end_comment
 
 begin_else
 else|#
