@@ -7200,6 +7200,9 @@ name|u_char
 modifier|*
 name|server
 decl_stmt|;
+name|size_t
+name|ncaptures
+decl_stmt|;
 name|ngx_uint_t
 name|hash
 decl_stmt|;
@@ -7357,7 +7360,7 @@ name|data
 operator|=
 name|server
 expr_stmt|;
-name|len
+name|ncaptures
 operator|=
 literal|0
 expr_stmt|;
@@ -7399,7 +7402,7 @@ operator|==
 name|NULL
 condition|)
 block|{
-name|len
+name|ncaptures
 operator|=
 operator|(
 name|NGX_HTTP_MAX_CAPTURES
@@ -7424,7 +7427,7 @@ name|r
 operator|->
 name|pool
 argument_list|,
-name|len
+name|ncaptures
 argument_list|)
 expr_stmt|;
 if|if
@@ -7504,7 +7507,7 @@ name|r
 operator|->
 name|captures
 argument_list|,
-name|len
+name|ncaptures
 argument_list|)
 expr_stmt|;
 if|if
@@ -7570,7 +7573,7 @@ name|r
 operator|->
 name|ncaptures
 operator|=
-name|len
+name|ncaptures
 expr_stmt|;
 name|r
 operator|->
