@@ -7411,11 +7411,6 @@ literal|1
 operator|)
 operator|*
 literal|3
-operator|*
-sizeof|sizeof
-argument_list|(
-name|int
-argument_list|)
 expr_stmt|;
 name|r
 operator|->
@@ -7428,6 +7423,11 @@ operator|->
 name|pool
 argument_list|,
 name|ncaptures
+operator|*
+sizeof|sizeof
+argument_list|(
+name|int
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
