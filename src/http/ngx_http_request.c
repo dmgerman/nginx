@@ -7200,9 +7200,6 @@ name|u_char
 modifier|*
 name|server
 decl_stmt|;
-name|size_t
-name|ncaptures
-decl_stmt|;
 name|ngx_uint_t
 name|hash
 decl_stmt|;
@@ -7335,6 +7332,9 @@ operator|->
 name|nregex
 condition|)
 block|{
+name|size_t
+name|ncaptures
+decl_stmt|;
 name|ngx_int_t
 name|n
 decl_stmt|;
