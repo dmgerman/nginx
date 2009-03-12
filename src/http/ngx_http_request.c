@@ -10490,6 +10490,20 @@ operator|-
 literal|1
 condition|)
 block|{
+if|#
+directive|if
+operator|(
+name|NGX_SOLARIS
+operator|)
+comment|/* Solaris returns EINVAL if a socket has been shut down */
+name|c
+operator|->
+name|log_error
+operator|=
+name|NGX_ERROR_IGNORE_EINVAL
+expr_stmt|;
+endif|#
+directive|endif
 name|ngx_connection_error
 argument_list|(
 name|c
@@ -10498,6 +10512,12 @@ name|ngx_socket_errno
 argument_list|,
 literal|"setsockopt(TCP_NODELAY) failed"
 argument_list|)
+expr_stmt|;
+name|c
+operator|->
+name|log_error
+operator|=
+name|NGX_ERROR_INFO
 expr_stmt|;
 name|ngx_http_close_connection
 argument_list|(

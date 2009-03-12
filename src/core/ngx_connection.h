@@ -223,12 +223,12 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon278dacb40103
+DECL|enum|__anon2ad3baa60103
 typedef|typedef
 enum|enum
 block|{
-DECL|enumerator|NGX_ERROR_CRIT
-name|NGX_ERROR_CRIT
+DECL|enumerator|NGX_ERROR_ALERT
+name|NGX_ERROR_ALERT
 init|=
 literal|0
 block|,
@@ -240,6 +240,9 @@ name|NGX_ERROR_INFO
 block|,
 DECL|enumerator|NGX_ERROR_IGNORE_ECONNRESET
 name|NGX_ERROR_IGNORE_ECONNRESET
+block|,
+DECL|enumerator|NGX_ERROR_IGNORE_EINVAL
+name|NGX_ERROR_IGNORE_EINVAL
 DECL|typedef|ngx_connection_log_error_e
 block|}
 name|ngx_connection_log_error_e
@@ -247,7 +250,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon278dacb40203
+DECL|enum|__anon2ad3baa60203
 typedef|typedef
 enum|enum
 block|{
@@ -268,7 +271,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon278dacb40303
+DECL|enum|__anon2ad3baa60303
 typedef|typedef
 enum|enum
 block|{
@@ -418,7 +421,7 @@ DECL|member|log_error
 name|unsigned
 name|log_error
 range|:
-literal|2
+literal|3
 decl_stmt|;
 comment|/* ngx_connection_log_error_e */
 DECL|member|single_connection
