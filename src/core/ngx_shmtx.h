@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon297cdd0c0108
+DECL|struct|__anon275f9d0f0108
 typedef|typedef
 struct|struct
 block|{
@@ -206,12 +206,33 @@ return|return
 literal|0
 return|;
 block|}
+if|#
+directive|if
+name|__osf__
+comment|/* Tru64 UNIX */
+if|if
+condition|(
+name|err
+operator|==
+name|NGX_EACCESS
+condition|)
+block|{
+return|return
+literal|0
+return|;
+block|}
+endif|#
+directive|endif
 name|ngx_log_abort
 argument_list|(
 name|err
 argument_list|,
 name|ngx_trylock_fd_n
-literal|" failed"
+literal|" %s failed"
+argument_list|,
+name|mtx
+operator|->
+name|name
 argument_list|)
 expr_stmt|;
 return|return
@@ -258,7 +279,11 @@ argument_list|(
 name|err
 argument_list|,
 name|ngx_lock_fd_n
-literal|" failed"
+literal|" %s failed"
+argument_list|,
+name|mtx
+operator|->
+name|name
 argument_list|)
 expr_stmt|;
 block|}
@@ -302,7 +327,11 @@ argument_list|(
 name|err
 argument_list|,
 name|ngx_unlock_fd_n
-literal|" failed"
+literal|" %s failed"
+argument_list|,
+name|mtx
+operator|->
+name|name
 argument_list|)
 expr_stmt|;
 block|}
