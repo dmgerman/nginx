@@ -165,7 +165,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b9581d0108
+DECL|struct|__anon2c3b969f0108
 typedef|typedef
 struct|struct
 block|{
@@ -197,6 +197,22 @@ name|unsigned
 name|ssl
 range|:
 literal|1
+decl_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_INET6
+operator|&&
+name|defined
+name|IPV6_V6ONLY
+operator|)
+DECL|member|ipv6only
+name|unsigned
+name|ipv6only
+range|:
+literal|2
 decl_stmt|;
 endif|#
 directive|endif
@@ -257,7 +273,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b9581d0208
+DECL|struct|__anon2c3b969f0208
 typedef|typedef
 struct|struct
 block|{
@@ -292,7 +308,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27b9581d0303
+DECL|enum|__anon2c3b969f0303
 typedef|typedef
 enum|enum
 block|{
@@ -387,7 +403,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27b9581d0408
+DECL|struct|__anon2c3b969f0408
 typedef|typedef
 struct|struct
 block|{
@@ -411,7 +427,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b9581d0508
+DECL|struct|__anon2c3b969f0508
 typedef|typedef
 struct|struct
 block|{
@@ -426,7 +442,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b9581d0608
+DECL|struct|__anon2c3b969f0608
 typedef|typedef
 struct|struct
 block|{
@@ -494,7 +510,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b9581d0708
+DECL|struct|__anon2c3b969f0708
 typedef|typedef
 struct|struct
 block|{
@@ -572,7 +588,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon27b9581d0808
+DECL|struct|__anon2c3b969f0808
 typedef|typedef
 struct|struct
 block|{
@@ -601,7 +617,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b9581d0908
+DECL|struct|__anon2c3b969f0908
 typedef|typedef
 struct|struct
 block|{
@@ -628,7 +644,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon27b9581d0a08
+DECL|struct|__anon2c3b969f0a08
 typedef|typedef
 struct|struct
 block|{
@@ -653,7 +669,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon27b9581d0b08
+DECL|struct|__anon2c3b969f0b08
 typedef|typedef
 struct|struct
 block|{
@@ -674,7 +690,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b9581d0c08
+DECL|struct|__anon2c3b969f0c08
 typedef|typedef
 struct|struct
 block|{
@@ -698,7 +714,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b9581d0d08
+DECL|struct|__anon2c3b969f0d08
 typedef|typedef
 struct|struct
 block|{
@@ -832,7 +848,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27b9581d0e08
+DECL|struct|__anon2c3b969f0e08
 typedef|typedef
 struct|struct
 block|{
@@ -869,7 +885,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b9581d0f08
+DECL|struct|__anon2c3b969f0f08
 typedef|typedef
 struct|struct
 block|{
@@ -1306,7 +1322,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27b9581d1008
+DECL|struct|__anon2c3b969f1008
 typedef|typedef
 struct|struct
 block|{

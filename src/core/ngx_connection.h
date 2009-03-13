@@ -186,6 +186,22 @@ decl_stmt|;
 if|#
 directive|if
 operator|(
+name|NGX_HAVE_INET6
+operator|&&
+name|defined
+name|IPV6_V6ONLY
+operator|)
+DECL|member|ipv6only
+name|unsigned
+name|ipv6only
+range|:
+literal|2
+decl_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
+operator|(
 name|NGX_HAVE_DEFERRED_ACCEPT
 operator|)
 DECL|member|deferred_accept
@@ -223,7 +239,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2ad3baa60103
+DECL|enum|__anon296b135a0103
 typedef|typedef
 enum|enum
 block|{
@@ -250,7 +266,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2ad3baa60203
+DECL|enum|__anon296b135a0203
 typedef|typedef
 enum|enum
 block|{
@@ -271,7 +287,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2ad3baa60303
+DECL|enum|__anon296b135a0303
 typedef|typedef
 enum|enum
 block|{
