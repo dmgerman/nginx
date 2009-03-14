@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2791727a0108
+DECL|struct|__anon29a3fcd70108
 typedef|typedef
 struct|struct
 block|{
@@ -5859,12 +5859,6 @@ name|clcfp
 operator|)
 operator|->
 name|captures
-operator|&&
-name|r
-operator|->
-name|captures
-operator|==
-name|NULL
 condition|)
 block|{
 name|len
@@ -5877,6 +5871,15 @@ operator|)
 operator|*
 literal|3
 expr_stmt|;
+if|if
+condition|(
+name|r
+operator|->
+name|captures
+operator|==
+name|NULL
+condition|)
+block|{
 name|r
 operator|->
 name|captures
@@ -5907,6 +5910,7 @@ block|{
 return|return
 name|NGX_ERROR
 return|;
+block|}
 block|}
 block|}
 name|n
