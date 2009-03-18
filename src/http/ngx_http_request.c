@@ -1474,12 +1474,6 @@ literal|1
 condition|)
 block|{
 comment|/*          * there are several addresses on this port and one of them          * is an "*:port" wildcard so getsockname() in ngx_http_server_addr()          * is required to determine a server address          */
-name|c
-operator|->
-name|local_sockaddr
-operator|=
-name|NULL
-expr_stmt|;
 if|if
 condition|(
 name|ngx_http_server_addr
