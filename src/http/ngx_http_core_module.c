@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29a3fcd70108
+DECL|struct|__anon2c77e4d80108
 typedef|typedef
 struct|struct
 block|{
@@ -7215,6 +7215,20 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|reserved
+operator|+=
+name|alias
+condition|?
+literal|1
+else|:
+name|r
+operator|->
+name|uri
+operator|.
+name|len
+operator|+
+literal|1
+expr_stmt|;
 if|if
 condition|(
 name|ngx_http_script_run
@@ -7229,7 +7243,6 @@ name|root_lengths
 operator|->
 name|elts
 argument_list|,
-operator|++
 name|reserved
 argument_list|,
 name|clcf
