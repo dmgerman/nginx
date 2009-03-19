@@ -452,6 +452,25 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
+name|void
+name|ngx_http_split_args
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|uri
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|args
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
 name|ngx_int_t
 name|ngx_http_find_server_conf
 parameter_list|(
