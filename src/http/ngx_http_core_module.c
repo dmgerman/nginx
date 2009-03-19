@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c3c27bc0108
+DECL|struct|__anon275e73030108
 typedef|typedef
 struct|struct
 block|{
@@ -4336,6 +4336,8 @@ name|name
 decl_stmt|;
 name|ngx_str_t
 name|path
+decl_stmt|,
+name|args
 decl_stmt|;
 name|ngx_uint_t
 name|test_dir
@@ -4868,6 +4870,17 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|ngx_http_split_args
+argument_list|(
+name|r
+argument_list|,
+operator|&
+name|path
+argument_list|,
+operator|&
+name|args
+argument_list|)
+expr_stmt|;
 operator|(
 name|void
 operator|)
@@ -4878,7 +4891,8 @@ argument_list|,
 operator|&
 name|path
 argument_list|,
-name|NULL
+operator|&
+name|args
 argument_list|)
 expr_stmt|;
 block|}
