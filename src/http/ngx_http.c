@@ -7834,7 +7834,7 @@ index|[
 name|i
 index|]
 operator|.
-name|wc_head
+name|wc_tail
 operator|==
 name|NULL
 operator|||
@@ -7843,7 +7843,7 @@ index|[
 name|i
 index|]
 operator|.
-name|wc_head
+name|wc_tail
 operator|->
 name|hash
 operator|.
