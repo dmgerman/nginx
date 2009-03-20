@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27ba9ac20108
+DECL|struct|__anon2c1e38380108
 typedef|typedef
 struct|struct
 block|{
@@ -4800,7 +4800,7 @@ expr_stmt|;
 name|tf
 operator|++
 expr_stmt|;
-name|ngx_log_debug1
+name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
@@ -4812,9 +4812,13 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"try to use file: \"%s\""
+literal|"try to use file: \"%s\" \"%s\""
 argument_list|,
 name|name
+argument_list|,
+name|path
+operator|.
+name|data
 argument_list|)
 expr_stmt|;
 if|if
