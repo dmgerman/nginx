@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2913e6e60108
+DECL|struct|__anon27ba9ac20108
 typedef|typedef
 struct|struct
 block|{
@@ -2480,6 +2480,8 @@ argument_list|(
 literal|"try_files"
 argument_list|)
 block|,
+name|NGX_HTTP_SRV_CONF
+operator||
 name|NGX_HTTP_LOC_CONF
 operator||
 name|NGX_CONF_2MORE
