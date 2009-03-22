@@ -180,13 +180,13 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_http_core_module.h>
+file|<ngx_http_script.h>
 end_include
 
 begin_include
 include|#
 directive|include
-file|<ngx_http_script.h>
+file|<ngx_http_core_module.h>
 end_include
 
 begin_if
