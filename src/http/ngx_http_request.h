@@ -641,7 +641,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon2b7144f90103
+DECL|enum|__anon28a4a06f0103
 typedef|typedef
 enum|enum
 block|{
@@ -680,7 +680,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7144f90208
+DECL|struct|__anon28a4a06f0208
 typedef|typedef
 struct|struct
 block|{
@@ -703,7 +703,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7144f90308
+DECL|struct|__anon28a4a06f0308
 typedef|typedef
 struct|struct
 block|{
@@ -722,7 +722,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7144f90408
+DECL|struct|__anon28a4a06f0408
 typedef|typedef
 struct|struct
 block|{
@@ -955,7 +955,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7144f90508
+DECL|struct|__anon28a4a06f0508
 typedef|typedef
 struct|struct
 block|{
@@ -1096,7 +1096,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7144f90608
+DECL|struct|__anon28a4a06f0608
 typedef|typedef
 struct|struct
 block|{
@@ -1135,7 +1135,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7144f90708
+DECL|struct|__anon28a4a06f0708
 typedef|typedef
 struct|struct
 block|{
@@ -1185,7 +1185,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7144f90808
+DECL|struct|__anon28a4a06f0808
 typedef|typedef
 struct|struct
 block|{
@@ -1280,7 +1280,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7144f90908
+DECL|struct|__anon28a4a06f0908
 typedef|typedef
 struct|struct
 block|{
@@ -1439,11 +1439,18 @@ DECL|member|write_event_handler
 name|ngx_http_event_handler_pt
 name|write_event_handler
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_CACHE
+operator|)
 DECL|member|cache
 name|ngx_http_cache_t
 modifier|*
 name|cache
 decl_stmt|;
+endif|#
+directive|endif
 DECL|member|upstream
 name|ngx_http_upstream_t
 modifier|*
@@ -1737,6 +1744,19 @@ name|waited
 range|:
 literal|1
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_CACHE
+operator|)
+DECL|member|cached
+name|unsigned
+name|cached
+range|:
+literal|1
+decl_stmt|;
+endif|#
+directive|endif
 DECL|member|gzip
 name|unsigned
 name|gzip

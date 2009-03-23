@@ -165,7 +165,7 @@ value|40
 end_define
 
 begin_typedef
-DECL|struct|__anon27a1316d0108
+DECL|struct|__anon2ac5c8c20108
 typedef|typedef
 struct|struct
 block|{
@@ -205,7 +205,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a1316d0208
+DECL|struct|__anon2ac5c8c20208
 typedef|typedef
 struct|struct
 block|{
@@ -274,7 +274,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a1316d0308
+DECL|struct|__anon2ac5c8c20308
 typedef|typedef
 struct|struct
 block|{
@@ -298,7 +298,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a1316d0408
+DECL|struct|__anon2ac5c8c20408
 typedef|typedef
 struct|struct
 block|{
@@ -440,7 +440,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27a1316d0508
+DECL|struct|__anon2ac5c8c20508
 typedef|typedef
 struct|struct
 block|{
@@ -497,6 +497,10 @@ DECL|member|temp_file_write_size_conf
 name|size_t
 name|temp_file_write_size_conf
 decl_stmt|;
+DECL|member|bufs
+name|ngx_bufs_t
+name|bufs
+decl_stmt|;
 DECL|member|next_upstream
 name|ngx_uint_t
 name|next_upstream
@@ -504,10 +508,6 @@ decl_stmt|;
 DECL|member|store_access
 name|ngx_uint_t
 name|store_access
-decl_stmt|;
-DECL|member|bufs
-name|ngx_bufs_t
-name|bufs
 decl_stmt|;
 DECL|member|buffering
 name|ngx_flag_t
@@ -552,6 +552,31 @@ name|ngx_array_t
 modifier|*
 name|pass_headers
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_CACHE
+operator|)
+DECL|member|cache
+name|ngx_shm_zone_t
+modifier|*
+name|cache
+decl_stmt|;
+DECL|member|cache_min_uses
+name|ngx_uint_t
+name|cache_min_uses
+decl_stmt|;
+DECL|member|cache_use_stale
+name|ngx_uint_t
+name|cache_use_stale
+decl_stmt|;
+DECL|member|cache_valid
+name|ngx_array_t
+modifier|*
+name|cache_valid
+decl_stmt|;
+endif|#
+directive|endif
 DECL|member|store_lengths
 name|ngx_array_t
 modifier|*
@@ -603,7 +628,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a1316d0608
+DECL|struct|__anon2ac5c8c20608
 typedef|typedef
 struct|struct
 block|{
@@ -639,7 +664,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a1316d0708
+DECL|struct|__anon2ac5c8c20708
 typedef|typedef
 struct|struct
 block|{
@@ -757,7 +782,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a1316d0808
+DECL|struct|__anon2ac5c8c20808
 typedef|typedef
 struct|struct
 block|{
@@ -773,7 +798,7 @@ DECL|member|no_port
 name|ngx_uint_t
 name|no_port
 decl_stmt|;
-comment|/* unsigned  no_port:1 */
+comment|/* unsigned no_port:1 */
 DECL|member|naddrs
 name|ngx_uint_t
 name|naddrs
@@ -928,6 +953,25 @@ name|void
 modifier|*
 name|input_filter_ctx
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_CACHE
+operator|)
+DECL|member|create_key
+name|ngx_int_t
+function_decl|(
+modifier|*
+name|create_key
+function_decl|)
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|)
+function_decl|;
+endif|#
+directive|endif
 DECL|member|create_request
 name|ngx_int_t
 function_decl|(
@@ -1060,6 +1104,19 @@ name|ssl
 range|:
 literal|1
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_CACHE
+operator|)
+DECL|member|stale_cache
+name|unsigned
+name|stale_cache
+range|:
+literal|1
+decl_stmt|;
+endif|#
+directive|endif
 DECL|member|buffering
 name|unsigned
 name|buffering
@@ -1083,7 +1140,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27a1316d0908
+DECL|struct|__anon2ac5c8c20908
 typedef|typedef
 struct|struct
 block|{

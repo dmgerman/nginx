@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon292b1eb40108
+DECL|struct|__anon2c6675eb0108
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon292b1eb40203
+DECL|enum|__anon2c6675eb0203
 typedef|typedef
 enum|enum
 block|{
@@ -134,7 +134,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292b1eb40308
+DECL|struct|__anon2c6675eb0308
 typedef|typedef
 struct|struct
 block|{
@@ -155,7 +155,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292b1eb40408
+DECL|struct|__anon2c6675eb0408
 typedef|typedef
 struct|struct
 block|{
@@ -282,7 +282,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon292b1eb40508
+DECL|struct|__anon2c6675eb0508
 typedef|typedef
 struct|struct
 block|{
@@ -325,7 +325,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292b1eb40608
+DECL|struct|__anon2c6675eb0608
 typedef|typedef
 struct|struct
 block|{
@@ -355,7 +355,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292b1eb40708
+DECL|struct|__anon2c6675eb0708
 typedef|typedef
 struct|struct
 block|{
@@ -382,7 +382,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292b1eb40808
+DECL|struct|__anon2c6675eb0808
 typedef|typedef
 struct|struct
 block|{
@@ -1325,11 +1325,7 @@ operator|.
 name|temp_path
 argument_list|)
 block|,
-operator|(
-name|void
-operator|*
-operator|)
-name|ngx_garbage_collector_temp_handler
+name|NULL
 block|}
 block|,
 block|{
@@ -1849,6 +1845,29 @@ literal|"X-Accel-Charset"
 argument_list|)
 block|,
 name|ngx_null_string
+block|}
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_http_fastcgi_temp_path
+specifier|static
+name|ngx_path_init_t
+name|ngx_http_fastcgi_temp_path
+init|=
+block|{
+name|ngx_string
+argument_list|(
+name|NGX_HTTP_FASTCGI_TEMP_PATH
+argument_list|)
+block|,
+block|{
+literal|1
+block|,
+literal|2
+block|,
+literal|0
+block|}
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -8795,8 +8814,13 @@ operator||
 name|NGX_HTTP_UPSTREAM_FT_OFF
 expr_stmt|;
 block|}
+if|if
+condition|(
 name|ngx_conf_merge_path_value
 argument_list|(
+name|cf
+argument_list|,
+operator|&
 name|conf
 operator|->
 name|upstream
@@ -8809,19 +8833,17 @@ name|upstream
 operator|.
 name|temp_path
 argument_list|,
-name|NGX_HTTP_FASTCGI_TEMP_PATH
-argument_list|,
-literal|1
-argument_list|,
-literal|2
-argument_list|,
-literal|0
-argument_list|,
-name|ngx_garbage_collector_temp_handler
-argument_list|,
-name|cf
+operator|&
+name|ngx_http_fastcgi_temp_path
 argument_list|)
-expr_stmt|;
+operator|!=
+name|NGX_OK
+condition|)
+block|{
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
 name|ngx_conf_merge_value
 argument_list|(
 name|conf

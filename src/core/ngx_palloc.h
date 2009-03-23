@@ -134,7 +134,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28a5ad9d0108
+DECL|struct|__anon278fd0980108
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +202,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28a5ad9d0208
+DECL|struct|__anon278fd0980208
 typedef|typedef
 struct|struct
 block|{
@@ -382,6 +382,20 @@ name|p
 parameter_list|,
 name|size_t
 name|size
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_pool_run_cleanup_file
+parameter_list|(
+name|ngx_pool_t
+modifier|*
+name|p
+parameter_list|,
+name|ngx_fd_t
+name|fd
 parameter_list|)
 function_decl|;
 end_function_decl

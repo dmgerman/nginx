@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc454f30108
+DECL|struct|__anon2a2bb9260108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc454f30208
+DECL|struct|__anon2a2bb9260208
 typedef|typedef
 struct|struct
 block|{
@@ -277,6 +277,14 @@ define|#
 directive|define
 name|NGX_FILE_DEFAULT_ACCESS
 value|0644
+end_define
+
+begin_define
+DECL|macro|NGX_FILE_OWNER_ACCESS
+define|#
+directive|define
+name|NGX_FILE_OWNER_ACCESS
+value|0600
 end_define
 
 begin_define

@@ -299,6 +299,16 @@ name|r
 operator|->
 name|headers_out
 operator|.
+name|status_line
+operator|.
+name|len
+operator|=
+literal|0
+expr_stmt|;
+name|r
+operator|->
+name|headers_out
+operator|.
 name|content_type
 operator|.
 name|len

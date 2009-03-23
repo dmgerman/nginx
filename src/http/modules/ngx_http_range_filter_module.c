@@ -26,7 +26,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon2772339f0108
+DECL|struct|__anon2baeeed20108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2772339f0208
+DECL|struct|__anon2baeeed20208
 typedef|typedef
 struct|struct
 block|{
@@ -670,6 +670,16 @@ operator|.
 name|status
 operator|=
 name|NGX_HTTP_PARTIAL_CONTENT
+expr_stmt|;
+name|r
+operator|->
+name|headers_out
+operator|.
+name|status_line
+operator|.
+name|len
+operator|=
+literal|0
 expr_stmt|;
 if|if
 condition|(
@@ -2939,6 +2949,9 @@ modifier|*
 name|in
 parameter_list|)
 block|{
+name|off_t
+name|body_start
+decl_stmt|;
 name|ngx_buf_t
 modifier|*
 name|b
@@ -2989,6 +3002,33 @@ name|ranges
 operator|.
 name|elts
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_CACHE
+operator|)
+name|body_start
+operator|=
+name|r
+operator|->
+name|cached
+condition|?
+name|r
+operator|->
+name|cache
+operator|->
+name|body_start
+else|:
+literal|0
+expr_stmt|;
+else|#
+directive|else
+name|body_start
+operator|=
+literal|0
+expr_stmt|;
+endif|#
+directive|endif
 for|for
 control|(
 name|i
@@ -3246,6 +3286,8 @@ name|b
 operator|->
 name|file_pos
 operator|=
+name|body_start
+operator|+
 name|range
 index|[
 name|i
@@ -3257,6 +3299,8 @@ name|b
 operator|->
 name|file_last
 operator|=
+name|body_start
+operator|+
 name|range
 index|[
 name|i
