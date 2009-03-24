@@ -4119,6 +4119,16 @@ operator|>=
 name|cache
 operator|->
 name|next_clean_time
+operator|&&
+name|now
+operator|>=
+name|cache
+operator|->
+name|created
+operator|+
+name|cache
+operator|->
+name|inactive
 condition|)
 block|{
 name|ngx_log_error
