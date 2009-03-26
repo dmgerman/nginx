@@ -3807,11 +3807,17 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"ignore long locked inactive cache entry %*s"
+literal|"ignore long locked inactive cache entry %*s, count:%d"
 argument_list|,
+literal|2
+operator|*
 name|NGX_HTTP_CACHE_KEY_LEN
 argument_list|,
 name|key
+argument_list|,
+name|fcn
+operator|->
+name|count
 argument_list|)
 expr_stmt|;
 block|}
