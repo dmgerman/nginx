@@ -1739,13 +1739,6 @@ name|fcn
 operator|->
 name|exists
 expr_stmt|;
-if|if
-condition|(
-name|fcn
-operator|->
-name|body_start
-condition|)
-block|{
 name|r
 operator|->
 name|cache
@@ -1756,7 +1749,6 @@ name|fcn
 operator|->
 name|body_start
 expr_stmt|;
-block|}
 name|rc
 operator|=
 name|NGX_OK
