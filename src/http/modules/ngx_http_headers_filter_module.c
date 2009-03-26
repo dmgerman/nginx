@@ -55,7 +55,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a18e5570108
+DECL|struct|__anon2bf50ee10108
 typedef|typedef
 struct|struct
 block|{
@@ -155,7 +155,7 @@ value|5
 end_define
 
 begin_typedef
-DECL|struct|__anon2a18e5570208
+DECL|struct|__anon2bf50ee10208
 typedef|typedef
 struct|struct
 block|{
@@ -2674,6 +2674,35 @@ operator|.
 name|handler
 expr_stmt|;
 break|break;
+block|}
+if|if
+condition|(
+name|value
+index|[
+literal|2
+index|]
+operator|.
+name|len
+operator|==
+literal|0
+condition|)
+block|{
+name|ngx_memzero
+argument_list|(
+operator|&
+name|hv
+operator|->
+name|value
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|ngx_http_complex_value_t
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CONF_OK
+return|;
 block|}
 name|ngx_memzero
 argument_list|(
