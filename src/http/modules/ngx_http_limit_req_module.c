@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c533f250108
+DECL|struct|__anon2a4550f00108
 typedef|typedef
 struct|struct
 block|{
@@ -65,7 +65,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c533f250208
+DECL|struct|__anon2a4550f00208
 typedef|typedef
 struct|struct
 block|{
@@ -104,7 +104,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c533f250308
+DECL|struct|__anon2a4550f00308
 typedef|typedef
 struct|struct
 block|{
@@ -931,28 +931,6 @@ operator|->
 name|shpool
 operator|->
 name|mutex
-argument_list|)
-expr_stmt|;
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_CRIT
-argument_list|,
-name|r
-operator|->
-name|connection
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"could not allocate memory in zone \"%V\""
-argument_list|,
-operator|&
-name|lrcf
-operator|->
-name|shm_zone
-operator|->
-name|name
 argument_list|)
 expr_stmt|;
 return|return
