@@ -60,7 +60,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29244bbb0108
+DECL|struct|__anon295092360108
 typedef|typedef
 struct|struct
 block|{
@@ -98,6 +98,15 @@ decl_stmt|;
 DECL|member|mutex
 name|ngx_shmtx_t
 name|mutex
+decl_stmt|;
+DECL|member|log_ctx
+name|u_char
+modifier|*
+name|log_ctx
+decl_stmt|;
+DECL|member|zero
+name|u_char
+name|zero
 decl_stmt|;
 DECL|typedef|ngx_slab_pool_t
 block|}

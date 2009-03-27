@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29d3ca120108
+DECL|struct|__anon2b9da8530108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d3ca120208
+DECL|struct|__anon2b9da8530208
 typedef|typedef
 struct|struct
 block|{
@@ -73,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d3ca120308
+DECL|struct|__anon2b9da8530308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d3ca120408
+DECL|struct|__anon2b9da8530408
 typedef|typedef
 struct|struct
 block|{
@@ -1319,6 +1319,9 @@ name|octx
 init|=
 name|data
 decl_stmt|;
+name|size_t
+name|len
+decl_stmt|;
 name|ngx_slab_pool_t
 modifier|*
 name|shpool
@@ -1480,6 +1483,57 @@ argument_list|,
 name|sentinel
 argument_list|,
 name|ngx_http_limit_zone_rbtree_insert_value
+argument_list|)
+expr_stmt|;
+name|len
+operator|=
+sizeof|sizeof
+argument_list|(
+literal|" in limit_zone \"\""
+argument_list|)
+operator|+
+name|shm_zone
+operator|->
+name|name
+operator|.
+name|len
+expr_stmt|;
+name|shpool
+operator|->
+name|log_ctx
+operator|=
+name|ngx_slab_alloc
+argument_list|(
+name|shpool
+argument_list|,
+name|len
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|shpool
+operator|->
+name|log_ctx
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+name|ngx_sprintf
+argument_list|(
+name|shpool
+operator|->
+name|log_ctx
+argument_list|,
+literal|" in limit_zone \"%V\"%Z"
+argument_list|,
+operator|&
+name|shm_zone
+operator|->
+name|name
 argument_list|)
 expr_stmt|;
 return|return
