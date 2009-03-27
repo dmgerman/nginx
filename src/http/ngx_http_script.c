@@ -179,8 +179,8 @@ end_decl_stmt
 
 begin_function
 name|void
-DECL|function|ngx_http_scrip_flush_complex_value (ngx_http_request_t * r,ngx_http_complex_value_t * val)
-name|ngx_http_scrip_flush_complex_value
+DECL|function|ngx_http_script_flush_complex_value (ngx_http_request_t * r,ngx_http_complex_value_t * val)
+name|ngx_http_script_flush_complex_value
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
@@ -314,7 +314,7 @@ return|return
 name|NGX_OK
 return|;
 block|}
-name|ngx_http_scrip_flush_complex_value
+name|ngx_http_script_flush_complex_value
 argument_list|(
 name|r
 argument_list|,
