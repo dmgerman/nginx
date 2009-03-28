@@ -173,6 +173,8 @@ name|cpu
 index|[
 literal|4
 index|]
+decl_stmt|,
+name|model
 decl_stmt|;
 name|vbuf
 index|[
@@ -290,8 +292,21 @@ name|ngx_cacheline_size
 operator|=
 literal|32
 expr_stmt|;
-if|if
-condition|(
+name|model
+operator|=
+operator|(
+operator|(
+name|cpu
+index|[
+literal|0
+index|]
+operator|&
+literal|0xf0000
+operator|)
+operator|>>
+literal|8
+operator|)
+operator||
 operator|(
 name|cpu
 index|[
@@ -300,11 +315,15 @@ index|]
 operator|&
 literal|0xf0
 operator|)
+expr_stmt|;
+if|if
+condition|(
+name|model
 operator|>=
 literal|0xd0
 condition|)
 block|{
-comment|/* Intel Core */
+comment|/* Intel Core, Core 2, Atom */
 name|ngx_cacheline_size
 operator|=
 literal|64
