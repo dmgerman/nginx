@@ -487,10 +487,6 @@ operator|=
 name|in
 init|;
 name|cl
-operator|&&
-name|sent
-operator|>
-literal|0
 condition|;
 name|cl
 operator|=
