@@ -508,7 +508,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon2b4314180103
+DECL|enum|__anon2a10ac6d0103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2517,7 +2517,7 @@ name|hash
 decl_stmt|,
 name|i
 decl_stmt|;
-DECL|enum|__anon2b4314180203
+DECL|enum|__anon2a10ac6d0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -3253,7 +3253,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2b4314180303
+DECL|enum|__anon2a10ac6d0303
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -5572,6 +5572,12 @@ operator|+
 name|uri
 operator|->
 name|len
+expr_stmt|;
+name|args
+operator|->
+name|len
+operator|=
+literal|0
 expr_stmt|;
 while|while
 condition|(
