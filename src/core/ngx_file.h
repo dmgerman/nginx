@@ -83,12 +83,12 @@ value|3
 end_define
 
 begin_typedef
-DECL|typedef|ngx_path_cleaner_pt
+DECL|typedef|ngx_path_manager_pt
 typedef|typedef
 name|time_t
 function_decl|(
 modifier|*
-name|ngx_path_cleaner_pt
+name|ngx_path_manager_pt
 function_decl|)
 parameter_list|(
 name|void
@@ -99,7 +99,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289eca7b0108
+DECL|struct|__anon29f64a300108
 typedef|typedef
 struct|struct
 block|{
@@ -118,9 +118,9 @@ index|[
 literal|3
 index|]
 decl_stmt|;
-DECL|member|cleaner
-name|ngx_path_cleaner_pt
-name|cleaner
+DECL|member|manager
+name|ngx_path_manager_pt
+name|manager
 decl_stmt|;
 DECL|member|data
 name|void
@@ -143,7 +143,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289eca7b0208
+DECL|struct|__anon29f64a300208
 typedef|typedef
 struct|struct
 block|{
@@ -165,7 +165,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289eca7b0308
+DECL|struct|__anon29f64a300308
 typedef|typedef
 struct|struct
 block|{
@@ -221,7 +221,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289eca7b0408
+DECL|struct|__anon29f64a300408
 typedef|typedef
 struct|struct
 block|{

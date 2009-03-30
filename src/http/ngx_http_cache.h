@@ -75,7 +75,7 @@ value|16
 end_define
 
 begin_typedef
-DECL|struct|__anon2933ef710108
+DECL|struct|__anon2a0888aa0108
 typedef|typedef
 struct|struct
 block|{
@@ -98,7 +98,7 @@ comment|/* ngx_http_file_cache_node_t takes exactly 64 bytes on FreeBSD/i386 */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2933ef710208
+DECL|struct|__anon2a0888aa0208
 typedef|typedef
 struct|struct
 block|{
@@ -168,6 +168,10 @@ decl_stmt|;
 DECL|member|body_start
 name|size_t
 name|body_start
+decl_stmt|;
+DECL|member|length
+name|off_t
+name|length
 decl_stmt|;
 DECL|typedef|ngx_http_file_cache_node_t
 block|}
@@ -281,7 +285,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2933ef710308
+DECL|struct|__anon2a0888aa0308
 typedef|typedef
 struct|struct
 block|{
@@ -344,21 +348,35 @@ name|ngx_path_t
 modifier|*
 name|path
 decl_stmt|;
+DECL|member|cold
+name|ngx_atomic_t
+modifier|*
+name|cold
+decl_stmt|;
+DECL|member|size
+name|off_t
+modifier|*
+name|size
+decl_stmt|;
+DECL|member|max_size
+name|off_t
+name|max_size
+decl_stmt|;
+DECL|member|bsize
+name|size_t
+name|bsize
+decl_stmt|;
 DECL|member|inactive
 name|time_t
 name|inactive
 decl_stmt|;
-DECL|member|created
-name|time_t
-name|created
+DECL|member|last
+name|ngx_msec_t
+name|last
 decl_stmt|;
-DECL|member|clean_time
-name|time_t
-name|clean_time
-decl_stmt|;
-DECL|member|next_clean_time
-name|time_t
-name|next_clean_time
+DECL|member|files
+name|ngx_uint_t
+name|files
 decl_stmt|;
 DECL|member|shm_zone
 name|ngx_shm_zone_t

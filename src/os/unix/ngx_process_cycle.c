@@ -48,7 +48,7 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|void
-name|ngx_start_cleaner_process
+name|ngx_start_cache_manager_process
 parameter_list|(
 name|ngx_cycle_t
 modifier|*
@@ -194,7 +194,7 @@ end_endif
 begin_function_decl
 specifier|static
 name|void
-name|ngx_cleaner_process_cycle
+name|ngx_cache_manager_process_cycle
 parameter_list|(
 name|ngx_cycle_t
 modifier|*
@@ -210,7 +210,7 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|void
-name|ngx_cleaner_process_handler
+name|ngx_cache_manager_process_handler
 parameter_list|(
 name|ngx_event_t
 modifier|*
@@ -737,7 +737,7 @@ argument_list|,
 name|NGX_PROCESS_RESPAWN
 argument_list|)
 expr_stmt|;
-name|ngx_start_cleaner_process
+name|ngx_start_cache_manager_process
 argument_list|(
 name|cycle
 argument_list|,
@@ -1107,7 +1107,7 @@ argument_list|,
 name|NGX_PROCESS_RESPAWN
 argument_list|)
 expr_stmt|;
-name|ngx_start_cleaner_process
+name|ngx_start_cache_manager_process
 argument_list|(
 name|cycle
 argument_list|,
@@ -1187,7 +1187,7 @@ argument_list|,
 name|NGX_PROCESS_JUST_RESPAWN
 argument_list|)
 expr_stmt|;
-name|ngx_start_cleaner_process
+name|ngx_start_cache_manager_process
 argument_list|(
 name|cycle
 argument_list|,
@@ -1229,7 +1229,7 @@ argument_list|,
 name|NGX_PROCESS_RESPAWN
 argument_list|)
 expr_stmt|;
-name|ngx_start_cleaner_process
+name|ngx_start_cache_manager_process
 argument_list|(
 name|cycle
 argument_list|,
@@ -1804,8 +1804,8 @@ end_function
 begin_function
 specifier|static
 name|void
-DECL|function|ngx_start_cleaner_process (ngx_cycle_t * cycle,ngx_int_t type)
-name|ngx_start_cleaner_process
+DECL|function|ngx_start_cache_manager_process (ngx_cycle_t * cycle,ngx_int_t type)
+name|ngx_start_cache_manager_process
 parameter_list|(
 name|ngx_cycle_t
 modifier|*
@@ -1862,7 +1862,7 @@ index|[
 name|n
 index|]
 operator|->
-name|cleaner
+name|manager
 condition|)
 block|{
 goto|goto
@@ -1883,11 +1883,11 @@ name|ngx_spawn_process
 argument_list|(
 name|cycle
 argument_list|,
-name|ngx_cleaner_process_cycle
+name|ngx_cache_manager_process_cycle
 argument_list|,
 name|NULL
 argument_list|,
-literal|"cleaner process"
+literal|"cache manager process"
 argument_list|,
 name|type
 argument_list|)
@@ -5788,8 +5788,8 @@ end_endif
 begin_function
 specifier|static
 name|void
-DECL|function|ngx_cleaner_process_cycle (ngx_cycle_t * cycle,void * data)
-name|ngx_cleaner_process_cycle
+DECL|function|ngx_cache_manager_process_cycle (ngx_cycle_t * cycle,void * data)
+name|ngx_cache_manager_process_cycle
 parameter_list|(
 name|ngx_cycle_t
 modifier|*
@@ -5843,7 +5843,7 @@ name|ev
 operator|.
 name|handler
 operator|=
-name|ngx_cleaner_process_handler
+name|ngx_cache_manager_process_handler
 expr_stmt|;
 name|ev
 operator|.
@@ -5877,7 +5877,7 @@ literal|0
 expr_stmt|;
 name|ngx_setproctitle
 argument_list|(
-literal|"cleaner process"
+literal|"cache manager process"
 argument_list|)
 expr_stmt|;
 name|ngx_add_timer
@@ -5963,8 +5963,8 @@ end_function
 begin_function
 specifier|static
 name|void
-DECL|function|ngx_cleaner_process_handler (ngx_event_t * ev)
-name|ngx_cleaner_process_handler
+DECL|function|ngx_cache_manager_process_handler (ngx_event_t * ev)
+name|ngx_cache_manager_process_handler
 parameter_list|(
 name|ngx_event_t
 modifier|*
@@ -6023,7 +6023,7 @@ index|[
 name|i
 index|]
 operator|->
-name|cleaner
+name|manager
 condition|)
 block|{
 name|n
@@ -6033,7 +6033,7 @@ index|[
 name|i
 index|]
 operator|->
-name|cleaner
+name|manager
 argument_list|(
 name|path
 index|[

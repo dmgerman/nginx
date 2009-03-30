@@ -1179,10 +1179,10 @@ literal|0
 expr_stmt|;
 name|path
 operator|->
-name|cleaner
+name|manager
 operator|=
 operator|(
-name|ngx_path_cleaner_pt
+name|ngx_path_manager_pt
 operator|)
 name|cmd
 operator|->
@@ -1569,7 +1569,7 @@ operator|*
 name|path
 operator|)
 operator|->
-name|cleaner
+name|manager
 operator|=
 name|NULL
 expr_stmt|;
