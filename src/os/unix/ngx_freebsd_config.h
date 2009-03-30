@@ -107,6 +107,16 @@ end_include
 begin_include
 include|#
 directive|include
+file|<sys/param.h>
+end_include
+
+begin_comment
+comment|/* ALIGN() */
+end_comment
+
+begin_include
+include|#
+directive|include
 file|<sys/mount.h>
 end_include
 
@@ -227,16 +237,6 @@ include|#
 directive|include
 file|<sys/sysctl.h>
 end_include
-
-begin_include
-include|#
-directive|include
-file|<sys/param.h>
-end_include
-
-begin_comment
-comment|/* ALIGN() */
-end_comment
 
 begin_if
 if|#
