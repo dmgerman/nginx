@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a0779a40108
+DECL|struct|__anon298a8e5e0108
 typedef|typedef
 struct|struct
 block|{
@@ -90,7 +90,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a0779a40208
+DECL|struct|__anon298a8e5e0208
 typedef|typedef
 struct|struct
 block|{
@@ -1141,6 +1141,17 @@ directive|define
 name|ngx_directio_off_n
 value|"ngx_directio_off_n"
 end_define
+
+begin_function_decl
+name|size_t
+name|ngx_fs_bsize
+parameter_list|(
+name|u_char
+modifier|*
+name|name
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_endif
 endif|#

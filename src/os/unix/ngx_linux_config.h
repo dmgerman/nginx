@@ -138,6 +138,16 @@ end_include
 begin_include
 include|#
 directive|include
+file|<sys/vfs.h>
+end_include
+
+begin_comment
+comment|/* statfs() */
+end_comment
+
+begin_include
+include|#
+directive|include
 file|<sys/uio.h>
 end_include
 

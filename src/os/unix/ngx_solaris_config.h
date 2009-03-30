@@ -138,6 +138,16 @@ end_include
 begin_include
 include|#
 directive|include
+file|<sys/statvfs.h>
+end_include
+
+begin_comment
+comment|/* statvfs() */
+end_comment
+
+begin_include
+include|#
+directive|include
 file|<sys/filio.h>
 end_include
 

@@ -107,6 +107,16 @@ end_include
 begin_include
 include|#
 directive|include
+file|<sys/mount.h>
+end_include
+
+begin_comment
+comment|/* statfs() */
+end_comment
+
+begin_include
+include|#
+directive|include
 file|<sys/filio.h>
 end_include
 
