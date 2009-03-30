@@ -277,6 +277,14 @@ value|ECANCELED
 end_define
 
 begin_define
+DECL|macro|NGX_EILSEQ
+define|#
+directive|define
+name|NGX_EILSEQ
+value|EILSEQ
+end_define
+
+begin_define
 DECL|macro|NGX_ENOMOREFILES
 define|#
 directive|define

@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298a8e5e0108
+DECL|struct|__anon29ec30430108
 typedef|typedef
 struct|struct
 block|{
@@ -90,7 +90,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298a8e5e0208
+DECL|struct|__anon29ec30430208
 typedef|typedef
 struct|struct
 block|{
@@ -206,27 +206,25 @@ name|NGX_FILE_ERROR
 value|0
 end_define
 
-begin_comment
-comment|/*  * FILE_FLAG_BACKUP_SEMANTICS allows to obtain a handle to a directory  */
-end_comment
-
-begin_define
-DECL|macro|ngx_open_file (name,mode,create,access)
-define|#
-directive|define
+begin_function_decl
+name|ngx_fd_t
 name|ngx_open_file
 parameter_list|(
+name|u_char
+modifier|*
 name|name
 parameter_list|,
+name|u_long
 name|mode
 parameter_list|,
+name|u_long
 name|create
 parameter_list|,
+name|u_long
 name|access
 parameter_list|)
-define|\
-value|CreateFile((const char *) name, mode,                                    \                FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_SHARE_DELETE,           \                NULL, create, FILE_FLAG_BACKUP_SEMANTICS, NULL)
-end_define
+function_decl|;
+end_function_decl
 
 begin_define
 DECL|macro|ngx_open_file_n
@@ -261,6 +259,14 @@ value|GENERIC_READ|GENERIC_WRITE
 end_define
 
 begin_define
+DECL|macro|NGX_FILE_APPEND
+define|#
+directive|define
+name|NGX_FILE_APPEND
+value|FILE_APPEND_DATA|SYNCHRONIZE
+end_define
+
+begin_define
 DECL|macro|NGX_FILE_CREATE_OR_OPEN
 define|#
 directive|define
@@ -274,14 +280,6 @@ define|#
 directive|define
 name|NGX_FILE_OPEN
 value|OPEN_EXISTING
-end_define
-
-begin_define
-DECL|macro|NGX_FILE_APPEND
-define|#
-directive|define
-name|NGX_FILE_APPEND
-value|0
 end_define
 
 begin_define

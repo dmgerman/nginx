@@ -2022,10 +2022,10 @@ argument_list|(
 name|name
 argument_list|,
 name|NGX_FILE_RDWR
-argument_list|,
-name|NGX_FILE_CREATE_OR_OPEN
 operator||
 name|NGX_FILE_APPEND
+argument_list|,
+name|NGX_FILE_CREATE_OR_OPEN
 argument_list|,
 name|NGX_FILE_DEFAULT_ACCESS
 argument_list|)

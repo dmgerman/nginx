@@ -825,15 +825,19 @@ name|fd
 operator|=
 name|ngx_open_file
 argument_list|(
+operator|(
+name|u_char
+operator|*
+operator|)
 name|NGX_ERROR_LOG_PATH
 argument_list|,
 name|NGX_FILE_RDWR
-argument_list|,
-name|NGX_FILE_CREATE_OR_OPEN
 operator||
 name|NGX_FILE_APPEND
 argument_list|,
-literal|0
+name|NGX_FILE_CREATE_OR_OPEN
+argument_list|,
+name|NGX_FILE_DEFAULT_ACCESS
 argument_list|)
 expr_stmt|;
 if|if
@@ -855,37 +859,6 @@ name|ngx_errno
 argument_list|,
 literal|"Could not open error log file: "
 name|ngx_open_file_n
-literal|" \""
-name|NGX_ERROR_LOG_PATH
-literal|"\" failed"
-argument_list|)
-expr_stmt|;
-return|return
-name|NULL
-return|;
-block|}
-if|if
-condition|(
-name|ngx_file_append_mode
-argument_list|(
-name|ngx_stderr
-operator|.
-name|fd
-argument_list|)
-operator|==
-name|NGX_ERROR
-condition|)
-block|{
-name|ngx_message_box
-argument_list|(
-literal|"nginx"
-argument_list|,
-name|MB_OK
-argument_list|,
-name|ngx_errno
-argument_list|,
-literal|"Could not open error log file: "
-name|ngx_file_append_mode_n
 literal|" \""
 name|NGX_ERROR_LOG_PATH
 literal|"\" failed"

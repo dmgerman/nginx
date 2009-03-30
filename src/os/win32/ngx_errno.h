@@ -275,6 +275,14 @@ value|ERROR_NO_MORE_FILES
 end_define
 
 begin_define
+DECL|macro|NGX_EILSEQ
+define|#
+directive|define
+name|NGX_EILSEQ
+value|ERROR_NO_UNICODE_TRANSLATION
+end_define
+
+begin_define
 DECL|macro|NGX_EALREADY
 define|#
 directive|define
