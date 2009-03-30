@@ -17,6 +17,14 @@ name|_NGINX_H_INCLUDED_
 end_define
 
 begin_define
+DECL|macro|nginx_version
+define|#
+directive|define
+name|nginx_version
+value|007045
+end_define
+
+begin_define
 DECL|macro|NGINX_VERSION
 define|#
 directive|define
