@@ -6032,6 +6032,17 @@ name|ngx_http_cache_valid_t
 modifier|*
 name|valid
 decl_stmt|;
+if|if
+condition|(
+name|cache_valid
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+literal|0
+return|;
+block|}
 name|valid
 operator|=
 name|cache_valid
