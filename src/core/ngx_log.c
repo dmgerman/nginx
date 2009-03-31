@@ -831,8 +831,6 @@ operator|*
 operator|)
 name|NGX_ERROR_LOG_PATH
 argument_list|,
-name|NGX_FILE_RDWR
-operator||
 name|NGX_FILE_APPEND
 argument_list|,
 name|NGX_FILE_CREATE_OR_OPEN

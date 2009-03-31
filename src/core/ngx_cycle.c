@@ -1731,8 +1731,6 @@ name|name
 operator|.
 name|data
 argument_list|,
-name|NGX_FILE_RDWR
-operator||
 name|NGX_FILE_APPEND
 argument_list|,
 name|NGX_FILE_CREATE_OR_OPEN
@@ -5007,8 +5005,6 @@ name|name
 operator|.
 name|data
 argument_list|,
-name|NGX_FILE_RDWR
-operator||
 name|NGX_FILE_APPEND
 argument_list|,
 name|NGX_FILE_CREATE_OR_OPEN

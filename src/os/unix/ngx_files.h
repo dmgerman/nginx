@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3bfa1e0108
+DECL|struct|__anon29eab84b0108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3bfa1e0208
+DECL|struct|__anon29eab84b0208
 typedef|typedef
 struct|struct
 block|{
@@ -268,7 +268,7 @@ DECL|macro|NGX_FILE_APPEND
 define|#
 directive|define
 name|NGX_FILE_APPEND
-value|O_APPEND
+value|O_WRONLY|O_APPEND
 end_define
 
 begin_define

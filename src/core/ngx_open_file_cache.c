@@ -2021,8 +2021,6 @@ name|ngx_open_file
 argument_list|(
 name|name
 argument_list|,
-name|NGX_FILE_RDWR
-operator||
 name|NGX_FILE_APPEND
 argument_list|,
 name|NGX_FILE_CREATE_OR_OPEN
