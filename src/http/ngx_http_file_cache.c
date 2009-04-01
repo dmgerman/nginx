@@ -5026,6 +5026,21 @@ operator|->
 name|mutex
 argument_list|)
 expr_stmt|;
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|ngx_cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http file cache size: %O"
+argument_list|,
+name|size
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|size
