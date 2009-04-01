@@ -2225,6 +2225,12 @@ name|body_start
 operator|=
 literal|0
 expr_stmt|;
+name|fcn
+operator|->
+name|length
+operator|=
+literal|0
+expr_stmt|;
 name|done
 label|:
 name|fcn
