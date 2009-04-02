@@ -461,25 +461,6 @@ end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|NGX_HAVE_GNU_CRYPT_R
-end_ifndef
-
-begin_define
-DECL|macro|NGX_HAVE_GNU_CRYPT_R
-define|#
-directive|define
-name|NGX_HAVE_GNU_CRYPT_R
-value|1
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_ifndef
-ifndef|#
-directive|ifndef
 name|NGX_HAVE_INHERITED_NONBLOCK
 end_ifndef
 
