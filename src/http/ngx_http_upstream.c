@@ -1387,12 +1387,7 @@ argument_list|)
 block|,
 name|ngx_http_upstream_process_accel_expires
 block|,
-name|offsetof
-argument_list|(
-name|ngx_http_upstream_headers_in_t
-argument_list|,
-name|x_accel_expires
-argument_list|)
+literal|0
 block|,
 name|ngx_http_upstream_copy_header_line
 block|,
