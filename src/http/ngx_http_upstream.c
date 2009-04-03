@@ -2887,6 +2887,12 @@ operator|==
 name|NGX_HTTP_CACHE_STALE
 condition|)
 block|{
+name|c
+operator|->
+name|valid_sec
+operator|=
+literal|0
+expr_stmt|;
 name|u
 operator|->
 name|stale_cache
