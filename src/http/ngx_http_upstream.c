@@ -12621,11 +12621,12 @@ name|cacheable
 operator|=
 literal|0
 expr_stmt|;
-break|break;
 case|case
 name|NGX_ERROR
 case|:
-break|break;
+return|return
+name|NGX_OK
+return|;
 default|default:
 name|r
 operator|->
@@ -12638,11 +12639,11 @@ argument_list|()
 operator|+
 name|n
 expr_stmt|;
-break|break;
+return|return
+name|NGX_OK
+return|;
 block|}
 block|}
-else|else
-block|{
 name|p
 operator|++
 expr_stmt|;
@@ -12673,7 +12674,6 @@ name|valid_sec
 operator|=
 name|n
 expr_stmt|;
-block|}
 block|}
 return|return
 name|NGX_OK
