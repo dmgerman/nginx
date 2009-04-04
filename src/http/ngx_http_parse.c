@@ -508,7 +508,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon2a10ac6d0103
+DECL|enum|__anon2ba801d70103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2517,7 +2517,7 @@ name|hash
 decl_stmt|,
 name|i
 decl_stmt|;
-DECL|enum|__anon2a10ac6d0203
+DECL|enum|__anon2ba801d70203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -3253,7 +3253,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2a10ac6d0303
+DECL|enum|__anon2ba801d70303
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -5368,6 +5368,9 @@ block|{
 name|u_char
 modifier|*
 name|p
+decl_stmt|,
+modifier|*
+name|last
 decl_stmt|;
 if|if
 condition|(
@@ -5384,8 +5387,6 @@ return|return
 name|NGX_DECLINED
 return|;
 block|}
-for|for
-control|(
 name|p
 operator|=
 name|r
@@ -5393,30 +5394,40 @@ operator|->
 name|args
 operator|.
 name|data
+expr_stmt|;
+name|last
+operator|=
+name|p
+operator|+
+name|r
+operator|->
+name|args
+operator|.
+name|len
+expr_stmt|;
+for|for
+control|(
+comment|/* void */
 init|;
-operator|*
 name|p
-operator|&&
-operator|*
-name|p
-operator|!=
-literal|' '
+operator|<
+name|last
 condition|;
 name|p
 operator|++
 control|)
 block|{
-comment|/*          * although r->args.data is not null-terminated by itself,          * however, there is null in the end of request line          */
+comment|/* we need '=' after name, so drop one char from last */
 name|p
 operator|=
-name|ngx_strcasestrn
+name|ngx_strlcasestrn
 argument_list|(
 name|p
 argument_list|,
-operator|(
-name|char
-operator|*
-operator|)
+name|last
+operator|-
+literal|1
+argument_list|,
 name|name
 argument_list|,
 name|len
@@ -5478,13 +5489,11 @@ literal|1
 expr_stmt|;
 name|p
 operator|=
-operator|(
-name|u_char
-operator|*
-operator|)
-name|ngx_strchr
+name|ngx_strlchr
 argument_list|(
 name|p
+argument_list|,
+name|last
 argument_list|,
 literal|'&'
 argument_list|)
