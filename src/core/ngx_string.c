@@ -2495,17 +2495,6 @@ name|c1
 decl_stmt|,
 name|c2
 decl_stmt|;
-if|if
-condition|(
-name|s1
-operator|<=
-name|last
-condition|)
-block|{
-return|return
-name|NULL
-return|;
-block|}
 name|c2
 operator|=
 operator|(
@@ -2546,7 +2535,7 @@ block|{
 if|if
 condition|(
 name|s1
-operator|==
+operator|>=
 name|last
 condition|)
 block|{
@@ -5390,7 +5379,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon28b7f31e0103
+DECL|enum|__anon2ae89c320103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
