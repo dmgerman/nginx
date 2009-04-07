@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29c1ecb40108
+DECL|struct|__anon296a3ced0108
 typedef|typedef
 struct|struct
 block|{
@@ -17574,6 +17574,15 @@ operator|.
 name|lengths
 operator|==
 name|NULL
+operator|&&
+name|uri
+operator|.
+name|data
+index|[
+literal|0
+index|]
+operator|==
+literal|'/'
 condition|)
 block|{
 name|p
