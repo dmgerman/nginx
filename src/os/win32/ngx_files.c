@@ -2013,61 +2013,6 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_file_append_mode (ngx_fd_t fd)
-name|ngx_file_append_mode
-parameter_list|(
-name|ngx_fd_t
-name|fd
-parameter_list|)
-block|{
-if|#
-directive|if
-literal|0
-block_content|if (LockFile(fd, 0, 0, 0xffffffff, 0xffffffff) == 0) {         return NGX_ERROR;     }
-endif|#
-directive|endif
-if|if
-condition|(
-name|SetFilePointer
-argument_list|(
-name|fd
-argument_list|,
-literal|0
-argument_list|,
-name|NULL
-argument_list|,
-name|FILE_END
-argument_list|)
-operator|==
-name|INVALID_SET_FILE_POINTER
-condition|)
-block|{
-if|if
-condition|(
-name|ngx_errno
-operator|!=
-name|NO_ERROR
-condition|)
-block|{
-return|return
-name|NGX_ERROR
-return|;
-block|}
-block|}
-if|#
-directive|if
-literal|0
-block_content|if (UnlockFile(fd, 0, 0, 0xffffffff, 0xffffffff) == 0) {         return NGX_ERROR;     }
-endif|#
-directive|endif
-return|return
-name|NGX_OK
-return|;
-block|}
-end_function
-
-begin_function
-name|ngx_int_t
 DECL|function|ngx_directio_on (ngx_fd_t fd)
 name|ngx_directio_on
 parameter_list|(

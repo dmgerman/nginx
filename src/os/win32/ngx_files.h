@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2769596a0108
+DECL|struct|__anon2b55514d0108
 typedef|typedef
 struct|struct
 block|{
@@ -90,7 +90,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2769596a0208
+DECL|struct|__anon2b55514d0208
 typedef|typedef
 struct|struct
 block|{
@@ -304,24 +304,6 @@ define|#
 directive|define
 name|NGX_FILE_OWNER_ACCESS
 value|0
-end_define
-
-begin_function_decl
-name|ngx_int_t
-name|ngx_file_append_mode
-parameter_list|(
-name|ngx_fd_t
-name|fd
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_define
-DECL|macro|ngx_file_append_mode_n
-define|#
-directive|define
-name|ngx_file_append_mode_n
-value|"SetFilePointer()"
 end_define
 
 begin_define
