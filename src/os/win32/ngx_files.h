@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ec30430108
+DECL|struct|__anon2769596a0108
 typedef|typedef
 struct|struct
 block|{
@@ -90,7 +90,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ec30430208
+DECL|struct|__anon2769596a0208
 typedef|typedef
 struct|struct
 block|{
@@ -280,6 +280,14 @@ define|#
 directive|define
 name|NGX_FILE_OPEN
 value|OPEN_EXISTING
+end_define
+
+begin_define
+DECL|macro|NGX_FILE_TRUNCATE
+define|#
+directive|define
+name|NGX_FILE_TRUNCATE
+value|CREATE_ALWAYS
 end_define
 
 begin_define

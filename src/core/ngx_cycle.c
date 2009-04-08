@@ -4365,7 +4365,7 @@ name|size_t
 name|len
 decl_stmt|;
 name|ngx_uint_t
-name|trunc
+name|create
 decl_stmt|;
 name|ngx_file_t
 name|file
@@ -4402,11 +4402,11 @@ name|log
 operator|=
 name|log
 expr_stmt|;
-name|trunc
+name|create
 operator|=
 name|ngx_test_config
 condition|?
-literal|0
+name|NGX_FILE_CREATE_OR_OPEN
 else|:
 name|NGX_FILE_TRUNCATE
 expr_stmt|;
@@ -4424,9 +4424,7 @@ name|data
 argument_list|,
 name|NGX_FILE_RDWR
 argument_list|,
-name|NGX_FILE_CREATE_OR_OPEN
-operator||
-name|trunc
+name|create
 argument_list|,
 name|NGX_FILE_DEFAULT_ACCESS
 argument_list|)
