@@ -6126,12 +6126,12 @@ decl_stmt|;
 name|ngx_hash_init_t
 name|hash
 decl_stmt|;
+name|ngx_hash_keys_arrays_t
+name|ha
+decl_stmt|;
 name|ngx_http_server_name_t
 modifier|*
 name|name
-decl_stmt|;
-name|ngx_hash_keys_arrays_t
-name|ha
 decl_stmt|;
 if|#
 directive|if
