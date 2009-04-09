@@ -7919,8 +7919,6 @@ index|]
 operator|.
 name|conf
 operator|.
-name|core_srv_conf
-operator|->
 name|virtual_names
 operator|=
 name|vn
@@ -8258,8 +8256,6 @@ index|]
 operator|.
 name|conf
 operator|.
-name|core_srv_conf
-operator|->
 name|virtual_names
 operator|=
 name|vn
