@@ -12041,9 +12041,9 @@ name|NGX_HTTP_CACHE
 operator|)
 if|if
 condition|(
-name|r
+name|u
 operator|->
-name|cache
+name|cacheable
 condition|)
 block|{
 name|time_t
