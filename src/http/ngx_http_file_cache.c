@@ -3907,7 +3907,7 @@ name|NULL
 condition|)
 block|{
 return|return
-literal|60
+literal|10
 return|;
 block|}
 name|ngx_memcpy
@@ -3929,7 +3929,7 @@ argument_list|)
 expr_stmt|;
 name|wait
 operator|=
-literal|60
+literal|10
 expr_stmt|;
 name|tries
 operator|=
@@ -4228,7 +4228,7 @@ name|NULL
 condition|)
 block|{
 return|return
-literal|60
+literal|10
 return|;
 block|}
 name|ngx_memcpy
@@ -4281,7 +4281,7 @@ condition|)
 block|{
 name|wait
 operator|=
-literal|60
+literal|10
 expr_stmt|;
 break|break;
 block|}
@@ -4324,9 +4324,9 @@ name|wait
 operator|=
 name|wait
 operator|>
-literal|60
+literal|10
 condition|?
-literal|60
+literal|10
 else|:
 name|wait
 expr_stmt|;
@@ -4928,7 +4928,7 @@ name|NGX_ABORT
 condition|)
 block|{
 return|return
-literal|60
+literal|10
 return|;
 block|}
 operator|*
