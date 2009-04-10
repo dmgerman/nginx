@@ -8652,6 +8652,23 @@ literal|0
 expr_stmt|;
 block|}
 block|}
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http cacheable: %d"
+argument_list|,
+name|u
+operator|->
+name|cacheable
+argument_list|)
+expr_stmt|;
 endif|#
 directive|endif
 name|p
