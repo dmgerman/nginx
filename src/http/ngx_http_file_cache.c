@@ -2066,6 +2066,9 @@ operator|->
 name|mutex
 argument_list|)
 expr_stmt|;
+operator|(
+name|void
+operator|)
 name|ngx_http_file_cache_forced_expire
 argument_list|(
 name|cache
