@@ -656,11 +656,16 @@ block|{
 name|ngx_null_string
 block|,
 comment|/* 201, 204 */
+DECL|macro|NGX_HTTP_LAST_LEVEL_200
+define|#
+directive|define
+name|NGX_HTTP_LAST_LEVEL_200
+value|202
 DECL|macro|NGX_HTTP_LEVEL_200
 define|#
 directive|define
 name|NGX_HTTP_LEVEL_200
-value|1
+value|(NGX_HTTP_LAST_LEVEL_200 - 201)
 comment|/* ngx_null_string, */
 comment|/* 300 */
 name|ngx_string
@@ -676,11 +681,16 @@ block|,
 name|ngx_null_string
 block|,
 comment|/* 303 */
+DECL|macro|NGX_HTTP_LAST_LEVEL_300
+define|#
+directive|define
+name|NGX_HTTP_LAST_LEVEL_300
+value|304
 DECL|macro|NGX_HTTP_LEVEL_300
 define|#
 directive|define
 name|NGX_HTTP_LEVEL_300
-value|3
+value|(NGX_HTTP_LAST_LEVEL_300 - 301)
 name|ngx_string
 argument_list|(
 name|ngx_http_error_400_page
@@ -764,11 +774,16 @@ argument_list|(
 name|ngx_http_error_416_page
 argument_list|)
 block|,
+DECL|macro|NGX_HTTP_LAST_LEVEL_400
+define|#
+directive|define
+name|NGX_HTTP_LAST_LEVEL_400
+value|417
 DECL|macro|NGX_HTTP_LEVEL_400
 define|#
 directive|define
 name|NGX_HTTP_LEVEL_400
-value|17
+value|(NGX_HTTP_LAST_LEVEL_400 - 400)
 name|ngx_string
 argument_list|(
 name|ngx_http_error_495_page
@@ -831,6 +846,11 @@ name|ngx_string
 argument_list|(
 argument|ngx_http_error_507_page
 argument_list|)
+DECL|macro|NGX_HTTP_LAST_LEVEL_500
+define|#
+directive|define
+name|NGX_HTTP_LAST_LEVEL_500
+value|508
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -1179,8 +1199,12 @@ block|}
 if|else if
 condition|(
 name|error
+operator|>=
+name|NGX_HTTP_MOVED_PERMANENTLY
+operator|&&
+name|error
 operator|<
-name|NGX_HTTP_BAD_REQUEST
+name|NGX_HTTP_LAST_LEVEL_300
 condition|)
 block|{
 comment|/* 3XX */
@@ -1196,8 +1220,12 @@ block|}
 if|else if
 condition|(
 name|error
+operator|>=
+name|NGX_HTTP_BAD_REQUEST
+operator|&&
+name|error
 operator|<
-name|NGX_HTTP_OWN_CODES
+name|NGX_HTTP_LAST_LEVEL_400
 condition|)
 block|{
 comment|/* 4XX */
@@ -1212,7 +1240,16 @@ operator|+
 name|NGX_HTTP_LEVEL_300
 expr_stmt|;
 block|}
-else|else
+if|else if
+condition|(
+name|error
+operator|>=
+name|NGX_HTTP_OWN_CODES
+operator|&&
+name|error
+operator|<
+name|NGX_HTTP_LAST_LEVEL_500
+condition|)
 block|{
 comment|/* 49X, 5XX */
 name|err
@@ -1249,6 +1286,14 @@ name|NGX_HTTP_BAD_REQUEST
 expr_stmt|;
 break|break;
 block|}
+block|}
+else|else
+block|{
+comment|/* unknown code, zero body */
+name|err
+operator|=
+literal|0
+expr_stmt|;
 block|}
 return|return
 name|ngx_http_send_special_response

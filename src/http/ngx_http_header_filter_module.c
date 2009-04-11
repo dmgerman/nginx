@@ -194,11 +194,16 @@ argument_list|)
 block|,
 comment|/* ngx_null_string, */
 comment|/* "207 Multi-Status" */
+DECL|macro|NGX_HTTP_LAST_LEVEL_200
+define|#
+directive|define
+name|NGX_HTTP_LAST_LEVEL_200
+value|207
 DECL|macro|NGX_HTTP_LEVEL_200
 define|#
 directive|define
 name|NGX_HTTP_LEVEL_200
-value|7
+value|(NGX_HTTP_LAST_LEVEL_200 - 200)
 comment|/* ngx_null_string, */
 comment|/* "300 Multiple Choices" */
 name|ngx_string
@@ -225,11 +230,16 @@ comment|/* ngx_null_string, */
 comment|/* "306 unused" */
 comment|/* ngx_null_string, */
 comment|/* "307 Temporary Redirect" */
+DECL|macro|NGX_HTTP_LAST_LEVEL_300
+define|#
+directive|define
+name|NGX_HTTP_LAST_LEVEL_300
+value|305
 DECL|macro|NGX_HTTP_LEVEL_300
 define|#
 directive|define
 name|NGX_HTTP_LEVEL_300
-value|4
+value|(NGX_HTTP_LAST_LEVEL_300 - 301)
 name|ngx_string
 argument_list|(
 literal|"400 Bad Request"
@@ -327,11 +337,16 @@ comment|/* ngx_null_string, */
 comment|/* "423 Locked" */
 comment|/* ngx_null_string, */
 comment|/* "424 Failed Dependency" */
+DECL|macro|NGX_HTTP_LAST_LEVEL_400
+define|#
+directive|define
+name|NGX_HTTP_LAST_LEVEL_400
+value|417
 DECL|macro|NGX_HTTP_LEVEL_400
 define|#
 directive|define
 name|NGX_HTTP_LEVEL_400
-value|17
+value|(NGX_HTTP_LAST_LEVEL_400 - 400)
 name|ngx_string
 argument_list|(
 literal|"500 Internal Server Error"
@@ -374,6 +389,11 @@ comment|/* ngx_null_string, */
 comment|/* "509 unused" */
 comment|/* ngx_null_string, */
 comment|/* "510 Not Extended" */
+DECL|macro|NGX_HTTP_LAST_LEVEL_500
+define|#
+directive|define
+name|NGX_HTTP_LAST_LEVEL_500
+value|508
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -560,6 +580,9 @@ name|len
 decl_stmt|;
 name|ngx_str_t
 name|host
+decl_stmt|,
+modifier|*
+name|status_line
 decl_stmt|;
 name|ngx_buf_t
 modifier|*
@@ -766,6 +789,15 @@ name|status_line
 operator|.
 name|len
 expr_stmt|;
+name|status_line
+operator|=
+operator|&
+name|r
+operator|->
+name|headers_out
+operator|.
+name|status_line
+expr_stmt|;
 if|#
 directive|if
 operator|(
@@ -773,25 +805,13 @@ name|NGX_SUPPRESS_WARN
 operator|)
 name|status
 operator|=
-name|NGX_INVALID_ARRAY_INDEX
+literal|0
 expr_stmt|;
 endif|#
 directive|endif
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|r
-operator|->
-name|headers_out
-operator|.
-name|status
-operator|<
-name|NGX_HTTP_MOVED_PERMANENTLY
-condition|)
-block|{
-comment|/* 2XX */
 name|status
 operator|=
 name|r
@@ -799,15 +819,21 @@ operator|->
 name|headers_out
 operator|.
 name|status
-operator|-
-name|NGX_HTTP_OK
 expr_stmt|;
 if|if
 condition|(
-name|r
-operator|->
-name|headers_out
-operator|.
+name|status
+operator|>=
+name|NGX_HTTP_OK
+operator|&&
+name|status
+operator|<
+name|NGX_HTTP_LAST_LEVEL_200
+condition|)
+block|{
+comment|/* 2XX */
+if|if
+condition|(
 name|status
 operator|==
 name|NGX_HTTP_NO_CONTENT
@@ -874,37 +900,42 @@ operator|-
 literal|1
 expr_stmt|;
 block|}
+name|status
+operator|-=
+name|NGX_HTTP_OK
+expr_stmt|;
+name|status_line
+operator|=
+operator|&
+name|ngx_http_status_lines
+index|[
+name|status
+index|]
+expr_stmt|;
+name|len
+operator|+=
+name|ngx_http_status_lines
+index|[
+name|status
+index|]
+operator|.
+name|len
+expr_stmt|;
 block|}
 if|else if
 condition|(
-name|r
-operator|->
-name|headers_out
-operator|.
+name|status
+operator|>=
+name|NGX_HTTP_MOVED_PERMANENTLY
+operator|&&
 name|status
 operator|<
-name|NGX_HTTP_BAD_REQUEST
+name|NGX_HTTP_LAST_LEVEL_300
 condition|)
 block|{
 comment|/* 3XX */
-name|status
-operator|=
-name|r
-operator|->
-name|headers_out
-operator|.
-name|status
-operator|-
-name|NGX_HTTP_MOVED_PERMANENTLY
-operator|+
-name|NGX_HTTP_LEVEL_200
-expr_stmt|;
 if|if
 condition|(
-name|r
-operator|->
-name|headers_out
-operator|.
 name|status
 operator|==
 name|NGX_HTTP_NOT_MODIFIED
@@ -917,25 +948,46 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
+name|status
+operator|=
+name|status
+operator|-
+name|NGX_HTTP_MOVED_PERMANENTLY
+operator|+
+name|NGX_HTTP_LEVEL_200
+expr_stmt|;
+name|status_line
+operator|=
+operator|&
+name|ngx_http_status_lines
+index|[
+name|status
+index|]
+expr_stmt|;
+name|len
+operator|+=
+name|ngx_http_status_lines
+index|[
+name|status
+index|]
+operator|.
+name|len
+expr_stmt|;
 block|}
 if|else if
 condition|(
-name|r
-operator|->
-name|headers_out
-operator|.
+name|status
+operator|>=
+name|NGX_HTTP_BAD_REQUEST
+operator|&&
 name|status
 operator|<
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_HTTP_LAST_LEVEL_400
 condition|)
 block|{
 comment|/* 4XX */
 name|status
 operator|=
-name|r
-operator|->
-name|headers_out
-operator|.
 name|status
 operator|-
 name|NGX_HTTP_BAD_REQUEST
@@ -944,16 +996,38 @@ name|NGX_HTTP_LEVEL_200
 operator|+
 name|NGX_HTTP_LEVEL_300
 expr_stmt|;
+name|status_line
+operator|=
+operator|&
+name|ngx_http_status_lines
+index|[
+name|status
+index|]
+expr_stmt|;
+name|len
+operator|+=
+name|ngx_http_status_lines
+index|[
+name|status
+index|]
+operator|.
+name|len
+expr_stmt|;
 block|}
-else|else
+if|else if
+condition|(
+name|status
+operator|>=
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
+operator|&&
+name|status
+operator|<
+name|NGX_HTTP_LAST_LEVEL_500
+condition|)
 block|{
 comment|/* 5XX */
 name|status
 operator|=
-name|r
-operator|->
-name|headers_out
-operator|.
 name|status
 operator|-
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
@@ -964,7 +1038,14 @@ name|NGX_HTTP_LEVEL_300
 operator|+
 name|NGX_HTTP_LEVEL_400
 expr_stmt|;
-block|}
+name|status_line
+operator|=
+operator|&
+name|ngx_http_status_lines
+index|[
+name|status
+index|]
+expr_stmt|;
 name|len
 operator|+=
 name|ngx_http_status_lines
@@ -974,6 +1055,18 @@ index|]
 operator|.
 name|len
 expr_stmt|;
+block|}
+else|else
+block|{
+name|len
+operator|+=
+name|NGX_INT_T_LEN
+expr_stmt|;
+name|status_line
+operator|=
+name|NULL
+expr_stmt|;
+block|}
 block|}
 name|clcf
 operator|=
@@ -1734,13 +1827,7 @@ expr_stmt|;
 comment|/* status line */
 if|if
 condition|(
-name|r
-operator|->
-name|headers_out
-operator|.
 name|status_line
-operator|.
-name|len
 condition|)
 block|{
 name|b
@@ -1753,20 +1840,12 @@ name|b
 operator|->
 name|last
 argument_list|,
-name|r
-operator|->
-name|headers_out
-operator|.
 name|status_line
-operator|.
+operator|->
 name|data
 argument_list|,
-name|r
-operator|->
-name|headers_out
-operator|.
 name|status_line
-operator|.
+operator|->
 name|len
 argument_list|)
 expr_stmt|;
@@ -1777,25 +1856,15 @@ name|b
 operator|->
 name|last
 operator|=
-name|ngx_copy
+name|ngx_sprintf
 argument_list|(
 name|b
 operator|->
 name|last
 argument_list|,
-name|ngx_http_status_lines
-index|[
-name|status
-index|]
-operator|.
-name|data
+literal|"%ui"
 argument_list|,
-name|ngx_http_status_lines
-index|[
 name|status
-index|]
-operator|.
-name|len
 argument_list|)
 expr_stmt|;
 block|}
