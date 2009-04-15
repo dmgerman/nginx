@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b8bcd3e0108
+DECL|struct|__anon2afc69c50108
 typedef|typedef
 struct|struct
 block|{
@@ -57,7 +57,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8bcd3e0208
+DECL|struct|__anon2afc69c50208
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8bcd3e0308
+DECL|struct|__anon2afc69c50308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8bcd3e0408
+DECL|struct|__anon2afc69c50408
 typedef|typedef
 struct|struct
 block|{
@@ -4301,6 +4301,10 @@ argument_list|,
 name|ngx_http_perl_module
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|pmcf
+condition|)
 block|{
 name|dTHXa
 argument_list|(
