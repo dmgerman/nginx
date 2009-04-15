@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29ae22c00108
+DECL|struct|__anon27ca74c90108
 typedef|typedef
 struct|struct
 block|{
@@ -2988,7 +2988,6 @@ end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_http_core_get_method
-specifier|static
 name|ngx_str_t
 name|ngx_http_core_get_method
 init|=
