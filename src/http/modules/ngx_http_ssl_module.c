@@ -1303,13 +1303,13 @@ name|sscf
 operator|->
 name|verify
 operator|=
-name|NGX_CONF_UNSET
+name|NGX_CONF_UNSET_UINT
 expr_stmt|;
 name|sscf
 operator|->
 name|verify_depth
 operator|=
-name|NGX_CONF_UNSET
+name|NGX_CONF_UNSET_UINT
 expr_stmt|;
 name|sscf
 operator|->

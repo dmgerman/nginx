@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c4debfa0108
+DECL|struct|__anon2c41286e0108
 typedef|typedef
 struct|struct
 block|{
@@ -5865,6 +5865,9 @@ name|ssl
 operator|->
 name|ctx
 argument_list|,
+operator|(
+name|long
+operator|)
 name|timeout
 argument_list|)
 expr_stmt|;
