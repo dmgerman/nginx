@@ -121,8 +121,8 @@ end_decl_stmt
 
 begin_function
 specifier|static
-DECL|function|ngx_http_not_modified_header_filter (ngx_http_request_t * r)
 name|ngx_int_t
+DECL|function|ngx_http_not_modified_header_filter (ngx_http_request_t * r)
 name|ngx_http_not_modified_header_filter
 parameter_list|(
 name|ngx_http_request_t
@@ -336,8 +336,8 @@ end_function
 
 begin_function
 specifier|static
-DECL|function|ngx_http_not_modified_filter_init (ngx_conf_t * cf)
 name|ngx_int_t
+DECL|function|ngx_http_not_modified_filter_init (ngx_conf_t * cf)
 name|ngx_http_not_modified_filter_init
 parameter_list|(
 name|ngx_conf_t
