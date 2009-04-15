@@ -2976,13 +2976,16 @@ argument_list|,
 name|size
 argument_list|)
 expr_stmt|;
+name|ngx_slab_junk
+argument_list|(
+name|p
+argument_list|,
 name|size
-operator|<<=
+operator|<<
 name|ngx_pagesize_shift
+argument_list|)
 expr_stmt|;
-goto|goto
-name|done
-goto|;
+return|return;
 block|}
 comment|/* not reached */
 return|return;
