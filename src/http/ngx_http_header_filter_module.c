@@ -2890,7 +2890,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"%*s\n"
+literal|"%*s"
 argument_list|,
 operator|(
 name|size_t
