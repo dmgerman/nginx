@@ -110,10 +110,6 @@ DECL|member|init
 name|ngx_shm_zone_init_pt
 name|init
 decl_stmt|;
-DECL|member|name
-name|ngx_str_t
-name|name
-decl_stmt|;
 DECL|member|tag
 name|void
 modifier|*
@@ -235,7 +231,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29d3312f0108
+DECL|struct|__anon290f7c470108
 typedef|typedef
 struct|struct
 block|{
@@ -345,7 +341,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d3312f0208
+DECL|struct|__anon290f7c470208
 typedef|typedef
 struct|struct
 block|{

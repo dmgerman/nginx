@@ -15,10 +15,6 @@ directive|include
 file|<ngx_core.h>
 end_include
 
-begin_comment
-comment|/*  * TODO:  *     maping name or inheritable handle  */
-end_comment
-
 begin_function
 name|ngx_int_t
 DECL|function|ngx_shm_alloc (ngx_shm_t * shm)
@@ -47,7 +43,15 @@ name|shm
 operator|->
 name|size
 argument_list|,
-name|NULL
+operator|(
+name|char
+operator|*
+operator|)
+name|shm
+operator|->
+name|name
+operator|.
+name|data
 argument_list|)
 expr_stmt|;
 if|if
@@ -69,11 +73,17 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"CreateFileMapping(%uz) failed"
+literal|"CreateFileMapping(%uz, %s) failed"
 argument_list|,
 name|shm
 operator|->
 name|size
+argument_list|,
+name|shm
+operator|->
+name|name
+operator|.
+name|data
 argument_list|)
 expr_stmt|;
 return|return

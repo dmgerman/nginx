@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bf4db140108
+DECL|struct|__anon27f88d740108
 typedef|typedef
 struct|struct
 block|{
@@ -41,6 +41,10 @@ decl_stmt|;
 DECL|member|size
 name|size_t
 name|size
+decl_stmt|;
+DECL|member|name
+name|ngx_str_t
+name|name
 decl_stmt|;
 DECL|member|handle
 name|HANDLE

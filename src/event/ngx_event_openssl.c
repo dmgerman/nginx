@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c41286e0108
+DECL|struct|__anon2bdad0080108
 typedef|typedef
 struct|struct
 block|{
@@ -6057,6 +6057,8 @@ argument_list|)
 operator|+
 name|shm_zone
 operator|->
+name|shm
+operator|.
 name|name
 operator|.
 name|len
@@ -6096,6 +6098,8 @@ argument_list|,
 operator|&
 name|shm_zone
 operator|->
+name|shm
+operator|.
 name|name
 argument_list|)
 expr_stmt|;

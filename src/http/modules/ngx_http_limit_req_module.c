@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a4550f00108
+DECL|struct|__anon2b53e8840108
 typedef|typedef
 struct|struct
 block|{
@@ -65,7 +65,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4550f00208
+DECL|struct|__anon2b53e8840208
 typedef|typedef
 struct|struct
 block|{
@@ -104,7 +104,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4550f00308
+DECL|struct|__anon2b53e8840308
 typedef|typedef
 struct|struct
 block|{
@@ -735,6 +735,8 @@ name|lrcf
 operator|->
 name|shm_zone
 operator|->
+name|shm
+operator|.
 name|name
 argument_list|)
 expr_stmt|;
@@ -797,6 +799,8 @@ name|lrcf
 operator|->
 name|shm_zone
 operator|->
+name|shm
+operator|.
 name|name
 argument_list|)
 expr_stmt|;
@@ -1908,6 +1912,8 @@ argument_list|,
 operator|&
 name|shm_zone
 operator|->
+name|shm
+operator|.
 name|name
 argument_list|,
 operator|&
@@ -2077,6 +2083,8 @@ argument_list|)
 operator|+
 name|shm_zone
 operator|->
+name|shm
+operator|.
 name|name
 operator|.
 name|len
@@ -2124,6 +2132,8 @@ argument_list|,
 operator|&
 name|shm_zone
 operator|->
+name|shm
+operator|.
 name|name
 argument_list|)
 expr_stmt|;
@@ -2388,6 +2398,11 @@ condition|(
 name|p
 condition|)
 block|{
+operator|*
+name|p
+operator|=
+literal|'\0'
+expr_stmt|;
 name|name
 operator|.
 name|len
@@ -3201,6 +3216,8 @@ name|lrcf
 operator|->
 name|shm_zone
 operator|->
+name|shm
+operator|.
 name|name
 argument_list|)
 expr_stmt|;

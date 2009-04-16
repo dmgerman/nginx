@@ -336,6 +336,8 @@ argument_list|,
 operator|&
 name|shm_zone
 operator|->
+name|shm
+operator|.
 name|name
 argument_list|,
 operator|&
@@ -636,6 +638,8 @@ argument_list|)
 operator|+
 name|shm_zone
 operator|->
+name|shm
+operator|.
 name|name
 operator|.
 name|len
@@ -683,6 +687,8 @@ argument_list|,
 operator|&
 name|shm_zone
 operator|->
+name|shm
+operator|.
 name|name
 argument_list|)
 expr_stmt|;
@@ -6593,6 +6599,11 @@ condition|(
 name|p
 condition|)
 block|{
+operator|*
+name|p
+operator|=
+literal|'\0'
+expr_stmt|;
 name|name
 operator|.
 name|len

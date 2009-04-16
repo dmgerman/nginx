@@ -1992,6 +1992,8 @@ index|[
 name|i
 index|]
 operator|.
+name|shm
+operator|.
 name|name
 argument_list|)
 expr_stmt|;
@@ -2098,6 +2100,8 @@ index|[
 name|i
 index|]
 operator|.
+name|shm
+operator|.
 name|name
 operator|.
 name|len
@@ -2106,6 +2110,8 @@ name|oshm_zone
 index|[
 name|n
 index|]
+operator|.
+name|shm
 operator|.
 name|name
 operator|.
@@ -2123,6 +2129,8 @@ index|[
 name|i
 index|]
 operator|.
+name|shm
+operator|.
 name|name
 operator|.
 name|data
@@ -2132,6 +2140,8 @@ index|[
 name|n
 index|]
 operator|.
+name|shm
+operator|.
 name|name
 operator|.
 name|data
@@ -2140,6 +2150,8 @@ name|shm_zone
 index|[
 name|i
 index|]
+operator|.
+name|shm
 operator|.
 name|name
 operator|.
@@ -3276,6 +3288,8 @@ index|[
 name|i
 index|]
 operator|.
+name|shm
+operator|.
 name|name
 operator|.
 name|len
@@ -3284,6 +3298,8 @@ name|shm_zone
 index|[
 name|n
 index|]
+operator|.
+name|shm
 operator|.
 name|name
 operator|.
@@ -3296,6 +3312,8 @@ index|[
 name|i
 index|]
 operator|.
+name|shm
+operator|.
 name|name
 operator|.
 name|data
@@ -3305,6 +3323,8 @@ index|[
 name|n
 index|]
 operator|.
+name|shm
+operator|.
 name|name
 operator|.
 name|data
@@ -3313,6 +3333,8 @@ name|oshm_zone
 index|[
 name|i
 index|]
+operator|.
+name|shm
 operator|.
 name|name
 operator|.
@@ -5641,6 +5663,8 @@ index|[
 name|i
 index|]
 operator|.
+name|shm
+operator|.
 name|name
 operator|.
 name|len
@@ -5660,6 +5684,8 @@ name|shm_zone
 index|[
 name|i
 index|]
+operator|.
+name|shm
 operator|.
 name|name
 operator|.
@@ -5710,6 +5736,8 @@ index|[
 name|i
 index|]
 operator|.
+name|shm
+operator|.
 name|name
 argument_list|,
 name|shm_zone
@@ -5754,6 +5782,8 @@ name|shm_zone
 index|[
 name|i
 index|]
+operator|.
+name|shm
 operator|.
 name|name
 argument_list|)
@@ -5821,16 +5851,18 @@ name|size
 expr_stmt|;
 name|shm_zone
 operator|->
-name|init
-operator|=
-name|NULL
-expr_stmt|;
-name|shm_zone
-operator|->
+name|shm
+operator|.
 name|name
 operator|=
 operator|*
 name|name
+expr_stmt|;
+name|shm_zone
+operator|->
+name|init
+operator|=
+name|NULL
 expr_stmt|;
 name|shm_zone
 operator|->
