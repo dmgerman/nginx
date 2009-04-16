@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2afc69c50108
+DECL|struct|__anon29c214170108
 typedef|typedef
 struct|struct
 block|{
@@ -57,7 +57,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2afc69c50208
+DECL|struct|__anon29c214170208
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2afc69c50308
+DECL|struct|__anon29c214170308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2afc69c50408
+DECL|struct|__anon29c214170408
 typedef|typedef
 struct|struct
 block|{
@@ -735,6 +735,27 @@ modifier|*
 name|nginx_stash
 decl_stmt|;
 end_decl_stmt
+
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_PERL_MULTIPLICITY
+operator|)
+end_if
+
+begin_decl_stmt
+DECL|variable|ngx_perl_term
+specifier|static
+name|ngx_uint_t
+name|ngx_perl_term
+decl_stmt|;
+end_decl_stmt
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_function
 specifier|static
@@ -3337,6 +3358,28 @@ argument_list|(
 name|perl
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|ngx_perl_term
+condition|)
+block|{
+name|ngx_log_debug0
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|ngx_cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"perl term"
+argument_list|)
+expr_stmt|;
+name|PERL_SYS_TERM
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 end_function
 
@@ -4288,6 +4331,17 @@ modifier|*
 name|cycle
 parameter_list|)
 block|{
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_PERL_MULTIPLICITY
+operator|)
+name|ngx_perl_term
+operator|=
+literal|1
+expr_stmt|;
+else|#
+directive|else
 name|ngx_http_perl_main_conf_t
 modifier|*
 name|pmcf
@@ -4304,16 +4358,34 @@ expr_stmt|;
 if|if
 condition|(
 name|pmcf
+operator|&&
+name|nginx_stash
 condition|)
 block|{
-name|dTHXa
+name|ngx_log_debug0
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"perl term"
+argument_list|)
+expr_stmt|;
+operator|(
+name|void
+operator|)
+name|perl_destruct
 argument_list|(
 name|pmcf
 operator|->
 name|perl
 argument_list|)
 expr_stmt|;
-name|PERL_SET_CONTEXT
+name|perl_free
 argument_list|(
 name|pmcf
 operator|->
@@ -4324,6 +4396,8 @@ name|PERL_SYS_TERM
 argument_list|()
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 block|}
 end_function
 
