@@ -2342,6 +2342,8 @@ index|[
 name|i
 index|]
 operator|.
+name|shm
+operator|.
 name|name
 operator|.
 name|len
@@ -2385,6 +2387,8 @@ index|[
 name|i
 index|]
 operator|.
+name|shm
+operator|.
 name|name
 operator|.
 name|data
@@ -2393,6 +2397,8 @@ name|shm_zone
 index|[
 name|i
 index|]
+operator|.
+name|shm
 operator|.
 name|name
 operator|.
