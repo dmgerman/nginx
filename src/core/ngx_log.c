@@ -757,7 +757,7 @@ end_endif
 
 begin_function
 name|void
-DECL|function|ngx_log_abort (ngx_err_t err,const char * text)
+DECL|function|ngx_log_abort (ngx_err_t err,const char * text,void * param)
 name|ngx_log_abort
 parameter_list|(
 name|ngx_err_t
@@ -767,6 +767,10 @@ specifier|const
 name|char
 modifier|*
 name|text
+parameter_list|,
+name|void
+modifier|*
+name|param
 parameter_list|)
 block|{
 name|ngx_log_error
@@ -780,6 +784,8 @@ argument_list|,
 name|err
 argument_list|,
 name|text
+argument_list|,
+name|param
 argument_list|)
 expr_stmt|;
 block|}

@@ -1144,6 +1144,10 @@ specifier|const
 name|char
 modifier|*
 name|text
+parameter_list|,
+name|void
+modifier|*
+name|param
 parameter_list|)
 function_decl|;
 end_function_decl
