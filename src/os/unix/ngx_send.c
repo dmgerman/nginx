@@ -164,6 +164,12 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+name|c
+operator|->
+name|sent
+operator|+=
+name|n
+expr_stmt|;
 return|return
 name|n
 return|;
