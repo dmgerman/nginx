@@ -62,7 +62,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon2c1b30750108
+DECL|struct|__anon275b71670108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1b30750208
+DECL|struct|__anon275b71670208
 typedef|typedef
 struct|struct
 block|{
@@ -702,7 +702,6 @@ name|ngx_http_dav_loc_conf_t
 modifier|*
 name|dlcf
 decl_stmt|;
-comment|/* TODO: Win32 */
 if|if
 condition|(
 name|r

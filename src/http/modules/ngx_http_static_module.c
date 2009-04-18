@@ -218,7 +218,6 @@ return|return
 name|NGX_DECLINED
 return|;
 block|}
-comment|/* TODO: Win32 */
 if|if
 condition|(
 name|r

@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29c214170108
+DECL|struct|__anon29fa47580108
 typedef|typedef
 struct|struct
 block|{
@@ -57,7 +57,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c214170208
+DECL|struct|__anon29fa47580208
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c214170308
+DECL|struct|__anon29fa47580308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c214170408
+DECL|struct|__anon29fa47580408
 typedef|typedef
 struct|struct
 block|{
@@ -798,7 +798,6 @@ modifier|*
 name|r
 parameter_list|)
 block|{
-comment|/* TODO: Win32 */
 if|if
 condition|(
 name|r

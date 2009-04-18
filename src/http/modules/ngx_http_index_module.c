@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c4c32e70108
+DECL|struct|__anon28ffdb190108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4c32e70208
+DECL|struct|__anon28ffdb190208
 typedef|typedef
 struct|struct
 block|{
@@ -417,7 +417,6 @@ return|return
 name|NGX_DECLINED
 return|;
 block|}
-comment|/* TODO: Win32 */
 if|if
 condition|(
 name|r

@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28fbe09a0108
+DECL|struct|__anon2c3a95480108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28fbe09a0208
+DECL|struct|__anon2c3a95480208
 typedef|typedef
 struct|struct
 block|{
@@ -545,7 +545,6 @@ return|return
 name|NGX_DECLINED
 return|;
 block|}
-comment|/* TODO: Win32 */
 if|if
 condition|(
 name|r
