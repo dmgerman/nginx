@@ -133,7 +133,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad6d9f70108
+DECL|struct|__anon28eb67900108
 typedef|typedef
 struct|struct
 block|{
@@ -367,6 +367,14 @@ begin_decl_stmt
 specifier|extern
 name|ngx_fd_t
 name|ngx_stderr_fileno
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|char
+name|ngx_unique
+index|[]
 decl_stmt|;
 end_decl_stmt
 

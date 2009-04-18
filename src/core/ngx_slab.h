@@ -60,7 +60,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon295092360108
+DECL|struct|__anon28fe69c40108
 typedef|typedef
 struct|struct
 block|{
@@ -107,6 +107,11 @@ decl_stmt|;
 DECL|member|zero
 name|u_char
 name|zero
+decl_stmt|;
+DECL|member|data
+name|void
+modifier|*
+name|data
 decl_stmt|;
 DECL|typedef|ngx_slab_pool_t
 block|}

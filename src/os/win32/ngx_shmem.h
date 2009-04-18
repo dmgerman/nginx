@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27f88d740108
+DECL|struct|__anon2ae56eff0108
 typedef|typedef
 struct|struct
 block|{
@@ -55,6 +55,11 @@ name|ngx_log_t
 modifier|*
 name|log
 decl_stmt|;
+DECL|member|exists
+name|ngx_uint_t
+name|exists
+decl_stmt|;
+comment|/* unsigned  exists:1;  */
 DECL|typedef|ngx_shm_t
 block|}
 name|ngx_shm_t

@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2977db5c0108
+DECL|struct|__anon2b3c37310108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2977db5c0208
+DECL|struct|__anon2b3c37310208
 typedef|typedef
 struct|struct
 block|{
@@ -73,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2977db5c0308
+DECL|struct|__anon2b3c37310308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2977db5c0408
+DECL|struct|__anon2b3c37310408
 typedef|typedef
 struct|struct
 block|{
@@ -1406,6 +1406,27 @@ name|shm
 operator|.
 name|addr
 expr_stmt|;
+if|if
+condition|(
+name|shm_zone
+operator|->
+name|shm
+operator|.
+name|exists
+condition|)
+block|{
+name|ctx
+operator|->
+name|rbtree
+operator|=
+name|shpool
+operator|->
+name|data
+expr_stmt|;
+return|return
+name|NGX_OK
+return|;
+block|}
 name|ctx
 operator|->
 name|rbtree
@@ -1433,6 +1454,14 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|shpool
+operator|->
+name|data
+operator|=
+name|ctx
+operator|->
+name|rbtree
+expr_stmt|;
 name|sentinel
 operator|=
 name|ngx_slab_alloc
