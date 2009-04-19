@@ -1371,14 +1371,8 @@ condition|(
 name|ngx_test_config
 condition|)
 block|{
-name|ngx_log_error
+name|ngx_log_stderr
 argument_list|(
-name|NGX_LOG_INFO
-argument_list|,
-name|log
-argument_list|,
-literal|0
-argument_list|,
 literal|"the configuration file %s syntax is ok"
 argument_list|,
 name|cycle
