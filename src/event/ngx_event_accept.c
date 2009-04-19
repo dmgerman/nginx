@@ -254,6 +254,10 @@ block|}
 name|ngx_log_error
 argument_list|(
 operator|(
+name|ngx_uint_t
+operator|)
+operator|(
+operator|(
 name|err
 operator|==
 name|NGX_ECONNABORTED
@@ -262,6 +266,7 @@ condition|?
 name|NGX_LOG_ERR
 else|:
 name|NGX_LOG_ALERT
+operator|)
 argument_list|,
 name|ev
 operator|->
