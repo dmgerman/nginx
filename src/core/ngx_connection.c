@@ -2564,6 +2564,11 @@ expr_stmt|;
 if|if
 condition|(
 name|c
+condition|)
+block|{
+if|if
+condition|(
+name|c
 operator|->
 name|read
 operator|->
@@ -2592,7 +2597,7 @@ operator|&
 name|NGX_USE_EPOLL_EVENT
 condition|)
 block|{
-comment|/*                  * it seems that Linux-2.6.x OpenVZ sends events                  * for closed shared listening sockets unless                  * the events was explicity deleted                  */
+comment|/*                      * it seems that Linux-2.6.x OpenVZ sends events                      * for closed shared listening sockets unless                      * the events was explicity deleted                      */
 name|ngx_del_event
 argument_list|(
 name|c
@@ -2635,6 +2640,7 @@ operator|)
 operator|-
 literal|1
 expr_stmt|;
+block|}
 name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_CORE

@@ -60,6 +60,9 @@ modifier|*
 name|log
 parameter_list|)
 block|{
+name|u_long
+name|id
+decl_stmt|;
 name|ngx_err_t
 name|err
 decl_stmt|;
@@ -78,7 +81,8 @@ name|arg
 argument_list|,
 literal|0
 argument_list|,
-name|NULL
+operator|&
+name|id
 argument_list|)
 expr_stmt|;
 if|if
@@ -89,6 +93,20 @@ operator|!=
 name|NULL
 condition|)
 block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_NOTICE
+argument_list|,
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"create thread "
+name|NGX_TID_T_FMT
+argument_list|,
+name|id
+argument_list|)
+expr_stmt|;
 return|return
 literal|0
 return|;

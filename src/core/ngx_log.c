@@ -947,12 +947,8 @@ operator|==
 name|NGX_INVALID_FILE
 condition|)
 block|{
-name|ngx_message_box
+name|ngx_event_log
 argument_list|(
-literal|"nginx"
-argument_list|,
-name|MB_OK
-argument_list|,
 name|ngx_errno
 argument_list|,
 literal|"Could not open error log file: "

@@ -96,7 +96,7 @@ name|ngx_wsarecv_chain
 block|,
 name|ngx_udp_wsarecv
 block|,
-name|NULL
+name|ngx_wsasend
 block|,
 name|ngx_wsasend_chain
 block|,
@@ -106,7 +106,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon28b166550108
+DECL|struct|__anon299950df0108
 typedef|typedef
 struct|struct
 block|{
@@ -251,8 +251,8 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_os_init (ngx_log_t * log)
 name|ngx_int_t
+DECL|function|ngx_os_init (ngx_log_t * log)
 name|ngx_os_init
 parameter_list|(
 name|ngx_log_t
@@ -849,7 +849,7 @@ if|if
 condition|(
 name|GetEnvironmentVariable
 argument_list|(
-literal|"nginx_unique"
+literal|"ngx_unique"
 argument_list|,
 name|ngx_unique
 argument_list|,
@@ -887,7 +887,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"GetEnvironmentVariable(\"nginx_unique\") failed"
+literal|"GetEnvironmentVariable(\"ngx_unique\") failed"
 argument_list|)
 expr_stmt|;
 return|return
@@ -915,8 +915,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_os_status (ngx_log_t * log)
 name|void
+DECL|function|ngx_os_status (ngx_log_t * log)
 name|ngx_os_status
 parameter_list|(
 name|ngx_log_t

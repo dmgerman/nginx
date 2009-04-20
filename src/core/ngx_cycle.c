@@ -1479,12 +1479,6 @@ argument_list|,
 name|ngx_core_module
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-operator|!
-operator|(
-name|NGX_WIN32
-operator|)
 if|if
 condition|(
 name|ngx_test_config
@@ -1594,8 +1588,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-endif|#
-directive|endif
 if|if
 condition|(
 name|ngx_test_lockfile
@@ -4353,15 +4345,6 @@ return|;
 block|}
 end_function
 
-begin_if
-if|#
-directive|if
-operator|!
-operator|(
-name|NGX_WIN32
-operator|)
-end_if
-
 begin_function
 name|ngx_int_t
 DECL|function|ngx_create_pidfile (ngx_str_t * name,ngx_log_t * log)
@@ -4393,6 +4376,17 @@ operator|+
 literal|2
 index|]
 decl_stmt|;
+if|if
+condition|(
+name|ngx_process
+operator|>
+name|NGX_PROCESS_MASTER
+condition|)
+block|{
+return|return
+name|NGX_OK
+return|;
+block|}
 name|ngx_memzero
 argument_list|(
 operator|&
@@ -4635,11 +4629,6 @@ expr_stmt|;
 block|}
 block|}
 end_function
-
-begin_endif
-endif|#
-directive|endif
-end_endif
 
 begin_function
 specifier|static

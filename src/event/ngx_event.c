@@ -1620,6 +1620,10 @@ if|if
 condition|(
 operator|!
 name|ngx_test_config
+operator|&&
+name|ngx_process
+operator|<=
+name|NGX_PROCESS_MASTER
 condition|)
 block|{
 name|ngx_log_error
