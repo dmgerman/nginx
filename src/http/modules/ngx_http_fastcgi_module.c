@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon275b010a0108
+DECL|struct|__anon29ae2ede0108
 typedef|typedef
 struct|struct
 block|{
@@ -103,7 +103,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon275b010a0203
+DECL|enum|__anon29ae2ede0203
 typedef|typedef
 enum|enum
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275b010a0308
+DECL|struct|__anon29ae2ede0308
 typedef|typedef
 struct|struct
 block|{
@@ -166,7 +166,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275b010a0408
+DECL|struct|__anon29ae2ede0408
 typedef|typedef
 struct|struct
 block|{
@@ -293,7 +293,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon275b010a0508
+DECL|struct|__anon29ae2ede0508
 typedef|typedef
 struct|struct
 block|{
@@ -336,7 +336,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275b010a0608
+DECL|struct|__anon29ae2ede0608
 typedef|typedef
 struct|struct
 block|{
@@ -366,7 +366,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275b010a0708
+DECL|struct|__anon29ae2ede0708
 typedef|typedef
 struct|struct
 block|{
@@ -393,7 +393,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275b010a0808
+DECL|struct|__anon29ae2ede0808
 typedef|typedef
 struct|struct
 block|{
@@ -1500,7 +1500,7 @@ block|,
 block|{
 name|ngx_string
 argument_list|(
-literal|"proxy_cache_min_uses"
+literal|"fastcgi_cache_min_uses"
 argument_list|)
 block|,
 name|NGX_HTTP_MAIN_CONF
