@@ -746,6 +746,14 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_show_help
+specifier|static
+name|ngx_uint_t
+name|ngx_show_help
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_show_version
 specifier|static
 name|ngx_uint_t
@@ -871,6 +879,53 @@ literal|"nginx version: "
 name|NGINX_VER
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|ngx_show_help
+condition|)
+block|{
+name|ngx_log_stderr
+argument_list|(
+literal|"Usage: nginx [-?hvVt]"
+if|#
+directive|if
+operator|(
+name|NGX_WIN32
+operator|)
+literal|" [-s signal]"
+endif|#
+directive|endif
+literal|" [-c filename] [-g directives]"
+argument|CRLF CRLF
+literal|"Options:"
+argument|CRLF
+literal|"  -?,-h         : this help"
+argument|CRLF
+literal|"  -v            : show version and exit"
+argument|CRLF
+literal|"  -V            : show version and configure options then exit"
+argument|CRLF
+literal|"  -t            : test configuration and exit"
+argument|CRLF
+if|#
+directive|if
+operator|(
+name|NGX_WIN32
+operator|)
+literal|"  -s signal     : send signal to a master process"
+argument|CRLF
+endif|#
+directive|endif
+literal|"  -c filename   : set configuration file (default: "
+argument|NGX_CONF_PATH
+literal|")"
+argument|CRLF
+literal|"  -g directives : set global directives out of configuration "
+literal|"file"
+argument|CRLF
+argument_list|)
+empty_stmt|;
+block|}
 if|if
 condition|(
 name|ngx_show_configure
@@ -2593,6 +2648,21 @@ name|p
 operator|++
 condition|)
 block|{
+case|case
+literal|'?'
+case|:
+case|case
+literal|'h'
+case|:
+name|ngx_show_version
+operator|=
+literal|1
+expr_stmt|;
+name|ngx_show_help
+operator|=
+literal|1
+expr_stmt|;
+break|break;
 case|case
 literal|'v'
 case|:
