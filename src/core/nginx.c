@@ -787,14 +787,6 @@ name|ngx_conf_params
 decl_stmt|;
 end_decl_stmt
 
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_WIN32
-operator|)
-end_if
-
 begin_decl_stmt
 DECL|variable|ngx_signal
 specifier|static
@@ -803,11 +795,6 @@ modifier|*
 name|ngx_signal
 decl_stmt|;
 end_decl_stmt
-
-begin_endif
-endif|#
-directive|endif
-end_endif
 
 begin_decl_stmt
 DECL|variable|ngx_os_environ
@@ -886,16 +873,8 @@ condition|)
 block|{
 name|ngx_log_stderr
 argument_list|(
-literal|"Usage: nginx [-?hvVt]"
-if|#
-directive|if
-operator|(
-name|NGX_WIN32
-operator|)
-literal|" [-s signal]"
-endif|#
-directive|endif
-literal|" [-c filename] [-g directives]"
+literal|"Usage: nginx [-?hvVt] [-s signal] [-c filename] "
+literal|"[-g directives]"
 argument|CRLF CRLF
 literal|"Options:"
 argument|CRLF
@@ -907,15 +886,9 @@ literal|"  -V            : show version and configure options then exit"
 argument|CRLF
 literal|"  -t            : test configuration and exit"
 argument|CRLF
-if|#
-directive|if
-operator|(
-name|NGX_WIN32
-operator|)
-literal|"  -s signal     : send signal to a master process"
+literal|"  -s signal     : send signal to a master process: "
+literal|"stop, quit, reopen, reload"
 argument|CRLF
-endif|#
-directive|endif
 literal|"  -c filename   : set configuration file (default: "
 argument|NGX_CONF_PATH
 literal|")"
@@ -1265,11 +1238,6 @@ operator|=
 name|NGX_PROCESS_MASTER
 expr_stmt|;
 block|}
-if|#
-directive|if
-operator|(
-name|NGX_WIN32
-operator|)
 if|if
 condition|(
 name|ngx_signal
@@ -1284,8 +1252,12 @@ name|ngx_signal
 argument_list|)
 return|;
 block|}
-else|#
-directive|else
+if|#
+directive|if
+operator|!
+operator|(
+name|NGX_WIN32
+operator|)
 if|if
 condition|(
 name|ngx_init_signals
@@ -2789,11 +2761,6 @@ expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
-if|#
-directive|if
-operator|(
-name|NGX_WIN32
-operator|)
 case|case
 literal|'s'
 case|:
@@ -2897,8 +2864,6 @@ expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
-endif|#
-directive|endif
 default|default:
 name|ngx_log_stderr
 argument_list|(

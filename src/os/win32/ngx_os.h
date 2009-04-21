@@ -127,7 +127,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2933b7be0108
+DECL|struct|__anon2bb205e00108
 typedef|typedef
 struct|struct
 block|{
@@ -179,6 +179,24 @@ parameter_list|(
 name|ngx_log_t
 modifier|*
 name|log
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_os_signal_process
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|,
+name|char
+modifier|*
+name|sig
+parameter_list|,
+name|ngx_int_t
+name|pid
 parameter_list|)
 function_decl|;
 end_function_decl

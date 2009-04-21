@@ -231,7 +231,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon290f7c470108
+DECL|struct|__anon2ba8ae440108
 typedef|typedef
 struct|struct
 block|{
@@ -341,7 +341,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290f7c470208
+DECL|struct|__anon2ba8ae440208
 typedef|typedef
 struct|struct
 block|{
@@ -402,6 +402,21 @@ parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_signal_process
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|,
+name|char
+modifier|*
+name|sig
 parameter_list|)
 function_decl|;
 end_function_decl

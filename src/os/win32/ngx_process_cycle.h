@@ -83,21 +83,6 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|ngx_int_t
-name|ngx_signal_process
-parameter_list|(
-name|ngx_cycle_t
-modifier|*
-name|cycle
-parameter_list|,
-name|char
-modifier|*
-name|sig
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
 name|void
 name|ngx_close_handle
 parameter_list|(
