@@ -4,7 +4,7 @@ comment|/*  * Copyright (C) Igor Sysoev  */
 end_comment
 
 begin_comment
-comment|/*  * TODO:  *   add WSA error messages for NT and 98  *   test for English only messages  */
+comment|/*  * TODO:  *   add WSA error messages for NT and 98  */
 end_comment
 
 begin_include
@@ -244,7 +244,7 @@ name|err
 argument_list|,
 name|MAKELANGID
 argument_list|(
-name|LANG_NEUTRAL
+name|LANG_ENGLISH
 argument_list|,
 name|SUBLANG_DEFAULT
 argument_list|)
