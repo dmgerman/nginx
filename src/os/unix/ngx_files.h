@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b57f7400108
+DECL|struct|__anon2c1415710108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b57f7400208
+DECL|struct|__anon2c1415710208
 typedef|typedef
 struct|struct
 block|{
@@ -801,6 +801,17 @@ define|#
 directive|define
 name|ngx_getcwd_n
 value|"getcwd()"
+end_define
+
+begin_define
+DECL|macro|ngx_path_separator (c)
+define|#
+directive|define
+name|ngx_path_separator
+parameter_list|(
+name|c
+parameter_list|)
+value|((c) == '/')
 end_define
 
 begin_define

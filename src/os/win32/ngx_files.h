@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fddc2c0108
+DECL|struct|__anon292cc3340108
 typedef|typedef
 struct|struct
 block|{
@@ -90,7 +90,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fddc2c0208
+DECL|struct|__anon292cc3340208
 typedef|typedef
 struct|struct
 block|{
@@ -697,6 +697,17 @@ define|#
 directive|define
 name|ngx_getcwd_n
 value|"GetCurrentDirectory()"
+end_define
+
+begin_define
+DECL|macro|ngx_path_separator (c)
+define|#
+directive|define
+name|ngx_path_separator
+parameter_list|(
+name|c
+parameter_list|)
+value|((c) == '/' || (c) == '\\')
 end_define
 
 begin_define
