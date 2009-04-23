@@ -1157,6 +1157,9 @@ name|void
 name|ngx_cdecl
 name|ngx_log_stderr
 parameter_list|(
+name|ngx_err_t
+name|err
+parameter_list|,
 specifier|const
 name|char
 modifier|*
@@ -1171,6 +1174,13 @@ begin_decl_stmt
 specifier|extern
 name|ngx_module_t
 name|ngx_errlog_module
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_uint_t
+name|ngx_use_stderr
 decl_stmt|;
 end_decl_stmt
 

@@ -385,7 +385,7 @@ name|prev
 decl_stmt|,
 name|conf_file
 decl_stmt|;
-DECL|enum|__anon27ded87f0103
+DECL|enum|__anon29b63e9b0103
 enum|enum
 block|{
 DECL|enumerator|parse_file
@@ -3528,7 +3528,7 @@ name|file
 operator|->
 name|fd
 operator|=
-name|ngx_stderr_fileno
+name|ngx_stderr
 expr_stmt|;
 name|file
 operator|->

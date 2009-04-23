@@ -127,7 +127,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2961fa690108
+DECL|struct|__anon2a4c0aea0108
 typedef|typedef
 struct|struct
 block|{
@@ -365,14 +365,6 @@ name|ngx_uint_t
 name|ngx_tcp_nodelay_and_tcp_nopush
 decl_stmt|;
 end_decl_stmt
-
-begin_define
-DECL|macro|ngx_stderr_fileno
-define|#
-directive|define
-name|ngx_stderr_fileno
-value|STDERR_FILENO
-end_define
 
 begin_if
 if|#

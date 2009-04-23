@@ -862,6 +862,8 @@ condition|)
 block|{
 name|ngx_log_stderr
 argument_list|(
+literal|0
+argument_list|,
 literal|"nginx version: "
 name|NGINX_VER
 argument_list|)
@@ -873,6 +875,8 @@ condition|)
 block|{
 name|ngx_log_stderr
 argument_list|(
+literal|0
+argument_list|,
 literal|"Usage: nginx [-?hvVt] [-s signal] [-c filename] "
 literal|"[-g directives]"
 argument|CRLF CRLF
@@ -909,6 +913,8 @@ directive|ifdef
 name|NGX_COMPILER
 name|ngx_log_stderr
 argument_list|(
+literal|0
+argument_list|,
 literal|"built by "
 name|NGX_COMPILER
 argument_list|)
@@ -917,6 +923,8 @@ endif|#
 directive|endif
 name|ngx_log_stderr
 argument_list|(
+literal|0
+argument_list|,
 literal|"configure arguments: "
 name|NGX_CONFIGURE
 argument_list|)
@@ -1162,7 +1170,9 @@ condition|)
 block|{
 name|ngx_log_stderr
 argument_list|(
-literal|"the configuration file %s test failed"
+literal|0
+argument_list|,
+literal|"configuration file %s test failed"
 argument_list|,
 name|init_cycle
 operator|.
@@ -1183,7 +1193,9 @@ condition|)
 block|{
 name|ngx_log_stderr
 argument_list|(
-literal|"the configuration file %s was tested successfully"
+literal|0
+argument_list|,
+literal|"configuration file %s test is successful"
 argument_list|,
 name|cycle
 operator|->
@@ -1328,6 +1340,58 @@ return|return
 literal|1
 return|;
 block|}
+if|if
+condition|(
+name|cycle
+operator|->
+name|log
+operator|->
+name|file
+operator|->
+name|fd
+operator|!=
+name|ngx_stderr
+condition|)
+block|{
+if|if
+condition|(
+name|ngx_set_stderr
+argument_list|(
+name|cycle
+operator|->
+name|log
+operator|->
+name|file
+operator|->
+name|fd
+argument_list|)
+operator|==
+name|NGX_FILE_ERROR
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|,
+name|ngx_errno
+argument_list|,
+name|ngx_set_stderr_n
+literal|" failed"
+argument_list|)
+expr_stmt|;
+return|return
+literal|1
+return|;
+block|}
+block|}
+name|ngx_use_stderr
+operator|=
+literal|0
+expr_stmt|;
 if|if
 condition|(
 name|ngx_process
@@ -2595,6 +2659,8 @@ condition|)
 block|{
 name|ngx_log_stderr
 argument_list|(
+literal|0
+argument_list|,
 literal|"invalid option: \"%s\""
 argument_list|,
 name|argv
@@ -2706,7 +2772,9 @@ goto|;
 block|}
 name|ngx_log_stderr
 argument_list|(
-literal|"the option \"-c\" requires file name"
+literal|0
+argument_list|,
+literal|"option \"-c\" requires file name"
 argument_list|)
 expr_stmt|;
 return|return
@@ -2755,7 +2823,9 @@ goto|;
 block|}
 name|ngx_log_stderr
 argument_list|(
-literal|"the option \"-g\" requires parameter"
+literal|0
+argument_list|,
+literal|"option \"-g\" requires parameter"
 argument_list|)
 expr_stmt|;
 return|return
@@ -2800,7 +2870,9 @@ else|else
 block|{
 name|ngx_log_stderr
 argument_list|(
-literal|"the option \"-s\" requires parameter"
+literal|0
+argument_list|,
+literal|"option \"-s\" requires parameter"
 argument_list|)
 expr_stmt|;
 return|return
@@ -2856,6 +2928,8 @@ goto|;
 block|}
 name|ngx_log_stderr
 argument_list|(
+literal|0
+argument_list|,
 literal|"invalid option: \"-s %s\""
 argument_list|,
 name|ngx_signal
@@ -2867,6 +2941,8 @@ return|;
 default|default:
 name|ngx_log_stderr
 argument_list|(
+literal|0
+argument_list|,
 literal|"invalid option: \"%c\""
 argument_list|,
 operator|*

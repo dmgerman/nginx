@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b55514d0108
+DECL|struct|__anon29fddc2c0108
 typedef|typedef
 struct|struct
 block|{
@@ -90,7 +90,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b55514d0208
+DECL|struct|__anon29fddc2c0208
 typedef|typedef
 struct|struct
 block|{
@@ -1140,6 +1140,33 @@ name|name
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_define
+DECL|macro|ngx_stderr
+define|#
+directive|define
+name|ngx_stderr
+value|GetStdHandle(STD_ERROR_HANDLE)
+end_define
+
+begin_define
+DECL|macro|ngx_set_stderr (fd)
+define|#
+directive|define
+name|ngx_set_stderr
+parameter_list|(
+name|fd
+parameter_list|)
+value|SetStdHandle(STD_ERROR_HANDLE, fd)
+end_define
+
+begin_define
+DECL|macro|ngx_set_stderr_n
+define|#
+directive|define
+name|ngx_set_stderr_n
+value|"SetStdHandle(STD_ERROR_HANDLE)"
+end_define
 
 begin_endif
 endif|#

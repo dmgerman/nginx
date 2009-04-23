@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc0837f0108
+DECL|struct|__anon2b57f7400108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc0837f0208
+DECL|struct|__anon2b57f7400208
 typedef|typedef
 struct|struct
 block|{
@@ -1439,6 +1439,33 @@ name|name
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_define
+DECL|macro|ngx_stderr
+define|#
+directive|define
+name|ngx_stderr
+value|STDERR_FILENO
+end_define
+
+begin_define
+DECL|macro|ngx_set_stderr (fd)
+define|#
+directive|define
+name|ngx_set_stderr
+parameter_list|(
+name|fd
+parameter_list|)
+value|dup2(fd, STDERR_FILENO)
+end_define
+
+begin_define
+DECL|macro|ngx_set_stderr_n
+define|#
+directive|define
+name|ngx_set_stderr_n
+value|"dup2(STDERR_FILENO)"
+end_define
 
 begin_endif
 endif|#

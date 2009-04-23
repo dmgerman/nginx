@@ -127,7 +127,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb205e00108
+DECL|struct|__anon288b83010108
 typedef|typedef
 struct|struct
 block|{
@@ -426,13 +426,6 @@ begin_decl_stmt
 specifier|extern
 name|ngx_uint_t
 name|ngx_win32_version
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-specifier|extern
-name|ngx_fd_t
-name|ngx_stderr_fileno
 decl_stmt|;
 end_decl_stmt
 

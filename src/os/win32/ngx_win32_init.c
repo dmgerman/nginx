@@ -66,13 +66,6 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_stderr_fileno
-name|ngx_fd_t
-name|ngx_stderr_fileno
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
 DECL|variable|ngx_unique
 name|char
 name|ngx_unique
@@ -106,7 +99,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon299950df0108
+DECL|struct|__anon27f14d110108
 typedef|typedef
 struct|struct
 block|{
