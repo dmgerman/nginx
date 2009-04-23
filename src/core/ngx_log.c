@@ -150,30 +150,55 @@ end_decl_stmt
 begin_decl_stmt
 DECL|variable|err_levels
 specifier|static
-specifier|const
-name|char
-modifier|*
+name|ngx_str_t
 name|err_levels
 index|[]
 init|=
 block|{
+name|ngx_string
+argument_list|(
 literal|"stderr"
+argument_list|)
 block|,
+name|ngx_string
+argument_list|(
 literal|"emerg"
+argument_list|)
 block|,
+name|ngx_string
+argument_list|(
 literal|"alert"
+argument_list|)
 block|,
+name|ngx_string
+argument_list|(
 literal|"crit"
+argument_list|)
 block|,
+name|ngx_string
+argument_list|(
 literal|"error"
+argument_list|)
 block|,
+name|ngx_string
+argument_list|(
 literal|"warn"
+argument_list|)
 block|,
+name|ngx_string
+argument_list|(
 literal|"notice"
+argument_list|)
 block|,
+name|ngx_string
+argument_list|(
 literal|"info"
+argument_list|)
 block|,
+name|ngx_string
+argument_list|(
 literal|"debug"
+argument_list|)
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -333,8 +358,9 @@ name|last
 operator|-
 name|p
 argument_list|,
-literal|" [%s] "
+literal|" [%V] "
 argument_list|,
+operator|&
 name|err_levels
 index|[
 name|level
@@ -1183,6 +1209,8 @@ name|err_levels
 index|[
 name|n
 index|]
+operator|.
+name|data
 argument_list|)
 operator|==
 literal|0
@@ -1205,14 +1233,13 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"duplicate log level \"%s\""
+literal|"duplicate log level \"%V\""
 argument_list|,
+operator|&
 name|value
 index|[
 name|i
 index|]
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 return|return
@@ -1286,14 +1313,13 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"invalid log level \"%s\""
+literal|"invalid log level \"%V\""
 argument_list|,
+operator|&
 name|value
 index|[
 name|i
 index|]
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 return|return
@@ -1325,14 +1351,13 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"invalid log level \"%s\""
+literal|"invalid log level \"%V\""
 argument_list|,
+operator|&
 name|value
 index|[
 name|i
 index|]
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
 return|return
