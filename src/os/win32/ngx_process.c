@@ -237,6 +237,13 @@ name|name
 expr_stmt|;
 name|ctx
 operator|.
+name|args
+operator|=
+name|GetCommandLine
+argument_list|()
+expr_stmt|;
+name|ctx
+operator|.
 name|argv
 operator|=
 name|NULL
@@ -874,8 +881,9 @@ name|ctx
 operator|->
 name|path
 argument_list|,
-comment|/* STUB */
-name|NULL
+name|ctx
+operator|->
+name|args
 argument_list|,
 name|NULL
 argument_list|,

@@ -2204,6 +2204,17 @@ name|ngx_listening_t
 modifier|*
 name|ls
 decl_stmt|;
+name|ngx_memzero
+argument_list|(
+operator|&
+name|ctx
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|ngx_exec_ctx_t
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|ctx
 operator|.
 name|path

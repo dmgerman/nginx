@@ -58,7 +58,7 @@ value|(sizeof("ngx_cache_manager_mutex_") + NGX_INT32_LEN)
 end_define
 
 begin_typedef
-DECL|struct|__anon2b4fa6980108
+DECL|struct|__anon2b154bfe0108
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4fa6980208
+DECL|struct|__anon2b154bfe0208
 typedef|typedef
 struct|struct
 block|{
@@ -140,6 +140,11 @@ DECL|member|name
 name|char
 modifier|*
 name|name
+decl_stmt|;
+DECL|member|args
+name|char
+modifier|*
+name|args
 decl_stmt|;
 DECL|member|argv
 name|char
