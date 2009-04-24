@@ -1110,9 +1110,9 @@ name|ngx_cycle_t
 modifier|*
 name|cycle
 parameter_list|,
-name|ngx_array_t
+name|ngx_str_t
 modifier|*
-name|args
+name|name
 parameter_list|)
 function_decl|;
 end_function_decl

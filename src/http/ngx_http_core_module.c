@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27ca74c90108
+DECL|struct|__anon29c4feec0108
 typedef|typedef
 struct|struct
 block|{
@@ -18681,6 +18681,18 @@ name|lcf
 init|=
 name|conf
 decl_stmt|;
+name|ngx_str_t
+modifier|*
+name|value
+decl_stmt|;
+name|value
+operator|=
+name|cf
+operator|->
+name|args
+operator|->
+name|elts
+expr_stmt|;
 name|lcf
 operator|->
 name|err_log
@@ -18691,9 +18703,11 @@ name|cf
 operator|->
 name|cycle
 argument_list|,
-name|cf
-operator|->
-name|args
+operator|&
+name|value
+index|[
+literal|1
+index|]
 argument_list|)
 expr_stmt|;
 if|if
