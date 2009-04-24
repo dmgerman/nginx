@@ -70,14 +70,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon2b5aee57010a
+DECL|union|__anon293071da010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon2b5aee570208
+DECL|struct|__anon293071da0208
 struct|struct
 block|{
 DECL|member|lengths
@@ -108,7 +108,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b5aee570308
+DECL|struct|__anon293071da0308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5aee570408
+DECL|struct|__anon293071da0408
 typedef|typedef
 struct|struct
 block|{
@@ -251,7 +251,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5aee570508
+DECL|struct|__anon293071da0508
 typedef|typedef
 struct|struct
 block|{
@@ -6095,7 +6095,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2b5aee570603
+DECL|enum|__anon293071da0603
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -10109,6 +10109,37 @@ operator|->
 name|proxy_values
 expr_stmt|;
 block|}
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_SSL
+operator|)
+if|if
+condition|(
+name|conf
+operator|->
+name|upstream
+operator|.
+name|ssl
+operator|==
+name|NULL
+condition|)
+block|{
+name|conf
+operator|->
+name|upstream
+operator|.
+name|ssl
+operator|=
+name|prev
+operator|->
+name|upstream
+operator|.
+name|ssl
+expr_stmt|;
+block|}
+endif|#
+directive|endif
 name|ngx_conf_merge_uint_value
 argument_list|(
 name|conf
