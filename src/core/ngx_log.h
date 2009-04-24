@@ -1135,6 +1135,7 @@ end_function_decl
 
 begin_function_decl
 name|void
+name|ngx_cdecl
 name|ngx_log_abort
 parameter_list|(
 name|ngx_err_t
@@ -1143,11 +1144,9 @@ parameter_list|,
 specifier|const
 name|char
 modifier|*
-name|text
+name|fmt
 parameter_list|,
-name|void
-modifier|*
-name|param
+modifier|...
 parameter_list|)
 function_decl|;
 end_function_decl
