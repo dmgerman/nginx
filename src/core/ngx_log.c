@@ -713,6 +713,9 @@ name|level
 index|]
 argument_list|)
 expr_stmt|;
+operator|(
+name|void
+operator|)
 name|ngx_write_fd
 argument_list|(
 name|ngx_stderr
@@ -1101,6 +1104,9 @@ argument_list|(
 name|p
 argument_list|)
 expr_stmt|;
+operator|(
+name|void
+operator|)
 name|ngx_write_fd
 argument_list|(
 name|ngx_stderr
