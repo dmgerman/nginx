@@ -925,7 +925,7 @@ name|ngx_log_stderr
 argument_list|(
 literal|0
 argument_list|,
-literal|"configure arguments: "
+literal|"configure arguments:"
 name|NGX_CONFIGURE
 argument_list|)
 expr_stmt|;
