@@ -37,7 +37,7 @@ value|NGX_MAX_OFF_T_VALUE
 end_define
 
 begin_typedef
-DECL|struct|__anon2b70f8a90108
+DECL|struct|__anon27814e2b0108
 typedef|typedef
 struct|struct
 block|{
@@ -65,6 +65,11 @@ DECL|member|err
 name|ngx_err_t
 name|err
 decl_stmt|;
+DECL|member|failed
+name|char
+modifier|*
+name|failed
+decl_stmt|;
 DECL|member|valid
 name|time_t
 name|valid
@@ -76,6 +81,12 @@ decl_stmt|;
 DECL|member|test_dir
 name|unsigned
 name|test_dir
+range|:
+literal|1
+decl_stmt|;
+DECL|member|test_only
+name|unsigned
+name|test_only
 range|:
 literal|1
 decl_stmt|;
@@ -250,7 +261,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b70f8a90208
+DECL|struct|__anon27814e2b0208
 typedef|typedef
 struct|struct
 block|{
@@ -285,7 +296,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b70f8a90308
+DECL|struct|__anon27814e2b0308
 typedef|typedef
 struct|struct
 block|{
@@ -315,7 +326,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b70f8a90408
+DECL|struct|__anon27814e2b0408
 typedef|typedef
 struct|struct
 block|{

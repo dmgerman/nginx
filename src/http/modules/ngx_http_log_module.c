@@ -100,7 +100,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c08277b0108
+DECL|struct|__anon28a0bc650108
 typedef|typedef
 struct|struct
 block|{
@@ -126,7 +126,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c08277b0208
+DECL|struct|__anon28a0bc650208
 typedef|typedef
 struct|struct
 block|{
@@ -147,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c08277b0308
+DECL|struct|__anon28a0bc650308
 typedef|typedef
 struct|struct
 block|{
@@ -168,7 +168,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c08277b0408
+DECL|struct|__anon28a0bc650408
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +202,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c08277b0508
+DECL|struct|__anon28a0bc650508
 typedef|typedef
 struct|struct
 block|{
@@ -237,7 +237,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c08277b0608
+DECL|struct|__anon28a0bc650608
 typedef|typedef
 struct|struct
 block|{
@@ -1870,6 +1870,18 @@ name|open_file_cache_min_uses
 expr_stmt|;
 name|of
 operator|.
+name|test_dir
+operator|=
+literal|1
+expr_stmt|;
+name|of
+operator|.
+name|test_only
+operator|=
+literal|1
+expr_stmt|;
+name|of
+operator|.
 name|errors
 operator|=
 name|clcf
@@ -2132,8 +2144,11 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-name|ngx_open_file_n
-literal|" \"%s\" failed"
+literal|"%s \"%s\" failed"
+argument_list|,
+name|of
+operator|.
+name|failed
 argument_list|,
 name|log
 operator|.

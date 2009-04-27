@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c1569540108
+DECL|struct|__anon29d8ee020108
 typedef|typedef
 struct|struct
 block|{
@@ -567,8 +567,11 @@ name|of
 operator|.
 name|err
 argument_list|,
-name|ngx_open_file_n
-literal|" \"%s\" failed"
+literal|"%s \"%s\" failed"
+argument_list|,
+name|of
+operator|.
+name|failed
 argument_list|,
 name|path
 operator|.

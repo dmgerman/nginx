@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28ffdb190108
+DECL|struct|__anon29c119450108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ffdb190208
+DECL|struct|__anon29c119450208
 typedef|typedef
 struct|struct
 block|{
@@ -304,7 +304,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_comment
-comment|/*  * Try to open the first index file before the test of the directory existence  * because the valid requests should be many more than invalid ones.  * If open() would fail, then stat() should be more quickly because some data  * is already cached in the kernel.  * Besides, Win32 has ERROR_PATH_NOT_FOUND (NGX_ENOTDIR).  * Unix has ENOTDIR error, although it less helpfull - it points only  * that path contains the usual file in place of the directory.  */
+comment|/*  * Try to open/test the first index file before the test of directory  * existence because valid requests should be much more than invalid ones.  * If the file open()/stat() would fail, then the directory stat() should  * be more quickly because some data is already cached in the kernel.  * Besides, Win32 may return ERROR_PATH_NOT_FOUND (NGX_ENOTDIR) at once.  * Unix has ENOTDIR error, however, it's less helpful than Win32's one:  * it only indicates that path contains an usual file in place of directory.  */
 end_comment
 
 begin_function
@@ -918,6 +918,12 @@ name|open_file_cache_min_uses
 expr_stmt|;
 name|of
 operator|.
+name|test_only
+operator|=
+literal|1
+expr_stmt|;
+name|of
+operator|.
 name|errors
 operator|=
 name|clcf
@@ -954,7 +960,7 @@ operator|!=
 name|NGX_OK
 condition|)
 block|{
-name|ngx_log_debug1
+name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
@@ -968,8 +974,11 @@ name|of
 operator|.
 name|err
 argument_list|,
-name|ngx_open_file_n
-literal|" \"%s\" failed"
+literal|"%s \"%s\" failed"
+argument_list|,
+name|of
+operator|.
+name|failed
 argument_list|,
 name|path
 operator|.
@@ -1073,7 +1082,7 @@ continue|continue;
 block|}
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_ERR
+name|NGX_LOG_CRIT
 argument_list|,
 name|r
 operator|->
@@ -1085,8 +1094,11 @@ name|of
 operator|.
 name|err
 argument_list|,
-name|ngx_open_file_n
-literal|" \"%s\" failed"
+literal|"%s \"%s\" failed"
+argument_list|,
+name|of
+operator|.
+name|failed
 argument_list|,
 name|path
 operator|.
@@ -1328,6 +1340,12 @@ literal|1
 expr_stmt|;
 name|of
 operator|.
+name|test_only
+operator|=
+literal|1
+expr_stmt|;
+name|of
+operator|.
 name|valid
 operator|=
 name|clcf
@@ -1433,8 +1451,11 @@ name|of
 operator|.
 name|err
 argument_list|,
-name|ngx_open_file_n
-literal|" \"%s\" failed"
+literal|"%s \"%s\" failed"
+argument_list|,
+name|of
+operator|.
+name|failed
 argument_list|,
 name|dir
 operator|.

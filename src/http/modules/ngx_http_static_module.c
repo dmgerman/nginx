@@ -446,8 +446,11 @@ name|of
 operator|.
 name|err
 argument_list|,
-name|ngx_open_file_n
-literal|" \"%s\" failed"
+literal|"%s \"%s\" failed"
+argument_list|,
+name|of
+operator|.
+name|failed
 argument_list|,
 name|path
 operator|.

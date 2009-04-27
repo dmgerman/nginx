@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29c4feec0108
+DECL|struct|__anon27572bd30108
 typedef|typedef
 struct|struct
 block|{
@@ -4981,6 +4981,12 @@ name|open_file_cache_min_uses
 expr_stmt|;
 name|of
 operator|.
+name|test_only
+operator|=
+literal|1
+expr_stmt|;
+name|of
+operator|.
 name|errors
 operator|=
 name|clcf
@@ -5046,8 +5052,11 @@ name|of
 operator|.
 name|err
 argument_list|,
-name|ngx_open_file_n
-literal|" \"%s\" failed"
+literal|"%s \"%s\" failed"
+argument_list|,
+name|of
+operator|.
+name|failed
 argument_list|,
 name|path
 operator|.
