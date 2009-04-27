@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1415710108
+DECL|struct|__anon2940944b0108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1415710208
+DECL|struct|__anon2940944b0208
 typedef|typedef
 struct|struct
 block|{
@@ -792,7 +792,7 @@ name|buf
 parameter_list|,
 name|size
 parameter_list|)
-value|(getcwd(buf, size) != NULL)
+value|(getcwd((char *) buf, size) != NULL)
 end_define
 
 begin_define

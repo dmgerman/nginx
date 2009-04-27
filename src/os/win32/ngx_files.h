@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292cc3340108
+DECL|struct|__anon2c359ce20108
 typedef|typedef
 struct|struct
 block|{
@@ -90,7 +90,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292cc3340208
+DECL|struct|__anon2c359ce20208
 typedef|typedef
 struct|struct
 block|{
@@ -688,7 +688,7 @@ name|buf
 parameter_list|,
 name|size
 parameter_list|)
-value|GetCurrentDirectory(size, buf)
+value|GetCurrentDirectory(size, (char *) buf)
 end_define
 
 begin_define

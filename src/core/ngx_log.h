@@ -1096,7 +1096,9 @@ name|ngx_log_t
 modifier|*
 name|ngx_log_init
 parameter_list|(
-name|void
+name|u_char
+modifier|*
+name|prefix
 parameter_list|)
 function_decl|;
 end_function_decl
