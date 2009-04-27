@@ -385,7 +385,7 @@ name|prev
 decl_stmt|,
 name|conf_file
 decl_stmt|;
-DECL|enum|__anon2bd882f20103
+DECL|enum|__anon2a10cfde0103
 enum|enum
 block|{
 DECL|enumerator|parse_file
@@ -3850,13 +3850,11 @@ argument_list|)
 expr_stmt|;
 name|p
 operator|=
-name|ngx_vsnprintf
+name|ngx_vslprintf
 argument_list|(
 name|errstr
 argument_list|,
 name|last
-operator|-
-name|errstr
 argument_list|,
 name|fmt
 argument_list|,
@@ -3915,13 +3913,11 @@ name|NGX_WIN32
 operator|)
 name|p
 operator|=
-name|ngx_snprintf
+name|ngx_slprintf
 argument_list|(
 name|p
 argument_list|,
 name|last
-operator|-
-name|p
 argument_list|,
 operator|(
 operator|(
@@ -3943,13 +3939,11 @@ else|#
 directive|else
 name|p
 operator|=
-name|ngx_snprintf
+name|ngx_slprintf
 argument_list|(
 name|p
 argument_list|,
 name|last
-operator|-
-name|p
 argument_list|,
 literal|" (%d: "
 argument_list|,

@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b781a060108
+DECL|struct|__anon295d4cef0108
 typedef|typedef
 struct|struct
 block|{
@@ -5592,14 +5592,11 @@ argument_list|)
 expr_stmt|;
 name|p
 operator|=
-name|ngx_vsnprintf
+name|ngx_vslprintf
 argument_list|(
 name|errstr
 argument_list|,
-sizeof|sizeof
-argument_list|(
-name|errstr
-argument_list|)
+name|last
 operator|-
 literal|1
 argument_list|,

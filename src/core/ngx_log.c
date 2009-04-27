@@ -363,13 +363,11 @@ name|len
 expr_stmt|;
 name|p
 operator|=
-name|ngx_snprintf
+name|ngx_slprintf
 argument_list|(
 name|p
 argument_list|,
 name|last
-operator|-
-name|p
 argument_list|,
 literal|" [%V] "
 argument_list|,
@@ -383,13 +381,11 @@ expr_stmt|;
 comment|/* pid#tid */
 name|p
 operator|=
-name|ngx_snprintf
+name|ngx_slprintf
 argument_list|(
 name|p
 argument_list|,
 name|last
-operator|-
-name|p
 argument_list|,
 literal|"%P#"
 name|NGX_TID_T_FMT
@@ -409,13 +405,11 @@ condition|)
 block|{
 name|p
 operator|=
-name|ngx_snprintf
+name|ngx_slprintf
 argument_list|(
 name|p
 argument_list|,
 name|last
-operator|-
-name|p
 argument_list|,
 literal|"*%uA "
 argument_list|,
@@ -443,13 +437,11 @@ argument_list|)
 expr_stmt|;
 name|p
 operator|=
-name|ngx_vsnprintf
+name|ngx_vslprintf
 argument_list|(
 name|p
 argument_list|,
 name|last
-operator|-
-name|p
 argument_list|,
 name|fmt
 argument_list|,
@@ -465,13 +457,11 @@ else|#
 directive|else
 name|p
 operator|=
-name|ngx_vsnprintf
+name|ngx_vslprintf
 argument_list|(
 name|p
 argument_list|,
 name|last
-operator|-
-name|p
 argument_list|,
 name|fmt
 argument_list|,
@@ -527,13 +517,11 @@ name|NGX_WIN32
 operator|)
 name|p
 operator|=
-name|ngx_snprintf
+name|ngx_slprintf
 argument_list|(
 name|p
 argument_list|,
 name|last
-operator|-
-name|p
 argument_list|,
 operator|(
 operator|(
@@ -555,13 +543,11 @@ else|#
 directive|else
 name|p
 operator|=
-name|ngx_snprintf
+name|ngx_slprintf
 argument_list|(
 name|p
 argument_list|,
 name|last
-operator|-
-name|p
 argument_list|,
 literal|" (%d: "
 argument_list|,
@@ -976,6 +962,12 @@ index|[
 name|NGX_MAX_ERROR_STR
 index|]
 decl_stmt|;
+name|last
+operator|=
+name|errstr
+operator|+
+name|NGX_MAX_ERROR_STR
+expr_stmt|;
 name|va_start
 argument_list|(
 name|args
@@ -985,11 +977,11 @@ argument_list|)
 expr_stmt|;
 name|p
 operator|=
-name|ngx_vsnprintf
+name|ngx_vslprintf
 argument_list|(
 name|errstr
 argument_list|,
-name|NGX_MAX_ERROR_STR
+name|last
 argument_list|,
 name|fmt
 argument_list|,
@@ -1026,12 +1018,6 @@ condition|(
 name|err
 condition|)
 block|{
-name|last
-operator|=
-name|errstr
-operator|+
-name|NGX_MAX_ERROR_STR
-expr_stmt|;
 if|if
 condition|(
 name|p
@@ -1074,13 +1060,11 @@ name|NGX_WIN32
 operator|)
 name|p
 operator|=
-name|ngx_snprintf
+name|ngx_slprintf
 argument_list|(
 name|p
 argument_list|,
 name|last
-operator|-
-name|p
 argument_list|,
 operator|(
 operator|(
@@ -1102,13 +1086,11 @@ else|#
 directive|else
 name|p
 operator|=
-name|ngx_snprintf
+name|ngx_slprintf
 argument_list|(
 name|p
 argument_list|,
 name|last
-operator|-
-name|p
 argument_list|,
 literal|" (%d: "
 argument_list|,
