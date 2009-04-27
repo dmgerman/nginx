@@ -62,7 +62,7 @@ name|MAKELANGID
 argument_list|(
 name|LANG_ENGLISH
 argument_list|,
-name|SUBLANG_DEFAULT
+name|SUBLANG_ENGLISH_US
 argument_list|)
 argument_list|,
 operator|(
