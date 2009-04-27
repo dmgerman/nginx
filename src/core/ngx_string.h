@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29013ccf0108
+DECL|struct|__anon27931dd80108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29013ccf0208
+DECL|struct|__anon27931dd80208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29013ccf0308
+DECL|struct|__anon27931dd80308
 typedef|typedef
 struct|struct
 block|{
@@ -604,14 +604,39 @@ end_function_decl
 begin_function_decl
 name|u_char
 modifier|*
-name|ngx_vsnprintf
+name|ngx_cdecl
+name|ngx_slprintf
 parameter_list|(
 name|u_char
 modifier|*
 name|buf
 parameter_list|,
-name|size_t
-name|max
+name|u_char
+modifier|*
+name|last
+parameter_list|,
+specifier|const
+name|char
+modifier|*
+name|fmt
+parameter_list|,
+modifier|...
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|u_char
+modifier|*
+name|ngx_vslprintf
+parameter_list|(
+name|u_char
+modifier|*
+name|buf
+parameter_list|,
+name|u_char
+modifier|*
+name|last
 parameter_list|,
 specifier|const
 name|char
@@ -623,6 +648,24 @@ name|args
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_define
+DECL|macro|ngx_vsnprintf (buf,max,fmt,args)
+define|#
+directive|define
+name|ngx_vsnprintf
+parameter_list|(
+name|buf
+parameter_list|,
+name|max
+parameter_list|,
+name|fmt
+parameter_list|,
+name|args
+parameter_list|)
+define|\
+value|ngx_vslprintf(buf, buf + (max), fmt, args)
+end_define
 
 begin_function_decl
 name|ngx_int_t
