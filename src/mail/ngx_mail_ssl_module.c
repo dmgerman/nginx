@@ -691,7 +691,7 @@ name|scf
 operator|->
 name|starttls
 operator|=
-name|NGX_CONF_UNSET
+name|NGX_CONF_UNSET_UINT
 expr_stmt|;
 name|scf
 operator|->
