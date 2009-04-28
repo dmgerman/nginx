@@ -887,7 +887,7 @@ argument_list|(
 literal|0
 argument_list|,
 literal|"Usage: nginx [-?hvVt] [-s signal] [-c filename] "
-literal|"[-g directives]"
+literal|"[-p prefix] [-g directives]"
 argument|CRLF CRLF
 literal|"Options:"
 argument|CRLF
