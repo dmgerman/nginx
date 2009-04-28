@@ -3202,6 +3202,13 @@ name|ngx_event_acceptex
 expr_stmt|;
 if|if
 condition|(
+name|ngx_use_accept_mutex
+condition|)
+block|{
+continue|continue;
+block|}
+if|if
+condition|(
 name|ngx_add_event
 argument_list|(
 name|rev
@@ -3271,6 +3278,13 @@ name|handler
 operator|=
 name|ngx_event_accept
 expr_stmt|;
+if|if
+condition|(
+name|ngx_use_accept_mutex
+condition|)
+block|{
+continue|continue;
+block|}
 if|if
 condition|(
 name|ngx_add_event
