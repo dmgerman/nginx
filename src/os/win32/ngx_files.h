@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c359ce20108
+DECL|struct|__anon2af2b1670108
 typedef|typedef
 struct|struct
 block|{
@@ -90,7 +90,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c359ce20208
+DECL|struct|__anon2af2b1670208
 typedef|typedef
 struct|struct
 block|{
@@ -395,6 +395,23 @@ directive|define
 name|ngx_write_fd_n
 value|"WriteFile()"
 end_define
+
+begin_function_decl
+name|ssize_t
+name|ngx_write_console
+parameter_list|(
+name|ngx_fd_t
+name|fd
+parameter_list|,
+name|void
+modifier|*
+name|buf
+parameter_list|,
+name|size_t
+name|size
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_define
 DECL|macro|ngx_linefeed (p)

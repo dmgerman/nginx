@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2940944b0108
+DECL|struct|__anon2bff02a50108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2940944b0208
+DECL|struct|__anon2bff02a50208
 typedef|typedef
 struct|struct
 block|{
@@ -502,6 +502,14 @@ define|#
 directive|define
 name|ngx_write_fd_n
 value|"write()"
+end_define
+
+begin_define
+DECL|macro|ngx_write_console
+define|#
+directive|define
+name|ngx_write_console
+value|ngx_write_fd
 end_define
 
 begin_define

@@ -605,7 +605,7 @@ expr_stmt|;
 operator|(
 name|void
 operator|)
-name|ngx_write_fd
+name|ngx_write_console
 argument_list|(
 name|ngx_stderr
 argument_list|,
@@ -937,7 +937,7 @@ expr_stmt|;
 operator|(
 name|void
 operator|)
-name|ngx_write_fd
+name|ngx_write_console
 argument_list|(
 name|ngx_stderr
 argument_list|,
