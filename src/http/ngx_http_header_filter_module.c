@@ -1531,6 +1531,13 @@ else|:
 name|port
 expr_stmt|;
 block|}
+else|else
+block|{
+name|port
+operator|=
+literal|0
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|port
