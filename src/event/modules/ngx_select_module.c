@@ -1733,7 +1733,16 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"select ready != events"
+literal|"select ready != events: %d:%d"
+argument_list|,
+name|ready
+argument_list|,
+name|nready
+argument_list|)
+expr_stmt|;
+name|ngx_select_repair_fd_sets
+argument_list|(
+name|cycle
 argument_list|)
 expr_stmt|;
 block|}
