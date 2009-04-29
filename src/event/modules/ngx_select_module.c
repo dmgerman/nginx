@@ -1307,6 +1307,13 @@ directive|if
 operator|(
 name|NGX_WIN32
 operator|)
+if|if
+condition|(
+name|max_read
+operator|||
+name|max_write
+condition|)
+block|{
 name|ready
 operator|=
 name|select
@@ -1324,6 +1331,20 @@ argument_list|,
 name|tp
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|/*          * Winsock select() requires that at least one descriptor set must be          * be non-null, and any non-null descriptor set must contain at least          * one handle to a socket.  Otherwise select() returns WSAEINVAL.          */
+name|ngx_msleep
+argument_list|(
+name|timer
+argument_list|)
+expr_stmt|;
+name|ready
+operator|=
+literal|0
+expr_stmt|;
+block|}
 else|#
 directive|else
 name|ready
