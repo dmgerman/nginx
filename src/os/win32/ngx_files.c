@@ -1178,7 +1178,7 @@ literal|0
 condition|)
 block|{
 return|return
-name|NGX_ERROR
+name|NGX_FILE_ERROR
 return|;
 block|}
 name|sb
@@ -1230,7 +1230,8 @@ operator|.
 name|nFileSizeLow
 expr_stmt|;
 return|return
-name|NGX_OK
+operator|~
+name|NGX_FILE_ERROR
 return|;
 block|}
 end_function

@@ -644,8 +644,7 @@ operator|&
 name|fi
 argument_list|)
 operator|==
-operator|-
-literal|1
+name|NGX_FILE_ERROR
 condition|)
 block|{
 name|of
@@ -2042,8 +2041,7 @@ operator|&
 name|fi
 argument_list|)
 operator|==
-operator|-
-literal|1
+name|NGX_FILE_ERROR
 condition|)
 block|{
 name|of
@@ -2091,8 +2089,7 @@ operator|&
 name|fi
 argument_list|)
 operator|==
-operator|-
-literal|1
+name|NGX_FILE_ERROR
 condition|)
 block|{
 name|of

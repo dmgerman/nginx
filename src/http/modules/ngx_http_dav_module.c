@@ -62,7 +62,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon275b71670108
+DECL|struct|__anon2ae3c1540108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275b71670208
+DECL|struct|__anon2ae3c1540208
 typedef|typedef
 struct|struct
 block|{
@@ -980,8 +980,7 @@ operator|&
 name|fi
 argument_list|)
 operator|==
-operator|-
-literal|1
+name|NGX_FILE_ERROR
 condition|)
 block|{
 name|status
@@ -1495,8 +1494,7 @@ operator|&
 name|fi
 argument_list|)
 operator|==
-operator|-
-literal|1
+name|NGX_FILE_ERROR
 condition|)
 block|{
 name|err
@@ -3060,8 +3058,7 @@ operator|&
 name|fi
 argument_list|)
 operator|==
-operator|-
-literal|1
+name|NGX_FILE_ERROR
 condition|)
 block|{
 name|err
@@ -3209,8 +3206,7 @@ operator|&
 name|fi
 argument_list|)
 operator|==
-operator|-
-literal|1
+name|NGX_FILE_ERROR
 condition|)
 block|{
 return|return
