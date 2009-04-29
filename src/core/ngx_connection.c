@@ -3450,26 +3450,25 @@ block|{
 name|ngx_uint_t
 name|level
 decl_stmt|;
+comment|/* Winsock may return NGX_ECONNABORTED instead of NGX_ECONNRESET */
+if|if
+condition|(
+operator|(
+name|err
+operator|==
+name|NGX_ECONNRESET
 if|#
 directive|if
 operator|(
 name|NGX_WIN32
 operator|)
-comment|/* Winsock returns NGX_ECONNABORTED instead of NGX_ECONNRESET */
-if|if
-condition|(
+operator|||
 name|err
 operator|==
 name|NGX_ECONNABORTED
-else|#
-directive|else
-if|if
-condition|(
-name|err
-operator|==
-name|NGX_ECONNRESET
 endif|#
 directive|endif
+operator|)
 operator|&&
 name|c
 operator|->
