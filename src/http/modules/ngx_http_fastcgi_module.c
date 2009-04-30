@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29ae2ede0108
+DECL|struct|__anon274d47ea0108
 typedef|typedef
 struct|struct
 block|{
@@ -103,7 +103,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29ae2ede0203
+DECL|enum|__anon274d47ea0203
 typedef|typedef
 enum|enum
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ae2ede0308
+DECL|struct|__anon274d47ea0308
 typedef|typedef
 struct|struct
 block|{
@@ -166,7 +166,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ae2ede0408
+DECL|struct|__anon274d47ea0408
 typedef|typedef
 struct|struct
 block|{
@@ -293,7 +293,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon29ae2ede0508
+DECL|struct|__anon274d47ea0508
 typedef|typedef
 struct|struct
 block|{
@@ -336,7 +336,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ae2ede0608
+DECL|struct|__anon274d47ea0608
 typedef|typedef
 struct|struct
 block|{
@@ -366,7 +366,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ae2ede0708
+DECL|struct|__anon274d47ea0708
 typedef|typedef
 struct|struct
 block|{
@@ -393,7 +393,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ae2ede0808
+DECL|struct|__anon274d47ea0808
 typedef|typedef
 struct|struct
 block|{
@@ -914,6 +914,59 @@ literal|"off"
 argument_list|)
 block|,
 name|NGX_HTTP_UPSTREAM_FT_OFF
+block|}
+block|,
+block|{
+name|ngx_null_string
+block|,
+literal|0
+block|}
+block|}
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_http_fastcgi_ignore_headers_masks
+specifier|static
+name|ngx_conf_bitmask_t
+name|ngx_http_fastcgi_ignore_headers_masks
+index|[]
+init|=
+block|{
+block|{
+name|ngx_string
+argument_list|(
+literal|"X-Accel-Redirect"
+argument_list|)
+block|,
+name|NGX_HTTP_UPSTREAM_IGN_XA_REDIRECT
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"X-Accel-Expires"
+argument_list|)
+block|,
+name|NGX_HTTP_UPSTREAM_IGN_XA_EXPIRES
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"Expires"
+argument_list|)
+block|,
+name|NGX_HTTP_UPSTREAM_IGN_EXPIRES
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"Cache-Control"
+argument_list|)
+block|,
+name|NGX_HTTP_UPSTREAM_IGN_CACHE_CONTROL
 block|}
 block|,
 block|{
@@ -1813,6 +1866,37 @@ name|hide_headers
 argument_list|)
 block|,
 name|NULL
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"fastcgi_ignore_headers"
+argument_list|)
+block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
+name|NGX_HTTP_SRV_CONF
+operator||
+name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_CONF_1MORE
+block|,
+name|ngx_conf_set_bitmask_slot
+block|,
+name|NGX_HTTP_LOC_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+name|ngx_http_fastcgi_loc_conf_t
+argument_list|,
+name|upstream
+operator|.
+name|ignore_headers
+argument_list|)
+block|,
+operator|&
+name|ngx_http_fastcgi_ignore_headers_masks
 block|}
 block|,
 block|{
@@ -8334,7 +8418,7 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
-comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.bufs.num = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.use_stale_cache = 0;      *     conf->upstream.temp_path = NULL;      *     conf->upstream.hide_headers_hash = { NULL, 0 };      *     conf->upstream.uri = { 0, NULL };      *     conf->upstream.location = NULL;      *     conf->upstream.store_lengths = NULL;      *     conf->upstream.store_values = NULL;      *      *     conf->index.len = 0;      *     conf->index.data = NULL;      */
+comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.bufs.num = 0;      *     conf->upstream.ignore_headers = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.use_stale_cache = 0;      *     conf->upstream.temp_path = NULL;      *     conf->upstream.hide_headers_hash = { NULL, 0 };      *     conf->upstream.uri = { 0, NULL };      *     conf->upstream.location = NULL;      *     conf->upstream.store_lengths = NULL;      *     conf->upstream.store_values = NULL;      *      *     conf->index.len = 0;      *     conf->index.data = NULL;      */
 name|conf
 operator|->
 name|upstream
@@ -9168,6 +9252,23 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
+name|ngx_conf_merge_bitmask_value
+argument_list|(
+name|conf
+operator|->
+name|upstream
+operator|.
+name|ignore_headers
+argument_list|,
+name|prev
+operator|->
+name|upstream
+operator|.
+name|ignore_headers
+argument_list|,
+name|NGX_CONF_BITMASK_SET
+argument_list|)
+expr_stmt|;
 name|ngx_conf_merge_bitmask_value
 argument_list|(
 name|conf
