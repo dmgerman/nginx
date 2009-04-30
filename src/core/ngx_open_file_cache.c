@@ -1122,6 +1122,12 @@ name|file
 operator|->
 name|err
 expr_stmt|;
+name|of
+operator|->
+name|failed
+operator|=
+name|ngx_open_file_n
+expr_stmt|;
 block|}
 goto|goto
 name|found
