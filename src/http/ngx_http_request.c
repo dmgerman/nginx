@@ -1914,7 +1914,7 @@ name|file
 operator|=
 name|clcf
 operator|->
-name|err_log
+name|error_log
 operator|->
 name|file
 expr_stmt|;
@@ -1940,7 +1940,7 @@ name|log_level
 operator|=
 name|clcf
 operator|->
-name|err_log
+name|error_log
 operator|->
 name|log_level
 expr_stmt|;
@@ -7600,7 +7600,7 @@ name|file
 operator|=
 name|clcf
 operator|->
-name|err_log
+name|error_log
 operator|->
 name|file
 expr_stmt|;
@@ -7630,7 +7630,7 @@ name|log_level
 operator|=
 name|clcf
 operator|->
-name|err_log
+name|error_log
 operator|->
 name|log_level
 expr_stmt|;

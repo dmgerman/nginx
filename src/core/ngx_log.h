@@ -1106,7 +1106,7 @@ end_function_decl
 begin_function_decl
 name|ngx_log_t
 modifier|*
-name|ngx_log_create_errlog
+name|ngx_log_create
 parameter_list|(
 name|ngx_cycle_t
 modifier|*
@@ -1122,7 +1122,7 @@ end_function_decl
 begin_function_decl
 name|char
 modifier|*
-name|ngx_set_error_log_levels
+name|ngx_log_set_levels
 parameter_list|(
 name|ngx_conf_t
 modifier|*

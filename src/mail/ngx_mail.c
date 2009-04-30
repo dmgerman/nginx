@@ -1292,12 +1292,12 @@ name|pool_size
 operator|=
 literal|256
 expr_stmt|;
-comment|/* STUB */
+comment|/* TODO: error_log directive */
 name|ls
 operator|->
-name|log
+name|logp
 operator|=
-operator|*
+operator|&
 name|cf
 operator|->
 name|cycle
@@ -1323,7 +1323,6 @@ name|handler
 operator|=
 name|ngx_accept_log_error
 expr_stmt|;
-comment|/**/
 name|imip
 operator|=
 name|ngx_palloc

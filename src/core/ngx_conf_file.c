@@ -395,7 +395,7 @@ name|prev
 decl_stmt|,
 name|conf_file
 decl_stmt|;
-DECL|enum|__anon296f25b10103
+DECL|enum|__anon2895a4420103
 enum|enum
 block|{
 DECL|enumerator|parse_file
@@ -3355,8 +3355,6 @@ directive|endif
 if|if
 condition|(
 name|name
-operator|&&
-name|name
 operator|->
 name|len
 condition|)
@@ -3522,8 +3520,6 @@ block|}
 if|if
 condition|(
 name|name
-operator|&&
-name|name
 operator|->
 name|len
 condition|)
@@ -3552,18 +3548,9 @@ expr_stmt|;
 name|file
 operator|->
 name|name
-operator|.
-name|len
 operator|=
-literal|0
-expr_stmt|;
-name|file
-operator|->
+operator|*
 name|name
-operator|.
-name|data
-operator|=
-name|NULL
 expr_stmt|;
 block|}
 name|file

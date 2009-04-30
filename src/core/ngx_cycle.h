@@ -144,7 +144,6 @@ name|log
 decl_stmt|;
 DECL|member|new_log
 name|ngx_log_t
-modifier|*
 name|new_log
 decl_stmt|;
 DECL|member|files
@@ -235,7 +234,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a4f13790108
+DECL|struct|__anon28b4331a0108
 typedef|typedef
 struct|struct
 block|{
@@ -345,7 +344,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4f13790208
+DECL|struct|__anon28b4331a0208
 typedef|typedef
 struct|struct
 block|{

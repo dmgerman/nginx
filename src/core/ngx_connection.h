@@ -96,6 +96,11 @@ DECL|member|log
 name|ngx_log_t
 name|log
 decl_stmt|;
+DECL|member|logp
+name|ngx_log_t
+modifier|*
+name|logp
+decl_stmt|;
 DECL|member|pool_size
 name|size_t
 name|pool_size
@@ -239,7 +244,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon296b135a0103
+DECL|enum|__anon279b43cc0103
 typedef|typedef
 enum|enum
 block|{
@@ -266,7 +271,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon296b135a0203
+DECL|enum|__anon279b43cc0203
 typedef|typedef
 enum|enum
 block|{
@@ -287,7 +292,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon296b135a0303
+DECL|enum|__anon279b43cc0303
 typedef|typedef
 enum|enum
 block|{

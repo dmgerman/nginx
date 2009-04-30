@@ -7487,12 +7487,11 @@ index|]
 expr_stmt|;
 name|ls
 operator|->
-name|log
+name|logp
 operator|=
-operator|*
 name|clcf
 operator|->
-name|err_log
+name|error_log
 expr_stmt|;
 name|ls
 operator|->
