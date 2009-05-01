@@ -96,7 +96,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28f0a0050108
+DECL|struct|__anon2b2c4bfa0108
 typedef|typedef
 struct|struct
 block|{
@@ -117,7 +117,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f0a0050208
+DECL|struct|__anon2b2c4bfa0208
 typedef|typedef
 struct|struct
 block|{
@@ -138,7 +138,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f0a0050308
+DECL|struct|__anon2b2c4bfa0308
 typedef|typedef
 struct|struct
 block|{
@@ -158,7 +158,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f0a0050408
+DECL|struct|__anon2b2c4bfa0408
 typedef|typedef
 struct|struct
 block|{
@@ -187,7 +187,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f0a0050508
+DECL|struct|__anon2b2c4bfa0508
 typedef|typedef
 struct|struct
 block|{
@@ -240,18 +240,6 @@ parameter_list|,
 name|ngx_buf_t
 modifier|*
 name|b
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-specifier|static
-name|ngx_int_t
-name|ngx_http_xslt_filter_internal_error
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -1675,9 +1663,11 @@ name|NULL
 condition|)
 block|{
 return|return
-name|ngx_http_xslt_filter_internal_error
+name|ngx_http_filter_finalize_request
 argument_list|(
 name|r
+argument_list|,
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
 argument_list|)
 return|;
 block|}
@@ -1707,7 +1697,7 @@ name|pos
 argument_list|)
 expr_stmt|;
 return|return
-name|ngx_http_special_response_handler
+name|ngx_http_filter_finalize_request
 argument_list|(
 name|r
 argument_list|,
@@ -1839,60 +1829,6 @@ argument_list|,
 operator|&
 name|out
 argument_list|)
-return|;
-block|}
-end_function
-
-begin_function
-specifier|static
-name|ngx_int_t
-DECL|function|ngx_http_xslt_filter_internal_error (ngx_http_request_t * r)
-name|ngx_http_xslt_filter_internal_error
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|)
-block|{
-name|ngx_int_t
-name|rc
-decl_stmt|;
-comment|/* clear the modules contexts */
-name|ngx_memzero
-argument_list|(
-name|r
-operator|->
-name|ctx
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|void
-operator|*
-argument_list|)
-operator|*
-name|ngx_http_max_module
-argument_list|)
-expr_stmt|;
-name|rc
-operator|=
-name|ngx_http_special_response_handler
-argument_list|(
-name|r
-argument_list|,
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
-argument_list|)
-expr_stmt|;
-comment|/* NGX_ERROR resets any pending data */
-return|return
-operator|(
-name|rc
-operator|==
-name|NGX_OK
-operator|)
-condition|?
-name|NGX_ERROR
-else|:
-name|rc
 return|;
 block|}
 end_function
