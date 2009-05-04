@@ -109,11 +109,11 @@ name|ctx
 decl_stmt|;
 name|ngx_mail_in_port_t
 modifier|*
-name|imip
+name|mip
 decl_stmt|;
 name|ngx_mail_in_addr_t
 modifier|*
-name|imia
+name|mia
 decl_stmt|;
 name|ngx_mail_session_t
 modifier|*
@@ -121,7 +121,7 @@ name|s
 decl_stmt|;
 comment|/* find the server configuration for the address:port */
 comment|/* AF_INET only */
-name|imip
+name|mip
 operator|=
 name|c
 operator|->
@@ -129,9 +129,9 @@ name|listening
 operator|->
 name|servers
 expr_stmt|;
-name|imia
+name|mia
 operator|=
-name|imip
+name|mip
 operator|->
 name|addrs
 expr_stmt|;
@@ -141,7 +141,7 @@ literal|0
 expr_stmt|;
 if|if
 condition|(
-name|imip
+name|mip
 operator|->
 name|naddrs
 operator|>
@@ -247,7 +247,7 @@ comment|/* void */
 init|;
 name|i
 operator|<
-name|imip
+name|mip
 operator|->
 name|naddrs
 operator|-
@@ -261,7 +261,7 @@ if|if
 condition|(
 name|in_addr
 operator|==
-name|imia
+name|mia
 index|[
 name|i
 index|]
@@ -305,7 +305,7 @@ name|s
 operator|->
 name|main_conf
 operator|=
-name|imia
+name|mia
 index|[
 name|i
 index|]
@@ -318,7 +318,7 @@ name|s
 operator|->
 name|srv_conf
 operator|=
-name|imia
+name|mia
 index|[
 name|i
 index|]
@@ -332,7 +332,7 @@ operator|->
 name|addr_text
 operator|=
 operator|&
-name|imia
+name|mia
 index|[
 name|i
 index|]
@@ -508,7 +508,7 @@ return|return;
 block|}
 if|if
 condition|(
-name|imia
+name|mia
 index|[
 name|i
 index|]

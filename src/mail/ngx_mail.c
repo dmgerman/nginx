@@ -255,7 +255,7 @@ name|ls
 decl_stmt|;
 name|ngx_mail_listen_t
 modifier|*
-name|imls
+name|mls
 decl_stmt|;
 name|ngx_mail_module_t
 modifier|*
@@ -263,7 +263,7 @@ name|module
 decl_stmt|;
 name|ngx_mail_in_port_t
 modifier|*
-name|imip
+name|mip
 decl_stmt|;
 name|ngx_mail_conf_ctx_t
 modifier|*
@@ -863,7 +863,7 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
-name|imls
+name|mls
 operator|=
 name|cmcf
 operator|->
@@ -921,7 +921,7 @@ index|]
 operator|.
 name|port
 operator|==
-name|imls
+name|mls
 index|[
 name|l
 index|]
@@ -965,7 +965,7 @@ name|in_port
 operator|->
 name|port
 operator|=
-name|imls
+name|mls
 index|[
 name|l
 index|]
@@ -1027,7 +1027,7 @@ name|in_addr
 operator|->
 name|addr
 operator|=
-name|imls
+name|mls
 index|[
 name|l
 index|]
@@ -1038,7 +1038,7 @@ name|in_addr
 operator|->
 name|ctx
 operator|=
-name|imls
+name|mls
 index|[
 name|l
 index|]
@@ -1049,7 +1049,7 @@ name|in_addr
 operator|->
 name|bind
 operator|=
-name|imls
+name|mls
 index|[
 name|l
 index|]
@@ -1065,7 +1065,7 @@ name|in_addr
 operator|->
 name|ssl
 operator|=
-name|imls
+name|mls
 index|[
 name|l
 index|]
@@ -1323,7 +1323,7 @@ name|handler
 operator|=
 name|ngx_accept_log_error
 expr_stmt|;
-name|imip
+name|mip
 operator|=
 name|ngx_palloc
 argument_list|(
@@ -1339,7 +1339,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|imip
+name|mip
 operator|==
 name|NULL
 condition|)
@@ -1352,7 +1352,7 @@ name|ls
 operator|->
 name|servers
 operator|=
-name|imip
+name|mip
 expr_stmt|;
 name|in_addr
 operator|=
@@ -1384,7 +1384,7 @@ operator|!=
 name|INADDR_ANY
 condition|)
 block|{
-name|imip
+name|mip
 operator|->
 name|naddrs
 operator|=
@@ -1420,7 +1420,7 @@ operator|==
 name|INADDR_ANY
 condition|)
 block|{
-name|imip
+name|mip
 operator|->
 name|naddrs
 operator|=
@@ -1433,7 +1433,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|imip
+name|mip
 operator|->
 name|naddrs
 operator|=
@@ -1447,10 +1447,10 @@ block|}
 if|#
 directive|if
 literal|0
-block_content|ngx_log_error(NGX_LOG_ALERT, cf->log, 0,                           "%ui: %V %d %ui %ui",                           a,&ls->addr_text, in_addr[a].bind,                           imip->naddrs, last);
+block_content|ngx_log_error(NGX_LOG_ALERT, cf->log, 0,                           "%ui: %V %d %ui %ui",                           a,&ls->addr_text, in_addr[a].bind,                           mip->naddrs, last);
 endif|#
 directive|endif
-name|imip
+name|mip
 operator|->
 name|addrs
 operator|=
@@ -1460,7 +1460,7 @@ name|cf
 operator|->
 name|pool
 argument_list|,
-name|imip
+name|mip
 operator|->
 name|naddrs
 operator|*
@@ -1472,7 +1472,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|imip
+name|mip
 operator|->
 name|addrs
 operator|==
@@ -1491,7 +1491,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|imip
+name|mip
 operator|->
 name|naddrs
 condition|;
@@ -1499,7 +1499,7 @@ name|i
 operator|++
 control|)
 block|{
-name|imip
+name|mip
 operator|->
 name|addrs
 index|[
@@ -1515,7 +1515,7 @@ index|]
 operator|.
 name|addr
 expr_stmt|;
-name|imip
+name|mip
 operator|->
 name|addrs
 index|[
@@ -1599,7 +1599,7 @@ argument_list|)
 operator|-
 name|text
 expr_stmt|;
-name|imip
+name|mip
 operator|->
 name|addrs
 index|[
@@ -1612,7 +1612,7 @@ name|len
 operator|=
 name|len
 expr_stmt|;
-name|imip
+name|mip
 operator|->
 name|addrs
 index|[
@@ -1630,7 +1630,7 @@ directive|if
 operator|(
 name|NGX_MAIL_SSL
 operator|)
-name|imip
+name|mip
 operator|->
 name|addrs
 index|[

@@ -1130,7 +1130,7 @@ name|m
 decl_stmt|;
 name|ngx_mail_listen_t
 modifier|*
-name|imls
+name|ls
 decl_stmt|;
 name|ngx_mail_module_t
 modifier|*
@@ -1254,7 +1254,7 @@ argument_list|,
 name|ngx_mail_core_module
 argument_list|)
 expr_stmt|;
-name|imls
+name|ls
 operator|=
 name|cmcf
 operator|->
@@ -1282,7 +1282,7 @@ control|)
 block|{
 if|if
 condition|(
-name|imls
+name|ls
 index|[
 name|i
 index|]
@@ -1295,7 +1295,7 @@ name|addr
 operator|.
 name|in_addr
 operator|||
-name|imls
+name|ls
 index|[
 name|i
 index|]
@@ -1329,7 +1329,7 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
-name|imls
+name|ls
 operator|=
 name|ngx_array_push
 argument_list|(
@@ -1341,7 +1341,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|imls
+name|ls
 operator|==
 name|NULL
 condition|)
@@ -1352,7 +1352,7 @@ return|;
 block|}
 name|ngx_memzero
 argument_list|(
-name|imls
+name|ls
 argument_list|,
 sizeof|sizeof
 argument_list|(
@@ -1360,7 +1360,7 @@ name|ngx_mail_listen_t
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|imls
+name|ls
 operator|->
 name|addr
 operator|=
@@ -1370,7 +1370,7 @@ name|addr
 operator|.
 name|in_addr
 expr_stmt|;
-name|imls
+name|ls
 operator|->
 name|port
 operator|=
@@ -1378,7 +1378,7 @@ name|u
 operator|.
 name|port
 expr_stmt|;
-name|imls
+name|ls
 operator|->
 name|family
 operator|=
@@ -1386,7 +1386,7 @@ name|u
 operator|.
 name|family
 expr_stmt|;
-name|imls
+name|ls
 operator|->
 name|ctx
 operator|=
@@ -1525,7 +1525,7 @@ operator|==
 literal|0
 condition|)
 block|{
-name|imls
+name|ls
 operator|->
 name|bind
 operator|=
@@ -1555,7 +1555,7 @@ directive|if
 operator|(
 name|NGX_MAIL_SSL
 operator|)
-name|imls
+name|ls
 operator|->
 name|ssl
 operator|=
