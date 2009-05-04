@@ -244,7 +244,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2bc0804a0103
+DECL|enum|__anon27ca91c30103
 typedef|typedef
 enum|enum
 block|{
@@ -271,7 +271,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2bc0804a0203
+DECL|enum|__anon27ca91c30203
 typedef|typedef
 enum|enum
 block|{
@@ -292,7 +292,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2bc0804a0303
+DECL|enum|__anon27ca91c30303
 typedef|typedef
 enum|enum
 block|{
@@ -540,27 +540,6 @@ directive|endif
 block|}
 struct|;
 end_struct
-
-begin_ifndef
-ifndef|#
-directive|ifndef
-name|ngx_ssl_set_nosendshut
-end_ifndef
-
-begin_define
-DECL|macro|ngx_ssl_set_nosendshut (ssl)
-define|#
-directive|define
-name|ngx_ssl_set_nosendshut
-parameter_list|(
-name|ssl
-parameter_list|)
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
 
 begin_function_decl
 name|ngx_int_t
