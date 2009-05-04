@@ -1815,6 +1815,12 @@ condition|(
 name|p
 operator|->
 name|free_bufs
+operator|&&
+name|p
+operator|->
+name|buf_to_file
+operator|==
+name|NULL
 condition|)
 block|{
 for|for
