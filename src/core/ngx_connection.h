@@ -244,7 +244,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon279b43cc0103
+DECL|enum|__anon2bc0804a0103
 typedef|typedef
 enum|enum
 block|{
@@ -271,7 +271,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon279b43cc0203
+DECL|enum|__anon2bc0804a0203
 typedef|typedef
 enum|enum
 block|{
@@ -292,7 +292,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon279b43cc0303
+DECL|enum|__anon2bc0804a0303
 typedef|typedef
 enum|enum
 block|{
@@ -561,24 +561,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-
-begin_function_decl
-name|ngx_listening_t
-modifier|*
-name|ngx_listening_inet_stream_socket
-parameter_list|(
-name|ngx_conf_t
-modifier|*
-name|cf
-parameter_list|,
-name|in_addr_t
-name|addr
-parameter_list|,
-name|in_port_t
-name|port
-parameter_list|)
-function_decl|;
-end_function_decl
 
 begin_function_decl
 name|ngx_int_t
