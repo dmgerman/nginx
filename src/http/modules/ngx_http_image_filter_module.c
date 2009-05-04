@@ -140,7 +140,7 @@ value|0x08
 end_define
 
 begin_typedef
-DECL|struct|__anon29a14d660108
+DECL|struct|__anon2b1a4d2e0108
 typedef|typedef
 struct|struct
 block|{
@@ -167,7 +167,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a14d660208
+DECL|struct|__anon2b1a4d2e0208
 typedef|typedef
 struct|struct
 block|{
@@ -833,6 +833,9 @@ literal|1
 operator|&&
 name|len
 operator|>
+operator|(
+name|off_t
+operator|)
 name|conf
 operator|->
 name|buffer_size
