@@ -244,7 +244,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon27ca91c30103
+DECL|enum|__anon28fd63920103
 typedef|typedef
 enum|enum
 block|{
@@ -271,7 +271,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27ca91c30203
+DECL|enum|__anon28fd63920203
 typedef|typedef
 enum|enum
 block|{
@@ -292,7 +292,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27ca91c30303
+DECL|enum|__anon28fd63920303
 typedef|typedef
 enum|enum
 block|{
@@ -565,7 +565,7 @@ end_function_decl
 
 begin_function_decl
 name|void
-name|ngx_configure_listening_socket
+name|ngx_configure_listening_sockets
 parameter_list|(
 name|ngx_cycle_t
 modifier|*

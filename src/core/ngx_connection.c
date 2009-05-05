@@ -1580,8 +1580,8 @@ end_function
 
 begin_function
 name|void
-DECL|function|ngx_configure_listening_socket (ngx_cycle_t * cycle)
-name|ngx_configure_listening_socket
+DECL|function|ngx_configure_listening_sockets (ngx_cycle_t * cycle)
+name|ngx_configure_listening_sockets
 parameter_list|(
 name|ngx_cycle_t
 modifier|*

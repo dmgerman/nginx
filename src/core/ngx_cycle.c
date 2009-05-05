@@ -2873,7 +2873,7 @@ operator|!
 name|ngx_test_config
 condition|)
 block|{
-name|ngx_configure_listening_socket
+name|ngx_configure_listening_sockets
 argument_list|(
 name|cycle
 argument_list|)
