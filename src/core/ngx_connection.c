@@ -1200,8 +1200,6 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_EMERG
 argument_list|,
-name|cycle
-operator|->
 name|log
 argument_list|,
 name|ngx_socket_errno
@@ -1304,8 +1302,6 @@ name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_CORE
 argument_list|,
-name|cycle
-operator|->
 name|log
 argument_list|,
 literal|0
