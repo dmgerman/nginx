@@ -244,7 +244,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon28fd63920103
+DECL|enum|__anon28d36a340103
 typedef|typedef
 enum|enum
 block|{
@@ -271,7 +271,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28fd63920203
+DECL|enum|__anon28d36a340203
 typedef|typedef
 enum|enum
 block|{
@@ -292,7 +292,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28fd63920303
+DECL|enum|__anon28d36a340303
 typedef|typedef
 enum|enum
 block|{
@@ -540,6 +540,25 @@ directive|endif
 block|}
 struct|;
 end_struct
+
+begin_function_decl
+name|ngx_listening_t
+modifier|*
+name|ngx_create_listening
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|void
+modifier|*
+name|sockaddr
+parameter_list|,
+name|socklen_t
+name|socklen
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_function_decl
 name|ngx_int_t
