@@ -855,6 +855,10 @@ name|ngx_uint_t
 name|flags
 parameter_list|)
 block|{
+name|ngx_event_t
+modifier|*
+name|e
+decl_stmt|;
 name|ngx_connection_t
 modifier|*
 name|c
@@ -1015,12 +1019,7 @@ operator|--
 name|nevents
 condition|)
 block|{
-name|event_index
-index|[
-name|ev
-operator|->
-name|index
-index|]
+name|e
 operator|=
 name|event_index
 index|[
@@ -1033,6 +1032,10 @@ name|ev
 operator|->
 name|index
 index|]
+operator|=
+name|e
+expr_stmt|;
+name|e
 operator|->
 name|index
 operator|=
