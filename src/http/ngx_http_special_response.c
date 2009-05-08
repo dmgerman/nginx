@@ -1337,6 +1337,10 @@ argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
+name|ctx
+operator|=
+name|NULL
+expr_stmt|;
 if|if
 condition|(
 name|m
