@@ -1345,6 +1345,12 @@ operator|*
 name|ngx_http_max_module
 argument_list|)
 expr_stmt|;
+name|r
+operator|->
+name|filter_finalize
+operator|=
+literal|1
+expr_stmt|;
 name|rc
 operator|=
 name|ngx_http_special_response_handler
@@ -1355,17 +1361,25 @@ name|error
 argument_list|)
 expr_stmt|;
 comment|/* NGX_ERROR resets any pending data */
-return|return
-operator|(
+switch|switch
+condition|(
 name|rc
-operator|==
+condition|)
+block|{
+case|case
 name|NGX_OK
-operator|)
-condition|?
+case|:
+case|case
+name|NGX_DONE
+case|:
+return|return
 name|NGX_ERROR
-else|:
+return|;
+default|default:
+return|return
 name|rc
 return|;
+block|}
 block|}
 end_function
 
