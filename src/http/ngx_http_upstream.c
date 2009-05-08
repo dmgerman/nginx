@@ -6587,9 +6587,6 @@ modifier|*
 name|u
 parameter_list|)
 block|{
-name|ngx_int_t
-name|rc
-decl_stmt|;
 name|ngx_uint_t
 name|status
 decl_stmt|;
@@ -6692,6 +6689,9 @@ name|mask
 operator|)
 condition|)
 block|{
+name|ngx_int_t
+name|rc
+decl_stmt|;
 name|rc
 operator|=
 name|u
