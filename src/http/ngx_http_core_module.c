@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29ed2b4f0108
+DECL|struct|__anon29141d130108
 typedef|typedef
 struct|struct
 block|{
@@ -7042,13 +7042,21 @@ block|{
 name|ngx_int_t
 name|rc
 decl_stmt|;
+name|ngx_connection_t
+modifier|*
+name|c
+decl_stmt|;
+name|c
+operator|=
+name|r
+operator|->
+name|connection
+expr_stmt|;
 name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-name|r
-operator|->
-name|connection
+name|c
 operator|->
 name|log
 argument_list|,
@@ -7083,10 +7091,19 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
-comment|/* NGX_ERROR may be returned by any filter */
-name|r
+if|if
+condition|(
+name|c
 operator|->
-name|connection
+name|destroyed
+condition|)
+block|{
+return|return
+name|NGX_DONE
+return|;
+block|}
+comment|/* NGX_ERROR may be returned by any filter */
+name|c
 operator|->
 name|error
 operator|=
