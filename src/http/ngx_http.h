@@ -640,6 +640,10 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
+name|ngx_module_t
+modifier|*
+name|m
+parameter_list|,
 name|ngx_int_t
 name|error
 parameter_list|)

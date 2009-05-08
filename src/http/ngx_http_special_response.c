@@ -1310,17 +1310,25 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_http_filter_finalize_request (ngx_http_request_t * r,ngx_int_t error)
+DECL|function|ngx_http_filter_finalize_request (ngx_http_request_t * r,ngx_module_t * m,ngx_int_t error)
 name|ngx_http_filter_finalize_request
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
+name|ngx_module_t
+modifier|*
+name|m
+parameter_list|,
 name|ngx_int_t
 name|error
 parameter_list|)
 block|{
+name|void
+modifier|*
+name|ctx
+decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
@@ -1329,6 +1337,23 @@ argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|m
+condition|)
+block|{
+name|ctx
+operator|=
+name|r
+operator|->
+name|ctx
+index|[
+name|m
+operator|->
+name|ctx_index
+index|]
+expr_stmt|;
+block|}
 comment|/* clear the modules contexts */
 name|ngx_memzero
 argument_list|(
@@ -1345,6 +1370,23 @@ operator|*
 name|ngx_http_max_module
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|m
+condition|)
+block|{
+name|r
+operator|->
+name|ctx
+index|[
+name|m
+operator|->
+name|ctx_index
+index|]
+operator|=
+name|ctx
+expr_stmt|;
+block|}
 name|r
 operator|->
 name|filter_finalize

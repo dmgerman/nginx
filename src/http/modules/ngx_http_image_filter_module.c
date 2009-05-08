@@ -148,7 +148,7 @@ value|0x08
 end_define
 
 begin_typedef
-DECL|struct|__anon2bb56f120108
+DECL|struct|__anon28c2ba450108
 typedef|typedef
 struct|struct
 block|{
@@ -175,7 +175,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb56f120208
+DECL|struct|__anon28c2ba450208
 typedef|typedef
 struct|struct
 block|{
@@ -812,6 +812,36 @@ return|;
 block|}
 name|ctx
 operator|=
+name|ngx_http_get_module_ctx
+argument_list|(
+name|r
+argument_list|,
+name|ngx_http_image_filter_module
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|ctx
+condition|)
+block|{
+name|ngx_http_set_ctx
+argument_list|(
+name|r
+argument_list|,
+name|NULL
+argument_list|,
+name|ngx_http_image_filter_module
+argument_list|)
+expr_stmt|;
+return|return
+name|ngx_http_next_header_filter
+argument_list|(
+name|r
+argument_list|)
+return|;
+block|}
+name|ctx
+operator|=
 name|ngx_pcalloc
 argument_list|(
 name|r
@@ -1142,6 +1172,9 @@ name|ngx_http_filter_finalize_request
 argument_list|(
 name|r
 argument_list|,
+operator|&
+name|ngx_http_image_filter_module
+argument_list|,
 name|NGX_HTTP_UNSUPPORTED_MEDIA_TYPE
 argument_list|)
 return|;
@@ -1246,6 +1279,9 @@ name|ngx_http_filter_finalize_request
 argument_list|(
 name|r
 argument_list|,
+operator|&
+name|ngx_http_image_filter_module
+argument_list|,
 name|NGX_HTTP_UNSUPPORTED_MEDIA_TYPE
 argument_list|)
 return|;
@@ -1276,6 +1312,9 @@ return|return
 name|ngx_http_filter_finalize_request
 argument_list|(
 name|r
+argument_list|,
+operator|&
+name|ngx_http_image_filter_module
 argument_list|,
 name|NGX_HTTP_UNSUPPORTED_MEDIA_TYPE
 argument_list|)
