@@ -517,6 +517,8 @@ name|read
 operator|->
 name|active
 operator|=
+literal|0
+expr_stmt|;
 name|c
 operator|->
 name|write
@@ -542,6 +544,8 @@ name|read
 operator|->
 name|active
 operator|=
+literal|0
+expr_stmt|;
 name|c
 operator|->
 name|write

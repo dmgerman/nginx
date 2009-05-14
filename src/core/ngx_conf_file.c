@@ -395,7 +395,7 @@ name|prev
 decl_stmt|,
 name|conf_file
 decl_stmt|;
-DECL|enum|__anon2895a4420103
+DECL|enum|__anon290169080103
 enum|enum
 block|{
 DECL|enumerator|parse_file
@@ -1713,8 +1713,12 @@ literal|0
 expr_stmt|;
 name|quoted
 operator|=
+literal|0
+expr_stmt|;
 name|s_quoted
 operator|=
+literal|0
+expr_stmt|;
 name|d_quoted
 operator|=
 literal|0
