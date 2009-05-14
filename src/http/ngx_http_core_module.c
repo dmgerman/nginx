@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29141d130108
+DECL|struct|__anon299e504d0108
 typedef|typedef
 struct|struct
 block|{
@@ -13807,15 +13807,15 @@ argument_list|,
 name|NGX_HTTP_IMS_EXACT
 argument_list|)
 expr_stmt|;
-name|ngx_conf_merge_value
+name|ngx_conf_merge_uint_value
 argument_list|(
 name|conf
 operator|->
-name|internal
+name|client_body_in_file_only
 argument_list|,
 name|prev
 operator|->
-name|internal
+name|client_body_in_file_only
 argument_list|,
 literal|0
 argument_list|)
@@ -13824,11 +13824,11 @@ name|ngx_conf_merge_value
 argument_list|(
 name|conf
 operator|->
-name|client_body_in_file_only
+name|internal
 argument_list|,
 name|prev
 operator|->
-name|client_body_in_file_only
+name|internal
 argument_list|,
 literal|0
 argument_list|)
