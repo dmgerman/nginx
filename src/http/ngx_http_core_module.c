@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon299e504d0108
+DECL|struct|__anon290bce9c0108
 typedef|typedef
 struct|struct
 block|{
@@ -12786,13 +12786,13 @@ name|NGX_CONF_UNSET_UINT
 expr_stmt|;
 name|lcf
 operator|->
-name|internal
+name|client_body_in_file_only
 operator|=
-name|NGX_CONF_UNSET
+name|NGX_CONF_UNSET_UINT
 expr_stmt|;
 name|lcf
 operator|->
-name|client_body_in_file_only
+name|internal
 operator|=
 name|NGX_CONF_UNSET
 expr_stmt|;
