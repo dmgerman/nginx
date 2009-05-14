@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon290bce9c0108
+DECL|struct|__anon28c5fce50108
 typedef|typedef
 struct|struct
 block|{
@@ -1762,7 +1762,7 @@ name|NGX_HTTP_SRV_CONF
 operator||
 name|NGX_HTTP_LOC_CONF
 operator||
-name|NGX_CONF_FLAG
+name|NGX_CONF_TAKE1
 block|,
 name|ngx_conf_set_enum_slot
 block|,
