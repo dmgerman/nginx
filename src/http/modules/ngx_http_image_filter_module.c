@@ -148,7 +148,7 @@ value|0x08
 end_define
 
 begin_typedef
-DECL|struct|__anon2b54448d0108
+DECL|struct|__anon2c6a76ff0108
 typedef|typedef
 struct|struct
 block|{
@@ -164,6 +164,10 @@ DECL|member|height
 name|ngx_uint_t
 name|height
 decl_stmt|;
+DECL|member|jpeg_quality
+name|ngx_int_t
+name|jpeg_quality
+decl_stmt|;
 DECL|member|buffer_size
 name|size_t
 name|buffer_size
@@ -175,7 +179,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b54448d0208
+DECL|struct|__anon2c6a76ff0208
 typedef|typedef
 struct|struct
 block|{
@@ -525,6 +529,34 @@ block|,
 name|NGX_HTTP_LOC_CONF_OFFSET
 block|,
 literal|0
+block|,
+name|NULL
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"image_filter_jpeg_quality"
+argument_list|)
+block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
+name|NGX_HTTP_SRV_CONF
+operator||
+name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_CONF_TAKE1
+block|,
+name|ngx_conf_set_num_slot
+block|,
+name|NGX_HTTP_LOC_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+name|ngx_http_image_filter_conf_t
+argument_list|,
+name|jpeg_quality
+argument_list|)
 block|,
 name|NULL
 block|}
@@ -3847,6 +3879,10 @@ name|u_char
 modifier|*
 name|out
 decl_stmt|;
+name|ngx_http_image_filter_conf_t
+modifier|*
+name|conf
+decl_stmt|;
 name|out
 operator|=
 name|NULL
@@ -3859,6 +3895,15 @@ block|{
 case|case
 name|NGX_HTTP_IMAGE_JPEG
 case|:
+name|conf
+operator|=
+name|ngx_http_get_module_loc_conf
+argument_list|(
+name|r
+argument_list|,
+name|ngx_http_image_filter_module
+argument_list|)
+expr_stmt|;
 name|out
 operator|=
 name|gdImageJpegPtr
@@ -3867,9 +3912,9 @@ name|img
 argument_list|,
 name|size
 argument_list|,
-comment|/* default quality */
-operator|-
-literal|1
+name|conf
+operator|->
+name|jpeg_quality
 argument_list|)
 expr_stmt|;
 name|failed
@@ -4015,6 +4060,12 @@ name|NGX_CONF_UNSET_UINT
 expr_stmt|;
 name|conf
 operator|->
+name|jpeg_quality
+operator|=
+name|NGX_CONF_UNSET
+expr_stmt|;
+name|conf
+operator|->
 name|buffer_size
 operator|=
 name|NGX_CONF_UNSET_SIZE
@@ -4110,6 +4161,20 @@ name|height
 expr_stmt|;
 block|}
 block|}
+comment|/* 75 is libjpeg default quality */
+name|ngx_conf_merge_value
+argument_list|(
+name|conf
+operator|->
+name|jpeg_quality
+argument_list|,
+name|prev
+operator|->
+name|jpeg_quality
+argument_list|,
+literal|75
+argument_list|)
+expr_stmt|;
 name|ngx_conf_merge_size_value
 argument_list|(
 name|conf
