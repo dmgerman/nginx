@@ -105,7 +105,7 @@ name|servers
 parameter_list|,
 name|ngx_array_t
 modifier|*
-name|in_ports
+name|ports
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -690,7 +690,7 @@ name|ngx_conf_t
 name|pcf
 decl_stmt|;
 name|ngx_array_t
-name|in_ports
+name|ports
 decl_stmt|;
 name|ngx_http_module_t
 modifier|*
@@ -1651,7 +1651,7 @@ operator|->
 name|servers
 argument_list|,
 operator|&
-name|in_ports
+name|ports
 argument_list|)
 operator|!=
 name|NGX_OK
@@ -1671,7 +1671,7 @@ argument_list|,
 name|cmcf
 argument_list|,
 operator|&
-name|in_ports
+name|ports
 argument_list|)
 operator|!=
 name|NGX_OK
