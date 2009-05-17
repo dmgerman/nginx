@@ -5044,7 +5044,7 @@ condition|)
 block|{
 continue|continue;
 block|}
-comment|/* a port is already in the in_port list */
+comment|/* a port is already in the port list */
 return|return
 name|ngx_http_add_addresses
 argument_list|(
@@ -5062,7 +5062,7 @@ name|listen
 argument_list|)
 return|;
 block|}
-comment|/* add a port to the in_port list */
+comment|/* add a port to the port list */
 name|port
 operator|=
 name|ngx_array_push
@@ -5426,7 +5426,7 @@ block|}
 end_function
 
 begin_comment
-comment|/*  * add the server address, the server names and the server core module  * configurations to the port (in_port)  */
+comment|/*  * add the server address, the server names and the server core module  * configurations to the port list  */
 end_comment
 
 begin_function
