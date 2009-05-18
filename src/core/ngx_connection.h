@@ -244,7 +244,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon28d36a340103
+DECL|enum|__anon2b40ff220103
 typedef|typedef
 enum|enum
 block|{
@@ -271,7 +271,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28d36a340203
+DECL|enum|__anon2b40ff220203
 typedef|typedef
 enum|enum
 block|{
@@ -292,7 +292,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28d36a340303
+DECL|enum|__anon2b40ff220303
 typedef|typedef
 enum|enum
 block|{
@@ -611,6 +611,24 @@ parameter_list|(
 name|ngx_connection_t
 modifier|*
 name|c
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_connection_local_sockaddr
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|s
+parameter_list|,
+name|ngx_uint_t
+name|port
 parameter_list|)
 function_decl|;
 end_function_decl
