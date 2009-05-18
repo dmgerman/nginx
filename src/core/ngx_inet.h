@@ -92,7 +92,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2af0af030108
+DECL|struct|__anon2934e7be0108
 typedef|typedef
 struct|struct
 block|{
@@ -119,7 +119,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2af0af030208
+DECL|struct|__anon2934e7be0208
 typedef|typedef
 struct|struct
 block|{
@@ -145,7 +145,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2af0af030308
+DECL|struct|__anon2934e7be0308
 typedef|typedef
 struct|struct
 block|{
@@ -153,7 +153,7 @@ DECL|member|family
 name|ngx_uint_t
 name|family
 decl_stmt|;
-DECL|union|__anon2af0af03040a
+DECL|union|__anon2934e7be040a
 union|union
 block|{
 DECL|member|in
@@ -182,22 +182,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|union|__anon2af0af03050a
-typedef|typedef
-union|union
-block|{
-DECL|member|in_addr
-name|in_addr_t
-name|in_addr
-decl_stmt|;
-DECL|typedef|ngx_url_addr_t
-block|}
-name|ngx_url_addr_t
-typedef|;
-end_typedef
-
-begin_typedef
-DECL|struct|__anon2af0af030608
+DECL|struct|__anon2934e7be0508
 typedef|typedef
 struct|struct
 block|{
@@ -222,7 +207,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af0af030708
+DECL|struct|__anon2934e7be0608
 typedef|typedef
 struct|struct
 block|{
@@ -289,10 +274,6 @@ name|unsigned
 name|wildcard
 range|:
 literal|1
-decl_stmt|;
-DECL|member|addr
-name|ngx_url_addr_t
-name|addr
 decl_stmt|;
 DECL|member|socklen
 name|socklen_t
