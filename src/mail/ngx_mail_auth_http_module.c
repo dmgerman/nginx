@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27ca05c40108
+DECL|struct|__anon297265c90108
 typedef|typedef
 struct|struct
 block|{
@@ -1543,7 +1543,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon27ca05c40203
+DECL|enum|__anon297265c90203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -3488,6 +3488,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+comment|/* AF_INET only */
 name|sin
 operator|=
 name|ngx_pcalloc
@@ -4156,7 +4157,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon27ca05c40303
+DECL|enum|__anon297265c90303
 enum|enum
 block|{
 DECL|enumerator|sw_start

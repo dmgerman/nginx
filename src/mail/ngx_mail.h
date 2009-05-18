@@ -60,7 +60,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon27cd2eae0108
+DECL|struct|__anon2be6dc310108
 typedef|typedef
 struct|struct
 block|{
@@ -83,21 +83,20 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27cd2eae0208
+DECL|struct|__anon2be6dc310208
 typedef|typedef
 struct|struct
 block|{
-DECL|member|addr
-name|in_addr_t
-name|addr
+DECL|member|sockaddr
+name|u_char
+name|sockaddr
+index|[
+name|NGX_SOCKADDRLEN
+index|]
 decl_stmt|;
-DECL|member|port
-name|in_port_t
-name|port
-decl_stmt|;
-DECL|member|family
-name|int
-name|family
+DECL|member|socklen
+name|socklen_t
+name|socklen
 decl_stmt|;
 comment|/* server ctx */
 DECL|member|ctx
@@ -108,6 +107,12 @@ decl_stmt|;
 DECL|member|bind
 name|unsigned
 name|bind
+range|:
+literal|1
+decl_stmt|;
+DECL|member|wildcard
+name|unsigned
+name|wildcard
 range|:
 literal|1
 decl_stmt|;
@@ -124,6 +129,22 @@ literal|1
 decl_stmt|;
 endif|#
 directive|endif
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_INET6
+operator|&&
+name|defined
+name|IPV6_V6ONLY
+operator|)
+DECL|member|ipv6only
+name|unsigned
+name|ipv6only
+range|:
+literal|2
+decl_stmt|;
+endif|#
+directive|endif
 DECL|typedef|ngx_mail_listen_t
 block|}
 name|ngx_mail_listen_t
@@ -131,14 +152,10 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27cd2eae0308
+DECL|struct|__anon2be6dc310308
 typedef|typedef
 struct|struct
 block|{
-DECL|member|addr
-name|in_addr_t
-name|addr
-decl_stmt|;
 DECL|member|ctx
 name|ngx_mail_conf_ctx_t
 modifier|*
@@ -160,38 +177,94 @@ decl_stmt|;
 comment|/* unsigned   ssl:1; */
 endif|#
 directive|endif
+DECL|typedef|ngx_mail_addr_conf_t
+block|}
+name|ngx_mail_addr_conf_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2be6dc310408
+typedef|typedef
+struct|struct
+block|{
+DECL|member|addr
+name|in_addr_t
+name|addr
+decl_stmt|;
+DECL|member|conf
+name|ngx_mail_addr_conf_t
+name|conf
+decl_stmt|;
 DECL|typedef|ngx_mail_in_addr_t
 block|}
 name|ngx_mail_in_addr_t
 typedef|;
 end_typedef
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_INET6
+operator|)
+end_if
+
 begin_typedef
-DECL|struct|__anon27cd2eae0408
+DECL|struct|__anon2be6dc310508
 typedef|typedef
 struct|struct
 block|{
+DECL|member|addr6
+name|struct
+name|in6_addr
+name|addr6
+decl_stmt|;
+DECL|member|conf
+name|ngx_mail_addr_conf_t
+name|conf
+decl_stmt|;
+DECL|typedef|ngx_mail_in6_addr_t
+block|}
+name|ngx_mail_in6_addr_t
+typedef|;
+end_typedef
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_typedef
+DECL|struct|__anon2be6dc310608
+typedef|typedef
+struct|struct
+block|{
+comment|/* ngx_mail_in_addr_t or ngx_mail_in6_addr_t */
 DECL|member|addrs
-name|ngx_mail_in_addr_t
+name|void
 modifier|*
 name|addrs
 decl_stmt|;
-comment|/* array of ngx_mail_in_addr_t */
 DECL|member|naddrs
 name|ngx_uint_t
 name|naddrs
 decl_stmt|;
-DECL|typedef|ngx_mail_in_port_t
+DECL|typedef|ngx_mail_port_t
 block|}
-name|ngx_mail_in_port_t
+name|ngx_mail_port_t
 typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27cd2eae0508
+DECL|struct|__anon2be6dc310708
 typedef|typedef
 struct|struct
 block|{
+DECL|member|family
+name|int
+name|family
+decl_stmt|;
 DECL|member|port
 name|in_port_t
 name|port
@@ -200,21 +273,27 @@ DECL|member|addrs
 name|ngx_array_t
 name|addrs
 decl_stmt|;
-comment|/* array of ngx_mail_conf_in_addr_t */
-DECL|typedef|ngx_mail_conf_in_port_t
+comment|/* array of ngx_mail_conf_addr_t */
+DECL|typedef|ngx_mail_conf_port_t
 block|}
-name|ngx_mail_conf_in_port_t
+name|ngx_mail_conf_port_t
 typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27cd2eae0608
+DECL|struct|__anon2be6dc310808
 typedef|typedef
 struct|struct
 block|{
-DECL|member|addr
-name|in_addr_t
-name|addr
+DECL|member|sockaddr
+name|struct
+name|sockaddr
+modifier|*
+name|sockaddr
+decl_stmt|;
+DECL|member|socklen
+name|socklen_t
+name|socklen
 decl_stmt|;
 DECL|member|ctx
 name|ngx_mail_conf_ctx_t
@@ -224,6 +303,12 @@ decl_stmt|;
 DECL|member|bind
 name|unsigned
 name|bind
+range|:
+literal|1
+decl_stmt|;
+DECL|member|wildcard
+name|unsigned
+name|wildcard
 range|:
 literal|1
 decl_stmt|;
@@ -240,14 +325,30 @@ literal|1
 decl_stmt|;
 endif|#
 directive|endif
-DECL|typedef|ngx_mail_conf_in_addr_t
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_INET6
+operator|&&
+name|defined
+name|IPV6_V6ONLY
+operator|)
+DECL|member|ipv6only
+name|unsigned
+name|ipv6only
+range|:
+literal|2
+decl_stmt|;
+endif|#
+directive|endif
+DECL|typedef|ngx_mail_conf_addr_t
 block|}
-name|ngx_mail_conf_in_addr_t
+name|ngx_mail_conf_addr_t
 typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27cd2eae0708
+DECL|struct|__anon2be6dc310908
 typedef|typedef
 struct|struct
 block|{
@@ -301,7 +402,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27cd2eae0808
+DECL|struct|__anon2be6dc310a08
 typedef|typedef
 struct|struct
 block|{
@@ -353,7 +454,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27cd2eae0903
+DECL|enum|__anon2be6dc310b03
 typedef|typedef
 enum|enum
 block|{
@@ -386,7 +487,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27cd2eae0a03
+DECL|enum|__anon2be6dc310c03
 typedef|typedef
 enum|enum
 block|{
@@ -422,7 +523,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27cd2eae0b03
+DECL|enum|__anon2be6dc310d03
 typedef|typedef
 enum|enum
 block|{
@@ -473,7 +574,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27cd2eae0c08
+DECL|struct|__anon2be6dc310e08
 typedef|typedef
 struct|struct
 block|{
@@ -493,7 +594,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27cd2eae0d08
+DECL|struct|__anon2be6dc310f08
 typedef|typedef
 struct|struct
 block|{
@@ -696,7 +797,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27cd2eae0e08
+DECL|struct|__anon2be6dc311008
 typedef|typedef
 struct|struct
 block|{
@@ -1205,7 +1306,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27cd2eae0f08
+DECL|struct|__anon2be6dc311108
 typedef|typedef
 struct|struct
 block|{
