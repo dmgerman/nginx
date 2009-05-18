@@ -66,7 +66,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon292d47620108
+DECL|struct|__anon2b5ff13c0108
 typedef|typedef
 struct|struct
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292d47620208
+DECL|struct|__anon2b5ff13c0208
 typedef|typedef
 struct|struct
 block|{
@@ -1711,13 +1711,21 @@ operator|==
 name|NGX_CONF_UNSET
 condition|)
 block|{
+name|c
+operator|=
+name|r
+operator|->
+name|connection
+expr_stmt|;
 if|if
 condition|(
-name|ngx_http_server_addr
+name|ngx_connection_local_sockaddr
 argument_list|(
-name|r
+name|c
 argument_list|,
 name|NULL
+argument_list|,
+literal|0
 argument_list|)
 operator|!=
 name|NGX_OK
@@ -1727,12 +1735,6 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-name|c
-operator|=
-name|r
-operator|->
-name|connection
-expr_stmt|;
 switch|switch
 condition|(
 name|c
