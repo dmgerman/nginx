@@ -1523,10 +1523,6 @@ name|local_sockaddr
 expr_stmt|;
 name|addr6
 operator|=
-operator|(
-name|ngx_http_in6_addr_t
-operator|*
-operator|)
 name|port
 operator|->
 name|addrs
@@ -1680,10 +1676,6 @@ name|AF_INET6
 case|:
 name|addr6
 operator|=
-operator|(
-name|ngx_http_in6_addr_t
-operator|*
-operator|)
 name|port
 operator|->
 name|addrs
