@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon274d47ea0108
+DECL|struct|__anon2b4ff7230108
 typedef|typedef
 struct|struct
 block|{
@@ -103,7 +103,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon274d47ea0203
+DECL|enum|__anon2b4ff7230203
 typedef|typedef
 enum|enum
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon274d47ea0308
+DECL|struct|__anon2b4ff7230308
 typedef|typedef
 struct|struct
 block|{
@@ -166,7 +166,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon274d47ea0408
+DECL|struct|__anon2b4ff7230408
 typedef|typedef
 struct|struct
 block|{
@@ -293,7 +293,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon274d47ea0508
+DECL|struct|__anon2b4ff7230508
 typedef|typedef
 struct|struct
 block|{
@@ -336,7 +336,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon274d47ea0608
+DECL|struct|__anon2b4ff7230608
 typedef|typedef
 struct|struct
 block|{
@@ -366,7 +366,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon274d47ea0708
+DECL|struct|__anon2b4ff7230708
 typedef|typedef
 struct|struct
 block|{
@@ -393,7 +393,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon274d47ea0808
+DECL|struct|__anon2b4ff7230808
 typedef|typedef
 struct|struct
 block|{
@@ -1609,6 +1609,37 @@ argument_list|)
 block|,
 operator|&
 name|ngx_http_fastcgi_next_upstream_masks
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"fastcgi_cache_methods"
+argument_list|)
+block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
+name|NGX_HTTP_SRV_CONF
+operator||
+name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_CONF_1MORE
+block|,
+name|ngx_conf_set_bitmask_slot
+block|,
+name|NGX_HTTP_LOC_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+name|ngx_http_fastcgi_loc_conf_t
+argument_list|,
+name|upstream
+operator|.
+name|cache_methods
+argument_list|)
+block|,
+operator|&
+name|ngx_http_upstream_cache_method_mask
 block|}
 block|,
 endif|#
@@ -8418,7 +8449,7 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
-comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.bufs.num = 0;      *     conf->upstream.ignore_headers = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.use_stale_cache = 0;      *     conf->upstream.temp_path = NULL;      *     conf->upstream.hide_headers_hash = { NULL, 0 };      *     conf->upstream.uri = { 0, NULL };      *     conf->upstream.location = NULL;      *     conf->upstream.store_lengths = NULL;      *     conf->upstream.store_values = NULL;      *      *     conf->index.len = 0;      *     conf->index.data = NULL;      */
+comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.bufs.num = 0;      *     conf->upstream.ignore_headers = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.cache_use_stale = 0;      *     conf->upstream.cache_methods = 0;      *     conf->upstream.temp_path = NULL;      *     conf->upstream.hide_headers_hash = { NULL, 0 };      *     conf->upstream.uri = { 0, NULL };      *     conf->upstream.location = NULL;      *     conf->upstream.store_lengths = NULL;      *     conf->upstream.store_values = NULL;      *      *     conf->index.len = 0;      *     conf->index.data = NULL;      */
 name|conf
 operator|->
 name|upstream
@@ -9479,6 +9510,40 @@ operator||
 name|NGX_HTTP_UPSTREAM_FT_OFF
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|conf
+operator|->
+name|upstream
+operator|.
+name|cache_methods
+operator|==
+literal|0
+condition|)
+block|{
+name|conf
+operator|->
+name|upstream
+operator|.
+name|cache_methods
+operator|=
+name|prev
+operator|->
+name|upstream
+operator|.
+name|cache_methods
+expr_stmt|;
+block|}
+name|conf
+operator|->
+name|upstream
+operator|.
+name|cache_methods
+operator||=
+name|NGX_HTTP_GET
+operator||
+name|NGX_HTTP_HEAD
+expr_stmt|;
 name|ngx_conf_merge_ptr_value
 argument_list|(
 name|conf
