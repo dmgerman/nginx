@@ -2815,9 +2815,7 @@ name|c
 operator|->
 name|min_uses
 operator|=
-name|r
-operator|->
-name|upstream
+name|u
 operator|->
 name|conf
 operator|->
@@ -2827,9 +2825,7 @@ name|c
 operator|->
 name|body_start
 operator|=
-name|r
-operator|->
-name|upstream
+name|u
 operator|->
 name|conf
 operator|->
