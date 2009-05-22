@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29d8ee020108
+DECL|struct|__anon2c53534d0108
 typedef|typedef
 struct|struct
 block|{
@@ -816,6 +816,12 @@ operator|.
 name|content_encoding
 operator|=
 name|h
+expr_stmt|;
+name|r
+operator|->
+name|ignore_content_encoding
+operator|=
+literal|1
 expr_stmt|;
 comment|/* we need to allocate all before the header would be sent */
 name|b

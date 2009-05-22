@@ -58,7 +58,7 @@ value|(sizeof("&#1114111;") - 1)
 end_define
 
 begin_typedef
-DECL|struct|__anon290f29090108
+DECL|struct|__anon2bf58a660108
 typedef|typedef
 struct|struct
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290f29090208
+DECL|struct|__anon2bf58a660208
 typedef|typedef
 struct|struct
 block|{
@@ -110,7 +110,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290f29090308
+DECL|struct|__anon2bf58a660308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290f29090408
+DECL|struct|__anon2bf58a660408
 typedef|typedef
 struct|struct
 block|{
@@ -165,7 +165,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290f29090508
+DECL|struct|__anon2bf58a660508
 typedef|typedef
 struct|struct
 block|{
@@ -197,7 +197,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290f29090608
+DECL|struct|__anon2bf58a660608
 typedef|typedef
 struct|struct
 block|{
@@ -261,7 +261,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290f29090708
+DECL|struct|__anon2bf58a660708
 typedef|typedef
 struct|struct
 block|{
@@ -942,6 +942,11 @@ condition|)
 block|{
 if|if
 condition|(
+operator|!
+name|r
+operator|->
+name|ignore_content_encoding
+operator|&&
 name|r
 operator|->
 name|headers_out
