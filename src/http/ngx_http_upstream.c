@@ -13815,6 +13815,14 @@ name|h
 operator|->
 name|value
 expr_stmt|;
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_type_lowcase
+operator|=
+name|NULL
+expr_stmt|;
 for|for
 control|(
 name|p

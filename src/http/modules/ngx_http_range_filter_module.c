@@ -26,7 +26,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon2baeeed20108
+DECL|struct|__anon2c815b7b0108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baeeed20208
+DECL|struct|__anon2c815b7b0208
 typedef|typedef
 struct|struct
 block|{
@@ -1827,6 +1827,14 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_type_lowcase
+operator|=
+name|NULL
+expr_stmt|;
 comment|/* "Content-Type: multipart/byteranges; boundary=0123456789" */
 name|r
 operator|->
@@ -1858,6 +1866,20 @@ operator|.
 name|content_type
 operator|.
 name|data
+expr_stmt|;
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_type_len
+operator|=
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_type
+operator|.
+name|len
 expr_stmt|;
 comment|/* the size of the last boundary CRLF "--0123456789--" CRLF */
 name|len

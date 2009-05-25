@@ -148,7 +148,7 @@ value|0x08
 end_define
 
 begin_typedef
-DECL|struct|__anon2c6a76ff0108
+DECL|struct|__anon291158620108
 typedef|typedef
 struct|struct
 block|{
@@ -179,7 +179,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6a76ff0208
+DECL|struct|__anon291158620208
 typedef|typedef
 struct|struct
 block|{
@@ -1243,6 +1243,14 @@ operator|=
 operator|*
 name|ct
 expr_stmt|;
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_type_lowcase
+operator|=
+name|NULL
+expr_stmt|;
 if|if
 condition|(
 name|conf
@@ -2175,6 +2183,14 @@ name|u_char
 operator|*
 operator|)
 literal|"text/plain"
+expr_stmt|;
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_type_lowcase
+operator|=
+name|NULL
 expr_stmt|;
 if|if
 condition|(
