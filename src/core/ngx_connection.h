@@ -244,7 +244,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2b40ff220103
+DECL|enum|__anon29b0e19a0103
 typedef|typedef
 enum|enum
 block|{
@@ -271,7 +271,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b40ff220203
+DECL|enum|__anon29b0e19a0203
 typedef|typedef
 enum|enum
 block|{
@@ -292,7 +292,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b40ff220303
+DECL|enum|__anon29b0e19a0303
 typedef|typedef
 enum|enum
 block|{
@@ -431,6 +431,10 @@ decl_stmt|;
 DECL|member|number
 name|ngx_atomic_uint_t
 name|number
+decl_stmt|;
+DECL|member|requests
+name|ngx_uint_t
+name|requests
 decl_stmt|;
 DECL|member|buffered
 name|unsigned

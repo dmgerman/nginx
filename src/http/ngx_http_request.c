@@ -1297,6 +1297,11 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|c
+operator|->
+name|requests
+operator|++
+expr_stmt|;
 name|hc
 operator|=
 name|c
