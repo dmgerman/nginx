@@ -66,7 +66,7 @@ value|(sizeof("&#1114111;") - 1)
 end_define
 
 begin_typedef
-DECL|struct|__anon2c40c8720108
+DECL|struct|__anon2c36685a0108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c40c8720208
+DECL|struct|__anon2c36685a0208
 typedef|typedef
 struct|struct
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c40c8720308
+DECL|struct|__anon2c36685a0308
 typedef|typedef
 struct|struct
 block|{
@@ -147,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c40c8720408
+DECL|struct|__anon2c36685a0408
 typedef|typedef
 struct|struct
 block|{
@@ -173,7 +173,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c40c8720508
+DECL|struct|__anon2c36685a0508
 typedef|typedef
 struct|struct
 block|{
@@ -205,7 +205,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c40c8720608
+DECL|struct|__anon2c36685a0608
 typedef|typedef
 struct|struct
 block|{
@@ -273,7 +273,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c40c8720708
+DECL|struct|__anon2c36685a0708
 typedef|typedef
 struct|struct
 block|{
@@ -1218,7 +1218,7 @@ expr_stmt|;
 if|if
 condition|(
 name|source_charset
-operator|==
+operator|!=
 name|charset
 condition|)
 block|{
@@ -1721,6 +1721,12 @@ operator|=
 operator|*
 name|main_charset
 expr_stmt|;
+operator|*
+name|src
+operator|=
+operator|*
+name|main_charset
+expr_stmt|;
 return|return
 name|charset
 return|;
@@ -2172,6 +2178,17 @@ operator|->
 name|charset
 operator|=
 name|charset
+expr_stmt|;
+name|ctx
+operator|->
+name|charset_name
+operator|=
+name|charsets
+index|[
+name|charset
+index|]
+operator|.
+name|name
 expr_stmt|;
 name|ctx
 operator|->
