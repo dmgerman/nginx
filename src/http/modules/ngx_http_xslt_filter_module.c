@@ -96,7 +96,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2742de680108
+DECL|struct|__anon27c218630108
 typedef|typedef
 struct|struct
 block|{
@@ -117,7 +117,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2742de680208
+DECL|struct|__anon27c218630208
 typedef|typedef
 struct|struct
 block|{
@@ -138,7 +138,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2742de680308
+DECL|struct|__anon27c218630308
 typedef|typedef
 struct|struct
 block|{
@@ -158,7 +158,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2742de680408
+DECL|struct|__anon27c218630408
 typedef|typedef
 struct|struct
 block|{
@@ -187,7 +187,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2742de680508
+DECL|struct|__anon27c218630508
 typedef|typedef
 struct|struct
 block|{
@@ -1521,6 +1521,12 @@ operator|->
 name|buf
 operator|->
 name|last_buf
+operator|||
+name|cl
+operator|->
+name|buf
+operator|->
+name|last_in_chain
 condition|)
 block|{
 name|ctx
@@ -2187,9 +2193,17 @@ operator|->
 name|pos
 operator|)
 argument_list|,
+operator|(
 name|b
 operator|->
 name|last_buf
+operator|)
+operator|||
+operator|(
+name|b
+operator|->
+name|last_in_chain
+operator|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -3981,12 +3995,6 @@ name|memory
 operator|=
 literal|1
 expr_stmt|;
-name|b
-operator|->
-name|last_buf
-operator|=
-literal|1
-expr_stmt|;
 if|if
 condition|(
 name|encoding
@@ -4029,6 +4037,12 @@ return|return
 name|b
 return|;
 block|}
+name|b
+operator|->
+name|last_buf
+operator|=
+literal|1
+expr_stmt|;
 if|if
 condition|(
 name|type
