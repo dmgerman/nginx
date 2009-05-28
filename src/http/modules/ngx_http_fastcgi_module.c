@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27c9f86e0108
+DECL|struct|__anon290248190108
 typedef|typedef
 struct|struct
 block|{
@@ -103,7 +103,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27c9f86e0203
+DECL|enum|__anon290248190203
 typedef|typedef
 enum|enum
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c9f86e0308
+DECL|struct|__anon290248190308
 typedef|typedef
 struct|struct
 block|{
@@ -166,7 +166,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c9f86e0408
+DECL|struct|__anon290248190408
 typedef|typedef
 struct|struct
 block|{
@@ -293,7 +293,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon27c9f86e0508
+DECL|struct|__anon290248190508
 typedef|typedef
 struct|struct
 block|{
@@ -336,7 +336,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c9f86e0608
+DECL|struct|__anon290248190608
 typedef|typedef
 struct|struct
 block|{
@@ -366,7 +366,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c9f86e0708
+DECL|struct|__anon290248190708
 typedef|typedef
 struct|struct
 block|{
@@ -393,7 +393,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c9f86e0808
+DECL|struct|__anon290248190808
 typedef|typedef
 struct|struct
 block|{
@@ -11765,35 +11765,6 @@ index|]
 operator|.
 name|data
 argument_list|,
-literal|"on"
-argument_list|)
-operator|==
-literal|0
-condition|)
-block|{
-name|flcf
-operator|->
-name|upstream
-operator|.
-name|store
-operator|=
-literal|1
-expr_stmt|;
-return|return
-name|NGX_CONF_OK
-return|;
-block|}
-if|if
-condition|(
-name|ngx_strcmp
-argument_list|(
-name|value
-index|[
-literal|1
-index|]
-operator|.
-name|data
-argument_list|,
 literal|"off"
 argument_list|)
 operator|==
@@ -11807,6 +11778,65 @@ operator|.
 name|store
 operator|=
 literal|0
+expr_stmt|;
+return|return
+name|NGX_CONF_OK
+return|;
+block|}
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_CACHE
+operator|)
+if|if
+condition|(
+name|flcf
+operator|->
+name|upstream
+operator|.
+name|cache
+operator|!=
+name|NGX_CONF_UNSET_PTR
+operator|&&
+name|flcf
+operator|->
+name|upstream
+operator|.
+name|cache
+operator|!=
+name|NULL
+condition|)
+block|{
+return|return
+literal|"is incompatible with \"fastcgi_cache\""
+return|;
+block|}
+endif|#
+directive|endif
+if|if
+condition|(
+name|ngx_strcmp
+argument_list|(
+name|value
+index|[
+literal|1
+index|]
+operator|.
+name|data
+argument_list|,
+literal|"on"
+argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+name|flcf
+operator|->
+name|upstream
+operator|.
+name|store
+operator|=
+literal|1
 expr_stmt|;
 return|return
 name|NGX_CONF_OK
@@ -12004,6 +12034,27 @@ name|NULL
 expr_stmt|;
 return|return
 name|NGX_CONF_OK
+return|;
+block|}
+if|if
+condition|(
+name|flcf
+operator|->
+name|upstream
+operator|.
+name|store
+operator|>
+literal|0
+operator|||
+name|flcf
+operator|->
+name|upstream
+operator|.
+name|store_lengths
+condition|)
+block|{
+return|return
+literal|"is incompatible with \"fastcgi_store\""
 return|;
 block|}
 name|flcf
