@@ -997,7 +997,7 @@ name|to
 operator|->
 name|len
 argument_list|,
-literal|".%0muA.DELETE"
+literal|".%0muA.DELETE%Z"
 argument_list|,
 name|num
 argument_list|)
