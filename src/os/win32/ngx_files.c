@@ -1040,7 +1040,13 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"MoveFile() failed"
+literal|"MoveFile() \"%s\" to \"%s\" failed"
+argument_list|,
+name|to
+operator|->
+name|data
+argument_list|,
+name|name
 argument_list|)
 expr_stmt|;
 block|}
@@ -1105,7 +1111,9 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"DeleteFile() failed"
+literal|"DeleteFile() \"%s\" failed"
+argument_list|,
+name|name
 argument_list|)
 expr_stmt|;
 block|}
@@ -1124,7 +1132,15 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"MoveFile() failed"
+literal|"MoveFile() \"%s\" to \"%s\" failed"
+argument_list|,
+name|from
+operator|->
+name|data
+argument_list|,
+name|to
+operator|->
+name|data
 argument_list|)
 expr_stmt|;
 block|}
