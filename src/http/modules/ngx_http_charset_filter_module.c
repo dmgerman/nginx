@@ -66,7 +66,7 @@ value|(sizeof("&#1114111;") - 1)
 end_define
 
 begin_typedef
-DECL|struct|__anon297df3610108
+DECL|struct|__anon29591cd10108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297df3610208
+DECL|struct|__anon29591cd10208
 typedef|typedef
 struct|struct
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297df3610308
+DECL|struct|__anon29591cd10308
 typedef|typedef
 struct|struct
 block|{
@@ -147,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297df3610408
+DECL|struct|__anon29591cd10408
 typedef|typedef
 struct|struct
 block|{
@@ -173,7 +173,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297df3610508
+DECL|struct|__anon29591cd10508
 typedef|typedef
 struct|struct
 block|{
@@ -205,7 +205,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297df3610608
+DECL|struct|__anon29591cd10608
 typedef|typedef
 struct|struct
 block|{
@@ -273,7 +273,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297df3610708
+DECL|struct|__anon29591cd10708
 typedef|typedef
 struct|struct
 block|{
@@ -6508,7 +6508,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NULL
 return|;
 block|}
 if|if
@@ -6536,7 +6536,7 @@ name|NGX_OK
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NULL
 return|;
 block|}
 if|if
@@ -6564,7 +6564,7 @@ name|NGX_OK
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NULL
 return|;
 block|}
 if|if
@@ -6592,7 +6592,7 @@ name|NGX_OK
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NULL
 return|;
 block|}
 return|return
@@ -6639,7 +6639,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NULL
 return|;
 block|}
 comment|/*      * set by ngx_pcalloc():      *      *     lcf->types = { NULL };      *     lcf->types_keys = NULL;      */

@@ -677,7 +677,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NULL
 return|;
 block|}
 comment|/*      * set by ngx_pcalloc():      *      *     scf->protocols = 0;      *     scf->certificate = { 0, NULL };      *     scf->certificate_key = { 0, NULL };      *     scf->dhparam = { 0, NULL };      *     scf->ciphers.len = 0;      *     scf->ciphers.data = NULL;      *     scf->shm_zone = NULL;      */

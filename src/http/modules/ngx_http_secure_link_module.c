@@ -28,7 +28,7 @@ file|<ngx_md5.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bdb08790108
+DECL|struct|__anon2b03b1120108
 typedef|typedef
 struct|struct
 block|{
@@ -583,7 +583,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NULL
 return|;
 block|}
 comment|/*      * set by ngx_pcalloc():      *      *     conf->secret = { 0, NULL }      */

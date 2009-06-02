@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b3c37310108
+DECL|struct|__anon294229460108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3c37310208
+DECL|struct|__anon294229460208
 typedef|typedef
 struct|struct
 block|{
@@ -73,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3c37310308
+DECL|struct|__anon294229460308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3c37310408
+DECL|struct|__anon294229460408
 typedef|typedef
 struct|struct
 block|{
@@ -1595,7 +1595,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NULL
 return|;
 block|}
 comment|/*      * set by ngx_pcalloc():      *      *     conf->shm_zone = NULL;      *     conf->conn = 0;      */

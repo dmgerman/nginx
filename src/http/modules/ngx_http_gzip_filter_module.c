@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2aeaa3c60108
+DECL|struct|__anon292ec5180108
 typedef|typedef
 struct|struct
 block|{
@@ -80,7 +80,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aeaa3c60208
+DECL|struct|__anon292ec5180208
 typedef|typedef
 struct|struct
 block|{
@@ -4643,7 +4643,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NULL
 return|;
 block|}
 comment|/*      * set by ngx_pcalloc():      *      *     conf->bufs.num = 0;      *     conf->types = { NULL };      *     conf->types_keys = NULL;      */

@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon295d4cef0108
+DECL|struct|__anon288b71f40108
 typedef|typedef
 struct|struct
 block|{
@@ -8811,7 +8811,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NULL
 return|;
 block|}
 comment|/*      * set by ngx_pcalloc():      *      *     oscf->engine = 0;      */

@@ -66,7 +66,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon2b5ff13c0108
+DECL|struct|__anon2ab3a76e0108
 typedef|typedef
 struct|struct
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5ff13c0208
+DECL|struct|__anon2ab3a76e0208
 typedef|typedef
 struct|struct
 block|{
@@ -2717,7 +2717,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NULL
 return|;
 block|}
 comment|/*      * set by ngx_pcalloc():      *      *     conf->name.len = 0;      *     conf->name.date = NULL;      *     conf->domain.len = 0;      *     conf->domain.date = NULL;      *     conf->path.len = 0;      *     conf->path.date = NULL;      *     conf->p3p.len = 0;      *     conf->p3p.date = NULL;      */

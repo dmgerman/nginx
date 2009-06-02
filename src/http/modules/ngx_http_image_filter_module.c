@@ -148,7 +148,7 @@ value|0x08
 end_define
 
 begin_typedef
-DECL|struct|__anon291158620108
+DECL|struct|__anon2b5f27780108
 typedef|typedef
 struct|struct
 block|{
@@ -179,7 +179,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291158620208
+DECL|struct|__anon2b5f27780208
 typedef|typedef
 struct|struct
 block|{
@@ -4065,7 +4065,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NULL
 return|;
 block|}
 name|conf

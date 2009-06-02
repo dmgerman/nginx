@@ -28,7 +28,7 @@ file|<ngx_kqueue_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28d9be490108
+DECL|struct|__anon295a57790108
 typedef|typedef
 struct|struct
 block|{
@@ -2892,7 +2892,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NULL
 return|;
 block|}
 name|kcf

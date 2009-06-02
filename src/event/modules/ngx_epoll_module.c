@@ -327,7 +327,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28dd26740108
+DECL|struct|__anon2b401ee20108
 typedef|typedef
 struct|struct
 block|{
@@ -2281,7 +2281,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NULL
 return|;
 block|}
 name|epcf

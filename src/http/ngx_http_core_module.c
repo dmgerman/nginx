@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2880d0380108
+DECL|struct|__anon2b9f948b0108
 typedef|typedef
 struct|struct
 block|{
@@ -11773,7 +11773,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NULL
 return|;
 block|}
 if|if
@@ -11802,7 +11802,7 @@ name|NGX_OK
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NULL
 return|;
 block|}
 name|cmcf
@@ -11991,7 +11991,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NULL
 return|;
 block|}
 comment|/*      * set by ngx_pcalloc():      *      *     conf->client_large_buffers.num = 0;      */
@@ -12020,7 +12020,7 @@ name|NGX_OK
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NULL
 return|;
 block|}
 if|if
@@ -12048,7 +12048,7 @@ name|NGX_OK
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NULL
 return|;
 block|}
 name|cscf
@@ -12591,7 +12591,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NULL
 return|;
 block|}
 comment|/*      * set by ngx_pcalloc():      *      *     lcf->root = { 0, NULL };      *     lcf->limit_except = 0;      *     lcf->post_action = { 0, NULL };      *     lcf->types = NULL;      *     lcf->default_type = { 0, NULL };      *     lcf->error_log = NULL;      *     lcf->error_pages = NULL;      *     lcf->try_files = NULL;      *     lcf->client_body_path = NULL;      *     lcf->regex = NULL;      *     lcf->exact_match = 0;      *     lcf->auto_redirect = 0;      *     lcf->alias = 0;      *     lcf->gzip_proxied = 0;      */

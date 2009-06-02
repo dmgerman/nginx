@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a0550830108
+DECL|struct|__anon2aea8e9b0108
 typedef|typedef
 struct|struct
 block|{
@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a0550830203
+DECL|enum|__anon2aea8e9b0203
 typedef|typedef
 enum|enum
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a0550830308
+DECL|struct|__anon2aea8e9b0308
 typedef|typedef
 struct|struct
 block|{
@@ -2742,7 +2742,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NULL
 return|;
 block|}
 comment|/*      * set by ngx_pcalloc():      *      *     conf->match = { 0, NULL };      *     conf->sub = { 0, NULL };      *     conf->sub_lengths = NULL;      *     conf->sub_values = NULL;      *     conf->types = { NULL };      *     conf->types_keys = NULL;      */

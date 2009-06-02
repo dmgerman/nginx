@@ -4604,7 +4604,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NULL
 return|;
 block|}
 name|ecf
@@ -4677,7 +4677,7 @@ name|NGX_ERROR
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NULL
 return|;
 block|}
 endif|#

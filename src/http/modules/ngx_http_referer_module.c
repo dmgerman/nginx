@@ -52,7 +52,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon287f76930108
+DECL|struct|__anon28a523740108
 typedef|typedef
 struct|struct
 block|{
@@ -843,7 +843,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NULL
 return|;
 block|}
 if|#

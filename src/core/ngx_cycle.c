@@ -1160,7 +1160,7 @@ if|if
 condition|(
 name|rv
 operator|==
-name|NGX_CONF_ERROR
+name|NULL
 condition|)
 block|{
 name|ngx_destroy_pool

@@ -62,7 +62,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon28ca5d490108
+DECL|struct|__anon290efdfd0108
 typedef|typedef
 struct|struct
 block|{
@@ -102,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ca5d490208
+DECL|struct|__anon290efdfd0208
 typedef|typedef
 struct|struct
 block|{
@@ -125,7 +125,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ca5d490308
+DECL|struct|__anon290efdfd0308
 typedef|typedef
 struct|struct
 block|{
@@ -149,7 +149,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28ca5d490403
+DECL|enum|__anon290efdfd0403
 typedef|typedef
 enum|enum
 block|{
@@ -11954,7 +11954,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NULL
 return|;
 block|}
 name|smcf
@@ -11993,7 +11993,7 @@ name|NGX_OK
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NULL
 return|;
 block|}
 return|return
@@ -12149,7 +12149,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NULL
 return|;
 block|}
 comment|/*      * set by ngx_pcalloc():      *      *     conf->types = { NULL };      *     conf->types_keys = NULL;      */

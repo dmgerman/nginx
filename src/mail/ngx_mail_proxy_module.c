@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29d4d3af0108
+DECL|struct|__anon2b4fdaf20108
 typedef|typedef
 struct|struct
 block|{
@@ -5025,7 +5025,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NULL
 return|;
 block|}
 name|pcf

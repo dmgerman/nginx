@@ -134,7 +134,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c4db0030108
+DECL|struct|__anon2b4ca8f90108
 typedef|typedef
 struct|struct
 block|{
@@ -2838,7 +2838,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NULL
 return|;
 block|}
 name|rtscf

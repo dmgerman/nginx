@@ -42,7 +42,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2b3ab3e60108
+DECL|struct|__anon2ae57a2b0108
 typedef|typedef
 struct|struct
 block|{
@@ -75,7 +75,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3ab3e60208
+DECL|struct|__anon2ae57a2b0208
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3ab3e60308
+DECL|struct|__anon2ae57a2b0308
 typedef|typedef
 struct|struct
 block|{
@@ -128,7 +128,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3ab3e60408
+DECL|struct|__anon2ae57a2b0408
 typedef|typedef
 struct|struct
 block|{
@@ -1554,7 +1554,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NULL
 return|;
 block|}
 comment|/*      * set by ngx_pcalloc():      *      *     conf->modern_browsers = NULL;      *     conf->ancient_browsers = NULL;      *     conf->modern_browser_value = NULL;      *     conf->ancient_browser_value = NULL;      *      *     conf->modern_unlisted_browsers = 0;      *     conf->netscape4 = 0;      */
