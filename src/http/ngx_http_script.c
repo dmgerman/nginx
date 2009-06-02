@@ -2632,7 +2632,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NULL
 return|;
 block|}
 if|if
