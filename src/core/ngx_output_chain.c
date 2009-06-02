@@ -1197,6 +1197,12 @@ name|next
 expr_stmt|;
 endif|#
 directive|endif
+name|cl
+operator|->
+name|next
+operator|=
+name|NULL
+expr_stmt|;
 operator|*
 name|ll
 operator|=
@@ -1210,11 +1216,6 @@ operator|->
 name|next
 expr_stmt|;
 block|}
-operator|*
-name|ll
-operator|=
-name|NULL
-expr_stmt|;
 return|return
 name|NGX_OK
 return|;
