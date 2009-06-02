@@ -65,6 +65,9 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+operator|(
+name|void
+operator|)
 name|ngx_sprintf
 argument_list|(
 name|name
@@ -152,17 +155,23 @@ name|shm
 operator|->
 name|size
 argument_list|,
-name|shm
-operator|->
 name|name
-operator|.
-name|data
 argument_list|)
 expr_stmt|;
-goto|goto
-name|failed
-goto|;
+name|ngx_free
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
 block|}
+name|ngx_free
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|ngx_errno
@@ -219,11 +228,16 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"MapViewOfFile(%uz) failed"
+literal|"MapViewOfFile(%uz) of file mapping \"%V\" failed"
 argument_list|,
 name|shm
 operator|->
 name|size
+argument_list|,
+operator|&
+name|shm
+operator|->
+name|name
 argument_list|)
 expr_stmt|;
 if|if
@@ -248,17 +262,15 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"CloseHandle() failed"
-argument_list|)
-expr_stmt|;
-block|}
-name|failed
-label|:
-name|ngx_free
-argument_list|(
+literal|"CloseHandle() of file mapping \"%V\" failed"
+argument_list|,
+operator|&
+name|shm
+operator|->
 name|name
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|NGX_ERROR
 return|;
@@ -297,11 +309,16 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"UnmapViewOfFile(%p) failed"
+literal|"UnmapViewOfFile(%p) of file mapping \"%V\" failed"
 argument_list|,
 name|shm
 operator|->
 name|addr
+argument_list|,
+operator|&
+name|shm
+operator|->
+name|name
 argument_list|)
 expr_stmt|;
 block|}
@@ -327,7 +344,12 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"CloseHandle() failed"
+literal|"CloseHandle() of file mapping \"%V\" failed"
+argument_list|,
+operator|&
+name|shm
+operator|->
+name|name
 argument_list|)
 expr_stmt|;
 block|}
