@@ -2224,7 +2224,7 @@ name|cycle
 operator|->
 name|log
 argument_list|,
-literal|0
+name|ngx_errno
 argument_list|,
 literal|"GetExitCodeProcess(%P) failed"
 argument_list|,
