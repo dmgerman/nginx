@@ -1903,7 +1903,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"process: %d %P %p e:%d t:%d r:%d j:%d"
+literal|"process: %d %P %p e:%d j:%d"
 argument_list|,
 name|n
 argument_list|,
@@ -2453,7 +2453,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"process: %d %P %p e:%d t:%d r:%d j:%d"
+literal|"process: %d %P %p e:%d j:%d"
 argument_list|,
 name|n
 argument_list|,
