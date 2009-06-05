@@ -115,19 +115,11 @@ return|return
 name|dst
 return|;
 block|}
-for|for
-control|(
-comment|/* void */
-init|;
+while|while
+condition|(
 operator|--
 name|n
-condition|;
-name|dst
-operator|++
-operator|,
-name|src
-operator|++
-control|)
+condition|)
 block|{
 operator|*
 name|dst
@@ -147,6 +139,12 @@ return|return
 name|dst
 return|;
 block|}
+name|dst
+operator|++
+expr_stmt|;
+name|src
+operator|++
+expr_stmt|;
 block|}
 operator|*
 name|dst
@@ -5427,7 +5425,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon28c8ca2c0103
+DECL|enum|__anon29abdfe90103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
