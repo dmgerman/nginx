@@ -134,7 +134,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon278fd0980108
+DECL|struct|__anon2c5360760108
 typedef|typedef
 struct|struct
 block|{
@@ -152,6 +152,10 @@ DECL|member|next
 name|ngx_pool_t
 modifier|*
 name|next
+decl_stmt|;
+DECL|member|failed
+name|ngx_uint_t
+name|failed
 decl_stmt|;
 DECL|typedef|ngx_pool_data_t
 block|}
@@ -202,7 +206,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon278fd0980208
+DECL|struct|__anon2c5360760208
 typedef|typedef
 struct|struct
 block|{
