@@ -148,7 +148,7 @@ value|0x08
 end_define
 
 begin_typedef
-DECL|struct|__anon2b5f27780108
+DECL|struct|__anon2ad132d40108
 typedef|typedef
 struct|struct
 block|{
@@ -179,7 +179,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5f27780208
+DECL|struct|__anon2ad132d40208
 typedef|typedef
 struct|struct
 block|{
@@ -1629,23 +1629,34 @@ literal|'8'
 operator|&&
 name|p
 index|[
-literal|4
-index|]
-operator|==
-literal|'9'
-operator|&&
-name|p
-index|[
 literal|5
 index|]
 operator|==
 literal|'a'
 condition|)
 block|{
+if|if
+condition|(
+name|p
+index|[
+literal|4
+index|]
+operator|==
+literal|'9'
+operator|||
+name|p
+index|[
+literal|4
+index|]
+operator|==
+literal|'7'
+condition|)
+block|{
 comment|/* GIF */
 return|return
 name|NGX_HTTP_IMAGE_GIF
 return|;
+block|}
 block|}
 if|else if
 condition|(
