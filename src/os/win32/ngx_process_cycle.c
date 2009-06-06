@@ -77,7 +77,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|void
+name|ngx_int_t
 name|ngx_start_worker_processes
 parameter_list|(
 name|ngx_cycle_t
@@ -643,13 +643,24 @@ argument_list|(
 name|cycle
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
 name|ngx_start_worker_processes
 argument_list|(
 name|cycle
 argument_list|,
 name|NGX_PROCESS_RESPAWN
 argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+name|exit
+argument_list|(
+literal|2
+argument_list|)
 expr_stmt|;
+block|}
 name|timer
 operator|=
 literal|0
@@ -1037,13 +1048,16 @@ name|ngx_cycle
 operator|=
 name|cycle
 expr_stmt|;
+if|if
+condition|(
 name|ngx_start_worker_processes
 argument_list|(
 name|cycle
 argument_list|,
 name|NGX_PROCESS_JUST_RESPAWN
 argument_list|)
-expr_stmt|;
+condition|)
+block|{
 name|ngx_quit_worker_processes
 argument_list|(
 name|cycle
@@ -1051,6 +1065,7 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
+block|}
 continue|continue;
 block|}
 if|if
@@ -1697,7 +1712,7 @@ end_function
 
 begin_function
 specifier|static
-name|void
+name|ngx_int_t
 DECL|function|ngx_start_worker_processes (ngx_cycle_t * cycle,ngx_int_t type)
 name|ngx_start_worker_processes
 parameter_list|(
@@ -1774,9 +1789,12 @@ operator|==
 name|NGX_INVALID_PID
 condition|)
 block|{
-return|return;
+break|break;
 block|}
 block|}
+return|return
+name|n
+return|;
 block|}
 end_function
 
