@@ -1458,6 +1458,17 @@ return|;
 block|}
 block|}
 block|}
+if|if
+condition|(
+name|ngx_process
+operator|==
+name|NGX_PROCESS_SIGNALLER
+condition|)
+block|{
+return|return
+name|cycle
+return|;
+block|}
 name|ccf
 operator|=
 operator|(
@@ -2834,13 +2845,6 @@ block|}
 block|}
 if|if
 condition|(
-name|ngx_process
-operator|!=
-name|NGX_PROCESS_SIGNALLER
-condition|)
-block|{
-if|if
-condition|(
 name|ngx_open_listening_sockets
 argument_list|(
 name|cycle
@@ -2864,7 +2868,6 @@ argument_list|(
 name|cycle
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/* commit the new cycle configuration */
 if|if
