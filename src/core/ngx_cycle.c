@@ -3227,6 +3227,16 @@ name|i
 index|]
 operator|.
 name|remain
+operator|||
+name|ls
+index|[
+name|i
+index|]
+operator|.
+name|fd
+operator|==
+operator|-
+literal|1
 condition|)
 block|{
 continue|continue;
