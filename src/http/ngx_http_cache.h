@@ -34,10 +34,6 @@ directive|include
 file|<ngx_http.h>
 end_include
 
-begin_comment
-comment|/**/
-end_comment
-
 begin_define
 DECL|macro|NGX_HTTP_CACHE_STALE
 define|#
@@ -45,26 +41,6 @@ directive|define
 name|NGX_HTTP_CACHE_STALE
 value|1
 end_define
-
-begin_define
-DECL|macro|NGX_HTTP_CACHE_AGED
-define|#
-directive|define
-name|NGX_HTTP_CACHE_AGED
-value|2
-end_define
-
-begin_define
-DECL|macro|NGX_HTTP_CACHE_THE_SAME
-define|#
-directive|define
-name|NGX_HTTP_CACHE_THE_SAME
-value|3
-end_define
-
-begin_comment
-comment|/**/
-end_comment
 
 begin_define
 DECL|macro|NGX_HTTP_CACHE_KEY_LEN
@@ -75,7 +51,7 @@ value|16
 end_define
 
 begin_typedef
-DECL|struct|__anon276ea6120108
+DECL|struct|__anon27b9e3950108
 typedef|typedef
 struct|struct
 block|{
@@ -93,12 +69,8 @@ name|ngx_http_cache_valid_t
 typedef|;
 end_typedef
 
-begin_comment
-comment|/* ngx_http_file_cache_node_t takes exactly 64 bytes on FreeBSD/i386 */
-end_comment
-
 begin_typedef
-DECL|struct|__anon276ea6120208
+DECL|struct|__anon27b9e3950208
 typedef|typedef
 struct|struct
 block|{
@@ -146,13 +118,13 @@ name|error
 range|:
 literal|10
 decl_stmt|;
-comment|/* 7 unused bits */
 DECL|member|exists
 name|unsigned
 name|exists
 range|:
 literal|1
 decl_stmt|;
+comment|/* 13 unused bits */
 DECL|member|uniq
 name|ngx_file_uniq_t
 name|uniq
@@ -285,7 +257,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon276ea6120308
+DECL|struct|__anon27b9e3950308
 typedef|typedef
 struct|struct
 block|{
@@ -324,7 +296,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276ea6120408
+DECL|struct|__anon27b9e3950408
 typedef|typedef
 struct|struct
 block|{

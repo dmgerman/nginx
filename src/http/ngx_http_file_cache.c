@@ -1788,7 +1788,6 @@ return|return
 name|NGX_HTTP_CACHE_STALE
 return|;
 block|}
-comment|/* TODO: NGX_HTTP_CACHE_AGED */
 return|return
 name|NGX_OK
 return|;
