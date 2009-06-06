@@ -70,14 +70,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon289e3d71010a
+DECL|union|__anon2c2fcc94010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon289e3d710208
+DECL|struct|__anon2c2fcc940208
 struct|struct
 block|{
 DECL|member|lengths
@@ -108,7 +108,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon289e3d710308
+DECL|struct|__anon2c2fcc940308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289e3d710408
+DECL|struct|__anon2c2fcc940408
 typedef|typedef
 struct|struct
 block|{
@@ -251,7 +251,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289e3d710508
+DECL|struct|__anon2c2fcc940508
 typedef|typedef
 struct|struct
 block|{
@@ -908,6 +908,15 @@ literal|"http_404"
 argument_list|)
 block|,
 name|NGX_HTTP_UPSTREAM_FT_HTTP_404
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"updating"
+argument_list|)
+block|,
+name|NGX_HTTP_UPSTREAM_FT_UPDATING
 block|}
 block|,
 block|{
@@ -6210,7 +6219,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon289e3d710603
+DECL|enum|__anon2c2fcc940603
 enum|enum
 block|{
 DECL|enumerator|sw_start

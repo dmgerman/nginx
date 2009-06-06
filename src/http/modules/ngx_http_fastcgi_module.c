@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon276fefcc0108
+DECL|struct|__anon2bad50690108
 typedef|typedef
 struct|struct
 block|{
@@ -103,7 +103,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon276fefcc0203
+DECL|enum|__anon2bad50690203
 typedef|typedef
 enum|enum
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276fefcc0308
+DECL|struct|__anon2bad50690308
 typedef|typedef
 struct|struct
 block|{
@@ -166,7 +166,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276fefcc0408
+DECL|struct|__anon2bad50690408
 typedef|typedef
 struct|struct
 block|{
@@ -293,7 +293,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon276fefcc0508
+DECL|struct|__anon2bad50690508
 typedef|typedef
 struct|struct
 block|{
@@ -336,7 +336,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276fefcc0608
+DECL|struct|__anon2bad50690608
 typedef|typedef
 struct|struct
 block|{
@@ -366,7 +366,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276fefcc0708
+DECL|struct|__anon2bad50690708
 typedef|typedef
 struct|struct
 block|{
@@ -393,7 +393,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276fefcc0808
+DECL|struct|__anon2bad50690808
 typedef|typedef
 struct|struct
 block|{
@@ -905,6 +905,15 @@ literal|"http_404"
 argument_list|)
 block|,
 name|NGX_HTTP_UPSTREAM_FT_HTTP_404
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"updating"
+argument_list|)
+block|,
+name|NGX_HTTP_UPSTREAM_FT_UPDATING
 block|}
 block|,
 block|{

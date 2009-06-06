@@ -43,6 +43,14 @@ value|1
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_CACHE_UPDATING
+define|#
+directive|define
+name|NGX_HTTP_CACHE_UPDATING
+value|2
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_CACHE_KEY_LEN
 define|#
 directive|define
@@ -51,7 +59,7 @@ value|16
 end_define
 
 begin_typedef
-DECL|struct|__anon27b72cb50108
+DECL|struct|__anon2c19884e0108
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +78,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b72cb50208
+DECL|struct|__anon2c19884e0208
 typedef|typedef
 struct|struct
 block|{
@@ -124,7 +132,13 @@ name|exists
 range|:
 literal|1
 decl_stmt|;
-comment|/* 13 unused bits */
+DECL|member|updating
+name|unsigned
+name|updating
+range|:
+literal|1
+decl_stmt|;
+comment|/* 12 unused bits */
 DECL|member|uniq
 name|ngx_file_uniq_t
 name|uniq
@@ -253,7 +267,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27b72cb50308
+DECL|struct|__anon2c19884e0308
 typedef|typedef
 struct|struct
 block|{
@@ -292,7 +306,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b72cb50408
+DECL|struct|__anon2c19884e0408
 typedef|typedef
 struct|struct
 block|{
