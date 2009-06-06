@@ -906,7 +906,7 @@ argument_list|,
 name|c
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug3
+name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
@@ -918,13 +918,9 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http file cache exists: %i u:%ui e:%d"
+literal|"http file cache exists: %i e:%d"
 argument_list|,
 name|rc
-argument_list|,
-name|c
-operator|->
-name|uses
 argument_list|,
 name|c
 operator|->
@@ -1755,14 +1751,6 @@ operator|<
 name|now
 condition|)
 block|{
-name|c
-operator|->
-name|uses
-operator|=
-name|c
-operator|->
-name|min_uses
-expr_stmt|;
 name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
@@ -2200,14 +2188,6 @@ operator|=
 name|fcn
 operator|->
 name|uniq
-expr_stmt|;
-name|c
-operator|->
-name|uses
-operator|=
-name|fcn
-operator|->
-name|uses
 expr_stmt|;
 name|c
 operator|->

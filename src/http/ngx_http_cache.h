@@ -51,7 +51,7 @@ value|16
 end_define
 
 begin_typedef
-DECL|struct|__anon27b9e3950108
+DECL|struct|__anon27b72cb50108
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +70,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b9e3950208
+DECL|struct|__anon27b72cb50208
 typedef|typedef
 struct|struct
 block|{
@@ -207,10 +207,6 @@ DECL|member|min_uses
 name|ngx_uint_t
 name|min_uses
 decl_stmt|;
-DECL|member|uses
-name|ngx_uint_t
-name|uses
-decl_stmt|;
 DECL|member|error
 name|ngx_uint_t
 name|error
@@ -257,7 +253,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27b9e3950308
+DECL|struct|__anon27b72cb50308
 typedef|typedef
 struct|struct
 block|{
@@ -296,7 +292,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b9e3950408
+DECL|struct|__anon27b72cb50408
 typedef|typedef
 struct|struct
 block|{
