@@ -1048,6 +1048,11 @@ name|ngx_cycle
 operator|=
 name|cycle
 expr_stmt|;
+name|ngx_close_listening_sockets
+argument_list|(
+name|cycle
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|ngx_start_worker_processes
