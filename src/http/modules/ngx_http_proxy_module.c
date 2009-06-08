@@ -70,14 +70,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon2c2fcc94010a
+DECL|union|__anon296557f6010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon2c2fcc940208
+DECL|struct|__anon296557f60208
 struct|struct
 block|{
 DECL|member|lengths
@@ -108,7 +108,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c2fcc940308
+DECL|struct|__anon296557f60308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2fcc940408
+DECL|struct|__anon296557f60408
 typedef|typedef
 struct|struct
 block|{
@@ -251,7 +251,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2fcc940508
+DECL|struct|__anon296557f60508
 typedef|typedef
 struct|struct
 block|{
@@ -6219,7 +6219,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2c2fcc940603
+DECL|enum|__anon296557f60603
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -10843,6 +10843,28 @@ operator|->
 name|headers_set_hash
 operator|.
 name|buckets
+operator|&&
+operator|(
+operator|(
+name|conf
+operator|->
+name|upstream
+operator|.
+name|cache
+operator|==
+name|NULL
+operator|)
+operator|==
+operator|(
+name|prev
+operator|->
+name|upstream
+operator|.
+name|cache
+operator|==
+name|NULL
+operator|)
+operator|)
 condition|)
 block|{
 return|return
