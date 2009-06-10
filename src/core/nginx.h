@@ -21,7 +21,7 @@ DECL|macro|nginx_version
 define|#
 directive|define
 name|nginx_version
-value|8001
+value|8002
 end_define
 
 begin_define
@@ -29,7 +29,7 @@ DECL|macro|NGINX_VERSION
 define|#
 directive|define
 name|NGINX_VERSION
-value|"0.8.1"
+value|"0.8.2"
 end_define
 
 begin_define
