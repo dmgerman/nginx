@@ -1703,6 +1703,16 @@ name|exists
 operator|=
 literal|1
 expr_stmt|;
+name|c
+operator|->
+name|node
+operator|->
+name|uniq
+operator|=
+name|of
+operator|.
+name|uniq
+expr_stmt|;
 name|cache
 operator|->
 name|sh
