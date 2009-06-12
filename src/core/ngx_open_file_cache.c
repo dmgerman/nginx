@@ -1600,6 +1600,12 @@ literal|0
 expr_stmt|;
 name|file
 operator|->
+name|use_event
+operator|=
+literal|0
+expr_stmt|;
+name|file
+operator|->
 name|event
 operator|=
 name|NULL
