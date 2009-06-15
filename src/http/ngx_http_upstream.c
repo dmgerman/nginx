@@ -17676,6 +17676,11 @@ operator|->
 name|hide_headers_hash
 operator|.
 name|buckets
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_CACHE
+operator|)
 operator|&&
 operator|(
 operator|(
@@ -17694,6 +17699,8 @@ operator|==
 name|NULL
 operator|)
 operator|)
+endif|#
+directive|endif
 condition|)
 block|{
 return|return
