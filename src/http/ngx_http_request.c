@@ -1083,6 +1083,9 @@ directive|if
 operator|(
 name|NGX_STAT_STUB
 operator|)
+operator|(
+name|void
+operator|)
 name|ngx_atomic_fetch_add
 argument_list|(
 name|ngx_stat_reading
@@ -1149,6 +1152,9 @@ if|#
 directive|if
 operator|(
 name|NGX_STAT_STUB
+operator|)
+operator|(
+name|void
 operator|)
 name|ngx_atomic_fetch_add
 argument_list|(
@@ -1253,6 +1259,9 @@ if|#
 directive|if
 operator|(
 name|NGX_STAT_STUB
+operator|)
+operator|(
+name|void
 operator|)
 name|ngx_atomic_fetch_add
 argument_list|(
@@ -2304,6 +2313,9 @@ directive|if
 operator|(
 name|NGX_STAT_STUB
 operator|)
+operator|(
+name|void
+operator|)
 name|ngx_atomic_fetch_add
 argument_list|(
 name|ngx_stat_reading
@@ -2317,6 +2329,9 @@ name|stat_reading
 operator|=
 literal|1
 expr_stmt|;
+operator|(
+name|void
+operator|)
 name|ngx_atomic_fetch_add
 argument_list|(
 name|ngx_stat_requests
@@ -6978,6 +6993,9 @@ directive|if
 operator|(
 name|NGX_STAT_STUB
 operator|)
+operator|(
+name|void
+operator|)
 name|ngx_atomic_fetch_add
 argument_list|(
 name|ngx_stat_reading
@@ -6992,6 +7010,9 @@ name|stat_reading
 operator|=
 literal|0
 expr_stmt|;
+operator|(
+name|void
+operator|)
 name|ngx_atomic_fetch_add
 argument_list|(
 name|ngx_stat_writing
@@ -10049,6 +10070,9 @@ directive|if
 operator|(
 name|NGX_STAT_STUB
 operator|)
+operator|(
+name|void
+operator|)
 name|ngx_atomic_fetch_add
 argument_list|(
 name|ngx_stat_reading
@@ -10931,6 +10955,9 @@ if|#
 directive|if
 operator|(
 name|NGX_STAT_STUB
+operator|)
+operator|(
+name|void
 operator|)
 name|ngx_atomic_fetch_add
 argument_list|(
@@ -11841,6 +11868,9 @@ operator|->
 name|stat_reading
 condition|)
 block|{
+operator|(
+name|void
+operator|)
 name|ngx_atomic_fetch_add
 argument_list|(
 name|ngx_stat_reading
@@ -11857,6 +11887,9 @@ operator|->
 name|stat_writing
 condition|)
 block|{
+operator|(
+name|void
+operator|)
 name|ngx_atomic_fetch_add
 argument_list|(
 name|ngx_stat_writing
@@ -12186,6 +12219,9 @@ if|#
 directive|if
 operator|(
 name|NGX_STAT_STUB
+operator|)
+operator|(
+name|void
 operator|)
 name|ngx_atomic_fetch_add
 argument_list|(

@@ -314,6 +314,9 @@ directive|if
 operator|(
 name|NGX_STAT_STUB
 operator|)
+operator|(
+name|void
+operator|)
 name|ngx_atomic_fetch_add
 argument_list|(
 name|ngx_stat_accepted
@@ -385,6 +388,9 @@ if|#
 directive|if
 operator|(
 name|NGX_STAT_STUB
+operator|)
+operator|(
+name|void
 operator|)
 name|ngx_atomic_fetch_add
 argument_list|(
@@ -762,6 +768,9 @@ if|#
 directive|if
 operator|(
 name|NGX_STAT_STUB
+operator|)
+operator|(
+name|void
 operator|)
 name|ngx_atomic_fetch_add
 argument_list|(
@@ -1530,6 +1539,9 @@ if|#
 directive|if
 operator|(
 name|NGX_STAT_STUB
+operator|)
+operator|(
+name|void
 operator|)
 name|ngx_atomic_fetch_add
 argument_list|(
