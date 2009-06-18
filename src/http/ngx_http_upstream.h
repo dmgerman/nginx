@@ -205,7 +205,7 @@ value|0x00000010
 end_define
 
 begin_typedef
-DECL|struct|__anon27bd56dd0108
+DECL|struct|__anon2ba09d420108
 typedef|typedef
 struct|struct
 block|{
@@ -245,7 +245,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27bd56dd0208
+DECL|struct|__anon2ba09d420208
 typedef|typedef
 struct|struct
 block|{
@@ -314,7 +314,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27bd56dd0308
+DECL|struct|__anon2ba09d420308
 typedef|typedef
 struct|struct
 block|{
@@ -338,7 +338,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27bd56dd0408
+DECL|struct|__anon2ba09d420408
 typedef|typedef
 struct|struct
 block|{
@@ -480,7 +480,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27bd56dd0508
+DECL|struct|__anon2ba09d420508
 typedef|typedef
 struct|struct
 block|{
@@ -676,7 +676,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27bd56dd0608
+DECL|struct|__anon2ba09d420608
 typedef|typedef
 struct|struct
 block|{
@@ -712,7 +712,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27bd56dd0708
+DECL|struct|__anon2ba09d420708
 typedef|typedef
 struct|struct
 block|{
@@ -830,7 +830,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27bd56dd0808
+DECL|struct|__anon2ba09d420808
 typedef|typedef
 struct|struct
 block|{
@@ -1157,11 +1157,11 @@ directive|if
 operator|(
 name|NGX_HTTP_CACHE
 operator|)
-DECL|member|stale_cache
+DECL|member|cache_status
 name|unsigned
-name|stale_cache
+name|cache_status
 range|:
-literal|1
+literal|3
 decl_stmt|;
 endif|#
 directive|endif
@@ -1188,7 +1188,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27bd56dd0908
+DECL|struct|__anon2ba09d420908
 typedef|typedef
 struct|struct
 block|{

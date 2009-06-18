@@ -35,11 +35,27 @@ file|<ngx_http.h>
 end_include
 
 begin_define
+DECL|macro|NGX_HTTP_CACHE_MISS
+define|#
+directive|define
+name|NGX_HTTP_CACHE_MISS
+value|1
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_CACHE_EXPIRED
+define|#
+directive|define
+name|NGX_HTTP_CACHE_EXPIRED
+value|2
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_CACHE_STALE
 define|#
 directive|define
 name|NGX_HTTP_CACHE_STALE
-value|1
+value|3
 end_define
 
 begin_define
@@ -47,7 +63,15 @@ DECL|macro|NGX_HTTP_CACHE_UPDATING
 define|#
 directive|define
 name|NGX_HTTP_CACHE_UPDATING
-value|2
+value|4
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_CACHE_HIT
+define|#
+directive|define
+name|NGX_HTTP_CACHE_HIT
+value|5
 end_define
 
 begin_define
@@ -59,7 +83,7 @@ value|16
 end_define
 
 begin_typedef
-DECL|struct|__anon2c19884e0108
+DECL|struct|__anon27bc9a800108
 typedef|typedef
 struct|struct
 block|{
@@ -78,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c19884e0208
+DECL|struct|__anon27bc9a800208
 typedef|typedef
 struct|struct
 block|{
@@ -267,7 +291,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c19884e0308
+DECL|struct|__anon27bc9a800308
 typedef|typedef
 struct|struct
 block|{
@@ -306,7 +330,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c19884e0408
+DECL|struct|__anon27bc9a800408
 typedef|typedef
 struct|struct
 block|{
@@ -515,6 +539,14 @@ name|conf
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_decl_stmt
+specifier|extern
+name|ngx_str_t
+name|ngx_http_cache_status
+index|[]
+decl_stmt|;
+end_decl_stmt
 
 begin_endif
 endif|#
