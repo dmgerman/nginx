@@ -7024,6 +7024,12 @@ condition|(
 name|status
 operator|==
 name|NGX_HTTP_UNAUTHORIZED
+operator|&&
+name|u
+operator|->
+name|headers_in
+operator|.
+name|www_authenticate
 condition|)
 block|{
 name|h
