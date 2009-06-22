@@ -1758,6 +1758,11 @@ block|,
 literal|0
 block|}
 block|,
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_CACHE
+operator|)
 block|{
 name|ngx_string
 argument_list|(
@@ -1777,6 +1782,8 @@ block|,
 literal|0
 block|}
 block|,
+endif|#
+directive|endif
 block|{
 name|ngx_null_string
 block|,
