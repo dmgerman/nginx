@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27cdb7720108
+DECL|struct|__anon2746fdcd0108
 typedef|typedef
 struct|struct
 block|{
@@ -65,7 +65,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27cdb7720208
+DECL|struct|__anon2746fdcd0208
 typedef|typedef
 struct|struct
 block|{
@@ -88,7 +88,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27cdb7720308
+DECL|struct|__anon2746fdcd0308
 typedef|typedef
 struct|struct
 block|{
@@ -122,7 +122,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27cdb7720408
+DECL|struct|__anon2746fdcd0408
 typedef|typedef
 struct|struct
 block|{
@@ -1088,6 +1088,10 @@ modifier|*
 name|r
 parameter_list|)
 block|{
+name|ngx_event_t
+modifier|*
+name|wev
+decl_stmt|;
 name|ngx_log_debug0
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
@@ -1102,6 +1106,50 @@ literal|0
 argument_list|,
 literal|"limit_req delay"
 argument_list|)
+expr_stmt|;
+name|wev
+operator|=
+name|r
+operator|->
+name|connection
+operator|->
+name|write
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|wev
+operator|->
+name|timedout
+condition|)
+block|{
+if|if
+condition|(
+name|ngx_handle_write_event
+argument_list|(
+name|wev
+argument_list|,
+literal|0
+argument_list|)
+operator|!=
+name|NGX_OK
+condition|)
+block|{
+name|ngx_http_finalize_request
+argument_list|(
+name|r
+argument_list|,
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
+argument_list|)
+expr_stmt|;
+block|}
+return|return;
+block|}
+name|wev
+operator|->
+name|timedout
+operator|=
+literal|0
 expr_stmt|;
 if|if
 condition|(
