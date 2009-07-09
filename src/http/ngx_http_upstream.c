@@ -12546,17 +12546,6 @@ condition|(
 name|rc
 operator|==
 literal|0
-operator|&&
-name|r
-operator|==
-name|r
-operator|->
-expr|main
-operator|&&
-operator|!
-name|r
-operator|->
-name|post_action
 condition|)
 block|{
 name|rc
