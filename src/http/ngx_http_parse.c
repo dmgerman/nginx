@@ -508,7 +508,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon287adf660103
+DECL|enum|__anon27723bc30103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -640,6 +640,7 @@ break|break;
 block|}
 if|if
 condition|(
+operator|(
 name|ch
 argument_list|<
 literal|'A'
@@ -647,6 +648,11 @@ operator|||
 name|ch
 argument_list|>
 literal|'Z'
+operator|)
+operator|&&
+name|ch
+operator|!=
+literal|'_'
 condition|)
 block|{
 return|return
@@ -1109,6 +1115,7 @@ break|break;
 block|}
 if|if
 condition|(
+operator|(
 name|ch
 argument_list|<
 literal|'A'
@@ -1116,6 +1123,11 @@ operator|||
 name|ch
 argument_list|>
 literal|'Z'
+operator|)
+operator|&&
+name|ch
+operator|!=
+literal|'_'
 condition|)
 block|{
 return|return
@@ -2517,7 +2529,7 @@ name|hash
 decl_stmt|,
 name|i
 decl_stmt|;
-DECL|enum|__anon287adf660203
+DECL|enum|__anon27723bc30203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -3253,7 +3265,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon287adf660303
+DECL|enum|__anon27723bc30303
 enum|enum
 block|{
 DECL|enumerator|sw_usual
