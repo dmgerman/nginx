@@ -334,6 +334,21 @@ operator|==
 literal|0
 condition|)
 block|{
+name|err
+operator|=
+name|ngx_errno
+expr_stmt|;
+if|if
+condition|(
+name|err
+operator|==
+name|ERROR_HANDLE_EOF
+condition|)
+block|{
+return|return
+literal|0
+return|;
+block|}
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ERR
@@ -342,7 +357,7 @@ name|file
 operator|->
 name|log
 argument_list|,
-name|ngx_errno
+name|err
 argument_list|,
 literal|"ReadFile() failed"
 argument_list|)
