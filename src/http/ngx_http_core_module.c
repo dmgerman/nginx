@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b4590140108
+DECL|struct|__anon2c4dcca20108
 typedef|typedef
 struct|struct
 block|{
@@ -11115,6 +11115,17 @@ name|data
 operator|=
 name|errstr
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_CASELESS_FILESYSTEM
+operator|)
+name|caseless
+operator|=
+literal|1
+expr_stmt|;
+endif|#
+directive|endif
 name|clcf
 operator|->
 name|regex

@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af2b1670108
+DECL|struct|__anon29c0b3be0108
 typedef|typedef
 struct|struct
 block|{
@@ -90,7 +90,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af2b1670208
+DECL|struct|__anon29c0b3be0208
 typedef|typedef
 struct|struct
 block|{
@@ -654,6 +654,14 @@ name|fi
 parameter_list|)
 define|\
 value|(time_t) (((((unsigned __int64) (fi)->ftLastWriteTime.dwHighDateTime<< 32) \                                | (fi)->ftLastWriteTime.dwLowDateTime)        \                                           - 116444736000000000) / 10000000)
+end_define
+
+begin_define
+DECL|macro|NGX_HAVE_CASELESS_FILESYSTEM
+define|#
+directive|define
+name|NGX_HAVE_CASELESS_FILESYSTEM
+value|1
 end_define
 
 begin_define
