@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b9f948b0108
+DECL|struct|__anon2b4590140108
 typedef|typedef
 struct|struct
 block|{
@@ -5275,27 +5275,11 @@ name|len
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
 name|ngx_http_set_exten
 argument_list|(
 name|r
 argument_list|)
-operator|!=
-name|NGX_OK
-condition|)
-block|{
-name|ngx_http_finalize_request
-argument_list|(
-name|r
-argument_list|,
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
-argument_list|)
 expr_stmt|;
-return|return
-name|NGX_OK
-return|;
-block|}
 name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
@@ -6962,7 +6946,7 @@ block|}
 end_function
 
 begin_function
-name|ngx_int_t
+name|void
 DECL|function|ngx_http_set_exten (ngx_http_request_t * r)
 name|ngx_http_set_exten
 parameter_list|(
@@ -7071,7 +7055,7 @@ operator|+
 literal|1
 index|]
 expr_stmt|;
-break|break;
+return|return;
 block|}
 if|else if
 condition|(
@@ -7087,12 +7071,10 @@ operator|==
 literal|'/'
 condition|)
 block|{
-break|break;
+return|return;
 block|}
 block|}
-return|return
-name|NGX_OK
-return|;
+return|return;
 block|}
 end_function
 
@@ -8968,20 +8950,11 @@ name|r
 operator|->
 name|http_protocol
 expr_stmt|;
-if|if
-condition|(
 name|ngx_http_set_exten
 argument_list|(
 name|sr
 argument_list|)
-operator|!=
-name|NGX_OK
-condition|)
-block|{
-return|return
-name|NGX_ERROR
-return|;
-block|}
+expr_stmt|;
 name|sr
 operator|->
 expr|main
@@ -9322,27 +9295,11 @@ operator|->
 name|args
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
 name|ngx_http_set_exten
 argument_list|(
 name|r
 argument_list|)
-operator|!=
-name|NGX_OK
-condition|)
-block|{
-name|ngx_http_finalize_request
-argument_list|(
-name|r
-argument_list|,
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
-argument_list|)
 expr_stmt|;
-return|return
-name|NGX_DONE
-return|;
-block|}
 comment|/* clear the modules contexts */
 name|ngx_memzero
 argument_list|(
