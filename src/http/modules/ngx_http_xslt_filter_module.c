@@ -96,7 +96,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28aeafaa0108
+DECL|struct|__anon2a219f5b0108
 typedef|typedef
 struct|struct
 block|{
@@ -117,7 +117,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28aeafaa0208
+DECL|struct|__anon2a219f5b0208
 typedef|typedef
 struct|struct
 block|{
@@ -138,7 +138,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28aeafaa0308
+DECL|struct|__anon2a219f5b0308
 typedef|typedef
 struct|struct
 block|{
@@ -158,7 +158,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28aeafaa0408
+DECL|struct|__anon2a219f5b0408
 typedef|typedef
 struct|struct
 block|{
@@ -187,7 +187,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28aeafaa0508
+DECL|struct|__anon2a219f5b0508
 typedef|typedef
 struct|struct
 block|{
