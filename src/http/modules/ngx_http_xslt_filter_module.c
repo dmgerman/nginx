@@ -96,7 +96,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2a219f5b0108
+DECL|struct|__anon2c09ee7e0108
 typedef|typedef
 struct|struct
 block|{
@@ -117,7 +117,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a219f5b0208
+DECL|struct|__anon2c09ee7e0208
 typedef|typedef
 struct|struct
 block|{
@@ -138,7 +138,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a219f5b0308
+DECL|struct|__anon2c09ee7e0308
 typedef|typedef
 struct|struct
 block|{
@@ -158,7 +158,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a219f5b0408
+DECL|struct|__anon2c09ee7e0408
 typedef|typedef
 struct|struct
 block|{
@@ -187,7 +187,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a219f5b0508
+DECL|struct|__anon2c09ee7e0508
 typedef|typedef
 struct|struct
 block|{
@@ -1361,6 +1361,9 @@ modifier|*
 name|in
 parameter_list|)
 block|{
+name|int
+name|wellFormed
+decl_stmt|;
 name|ngx_chain_t
 modifier|*
 name|cl
@@ -1554,6 +1557,14 @@ name|NULL
 expr_stmt|;
 endif|#
 directive|endif
+name|wellFormed
+operator|=
+name|ctx
+operator|->
+name|ctxt
+operator|->
+name|wellFormed
+expr_stmt|;
 name|xmlFreeParserCtxt
 argument_list|(
 name|ctx
@@ -1563,10 +1574,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|ctx
-operator|->
-name|ctxt
-operator|->
 name|wellFormed
 condition|)
 block|{
