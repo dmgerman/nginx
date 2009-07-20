@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bad50690108
+DECL|struct|__anon28a542610108
 typedef|typedef
 struct|struct
 block|{
@@ -103,7 +103,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2bad50690203
+DECL|enum|__anon28a542610203
 typedef|typedef
 enum|enum
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bad50690308
+DECL|struct|__anon28a542610308
 typedef|typedef
 struct|struct
 block|{
@@ -166,7 +166,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bad50690408
+DECL|struct|__anon28a542610408
 typedef|typedef
 struct|struct
 block|{
@@ -293,7 +293,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2bad50690508
+DECL|struct|__anon28a542610508
 typedef|typedef
 struct|struct
 block|{
@@ -336,7 +336,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bad50690608
+DECL|struct|__anon28a542610608
 typedef|typedef
 struct|struct
 block|{
@@ -366,7 +366,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bad50690708
+DECL|struct|__anon28a542610708
 typedef|typedef
 struct|struct
 block|{
@@ -393,7 +393,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bad50690808
+DECL|struct|__anon28a542610808
 typedef|typedef
 struct|struct
 block|{
@@ -11284,6 +11284,33 @@ name|handler
 operator|=
 name|ngx_http_fastcgi_handler
 expr_stmt|;
+if|if
+condition|(
+name|clcf
+operator|->
+name|name
+operator|.
+name|data
+index|[
+name|clcf
+operator|->
+name|name
+operator|.
+name|len
+operator|-
+literal|1
+index|]
+operator|==
+literal|'/'
+condition|)
+block|{
+name|clcf
+operator|->
+name|auto_redirect
+operator|=
+literal|1
+expr_stmt|;
+block|}
 name|value
 operator|=
 name|cf
@@ -11446,33 +11473,6 @@ block|{
 return|return
 name|NGX_CONF_ERROR
 return|;
-block|}
-if|if
-condition|(
-name|clcf
-operator|->
-name|name
-operator|.
-name|data
-index|[
-name|clcf
-operator|->
-name|name
-operator|.
-name|len
-operator|-
-literal|1
-index|]
-operator|==
-literal|'/'
-condition|)
-block|{
-name|clcf
-operator|->
-name|auto_redirect
-operator|=
-literal|1
-expr_stmt|;
 block|}
 return|return
 name|NGX_CONF_OK
