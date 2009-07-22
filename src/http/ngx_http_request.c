@@ -6911,8 +6911,6 @@ condition|(
 name|sscf
 operator|->
 name|verify
-operator|==
-literal|1
 condition|)
 block|{
 name|rc
@@ -6982,6 +6980,15 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+if|if
+condition|(
+name|sscf
+operator|->
+name|verify
+operator|==
+literal|1
+condition|)
+block|{
 name|cert
 operator|=
 name|SSL_get_peer_certificate
@@ -7047,6 +7054,7 @@ argument_list|(
 name|cert
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 endif|#
