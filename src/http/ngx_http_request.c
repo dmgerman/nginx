@@ -11636,6 +11636,12 @@ else|else
 block|{
 name|b
 operator|->
+name|sync
+operator|=
+literal|1
+expr_stmt|;
+name|b
+operator|->
 name|last_in_chain
 operator|=
 literal|1
