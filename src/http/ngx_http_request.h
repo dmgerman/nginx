@@ -641,7 +641,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon2c73baa00103
+DECL|enum|__anon2b0708de0103
 typedef|typedef
 enum|enum
 block|{
@@ -680,7 +680,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c73baa00208
+DECL|struct|__anon2b0708de0208
 typedef|typedef
 struct|struct
 block|{
@@ -703,7 +703,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c73baa00308
+DECL|struct|__anon2b0708de0308
 typedef|typedef
 struct|struct
 block|{
@@ -722,7 +722,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c73baa00408
+DECL|struct|__anon2b0708de0408
 typedef|typedef
 struct|struct
 block|{
@@ -818,6 +818,8 @@ operator|(
 name|NGX_HTTP_PROXY
 operator|||
 name|NGX_HTTP_REALIP
+operator|||
+name|NGX_HTTP_GEO
 operator|)
 DECL|member|x_forwarded_for
 name|ngx_table_elt_t
@@ -955,7 +957,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c73baa00508
+DECL|struct|__anon2b0708de0508
 typedef|typedef
 struct|struct
 block|{
@@ -1096,7 +1098,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c73baa00608
+DECL|struct|__anon2b0708de0608
 typedef|typedef
 struct|struct
 block|{
@@ -1135,7 +1137,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c73baa00708
+DECL|struct|__anon2b0708de0708
 typedef|typedef
 struct|struct
 block|{
@@ -1185,7 +1187,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c73baa00808
+DECL|struct|__anon2b0708de0808
 typedef|typedef
 struct|struct
 block|{
@@ -1280,7 +1282,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c73baa00908
+DECL|struct|__anon2b0708de0908
 typedef|typedef
 struct|struct
 block|{

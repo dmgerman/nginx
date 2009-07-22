@@ -780,6 +780,8 @@ operator|(
 name|NGX_HTTP_PROXY
 operator|||
 name|NGX_HTTP_REALIP
+operator|||
+name|NGX_HTTP_GEO
 operator|)
 block|{
 name|ngx_string
