@@ -98,7 +98,7 @@ value|SSL
 end_define
 
 begin_typedef
-DECL|struct|__anon2b87ee780108
+DECL|struct|__anon2b2fb7a40108
 typedef|typedef
 struct|struct
 block|{
@@ -119,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b87ee780208
+DECL|struct|__anon2b2fb7a40208
 typedef|typedef
 struct|struct
 block|{
@@ -285,7 +285,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b87ee780308
+DECL|struct|__anon2b2fb7a40308
 typedef|typedef
 struct|struct
 block|{
@@ -425,6 +425,25 @@ name|cert
 parameter_list|,
 name|ngx_int_t
 name|depth
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_ssl_crl
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_ssl_t
+modifier|*
+name|ssl
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|crl
 parameter_list|)
 function_decl|;
 end_function_decl

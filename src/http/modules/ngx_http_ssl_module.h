@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ac4054d0108
+DECL|struct|__anon2b73ea240108
 typedef|typedef
 struct|struct
 block|{
@@ -86,6 +86,10 @@ decl_stmt|;
 DECL|member|client_certificate
 name|ngx_str_t
 name|client_certificate
+decl_stmt|;
+DECL|member|crl
+name|ngx_str_t
+name|crl
 decl_stmt|;
 DECL|member|ciphers
 name|ngx_str_t
