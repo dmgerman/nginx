@@ -40,14 +40,6 @@ directive|include
 file|<openssl/err.h>
 end_include
 
-begin_if
-if|#
-directive|if
-name|OPENSSL_VERSION_NUMBER
-operator|>=
-literal|0x00907000
-end_if
-
 begin_include
 include|#
 directive|include
@@ -59,19 +51,6 @@ include|#
 directive|include
 file|<openssl/engine.h>
 end_include
-
-begin_define
-DECL|macro|NGX_SSL_ENGINE
-define|#
-directive|define
-name|NGX_SSL_ENGINE
-value|1
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
 
 begin_define
 DECL|macro|NGX_SSL_NAME
@@ -98,7 +77,7 @@ value|SSL
 end_define
 
 begin_typedef
-DECL|struct|__anon2b2fb7a40108
+DECL|struct|__anon293838cc0108
 typedef|typedef
 struct|struct
 block|{
@@ -119,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2fb7a40208
+DECL|struct|__anon293838cc0208
 typedef|typedef
 struct|struct
 block|{
@@ -285,7 +264,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b2fb7a40308
+DECL|struct|__anon293838cc0308
 typedef|typedef
 struct|struct
 block|{

@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2790a5890108
+DECL|struct|__anon29b0e3520108
 typedef|typedef
 struct|struct
 block|{
@@ -471,34 +471,20 @@ modifier|*
 name|log
 parameter_list|)
 block|{
-if|#
-directive|if
-name|OPENSSL_VERSION_NUMBER
-operator|>=
-literal|0x00907000
 name|OPENSSL_config
 argument_list|(
 name|NULL
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|SSL_library_init
 argument_list|()
 expr_stmt|;
 name|SSL_load_error_strings
 argument_list|()
 expr_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_SSL_ENGINE
-operator|)
 name|ENGINE_load_builtin_engines
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 name|ngx_ssl_connection_index
 operator|=
 name|SSL_get_ex_new_index
@@ -789,9 +775,6 @@ argument_list|,
 name|SSL_OP_TLS_BLOCK_PADDING_BUG
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS
 name|SSL_CTX_set_options
 argument_list|(
 name|ssl
@@ -801,8 +784,6 @@ argument_list|,
 name|SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|SSL_CTX_set_options
 argument_list|(
 name|ssl
@@ -9157,11 +9138,6 @@ modifier|*
 name|conf
 parameter_list|)
 block|{
-if|#
-directive|if
-operator|(
-name|NGX_SSL_ENGINE
-operator|)
 name|ngx_openssl_conf_t
 modifier|*
 name|oscf
@@ -9296,25 +9272,6 @@ expr_stmt|;
 return|return
 name|NGX_CONF_OK
 return|;
-else|#
-directive|else
-name|ngx_conf_log_error
-argument_list|(
-name|NGX_LOG_EMERG
-argument_list|,
-name|cf
-argument_list|,
-literal|0
-argument_list|,
-literal|"\"ssl_engine\" directive is available only in "
-literal|"OpenSSL 0.9.7 and higher,"
-argument_list|)
-expr_stmt|;
-return|return
-name|NGX_CONF_ERROR
-return|;
-endif|#
-directive|endif
 block|}
 end_function
 
@@ -9329,16 +9286,9 @@ modifier|*
 name|cycle
 parameter_list|)
 block|{
-if|#
-directive|if
-operator|(
-name|NGX_SSL_ENGINE
-operator|)
 name|ENGINE_cleanup
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 
