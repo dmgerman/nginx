@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29b0e3520108
+DECL|struct|__anon2c0af0870108
 typedef|typedef
 struct|struct
 block|{
@@ -5377,18 +5377,10 @@ operator|||
 name|err
 operator|==
 name|NGX_ENOTCONN
-if|#
-directive|if
-operator|!
-operator|(
-name|NGX_CRIT_ETIMEDOUT
-operator|)
 operator|||
 name|err
 operator|==
 name|NGX_ETIMEDOUT
-endif|#
-directive|endif
 operator|||
 name|err
 operator|==
