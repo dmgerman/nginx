@@ -96,7 +96,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c09ee7e0108
+DECL|struct|__anon2c6fab4a0108
 typedef|typedef
 struct|struct
 block|{
@@ -117,7 +117,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c09ee7e0208
+DECL|struct|__anon2c6fab4a0208
 typedef|typedef
 struct|struct
 block|{
@@ -138,7 +138,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c09ee7e0308
+DECL|struct|__anon2c6fab4a0308
 typedef|typedef
 struct|struct
 block|{
@@ -158,7 +158,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c09ee7e0408
+DECL|struct|__anon2c6fab4a0408
 typedef|typedef
 struct|struct
 block|{
@@ -187,7 +187,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c09ee7e0508
+DECL|struct|__anon2c6fab4a0508
 typedef|typedef
 struct|struct
 block|{
@@ -3549,6 +3549,8 @@ argument_list|,
 literal|"libxml2 error: \"%*s\""
 argument_list|,
 name|n
+operator|+
+literal|1
 argument_list|,
 name|buf
 argument_list|)
