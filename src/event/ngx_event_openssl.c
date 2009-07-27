@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c0af0870108
+DECL|struct|__anon276d47c10108
 typedef|typedef
 struct|struct
 block|{
@@ -8362,7 +8362,11 @@ literal|0
 init|;
 name|i
 operator|<
+name|cert
+operator|.
 name|len
+operator|-
+literal|1
 condition|;
 name|i
 operator|++
