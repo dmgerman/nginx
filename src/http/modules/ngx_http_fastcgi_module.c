@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28a542610108
+DECL|struct|__anon2b19ab060108
 typedef|typedef
 struct|struct
 block|{
@@ -103,7 +103,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28a542610203
+DECL|enum|__anon2b19ab060203
 typedef|typedef
 enum|enum
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a542610308
+DECL|struct|__anon2b19ab060308
 typedef|typedef
 struct|struct
 block|{
@@ -166,7 +166,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a542610408
+DECL|struct|__anon2b19ab060408
 typedef|typedef
 struct|struct
 block|{
@@ -293,7 +293,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon28a542610508
+DECL|struct|__anon2b19ab060508
 typedef|typedef
 struct|struct
 block|{
@@ -336,7 +336,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a542610608
+DECL|struct|__anon2b19ab060608
 typedef|typedef
 struct|struct
 block|{
@@ -366,7 +366,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a542610708
+DECL|struct|__anon2b19ab060708
 typedef|typedef
 struct|struct
 block|{
@@ -393,7 +393,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a542610808
+DECL|struct|__anon2b19ab060808
 typedef|typedef
 struct|struct
 block|{
@@ -2311,6 +2311,20 @@ return|return
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
 block|}
+if|if
+condition|(
+name|ngx_http_upstream_create
+argument_list|(
+name|r
+argument_list|)
+operator|!=
+name|NGX_OK
+condition|)
+block|{
+return|return
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
+return|;
+block|}
 name|f
 operator|=
 name|ngx_pcalloc
@@ -2333,7 +2347,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_ERROR
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
 block|}
 name|ngx_http_set_ctx
@@ -2344,37 +2358,6 @@ name|f
 argument_list|,
 name|ngx_http_fastcgi_module
 argument_list|)
-expr_stmt|;
-name|u
-operator|=
-name|ngx_pcalloc
-argument_list|(
-name|r
-operator|->
-name|pool
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|ngx_http_upstream_t
-argument_list|)
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|u
-operator|==
-name|NULL
-condition|)
-block|{
-return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
-return|;
-block|}
-name|r
-operator|->
-name|upstream
-operator|=
-name|u
 expr_stmt|;
 name|flcf
 operator|=
@@ -2410,6 +2393,12 @@ return|;
 block|}
 block|}
 name|u
+operator|=
+name|r
+operator|->
+name|upstream
+expr_stmt|;
+name|u
 operator|->
 name|schema
 operator|.
@@ -2434,46 +2423,6 @@ operator|*
 operator|)
 literal|"fastcgi://"
 expr_stmt|;
-name|u
-operator|->
-name|peer
-operator|.
-name|log
-operator|=
-name|r
-operator|->
-name|connection
-operator|->
-name|log
-expr_stmt|;
-name|u
-operator|->
-name|peer
-operator|.
-name|log_error
-operator|=
-name|NGX_ERROR_ERR
-expr_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_THREADS
-operator|)
-name|u
-operator|->
-name|peer
-operator|.
-name|lock
-operator|=
-operator|&
-name|r
-operator|->
-name|connection
-operator|->
-name|lock
-expr_stmt|;
-endif|#
-directive|endif
 name|u
 operator|->
 name|output
