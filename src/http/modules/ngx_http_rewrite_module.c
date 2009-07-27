@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28f662970108
+DECL|struct|__anon29622f700108
 typedef|typedef
 struct|struct
 block|{
@@ -2566,7 +2566,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NULL
+name|NGX_CONF_ERROR
 return|;
 block|}
 name|if_code
