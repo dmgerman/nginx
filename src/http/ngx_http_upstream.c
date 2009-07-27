@@ -1439,7 +1439,7 @@ argument_list|,
 name|x_accel_redirect
 argument_list|)
 block|,
-name|ngx_http_upstream_ignore_header_line
+name|ngx_http_upstream_copy_header_line
 block|,
 literal|0
 block|,
@@ -1456,7 +1456,7 @@ name|ngx_http_upstream_process_limit_rate
 block|,
 literal|0
 block|,
-name|ngx_http_upstream_ignore_header_line
+name|ngx_http_upstream_copy_header_line
 block|,
 literal|0
 block|,
@@ -1473,7 +1473,7 @@ name|ngx_http_upstream_process_buffering
 block|,
 literal|0
 block|,
-name|ngx_http_upstream_ignore_header_line
+name|ngx_http_upstream_copy_header_line
 block|,
 literal|0
 block|,
@@ -1490,7 +1490,7 @@ name|ngx_http_upstream_process_charset
 block|,
 literal|0
 block|,
-name|ngx_http_upstream_ignore_header_line
+name|ngx_http_upstream_copy_header_line
 block|,
 literal|0
 block|,
