@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2992d1450108
+DECL|struct|__anon27c6833c0108
 typedef|typedef
 struct|struct
 block|{
@@ -103,7 +103,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2992d1450203
+DECL|enum|__anon27c6833c0203
 typedef|typedef
 enum|enum
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2992d1450308
+DECL|struct|__anon27c6833c0308
 typedef|typedef
 struct|struct
 block|{
@@ -166,7 +166,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2992d1450408
+DECL|struct|__anon27c6833c0408
 typedef|typedef
 struct|struct
 block|{
@@ -293,7 +293,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2992d1450508
+DECL|struct|__anon27c6833c0508
 typedef|typedef
 struct|struct
 block|{
@@ -336,7 +336,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2992d1450608
+DECL|struct|__anon27c6833c0608
 typedef|typedef
 struct|struct
 block|{
@@ -366,7 +366,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2992d1450708
+DECL|struct|__anon27c6833c0708
 typedef|typedef
 struct|struct
 block|{
@@ -393,7 +393,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2992d1450808
+DECL|struct|__anon27c6833c0808
 typedef|typedef
 struct|struct
 block|{
@@ -5061,6 +5061,9 @@ name|last
 decl_stmt|,
 modifier|*
 name|part_start
+decl_stmt|,
+modifier|*
+name|part_end
 decl_stmt|;
 name|size_t
 name|size
@@ -5841,6 +5844,14 @@ operator|->
 name|buffer
 operator|.
 name|pos
+expr_stmt|;
+name|part_end
+operator|=
+name|u
+operator|->
+name|buffer
+operator|.
+name|last
 expr_stmt|;
 name|rc
 operator|=
@@ -6913,11 +6924,7 @@ name|part
 operator|->
 name|end
 operator|=
-name|u
-operator|->
-name|buffer
-operator|.
-name|last
+name|part_end
 expr_stmt|;
 if|if
 condition|(
