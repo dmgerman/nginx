@@ -12527,6 +12527,10 @@ condition|(
 name|u
 operator|->
 name|cacheable
+operator|&&
+name|r
+operator|->
+name|cache
 condition|)
 block|{
 name|time_t
