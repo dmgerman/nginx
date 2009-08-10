@@ -59,7 +59,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1435dc0108
+DECL|struct|__anon2a36069e0108
 typedef|typedef
 struct|struct
 block|{
@@ -98,9 +98,9 @@ name|respawn
 range|:
 literal|1
 decl_stmt|;
-DECL|member|just_respawn
+DECL|member|just_spawn
 name|unsigned
-name|just_respawn
+name|just_spawn
 range|:
 literal|1
 decl_stmt|;
@@ -129,7 +129,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1435dc0208
+DECL|struct|__anon2a36069e0208
 typedef|typedef
 struct|struct
 block|{
@@ -180,11 +180,19 @@ value|-1
 end_define
 
 begin_define
+DECL|macro|NGX_PROCESS_JUST_SPAWN
+define|#
+directive|define
+name|NGX_PROCESS_JUST_SPAWN
+value|-2
+end_define
+
+begin_define
 DECL|macro|NGX_PROCESS_RESPAWN
 define|#
 directive|define
 name|NGX_PROCESS_RESPAWN
-value|-2
+value|-3
 end_define
 
 begin_define
@@ -192,7 +200,7 @@ DECL|macro|NGX_PROCESS_JUST_RESPAWN
 define|#
 directive|define
 name|NGX_PROCESS_JUST_RESPAWN
-value|-3
+value|-4
 end_define
 
 begin_define
@@ -200,7 +208,7 @@ DECL|macro|NGX_PROCESS_DETACHED
 define|#
 directive|define
 name|NGX_PROCESS_DETACHED
-value|-4
+value|-5
 end_define
 
 begin_define

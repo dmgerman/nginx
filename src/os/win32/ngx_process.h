@@ -58,7 +58,7 @@ value|(sizeof("ngx_cache_manager_mutex_") + NGX_INT32_LEN)
 end_define
 
 begin_typedef
-DECL|struct|__anon2b154bfe0108
+DECL|struct|__anon2c788a920108
 typedef|typedef
 struct|struct
 block|{
@@ -108,9 +108,9 @@ index|[
 name|NGX_PROCESS_SYNC_NAME
 index|]
 decl_stmt|;
-DECL|member|just_respawn
+DECL|member|just_spawn
 name|unsigned
-name|just_respawn
+name|just_spawn
 range|:
 literal|1
 decl_stmt|;
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b154bfe0208
+DECL|struct|__anon2c788a920208
 typedef|typedef
 struct|struct
 block|{

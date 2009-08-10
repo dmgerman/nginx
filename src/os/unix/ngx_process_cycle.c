@@ -2208,7 +2208,7 @@ index|[
 name|i
 index|]
 operator|.
-name|just_respawn
+name|just_spawn
 argument_list|)
 expr_stmt|;
 if|if
@@ -2240,7 +2240,7 @@ index|[
 name|i
 index|]
 operator|.
-name|just_respawn
+name|just_spawn
 condition|)
 block|{
 name|ngx_processes
@@ -2248,7 +2248,7 @@ index|[
 name|i
 index|]
 operator|.
-name|just_respawn
+name|just_spawn
 operator|=
 literal|0
 expr_stmt|;
@@ -2566,7 +2566,7 @@ index|[
 name|i
 index|]
 operator|.
-name|just_respawn
+name|just_spawn
 argument_list|)
 expr_stmt|;
 if|if

@@ -771,7 +771,7 @@ index|[
 name|s
 index|]
 operator|.
-name|just_respawn
+name|just_spawn
 operator|=
 literal|0
 expr_stmt|;
@@ -784,7 +784,7 @@ index|[
 name|s
 index|]
 operator|.
-name|just_respawn
+name|just_spawn
 operator|=
 literal|1
 expr_stmt|;
