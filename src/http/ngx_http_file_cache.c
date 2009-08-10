@@ -5234,6 +5234,14 @@ operator|==
 name|NGX_ABORT
 condition|)
 block|{
+name|cache
+operator|->
+name|sh
+operator|->
+name|loading
+operator|=
+literal|0
+expr_stmt|;
 return|return;
 block|}
 name|cache
