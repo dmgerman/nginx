@@ -6176,11 +6176,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|sleep
-argument_list|(
-literal|50
-argument_list|)
-expr_stmt|;
 name|exit
 argument_list|(
 literal|0
