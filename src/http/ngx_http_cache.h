@@ -83,7 +83,7 @@ value|16
 end_define
 
 begin_typedef
-DECL|struct|__anon27bc9a800108
+DECL|struct|__anon2be3ed4f0108
 typedef|typedef
 struct|struct
 block|{
@@ -102,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27bc9a800208
+DECL|struct|__anon2be3ed4f0208
 typedef|typedef
 struct|struct
 block|{
@@ -291,7 +291,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27bc9a800308
+DECL|struct|__anon2be3ed4f0308
 typedef|typedef
 struct|struct
 block|{
@@ -330,7 +330,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27bc9a800408
+DECL|struct|__anon2be3ed4f0408
 typedef|typedef
 struct|struct
 block|{
@@ -349,6 +349,10 @@ decl_stmt|;
 DECL|member|cold
 name|ngx_atomic_t
 name|cold
+decl_stmt|;
+DECL|member|loading
+name|ngx_atomic_t
+name|loading
 decl_stmt|;
 DECL|member|size
 name|off_t

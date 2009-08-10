@@ -99,7 +99,23 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f64a300108
+DECL|typedef|ngx_path_loader_pt
+typedef|typedef
+name|void
+function_decl|(
+modifier|*
+name|ngx_path_loader_pt
+function_decl|)
+parameter_list|(
+name|void
+modifier|*
+name|data
+parameter_list|)
+function_decl|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon29e886260108
 typedef|typedef
 struct|struct
 block|{
@@ -122,6 +138,10 @@ DECL|member|manager
 name|ngx_path_manager_pt
 name|manager
 decl_stmt|;
+DECL|member|loader
+name|ngx_path_loader_pt
+name|loader
+decl_stmt|;
 DECL|member|data
 name|void
 modifier|*
@@ -143,7 +163,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f64a300208
+DECL|struct|__anon29e886260208
 typedef|typedef
 struct|struct
 block|{
@@ -165,7 +185,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f64a300308
+DECL|struct|__anon29e886260308
 typedef|typedef
 struct|struct
 block|{
@@ -221,7 +241,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f64a300408
+DECL|struct|__anon29e886260408
 typedef|typedef
 struct|struct
 block|{
