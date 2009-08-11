@@ -53,6 +53,14 @@ value|ENOENT
 end_define
 
 begin_define
+DECL|macro|NGX_ENOPATH
+define|#
+directive|define
+name|NGX_ENOPATH
+value|ENOENT
+end_define
+
+begin_define
 DECL|macro|NGX_ESRCH
 define|#
 directive|define

@@ -91,6 +91,14 @@ value|ERROR_FILE_NOT_FOUND
 end_define
 
 begin_define
+DECL|macro|NGX_ENOPATH
+define|#
+directive|define
+name|NGX_ENOPATH
+value|ERROR_PATH_NOT_FOUND
+end_define
+
+begin_define
 DECL|macro|NGX_ENOMEM
 define|#
 directive|define
