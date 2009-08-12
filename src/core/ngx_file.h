@@ -115,7 +115,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e886260108
+DECL|struct|__anon291dc6720108
 typedef|typedef
 struct|struct
 block|{
@@ -163,7 +163,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e886260208
+DECL|struct|__anon291dc6720208
 typedef|typedef
 struct|struct
 block|{
@@ -185,7 +185,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e886260308
+DECL|struct|__anon291dc6720308
 typedef|typedef
 struct|struct
 block|{
@@ -241,7 +241,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e886260408
+DECL|struct|__anon291dc6720408
 typedef|typedef
 struct|struct
 block|{
@@ -261,10 +261,6 @@ DECL|member|fd
 name|ngx_fd_t
 name|fd
 decl_stmt|;
-DECL|member|rename_error
-name|ngx_err_t
-name|rename_error
-decl_stmt|;
 DECL|member|create_path
 name|unsigned
 name|create_path
@@ -277,12 +273,6 @@ name|delete_file
 range|:
 literal|1
 decl_stmt|;
-DECL|member|log_rename_error
-name|unsigned
-name|log_rename_error
-range|:
-literal|1
-decl_stmt|;
 DECL|member|log
 name|ngx_log_t
 modifier|*
@@ -291,6 +281,38 @@ decl_stmt|;
 DECL|typedef|ngx_ext_rename_file_t
 block|}
 name|ngx_ext_rename_file_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon291dc6720508
+typedef|typedef
+struct|struct
+block|{
+DECL|member|size
+name|off_t
+name|size
+decl_stmt|;
+DECL|member|buf_size
+name|size_t
+name|buf_size
+decl_stmt|;
+DECL|member|access
+name|ngx_uint_t
+name|access
+decl_stmt|;
+DECL|member|time
+name|time_t
+name|time
+decl_stmt|;
+DECL|member|log
+name|ngx_log_t
+modifier|*
+name|log
+decl_stmt|;
+DECL|typedef|ngx_copy_file_t
+block|}
+name|ngx_copy_file_t
 typedef|;
 end_typedef
 
@@ -533,6 +555,25 @@ parameter_list|,
 name|ngx_ext_rename_file_t
 modifier|*
 name|ext
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_copy_file
+parameter_list|(
+name|u_char
+modifier|*
+name|from
+parameter_list|,
+name|u_char
+modifier|*
+name|to
+parameter_list|,
+name|ngx_copy_file_t
+modifier|*
+name|cf
 parameter_list|)
 function_decl|;
 end_function_decl

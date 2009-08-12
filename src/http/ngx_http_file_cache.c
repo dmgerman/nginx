@@ -3139,12 +3139,6 @@ literal|1
 expr_stmt|;
 name|ext
 operator|.
-name|log_rename_error
-operator|=
-literal|1
-expr_stmt|;
-name|ext
-operator|.
 name|log
 operator|=
 name|r
