@@ -4764,7 +4764,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"open socket #%d left in connection %ui%s"
+literal|"open socket #%d left in connection %ui"
 argument_list|,
 name|c
 index|[
@@ -4774,16 +4774,11 @@ operator|.
 name|fd
 argument_list|,
 name|i
-argument_list|,
-name|ngx_debug_quit
-condition|?
-literal|", aborting"
-else|:
-literal|""
 argument_list|)
 expr_stmt|;
-name|ngx_debug_point
-argument_list|()
+name|ngx_debug_quit
+operator|=
+literal|1
 expr_stmt|;
 block|}
 block|}
@@ -4792,6 +4787,19 @@ condition|(
 name|ngx_debug_quit
 condition|)
 block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"aborting"
+argument_list|)
+expr_stmt|;
 name|ngx_debug_point
 argument_list|()
 expr_stmt|;
