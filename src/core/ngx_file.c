@@ -3328,6 +3328,9 @@ literal|65536
 expr_stmt|;
 if|if
 condition|(
+operator|(
+name|off_t
+operator|)
 name|len
 operator|>
 name|size
@@ -3414,6 +3417,9 @@ condition|)
 block|{
 if|if
 condition|(
+operator|(
+name|off_t
+operator|)
 name|len
 operator|>
 name|size
