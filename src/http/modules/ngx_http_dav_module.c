@@ -62,7 +62,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon2c5bc83e0108
+DECL|struct|__anon28ebfd990108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5bc83e0208
+DECL|struct|__anon28ebfd990208
 typedef|typedef
 struct|struct
 block|{
@@ -915,6 +915,11 @@ name|root
 argument_list|,
 literal|0
 argument_list|)
+expr_stmt|;
+name|path
+operator|.
+name|len
+operator|--
 expr_stmt|;
 name|ngx_log_debug1
 argument_list|(

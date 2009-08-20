@@ -2950,6 +2950,8 @@ operator|+
 literal|1
 operator|+
 literal|10
+operator|+
+literal|1
 argument_list|,
 name|ext
 operator|->
@@ -2979,8 +2981,6 @@ argument_list|,
 name|to
 operator|->
 name|len
-operator|-
-literal|1
 argument_list|,
 name|to
 operator|->
