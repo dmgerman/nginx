@@ -2828,9 +2828,6 @@ name|err
 operator|=
 name|ngx_errno
 expr_stmt|;
-goto|goto
-name|failed
-goto|;
 block|}
 if|#
 directive|if
