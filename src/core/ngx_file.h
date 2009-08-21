@@ -115,7 +115,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291dc6720108
+DECL|struct|__anon2c0155b30108
 typedef|typedef
 struct|struct
 block|{
@@ -163,7 +163,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291dc6720208
+DECL|struct|__anon2c0155b30208
 typedef|typedef
 struct|struct
 block|{
@@ -185,7 +185,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291dc6720308
+DECL|struct|__anon2c0155b30308
 typedef|typedef
 struct|struct
 block|{
@@ -241,7 +241,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291dc6720408
+DECL|struct|__anon2c0155b30408
 typedef|typedef
 struct|struct
 block|{
@@ -285,7 +285,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291dc6720508
+DECL|struct|__anon2c0155b30508
 typedef|typedef
 struct|struct
 block|{
@@ -594,15 +594,6 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|void
-name|ngx_init_temp_number
-parameter_list|(
-name|void
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
 name|ngx_atomic_uint_t
 name|ngx_next_temp_number
 parameter_list|(
@@ -676,6 +667,21 @@ name|conf
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_decl_stmt
+specifier|extern
+name|ngx_atomic_t
+modifier|*
+name|ngx_temp_number
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_atomic_int_t
+name|ngx_random_number
+decl_stmt|;
+end_decl_stmt
 
 begin_endif
 endif|#

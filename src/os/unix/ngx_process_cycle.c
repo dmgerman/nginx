@@ -1416,9 +1416,6 @@ block|{
 name|ngx_uint_t
 name|i
 decl_stmt|;
-name|ngx_init_temp_number
-argument_list|()
-expr_stmt|;
 for|for
 control|(
 name|i
@@ -4362,9 +4359,6 @@ literal|"sigprocmask() failed"
 argument_list|)
 expr_stmt|;
 block|}
-name|ngx_init_temp_number
-argument_list|()
-expr_stmt|;
 comment|/*      * disable deleting previous events for the listening sockets because      * in the worker processes there are no events at all at this point      */
 name|ls
 operator|=

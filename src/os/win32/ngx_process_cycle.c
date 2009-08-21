@@ -3552,9 +3552,6 @@ operator|*
 operator|)
 name|ngx_cycle
 expr_stmt|;
-name|ngx_init_temp_number
-argument_list|()
-expr_stmt|;
 for|for
 control|(
 name|n
@@ -4473,9 +4470,6 @@ decl_stmt|;
 name|ngx_tid_t
 name|tid
 decl_stmt|;
-name|ngx_init_temp_number
-argument_list|()
-expr_stmt|;
 for|for
 control|(
 name|i
