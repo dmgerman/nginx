@@ -193,7 +193,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon289bfb6d0108
+DECL|struct|__anon27db59a50108
 typedef|typedef
 struct|struct
 block|{
@@ -232,7 +232,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289bfb6d0208
+DECL|struct|__anon27db59a50208
 typedef|typedef
 struct|struct
 block|{
@@ -259,10 +259,14 @@ decl_stmt|;
 DECL|member|sendfile
 name|unsigned
 name|sendfile
+range|:
+literal|1
 decl_stmt|;
 DECL|member|directio
 name|unsigned
 name|directio
+range|:
+literal|1
 decl_stmt|;
 if|#
 directive|if
@@ -272,16 +276,22 @@ operator|)
 DECL|member|unaligned
 name|unsigned
 name|unaligned
+range|:
+literal|1
 decl_stmt|;
 endif|#
 directive|endif
 DECL|member|need_in_memory
 name|unsigned
 name|need_in_memory
+range|:
+literal|1
 decl_stmt|;
 DECL|member|need_in_temp
 name|unsigned
 name|need_in_temp
+range|:
+literal|1
 decl_stmt|;
 DECL|member|pool
 name|ngx_pool_t
@@ -316,7 +326,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289bfb6d0308
+DECL|struct|__anon27db59a50308
 typedef|typedef
 struct|struct
 block|{
