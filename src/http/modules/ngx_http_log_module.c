@@ -100,7 +100,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c37ab430108
+DECL|struct|__anon27b6afa50108
 typedef|typedef
 struct|struct
 block|{
@@ -126,7 +126,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c37ab430208
+DECL|struct|__anon27b6afa50208
 typedef|typedef
 struct|struct
 block|{
@@ -147,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c37ab430308
+DECL|struct|__anon27b6afa50308
 typedef|typedef
 struct|struct
 block|{
@@ -168,7 +168,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c37ab430408
+DECL|struct|__anon27b6afa50408
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +202,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c37ab430508
+DECL|struct|__anon27b6afa50508
 typedef|typedef
 struct|struct
 block|{
@@ -237,7 +237,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c37ab430608
+DECL|struct|__anon27b6afa50608
 typedef|typedef
 struct|struct
 block|{
@@ -3818,8 +3818,40 @@ name|off
 operator|=
 literal|1
 expr_stmt|;
+if|if
+condition|(
+name|cf
+operator|->
+name|args
+operator|->
+name|nelts
+operator|==
+literal|2
+condition|)
+block|{
 return|return
 name|NGX_CONF_OK
+return|;
+block|}
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"invalid parameter \"%V\""
+argument_list|,
+operator|&
+name|value
+index|[
+literal|2
+index|]
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CONF_ERROR
 return|;
 block|}
 if|if
