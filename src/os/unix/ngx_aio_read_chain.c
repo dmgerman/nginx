@@ -21,12 +21,6 @@ directive|include
 file|<ngx_event.h>
 end_include
 
-begin_include
-include|#
-directive|include
-file|<ngx_aio.h>
-end_include
-
 begin_function
 name|ssize_t
 DECL|function|ngx_aio_read_chain (ngx_connection_t * c,ngx_chain_t * cl)

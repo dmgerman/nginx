@@ -21,34 +21,12 @@ directive|include
 file|<ngx_event.h>
 end_include
 
-begin_include
-include|#
-directive|include
-file|<ngx_aio.h>
-end_include
-
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_HAVE_KQUEUE
-operator|)
-end_if
-
-begin_include
-include|#
-directive|include
-file|<ngx_kqueue_module.h>
-end_include
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_comment
-comment|/*  * the ready data requires 3 syscalls:  *     aio_write(), aio_error(), aio_return()  * the non-ready data requires 4 (kqueue) or 5 syscalls:  *     aio_write(), aio_error(), notifiction, aio_error(), aio_return()  *                               timeout, aio_cancel(), aio_error()  */
-end_comment
+begin_decl_stmt
+specifier|extern
+name|int
+name|ngx_kqueue
+decl_stmt|;
+end_decl_stmt
 
 begin_function
 name|ssize_t

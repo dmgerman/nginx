@@ -21,14 +21,8 @@ directive|include
 file|<ngx_event.h>
 end_include
 
-begin_include
-include|#
-directive|include
-file|<ngx_kqueue_module.h>
-end_include
-
 begin_typedef
-DECL|struct|__anon2c19dd9a0108
+DECL|struct|__anon2bc059c00108
 typedef|typedef
 struct|struct
 block|{
