@@ -28,7 +28,7 @@ file|<ngx_channel.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28e32abd0108
+DECL|struct|__anon2c15a4c60108
 typedef|typedef
 struct|struct
 block|{
@@ -303,6 +303,16 @@ block|,
 literal|""
 block|,
 name|ngx_signal_handler
+block|}
+block|,
+block|{
+name|SIGSYS
+block|,
+literal|"SIGSYS, SIG_IGN"
+block|,
+literal|""
+block|,
+name|SIG_IGN
 block|}
 block|,
 block|{
