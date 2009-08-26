@@ -101,7 +101,7 @@ value|3
 end_define
 
 begin_typedef
-DECL|struct|__anon296cdd1d0108
+DECL|struct|__anon296b83e50108
 typedef|typedef
 struct|struct
 block|{
@@ -206,6 +206,13 @@ begin_decl_stmt
 specifier|extern
 name|sig_atomic_t
 name|ngx_sigio
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|sig_atomic_t
+name|ngx_sigalrm
 decl_stmt|;
 end_decl_stmt
 

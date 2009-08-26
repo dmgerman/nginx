@@ -28,7 +28,7 @@ file|<ngx_channel.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c15a4c60108
+DECL|struct|__anon2c52cbd20108
 typedef|typedef
 struct|struct
 block|{
@@ -1646,6 +1646,10 @@ break|break;
 case|case
 name|SIGALRM
 case|:
+name|ngx_sigalrm
+operator|=
+literal|1
+expr_stmt|;
 break|break;
 case|case
 name|SIGIO

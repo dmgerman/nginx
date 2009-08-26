@@ -283,6 +283,13 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_sigalrm
+name|sig_atomic_t
+name|ngx_sigalrm
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_terminate
 name|sig_atomic_t
 name|ngx_terminate
@@ -827,10 +834,20 @@ condition|(
 name|delay
 condition|)
 block|{
+if|if
+condition|(
+name|ngx_sigalrm
+condition|)
+block|{
 name|delay
 operator|*=
 literal|2
 expr_stmt|;
+name|ngx_sigalrm
+operator|=
+literal|0
+expr_stmt|;
+block|}
 name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
