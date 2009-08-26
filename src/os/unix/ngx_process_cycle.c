@@ -841,7 +841,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"temination cycle: %d"
+literal|"termination cycle: %d"
 argument_list|,
 name|delay
 argument_list|)
