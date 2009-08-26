@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c843f910108
+DECL|struct|__anon2c265ad00108
 typedef|typedef
 struct|struct
 block|{
@@ -414,14 +414,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|c
-operator|->
-name|destroyed
-condition|)
-block|{
-if|if
-condition|(
 name|ctx
 operator|->
 name|in
@@ -473,7 +465,6 @@ operator|->
 name|args
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|rc
 return|;

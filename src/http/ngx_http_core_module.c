@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b61ee0d0108
+DECL|struct|__anon2b89403b0108
 typedef|typedef
 struct|struct
 block|{
@@ -7180,17 +7180,6 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
-if|if
-condition|(
-name|c
-operator|->
-name|destroyed
-condition|)
-block|{
-return|return
-name|NGX_DONE
-return|;
-block|}
 comment|/* NGX_ERROR may be returned by any filter */
 name|c
 operator|->

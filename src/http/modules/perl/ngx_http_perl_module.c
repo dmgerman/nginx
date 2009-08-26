@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b62365d0108
+DECL|struct|__anon29eca5530108
 typedef|typedef
 struct|struct
 block|{
@@ -57,7 +57,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b62365d0208
+DECL|struct|__anon29eca5530208
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b62365d0308
+DECL|struct|__anon29eca5530308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b62365d0408
+DECL|struct|__anon29eca5530408
 typedef|typedef
 struct|struct
 block|{
@@ -2822,23 +2822,6 @@ argument_list|)
 expr_stmt|;
 name|SPAGAIN
 expr_stmt|;
-if|if
-condition|(
-name|c
-operator|->
-name|destroyed
-condition|)
-block|{
-name|PUTBACK
-expr_stmt|;
-name|FREETMPS
-expr_stmt|;
-name|LEAVE
-expr_stmt|;
-return|return
-name|NGX_DONE
-return|;
-block|}
 if|if
 condition|(
 name|n
