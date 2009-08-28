@@ -2250,7 +2250,7 @@ if|if
 condition|(
 name|rc
 operator|==
-name|NGX_AGAIN
+name|NGX_BUSY
 condition|)
 block|{
 name|r
@@ -2261,6 +2261,12 @@ name|ngx_http_upstream_init_request
 expr_stmt|;
 return|return;
 block|}
+name|r
+operator|->
+name|write_event_handler
+operator|=
+name|ngx_http_request_empty_handler
+expr_stmt|;
 if|if
 condition|(
 name|rc
@@ -3359,7 +3365,7 @@ case|case
 name|NGX_AGAIN
 case|:
 return|return
-name|NGX_AGAIN
+name|NGX_BUSY
 return|;
 case|case
 name|NGX_ERROR
