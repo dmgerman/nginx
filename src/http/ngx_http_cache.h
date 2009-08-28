@@ -75,6 +75,14 @@ value|5
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_CACHE_SCARCE
+define|#
+directive|define
+name|NGX_HTTP_CACHE_SCARCE
+value|6
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_CACHE_KEY_LEN
 define|#
 directive|define
@@ -83,7 +91,7 @@ value|16
 end_define
 
 begin_typedef
-DECL|struct|__anon2be3ed4f0108
+DECL|struct|__anon29b65e490108
 typedef|typedef
 struct|struct
 block|{
@@ -102,7 +110,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be3ed4f0208
+DECL|struct|__anon29b65e490208
 typedef|typedef
 struct|struct
 block|{
@@ -291,7 +299,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2be3ed4f0308
+DECL|struct|__anon29b65e490308
 typedef|typedef
 struct|struct
 block|{
@@ -330,7 +338,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be3ed4f0408
+DECL|struct|__anon29b65e490408
 typedef|typedef
 struct|struct
 block|{

@@ -8328,6 +8328,22 @@ condition|)
 block|{
 return|return;
 block|}
+if|if
+condition|(
+name|r
+operator|->
+expr|main
+operator|->
+name|blocked
+condition|)
+block|{
+name|r
+operator|->
+name|write_event_handler
+operator|=
+name|ngx_http_request_finalizer
+expr_stmt|;
+block|}
 name|ngx_http_terminate_request
 argument_list|(
 name|r
@@ -8733,6 +8749,10 @@ operator|||
 name|r
 operator|->
 name|postponed
+operator|||
+name|r
+operator|->
+name|blocked
 condition|)
 block|{
 if|if
@@ -8930,7 +8950,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http terminate request count: %d"
+literal|"http terminate request count:%d"
 argument_list|,
 name|mr
 operator|->
@@ -8978,7 +8998,7 @@ operator|->
 name|next
 expr_stmt|;
 block|}
-name|ngx_log_debug1
+name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
@@ -8990,11 +9010,15 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http terminate cleanup count: %d"
+literal|"http terminate cleanup count:%d blk:%d"
 argument_list|,
 name|mr
 operator|->
 name|count
+argument_list|,
+name|mr
+operator|->
+name|blocked
 argument_list|)
 expr_stmt|;
 if|if
@@ -9004,6 +9028,15 @@ operator|->
 name|write_event_handler
 condition|)
 block|{
+if|if
+condition|(
+name|mr
+operator|->
+name|blocked
+condition|)
+block|{
+return|return;
+block|}
 name|mr
 operator|->
 name|posted_requests
@@ -9059,7 +9092,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http terminate handler count: %d"
+literal|"http terminate handler count:%d"
 argument_list|,
 name|r
 operator|->
@@ -9476,6 +9509,10 @@ condition|(
 name|wev
 operator|->
 name|delayed
+operator|||
+name|r
+operator|->
+name|aio
 condition|)
 block|{
 name|ngx_log_debug0
@@ -12117,7 +12154,7 @@ name|r
 operator|->
 name|connection
 expr_stmt|;
-name|ngx_log_debug1
+name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
@@ -12127,11 +12164,15 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http request count: %d"
+literal|"http request count:%d blk:%d"
 argument_list|,
 name|r
 operator|->
 name|count
+argument_list|,
+name|r
+operator|->
+name|blocked
 argument_list|)
 expr_stmt|;
 if|if
@@ -12167,6 +12208,10 @@ condition|(
 name|r
 operator|->
 name|count
+operator|||
+name|r
+operator|->
+name|blocked
 condition|)
 block|{
 return|return;

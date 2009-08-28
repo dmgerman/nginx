@@ -58,6 +58,18 @@ name|ngx_log_t
 modifier|*
 name|log
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_FILE_AIO
+operator|)
+DECL|member|aio
+name|ngx_event_aio_t
+modifier|*
+name|aio
+decl_stmt|;
+endif|#
+directive|endif
 DECL|member|valid_info
 name|unsigned
 name|valid_info
@@ -115,7 +127,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0155b30108
+DECL|struct|__anon29f31dc80108
 typedef|typedef
 struct|struct
 block|{
@@ -163,7 +175,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0155b30208
+DECL|struct|__anon29f31dc80208
 typedef|typedef
 struct|struct
 block|{
@@ -185,7 +197,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0155b30308
+DECL|struct|__anon29f31dc80308
 typedef|typedef
 struct|struct
 block|{
@@ -241,7 +253,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0155b30408
+DECL|struct|__anon29f31dc80408
 typedef|typedef
 struct|struct
 block|{
@@ -285,7 +297,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0155b30508
+DECL|struct|__anon29f31dc80508
 typedef|typedef
 struct|struct
 block|{

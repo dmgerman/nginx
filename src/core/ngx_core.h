@@ -116,6 +116,15 @@ typedef|;
 end_typedef
 
 begin_typedef
+DECL|typedef|ngx_event_aio_t
+typedef|typedef
+name|struct
+name|ngx_event_aio_s
+name|ngx_event_aio_t
+typedef|;
+end_typedef
+
+begin_typedef
 DECL|typedef|ngx_connection_t
 typedef|typedef
 name|struct

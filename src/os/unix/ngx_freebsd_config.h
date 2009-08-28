@@ -335,14 +335,14 @@ begin_if
 if|#
 directive|if
 operator|(
-name|NGX_HAVE_AIO
+name|NGX_HAVE_KQUEUE
 operator|)
 end_if
 
 begin_include
 include|#
 directive|include
-file|<aio.h>
+file|<sys/event.h>
 end_include
 
 begin_endif
@@ -354,15 +354,26 @@ begin_if
 if|#
 directive|if
 operator|(
-name|NGX_HAVE_KQUEUE
+name|NGX_HAVE_FILE_AIO
+operator|||
+name|NGX_HAVE_AIO
 operator|)
 end_if
 
 begin_include
 include|#
 directive|include
-file|<sys/event.h>
+file|<aio.h>
 end_include
+
+begin_typedef
+DECL|typedef|ngx_aiocb_t
+typedef|typedef
+name|struct
+name|aiocb
+name|ngx_aiocb_t
+typedef|;
+end_typedef
 
 begin_endif
 endif|#

@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2826cd0108
+DECL|struct|__anon27aa3fad0108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2826cd0208
+DECL|struct|__anon27aa3fad0208
 typedef|typedef
 struct|struct
 block|{
@@ -1485,6 +1485,44 @@ directive|define
 name|ngx_set_stderr_n
 value|"dup2(STDERR_FILENO)"
 end_define
+
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_FILE_AIO
+operator|)
+end_if
+
+begin_function_decl
+name|ssize_t
+name|ngx_file_aio_read
+parameter_list|(
+name|ngx_file_t
+modifier|*
+name|file
+parameter_list|,
+name|u_char
+modifier|*
+name|buf
+parameter_list|,
+name|size_t
+name|size
+parameter_list|,
+name|off_t
+name|offset
+parameter_list|,
+name|ngx_pool_t
+modifier|*
+name|pool
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_endif
 endif|#

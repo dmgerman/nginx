@@ -641,7 +641,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon27ca783d0103
+DECL|enum|__anon2c7ea7e10103
 typedef|typedef
 enum|enum
 block|{
@@ -680,7 +680,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ca783d0208
+DECL|struct|__anon2c7ea7e10208
 typedef|typedef
 struct|struct
 block|{
@@ -703,7 +703,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ca783d0308
+DECL|struct|__anon2c7ea7e10308
 typedef|typedef
 struct|struct
 block|{
@@ -722,7 +722,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ca783d0408
+DECL|struct|__anon2c7ea7e10408
 typedef|typedef
 struct|struct
 block|{
@@ -957,7 +957,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ca783d0508
+DECL|struct|__anon2c7ea7e10508
 typedef|typedef
 struct|struct
 block|{
@@ -1098,7 +1098,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ca783d0608
+DECL|struct|__anon2c7ea7e10608
 typedef|typedef
 struct|struct
 block|{
@@ -1137,7 +1137,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ca783d0708
+DECL|struct|__anon2c7ea7e10708
 typedef|typedef
 struct|struct
 block|{
@@ -1187,7 +1187,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ca783d0808
+DECL|struct|__anon2c7ea7e10808
 typedef|typedef
 struct|struct
 block|{
@@ -1282,7 +1282,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ca783d0908
+DECL|struct|__anon2c7ea7e10908
 typedef|typedef
 struct|struct
 block|{
@@ -1639,6 +1639,30 @@ name|ngx_http_cleanup_t
 modifier|*
 name|cleanup
 decl_stmt|;
+DECL|member|subrequests
+name|unsigned
+name|subrequests
+range|:
+literal|8
+decl_stmt|;
+DECL|member|count
+name|unsigned
+name|count
+range|:
+literal|8
+decl_stmt|;
+DECL|member|blocked
+name|unsigned
+name|blocked
+range|:
+literal|8
+decl_stmt|;
+DECL|member|aio
+name|unsigned
+name|aio
+range|:
+literal|1
+decl_stmt|;
 DECL|member|http_state
 name|unsigned
 name|http_state
@@ -1976,18 +2000,6 @@ literal|1
 decl_stmt|;
 endif|#
 directive|endif
-DECL|member|subrequests
-name|unsigned
-name|subrequests
-range|:
-literal|8
-decl_stmt|;
-DECL|member|count
-name|unsigned
-name|count
-range|:
-literal|8
-decl_stmt|;
 comment|/* used to parse HTTP headers */
 DECL|member|state
 name|ngx_uint_t
