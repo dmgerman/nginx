@@ -1332,6 +1332,9 @@ else|else
 block|{
 name|size
 operator|=
+operator|(
+name|size_t
+operator|)
 name|ctx
 operator|->
 name|alignment
@@ -1565,6 +1568,9 @@ name|pool
 argument_list|,
 name|size
 argument_list|,
+operator|(
+name|size_t
+operator|)
 name|ctx
 operator|->
 name|alignment
