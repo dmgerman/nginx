@@ -193,7 +193,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29fca2f70108
+DECL|struct|__anon2a1d62710108
 typedef|typedef
 struct|struct
 block|{
@@ -335,6 +335,10 @@ name|need_in_temp
 range|:
 literal|1
 decl_stmt|;
+DECL|member|alignment
+name|off_t
+name|alignment
+decl_stmt|;
 DECL|member|pool
 name|ngx_pool_t
 modifier|*
@@ -377,7 +381,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29fca2f70208
+DECL|struct|__anon2a1d62710208
 typedef|typedef
 struct|struct
 block|{

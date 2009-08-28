@@ -2392,6 +2392,16 @@ name|u
 operator|->
 name|output
 operator|.
+name|alignment
+operator|=
+name|clcf
+operator|->
+name|directio_alignment
+expr_stmt|;
+name|u
+operator|->
+name|output
+operator|.
 name|pool
 operator|=
 name|r

@@ -40,16 +40,8 @@ directive|endif
 end_endif
 
 begin_comment
-comment|/*  * When DIRECTIO is enabled FreeBSD, Solaris, and MacOSX read directly  * to an application memory from a device if parameters are aligned  * to device sector boundary(512 bytes).  They fallback to usual read  * operation if the parameters are not aligned.  * Linux allows DIRECTIO only if the parameters are aligned to a filesystem  * sector boundary, otherwise it returns EINVAL.  The sector size is  * usually 512 bytes, however, on XFS it may be 4096 bytes.  */
+comment|/*  * When DIRECTIO is enabled FreeBSD, Solaris, and MacOSX read directly  * to an application memory from a device if parameters are aligned  * to device sector boundary (512 bytes).  They fallback to usual read  * operation if the parameters are not aligned.  * Linux allows DIRECTIO only if the parameters are aligned to a filesystem  * sector boundary, otherwise it returns EINVAL.  The sector size is  * usually 512 bytes, however, on XFS it may be 4096 bytes.  */
 end_comment
-
-begin_define
-DECL|macro|NGX_DIRECTIO_BLOCK
-define|#
-directive|define
-name|NGX_DIRECTIO_BLOCK
-value|4096
-end_define
 
 begin_define
 DECL|macro|NGX_NONE
@@ -1294,7 +1286,9 @@ name|file_pos
 operator|&
 operator|~
 operator|(
-name|NGX_DIRECTIO_BLOCK
+name|ctx
+operator|->
+name|alignment
 operator|-
 literal|1
 operator|)
@@ -1338,7 +1332,9 @@ else|else
 block|{
 name|size
 operator|=
-name|NGX_DIRECTIO_BLOCK
+name|ctx
+operator|->
+name|alignment
 operator|-
 name|size
 expr_stmt|;
@@ -1569,7 +1565,9 @@ name|pool
 argument_list|,
 name|size
 argument_list|,
-name|NGX_DIRECTIO_BLOCK
+name|ctx
+operator|->
+name|alignment
 argument_list|)
 expr_stmt|;
 if|if
