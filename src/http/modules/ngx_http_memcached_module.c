@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28922d5d0108
+DECL|struct|__anon2a21ec420108
 typedef|typedef
 struct|struct
 block|{
@@ -41,7 +41,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28922d5d0208
+DECL|struct|__anon2a21ec420208
 typedef|typedef
 struct|struct
 block|{
@@ -902,6 +902,13 @@ operator|->
 name|input_filter_ctx
 operator|=
 name|ctx
+expr_stmt|;
+name|r
+operator|->
+expr|main
+operator|->
+name|count
+operator|++
 expr_stmt|;
 name|ngx_http_upstream_init
 argument_list|(
