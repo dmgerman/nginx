@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29a51cb30108
+DECL|struct|__anon2be012da0108
 typedef|typedef
 struct|struct
 block|{
@@ -311,7 +311,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"copy filter: \"%V?%V\""
+literal|"http copy filter: \"%V?%V\""
 argument_list|,
 operator|&
 name|r
@@ -536,15 +536,13 @@ name|ngx_log_debug3
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-name|r
-operator|->
-name|connection
+name|c
 operator|->
 name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"copy filter: %i \"%V?%V\""
+literal|"http copy filter: %i \"%V?%V\""
 argument_list|,
 name|rc
 argument_list|,
