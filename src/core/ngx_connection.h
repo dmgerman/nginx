@@ -244,7 +244,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon29b0e19a0103
+DECL|enum|__anon2b8cf2880103
 typedef|typedef
 enum|enum
 block|{
@@ -271,7 +271,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29b0e19a0203
+DECL|enum|__anon2b8cf2880203
 typedef|typedef
 enum|enum
 block|{
@@ -292,7 +292,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29b0e19a0303
+DECL|enum|__anon2b8cf2880303
 typedef|typedef
 enum|enum
 block|{
@@ -527,6 +527,24 @@ name|unsigned
 name|accept_context_updated
 range|:
 literal|1
+decl_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_AIO_SENDFILE
+operator|)
+DECL|member|aio_sendfile
+name|unsigned
+name|aio_sendfile
+range|:
+literal|1
+decl_stmt|;
+DECL|member|busy_sendfile
+name|ngx_buf_t
+modifier|*
+name|busy_sendfile
 decl_stmt|;
 endif|#
 directive|endif

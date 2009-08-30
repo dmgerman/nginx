@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2912709a0108
+DECL|struct|__anon2c6329bd0108
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2912709a0208
+DECL|struct|__anon2c6329bd0208
 typedef|typedef
 struct|struct
 block|{
@@ -522,6 +522,17 @@ name|nbytes
 decl_stmt|;
 endif|#
 directive|endif
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_AIO_SENDFILE
+operator|)
+DECL|member|last_offset
+name|off_t
+name|last_offset
+decl_stmt|;
+endif|#
+directive|endif
 DECL|member|aiocb
 name|ngx_aiocb_t
 name|aiocb
@@ -540,7 +551,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2912709a0308
+DECL|struct|__anon2c6329bd0308
 typedef|typedef
 struct|struct
 block|{
@@ -559,7 +570,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2912709a0408
+DECL|struct|__anon2c6329bd0408
 typedef|typedef
 struct|struct
 block|{
@@ -1481,7 +1492,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2912709a0508
+DECL|struct|__anon2c6329bd0508
 typedef|typedef
 struct|struct
 block|{
@@ -1528,7 +1539,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2912709a0608
+DECL|struct|__anon2c6329bd0608
 typedef|typedef
 struct|struct
 block|{

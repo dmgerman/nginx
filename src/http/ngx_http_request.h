@@ -641,7 +641,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon27f179570103
+DECL|enum|__anon2a340acb0103
 typedef|typedef
 enum|enum
 block|{
@@ -680,7 +680,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27f179570208
+DECL|struct|__anon2a340acb0208
 typedef|typedef
 struct|struct
 block|{
@@ -703,7 +703,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27f179570308
+DECL|struct|__anon2a340acb0308
 typedef|typedef
 struct|struct
 block|{
@@ -722,7 +722,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27f179570408
+DECL|struct|__anon2a340acb0408
 typedef|typedef
 struct|struct
 block|{
@@ -957,7 +957,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27f179570508
+DECL|struct|__anon2a340acb0508
 typedef|typedef
 struct|struct
 block|{
@@ -1098,7 +1098,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27f179570608
+DECL|struct|__anon2a340acb0608
 typedef|typedef
 struct|struct
 block|{
@@ -1137,7 +1137,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27f179570708
+DECL|struct|__anon2a340acb0708
 typedef|typedef
 struct|struct
 block|{
@@ -1187,7 +1187,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27f179570808
+DECL|struct|__anon2a340acb0808
 typedef|typedef
 struct|struct
 block|{
@@ -1282,7 +1282,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27f179570908
+DECL|struct|__anon2a340acb0908
 typedef|typedef
 struct|struct
 block|{
@@ -2123,7 +2123,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27f179570a08
+DECL|struct|__anon2a340acb0a08
 typedef|typedef
 struct|struct
 block|{
@@ -2131,6 +2131,20 @@ DECL|member|terminal_posted_request
 name|ngx_http_posted_request_t
 name|terminal_posted_request
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_AIO_SENDFILE
+operator|)
+DECL|member|preload
+name|u_char
+name|preload
+index|[
+literal|4
+index|]
+decl_stmt|;
+endif|#
+directive|endif
 DECL|typedef|ngx_http_ephemeral_t
 block|}
 name|ngx_http_ephemeral_t
