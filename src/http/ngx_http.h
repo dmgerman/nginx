@@ -523,6 +523,10 @@ parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
+parameter_list|,
+name|ngx_http_posted_request_t
+modifier|*
+name|pr
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -562,6 +566,17 @@ name|r
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_define
+DECL|macro|ngx_http_ephemeral (r)
+define|#
+directive|define
+name|ngx_http_ephemeral
+parameter_list|(
+name|r
+parameter_list|)
+value|(ngx_http_ephemeral_t *) (&r->uri_start)
+end_define
 
 begin_define
 DECL|macro|NGX_HTTP_LAST

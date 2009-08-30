@@ -641,7 +641,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon2c7ea7e10103
+DECL|enum|__anon27f179570103
 typedef|typedef
 enum|enum
 block|{
@@ -680,7 +680,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7ea7e10208
+DECL|struct|__anon27f179570208
 typedef|typedef
 struct|struct
 block|{
@@ -703,7 +703,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7ea7e10308
+DECL|struct|__anon27f179570308
 typedef|typedef
 struct|struct
 block|{
@@ -722,7 +722,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7ea7e10408
+DECL|struct|__anon27f179570408
 typedef|typedef
 struct|struct
 block|{
@@ -957,7 +957,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7ea7e10508
+DECL|struct|__anon27f179570508
 typedef|typedef
 struct|struct
 block|{
@@ -1098,7 +1098,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7ea7e10608
+DECL|struct|__anon27f179570608
 typedef|typedef
 struct|struct
 block|{
@@ -1137,7 +1137,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7ea7e10708
+DECL|struct|__anon27f179570708
 typedef|typedef
 struct|struct
 block|{
@@ -1187,7 +1187,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7ea7e10808
+DECL|struct|__anon27f179570808
 typedef|typedef
 struct|struct
 block|{
@@ -1282,7 +1282,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7ea7e10908
+DECL|struct|__anon27f179570908
 typedef|typedef
 struct|struct
 block|{
@@ -2005,6 +2005,42 @@ DECL|member|state
 name|ngx_uint_t
 name|state
 decl_stmt|;
+DECL|member|header_hash
+name|ngx_uint_t
+name|header_hash
+decl_stmt|;
+DECL|member|lowcase_index
+name|ngx_uint_t
+name|lowcase_index
+decl_stmt|;
+DECL|member|lowcase_header
+name|u_char
+name|lowcase_header
+index|[
+name|NGX_HTTP_LC_HEADER_LEN
+index|]
+decl_stmt|;
+DECL|member|header_name_start
+name|u_char
+modifier|*
+name|header_name_start
+decl_stmt|;
+DECL|member|header_name_end
+name|u_char
+modifier|*
+name|header_name_end
+decl_stmt|;
+DECL|member|header_start
+name|u_char
+modifier|*
+name|header_start
+decl_stmt|;
+DECL|member|header_end
+name|u_char
+modifier|*
+name|header_end
+decl_stmt|;
+comment|/*      * a memory that can be reused after parsing a request line      * via ngx_http_ephemeral_t      */
 DECL|member|uri_start
 name|u_char
 modifier|*
@@ -2070,26 +2106,6 @@ name|u_char
 modifier|*
 name|port_end
 decl_stmt|;
-DECL|member|header_name_start
-name|u_char
-modifier|*
-name|header_name_start
-decl_stmt|;
-DECL|member|header_name_end
-name|u_char
-modifier|*
-name|header_name_end
-decl_stmt|;
-DECL|member|header_start
-name|u_char
-modifier|*
-name|header_start
-decl_stmt|;
-DECL|member|header_end
-name|u_char
-modifier|*
-name|header_end
-decl_stmt|;
 DECL|member|http_minor
 name|unsigned
 name|http_minor
@@ -2102,24 +2118,24 @@ name|http_major
 range|:
 literal|16
 decl_stmt|;
-DECL|member|header_hash
-name|ngx_uint_t
-name|header_hash
-decl_stmt|;
-DECL|member|lowcase_index
-name|ngx_uint_t
-name|lowcase_index
-decl_stmt|;
-DECL|member|lowcase_header
-name|u_char
-name|lowcase_header
-index|[
-name|NGX_HTTP_LC_HEADER_LEN
-index|]
-decl_stmt|;
 block|}
 struct|;
 end_struct
+
+begin_typedef
+DECL|struct|__anon27f179570a08
+typedef|typedef
+struct|struct
+block|{
+DECL|member|terminal_posted_request
+name|ngx_http_posted_request_t
+name|terminal_posted_request
+decl_stmt|;
+DECL|typedef|ngx_http_ephemeral_t
+block|}
+name|ngx_http_ephemeral_t
+typedef|;
+end_typedef
 
 begin_decl_stmt
 specifier|extern

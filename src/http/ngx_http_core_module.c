@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon298f2b790108
+DECL|struct|__anon2997b8b20108
 typedef|typedef
 struct|struct
 block|{
@@ -9212,6 +9212,8 @@ return|return
 name|ngx_http_post_request
 argument_list|(
 name|sr
+argument_list|,
+name|NULL
 argument_list|)
 return|;
 block|}

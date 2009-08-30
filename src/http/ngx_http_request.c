@@ -8075,22 +8075,30 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_http_post_request (ngx_http_request_t * r)
+DECL|function|ngx_http_post_request (ngx_http_request_t * r,ngx_http_posted_request_t * pr)
 name|ngx_http_post_request
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
+parameter_list|,
+name|ngx_http_posted_request_t
+modifier|*
+name|pr
 parameter_list|)
 block|{
 name|ngx_http_posted_request_t
 modifier|*
-name|pr
-decl_stmt|,
-modifier|*
 modifier|*
 name|p
 decl_stmt|;
+if|if
+condition|(
+name|pr
+operator|==
+name|NULL
+condition|)
+block|{
 name|pr
 operator|=
 name|ngx_palloc
@@ -8115,6 +8123,7 @@ block|{
 return|return
 name|NGX_ERROR
 return|;
+block|}
 block|}
 name|pr
 operator|->
@@ -8719,6 +8728,8 @@ condition|(
 name|ngx_http_post_request
 argument_list|(
 name|pr
+argument_list|,
+name|NULL
 argument_list|)
 operator|!=
 name|NGX_OK
@@ -8961,6 +8972,10 @@ name|ngx_http_request_t
 modifier|*
 name|mr
 decl_stmt|;
+name|ngx_http_ephemeral_t
+modifier|*
+name|e
+decl_stmt|;
 name|mr
 operator|=
 name|r
@@ -9066,6 +9081,13 @@ condition|)
 block|{
 return|return;
 block|}
+name|e
+operator|=
+name|ngx_http_ephemeral
+argument_list|(
+name|mr
+argument_list|)
+expr_stmt|;
 name|mr
 operator|->
 name|posted_requests
@@ -9084,6 +9106,11 @@ operator|)
 name|ngx_http_post_request
 argument_list|(
 name|mr
+argument_list|,
+operator|&
+name|e
+operator|->
+name|terminal_posted_request
 argument_list|)
 expr_stmt|;
 return|return;
