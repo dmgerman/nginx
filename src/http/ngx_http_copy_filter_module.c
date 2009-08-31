@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bb16e000108
+DECL|struct|__anon27961b4b0108
 typedef|typedef
 struct|struct
 block|{
@@ -541,6 +541,12 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
+for|for
+control|(
+init|;
+condition|;
+control|)
+block|{
 name|rc
 operator|=
 name|ngx_output_chain
@@ -615,6 +621,9 @@ operator|->
 name|busy_sendfile
 condition|)
 block|{
+name|ssize_t
+name|n
+decl_stmt|;
 name|off_t
 name|offset
 decl_stmt|;
@@ -717,9 +726,8 @@ name|r
 operator|->
 name|uri_start
 expr_stmt|;
-operator|(
-name|void
-operator|)
+name|n
+operator|=
 name|ngx_file_aio_read
 argument_list|(
 name|file
@@ -736,6 +744,19 @@ name|r
 operator|->
 name|pool
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|n
+operator|>
+literal|0
+condition|)
+block|{
+continue|continue;
+block|}
+name|rc
+operator|=
+name|n
 expr_stmt|;
 if|if
 condition|(
@@ -780,6 +801,7 @@ directive|endif
 return|return
 name|rc
 return|;
+block|}
 block|}
 end_function
 
