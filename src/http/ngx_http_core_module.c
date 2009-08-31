@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c0a01720108
+DECL|struct|__anon278c86b70108
 typedef|typedef
 struct|struct
 block|{
@@ -5154,6 +5154,13 @@ name|args
 argument_list|)
 expr_stmt|;
 block|}
+name|ngx_http_finalize_request
+argument_list|(
+name|r
+argument_list|,
+name|NGX_DONE
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_OK
 return|;
