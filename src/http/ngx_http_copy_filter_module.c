@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ae260e00108
+DECL|struct|__anon2bb16e000108
 typedef|typedef
 struct|struct
 block|{
@@ -604,6 +604,8 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
+name|NGX_HAVE_FILE_AIO
+operator|&&
 name|NGX_HAVE_AIO_SENDFILE
 operator|)
 if|if
