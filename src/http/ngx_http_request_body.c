@@ -2013,6 +2013,11 @@ return|return
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
 block|}
+name|r
+operator|->
+name|count
+operator|++
+expr_stmt|;
 operator|(
 name|void
 operator|)
