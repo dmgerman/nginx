@@ -508,7 +508,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon2c23bd1b0103
+DECL|enum|__anon2a8df9e20103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2529,7 +2529,7 @@ name|hash
 decl_stmt|,
 name|i
 decl_stmt|;
-DECL|enum|__anon2c23bd1b0203
+DECL|enum|__anon2a8df9e20203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2628,6 +2628,12 @@ name|sw_start
 case|:
 name|r
 operator|->
+name|header_name_start
+operator|=
+name|p
+expr_stmt|;
+name|r
+operator|->
 name|invalid_header
 operator|=
 literal|0
@@ -2640,12 +2646,6 @@ block|{
 case|case
 name|CR
 case|:
-name|r
-operator|->
-name|header_name_start
-operator|=
-name|p
-expr_stmt|;
 name|r
 operator|->
 name|header_end
@@ -2673,12 +2673,6 @@ default|default:
 name|state
 operator|=
 name|sw_name
-expr_stmt|;
-name|r
-operator|->
-name|header_name_start
-operator|=
-name|p
 expr_stmt|;
 name|c
 operator|=
@@ -3271,7 +3265,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2c23bd1b0303
+DECL|enum|__anon2a8df9e20303
 enum|enum
 block|{
 DECL|enumerator|sw_usual
