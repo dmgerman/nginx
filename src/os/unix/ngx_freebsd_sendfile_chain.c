@@ -1204,7 +1204,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"sendfile() reported that \"%s\" was truncated"
+literal|"sendfile() reported that \"%s\" was truncated at %O"
 argument_list|,
 name|file
 operator|->
@@ -1213,6 +1213,10 @@ operator|->
 name|name
 operator|.
 name|data
+argument_list|,
+name|file
+operator|->
+name|file_pos
 argument_list|)
 expr_stmt|;
 return|return
