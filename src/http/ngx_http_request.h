@@ -641,7 +641,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon2a340acb0103
+DECL|enum|__anon2c5404cc0103
 typedef|typedef
 enum|enum
 block|{
@@ -680,7 +680,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a340acb0208
+DECL|struct|__anon2c5404cc0208
 typedef|typedef
 struct|struct
 block|{
@@ -703,7 +703,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a340acb0308
+DECL|struct|__anon2c5404cc0308
 typedef|typedef
 struct|struct
 block|{
@@ -722,7 +722,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a340acb0408
+DECL|struct|__anon2c5404cc0408
 typedef|typedef
 struct|struct
 block|{
@@ -957,7 +957,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a340acb0508
+DECL|struct|__anon2c5404cc0508
 typedef|typedef
 struct|struct
 block|{
@@ -1098,7 +1098,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a340acb0608
+DECL|struct|__anon2c5404cc0608
 typedef|typedef
 struct|struct
 block|{
@@ -1137,7 +1137,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a340acb0708
+DECL|struct|__anon2c5404cc0708
 typedef|typedef
 struct|struct
 block|{
@@ -1187,7 +1187,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a340acb0808
+DECL|struct|__anon2c5404cc0808
 typedef|typedef
 struct|struct
 block|{
@@ -1282,7 +1282,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a340acb0908
+DECL|struct|__anon2c5404cc0908
 typedef|typedef
 struct|struct
 block|{
@@ -2123,7 +2123,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a340acb0a08
+DECL|struct|__anon2c5404cc0a08
 typedef|typedef
 struct|struct
 block|{
@@ -2136,12 +2136,9 @@ directive|if
 operator|(
 name|NGX_HAVE_AIO_SENDFILE
 operator|)
-DECL|member|preload
+DECL|member|aio_preload
 name|u_char
-name|preload
-index|[
-literal|4
-index|]
+name|aio_preload
 decl_stmt|;
 endif|#
 directive|endif
