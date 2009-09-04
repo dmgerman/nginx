@@ -1180,9 +1180,9 @@ argument_list|,
 name|sent
 argument_list|)
 expr_stmt|;
-block|}
 comment|/*              * sendfile() in FreeBSD 3.x-4.x may return value>= 0              * on success, although only 0 is documented              */
-if|if
+block|}
+if|else if
 condition|(
 name|rc
 operator|>=
