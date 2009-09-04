@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28a323a80108
+DECL|struct|__anon2b08cdc30108
 typedef|typedef
 struct|struct
 block|{
@@ -732,6 +732,7 @@ name|ngx_file_aio_read
 argument_list|(
 name|file
 argument_list|,
+operator|&
 name|e
 operator|->
 name|aio_preload
