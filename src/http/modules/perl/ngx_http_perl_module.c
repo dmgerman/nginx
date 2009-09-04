@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29eca5530108
+DECL|struct|__anon275e8d520108
 typedef|typedef
 struct|struct
 block|{
@@ -57,7 +57,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29eca5530208
+DECL|struct|__anon275e8d520208
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29eca5530308
+DECL|struct|__anon275e8d520308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29eca5530408
+DECL|struct|__anon275e8d520408
 typedef|typedef
 struct|struct
 block|{
@@ -809,6 +809,13 @@ return|return
 name|NGX_HTTP_NOT_FOUND
 return|;
 block|}
+name|r
+operator|->
+expr|main
+operator|->
+name|count
+operator|++
+expr_stmt|;
 name|ngx_http_perl_handle_request
 argument_list|(
 name|r
@@ -1022,6 +1029,23 @@ argument|NULL
 argument_list|)
 expr_stmt|;
 block|}
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"perl handler done: %i"
+argument_list|,
+name|rc
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|rc
@@ -1043,23 +1067,6 @@ operator|=
 name|NGX_OK
 expr_stmt|;
 block|}
-name|ngx_log_debug1
-argument_list|(
-name|NGX_LOG_DEBUG_HTTP
-argument_list|,
-name|r
-operator|->
-name|connection
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"perl handler done: %i"
-argument_list|,
-name|rc
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|ctx
