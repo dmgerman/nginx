@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b08cdc30108
+DECL|struct|__anon298753700108
 typedef|typedef
 struct|struct
 block|{
@@ -753,6 +753,10 @@ operator|>
 literal|0
 condition|)
 block|{
+name|in
+operator|=
+name|NULL
+expr_stmt|;
 continue|continue;
 block|}
 name|rc
