@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon275e8d520108
+DECL|struct|__anon2a2cac660108
 typedef|typedef
 struct|struct
 block|{
@@ -57,7 +57,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275e8d520208
+DECL|struct|__anon2a2cac660208
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275e8d520308
+DECL|struct|__anon2a2cac660308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275e8d520408
+DECL|struct|__anon2a2cac660408
 typedef|typedef
 struct|struct
 block|{
@@ -1053,6 +1053,13 @@ operator|==
 name|NGX_DONE
 condition|)
 block|{
+name|ngx_http_finalize_request
+argument_list|(
+name|r
+argument_list|,
+name|rc
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 if|if
@@ -1125,6 +1132,13 @@ operator|->
 name|next
 condition|)
 block|{
+name|ngx_http_finalize_request
+argument_list|(
+name|r
+argument_list|,
+name|NGX_DONE
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 if|if
@@ -1143,6 +1157,13 @@ name|uri
 argument_list|,
 operator|&
 name|args
+argument_list|)
+expr_stmt|;
+name|ngx_http_finalize_request
+argument_list|(
+name|r
+argument_list|,
+name|NGX_DONE
 argument_list|)
 expr_stmt|;
 return|return;
