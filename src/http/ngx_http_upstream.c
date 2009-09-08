@@ -1959,6 +1959,13 @@ operator|->
 name|cleanup
 condition|)
 block|{
+name|r
+operator|->
+expr|main
+operator|->
+name|count
+operator|++
+expr_stmt|;
 name|ngx_http_upstream_cleanup
 argument_list|(
 name|r
