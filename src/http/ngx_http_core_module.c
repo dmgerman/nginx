@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c7da9750108
+DECL|struct|__anon2bc3c0dc0108
 typedef|typedef
 struct|struct
 block|{
@@ -4186,6 +4186,13 @@ name|r
 operator|->
 name|uri
 argument_list|)
+expr_stmt|;
+name|r
+operator|->
+expr|main
+operator|->
+name|count
+operator|++
 expr_stmt|;
 name|ngx_http_finalize_request
 argument_list|(
@@ -9352,6 +9359,13 @@ literal|"while internal redirect to \"%V\""
 argument_list|,
 name|uri
 argument_list|)
+expr_stmt|;
+name|r
+operator|->
+expr|main
+operator|->
+name|count
+operator|++
 expr_stmt|;
 name|ngx_http_finalize_request
 argument_list|(
