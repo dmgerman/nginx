@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b3e46930108
+DECL|struct|__anon2b68f6980108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3e46930208
+DECL|struct|__anon2b68f6980208
 typedef|typedef
 struct|struct
 block|{
@@ -66,7 +66,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3e46930308
+DECL|struct|__anon2b68f6980308
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3e46930408
+DECL|struct|__anon2b68f6980408
 typedef|typedef
 struct|struct
 block|{
@@ -143,11 +143,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3e46930508
+DECL|struct|__anon2b68f6980508
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon2b3e4693060a
+DECL|union|__anon2b68f698060a
 union|union
 block|{
 DECL|member|tree

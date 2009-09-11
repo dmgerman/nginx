@@ -5425,7 +5425,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon2790ae500103
+DECL|enum|__anon299c4ac80103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
