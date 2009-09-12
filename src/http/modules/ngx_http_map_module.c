@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29fbbccf0108
+DECL|struct|__anon29e79dfc0108
 typedef|typedef
 struct|struct
 block|{
@@ -41,7 +41,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fbbccf0208
+DECL|struct|__anon29e79dfc0208
 typedef|typedef
 struct|struct
 block|{
@@ -71,7 +71,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fbbccf0308
+DECL|struct|__anon29e79dfc0308
 typedef|typedef
 struct|struct
 block|{
@@ -1418,7 +1418,7 @@ operator|)
 name|two
 expr_stmt|;
 return|return
-name|ngx_strcmp
+name|ngx_dns_strcmp
 argument_list|(
 name|first
 operator|->

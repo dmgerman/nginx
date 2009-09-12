@@ -52,7 +52,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28a523740108
+DECL|struct|__anon2c65fbab0108
 typedef|typedef
 struct|struct
 block|{
@@ -2406,7 +2406,7 @@ operator|)
 name|two
 expr_stmt|;
 return|return
-name|ngx_strcmp
+name|ngx_dns_strcmp
 argument_list|(
 name|first
 operator|->

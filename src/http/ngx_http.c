@@ -6896,7 +6896,7 @@ operator|)
 name|two
 expr_stmt|;
 return|return
-name|ngx_strcmp
+name|ngx_dns_strcmp
 argument_list|(
 name|first
 operator|->
