@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon298753700108
+DECL|struct|__anon28fe38850108
 typedef|typedef
 struct|struct
 block|{
@@ -315,17 +315,6 @@ name|r
 operator|->
 name|connection
 expr_stmt|;
-if|if
-condition|(
-name|r
-operator|->
-name|aio
-condition|)
-block|{
-return|return
-name|NGX_AGAIN
-return|;
-block|}
 name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
@@ -508,7 +497,7 @@ condition|)
 block|{
 name|ctx
 operator|->
-name|aio
+name|aio_handler
 operator|=
 name|ngx_http_copy_aio_handler
 expr_stmt|;
@@ -541,6 +530,21 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_FILE_AIO
+operator|)
+name|ctx
+operator|->
+name|aio
+operator|=
+name|r
+operator|->
+name|aio
+expr_stmt|;
+endif|#
+directive|endif
 for|for
 control|(
 init|;
