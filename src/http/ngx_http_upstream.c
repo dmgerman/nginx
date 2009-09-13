@@ -7845,6 +7845,13 @@ operator|&
 name|args
 argument_list|)
 expr_stmt|;
+name|ngx_http_finalize_request
+argument_list|(
+name|r
+argument_list|,
+name|NGX_DONE
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_DONE
 return|;
