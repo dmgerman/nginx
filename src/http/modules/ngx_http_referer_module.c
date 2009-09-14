@@ -52,7 +52,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c65fbab0108
+DECL|struct|__anon2933f5630108
 typedef|typedef
 struct|struct
 block|{
@@ -2178,6 +2178,32 @@ index|[
 name|NGX_MAX_CONF_ERRSTR
 index|]
 decl_stmt|;
+if|if
+condition|(
+name|name
+operator|->
+name|len
+operator|==
+literal|1
+condition|)
+block|{
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"empty regex in \"%V\""
+argument_list|,
+name|name
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
 if|if
 condition|(
 name|rlcf
