@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2b4d28aa0108
+DECL|struct|__anon2c2e74750108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4d28aa0208
+DECL|struct|__anon2c2e74750208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4d28aa0308
+DECL|struct|__anon2c2e74750308
 typedef|typedef
 struct|struct
 block|{
@@ -5027,6 +5027,15 @@ goto|goto
 name|failed
 goto|;
 block|}
+name|ngx_resolver_free
+argument_list|(
+name|r
+argument_list|,
+name|name
+operator|.
+name|data
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|code
@@ -6070,6 +6079,15 @@ return|return;
 name|failed
 label|:
 comment|/* unlock name mutex */
+name|ngx_resolver_free
+argument_list|(
+name|r
+argument_list|,
+name|name
+operator|.
+name|data
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 end_function
