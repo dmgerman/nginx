@@ -3424,7 +3424,7 @@ name|old_cycle
 argument_list|)
 condition|)
 block|{
-comment|/*          * perl_destruct() frees environ if it is not the same as it was at          * perl_construct() time.  So we have saved an previous cycle          * environment before ngx_conf_parse() where it will be changed.          */
+comment|/*          * perl_destruct() frees environ, if it is not the same as it was at          * perl_construct() time, therefore we save the previous cycle          * environment before ngx_conf_parse() where it will be changed.          */
 name|env
 operator|=
 name|environ
