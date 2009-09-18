@@ -1322,6 +1322,10 @@ operator|!=
 name|NGX_CONF_OK
 condition|)
 block|{
+name|environ
+operator|=
+name|senv
+expr_stmt|;
 name|ngx_destroy_cycle_pools
 argument_list|(
 operator|&
@@ -1348,6 +1352,10 @@ operator|!=
 name|NGX_CONF_OK
 condition|)
 block|{
+name|environ
+operator|=
+name|senv
+expr_stmt|;
 name|ngx_destroy_cycle_pools
 argument_list|(
 operator|&
@@ -1446,6 +1454,10 @@ operator|==
 name|NGX_CONF_ERROR
 condition|)
 block|{
+name|environ
+operator|=
+name|senv
+expr_stmt|;
 name|ngx_destroy_cycle_pools
 argument_list|(
 operator|&
