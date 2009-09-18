@@ -1687,9 +1687,9 @@ operator|==
 literal|0
 condition|)
 block|{
-name|ngx_ssl_error
+name|ngx_log_error
 argument_list|(
-name|NGX_LOG_EMERG
+name|NGX_LOG_WARN
 argument_list|,
 name|cf
 operator|->
@@ -1697,12 +1697,11 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"SSL_CTX_set_tlsext_servername_callback() failed"
+literal|"nginx was build with SNI support, however, now it is linked "
+literal|"dynamically to an OpenSSL library which has no tlsext support, "
+literal|"therefore SNI is not available"
 argument_list|)
 expr_stmt|;
-return|return
-name|NGX_CONF_ERROR
-return|;
 block|}
 endif|#
 directive|endif
