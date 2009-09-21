@@ -12077,6 +12077,13 @@ argument_list|)
 expr_stmt|;
 name|r
 operator|->
+expr|main
+operator|->
+name|count
+operator|--
+expr_stmt|;
+name|r
+operator|->
 name|http_version
 operator|=
 name|NGX_HTTP_VERSION_9
