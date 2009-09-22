@@ -2248,17 +2248,9 @@ operator|.
 name|data
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|n
-operator|==
-literal|0
-condition|)
-block|{
 return|return
 name|NGX_ERROR
 return|;
-block|}
 block|}
 name|dst
 operator|->
