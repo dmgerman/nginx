@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2965c6990108
+DECL|struct|__anon2c2c64560108
 typedef|typedef
 struct|struct
 block|{
@@ -50,7 +50,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2965c6990208
+DECL|struct|__anon2c2c64560208
 typedef|typedef
 struct|struct
 block|{
@@ -177,7 +177,7 @@ block|,
 block|{
 name|ngx_string
 argument_list|(
-literal|"addtion_types"
+literal|"addition_types"
 argument_list|)
 block|,
 name|NGX_HTTP_MAIN_CONF
