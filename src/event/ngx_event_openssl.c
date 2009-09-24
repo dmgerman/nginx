@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon295ba7d40108
+DECL|struct|__anon275725e10108
 typedef|typedef
 struct|struct
 block|{
@@ -8110,7 +8110,7 @@ condition|)
 block|{
 name|ngx_free
 argument_list|(
-name|p
+name|buf
 argument_list|)
 expr_stmt|;
 return|return
