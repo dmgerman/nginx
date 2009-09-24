@@ -278,7 +278,13 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"ReadFile() failed"
+literal|"ReadFile() \"%s\" failed"
+argument_list|,
+name|file
+operator|->
+name|name
+operator|.
+name|data
 argument_list|)
 expr_stmt|;
 return|return
@@ -402,7 +408,13 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"WriteFile() failed"
+literal|"WriteFile() \"%s\" failed"
+argument_list|,
+name|file
+operator|->
+name|name
+operator|.
+name|data
 argument_list|)
 expr_stmt|;
 return|return

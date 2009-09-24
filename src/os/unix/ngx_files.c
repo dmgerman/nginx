@@ -99,7 +99,7 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"pread() failed, file \"%s\""
+literal|"pread() \"%s\" failed"
 argument_list|,
 name|file
 operator|->
@@ -150,7 +150,13 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"lseek() failed"
+literal|"lseek() \"%s\" failed"
+argument_list|,
+name|file
+operator|->
+name|name
+operator|.
+name|data
 argument_list|)
 expr_stmt|;
 return|return
@@ -195,7 +201,13 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"read() failed"
+literal|"read() \"%s\" failed"
+argument_list|,
+name|file
+operator|->
+name|name
+operator|.
+name|data
 argument_list|)
 expr_stmt|;
 return|return
@@ -306,7 +318,13 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"pwrite() failed"
+literal|"pwrite() \"%s\" failed"
+argument_list|,
+name|file
+operator|->
+name|name
+operator|.
+name|data
 argument_list|)
 expr_stmt|;
 return|return
@@ -333,7 +351,13 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"pwrite() has written only %z of %uz"
+literal|"pwrite() \"%s\" has written only %z of %uz"
+argument_list|,
+name|file
+operator|->
+name|name
+operator|.
+name|data
 argument_list|,
 name|n
 argument_list|,
@@ -382,7 +406,13 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"lseek() failed"
+literal|"lseek() \"%s\" failed"
+argument_list|,
+name|file
+operator|->
+name|name
+operator|.
+name|data
 argument_list|)
 expr_stmt|;
 return|return
@@ -427,7 +457,13 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"write() failed"
+literal|"write() \"%s\" failed"
+argument_list|,
+name|file
+operator|->
+name|name
+operator|.
+name|data
 argument_list|)
 expr_stmt|;
 return|return
@@ -454,7 +490,13 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"write() has written only %z of %uz"
+literal|"write() \"%s\" has written only %z of %uz"
+argument_list|,
+name|file
+operator|->
+name|name
+operator|.
+name|data
 argument_list|,
 name|n
 argument_list|,
@@ -898,7 +940,13 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"lseek() failed"
+literal|"lseek() \"%s\" failed"
+argument_list|,
+name|file
+operator|->
+name|name
+operator|.
+name|data
 argument_list|)
 expr_stmt|;
 return|return
@@ -947,7 +995,13 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"writev() failed"
+literal|"writev() \"%s\" failed"
+argument_list|,
+name|file
+operator|->
+name|name
+operator|.
+name|data
 argument_list|)
 expr_stmt|;
 return|return
@@ -974,7 +1028,13 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"writev() has written only %z of %uz"
+literal|"writev() \"%s\" has written only %z of %uz"
+argument_list|,
+name|file
+operator|->
+name|name
+operator|.
+name|data
 argument_list|,
 name|n
 argument_list|,
