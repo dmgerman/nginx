@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b0a5acd0108
+DECL|struct|__anon295ba7d40108
 typedef|typedef
 struct|struct
 block|{
@@ -6610,7 +6610,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http ssl new session: %08XD:%d:%d"
+literal|"ssl new session: %08XD:%d:%d"
 argument_list|,
 name|hash
 argument_list|,
@@ -6876,7 +6876,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http ssl get session: %08XD:%d"
+literal|"ssl get session: %08XD:%d"
 argument_list|,
 name|hash
 argument_list|,
@@ -7324,7 +7324,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http ssl remove session: %08XD:%uz"
+literal|"ssl remove session: %08XD:%uz"
 argument_list|,
 name|hash
 argument_list|,
