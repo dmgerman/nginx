@@ -6694,6 +6694,12 @@ operator|.
 name|err
 operator|!=
 name|NGX_ENOTDIR
+operator|&&
+name|of
+operator|.
+name|err
+operator|!=
+name|NGX_ENAMETOOLONG
 condition|)
 block|{
 name|ngx_log_error
