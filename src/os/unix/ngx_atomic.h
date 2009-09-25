@@ -95,7 +95,7 @@ DECL|macro|NGX_ATOMIC_T_LEN
 define|#
 directive|define
 name|NGX_ATOMIC_T_LEN
-value|sizeof("-9223372036854775808") - 1
+value|(sizeof("-9223372036854775808") - 1)
 end_define
 
 begin_define
@@ -154,7 +154,7 @@ DECL|macro|NGX_ATOMIC_T_LEN
 define|#
 directive|define
 name|NGX_ATOMIC_T_LEN
-value|sizeof("-2147483648") - 1
+value|(sizeof("-2147483648") - 1)
 end_define
 
 begin_define
@@ -267,7 +267,7 @@ DECL|macro|NGX_ATOMIC_T_LEN
 define|#
 directive|define
 name|NGX_ATOMIC_T_LEN
-value|sizeof("-2147483648") - 1
+value|(sizeof("-2147483648") - 1)
 end_define
 
 begin_if
@@ -411,7 +411,7 @@ DECL|macro|NGX_ATOMIC_T_LEN
 define|#
 directive|define
 name|NGX_ATOMIC_T_LEN
-value|sizeof("-9223372036854775808") - 1
+value|(sizeof("-9223372036854775808") - 1)
 end_define
 
 begin_if
@@ -558,7 +558,7 @@ DECL|macro|NGX_ATOMIC_T_LEN
 define|#
 directive|define
 name|NGX_ATOMIC_T_LEN
-value|sizeof("-9223372036854775808") - 1
+value|(sizeof("-9223372036854775808") - 1)
 end_define
 
 begin_else
@@ -587,7 +587,7 @@ DECL|macro|NGX_ATOMIC_T_LEN
 define|#
 directive|define
 name|NGX_ATOMIC_T_LEN
-value|sizeof("-2147483648") - 1
+value|(sizeof("-2147483648") - 1)
 end_define
 
 begin_endif
@@ -703,7 +703,7 @@ DECL|macro|NGX_ATOMIC_T_LEN
 define|#
 directive|define
 name|NGX_ATOMIC_T_LEN
-value|sizeof("-9223372036854775808") - 1
+value|(sizeof("-9223372036854775808") - 1)
 end_define
 
 begin_else
@@ -732,7 +732,7 @@ DECL|macro|NGX_ATOMIC_T_LEN
 define|#
 directive|define
 name|NGX_ATOMIC_T_LEN
-value|sizeof("-2147483648") - 1
+value|(sizeof("-2147483648") - 1)
 end_define
 
 begin_endif
@@ -812,7 +812,7 @@ DECL|macro|NGX_ATOMIC_T_LEN
 define|#
 directive|define
 name|NGX_ATOMIC_T_LEN
-value|sizeof("-2147483648") - 1
+value|(sizeof("-2147483648") - 1)
 end_define
 
 begin_function
