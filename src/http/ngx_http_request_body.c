@@ -2300,7 +2300,11 @@ argument_list|,
 literal|"http read discarded body"
 argument_list|)
 expr_stmt|;
-do|do
+for|for
+control|(
+init|;
+condition|;
+control|)
 block|{
 if|if
 condition|(
@@ -2321,6 +2325,22 @@ name|ngx_http_block_reading
 expr_stmt|;
 return|return
 name|NGX_OK
+return|;
+block|}
+if|if
+condition|(
+operator|!
+name|r
+operator|->
+name|connection
+operator|->
+name|read
+operator|->
+name|ready
+condition|)
+block|{
+return|return
+name|NGX_AGAIN
 return|;
 block|}
 name|size
@@ -2413,20 +2433,6 @@ operator|-=
 name|n
 expr_stmt|;
 block|}
-do|while
-condition|(
-name|r
-operator|->
-name|connection
-operator|->
-name|read
-operator|->
-name|ready
-condition|)
-do|;
-return|return
-name|NGX_AGAIN
-return|;
 block|}
 end_function
 
