@@ -1724,8 +1724,7 @@ literal|1
 condition|)
 block|{
 return|return
-operator|-
-literal|1
+name|NGX_FILE_ERROR
 return|;
 block|}
 return|return
@@ -1773,8 +1772,7 @@ literal|1
 condition|)
 block|{
 return|return
-operator|-
-literal|1
+name|NGX_FILE_ERROR
 return|;
 block|}
 return|return

@@ -1982,8 +1982,7 @@ operator|->
 name|fd
 argument_list|)
 operator|==
-operator|-
-literal|1
+name|NGX_FILE_ERROR
 condition|)
 block|{
 name|ngx_log_error
@@ -2156,8 +2155,7 @@ operator|->
 name|fd
 argument_list|)
 operator|==
-operator|-
-literal|1
+name|NGX_FILE_ERROR
 condition|)
 block|{
 name|ngx_log_error

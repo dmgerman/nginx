@@ -2033,7 +2033,8 @@ name|fd
 parameter_list|)
 block|{
 return|return
-literal|0
+operator|~
+name|NGX_FILE_ERROR
 return|;
 block|}
 end_function
@@ -2048,7 +2049,8 @@ name|fd
 parameter_list|)
 block|{
 return|return
-literal|0
+operator|~
+name|NGX_FILE_ERROR
 return|;
 block|}
 end_function
