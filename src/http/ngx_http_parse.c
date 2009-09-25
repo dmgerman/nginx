@@ -508,7 +508,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon2a9ccb340103
+DECL|enum|__anon29c239780103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2529,7 +2529,7 @@ name|hash
 decl_stmt|,
 name|i
 decl_stmt|;
-DECL|enum|__anon2a9ccb340203
+DECL|enum|__anon29c239780203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -3265,7 +3265,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2a9ccb340303
+DECL|enum|__anon29c239780303
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -4682,6 +4682,14 @@ name|NGX_OK
 return|;
 name|unsafe
 label|:
+if|if
+condition|(
+operator|*
+name|flags
+operator|&
+name|NGX_HTTP_LOG_UNSAFE
+condition|)
+block|{
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ERR
@@ -4699,6 +4707,7 @@ argument_list|,
 name|uri
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|NGX_ERROR
 return|;

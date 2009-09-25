@@ -7768,7 +7768,7 @@ name|NULL
 expr_stmt|;
 name|flags
 operator|=
-literal|0
+name|NGX_HTTP_LOG_UNSAFE
 expr_stmt|;
 if|if
 condition|(
