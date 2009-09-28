@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28c2ec010108
+DECL|struct|__anon28894e080108
 typedef|typedef
 struct|struct
 block|{
@@ -4186,13 +4186,6 @@ name|r
 operator|->
 name|uri
 argument_list|)
-expr_stmt|;
-name|r
-operator|->
-expr|main
-operator|->
-name|count
-operator|++
 expr_stmt|;
 name|ngx_http_finalize_request
 argument_list|(
