@@ -67,8 +67,10 @@ name|p
 decl_stmt|;
 name|p
 operator|=
-name|ngx_alloc
+name|ngx_memalign
 argument_list|(
+name|ngx_pagesize
+argument_list|,
 name|size
 argument_list|,
 name|log
@@ -816,8 +818,10 @@ operator|)
 expr_stmt|;
 name|m
 operator|=
-name|ngx_alloc
+name|ngx_memalign
 argument_list|(
+name|ngx_pagesize
+argument_list|,
 name|psize
 argument_list|,
 name|pool
@@ -997,8 +1001,10 @@ name|large
 decl_stmt|;
 name|p
 operator|=
-name|ngx_alloc
+name|ngx_memalign
 argument_list|(
+name|ngx_pagesize
+argument_list|,
 name|size
 argument_list|,
 name|pool
