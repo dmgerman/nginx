@@ -2025,6 +2025,25 @@ end_function
 
 begin_function
 name|ngx_int_t
+DECL|function|ngx_read_ahead (ngx_fd_t fd,size_t n)
+name|ngx_read_ahead
+parameter_list|(
+name|ngx_fd_t
+name|fd
+parameter_list|,
+name|size_t
+name|n
+parameter_list|)
+block|{
+return|return
+operator|~
+name|NGX_FILE_ERROR
+return|;
+block|}
+end_function
+
+begin_function
+name|ngx_int_t
 DECL|function|ngx_directio_on (ngx_fd_t fd)
 name|ngx_directio_on
 parameter_list|(

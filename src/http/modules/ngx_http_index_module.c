@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c89ee780108
+DECL|struct|__anon27c6b7870108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c89ee780208
+DECL|struct|__anon27c6b7870208
 typedef|typedef
 struct|struct
 block|{
@@ -891,6 +891,14 @@ argument_list|(
 name|ngx_open_file_info_t
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|of
+operator|.
+name|read_ahead
+operator|=
+name|clcf
+operator|->
+name|read_ahead
 expr_stmt|;
 name|of
 operator|.

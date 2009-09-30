@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c0b3be0108
+DECL|struct|__anon2c091d960108
 typedef|typedef
 struct|struct
 block|{
@@ -90,7 +90,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c0b3be0208
+DECL|struct|__anon2c091d960208
 typedef|typedef
 struct|struct
 block|{
@@ -1129,6 +1129,27 @@ name|pool
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_read_ahead
+parameter_list|(
+name|ngx_fd_t
+name|fd
+parameter_list|,
+name|size_t
+name|n
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_define
+DECL|macro|ngx_read_ahead_n
+define|#
+directive|define
+name|ngx_read_ahead_n
+value|"ngx_read_ahead_n"
+end_define
 
 begin_function_decl
 name|ngx_int_t

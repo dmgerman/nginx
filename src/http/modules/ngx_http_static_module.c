@@ -311,6 +311,14 @@ argument_list|)
 expr_stmt|;
 name|of
 operator|.
+name|read_ahead
+operator|=
+name|clcf
+operator|->
+name|read_ahead
+expr_stmt|;
+name|of
+operator|.
 name|directio
 operator|=
 name|clcf

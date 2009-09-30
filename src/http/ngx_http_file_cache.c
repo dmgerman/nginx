@@ -1488,6 +1488,14 @@ name|directio
 operator|=
 name|NGX_OPEN_FILE_DIRECTIO_OFF
 expr_stmt|;
+name|of
+operator|.
+name|read_ahead
+operator|=
+name|clcf
+operator|->
+name|read_ahead
+expr_stmt|;
 if|if
 condition|(
 name|ngx_open_cached_file

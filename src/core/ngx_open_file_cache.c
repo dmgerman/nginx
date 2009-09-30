@@ -25,6 +25,14 @@ begin_comment
 comment|/*  * open file cache caches  *    open file handles with stat() info;  *    directories stat() info;  *    files and directories errors: not found, access denied, etc.  */
 end_comment
 
+begin_define
+DECL|macro|NGX_MIN_READ_AHEAD
+define|#
+directive|define
+name|NGX_MIN_READ_AHEAD
+value|(128 * 1024)
+end_define
+
 begin_function_decl
 specifier|static
 name|void
@@ -2294,6 +2302,51 @@ name|fd
 operator|=
 name|fd
 expr_stmt|;
+if|if
+condition|(
+name|of
+operator|->
+name|read_ahead
+operator|&&
+name|ngx_file_size
+argument_list|(
+operator|&
+name|fi
+argument_list|)
+operator|>
+name|NGX_MIN_READ_AHEAD
+condition|)
+block|{
+if|if
+condition|(
+name|ngx_read_ahead
+argument_list|(
+name|fd
+argument_list|,
+name|of
+operator|->
+name|read_ahead
+argument_list|)
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|log
+argument_list|,
+name|ngx_errno
+argument_list|,
+name|ngx_read_ahead_n
+literal|" \"%s\" failed"
+argument_list|,
+name|name
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 if|if
 condition|(
 name|of

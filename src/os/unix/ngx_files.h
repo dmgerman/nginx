@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27aa3fad0108
+DECL|struct|__anon27b60aea0108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27aa3fad0208
+DECL|struct|__anon27b60aea0208
 typedef|typedef
 struct|struct
 block|{
@@ -1320,6 +1320,111 @@ directive|define
 name|ngx_unlock_fd_n
 value|"fcntl(F_SETLK, F_UNLCK)"
 end_define
+
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_F_READAHEAD
+operator|)
+end_if
+
+begin_define
+DECL|macro|NGX_HAVE_READ_AHEAD
+define|#
+directive|define
+name|NGX_HAVE_READ_AHEAD
+value|1
+end_define
+
+begin_define
+DECL|macro|ngx_read_ahead (fd,n)
+define|#
+directive|define
+name|ngx_read_ahead
+parameter_list|(
+name|fd
+parameter_list|,
+name|n
+parameter_list|)
+value|fcntl(fd, F_READAHEAD, (int) n)
+end_define
+
+begin_define
+DECL|macro|ngx_read_ahead_n
+define|#
+directive|define
+name|ngx_read_ahead_n
+value|"fcntl(fd, F_READAHEAD)"
+end_define
+
+begin_elif
+elif|#
+directive|elif
+operator|(
+name|NGX_HAVE_POSIX_FADVISE
+operator|)
+end_elif
+
+begin_define
+DECL|macro|NGX_HAVE_READ_AHEAD
+define|#
+directive|define
+name|NGX_HAVE_READ_AHEAD
+value|1
+end_define
+
+begin_define
+DECL|macro|ngx_read_ahead (fd,n)
+define|#
+directive|define
+name|ngx_read_ahead
+parameter_list|(
+name|fd
+parameter_list|,
+name|n
+parameter_list|)
+value|posix_fadvise(fd, 0, 0, POSIX_FADV_SEQUENTIAL)
+end_define
+
+begin_define
+DECL|macro|ngx_read_ahead_n
+define|#
+directive|define
+name|ngx_read_ahead_n
+value|"posix_fadvise(POSIX_FADV_SEQUENTIAL)"
+end_define
+
+begin_else
+else|#
+directive|else
+end_else
+
+begin_define
+DECL|macro|ngx_read_ahead (fd,n)
+define|#
+directive|define
+name|ngx_read_ahead
+parameter_list|(
+name|fd
+parameter_list|,
+name|n
+parameter_list|)
+value|0
+end_define
+
+begin_define
+DECL|macro|ngx_read_ahead_n
+define|#
+directive|define
+name|ngx_read_ahead_n
+value|"ngx_read_ahead_n"
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_if
 if|#
