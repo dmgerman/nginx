@@ -10497,6 +10497,12 @@ literal|1
 expr_stmt|;
 block|}
 block|}
+name|r
+operator|->
+name|keepalive
+operator|=
+literal|0
+expr_stmt|;
 name|ngx_http_free_request
 argument_list|(
 name|r
