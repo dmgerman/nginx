@@ -1987,12 +1987,6 @@ block|}
 block|}
 name|r
 operator|->
-name|discard_body
-operator|=
-literal|1
-expr_stmt|;
-name|r
-operator|->
 name|read_event_handler
 operator|=
 name|ngx_http_read_discarded_request_body_handler
@@ -2027,6 +2021,12 @@ name|r
 operator|->
 name|count
 operator|++
+expr_stmt|;
+name|r
+operator|->
+name|discard_body
+operator|=
+literal|1
 expr_stmt|;
 block|}
 return|return
