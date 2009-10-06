@@ -50,7 +50,7 @@ DECL|macro|NGX_DEFAULT_CIPHERS
 define|#
 directive|define
 name|NGX_DEFAULT_CIPHERS
-value|"ALL:!ADH:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP"
+value|"ALL:!ADH:RC4+RSA:+HIGH:+MEDIUM"
 end_define
 
 begin_function_decl
@@ -1408,8 +1408,6 @@ name|protocols
 argument_list|,
 operator|(
 name|NGX_CONF_BITMASK_SET
-operator||
-name|NGX_SSL_SSLv2
 operator||
 name|NGX_SSL_SSLv3
 operator||
