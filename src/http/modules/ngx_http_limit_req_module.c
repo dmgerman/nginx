@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28721a2b0108
+DECL|struct|__anon276f681e0108
 typedef|typedef
 struct|struct
 block|{
@@ -65,7 +65,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28721a2b0208
+DECL|struct|__anon276f681e0208
 typedef|typedef
 struct|struct
 block|{
@@ -88,7 +88,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28721a2b0308
+DECL|struct|__anon276f681e0308
 typedef|typedef
 struct|struct
 block|{
@@ -122,7 +122,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28721a2b0408
+DECL|struct|__anon276f681e0408
 typedef|typedef
 struct|struct
 block|{
@@ -1601,6 +1601,27 @@ literal|1000
 expr_stmt|;
 if|if
 condition|(
+operator|(
+name|ngx_uint_t
+operator|)
+name|excess
+operator|>
+name|lrcf
+operator|->
+name|burst
+condition|)
+block|{
+operator|*
+name|lrp
+operator|=
+name|lr
+expr_stmt|;
+return|return
+name|NGX_BUSY
+return|;
+block|}
+if|if
+condition|(
 name|excess
 operator|<
 literal|0
@@ -1628,22 +1649,6 @@ name|lrp
 operator|=
 name|lr
 expr_stmt|;
-if|if
-condition|(
-operator|(
-name|ngx_uint_t
-operator|)
-name|excess
-operator|>
-name|lrcf
-operator|->
-name|burst
-condition|)
-block|{
-return|return
-name|NGX_BUSY
-return|;
-block|}
 if|if
 condition|(
 name|excess
