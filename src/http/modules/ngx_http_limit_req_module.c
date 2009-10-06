@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c24bef30108
+DECL|struct|__anon294448ca0108
 typedef|typedef
 struct|struct
 block|{
@@ -65,7 +65,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c24bef30208
+DECL|struct|__anon294448ca0208
 typedef|typedef
 struct|struct
 block|{
@@ -88,7 +88,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c24bef30308
+DECL|struct|__anon294448ca0308
 typedef|typedef
 struct|struct
 block|{
@@ -122,7 +122,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c24bef30408
+DECL|struct|__anon294448ca0408
 typedef|typedef
 struct|struct
 block|{
@@ -1695,6 +1695,18 @@ literal|1000
 expr_stmt|;
 if|if
 condition|(
+name|excess
+operator|<
+literal|0
+condition|)
+block|{
+name|excess
+operator|=
+literal|0
+expr_stmt|;
+block|}
+if|if
+condition|(
 operator|(
 name|ngx_uint_t
 operator|)
@@ -1713,18 +1725,6 @@ expr_stmt|;
 return|return
 name|NGX_BUSY
 return|;
-block|}
-if|if
-condition|(
-name|excess
-operator|<
-literal|0
-condition|)
-block|{
-name|excess
-operator|=
-literal|0
-expr_stmt|;
 block|}
 name|lr
 operator|->
