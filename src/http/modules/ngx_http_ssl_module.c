@@ -50,7 +50,7 @@ DECL|macro|NGX_DEFAULT_CIPHERS
 define|#
 directive|define
 name|NGX_DEFAULT_CIPHERS
-value|"ALL:!ADH:RC4+RSA:+HIGH:+MEDIUM"
+value|"HIGH:!ADH:!MD5"
 end_define
 
 begin_function_decl
