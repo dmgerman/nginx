@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon297f95960108
+DECL|struct|__anon29d7f3890108
 typedef|typedef
 struct|struct
 block|{
@@ -103,7 +103,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon297f95960203
+DECL|enum|__anon29d7f3890203
 typedef|typedef
 enum|enum
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297f95960308
+DECL|struct|__anon29d7f3890308
 typedef|typedef
 struct|struct
 block|{
@@ -166,7 +166,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297f95960408
+DECL|struct|__anon29d7f3890408
 typedef|typedef
 struct|struct
 block|{
@@ -293,7 +293,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon297f95960508
+DECL|struct|__anon29d7f3890508
 typedef|typedef
 struct|struct
 block|{
@@ -336,7 +336,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297f95960608
+DECL|struct|__anon29d7f3890608
 typedef|typedef
 struct|struct
 block|{
@@ -366,7 +366,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297f95960708
+DECL|struct|__anon29d7f3890708
 typedef|typedef
 struct|struct
 block|{
@@ -393,7 +393,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297f95960808
+DECL|struct|__anon29d7f3890808
 typedef|typedef
 struct|struct
 block|{
@@ -2234,6 +2234,72 @@ name|ngx_null_string
 block|}
 decl_stmt|;
 end_decl_stmt
+
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_CACHE
+operator|)
+end_if
+
+begin_decl_stmt
+DECL|variable|ngx_http_fastcgi_hide_cache_headers
+specifier|static
+name|ngx_str_t
+name|ngx_http_fastcgi_hide_cache_headers
+index|[]
+init|=
+block|{
+name|ngx_string
+argument_list|(
+literal|"Status"
+argument_list|)
+block|,
+name|ngx_string
+argument_list|(
+literal|"X-Accel-Expires"
+argument_list|)
+block|,
+name|ngx_string
+argument_list|(
+literal|"X-Accel-Redirect"
+argument_list|)
+block|,
+name|ngx_string
+argument_list|(
+literal|"X-Accel-Limit-Rate"
+argument_list|)
+block|,
+name|ngx_string
+argument_list|(
+literal|"X-Accel-Buffering"
+argument_list|)
+block|,
+name|ngx_string
+argument_list|(
+literal|"X-Accel-Charset"
+argument_list|)
+block|,
+name|ngx_string
+argument_list|(
+literal|"Set-Cookie"
+argument_list|)
+block|,
+name|ngx_string
+argument_list|(
+literal|"P3P"
+argument_list|)
+block|,
+name|ngx_null_string
+block|}
+decl_stmt|;
+end_decl_stmt
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_decl_stmt
 DECL|variable|ngx_http_fastcgi_temp_path
@@ -8594,6 +8660,10 @@ name|uintptr_t
 modifier|*
 name|code
 decl_stmt|;
+name|ngx_str_t
+modifier|*
+name|h
+decl_stmt|;
 name|ngx_uint_t
 name|i
 decl_stmt|;
@@ -9598,6 +9668,31 @@ name|name
 operator|=
 literal|"fastcgi_hide_headers_hash"
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_CACHE
+operator|)
+name|h
+operator|=
+name|conf
+operator|->
+name|upstream
+operator|.
+name|cache
+condition|?
+name|ngx_http_fastcgi_hide_cache_headers
+else|:
+name|ngx_http_fastcgi_hide_headers
+expr_stmt|;
+else|#
+directive|else
+name|h
+operator|=
+name|ngx_http_fastcgi_hide_headers
+expr_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|ngx_http_upstream_hide_headers_hash
@@ -9614,7 +9709,7 @@ name|prev
 operator|->
 name|upstream
 argument_list|,
-name|ngx_http_fastcgi_hide_headers
+name|h
 argument_list|,
 operator|&
 name|hash
