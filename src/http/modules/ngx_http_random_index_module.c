@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29f220be0108
+DECL|struct|__anon292214a20108
 typedef|typedef
 struct|struct
 block|{
@@ -710,6 +710,12 @@ operator|.
 name|type
 operator|==
 literal|0
+operator|||
+name|ngx_de_is_link
+argument_list|(
+operator|&
+name|dir
+argument_list|)
 condition|)
 block|{
 comment|/* 1 byte for '/' and 1 byte for terminating '\0' */
