@@ -1362,12 +1362,6 @@ literal|1
 expr_stmt|;
 name|dir
 operator|->
-name|valid_type
-operator|=
-literal|1
-expr_stmt|;
-name|dir
-operator|->
 name|ready
 operator|=
 literal|1
@@ -1422,6 +1416,12 @@ operator|!=
 literal|0
 condition|)
 block|{
+name|dir
+operator|->
+name|type
+operator|=
+literal|1
+expr_stmt|;
 return|return
 name|NGX_OK
 return|;

@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c091d960108
+DECL|struct|__anon2a1ea62c0108
 typedef|typedef
 struct|struct
 block|{
@@ -71,9 +71,9 @@ name|valid_info
 range|:
 literal|1
 decl_stmt|;
-DECL|member|valid_type
+DECL|member|type
 name|unsigned
-name|valid_type
+name|type
 range|:
 literal|1
 decl_stmt|;
@@ -90,7 +90,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c091d960208
+DECL|struct|__anon2a1ea62c0208
 typedef|typedef
 struct|struct
 block|{

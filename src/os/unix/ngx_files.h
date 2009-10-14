@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b60aea0108
+DECL|struct|__anon27d5bdcb0108
 typedef|typedef
 struct|struct
 block|{
@@ -86,12 +86,6 @@ name|valid_info
 range|:
 literal|1
 decl_stmt|;
-DECL|member|valid_type
-name|unsigned
-name|valid_type
-range|:
-literal|1
-decl_stmt|;
 DECL|typedef|ngx_dir_t
 block|}
 name|ngx_dir_t
@@ -99,7 +93,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b60aea0208
+DECL|struct|__anon27d5bdcb0208
 typedef|typedef
 struct|struct
 block|{
@@ -1001,18 +995,46 @@ endif|#
 directive|endif
 end_endif
 
-begin_define
-DECL|macro|ngx_de_info (name,dir)
-define|#
-directive|define
+begin_function
+specifier|static
+name|ngx_inline
+name|ngx_int_t
+DECL|function|ngx_de_info (u_char * name,ngx_dir_t * dir)
 name|ngx_de_info
 parameter_list|(
+name|u_char
+modifier|*
 name|name
 parameter_list|,
+name|ngx_dir_t
+modifier|*
 name|dir
 parameter_list|)
-value|stat((const char *) name,&(dir)->info)
-end_define
+block|{
+name|dir
+operator|->
+name|type
+operator|=
+literal|0
+expr_stmt|;
+return|return
+name|stat
+argument_list|(
+operator|(
+specifier|const
+name|char
+operator|*
+operator|)
+name|name
+argument_list|,
+operator|&
+name|dir
+operator|->
+name|info
+argument_list|)
+return|;
+block|}
+end_function
 
 begin_define
 DECL|macro|ngx_de_info_n
@@ -1051,16 +1073,8 @@ name|NGX_HAVE_D_TYPE
 operator|)
 end_if
 
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_LINUX
-operator|)
-end_if
-
 begin_comment
-comment|/* XFS on Linux does not set dirent.d_type */
+comment|/*  * some file systems (e.g. XFS on Linux and CD9660 on FreeBSD)  * do not set dirent.d_type  */
 end_comment
 
 begin_define
@@ -1096,55 +1110,8 @@ parameter_list|(
 name|dir
 parameter_list|)
 define|\
-value|(((dir)->type) ? ((dir)->type == DT_LINK) : (S_ISLNK((dir)->info.st_mode)))
+value|(((dir)->type) ? ((dir)->type == DT_LNK) : (S_ISLNK((dir)->info.st_mode)))
 end_define
-
-begin_else
-else|#
-directive|else
-end_else
-
-begin_define
-DECL|macro|ngx_de_is_dir (dir)
-define|#
-directive|define
-name|ngx_de_is_dir
-parameter_list|(
-name|dir
-parameter_list|)
-value|((dir)->type == DT_DIR)
-end_define
-
-begin_define
-DECL|macro|ngx_de_is_file (dir)
-define|#
-directive|define
-name|ngx_de_is_file
-parameter_list|(
-name|dir
-parameter_list|)
-value|((dir)->type == DT_REG)
-end_define
-
-begin_define
-DECL|macro|ngx_de_is_link (dir)
-define|#
-directive|define
-name|ngx_de_is_link
-parameter_list|(
-name|dir
-parameter_list|)
-value|((dir)->type == DT_LINK)
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_comment
-comment|/* NGX_LINUX */
-end_comment
 
 begin_else
 else|#
