@@ -18,7 +18,7 @@ end_include
 begin_decl_stmt
 DECL|variable|mday
 specifier|static
-name|int
+name|ngx_uint_t
 name|mday
 index|[]
 init|=
@@ -70,10 +70,11 @@ decl_stmt|,
 modifier|*
 name|end
 decl_stmt|;
-name|int
-name|day
-decl_stmt|,
+name|ngx_int_t
 name|month
+decl_stmt|;
+name|ngx_uint_t
+name|day
 decl_stmt|,
 name|year
 decl_stmt|,
@@ -83,7 +84,7 @@ name|min
 decl_stmt|,
 name|sec
 decl_stmt|;
-DECL|enum|__anon2998ce7d0103
+DECL|enum|__anon2b1d0a2f0103
 enum|enum
 block|{
 DECL|enumerator|no
