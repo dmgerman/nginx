@@ -943,6 +943,18 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+ifdef|#
+directive|ifdef
+name|SSL_CTRL_SET_TLSEXT_HOSTNAME
+name|ngx_log_stderr
+argument_list|(
+literal|0
+argument_list|,
+literal|"TLS SNI support enabled"
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|ngx_log_stderr
 argument_list|(
 literal|0
