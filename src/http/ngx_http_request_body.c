@@ -1948,6 +1948,14 @@ condition|)
 block|{
 name|r
 operator|->
+name|header_in
+operator|->
+name|pos
+operator|+=
+name|size
+expr_stmt|;
+name|r
+operator|->
 name|headers_in
 operator|.
 name|content_length_n
