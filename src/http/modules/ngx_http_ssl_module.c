@@ -1715,7 +1715,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"nginx was build with SNI support, however, now it is linked "
+literal|"nginx was built with SNI support, however, now it is linked "
 literal|"dynamically to an OpenSSL library which has no tlsext support, "
 literal|"therefore SNI is not available"
 argument_list|)
