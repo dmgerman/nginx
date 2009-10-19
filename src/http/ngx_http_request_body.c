@@ -63,18 +63,6 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|void
-name|ngx_http_read_discarded_request_body_handler
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-specifier|static
 name|ngx_int_t
 name|ngx_http_read_discarded_request_body
 parameter_list|(
@@ -1997,7 +1985,7 @@ name|r
 operator|->
 name|read_event_handler
 operator|=
-name|ngx_http_read_discarded_request_body_handler
+name|ngx_http_discarded_request_body_handler
 expr_stmt|;
 if|if
 condition|(
@@ -2053,10 +2041,9 @@ block|}
 end_function
 
 begin_function
-specifier|static
 name|void
-DECL|function|ngx_http_read_discarded_request_body_handler (ngx_http_request_t * r)
-name|ngx_http_read_discarded_request_body_handler
+DECL|function|ngx_http_discarded_request_body_handler (ngx_http_request_t * r)
+name|ngx_http_discarded_request_body_handler
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
