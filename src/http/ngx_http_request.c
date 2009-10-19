@@ -9425,6 +9425,12 @@ name|r
 operator|->
 name|read_event_handler
 operator|=
+name|r
+operator|->
+name|discard_body
+condition|?
+name|ngx_http_discarded_request_body_handler
+else|:
 name|ngx_http_test_reading
 expr_stmt|;
 name|r
