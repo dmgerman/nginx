@@ -2116,7 +2116,7 @@ name|ngx_http_finalize_request
 argument_list|(
 name|r
 argument_list|,
-literal|0
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -2165,7 +2165,7 @@ name|ngx_http_finalize_request
 argument_list|(
 name|r
 argument_list|,
-literal|0
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -2204,21 +2204,13 @@ name|lingering_close
 operator|=
 literal|0
 expr_stmt|;
-if|if
-condition|(
-name|r
-operator|->
-name|done
-condition|)
-block|{
 name|ngx_http_finalize_request
 argument_list|(
 name|r
 argument_list|,
-literal|0
+name|NGX_DONE
 argument_list|)
 expr_stmt|;
-block|}
 return|return;
 block|}
 comment|/* rc == NGX_AGAIN */
@@ -2244,7 +2236,7 @@ name|ngx_http_finalize_request
 argument_list|(
 name|r
 argument_list|,
-name|rc
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
