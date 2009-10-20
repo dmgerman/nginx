@@ -9283,12 +9283,6 @@ name|read_event_handler
 operator|=
 name|ngx_http_discarded_request_body_handler
 expr_stmt|;
-name|r
-operator|->
-name|write_event_handler
-operator|=
-name|ngx_http_request_empty_handler
-expr_stmt|;
 if|if
 condition|(
 name|r
@@ -9882,6 +9876,12 @@ name|r
 operator|->
 name|args
 argument_list|)
+expr_stmt|;
+name|r
+operator|->
+name|write_event_handler
+operator|=
+name|ngx_http_request_empty_handler
 expr_stmt|;
 name|ngx_http_finalize_request
 argument_list|(
