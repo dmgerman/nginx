@@ -5176,7 +5176,16 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"the duplicate default server"
+literal|"a duplicate default server for %s"
+argument_list|,
+name|addr
+index|[
+name|i
+index|]
+operator|.
+name|opt
+operator|.
+name|addr
 argument_list|)
 expr_stmt|;
 return|return
