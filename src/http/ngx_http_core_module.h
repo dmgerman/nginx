@@ -189,10 +189,21 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275d7ee30108
+DECL|struct|__anon2b8c16ac0108
 typedef|typedef
 struct|struct
 block|{
+DECL|member|sockaddr
+name|u_char
+name|sockaddr
+index|[
+name|NGX_SOCKADDRLEN
+index|]
+decl_stmt|;
+DECL|member|socklen
+name|socklen_t
+name|socklen
+decl_stmt|;
 DECL|member|default_server
 name|unsigned
 name|default_server
@@ -297,33 +308,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275d7ee30208
-typedef|typedef
-struct|struct
-block|{
-DECL|member|sockaddr
-name|u_char
-name|sockaddr
-index|[
-name|NGX_SOCKADDRLEN
-index|]
-decl_stmt|;
-DECL|member|socklen
-name|socklen_t
-name|socklen
-decl_stmt|;
-DECL|member|opt
-name|ngx_http_listen_opt_t
-name|opt
-decl_stmt|;
-DECL|typedef|ngx_http_listen_t
-block|}
-name|ngx_http_listen_t
-typedef|;
-end_typedef
-
-begin_typedef
-DECL|enum|__anon275d7ee30303
+DECL|enum|__anon2b8c16ac0203
 typedef|typedef
 enum|enum
 block|{
@@ -418,7 +403,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon275d7ee30408
+DECL|struct|__anon2b8c16ac0308
 typedef|typedef
 struct|struct
 block|{
@@ -442,7 +427,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275d7ee30508
+DECL|struct|__anon2b8c16ac0408
 typedef|typedef
 struct|struct
 block|{
@@ -457,7 +442,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275d7ee30608
+DECL|struct|__anon2b8c16ac0508
 typedef|typedef
 struct|struct
 block|{
@@ -530,7 +515,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275d7ee30708
+DECL|struct|__anon2b8c16ac0608
 typedef|typedef
 struct|struct
 block|{
@@ -617,7 +602,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon275d7ee30808
+DECL|struct|__anon2b8c16ac0708
 typedef|typedef
 struct|struct
 block|{
@@ -651,7 +636,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275d7ee30908
+DECL|struct|__anon2b8c16ac0808
 typedef|typedef
 struct|struct
 block|{
@@ -678,7 +663,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon275d7ee30a08
+DECL|struct|__anon2b8c16ac0908
 typedef|typedef
 struct|struct
 block|{
@@ -703,7 +688,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon275d7ee30b08
+DECL|struct|__anon2b8c16ac0a08
 typedef|typedef
 struct|struct
 block|{
@@ -724,7 +709,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275d7ee30c08
+DECL|struct|__anon2b8c16ac0b08
 typedef|typedef
 struct|struct
 block|{
@@ -748,20 +733,13 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275d7ee30d08
+DECL|struct|__anon2b8c16ac0c08
 typedef|typedef
 struct|struct
 block|{
-DECL|member|sockaddr
-name|u_char
-name|sockaddr
-index|[
-name|NGX_SOCKADDRLEN
-index|]
-decl_stmt|;
-DECL|member|socklen
-name|socklen_t
-name|socklen
+DECL|member|opt
+name|ngx_http_listen_opt_t
+name|opt
 decl_stmt|;
 DECL|member|hash
 name|ngx_hash_t
@@ -804,10 +782,6 @@ name|ngx_array_t
 name|servers
 decl_stmt|;
 comment|/* array of ngx_http_core_srv_conf_t */
-DECL|member|opt
-name|ngx_http_listen_opt_t
-name|opt
-decl_stmt|;
 DECL|typedef|ngx_http_conf_addr_t
 block|}
 name|ngx_http_conf_addr_t
@@ -846,7 +820,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon275d7ee30e08
+DECL|struct|__anon2b8c16ac0d08
 typedef|typedef
 struct|struct
 block|{
@@ -873,7 +847,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275d7ee30f08
+DECL|struct|__anon2b8c16ac0e08
 typedef|typedef
 struct|struct
 block|{
@@ -1354,7 +1328,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon275d7ee31008
+DECL|struct|__anon2b8c16ac0f08
 typedef|typedef
 struct|struct
 block|{

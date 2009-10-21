@@ -313,9 +313,9 @@ name|ngx_http_core_srv_conf_t
 modifier|*
 name|cscf
 parameter_list|,
-name|ngx_http_listen_t
+name|ngx_http_listen_opt_t
 modifier|*
-name|listen
+name|lsopt
 parameter_list|)
 function_decl|;
 end_function_decl

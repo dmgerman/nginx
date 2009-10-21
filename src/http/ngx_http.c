@@ -107,9 +107,9 @@ name|ngx_http_conf_port_t
 modifier|*
 name|port
 parameter_list|,
-name|ngx_http_listen_t
+name|ngx_http_listen_opt_t
 modifier|*
-name|listen
+name|lsopt
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -131,9 +131,9 @@ name|ngx_http_conf_port_t
 modifier|*
 name|port
 parameter_list|,
-name|ngx_http_listen_t
+name|ngx_http_listen_opt_t
 modifier|*
-name|listen
+name|lsopt
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -4662,7 +4662,7 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_http_add_listen (ngx_conf_t * cf,ngx_http_core_srv_conf_t * cscf,ngx_http_listen_t * listen)
+DECL|function|ngx_http_add_listen (ngx_conf_t * cf,ngx_http_core_srv_conf_t * cscf,ngx_http_listen_opt_t * lsopt)
 name|ngx_http_add_listen
 parameter_list|(
 name|ngx_conf_t
@@ -4673,9 +4673,9 @@ name|ngx_http_core_srv_conf_t
 modifier|*
 name|cscf
 parameter_list|,
-name|ngx_http_listen_t
+name|ngx_http_listen_opt_t
 modifier|*
-name|listen
+name|lsopt
 parameter_list|)
 block|{
 name|in_port_t
@@ -4772,7 +4772,7 @@ name|sockaddr
 operator|*
 operator|)
 operator|&
-name|listen
+name|lsopt
 operator|->
 name|sockaddr
 expr_stmt|;
@@ -4893,7 +4893,7 @@ index|[
 name|i
 index|]
 argument_list|,
-name|listen
+name|lsopt
 argument_list|)
 return|;
 block|}
@@ -4949,7 +4949,7 @@ name|cscf
 argument_list|,
 name|port
 argument_list|,
-name|listen
+name|lsopt
 argument_list|)
 return|;
 block|}
@@ -4958,7 +4958,7 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_http_add_addresses (ngx_conf_t * cf,ngx_http_core_srv_conf_t * cscf,ngx_http_conf_port_t * port,ngx_http_listen_t * listen)
+DECL|function|ngx_http_add_addresses (ngx_conf_t * cf,ngx_http_core_srv_conf_t * cscf,ngx_http_conf_port_t * port,ngx_http_listen_opt_t * lsopt)
 name|ngx_http_add_addresses
 parameter_list|(
 name|ngx_conf_t
@@ -4973,9 +4973,9 @@ name|ngx_http_conf_port_t
 modifier|*
 name|port
 parameter_list|,
-name|ngx_http_listen_t
+name|ngx_http_listen_opt_t
 modifier|*
-name|listen
+name|lsopt
 parameter_list|)
 block|{
 name|u_char
@@ -5008,7 +5008,7 @@ name|sockaddr
 operator|*
 operator|)
 operator|&
-name|listen
+name|lsopt
 operator|->
 name|sockaddr
 expr_stmt|;
@@ -5064,7 +5064,7 @@ break|break;
 block|}
 name|p
 operator|=
-name|listen
+name|lsopt
 operator|->
 name|sockaddr
 operator|+
@@ -5111,6 +5111,8 @@ index|[
 name|i
 index|]
 operator|.
+name|opt
+operator|.
 name|sockaddr
 operator|+
 name|off
@@ -5149,10 +5151,8 @@ block|}
 comment|/* check the duplicate "default" server for this address:port */
 if|if
 condition|(
-name|listen
+name|lsopt
 operator|->
-name|opt
-operator|.
 name|default_server
 condition|)
 block|{
@@ -5188,20 +5188,19 @@ index|[
 name|i
 index|]
 operator|.
-name|core_srv_conf
+name|opt
 operator|=
-name|cscf
+operator|*
+name|lsopt
 expr_stmt|;
 name|addr
 index|[
 name|i
 index|]
 operator|.
-name|opt
+name|core_srv_conf
 operator|=
-name|listen
-operator|->
-name|opt
+name|cscf
 expr_stmt|;
 block|}
 return|return
@@ -5218,7 +5217,7 @@ name|cscf
 argument_list|,
 name|port
 argument_list|,
-name|listen
+name|lsopt
 argument_list|)
 return|;
 block|}
@@ -5231,7 +5230,7 @@ end_comment
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_http_add_address (ngx_conf_t * cf,ngx_http_core_srv_conf_t * cscf,ngx_http_conf_port_t * port,ngx_http_listen_t * listen)
+DECL|function|ngx_http_add_address (ngx_conf_t * cf,ngx_http_core_srv_conf_t * cscf,ngx_http_conf_port_t * port,ngx_http_listen_opt_t * lsopt)
 name|ngx_http_add_address
 parameter_list|(
 name|ngx_conf_t
@@ -5246,9 +5245,9 @@ name|ngx_http_conf_port_t
 modifier|*
 name|port
 parameter_list|,
-name|ngx_http_listen_t
+name|ngx_http_listen_opt_t
 modifier|*
-name|listen
+name|lsopt
 parameter_list|)
 block|{
 name|ngx_http_conf_addr_t
@@ -5316,28 +5315,12 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-name|ngx_memcpy
-argument_list|(
 name|addr
 operator|->
-name|sockaddr
-argument_list|,
-name|listen
-operator|->
-name|sockaddr
-argument_list|,
-name|listen
-operator|->
-name|socklen
-argument_list|)
-expr_stmt|;
-name|addr
-operator|->
-name|socklen
+name|opt
 operator|=
-name|listen
-operator|->
-name|socklen
+operator|*
+name|lsopt
 expr_stmt|;
 name|addr
 operator|->
@@ -5399,14 +5382,6 @@ operator|.
 name|elts
 operator|=
 name|NULL
-expr_stmt|;
-name|addr
-operator|->
-name|opt
-operator|=
-name|listen
-operator|->
-name|opt
 expr_stmt|;
 return|return
 name|ngx_http_add_server
@@ -6934,10 +6909,14 @@ name|cf
 argument_list|,
 name|addr
 operator|->
+name|opt
+operator|.
 name|sockaddr
 argument_list|,
 name|addr
 operator|->
+name|opt
+operator|.
 name|socklen
 argument_list|)
 expr_stmt|;
@@ -7265,6 +7244,8 @@ name|addr
 index|[
 name|i
 index|]
+operator|.
+name|opt
 operator|.
 name|sockaddr
 expr_stmt|;
@@ -7622,6 +7603,8 @@ name|addr
 index|[
 name|i
 index|]
+operator|.
+name|opt
 operator|.
 name|sockaddr
 expr_stmt|;
