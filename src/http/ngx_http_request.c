@@ -7639,6 +7639,8 @@ index|[
 name|i
 index|]
 operator|.
+name|core_srv_conf
+operator|->
 name|captures
 operator|&&
 name|r
