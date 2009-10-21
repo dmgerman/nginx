@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a0c30350108
+DECL|struct|__anon2b4a501c0108
 typedef|typedef
 struct|struct
 block|{
@@ -14693,6 +14693,20 @@ control|)
 block|{
 if|if
 condition|(
+name|ngx_strcmp
+argument_list|(
+name|value
+index|[
+name|n
+index|]
+operator|.
+name|data
+argument_list|,
+literal|"default_server"
+argument_list|)
+operator|==
+literal|0
+operator|||
 name|ngx_strcmp
 argument_list|(
 name|value
