@@ -302,6 +302,25 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
+name|ngx_int_t
+name|ngx_http_add_listen
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_http_core_srv_conf_t
+modifier|*
+name|cscf
+parameter_list|,
+name|ngx_http_listen_t
+modifier|*
+name|listen
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
 name|void
 name|ngx_http_init_connection
 parameter_list|(

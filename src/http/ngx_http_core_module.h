@@ -189,7 +189,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27cb81030108
+DECL|struct|__anon2748627d0108
 typedef|typedef
 struct|struct
 block|{
@@ -290,14 +290,14 @@ operator|+
 literal|1
 index|]
 decl_stmt|;
-DECL|typedef|ngx_http_listen_conf_t
+DECL|typedef|ngx_http_listen_opt_t
 block|}
-name|ngx_http_listen_conf_t
+name|ngx_http_listen_opt_t
 typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27cb81030208
+DECL|struct|__anon2748627d0208
 typedef|typedef
 struct|struct
 block|{
@@ -312,18 +312,9 @@ DECL|member|socklen
 name|socklen_t
 name|socklen
 decl_stmt|;
-DECL|member|file_name
-name|u_char
-modifier|*
-name|file_name
-decl_stmt|;
-DECL|member|line
-name|ngx_uint_t
-name|line
-decl_stmt|;
-DECL|member|conf
-name|ngx_http_listen_conf_t
-name|conf
+DECL|member|opt
+name|ngx_http_listen_opt_t
+name|opt
 decl_stmt|;
 DECL|typedef|ngx_http_listen_t
 block|}
@@ -332,7 +323,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27cb81030303
+DECL|enum|__anon2748627d0303
 typedef|typedef
 enum|enum
 block|{
@@ -427,7 +418,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27cb81030408
+DECL|struct|__anon2748627d0408
 typedef|typedef
 struct|struct
 block|{
@@ -451,7 +442,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27cb81030508
+DECL|struct|__anon2748627d0508
 typedef|typedef
 struct|struct
 block|{
@@ -466,7 +457,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27cb81030608
+DECL|struct|__anon2748627d0608
 typedef|typedef
 struct|struct
 block|{
@@ -513,6 +504,11 @@ name|ngx_hash_keys_arrays_t
 modifier|*
 name|variables_keys
 decl_stmt|;
+DECL|member|ports
+name|ngx_array_t
+modifier|*
+name|ports
+decl_stmt|;
 DECL|member|try_files
 name|ngx_uint_t
 name|try_files
@@ -534,15 +530,10 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27cb81030708
+DECL|struct|__anon2748627d0708
 typedef|typedef
 struct|struct
 block|{
-comment|/* array of the ngx_http_listen_t, "listen" directive */
-DECL|member|listen
-name|ngx_array_t
-name|listen
-decl_stmt|;
 comment|/* array of the ngx_http_server_name_t, "server_name" directive */
 DECL|member|server_names
 name|ngx_array_t
@@ -590,6 +581,11 @@ DECL|member|underscores_in_headers
 name|ngx_flag_t
 name|underscores_in_headers
 decl_stmt|;
+DECL|member|listen
+name|ngx_uint_t
+name|listen
+decl_stmt|;
+comment|/* unsigned  listen:1; */
 DECL|member|named_locations
 name|ngx_http_core_loc_conf_t
 modifier|*
@@ -607,7 +603,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon27cb81030808
+DECL|struct|__anon2748627d0808
 typedef|typedef
 struct|struct
 block|{
@@ -641,7 +637,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27cb81030908
+DECL|struct|__anon2748627d0908
 typedef|typedef
 struct|struct
 block|{
@@ -668,7 +664,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon27cb81030a08
+DECL|struct|__anon2748627d0a08
 typedef|typedef
 struct|struct
 block|{
@@ -693,7 +689,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon27cb81030b08
+DECL|struct|__anon2748627d0b08
 typedef|typedef
 struct|struct
 block|{
@@ -714,7 +710,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27cb81030c08
+DECL|struct|__anon2748627d0c08
 typedef|typedef
 struct|struct
 block|{
@@ -738,15 +734,16 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27cb81030d08
+DECL|struct|__anon2748627d0d08
 typedef|typedef
 struct|struct
 block|{
 DECL|member|sockaddr
-name|struct
+name|u_char
 name|sockaddr
-modifier|*
-name|sockaddr
+index|[
+name|NGX_SOCKADDRLEN
+index|]
 decl_stmt|;
 DECL|member|socklen
 name|socklen_t
@@ -824,10 +821,9 @@ literal|1
 decl_stmt|;
 endif|#
 directive|endif
-DECL|member|listen_conf
-name|ngx_http_listen_conf_t
-modifier|*
-name|listen_conf
+DECL|member|opt
+name|ngx_http_listen_opt_t
+name|opt
 decl_stmt|;
 DECL|typedef|ngx_http_conf_addr_t
 block|}
@@ -872,7 +868,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27cb81030e08
+DECL|struct|__anon2748627d0e08
 typedef|typedef
 struct|struct
 block|{
@@ -899,7 +895,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27cb81030f08
+DECL|struct|__anon2748627d0f08
 typedef|typedef
 struct|struct
 block|{
@@ -1380,7 +1376,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27cb81031008
+DECL|struct|__anon2748627d1008
 typedef|typedef
 struct|struct
 block|{
