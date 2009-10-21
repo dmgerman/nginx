@@ -1085,7 +1085,7 @@ return|return
 name|NULL
 return|;
 block|}
-name|ngx_memcpy
+name|ngx_strlow
 argument_list|(
 name|cycle
 operator|->
@@ -1093,6 +1093,10 @@ name|hostname
 operator|.
 name|data
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 name|hostname
 argument_list|,
 name|cycle
