@@ -189,7 +189,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8c16ac0108
+DECL|struct|__anon29add52c0108
 typedef|typedef
 struct|struct
 block|{
@@ -308,7 +308,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b8c16ac0203
+DECL|enum|__anon29add52c0203
 typedef|typedef
 enum|enum
 block|{
@@ -403,7 +403,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b8c16ac0308
+DECL|struct|__anon29add52c0308
 typedef|typedef
 struct|struct
 block|{
@@ -427,7 +427,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8c16ac0408
+DECL|struct|__anon29add52c0408
 typedef|typedef
 struct|struct
 block|{
@@ -442,7 +442,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8c16ac0508
+DECL|struct|__anon29add52c0508
 typedef|typedef
 struct|struct
 block|{
@@ -515,7 +515,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8c16ac0608
+DECL|struct|__anon29add52c0608
 typedef|typedef
 struct|struct
 block|{
@@ -602,15 +602,15 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2b8c16ac0708
+DECL|struct|__anon29add52c0708
 typedef|typedef
 struct|struct
 block|{
 comment|/* the default server configuration for this address:port */
-DECL|member|core_srv_conf
+DECL|member|default_server
 name|ngx_http_core_srv_conf_t
 modifier|*
-name|core_srv_conf
+name|default_server
 decl_stmt|;
 DECL|member|virtual_names
 name|ngx_http_virtual_names_t
@@ -636,7 +636,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8c16ac0808
+DECL|struct|__anon29add52c0808
 typedef|typedef
 struct|struct
 block|{
@@ -663,7 +663,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2b8c16ac0908
+DECL|struct|__anon29add52c0908
 typedef|typedef
 struct|struct
 block|{
@@ -688,7 +688,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b8c16ac0a08
+DECL|struct|__anon29add52c0a08
 typedef|typedef
 struct|struct
 block|{
@@ -709,7 +709,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8c16ac0b08
+DECL|struct|__anon29add52c0b08
 typedef|typedef
 struct|struct
 block|{
@@ -733,7 +733,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8c16ac0c08
+DECL|struct|__anon29add52c0c08
 typedef|typedef
 struct|struct
 block|{
@@ -772,10 +772,10 @@ decl_stmt|;
 endif|#
 directive|endif
 comment|/* the default server configuration for this address:port */
-DECL|member|core_srv_conf
+DECL|member|default_server
 name|ngx_http_core_srv_conf_t
 modifier|*
-name|core_srv_conf
+name|default_server
 decl_stmt|;
 DECL|member|servers
 name|ngx_array_t
@@ -805,10 +805,10 @@ name|regex
 decl_stmt|;
 endif|#
 directive|endif
-DECL|member|core_srv_conf
+DECL|member|server
 name|ngx_http_core_srv_conf_t
 modifier|*
-name|core_srv_conf
+name|server
 decl_stmt|;
 comment|/* virtual name server conf */
 DECL|member|name
@@ -820,7 +820,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b8c16ac0d08
+DECL|struct|__anon29add52c0d08
 typedef|typedef
 struct|struct
 block|{
@@ -847,7 +847,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8c16ac0e08
+DECL|struct|__anon29add52c0e08
 typedef|typedef
 struct|struct
 block|{
@@ -1328,7 +1328,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b8c16ac0f08
+DECL|struct|__anon29add52c0f08
 typedef|typedef
 struct|struct
 block|{

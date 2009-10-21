@@ -1792,7 +1792,7 @@ name|cscf
 operator|=
 name|addr_conf
 operator|->
-name|core_srv_conf
+name|default_server
 expr_stmt|;
 name|r
 operator|->
@@ -7639,7 +7639,7 @@ index|[
 name|i
 index|]
 operator|.
-name|core_srv_conf
+name|server
 operator|->
 name|captures
 operator|&&
@@ -7770,7 +7770,7 @@ index|[
 name|i
 index|]
 operator|.
-name|core_srv_conf
+name|server
 expr_stmt|;
 name|r
 operator|->

@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28a033160108
+DECL|struct|__anon29f9952f0108
 typedef|typedef
 struct|struct
 block|{
@@ -12487,7 +12487,7 @@ endif|#
 directive|endif
 name|sn
 operator|->
-name|core_srv_conf
+name|server
 operator|=
 name|conf
 expr_stmt|;
@@ -15838,7 +15838,7 @@ endif|#
 directive|endif
 name|sn
 operator|->
-name|core_srv_conf
+name|server
 operator|=
 name|cscf
 expr_stmt|;
