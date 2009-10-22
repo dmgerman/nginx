@@ -5153,7 +5153,10 @@ condition|(
 name|lsopt
 operator|->
 name|set
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
 name|addr
 index|[
 name|i
@@ -5187,6 +5190,17 @@ expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
+block|}
+name|addr
+index|[
+name|i
+index|]
+operator|.
+name|opt
+operator|=
+operator|*
+name|lsopt
+expr_stmt|;
 block|}
 comment|/* check the duplicate "default" server for this address:port */
 if|if
@@ -5232,16 +5246,6 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-name|addr
-index|[
-name|i
-index|]
-operator|.
-name|opt
-operator|=
-operator|*
-name|lsopt
-expr_stmt|;
 name|addr
 index|[
 name|i
