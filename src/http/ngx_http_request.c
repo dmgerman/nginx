@@ -7567,6 +7567,8 @@ name|NGX_PCRE
 operator|)
 if|if
 condition|(
+name|len
+operator|&&
 name|r
 operator|->
 name|virtual_names
