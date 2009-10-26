@@ -28,6 +28,10 @@ directive|include
 file|<ngx_core.h>
 end_include
 
+begin_comment
+comment|/*  * TODO: autoconfigure NGX_SOCKADDRLEN and NGX_SOCKADDR_STRLEN as  *       sizeof(struct sockaddr_storage)  *       sizeof(struct sockaddr_un)  *       sizeof(struct sockaddr_in6)  *       sizeof(struct sockaddr_in)  */
+end_comment
+
 begin_define
 DECL|macro|NGX_INET_ADDRSTRLEN
 define|#
@@ -46,6 +50,36 @@ value|(sizeof("ffff:ffff:ffff:ffff:ffff:ffff:255.255.255.255") - 1)
 end_define
 
 begin_define
+DECL|macro|NGX_UNIX_ADDRSTRLEN
+define|#
+directive|define
+name|NGX_UNIX_ADDRSTRLEN
+define|\
+value|(sizeof(struct sockaddr_un) - offsetof(struct sockaddr_un, sun_path))
+end_define
+
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_UNIX_DOMAIN
+operator|)
+end_if
+
+begin_define
+DECL|macro|NGX_SOCKADDR_STRLEN
+define|#
+directive|define
+name|NGX_SOCKADDR_STRLEN
+value|(sizeof("unix:") - 1 + NGX_UNIX_ADDRSTRLEN)
+end_define
+
+begin_else
+else|#
+directive|else
+end_else
+
+begin_define
 DECL|macro|NGX_SOCKADDR_STRLEN
 define|#
 directive|define
@@ -53,9 +87,10 @@ name|NGX_SOCKADDR_STRLEN
 value|(NGX_INET6_ADDRSTRLEN + sizeof(":65535") - 1)
 end_define
 
-begin_comment
-comment|/*  * TODO: autoconfigure NGX_SOCKADDRLEN as  *       sizeof(struct sockaddr_storage)  *       sizeof(struct sockaddr_un)  *       sizeof(struct sockaddr_in6)  *       sizeof(struct sockaddr_in)  */
-end_comment
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_if
 if|#
@@ -92,7 +127,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2934e7be0108
+DECL|struct|__anon28e3bfee0108
 typedef|typedef
 struct|struct
 block|{
@@ -119,7 +154,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2934e7be0208
+DECL|struct|__anon28e3bfee0208
 typedef|typedef
 struct|struct
 block|{
@@ -145,7 +180,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2934e7be0308
+DECL|struct|__anon28e3bfee0308
 typedef|typedef
 struct|struct
 block|{
@@ -153,7 +188,7 @@ DECL|member|family
 name|ngx_uint_t
 name|family
 decl_stmt|;
-DECL|union|__anon2934e7be040a
+DECL|union|__anon28e3bfee040a
 union|union
 block|{
 DECL|member|in
@@ -182,7 +217,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2934e7be0508
+DECL|struct|__anon28e3bfee0508
 typedef|typedef
 struct|struct
 block|{
@@ -207,7 +242,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2934e7be0608
+DECL|struct|__anon28e3bfee0608
 typedef|typedef
 struct|struct
 block|{

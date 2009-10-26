@@ -3229,6 +3229,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|ngx_close_listening_sockets
+argument_list|(
+name|cycle
+argument_list|)
+expr_stmt|;
 comment|/*      * Copy ngx_cycle->log related data to the special static exit cycle,      * log, and log file structures enough to allow a signal handler to log.      * The handler may be called when standard ngx_cycle->log allocated from      * ngx_cycle->pool is already destroyed.      */
 name|ngx_exit_log_file
 operator|.
