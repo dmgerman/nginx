@@ -5725,6 +5725,17 @@ name|ngx_http_conf_addr_t
 modifier|*
 name|addr
 decl_stmt|;
+if|if
+condition|(
+name|ports
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_OK
+return|;
+block|}
 name|port
 operator|=
 name|ports
