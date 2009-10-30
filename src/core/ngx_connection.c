@@ -2853,6 +2853,10 @@ operator|&&
 name|ngx_process
 operator|!=
 name|NGX_PROCESS_WORKER
+operator|&&
+name|ngx_new_binary
+operator|==
+literal|0
 condition|)
 block|{
 name|u_char
