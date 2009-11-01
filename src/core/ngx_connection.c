@@ -3856,12 +3856,6 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-name|c
-operator|->
-name|local_socklen
-operator|=
-name|len
-expr_stmt|;
 name|ngx_memcpy
 argument_list|(
 name|c

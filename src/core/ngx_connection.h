@@ -244,7 +244,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2b8cf2880103
+DECL|enum|__anon2bee580a0103
 typedef|typedef
 enum|enum
 block|{
@@ -271,7 +271,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b8cf2880203
+DECL|enum|__anon2bee580a0203
 typedef|typedef
 enum|enum
 block|{
@@ -292,7 +292,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b8cf2880303
+DECL|enum|__anon2bee580a0303
 typedef|typedef
 enum|enum
 block|{
@@ -418,10 +418,6 @@ name|struct
 name|sockaddr
 modifier|*
 name|local_sockaddr
-decl_stmt|;
-DECL|member|local_socklen
-name|socklen_t
-name|local_socklen
 decl_stmt|;
 DECL|member|buffer
 name|ngx_buf_t

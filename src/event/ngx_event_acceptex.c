@@ -51,6 +51,9 @@ name|ngx_connection_t
 modifier|*
 name|c
 decl_stmt|;
+name|socklen_t
+name|len
+decl_stmt|;
 name|c
 operator|=
 name|rev
@@ -211,9 +214,7 @@ operator|->
 name|local_sockaddr
 argument_list|,
 operator|&
-name|c
-operator|->
-name|local_socklen
+name|len
 argument_list|,
 operator|&
 name|c
