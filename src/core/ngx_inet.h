@@ -127,7 +127,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29db926f0108
+DECL|struct|__anon2c6088920108
 typedef|typedef
 struct|struct
 block|{
@@ -154,7 +154,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon29db926f0208
+DECL|struct|__anon2c6088920208
 typedef|typedef
 struct|struct
 block|{
@@ -180,7 +180,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29db926f0308
+DECL|struct|__anon2c6088920308
 typedef|typedef
 struct|struct
 block|{
@@ -188,7 +188,7 @@ DECL|member|family
 name|ngx_uint_t
 name|family
 decl_stmt|;
-DECL|union|__anon29db926f040a
+DECL|union|__anon2c608892040a
 union|union
 block|{
 DECL|member|in
@@ -217,7 +217,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29db926f0508
+DECL|struct|__anon2c6088920508
 typedef|typedef
 struct|struct
 block|{
@@ -242,7 +242,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29db926f0608
+DECL|struct|__anon2c6088920608
 typedef|typedef
 struct|struct
 block|{
@@ -440,6 +440,22 @@ parameter_list|,
 name|ngx_cidr_t
 modifier|*
 name|cidr
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_addr_t
+modifier|*
+name|ngx_parse_addr
+parameter_list|(
+name|ngx_pool_t
+modifier|*
+name|pool
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|addr
 parameter_list|)
 function_decl|;
 end_function_decl
