@@ -100,7 +100,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29d7e60d0108
+DECL|struct|__anon275f96720108
 typedef|typedef
 struct|struct
 block|{
@@ -126,7 +126,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d7e60d0208
+DECL|struct|__anon275f96720208
 typedef|typedef
 struct|struct
 block|{
@@ -147,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d7e60d0308
+DECL|struct|__anon275f96720308
 typedef|typedef
 struct|struct
 block|{
@@ -168,7 +168,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d7e60d0408
+DECL|struct|__anon275f96720408
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +202,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d7e60d0508
+DECL|struct|__anon275f96720508
 typedef|typedef
 struct|struct
 block|{
@@ -237,7 +237,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d7e60d0608
+DECL|struct|__anon275f96720608
 typedef|typedef
 struct|struct
 block|{
@@ -3035,8 +3035,6 @@ name|size
 parameter_list|)
 block|{
 name|ngx_uint_t
-name|i
-decl_stmt|,
 name|n
 decl_stmt|;
 specifier|static
@@ -3093,19 +3091,10 @@ name|n
 operator|=
 literal|0
 expr_stmt|;
-for|for
-control|(
-name|i
-operator|=
-literal|0
-init|;
-name|i
-operator|<
+while|while
+condition|(
 name|size
-condition|;
-name|i
-operator|++
-control|)
+condition|)
 block|{
 if|if
 condition|(
@@ -3136,6 +3125,9 @@ block|}
 name|src
 operator|++
 expr_stmt|;
+name|size
+operator|--
+expr_stmt|;
 block|}
 return|return
 operator|(
@@ -3144,19 +3136,10 @@ operator|)
 name|n
 return|;
 block|}
-for|for
-control|(
-name|i
-operator|=
-literal|0
-init|;
-name|i
-operator|<
+while|while
+condition|(
 name|size
-condition|;
-name|i
-operator|++
-control|)
+condition|)
 block|{
 if|if
 condition|(
@@ -3231,6 +3214,9 @@ name|src
 operator|++
 expr_stmt|;
 block|}
+name|size
+operator|--
+expr_stmt|;
 block|}
 return|return
 operator|(
