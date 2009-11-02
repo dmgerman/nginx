@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon295806620108
+DECL|struct|__anon29fd78270108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295806620208
+DECL|struct|__anon29fd78270208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295806620308
+DECL|struct|__anon29fd78270308
 typedef|typedef
 struct|struct
 block|{
@@ -605,14 +605,14 @@ end_comment
 begin_function
 name|ngx_resolver_t
 modifier|*
-DECL|function|ngx_resolver_create (ngx_conf_t * cf,ngx_peer_addr_t * addr)
+DECL|function|ngx_resolver_create (ngx_conf_t * cf,ngx_addr_t * addr)
 name|ngx_resolver_create
 parameter_list|(
 name|ngx_conf_t
 modifier|*
 name|cf
 parameter_list|,
-name|ngx_peer_addr_t
+name|ngx_addr_t
 modifier|*
 name|addr
 parameter_list|)

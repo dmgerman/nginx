@@ -2136,7 +2136,7 @@ name|pool
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|ngx_peer_addr_t
+name|ngx_addr_t
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3714,7 +3714,7 @@ name|i
 operator|*
 sizeof|sizeof
 argument_list|(
-name|ngx_peer_addr_t
+name|ngx_addr_t
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3933,7 +3933,7 @@ name|pool
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|ngx_peer_addr_t
+name|ngx_addr_t
 argument_list|)
 argument_list|)
 expr_stmt|;

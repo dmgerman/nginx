@@ -28,12 +28,12 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c0a25160108
+DECL|struct|__anon293eca4c0108
 typedef|typedef
 struct|struct
 block|{
 DECL|member|peers
-name|ngx_peer_addr_t
+name|ngx_addr_t
 modifier|*
 name|peers
 decl_stmt|;

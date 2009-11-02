@@ -127,7 +127,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon292cb6d00108
+DECL|struct|__anon29db926f0108
 typedef|typedef
 struct|struct
 block|{
@@ -154,7 +154,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon292cb6d00208
+DECL|struct|__anon29db926f0208
 typedef|typedef
 struct|struct
 block|{
@@ -180,7 +180,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon292cb6d00308
+DECL|struct|__anon29db926f0308
 typedef|typedef
 struct|struct
 block|{
@@ -188,7 +188,7 @@ DECL|member|family
 name|ngx_uint_t
 name|family
 decl_stmt|;
-DECL|union|__anon292cb6d0040a
+DECL|union|__anon29db926f040a
 union|union
 block|{
 DECL|member|in
@@ -217,7 +217,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292cb6d00508
+DECL|struct|__anon29db926f0508
 typedef|typedef
 struct|struct
 block|{
@@ -235,14 +235,14 @@ DECL|member|name
 name|ngx_str_t
 name|name
 decl_stmt|;
-DECL|typedef|ngx_peer_addr_t
+DECL|typedef|ngx_addr_t
 block|}
-name|ngx_peer_addr_t
+name|ngx_addr_t
 typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292cb6d00608
+DECL|struct|__anon29db926f0608
 typedef|typedef
 struct|struct
 block|{
@@ -322,7 +322,7 @@ name|NGX_SOCKADDRLEN
 index|]
 decl_stmt|;
 DECL|member|addrs
-name|ngx_peer_addr_t
+name|ngx_addr_t
 modifier|*
 name|addrs
 decl_stmt|;

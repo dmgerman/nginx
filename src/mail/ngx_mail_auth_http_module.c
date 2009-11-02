@@ -34,12 +34,12 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29b4c09c0108
+DECL|struct|__anon2ad8d65d0108
 typedef|typedef
 struct|struct
 block|{
 DECL|member|peer
-name|ngx_peer_addr_t
+name|ngx_addr_t
 modifier|*
 name|peer
 decl_stmt|;
@@ -1543,7 +1543,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon29b4c09c0203
+DECL|enum|__anon2ad8d65d0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1902,7 +1902,7 @@ name|port
 decl_stmt|,
 name|n
 decl_stmt|;
-name|ngx_peer_addr_t
+name|ngx_addr_t
 modifier|*
 name|peer
 decl_stmt|;
@@ -3463,7 +3463,7 @@ name|pool
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|ngx_peer_addr_t
+name|ngx_addr_t
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4144,7 +4144,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon29b4c09c0303
+DECL|enum|__anon2ad8d65d0303
 enum|enum
 block|{
 DECL|enumerator|sw_start

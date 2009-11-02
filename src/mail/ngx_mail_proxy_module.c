@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b4fdaf20108
+DECL|struct|__anon29c0fb710108
 typedef|typedef
 struct|struct
 block|{
@@ -447,14 +447,14 @@ end_decl_stmt
 
 begin_function
 name|void
-DECL|function|ngx_mail_proxy_init (ngx_mail_session_t * s,ngx_peer_addr_t * peer)
+DECL|function|ngx_mail_proxy_init (ngx_mail_session_t * s,ngx_addr_t * peer)
 name|ngx_mail_proxy_init
 parameter_list|(
 name|ngx_mail_session_t
 modifier|*
 name|s
 parameter_list|,
-name|ngx_peer_addr_t
+name|ngx_addr_t
 modifier|*
 name|peer
 parameter_list|)
