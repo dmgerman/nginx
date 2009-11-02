@@ -4591,14 +4591,11 @@ name|v
 operator|->
 name|data
 operator|=
-operator|(
-name|u_char
-operator|*
-operator|)
-operator|&
 name|sin6
 operator|->
 name|sin6_addr
+operator|.
+name|s6_addr
 expr_stmt|;
 break|break;
 endif|#
