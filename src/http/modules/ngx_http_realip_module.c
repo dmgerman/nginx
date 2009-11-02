@@ -46,7 +46,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2881e3580108
+DECL|struct|__anon294623a80108
 typedef|typedef
 struct|struct
 block|{
@@ -65,7 +65,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2881e3580208
+DECL|struct|__anon294623a80208
 typedef|typedef
 struct|struct
 block|{
@@ -94,7 +94,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2881e3580308
+DECL|struct|__anon294623a80308
 typedef|typedef
 struct|struct
 block|{
@@ -946,13 +946,11 @@ argument_list|)
 expr_stmt|;
 name|addr
 operator|=
-name|inet_addr
+name|ngx_inet_addr
 argument_list|(
-operator|(
-name|char
-operator|*
-operator|)
 name|ip
+argument_list|,
+name|len
 argument_list|)
 expr_stmt|;
 if|if
