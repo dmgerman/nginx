@@ -83,7 +83,7 @@ value|0x80000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2a3969a80108
+DECL|struct|__anon2b29953c0108
 typedef|typedef
 specifier|volatile
 struct|struct
@@ -116,7 +116,7 @@ value|64
 end_define
 
 begin_typedef
-DECL|struct|__anon2a3969a80208
+DECL|struct|__anon2b29953c0208
 typedef|typedef
 struct|struct
 block|{

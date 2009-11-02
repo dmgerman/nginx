@@ -127,7 +127,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28e3bfee0108
+DECL|struct|__anon292e7f670108
 typedef|typedef
 struct|struct
 block|{
@@ -154,7 +154,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon28e3bfee0208
+DECL|struct|__anon292e7f670208
 typedef|typedef
 struct|struct
 block|{
@@ -180,7 +180,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28e3bfee0308
+DECL|struct|__anon292e7f670308
 typedef|typedef
 struct|struct
 block|{
@@ -188,7 +188,7 @@ DECL|member|family
 name|ngx_uint_t
 name|family
 decl_stmt|;
-DECL|union|__anon28e3bfee040a
+DECL|union|__anon292e7f67040a
 union|union
 block|{
 DECL|member|in
@@ -217,7 +217,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e3bfee0508
+DECL|struct|__anon292e7f670508
 typedef|typedef
 struct|struct
 block|{
@@ -242,7 +242,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e3bfee0608
+DECL|struct|__anon292e7f670608
 typedef|typedef
 struct|struct
 block|{

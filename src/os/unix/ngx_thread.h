@@ -197,7 +197,7 @@ value|0
 end_define
 
 begin_typedef
-DECL|struct|__anon276b9a390108
+DECL|struct|__anon2ae8ede80108
 typedef|typedef
 struct|struct
 block|{
@@ -217,7 +217,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276b9a390208
+DECL|struct|__anon2ae8ede80208
 typedef|typedef
 struct|struct
 block|{
@@ -322,7 +322,7 @@ value|volatile
 end_define
 
 begin_typedef
-DECL|struct|__anon276b9a390308
+DECL|struct|__anon2ae8ede80308
 typedef|typedef
 struct|struct
 block|{
