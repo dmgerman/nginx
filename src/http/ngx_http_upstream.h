@@ -205,7 +205,7 @@ value|0x00000010
 end_define
 
 begin_typedef
-DECL|struct|__anon28ec03e90108
+DECL|struct|__anon2c5cbd8b0108
 typedef|typedef
 struct|struct
 block|{
@@ -245,7 +245,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ec03e90208
+DECL|struct|__anon2c5cbd8b0208
 typedef|typedef
 struct|struct
 block|{
@@ -314,7 +314,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ec03e90308
+DECL|struct|__anon2c5cbd8b0308
 typedef|typedef
 struct|struct
 block|{
@@ -338,7 +338,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ec03e90408
+DECL|struct|__anon2c5cbd8b0408
 typedef|typedef
 struct|struct
 block|{
@@ -480,7 +480,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28ec03e90508
+DECL|struct|__anon2c5cbd8b0508
 typedef|typedef
 struct|struct
 block|{
@@ -596,6 +596,11 @@ name|ngx_array_t
 modifier|*
 name|pass_headers
 decl_stmt|;
+DECL|member|local
+name|ngx_addr_t
+modifier|*
+name|local
+decl_stmt|;
 if|#
 directive|if
 operator|(
@@ -676,7 +681,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ec03e90608
+DECL|struct|__anon2c5cbd8b0608
 typedef|typedef
 struct|struct
 block|{
@@ -712,7 +717,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ec03e90708
+DECL|struct|__anon2c5cbd8b0708
 typedef|typedef
 struct|struct
 block|{
@@ -830,7 +835,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ec03e90808
+DECL|struct|__anon2c5cbd8b0808
 typedef|typedef
 struct|struct
 block|{
@@ -1188,7 +1193,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28ec03e90908
+DECL|struct|__anon2c5cbd8b0908
 typedef|typedef
 struct|struct
 block|{
@@ -1261,6 +1266,26 @@ name|u
 parameter_list|,
 name|ngx_uint_t
 name|flags
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|char
+modifier|*
+name|ngx_http_upsteam_bind_set_slot
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_command_t
+modifier|*
+name|cmd
+parameter_list|,
+name|void
+modifier|*
+name|conf
 parameter_list|)
 function_decl|;
 end_function_decl

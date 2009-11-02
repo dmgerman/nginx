@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a21ec420108
+DECL|struct|__anon2bad4a970108
 typedef|typedef
 struct|struct
 block|{
@@ -41,7 +41,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a21ec420208
+DECL|struct|__anon2bad4a970208
 typedef|typedef
 struct|struct
 block|{
@@ -338,6 +338,36 @@ block|,
 name|NGX_HTTP_LOC_CONF_OFFSET
 block|,
 literal|0
+block|,
+name|NULL
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"memcached_bind"
+argument_list|)
+block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
+name|NGX_HTTP_SRV_CONF
+operator||
+name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_CONF_TAKE1
+block|,
+name|ngx_http_upsteam_bind_set_slot
+block|,
+name|NGX_HTTP_LOC_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+name|ngx_http_memcached_loc_conf_t
+argument_list|,
+name|upstream
+operator|.
+name|local
+argument_list|)
 block|,
 name|NULL
 block|}

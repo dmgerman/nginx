@@ -232,6 +232,11 @@ name|lock
 decl_stmt|;
 endif|#
 directive|endif
+DECL|member|local
+name|ngx_addr_t
+modifier|*
+name|local
+decl_stmt|;
 DECL|member|rcvbuf
 name|int
 name|rcvbuf
