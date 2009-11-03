@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d5bdcb0108
+DECL|struct|__anon2a4115e10108
 typedef|typedef
 struct|struct
 block|{
@@ -93,7 +93,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d5bdcb0208
+DECL|struct|__anon2a4115e10208
 typedef|typedef
 struct|struct
 block|{
@@ -675,7 +675,7 @@ name|ngx_is_exec
 parameter_list|(
 name|sb
 parameter_list|)
-value|((sb)->st_mode& S_IXUSR)
+value|(((sb)->st_mode& S_IXUSR) == S_IXUSR)
 end_define
 
 begin_define
