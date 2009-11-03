@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon275725e10108
+DECL|struct|__anon2bccd74a0108
 typedef|typedef
 struct|struct
 block|{
@@ -4143,6 +4143,10 @@ operator|<
 name|buf
 operator|->
 name|end
+operator|&&
+name|send
+operator|<
+name|limit
 condition|)
 block|{
 if|if
@@ -4290,6 +4294,10 @@ name|pos
 operator|+=
 name|size
 expr_stmt|;
+name|send
+operator|+=
+name|size
+expr_stmt|;
 if|if
 condition|(
 name|in
@@ -4389,10 +4397,6 @@ block|}
 name|buf
 operator|->
 name|pos
-operator|+=
-name|n
-expr_stmt|;
-name|send
 operator|+=
 name|n
 expr_stmt|;
