@@ -127,7 +127,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b7431ef0108
+DECL|struct|__anon28c960170108
 typedef|typedef
 struct|struct
 block|{
@@ -154,7 +154,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2b7431ef0208
+DECL|struct|__anon28c960170208
 typedef|typedef
 struct|struct
 block|{
@@ -180,7 +180,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b7431ef0308
+DECL|struct|__anon28c960170308
 typedef|typedef
 struct|struct
 block|{
@@ -188,7 +188,7 @@ DECL|member|family
 name|ngx_uint_t
 name|family
 decl_stmt|;
-DECL|union|__anon2b7431ef040a
+DECL|union|__anon28c96017040a
 union|union
 block|{
 DECL|member|in
@@ -217,7 +217,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7431ef0508
+DECL|struct|__anon28c960170508
 typedef|typedef
 struct|struct
 block|{
@@ -242,7 +242,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7431ef0608
+DECL|struct|__anon28c960170608
 typedef|typedef
 struct|struct
 block|{
@@ -377,6 +377,24 @@ parameter_list|,
 name|u_char
 modifier|*
 name|addr
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|size_t
+name|ngx_inet6_ntop
+parameter_list|(
+name|u_char
+modifier|*
+name|p
+parameter_list|,
+name|u_char
+modifier|*
+name|text
+parameter_list|,
+name|size_t
+name|len
 parameter_list|)
 function_decl|;
 end_function_decl

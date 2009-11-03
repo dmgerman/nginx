@@ -15,38 +15,6 @@ directive|include
 file|<ngx_core.h>
 end_include
 
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_HAVE_INET6
-operator|)
-end_if
-
-begin_function_decl
-specifier|static
-name|size_t
-name|ngx_inet6_ntop
-parameter_list|(
-name|u_char
-modifier|*
-name|p
-parameter_list|,
-name|u_char
-modifier|*
-name|text
-parameter_list|,
-name|size_t
-name|len
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
 begin_function_decl
 specifier|static
 name|ngx_int_t
@@ -1157,7 +1125,6 @@ operator|)
 end_if
 
 begin_function
-specifier|static
 name|size_t
 DECL|function|ngx_inet6_ntop (u_char * p,u_char * text,size_t len)
 name|ngx_inet6_ntop
