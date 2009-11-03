@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ae50f9a0108
+DECL|struct|__anon29fd093c0108
 typedef|typedef
 struct|struct
 block|{
@@ -54,7 +54,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2ae50f9a0208
+DECL|struct|__anon29fd093c0208
 typedef|typedef
 struct|struct
 block|{
@@ -85,7 +85,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2ae50f9a0308
+DECL|struct|__anon29fd093c0308
 typedef|typedef
 struct|struct
 block|{
@@ -437,6 +437,10 @@ name|NGX_HAVE_INET6
 operator|)
 if|if
 condition|(
+name|alcf
+operator|->
+name|rules6
+operator|&&
 name|r
 operator|->
 name|connection
@@ -555,6 +559,10 @@ endif|#
 directive|endif
 if|if
 condition|(
+name|alcf
+operator|->
+name|rules
+operator|&&
 name|r
 operator|->
 name|connection
