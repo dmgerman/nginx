@@ -39,11 +39,14 @@ parameter_list|)
 end_define
 
 begin_define
-DECL|macro|ngx_setproctitle
+DECL|macro|ngx_setproctitle (title)
 define|#
 directive|define
 name|ngx_setproctitle
-value|setproctitle
+parameter_list|(
+name|title
+parameter_list|)
+value|setproctitle("%s", title)
 end_define
 
 begin_else
