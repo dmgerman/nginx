@@ -46,7 +46,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2af54bab0108
+DECL|struct|__anon290ccd450108
 typedef|typedef
 struct|struct
 block|{
@@ -65,7 +65,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af54bab0208
+DECL|struct|__anon290ccd450208
 typedef|typedef
 struct|struct
 block|{
@@ -106,7 +106,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af54bab0308
+DECL|struct|__anon290ccd450308
 typedef|typedef
 struct|struct
 block|{
@@ -1464,7 +1464,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"\"realip_from\" supports IPv4 only"
+literal|"\"set_realip_from\" supports IPv4 only"
 argument_list|)
 expr_stmt|;
 return|return
