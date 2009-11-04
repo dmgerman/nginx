@@ -46,7 +46,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2bd1ddba0108
+DECL|struct|__anon2c096bff0108
 typedef|typedef
 struct|struct
 block|{
@@ -65,7 +65,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd1ddba0208
+DECL|struct|__anon2c096bff0208
 typedef|typedef
 struct|struct
 block|{
@@ -106,7 +106,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd1ddba0308
+DECL|struct|__anon2c096bff0308
 typedef|typedef
 struct|struct
 block|{
@@ -492,6 +492,18 @@ operator|->
 name|from
 operator|==
 name|NULL
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_UNIX_DOMAIN
+operator|)
+operator|&&
+operator|!
+name|rlcf
+operator|->
+name|unixsock
+endif|#
+directive|endif
 condition|)
 block|{
 return|return
