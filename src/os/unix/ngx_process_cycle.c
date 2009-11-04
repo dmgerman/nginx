@@ -511,6 +511,8 @@ name|i
 decl_stmt|;
 name|ngx_uint_t
 name|n
+decl_stmt|,
+name|sigio
 decl_stmt|;
 name|sigset_t
 name|set
@@ -819,6 +821,10 @@ name|delay
 operator|=
 literal|0
 expr_stmt|;
+name|sigio
+operator|=
+literal|0
+expr_stmt|;
 name|live
 operator|=
 literal|1
@@ -839,6 +845,10 @@ condition|(
 name|ngx_sigalrm
 condition|)
 block|{
+name|sigio
+operator|=
+literal|0
+expr_stmt|;
 name|delay
 operator|*=
 literal|2
@@ -970,7 +980,9 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"wake up"
+literal|"wake up, sigio %i"
+argument_list|,
+name|sigio
 argument_list|)
 expr_stmt|;
 if|if
@@ -1038,6 +1050,25 @@ operator|=
 literal|50
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|sigio
+condition|)
+block|{
+name|sigio
+operator|--
+expr_stmt|;
+continue|continue;
+block|}
+name|sigio
+operator|=
+name|ccf
+operator|->
+name|worker_processes
+operator|+
+literal|2
+comment|/* cache processes */
+expr_stmt|;
 if|if
 condition|(
 name|delay
