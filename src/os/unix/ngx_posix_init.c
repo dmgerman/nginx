@@ -126,10 +126,6 @@ name|ngx_cacheline_size
 operator|=
 name|NGX_CPU_CACHE_LINE
 expr_stmt|;
-name|n
-operator|=
-name|ngx_pagesize
-expr_stmt|;
 for|for
 control|(
 name|n
