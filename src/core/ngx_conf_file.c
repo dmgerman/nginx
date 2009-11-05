@@ -407,7 +407,7 @@ name|prev
 decl_stmt|,
 name|conf_file
 decl_stmt|;
-DECL|enum|__anon28e28c500103
+DECL|enum|__anon299197ba0103
 enum|enum
 block|{
 DECL|enumerator|parse_file
@@ -967,14 +967,8 @@ argument_list|,
 name|ngx_close_file_n
 literal|" %s failed"
 argument_list|,
-name|cf
+name|filename
 operator|->
-name|conf_file
-operator|->
-name|file
-operator|.
-name|name
-operator|.
 name|data
 argument_list|)
 expr_stmt|;
