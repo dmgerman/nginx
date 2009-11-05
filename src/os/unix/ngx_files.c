@@ -15,6 +15,28 @@ directive|include
 file|<ngx_core.h>
 end_include
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_FILE_AIO
+operator|)
+end_if
+
+begin_decl_stmt
+DECL|variable|ngx_file_aio
+name|ngx_uint_t
+name|ngx_file_aio
+init|=
+literal|1
+decl_stmt|;
+end_decl_stmt
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_function
 name|ssize_t
 DECL|function|ngx_read_file (ngx_file_t * file,u_char * buf,size_t size,off_t offset)

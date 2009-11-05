@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28fe38850108
+DECL|struct|__anon2b5659140108
 typedef|typedef
 struct|struct
 block|{
@@ -490,6 +490,8 @@ name|NGX_HAVE_FILE_AIO
 operator|)
 if|if
 condition|(
+name|ngx_file_aio
+operator|&&
 name|clcf
 operator|->
 name|aio

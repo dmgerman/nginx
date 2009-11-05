@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4115e10108
+DECL|struct|__anon2b81171e0108
 typedef|typedef
 struct|struct
 block|{
@@ -93,7 +93,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4115e10208
+DECL|struct|__anon2b81171e0208
 typedef|typedef
 struct|struct
 block|{
@@ -1590,6 +1590,13 @@ name|pool
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_decl_stmt
+specifier|extern
+name|ngx_uint_t
+name|ngx_file_aio
+decl_stmt|;
+end_decl_stmt
 
 begin_endif
 endif|#
