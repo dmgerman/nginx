@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27a15d780108
+DECL|struct|__anon2af0b3990108
 typedef|typedef
 struct|struct
 block|{
@@ -341,6 +341,13 @@ return|return
 name|NGX_DECLINED
 return|;
 block|}
+name|rc
+operator|=
+name|ngx_http_gzip_ok
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
 name|clcf
 operator|=
 name|ngx_http_get_module_loc_conf
@@ -352,14 +359,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
 name|clcf
 operator|->
 name|gzip_vary
 operator|&&
-name|ngx_http_gzip_ok
-argument_list|(
-name|r
-argument_list|)
+name|rc
 operator|!=
 name|NGX_OK
 condition|)
@@ -603,6 +608,17 @@ operator|.
 name|data
 argument_list|)
 expr_stmt|;
+return|return
+name|NGX_DECLINED
+return|;
+block|}
+if|if
+condition|(
+name|rc
+operator|!=
+name|NGX_OK
+condition|)
+block|{
 return|return
 name|NGX_DECLINED
 return|;
