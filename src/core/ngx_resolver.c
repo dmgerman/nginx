@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon27a9c8c80108
+DECL|struct|__anon28aeeed40108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a9c8c80208
+DECL|struct|__anon28aeeed40208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a9c8c80308
+DECL|struct|__anon28aeeed40308
 typedef|typedef
 struct|struct
 block|{
@@ -7510,7 +7510,7 @@ argument_list|)
 expr_stmt|;
 name|p
 operator|=
-name|ngx_resolver_calloc
+name|ngx_resolver_alloc
 argument_list|(
 name|ctx
 operator|->
@@ -7888,7 +7888,7 @@ argument_list|)
 expr_stmt|;
 name|p
 operator|=
-name|ngx_resolver_calloc
+name|ngx_resolver_alloc
 argument_list|(
 name|ctx
 operator|->
