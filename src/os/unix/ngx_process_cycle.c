@@ -970,7 +970,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug0
+name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
