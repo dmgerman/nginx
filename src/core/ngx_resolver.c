@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2b5da0140108
+DECL|struct|__anon27a9c8c80108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5da0140208
+DECL|struct|__anon27a9c8c80208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5da0140308
+DECL|struct|__anon27a9c8c80308
 typedef|typedef
 struct|struct
 block|{
@@ -7458,6 +7458,8 @@ name|s
 decl_stmt|;
 name|size_t
 name|len
+decl_stmt|,
+name|nlen
 decl_stmt|;
 name|ngx_uint_t
 name|ident
@@ -7470,13 +7472,15 @@ name|ngx_resolver_query_t
 modifier|*
 name|query
 decl_stmt|;
-name|len
+name|nlen
 operator|=
-sizeof|sizeof
-argument_list|(
-name|ngx_resolver_query_t
-argument_list|)
-operator|+
+name|ctx
+operator|->
+name|name
+operator|.
+name|len
+condition|?
+operator|(
 literal|1
 operator|+
 name|ctx
@@ -7486,6 +7490,18 @@ operator|.
 name|len
 operator|+
 literal|1
+operator|)
+else|:
+literal|1
+expr_stmt|;
+name|len
+operator|=
+sizeof|sizeof
+argument_list|(
+name|ngx_resolver_query_t
+argument_list|)
+operator|+
+name|nlen
 operator|+
 sizeof|sizeof
 argument_list|(
@@ -7665,25 +7681,7 @@ argument_list|(
 name|ngx_resolver_query_t
 argument_list|)
 operator|+
-name|ctx
-operator|->
-name|name
-operator|.
-name|len
-condition|?
-operator|(
-literal|1
-operator|+
-name|ctx
-operator|->
-name|name
-operator|.
-name|len
-operator|+
-literal|1
-operator|)
-else|:
-literal|1
+name|nlen
 expr_stmt|;
 name|qs
 operator|=
