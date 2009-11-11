@@ -46,7 +46,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2c096bff0108
+DECL|struct|__anon29f3484d0108
 typedef|typedef
 struct|struct
 block|{
@@ -65,7 +65,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c096bff0208
+DECL|struct|__anon29f3484d0208
 typedef|typedef
 struct|struct
 block|{
@@ -96,7 +96,7 @@ DECL|member|unixsock
 name|ngx_uint_t
 name|unixsock
 decl_stmt|;
-comment|/* unsigned  unixsock:1; */
+comment|/* unsigned  unixsock:2; */
 endif|#
 directive|endif
 DECL|typedef|ngx_http_realip_loc_conf_t
@@ -106,7 +106,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c096bff0308
+DECL|struct|__anon29f3484d0308
 typedef|typedef
 struct|struct
 block|{
@@ -1720,13 +1720,26 @@ return|return
 name|NULL
 return|;
 block|}
-comment|/*      * set by ngx_pcalloc():      *      *     conf->from = NULL;      *     conf->hash = 0;      *     conf->header = { 0, NULL };      *     conf->unixsock = 0;      */
+comment|/*      * set by ngx_pcalloc():      *      *     conf->from = NULL;      *     conf->hash = 0;      *     conf->header = { 0, NULL };      */
 name|conf
 operator|->
 name|type
 operator|=
 name|NGX_CONF_UNSET_UINT
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_UNIX_DOMAIN
+operator|)
+name|conf
+operator|->
+name|unixsock
+operator|=
+literal|2
+expr_stmt|;
+endif|#
+directive|endif
 return|return
 name|conf
 return|;
@@ -1782,22 +1795,42 @@ name|prev
 operator|->
 name|from
 expr_stmt|;
+block|}
 if|#
 directive|if
 operator|(
 name|NGX_HAVE_UNIX_DOMAIN
 operator|)
+if|if
+condition|(
+name|conf
+operator|->
+name|unixsock
+operator|==
+literal|2
+condition|)
+block|{
 name|conf
 operator|->
 name|unixsock
 operator|=
+operator|(
+name|prev
+operator|->
+name|unixsock
+operator|==
+literal|2
+operator|)
+condition|?
+literal|0
+else|:
 name|prev
 operator|->
 name|unixsock
 expr_stmt|;
+block|}
 endif|#
 directive|endif
-block|}
 name|ngx_conf_merge_uint_value
 argument_list|(
 name|conf
