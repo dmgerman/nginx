@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2af0b3990108
+DECL|struct|__anon29c481330108
 typedef|typedef
 struct|struct
 block|{
@@ -563,12 +563,6 @@ case|:
 case|case
 name|NGX_ENAMETOOLONG
 case|:
-name|r
-operator|->
-name|gzip
-operator|=
-literal|0
-expr_stmt|;
 return|return
 name|NGX_DECLINED
 return|;
@@ -612,6 +606,12 @@ return|return
 name|NGX_DECLINED
 return|;
 block|}
+name|r
+operator|->
+name|gzip_vary
+operator|=
+literal|1
+expr_stmt|;
 if|if
 condition|(
 name|rc
