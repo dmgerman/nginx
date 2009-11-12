@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c59703d0108
+DECL|struct|__anon291f61b40108
 typedef|typedef
 struct|struct
 block|{
@@ -80,7 +80,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c59703d0208
+DECL|struct|__anon291f61b40208
 typedef|typedef
 struct|struct
 block|{
@@ -1037,6 +1037,10 @@ name|conf
 operator|->
 name|enable
 operator|||
+name|r
+operator|->
+name|header_only
+operator|||
 operator|(
 name|r
 operator|->
@@ -1062,10 +1066,6 @@ name|status
 operator|!=
 name|NGX_HTTP_NOT_FOUND
 operator|)
-operator|||
-name|r
-operator|->
-name|header_only
 operator|||
 operator|(
 name|r
