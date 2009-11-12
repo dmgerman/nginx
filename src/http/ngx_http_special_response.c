@@ -109,23 +109,23 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_http_msie_stub
+DECL|variable|ngx_http_msie_padding
 specifier|static
 name|u_char
-name|ngx_http_msie_stub
+name|ngx_http_msie_padding
 index|[]
 init|=
-literal|"<!-- The padding to disable MSIE's friendly error page -->"
+literal|"<!-- a padding to disable MSIE and Chrome friendly error page -->"
 name|CRLF
-literal|"<!-- The padding to disable MSIE's friendly error page -->"
+literal|"<!-- a padding to disable MSIE and Chrome friendly error page -->"
 name|CRLF
-literal|"<!-- The padding to disable MSIE's friendly error page -->"
+literal|"<!-- a padding to disable MSIE and Chrome friendly error page -->"
 name|CRLF
-literal|"<!-- The padding to disable MSIE's friendly error page -->"
+literal|"<!-- a padding to disable MSIE and Chrome friendly error page -->"
 name|CRLF
-literal|"<!-- The padding to disable MSIE's friendly error page -->"
+literal|"<!-- a padding to disable MSIE and Chrome friendly error page -->"
 name|CRLF
-literal|"<!-- The padding to disable MSIE's friendly error page -->"
+literal|"<!-- a padding to disable MSIE and Chrome friendly error page -->"
 name|CRLF
 decl_stmt|;
 end_decl_stmt
@@ -1950,11 +1950,19 @@ name|clcf
 operator|->
 name|msie_padding
 operator|&&
+operator|(
 name|r
 operator|->
 name|headers_in
 operator|.
 name|msie
+operator|||
+name|r
+operator|->
+name|headers_in
+operator|.
+name|chrome
+operator|)
 operator|&&
 name|r
 operator|->
@@ -1975,7 +1983,7 @@ name|content_length_n
 operator|+=
 sizeof|sizeof
 argument_list|(
-name|ngx_http_msie_stub
+name|ngx_http_msie_padding
 argument_list|)
 operator|-
 literal|1
@@ -2310,17 +2318,17 @@ name|b
 operator|->
 name|pos
 operator|=
-name|ngx_http_msie_stub
+name|ngx_http_msie_padding
 expr_stmt|;
 name|b
 operator|->
 name|last
 operator|=
-name|ngx_http_msie_stub
+name|ngx_http_msie_padding
 operator|+
 sizeof|sizeof
 argument_list|(
-name|ngx_http_msie_stub
+name|ngx_http_msie_padding
 argument_list|)
 operator|-
 literal|1
