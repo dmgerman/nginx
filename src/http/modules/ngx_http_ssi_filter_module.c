@@ -62,7 +62,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2aef326b0108
+DECL|struct|__anon29b1c3db0108
 typedef|typedef
 struct|struct
 block|{
@@ -102,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aef326b0208
+DECL|struct|__anon29b1c3db0208
 typedef|typedef
 struct|struct
 block|{
@@ -125,7 +125,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aef326b0308
+DECL|struct|__anon29b1c3db0308
 typedef|typedef
 struct|struct
 block|{
@@ -149,7 +149,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2aef326b0403
+DECL|enum|__anon29b1c3db0403
 typedef|typedef
 enum|enum
 block|{
@@ -10983,12 +10983,8 @@ expr_stmt|;
 if|if
 condition|(
 name|rc
-operator|!=
-name|NGX_REGEX_NO_MATCHED
-operator|&&
-name|rc
 operator|<
-literal|0
+name|NGX_REGEX_NO_MATCHED
 condition|)
 block|{
 name|ngx_log_error

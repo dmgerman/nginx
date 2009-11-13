@@ -39,8 +39,13 @@ DECL|macro|NGX_REGEX_NO_MATCHED
 define|#
 directive|define
 name|NGX_REGEX_NO_MATCHED
-value|-1000
+value|PCRE_ERROR_NOMATCH
 end_define
+
+begin_comment
+DECL|macro|NGX_REGEX_NO_MATCHED
+comment|/* -1 */
+end_comment
 
 begin_define
 DECL|macro|NGX_REGEX_CASELESS
@@ -59,7 +64,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4f7ee60108
+DECL|struct|__anon2a1f187f0108
 typedef|typedef
 struct|struct
 block|{
@@ -122,27 +127,23 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
-begin_function_decl
-name|ngx_int_t
+begin_define
+DECL|macro|ngx_regex_exec (re,s,captures,size)
+define|#
+directive|define
 name|ngx_regex_exec
 parameter_list|(
-name|ngx_regex_t
-modifier|*
 name|re
 parameter_list|,
-name|ngx_str_t
-modifier|*
 name|s
 parameter_list|,
-name|int
-modifier|*
 name|captures
 parameter_list|,
-name|ngx_int_t
 name|size
 parameter_list|)
-function_decl|;
-end_function_decl
+define|\
+value|pcre_exec(re, NULL, (const char *) (s)->data, (s)->len, 0, 0,            \               captures, size)
+end_define
 
 begin_function_decl
 name|ngx_int_t
