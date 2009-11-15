@@ -76,7 +76,7 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"malloc() %uz bytes failed"
+literal|"malloc(%uz) failed"
 argument_list|,
 name|size
 argument_list|)
@@ -206,11 +206,11 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"posix_memalign() %uz bytes aligned to %uz failed"
-argument_list|,
-name|size
+literal|"posix_memalign(%uz, %uz) failed"
 argument_list|,
 name|alignment
+argument_list|,
+name|size
 argument_list|)
 expr_stmt|;
 name|p
@@ -292,11 +292,11 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"memalign() %uz bytes aligned to %uz failed"
-argument_list|,
-name|size
+literal|"memalign(%uz, %uz) failed"
 argument_list|,
 name|alignment
+argument_list|,
+name|size
 argument_list|)
 expr_stmt|;
 block|}

@@ -76,7 +76,7 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"malloc() %uz bytes failed"
+literal|"malloc(%uz) failed"
 argument_list|,
 name|size
 argument_list|)
