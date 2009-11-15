@@ -178,8 +178,11 @@ name|void
 modifier|*
 name|p
 decl_stmt|;
-if|if
-condition|(
+name|int
+name|err
+decl_stmt|;
+name|err
+operator|=
 name|posix_memalign
 argument_list|(
 operator|&
@@ -189,9 +192,10 @@ name|alignment
 argument_list|,
 name|size
 argument_list|)
-operator|==
-operator|-
-literal|1
+expr_stmt|;
+if|if
+condition|(
+name|err
 condition|)
 block|{
 name|ngx_log_error
@@ -200,7 +204,7 @@ name|NGX_LOG_EMERG
 argument_list|,
 name|log
 argument_list|,
-name|ngx_errno
+name|err
 argument_list|,
 literal|"posix_memalign() %uz bytes aligned to %uz failed"
 argument_list|,
@@ -208,6 +212,10 @@ name|size
 argument_list|,
 name|alignment
 argument_list|)
+expr_stmt|;
+name|p
+operator|=
+name|NULL
 expr_stmt|;
 block|}
 name|ngx_log_debug2
