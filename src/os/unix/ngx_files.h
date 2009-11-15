@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b81171e0108
+DECL|struct|__anon27e68e3d0108
 typedef|typedef
 struct|struct
 block|{
@@ -93,7 +93,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b81171e0208
+DECL|struct|__anon27e68e3d0208
 typedef|typedef
 struct|struct
 block|{
@@ -1341,18 +1341,18 @@ name|NGX_HAVE_READ_AHEAD
 value|1
 end_define
 
-begin_define
-DECL|macro|ngx_read_ahead (fd,n)
-define|#
-directive|define
+begin_function_decl
+name|ngx_int_t
 name|ngx_read_ahead
 parameter_list|(
+name|ngx_fd_t
 name|fd
 parameter_list|,
+name|size_t
 name|n
 parameter_list|)
-value|posix_fadvise(fd, 0, 0, POSIX_FADV_SEQUENTIAL)
-end_define
+function_decl|;
+end_function_decl
 
 begin_define
 DECL|macro|ngx_read_ahead_n
