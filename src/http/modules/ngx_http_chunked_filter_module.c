@@ -164,6 +164,12 @@ name|status
 operator|==
 name|NGX_HTTP_CREATED
 operator|||
+name|r
+operator|!=
+name|r
+operator|->
+expr|main
+operator|||
 operator|(
 name|r
 operator|->
