@@ -8804,7 +8804,9 @@ name|r
 operator|->
 name|ncaptures
 operator|=
-name|len
+name|rc
+operator|*
+literal|2
 expr_stmt|;
 name|r
 operator|->
