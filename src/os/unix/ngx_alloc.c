@@ -218,7 +218,7 @@ operator|=
 name|NULL
 expr_stmt|;
 block|}
-name|ngx_log_debug2
+name|ngx_log_debug3
 argument_list|(
 name|NGX_LOG_DEBUG_ALLOC
 argument_list|,
@@ -302,7 +302,7 @@ name|size
 argument_list|)
 expr_stmt|;
 block|}
-name|ngx_log_debug2
+name|ngx_log_debug3
 argument_list|(
 name|NGX_LOG_DEBUG_ALLOC
 argument_list|,
