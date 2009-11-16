@@ -226,11 +226,13 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"posix_memalign: %p:%uz"
+literal|"posix_memalign: %p:%uz @%uz"
 argument_list|,
 name|p
 argument_list|,
 name|size
+argument_list|,
+name|alignment
 argument_list|)
 expr_stmt|;
 return|return
@@ -308,11 +310,13 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"memalign: %p:%uz"
+literal|"memalign: %p:%uz @%uz"
 argument_list|,
 name|p
 argument_list|,
 name|size
+argument_list|,
+name|alignment
 argument_list|)
 expr_stmt|;
 return|return
