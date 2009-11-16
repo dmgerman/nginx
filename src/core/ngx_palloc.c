@@ -1001,10 +1001,8 @@ name|large
 decl_stmt|;
 name|p
 operator|=
-name|ngx_memalign
+name|ngx_alloc
 argument_list|(
-name|ngx_pagesize
-argument_list|,
 name|size
 argument_list|,
 name|pool
