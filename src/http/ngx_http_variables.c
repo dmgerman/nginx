@@ -8521,15 +8521,9 @@ condition|)
 block|{
 name|len
 operator|=
-operator|(
 name|cmcf
 operator|->
 name|ncaptures
-operator|+
-literal|1
-operator|)
-operator|*
-literal|3
 expr_stmt|;
 if|if
 condition|(

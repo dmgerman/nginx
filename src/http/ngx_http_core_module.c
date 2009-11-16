@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29b295fb0108
+DECL|struct|__anon2889f42f0108
 typedef|typedef
 struct|struct
 block|{
@@ -11957,6 +11957,28 @@ argument_list|,
 name|ngx_cacheline_size
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|cmcf
+operator|->
+name|ncaptures
+condition|)
+block|{
+name|cmcf
+operator|->
+name|ncaptures
+operator|=
+operator|(
+name|cmcf
+operator|->
+name|ncaptures
+operator|+
+literal|1
+operator|)
+operator|*
+literal|3
+expr_stmt|;
+block|}
 return|return
 name|NGX_CONF_OK
 return|;
