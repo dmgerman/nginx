@@ -504,6 +504,19 @@ parameter_list|)
 value|(((value)>= 0) ? (value) : - (value))
 end_define
 
+begin_define
+DECL|macro|ngx_max (val1,val2)
+define|#
+directive|define
+name|ngx_max
+parameter_list|(
+name|val1
+parameter_list|,
+name|val2
+parameter_list|)
+value|((val1< val2) ? (val2) : (val1))
+end_define
+
 begin_function_decl
 name|void
 name|ngx_cpuinfo
