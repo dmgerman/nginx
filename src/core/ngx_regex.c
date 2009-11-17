@@ -110,14 +110,12 @@ name|pool
 expr_stmt|;
 return|return;
 block|}
-else|#
-directive|else
+endif|#
+directive|endif
 name|ngx_pcre_pool
 operator|=
 name|pool
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 
@@ -160,14 +158,12 @@ name|NULL
 expr_stmt|;
 return|return;
 block|}
-else|#
-directive|else
+endif|#
+directive|endif
 name|ngx_pcre_pool
 operator|=
 name|NULL
 expr_stmt|;
-endif|#
-directive|endif
 block|}
 end_function
 
