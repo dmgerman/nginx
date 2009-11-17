@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2948e4030108
+DECL|struct|__anon2881f8780108
 typedef|typedef
 struct|struct
 block|{
@@ -59,7 +59,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2948e4030208
+DECL|struct|__anon2881f8780208
 typedef|typedef
 struct|struct
 block|{
@@ -79,7 +79,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2948e4030308
+DECL|struct|__anon2881f8780308
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2948e4030408
+DECL|struct|__anon2881f8780408
 typedef|typedef
 struct|struct
 block|{
@@ -4409,6 +4409,7 @@ directive|if
 operator|(
 name|NGX_HAVE_PERL_MULTIPLICITY
 operator|)
+comment|/*      * the master exit hook is run before global pool cleanup,      * therefore just set flag here      */
 name|ngx_perl_term
 operator|=
 literal|1
