@@ -2710,6 +2710,8 @@ name|ngx_tid_t
 name|wtid
 decl_stmt|,
 name|cmtid
+decl_stmt|,
+name|cltid
 decl_stmt|;
 name|ngx_log_t
 modifier|*
@@ -3094,7 +3096,7 @@ condition|(
 name|ngx_create_thread
 argument_list|(
 operator|&
-name|cmtid
+name|cltid
 argument_list|,
 name|ngx_cache_loader_thread
 argument_list|,
