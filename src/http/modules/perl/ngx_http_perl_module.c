@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b44486c0108
+DECL|struct|__anon2948e4030108
 typedef|typedef
 struct|struct
 block|{
@@ -59,7 +59,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b44486c0208
+DECL|struct|__anon2948e4030208
 typedef|typedef
 struct|struct
 block|{
@@ -79,7 +79,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b44486c0308
+DECL|struct|__anon2948e4030308
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b44486c0408
+DECL|struct|__anon2948e4030408
 typedef|typedef
 struct|struct
 block|{
@@ -735,6 +735,20 @@ DECL|variable|ngx_perl_term
 specifier|static
 name|ngx_uint_t
 name|ngx_perl_term
+decl_stmt|;
+end_decl_stmt
+
+begin_else
+else|#
+directive|else
+end_else
+
+begin_decl_stmt
+DECL|variable|perl
+specifier|static
+name|PerlInterpreter
+modifier|*
+name|perl
 decl_stmt|;
 end_decl_stmt
 
@@ -1964,13 +1978,6 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
-else|#
-directive|else
-specifier|static
-name|PerlInterpreter
-modifier|*
-name|perl
-decl_stmt|;
 endif|#
 directive|endif
 ifdef|#
@@ -4408,23 +4415,8 @@ literal|1
 expr_stmt|;
 else|#
 directive|else
-name|ngx_http_perl_main_conf_t
-modifier|*
-name|pmcf
-decl_stmt|;
-name|pmcf
-operator|=
-name|ngx_http_cycle_get_module_main_conf
-argument_list|(
-name|cycle
-argument_list|,
-name|ngx_http_perl_module
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
-name|pmcf
-operator|&&
 name|nginx_stash
 condition|)
 block|{
@@ -4446,15 +4438,11 @@ name|void
 operator|)
 name|perl_destruct
 argument_list|(
-name|pmcf
-operator|->
 name|perl
 argument_list|)
 expr_stmt|;
 name|perl_free
 argument_list|(
-name|pmcf
-operator|->
 name|perl
 argument_list|)
 expr_stmt|;
