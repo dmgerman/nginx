@@ -3341,6 +3341,10 @@ name|ngx_connection_t
 modifier|*
 name|c
 decl_stmt|;
+name|ngx_process
+operator|=
+name|NGX_PROCESS_WORKER
+expr_stmt|;
 name|ngx_worker_process_init
 argument_list|(
 name|cycle
@@ -3812,10 +3816,6 @@ name|ngx_listening_t
 modifier|*
 name|ls
 decl_stmt|;
-name|ngx_process
-operator|=
-name|NGX_PROCESS_WORKER
-expr_stmt|;
 if|if
 condition|(
 name|ngx_set_environment
@@ -5852,6 +5852,10 @@ operator|->
 name|connection_n
 operator|=
 literal|512
+expr_stmt|;
+name|ngx_process
+operator|=
+name|NGX_PROCESS_HELPER
 expr_stmt|;
 name|ngx_worker_process_init
 argument_list|(

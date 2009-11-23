@@ -28,7 +28,7 @@ file|<ngx_channel.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c52cbd20108
+DECL|struct|__anon296c01040108
 typedef|typedef
 struct|struct
 block|{
@@ -1671,6 +1671,9 @@ block|}
 break|break;
 case|case
 name|NGX_PROCESS_WORKER
+case|:
+case|case
+name|NGX_PROCESS_HELPER
 case|:
 switch|switch
 condition|(

@@ -58,7 +58,7 @@ value|(sizeof("ngx_cache_manager_mutex_") + NGX_INT32_LEN)
 end_define
 
 begin_typedef
-DECL|struct|__anon2c788a920108
+DECL|struct|__anon2ac2f9250108
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c788a920208
+DECL|struct|__anon2ac2f9250208
 typedef|typedef
 struct|struct
 block|{
@@ -169,30 +169,6 @@ block|}
 name|ngx_exec_ctx_t
 typedef|;
 end_typedef
-
-begin_define
-DECL|macro|NGX_PROCESS_SINGLE
-define|#
-directive|define
-name|NGX_PROCESS_SINGLE
-value|0
-end_define
-
-begin_define
-DECL|macro|NGX_PROCESS_MASTER
-define|#
-directive|define
-name|NGX_PROCESS_MASTER
-value|1
-end_define
-
-begin_define
-DECL|macro|NGX_PROCESS_WORKER
-define|#
-directive|define
-name|NGX_PROCESS_WORKER
-value|2
-end_define
 
 begin_function_decl
 name|ngx_pid_t

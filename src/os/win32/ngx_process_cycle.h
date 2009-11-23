@@ -45,18 +45,18 @@ value|1
 end_define
 
 begin_define
-DECL|macro|NGX_PROCESS_WORKER
-define|#
-directive|define
-name|NGX_PROCESS_WORKER
-value|2
-end_define
-
-begin_define
 DECL|macro|NGX_PROCESS_SIGNALLER
 define|#
 directive|define
 name|NGX_PROCESS_SIGNALLER
+value|2
+end_define
+
+begin_define
+DECL|macro|NGX_PROCESS_WORKER
+define|#
+directive|define
+name|NGX_PROCESS_WORKER
 value|3
 end_define
 

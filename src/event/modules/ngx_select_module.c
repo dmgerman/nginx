@@ -342,7 +342,7 @@ block|}
 if|if
 condition|(
 name|ngx_process
-operator|==
+operator|>=
 name|NGX_PROCESS_WORKER
 operator|||
 name|cycle

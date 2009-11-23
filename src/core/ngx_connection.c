@@ -2881,8 +2881,8 @@ operator|==
 name|AF_UNIX
 operator|&&
 name|ngx_process
-operator|!=
-name|NGX_PROCESS_WORKER
+operator|<=
+name|NGX_PROCESS_MASTER
 operator|&&
 name|ngx_new_binary
 operator|==
