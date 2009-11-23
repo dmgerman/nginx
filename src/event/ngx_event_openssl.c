@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29be06370108
+DECL|struct|__anon2bef390f0108
 typedef|typedef
 struct|struct
 block|{
@@ -5651,6 +5651,11 @@ name|n
 operator|==
 name|SSL_R_UNEXPECTED_RECORD
 comment|/*  245 */
+operator|||
+name|n
+operator|==
+name|SSL_R_UNKNOWN_PROTOCOL
+comment|/*  252 */
 operator|||
 name|n
 operator|==
