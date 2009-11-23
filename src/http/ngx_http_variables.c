@@ -8074,6 +8074,14 @@ return|;
 block|}
 end_function
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_PCRE
+operator|)
+end_if
+
 begin_function
 specifier|static
 name|ngx_int_t
@@ -8815,6 +8823,11 @@ name|NGX_OK
 return|;
 block|}
 end_function
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_function
 name|ngx_int_t
