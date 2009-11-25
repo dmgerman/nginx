@@ -440,7 +440,6 @@ name|connection
 operator|=
 name|c
 expr_stmt|;
-comment|/*      * TODO: MT: - ngx_atomic_fetch_add()      *             or protection by critical section or mutex      *      * TODO: MP: - allocated in a shared memory      *           - ngx_atomic_fetch_add()      *             or protection by critical section or mutex      */
 name|c
 operator|->
 name|number
@@ -457,6 +456,7 @@ directive|if
 operator|(
 name|NGX_THREADS
 operator|)
+comment|/* TODO: lock event when call completion handler */
 name|rev
 operator|->
 name|lock
