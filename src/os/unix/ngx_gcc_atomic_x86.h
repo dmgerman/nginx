@@ -180,7 +180,7 @@ value|__asm__ volatile ("" ::: "memory")
 end_define
 
 begin_comment
-comment|/* old as does not support "pause" opcode */
+comment|/* old "as" does not support "pause" opcode */
 end_comment
 
 begin_define
