@@ -218,14 +218,126 @@ name|ngx_atomic_t
 typedef|;
 end_typedef
 
+begin_elif
+elif|#
+directive|elif
+operator|(
+name|NGX_HAVE_GCC_ATOMIC
+operator|)
+end_elif
+
+begin_comment
+comment|/* GCC 4.1 builtin atomic operations */
+end_comment
+
+begin_define
+DECL|macro|NGX_HAVE_ATOMIC_OPS
+define|#
+directive|define
+name|NGX_HAVE_ATOMIC_OPS
+value|1
+end_define
+
+begin_typedef
+DECL|typedef|ngx_atomic_int_t
+typedef|typedef
+name|long
+name|ngx_atomic_int_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|typedef|ngx_atomic_uint_t
+typedef|typedef
+name|unsigned
+name|long
+name|ngx_atomic_uint_t
+typedef|;
+end_typedef
+
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_PTR_SIZE
+operator|==
+literal|8
+operator|)
+end_if
+
+begin_define
+DECL|macro|NGX_ATOMIC_T_LEN
+define|#
+directive|define
+name|NGX_ATOMIC_T_LEN
+value|(sizeof("-9223372036854775808") - 1)
+end_define
+
 begin_else
 else|#
 directive|else
 end_else
 
-begin_comment
-comment|/* !(NGX_DARWIN) */
-end_comment
+begin_define
+DECL|macro|NGX_ATOMIC_T_LEN
+define|#
+directive|define
+name|NGX_ATOMIC_T_LEN
+value|(sizeof("-2147483648") - 1)
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_typedef
+DECL|typedef|ngx_atomic_t
+typedef|typedef
+specifier|volatile
+name|ngx_atomic_uint_t
+name|ngx_atomic_t
+typedef|;
+end_typedef
+
+begin_define
+DECL|macro|ngx_atomic_cmp_set (lock,old,set)
+define|#
+directive|define
+name|ngx_atomic_cmp_set
+parameter_list|(
+name|lock
+parameter_list|,
+name|old
+parameter_list|,
+name|set
+parameter_list|)
+define|\
+value|__sync_bool_compare_and_swap(lock, old, set)
+end_define
+
+begin_define
+DECL|macro|ngx_atomic_fetch_add (value,add)
+define|#
+directive|define
+name|ngx_atomic_fetch_add
+parameter_list|(
+name|value
+parameter_list|,
+name|add
+parameter_list|)
+define|\
+value|__sync_fetch_and_add(value, add)
+end_define
+
+begin_define
+DECL|macro|ngx_memory_barrier ()
+define|#
+directive|define
+name|ngx_memory_barrier
+parameter_list|()
+value|__sync_synchronize()
+end_define
 
 begin_if
 if|#
@@ -234,8 +346,49 @@ operator|(
 name|__i386__
 operator|||
 name|__i386
+operator|||
+name|__amd64__
+operator|||
+name|__amd64
 operator|)
 end_if
+
+begin_define
+DECL|macro|ngx_cpu_pause ()
+define|#
+directive|define
+name|ngx_cpu_pause
+parameter_list|()
+value|__asm__ ("pause")
+end_define
+
+begin_else
+else|#
+directive|else
+end_else
+
+begin_define
+DECL|macro|ngx_cpu_pause ()
+define|#
+directive|define
+name|ngx_cpu_pause
+parameter_list|()
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_elif
+elif|#
+directive|elif
+operator|(
+name|__i386__
+operator|||
+name|__i386
+operator|)
+end_elif
 
 begin_typedef
 DECL|typedef|ngx_atomic_int_t
@@ -754,11 +907,6 @@ include|#
 directive|include
 file|"ngx_gcc_atomic_ppc.h"
 end_include
-
-begin_endif
-endif|#
-directive|endif
-end_endif
 
 begin_endif
 endif|#
