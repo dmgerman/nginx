@@ -1752,7 +1752,7 @@ operator|(
 name|size_t
 operator|)
 name|n
-operator|<=
+operator|<
 name|c
 operator|->
 name|header_start
