@@ -100,7 +100,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon275f96720108
+DECL|struct|__anon294489d40108
 typedef|typedef
 struct|struct
 block|{
@@ -126,7 +126,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275f96720208
+DECL|struct|__anon294489d40208
 typedef|typedef
 struct|struct
 block|{
@@ -147,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275f96720308
+DECL|struct|__anon294489d40308
 typedef|typedef
 struct|struct
 block|{
@@ -168,7 +168,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275f96720408
+DECL|struct|__anon294489d40408
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +202,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275f96720508
+DECL|struct|__anon294489d40508
 typedef|typedef
 struct|struct
 block|{
@@ -237,7 +237,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275f96720608
+DECL|struct|__anon294489d40608
 typedef|typedef
 struct|struct
 block|{
@@ -2590,6 +2590,79 @@ modifier|*
 name|op
 parameter_list|)
 block|{
+name|ngx_uint_t
+name|status
+decl_stmt|;
+if|if
+condition|(
+name|r
+operator|->
+name|err_status
+condition|)
+block|{
+name|status
+operator|=
+name|r
+operator|->
+name|err_status
+expr_stmt|;
+block|}
+if|else if
+condition|(
+name|r
+operator|->
+name|headers_out
+operator|.
+name|status
+condition|)
+block|{
+name|status
+operator|=
+name|r
+operator|->
+name|headers_out
+operator|.
+name|status
+expr_stmt|;
+block|}
+if|else if
+condition|(
+name|r
+operator|->
+name|http_version
+operator|==
+name|NGX_HTTP_VERSION_9
+condition|)
+block|{
+operator|*
+name|buf
+operator|++
+operator|=
+literal|'0'
+expr_stmt|;
+operator|*
+name|buf
+operator|++
+operator|=
+literal|'0'
+expr_stmt|;
+operator|*
+name|buf
+operator|++
+operator|=
+literal|'9'
+expr_stmt|;
+return|return
+name|buf
+return|;
+block|}
+else|else
+block|{
+name|status
+operator|=
+literal|0
+expr_stmt|;
+block|}
 return|return
 name|ngx_sprintf
 argument_list|(
@@ -2597,18 +2670,6 @@ name|buf
 argument_list|,
 literal|"%ui"
 argument_list|,
-name|r
-operator|->
-name|err_status
-condition|?
-name|r
-operator|->
-name|err_status
-else|:
-name|r
-operator|->
-name|headers_out
-operator|.
 name|status
 argument_list|)
 return|;
