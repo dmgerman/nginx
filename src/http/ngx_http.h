@@ -798,6 +798,7 @@ name|cf
 parameter_list|,
 name|ngx_array_t
 modifier|*
+modifier|*
 name|keys
 parameter_list|,
 name|ngx_hash_t
@@ -805,6 +806,7 @@ modifier|*
 name|types_hash
 parameter_list|,
 name|ngx_array_t
+modifier|*
 modifier|*
 name|prev_keys
 parameter_list|,

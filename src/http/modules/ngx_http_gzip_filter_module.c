@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon291f61b40108
+DECL|struct|__anon27a6d8660108
 typedef|typedef
 struct|struct
 block|{
@@ -80,7 +80,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291f61b40208
+DECL|struct|__anon27a6d8660208
 typedef|typedef
 struct|struct
 block|{
@@ -4887,6 +4887,7 @@ name|ngx_http_merge_types
 argument_list|(
 name|cf
 argument_list|,
+operator|&
 name|conf
 operator|->
 name|types_keys
@@ -4896,6 +4897,7 @@ name|conf
 operator|->
 name|types
 argument_list|,
+operator|&
 name|prev
 operator|->
 name|types_keys

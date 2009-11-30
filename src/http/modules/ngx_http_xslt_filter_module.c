@@ -96,7 +96,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon299773d70108
+DECL|struct|__anon2c126bbe0108
 typedef|typedef
 struct|struct
 block|{
@@ -117,7 +117,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299773d70208
+DECL|struct|__anon2c126bbe0208
 typedef|typedef
 struct|struct
 block|{
@@ -138,7 +138,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299773d70308
+DECL|struct|__anon2c126bbe0308
 typedef|typedef
 struct|struct
 block|{
@@ -158,7 +158,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299773d70408
+DECL|struct|__anon2c126bbe0408
 typedef|typedef
 struct|struct
 block|{
@@ -187,7 +187,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299773d70508
+DECL|struct|__anon2c126bbe0508
 typedef|typedef
 struct|struct
 block|{
@@ -5744,6 +5744,7 @@ name|ngx_http_merge_types
 argument_list|(
 name|cf
 argument_list|,
+operator|&
 name|conf
 operator|->
 name|types_keys
@@ -5753,6 +5754,7 @@ name|conf
 operator|->
 name|types
 argument_list|,
+operator|&
 name|prev
 operator|->
 name|types_keys

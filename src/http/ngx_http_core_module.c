@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27dc917e0108
+DECL|struct|__anon2c23fdf00108
 typedef|typedef
 struct|struct
 block|{
@@ -6609,6 +6609,23 @@ name|i
 decl_stmt|,
 name|hash
 decl_stmt|;
+if|if
+condition|(
+name|types_hash
+operator|->
+name|size
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+operator|(
+name|void
+operator|*
+operator|)
+literal|4
+return|;
+block|}
 if|if
 condition|(
 name|r

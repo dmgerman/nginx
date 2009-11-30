@@ -62,7 +62,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon274430660108
+DECL|struct|__anon2ac2b4460108
 typedef|typedef
 struct|struct
 block|{
@@ -102,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon274430660208
+DECL|struct|__anon2ac2b4460208
 typedef|typedef
 struct|struct
 block|{
@@ -125,7 +125,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon274430660308
+DECL|struct|__anon2ac2b4460308
 typedef|typedef
 struct|struct
 block|{
@@ -149,7 +149,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon274430660403
+DECL|enum|__anon2ac2b4460403
 typedef|typedef
 enum|enum
 block|{
@@ -12308,6 +12308,7 @@ name|ngx_http_merge_types
 argument_list|(
 name|cf
 argument_list|,
+operator|&
 name|conf
 operator|->
 name|types_keys
@@ -12317,6 +12318,7 @@ name|conf
 operator|->
 name|types
 argument_list|,
+operator|&
 name|prev
 operator|->
 name|types_keys

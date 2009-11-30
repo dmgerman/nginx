@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2aea8e9b0108
+DECL|struct|__anon2b38a7350108
 typedef|typedef
 struct|struct
 block|{
@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2aea8e9b0203
+DECL|enum|__anon2b38a7350203
 typedef|typedef
 enum|enum
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aea8e9b0308
+DECL|struct|__anon2b38a7350308
 typedef|typedef
 struct|struct
 block|{
@@ -2844,6 +2844,7 @@ name|ngx_http_merge_types
 argument_list|(
 name|cf
 argument_list|,
+operator|&
 name|conf
 operator|->
 name|types_keys
@@ -2853,6 +2854,7 @@ name|conf
 operator|->
 name|types
 argument_list|,
+operator|&
 name|prev
 operator|->
 name|types_keys

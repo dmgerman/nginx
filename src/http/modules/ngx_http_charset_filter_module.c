@@ -66,7 +66,7 @@ value|(sizeof("&#1114111;") - 1)
 end_define
 
 begin_typedef
-DECL|struct|__anon29591cd10108
+DECL|struct|__anon28deb6960108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29591cd10208
+DECL|struct|__anon28deb6960208
 typedef|typedef
 struct|struct
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29591cd10308
+DECL|struct|__anon28deb6960308
 typedef|typedef
 struct|struct
 block|{
@@ -147,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29591cd10408
+DECL|struct|__anon28deb6960408
 typedef|typedef
 struct|struct
 block|{
@@ -173,7 +173,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29591cd10508
+DECL|struct|__anon28deb6960508
 typedef|typedef
 struct|struct
 block|{
@@ -205,7 +205,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29591cd10608
+DECL|struct|__anon28deb6960608
 typedef|typedef
 struct|struct
 block|{
@@ -273,7 +273,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29591cd10708
+DECL|struct|__anon28deb6960708
 typedef|typedef
 struct|struct
 block|{
@@ -6716,6 +6716,7 @@ name|ngx_http_merge_types
 argument_list|(
 name|cf
 argument_list|,
+operator|&
 name|conf
 operator|->
 name|types_keys
@@ -6725,6 +6726,7 @@ name|conf
 operator|->
 name|types
 argument_list|,
+operator|&
 name|prev
 operator|->
 name|types_keys
