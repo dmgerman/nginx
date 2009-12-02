@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon28aeeed40108
+DECL|struct|__anon29a827f50108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28aeeed40208
+DECL|struct|__anon29a827f50208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28aeeed40308
+DECL|struct|__anon29a827f50308
 typedef|typedef
 struct|struct
 block|{
@@ -597,10 +597,6 @@ name|size
 parameter_list|)
 function_decl|;
 end_function_decl
-
-begin_comment
-comment|/* STUB: ngx_peer_addr_t * */
-end_comment
 
 begin_function
 name|ngx_resolver_t
