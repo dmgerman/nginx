@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27a6d8660108
+DECL|struct|__anon29c57fa60108
 typedef|typedef
 struct|struct
 block|{
@@ -80,7 +80,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a6d8660208
+DECL|struct|__anon29c57fa60208
 typedef|typedef
 struct|struct
 block|{
@@ -1037,10 +1037,6 @@ name|conf
 operator|->
 name|enable
 operator|||
-name|r
-operator|->
-name|header_only
-operator|||
 operator|(
 name|r
 operator|->
@@ -1117,6 +1113,10 @@ name|types
 argument_list|)
 operator|==
 name|NULL
+operator|||
+name|r
+operator|->
+name|header_only
 condition|)
 block|{
 return|return
