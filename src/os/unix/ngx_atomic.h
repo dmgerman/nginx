@@ -36,6 +36,13 @@ name|NGX_HAVE_LIBATOMIC
 operator|)
 end_if
 
+begin_define
+DECL|macro|AO_REQUIRE_CAS
+define|#
+directive|define
+name|AO_REQUIRE_CAS
+end_define
+
 begin_include
 include|#
 directive|include
