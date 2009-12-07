@@ -3316,11 +3316,6 @@ operator|==
 name|NULL
 condition|)
 block|{
-name|ngx_free
-argument_list|(
-name|p
-argument_list|)
-expr_stmt|;
 name|u
 operator|->
 name|err
