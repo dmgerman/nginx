@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c23fdf00108
+DECL|struct|__anon28e9dc900108
 typedef|typedef
 struct|struct
 block|{
@@ -12229,7 +12229,7 @@ name|large_client_header_buffers
 argument_list|,
 literal|4
 argument_list|,
-name|ngx_pagesize
+literal|8192
 argument_list|)
 expr_stmt|;
 if|if
