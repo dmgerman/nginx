@@ -779,7 +779,7 @@ block|}
 end_function
 
 begin_function
-name|ngx_int_t
+name|ngx_err_t
 DECL|function|ngx_win32_rename_file (ngx_str_t * from,ngx_str_t * to,ngx_log_t * log)
 name|ngx_win32_rename_file
 parameter_list|(
@@ -800,8 +800,8 @@ name|u_char
 modifier|*
 name|name
 decl_stmt|;
-name|ngx_int_t
-name|rc
+name|ngx_err_t
+name|err
 decl_stmt|;
 name|ngx_uint_t
 name|collision
@@ -839,7 +839,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_ERROR
+name|NGX_ENOMEM
 return|;
 block|}
 name|ngx_memcpy
@@ -960,16 +960,16 @@ operator|==
 literal|0
 condition|)
 block|{
-name|rc
+name|err
 operator|=
-name|NGX_ERROR
+name|ngx_errno
 expr_stmt|;
 block|}
 else|else
 block|{
-name|rc
+name|err
 operator|=
-name|NGX_OK
+literal|0
 expr_stmt|;
 block|}
 if|if
@@ -1001,33 +1001,6 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|rc
-operator|==
-name|NGX_ERROR
-condition|)
-block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_CRIT
-argument_list|,
-name|log
-argument_list|,
-name|ngx_errno
-argument_list|,
-literal|"MoveFile() \"%s\" to \"%s\" failed"
-argument_list|,
-name|from
-operator|->
-name|data
-argument_list|,
-name|to
-operator|->
-name|data
-argument_list|)
-expr_stmt|;
-block|}
 comment|/* mutex_unlock() */
 name|ngx_free
 argument_list|(
@@ -1035,7 +1008,7 @@ name|name
 argument_list|)
 expr_stmt|;
 return|return
-name|rc
+name|err
 return|;
 block|}
 end_function

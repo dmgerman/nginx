@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1ea62c0108
+DECL|struct|__anon2a047fa10108
 typedef|typedef
 struct|struct
 block|{
@@ -90,7 +90,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1ea62c0208
+DECL|struct|__anon2a047fa10208
 typedef|typedef
 struct|struct
 block|{
@@ -473,7 +473,7 @@ value|"MoveFile()"
 end_define
 
 begin_function_decl
-name|ngx_int_t
+name|ngx_err_t
 name|ngx_win32_rename_file
 parameter_list|(
 name|ngx_str_t
