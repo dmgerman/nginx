@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28e9dc900108
+DECL|struct|__anon2ae522bd0108
 typedef|typedef
 struct|struct
 block|{
@@ -19602,9 +19602,34 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"pool must be no less than %uz"
+literal|"the pool size must be no less than %uz"
 argument_list|,
 name|NGX_MIN_POOL_SIZE
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
+if|if
+condition|(
+operator|*
+name|sp
+operator|%
+name|NGX_POOL_ALIGNMENT
+condition|)
+block|{
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"the pool size must be a multiple of %uz"
+argument_list|,
+name|NGX_POOL_ALIGNMENT
 argument_list|)
 expr_stmt|;
 return|return

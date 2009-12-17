@@ -69,12 +69,7 @@ name|p
 operator|=
 name|ngx_memalign
 argument_list|(
-name|ngx_min
-argument_list|(
-name|ngx_pagesize
-argument_list|,
-name|size
-argument_list|)
+name|NGX_POOL_ALIGNMENT
 argument_list|,
 name|size
 argument_list|,
@@ -825,12 +820,7 @@ name|m
 operator|=
 name|ngx_memalign
 argument_list|(
-name|ngx_min
-argument_list|(
-name|ngx_pagesize
-argument_list|,
-name|psize
-argument_list|)
+name|NGX_POOL_ALIGNMENT
 argument_list|,
 name|psize
 argument_list|,

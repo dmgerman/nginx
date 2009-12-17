@@ -49,12 +49,20 @@ value|(16 * 1024)
 end_define
 
 begin_define
+DECL|macro|NGX_POOL_ALIGNMENT
+define|#
+directive|define
+name|NGX_POOL_ALIGNMENT
+value|16
+end_define
+
+begin_define
 DECL|macro|NGX_MIN_POOL_SIZE
 define|#
 directive|define
 name|NGX_MIN_POOL_SIZE
 define|\
-value|(sizeof(ngx_pool_t) + 2 * sizeof(ngx_pool_large_t))
+value|ngx_align((sizeof(ngx_pool_t) + 2 * sizeof(ngx_pool_large_t)),            \               NGX_POOL_ALIGNMENT)
 end_define
 
 begin_typedef
@@ -134,7 +142,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c5360760108
+DECL|struct|__anon2b43ed3e0108
 typedef|typedef
 struct|struct
 block|{
@@ -206,7 +214,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c5360760208
+DECL|struct|__anon2b43ed3e0208
 typedef|typedef
 struct|struct
 block|{

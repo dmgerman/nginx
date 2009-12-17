@@ -1079,11 +1079,6 @@ operator|=
 operator|&
 name|init_cycle
 expr_stmt|;
-comment|/* dummy pagesize to create aligned pool */
-name|ngx_pagesize
-operator|=
-literal|1024
-expr_stmt|;
 name|init_cycle
 operator|.
 name|pool
