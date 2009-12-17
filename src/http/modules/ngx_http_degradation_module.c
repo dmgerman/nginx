@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28a54d980108
+DECL|struct|__anon278ec5460108
 typedef|typedef
 struct|struct
 block|{
@@ -37,7 +37,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a54d980208
+DECL|struct|__anon278ec5460208
 typedef|typedef
 struct|struct
 block|{
@@ -731,9 +731,29 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
-block|}
 return|return
 name|NGX_CONF_OK
+return|;
+block|}
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"invalid parameter \"%V\""
+argument_list|,
+operator|&
+name|value
+index|[
+literal|1
+index|]
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CONF_ERROR
 return|;
 block|}
 end_function
