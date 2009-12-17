@@ -2893,6 +2893,17 @@ operator|->
 name|log
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|err
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+name|NGX_OK
+return|;
+block|}
 block|}
 endif|#
 directive|endif
