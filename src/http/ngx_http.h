@@ -594,7 +594,7 @@ name|ngx_http_ephemeral
 parameter_list|(
 name|r
 parameter_list|)
-value|(ngx_http_ephemeral_t *) (&r->uri_start)
+value|(void *) (&r->uri_start)
 end_define
 
 begin_define
