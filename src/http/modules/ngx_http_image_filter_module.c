@@ -148,7 +148,7 @@ value|0x08
 end_define
 
 begin_typedef
-DECL|struct|__anon28818d320108
+DECL|struct|__anon2922eb970108
 typedef|typedef
 struct|struct
 block|{
@@ -193,7 +193,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28818d320208
+DECL|struct|__anon2922eb970208
 typedef|typedef
 struct|struct
 block|{
@@ -2711,15 +2711,15 @@ literal|0
 argument_list|,
 literal|"JPEG: %02xd %02xd"
 argument_list|,
-operator|*
 name|p
+index|[
+literal|0
+index|]
 argument_list|,
-operator|*
-operator|(
 name|p
-operator|+
+index|[
 literal|1
-operator|)
+index|]
 argument_list|)
 expr_stmt|;
 name|p
