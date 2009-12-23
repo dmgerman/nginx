@@ -18093,8 +18093,8 @@ end_function
 begin_function
 name|char
 modifier|*
-DECL|function|ngx_http_upsteam_bind_set_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
-name|ngx_http_upsteam_bind_set_slot
+DECL|function|ngx_http_upstream_bind_set_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
+name|ngx_http_upstream_bind_set_slot
 parameter_list|(
 name|ngx_conf_t
 modifier|*

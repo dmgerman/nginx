@@ -205,7 +205,7 @@ value|0x00000010
 end_define
 
 begin_typedef
-DECL|struct|__anon2c5cbd8b0108
+DECL|struct|__anon2968600a0108
 typedef|typedef
 struct|struct
 block|{
@@ -245,7 +245,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5cbd8b0208
+DECL|struct|__anon2968600a0208
 typedef|typedef
 struct|struct
 block|{
@@ -314,7 +314,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5cbd8b0308
+DECL|struct|__anon2968600a0308
 typedef|typedef
 struct|struct
 block|{
@@ -338,7 +338,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5cbd8b0408
+DECL|struct|__anon2968600a0408
 typedef|typedef
 struct|struct
 block|{
@@ -480,7 +480,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c5cbd8b0508
+DECL|struct|__anon2968600a0508
 typedef|typedef
 struct|struct
 block|{
@@ -681,7 +681,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5cbd8b0608
+DECL|struct|__anon2968600a0608
 typedef|typedef
 struct|struct
 block|{
@@ -717,7 +717,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5cbd8b0708
+DECL|struct|__anon2968600a0708
 typedef|typedef
 struct|struct
 block|{
@@ -835,7 +835,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5cbd8b0808
+DECL|struct|__anon2968600a0808
 typedef|typedef
 struct|struct
 block|{
@@ -1193,7 +1193,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c5cbd8b0908
+DECL|struct|__anon2968600a0908
 typedef|typedef
 struct|struct
 block|{
@@ -1273,7 +1273,7 @@ end_function_decl
 begin_function_decl
 name|char
 modifier|*
-name|ngx_http_upsteam_bind_set_slot
+name|ngx_http_upstream_bind_set_slot
 parameter_list|(
 name|ngx_conf_t
 modifier|*
