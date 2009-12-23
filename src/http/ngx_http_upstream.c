@@ -6758,8 +6758,8 @@ operator|->
 name|headers_in
 operator|.
 name|status_n
-operator|>=
-name|NGX_HTTP_BAD_REQUEST
+operator|>
+name|NGX_HTTP_SPECIAL_RESPONSE
 condition|)
 block|{
 if|if

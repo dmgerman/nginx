@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ac43d8b0108
+DECL|struct|__anon2c07ab990108
 typedef|typedef
 struct|struct
 block|{
@@ -17757,7 +17757,7 @@ name|err
 operator|->
 name|status
 operator|<
-literal|400
+literal|300
 operator|||
 name|err
 operator|->
@@ -17774,7 +17774,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"value \"%V\" must be between 400 and 599"
+literal|"value \"%V\" must be between 300 and 599"
 argument_list|,
 operator|&
 name|value
