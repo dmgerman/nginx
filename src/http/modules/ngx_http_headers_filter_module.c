@@ -55,7 +55,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c99a2040108
+DECL|struct|__anon2a3cd4460108
 typedef|typedef
 struct|struct
 block|{
@@ -155,7 +155,7 @@ value|5
 end_define
 
 begin_typedef
-DECL|struct|__anon2c99a2040208
+DECL|struct|__anon2a3cd4460208
 typedef|typedef
 struct|struct
 block|{
@@ -1339,6 +1339,10 @@ condition|(
 name|conf
 operator|->
 name|expires_time
+operator|<
+literal|0
+operator|||
+name|max_age
 operator|<
 literal|0
 condition|)
