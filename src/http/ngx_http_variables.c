@@ -8462,8 +8462,6 @@ name|ngx_http_variable_not_found
 expr_stmt|;
 name|p
 operator|+=
-name|i
-operator|+
 name|size
 expr_stmt|;
 block|}
