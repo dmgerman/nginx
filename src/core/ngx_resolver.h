@@ -141,7 +141,7 @@ value|50
 end_define
 
 begin_typedef
-DECL|struct|__anon27d5f9190108
+DECL|struct|__anon295807d00108
 typedef|typedef
 struct|struct
 block|{
@@ -166,7 +166,6 @@ name|server
 decl_stmt|;
 DECL|member|log
 name|ngx_log_t
-modifier|*
 name|log
 decl_stmt|;
 DECL|typedef|ngx_udp_connection_t
@@ -201,7 +200,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d5f9190208
+DECL|struct|__anon295807d00208
 typedef|typedef
 struct|struct
 block|{
@@ -232,7 +231,7 @@ name|u_char
 modifier|*
 name|query
 decl_stmt|;
-DECL|union|__anon27d5f919030a
+DECL|union|__anon295807d0030a
 union|union
 block|{
 DECL|member|addr
@@ -281,7 +280,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d5f9190408
+DECL|struct|__anon295807d00408
 typedef|typedef
 struct|struct
 block|{
