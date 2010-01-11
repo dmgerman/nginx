@@ -157,14 +157,6 @@ operator|==
 name|NGX_HTTP_NO_CONTENT
 operator|||
 name|r
-operator|->
-name|headers_out
-operator|.
-name|status
-operator|==
-name|NGX_HTTP_CREATED
-operator|||
-name|r
 operator|!=
 name|r
 operator|->
