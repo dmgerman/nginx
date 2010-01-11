@@ -5097,9 +5097,6 @@ block|{
 comment|/* invalid UTF-8 */
 break|break;
 block|}
-name|len
-operator|--
-expr_stmt|;
 while|while
 condition|(
 name|src
@@ -5108,12 +5105,12 @@ name|next
 condition|)
 block|{
 operator|*
-operator|++
 name|dst
+operator|++
 operator|=
 operator|*
-operator|++
 name|src
+operator|++
 expr_stmt|;
 name|len
 operator|--
@@ -5546,7 +5543,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon2c8aa1250103
+DECL|enum|__anon2918ff750103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
