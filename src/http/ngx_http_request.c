@@ -3542,6 +3542,11 @@ operator|*
 name|p
 operator|==
 literal|'.'
+operator|||
+operator|*
+name|p
+operator|==
+literal|' '
 condition|)
 block|{
 while|while
@@ -3555,10 +3560,17 @@ name|uri
 operator|.
 name|data
 operator|&&
+operator|(
 operator|*
 name|p
 operator|==
 literal|'.'
+operator|||
+operator|*
+name|p
+operator|==
+literal|' '
+operator|)
 condition|)
 block|{
 comment|/* void */
