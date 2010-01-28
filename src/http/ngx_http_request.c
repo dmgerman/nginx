@@ -8826,6 +8826,12 @@ name|done
 operator|=
 literal|1
 expr_stmt|;
+name|r
+operator|->
+name|write_event_handler
+operator|=
+name|ngx_http_request_empty_handler
+expr_stmt|;
 if|if
 condition|(
 operator|!
