@@ -1978,6 +1978,12 @@ name|cleanup
 operator|=
 name|NULL
 expr_stmt|;
+name|u
+operator|->
+name|cleanup
+operator|=
+name|NULL
+expr_stmt|;
 block|}
 name|u
 operator|=
@@ -12399,6 +12405,12 @@ name|cleanup
 condition|)
 block|{
 operator|*
+name|u
+operator|->
+name|cleanup
+operator|=
+name|NULL
+expr_stmt|;
 name|u
 operator|->
 name|cleanup
