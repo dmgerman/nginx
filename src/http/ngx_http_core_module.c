@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b54f5350108
+DECL|struct|__anon29f4cb440108
 typedef|typedef
 struct|struct
 block|{
@@ -3357,7 +3357,7 @@ name|r
 operator|->
 name|headers_in
 operator|.
-name|msie
+name|msie6
 condition|)
 block|{
 if|if
