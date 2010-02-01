@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c07ab990108
+DECL|struct|__anon2b54f5350108
 typedef|typedef
 struct|struct
 block|{
@@ -3349,13 +3349,19 @@ condition|(
 name|r
 operator|->
 name|keepalive
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
 name|r
 operator|->
 name|headers_in
 operator|.
 name|msie
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
 name|r
 operator|->
 name|method
@@ -3363,13 +3369,32 @@ operator|==
 name|NGX_HTTP_POST
 condition|)
 block|{
-comment|/*              * MSIE may wait for some time if an response for              * a POST request was sent over a keepalive connection              */
+comment|/* 		     * MSIE may wait for some time if an response for 		     * a POST request was sent over a keepalive connection 		     */
 name|r
 operator|->
 name|keepalive
 operator|=
 literal|0
 expr_stmt|;
+block|}
+block|}
+if|else if
+condition|(
+name|r
+operator|->
+name|headers_in
+operator|.
+name|safari
+condition|)
+block|{
+comment|/*                  * Safari may send a POST request to a closed keepalive                  * connection and stalls for some time                  */
+name|r
+operator|->
+name|keepalive
+operator|=
+literal|0
+expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
