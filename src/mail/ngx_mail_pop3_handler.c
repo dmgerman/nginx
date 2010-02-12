@@ -888,12 +888,6 @@ name|rc
 operator|=
 name|NGX_MAIL_PARSE_INVALID_COMMAND
 expr_stmt|;
-name|s
-operator|->
-name|mail_state
-operator|=
-name|ngx_pop3_start
-expr_stmt|;
 break|break;
 block|}
 break|break;
@@ -953,12 +947,6 @@ default|default:
 name|rc
 operator|=
 name|NGX_MAIL_PARSE_INVALID_COMMAND
-expr_stmt|;
-name|s
-operator|->
-name|mail_state
-operator|=
-name|ngx_pop3_start
 expr_stmt|;
 break|break;
 block|}
