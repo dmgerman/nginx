@@ -622,7 +622,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b3f52910108
+DECL|struct|__anon2b1f04090108
 typedef|typedef
 struct|struct
 block|{
@@ -667,7 +667,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3f52910208
+DECL|struct|__anon2b1f04090208
 typedef|typedef
 struct|struct
 block|{
@@ -807,7 +807,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3f52910308
+DECL|struct|__anon2b1f04090308
 typedef|typedef
 struct|struct
 block|{
@@ -822,7 +822,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3f52910408
+DECL|struct|__anon2b1f04090408
 typedef|typedef
 struct|struct
 block|{
@@ -847,7 +847,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3f52910508
+DECL|struct|__anon2b1f04090508
 typedef|typedef
 struct|struct
 block|{
@@ -870,7 +870,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3f52910608
+DECL|struct|__anon2b1f04090608
 typedef|typedef
 struct|struct
 block|{
@@ -897,7 +897,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2b3f52910708
+DECL|struct|__anon2b1f04090708
 typedef|typedef
 struct|struct
 block|{
@@ -1235,6 +1235,7 @@ parameter_list|,
 name|ngx_err_t
 name|err
 parameter_list|,
+specifier|const
 name|char
 modifier|*
 name|fmt

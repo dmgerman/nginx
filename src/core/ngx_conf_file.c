@@ -407,7 +407,7 @@ name|prev
 decl_stmt|,
 name|conf_file
 decl_stmt|;
-DECL|enum|__anon299197ba0103
+DECL|enum|__anon2b81efad0103
 enum|enum
 block|{
 DECL|enumerator|parse_file
@@ -3897,7 +3897,7 @@ end_function
 begin_function
 name|void
 name|ngx_cdecl
-DECL|function|ngx_conf_log_error (ngx_uint_t level,ngx_conf_t * cf,ngx_err_t err,char * fmt,...)
+DECL|function|ngx_conf_log_error (ngx_uint_t level,ngx_conf_t * cf,ngx_err_t err,const char * fmt,...)
 name|ngx_conf_log_error
 parameter_list|(
 name|ngx_uint_t
@@ -3910,6 +3910,7 @@ parameter_list|,
 name|ngx_err_t
 name|err
 parameter_list|,
+specifier|const
 name|char
 modifier|*
 name|fmt
