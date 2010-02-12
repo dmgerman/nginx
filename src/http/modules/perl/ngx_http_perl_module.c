@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2881f8780108
+DECL|struct|__anon2bf5724c0108
 typedef|typedef
 struct|struct
 block|{
@@ -59,7 +59,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2881f8780208
+DECL|struct|__anon2bf5724c0208
 typedef|typedef
 struct|struct
 block|{
@@ -79,7 +79,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2881f8780308
+DECL|struct|__anon2bf5724c0308
 typedef|typedef
 struct|struct
 block|{
@@ -95,27 +95,6 @@ decl_stmt|;
 DECL|typedef|ngx_http_perl_variable_t
 block|}
 name|ngx_http_perl_variable_t
-typedef|;
-end_typedef
-
-begin_typedef
-DECL|struct|__anon2881f8780408
-typedef|typedef
-struct|struct
-block|{
-DECL|member|sv
-name|SV
-modifier|*
-name|sv
-decl_stmt|;
-DECL|member|perl
-name|PerlInterpreter
-modifier|*
-name|perl
-decl_stmt|;
-DECL|typedef|ngx_http_perl_cleanup_t
-block|}
-name|ngx_http_perl_cleanup_t
 typedef|;
 end_typedef
 
