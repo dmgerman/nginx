@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29f4cb440108
+DECL|struct|__anon292e771a0108
 typedef|typedef
 struct|struct
 block|{
@@ -3369,7 +3369,7 @@ operator|==
 name|NGX_HTTP_POST
 condition|)
 block|{
-comment|/* 		     * MSIE may wait for some time if an response for 		     * a POST request was sent over a keepalive connection 		     */
+comment|/*                      * MSIE may wait for some time if an response for                      * a POST request was sent over a keepalive connection                      */
 name|r
 operator|->
 name|keepalive
