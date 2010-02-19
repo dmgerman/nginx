@@ -62,7 +62,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2ac2b4460108
+DECL|struct|__anon2b568b410108
 typedef|typedef
 struct|struct
 block|{
@@ -102,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac2b4460208
+DECL|struct|__anon2b568b410208
 typedef|typedef
 struct|struct
 block|{
@@ -125,7 +125,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac2b4460308
+DECL|struct|__anon2b568b410308
 typedef|typedef
 struct|struct
 block|{
@@ -149,7 +149,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2ac2b4460403
+DECL|enum|__anon2b568b410403
 typedef|typedef
 enum|enum
 block|{
@@ -9100,20 +9100,34 @@ operator|->
 name|header_sent
 condition|)
 block|{
-if|if
-condition|(
-name|ngx_http_set_content_type
-argument_list|(
 name|r
-argument_list|)
-operator|!=
-name|NGX_OK
-condition|)
-block|{
-return|return
-name|NGX_ERROR
-return|;
-block|}
+operator|->
+name|headers_out
+operator|.
+name|content_type_len
+operator|=
+name|r
+operator|->
+name|parent
+operator|->
+name|headers_out
+operator|.
+name|content_type_len
+expr_stmt|;
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_type
+operator|=
+name|r
+operator|->
+name|parent
+operator|->
+name|headers_out
+operator|.
+name|content_type
+expr_stmt|;
 if|if
 condition|(
 name|ngx_http_send_header
