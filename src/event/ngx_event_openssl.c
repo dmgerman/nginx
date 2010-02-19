@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bef390f0108
+DECL|struct|__anon2c4745410108
 typedef|typedef
 struct|struct
 block|{
@@ -5634,13 +5634,28 @@ comment|/*  149 */
 operator|||
 name|n
 operator|==
+name|SSL_R_LENGTH_MISMATCH
+comment|/*  159 */
+operator|||
+name|n
+operator|==
 name|SSL_R_NO_CIPHERS_PASSED
 comment|/*  182 */
 operator|||
 name|n
 operator|==
+name|SSL_R_NO_CIPHERS_SPECIFIED
+comment|/*  183 */
+operator|||
+name|n
+operator|==
 name|SSL_R_NO_SHARED_CIPHER
 comment|/*  193 */
+operator|||
+name|n
+operator|==
+name|SSL_R_RECORD_LENGTH_MISMATCH
+comment|/*  213 */
 operator|||
 name|n
 operator|==
@@ -5651,6 +5666,11 @@ name|n
 operator|==
 name|SSL_R_UNEXPECTED_RECORD
 comment|/*  245 */
+operator|||
+name|n
+operator|==
+name|SSL_R_UNKNOWN_ALERT_TYPE
+comment|/*  246 */
 operator|||
 name|n
 operator|==
