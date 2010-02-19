@@ -62,7 +62,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2b568b410108
+DECL|struct|__anon280197900108
 typedef|typedef
 struct|struct
 block|{
@@ -102,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b568b410208
+DECL|struct|__anon280197900208
 typedef|typedef
 struct|struct
 block|{
@@ -125,7 +125,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b568b410308
+DECL|struct|__anon280197900308
 typedef|typedef
 struct|struct
 block|{
@@ -149,7 +149,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b568b410403
+DECL|enum|__anon280197900403
 typedef|typedef
 enum|enum
 block|{
@@ -11637,16 +11637,6 @@ argument_list|,
 name|tp
 operator|->
 name|sec
-operator|+
-operator|(
-name|gmt
-condition|?
-literal|0
-else|:
-name|tp
-operator|->
-name|gmtoff
-operator|)
 argument_list|)
 operator|-
 name|v
