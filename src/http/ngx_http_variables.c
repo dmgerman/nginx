@@ -1359,7 +1359,7 @@ name|ngx_http_variable_request_method
 block|,
 literal|0
 block|,
-literal|0
+name|NGX_HTTP_VAR_NOCACHEABLE
 block|,
 literal|0
 block|}
