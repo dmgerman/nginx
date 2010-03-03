@@ -433,12 +433,6 @@ argument|date
 argument_list|)
 block|}
 block|,
-if|#
-directive|if
-literal|0
-block|{ ngx_string("Content-Type"),                  offsetof(ngx_http_headers_out_t, content_type) },
-endif|#
-directive|endif
 block|{
 name|ngx_string
 argument_list|(
