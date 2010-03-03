@@ -184,13 +184,11 @@ name|len
 operator|-
 literal|1
 operator|||
-name|ngx_memcmp
+name|_wcsicmp
 argument_list|(
 name|u
 argument_list|,
 name|lu
-argument_list|,
-name|n
 argument_list|)
 operator|!=
 literal|0

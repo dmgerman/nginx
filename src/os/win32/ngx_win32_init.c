@@ -99,7 +99,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon27f14d110108
+DECL|struct|__anon28c0f3da0108
 typedef|typedef
 struct|struct
 block|{
@@ -428,6 +428,14 @@ control|)
 block|{
 comment|/* void */
 block|}
+comment|/* delete default "C" locale for _wcsicmp() */
+name|setlocale
+argument_list|(
+name|LC_ALL
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
 comment|/* init Winsock */
 if|if
 condition|(
