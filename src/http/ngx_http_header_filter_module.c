@@ -2539,7 +2539,7 @@ name|len
 operator|=
 sizeof|sizeof
 argument_list|(
-literal|"Location: "
+literal|"Location"
 argument_list|)
 operator|-
 literal|1
@@ -2558,7 +2558,7 @@ operator|(
 name|u_char
 operator|*
 operator|)
-literal|"Location: "
+literal|"Location"
 expr_stmt|;
 operator|*
 name|b
