@@ -52,6 +52,12 @@ directive|include
 file|<openssl/engine.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<openssl/evp.h>
+end_include
+
 begin_define
 DECL|macro|NGX_SSL_NAME
 define|#
@@ -77,7 +83,7 @@ value|SSL
 end_define
 
 begin_typedef
-DECL|struct|__anon296baf140108
+DECL|struct|__anon2c29b20d0108
 typedef|typedef
 struct|struct
 block|{
@@ -98,7 +104,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296baf140208
+DECL|struct|__anon2c29b20d0208
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +276,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon296baf140308
+DECL|struct|__anon2c29b20d0308
 typedef|typedef
 struct|struct
 block|{

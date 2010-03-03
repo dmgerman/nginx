@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c3e960d0108
+DECL|struct|__anon29eb490e0108
 typedef|typedef
 struct|struct
 block|{
@@ -502,6 +502,9 @@ name|SSL_load_error_strings
 argument_list|()
 expr_stmt|;
 name|ENGINE_load_builtin_engines
+argument_list|()
+expr_stmt|;
+name|OpenSSL_add_all_algorithms
 argument_list|()
 expr_stmt|;
 name|ngx_ssl_connection_index
@@ -9629,6 +9632,9 @@ modifier|*
 name|cycle
 parameter_list|)
 block|{
+name|EVP_cleanup
+argument_list|()
+expr_stmt|;
 name|ENGINE_cleanup
 argument_list|()
 expr_stmt|;
