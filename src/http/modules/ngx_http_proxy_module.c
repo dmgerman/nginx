@@ -70,14 +70,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon2c36de7a010a
+DECL|union|__anon2c670298010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon2c36de7a0208
+DECL|struct|__anon2c6702980208
 struct|struct
 block|{
 DECL|member|lengths
@@ -108,7 +108,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c36de7a0308
+DECL|struct|__anon2c6702980308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c36de7a0408
+DECL|struct|__anon2c6702980408
 typedef|typedef
 struct|struct
 block|{
@@ -251,7 +251,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c36de7a0508
+DECL|struct|__anon2c6702980508
 typedef|typedef
 struct|struct
 block|{
@@ -6197,7 +6197,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2c36de7a0603
+DECL|enum|__anon2c6702980603
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -8788,7 +8788,7 @@ return|return
 name|NULL
 return|;
 block|}
-comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.bufs.num = 0;      *     conf->upstream.ignore_headers = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.cache_use_stale = 0;      *     conf->upstream.cache_methods = 0;      *     conf->upstream.temp_path = NULL;      *     conf->upstream.hide_headers_hash = { NULL, 0 };      *     conf->upstream.uri = { 0, NULL };      *     conf->upstream.location = NULL;      *     conf->upstream.store_lengths = NULL;      *     conf->upstream.store_values = NULL;      *      *     conf->method = NULL;      *     conf->headers_source = NULL;      *     conf->headers_set_len = NULL;      *     conf->headers_set = NULL;      *     conf->headers_set_hash = NULL;      *     conf->body_set_len = NULL;      *     conf->body_set = NULL;      *     conf->body_source = { 0, NULL };      *     conf->rewrite_locations = NULL;      */
+comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.bufs.num = 0;      *     conf->upstream.ignore_headers = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.cache_use_stale = 0;      *     conf->upstream.cache_methods = 0;      *     conf->upstream.temp_path = NULL;      *     conf->upstream.hide_headers_hash = { NULL, 0 };      *     conf->upstream.uri = { 0, NULL };      *     conf->upstream.location = NULL;      *     conf->upstream.store_lengths = NULL;      *     conf->upstream.store_values = NULL;      *      *     conf->method = NULL;      *     conf->headers_source = NULL;      *     conf->headers_set_len = NULL;      *     conf->headers_set = NULL;      *     conf->headers_set_hash = NULL;      *     conf->body_set_len = NULL;      *     conf->body_set = NULL;      *     conf->body_source = { 0, NULL };      *     conf->redirects = NULL;      */
 name|conf
 operator|->
 name|upstream
@@ -12961,7 +12961,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"\"proxy_rewrite_location default\" must go "
+literal|"\"proxy_redirect default\" must go "
 literal|"after the \"proxy_pass\" directive"
 argument_list|)
 expr_stmt|;
