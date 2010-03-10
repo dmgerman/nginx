@@ -70,14 +70,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon2c670298010a
+DECL|union|__anon28cb22e0010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon2c6702980208
+DECL|struct|__anon28cb22e00208
 struct|struct
 block|{
 DECL|member|lengths
@@ -108,7 +108,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c6702980308
+DECL|struct|__anon28cb22e00308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6702980408
+DECL|struct|__anon28cb22e00408
 typedef|typedef
 struct|struct
 block|{
@@ -251,7 +251,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6702980508
+DECL|struct|__anon28cb22e00508
 typedef|typedef
 struct|struct
 block|{
@@ -6197,7 +6197,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2c6702980603
+DECL|enum|__anon28cb22e00603
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -12942,6 +12942,29 @@ operator|==
 literal|0
 condition|)
 block|{
+if|if
+condition|(
+name|plcf
+operator|->
+name|proxy_lengths
+condition|)
+block|{
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"\"proxy_redirect default\" may not be used "
+literal|"with \"proxy_pass\" directive with variables"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
 if|if
 condition|(
 name|plcf
