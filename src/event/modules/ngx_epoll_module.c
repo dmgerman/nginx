@@ -373,7 +373,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2950d5e80108
+DECL|struct|__anon2c1a265e0108
 typedef|typedef
 struct|struct
 block|{
@@ -2238,6 +2238,8 @@ condition|(
 name|flags
 operator|&
 name|NGX_UPDATE_TIME
+operator|||
+name|ngx_event_timer_alarm
 condition|)
 block|{
 name|ngx_time_update

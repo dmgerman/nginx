@@ -2142,13 +2142,6 @@ name|ngx_event_timer_alarm
 operator|=
 literal|1
 expr_stmt|;
-name|ngx_time_update
-argument_list|(
-literal|0
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
 if|#
 directive|if
 literal|1

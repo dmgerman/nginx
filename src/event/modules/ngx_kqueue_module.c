@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bc059c00108
+DECL|struct|__anon2acdb6150108
 typedef|typedef
 struct|struct
 block|{
@@ -1978,6 +1978,8 @@ condition|(
 name|flags
 operator|&
 name|NGX_UPDATE_TIME
+operator|||
+name|ngx_event_timer_alarm
 condition|)
 block|{
 name|ngx_time_update

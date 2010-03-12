@@ -1141,6 +1141,8 @@ condition|(
 name|flags
 operator|&
 name|NGX_UPDATE_TIME
+operator|||
+name|ngx_event_timer_alarm
 condition|)
 block|{
 name|ngx_time_update
