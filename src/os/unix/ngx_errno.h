@@ -396,6 +396,47 @@ endif|#
 directive|endif
 end_endif
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_SYS_ERRLIST
+operator|)
+end_if
+
+begin_define
+DECL|macro|ngx_sigsafe_strerror (err)
+define|#
+directive|define
+name|ngx_sigsafe_strerror
+parameter_list|(
+name|err
+parameter_list|)
+define|\
+value|(err> 0&& err< sys_nerr) ? sys_errlist[err] : "Unknown error"
+end_define
+
+begin_else
+else|#
+directive|else
+end_else
+
+begin_define
+DECL|macro|ngx_sigsafe_strerror (err)
+define|#
+directive|define
+name|ngx_sigsafe_strerror
+parameter_list|(
+name|err
+parameter_list|)
+value|""
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_endif
 endif|#
 directive|endif

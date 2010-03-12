@@ -28,7 +28,7 @@ file|<ngx_channel.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon296c01040108
+DECL|struct|__anon2b6c08020108
 typedef|typedef
 struct|struct
 block|{
@@ -1937,9 +1937,16 @@ name|ngx_cycle
 operator|->
 name|log
 argument_list|,
-name|errno
+literal|0
 argument_list|,
-literal|"waitpid() failed"
+literal|"waitpid() failed (%d: %s)"
+argument_list|,
+name|err
+argument_list|,
+name|ngx_sigsafe_strerror
+argument_list|(
+name|err
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1954,9 +1961,16 @@ name|ngx_cycle
 operator|->
 name|log
 argument_list|,
-name|errno
+literal|0
 argument_list|,
-literal|"waitpid() failed"
+literal|"waitpid() failed (%d: %s)"
+argument_list|,
+name|err
+argument_list|,
+name|ngx_sigsafe_strerror
+argument_list|(
+name|err
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return;
