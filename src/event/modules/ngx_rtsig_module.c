@@ -134,7 +134,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b4ca8f90108
+DECL|struct|__anon295045270108
 typedef|typedef
 struct|struct
 block|{
@@ -1419,8 +1419,6 @@ block|{
 name|ngx_time_update
 argument_list|(
 literal|0
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -1517,8 +1515,6 @@ condition|)
 block|{
 name|ngx_time_update
 argument_list|(
-literal|0
-argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
@@ -1789,8 +1785,6 @@ condition|)
 block|{
 name|ngx_time_update
 argument_list|(
-literal|0
-argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
@@ -2765,8 +2759,6 @@ condition|)
 block|{
 name|ngx_time_update
 argument_list|(
-literal|0
-argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;

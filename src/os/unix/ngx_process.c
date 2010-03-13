@@ -28,7 +28,7 @@ file|<ngx_channel.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b6c08020108
+DECL|struct|__anon294358720108
 typedef|typedef
 struct|struct
 block|{
@@ -1502,9 +1502,7 @@ block|}
 block|}
 name|ngx_time_update
 argument_list|(
-literal|0
-argument_list|,
-literal|0
+literal|1
 argument_list|)
 expr_stmt|;
 name|action

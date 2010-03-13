@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2acdb6150108
+DECL|struct|__anon291c64eb0108
 typedef|typedef
 struct|struct
 block|{
@@ -1985,8 +1985,6 @@ block|{
 name|ngx_time_update
 argument_list|(
 literal|0
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -2198,8 +2196,6 @@ condition|)
 block|{
 name|ngx_time_update
 argument_list|(
-literal|0
-argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;

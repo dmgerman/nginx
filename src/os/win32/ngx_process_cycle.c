@@ -769,8 +769,6 @@ expr_stmt|;
 name|ngx_time_update
 argument_list|(
 literal|0
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 name|ngx_log_debug1
@@ -3138,8 +3136,6 @@ expr_stmt|;
 name|ngx_time_update
 argument_list|(
 literal|0
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 name|ngx_log_debug1
@@ -3374,8 +3370,6 @@ name|ngx_errno
 expr_stmt|;
 name|ngx_time_update
 argument_list|(
-literal|0
-argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
@@ -4051,8 +4045,6 @@ expr_stmt|;
 name|ngx_time_update
 argument_list|(
 literal|0
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 name|ngx_log_debug1
@@ -4279,8 +4271,6 @@ expr_stmt|;
 name|ngx_time_update
 argument_list|(
 literal|0
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -4320,8 +4310,6 @@ condition|)
 block|{
 name|ngx_time_update
 argument_list|(
-literal|0
-argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
@@ -4443,8 +4431,6 @@ argument_list|)
 expr_stmt|;
 name|ngx_time_update
 argument_list|(
-literal|0
-argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;

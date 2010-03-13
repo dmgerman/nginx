@@ -966,8 +966,6 @@ expr_stmt|;
 name|ngx_time_update
 argument_list|(
 literal|0
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 name|ngx_log_debug1
@@ -6105,8 +6103,6 @@ expr_stmt|;
 name|ngx_time_update
 argument_list|(
 literal|0
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -6228,8 +6224,6 @@ argument_list|)
 expr_stmt|;
 name|ngx_time_update
 argument_list|(
-literal|0
-argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;

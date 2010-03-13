@@ -5699,8 +5699,6 @@ block|{
 name|ngx_time_update
 argument_list|(
 literal|0
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 name|elapsed
@@ -5749,8 +5747,6 @@ argument_list|)
 expr_stmt|;
 name|ngx_time_update
 argument_list|(
-literal|0
-argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
