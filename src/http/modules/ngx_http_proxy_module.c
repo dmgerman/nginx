@@ -70,14 +70,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon28cb22e0010a
+DECL|union|__anon289eae6b010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon28cb22e00208
+DECL|struct|__anon289eae6b0208
 struct|struct
 block|{
 DECL|member|lengths
@@ -108,7 +108,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28cb22e00308
+DECL|struct|__anon289eae6b0308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28cb22e00408
+DECL|struct|__anon289eae6b0408
 typedef|typedef
 struct|struct
 block|{
@@ -251,7 +251,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28cb22e00508
+DECL|struct|__anon289eae6b0508
 typedef|typedef
 struct|struct
 block|{
@@ -2903,6 +2903,12 @@ operator|->
 name|finalize_request
 operator|=
 name|ngx_http_proxy_finalize_request
+expr_stmt|;
+name|r
+operator|->
+name|state
+operator|=
+literal|0
 expr_stmt|;
 if|if
 condition|(
@@ -5877,6 +5883,12 @@ name|process_header
 operator|=
 name|ngx_http_proxy_process_status_line
 expr_stmt|;
+name|r
+operator|->
+name|state
+operator|=
+literal|0
+expr_stmt|;
 return|return
 name|NGX_OK
 return|;
@@ -6197,7 +6209,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon28cb22e00603
+DECL|enum|__anon289eae6b0603
 enum|enum
 block|{
 DECL|enumerator|sw_start
