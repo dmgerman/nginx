@@ -28,7 +28,7 @@ file|<ngx_channel.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon294358720108
+DECL|struct|__anon2b4195890108
 typedef|typedef
 struct|struct
 block|{
@@ -1500,10 +1500,8 @@ block|{
 break|break;
 block|}
 block|}
-name|ngx_time_update
-argument_list|(
-literal|1
-argument_list|)
+name|ngx_time_sigsafe_update
+argument_list|()
 expr_stmt|;
 name|action
 operator|=

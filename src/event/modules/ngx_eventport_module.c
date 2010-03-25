@@ -114,7 +114,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon279f77800108
+DECL|struct|__anon2bddae800108
 typedef|typedef
 struct|struct
 block|{
@@ -388,7 +388,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon279f77800208
+DECL|struct|__anon2bddae800208
 typedef|typedef
 struct|struct
 block|{
@@ -1719,9 +1719,7 @@ name|NGX_UPDATE_TIME
 condition|)
 block|{
 name|ngx_time_update
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 if|if
@@ -1863,9 +1861,7 @@ name|PORT_SOURCE_TIMER
 condition|)
 block|{
 name|ngx_time_update
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 expr_stmt|;
 continue|continue;
 block|}

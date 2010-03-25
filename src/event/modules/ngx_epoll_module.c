@@ -373,7 +373,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon299b7b6b0108
+DECL|struct|__anon2bfa701c0108
 typedef|typedef
 struct|struct
 block|{
@@ -2243,9 +2243,7 @@ name|ngx_event_timer_alarm
 condition|)
 block|{
 name|ngx_time_update
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 if|if

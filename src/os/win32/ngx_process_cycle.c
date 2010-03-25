@@ -767,9 +767,7 @@ operator|=
 name|ngx_errno
 expr_stmt|;
 name|ngx_time_update
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|ngx_log_debug1
 argument_list|(
@@ -3134,9 +3132,7 @@ operator|=
 name|ngx_errno
 expr_stmt|;
 name|ngx_time_update
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|ngx_log_debug1
 argument_list|(
@@ -3369,9 +3365,7 @@ operator|=
 name|ngx_errno
 expr_stmt|;
 name|ngx_time_update
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|ngx_log_debug1
 argument_list|(
@@ -4043,9 +4037,7 @@ operator|=
 name|ngx_errno
 expr_stmt|;
 name|ngx_time_update
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|ngx_log_debug1
 argument_list|(
@@ -4269,9 +4261,7 @@ else|:
 name|next
 expr_stmt|;
 name|ngx_time_update
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -4309,9 +4299,7 @@ name|WAIT_TIMEOUT
 condition|)
 block|{
 name|ngx_time_update
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|ngx_log_debug1
 argument_list|(
@@ -4430,9 +4418,7 @@ name|data
 argument_list|)
 expr_stmt|;
 name|ngx_time_update
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 block|}

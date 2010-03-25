@@ -5697,9 +5697,7 @@ literal|100
 condition|)
 block|{
 name|ngx_time_update
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|elapsed
 operator|=
@@ -5746,9 +5744,7 @@ literal|200
 argument_list|)
 expr_stmt|;
 name|ngx_time_update
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 name|cache

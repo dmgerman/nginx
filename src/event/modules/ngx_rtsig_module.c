@@ -134,7 +134,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon295045270108
+DECL|struct|__anon27ed0a6d0108
 typedef|typedef
 struct|struct
 block|{
@@ -1417,9 +1417,7 @@ name|NGX_UPDATE_TIME
 condition|)
 block|{
 name|ngx_time_update
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 if|if
@@ -1514,9 +1512,7 @@ name|NGX_UPDATE_TIME
 condition|)
 block|{
 name|ngx_time_update
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 name|rtscf
@@ -1784,9 +1780,7 @@ name|SIGALRM
 condition|)
 block|{
 name|ngx_time_update
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 expr_stmt|;
 return|return
 name|NGX_OK
@@ -2758,9 +2752,7 @@ name|NGX_UPDATE_TIME
 condition|)
 block|{
 name|ngx_time_update
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 name|ngx_log_error

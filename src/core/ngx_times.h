@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c531c450108
+DECL|struct|__anon27cb52d20108
 typedef|typedef
 struct|struct
 block|{
@@ -64,8 +64,16 @@ begin_function_decl
 name|void
 name|ngx_time_update
 parameter_list|(
-name|ngx_uint_t
-name|use_cached_gmtoff
+name|void
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_time_sigsafe_update
+parameter_list|(
+name|void
 parameter_list|)
 function_decl|;
 end_function_decl

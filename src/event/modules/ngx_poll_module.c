@@ -1146,9 +1146,7 @@ name|ngx_event_timer_alarm
 condition|)
 block|{
 name|ngx_time_update
-argument_list|(
-literal|0
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 name|ngx_log_debug2
