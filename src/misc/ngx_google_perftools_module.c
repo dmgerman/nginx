@@ -74,7 +74,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon2c6dee860108
+DECL|struct|__anon28d109ff0108
 typedef|typedef
 struct|struct
 block|{
@@ -231,7 +231,7 @@ return|return
 name|NULL
 return|;
 block|}
-comment|/*      * set by pcalloc()      *      *     gptcf->profiles = { 0, NULL };      */
+comment|/*      * set by ngx_pcalloc()      *      *     gptcf->profiles = { 0, NULL };      */
 return|return
 name|gptcf
 return|;

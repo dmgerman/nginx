@@ -3867,7 +3867,7 @@ return|return
 name|NULL
 return|;
 block|}
-comment|/*      * set by pcalloc()      *      *     ccf->pid = NULL;      *     ccf->oldpid = NULL;      *     ccf->priority = 0;      *     ccf->cpu_affinity_n = 0;      *     ccf->cpu_affinity = NULL;      */
+comment|/*      * set by ngx_pcalloc()      *      *     ccf->pid = NULL;      *     ccf->oldpid = NULL;      *     ccf->priority = 0;      *     ccf->cpu_affinity_n = 0;      *     ccf->cpu_affinity = NULL;      */
 name|ccf
 operator|->
 name|daemon
