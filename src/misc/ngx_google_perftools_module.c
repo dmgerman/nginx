@@ -16,7 +16,7 @@ file|<ngx_core.h>
 end_include
 
 begin_comment
-comment|/*  * declare Profiler here interface because  *<google/profiler.h> is C++ header file  */
+comment|/*  * declare Profiler interface here because  *<google/profiler.h> is C++ header file  */
 end_comment
 
 begin_function_decl
@@ -74,7 +74,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon2bc8efdc0108
+DECL|struct|__anon2c6dee860108
 typedef|typedef
 struct|struct
 block|{
