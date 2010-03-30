@@ -3639,6 +3639,16 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|cf
+operator|->
+name|time
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
+if|if
+condition|(
 name|ngx_set_file_time
 argument_list|(
 name|to
@@ -3672,6 +3682,7 @@ expr_stmt|;
 goto|goto
 name|failed
 goto|;
+block|}
 block|}
 name|rc
 operator|=
