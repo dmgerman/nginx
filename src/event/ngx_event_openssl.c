@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29eb490e0108
+DECL|struct|__anon2b565e330108
 typedef|typedef
 struct|struct
 block|{
@@ -2661,6 +2661,14 @@ decl_stmt|,
 modifier|*
 name|d
 decl_stmt|;
+if|#
+directive|if
+name|OPENSSL_VERSION_NUMBER
+operator|>=
+literal|0x1000000fL
+specifier|const
+endif|#
+directive|endif
 name|SSL_CIPHER
 modifier|*
 name|cipher
