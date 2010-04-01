@@ -5197,7 +5197,7 @@ literal|0xffffffff
 comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
 block|}
 decl_stmt|;
-comment|/* " ", "#", "%", "+", "?", %00-%1F, %7F-%FF */
+comment|/* " ", "#", "%", "&", "+", "?", %00-%1F, %7F-%FF */
 specifier|static
 name|uint32_t
 name|args
@@ -5208,9 +5208,9 @@ literal|0xffffffff
 block|,
 comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
 comment|/* ?>=< ;:98 7654 3210  /.-, +*)( '&%$ #"!  */
-literal|0x80000829
+literal|0x80000869
 block|,
-comment|/* 1000 0000 0000 0000  0000 1000 0010 1001 */
+comment|/* 1000 0000 0000 0000  0000 1000 0110 1001 */
 comment|/* _^]\ [ZYX WVUT SRQP  ONML KJIH GFED CBA@ */
 literal|0x00000000
 block|,
@@ -5543,7 +5543,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon2918ff750103
+DECL|enum|__anon2b9b7a240103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
