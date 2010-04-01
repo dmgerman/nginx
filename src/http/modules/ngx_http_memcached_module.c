@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon297827480108
+DECL|struct|__anon2b4abcf30108
 typedef|typedef
 struct|struct
 block|{
@@ -41,7 +41,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297827480208
+DECL|struct|__anon2b4abcf30208
 typedef|typedef
 struct|struct
 block|{
@@ -1898,9 +1898,7 @@ name|ctx
 operator|->
 name|rest
 argument_list|,
-name|ctx
-operator|->
-name|rest
+name|bytes
 argument_list|)
 operator|!=
 literal|0
@@ -1923,7 +1921,6 @@ argument_list|,
 literal|"memcached sent invalid trailer"
 argument_list|)
 expr_stmt|;
-block|}
 name|u
 operator|->
 name|length
@@ -1935,6 +1932,22 @@ operator|->
 name|rest
 operator|=
 literal|0
+expr_stmt|;
+return|return
+name|NGX_OK
+return|;
+block|}
+name|u
+operator|->
+name|length
+operator|-=
+name|bytes
+expr_stmt|;
+name|ctx
+operator|->
+name|rest
+operator|-=
+name|bytes
 expr_stmt|;
 return|return
 name|NGX_OK
