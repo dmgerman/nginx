@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29c481330108
+DECL|struct|__anon27ba1dfe0108
 typedef|typedef
 struct|struct
 block|{
@@ -681,7 +681,7 @@ name|NGX_LOG_CRIT
 argument_list|,
 name|log
 argument_list|,
-name|ngx_errno
+literal|0
 argument_list|,
 literal|"\"%s\" is not a regular file"
 argument_list|,
