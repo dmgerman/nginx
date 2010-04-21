@@ -62,7 +62,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon280197900108
+DECL|struct|__anon2ace13af0108
 typedef|typedef
 struct|struct
 block|{
@@ -102,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon280197900208
+DECL|struct|__anon2ace13af0208
 typedef|typedef
 struct|struct
 block|{
@@ -125,7 +125,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon280197900308
+DECL|struct|__anon2ace13af0308
 typedef|typedef
 struct|struct
 block|{
@@ -149,7 +149,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon280197900403
+DECL|enum|__anon2ace13af0403
 typedef|typedef
 enum|enum
 block|{
@@ -9569,6 +9569,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|p
+operator|=
+name|value
+operator|->
+name|data
+expr_stmt|;
 switch|switch
 condition|(
 name|ctx
@@ -9576,10 +9582,6 @@ operator|->
 name|encoding
 condition|)
 block|{
-case|case
-name|NGX_HTTP_SSI_NO_ENCODING
-case|:
-break|break;
 case|case
 name|NGX_HTTP_SSI_URL_ENCODING
 case|:
@@ -9651,19 +9653,13 @@ argument_list|,
 name|NGX_ESCAPE_HTML
 argument_list|)
 expr_stmt|;
-name|value
-operator|->
+block|}
 name|len
 operator|+=
-name|len
-expr_stmt|;
 name|value
 operator|->
-name|data
-operator|=
-name|p
+name|len
 expr_stmt|;
-block|}
 break|break;
 case|case
 name|NGX_HTTP_SSI_ENTITY_ENCODING
@@ -9730,19 +9726,22 @@ operator|->
 name|len
 argument_list|)
 expr_stmt|;
-name|value
-operator|->
+block|}
 name|len
 operator|+=
-name|len
-expr_stmt|;
 name|value
 operator|->
-name|data
-operator|=
-name|p
+name|len
 expr_stmt|;
-block|}
+break|break;
+default|default:
+comment|/* NGX_HTTP_SSI_NO_ENCODING */
+name|len
+operator|=
+name|value
+operator|->
+name|len
+expr_stmt|;
 break|break;
 block|}
 name|b
@@ -9795,20 +9794,14 @@ name|b
 operator|->
 name|pos
 operator|=
-name|value
-operator|->
-name|data
+name|p
 expr_stmt|;
 name|b
 operator|->
 name|last
 operator|=
-name|value
-operator|->
-name|data
+name|p
 operator|+
-name|value
-operator|->
 name|len
 expr_stmt|;
 name|cl
