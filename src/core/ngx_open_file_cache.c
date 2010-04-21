@@ -2144,6 +2144,7 @@ operator|->
 name|log
 condition|)
 block|{
+comment|/*          * Use non-blocking open() not to hang on FIFO files, etc.          * This flag has no effect on a regular files.          */
 name|fd
 operator|=
 name|ngx_open_file
@@ -2151,6 +2152,8 @@ argument_list|(
 name|name
 argument_list|,
 name|NGX_FILE_RDONLY
+operator||
+name|NGX_FILE_NONBLOCK
 argument_list|,
 name|NGX_FILE_OPEN
 argument_list|,
