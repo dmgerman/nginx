@@ -62,7 +62,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon2b3030ba0108
+DECL|struct|__anon293cb1600108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3030ba0208
+DECL|struct|__anon293cb1600208
 typedef|typedef
 struct|struct
 block|{
@@ -1463,7 +1463,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|ngx_file_info
+name|ngx_link_info
 argument_list|(
 name|path
 operator|.
@@ -1505,7 +1505,7 @@ name|err
 argument_list|,
 name|rc
 argument_list|,
-name|ngx_file_info_n
+name|ngx_link_info_n
 argument_list|,
 name|path
 operator|.
@@ -1614,7 +1614,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|/*          * we do not need to test (r->uri.data[r->uri.len - 1] == '/')          * because ngx_file_info("/file/") returned NGX_ENOTDIR above          */
+comment|/*          * we do not need to test (r->uri.data[r->uri.len - 1] == '/')          * because ngx_link_info("/file/") returned NGX_ENOTDIR above          */
 name|depth
 operator|=
 name|ngx_http_dav_depth
@@ -3070,7 +3070,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|ngx_file_info
+name|ngx_link_info
 argument_list|(
 name|copy
 operator|.
@@ -3109,7 +3109,7 @@ name|err
 argument_list|,
 name|NGX_HTTP_NOT_FOUND
 argument_list|,
-name|ngx_file_info_n
+name|ngx_link_info_n
 argument_list|,
 name|copy
 operator|.
@@ -3220,7 +3220,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|ngx_file_info
+name|ngx_link_info
 argument_list|(
 name|path
 operator|.
@@ -3246,7 +3246,7 @@ name|ngx_errno
 argument_list|,
 name|NGX_HTTP_NOT_FOUND
 argument_list|,
-name|ngx_file_info_n
+name|ngx_link_info_n
 argument_list|,
 name|path
 operator|.

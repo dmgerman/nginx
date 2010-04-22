@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28bf8e550108
+DECL|struct|__anon2c2b278a0108
 typedef|typedef
 struct|struct
 block|{
@@ -90,7 +90,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28bf8e550208
+DECL|struct|__anon2c2b278a0208
 typedef|typedef
 struct|struct
 block|{
@@ -566,6 +566,27 @@ define|#
 directive|define
 name|ngx_fd_info_n
 value|"GetFileInformationByHandle()"
+end_define
+
+begin_define
+DECL|macro|ngx_link_info (name,fi)
+define|#
+directive|define
+name|ngx_link_info
+parameter_list|(
+name|name
+parameter_list|,
+name|fi
+parameter_list|)
+value|ngx_file_info(name, fi)
+end_define
+
+begin_define
+DECL|macro|ngx_link_info_n
+define|#
+directive|define
+name|ngx_link_info_n
+value|"GetFileAttributesEx()"
 end_define
 
 begin_define

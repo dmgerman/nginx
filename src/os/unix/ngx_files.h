@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1b3eb60108
+DECL|struct|__anon2c3035c80108
 typedef|typedef
 struct|struct
 block|{
@@ -93,7 +93,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1b3eb60208
+DECL|struct|__anon2c3035c80208
 typedef|typedef
 struct|struct
 block|{
@@ -640,6 +640,27 @@ define|#
 directive|define
 name|ngx_fd_info_n
 value|"fstat()"
+end_define
+
+begin_define
+DECL|macro|ngx_link_info (file,sb)
+define|#
+directive|define
+name|ngx_link_info
+parameter_list|(
+name|file
+parameter_list|,
+name|sb
+parameter_list|)
+value|lstat((const char *) file, sb)
+end_define
+
+begin_define
+DECL|macro|ngx_link_info_n
+define|#
+directive|define
+name|ngx_link_info_n
+value|"lstat()"
 end_define
 
 begin_define
