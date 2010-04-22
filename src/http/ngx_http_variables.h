@@ -253,9 +253,6 @@ name|name
 parameter_list|,
 name|ngx_uint_t
 name|key
-parameter_list|,
-name|ngx_uint_t
-name|nowarn
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -304,7 +301,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2baea3760108
+DECL|struct|__anon28b640720108
 typedef|typedef
 struct|struct
 block|{
@@ -323,7 +320,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baea3760208
+DECL|struct|__anon28b640720208
 typedef|typedef
 struct|struct
 block|{
@@ -418,7 +415,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon2baea3760308
+DECL|struct|__anon28b640720308
 typedef|typedef
 struct|struct
 block|{

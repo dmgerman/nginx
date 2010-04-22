@@ -2577,7 +2577,7 @@ end_function
 begin_function
 name|ngx_http_variable_value_t
 modifier|*
-DECL|function|ngx_http_get_variable (ngx_http_request_t * r,ngx_str_t * name,ngx_uint_t key,ngx_uint_t nowarn)
+DECL|function|ngx_http_get_variable (ngx_http_request_t * r,ngx_str_t * name,ngx_uint_t key)
 name|ngx_http_get_variable
 parameter_list|(
 name|ngx_http_request_t
@@ -2590,9 +2590,6 @@ name|name
 parameter_list|,
 name|ngx_uint_t
 name|key
-parameter_list|,
-name|ngx_uint_t
-name|nowarn
 parameter_list|)
 block|{
 name|ngx_http_variable_t
@@ -2651,7 +2648,7 @@ name|NGX_HTTP_VAR_INDEXED
 condition|)
 block|{
 return|return
-name|ngx_http_get_indexed_variable
+name|ngx_http_get_flushed_variable
 argument_list|(
 name|r
 argument_list|,
@@ -2942,31 +2939,6 @@ name|not_found
 operator|=
 literal|1
 expr_stmt|;
-if|if
-condition|(
-name|nowarn
-operator|==
-literal|0
-condition|)
-block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_ERR
-argument_list|,
-name|r
-operator|->
-name|connection
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"unknown \"%V\" variable"
-argument_list|,
-name|name
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 name|vv
 return|;
