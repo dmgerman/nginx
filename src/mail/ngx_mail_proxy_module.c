@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29c0fb710108
+DECL|struct|__anon2c069d650108
 typedef|typedef
 struct|struct
 block|{
@@ -3485,7 +3485,7 @@ name|b
 operator|->
 name|pos
 operator|<
-literal|5
+literal|4
 condition|)
 block|{
 return|return
