@@ -1397,6 +1397,8 @@ name|ui64
 operator|)
 operator|*
 name|scale
+operator|+
+literal|0.5
 operator|)
 expr_stmt|;
 name|buf
@@ -5540,7 +5542,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon2b921d520103
+DECL|enum|__anon27aa70150103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
