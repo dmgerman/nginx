@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b5011e00108
+DECL|struct|__anon2b32e6940108
 typedef|typedef
 struct|struct
 block|{
@@ -39,7 +39,7 @@ modifier|*
 name|value
 decl_stmt|;
 DECL|member|len
-name|u_char
+name|u_short
 name|len
 decl_stmt|;
 DECL|member|name
@@ -56,7 +56,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5011e00208
+DECL|struct|__anon2b32e6940208
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5011e00308
+DECL|struct|__anon2b32e6940308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5011e00408
+DECL|struct|__anon2b32e6940408
 typedef|typedef
 struct|struct
 block|{
@@ -140,7 +140,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5011e00508
+DECL|struct|__anon2b32e6940508
 typedef|typedef
 struct|struct
 block|{
@@ -165,7 +165,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5011e00608
+DECL|struct|__anon2b32e6940608
 typedef|typedef
 struct|struct
 block|{
@@ -256,7 +256,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2b5011e00708
+DECL|struct|__anon2b32e6940708
 typedef|typedef
 struct|struct
 block|{
@@ -308,7 +308,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5011e00808
+DECL|struct|__anon2b32e6940808
 typedef|typedef
 struct|struct
 block|{

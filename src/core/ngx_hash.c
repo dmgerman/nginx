@@ -821,7 +821,7 @@ parameter_list|(
 name|name
 parameter_list|)
 define|\
-value|(sizeof(void *) + ngx_align((name)->key.len + 1, sizeof(void *)))
+value|(sizeof(void *) + ngx_align((name)->key.len + 2, sizeof(void *)))
 end_define
 
 begin_function
@@ -887,57 +887,6 @@ name|n
 operator|++
 control|)
 block|{
-if|if
-condition|(
-name|names
-index|[
-name|n
-index|]
-operator|.
-name|key
-operator|.
-name|len
-operator|>=
-literal|255
-condition|)
-block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_EMERG
-argument_list|,
-name|hinit
-operator|->
-name|pool
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"the \"%V\" value to hash is to long: %uz bytes, "
-literal|"the maximum length can be 255 bytes only"
-argument_list|,
-operator|&
-name|names
-index|[
-name|n
-index|]
-operator|.
-name|key
-argument_list|,
-name|names
-index|[
-name|n
-index|]
-operator|.
-name|key
-operator|.
-name|len
-argument_list|)
-expr_stmt|;
-return|return
-name|NGX_ERROR
-return|;
-block|}
 if|if
 condition|(
 name|hinit
@@ -1710,7 +1659,7 @@ operator|->
 name|len
 operator|=
 operator|(
-name|u_char
+name|u_short
 operator|)
 name|names
 index|[
