@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b4abcf30108
+DECL|struct|__anon2a8f4a090108
 typedef|typedef
 struct|struct
 block|{
@@ -41,7 +41,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4abcf30208
+DECL|struct|__anon2a8f4a090208
 typedef|typedef
 struct|struct
 block|{
@@ -784,30 +784,15 @@ name|r
 operator|->
 name|upstream
 expr_stmt|;
+name|ngx_str_set
+argument_list|(
+operator|&
 name|u
 operator|->
 name|schema
-operator|.
-name|len
-operator|=
-sizeof|sizeof
-argument_list|(
+argument_list|,
 literal|"memcached://"
 argument_list|)
-operator|-
-literal|1
-expr_stmt|;
-name|u
-operator|->
-name|schema
-operator|.
-name|data
-operator|=
-operator|(
-name|u_char
-operator|*
-operator|)
-literal|"memcached://"
 expr_stmt|;
 name|u
 operator|->

@@ -1278,7 +1278,7 @@ return|return
 name|NULL
 return|;
 block|}
-comment|/*      * set by ngx_pcalloc():      *      *     sscf->protocols = 0;      *     sscf->certificate = { 0, NULL };      *     sscf->certificate_key = { 0, NULL };      *     sscf->dhparam = { 0, NULL };      *     sscf->client_certificate = { 0, NULL };      *     sscf->crl = { 0, NULL };      *     sscf->ciphers.len = 0;      *     sscf->ciphers.data = NULL;      *     sscf->shm_zone = NULL;      */
+comment|/*      * set by ngx_pcalloc():      *      *     sscf->protocols = 0;      *     sscf->certificate = { 0, NULL };      *     sscf->certificate_key = { 0, NULL };      *     sscf->dhparam = { 0, NULL };      *     sscf->client_certificate = { 0, NULL };      *     sscf->crl = { 0, NULL };      *     sscf->ciphers = { 0, NULL };      *     sscf->shm_zone = NULL;      */
 name|sscf
 operator|->
 name|enable

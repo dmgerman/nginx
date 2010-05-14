@@ -100,7 +100,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2768d1970108
+DECL|struct|__anon28c09f440108
 typedef|typedef
 struct|struct
 block|{
@@ -126,7 +126,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2768d1970208
+DECL|struct|__anon28c09f440208
 typedef|typedef
 struct|struct
 block|{
@@ -147,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2768d1970308
+DECL|struct|__anon28c09f440308
 typedef|typedef
 struct|struct
 block|{
@@ -168,7 +168,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2768d1970408
+DECL|struct|__anon28c09f440408
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +202,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2768d1970508
+DECL|struct|__anon28c09f440508
 typedef|typedef
 struct|struct
 block|{
@@ -237,7 +237,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2768d1970608
+DECL|struct|__anon28c09f440608
 typedef|typedef
 struct|struct
 block|{
@@ -3379,30 +3379,15 @@ return|return
 name|NULL
 return|;
 block|}
+name|ngx_str_set
+argument_list|(
+operator|&
 name|fmt
 operator|->
 name|name
-operator|.
-name|len
-operator|=
-sizeof|sizeof
-argument_list|(
+argument_list|,
 literal|"combined"
 argument_list|)
-operator|-
-literal|1
-expr_stmt|;
-name|fmt
-operator|->
-name|name
-operator|.
-name|data
-operator|=
-operator|(
-name|u_char
-operator|*
-operator|)
-literal|"combined"
 expr_stmt|;
 name|fmt
 operator|->
@@ -4207,26 +4192,13 @@ block|}
 block|}
 else|else
 block|{
-name|name
-operator|.
-name|len
-operator|=
-sizeof|sizeof
+name|ngx_str_set
 argument_list|(
+operator|&
+name|name
+argument_list|,
 literal|"combined"
 argument_list|)
-operator|-
-literal|1
-expr_stmt|;
-name|name
-operator|.
-name|data
-operator|=
-operator|(
-name|u_char
-operator|*
-operator|)
-literal|"combined"
 expr_stmt|;
 name|lmcf
 operator|->

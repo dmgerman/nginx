@@ -148,7 +148,7 @@ value|0x08
 end_define
 
 begin_typedef
-DECL|struct|__anon2b4f4a2f0108
+DECL|struct|__anon2a05f3e50108
 typedef|typedef
 struct|struct
 block|{
@@ -193,7 +193,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4f4a2f0208
+DECL|struct|__anon2a05f3e50208
 typedef|typedef
 struct|struct
 block|{
@@ -2303,34 +2303,17 @@ name|status
 operator|=
 name|NGX_HTTP_OK
 expr_stmt|;
+name|ngx_str_set
+argument_list|(
+operator|&
 name|r
 operator|->
 name|headers_out
 operator|.
 name|content_type
-operator|.
-name|len
-operator|=
-sizeof|sizeof
-argument_list|(
+argument_list|,
 literal|"text/plain"
 argument_list|)
-operator|-
-literal|1
-expr_stmt|;
-name|r
-operator|->
-name|headers_out
-operator|.
-name|content_type
-operator|.
-name|data
-operator|=
-operator|(
-name|u_char
-operator|*
-operator|)
-literal|"text/plain"
 expr_stmt|;
 name|r
 operator|->

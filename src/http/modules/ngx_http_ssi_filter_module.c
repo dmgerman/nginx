@@ -54,7 +54,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon288b81110108
+DECL|struct|__anon2925a10e0108
 typedef|typedef
 struct|struct
 block|{
@@ -94,7 +94,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288b81110208
+DECL|struct|__anon2925a10e0208
 typedef|typedef
 struct|struct
 block|{
@@ -117,7 +117,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288b81110308
+DECL|struct|__anon2925a10e0308
 typedef|typedef
 struct|struct
 block|{
@@ -141,7 +141,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon288b81110403
+DECL|enum|__anon2925a10e0403
 typedef|typedef
 enum|enum
 block|{
@@ -1796,55 +1796,25 @@ name|r
 operator|->
 name|pool
 expr_stmt|;
+name|ngx_str_set
+argument_list|(
+operator|&
 name|ctx
 operator|->
 name|timefmt
-operator|.
-name|len
-operator|=
-sizeof|sizeof
-argument_list|(
+argument_list|,
 literal|"%A, %d-%b-%Y %H:%M:%S %Z"
 argument_list|)
-operator|-
-literal|1
 expr_stmt|;
-name|ctx
-operator|->
-name|timefmt
-operator|.
-name|data
-operator|=
-operator|(
-name|u_char
-operator|*
-operator|)
-literal|"%A, %d-%b-%Y %H:%M:%S %Z"
-expr_stmt|;
+name|ngx_str_set
+argument_list|(
+operator|&
 name|ctx
 operator|->
 name|errmsg
-operator|.
-name|len
-operator|=
-sizeof|sizeof
-argument_list|(
+argument_list|,
 literal|"[an error occurred while processing the directive]"
 argument_list|)
-operator|-
-literal|1
-expr_stmt|;
-name|ctx
-operator|->
-name|errmsg
-operator|.
-name|data
-operator|=
-operator|(
-name|u_char
-operator|*
-operator|)
-literal|"[an error occurred while processing the directive]"
 expr_stmt|;
 name|r
 operator|->
@@ -8372,17 +8342,11 @@ argument_list|,
 name|uri
 argument_list|)
 expr_stmt|;
+name|ngx_str_null
+argument_list|(
+operator|&
 name|args
-operator|.
-name|len
-operator|=
-literal|0
-expr_stmt|;
-name|args
-operator|.
-name|data
-operator|=
-name|NULL
+argument_list|)
 expr_stmt|;
 name|flags
 operator|=

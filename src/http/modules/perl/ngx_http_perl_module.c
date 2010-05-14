@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bf5724c0108
+DECL|struct|__anon27868a6c0108
 typedef|typedef
 struct|struct
 block|{
@@ -59,7 +59,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf5724c0208
+DECL|struct|__anon27868a6c0208
 typedef|typedef
 struct|struct
 block|{
@@ -79,7 +79,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf5724c0308
+DECL|struct|__anon27868a6c0308
 typedef|typedef
 struct|struct
 block|{
@@ -2022,22 +2022,12 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
-name|m
-operator|->
-name|len
-operator|=
-sizeof|sizeof
+name|ngx_str_set
 argument_list|(
+name|m
+argument_list|,
 name|NGX_PERL_MODULES
 argument_list|)
-operator|-
-literal|1
-expr_stmt|;
-name|m
-operator|->
-name|data
-operator|=
-name|NGX_PERL_MODULES
 expr_stmt|;
 block|}
 endif|#

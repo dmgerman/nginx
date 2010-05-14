@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2797632b0108
+DECL|struct|__anon2921306c0108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2797632b0208
+DECL|struct|__anon2921306c0208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2797632b0308
+DECL|struct|__anon2921306c0308
 typedef|typedef
 struct|struct
 block|{
@@ -130,6 +130,31 @@ define|#
 directive|define
 name|ngx_null_string
 value|{ 0, NULL }
+end_define
+
+begin_define
+DECL|macro|ngx_str_set (str,text)
+define|#
+directive|define
+name|ngx_str_set
+parameter_list|(
+name|str
+parameter_list|,
+name|text
+parameter_list|)
+define|\
+value|(str)->len = sizeof(text) - 1; (str)->data = (u_char *) text
+end_define
+
+begin_define
+DECL|macro|ngx_str_null (str)
+define|#
+directive|define
+name|ngx_str_null
+parameter_list|(
+name|str
+parameter_list|)
+value|(str)->len = 0; (str)->data = NULL
 end_define
 
 begin_define

@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2804a0290108
+DECL|struct|__anon29eb11400108
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2804a0290208
+DECL|struct|__anon29eb11400208
 typedef|typedef
 struct|struct
 block|{
@@ -868,34 +868,17 @@ argument_list|)
 operator|-
 literal|1
 expr_stmt|;
+name|ngx_str_set
+argument_list|(
+operator|&
 name|r
 operator|->
 name|headers_out
 operator|.
 name|content_type
-operator|.
-name|len
-operator|=
-sizeof|sizeof
-argument_list|(
+argument_list|,
 literal|"text/html"
 argument_list|)
-operator|-
-literal|1
-expr_stmt|;
-name|r
-operator|->
-name|headers_out
-operator|.
-name|content_type
-operator|.
-name|data
-operator|=
-operator|(
-name|u_char
-operator|*
-operator|)
-literal|"text/html"
 expr_stmt|;
 name|rc
 operator|=

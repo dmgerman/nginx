@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c0a39700108
+DECL|struct|__anon2a20b6970108
 typedef|typedef
 struct|struct
 block|{
@@ -103,7 +103,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c0a39700203
+DECL|enum|__anon2a20b6970203
 typedef|typedef
 enum|enum
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0a39700308
+DECL|struct|__anon2a20b6970308
 typedef|typedef
 struct|struct
 block|{
@@ -166,7 +166,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0a39700408
+DECL|struct|__anon2a20b6970408
 typedef|typedef
 struct|struct
 block|{
@@ -300,7 +300,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2c0a39700508
+DECL|struct|__anon2a20b6970508
 typedef|typedef
 struct|struct
 block|{
@@ -343,7 +343,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0a39700608
+DECL|struct|__anon2a20b6970608
 typedef|typedef
 struct|struct
 block|{
@@ -373,7 +373,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0a39700708
+DECL|struct|__anon2a20b6970708
 typedef|typedef
 struct|struct
 block|{
@@ -400,7 +400,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0a39700808
+DECL|struct|__anon2a20b6970808
 typedef|typedef
 struct|struct
 block|{
@@ -2501,30 +2501,15 @@ name|r
 operator|->
 name|upstream
 expr_stmt|;
+name|ngx_str_set
+argument_list|(
+operator|&
 name|u
 operator|->
 name|schema
-operator|.
-name|len
-operator|=
-sizeof|sizeof
-argument_list|(
+argument_list|,
 literal|"fastcgi://"
 argument_list|)
-operator|-
-literal|1
-expr_stmt|;
-name|u
-operator|->
-name|schema
-operator|.
-name|data
-operator|=
-operator|(
-name|u_char
-operator|*
-operator|)
-literal|"fastcgi://"
 expr_stmt|;
 name|u
 operator|->
@@ -6941,34 +6926,17 @@ name|status_n
 operator|=
 literal|302
 expr_stmt|;
+name|ngx_str_set
+argument_list|(
+operator|&
 name|u
 operator|->
 name|headers_in
 operator|.
 name|status_line
-operator|.
-name|len
-operator|=
-sizeof|sizeof
-argument_list|(
+argument_list|,
 literal|"302 Moved Temporarily"
 argument_list|)
-operator|-
-literal|1
-expr_stmt|;
-name|u
-operator|->
-name|headers_in
-operator|.
-name|status_line
-operator|.
-name|data
-operator|=
-operator|(
-name|u_char
-operator|*
-operator|)
-literal|"302 Moved Temporarily"
 expr_stmt|;
 block|}
 else|else
@@ -6981,34 +6949,17 @@ name|status_n
 operator|=
 literal|200
 expr_stmt|;
+name|ngx_str_set
+argument_list|(
+operator|&
 name|u
 operator|->
 name|headers_in
 operator|.
 name|status_line
-operator|.
-name|len
-operator|=
-sizeof|sizeof
-argument_list|(
+argument_list|,
 literal|"200 OK"
 argument_list|)
-operator|-
-literal|1
-expr_stmt|;
-name|u
-operator|->
-name|headers_in
-operator|.
-name|status_line
-operator|.
-name|data
-operator|=
-operator|(
-name|u_char
-operator|*
-operator|)
-literal|"200 OK"
 expr_stmt|;
 block|}
 if|if
@@ -8685,7 +8636,7 @@ return|return
 name|NULL
 return|;
 block|}
-comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.bufs.num = 0;      *     conf->upstream.ignore_headers = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.cache_use_stale = 0;      *     conf->upstream.cache_methods = 0;      *     conf->upstream.temp_path = NULL;      *     conf->upstream.hide_headers_hash = { NULL, 0 };      *     conf->upstream.uri = { 0, NULL };      *     conf->upstream.location = NULL;      *     conf->upstream.store_lengths = NULL;      *     conf->upstream.store_values = NULL;      *      *     conf->index.len = 0;      *     conf->index.data = NULL;      */
+comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.bufs.num = 0;      *     conf->upstream.ignore_headers = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.cache_use_stale = 0;      *     conf->upstream.cache_methods = 0;      *     conf->upstream.temp_path = NULL;      *     conf->upstream.hide_headers_hash = { NULL, 0 };      *     conf->upstream.uri = { 0, NULL };      *     conf->upstream.location = NULL;      *     conf->upstream.store_lengths = NULL;      *     conf->upstream.store_values = NULL;      *      *     conf->index.len = { 0, NULL };      */
 name|conf
 operator|->
 name|upstream

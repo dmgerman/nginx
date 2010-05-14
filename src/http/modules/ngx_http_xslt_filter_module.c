@@ -96,7 +96,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29f90a990108
+DECL|struct|__anon277116b20108
 typedef|typedef
 struct|struct
 block|{
@@ -117,7 +117,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f90a990208
+DECL|struct|__anon277116b20208
 typedef|typedef
 struct|struct
 block|{
@@ -138,7 +138,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f90a990308
+DECL|struct|__anon277116b20308
 typedef|typedef
 struct|struct
 block|{
@@ -158,7 +158,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f90a990408
+DECL|struct|__anon277116b20408
 typedef|typedef
 struct|struct
 block|{
@@ -187,7 +187,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f90a990508
+DECL|struct|__anon277116b20508
 typedef|typedef
 struct|struct
 block|{
@@ -4113,34 +4113,17 @@ argument_list|)
 operator|-
 literal|1
 expr_stmt|;
+name|ngx_str_set
+argument_list|(
+operator|&
 name|r
 operator|->
 name|headers_out
 operator|.
 name|content_type
-operator|.
-name|len
-operator|=
-sizeof|sizeof
-argument_list|(
+argument_list|,
 literal|"text/html"
 argument_list|)
-operator|-
-literal|1
-expr_stmt|;
-name|r
-operator|->
-name|headers_out
-operator|.
-name|content_type
-operator|.
-name|data
-operator|=
-operator|(
-name|u_char
-operator|*
-operator|)
-literal|"text/html"
 expr_stmt|;
 block|}
 name|r
