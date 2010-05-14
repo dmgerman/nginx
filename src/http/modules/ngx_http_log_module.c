@@ -100,7 +100,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon294489d40108
+DECL|struct|__anon2768d1970108
 typedef|typedef
 struct|struct
 block|{
@@ -126,7 +126,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294489d40208
+DECL|struct|__anon2768d1970208
 typedef|typedef
 struct|struct
 block|{
@@ -147,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294489d40308
+DECL|struct|__anon2768d1970308
 typedef|typedef
 struct|struct
 block|{
@@ -168,7 +168,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294489d40408
+DECL|struct|__anon2768d1970408
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +202,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294489d40508
+DECL|struct|__anon2768d1970508
 typedef|typedef
 struct|struct
 block|{
@@ -237,7 +237,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294489d40608
+DECL|struct|__anon2768d1970608
 typedef|typedef
 struct|struct
 block|{
@@ -2541,15 +2541,12 @@ operator|)
 expr_stmt|;
 name|ms
 operator|=
-operator|(
+name|ngx_max
+argument_list|(
 name|ms
-operator|>=
+argument_list|,
 literal|0
-operator|)
-condition|?
-name|ms
-else|:
-literal|0
+argument_list|)
 expr_stmt|;
 return|return
 name|ngx_sprintf
