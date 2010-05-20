@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a20b6970108
+DECL|struct|__anon2a4473cd0108
 typedef|typedef
 struct|struct
 block|{
@@ -103,7 +103,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a20b6970203
+DECL|enum|__anon2a4473cd0203
 typedef|typedef
 enum|enum
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a20b6970308
+DECL|struct|__anon2a4473cd0308
 typedef|typedef
 struct|struct
 block|{
@@ -166,7 +166,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a20b6970408
+DECL|struct|__anon2a4473cd0408
 typedef|typedef
 struct|struct
 block|{
@@ -300,7 +300,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2a20b6970508
+DECL|struct|__anon2a4473cd0508
 typedef|typedef
 struct|struct
 block|{
@@ -343,7 +343,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a20b6970608
+DECL|struct|__anon2a4473cd0608
 typedef|typedef
 struct|struct
 block|{
@@ -373,7 +373,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a20b6970708
+DECL|struct|__anon2a4473cd0708
 typedef|typedef
 struct|struct
 block|{
@@ -400,7 +400,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a20b6970808
+DECL|struct|__anon2a4473cd0808
 typedef|typedef
 struct|struct
 block|{
@@ -794,48 +794,6 @@ parameter_list|,
 name|void
 modifier|*
 name|data
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-specifier|static
-name|char
-modifier|*
-name|ngx_http_fastcgi_upstream_max_fails_unsupported
-parameter_list|(
-name|ngx_conf_t
-modifier|*
-name|cf
-parameter_list|,
-name|ngx_command_t
-modifier|*
-name|cmd
-parameter_list|,
-name|void
-modifier|*
-name|conf
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-specifier|static
-name|char
-modifier|*
-name|ngx_http_fastcgi_upstream_fail_timeout_unsupported
-parameter_list|(
-name|ngx_conf_t
-modifier|*
-name|cf
-parameter_list|,
-name|ngx_command_t
-modifier|*
-name|cmd
-parameter_list|,
-name|void
-modifier|*
-name|conf
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -1809,52 +1767,6 @@ argument_list|)
 block|,
 operator|&
 name|ngx_http_fastcgi_next_upstream_masks
-block|}
-block|,
-block|{
-name|ngx_string
-argument_list|(
-literal|"fastcgi_upstream_max_fails"
-argument_list|)
-block|,
-name|NGX_HTTP_MAIN_CONF
-operator||
-name|NGX_HTTP_SRV_CONF
-operator||
-name|NGX_HTTP_LOC_CONF
-operator||
-name|NGX_CONF_TAKE1
-block|,
-name|ngx_http_fastcgi_upstream_max_fails_unsupported
-block|,
-literal|0
-block|,
-literal|0
-block|,
-name|NULL
-block|}
-block|,
-block|{
-name|ngx_string
-argument_list|(
-literal|"fastcgi_upstream_fail_timeout"
-argument_list|)
-block|,
-name|NGX_HTTP_MAIN_CONF
-operator||
-name|NGX_HTTP_SRV_CONF
-operator||
-name|NGX_HTTP_LOC_CONF
-operator||
-name|NGX_CONF_TAKE1
-block|,
-name|ngx_http_fastcgi_upstream_fail_timeout_unsupported
-block|,
-literal|0
-block|,
-literal|0
-block|,
-name|NULL
 block|}
 block|,
 block|{
@@ -12508,86 +12420,6 @@ endif|#
 directive|endif
 return|return
 name|NGX_CONF_OK
-return|;
-block|}
-end_function
-
-begin_function
-specifier|static
-name|char
-modifier|*
-DECL|function|ngx_http_fastcgi_upstream_max_fails_unsupported (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
-name|ngx_http_fastcgi_upstream_max_fails_unsupported
-parameter_list|(
-name|ngx_conf_t
-modifier|*
-name|cf
-parameter_list|,
-name|ngx_command_t
-modifier|*
-name|cmd
-parameter_list|,
-name|void
-modifier|*
-name|conf
-parameter_list|)
-block|{
-name|ngx_conf_log_error
-argument_list|(
-name|NGX_LOG_EMERG
-argument_list|,
-name|cf
-argument_list|,
-literal|0
-argument_list|,
-literal|"\"fastcgi_upstream_max_fails\" is not supported, "
-literal|"use the \"max_fails\" parameter of the \"server\" directive "
-argument_list|,
-literal|"inside the \"upstream\" block"
-argument_list|)
-expr_stmt|;
-return|return
-name|NGX_CONF_ERROR
-return|;
-block|}
-end_function
-
-begin_function
-specifier|static
-name|char
-modifier|*
-DECL|function|ngx_http_fastcgi_upstream_fail_timeout_unsupported (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
-name|ngx_http_fastcgi_upstream_fail_timeout_unsupported
-parameter_list|(
-name|ngx_conf_t
-modifier|*
-name|cf
-parameter_list|,
-name|ngx_command_t
-modifier|*
-name|cmd
-parameter_list|,
-name|void
-modifier|*
-name|conf
-parameter_list|)
-block|{
-name|ngx_conf_log_error
-argument_list|(
-name|NGX_LOG_EMERG
-argument_list|,
-name|cf
-argument_list|,
-literal|0
-argument_list|,
-literal|"\"fastcgi_upstream_fail_timeout\" is not supported, "
-literal|"use the \"fail_timeout\" parameter of the \"server\" directive "
-argument_list|,
-literal|"inside the \"upstream\" block"
-argument_list|)
-expr_stmt|;
-return|return
-name|NGX_CONF_ERROR
 return|;
 block|}
 end_function
