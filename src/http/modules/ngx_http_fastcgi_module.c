@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a4473cd0108
+DECL|struct|__anon27d68c0c0108
 typedef|typedef
 struct|struct
 block|{
@@ -103,7 +103,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a4473cd0203
+DECL|enum|__anon27d68c0c0203
 typedef|typedef
 enum|enum
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4473cd0308
+DECL|struct|__anon27d68c0c0308
 typedef|typedef
 struct|struct
 block|{
@@ -166,7 +166,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4473cd0408
+DECL|struct|__anon27d68c0c0408
 typedef|typedef
 struct|struct
 block|{
@@ -300,7 +300,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2a4473cd0508
+DECL|struct|__anon27d68c0c0508
 typedef|typedef
 struct|struct
 block|{
@@ -343,7 +343,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4473cd0608
+DECL|struct|__anon27d68c0c0608
 typedef|typedef
 struct|struct
 block|{
@@ -373,7 +373,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4473cd0708
+DECL|struct|__anon27d68c0c0708
 typedef|typedef
 struct|struct
 block|{
@@ -400,7 +400,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4473cd0808
+DECL|struct|__anon27d68c0c0808
 typedef|typedef
 struct|struct
 block|{
@@ -1522,6 +1522,36 @@ literal|0
 block|,
 operator|&
 name|ngx_http_fastcgi_module
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"fastcgi_no_cache"
+argument_list|)
+block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
+name|NGX_HTTP_SRV_CONF
+operator||
+name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_CONF_1MORE
+block|,
+name|ngx_http_no_cache_set_slot
+block|,
+name|NGX_HTTP_LOC_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+name|ngx_http_fastcgi_loc_conf_t
+argument_list|,
+name|upstream
+operator|.
+name|no_cache
+argument_list|)
+block|,
+name|NULL
 block|}
 block|,
 block|{
@@ -8686,6 +8716,14 @@ name|conf
 operator|->
 name|upstream
 operator|.
+name|no_cache
+operator|=
+name|NGX_CONF_UNSET_PTR
+expr_stmt|;
+name|conf
+operator|->
+name|upstream
+operator|.
 name|cache_valid
 operator|=
 name|NGX_CONF_UNSET_PTR
@@ -9646,6 +9684,23 @@ operator||=
 name|NGX_HTTP_GET
 operator||
 name|NGX_HTTP_HEAD
+expr_stmt|;
+name|ngx_conf_merge_ptr_value
+argument_list|(
+name|conf
+operator|->
+name|upstream
+operator|.
+name|no_cache
+argument_list|,
+name|prev
+operator|->
+name|upstream
+operator|.
+name|no_cache
+argument_list|,
+name|NULL
+argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_ptr_value
 argument_list|(

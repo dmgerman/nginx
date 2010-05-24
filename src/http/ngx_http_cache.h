@@ -91,7 +91,7 @@ value|16
 end_define
 
 begin_typedef
-DECL|struct|__anon29b65e490108
+DECL|struct|__anon29f77cf10108
 typedef|typedef
 struct|struct
 block|{
@@ -110,7 +110,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b65e490208
+DECL|struct|__anon29f77cf10208
 typedef|typedef
 struct|struct
 block|{
@@ -299,7 +299,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29b65e490308
+DECL|struct|__anon29f77cf10308
 typedef|typedef
 struct|struct
 block|{
@@ -338,7 +338,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b65e490408
+DECL|struct|__anon29f77cf10408
 typedef|typedef
 struct|struct
 block|{
@@ -536,6 +536,41 @@ begin_function_decl
 name|char
 modifier|*
 name|ngx_http_file_cache_valid_set_slot
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_command_t
+modifier|*
+name|cmd
+parameter_list|,
+name|void
+modifier|*
+name|conf
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_http_cache
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_array_t
+modifier|*
+name|no_cache
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|char
+modifier|*
+name|ngx_http_no_cache_set_slot
 parameter_list|(
 name|ngx_conf_t
 modifier|*
