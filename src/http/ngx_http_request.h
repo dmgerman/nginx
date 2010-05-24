@@ -276,13 +276,9 @@ name|NGX_HTTP_PARSE_INVALID_HEADER
 value|13
 end_define
 
-begin_define
-DECL|macro|NGX_HTTP_ZERO_IN_URI
-define|#
-directive|define
-name|NGX_HTTP_ZERO_IN_URI
-value|1
-end_define
+begin_comment
+comment|/* unused                                  1 */
+end_comment
 
 begin_define
 DECL|macro|NGX_HTTP_SUBREQUEST_IN_MEMORY
@@ -641,7 +637,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon27b2c2e50103
+DECL|enum|__anon29b618020103
 typedef|typedef
 enum|enum
 block|{
@@ -680,7 +676,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b2c2e50208
+DECL|struct|__anon29b618020208
 typedef|typedef
 struct|struct
 block|{
@@ -703,7 +699,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b2c2e50308
+DECL|struct|__anon29b618020308
 typedef|typedef
 struct|struct
 block|{
@@ -722,7 +718,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b2c2e50408
+DECL|struct|__anon29b618020408
 typedef|typedef
 struct|struct
 block|{
@@ -969,7 +965,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b2c2e50508
+DECL|struct|__anon29b618020508
 typedef|typedef
 struct|struct
 block|{
@@ -1110,7 +1106,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b2c2e50608
+DECL|struct|__anon29b618020608
 typedef|typedef
 struct|struct
 block|{
@@ -1149,7 +1145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b2c2e50708
+DECL|struct|__anon29b618020708
 typedef|typedef
 struct|struct
 block|{
@@ -1199,7 +1195,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b2c2e50808
+DECL|struct|__anon29b618020808
 typedef|typedef
 struct|struct
 block|{
@@ -1294,7 +1290,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b2c2e50908
+DECL|struct|__anon29b618020908
 typedef|typedef
 struct|struct
 block|{
@@ -1699,13 +1695,6 @@ comment|/* URI with "+" */
 DECL|member|plus_in_uri
 name|unsigned
 name|plus_in_uri
-range|:
-literal|1
-decl_stmt|;
-comment|/* URI with "\0" or "%00" */
-DECL|member|zero_in_uri
-name|unsigned
-name|zero_in_uri
 range|:
 literal|1
 decl_stmt|;
@@ -2154,7 +2143,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27b2c2e50a08
+DECL|struct|__anon29b618020a08
 typedef|typedef
 struct|struct
 block|{

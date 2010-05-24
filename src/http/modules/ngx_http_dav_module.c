@@ -62,7 +62,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon293cb1600108
+DECL|struct|__anon2b3414880108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293cb1600208
+DECL|struct|__anon2b3414880208
 typedef|typedef
 struct|struct
 block|{
@@ -682,17 +682,6 @@ name|ngx_http_dav_loc_conf_t
 modifier|*
 name|dlcf
 decl_stmt|;
-if|if
-condition|(
-name|r
-operator|->
-name|zero_in_uri
-condition|)
-block|{
-return|return
-name|NGX_DECLINED
-return|;
-block|}
 name|dlcf
 operator|=
 name|ngx_http_get_module_loc_conf

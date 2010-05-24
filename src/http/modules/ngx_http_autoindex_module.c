@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29eb11400108
+DECL|struct|__anon2b02a7fa0108
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29eb11400208
+DECL|struct|__anon2b02a7fa0208
 typedef|typedef
 struct|struct
 block|{
@@ -549,17 +549,6 @@ literal|1
 index|]
 operator|!=
 literal|'/'
-condition|)
-block|{
-return|return
-name|NGX_DECLINED
-return|;
-block|}
-if|if
-condition|(
-name|r
-operator|->
-name|zero_in_uri
 condition|)
 block|{
 return|return

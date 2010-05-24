@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon292ac84a0108
+DECL|struct|__anon2b1e5cbd0108
 typedef|typedef
 struct|struct
 block|{
@@ -5699,11 +5699,6 @@ literal|1
 index|]
 operator|==
 literal|'/'
-operator|&&
-operator|!
-name|r
-operator|->
-name|zero_in_uri
 condition|)
 block|{
 if|if
@@ -8981,18 +8976,6 @@ name|sr
 operator|->
 name|args
 argument_list|)
-expr_stmt|;
-name|sr
-operator|->
-name|zero_in_uri
-operator|=
-operator|(
-name|flags
-operator|&
-name|NGX_HTTP_ZERO_IN_URI
-operator|)
-operator|!=
-literal|0
 expr_stmt|;
 name|sr
 operator|->

@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bf3e0b60108
+DECL|struct|__anon29316abe0108
 typedef|typedef
 struct|struct
 block|{
@@ -303,17 +303,6 @@ literal|1
 index|]
 operator|==
 literal|'/'
-condition|)
-block|{
-return|return
-name|NGX_DECLINED
-return|;
-block|}
-if|if
-condition|(
-name|r
-operator|->
-name|zero_in_uri
 condition|)
 block|{
 return|return

@@ -1582,12 +1582,6 @@ name|err_status
 operator|=
 name|overwrite
 expr_stmt|;
-name|r
-operator|->
-name|zero_in_uri
-operator|=
-literal|0
-expr_stmt|;
 if|if
 condition|(
 name|ngx_http_complex_value

@@ -264,17 +264,6 @@ return|return
 name|NGX_DECLINED
 return|;
 block|}
-if|if
-condition|(
-name|r
-operator|->
-name|zero_in_uri
-condition|)
-block|{
-return|return
-name|NGX_DECLINED
-return|;
-block|}
 name|rc
 operator|=
 name|ngx_http_discard_request_body
