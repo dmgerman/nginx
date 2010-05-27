@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29ce710f0108
+DECL|struct|__anon28abea2c0108
 typedef|typedef
 struct|struct
 block|{
@@ -5140,7 +5140,7 @@ expr_stmt|;
 name|tf
 operator|++
 expr_stmt|;
-name|ngx_log_debug2
+name|ngx_log_debug3
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
