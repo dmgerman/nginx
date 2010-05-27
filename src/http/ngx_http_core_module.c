@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b1e5cbd0108
+DECL|struct|__anon29ce710f0108
 typedef|typedef
 struct|struct
 block|{
@@ -5152,7 +5152,13 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"try to use file: \"%s\" \"%s\""
+literal|"try to use %s: \"%s\" \"%s\""
+argument_list|,
+name|test_dir
+condition|?
+literal|"dir"
+else|:
+literal|"file"
 argument_list|,
 name|name
 argument_list|,
