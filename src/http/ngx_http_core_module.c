@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28abea2c0108
+DECL|struct|__anon2acfc5fa0108
 typedef|typedef
 struct|struct
 block|{
@@ -5443,6 +5443,34 @@ name|uri
 operator|=
 name|path
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_PCRE
+operator|)
+block|}
+if|else if
+condition|(
+name|clcf
+operator|->
+name|regex
+condition|)
+block|{
+if|if
+condition|(
+operator|!
+name|test_dir
+condition|)
+block|{
+name|r
+operator|->
+name|uri
+operator|=
+name|path
+expr_stmt|;
+block|}
+endif|#
+directive|endif
 block|}
 else|else
 block|{
