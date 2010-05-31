@@ -390,7 +390,6 @@ name|i
 operator|++
 control|)
 block|{
-comment|/* AF_INET only */
 name|ls
 index|[
 name|i
@@ -404,11 +403,7 @@ name|cycle
 operator|->
 name|pool
 argument_list|,
-sizeof|sizeof
-argument_list|(
-expr|struct
-name|sockaddr_in
-argument_list|)
+name|NGX_SOCKADDRLEN
 argument_list|)
 expr_stmt|;
 if|if
@@ -434,11 +429,7 @@ index|]
 operator|.
 name|socklen
 operator|=
-sizeof|sizeof
-argument_list|(
-expr|struct
-name|sockaddr_in
-argument_list|)
+name|NGX_SOCKADDRLEN
 expr_stmt|;
 if|if
 condition|(
