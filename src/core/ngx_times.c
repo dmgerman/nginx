@@ -774,9 +774,6 @@ decl_stmt|;
 name|time_t
 name|sec
 decl_stmt|;
-name|ngx_uint_t
-name|msec
-decl_stmt|;
 name|ngx_time_t
 modifier|*
 name|tp
@@ -808,14 +805,6 @@ operator|=
 name|tv
 operator|.
 name|tv_sec
-expr_stmt|;
-name|msec
-operator|=
-name|tv
-operator|.
-name|tv_usec
-operator|/
-literal|1000
 expr_stmt|;
 name|tp
 operator|=
