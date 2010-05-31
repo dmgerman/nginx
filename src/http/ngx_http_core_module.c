@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c19781b0108
+DECL|struct|__anon2b9b6df20108
 typedef|typedef
 struct|struct
 block|{
@@ -4780,14 +4780,6 @@ operator|=
 name|clcf
 operator|->
 name|alias
-condition|?
-name|clcf
-operator|->
-name|name
-operator|.
-name|len
-else|:
-literal|0
 expr_stmt|;
 for|for
 control|(
@@ -7414,14 +7406,6 @@ operator|=
 name|clcf
 operator|->
 name|alias
-condition|?
-name|clcf
-operator|->
-name|name
-operator|.
-name|len
-else|:
-literal|0
 expr_stmt|;
 if|if
 condition|(
@@ -16161,9 +16145,10 @@ name|ngx_str_t
 modifier|*
 name|value
 decl_stmt|;
-name|ngx_uint_t
+name|ngx_int_t
 name|alias
-decl_stmt|,
+decl_stmt|;
+name|ngx_uint_t
 name|n
 decl_stmt|;
 name|ngx_http_script_compile_t
@@ -16199,15 +16184,15 @@ operator|.
 name|data
 condition|)
 block|{
-comment|/* the (ngx_uint_t) cast is required by gcc 2.7.2.3 */
 if|if
 condition|(
 operator|(
-name|ngx_uint_t
-operator|)
 name|clcf
 operator|->
 name|alias
+operator|!=
+literal|0
+operator|)
 operator|==
 name|alias
 condition|)
@@ -16395,6 +16380,14 @@ operator|->
 name|alias
 operator|=
 name|alias
+condition|?
+name|clcf
+operator|->
+name|name
+operator|.
+name|len
+else|:
+literal|0
 expr_stmt|;
 name|clcf
 operator|->
