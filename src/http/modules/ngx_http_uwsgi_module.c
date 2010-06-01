@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27bc47ff0108
+DECL|struct|__anon29c9eb030108
 typedef|typedef
 struct|struct
 block|{
@@ -79,7 +79,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27bc47ff0208
+DECL|struct|__anon29c9eb030208
 typedef|typedef
 struct|struct
 block|{
@@ -3078,7 +3078,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon27bc47ff0303
+DECL|enum|__anon29c9eb030303
 enum|enum
 block|{
 DECL|enumerator|sw_start
