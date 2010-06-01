@@ -1,6 +1,6 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_comment
-comment|/*  * Copyright (C) Unbit S.a.s. 2009-2010  *  *  * Redistribution and use in source and binary forms, with or without  * modification, are permitted provided that the following conditions  * are met:  * 1. Redistributions of source code must retain the above copyright  *    notice, this list of conditions and the following disclaimer.  * 2. Redistributions in binary form must reproduce the above copyright  *    notice, this list of conditions and the following disclaimer in the  *    documentation and/or other materials provided with the distribution.  *  * THIS SOFTWARE IS PROVIDED BY AUTHOR AND CONTRIBUTORS ``AS IS'' AND  * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE  * ARE DISCLAIMED.  IN NO EVENT SHALL AUTHOR OR CONTRIBUTORS BE LIABLE  * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL  * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS  * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)  * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF  * SUCH DAMAGE.     * heavily based on Manlio's mod_scgi, mod_fastcgi and mod_proxy of nginx 0.7.x   */
+comment|/*  * Copyright (C) Unbit S.a.s. 2009-2010  *  *  * Redistribution and use in source and binary forms, with or without  * modification, are permitted provided that the following conditions  * are met:  * 1. Redistributions of source code must retain the above copyright  *    notice, this list of conditions and the following disclaimer.  * 2. Redistributions in binary form must reproduce the above copyright  *    notice, this list of conditions and the following disclaimer in the  *    documentation and/or other materials provided with the distribution.  *  * THIS SOFTWARE IS PROVIDED BY AUTHOR AND CONTRIBUTORS ``AS IS'' AND  * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE  * ARE DISCLAIMED.  IN NO EVENT SHALL AUTHOR OR CONTRIBUTORS BE LIABLE  * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL  * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS  * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)  * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF  * SUCH DAMAGE.  *  *  *  * heavily based on Manlio's mod_scgi, mod_fastcgi and mod_proxy of nginx 0.7.x  */
 end_comment
 
 begin_include
@@ -30,7 +30,7 @@ value|"uwsgi_temp"
 end_define
 
 begin_typedef
-DECL|struct|__anon27bc490f0108
+DECL|struct|__anon2c7d55ce0108
 typedef|typedef
 struct|struct
 block|{
@@ -87,7 +87,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27bc490f0208
+DECL|struct|__anon2c7d55ce0208
 typedef|typedef
 struct|struct
 block|{
@@ -116,10 +116,10 @@ typedef|;
 end_typedef
 
 begin_define
-DECL|macro|NGX_HTTP_XCGI_PARSE_NO_HEADER
+DECL|macro|NGX_HTTP_UWSGI_PARSE_NO_HEADER
 define|#
 directive|define
-name|NGX_HTTP_XCGI_PARSE_NO_HEADER
+name|NGX_HTTP_UWSGI_PARSE_NO_HEADER
 value|20
 end_define
 
@@ -1383,7 +1383,7 @@ name|u
 decl_stmt|;
 name|ngx_http_uwsgi_ctx_t
 modifier|*
-name|f
+name|ctx
 decl_stmt|;
 name|ngx_http_uwsgi_loc_conf_t
 modifier|*
@@ -1409,7 +1409,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"ngx_http_uwsgi_module does not support "
-literal|"subrequest in memory"
+literal|"subrequests in memory"
 argument_list|)
 expr_stmt|;
 return|return
@@ -1430,7 +1430,7 @@ return|return
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
 block|}
-name|f
+name|ctx
 operator|=
 name|ngx_pcalloc
 argument_list|(
@@ -1446,7 +1446,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|f
+name|ctx
 operator|==
 name|NULL
 condition|)
@@ -1459,7 +1459,7 @@ name|ngx_http_set_ctx
 argument_list|(
 name|r
 argument_list|,
-name|f
+name|ctx
 argument_list|,
 name|ngx_http_uwsgi_module
 argument_list|)
@@ -2160,7 +2160,13 @@ name|uintptr_t
 argument_list|)
 expr_stmt|;
 name|uwsgi_pkt_size
-operator|+=
+operator|=
+operator|(
+name|uint16_t
+operator|)
+operator|(
+name|uwsgi_pkt_size
+operator|+
 literal|2
 operator|+
 name|key_len
@@ -2168,6 +2174,7 @@ operator|+
 literal|2
 operator|+
 name|val_len
+operator|)
 expr_stmt|;
 block|}
 block|}
@@ -2247,7 +2254,13 @@ literal|0
 expr_stmt|;
 block|}
 name|uwsgi_pkt_size
-operator|+=
+operator|=
+operator|(
+name|uint16_t
+operator|)
+operator|(
+name|uwsgi_pkt_size
+operator|+
 literal|2
 operator|+
 literal|5
@@ -2271,6 +2284,7 @@ operator|.
 name|value
 operator|.
 name|len
+operator|)
 expr_stmt|;
 block|}
 block|}
@@ -2290,15 +2304,28 @@ name|len
 condition|)
 block|{
 name|uwsgi_pkt_size
-operator|+=
+operator|=
+operator|(
+name|uint16_t
+operator|)
+operator|(
+name|uwsgi_pkt_size
+operator|+
 name|uwcf
 operator|->
 name|uwsgi_string
 operator|.
 name|len
+operator|)
 expr_stmt|;
 block|}
-comment|/* allow custom uwsgi packet     if (uwsgi_pkt_size> 0&& uwsgi_pkt_size< 2) {         ngx_log_error (NGX_LOG_ALERT, r->connection->log, 0,                        "uwsgi request is too little: %uz", uwsgi_pkt_size);         return NGX_ERROR;     }     */
+if|#
+directive|if
+literal|0
+comment|/* allow custom uwsgi packet */
+block_content|if (uwsgi_pkt_size> 0&& uwsgi_pkt_size< 2) {         ngx_log_error (NGX_LOG_ALERT, r->connection->log, 0,                        "uwsgi request is too little: %uz", uwsgi_pkt_size);         return NGX_ERROR;     }
+endif|#
+directive|endif
 name|b
 operator|=
 name|ngx_create_temp_buf
@@ -2557,6 +2584,9 @@ else|#
 directive|else
 name|uwsgi_strlen
 operator|=
+operator|(
+name|uint16_t
+operator|)
 name|key_len
 expr_stmt|;
 endif|#
@@ -2645,9 +2675,7 @@ name|tmp
 argument_list|,
 name|pos
 operator|+
-operator|(
 name|i
-operator|)
 operator|+
 literal|2
 argument_list|,
@@ -2662,9 +2690,7 @@ name|ngx_cpymem
 argument_list|(
 name|pos
 operator|+
-operator|(
 name|i
-operator|)
 operator|+
 literal|2
 argument_list|,
@@ -2707,6 +2733,9 @@ else|#
 directive|else
 name|uwsgi_strlen
 operator|=
+operator|(
+name|uint16_t
+operator|)
 name|val_len
 expr_stmt|;
 endif|#
@@ -2850,6 +2879,10 @@ else|#
 directive|else
 name|uwsgi_strlen
 operator|=
+operator|(
+name|uint16_t
+operator|)
+operator|(
 literal|5
 operator|+
 name|header
@@ -2860,6 +2893,7 @@ operator|.
 name|key
 operator|.
 name|len
+operator|)
 expr_stmt|;
 endif|#
 directive|endif
@@ -2988,6 +3022,9 @@ else|#
 directive|else
 name|uwsgi_strlen
 operator|=
+operator|(
+name|uint16_t
+operator|)
 name|header
 index|[
 name|i
@@ -3235,9 +3272,9 @@ parameter_list|)
 block|{
 name|ngx_http_uwsgi_ctx_t
 modifier|*
-name|s
+name|ctx
 decl_stmt|;
-name|s
+name|ctx
 operator|=
 name|ngx_http_get_module_ctx
 argument_list|(
@@ -3248,7 +3285,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|s
+name|ctx
 operator|==
 name|NULL
 condition|)
@@ -3257,25 +3294,25 @@ return|return
 name|NGX_OK
 return|;
 block|}
-name|s
+name|ctx
 operator|->
 name|status
 operator|=
 literal|0
 expr_stmt|;
-name|s
+name|ctx
 operator|->
 name|status_count
 operator|=
 literal|0
 expr_stmt|;
-name|s
+name|ctx
 operator|->
 name|status_start
 operator|=
 name|NULL
 expr_stmt|;
-name|s
+name|ctx
 operator|->
 name|status_end
 operator|=
@@ -3321,7 +3358,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon27bc490f0303
+DECL|enum|__anon2c7d55ce0303
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -3430,7 +3467,7 @@ expr_stmt|;
 break|break;
 default|default:
 return|return
-name|NGX_HTTP_XCGI_PARSE_NO_HEADER
+name|NGX_HTTP_UWSGI_PARSE_NO_HEADER
 return|;
 block|}
 break|break;
@@ -3452,7 +3489,7 @@ expr_stmt|;
 break|break;
 default|default:
 return|return
-name|NGX_HTTP_XCGI_PARSE_NO_HEADER
+name|NGX_HTTP_UWSGI_PARSE_NO_HEADER
 return|;
 block|}
 break|break;
@@ -3474,7 +3511,7 @@ expr_stmt|;
 break|break;
 default|default:
 return|return
-name|NGX_HTTP_XCGI_PARSE_NO_HEADER
+name|NGX_HTTP_UWSGI_PARSE_NO_HEADER
 return|;
 block|}
 break|break;
@@ -3496,7 +3533,7 @@ expr_stmt|;
 break|break;
 default|default:
 return|return
-name|NGX_HTTP_XCGI_PARSE_NO_HEADER
+name|NGX_HTTP_UWSGI_PARSE_NO_HEADER
 return|;
 block|}
 break|break;
@@ -3518,7 +3555,7 @@ expr_stmt|;
 break|break;
 default|default:
 return|return
-name|NGX_HTTP_XCGI_PARSE_NO_HEADER
+name|NGX_HTTP_UWSGI_PARSE_NO_HEADER
 return|;
 block|}
 break|break;
@@ -3538,7 +3575,7 @@ literal|'9'
 condition|)
 block|{
 return|return
-name|NGX_HTTP_XCGI_PARSE_NO_HEADER
+name|NGX_HTTP_UWSGI_PARSE_NO_HEADER
 return|;
 block|}
 name|state
@@ -3575,7 +3612,7 @@ literal|'9'
 condition|)
 block|{
 return|return
-name|NGX_HTTP_XCGI_PARSE_NO_HEADER
+name|NGX_HTTP_UWSGI_PARSE_NO_HEADER
 return|;
 block|}
 break|break;
@@ -3595,7 +3632,7 @@ literal|'9'
 condition|)
 block|{
 return|return
-name|NGX_HTTP_XCGI_PARSE_NO_HEADER
+name|NGX_HTTP_UWSGI_PARSE_NO_HEADER
 return|;
 block|}
 name|state
@@ -3632,7 +3669,7 @@ literal|'9'
 condition|)
 block|{
 return|return
-name|NGX_HTTP_XCGI_PARSE_NO_HEADER
+name|NGX_HTTP_UWSGI_PARSE_NO_HEADER
 return|;
 block|}
 break|break;
@@ -3661,7 +3698,7 @@ literal|'9'
 condition|)
 block|{
 return|return
-name|NGX_HTTP_XCGI_PARSE_NO_HEADER
+name|NGX_HTTP_UWSGI_PARSE_NO_HEADER
 return|;
 block|}
 name|ctx
@@ -3744,7 +3781,7 @@ name|done
 goto|;
 default|default:
 return|return
-name|NGX_HTTP_XCGI_PARSE_NO_HEADER
+name|NGX_HTTP_UWSGI_PARSE_NO_HEADER
 return|;
 block|}
 break|break;
@@ -3798,7 +3835,7 @@ name|done
 goto|;
 default|default:
 return|return
-name|NGX_HTTP_XCGI_PARSE_NO_HEADER
+name|NGX_HTTP_UWSGI_PARSE_NO_HEADER
 return|;
 block|}
 block|}
@@ -3932,7 +3969,7 @@ if|if
 condition|(
 name|rc
 operator|==
-name|NGX_HTTP_XCGI_PARSE_NO_HEADER
+name|NGX_HTTP_UWSGI_PARSE_NO_HEADER
 condition|)
 block|{
 name|ngx_log_error
@@ -5567,8 +5604,8 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"\"uwsgi_busy_buffers_size\" must be equal or bigger than "
-literal|"maximum of the value of \"uwsgi_buffer_size\" and "
+literal|"\"uwsgi_busy_buffers_size\" must be equal or bigger "
+literal|"than maximum of the value of \"uwsgi_buffer_size\" and "
 literal|"one of the \"uwsgi_buffers\""
 argument_list|)
 expr_stmt|;
