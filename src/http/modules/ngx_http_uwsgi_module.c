@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b1fbeb20108
+DECL|struct|__anon280076550108
 typedef|typedef
 struct|struct
 block|{
@@ -79,7 +79,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1fbeb20208
+DECL|struct|__anon280076550208
 typedef|typedef
 struct|struct
 block|{
@@ -444,13 +444,6 @@ block|,
 literal|0
 block|}
 block|}
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-DECL|variable|ngx_http_uwsgi_module
-name|ngx_module_t
-name|ngx_http_uwsgi_module
 decl_stmt|;
 end_decl_stmt
 
@@ -3117,7 +3110,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2b1fbeb20303
+DECL|enum|__anon280076550303
 enum|enum
 block|{
 DECL|enumerator|sw_start
