@@ -21,16 +21,8 @@ directive|include
 file|<ngx_http.h>
 end_include
 
-begin_define
-DECL|macro|NGX_HTTP_UWSGI_TEMP_PATH
-define|#
-directive|define
-name|NGX_HTTP_UWSGI_TEMP_PATH
-value|"uwsgi_temp"
-end_define
-
 begin_typedef
-DECL|struct|__anon29d509ae0108
+DECL|struct|__anon27c2e45b0108
 typedef|typedef
 struct|struct
 block|{
@@ -87,7 +79,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d509ae0208
+DECL|struct|__anon27c2e45b0208
 typedef|typedef
 struct|struct
 block|{
@@ -3170,7 +3162,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon29d509ae0303
+DECL|enum|__anon27c2e45b0303
 enum|enum
 block|{
 DECL|enumerator|sw_start
