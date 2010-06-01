@@ -30,7 +30,7 @@ value|"uwsgi_temp"
 end_define
 
 begin_typedef
-DECL|struct|__anon2bdc77a20108
+DECL|struct|__anon27bc490f0108
 typedef|typedef
 struct|struct
 block|{
@@ -87,7 +87,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bdc77a20208
+DECL|struct|__anon27bc490f0208
 typedef|typedef
 struct|struct
 block|{
@@ -2298,7 +2298,7 @@ operator|.
 name|len
 expr_stmt|;
 block|}
-comment|/* allow custom uwsgi packet      if (uwsgi_pkt_size> 0&& uwsgi_pkt_size< 2) { 	ngx_log_error (NGX_LOG_ALERT, r->connection->log, 0, 		       "uwsgi request is too little: %uz", uwsgi_pkt_size); 	return NGX_ERROR;     }     */
+comment|/* allow custom uwsgi packet     if (uwsgi_pkt_size> 0&& uwsgi_pkt_size< 2) {         ngx_log_error (NGX_LOG_ALERT, r->connection->log, 0,                        "uwsgi request is too little: %uz", uwsgi_pkt_size);         return NGX_ERROR;     }     */
 name|b
 operator|=
 name|ngx_create_temp_buf
@@ -3321,7 +3321,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2bdc77a20303
+DECL|enum|__anon27bc490f0303
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -4541,7 +4541,7 @@ argument_list|,
 literal|"http uwsgi header done"
 argument_list|)
 expr_stmt|;
-comment|/* 	     * if no "Server" and "Date" in header line, 	     * then add the special empty headers 	     */
+comment|/*              * if no "Server" and "Date" in header line,              * then add the special empty headers              */
 if|if
 condition|(
 name|r
