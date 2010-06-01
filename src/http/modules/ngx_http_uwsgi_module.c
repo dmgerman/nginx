@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon280076550108
+DECL|struct|__anon27bc47ff0108
 typedef|typedef
 struct|struct
 block|{
@@ -79,7 +79,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon280076550208
+DECL|struct|__anon27bc47ff0208
 typedef|typedef
 struct|struct
 block|{
@@ -2136,21 +2136,6 @@ name|len
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
-name|uwcf
-operator|->
-name|uwsgi_string
-operator|.
-name|data
-operator|&&
-name|uwcf
-operator|->
-name|uwsgi_string
-operator|.
-name|len
-condition|)
-block|{
 name|len
 operator|+=
 name|uwcf
@@ -2159,7 +2144,6 @@ name|uwsgi_string
 operator|.
 name|len
 expr_stmt|;
-block|}
 if|#
 directive|if
 literal|0
@@ -2835,21 +2819,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
-name|uwcf
-operator|->
-name|uwsgi_string
-operator|.
-name|data
-operator|&&
-name|uwcf
-operator|->
-name|uwsgi_string
-operator|.
-name|len
-condition|)
-block|{
 name|b
 operator|->
 name|last
@@ -2873,7 +2842,6 @@ operator|.
 name|len
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|uwcf
@@ -3110,7 +3078,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon280076550303
+DECL|enum|__anon27bc47ff0303
 enum|enum
 block|{
 DECL|enumerator|sw_start
