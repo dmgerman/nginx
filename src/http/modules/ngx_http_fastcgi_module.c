@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28a4926a0108
+DECL|struct|__anon2b217abc0108
 typedef|typedef
 struct|struct
 block|{
@@ -103,7 +103,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28a4926a0203
+DECL|enum|__anon2b217abc0203
 typedef|typedef
 enum|enum
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a4926a0308
+DECL|struct|__anon2b217abc0308
 typedef|typedef
 struct|struct
 block|{
@@ -166,7 +166,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a4926a0408
+DECL|struct|__anon2b217abc0408
 typedef|typedef
 struct|struct
 block|{
@@ -300,7 +300,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon28a4926a0508
+DECL|struct|__anon2b217abc0508
 typedef|typedef
 struct|struct
 block|{
@@ -343,7 +343,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a4926a0608
+DECL|struct|__anon2b217abc0608
 typedef|typedef
 struct|struct
 block|{
@@ -373,7 +373,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a4926a0708
+DECL|struct|__anon2b217abc0708
 typedef|typedef
 struct|struct
 block|{
@@ -400,7 +400,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a4926a0808
+DECL|struct|__anon2b217abc0808
 typedef|typedef
 struct|struct
 block|{
@@ -4008,7 +4008,7 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-name|len
+name|key_len
 operator|=
 sizeof|sizeof
 argument_list|(
@@ -4028,7 +4028,7 @@ name|len
 expr_stmt|;
 if|if
 condition|(
-name|len
+name|key_len
 operator|>
 literal|127
 condition|)
@@ -4045,7 +4045,7 @@ operator|)
 operator|(
 operator|(
 operator|(
-name|len
+name|key_len
 operator|>>
 literal|24
 operator|)
@@ -4067,7 +4067,7 @@ name|u_char
 operator|)
 operator|(
 operator|(
-name|len
+name|key_len
 operator|>>
 literal|16
 operator|)
@@ -4086,7 +4086,7 @@ name|u_char
 operator|)
 operator|(
 operator|(
-name|len
+name|key_len
 operator|>>
 literal|8
 operator|)
@@ -4104,7 +4104,7 @@ operator|(
 name|u_char
 operator|)
 operator|(
-name|len
+name|key_len
 operator|&
 literal|0xff
 operator|)
@@ -4121,10 +4121,10 @@ operator|=
 operator|(
 name|u_char
 operator|)
-name|len
+name|key_len
 expr_stmt|;
 block|}
-name|len
+name|val_len
 operator|=
 name|header
 index|[
@@ -4137,7 +4137,7 @@ name|len
 expr_stmt|;
 if|if
 condition|(
-name|len
+name|val_len
 operator|>
 literal|127
 condition|)
@@ -4154,7 +4154,7 @@ operator|)
 operator|(
 operator|(
 operator|(
-name|len
+name|val_len
 operator|>>
 literal|24
 operator|)
@@ -4176,7 +4176,7 @@ name|u_char
 operator|)
 operator|(
 operator|(
-name|len
+name|val_len
 operator|>>
 literal|16
 operator|)
@@ -4195,7 +4195,7 @@ name|u_char
 operator|)
 operator|(
 operator|(
-name|len
+name|val_len
 operator|>>
 literal|8
 operator|)
@@ -4213,7 +4213,7 @@ operator|(
 name|u_char
 operator|)
 operator|(
-name|len
+name|val_len
 operator|&
 literal|0xff
 operator|)
@@ -4230,7 +4230,7 @@ operator|=
 operator|(
 name|u_char
 operator|)
-name|len
+name|val_len
 expr_stmt|;
 block|}
 name|b
@@ -4345,14 +4345,42 @@ name|value
 operator|.
 name|data
 argument_list|,
-name|header
-index|[
-name|i
-index|]
-operator|.
-name|value
-operator|.
-name|len
+name|val_len
+argument_list|)
+expr_stmt|;
+name|ngx_log_debug4
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"fastcgi param: \"%*s: %*s\""
+argument_list|,
+name|key_len
+argument_list|,
+name|b
+operator|->
+name|last
+operator|-
+operator|(
+name|key_len
+operator|+
+name|val_len
+operator|)
+argument_list|,
+name|val_len
+argument_list|,
+name|b
+operator|->
+name|last
+operator|-
+name|val_len
 argument_list|)
 expr_stmt|;
 block|}
