@@ -508,7 +508,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon28ddd5960103
+DECL|enum|__anon2901d7e60103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2517,7 +2517,7 @@ name|hash
 decl_stmt|,
 name|i
 decl_stmt|;
-DECL|enum|__anon28ddd5960203
+DECL|enum|__anon2901d7e60203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -3253,7 +3253,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon28ddd5960303
+DECL|enum|__anon2901d7e60303
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -4131,6 +4131,10 @@ condition|(
 name|ch
 operator|==
 literal|'%'
+operator|||
+name|ch
+operator|==
+literal|'#'
 condition|)
 block|{
 name|state
@@ -4150,26 +4154,6 @@ name|p
 operator|++
 expr_stmt|;
 break|break;
-block|}
-if|if
-condition|(
-name|ch
-operator|==
-literal|'#'
-condition|)
-block|{
-operator|*
-name|u
-operator|++
-operator|=
-name|ch
-expr_stmt|;
-name|ch
-operator|=
-operator|*
-name|p
-operator|++
-expr_stmt|;
 block|}
 if|else if
 condition|(
@@ -4236,6 +4220,10 @@ operator|==
 literal|'?'
 condition|)
 block|{
+name|state
+operator|=
+name|sw_usual
+expr_stmt|;
 operator|*
 name|u
 operator|++
@@ -4248,6 +4236,7 @@ operator|*
 name|p
 operator|++
 expr_stmt|;
+break|break;
 block|}
 if|else if
 condition|(
