@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c81fc3b0108
+DECL|struct|__anon2988b7210108
 typedef|typedef
 struct|struct
 block|{
@@ -87,7 +87,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c81fc3b0208
+DECL|struct|__anon2988b7210208
 typedef|typedef
 struct|struct
 block|{
@@ -641,6 +641,36 @@ argument_list|,
 name|upstream
 operator|.
 name|ignore_client_abort
+argument_list|)
+block|,
+name|NULL
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"uwsgi_bind"
+argument_list|)
+block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
+name|NGX_HTTP_SRV_CONF
+operator||
+name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_CONF_TAKE1
+block|,
+name|ngx_http_upstream_bind_set_slot
+block|,
+name|NGX_HTTP_LOC_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+name|ngx_http_uwsgi_loc_conf_t
+argument_list|,
+name|upstream
+operator|.
+name|local
 argument_list|)
 block|,
 name|NULL
@@ -3525,7 +3555,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2c81fc3b0303
+DECL|enum|__anon2988b7210303
 enum|enum
 block|{
 DECL|enumerator|sw_start
