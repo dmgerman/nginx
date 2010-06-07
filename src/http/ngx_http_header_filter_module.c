@@ -173,9 +173,11 @@ argument_list|(
 literal|"201 Created"
 argument_list|)
 block|,
-name|ngx_null_string
+name|ngx_string
+argument_list|(
+literal|"202 Accepted"
+argument_list|)
 block|,
-comment|/* "202 Accepted" */
 name|ngx_null_string
 block|,
 comment|/* "203 Non-Authoritative Information" */
