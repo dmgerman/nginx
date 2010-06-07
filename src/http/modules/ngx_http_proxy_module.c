@@ -70,14 +70,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon2b98d4fc010a
+DECL|union|__anon2b0e0fe3010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon2b98d4fc0208
+DECL|struct|__anon2b0e0fe30208
 struct|struct
 block|{
 DECL|member|lengths
@@ -108,7 +108,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b98d4fc0308
+DECL|struct|__anon2b0e0fe30308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b98d4fc0408
+DECL|struct|__anon2b0e0fe30408
 typedef|typedef
 struct|struct
 block|{
@@ -246,7 +246,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b98d4fc0508
+DECL|struct|__anon2b0e0fe30508
 typedef|typedef
 struct|struct
 block|{
@@ -6146,7 +6146,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2b98d4fc0603
+DECL|enum|__anon2b0e0fe30603
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -8147,13 +8147,9 @@ return|;
 block|}
 name|p
 operator|=
-name|data
-expr_stmt|;
-name|p
-operator|=
 name|ngx_copy
 argument_list|(
-name|p
+name|data
 argument_list|,
 name|h
 operator|->
@@ -8440,13 +8436,9 @@ return|;
 block|}
 name|p
 operator|=
-name|data
-expr_stmt|;
-name|p
-operator|=
 name|ngx_copy
 argument_list|(
-name|p
+name|data
 argument_list|,
 name|h
 operator|->
