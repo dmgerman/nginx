@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b738cc80108
+DECL|struct|__anon2a08c0580108
 typedef|typedef
 struct|struct
 block|{
@@ -111,7 +111,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b738cc80203
+DECL|enum|__anon2a08c0580203
 typedef|typedef
 enum|enum
 block|{
@@ -153,7 +153,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b738cc80308
+DECL|struct|__anon2a08c0580308
 typedef|typedef
 struct|struct
 block|{
@@ -174,7 +174,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b738cc80408
+DECL|struct|__anon2a08c0580408
 typedef|typedef
 struct|struct
 block|{
@@ -308,7 +308,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2b738cc80508
+DECL|struct|__anon2a08c0580508
 typedef|typedef
 struct|struct
 block|{
@@ -351,7 +351,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b738cc80608
+DECL|struct|__anon2a08c0580608
 typedef|typedef
 struct|struct
 block|{
@@ -381,7 +381,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b738cc80708
+DECL|struct|__anon2a08c0580708
 typedef|typedef
 struct|struct
 block|{
@@ -408,7 +408,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b738cc80808
+DECL|struct|__anon2a08c0580808
 typedef|typedef
 struct|struct
 block|{
@@ -2707,12 +2707,16 @@ name|flcf
 parameter_list|)
 block|{
 name|ngx_url_t
+name|url
+decl_stmt|;
+name|ngx_http_upstream_t
+modifier|*
 name|u
 decl_stmt|;
 name|ngx_memzero
 argument_list|(
 operator|&
-name|u
+name|url
 argument_list|,
 sizeof|sizeof
 argument_list|(
@@ -2727,7 +2731,7 @@ argument_list|(
 name|r
 argument_list|,
 operator|&
-name|u
+name|url
 operator|.
 name|url
 argument_list|,
@@ -2753,7 +2757,7 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-name|u
+name|url
 operator|.
 name|no_resolve
 operator|=
@@ -2768,7 +2772,7 @@ operator|->
 name|pool
 argument_list|,
 operator|&
-name|u
+name|url
 argument_list|)
 operator|!=
 name|NGX_OK
@@ -2776,7 +2780,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|u
+name|url
 operator|.
 name|err
 condition|)
@@ -2795,12 +2799,12 @@ literal|0
 argument_list|,
 literal|"%s in upstream \"%V\""
 argument_list|,
-name|u
+name|url
 operator|.
 name|err
 argument_list|,
 operator|&
-name|u
+name|url
 operator|.
 name|url
 argument_list|)
@@ -2812,7 +2816,7 @@ return|;
 block|}
 if|if
 condition|(
-name|u
+name|url
 operator|.
 name|no_port
 condition|)
@@ -2832,7 +2836,7 @@ argument_list|,
 literal|"no port in upstream \"%V\""
 argument_list|,
 operator|&
-name|u
+name|url
 operator|.
 name|url
 argument_list|)
@@ -2841,9 +2845,13 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|u
+operator|=
 name|r
 operator|->
 name|upstream
+expr_stmt|;
+name|u
 operator|->
 name|resolved
 operator|=
@@ -2861,9 +2869,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|r
-operator|->
-name|upstream
+name|u
 operator|->
 name|resolved
 operator|==
@@ -2876,11 +2882,11 @@ return|;
 block|}
 if|if
 condition|(
-name|u
+name|url
 operator|.
 name|addrs
 operator|&&
-name|u
+name|url
 operator|.
 name|addrs
 index|[
@@ -2890,15 +2896,13 @@ operator|.
 name|sockaddr
 condition|)
 block|{
-name|r
-operator|->
-name|upstream
+name|u
 operator|->
 name|resolved
 operator|->
 name|sockaddr
 operator|=
-name|u
+name|url
 operator|.
 name|addrs
 index|[
@@ -2907,15 +2911,13 @@ index|]
 operator|.
 name|sockaddr
 expr_stmt|;
-name|r
-operator|->
-name|upstream
+name|u
 operator|->
 name|resolved
 operator|->
 name|socklen
 operator|=
-name|u
+name|url
 operator|.
 name|addrs
 index|[
@@ -2924,9 +2926,7 @@ index|]
 operator|.
 name|socklen
 expr_stmt|;
-name|r
-operator|->
-name|upstream
+name|u
 operator|->
 name|resolved
 operator|->
@@ -2934,15 +2934,13 @@ name|naddrs
 operator|=
 literal|1
 expr_stmt|;
-name|r
-operator|->
-name|upstream
+name|u
 operator|->
 name|resolved
 operator|->
 name|host
 operator|=
-name|u
+name|url
 operator|.
 name|addrs
 index|[
@@ -2954,27 +2952,23 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|r
-operator|->
-name|upstream
+name|u
 operator|->
 name|resolved
 operator|->
 name|host
 operator|=
-name|u
+name|url
 operator|.
 name|host
 expr_stmt|;
-name|r
-operator|->
-name|upstream
+name|u
 operator|->
 name|resolved
 operator|->
 name|port
 operator|=
-name|u
+name|url
 operator|.
 name|port
 expr_stmt|;
