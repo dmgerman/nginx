@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c244b510108
+DECL|struct|__anon293f28800108
 typedef|typedef
 struct|struct
 block|{
@@ -41,7 +41,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c244b510208
+DECL|struct|__anon293f28800208
 typedef|typedef
 struct|struct
 block|{
@@ -636,6 +636,17 @@ name|cf
 operator|=
 name|save
 expr_stmt|;
+if|if
+condition|(
+name|rv
+operator|!=
+name|NGX_CONF_OK
+condition|)
+block|{
+return|return
+name|rv
+return|;
+block|}
 name|sum
 operator|=
 literal|0
