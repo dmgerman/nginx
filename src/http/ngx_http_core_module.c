@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b9b6df20108
+DECL|struct|__anon28b5c6860108
 typedef|typedef
 struct|struct
 block|{
@@ -16754,6 +16754,20 @@ name|uint32_t
 operator|)
 operator|~
 name|NGX_HTTP_UNLOCK
+block|}
+block|,
+block|{
+operator|(
+name|u_char
+operator|*
+operator|)
+literal|"PATCH"
+block|,
+operator|(
+name|uint32_t
+operator|)
+operator|~
+name|NGX_HTTP_PATCH
 block|}
 block|,
 block|{
