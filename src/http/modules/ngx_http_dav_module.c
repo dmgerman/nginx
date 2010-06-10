@@ -62,7 +62,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon2b3414880108
+DECL|struct|__anon28ae52dc0108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3414880208
+DECL|struct|__anon28ae52dc0208
 typedef|typedef
 struct|struct
 block|{
@@ -2345,6 +2345,39 @@ expr_stmt|;
 return|return
 name|NGX_HTTP_BAD_REQUEST
 return|;
+block|}
+name|p
+operator|=
+name|dest
+operator|->
+name|value
+operator|.
+name|data
+expr_stmt|;
+comment|/* there is always '\0' even after empty header value */
+if|if
+condition|(
+name|p
+index|[
+literal|0
+index|]
+operator|==
+literal|'/'
+condition|)
+block|{
+name|last
+operator|=
+name|p
+operator|+
+name|dest
+operator|->
+name|value
+operator|.
+name|len
+expr_stmt|;
+goto|goto
+name|destination_done
+goto|;
 block|}
 name|len
 operator|=
