@@ -2371,11 +2371,6 @@ operator|>
 literal|0xffff
 condition|)
 block|{
-name|free
-argument_list|(
-name|utf16
-argument_list|)
-expr_stmt|;
 name|ngx_set_errno
 argument_list|(
 name|NGX_EILSEQ
