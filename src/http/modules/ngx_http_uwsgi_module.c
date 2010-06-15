@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bcea2970108
+DECL|struct|__anon2bf9c7820108
 typedef|typedef
 struct|struct
 block|{
@@ -4040,13 +4040,13 @@ decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
-name|ngx_http_upstream_t
-modifier|*
-name|u
-decl_stmt|;
 name|ngx_http_status_t
 modifier|*
 name|status
+decl_stmt|;
+name|ngx_http_upstream_t
+modifier|*
+name|u
 decl_stmt|;
 name|status
 operator|=
