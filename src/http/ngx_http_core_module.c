@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28b5c6860108
+DECL|struct|__anon292264a80108
 typedef|typedef
 struct|struct
 block|{
@@ -3478,22 +3478,6 @@ operator|->
 name|phase_engine
 operator|.
 name|server_rewrite_index
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|r
-operator|->
-name|unparsed_uri
-operator|.
-name|len
-condition|)
-block|{
-name|r
-operator|->
-name|valid_unparsed_uri
-operator|=
-literal|1
 expr_stmt|;
 block|}
 name|r
