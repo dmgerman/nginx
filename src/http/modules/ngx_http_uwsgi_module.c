@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ad8bac30108
+DECL|struct|__anon27dee10b0108
 typedef|typedef
 struct|struct
 block|{
@@ -98,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad8bac30208
+DECL|struct|__anon27dee10b0208
 typedef|typedef
 struct|struct
 block|{
@@ -4071,6 +4071,9 @@ modifier|*
 name|r
 parameter_list|)
 block|{
+name|size_t
+name|len
+decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
@@ -4187,12 +4190,6 @@ name|status
 operator|->
 name|code
 expr_stmt|;
-name|u
-operator|->
-name|headers_in
-operator|.
-name|status_line
-operator|.
 name|len
 operator|=
 name|status
@@ -4209,6 +4206,16 @@ name|headers_in
 operator|.
 name|status_line
 operator|.
+name|len
+operator|=
+name|len
+expr_stmt|;
+name|u
+operator|->
+name|headers_in
+operator|.
+name|status_line
+operator|.
 name|data
 operator|=
 name|ngx_pnalloc
@@ -4217,12 +4224,6 @@ name|r
 operator|->
 name|pool
 argument_list|,
-name|u
-operator|->
-name|headers_in
-operator|.
-name|status_line
-operator|.
 name|len
 argument_list|)
 expr_stmt|;
@@ -4257,12 +4258,6 @@ name|status
 operator|->
 name|start
 argument_list|,
-name|u
-operator|->
-name|headers_in
-operator|.
-name|status_line
-operator|.
 name|len
 argument_list|)
 expr_stmt|;

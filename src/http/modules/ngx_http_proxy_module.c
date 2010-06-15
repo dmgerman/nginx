@@ -70,14 +70,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon292c49bb010a
+DECL|union|__anon2abf262f010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon292c49bb0208
+DECL|struct|__anon2abf262f0208
 struct|struct
 block|{
 DECL|member|lengths
@@ -108,7 +108,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon292c49bb0308
+DECL|struct|__anon2abf262f0308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292c49bb0408
+DECL|struct|__anon2abf262f0408
 typedef|typedef
 struct|struct
 block|{
@@ -246,7 +246,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292c49bb0508
+DECL|struct|__anon2abf262f0508
 typedef|typedef
 struct|struct
 block|{
@@ -5825,6 +5825,9 @@ modifier|*
 name|r
 parameter_list|)
 block|{
+name|size_t
+name|len
+decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
@@ -5992,12 +5995,6 @@ name|status
 operator|.
 name|code
 expr_stmt|;
-name|u
-operator|->
-name|headers_in
-operator|.
-name|status_line
-operator|.
 name|len
 operator|=
 name|ctx
@@ -6018,6 +6015,16 @@ name|headers_in
 operator|.
 name|status_line
 operator|.
+name|len
+operator|=
+name|len
+expr_stmt|;
+name|u
+operator|->
+name|headers_in
+operator|.
+name|status_line
+operator|.
 name|data
 operator|=
 name|ngx_pnalloc
@@ -6026,12 +6033,6 @@ name|r
 operator|->
 name|pool
 argument_list|,
-name|u
-operator|->
-name|headers_in
-operator|.
-name|status_line
-operator|.
 name|len
 argument_list|)
 expr_stmt|;
@@ -6068,12 +6069,6 @@ name|status
 operator|.
 name|start
 argument_list|,
-name|u
-operator|->
-name|headers_in
-operator|.
-name|status_line
-operator|.
 name|len
 argument_list|)
 expr_stmt|;
