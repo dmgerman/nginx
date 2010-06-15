@@ -70,14 +70,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon2abf262f010a
+DECL|union|__anon28c128ae010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon2abf262f0208
+DECL|struct|__anon28c128ae0208
 struct|struct
 block|{
 DECL|member|lengths
@@ -108,7 +108,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2abf262f0308
+DECL|struct|__anon28c128ae0308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2abf262f0408
+DECL|struct|__anon28c128ae0408
 typedef|typedef
 struct|struct
 block|{
@@ -246,7 +246,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2abf262f0508
+DECL|struct|__anon28c128ae0508
 typedef|typedef
 struct|struct
 block|{
@@ -267,14 +267,6 @@ block|}
 name|ngx_http_proxy_ctx_t
 typedef|;
 end_typedef
-
-begin_define
-DECL|macro|NGX_HTTP_PROXY_PARSE_NO_HEADER
-define|#
-directive|define
-name|NGX_HTTP_PROXY_PARSE_NO_HEADER
-value|20
-end_define
 
 begin_function_decl
 specifier|static
