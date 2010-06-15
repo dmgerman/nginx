@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2770710c0108
+DECL|struct|__anon2a418f7a0108
 typedef|typedef
 struct|struct
 block|{
@@ -98,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2770710c0208
+DECL|struct|__anon2a418f7a0208
 typedef|typedef
 struct|struct
 block|{
@@ -4102,7 +4102,7 @@ name|ngx_http_upstream_t
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2770710c0303
+DECL|enum|__anon2a418f7a0303
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -4716,21 +4716,6 @@ operator|==
 name|NGX_HTTP_UWSGI_PARSE_NO_HEADER
 condition|)
 block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_ERR
-argument_list|,
-name|r
-operator|->
-name|connection
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"upstream sent no valid HTTP/1.0 header"
-argument_list|)
-expr_stmt|;
 name|r
 operator|->
 name|http_version
