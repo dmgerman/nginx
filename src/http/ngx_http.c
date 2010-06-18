@@ -2335,7 +2335,7 @@ expr_stmt|;
 block|}
 name|checker
 operator|=
-name|ngx_http_core_generic_phase
+name|ngx_http_core_rewrite_phase
 expr_stmt|;
 break|break;
 case|case
@@ -2387,7 +2387,7 @@ expr_stmt|;
 block|}
 name|checker
 operator|=
-name|ngx_http_core_generic_phase
+name|ngx_http_core_rewrite_phase
 expr_stmt|;
 break|break;
 case|case
