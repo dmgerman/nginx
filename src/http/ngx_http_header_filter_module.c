@@ -218,9 +218,11 @@ argument_list|(
 literal|"302 Moved Temporarily"
 argument_list|)
 block|,
-name|ngx_null_string
+name|ngx_string
+argument_list|(
+literal|"303 See Other"
+argument_list|)
 block|,
-comment|/* "303 See Other" */
 name|ngx_string
 argument_list|(
 literal|"304 Not Modified"

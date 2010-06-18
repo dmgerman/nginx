@@ -190,6 +190,24 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_http_error_303_page
+specifier|static
+name|char
+name|ngx_http_error_303_page
+index|[]
+init|=
+literal|"<html>"
+name|CRLF
+literal|"<head><title>303 See Other</title></head>"
+name|CRLF
+literal|"<body bgcolor=\"white\">"
+name|CRLF
+literal|"<center><h1>303 See Other</h1></center>"
+name|CRLF
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_http_error_400_page
 specifier|static
 name|char
@@ -678,9 +696,11 @@ argument_list|(
 name|ngx_http_error_302_page
 argument_list|)
 block|,
-name|ngx_null_string
+name|ngx_string
+argument_list|(
+name|ngx_http_error_303_page
+argument_list|)
 block|,
-comment|/* 303 */
 DECL|macro|NGX_HTTP_LAST_LEVEL_300
 define|#
 directive|define
