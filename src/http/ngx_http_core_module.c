@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27a7add50108
+DECL|struct|__anon2ab18ba40108
 typedef|typedef
 struct|struct
 block|{
@@ -3627,7 +3627,7 @@ block|{
 name|ngx_int_t
 name|rc
 decl_stmt|;
-comment|/*      * generic phase checker,      * used by the post read, server rewrite, rewrite, and pre-access phases      */
+comment|/*      * generic phase checker,      * used by the post read and pre-access phases      */
 name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
@@ -3707,6 +3707,81 @@ name|NGX_OK
 return|;
 block|}
 comment|/* rc == NGX_ERROR || rc == NGX_HTTP_...  */
+name|ngx_http_finalize_request
+argument_list|(
+name|r
+argument_list|,
+name|rc
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_OK
+return|;
+block|}
+end_function
+
+begin_function
+name|ngx_int_t
+DECL|function|ngx_http_core_rewrite_phase (ngx_http_request_t * r,ngx_http_phase_handler_t * ph)
+name|ngx_http_core_rewrite_phase
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_http_phase_handler_t
+modifier|*
+name|ph
+parameter_list|)
+block|{
+name|ngx_int_t
+name|rc
+decl_stmt|;
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"rewrite phase: %ui"
+argument_list|,
+name|r
+operator|->
+name|phase_handler
+argument_list|)
+expr_stmt|;
+name|rc
+operator|=
+name|ph
+operator|->
+name|handler
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|rc
+operator|==
+name|NGX_DECLINED
+condition|)
+block|{
+name|r
+operator|->
+name|phase_handler
+operator|++
+expr_stmt|;
+return|return
+name|NGX_AGAIN
+return|;
+block|}
+comment|/* rc == NGX_OK || rc == NGX_ERROR || rc == NGX_HTTP_...  */
 name|ngx_http_finalize_request
 argument_list|(
 name|r
