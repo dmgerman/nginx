@@ -407,7 +407,7 @@ name|prev
 decl_stmt|,
 name|conf_file
 decl_stmt|;
-DECL|enum|__anon28c3f1a50103
+DECL|enum|__anon291a64b80103
 enum|enum
 block|{
 DECL|enumerator|parse_file
