@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b390dee0108
+DECL|struct|__anon27ece1f50108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b390dee0208
+DECL|struct|__anon27ece1f50208
 typedef|typedef
 struct|struct
 block|{
@@ -66,7 +66,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b390dee0308
+DECL|struct|__anon27ece1f50308
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b390dee0408
+DECL|struct|__anon27ece1f50408
 typedef|typedef
 struct|struct
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b390dee0508
+DECL|struct|__anon27ece1f50508
 typedef|typedef
 struct|struct
 block|{
@@ -163,11 +163,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b390dee0608
+DECL|struct|__anon27ece1f50608
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon2b390dee070a
+DECL|union|__anon27ece1f5070a
 union|union
 block|{
 DECL|member|tree
@@ -770,6 +770,7 @@ index|]
 operator|.
 name|value
 expr_stmt|;
+break|break;
 block|}
 block|}
 name|ngx_log_debug1
