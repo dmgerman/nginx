@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bcc712c0108
+DECL|struct|__anon2797e26b0108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bcc712c0208
+DECL|struct|__anon2797e26b0208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bcc712c0308
+DECL|struct|__anon2797e26b0308
 typedef|typedef
 struct|struct
 block|{
@@ -386,7 +386,7 @@ name|src
 parameter_list|,
 name|n
 parameter_list|)
-value|((u_char *) ngx_memcpy(dst, src, n)) + (n)
+value|(((u_char *) ngx_memcpy(dst, src, n)) + (n))
 end_define
 
 begin_else
@@ -425,7 +425,7 @@ name|src
 parameter_list|,
 name|n
 parameter_list|)
-value|((u_char *) memcpy(dst, src, n)) + (n)
+value|(((u_char *) memcpy(dst, src, n)) + (n))
 end_define
 
 begin_endif
@@ -1213,7 +1213,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon2bcc712c0408
+DECL|struct|__anon2797e26b0408
 typedef|typedef
 struct|struct
 block|{
