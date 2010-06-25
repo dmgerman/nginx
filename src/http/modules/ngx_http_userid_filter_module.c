@@ -66,7 +66,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon287d435a0108
+DECL|struct|__anon28dc8c7d0108
 typedef|typedef
 struct|struct
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon287d435a0208
+DECL|struct|__anon28dc8c7d0208
 typedef|typedef
 struct|struct
 block|{
@@ -2240,10 +2240,6 @@ modifier|*
 name|conf
 parameter_list|)
 block|{
-name|u_char
-modifier|*
-name|p
-decl_stmt|;
 name|ngx_connection_t
 modifier|*
 name|c
@@ -2258,6 +2254,10 @@ directive|if
 operator|(
 name|NGX_HAVE_INET6
 operator|)
+name|u_char
+modifier|*
+name|p
+decl_stmt|;
 name|struct
 name|sockaddr_in6
 modifier|*
