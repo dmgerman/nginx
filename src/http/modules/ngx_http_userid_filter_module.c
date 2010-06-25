@@ -66,7 +66,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon28ef13570108
+DECL|struct|__anon275873280108
 typedef|typedef
 struct|struct
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ef13570208
+DECL|struct|__anon275873280208
 typedef|typedef
 struct|struct
 block|{
@@ -886,8 +886,8 @@ condition|(
 name|conf
 operator|->
 name|enable
-operator|<=
-name|NGX_HTTP_USERID_LOG
+operator|<
+name|NGX_HTTP_USERID_V1
 condition|)
 block|{
 return|return
