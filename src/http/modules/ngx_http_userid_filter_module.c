@@ -66,7 +66,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon2c3e645d0108
+DECL|struct|__anon28ef13570108
 typedef|typedef
 struct|struct
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3e645d0208
+DECL|struct|__anon28ef13570208
 typedef|typedef
 struct|struct
 block|{
@@ -991,7 +991,6 @@ return|;
 block|}
 block|}
 block|}
-comment|/* ctx->status == NGX_DECLINED */
 if|if
 condition|(
 name|ngx_http_userid_set_uid
@@ -1125,7 +1124,6 @@ name|uid_got
 argument_list|)
 return|;
 block|}
-comment|/* ctx->status == NGX_DECLINED */
 name|v
 operator|->
 name|not_found
