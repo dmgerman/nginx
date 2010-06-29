@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29db91eb0108
+DECL|struct|__anon2ad34f420108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29db91eb0208
+DECL|struct|__anon2ad34f420208
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +70,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29db91eb0308
+DECL|struct|__anon2ad34f420308
 typedef|typedef
 struct|struct
 block|{
@@ -90,7 +90,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29db91eb0408
+DECL|struct|__anon2ad34f420408
 typedef|typedef
 struct|struct
 block|{
@@ -144,11 +144,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29db91eb0508
+DECL|struct|__anon2ad34f420508
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon29db91eb060a
+DECL|union|__anon2ad34f42060a
 union|union
 block|{
 DECL|member|tree
@@ -2230,10 +2230,6 @@ decl_stmt|;
 name|ngx_uint_t
 name|del
 decl_stmt|;
-name|ngx_http_variable_value_t
-modifier|*
-name|old
-decl_stmt|;
 if|if
 condition|(
 name|ngx_strcmp
@@ -2251,14 +2247,39 @@ operator|==
 literal|0
 condition|)
 block|{
-name|old
-operator|=
+if|if
+condition|(
 name|ctx
 operator|->
 name|high
 operator|->
 name|default_value
+condition|)
+block|{
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_WARN
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"duplicate default geo range value: \"%V\", old value: \"%v\""
+argument_list|,
+operator|&
+name|value
+index|[
+literal|1
+index|]
+argument_list|,
+name|ctx
+operator|->
+name|high
+operator|->
+name|default_value
+argument_list|)
 expr_stmt|;
+block|}
 name|ctx
 operator|->
 name|high
@@ -2292,37 +2313,6 @@ block|{
 return|return
 name|NGX_CONF_ERROR
 return|;
-block|}
-if|if
-condition|(
-name|old
-condition|)
-block|{
-name|ngx_conf_log_error
-argument_list|(
-name|NGX_LOG_WARN
-argument_list|,
-name|cf
-argument_list|,
-literal|0
-argument_list|,
-literal|"duplicate range \"%V\", value: \"%v\", old value: \"%v\""
-argument_list|,
-operator|&
-name|value
-index|[
-literal|0
-index|]
-argument_list|,
-name|ctx
-operator|->
-name|high
-operator|->
-name|default_value
-argument_list|,
-name|old
-argument_list|)
-expr_stmt|;
 block|}
 return|return
 name|NGX_CONF_OK
