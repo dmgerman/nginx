@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2baeeb4a0108
+DECL|struct|__anon27ba4c410108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baeeb4a0208
+DECL|struct|__anon27ba4c410208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baeeb4a0308
+DECL|struct|__anon27ba4c410308
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baeeb4a0408
+DECL|struct|__anon27ba4c410408
 typedef|typedef
 struct|struct
 block|{
@@ -185,11 +185,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baeeb4a0508
+DECL|struct|__anon27ba4c410508
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon2baeeb4a060a
+DECL|union|__anon27ba4c41060a
 union|union
 block|{
 DECL|member|tree
@@ -634,7 +634,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2baeeb4a0708
+DECL|struct|__anon27ba4c410708
 typedef|typedef
 struct|struct
 block|{
@@ -5542,6 +5542,42 @@ literal|"binary geo range base \"%s\" may not be mixed with usual entries"
 argument_list|,
 name|name
 operator|->
+name|data
+argument_list|)
+expr_stmt|;
+name|rc
+operator|=
+name|NGX_ERROR
+expr_stmt|;
+goto|goto
+name|done
+goto|;
+block|}
+if|if
+condition|(
+name|ctx
+operator|->
+name|binary_include
+condition|)
+block|{
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"second binary geo range base \"%s\" may not be mixed with \"%s\""
+argument_list|,
+name|name
+operator|->
+name|data
+argument_list|,
+name|ctx
+operator|->
+name|include_name
+operator|.
 name|data
 argument_list|)
 expr_stmt|;
