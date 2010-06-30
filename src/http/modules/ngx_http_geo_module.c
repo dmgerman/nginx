@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon279eef220108
+DECL|struct|__anon2baeeb4a0108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon279eef220208
+DECL|struct|__anon2baeeb4a0208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon279eef220308
+DECL|struct|__anon2baeeb4a0308
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon279eef220408
+DECL|struct|__anon2baeeb4a0408
 typedef|typedef
 struct|struct
 block|{
@@ -185,11 +185,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon279eef220508
+DECL|struct|__anon2baeeb4a0508
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon279eef22060a
+DECL|union|__anon2baeeb4a060a
 union|union
 block|{
 DECL|member|tree
@@ -634,7 +634,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon279eef220708
+DECL|struct|__anon2baeeb4a0708
 typedef|typedef
 struct|struct
 block|{
@@ -5235,6 +5235,13 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
+if|if
+condition|(
+name|ctx
+operator|->
+name|ranges
+condition|)
+block|{
 name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_CORE
@@ -5279,6 +5286,7 @@ name|NGX_CONF_ERROR
 return|;
 default|default:
 break|break;
+block|}
 block|}
 name|file
 operator|.
