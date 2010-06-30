@@ -66,7 +66,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon28dc8c7d0108
+DECL|struct|__anon2c4765410108
 typedef|typedef
 struct|struct
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28dc8c7d0208
+DECL|struct|__anon2c4765410208
 typedef|typedef
 struct|struct
 block|{
@@ -1099,6 +1099,8 @@ operator|=
 name|ngx_http_userid_get_uid
 argument_list|(
 name|r
+operator|->
+expr|main
 argument_list|,
 name|conf
 argument_list|)
@@ -1130,6 +1132,8 @@ return|return
 name|ngx_http_userid_variable
 argument_list|(
 name|r
+operator|->
+expr|main
 argument_list|,
 name|v
 argument_list|,
@@ -1187,6 +1191,8 @@ operator|=
 name|ngx_http_get_module_loc_conf
 argument_list|(
 name|r
+operator|->
+expr|main
 argument_list|,
 name|ngx_http_userid_filter_module
 argument_list|)
@@ -1215,6 +1221,8 @@ operator|=
 name|ngx_http_userid_get_uid
 argument_list|(
 name|r
+operator|->
+expr|main
 argument_list|,
 name|conf
 argument_list|)
@@ -1269,6 +1277,8 @@ condition|(
 name|ngx_http_userid_create_uid
 argument_list|(
 name|r
+operator|->
+expr|main
 argument_list|,
 name|ctx
 argument_list|,
@@ -1287,6 +1297,8 @@ return|return
 name|ngx_http_userid_variable
 argument_list|(
 name|r
+operator|->
+expr|main
 argument_list|,
 name|v
 argument_list|,
