@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27ba4c410108
+DECL|struct|__anon2bcbe1b90108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ba4c410208
+DECL|struct|__anon2bcbe1b90208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ba4c410308
+DECL|struct|__anon2bcbe1b90308
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ba4c410408
+DECL|struct|__anon2bcbe1b90408
 typedef|typedef
 struct|struct
 block|{
@@ -185,11 +185,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ba4c410508
+DECL|struct|__anon2bcbe1b90508
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon27ba4c41060a
+DECL|union|__anon2bcbe1b9060a
 union|union
 block|{
 DECL|member|tree
@@ -634,7 +634,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon27ba4c410708
+DECL|struct|__anon2bcbe1b90708
 typedef|typedef
 struct|struct
 block|{
@@ -5854,6 +5854,10 @@ name|base
 expr_stmt|;
 if|if
 condition|(
+name|size
+operator|<
+literal|16
+operator|||
 name|ngx_memcmp
 argument_list|(
 operator|&
