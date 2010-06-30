@@ -639,6 +639,17 @@ index|[
 name|NGX_SOCKADDR_STRLEN
 index|]
 decl_stmt|;
+if|if
+condition|(
+name|r
+operator|->
+name|header_sent
+condition|)
+block|{
+return|return
+name|NGX_OK
+return|;
+block|}
 name|r
 operator|->
 name|header_sent
