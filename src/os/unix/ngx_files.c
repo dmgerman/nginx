@@ -328,6 +328,8 @@ operator|->
 name|fd
 argument_list|,
 name|buf
+operator|+
+name|written
 argument_list|,
 name|size
 argument_list|,
@@ -471,6 +473,8 @@ operator|->
 name|fd
 argument_list|,
 name|buf
+operator|+
+name|written
 argument_list|,
 name|size
 argument_list|)
