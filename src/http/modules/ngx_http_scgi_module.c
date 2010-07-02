@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27e988450108
+DECL|struct|__anon2b8af6d90108
 typedef|typedef
 struct|struct
 block|{
@@ -1354,7 +1354,7 @@ name|ignore_headers
 argument_list|)
 block|,
 operator|&
-name|ngx_http_scgi_ignore_headers_masks
+name|ngx_http_upstream_ignore_headers_masks
 block|}
 block|,
 name|ngx_null_command

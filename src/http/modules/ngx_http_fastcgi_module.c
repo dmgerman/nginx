@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a08c0580108
+DECL|struct|__anon2ac41aa00108
 typedef|typedef
 struct|struct
 block|{
@@ -111,7 +111,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a08c0580203
+DECL|enum|__anon2ac41aa00203
 typedef|typedef
 enum|enum
 block|{
@@ -153,7 +153,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a08c0580308
+DECL|struct|__anon2ac41aa00308
 typedef|typedef
 struct|struct
 block|{
@@ -174,7 +174,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a08c0580408
+DECL|struct|__anon2ac41aa00408
 typedef|typedef
 struct|struct
 block|{
@@ -308,7 +308,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2a08c0580508
+DECL|struct|__anon2ac41aa00508
 typedef|typedef
 struct|struct
 block|{
@@ -351,7 +351,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a08c0580608
+DECL|struct|__anon2ac41aa00608
 typedef|typedef
 struct|struct
 block|{
@@ -381,7 +381,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a08c0580708
+DECL|struct|__anon2ac41aa00708
 typedef|typedef
 struct|struct
 block|{
@@ -408,7 +408,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a08c0580808
+DECL|struct|__anon2ac41aa00808
 typedef|typedef
 struct|struct
 block|{
@@ -896,59 +896,6 @@ literal|"off"
 argument_list|)
 block|,
 name|NGX_HTTP_UPSTREAM_FT_OFF
-block|}
-block|,
-block|{
-name|ngx_null_string
-block|,
-literal|0
-block|}
-block|}
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-DECL|variable|ngx_http_fastcgi_ignore_headers_masks
-specifier|static
-name|ngx_conf_bitmask_t
-name|ngx_http_fastcgi_ignore_headers_masks
-index|[]
-init|=
-block|{
-block|{
-name|ngx_string
-argument_list|(
-literal|"X-Accel-Redirect"
-argument_list|)
-block|,
-name|NGX_HTTP_UPSTREAM_IGN_XA_REDIRECT
-block|}
-block|,
-block|{
-name|ngx_string
-argument_list|(
-literal|"X-Accel-Expires"
-argument_list|)
-block|,
-name|NGX_HTTP_UPSTREAM_IGN_XA_EXPIRES
-block|}
-block|,
-block|{
-name|ngx_string
-argument_list|(
-literal|"Expires"
-argument_list|)
-block|,
-name|NGX_HTTP_UPSTREAM_IGN_EXPIRES
-block|}
-block|,
-block|{
-name|ngx_string
-argument_list|(
-literal|"Cache-Control"
-argument_list|)
-block|,
-name|NGX_HTTP_UPSTREAM_IGN_CACHE_CONTROL
 block|}
 block|,
 block|{
@@ -1923,7 +1870,7 @@ name|ignore_headers
 argument_list|)
 block|,
 operator|&
-name|ngx_http_fastcgi_ignore_headers_masks
+name|ngx_http_upstream_ignore_headers_masks
 block|}
 block|,
 block|{
