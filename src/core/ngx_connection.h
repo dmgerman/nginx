@@ -239,12 +239,23 @@ endif|#
 directive|endif
 endif|#
 directive|endif
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_SETFIB
+operator|)
+DECL|member|setfib
+name|int
+name|setfib
+decl_stmt|;
+endif|#
+directive|endif
 block|}
 struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2bee580a0103
+DECL|enum|__anon2c6f98480103
 typedef|typedef
 enum|enum
 block|{
@@ -271,7 +282,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2bee580a0203
+DECL|enum|__anon2c6f98480203
 typedef|typedef
 enum|enum
 block|{
@@ -292,7 +303,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2bee580a0303
+DECL|enum|__anon2c6f98480303
 typedef|typedef
 enum|enum
 block|{
