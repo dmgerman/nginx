@@ -2597,7 +2597,7 @@ name|buf
 index|[
 literal|0
 index|]
-operator|==
+operator|&
 literal|0x80
 comment|/* SSLv2 */
 operator|||
