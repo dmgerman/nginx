@@ -54,7 +54,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2795c7af0108
+DECL|struct|__anon2af62c6a0108
 typedef|typedef
 struct|struct
 block|{
@@ -94,7 +94,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2795c7af0208
+DECL|struct|__anon2af62c6a0208
 typedef|typedef
 struct|struct
 block|{
@@ -117,7 +117,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2795c7af0308
+DECL|struct|__anon2af62c6a0308
 typedef|typedef
 struct|struct
 block|{
@@ -141,7 +141,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2795c7af0403
+DECL|enum|__anon2af62c6a0403
 typedef|typedef
 enum|enum
 block|{
@@ -216,6 +216,22 @@ begin_function_decl
 specifier|static
 name|ngx_int_t
 name|ngx_http_ssi_output
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_http_ssi_ctx_t
+modifier|*
+name|ctx
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
+name|void
+name|ngx_http_ssi_buffered
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
@@ -3995,6 +4011,13 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
+name|ngx_http_ssi_buffered
+argument_list|(
+name|r
+argument_list|,
+name|ctx
+argument_list|)
+expr_stmt|;
 return|return
 name|rc
 return|;
@@ -4661,6 +4684,34 @@ name|cl
 expr_stmt|;
 block|}
 block|}
+name|ngx_http_ssi_buffered
+argument_list|(
+name|r
+argument_list|,
+name|ctx
+argument_list|)
+expr_stmt|;
+return|return
+name|rc
+return|;
+block|}
+end_function
+
+begin_function
+specifier|static
+name|void
+DECL|function|ngx_http_ssi_buffered (ngx_http_request_t * r,ngx_http_ssi_ctx_t * ctx)
+name|ngx_http_ssi_buffered
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_http_ssi_ctx_t
+modifier|*
+name|ctx
+parameter_list|)
+block|{
 if|if
 condition|(
 name|ctx
@@ -4689,9 +4740,6 @@ operator|~
 name|NGX_HTTP_SSI_BUFFERED
 expr_stmt|;
 block|}
-return|return
-name|rc
-return|;
 block|}
 end_function
 
