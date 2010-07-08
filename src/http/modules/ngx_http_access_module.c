@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29fd093c0108
+DECL|struct|__anon2b4080b50108
 typedef|typedef
 struct|struct
 block|{
@@ -54,7 +54,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon29fd093c0208
+DECL|struct|__anon2b4080b50208
 typedef|typedef
 struct|struct
 block|{
@@ -85,7 +85,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29fd093c0308
+DECL|struct|__anon2b4080b50308
 typedef|typedef
 struct|struct
 block|{
@@ -873,7 +873,7 @@ argument_list|,
 name|NGX_INET6_ADDRSTRLEN
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug3
+name|ngx_log_debug6
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
