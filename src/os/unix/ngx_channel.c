@@ -63,7 +63,7 @@ directive|if
 operator|(
 name|NGX_HAVE_MSGHDR_MSG_CONTROL
 operator|)
-DECL|union|__anon2be0ff78010a
+DECL|union|__anon27cb22fd010a
 union|union
 block|{
 DECL|member|cm
@@ -161,7 +161,7 @@ name|cmsg_type
 operator|=
 name|SCM_RIGHTS
 expr_stmt|;
-comment|/*          * We have to use ngx_memcpy() instead of simple          *   *(int *) CMSG_DATA(&cmsg.cm) = ch->fd;          * because some gcc 4.4 with -O2/3/s optimization issues the warning:          *   dereferencing type-punned pointer will break strict-aliasing rules          *          * Fortunately, gcc with -O1 compiles this ngx_memcpy()          * in the same simple assigment as in the code above          */
+comment|/*          * We have to use ngx_memcpy() instead of simple          *   *(int *) CMSG_DATA(&cmsg.cm) = ch->fd;          * because some gcc 4.4 with -O2/3/s optimization issues the warning:          *   dereferencing type-punned pointer will break strict-aliasing rules          *          * Fortunately, gcc with -O1 compiles this ngx_memcpy()          * in the same simple assignment as in the code above          */
 name|ngx_memcpy
 argument_list|(
 name|CMSG_DATA
@@ -385,7 +385,7 @@ directive|if
 operator|(
 name|NGX_HAVE_MSGHDR_MSG_CONTROL
 operator|)
-DECL|union|__anon2be0ff78020a
+DECL|union|__anon27cb22fd020a
 union|union
 block|{
 DECL|member|cm
