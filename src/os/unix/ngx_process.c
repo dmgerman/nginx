@@ -28,7 +28,7 @@ file|<ngx_channel.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b4195890108
+DECL|struct|__anon28b4fa8b0108
 typedef|typedef
 struct|struct
 block|{
