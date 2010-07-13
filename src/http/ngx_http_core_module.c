@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2891153a0108
+DECL|struct|__anon2b029c870108
 typedef|typedef
 struct|struct
 block|{
@@ -15265,12 +15265,6 @@ operator|.
 name|setfib
 operator|==
 name|NGX_ERROR
-operator|||
-name|lsopt
-operator|.
-name|setfib
-operator|==
-literal|0
 condition|)
 block|{
 name|ngx_conf_log_error
