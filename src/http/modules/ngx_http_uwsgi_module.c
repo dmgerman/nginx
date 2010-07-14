@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c8a8ba70108
+DECL|struct|__anon2980e0cf0108
 typedef|typedef
 struct|struct
 block|{
@@ -5074,6 +5074,14 @@ operator|.
 name|cache_min_uses
 operator|=
 name|NGX_CONF_UNSET_UINT
+expr_stmt|;
+name|conf
+operator|->
+name|upstream
+operator|.
+name|no_cache
+operator|=
+name|NGX_CONF_UNSET_PTR
 expr_stmt|;
 name|conf
 operator|->
