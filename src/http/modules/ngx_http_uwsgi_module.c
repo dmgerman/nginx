@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a30c69c0108
+DECL|struct|__anon2c8a8ba70108
 typedef|typedef
 struct|struct
 block|{
@@ -1010,7 +1010,7 @@ name|NGX_HTTP_LOC_CONF
 operator||
 name|NGX_CONF_1MORE
 block|,
-name|ngx_http_no_cache_set_slot
+name|ngx_http_set_predicate_slot
 block|,
 name|NGX_HTTP_LOC_CONF_OFFSET
 block|,

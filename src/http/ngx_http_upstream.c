@@ -3111,18 +3111,9 @@ operator|==
 name|NULL
 condition|)
 block|{
-if|if
-condition|(
-name|u
-operator|->
-name|conf
-operator|->
-name|no_cache
-condition|)
-block|{
 name|rc
 operator|=
-name|ngx_http_cache
+name|ngx_http_test_predicates
 argument_list|(
 name|r
 argument_list|,
@@ -3143,7 +3134,6 @@ block|{
 return|return
 name|rc
 return|;
-block|}
 block|}
 if|if
 condition|(
