@@ -827,8 +827,8 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_http_file_cache_create (ngx_http_request_t * r)
-name|ngx_http_file_cache_create
+DECL|function|ngx_http_file_cache_new (ngx_http_request_t * r)
+name|ngx_http_file_cache_new
 parameter_list|(
 name|ngx_http_request_t
 modifier|*

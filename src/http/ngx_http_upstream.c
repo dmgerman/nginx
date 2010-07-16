@@ -3173,7 +3173,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|ngx_http_file_cache_create
+name|ngx_http_file_cache_new
 argument_list|(
 name|r
 argument_list|)
