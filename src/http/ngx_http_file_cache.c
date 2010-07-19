@@ -915,6 +915,14 @@ name|connection
 operator|->
 name|log
 expr_stmt|;
+name|c
+operator|->
+name|file
+operator|.
+name|fd
+operator|=
+name|NGX_INVALID_FILE
+expr_stmt|;
 return|return
 name|NGX_OK
 return|;
