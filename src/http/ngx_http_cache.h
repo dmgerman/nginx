@@ -43,11 +43,19 @@ value|1
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_CACHE_BYPASS
+define|#
+directive|define
+name|NGX_HTTP_CACHE_BYPASS
+value|2
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_CACHE_EXPIRED
 define|#
 directive|define
 name|NGX_HTTP_CACHE_EXPIRED
-value|2
+value|3
 end_define
 
 begin_define
@@ -55,7 +63,7 @@ DECL|macro|NGX_HTTP_CACHE_STALE
 define|#
 directive|define
 name|NGX_HTTP_CACHE_STALE
-value|3
+value|4
 end_define
 
 begin_define
@@ -63,7 +71,7 @@ DECL|macro|NGX_HTTP_CACHE_UPDATING
 define|#
 directive|define
 name|NGX_HTTP_CACHE_UPDATING
-value|4
+value|5
 end_define
 
 begin_define
@@ -71,7 +79,7 @@ DECL|macro|NGX_HTTP_CACHE_HIT
 define|#
 directive|define
 name|NGX_HTTP_CACHE_HIT
-value|5
+value|6
 end_define
 
 begin_define
@@ -79,7 +87,7 @@ DECL|macro|NGX_HTTP_CACHE_SCARCE
 define|#
 directive|define
 name|NGX_HTTP_CACHE_SCARCE
-value|6
+value|7
 end_define
 
 begin_define
@@ -91,7 +99,7 @@ value|16
 end_define
 
 begin_typedef
-DECL|struct|__anon2a039c650108
+DECL|struct|__anon2938433b0108
 typedef|typedef
 struct|struct
 block|{
@@ -110,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a039c650208
+DECL|struct|__anon2938433b0208
 typedef|typedef
 struct|struct
 block|{
@@ -299,7 +307,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a039c650308
+DECL|struct|__anon2938433b0308
 typedef|typedef
 struct|struct
 block|{
@@ -338,7 +346,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a039c650408
+DECL|struct|__anon2938433b0408
 typedef|typedef
 struct|struct
 block|{
@@ -424,6 +432,17 @@ end_struct
 begin_function_decl
 name|ngx_int_t
 name|ngx_http_file_cache_new
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_http_file_cache_create
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
