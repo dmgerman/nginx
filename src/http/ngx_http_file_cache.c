@@ -4387,11 +4387,10 @@ expr_stmt|;
 block|}
 if|else if
 condition|(
+operator|!
 name|fcn
 operator|->
-name|valid_sec
-operator|==
-literal|0
+name|exists
 operator|&&
 name|fcn
 operator|->
