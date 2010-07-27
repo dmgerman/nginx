@@ -8494,7 +8494,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"upstream buffer is too small to read repsonse"
+literal|"upstream buffer is too small to read response"
 argument_list|)
 expr_stmt|;
 name|ngx_http_upstream_finalize_request
