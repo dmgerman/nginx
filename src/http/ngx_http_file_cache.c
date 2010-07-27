@@ -4389,7 +4389,7 @@ if|else if
 condition|(
 name|fcn
 operator|->
-name|valid_msec
+name|valid_sec
 operator|==
 literal|0
 operator|&&
