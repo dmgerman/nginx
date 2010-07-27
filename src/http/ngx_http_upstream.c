@@ -7441,10 +7441,6 @@ name|NGX_HTTP_CACHE
 operator|)
 if|if
 condition|(
-name|u
-operator|->
-name|cacheable
-operator|&&
 name|r
 operator|->
 name|cache
