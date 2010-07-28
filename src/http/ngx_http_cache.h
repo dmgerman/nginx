@@ -99,7 +99,7 @@ value|16
 end_define
 
 begin_typedef
-DECL|struct|__anon2938433b0108
+DECL|struct|__anon2a0e14d20108
 typedef|typedef
 struct|struct
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2938433b0208
+DECL|struct|__anon2a0e14d20208
 typedef|typedef
 struct|struct
 block|{
@@ -290,6 +290,12 @@ name|updated
 range|:
 literal|1
 decl_stmt|;
+DECL|member|updating
+name|unsigned
+name|updating
+range|:
+literal|1
+decl_stmt|;
 DECL|member|exists
 name|unsigned
 name|exists
@@ -307,7 +313,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2938433b0308
+DECL|struct|__anon2a0e14d20308
 typedef|typedef
 struct|struct
 block|{
@@ -346,7 +352,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2938433b0408
+DECL|struct|__anon2a0e14d20408
 typedef|typedef
 struct|struct
 block|{
@@ -517,9 +523,9 @@ begin_function_decl
 name|void
 name|ngx_http_file_cache_free
 parameter_list|(
-name|ngx_http_request_t
+name|ngx_http_cache_t
 modifier|*
-name|r
+name|c
 parameter_list|,
 name|ngx_temp_file_t
 modifier|*

@@ -7513,6 +7513,8 @@ block|}
 name|ngx_http_file_cache_free
 argument_list|(
 name|r
+operator|->
+name|cache
 argument_list|,
 name|u
 operator|->
@@ -9563,6 +9565,8 @@ block|{
 name|ngx_http_file_cache_free
 argument_list|(
 name|r
+operator|->
+name|cache
 argument_list|,
 name|u
 operator|->
@@ -11589,6 +11593,8 @@ block|{
 name|ngx_http_file_cache_free
 argument_list|(
 name|r
+operator|->
+name|cache
 argument_list|,
 name|u
 operator|->
@@ -13071,6 +13077,8 @@ block|}
 name|ngx_http_file_cache_free
 argument_list|(
 name|r
+operator|->
+name|cache
 argument_list|,
 name|u
 operator|->
