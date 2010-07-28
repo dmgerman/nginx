@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b029c870108
+DECL|struct|__anon2aa14e3d0108
 typedef|typedef
 struct|struct
 block|{
@@ -9158,6 +9158,10 @@ name|ngx_uint_t
 name|flags
 parameter_list|)
 block|{
+name|ngx_time_t
+modifier|*
+name|tp
+decl_stmt|;
 name|ngx_connection_t
 modifier|*
 name|c
@@ -9712,6 +9716,27 @@ operator|=
 name|NGX_HTTP_MAX_URI_CHANGES
 operator|+
 literal|1
+expr_stmt|;
+name|tp
+operator|=
+name|ngx_timeofday
+argument_list|()
+expr_stmt|;
+name|r
+operator|->
+name|start_sec
+operator|=
+name|tp
+operator|->
+name|sec
+expr_stmt|;
+name|r
+operator|->
+name|start_msec
+operator|=
+name|tp
+operator|->
+name|msec
 expr_stmt|;
 name|r
 operator|->
