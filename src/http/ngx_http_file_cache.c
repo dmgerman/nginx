@@ -4307,7 +4307,7 @@ name|c
 operator|->
 name|file_cache
 expr_stmt|;
-name|ngx_log_debug0
+name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
@@ -4319,7 +4319,13 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http file cache free"
+literal|"http file cache free, fd: %d"
+argument_list|,
+name|c
+operator|->
+name|file
+operator|.
+name|fd
 argument_list|)
 expr_stmt|;
 name|ngx_shmtx_lock
