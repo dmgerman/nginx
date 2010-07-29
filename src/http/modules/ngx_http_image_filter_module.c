@@ -148,7 +148,7 @@ value|0x08
 end_define
 
 begin_typedef
-DECL|struct|__anon2a05f3e50108
+DECL|struct|__anon2954c0e00108
 typedef|typedef
 struct|struct
 block|{
@@ -193,7 +193,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a05f3e50208
+DECL|struct|__anon2954c0e00208
 typedef|typedef
 struct|struct
 block|{
@@ -1034,7 +1034,7 @@ name|len
 argument_list|)
 expr_stmt|;
 return|return
-name|NGX_ERROR
+name|NGX_HTTP_UNSUPPORTED_MEDIA_TYPE
 return|;
 block|}
 if|if
