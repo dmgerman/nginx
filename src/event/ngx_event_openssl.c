@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon276bf7d50108
+DECL|struct|__anon2c4f74ea0108
 typedef|typedef
 struct|struct
 block|{
@@ -5638,6 +5638,11 @@ expr_stmt|;
 comment|/* handshake failures */
 if|if
 condition|(
+name|n
+operator|==
+name|SSL_R_BLOCK_CIPHER_PAD_IS_WRONG
+comment|/*  129 */
+operator|||
 name|n
 operator|==
 name|SSL_R_DIGEST_CHECK_FAILED
