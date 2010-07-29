@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2aa14e3d0108
+DECL|struct|__anon288f547f0108
 typedef|typedef
 struct|struct
 block|{
@@ -16113,16 +16113,6 @@ operator|==
 name|NULL
 condition|)
 block|{
-if|if
-condition|(
-name|value
-index|[
-literal|1
-index|]
-operator|.
-name|len
-condition|)
-block|{
 name|name
 operator|=
 name|value
@@ -16185,24 +16175,6 @@ operator|==
 name|NULL
 condition|)
 block|{
-return|return
-name|NGX_CONF_ERROR
-return|;
-block|}
-block|}
-else|else
-block|{
-name|ngx_conf_log_error
-argument_list|(
-name|NGX_LOG_EMERG
-argument_list|,
-name|cf
-argument_list|,
-literal|0
-argument_list|,
-literal|"the first server name must not be empty"
-argument_list|)
-expr_stmt|;
 return|return
 name|NGX_CONF_ERROR
 return|;
