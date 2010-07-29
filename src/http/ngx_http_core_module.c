@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c70349a0108
+DECL|struct|__anon27851ce60108
 typedef|typedef
 struct|struct
 block|{
@@ -14622,7 +14622,7 @@ name|prev
 operator|->
 name|server_name_in_redirect
 argument_list|,
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_value
