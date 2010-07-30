@@ -5346,9 +5346,9 @@ literal|0xffffffff
 block|,
 comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
 comment|/* ?>=< ;:98 7654 3210  /.-, +*)( '&%$ #"!  */
-literal|0x80000869
+literal|0x88000869
 block|,
-comment|/* 1000 0000 0000 0000  0000 1000 0110 1001 */
+comment|/* 1000 1000 0000 0000  0000 1000 0110 1001 */
 comment|/* _^]\ [ZYX WVUT SRQP  ONML KJIH GFED CBA@ */
 literal|0x00000000
 block|,
@@ -5681,7 +5681,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon2c1e84e10103
+DECL|enum|__anon29e0179e0103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
