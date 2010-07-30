@@ -4407,6 +4407,12 @@ operator|->
 name|count
 operator|==
 literal|0
+operator|&&
+name|c
+operator|->
+name|min_uses
+operator|==
+literal|1
 condition|)
 block|{
 name|ngx_queue_remove
