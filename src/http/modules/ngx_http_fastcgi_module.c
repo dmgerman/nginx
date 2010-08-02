@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b7ad9740108
+DECL|struct|__anon29226cb70108
 typedef|typedef
 struct|struct
 block|{
@@ -111,7 +111,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b7ad9740203
+DECL|enum|__anon29226cb70203
 typedef|typedef
 enum|enum
 block|{
@@ -153,7 +153,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7ad9740308
+DECL|struct|__anon29226cb70308
 typedef|typedef
 struct|struct
 block|{
@@ -174,7 +174,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7ad9740408
+DECL|struct|__anon29226cb70408
 typedef|typedef
 struct|struct
 block|{
@@ -308,7 +308,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2b7ad9740508
+DECL|struct|__anon29226cb70508
 typedef|typedef
 struct|struct
 block|{
@@ -351,7 +351,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7ad9740608
+DECL|struct|__anon29226cb70608
 typedef|typedef
 struct|struct
 block|{
@@ -381,7 +381,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7ad9740708
+DECL|struct|__anon29226cb70708
 typedef|typedef
 struct|struct
 block|{
@@ -408,7 +408,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7ad9740808
+DECL|struct|__anon29226cb70808
 typedef|typedef
 struct|struct
 block|{
@@ -1425,7 +1425,7 @@ name|NGX_HTTP_SRV_CONF
 operator||
 name|NGX_HTTP_LOC_CONF
 operator||
-name|NGX_CONF_FLAG
+name|NGX_CONF_TAKE1
 block|,
 name|ngx_http_fastcgi_cache
 block|,
@@ -1448,7 +1448,7 @@ name|NGX_HTTP_SRV_CONF
 operator||
 name|NGX_HTTP_LOC_CONF
 operator||
-name|NGX_CONF_FLAG
+name|NGX_CONF_TAKE1
 block|,
 name|ngx_http_fastcgi_cache_key
 block|,
@@ -1824,7 +1824,7 @@ name|NGX_HTTP_SRV_CONF
 operator||
 name|NGX_HTTP_LOC_CONF
 operator||
-name|NGX_CONF_FLAG
+name|NGX_CONF_TAKE1
 block|,
 name|ngx_conf_set_str_array_slot
 block|,
@@ -1854,7 +1854,7 @@ name|NGX_HTTP_SRV_CONF
 operator||
 name|NGX_HTTP_LOC_CONF
 operator||
-name|NGX_CONF_FLAG
+name|NGX_CONF_TAKE1
 block|,
 name|ngx_conf_set_str_array_slot
 block|,
