@@ -4763,7 +4763,7 @@ literal|10
 expr_stmt|;
 name|tries
 operator|=
-literal|0
+literal|20
 expr_stmt|;
 name|ngx_shmtx_lock
 argument_list|(
@@ -4892,10 +4892,8 @@ else|else
 block|{
 if|if
 condition|(
+operator|--
 name|tries
-operator|++
-operator|<
-literal|20
 condition|)
 block|{
 continue|continue;
