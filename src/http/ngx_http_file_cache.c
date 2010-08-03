@@ -1786,12 +1786,6 @@ name|ngx_http_file_cache_header_t
 modifier|*
 name|h
 decl_stmt|;
-name|c
-operator|=
-name|r
-operator|->
-name|cache
-expr_stmt|;
 name|n
 operator|=
 name|ngx_http_file_cache_aio_read
