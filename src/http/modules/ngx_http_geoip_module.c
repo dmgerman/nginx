@@ -34,7 +34,7 @@ file|<GeoIPCity.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2beaf3800108
+DECL|struct|__anon2b6ea91e0108
 typedef|typedef
 struct|struct
 block|{
@@ -55,7 +55,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2beaf3800208
+DECL|struct|__anon2b6ea91e0208
 typedef|typedef
 struct|struct
 block|{
@@ -1175,6 +1175,17 @@ operator|->
 name|region
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|val
+operator|==
+name|NULL
+condition|)
+block|{
+goto|goto
+name|no_value
+goto|;
+block|}
 name|len
 operator|=
 name|ngx_strlen
@@ -1256,6 +1267,13 @@ expr_stmt|;
 return|return
 name|NGX_OK
 return|;
+name|no_value
+label|:
+name|GeoIPRecord_delete
+argument_list|(
+name|gr
+argument_list|)
+expr_stmt|;
 name|not_found
 label|:
 name|v
