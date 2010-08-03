@@ -70,14 +70,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon2c632502010a
+DECL|union|__anon2c748e0b010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon2c6325020208
+DECL|struct|__anon2c748e0b0208
 struct|struct
 block|{
 DECL|member|lengths
@@ -108,7 +108,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c6325020308
+DECL|struct|__anon2c748e0b0308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6325020408
+DECL|struct|__anon2c748e0b0408
 typedef|typedef
 struct|struct
 block|{
@@ -246,7 +246,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6325020508
+DECL|struct|__anon2c748e0b0508
 typedef|typedef
 struct|struct
 block|{
@@ -2589,7 +2589,7 @@ name|plcf
 operator|->
 name|proxy_lengths
 operator|==
-literal|0
+name|NULL
 condition|)
 block|{
 name|ctx
