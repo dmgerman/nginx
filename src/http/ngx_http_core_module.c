@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27851ce60108
+DECL|struct|__anon2b780ca00108
 typedef|typedef
 struct|struct
 block|{
@@ -17713,6 +17713,12 @@ expr_stmt|;
 name|clcf
 operator|->
 name|noname
+operator|=
+literal|1
+expr_stmt|;
+name|clcf
+operator|->
+name|lmt_excpt
 operator|=
 literal|1
 expr_stmt|;

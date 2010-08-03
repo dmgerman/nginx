@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29226cb70108
+DECL|struct|__anon2a517e6b0108
 typedef|typedef
 struct|struct
 block|{
@@ -111,7 +111,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29226cb70203
+DECL|enum|__anon2a517e6b0203
 typedef|typedef
 enum|enum
 block|{
@@ -153,7 +153,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29226cb70308
+DECL|struct|__anon2a517e6b0308
 typedef|typedef
 struct|struct
 block|{
@@ -174,7 +174,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29226cb70408
+DECL|struct|__anon2a517e6b0408
 typedef|typedef
 struct|struct
 block|{
@@ -308,7 +308,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon29226cb70508
+DECL|struct|__anon2a517e6b0508
 typedef|typedef
 struct|struct
 block|{
@@ -351,7 +351,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29226cb70608
+DECL|struct|__anon2a517e6b0608
 typedef|typedef
 struct|struct
 block|{
@@ -381,7 +381,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29226cb70708
+DECL|struct|__anon2a517e6b0708
 typedef|typedef
 struct|struct
 block|{
@@ -408,7 +408,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29226cb70808
+DECL|struct|__anon2a517e6b0808
 typedef|typedef
 struct|struct
 block|{
@@ -9164,6 +9164,10 @@ decl_stmt|;
 name|ngx_hash_init_t
 name|hash
 decl_stmt|;
+name|ngx_http_core_loc_conf_t
+modifier|*
+name|clcf
+decl_stmt|;
 name|ngx_http_script_compile_t
 name|sc
 decl_stmt|;
@@ -10302,6 +10306,49 @@ name|prev
 operator|->
 name|fastcgi_values
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|conf
+operator|->
+name|upstream
+operator|.
+name|upstream
+operator|||
+name|conf
+operator|->
+name|fastcgi_lengths
+condition|)
+block|{
+name|clcf
+operator|=
+name|ngx_http_conf_get_module_loc_conf
+argument_list|(
+name|cf
+argument_list|,
+name|ngx_http_core_module
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|clcf
+operator|->
+name|handler
+operator|==
+name|NULL
+operator|&&
+name|clcf
+operator|->
+name|lmt_excpt
+condition|)
+block|{
+name|clcf
+operator|->
+name|handler
+operator|=
+name|ngx_http_fastcgi_handler
+expr_stmt|;
+block|}
 block|}
 if|#
 directive|if
