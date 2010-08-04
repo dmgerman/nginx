@@ -2721,6 +2721,12 @@ name|count
 operator|=
 literal|1
 expr_stmt|;
+name|fcn
+operator|->
+name|updating
+operator|=
+literal|0
+expr_stmt|;
 name|renew
 label|:
 name|rc
@@ -6734,6 +6740,12 @@ operator|->
 name|exists
 operator|=
 literal|1
+expr_stmt|;
+name|fcn
+operator|->
+name|updating
+operator|=
+literal|0
 expr_stmt|;
 name|fcn
 operator|->
