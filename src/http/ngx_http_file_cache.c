@@ -4366,6 +4366,21 @@ condition|)
 block|{
 name|fcn
 operator|->
+name|error
+operator|=
+name|c
+operator|->
+name|error
+expr_stmt|;
+if|if
+condition|(
+name|c
+operator|->
+name|valid_sec
+condition|)
+block|{
+name|fcn
+operator|->
 name|valid_sec
 operator|=
 name|c
@@ -4380,14 +4395,7 @@ name|c
 operator|->
 name|valid_msec
 expr_stmt|;
-name|fcn
-operator|->
-name|error
-operator|=
-name|c
-operator|->
-name|error
-expr_stmt|;
+block|}
 block|}
 if|else if
 condition|(
