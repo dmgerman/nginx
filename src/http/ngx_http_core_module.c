@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27941fa50108
+DECL|struct|__anon27d86f4f0108
 typedef|typedef
 struct|struct
 block|{
@@ -19942,7 +19942,7 @@ name|ngx_strcmp
 argument_list|(
 name|value
 index|[
-literal|1
+name|i
 index|]
 operator|.
 name|data
