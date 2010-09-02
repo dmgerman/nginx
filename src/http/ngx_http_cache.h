@@ -99,7 +99,7 @@ value|16
 end_define
 
 begin_typedef
-DECL|struct|__anon2a0e14d20108
+DECL|struct|__anon2900414e0108
 typedef|typedef
 struct|struct
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a0e14d20208
+DECL|struct|__anon2900414e0208
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,13 @@ name|updating
 range|:
 literal|1
 decl_stmt|;
-comment|/* 12 unused bits */
+DECL|member|deleting
+name|unsigned
+name|deleting
+range|:
+literal|1
+decl_stmt|;
+comment|/* 11 unused bits */
 DECL|member|uniq
 name|ngx_file_uniq_t
 name|uniq
@@ -313,7 +319,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a0e14d20308
+DECL|struct|__anon2900414e0308
 typedef|typedef
 struct|struct
 block|{
@@ -352,7 +358,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a0e14d20408
+DECL|struct|__anon2900414e0408
 typedef|typedef
 struct|struct
 block|{
