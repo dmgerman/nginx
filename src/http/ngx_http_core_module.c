@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27c13f960108
+DECL|struct|__anon2a455a7d0108
 typedef|typedef
 struct|struct
 block|{
@@ -13439,14 +13439,14 @@ name|gzip_disable
 operator|=
 name|NGX_CONF_UNSET_PTR
 expr_stmt|;
+endif|#
+directive|endif
 name|clcf
 operator|->
 name|gzip_disable_msie6
 operator|=
 literal|3
 expr_stmt|;
-endif|#
-directive|endif
 endif|#
 directive|endif
 return|return
