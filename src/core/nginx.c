@@ -886,7 +886,7 @@ name|ngx_log_stderr
 argument_list|(
 literal|0
 argument_list|,
-literal|"Usage: nginx [-?hvVt] [-s signal] [-c filename] "
+literal|"Usage: nginx [-?hvVtq] [-s signal] [-c filename] "
 literal|"[-p prefix] [-g directives]"
 argument|CRLF CRLF
 literal|"Options:"
@@ -898,6 +898,9 @@ argument|CRLF
 literal|"  -V            : show version and configure options then exit"
 argument|CRLF
 literal|"  -t            : test configuration and exit"
+argument|CRLF
+literal|"  -q            : suppress non-error messages "
+literal|"during configuration testing"
 argument|CRLF
 literal|"  -s signal     : send signal to a master process: "
 literal|"stop, quit, reopen, reload"
@@ -1252,6 +1255,12 @@ condition|(
 name|ngx_test_config
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|ngx_quiet_mode
+condition|)
+block|{
 name|ngx_log_stderr
 argument_list|(
 literal|0
@@ -1265,6 +1274,7 @@ operator|.
 name|data
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 literal|0
 return|;
@@ -2838,6 +2848,14 @@ case|case
 literal|'t'
 case|:
 name|ngx_test_config
+operator|=
+literal|1
+expr_stmt|;
+break|break;
+case|case
+literal|'q'
+case|:
+name|ngx_quiet_mode
 operator|=
 literal|1
 expr_stmt|;

@@ -135,6 +135,13 @@ name|ngx_test_config
 decl_stmt|;
 end_decl_stmt
 
+begin_decl_stmt
+DECL|variable|ngx_quiet_mode
+name|ngx_uint_t
+name|ngx_quiet_mode
+decl_stmt|;
+end_decl_stmt
+
 begin_if
 if|#
 directive|if
@@ -1369,6 +1376,9 @@ block|}
 if|if
 condition|(
 name|ngx_test_config
+operator|&&
+operator|!
+name|ngx_quiet_mode
 condition|)
 block|{
 name|ngx_log_stderr

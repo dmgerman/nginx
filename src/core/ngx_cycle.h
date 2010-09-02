@@ -234,7 +234,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28b4331a0108
+DECL|struct|__anon27c3f2bf0108
 typedef|typedef
 struct|struct
 block|{
@@ -344,7 +344,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b4331a0208
+DECL|struct|__anon27c3f2bf0208
 typedef|typedef
 struct|struct
 block|{
@@ -532,6 +532,13 @@ begin_decl_stmt
 specifier|extern
 name|ngx_uint_t
 name|ngx_test_config
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_uint_t
+name|ngx_quiet_mode
 decl_stmt|;
 end_decl_stmt
 
