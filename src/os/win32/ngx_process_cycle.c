@@ -66,7 +66,7 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|ngx_int_t
-name|ngx_create_events
+name|ngx_create_signal_events
 parameter_list|(
 name|ngx_cycle_t
 modifier|*
@@ -557,7 +557,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|ngx_create_events
+name|ngx_create_signal_events
 argument_list|(
 name|cycle
 argument_list|)
@@ -1502,8 +1502,8 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_create_events (ngx_cycle_t * cycle)
-name|ngx_create_events
+DECL|function|ngx_create_signal_events (ngx_cycle_t * cycle)
+name|ngx_create_signal_events
 parameter_list|(
 name|ngx_cycle_t
 modifier|*
@@ -1518,7 +1518,7 @@ operator|*
 operator|)
 name|ngx_stop_event_name
 argument_list|,
-literal|"ngx_stop_%s%Z"
+literal|"Global\\ngx_stop_%s%Z"
 argument_list|,
 name|ngx_unique
 argument_list|)
@@ -1570,7 +1570,7 @@ operator|*
 operator|)
 name|ngx_quit_event_name
 argument_list|,
-literal|"ngx_quit_%s%Z"
+literal|"Global\\ngx_quit_%s%Z"
 argument_list|,
 name|ngx_unique
 argument_list|)
@@ -1622,7 +1622,7 @@ operator|*
 operator|)
 name|ngx_reopen_event_name
 argument_list|,
-literal|"ngx_reopen_%s%Z"
+literal|"Global\\ngx_reopen_%s%Z"
 argument_list|,
 name|ngx_unique
 argument_list|)
@@ -1674,7 +1674,7 @@ operator|*
 operator|)
 name|ngx_reload_event_name
 argument_list|,
-literal|"ngx_reload_%s%Z"
+literal|"Global\\ngx_reload_%s%Z"
 argument_list|,
 name|ngx_unique
 argument_list|)
@@ -4505,7 +4505,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|ngx_create_events
+name|ngx_create_signal_events
 argument_list|(
 name|cycle
 argument_list|)
@@ -4593,7 +4593,7 @@ operator|*
 operator|)
 name|evn
 argument_list|,
-literal|"ngx_%s_%ul%Z"
+literal|"Global\\ngx_%s_%ul%Z"
 argument_list|,
 name|sig
 argument_list|,
