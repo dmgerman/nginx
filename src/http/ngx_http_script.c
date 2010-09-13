@@ -1073,8 +1073,8 @@ end_function
 begin_function
 name|char
 modifier|*
-DECL|function|ngx_http_set_comlex_value_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
-name|ngx_http_set_comlex_value_slot
+DECL|function|ngx_http_set_complex_value_slot (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
+name|ngx_http_set_complex_value_slot
 parameter_list|(
 name|ngx_conf_t
 modifier|*

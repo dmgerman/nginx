@@ -28,7 +28,7 @@ file|<ngx_md5.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27a65ed70108
+DECL|struct|__anon2925a5c50108
 typedef|typedef
 struct|struct
 block|{
@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a65ed70208
+DECL|struct|__anon2925a5c50208
 typedef|typedef
 struct|struct
 block|{
@@ -177,7 +177,7 @@ name|NGX_HTTP_LOC_CONF
 operator||
 name|NGX_CONF_TAKE1
 block|,
-name|ngx_http_set_comlex_value_slot
+name|ngx_http_set_complex_value_slot
 block|,
 name|NGX_HTTP_LOC_CONF_OFFSET
 block|,
@@ -205,7 +205,7 @@ name|NGX_HTTP_LOC_CONF
 operator||
 name|NGX_CONF_TAKE1
 block|,
-name|ngx_http_set_comlex_value_slot
+name|ngx_http_set_complex_value_slot
 block|,
 name|NGX_HTTP_LOC_CONF_OFFSET
 block|,
