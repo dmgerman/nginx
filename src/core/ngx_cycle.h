@@ -234,7 +234,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27c3f2bf0108
+DECL|struct|__anon29c2f8f40108
 typedef|typedef
 struct|struct
 block|{
@@ -267,7 +267,7 @@ name|ngx_int_t
 name|rlimit_sigpending
 decl_stmt|;
 DECL|member|rlimit_core
-name|size_t
+name|off_t
 name|rlimit_core
 decl_stmt|;
 DECL|member|priority
@@ -344,7 +344,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c3f2bf0208
+DECL|struct|__anon29c2f8f40208
 typedef|typedef
 struct|struct
 block|{

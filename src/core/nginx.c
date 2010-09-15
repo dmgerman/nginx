@@ -524,7 +524,7 @@ name|NGX_DIRECT_CONF
 operator||
 name|NGX_CONF_TAKE1
 block|,
-name|ngx_conf_set_size_slot
+name|ngx_conf_set_off_slot
 block|,
 literal|0
 block|,
@@ -3866,7 +3866,7 @@ name|ccf
 operator|->
 name|rlimit_core
 operator|=
-name|NGX_CONF_UNSET_SIZE
+name|NGX_CONF_UNSET
 expr_stmt|;
 name|ccf
 operator|->

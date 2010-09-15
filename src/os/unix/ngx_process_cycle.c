@@ -3963,7 +3963,7 @@ name|ccf
 operator|->
 name|rlimit_core
 operator|!=
-name|NGX_CONF_UNSET_SIZE
+name|NGX_CONF_UNSET
 condition|)
 block|{
 name|rlmt
@@ -4012,7 +4012,7 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"setrlimit(RLIMIT_CORE, %i) failed"
+literal|"setrlimit(RLIMIT_CORE, %O) failed"
 argument_list|,
 name|ccf
 operator|->
