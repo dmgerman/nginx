@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27d86f4f0108
+DECL|struct|__anon2c8a327d0108
 typedef|typedef
 struct|struct
 block|{
@@ -15947,12 +15947,6 @@ directive|if
 operator|(
 name|NGX_HTTP_SSL
 operator|)
-name|lsopt
-operator|.
-name|set
-operator|=
-literal|1
-expr_stmt|;
 name|lsopt
 operator|.
 name|ssl
