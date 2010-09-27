@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon297a78530108
+DECL|struct|__anon2c765f3a0108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297a78530208
+DECL|struct|__anon2c765f3a0208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297a78530308
+DECL|struct|__anon2c765f3a0308
 typedef|typedef
 struct|struct
 block|{
@@ -864,7 +864,7 @@ name|r
 operator|->
 name|log_level
 operator|=
-name|NGX_LOG_ALERT
+name|NGX_LOG_ERR
 expr_stmt|;
 if|if
 condition|(
