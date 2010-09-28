@@ -5434,7 +5434,7 @@ index|]
 operator|.
 name|opt
 operator|.
-name|set
+name|ssl
 expr_stmt|;
 endif|#
 directive|endif
