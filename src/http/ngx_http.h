@@ -254,7 +254,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2baa7da90108
+DECL|struct|__anon2bc190a00108
 typedef|typedef
 struct|struct
 block|{
@@ -888,6 +888,29 @@ name|default_type
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_DEGRADATION
+operator|)
+end_if
+
+begin_function_decl
+name|ngx_uint_t
+name|ngx_http_degraded
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_decl_stmt
 specifier|extern
