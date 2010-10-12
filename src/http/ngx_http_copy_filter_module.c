@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29ed8bce0108
+DECL|struct|__anon27bb62f40108
 typedef|typedef
 struct|struct
 block|{
@@ -491,7 +491,10 @@ operator|)
 if|if
 condition|(
 name|ngx_file_aio
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
 name|clcf
 operator|->
 name|aio
@@ -503,6 +506,7 @@ name|aio_handler
 operator|=
 name|ngx_http_copy_aio_handler
 expr_stmt|;
+block|}
 if|#
 directive|if
 operator|(
