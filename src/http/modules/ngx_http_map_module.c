@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27f2135e0108
+DECL|struct|__anon276874600108
 typedef|typedef
 struct|struct
 block|{
@@ -41,7 +41,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27f2135e0208
+DECL|struct|__anon276874600208
 typedef|typedef
 struct|struct
 block|{
@@ -71,7 +71,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27f2135e0308
+DECL|struct|__anon276874600308
 typedef|typedef
 struct|struct
 block|{
@@ -1961,7 +1961,7 @@ index|[
 literal|0
 index|]
 operator|==
-literal|'!'
+literal|'\\'
 condition|)
 block|{
 name|value
