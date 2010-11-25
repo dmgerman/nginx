@@ -199,6 +199,8 @@ if|#
 directive|if
 operator|(
 name|NGX_HAVE_INHERITED_NONBLOCK
+operator|||
+name|NGX_HAVE_ACCEPT4
 operator|)
 name|ngx_inherited_nonblocking
 operator|=
