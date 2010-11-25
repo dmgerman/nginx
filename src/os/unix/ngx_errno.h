@@ -364,22 +364,12 @@ parameter_list|)
 value|errno = err
 end_define
 
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_HAVE_STRERROR_R
-operator|||
-name|NGX_HAVE_GNU_STRERROR_R
-operator|)
-end_if
-
 begin_function_decl
 name|u_char
 modifier|*
-name|ngx_strerror_r
+name|ngx_strerror
 parameter_list|(
-name|int
+name|ngx_err_t
 name|err
 parameter_list|,
 name|u_char
@@ -392,76 +382,14 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
-begin_else
-else|#
-directive|else
-end_else
-
-begin_comment
-comment|/* Solaris and Tru64 UNIX have thread-safe strerror() */
-end_comment
-
-begin_define
-DECL|macro|ngx_strerror_r (err,errstr,size)
-define|#
-directive|define
-name|ngx_strerror_r
+begin_function_decl
+name|ngx_uint_t
+name|ngx_strerror_init
 parameter_list|(
-name|err
-parameter_list|,
-name|errstr
-parameter_list|,
-name|size
+name|void
 parameter_list|)
-define|\
-value|ngx_cpystrn(errstr, (u_char *) strerror(err), size)
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_HAVE_SYS_ERRLIST
-operator|)
-end_if
-
-begin_define
-DECL|macro|ngx_sigsafe_strerror (err)
-define|#
-directive|define
-name|ngx_sigsafe_strerror
-parameter_list|(
-name|err
-parameter_list|)
-define|\
-value|(err> 0&& err< sys_nerr) ? sys_errlist[err] : "Unknown error"
-end_define
-
-begin_else
-else|#
-directive|else
-end_else
-
-begin_define
-DECL|macro|ngx_sigsafe_strerror (err)
-define|#
-directive|define
-name|ngx_sigsafe_strerror
-parameter_list|(
-name|err
-parameter_list|)
-value|""
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
+function_decl|;
+end_function_decl
 
 begin_endif
 endif|#

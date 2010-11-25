@@ -18,8 +18,8 @@ end_include
 begin_function
 name|u_char
 modifier|*
-DECL|function|ngx_strerror_r (ngx_err_t err,u_char * errstr,size_t size)
-name|ngx_strerror_r
+DECL|function|ngx_strerror (ngx_err_t err,u_char * errstr,size_t size)
+name|ngx_strerror
 parameter_list|(
 name|ngx_err_t
 name|err
@@ -187,6 +187,20 @@ index|[
 operator|++
 name|len
 index|]
+return|;
+block|}
+end_function
+
+begin_function
+name|ngx_uint_t
+DECL|function|ngx_strerror_init (void)
+name|ngx_strerror_init
+parameter_list|(
+name|void
+parameter_list|)
+block|{
+return|return
+name|NGX_OK
 return|;
 block|}
 end_function

@@ -1049,7 +1049,7 @@ endif|#
 directive|endif
 name|buf
 operator|=
-name|ngx_strerror_r
+name|ngx_strerror
 argument_list|(
 name|err
 argument_list|,

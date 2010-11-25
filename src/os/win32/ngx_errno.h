@@ -309,7 +309,7 @@ end_define
 begin_function_decl
 name|u_char
 modifier|*
-name|ngx_strerror_r
+name|ngx_strerror
 parameter_list|(
 name|ngx_err_t
 name|err
@@ -320,6 +320,15 @@ name|errstr
 parameter_list|,
 name|size_t
 name|size
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_uint_t
+name|ngx_strerror_init
+parameter_list|(
+name|void
 parameter_list|)
 function_decl|;
 end_function_decl
