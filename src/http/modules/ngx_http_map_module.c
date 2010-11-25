@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ae86da80108
+DECL|struct|__anon27f2135e0108
 typedef|typedef
 struct|struct
 block|{
@@ -41,7 +41,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae86da80208
+DECL|struct|__anon27f2135e0208
 typedef|typedef
 struct|struct
 block|{
@@ -71,7 +71,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae86da80308
+DECL|struct|__anon27f2135e0308
 typedef|typedef
 struct|struct
 block|{
@@ -440,25 +440,6 @@ block|{
 name|len
 operator|--
 expr_stmt|;
-block|}
-if|if
-condition|(
-name|len
-operator|==
-literal|0
-condition|)
-block|{
-operator|*
-name|v
-operator|=
-operator|*
-name|map
-operator|->
-name|default_value
-expr_stmt|;
-return|return
-name|NGX_OK
-return|;
 block|}
 name|key
 operator|=
@@ -1530,33 +1511,6 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"invalid number of the map parameters"
-argument_list|)
-expr_stmt|;
-return|return
-name|NGX_CONF_ERROR
-return|;
-block|}
-if|else if
-condition|(
-name|value
-index|[
-literal|0
-index|]
-operator|.
-name|len
-operator|==
-literal|0
-condition|)
-block|{
-name|ngx_conf_log_error
-argument_list|(
-name|NGX_LOG_EMERG
-argument_list|,
-name|cf
-argument_list|,
-literal|0
-argument_list|,
-literal|"invalid first parameter"
 argument_list|)
 expr_stmt|;
 return|return
