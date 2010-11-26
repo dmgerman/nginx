@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon292fc9f20108
+DECL|struct|__anon2bb0d0b50108
 typedef|typedef
 struct|struct
 block|{
@@ -37,7 +37,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292fc9f20208
+DECL|struct|__anon2bb0d0b50208
 typedef|typedef
 struct|struct
 block|{
@@ -305,14 +305,6 @@ block|}
 decl_stmt|;
 end_decl_stmt
 
-begin_decl_stmt
-DECL|variable|ngx_degraded
-specifier|static
-name|ngx_uint_t
-name|ngx_degraded
-decl_stmt|;
-end_decl_stmt
-
 begin_function
 specifier|static
 name|ngx_int_t
@@ -462,10 +454,6 @@ operator|->
 name|sbrk_size
 condition|)
 block|{
-name|ngx_degraded
-operator|=
-literal|1
-expr_stmt|;
 if|if
 condition|(
 name|log
@@ -500,10 +488,6 @@ literal|1
 return|;
 block|}
 block|}
-name|ngx_degraded
-operator|=
-literal|0
-expr_stmt|;
 return|return
 literal|0
 return|;
