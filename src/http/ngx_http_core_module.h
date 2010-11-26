@@ -170,6 +170,30 @@ name|NGX_HTTP_IMS_BEFORE
 value|2
 end_define
 
+begin_define
+DECL|macro|NGX_HTTP_KEEPALIVE_DISABLE_NONE
+define|#
+directive|define
+name|NGX_HTTP_KEEPALIVE_DISABLE_NONE
+value|0x0002
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_KEEPALIVE_DISABLE_MSIE6
+define|#
+directive|define
+name|NGX_HTTP_KEEPALIVE_DISABLE_MSIE6
+value|0x0004
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_KEEPALIVE_DISABLE_SAFARI
+define|#
+directive|define
+name|NGX_HTTP_KEEPALIVE_DISABLE_SAFARI
+value|0x0008
+end_define
+
 begin_typedef
 DECL|typedef|ngx_http_location_tree_node_t
 typedef|typedef
@@ -189,11 +213,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f49bb00108
+DECL|struct|__anon2b42d8160108
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon28f49bb0020a
+DECL|union|__anon2b42d816020a
 union|union
 block|{
 DECL|member|sockaddr
@@ -366,7 +390,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28f49bb00303
+DECL|enum|__anon2b42d8160303
 typedef|typedef
 enum|enum
 block|{
@@ -461,7 +485,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28f49bb00408
+DECL|struct|__anon2b42d8160408
 typedef|typedef
 struct|struct
 block|{
@@ -485,7 +509,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f49bb00508
+DECL|struct|__anon2b42d8160508
 typedef|typedef
 struct|struct
 block|{
@@ -500,7 +524,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f49bb00608
+DECL|struct|__anon2b42d8160608
 typedef|typedef
 struct|struct
 block|{
@@ -577,7 +601,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f49bb00708
+DECL|struct|__anon2b42d8160708
 typedef|typedef
 struct|struct
 block|{
@@ -664,7 +688,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon28f49bb00808
+DECL|struct|__anon2b42d8160808
 typedef|typedef
 struct|struct
 block|{
@@ -698,7 +722,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f49bb00908
+DECL|struct|__anon2b42d8160908
 typedef|typedef
 struct|struct
 block|{
@@ -725,7 +749,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon28f49bb00a08
+DECL|struct|__anon2b42d8160a08
 typedef|typedef
 struct|struct
 block|{
@@ -750,7 +774,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28f49bb00b08
+DECL|struct|__anon2b42d8160b08
 typedef|typedef
 struct|struct
 block|{
@@ -771,7 +795,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f49bb00c08
+DECL|struct|__anon2b42d8160c08
 typedef|typedef
 struct|struct
 block|{
@@ -795,7 +819,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f49bb00d08
+DECL|struct|__anon2b42d8160d08
 typedef|typedef
 struct|struct
 block|{
@@ -882,7 +906,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28f49bb00e08
+DECL|struct|__anon2b42d8160e08
 typedef|typedef
 struct|struct
 block|{
@@ -909,7 +933,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f49bb00f08
+DECL|struct|__anon2b42d8160f08
 typedef|typedef
 struct|struct
 block|{
@@ -1202,6 +1226,11 @@ name|ngx_uint_t
 name|keepalive_requests
 decl_stmt|;
 comment|/* keepalive_requests */
+DECL|member|keepalive_disable
+name|ngx_uint_t
+name|keepalive_disable
+decl_stmt|;
+comment|/* keepalive_disable */
 DECL|member|satisfy
 name|ngx_uint_t
 name|satisfy
@@ -1407,7 +1436,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28f49bb01008
+DECL|struct|__anon2b42d8161008
 typedef|typedef
 struct|struct
 block|{
