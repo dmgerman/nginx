@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29ce98300108
+DECL|struct|__anon29cce0c20108
 typedef|typedef
 struct|struct
 block|{
@@ -3790,6 +3790,25 @@ if|if
 condition|(
 name|rc
 operator|==
+name|NGX_OK
+condition|)
+block|{
+name|r
+operator|->
+name|phase_handler
+operator|=
+name|ph
+operator|->
+name|next
+expr_stmt|;
+return|return
+name|NGX_AGAIN
+return|;
+block|}
+if|if
+condition|(
+name|rc
+operator|==
 name|NGX_DECLINED
 condition|)
 block|{
@@ -3802,7 +3821,18 @@ return|return
 name|NGX_AGAIN
 return|;
 block|}
-comment|/* rc == NGX_OK || rc == NGX_ERROR || rc == NGX_HTTP_...  */
+if|if
+condition|(
+name|rc
+operator|==
+name|NGX_DONE
+condition|)
+block|{
+return|return
+name|NGX_OK
+return|;
+block|}
+comment|/* NGX_AGAIN || rc == NGX_ERROR || rc == NGX_HTTP_...  */
 name|ngx_http_finalize_request
 argument_list|(
 name|r
