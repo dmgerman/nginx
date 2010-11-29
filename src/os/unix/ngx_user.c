@@ -134,6 +134,8 @@ name|ngx_strlen
 argument_list|(
 name|value
 argument_list|)
+operator|+
+literal|1
 expr_stmt|;
 operator|*
 name|encrypted
@@ -159,8 +161,6 @@ argument_list|,
 name|value
 argument_list|,
 name|len
-operator|+
-literal|1
 argument_list|)
 expr_stmt|;
 return|return
@@ -282,6 +282,8 @@ name|ngx_strlen
 argument_list|(
 name|value
 argument_list|)
+operator|+
+literal|1
 expr_stmt|;
 operator|*
 name|encrypted
@@ -307,8 +309,6 @@ argument_list|,
 name|value
 argument_list|,
 name|len
-operator|+
-literal|1
 argument_list|)
 expr_stmt|;
 block|}
