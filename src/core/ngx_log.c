@@ -573,6 +573,8 @@ block|}
 name|msg
 operator|-=
 operator|(
+literal|7
+operator|+
 name|err_levels
 index|[
 name|level
@@ -590,7 +592,7 @@ name|ngx_sprintf
 argument_list|(
 name|msg
 argument_list|,
-literal|"[%V]: "
+literal|"nginx: [%V]: "
 argument_list|,
 operator|&
 name|err_levels
@@ -868,6 +870,21 @@ name|errstr
 operator|+
 name|NGX_MAX_ERROR_STR
 expr_stmt|;
+name|p
+operator|=
+name|errstr
+operator|+
+literal|7
+expr_stmt|;
+name|ngx_memcpy
+argument_list|(
+name|errstr
+argument_list|,
+literal|"nginx: "
+argument_list|,
+literal|7
+argument_list|)
+expr_stmt|;
 name|va_start
 argument_list|(
 name|args
@@ -879,7 +896,7 @@ name|p
 operator|=
 name|ngx_vslprintf
 argument_list|(
-name|errstr
+name|p
 argument_list|,
 name|last
 argument_list|,
