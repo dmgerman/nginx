@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29cce0c20108
+DECL|struct|__anon2961edc30108
 typedef|typedef
 struct|struct
 block|{
@@ -3786,25 +3786,6 @@ argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|rc
-operator|==
-name|NGX_OK
-condition|)
-block|{
-name|r
-operator|->
-name|phase_handler
-operator|=
-name|ph
-operator|->
-name|next
-expr_stmt|;
-return|return
-name|NGX_AGAIN
-return|;
-block|}
 if|if
 condition|(
 name|rc
