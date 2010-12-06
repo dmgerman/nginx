@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c4f74ea0108
+DECL|struct|__anon2b0572880108
 typedef|typedef
 struct|struct
 block|{
@@ -730,15 +730,6 @@ operator|->
 name|ctx
 argument_list|,
 name|SSL_OP_NETSCAPE_CHALLENGE_BUG
-argument_list|)
-expr_stmt|;
-name|SSL_CTX_set_options
-argument_list|(
-name|ssl
-operator|->
-name|ctx
-argument_list|,
-name|SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG
 argument_list|)
 expr_stmt|;
 comment|/* server side options */
