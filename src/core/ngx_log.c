@@ -582,7 +582,7 @@ index|]
 operator|.
 name|len
 operator|+
-literal|4
+literal|3
 operator|)
 expr_stmt|;
 operator|(
@@ -592,7 +592,7 @@ name|ngx_sprintf
 argument_list|(
 name|msg
 argument_list|,
-literal|"nginx: [%V]: "
+literal|"nginx: [%V] "
 argument_list|,
 operator|&
 name|err_levels
