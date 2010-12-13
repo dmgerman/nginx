@@ -1460,6 +1460,25 @@ block|{
 name|ngx_uint_t
 name|i
 decl_stmt|;
+if|if
+condition|(
+name|ngx_set_environment
+argument_list|(
+name|cycle
+argument_list|,
+name|NULL
+argument_list|)
+operator|==
+name|NULL
+condition|)
+block|{
+comment|/* fatal */
+name|exit
+argument_list|(
+literal|2
+argument_list|)
+expr_stmt|;
+block|}
 for|for
 control|(
 name|i
