@@ -1264,7 +1264,7 @@ if|else if
 condition|(
 name|error
 operator|>=
-name|NGX_HTTP_OWN_CODES
+name|NGX_HTTP_NGINX_CODES
 operator|&&
 name|error
 operator|<
@@ -1276,7 +1276,7 @@ name|err
 operator|=
 name|error
 operator|-
-name|NGX_HTTP_OWN_CODES
+name|NGX_HTTP_NGINX_CODES
 operator|+
 name|NGX_HTTP_LEVEL_200
 operator|+
