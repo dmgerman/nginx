@@ -517,7 +517,15 @@ DECL|macro|NGX_HTTP_NGINX_CODES
 define|#
 directive|define
 name|NGX_HTTP_NGINX_CODES
-value|495
+value|494
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_REQUEST_HEADER_TOO_LARGE
+define|#
+directive|define
+name|NGX_HTTP_REQUEST_HEADER_TOO_LARGE
+value|494
 end_define
 
 begin_define
@@ -661,7 +669,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon2b842da90103
+DECL|enum|__anon28b856c90103
 typedef|typedef
 enum|enum
 block|{
@@ -700,7 +708,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b842da90208
+DECL|struct|__anon28b856c90208
 typedef|typedef
 struct|struct
 block|{
@@ -723,7 +731,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b842da90308
+DECL|struct|__anon28b856c90308
 typedef|typedef
 struct|struct
 block|{
@@ -742,7 +750,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b842da90408
+DECL|struct|__anon28b856c90408
 typedef|typedef
 struct|struct
 block|{
@@ -994,7 +1002,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b842da90508
+DECL|struct|__anon28b856c90508
 typedef|typedef
 struct|struct
 block|{
@@ -1135,7 +1143,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b842da90608
+DECL|struct|__anon28b856c90608
 typedef|typedef
 struct|struct
 block|{
@@ -1174,7 +1182,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b842da90708
+DECL|struct|__anon28b856c90708
 typedef|typedef
 struct|struct
 block|{
@@ -1224,7 +1232,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b842da90808
+DECL|struct|__anon28b856c90808
 typedef|typedef
 struct|struct
 block|{
@@ -1319,7 +1327,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b842da90908
+DECL|struct|__anon28b856c90908
 typedef|typedef
 struct|struct
 block|{
@@ -2179,7 +2187,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b842da90a08
+DECL|struct|__anon28b856c90a08
 typedef|typedef
 struct|struct
 block|{

@@ -496,6 +496,26 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_http_error_494_page
+specifier|static
+name|char
+name|ngx_http_error_494_page
+index|[]
+init|=
+literal|"<html>"
+name|CRLF
+literal|"<head><title>400 Request Header Or Cookie Too Large</title></head>"
+name|CRLF
+literal|"<body bgcolor=\"white\">"
+name|CRLF
+literal|"<center><h1>400 Bad Request</h1></center>"
+name|CRLF
+literal|"<center>Request Header Or Cookie Too Large</center>"
+name|CRLF
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_http_error_495_page
 specifier|static
 name|char
@@ -804,6 +824,12 @@ define|#
 directive|define
 name|NGX_HTTP_LEVEL_400
 value|(NGX_HTTP_LAST_LEVEL_400 - 400)
+name|ngx_string
+argument_list|(
+name|ngx_http_error_494_page
+argument_list|)
+block|,
+comment|/* 494, request header too large */
 name|ngx_string
 argument_list|(
 name|ngx_http_error_495_page
@@ -1297,6 +1323,9 @@ name|NGX_HTTPS_CERT_ERROR
 case|:
 case|case
 name|NGX_HTTPS_NO_CERT
+case|:
+case|case
+name|NGX_HTTP_REQUEST_HEADER_TOO_LARGE
 case|:
 name|r
 operator|->

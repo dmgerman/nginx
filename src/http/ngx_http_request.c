@@ -4325,6 +4325,12 @@ name|r
 operator|->
 name|header_name_start
 expr_stmt|;
+name|r
+operator|->
+name|lingering_close
+operator|=
+literal|1
+expr_stmt|;
 if|if
 condition|(
 name|p
@@ -4349,7 +4355,7 @@ name|ngx_http_finalize_request
 argument_list|(
 name|r
 argument_list|,
-name|NGX_HTTP_BAD_REQUEST
+name|NGX_HTTP_REQUEST_HEADER_TOO_LARGE
 argument_list|)
 expr_stmt|;
 return|return;
@@ -4427,7 +4433,7 @@ name|ngx_http_finalize_request
 argument_list|(
 name|r
 argument_list|,
-name|NGX_HTTP_BAD_REQUEST
+name|NGX_HTTP_REQUEST_HEADER_TOO_LARGE
 argument_list|)
 expr_stmt|;
 return|return;
