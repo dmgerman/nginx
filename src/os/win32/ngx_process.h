@@ -58,7 +58,7 @@ value|(sizeof("ngx_cache_manager_mutex_") + NGX_INT32_LEN)
 end_define
 
 begin_typedef
-DECL|struct|__anon2ac2f9250108
+DECL|struct|__anon2b0a61f30108
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac2f9250208
+DECL|struct|__anon2b0a61f30208
 typedef|typedef
 struct|struct
 block|{
@@ -217,7 +217,7 @@ define|#
 directive|define
 name|ngx_sched_yield
 parameter_list|()
-value|Sleep(0)
+value|SwitchToThread()
 end_define
 
 begin_define
