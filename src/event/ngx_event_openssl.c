@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b0572880108
+DECL|struct|__anon2a1505fd0108
 typedef|typedef
 struct|struct
 block|{
@@ -2656,7 +2656,7 @@ if|#
 directive|if
 name|OPENSSL_VERSION_NUMBER
 operator|>=
-literal|0x1000000fL
+literal|0x10000000L
 specifier|const
 endif|#
 directive|endif
