@@ -1116,7 +1116,8 @@ index|]
 operator|.
 name|tv_sec
 operator|=
-name|s
+name|ngx_time
+argument_list|()
 expr_stmt|;
 name|tv
 index|[
