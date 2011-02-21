@@ -1350,7 +1350,7 @@ name|ngx_log_stderr
 argument_list|(
 name|ngx_errno
 argument_list|,
-literal|"[alert]: could not open error log file: "
+literal|"[alert] could not open error log file: "
 name|ngx_open_file_n
 literal|" \"%s\" failed"
 argument_list|,
