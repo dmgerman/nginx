@@ -100,7 +100,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28c09f440108
+DECL|struct|__anon2b0c538d0108
 typedef|typedef
 struct|struct
 block|{
@@ -126,7 +126,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c09f440208
+DECL|struct|__anon2b0c538d0208
 typedef|typedef
 struct|struct
 block|{
@@ -147,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c09f440308
+DECL|struct|__anon2b0c538d0308
 typedef|typedef
 struct|struct
 block|{
@@ -168,7 +168,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c09f440408
+DECL|struct|__anon2b0c538d0408
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +202,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c09f440508
+DECL|struct|__anon2b0c538d0508
 typedef|typedef
 struct|struct
 block|{
@@ -237,7 +237,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c09f440608
+DECL|struct|__anon2b0c538d0608
 typedef|typedef
 struct|struct
 block|{
@@ -357,6 +357,27 @@ specifier|static
 name|u_char
 modifier|*
 name|ngx_http_log_time
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|u_char
+modifier|*
+name|buf
+parameter_list|,
+name|ngx_http_log_op_t
+modifier|*
+name|op
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
+name|u_char
+modifier|*
+name|ngx_http_log_iso8601
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
@@ -959,6 +980,22 @@ operator|-
 literal|1
 block|,
 name|ngx_http_log_time
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"time_iso8601"
+argument_list|)
+block|,
+sizeof|sizeof
+argument_list|(
+literal|"1970-09-28T12:00:00+06:00"
+argument_list|)
+operator|-
+literal|1
+block|,
+name|ngx_http_log_iso8601
 block|}
 block|,
 block|{
@@ -2423,6 +2460,43 @@ operator|.
 name|data
 argument_list|,
 name|ngx_cached_http_log_time
+operator|.
+name|len
+argument_list|)
+return|;
+block|}
+end_function
+
+begin_function
+specifier|static
+name|u_char
+modifier|*
+DECL|function|ngx_http_log_iso8601 (ngx_http_request_t * r,u_char * buf,ngx_http_log_op_t * op)
+name|ngx_http_log_iso8601
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|u_char
+modifier|*
+name|buf
+parameter_list|,
+name|ngx_http_log_op_t
+modifier|*
+name|op
+parameter_list|)
+block|{
+return|return
+name|ngx_cpymem
+argument_list|(
+name|buf
+argument_list|,
+name|ngx_cached_http_log_iso8601
+operator|.
+name|data
+argument_list|,
+name|ngx_cached_http_log_iso8601
 operator|.
 name|len
 argument_list|)
