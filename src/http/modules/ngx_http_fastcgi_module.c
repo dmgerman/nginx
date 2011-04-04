@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b86c3790108
+DECL|struct|__anon291da4020108
 typedef|typedef
 struct|struct
 block|{
@@ -111,7 +111,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b86c3790203
+DECL|enum|__anon291da4020203
 typedef|typedef
 enum|enum
 block|{
@@ -153,7 +153,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b86c3790308
+DECL|struct|__anon291da4020308
 typedef|typedef
 struct|struct
 block|{
@@ -174,7 +174,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b86c3790408
+DECL|struct|__anon291da4020408
 typedef|typedef
 struct|struct
 block|{
@@ -308,7 +308,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2b86c3790508
+DECL|struct|__anon291da4020508
 typedef|typedef
 struct|struct
 block|{
@@ -351,7 +351,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b86c3790608
+DECL|struct|__anon291da4020608
 typedef|typedef
 struct|struct
 block|{
@@ -381,7 +381,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b86c3790708
+DECL|struct|__anon291da4020708
 typedef|typedef
 struct|struct
 block|{
@@ -408,7 +408,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b86c3790808
+DECL|struct|__anon291da4020808
 typedef|typedef
 struct|struct
 block|{
@@ -2738,37 +2738,6 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-if|if
-condition|(
-name|url
-operator|.
-name|no_port
-condition|)
-block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_ERR
-argument_list|,
-name|r
-operator|->
-name|connection
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"no port in upstream \"%V\""
-argument_list|,
-operator|&
-name|url
-operator|.
-name|url
-argument_list|)
-expr_stmt|;
-return|return
-name|NGX_ERROR
-return|;
-block|}
 name|u
 operator|=
 name|r
@@ -2895,6 +2864,16 @@ operator|=
 name|url
 operator|.
 name|port
+expr_stmt|;
+name|u
+operator|->
+name|resolved
+operator|->
+name|no_port
+operator|=
+name|url
+operator|.
+name|no_port
 expr_stmt|;
 block|}
 return|return
