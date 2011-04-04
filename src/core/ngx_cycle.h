@@ -161,6 +161,10 @@ DECL|member|free_connection_n
 name|ngx_uint_t
 name|free_connection_n
 decl_stmt|;
+DECL|member|reusable_connections_queue
+name|ngx_queue_t
+name|reusable_connections_queue
+decl_stmt|;
 DECL|member|listening
 name|ngx_array_t
 name|listening
@@ -234,7 +238,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29c2f8f40108
+DECL|struct|__anon28f6f94a0108
 typedef|typedef
 struct|struct
 block|{
@@ -344,7 +348,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c2f8f40208
+DECL|struct|__anon28f6f94a0208
 typedef|typedef
 struct|struct
 block|{

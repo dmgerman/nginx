@@ -962,6 +962,14 @@ name|pool
 operator|=
 name|pool
 expr_stmt|;
+name|ngx_queue_init
+argument_list|(
+operator|&
+name|cycle
+operator|->
+name|reusable_connections_queue
+argument_list|)
+expr_stmt|;
 name|cycle
 operator|->
 name|conf_ctx

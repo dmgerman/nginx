@@ -255,7 +255,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2c6f98480103
+DECL|enum|__anon2c4fcd6a0103
 typedef|typedef
 enum|enum
 block|{
@@ -282,7 +282,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c6f98480203
+DECL|enum|__anon2c4fcd6a0203
 typedef|typedef
 enum|enum
 block|{
@@ -303,7 +303,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c6f98480303
+DECL|enum|__anon2c4fcd6a0303
 typedef|typedef
 enum|enum
 block|{
@@ -435,6 +435,10 @@ name|ngx_buf_t
 modifier|*
 name|buffer
 decl_stmt|;
+DECL|member|queue
+name|ngx_queue_t
+name|queue
+decl_stmt|;
 DECL|member|number
 name|ngx_atomic_uint_t
 name|number
@@ -489,6 +493,12 @@ decl_stmt|;
 DECL|member|idle
 name|unsigned
 name|idle
+range|:
+literal|1
+decl_stmt|;
+DECL|member|reusable
+name|unsigned
+name|reusable
 range|:
 literal|1
 decl_stmt|;
@@ -702,6 +712,20 @@ parameter_list|(
 name|ngx_connection_t
 modifier|*
 name|c
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_reusable_connection
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|,
+name|ngx_uint_t
+name|reusable
 parameter_list|)
 function_decl|;
 end_function_decl

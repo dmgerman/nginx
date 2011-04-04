@@ -11230,6 +11230,13 @@ name|idle
 operator|=
 literal|1
 expr_stmt|;
+name|ngx_reusable_connection
+argument_list|(
+name|c
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|rev
@@ -11632,6 +11639,13 @@ operator|->
 name|idle
 operator|=
 literal|0
+expr_stmt|;
+name|ngx_reusable_connection
+argument_list|(
+name|c
+argument_list|,
+literal|0
+argument_list|)
 expr_stmt|;
 name|ngx_http_init_request
 argument_list|(
