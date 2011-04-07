@@ -156,7 +156,7 @@ value|0x08
 end_define
 
 begin_typedef
-DECL|struct|__anon296d48f90108
+DECL|struct|__anon2932ce790108
 typedef|typedef
 struct|struct
 block|{
@@ -215,7 +215,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296d48f90208
+DECL|struct|__anon2932ce790208
 typedef|typedef
 struct|struct
 block|{
@@ -3851,6 +3851,18 @@ argument_list|(
 name|src
 argument_list|)
 expr_stmt|;
+name|t
+operator|=
+name|dx
+expr_stmt|;
+name|dx
+operator|=
+name|dy
+expr_stmt|;
+name|dy
+operator|=
+name|t
+expr_stmt|;
 break|break;
 case|case
 literal|180
@@ -3918,18 +3930,6 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
-name|t
-operator|=
-name|dx
-expr_stmt|;
-name|dx
-operator|=
-name|dy
-expr_stmt|;
-name|dy
-operator|=
-name|t
-expr_stmt|;
 block|}
 if|if
 condition|(
