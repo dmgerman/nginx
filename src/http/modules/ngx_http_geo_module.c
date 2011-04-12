@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b736eb00108
+DECL|struct|__anon2afcf1b30108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b736eb00208
+DECL|struct|__anon2afcf1b30208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b736eb00308
+DECL|struct|__anon2afcf1b30308
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b736eb00408
+DECL|struct|__anon2afcf1b30408
 typedef|typedef
 struct|struct
 block|{
@@ -185,11 +185,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b736eb00508
+DECL|struct|__anon2afcf1b30508
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon2b736eb0060a
+DECL|union|__anon2afcf1b3060a
 union|union
 block|{
 DECL|member|tree
@@ -634,7 +634,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2b736eb00708
+DECL|struct|__anon2afcf1b30708
 typedef|typedef
 struct|struct
 block|{
@@ -3090,7 +3090,7 @@ name|a
 operator|->
 name|elts
 expr_stmt|;
-name|ngx_memcpy
+name|ngx_memmove
 argument_list|(
 operator|&
 name|range
@@ -3307,7 +3307,7 @@ name|a
 operator|->
 name|elts
 expr_stmt|;
-name|ngx_memcpy
+name|ngx_memmove
 argument_list|(
 operator|&
 name|range
@@ -3504,7 +3504,7 @@ name|a
 operator|->
 name|elts
 expr_stmt|;
-name|ngx_memcpy
+name|ngx_memmove
 argument_list|(
 operator|&
 name|range
@@ -3645,7 +3645,7 @@ name|a
 operator|->
 name|elts
 expr_stmt|;
-name|ngx_memcpy
+name|ngx_memmove
 argument_list|(
 operator|&
 name|range
@@ -4061,7 +4061,7 @@ operator|.
 name|end
 condition|)
 block|{
-name|ngx_memcpy
+name|ngx_memmove
 argument_list|(
 operator|&
 name|range

@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b974e0e0108
+DECL|struct|__anon27e7c3a00108
 typedef|typedef
 struct|struct
 block|{
@@ -5176,7 +5176,7 @@ operator|==
 literal|0
 condition|)
 block|{
-name|ngx_memcpy
+name|ngx_memmove
 argument_list|(
 name|name
 argument_list|,

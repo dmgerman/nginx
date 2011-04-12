@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28c306b30108
+DECL|struct|__anon2be753e30108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c306b30208
+DECL|struct|__anon2be753e30208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c306b30308
+DECL|struct|__anon2be753e30308
 typedef|typedef
 struct|struct
 block|{
@@ -528,6 +528,36 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_define
+DECL|macro|ngx_memmove (dst,src,n)
+define|#
+directive|define
+name|ngx_memmove
+parameter_list|(
+name|dst
+parameter_list|,
+name|src
+parameter_list|,
+name|n
+parameter_list|)
+value|(void) memmove(dst, src, n)
+end_define
+
+begin_define
+DECL|macro|ngx_movemem (dst,src,n)
+define|#
+directive|define
+name|ngx_movemem
+parameter_list|(
+name|dst
+parameter_list|,
+name|src
+parameter_list|,
+name|n
+parameter_list|)
+value|(((u_char *) memmove(dst, src, n)) + (n))
+end_define
 
 begin_comment
 comment|/* msvc and icc7 compile memcmp() to the inline loop */
@@ -1228,7 +1258,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon28c306b30408
+DECL|struct|__anon2be753e30408
 typedef|typedef
 struct|struct
 block|{

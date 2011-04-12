@@ -5046,7 +5046,7 @@ condition|)
 block|{
 name|dst
 operator|=
-name|ngx_copy
+name|ngx_movemem
 argument_list|(
 name|dst
 argument_list|,

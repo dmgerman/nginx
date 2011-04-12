@@ -407,7 +407,7 @@ name|prev
 decl_stmt|,
 name|conf_file
 decl_stmt|;
-DECL|enum|__anon291a64b80103
+DECL|enum|__anon27e0adb50103
 enum|enum
 block|{
 DECL|enumerator|parse_file
@@ -1950,7 +1950,7 @@ condition|(
 name|len
 condition|)
 block|{
-name|ngx_memcpy
+name|ngx_memmove
 argument_list|(
 name|b
 operator|->

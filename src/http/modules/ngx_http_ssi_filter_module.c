@@ -54,7 +54,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2af62c6a0108
+DECL|struct|__anon297c19a10108
 typedef|typedef
 struct|struct
 block|{
@@ -94,7 +94,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af62c6a0208
+DECL|struct|__anon297c19a10208
 typedef|typedef
 struct|struct
 block|{
@@ -117,7 +117,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af62c6a0308
+DECL|struct|__anon297c19a10308
 typedef|typedef
 struct|struct
 block|{
@@ -141,7 +141,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2af62c6a0403
+DECL|enum|__anon297c19a10403
 typedef|typedef
 enum|enum
 block|{
@@ -8353,7 +8353,7 @@ condition|)
 block|{
 name|dst
 operator|=
-name|ngx_copy
+name|ngx_movemem
 argument_list|(
 name|dst
 argument_list|,
