@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon293f28800108
+DECL|struct|__anon2bb6f1020108
 typedef|typedef
 struct|struct
 block|{
@@ -41,7 +41,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293f28800208
+DECL|struct|__anon2bb6f1020208
 typedef|typedef
 struct|struct
 block|{
@@ -283,7 +283,7 @@ return|;
 block|}
 name|hash
 operator|=
-name|ngx_crc32_short
+name|ngx_murmur_hash2
 argument_list|(
 name|val
 operator|.
