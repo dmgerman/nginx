@@ -359,6 +359,12 @@ directive|include
 file|<ngx_crc32.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_murmurhash.h>
+end_include
+
 begin_if
 if|#
 directive|if
