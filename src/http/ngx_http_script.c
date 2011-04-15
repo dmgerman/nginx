@@ -1310,6 +1310,13 @@ name|val
 operator|.
 name|len
 operator|&&
+operator|(
+name|val
+operator|.
+name|len
+operator|!=
+literal|1
+operator|||
 name|val
 operator|.
 name|data
@@ -1318,6 +1325,7 @@ literal|0
 index|]
 operator|!=
 literal|'0'
+operator|)
 condition|)
 block|{
 return|return
