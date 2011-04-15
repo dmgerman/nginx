@@ -446,6 +446,10 @@ condition|(
 name|n
 operator|<
 literal|2
+operator|||
+name|digit
+operator|==
+name|NULL
 condition|)
 block|{
 return|return
