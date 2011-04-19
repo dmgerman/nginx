@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27e7c3a00108
+DECL|struct|__anon2936b2670108
 typedef|typedef
 struct|struct
 block|{
@@ -9793,7 +9793,7 @@ operator|=
 name|ngx_timeofday
 argument_list|()
 expr_stmt|;
-name|r
+name|sr
 operator|->
 name|start_sec
 operator|=
@@ -9801,7 +9801,7 @@ name|tp
 operator|->
 name|sec
 expr_stmt|;
-name|r
+name|sr
 operator|->
 name|start_msec
 operator|=
