@@ -1752,8 +1752,6 @@ name|ngx_http_upstream_addr_variable
 block|,
 literal|0
 block|,
-name|NGX_HTTP_VAR_NOHASH
-operator||
 name|NGX_HTTP_VAR_NOCACHEABLE
 block|,
 literal|0
@@ -1771,8 +1769,6 @@ name|ngx_http_upstream_status_variable
 block|,
 literal|0
 block|,
-name|NGX_HTTP_VAR_NOHASH
-operator||
 name|NGX_HTTP_VAR_NOCACHEABLE
 block|,
 literal|0
@@ -1790,8 +1786,6 @@ name|ngx_http_upstream_response_time_variable
 block|,
 literal|0
 block|,
-name|NGX_HTTP_VAR_NOHASH
-operator||
 name|NGX_HTTP_VAR_NOCACHEABLE
 block|,
 literal|0
@@ -1809,8 +1803,6 @@ name|ngx_http_upstream_response_length_variable
 block|,
 literal|0
 block|,
-name|NGX_HTTP_VAR_NOHASH
-operator||
 name|NGX_HTTP_VAR_NOCACHEABLE
 block|,
 literal|0
@@ -1833,8 +1825,6 @@ name|ngx_http_upstream_cache_status
 block|,
 literal|0
 block|,
-name|NGX_HTTP_VAR_NOHASH
-operator||
 name|NGX_HTTP_VAR_NOCACHEABLE
 block|,
 literal|0
