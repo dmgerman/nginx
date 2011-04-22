@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon279437e60108
+DECL|struct|__anon2c6727520108
 typedef|typedef
 struct|struct
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon279437e60208
+DECL|struct|__anon2c6727520208
 typedef|typedef
 struct|struct
 block|{
@@ -128,7 +128,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon279437e60308
+DECL|struct|__anon2c6727520308
 typedef|typedef
 struct|struct
 block|{
@@ -694,6 +694,17 @@ name|fi
 parameter_list|)
 define|\
 value|(((off_t) (fi)->nFileSizeHigh<< 32) | (fi)->nFileSizeLow)
+end_define
+
+begin_define
+DECL|macro|ngx_file_fs_size (fi)
+define|#
+directive|define
+name|ngx_file_fs_size
+parameter_list|(
+name|fi
+parameter_list|)
+value|ngx_file_size(fi)
 end_define
 
 begin_define

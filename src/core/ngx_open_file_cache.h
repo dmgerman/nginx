@@ -37,7 +37,7 @@ value|NGX_MAX_OFF_T_VALUE
 end_define
 
 begin_typedef
-DECL|struct|__anon276030e90108
+DECL|struct|__anon27e14c5d0108
 typedef|typedef
 struct|struct
 block|{
@@ -56,6 +56,10 @@ decl_stmt|;
 DECL|member|size
 name|off_t
 name|size
+decl_stmt|;
+DECL|member|fs_size
+name|off_t
+name|fs_size
 decl_stmt|;
 DECL|member|directio
 name|off_t
@@ -265,7 +269,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon276030e90208
+DECL|struct|__anon27e14c5d0208
 typedef|typedef
 struct|struct
 block|{
@@ -300,7 +304,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276030e90308
+DECL|struct|__anon27e14c5d0308
 typedef|typedef
 struct|struct
 block|{
@@ -330,7 +334,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276030e90408
+DECL|struct|__anon27e14c5d0408
 typedef|typedef
 struct|struct
 block|{

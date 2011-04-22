@@ -99,7 +99,7 @@ value|16
 end_define
 
 begin_typedef
-DECL|struct|__anon2900414e0108
+DECL|struct|__anon278452410108
 typedef|typedef
 struct|struct
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2900414e0208
+DECL|struct|__anon278452410208
 typedef|typedef
 struct|struct
 block|{
@@ -201,9 +201,9 @@ DECL|member|body_start
 name|size_t
 name|body_start
 decl_stmt|;
-DECL|member|length
+DECL|member|fs_size
 name|off_t
-name|length
+name|fs_size
 decl_stmt|;
 DECL|typedef|ngx_http_file_cache_node_t
 block|}
@@ -263,6 +263,10 @@ DECL|member|length
 name|off_t
 name|length
 decl_stmt|;
+DECL|member|fs_size
+name|off_t
+name|fs_size
+decl_stmt|;
 DECL|member|min_uses
 name|ngx_uint_t
 name|min_uses
@@ -319,7 +323,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2900414e0308
+DECL|struct|__anon278452410308
 typedef|typedef
 struct|struct
 block|{
@@ -358,7 +362,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2900414e0408
+DECL|struct|__anon278452410408
 typedef|typedef
 struct|struct
 block|{
