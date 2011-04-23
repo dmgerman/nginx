@@ -373,7 +373,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2bfa701c0108
+DECL|struct|__anon29392a6f0108
 typedef|typedef
 struct|struct
 block|{
@@ -2169,10 +2169,6 @@ decl_stmt|;
 name|ngx_err_t
 name|err
 decl_stmt|;
-name|ngx_log_t
-modifier|*
-name|log
-decl_stmt|;
 name|ngx_event_t
 modifier|*
 name|rev
@@ -2340,12 +2336,6 @@ argument_list|(
 name|ngx_posted_events_mutex
 argument_list|)
 expr_stmt|;
-name|log
-operator|=
-name|cycle
-operator|->
-name|log
-expr_stmt|;
 for|for
 control|(
 name|i
@@ -2439,27 +2429,6 @@ argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG0
-operator|)
-name|log
-operator|=
-name|c
-operator|->
-name|log
-condition|?
-name|c
-operator|->
-name|log
-else|:
-name|cycle
-operator|->
-name|log
-expr_stmt|;
-endif|#
-directive|endif
 name|revents
 operator|=
 name|event_list
@@ -2473,6 +2442,8 @@ name|ngx_log_debug3
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -2510,6 +2481,8 @@ name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
+name|cycle
+operator|->
 name|log
 argument_list|,
 literal|0
@@ -2527,7 +2500,7 @@ block|}
 if|#
 directive|if
 literal|0
-block_content|if (revents& ~(EPOLLIN|EPOLLOUT|EPOLLERR|EPOLLHUP)) {             ngx_log_error(NGX_LOG_ALERT, log, 0,                           "strange epoll_wait() events fd:%d ev:%04XD",                           c->fd, revents);         }
+block_content|if (revents& ~(EPOLLIN|EPOLLOUT|EPOLLERR|EPOLLHUP)) {             ngx_log_error(NGX_LOG_ALERT, cycle->log, 0,                           "strange epoll_wait() events fd:%d ev:%04XD",                           c->fd, revents);         }
 endif|#
 directive|endif
 if|if

@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2c765f3a0108
+DECL|struct|__anon29f4ba8d0108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c765f3a0208
+DECL|struct|__anon29f4ba8d0208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c765f3a0308
+DECL|struct|__anon29f4ba8d0308
 typedef|typedef
 struct|struct
 block|{
@@ -6192,10 +6192,6 @@ name|i
 decl_stmt|,
 name|mask
 decl_stmt|,
-name|qtype
-decl_stmt|,
-name|qclass
-decl_stmt|,
 name|qident
 decl_stmt|;
 name|ngx_resolver_an_t
@@ -6650,34 +6646,6 @@ operator|+
 literal|2
 index|]
 expr_stmt|;
-name|qtype
-operator|=
-operator|(
-name|an
-operator|->
-name|type_hi
-operator|<<
-literal|8
-operator|)
-operator|+
-name|an
-operator|->
-name|type_lo
-expr_stmt|;
-name|qclass
-operator|=
-operator|(
-name|an
-operator|->
-name|class_hi
-operator|<<
-literal|8
-operator|)
-operator|+
-name|an
-operator|->
-name|class_lo
-expr_stmt|;
 name|len
 operator|=
 operator|(
@@ -6704,9 +6672,29 @@ literal|0
 argument_list|,
 literal|"resolver qt:%ui cl:%ui len:%uz"
 argument_list|,
-name|qtype
+operator|(
+name|an
+operator|->
+name|type_hi
+operator|<<
+literal|8
+operator|)
+operator|+
+name|an
+operator|->
+name|type_lo
 argument_list|,
-name|qclass
+operator|(
+name|an
+operator|->
+name|class_hi
+operator|<<
+literal|8
+operator|)
+operator|+
+name|an
+operator|->
+name|class_lo
 argument_list|,
 name|len
 argument_list|)
