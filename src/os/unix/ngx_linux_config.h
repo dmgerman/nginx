@@ -442,7 +442,7 @@ DECL|macro|NGX_LISTEN_BACKLOG
 define|#
 directive|define
 name|NGX_LISTEN_BACKLOG
-value|-1
+value|511
 end_define
 
 begin_if
