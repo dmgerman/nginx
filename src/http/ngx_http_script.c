@@ -6514,6 +6514,15 @@ name|sp
 operator|->
 name|len
 operator|&&
+operator|(
+name|e
+operator|->
+name|sp
+operator|->
+name|len
+operator|!=
+literal|1
+operator|||
 name|e
 operator|->
 name|sp
@@ -6524,6 +6533,7 @@ literal|0
 index|]
 operator|!=
 literal|'0'
+operator|)
 condition|)
 block|{
 if|if
