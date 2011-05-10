@@ -1925,6 +1925,16 @@ operator|*
 operator|)
 name|shared
 expr_stmt|;
+name|ngx_accept_mutex
+operator|.
+name|spin
+operator|=
+operator|(
+name|ngx_uint_t
+operator|)
+operator|-
+literal|1
+expr_stmt|;
 if|if
 condition|(
 name|ngx_shmtx_create
