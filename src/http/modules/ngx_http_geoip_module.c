@@ -34,7 +34,7 @@ file|<GeoIPCity.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29fb74160108
+DECL|struct|__anon28aeb3540108
 typedef|typedef
 struct|struct
 block|{
@@ -55,7 +55,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fb74160208
+DECL|struct|__anon28aeb3540208
 typedef|typedef
 struct|struct
 block|{
@@ -1878,7 +1878,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"GeoIO_open(\"%V\") failed"
+literal|"GeoIP_open(\"%V\") failed"
 argument_list|,
 operator|&
 name|value
@@ -2091,7 +2091,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"GeoIO_open(\"%V\") failed"
+literal|"GeoIP_open(\"%V\") failed"
 argument_list|,
 operator|&
 name|value
