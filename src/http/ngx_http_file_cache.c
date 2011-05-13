@@ -951,11 +951,6 @@ name|ngx_http_file_cache_t
 modifier|*
 name|cache
 decl_stmt|;
-name|ngx_http_file_cache_create_key
-argument_list|(
-name|r
-argument_list|)
-expr_stmt|;
 name|c
 operator|=
 name|r
@@ -4289,6 +4284,12 @@ condition|(
 name|c
 operator|->
 name|updated
+operator|||
+name|c
+operator|->
+name|node
+operator|==
+name|NULL
 condition|)
 block|{
 return|return;
