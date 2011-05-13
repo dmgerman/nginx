@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bb6f1020108
+DECL|struct|__anon2af922920108
 typedef|typedef
 struct|struct
 block|{
@@ -41,7 +41,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb6f1020208
+DECL|struct|__anon2af922920208
 typedef|typedef
 struct|struct
 block|{
@@ -332,7 +332,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"%D %D"
+literal|"http split: %uD %uD"
 argument_list|,
 name|hash
 argument_list|,
