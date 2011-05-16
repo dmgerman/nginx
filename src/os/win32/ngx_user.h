@@ -50,7 +50,7 @@ end_define
 
 begin_function_decl
 name|ngx_int_t
-name|ngx_crypt
+name|ngx_libc_crypt
 parameter_list|(
 name|ngx_pool_t
 modifier|*

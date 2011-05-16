@@ -37,8 +37,8 @@ end_if
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_crypt (ngx_pool_t * pool,u_char * key,u_char * salt,u_char ** encrypted)
-name|ngx_crypt
+DECL|function|ngx_libc_crypt (ngx_pool_t * pool,u_char * key,u_char * salt,u_char ** encrypted)
+name|ngx_libc_crypt
 parameter_list|(
 name|ngx_pool_t
 modifier|*
@@ -194,8 +194,8 @@ end_else
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_crypt (ngx_pool_t * pool,u_char * key,u_char * salt,u_char ** encrypted)
-name|ngx_crypt
+DECL|function|ngx_libc_crypt (ngx_pool_t * pool,u_char * key,u_char * salt,u_char ** encrypted)
+name|ngx_libc_crypt
 parameter_list|(
 name|ngx_pool_t
 modifier|*

@@ -21,6 +21,12 @@ directive|include
 file|<ngx_http.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_crypt.h>
+end_include
+
 begin_define
 DECL|macro|NGX_HTTP_AUTH_BUF_SIZE
 define|#
@@ -30,7 +36,7 @@ value|2048
 end_define
 
 begin_typedef
-DECL|struct|__anon299fe6e50108
+DECL|struct|__anon2c623f7e0108
 typedef|typedef
 struct|struct
 block|{
@@ -45,7 +51,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299fe6e50208
+DECL|struct|__anon2c623f7e0208
 typedef|typedef
 struct|struct
 block|{
@@ -436,7 +442,7 @@ index|[
 name|NGX_HTTP_AUTH_BUF_SIZE
 index|]
 decl_stmt|;
-DECL|enum|__anon299fe6e50303
+DECL|enum|__anon2c623f7e0303
 enum|enum
 block|{
 DECL|enumerator|sw_login

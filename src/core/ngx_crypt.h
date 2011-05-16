@@ -3,6 +3,19 @@ begin_comment
 comment|/*  * Copyright (C) Igor Sysoev  */
 end_comment
 
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|_NGX_CRYPT_H_INCLUDED_
+end_ifndef
+
+begin_define
+DECL|macro|_NGX_CRYPT_H_INCLUDED_
+define|#
+directive|define
+name|_NGX_CRYPT_H_INCLUDED_
+end_define
+
 begin_include
 include|#
 directive|include
@@ -15,18 +28,9 @@ directive|include
 file|<ngx_core.h>
 end_include
 
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_CRYPT
-operator|)
-end_if
-
-begin_function
+begin_function_decl
 name|ngx_int_t
-DECL|function|ngx_libc_crypt (ngx_pool_t * pool,u_char * key,u_char * salt,u_char ** encrypted)
-name|ngx_libc_crypt
+name|ngx_crypt
 parameter_list|(
 name|ngx_pool_t
 modifier|*
@@ -45,18 +49,8 @@ modifier|*
 modifier|*
 name|encrypted
 parameter_list|)
-block|{
-comment|/* STUB: a plain text password */
-operator|*
-name|encrypted
-operator|=
-name|key
-expr_stmt|;
-return|return
-name|NGX_OK
-return|;
-block|}
-end_function
+function_decl|;
+end_function_decl
 
 begin_endif
 endif|#
@@ -64,7 +58,7 @@ directive|endif
 end_endif
 
 begin_comment
-comment|/* NGX_CRYPT */
+comment|/* _NGX_CRYPT_H_INCLUDED_ */
 end_comment
 
 end_unit
