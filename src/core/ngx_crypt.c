@@ -40,6 +40,14 @@ endif|#
 directive|endif
 end_endif
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_CRYPT
+operator|)
+end_if
+
 begin_function_decl
 specifier|static
 name|ngx_int_t
@@ -1360,6 +1368,15 @@ end_endif
 
 begin_comment
 comment|/* NGX_HAVE_SHA1 */
+end_comment
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_comment
+comment|/* NGX_CRYPT */
 end_comment
 
 end_unit
