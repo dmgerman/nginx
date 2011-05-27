@@ -425,6 +425,10 @@ argument_list|(
 operator|&
 name|md5
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"$apr1$"
 argument_list|,
 sizeof|sizeof
