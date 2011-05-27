@@ -150,7 +150,7 @@ comment|/* !NGX_HAVE_MD5 */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2be67e2a0108
+DECL|struct|__anon2ae7ab5b0108
 typedef|typedef
 struct|struct
 block|{
@@ -204,7 +204,7 @@ modifier|*
 name|ctx
 parameter_list|,
 specifier|const
-name|u_char
+name|void
 modifier|*
 name|data
 parameter_list|,
