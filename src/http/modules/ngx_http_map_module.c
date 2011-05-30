@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2af0019a0108
+DECL|struct|__anon2a0d23d10108
 typedef|typedef
 struct|struct
 block|{
@@ -41,7 +41,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af0019a0208
+DECL|struct|__anon2a0d23d10208
 typedef|typedef
 struct|struct
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af0019a0308
+DECL|struct|__anon2a0d23d10308
 typedef|typedef
 struct|struct
 block|{
@@ -2389,6 +2389,44 @@ name|ngx_regex_compile_t
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|value
+index|[
+literal|0
+index|]
+operator|.
+name|data
+index|[
+literal|0
+index|]
+operator|==
+literal|'*'
+condition|)
+block|{
+name|value
+index|[
+literal|0
+index|]
+operator|.
+name|len
+operator|--
+expr_stmt|;
+name|value
+index|[
+literal|0
+index|]
+operator|.
+name|data
+operator|++
+expr_stmt|;
+name|rc
+operator|.
+name|options
+operator|=
+name|NGX_REGEX_CASELESS
+expr_stmt|;
+block|}
 name|rc
 operator|.
 name|pattern
