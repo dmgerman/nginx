@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29741c040108
+DECL|struct|__anon2af0019a0108
 typedef|typedef
 struct|struct
 block|{
@@ -41,7 +41,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29741c040208
+DECL|struct|__anon2af0019a0208
 typedef|typedef
 struct|struct
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29741c040308
+DECL|struct|__anon2af0019a0308
 typedef|typedef
 struct|struct
 block|{
@@ -387,9 +387,6 @@ decl_stmt|;
 name|ngx_str_t
 name|val
 decl_stmt|;
-name|ngx_uint_t
-name|key
-decl_stmt|;
 name|ngx_http_variable_value_t
 modifier|*
 name|value
@@ -461,21 +458,6 @@ name|len
 operator|--
 expr_stmt|;
 block|}
-name|key
-operator|=
-name|ngx_hash_strlow
-argument_list|(
-name|val
-operator|.
-name|data
-argument_list|,
-name|val
-operator|.
-name|data
-argument_list|,
-name|len
-argument_list|)
-expr_stmt|;
 name|value
 operator|=
 name|ngx_http_map_find
@@ -486,14 +468,6 @@ operator|&
 name|map
 operator|->
 name|map
-argument_list|,
-name|key
-argument_list|,
-name|val
-operator|.
-name|data
-argument_list|,
-name|len
 argument_list|,
 operator|&
 name|val

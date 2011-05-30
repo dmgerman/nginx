@@ -301,7 +301,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2c407bc40108
+DECL|struct|__anon294000280108
 typedef|typedef
 struct|struct
 block|{
@@ -320,7 +320,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c407bc40208
+DECL|struct|__anon294000280208
 typedef|typedef
 struct|struct
 block|{
@@ -353,7 +353,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c407bc40308
+DECL|struct|__anon294000280308
 typedef|typedef
 struct|struct
 block|{
@@ -414,7 +414,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c407bc40408
+DECL|struct|__anon294000280408
 typedef|typedef
 struct|struct
 block|{
@@ -456,16 +456,6 @@ parameter_list|,
 name|ngx_http_map_t
 modifier|*
 name|map
-parameter_list|,
-name|ngx_uint_t
-name|key
-parameter_list|,
-name|u_char
-modifier|*
-name|text
-parameter_list|,
-name|size_t
-name|len
 parameter_list|,
 name|ngx_str_t
 modifier|*
