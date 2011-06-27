@@ -50,7 +50,7 @@ DECL|macro|NGX_DEFAULT_CIPHERS
 define|#
 directive|define
 name|NGX_DEFAULT_CIPHERS
-value|"HIGH:!ADH:!MD5"
+value|"HIGH:!aNULL:!MD5"
 end_define
 
 begin_function_decl
