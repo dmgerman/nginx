@@ -5221,7 +5221,11 @@ operator|->
 name|deleting
 condition|)
 block|{
-continue|continue;
+name|wait
+operator|=
+literal|1
+expr_stmt|;
+break|break;
 block|}
 name|p
 operator|=
