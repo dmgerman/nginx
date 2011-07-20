@@ -83,7 +83,7 @@ value|SSL
 end_define
 
 begin_typedef
-DECL|struct|__anon2c29b20d0108
+DECL|struct|__anon28f0630a0108
 typedef|typedef
 struct|struct
 block|{
@@ -104,7 +104,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c29b20d0208
+DECL|struct|__anon28f0630a0208
 typedef|typedef
 struct|struct
 block|{
@@ -276,7 +276,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c29b20d0308
+DECL|struct|__anon28f0630a0308
 typedef|typedef
 struct|struct
 block|{
@@ -440,12 +440,19 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|ngx_int_t
-name|ngx_ssl_generate_rsa512_key
+name|RSA
+modifier|*
+name|ngx_ssl_rsa512_key_callback
 parameter_list|(
-name|ngx_ssl_t
+name|SSL
 modifier|*
 name|ssl
+parameter_list|,
+name|int
+name|is_export
+parameter_list|,
+name|int
+name|key_length
 parameter_list|)
 function_decl|;
 end_function_decl
