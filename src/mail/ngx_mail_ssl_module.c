@@ -29,6 +29,14 @@ name|NGX_DEFAULT_CIPHERS
 value|"HIGH:!aNULL:!MD5"
 end_define
 
+begin_define
+DECL|macro|NGX_DEFAULT_ECDH_CURVE
+define|#
+directive|define
+name|NGX_DEFAULT_ECDH_CURVE
+value|"prime256v1"
+end_define
+
 begin_function_decl
 specifier|static
 name|void
@@ -355,6 +363,32 @@ block|,
 block|{
 name|ngx_string
 argument_list|(
+literal|"ssl_ecdh_curve"
+argument_list|)
+block|,
+name|NGX_MAIL_MAIN_CONF
+operator||
+name|NGX_MAIL_SRV_CONF
+operator||
+name|NGX_CONF_TAKE1
+block|,
+name|ngx_conf_set_str_slot
+block|,
+name|NGX_MAIL_SRV_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+name|ngx_mail_ssl_conf_t
+argument_list|,
+name|ecdh_curve
+argument_list|)
+block|,
+name|NULL
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
 literal|"ssl_protocols"
 argument_list|)
 block|,
@@ -606,7 +640,7 @@ return|return
 name|NULL
 return|;
 block|}
-comment|/*      * set by ngx_pcalloc():      *      *     scf->protocols = 0;      *     scf->certificate = { 0, NULL };      *     scf->certificate_key = { 0, NULL };      *     scf->dhparam = { 0, NULL };      *     scf->ciphers = { 0, NULL };      *     scf->shm_zone = NULL;      */
+comment|/*      * set by ngx_pcalloc():      *      *     scf->protocols = 0;      *     scf->certificate = { 0, NULL };      *     scf->certificate_key = { 0, NULL };      *     scf->dhparam = { 0, NULL };      *     scf->ecdh_curve = { 0, NULL };      *     scf->ciphers = { 0, NULL };      *     scf->shm_zone = NULL;      */
 name|scf
 operator|->
 name|enable
@@ -791,6 +825,19 @@ operator|->
 name|dhparam
 argument_list|,
 literal|""
+argument_list|)
+expr_stmt|;
+name|ngx_conf_merge_str_value
+argument_list|(
+name|conf
+operator|->
+name|ecdh_curve
+argument_list|,
+name|prev
+operator|->
+name|ecdh_curve
+argument_list|,
+name|NGX_DEFAULT_ECDH_CURVE
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_str_value

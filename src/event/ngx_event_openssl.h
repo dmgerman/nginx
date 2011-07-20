@@ -83,7 +83,7 @@ value|SSL
 end_define
 
 begin_typedef
-DECL|struct|__anon28f0630a0108
+DECL|struct|__anon2bf8f2430108
 typedef|typedef
 struct|struct
 block|{
@@ -104,7 +104,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f0630a0208
+DECL|struct|__anon2bf8f2430208
 typedef|typedef
 struct|struct
 block|{
@@ -276,7 +276,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28f0630a0308
+DECL|struct|__anon2bf8f2430308
 typedef|typedef
 struct|struct
 block|{
@@ -472,6 +472,25 @@ parameter_list|,
 name|ngx_str_t
 modifier|*
 name|file
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_ssl_ecdh_curve
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_ssl_t
+modifier|*
+name|ssl
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|name
 parameter_list|)
 function_decl|;
 end_function_decl
