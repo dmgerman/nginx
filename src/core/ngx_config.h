@@ -576,6 +576,14 @@ endif|#
 directive|endif
 end_endif
 
+begin_define
+DECL|macro|NGX_MAX_INT32_VALUE
+define|#
+directive|define
+name|NGX_MAX_INT32_VALUE
+value|(uint32_t) 0x7fffffff
+end_define
+
 begin_endif
 endif|#
 directive|endif

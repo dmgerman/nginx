@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c90cb430108
+DECL|struct|__anon2bf868a10108
 typedef|typedef
 struct|struct
 block|{
@@ -4265,7 +4265,7 @@ return|return
 name|in
 return|;
 block|}
-comment|/* the maximum limit size is the maximum uint32_t value - the page size */
+comment|/* the maximum limit size is the maximum int32_t value - the page size */
 if|if
 condition|(
 name|limit
@@ -4278,7 +4278,7 @@ operator|(
 name|off_t
 operator|)
 operator|(
-name|NGX_MAX_UINT32_VALUE
+name|NGX_MAX_INT32_VALUE
 operator|-
 name|ngx_pagesize
 operator|)
@@ -4286,7 +4286,7 @@ condition|)
 block|{
 name|limit
 operator|=
-name|NGX_MAX_UINT32_VALUE
+name|NGX_MAX_INT32_VALUE
 operator|-
 name|ngx_pagesize
 expr_stmt|;
