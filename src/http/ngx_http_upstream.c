@@ -10166,7 +10166,7 @@ name|r
 argument_list|,
 name|u
 argument_list|,
-literal|0
+name|NGX_HTTP_REQUEST_TIME_OUT
 argument_list|)
 expr_stmt|;
 return|return;
@@ -13083,6 +13083,10 @@ condition|(
 name|u
 operator|->
 name|header_sent
+operator|&&
+name|rc
+operator|!=
+name|NGX_HTTP_REQUEST_TIME_OUT
 operator|&&
 operator|(
 name|rc
