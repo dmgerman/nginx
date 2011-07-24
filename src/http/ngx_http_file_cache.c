@@ -1857,7 +1857,7 @@ name|data
 argument_list|)
 expr_stmt|;
 return|return
-name|NGX_ERROR
+name|NGX_DECLINED
 return|;
 block|}
 name|h
