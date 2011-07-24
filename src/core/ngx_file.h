@@ -127,7 +127,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f31dc80108
+DECL|struct|__anon2a11317f0108
 typedef|typedef
 struct|struct
 block|{
@@ -175,7 +175,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f31dc80208
+DECL|struct|__anon2a11317f0208
 typedef|typedef
 struct|struct
 block|{
@@ -197,7 +197,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f31dc80308
+DECL|struct|__anon2a11317f0308
 typedef|typedef
 struct|struct
 block|{
@@ -253,7 +253,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f31dc80408
+DECL|struct|__anon2a11317f0408
 typedef|typedef
 struct|struct
 block|{
@@ -297,7 +297,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f31dc80508
+DECL|struct|__anon2a11317f0508
 typedef|typedef
 struct|struct
 block|{
@@ -385,6 +385,10 @@ block|{
 DECL|member|size
 name|off_t
 name|size
+decl_stmt|;
+DECL|member|fs_size
+name|off_t
+name|fs_size
 decl_stmt|;
 DECL|member|access
 name|ngx_uint_t

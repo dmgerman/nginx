@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6727520108
+DECL|struct|__anon29be25230108
 typedef|typedef
 struct|struct
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6727520208
+DECL|struct|__anon29be25230208
 typedef|typedef
 struct|struct
 block|{
@@ -128,7 +128,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6727520308
+DECL|struct|__anon29be25230308
 typedef|typedef
 struct|struct
 block|{
@@ -1095,6 +1095,17 @@ name|dir
 parameter_list|)
 define|\
 value|(((off_t) (dir)->finddata.nFileSizeHigh<< 32) | (dir)->finddata.nFileSizeLow)
+end_define
+
+begin_define
+DECL|macro|ngx_de_fs_size (dir)
+define|#
+directive|define
+name|ngx_de_fs_size
+parameter_list|(
+name|dir
+parameter_list|)
+value|ngx_de_size(dir)
 end_define
 
 begin_comment

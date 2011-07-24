@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28807e850108
+DECL|struct|__anon2ae02ae50108
 typedef|typedef
 struct|struct
 block|{
@@ -88,7 +88,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28807e850208
+DECL|struct|__anon2ae02ae50208
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28807e850308
+DECL|struct|__anon2ae02ae50308
 typedef|typedef
 struct|struct
 block|{
@@ -1272,6 +1272,17 @@ parameter_list|(
 name|dir
 parameter_list|)
 value|(dir)->info.st_size
+end_define
+
+begin_define
+DECL|macro|ngx_de_fs_size (dir)
+define|#
+directive|define
+name|ngx_de_fs_size
+parameter_list|(
+name|dir
+parameter_list|)
+value|((dir)->info.st_blocks * 512)
 end_define
 
 begin_define

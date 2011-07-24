@@ -4316,6 +4316,16 @@ argument_list|)
 expr_stmt|;
 name|ctx
 operator|->
+name|fs_size
+operator|=
+name|ngx_de_fs_size
+argument_list|(
+operator|&
+name|dir
+argument_list|)
+expr_stmt|;
+name|ctx
+operator|->
 name|access
 operator|=
 name|ngx_de_access
