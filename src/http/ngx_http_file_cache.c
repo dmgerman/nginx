@@ -6404,16 +6404,6 @@ else|else
 block|{
 name|c
 operator|.
-name|uniq
-operator|=
-name|ngx_file_uniq
-argument_list|(
-operator|&
-name|fi
-argument_list|)
-expr_stmt|;
-name|c
-operator|.
 name|length
 operator|=
 name|ngx_file_size
@@ -6744,9 +6734,7 @@ name|fcn
 operator|->
 name|uniq
 operator|=
-name|c
-operator|->
-name|uniq
+literal|0
 expr_stmt|;
 name|fcn
 operator|->
