@@ -2521,7 +2521,7 @@ name|exists
 expr_stmt|;
 if|if
 condition|(
-name|c
+name|fcn
 operator|->
 name|body_start
 condition|)
