@@ -212,7 +212,7 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|ngx_int_t
-name|ngx_http_file_cache_manager_sleep
+name|ngx_http_file_cache_loader_sleep
 parameter_list|(
 name|ngx_http_file_cache_t
 modifier|*
@@ -5734,12 +5734,9 @@ return|;
 block|}
 if|if
 condition|(
-name|ngx_http_file_cache_manager_sleep
-argument_list|(
-name|cache
-argument_list|)
-operator|!=
-name|NGX_OK
+name|ngx_quit
+operator|||
+name|ngx_terminate
 condition|)
 block|{
 return|return
@@ -5978,8 +5975,8 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_http_file_cache_manager_sleep (ngx_http_file_cache_t * cache)
-name|ngx_http_file_cache_manager_sleep
+DECL|function|ngx_http_file_cache_loader_sleep (ngx_http_file_cache_t * cache)
+name|ngx_http_file_cache_loader_sleep
 parameter_list|(
 name|ngx_http_file_cache_t
 modifier|*
@@ -6147,7 +6144,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|ngx_http_file_cache_manager_sleep
+name|ngx_http_file_cache_loader_sleep
 argument_list|(
 name|cache
 argument_list|)
