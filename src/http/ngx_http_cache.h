@@ -99,7 +99,7 @@ value|16
 end_define
 
 begin_typedef
-DECL|struct|__anon278452410108
+DECL|struct|__anon2926061e0108
 typedef|typedef
 struct|struct
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278452410208
+DECL|struct|__anon2926061e0208
 typedef|typedef
 struct|struct
 block|{
@@ -323,7 +323,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon278452410308
+DECL|struct|__anon2926061e0308
 typedef|typedef
 struct|struct
 block|{
@@ -362,7 +362,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278452410408
+DECL|struct|__anon2926061e0408
 typedef|typedef
 struct|struct
 block|{
@@ -428,13 +428,25 @@ DECL|member|inactive
 name|time_t
 name|inactive
 decl_stmt|;
+DECL|member|files
+name|ngx_uint_t
+name|files
+decl_stmt|;
+DECL|member|loader_files
+name|ngx_uint_t
+name|loader_files
+decl_stmt|;
 DECL|member|last
 name|ngx_msec_t
 name|last
 decl_stmt|;
-DECL|member|files
-name|ngx_uint_t
-name|files
+DECL|member|loader_sleep
+name|ngx_msec_t
+name|loader_sleep
+decl_stmt|;
+DECL|member|loader_threshold
+name|ngx_msec_t
+name|loader_threshold
 decl_stmt|;
 DECL|member|shm_zone
 name|ngx_shm_zone_t
