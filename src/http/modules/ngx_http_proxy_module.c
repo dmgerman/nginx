@@ -70,14 +70,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon292b65e2010a
+DECL|union|__anon2a1aa59e010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon292b65e20208
+DECL|struct|__anon2a1aa59e0208
 struct|struct
 block|{
 DECL|member|lengths
@@ -108,7 +108,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon292b65e20308
+DECL|struct|__anon2a1aa59e0308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292b65e20408
+DECL|struct|__anon2a1aa59e0408
 typedef|typedef
 struct|struct
 block|{
@@ -246,7 +246,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292b65e20508
+DECL|struct|__anon2a1aa59e0508
 typedef|typedef
 struct|struct
 block|{
@@ -8248,6 +8248,18 @@ operator|->
 name|headers_hash_bucket_size
 operator|=
 name|NGX_CONF_UNSET_UINT
+expr_stmt|;
+name|ngx_str_set
+argument_list|(
+operator|&
+name|conf
+operator|->
+name|upstream
+operator|.
+name|module
+argument_list|,
+literal|"proxy"
+argument_list|)
 expr_stmt|;
 return|return
 name|conf

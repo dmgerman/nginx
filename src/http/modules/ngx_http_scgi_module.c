@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bffd9de0108
+DECL|struct|__anon287fe2100108
 typedef|typedef
 struct|struct
 block|{
@@ -4794,6 +4794,18 @@ operator|.
 name|cyclic_temp_file
 operator|=
 literal|0
+expr_stmt|;
+name|ngx_str_set
+argument_list|(
+operator|&
+name|conf
+operator|->
+name|upstream
+operator|.
+name|module
+argument_list|,
+literal|"scgi"
+argument_list|)
 expr_stmt|;
 return|return
 name|conf

@@ -3219,6 +3219,8 @@ operator|->
 name|cache
 operator|->
 name|header_start
+operator|+
+literal|256
 operator|>=
 name|u
 operator|->
@@ -3239,13 +3241,34 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"cache key too large, increase upstream buffer size %uz"
+literal|"%V_buffer_size %uz is not enough for cache key, "
+literal|"it should increased at least to %uz"
+argument_list|,
+operator|&
+name|u
+operator|->
+name|conf
+operator|->
+name|module
 argument_list|,
 name|u
 operator|->
 name|conf
 operator|->
 name|buffer_size
+argument_list|,
+name|ngx_align
+argument_list|(
+name|r
+operator|->
+name|cache
+operator|->
+name|header_start
+operator|+
+literal|256
+argument_list|,
+literal|1024
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|r

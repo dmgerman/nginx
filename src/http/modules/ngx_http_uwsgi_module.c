@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c30bf040108
+DECL|struct|__anon2b4e12370108
 typedef|typedef
 struct|struct
 block|{
@@ -5142,6 +5142,18 @@ operator|.
 name|cyclic_temp_file
 operator|=
 literal|0
+expr_stmt|;
+name|ngx_str_set
+argument_list|(
+operator|&
+name|conf
+operator|->
+name|upstream
+operator|.
+name|module
+argument_list|,
+literal|"uwsgi"
+argument_list|)
 expr_stmt|;
 return|return
 name|conf
