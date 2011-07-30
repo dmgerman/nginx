@@ -6479,15 +6479,6 @@ block|{
 case|case
 literal|'4'
 case|:
-name|r
-operator|->
-name|headers_in
-operator|.
-name|msie4
-operator|=
-literal|1
-expr_stmt|;
-comment|/* fall through */
 case|case
 literal|'5'
 case|:
@@ -6568,14 +6559,6 @@ operator|->
 name|headers_in
 operator|.
 name|msie
-operator|=
-literal|0
-expr_stmt|;
-name|r
-operator|->
-name|headers_in
-operator|.
-name|msie4
 operator|=
 literal|0
 expr_stmt|;

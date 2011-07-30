@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2936b2670108
+DECL|struct|__anon2c4c2f230108
 typedef|typedef
 struct|struct
 block|{
@@ -8749,23 +8749,6 @@ literal|1
 argument_list|)
 operator|==
 name|NULL
-comment|/*          * if the URL (without the "http://" prefix) is longer than 253 bytes,          * then MSIE 4.x can not handle the compressed stream - it waits          * too long, hangs up or crashes          */
-operator|||
-operator|(
-name|r
-operator|->
-name|headers_in
-operator|.
-name|msie4
-operator|&&
-name|r
-operator|->
-name|unparsed_uri
-operator|.
-name|len
-operator|>
-literal|200
-operator|)
 condition|)
 block|{
 return|return
