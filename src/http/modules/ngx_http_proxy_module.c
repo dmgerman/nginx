@@ -70,14 +70,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon2a1aa59e010a
+DECL|union|__anon2b74b04a010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon2a1aa59e0208
+DECL|struct|__anon2b74b04a0208
 struct|struct
 block|{
 DECL|member|lengths
@@ -108,7 +108,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a1aa59e0308
+DECL|struct|__anon2b74b04a0308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1aa59e0408
+DECL|struct|__anon2b74b04a0408
 typedef|typedef
 struct|struct
 block|{
@@ -246,7 +246,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1aa59e0508
+DECL|struct|__anon2b74b04a0508
 typedef|typedef
 struct|struct
 block|{
@@ -2888,6 +2888,12 @@ return|;
 block|}
 if|if
 condition|(
+name|proxy
+operator|.
+name|len
+operator|>
+literal|7
+operator|&&
 name|ngx_strncasecmp
 argument_list|(
 name|proxy
@@ -2922,6 +2928,12 @@ operator|)
 block|}
 if|else if
 condition|(
+name|proxy
+operator|.
+name|len
+operator|>
+literal|8
+operator|&&
 name|ngx_strncasecmp
 argument_list|(
 name|proxy
