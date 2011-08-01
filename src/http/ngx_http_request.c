@@ -11927,12 +11927,6 @@ operator|->
 name|timedout
 condition|)
 block|{
-name|c
-operator|->
-name|timedout
-operator|=
-literal|1
-expr_stmt|;
 name|ngx_http_close_request
 argument_list|(
 name|r
