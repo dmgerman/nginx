@@ -9404,13 +9404,20 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-if|else if
+if|if
 condition|(
 name|clcf
 operator|->
-name|lingering_timeout
-operator|>
-literal|0
+name|lingering_close
+operator|==
+name|NGX_HTTP_LINGERING_ALWAYS
+operator|||
+operator|(
+name|clcf
+operator|->
+name|lingering_close
+operator|==
+name|NGX_HTTP_LINGERING_ON
 operator|&&
 operator|(
 name|r
@@ -9436,6 +9443,7 @@ operator|->
 name|read
 operator|->
 name|ready
+operator|)
 operator|)
 condition|)
 block|{

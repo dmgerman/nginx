@@ -147,6 +147,30 @@ value|1
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_LINGERING_OFF
+define|#
+directive|define
+name|NGX_HTTP_LINGERING_OFF
+value|0
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_LINGERING_ON
+define|#
+directive|define
+name|NGX_HTTP_LINGERING_ON
+value|1
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_LINGERING_ALWAYS
+define|#
+directive|define
+name|NGX_HTTP_LINGERING_ALWAYS
+value|2
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_IMS_OFF
 define|#
 directive|define
@@ -213,11 +237,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b42d8160108
+DECL|struct|__anon2c9bd77f0108
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon2b42d816020a
+DECL|union|__anon2c9bd77f020a
 union|union
 block|{
 DECL|member|sockaddr
@@ -390,7 +414,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b42d8160303
+DECL|enum|__anon2c9bd77f0303
 typedef|typedef
 enum|enum
 block|{
@@ -485,7 +509,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b42d8160408
+DECL|struct|__anon2c9bd77f0408
 typedef|typedef
 struct|struct
 block|{
@@ -509,7 +533,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b42d8160508
+DECL|struct|__anon2c9bd77f0508
 typedef|typedef
 struct|struct
 block|{
@@ -524,7 +548,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b42d8160608
+DECL|struct|__anon2c9bd77f0608
 typedef|typedef
 struct|struct
 block|{
@@ -601,7 +625,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b42d8160708
+DECL|struct|__anon2c9bd77f0708
 typedef|typedef
 struct|struct
 block|{
@@ -688,7 +712,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2b42d8160808
+DECL|struct|__anon2c9bd77f0808
 typedef|typedef
 struct|struct
 block|{
@@ -722,7 +746,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b42d8160908
+DECL|struct|__anon2c9bd77f0908
 typedef|typedef
 struct|struct
 block|{
@@ -749,7 +773,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2b42d8160a08
+DECL|struct|__anon2c9bd77f0a08
 typedef|typedef
 struct|struct
 block|{
@@ -774,7 +798,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b42d8160b08
+DECL|struct|__anon2c9bd77f0b08
 typedef|typedef
 struct|struct
 block|{
@@ -795,7 +819,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b42d8160c08
+DECL|struct|__anon2c9bd77f0c08
 typedef|typedef
 struct|struct
 block|{
@@ -819,7 +843,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b42d8160d08
+DECL|struct|__anon2c9bd77f0d08
 typedef|typedef
 struct|struct
 block|{
@@ -906,7 +930,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b42d8160e08
+DECL|struct|__anon2c9bd77f0e08
 typedef|typedef
 struct|struct
 block|{
@@ -933,7 +957,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b42d8160f08
+DECL|struct|__anon2c9bd77f0f08
 typedef|typedef
 struct|struct
 block|{
@@ -1236,6 +1260,11 @@ name|ngx_uint_t
 name|satisfy
 decl_stmt|;
 comment|/* satisfy */
+DECL|member|lingering_close
+name|ngx_uint_t
+name|lingering_close
+decl_stmt|;
+comment|/* lingering_close */
 DECL|member|if_modified_since
 name|ngx_uint_t
 name|if_modified_since
@@ -1436,7 +1465,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b42d8161008
+DECL|struct|__anon2c9bd77f1008
 typedef|typedef
 struct|struct
 block|{
