@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28cbf06a0108
+DECL|struct|__anon2b8a78aa0108
 typedef|typedef
 struct|struct
 block|{
@@ -8768,7 +8768,12 @@ name|value
 operator|.
 name|len
 operator|<
-literal|5
+sizeof|sizeof
+argument_list|(
+literal|"gzip"
+argument_list|)
+operator|-
+literal|1
 condition|)
 block|{
 return|return
