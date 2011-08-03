@@ -100,7 +100,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b0c538d0108
+DECL|struct|__anon28920d5e0108
 typedef|typedef
 struct|struct
 block|{
@@ -126,7 +126,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0c538d0208
+DECL|struct|__anon28920d5e0208
 typedef|typedef
 struct|struct
 block|{
@@ -147,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0c538d0308
+DECL|struct|__anon28920d5e0308
 typedef|typedef
 struct|struct
 block|{
@@ -168,7 +168,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0c538d0408
+DECL|struct|__anon28920d5e0408
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +202,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0c538d0508
+DECL|struct|__anon28920d5e0508
 typedef|typedef
 struct|struct
 block|{
@@ -237,7 +237,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0c538d0608
+DECL|struct|__anon28920d5e0608
 typedef|typedef
 struct|struct
 block|{
@@ -4948,100 +4948,6 @@ name|s
 operator|++
 control|)
 block|{
-for|for
-control|(
-name|i
-operator|=
-literal|0
-init|;
-name|i
-operator|<
-name|value
-index|[
-name|s
-index|]
-operator|.
-name|len
-condition|;
-name|i
-operator|++
-control|)
-block|{
-if|if
-condition|(
-name|value
-index|[
-name|s
-index|]
-operator|.
-name|data
-index|[
-name|i
-index|]
-operator|!=
-literal|'%'
-condition|)
-block|{
-continue|continue;
-block|}
-name|ch
-operator|=
-name|value
-index|[
-name|s
-index|]
-operator|.
-name|data
-index|[
-name|i
-operator|+
-literal|1
-index|]
-expr_stmt|;
-if|if
-condition|(
-operator|(
-name|ch
-operator|>=
-literal|'A'
-operator|&&
-name|ch
-operator|<=
-literal|'Z'
-operator|)
-operator|||
-operator|(
-name|ch
-operator|>=
-literal|'a'
-operator|&&
-name|ch
-operator|<=
-literal|'z'
-operator|)
-operator|||
-name|ch
-operator|==
-literal|'{'
-condition|)
-block|{
-name|ngx_conf_log_error
-argument_list|(
-name|NGX_LOG_EMERG
-argument_list|,
-name|cf
-argument_list|,
-literal|0
-argument_list|,
-literal|"the parameters in the \"%%name\" form are not supported, "
-literal|"use the \"$variable\" instead"
-argument_list|)
-expr_stmt|;
-return|return
-name|NGX_CONF_ERROR
-return|;
-block|}
-block|}
 name|i
 operator|=
 literal|0
