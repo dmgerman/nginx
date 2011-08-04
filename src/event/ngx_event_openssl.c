@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bf868a10108
+DECL|struct|__anon2c191a530108
 typedef|typedef
 struct|struct
 block|{
@@ -169,7 +169,6 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-specifier|static
 name|ngx_int_t
 name|ngx_ssl_session_cache_init
 parameter_list|(
@@ -6351,12 +6350,6 @@ condition|(
 name|shm_zone
 condition|)
 block|{
-name|shm_zone
-operator|->
-name|init
-operator|=
-name|ngx_ssl_session_cache_init
-expr_stmt|;
 name|SSL_CTX_sess_set_new_cb
 argument_list|(
 name|ssl
@@ -6425,7 +6418,6 @@ block|}
 end_function
 
 begin_function
-specifier|static
 name|ngx_int_t
 DECL|function|ngx_ssl_session_cache_init (ngx_shm_zone_t * shm_zone,void * data)
 name|ngx_ssl_session_cache_init

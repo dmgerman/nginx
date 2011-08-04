@@ -2024,6 +2024,14 @@ operator|=
 name|NGX_SSL_NO_BUILTIN_SCACHE
 expr_stmt|;
 block|}
+name|scf
+operator|->
+name|shm_zone
+operator|->
+name|init
+operator|=
+name|ngx_ssl_session_cache_init
+expr_stmt|;
 return|return
 name|NGX_CONF_OK
 return|;

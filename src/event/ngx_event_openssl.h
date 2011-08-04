@@ -83,7 +83,7 @@ value|SSL
 end_define
 
 begin_typedef
-DECL|struct|__anon2bf8f2430108
+DECL|struct|__anon2a102a390108
 typedef|typedef
 struct|struct
 block|{
@@ -104,7 +104,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf8f2430208
+DECL|struct|__anon2a102a390208
 typedef|typedef
 struct|struct
 block|{
@@ -276,7 +276,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bf8f2430308
+DECL|struct|__anon2a102a390308
 typedef|typedef
 struct|struct
 block|{
@@ -516,6 +516,21 @@ name|shm_zone
 parameter_list|,
 name|time_t
 name|timeout
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_ssl_session_cache_init
+parameter_list|(
+name|ngx_shm_zone_t
+modifier|*
+name|shm_zone
+parameter_list|,
+name|void
+modifier|*
+name|data
 parameter_list|)
 function_decl|;
 end_function_decl
