@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon278bea360108
+DECL|struct|__anon2a1b13410108
 typedef|typedef
 struct|struct
 block|{
@@ -9710,10 +9710,6 @@ condition|(
 name|q
 operator|>
 literal|100
-operator|||
-name|n
-operator|==
-literal|0
 operator|||
 name|n
 operator|>
