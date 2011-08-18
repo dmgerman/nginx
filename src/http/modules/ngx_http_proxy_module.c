@@ -70,14 +70,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon2b74b04a010a
+DECL|union|__anon28ad86e6010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon2b74b04a0208
+DECL|struct|__anon28ad86e60208
 struct|struct
 block|{
 DECL|member|lengths
@@ -108,7 +108,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b74b04a0308
+DECL|struct|__anon28ad86e60308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b74b04a0408
+DECL|struct|__anon28ad86e60408
 typedef|typedef
 struct|struct
 block|{
@@ -246,7 +246,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b74b04a0508
+DECL|struct|__anon28ad86e60508
 typedef|typedef
 struct|struct
 block|{
@@ -5617,12 +5617,6 @@ operator|->
 name|next
 expr_stmt|;
 block|}
-name|b
-operator|->
-name|flush
-operator|=
-literal|1
-expr_stmt|;
 block|}
 else|else
 block|{
@@ -5633,6 +5627,12 @@ operator|=
 name|cl
 expr_stmt|;
 block|}
+name|b
+operator|->
+name|flush
+operator|=
+literal|1
+expr_stmt|;
 name|cl
 operator|->
 name|next
