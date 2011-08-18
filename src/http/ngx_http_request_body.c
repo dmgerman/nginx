@@ -605,6 +605,16 @@ name|headers_in
 operator|.
 name|content_length_n
 expr_stmt|;
+name|b
+operator|->
+name|last
+operator|=
+name|r
+operator|->
+name|header_in
+operator|->
+name|pos
+expr_stmt|;
 if|if
 condition|(
 name|r
