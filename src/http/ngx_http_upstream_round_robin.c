@@ -3124,6 +3124,10 @@ name|ngx_uint_t
 name|i
 decl_stmt|,
 name|n
+decl_stmt|,
+name|reset
+init|=
+literal|0
 decl_stmt|;
 name|ngx_http_upstream_rr_peer_t
 modifier|*
@@ -3270,6 +3274,16 @@ expr_stmt|;
 block|}
 return|return
 name|n
+return|;
+block|}
+if|if
+condition|(
+name|reset
+operator|++
+condition|)
+block|{
+return|return
+literal|0
 return|;
 block|}
 for|for
