@@ -52,7 +52,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2a14c2c70108
+DECL|struct|__anon2c1f510b0108
 typedef|typedef
 struct|struct
 block|{
@@ -1241,7 +1241,7 @@ name|hash
 operator|.
 name|name
 operator|=
-literal|"referers_hash"
+literal|"referer_hash"
 expr_stmt|;
 name|hash
 operator|.
