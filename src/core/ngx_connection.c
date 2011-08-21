@@ -2646,7 +2646,7 @@ argument_list|,
 name|ngx_errno
 argument_list|,
 literal|"setsockopt(SO_ACCEPTFILTER, \"%s\") "
-literal|" for %V failed, ignored"
+literal|"for %V failed, ignored"
 argument_list|,
 name|ls
 index|[
