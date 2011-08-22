@@ -932,7 +932,7 @@ name|len
 operator|+
 literal|1
 operator|+
-literal|10
+name|NGX_ATOMIC_T_LEN
 operator|+
 literal|1
 operator|+
