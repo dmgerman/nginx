@@ -28,7 +28,7 @@ file|<ngx_channel.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon297f3d3d0108
+DECL|struct|__anon29f7bb3d0108
 typedef|typedef
 struct|struct
 block|{
@@ -1562,6 +1562,11 @@ argument_list|(
 name|NGX_NOACCEPT_SIGNAL
 argument_list|)
 case|:
+if|if
+condition|(
+name|ngx_daemonized
+condition|)
+block|{
 name|ngx_noaccept
 operator|=
 literal|1
@@ -1570,6 +1575,7 @@ name|action
 operator|=
 literal|", stop accepting connections"
 expr_stmt|;
+block|}
 break|break;
 case|case
 name|ngx_signal_value
@@ -1682,6 +1688,14 @@ argument_list|(
 name|NGX_NOACCEPT_SIGNAL
 argument_list|)
 case|:
+if|if
+condition|(
+operator|!
+name|ngx_daemonized
+condition|)
+block|{
+break|break;
+block|}
 name|ngx_debug_quit
 operator|=
 literal|1
