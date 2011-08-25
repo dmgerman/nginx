@@ -2043,6 +2043,16 @@ name|c
 operator|->
 name|uniq
 expr_stmt|;
+name|c
+operator|->
+name|node
+operator|->
+name|fs_size
+operator|=
+name|c
+operator|->
+name|fs_size
+expr_stmt|;
 name|cache
 operator|->
 name|sh
