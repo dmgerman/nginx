@@ -26,7 +26,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon299bd0b40108
+DECL|struct|__anon28beea890108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299bd0b40208
+DECL|struct|__anon28beea890208
 typedef|typedef
 struct|struct
 block|{
@@ -72,6 +72,7 @@ typedef|;
 end_typedef
 
 begin_function_decl
+specifier|static
 name|ngx_int_t
 name|ngx_http_range_parse
 parameter_list|(
@@ -803,6 +804,7 @@ block|}
 end_function
 
 begin_function
+specifier|static
 name|ngx_int_t
 DECL|function|ngx_http_range_parse (ngx_http_request_t * r,ngx_http_range_filter_ctx_t * ctx)
 name|ngx_http_range_parse
