@@ -26,7 +26,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon2c7748710108
+DECL|struct|__anon2bed53120108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7748710208
+DECL|struct|__anon2bed53120208
 typedef|typedef
 struct|struct
 block|{
@@ -969,9 +969,9 @@ operator|.
 name|content_length_n
 condition|)
 block|{
-return|return
-name|NGX_HTTP_RANGE_NOT_SATISFIABLE
-return|;
+goto|goto
+name|skip
+goto|;
 block|}
 while|while
 condition|(
@@ -1126,9 +1126,9 @@ operator|>
 name|end
 condition|)
 block|{
-return|return
-name|NGX_HTTP_RANGE_NOT_SATISFIABLE
-return|;
+goto|goto
+name|skip
+goto|;
 block|}
 if|if
 condition|(
@@ -1141,7 +1141,6 @@ operator|.
 name|content_length_n
 condition|)
 block|{
-comment|/*              * Download Accelerator sends the last byte position              * that equals to the file length              */
 name|end
 operator|=
 name|r
@@ -1198,6 +1197,8 @@ name|end
 operator|-
 name|start
 expr_stmt|;
+name|skip
+label|:
 if|if
 condition|(
 operator|*
@@ -1209,6 +1210,21 @@ condition|)
 block|{
 break|break;
 block|}
+block|}
+if|if
+condition|(
+name|ctx
+operator|->
+name|ranges
+operator|.
+name|nelts
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+name|NGX_HTTP_RANGE_NOT_SATISFIABLE
+return|;
 block|}
 if|if
 condition|(
