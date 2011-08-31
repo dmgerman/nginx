@@ -26,7 +26,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon2c4258b90108
+DECL|struct|__anon2c6ee5870108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4258b90208
+DECL|struct|__anon2c6ee5870208
 typedef|typedef
 struct|struct
 block|{
@@ -83,6 +83,9 @@ parameter_list|,
 name|ngx_http_range_filter_ctx_t
 modifier|*
 name|ctx
+parameter_list|,
+name|ngx_uint_t
+name|ranges
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -403,6 +406,10 @@ block|{
 name|time_t
 name|if_range
 decl_stmt|;
+name|ngx_http_core_loc_conf_t
+modifier|*
+name|clcf
+decl_stmt|;
 name|ngx_http_range_filter_ctx_t
 modifier|*
 name|ctx
@@ -442,6 +449,31 @@ operator|!
 name|r
 operator|->
 name|allow_ranges
+condition|)
+block|{
+return|return
+name|ngx_http_next_header_filter
+argument_list|(
+name|r
+argument_list|)
+return|;
+block|}
+name|clcf
+operator|=
+name|ngx_http_get_module_loc_conf
+argument_list|(
+name|r
+argument_list|,
+name|ngx_http_core_module
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|clcf
+operator|->
+name|max_ranges
+operator|==
+literal|0
 condition|)
 block|{
 return|return
@@ -643,6 +675,10 @@ argument_list|(
 name|r
 argument_list|,
 name|ctx
+argument_list|,
+name|clcf
+operator|->
+name|max_ranges
 argument_list|)
 condition|)
 block|{
@@ -806,7 +842,7 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_http_range_parse (ngx_http_request_t * r,ngx_http_range_filter_ctx_t * ctx)
+DECL|function|ngx_http_range_parse (ngx_http_request_t * r,ngx_http_range_filter_ctx_t * ctx,ngx_uint_t ranges)
 name|ngx_http_range_parse
 parameter_list|(
 name|ngx_http_request_t
@@ -816,6 +852,9 @@ parameter_list|,
 name|ngx_http_range_filter_ctx_t
 modifier|*
 name|ctx
+parameter_list|,
+name|ngx_uint_t
+name|ranges
 parameter_list|)
 block|{
 name|u_char
@@ -1170,6 +1209,16 @@ name|end
 operator|-
 name|start
 expr_stmt|;
+if|if
+condition|(
+operator|--
+name|ranges
+operator|==
+literal|0
+condition|)
+block|{
+break|break;
+block|}
 block|}
 if|if
 condition|(
