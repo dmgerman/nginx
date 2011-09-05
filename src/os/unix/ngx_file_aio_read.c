@@ -313,6 +313,25 @@ operator|->
 name|nbytes
 return|;
 block|}
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_CRIT
+argument_list|,
+name|file
+operator|->
+name|log
+argument_list|,
+name|ngx_errno
+argument_list|,
+literal|"aio read \"%s\" failed"
+argument_list|,
+name|file
+operator|->
+name|name
+operator|.
+name|data
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
