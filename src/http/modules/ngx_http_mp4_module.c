@@ -214,7 +214,7 @@ value|NGX_HTTP_MP4_STCO_DATA
 end_define
 
 begin_typedef
-DECL|struct|__anon2a452da00108
+DECL|struct|__anon279541ea0108
 typedef|typedef
 struct|struct
 block|{
@@ -233,7 +233,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a452da00208
+DECL|struct|__anon279541ea0208
 typedef|typedef
 struct|struct
 block|{
@@ -413,7 +413,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a452da00308
+DECL|struct|__anon279541ea0308
 typedef|typedef
 struct|struct
 block|{
@@ -555,7 +555,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a452da00408
+DECL|struct|__anon279541ea0408
 typedef|typedef
 struct|struct
 block|{
@@ -3372,7 +3372,7 @@ argument_list|)
 operator|-
 name|start_offset
 expr_stmt|;
-name|ngx_log_debug0
+name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
@@ -3431,7 +3431,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon2a452da00508
+DECL|struct|__anon279541ea0508
 typedef|typedef
 struct|struct
 block|{
@@ -3456,7 +3456,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a452da00608
+DECL|struct|__anon279541ea0608
 typedef|typedef
 struct|struct
 block|{
@@ -3771,7 +3771,7 @@ argument_list|(
 name|uint32_t
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug2
+name|ngx_log_debug4
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
@@ -4805,7 +4805,7 @@ name|content_length
 operator|+=
 name|atom_data_size
 expr_stmt|;
-name|ngx_log_debug1
+name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
@@ -4939,7 +4939,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon2a452da00708
+DECL|struct|__anon279541ea0708
 typedef|typedef
 struct|struct
 block|{
@@ -5083,7 +5083,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a452da00808
+DECL|struct|__anon279541ea0808
 typedef|typedef
 struct|struct
 block|{
@@ -5781,7 +5781,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon2a452da00908
+DECL|struct|__anon279541ea0908
 typedef|typedef
 struct|struct
 block|{
@@ -5911,7 +5911,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a452da00a08
+DECL|struct|__anon279541ea0a08
 typedef|typedef
 struct|struct
 block|{
@@ -6525,7 +6525,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon2a452da00b08
+DECL|struct|__anon279541ea0b08
 typedef|typedef
 struct|struct
 block|{
@@ -6606,7 +6606,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a452da00c08
+DECL|struct|__anon279541ea0c08
 typedef|typedef
 struct|struct
 block|{
@@ -7965,7 +7965,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon2a452da00d08
+DECL|struct|__anon279541ea0d08
 typedef|typedef
 struct|struct
 block|{
@@ -8229,7 +8229,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon2a452da00e08
+DECL|struct|__anon279541ea0e08
 typedef|typedef
 struct|struct
 block|{
@@ -8275,7 +8275,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a452da00f08
+DECL|struct|__anon279541ea0f08
 typedef|typedef
 struct|struct
 block|{
@@ -8971,7 +8971,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon2a452da01008
+DECL|struct|__anon279541ea1008
 typedef|typedef
 struct|struct
 block|{
@@ -9597,7 +9597,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon2a452da01108
+DECL|struct|__anon279541ea1108
 typedef|typedef
 struct|struct
 block|{
@@ -9643,7 +9643,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a452da01208
+DECL|struct|__anon279541ea1208
 typedef|typedef
 struct|struct
 block|{
@@ -10070,7 +10070,7 @@ operator|->
 name|count
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug2
+name|ngx_log_debug3
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
@@ -10237,7 +10237,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon2a452da01308
+DECL|struct|__anon279541ea1308
 typedef|typedef
 struct|struct
 block|{
@@ -10283,7 +10283,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a452da01408
+DECL|struct|__anon279541ea1408
 typedef|typedef
 struct|struct
 block|{
@@ -10946,7 +10946,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon2a452da01508
+DECL|struct|__anon279541ea1508
 typedef|typedef
 struct|struct
 block|{
@@ -11471,7 +11471,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon2a452da01608
+DECL|struct|__anon279541ea1608
 typedef|typedef
 struct|struct
 block|{
