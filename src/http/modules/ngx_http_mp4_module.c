@@ -214,7 +214,7 @@ value|NGX_HTTP_MP4_STCO_DATA
 end_define
 
 begin_typedef
-DECL|struct|__anon29347df60108
+DECL|struct|__anon2a08a3030108
 typedef|typedef
 struct|struct
 block|{
@@ -233,7 +233,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29347df60208
+DECL|struct|__anon2a08a3030208
 typedef|typedef
 struct|struct
 block|{
@@ -413,7 +413,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29347df60308
+DECL|struct|__anon2a08a3030308
 typedef|typedef
 struct|struct
 block|{
@@ -555,7 +555,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29347df60408
+DECL|struct|__anon2a08a3030408
 typedef|typedef
 struct|struct
 block|{
@@ -3431,7 +3431,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29347df60508
+DECL|struct|__anon2a08a3030508
 typedef|typedef
 struct|struct
 block|{
@@ -3456,7 +3456,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29347df60608
+DECL|struct|__anon2a08a3030608
 typedef|typedef
 struct|struct
 block|{
@@ -4939,7 +4939,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29347df60708
+DECL|struct|__anon2a08a3030708
 typedef|typedef
 struct|struct
 block|{
@@ -5083,7 +5083,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29347df60808
+DECL|struct|__anon2a08a3030808
 typedef|typedef
 struct|struct
 block|{
@@ -5781,7 +5781,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29347df60908
+DECL|struct|__anon2a08a3030908
 typedef|typedef
 struct|struct
 block|{
@@ -5911,7 +5911,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29347df60a08
+DECL|struct|__anon2a08a3030a08
 typedef|typedef
 struct|struct
 block|{
@@ -6525,7 +6525,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29347df60b08
+DECL|struct|__anon2a08a3030b08
 typedef|typedef
 struct|struct
 block|{
@@ -6606,7 +6606,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29347df60c08
+DECL|struct|__anon2a08a3030c08
 typedef|typedef
 struct|struct
 block|{
@@ -7965,7 +7965,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29347df60d08
+DECL|struct|__anon2a08a3030d08
 typedef|typedef
 struct|struct
 block|{
@@ -8229,7 +8229,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29347df60e08
+DECL|struct|__anon2a08a3030e08
 typedef|typedef
 struct|struct
 block|{
@@ -8275,7 +8275,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29347df60f08
+DECL|struct|__anon2a08a3030f08
 typedef|typedef
 struct|struct
 block|{
@@ -8851,7 +8851,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"start time is out mp4 stts samples in \"%\""
+literal|"start time is out mp4 stts samples in \"%s\""
 argument_list|,
 name|mp4
 operator|->
@@ -8971,7 +8971,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29347df61008
+DECL|struct|__anon2a08a3031008
 typedef|typedef
 struct|struct
 block|{
@@ -9597,7 +9597,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29347df61108
+DECL|struct|__anon2a08a3031108
 typedef|typedef
 struct|struct
 block|{
@@ -9643,7 +9643,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29347df61208
+DECL|struct|__anon2a08a3031208
 typedef|typedef
 struct|struct
 block|{
@@ -10237,7 +10237,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29347df61308
+DECL|struct|__anon2a08a3031308
 typedef|typedef
 struct|struct
 block|{
@@ -10283,7 +10283,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29347df61408
+DECL|struct|__anon2a08a3031408
 typedef|typedef
 struct|struct
 block|{
@@ -10946,7 +10946,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29347df61508
+DECL|struct|__anon2a08a3031508
 typedef|typedef
 struct|struct
 block|{
@@ -11471,7 +11471,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29347df61608
+DECL|struct|__anon2a08a3031608
 typedef|typedef
 struct|struct
 block|{
@@ -11860,7 +11860,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"start time is out mp4 stco chunks in \"%\""
+literal|"start time is out mp4 stco chunks in \"%s\""
 argument_list|,
 name|mp4
 operator|->
