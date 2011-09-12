@@ -214,7 +214,7 @@ value|NGX_HTTP_MP4_STCO_DATA
 end_define
 
 begin_typedef
-DECL|struct|__anon279541ea0108
+DECL|struct|__anon2b40a6290108
 typedef|typedef
 struct|struct
 block|{
@@ -222,9 +222,9 @@ DECL|member|buffer_size
 name|size_t
 name|buffer_size
 decl_stmt|;
-DECL|member|max_moov_size
+DECL|member|max_buffer_size
 name|size_t
-name|max_moov_size
+name|max_buffer_size
 decl_stmt|;
 DECL|typedef|ngx_http_mp4_conf_t
 block|}
@@ -233,7 +233,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon279541ea0208
+DECL|struct|__anon2b40a6290208
 typedef|typedef
 struct|struct
 block|{
@@ -413,7 +413,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon279541ea0308
+DECL|struct|__anon2b40a6290308
 typedef|typedef
 struct|struct
 block|{
@@ -555,7 +555,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon279541ea0408
+DECL|struct|__anon2b40a6290408
 typedef|typedef
 struct|struct
 block|{
@@ -1384,7 +1384,7 @@ block|,
 block|{
 name|ngx_string
 argument_list|(
-literal|"mp4_max_moov_size"
+literal|"mp4_max_buffer_size"
 argument_list|)
 block|,
 name|NGX_HTTP_MAIN_CONF
@@ -1403,7 +1403,7 @@ name|offsetof
 argument_list|(
 name|ngx_http_mp4_conf_t
 argument_list|,
-name|max_moov_size
+name|max_buffer_size
 argument_list|)
 block|,
 name|NULL
@@ -3431,7 +3431,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon279541ea0508
+DECL|struct|__anon2b40a6290508
 typedef|typedef
 struct|struct
 block|{
@@ -3456,7 +3456,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon279541ea0608
+DECL|struct|__anon2b40a6290608
 typedef|typedef
 struct|struct
 block|{
@@ -4378,7 +4378,7 @@ name|atom_data_size
 operator|>
 name|conf
 operator|->
-name|max_moov_size
+name|max_buffer_size
 condition|)
 block|{
 name|ngx_log_error
@@ -4394,7 +4394,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"\"%s\" mp4 moov atom is too large:%uL, "
-literal|"you may want to increase mp4_max_moov_size"
+literal|"you may want to increase mp4_max_buffer_size"
 argument_list|,
 name|mp4
 operator|->
@@ -4939,7 +4939,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon279541ea0708
+DECL|struct|__anon2b40a6290708
 typedef|typedef
 struct|struct
 block|{
@@ -5083,7 +5083,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon279541ea0808
+DECL|struct|__anon2b40a6290808
 typedef|typedef
 struct|struct
 block|{
@@ -5781,7 +5781,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon279541ea0908
+DECL|struct|__anon2b40a6290908
 typedef|typedef
 struct|struct
 block|{
@@ -5911,7 +5911,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon279541ea0a08
+DECL|struct|__anon2b40a6290a08
 typedef|typedef
 struct|struct
 block|{
@@ -6525,7 +6525,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon279541ea0b08
+DECL|struct|__anon2b40a6290b08
 typedef|typedef
 struct|struct
 block|{
@@ -6606,7 +6606,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon279541ea0c08
+DECL|struct|__anon2b40a6290c08
 typedef|typedef
 struct|struct
 block|{
@@ -7965,7 +7965,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon279541ea0d08
+DECL|struct|__anon2b40a6290d08
 typedef|typedef
 struct|struct
 block|{
@@ -8229,7 +8229,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon279541ea0e08
+DECL|struct|__anon2b40a6290e08
 typedef|typedef
 struct|struct
 block|{
@@ -8275,7 +8275,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon279541ea0f08
+DECL|struct|__anon2b40a6290f08
 typedef|typedef
 struct|struct
 block|{
@@ -8971,7 +8971,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon279541ea1008
+DECL|struct|__anon2b40a6291008
 typedef|typedef
 struct|struct
 block|{
@@ -9597,7 +9597,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon279541ea1108
+DECL|struct|__anon2b40a6291108
 typedef|typedef
 struct|struct
 block|{
@@ -9643,7 +9643,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon279541ea1208
+DECL|struct|__anon2b40a6291208
 typedef|typedef
 struct|struct
 block|{
@@ -10237,7 +10237,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon279541ea1308
+DECL|struct|__anon2b40a6291308
 typedef|typedef
 struct|struct
 block|{
@@ -10283,7 +10283,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon279541ea1408
+DECL|struct|__anon2b40a6291408
 typedef|typedef
 struct|struct
 block|{
@@ -10946,7 +10946,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon279541ea1508
+DECL|struct|__anon2b40a6291508
 typedef|typedef
 struct|struct
 block|{
@@ -11471,7 +11471,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon279541ea1608
+DECL|struct|__anon2b40a6291608
 typedef|typedef
 struct|struct
 block|{
@@ -12243,7 +12243,7 @@ name|NGX_CONF_UNSET_SIZE
 expr_stmt|;
 name|conf
 operator|->
-name|max_moov_size
+name|max_buffer_size
 operator|=
 name|NGX_CONF_UNSET_SIZE
 expr_stmt|;
@@ -12304,11 +12304,11 @@ name|ngx_conf_merge_size_value
 argument_list|(
 name|conf
 operator|->
-name|max_moov_size
+name|max_buffer_size
 argument_list|,
 name|prev
 operator|->
-name|max_moov_size
+name|max_buffer_size
 argument_list|,
 literal|10
 operator|*
