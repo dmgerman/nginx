@@ -222,7 +222,7 @@ value|NGX_HTTP_MP4_STCO_DATA
 end_define
 
 begin_typedef
-DECL|struct|__anon295036f90108
+DECL|struct|__anon2b52260c0108
 typedef|typedef
 struct|struct
 block|{
@@ -241,7 +241,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295036f90208
+DECL|struct|__anon2b52260c0208
 typedef|typedef
 struct|struct
 block|{
@@ -273,7 +273,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295036f90308
+DECL|struct|__anon2b52260c0308
 typedef|typedef
 struct|struct
 block|{
@@ -469,7 +469,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295036f90408
+DECL|struct|__anon2b52260c0408
 typedef|typedef
 struct|struct
 block|{
@@ -611,7 +611,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295036f90508
+DECL|struct|__anon2b52260c0508
 typedef|typedef
 struct|struct
 block|{
@@ -3487,7 +3487,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon295036f90608
+DECL|struct|__anon2b52260c0608
 typedef|typedef
 struct|struct
 block|{
@@ -3512,7 +3512,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295036f90708
+DECL|struct|__anon2b52260c0708
 typedef|typedef
 struct|struct
 block|{
@@ -4995,7 +4995,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon295036f90808
+DECL|struct|__anon2b52260c0808
 typedef|typedef
 struct|struct
 block|{
@@ -5139,7 +5139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295036f90908
+DECL|struct|__anon2b52260c0908
 typedef|typedef
 struct|struct
 block|{
@@ -5615,6 +5615,15 @@ block|{
 name|u_char
 modifier|*
 name|atom_header
+decl_stmt|,
+modifier|*
+name|atom_end
+decl_stmt|;
+name|off_t
+name|atom_file_end
+decl_stmt|;
+name|ngx_int_t
+name|rc
 decl_stmt|;
 name|ngx_buf_t
 modifier|*
@@ -5731,7 +5740,24 @@ name|buf
 operator|=
 name|atom
 expr_stmt|;
-return|return
+name|atom_end
+operator|=
+name|mp4
+operator|->
+name|buffer_pos
+operator|+
+name|atom_data_size
+expr_stmt|;
+name|atom_file_end
+operator|=
+name|mp4
+operator|->
+name|offset
+operator|+
+name|atom_data_size
+expr_stmt|;
+name|rc
+operator|=
 name|ngx_http_mp4_read_atom
 argument_list|(
 name|mp4
@@ -5740,6 +5766,67 @@ name|ngx_http_mp4_trak_atoms
 argument_list|,
 name|atom_data_size
 argument_list|)
+expr_stmt|;
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"mp4 trak atom: %i"
+argument_list|,
+name|rc
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|rc
+operator|==
+name|NGX_DECLINED
+condition|)
+block|{
+comment|/* skip this trak */
+name|ngx_memzero
+argument_list|(
+name|trak
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|ngx_http_mp4_trak_t
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|mp4
+operator|->
+name|trak
+operator|.
+name|nelts
+operator|--
+expr_stmt|;
+name|mp4
+operator|->
+name|buffer_pos
+operator|=
+name|atom_end
+expr_stmt|;
+name|mp4
+operator|->
+name|offset
+operator|=
+name|atom_file_end
+expr_stmt|;
+return|return
+name|NGX_OK
+return|;
+block|}
+return|return
+name|rc
 return|;
 block|}
 end_function
@@ -5837,7 +5924,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon295036f90a08
+DECL|struct|__anon2b52260c0a08
 typedef|typedef
 struct|struct
 block|{
@@ -5967,7 +6054,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295036f90b08
+DECL|struct|__anon2b52260c0b08
 typedef|typedef
 struct|struct
 block|{
@@ -6581,7 +6668,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon295036f90c08
+DECL|struct|__anon2b52260c0c08
 typedef|typedef
 struct|struct
 block|{
@@ -6662,7 +6749,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295036f90d08
+DECL|struct|__anon2b52260c0d08
 typedef|typedef
 struct|struct
 block|{
@@ -8021,7 +8108,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon295036f90e08
+DECL|struct|__anon2b52260c0e08
 typedef|typedef
 struct|struct
 block|{
@@ -8060,6 +8147,20 @@ index|[
 literal|4
 index|]
 decl_stmt|;
+DECL|member|media_size
+name|u_char
+name|media_size
+index|[
+literal|4
+index|]
+decl_stmt|;
+DECL|member|media_name
+name|u_char
+name|media_name
+index|[
+literal|4
+index|]
+decl_stmt|;
 DECL|typedef|ngx_mp4_stsd_atom_t
 block|}
 name|ngx_mp4_stsd_atom_t
@@ -8089,6 +8190,9 @@ name|atom_table
 decl_stmt|;
 name|size_t
 name|atom_size
+decl_stmt|;
+name|uint32_t
+name|entries
 decl_stmt|;
 name|ngx_buf_t
 modifier|*
@@ -8173,15 +8277,6 @@ argument_list|,
 literal|'d'
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG
-operator|)
-block|{
-name|uint32_t
-name|entries
-decl_stmt|;
 name|entries
 operator|=
 name|ngx_mp4_get_32value
@@ -8193,10 +8288,51 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|entries
+operator|(
+name|uint64_t
+operator|)
+operator|(
+sizeof|sizeof
+argument_list|(
+name|ngx_mp4_stsd_atom_t
+argument_list|)
+operator|-
+sizeof|sizeof
+argument_list|(
+name|ngx_mp4_atom_header_t
+argument_list|)
+operator|)
+operator|>
+name|atom_data_size
 condition|)
 block|{
-comment|/* codecs of interest: avc1 (H.264), mp4a (MPEG-4 audio) */
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"\"%s\" mp4 stsd atom too large"
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|name
+operator|.
+name|data
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
 name|ngx_log_debug3
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
@@ -8209,26 +8345,56 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"stsd entries:%uD, codec:%*s"
+literal|"stsd entries:%uD, media:%*s"
 argument_list|,
-name|entries
-argument_list|,
-literal|4
-argument_list|,
-name|atom_header
-operator|+
-sizeof|sizeof
+name|ngx_mp4_get_32value
 argument_list|(
-name|ngx_mp4_stsd_atom_t
+name|stsd_atom
+operator|->
+name|entries
 argument_list|)
-operator|+
+argument_list|,
 literal|4
+argument_list|,
+name|stsd_atom
+operator|->
+name|media_name
 argument_list|)
 expr_stmt|;
+comment|/* supported media format: "avc1" (H.264) and "mp4a" (MPEG-4/AAC) */
+if|if
+condition|(
+name|ngx_strncmp
+argument_list|(
+name|stsd_atom
+operator|->
+name|media_name
+argument_list|,
+literal|"avc1"
+argument_list|,
+literal|4
+argument_list|)
+operator|!=
+literal|0
+operator|&&
+name|ngx_strncmp
+argument_list|(
+name|stsd_atom
+operator|->
+name|media_name
+argument_list|,
+literal|"mp4a"
+argument_list|,
+literal|4
+argument_list|)
+operator|!=
+literal|0
+condition|)
+block|{
+return|return
+name|NGX_DECLINED
+return|;
 block|}
-block|}
-endif|#
-directive|endif
 name|trak
 operator|=
 name|ngx_mp4_last_trak
@@ -8292,7 +8458,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon295036f90f08
+DECL|struct|__anon2b52260c0f08
 typedef|typedef
 struct|struct
 block|{
@@ -8338,7 +8504,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295036f91008
+DECL|struct|__anon2b52260c1008
 typedef|typedef
 struct|struct
 block|{
@@ -9034,7 +9200,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon295036f91108
+DECL|struct|__anon2b52260c1108
 typedef|typedef
 struct|struct
 block|{
@@ -9660,7 +9826,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon295036f91208
+DECL|struct|__anon2b52260c1208
 typedef|typedef
 struct|struct
 block|{
@@ -9706,7 +9872,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295036f91308
+DECL|struct|__anon2b52260c1308
 typedef|typedef
 struct|struct
 block|{
@@ -10300,7 +10466,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon295036f91408
+DECL|struct|__anon2b52260c1408
 typedef|typedef
 struct|struct
 block|{
@@ -11288,7 +11454,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon295036f91508
+DECL|struct|__anon2b52260c1508
 typedef|typedef
 struct|struct
 block|{
@@ -11878,7 +12044,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon295036f91608
+DECL|struct|__anon2b52260c1608
 typedef|typedef
 struct|struct
 block|{
