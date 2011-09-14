@@ -1324,6 +1324,14 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
+name|of
+operator|->
+name|is_directio
+operator|=
+name|file
+operator|->
+name|is_directio
+expr_stmt|;
 goto|goto
 name|update
 goto|;
