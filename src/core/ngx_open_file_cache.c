@@ -1310,11 +1310,6 @@ operator|->
 name|uniq
 condition|)
 block|{
-name|file
-operator|->
-name|count
-operator|++
-expr_stmt|;
 if|if
 condition|(
 name|file
@@ -1329,16 +1324,8 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
-name|of
-operator|->
-name|is_directio
-operator|=
-name|file
-operator|->
-name|is_directio
-expr_stmt|;
 goto|goto
-name|renew
+name|update
 goto|;
 block|}
 comment|/* file was changed */
@@ -1763,8 +1750,6 @@ operator|++
 expr_stmt|;
 block|}
 block|}
-name|renew
-label|:
 name|file
 operator|->
 name|created
