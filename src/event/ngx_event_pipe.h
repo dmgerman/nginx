@@ -240,6 +240,10 @@ DECL|member|read_length
 name|off_t
 name|read_length
 decl_stmt|;
+DECL|member|length
+name|off_t
+name|length
+decl_stmt|;
 DECL|member|max_temp_file_size
 name|off_t
 name|max_temp_file_size
