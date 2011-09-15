@@ -213,7 +213,7 @@ value|0x00000020
 end_define
 
 begin_typedef
-DECL|struct|__anon2c3362ed0108
+DECL|struct|__anon27a852620108
 typedef|typedef
 struct|struct
 block|{
@@ -253,7 +253,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3362ed0208
+DECL|struct|__anon27a852620208
 typedef|typedef
 struct|struct
 block|{
@@ -322,7 +322,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3362ed0308
+DECL|struct|__anon27a852620308
 typedef|typedef
 struct|struct
 block|{
@@ -346,7 +346,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3362ed0408
+DECL|struct|__anon27a852620408
 typedef|typedef
 struct|struct
 block|{
@@ -488,7 +488,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c3362ed0508
+DECL|struct|__anon27a852620508
 typedef|typedef
 struct|struct
 block|{
@@ -703,7 +703,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3362ed0608
+DECL|struct|__anon27a852620608
 typedef|typedef
 struct|struct
 block|{
@@ -739,7 +739,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3362ed0708
+DECL|struct|__anon27a852620708
 typedef|typedef
 struct|struct
 block|{
@@ -855,6 +855,12 @@ DECL|member|cache_control
 name|ngx_array_t
 name|cache_control
 decl_stmt|;
+DECL|member|connection_close
+name|unsigned
+name|connection_close
+range|:
+literal|1
+decl_stmt|;
 DECL|member|chunked
 name|unsigned
 name|chunked
@@ -868,7 +874,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3362ed0808
+DECL|struct|__anon27a852620808
 typedef|typedef
 struct|struct
 block|{
@@ -1232,7 +1238,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c3362ed0908
+DECL|struct|__anon27a852620908
 typedef|typedef
 struct|struct
 block|{
