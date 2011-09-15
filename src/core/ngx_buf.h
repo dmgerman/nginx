@@ -193,7 +193,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27bba7b50108
+DECL|struct|__anon29785ebc0108
 typedef|typedef
 struct|struct
 block|{
@@ -387,7 +387,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27bba7b50208
+DECL|struct|__anon29785ebc0208
 typedef|typedef
 struct|struct
 block|{
@@ -638,6 +638,10 @@ begin_function_decl
 name|void
 name|ngx_chain_update_chains
 parameter_list|(
+name|ngx_pool_t
+modifier|*
+name|p
+parameter_list|,
 name|ngx_chain_t
 modifier|*
 modifier|*

@@ -10423,6 +10423,10 @@ return|return;
 block|}
 name|ngx_chain_update_chains
 argument_list|(
+name|r
+operator|->
+name|pool
+argument_list|,
 operator|&
 name|u
 operator|->

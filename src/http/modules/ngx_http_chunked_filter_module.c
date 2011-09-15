@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2be71a240108
+DECL|struct|__anon291908770108
 typedef|typedef
 struct|struct
 block|{
@@ -912,6 +912,10 @@ argument_list|)
 expr_stmt|;
 name|ngx_chain_update_chains
 argument_list|(
+name|r
+operator|->
+name|pool
+argument_list|,
 operator|&
 name|ctx
 operator|->

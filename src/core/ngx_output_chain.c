@@ -793,6 +793,10 @@ return|;
 block|}
 name|ngx_chain_update_chains
 argument_list|(
+name|ctx
+operator|->
+name|pool
+argument_list|,
 operator|&
 name|ctx
 operator|->

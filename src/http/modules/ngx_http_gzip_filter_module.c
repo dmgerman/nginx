@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29f9d2fd0108
+DECL|struct|__anon29ea5ce70108
 typedef|typedef
 struct|struct
 block|{
@@ -80,7 +80,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f9d2fd0208
+DECL|struct|__anon29ea5ce70208
 typedef|typedef
 struct|struct
 block|{
@@ -1564,6 +1564,10 @@ name|NULL
 expr_stmt|;
 name|ngx_chain_update_chains
 argument_list|(
+name|r
+operator|->
+name|pool
+argument_list|,
 operator|&
 name|ctx
 operator|->
@@ -1775,6 +1779,10 @@ argument_list|)
 expr_stmt|;
 name|ngx_chain_update_chains
 argument_list|(
+name|r
+operator|->
+name|pool
+argument_list|,
 operator|&
 name|ctx
 operator|->

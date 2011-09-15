@@ -2818,6 +2818,10 @@ return|;
 block|}
 name|ngx_chain_update_chains
 argument_list|(
+name|p
+operator|->
+name|pool
+argument_list|,
 operator|&
 name|p
 operator|->
