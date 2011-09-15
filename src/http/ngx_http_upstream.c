@@ -12299,6 +12299,14 @@ name|status
 operator|=
 literal|0
 expr_stmt|;
+comment|/* TODO: inform balancer instead */
+name|u
+operator|->
+name|peer
+operator|.
+name|tries
+operator|++
+expr_stmt|;
 block|}
 else|else
 block|{
