@@ -222,7 +222,7 @@ value|NGX_HTTP_MP4_STCO_DATA
 end_define
 
 begin_typedef
-DECL|struct|__anon29a3247f0108
+DECL|struct|__anon28f96b060108
 typedef|typedef
 struct|struct
 block|{
@@ -241,7 +241,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a3247f0208
+DECL|struct|__anon28f96b060208
 typedef|typedef
 struct|struct
 block|{
@@ -273,7 +273,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a3247f0308
+DECL|struct|__anon28f96b060308
 typedef|typedef
 struct|struct
 block|{
@@ -450,13 +450,13 @@ DECL|member|stsz_data_buf
 name|ngx_buf_t
 name|stsz_data_buf
 decl_stmt|;
-DECL|member|tsco_atom_buf
+DECL|member|stco_atom_buf
 name|ngx_buf_t
-name|tsco_atom_buf
+name|stco_atom_buf
 decl_stmt|;
-DECL|member|tsco_data_buf
+DECL|member|stco_data_buf
 name|ngx_buf_t
-name|tsco_data_buf
+name|stco_data_buf
 decl_stmt|;
 DECL|member|stsc_chunk_entry
 name|ngx_mp4_stsc_entry_t
@@ -469,7 +469,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a3247f0408
+DECL|struct|__anon28f96b060408
 typedef|typedef
 struct|struct
 block|{
@@ -611,7 +611,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a3247f0508
+DECL|struct|__anon28f96b060508
 typedef|typedef
 struct|struct
 block|{
@@ -3487,7 +3487,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29a3247f0608
+DECL|struct|__anon28f96b060608
 typedef|typedef
 struct|struct
 block|{
@@ -3512,7 +3512,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a3247f0708
+DECL|struct|__anon28f96b060708
 typedef|typedef
 struct|struct
 block|{
@@ -4995,7 +4995,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29a3247f0808
+DECL|struct|__anon28f96b060808
 typedef|typedef
 struct|struct
 block|{
@@ -5139,7 +5139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a3247f0908
+DECL|struct|__anon28f96b060908
 typedef|typedef
 struct|struct
 block|{
@@ -5924,7 +5924,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29a3247f0a08
+DECL|struct|__anon28f96b060a08
 typedef|typedef
 struct|struct
 block|{
@@ -6054,7 +6054,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a3247f0b08
+DECL|struct|__anon28f96b060b08
 typedef|typedef
 struct|struct
 block|{
@@ -6668,7 +6668,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29a3247f0c08
+DECL|struct|__anon28f96b060c08
 typedef|typedef
 struct|struct
 block|{
@@ -6749,7 +6749,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a3247f0d08
+DECL|struct|__anon28f96b060d08
 typedef|typedef
 struct|struct
 block|{
@@ -8108,7 +8108,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29a3247f0e08
+DECL|struct|__anon28f96b060e08
 typedef|typedef
 struct|struct
 block|{
@@ -8446,7 +8446,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29a3247f0f08
+DECL|struct|__anon28f96b060f08
 typedef|typedef
 struct|struct
 block|{
@@ -8492,7 +8492,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a3247f1008
+DECL|struct|__anon28f96b061008
 typedef|typedef
 struct|struct
 block|{
@@ -9188,7 +9188,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29a3247f1108
+DECL|struct|__anon28f96b061108
 typedef|typedef
 struct|struct
 block|{
@@ -9814,7 +9814,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29a3247f1208
+DECL|struct|__anon28f96b061208
 typedef|typedef
 struct|struct
 block|{
@@ -9860,7 +9860,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a3247f1308
+DECL|struct|__anon28f96b061308
 typedef|typedef
 struct|struct
 block|{
@@ -10454,7 +10454,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29a3247f1408
+DECL|struct|__anon28f96b061408
 typedef|typedef
 struct|struct
 block|{
@@ -11442,7 +11442,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29a3247f1508
+DECL|struct|__anon28f96b061508
 typedef|typedef
 struct|struct
 block|{
@@ -12032,7 +12032,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29a3247f1608
+DECL|struct|__anon28f96b061608
 typedef|typedef
 struct|struct
 block|{
@@ -12270,7 +12270,7 @@ operator|=
 operator|&
 name|trak
 operator|->
-name|tsco_atom_buf
+name|stco_atom_buf
 expr_stmt|;
 name|atom
 operator|->
@@ -12295,7 +12295,7 @@ operator|=
 operator|&
 name|trak
 operator|->
-name|tsco_data_buf
+name|stco_data_buf
 expr_stmt|;
 name|data
 operator|->
