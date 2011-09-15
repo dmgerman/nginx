@@ -213,7 +213,7 @@ value|0x00000020
 end_define
 
 begin_typedef
-DECL|struct|__anon27a030100108
+DECL|struct|__anon2c3362ed0108
 typedef|typedef
 struct|struct
 block|{
@@ -253,7 +253,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a030100208
+DECL|struct|__anon2c3362ed0208
 typedef|typedef
 struct|struct
 block|{
@@ -322,7 +322,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a030100308
+DECL|struct|__anon2c3362ed0308
 typedef|typedef
 struct|struct
 block|{
@@ -346,7 +346,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a030100408
+DECL|struct|__anon2c3362ed0408
 typedef|typedef
 struct|struct
 block|{
@@ -488,7 +488,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27a030100508
+DECL|struct|__anon2c3362ed0508
 typedef|typedef
 struct|struct
 block|{
@@ -703,7 +703,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a030100608
+DECL|struct|__anon2c3362ed0608
 typedef|typedef
 struct|struct
 block|{
@@ -739,7 +739,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a030100708
+DECL|struct|__anon2c3362ed0708
 typedef|typedef
 struct|struct
 block|{
@@ -830,6 +830,11 @@ name|ngx_table_elt_t
 modifier|*
 name|www_authenticate
 decl_stmt|;
+DECL|member|transfer_encoding
+name|ngx_table_elt_t
+modifier|*
+name|transfer_encoding
+decl_stmt|;
 if|#
 directive|if
 operator|(
@@ -850,6 +855,12 @@ DECL|member|cache_control
 name|ngx_array_t
 name|cache_control
 decl_stmt|;
+DECL|member|chunked
+name|unsigned
+name|chunked
+range|:
+literal|1
+decl_stmt|;
 DECL|typedef|ngx_http_upstream_headers_in_t
 block|}
 name|ngx_http_upstream_headers_in_t
@@ -857,7 +868,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a030100808
+DECL|struct|__anon2c3362ed0808
 typedef|typedef
 struct|struct
 block|{
@@ -1221,7 +1232,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27a030100908
+DECL|struct|__anon2c3362ed0908
 typedef|typedef
 struct|struct
 block|{
