@@ -254,10 +254,14 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bc190a00108
+DECL|struct|__anon27ea4e9b0108
 typedef|typedef
 struct|struct
 block|{
+DECL|member|http_version
+name|ngx_uint_t
+name|http_version
+decl_stmt|;
 DECL|member|code
 name|ngx_uint_t
 name|code

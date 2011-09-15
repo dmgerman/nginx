@@ -70,14 +70,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon28ad86e6010a
+DECL|union|__anon2b0221f5010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon28ad86e60208
+DECL|struct|__anon2b0221f50208
 struct|struct
 block|{
 DECL|member|lengths
@@ -108,7 +108,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28ad86e60308
+DECL|struct|__anon2b0221f50308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ad86e60408
+DECL|struct|__anon2b0221f50408
 typedef|typedef
 struct|struct
 block|{
@@ -246,7 +246,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ad86e60508
+DECL|struct|__anon2b0221f50508
 typedef|typedef
 struct|struct
 block|{
@@ -5877,6 +5877,14 @@ name|status
 operator|=
 name|NGX_HTTP_OK
 expr_stmt|;
+name|u
+operator|->
+name|headers_in
+operator|.
+name|connection_close
+operator|=
+literal|1
+expr_stmt|;
 return|return
 name|NGX_OK
 return|;
@@ -6018,6 +6026,26 @@ operator|.
 name|status_line
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|ctx
+operator|->
+name|status
+operator|.
+name|http_version
+operator|<
+name|NGX_HTTP_VERSION_11
+condition|)
+block|{
+name|u
+operator|->
+name|headers_in
+operator|.
+name|connection_close
+operator|=
+literal|1
+expr_stmt|;
+block|}
 name|u
 operator|->
 name|process_header
