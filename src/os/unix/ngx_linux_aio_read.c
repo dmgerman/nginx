@@ -49,7 +49,7 @@ end_function_decl
 
 begin_function
 specifier|static
-name|long
+name|int
 DECL|function|io_submit (aio_context_t ctx,long n,struct iocb ** paiocb)
 name|io_submit
 parameter_list|(
@@ -105,8 +105,8 @@ modifier|*
 name|pool
 parameter_list|)
 block|{
-name|long
-name|n
+name|ngx_err_t
+name|err
 decl_stmt|;
 name|struct
 name|iocb
@@ -467,8 +467,8 @@ name|aio
 operator|->
 name|aiocb
 expr_stmt|;
-name|n
-operator|=
+if|if
+condition|(
 name|io_submit
 argument_list|(
 name|ngx_aio_ctx
@@ -477,10 +477,6 @@ literal|1
 argument_list|,
 name|piocb
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|n
 operator|==
 literal|1
 condition|)
@@ -507,14 +503,13 @@ return|return
 name|NGX_AGAIN
 return|;
 block|}
-name|n
+name|err
 operator|=
-operator|-
-name|n
+name|ngx_errno
 expr_stmt|;
 if|if
 condition|(
-name|n
+name|err
 operator|==
 name|NGX_EAGAIN
 condition|)
@@ -540,7 +535,7 @@ name|file
 operator|->
 name|log
 argument_list|,
-name|n
+name|err
 argument_list|,
 literal|"io_submit(\"%V\") failed"
 argument_list|,
@@ -552,7 +547,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|n
+name|err
 operator|==
 name|NGX_ENOSYS
 condition|)

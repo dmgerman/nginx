@@ -373,7 +373,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29392a6f0108
+DECL|struct|__anon2c9bc13d0108
 typedef|typedef
 struct|struct
 block|{
@@ -786,7 +786,7 @@ end_comment
 
 begin_function
 specifier|static
-name|long
+name|int
 DECL|function|io_setup (u_int nr_reqs,aio_context_t * ctx)
 name|io_setup
 parameter_list|(
@@ -834,7 +834,7 @@ end_function
 
 begin_function
 specifier|static
-name|long
+name|int
 DECL|function|io_getevents (aio_context_t ctx,long min_nr,long nr,struct io_event * events,struct timespec * tmo)
 name|io_getevents
 parameter_list|(
@@ -1051,8 +1051,8 @@ argument_list|,
 name|ngx_eventfd
 argument_list|)
 expr_stmt|;
-name|n
-operator|=
+if|if
+condition|(
 name|io_setup
 argument_list|(
 literal|1024
@@ -1060,12 +1060,9 @@ argument_list|,
 operator|&
 name|ngx_aio_ctx
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|n
-operator|!=
-literal|0
+operator|==
+operator|-
+literal|1
 condition|)
 block|{
 name|ngx_log_error
@@ -1076,8 +1073,7 @@ name|cycle
 operator|->
 name|log
 argument_list|,
-operator|-
-name|n
+name|ngx_errno
 argument_list|,
 literal|"io_setup() failed"
 argument_list|)
@@ -1335,8 +1331,9 @@ name|io_destroy
 argument_list|(
 name|ngx_aio_ctx
 argument_list|)
-operator|!=
-literal|0
+operator|==
+operator|-
+literal|1
 condition|)
 block|{
 name|ngx_log_error
@@ -2726,11 +2723,11 @@ parameter_list|)
 block|{
 name|int
 name|n
+decl_stmt|,
+name|events
 decl_stmt|;
 name|long
 name|i
-decl_stmt|,
-name|events
 decl_stmt|;
 name|uint64_t
 name|ready
@@ -3042,7 +3039,7 @@ condition|)
 block|{
 return|return;
 block|}
-comment|/* events< 0 */
+comment|/* events == -1 */
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
@@ -3051,8 +3048,7 @@ name|ev
 operator|->
 name|log
 argument_list|,
-operator|-
-name|events
+name|ngx_errno
 argument_list|,
 literal|"io_getevents() failed"
 argument_list|)
