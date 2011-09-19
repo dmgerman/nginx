@@ -62,7 +62,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon28ae52dc0108
+DECL|struct|__anon2bf0e7290108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ae52dc0208
+DECL|struct|__anon2bf0e7290208
 typedef|typedef
 struct|struct
 block|{
@@ -751,7 +751,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"can not PUT to a collection"
+literal|"cannot PUT to a collection"
 argument_list|)
 expr_stmt|;
 return|return

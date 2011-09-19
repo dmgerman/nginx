@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29c75e1c0108
+DECL|struct|__anon29f453b90108
 typedef|typedef
 struct|struct
 block|{
@@ -13669,7 +13669,7 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|/* the array has 4 empty preallocated elements, so push can not fail */
+comment|/* the array has 4 empty preallocated elements, so push cannot fail */
 name|sn
 operator|=
 name|ngx_array_push

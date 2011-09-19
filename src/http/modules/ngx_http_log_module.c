@@ -100,7 +100,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28920d5e0108
+DECL|struct|__anon294051140108
 typedef|typedef
 struct|struct
 block|{
@@ -126,7 +126,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28920d5e0208
+DECL|struct|__anon294051140208
 typedef|typedef
 struct|struct
 block|{
@@ -147,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28920d5e0308
+DECL|struct|__anon294051140308
 typedef|typedef
 struct|struct
 block|{
@@ -168,7 +168,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28920d5e0408
+DECL|struct|__anon294051140408
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +202,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28920d5e0508
+DECL|struct|__anon294051140508
 typedef|typedef
 struct|struct
 block|{
@@ -237,7 +237,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28920d5e0608
+DECL|struct|__anon294051140608
 typedef|typedef
 struct|struct
 block|{
@@ -4441,7 +4441,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"buffered logs can not have variables in name"
+literal|"buffered logs cannot have variables in name"
 argument_list|)
 expr_stmt|;
 return|return

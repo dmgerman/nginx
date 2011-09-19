@@ -55,7 +55,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28d8d5100108
+DECL|struct|__anon28db8a980108
 typedef|typedef
 struct|struct
 block|{
@@ -155,7 +155,7 @@ value|5
 end_define
 
 begin_typedef
-DECL|struct|__anon28d8d5100208
+DECL|struct|__anon28db8a980208
 typedef|typedef
 struct|struct
 block|{
@@ -2187,7 +2187,7 @@ name|NGX_HTTP_EXPIRES_MODIFIED
 condition|)
 block|{
 return|return
-literal|"daily time can not be used with \"modified\" parameter"
+literal|"daily time cannot be used with \"modified\" parameter"
 return|;
 block|}
 name|hcf

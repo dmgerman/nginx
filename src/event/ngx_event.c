@@ -4278,7 +4278,7 @@ argument_list|,
 literal|"when the server runs without a master process "
 literal|"the \"%V\" event type must be the same as "
 literal|"in previous configuration - \"%s\" "
-literal|"and it can not be changed on the fly, "
+literal|"and it cannot be changed on the fly, "
 literal|"to change it you need to stop server "
 literal|"and start it again"
 argument_list|,

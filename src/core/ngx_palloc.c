@@ -323,7 +323,7 @@ directive|if
 operator|(
 name|NGX_DEBUG
 operator|)
-comment|/*      * we could allocate the pool->log from this pool      * so we can not use this log while the free()ing the pool      */
+comment|/*      * we could allocate the pool->log from this pool      * so we cannot use this log while free()ing the pool      */
 for|for
 control|(
 name|p

@@ -2415,7 +2415,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"can not respawn %s"
+literal|"could not respawn %s"
 argument_list|,
 name|ngx_processes
 index|[

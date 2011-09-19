@@ -5228,7 +5228,7 @@ name|ssl
 decl_stmt|;
 endif|#
 directive|endif
-comment|/*      * we can not compare whole sockaddr struct's as kernel      * may fill some fields in inherited sockaddr struct's      */
+comment|/*      * we cannot compare whole sockaddr struct's as kernel      * may fill some fields in inherited sockaddr struct's      */
 name|sa
 operator|=
 operator|&

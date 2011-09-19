@@ -16,7 +16,7 @@ file|<ngx_core.h>
 end_include
 
 begin_comment
-comment|/*  * The strerror() messages are copied because:  *  * 1) strerror() and strerror_r() functions are not Async-Signal-Safe,  *    therefore, they can not be used in signal handlers;  *  * 2) a direct sys_errlist[] array may be used instead of these functions,  *    but Linux linker warns about its usage:  *  * warning: `sys_errlist' is deprecated; use `strerror' or `strerror_r' instead  * warning: `sys_nerr' is deprecated; use `strerror' or `strerror_r' instead  *  *    causing false bug reports.  */
+comment|/*  * The strerror() messages are copied because:  *  * 1) strerror() and strerror_r() functions are not Async-Signal-Safe,  *    therefore, they cannot be used in signal handlers;  *  * 2) a direct sys_errlist[] array may be used instead of these functions,  *    but Linux linker warns about its usage:  *  * warning: `sys_errlist' is deprecated; use `strerror' or `strerror_r' instead  * warning: `sys_nerr' is deprecated; use `strerror' or `strerror_r' instead  *  *    causing false bug reports.  */
 end_comment
 
 begin_decl_stmt

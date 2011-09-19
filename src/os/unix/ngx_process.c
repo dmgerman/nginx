@@ -28,7 +28,7 @@ file|<ngx_channel.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29f7bb3d0108
+DECL|struct|__anon29fb37bd0108
 typedef|typedef
 struct|struct
 block|{
@@ -2173,7 +2173,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"%s %P exited with fatal code %d "
-literal|"and can not be respawn"
+literal|"and cannot be respawned"
 argument_list|,
 name|process
 argument_list|,

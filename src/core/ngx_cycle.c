@@ -3591,7 +3591,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"can not create ngx_temp_pool"
+literal|"could not create ngx_temp_pool"
 argument_list|)
 expr_stmt|;
 name|exit

@@ -1384,7 +1384,7 @@ operator|*=
 literal|10.0
 expr_stmt|;
 block|}
-comment|/*                      * (int64_t) cast is required for msvc6:                      * it can not convert uint64_t to double                      */
+comment|/*                      * (int64_t) cast is required for msvc6:                      * it cannot convert uint64_t to double                      */
 name|ui64
 operator|=
 operator|(
@@ -6281,7 +6281,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon2b9955d60103
+DECL|enum|__anon2b6eba910103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
