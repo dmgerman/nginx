@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bd64ba90108
+DECL|struct|__anon29b65cb50108
 typedef|typedef
 struct|struct
 block|{
@@ -5347,7 +5347,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"try to use %s: \"%s\" \"%s\""
+literal|"trying to use %s: \"%s\" \"%s\""
 argument_list|,
 name|test_dir
 condition|?
@@ -8072,7 +8072,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"\"alias\" could not be used in location \"%V\" "
+literal|"\"alias\" cannot be used in location \"%V\" "
 literal|"where URI was rewritten"
 argument_list|,
 operator|&
@@ -10448,7 +10448,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"rewrite or internal redirection cycle "
-literal|"while internal redirect to \"%V\""
+literal|"while internally redirecting to \"%V\""
 argument_list|,
 name|uri
 argument_list|)
@@ -12268,7 +12268,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"location \"%V\" could not be inside "
+literal|"location \"%V\" cannot be inside "
 literal|"the exact location \"%V\""
 argument_list|,
 operator|&
@@ -12301,7 +12301,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"location \"%V\" could not be inside "
+literal|"location \"%V\" cannot be inside "
 literal|"the named location \"%V\""
 argument_list|,
 operator|&
@@ -12334,8 +12334,8 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"named location \"%V\" must be "
-literal|"on server level only"
+literal|"named location \"%V\" can be "
+literal|"on the server level only"
 argument_list|,
 operator|&
 name|clcf
@@ -12633,7 +12633,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"the using of the regex \"%V\" requires PCRE library"
+literal|"using regex \"%V\" requires PCRE library"
 argument_list|,
 name|regex
 argument_list|)
@@ -13039,9 +13039,9 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"duplicate extention \"%V\", "
+literal|"duplicate extension \"%V\", "
 literal|"content type: \"%V\", "
-literal|"old content type: \"%V\""
+literal|"previous content type: \"%V\""
 argument_list|,
 operator|&
 name|value
@@ -13612,7 +13612,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"the \"large_client_header_buffers\" size must be "
-literal|"equal to or bigger than \"connection_pool_size\""
+literal|"equal to or greater than \"connection_pool_size\""
 argument_list|)
 expr_stmt|;
 return|return
@@ -16747,7 +16747,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"bind ipv6only is not supported "
+literal|"ipv6only is not supported "
 literal|"on this platform"
 argument_list|)
 expr_stmt|;
@@ -16814,7 +16814,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"the invalid \"%V\" parameter"
+literal|"invalid parameter \"%V\""
 argument_list|,
 operator|&
 name|value
@@ -17021,7 +17021,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"server name \"%V\" has strange symbols"
+literal|"server name \"%V\" has suspicious symbols"
 argument_list|,
 operator|&
 name|value
@@ -17399,7 +17399,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"the using of the regex \"%V\" "
+literal|"using regex \"%V\" "
 literal|"requires PCRE library"
 argument_list|,
 operator|&
@@ -17531,7 +17531,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"\"%V\" directive is duplicate, "
-literal|"\"%s\" directive is specified before"
+literal|"\"%s\" directive was specified earlier"
 argument_list|,
 operator|&
 name|cmd
@@ -17569,8 +17569,8 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"the \"alias\" directive may not be used "
-literal|"inside named location"
+literal|"the \"alias\" directive cannot be used "
+literal|"inside the named location"
 argument_list|)
 expr_stmt|;
 return|return
@@ -17620,7 +17620,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"the $document_root variable may not be used "
+literal|"the $document_root variable cannot be used "
 literal|"in the \"%V\" directive"
 argument_list|,
 operator|&
@@ -17668,7 +17668,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"the $realpath_root variable may not be used "
+literal|"the $realpath_root variable cannot be used "
 literal|"in the \"%V\" directive"
 argument_list|,
 operator|&
@@ -20015,7 +20015,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"\"open_file_cache\" must have \"max\" parameter"
+literal|"\"open_file_cache\" must have the \"max\" parameter"
 argument_list|)
 expr_stmt|;
 return|return
