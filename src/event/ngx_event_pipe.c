@@ -1861,6 +1861,15 @@ name|cl
 operator|->
 name|next
 expr_stmt|;
+name|ngx_free_chain
+argument_list|(
+name|p
+operator|->
+name|pool
+argument_list|,
+name|cl
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 if|if
