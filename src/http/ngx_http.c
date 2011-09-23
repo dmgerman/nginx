@@ -5465,7 +5465,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"a duplicate listen options for %s"
+literal|"duplicate listen options for %s"
 argument_list|,
 name|addr
 index|[
