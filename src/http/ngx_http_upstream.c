@@ -12763,6 +12763,14 @@ operator|.
 name|connection
 argument_list|)
 expr_stmt|;
+name|u
+operator|->
+name|peer
+operator|.
+name|connection
+operator|=
+name|NULL
+expr_stmt|;
 block|}
 if|#
 directive|if
