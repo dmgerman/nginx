@@ -70,14 +70,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon27ef815e010a
+DECL|union|__anon29a20696010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon27ef815e0208
+DECL|struct|__anon29a206960208
 struct|struct
 block|{
 DECL|member|lengths
@@ -108,7 +108,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27ef815e0308
+DECL|struct|__anon29a206960308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ef815e0408
+DECL|struct|__anon29a206960408
 typedef|typedef
 struct|struct
 block|{
@@ -250,7 +250,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ef815e0508
+DECL|struct|__anon29a206960508
 typedef|typedef
 struct|struct
 block|{
@@ -7650,7 +7650,7 @@ literal|1
 expr_stmt|;
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_ERR
+name|NGX_LOG_WARN
 argument_list|,
 name|r
 operator|->
@@ -7701,7 +7701,7 @@ name|ngx_http_proxy_ctx_t
 modifier|*
 name|ctx
 decl_stmt|;
-DECL|enum|__anon27ef815e0603
+DECL|enum|__anon29a206960603
 enum|enum
 block|{
 DECL|enumerator|sw_chunk_start
@@ -8459,21 +8459,6 @@ name|NGX_DONE
 return|;
 name|invalid
 label|:
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_ALERT
-argument_list|,
-name|r
-operator|->
-name|connection
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"upstream sent invalid chunked response"
-argument_list|)
-expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
@@ -8924,7 +8909,7 @@ block|}
 comment|/* invalid response */
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_ALERT
+name|NGX_LOG_ERR
 argument_list|,
 name|r
 operator|->
@@ -9592,7 +9577,7 @@ block|}
 comment|/* invalid response */
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_ALERT
+name|NGX_LOG_ERR
 argument_list|,
 name|r
 operator|->
