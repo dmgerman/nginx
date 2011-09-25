@@ -70,14 +70,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon28f01a23010a
+DECL|union|__anon27ef815e010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon28f01a230208
+DECL|struct|__anon27ef815e0208
 struct|struct
 block|{
 DECL|member|lengths
@@ -108,7 +108,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28f01a230308
+DECL|struct|__anon27ef815e0308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f01a230408
+DECL|struct|__anon27ef815e0408
 typedef|typedef
 struct|struct
 block|{
@@ -250,7 +250,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f01a230508
+DECL|struct|__anon27ef815e0508
 typedef|typedef
 struct|struct
 block|{
@@ -7701,7 +7701,7 @@ name|ngx_http_proxy_ctx_t
 modifier|*
 name|ctx
 decl_stmt|;
-DECL|enum|__anon28f01a230603
+DECL|enum|__anon27ef815e0603
 enum|enum
 block|{
 DECL|enumerator|sw_chunk_start
@@ -8007,6 +8007,12 @@ break|break;
 case|case
 literal|';'
 case|:
+case|case
+literal|' '
+case|:
+case|case
+literal|'\t'
+case|:
 name|state
 operator|=
 name|sw_last_chunk_extension
@@ -8042,6 +8048,12 @@ expr_stmt|;
 break|break;
 case|case
 literal|';'
+case|:
+case|case
+literal|' '
+case|:
+case|case
+literal|'\t'
 case|:
 name|state
 operator|=
