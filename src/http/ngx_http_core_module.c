@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28b268810108
+DECL|struct|__anon29b1d64a0108
 typedef|typedef
 struct|struct
 block|{
@@ -7559,26 +7559,6 @@ name|status
 operator|=
 name|status
 expr_stmt|;
-if|if
-condition|(
-name|status
-operator|==
-name|NGX_HTTP_NO_CONTENT
-condition|)
-block|{
-name|r
-operator|->
-name|header_only
-operator|=
-literal|1
-expr_stmt|;
-return|return
-name|ngx_http_send_header
-argument_list|(
-name|r
-argument_list|)
-return|;
-block|}
 if|if
 condition|(
 name|ngx_http_complex_value
