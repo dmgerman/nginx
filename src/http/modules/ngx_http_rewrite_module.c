@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28af420e0108
+DECL|struct|__anon2a1e99f90108
 typedef|typedef
 struct|struct
 block|{
@@ -710,12 +710,14 @@ condition|(
 name|e
 operator|->
 name|status
-operator|==
-name|NGX_DECLINED
+operator|<
+name|NGX_HTTP_BAD_REQUEST
 condition|)
 block|{
 return|return
-name|NGX_DECLINED
+name|e
+operator|->
+name|status
 return|;
 block|}
 if|if
