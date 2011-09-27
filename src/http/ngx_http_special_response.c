@@ -1222,12 +1222,6 @@ name|err
 operator|=
 literal|0
 expr_stmt|;
-name|r
-operator|->
-name|header_only
-operator|=
-literal|1
-expr_stmt|;
 block|}
 if|else if
 condition|(
@@ -2086,8 +2080,7 @@ name|headers_out
 operator|.
 name|content_length_n
 operator|=
-operator|-
-literal|1
+literal|0
 expr_stmt|;
 block|}
 if|if
@@ -2163,7 +2156,12 @@ literal|0
 condition|)
 block|{
 return|return
-name|NGX_OK
+name|ngx_http_send_special
+argument_list|(
+name|r
+argument_list|,
+name|NGX_HTTP_LAST
+argument_list|)
 return|;
 block|}
 name|b
