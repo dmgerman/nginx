@@ -3345,6 +3345,12 @@ return|return
 name|NGX_DECLINED
 return|;
 block|}
+name|u
+operator|->
+name|cacheable
+operator|=
+literal|1
+expr_stmt|;
 switch|switch
 condition|(
 name|ngx_http_test_predicates
@@ -3381,12 +3387,6 @@ default|default:
 comment|/* NGX_OK */
 break|break;
 block|}
-name|u
-operator|->
-name|cacheable
-operator|=
-literal|1
-expr_stmt|;
 name|c
 operator|=
 name|r
@@ -9545,12 +9545,6 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|u
-operator|->
-name|cacheable
-operator|=
-literal|1
-expr_stmt|;
 block|}
 break|break;
 block|}
