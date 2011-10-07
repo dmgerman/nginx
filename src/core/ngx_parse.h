@@ -67,7 +67,7 @@ modifier|*
 name|line
 parameter_list|,
 name|ngx_uint_t
-name|sec
+name|is_sec
 parameter_list|)
 function_decl|;
 end_function_decl
