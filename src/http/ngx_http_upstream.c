@@ -4500,7 +4500,7 @@ name|ev
 operator|->
 name|kq_errno
 argument_list|,
-literal|"kevent() reported that client closed prematurely "
+literal|"kevent() reported that client prematurely closed "
 literal|"connection, so upstream connection is closed too"
 argument_list|)
 expr_stmt|;
@@ -4527,8 +4527,8 @@ name|ev
 operator|->
 name|kq_errno
 argument_list|,
-literal|"kevent() reported that client closed "
-literal|"prematurely connection"
+literal|"kevent() reported that client prematurely closed "
+literal|"connection"
 argument_list|)
 expr_stmt|;
 if|if
@@ -4735,7 +4735,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"client closed prematurely connection, "
+literal|"client prematurely closed connection, "
 literal|"so upstream connection is closed too"
 argument_list|)
 expr_stmt|;
@@ -4760,7 +4760,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"client closed prematurely connection"
+literal|"client prematurely closed connection"
 argument_list|)
 expr_stmt|;
 if|if
