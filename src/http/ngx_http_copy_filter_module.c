@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27bb62f40108
+DECL|struct|__anon2c6583590108
 typedef|typedef
 struct|struct
 block|{
@@ -662,6 +662,23 @@ name|ngx_http_ephemeral_t
 modifier|*
 name|e
 decl_stmt|;
+if|if
+condition|(
+name|r
+operator|->
+name|aio
+condition|)
+block|{
+name|c
+operator|->
+name|busy_sendfile
+operator|=
+name|NULL
+expr_stmt|;
+return|return
+name|rc
+return|;
+block|}
 name|file
 operator|=
 name|c
