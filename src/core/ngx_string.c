@@ -5970,6 +5970,41 @@ literal|0xffffffff
 comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
 block|}
 decl_stmt|;
+comment|/* not ALPHA, DIGIT, "-", ".", "_", "~" */
+specifier|static
+name|uint32_t
+name|uri_component
+index|[]
+init|=
+block|{
+literal|0xffffffff
+block|,
+comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
+comment|/* ?>=< ;:98 7654 3210  /.-, +*)( '&%$ #"!  */
+literal|0xfc009fff
+block|,
+comment|/* 1111 1100 0000 0000  1001 1111 1111 1111 */
+comment|/* _^]\ [ZYX WVUT SRQP  ONML KJIH GFED CBA@ */
+literal|0x78000001
+block|,
+comment|/* 0111 1000 0000 0000  0000 0000 0000 0001 */
+comment|/*  ~}| {zyx wvut srqp  onml kjih gfed cba` */
+literal|0xb8000001
+block|,
+comment|/* 1011 1000 0000 0000  0000 0000 0000 0001 */
+literal|0xffffffff
+block|,
+comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
+literal|0xffffffff
+block|,
+comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
+literal|0xffffffff
+block|,
+comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
+literal|0xffffffff
+comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
+block|}
+decl_stmt|;
 comment|/* " ", "#", """, "%", "'", %00-%1F, %7F-%FF */
 specifier|static
 name|uint32_t
@@ -6087,6 +6122,8 @@ block|{
 name|uri
 block|,
 name|args
+block|,
+name|uri_component
 block|,
 name|html
 block|,
@@ -6281,7 +6318,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon2b6eba910103
+DECL|enum|__anon28d106180103
 enum|enum
 block|{
 DECL|enumerator|sw_usual

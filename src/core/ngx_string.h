@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2be753e30108
+DECL|struct|__anon27cc3eaa0108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be753e30208
+DECL|struct|__anon27cc3eaa0208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be753e30308
+DECL|struct|__anon27cc3eaa0308
 typedef|typedef
 struct|struct
 block|{
@@ -1148,11 +1148,19 @@ value|1
 end_define
 
 begin_define
+DECL|macro|NGX_ESCAPE_URI_COMPONENT
+define|#
+directive|define
+name|NGX_ESCAPE_URI_COMPONENT
+value|2
+end_define
+
+begin_define
 DECL|macro|NGX_ESCAPE_HTML
 define|#
 directive|define
 name|NGX_ESCAPE_HTML
-value|2
+value|3
 end_define
 
 begin_define
@@ -1160,7 +1168,7 @@ DECL|macro|NGX_ESCAPE_REFRESH
 define|#
 directive|define
 name|NGX_ESCAPE_REFRESH
-value|3
+value|4
 end_define
 
 begin_define
@@ -1168,7 +1176,7 @@ DECL|macro|NGX_ESCAPE_MEMCACHED
 define|#
 directive|define
 name|NGX_ESCAPE_MEMCACHED
-value|4
+value|5
 end_define
 
 begin_define
@@ -1176,7 +1184,7 @@ DECL|macro|NGX_ESCAPE_MAIL_AUTH
 define|#
 directive|define
 name|NGX_ESCAPE_MAIL_AUTH
-value|5
+value|6
 end_define
 
 begin_define
@@ -1258,7 +1266,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon2be753e30408
+DECL|struct|__anon27cc3eaa0408
 typedef|typedef
 struct|struct
 block|{
