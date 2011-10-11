@@ -212,8 +212,32 @@ name|NGX_HTTP_UPSTREAM_IGN_SET_COOKIE
 value|0x00000020
 end_define
 
+begin_define
+DECL|macro|NGX_HTTP_UPSTREAM_IGN_XA_LIMIT_RATE
+define|#
+directive|define
+name|NGX_HTTP_UPSTREAM_IGN_XA_LIMIT_RATE
+value|0x00000040
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_UPSTREAM_IGN_XA_BUFFERING
+define|#
+directive|define
+name|NGX_HTTP_UPSTREAM_IGN_XA_BUFFERING
+value|0x00000080
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_UPSTREAM_IGN_XA_CHARSET
+define|#
+directive|define
+name|NGX_HTTP_UPSTREAM_IGN_XA_CHARSET
+value|0x00000100
+end_define
+
 begin_typedef
-DECL|struct|__anon27a852620108
+DECL|struct|__anon2af32aeb0108
 typedef|typedef
 struct|struct
 block|{
@@ -253,7 +277,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a852620208
+DECL|struct|__anon2af32aeb0208
 typedef|typedef
 struct|struct
 block|{
@@ -322,7 +346,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a852620308
+DECL|struct|__anon2af32aeb0308
 typedef|typedef
 struct|struct
 block|{
@@ -346,7 +370,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a852620408
+DECL|struct|__anon2af32aeb0408
 typedef|typedef
 struct|struct
 block|{
@@ -488,7 +512,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27a852620508
+DECL|struct|__anon2af32aeb0508
 typedef|typedef
 struct|struct
 block|{
@@ -703,7 +727,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a852620608
+DECL|struct|__anon2af32aeb0608
 typedef|typedef
 struct|struct
 block|{
@@ -739,7 +763,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a852620708
+DECL|struct|__anon2af32aeb0708
 typedef|typedef
 struct|struct
 block|{
@@ -874,7 +898,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a852620808
+DECL|struct|__anon2af32aeb0808
 typedef|typedef
 struct|struct
 block|{
@@ -1238,7 +1262,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27a852620908
+DECL|struct|__anon2af32aeb0908
 typedef|typedef
 struct|struct
 block|{
