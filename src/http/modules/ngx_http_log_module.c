@@ -100,7 +100,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon294051140108
+DECL|struct|__anon296cc91d0108
 typedef|typedef
 struct|struct
 block|{
@@ -126,7 +126,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294051140208
+DECL|struct|__anon296cc91d0208
 typedef|typedef
 struct|struct
 block|{
@@ -147,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294051140308
+DECL|struct|__anon296cc91d0308
 typedef|typedef
 struct|struct
 block|{
@@ -168,7 +168,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294051140408
+DECL|struct|__anon296cc91d0408
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +202,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294051140508
+DECL|struct|__anon296cc91d0508
 typedef|typedef
 struct|struct
 block|{
@@ -237,7 +237,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294051140608
+DECL|struct|__anon296cc91d0608
 typedef|typedef
 struct|struct
 block|{
@@ -3194,21 +3194,21 @@ literal|0x10000000
 block|,
 comment|/* 0001 0000 0000 0000  0000 0000 0000 0000 */
 comment|/*  ~}| {zyx wvut srqp  onml kjih gfed cba` */
-literal|0x00000000
+literal|0x80000000
 block|,
-comment|/* 0000 0000 0000 0000  0000 0000 0000 0000 */
-literal|0x00000000
+comment|/* 1000 0000 0000 0000  0000 0000 0000 0000 */
+literal|0xffffffff
 block|,
-comment|/* 0000 0000 0000 0000  0000 0000 0000 0000 */
-literal|0x00000000
+comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
+literal|0xffffffff
 block|,
-comment|/* 0000 0000 0000 0000  0000 0000 0000 0000 */
-literal|0x00000000
+comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
+literal|0xffffffff
 block|,
-comment|/* 0000 0000 0000 0000  0000 0000 0000 0000 */
-literal|0x00000000
+comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
+literal|0xffffffff
 block|,
-comment|/* 0000 0000 0000 0000  0000 0000 0000 0000 */
+comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
 block|}
 decl_stmt|;
 if|if
