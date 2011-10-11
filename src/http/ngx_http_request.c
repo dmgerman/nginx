@@ -9964,11 +9964,6 @@ condition|(
 operator|!
 name|wev
 operator|->
-name|ready
-operator|&&
-operator|!
-name|wev
-operator|->
 name|delayed
 condition|)
 block|{
