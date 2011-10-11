@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29b1d64a0108
+DECL|struct|__anon29d24aa70108
 typedef|typedef
 struct|struct
 block|{
@@ -14784,7 +14784,7 @@ name|types_hash
 operator|.
 name|name
 operator|=
-literal|"mime_types_hash"
+literal|"types_hash"
 expr_stmt|;
 name|types_hash
 operator|.
