@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c1b42c00108
+DECL|struct|__anon298582ef0108
 typedef|typedef
 struct|struct
 block|{
@@ -12825,6 +12825,33 @@ operator|==
 literal|0
 condition|)
 block|{
+if|if
+condition|(
+name|cf
+operator|->
+name|args
+operator|->
+name|nelts
+operator|!=
+literal|2
+condition|)
+block|{
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"invalid number of arguments"
+literal|" in \"include\" directive"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
 name|file
 operator|=
 name|value
@@ -13048,7 +13075,9 @@ argument_list|,
 name|old
 argument_list|)
 expr_stmt|;
-continue|continue;
+goto|goto
+name|next
+goto|;
 block|}
 block|}
 name|type
@@ -13092,6 +13121,9 @@ name|value
 operator|=
 name|content_type
 expr_stmt|;
+name|next
+label|:
+continue|continue;
 block|}
 return|return
 name|NGX_CONF_OK
