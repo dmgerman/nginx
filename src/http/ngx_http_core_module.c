@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29d24aa70108
+DECL|struct|__anon29ed31bf0108
 typedef|typedef
 struct|struct
 block|{
@@ -17024,38 +17024,6 @@ name|i
 index|]
 argument_list|)
 expr_stmt|;
-block|}
-if|if
-condition|(
-name|value
-index|[
-name|i
-index|]
-operator|.
-name|len
-operator|==
-literal|1
-operator|&&
-name|ch
-operator|==
-literal|'*'
-condition|)
-block|{
-name|ngx_conf_log_error
-argument_list|(
-name|NGX_LOG_EMERG
-argument_list|,
-name|cf
-argument_list|,
-literal|0
-argument_list|,
-literal|"\"server_name *\" is unsupported, use "
-literal|"\"server_name_in_redirect off\" instead"
-argument_list|)
-expr_stmt|;
-return|return
-name|NGX_CONF_ERROR
-return|;
 block|}
 name|sn
 operator|=
