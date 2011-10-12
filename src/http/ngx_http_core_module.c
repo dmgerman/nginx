@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c2cda710108
+DECL|struct|__anon2c1b42c00108
 typedef|typedef
 struct|struct
 block|{
@@ -14489,7 +14489,7 @@ argument_list|,
 name|ngx_cacheline_size
 argument_list|)
 expr_stmt|;
-comment|/*      * the special handling the "types" directive in the "http" section      * to inherit the http's conf->types_hash to all servers      */
+comment|/*      * the special handling of the "types" directive in the "http" section      * to inherit the http's conf->types_hash to all servers      */
 if|if
 condition|(
 name|prev
