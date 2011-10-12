@@ -1024,8 +1024,6 @@ condition|(
 name|r
 operator|->
 name|lingering_close
-operator|==
-literal|1
 condition|)
 block|{
 switch|switch
