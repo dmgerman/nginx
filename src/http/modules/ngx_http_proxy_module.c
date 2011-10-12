@@ -70,14 +70,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon29a20696010a
+DECL|union|__anon2b0415c6010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon29a206960208
+DECL|struct|__anon2b0415c60208
 struct|struct
 block|{
 DECL|member|lengths
@@ -108,7 +108,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29a206960308
+DECL|struct|__anon2b0415c60308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a206960408
+DECL|struct|__anon2b0415c60408
 typedef|typedef
 struct|struct
 block|{
@@ -250,7 +250,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a206960508
+DECL|struct|__anon2b0415c60508
 typedef|typedef
 struct|struct
 block|{
@@ -7660,7 +7660,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"upstream sent too many data"
+literal|"upstream sent too much data"
 argument_list|)
 expr_stmt|;
 block|}
@@ -7701,7 +7701,7 @@ name|ngx_http_proxy_ctx_t
 modifier|*
 name|ctx
 decl_stmt|;
-DECL|enum|__anon29a206960603
+DECL|enum|__anon2b0415c60603
 enum|enum
 block|{
 DECL|enumerator|sw_chunk_start
