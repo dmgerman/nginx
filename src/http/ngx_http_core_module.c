@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c2c6ca10108
+DECL|struct|__anon2c2cda710108
 typedef|typedef
 struct|struct
 block|{
@@ -15002,7 +15002,7 @@ name|prev
 operator|->
 name|max_ranges
 argument_list|,
-literal|0x7fffffff
+name|NGX_MAX_INT32_VALUE
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_uint_value
@@ -15015,7 +15015,7 @@ name|prev
 operator|->
 name|client_body_in_file_only
 argument_list|,
-literal|0
+name|NGX_HTTP_REQUEST_BODY_FILE_OFF
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_value
@@ -15085,7 +15085,7 @@ name|prev
 operator|->
 name|aio
 argument_list|,
-literal|0
+name|NGX_HTTP_AIO_OFF
 argument_list|)
 expr_stmt|;
 endif|#
@@ -15113,7 +15113,7 @@ name|prev
 operator|->
 name|directio
 argument_list|,
-name|NGX_MAX_OFF_T_VALUE
+name|NGX_OPEN_FILE_DIRECTIO_OFF
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_off_value
