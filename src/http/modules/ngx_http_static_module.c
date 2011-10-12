@@ -501,6 +501,11 @@ argument_list|,
 literal|"http dir"
 argument_list|)
 expr_stmt|;
+name|ngx_http_clear_location
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
 name|r
 operator|->
 name|headers_out
