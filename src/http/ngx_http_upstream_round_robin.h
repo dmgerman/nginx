@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c28262b0108
+DECL|struct|__anon27708dd30108
 typedef|typedef
 struct|struct
 block|{
@@ -68,6 +68,10 @@ decl_stmt|;
 DECL|member|accessed
 name|time_t
 name|accessed
+decl_stmt|;
+DECL|member|checked
+name|time_t
+name|checked
 decl_stmt|;
 DECL|member|max_fails
 name|ngx_uint_t
@@ -157,7 +161,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c28262b0208
+DECL|struct|__anon27708dd30208
 typedef|typedef
 struct|struct
 block|{

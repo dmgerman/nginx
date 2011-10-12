@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon278ce3220108
+DECL|struct|__anon2c00204d0108
 typedef|typedef
 struct|struct
 block|{
@@ -761,7 +761,7 @@ name|now
 operator|-
 name|peer
 operator|->
-name|accessed
+name|checked
 operator|>
 name|peer
 operator|->
@@ -770,9 +770,9 @@ condition|)
 block|{
 name|peer
 operator|->
-name|fails
+name|checked
 operator|=
-literal|0
+name|now
 expr_stmt|;
 break|break;
 block|}
