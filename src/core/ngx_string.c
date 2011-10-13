@@ -5500,7 +5500,7 @@ expr_stmt|;
 if|if
 condition|(
 name|u
-operator|>
+operator|>=
 literal|0xf0
 condition|)
 block|{
@@ -5520,7 +5520,7 @@ block|}
 if|else if
 condition|(
 name|u
-operator|>
+operator|>=
 literal|0xe0
 condition|)
 block|{
@@ -5540,8 +5540,8 @@ block|}
 if|else if
 condition|(
 name|u
-operator|>
-literal|0xc0
+operator|>=
+literal|0xc2
 condition|)
 block|{
 name|u
@@ -6318,7 +6318,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon28d106180103
+DECL|enum|__anon2a17f9b20103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
