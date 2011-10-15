@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2985ab630108
+DECL|struct|__anon293c08060108
 typedef|typedef
 struct|struct
 block|{
@@ -10793,6 +10793,22 @@ name|clcfp
 operator|)
 operator|->
 name|loc_conf
+expr_stmt|;
+comment|/* clear the modules contexts */
+name|ngx_memzero
+argument_list|(
+name|r
+operator|->
+name|ctx
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|void
+operator|*
+argument_list|)
+operator|*
+name|ngx_http_max_module
+argument_list|)
 expr_stmt|;
 name|ngx_http_update_location_config
 argument_list|(
