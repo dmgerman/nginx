@@ -55,7 +55,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1ef6920108
+DECL|struct|__anon27afe1690108
 typedef|typedef
 struct|struct
 block|{
@@ -155,7 +155,7 @@ value|5
 end_define
 
 begin_typedef
-DECL|struct|__anon2b1ef6920208
+DECL|struct|__anon27afe1690208
 typedef|typedef
 struct|struct
 block|{
@@ -1181,6 +1181,31 @@ name|conf
 operator|->
 name|expires
 operator|==
+name|NGX_HTTP_EXPIRES_DAILY
+condition|)
+block|{
+name|expires_time
+operator|=
+name|ngx_next_time
+argument_list|(
+name|conf
+operator|->
+name|expires_time
+argument_list|)
+expr_stmt|;
+name|max_age
+operator|=
+name|expires_time
+operator|-
+name|now
+expr_stmt|;
+block|}
+if|else if
+condition|(
+name|conf
+operator|->
+name|expires
+operator|==
 name|NGX_HTTP_EXPIRES_ACCESS
 operator|||
 name|r
@@ -1206,31 +1231,6 @@ operator|=
 name|conf
 operator|->
 name|expires_time
-expr_stmt|;
-block|}
-if|else if
-condition|(
-name|conf
-operator|->
-name|expires
-operator|==
-name|NGX_HTTP_EXPIRES_DAILY
-condition|)
-block|{
-name|expires_time
-operator|=
-name|ngx_next_time
-argument_list|(
-name|conf
-operator|->
-name|expires_time
-argument_list|)
-expr_stmt|;
-name|max_age
-operator|=
-name|expires_time
-operator|-
-name|now
 expr_stmt|;
 block|}
 else|else
