@@ -55,7 +55,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28db8a980108
+DECL|struct|__anon2b1ef6920108
 typedef|typedef
 struct|struct
 block|{
@@ -155,7 +155,7 @@ value|5
 end_define
 
 begin_typedef
-DECL|struct|__anon28db8a980208
+DECL|struct|__anon2b1ef6920208
 typedef|typedef
 struct|struct
 block|{
@@ -1129,6 +1129,12 @@ operator|->
 name|expires_time
 operator|==
 literal|0
+operator|&&
+name|conf
+operator|->
+name|expires
+operator|!=
+name|NGX_HTTP_EXPIRES_DAILY
 condition|)
 block|{
 name|ngx_memcpy
