@@ -652,6 +652,8 @@ name|size_t
 name|size
 decl_stmt|;
 name|ssize_t
+name|total
+decl_stmt|,
 name|n
 decl_stmt|;
 name|ngx_array_t
@@ -709,6 +711,10 @@ name|offset
 argument_list|)
 return|;
 block|}
+name|total
+operator|=
+literal|0
+expr_stmt|;
 name|vec
 operator|.
 name|elts
@@ -1074,6 +1080,10 @@ name|offset
 operator|+=
 name|n
 expr_stmt|;
+name|total
+operator|+=
+name|n
+expr_stmt|;
 block|}
 do|while
 condition|(
@@ -1081,7 +1091,7 @@ name|cl
 condition|)
 do|;
 return|return
-name|n
+name|total
 return|;
 block|}
 end_function
