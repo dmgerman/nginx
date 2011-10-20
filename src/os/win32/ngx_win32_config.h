@@ -29,7 +29,7 @@ DECL|macro|_WIN32_WINNT
 define|#
 directive|define
 name|_WIN32_WINNT
-value|0x0500
+value|0x0501
 end_define
 
 begin_define
