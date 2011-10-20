@@ -548,19 +548,30 @@ name|uintptr_t
 typedef|;
 end_typedef
 
-begin_typedef
-DECL|typedef|ssize_t
-typedef|typedef
-name|int
-name|ssize_t
-typedef|;
-end_typedef
+begin_comment
+comment|/* Windows defines off_t as long, which is 32-bit */
+end_comment
 
 begin_typedef
 DECL|typedef|off_t
 typedef|typedef
 name|__int64
 name|off_t
+typedef|;
+end_typedef
+
+begin_define
+DECL|macro|_OFF_T_DEFINED
+define|#
+directive|define
+name|_OFF_T_DEFINED
+end_define
+
+begin_typedef
+DECL|typedef|ssize_t
+typedef|typedef
+name|int
+name|ssize_t
 typedef|;
 end_typedef
 
