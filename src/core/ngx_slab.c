@@ -209,7 +209,7 @@ name|p
 parameter_list|,
 name|size
 parameter_list|)
-value|ngx_memset(p, 0xD0, size)
+value|ngx_memset(p, 0xA5, size)
 end_define
 
 begin_else
@@ -236,7 +236,7 @@ parameter_list|,
 name|size
 parameter_list|)
 define|\
-value|if (ngx_debug_malloc)          ngx_memset(p, 0xD0, size)
+value|if (ngx_debug_malloc)          ngx_memset(p, 0xA5, size)
 end_define
 
 begin_else
