@@ -221,7 +221,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|NGX_FREEBSD
+name|NGX_HAVE_DEBUG_MALLOC
 operator|)
 end_if
 
@@ -236,7 +236,7 @@ parameter_list|,
 name|size
 parameter_list|)
 define|\
-value|if (ngx_freebsd_debug_malloc)  ngx_memset(p, 0xD0, size)
+value|if (ngx_debug_malloc)          ngx_memset(p, 0xD0, size)
 end_define
 
 begin_else

@@ -17,6 +17,15 @@ name|_NGX_FREEBSD_H_INCLUDED_
 end_define
 
 begin_function_decl
+name|void
+name|ngx_debug_init
+parameter_list|(
+name|void
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
 name|ngx_chain_t
 modifier|*
 name|ngx_freebsd_sendfile_chain
@@ -73,7 +82,7 @@ end_decl_stmt
 begin_decl_stmt
 specifier|extern
 name|ngx_uint_t
-name|ngx_freebsd_debug_malloc
+name|ngx_debug_malloc
 decl_stmt|;
 end_decl_stmt
 

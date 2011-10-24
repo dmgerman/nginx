@@ -824,6 +824,14 @@ name|ngx_random
 value|rand
 end_define
 
+begin_define
+DECL|macro|ngx_debug_init ()
+define|#
+directive|define
+name|ngx_debug_init
+parameter_list|()
+end_define
+
 begin_endif
 endif|#
 directive|endif

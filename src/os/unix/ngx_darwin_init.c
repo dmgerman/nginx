@@ -57,6 +57,13 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_debug_malloc
+name|ngx_uint_t
+name|ngx_debug_malloc
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_darwin_io
 specifier|static
 name|ngx_os_io_t
@@ -91,7 +98,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2bb161630108
+DECL|struct|__anon2c8ab1550108
 typedef|typedef
 struct|struct
 block|{
@@ -180,6 +187,51 @@ block|}
 block|}
 decl_stmt|;
 end_decl_stmt
+
+begin_function
+name|void
+DECL|function|ngx_debug_init ()
+name|ngx_debug_init
+parameter_list|()
+block|{
+if|#
+directive|if
+operator|(
+name|NGX_DEBUG_MALLOC
+operator|)
+comment|/*      * MacOSX 10.6, 10.7:  MallocScribble fills freed memory with 0x55      *                     and fills allocated memory with 0xAA.      * MacOSX 10.4, 10.5:  MallocScribble fills freed memory with 0x55,      *                     MallocPreScribble fills allocated memory with 0xAA.      * MacOSX 10.3:        MallocScribble fills freed memory with 0x55,      *                     and no way to fill allocated memory.      */
+name|setenv
+argument_list|(
+literal|"MallocScribble"
+argument_list|,
+literal|"1"
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+name|ngx_debug_malloc
+operator|=
+literal|1
+expr_stmt|;
+else|#
+directive|else
+if|if
+condition|(
+name|getenv
+argument_list|(
+literal|"MallocScribble"
+argument_list|)
+condition|)
+block|{
+name|ngx_debug_malloc
+operator|=
+literal|1
+expr_stmt|;
+block|}
+endif|#
+directive|endif
+block|}
+end_function
 
 begin_function
 name|ngx_int_t

@@ -93,9 +93,9 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_freebsd_debug_malloc
+DECL|variable|ngx_debug_malloc
 name|ngx_uint_t
-name|ngx_freebsd_debug_malloc
+name|ngx_debug_malloc
 decl_stmt|;
 end_decl_stmt
 
@@ -134,7 +134,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon274a82480108
+DECL|struct|__anon2989f0aa0108
 typedef|typedef
 struct|struct
 block|{
@@ -266,7 +266,7 @@ literal|"J"
 expr_stmt|;
 endif|#
 directive|endif
-name|ngx_freebsd_debug_malloc
+name|ngx_debug_malloc
 operator|=
 literal|1
 expr_stmt|;
@@ -295,7 +295,7 @@ literal|'J'
 argument_list|)
 condition|)
 block|{
-name|ngx_freebsd_debug_malloc
+name|ngx_debug_malloc
 operator|=
 literal|1
 expr_stmt|;

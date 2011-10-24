@@ -605,6 +605,14 @@ name|NGX_LISTEN_BACKLOG
 value|511
 end_define
 
+begin_define
+DECL|macro|ngx_debug_init ()
+define|#
+directive|define
+name|ngx_debug_init
+parameter_list|()
+end_define
+
 begin_if
 if|#
 directive|if

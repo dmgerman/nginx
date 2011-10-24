@@ -374,6 +374,14 @@ name|NGX_HAVE_OS_SPECIFIC_INIT
 value|1
 end_define
 
+begin_define
+DECL|macro|NGX_HAVE_DEBUG_MALLOC
+define|#
+directive|define
+name|NGX_HAVE_DEBUG_MALLOC
+value|1
+end_define
+
 begin_decl_stmt
 specifier|extern
 name|char

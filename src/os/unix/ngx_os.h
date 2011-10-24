@@ -127,7 +127,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c8516030108
+DECL|struct|__anon2a1a73130108
 typedef|typedef
 struct|struct
 block|{
@@ -160,15 +160,6 @@ block|}
 name|ngx_os_io_t
 typedef|;
 end_typedef
-
-begin_function_decl
-name|void
-name|ngx_debug_init
-parameter_list|(
-name|void
-parameter_list|)
-function_decl|;
-end_function_decl
 
 begin_function_decl
 name|ngx_int_t

@@ -17,6 +17,15 @@ name|_NGX_DARWIN_H_INCLUDED_
 end_define
 
 begin_function_decl
+name|void
+name|ngx_debug_init
+parameter_list|(
+name|void
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
 name|ngx_chain_t
 modifier|*
 name|ngx_darwin_sendfile_chain
@@ -53,6 +62,13 @@ begin_decl_stmt
 specifier|extern
 name|u_long
 name|ngx_darwin_net_inet_tcp_sendspace
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_uint_t
+name|ngx_debug_malloc
 decl_stmt|;
 end_decl_stmt
 

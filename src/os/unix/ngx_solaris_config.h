@@ -438,6 +438,14 @@ name|NGX_HAVE_OS_SPECIFIC_INIT
 value|1
 end_define
 
+begin_define
+DECL|macro|ngx_debug_init ()
+define|#
+directive|define
+name|ngx_debug_init
+parameter_list|()
+end_define
+
 begin_decl_stmt
 specifier|extern
 name|char

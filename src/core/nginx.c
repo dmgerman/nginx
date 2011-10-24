@@ -848,16 +848,9 @@ name|ngx_core_conf_t
 modifier|*
 name|ccf
 decl_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_FREEBSD
-operator|)
 name|ngx_debug_init
 argument_list|()
 expr_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 name|ngx_strerror_init
