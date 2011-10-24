@@ -141,7 +141,7 @@ value|50
 end_define
 
 begin_typedef
-DECL|struct|__anon295807d00108
+DECL|struct|__anon2c6f4f370108
 typedef|typedef
 struct|struct
 block|{
@@ -200,7 +200,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295807d00208
+DECL|struct|__anon2c6f4f370208
 typedef|typedef
 struct|struct
 block|{
@@ -231,7 +231,7 @@ name|u_char
 modifier|*
 name|query
 decl_stmt|;
-DECL|union|__anon295807d0030a
+DECL|union|__anon2c6f4f37030a
 union|union
 block|{
 DECL|member|addr
@@ -280,7 +280,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295807d00408
+DECL|struct|__anon2c6f4f370408
 typedef|typedef
 struct|struct
 block|{
@@ -290,12 +290,10 @@ name|ngx_event_t
 modifier|*
 name|event
 decl_stmt|;
-comment|/* TODO: DNS peers balancer */
-comment|/* STUB */
-DECL|member|udp_connection
-name|ngx_udp_connection_t
+DECL|member|dummy
+name|void
 modifier|*
-name|udp_connection
+name|dummy
 decl_stmt|;
 DECL|member|log
 name|ngx_log_t
@@ -306,6 +304,15 @@ comment|/* ident must be after 3 pointers */
 DECL|member|ident
 name|ngx_int_t
 name|ident
+decl_stmt|;
+comment|/* simple round robin DNS peers balancer */
+DECL|member|udp_connections
+name|ngx_array_t
+name|udp_connections
+decl_stmt|;
+DECL|member|last_connection
+name|ngx_uint_t
+name|last_connection
 decl_stmt|;
 DECL|member|name_rbtree
 name|ngx_rbtree_t
@@ -411,7 +418,6 @@ DECL|member|addr
 name|in_addr_t
 name|addr
 decl_stmt|;
-comment|/* TODO: DNS peers balancer ctx */
 DECL|member|handler
 name|ngx_resolver_handler_pt
 name|handler
@@ -452,9 +458,12 @@ name|ngx_conf_t
 modifier|*
 name|cf
 parameter_list|,
-name|ngx_addr_t
+name|ngx_str_t
 modifier|*
-name|addr
+name|names
+parameter_list|,
+name|ngx_uint_t
+name|n
 parameter_list|)
 function_decl|;
 end_function_decl
