@@ -98,7 +98,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2c8ab1550108
+DECL|struct|__anon27c9a82f0108
 typedef|typedef
 struct|struct
 block|{
@@ -243,9 +243,6 @@ modifier|*
 name|log
 parameter_list|)
 block|{
-name|int
-name|somaxconn
-decl_stmt|;
 name|size_t
 name|size
 decl_stmt|;
@@ -502,15 +499,11 @@ name|ngx_ncpu
 operator|=
 name|ngx_darwin_hw_ncpu
 expr_stmt|;
-name|somaxconn
-operator|=
-literal|32676
-expr_stmt|;
 if|if
 condition|(
 name|ngx_darwin_kern_ipc_somaxconn
 operator|>
-name|somaxconn
+literal|32767
 condition|)
 block|{
 name|ngx_log_error
@@ -521,9 +514,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"sysctl kern.ipc.somaxconn must be no more than %d"
-argument_list|,
-name|somaxconn
+literal|"sysctl kern.ipc.somaxconn must be less than 32768"
 argument_list|)
 expr_stmt|;
 return|return
