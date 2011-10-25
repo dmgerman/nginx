@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a469fb00108
+DECL|struct|__anon2af1f4330108
 typedef|typedef
 struct|struct
 block|{
@@ -5812,6 +5812,11 @@ if|if
 condition|(
 name|n
 operator|==
+name|SSL_R_BAD_CHANGE_CIPHER_SPEC
+comment|/*  103 */
+operator|||
+name|n
+operator|==
 name|SSL_R_BLOCK_CIPHER_PAD_IS_WRONG
 comment|/*  129 */
 operator|||
@@ -5819,6 +5824,16 @@ name|n
 operator|==
 name|SSL_R_DIGEST_CHECK_FAILED
 comment|/*  149 */
+operator|||
+name|n
+operator|==
+name|SSL_R_ERROR_IN_RECEIVED_CIPHER_LIST
+comment|/*  151 */
+operator|||
+name|n
+operator|==
+name|SSL_R_EXCESSIVE_MESSAGE_SIZE
+comment|/*  152 */
 operator|||
 name|n
 operator|==
@@ -5837,6 +5852,11 @@ comment|/*  183 */
 operator|||
 name|n
 operator|==
+name|SSL_R_NO_COMPRESSION_SPECIFIED
+comment|/*  187 */
+operator|||
+name|n
+operator|==
 name|SSL_R_NO_SHARED_CIPHER
 comment|/*  193 */
 operator|||
@@ -5844,6 +5864,16 @@ name|n
 operator|==
 name|SSL_R_RECORD_LENGTH_MISMATCH
 comment|/*  213 */
+ifdef|#
+directive|ifdef
+name|SSL_R_PARSE_TLSEXT
+operator|||
+name|n
+operator|==
+name|SSL_R_PARSE_TLSEXT
+comment|/*  227 */
+endif|#
+directive|endif
 operator|||
 name|n
 operator|==
@@ -5874,6 +5904,46 @@ name|n
 operator|==
 name|SSL_R_DECRYPTION_FAILED_OR_BAD_RECORD_MAC
 comment|/*  281 */
+ifdef|#
+directive|ifdef
+name|SSL_R_RENEGOTIATE_EXT_TOO_LONG
+operator|||
+name|n
+operator|==
+name|SSL_R_RENEGOTIATE_EXT_TOO_LONG
+comment|/*  335 */
+operator|||
+name|n
+operator|==
+name|SSL_R_RENEGOTIATION_ENCODING_ERR
+comment|/*  336 */
+operator|||
+name|n
+operator|==
+name|SSL_R_RENEGOTIATION_MISMATCH
+comment|/*  337 */
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|SSL_R_UNSAFE_LEGACY_RENEGOTIATION_DISABLED
+operator|||
+name|n
+operator|==
+name|SSL_R_UNSAFE_LEGACY_RENEGOTIATION_DISABLED
+comment|/*  338 */
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|SSL_R_SCSV_RECEIVED_WHEN_RENEGOTIATING
+operator|||
+name|n
+operator|==
+name|SSL_R_SCSV_RECEIVED_WHEN_RENEGOTIATING
+comment|/*  345 */
+endif|#
+directive|endif
 operator|||
 name|n
 operator|==
