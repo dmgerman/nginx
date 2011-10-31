@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2af1f4330108
+DECL|struct|__anon29c4a6190108
 typedef|typedef
 struct|struct
 block|{
@@ -3797,6 +3797,29 @@ literal|0
 argument_list|,
 literal|"SSL renegotiation disabled"
 argument_list|)
+expr_stmt|;
+while|while
+condition|(
+name|ERR_peek_error
+argument_list|()
+condition|)
+block|{
+name|ngx_ssl_error
+argument_list|(
+name|NGX_LOG_DEBUG
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"ignoring stale global SSL error"
+argument_list|)
+expr_stmt|;
+block|}
+name|ERR_clear_error
+argument_list|()
 expr_stmt|;
 name|c
 operator|->
