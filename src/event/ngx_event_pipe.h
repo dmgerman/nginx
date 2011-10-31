@@ -119,12 +119,6 @@ name|ngx_chain_t
 modifier|*
 name|out
 decl_stmt|;
-DECL|member|last_out
-name|ngx_chain_t
-modifier|*
-modifier|*
-name|last_out
-decl_stmt|;
 DECL|member|free
 name|ngx_chain_t
 modifier|*
