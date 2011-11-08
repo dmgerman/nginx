@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2987b8f10108
+DECL|struct|__anon2bfa3ec30108
 typedef|typedef
 struct|struct
 block|{
@@ -970,7 +970,7 @@ end_decl_stmt
 begin_decl_stmt
 DECL|variable|ngx_http_core_keepalive_disable
 specifier|static
-name|ngx_conf_enum_t
+name|ngx_conf_bitmask_t
 name|ngx_http_core_keepalive_disable
 index|[]
 init|=
@@ -2424,9 +2424,9 @@ name|NGX_HTTP_SRV_CONF
 operator||
 name|NGX_HTTP_LOC_CONF
 operator||
-name|NGX_CONF_TAKE1
+name|NGX_CONF_TAKE12
 block|,
-name|ngx_conf_set_enum_slot
+name|ngx_conf_set_bitmask_slot
 block|,
 name|NGX_HTTP_LOC_CONF_OFFSET
 block|,
@@ -15009,7 +15009,7 @@ argument_list|,
 literal|60000
 argument_list|)
 expr_stmt|;
-name|ngx_conf_merge_uint_value
+name|ngx_conf_merge_bitmask_value
 argument_list|(
 name|conf
 operator|->
@@ -15019,9 +15019,13 @@ name|prev
 operator|->
 name|keepalive_disable
 argument_list|,
+operator|(
+name|NGX_CONF_BITMASK_SET
+operator||
 name|NGX_HTTP_KEEPALIVE_DISABLE_MSIE6
 operator||
 name|NGX_HTTP_KEEPALIVE_DISABLE_SAFARI
+operator|)
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_uint_value
