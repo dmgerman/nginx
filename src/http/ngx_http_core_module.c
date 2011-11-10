@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bfa3ec30108
+DECL|struct|__anon293f50680108
 typedef|typedef
 struct|struct
 block|{
@@ -19887,8 +19887,8 @@ expr_stmt|;
 if|if
 condition|(
 name|max
-operator|==
-name|NGX_ERROR
+operator|<=
+literal|0
 condition|)
 block|{
 goto|goto
