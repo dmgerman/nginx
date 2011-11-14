@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2891db7b0108
+DECL|struct|__anon2acdb45c0108
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2891db7b0203
+DECL|enum|__anon2acdb45c0203
 typedef|typedef
 enum|enum
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2891db7b0308
+DECL|struct|__anon2acdb45c0308
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2891db7b0408
+DECL|struct|__anon2acdb45c0408
 typedef|typedef
 struct|struct
 block|{
@@ -320,7 +320,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2891db7b0508
+DECL|struct|__anon2acdb45c0508
 typedef|typedef
 struct|struct
 block|{
@@ -363,7 +363,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2891db7b0608
+DECL|struct|__anon2acdb45c0608
 typedef|typedef
 struct|struct
 block|{
@@ -393,7 +393,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2891db7b0708
+DECL|struct|__anon2acdb45c0708
 typedef|typedef
 struct|struct
 block|{
@@ -420,7 +420,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2891db7b0808
+DECL|struct|__anon2acdb45c0808
 typedef|typedef
 struct|struct
 block|{
@@ -632,6 +632,26 @@ parameter_list|,
 name|void
 modifier|*
 name|child
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
+name|ngx_int_t
+name|ngx_http_fastcgi_merge_params
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_http_fastcgi_loc_conf_t
+modifier|*
+name|conf
+parameter_list|,
+name|ngx_http_fastcgi_loc_conf_t
+modifier|*
+name|prev
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -9413,30 +9433,8 @@ name|conf
 init|=
 name|child
 decl_stmt|;
-name|u_char
-modifier|*
-name|p
-decl_stmt|;
 name|size_t
 name|size
-decl_stmt|;
-name|uintptr_t
-modifier|*
-name|code
-decl_stmt|;
-name|ngx_uint_t
-name|i
-decl_stmt|;
-name|ngx_array_t
-name|headers_names
-decl_stmt|;
-name|ngx_keyval_t
-modifier|*
-name|src
-decl_stmt|;
-name|ngx_hash_key_t
-modifier|*
-name|hk
 decl_stmt|;
 name|ngx_hash_init_t
 name|hash
@@ -9444,13 +9442,6 @@ decl_stmt|;
 name|ngx_http_core_loc_conf_t
 modifier|*
 name|clcf
-decl_stmt|;
-name|ngx_http_script_compile_t
-name|sc
-decl_stmt|;
-name|ngx_http_script_copy_code_t
-modifier|*
-name|copy
 decl_stmt|;
 if|if
 condition|(
@@ -10675,6 +10666,84 @@ endif|#
 directive|endif
 if|if
 condition|(
+name|ngx_http_fastcgi_merge_params
+argument_list|(
+name|cf
+argument_list|,
+name|conf
+argument_list|,
+name|prev
+argument_list|)
+operator|!=
+name|NGX_OK
+condition|)
+block|{
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
+return|return
+name|NGX_CONF_OK
+return|;
+block|}
+end_function
+
+begin_function
+specifier|static
+name|ngx_int_t
+DECL|function|ngx_http_fastcgi_merge_params (ngx_conf_t * cf,ngx_http_fastcgi_loc_conf_t * conf,ngx_http_fastcgi_loc_conf_t * prev)
+name|ngx_http_fastcgi_merge_params
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_http_fastcgi_loc_conf_t
+modifier|*
+name|conf
+parameter_list|,
+name|ngx_http_fastcgi_loc_conf_t
+modifier|*
+name|prev
+parameter_list|)
+block|{
+name|u_char
+modifier|*
+name|p
+decl_stmt|;
+name|size_t
+name|size
+decl_stmt|;
+name|uintptr_t
+modifier|*
+name|code
+decl_stmt|;
+name|ngx_uint_t
+name|i
+decl_stmt|;
+name|ngx_array_t
+name|headers_names
+decl_stmt|;
+name|ngx_keyval_t
+modifier|*
+name|src
+decl_stmt|;
+name|ngx_hash_key_t
+modifier|*
+name|hk
+decl_stmt|;
+name|ngx_hash_init_t
+name|hash
+decl_stmt|;
+name|ngx_http_script_compile_t
+name|sc
+decl_stmt|;
+name|ngx_http_script_copy_code_t
+modifier|*
+name|copy
+decl_stmt|;
+if|if
+condition|(
 name|conf
 operator|->
 name|params_source
@@ -10760,7 +10829,7 @@ operator|)
 condition|)
 block|{
 return|return
-name|NGX_CONF_OK
+name|NGX_OK
 return|;
 block|}
 comment|/* 6 is a number of ngx_http_fastcgi_cache_headers entries */
@@ -10792,7 +10861,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NGX_ERROR
 return|;
 block|}
 block|}
@@ -10808,7 +10877,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_OK
+name|NGX_OK
 return|;
 block|}
 endif|#
@@ -10839,7 +10908,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NGX_ERROR
 return|;
 block|}
 name|conf
@@ -10867,7 +10936,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NGX_ERROR
 return|;
 block|}
 if|if
@@ -10893,7 +10962,7 @@ name|NGX_OK
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NGX_ERROR
 return|;
 block|}
 name|src
@@ -11004,7 +11073,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NGX_ERROR
 return|;
 block|}
 operator|*
@@ -11106,7 +11175,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NGX_ERROR
 return|;
 block|}
 name|hk
@@ -11211,7 +11280,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NGX_ERROR
 return|;
 block|}
 name|copy
@@ -11290,7 +11359,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NGX_ERROR
 return|;
 block|}
 name|copy
@@ -11416,7 +11485,7 @@ name|NGX_OK
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NGX_ERROR
 return|;
 block|}
 name|code
@@ -11441,7 +11510,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NGX_ERROR
 return|;
 block|}
 operator|*
@@ -11474,7 +11543,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NGX_ERROR
 return|;
 block|}
 operator|*
@@ -11508,7 +11577,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NGX_ERROR
 return|;
 block|}
 operator|*
@@ -11574,8 +11643,7 @@ name|temp_pool
 operator|=
 name|NULL
 expr_stmt|;
-if|if
-condition|(
+return|return
 name|ngx_hash_init
 argument_list|(
 operator|&
@@ -11589,16 +11657,6 @@ name|headers_names
 operator|.
 name|nelts
 argument_list|)
-operator|!=
-name|NGX_OK
-condition|)
-block|{
-return|return
-name|NGX_CONF_ERROR
-return|;
-block|}
-return|return
-name|NGX_CONF_OK
 return|;
 block|}
 end_function
