@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae02ae50108
+DECL|struct|__anon2c8e1b6f0108
 typedef|typedef
 struct|struct
 block|{
@@ -88,7 +88,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae02ae50208
+DECL|struct|__anon2c8e1b6f0208
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae02ae50308
+DECL|struct|__anon2c8e1b6f0308
 typedef|typedef
 struct|struct
 block|{
@@ -565,6 +565,14 @@ define|#
 directive|define
 name|NGX_LINEFEED_SIZE
 value|1
+end_define
+
+begin_define
+DECL|macro|NGX_LINEFEED
+define|#
+directive|define
+name|NGX_LINEFEED
+value|"\x0a"
 end_define
 
 begin_define

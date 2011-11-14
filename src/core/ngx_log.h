@@ -1190,6 +1190,40 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_comment
+comment|/*  * ngx_write_stderr() cannot be implemented as macro, since  * MSVC does not allow to use #ifdef inside macro parameters.  *  * ngx_write_fd() is used instead of ngx_write_console(), since  * CharToOemBuff() inside ngx_write_console() cannot be used with  * read only buffer as destination and CharToOemBuff() is not needed  * for ngx_write_stderr() anyway.  */
+end_comment
+
+begin_function
+specifier|static
+name|ngx_inline
+name|void
+DECL|function|ngx_write_stderr (char * text)
+name|ngx_write_stderr
+parameter_list|(
+name|char
+modifier|*
+name|text
+parameter_list|)
+block|{
+operator|(
+name|void
+operator|)
+name|ngx_write_fd
+argument_list|(
+name|ngx_stderr
+argument_list|,
+name|text
+argument_list|,
+name|strlen
+argument_list|(
+name|text
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+
 begin_decl_stmt
 specifier|extern
 name|ngx_module_t

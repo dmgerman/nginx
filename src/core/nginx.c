@@ -884,62 +884,58 @@ condition|(
 name|ngx_show_version
 condition|)
 block|{
-name|ngx_log_stderr
+name|ngx_write_stderr
 argument_list|(
-literal|0
-argument_list|,
 literal|"nginx version: "
-name|NGINX_VER
+argument|NGINX_VER NGX_LINEFEED
 argument_list|)
-expr_stmt|;
+empty_stmt|;
 if|if
 condition|(
 name|ngx_show_help
 condition|)
 block|{
-name|ngx_log_stderr
+name|ngx_write_stderr
 argument_list|(
-literal|0
-argument_list|,
 literal|"Usage: nginx [-?hvVtq] [-s signal] [-c filename] "
 literal|"[-p prefix] [-g directives]"
-argument|CRLF CRLF
+argument|NGX_LINEFEED                              NGX_LINEFEED
 literal|"Options:"
-argument|CRLF
+argument|NGX_LINEFEED
 literal|"  -?,-h         : this help"
-argument|CRLF
+argument|NGX_LINEFEED
 literal|"  -v            : show version and exit"
-argument|CRLF
+argument|NGX_LINEFEED
 literal|"  -V            : show version and configure options then exit"
-argument|CRLF
+argument|NGX_LINEFEED
 literal|"  -t            : test configuration and exit"
-argument|CRLF
+argument|NGX_LINEFEED
 literal|"  -q            : suppress non-error messages "
 literal|"during configuration testing"
-argument|CRLF
+argument|NGX_LINEFEED
 literal|"  -s signal     : send signal to a master process: "
 literal|"stop, quit, reopen, reload"
-argument|CRLF
+argument|NGX_LINEFEED
 ifdef|#
 directive|ifdef
 name|NGX_PREFIX
 literal|"  -p prefix     : set prefix path (default: "
 argument|NGX_PREFIX
 literal|")"
-argument|CRLF
+argument|NGX_LINEFEED
 else|#
 directive|else
 literal|"  -p prefix     : set prefix path (default: NONE)"
-argument|CRLF
+argument|NGX_LINEFEED
 endif|#
 directive|endif
 literal|"  -c filename   : set configuration file (default: "
 argument|NGX_CONF_PATH
 literal|")"
-argument|CRLF
+argument|NGX_LINEFEED
 literal|"  -g directives : set global directives out of configuration "
 literal|"file"
-argument|CRLF
+argument|NGX_LINEFEED NGX_LINEFEED
 argument_list|)
 empty_stmt|;
 block|}
@@ -948,17 +944,13 @@ condition|(
 name|ngx_show_configure
 condition|)
 block|{
+name|ngx_write_stderr
+argument_list|(
 ifdef|#
 directive|ifdef
 name|NGX_COMPILER
-name|ngx_log_stderr
-argument_list|(
-literal|0
-argument_list|,
 literal|"built by "
-name|NGX_COMPILER
-argument_list|)
-expr_stmt|;
+argument|NGX_COMPILER NGX_LINEFEED
 endif|#
 directive|endif
 if|#
@@ -969,34 +961,20 @@ operator|)
 ifdef|#
 directive|ifdef
 name|SSL_CTRL_SET_TLSEXT_HOSTNAME
-name|ngx_log_stderr
-argument_list|(
-literal|0
-argument_list|,
 literal|"TLS SNI support enabled"
-argument_list|)
-expr_stmt|;
+argument|NGX_LINEFEED
 else|#
 directive|else
-name|ngx_log_stderr
-argument_list|(
-literal|0
-argument_list|,
 literal|"TLS SNI support disabled"
-argument_list|)
-expr_stmt|;
+argument|NGX_LINEFEED
 endif|#
 directive|endif
 endif|#
 directive|endif
-name|ngx_log_stderr
-argument_list|(
-literal|0
-argument_list|,
 literal|"configure arguments:"
-name|NGX_CONFIGURE
+argument|NGX_CONFIGURE NGX_LINEFEED
 argument_list|)
-expr_stmt|;
+empty_stmt|;
 block|}
 if|if
 condition|(
