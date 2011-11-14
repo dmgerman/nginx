@@ -669,7 +669,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon299b67130103
+DECL|enum|__anon2b273a660103
 typedef|typedef
 enum|enum
 block|{
@@ -708,7 +708,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299b67130208
+DECL|struct|__anon2b273a660208
 typedef|typedef
 struct|struct
 block|{
@@ -731,7 +731,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299b67130308
+DECL|struct|__anon2b273a660308
 typedef|typedef
 struct|struct
 block|{
@@ -750,7 +750,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299b67130408
+DECL|struct|__anon2b273a660408
 typedef|typedef
 struct|struct
 block|{
@@ -996,7 +996,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299b67130508
+DECL|struct|__anon2b273a660508
 typedef|typedef
 struct|struct
 block|{
@@ -1137,7 +1137,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299b67130608
+DECL|struct|__anon2b273a660608
 typedef|typedef
 struct|struct
 block|{
@@ -1176,7 +1176,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299b67130708
+DECL|struct|__anon2b273a660708
 typedef|typedef
 struct|struct
 block|{
@@ -1226,7 +1226,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299b67130808
+DECL|struct|__anon2b273a660808
 typedef|typedef
 struct|struct
 block|{
@@ -1321,7 +1321,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299b67130908
+DECL|struct|__anon2b273a660908
 typedef|typedef
 struct|struct
 block|{
@@ -1877,9 +1877,9 @@ range|:
 literal|1
 decl_stmt|;
 comment|/*      * instead of using the request context data in      * ngx_http_limit_zone_module and ngx_http_limit_req_module      * we use the single bits in the request structure      */
-DECL|member|limit_zone_set
+DECL|member|limit_conn_set
 name|unsigned
-name|limit_zone_set
+name|limit_conn_set
 range|:
 literal|1
 decl_stmt|;
@@ -2181,7 +2181,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon299b67130a08
+DECL|struct|__anon2b273a660a08
 typedef|typedef
 struct|struct
 block|{

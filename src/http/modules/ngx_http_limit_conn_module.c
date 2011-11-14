@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon290e21d90108
+DECL|struct|__anon2c7cbf020108
 typedef|typedef
 struct|struct
 block|{
@@ -45,14 +45,14 @@ index|[
 literal|1
 index|]
 decl_stmt|;
-DECL|typedef|ngx_http_limit_zone_node_t
+DECL|typedef|ngx_http_limit_conn_node_t
 block|}
-name|ngx_http_limit_zone_node_t
+name|ngx_http_limit_conn_node_t
 typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290e21d90208
+DECL|struct|__anon2c7cbf020208
 typedef|typedef
 struct|struct
 block|{
@@ -66,14 +66,14 @@ name|ngx_rbtree_node_t
 modifier|*
 name|node
 decl_stmt|;
-DECL|typedef|ngx_http_limit_zone_cleanup_t
+DECL|typedef|ngx_http_limit_conn_cleanup_t
 block|}
-name|ngx_http_limit_zone_cleanup_t
+name|ngx_http_limit_conn_cleanup_t
 typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290e21d90308
+DECL|struct|__anon2c7cbf020308
 typedef|typedef
 struct|struct
 block|{
@@ -90,14 +90,14 @@ DECL|member|var
 name|ngx_str_t
 name|var
 decl_stmt|;
-DECL|typedef|ngx_http_limit_zone_ctx_t
+DECL|typedef|ngx_http_limit_conn_ctx_t
 block|}
-name|ngx_http_limit_zone_ctx_t
+name|ngx_http_limit_conn_ctx_t
 typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290e21d90408
+DECL|struct|__anon2c7cbf020408
 typedef|typedef
 struct|struct
 block|{
@@ -110,14 +110,14 @@ DECL|member|conn
 name|ngx_uint_t
 name|conn
 decl_stmt|;
-DECL|typedef|ngx_http_limit_zone_limit_t
+DECL|typedef|ngx_http_limit_conn_limit_t
 block|}
-name|ngx_http_limit_zone_limit_t
+name|ngx_http_limit_conn_limit_t
 typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290e21d90508
+DECL|struct|__anon2c7cbf020508
 typedef|typedef
 struct|struct
 block|{
@@ -129,9 +129,9 @@ DECL|member|log_level
 name|ngx_uint_t
 name|log_level
 decl_stmt|;
-DECL|typedef|ngx_http_limit_zone_conf_t
+DECL|typedef|ngx_http_limit_conn_conf_t
 block|}
-name|ngx_http_limit_zone_conf_t
+name|ngx_http_limit_conn_conf_t
 typedef|;
 end_typedef
 
@@ -139,7 +139,7 @@ begin_function_decl
 specifier|static
 name|ngx_rbtree_node_t
 modifier|*
-name|ngx_http_limit_zone_lookup
+name|ngx_http_limit_conn_lookup
 parameter_list|(
 name|ngx_rbtree_t
 modifier|*
@@ -158,7 +158,7 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|void
-name|ngx_http_limit_zone_cleanup
+name|ngx_http_limit_conn_cleanup
 parameter_list|(
 name|void
 modifier|*
@@ -171,7 +171,7 @@ begin_function_decl
 specifier|static
 name|ngx_inline
 name|void
-name|ngx_http_limit_zone_cleanup_all
+name|ngx_http_limit_conn_cleanup_all
 parameter_list|(
 name|ngx_pool_t
 modifier|*
@@ -184,7 +184,7 @@ begin_function_decl
 specifier|static
 name|void
 modifier|*
-name|ngx_http_limit_zone_create_conf
+name|ngx_http_limit_conn_create_conf
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -197,7 +197,7 @@ begin_function_decl
 specifier|static
 name|char
 modifier|*
-name|ngx_http_limit_zone_merge_conf
+name|ngx_http_limit_conn_merge_conf
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -280,7 +280,7 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|ngx_int_t
-name|ngx_http_limit_zone_init
+name|ngx_http_limit_conn_init
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -359,10 +359,10 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_http_limit_zone_commands
+DECL|variable|ngx_http_limit_conn_commands
 specifier|static
 name|ngx_command_t
-name|ngx_http_limit_zone_commands
+name|ngx_http_limit_conn_commands
 index|[]
 init|=
 block|{
@@ -447,7 +447,7 @@ name|NGX_HTTP_LOC_CONF_OFFSET
 block|,
 name|offsetof
 argument_list|(
-name|ngx_http_limit_zone_conf_t
+name|ngx_http_limit_conn_conf_t
 argument_list|,
 name|log_level
 argument_list|)
@@ -462,16 +462,16 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_http_limit_zone_module_ctx
+DECL|variable|ngx_http_limit_conn_module_ctx
 specifier|static
 name|ngx_http_module_t
-name|ngx_http_limit_zone_module_ctx
+name|ngx_http_limit_conn_module_ctx
 init|=
 block|{
 name|NULL
 block|,
 comment|/* preconfiguration */
-name|ngx_http_limit_zone_init
+name|ngx_http_limit_conn_init
 block|,
 comment|/* postconfiguration */
 name|NULL
@@ -486,28 +486,28 @@ comment|/* create server configuration */
 name|NULL
 block|,
 comment|/* merge server configuration */
-name|ngx_http_limit_zone_create_conf
+name|ngx_http_limit_conn_create_conf
 block|,
 comment|/* create location configration */
-name|ngx_http_limit_zone_merge_conf
+name|ngx_http_limit_conn_merge_conf
 comment|/* merge location configration */
 block|}
 decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_http_limit_zone_module
+DECL|variable|ngx_http_limit_conn_module
 name|ngx_module_t
-name|ngx_http_limit_zone_module
+name|ngx_http_limit_conn_module
 init|=
 block|{
 name|NGX_MODULE_V1
 block|,
 operator|&
-name|ngx_http_limit_zone_module_ctx
+name|ngx_http_limit_conn_module_ctx
 block|,
 comment|/* module context */
-name|ngx_http_limit_zone_commands
+name|ngx_http_limit_conn_commands
 block|,
 comment|/* module directives */
 name|NGX_HTTP_MODULE
@@ -542,8 +542,8 @@ end_decl_stmt
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_http_limit_zone_handler (ngx_http_request_t * r)
-name|ngx_http_limit_zone_handler
+DECL|function|ngx_http_limit_conn_handler (ngx_http_request_t * r)
+name|ngx_http_limit_conn_handler
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
@@ -577,25 +577,25 @@ name|ngx_http_variable_value_t
 modifier|*
 name|vv
 decl_stmt|;
-name|ngx_http_limit_zone_ctx_t
+name|ngx_http_limit_conn_ctx_t
 modifier|*
 name|ctx
 decl_stmt|;
-name|ngx_http_limit_zone_node_t
+name|ngx_http_limit_conn_node_t
 modifier|*
-name|lz
+name|lc
 decl_stmt|;
-name|ngx_http_limit_zone_conf_t
+name|ngx_http_limit_conn_conf_t
 modifier|*
-name|lzcf
+name|lccf
 decl_stmt|;
-name|ngx_http_limit_zone_limit_t
+name|ngx_http_limit_conn_limit_t
 modifier|*
 name|limits
 decl_stmt|;
-name|ngx_http_limit_zone_cleanup_t
+name|ngx_http_limit_conn_cleanup_t
 modifier|*
-name|lzcln
+name|lccln
 decl_stmt|;
 if|if
 condition|(
@@ -603,37 +603,37 @@ name|r
 operator|->
 expr|main
 operator|->
-name|limit_zone_set
+name|limit_conn_set
 condition|)
 block|{
 return|return
 name|NGX_DECLINED
 return|;
 block|}
-name|lzcf
+name|r
+operator|->
+expr|main
+operator|->
+name|limit_conn_set
+operator|=
+literal|1
+expr_stmt|;
+name|lccf
 operator|=
 name|ngx_http_get_module_loc_conf
 argument_list|(
 name|r
 argument_list|,
-name|ngx_http_limit_zone_module
+name|ngx_http_limit_conn_module
 argument_list|)
 expr_stmt|;
 name|limits
 operator|=
-name|lzcf
+name|lccf
 operator|->
 name|limits
 operator|.
 name|elts
-expr_stmt|;
-name|r
-operator|->
-expr|main
-operator|->
-name|limit_zone_set
-operator|=
-literal|1
 expr_stmt|;
 for|for
 control|(
@@ -643,7 +643,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|lzcf
+name|lccf
 operator|->
 name|limits
 operator|.
@@ -773,7 +773,7 @@ argument_list|)
 expr_stmt|;
 name|node
 operator|=
-name|ngx_http_limit_zone_lookup
+name|ngx_http_limit_conn_lookup
 argument_list|(
 name|ctx
 operator|->
@@ -802,7 +802,7 @@ argument_list|)
 operator|+
 name|offsetof
 argument_list|(
-name|ngx_http_limit_zone_node_t
+name|ngx_http_limit_conn_node_t
 argument_list|,
 name|data
 argument_list|)
@@ -833,7 +833,7 @@ operator|->
 name|mutex
 argument_list|)
 expr_stmt|;
-name|ngx_http_limit_zone_cleanup_all
+name|ngx_http_limit_conn_cleanup_all
 argument_list|(
 name|r
 operator|->
@@ -844,10 +844,10 @@ return|return
 name|NGX_HTTP_SERVICE_UNAVAILABLE
 return|;
 block|}
-name|lz
+name|lc
 operator|=
 operator|(
-name|ngx_http_limit_zone_node_t
+name|ngx_http_limit_conn_node_t
 operator|*
 operator|)
 operator|&
@@ -861,7 +861,7 @@ name|key
 operator|=
 name|hash
 expr_stmt|;
-name|lz
+name|lc
 operator|->
 name|len
 operator|=
@@ -870,7 +870,7 @@ name|u_char
 operator|)
 name|len
 expr_stmt|;
-name|lz
+name|lc
 operator|->
 name|conn
 operator|=
@@ -878,7 +878,7 @@ literal|1
 expr_stmt|;
 name|ngx_memcpy
 argument_list|(
-name|lz
+name|lc
 operator|->
 name|data
 argument_list|,
@@ -901,10 +901,10 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|lz
+name|lc
 operator|=
 operator|(
-name|ngx_http_limit_zone_node_t
+name|ngx_http_limit_conn_node_t
 operator|*
 operator|)
 operator|&
@@ -917,7 +917,7 @@ condition|(
 operator|(
 name|ngx_uint_t
 operator|)
-name|lz
+name|lc
 operator|->
 name|conn
 operator|>=
@@ -939,7 +939,7 @@ argument_list|)
 expr_stmt|;
 name|ngx_log_error
 argument_list|(
-name|lzcf
+name|lccf
 operator|->
 name|log_level
 argument_list|,
@@ -966,7 +966,7 @@ operator|.
 name|name
 argument_list|)
 expr_stmt|;
-name|ngx_http_limit_zone_cleanup_all
+name|ngx_http_limit_conn_cleanup_all
 argument_list|(
 name|r
 operator|->
@@ -977,7 +977,7 @@ return|return
 name|NGX_HTTP_SERVICE_UNAVAILABLE
 return|;
 block|}
-name|lz
+name|lc
 operator|->
 name|conn
 operator|++
@@ -1001,7 +1001,7 @@ name|node
 operator|->
 name|key
 argument_list|,
-name|lz
+name|lc
 operator|->
 name|conn
 argument_list|)
@@ -1024,7 +1024,7 @@ name|pool
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|ngx_http_limit_zone_cleanup_t
+name|ngx_http_limit_conn_cleanup_t
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1043,15 +1043,15 @@ name|cln
 operator|->
 name|handler
 operator|=
-name|ngx_http_limit_zone_cleanup
+name|ngx_http_limit_conn_cleanup
 expr_stmt|;
-name|lzcln
+name|lccln
 operator|=
 name|cln
 operator|->
 name|data
 expr_stmt|;
-name|lzcln
+name|lccln
 operator|->
 name|shm_zone
 operator|=
@@ -1062,7 +1062,7 @@ index|]
 operator|.
 name|shm_zone
 expr_stmt|;
-name|lzcln
+name|lccln
 operator|->
 name|node
 operator|=
@@ -1078,8 +1078,8 @@ end_function
 begin_function
 specifier|static
 name|void
-DECL|function|ngx_http_limit_zone_rbtree_insert_value (ngx_rbtree_node_t * temp,ngx_rbtree_node_t * node,ngx_rbtree_node_t * sentinel)
-name|ngx_http_limit_zone_rbtree_insert_value
+DECL|function|ngx_http_limit_conn_rbtree_insert_value (ngx_rbtree_node_t * temp,ngx_rbtree_node_t * node,ngx_rbtree_node_t * sentinel)
+name|ngx_http_limit_conn_rbtree_insert_value
 parameter_list|(
 name|ngx_rbtree_node_t
 modifier|*
@@ -1099,12 +1099,12 @@ modifier|*
 modifier|*
 name|p
 decl_stmt|;
-name|ngx_http_limit_zone_node_t
+name|ngx_http_limit_conn_node_t
 modifier|*
-name|lzn
+name|lcn
 decl_stmt|,
 modifier|*
-name|lznt
+name|lcnt
 decl_stmt|;
 for|for
 control|(
@@ -1153,10 +1153,10 @@ block|}
 else|else
 block|{
 comment|/* node->key == temp->key */
-name|lzn
+name|lcn
 operator|=
 operator|(
-name|ngx_http_limit_zone_node_t
+name|ngx_http_limit_conn_node_t
 operator|*
 operator|)
 operator|&
@@ -1164,10 +1164,10 @@ name|node
 operator|->
 name|color
 expr_stmt|;
-name|lznt
+name|lcnt
 operator|=
 operator|(
-name|ngx_http_limit_zone_node_t
+name|ngx_http_limit_conn_node_t
 operator|*
 operator|)
 operator|&
@@ -1180,19 +1180,19 @@ operator|=
 operator|(
 name|ngx_memn2cmp
 argument_list|(
-name|lzn
+name|lcn
 operator|->
 name|data
 argument_list|,
-name|lznt
+name|lcnt
 operator|->
 name|data
 argument_list|,
-name|lzn
+name|lcn
 operator|->
 name|len
 argument_list|,
-name|lznt
+name|lcnt
 operator|->
 name|len
 argument_list|)
@@ -1262,8 +1262,8 @@ begin_function
 specifier|static
 name|ngx_rbtree_node_t
 modifier|*
-DECL|function|ngx_http_limit_zone_lookup (ngx_rbtree_t * rbtree,ngx_http_variable_value_t * vv,uint32_t hash)
-name|ngx_http_limit_zone_lookup
+DECL|function|ngx_http_limit_conn_lookup (ngx_rbtree_t * rbtree,ngx_http_variable_value_t * vv,uint32_t hash)
+name|ngx_http_limit_conn_lookup
 parameter_list|(
 name|ngx_rbtree_t
 modifier|*
@@ -1287,9 +1287,9 @@ decl_stmt|,
 modifier|*
 name|sentinel
 decl_stmt|;
-name|ngx_http_limit_zone_node_t
+name|ngx_http_limit_conn_node_t
 modifier|*
-name|lzn
+name|lcn
 decl_stmt|;
 name|node
 operator|=
@@ -1347,10 +1347,10 @@ block|}
 comment|/* hash == node->key */
 do|do
 block|{
-name|lzn
+name|lcn
 operator|=
 operator|(
-name|ngx_http_limit_zone_node_t
+name|ngx_http_limit_conn_node_t
 operator|*
 operator|)
 operator|&
@@ -1366,7 +1366,7 @@ name|vv
 operator|->
 name|data
 argument_list|,
-name|lzn
+name|lcn
 operator|->
 name|data
 argument_list|,
@@ -1380,7 +1380,7 @@ argument_list|,
 operator|(
 name|size_t
 operator|)
-name|lzn
+name|lcn
 operator|->
 name|len
 argument_list|)
@@ -1437,17 +1437,17 @@ end_function
 begin_function
 specifier|static
 name|void
-DECL|function|ngx_http_limit_zone_cleanup (void * data)
-name|ngx_http_limit_zone_cleanup
+DECL|function|ngx_http_limit_conn_cleanup (void * data)
+name|ngx_http_limit_conn_cleanup
 parameter_list|(
 name|void
 modifier|*
 name|data
 parameter_list|)
 block|{
-name|ngx_http_limit_zone_cleanup_t
+name|ngx_http_limit_conn_cleanup_t
 modifier|*
-name|lzcln
+name|lccln
 init|=
 name|data
 decl_stmt|;
@@ -1459,17 +1459,17 @@ name|ngx_rbtree_node_t
 modifier|*
 name|node
 decl_stmt|;
-name|ngx_http_limit_zone_ctx_t
+name|ngx_http_limit_conn_ctx_t
 modifier|*
 name|ctx
 decl_stmt|;
-name|ngx_http_limit_zone_node_t
+name|ngx_http_limit_conn_node_t
 modifier|*
-name|lz
+name|lc
 decl_stmt|;
 name|ctx
 operator|=
-name|lzcln
+name|lccln
 operator|->
 name|shm_zone
 operator|->
@@ -1481,7 +1481,7 @@ operator|(
 name|ngx_slab_pool_t
 operator|*
 operator|)
-name|lzcln
+name|lccln
 operator|->
 name|shm_zone
 operator|->
@@ -1491,14 +1491,14 @@ name|addr
 expr_stmt|;
 name|node
 operator|=
-name|lzcln
+name|lccln
 operator|->
 name|node
 expr_stmt|;
-name|lz
+name|lc
 operator|=
 operator|(
-name|ngx_http_limit_zone_node_t
+name|ngx_http_limit_conn_node_t
 operator|*
 operator|)
 operator|&
@@ -1518,7 +1518,7 @@ name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-name|lzcln
+name|lccln
 operator|->
 name|shm_zone
 operator|->
@@ -1534,19 +1534,19 @@ name|node
 operator|->
 name|key
 argument_list|,
-name|lz
+name|lc
 operator|->
 name|conn
 argument_list|)
 expr_stmt|;
-name|lz
+name|lc
 operator|->
 name|conn
 operator|--
 expr_stmt|;
 if|if
 condition|(
-name|lz
+name|lc
 operator|->
 name|conn
 operator|==
@@ -1585,8 +1585,8 @@ begin_function
 specifier|static
 name|ngx_inline
 name|void
-DECL|function|ngx_http_limit_zone_cleanup_all (ngx_pool_t * pool)
-name|ngx_http_limit_zone_cleanup_all
+DECL|function|ngx_http_limit_conn_cleanup_all (ngx_pool_t * pool)
+name|ngx_http_limit_conn_cleanup_all
 parameter_list|(
 name|ngx_pool_t
 modifier|*
@@ -1611,10 +1611,10 @@ name|cln
 operator|->
 name|handler
 operator|==
-name|ngx_http_limit_zone_cleanup
+name|ngx_http_limit_conn_cleanup
 condition|)
 block|{
-name|ngx_http_limit_zone_cleanup
+name|ngx_http_limit_conn_cleanup
 argument_list|(
 name|cln
 operator|->
@@ -1640,8 +1640,8 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_http_limit_zone_init_zone (ngx_shm_zone_t * shm_zone,void * data)
-name|ngx_http_limit_zone_init_zone
+DECL|function|ngx_http_limit_conn_init_zone (ngx_shm_zone_t * shm_zone,void * data)
+name|ngx_http_limit_conn_init_zone
 parameter_list|(
 name|ngx_shm_zone_t
 modifier|*
@@ -1652,7 +1652,7 @@ modifier|*
 name|data
 parameter_list|)
 block|{
-name|ngx_http_limit_zone_ctx_t
+name|ngx_http_limit_conn_ctx_t
 modifier|*
 name|octx
 init|=
@@ -1669,7 +1669,7 @@ name|ngx_rbtree_node_t
 modifier|*
 name|sentinel
 decl_stmt|;
-name|ngx_http_limit_zone_ctx_t
+name|ngx_http_limit_conn_ctx_t
 modifier|*
 name|ctx
 decl_stmt|;
@@ -1852,7 +1852,7 @@ name|rbtree
 argument_list|,
 name|sentinel
 argument_list|,
-name|ngx_http_limit_zone_rbtree_insert_value
+name|ngx_http_limit_conn_rbtree_insert_value
 argument_list|)
 expr_stmt|;
 name|len
@@ -1920,15 +1920,15 @@ begin_function
 specifier|static
 name|void
 modifier|*
-DECL|function|ngx_http_limit_zone_create_conf (ngx_conf_t * cf)
-name|ngx_http_limit_zone_create_conf
+DECL|function|ngx_http_limit_conn_create_conf (ngx_conf_t * cf)
+name|ngx_http_limit_conn_create_conf
 parameter_list|(
 name|ngx_conf_t
 modifier|*
 name|cf
 parameter_list|)
 block|{
-name|ngx_http_limit_zone_conf_t
+name|ngx_http_limit_conn_conf_t
 modifier|*
 name|conf
 decl_stmt|;
@@ -1942,7 +1942,7 @@ name|pool
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|ngx_http_limit_zone_conf_t
+name|ngx_http_limit_conn_conf_t
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1974,8 +1974,8 @@ begin_function
 specifier|static
 name|char
 modifier|*
-DECL|function|ngx_http_limit_zone_merge_conf (ngx_conf_t * cf,void * parent,void * child)
-name|ngx_http_limit_zone_merge_conf
+DECL|function|ngx_http_limit_conn_merge_conf (ngx_conf_t * cf,void * parent,void * child)
+name|ngx_http_limit_conn_merge_conf
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -1990,13 +1990,13 @@ modifier|*
 name|child
 parameter_list|)
 block|{
-name|ngx_http_limit_zone_conf_t
+name|ngx_http_limit_conn_conf_t
 modifier|*
 name|prev
 init|=
 name|parent
 decl_stmt|;
-name|ngx_http_limit_zone_conf_t
+name|ngx_http_limit_conn_conf_t
 modifier|*
 name|conf
 init|=
@@ -2081,7 +2081,7 @@ name|ngx_shm_zone_t
 modifier|*
 name|shm_zone
 decl_stmt|;
-name|ngx_http_limit_zone_ctx_t
+name|ngx_http_limit_conn_ctx_t
 modifier|*
 name|ctx
 decl_stmt|;
@@ -2354,7 +2354,7 @@ name|pool
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|ngx_http_limit_zone_ctx_t
+name|ngx_http_limit_conn_ctx_t
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2500,7 +2500,7 @@ argument_list|,
 name|size
 argument_list|,
 operator|&
-name|ngx_http_limit_zone_module
+name|ngx_http_limit_conn_module
 argument_list|)
 expr_stmt|;
 if|if
@@ -2559,7 +2559,7 @@ name|shm_zone
 operator|->
 name|init
 operator|=
-name|ngx_http_limit_zone_init_zone
+name|ngx_http_limit_conn_init_zone
 expr_stmt|;
 name|shm_zone
 operator|->
@@ -2604,7 +2604,7 @@ name|ngx_shm_zone_t
 modifier|*
 name|shm_zone
 decl_stmt|;
-name|ngx_http_limit_zone_ctx_t
+name|ngx_http_limit_conn_ctx_t
 modifier|*
 name|ctx
 decl_stmt|;
@@ -2688,7 +2688,7 @@ name|pool
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|ngx_http_limit_zone_ctx_t
+name|ngx_http_limit_conn_ctx_t
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2829,7 +2829,7 @@ argument_list|,
 name|n
 argument_list|,
 operator|&
-name|ngx_http_limit_zone_module
+name|ngx_http_limit_conn_module
 argument_list|)
 expr_stmt|;
 if|if
@@ -2886,7 +2886,7 @@ name|shm_zone
 operator|->
 name|init
 operator|=
-name|ngx_http_limit_zone_init_zone
+name|ngx_http_limit_conn_init_zone
 expr_stmt|;
 name|shm_zone
 operator|->
@@ -2924,13 +2924,13 @@ name|ngx_shm_zone_t
 modifier|*
 name|shm_zone
 decl_stmt|;
-name|ngx_http_limit_zone_conf_t
+name|ngx_http_limit_conn_conf_t
 modifier|*
-name|lzcf
+name|lccf
 init|=
 name|conf
 decl_stmt|;
-name|ngx_http_limit_zone_limit_t
+name|ngx_http_limit_conn_limit_t
 modifier|*
 name|limit
 decl_stmt|,
@@ -2970,7 +2970,7 @@ argument_list|,
 literal|0
 argument_list|,
 operator|&
-name|ngx_http_limit_zone_module
+name|ngx_http_limit_conn_module
 argument_list|)
 expr_stmt|;
 if|if
@@ -2986,7 +2986,7 @@ return|;
 block|}
 name|limits
 operator|=
-name|lzcf
+name|lccf
 operator|->
 name|limits
 operator|.
@@ -3004,7 +3004,7 @@ condition|(
 name|ngx_array_init
 argument_list|(
 operator|&
-name|lzcf
+name|lccf
 operator|->
 name|limits
 argument_list|,
@@ -3016,7 +3016,7 @@ literal|1
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|ngx_http_limit_zone_limit_t
+name|ngx_http_limit_conn_limit_t
 argument_list|)
 argument_list|)
 operator|!=
@@ -3036,7 +3036,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|lzcf
+name|lccf
 operator|->
 name|limits
 operator|.
@@ -3137,7 +3137,7 @@ operator|=
 name|ngx_array_push
 argument_list|(
 operator|&
-name|lzcf
+name|lccf
 operator|->
 name|limits
 argument_list|)
@@ -3163,8 +3163,8 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_http_limit_zone_init (ngx_conf_t * cf)
-name|ngx_http_limit_zone_init
+DECL|function|ngx_http_limit_conn_init (ngx_conf_t * cf)
+name|ngx_http_limit_conn_init
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -3217,7 +3217,7 @@ block|}
 operator|*
 name|h
 operator|=
-name|ngx_http_limit_zone_handler
+name|ngx_http_limit_conn_handler
 expr_stmt|;
 return|return
 name|NGX_OK
