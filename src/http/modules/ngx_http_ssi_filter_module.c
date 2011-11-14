@@ -54,7 +54,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon297c19a10108
+DECL|struct|__anon28d663200108
 typedef|typedef
 struct|struct
 block|{
@@ -94,7 +94,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297c19a10208
+DECL|struct|__anon28d663200208
 typedef|typedef
 struct|struct
 block|{
@@ -117,7 +117,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297c19a10308
+DECL|struct|__anon28d663200308
 typedef|typedef
 struct|struct
 block|{
@@ -141,7 +141,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon297c19a10403
+DECL|enum|__anon28d663200403
 typedef|typedef
 enum|enum
 block|{
@@ -743,7 +743,7 @@ name|NGX_HTTP_SRV_CONF
 operator||
 name|NGX_HTTP_LOC_CONF
 operator||
-name|NGX_CONF_FLAG
+name|NGX_CONF_TAKE1
 block|,
 name|ngx_conf_set_size_slot
 block|,
@@ -771,7 +771,7 @@ name|NGX_HTTP_SRV_CONF
 operator||
 name|NGX_HTTP_LOC_CONF
 operator||
-name|NGX_CONF_FLAG
+name|NGX_CONF_TAKE1
 block|,
 name|ngx_conf_set_size_slot
 block|,

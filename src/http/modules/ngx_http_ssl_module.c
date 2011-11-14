@@ -476,7 +476,7 @@ name|NGX_HTTP_MAIN_CONF
 operator||
 name|NGX_HTTP_SRV_CONF
 operator||
-name|NGX_CONF_FLAG
+name|NGX_CONF_TAKE1
 block|,
 name|ngx_conf_set_enum_slot
 block|,

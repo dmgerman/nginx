@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29e94b130108
+DECL|struct|__anon27bfd7890108
 typedef|typedef
 struct|struct
 block|{
@@ -317,7 +317,7 @@ name|NGX_MAIL_MAIN_CONF
 operator||
 name|NGX_MAIL_SRV_CONF
 operator||
-name|NGX_CONF_TAKE1
+name|NGX_CONF_FLAG
 block|,
 name|ngx_conf_set_flag_slot
 block|,
