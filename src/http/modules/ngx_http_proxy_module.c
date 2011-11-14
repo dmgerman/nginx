@@ -70,14 +70,14 @@ DECL|member|redirect
 name|ngx_str_t
 name|redirect
 decl_stmt|;
-DECL|union|__anon279ddabb010a
+DECL|union|__anon2b3301b4010a
 union|union
 block|{
 DECL|member|text
 name|ngx_str_t
 name|text
 decl_stmt|;
-DECL|struct|__anon279ddabb0208
+DECL|struct|__anon2b3301b40208
 struct|struct
 block|{
 DECL|member|lengths
@@ -108,7 +108,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon279ddabb0308
+DECL|struct|__anon2b3301b40308
 typedef|typedef
 struct|struct
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon279ddabb0408
+DECL|struct|__anon2b3301b40408
 typedef|typedef
 struct|struct
 block|{
@@ -250,7 +250,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon279ddabb0508
+DECL|struct|__anon2b3301b40508
 typedef|typedef
 struct|struct
 block|{
@@ -2453,6 +2453,18 @@ block|{
 name|ngx_string
 argument_list|(
 literal|"Expect"
+argument_list|)
+block|,
+name|ngx_string
+argument_list|(
+literal|""
+argument_list|)
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"Upgrade"
 argument_list|)
 block|,
 name|ngx_string
@@ -7701,7 +7713,7 @@ name|ngx_http_proxy_ctx_t
 modifier|*
 name|ctx
 decl_stmt|;
-DECL|enum|__anon279ddabb0603
+DECL|enum|__anon2b3301b40603
 enum|enum
 block|{
 DECL|enumerator|sw_chunk_start
