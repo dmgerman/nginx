@@ -172,9 +172,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|data
-operator|=
-name|ngx_cpymem
+name|ngx_memcpy
 argument_list|(
 operator|&
 name|ctx
@@ -188,6 +186,16 @@ name|data
 argument_list|,
 name|free
 argument_list|)
+expr_stmt|;
+name|data
+operator|=
+operator|(
+name|u_char
+operator|*
+operator|)
+name|data
+operator|+
+name|free
 expr_stmt|;
 name|size
 operator|-=
