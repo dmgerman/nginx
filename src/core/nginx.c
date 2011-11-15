@@ -1371,6 +1371,16 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|ngx_inherited
+condition|)
+block|{
+name|ngx_daemonized
+operator|=
+literal|1
+expr_stmt|;
+block|}
 endif|#
 directive|endif
 if|if
