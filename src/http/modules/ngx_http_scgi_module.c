@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28ae17ab0108
+DECL|struct|__anon2893a3120108
 typedef|typedef
 struct|struct
 block|{
@@ -2536,10 +2536,11 @@ argument_list|(
 operator|&
 name|le
 argument_list|)
-operator|+
-literal|1
 expr_stmt|;
 block|}
+name|len
+operator|++
+expr_stmt|;
 name|le
 operator|.
 name|ip
