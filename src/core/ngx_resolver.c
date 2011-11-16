@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2c1e84830108
+DECL|struct|__anon2c2df7e00108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1e84830208
+DECL|struct|__anon2c2df7e00208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1e84830308
+DECL|struct|__anon2c2df7e00308
 typedef|typedef
 struct|struct
 block|{
@@ -5477,6 +5477,10 @@ operator|=
 name|NULL
 expr_stmt|;
 name|qtype
+operator|=
+literal|0
+expr_stmt|;
+name|ttl
 operator|=
 literal|0
 expr_stmt|;
