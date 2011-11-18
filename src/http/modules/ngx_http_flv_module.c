@@ -81,7 +81,7 @@ name|u_char
 name|ngx_flv_header
 index|[]
 init|=
-literal|"FLV\x1\x1\0\0\0\x9\0\0\0\x9"
+literal|"FLV\x1\x5\0\0\0\x9\0\0\0\0"
 decl_stmt|;
 end_decl_stmt
 
