@@ -2011,6 +2011,11 @@ directive|if
 operator|(
 name|NGX_HAVE_POSIX_FADVISE
 operator|)
+operator|&&
+operator|!
+operator|(
+name|NGX_HAVE_F_READAHEAD
+operator|)
 end_if
 
 begin_function
