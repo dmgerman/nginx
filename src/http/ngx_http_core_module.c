@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon293f50680108
+DECL|struct|__anon2ba945a60108
 typedef|typedef
 struct|struct
 block|{
@@ -13916,7 +13916,7 @@ return|return
 name|NULL
 return|;
 block|}
-comment|/*      * set by ngx_pcalloc():      *      *     clcf->root = { 0, NULL };      *     clcf->limit_except = 0;      *     clcf->post_action = { 0, NULL };      *     clcf->types = NULL;      *     clcf->default_type = { 0, NULL };      *     clcf->error_log = NULL;      *     clcf->error_pages = NULL;      *     clcf->try_files = NULL;      *     clcf->client_body_path = NULL;      *     clcf->regex = NULL;      *     clcf->exact_match = 0;      *     clcf->auto_redirect = 0;      *     clcf->alias = 0;      *     clcf->gzip_proxied = 0;      */
+comment|/*      * set by ngx_pcalloc():      *      *     clcf->root = { 0, NULL };      *     clcf->limit_except = 0;      *     clcf->post_action = { 0, NULL };      *     clcf->types = NULL;      *     clcf->default_type = { 0, NULL };      *     clcf->error_log = NULL;      *     clcf->error_pages = NULL;      *     clcf->try_files = NULL;      *     clcf->client_body_path = NULL;      *     clcf->regex = NULL;      *     clcf->exact_match = 0;      *     clcf->auto_redirect = 0;      *     clcf->alias = 0;      *     clcf->gzip_proxied = 0;      *     clcf->keepalive_disable = 0;      */
 name|clcf
 operator|->
 name|client_max_body_size
@@ -13934,12 +13934,6 @@ operator|->
 name|client_body_timeout
 operator|=
 name|NGX_CONF_UNSET_MSEC
-expr_stmt|;
-name|clcf
-operator|->
-name|keepalive_disable
-operator|=
-name|NGX_CONF_UNSET_UINT
 expr_stmt|;
 name|clcf
 operator|->
