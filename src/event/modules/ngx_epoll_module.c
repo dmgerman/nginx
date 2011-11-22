@@ -373,7 +373,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon27f2411e0108
+DECL|struct|__anon2b1bc06b0108
 typedef|typedef
 struct|struct
 block|{
@@ -2787,6 +2787,40 @@ name|c
 operator|->
 name|write
 expr_stmt|;
+if|if
+condition|(
+name|c
+operator|->
+name|fd
+operator|==
+operator|-
+literal|1
+operator|||
+name|wev
+operator|->
+name|instance
+operator|!=
+name|instance
+condition|)
+block|{
+comment|/*              * the stale event from a file descriptor              * that was just closed in this iteration              */
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"epoll: stale event %p"
+argument_list|,
+name|c
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
 if|if
 condition|(
 operator|(
