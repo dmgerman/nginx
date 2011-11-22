@@ -2990,6 +2990,15 @@ argument_list|,
 name|ngx_http_ssl_module
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|sscf
+operator|->
+name|ssl
+operator|.
+name|ctx
+condition|)
+block|{
 name|SSL_set_SSL_CTX
 argument_list|(
 name|ssl_conn
@@ -3001,7 +3010,7 @@ operator|.
 name|ctx
 argument_list|)
 expr_stmt|;
-comment|/*      * SSL_set_SSL_CTX() only changes certs as of 1.0.0d      * adjust other things we care about      */
+comment|/*          * SSL_set_SSL_CTX() only changes certs as of 1.0.0d          * adjust other things we care about          */
 name|SSL_set_verify
 argument_list|(
 name|ssl_conn
@@ -3079,6 +3088,7 @@ name|ctx
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|SSL_TLSEXT_ERR_OK
 return|;
