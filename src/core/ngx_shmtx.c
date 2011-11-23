@@ -1084,7 +1084,7 @@ block|}
 end_function
 
 begin_function
-name|void
+name|ngx_uint_t
 DECL|function|ngx_shmtx_force_unlock (ngx_shmtx_t * mtx,ngx_pid_t pid)
 name|ngx_shmtx_force_unlock
 parameter_list|(
@@ -1096,7 +1096,9 @@ name|ngx_pid_t
 name|pid
 parameter_list|)
 block|{
-comment|/* void */
+return|return
+literal|0
+return|;
 block|}
 end_function
 
