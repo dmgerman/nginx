@@ -156,7 +156,7 @@ value|0x08
 end_define
 
 begin_typedef
-DECL|struct|__anon2c45a8ba0108
+DECL|struct|__anon29691a8d0108
 typedef|typedef
 struct|struct
 block|{
@@ -224,7 +224,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c45a8ba0208
+DECL|struct|__anon29691a8d0208
 typedef|typedef
 struct|struct
 block|{
@@ -5559,12 +5559,28 @@ operator|==
 literal|0
 condition|)
 block|{
+if|if
+condition|(
+name|imcf
+operator|->
+name|filter
+operator|!=
+name|NGX_HTTP_IMAGE_RESIZE
+operator|&&
+name|imcf
+operator|->
+name|filter
+operator|!=
+name|NGX_HTTP_IMAGE_CROP
+condition|)
+block|{
 name|imcf
 operator|->
 name|filter
 operator|=
 name|NGX_HTTP_IMAGE_ROTATE
 expr_stmt|;
+block|}
 name|ngx_memzero
 argument_list|(
 operator|&
