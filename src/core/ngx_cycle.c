@@ -4527,10 +4527,6 @@ name|sp
 operator|->
 name|mutex
 argument_list|,
-operator|(
-name|void
-operator|*
-operator|)
 operator|&
 name|sp
 operator|->

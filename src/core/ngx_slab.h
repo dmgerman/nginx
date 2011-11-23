@@ -60,12 +60,12 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b94007c0108
+DECL|struct|__anon28a3f87a0108
 typedef|typedef
 struct|struct
 block|{
 DECL|member|lock
-name|ngx_atomic_t
+name|ngx_shmtx_sh_t
 name|lock
 decl_stmt|;
 DECL|member|min_size

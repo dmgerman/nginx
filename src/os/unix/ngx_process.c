@@ -28,7 +28,7 @@ file|<ngx_channel.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29fb37bd0108
+DECL|struct|__anon299c22d30108
 typedef|typedef
 struct|struct
 block|{
@@ -1977,13 +1977,12 @@ name|ngx_accept_mutex_ptr
 condition|)
 block|{
 comment|/*              * unlock the accept mutex if the abnormally exited process              * held it              */
-name|ngx_atomic_cmp_set
+name|ngx_shmtx_force_unlock
 argument_list|(
-name|ngx_accept_mutex_ptr
+operator|&
+name|ngx_accept_mutex
 argument_list|,
 name|pid
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 block|}

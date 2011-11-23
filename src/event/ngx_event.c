@@ -1942,6 +1942,10 @@ argument_list|(
 operator|&
 name|ngx_accept_mutex
 argument_list|,
+operator|(
+name|ngx_shmtx_sh_t
+operator|*
+operator|)
 name|shared
 argument_list|,
 name|cycle
