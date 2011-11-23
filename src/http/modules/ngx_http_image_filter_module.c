@@ -156,7 +156,7 @@ value|0x08
 end_define
 
 begin_typedef
-DECL|struct|__anon28f93e280108
+DECL|struct|__anon2c45a8ba0108
 typedef|typedef
 struct|struct
 block|{
@@ -224,7 +224,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f93e280208
+DECL|struct|__anon2c45a8ba0208
 typedef|typedef
 struct|struct
 block|{
@@ -656,9 +656,7 @@ argument_list|)
 block|,
 name|NGX_HTTP_LOC_CONF
 operator||
-name|NGX_CONF_TAKE13
-operator||
-name|NGX_CONF_TAKE2
+name|NGX_CONF_TAKE123
 block|,
 name|ngx_http_image_filter
 block|,
@@ -6189,7 +6187,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"invalid parameter \"%V\""
+literal|"invalid value \"%V\""
 argument_list|,
 operator|&
 name|value
@@ -6388,7 +6386,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"invalid parameter \"%V\""
+literal|"invalid value \"%V\""
 argument_list|,
 operator|&
 name|value
