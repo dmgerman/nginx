@@ -28,7 +28,7 @@ file|<ngx_channel.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bedf0ff0108
+DECL|struct|__anon2bae435e0108
 typedef|typedef
 struct|struct
 block|{
@@ -2230,6 +2230,9 @@ condition|(
 name|ngx_accept_mutex_ptr
 condition|)
 block|{
+operator|(
+name|void
+operator|)
 name|ngx_shmtx_force_unlock
 argument_list|(
 operator|&

@@ -374,6 +374,9 @@ operator|->
 name|semaphore
 condition|)
 block|{
+operator|(
+name|void
+operator|)
 name|ngx_atomic_fetch_add
 argument_list|(
 name|mtx
