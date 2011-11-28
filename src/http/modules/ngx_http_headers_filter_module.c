@@ -55,7 +55,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27afe1690108
+DECL|struct|__anon2b8c66ff0108
 typedef|typedef
 struct|struct
 block|{
@@ -155,7 +155,7 @@ value|5
 end_define
 
 begin_typedef
-DECL|struct|__anon27afe1690208
+DECL|struct|__anon2b8c66ff0208
 typedef|typedef
 struct|struct
 block|{
@@ -589,6 +589,14 @@ operator|.
 name|status
 operator|!=
 name|NGX_HTTP_NO_CONTENT
+operator|&&
+name|r
+operator|->
+name|headers_out
+operator|.
+name|status
+operator|!=
+name|NGX_HTTP_PARTIAL_CONTENT
 operator|&&
 name|r
 operator|->
