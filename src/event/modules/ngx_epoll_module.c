@@ -373,7 +373,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b1bc06b0108
+DECL|struct|__anon2879bc3f0108
 typedef|typedef
 struct|struct
 block|{
@@ -2789,6 +2789,19 @@ name|write
 expr_stmt|;
 if|if
 condition|(
+operator|(
+name|revents
+operator|&
+name|EPOLLOUT
+operator|)
+operator|&&
+name|wev
+operator|->
+name|active
+condition|)
+block|{
+if|if
+condition|(
 name|c
 operator|->
 name|fd
@@ -2803,7 +2816,7 @@ operator|!=
 name|instance
 condition|)
 block|{
-comment|/*              * the stale event from a file descriptor              * that was just closed in this iteration              */
+comment|/*                  * the stale event from a file descriptor                  * that was just closed in this iteration                  */
 name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
@@ -2821,19 +2834,6 @@ argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
-if|if
-condition|(
-operator|(
-name|revents
-operator|&
-name|EPOLLOUT
-operator|)
-operator|&&
-name|wev
-operator|->
-name|active
-condition|)
-block|{
 if|if
 condition|(
 name|flags
