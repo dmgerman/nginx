@@ -81,6 +81,25 @@ DECL|member|sndbuf
 name|int
 name|sndbuf
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_KEEPALIVE_TUNABLE
+operator|)
+DECL|member|keepidle
+name|int
+name|keepidle
+decl_stmt|;
+DECL|member|keepintvl
+name|int
+name|keepintvl
+decl_stmt|;
+DECL|member|keepcnt
+name|int
+name|keepcnt
+decl_stmt|;
+endif|#
+directive|endif
 comment|/* handler of accepted connection */
 DECL|member|handler
 name|ngx_connection_handler_pt
@@ -204,6 +223,12 @@ literal|2
 decl_stmt|;
 endif|#
 directive|endif
+DECL|member|keepalive
+name|unsigned
+name|keepalive
+range|:
+literal|2
+decl_stmt|;
 if|#
 directive|if
 operator|(
@@ -255,7 +280,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2c4fcd6a0103
+DECL|enum|__anon2c85c87d0103
 typedef|typedef
 enum|enum
 block|{
@@ -282,7 +307,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c4fcd6a0203
+DECL|enum|__anon2c85c87d0203
 typedef|typedef
 enum|enum
 block|{
@@ -303,7 +328,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c4fcd6a0303
+DECL|enum|__anon2c85c87d0303
 typedef|typedef
 enum|enum
 block|{

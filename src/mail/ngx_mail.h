@@ -60,7 +60,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon293827b10108
+DECL|struct|__anon29fc942d0108
 typedef|typedef
 struct|struct
 block|{
@@ -83,7 +83,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293827b10208
+DECL|struct|__anon29fc942d0208
 typedef|typedef
 struct|struct
 block|{
@@ -145,6 +145,31 @@ literal|2
 decl_stmt|;
 endif|#
 directive|endif
+DECL|member|so_keepalive
+name|unsigned
+name|so_keepalive
+range|:
+literal|2
+decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_KEEPALIVE_TUNABLE
+operator|)
+DECL|member|tcp_keepidle
+name|int
+name|tcp_keepidle
+decl_stmt|;
+DECL|member|tcp_keepintvl
+name|int
+name|tcp_keepintvl
+decl_stmt|;
+DECL|member|tcp_keepcnt
+name|int
+name|tcp_keepcnt
+decl_stmt|;
+endif|#
+directive|endif
 DECL|typedef|ngx_mail_listen_t
 block|}
 name|ngx_mail_listen_t
@@ -152,7 +177,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293827b10308
+DECL|struct|__anon29fc942d0308
 typedef|typedef
 struct|struct
 block|{
@@ -184,7 +209,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293827b10408
+DECL|struct|__anon29fc942d0408
 typedef|typedef
 struct|struct
 block|{
@@ -211,7 +236,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon293827b10508
+DECL|struct|__anon29fc942d0508
 typedef|typedef
 struct|struct
 block|{
@@ -236,7 +261,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon293827b10608
+DECL|struct|__anon29fc942d0608
 typedef|typedef
 struct|struct
 block|{
@@ -257,7 +282,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293827b10708
+DECL|struct|__anon29fc942d0708
 typedef|typedef
 struct|struct
 block|{
@@ -281,7 +306,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293827b10808
+DECL|struct|__anon29fc942d0808
 typedef|typedef
 struct|struct
 block|{
@@ -341,6 +366,31 @@ literal|2
 decl_stmt|;
 endif|#
 directive|endif
+DECL|member|so_keepalive
+name|unsigned
+name|so_keepalive
+range|:
+literal|2
+decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_KEEPALIVE_TUNABLE
+operator|)
+DECL|member|tcp_keepidle
+name|int
+name|tcp_keepidle
+decl_stmt|;
+DECL|member|tcp_keepintvl
+name|int
+name|tcp_keepintvl
+decl_stmt|;
+DECL|member|tcp_keepcnt
+name|int
+name|tcp_keepcnt
+decl_stmt|;
+endif|#
+directive|endif
 DECL|typedef|ngx_mail_conf_addr_t
 block|}
 name|ngx_mail_conf_addr_t
@@ -348,7 +398,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293827b10908
+DECL|struct|__anon29fc942d0908
 typedef|typedef
 struct|struct
 block|{
@@ -402,7 +452,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293827b10a08
+DECL|struct|__anon29fc942d0a08
 typedef|typedef
 struct|struct
 block|{
@@ -454,7 +504,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon293827b10b03
+DECL|enum|__anon29fc942d0b03
 typedef|typedef
 enum|enum
 block|{
@@ -487,7 +537,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon293827b10c03
+DECL|enum|__anon29fc942d0c03
 typedef|typedef
 enum|enum
 block|{
@@ -523,7 +573,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon293827b10d03
+DECL|enum|__anon29fc942d0d03
 typedef|typedef
 enum|enum
 block|{
@@ -574,7 +624,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293827b10e08
+DECL|struct|__anon29fc942d0e08
 typedef|typedef
 struct|struct
 block|{
@@ -594,7 +644,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293827b10f08
+DECL|struct|__anon29fc942d0f08
 typedef|typedef
 struct|struct
 block|{
@@ -797,7 +847,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293827b11008
+DECL|struct|__anon29fc942d1008
 typedef|typedef
 struct|struct
 block|{
@@ -1306,7 +1356,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon293827b11108
+DECL|struct|__anon29fc942d1108
 typedef|typedef
 struct|struct
 block|{
