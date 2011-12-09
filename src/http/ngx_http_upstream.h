@@ -237,7 +237,7 @@ value|0x00000100
 end_define
 
 begin_typedef
-DECL|struct|__anon2af32aeb0108
+DECL|struct|__anon2a2352880108
 typedef|typedef
 struct|struct
 block|{
@@ -277,7 +277,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af32aeb0208
+DECL|struct|__anon2a2352880208
 typedef|typedef
 struct|struct
 block|{
@@ -346,7 +346,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af32aeb0308
+DECL|struct|__anon2a2352880308
 typedef|typedef
 struct|struct
 block|{
@@ -370,7 +370,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af32aeb0408
+DECL|struct|__anon2a2352880408
 typedef|typedef
 struct|struct
 block|{
@@ -512,7 +512,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2af32aeb0508
+DECL|struct|__anon2a2352880508
 typedef|typedef
 struct|struct
 block|{
@@ -727,7 +727,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af32aeb0608
+DECL|struct|__anon2a2352880608
 typedef|typedef
 struct|struct
 block|{
@@ -763,7 +763,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af32aeb0708
+DECL|struct|__anon2a2352880708
 typedef|typedef
 struct|struct
 block|{
@@ -898,7 +898,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af32aeb0808
+DECL|struct|__anon2a2352880808
 typedef|typedef
 struct|struct
 block|{
@@ -1262,7 +1262,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2af32aeb0908
+DECL|struct|__anon2a2352880908
 typedef|typedef
 struct|struct
 block|{
@@ -1277,6 +1277,29 @@ decl_stmt|;
 DECL|typedef|ngx_http_upstream_next_t
 block|}
 name|ngx_http_upstream_next_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2a2352880a08
+typedef|typedef
+struct|struct
+block|{
+DECL|member|key
+name|ngx_str_t
+name|key
+decl_stmt|;
+DECL|member|value
+name|ngx_str_t
+name|value
+decl_stmt|;
+DECL|member|skip_empty
+name|ngx_uint_t
+name|skip_empty
+decl_stmt|;
+DECL|typedef|ngx_http_upstream_param_t
+block|}
+name|ngx_http_upstream_param_t
 typedef|;
 end_typedef
 
@@ -1343,6 +1366,26 @@ begin_function_decl
 name|char
 modifier|*
 name|ngx_http_upstream_bind_set_slot
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_command_t
+modifier|*
+name|cmd
+parameter_list|,
+name|void
+modifier|*
+name|conf
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|char
+modifier|*
+name|ngx_http_upstream_param_set_slot
 parameter_list|(
 name|ngx_conf_t
 modifier|*
