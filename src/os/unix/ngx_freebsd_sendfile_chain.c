@@ -986,10 +986,15 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/*              * sendfile() does unneeded work if sf_hdtr's count is 0,              * but corresponding pointer is not NULL              */
 name|hdtr
 operator|.
 name|headers
 operator|=
+name|header
+operator|.
+name|nelts
+condition|?
 operator|(
 expr|struct
 name|iovec
@@ -998,6 +1003,8 @@ operator|)
 name|header
 operator|.
 name|elts
+else|:
+name|NULL
 expr_stmt|;
 name|hdtr
 operator|.
@@ -1011,6 +1018,10 @@ name|hdtr
 operator|.
 name|trailers
 operator|=
+name|trailer
+operator|.
+name|nelts
+condition|?
 operator|(
 expr|struct
 name|iovec
@@ -1019,6 +1030,8 @@ operator|)
 name|trailer
 operator|.
 name|elts
+else|:
+name|NULL
 expr_stmt|;
 name|hdtr
 operator|.
