@@ -196,16 +196,16 @@ argument_list|)
 block|,
 comment|/* ngx_null_string, */
 comment|/* "207 Multi-Status" */
-DECL|macro|NGX_HTTP_LAST_LEVEL_200
+DECL|macro|NGX_HTTP_LAST_2XX
 define|#
 directive|define
-name|NGX_HTTP_LAST_LEVEL_200
+name|NGX_HTTP_LAST_2XX
 value|207
-DECL|macro|NGX_HTTP_LEVEL_200
+DECL|macro|NGX_HTTP_OFF_3XX
 define|#
 directive|define
-name|NGX_HTTP_LEVEL_200
-value|(NGX_HTTP_LAST_LEVEL_200 - 200)
+name|NGX_HTTP_OFF_3XX
+value|(NGX_HTTP_LAST_2XX - 200)
 comment|/* ngx_null_string, */
 comment|/* "300 Multiple Choices" */
 name|ngx_string
@@ -234,16 +234,16 @@ comment|/* ngx_null_string, */
 comment|/* "306 unused" */
 comment|/* ngx_null_string, */
 comment|/* "307 Temporary Redirect" */
-DECL|macro|NGX_HTTP_LAST_LEVEL_300
+DECL|macro|NGX_HTTP_LAST_3XX
 define|#
 directive|define
-name|NGX_HTTP_LAST_LEVEL_300
+name|NGX_HTTP_LAST_3XX
 value|305
-DECL|macro|NGX_HTTP_LEVEL_300
+DECL|macro|NGX_HTTP_OFF_4XX
 define|#
 directive|define
-name|NGX_HTTP_LEVEL_300
-value|(NGX_HTTP_LAST_LEVEL_300 - 301)
+name|NGX_HTTP_OFF_4XX
+value|(NGX_HTTP_LAST_3XX - 301 + NGX_HTTP_OFF_3XX)
 name|ngx_string
 argument_list|(
 literal|"400 Bad Request"
@@ -341,16 +341,16 @@ comment|/* ngx_null_string, */
 comment|/* "423 Locked" */
 comment|/* ngx_null_string, */
 comment|/* "424 Failed Dependency" */
-DECL|macro|NGX_HTTP_LAST_LEVEL_400
+DECL|macro|NGX_HTTP_LAST_4XX
 define|#
 directive|define
-name|NGX_HTTP_LAST_LEVEL_400
+name|NGX_HTTP_LAST_4XX
 value|417
-DECL|macro|NGX_HTTP_LEVEL_400
+DECL|macro|NGX_HTTP_OFF_5XX
 define|#
 directive|define
-name|NGX_HTTP_LEVEL_400
-value|(NGX_HTTP_LAST_LEVEL_400 - 400)
+name|NGX_HTTP_OFF_5XX
+value|(NGX_HTTP_LAST_4XX - 400 + NGX_HTTP_OFF_4XX)
 name|ngx_string
 argument_list|(
 literal|"500 Internal Server Error"
@@ -393,10 +393,10 @@ comment|/* ngx_null_string, */
 comment|/* "509 unused" */
 comment|/* ngx_null_string, */
 comment|/* "510 Not Extended" */
-DECL|macro|NGX_HTTP_LAST_LEVEL_500
+DECL|macro|NGX_HTTP_LAST_5XX
 define|#
 directive|define
-name|NGX_HTTP_LAST_LEVEL_500
+name|NGX_HTTP_LAST_5XX
 value|508
 block|}
 decl_stmt|;
@@ -841,7 +841,7 @@ name|NGX_HTTP_OK
 operator|&&
 name|status
 operator|<
-name|NGX_HTTP_LAST_LEVEL_200
+name|NGX_HTTP_LAST_2XX
 condition|)
 block|{
 comment|/* 2XX */
@@ -933,7 +933,7 @@ name|NGX_HTTP_MOVED_PERMANENTLY
 operator|&&
 name|status
 operator|<
-name|NGX_HTTP_LAST_LEVEL_300
+name|NGX_HTTP_LAST_3XX
 condition|)
 block|{
 comment|/* 3XX */
@@ -957,7 +957,7 @@ name|status
 operator|-
 name|NGX_HTTP_MOVED_PERMANENTLY
 operator|+
-name|NGX_HTTP_LEVEL_200
+name|NGX_HTTP_OFF_3XX
 expr_stmt|;
 name|status_line
 operator|=
@@ -985,7 +985,7 @@ name|NGX_HTTP_BAD_REQUEST
 operator|&&
 name|status
 operator|<
-name|NGX_HTTP_LAST_LEVEL_400
+name|NGX_HTTP_LAST_4XX
 condition|)
 block|{
 comment|/* 4XX */
@@ -995,9 +995,7 @@ name|status
 operator|-
 name|NGX_HTTP_BAD_REQUEST
 operator|+
-name|NGX_HTTP_LEVEL_200
-operator|+
-name|NGX_HTTP_LEVEL_300
+name|NGX_HTTP_OFF_4XX
 expr_stmt|;
 name|status_line
 operator|=
@@ -1025,7 +1023,7 @@ name|NGX_HTTP_INTERNAL_SERVER_ERROR
 operator|&&
 name|status
 operator|<
-name|NGX_HTTP_LAST_LEVEL_500
+name|NGX_HTTP_LAST_5XX
 condition|)
 block|{
 comment|/* 5XX */
@@ -1035,11 +1033,7 @@ name|status
 operator|-
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 operator|+
-name|NGX_HTTP_LEVEL_200
-operator|+
-name|NGX_HTTP_LEVEL_300
-operator|+
-name|NGX_HTTP_LEVEL_400
+name|NGX_HTTP_OFF_5XX
 expr_stmt|;
 name|status_line
 operator|=
