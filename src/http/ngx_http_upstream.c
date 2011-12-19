@@ -8224,12 +8224,6 @@ operator|=
 name|NGX_HTTP_GET
 expr_stmt|;
 block|}
-name|r
-operator|->
-name|valid_unparsed_uri
-operator|=
-literal|0
-expr_stmt|;
 name|ngx_http_internal_redirect
 argument_list|(
 name|r
