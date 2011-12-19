@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a1ce8be0108
+DECL|struct|__anon27a28dbe0108
 typedef|typedef
 struct|struct
 block|{
@@ -4663,22 +4663,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_ERR
-argument_list|,
-name|r
-operator|->
-name|connection
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"upstream sent neither valid HTTP/1.0 header "
-literal|"nor \"Status\" header line"
-argument_list|)
-expr_stmt|;
 name|u
 operator|->
 name|headers_in
