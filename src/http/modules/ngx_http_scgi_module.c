@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28ab671e0108
+DECL|struct|__anon2a1ce8be0108
 typedef|typedef
 struct|struct
 block|{
@@ -129,18 +129,6 @@ begin_function_decl
 specifier|static
 name|ngx_int_t
 name|ngx_http_scgi_process_status_line
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-specifier|static
-name|ngx_int_t
-name|ngx_http_scgi_process_header
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
