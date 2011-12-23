@@ -66,7 +66,7 @@ DECL|member|handler
 name|ngx_http_proxy_redirect_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon2990195f010a
+DECL|union|__anon2c301e63010a
 union|union
 block|{
 DECL|member|complex
@@ -98,7 +98,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2990195f0208
+DECL|struct|__anon2c301e630208
 typedef|typedef
 struct|struct
 block|{
@@ -129,7 +129,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2990195f0308
+DECL|struct|__anon2c301e630308
 typedef|typedef
 struct|struct
 block|{
@@ -240,7 +240,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2990195f0408
+DECL|struct|__anon2c301e630408
 typedef|typedef
 struct|struct
 block|{
@@ -3427,17 +3427,6 @@ literal|1
 expr_stmt|;
 block|}
 block|}
-else|else
-block|{
-name|url
-operator|.
-name|uri
-operator|=
-name|r
-operator|->
-name|unparsed_uri
-expr_stmt|;
-block|}
 name|ctx
 operator|->
 name|vars
@@ -3775,6 +3764,14 @@ condition|(
 name|plcf
 operator|->
 name|proxy_lengths
+operator|&&
+name|ctx
+operator|->
+name|vars
+operator|.
+name|uri
+operator|.
+name|len
 condition|)
 block|{
 operator|*
@@ -4355,6 +4352,14 @@ condition|(
 name|plcf
 operator|->
 name|proxy_lengths
+operator|&&
+name|ctx
+operator|->
+name|vars
+operator|.
+name|uri
+operator|.
+name|len
 condition|)
 block|{
 name|uri_len
@@ -4928,6 +4933,14 @@ condition|(
 name|plcf
 operator|->
 name|proxy_lengths
+operator|&&
+name|ctx
+operator|->
+name|vars
+operator|.
+name|uri
+operator|.
+name|len
 condition|)
 block|{
 name|b
@@ -7703,7 +7716,7 @@ name|ngx_http_proxy_ctx_t
 modifier|*
 name|ctx
 decl_stmt|;
-DECL|enum|__anon2990195f0503
+DECL|enum|__anon2c301e630503
 enum|enum
 block|{
 DECL|enumerator|sw_chunk_start
