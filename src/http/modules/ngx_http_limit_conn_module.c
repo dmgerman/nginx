@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c7cbf020108
+DECL|struct|__anon29683da10108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7cbf020208
+DECL|struct|__anon29683da10208
 typedef|typedef
 struct|struct
 block|{
@@ -73,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7cbf020308
+DECL|struct|__anon29683da10308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7cbf020408
+DECL|struct|__anon29683da10408
 typedef|typedef
 struct|struct
 block|{
@@ -117,7 +117,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7cbf020508
+DECL|struct|__anon29683da10508
 typedef|typedef
 struct|struct
 block|{
@@ -2013,11 +2013,13 @@ operator|==
 name|NULL
 condition|)
 block|{
-operator|*
 name|conf
+operator|->
+name|limits
 operator|=
-operator|*
 name|prev
+operator|->
+name|limits
 expr_stmt|;
 block|}
 name|ngx_conf_merge_uint_value
