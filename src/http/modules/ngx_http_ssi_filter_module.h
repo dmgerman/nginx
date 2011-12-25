@@ -107,7 +107,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon29c3679f0108
+DECL|struct|__anon2beee02b0108
 typedef|typedef
 struct|struct
 block|{
@@ -126,7 +126,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c3679f0208
+DECL|struct|__anon2beee02b0208
 typedef|typedef
 struct|struct
 block|{
@@ -230,6 +230,27 @@ name|ngx_array_t
 modifier|*
 name|blocks
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_PCRE
+operator|)
+DECL|member|ncaptures
+name|ngx_uint_t
+name|ncaptures
+decl_stmt|;
+DECL|member|captures
+name|int
+modifier|*
+name|captures
+decl_stmt|;
+DECL|member|captures_data
+name|u_char
+modifier|*
+name|captures_data
+decl_stmt|;
+endif|#
+directive|endif
 DECL|member|conditional
 name|unsigned
 name|conditional
@@ -309,7 +330,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c3679f0308
+DECL|struct|__anon2beee02b0308
 typedef|typedef
 struct|struct
 block|{
@@ -340,7 +361,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c3679f0408
+DECL|struct|__anon2beee02b0408
 typedef|typedef
 struct|struct
 block|{
