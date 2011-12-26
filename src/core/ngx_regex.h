@@ -56,15 +56,28 @@ value|PCRE_CASELESS
 end_define
 
 begin_typedef
-DECL|typedef|ngx_regex_t
+DECL|struct|__anon2ad103f70108
 typedef|typedef
+struct|struct
+block|{
+DECL|member|pcre
 name|pcre
+modifier|*
+name|pcre
+decl_stmt|;
+DECL|member|extra
+name|pcre_extra
+modifier|*
+name|extra
+decl_stmt|;
+DECL|typedef|ngx_regex_t
+block|}
 name|ngx_regex_t
 typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a29770d0108
+DECL|struct|__anon2ad103f70208
 typedef|typedef
 struct|struct
 block|{
@@ -114,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a29770d0208
+DECL|struct|__anon2ad103f70308
 typedef|typedef
 struct|struct
 block|{
@@ -169,7 +182,7 @@ parameter_list|,
 name|size
 parameter_list|)
 define|\
-value|pcre_exec(re, NULL, (const char *) (s)->data, (s)->len, 0, 0,            \               captures, size)
+value|pcre_exec(re->pcre, re->extra, (const char *) (s)->data, (s)->len, 0, 0, \               captures, size)
 end_define
 
 begin_define
