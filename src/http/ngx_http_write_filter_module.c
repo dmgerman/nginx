@@ -1123,8 +1123,6 @@ operator|/
 name|r
 operator|->
 name|limit_rate
-operator|+
-literal|1
 operator|)
 expr_stmt|;
 if|if
