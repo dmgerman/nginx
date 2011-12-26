@@ -1926,7 +1926,7 @@ operator|->
 name|mutex
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug1
+name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
@@ -2098,7 +2098,7 @@ name|r
 operator|->
 name|cache
 expr_stmt|;
-name|ngx_log_debug0
+name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
