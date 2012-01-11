@@ -66,7 +66,7 @@ DECL|member|handler
 name|ngx_http_proxy_redirect_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon27c9dbd5010a
+DECL|union|__anon2b3ce7ec010a
 union|union
 block|{
 DECL|member|complex
@@ -98,7 +98,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27c9dbd50208
+DECL|struct|__anon2b3ce7ec0208
 typedef|typedef
 struct|struct
 block|{
@@ -129,7 +129,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c9dbd50308
+DECL|struct|__anon2b3ce7ec0308
 typedef|typedef
 struct|struct
 block|{
@@ -240,7 +240,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c9dbd50408
+DECL|struct|__anon2b3ce7ec0408
 typedef|typedef
 struct|struct
 block|{
@@ -7776,7 +7776,7 @@ name|ngx_http_proxy_ctx_t
 modifier|*
 name|ctx
 decl_stmt|;
-DECL|enum|__anon27c9dbd50503
+DECL|enum|__anon2b3ce7ec0503
 enum|enum
 block|{
 DECL|enumerator|sw_chunk_start
@@ -16833,6 +16833,10 @@ operator||
 name|NGX_SSL_SSLv3
 operator||
 name|NGX_SSL_TLSv1
+operator||
+name|NGX_SSL_TLSv1_1
+operator||
+name|NGX_SSL_TLSv1_2
 argument_list|,
 name|NULL
 argument_list|)

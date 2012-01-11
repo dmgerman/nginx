@@ -83,7 +83,7 @@ value|SSL
 end_define
 
 begin_typedef
-DECL|struct|__anon2a102a390108
+DECL|struct|__anon29e95d070108
 typedef|typedef
 struct|struct
 block|{
@@ -104,7 +104,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a102a390208
+DECL|struct|__anon29e95d070208
 typedef|typedef
 struct|struct
 block|{
@@ -276,7 +276,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a102a390308
+DECL|struct|__anon29e95d070308
 typedef|typedef
 struct|struct
 block|{
@@ -303,7 +303,7 @@ DECL|macro|NGX_SSL_SSLv2
 define|#
 directive|define
 name|NGX_SSL_SSLv2
-value|2
+value|0x0002
 end_define
 
 begin_define
@@ -311,7 +311,7 @@ DECL|macro|NGX_SSL_SSLv3
 define|#
 directive|define
 name|NGX_SSL_SSLv3
-value|4
+value|0x0004
 end_define
 
 begin_define
@@ -319,7 +319,23 @@ DECL|macro|NGX_SSL_TLSv1
 define|#
 directive|define
 name|NGX_SSL_TLSv1
-value|8
+value|0x0008
+end_define
+
+begin_define
+DECL|macro|NGX_SSL_TLSv1_1
+define|#
+directive|define
+name|NGX_SSL_TLSv1_1
+value|0x0010
+end_define
+
+begin_define
+DECL|macro|NGX_SSL_TLSv1_2
+define|#
+directive|define
+name|NGX_SSL_TLSv1_2
+value|0x0020
 end_define
 
 begin_define
