@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ad1eb190108
+DECL|struct|__anon290812290108
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2ad1eb190203
+DECL|enum|__anon290812290203
 typedef|typedef
 enum|enum
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad1eb190308
+DECL|struct|__anon290812290308
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad1eb190408
+DECL|struct|__anon290812290408
 typedef|typedef
 struct|struct
 block|{
@@ -320,7 +320,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2ad1eb190508
+DECL|struct|__anon290812290508
 typedef|typedef
 struct|struct
 block|{
@@ -363,7 +363,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad1eb190608
+DECL|struct|__anon290812290608
 typedef|typedef
 struct|struct
 block|{
@@ -393,7 +393,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad1eb190708
+DECL|struct|__anon290812290708
 typedef|typedef
 struct|struct
 block|{
@@ -420,7 +420,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad1eb190808
+DECL|struct|__anon290812290808
 typedef|typedef
 struct|struct
 block|{
@@ -10446,6 +10446,26 @@ operator|=
 name|NGX_CONF_BITMASK_SET
 operator||
 name|NGX_HTTP_UPSTREAM_FT_OFF
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|conf
+operator|->
+name|upstream
+operator|.
+name|cache_use_stale
+operator|&
+name|NGX_HTTP_UPSTREAM_FT_ERROR
+condition|)
+block|{
+name|conf
+operator|->
+name|upstream
+operator|.
+name|cache_use_stale
+operator||=
+name|NGX_HTTP_UPSTREAM_FT_NOLIVE
 expr_stmt|;
 block|}
 if|if

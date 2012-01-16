@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c59f5570108
+DECL|struct|__anon28ca17e60108
 typedef|typedef
 struct|struct
 block|{
@@ -5992,6 +5992,26 @@ operator|=
 name|NGX_CONF_BITMASK_SET
 operator||
 name|NGX_HTTP_UPSTREAM_FT_OFF
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|conf
+operator|->
+name|upstream
+operator|.
+name|cache_use_stale
+operator|&
+name|NGX_HTTP_UPSTREAM_FT_ERROR
+condition|)
+block|{
+name|conf
+operator|->
+name|upstream
+operator|.
+name|cache_use_stale
+operator||=
+name|NGX_HTTP_UPSTREAM_FT_NOLIVE
 expr_stmt|;
 block|}
 if|if
