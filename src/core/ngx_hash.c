@@ -1019,6 +1019,8 @@ name|max_size
 operator|>
 literal|10000
 operator|&&
+name|nelts
+operator|&&
 name|hinit
 operator|->
 name|max_size
