@@ -4262,7 +4262,10 @@ name|sched_setaffinity
 argument_list|(
 literal|0
 argument_list|,
-literal|32
+sizeof|sizeof
+argument_list|(
+name|cpu_affinity
+argument_list|)
 argument_list|,
 operator|(
 name|cpu_set_t
