@@ -1,6 +1,6 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_comment
-comment|/*  * Copyright (C) Igor Sysoev  */
+comment|/*  * Copyright (C) Igor Sysoev  * Copyright (C) Nginx, Inc.  */
 end_comment
 
 begin_include
@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27bfd7890108
+DECL|struct|__anon296b91ac0108
 typedef|typedef
 struct|struct
 block|{

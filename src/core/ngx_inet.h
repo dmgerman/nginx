@@ -1,6 +1,6 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_comment
-comment|/*  * Copyright (C) Igor Sysoev  */
+comment|/*  * Copyright (C) Igor Sysoev  * Copyright (C) Nginx, Inc.  */
 end_comment
 
 begin_ifndef
@@ -127,7 +127,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28c960170108
+DECL|struct|__anon29b41ae60108
 typedef|typedef
 struct|struct
 block|{
@@ -154,7 +154,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon28c960170208
+DECL|struct|__anon29b41ae60208
 typedef|typedef
 struct|struct
 block|{
@@ -180,7 +180,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28c960170308
+DECL|struct|__anon29b41ae60308
 typedef|typedef
 struct|struct
 block|{
@@ -188,7 +188,7 @@ DECL|member|family
 name|ngx_uint_t
 name|family
 decl_stmt|;
-DECL|union|__anon28c96017040a
+DECL|union|__anon29b41ae6040a
 union|union
 block|{
 DECL|member|in
@@ -217,7 +217,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c960170508
+DECL|struct|__anon29b41ae60508
 typedef|typedef
 struct|struct
 block|{
@@ -242,7 +242,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c960170608
+DECL|struct|__anon29b41ae60608
 typedef|typedef
 struct|struct
 block|{

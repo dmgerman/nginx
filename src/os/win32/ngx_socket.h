@@ -1,6 +1,6 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_comment
-comment|/*  * Copyright (C) Igor Sysoev  */
+comment|/*  * Copyright (C) Igor Sysoev  * Copyright (C) Nginx, Inc.  */
 end_comment
 
 begin_ifndef
@@ -511,10 +511,10 @@ DECL|member|cLength
 name|ULONG
 name|cLength
 decl_stmt|;
-DECL|union|__anon29c45a5c010a
+DECL|union|__anon2be39796010a
 union|union
 block|{
-DECL|struct|__anon29c45a5c0208
+DECL|struct|__anon2be397960208
 struct|struct
 block|{
 DECL|member|nFileOffset

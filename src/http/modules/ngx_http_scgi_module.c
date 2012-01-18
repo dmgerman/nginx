@@ -1,6 +1,6 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_comment
-comment|/*  * Copyright (C) Igor Sysoev  * Copyright (C) Manlio Perillo (manlio.perillo@gmail.com)  */
+comment|/*  * Copyright (C) Igor Sysoev  * Copyright (C) Nginx, Inc.  * Copyright (C) Manlio Perillo (manlio.perillo@gmail.com)  */
 end_comment
 
 begin_include
@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28ca17e60108
+DECL|struct|__anon29c914050108
 typedef|typedef
 struct|struct
 block|{

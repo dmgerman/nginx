@@ -1,6 +1,6 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_comment
-comment|/*  * Copyright (C) Igor Sysoev  */
+comment|/*  * Copyright (C) Igor Sysoev  * Copyright (C) Nginx, Inc.  */
 end_comment
 
 begin_ifndef
@@ -237,11 +237,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2cba9d0108
+DECL|struct|__anon293763d30108
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon2a2cba9d020a
+DECL|union|__anon293763d3020a
 union|union
 block|{
 DECL|member|sockaddr
@@ -439,7 +439,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a2cba9d0303
+DECL|enum|__anon293763d30303
 typedef|typedef
 enum|enum
 block|{
@@ -534,7 +534,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a2cba9d0408
+DECL|struct|__anon293763d30408
 typedef|typedef
 struct|struct
 block|{
@@ -558,7 +558,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2cba9d0508
+DECL|struct|__anon293763d30508
 typedef|typedef
 struct|struct
 block|{
@@ -573,7 +573,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2cba9d0608
+DECL|struct|__anon293763d30608
 typedef|typedef
 struct|struct
 block|{
@@ -650,7 +650,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2cba9d0708
+DECL|struct|__anon293763d30708
 typedef|typedef
 struct|struct
 block|{
@@ -737,7 +737,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2a2cba9d0808
+DECL|struct|__anon293763d30808
 typedef|typedef
 struct|struct
 block|{
@@ -771,7 +771,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2cba9d0908
+DECL|struct|__anon293763d30908
 typedef|typedef
 struct|struct
 block|{
@@ -798,7 +798,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2a2cba9d0a08
+DECL|struct|__anon293763d30a08
 typedef|typedef
 struct|struct
 block|{
@@ -823,7 +823,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2a2cba9d0b08
+DECL|struct|__anon293763d30b08
 typedef|typedef
 struct|struct
 block|{
@@ -844,7 +844,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2cba9d0c08
+DECL|struct|__anon293763d30c08
 typedef|typedef
 struct|struct
 block|{
@@ -868,7 +868,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2cba9d0d08
+DECL|struct|__anon293763d30d08
 typedef|typedef
 struct|struct
 block|{
@@ -955,7 +955,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a2cba9d0e08
+DECL|struct|__anon293763d30e08
 typedef|typedef
 struct|struct
 block|{
@@ -982,7 +982,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2cba9d0f08
+DECL|struct|__anon293763d30f08
 typedef|typedef
 struct|struct
 block|{
@@ -1495,7 +1495,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a2cba9d1008
+DECL|struct|__anon293763d31008
 typedef|typedef
 struct|struct
 block|{

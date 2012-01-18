@@ -1,6 +1,6 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_comment
-comment|/*  * Copyright (C) Igor Sysoev  */
+comment|/*  * Copyright (C) Igor Sysoev  * Copyright (C) Nginx, Inc.  */
 end_comment
 
 begin_include
@@ -87,7 +87,7 @@ decl_stmt|;
 name|uint64_t
 name|time
 decl_stmt|;
-DECL|enum|__anon2a41bd4f0103
+DECL|enum|__anon2c91741d0103
 enum|enum
 block|{
 DECL|enumerator|no

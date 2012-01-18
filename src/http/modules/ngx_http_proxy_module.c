@@ -1,6 +1,6 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_comment
-comment|/*  * Copyright (C) Igor Sysoev  */
+comment|/*  * Copyright (C) Igor Sysoev  * Copyright (C) Nginx, Inc.  */
 end_comment
 
 begin_include
@@ -66,7 +66,7 @@ DECL|member|handler
 name|ngx_http_proxy_redirect_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon299f6012010a
+DECL|union|__anon29ec98cd010a
 union|union
 block|{
 DECL|member|complex
@@ -98,7 +98,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon299f60120208
+DECL|struct|__anon29ec98cd0208
 typedef|typedef
 struct|struct
 block|{
@@ -129,7 +129,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299f60120308
+DECL|struct|__anon29ec98cd0308
 typedef|typedef
 struct|struct
 block|{
@@ -240,7 +240,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299f60120408
+DECL|struct|__anon29ec98cd0408
 typedef|typedef
 struct|struct
 block|{
@@ -7776,7 +7776,7 @@ name|ngx_http_proxy_ctx_t
 modifier|*
 name|ctx
 decl_stmt|;
-DECL|enum|__anon299f60120503
+DECL|enum|__anon29ec98cd0503
 enum|enum
 block|{
 DECL|enumerator|sw_chunk_start

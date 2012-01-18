@@ -1,6 +1,6 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_comment
-comment|/*  * Copyright (C) Igor Sysoev  */
+comment|/*  * Copyright (C) Igor Sysoev  * Copyright (C) Nginx, Inc.  */
 end_comment
 
 begin_include
@@ -36,7 +36,7 @@ value|2048
 end_define
 
 begin_typedef
-DECL|struct|__anon2c623f7e0108
+DECL|struct|__anon2c14551d0108
 typedef|typedef
 struct|struct
 block|{
@@ -51,7 +51,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c623f7e0208
+DECL|struct|__anon2c14551d0208
 typedef|typedef
 struct|struct
 block|{
@@ -442,7 +442,7 @@ index|[
 name|NGX_HTTP_AUTH_BUF_SIZE
 index|]
 decl_stmt|;
-DECL|enum|__anon2c623f7e0303
+DECL|enum|__anon2c14551d0303
 enum|enum
 block|{
 DECL|enumerator|sw_login

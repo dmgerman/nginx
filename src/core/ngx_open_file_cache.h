@@ -1,6 +1,6 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_comment
-comment|/*  * Copyright (C) Igor Sysoev  */
+comment|/*  * Copyright (C) Igor Sysoev  * Copyright (C) Nginx, Inc.  */
 end_comment
 
 begin_include
@@ -37,7 +37,7 @@ value|NGX_MAX_OFF_T_VALUE
 end_define
 
 begin_typedef
-DECL|struct|__anon27e14c5d0108
+DECL|struct|__anon29ea28980108
 typedef|typedef
 struct|struct
 block|{
@@ -269,7 +269,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27e14c5d0208
+DECL|struct|__anon29ea28980208
 typedef|typedef
 struct|struct
 block|{
@@ -304,7 +304,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e14c5d0308
+DECL|struct|__anon29ea28980308
 typedef|typedef
 struct|struct
 block|{
@@ -334,7 +334,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e14c5d0408
+DECL|struct|__anon29ea28980408
 typedef|typedef
 struct|struct
 block|{

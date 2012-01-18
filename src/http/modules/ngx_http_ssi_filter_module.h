@@ -1,6 +1,6 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_comment
-comment|/*  * Copyright (C) Igor Sysoev  */
+comment|/*  * Copyright (C) Igor Sysoev  * Copyright (C) Nginx, Inc.  */
 end_comment
 
 begin_ifndef
@@ -107,7 +107,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2beee02b0108
+DECL|struct|__anon289df5160108
 typedef|typedef
 struct|struct
 block|{
@@ -126,7 +126,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2beee02b0208
+DECL|struct|__anon289df5160208
 typedef|typedef
 struct|struct
 block|{
@@ -330,7 +330,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2beee02b0308
+DECL|struct|__anon289df5160308
 typedef|typedef
 struct|struct
 block|{
@@ -361,7 +361,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2beee02b0408
+DECL|struct|__anon289df5160408
 typedef|typedef
 struct|struct
 block|{

@@ -1,6 +1,6 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_comment
-comment|/*  * Copyright (C) Igor Sysoev  */
+comment|/*  * Copyright (C) Igor Sysoev  * Copyright (C) Nginx, Inc.  */
 end_comment
 
 begin_include
@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2afabbd10108
+DECL|struct|__anon2ae23eb50108
 typedef|typedef
 struct|struct
 block|{
@@ -1543,7 +1543,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon2afabbd10203
+DECL|enum|__anon2ae23eb50203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -4144,7 +4144,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2afabbd10303
+DECL|enum|__anon2ae23eb50303
 enum|enum
 block|{
 DECL|enumerator|sw_start

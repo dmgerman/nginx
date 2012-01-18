@@ -1,6 +1,6 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_comment
-comment|/*  * Copyright (C) Maxim Dounin  */
+comment|/*  * Copyright (C) Maxim Dounin  * Copyright (C) Nginx, Inc.  */
 end_comment
 
 begin_include
@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c17a4260108
+DECL|struct|__anon28039a330108
 typedef|typedef
 struct|struct
 block|{
@@ -58,7 +58,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c17a4260208
+DECL|struct|__anon28039a330208
 typedef|typedef
 struct|struct
 block|{
@@ -112,7 +112,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c17a4260308
+DECL|struct|__anon28039a330308
 typedef|typedef
 struct|struct
 block|{

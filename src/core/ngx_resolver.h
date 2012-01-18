@@ -1,6 +1,6 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_comment
-comment|/*  * Copyright (C) Igor Sysoev  */
+comment|/*  * Copyright (C) Igor Sysoev  * Copyright (C) Nginx, Inc.  */
 end_comment
 
 begin_include
@@ -141,7 +141,7 @@ value|50
 end_define
 
 begin_typedef
-DECL|struct|__anon2c6f4f370108
+DECL|struct|__anon28dbda370108
 typedef|typedef
 struct|struct
 block|{
@@ -200,7 +200,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6f4f370208
+DECL|struct|__anon28dbda370208
 typedef|typedef
 struct|struct
 block|{
@@ -231,7 +231,7 @@ name|u_char
 modifier|*
 name|query
 decl_stmt|;
-DECL|union|__anon2c6f4f37030a
+DECL|union|__anon28dbda37030a
 union|union
 block|{
 DECL|member|addr
@@ -280,7 +280,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6f4f370408
+DECL|struct|__anon28dbda370408
 typedef|typedef
 struct|struct
 block|{

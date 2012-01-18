@@ -1,6 +1,6 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_comment
-comment|/*  * Copyright (C) Igor Sysoev  */
+comment|/*  * Copyright (C) Igor Sysoev  * Copyright (C) Nginx, Inc.  */
 end_comment
 
 begin_include
@@ -58,7 +58,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon2bcaefc20103
+DECL|enum|__anon27cdb6d50103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -825,7 +825,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon2bcaefc20203
+DECL|enum|__anon27cdb6d50203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2758,7 +2758,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon2bcaefc20303
+DECL|enum|__anon27cdb6d50303
 enum|enum
 block|{
 DECL|enumerator|sw_start
