@@ -16,7 +16,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b25c7210108
+DECL|struct|__anon28a76b1c0108
 typedef|typedef
 struct|struct
 block|{
@@ -1564,7 +1564,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"nginx was build without PCRE JIT support"
+literal|"nginx was built without PCRE JIT support"
 argument_list|)
 expr_stmt|;
 operator|*
