@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b18e2600108
+DECL|struct|__anon299a73350108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b18e2600208
+DECL|struct|__anon299a73350208
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b18e2600308
+DECL|struct|__anon299a73350308
 typedef|typedef
 struct|struct
 block|{
@@ -131,7 +131,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b18e2600408
+DECL|struct|__anon299a73350408
 typedef|typedef
 struct|struct
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b18e2600508
+DECL|struct|__anon299a73350508
 typedef|typedef
 struct|struct
 block|{
@@ -647,6 +647,17 @@ name|rc
 operator|=
 name|NGX_DECLINED
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_SUPPRESS_WARN
+operator|)
+name|limit
+operator|=
+name|NULL
+expr_stmt|;
+endif|#
+directive|endif
 for|for
 control|(
 name|n
