@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ba8e3410108
+DECL|struct|__anon2ba8dccd0108
 typedef|typedef
 struct|struct
 block|{
@@ -65,7 +65,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ba8e3410208
+DECL|struct|__anon2ba8dccd0208
 typedef|typedef
 struct|struct
 block|{
@@ -88,7 +88,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ba8e3410308
+DECL|struct|__anon2ba8dccd0308
 typedef|typedef
 struct|struct
 block|{
@@ -122,7 +122,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ba8e3410408
+DECL|struct|__anon2ba8dccd0408
 typedef|typedef
 struct|struct
 block|{
@@ -2970,11 +2970,14 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"no variable is defined for limit_req_zone \"%V\""
+literal|"no variable is defined for %V \"%V\""
 argument_list|,
 operator|&
 name|cmd
 operator|->
+name|name
+argument_list|,
+operator|&
 name|name
 argument_list|)
 expr_stmt|;
@@ -3039,13 +3042,15 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"limit_req_zone \"%V\" is already bound to variable \"%V\""
+literal|"%V \"%V\" is already bound to variable \"%V\""
 argument_list|,
 operator|&
-name|value
-index|[
-literal|1
-index|]
+name|cmd
+operator|->
+name|name
+argument_list|,
+operator|&
+name|name
 argument_list|,
 operator|&
 name|ctx
