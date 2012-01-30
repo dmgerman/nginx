@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon277470f80108
+DECL|struct|__anon2bade3030108
 typedef|typedef
 struct|struct
 block|{
@@ -65,7 +65,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277470f80208
+DECL|struct|__anon2bade3030208
 typedef|typedef
 struct|struct
 block|{
@@ -88,7 +88,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277470f80308
+DECL|struct|__anon2bade3030308
 typedef|typedef
 struct|struct
 block|{
@@ -122,7 +122,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277470f80408
+DECL|struct|__anon2bade3030408
 typedef|typedef
 struct|struct
 block|{
@@ -693,13 +693,6 @@ operator|->
 name|shpool
 operator|->
 name|mutex
-argument_list|)
-expr_stmt|;
-name|ngx_http_limit_req_expire
-argument_list|(
-name|ctx
-argument_list|,
-literal|1
 argument_list|)
 expr_stmt|;
 name|rc
@@ -1586,6 +1579,13 @@ name|data
 argument_list|)
 operator|+
 name|len
+expr_stmt|;
+name|ngx_http_limit_req_expire
+argument_list|(
+name|ctx
+argument_list|,
+literal|1
+argument_list|)
 expr_stmt|;
 name|node
 operator|=
