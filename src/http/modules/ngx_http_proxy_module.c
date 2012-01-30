@@ -66,7 +66,7 @@ DECL|member|handler
 name|ngx_http_proxy_redirect_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon29ec98cd010a
+DECL|union|__anon27747355010a
 union|union
 block|{
 DECL|member|complex
@@ -98,7 +98,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29ec98cd0208
+DECL|struct|__anon277473550208
 typedef|typedef
 struct|struct
 block|{
@@ -129,7 +129,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ec98cd0308
+DECL|struct|__anon277473550308
 typedef|typedef
 struct|struct
 block|{
@@ -240,7 +240,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ec98cd0408
+DECL|struct|__anon277473550408
 typedef|typedef
 struct|struct
 block|{
@@ -7776,7 +7776,7 @@ name|ngx_http_proxy_ctx_t
 modifier|*
 name|ctx
 decl_stmt|;
-DECL|enum|__anon29ec98cd0503
+DECL|enum|__anon277473550503
 enum|enum
 block|{
 DECL|enumerator|sw_chunk_start
@@ -15407,6 +15407,12 @@ return|return
 name|NGX_CONF_OK
 return|;
 block|}
+name|plcf
+operator|->
+name|redirect
+operator|=
+literal|1
+expr_stmt|;
 name|value
 operator|=
 name|cf
