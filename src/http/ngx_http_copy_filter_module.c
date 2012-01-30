@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2755204a0108
+DECL|struct|__anon2b20e0a10108
 typedef|typedef
 struct|struct
 block|{
@@ -809,9 +809,9 @@ name|n
 expr_stmt|;
 if|if
 condition|(
-name|file
-operator|->
-name|aio
+name|rc
+operator|==
+name|NGX_AGAIN
 condition|)
 block|{
 name|file
