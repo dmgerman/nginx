@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ac612310108
+DECL|struct|__anon2a04880a0108
 typedef|typedef
 struct|struct
 block|{
@@ -461,9 +461,6 @@ name|SSL_library_init
 argument_list|()
 expr_stmt|;
 name|SSL_load_error_strings
-argument_list|()
-expr_stmt|;
-name|ENGINE_load_builtin_engines
 argument_list|()
 expr_stmt|;
 name|OpenSSL_add_all_algorithms
