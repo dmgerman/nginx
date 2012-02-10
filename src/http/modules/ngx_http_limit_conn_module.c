@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2be07b200108
+DECL|struct|__anon2bf052c40108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be07b200208
+DECL|struct|__anon2bf052c40208
 typedef|typedef
 struct|struct
 block|{
@@ -73,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be07b200308
+DECL|struct|__anon2bf052c40308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be07b200408
+DECL|struct|__anon2bf052c40408
 typedef|typedef
 struct|struct
 block|{
@@ -117,7 +117,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be07b200508
+DECL|struct|__anon2bf052c40508
 typedef|typedef
 struct|struct
 block|{
@@ -610,14 +610,6 @@ return|return
 name|NGX_DECLINED
 return|;
 block|}
-name|r
-operator|->
-expr|main
-operator|->
-name|limit_conn_set
-operator|=
-literal|1
-expr_stmt|;
 name|lccf
 operator|=
 name|ngx_http_get_module_loc_conf
@@ -735,6 +727,14 @@ argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
+name|r
+operator|->
+expr|main
+operator|->
+name|limit_conn_set
+operator|=
+literal|1
+expr_stmt|;
 name|hash
 operator|=
 name|ngx_crc32_short
