@@ -669,7 +669,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon2a5562bf0103
+DECL|enum|__anon2a3d48140103
 typedef|typedef
 enum|enum
 block|{
@@ -708,7 +708,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a5562bf0208
+DECL|struct|__anon2a3d48140208
 typedef|typedef
 struct|struct
 block|{
@@ -731,7 +731,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a5562bf0308
+DECL|struct|__anon2a3d48140308
 typedef|typedef
 struct|struct
 block|{
@@ -750,7 +750,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a5562bf0408
+DECL|struct|__anon2a3d48140408
 typedef|typedef
 struct|struct
 block|{
@@ -996,7 +996,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a5562bf0508
+DECL|struct|__anon2a3d48140508
 typedef|typedef
 struct|struct
 block|{
@@ -1137,7 +1137,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a5562bf0608
+DECL|struct|__anon2a3d48140608
 typedef|typedef
 struct|struct
 block|{
@@ -1176,7 +1176,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a5562bf0708
+DECL|struct|__anon2a3d48140708
 typedef|typedef
 struct|struct
 block|{
@@ -1226,7 +1226,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a5562bf0808
+DECL|struct|__anon2a3d48140808
 typedef|typedef
 struct|struct
 block|{
@@ -1321,7 +1321,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a5562bf0908
+DECL|struct|__anon2a3d48140908
 typedef|typedef
 struct|struct
 block|{
@@ -1876,7 +1876,7 @@ name|no_cache
 range|:
 literal|1
 decl_stmt|;
-comment|/*      * instead of using the request context data in      * ngx_http_limit_zone_module and ngx_http_limit_req_module      * we use the single bits in the request structure      */
+comment|/*      * instead of using the request context data in      * ngx_http_limit_conn_module and ngx_http_limit_req_module      * we use the single bits in the request structure      */
 DECL|member|limit_conn_set
 name|unsigned
 name|limit_conn_set
@@ -2181,7 +2181,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a5562bf0a08
+DECL|struct|__anon2a3d48140a08
 typedef|typedef
 struct|struct
 block|{
