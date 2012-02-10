@@ -7016,7 +7016,7 @@ name|u
 operator|->
 name|buffer
 operator|.
-name|pos
+name|last
 operator|==
 name|u
 operator|->
