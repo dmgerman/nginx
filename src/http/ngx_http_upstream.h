@@ -237,7 +237,7 @@ value|0x00000100
 end_define
 
 begin_typedef
-DECL|struct|__anon2ad453810108
+DECL|struct|__anon2bec3e190108
 typedef|typedef
 struct|struct
 block|{
@@ -277,7 +277,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad453810208
+DECL|struct|__anon2bec3e190208
 typedef|typedef
 struct|struct
 block|{
@@ -346,7 +346,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad453810308
+DECL|struct|__anon2bec3e190308
 typedef|typedef
 struct|struct
 block|{
@@ -370,7 +370,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad453810408
+DECL|struct|__anon2bec3e190408
 typedef|typedef
 struct|struct
 block|{
@@ -512,7 +512,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2ad453810508
+DECL|struct|__anon2bec3e190508
 typedef|typedef
 struct|struct
 block|{
@@ -735,7 +735,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad453810608
+DECL|struct|__anon2bec3e190608
 typedef|typedef
 struct|struct
 block|{
@@ -771,7 +771,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad453810708
+DECL|struct|__anon2bec3e190708
 typedef|typedef
 struct|struct
 block|{
@@ -906,7 +906,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad453810808
+DECL|struct|__anon2bec3e190808
 typedef|typedef
 struct|struct
 block|{
@@ -1178,6 +1178,22 @@ name|size_t
 name|prefix
 parameter_list|)
 function_decl|;
+DECL|member|rewrite_cookie
+name|ngx_int_t
+function_decl|(
+modifier|*
+name|rewrite_cookie
+function_decl|)
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_table_elt_t
+modifier|*
+name|h
+parameter_list|)
+function_decl|;
 DECL|member|timeout
 name|ngx_msec_t
 name|timeout
@@ -1270,7 +1286,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2ad453810908
+DECL|struct|__anon2bec3e190908
 typedef|typedef
 struct|struct
 block|{
@@ -1289,7 +1305,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad453810a08
+DECL|struct|__anon2bec3e190a08
 typedef|typedef
 struct|struct
 block|{
