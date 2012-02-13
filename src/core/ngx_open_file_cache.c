@@ -50,7 +50,7 @@ specifier|static
 name|ngx_int_t
 name|ngx_open_and_stat_file
 parameter_list|(
-name|u_char
+name|ngx_str_t
 modifier|*
 name|name
 parameter_list|,
@@ -783,8 +783,6 @@ operator|=
 name|ngx_open_and_stat_file
 argument_list|(
 name|name
-operator|->
-name|data
 argument_list|,
 name|of
 argument_list|,
@@ -942,8 +940,6 @@ operator|=
 name|ngx_open_and_stat_file
 argument_list|(
 name|name
-operator|->
-name|data
 argument_list|,
 name|of
 argument_list|,
@@ -1216,8 +1212,6 @@ operator|=
 name|ngx_open_and_stat_file
 argument_list|(
 name|name
-operator|->
-name|data
 argument_list|,
 name|of
 argument_list|,
@@ -1395,11 +1389,9 @@ argument_list|,
 name|ngx_errno
 argument_list|,
 name|ngx_close_file_n
-literal|" \"%s\" failed"
+literal|" \"%V\" failed"
 argument_list|,
 name|name
-operator|->
-name|data
 argument_list|)
 expr_stmt|;
 block|}
@@ -1441,8 +1433,6 @@ operator|=
 name|ngx_open_and_stat_file
 argument_list|(
 name|name
-operator|->
-name|data
 argument_list|,
 name|of
 argument_list|,
@@ -2013,11 +2003,9 @@ argument_list|,
 name|ngx_errno
 argument_list|,
 name|ngx_close_file_n
-literal|" \"%s\" failed"
+literal|" \"%V\" failed"
 argument_list|,
 name|name
-operator|->
-name|data
 argument_list|)
 expr_stmt|;
 block|}
@@ -2031,10 +2019,10 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_open_and_stat_file (u_char * name,ngx_open_file_info_t * of,ngx_log_t * log)
+DECL|function|ngx_open_and_stat_file (ngx_str_t * name,ngx_open_file_info_t * of,ngx_log_t * log)
 name|ngx_open_and_stat_file
 parameter_list|(
-name|u_char
+name|ngx_str_t
 modifier|*
 name|name
 parameter_list|,
@@ -2067,6 +2055,8 @@ condition|(
 name|ngx_file_info
 argument_list|(
 name|name
+operator|->
+name|data
 argument_list|,
 operator|&
 name|fi
@@ -2115,6 +2105,8 @@ condition|(
 name|ngx_file_info
 argument_list|(
 name|name
+operator|->
+name|data
 argument_list|,
 operator|&
 name|fi
@@ -2161,6 +2153,8 @@ operator|=
 name|ngx_open_file
 argument_list|(
 name|name
+operator|->
+name|data
 argument_list|,
 name|NGX_FILE_RDONLY
 operator||
@@ -2179,6 +2173,8 @@ operator|=
 name|ngx_open_file
 argument_list|(
 name|name
+operator|->
+name|data
 argument_list|,
 name|NGX_FILE_APPEND
 argument_list|,
@@ -2227,7 +2223,7 @@ argument_list|,
 name|ngx_errno
 argument_list|,
 name|ngx_fd_info_n
-literal|" \"%s\" failed"
+literal|" \"%V\" failed"
 argument_list|,
 name|name
 argument_list|)
@@ -2251,7 +2247,7 @@ argument_list|,
 name|ngx_errno
 argument_list|,
 name|ngx_close_file_n
-literal|" \"%s\" failed"
+literal|" \"%V\" failed"
 argument_list|,
 name|name
 argument_list|)
@@ -2295,7 +2291,7 @@ argument_list|,
 name|ngx_errno
 argument_list|,
 name|ngx_close_file_n
-literal|" \"%s\" failed"
+literal|" \"%V\" failed"
 argument_list|,
 name|name
 argument_list|)
@@ -2354,7 +2350,7 @@ argument_list|,
 name|ngx_errno
 argument_list|,
 name|ngx_read_ahead_n
-literal|" \"%s\" failed"
+literal|" \"%V\" failed"
 argument_list|,
 name|name
 argument_list|)
@@ -2393,7 +2389,7 @@ argument_list|,
 name|ngx_errno
 argument_list|,
 name|ngx_directio_on_n
-literal|" \"%s\" failed"
+literal|" \"%V\" failed"
 argument_list|,
 name|name
 argument_list|)
