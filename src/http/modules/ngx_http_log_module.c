@@ -100,7 +100,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon298cbde60108
+DECL|struct|__anon2a44c7e60108
 typedef|typedef
 struct|struct
 block|{
@@ -126,7 +126,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298cbde60208
+DECL|struct|__anon2a44c7e60208
 typedef|typedef
 struct|struct
 block|{
@@ -147,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298cbde60308
+DECL|struct|__anon2a44c7e60308
 typedef|typedef
 struct|struct
 block|{
@@ -168,7 +168,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298cbde60408
+DECL|struct|__anon2a44c7e60408
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +202,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298cbde60508
+DECL|struct|__anon2a44c7e60508
 typedef|typedef
 struct|struct
 block|{
@@ -237,7 +237,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298cbde60608
+DECL|struct|__anon2a44c7e60608
 typedef|typedef
 struct|struct
 block|{
@@ -1828,6 +1828,15 @@ name|ngx_http_core_loc_conf_t
 modifier|*
 name|clcf
 decl_stmt|;
+name|clcf
+operator|=
+name|ngx_http_get_module_loc_conf
+argument_list|(
+name|r
+argument_list|,
+name|ngx_http_core_module
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -1868,15 +1877,6 @@ name|root
 index|]
 operator|=
 literal|'\0'
-expr_stmt|;
-name|clcf
-operator|=
-name|ngx_http_get_module_loc_conf
-argument_list|(
-name|r
-argument_list|,
-name|ngx_http_core_module
-argument_list|)
 expr_stmt|;
 name|ngx_memzero
 argument_list|(
@@ -1933,6 +1933,21 @@ name|clcf
 operator|->
 name|open_file_cache_events
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_OPENAT
+operator|)
+name|of
+operator|.
+name|disable_symlinks
+operator|=
+name|clcf
+operator|->
+name|disable_symlinks
+expr_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|ngx_open_cached_file
@@ -2147,6 +2162,21 @@ name|directio
 operator|=
 name|NGX_OPEN_FILE_DIRECTIO_OFF
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_OPENAT
+operator|)
+name|of
+operator|.
+name|disable_symlinks
+operator|=
+name|clcf
+operator|->
+name|disable_symlinks
+expr_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|ngx_open_cached_file
