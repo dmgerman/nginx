@@ -22,21 +22,21 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|typedef|ngx_http_proxy_redirect_t
+DECL|typedef|ngx_http_proxy_rewrite_t
 typedef|typedef
 name|struct
-name|ngx_http_proxy_redirect_s
-name|ngx_http_proxy_redirect_t
+name|ngx_http_proxy_rewrite_s
+name|ngx_http_proxy_rewrite_t
 typedef|;
 end_typedef
 
 begin_typedef
-DECL|typedef|ngx_http_proxy_redirect_pt
+DECL|typedef|ngx_http_proxy_rewrite_pt
 typedef|typedef
 name|ngx_int_t
 function_decl|(
 modifier|*
-name|ngx_http_proxy_redirect_pt
+name|ngx_http_proxy_rewrite_pt
 function_decl|)
 parameter_list|(
 name|ngx_http_request_t
@@ -50,7 +50,7 @@ parameter_list|,
 name|size_t
 name|prefix
 parameter_list|,
-name|ngx_http_proxy_redirect_t
+name|ngx_http_proxy_rewrite_t
 modifier|*
 name|pr
 parameter_list|)
@@ -58,15 +58,15 @@ function_decl|;
 end_typedef
 
 begin_struct
-DECL|struct|ngx_http_proxy_redirect_s
+DECL|struct|ngx_http_proxy_rewrite_s
 struct|struct
-name|ngx_http_proxy_redirect_s
+name|ngx_http_proxy_rewrite_s
 block|{
 DECL|member|handler
-name|ngx_http_proxy_redirect_pt
+name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon27747355010a
+DECL|union|__anon2c4996b2010a
 union|union
 block|{
 DECL|member|complex
@@ -85,9 +85,9 @@ name|regex
 decl_stmt|;
 endif|#
 directive|endif
-DECL|member|redirect
+DECL|member|pattern
 block|}
-name|redirect
+name|pattern
 union|;
 DECL|member|replacement
 name|ngx_http_complex_value_t
@@ -98,7 +98,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon277473550208
+DECL|struct|__anon2c4996b20208
 typedef|typedef
 struct|struct
 block|{
@@ -129,7 +129,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277473550308
+DECL|struct|__anon2c4996b20308
 typedef|typedef
 struct|struct
 block|{
@@ -240,7 +240,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277473550408
+DECL|struct|__anon2c4996b20408
 typedef|typedef
 struct|struct
 block|{
@@ -7776,7 +7776,7 @@ name|ngx_http_proxy_ctx_t
 modifier|*
 name|ctx
 decl_stmt|;
-DECL|enum|__anon277473550503
+DECL|enum|__anon2c4996b20503
 enum|enum
 block|{
 DECL|enumerator|sw_chunk_start
@@ -10458,13 +10458,13 @@ decl_stmt|;
 name|ngx_uint_t
 name|i
 decl_stmt|;
+name|ngx_http_proxy_rewrite_t
+modifier|*
+name|pr
+decl_stmt|;
 name|ngx_http_proxy_loc_conf_t
 modifier|*
 name|plcf
-decl_stmt|;
-name|ngx_http_proxy_redirect_t
-modifier|*
-name|pr
 decl_stmt|;
 name|plcf
 operator|=
@@ -10555,8 +10555,8 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_http_proxy_rewrite_redirect_complex (ngx_http_request_t * r,ngx_table_elt_t * h,size_t prefix,ngx_http_proxy_redirect_t * pr)
-name|ngx_http_proxy_rewrite_redirect_complex
+DECL|function|ngx_http_proxy_rewrite_complex_handler (ngx_http_request_t * r,ngx_table_elt_t * h,size_t prefix,ngx_http_proxy_rewrite_t * pr)
+name|ngx_http_proxy_rewrite_complex_handler
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
@@ -10569,7 +10569,7 @@ parameter_list|,
 name|size_t
 name|prefix
 parameter_list|,
-name|ngx_http_proxy_redirect_t
+name|ngx_http_proxy_rewrite_t
 modifier|*
 name|pr
 parameter_list|)
@@ -10585,7 +10585,7 @@ modifier|*
 name|p
 decl_stmt|;
 name|ngx_str_t
-name|redirect
+name|pattern
 decl_stmt|,
 name|replacement
 decl_stmt|;
@@ -10598,12 +10598,12 @@ argument_list|,
 operator|&
 name|pr
 operator|->
-name|redirect
+name|pattern
 operator|.
 name|complex
 argument_list|,
 operator|&
-name|redirect
+name|pattern
 argument_list|)
 operator|!=
 name|NGX_OK
@@ -10615,7 +10615,7 @@ return|;
 block|}
 if|if
 condition|(
-name|redirect
+name|pattern
 operator|.
 name|len
 operator|>
@@ -10637,11 +10637,11 @@ name|data
 operator|+
 name|prefix
 argument_list|,
-name|redirect
+name|pattern
 operator|.
 name|data
 argument_list|,
-name|redirect
+name|pattern
 operator|.
 name|len
 argument_list|)
@@ -10687,7 +10687,7 @@ name|value
 operator|.
 name|len
 operator|-
-name|redirect
+name|pattern
 operator|.
 name|len
 expr_stmt|;
@@ -10763,7 +10763,7 @@ name|data
 operator|+
 name|prefix
 operator|+
-name|redirect
+name|pattern
 operator|.
 name|len
 argument_list|,
@@ -10773,7 +10773,7 @@ name|value
 operator|.
 name|len
 operator|-
-name|redirect
+name|pattern
 operator|.
 name|len
 operator|-
@@ -10813,8 +10813,8 @@ end_if
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_http_proxy_rewrite_redirect_regex (ngx_http_request_t * r,ngx_table_elt_t * h,size_t prefix,ngx_http_proxy_redirect_t * pr)
-name|ngx_http_proxy_rewrite_redirect_regex
+DECL|function|ngx_http_proxy_rewrite_regex_handler (ngx_http_request_t * r,ngx_table_elt_t * h,size_t prefix,ngx_http_proxy_rewrite_t * pr)
+name|ngx_http_proxy_rewrite_regex_handler
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
@@ -10827,7 +10827,7 @@ parameter_list|,
 name|size_t
 name|prefix
 parameter_list|,
-name|ngx_http_proxy_redirect_t
+name|ngx_http_proxy_rewrite_t
 modifier|*
 name|pr
 parameter_list|)
@@ -10840,11 +10840,11 @@ modifier|*
 name|data
 decl_stmt|;
 name|ngx_str_t
-name|redirect
+name|pattern
 decl_stmt|,
 name|replacement
 decl_stmt|;
-name|redirect
+name|pattern
 operator|.
 name|len
 operator|=
@@ -10856,7 +10856,7 @@ name|len
 operator|-
 name|prefix
 expr_stmt|;
-name|redirect
+name|pattern
 operator|.
 name|data
 operator|=
@@ -10876,12 +10876,12 @@ name|r
 argument_list|,
 name|pr
 operator|->
-name|redirect
+name|pattern
 operator|.
 name|regex
 argument_list|,
 operator|&
-name|redirect
+name|pattern
 argument_list|)
 operator|!=
 name|NGX_OK
@@ -11459,7 +11459,7 @@ name|ngx_http_core_loc_conf_t
 modifier|*
 name|clcf
 decl_stmt|;
-name|ngx_http_proxy_redirect_t
+name|ngx_http_proxy_rewrite_t
 modifier|*
 name|pr
 decl_stmt|;
@@ -12660,7 +12660,7 @@ literal|1
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|ngx_http_proxy_redirect_t
+name|ngx_http_proxy_rewrite_t
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -12702,7 +12702,7 @@ argument_list|(
 operator|&
 name|pr
 operator|->
-name|redirect
+name|pattern
 operator|.
 name|complex
 argument_list|,
@@ -12729,7 +12729,7 @@ name|pr
 operator|->
 name|handler
 operator|=
-name|ngx_http_proxy_rewrite_redirect_complex
+name|ngx_http_proxy_rewrite_complex_handler
 expr_stmt|;
 if|if
 condition|(
@@ -12744,7 +12744,7 @@ condition|)
 block|{
 name|pr
 operator|->
-name|redirect
+name|pattern
 operator|.
 name|complex
 operator|.
@@ -12769,7 +12769,7 @@ else|else
 block|{
 name|pr
 operator|->
-name|redirect
+name|pattern
 operator|.
 name|complex
 operator|.
@@ -12800,7 +12800,7 @@ name|pool
 argument_list|,
 name|pr
 operator|->
-name|redirect
+name|pattern
 operator|.
 name|complex
 operator|.
@@ -12822,7 +12822,7 @@ return|;
 block|}
 name|pr
 operator|->
-name|redirect
+name|pattern
 operator|.
 name|complex
 operator|.
@@ -15387,7 +15387,7 @@ name|ngx_str_t
 modifier|*
 name|value
 decl_stmt|;
-name|ngx_http_proxy_redirect_t
+name|ngx_http_proxy_rewrite_t
 modifier|*
 name|pr
 decl_stmt|;
@@ -15571,7 +15571,7 @@ literal|1
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|ngx_http_proxy_redirect_t
+name|ngx_http_proxy_rewrite_t
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -15680,14 +15680,14 @@ name|pr
 operator|->
 name|handler
 operator|=
-name|ngx_http_proxy_rewrite_redirect_complex
+name|ngx_http_proxy_rewrite_complex_handler
 expr_stmt|;
 name|ngx_memzero
 argument_list|(
 operator|&
 name|pr
 operator|->
-name|redirect
+name|pattern
 operator|.
 name|complex
 argument_list|,
@@ -15723,7 +15723,7 @@ condition|)
 block|{
 name|pr
 operator|->
-name|redirect
+name|pattern
 operator|.
 name|complex
 operator|.
@@ -15748,7 +15748,7 @@ else|else
 block|{
 name|pr
 operator|->
-name|redirect
+name|pattern
 operator|.
 name|complex
 operator|.
@@ -15779,7 +15779,7 @@ name|pool
 argument_list|,
 name|pr
 operator|->
-name|redirect
+name|pattern
 operator|.
 name|complex
 operator|.
@@ -15801,7 +15801,7 @@ return|;
 block|}
 name|pr
 operator|->
-name|redirect
+name|pattern
 operator|.
 name|complex
 operator|.
@@ -15973,7 +15973,7 @@ name|errstr
 expr_stmt|;
 name|pr
 operator|->
-name|redirect
+name|pattern
 operator|.
 name|regex
 operator|=
@@ -15989,7 +15989,7 @@ if|if
 condition|(
 name|pr
 operator|->
-name|redirect
+name|pattern
 operator|.
 name|regex
 operator|==
@@ -16004,7 +16004,7 @@ name|pr
 operator|->
 name|handler
 operator|=
-name|ngx_http_proxy_rewrite_redirect_regex
+name|ngx_http_proxy_rewrite_regex_handler
 expr_stmt|;
 else|#
 directive|else
@@ -16067,7 +16067,7 @@ operator|=
 operator|&
 name|pr
 operator|->
-name|redirect
+name|pattern
 operator|.
 name|complex
 expr_stmt|;
@@ -16090,7 +16090,7 @@ name|pr
 operator|->
 name|handler
 operator|=
-name|ngx_http_proxy_rewrite_redirect_complex
+name|ngx_http_proxy_rewrite_complex_handler
 expr_stmt|;
 block|}
 name|ngx_memzero
