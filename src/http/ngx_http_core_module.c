@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c5b11e40108
+DECL|struct|__anon2bf6394b0108
 typedef|typedef
 struct|struct
 block|{
@@ -17091,6 +17091,9 @@ name|lsopt
 operator|.
 name|tcp_keepidle
 operator|==
+operator|(
+name|time_t
+operator|)
 name|NGX_ERROR
 condition|)
 block|{
@@ -17179,6 +17182,9 @@ name|lsopt
 operator|.
 name|tcp_keepintvl
 operator|==
+operator|(
+name|time_t
+operator|)
 name|NGX_ERROR
 condition|)
 block|{
@@ -20443,8 +20449,11 @@ expr_stmt|;
 if|if
 condition|(
 name|inactive
-operator|<
-literal|0
+operator|==
+operator|(
+name|time_t
+operator|)
+name|NGX_ERROR
 condition|)
 block|{
 goto|goto
@@ -20767,22 +20776,6 @@ return|;
 block|}
 if|if
 condition|(
-name|clcf
-operator|->
-name|keepalive_timeout
-operator|==
-operator|(
-name|ngx_msec_t
-operator|)
-name|NGX_PARSE_LARGE_TIME
-condition|)
-block|{
-return|return
-literal|"value must be less than 597 hours"
-return|;
-block|}
-if|if
-condition|(
 name|cf
 operator|->
 name|args
@@ -20817,24 +20810,14 @@ name|clcf
 operator|->
 name|keepalive_header
 operator|==
+operator|(
+name|time_t
+operator|)
 name|NGX_ERROR
 condition|)
 block|{
 return|return
 literal|"invalid value"
-return|;
-block|}
-if|if
-condition|(
-name|clcf
-operator|->
-name|keepalive_header
-operator|==
-name|NGX_PARSE_LARGE_TIME
-condition|)
-block|{
-return|return
-literal|"value must be less than 68 years"
 return|;
 block|}
 return|return

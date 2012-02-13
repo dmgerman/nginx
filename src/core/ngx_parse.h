@@ -28,14 +28,6 @@ directive|include
 file|<ngx_core.h>
 end_include
 
-begin_define
-DECL|macro|NGX_PARSE_LARGE_TIME
-define|#
-directive|define
-name|NGX_PARSE_LARGE_TIME
-value|-2
-end_define
-
 begin_function_decl
 name|ssize_t
 name|ngx_parse_size

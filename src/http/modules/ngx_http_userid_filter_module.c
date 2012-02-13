@@ -66,7 +66,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon295ccba40108
+DECL|struct|__anon29fd18c20108
 typedef|typedef
 struct|struct
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295ccba40208
+DECL|struct|__anon29fd18c20208
 typedef|typedef
 struct|struct
 block|{
@@ -3665,24 +3665,14 @@ name|ucf
 operator|->
 name|expires
 operator|==
+operator|(
+name|time_t
+operator|)
 name|NGX_ERROR
 condition|)
 block|{
 return|return
 literal|"invalid value"
-return|;
-block|}
-if|if
-condition|(
-name|ucf
-operator|->
-name|expires
-operator|==
-name|NGX_PARSE_LARGE_TIME
-condition|)
-block|{
-return|return
-literal|"value must be less than 68 years"
 return|;
 block|}
 return|return

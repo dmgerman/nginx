@@ -55,7 +55,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0937590108
+DECL|struct|__anon2a11f4210108
 typedef|typedef
 struct|struct
 block|{
@@ -155,7 +155,7 @@ value|5
 end_define
 
 begin_typedef
-DECL|struct|__anon2b0937590208
+DECL|struct|__anon2a11f4210208
 typedef|typedef
 struct|struct
 block|{
@@ -2311,6 +2311,9 @@ name|hcf
 operator|->
 name|expires_time
 operator|==
+operator|(
+name|time_t
+operator|)
 name|NGX_ERROR
 condition|)
 block|{
@@ -2339,19 +2342,6 @@ condition|)
 block|{
 return|return
 literal|"daily time value must be less than 24 hours"
-return|;
-block|}
-if|if
-condition|(
-name|hcf
-operator|->
-name|expires_time
-operator|==
-name|NGX_PARSE_LARGE_TIME
-condition|)
-block|{
-return|return
-literal|"value must be less than 68 years"
 return|;
 block|}
 if|if

@@ -2107,6 +2107,9 @@ name|ls
 operator|->
 name|tcp_keepidle
 operator|==
+operator|(
+name|time_t
+operator|)
 name|NGX_ERROR
 condition|)
 block|{
@@ -2195,6 +2198,9 @@ name|ls
 operator|->
 name|tcp_keepintvl
 operator|==
+operator|(
+name|time_t
+operator|)
 name|NGX_ERROR
 condition|)
 block|{

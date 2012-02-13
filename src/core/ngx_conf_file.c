@@ -407,7 +407,7 @@ name|prev
 decl_stmt|,
 name|conf_file
 decl_stmt|;
-DECL|enum|__anon28d9b2520103
+DECL|enum|__anon290b87a40103
 enum|enum
 block|{
 DECL|enumerator|parse_file
@@ -5204,21 +5204,6 @@ return|;
 block|}
 if|if
 condition|(
-operator|*
-name|msp
-operator|==
-operator|(
-name|ngx_msec_t
-operator|)
-name|NGX_PARSE_LARGE_TIME
-condition|)
-block|{
-return|return
-literal|"value must be less than 597 hours"
-return|;
-block|}
-if|if
-condition|(
 name|cmd
 operator|->
 name|post
@@ -5339,23 +5324,14 @@ condition|(
 operator|*
 name|sp
 operator|==
+operator|(
+name|time_t
+operator|)
 name|NGX_ERROR
 condition|)
 block|{
 return|return
 literal|"invalid value"
-return|;
-block|}
-if|if
-condition|(
-operator|*
-name|sp
-operator|==
-name|NGX_PARSE_LARGE_TIME
-condition|)
-block|{
-return|return
-literal|"value must be less than 68 years"
 return|;
 block|}
 if|if

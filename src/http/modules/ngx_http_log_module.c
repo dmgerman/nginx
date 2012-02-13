@@ -100,7 +100,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bcbd9480108
+DECL|struct|__anon298cbde60108
 typedef|typedef
 struct|struct
 block|{
@@ -126,7 +126,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bcbd9480208
+DECL|struct|__anon298cbde60208
 typedef|typedef
 struct|struct
 block|{
@@ -147,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bcbd9480308
+DECL|struct|__anon298cbde60308
 typedef|typedef
 struct|struct
 block|{
@@ -168,7 +168,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bcbd9480408
+DECL|struct|__anon298cbde60408
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +202,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bcbd9480508
+DECL|struct|__anon298cbde60508
 typedef|typedef
 struct|struct
 block|{
@@ -237,7 +237,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bcbd9480608
+DECL|struct|__anon298cbde60608
 typedef|typedef
 struct|struct
 block|{
@@ -5816,8 +5816,11 @@ expr_stmt|;
 if|if
 condition|(
 name|inactive
-operator|<
-literal|0
+operator|==
+operator|(
+name|time_t
+operator|)
+name|NGX_ERROR
 condition|)
 block|{
 goto|goto
@@ -5939,8 +5942,11 @@ expr_stmt|;
 if|if
 condition|(
 name|valid
-operator|<
-literal|0
+operator|==
+operator|(
+name|time_t
+operator|)
+name|NGX_ERROR
 condition|)
 block|{
 goto|goto

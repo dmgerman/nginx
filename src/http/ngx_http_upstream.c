@@ -18400,6 +18400,9 @@ if|if
 condition|(
 name|fail_timeout
 operator|==
+operator|(
+name|time_t
+operator|)
 name|NGX_ERROR
 condition|)
 block|{
