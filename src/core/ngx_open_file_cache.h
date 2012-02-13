@@ -37,7 +37,7 @@ value|NGX_MAX_OFF_T_VALUE
 end_define
 
 begin_typedef
-DECL|struct|__anon29ea28980108
+DECL|struct|__anon29e3ce5d0108
 typedef|typedef
 struct|struct
 block|{
@@ -86,6 +86,19 @@ DECL|member|min_uses
 name|ngx_uint_t
 name|min_uses
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_OPENAT
+operator|)
+DECL|member|disable_symlinks
+name|unsigned
+name|disable_symlinks
+range|:
+literal|2
+decl_stmt|;
+endif|#
+directive|endif
 DECL|member|test_dir
 name|unsigned
 name|test_dir
@@ -211,6 +224,19 @@ DECL|member|uses
 name|uint32_t
 name|uses
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_OPENAT
+operator|)
+DECL|member|disable_symlinks
+name|unsigned
+name|disable_symlinks
+range|:
+literal|2
+decl_stmt|;
+endif|#
+directive|endif
 DECL|member|count
 name|unsigned
 name|count
@@ -269,7 +295,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29ea28980208
+DECL|struct|__anon29e3ce5d0208
 typedef|typedef
 struct|struct
 block|{
@@ -304,7 +330,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ea28980308
+DECL|struct|__anon29e3ce5d0308
 typedef|typedef
 struct|struct
 block|{
@@ -334,7 +360,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ea28980408
+DECL|struct|__anon29e3ce5d0408
 typedef|typedef
 struct|struct
 block|{
