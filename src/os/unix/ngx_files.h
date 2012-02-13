@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4f8dbb0108
+DECL|struct|__anon2a3b6f9a0108
 typedef|typedef
 struct|struct
 block|{
@@ -88,7 +88,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4f8dbb0208
+DECL|struct|__anon2a3b6f9a0208
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4f8dbb0308
+DECL|struct|__anon2a3b6f9a0308
 typedef|typedef
 struct|struct
 block|{
@@ -306,6 +306,27 @@ directive|define
 name|NGX_FILE_NONBLOCK
 value|O_NONBLOCK
 end_define
+
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_OPENAT
+operator|)
+end_if
+
+begin_define
+DECL|macro|NGX_FILE_NOFOLLOW
+define|#
+directive|define
+name|NGX_FILE_NOFOLLOW
+value|O_NOFOLLOW
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_define
 DECL|macro|NGX_FILE_DEFAULT_ACCESS
@@ -1645,6 +1666,73 @@ name|name
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_OPENAT
+operator|)
+end_if
+
+begin_define
+DECL|macro|ngx_openat_file (fd,name,mode,create,access)
+define|#
+directive|define
+name|ngx_openat_file
+parameter_list|(
+name|fd
+parameter_list|,
+name|name
+parameter_list|,
+name|mode
+parameter_list|,
+name|create
+parameter_list|,
+name|access
+parameter_list|)
+define|\
+value|openat(fd, (const char *) name, mode|create, access)
+end_define
+
+begin_define
+DECL|macro|ngx_openat_file_n
+define|#
+directive|define
+name|ngx_openat_file_n
+value|"openat()"
+end_define
+
+begin_define
+DECL|macro|ngx_file_at_info (fd,name,sb,flag)
+define|#
+directive|define
+name|ngx_file_at_info
+parameter_list|(
+name|fd
+parameter_list|,
+name|name
+parameter_list|,
+name|sb
+parameter_list|,
+name|flag
+parameter_list|)
+define|\
+value|fstatat(fd, (const char *) name, sb, flag)
+end_define
+
+begin_define
+DECL|macro|ngx_file_at_info_n
+define|#
+directive|define
+name|ngx_file_at_info_n
+value|"fstatat()"
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_define
 DECL|macro|ngx_stderr
