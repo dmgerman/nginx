@@ -2543,7 +2543,7 @@ if|if
 condition|(
 name|at_fd
 operator|==
-name|NGX_FILE_ERROR
+name|NGX_INVALID_FILE
 condition|)
 block|{
 name|of
@@ -2559,7 +2559,7 @@ operator|=
 name|ngx_openat_file_n
 expr_stmt|;
 return|return
-name|NGX_FILE_ERROR
+name|NGX_INVALID_FILE
 return|;
 block|}
 name|at_name
@@ -2719,6 +2719,7 @@ argument_list|,
 name|ngx_close_file_n
 literal|" \"%V\" failed"
 argument_list|,
+operator|&
 name|at_name
 argument_list|)
 expr_stmt|;
@@ -2916,6 +2917,7 @@ argument_list|,
 name|ngx_close_file_n
 literal|" \"%V\" failed"
 argument_list|,
+operator|&
 name|at_name
 argument_list|)
 expr_stmt|;
