@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3b6f9a0108
+DECL|struct|__anon290aa5200108
 typedef|typedef
 struct|struct
 block|{
@@ -88,7 +88,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3b6f9a0208
+DECL|struct|__anon290aa5200208
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3b6f9a0308
+DECL|struct|__anon290aa5200308
 typedef|typedef
 struct|struct
 block|{
@@ -1727,6 +1727,14 @@ define|#
 directive|define
 name|ngx_file_at_info_n
 value|"fstatat()"
+end_define
+
+begin_define
+DECL|macro|NGX_AT_FDCWD
+define|#
+directive|define
+name|NGX_AT_FDCWD
+value|(ngx_fd_t) AT_FDCWD
 end_define
 
 begin_endif

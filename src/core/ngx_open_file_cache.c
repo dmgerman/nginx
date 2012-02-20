@@ -2505,7 +2505,7 @@ name|len
 expr_stmt|;
 name|at_fd
 operator|=
-name|AT_FDCWD
+name|NGX_AT_FDCWD
 expr_stmt|;
 name|at_name
 operator|=
@@ -2698,7 +2698,7 @@ if|if
 condition|(
 name|at_fd
 operator|!=
-name|AT_FDCWD
+name|NGX_AT_FDCWD
 operator|&&
 name|ngx_close_file
 argument_list|(
@@ -2753,7 +2753,7 @@ name|end
 operator|&&
 name|at_fd
 operator|!=
-name|AT_FDCWD
+name|NGX_AT_FDCWD
 condition|)
 block|{
 comment|/*          * If pathname ends with a trailing slash, check if last path          * component is a directory; if not, fail with ENOTDIR as per          * POSIX.          *          * We use separate check instead of O_DIRECTORY in the loop above,          * as O_DIRECTORY doesn't work on FreeBSD 8.          *          * Note this returns already opened file descriptor, with different          * mode/create/access.  This is believed to be safe as we don't          * use this codepath to create directories.          */
@@ -2896,7 +2896,7 @@ if|if
 condition|(
 name|at_fd
 operator|!=
-name|AT_FDCWD
+name|NGX_AT_FDCWD
 operator|&&
 name|ngx_close_file
 argument_list|(
