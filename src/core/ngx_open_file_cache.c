@@ -2825,6 +2825,17 @@ operator|->
 name|disable_symlinks
 operator|==
 name|NGX_DISABLE_SYMLINKS_NOTOWNER
+operator|&&
+operator|!
+operator|(
+name|create
+operator|&
+operator|(
+name|NGX_FILE_CREATE_OR_OPEN
+operator||
+name|NGX_FILE_TRUNCATE
+operator|)
+operator|)
 condition|)
 block|{
 name|fd
