@@ -1803,6 +1803,14 @@ operator|->
 name|length
 condition|)
 block|{
+name|p
+operator|->
+name|free_raw_bufs
+operator|=
+name|cl
+operator|->
+name|next
+expr_stmt|;
 comment|/* STUB */
 name|cl
 operator|->
@@ -1835,14 +1843,6 @@ return|return
 name|NGX_ABORT
 return|;
 block|}
-name|p
-operator|->
-name|free_raw_bufs
-operator|=
-name|cl
-operator|->
-name|next
-expr_stmt|;
 name|ngx_free_chain
 argument_list|(
 name|p
