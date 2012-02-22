@@ -694,16 +694,16 @@ block|{
 name|ngx_null_string
 block|,
 comment|/* 201, 204 */
-DECL|macro|NGX_HTTP_LAST_LEVEL_200
+DECL|macro|NGX_HTTP_LAST_2XX
 define|#
 directive|define
-name|NGX_HTTP_LAST_LEVEL_200
+name|NGX_HTTP_LAST_2XX
 value|202
-DECL|macro|NGX_HTTP_LEVEL_200
+DECL|macro|NGX_HTTP_OFF_3XX
 define|#
 directive|define
-name|NGX_HTTP_LEVEL_200
-value|(NGX_HTTP_LAST_LEVEL_200 - 201)
+name|NGX_HTTP_OFF_3XX
+value|(NGX_HTTP_LAST_2XX - 201)
 comment|/* ngx_null_string, */
 comment|/* 300 */
 name|ngx_string
@@ -721,16 +721,16 @@ argument_list|(
 name|ngx_http_error_303_page
 argument_list|)
 block|,
-DECL|macro|NGX_HTTP_LAST_LEVEL_300
+DECL|macro|NGX_HTTP_LAST_3XX
 define|#
 directive|define
-name|NGX_HTTP_LAST_LEVEL_300
+name|NGX_HTTP_LAST_3XX
 value|304
-DECL|macro|NGX_HTTP_LEVEL_300
+DECL|macro|NGX_HTTP_OFF_4XX
 define|#
 directive|define
-name|NGX_HTTP_LEVEL_300
-value|(NGX_HTTP_LAST_LEVEL_300 - 301)
+name|NGX_HTTP_OFF_4XX
+value|(NGX_HTTP_LAST_3XX - 301 + NGX_HTTP_OFF_3XX)
 name|ngx_string
 argument_list|(
 name|ngx_http_error_400_page
@@ -814,16 +814,16 @@ argument_list|(
 name|ngx_http_error_416_page
 argument_list|)
 block|,
-DECL|macro|NGX_HTTP_LAST_LEVEL_400
+DECL|macro|NGX_HTTP_LAST_4XX
 define|#
 directive|define
-name|NGX_HTTP_LAST_LEVEL_400
+name|NGX_HTTP_LAST_4XX
 value|417
-DECL|macro|NGX_HTTP_LEVEL_400
+DECL|macro|NGX_HTTP_OFF_5XX
 define|#
 directive|define
-name|NGX_HTTP_LEVEL_400
-value|(NGX_HTTP_LAST_LEVEL_400 - 400)
+name|NGX_HTTP_OFF_5XX
+value|(NGX_HTTP_LAST_4XX - 400 + NGX_HTTP_OFF_4XX)
 name|ngx_string
 argument_list|(
 name|ngx_http_error_494_page
@@ -892,10 +892,10 @@ name|ngx_string
 argument_list|(
 argument|ngx_http_error_507_page
 argument_list|)
-DECL|macro|NGX_HTTP_LAST_LEVEL_500
+DECL|macro|NGX_HTTP_LAST_5XX
 define|#
 directive|define
-name|NGX_HTTP_LAST_LEVEL_500
+name|NGX_HTTP_LAST_5XX
 value|508
 block|}
 decl_stmt|;
@@ -1242,7 +1242,7 @@ name|NGX_HTTP_MOVED_PERMANENTLY
 operator|&&
 name|error
 operator|<
-name|NGX_HTTP_LAST_LEVEL_300
+name|NGX_HTTP_LAST_3XX
 condition|)
 block|{
 comment|/* 3XX */
@@ -1252,7 +1252,7 @@ name|error
 operator|-
 name|NGX_HTTP_MOVED_PERMANENTLY
 operator|+
-name|NGX_HTTP_LEVEL_200
+name|NGX_HTTP_OFF_3XX
 expr_stmt|;
 block|}
 if|else if
@@ -1263,7 +1263,7 @@ name|NGX_HTTP_BAD_REQUEST
 operator|&&
 name|error
 operator|<
-name|NGX_HTTP_LAST_LEVEL_400
+name|NGX_HTTP_LAST_4XX
 condition|)
 block|{
 comment|/* 4XX */
@@ -1273,9 +1273,7 @@ name|error
 operator|-
 name|NGX_HTTP_BAD_REQUEST
 operator|+
-name|NGX_HTTP_LEVEL_200
-operator|+
-name|NGX_HTTP_LEVEL_300
+name|NGX_HTTP_OFF_4XX
 expr_stmt|;
 block|}
 if|else if
@@ -1286,7 +1284,7 @@ name|NGX_HTTP_NGINX_CODES
 operator|&&
 name|error
 operator|<
-name|NGX_HTTP_LAST_LEVEL_500
+name|NGX_HTTP_LAST_5XX
 condition|)
 block|{
 comment|/* 49X, 5XX */
@@ -1296,11 +1294,7 @@ name|error
 operator|-
 name|NGX_HTTP_NGINX_CODES
 operator|+
-name|NGX_HTTP_LEVEL_200
-operator|+
-name|NGX_HTTP_LEVEL_300
-operator|+
-name|NGX_HTTP_LEVEL_400
+name|NGX_HTTP_OFF_5XX
 expr_stmt|;
 switch|switch
 condition|(
@@ -1879,7 +1873,7 @@ name|err_status
 operator|-
 name|NGX_HTTP_MOVED_PERMANENTLY
 operator|+
-name|NGX_HTTP_LEVEL_200
+name|NGX_HTTP_OFF_3XX
 argument_list|)
 return|;
 block|}
@@ -2020,7 +2014,7 @@ name|NGX_HTTP_VERSION_10
 operator|&&
 name|err
 operator|>=
-name|NGX_HTTP_LEVEL_300
+name|NGX_HTTP_OFF_4XX
 condition|)
 block|{
 name|r
