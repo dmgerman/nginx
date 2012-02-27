@@ -37,7 +37,7 @@ value|NGX_MAX_OFF_T_VALUE
 end_define
 
 begin_typedef
-DECL|struct|__anon29e3ce5d0108
+DECL|struct|__anon2c3961950108
 typedef|typedef
 struct|struct
 block|{
@@ -91,6 +91,10 @@ directive|if
 operator|(
 name|NGX_HAVE_OPENAT
 operator|)
+DECL|member|disable_symlinks_from
+name|size_t
+name|disable_symlinks_from
+decl_stmt|;
 DECL|member|disable_symlinks
 name|unsigned
 name|disable_symlinks
@@ -229,6 +233,10 @@ directive|if
 operator|(
 name|NGX_HAVE_OPENAT
 operator|)
+DECL|member|disable_symlinks_from
+name|size_t
+name|disable_symlinks_from
+decl_stmt|;
 DECL|member|disable_symlinks
 name|unsigned
 name|disable_symlinks
@@ -295,7 +303,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29e3ce5d0208
+DECL|struct|__anon2c3961950208
 typedef|typedef
 struct|struct
 block|{
@@ -330,7 +338,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e3ce5d0308
+DECL|struct|__anon2c3961950308
 typedef|typedef
 struct|struct
 block|{
@@ -360,7 +368,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e3ce5d0408
+DECL|struct|__anon2c3961950408
 typedef|typedef
 struct|struct
 block|{
