@@ -208,6 +208,24 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_http_error_307_page
+specifier|static
+name|char
+name|ngx_http_error_307_page
+index|[]
+init|=
+literal|"<html>"
+name|CRLF
+literal|"<head><title>307 Temporary Redirect</title></head>"
+name|CRLF
+literal|"<body bgcolor=\"white\">"
+name|CRLF
+literal|"<center><h1>307 Temporary Redirect</h1></center>"
+name|CRLF
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_http_error_400_page
 specifier|static
 name|char
@@ -721,11 +739,25 @@ argument_list|(
 name|ngx_http_error_303_page
 argument_list|)
 block|,
+name|ngx_null_string
+block|,
+comment|/* 304 */
+name|ngx_null_string
+block|,
+comment|/* 305 */
+name|ngx_null_string
+block|,
+comment|/* 306 */
+name|ngx_string
+argument_list|(
+name|ngx_http_error_307_page
+argument_list|)
+block|,
 DECL|macro|NGX_HTTP_LAST_3XX
 define|#
 directive|define
 name|NGX_HTTP_LAST_3XX
-value|304
+value|308
 DECL|macro|NGX_HTTP_OFF_4XX
 define|#
 directive|define
@@ -1772,22 +1804,21 @@ block|}
 if|if
 condition|(
 name|overwrite
-operator|>=
+operator|!=
 name|NGX_HTTP_MOVED_PERMANENTLY
 operator|&&
 name|overwrite
-operator|<=
-name|NGX_HTTP_SEE_OTHER
-condition|)
-block|{
-name|r
-operator|->
-name|err_status
-operator|=
+operator|!=
+name|NGX_HTTP_MOVED_TEMPORARILY
+operator|&&
 name|overwrite
-expr_stmt|;
-block|}
-else|else
+operator|!=
+name|NGX_HTTP_SEE_OTHER
+operator|&&
+name|overwrite
+operator|!=
+name|NGX_HTTP_TEMPORARY_REDIRECT
+condition|)
 block|{
 name|r
 operator|->

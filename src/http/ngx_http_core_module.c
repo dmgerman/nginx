@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c9c0f630108
+DECL|struct|__anon27bb27100108
 typedef|typedef
 struct|struct
 block|{
@@ -7702,12 +7702,20 @@ block|}
 if|if
 condition|(
 name|status
-operator|>=
+operator|==
 name|NGX_HTTP_MOVED_PERMANENTLY
-operator|&&
+operator|||
 name|status
-operator|<=
+operator|==
+name|NGX_HTTP_MOVED_TEMPORARILY
+operator|||
+name|status
+operator|==
 name|NGX_HTTP_SEE_OTHER
+operator|||
+name|status
+operator|==
+name|NGX_HTTP_TEMPORARY_REDIRECT
 condition|)
 block|{
 name|ngx_http_clear_location

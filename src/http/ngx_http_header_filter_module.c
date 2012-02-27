@@ -228,17 +228,22 @@ argument_list|(
 literal|"304 Not Modified"
 argument_list|)
 block|,
-comment|/* ngx_null_string, */
+name|ngx_null_string
+block|,
 comment|/* "305 Use Proxy" */
-comment|/* ngx_null_string, */
+name|ngx_null_string
+block|,
 comment|/* "306 unused" */
-comment|/* ngx_null_string, */
-comment|/* "307 Temporary Redirect" */
+name|ngx_string
+argument_list|(
+literal|"307 Temporary Redirect"
+argument_list|)
+block|,
 DECL|macro|NGX_HTTP_LAST_3XX
 define|#
 directive|define
 name|NGX_HTTP_LAST_3XX
-value|305
+value|308
 DECL|macro|NGX_HTTP_OFF_4XX
 define|#
 directive|define
