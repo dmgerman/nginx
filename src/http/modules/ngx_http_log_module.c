@@ -100,7 +100,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a44c7e60108
+DECL|struct|__anon290ea64a0108
 typedef|typedef
 struct|struct
 block|{
@@ -126,7 +126,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a44c7e60208
+DECL|struct|__anon290ea64a0208
 typedef|typedef
 struct|struct
 block|{
@@ -147,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a44c7e60308
+DECL|struct|__anon290ea64a0308
 typedef|typedef
 struct|struct
 block|{
@@ -168,7 +168,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a44c7e60408
+DECL|struct|__anon290ea64a0408
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +202,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a44c7e60508
+DECL|struct|__anon290ea64a0508
 typedef|typedef
 struct|struct
 block|{
@@ -237,7 +237,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a44c7e60608
+DECL|struct|__anon290ea64a0608
 typedef|typedef
 struct|struct
 block|{
@@ -1933,21 +1933,29 @@ name|clcf
 operator|->
 name|open_file_cache_events
 expr_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_HAVE_OPENAT
-operator|)
-name|of
-operator|.
-name|disable_symlinks
-operator|=
+if|if
+condition|(
+name|ngx_http_set_disable_symlinks
+argument_list|(
+name|r
+argument_list|,
 name|clcf
-operator|->
-name|disable_symlinks
-expr_stmt|;
-endif|#
-directive|endif
+argument_list|,
+operator|&
+name|path
+argument_list|,
+operator|&
+name|of
+argument_list|)
+operator|!=
+name|NGX_OK
+condition|)
+block|{
+comment|/* simulate successful logging */
+return|return
+name|len
+return|;
+block|}
 if|if
 condition|(
 name|ngx_open_cached_file
@@ -2162,21 +2170,29 @@ name|directio
 operator|=
 name|NGX_OPEN_FILE_DIRECTIO_OFF
 expr_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_HAVE_OPENAT
-operator|)
-name|of
-operator|.
-name|disable_symlinks
-operator|=
+if|if
+condition|(
+name|ngx_http_set_disable_symlinks
+argument_list|(
+name|r
+argument_list|,
 name|clcf
-operator|->
-name|disable_symlinks
-expr_stmt|;
-endif|#
-directive|endif
+argument_list|,
+operator|&
+name|log
+argument_list|,
+operator|&
+name|of
+argument_list|)
+operator|!=
+name|NGX_OK
+condition|)
+block|{
+comment|/* simulate successful logging */
+return|return
+name|len
+return|;
+block|}
 if|if
 condition|(
 name|ngx_open_cached_file
