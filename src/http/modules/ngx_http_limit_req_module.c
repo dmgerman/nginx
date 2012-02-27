@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon299a73350108
+DECL|struct|__anon29931d070108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299a73350208
+DECL|struct|__anon29931d070208
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299a73350308
+DECL|struct|__anon29931d070308
 typedef|typedef
 struct|struct
 block|{
@@ -131,7 +131,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299a73350408
+DECL|struct|__anon29931d070408
 typedef|typedef
 struct|struct
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299a73350508
+DECL|struct|__anon29931d070508
 typedef|typedef
 struct|struct
 block|{
@@ -1575,8 +1575,6 @@ expr_stmt|;
 continue|continue;
 block|}
 comment|/* hash == node->key */
-do|do
-block|{
 name|lr
 operator|=
 operator|(
@@ -1755,21 +1753,6 @@ name|node
 operator|->
 name|right
 expr_stmt|;
-block|}
-do|while
-condition|(
-name|node
-operator|!=
-name|sentinel
-operator|&&
-name|hash
-operator|==
-name|node
-operator|->
-name|key
-condition|)
-do|;
-break|break;
 block|}
 operator|*
 name|ep

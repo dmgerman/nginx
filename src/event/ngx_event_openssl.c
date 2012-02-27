@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a04880a0108
+DECL|struct|__anon296ea9890108
 typedef|typedef
 struct|struct
 block|{
@@ -7514,8 +7514,6 @@ expr_stmt|;
 continue|continue;
 block|}
 comment|/* hash == node->key */
-do|do
-block|{
 name|sess_id
 operator|=
 operator|(
@@ -7683,21 +7681,6 @@ name|node
 operator|->
 name|right
 expr_stmt|;
-block|}
-do|while
-condition|(
-name|node
-operator|!=
-name|sentinel
-operator|&&
-name|hash
-operator|==
-name|node
-operator|->
-name|key
-condition|)
-do|;
-break|break;
 block|}
 name|done
 label|:
@@ -7940,8 +7923,6 @@ expr_stmt|;
 continue|continue;
 block|}
 comment|/* hash == node->key */
-do|do
-block|{
 name|sess_id
 operator|=
 operator|(
@@ -8049,21 +8030,6 @@ name|node
 operator|->
 name|right
 expr_stmt|;
-block|}
-do|while
-condition|(
-name|node
-operator|!=
-name|sentinel
-operator|&&
-name|hash
-operator|==
-name|node
-operator|->
-name|key
-condition|)
-do|;
-break|break;
 block|}
 name|done
 label|:

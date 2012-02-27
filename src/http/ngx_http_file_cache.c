@@ -3728,8 +3728,6 @@ expr_stmt|;
 continue|continue;
 block|}
 comment|/* node_key == node->key */
-do|do
-block|{
 name|fcn
 operator|=
 operator|(
@@ -3790,21 +3788,6 @@ name|node
 operator|->
 name|right
 expr_stmt|;
-block|}
-do|while
-condition|(
-name|node
-operator|!=
-name|sentinel
-operator|&&
-name|node_key
-operator|==
-name|node
-operator|->
-name|key
-condition|)
-do|;
-break|break;
 block|}
 comment|/* not found */
 return|return

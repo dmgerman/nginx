@@ -4670,8 +4670,6 @@ expr_stmt|;
 continue|continue;
 block|}
 comment|/* hash == node->key */
-do|do
-block|{
 name|file
 operator|=
 operator|(
@@ -4720,21 +4718,6 @@ name|node
 operator|->
 name|right
 expr_stmt|;
-block|}
-do|while
-condition|(
-name|node
-operator|!=
-name|sentinel
-operator|&&
-name|hash
-operator|==
-name|node
-operator|->
-name|key
-condition|)
-do|;
-break|break;
 block|}
 return|return
 name|NULL
