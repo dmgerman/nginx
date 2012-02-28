@@ -29,7 +29,7 @@ DECL|macro|NGX_HTTP_MAX_SUBREQUESTS
 define|#
 directive|define
 name|NGX_HTTP_MAX_SUBREQUESTS
-value|50
+value|200
 end_define
 
 begin_comment
@@ -677,7 +677,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon2919a1ac0103
+DECL|enum|__anon28b072000103
 typedef|typedef
 enum|enum
 block|{
@@ -716,7 +716,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2919a1ac0208
+DECL|struct|__anon28b072000208
 typedef|typedef
 struct|struct
 block|{
@@ -739,7 +739,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2919a1ac0308
+DECL|struct|__anon28b072000308
 typedef|typedef
 struct|struct
 block|{
@@ -758,7 +758,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2919a1ac0408
+DECL|struct|__anon28b072000408
 typedef|typedef
 struct|struct
 block|{
@@ -1004,7 +1004,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2919a1ac0508
+DECL|struct|__anon28b072000508
 typedef|typedef
 struct|struct
 block|{
@@ -1145,7 +1145,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2919a1ac0608
+DECL|struct|__anon28b072000608
 typedef|typedef
 struct|struct
 block|{
@@ -1184,7 +1184,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2919a1ac0708
+DECL|struct|__anon28b072000708
 typedef|typedef
 struct|struct
 block|{
@@ -1234,7 +1234,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2919a1ac0808
+DECL|struct|__anon28b072000808
 typedef|typedef
 struct|struct
 block|{
@@ -1329,7 +1329,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2919a1ac0908
+DECL|struct|__anon28b072000908
 typedef|typedef
 struct|struct
 block|{
@@ -2189,7 +2189,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2919a1ac0a08
+DECL|struct|__anon28b072000a08
 typedef|typedef
 struct|struct
 block|{
