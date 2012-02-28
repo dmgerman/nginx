@@ -1298,6 +1298,12 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
+comment|/* allow new processes to start */
+name|ngx_msleep
+argument_list|(
+literal|100
+argument_list|)
+expr_stmt|;
 name|live
 operator|=
 literal|1
