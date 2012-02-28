@@ -69,7 +69,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon297e74ea010a
+DECL|union|__anon297f8302010a
 union|union
 block|{
 DECL|member|complex
@@ -101,7 +101,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon297e74ea0208
+DECL|struct|__anon297f83020208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297e74ea0308
+DECL|struct|__anon297f83020308
 typedef|typedef
 struct|struct
 block|{
@@ -253,7 +253,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297e74ea0408
+DECL|struct|__anon297f83020408
 typedef|typedef
 struct|struct
 block|{
@@ -2432,9 +2432,9 @@ block|,
 comment|/* merge server configuration */
 name|ngx_http_proxy_create_loc_conf
 block|,
-comment|/* create location configration */
+comment|/* create location configuration */
 name|ngx_http_proxy_merge_loc_conf
-comment|/* merge location configration */
+comment|/* merge location configuration */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -7984,7 +7984,7 @@ name|ngx_http_proxy_ctx_t
 modifier|*
 name|ctx
 decl_stmt|;
-DECL|enum|__anon297e74ea0503
+DECL|enum|__anon297f83020503
 enum|enum
 block|{
 DECL|enumerator|sw_chunk_start

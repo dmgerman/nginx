@@ -66,7 +66,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon29fd18c20108
+DECL|struct|__anon277175ed0108
 typedef|typedef
 struct|struct
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fd18c20208
+DECL|struct|__anon277175ed0208
 typedef|typedef
 struct|struct
 block|{
@@ -784,9 +784,9 @@ block|,
 comment|/* merge server configuration */
 name|ngx_http_userid_create_conf
 block|,
-comment|/* create location configration */
+comment|/* create location configuration */
 name|ngx_http_userid_merge_conf
-comment|/* merge location configration */
+comment|/* merge location configuration */
 block|}
 decl_stmt|;
 end_decl_stmt

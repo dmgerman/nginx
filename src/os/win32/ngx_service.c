@@ -52,7 +52,7 @@ name|log
 parameter_list|)
 block|{
 comment|/* primary thread */
-comment|/* StartServiceCtrlDispatcher() shouxpdl be called within 30 seconds */
+comment|/* StartServiceCtrlDispatcher() should be called within 30 seconds */
 if|if
 condition|(
 name|StartServiceCtrlDispatcher

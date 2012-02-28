@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon27da34b40108
+DECL|struct|__anon2a1f5aaa0108
 typedef|typedef
 struct|struct
 block|{
@@ -75,7 +75,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27da34b40208
+DECL|struct|__anon2a1f5aaa0208
 typedef|typedef
 struct|struct
 block|{
@@ -322,9 +322,9 @@ block|,
 comment|/* merge server configuration */
 name|ngx_http_autoindex_create_loc_conf
 block|,
-comment|/* create location configration */
+comment|/* create location configuration */
 name|ngx_http_autoindex_merge_loc_conf
-comment|/* merge location configration */
+comment|/* merge location configuration */
 block|}
 decl_stmt|;
 end_decl_stmt

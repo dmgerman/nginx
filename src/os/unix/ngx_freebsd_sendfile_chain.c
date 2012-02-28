@@ -723,7 +723,7 @@ condition|(
 name|file
 condition|)
 block|{
-comment|/* create the tailer iovec and coalesce the neighbouring bufs */
+comment|/* create the trailer iovec and coalesce the neighbouring bufs */
 name|prev
 operator|=
 name|NULL

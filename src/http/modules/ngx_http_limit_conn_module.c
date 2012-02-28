@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bbbdbc60108
+DECL|struct|__anon2bd23f270108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bbbdbc60208
+DECL|struct|__anon2bd23f270208
 typedef|typedef
 struct|struct
 block|{
@@ -73,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bbbdbc60308
+DECL|struct|__anon2bd23f270308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bbbdbc60408
+DECL|struct|__anon2bd23f270408
 typedef|typedef
 struct|struct
 block|{
@@ -117,7 +117,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bbbdbc60508
+DECL|struct|__anon2bd23f270508
 typedef|typedef
 struct|struct
 block|{
@@ -488,9 +488,9 @@ block|,
 comment|/* merge server configuration */
 name|ngx_http_limit_conn_create_conf
 block|,
-comment|/* create location configration */
+comment|/* create location configuration */
 name|ngx_http_limit_conn_merge_conf
-comment|/* merge location configration */
+comment|/* merge location configuration */
 block|}
 decl_stmt|;
 end_decl_stmt

@@ -929,7 +929,7 @@ expr_stmt|;
 break|break;
 block|}
 break|break;
-comment|/* suppress warinings */
+comment|/* suppress warnings */
 case|case
 name|ngx_pop3_passwd
 case|:

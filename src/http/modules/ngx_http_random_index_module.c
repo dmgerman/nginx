@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28c9e4af0108
+DECL|struct|__anon2b0f1cd70108
 typedef|typedef
 struct|struct
 block|{
@@ -174,9 +174,9 @@ block|,
 comment|/* merge server configuration */
 name|ngx_http_random_index_create_loc_conf
 block|,
-comment|/* create location configration */
+comment|/* create location configuration */
 name|ngx_http_random_index_merge_loc_conf
-comment|/* merge location configration */
+comment|/* merge location configuration */
 block|}
 decl_stmt|;
 end_decl_stmt

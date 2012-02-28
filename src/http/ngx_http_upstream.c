@@ -10182,7 +10182,7 @@ operator|&
 name|NGX_USE_AIO_EVENT
 condition|)
 block|{
-comment|/* the posted aio operation may currupt a shadow buffer */
+comment|/* the posted aio operation may corrupt a shadow buffer */
 name|p
 operator|->
 name|single_buf

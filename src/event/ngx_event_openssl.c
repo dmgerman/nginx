@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon296ea9890108
+DECL|struct|__anon27a8cf150108
 typedef|typedef
 struct|struct
 block|{
@@ -3782,7 +3782,7 @@ name|error
 operator|=
 literal|1
 expr_stmt|;
-comment|/* fall thruogh */
+comment|/* fall through */
 case|case
 name|NGX_AGAIN
 case|:

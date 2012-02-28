@@ -87,7 +87,7 @@ decl_stmt|;
 name|uint64_t
 name|time
 decl_stmt|;
-DECL|enum|__anon2c91741d0103
+DECL|enum|__anon275ef2b20103
 enum|enum
 block|{
 DECL|enumerator|no
@@ -1230,7 +1230,7 @@ operator|-=
 literal|1
 expr_stmt|;
 block|}
-comment|/* Gauss' formula for Grigorian days since March 1, 1 BC */
+comment|/* Gauss' formula for Gregorian days since March 1, 1 BC */
 name|time
 operator|=
 operator|(

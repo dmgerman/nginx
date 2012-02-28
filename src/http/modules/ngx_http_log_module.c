@@ -100,7 +100,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon290ea64a0108
+DECL|struct|__anon2941f3ad0108
 typedef|typedef
 struct|struct
 block|{
@@ -126,7 +126,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290ea64a0208
+DECL|struct|__anon2941f3ad0208
 typedef|typedef
 struct|struct
 block|{
@@ -147,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290ea64a0308
+DECL|struct|__anon2941f3ad0308
 typedef|typedef
 struct|struct
 block|{
@@ -168,7 +168,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290ea64a0408
+DECL|struct|__anon2941f3ad0408
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +202,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290ea64a0508
+DECL|struct|__anon2941f3ad0508
 typedef|typedef
 struct|struct
 block|{
@@ -237,7 +237,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290ea64a0608
+DECL|struct|__anon2941f3ad0608
 typedef|typedef
 struct|struct
 block|{
@@ -858,9 +858,9 @@ block|,
 comment|/* merge server configuration */
 name|ngx_http_log_create_loc_conf
 block|,
-comment|/* create location configration */
+comment|/* create location configuration */
 name|ngx_http_log_merge_loc_conf
-comment|/* merge location configration */
+comment|/* merge location configuration */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -1845,7 +1845,7 @@ operator|->
 name|root_tested
 condition|)
 block|{
-comment|/* test root directory existance */
+comment|/* test root directory existence */
 if|if
 condition|(
 name|ngx_http_map_uri_to_path
@@ -1864,7 +1864,7 @@ operator|==
 name|NULL
 condition|)
 block|{
-comment|/* simulate successfull logging */
+comment|/* simulate successful logging */
 return|return
 name|len
 return|;
@@ -1987,7 +1987,7 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|/* simulate successfull logging */
+comment|/* simulate successful logging */
 return|return
 name|len
 return|;
@@ -2013,7 +2013,7 @@ operator|.
 name|data
 argument_list|)
 expr_stmt|;
-comment|/* simulate successfull logging */
+comment|/* simulate successful logging */
 return|return
 name|len
 return|;
@@ -2045,7 +2045,7 @@ operator|.
 name|data
 argument_list|)
 expr_stmt|;
-comment|/* simulate successfull logging */
+comment|/* simulate successful logging */
 return|return
 name|len
 return|;
@@ -2078,7 +2078,7 @@ operator|==
 name|NULL
 condition|)
 block|{
-comment|/* simulate successfull logging */
+comment|/* simulate successful logging */
 return|return
 name|len
 return|;
@@ -2238,7 +2238,7 @@ operator|.
 name|data
 argument_list|)
 expr_stmt|;
-comment|/* simulate successfull logging */
+comment|/* simulate successful logging */
 return|return
 name|len
 return|;

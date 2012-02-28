@@ -1269,7 +1269,7 @@ name|n
 operator|/
 literal|86400
 expr_stmt|;
-comment|/* Jaunary 1, 1970 was Thursday */
+comment|/* January 1, 1970 was Thursday */
 name|wday
 operator|=
 operator|(

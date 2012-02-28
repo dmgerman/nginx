@@ -232,7 +232,7 @@ name|NGX_THREADS
 operator|&&
 name|NGX_NONREENTRANT_CRYPT
 operator|)
-comment|/* crypt() is a time consuming funtion, so we only try to lock */
+comment|/* crypt() is a time consuming function, so we only try to lock */
 if|if
 condition|(
 name|ngx_mutex_trylock

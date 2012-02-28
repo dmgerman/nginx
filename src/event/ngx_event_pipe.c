@@ -4255,7 +4255,7 @@ return|return
 name|NGX_OK
 return|;
 block|}
-comment|/* the first free buf is partialy filled, thus add the free buf after it */
+comment|/* the first free buf is partially filled, thus add the free buf after it */
 name|cl
 operator|->
 name|next
