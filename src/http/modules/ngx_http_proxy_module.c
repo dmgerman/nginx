@@ -69,7 +69,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon297f8302010a
+DECL|union|__anon27a7618b010a
 union|union
 block|{
 DECL|member|complex
@@ -101,7 +101,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon297f83020208
+DECL|struct|__anon27a7618b0208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297f83020308
+DECL|struct|__anon27a7618b0308
 typedef|typedef
 struct|struct
 block|{
@@ -253,7 +253,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297f83020408
+DECL|struct|__anon27a7618b0408
 typedef|typedef
 struct|struct
 block|{
@@ -6873,7 +6873,7 @@ name|len
 operator|+
 literal|1
 expr_stmt|;
-name|ngx_cpystrn
+name|ngx_memcpy
 argument_list|(
 name|h
 operator|->
@@ -6890,11 +6890,24 @@ operator|->
 name|key
 operator|.
 name|len
-operator|+
-literal|1
 argument_list|)
 expr_stmt|;
-name|ngx_cpystrn
+name|h
+operator|->
+name|key
+operator|.
+name|data
+index|[
+name|h
+operator|->
+name|key
+operator|.
+name|len
+index|]
+operator|=
+literal|'\0'
+expr_stmt|;
+name|ngx_memcpy
 argument_list|(
 name|h
 operator|->
@@ -6911,9 +6924,22 @@ operator|->
 name|value
 operator|.
 name|len
-operator|+
-literal|1
 argument_list|)
+expr_stmt|;
+name|h
+operator|->
+name|value
+operator|.
+name|data
+index|[
+name|h
+operator|->
+name|value
+operator|.
+name|len
+index|]
+operator|=
+literal|'\0'
 expr_stmt|;
 if|if
 condition|(
@@ -7984,7 +8010,7 @@ name|ngx_http_proxy_ctx_t
 modifier|*
 name|ctx
 decl_stmt|;
-DECL|enum|__anon297f83020503
+DECL|enum|__anon27a7618b0503
 enum|enum
 block|{
 DECL|enumerator|sw_chunk_start

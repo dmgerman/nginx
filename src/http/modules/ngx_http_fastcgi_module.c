@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon296f63700108
+DECL|struct|__anon27a15c640108
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon296f63700203
+DECL|enum|__anon27a15c640203
 typedef|typedef
 enum|enum
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296f63700308
+DECL|struct|__anon27a15c640308
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296f63700408
+DECL|struct|__anon27a15c640408
 typedef|typedef
 struct|struct
 block|{
@@ -320,7 +320,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon296f63700508
+DECL|struct|__anon27a15c640508
 typedef|typedef
 struct|struct
 block|{
@@ -363,7 +363,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296f63700608
+DECL|struct|__anon27a15c640608
 typedef|typedef
 struct|struct
 block|{
@@ -393,7 +393,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296f63700708
+DECL|struct|__anon27a15c640708
 typedef|typedef
 struct|struct
 block|{
@@ -420,7 +420,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296f63700808
+DECL|struct|__anon27a15c640808
 typedef|typedef
 struct|struct
 block|{
@@ -7168,7 +7168,7 @@ name|len
 operator|+
 literal|1
 expr_stmt|;
-name|ngx_cpystrn
+name|ngx_memcpy
 argument_list|(
 name|h
 operator|->
@@ -7185,11 +7185,24 @@ operator|->
 name|key
 operator|.
 name|len
-operator|+
-literal|1
 argument_list|)
 expr_stmt|;
-name|ngx_cpystrn
+name|h
+operator|->
+name|key
+operator|.
+name|data
+index|[
+name|h
+operator|->
+name|key
+operator|.
+name|len
+index|]
+operator|=
+literal|'\0'
+expr_stmt|;
+name|ngx_memcpy
 argument_list|(
 name|h
 operator|->
@@ -7206,9 +7219,22 @@ operator|->
 name|value
 operator|.
 name|len
-operator|+
-literal|1
 argument_list|)
+expr_stmt|;
+name|h
+operator|->
+name|value
+operator|.
+name|data
+index|[
+name|h
+operator|->
+name|value
+operator|.
+name|len
+index|]
+operator|=
+literal|'\0'
 expr_stmt|;
 block|}
 name|h
