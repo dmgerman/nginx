@@ -2334,13 +2334,9 @@ operator|-
 literal|1
 expr_stmt|;
 return|return
-name|cmcf
+name|v
 operator|->
-name|variables
-operator|.
-name|nelts
-operator|-
-literal|1
+name|index
 return|;
 block|}
 end_function
