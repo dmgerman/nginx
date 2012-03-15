@@ -128,10 +128,10 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_http_next_filter
+DECL|variable|ngx_http_next_body_filter
 specifier|static
 name|ngx_http_output_body_filter_pt
-name|ngx_http_next_filter
+name|ngx_http_next_body_filter
 decl_stmt|;
 end_decl_stmt
 
@@ -244,7 +244,7 @@ name|buffered
 condition|)
 block|{
 return|return
-name|ngx_http_next_filter
+name|ngx_http_next_body_filter
 argument_list|(
 name|r
 operator|->
@@ -400,7 +400,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|ngx_http_next_filter
+name|ngx_http_next_body_filter
 argument_list|(
 name|r
 operator|->
@@ -613,7 +613,7 @@ modifier|*
 name|cf
 parameter_list|)
 block|{
-name|ngx_http_next_filter
+name|ngx_http_next_body_filter
 operator|=
 name|ngx_http_top_body_filter
 expr_stmt|;

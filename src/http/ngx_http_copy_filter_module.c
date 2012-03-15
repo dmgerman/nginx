@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b20e0a10108
+DECL|struct|__anon2be4f53a0108
 typedef|typedef
 struct|struct
 block|{
@@ -268,10 +268,10 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_http_next_filter
+DECL|variable|ngx_http_next_body_filter
 specifier|static
 name|ngx_http_output_body_filter_pt
-name|ngx_http_next_filter
+name|ngx_http_next_body_filter
 decl_stmt|;
 end_decl_stmt
 
@@ -475,7 +475,7 @@ operator|=
 operator|(
 name|ngx_output_chain_filter_pt
 operator|)
-name|ngx_http_next_filter
+name|ngx_http_next_body_filter
 expr_stmt|;
 name|ctx
 operator|->
@@ -1192,7 +1192,7 @@ modifier|*
 name|cf
 parameter_list|)
 block|{
-name|ngx_http_next_filter
+name|ngx_http_next_body_filter
 operator|=
 name|ngx_http_top_body_filter
 expr_stmt|;
