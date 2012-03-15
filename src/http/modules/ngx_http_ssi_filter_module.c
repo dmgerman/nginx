@@ -54,7 +54,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon27c58e7b0108
+DECL|struct|__anon2c805f870108
 typedef|typedef
 struct|struct
 block|{
@@ -94,7 +94,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c58e7b0208
+DECL|struct|__anon2c805f870208
 typedef|typedef
 struct|struct
 block|{
@@ -117,7 +117,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c58e7b0308
+DECL|struct|__anon2c805f870308
 typedef|typedef
 struct|struct
 block|{
@@ -141,7 +141,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27c58e7b0403
+DECL|enum|__anon2c805f870403
 typedef|typedef
 enum|enum
 block|{
@@ -5534,6 +5534,8 @@ argument_list|,
 name|ctx
 operator|->
 name|value_len
+operator|+
+literal|1
 argument_list|)
 expr_stmt|;
 if|if
@@ -6139,6 +6141,64 @@ name|ctx
 operator|->
 name|saved_state
 expr_stmt|;
+if|if
+condition|(
+name|ctx
+operator|->
+name|param
+operator|->
+name|value
+operator|.
+name|len
+operator|==
+name|ctx
+operator|->
+name|value_len
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"too long \"%V%c...\" value of \"%V\" "
+literal|"parameter in \"%V\" SSI command"
+argument_list|,
+operator|&
+name|ctx
+operator|->
+name|param
+operator|->
+name|value
+argument_list|,
+name|ch
+argument_list|,
+operator|&
+name|ctx
+operator|->
+name|param
+operator|->
+name|key
+argument_list|,
+operator|&
+name|ctx
+operator|->
+name|command
+argument_list|)
+expr_stmt|;
+name|state
+operator|=
+name|ssi_error_state
+expr_stmt|;
+break|break;
+block|}
 name|ctx
 operator|->
 name|param
@@ -12834,7 +12894,7 @@ name|prev
 operator|->
 name|value_len
 argument_list|,
-literal|256
+literal|255
 argument_list|)
 expr_stmt|;
 if|if
