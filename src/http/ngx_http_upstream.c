@@ -14400,6 +14400,7 @@ name|cacheable
 operator|=
 literal|0
 expr_stmt|;
+comment|/* fall through */
 case|case
 name|NGX_ERROR
 case|:
@@ -19301,6 +19302,7 @@ literal|1
 index|]
 argument_list|)
 expr_stmt|;
+comment|/* fall through */
 default|default:
 return|return
 name|NGX_CONF_ERROR

@@ -508,7 +508,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon2c9250b20103
+DECL|enum|__anon29dbbc940103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2830,7 +2830,7 @@ name|hash
 decl_stmt|,
 name|i
 decl_stmt|;
-DECL|enum|__anon2c9250b20203
+DECL|enum|__anon29dbbc940203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -3606,7 +3606,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2c9250b20303
+DECL|enum|__anon29dbbc940303
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -3887,6 +3887,7 @@ name|plus_in_uri
 operator|=
 literal|1
 expr_stmt|;
+comment|/* fall through */
 default|default:
 operator|*
 name|u
@@ -4806,7 +4807,7 @@ name|u_char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2c9250b20403
+DECL|enum|__anon29dbbc940403
 enum|enum
 block|{
 DECL|enumerator|sw_start
