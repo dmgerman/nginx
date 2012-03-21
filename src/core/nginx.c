@@ -4008,7 +4008,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_HAVE_SCHED_SETAFFINITY
+name|NGX_HAVE_CPU_AFFINITY
 operator|)
 if|if
 condition|(
@@ -4044,8 +4044,8 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"number of the \"worker_processes\" is not equal to "
-literal|"the number of the \"worker_cpu_affinity\" mask, "
+literal|"the number of \"worker_processes\" is not equal to "
+literal|"the number of \"worker_cpu_affinity\" masks, "
 literal|"using last mask for remaining worker processes"
 argument_list|)
 expr_stmt|;
@@ -5205,7 +5205,7 @@ block|{
 if|#
 directive|if
 operator|(
-name|NGX_HAVE_SCHED_SETAFFINITY
+name|NGX_HAVE_CPU_AFFINITY
 operator|)
 name|ngx_core_conf_t
 modifier|*
@@ -5216,7 +5216,7 @@ decl_stmt|;
 name|u_char
 name|ch
 decl_stmt|;
-name|u_long
+name|uint64_t
 modifier|*
 name|mask
 decl_stmt|;
@@ -5260,7 +5260,7 @@ operator|)
 operator|*
 sizeof|sizeof
 argument_list|(
-name|long
+name|uint64_t
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5328,7 +5328,7 @@ index|]
 operator|.
 name|len
 operator|>
-literal|32
+literal|64
 condition|)
 block|{
 name|ngx_conf_log_error
@@ -5339,7 +5339,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"\"worker_cpu_affinity\" supports up to 32 CPU only"
+literal|"\"worker_cpu_affinity\" supports up to 64 CPUs only"
 argument_list|)
 expr_stmt|;
 return|return
@@ -5472,7 +5472,7 @@ block|}
 end_function
 
 begin_function
-name|u_long
+name|uint64_t
 DECL|function|ngx_get_cpu_affinity (ngx_uint_t n)
 name|ngx_get_cpu_affinity
 parameter_list|(

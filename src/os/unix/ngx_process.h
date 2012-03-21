@@ -19,6 +19,12 @@ end_define
 begin_include
 include|#
 directive|include
+file|<ngx_setaffinity.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_setproctitle.h>
 end_include
 
@@ -59,7 +65,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bfeee2f0108
+DECL|struct|__anon2780ad0b0108
 typedef|typedef
 struct|struct
 block|{
@@ -129,7 +135,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bfeee2f0208
+DECL|struct|__anon2780ad0b0208
 typedef|typedef
 struct|struct
 block|{
