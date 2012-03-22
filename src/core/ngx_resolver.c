@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2b64467d0108
+DECL|struct|__anon2b085ac50108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b64467d0208
+DECL|struct|__anon2b085ac50208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b64467d0308
+DECL|struct|__anon2b085ac50308
 typedef|typedef
 struct|struct
 block|{
@@ -8223,6 +8223,10 @@ condition|(
 name|len
 operator|==
 literal|0
+operator|||
+name|len
+operator|>
+literal|255
 condition|)
 block|{
 return|return
@@ -8245,6 +8249,21 @@ block|}
 name|p
 operator|--
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|len
+operator|==
+literal|0
+operator|||
+name|len
+operator|>
+literal|255
+condition|)
+block|{
+return|return
+name|NGX_DECLINED
+return|;
 block|}
 operator|*
 name|p
