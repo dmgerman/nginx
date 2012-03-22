@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bef6adc0108
+DECL|struct|__anon2c1bcb3e0108
 typedef|typedef
 struct|struct
 block|{
@@ -15382,8 +15382,6 @@ operator|(
 name|NGX_CONF_BITMASK_SET
 operator||
 name|NGX_HTTP_KEEPALIVE_DISABLE_MSIE6
-operator||
-name|NGX_HTTP_KEEPALIVE_DISABLE_SAFARI
 operator|)
 argument_list|)
 expr_stmt|;
