@@ -6734,6 +6734,17 @@ literal|7
 operator|-
 literal|1
 argument_list|)
+operator|&&
+name|ngx_strstrn
+argument_list|(
+name|user_agent
+argument_list|,
+literal|"Mac OS X"
+argument_list|,
+literal|8
+operator|-
+literal|1
+argument_list|)
 condition|)
 block|{
 name|r
@@ -7561,7 +7572,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon2b4f71200103
+DECL|enum|__anon2b63be5c0103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
