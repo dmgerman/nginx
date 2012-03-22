@@ -96,7 +96,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c0a7aa10108
+DECL|struct|__anon2870be650108
 typedef|typedef
 struct|struct
 block|{
@@ -117,7 +117,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0a7aa10208
+DECL|struct|__anon2870be650208
 typedef|typedef
 struct|struct
 block|{
@@ -138,7 +138,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0a7aa10308
+DECL|struct|__anon2870be650308
 typedef|typedef
 struct|struct
 block|{
@@ -158,7 +158,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0a7aa10408
+DECL|struct|__anon2870be650408
 typedef|typedef
 struct|struct
 block|{
@@ -187,7 +187,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0a7aa10508
+DECL|struct|__anon2870be650508
 typedef|typedef
 struct|struct
 block|{
@@ -2676,8 +2676,6 @@ operator|+
 name|string
 operator|.
 name|len
-operator|-
-literal|1
 expr_stmt|;
 while|while
 condition|(
