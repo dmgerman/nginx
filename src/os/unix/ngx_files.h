@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fd00110108
+DECL|struct|__anon289d6f670108
 typedef|typedef
 struct|struct
 block|{
@@ -88,7 +88,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fd00110208
+DECL|struct|__anon289d6f670208
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fd00110308
+DECL|struct|__anon289d6f670308
 typedef|typedef
 struct|struct
 block|{
@@ -989,7 +989,7 @@ name|p
 parameter_list|,
 name|r
 parameter_list|)
-value|realpath((char *) p, (char *) r)
+value|(u_char *) realpath((char *) p, (char *) r)
 end_define
 
 begin_define
@@ -1032,6 +1032,23 @@ parameter_list|)
 value|((c) == '/')
 end_define
 
+begin_if
+if|#
+directive|if
+name|defined
+argument_list|(
+name|PATH_MAX
+argument_list|)
+end_if
+
+begin_define
+DECL|macro|NGX_HAVE_MAX_PATH
+define|#
+directive|define
+name|NGX_HAVE_MAX_PATH
+value|1
+end_define
+
 begin_define
 DECL|macro|NGX_MAX_PATH
 define|#
@@ -1039,6 +1056,24 @@ directive|define
 name|NGX_MAX_PATH
 value|PATH_MAX
 end_define
+
+begin_else
+else|#
+directive|else
+end_else
+
+begin_define
+DECL|macro|NGX_MAX_PATH
+define|#
+directive|define
+name|NGX_MAX_PATH
+value|4096
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_define
 DECL|macro|NGX_DIR_MASK_LEN

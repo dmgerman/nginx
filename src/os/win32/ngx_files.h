@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3881eb0108
+DECL|struct|__anon2b67d7390108
 typedef|typedef
 struct|struct
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3881eb0208
+DECL|struct|__anon2b67d7390208
 typedef|typedef
 struct|struct
 block|{
@@ -128,7 +128,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3881eb0308
+DECL|struct|__anon2b67d7390308
 typedef|typedef
 struct|struct
 block|{
@@ -841,6 +841,14 @@ parameter_list|(
 name|c
 parameter_list|)
 value|((c) == '/' || (c) == '\\')
+end_define
+
+begin_define
+DECL|macro|NGX_HAVE_MAX_PATH
+define|#
+directive|define
+name|NGX_HAVE_MAX_PATH
+value|1
 end_define
 
 begin_define
