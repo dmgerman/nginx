@@ -215,6 +215,12 @@ directive|include
 file|<glob.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<time.h>
+end_include
+
 begin_if
 if|#
 directive|if
