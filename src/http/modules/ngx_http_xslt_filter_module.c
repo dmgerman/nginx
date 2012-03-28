@@ -102,7 +102,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2a07a0cc0108
+DECL|struct|__anon274fb5e40108
 typedef|typedef
 struct|struct
 block|{
@@ -123,7 +123,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a07a0cc0208
+DECL|struct|__anon274fb5e40208
 typedef|typedef
 struct|struct
 block|{
@@ -144,7 +144,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a07a0cc0308
+DECL|struct|__anon274fb5e40308
 typedef|typedef
 struct|struct
 block|{
@@ -169,7 +169,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a07a0cc0408
+DECL|struct|__anon274fb5e40408
 typedef|typedef
 struct|struct
 block|{
@@ -189,7 +189,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a07a0cc0508
+DECL|struct|__anon274fb5e40508
 typedef|typedef
 struct|struct
 block|{
@@ -224,7 +224,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a07a0cc0608
+DECL|struct|__anon274fb5e40608
 typedef|typedef
 struct|struct
 block|{
@@ -1566,6 +1566,17 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|xmlCtxtUseOptions
+argument_list|(
+name|ctxt
+argument_list|,
+name|XML_PARSE_NOENT
+operator||
+name|XML_PARSE_DTDLOAD
+operator||
+name|XML_PARSE_NOWARNING
+argument_list|)
+expr_stmt|;
 name|ctxt
 operator|->
 name|sax
@@ -1579,14 +1590,6 @@ operator|->
 name|sax
 operator|->
 name|setDocumentLocator
-operator|=
-name|NULL
-expr_stmt|;
-name|ctxt
-operator|->
-name|sax
-operator|->
-name|warning
 operator|=
 name|NULL
 expr_stmt|;
@@ -1613,18 +1616,6 @@ operator|->
 name|_private
 operator|=
 name|ctx
-expr_stmt|;
-name|ctxt
-operator|->
-name|replaceEntities
-operator|=
-literal|1
-expr_stmt|;
-name|ctxt
-operator|->
-name|loadsubset
-operator|=
-literal|1
 expr_stmt|;
 name|ctx
 operator|->
