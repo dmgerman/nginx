@@ -1828,7 +1828,7 @@ block|}
 end_function
 
 begin_function
-name|char
+name|u_char
 modifier|*
 DECL|function|ngx_realpath (u_char * path,u_char * resolved)
 name|ngx_realpath
@@ -1844,10 +1844,6 @@ parameter_list|)
 block|{
 comment|/* STUB */
 return|return
-operator|(
-name|char
-operator|*
-operator|)
 name|path
 return|;
 block|}
