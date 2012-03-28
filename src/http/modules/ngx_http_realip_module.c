@@ -46,26 +46,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2912e2410108
-typedef|typedef
-struct|struct
-block|{
-DECL|member|mask
-name|in_addr_t
-name|mask
-decl_stmt|;
-DECL|member|addr
-name|in_addr_t
-name|addr
-decl_stmt|;
-DECL|typedef|ngx_http_realip_from_t
-block|}
-name|ngx_http_realip_from_t
-typedef|;
-end_typedef
-
-begin_typedef
-DECL|struct|__anon2912e2410208
+DECL|struct|__anon2c7303c60108
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +55,7 @@ name|ngx_array_t
 modifier|*
 name|from
 decl_stmt|;
-comment|/* array of ngx_http_realip_from_t */
+comment|/* array of ngx_in_cidr_t */
 DECL|member|type
 name|ngx_uint_t
 name|type
@@ -106,7 +87,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2912e2410308
+DECL|struct|__anon2c7303c60208
 typedef|typedef
 struct|struct
 block|{
@@ -442,6 +423,10 @@ name|sockaddr_in
 modifier|*
 name|sin
 decl_stmt|;
+name|ngx_in_cidr_t
+modifier|*
+name|from
+decl_stmt|;
 name|ngx_connection_t
 modifier|*
 name|c
@@ -449,10 +434,6 @@ decl_stmt|;
 name|ngx_http_realip_ctx_t
 modifier|*
 name|ctx
-decl_stmt|;
-name|ngx_http_realip_from_t
-modifier|*
-name|from
 decl_stmt|;
 name|ngx_http_realip_loc_conf_t
 modifier|*
@@ -1310,7 +1291,7 @@ decl_stmt|;
 name|ngx_cidr_t
 name|cidr
 decl_stmt|;
-name|ngx_http_realip_from_t
+name|ngx_in_cidr_t
 modifier|*
 name|from
 decl_stmt|;
@@ -1379,7 +1360,7 @@ literal|2
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|ngx_http_realip_from_t
+name|ngx_in_cidr_t
 argument_list|)
 argument_list|)
 expr_stmt|;
