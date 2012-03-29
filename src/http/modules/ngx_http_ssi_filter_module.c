@@ -54,7 +54,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2c805f870108
+DECL|struct|__anon29aa3cac0108
 typedef|typedef
 struct|struct
 block|{
@@ -94,7 +94,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c805f870208
+DECL|struct|__anon29aa3cac0208
 typedef|typedef
 struct|struct
 block|{
@@ -117,7 +117,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c805f870308
+DECL|struct|__anon29aa3cac0308
 typedef|typedef
 struct|struct
 block|{
@@ -141,7 +141,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c805f870403
+DECL|enum|__anon29aa3cac0403
 typedef|typedef
 enum|enum
 block|{
@@ -3620,7 +3620,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"too many SSI command paramters: \"%V\""
+literal|"too many SSI command parameters: \"%V\""
 argument_list|,
 operator|&
 name|ctx
