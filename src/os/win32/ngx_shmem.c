@@ -44,10 +44,7 @@ name|len
 operator|+
 literal|2
 operator|+
-sizeof|sizeof
-argument_list|(
 name|NGX_INT32_LEN
-argument_list|)
 argument_list|,
 name|shm
 operator|->
