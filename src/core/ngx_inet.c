@@ -1730,6 +1730,17 @@ operator|)
 case|case
 name|AF_INET6
 case|:
+if|if
+condition|(
+name|shift
+operator|>
+literal|128
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
 name|addr
 operator|=
 name|cidr
@@ -1853,6 +1864,17 @@ endif|#
 directive|endif
 default|default:
 comment|/* AF_INET */
+if|if
+condition|(
+name|shift
+operator|>
+literal|32
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
 if|if
 condition|(
 name|shift
