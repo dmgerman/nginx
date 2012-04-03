@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bdccfe60108
+DECL|struct|__anon2af187c90108
 typedef|typedef
 struct|struct
 block|{
@@ -2356,7 +2356,7 @@ name|EC_KEY
 modifier|*
 name|ecdh
 decl_stmt|;
-comment|/*      * Elliptic-Curve Diffie-Hellman parameters are either "named curves"      * from RFC 4492 section 5.1.1, or explicitely described curves over      * binary fields. OpenSSL only supports the "named curves", which provide      * maximum interoperability.      */
+comment|/*      * Elliptic-Curve Diffie-Hellman parameters are either "named curves"      * from RFC 4492 section 5.1.1, or explicitly described curves over      * binary fields. OpenSSL only supports the "named curves", which provide      * maximum interoperability.      */
 name|nid
 operator|=
 name|OBJ_sn2nid

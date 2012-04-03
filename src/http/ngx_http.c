@@ -6026,7 +6026,7 @@ argument_list|,
 name|ngx_http_cmp_conf_addrs
 argument_list|)
 expr_stmt|;
-comment|/*          * check whether all name-based servers have the same          * configuraiton as a default server for given address:port          */
+comment|/*          * check whether all name-based servers have the same          * configuration as a default server for given address:port          */
 name|addr
 operator|=
 name|port

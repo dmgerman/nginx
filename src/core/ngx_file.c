@@ -3778,7 +3778,7 @@ block|}
 end_function
 
 begin_comment
-comment|/*  * ctx->init_handler() - see ctx->alloc  * ctx->file_handler() - file handler  * ctx->pre_tree_handler() - handler is called before entering directory  * ctx->post_tree_handler() - handler is called after leaving directory  * ctx->spec_handler() - special (socket, FIFO, etc.) file handler  *  * ctx->data - some data structure, it may be the same on all levels, or  *     reallocated if ctx->alloc is nonzero  *  * ctx->alloc - a size of data structure that is allocated at every level  *     and is initilialized by ctx->init_handler()  *  * ctx->log - a log  *  * on fatal (memory) error handler must return NGX_ABORT to stop walking tree  */
+comment|/*  * ctx->init_handler() - see ctx->alloc  * ctx->file_handler() - file handler  * ctx->pre_tree_handler() - handler is called before entering directory  * ctx->post_tree_handler() - handler is called after leaving directory  * ctx->spec_handler() - special (socket, FIFO, etc.) file handler  *  * ctx->data - some data structure, it may be the same on all levels, or  *     reallocated if ctx->alloc is nonzero  *  * ctx->alloc - a size of data structure that is allocated at every level  *     and is initialized by ctx->init_handler()  *  * ctx->log - a log  *  * on fatal (memory) error handler must return NGX_ABORT to stop walking tree  */
 end_comment
 
 begin_function

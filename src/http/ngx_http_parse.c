@@ -508,7 +508,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon29dbbc940103
+DECL|enum|__anon2afbfb5f0103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2830,7 +2830,7 @@ name|hash
 decl_stmt|,
 name|i
 decl_stmt|;
-DECL|enum|__anon29dbbc940203
+DECL|enum|__anon2afbfb5f0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -3606,7 +3606,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon29dbbc940303
+DECL|enum|__anon2afbfb5f0303
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -3693,7 +3693,7 @@ operator|->
 name|uri_end
 condition|)
 block|{
-comment|/*          * we use "ch = *p++" inside the cycle, but this operation is safe,          * because after the URI there is always at least one charcter:          * the line feed          */
+comment|/*          * we use "ch = *p++" inside the cycle, but this operation is safe,          * because after the URI there is always at least one character:          * the line feed          */
 name|ngx_log_debug4
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
@@ -4807,7 +4807,7 @@ name|u_char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon29dbbc940403
+DECL|enum|__anon2afbfb5f0403
 enum|enum
 block|{
 DECL|enumerator|sw_start

@@ -5367,7 +5367,7 @@ operator|->
 expr|main
 condition|)
 block|{
-comment|/*          * the r->request_body->buf can be reused for one request only,          * the subrequests should allocate their own temporay bufs          */
+comment|/*          * the r->request_body->buf can be reused for one request only,          * the subrequests should allocate their own temporary bufs          */
 name|u
 operator|->
 name|output

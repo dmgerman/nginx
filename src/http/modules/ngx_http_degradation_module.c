@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29d9d7090108
+DECL|struct|__anon2a202f3f0108
 typedef|typedef
 struct|struct
 block|{
@@ -37,7 +37,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d9d7090208
+DECL|struct|__anon2a202f3f0208
 typedef|typedef
 struct|struct
 block|{
@@ -414,7 +414,7 @@ operator|!=
 name|sbrk_time
 condition|)
 block|{
-comment|/*              * ELF/i386 is loaded at 0x08000000, 128M              * ELF/amd64 is loaded at 0x00400000, 4M              *              * use a function address to substract the loading address              */
+comment|/*              * ELF/i386 is loaded at 0x08000000, 128M              * ELF/amd64 is loaded at 0x00400000, 4M              *              * use a function address to subtract the loading address              */
 name|sbrk_size
 operator|=
 operator|(

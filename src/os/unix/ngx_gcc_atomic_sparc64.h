@@ -4,7 +4,7 @@ comment|/*  * Copyright (C) Igor Sysoev  * Copyright (C) Nginx, Inc.  */
 end_comment
 
 begin_comment
-comment|/*  * "casa   [r1] 0x80, r2, r0"  and  * "casxa  [r1] 0x80, r2, r0"  do the following:  *  *     if ([r1] == r2) {  *         swap(r0, [r1]);  *     } else {  *         r0 = [r1];  *     }  *  * so "r0 == r2" means that the operation was successfull.  *  *  * The "r" means the general register.  * The "+r" means the general register used for both input and output.  */
+comment|/*  * "casa   [r1] 0x80, r2, r0"  and  * "casxa  [r1] 0x80, r2, r0"  do the following:  *  *     if ([r1] == r2) {  *         swap(r0, [r1]);  *     } else {  *         r0 = [r1];  *     }  *  * so "r0 == r2" means that the operation was successful.  *  *  * The "r" means the general register.  * The "+r" means the general register used for both input and output.  */
 end_comment
 
 begin_if

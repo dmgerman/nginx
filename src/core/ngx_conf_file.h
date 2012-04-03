@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_comment
-comment|/*  *        AAAA  number of agruments  *      FF      command flags  *    TT        command type, i.e. HTTP "location" or "server" command  */
+comment|/*  *        AAAA  number of arguments  *      FF      command flags  *    TT        command type, i.e. HTTP "location" or "server" command  */
 end_comment
 
 begin_define
@@ -622,7 +622,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29578c8d0108
+DECL|struct|__anon296595a00108
 typedef|typedef
 struct|struct
 block|{
@@ -667,7 +667,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29578c8d0208
+DECL|struct|__anon296595a00208
 typedef|typedef
 struct|struct
 block|{
@@ -807,7 +807,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29578c8d0308
+DECL|struct|__anon296595a00308
 typedef|typedef
 struct|struct
 block|{
@@ -822,7 +822,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29578c8d0408
+DECL|struct|__anon296595a00408
 typedef|typedef
 struct|struct
 block|{
@@ -847,7 +847,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29578c8d0508
+DECL|struct|__anon296595a00508
 typedef|typedef
 struct|struct
 block|{
@@ -870,7 +870,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29578c8d0608
+DECL|struct|__anon296595a00608
 typedef|typedef
 struct|struct
 block|{
@@ -897,7 +897,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon29578c8d0708
+DECL|struct|__anon296595a00708
 typedef|typedef
 struct|struct
 block|{

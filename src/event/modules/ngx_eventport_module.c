@@ -114,7 +114,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon29335a530108
+DECL|struct|__anon292e79170108
 typedef|typedef
 struct|struct
 block|{
@@ -388,7 +388,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29335a530208
+DECL|struct|__anon292e79170208
 typedef|typedef
 struct|struct
 block|{
@@ -1358,7 +1358,7 @@ name|ngx_connection_t
 modifier|*
 name|c
 decl_stmt|;
-comment|/*      * when the file descriptor is closed, the event port automatically      * dissociates it from the port, so we do not need to dissociate explicity      * the event before the closing the file descriptor      */
+comment|/*      * when the file descriptor is closed, the event port automatically      * dissociates it from the port, so we do not need to dissociate explicitly      * the event before the closing the file descriptor      */
 if|if
 condition|(
 name|flags

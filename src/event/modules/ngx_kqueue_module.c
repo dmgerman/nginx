@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c5a94200108
+DECL|struct|__anon2a14f2ca0108
 typedef|typedef
 struct|struct
 block|{
@@ -1332,7 +1332,7 @@ return|return
 name|NGX_OK
 return|;
 block|}
-comment|/*      * when the file descriptor is closed the kqueue automatically deletes      * its filters so we do not need to delete explicity the event      * before the closing the file descriptor.      */
+comment|/*      * when the file descriptor is closed the kqueue automatically deletes      * its filters so we do not need to delete explicitly the event      * before the closing the file descriptor.      */
 if|if
 condition|(
 name|flags

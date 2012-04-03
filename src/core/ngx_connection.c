@@ -3255,7 +3255,7 @@ operator|&
 name|NGX_USE_EPOLL_EVENT
 condition|)
 block|{
-comment|/*                      * it seems that Linux-2.6.x OpenVZ sends events                      * for closed shared listening sockets unless                      * the events was explicity deleted                      */
+comment|/*                      * it seems that Linux-2.6.x OpenVZ sends events                      * for closed shared listening sockets unless                      * the events was explicitly deleted                      */
 name|ngx_del_event
 argument_list|(
 name|c

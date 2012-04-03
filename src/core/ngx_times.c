@@ -102,7 +102,7 @@ operator|)
 end_if
 
 begin_comment
-comment|/*  * locatime() and localtime_r() are not Async-Signal-Safe functions, therefore,  * they must not be called by a signal handler, so we use the cached  * GMT offset value. Fortunately the value is changed only two times a year.  */
+comment|/*  * localtime() and localtime_r() are not Async-Signal-Safe functions, therefore,  * they must not be called by a signal handler, so we use the cached  * GMT offset value. Fortunately the value is changed only two times a year.  */
 end_comment
 
 begin_decl_stmt
@@ -1320,7 +1320,7 @@ operator|)
 operator|+
 literal|719527
 expr_stmt|;
-comment|/*      * The "days" should be adjusted to 1 only, however, some March 1st's go      * to previous year, so we adjust them to 2.  This causes also shift of the      * last Feburary days to next year, but we catch the case when "yday"      * becomes negative.      */
+comment|/*      * The "days" should be adjusted to 1 only, however, some March 1st's go      * to previous year, so we adjust them to 2.  This causes also shift of the      * last February days to next year, but we catch the case when "yday"      * becomes negative.      */
 name|year
 operator|=
 operator|(

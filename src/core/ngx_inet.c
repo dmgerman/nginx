@@ -2003,7 +2003,7 @@ name|sockaddr_in6
 modifier|*
 name|sin6
 decl_stmt|;
-comment|/*      * prevent MSVC8 waring:      *    potentially uninitialized local variable 'inaddr6' used      */
+comment|/*      * prevent MSVC8 warning:      *    potentially uninitialized local variable 'inaddr6' used      */
 name|ngx_memzero
 argument_list|(
 name|inaddr6

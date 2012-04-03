@@ -373,7 +373,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29c4af440108
+DECL|struct|__anon27b3fe880108
 typedef|typedef
 struct|struct
 block|{
@@ -1813,7 +1813,7 @@ name|struct
 name|epoll_event
 name|ee
 decl_stmt|;
-comment|/*      * when the file descriptor is closed, the epoll automatically deletes      * it from its queue, so we do not need to delete explicity the event      * before the closing the file descriptor      */
+comment|/*      * when the file descriptor is closed, the epoll automatically deletes      * it from its queue, so we do not need to delete explicitly the event      * before the closing the file descriptor      */
 if|if
 condition|(
 name|flags
@@ -2164,7 +2164,7 @@ name|struct
 name|epoll_event
 name|ee
 decl_stmt|;
-comment|/*      * when the file descriptor is closed the epoll automatically deletes      * it from its queue so we do not need to delete explicity the event      * before the closing the file descriptor      */
+comment|/*      * when the file descriptor is closed the epoll automatically deletes      * it from its queue so we do not need to delete explicitly the event      * before the closing the file descriptor      */
 if|if
 condition|(
 name|flags
