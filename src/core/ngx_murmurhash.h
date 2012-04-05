@@ -48,7 +48,7 @@ directive|endif
 end_endif
 
 begin_comment
-comment|/* _NGX_CRC_H_INCLUDED_ */
+comment|/* _NGX_MURMURHASH_H_INCLUDED_ */
 end_comment
 
 end_unit
