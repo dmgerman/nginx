@@ -16,8 +16,8 @@ file|<ngx_core.h>
 end_include
 
 begin_function
-DECL|function|ngx_daemon (ngx_log_t * log)
 name|ngx_int_t
+DECL|function|ngx_daemon (ngx_log_t * log)
 name|ngx_daemon
 parameter_list|(
 name|ngx_log_t
