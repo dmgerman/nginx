@@ -42,7 +42,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon29e192940108
+DECL|struct|__anon29fa694c0108
 typedef|typedef
 struct|struct
 block|{
@@ -75,7 +75,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e192940208
+DECL|struct|__anon29fa694c0208
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e192940308
+DECL|struct|__anon29fa694c0308
 typedef|typedef
 struct|struct
 block|{
@@ -128,7 +128,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e192940408
+DECL|struct|__anon29fa694c0408
 typedef|typedef
 struct|struct
 block|{
@@ -1616,6 +1616,12 @@ operator|->
 name|modern_browsers
 operator|==
 name|NULL
+operator|&&
+name|conf
+operator|->
+name|modern_unlisted_browsers
+operator|==
+literal|0
 condition|)
 block|{
 name|conf
@@ -1626,8 +1632,23 @@ name|prev
 operator|->
 name|modern_browsers
 expr_stmt|;
+name|conf
+operator|->
+name|modern_unlisted_browsers
+operator|=
+name|prev
+operator|->
+name|modern_unlisted_browsers
+expr_stmt|;
 block|}
-else|else
+if|else if
+condition|(
+name|conf
+operator|->
+name|modern_browsers
+operator|!=
+name|NULL
+condition|)
 block|{
 name|browsers
 operator|=
@@ -1822,6 +1843,12 @@ operator|->
 name|ancient_browsers
 operator|==
 name|NULL
+operator|&&
+name|conf
+operator|->
+name|netscape4
+operator|==
+literal|0
 condition|)
 block|{
 name|conf
@@ -1831,6 +1858,14 @@ operator|=
 name|prev
 operator|->
 name|ancient_browsers
+expr_stmt|;
+name|conf
+operator|->
+name|netscape4
+operator|=
+name|prev
+operator|->
+name|netscape4
 expr_stmt|;
 block|}
 if|if
