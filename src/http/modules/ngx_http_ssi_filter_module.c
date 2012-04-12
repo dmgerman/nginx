@@ -54,7 +54,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon29aa3cac0108
+DECL|struct|__anon299dbd240108
 typedef|typedef
 struct|struct
 block|{
@@ -94,7 +94,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29aa3cac0208
+DECL|struct|__anon299dbd240208
 typedef|typedef
 struct|struct
 block|{
@@ -117,7 +117,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29aa3cac0308
+DECL|struct|__anon299dbd240308
 typedef|typedef
 struct|struct
 block|{
@@ -141,7 +141,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29aa3cac0403
+DECL|enum|__anon299dbd240403
 typedef|typedef
 enum|enum
 block|{
@@ -8871,7 +8871,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"\"set\" and \"stub\" may not be used together "
+literal|"\"set\" and \"stub\" cannot be used together "
 literal|"in \"include\" SSI command"
 argument_list|)
 expr_stmt|;
@@ -8903,7 +8903,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"\"wait\" may not be used with file=\"%V\""
+literal|"\"wait\" cannot be used with file=\"%V\""
 argument_list|,
 name|file
 argument_list|)
@@ -9741,7 +9741,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"only one subrequest may be waited at the same time"
+literal|"can only wait for one subrequest at a time"
 argument_list|)
 expr_stmt|;
 block|}

@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2afc66c00108
+DECL|struct|__anon292a3cc00108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2afc66c00208
+DECL|struct|__anon292a3cc00208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2afc66c00308
+DECL|struct|__anon292a3cc00308
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2afc66c00408
+DECL|struct|__anon292a3cc00408
 typedef|typedef
 struct|struct
 block|{
@@ -185,11 +185,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2afc66c00508
+DECL|struct|__anon292a3cc00508
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon2afc66c0060a
+DECL|union|__anon292a3cc0060a
 union|union
 block|{
 DECL|member|tree
@@ -634,7 +634,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2afc66c00708
+DECL|struct|__anon292a3cc00708
 typedef|typedef
 struct|struct
 block|{
@@ -2596,7 +2596,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"binary geo range base \"%s\" may not be mixed with usual entries"
+literal|"binary geo range base \"%s\" cannot be mixed with usual entries"
 argument_list|,
 name|ctx
 operator|->
@@ -5638,7 +5638,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"binary geo range base \"%s\" may not be mixed with usual entries"
+literal|"binary geo range base \"%s\" cannot be mixed with usual entries"
 argument_list|,
 name|name
 operator|->
@@ -5668,7 +5668,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"second binary geo range base \"%s\" may not be mixed with \"%s\""
+literal|"second binary geo range base \"%s\" cannot be mixed with \"%s\""
 argument_list|,
 name|name
 operator|->

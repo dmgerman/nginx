@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b5095bf0108
+DECL|struct|__anon2b7a2b6a0108
 typedef|typedef
 struct|struct
 block|{
@@ -41,7 +41,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5095bf0208
+DECL|struct|__anon2b7a2b6a0208
 typedef|typedef
 struct|struct
 block|{
@@ -726,7 +726,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"percent sum is more than 100%%"
+literal|"percent total is greater than 100%%"
 argument_list|)
 expr_stmt|;
 return|return

@@ -69,7 +69,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon27a7618b010a
+DECL|union|__anon2c4a98d6010a
 union|union
 block|{
 DECL|member|complex
@@ -101,7 +101,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27a7618b0208
+DECL|struct|__anon2c4a98d60208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a7618b0308
+DECL|struct|__anon2c4a98d60308
 typedef|typedef
 struct|struct
 block|{
@@ -253,7 +253,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a7618b0408
+DECL|struct|__anon2c4a98d60408
 typedef|typedef
 struct|struct
 block|{
@@ -8010,7 +8010,7 @@ name|ngx_http_proxy_ctx_t
 modifier|*
 name|ctx
 decl_stmt|;
-DECL|enum|__anon27a7618b0503
+DECL|enum|__anon2c4a98d60503
 enum|enum
 block|{
 DECL|enumerator|sw_chunk_start
@@ -12649,8 +12649,8 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"\"proxy_busy_buffers_size\" must be equal or bigger than "
-literal|"maximum of the value of \"proxy_buffer_size\" and "
+literal|"\"proxy_busy_buffers_size\" must be equal to or greater than "
+literal|"the maximum of the value of \"proxy_buffer_size\" and "
 literal|"one of the \"proxy_buffers\""
 argument_list|)
 expr_stmt|;
@@ -12776,8 +12776,8 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"\"proxy_temp_file_write_size\" must be equal or bigger than "
-literal|"maximum of the value of \"proxy_buffer_size\" and "
+literal|"\"proxy_temp_file_write_size\" must be equal to or greater "
+literal|"than the maximum of the value of \"proxy_buffer_size\" and "
 literal|"one of the \"proxy_buffers\""
 argument_list|)
 expr_stmt|;
@@ -12869,8 +12869,8 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"\"proxy_max_temp_file_size\" must be equal to zero to disable "
-literal|"the temporary files usage or must be equal or bigger than "
-literal|"maximum of the value of \"proxy_buffer_size\" and "
+literal|"temporary files usage or must be equal to or greater than "
+literal|"the maximum of the value of \"proxy_buffer_size\" and "
 literal|"one of the \"proxy_buffers\""
 argument_list|)
 expr_stmt|;
@@ -16173,11 +16173,11 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"\"proxy_pass\" may not have URI part in "
+literal|"\"proxy_pass\" cannot have URI part in "
 literal|"location given by regular expression, "
 literal|"or inside named location, "
-literal|"or inside the \"if\" statement, "
-literal|"or inside the \"limit_except\" block"
+literal|"or inside \"if\" statement, "
+literal|"or inside \"limit_except\" block"
 argument_list|)
 expr_stmt|;
 return|return
@@ -16494,7 +16494,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"\"proxy_redirect default\" may not be used "
+literal|"\"proxy_redirect default\" cannot be used "
 literal|"with \"proxy_pass\" directive with variables"
 argument_list|)
 expr_stmt|;
@@ -16521,7 +16521,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"\"proxy_redirect default\" must go "
+literal|"\"proxy_redirect default\" should be placed "
 literal|"after the \"proxy_pass\" directive"
 argument_list|)
 expr_stmt|;

@@ -2678,7 +2678,7 @@ name|ngx_errno
 argument_list|,
 name|ngx_rename_file_n
 literal|" %s back to %s failed after "
-literal|"the try to execute the new binary process \"%s\""
+literal|"an attempt to execute new binary process \"%s\""
 argument_list|,
 name|ccf
 operator|->

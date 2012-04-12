@@ -407,7 +407,7 @@ name|prev
 decl_stmt|,
 name|conf_file
 decl_stmt|;
-DECL|enum|__anon290b87a40103
+DECL|enum|__anon2b9fd1040103
 enum|enum
 block|{
 DECL|enumerator|parse_file
@@ -6072,7 +6072,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"value must be equal or more than %i"
+literal|"value must be equal to or greater than %i"
 argument_list|,
 name|bounds
 operator|->

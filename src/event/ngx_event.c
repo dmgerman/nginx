@@ -1778,7 +1778,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"%ui worker_connections are more than "
+literal|"%ui worker_connections exceed "
 literal|"open file resource limit: %i"
 argument_list|,
 name|ecf
@@ -1816,7 +1816,7 @@ return|return
 name|NGX_OK
 return|;
 block|}
-comment|/* cl should be equal or bigger than cache line size */
+comment|/* cl should be equal to or greater than cache line size */
 name|cl
 operator|=
 literal|128

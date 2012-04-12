@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27c280880108
+DECL|struct|__anon28b7fa8b0108
 typedef|typedef
 struct|struct
 block|{
@@ -5564,8 +5564,8 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"\"scgi_busy_buffers_size\" must be equal or bigger "
-literal|"than maximum of the value of \"scgi_buffer_size\" and "
+literal|"\"scgi_busy_buffers_size\" must be equal to or greater "
+literal|"than the maximum of the value of \"scgi_buffer_size\" and "
 literal|"one of the \"scgi_buffers\""
 argument_list|)
 expr_stmt|;
@@ -5691,8 +5691,8 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"\"scgi_temp_file_write_size\" must be equal or bigger than "
-literal|"maximum of the value of \"scgi_buffer_size\" and "
+literal|"\"scgi_temp_file_write_size\" must be equal to or greater than "
+literal|"the maximum of the value of \"scgi_buffer_size\" and "
 literal|"one of the \"scgi_buffers\""
 argument_list|)
 expr_stmt|;
@@ -5784,8 +5784,8 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"\"scgi_max_temp_file_size\" must be equal to zero to disable "
-literal|"the temporary files usage or must be equal or bigger than "
-literal|"maximum of the value of \"scgi_buffer_size\" and "
+literal|"temporary files usage or must be equal to or greater than "
+literal|"the maximum of the value of \"scgi_buffer_size\" and "
 literal|"one of the \"scgi_buffers\""
 argument_list|)
 expr_stmt|;

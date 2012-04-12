@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27a15c640108
+DECL|struct|__anon2b2f7c0f0108
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27a15c640203
+DECL|enum|__anon2b2f7c0f0203
 typedef|typedef
 enum|enum
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a15c640308
+DECL|struct|__anon2b2f7c0f0308
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a15c640408
+DECL|struct|__anon2b2f7c0f0408
 typedef|typedef
 struct|struct
 block|{
@@ -320,7 +320,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon27a15c640508
+DECL|struct|__anon2b2f7c0f0508
 typedef|typedef
 struct|struct
 block|{
@@ -363,7 +363,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a15c640608
+DECL|struct|__anon2b2f7c0f0608
 typedef|typedef
 struct|struct
 block|{
@@ -393,7 +393,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a15c640708
+DECL|struct|__anon2b2f7c0f0708
 typedef|typedef
 struct|struct
 block|{
@@ -420,7 +420,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a15c640808
+DECL|struct|__anon2b2f7c0f0808
 typedef|typedef
 struct|struct
 block|{
@@ -5928,7 +5928,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"upstream closed prematurely FastCGI stdout"
+literal|"upstream prematurely closed FastCGI stdout"
 argument_list|)
 expr_stmt|;
 return|return
@@ -10018,8 +10018,8 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"\"fastcgi_busy_buffers_size\" must be equal or bigger than "
-literal|"maximum of the value of \"fastcgi_buffer_size\" and "
+literal|"\"fastcgi_busy_buffers_size\" must be equal to or greater than "
+literal|"the maximum of the value of \"fastcgi_buffer_size\" and "
 literal|"one of the \"fastcgi_buffers\""
 argument_list|)
 expr_stmt|;
@@ -10145,8 +10145,8 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"\"fastcgi_temp_file_write_size\" must be equal or bigger than "
-literal|"maximum of the value of \"fastcgi_buffer_size\" and "
+literal|"\"fastcgi_temp_file_write_size\" must be equal to or greater "
+literal|"than the maximum of the value of \"fastcgi_buffer_size\" and "
 literal|"one of the \"fastcgi_buffers\""
 argument_list|)
 expr_stmt|;
@@ -10238,8 +10238,8 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"\"fastcgi_max_temp_file_size\" must be equal to zero to disable "
-literal|"the temporary files usage or must be equal or bigger than "
-literal|"maximum of the value of \"fastcgi_buffer_size\" and "
+literal|"temporary files usage or must be equal to or greater than "
+literal|"the maximum of the value of \"fastcgi_buffer_size\" and "
 literal|"one of the \"fastcgi_buffers\""
 argument_list|)
 expr_stmt|;

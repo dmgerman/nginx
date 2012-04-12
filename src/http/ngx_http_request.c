@@ -5184,7 +5184,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"client closed prematurely connection"
+literal|"client prematurely closed connection"
 argument_list|)
 expr_stmt|;
 block|}
@@ -7572,7 +7572,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon2b63be5c0103
+DECL|enum|__anon29373b9e0103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -10498,7 +10498,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"client closed prematurely connection"
+literal|"client prematurely closed connection"
 argument_list|)
 expr_stmt|;
 name|ngx_http_finalize_request

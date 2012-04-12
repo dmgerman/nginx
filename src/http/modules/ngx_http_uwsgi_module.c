@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2930e64f0108
+DECL|struct|__anon288e198b0108
 typedef|typedef
 struct|struct
 block|{
@@ -5825,8 +5825,8 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"\"uwsgi_busy_buffers_size\" must be equal or bigger "
-literal|"than maximum of the value of \"uwsgi_buffer_size\" and "
+literal|"\"uwsgi_busy_buffers_size\" must be equal to or greater "
+literal|"than the maximum of the value of \"uwsgi_buffer_size\" and "
 literal|"one of the \"uwsgi_buffers\""
 argument_list|)
 expr_stmt|;
@@ -5952,8 +5952,8 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"\"uwsgi_temp_file_write_size\" must be equal or bigger than "
-literal|"maximum of the value of \"uwsgi_buffer_size\" and "
+literal|"\"uwsgi_temp_file_write_size\" must be equal to or greater than "
+literal|"the maximum of the value of \"uwsgi_buffer_size\" and "
 literal|"one of the \"uwsgi_buffers\""
 argument_list|)
 expr_stmt|;
@@ -6045,8 +6045,8 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"\"uwsgi_max_temp_file_size\" must be equal to zero to disable "
-literal|"the temporary files usage or must be equal or bigger than "
-literal|"maximum of the value of \"uwsgi_buffer_size\" and "
+literal|"temporary files usage or must be equal to or greater than "
+literal|"the maximum of the value of \"uwsgi_buffer_size\" and "
 literal|"one of the \"uwsgi_buffers\""
 argument_list|)
 expr_stmt|;

@@ -1284,7 +1284,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"client closed prematurely connection"
+literal|"client prematurely closed connection"
 argument_list|)
 expr_stmt|;
 block|}
