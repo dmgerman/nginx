@@ -2775,6 +2775,14 @@ literal|1
 expr_stmt|;
 name|c
 operator|->
+name|log
+operator|->
+name|action
+operator|=
+literal|"reading client request line"
+expr_stmt|;
+name|c
+operator|->
 name|read
 operator|->
 name|handler
@@ -7572,7 +7580,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon29373b9e0103
+DECL|enum|__anon29c7377d0103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
