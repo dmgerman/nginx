@@ -277,10 +277,6 @@ name|send
 operator|=
 literal|0
 expr_stmt|;
-name|complete
-operator|=
-literal|0
-expr_stmt|;
 name|vec
 operator|.
 name|elts
@@ -333,6 +329,10 @@ operator|=
 name|NULL
 expr_stmt|;
 name|eintr
+operator|=
+literal|0
+expr_stmt|;
+name|complete
 operator|=
 literal|0
 expr_stmt|;
