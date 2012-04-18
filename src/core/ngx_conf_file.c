@@ -407,7 +407,7 @@ name|prev
 decl_stmt|,
 name|conf_file
 decl_stmt|;
-DECL|enum|__anon2b9fd1040103
+DECL|enum|__anon2a2ffe980103
 enum|enum
 block|{
 DECL|enumerator|parse_file
@@ -1812,6 +1812,9 @@ operator|->
 name|nelts
 operator|>
 literal|0
+operator|||
+operator|!
+name|last_space
 condition|)
 block|{
 if|if
