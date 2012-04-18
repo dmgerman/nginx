@@ -73,6 +73,23 @@ end_decl_stmt
 
 begin_function_decl
 specifier|static
+name|char
+modifier|*
+name|ngx_event_init_conf
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|,
+name|void
+modifier|*
+name|conf
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
 name|ngx_int_t
 name|ngx_event_module_init
 parameter_list|(
@@ -183,7 +200,7 @@ begin_function_decl
 specifier|static
 name|void
 modifier|*
-name|ngx_event_create_conf
+name|ngx_event_core_create_conf
 parameter_list|(
 name|ngx_cycle_t
 modifier|*
@@ -196,7 +213,7 @@ begin_function_decl
 specifier|static
 name|char
 modifier|*
-name|ngx_event_init_conf
+name|ngx_event_core_init_conf
 parameter_list|(
 name|ngx_cycle_t
 modifier|*
@@ -493,7 +510,7 @@ argument_list|)
 block|,
 name|NULL
 block|,
-name|NULL
+name|ngx_event_init_conf
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -725,10 +742,10 @@ block|{
 operator|&
 name|event_core_name
 block|,
-name|ngx_event_create_conf
+name|ngx_event_core_create_conf
 block|,
 comment|/* create configuration */
-name|ngx_event_init_conf
+name|ngx_event_core_init_conf
 block|,
 comment|/* init configuration */
 block|{
@@ -1535,6 +1552,59 @@ end_function
 
 begin_function
 specifier|static
+name|char
+modifier|*
+DECL|function|ngx_event_init_conf (ngx_cycle_t * cycle,void * conf)
+name|ngx_event_init_conf
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|,
+name|void
+modifier|*
+name|conf
+parameter_list|)
+block|{
+if|if
+condition|(
+name|ngx_get_conf
+argument_list|(
+name|cycle
+operator|->
+name|conf_ctx
+argument_list|,
+name|ngx_events_module
+argument_list|)
+operator|==
+name|NULL
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"no \"events\" section in configuration"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
+return|return
+name|NGX_CONF_OK
+return|;
+block|}
+end_function
+
+begin_function
+specifier|static
 name|ngx_int_t
 DECL|function|ngx_event_module_init (ngx_cycle_t * cycle)
 name|ngx_event_module_init
@@ -1585,30 +1655,6 @@ argument_list|,
 name|ngx_events_module
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|cf
-operator|==
-name|NULL
-condition|)
-block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_EMERG
-argument_list|,
-name|cycle
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"no \"events\" section in configuration"
-argument_list|)
-expr_stmt|;
-return|return
-name|NGX_ERROR
-return|;
-block|}
 name|ecf
 operator|=
 operator|(
@@ -4616,8 +4662,8 @@ begin_function
 specifier|static
 name|void
 modifier|*
-DECL|function|ngx_event_create_conf (ngx_cycle_t * cycle)
-name|ngx_event_create_conf
+DECL|function|ngx_event_core_create_conf (ngx_cycle_t * cycle)
+name|ngx_event_core_create_conf
 parameter_list|(
 name|ngx_cycle_t
 modifier|*
@@ -4738,8 +4784,8 @@ begin_function
 specifier|static
 name|char
 modifier|*
-DECL|function|ngx_event_init_conf (ngx_cycle_t * cycle,void * conf)
-name|ngx_event_init_conf
+DECL|function|ngx_event_core_init_conf (ngx_cycle_t * cycle,void * conf)
+name|ngx_event_core_init_conf
 parameter_list|(
 name|ngx_cycle_t
 modifier|*
