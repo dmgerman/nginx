@@ -156,7 +156,7 @@ value|0x08
 end_define
 
 begin_typedef
-DECL|struct|__anon2bca48b00108
+DECL|struct|__anon2909a8a00108
 typedef|typedef
 struct|struct
 block|{
@@ -224,7 +224,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bca48b00208
+DECL|struct|__anon2909a8a00208
 typedef|typedef
 struct|struct
 block|{
@@ -3608,21 +3608,18 @@ expr_stmt|;
 if|if
 condition|(
 operator|(
-name|ngx_uint_t
+name|double
 operator|)
-operator|(
 name|dx
-operator|*
-literal|100
 operator|/
 name|dy
-operator|)
 operator|<
+operator|(
+name|double
+operator|)
 name|ctx
 operator|->
 name|max_width
-operator|*
-literal|100
 operator|/
 name|ctx
 operator|->
