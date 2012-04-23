@@ -69,7 +69,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon2c4a98d6010a
+DECL|union|__anon2c0588e5010a
 union|union
 block|{
 DECL|member|complex
@@ -101,7 +101,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c4a98d60208
+DECL|struct|__anon2c0588e50208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4a98d60308
+DECL|struct|__anon2c0588e50308
 typedef|typedef
 struct|struct
 block|{
@@ -253,7 +253,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4a98d60408
+DECL|struct|__anon2c0588e50408
 typedef|typedef
 struct|struct
 block|{
@@ -7445,6 +7445,17 @@ argument_list|,
 name|ngx_http_proxy_module
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|ctx
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
 name|ngx_log_debug4
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
@@ -8010,7 +8021,7 @@ name|ngx_http_proxy_ctx_t
 modifier|*
 name|ctx
 decl_stmt|;
-DECL|enum|__anon2c4a98d60503
+DECL|enum|__anon2c0588e50503
 enum|enum
 block|{
 DECL|enumerator|sw_chunk_start
@@ -8065,6 +8076,17 @@ argument_list|,
 name|ngx_http_proxy_module
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|ctx
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
 name|state
 operator|=
 name|ctx
@@ -8842,6 +8864,17 @@ argument_list|,
 name|ngx_http_proxy_module
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|ctx
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
 name|b
 operator|=
 name|NULL
@@ -9594,6 +9627,17 @@ argument_list|,
 name|ngx_http_proxy_module
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|ctx
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
 name|u
 operator|=
 name|r
