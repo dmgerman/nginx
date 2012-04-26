@@ -946,7 +946,17 @@ name|b
 operator|->
 name|last_buf
 operator|=
+operator|(
+name|r
+operator|==
+name|r
+operator|->
+expr|main
+operator|)
+condition|?
 literal|1
+else|:
+literal|0
 expr_stmt|;
 name|b
 operator|->

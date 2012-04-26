@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28ecfcdb0108
+DECL|struct|__anon2ac2fdcd0108
 typedef|typedef
 struct|struct
 block|{
@@ -969,7 +969,17 @@ name|b
 operator|->
 name|last_buf
 operator|=
+operator|(
+name|r
+operator|==
+name|r
+operator|->
+expr|main
+operator|)
+condition|?
 literal|1
+else|:
+literal|0
 expr_stmt|;
 name|b
 operator|->
