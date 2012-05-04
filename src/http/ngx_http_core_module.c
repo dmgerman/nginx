@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bbcabc30108
+DECL|struct|__anon276644010108
 typedef|typedef
 struct|struct
 block|{
@@ -11027,6 +11027,12 @@ operator|->
 name|phase_engine
 operator|.
 name|location_rewrite_index
+expr_stmt|;
+name|r
+operator|->
+name|write_event_handler
+operator|=
+name|ngx_http_core_run_phases
 expr_stmt|;
 name|ngx_http_core_run_phases
 argument_list|(
