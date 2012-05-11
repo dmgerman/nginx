@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon288e198b0108
+DECL|struct|__anon278c12c60108
 typedef|typedef
 struct|struct
 block|{
@@ -2005,6 +2005,12 @@ operator|->
 name|finalize_request
 operator|=
 name|ngx_http_uwsgi_finalize_request
+expr_stmt|;
+name|r
+operator|->
+name|state
+operator|=
+literal|0
 expr_stmt|;
 name|u
 operator|->
@@ -4174,6 +4180,12 @@ operator|->
 name|process_header
 operator|=
 name|ngx_http_uwsgi_process_status_line
+expr_stmt|;
+name|r
+operator|->
+name|state
+operator|=
+literal|0
 expr_stmt|;
 return|return
 name|NGX_OK
