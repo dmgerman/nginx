@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29f955c50108
+DECL|struct|__anon29aecc9c0108
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29f955c50203
+DECL|enum|__anon29aecc9c0203
 typedef|typedef
 enum|enum
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f955c50308
+DECL|struct|__anon29aecc9c0308
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f955c50408
+DECL|struct|__anon29aecc9c0408
 typedef|typedef
 struct|struct
 block|{
@@ -320,7 +320,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon29f955c50508
+DECL|struct|__anon29aecc9c0508
 typedef|typedef
 struct|struct
 block|{
@@ -363,7 +363,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f955c50608
+DECL|struct|__anon29aecc9c0608
 typedef|typedef
 struct|struct
 block|{
@@ -393,7 +393,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f955c50708
+DECL|struct|__anon29aecc9c0708
 typedef|typedef
 struct|struct
 block|{
@@ -420,7 +420,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f955c50808
+DECL|struct|__anon29aecc9c0808
 typedef|typedef
 struct|struct
 block|{
@@ -6420,12 +6420,29 @@ block|}
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|f
+operator|->
+name|padding
+condition|)
+block|{
+name|f
+operator|->
+name|state
+operator|=
+name|ngx_http_fastcgi_st_padding
+expr_stmt|;
+block|}
+else|else
+block|{
 name|f
 operator|->
 name|state
 operator|=
 name|ngx_http_fastcgi_st_version
 expr_stmt|;
+block|}
 block|}
 continue|continue;
 block|}
@@ -8012,12 +8029,29 @@ operator|==
 literal|0
 condition|)
 block|{
+if|if
+condition|(
+name|f
+operator|->
+name|padding
+condition|)
+block|{
+name|f
+operator|->
+name|state
+operator|=
+name|ngx_http_fastcgi_st_padding
+expr_stmt|;
+block|}
+else|else
+block|{
 name|f
 operator|->
 name|state
 operator|=
 name|ngx_http_fastcgi_st_version
 expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
@@ -8057,12 +8091,29 @@ operator|==
 name|NGX_HTTP_FASTCGI_END_REQUEST
 condition|)
 block|{
+if|if
+condition|(
+name|f
+operator|->
+name|padding
+condition|)
+block|{
+name|f
+operator|->
+name|state
+operator|=
+name|ngx_http_fastcgi_st_padding
+expr_stmt|;
+block|}
+else|else
+block|{
 name|f
 operator|->
 name|state
 operator|=
 name|ngx_http_fastcgi_st_version
 expr_stmt|;
+block|}
 name|p
 operator|->
 name|upstream_done
@@ -8354,12 +8405,29 @@ block|}
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|f
+operator|->
+name|padding
+condition|)
+block|{
+name|f
+operator|->
+name|state
+operator|=
+name|ngx_http_fastcgi_st_padding
+expr_stmt|;
+block|}
+else|else
+block|{
 name|f
 operator|->
 name|state
 operator|=
 name|ngx_http_fastcgi_st_version
 expr_stmt|;
+block|}
 block|}
 continue|continue;
 block|}
