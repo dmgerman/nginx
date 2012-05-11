@@ -149,6 +149,22 @@ value|EINVAL
 end_define
 
 begin_define
+DECL|macro|NGX_ENFILE
+define|#
+directive|define
+name|NGX_ENFILE
+value|ENFILE
+end_define
+
+begin_define
+DECL|macro|NGX_EMFILE
+define|#
+directive|define
+name|NGX_EMFILE
+value|EMFILE
+end_define
+
+begin_define
 DECL|macro|NGX_ENOSPC
 define|#
 directive|define

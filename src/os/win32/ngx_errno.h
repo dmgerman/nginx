@@ -306,6 +306,22 @@ name|NGX_EINVAL
 value|WSAEINVAL
 end_define
 
+begin_define
+DECL|macro|NGX_EMFILE
+define|#
+directive|define
+name|NGX_EMFILE
+value|WSAEMFILE
+end_define
+
+begin_define
+DECL|macro|NGX_ENFILE
+define|#
+directive|define
+name|NGX_ENFILE
+value|WSAEMFILE
+end_define
+
 begin_function_decl
 name|u_char
 modifier|*
