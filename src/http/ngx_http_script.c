@@ -4826,14 +4826,6 @@ name|len
 operator|=
 name|len
 expr_stmt|;
-name|e
-operator|->
-name|is_args
-operator|=
-name|le
-operator|.
-name|is_args
-expr_stmt|;
 block|}
 if|if
 condition|(
