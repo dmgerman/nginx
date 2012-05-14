@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon28842b4f0108
+DECL|struct|__anon27730e870108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28842b4f0208
+DECL|struct|__anon27730e870208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28842b4f0308
+DECL|struct|__anon27730e870308
 typedef|typedef
 struct|struct
 block|{
@@ -2355,6 +2355,13 @@ name|queue
 argument_list|)
 expr_stmt|;
 comment|/* lock alloc mutex */
+if|if
+condition|(
+name|rn
+operator|->
+name|query
+condition|)
+block|{
 name|ngx_resolver_free_locked
 argument_list|(
 name|r
@@ -2370,6 +2377,7 @@ name|query
 operator|=
 name|NULL
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|rn
@@ -6282,6 +6290,21 @@ name|addrs
 argument_list|)
 expr_stmt|;
 block|}
+name|ngx_resolver_free
+argument_list|(
+name|r
+argument_list|,
+name|rn
+operator|->
+name|query
+argument_list|)
+expr_stmt|;
+name|rn
+operator|->
+name|query
+operator|=
+name|NULL
+expr_stmt|;
 return|return;
 block|}
 if|else if
@@ -6437,6 +6460,21 @@ name|ctx
 argument_list|)
 expr_stmt|;
 block|}
+name|ngx_resolver_free
+argument_list|(
+name|r
+argument_list|,
+name|rn
+operator|->
+name|query
+argument_list|)
+expr_stmt|;
+name|rn
+operator|->
+name|query
+operator|=
+name|NULL
+expr_stmt|;
 return|return;
 block|}
 name|ngx_log_error
