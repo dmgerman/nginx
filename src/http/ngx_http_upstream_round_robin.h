@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b6103dd0108
+DECL|struct|__anon2c84455b0108
 typedef|typedef
 struct|struct
 block|{
@@ -56,6 +56,10 @@ decl_stmt|;
 DECL|member|current_weight
 name|ngx_int_t
 name|current_weight
+decl_stmt|;
+DECL|member|effective_weight
+name|ngx_int_t
+name|effective_weight
 decl_stmt|;
 DECL|member|weight
 name|ngx_int_t
@@ -161,7 +165,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b6103dd0208
+DECL|struct|__anon2c84455b0208
 typedef|typedef
 struct|struct
 block|{
