@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon277d6fef0108
+DECL|struct|__anon2a221ea20108
 typedef|typedef
 struct|struct
 block|{
@@ -11435,7 +11435,6 @@ modifier|*
 name|p
 decl_stmt|;
 name|in_addr_t
-modifier|*
 name|inaddr
 decl_stmt|;
 name|ngx_addr_t
@@ -11472,7 +11471,7 @@ name|NGX_SUPPRESS_WARN
 operator|)
 name|inaddr
 operator|=
-name|NULL
+literal|0
 expr_stmt|;
 if|#
 directive|if
@@ -11504,7 +11503,6 @@ condition|)
 block|{
 name|inaddr
 operator|=
-operator|&
 operator|(
 operator|(
 expr|struct
@@ -11563,6 +11561,7 @@ name|AF_INET
 expr_stmt|;
 name|inaddr
 operator|=
+operator|*
 operator|(
 name|in_addr_t
 operator|*
@@ -11712,7 +11711,6 @@ comment|/* AF_INET */
 if|if
 condition|(
 operator|(
-operator|*
 name|inaddr
 operator|&
 name|cidr
