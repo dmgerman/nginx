@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28e4f5b10108
+DECL|struct|__anon2999495b0108
 typedef|typedef
 struct|struct
 block|{
@@ -2196,6 +2196,36 @@ block|}
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|ret
+operator|->
+name|status
+operator|>
+literal|999
+condition|)
+block|{
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"invalid return code \"%V\""
+argument_list|,
+operator|&
+name|value
+index|[
+literal|1
+index|]
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
 if|if
 condition|(
 name|cf
