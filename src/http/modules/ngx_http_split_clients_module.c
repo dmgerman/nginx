@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b7a2b6a0108
+DECL|struct|__anon29addfcc0108
 typedef|typedef
 struct|struct
 block|{
@@ -41,7 +41,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7a2b6a0208
+DECL|struct|__anon29addfcc0208
 typedef|typedef
 struct|struct
 block|{
@@ -533,6 +533,42 @@ index|[
 literal|2
 index|]
 expr_stmt|;
+if|if
+condition|(
+name|name
+operator|.
+name|len
+operator|<
+literal|2
+operator|||
+name|name
+operator|.
+name|data
+index|[
+literal|0
+index|]
+operator|!=
+literal|'$'
+condition|)
+block|{
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"invalid variable name \"%V\""
+argument_list|,
+operator|&
+name|name
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
 name|name
 operator|.
 name|len
