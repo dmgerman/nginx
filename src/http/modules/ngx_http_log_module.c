@@ -100,7 +100,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon276e73e90108
+DECL|struct|__anon2b37fa370108
 typedef|typedef
 struct|struct
 block|{
@@ -126,7 +126,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276e73e90208
+DECL|struct|__anon2b37fa370208
 typedef|typedef
 struct|struct
 block|{
@@ -147,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276e73e90308
+DECL|struct|__anon2b37fa370308
 typedef|typedef
 struct|struct
 block|{
@@ -168,7 +168,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276e73e90408
+DECL|struct|__anon2b37fa370408
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +202,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276e73e90508
+DECL|struct|__anon2b37fa370508
 typedef|typedef
 struct|struct
 block|{
@@ -237,7 +237,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276e73e90608
+DECL|struct|__anon2b37fa370608
 typedef|typedef
 struct|struct
 block|{
@@ -1062,7 +1062,7 @@ argument_list|(
 literal|"status"
 argument_list|)
 block|,
-literal|3
+name|NGX_INT_T_LEN
 block|,
 name|ngx_http_log_status
 block|}
@@ -2854,7 +2854,7 @@ name|ngx_sprintf
 argument_list|(
 name|buf
 argument_list|,
-literal|"%ui"
+literal|"%03ui"
 argument_list|,
 name|status
 argument_list|)
