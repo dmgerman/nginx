@@ -16,7 +16,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b176ccf0108
+DECL|struct|__anon2894b78d0108
 typedef|typedef
 struct|struct
 block|{
@@ -610,7 +610,7 @@ name|rc
 operator|->
 name|regex
 operator|->
-name|pcre
+name|code
 operator|=
 name|re
 expr_stmt|;
@@ -1407,7 +1407,7 @@ index|]
 operator|.
 name|regex
 operator|->
-name|pcre
+name|code
 argument_list|,
 name|opt
 argument_list|,
@@ -1477,7 +1477,7 @@ index|]
 operator|.
 name|regex
 operator|->
-name|pcre
+name|code
 argument_list|,
 name|elts
 index|[

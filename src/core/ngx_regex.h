@@ -56,14 +56,14 @@ value|PCRE_CASELESS
 end_define
 
 begin_typedef
-DECL|struct|__anon286f19c40108
+DECL|struct|__anon2c23a7330108
 typedef|typedef
 struct|struct
 block|{
-DECL|member|pcre
+DECL|member|code
 name|pcre
 modifier|*
-name|pcre
+name|code
 decl_stmt|;
 DECL|member|extra
 name|pcre_extra
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon286f19c40208
+DECL|struct|__anon2c23a7330208
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon286f19c40308
+DECL|struct|__anon2c23a7330308
 typedef|typedef
 struct|struct
 block|{
@@ -182,7 +182,7 @@ parameter_list|,
 name|size
 parameter_list|)
 define|\
-value|pcre_exec(re->pcre, re->extra, (const char *) (s)->data, (s)->len, 0, 0, \               captures, size)
+value|pcre_exec(re->code, re->extra, (const char *) (s)->data, (s)->len, 0, 0, \               captures, size)
 end_define
 
 begin_define
