@@ -7580,7 +7580,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon29d7402a0103
+DECL|enum|__anon27e8ecce0103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -8522,12 +8522,6 @@ name|error
 operator|=
 literal|1
 expr_stmt|;
-name|ngx_http_finalize_connection
-argument_list|(
-name|r
-argument_list|)
-expr_stmt|;
-return|return;
 block|}
 if|if
 condition|(
