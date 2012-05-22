@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon27730e870108
+DECL|struct|__anon2bf61a0a0108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27730e870208
+DECL|struct|__anon2bf61a0a0208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27730e870308
+DECL|struct|__anon2bf61a0a0308
 typedef|typedef
 struct|struct
 block|{
@@ -1059,6 +1059,13 @@ operator|!=
 name|NGX_OK
 condition|)
 block|{
+if|if
+condition|(
+name|u
+operator|.
+name|err
+condition|)
+block|{
 name|ngx_conf_log_error
 argument_list|(
 name|NGX_LOG_EMERG
@@ -1067,18 +1074,19 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"%V: %s"
+literal|"%s in resolver \"%V\""
+argument_list|,
+name|u
+operator|.
+name|err
 argument_list|,
 operator|&
 name|u
 operator|.
 name|host
-argument_list|,
-name|u
-operator|.
-name|err
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|NULL
 return|;
