@@ -134,7 +134,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon29747a430108
+DECL|struct|__anon2b5ff3be0108
 typedef|typedef
 struct|struct
 block|{
@@ -254,12 +254,19 @@ directive|if
 name|__FreeBSD_version
 operator|>=
 literal|500014
+operator|&&
+name|__FreeBSD_version
+operator|<
+literal|1000011
 name|_malloc_options
 operator|=
 literal|"J"
 expr_stmt|;
-else|#
-directive|else
+elif|#
+directive|elif
+name|__FreeBSD_version
+operator|<
+literal|500014
 name|malloc_options
 operator|=
 literal|"J"
