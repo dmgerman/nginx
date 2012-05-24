@@ -102,7 +102,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon274fb5e40108
+DECL|struct|__anon2c6fb4090108
 typedef|typedef
 struct|struct
 block|{
@@ -123,7 +123,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon274fb5e40208
+DECL|struct|__anon2c6fb4090208
 typedef|typedef
 struct|struct
 block|{
@@ -144,7 +144,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon274fb5e40308
+DECL|struct|__anon2c6fb4090308
 typedef|typedef
 struct|struct
 block|{
@@ -169,7 +169,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon274fb5e40408
+DECL|struct|__anon2c6fb4090408
 typedef|typedef
 struct|struct
 block|{
@@ -189,7 +189,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon274fb5e40508
+DECL|struct|__anon2c6fb4090508
 typedef|typedef
 struct|struct
 block|{
@@ -224,7 +224,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon274fb5e40608
+DECL|struct|__anon2c6fb4090608
 typedef|typedef
 struct|struct
 block|{
@@ -3580,7 +3580,6 @@ index|]
 operator|.
 name|name
 argument_list|,
-operator|&
 name|value
 index|[
 literal|1
@@ -3941,7 +3940,6 @@ index|]
 operator|.
 name|name
 argument_list|,
-operator|&
 name|value
 index|[
 literal|1
