@@ -34,7 +34,7 @@ file|<GeoIPCity.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2980ab6d0108
+DECL|struct|__anon2c5dbd8f0108
 typedef|typedef
 struct|struct
 block|{
@@ -70,7 +70,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2980ab6d0208
+DECL|struct|__anon2c5dbd8f0208
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,6 @@ end_typedef
 begin_typedef
 DECL|typedef|ngx_http_geoip_variable_handler_pt
 typedef|typedef
-specifier|const
 name|char
 modifier|*
 function_decl|(
@@ -1338,7 +1337,6 @@ decl_stmt|;
 name|size_t
 name|len
 decl_stmt|;
-specifier|const
 name|char
 modifier|*
 name|val
@@ -1427,10 +1425,6 @@ condition|)
 block|{
 name|ngx_free
 argument_list|(
-operator|(
-name|void
-operator|*
-operator|)
 name|val
 argument_list|)
 expr_stmt|;
@@ -1475,10 +1469,6 @@ literal|0
 expr_stmt|;
 name|ngx_free
 argument_list|(
-operator|(
-name|void
-operator|*
-operator|)
 name|val
 argument_list|)
 expr_stmt|;
