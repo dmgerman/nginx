@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bf6bb1e0108
+DECL|struct|__anon277c894c0108
 typedef|typedef
 struct|struct
 block|{
@@ -4313,12 +4313,6 @@ operator|==
 name|NGX_AGAIN
 condition|)
 block|{
-name|c
-operator|->
-name|buffered
-operator||=
-name|NGX_SSL_BUFFERED
-expr_stmt|;
 return|return
 name|in
 return|;
