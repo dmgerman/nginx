@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c84455b0108
+DECL|struct|__anon2890c5860108
 typedef|typedef
 struct|struct
 block|{
@@ -123,11 +123,6 @@ DECL|struct|ngx_http_upstream_rr_peers_s
 struct|struct
 name|ngx_http_upstream_rr_peers_s
 block|{
-DECL|member|single
-name|ngx_uint_t
-name|single
-decl_stmt|;
-comment|/* unsigned  single:1; */
 DECL|member|number
 name|ngx_uint_t
 name|number
@@ -142,6 +137,22 @@ name|ngx_connection_t
 modifier|*
 modifier|*
 name|cached
+decl_stmt|;
+DECL|member|total_weight
+name|ngx_uint_t
+name|total_weight
+decl_stmt|;
+DECL|member|single
+name|unsigned
+name|single
+range|:
+literal|1
+decl_stmt|;
+DECL|member|weighted
+name|unsigned
+name|weighted
+range|:
+literal|1
 decl_stmt|;
 DECL|member|name
 name|ngx_str_t
@@ -165,7 +176,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c84455b0208
+DECL|struct|__anon2890c5860208
 typedef|typedef
 struct|struct
 block|{
