@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2bf61a0a0108
+DECL|struct|__anon2a0eee0d0108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf61a0a0208
+DECL|struct|__anon2a0eee0d0208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf61a0a0308
+DECL|struct|__anon2a0eee0d0308
 typedef|typedef
 struct|struct
 block|{
@@ -4601,7 +4601,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"resolver DNS response %ui fl:%04Xui %ui/%ui/%ui/%ui"
+literal|"resolver DNS response %ui fl:%04Xui %ui/%ui/%ud/%ud"
 argument_list|,
 name|ident
 argument_list|,
