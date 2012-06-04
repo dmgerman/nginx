@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b5fa8620108
+DECL|struct|__anon27d3433a0108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5fa8620208
+DECL|struct|__anon27d3433a0208
 typedef|typedef
 struct|struct
 block|{
@@ -414,9 +414,6 @@ modifier|*
 name|us
 parameter_list|)
 block|{
-name|ngx_int_t
-name|rc
-decl_stmt|;
 name|ngx_http_upstream_lc_peer_data_t
 modifier|*
 name|lcp
@@ -494,15 +491,6 @@ operator|&
 name|lcp
 operator|->
 name|rrp
-expr_stmt|;
-name|rc
-operator|=
-name|ngx_http_upstream_init_round_robin_peer
-argument_list|(
-name|r
-argument_list|,
-name|us
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -1453,7 +1441,6 @@ operator|->
 name|single
 condition|)
 block|{
-return|return
 name|lcp
 operator|->
 name|free_rr_peer
@@ -1467,7 +1454,8 @@ name|rrp
 argument_list|,
 name|state
 argument_list|)
-return|;
+expr_stmt|;
+return|return;
 block|}
 if|if
 condition|(
@@ -1496,7 +1484,6 @@ name|current
 index|]
 operator|--
 expr_stmt|;
-return|return
 name|lcp
 operator|->
 name|free_rr_peer
@@ -1510,7 +1497,7 @@ name|rrp
 argument_list|,
 name|state
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 end_function
 
