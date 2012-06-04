@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2a0eee0d0108
+DECL|struct|__anon2b9c3dc00108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a0eee0d0208
+DECL|struct|__anon2b9c3dc00208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a0eee0d0308
+DECL|struct|__anon2b9c3dc00308
 typedef|typedef
 struct|struct
 block|{
@@ -1031,7 +1031,7 @@ argument_list|)
 expr_stmt|;
 name|u
 operator|.
-name|host
+name|url
 operator|=
 name|names
 index|[
@@ -1040,13 +1040,13 @@ index|]
 expr_stmt|;
 name|u
 operator|.
-name|port
+name|default_port
 operator|=
 literal|53
 expr_stmt|;
 if|if
 condition|(
-name|ngx_inet_resolve_host
+name|ngx_parse_url
 argument_list|(
 name|cf
 operator|->
@@ -1083,7 +1083,7 @@ argument_list|,
 operator|&
 name|u
 operator|.
-name|host
+name|url
 argument_list|)
 expr_stmt|;
 block|}
@@ -9517,7 +9517,11 @@ name|s
 operator|=
 name|ngx_socket
 argument_list|(
-name|AF_INET
+name|uc
+operator|->
+name|sockaddr
+operator|->
+name|sa_family
 argument_list|,
 name|SOCK_DGRAM
 argument_list|,
