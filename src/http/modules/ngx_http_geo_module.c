@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29c7329e0108
+DECL|struct|__anon2af7bff50108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c7329e0208
+DECL|struct|__anon2af7bff50208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c7329e0308
+DECL|struct|__anon2af7bff50308
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c7329e0408
+DECL|struct|__anon2af7bff50408
 typedef|typedef
 struct|struct
 block|{
@@ -191,11 +191,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c7329e0508
+DECL|struct|__anon2af7bff50508
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon29c7329e060a
+DECL|union|__anon2af7bff5060a
 union|union
 block|{
 DECL|member|tree
@@ -650,7 +650,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon29c7329e0708
+DECL|struct|__anon2af7bff50708
 typedef|typedef
 struct|struct
 block|{
@@ -669,9 +669,9 @@ DECL|member|ptr_size
 name|u_char
 name|ptr_size
 decl_stmt|;
-DECL|member|endianess
+DECL|member|endianness
 name|uint32_t
-name|endianess
+name|endianness
 decl_stmt|;
 DECL|member|crc32
 name|uint32_t
