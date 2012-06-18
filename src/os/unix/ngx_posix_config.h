@@ -39,6 +39,13 @@ name|_XOPEN_SOURCE_EXTENDED
 value|1
 end_define
 
+begin_define
+DECL|macro|_HPUX_ALT_XOPEN_SOCKET_API
+define|#
+directive|define
+name|_HPUX_ALT_XOPEN_SOCKET_API
+end_define
+
 begin_endif
 endif|#
 directive|endif
