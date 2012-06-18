@@ -100,7 +100,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b37fa370108
+DECL|struct|__anon27a2057c0108
 typedef|typedef
 struct|struct
 block|{
@@ -126,7 +126,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b37fa370208
+DECL|struct|__anon27a2057c0208
 typedef|typedef
 struct|struct
 block|{
@@ -147,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b37fa370308
+DECL|struct|__anon27a2057c0308
 typedef|typedef
 struct|struct
 block|{
@@ -168,7 +168,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b37fa370408
+DECL|struct|__anon27a2057c0408
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +202,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b37fa370508
+DECL|struct|__anon27a2057c0508
 typedef|typedef
 struct|struct
 block|{
@@ -237,7 +237,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b37fa370608
+DECL|struct|__anon27a2057c0608
 typedef|typedef
 struct|struct
 block|{
@@ -2820,27 +2820,10 @@ operator|==
 name|NGX_HTTP_VERSION_9
 condition|)
 block|{
-operator|*
-name|buf
-operator|++
+name|status
 operator|=
-literal|'0'
+literal|9
 expr_stmt|;
-operator|*
-name|buf
-operator|++
-operator|=
-literal|'0'
-expr_stmt|;
-operator|*
-name|buf
-operator|++
-operator|=
-literal|'9'
-expr_stmt|;
-return|return
-name|buf
-return|;
 block|}
 else|else
 block|{
