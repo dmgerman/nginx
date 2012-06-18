@@ -341,7 +341,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|ngx_uint_t
+name|ngx_int_t
 name|ngx_strerror_init
 parameter_list|(
 name|void

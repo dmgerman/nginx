@@ -109,7 +109,7 @@ block|}
 end_function
 
 begin_function
-name|ngx_uint_t
+name|ngx_int_t
 DECL|function|ngx_strerror_init (void)
 name|ngx_strerror_init
 parameter_list|(
