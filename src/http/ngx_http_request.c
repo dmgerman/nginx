@@ -840,11 +840,7 @@ block|,
 if|#
 directive|if
 operator|(
-name|NGX_HTTP_PROXY
-operator|||
-name|NGX_HTTP_REALIP
-operator|||
-name|NGX_HTTP_GEO
+name|NGX_HTTP_X_FORWARDED_FOR
 operator|)
 block|{
 name|ngx_string
@@ -7632,7 +7628,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon2c9b24880103
+DECL|enum|__anon296be8220103
 enum|enum
 block|{
 DECL|enumerator|sw_usual

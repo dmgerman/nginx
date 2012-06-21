@@ -960,9 +960,7 @@ directive|endif
 if|#
 directive|if
 operator|(
-name|NGX_HTTP_PROXY
-operator|||
-name|NGX_HTTP_REALIP
+name|NGX_HTTP_X_FORWARDED_FOR
 operator|)
 block|{
 name|ngx_string
