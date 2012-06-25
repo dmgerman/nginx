@@ -2723,7 +2723,7 @@ decl_stmt|;
 name|ngx_err_t
 name|err
 decl_stmt|;
-DECL|enum|__anon2ac1c41e0103
+DECL|enum|__anon299ac4290103
 enum|enum
 block|{
 DECL|enumerator|sw_start
