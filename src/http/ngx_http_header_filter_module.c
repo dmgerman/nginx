@@ -1648,7 +1648,7 @@ name|len
 operator|+=
 sizeof|sizeof
 argument_list|(
-literal|"Connection: closed"
+literal|"Connection: close"
 name|CRLF
 argument_list|)
 operator|-
