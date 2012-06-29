@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29fec6c70108
+DECL|struct|__anon293534b30108
 typedef|typedef
 struct|struct
 block|{
@@ -41,7 +41,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fec6c70208
+DECL|struct|__anon293534b30208
 typedef|typedef
 struct|struct
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fec6c70308
+DECL|struct|__anon293534b30308
 typedef|typedef
 struct|struct
 block|{
@@ -381,9 +381,6 @@ operator|*
 operator|)
 name|data
 decl_stmt|;
-name|size_t
-name|len
-decl_stmt|;
 name|ngx_str_t
 name|val
 decl_stmt|;
@@ -428,24 +425,24 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-name|len
-operator|=
-name|val
-operator|.
-name|len
-expr_stmt|;
 if|if
 condition|(
-name|len
-operator|&&
 name|map
 operator|->
 name|hostnames
 operator|&&
 name|val
 operator|.
+name|len
+operator|>
+literal|0
+operator|&&
+name|val
+operator|.
 name|data
 index|[
+name|val
+operator|.
 name|len
 operator|-
 literal|1
@@ -454,6 +451,8 @@ operator|==
 literal|'.'
 condition|)
 block|{
+name|val
+operator|.
 name|len
 operator|--
 expr_stmt|;
@@ -1133,6 +1132,14 @@ name|default_value
 else|:
 operator|&
 name|ngx_http_variable_null_value
+expr_stmt|;
+name|map
+operator|->
+name|hostnames
+operator|=
+name|ctx
+operator|.
+name|hostnames
 expr_stmt|;
 name|hash
 operator|.
