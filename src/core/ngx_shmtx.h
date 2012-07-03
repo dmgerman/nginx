@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2739c4c90108
+DECL|struct|__anon297517850108
 typedef|typedef
 struct|struct
 block|{
@@ -55,7 +55,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2739c4c90208
+DECL|struct|__anon297517850208
 typedef|typedef
 struct|struct
 block|{
@@ -131,7 +131,7 @@ end_function_decl
 
 begin_function_decl
 name|void
-name|ngx_shmtx_destory
+name|ngx_shmtx_destroy
 parameter_list|(
 name|ngx_shmtx_t
 modifier|*

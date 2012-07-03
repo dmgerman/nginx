@@ -150,8 +150,8 @@ end_function
 
 begin_function
 name|void
-DECL|function|ngx_shmtx_destory (ngx_shmtx_t * mtx)
-name|ngx_shmtx_destory
+DECL|function|ngx_shmtx_destroy (ngx_shmtx_t * mtx)
+name|ngx_shmtx_destroy
 parameter_list|(
 name|ngx_shmtx_t
 modifier|*
@@ -782,7 +782,7 @@ return|return
 name|NGX_OK
 return|;
 block|}
-name|ngx_shmtx_destory
+name|ngx_shmtx_destroy
 argument_list|(
 name|mtx
 argument_list|)
@@ -873,8 +873,8 @@ end_function
 
 begin_function
 name|void
-DECL|function|ngx_shmtx_destory (ngx_shmtx_t * mtx)
-name|ngx_shmtx_destory
+DECL|function|ngx_shmtx_destroy (ngx_shmtx_t * mtx)
+name|ngx_shmtx_destroy
 parameter_list|(
 name|ngx_shmtx_t
 modifier|*
