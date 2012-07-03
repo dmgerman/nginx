@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29f83d050108
+DECL|struct|__anon28e987140108
 typedef|typedef
 struct|struct
 block|{
@@ -10976,6 +10976,12 @@ operator|->
 name|content_handler
 operator|=
 name|NULL
+expr_stmt|;
+name|r
+operator|->
+name|uri_changed
+operator|=
+literal|0
 expr_stmt|;
 name|r
 operator|->
