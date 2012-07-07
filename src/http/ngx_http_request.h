@@ -677,7 +677,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon27dbea440103
+DECL|enum|__anon28c7648a0103
 typedef|typedef
 enum|enum
 block|{
@@ -716,7 +716,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27dbea440208
+DECL|struct|__anon28c7648a0208
 typedef|typedef
 struct|struct
 block|{
@@ -739,7 +739,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27dbea440308
+DECL|struct|__anon28c7648a0308
 typedef|typedef
 struct|struct
 block|{
@@ -758,7 +758,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27dbea440408
+DECL|struct|__anon28c7648a0408
 typedef|typedef
 struct|struct
 block|{
@@ -785,6 +785,16 @@ DECL|member|if_unmodified_since
 name|ngx_table_elt_t
 modifier|*
 name|if_unmodified_since
+decl_stmt|;
+DECL|member|if_match
+name|ngx_table_elt_t
+modifier|*
+name|if_match
+decl_stmt|;
+DECL|member|if_none_match
+name|ngx_table_elt_t
+modifier|*
+name|if_none_match
 decl_stmt|;
 DECL|member|user_agent
 name|ngx_table_elt_t
@@ -1000,7 +1010,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27dbea440508
+DECL|struct|__anon28c7648a0508
 typedef|typedef
 struct|struct
 block|{
@@ -1141,7 +1151,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27dbea440608
+DECL|struct|__anon28c7648a0608
 typedef|typedef
 struct|struct
 block|{
@@ -1180,7 +1190,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27dbea440708
+DECL|struct|__anon28c7648a0708
 typedef|typedef
 struct|struct
 block|{
@@ -1230,7 +1240,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27dbea440808
+DECL|struct|__anon28c7648a0808
 typedef|typedef
 struct|struct
 block|{
@@ -1325,7 +1335,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27dbea440908
+DECL|struct|__anon28c7648a0908
 typedef|typedef
 struct|struct
 block|{
@@ -2185,7 +2195,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27dbea440a08
+DECL|struct|__anon28c7648a0a08
 typedef|typedef
 struct|struct
 block|{
