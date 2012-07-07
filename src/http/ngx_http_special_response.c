@@ -2149,6 +2149,11 @@ argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
+name|ngx_http_clear_etag
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
 name|rc
 operator|=
 name|ngx_http_send_header
@@ -2640,6 +2645,11 @@ name|r
 argument_list|)
 expr_stmt|;
 name|ngx_http_clear_last_modified
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
+name|ngx_http_clear_etag
 argument_list|(
 name|r
 argument_list|)

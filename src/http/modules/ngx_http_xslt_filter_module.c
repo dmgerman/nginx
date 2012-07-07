@@ -102,7 +102,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c6fb4090108
+DECL|struct|__anon299012f70108
 typedef|typedef
 struct|struct
 block|{
@@ -123,7 +123,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6fb4090208
+DECL|struct|__anon299012f70208
 typedef|typedef
 struct|struct
 block|{
@@ -144,7 +144,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6fb4090308
+DECL|struct|__anon299012f70308
 typedef|typedef
 struct|struct
 block|{
@@ -169,7 +169,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6fb4090408
+DECL|struct|__anon299012f70408
 typedef|typedef
 struct|struct
 block|{
@@ -189,7 +189,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6fb4090508
+DECL|struct|__anon299012f70508
 typedef|typedef
 struct|struct
 block|{
@@ -224,7 +224,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6fb4090608
+DECL|struct|__anon299012f70608
 typedef|typedef
 struct|struct
 block|{
@@ -1415,6 +1415,11 @@ name|NULL
 expr_stmt|;
 block|}
 name|ngx_http_clear_last_modified
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
+name|ngx_http_clear_etag
 argument_list|(
 name|r
 argument_list|)
