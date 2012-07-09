@@ -26,7 +26,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon2ba5d6720108
+DECL|struct|__anon289a59620108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ba5d6720208
+DECL|struct|__anon289a59620208
 typedef|typedef
 struct|struct
 block|{
@@ -565,7 +565,7 @@ condition|(
 name|if_range
 operator|->
 name|len
-operator|>
+operator|>=
 literal|2
 operator|&&
 name|if_range
