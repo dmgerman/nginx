@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ac2fdcd0108
+DECL|struct|__anon2bf591b30108
 typedef|typedef
 struct|struct
 block|{
@@ -781,6 +781,20 @@ name|of
 operator|.
 name|mtime
 expr_stmt|;
+if|if
+condition|(
+name|ngx_http_set_etag
+argument_list|(
+name|r
+argument_list|)
+operator|!=
+name|NGX_OK
+condition|)
+block|{
+return|return
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
+return|;
+block|}
 if|if
 condition|(
 name|ngx_http_set_content_type
