@@ -6931,6 +6931,21 @@ return|;
 block|}
 if|if
 condition|(
+name|second
+operator|->
+name|opt
+operator|.
+name|wildcard
+condition|)
+block|{
+comment|/* a wildcard address must be the last resort, shift it to the end */
+return|return
+operator|-
+literal|1
+return|;
+block|}
+if|if
+condition|(
 name|first
 operator|->
 name|opt
