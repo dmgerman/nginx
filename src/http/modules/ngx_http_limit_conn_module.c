@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bd23f270108
+DECL|struct|__anon291d57420108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd23f270208
+DECL|struct|__anon291d57420208
 typedef|typedef
 struct|struct
 block|{
@@ -73,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd23f270308
+DECL|struct|__anon291d57420308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd23f270408
+DECL|struct|__anon291d57420408
 typedef|typedef
 struct|struct
 block|{
@@ -117,7 +117,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd23f270508
+DECL|struct|__anon291d57420508
 typedef|typedef
 struct|struct
 block|{
@@ -995,7 +995,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"limit zone: %08XD %d"
+literal|"limit conn: %08XD %d"
 argument_list|,
 name|node
 operator|->
@@ -1511,7 +1511,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"limit zone cleanup: %08XD %d"
+literal|"limit conn cleanup: %08XD %d"
 argument_list|,
 name|node
 operator|->
