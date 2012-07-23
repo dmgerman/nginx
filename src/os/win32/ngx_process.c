@@ -897,6 +897,15 @@ operator|.
 name|handle
 argument_list|)
 expr_stmt|;
+name|ngx_processes
+index|[
+name|s
+index|]
+operator|.
+name|handle
+operator|=
+name|NULL
+expr_stmt|;
 block|}
 return|return
 name|NGX_INVALID_PID
