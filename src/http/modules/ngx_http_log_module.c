@@ -100,7 +100,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27a2057c0108
+DECL|struct|__anon2768384c0108
 typedef|typedef
 struct|struct
 block|{
@@ -126,7 +126,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a2057c0208
+DECL|struct|__anon2768384c0208
 typedef|typedef
 struct|struct
 block|{
@@ -147,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a2057c0308
+DECL|struct|__anon2768384c0308
 typedef|typedef
 struct|struct
 block|{
@@ -168,7 +168,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a2057c0408
+DECL|struct|__anon2768384c0408
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +202,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a2057c0508
+DECL|struct|__anon2768384c0508
 typedef|typedef
 struct|struct
 block|{
@@ -237,7 +237,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a2057c0608
+DECL|struct|__anon2768384c0608
 typedef|typedef
 struct|struct
 block|{
@@ -1123,6 +1123,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
+specifier|static
 name|ngx_int_t
 DECL|function|ngx_http_log_handler (ngx_http_request_t * r)
 name|ngx_http_log_handler

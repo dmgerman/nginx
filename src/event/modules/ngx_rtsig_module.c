@@ -29,6 +29,35 @@ name|NGX_TEST_BUILD_RTSIG
 operator|)
 end_if
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_DARWIN
+operator|)
+end_if
+
+begin_define
+DECL|macro|SIGRTMIN
+define|#
+directive|define
+name|SIGRTMIN
+value|33
+end_define
+
+begin_define
+DECL|macro|si_fd
+define|#
+directive|define
+name|si_fd
+value|__pad[0]
+end_define
+
+begin_else
+else|#
+directive|else
+end_else
+
 begin_ifdef
 ifdef|#
 directive|ifdef
@@ -69,6 +98,11 @@ endif|#
 directive|endif
 end_endif
 
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_define
 DECL|macro|F_SETSIG
 define|#
@@ -92,6 +126,28 @@ directive|define
 name|KERN_RTSIGMAX
 value|31
 end_define
+
+begin_function_decl
+name|int
+name|sigtimedwait
+parameter_list|(
+specifier|const
+name|sigset_t
+modifier|*
+name|set
+parameter_list|,
+name|siginfo_t
+modifier|*
+name|info
+parameter_list|,
+specifier|const
+name|struct
+name|timespec
+modifier|*
+name|timeout
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_function
 DECL|function|sigtimedwait (const sigset_t * set,siginfo_t * info,const struct timespec * timeout)
@@ -134,7 +190,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29d9f9c60108
+DECL|struct|__anon28ab6e9b0108
 typedef|typedef
 struct|struct
 block|{

@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27d3433a0108
+DECL|struct|__anon287e37360108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d3433a0208
+DECL|struct|__anon287e37360208
 typedef|typedef
 struct|struct
 block|{
@@ -262,6 +262,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
+specifier|static
 name|ngx_int_t
 DECL|function|ngx_http_upstream_init_least_conn (ngx_conf_t * cf,ngx_http_upstream_srv_conf_t * us)
 name|ngx_http_upstream_init_least_conn

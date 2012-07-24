@@ -45,6 +45,42 @@ name|uint_t
 value|u_int
 end_define
 
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|CLOCK_REALTIME
+end_ifndef
+
+begin_define
+DECL|macro|CLOCK_REALTIME
+define|#
+directive|define
+name|CLOCK_REALTIME
+value|0
+end_define
+
+begin_typedef
+DECL|typedef|clockid_t
+typedef|typedef
+name|int
+name|clockid_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|typedef|timer_t
+typedef|typedef
+name|void
+modifier|*
+name|timer_t
+typedef|;
+end_typedef
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_comment
 comment|/* Solaris declarations */
 end_comment
@@ -97,6 +133,12 @@ name|PORT_SOURCE_MQ
 value|6
 end_define
 
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|ETIME
+end_ifndef
+
 begin_define
 DECL|macro|ETIME
 define|#
@@ -104,6 +146,11 @@ directive|define
 name|ETIME
 value|64
 end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_define
 DECL|macro|SIGEV_PORT
@@ -114,7 +161,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon292e79170108
+DECL|struct|__anon2b1faed00108
 typedef|typedef
 struct|struct
 block|{
@@ -213,6 +260,15 @@ endif|#
 directive|endif
 end_endif
 
+begin_function_decl
+name|int
+name|port_create
+parameter_list|(
+name|void
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_function
 DECL|function|port_create (void)
 name|int
@@ -227,6 +283,29 @@ literal|1
 return|;
 block|}
 end_function
+
+begin_function_decl
+name|int
+name|port_associate
+parameter_list|(
+name|int
+name|port
+parameter_list|,
+name|int
+name|source
+parameter_list|,
+name|uintptr_t
+name|object
+parameter_list|,
+name|int
+name|events
+parameter_list|,
+name|void
+modifier|*
+name|user
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_function
 DECL|function|port_associate (int port,int source,uintptr_t object,int events,void * user)
@@ -257,6 +336,22 @@ return|;
 block|}
 end_function
 
+begin_function_decl
+name|int
+name|port_dissociate
+parameter_list|(
+name|int
+name|port
+parameter_list|,
+name|int
+name|source
+parameter_list|,
+name|uintptr_t
+name|object
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_function
 DECL|function|port_dissociate (int port,int source,uintptr_t object)
 name|int
@@ -278,6 +373,32 @@ literal|1
 return|;
 block|}
 end_function
+
+begin_function_decl
+name|int
+name|port_getn
+parameter_list|(
+name|int
+name|port
+parameter_list|,
+name|port_event_t
+name|list
+index|[]
+parameter_list|,
+name|uint_t
+name|max
+parameter_list|,
+name|uint_t
+modifier|*
+name|nget
+parameter_list|,
+name|struct
+name|timespec
+modifier|*
+name|timeout
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_function
 DECL|function|port_getn (int port,port_event_t list[],uint_t max,uint_t * nget,struct timespec * timeout)
@@ -311,6 +432,25 @@ return|;
 block|}
 end_function
 
+begin_function_decl
+name|int
+name|timer_create
+parameter_list|(
+name|clockid_t
+name|clock_id
+parameter_list|,
+name|struct
+name|sigevent
+modifier|*
+name|evp
+parameter_list|,
+name|timer_t
+modifier|*
+name|timerid
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_function
 DECL|function|timer_create (clockid_t clock_id,struct sigevent * evp,timer_t * timerid)
 name|int
@@ -335,6 +475,30 @@ literal|1
 return|;
 block|}
 end_function
+
+begin_function_decl
+name|int
+name|timer_settime
+parameter_list|(
+name|timer_t
+name|timerid
+parameter_list|,
+name|int
+name|flags
+parameter_list|,
+specifier|const
+name|struct
+name|itimerspec
+modifier|*
+name|value
+parameter_list|,
+name|struct
+name|itimerspec
+modifier|*
+name|ovalue
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_function
 DECL|function|timer_settime (timer_t timerid,int flags,const struct itimerspec * value,struct itimerspec * ovalue)
@@ -366,6 +530,16 @@ return|;
 block|}
 end_function
 
+begin_function_decl
+name|int
+name|timer_delete
+parameter_list|(
+name|timer_t
+name|timerid
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_function
 DECL|function|timer_delete (timer_t timerid)
 name|int
@@ -388,7 +562,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon292e79170208
+DECL|struct|__anon2b1faed00208
 typedef|typedef
 struct|struct
 block|{

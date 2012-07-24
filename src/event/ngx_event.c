@@ -2190,6 +2190,7 @@ operator|)
 end_if
 
 begin_function
+specifier|static
 name|void
 DECL|function|ngx_timer_signal_handler (int signo)
 name|ngx_timer_signal_handler

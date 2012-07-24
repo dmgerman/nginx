@@ -27,6 +27,24 @@ directive|include
 file|<ngx_mail.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_mail_pop3_module.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_mail_imap_module.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_mail_smtp_module.h>
+end_include
+
 begin_function
 name|ngx_int_t
 DECL|function|ngx_mail_pop3_parse_command (ngx_mail_session_t * s)
@@ -58,7 +76,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon27cdb6d50103
+DECL|enum|__anon292741260103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -825,7 +843,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon27cdb6d50203
+DECL|enum|__anon292741260203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2758,7 +2776,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon27cdb6d50303
+DECL|enum|__anon292741260303
 enum|enum
 block|{
 DECL|enumerator|sw_start

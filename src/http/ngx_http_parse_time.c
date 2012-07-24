@@ -15,6 +15,12 @@ directive|include
 file|<ngx_core.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_http.h>
+end_include
+
 begin_decl_stmt
 DECL|variable|mday
 specifier|static
@@ -87,7 +93,7 @@ decl_stmt|;
 name|uint64_t
 name|time
 decl_stmt|;
-DECL|enum|__anon275ef2b20103
+DECL|enum|__anon296762b20103
 enum|enum
 block|{
 DECL|enumerator|no

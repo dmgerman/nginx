@@ -18,6 +18,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_crypt.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_md5.h>
 end_include
 

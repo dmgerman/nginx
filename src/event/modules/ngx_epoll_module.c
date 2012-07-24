@@ -199,6 +199,16 @@ block|}
 struct|;
 end_struct
 
+begin_function_decl
+name|int
+name|epoll_create
+parameter_list|(
+name|int
+name|size
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_function
 DECL|function|epoll_create (int size)
 name|int
@@ -214,6 +224,27 @@ literal|1
 return|;
 block|}
 end_function
+
+begin_function_decl
+name|int
+name|epoll_ctl
+parameter_list|(
+name|int
+name|epfd
+parameter_list|,
+name|int
+name|op
+parameter_list|,
+name|int
+name|fd
+parameter_list|,
+name|struct
+name|epoll_event
+modifier|*
+name|event
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_function
 DECL|function|epoll_ctl (int epfd,int op,int fd,struct epoll_event * event)
@@ -241,6 +272,27 @@ literal|1
 return|;
 block|}
 end_function
+
+begin_function_decl
+name|int
+name|epoll_wait
+parameter_list|(
+name|int
+name|epfd
+parameter_list|,
+name|struct
+name|epoll_event
+modifier|*
+name|events
+parameter_list|,
+name|int
+name|nevents
+parameter_list|,
+name|int
+name|timeout
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_function
 DECL|function|epoll_wait (int epfd,struct epoll_event * events,int nevents,int timeout)
@@ -346,22 +398,6 @@ block|}
 struct|;
 end_struct
 
-begin_function
-DECL|function|eventfd (u_int initval)
-name|int
-name|eventfd
-parameter_list|(
-name|u_int
-name|initval
-parameter_list|)
-block|{
-return|return
-operator|-
-literal|1
-return|;
-block|}
-end_function
-
 begin_endif
 endif|#
 directive|endif
@@ -373,7 +409,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon27b3fe880108
+DECL|struct|__anon2999503a0108
 typedef|typedef
 struct|struct
 block|{

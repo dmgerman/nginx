@@ -99,6 +99,25 @@ return|;
 block|}
 end_function
 
+begin_function_decl
+name|ngx_chain_t
+modifier|*
+name|ngx_solaris_sendfilev_chain
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|,
+name|ngx_chain_t
+modifier|*
+name|in
+parameter_list|,
+name|off_t
+name|limit
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_endif
 endif|#
 directive|endif

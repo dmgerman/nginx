@@ -187,11 +187,22 @@ begin_comment
 comment|/* "bool" conflicts with perl's CORE/handy.h */
 end_comment
 
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
 begin_undef
 undef|#
 directive|undef
 name|bool
 end_undef
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_define
 DECL|macro|NGX_HAVE_ATOMIC_OPS

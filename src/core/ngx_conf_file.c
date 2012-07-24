@@ -407,7 +407,7 @@ name|prev
 decl_stmt|,
 name|conf_file
 decl_stmt|;
-DECL|enum|__anon2a2ffe980103
+DECL|enum|__anon2889f76b0103
 enum|enum
 block|{
 DECL|enumerator|parse_file
@@ -5936,30 +5936,17 @@ return|;
 block|}
 end_function
 
-begin_function
-name|char
-modifier|*
-DECL|function|ngx_conf_unsupported (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
-name|ngx_conf_unsupported
-parameter_list|(
-name|ngx_conf_t
-modifier|*
-name|cf
-parameter_list|,
-name|ngx_command_t
-modifier|*
-name|cmd
-parameter_list|,
-name|void
-modifier|*
-name|conf
-parameter_list|)
-block|{
-return|return
-literal|"unsupported on this platform"
-return|;
-block|}
-end_function
+begin_if
+if|#
+directive|if
+literal|0
+end_if
+
+begin_endif
+unit|char * ngx_conf_unsupported(ngx_conf_t *cf, ngx_command_t *cmd, void *conf) {     return "unsupported on this platform"; }
+endif|#
+directive|endif
+end_endif
 
 begin_function
 name|char
