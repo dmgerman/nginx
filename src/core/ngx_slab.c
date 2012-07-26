@@ -212,18 +212,13 @@ parameter_list|)
 value|ngx_memset(p, 0xA5, size)
 end_define
 
-begin_else
-else|#
-directive|else
-end_else
-
-begin_if
-if|#
-directive|if
+begin_elif
+elif|#
+directive|elif
 operator|(
 name|NGX_HAVE_DEBUG_MALLOC
 operator|)
-end_if
+end_elif
 
 begin_define
 DECL|macro|ngx_slab_junk (p,size)
@@ -255,11 +250,6 @@ parameter_list|,
 name|size
 parameter_list|)
 end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
 
 begin_endif
 endif|#
