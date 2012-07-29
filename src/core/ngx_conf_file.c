@@ -407,7 +407,7 @@ name|prev
 decl_stmt|,
 name|conf_file
 decl_stmt|;
-DECL|enum|__anon2889f76b0103
+DECL|enum|__anon2a3c6e820103
 enum|enum
 block|{
 DECL|enumerator|parse_file
@@ -1029,7 +1029,7 @@ decl_stmt|;
 name|ngx_uint_t
 name|i
 decl_stmt|,
-name|multi
+name|found
 decl_stmt|;
 name|ngx_str_t
 modifier|*
@@ -1047,7 +1047,7 @@ name|args
 operator|->
 name|elts
 expr_stmt|;
-name|multi
+name|found
 operator|=
 literal|0
 expr_stmt|;
@@ -1066,32 +1066,6 @@ name|i
 operator|++
 control|)
 block|{
-comment|/* look up the directive in the appropriate modules */
-if|if
-condition|(
-name|ngx_modules
-index|[
-name|i
-index|]
-operator|->
-name|type
-operator|!=
-name|NGX_CONF_MODULE
-operator|&&
-name|ngx_modules
-index|[
-name|i
-index|]
-operator|->
-name|type
-operator|!=
-name|cf
-operator|->
-name|module_type
-condition|)
-block|{
-continue|continue;
-block|}
 name|cmd
 operator|=
 name|ngx_modules
@@ -1159,6 +1133,35 @@ condition|)
 block|{
 continue|continue;
 block|}
+name|found
+operator|=
+literal|1
+expr_stmt|;
+if|if
+condition|(
+name|ngx_modules
+index|[
+name|i
+index|]
+operator|->
+name|type
+operator|!=
+name|NGX_CONF_MODULE
+operator|&&
+name|ngx_modules
+index|[
+name|i
+index|]
+operator|->
+name|type
+operator|!=
+name|cf
+operator|->
+name|module_type
+condition|)
+block|{
+continue|continue;
+block|}
 comment|/* is the directive's location right ? */
 if|if
 condition|(
@@ -1174,24 +1177,7 @@ name|cmd_type
 operator|)
 condition|)
 block|{
-if|if
-condition|(
-name|cmd
-operator|->
-name|type
-operator|&
-name|NGX_CONF_MULTI
-condition|)
-block|{
-name|multi
-operator|=
-literal|1
-expr_stmt|;
 continue|continue;
-block|}
-goto|goto
-name|not_allowed
-goto|;
 block|}
 if|if
 condition|(
@@ -1568,9 +1554,7 @@ block|}
 block|}
 if|if
 condition|(
-name|multi
-operator|==
-literal|0
+name|found
 condition|)
 block|{
 name|ngx_conf_log_error
@@ -1581,7 +1565,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"unknown directive \"%s\""
+literal|"\"%s\" directive is not allowed here"
 argument_list|,
 name|name
 operator|->
@@ -1592,8 +1576,6 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-name|not_allowed
-label|:
 name|ngx_conf_log_error
 argument_list|(
 name|NGX_LOG_EMERG
@@ -1602,7 +1584,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"\"%s\" directive is not allowed here"
+literal|"unknown directive \"%s\""
 argument_list|,
 name|name
 operator|->

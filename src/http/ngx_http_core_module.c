@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c3b006f0108
+DECL|struct|__anon2b5fe48e0108
 typedef|typedef
 struct|struct
 block|{
@@ -1366,8 +1366,6 @@ block|,
 name|NGX_HTTP_MAIN_CONF
 operator||
 name|NGX_CONF_BLOCK
-operator||
-name|NGX_CONF_MULTI
 operator||
 name|NGX_CONF_NOARGS
 block|,
