@@ -19162,9 +19162,7 @@ name|us
 operator|->
 name|naddrs
 operator|=
-name|u
-operator|->
-name|naddrs
+literal|1
 expr_stmt|;
 block|}
 name|uscfp
