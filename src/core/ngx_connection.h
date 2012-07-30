@@ -219,7 +219,7 @@ DECL|member|ipv6only
 name|unsigned
 name|ipv6only
 range|:
-literal|2
+literal|1
 decl_stmt|;
 endif|#
 directive|endif
@@ -280,7 +280,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon27b581410103
+DECL|enum|__anon278642510103
 typedef|typedef
 enum|enum
 block|{
@@ -307,7 +307,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27b581410203
+DECL|enum|__anon278642510203
 typedef|typedef
 enum|enum
 block|{
@@ -328,7 +328,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27b581410303
+DECL|enum|__anon278642510303
 typedef|typedef
 enum|enum
 block|{

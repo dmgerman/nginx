@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b5fe48e0108
+DECL|struct|__anon289986a30108
 typedef|typedef
 struct|struct
 block|{
@@ -17140,6 +17140,22 @@ name|u
 operator|.
 name|wildcard
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_INET6
+operator|&&
+name|defined
+name|IPV6_V6ONLY
+operator|)
+name|lsopt
+operator|.
+name|ipv6only
+operator|=
+literal|1
+expr_stmt|;
+endif|#
+directive|endif
 operator|(
 name|void
 operator|)
@@ -17870,7 +17886,7 @@ name|lsopt
 operator|.
 name|ipv6only
 operator|=
-literal|2
+literal|0
 expr_stmt|;
 block|}
 else|else
