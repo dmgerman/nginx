@@ -7642,7 +7642,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon29300b490103
+DECL|enum|__anon28c6cc0e0103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -8070,7 +8070,7 @@ block|}
 endif|#
 directive|endif
 return|return
-name|NGX_OK
+name|NGX_DECLINED
 return|;
 name|found
 label|:
