@@ -57,6 +57,13 @@ directive|define
 name|_CRT_SECURE_NO_WARNINGS
 end_define
 
+begin_define
+DECL|macro|_CRT_SECURE_NO_DEPRECATE
+define|#
+directive|define
+name|_CRT_SECURE_NO_DEPRECATE
+end_define
+
 begin_comment
 comment|/*  * we need to include<windows.h> explicitly before<winsock2.h> because  * the warning 4201 is enabled in<windows.h>  */
 end_comment
