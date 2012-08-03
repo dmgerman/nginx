@@ -6344,7 +6344,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon2980a0ac0103
+DECL|enum|__anon2c664f4f0103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -7654,13 +7654,14 @@ end_if
 begin_function
 name|void
 modifier|*
-DECL|function|ngx_memcpy (void * dst,void * src,size_t n)
+DECL|function|ngx_memcpy (void * dst,const void * src,size_t n)
 name|ngx_memcpy
 parameter_list|(
 name|void
 modifier|*
 name|dst
 parameter_list|,
+specifier|const
 name|void
 modifier|*
 name|src
