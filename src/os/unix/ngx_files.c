@@ -598,6 +598,9 @@ operator|!
 name|persistent
 condition|)
 block|{
+operator|(
+name|void
+operator|)
 name|unlink
 argument_list|(
 operator|(
