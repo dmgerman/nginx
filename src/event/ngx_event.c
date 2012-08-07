@@ -5081,6 +5081,9 @@ operator|-
 literal|1
 condition|)
 block|{
+operator|(
+name|void
+operator|)
 name|close
 argument_list|(
 name|fd
