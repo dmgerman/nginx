@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27e060f90108
+DECL|struct|__anon2b3dc2120108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e060f90208
+DECL|struct|__anon2b3dc2120208
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e060f90308
+DECL|struct|__anon2b3dc2120308
 typedef|typedef
 struct|struct
 block|{
@@ -131,7 +131,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e060f90408
+DECL|struct|__anon2b3dc2120408
 typedef|typedef
 struct|struct
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e060f90508
+DECL|struct|__anon2b3dc2120508
 typedef|typedef
 struct|struct
 block|{
@@ -4025,6 +4025,17 @@ operator|->
 name|limits
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|limit
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
 name|limit
 operator|->
 name|shm_zone
