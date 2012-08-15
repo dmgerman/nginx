@@ -1550,6 +1550,15 @@ literal|1
 expr_stmt|;
 endif|#
 directive|endif
+if|if
+condition|(
+name|cscf
+operator|->
+name|protocol
+operator|==
+name|NULL
+condition|)
+block|{
 for|for
 control|(
 name|m
@@ -1643,6 +1652,7 @@ operator|->
 name|protocol
 expr_stmt|;
 break|break;
+block|}
 block|}
 block|}
 block|}
