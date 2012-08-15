@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ae23eb50108
+DECL|struct|__anon27fbce9d0108
 typedef|typedef
 struct|struct
 block|{
@@ -1543,7 +1543,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon2ae23eb50203
+DECL|enum|__anon27fbce9d0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -4144,7 +4144,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2ae23eb50303
+DECL|enum|__anon27fbce9d0303
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6334,7 +6334,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"no \"http_auth\" is defined for server in %s:%ui"
+literal|"no \"auth_http\" is defined for server in %s:%ui"
 argument_list|,
 name|conf
 operator|->
