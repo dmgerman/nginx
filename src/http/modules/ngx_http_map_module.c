@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon293534b30108
+DECL|struct|__anon295218730108
 typedef|typedef
 struct|struct
 block|{
@@ -41,7 +41,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293534b30208
+DECL|struct|__anon295218730208
 typedef|typedef
 struct|struct
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293534b30308
+DECL|struct|__anon295218730308
 typedef|typedef
 struct|struct
 block|{
@@ -1859,6 +1859,14 @@ operator|.
 name|data
 condition|)
 block|{
+name|var
+operator|=
+operator|&
+name|var
+index|[
+name|i
+index|]
+expr_stmt|;
 goto|goto
 name|found
 goto|;
@@ -1866,18 +1874,12 @@ block|}
 block|}
 name|var
 operator|=
-name|ngx_palloc
+name|ngx_array_push
 argument_list|(
+operator|&
 name|ctx
 operator|->
-name|keys
-operator|.
-name|pool
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|ngx_http_variable_value_t
-argument_list|)
+name|var_values
 argument_list|)
 expr_stmt|;
 if|if
@@ -1924,32 +1926,6 @@ name|u_char
 operator|*
 operator|)
 name|index
-expr_stmt|;
-name|vp
-operator|=
-name|ngx_array_push
-argument_list|(
-operator|&
-name|ctx
-operator|->
-name|var_values
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|vp
-operator|==
-name|NULL
-condition|)
-block|{
-return|return
-name|NGX_CONF_ERROR
-return|;
-block|}
-operator|*
-name|vp
-operator|=
-name|var
 expr_stmt|;
 goto|goto
 name|found
