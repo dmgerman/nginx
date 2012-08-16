@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2af7bff50108
+DECL|struct|__anon2be3d30f0108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af7bff50208
+DECL|struct|__anon2be3d30f0208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af7bff50308
+DECL|struct|__anon2be3d30f0308
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af7bff50408
+DECL|struct|__anon2be3d30f0408
 typedef|typedef
 struct|struct
 block|{
@@ -191,11 +191,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af7bff50508
+DECL|struct|__anon2be3d30f0508
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon2af7bff5060a
+DECL|union|__anon2be3d30f060a
 union|union
 block|{
 DECL|member|tree
@@ -650,7 +650,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2af7bff50708
+DECL|struct|__anon2be3d30f0708
 typedef|typedef
 struct|struct
 block|{
@@ -1892,6 +1892,27 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|ctx
+operator|.
+name|high
+operator|.
+name|default_value
+operator|==
+name|NULL
+condition|)
+block|{
+name|ctx
+operator|.
+name|high
+operator|.
+name|default_value
+operator|=
+operator|&
+name|ngx_http_variable_null_value
+expr_stmt|;
+block|}
 name|geo
 operator|->
 name|u
@@ -1917,27 +1938,6 @@ name|uintptr_t
 operator|)
 name|geo
 expr_stmt|;
-if|if
-condition|(
-name|ctx
-operator|.
-name|high
-operator|.
-name|default_value
-operator|==
-name|NULL
-condition|)
-block|{
-name|ctx
-operator|.
-name|high
-operator|.
-name|default_value
-operator|=
-operator|&
-name|ngx_http_variable_null_value
-expr_stmt|;
-block|}
 name|ngx_destroy_pool
 argument_list|(
 name|ctx
