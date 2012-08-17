@@ -1080,6 +1080,21 @@ expr_stmt|;
 break|break;
 endif|#
 directive|endif
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_UNIX_DOMAIN
+operator|)
+case|case
+name|AF_UNIX
+case|:
+name|p
+operator|=
+literal|0
+expr_stmt|;
+break|break;
+endif|#
+directive|endif
 default|default:
 comment|/* AF_INET */
 name|sin
