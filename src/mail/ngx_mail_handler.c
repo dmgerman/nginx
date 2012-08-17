@@ -140,7 +140,6 @@ decl_stmt|;
 endif|#
 directive|endif
 comment|/* find the server configuration for the address:port */
-comment|/* AF_INET only */
 name|port
 operator|=
 name|c
