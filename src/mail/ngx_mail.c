@@ -2393,6 +2393,19 @@ return|;
 block|}
 if|if
 condition|(
+name|second
+operator|->
+name|wildcard
+condition|)
+block|{
+comment|/* a wildcard must be the last resort, shift it to the end */
+return|return
+operator|-
+literal|1
+return|;
+block|}
+if|if
+condition|(
 name|first
 operator|->
 name|bind
