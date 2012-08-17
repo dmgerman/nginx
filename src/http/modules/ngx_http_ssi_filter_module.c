@@ -54,7 +54,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon29b2e3660108
+DECL|struct|__anon2a3203550108
 typedef|typedef
 struct|struct
 block|{
@@ -94,7 +94,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b2e3660208
+DECL|struct|__anon2a3203550208
 typedef|typedef
 struct|struct
 block|{
@@ -117,7 +117,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b2e3660308
+DECL|struct|__anon2a3203550308
 typedef|typedef
 struct|struct
 block|{
@@ -141,7 +141,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29b2e3660403
+DECL|enum|__anon2a3203550403
 typedef|typedef
 enum|enum
 block|{
@@ -4963,6 +4963,7 @@ block|{
 case|case
 name|ssi_start_state
 case|:
+comment|/* not reached */
 break|break;
 case|case
 name|ssi_tag_state
