@@ -180,7 +180,7 @@ name|ngx_pagesize
 operator|/
 sizeof|sizeof
 argument_list|(
-name|ngx_radix_tree_t
+name|ngx_radix_node_t
 argument_list|)
 condition|)
 block|{
