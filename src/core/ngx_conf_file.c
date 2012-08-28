@@ -52,27 +52,6 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|char
-modifier|*
-name|ngx_conf_include
-parameter_list|(
-name|ngx_conf_t
-modifier|*
-name|cf
-parameter_list|,
-name|ngx_command_t
-modifier|*
-name|cmd
-parameter_list|,
-name|void
-modifier|*
-name|conf
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-specifier|static
 name|ngx_int_t
 name|ngx_conf_test_full_name
 parameter_list|(
@@ -407,7 +386,7 @@ name|prev
 decl_stmt|,
 name|conf_file
 decl_stmt|;
-DECL|enum|__anon2a3c6e820103
+DECL|enum|__anon28c0b3bd0103
 enum|enum
 block|{
 DECL|enumerator|parse_file
@@ -2759,7 +2738,6 @@ block|}
 end_function
 
 begin_function
-specifier|static
 name|char
 modifier|*
 DECL|function|ngx_conf_include (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
