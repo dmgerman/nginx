@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2be3d30f0108
+DECL|struct|__anon29b013f60108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be3d30f0208
+DECL|struct|__anon29b013f60208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be3d30f0308
+DECL|struct|__anon29b013f60308
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be3d30f0408
+DECL|struct|__anon29b013f60408
 typedef|typedef
 struct|struct
 block|{
@@ -191,11 +191,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be3d30f0508
+DECL|struct|__anon29b013f60508
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon2be3d30f060a
+DECL|union|__anon29b013f6060a
 union|union
 block|{
 DECL|member|tree
@@ -650,7 +650,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2be3d30f0708
+DECL|struct|__anon29b013f60708
 typedef|typedef
 struct|struct
 block|{
@@ -1074,6 +1074,13 @@ operator|==
 name|AF_INET6
 condition|)
 block|{
+name|u_char
+modifier|*
+name|p
+decl_stmt|;
+name|in_addr_t
+name|inaddr
+decl_stmt|;
 name|struct
 name|in6_addr
 modifier|*
@@ -1103,22 +1110,48 @@ name|inaddr6
 argument_list|)
 condition|)
 block|{
-return|return
-name|ntohl
-argument_list|(
-operator|*
-operator|(
-name|in_addr_t
-operator|*
-operator|)
-operator|&
+name|p
+operator|=
 name|inaddr6
 operator|->
 name|s6_addr
+expr_stmt|;
+name|inaddr
+operator|=
+name|p
 index|[
 literal|12
 index|]
-argument_list|)
+operator|<<
+literal|24
+expr_stmt|;
+name|inaddr
+operator|+=
+name|p
+index|[
+literal|13
+index|]
+operator|<<
+literal|16
+expr_stmt|;
+name|inaddr
+operator|+=
+name|p
+index|[
+literal|14
+index|]
+operator|<<
+literal|8
+expr_stmt|;
+name|inaddr
+operator|+=
+name|p
+index|[
+literal|15
+index|]
+expr_stmt|;
+return|return
+name|inaddr
 return|;
 block|}
 block|}
