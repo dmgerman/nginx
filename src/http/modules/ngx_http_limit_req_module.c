@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b3dc2120108
+DECL|struct|__anon294030690108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3dc2120208
+DECL|struct|__anon294030690208
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3dc2120308
+DECL|struct|__anon294030690308
 typedef|typedef
 struct|struct
 block|{
@@ -131,7 +131,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3dc2120408
+DECL|struct|__anon294030690408
 typedef|typedef
 struct|struct
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3dc2120508
+DECL|struct|__anon294030690508
 typedef|typedef
 struct|struct
 block|{
@@ -1838,18 +1838,6 @@ name|key
 operator|=
 name|hash
 expr_stmt|;
-name|ngx_rbtree_insert
-argument_list|(
-operator|&
-name|ctx
-operator|->
-name|sh
-operator|->
-name|rbtree
-argument_list|,
-name|node
-argument_list|)
-expr_stmt|;
 name|lr
 operator|=
 operator|(
@@ -1860,21 +1848,6 @@ operator|&
 name|node
 operator|->
 name|color
-expr_stmt|;
-name|ngx_queue_insert_head
-argument_list|(
-operator|&
-name|ctx
-operator|->
-name|sh
-operator|->
-name|queue
-argument_list|,
-operator|&
-name|lr
-operator|->
-name|queue
-argument_list|)
 expr_stmt|;
 name|lr
 operator|->
@@ -1900,6 +1873,33 @@ argument_list|,
 name|data
 argument_list|,
 name|len
+argument_list|)
+expr_stmt|;
+name|ngx_rbtree_insert
+argument_list|(
+operator|&
+name|ctx
+operator|->
+name|sh
+operator|->
+name|rbtree
+argument_list|,
+name|node
+argument_list|)
+expr_stmt|;
+name|ngx_queue_insert_head
+argument_list|(
+operator|&
+name|ctx
+operator|->
+name|sh
+operator|->
+name|queue
+argument_list|,
+operator|&
+name|lr
+operator|->
+name|queue
 argument_list|)
 expr_stmt|;
 if|if
