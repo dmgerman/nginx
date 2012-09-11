@@ -24,17 +24,11 @@ end_include
 begin_include
 include|#
 directive|include
-file|<nginx.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2906627c0108
+DECL|struct|__anon27edf2190108
 typedef|typedef
 struct|struct
 block|{
@@ -53,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2906627c0208
+DECL|struct|__anon27edf2190208
 typedef|typedef
 struct|struct
 block|{
