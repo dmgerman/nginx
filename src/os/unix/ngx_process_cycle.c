@@ -1813,6 +1813,10 @@ name|ch
 argument_list|)
 expr_stmt|;
 block|}
+name|cpu_affinity
+operator|=
+literal|0
+expr_stmt|;
 block|}
 end_function
 
