@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon289ccbb90108
+DECL|struct|__anon27cdd4d90108
 typedef|typedef
 struct|struct
 block|{
@@ -466,6 +466,11 @@ expr_stmt|;
 name|OpenSSL_add_all_algorithms
 argument_list|()
 expr_stmt|;
+if|#
+directive|if
+name|OPENSSL_VERSION_NUMBER
+operator|>=
+literal|0x0090800fL
 ifndef|#
 directive|ifndef
 name|SSL_OP_NO_COMPRESSION
@@ -509,6 +514,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+endif|#
+directive|endif
 endif|#
 directive|endif
 name|ngx_ssl_connection_index
