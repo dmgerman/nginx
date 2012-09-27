@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2acc3a430108
+DECL|struct|__anon289ccbb90108
 typedef|typedef
 struct|struct
 block|{
@@ -472,8 +472,6 @@ name|SSL_OP_NO_COMPRESSION
 block|{
 comment|/*      * Disable gzip compression in OpenSSL prior to 1.0.0 version,      * this saves about 522K per connection.      */
 name|int
-name|i
-decl_stmt|,
 name|n
 decl_stmt|;
 name|STACK_OF
@@ -495,28 +493,18 @@ argument_list|(
 name|ssl_comp_methods
 argument_list|)
 expr_stmt|;
-for|for
-control|(
-name|i
-operator|=
-literal|0
-init|;
-name|i
-operator|<
+while|while
+condition|(
 name|n
-condition|;
-name|i
-operator|++
-control|)
+operator|--
+condition|)
 block|{
 operator|(
 name|void
 operator|)
-name|sk_SSL_COMP_delete
+name|sk_SSL_COMP_pop
 argument_list|(
 name|ssl_comp_methods
-argument_list|,
-name|i
 argument_list|)
 expr_stmt|;
 block|}
