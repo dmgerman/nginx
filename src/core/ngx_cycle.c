@@ -4901,6 +4901,17 @@ argument_list|,
 name|ngx_core_module
 argument_list|)
 expr_stmt|;
+name|ngx_memzero
+argument_list|(
+operator|&
+name|file
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|ngx_file_t
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|file
 operator|.
 name|name
