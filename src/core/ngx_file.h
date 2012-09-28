@@ -127,7 +127,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aeba7780108
+DECL|struct|__anon2b88762d0108
 typedef|typedef
 struct|struct
 block|{
@@ -175,7 +175,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aeba7780208
+DECL|struct|__anon2b88762d0208
 typedef|typedef
 struct|struct
 block|{
@@ -197,7 +197,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aeba7780308
+DECL|struct|__anon2b88762d0308
 typedef|typedef
 struct|struct
 block|{
@@ -253,7 +253,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aeba7780408
+DECL|struct|__anon2b88762d0408
 typedef|typedef
 struct|struct
 block|{
@@ -297,7 +297,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aeba7780508
+DECL|struct|__anon2b88762d0508
 typedef|typedef
 struct|struct
 block|{
@@ -544,7 +544,7 @@ end_function_decl
 
 begin_function_decl
 name|ngx_int_t
-name|ngx_create_pathes
+name|ngx_create_paths
 parameter_list|(
 name|ngx_cycle_t
 modifier|*

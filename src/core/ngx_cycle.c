@@ -610,13 +610,13 @@ name|n
 operator|=
 name|old_cycle
 operator|->
-name|pathes
+name|paths
 operator|.
 name|nelts
 condition|?
 name|old_cycle
 operator|->
-name|pathes
+name|paths
 operator|.
 name|nelts
 else|:
@@ -624,7 +624,7 @@ literal|10
 expr_stmt|;
 name|cycle
 operator|->
-name|pathes
+name|paths
 operator|.
 name|elts
 operator|=
@@ -645,7 +645,7 @@ if|if
 condition|(
 name|cycle
 operator|->
-name|pathes
+name|paths
 operator|.
 name|elts
 operator|==
@@ -663,7 +663,7 @@ return|;
 block|}
 name|cycle
 operator|->
-name|pathes
+name|paths
 operator|.
 name|nelts
 operator|=
@@ -671,7 +671,7 @@ literal|0
 expr_stmt|;
 name|cycle
 operator|->
-name|pathes
+name|paths
 operator|.
 name|size
 operator|=
@@ -683,7 +683,7 @@ argument_list|)
 expr_stmt|;
 name|cycle
 operator|->
-name|pathes
+name|paths
 operator|.
 name|nalloc
 operator|=
@@ -691,7 +691,7 @@ name|n
 expr_stmt|;
 name|cycle
 operator|->
-name|pathes
+name|paths
 operator|.
 name|pool
 operator|=
@@ -1645,7 +1645,7 @@ goto|;
 block|}
 if|if
 condition|(
-name|ngx_create_pathes
+name|ngx_create_paths
 argument_list|(
 name|cycle
 argument_list|,

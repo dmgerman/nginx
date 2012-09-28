@@ -1971,7 +1971,7 @@ name|cf
 operator|->
 name|cycle
 operator|->
-name|pathes
+name|paths
 operator|.
 name|elts
 expr_stmt|;
@@ -1987,7 +1987,7 @@ name|cf
 operator|->
 name|cycle
 operator|->
-name|pathes
+name|paths
 operator|.
 name|nelts
 condition|;
@@ -2236,7 +2236,7 @@ name|cf
 operator|->
 name|cycle
 operator|->
-name|pathes
+name|paths
 argument_list|)
 expr_stmt|;
 if|if
@@ -2263,8 +2263,8 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_create_pathes (ngx_cycle_t * cycle,ngx_uid_t user)
-name|ngx_create_pathes
+DECL|function|ngx_create_paths (ngx_cycle_t * cycle,ngx_uid_t user)
+name|ngx_create_paths
 parameter_list|(
 name|ngx_cycle_t
 modifier|*
@@ -2289,7 +2289,7 @@ name|path
 operator|=
 name|cycle
 operator|->
-name|pathes
+name|paths
 operator|.
 name|elts
 expr_stmt|;
@@ -2303,7 +2303,7 @@ name|i
 operator|<
 name|cycle
 operator|->
-name|pathes
+name|paths
 operator|.
 name|nelts
 condition|;

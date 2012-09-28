@@ -1861,7 +1861,7 @@ name|path
 operator|=
 name|ngx_cycle
 operator|->
-name|pathes
+name|paths
 operator|.
 name|elts
 expr_stmt|;
@@ -1875,7 +1875,7 @@ name|i
 operator|<
 name|ngx_cycle
 operator|->
-name|pathes
+name|paths
 operator|.
 name|nelts
 condition|;
@@ -6049,7 +6049,7 @@ name|path
 operator|=
 name|ngx_cycle
 operator|->
-name|pathes
+name|paths
 operator|.
 name|elts
 expr_stmt|;
@@ -6063,7 +6063,7 @@ name|i
 operator|<
 name|ngx_cycle
 operator|->
-name|pathes
+name|paths
 operator|.
 name|nelts
 condition|;
@@ -6174,7 +6174,7 @@ name|path
 operator|=
 name|cycle
 operator|->
-name|pathes
+name|paths
 operator|.
 name|elts
 expr_stmt|;
@@ -6188,7 +6188,7 @@ name|i
 operator|<
 name|cycle
 operator|->
-name|pathes
+name|paths
 operator|.
 name|nelts
 condition|;
