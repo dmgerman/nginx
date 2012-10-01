@@ -34,7 +34,7 @@ name|SSL_CTRL_SET_TLSEXT_STATUS_REQ_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon2c7dffd10108
+DECL|struct|__anon27caaf3f0108
 typedef|typedef
 struct|struct
 block|{
@@ -4947,7 +4947,7 @@ argument_list|,
 name|NGX_ESCAPE_URI_COMPONENT
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug
+name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
@@ -5376,7 +5376,7 @@ name|ngx_buf_t
 modifier|*
 name|b
 decl_stmt|;
-DECL|enum|__anon2c7dffd10203
+DECL|enum|__anon27caaf3f0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6172,7 +6172,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2c7dffd10303
+DECL|enum|__anon27caaf3f0303
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6868,7 +6868,7 @@ end_else
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_ssl_stapling (ngx_conf_t * cf,ngx_ssl_t * ssl,ngx_str_t * responder,ngx_str_t * file)
+DECL|function|ngx_ssl_stapling (ngx_conf_t * cf,ngx_ssl_t * ssl,ngx_str_t * file,ngx_str_t * responder,ngx_uint_t verify)
 name|ngx_ssl_stapling
 parameter_list|(
 name|ngx_conf_t
@@ -6881,11 +6881,14 @@ name|ssl
 parameter_list|,
 name|ngx_str_t
 modifier|*
-name|responder
+name|file
 parameter_list|,
 name|ngx_str_t
 modifier|*
-name|file
+name|responder
+parameter_list|,
+name|ngx_uint_t
+name|verify
 parameter_list|)
 block|{
 name|ngx_log_error
