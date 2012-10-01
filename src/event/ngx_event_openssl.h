@@ -89,7 +89,7 @@ value|SSL
 end_define
 
 begin_typedef
-DECL|struct|__anon2bacc0170108
+DECL|struct|__anon2a9f447f0108
 typedef|typedef
 struct|struct
 block|{
@@ -110,7 +110,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bacc0170208
+DECL|struct|__anon2a9f447f0208
 typedef|typedef
 struct|struct
 block|{
@@ -282,7 +282,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bacc0170308
+DECL|struct|__anon2a9f447f0308
 typedef|typedef
 struct|struct
 block|{
@@ -497,7 +497,33 @@ name|ssl
 parameter_list|,
 name|ngx_str_t
 modifier|*
+name|responder
+parameter_list|,
+name|ngx_str_t
+modifier|*
 name|file
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_ssl_stapling_resolver
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_ssl_t
+modifier|*
+name|ssl
+parameter_list|,
+name|ngx_resolver_t
+modifier|*
+name|resolver
+parameter_list|,
+name|ngx_msec_t
+name|resolver_timeout
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -1016,6 +1042,20 @@ begin_decl_stmt
 specifier|extern
 name|int
 name|ngx_ssl_session_cache_index
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|int
+name|ngx_ssl_certificate_index
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|int
+name|ngx_ssl_stapling_index
 decl_stmt|;
 end_decl_stmt
 

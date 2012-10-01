@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon274c3fb80108
+DECL|struct|__anon2b4e12ce0108
 typedef|typedef
 struct|struct
 block|{
@@ -115,6 +115,10 @@ decl_stmt|;
 DECL|member|stapling_file
 name|ngx_str_t
 name|stapling_file
+decl_stmt|;
+DECL|member|stapling_responder
+name|ngx_str_t
+name|stapling_responder
 decl_stmt|;
 DECL|member|file
 name|u_char

@@ -420,6 +420,12 @@ directive|include
 file|<ngx_cycle.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<ngx_resolver.h>
+end_include
+
 begin_if
 if|#
 directive|if
@@ -449,12 +455,6 @@ begin_include
 include|#
 directive|include
 file|<ngx_conf_file.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_resolver.h>
 end_include
 
 begin_include
