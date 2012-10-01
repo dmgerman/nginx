@@ -58,6 +58,12 @@ directive|include
 file|<openssl/evp.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<openssl/ocsp.h>
+end_include
+
 begin_define
 DECL|macro|NGX_SSL_NAME
 define|#
@@ -83,7 +89,7 @@ value|SSL
 end_define
 
 begin_typedef
-DECL|struct|__anon28eacbd90108
+DECL|struct|__anon2bacc0170108
 typedef|typedef
 struct|struct
 block|{
@@ -104,7 +110,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28eacbd90208
+DECL|struct|__anon2bacc0170208
 typedef|typedef
 struct|struct
 block|{
@@ -276,7 +282,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28eacbd90308
+DECL|struct|__anon2bacc0170308
 typedef|typedef
 struct|struct
 block|{
@@ -473,6 +479,25 @@ parameter_list|,
 name|ngx_str_t
 modifier|*
 name|crl
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_ssl_stapling
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_ssl_t
+modifier|*
+name|ssl
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|file
 parameter_list|)
 function_decl|;
 end_function_decl
