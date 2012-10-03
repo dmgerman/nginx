@@ -89,7 +89,7 @@ value|SSL
 end_define
 
 begin_typedef
-DECL|struct|__anon28b7f2520108
+DECL|struct|__anon27eac3770108
 typedef|typedef
 struct|struct
 block|{
@@ -110,7 +110,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b7f2520208
+DECL|struct|__anon27eac3770208
 typedef|typedef
 struct|struct
 block|{
@@ -282,7 +282,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28b7f2520308
+DECL|struct|__anon27eac3770308
 typedef|typedef
 struct|struct
 block|{
@@ -716,6 +716,18 @@ name|ssl_ctx
 parameter_list|)
 define|\
 value|SSL_CTX_get_ex_data(ssl_ctx, ngx_ssl_server_conf_index)
+end_define
+
+begin_define
+DECL|macro|ngx_ssl_verify_error_optional (n)
+define|#
+directive|define
+name|ngx_ssl_verify_error_optional
+parameter_list|(
+name|n
+parameter_list|)
+define|\
+value|(n == X509_V_ERR_DEPTH_ZERO_SELF_SIGNED_CERT                              \      || n == X509_V_ERR_SELF_SIGNED_CERT_IN_CHAIN                             \      || n == X509_V_ERR_UNABLE_TO_GET_ISSUER_CERT_LOCALLY                     \      || n == X509_V_ERR_CERT_UNTRUSTED                                        \      || n == X509_V_ERR_UNABLE_TO_VERIFY_LEAF_SIGNATURE)
 end_define
 
 begin_function_decl
