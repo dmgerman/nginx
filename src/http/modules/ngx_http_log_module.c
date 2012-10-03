@@ -100,7 +100,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2768384c0108
+DECL|struct|__anon2871a7110108
 typedef|typedef
 struct|struct
 block|{
@@ -126,7 +126,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2768384c0208
+DECL|struct|__anon2871a7110208
 typedef|typedef
 struct|struct
 block|{
@@ -147,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2768384c0308
+DECL|struct|__anon2871a7110308
 typedef|typedef
 struct|struct
 block|{
@@ -168,7 +168,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2768384c0408
+DECL|struct|__anon2871a7110408
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +202,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2768384c0508
+DECL|struct|__anon2871a7110508
 typedef|typedef
 struct|struct
 block|{
@@ -237,7 +237,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2768384c0608
+DECL|struct|__anon2871a7110608
 typedef|typedef
 struct|struct
 block|{
@@ -1082,17 +1082,6 @@ block|{
 name|ngx_string
 argument_list|(
 literal|"body_bytes_sent"
-argument_list|)
-block|,
-name|NGX_OFF_T_LEN
-block|,
-name|ngx_http_log_body_bytes_sent
-block|}
-block|,
-block|{
-name|ngx_string
-argument_list|(
-literal|"apache_bytes_sent"
 argument_list|)
 block|,
 name|NGX_OFF_T_LEN
@@ -5352,35 +5341,6 @@ block|{
 goto|goto
 name|invalid
 goto|;
-block|}
-if|if
-condition|(
-name|ngx_strncmp
-argument_list|(
-name|var
-operator|.
-name|data
-argument_list|,
-literal|"apache_bytes_sent"
-argument_list|,
-literal|17
-argument_list|)
-operator|==
-literal|0
-condition|)
-block|{
-name|ngx_conf_log_error
-argument_list|(
-name|NGX_LOG_WARN
-argument_list|,
-name|cf
-argument_list|,
-literal|0
-argument_list|,
-literal|"use \"$body_bytes_sent\" instead of "
-literal|"\"$apache_bytes_sent\""
-argument_list|)
-expr_stmt|;
 block|}
 for|for
 control|(
