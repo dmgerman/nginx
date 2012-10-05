@@ -3192,6 +3192,14 @@ index|]
 expr_stmt|;
 if|if
 condition|(
+name|sscf
+operator|->
+name|ssl
+operator|.
+name|ctx
+operator|==
+name|NULL
+operator|||
 operator|!
 name|sscf
 operator|->
