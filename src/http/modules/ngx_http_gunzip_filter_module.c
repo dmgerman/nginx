@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27edf2190108
+DECL|struct|__anon29254ef90108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27edf2190208
+DECL|struct|__anon29254ef90208
 typedef|typedef
 struct|struct
 block|{
@@ -583,7 +583,6 @@ block|}
 block|}
 if|else if
 condition|(
-operator|!
 name|r
 operator|->
 name|gzip_ok
