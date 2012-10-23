@@ -7656,7 +7656,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon2879d4830103
+DECL|enum|__anon278e45850103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -11787,6 +11787,31 @@ name|ngx_http_close_connection
 argument_list|(
 name|c
 argument_list|)
+expr_stmt|;
+block|}
+comment|/*          * Like ngx_http_set_keepalive() we are trying to not hold          * c->buffer's memory for a keepalive connection.          */
+if|if
+condition|(
+name|ngx_pfree
+argument_list|(
+name|c
+operator|->
+name|pool
+argument_list|,
+name|b
+operator|->
+name|start
+argument_list|)
+operator|==
+name|NGX_OK
+condition|)
+block|{
+comment|/*              * the special note that c->buffer's memory was freed              */
+name|b
+operator|->
+name|pos
+operator|=
+name|NULL
 expr_stmt|;
 block|}
 return|return;
