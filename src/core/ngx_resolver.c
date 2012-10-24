@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2c764bb90108
+DECL|struct|__anon2aba08c80108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c764bb90208
+DECL|struct|__anon2aba08c80208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c764bb90308
+DECL|struct|__anon2aba08c80308
 typedef|typedef
 struct|struct
 block|{
@@ -9416,6 +9416,17 @@ name|in_addr_t
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|dst
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|dst
+return|;
+block|}
 name|j
 operator|=
 name|ngx_random
