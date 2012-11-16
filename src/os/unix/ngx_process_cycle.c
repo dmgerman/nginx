@@ -140,8 +140,8 @@ name|ngx_cycle_t
 modifier|*
 name|cycle
 parameter_list|,
-name|ngx_uint_t
-name|priority
+name|ngx_int_t
+name|worker
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -410,13 +410,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-
-begin_decl_stmt
-DECL|variable|cpu_affinity
-name|uint64_t
-name|cpu_affinity
-decl_stmt|;
-end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|master_process
@@ -1753,20 +1746,20 @@ name|i
 operator|++
 control|)
 block|{
-name|cpu_affinity
-operator|=
-name|ngx_get_cpu_affinity
-argument_list|(
-name|i
-argument_list|)
-expr_stmt|;
 name|ngx_spawn_process
 argument_list|(
 name|cycle
 argument_list|,
 name|ngx_worker_process_cycle
 argument_list|,
-name|NULL
+operator|(
+name|void
+operator|*
+operator|)
+operator|(
+name|intptr_t
+operator|)
+name|i
 argument_list|,
 literal|"worker process"
 argument_list|,
@@ -1813,10 +1806,6 @@ name|ch
 argument_list|)
 expr_stmt|;
 block|}
-name|cpu_affinity
-operator|=
-literal|0
-expr_stmt|;
 block|}
 end_function
 
@@ -3375,6 +3364,14 @@ modifier|*
 name|data
 parameter_list|)
 block|{
+name|ngx_int_t
+name|worker
+init|=
+operator|(
+name|intptr_t
+operator|)
+name|data
+decl_stmt|;
 name|ngx_uint_t
 name|i
 decl_stmt|;
@@ -3390,7 +3387,7 @@ name|ngx_worker_process_init
 argument_list|(
 name|cycle
 argument_list|,
-literal|1
+name|worker
 argument_list|)
 expr_stmt|;
 name|ngx_setproctitle
@@ -3825,19 +3822,22 @@ end_function
 begin_function
 specifier|static
 name|void
-DECL|function|ngx_worker_process_init (ngx_cycle_t * cycle,ngx_uint_t priority)
+DECL|function|ngx_worker_process_init (ngx_cycle_t * cycle,ngx_int_t worker)
 name|ngx_worker_process_init
 parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
 parameter_list|,
-name|ngx_uint_t
-name|priority
+name|ngx_int_t
+name|worker
 parameter_list|)
 block|{
 name|sigset_t
 name|set
+decl_stmt|;
+name|uint64_t
+name|cpu_affinity
 decl_stmt|;
 name|ngx_int_t
 name|n
@@ -3893,7 +3893,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|priority
+name|worker
+operator|>=
+literal|0
 operator|&&
 name|ccf
 operator|->
@@ -4259,6 +4261,20 @@ block|}
 block|}
 if|if
 condition|(
+name|worker
+operator|>=
+literal|0
+condition|)
+block|{
+name|cpu_affinity
+operator|=
+name|ngx_get_cpu_affinity
+argument_list|(
+name|worker
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
 name|cpu_affinity
 condition|)
 block|{
@@ -4271,6 +4287,7 @@ operator|->
 name|log
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 if|#
 directive|if
@@ -5869,7 +5886,8 @@ name|ngx_worker_process_init
 argument_list|(
 name|cycle
 argument_list|,
-literal|0
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 name|ngx_close_listening_sockets
