@@ -2546,6 +2546,17 @@ index|[
 literal|0
 index|]
 expr_stmt|;
+if|if
+condition|(
+name|peer
+operator|->
+name|down
+condition|)
+block|{
+goto|goto
+name|failed
+goto|;
+block|}
 block|}
 else|else
 block|{
