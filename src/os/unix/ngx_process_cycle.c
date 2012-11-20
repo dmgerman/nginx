@@ -5872,15 +5872,22 @@ decl_stmt|;
 name|ngx_event_t
 name|ev
 decl_stmt|;
+comment|/*      * Set correct process type since closing listening Unix domain socket      * in a master process also removes the Unix domain socket file.      */
+name|ngx_process
+operator|=
+name|NGX_PROCESS_HELPER
+expr_stmt|;
+name|ngx_close_listening_sockets
+argument_list|(
+name|cycle
+argument_list|)
+expr_stmt|;
+comment|/* Set a moderate number of connections for a helper process. */
 name|cycle
 operator|->
 name|connection_n
 operator|=
 literal|512
-expr_stmt|;
-name|ngx_process
-operator|=
-name|NGX_PROCESS_HELPER
 expr_stmt|;
 name|ngx_worker_process_init
 argument_list|(
@@ -5888,11 +5895,6 @@ name|cycle
 argument_list|,
 operator|-
 literal|1
-argument_list|)
-expr_stmt|;
-name|ngx_close_listening_sockets
-argument_list|(
-name|cycle
 argument_list|)
 expr_stmt|;
 name|ngx_memzero

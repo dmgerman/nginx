@@ -3447,6 +3447,14 @@ operator|-
 literal|1
 expr_stmt|;
 block|}
+name|cycle
+operator|->
+name|listening
+operator|.
+name|nelts
+operator|=
+literal|0
+expr_stmt|;
 block|}
 end_function
 
