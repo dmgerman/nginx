@@ -3978,10 +3978,17 @@ modifier|*
 name|in
 parameter_list|)
 block|{
+if|#
+directive|if
+operator|(
+name|NGX_DEBUG
+operator|)
 name|ngx_chain_t
 modifier|*
 name|cl
 decl_stmt|;
+endif|#
+directive|endif
 name|ngx_http_request_body_t
 modifier|*
 name|rb
