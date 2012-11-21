@@ -363,7 +363,7 @@ argument_list|)
 block|,
 name|ngx_string
 argument_list|(
-literal|"501 Method Not Implemented"
+literal|"501 Not Implemented"
 argument_list|)
 block|,
 name|ngx_string

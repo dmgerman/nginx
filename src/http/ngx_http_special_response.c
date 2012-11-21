@@ -620,11 +620,11 @@ index|[]
 init|=
 literal|"<html>"
 name|CRLF
-literal|"<head><title>501 Method Not Implemented</title></head>"
+literal|"<head><title>501 Not Implemented</title></head>"
 name|CRLF
 literal|"<body bgcolor=\"white\">"
 name|CRLF
-literal|"<center><h1>501 Method Not Implemented</h1></center>"
+literal|"<center><h1>501 Not Implemented</h1></center>"
 name|CRLF
 decl_stmt|;
 end_decl_stmt
@@ -1042,6 +1042,9 @@ name|NGX_HTTPS_NO_CERT
 case|:
 case|case
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
+case|:
+case|case
+name|NGX_HTTP_NOT_IMPLEMENTED
 case|:
 name|r
 operator|->
