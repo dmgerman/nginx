@@ -508,7 +508,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon275623d50103
+DECL|enum|__anon273c76c20103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2858,7 +2858,7 @@ name|hash
 decl_stmt|,
 name|i
 decl_stmt|;
-DECL|enum|__anon275623d50203
+DECL|enum|__anon273c76c20203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -3634,7 +3634,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon275623d50303
+DECL|enum|__anon273c76c20303
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -4912,7 +4912,7 @@ name|u_char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon275623d50403
+DECL|enum|__anon273c76c20403
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6415,7 +6415,7 @@ decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
-DECL|enum|__anon275623d50503
+DECL|enum|__anon273c76c20503
 enum|enum
 block|{
 DECL|enumerator|sw_chunk_start
@@ -7159,6 +7159,20 @@ name|rc
 return|;
 name|done
 label|:
+name|ctx
+operator|->
+name|state
+operator|=
+literal|0
+expr_stmt|;
+name|b
+operator|->
+name|pos
+operator|=
+name|pos
+operator|+
+literal|1
+expr_stmt|;
 return|return
 name|NGX_DONE
 return|;
