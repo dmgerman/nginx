@@ -62,7 +62,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon28b8ccf00108
+DECL|struct|__anon2918dbcb0108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b8ccf00208
+DECL|struct|__anon2918dbcb0208
 typedef|typedef
 struct|struct
 block|{
@@ -892,6 +892,32 @@ name|ngx_http_dav_loc_conf_t
 modifier|*
 name|dlcf
 decl_stmt|;
+if|if
+condition|(
+name|r
+operator|->
+name|request_body
+operator|==
+name|NULL
+operator|||
+name|r
+operator|->
+name|request_body
+operator|->
+name|temp_file
+operator|==
+name|NULL
+condition|)
+block|{
+name|ngx_http_finalize_request
+argument_list|(
+name|r
+argument_list|,
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|ngx_http_map_uri_to_path
 argument_list|(
 name|r
