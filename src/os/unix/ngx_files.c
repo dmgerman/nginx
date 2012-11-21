@@ -1088,6 +1088,25 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_CORE
+argument_list|,
+name|file
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"writev: %d, %z"
+argument_list|,
+name|file
+operator|->
+name|fd
+argument_list|,
+name|n
+argument_list|)
+expr_stmt|;
 name|file
 operator|->
 name|sys_offset
