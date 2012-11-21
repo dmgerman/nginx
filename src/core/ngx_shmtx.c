@@ -470,6 +470,7 @@ argument_list|)
 expr_stmt|;
 break|break;
 block|}
+block|}
 name|ngx_log_debug0
 argument_list|(
 name|NGX_LOG_DEBUG_CORE
@@ -483,7 +484,6 @@ argument_list|,
 literal|"shmtx awoke"
 argument_list|)
 expr_stmt|;
-block|}
 continue|continue;
 block|}
 endif|#
