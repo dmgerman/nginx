@@ -1119,6 +1119,10 @@ name|offset
 operator|+=
 name|n
 expr_stmt|;
+name|offset
+operator|+=
+name|n
+expr_stmt|;
 name|total
 operator|+=
 name|n
