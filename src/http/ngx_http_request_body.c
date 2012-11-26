@@ -459,6 +459,12 @@ name|read_event_handler
 operator|=
 name|ngx_http_read_client_request_body_handler
 expr_stmt|;
+name|r
+operator|->
+name|write_event_handler
+operator|=
+name|ngx_http_request_empty_handler
+expr_stmt|;
 name|rc
 operator|=
 name|ngx_http_do_read_client_request_body
@@ -676,6 +682,12 @@ operator|->
 name|read_event_handler
 operator|=
 name|ngx_http_read_client_request_body_handler
+expr_stmt|;
+name|r
+operator|->
+name|write_event_handler
+operator|=
+name|ngx_http_request_empty_handler
 expr_stmt|;
 name|rc
 operator|=
