@@ -1844,6 +1844,12 @@ expr_stmt|;
 if|if
 condition|(
 name|size
+operator|||
+name|r
+operator|->
+name|headers_in
+operator|.
+name|chunked
 condition|)
 block|{
 name|rc
