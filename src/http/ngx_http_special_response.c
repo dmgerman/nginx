@@ -1208,9 +1208,11 @@ operator|!=
 name|NGX_OK
 condition|)
 block|{
-name|error
+name|r
+operator|->
+name|keepalive
 operator|=
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+literal|0
 expr_stmt|;
 block|}
 if|if
