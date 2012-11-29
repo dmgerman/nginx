@@ -1646,7 +1646,7 @@ name|gl
 operator|->
 name|pattern
 argument_list|,
-name|GLOB_NOSORT
+literal|0
 argument_list|,
 name|NULL
 argument_list|,
