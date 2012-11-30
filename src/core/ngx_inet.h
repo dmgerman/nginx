@@ -84,7 +84,7 @@ DECL|macro|NGX_SOCKADDR_STRLEN
 define|#
 directive|define
 name|NGX_SOCKADDR_STRLEN
-value|(NGX_INET6_ADDRSTRLEN + sizeof(":65535") - 1)
+value|(NGX_INET6_ADDRSTRLEN + sizeof("[]:65535") - 1)
 end_define
 
 begin_endif
@@ -127,7 +127,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29b41ae60108
+DECL|struct|__anon2c70d9680108
 typedef|typedef
 struct|struct
 block|{
@@ -154,7 +154,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon29b41ae60208
+DECL|struct|__anon2c70d9680208
 typedef|typedef
 struct|struct
 block|{
@@ -180,7 +180,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29b41ae60308
+DECL|struct|__anon2c70d9680308
 typedef|typedef
 struct|struct
 block|{
@@ -188,7 +188,7 @@ DECL|member|family
 name|ngx_uint_t
 name|family
 decl_stmt|;
-DECL|union|__anon29b41ae6040a
+DECL|union|__anon2c70d968040a
 union|union
 block|{
 DECL|member|in
@@ -217,7 +217,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b41ae60508
+DECL|struct|__anon2c70d9680508
 typedef|typedef
 struct|struct
 block|{
@@ -242,7 +242,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b41ae60608
+DECL|struct|__anon2c70d9680608
 typedef|typedef
 struct|struct
 block|{
