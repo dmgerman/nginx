@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon275e8a980108
+DECL|struct|__anon2b5398970108
 typedef|typedef
 struct|struct
 block|{
@@ -8359,7 +8359,7 @@ name|cache_key
 operator|.
 name|value
 operator|.
-name|len
+name|data
 condition|)
 block|{
 return|return
