@@ -102,7 +102,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon299012f70108
+DECL|struct|__anon2b87b84d0108
 typedef|typedef
 struct|struct
 block|{
@@ -123,7 +123,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299012f70208
+DECL|struct|__anon2b87b84d0208
 typedef|typedef
 struct|struct
 block|{
@@ -144,7 +144,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299012f70308
+DECL|struct|__anon2b87b84d0308
 typedef|typedef
 struct|struct
 block|{
@@ -169,7 +169,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299012f70408
+DECL|struct|__anon2b87b84d0408
 typedef|typedef
 struct|struct
 block|{
@@ -189,7 +189,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299012f70508
+DECL|struct|__anon2b87b84d0508
 typedef|typedef
 struct|struct
 block|{
@@ -224,7 +224,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299012f70608
+DECL|struct|__anon2b87b84d0608
 typedef|typedef
 struct|struct
 block|{
@@ -1321,7 +1321,8 @@ name|ngx_http_filter_finalize_request
 argument_list|(
 name|r
 argument_list|,
-name|NULL
+operator|&
+name|ngx_http_xslt_filter_module
 argument_list|,
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 argument_list|)
@@ -1357,7 +1358,8 @@ name|ngx_http_filter_finalize_request
 argument_list|(
 name|r
 argument_list|,
-name|NULL
+operator|&
+name|ngx_http_xslt_filter_module
 argument_list|,
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 argument_list|)
