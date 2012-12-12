@@ -885,6 +885,9 @@ condition|)
 block|{
 name|limit
 operator|=
+operator|(
+name|off_t
+operator|)
 name|r
 operator|->
 name|limit_rate
