@@ -69,7 +69,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon292fda15010a
+DECL|union|__anon28ed3af6010a
 union|union
 block|{
 DECL|member|complex
@@ -101,7 +101,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon292fda150208
+DECL|struct|__anon28ed3af60208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292fda150308
+DECL|struct|__anon28ed3af60308
 typedef|typedef
 struct|struct
 block|{
@@ -253,7 +253,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292fda150408
+DECL|struct|__anon28ed3af60408
 typedef|typedef
 struct|struct
 block|{
@@ -8035,7 +8035,8 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"upstream sent too much data"
+literal|"upstream sent more data than specified in "
+literal|"\"Content-Length\" header"
 argument_list|)
 expr_stmt|;
 block|}
