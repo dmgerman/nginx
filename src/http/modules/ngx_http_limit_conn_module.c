@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b3d70ca0108
+DECL|struct|__anon28a4fd2a0108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3d70ca0208
+DECL|struct|__anon28a4fd2a0208
 typedef|typedef
 struct|struct
 block|{
@@ -73,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3d70ca0308
+DECL|struct|__anon28a4fd2a0308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3d70ca0408
+DECL|struct|__anon28a4fd2a0408
 typedef|typedef
 struct|struct
 block|{
@@ -117,7 +117,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3d70ca0508
+DECL|struct|__anon28a4fd2a0508
 typedef|typedef
 struct|struct
 block|{
@@ -2305,6 +2305,15 @@ index|[
 name|i
 index|]
 operator|.
+name|len
+operator|>
+literal|1
+operator|&&
+name|value
+index|[
+name|i
+index|]
+operator|.
 name|data
 index|[
 literal|0
@@ -2613,6 +2622,15 @@ name|elts
 expr_stmt|;
 if|if
 condition|(
+name|value
+index|[
+literal|2
+index|]
+operator|.
+name|len
+operator|<
+literal|2
+operator|||
 name|value
 index|[
 literal|2
