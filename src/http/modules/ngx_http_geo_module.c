@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon295c5a540108
+DECL|struct|__anon2ab9d6090108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295c5a540208
+DECL|struct|__anon2ab9d6090208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295c5a540308
+DECL|struct|__anon2ab9d6090308
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295c5a540408
+DECL|struct|__anon2ab9d6090408
 typedef|typedef
 struct|struct
 block|{
@@ -191,11 +191,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295c5a540508
+DECL|struct|__anon2ab9d6090508
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon295c5a54060a
+DECL|union|__anon2ab9d609060a
 union|union
 block|{
 DECL|member|tree
@@ -650,7 +650,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon295c5a540708
+DECL|struct|__anon2ab9d6090708
 typedef|typedef
 struct|struct
 block|{
@@ -856,6 +856,17 @@ name|high
 operator|.
 name|default_value
 expr_stmt|;
+if|if
+condition|(
+name|ctx
+operator|->
+name|u
+operator|.
+name|high
+operator|.
+name|low
+condition|)
+block|{
 name|addr
 operator|=
 name|ngx_http_geo_addr
@@ -935,6 +946,7 @@ operator|->
 name|value
 condition|)
 do|;
+block|}
 block|}
 name|ngx_log_debug1
 argument_list|(
@@ -1771,13 +1783,17 @@ if|if
 condition|(
 name|ctx
 operator|.
-name|high
-operator|.
-name|low
+name|ranges
 condition|)
 block|{
 if|if
 condition|(
+name|ctx
+operator|.
+name|high
+operator|.
+name|low
+operator|&&
 operator|!
 name|ctx
 operator|.
