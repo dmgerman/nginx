@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2796f07d0108
+DECL|struct|__anon29d2e2130108
 typedef|typedef
 struct|struct
 block|{
@@ -80,7 +80,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2796f07d0208
+DECL|struct|__anon29d2e2130208
 typedef|typedef
 struct|struct
 block|{
@@ -1971,6 +1971,18 @@ operator|--
 expr_stmt|;
 name|memlevel
 operator|--
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|memlevel
+operator|<
+literal|1
+condition|)
+block|{
+name|memlevel
+operator|=
+literal|1
 expr_stmt|;
 block|}
 block|}
