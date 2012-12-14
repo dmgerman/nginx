@@ -5422,7 +5422,8 @@ if|if
 condition|(
 name|n
 operator|==
-name|NGX_FILE_ERROR
+operator|-
+literal|1
 condition|)
 block|{
 name|ngx_log_error

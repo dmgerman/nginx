@@ -3503,7 +3503,8 @@ if|if
 condition|(
 name|n
 operator|==
-name|NGX_FILE_ERROR
+operator|-
+literal|1
 condition|)
 block|{
 name|ngx_log_error
@@ -3544,7 +3545,7 @@ name|cf
 operator|->
 name|log
 argument_list|,
-name|ngx_errno
+literal|0
 argument_list|,
 name|ngx_read_fd_n
 literal|" has read only %z of %uz from %s"
@@ -3575,7 +3576,8 @@ if|if
 condition|(
 name|n
 operator|==
-name|NGX_FILE_ERROR
+operator|-
+literal|1
 condition|)
 block|{
 name|ngx_log_error
@@ -3616,7 +3618,7 @@ name|cf
 operator|->
 name|log
 argument_list|,
-name|ngx_errno
+literal|0
 argument_list|,
 name|ngx_write_fd_n
 literal|" has written only %z of %uz to %s"
