@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b685c190108
+DECL|struct|__anon295c5a540108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b685c190208
+DECL|struct|__anon295c5a540208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b685c190308
+DECL|struct|__anon295c5a540308
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b685c190408
+DECL|struct|__anon295c5a540408
 typedef|typedef
 struct|struct
 block|{
@@ -191,11 +191,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b685c190508
+DECL|struct|__anon295c5a540508
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon2b685c19060a
+DECL|union|__anon295c5a54060a
 union|union
 block|{
 DECL|member|tree
@@ -650,7 +650,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2b685c190708
+DECL|struct|__anon295c5a540708
 typedef|typedef
 struct|struct
 block|{
@@ -1390,11 +1390,6 @@ name|char
 modifier|*
 name|rv
 decl_stmt|;
-name|void
-modifier|*
-modifier|*
-name|p
-decl_stmt|;
 name|size_t
 name|len
 decl_stmt|;
@@ -1886,14 +1881,7 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
-name|p
-operator|=
-operator|(
-name|void
-operator|*
-operator|*
-operator|)
-name|ngx_cpymem
+name|ngx_memcpy
 argument_list|(
 name|ctx
 operator|.
@@ -1911,8 +1899,21 @@ argument_list|,
 name|len
 argument_list|)
 expr_stmt|;
-operator|*
-name|p
+name|ctx
+operator|.
+name|high
+operator|.
+name|low
+index|[
+name|i
+index|]
+index|[
+name|a
+operator|->
+name|nelts
+index|]
+operator|.
+name|value
 operator|=
 name|NULL
 expr_stmt|;
