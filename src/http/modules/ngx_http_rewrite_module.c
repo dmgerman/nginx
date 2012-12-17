@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon287eb2e20108
+DECL|struct|__anon2999495b0108
 typedef|typedef
 struct|struct
 block|{
@@ -4228,15 +4228,6 @@ name|elts
 expr_stmt|;
 if|if
 condition|(
-name|value
-index|[
-literal|1
-index|]
-operator|.
-name|len
-operator|<
-literal|2
-operator|||
 name|value
 index|[
 literal|1

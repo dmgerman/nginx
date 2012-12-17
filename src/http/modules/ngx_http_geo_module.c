@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ab9d6090108
+DECL|struct|__anon275a1e930108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab9d6090208
+DECL|struct|__anon275a1e930208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab9d6090308
+DECL|struct|__anon275a1e930308
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab9d6090408
+DECL|struct|__anon275a1e930408
 typedef|typedef
 struct|struct
 block|{
@@ -191,11 +191,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab9d6090508
+DECL|struct|__anon275a1e930508
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon2ab9d609060a
+DECL|union|__anon275a1e93060a
 union|union
 block|{
 DECL|member|tree
@@ -650,7 +650,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2ab9d6090708
+DECL|struct|__anon275a1e930708
 typedef|typedef
 struct|struct
 block|{
@@ -1480,12 +1480,6 @@ if|if
 condition|(
 name|name
 operator|.
-name|len
-operator|<
-literal|2
-operator|||
-name|name
-operator|.
 name|data
 index|[
 literal|0
@@ -1565,6 +1559,36 @@ index|[
 literal|2
 index|]
 expr_stmt|;
+if|if
+condition|(
+name|name
+operator|.
+name|data
+index|[
+literal|0
+index|]
+operator|!=
+literal|'$'
+condition|)
+block|{
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"invalid variable name \"%V\""
+argument_list|,
+operator|&
+name|name
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
 name|name
 operator|.
 name|len

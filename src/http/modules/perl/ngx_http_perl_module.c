@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29407c0c0108
+DECL|struct|__anon2926acac0108
 typedef|typedef
 struct|struct
 block|{
@@ -59,7 +59,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29407c0c0208
+DECL|struct|__anon2926acac0208
 typedef|typedef
 struct|struct
 block|{
@@ -79,7 +79,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29407c0c0308
+DECL|struct|__anon2926acac0308
 typedef|typedef
 struct|struct
 block|{
@@ -3993,15 +3993,6 @@ name|elts
 expr_stmt|;
 if|if
 condition|(
-name|value
-index|[
-literal|1
-index|]
-operator|.
-name|len
-operator|<
-literal|2
-operator|||
 name|value
 index|[
 literal|1
