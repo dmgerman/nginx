@@ -824,6 +824,14 @@ directive|endif
 end_endif
 
 begin_define
+DECL|macro|NGX_HAVE_GETADDRINFO
+define|#
+directive|define
+name|NGX_HAVE_GETADDRINFO
+value|1
+end_define
+
+begin_define
 DECL|macro|ngx_random
 define|#
 directive|define

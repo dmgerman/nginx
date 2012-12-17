@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27fbce9d0108
+DECL|struct|__anon2b9dbd530108
 typedef|typedef
 struct|struct
 block|{
@@ -1543,7 +1543,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon27fbce9d0203
+DECL|enum|__anon2b9dbd530203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -4144,7 +4144,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon27fbce9d0303
+DECL|enum|__anon2b9dbd530303
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6667,12 +6667,6 @@ expr_stmt|;
 name|u
 operator|.
 name|uri_part
-operator|=
-literal|1
-expr_stmt|;
-name|u
-operator|.
-name|one_addr
 operator|=
 literal|1
 expr_stmt|;
