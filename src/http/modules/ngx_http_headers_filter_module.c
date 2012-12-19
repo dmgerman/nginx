@@ -55,7 +55,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2913050108
+DECL|struct|__anon2c634f000108
 typedef|typedef
 struct|struct
 block|{
@@ -103,7 +103,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2a2913050203
+DECL|enum|__anon2c634f000203
 typedef|typedef
 enum|enum
 block|{
@@ -134,7 +134,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2913050308
+DECL|struct|__anon2c634f000308
 typedef|typedef
 struct|struct
 block|{
@@ -616,6 +616,14 @@ operator|.
 name|status
 operator|!=
 name|NGX_HTTP_OK
+operator|&&
+name|r
+operator|->
+name|headers_out
+operator|.
+name|status
+operator|!=
+name|NGX_HTTP_CREATED
 operator|&&
 name|r
 operator|->
