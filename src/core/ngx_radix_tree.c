@@ -17,7 +17,7 @@ end_include
 
 begin_function_decl
 specifier|static
-name|void
+name|ngx_radix_node_t
 modifier|*
 name|ngx_radix_alloc
 parameter_list|(
@@ -803,7 +803,7 @@ end_function
 
 begin_function
 specifier|static
-name|void
+name|ngx_radix_node_t
 modifier|*
 DECL|function|ngx_radix_alloc (ngx_radix_tree_t * tree)
 name|ngx_radix_alloc
@@ -813,7 +813,7 @@ modifier|*
 name|tree
 parameter_list|)
 block|{
-name|char
+name|ngx_radix_node_t
 modifier|*
 name|p
 decl_stmt|;
@@ -826,10 +826,6 @@ condition|)
 block|{
 name|p
 operator|=
-operator|(
-name|char
-operator|*
-operator|)
 name|tree
 operator|->
 name|free
@@ -897,6 +893,10 @@ expr_stmt|;
 block|}
 name|p
 operator|=
+operator|(
+name|ngx_radix_node_t
+operator|*
+operator|)
 name|tree
 operator|->
 name|start
