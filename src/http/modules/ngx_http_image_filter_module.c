@@ -156,7 +156,7 @@ value|0x08
 end_define
 
 begin_typedef
-DECL|struct|__anon2909a8a00108
+DECL|struct|__anon29a0ae790108
 typedef|typedef
 struct|struct
 block|{
@@ -224,7 +224,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2909a8a00208
+DECL|struct|__anon29a0ae790208
 typedef|typedef
 struct|struct
 block|{
@@ -5251,6 +5251,15 @@ name|hcv
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|conf
+operator|->
+name|jpeg_quality
+operator|==
+name|NGX_CONF_UNSET_UINT
+condition|)
+block|{
 comment|/* 75 is libjpeg default quality */
 name|ngx_conf_merge_uint_value
 argument_list|(
@@ -5283,6 +5292,16 @@ operator|->
 name|jqcv
 expr_stmt|;
 block|}
+block|}
+if|if
+condition|(
+name|conf
+operator|->
+name|sharpen
+operator|==
+name|NGX_CONF_UNSET_UINT
+condition|)
+block|{
 name|ngx_conf_merge_uint_value
 argument_list|(
 name|conf
@@ -5314,6 +5333,16 @@ operator|->
 name|shcv
 expr_stmt|;
 block|}
+block|}
+if|if
+condition|(
+name|conf
+operator|->
+name|angle
+operator|==
+name|NGX_CONF_UNSET_UINT
+condition|)
+block|{
 name|ngx_conf_merge_uint_value
 argument_list|(
 name|conf
@@ -5344,6 +5373,7 @@ name|prev
 operator|->
 name|acv
 expr_stmt|;
+block|}
 block|}
 name|ngx_conf_merge_value
 argument_list|(
