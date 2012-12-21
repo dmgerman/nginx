@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28b053e70108
+DECL|struct|__anon2bb99f2b0108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b053e70208
+DECL|struct|__anon2bb99f2b0208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b053e70308
+DECL|struct|__anon2bb99f2b0308
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b053e70408
+DECL|struct|__anon2bb99f2b0408
 typedef|typedef
 struct|struct
 block|{
@@ -191,11 +191,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b053e70508
+DECL|struct|__anon2bb99f2b0508
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon28b053e7060a
+DECL|union|__anon2bb99f2b060a
 union|union
 block|{
 DECL|member|tree
@@ -650,7 +650,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon28b053e70708
+DECL|struct|__anon2bb99f2b0708
 typedef|typedef
 struct|struct
 block|{
@@ -2139,24 +2139,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|ngx_radix32tree_find
-argument_list|(
-name|ctx
-operator|.
-name|tree
-argument_list|,
-literal|0
-argument_list|)
-operator|!=
-name|NGX_RADIX_NO_VALUE
-condition|)
-block|{
-return|return
-name|rv
-return|;
-block|}
-if|if
-condition|(
 name|ngx_radix32tree_insert
 argument_list|(
 name|ctx
@@ -2181,6 +2163,7 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
+comment|/* NGX_BUSY is okay (default was set explicitly) */
 block|}
 return|return
 name|rv
