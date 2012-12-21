@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon275a1e930108
+DECL|struct|__anon28b053e70108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275a1e930208
+DECL|struct|__anon28b053e70208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275a1e930308
+DECL|struct|__anon28b053e70308
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275a1e930408
+DECL|struct|__anon28b053e70408
 typedef|typedef
 struct|struct
 block|{
@@ -191,11 +191,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275a1e930508
+DECL|struct|__anon28b053e70508
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon275a1e93060a
+DECL|union|__anon28b053e7060a
 union|union
 block|{
 DECL|member|tree
@@ -650,7 +650,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon275a1e930708
+DECL|struct|__anon28b053e70708
 typedef|typedef
 struct|struct
 block|{
@@ -4715,14 +4715,6 @@ operator|.
 name|in
 operator|.
 name|addr
-operator|&
-name|cidr
-operator|.
-name|u
-operator|.
-name|in
-operator|.
-name|mask
 argument_list|)
 expr_stmt|;
 name|ngx_conf_log_error
