@@ -2013,9 +2013,8 @@ decl_stmt|;
 comment|/*      * prevent MSVC8 warning:      *    potentially uninitialized local variable 'inaddr6' used      */
 name|ngx_memzero
 argument_list|(
+operator|&
 name|inaddr6
-operator|.
-name|s6_addr
 argument_list|,
 sizeof|sizeof
 argument_list|(
