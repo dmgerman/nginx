@@ -100,7 +100,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2950f49a0108
+DECL|struct|__anon2b8ddf190108
 typedef|typedef
 struct|struct
 block|{
@@ -126,7 +126,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2950f49a0208
+DECL|struct|__anon2b8ddf190208
 typedef|typedef
 struct|struct
 block|{
@@ -147,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2950f49a0308
+DECL|struct|__anon2b8ddf190308
 typedef|typedef
 struct|struct
 block|{
@@ -168,7 +168,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2950f49a0408
+DECL|struct|__anon2b8ddf190408
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +202,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2950f49a0508
+DECL|struct|__anon2b8ddf190508
 typedef|typedef
 struct|struct
 block|{
@@ -237,7 +237,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2950f49a0608
+DECL|struct|__anon2b8ddf190608
 typedef|typedef
 struct|struct
 block|{
@@ -4464,7 +4464,10 @@ operator|->
 name|file
 operator|->
 name|buffer
-operator|&&
+condition|)
+block|{
+if|if
+condition|(
 name|log
 operator|->
 name|file
@@ -4500,6 +4503,10 @@ argument_list|)
 expr_stmt|;
 return|return
 name|NGX_CONF_ERROR
+return|;
+block|}
+return|return
+name|NGX_CONF_OK
 return|;
 block|}
 name|log
