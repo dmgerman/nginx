@@ -415,30 +415,27 @@ DECL|member|name
 name|ngx_str_t
 name|name
 decl_stmt|;
-DECL|member|buffer
-name|u_char
+DECL|member|flush
+name|void
+function_decl|(
 modifier|*
-name|buffer
-decl_stmt|;
-DECL|member|pos
-name|u_char
+name|flush
+function_decl|)
+parameter_list|(
+name|ngx_open_file_t
 modifier|*
-name|pos
-decl_stmt|;
-DECL|member|last
-name|u_char
+name|file
+parameter_list|,
+name|ngx_log_t
 modifier|*
-name|last
+name|log
+parameter_list|)
+function_decl|;
+DECL|member|data
+name|void
+modifier|*
+name|data
 decl_stmt|;
-if|#
-directive|if
-literal|0
-comment|/* e.g. append mode, error_log */
-block|ngx_uint_t            flags;
-comment|/* e.g. reopen db file */
-block|ngx_uint_t          (*handler)(void *data, ngx_open_file_t *file);     void                 *data;
-endif|#
-directive|endif
 block|}
 struct|;
 end_struct
@@ -627,7 +624,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a08d49e0108
+DECL|struct|__anon29f3a18d0108
 typedef|typedef
 struct|struct
 block|{
@@ -672,7 +669,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a08d49e0208
+DECL|struct|__anon29f3a18d0208
 typedef|typedef
 struct|struct
 block|{
@@ -812,7 +809,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a08d49e0308
+DECL|struct|__anon29f3a18d0308
 typedef|typedef
 struct|struct
 block|{
@@ -827,7 +824,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a08d49e0408
+DECL|struct|__anon29f3a18d0408
 typedef|typedef
 struct|struct
 block|{
@@ -852,7 +849,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a08d49e0508
+DECL|struct|__anon29f3a18d0508
 typedef|typedef
 struct|struct
 block|{
@@ -875,7 +872,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a08d49e0608
+DECL|struct|__anon29f3a18d0608
 typedef|typedef
 struct|struct
 block|{
@@ -902,7 +899,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon2a08d49e0708
+DECL|struct|__anon29f3a18d0708
 typedef|typedef
 struct|struct
 block|{
