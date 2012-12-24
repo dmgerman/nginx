@@ -13562,6 +13562,11 @@ condition|(
 name|rc
 operator|==
 literal|0
+operator|&&
+operator|!
+name|r
+operator|->
+name|header_only
 if|#
 directive|if
 operator|(
