@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bd56e0a0108
+DECL|struct|__anon277e5cd10108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd56e0a0208
+DECL|struct|__anon277e5cd10208
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd56e0a0308
+DECL|struct|__anon277e5cd10308
 typedef|typedef
 struct|struct
 block|{
@@ -96,7 +96,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd56e0a0408
+DECL|struct|__anon277e5cd10408
 typedef|typedef
 struct|struct
 block|{
@@ -120,7 +120,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd56e0a0508
+DECL|struct|__anon277e5cd10508
 typedef|typedef
 struct|struct
 block|{
@@ -231,11 +231,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd56e0a0608
+DECL|struct|__anon277e5cd10608
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon2bd56e0a070a
+DECL|union|__anon277e5cd1070a
 union|union
 block|{
 DECL|member|trees
@@ -693,7 +693,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2bd56e0a0808
+DECL|struct|__anon277e5cd10808
 typedef|typedef
 struct|struct
 block|{
@@ -4817,7 +4817,12 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|/* cidr.family = AF_INET; */
+name|cidr
+operator|.
+name|family
+operator|=
+name|AF_INET
+expr_stmt|;
 name|cidr
 operator|.
 name|u
