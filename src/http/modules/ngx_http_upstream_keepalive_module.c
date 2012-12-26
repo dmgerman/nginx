@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c3b440a0108
+DECL|struct|__anon2af5bcc80108
 typedef|typedef
 struct|struct
 block|{
@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3b440a0208
+DECL|struct|__anon2af5bcc80208
 typedef|typedef
 struct|struct
 block|{
@@ -107,7 +107,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3b440a0308
+DECL|struct|__anon2af5bcc80308
 typedef|typedef
 struct|struct
 block|{
@@ -1975,6 +1975,17 @@ argument_list|,
 name|ngx_http_upstream_keepalive_module
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|kcf
+operator|->
+name|original_init_upstream
+condition|)
+block|{
+return|return
+literal|"is duplicate"
+return|;
+block|}
 name|kcf
 operator|->
 name|original_init_upstream
