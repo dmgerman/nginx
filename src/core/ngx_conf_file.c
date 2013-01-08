@@ -386,7 +386,7 @@ name|prev
 decl_stmt|,
 name|conf_file
 decl_stmt|;
-DECL|enum|__anon2b60f4520103
+DECL|enum|__anon2c4e2d270103
 enum|enum
 block|{
 DECL|enumerator|parse_file
@@ -3613,6 +3613,12 @@ block|}
 name|file
 operator|->
 name|flush
+operator|=
+name|NULL
+expr_stmt|;
+name|file
+operator|->
+name|data
 operator|=
 name|NULL
 expr_stmt|;
