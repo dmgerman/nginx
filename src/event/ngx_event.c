@@ -3623,6 +3623,21 @@ name|ngx_event_module_t
 modifier|*
 name|m
 decl_stmt|;
+if|if
+condition|(
+operator|*
+operator|(
+name|void
+operator|*
+operator|*
+operator|)
+name|conf
+condition|)
+block|{
+return|return
+literal|"is duplicate"
+return|;
+block|}
 comment|/* count the number of the event modules and set up their indices */
 name|ngx_event_max_module
 operator|=
