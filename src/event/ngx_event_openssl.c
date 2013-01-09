@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b1a91640108
+DECL|struct|__anon2c3aedec0108
 typedef|typedef
 struct|struct
 block|{
@@ -2964,15 +2964,6 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-name|SSL_CTX_set_tmp_ecdh
-argument_list|(
-name|ssl
-operator|->
-name|ctx
-argument_list|,
-name|ecdh
-argument_list|)
-expr_stmt|;
 name|SSL_CTX_set_options
 argument_list|(
 name|ssl
@@ -2980,6 +2971,15 @@ operator|->
 name|ctx
 argument_list|,
 name|SSL_OP_SINGLE_ECDH_USE
+argument_list|)
+expr_stmt|;
+name|SSL_CTX_set_tmp_ecdh
+argument_list|(
+name|ssl
+operator|->
+name|ctx
+argument_list|,
+name|ecdh
 argument_list|)
 expr_stmt|;
 name|EC_KEY_free
