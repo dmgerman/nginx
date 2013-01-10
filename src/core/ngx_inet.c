@@ -3109,14 +3109,6 @@ name|no_port
 operator|=
 literal|1
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|u
-operator|->
-name|no_resolve
-condition|)
-block|{
 name|u
 operator|->
 name|port
@@ -3136,7 +3128,6 @@ operator|->
 name|default_port
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|len
 operator|=
@@ -3895,14 +3886,6 @@ name|no_port
 operator|=
 literal|1
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|u
-operator|->
-name|no_resolve
-condition|)
-block|{
 name|u
 operator|->
 name|port
@@ -3922,7 +3905,6 @@ operator|->
 name|default_port
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 name|len
