@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b5398970108
+DECL|struct|__anon27dec6c10108
 typedef|typedef
 struct|struct
 block|{
@@ -5001,6 +5001,14 @@ name|conf
 operator|->
 name|upstream
 operator|.
+name|local
+operator|=
+name|NGX_CONF_UNSET_PTR
+expr_stmt|;
+name|conf
+operator|->
+name|upstream
+operator|.
 name|connect_timeout
 operator|=
 name|NGX_CONF_UNSET_MSEC
@@ -5355,6 +5363,23 @@ operator|.
 name|ignore_client_abort
 argument_list|,
 literal|0
+argument_list|)
+expr_stmt|;
+name|ngx_conf_merge_ptr_value
+argument_list|(
+name|conf
+operator|->
+name|upstream
+operator|.
+name|local
+argument_list|,
+name|prev
+operator|->
+name|upstream
+operator|.
+name|local
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_msec_value

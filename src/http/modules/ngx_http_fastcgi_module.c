@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c4e88f80108
+DECL|struct|__anon296b0d580108
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c4e88f80203
+DECL|enum|__anon296b0d580203
 typedef|typedef
 enum|enum
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4e88f80308
+DECL|struct|__anon296b0d580308
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4e88f80408
+DECL|struct|__anon296b0d580408
 typedef|typedef
 struct|struct
 block|{
@@ -320,7 +320,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2c4e88f80508
+DECL|struct|__anon296b0d580508
 typedef|typedef
 struct|struct
 block|{
@@ -363,7 +363,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4e88f80608
+DECL|struct|__anon296b0d580608
 typedef|typedef
 struct|struct
 block|{
@@ -393,7 +393,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4e88f80708
+DECL|struct|__anon296b0d580708
 typedef|typedef
 struct|struct
 block|{
@@ -420,7 +420,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4e88f80808
+DECL|struct|__anon296b0d580808
 typedef|typedef
 struct|struct
 block|{
@@ -9509,6 +9509,14 @@ name|conf
 operator|->
 name|upstream
 operator|.
+name|local
+operator|=
+name|NGX_CONF_UNSET_PTR
+expr_stmt|;
+name|conf
+operator|->
+name|upstream
+operator|.
 name|connect_timeout
 operator|=
 name|NGX_CONF_UNSET_MSEC
@@ -9867,6 +9875,23 @@ operator|.
 name|ignore_client_abort
 argument_list|,
 literal|0
+argument_list|)
+expr_stmt|;
+name|ngx_conf_merge_ptr_value
+argument_list|(
+name|conf
+operator|->
+name|upstream
+operator|.
+name|local
+argument_list|,
+name|prev
+operator|->
+name|upstream
+operator|.
+name|local
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_msec_value

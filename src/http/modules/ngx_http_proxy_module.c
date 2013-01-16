@@ -69,7 +69,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon28ed3af6010a
+DECL|union|__anon277c5dd7010a
 union|union
 block|{
 DECL|member|complex
@@ -101,7 +101,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28ed3af60208
+DECL|struct|__anon277c5dd70208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ed3af60308
+DECL|struct|__anon277c5dd70308
 typedef|typedef
 struct|struct
 block|{
@@ -253,7 +253,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ed3af60408
+DECL|struct|__anon277c5dd70408
 typedef|typedef
 struct|struct
 block|{
@@ -11321,6 +11321,14 @@ name|conf
 operator|->
 name|upstream
 operator|.
+name|local
+operator|=
+name|NGX_CONF_UNSET_PTR
+expr_stmt|;
+name|conf
+operator|->
+name|upstream
+operator|.
 name|connect_timeout
 operator|=
 name|NGX_CONF_UNSET_MSEC
@@ -11737,6 +11745,23 @@ operator|.
 name|ignore_client_abort
 argument_list|,
 literal|0
+argument_list|)
+expr_stmt|;
+name|ngx_conf_merge_ptr_value
+argument_list|(
+name|conf
+operator|->
+name|upstream
+operator|.
+name|local
+argument_list|,
+name|prev
+operator|->
+name|upstream
+operator|.
+name|local
+argument_list|,
+name|NULL
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_msec_value
