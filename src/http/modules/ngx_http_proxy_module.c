@@ -69,7 +69,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon277c5dd7010a
+DECL|union|__anon2ac05627010a
 union|union
 block|{
 DECL|member|complex
@@ -101,7 +101,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon277c5dd70208
+DECL|struct|__anon2ac056270208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277c5dd70308
+DECL|struct|__anon2ac056270308
 typedef|typedef
 struct|struct
 block|{
@@ -253,7 +253,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277c5dd70408
+DECL|struct|__anon2ac056270408
 typedef|typedef
 struct|struct
 block|{
@@ -11284,7 +11284,7 @@ return|return
 name|NULL
 return|;
 block|}
-comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.bufs.num = 0;      *     conf->upstream.ignore_headers = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.cache_use_stale = 0;      *     conf->upstream.cache_methods = 0;      *     conf->upstream.temp_path = NULL;      *     conf->upstream.hide_headers_hash = { NULL, 0 };      *     conf->upstream.uri = { 0, NULL };      *     conf->upstream.location = NULL;      *     conf->upstream.store_lengths = NULL;      *     conf->upstream.store_values = NULL;      *      *     conf->method = NULL;      *     conf->headers_source = NULL;      *     conf->headers_set_len = NULL;      *     conf->headers_set = NULL;      *     conf->headers_set_hash = NULL;      *     conf->body_set_len = NULL;      *     conf->body_set = NULL;      *     conf->body_source = { 0, NULL };      *     conf->redirects = NULL;      */
+comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.bufs.num = 0;      *     conf->upstream.ignore_headers = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.cache_use_stale = 0;      *     conf->upstream.cache_methods = 0;      *     conf->upstream.temp_path = NULL;      *     conf->upstream.hide_headers_hash = { NULL, 0 };      *     conf->upstream.uri = { 0, NULL };      *     conf->upstream.location = NULL;      *     conf->upstream.store_lengths = NULL;      *     conf->upstream.store_values = NULL;      *      *     conf->method = { 0, NULL };      *     conf->headers_source = NULL;      *     conf->headers_set_len = NULL;      *     conf->headers_set = NULL;      *     conf->headers_set_hash = NULL;      *     conf->body_set_len = NULL;      *     conf->body_set = NULL;      *     conf->body_source = { 0, NULL };      *     conf->redirects = NULL;      */
 name|conf
 operator|->
 name|upstream
@@ -12655,6 +12655,19 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+name|ngx_conf_merge_str_value
+argument_list|(
+name|conf
+operator|->
+name|method
+argument_list|,
+name|prev
+operator|->
+name|method
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|conf
@@ -12662,20 +12675,24 @@ operator|->
 name|method
 operator|.
 name|len
-operator|==
-literal|0
-condition|)
-block|{
+operator|&&
 name|conf
 operator|->
 name|method
-operator|=
-name|prev
+operator|.
+name|data
+index|[
+name|conf
 operator|->
 name|method
-expr_stmt|;
-block|}
-else|else
+operator|.
+name|len
+operator|-
+literal|1
+index|]
+operator|!=
+literal|' '
+condition|)
 block|{
 name|conf
 operator|->
