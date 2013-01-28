@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b1badc80108
+DECL|struct|__anon2b93de910108
 typedef|typedef
 struct|struct
 block|{
@@ -5036,7 +5036,9 @@ operator|)
 condition|?
 literal|1
 else|:
-literal|0
+name|buf
+operator|->
+name|flush
 expr_stmt|;
 for|for
 control|(
@@ -5157,10 +5159,6 @@ operator|-
 name|send
 operator|)
 expr_stmt|;
-name|flush
-operator|=
-literal|1
-expr_stmt|;
 block|}
 name|ngx_log_debug1
 argument_list|(
@@ -5248,6 +5246,10 @@ condition|(
 operator|!
 name|flush
 operator|&&
+name|send
+operator|<
+name|limit
+operator|&&
 name|buf
 operator|->
 name|last
@@ -5290,15 +5292,7 @@ operator|==
 name|NGX_AGAIN
 condition|)
 block|{
-name|c
-operator|->
-name|buffered
-operator||=
-name|NGX_SSL_BUFFERED
-expr_stmt|;
-return|return
-name|in
-return|;
+break|break;
 block|}
 name|buf
 operator|->
@@ -5355,6 +5349,12 @@ block|{
 break|break;
 block|}
 block|}
+name|buf
+operator|->
+name|flush
+operator|=
+name|flush
+expr_stmt|;
 if|if
 condition|(
 name|buf
