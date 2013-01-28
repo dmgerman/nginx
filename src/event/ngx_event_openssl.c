@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b93de910108
+DECL|struct|__anon2c4b8c030108
 typedef|typedef
 struct|struct
 block|{
@@ -5231,16 +5231,6 @@ name|next
 expr_stmt|;
 block|}
 block|}
-name|size
-operator|=
-name|buf
-operator|->
-name|last
-operator|-
-name|buf
-operator|->
-name|pos
-expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -5261,6 +5251,16 @@ condition|)
 block|{
 break|break;
 block|}
+name|size
+operator|=
+name|buf
+operator|->
+name|last
+operator|-
+name|buf
+operator|->
+name|pos
+expr_stmt|;
 name|n
 operator|=
 name|ngx_ssl_write
