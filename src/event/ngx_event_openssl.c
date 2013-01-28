@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bc8952d0108
+DECL|struct|__anon2b1badc80108
 typedef|typedef
 struct|struct
 block|{
@@ -5321,6 +5321,10 @@ condition|)
 block|{
 break|break;
 block|}
+name|flush
+operator|=
+literal|0
+expr_stmt|;
 name|buf
 operator|->
 name|pos
