@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c3aedec0108
+DECL|struct|__anon2bc8952d0108
 typedef|typedef
 struct|struct
 block|{
@@ -5255,12 +5255,6 @@ operator|<
 name|buf
 operator|->
 name|end
-operator|&&
-name|c
-operator|->
-name|ssl
-operator|->
-name|buffer
 condition|)
 block|{
 break|break;
@@ -5327,17 +5321,6 @@ condition|)
 block|{
 break|break;
 block|}
-if|if
-condition|(
-name|buf
-operator|->
-name|pos
-operator|==
-name|buf
-operator|->
-name|last
-condition|)
-block|{
 name|buf
 operator|->
 name|pos
@@ -5354,7 +5337,6 @@ name|buf
 operator|->
 name|start
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|in
