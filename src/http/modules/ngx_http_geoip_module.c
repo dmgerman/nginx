@@ -58,7 +58,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon27b18b010108
+DECL|struct|__anon2747e27c0108
 typedef|typedef
 struct|struct
 block|{
@@ -119,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b18b010208
+DECL|struct|__anon2747e27c0208
 typedef|typedef
 struct|struct
 block|{
@@ -3041,12 +3041,6 @@ condition|)
 block|{
 case|case
 name|GEOIP_COUNTRY_EDITION
-case|:
-case|case
-name|GEOIP_PROXY_EDITION
-case|:
-case|case
-name|GEOIP_NETSPEED_EDITION
 case|:
 return|return
 name|NGX_CONF_OK
