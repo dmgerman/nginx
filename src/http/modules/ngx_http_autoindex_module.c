@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2a1f5aaa0108
+DECL|struct|__anon2988bebf0108
 typedef|typedef
 struct|struct
 block|{
@@ -75,7 +75,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1f5aaa0208
+DECL|struct|__anon2988bebf0208
 typedef|typedef
 struct|struct
 block|{
@@ -2475,6 +2475,15 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|NGX_HTTP_AUTOINDEX_NAME_LEN
+operator|-
+name|len
+operator|>
+literal|0
+condition|)
+block|{
 name|ngx_memset
 argument_list|(
 name|b
@@ -2496,6 +2505,7 @@ name|NGX_HTTP_AUTOINDEX_NAME_LEN
 operator|-
 name|len
 expr_stmt|;
+block|}
 block|}
 operator|*
 name|b
