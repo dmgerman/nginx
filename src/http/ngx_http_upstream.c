@@ -404,6 +404,9 @@ name|r
 parameter_list|,
 name|ngx_uint_t
 name|from_upstream
+parameter_list|,
+name|ngx_uint_t
+name|do_write
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -10821,6 +10824,8 @@ argument_list|(
 name|r
 argument_list|,
 literal|1
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
@@ -10850,6 +10855,8 @@ argument_list|(
 name|r
 argument_list|,
 literal|0
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
@@ -10872,6 +10879,8 @@ argument_list|(
 name|r
 argument_list|,
 literal|0
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -10891,6 +10900,8 @@ block|{
 name|ngx_http_upstream_process_upgraded
 argument_list|(
 name|r
+argument_list|,
+literal|1
 argument_list|,
 literal|1
 argument_list|)
@@ -10918,6 +10929,8 @@ argument_list|(
 name|r
 argument_list|,
 literal|1
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -10943,6 +10956,8 @@ argument_list|(
 name|r
 argument_list|,
 literal|0
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
@@ -10951,7 +10966,7 @@ end_function
 begin_function
 specifier|static
 name|void
-DECL|function|ngx_http_upstream_process_upgraded (ngx_http_request_t * r,ngx_uint_t from_upstream)
+DECL|function|ngx_http_upstream_process_upgraded (ngx_http_request_t * r,ngx_uint_t from_upstream,ngx_uint_t do_write)
 name|ngx_http_upstream_process_upgraded
 parameter_list|(
 name|ngx_http_request_t
@@ -10960,6 +10975,9 @@ name|r
 parameter_list|,
 name|ngx_uint_t
 name|from_upstream
+parameter_list|,
+name|ngx_uint_t
+name|do_write
 parameter_list|)
 block|{
 name|size_t
@@ -10971,9 +10989,6 @@ decl_stmt|;
 name|ngx_buf_t
 modifier|*
 name|b
-decl_stmt|;
-name|ngx_uint_t
-name|do_write
 decl_stmt|;
 name|ngx_connection_t
 modifier|*
