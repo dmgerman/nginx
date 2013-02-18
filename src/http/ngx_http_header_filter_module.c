@@ -1606,6 +1606,28 @@ if|if
 condition|(
 name|r
 operator|->
+name|headers_out
+operator|.
+name|status
+operator|==
+name|NGX_HTTP_SWITCHING_PROTOCOLS
+condition|)
+block|{
+name|len
+operator|+=
+sizeof|sizeof
+argument_list|(
+literal|"Connection: upgrade"
+name|CRLF
+argument_list|)
+operator|-
+literal|1
+expr_stmt|;
+block|}
+if|else if
+condition|(
+name|r
+operator|->
 name|keepalive
 condition|)
 block|{
@@ -2596,6 +2618,40 @@ argument_list|)
 expr_stmt|;
 block|}
 if|if
+condition|(
+name|r
+operator|->
+name|headers_out
+operator|.
+name|status
+operator|==
+name|NGX_HTTP_SWITCHING_PROTOCOLS
+condition|)
+block|{
+name|b
+operator|->
+name|last
+operator|=
+name|ngx_cpymem
+argument_list|(
+name|b
+operator|->
+name|last
+argument_list|,
+literal|"Connection: upgrade"
+name|CRLF
+argument_list|,
+sizeof|sizeof
+argument_list|(
+literal|"Connection: upgrade"
+name|CRLF
+argument_list|)
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+if|else if
 condition|(
 name|r
 operator|->

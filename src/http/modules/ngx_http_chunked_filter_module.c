@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29a2ab700108
+DECL|struct|__anon27ee3f600108
 typedef|typedef
 struct|struct
 block|{
@@ -184,6 +184,14 @@ operator|.
 name|status
 operator|==
 name|NGX_HTTP_NO_CONTENT
+operator|||
+name|r
+operator|->
+name|headers_out
+operator|.
+name|status
+operator|<
+name|NGX_HTTP_OK
 operator|||
 name|r
 operator|!=

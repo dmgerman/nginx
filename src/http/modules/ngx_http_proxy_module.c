@@ -69,7 +69,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon2ac05627010a
+DECL|union|__anon2b935ad7010a
 union|union
 block|{
 DECL|member|complex
@@ -101,7 +101,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2ac056270208
+DECL|struct|__anon2b935ad70208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac056270308
+DECL|struct|__anon2b935ad70308
 typedef|typedef
 struct|struct
 block|{
@@ -253,7 +253,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac056270408
+DECL|struct|__anon2b935ad70408
 typedef|typedef
 struct|struct
 block|{
@@ -7421,6 +7421,40 @@ name|headers_in
 operator|.
 name|connection_close
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|u
+operator|->
+name|headers_in
+operator|.
+name|status_n
+operator|==
+name|NGX_HTTP_SWITCHING_PROTOCOLS
+condition|)
+block|{
+name|u
+operator|->
+name|keepalive
+operator|=
+literal|0
+expr_stmt|;
+if|if
+condition|(
+name|r
+operator|->
+name|headers_in
+operator|.
+name|upgrade
+condition|)
+block|{
+name|u
+operator|->
+name|upgrade
+operator|=
+literal|1
+expr_stmt|;
+block|}
 block|}
 return|return
 name|NGX_OK
