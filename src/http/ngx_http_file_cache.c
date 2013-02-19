@@ -7903,11 +7903,6 @@ condition|(
 name|p
 condition|)
 block|{
-operator|*
-name|p
-operator|=
-literal|'\0'
-expr_stmt|;
 name|name
 operator|.
 name|len
