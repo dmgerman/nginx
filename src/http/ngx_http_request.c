@@ -7716,7 +7716,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon2b8c6ca10103
+DECL|enum|__anon2a2c3faa0103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -11848,6 +11848,7 @@ argument_list|(
 name|c
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 comment|/*          * Like ngx_http_set_keepalive() we are trying to not hold          * c->buffer's memory for a keepalive connection.          */
 if|if
