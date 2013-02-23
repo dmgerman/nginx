@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2aef86ea0108
+DECL|struct|__anon2c09fddc0108
 typedef|typedef
 struct|struct
 block|{
