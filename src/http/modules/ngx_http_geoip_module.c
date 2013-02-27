@@ -58,7 +58,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2747e27c0108
+DECL|struct|__anon2892f16d0108
 typedef|typedef
 struct|struct
 block|{
@@ -119,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2747e27c0208
+DECL|struct|__anon2892f16d0208
 typedef|typedef
 struct|struct
 block|{
@@ -1069,7 +1069,7 @@ block|{
 name|ngx_addr_t
 name|addr
 decl_stmt|;
-name|ngx_table_elt_t
+name|ngx_array_t
 modifier|*
 name|xfwd
 decl_stmt|;
@@ -1101,6 +1101,7 @@ expr_stmt|;
 comment|/* addr.name = r->connection->addr_text; */
 name|xfwd
 operator|=
+operator|&
 name|r
 operator|->
 name|headers_in
@@ -1110,8 +1111,10 @@ expr_stmt|;
 if|if
 condition|(
 name|xfwd
-operator|!=
-name|NULL
+operator|->
+name|nelts
+operator|>
+literal|0
 operator|&&
 name|gcf
 operator|->
@@ -1131,16 +1134,8 @@ operator|&
 name|addr
 argument_list|,
 name|xfwd
-operator|->
-name|value
-operator|.
-name|data
 argument_list|,
-name|xfwd
-operator|->
-name|value
-operator|.
-name|len
+name|NULL
 argument_list|,
 name|gcf
 operator|->
@@ -1316,7 +1311,7 @@ block|{
 name|ngx_addr_t
 name|addr
 decl_stmt|;
-name|ngx_table_elt_t
+name|ngx_array_t
 modifier|*
 name|xfwd
 decl_stmt|;
@@ -1360,6 +1355,7 @@ expr_stmt|;
 comment|/* addr.name = r->connection->addr_text; */
 name|xfwd
 operator|=
+operator|&
 name|r
 operator|->
 name|headers_in
@@ -1369,8 +1365,10 @@ expr_stmt|;
 if|if
 condition|(
 name|xfwd
-operator|!=
-name|NULL
+operator|->
+name|nelts
+operator|>
+literal|0
 operator|&&
 name|gcf
 operator|->
@@ -1390,16 +1388,8 @@ operator|&
 name|addr
 argument_list|,
 name|xfwd
-operator|->
-name|value
-operator|.
-name|data
 argument_list|,
-name|xfwd
-operator|->
-name|value
-operator|.
-name|len
+name|NULL
 argument_list|,
 name|gcf
 operator|->

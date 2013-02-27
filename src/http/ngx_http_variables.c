@@ -1074,7 +1074,7 @@ comment|/*  * TODO:  *     Apache CGI: AUTH_TYPE, PATH_INFO (null), PATH_TRANSLA
 end_comment
 
 begin_comment
-comment|/*  * the $http_host, $http_user_agent, $http_referer, $http_via,  * and $http_x_forwarded_for variables may be handled by generic  * ngx_http_variable_unknown_header_in(), but for performance reasons  * they are handled using dedicated entries  */
+comment|/*  * the $http_host, $http_user_agent, $http_referer, and $http_via  * variables may be handled by generic  * ngx_http_variable_unknown_header_in(), but for performance reasons  * they are handled using dedicated entries  */
 end_comment
 
 begin_decl_stmt
@@ -1201,7 +1201,7 @@ argument_list|)
 block|,
 name|NULL
 block|,
-name|ngx_http_variable_header
+name|ngx_http_variable_headers
 block|,
 name|offsetof
 argument_list|(
