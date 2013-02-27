@@ -701,7 +701,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon2a24092c0103
+DECL|enum|__anon2ae8cf8a0103
 typedef|typedef
 enum|enum
 block|{
@@ -740,7 +740,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a24092c0208
+DECL|struct|__anon2ae8cf8a0208
 typedef|typedef
 struct|struct
 block|{
@@ -763,7 +763,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a24092c0308
+DECL|struct|__anon2ae8cf8a0308
 typedef|typedef
 struct|struct
 block|{
@@ -782,7 +782,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a24092c0408
+DECL|struct|__anon2ae8cf8a0408
 typedef|typedef
 struct|struct
 block|{
@@ -1044,7 +1044,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a24092c0508
+DECL|struct|__anon2ae8cf8a0508
 typedef|typedef
 struct|struct
 block|{
@@ -1185,7 +1185,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a24092c0608
+DECL|struct|__anon2ae8cf8a0608
 typedef|typedef
 struct|struct
 block|{
@@ -1243,7 +1243,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a24092c0708
+DECL|struct|__anon2ae8cf8a0708
 typedef|typedef
 struct|struct
 block|{
@@ -1360,7 +1360,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a24092c0808
+DECL|struct|__anon2ae8cf8a0808
 typedef|typedef
 struct|struct
 block|{
@@ -2215,7 +2215,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a24092c0908
+DECL|struct|__anon2ae8cf8a0908
 typedef|typedef
 struct|struct
 block|{
@@ -2255,6 +2255,20 @@ name|ngx_http_headers_out
 index|[]
 decl_stmt|;
 end_decl_stmt
+
+begin_define
+DECL|macro|ngx_http_set_connection_log (c,l)
+define|#
+directive|define
+name|ngx_http_set_connection_log
+parameter_list|(
+name|c
+parameter_list|,
+name|l
+parameter_list|)
+define|\                                                                               \
+value|c->log->file = l->file;                                                   \     if (!(c->log->log_level& NGX_LOG_DEBUG_CONNECTION)) {                    \         c->log->log_level = l->log_level;                                     \     }
+end_define
 
 begin_endif
 endif|#
