@@ -701,7 +701,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon27dd27a20103
+DECL|enum|__anon2a24092c0103
 typedef|typedef
 enum|enum
 block|{
@@ -740,7 +740,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27dd27a20208
+DECL|struct|__anon2a24092c0208
 typedef|typedef
 struct|struct
 block|{
@@ -763,7 +763,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27dd27a20308
+DECL|struct|__anon2a24092c0308
 typedef|typedef
 struct|struct
 block|{
@@ -782,7 +782,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27dd27a20408
+DECL|struct|__anon2a24092c0408
 typedef|typedef
 struct|struct
 block|{
@@ -1044,7 +1044,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27dd27a20508
+DECL|struct|__anon2a24092c0508
 typedef|typedef
 struct|struct
 block|{
@@ -1185,7 +1185,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27dd27a20608
+DECL|struct|__anon2a24092c0608
 typedef|typedef
 struct|struct
 block|{
@@ -1234,10 +1234,24 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27dd27a20708
+DECL|typedef|ngx_http_addr_conf_t
+typedef|typedef
+name|struct
+name|ngx_http_addr_conf_s
+name|ngx_http_addr_conf_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2a24092c0708
 typedef|typedef
 struct|struct
 block|{
+DECL|member|addr_conf
+name|ngx_http_addr_conf_t
+modifier|*
+name|addr_conf
+decl_stmt|;
 DECL|member|request
 name|ngx_http_request_t
 modifier|*
@@ -1271,39 +1285,6 @@ comment|/* unsigned  pipeline:1; */
 DECL|typedef|ngx_http_connection_t
 block|}
 name|ngx_http_connection_t
-typedef|;
-end_typedef
-
-begin_typedef
-DECL|typedef|ngx_http_server_name_t
-typedef|typedef
-name|struct
-name|ngx_http_server_name_s
-name|ngx_http_server_name_t
-typedef|;
-end_typedef
-
-begin_typedef
-DECL|struct|__anon27dd27a20808
-typedef|typedef
-struct|struct
-block|{
-DECL|member|names
-name|ngx_hash_combined_t
-name|names
-decl_stmt|;
-DECL|member|nregex
-name|ngx_uint_t
-name|nregex
-decl_stmt|;
-DECL|member|regex
-name|ngx_http_server_name_t
-modifier|*
-name|regex
-decl_stmt|;
-DECL|typedef|ngx_http_virtual_names_t
-block|}
-name|ngx_http_virtual_names_t
 typedef|;
 end_typedef
 
@@ -1379,7 +1360,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27dd27a20908
+DECL|struct|__anon2a24092c0808
 typedef|typedef
 struct|struct
 block|{
@@ -1661,11 +1642,6 @@ DECL|member|posted_requests
 name|ngx_http_posted_request_t
 modifier|*
 name|posted_requests
-decl_stmt|;
-DECL|member|virtual_names
-name|ngx_http_virtual_names_t
-modifier|*
-name|virtual_names
 decl_stmt|;
 DECL|member|phase_handler
 name|ngx_int_t
@@ -2239,7 +2215,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27dd27a20a08
+DECL|struct|__anon2a24092c0908
 typedef|typedef
 struct|struct
 block|{
