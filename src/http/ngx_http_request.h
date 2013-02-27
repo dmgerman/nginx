@@ -701,7 +701,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon2c6a67ad0103
+DECL|enum|__anon2beec1b30103
 typedef|typedef
 enum|enum
 block|{
@@ -740,7 +740,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6a67ad0208
+DECL|struct|__anon2beec1b30208
 typedef|typedef
 struct|struct
 block|{
@@ -763,7 +763,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6a67ad0308
+DECL|struct|__anon2beec1b30308
 typedef|typedef
 struct|struct
 block|{
@@ -782,7 +782,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6a67ad0408
+DECL|struct|__anon2beec1b30408
 typedef|typedef
 struct|struct
 block|{
@@ -1044,7 +1044,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6a67ad0508
+DECL|struct|__anon2beec1b30508
 typedef|typedef
 struct|struct
 block|{
@@ -1185,7 +1185,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6a67ad0608
+DECL|struct|__anon2beec1b30608
 typedef|typedef
 struct|struct
 block|{
@@ -1243,7 +1243,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6a67ad0708
+DECL|struct|__anon2beec1b30708
 typedef|typedef
 struct|struct
 block|{
@@ -1257,6 +1257,28 @@ name|ngx_http_conf_ctx_t
 modifier|*
 name|conf_ctx
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|SSL_CTRL_SET_TLSEXT_HOSTNAME
+DECL|member|ssl_servername
+name|ngx_str_t
+modifier|*
+name|ssl_servername
+decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_PCRE
+operator|)
+DECL|member|ssl_servername_regex
+name|ngx_http_regex_t
+modifier|*
+name|ssl_servername_regex
+decl_stmt|;
+endif|#
+directive|endif
+endif|#
+directive|endif
 DECL|member|request
 name|ngx_http_request_t
 modifier|*
@@ -1372,7 +1394,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6a67ad0808
+DECL|struct|__anon2beec1b30808
 typedef|typedef
 struct|struct
 block|{
@@ -2221,7 +2243,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c6a67ad0908
+DECL|struct|__anon2beec1b30908
 typedef|typedef
 struct|struct
 block|{
