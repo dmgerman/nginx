@@ -142,6 +142,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_http_config.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_http_request.h>
 end_include
 
@@ -161,12 +167,6 @@ begin_include
 include|#
 directive|include
 file|<ngx_http_upstream_round_robin.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_http_config.h>
 end_include
 
 begin_include
@@ -284,7 +284,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28d6ec710108
+DECL|struct|__anon2ae6f7a20108
 typedef|typedef
 struct|struct
 block|{
