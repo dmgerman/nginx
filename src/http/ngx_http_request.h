@@ -701,7 +701,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon2beec1b30103
+DECL|enum|__anon29aa08d40103
 typedef|typedef
 enum|enum
 block|{
@@ -740,7 +740,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2beec1b30208
+DECL|struct|__anon29aa08d40208
 typedef|typedef
 struct|struct
 block|{
@@ -763,7 +763,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2beec1b30308
+DECL|struct|__anon29aa08d40308
 typedef|typedef
 struct|struct
 block|{
@@ -782,7 +782,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2beec1b30408
+DECL|struct|__anon29aa08d40408
 typedef|typedef
 struct|struct
 block|{
@@ -1044,7 +1044,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2beec1b30508
+DECL|struct|__anon29aa08d40508
 typedef|typedef
 struct|struct
 block|{
@@ -1185,7 +1185,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2beec1b30608
+DECL|struct|__anon29aa08d40608
 typedef|typedef
 struct|struct
 block|{
@@ -1243,7 +1243,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2beec1b30708
+DECL|struct|__anon29aa08d40708
 typedef|typedef
 struct|struct
 block|{
@@ -1279,11 +1279,6 @@ endif|#
 directive|endif
 endif|#
 directive|endif
-DECL|member|request
-name|ngx_http_request_t
-modifier|*
-name|request
-decl_stmt|;
 DECL|member|busy
 name|ngx_buf_t
 modifier|*
@@ -1394,7 +1389,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2beec1b30808
+DECL|struct|__anon29aa08d40808
 typedef|typedef
 struct|struct
 block|{
@@ -2243,7 +2238,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2beec1b30908
+DECL|struct|__anon29aa08d40908
 typedef|typedef
 struct|struct
 block|{
