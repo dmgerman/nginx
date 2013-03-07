@@ -5034,14 +5034,6 @@ name|action
 operator|=
 literal|"connecting to upstream"
 expr_stmt|;
-name|r
-operator|->
-name|connection
-operator|->
-name|single_connection
-operator|=
-literal|0
-expr_stmt|;
 if|if
 condition|(
 name|u

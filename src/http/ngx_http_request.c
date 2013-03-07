@@ -2543,12 +2543,6 @@ return|return;
 block|}
 name|c
 operator|->
-name|single_connection
-operator|=
-literal|1
-expr_stmt|;
-name|c
-operator|->
 name|destroyed
 operator|=
 literal|0
@@ -8223,7 +8217,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon2795ccc80103
+DECL|enum|__anon2925aefa0103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
