@@ -284,7 +284,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2ae6f7a20108
+DECL|struct|__anon2b67043a0108
 typedef|typedef
 struct|struct
 block|{
@@ -588,17 +588,6 @@ parameter_list|,
 name|ngx_http_chunked_t
 modifier|*
 name|ctx
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-name|ngx_int_t
-name|ngx_http_find_server_conf
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
 parameter_list|)
 function_decl|;
 end_function_decl
