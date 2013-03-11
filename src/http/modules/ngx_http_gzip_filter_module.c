@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29e95ecc0108
+DECL|struct|__anon2b7ac2a50108
 typedef|typedef
 struct|struct
 block|{
@@ -80,7 +80,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e95ecc0208
+DECL|struct|__anon2b7ac2a50208
 typedef|typedef
 struct|struct
 block|{
@@ -2492,6 +2492,14 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|r
+operator|->
+name|connection
+operator|->
+name|buffered
+operator||=
+name|NGX_HTTP_GZIP_BUFFERED
+expr_stmt|;
 name|ctx
 operator|->
 name|last_out
