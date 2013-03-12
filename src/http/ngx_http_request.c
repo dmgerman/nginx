@@ -2120,7 +2120,7 @@ name|c
 operator|->
 name|log
 argument_list|,
-name|ngx_socket_errno
+literal|0
 argument_list|,
 literal|"client closed connection"
 argument_list|)
@@ -8191,7 +8191,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon29f1fc440103
+DECL|enum|__anon2b8750a60103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
