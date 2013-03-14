@@ -4088,6 +4088,10 @@ modifier|*
 name|ctx
 parameter_list|)
 block|{
+name|ngx_connection_t
+modifier|*
+name|c
+decl_stmt|;
 name|ngx_http_request_t
 modifier|*
 name|r
@@ -4105,6 +4109,12 @@ operator|=
 name|ctx
 operator|->
 name|data
+expr_stmt|;
+name|c
+operator|=
+name|r
+operator|->
+name|connection
 expr_stmt|;
 name|u
 operator|=
@@ -4319,9 +4329,7 @@ name|failed
 label|:
 name|ngx_http_run_posted_requests
 argument_list|(
-name|r
-operator|->
-name|connection
+name|c
 argument_list|)
 expr_stmt|;
 block|}
