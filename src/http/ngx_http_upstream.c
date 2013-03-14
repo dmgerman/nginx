@@ -4165,7 +4165,9 @@ argument_list|,
 name|NGX_HTTP_BAD_GATEWAY
 argument_list|)
 expr_stmt|;
-return|return;
+goto|goto
+name|failed
+goto|;
 block|}
 name|ur
 operator|->
@@ -4291,7 +4293,9 @@ argument_list|,
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
-return|return;
+goto|goto
+name|failed
+goto|;
 block|}
 name|ngx_resolve_name_done
 argument_list|(
@@ -4309,6 +4313,15 @@ argument_list|(
 name|r
 argument_list|,
 name|u
+argument_list|)
+expr_stmt|;
+name|failed
+label|:
+name|ngx_http_run_posted_requests
+argument_list|(
+name|r
+operator|->
+name|connection
 argument_list|)
 expr_stmt|;
 block|}
