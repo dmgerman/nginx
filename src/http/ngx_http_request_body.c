@@ -3276,7 +3276,7 @@ name|cl
 operator|->
 name|buf
 operator|->
-name|start
+name|pos
 expr_stmt|;
 name|b
 operator|->
@@ -3822,7 +3822,7 @@ name|cl
 operator|->
 name|buf
 operator|->
-name|start
+name|pos
 expr_stmt|;
 name|b
 operator|->
