@@ -457,6 +457,24 @@ name|ngx_stat_writing0
 decl_stmt|;
 end_decl_stmt
 
+begin_decl_stmt
+DECL|variable|ngx_stat_waiting0
+name|ngx_atomic_t
+name|ngx_stat_waiting0
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_stat_waiting
+name|ngx_atomic_t
+modifier|*
+name|ngx_stat_waiting
+init|=
+operator|&
+name|ngx_stat_waiting0
+decl_stmt|;
+end_decl_stmt
+
 begin_endif
 endif|#
 directive|endif
@@ -1901,8 +1919,11 @@ name|cl
 comment|/* ngx_stat_reading */
 operator|+
 name|cl
-expr_stmt|;
 comment|/* ngx_stat_writing */
+operator|+
+name|cl
+expr_stmt|;
+comment|/* ngx_stat_waiting */
 endif|#
 directive|endif
 name|shm
@@ -2168,6 +2189,20 @@ operator|(
 name|shared
 operator|+
 literal|8
+operator|*
+name|cl
+operator|)
+expr_stmt|;
+name|ngx_stat_waiting
+operator|=
+operator|(
+name|ngx_atomic_t
+operator|*
+operator|)
+operator|(
+name|shared
+operator|+
+literal|9
 operator|*
 name|cl
 operator|)
