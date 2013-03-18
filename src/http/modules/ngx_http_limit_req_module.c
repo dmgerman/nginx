@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon294030690108
+DECL|struct|__anon2be552a70108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294030690208
+DECL|struct|__anon2be552a70208
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294030690308
+DECL|struct|__anon2be552a70308
 typedef|typedef
 struct|struct
 block|{
@@ -131,7 +131,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294030690408
+DECL|struct|__anon2be552a70408
 typedef|typedef
 struct|struct
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294030690508
+DECL|struct|__anon2be552a70508
 typedef|typedef
 struct|struct
 block|{
@@ -172,6 +172,10 @@ decl_stmt|;
 DECL|member|delay_log_level
 name|ngx_uint_t
 name|delay_log_level
+decl_stmt|;
+DECL|member|status_code
+name|ngx_uint_t
+name|status_code
 decl_stmt|;
 DECL|typedef|ngx_http_limit_req_conf_t
 block|}
@@ -401,6 +405,22 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_http_limit_req_status_bounds
+specifier|static
+name|ngx_conf_num_bounds_t
+name|ngx_http_limit_req_status_bounds
+init|=
+block|{
+name|ngx_conf_check_num_bounds
+block|,
+literal|400
+block|,
+literal|599
+block|}
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_http_limit_req_commands
 specifier|static
 name|ngx_command_t
@@ -477,6 +497,35 @@ argument_list|)
 block|,
 operator|&
 name|ngx_http_limit_req_log_levels
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"limit_req_status"
+argument_list|)
+block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
+name|NGX_HTTP_SRV_CONF
+operator||
+name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_CONF_TAKE1
+block|,
+name|ngx_conf_set_num_slot
+block|,
+name|NGX_HTTP_LOC_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+name|ngx_http_limit_req_conf_t
+argument_list|,
+name|status_code
+argument_list|)
+block|,
+operator|&
+name|ngx_http_limit_req_status_bounds
 block|}
 block|,
 name|ngx_null_command
@@ -996,7 +1045,9 @@ name|NULL
 expr_stmt|;
 block|}
 return|return
-name|NGX_HTTP_SERVICE_UNAVAILABLE
+name|lrcf
+operator|->
+name|status_code
 return|;
 block|}
 comment|/* rc == NGX_AGAIN || rc == NGX_OK */
@@ -2806,6 +2857,12 @@ name|limit_log_level
 operator|=
 name|NGX_CONF_UNSET_UINT
 expr_stmt|;
+name|conf
+operator|->
+name|status_code
+operator|=
+name|NGX_CONF_UNSET_UINT
+expr_stmt|;
 return|return
 name|conf
 return|;
@@ -2896,6 +2953,19 @@ operator|->
 name|limit_log_level
 operator|+
 literal|1
+expr_stmt|;
+name|ngx_conf_merge_uint_value
+argument_list|(
+name|conf
+operator|->
+name|status_code
+argument_list|,
+name|prev
+operator|->
+name|status_code
+argument_list|,
+name|NGX_HTTP_SERVICE_UNAVAILABLE
+argument_list|)
 expr_stmt|;
 return|return
 name|NGX_CONF_OK
