@@ -2410,6 +2410,17 @@ operator|->
 name|log
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|var
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_INVALID_PID
+return|;
+block|}
 name|p
 operator|=
 name|ngx_cpymem
