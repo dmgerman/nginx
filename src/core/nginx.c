@@ -2417,6 +2417,11 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|ngx_free
+argument_list|(
+name|env
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_INVALID_PID
 return|;
