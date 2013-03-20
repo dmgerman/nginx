@@ -289,6 +289,21 @@ name|4127
 name|)
 end_pragma
 
+begin_comment
+comment|/* array is too small to include a terminating null character */
+end_comment
+
+begin_pragma
+pragma|#
+directive|pragma
+name|warning
+name|(
+name|disable
+name|:
+name|4295
+name|)
+end_pragma
+
 begin_endif
 endif|#
 directive|endif
