@@ -279,19 +279,6 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
-begin_define
-DECL|macro|ngx_http_clear_variable (r,index)
-define|#
-directive|define
-name|ngx_http_clear_variable
-parameter_list|(
-name|r
-parameter_list|,
-name|index
-parameter_list|)
-value|r->variables0[index].text.data = NULL;
-end_define
-
 begin_if
 if|#
 directive|if
@@ -301,7 +288,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2a2969ff0108
+DECL|struct|__anon2c4eaf360108
 typedef|typedef
 struct|struct
 block|{
@@ -320,7 +307,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2969ff0208
+DECL|struct|__anon2c4eaf360208
 typedef|typedef
 struct|struct
 block|{
@@ -353,7 +340,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2969ff0308
+DECL|struct|__anon2c4eaf360308
 typedef|typedef
 struct|struct
 block|{
@@ -414,7 +401,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2a2969ff0408
+DECL|struct|__anon2c4eaf360408
 typedef|typedef
 struct|struct
 block|{
