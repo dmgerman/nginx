@@ -6306,7 +6306,7 @@ name|temp_pool
 operator|=
 name|ngx_create_pool
 argument_list|(
-literal|16384
+name|NGX_DEFAULT_POOL_SIZE
 argument_list|,
 name|cf
 operator|->

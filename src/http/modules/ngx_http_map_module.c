@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2993e0410108
+DECL|struct|__anon275c2b350108
 typedef|typedef
 struct|struct
 block|{
@@ -41,7 +41,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2993e0410208
+DECL|struct|__anon275c2b350208
 typedef|typedef
 struct|struct
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2993e0410308
+DECL|struct|__anon275c2b350308
 typedef|typedef
 struct|struct
 block|{
@@ -898,7 +898,7 @@ name|pool
 operator|=
 name|ngx_create_pool
 argument_list|(
-literal|16384
+name|NGX_DEFAULT_POOL_SIZE
 argument_list|,
 name|cf
 operator|->

@@ -39,7 +39,7 @@ DECL|macro|NGX_CYCLE_POOL_SIZE
 define|#
 directive|define
 name|NGX_CYCLE_POOL_SIZE
-value|16384
+value|NGX_DEFAULT_POOL_SIZE
 end_define
 
 begin_endif
@@ -238,7 +238,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a9c17630108
+DECL|struct|__anon289b62430108
 typedef|typedef
 struct|struct
 block|{
@@ -348,7 +348,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a9c17630208
+DECL|struct|__anon289b62430208
 typedef|typedef
 struct|struct
 block|{

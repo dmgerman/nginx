@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b4eec970108
+DECL|struct|__anon29fdb9d30108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4eec970208
+DECL|struct|__anon29fdb9d30208
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4eec970308
+DECL|struct|__anon29fdb9d30308
 typedef|typedef
 struct|struct
 block|{
@@ -96,7 +96,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4eec970408
+DECL|struct|__anon29fdb9d30408
 typedef|typedef
 struct|struct
 block|{
@@ -120,7 +120,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4eec970508
+DECL|struct|__anon29fdb9d30508
 typedef|typedef
 struct|struct
 block|{
@@ -231,11 +231,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4eec970608
+DECL|struct|__anon29fdb9d30608
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon2b4eec97070a
+DECL|union|__anon29fdb9d3070a
 union|union
 block|{
 DECL|member|trees
@@ -722,7 +722,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2b4eec970808
+DECL|struct|__anon29fdb9d30808
 typedef|typedef
 struct|struct
 block|{
@@ -1950,7 +1950,7 @@ name|pool
 operator|=
 name|ngx_create_pool
 argument_list|(
-literal|16384
+name|NGX_DEFAULT_POOL_SIZE
 argument_list|,
 name|cf
 operator|->
@@ -1985,7 +1985,7 @@ name|temp_pool
 operator|=
 name|ngx_create_pool
 argument_list|(
-literal|16384
+name|NGX_DEFAULT_POOL_SIZE
 argument_list|,
 name|cf
 operator|->
