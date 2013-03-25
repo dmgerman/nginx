@@ -3370,8 +3370,7 @@ argument_list|(
 name|name
 argument_list|)
 operator|==
-operator|-
-literal|1
+name|NGX_FILE_ERROR
 condition|)
 block|{
 name|ngx_log_error

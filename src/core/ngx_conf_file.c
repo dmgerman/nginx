@@ -386,7 +386,7 @@ name|prev
 decl_stmt|,
 name|conf_file
 decl_stmt|;
-DECL|enum|__anon2c4e2d270103
+DECL|enum|__anon2bd279f90103
 enum|enum
 block|{
 DECL|enumerator|parse_file
@@ -494,8 +494,7 @@ operator|.
 name|info
 argument_list|)
 operator|==
-operator|-
-literal|1
+name|NGX_FILE_ERROR
 condition|)
 block|{
 name|ngx_log_error

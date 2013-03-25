@@ -3092,8 +3092,8 @@ name|pid
 operator|.
 name|data
 argument_list|)
-operator|!=
-name|NGX_OK
+operator|==
+name|NGX_FILE_ERROR
 condition|)
 block|{
 name|ngx_log_error
