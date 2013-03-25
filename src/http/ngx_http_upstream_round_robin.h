@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2890c5860108
+DECL|struct|__anon28ccb6420108
 typedef|typedef
 struct|struct
 block|{
@@ -127,17 +127,7 @@ DECL|member|number
 name|ngx_uint_t
 name|number
 decl_stmt|;
-DECL|member|last_cached
-name|ngx_uint_t
-name|last_cached
-decl_stmt|;
 comment|/* ngx_mutex_t                    *mutex; */
-DECL|member|cached
-name|ngx_connection_t
-modifier|*
-modifier|*
-name|cached
-decl_stmt|;
 DECL|member|total_weight
 name|ngx_uint_t
 name|total_weight
@@ -176,7 +166,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2890c5860208
+DECL|struct|__anon28ccb6420208
 typedef|typedef
 struct|struct
 block|{
