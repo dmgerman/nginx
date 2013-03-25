@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b9f9f9d0108
+DECL|struct|__anon27dc26390108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b9f9f9d0208
+DECL|struct|__anon27dc26390208
 typedef|typedef
 struct|struct
 block|{
@@ -1467,21 +1467,6 @@ argument_list|,
 name|state
 argument_list|)
 expr_stmt|;
-return|return;
-block|}
-if|if
-condition|(
-name|state
-operator|==
-literal|0
-operator|&&
-name|pc
-operator|->
-name|tries
-operator|==
-literal|0
-condition|)
-block|{
 return|return;
 block|}
 name|lcp

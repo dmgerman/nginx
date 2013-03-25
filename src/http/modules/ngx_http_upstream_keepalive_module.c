@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2af5bcc80108
+DECL|struct|__anon27daa93a0108
 typedef|typedef
 struct|struct
 block|{
@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af5bcc80208
+DECL|struct|__anon27daa93a0208
 typedef|typedef
 struct|struct
 block|{
@@ -95,11 +95,6 @@ name|original_save_session
 decl_stmt|;
 endif|#
 directive|endif
-DECL|member|failed
-name|ngx_uint_t
-name|failed
-decl_stmt|;
-comment|/* unsigned:1 */
 DECL|typedef|ngx_http_upstream_keepalive_peer_data_t
 block|}
 name|ngx_http_upstream_keepalive_peer_data_t
@@ -107,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af5bcc80308
+DECL|struct|__anon27daa93a0308
 typedef|typedef
 struct|struct
 block|{
@@ -875,12 +870,6 @@ argument_list|,
 literal|"get keepalive peer"
 argument_list|)
 expr_stmt|;
-name|kp
-operator|->
-name|failed
-operator|=
-literal|0
-expr_stmt|;
 comment|/* ask balancer */
 name|rc
 operator|=
@@ -1142,21 +1131,6 @@ argument_list|,
 literal|"free keepalive peer"
 argument_list|)
 expr_stmt|;
-comment|/* remember failed state - peer.free() may be called more than once */
-if|if
-condition|(
-name|state
-operator|&
-name|NGX_PEER_FAILED
-condition|)
-block|{
-name|kp
-operator|->
-name|failed
-operator|=
-literal|1
-expr_stmt|;
-block|}
 comment|/* cache valid connections */
 name|u
 operator|=
@@ -1172,9 +1146,9 @@ name|connection
 expr_stmt|;
 if|if
 condition|(
-name|kp
-operator|->
-name|failed
+name|state
+operator|&
+name|NGX_PEER_FAILED
 operator|||
 name|c
 operator|==

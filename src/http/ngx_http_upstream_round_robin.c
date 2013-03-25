@@ -3153,21 +3153,6 @@ argument_list|,
 name|state
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|state
-operator|==
-literal|0
-operator|&&
-name|pc
-operator|->
-name|tries
-operator|==
-literal|0
-condition|)
-block|{
-return|return;
-block|}
 comment|/* TODO: NGX_PEER_KEEPALIVE */
 if|if
 condition|(
