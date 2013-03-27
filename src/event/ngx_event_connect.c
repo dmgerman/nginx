@@ -375,8 +375,8 @@ operator|->
 name|sockaddr
 operator|->
 name|sa_family
-operator|!=
-name|AF_INET
+operator|==
+name|AF_UNIX
 condition|)
 block|{
 name|c
