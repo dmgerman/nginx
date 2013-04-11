@@ -14609,6 +14609,12 @@ condition|(
 name|u
 operator|->
 name|pipe
+operator|&&
+name|u
+operator|->
+name|pipe
+operator|->
+name|read_length
 condition|)
 block|{
 name|u
