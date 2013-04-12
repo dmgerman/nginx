@@ -161,7 +161,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2c7709870108
+DECL|struct|__anon2c2eabc90108
 typedef|typedef
 struct|struct
 block|{
@@ -562,7 +562,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c7709870208
+DECL|struct|__anon2c2eabc90208
 typedef|typedef
 struct|struct
 block|{
@@ -2298,7 +2298,7 @@ block|}
 if|if
 condition|(
 operator|!
-name|wew
+name|wev
 operator|->
 name|active
 condition|)
