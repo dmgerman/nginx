@@ -86,7 +86,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon278682200108
+DECL|struct|__anon2c140e910108
 typedef|typedef
 struct|struct
 block|{
@@ -1399,6 +1399,8 @@ name|i
 decl_stmt|;
 name|ngx_uint_t
 name|level
+decl_stmt|,
+name|instance
 decl_stmt|;
 name|ngx_event_t
 modifier|*
@@ -2124,6 +2126,12 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|instance
+operator|=
+name|rev
+operator|->
+name|instance
+expr_stmt|;
 name|rev
 operator|->
 name|handler
@@ -2131,6 +2139,24 @@ argument_list|(
 name|rev
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|c
+operator|->
+name|fd
+operator|==
+operator|-
+literal|1
+operator|||
+name|wev
+operator|->
+name|instance
+operator|!=
+name|instance
+condition|)
+block|{
+continue|continue;
+block|}
 block|}
 block|}
 name|wev

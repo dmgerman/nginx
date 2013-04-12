@@ -161,7 +161,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2b1faed00108
+DECL|struct|__anon28a062890108
 typedef|typedef
 struct|struct
 block|{
@@ -562,7 +562,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b1faed00208
+DECL|struct|__anon28a062890208
 typedef|typedef
 struct|struct
 block|{
@@ -2378,6 +2378,12 @@ condition|(
 name|ev
 operator|->
 name|closed
+operator|||
+name|ev
+operator|->
+name|instance
+operator|!=
+name|instance
 condition|)
 block|{
 continue|continue;
