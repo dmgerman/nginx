@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b431b580108
+DECL|struct|__anon27e4ee200108
 typedef|typedef
 struct|struct
 block|{
@@ -1015,6 +1015,27 @@ argument_list|,
 name|ngx_http_upstream_module
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|uscf
+operator|->
+name|peer
+operator|.
+name|init_upstream
+condition|)
+block|{
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_WARN
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"load balancing method redefined"
+argument_list|)
+expr_stmt|;
+block|}
 name|uscf
 operator|->
 name|peer
