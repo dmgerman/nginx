@@ -161,7 +161,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon28a062890108
+DECL|struct|__anon2c7709870108
 typedef|typedef
 struct|struct
 block|{
@@ -562,7 +562,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28a062890208
+DECL|struct|__anon2c7709870208
 typedef|typedef
 struct|struct
 block|{
@@ -2281,6 +2281,34 @@ name|c
 operator|->
 name|write
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|rev
+operator|->
+name|active
+condition|)
+block|{
+name|revents
+operator|&=
+operator|~
+name|POLLIN
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|wew
+operator|->
+name|active
+condition|)
+block|{
+name|revents
+operator|&=
+operator|~
+name|POLLOUT
+expr_stmt|;
+block|}
 name|rev
 operator|->
 name|active
