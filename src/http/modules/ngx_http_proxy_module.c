@@ -69,7 +69,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon2a2a83d5010a
+DECL|union|__anon29a18deb010a
 union|union
 block|{
 DECL|member|complex
@@ -101,7 +101,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a2a83d50208
+DECL|struct|__anon29a18deb0208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2a83d50308
+DECL|struct|__anon29a18deb0308
 typedef|typedef
 struct|struct
 block|{
@@ -253,7 +253,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2a83d50408
+DECL|struct|__anon29a18deb0408
 typedef|typedef
 struct|struct
 block|{
@@ -10048,8 +10048,6 @@ operator|=
 name|ngx_pnalloc
 argument_list|(
 name|r
-operator|->
-name|connection
 operator|->
 name|pool
 argument_list|,
