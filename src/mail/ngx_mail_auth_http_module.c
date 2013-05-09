@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a4b9ed30108
+DECL|struct|__anon2af699cb0108
 typedef|typedef
 struct|struct
 block|{
@@ -1543,7 +1543,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon2a4b9ed30203
+DECL|enum|__anon2af699cb0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -3131,15 +3131,6 @@ operator|==
 name|NULL
 condition|)
 block|{
-name|ngx_close_connection
-argument_list|(
-name|ctx
-operator|->
-name|peer
-operator|.
-name|connection
-argument_list|)
-expr_stmt|;
 name|ngx_destroy_pool
 argument_list|(
 name|ctx
@@ -4155,7 +4146,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2a4b9ed30303
+DECL|enum|__anon2af699cb0303
 enum|enum
 block|{
 DECL|enumerator|sw_start
