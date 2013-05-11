@@ -665,9 +665,13 @@ operator|==
 name|NULL
 condition|)
 block|{
-return|return
+name|rc
+operator|=
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
-return|;
+expr_stmt|;
+goto|goto
+name|done
+goto|;
 block|}
 name|b
 operator|=
