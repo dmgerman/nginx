@@ -238,7 +238,7 @@ value|NGX_HTTP_MP4_CO64_DATA
 end_define
 
 begin_typedef
-DECL|struct|__anon28f6df7a0108
+DECL|struct|__anon2ae61f310108
 typedef|typedef
 struct|struct
 block|{
@@ -257,7 +257,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f6df7a0208
+DECL|struct|__anon2ae61f310208
 typedef|typedef
 struct|struct
 block|{
@@ -289,7 +289,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f6df7a0308
+DECL|struct|__anon2ae61f310308
 typedef|typedef
 struct|struct
 block|{
@@ -493,7 +493,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f6df7a0408
+DECL|struct|__anon2ae61f310408
 typedef|typedef
 struct|struct
 block|{
@@ -635,7 +635,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f6df7a0508
+DECL|struct|__anon2ae61f310508
 typedef|typedef
 struct|struct
 block|{
@@ -794,6 +794,18 @@ parameter_list|)
 define|\
 value|&((ngx_http_mp4_trak_t *) mp4->trak.elts)[mp4->trak.nelts - 1]
 end_define
+
+begin_function_decl
+specifier|static
+name|ngx_int_t
+name|ngx_http_mp4_handler
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_function_decl
 specifier|static
@@ -2403,9 +2415,20 @@ expr_stmt|;
 if|if
 condition|(
 name|ngx_errno
-operator|==
+operator|!=
 literal|0
-operator|&&
+condition|)
+block|{
+name|start
+operator|=
+operator|-
+literal|1
+expr_stmt|;
+block|}
+block|}
+block|}
+if|if
+condition|(
 name|start
 operator|>=
 literal|0
@@ -2587,8 +2610,6 @@ expr_stmt|;
 return|return
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
-block|}
-block|}
 block|}
 block|}
 name|log
@@ -3777,7 +3798,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon28f6df7a0608
+DECL|struct|__anon2ae61f310608
 typedef|typedef
 struct|struct
 block|{
@@ -3802,7 +3823,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f6df7a0708
+DECL|struct|__anon2ae61f310708
 typedef|typedef
 struct|struct
 block|{
@@ -5465,7 +5486,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon28f6df7a0808
+DECL|struct|__anon2ae61f310808
 typedef|typedef
 struct|struct
 block|{
@@ -5609,7 +5630,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f6df7a0908
+DECL|struct|__anon2ae61f310908
 typedef|typedef
 struct|struct
 block|{
@@ -6468,7 +6489,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon28f6df7a0a08
+DECL|struct|__anon2ae61f310a08
 typedef|typedef
 struct|struct
 block|{
@@ -6598,7 +6619,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f6df7a0b08
+DECL|struct|__anon2ae61f310b08
 typedef|typedef
 struct|struct
 block|{
@@ -7286,7 +7307,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon28f6df7a0c08
+DECL|struct|__anon2ae61f310c08
 typedef|typedef
 struct|struct
 block|{
@@ -7367,7 +7388,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f6df7a0d08
+DECL|struct|__anon2ae61f310d08
 typedef|typedef
 struct|struct
 block|{
@@ -8800,7 +8821,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon28f6df7a0e08
+DECL|struct|__anon2ae61f310e08
 typedef|typedef
 struct|struct
 block|{
@@ -9094,7 +9115,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon28f6df7a0f08
+DECL|struct|__anon2ae61f310f08
 typedef|typedef
 struct|struct
 block|{
@@ -9140,7 +9161,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f6df7a1008
+DECL|struct|__anon2ae61f311008
 typedef|typedef
 struct|struct
 block|{
@@ -9887,7 +9908,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon28f6df7a1108
+DECL|struct|__anon2ae61f311108
 typedef|typedef
 struct|struct
 block|{
@@ -10551,7 +10572,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon28f6df7a1208
+DECL|struct|__anon2ae61f311208
 typedef|typedef
 struct|struct
 block|{
@@ -10597,7 +10618,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f6df7a1308
+DECL|struct|__anon2ae61f311308
 typedef|typedef
 struct|struct
 block|{
@@ -11229,7 +11250,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon28f6df7a1408
+DECL|struct|__anon2ae61f311408
 typedef|typedef
 struct|struct
 block|{
@@ -12333,7 +12354,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon28f6df7a1508
+DECL|struct|__anon2ae61f311508
 typedef|typedef
 struct|struct
 block|{
@@ -13002,7 +13023,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon28f6df7a1608
+DECL|struct|__anon2ae61f311608
 typedef|typedef
 struct|struct
 block|{
@@ -13733,7 +13754,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon28f6df7a1708
+DECL|struct|__anon2ae61f311708
 typedef|typedef
 struct|struct
 block|{
