@@ -325,7 +325,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b92c12b0108
+DECL|struct|__anon2923da600108
 typedef|typedef
 struct|struct
 block|{
@@ -446,11 +446,16 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_SSL
+operator|&&
+name|defined
 name|SSL_CTRL_SET_TLSEXT_HOSTNAME
-end_ifdef
+operator|)
+end_if
 
 begin_function_decl
 name|int

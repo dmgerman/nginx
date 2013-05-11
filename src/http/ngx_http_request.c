@@ -8337,7 +8337,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon29c742ef0103
+DECL|enum|__anon2aa1b4ee0103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -8633,9 +8633,14 @@ name|r
 operator|->
 name|http_connection
 expr_stmt|;
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_SSL
+operator|&&
+name|defined
 name|SSL_CTRL_SET_TLSEXT_HOSTNAME
+operator|)
 if|if
 condition|(
 name|hc
@@ -8762,9 +8767,14 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_SSL
+operator|&&
+name|defined
 name|SSL_CTRL_SET_TLSEXT_HOSTNAME
+operator|)
 if|if
 condition|(
 name|hc
@@ -9019,9 +9029,14 @@ name|virtual_names
 operator|->
 name|regex
 expr_stmt|;
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_SSL
+operator|&&
+name|defined
 name|SSL_CTRL_SET_TLSEXT_HOSTNAME
+operator|)
 if|if
 condition|(
 name|r
@@ -9155,7 +9170,7 @@ return|;
 block|}
 endif|#
 directive|endif
-comment|/* SSL_CTRL_SET_TLSEXT_HOSTNAME */
+comment|/* NGX_HTTP_SSL&& defined SSL_CTRL_SET_TLSEXT_HOSTNAME */
 for|for
 control|(
 name|i
