@@ -69,7 +69,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon29a18deb010a
+DECL|union|__anon29f84ba0010a
 union|union
 block|{
 DECL|member|complex
@@ -101,7 +101,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29a18deb0208
+DECL|struct|__anon29f84ba00208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a18deb0308
+DECL|struct|__anon29f84ba00308
 typedef|typedef
 struct|struct
 block|{
@@ -253,7 +253,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a18deb0408
+DECL|struct|__anon29f84ba00408
 typedef|typedef
 struct|struct
 block|{
@@ -2924,6 +2924,8 @@ name|ngx_http_proxy_internal_body_length_variable
 block|,
 literal|0
 block|,
+name|NGX_HTTP_VAR_NOCACHEABLE
+operator||
 name|NGX_HTTP_VAR_NOHASH
 block|,
 literal|0
