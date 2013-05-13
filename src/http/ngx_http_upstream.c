@@ -7317,7 +7317,7 @@ operator|->
 name|headers_in
 operator|.
 name|status_n
-operator|>
+operator|>=
 name|NGX_HTTP_SPECIAL_RESPONSE
 condition|)
 block|{
