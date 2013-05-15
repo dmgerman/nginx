@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27daa93a0108
+DECL|struct|__anon27b1120a0108
 typedef|typedef
 struct|struct
 block|{
@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27daa93a0208
+DECL|struct|__anon27b1120a0208
 typedef|typedef
 struct|struct
 block|{
@@ -102,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27daa93a0308
+DECL|struct|__anon27b1120a0308
 typedef|typedef
 struct|struct
 block|{
@@ -323,7 +323,7 @@ name|NGX_CONF_TAKE12
 block|,
 name|ngx_http_upstream_keepalive
 block|,
-literal|0
+name|NGX_HTTP_SRV_CONF_OFFSET
 block|,
 literal|0
 block|,
@@ -1920,6 +1920,8 @@ decl_stmt|;
 name|ngx_http_upstream_keepalive_srv_conf_t
 modifier|*
 name|kcf
+init|=
+name|conf
 decl_stmt|;
 name|ngx_int_t
 name|n
@@ -1938,15 +1940,6 @@ argument_list|(
 name|cf
 argument_list|,
 name|ngx_http_upstream_module
-argument_list|)
-expr_stmt|;
-name|kcf
-operator|=
-name|ngx_http_conf_upstream_srv_conf
-argument_list|(
-name|uscf
-argument_list|,
-name|ngx_http_upstream_keepalive_module
 argument_list|)
 expr_stmt|;
 if|if
