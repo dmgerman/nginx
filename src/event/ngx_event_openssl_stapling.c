@@ -34,7 +34,7 @@ name|SSL_CTRL_SET_TLSEXT_STATUS_REQ_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon27caaf3f0108
+DECL|struct|__anon291130710108
 typedef|typedef
 struct|struct
 block|{
@@ -2714,13 +2714,6 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"certificate status not found in the OCSP response"
-argument_list|,
-name|n
-argument_list|,
-name|OCSP_response_status_str
-argument_list|(
-name|n
-argument_list|)
 argument_list|)
 expr_stmt|;
 goto|goto
@@ -2745,8 +2738,6 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"certificate status \"%s\" in the OCSP response"
-argument_list|,
-name|n
 argument_list|,
 name|OCSP_cert_status_str
 argument_list|(
@@ -5376,7 +5367,7 @@ name|ngx_buf_t
 modifier|*
 name|b
 decl_stmt|;
-DECL|enum|__anon27caaf3f0203
+DECL|enum|__anon291130710203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6172,7 +6163,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon27caaf3f0303
+DECL|enum|__anon291130710303
 enum|enum
 block|{
 DECL|enumerator|sw_start
