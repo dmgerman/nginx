@@ -7479,8 +7479,12 @@ operator|->
 name|buffer
 operator|.
 name|last
-operator|-=
-name|n
+operator|=
+name|u
+operator|->
+name|buffer
+operator|.
+name|pos
 expr_stmt|;
 name|u
 operator|->
