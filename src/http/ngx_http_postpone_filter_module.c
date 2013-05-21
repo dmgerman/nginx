@@ -218,7 +218,7 @@ if|#
 directive|if
 literal|0
 comment|/* TODO: SSI may pass NULL */
-block_content|ngx_log_error(NGX_LOG_ALERT, c->log, 0,                       "http postpone filter NULL inactive request",&r->uri,&r->args);
+block_content|ngx_log_error(NGX_LOG_ALERT, c->log, 0,                       "http postpone filter NULL inactive request");
 endif|#
 directive|endif
 return|return
@@ -360,16 +360,6 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"http postpone filter NULL output"
-argument_list|,
-operator|&
-name|r
-operator|->
-name|uri
-argument_list|,
-operator|&
-name|r
-operator|->
-name|args
 argument_list|)
 expr_stmt|;
 block|}

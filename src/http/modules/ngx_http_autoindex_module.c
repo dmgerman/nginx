@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2988bebf0108
+DECL|struct|__anon2bf5f8530108
 typedef|typedef
 struct|struct
 block|{
@@ -75,7 +75,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2988bebf0208
+DECL|struct|__anon2bf5f8530208
 typedef|typedef
 struct|struct
 block|{
@@ -1540,7 +1540,7 @@ argument_list|,
 name|ngx_errno
 argument_list|,
 name|ngx_close_dir_n
-literal|" \"%s\" failed"
+literal|" \"%V\" failed"
 argument_list|,
 operator|&
 name|path
