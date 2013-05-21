@@ -7521,6 +7521,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+block|}
 if|if
 condition|(
 name|u
@@ -7540,7 +7541,6 @@ literal|0
 argument_list|)
 expr_stmt|;
 return|return;
-block|}
 block|}
 name|u
 operator|->
