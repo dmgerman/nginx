@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29bc5dcc0108
+DECL|struct|__anon274ca4900108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29bc5dcc0208
+DECL|struct|__anon274ca4900208
 typedef|typedef
 struct|struct
 block|{
@@ -1109,12 +1109,26 @@ name|current_weight
 operator|-=
 name|total
 expr_stmt|;
+if|if
+condition|(
+name|now
+operator|-
+name|best
+operator|->
+name|checked
+operator|>
+name|best
+operator|->
+name|fail_timeout
+condition|)
+block|{
 name|best
 operator|->
 name|checked
 operator|=
 name|now
 expr_stmt|;
+block|}
 name|pc
 operator|->
 name|sockaddr
