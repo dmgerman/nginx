@@ -89,7 +89,7 @@ value|SSL
 end_define
 
 begin_typedef
-DECL|struct|__anon27eac3770108
+DECL|struct|__anon2a3c10240108
 typedef|typedef
 struct|struct
 block|{
@@ -110,7 +110,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27eac3770208
+DECL|struct|__anon2a3c10240208
 typedef|typedef
 struct|struct
 block|{
@@ -282,7 +282,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27eac3770308
+DECL|struct|__anon2a3c10240308
 typedef|typedef
 struct|struct
 block|{
@@ -536,9 +536,9 @@ name|RSA
 modifier|*
 name|ngx_ssl_rsa512_key_callback
 parameter_list|(
-name|SSL
+name|ngx_ssl_conn_t
 modifier|*
-name|ssl
+name|ssl_conn
 parameter_list|,
 name|int
 name|is_export

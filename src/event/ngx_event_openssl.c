@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon277b633c0108
+DECL|struct|__anon2a4334500108
 typedef|typedef
 struct|struct
 block|{
@@ -2239,12 +2239,12 @@ end_function
 begin_function
 name|RSA
 modifier|*
-DECL|function|ngx_ssl_rsa512_key_callback (SSL * ssl,int is_export,int key_length)
+DECL|function|ngx_ssl_rsa512_key_callback (ngx_ssl_conn_t * ssl_conn,int is_export,int key_length)
 name|ngx_ssl_rsa512_key_callback
 parameter_list|(
-name|SSL
+name|ngx_ssl_conn_t
 modifier|*
-name|ssl
+name|ssl_conn
 parameter_list|,
 name|int
 name|is_export
