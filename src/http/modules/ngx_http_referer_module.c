@@ -52,7 +52,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c65844b0108
+DECL|struct|__anon2b3e73600108
 typedef|typedef
 struct|struct
 block|{
@@ -1648,8 +1648,6 @@ operator|&
 name|name
 argument_list|,
 name|NGX_HTTP_VAR_CHANGEABLE
-operator||
-name|NGX_HTTP_VAR_NOHASH
 argument_list|)
 expr_stmt|;
 if|if
