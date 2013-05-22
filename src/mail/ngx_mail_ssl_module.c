@@ -135,10 +135,10 @@ function_decl|;
 end_function_decl
 
 begin_decl_stmt
-DECL|variable|ngx_http_starttls_state
+DECL|variable|ngx_mail_starttls_state
 specifier|static
 name|ngx_conf_enum_t
-name|ngx_http_starttls_state
+name|ngx_mail_starttls_state
 index|[]
 init|=
 block|{
@@ -297,7 +297,7 @@ argument_list|,
 name|starttls
 argument_list|)
 block|,
-name|ngx_http_starttls_state
+name|ngx_mail_starttls_state
 block|}
 block|,
 block|{

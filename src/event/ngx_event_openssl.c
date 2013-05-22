@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon293137800108
+DECL|struct|__anon277b633c0108
 typedef|typedef
 struct|struct
 block|{
@@ -40,7 +40,7 @@ end_typedef
 begin_function_decl
 specifier|static
 name|int
-name|ngx_http_ssl_verify_callback
+name|ngx_ssl_verify_callback
 parameter_list|(
 name|int
 name|ok
@@ -1533,7 +1533,7 @@ name|ctx
 argument_list|,
 name|SSL_VERIFY_PEER
 argument_list|,
-name|ngx_http_ssl_verify_callback
+name|ngx_ssl_verify_callback
 argument_list|)
 expr_stmt|;
 name|SSL_CTX_set_verify_depth
@@ -1978,8 +1978,8 @@ end_function
 begin_function
 specifier|static
 name|int
-DECL|function|ngx_http_ssl_verify_callback (int ok,X509_STORE_CTX * x509_store)
-name|ngx_http_ssl_verify_callback
+DECL|function|ngx_ssl_verify_callback (int ok,X509_STORE_CTX * x509_store)
+name|ngx_ssl_verify_callback
 parameter_list|(
 name|int
 name|ok

@@ -6,14 +6,14 @@ end_comment
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|_NGX_HTTP_CONF_FILE_H_INCLUDED_
+name|_NGX_CONF_FILE_H_INCLUDED_
 end_ifndef
 
 begin_define
-DECL|macro|_NGX_HTTP_CONF_FILE_H_INCLUDED_
+DECL|macro|_NGX_CONF_FILE_H_INCLUDED_
 define|#
 directive|define
-name|_NGX_HTTP_CONF_FILE_H_INCLUDED_
+name|_NGX_CONF_FILE_H_INCLUDED_
 end_define
 
 begin_include
@@ -624,7 +624,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29f3a18d0108
+DECL|struct|__anon2aa07a330108
 typedef|typedef
 struct|struct
 block|{
@@ -669,7 +669,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f3a18d0208
+DECL|struct|__anon2aa07a330208
 typedef|typedef
 struct|struct
 block|{
@@ -809,7 +809,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f3a18d0308
+DECL|struct|__anon2aa07a330308
 typedef|typedef
 struct|struct
 block|{
@@ -824,7 +824,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f3a18d0408
+DECL|struct|__anon2aa07a330408
 typedef|typedef
 struct|struct
 block|{
@@ -849,7 +849,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f3a18d0508
+DECL|struct|__anon2aa07a330508
 typedef|typedef
 struct|struct
 block|{
@@ -872,7 +872,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f3a18d0608
+DECL|struct|__anon2aa07a330608
 typedef|typedef
 struct|struct
 block|{
@@ -899,7 +899,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon29f3a18d0708
+DECL|struct|__anon2aa07a330708
 typedef|typedef
 struct|struct
 block|{
@@ -1529,7 +1529,7 @@ directive|endif
 end_endif
 
 begin_comment
-comment|/* _NGX_HTTP_CONF_FILE_H_INCLUDED_ */
+comment|/* _NGX_CONF_FILE_H_INCLUDED_ */
 end_comment
 
 end_unit

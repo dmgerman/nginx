@@ -656,7 +656,7 @@ name|NGX_TCP_NODELAY_UNSET
 expr_stmt|;
 name|ngx_log_debug0
 argument_list|(
-name|NGX_LOG_DEBUG_HTTP
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
 name|c
 operator|->
