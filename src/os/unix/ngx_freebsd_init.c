@@ -134,7 +134,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2b5ff3be0108
+DECL|struct|__anon291a2ac20108
 typedef|typedef
 struct|struct
 block|{
@@ -240,9 +240,11 @@ end_decl_stmt
 
 begin_function
 name|void
-DECL|function|ngx_debug_init ()
+DECL|function|ngx_debug_init (void)
 name|ngx_debug_init
-parameter_list|()
+parameter_list|(
+name|void
+parameter_list|)
 block|{
 if|#
 directive|if

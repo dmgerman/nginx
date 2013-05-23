@@ -318,7 +318,7 @@ value|0x01
 end_define
 
 begin_typedef
-DECL|struct|__anon2b549df60108
+DECL|struct|__anon29ac0e130108
 typedef|typedef
 struct|struct
 block|{
@@ -8184,7 +8184,7 @@ name|ngx_http_core_srv_conf_t
 modifier|*
 name|cscf
 decl_stmt|;
-DECL|enum|__anon2b549df60203
+DECL|enum|__anon29ac0e130203
 enum|enum
 block|{
 DECL|enumerator|sw_name_len
@@ -9187,9 +9187,11 @@ end_function
 
 begin_function
 name|void
-DECL|function|ngx_http_spdy_request_headers_init ()
+DECL|function|ngx_http_spdy_request_headers_init (void)
 name|ngx_http_spdy_request_headers_init
-parameter_list|()
+parameter_list|(
+name|void
+parameter_list|)
 block|{
 name|ngx_uint_t
 name|i
@@ -9267,7 +9269,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2b549df60308
+DECL|struct|__anon29ac0e130308
 specifier|static
 specifier|const
 struct|struct

@@ -951,9 +951,11 @@ end_function
 
 begin_function
 name|ngx_tid_t
-DECL|function|ngx_thread_self ()
+DECL|function|ngx_thread_self (void)
 name|ngx_thread_self
-parameter_list|()
+parameter_list|(
+name|void
+parameter_list|)
 block|{
 name|ngx_int_t
 name|tid

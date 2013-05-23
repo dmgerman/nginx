@@ -83,7 +83,7 @@ value|0x80000000
 end_define
 
 begin_typedef
-DECL|struct|__anon27cd87040108
+DECL|struct|__anon2accffe00108
 typedef|typedef
 specifier|volatile
 struct|struct
@@ -116,7 +116,7 @@ value|64
 end_define
 
 begin_typedef
-DECL|struct|__anon27cd87040208
+DECL|struct|__anon2accffe00208
 typedef|typedef
 struct|struct
 block|{
@@ -209,9 +209,11 @@ begin_function
 specifier|static
 name|ngx_inline
 name|ngx_int_t
-DECL|function|ngx_gettid ()
+DECL|function|ngx_gettid (void)
 name|ngx_gettid
-parameter_list|()
+parameter_list|(
+name|void
+parameter_list|)
 block|{
 name|char
 modifier|*
@@ -266,7 +268,9 @@ end_function
 begin_function_decl
 name|ngx_tid_t
 name|ngx_thread_self
-parameter_list|()
+parameter_list|(
+name|void
+parameter_list|)
 function_decl|;
 end_function_decl
 
