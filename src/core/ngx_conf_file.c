@@ -386,7 +386,7 @@ name|prev
 decl_stmt|,
 name|conf_file
 decl_stmt|;
-DECL|enum|__anon2bd279f90103
+DECL|enum|__anon28d724e40103
 enum|enum
 block|{
 DECL|enumerator|parse_file
@@ -812,6 +812,28 @@ name|handler
 condition|)
 block|{
 comment|/*              * the custom handler, i.e., that is used in the http's              * "types { ... }" directive              */
+if|if
+condition|(
+name|rc
+operator|==
+name|NGX_CONF_BLOCK_START
+condition|)
+block|{
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"unexpected \"{\""
+argument_list|)
+expr_stmt|;
+goto|goto
+name|failed
+goto|;
+block|}
 name|rv
 operator|=
 call|(
