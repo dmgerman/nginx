@@ -54,7 +54,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2a3203550108
+DECL|struct|__anon29fd665a0108
 typedef|typedef
 struct|struct
 block|{
@@ -69,6 +69,10 @@ decl_stmt|;
 DECL|member|ignore_recycled_buffers
 name|ngx_flag_t
 name|ignore_recycled_buffers
+decl_stmt|;
+DECL|member|last_modified
+name|ngx_flag_t
+name|last_modified
 decl_stmt|;
 DECL|member|types
 name|ngx_hash_t
@@ -94,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3203550208
+DECL|struct|__anon29fd665a0208
 typedef|typedef
 struct|struct
 block|{
@@ -117,7 +121,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3203550308
+DECL|struct|__anon29fd665a0308
 typedef|typedef
 struct|struct
 block|{
@@ -141,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a3203550403
+DECL|enum|__anon29fd665a0403
 typedef|typedef
 enum|enum
 block|{
@@ -837,6 +841,34 @@ name|ngx_http_html_default_types
 index|[
 literal|0
 index|]
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"ssi_last_modified"
+argument_list|)
+block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
+name|NGX_HTTP_SRV_CONF
+operator||
+name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_CONF_FLAG
+block|,
+name|ngx_conf_set_flag_slot
+block|,
+name|NGX_HTTP_LOC_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+name|ngx_http_ssi_loc_conf_t
+argument_list|,
+name|last_modified
+argument_list|)
+block|,
+name|NULL
 block|}
 block|,
 name|ngx_null_command
@@ -1872,11 +1904,6 @@ argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
-name|ngx_http_clear_last_modified
-argument_list|(
-name|r
-argument_list|)
-expr_stmt|;
 name|ngx_http_clear_accept_ranges
 argument_list|(
 name|r
@@ -1887,6 +1914,20 @@ argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|slcf
+operator|->
+name|last_modified
+condition|)
+block|{
+name|ngx_http_clear_last_modified
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 return|return
 name|ngx_http_next_header_filter
@@ -12790,6 +12831,12 @@ name|NGX_CONF_UNSET
 expr_stmt|;
 name|slcf
 operator|->
+name|last_modified
+operator|=
+name|NGX_CONF_UNSET
+expr_stmt|;
+name|slcf
+operator|->
 name|min_file_chunk
 operator|=
 name|NGX_CONF_UNSET_SIZE
@@ -12873,6 +12920,19 @@ argument_list|,
 name|prev
 operator|->
 name|ignore_recycled_buffers
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+name|ngx_conf_merge_value
+argument_list|(
+name|conf
+operator|->
+name|last_modified
+argument_list|,
+name|prev
+operator|->
+name|last_modified
 argument_list|,
 literal|0
 argument_list|)
