@@ -102,7 +102,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b87b84d0108
+DECL|struct|__anon29535a620108
 typedef|typedef
 struct|struct
 block|{
@@ -123,7 +123,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b87b84d0208
+DECL|struct|__anon29535a620208
 typedef|typedef
 struct|struct
 block|{
@@ -144,7 +144,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b87b84d0308
+DECL|struct|__anon29535a620308
 typedef|typedef
 struct|struct
 block|{
@@ -169,7 +169,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b87b84d0408
+DECL|struct|__anon29535a620408
 typedef|typedef
 struct|struct
 block|{
@@ -189,7 +189,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b87b84d0508
+DECL|struct|__anon29535a620508
 typedef|typedef
 struct|struct
 block|{
@@ -217,6 +217,10 @@ modifier|*
 name|params
 decl_stmt|;
 comment|/* ngx_http_xslt_param_t */
+DECL|member|last_modified
+name|ngx_flag_t
+name|last_modified
+decl_stmt|;
 DECL|typedef|ngx_http_xslt_filter_loc_conf_t
 block|}
 name|ngx_http_xslt_filter_loc_conf_t
@@ -224,7 +228,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b87b84d0608
+DECL|struct|__anon29535a620608
 typedef|typedef
 struct|struct
 block|{
@@ -728,6 +732,34 @@ name|ngx_http_xslt_default_types
 index|[
 literal|0
 index|]
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"xslt_last_modified"
+argument_list|)
+block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
+name|NGX_HTTP_SRV_CONF
+operator||
+name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_CONF_FLAG
+block|,
+name|ngx_conf_set_flag_slot
+block|,
+name|NGX_HTTP_LOC_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+name|ngx_http_xslt_filter_loc_conf_t
+argument_list|,
+name|last_modified
+argument_list|)
+block|,
+name|NULL
 block|}
 block|,
 name|ngx_null_command
@@ -1303,6 +1335,10 @@ name|ngx_pool_cleanup_t
 modifier|*
 name|cln
 decl_stmt|;
+name|ngx_http_xslt_filter_loc_conf_t
+modifier|*
+name|conf
+decl_stmt|;
 name|ctx
 operator|->
 name|done
@@ -1416,16 +1452,34 @@ operator|=
 name|NULL
 expr_stmt|;
 block|}
-name|ngx_http_clear_last_modified
-argument_list|(
-name|r
-argument_list|)
-expr_stmt|;
 name|ngx_http_clear_etag
 argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
+name|conf
+operator|=
+name|ngx_http_get_module_loc_conf
+argument_list|(
+name|r
+argument_list|,
+name|ngx_http_xslt_filter_module
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|conf
+operator|->
+name|last_modified
+condition|)
+block|{
+name|ngx_http_clear_last_modified
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|rc
 operator|=
@@ -4634,6 +4688,12 @@ name|NULL
 return|;
 block|}
 comment|/*      * set by ngx_pcalloc():      *      *     conf->dtd = NULL;      *     conf->sheets = { NULL };      *     conf->types = { NULL };      *     conf->types_keys = NULL;      *     conf->params = NULL;      */
+name|conf
+operator|->
+name|last_modified
+operator|=
+name|NGX_CONF_UNSET
+expr_stmt|;
 return|return
 name|conf
 return|;
@@ -4764,6 +4824,19 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
+name|ngx_conf_merge_value
+argument_list|(
+name|conf
+operator|->
+name|last_modified
+argument_list|,
+name|prev
+operator|->
+name|last_modified
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_CONF_OK
 return|;
