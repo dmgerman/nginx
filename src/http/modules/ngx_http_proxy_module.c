@@ -69,7 +69,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon2b362669010a
+DECL|union|__anon29d4e01f010a
 union|union
 block|{
 DECL|member|complex
@@ -101,7 +101,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b3626690208
+DECL|struct|__anon29d4e01f0208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3626690308
+DECL|struct|__anon29d4e01f0308
 typedef|typedef
 struct|struct
 block|{
@@ -253,7 +253,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3626690408
+DECL|struct|__anon29d4e01f0408
 typedef|typedef
 struct|struct
 block|{
@@ -1035,6 +1035,15 @@ literal|"http_504"
 argument_list|)
 block|,
 name|NGX_HTTP_UPSTREAM_FT_HTTP_504
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"http_403"
+argument_list|)
+block|,
+name|NGX_HTTP_UPSTREAM_FT_HTTP_403
 block|}
 block|,
 block|{

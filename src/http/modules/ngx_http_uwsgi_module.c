@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c09fddc0108
+DECL|struct|__anon2a23ca600108
 typedef|typedef
 struct|struct
 block|{
@@ -418,6 +418,15 @@ literal|"http_503"
 argument_list|)
 block|,
 name|NGX_HTTP_UPSTREAM_FT_HTTP_503
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"http_403"
+argument_list|)
+block|,
+name|NGX_HTTP_UPSTREAM_FT_HTTP_403
 block|}
 block|,
 block|{
