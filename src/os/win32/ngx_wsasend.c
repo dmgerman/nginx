@@ -194,6 +194,12 @@ argument_list|,
 literal|"WSASend() not ready"
 argument_list|)
 expr_stmt|;
+name|wev
+operator|->
+name|ready
+operator|=
+literal|0
+expr_stmt|;
 return|return
 name|NGX_AGAIN
 return|;
