@@ -2381,6 +2381,18 @@ block|}
 if|#
 directive|if
 operator|(
+name|NGX_WIN32
+operator|)
+comment|/*      * disable accept mutex on win32 as it may cause deadlock if      * grabbed by a process which can't accept connections      */
+name|ngx_use_accept_mutex
+operator|=
+literal|0
+expr_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
+operator|(
 name|NGX_THREADS
 operator|)
 name|ngx_posted_events_mutex
