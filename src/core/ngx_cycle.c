@@ -5913,12 +5913,6 @@ operator|=
 name|fd
 expr_stmt|;
 block|}
-if|#
-directive|if
-operator|!
-operator|(
-name|NGX_WIN32
-operator|)
 if|if
 condition|(
 name|cycle
@@ -5929,12 +5923,12 @@ name|file
 operator|->
 name|fd
 operator|!=
-name|STDERR_FILENO
+name|ngx_stderr
 condition|)
 block|{
 if|if
 condition|(
-name|dup2
+name|ngx_set_stderr
 argument_list|(
 name|cycle
 operator|->
@@ -5943,17 +5937,14 @@ operator|->
 name|file
 operator|->
 name|fd
-argument_list|,
-name|STDERR_FILENO
 argument_list|)
 operator|==
-operator|-
-literal|1
+name|NGX_FILE_ERROR
 condition|)
 block|{
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_EMERG
+name|NGX_LOG_ALERT
 argument_list|,
 name|cycle
 operator|->
@@ -5961,13 +5952,12 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"dup2(STDERR) failed"
+name|ngx_set_stderr_n
+literal|" failed"
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-endif|#
-directive|endif
 block|}
 end_function
 
