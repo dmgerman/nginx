@@ -146,6 +146,11 @@ DECL|member|new_log
 name|ngx_log_t
 name|new_log
 decl_stmt|;
+DECL|member|log_use_stderr
+name|ngx_uint_t
+name|log_use_stderr
+decl_stmt|;
+comment|/* unsigned  log_use_stderr:1; */
 DECL|member|files
 name|ngx_connection_t
 modifier|*
@@ -238,7 +243,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon289b62430108
+DECL|struct|__anon2c4fd1bb0108
 typedef|typedef
 struct|struct
 block|{
@@ -348,7 +353,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289b62430208
+DECL|struct|__anon2c4fd1bb0208
 typedef|typedef
 struct|struct
 block|{

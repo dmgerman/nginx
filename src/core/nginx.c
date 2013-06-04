@@ -1422,6 +1422,11 @@ return|;
 block|}
 if|if
 condition|(
+operator|!
+name|cycle
+operator|->
+name|log_use_stderr
+operator|&&
 name|cycle
 operator|->
 name|log

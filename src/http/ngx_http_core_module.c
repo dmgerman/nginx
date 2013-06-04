@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b3e61e20108
+DECL|struct|__anon29dc15fe0108
 typedef|typedef
 struct|struct
 block|{
@@ -22045,6 +22045,14 @@ argument_list|(
 operator|&
 name|name
 argument_list|)
+expr_stmt|;
+name|cf
+operator|->
+name|cycle
+operator|->
+name|log_use_stderr
+operator|=
+literal|1
 expr_stmt|;
 block|}
 else|else

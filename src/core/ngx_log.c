@@ -1808,6 +1808,14 @@ operator|&
 name|name
 argument_list|)
 expr_stmt|;
+name|cf
+operator|->
+name|cycle
+operator|->
+name|log_use_stderr
+operator|=
+literal|1
+expr_stmt|;
 block|}
 else|else
 block|{
