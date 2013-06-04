@@ -1325,7 +1325,7 @@ argument_list|)
 expr_stmt|;
 name|last
 operator|=
-name|ngx_spdy_frame_write_uint16
+name|ngx_http_spdy_nv_write_vlen
 argument_list|(
 name|last
 argument_list|,
@@ -2384,7 +2384,7 @@ block|}
 operator|(
 name|void
 operator|)
-name|ngx_spdy_frame_write_uint16
+name|ngx_http_spdy_nv_write_num
 argument_list|(
 name|buf
 argument_list|,
