@@ -28,7 +28,7 @@ file|<ngx_channel.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2767bce20108
+DECL|struct|__anon276116810108
 typedef|typedef
 struct|struct
 block|{
@@ -1426,6 +1426,28 @@ operator|-
 literal|1
 condition|)
 block|{
+if|#
+directive|if
+operator|(
+name|NGX_VALGRIND
+operator|)
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|log
+argument_list|,
+name|ngx_errno
+argument_list|,
+literal|"sigaction(%s) failed, ignored"
+argument_list|,
+name|sig
+operator|->
+name|signame
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_EMERG
@@ -1444,6 +1466,8 @@ expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
+endif|#
+directive|endif
 block|}
 block|}
 return|return
