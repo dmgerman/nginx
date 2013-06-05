@@ -508,7 +508,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon2b3f84e50103
+DECL|enum|__anon27f166610103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2858,7 +2858,7 @@ name|hash
 decl_stmt|,
 name|i
 decl_stmt|;
-DECL|enum|__anon2b3f84e50203
+DECL|enum|__anon27f166610203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -3624,7 +3624,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon2b3f84e50303
+DECL|enum|__anon27f166610303
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -4113,7 +4113,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2b3f84e50403
+DECL|enum|__anon27f166610403
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -4201,7 +4201,7 @@ name|uri_end
 condition|)
 block|{
 comment|/*          * we use "ch = *p++" inside the cycle, but this operation is safe,          * because after the URI there is always at least one character:          * the line feed          */
-name|ngx_log_debug4
+name|ngx_log_debug3
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
@@ -4213,16 +4213,13 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"s:%d in:'%Xd:%c', out:'%c'"
+literal|"s:%d in:'%Xd:%c'"
 argument_list|,
 name|state
 argument_list|,
 name|ch
 argument_list|,
 name|ch
-argument_list|,
-operator|*
-name|u
 argument_list|)
 expr_stmt|;
 switch|switch
@@ -5391,7 +5388,7 @@ name|u_char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2b3f84e50503
+DECL|enum|__anon27f166610503
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6894,7 +6891,7 @@ decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
-DECL|enum|__anon2b3f84e50603
+DECL|enum|__anon27f166610603
 enum|enum
 block|{
 DECL|enumerator|sw_chunk_start
