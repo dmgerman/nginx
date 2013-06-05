@@ -621,6 +621,12 @@ literal|1
 else|:
 literal|0
 expr_stmt|;
+name|b
+operator|->
+name|last_in_chain
+operator|=
+literal|1
+expr_stmt|;
 name|rc
 operator|=
 name|ngx_http_send_header
