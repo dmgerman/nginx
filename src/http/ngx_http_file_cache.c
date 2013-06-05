@@ -4032,6 +4032,16 @@ name|r
 operator|->
 name|cache
 expr_stmt|;
+name|ngx_memzero
+argument_list|(
+name|h
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|ngx_http_file_cache_header_t
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|h
 operator|->
 name|valid_sec
