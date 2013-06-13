@@ -6610,9 +6610,6 @@ operator|->
 name|read_timeout
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|1
 if|if
 condition|(
 name|c
@@ -6622,8 +6619,6 @@ operator|->
 name|ready
 condition|)
 block|{
-comment|/* post aio operation */
-comment|/*          * TODO comment          * although we can post aio operation just in the end          * of ngx_http_upstream_connect() CHECK IT !!!          * it's better to do here because we postpone header buffer allocation          */
 name|ngx_http_upstream_process_header
 argument_list|(
 name|r
@@ -6633,8 +6628,6 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-endif|#
-directive|endif
 name|u
 operator|->
 name|write_event_handler
