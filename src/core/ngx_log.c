@@ -1887,16 +1887,6 @@ return|return
 name|NGX_CONF_OK
 return|;
 block|}
-name|cf
-operator|->
-name|cycle
-operator|->
-name|new_log
-operator|.
-name|log_level
-operator|=
-literal|0
-expr_stmt|;
 return|return
 name|ngx_log_set_levels
 argument_list|(

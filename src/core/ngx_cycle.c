@@ -376,14 +376,6 @@ name|log
 expr_stmt|;
 name|cycle
 operator|->
-name|new_log
-operator|.
-name|log_level
-operator|=
-name|NGX_LOG_ERR
-expr_stmt|;
-name|cycle
-operator|->
 name|old_cycle
 operator|=
 name|old_cycle
@@ -1701,6 +1693,14 @@ goto|goto
 name|failed
 goto|;
 block|}
+name|cycle
+operator|->
+name|new_log
+operator|.
+name|log_level
+operator|=
+name|NGX_LOG_ERR
+expr_stmt|;
 block|}
 comment|/* open the new files */
 name|part
