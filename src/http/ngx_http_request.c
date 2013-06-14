@@ -8337,7 +8337,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon2bbcacb70103
+DECL|enum|__anon28e3ccd00103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -11722,7 +11722,7 @@ name|ngx_http_finalize_request
 argument_list|(
 name|r
 argument_list|,
-literal|0
+name|NGX_HTTP_CLIENT_CLOSED_REQUEST
 argument_list|)
 expr_stmt|;
 block|}
