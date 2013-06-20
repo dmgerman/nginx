@@ -3350,6 +3350,12 @@ operator|=
 operator|&
 name|ngx_exit_log_file
 expr_stmt|;
+name|ngx_exit_log
+operator|.
+name|next
+operator|=
+name|NULL
+expr_stmt|;
 name|ngx_exit_cycle
 operator|.
 name|log
@@ -4931,6 +4937,12 @@ name|file
 operator|=
 operator|&
 name|ngx_exit_log_file
+expr_stmt|;
+name|ngx_exit_log
+operator|.
+name|next
+operator|=
+name|NULL
 expr_stmt|;
 name|ngx_exit_cycle
 operator|.
