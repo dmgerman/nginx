@@ -266,12 +266,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<sys/sysctl.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<crypt.h>
 end_include
 
@@ -387,7 +381,24 @@ if|#
 directive|if
 operator|(
 name|NGX_HAVE_POLL
-operator|||
+operator|)
+end_if
+
+begin_include
+include|#
+directive|include
+file|<poll.h>
+end_include
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_if
+if|#
+directive|if
+operator|(
 name|NGX_HAVE_RTSIG
 operator|)
 end_if
@@ -396,6 +407,12 @@ begin_include
 include|#
 directive|include
 file|<poll.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<sys/sysctl.h>
 end_include
 
 begin_endif
