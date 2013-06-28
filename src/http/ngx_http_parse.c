@@ -508,7 +508,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon27f166610103
+DECL|enum|__anon2c3b530b0103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2858,7 +2858,7 @@ name|hash
 decl_stmt|,
 name|i
 decl_stmt|;
-DECL|enum|__anon27f166610203
+DECL|enum|__anon2c3b530b0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -3624,7 +3624,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon27f166610303
+DECL|enum|__anon2c3b530b0303
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -4113,7 +4113,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon27f166610403
+DECL|enum|__anon2c3b530b0403
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -5388,7 +5388,7 @@ name|u_char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon27f166610503
+DECL|enum|__anon2c3b530b0503
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6891,7 +6891,7 @@ decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
-DECL|enum|__anon27f166610603
+DECL|enum|__anon2c3b530b0603
 enum|enum
 block|{
 DECL|enumerator|sw_chunk_start
@@ -7518,8 +7518,8 @@ name|ctx
 operator|->
 name|length
 operator|=
-literal|2
-comment|/* LF LF */
+literal|1
+comment|/* LF */
 operator|+
 operator|(
 name|ctx
@@ -7533,7 +7533,8 @@ operator|+
 literal|4
 comment|/* LF "0" LF LF */
 else|:
-literal|0
+literal|1
+comment|/* LF */
 operator|)
 expr_stmt|;
 break|break;
