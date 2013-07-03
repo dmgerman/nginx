@@ -5325,7 +5325,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-comment|/* rc == NGX_OK || rc == NGX_AGAIN */
+comment|/* rc == NGX_OK || rc == NGX_AGAIN || rc == NGX_DONE */
 name|c
 operator|=
 name|u
