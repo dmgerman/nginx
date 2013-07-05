@@ -336,7 +336,7 @@ DECL|macro|NGX_INT32_LEN
 define|#
 directive|define
 name|NGX_INT32_LEN
-value|sizeof("-2147483648") - 1
+value|(sizeof("-2147483648") - 1)
 end_define
 
 begin_define
@@ -344,7 +344,7 @@ DECL|macro|NGX_INT64_LEN
 define|#
 directive|define
 name|NGX_INT64_LEN
-value|sizeof("-9223372036854775808") - 1
+value|(sizeof("-9223372036854775808") - 1)
 end_define
 
 begin_if

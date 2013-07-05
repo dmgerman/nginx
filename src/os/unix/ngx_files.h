@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289d6f670108
+DECL|struct|__anon2af899230108
 typedef|typedef
 struct|struct
 block|{
@@ -88,7 +88,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289d6f670208
+DECL|struct|__anon2af899230208
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289d6f670308
+DECL|struct|__anon2af899230308
 typedef|typedef
 struct|struct
 block|{
@@ -288,7 +288,7 @@ DECL|macro|NGX_FILE_TRUNCATE
 define|#
 directive|define
 name|NGX_FILE_TRUNCATE
-value|O_CREAT|O_TRUNC
+value|(O_CREAT|O_TRUNC)
 end_define
 
 begin_define
@@ -296,7 +296,7 @@ DECL|macro|NGX_FILE_APPEND
 define|#
 directive|define
 name|NGX_FILE_APPEND
-value|O_WRONLY|O_APPEND
+value|(O_WRONLY|O_APPEND)
 end_define
 
 begin_define
@@ -372,7 +372,7 @@ DECL|macro|NGX_FILE_SEARCH
 define|#
 directive|define
 name|NGX_FILE_SEARCH
-value|O_SEARCH|NGX_FILE_DIRECTORY
+value|(O_SEARCH|NGX_FILE_DIRECTORY)
 end_define
 
 begin_elif
@@ -389,7 +389,7 @@ DECL|macro|NGX_FILE_SEARCH
 define|#
 directive|define
 name|NGX_FILE_SEARCH
-value|O_EXEC|NGX_FILE_DIRECTORY
+value|(O_EXEC|NGX_FILE_DIRECTORY)
 end_define
 
 begin_else
@@ -402,7 +402,7 @@ DECL|macro|NGX_FILE_SEARCH
 define|#
 directive|define
 name|NGX_FILE_SEARCH
-value|O_RDONLY|NGX_FILE_DIRECTORY
+value|(O_RDONLY|NGX_FILE_DIRECTORY)
 end_define
 
 begin_endif

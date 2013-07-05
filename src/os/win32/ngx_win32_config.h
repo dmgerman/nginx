@@ -634,7 +634,7 @@ DECL|macro|NGX_SIZE_T_LEN
 define|#
 directive|define
 name|NGX_SIZE_T_LEN
-value|sizeof("-2147483648") - 1
+value|(sizeof("-2147483648") - 1)
 end_define
 
 begin_define
@@ -650,7 +650,7 @@ DECL|macro|NGX_TIME_T_LEN
 define|#
 directive|define
 name|NGX_TIME_T_LEN
-value|sizeof("-2147483648") - 1
+value|(sizeof("-2147483648") - 1)
 end_define
 
 begin_define
@@ -666,7 +666,7 @@ DECL|macro|NGX_OFF_T_LEN
 define|#
 directive|define
 name|NGX_OFF_T_LEN
-value|sizeof("-9223372036854775807") - 1
+value|(sizeof("-9223372036854775807") - 1)
 end_define
 
 begin_define
