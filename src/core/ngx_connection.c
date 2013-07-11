@@ -156,6 +156,8 @@ name|ngx_sock_ntop
 argument_list|(
 name|sa
 argument_list|,
+name|socklen
+argument_list|,
 name|text
 argument_list|,
 name|NGX_SOCKADDR_STRLEN
@@ -688,6 +690,13 @@ name|i
 index|]
 operator|.
 name|sockaddr
+argument_list|,
+name|ls
+index|[
+name|i
+index|]
+operator|.
+name|socklen
 argument_list|,
 name|ls
 index|[
@@ -4648,6 +4657,8 @@ argument_list|(
 name|c
 operator|->
 name|local_sockaddr
+argument_list|,
+name|len
 argument_list|,
 name|s
 operator|->

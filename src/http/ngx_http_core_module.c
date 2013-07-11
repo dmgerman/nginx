@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29e9b5fc0108
+DECL|struct|__anon2744d4260108
 typedef|typedef
 struct|struct
 block|{
@@ -12878,6 +12878,10 @@ name|sockaddr
 argument_list|,
 name|lsopt
 operator|.
+name|socklen
+argument_list|,
+name|lsopt
+operator|.
 name|addr
 argument_list|,
 name|NGX_SOCKADDR_STRLEN
@@ -17394,6 +17398,10 @@ operator|.
 name|u
 operator|.
 name|sockaddr
+argument_list|,
+name|lsopt
+operator|.
+name|socklen
 argument_list|,
 name|lsopt
 operator|.

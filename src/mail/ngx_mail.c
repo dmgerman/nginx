@@ -2025,6 +2025,13 @@ index|]
 operator|.
 name|sockaddr
 argument_list|,
+name|addr
+index|[
+name|i
+index|]
+operator|.
+name|socklen
+argument_list|,
 name|buf
 argument_list|,
 name|NGX_SOCKADDR_STRLEN
@@ -2277,6 +2284,13 @@ name|i
 index|]
 operator|.
 name|sockaddr
+argument_list|,
+name|addr
+index|[
+name|i
+index|]
+operator|.
+name|socklen
 argument_list|,
 name|buf
 argument_list|,

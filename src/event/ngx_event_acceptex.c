@@ -322,6 +322,10 @@ name|sockaddr
 argument_list|,
 name|c
 operator|->
+name|socklen
+argument_list|,
+name|c
+operator|->
 name|addr_text
 operator|.
 name|data

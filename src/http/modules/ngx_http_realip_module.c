@@ -46,7 +46,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2bb14b410108
+DECL|struct|__anon278451f10108
 typedef|typedef
 struct|struct
 block|{
@@ -79,7 +79,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb14b410208
+DECL|struct|__anon278451f10208
 typedef|typedef
 struct|struct
 block|{
@@ -877,6 +877,10 @@ argument_list|(
 name|addr
 operator|->
 name|sockaddr
+argument_list|,
+name|addr
+operator|->
+name|socklen
 argument_list|,
 name|text
 argument_list|,

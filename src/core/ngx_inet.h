@@ -127,7 +127,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2a3505360108
+DECL|struct|__anon28c144eb0108
 typedef|typedef
 struct|struct
 block|{
@@ -154,7 +154,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2a3505360208
+DECL|struct|__anon28c144eb0208
 typedef|typedef
 struct|struct
 block|{
@@ -180,7 +180,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2a3505360308
+DECL|struct|__anon28c144eb0308
 typedef|typedef
 struct|struct
 block|{
@@ -188,7 +188,7 @@ DECL|member|family
 name|ngx_uint_t
 name|family
 decl_stmt|;
-DECL|union|__anon2a350536040a
+DECL|union|__anon28c144eb040a
 union|union
 block|{
 DECL|member|in
@@ -217,7 +217,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3505360508
+DECL|struct|__anon28c144eb0508
 typedef|typedef
 struct|struct
 block|{
@@ -242,7 +242,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3505360608
+DECL|struct|__anon28c144eb0608
 typedef|typedef
 struct|struct
 block|{
@@ -413,6 +413,9 @@ name|struct
 name|sockaddr
 modifier|*
 name|sa
+parameter_list|,
+name|socklen_t
+name|socklen
 parameter_list|,
 name|u_char
 modifier|*

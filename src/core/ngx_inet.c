@@ -712,13 +712,16 @@ end_endif
 
 begin_function
 name|size_t
-DECL|function|ngx_sock_ntop (struct sockaddr * sa,u_char * text,size_t len,ngx_uint_t port)
+DECL|function|ngx_sock_ntop (struct sockaddr * sa,socklen_t socklen,u_char * text,size_t len,ngx_uint_t port)
 name|ngx_sock_ntop
 parameter_list|(
 name|struct
 name|sockaddr
 modifier|*
 name|sa
+parameter_list|,
+name|socklen_t
+name|socklen
 parameter_list|,
 name|u_char
 modifier|*
@@ -988,8 +991,36 @@ operator|*
 operator|)
 name|sa
 expr_stmt|;
-comment|/* we do not include trailing zero in address length */
-return|return
+comment|/* on Linux sockaddr might not include sun_path at all */
+if|if
+condition|(
+name|socklen
+operator|<=
+name|offsetof
+argument_list|(
+expr|struct
+name|sockaddr_un
+argument_list|,
+name|sun_path
+argument_list|)
+condition|)
+block|{
+name|p
+operator|=
+name|ngx_snprintf
+argument_list|(
+name|text
+argument_list|,
+name|len
+argument_list|,
+literal|"unix:%Z"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|p
+operator|=
 name|ngx_snprintf
 argument_list|(
 name|text
@@ -1002,10 +1033,17 @@ name|saun
 operator|->
 name|sun_path
 argument_list|)
+expr_stmt|;
+block|}
+comment|/* we do not include trailing zero in address length */
+return|return
+operator|(
+name|p
 operator|-
 name|text
 operator|-
 literal|1
+operator|)
 return|;
 endif|#
 directive|endif
@@ -4622,6 +4660,10 @@ operator|*
 operator|)
 name|sin
 argument_list|,
+name|rp
+operator|->
+name|ai_addrlen
+argument_list|,
 name|p
 argument_list|,
 name|len
@@ -4798,6 +4840,10 @@ name|sockaddr
 operator|*
 operator|)
 name|sin6
+argument_list|,
+name|rp
+operator|->
+name|ai_addrlen
 argument_list|,
 name|p
 argument_list|,
@@ -5236,6 +5282,12 @@ name|sockaddr
 operator|*
 operator|)
 name|sin
+argument_list|,
+sizeof|sizeof
+argument_list|(
+expr|struct
+name|sockaddr_in
+argument_list|)
 argument_list|,
 name|p
 argument_list|,

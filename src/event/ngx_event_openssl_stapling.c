@@ -34,7 +34,7 @@ name|SSL_CTRL_SET_TLSEXT_STATUS_REQ_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon2ae33f1a0108
+DECL|struct|__anon2babe5af0108
 typedef|typedef
 struct|struct
 block|{
@@ -3826,6 +3826,12 @@ operator|*
 operator|)
 name|sin
 argument_list|,
+sizeof|sizeof
+argument_list|(
+expr|struct
+name|sockaddr_in
+argument_list|)
+argument_list|,
 name|p
 argument_list|,
 name|len
@@ -5367,7 +5373,7 @@ name|ngx_buf_t
 modifier|*
 name|b
 decl_stmt|;
-DECL|enum|__anon2ae33f1a0203
+DECL|enum|__anon2babe5af0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6163,7 +6169,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2ae33f1a0303
+DECL|enum|__anon2babe5af0303
 enum|enum
 block|{
 DECL|enumerator|sw_start
