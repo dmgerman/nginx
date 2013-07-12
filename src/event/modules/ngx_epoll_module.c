@@ -114,6 +114,14 @@ value|0x010
 end_define
 
 begin_define
+DECL|macro|EPOLLRDHUP
+define|#
+directive|define
+name|EPOLLRDHUP
+value|0x2000
+end_define
+
+begin_define
 DECL|macro|EPOLLET
 define|#
 directive|define
@@ -409,7 +417,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2999503a0108
+DECL|struct|__anon2c5a75180108
 typedef|typedef
 struct|struct
 block|{
@@ -1641,10 +1649,14 @@ operator|(
 name|NGX_READ_EVENT
 operator|!=
 name|EPOLLIN
+operator||
+name|EPOLLRDHUP
 operator|)
 name|events
 operator|=
 name|EPOLLIN
+operator||
+name|EPOLLRDHUP
 expr_stmt|;
 endif|#
 directive|endif
@@ -1660,6 +1672,8 @@ expr_stmt|;
 name|prev
 operator|=
 name|EPOLLIN
+operator||
+name|EPOLLRDHUP
 expr_stmt|;
 if|#
 directive|if
@@ -1902,6 +1916,8 @@ expr_stmt|;
 name|prev
 operator|=
 name|EPOLLIN
+operator||
+name|EPOLLRDHUP
 expr_stmt|;
 block|}
 if|if
@@ -2071,6 +2087,8 @@ operator||
 name|EPOLLOUT
 operator||
 name|EPOLLET
+operator||
+name|EPOLLRDHUP
 expr_stmt|;
 name|ee
 operator|.
@@ -2742,6 +2760,27 @@ operator|->
 name|active
 condition|)
 block|{
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_EPOLLRDHUP
+operator|)
+if|if
+condition|(
+name|revents
+operator|&
+name|EPOLLRDHUP
+condition|)
+block|{
+name|rev
+operator|->
+name|pending_eof
+operator|=
+literal|1
+expr_stmt|;
+block|}
+endif|#
+directive|endif
 if|if
 condition|(
 operator|(

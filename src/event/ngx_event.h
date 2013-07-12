@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon289165520108
+DECL|struct|__anon28ef71850108
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon289165520208
+DECL|struct|__anon28ef71850208
 typedef|typedef
 struct|struct
 block|{
@@ -196,7 +196,7 @@ name|deferred_accept
 range|:
 literal|1
 decl_stmt|;
-comment|/* the pending eof reported by kqueue or in aio chain operation */
+comment|/* the pending eof reported by kqueue, epoll or in aio chain operation */
 DECL|member|pending_eof
 name|unsigned
 name|pending_eof
@@ -539,7 +539,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon289165520308
+DECL|struct|__anon28ef71850308
 typedef|typedef
 struct|struct
 block|{
@@ -943,6 +943,32 @@ begin_if
 if|#
 directive|if
 operator|(
+name|NGX_HAVE_EPOLL
+operator|)
+operator|&&
+operator|!
+operator|(
+name|NGX_HAVE_EPOLLRDHUP
+operator|)
+end_if
+
+begin_define
+DECL|macro|EPOLLRDHUP
+define|#
+directive|define
+name|EPOLLRDHUP
+value|0
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_if
+if|#
+directive|if
+operator|(
 name|NGX_HAVE_KQUEUE
 operator|)
 end_if
@@ -1116,7 +1142,7 @@ DECL|macro|NGX_READ_EVENT
 define|#
 directive|define
 name|NGX_READ_EVENT
-value|EPOLLIN
+value|(EPOLLIN|EPOLLRDHUP)
 end_define
 
 begin_define
@@ -1461,7 +1487,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon289165520408
+DECL|struct|__anon28ef71850408
 typedef|typedef
 struct|struct
 block|{
@@ -1508,7 +1534,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289165520508
+DECL|struct|__anon28ef71850508
 typedef|typedef
 struct|struct
 block|{
