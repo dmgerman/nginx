@@ -520,6 +520,13 @@ condition|(
 name|n
 operator|<
 name|size
+operator|&&
+operator|!
+operator|(
+name|ngx_event_flags
+operator|&
+name|NGX_USE_GREEDY_EVENT
+operator|)
 condition|)
 block|{
 name|rev
