@@ -102,7 +102,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29535a620108
+DECL|struct|__anon2be528260108
 typedef|typedef
 struct|struct
 block|{
@@ -123,7 +123,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29535a620208
+DECL|struct|__anon2be528260208
 typedef|typedef
 struct|struct
 block|{
@@ -144,7 +144,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29535a620308
+DECL|struct|__anon2be528260308
 typedef|typedef
 struct|struct
 block|{
@@ -169,7 +169,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29535a620408
+DECL|struct|__anon2be528260408
 typedef|typedef
 struct|struct
 block|{
@@ -189,7 +189,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29535a620508
+DECL|struct|__anon2be528260508
 typedef|typedef
 struct|struct
 block|{
@@ -228,7 +228,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29535a620608
+DECL|struct|__anon2be528260608
 typedef|typedef
 struct|struct
 block|{
@@ -564,6 +564,18 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|ngx_int_t
+name|ngx_http_xslt_filter_preconfiguration
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
+name|ngx_int_t
 name|ngx_http_xslt_filter_init
 parameter_list|(
 name|ngx_conf_t
@@ -774,7 +786,7 @@ name|ngx_http_module_t
 name|ngx_http_xslt_filter_module_ctx
 init|=
 block|{
-name|NULL
+name|ngx_http_xslt_filter_preconfiguration
 block|,
 comment|/* preconfiguration */
 name|ngx_http_xslt_filter_init
@@ -4846,8 +4858,8 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_http_xslt_filter_init (ngx_conf_t * cf)
-name|ngx_http_xslt_filter_init
+DECL|function|ngx_http_xslt_filter_preconfiguration (ngx_conf_t * cf)
+name|ngx_http_xslt_filter_preconfiguration
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -4867,6 +4879,23 @@ argument_list|()
 expr_stmt|;
 endif|#
 directive|endif
+return|return
+name|NGX_OK
+return|;
+block|}
+end_function
+
+begin_function
+specifier|static
+name|ngx_int_t
+DECL|function|ngx_http_xslt_filter_init (ngx_conf_t * cf)
+name|ngx_http_xslt_filter_init
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|)
+block|{
 name|ngx_http_next_header_filter
 operator|=
 name|ngx_http_top_header_filter
