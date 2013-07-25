@@ -2043,7 +2043,7 @@ name|cycle
 parameter_list|)
 block|{
 name|int
-name|keepalive
+name|value
 decl_stmt|;
 name|ngx_uint_t
 name|i
@@ -2063,19 +2063,6 @@ operator|)
 name|struct
 name|accept_filter_arg
 name|af
-decl_stmt|;
-endif|#
-directive|endif
-if|#
-directive|if
-operator|(
-name|NGX_HAVE_DEFERRED_ACCEPT
-operator|&&
-name|defined
-name|TCP_DEFER_ACCEPT
-operator|)
-name|int
-name|timeout
 decl_stmt|;
 endif|#
 directive|endif
@@ -2292,7 +2279,7 @@ operator|.
 name|keepalive
 condition|)
 block|{
-name|keepalive
+name|value
 operator|=
 operator|(
 name|ls
@@ -2330,7 +2317,7 @@ name|void
 operator|*
 operator|)
 operator|&
-name|keepalive
+name|value
 argument_list|,
 sizeof|sizeof
 argument_list|(
@@ -2354,7 +2341,7 @@ name|ngx_socket_errno
 argument_list|,
 literal|"setsockopt(SO_KEEPALIVE, %d) %V failed, ignored"
 argument_list|,
-name|keepalive
+name|value
 argument_list|,
 operator|&
 name|ls
@@ -3034,7 +3021,7 @@ operator|.
 name|add_deferred
 condition|)
 block|{
-name|timeout
+name|value
 operator|=
 operator|(
 name|int
@@ -3053,7 +3040,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|timeout
+name|value
 operator|=
 literal|0
 expr_stmt|;
@@ -3074,7 +3061,7 @@ argument_list|,
 name|TCP_DEFER_ACCEPT
 argument_list|,
 operator|&
-name|timeout
+name|value
 argument_list|,
 sizeof|sizeof
 argument_list|(
@@ -3099,7 +3086,7 @@ argument_list|,
 literal|"setsockopt(TCP_DEFER_ACCEPT, %d) for %V failed, "
 literal|"ignored"
 argument_list|,
-name|timeout
+name|value
 argument_list|,
 operator|&
 name|ls
