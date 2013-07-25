@@ -8928,7 +8928,7 @@ name|r
 argument_list|,
 name|u
 argument_list|,
-name|NGX_ETIMEDOUT
+name|NGX_HTTP_GATEWAY_TIME_OUT
 argument_list|)
 expr_stmt|;
 return|return;
@@ -11206,7 +11206,7 @@ name|r
 argument_list|,
 name|u
 argument_list|,
-literal|0
+name|NGX_HTTP_GATEWAY_TIME_OUT
 argument_list|)
 expr_stmt|;
 return|return;
@@ -12088,7 +12088,7 @@ name|r
 argument_list|,
 name|u
 argument_list|,
-literal|0
+name|NGX_HTTP_GATEWAY_TIME_OUT
 argument_list|)
 expr_stmt|;
 return|return;
