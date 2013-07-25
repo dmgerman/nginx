@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b7ac2a50108
+DECL|struct|__anon28e8a1ff0108
 typedef|typedef
 struct|struct
 block|{
@@ -80,7 +80,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7ac2a50208
+DECL|struct|__anon28e8a1ff0208
 typedef|typedef
 struct|struct
 block|{
@@ -1542,6 +1542,14 @@ goto|goto
 name|failed
 goto|;
 block|}
+name|r
+operator|->
+name|connection
+operator|->
+name|buffered
+operator||=
+name|NGX_HTTP_GZIP_BUFFERED
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -2492,14 +2500,6 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-name|r
-operator|->
-name|connection
-operator|->
-name|buffered
-operator||=
-name|NGX_HTTP_GZIP_BUFFERED
-expr_stmt|;
 name|ctx
 operator|->
 name|last_out
@@ -3604,6 +3604,15 @@ operator|&
 name|cl
 operator|->
 name|next
+expr_stmt|;
+name|r
+operator|->
+name|connection
+operator|->
+name|buffered
+operator|&=
+operator|~
+name|NGX_HTTP_GZIP_BUFFERED
 expr_stmt|;
 return|return
 name|NGX_OK
