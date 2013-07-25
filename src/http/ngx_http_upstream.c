@@ -13238,9 +13238,7 @@ condition|)
 block|{
 name|tf
 operator|=
-name|u
-operator|->
-name|pipe
+name|p
 operator|->
 name|temp_file
 expr_stmt|;
@@ -13264,7 +13262,6 @@ operator|==
 operator|-
 literal|1
 operator|||
-operator|(
 name|u
 operator|->
 name|headers_in
@@ -13274,7 +13271,6 @@ operator|==
 name|tf
 operator|->
 name|offset
-operator|)
 operator|)
 condition|)
 block|{
@@ -13317,9 +13313,7 @@ name|ngx_http_file_cache_update
 argument_list|(
 name|r
 argument_list|,
-name|u
-operator|->
-name|pipe
+name|p
 operator|->
 name|temp_file
 argument_list|)
@@ -13334,9 +13328,7 @@ condition|)
 block|{
 name|tf
 operator|=
-name|u
-operator|->
-name|pipe
+name|p
 operator|->
 name|temp_file
 expr_stmt|;
@@ -13405,9 +13397,7 @@ name|r
 operator|->
 name|cache
 argument_list|,
-name|u
-operator|->
-name|pipe
+name|p
 operator|->
 name|temp_file
 argument_list|)
