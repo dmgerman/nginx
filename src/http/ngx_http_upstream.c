@@ -13450,12 +13450,6 @@ operator|->
 name|out
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|ngx_http_busy_unlock(u->conf->busy_lock,&u->busy_lock);
-endif|#
-directive|endif
 name|ngx_http_upstream_finalize_request
 argument_list|(
 name|r
@@ -13981,12 +13975,6 @@ argument_list|,
 name|ft_type
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-literal|0
-block_content|ngx_http_busy_unlock(u->conf->busy_lock,&u->busy_lock);
-endif|#
-directive|endif
 if|if
 condition|(
 name|u
@@ -14411,12 +14399,6 @@ operator|=
 name|NULL
 expr_stmt|;
 block|}
-if|#
-directive|if
-literal|0
-block_content|if (u->conf->busy_lock&& !u->busy_locked) {         ngx_http_upstream_busy_lock(p);         return;     }
-endif|#
-directive|endif
 name|ngx_http_upstream_connect
 argument_list|(
 name|r
