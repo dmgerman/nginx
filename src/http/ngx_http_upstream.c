@@ -9457,7 +9457,7 @@ name|r
 argument_list|,
 name|u
 argument_list|,
-literal|0
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -9537,7 +9537,7 @@ name|r
 argument_list|,
 name|u
 argument_list|,
-literal|0
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -9610,7 +9610,7 @@ name|r
 argument_list|,
 name|u
 argument_list|,
-literal|0
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -9665,7 +9665,7 @@ name|r
 argument_list|,
 name|u
 argument_list|,
-literal|0
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -9772,7 +9772,7 @@ name|r
 argument_list|,
 name|u
 argument_list|,
-literal|0
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -9851,7 +9851,7 @@ name|r
 argument_list|,
 name|u
 argument_list|,
-literal|0
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -10176,7 +10176,7 @@ name|r
 argument_list|,
 name|u
 argument_list|,
-literal|0
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -10307,7 +10307,7 @@ name|r
 argument_list|,
 name|u
 argument_list|,
-literal|0
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -10388,7 +10388,7 @@ name|r
 argument_list|,
 name|u
 argument_list|,
-literal|0
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -10562,7 +10562,7 @@ name|r
 argument_list|,
 name|u
 argument_list|,
-literal|0
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -10747,7 +10747,7 @@ name|r
 argument_list|,
 name|u
 argument_list|,
-literal|0
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -10842,7 +10842,7 @@ name|r
 argument_list|,
 name|u
 argument_list|,
-literal|0
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -10877,7 +10877,7 @@ name|r
 argument_list|,
 name|u
 argument_list|,
-literal|0
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -11324,7 +11324,7 @@ name|r
 argument_list|,
 name|u
 argument_list|,
-literal|0
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -11437,7 +11437,7 @@ name|r
 argument_list|,
 name|u
 argument_list|,
-literal|0
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -11687,7 +11687,7 @@ name|r
 argument_list|,
 name|u
 argument_list|,
-literal|0
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -11759,7 +11759,7 @@ name|r
 argument_list|,
 name|u
 argument_list|,
-literal|0
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -11833,7 +11833,7 @@ name|r
 argument_list|,
 name|u
 argument_list|,
-literal|0
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -11858,7 +11858,7 @@ name|r
 argument_list|,
 name|u
 argument_list|,
-literal|0
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -12228,7 +12228,7 @@ name|r
 argument_list|,
 name|u
 argument_list|,
-literal|0
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -12403,7 +12403,7 @@ name|r
 argument_list|,
 name|u
 argument_list|,
-literal|0
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -12457,7 +12457,7 @@ name|r
 argument_list|,
 name|u
 argument_list|,
-literal|0
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -12528,7 +12528,7 @@ name|r
 argument_list|,
 name|u
 argument_list|,
-literal|0
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -12926,7 +12926,7 @@ name|r
 argument_list|,
 name|u
 argument_list|,
-literal|0
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 block|}
@@ -13025,7 +13025,7 @@ name|r
 argument_list|,
 name|u
 argument_list|,
-literal|0
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 block|}
