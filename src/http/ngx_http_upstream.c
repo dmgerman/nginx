@@ -8834,11 +8834,8 @@ name|u
 operator|->
 name|length
 operator|=
-name|u
-operator|->
-name|headers_in
-operator|.
-name|content_length_n
+operator|-
+literal|1
 expr_stmt|;
 return|return
 name|NGX_OK

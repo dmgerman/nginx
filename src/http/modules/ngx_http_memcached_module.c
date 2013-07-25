@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29fbc23a0108
+DECL|struct|__anon2bf2c2aa0108
 typedef|typedef
 struct|struct
 block|{
@@ -45,7 +45,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fbc23a0208
+DECL|struct|__anon2bf2c2aa0208
 typedef|typedef
 struct|struct
 block|{
@@ -1983,7 +1983,13 @@ block|{
 name|u
 operator|->
 name|length
-operator|+=
+operator|=
+name|u
+operator|->
+name|headers_in
+operator|.
+name|content_length_n
+operator|+
 name|NGX_HTTP_MEMCACHED_END
 expr_stmt|;
 name|ctx
@@ -1991,6 +1997,15 @@ operator|->
 name|rest
 operator|=
 name|NGX_HTTP_MEMCACHED_END
+expr_stmt|;
+block|}
+else|else
+block|{
+name|u
+operator|->
+name|length
+operator|=
+literal|0
 expr_stmt|;
 block|}
 return|return
