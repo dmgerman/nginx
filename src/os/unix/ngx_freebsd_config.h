@@ -413,6 +413,25 @@ name|NGX_LISTEN_BACKLOG
 value|-1
 end_define
 
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|__DragonFly__
+end_ifdef
+
+begin_define
+DECL|macro|NGX_KEEPALIVE_FACTOR
+define|#
+directive|define
+name|NGX_KEEPALIVE_FACTOR
+value|1000
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_if
 if|#
 directive|if
