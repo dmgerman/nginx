@@ -7449,7 +7449,7 @@ name|r
 argument_list|,
 name|u
 argument_list|,
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
