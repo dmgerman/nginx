@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2bf5f8530108
+DECL|struct|__anon2bcda8900108
 typedef|typedef
 struct|struct
 block|{
@@ -75,7 +75,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf5f8530208
+DECL|struct|__anon2bcda8900208
 typedef|typedef
 struct|struct
 block|{
@@ -1755,7 +1755,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|NGX_ERROR
 return|;
 block|}
 if|if
@@ -3159,6 +3159,12 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+name|r
+operator|->
+name|header_sent
+condition|?
+name|NGX_ERROR
+else|:
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
 block|}
