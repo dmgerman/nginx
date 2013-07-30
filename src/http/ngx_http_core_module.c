@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b997e120108
+DECL|struct|__anon275f674e0108
 typedef|typedef
 struct|struct
 block|{
@@ -8236,6 +8236,32 @@ modifier|*
 name|r
 parameter_list|)
 block|{
+if|if
+condition|(
+name|r
+operator|->
+name|header_sent
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"header already sent"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
 if|if
 condition|(
 name|r
