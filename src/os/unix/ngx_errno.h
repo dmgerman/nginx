@@ -308,6 +308,14 @@ name|NGX_ENOMOREFILES
 value|0
 end_define
 
+begin_define
+DECL|macro|NGX_ELOOP
+define|#
+directive|define
+name|NGX_ELOOP
+value|ELOOP
+end_define
+
 begin_if
 if|#
 directive|if
@@ -322,14 +330,6 @@ define|#
 directive|define
 name|NGX_EMLINK
 value|EMLINK
-end_define
-
-begin_define
-DECL|macro|NGX_ELOOP
-define|#
-directive|define
-name|NGX_ELOOP
-value|ELOOP
 end_define
 
 begin_endif

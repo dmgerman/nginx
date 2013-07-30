@@ -291,6 +291,14 @@ value|ERROR_NO_UNICODE_TRANSLATION
 end_define
 
 begin_define
+DECL|macro|NGX_ELOOP
+define|#
+directive|define
+name|NGX_ELOOP
+value|0
+end_define
+
+begin_define
 DECL|macro|NGX_EALREADY
 define|#
 directive|define
