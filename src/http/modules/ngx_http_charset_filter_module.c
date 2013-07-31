@@ -66,7 +66,7 @@ value|(sizeof("&#1114111;") - 1)
 end_define
 
 begin_typedef
-DECL|struct|__anon29f40e280108
+DECL|struct|__anon2bc99f740108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f40e280208
+DECL|struct|__anon2bc99f740208
 typedef|typedef
 struct|struct
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f40e280308
+DECL|struct|__anon2bc99f740308
 typedef|typedef
 struct|struct
 block|{
@@ -147,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f40e280408
+DECL|struct|__anon2bc99f740408
 typedef|typedef
 struct|struct
 block|{
@@ -173,7 +173,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f40e280508
+DECL|struct|__anon2bc99f740508
 typedef|typedef
 struct|struct
 block|{
@@ -205,7 +205,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f40e280608
+DECL|struct|__anon2bc99f740608
 typedef|typedef
 struct|struct
 block|{
@@ -273,7 +273,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f40e280708
+DECL|struct|__anon2bc99f740708
 typedef|typedef
 struct|struct
 block|{
@@ -662,7 +662,7 @@ argument_list|)
 block|,
 name|ngx_string
 argument_list|(
-literal|"application/x-javascript"
+literal|"application/javascript"
 argument_list|)
 block|,
 name|ngx_string
