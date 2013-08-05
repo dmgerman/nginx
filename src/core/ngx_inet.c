@@ -4378,6 +4378,12 @@ name|ai_socktype
 operator|=
 name|SOCK_STREAM
 expr_stmt|;
+name|hints
+operator|.
+name|ai_flags
+operator|=
+name|AI_ADDRCONFIG
+expr_stmt|;
 if|if
 condition|(
 name|getaddrinfo
