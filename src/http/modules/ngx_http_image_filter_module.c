@@ -156,7 +156,7 @@ value|0x08
 end_define
 
 begin_typedef
-DECL|struct|__anon28de61fa0108
+DECL|struct|__anon2b6270f00108
 typedef|typedef
 struct|struct
 block|{
@@ -228,7 +228,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28de61fa0208
+DECL|struct|__anon2b6270f00208
 typedef|typedef
 struct|struct
 block|{
@@ -2505,7 +2505,7 @@ name|headers_out
 operator|.
 name|content_type
 argument_list|,
-literal|"text/plain"
+literal|"application/json"
 argument_list|)
 expr_stmt|;
 name|r
