@@ -996,6 +996,9 @@ if|if
 condition|(
 name|socklen
 operator|<=
+operator|(
+name|socklen_t
+operator|)
 name|offsetof
 argument_list|(
 expr|struct
