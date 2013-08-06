@@ -119,7 +119,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b670d510108
+DECL|struct|__anon2b8393ea0108
 typedef|typedef
 struct|struct
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b670d510208
+DECL|struct|__anon2b8393ea0208
 typedef|typedef
 struct|struct
 block|{
@@ -166,7 +166,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b670d510308
+DECL|struct|__anon2b8393ea0308
 typedef|typedef
 struct|struct
 block|{
@@ -205,7 +205,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b670d510408
+DECL|struct|__anon2b8393ea0408
 typedef|typedef
 struct|struct
 block|{
@@ -226,7 +226,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b670d510508
+DECL|struct|__anon2b8393ea0508
 typedef|typedef
 struct|struct
 block|{
@@ -260,7 +260,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b670d510608
+DECL|struct|__anon2b8393ea0608
 typedef|typedef
 struct|struct
 block|{
@@ -295,7 +295,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b670d510708
+DECL|struct|__anon2b8393ea0708
 typedef|typedef
 struct|struct
 block|{
@@ -5144,19 +5144,24 @@ else|else
 block|{
 if|if
 condition|(
-name|ngx_conf_full_name
+name|ngx_get_full_name
 argument_list|(
 name|cf
 operator|->
+name|pool
+argument_list|,
+operator|&
+name|cf
+operator|->
 name|cycle
+operator|->
+name|prefix
 argument_list|,
 operator|&
 name|value
 index|[
 literal|1
 index|]
-argument_list|,
-literal|0
 argument_list|)
 operator|!=
 name|NGX_OK

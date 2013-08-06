@@ -34,7 +34,7 @@ name|SSL_CTRL_SET_TLSEXT_STATUS_REQ_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon2babe5af0108
+DECL|struct|__anon27e064810108
 typedef|typedef
 struct|struct
 block|{
@@ -877,15 +877,20 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|ngx_conf_full_name
+name|ngx_get_full_name
 argument_list|(
 name|cf
 operator|->
+name|pool
+argument_list|,
+operator|&
+name|cf
+operator|->
 name|cycle
+operator|->
+name|conf_prefix
 argument_list|,
 name|file
-argument_list|,
-literal|1
 argument_list|)
 operator|!=
 name|NGX_OK
@@ -5373,7 +5378,7 @@ name|ngx_buf_t
 modifier|*
 name|b
 decl_stmt|;
-DECL|enum|__anon2babe5af0203
+DECL|enum|__anon27e064810203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6169,7 +6174,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2babe5af0303
+DECL|enum|__anon27e064810303
 enum|enum
 block|{
 DECL|enumerator|sw_start

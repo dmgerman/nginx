@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29fdb9d30108
+DECL|struct|__anon29b45f4c0108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fdb9d30208
+DECL|struct|__anon29b45f4c0208
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fdb9d30308
+DECL|struct|__anon29b45f4c0308
 typedef|typedef
 struct|struct
 block|{
@@ -96,7 +96,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fdb9d30408
+DECL|struct|__anon29b45f4c0408
 typedef|typedef
 struct|struct
 block|{
@@ -120,7 +120,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fdb9d30508
+DECL|struct|__anon29b45f4c0508
 typedef|typedef
 struct|struct
 block|{
@@ -231,11 +231,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fdb9d30608
+DECL|struct|__anon29b45f4c0608
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon29fdb9d3070a
+DECL|union|__anon29b45f4c070a
 union|union
 block|{
 DECL|member|trees
@@ -722,7 +722,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon29fdb9d30808
+DECL|struct|__anon29b45f4c0808
 typedef|typedef
 struct|struct
 block|{
@@ -6219,16 +6219,21 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|ngx_conf_full_name
+name|ngx_get_full_name
 argument_list|(
 name|cf
 operator|->
+name|pool
+argument_list|,
+operator|&
+name|cf
+operator|->
 name|cycle
+operator|->
+name|conf_prefix
 argument_list|,
 operator|&
 name|file
-argument_list|,
-literal|1
 argument_list|)
 operator|!=
 name|NGX_OK
