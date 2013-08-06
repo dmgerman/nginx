@@ -127,7 +127,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b88762d0108
+DECL|struct|__anon27d578230108
 typedef|typedef
 struct|struct
 block|{
@@ -175,7 +175,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b88762d0208
+DECL|struct|__anon27d578230208
 typedef|typedef
 struct|struct
 block|{
@@ -197,7 +197,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b88762d0308
+DECL|struct|__anon27d578230308
 typedef|typedef
 struct|struct
 block|{
@@ -253,7 +253,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b88762d0408
+DECL|struct|__anon27d578230408
 typedef|typedef
 struct|struct
 block|{
@@ -297,7 +297,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b88762d0508
+DECL|struct|__anon27d578230508
 typedef|typedef
 struct|struct
 block|{
@@ -435,6 +435,25 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_get_full_name
+parameter_list|(
+name|ngx_pool_t
+modifier|*
+name|pool
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|prefix
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|name
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_function_decl
 name|ssize_t

@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a22b8740108
+DECL|struct|__anon2b997e120108
 typedef|typedef
 struct|struct
 block|{
@@ -8620,17 +8620,22 @@ return|;
 block|}
 if|if
 condition|(
-name|ngx_conf_full_name
+name|ngx_get_full_name
 argument_list|(
+name|r
+operator|->
+name|pool
+argument_list|,
 operator|(
-name|ngx_cycle_t
+name|ngx_str_t
 operator|*
 operator|)
+operator|&
 name|ngx_cycle
+operator|->
+name|prefix
 argument_list|,
 name|path
-argument_list|,
-literal|0
 argument_list|)
 operator|!=
 name|NGX_OK
