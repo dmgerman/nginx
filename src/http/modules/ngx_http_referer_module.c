@@ -52,7 +52,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b3e73600108
+DECL|struct|__anon278fcd0b0108
 typedef|typedef
 struct|struct
 block|{
@@ -582,6 +582,10 @@ name|ref
 operator|+=
 literal|7
 expr_stmt|;
+name|len
+operator|-=
+literal|7
+expr_stmt|;
 goto|goto
 name|valid_scheme
 goto|;
@@ -606,6 +610,10 @@ condition|)
 block|{
 name|ref
 operator|+=
+literal|8
+expr_stmt|;
+name|len
+operator|-=
 literal|8
 expr_stmt|;
 goto|goto
@@ -752,8 +760,6 @@ operator|.
 name|len
 operator|=
 name|len
-operator|-
-literal|7
 expr_stmt|;
 name|referer
 operator|.
