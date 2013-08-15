@@ -318,7 +318,7 @@ value|0x01
 end_define
 
 begin_typedef
-DECL|struct|__anon2bcbc0400108
+DECL|struct|__anon2c52b6680108
 typedef|typedef
 struct|struct
 block|{
@@ -8202,7 +8202,7 @@ name|ngx_http_core_srv_conf_t
 modifier|*
 name|cscf
 decl_stmt|;
-DECL|enum|__anon2bcbc0400203
+DECL|enum|__anon2c52b6680203
 enum|enum
 block|{
 DECL|enumerator|sw_name_len
@@ -9259,7 +9259,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2bcbc0400308
+DECL|struct|__anon2c52b6680308
 specifier|static
 specifier|const
 struct|struct
@@ -11220,13 +11220,19 @@ operator|->
 name|disabled
 condition|)
 block|{
-name|ngx_del_event
+name|ngx_log_error
 argument_list|(
-name|ev
+name|NGX_LOG_ALERT
 argument_list|,
-name|NGX_READ_EVENT
+name|sc
+operator|->
+name|connection
+operator|->
+name|log
 argument_list|,
 literal|0
+argument_list|,
+literal|"spdy fake read event was activated"
 argument_list|)
 expr_stmt|;
 block|}
@@ -11273,13 +11279,19 @@ operator|->
 name|disabled
 condition|)
 block|{
-name|ngx_del_event
+name|ngx_log_error
 argument_list|(
-name|ev
+name|NGX_LOG_ALERT
 argument_list|,
-name|NGX_WRITE_EVENT
+name|sc
+operator|->
+name|connection
+operator|->
+name|log
 argument_list|,
 literal|0
+argument_list|,
+literal|"spdy fake write event was activated"
 argument_list|)
 expr_stmt|;
 block|}
