@@ -318,7 +318,7 @@ value|0x01
 end_define
 
 begin_typedef
-DECL|struct|__anon279510890108
+DECL|struct|__anon2a35ea7c0108
 typedef|typedef
 struct|struct
 block|{
@@ -3828,6 +3828,7 @@ name|buf
 operator|->
 name|last
 expr_stmt|;
+comment|/* one byte is reserved for null-termination of the last header value */
 name|sc
 operator|->
 name|zstream_in
@@ -4347,6 +4348,14 @@ name|end
 argument_list|)
 return|;
 block|}
+comment|/* null-terminate the last processed header name or value */
+operator|*
+name|buf
+operator|->
+name|pos
+operator|=
+literal|'\0'
+expr_stmt|;
 name|buf
 operator|=
 name|r
@@ -4363,6 +4372,7 @@ name|buf
 operator|->
 name|last
 expr_stmt|;
+comment|/* one byte is reserved for null-termination */
 name|sc
 operator|->
 name|zstream_in
@@ -4733,6 +4743,14 @@ name|ngx_http_spdy_state_headers
 argument_list|)
 return|;
 block|}
+comment|/* null-terminate the last header value */
+operator|*
+name|buf
+operator|->
+name|pos
+operator|=
+literal|'\0'
+expr_stmt|;
 name|ngx_http_spdy_run_request
 argument_list|(
 name|r
@@ -8184,7 +8202,7 @@ name|ngx_http_core_srv_conf_t
 modifier|*
 name|cscf
 decl_stmt|;
-DECL|enum|__anon279510890203
+DECL|enum|__anon2a35ea7c0203
 enum|enum
 block|{
 DECL|enumerator|sw_name_len
@@ -8263,6 +8281,12 @@ return|return
 name|NGX_HTTP_PARSE_INVALID_HEADER
 return|;
 block|}
+comment|/* null-terminate the previous header value */
+operator|*
+name|p
+operator|=
+literal|'\0'
+expr_stmt|;
 name|p
 operator|+=
 name|NGX_SPDY_NV_NLEN_SIZE
@@ -8479,6 +8503,12 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+comment|/* null-terminate header name */
+operator|*
+name|p
+operator|=
+literal|'\0'
+expr_stmt|;
 name|p
 operator|+=
 name|NGX_SPDY_NV_VLEN_SIZE
@@ -9121,21 +9151,6 @@ name|header_name_start
 expr_stmt|;
 name|h
 operator|->
-name|key
-operator|.
-name|data
-index|[
-name|h
-operator|->
-name|key
-operator|.
-name|len
-index|]
-operator|=
-literal|'\0'
-expr_stmt|;
-name|h
-operator|->
 name|value
 operator|.
 name|len
@@ -9153,21 +9168,6 @@ operator|=
 name|r
 operator|->
 name|header_start
-expr_stmt|;
-name|h
-operator|->
-name|value
-operator|.
-name|data
-index|[
-name|h
-operator|->
-name|value
-operator|.
-name|len
-index|]
-operator|=
-literal|'\0'
 expr_stmt|;
 name|h
 operator|->
@@ -9269,7 +9269,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon279510890308
+DECL|struct|__anon2a35ea7c0308
 specifier|static
 specifier|const
 struct|struct
