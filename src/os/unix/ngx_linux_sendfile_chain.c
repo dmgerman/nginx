@@ -26,10 +26,10 @@ comment|/*  * On Linux up to 2.4.21 sendfile() (syscall #187) works with 32-bit 
 end_comment
 
 begin_define
-DECL|macro|NGX_SENDFILE_LIMIT
+DECL|macro|NGX_SENDFILE_MAXSIZE
 define|#
 directive|define
-name|NGX_SENDFILE_LIMIT
+name|NGX_SENDFILE_MAXSIZE
 value|2147483647L
 end_define
 
@@ -191,7 +191,7 @@ operator|(
 name|off_t
 operator|)
 operator|(
-name|NGX_SENDFILE_LIMIT
+name|NGX_SENDFILE_MAXSIZE
 operator|-
 name|ngx_pagesize
 operator|)
@@ -199,7 +199,7 @@ condition|)
 block|{
 name|limit
 operator|=
-name|NGX_SENDFILE_LIMIT
+name|NGX_SENDFILE_MAXSIZE
 operator|-
 name|ngx_pagesize
 expr_stmt|;
