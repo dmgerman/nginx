@@ -63,7 +63,7 @@ directive|if
 operator|(
 name|NGX_HAVE_MSGHDR_MSG_CONTROL
 operator|)
-DECL|union|__anon29c11e24010a
+DECL|union|__anon292cc374010a
 union|union
 block|{
 DECL|member|cm
@@ -396,7 +396,7 @@ directive|if
 operator|(
 name|NGX_HAVE_MSGHDR_MSG_CONTROL
 operator|)
-DECL|union|__anon29c11e24020a
+DECL|union|__anon292cc374020a
 union|union
 block|{
 DECL|member|cm
@@ -613,7 +613,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"recvmsg() returned not enough data: %uz"
+literal|"recvmsg() returned not enough data: %z"
 argument_list|,
 name|n
 argument_list|)

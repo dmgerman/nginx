@@ -2961,7 +2961,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"unknown variable index: %d"
+literal|"unknown variable index: %ui"
 argument_list|,
 name|index
 argument_list|)

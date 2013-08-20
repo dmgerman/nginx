@@ -86,7 +86,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c5483cb0108
+DECL|struct|__anon2b2751660108
 typedef|typedef
 struct|struct
 block|{
@@ -1752,7 +1752,7 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"ioctl(DP_ISPOLLED) failed for socket %d, event"
+literal|"ioctl(DP_ISPOLLED) failed for socket %d, event %04Xd"
 argument_list|,
 name|fd
 argument_list|,
@@ -1865,7 +1865,9 @@ name|log
 argument_list|,
 name|ngx_errno
 argument_list|,
-literal|"write(/dev/poll) for %d failed, fd"
+literal|"write(/dev/poll) for %d failed"
+argument_list|,
+name|fd
 argument_list|)
 expr_stmt|;
 block|}

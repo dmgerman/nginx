@@ -989,7 +989,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http special response: %d, \"%V?%V\""
+literal|"http special response: %i, \"%V?%V\""
 argument_list|,
 name|error
 argument_list|,
