@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon275f674e0108
+DECL|struct|__anon2b8c013a0108
 typedef|typedef
 struct|struct
 block|{
@@ -21381,6 +21381,17 @@ index|]
 expr_stmt|;
 if|if
 condition|(
+name|tf
+index|[
+name|i
+index|]
+operator|.
+name|name
+operator|.
+name|len
+operator|>
+literal|0
+operator|&&
 name|tf
 index|[
 name|i
