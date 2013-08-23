@@ -2135,9 +2135,9 @@ operator|<=
 literal|0
 condition|)
 block|{
-name|ngx_log_debug0
+name|ngx_log_error
 argument_list|(
-name|NGX_LOG_DEBUG_HTTP
+name|NGX_LOG_INFO
 argument_list|,
 name|ev
 operator|->
@@ -2145,7 +2145,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http file cache lock timeout"
+literal|"cache lock timeout"
 argument_list|)
 expr_stmt|;
 name|c
