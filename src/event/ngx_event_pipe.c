@@ -893,7 +893,7 @@ operator|->
 name|max_temp_file_size
 condition|)
 block|{
-comment|/*                  * if it is allowed, then save some bufs from r->in                  * to a temporary file, and add them to a r->out chain                  */
+comment|/*                  * if it is allowed, then save some bufs from p->in                  * to a temporary file, and add them to a p->out chain                  */
 name|rc
 operator|=
 name|ngx_event_pipe_write_chain_to_temp_file
