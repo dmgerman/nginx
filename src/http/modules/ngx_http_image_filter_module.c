@@ -156,7 +156,7 @@ value|0x08
 end_define
 
 begin_typedef
-DECL|struct|__anon2b6270f00108
+DECL|struct|__anon293d83990108
 typedef|typedef
 struct|struct
 block|{
@@ -228,7 +228,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b6270f00208
+DECL|struct|__anon293d83990208
 typedef|typedef
 struct|struct
 block|{
@@ -2097,18 +2097,32 @@ name|length
 operator|-
 name|p
 expr_stmt|;
+if|if
+condition|(
 name|size
-operator|=
-operator|(
+operator|>
 name|rest
-operator|<
-name|size
-operator|)
-condition|?
-name|rest
-else|:
-name|size
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"image filter: too big response"
+argument_list|)
 expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
 name|p
 operator|=
 name|ngx_cpymem
