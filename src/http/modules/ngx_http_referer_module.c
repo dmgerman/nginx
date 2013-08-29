@@ -52,7 +52,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon278fcd0b0108
+DECL|struct|__anon27c7bfd60108
 typedef|typedef
 struct|struct
 block|{
@@ -156,8 +156,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|char
-modifier|*
+name|ngx_int_t
 name|ngx_http_add_referer
 parameter_list|(
 name|ngx_conf_t
@@ -181,8 +180,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|char
-modifier|*
+name|ngx_int_t
 name|ngx_http_add_regex_referer
 parameter_list|(
 name|ngx_conf_t
@@ -2146,8 +2144,7 @@ end_function
 
 begin_function
 specifier|static
-name|char
-modifier|*
+name|ngx_int_t
 DECL|function|ngx_http_add_referer (ngx_conf_t * cf,ngx_hash_keys_arrays_t * keys,ngx_str_t * value,ngx_str_t * uri)
 name|ngx_http_add_referer
 parameter_list|(
@@ -2213,7 +2210,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NGX_ERROR
 return|;
 block|}
 operator|*
@@ -2244,7 +2241,7 @@ name|NGX_OK
 condition|)
 block|{
 return|return
-name|NGX_CONF_OK
+name|NGX_OK
 return|;
 block|}
 if|if
@@ -2290,15 +2287,14 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|NGX_CONF_ERROR
+name|NGX_ERROR
 return|;
 block|}
 end_function
 
 begin_function
 specifier|static
-name|char
-modifier|*
+name|ngx_int_t
 DECL|function|ngx_http_add_regex_referer (ngx_conf_t * cf,ngx_http_referer_conf_t * rlcf,ngx_str_t * name,ngx_regex_t * regex)
 name|ngx_http_add_regex_referer
 parameter_list|(
@@ -2360,7 +2356,7 @@ name|name
 argument_list|)
 expr_stmt|;
 return|return
-name|NGX_CONF_ERROR
+name|NGX_ERROR
 return|;
 block|}
 if|if
@@ -2400,7 +2396,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NGX_ERROR
 return|;
 block|}
 block|}
@@ -2421,7 +2417,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NGX_ERROR
 return|;
 block|}
 if|if
@@ -2444,7 +2440,7 @@ operator|->
 name|data
 expr_stmt|;
 return|return
-name|NGX_CONF_OK
+name|NGX_OK
 return|;
 block|}
 name|name
@@ -2533,7 +2529,7 @@ name|err
 argument_list|)
 expr_stmt|;
 return|return
-name|NGX_CONF_ERROR
+name|NGX_ERROR
 return|;
 block|}
 name|re
@@ -2553,7 +2549,7 @@ operator|->
 name|data
 expr_stmt|;
 return|return
-name|NGX_CONF_OK
+name|NGX_OK
 return|;
 else|#
 directive|else
@@ -2571,7 +2567,7 @@ name|name
 argument_list|)
 expr_stmt|;
 return|return
-name|NGX_CONF_ERROR
+name|NGX_ERROR
 return|;
 endif|#
 directive|endif
