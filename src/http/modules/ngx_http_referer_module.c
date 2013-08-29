@@ -30,7 +30,7 @@ value|((void *) 4)
 end_define
 
 begin_typedef
-DECL|struct|__anon298f03e00108
+DECL|struct|__anon275f921a0108
 typedef|typedef
 struct|struct
 block|{
@@ -707,6 +707,17 @@ condition|)
 block|{
 break|break;
 block|}
+if|if
+condition|(
+name|i
+operator|==
+literal|256
+condition|)
+block|{
+goto|goto
+name|invalid
+goto|;
+block|}
 name|buf
 index|[
 name|i
@@ -731,17 +742,6 @@ operator|++
 index|]
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|i
-operator|==
-literal|256
-condition|)
-block|{
-goto|goto
-name|invalid
-goto|;
-block|}
 block|}
 name|uri
 operator|=
