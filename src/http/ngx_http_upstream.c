@@ -9266,6 +9266,12 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|u
+operator|->
+name|header_sent
+operator|=
+literal|1
+expr_stmt|;
 if|if
 condition|(
 name|u
@@ -9365,12 +9371,6 @@ expr_stmt|;
 return|return;
 block|}
 block|}
-name|u
-operator|->
-name|header_sent
-operator|=
-literal|1
-expr_stmt|;
 if|if
 condition|(
 name|r
