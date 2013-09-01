@@ -2584,6 +2584,12 @@ name|NGX_HTTP_UNKNOWN
 expr_stmt|;
 name|r
 operator|->
+name|http_version
+operator|=
+name|NGX_HTTP_VERSION_10
+expr_stmt|;
+name|r
+operator|->
 name|headers_in
 operator|.
 name|content_length_n
@@ -8337,7 +8343,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon28e3ccd00103
+DECL|enum|__anon28c21c7d0103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
