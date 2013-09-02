@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af899230108
+DECL|struct|__anon27c175360108
 typedef|typedef
 struct|struct
 block|{
@@ -88,7 +88,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af899230208
+DECL|struct|__anon27c175360208
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af899230308
+DECL|struct|__anon27c175360308
 typedef|typedef
 struct|struct
 block|{
@@ -390,6 +390,22 @@ define|#
 directive|define
 name|NGX_FILE_SEARCH
 value|(O_EXEC|NGX_FILE_DIRECTORY)
+end_define
+
+begin_elif
+elif|#
+directive|elif
+operator|(
+name|NGX_HAVE_O_PATH
+operator|)
+end_elif
+
+begin_define
+DECL|macro|NGX_FILE_SEARCH
+define|#
+directive|define
+name|NGX_FILE_SEARCH
+value|(O_PATH|O_RDONLY|NGX_FILE_DIRECTORY)
 end_define
 
 begin_else
