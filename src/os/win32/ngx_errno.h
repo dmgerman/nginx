@@ -299,6 +299,14 @@ value|0
 end_define
 
 begin_define
+DECL|macro|NGX_EBADF
+define|#
+directive|define
+name|NGX_EBADF
+value|WSAEBADF
+end_define
+
+begin_define
 DECL|macro|NGX_EALREADY
 define|#
 directive|define

@@ -1244,7 +1244,7 @@ if|if
 condition|(
 name|err
 operator|==
-name|EBADF
+name|NGX_EBADF
 condition|)
 block|{
 name|ngx_select_repair_fd_sets

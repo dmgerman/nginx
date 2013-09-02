@@ -316,6 +316,14 @@ name|NGX_ELOOP
 value|ELOOP
 end_define
 
+begin_define
+DECL|macro|NGX_EBADF
+define|#
+directive|define
+name|NGX_EBADF
+value|EBADF
+end_define
+
 begin_if
 if|#
 directive|if
