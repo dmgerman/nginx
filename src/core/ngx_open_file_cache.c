@@ -2495,16 +2495,6 @@ name|use_fstat
 operator|=
 literal|0
 expr_stmt|;
-return|return
-name|ngx_file_o_path_info
-argument_list|(
-name|fd
-argument_list|,
-name|fi
-argument_list|,
-name|log
-argument_list|)
-return|;
 block|}
 if|if
 condition|(
