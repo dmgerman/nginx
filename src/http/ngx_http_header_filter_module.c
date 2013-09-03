@@ -317,9 +317,11 @@ argument_list|(
 literal|"413 Request Entity Too Large"
 argument_list|)
 block|,
-name|ngx_null_string
+name|ngx_string
+argument_list|(
+literal|"414 Request-URI Too Large"
+argument_list|)
 block|,
-comment|/* "414 Request-URI Too Large", but we never send it                        * because we treat such requests as the HTTP/0.9                        * requests and send only a body without a header                        */
 name|ngx_string
 argument_list|(
 literal|"415 Unsupported Media Type"
