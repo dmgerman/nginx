@@ -119,7 +119,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b670d510108
+DECL|struct|__anon296268f00108
 typedef|typedef
 struct|struct
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b670d510208
+DECL|struct|__anon296268f00208
 typedef|typedef
 struct|struct
 block|{
@@ -166,7 +166,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b670d510308
+DECL|struct|__anon296268f00308
 typedef|typedef
 struct|struct
 block|{
@@ -205,7 +205,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b670d510408
+DECL|struct|__anon296268f00408
 typedef|typedef
 struct|struct
 block|{
@@ -226,7 +226,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b670d510508
+DECL|struct|__anon296268f00508
 typedef|typedef
 struct|struct
 block|{
@@ -260,7 +260,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b670d510608
+DECL|struct|__anon296268f00608
 typedef|typedef
 struct|struct
 block|{
@@ -295,7 +295,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b670d510708
+DECL|struct|__anon296268f00708
 typedef|typedef
 struct|struct
 block|{
@@ -3688,6 +3688,9 @@ name|buf
 argument_list|,
 literal|"%T.%03M"
 argument_list|,
+operator|(
+name|time_t
+operator|)
 name|ms
 operator|/
 literal|1000
