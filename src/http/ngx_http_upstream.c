@@ -18792,8 +18792,11 @@ name|ngx_sprintf
 argument_list|(
 name|p
 argument_list|,
-literal|"%d.%03d"
+literal|"%T.%03M"
 argument_list|,
+operator|(
+name|time_t
+operator|)
 name|ms
 operator|/
 literal|1000
