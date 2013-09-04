@@ -554,6 +554,12 @@ name|uint64_t
 typedef|;
 end_typedef
 
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|__WATCOMC__
+end_ifndef
+
 begin_typedef
 DECL|typedef|intptr_t
 typedef|typedef
@@ -569,6 +575,11 @@ name|u_int
 name|uintptr_t
 typedef|;
 end_typedef
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_comment
 comment|/* Windows defines off_t as long, which is 32-bit */
@@ -588,6 +599,45 @@ define|#
 directive|define
 name|_OFF_T_DEFINED
 end_define
+
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|__WATCOMC__
+end_ifdef
+
+begin_comment
+comment|/* off_t is redefined by sys/types.h used by zlib.h */
+end_comment
+
+begin_define
+DECL|macro|__TYPES_H_INCLUDED
+define|#
+directive|define
+name|__TYPES_H_INCLUDED
+end_define
+
+begin_typedef
+DECL|typedef|dev_t
+typedef|typedef
+name|int
+name|dev_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|typedef|ino_t
+typedef|typedef
+name|unsigned
+name|int
+name|ino_t
+typedef|;
+end_typedef
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_typedef
 DECL|typedef|ssize_t

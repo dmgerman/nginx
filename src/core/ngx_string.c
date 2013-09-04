@@ -1762,6 +1762,9 @@ if|if
 condition|(
 name|ui64
 operator|<=
+operator|(
+name|uint64_t
+operator|)
 name|NGX_MAX_UINT32_VALUE
 condition|)
 block|{
@@ -6344,7 +6347,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon2c664f4f0103
+DECL|enum|__anon28c850b00103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
