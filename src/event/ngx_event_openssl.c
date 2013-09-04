@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a4334500108
+DECL|struct|__anon289b3a550108
 typedef|typedef
 struct|struct
 block|{
@@ -1621,6 +1621,10 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+comment|/*      * SSL_CTX_load_verify_locations() may leave errors in the error queue      * while returning success      */
+name|ERR_clear_error
+argument_list|()
+expr_stmt|;
 name|list
 operator|=
 name|SSL_load_client_CA_file
@@ -1787,6 +1791,10 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+comment|/*      * SSL_CTX_load_verify_locations() may leave errors in the error queue      * while returning success      */
+name|ERR_clear_error
+argument_list|()
+expr_stmt|;
 return|return
 name|NGX_OK
 return|;
