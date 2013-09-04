@@ -2282,6 +2282,9 @@ name|p
 operator|&
 operator|~
 operator|(
+operator|(
+name|uintptr_t
+operator|)
 name|ngx_pagesize
 operator|-
 literal|1
