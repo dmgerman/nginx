@@ -2868,6 +2868,9 @@ name|b
 operator|->
 name|pos
 operator|+=
+operator|(
+name|size_t
+operator|)
 name|rb
 operator|->
 name|chunked
@@ -2995,6 +2998,9 @@ name|b
 operator|->
 name|pos
 operator|+=
+operator|(
+name|size_t
+operator|)
 name|r
 operator|->
 name|headers_in
@@ -3502,6 +3508,9 @@ name|buf
 operator|->
 name|pos
 operator|+=
+operator|(
+name|size_t
+operator|)
 name|rb
 operator|->
 name|rest
@@ -4041,6 +4050,9 @@ name|buf
 operator|->
 name|pos
 operator|+=
+operator|(
+name|size_t
+operator|)
 name|rb
 operator|->
 name|chunked

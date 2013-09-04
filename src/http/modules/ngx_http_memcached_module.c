@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bf2c2aa0108
+DECL|struct|__anon296247310108
 typedef|typedef
 struct|struct
 block|{
@@ -45,7 +45,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf2c2aa0208
+DECL|struct|__anon296247310208
 typedef|typedef
 struct|struct
 block|{
@@ -2355,11 +2355,16 @@ return|;
 block|}
 name|last
 operator|+=
+operator|(
+name|size_t
+operator|)
+operator|(
 name|u
 operator|->
 name|length
 operator|-
 name|NGX_HTTP_MEMCACHED_END
+operator|)
 expr_stmt|;
 if|if
 condition|(

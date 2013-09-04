@@ -2400,6 +2400,9 @@ return|;
 block|}
 if|if
 condition|(
+operator|(
+name|size_t
+operator|)
 name|h
 operator|->
 name|body_start

@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27e4ee200108
+DECL|struct|__anon28c07d350108
 typedef|typedef
 struct|struct
 block|{
@@ -638,6 +638,9 @@ literal|0
 init|;
 name|i
 operator|<
+operator|(
+name|ngx_uint_t
+operator|)
 name|iphp
 operator|->
 name|addrlen

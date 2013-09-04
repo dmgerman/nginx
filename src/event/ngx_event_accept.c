@@ -1253,6 +1253,9 @@ index|]
 operator|.
 name|family
 operator|!=
+operator|(
+name|ngx_uint_t
+operator|)
 name|c
 operator|->
 name|sockaddr
