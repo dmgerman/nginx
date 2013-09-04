@@ -3634,6 +3634,9 @@ index|]
 operator|.
 name|fd
 operator|!=
+operator|(
+name|ngx_socket_t
+operator|)
 operator|-
 literal|1
 operator|&&
@@ -3882,6 +3885,9 @@ index|]
 operator|.
 name|fd
 operator|!=
+operator|(
+name|ngx_socket_t
+operator|)
 operator|-
 literal|1
 operator|&&

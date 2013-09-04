@@ -1300,6 +1300,9 @@ index|]
 operator|.
 name|fd
 operator|!=
+operator|(
+name|ngx_socket_t
+operator|)
 operator|-
 literal|1
 condition|)
@@ -1348,6 +1351,9 @@ if|if
 condition|(
 name|s
 operator|==
+operator|(
+name|ngx_socket_t
+operator|)
 operator|-
 literal|1
 condition|)
@@ -3823,6 +3829,9 @@ name|c
 operator|->
 name|fd
 operator|==
+operator|(
+name|ngx_socket_t
+operator|)
 operator|-
 literal|1
 condition|)

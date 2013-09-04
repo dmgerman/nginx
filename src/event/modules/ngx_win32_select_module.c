@@ -623,9 +623,7 @@ operator|(
 name|event
 operator|==
 name|NGX_READ_EVENT
-operator|)
 operator|&&
-operator|(
 name|max_read
 operator|>=
 name|FD_SETSIZE
@@ -635,9 +633,7 @@ operator|(
 name|event
 operator|==
 name|NGX_WRITE_EVENT
-operator|)
 operator|&&
-operator|(
 name|max_write
 operator|>=
 name|FD_SETSIZE

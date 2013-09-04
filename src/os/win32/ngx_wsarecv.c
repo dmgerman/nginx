@@ -55,7 +55,7 @@ decl_stmt|;
 name|ngx_err_t
 name|err
 decl_stmt|;
-name|ngx_uint_t
+name|ngx_int_t
 name|n
 decl_stmt|;
 name|ngx_event_t
@@ -283,7 +283,7 @@ decl_stmt|;
 name|ngx_err_t
 name|err
 decl_stmt|;
-name|ngx_uint_t
+name|ngx_int_t
 name|n
 decl_stmt|;
 name|ngx_event_t

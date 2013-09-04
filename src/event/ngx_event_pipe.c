@@ -225,6 +225,9 @@ name|upstream
 operator|->
 name|fd
 operator|!=
+operator|(
+name|ngx_socket_t
+operator|)
 operator|-
 literal|1
 condition|)
@@ -313,6 +316,9 @@ name|downstream
 operator|->
 name|fd
 operator|!=
+operator|(
+name|ngx_socket_t
+operator|)
 operator|-
 literal|1
 operator|&&

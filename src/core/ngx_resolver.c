@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2aba08c80108
+DECL|struct|__anon297b27370108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aba08c80208
+DECL|struct|__anon297b27370208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aba08c80308
+DECL|struct|__anon297b27370308
 typedef|typedef
 struct|struct
 block|{
@@ -9732,6 +9732,9 @@ if|if
 condition|(
 name|s
 operator|==
+operator|(
+name|ngx_socket_t
+operator|)
 operator|-
 literal|1
 condition|)

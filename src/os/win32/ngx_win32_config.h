@@ -16,6 +16,12 @@ directive|define
 name|_NGX_WIN32_CONFIG_H_INCLUDED_
 end_define
 
+begin_undef
+undef|#
+directive|undef
+name|WIN32
+end_undef
+
 begin_define
 DECL|macro|WIN32
 define|#
@@ -133,6 +139,28 @@ end_include
 begin_comment
 comment|/* offsetof() */
 end_comment
+
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|__GNUC__
+end_ifdef
+
+begin_comment
+comment|/* GCC MinGW's stdio.h includes sys/types.h */
+end_comment
+
+begin_define
+DECL|macro|_OFF_T_
+define|#
+directive|define
+name|_OFF_T_
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_include
 include|#

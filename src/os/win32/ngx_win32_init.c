@@ -99,7 +99,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon28e0cecc0108
+DECL|struct|__anon2a0646450108
 typedef|typedef
 struct|struct
 block|{
@@ -508,6 +508,9 @@ if|if
 condition|(
 name|s
 operator|==
+operator|(
+name|ngx_socket_t
+operator|)
 operator|-
 literal|1
 condition|)

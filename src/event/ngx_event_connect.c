@@ -121,6 +121,9 @@ if|if
 condition|(
 name|s
 operator|==
+operator|(
+name|ngx_socket_t
+operator|)
 operator|-
 literal|1
 condition|)
