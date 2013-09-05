@@ -283,6 +283,12 @@ block|{
 comment|/*                      * on FreeBSD recv() may return 0 on closed socket                      * even if kqueue reported about available data                      */
 name|rev
 operator|->
+name|ready
+operator|=
+literal|0
+expr_stmt|;
+name|rev
+operator|->
 name|eof
 operator|=
 literal|1

@@ -500,6 +500,12 @@ endif|#
 directive|endif
 name|rev
 operator|->
+name|ready
+operator|=
+literal|0
+expr_stmt|;
+name|rev
+operator|->
 name|eof
 operator|=
 literal|1
