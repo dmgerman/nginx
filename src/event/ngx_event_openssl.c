@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon289b3a550108
+DECL|struct|__anon2761cd8c0108
 typedef|typedef
 struct|struct
 block|{
@@ -852,6 +852,9 @@ argument_list|,
 name|SSL_OP_MICROSOFT_BIG_SSLV3_BUFFER
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|SSL_OP_MSIE_SSLV2_RSA_PADDING
 comment|/* this option allow a potential SSL 2.0 rollback (CAN-2005-2969) */
 name|SSL_CTX_set_options
 argument_list|(
@@ -862,6 +865,8 @@ argument_list|,
 name|SSL_OP_MSIE_SSLV2_RSA_PADDING
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|SSL_CTX_set_options
 argument_list|(
 name|ssl
