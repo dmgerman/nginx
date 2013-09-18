@@ -1065,6 +1065,9 @@ block|{
 name|len
 operator|+=
 name|NGX_INT_T_LEN
+operator|+
+literal|1
+comment|/* SP */
 expr_stmt|;
 name|status_line
 operator|=
@@ -1093,6 +1096,9 @@ expr_stmt|;
 name|len
 operator|+=
 name|NGX_INT_T_LEN
+operator|+
+literal|1
+comment|/* SP */
 expr_stmt|;
 name|status_line
 operator|=
@@ -1945,7 +1951,7 @@ name|b
 operator|->
 name|last
 argument_list|,
-literal|"%03ui"
+literal|"%03ui "
 argument_list|,
 name|status
 argument_list|)
