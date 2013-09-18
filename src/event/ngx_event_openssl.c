@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2761cd8c0108
+DECL|struct|__anon29eba8690108
 typedef|typedef
 struct|struct
 block|{
@@ -1289,6 +1289,16 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"SSL_CTX_set_ex_data() failed"
+argument_list|)
+expr_stmt|;
+name|X509_free
+argument_list|(
+name|x509
+argument_list|)
+expr_stmt|;
+name|BIO_free
+argument_list|(
+name|bio
 argument_list|)
 expr_stmt|;
 return|return
