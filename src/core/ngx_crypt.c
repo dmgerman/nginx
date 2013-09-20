@@ -795,7 +795,9 @@ literal|1
 operator|+
 name|saltlen
 operator|+
-literal|16
+literal|1
+operator|+
+literal|22
 operator|+
 literal|1
 argument_list|)
