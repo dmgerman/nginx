@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b8c013a0108
+DECL|struct|__anon29b4c1b40108
 typedef|typedef
 struct|struct
 block|{
@@ -13768,7 +13768,7 @@ name|regex
 operator|==
 name|NULL
 operator|&&
-name|ngx_strncmp
+name|ngx_filename_cmp
 argument_list|(
 name|clcf
 operator|->
@@ -13791,7 +13791,7 @@ else|#
 directive|else
 if|if
 condition|(
-name|ngx_strncmp
+name|ngx_filename_cmp
 argument_list|(
 name|clcf
 operator|->
