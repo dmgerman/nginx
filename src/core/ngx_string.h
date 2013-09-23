@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ba50b280108
+DECL|struct|__anon290755ee0108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ba50b280208
+DECL|struct|__anon290755ee0208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ba50b280308
+DECL|struct|__anon290755ee0308
 typedef|typedef
 struct|struct
 block|{
@@ -910,6 +910,24 @@ end_function_decl
 
 begin_function_decl
 name|ngx_int_t
+name|ngx_filename_cmp
+parameter_list|(
+name|u_char
+modifier|*
+name|s1
+parameter_list|,
+name|u_char
+modifier|*
+name|s2
+parameter_list|,
+name|size_t
+name|n
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
 name|ngx_atoi
 parameter_list|(
 name|u_char
@@ -1267,7 +1285,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon2ba50b280408
+DECL|struct|__anon290755ee0408
 typedef|typedef
 struct|struct
 block|{

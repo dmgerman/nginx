@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288db5210108
+DECL|struct|__anon2b9679ec0108
 typedef|typedef
 struct|struct
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288db5210208
+DECL|struct|__anon2b9679ec0208
 typedef|typedef
 struct|struct
 block|{
@@ -128,7 +128,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288db5210308
+DECL|struct|__anon2b9679ec0308
 typedef|typedef
 struct|struct
 block|{
@@ -763,29 +763,6 @@ name|fm
 parameter_list|)
 function_decl|;
 end_function_decl
-
-begin_define
-DECL|macro|NGX_HAVE_CASELESS_FILESYSTEM
-define|#
-directive|define
-name|NGX_HAVE_CASELESS_FILESYSTEM
-value|1
-end_define
-
-begin_define
-DECL|macro|ngx_filename_cmp (s1,s2,n)
-define|#
-directive|define
-name|ngx_filename_cmp
-parameter_list|(
-name|s1
-parameter_list|,
-name|s2
-parameter_list|,
-name|n
-parameter_list|)
-value|_strnicmp((char *) s1, (char *) s2, n)
-end_define
 
 begin_function_decl
 name|u_char

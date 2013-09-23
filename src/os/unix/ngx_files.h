@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c175360108
+DECL|struct|__anon2a4311b20108
 typedef|typedef
 struct|struct
 block|{
@@ -88,7 +88,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c175360208
+DECL|struct|__anon2a4311b20208
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c175360308
+DECL|struct|__anon2a4311b20308
 typedef|typedef
 struct|struct
 block|{
@@ -953,47 +953,6 @@ name|fm
 parameter_list|)
 function_decl|;
 end_function_decl
-
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_HAVE_CASELESS_FILESYSTEM
-operator|)
-end_if
-
-begin_define
-DECL|macro|ngx_filename_cmp (s1,s2,n)
-define|#
-directive|define
-name|ngx_filename_cmp
-parameter_list|(
-name|s1
-parameter_list|,
-name|s2
-parameter_list|,
-name|n
-parameter_list|)
-value|strncasecmp((char *) s1, (char *) s2, n)
-end_define
-
-begin_else
-else|#
-directive|else
-end_else
-
-begin_define
-DECL|macro|ngx_filename_cmp
-define|#
-directive|define
-name|ngx_filename_cmp
-value|ngx_memcmp
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
 
 begin_define
 DECL|macro|ngx_realpath (p,r)
