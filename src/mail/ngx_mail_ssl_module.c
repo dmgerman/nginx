@@ -1146,15 +1146,6 @@ return|;
 block|}
 if|if
 condition|(
-name|conf
-operator|->
-name|ciphers
-operator|.
-name|len
-condition|)
-block|{
-if|if
-condition|(
 name|SSL_CTX_set_cipher_list
 argument_list|(
 name|conf
@@ -1196,7 +1187,9 @@ operator|->
 name|ciphers
 argument_list|)
 expr_stmt|;
-block|}
+return|return
+name|NGX_CONF_ERROR
+return|;
 block|}
 if|if
 condition|(

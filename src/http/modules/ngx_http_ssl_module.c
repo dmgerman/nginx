@@ -2385,6 +2385,9 @@ operator|->
 name|ciphers
 argument_list|)
 expr_stmt|;
+return|return
+name|NGX_CONF_ERROR
+return|;
 block|}
 if|if
 condition|(
