@@ -89,7 +89,7 @@ value|SSL
 end_define
 
 begin_typedef
-DECL|struct|__anon2a3c10240108
+DECL|struct|__anon2c27bb000108
 typedef|typedef
 struct|struct
 block|{
@@ -110,7 +110,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3c10240208
+DECL|struct|__anon2c27bb000208
 typedef|typedef
 struct|struct
 block|{
@@ -167,6 +167,12 @@ decl_stmt|;
 DECL|member|no_send_shutdown
 name|unsigned
 name|no_send_shutdown
+range|:
+literal|1
+decl_stmt|;
+DECL|member|handshake_buffer_set
+name|unsigned
+name|handshake_buffer_set
 range|:
 literal|1
 decl_stmt|;
@@ -282,7 +288,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a3c10240308
+DECL|struct|__anon2c27bb000308
 typedef|typedef
 struct|struct
 block|{
