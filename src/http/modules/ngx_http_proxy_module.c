@@ -69,7 +69,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon2b579112010a
+DECL|union|__anon2ba42ed1010a
 union|union
 block|{
 DECL|member|complex
@@ -101,7 +101,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b5791120208
+DECL|struct|__anon2ba42ed10208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5791120308
+DECL|struct|__anon2ba42ed10308
 typedef|typedef
 struct|struct
 block|{
@@ -272,7 +272,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5791120408
+DECL|struct|__anon2ba42ed10408
 typedef|typedef
 struct|struct
 block|{
@@ -12822,38 +12822,6 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|conf
-operator|->
-name|upstream
-operator|.
-name|no_cache
-operator|&&
-name|conf
-operator|->
-name|upstream
-operator|.
-name|cache_bypass
-operator|==
-name|NULL
-condition|)
-block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_WARN
-argument_list|,
-name|cf
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"\"proxy_no_cache\" functionality has been changed in 0.8.46, "
-literal|"now it should be used together with \"proxy_cache_bypass\""
-argument_list|)
-expr_stmt|;
-block|}
 name|ngx_conf_merge_ptr_value
 argument_list|(
 name|conf

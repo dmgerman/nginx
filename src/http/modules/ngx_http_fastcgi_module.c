@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29346b950108
+DECL|struct|__anon2bc301560108
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29346b950203
+DECL|enum|__anon2bc301560203
 typedef|typedef
 enum|enum
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29346b950308
+DECL|struct|__anon2bc301560308
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29346b950408
+DECL|struct|__anon2bc301560408
 typedef|typedef
 struct|struct
 block|{
@@ -320,7 +320,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon29346b950508
+DECL|struct|__anon2bc301560508
 typedef|typedef
 struct|struct
 block|{
@@ -363,7 +363,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29346b950608
+DECL|struct|__anon2bc301560608
 typedef|typedef
 struct|struct
 block|{
@@ -393,7 +393,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29346b950708
+DECL|struct|__anon2bc301560708
 typedef|typedef
 struct|struct
 block|{
@@ -420,7 +420,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29346b950808
+DECL|struct|__anon2bc301560808
 typedef|typedef
 struct|struct
 block|{
@@ -10643,38 +10643,6 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|conf
-operator|->
-name|upstream
-operator|.
-name|no_cache
-operator|&&
-name|conf
-operator|->
-name|upstream
-operator|.
-name|cache_bypass
-operator|==
-name|NULL
-condition|)
-block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_WARN
-argument_list|,
-name|cf
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"\"fastcgi_no_cache\" functionality has been changed in 0.8.46, "
-literal|"now it should be used together with \"fastcgi_cache_bypass\""
-argument_list|)
-expr_stmt|;
-block|}
 name|ngx_conf_merge_ptr_value
 argument_list|(
 name|conf
