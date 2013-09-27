@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a23ca600108
+DECL|struct|__anon28e361100108
 typedef|typedef
 struct|struct
 block|{
@@ -1827,33 +1827,6 @@ name|ngx_http_uwsgi_loc_conf_t
 modifier|*
 name|uwcf
 decl_stmt|;
-if|if
-condition|(
-name|r
-operator|->
-name|subrequest_in_memory
-condition|)
-block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_ALERT
-argument_list|,
-name|r
-operator|->
-name|connection
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"ngx_http_uwsgi_module does not support "
-literal|"subrequests in memory"
-argument_list|)
-expr_stmt|;
-return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
-return|;
-block|}
 if|if
 condition|(
 name|ngx_http_upstream_create
