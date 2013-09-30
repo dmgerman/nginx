@@ -1515,6 +1515,12 @@ argument_list|,
 name|smtp_invalid_pipelining
 argument_list|)
 expr_stmt|;
+name|s
+operator|->
+name|quit
+operator|=
+literal|1
+expr_stmt|;
 block|}
 name|ngx_mail_send
 argument_list|(
