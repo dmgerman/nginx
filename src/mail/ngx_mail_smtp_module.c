@@ -1377,17 +1377,6 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
-operator|*
-name|p
-operator|++
-operator|=
-name|CR
-expr_stmt|;
-operator|*
-name|p
-operator|=
-name|LF
-expr_stmt|;
 name|p
 operator|=
 name|conf
