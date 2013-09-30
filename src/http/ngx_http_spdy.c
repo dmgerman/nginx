@@ -318,7 +318,7 @@ value|0x01
 end_define
 
 begin_typedef
-DECL|struct|__anon2c52b6680108
+DECL|struct|__anon2bd3f5730108
 typedef|typedef
 struct|struct
 block|{
@@ -5593,6 +5593,12 @@ operator|->
 name|post_handler
 condition|)
 block|{
+name|r
+operator|->
+name|read_event_handler
+operator|=
+name|ngx_http_block_reading
+expr_stmt|;
 name|rb
 operator|->
 name|post_handler
@@ -8202,7 +8208,7 @@ name|ngx_http_core_srv_conf_t
 modifier|*
 name|cscf
 decl_stmt|;
-DECL|enum|__anon2c52b6680203
+DECL|enum|__anon2bd3f5730203
 enum|enum
 block|{
 DECL|enumerator|sw_name_len
@@ -9259,7 +9265,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2c52b6680308
+DECL|struct|__anon2bd3f5730308
 specifier|static
 specifier|const
 struct|struct
@@ -11003,6 +11009,18 @@ operator|->
 name|post_handler
 operator|=
 name|post_handler
+expr_stmt|;
+name|r
+operator|->
+name|read_event_handler
+operator|=
+name|ngx_http_test_reading
+expr_stmt|;
+name|r
+operator|->
+name|write_event_handler
+operator|=
+name|ngx_http_request_empty_handler
 expr_stmt|;
 return|return
 name|NGX_AGAIN
