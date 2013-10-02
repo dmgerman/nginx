@@ -334,13 +334,6 @@ name|ngx_accept_disabled
 decl_stmt|;
 end_decl_stmt
 
-begin_decl_stmt
-DECL|variable|ngx_accept_mutex_lock_file
-name|ngx_file_t
-name|ngx_accept_mutex_lock_file
-decl_stmt|;
-end_decl_stmt
-
 begin_if
 if|#
 directive|if

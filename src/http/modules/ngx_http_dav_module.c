@@ -22,14 +22,6 @@ file|<ngx_http.h>
 end_include
 
 begin_define
-DECL|macro|NGX_HTTP_DAV_COPY_BLOCK
-define|#
-directive|define
-name|NGX_HTTP_DAV_COPY_BLOCK
-value|65536
-end_define
-
-begin_define
 DECL|macro|NGX_HTTP_DAV_OFF
 define|#
 directive|define
@@ -62,7 +54,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon2918dbcb0108
+DECL|struct|__anon2a8c1c880108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +81,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2918dbcb0208
+DECL|struct|__anon2a8c1c880208
 typedef|typedef
 struct|struct
 block|{
