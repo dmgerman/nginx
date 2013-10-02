@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon292b31ee0108
+DECL|struct|__anon2aef522e0108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292b31ee0208
+DECL|struct|__anon2aef522e0208
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292b31ee0308
+DECL|struct|__anon2aef522e0308
 typedef|typedef
 struct|struct
 block|{
@@ -131,7 +131,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292b31ee0408
+DECL|struct|__anon2aef522e0408
 typedef|typedef
 struct|struct
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292b31ee0508
+DECL|struct|__anon2aef522e0508
 typedef|typedef
 struct|struct
 block|{
@@ -3904,7 +3904,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-name|ngx_strncmp
+name|ngx_strcmp
 argument_list|(
 name|value
 index|[
@@ -3914,8 +3914,6 @@ operator|.
 name|data
 argument_list|,
 literal|"nodelay"
-argument_list|,
-literal|7
 argument_list|)
 operator|==
 literal|0
