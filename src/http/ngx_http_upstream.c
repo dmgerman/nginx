@@ -20431,7 +20431,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-name|ngx_strncmp
+name|ngx_strcmp
 argument_list|(
 name|value
 index|[
@@ -20441,8 +20441,6 @@ operator|.
 name|data
 argument_list|,
 literal|"backup"
-argument_list|,
-literal|6
 argument_list|)
 operator|==
 literal|0
@@ -20474,7 +20472,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-name|ngx_strncmp
+name|ngx_strcmp
 argument_list|(
 name|value
 index|[
@@ -20484,8 +20482,6 @@ operator|.
 name|data
 argument_list|,
 literal|"down"
-argument_list|,
-literal|4
 argument_list|)
 operator|==
 literal|0
