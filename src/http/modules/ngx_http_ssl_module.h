@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28d81e6f0108
+DECL|struct|__anon2c3a9c710108
 typedef|typedef
 struct|struct
 block|{
@@ -107,6 +107,11 @@ DECL|member|shm_zone
 name|ngx_shm_zone_t
 modifier|*
 name|shm_zone
+decl_stmt|;
+DECL|member|session_ticket_keys
+name|ngx_array_t
+modifier|*
+name|session_ticket_keys
 decl_stmt|;
 DECL|member|stapling
 name|ngx_flag_t

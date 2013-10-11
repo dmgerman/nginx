@@ -59,7 +59,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon27a042e80108
+DECL|struct|__anon2b957ac00108
 typedef|typedef
 struct|struct
 block|{
@@ -115,6 +115,11 @@ DECL|member|shm_zone
 name|ngx_shm_zone_t
 modifier|*
 name|shm_zone
+decl_stmt|;
+DECL|member|session_ticket_keys
+name|ngx_array_t
+modifier|*
+name|session_ticket_keys
 decl_stmt|;
 DECL|member|file
 name|u_char

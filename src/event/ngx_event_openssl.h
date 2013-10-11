@@ -89,7 +89,7 @@ value|SSL
 end_define
 
 begin_typedef
-DECL|struct|__anon2c27bb000108
+DECL|struct|__anon2c12563c0108
 typedef|typedef
 struct|struct
 block|{
@@ -110,7 +110,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c27bb000208
+DECL|struct|__anon2c12563c0208
 typedef|typedef
 struct|struct
 block|{
@@ -288,7 +288,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c27bb000308
+DECL|struct|__anon2c12563c0308
 typedef|typedef
 struct|struct
 block|{
@@ -309,6 +309,49 @@ block|}
 name|ngx_ssl_session_cache_t
 typedef|;
 end_typedef
+
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
+end_ifdef
+
+begin_typedef
+DECL|struct|__anon2c12563c0408
+typedef|typedef
+struct|struct
+block|{
+DECL|member|name
+name|u_char
+name|name
+index|[
+literal|16
+index|]
+decl_stmt|;
+DECL|member|aes_key
+name|u_char
+name|aes_key
+index|[
+literal|16
+index|]
+decl_stmt|;
+DECL|member|hmac_key
+name|u_char
+name|hmac_key
+index|[
+literal|16
+index|]
+decl_stmt|;
+DECL|typedef|ngx_ssl_session_ticket_key_t
+block|}
+name|ngx_ssl_session_ticket_key_t
+typedef|;
+end_typedef
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_define
 DECL|macro|NGX_SSL_SSLv2
@@ -614,6 +657,25 @@ name|shm_zone
 parameter_list|,
 name|time_t
 name|timeout
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_ssl_session_ticket_keys
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_ssl_t
+modifier|*
+name|ssl
+parameter_list|,
+name|ngx_array_t
+modifier|*
+name|paths
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -1063,6 +1125,13 @@ begin_decl_stmt
 specifier|extern
 name|int
 name|ngx_ssl_session_cache_index
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|int
+name|ngx_ssl_session_ticket_keys_index
 decl_stmt|;
 end_decl_stmt
 
