@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2782bb0f0108
+DECL|struct|__anon2c64f5080108
 typedef|typedef
 struct|struct
 block|{
@@ -7177,6 +7177,18 @@ block|{
 name|long
 name|cache_mode
 decl_stmt|;
+name|SSL_CTX_set_timeout
+argument_list|(
+name|ssl
+operator|->
+name|ctx
+argument_list|,
+operator|(
+name|long
+operator|)
+name|timeout
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|builtin_session_cache
@@ -7298,18 +7310,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|SSL_CTX_set_timeout
-argument_list|(
-name|ssl
-operator|->
-name|ctx
-argument_list|,
-operator|(
-name|long
-operator|)
-name|timeout
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|shm_zone
