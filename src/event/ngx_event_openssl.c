@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29b501680108
+DECL|struct|__anon2782bb0f0108
 typedef|typedef
 struct|struct
 block|{
@@ -2300,6 +2300,10 @@ name|rbio
 operator|=
 name|SSL_get_rbio
 argument_list|(
+operator|(
+name|ngx_ssl_conn_t
+operator|*
+operator|)
 name|ssl_conn
 argument_list|)
 expr_stmt|;
@@ -2307,6 +2311,10 @@ name|wbio
 operator|=
 name|SSL_get_wbio
 argument_list|(
+operator|(
+name|ngx_ssl_conn_t
+operator|*
+operator|)
 name|ssl_conn
 argument_list|)
 expr_stmt|;
