@@ -55,7 +55,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c634f000108
+DECL|struct|__anon2992303e0108
 typedef|typedef
 struct|struct
 block|{
@@ -103,7 +103,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2c634f000203
+DECL|enum|__anon2992303e0203
 typedef|typedef
 enum|enum
 block|{
@@ -134,7 +134,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c634f000308
+DECL|struct|__anon2992303e0308
 typedef|typedef
 struct|struct
 block|{
@@ -1535,6 +1535,19 @@ modifier|*
 modifier|*
 name|ccp
 decl_stmt|;
+if|if
+condition|(
+name|value
+operator|->
+name|len
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+name|NGX_OK
+return|;
+block|}
 name|ccp
 operator|=
 name|r
