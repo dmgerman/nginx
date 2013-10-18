@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29b4c1b40108
+DECL|struct|__anon29a436d80108
 typedef|typedef
 struct|struct
 block|{
@@ -4856,12 +4856,22 @@ operator|==
 name|NGX_HTTP_UNAUTHORIZED
 condition|)
 block|{
+if|if
+condition|(
+name|r
+operator|->
+name|access_code
+operator|!=
+name|NGX_HTTP_UNAUTHORIZED
+condition|)
+block|{
 name|r
 operator|->
 name|access_code
 operator|=
 name|rc
 expr_stmt|;
+block|}
 name|r
 operator|->
 name|phase_handler
