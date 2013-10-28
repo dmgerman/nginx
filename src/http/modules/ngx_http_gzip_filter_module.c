@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28e8a1ff0108
+DECL|struct|__anon2abf36510108
 typedef|typedef
 struct|struct
 block|{
@@ -80,7 +80,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e8a1ff0208
+DECL|struct|__anon2abf36510208
 typedef|typedef
 struct|struct
 block|{
@@ -1556,6 +1556,10 @@ condition|(
 name|ctx
 operator|->
 name|nomem
+operator|||
+name|in
+operator|==
+name|NULL
 condition|)
 block|{
 comment|/* flush busy buffers */
