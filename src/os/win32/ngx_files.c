@@ -2723,7 +2723,7 @@ decl_stmt|;
 name|ngx_err_t
 name|err
 decl_stmt|;
-DECL|enum|__anon299ac4290103
+DECL|enum|__anon29da8f270103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -3040,6 +3040,11 @@ goto|goto
 name|invalid
 goto|;
 block|}
+name|ngx_free
+argument_list|(
+name|lu
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_OK
 return|;
