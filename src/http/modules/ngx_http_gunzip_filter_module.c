@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29c913ab0108
+DECL|struct|__anon2c0767db0108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c913ab0208
+DECL|struct|__anon2c0767db0208
 typedef|typedef
 struct|struct
 block|{
@@ -1735,7 +1735,7 @@ condition|)
 block|{
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_ALERT
+name|NGX_LOG_ERR
 argument_list|,
 name|r
 operator|->
