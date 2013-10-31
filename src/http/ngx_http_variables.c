@@ -8507,7 +8507,7 @@ name|pool
 argument_list|,
 sizeof|sizeof
 argument_list|(
-literal|"Last-Modified: Mon, 28 Sep 1970 06:00:00 GMT"
+literal|"Mon, 28 Sep 1970 06:00:00 GMT"
 argument_list|)
 operator|-
 literal|1
