@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c0767db0108
+DECL|struct|__anon2bca87f60108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0767db0208
+DECL|struct|__anon2bca87f60208
 typedef|typedef
 struct|struct
 block|{
@@ -2081,10 +2081,6 @@ return|;
 block|}
 if|if
 condition|(
-name|rc
-operator|==
-name|Z_STREAM_END
-operator|&&
 name|ctx
 operator|->
 name|flush
@@ -2100,6 +2096,34 @@ operator|==
 literal|0
 condition|)
 block|{
+if|if
+condition|(
+name|rc
+operator|!=
+name|Z_STREAM_END
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"inflate() returned %d on response end"
+argument_list|,
+name|rc
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
 if|if
 condition|(
 name|ngx_http_gunzip_filter_inflate_end
