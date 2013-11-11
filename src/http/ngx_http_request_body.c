@@ -218,6 +218,12 @@ condition|(
 name|r
 operator|->
 name|spdy_stream
+operator|&&
+name|r
+operator|==
+name|r
+operator|->
+expr|main
 condition|)
 block|{
 name|rc
