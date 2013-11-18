@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon298c7e190108
+DECL|struct|__anon277abd130108
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon298c7e190203
+DECL|enum|__anon277abd130203
 typedef|typedef
 enum|enum
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298c7e190308
+DECL|struct|__anon277abd130308
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298c7e190408
+DECL|struct|__anon277abd130408
 typedef|typedef
 struct|struct
 block|{
@@ -320,7 +320,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon298c7e190508
+DECL|struct|__anon277abd130508
 typedef|typedef
 struct|struct
 block|{
@@ -363,7 +363,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298c7e190608
+DECL|struct|__anon277abd130608
 typedef|typedef
 struct|struct
 block|{
@@ -393,7 +393,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298c7e190708
+DECL|struct|__anon277abd130708
 typedef|typedef
 struct|struct
 block|{
@@ -420,7 +420,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298c7e190808
+DECL|struct|__anon277abd130808
 typedef|typedef
 struct|struct
 block|{
@@ -1819,6 +1819,36 @@ block|,
 name|NULL
 block|}
 block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"fastcgi_cache_revalidate"
+argument_list|)
+block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
+name|NGX_HTTP_SRV_CONF
+operator||
+name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_CONF_FLAG
+block|,
+name|ngx_conf_set_flag_slot
+block|,
+name|NGX_HTTP_LOC_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+name|ngx_http_fastcgi_loc_conf_t
+argument_list|,
+name|upstream
+operator|.
+name|cache_revalidate
+argument_list|)
+block|,
+name|NULL
+block|}
+block|,
 endif|#
 directive|endif
 block|{
@@ -2409,7 +2439,7 @@ argument_list|)
 block|,
 name|ngx_string
 argument_list|(
-literal|""
+literal|"$upstream_cache_last_modified"
 argument_list|)
 block|}
 block|,
@@ -10607,6 +10637,14 @@ name|cache_lock_timeout
 operator|=
 name|NGX_CONF_UNSET_MSEC
 expr_stmt|;
+name|conf
+operator|->
+name|upstream
+operator|.
+name|cache_revalidate
+operator|=
+name|NGX_CONF_UNSET
+expr_stmt|;
 endif|#
 directive|endif
 name|conf
@@ -11710,6 +11748,23 @@ operator|.
 name|cache_lock_timeout
 argument_list|,
 literal|5000
+argument_list|)
+expr_stmt|;
+name|ngx_conf_merge_value
+argument_list|(
+name|conf
+operator|->
+name|upstream
+operator|.
+name|cache_revalidate
+argument_list|,
+name|prev
+operator|->
+name|upstream
+operator|.
+name|cache_revalidate
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 endif|#

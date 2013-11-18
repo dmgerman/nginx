@@ -75,11 +75,19 @@ value|5
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_CACHE_REVALIDATED
+define|#
+directive|define
+name|NGX_HTTP_CACHE_REVALIDATED
+value|6
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_CACHE_HIT
 define|#
 directive|define
 name|NGX_HTTP_CACHE_HIT
-value|6
+value|7
 end_define
 
 begin_define
@@ -87,7 +95,7 @@ DECL|macro|NGX_HTTP_CACHE_SCARCE
 define|#
 directive|define
 name|NGX_HTTP_CACHE_SCARCE
-value|7
+value|8
 end_define
 
 begin_define
@@ -99,7 +107,7 @@ value|16
 end_define
 
 begin_typedef
-DECL|struct|__anon2c535cf20108
+DECL|struct|__anon2ad012dc0108
 typedef|typedef
 struct|struct
 block|{
@@ -118,7 +126,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c535cf20208
+DECL|struct|__anon2ad012dc0208
 typedef|typedef
 struct|struct
 block|{
@@ -347,7 +355,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c535cf20308
+DECL|struct|__anon2ad012dc0308
 typedef|typedef
 struct|struct
 block|{
@@ -386,7 +394,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c535cf20408
+DECL|struct|__anon2ad012dc0408
 typedef|typedef
 struct|struct
 block|{
@@ -551,6 +559,17 @@ parameter_list|,
 name|ngx_temp_file_t
 modifier|*
 name|tf
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_http_file_cache_update_header
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
 parameter_list|)
 function_decl|;
 end_function_decl
