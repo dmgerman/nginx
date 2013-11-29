@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28a3f3420108
+DECL|struct|__anon2a1fb31e0108
 typedef|typedef
 struct|struct
 block|{
@@ -7045,7 +7045,7 @@ name|s
 operator|->
 name|skip_empty
 operator|=
-literal|0
+literal|1
 expr_stmt|;
 name|next
 label|:
