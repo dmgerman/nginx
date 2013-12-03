@@ -275,12 +275,23 @@ name|setfib
 decl_stmt|;
 endif|#
 directive|endif
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_TCP_FASTOPEN
+operator|)
+DECL|member|fastopen
+name|int
+name|fastopen
+decl_stmt|;
+endif|#
+directive|endif
 block|}
 struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon275b9e8b0103
+DECL|enum|__anon29f5eee70103
 typedef|typedef
 enum|enum
 block|{
@@ -307,7 +318,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon275b9e8b0203
+DECL|enum|__anon29f5eee70203
 typedef|typedef
 enum|enum
 block|{
@@ -328,7 +339,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon275b9e8b0303
+DECL|enum|__anon29f5eee70303
 typedef|typedef
 enum|enum
 block|{
