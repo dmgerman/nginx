@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29a436d80108
+DECL|struct|__anon2bcfbc990108
 typedef|typedef
 struct|struct
 block|{
@@ -17589,6 +17589,18 @@ name|len
 operator|-
 literal|7
 argument_list|)
+expr_stmt|;
+name|lsopt
+operator|.
+name|set
+operator|=
+literal|1
+expr_stmt|;
+name|lsopt
+operator|.
+name|bind
+operator|=
+literal|1
 expr_stmt|;
 if|if
 condition|(
