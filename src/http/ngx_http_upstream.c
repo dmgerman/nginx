@@ -19765,6 +19765,12 @@ name|p
 decl_stmt|;
 if|if
 condition|(
+name|r
+operator|->
+name|upstream
+operator|==
+name|NULL
+operator|||
 operator|!
 name|r
 operator|->
