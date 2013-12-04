@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ab43d7a0108
+DECL|struct|__anon279f23290108
 typedef|typedef
 struct|struct
 block|{
@@ -2534,11 +2534,15 @@ literal|1
 expr_stmt|;
 else|#
 directive|else
-name|ngx_conf_log_error
+name|ngx_log_error
 argument_list|(
-name|NGX_LOG_EMERG
+name|NGX_LOG_ERR
 argument_list|,
-name|cf
+name|r
+operator|->
+name|connection
+operator|->
+name|log
 argument_list|,
 literal|0
 argument_list|,
@@ -2546,7 +2550,7 @@ literal|"suwsgi protocol requires SSL support"
 argument_list|)
 expr_stmt|;
 return|return
-name|NGX_CONF_ERROR
+name|NGX_ERROR
 return|;
 endif|#
 directive|endif
