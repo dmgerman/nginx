@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon297b27370108
+DECL|struct|__anon28b739610108
 typedef|typedef
 struct|struct
 block|{
@@ -82,14 +82,14 @@ DECL|member|nar_lo
 name|u_char
 name|nar_lo
 decl_stmt|;
-DECL|typedef|ngx_resolver_query_t
+DECL|typedef|ngx_resolver_hdr_t
 block|}
-name|ngx_resolver_query_t
+name|ngx_resolver_hdr_t
 typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297b27370208
+DECL|struct|__anon28b739610208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297b27370308
+DECL|struct|__anon28b739610308
 typedef|typedef
 struct|struct
 block|{
@@ -4556,24 +4556,21 @@ name|ngx_resolver_qs_t
 modifier|*
 name|qs
 decl_stmt|;
+name|ngx_resolver_hdr_t
+modifier|*
+name|response
+decl_stmt|;
 name|ngx_resolver_node_t
 modifier|*
 name|rn
 decl_stmt|;
-name|ngx_resolver_query_t
-modifier|*
-name|query
-decl_stmt|;
 if|if
 condition|(
-operator|(
-name|size_t
-operator|)
 name|n
 operator|<
 sizeof|sizeof
 argument_list|(
-name|ngx_resolver_query_t
+name|ngx_resolver_hdr_t
 argument_list|)
 condition|)
 block|{
@@ -4581,10 +4578,10 @@ goto|goto
 name|short_response
 goto|;
 block|}
-name|query
+name|response
 operator|=
 operator|(
-name|ngx_resolver_query_t
+name|ngx_resolver_hdr_t
 operator|*
 operator|)
 name|buf
@@ -4592,56 +4589,56 @@ expr_stmt|;
 name|ident
 operator|=
 operator|(
-name|query
+name|response
 operator|->
 name|ident_hi
 operator|<<
 literal|8
 operator|)
 operator|+
-name|query
+name|response
 operator|->
 name|ident_lo
 expr_stmt|;
 name|flags
 operator|=
 operator|(
-name|query
+name|response
 operator|->
 name|flags_hi
 operator|<<
 literal|8
 operator|)
 operator|+
-name|query
+name|response
 operator|->
 name|flags_lo
 expr_stmt|;
 name|nqs
 operator|=
 operator|(
-name|query
+name|response
 operator|->
 name|nqs_hi
 operator|<<
 literal|8
 operator|)
 operator|+
-name|query
+name|response
 operator|->
 name|nqs_lo
 expr_stmt|;
 name|nan
 operator|=
 operator|(
-name|query
+name|response
 operator|->
 name|nan_hi
 operator|<<
 literal|8
 operator|)
 operator|+
-name|query
+name|response
 operator|->
 name|nan_lo
 expr_stmt|;
@@ -4666,26 +4663,26 @@ argument_list|,
 name|nan
 argument_list|,
 operator|(
-name|query
+name|response
 operator|->
 name|nns_hi
 operator|<<
 literal|8
 operator|)
 operator|+
-name|query
+name|response
 operator|->
 name|nns_lo
 argument_list|,
 operator|(
-name|query
+name|response
 operator|->
 name|nar_hi
 operator|<<
 literal|8
 operator|)
 operator|+
-name|query
+name|response
 operator|->
 name|nar_lo
 argument_list|)
@@ -4880,7 +4877,7 @@ name|i
 operator|=
 sizeof|sizeof
 argument_list|(
-name|ngx_resolver_query_t
+name|ngx_resolver_hdr_t
 argument_list|)
 expr_stmt|;
 while|while
@@ -5130,7 +5127,7 @@ name|short_response
 label|:
 name|err
 operator|=
-literal|"short dns response"
+literal|"short DNS response"
 expr_stmt|;
 name|done
 label|:
@@ -5237,7 +5234,7 @@ name|ngx_str_t
 name|name
 decl_stmt|;
 name|ngx_uint_t
-name|qtype
+name|type
 decl_stmt|,
 name|qident
 decl_stmt|,
@@ -5277,17 +5274,16 @@ name|name
 argument_list|,
 name|buf
 argument_list|,
-operator|&
 name|buf
-index|[
-literal|12
-index|]
+operator|+
+sizeof|sizeof
+argument_list|(
+name|ngx_resolver_hdr_t
+argument_list|)
 argument_list|,
-operator|&
 name|buf
-index|[
+operator|+
 name|last
-index|]
 argument_list|)
 operator|!=
 name|NGX_OK
@@ -5447,9 +5443,8 @@ condition|)
 block|{
 name|code
 operator|=
-literal|3
+name|NGX_RESOLVE_NXDOMAIN
 expr_stmt|;
-comment|/* NXDOMAIN */
 block|}
 if|if
 condition|(
@@ -5548,10 +5543,6 @@ name|cname
 operator|=
 name|NULL
 expr_stmt|;
-name|qtype
-operator|=
-literal|0
-expr_stmt|;
 name|ttl
 operator|=
 literal|0
@@ -5642,7 +5633,7 @@ condition|)
 block|{
 name|err
 operator|=
-literal|"invalid name in dns response"
+literal|"invalid name in DNS response"
 expr_stmt|;
 goto|goto
 name|invalid
@@ -5678,7 +5669,7 @@ index|[
 name|i
 index|]
 expr_stmt|;
-name|qtype
+name|type
 operator|=
 operator|(
 name|an
@@ -5762,13 +5753,14 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-if|if
+switch|switch
 condition|(
-name|qtype
-operator|==
-name|NGX_RESOLVE_A
+name|type
 condition|)
 block|{
+case|case
+name|NGX_RESOLVE_A
+case|:
 name|i
 operator|+=
 sizeof|sizeof
@@ -5841,14 +5833,10 @@ name|i
 operator|+=
 name|len
 expr_stmt|;
-block|}
-if|else if
-condition|(
-name|qtype
-operator|==
+break|break;
+case|case
 name|NGX_RESOLVE_CNAME
-condition|)
-block|{
+case|:
 name|cname
 operator|=
 operator|&
@@ -5871,14 +5859,10 @@ argument_list|)
 operator|+
 name|len
 expr_stmt|;
-block|}
-if|else if
-condition|(
-name|qtype
-operator|==
+break|break;
+case|case
 name|NGX_RESOLVE_DNAME
-condition|)
-block|{
+case|:
 name|i
 operator|+=
 sizeof|sizeof
@@ -5888,9 +5872,8 @@ argument_list|)
 operator|+
 name|len
 expr_stmt|;
-block|}
-else|else
-block|{
+break|break;
+default|default:
 name|ngx_log_error
 argument_list|(
 name|r
@@ -5903,9 +5886,9 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"unexpected qtype %ui"
+literal|"unexpected RR type %ui"
 argument_list|,
-name|qtype
+name|type
 argument_list|)
 expr_stmt|;
 block|}
@@ -6017,9 +6000,7 @@ name|i
 operator|+=
 literal|2
 expr_stmt|;
-goto|goto
-name|ok
-goto|;
+break|break;
 block|}
 if|if
 condition|(
@@ -6034,9 +6015,7 @@ block|{
 name|i
 operator|++
 expr_stmt|;
-goto|goto
-name|ok
-goto|;
+break|break;
 block|}
 name|i
 operator|+=
@@ -6048,8 +6027,6 @@ name|i
 index|]
 expr_stmt|;
 block|}
-name|ok
-label|:
 name|an
 operator|=
 operator|(
@@ -6062,7 +6039,7 @@ index|[
 name|i
 index|]
 expr_stmt|;
-name|qtype
+name|type
 operator|=
 operator|(
 name|an
@@ -6099,7 +6076,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|qtype
+name|type
 operator|==
 name|NGX_RESOLVE_A
 condition|)
@@ -6369,7 +6346,7 @@ name|NULL
 expr_stmt|;
 return|return;
 block|}
-if|else if
+if|if
 condition|(
 name|cname
 condition|)
@@ -6388,11 +6365,9 @@ name|buf
 argument_list|,
 name|cname
 argument_list|,
-operator|&
 name|buf
-index|[
+operator|+
 name|last
-index|]
 argument_list|)
 operator|!=
 name|NGX_OK
@@ -6551,9 +6526,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"no A or CNAME types in DNS responses, unknown query type: %ui"
-argument_list|,
-name|qtype
+literal|"no A or CNAME types in DNS response"
 argument_list|)
 expr_stmt|;
 return|return;
@@ -6561,7 +6534,7 @@ name|short_response
 label|:
 name|err
 operator|=
-literal|"short dns response"
+literal|"short DNS response"
 expr_stmt|;
 name|invalid
 label|:
@@ -6639,7 +6612,7 @@ name|int32_t
 name|ttl
 decl_stmt|;
 name|ngx_int_t
-name|digit
+name|octet
 decl_stmt|;
 name|ngx_str_t
 name|name
@@ -6676,17 +6649,16 @@ name|NULL
 argument_list|,
 name|buf
 argument_list|,
-operator|&
 name|buf
-index|[
-literal|12
-index|]
+operator|+
+sizeof|sizeof
+argument_list|(
+name|ngx_resolver_hdr_t
+argument_list|)
 argument_list|,
-operator|&
 name|buf
-index|[
+operator|+
 name|n
-index|]
 argument_list|)
 operator|!=
 name|NGX_OK
@@ -6702,7 +6674,10 @@ literal|0
 expr_stmt|;
 name|i
 operator|=
-literal|12
+sizeof|sizeof
+argument_list|(
+name|ngx_resolver_hdr_t
+argument_list|)
 expr_stmt|;
 for|for
 control|(
@@ -6727,7 +6702,7 @@ name|i
 operator|++
 index|]
 expr_stmt|;
-name|digit
+name|octet
 operator|=
 name|ngx_atoi
 argument_list|(
@@ -6742,11 +6717,11 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|digit
+name|octet
 operator|==
 name|NGX_ERROR
 operator|||
-name|digit
+name|octet
 operator|>
 literal|255
 condition|)
@@ -6757,7 +6732,7 @@ goto|;
 block|}
 name|addr
 operator|+=
-name|digit
+name|octet
 operator|<<
 name|mask
 expr_stmt|;
@@ -6947,9 +6922,8 @@ condition|)
 block|{
 name|code
 operator|=
-literal|3
+name|NGX_RESOLVE_NXDOMAIN
 expr_stmt|;
-comment|/* NXDOMAIN */
 block|}
 if|if
 condition|(
@@ -7078,7 +7052,10 @@ operator|+
 literal|1
 index|]
 operator|!=
-literal|0x0c
+sizeof|sizeof
+argument_list|(
+name|ngx_resolver_hdr_t
+argument_list|)
 condition|)
 block|{
 name|err
@@ -7248,17 +7225,13 @@ name|name
 argument_list|,
 name|buf
 argument_list|,
-operator|&
 name|buf
-index|[
+operator|+
 name|i
-index|]
 argument_list|,
-operator|&
 name|buf
-index|[
+operator|+
 name|n
-index|]
 argument_list|)
 operator|!=
 name|NGX_OK
@@ -8000,7 +7973,7 @@ name|ngx_resolver_qs_t
 modifier|*
 name|qs
 decl_stmt|;
-name|ngx_resolver_query_t
+name|ngx_resolver_hdr_t
 modifier|*
 name|query
 decl_stmt|;
@@ -8030,7 +8003,7 @@ name|len
 operator|=
 sizeof|sizeof
 argument_list|(
-name|ngx_resolver_query_t
+name|ngx_resolver_hdr_t
 argument_list|)
 operator|+
 name|nlen
@@ -8080,7 +8053,7 @@ expr_stmt|;
 name|query
 operator|=
 operator|(
-name|ngx_resolver_query_t
+name|ngx_resolver_hdr_t
 operator|*
 operator|)
 name|p
@@ -8210,7 +8183,7 @@ name|p
 operator|+=
 sizeof|sizeof
 argument_list|(
-name|ngx_resolver_query_t
+name|ngx_resolver_hdr_t
 argument_list|)
 operator|+
 name|nlen
@@ -8241,7 +8214,7 @@ name|ctx
 operator|->
 name|type
 expr_stmt|;
-comment|/* IP query class */
+comment|/* IN query class */
 name|qs
 operator|->
 name|class_hi
@@ -8429,7 +8402,7 @@ decl_stmt|;
 name|ngx_uint_t
 name|ident
 decl_stmt|;
-name|ngx_resolver_query_t
+name|ngx_resolver_hdr_t
 modifier|*
 name|query
 decl_stmt|;
@@ -8437,7 +8410,7 @@ name|len
 operator|=
 sizeof|sizeof
 argument_list|(
-name|ngx_resolver_query_t
+name|ngx_resolver_hdr_t
 argument_list|)
 operator|+
 sizeof|sizeof
@@ -8483,7 +8456,7 @@ expr_stmt|;
 name|query
 operator|=
 operator|(
-name|ngx_resolver_query_t
+name|ngx_resolver_hdr_t
 operator|*
 operator|)
 name|p
@@ -8589,7 +8562,7 @@ name|p
 operator|+=
 sizeof|sizeof
 argument_list|(
-name|ngx_resolver_query_t
+name|ngx_resolver_hdr_t
 argument_list|)
 expr_stmt|;
 for|for
@@ -8651,7 +8624,7 @@ operator|=
 name|d
 expr_stmt|;
 block|}
-comment|/* query type "PTR", IP query class */
+comment|/* query type "PTR", IN query class */
 name|ngx_memcpy
 argument_list|(
 name|p
