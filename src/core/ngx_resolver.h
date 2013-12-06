@@ -141,7 +141,7 @@ value|50
 end_define
 
 begin_typedef
-DECL|struct|__anon28dbda370108
+DECL|struct|__anon2c2c424a0108
 typedef|typedef
 struct|struct
 block|{
@@ -200,7 +200,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28dbda370208
+DECL|struct|__anon2c2c424a0208
 typedef|typedef
 struct|struct
 block|{
@@ -231,7 +231,7 @@ name|u_char
 modifier|*
 name|query
 decl_stmt|;
-DECL|union|__anon28dbda37030a
+DECL|union|__anon2c2c424a030a
 union|union
 block|{
 DECL|member|addr
@@ -280,7 +280,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28dbda370408
+DECL|struct|__anon2c2c424a0408
 typedef|typedef
 struct|struct
 block|{
@@ -410,13 +410,18 @@ name|ngx_uint_t
 name|naddrs
 decl_stmt|;
 DECL|member|addrs
-name|in_addr_t
+name|ngx_addr_t
 modifier|*
 name|addrs
 decl_stmt|;
 DECL|member|addr
-name|in_addr_t
+name|ngx_addr_t
 name|addr
+decl_stmt|;
+DECL|member|sin
+name|struct
+name|sockaddr_in
+name|sin
 decl_stmt|;
 DECL|member|handler
 name|ngx_resolver_handler_pt
