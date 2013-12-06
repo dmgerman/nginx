@@ -141,7 +141,7 @@ value|50
 end_define
 
 begin_typedef
-DECL|struct|__anon2c2c424a0108
+DECL|struct|__anon2c5942bd0108
 typedef|typedef
 struct|struct
 block|{
@@ -200,7 +200,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2c424a0208
+DECL|struct|__anon2c5942bd0208
 typedef|typedef
 struct|struct
 block|{
@@ -218,6 +218,19 @@ name|u_char
 modifier|*
 name|name
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_INET6
+operator|)
+comment|/* PTR: IPv6 address to resolve (IPv4 address is in rbtree node key) */
+DECL|member|addr6
+name|struct
+name|in6_addr
+name|addr6
+decl_stmt|;
+endif|#
+directive|endif
 DECL|member|nlen
 name|u_short
 name|nlen
@@ -231,7 +244,7 @@ name|u_char
 modifier|*
 name|query
 decl_stmt|;
-DECL|union|__anon2c2c424a030a
+DECL|union|__anon2c5942bd030a
 union|union
 block|{
 DECL|member|addr
@@ -280,7 +293,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2c424a0408
+DECL|struct|__anon2c5942bd0408
 typedef|typedef
 struct|struct
 block|{
@@ -346,6 +359,29 @@ DECL|member|addr_expire_queue
 name|ngx_queue_t
 name|addr_expire_queue
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_INET6
+operator|)
+DECL|member|addr6_rbtree
+name|ngx_rbtree_t
+name|addr6_rbtree
+decl_stmt|;
+DECL|member|addr6_sentinel
+name|ngx_rbtree_node_t
+name|addr6_sentinel
+decl_stmt|;
+DECL|member|addr6_resend_queue
+name|ngx_queue_t
+name|addr6_resend_queue
+decl_stmt|;
+DECL|member|addr6_expire_queue
+name|ngx_queue_t
+name|addr6_expire_queue
+decl_stmt|;
+endif|#
+directive|endif
 DECL|member|resend_timeout
 name|time_t
 name|resend_timeout
