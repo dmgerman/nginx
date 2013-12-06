@@ -127,7 +127,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28c144eb0108
+DECL|struct|__anon2bbdb0800108
 typedef|typedef
 struct|struct
 block|{
@@ -154,7 +154,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon28c144eb0208
+DECL|struct|__anon2bbdb0800208
 typedef|typedef
 struct|struct
 block|{
@@ -180,7 +180,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28c144eb0308
+DECL|struct|__anon2bbdb0800308
 typedef|typedef
 struct|struct
 block|{
@@ -188,7 +188,7 @@ DECL|member|family
 name|ngx_uint_t
 name|family
 decl_stmt|;
-DECL|union|__anon28c144eb040a
+DECL|union|__anon2bbdb080040a
 union|union
 block|{
 DECL|member|in
@@ -217,7 +217,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c144eb0508
+DECL|struct|__anon2bbdb0800508
 typedef|typedef
 struct|struct
 block|{
@@ -242,7 +242,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c144eb0608
+DECL|struct|__anon2bbdb0800608
 typedef|typedef
 struct|struct
 block|{
@@ -514,6 +514,32 @@ parameter_list|,
 name|ngx_url_t
 modifier|*
 name|u
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_cmp_sockaddr
+parameter_list|(
+name|struct
+name|sockaddr
+modifier|*
+name|sa1
+parameter_list|,
+name|socklen_t
+name|slen1
+parameter_list|,
+name|struct
+name|sockaddr
+modifier|*
+name|sa2
+parameter_list|,
+name|socklen_t
+name|slen2
+parameter_list|,
+name|ngx_uint_t
+name|cmp_port
 parameter_list|)
 function_decl|;
 end_function_decl
