@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2c7daf750108
+DECL|struct|__anon2893a3d60108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7daf750208
+DECL|struct|__anon2893a3d60208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7daf750308
+DECL|struct|__anon2893a3d60308
 typedef|typedef
 struct|struct
 block|{
@@ -6673,6 +6673,8 @@ decl_stmt|,
 name|mask
 decl_stmt|,
 name|qident
+decl_stmt|,
+name|class
 decl_stmt|;
 name|ngx_resolver_an_t
 modifier|*
@@ -6714,9 +6716,7 @@ operator|!=
 name|NGX_OK
 condition|)
 block|{
-goto|goto
-name|invalid_in_addr_arpa
-goto|;
+return|return;
 block|}
 name|addr
 operator|=
@@ -7074,7 +7074,7 @@ sizeof|sizeof
 argument_list|(
 name|ngx_resolver_an_t
 argument_list|)
-operator|>
+operator|>=
 name|n
 condition|)
 block|{
@@ -7126,6 +7126,20 @@ name|i
 operator|+
 literal|2
 index|]
+expr_stmt|;
+name|class
+operator|=
+operator|(
+name|an
+operator|->
+name|class_hi
+operator|<<
+literal|8
+operator|)
+operator|+
+name|an
+operator|->
+name|class_lo
 expr_stmt|;
 name|len
 operator|=
@@ -7187,6 +7201,34 @@ operator|)
 expr_stmt|;
 if|if
 condition|(
+name|class
+operator|!=
+literal|1
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|r
+operator|->
+name|log_level
+argument_list|,
+name|r
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"unexpected RR class %ui"
+argument_list|,
+name|class
+argument_list|)
+expr_stmt|;
+goto|goto
+name|failed
+goto|;
+block|}
+if|if
+condition|(
 name|ttl
 operator|<
 literal|0
@@ -7221,17 +7263,7 @@ name|an
 operator|->
 name|type_lo
 argument_list|,
-operator|(
-name|an
-operator|->
-name|class_hi
-operator|<<
-literal|8
-operator|)
-operator|+
-name|an
-operator|->
-name|class_lo
+name|class
 argument_list|,
 name|len
 argument_list|)
@@ -7281,7 +7313,9 @@ operator|!=
 name|NGX_OK
 condition|)
 block|{
-return|return;
+goto|goto
+name|failed
+goto|;
 block|}
 name|ngx_log_debug1
 argument_list|(
