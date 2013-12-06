@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2bcd02bd0108
+DECL|struct|__anon28f787f80108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bcd02bd0208
+DECL|struct|__anon28f787f80208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bcd02bd0308
+DECL|struct|__anon28f787f80308
 typedef|typedef
 struct|struct
 block|{
@@ -4524,9 +4524,6 @@ name|char
 modifier|*
 name|err
 decl_stmt|;
-name|size_t
-name|len
-decl_stmt|;
 name|ngx_uint_t
 name|i
 decl_stmt|,
@@ -4687,14 +4684,16 @@ operator|->
 name|nar_lo
 argument_list|)
 expr_stmt|;
+comment|/* response to a standard query */
 if|if
 condition|(
-operator|!
 operator|(
 name|flags
 operator|&
-literal|0x8000
+literal|0xf870
 operator|)
+operator|!=
+literal|0x8000
 condition|)
 block|{
 name|ngx_log_error
@@ -4722,7 +4721,7 @@ name|code
 operator|=
 name|flags
 operator|&
-literal|0x7f
+literal|0xf
 expr_stmt|;
 if|if
 condition|(
@@ -4904,18 +4903,14 @@ goto|goto
 name|found
 goto|;
 block|}
-name|len
-operator|=
-name|buf
-index|[
-name|i
-index|]
-expr_stmt|;
 name|i
 operator|+=
 literal|1
 operator|+
-name|len
+name|buf
+index|[
+name|i
+index|]
 expr_stmt|;
 block|}
 goto|goto
@@ -4928,7 +4923,10 @@ condition|(
 name|i
 operator|++
 operator|==
-literal|0
+sizeof|sizeof
+argument_list|(
+name|ngx_resolver_hdr_t
+argument_list|)
 condition|)
 block|{
 name|err
