@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon279f23290108
+DECL|struct|__anon2aaae47d0108
 typedef|typedef
 struct|struct
 block|{
@@ -2619,10 +2619,6 @@ name|u
 operator|->
 name|schema
 argument_list|,
-operator|(
-name|u_char
-operator|*
-operator|)
 literal|"uwsgi://"
 argument_list|)
 expr_stmt|;
