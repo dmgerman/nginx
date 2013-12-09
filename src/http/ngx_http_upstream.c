@@ -3282,12 +3282,6 @@ name|host
 expr_stmt|;
 name|ctx
 operator|->
-name|type
-operator|=
-name|NGX_RESOLVE_A
-expr_stmt|;
-name|ctx
-operator|->
 name|handler
 operator|=
 name|ngx_http_upstream_resolve_handler

@@ -883,12 +883,6 @@ name|host
 expr_stmt|;
 name|ctx
 operator|->
-name|type
-operator|=
-name|NGX_RESOLVE_A
-expr_stmt|;
-name|ctx
-operator|->
 name|handler
 operator|=
 name|ngx_mail_smtp_resolve_name_handler
