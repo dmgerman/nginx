@@ -4752,6 +4752,21 @@ block|}
 break|break;
 endif|#
 directive|endif
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_UNIX_DOMAIN
+operator|)
+case|case
+name|AF_UNIX
+case|:
+name|addr
+operator|=
+literal|1
+expr_stmt|;
+break|break;
+endif|#
+directive|endif
 default|default:
 comment|/* AF_INET */
 name|sin
