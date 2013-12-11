@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ad578360108
+DECL|struct|__anon2bb08a300108
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2ad578360203
+DECL|enum|__anon2bb08a300203
 typedef|typedef
 enum|enum
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad578360308
+DECL|struct|__anon2bb08a300308
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad578360408
+DECL|struct|__anon2bb08a300408
 typedef|typedef
 struct|struct
 block|{
@@ -320,7 +320,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2ad578360508
+DECL|struct|__anon2bb08a300508
 typedef|typedef
 struct|struct
 block|{
@@ -363,7 +363,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad578360608
+DECL|struct|__anon2bb08a300608
 typedef|typedef
 struct|struct
 block|{
@@ -393,7 +393,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad578360708
+DECL|struct|__anon2bb08a300708
 typedef|typedef
 struct|struct
 block|{
@@ -420,7 +420,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad578360808
+DECL|struct|__anon2bb08a300808
 typedef|typedef
 struct|struct
 block|{
@@ -8550,57 +8550,23 @@ condition|)
 block|{
 break|break;
 block|}
-if|if
-condition|(
-name|p
-operator|->
-name|free
-condition|)
-block|{
 name|cl
 operator|=
-name|p
-operator|->
-name|free
-expr_stmt|;
-name|b
-operator|=
-name|cl
-operator|->
-name|buf
-expr_stmt|;
-name|p
-operator|->
-name|free
-operator|=
-name|cl
-operator|->
-name|next
-expr_stmt|;
-name|ngx_free_chain
+name|ngx_chain_get_free_buf
 argument_list|(
 name|p
 operator|->
 name|pool
 argument_list|,
-name|cl
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|b
-operator|=
-name|ngx_alloc_buf
-argument_list|(
+operator|&
 name|p
 operator|->
-name|pool
+name|free
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|b
+name|cl
 operator|==
 name|NULL
 condition|)
@@ -8609,7 +8575,12 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-block|}
+name|b
+operator|=
+name|cl
+operator|->
+name|buf
+expr_stmt|;
 name|ngx_memzero
 argument_list|(
 name|b
@@ -8675,38 +8646,6 @@ operator|&
 name|b
 operator|->
 name|shadow
-expr_stmt|;
-name|cl
-operator|=
-name|ngx_alloc_chain_link
-argument_list|(
-name|p
-operator|->
-name|pool
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|cl
-operator|==
-name|NULL
-condition|)
-block|{
-return|return
-name|NGX_ERROR
-return|;
-block|}
-name|cl
-operator|->
-name|buf
-operator|=
-name|b
-expr_stmt|;
-name|cl
-operator|->
-name|next
-operator|=
-name|NULL
 expr_stmt|;
 if|if
 condition|(
