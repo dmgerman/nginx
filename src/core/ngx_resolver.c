@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon27d4cfd50108
+DECL|struct|__anon27e5df6d0108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d4cfd50208
+DECL|struct|__anon27e5df6d0208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d4cfd50308
+DECL|struct|__anon27e5df6d0308
 typedef|typedef
 struct|struct
 block|{
@@ -2316,6 +2316,27 @@ name|ngx_resolver_node_t
 modifier|*
 name|rn
 decl_stmt|;
+name|ngx_strlow
+argument_list|(
+name|ctx
+operator|->
+name|name
+operator|.
+name|data
+argument_list|,
+name|ctx
+operator|->
+name|name
+operator|.
+name|data
+argument_list|,
+name|ctx
+operator|->
+name|name
+operator|.
+name|len
+argument_list|)
+expr_stmt|;
 name|hash
 operator|=
 name|ngx_crc32_short
@@ -8760,7 +8781,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|ngx_strcmp
+name|ngx_strcasecmp
 argument_list|(
 operator|&
 name|buf
@@ -8768,6 +8789,10 @@ index|[
 name|i
 index|]
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"\7in-addr\4arpa"
 argument_list|)
 operator|==
@@ -8977,7 +9002,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|ngx_strcmp
+name|ngx_strcasecmp
 argument_list|(
 operator|&
 name|buf
@@ -8985,6 +9010,10 @@ index|[
 name|i
 index|]
 argument_list|,
+operator|(
+name|u_char
+operator|*
+operator|)
 literal|"\3ip6\4arpa"
 argument_list|)
 operator|==
@@ -11940,7 +11969,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|ngx_memcpy
+name|ngx_strlow
 argument_list|(
 name|dst
 argument_list|,
