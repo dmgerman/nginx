@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon27e5df6d0108
+DECL|struct|__anon297a01ee0108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e5df6d0208
+DECL|struct|__anon297a01ee0208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e5df6d0308
+DECL|struct|__anon297a01ee0308
 typedef|typedef
 struct|struct
 block|{
@@ -3357,6 +3357,12 @@ literal|0
 expr_stmt|;
 name|rn
 operator|->
+name|ttl
+operator|=
+name|NGX_MAX_UINT32_VALUE
+expr_stmt|;
+name|rn
+operator|->
 name|waiting
 operator|=
 name|ctx
@@ -4160,6 +4166,12 @@ operator|->
 name|valid
 operator|=
 literal|0
+expr_stmt|;
+name|rn
+operator|->
+name|ttl
+operator|=
+name|NGX_MAX_UINT32_VALUE
 expr_stmt|;
 name|rn
 operator|->
@@ -7050,10 +7062,6 @@ name|cname
 operator|=
 name|NULL
 expr_stmt|;
-name|ttl
-operator|=
-literal|0
-expr_stmt|;
 for|for
 control|(
 name|a
@@ -7302,6 +7310,22 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+name|rn
+operator|->
+name|ttl
+operator|=
+name|ngx_min
+argument_list|(
+name|rn
+operator|->
+name|ttl
+argument_list|,
+operator|(
+name|uint32_t
+operator|)
+name|ttl
+argument_list|)
+expr_stmt|;
 name|i
 operator|+=
 sizeof|sizeof
@@ -7471,12 +7495,14 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"resolver naddrs:%ui cname:%p ttl:%d"
+literal|"resolver naddrs:%ui cname:%p ttl:%uD"
 argument_list|,
 name|naddrs
 argument_list|,
 name|cname
 argument_list|,
+name|rn
+operator|->
 name|ttl
 argument_list|)
 expr_stmt|;
@@ -7665,12 +7691,6 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
-name|rn
-operator|->
-name|ttl
-operator|=
-name|ttl
-expr_stmt|;
 name|n
 operator|=
 literal|0
@@ -8435,6 +8455,11 @@ name|r
 operator|->
 name|valid
 else|:
+operator|(
+name|time_t
+operator|)
+name|rn
+operator|->
 name|ttl
 operator|)
 expr_stmt|;
