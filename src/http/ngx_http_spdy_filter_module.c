@@ -3528,10 +3528,7 @@ name|p
 expr_stmt|;
 name|p
 operator|+=
-sizeof|sizeof
-argument_list|(
-name|uint32_t
-argument_list|)
+name|NGX_SPDY_SID_SIZE
 expr_stmt|;
 operator|(
 name|void
