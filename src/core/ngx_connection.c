@@ -921,7 +921,7 @@ directive|if
 operator|(
 name|NGX_HAVE_SETFIB
 operator|)
-block_content|if (getsockopt(ls[i].setfib, SOL_SOCKET, SO_SETFIB,                        (void *)&ls[i].setfib,&olen)             == -1)         {             ngx_log_error(NGX_LOG_ALERT, cycle->log, ngx_socket_errno,                           "getsockopt(SO_SETFIB) %V failed, ignored",&ls[i].addr_text);              ls[i].setfib = -1;         }
+block_content|olen = sizeof(int);          if (getsockopt(ls[i].fd, SOL_SOCKET, SO_SETFIB,                        (void *)&ls[i].setfib,&olen)             == -1)         {             ngx_log_error(NGX_LOG_ALERT, cycle->log, ngx_socket_errno,                           "getsockopt(SO_SETFIB) %V failed, ignored",&ls[i].addr_text);              ls[i].setfib = -1;         }
 endif|#
 directive|endif
 endif|#
@@ -931,6 +931,13 @@ directive|if
 operator|(
 name|NGX_HAVE_TCP_FASTOPEN
 operator|)
+name|olen
+operator|=
+sizeof|sizeof
+argument_list|(
+name|int
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|getsockopt
@@ -940,7 +947,7 @@ index|[
 name|i
 index|]
 operator|.
-name|fastopen
+name|fd
 argument_list|,
 name|IPPROTO_TCP
 argument_list|,
