@@ -89,7 +89,7 @@ value|SSL
 end_define
 
 begin_typedef
-DECL|struct|__anon2c12563c0108
+DECL|struct|__anon275999360108
 typedef|typedef
 struct|struct
 block|{
@@ -103,6 +103,10 @@ name|ngx_log_t
 modifier|*
 name|log
 decl_stmt|;
+DECL|member|buffer_size
+name|size_t
+name|buffer_size
+decl_stmt|;
 DECL|typedef|ngx_ssl_t
 block|}
 name|ngx_ssl_t
@@ -110,7 +114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c12563c0208
+DECL|struct|__anon275999360208
 typedef|typedef
 struct|struct
 block|{
@@ -127,6 +131,10 @@ DECL|member|buf
 name|ngx_buf_t
 modifier|*
 name|buf
+decl_stmt|;
+DECL|member|buffer_size
+name|size_t
+name|buffer_size
 decl_stmt|;
 DECL|member|handler
 name|ngx_connection_handler_pt
@@ -288,7 +296,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c12563c0308
+DECL|struct|__anon275999360308
 typedef|typedef
 struct|struct
 block|{
@@ -317,7 +325,7 @@ name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon2c12563c0408
+DECL|struct|__anon275999360408
 typedef|typedef
 struct|struct
 block|{

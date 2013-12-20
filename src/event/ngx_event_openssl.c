@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29ed147c0108
+DECL|struct|__anon2a9745ca0108
 typedef|typedef
 struct|struct
 block|{
@@ -903,6 +903,12 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|ssl
+operator|->
+name|buffer_size
+operator|=
+name|NGX_SSL_BUFSIZE
+expr_stmt|;
 comment|/* client side options */
 name|SSL_CTX_set_options
 argument_list|(
@@ -3261,6 +3267,14 @@ operator|)
 expr_stmt|;
 name|sc
 operator|->
+name|buffer_size
+operator|=
+name|ssl
+operator|->
+name|buffer_size
+expr_stmt|;
+name|sc
+operator|->
 name|connection
 operator|=
 name|SSL_new
@@ -5203,7 +5217,11 @@ name|c
 operator|->
 name|pool
 argument_list|,
-name|NGX_SSL_BUFSIZE
+name|c
+operator|->
+name|ssl
+operator|->
+name|buffer_size
 argument_list|)
 expr_stmt|;
 if|if
@@ -5245,7 +5263,11 @@ name|c
 operator|->
 name|pool
 argument_list|,
-name|NGX_SSL_BUFSIZE
+name|c
+operator|->
+name|ssl
+operator|->
+name|buffer_size
 argument_list|)
 expr_stmt|;
 if|if
@@ -5285,7 +5307,11 @@ name|buf
 operator|->
 name|start
 operator|+
-name|NGX_SSL_BUFSIZE
+name|c
+operator|->
+name|ssl
+operator|->
+name|buffer_size
 expr_stmt|;
 block|}
 name|send
