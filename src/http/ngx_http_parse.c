@@ -508,7 +508,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon2b51a82e0103
+DECL|enum|__anon28e8669c0103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2867,7 +2867,7 @@ name|hash
 decl_stmt|,
 name|i
 decl_stmt|;
-DECL|enum|__anon2b51a82e0203
+DECL|enum|__anon28e8669c0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -3633,7 +3633,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon2b51a82e0303
+DECL|enum|__anon28e8669c0303
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -4122,7 +4122,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2b51a82e0403
+DECL|enum|__anon28e8669c0403
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -5397,7 +5397,7 @@ name|u_char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2b51a82e0503
+DECL|enum|__anon28e8669c0503
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6051,8 +6051,8 @@ operator|==
 literal|'.'
 operator|&&
 name|len
-operator|==
-literal|3
+operator|>
+literal|1
 operator|&&
 name|p
 index|[
@@ -6062,6 +6062,10 @@ operator|==
 literal|'.'
 operator|&&
 operator|(
+name|len
+operator|==
+literal|2
+operator|||
 name|ngx_path_separator
 argument_list|(
 name|p
@@ -6168,7 +6172,7 @@ operator|>
 literal|2
 condition|)
 block|{
-comment|/* detect "/../" */
+comment|/* detect "/../" and "/.." */
 if|if
 condition|(
 name|p
@@ -6185,6 +6189,11 @@ index|]
 operator|==
 literal|'.'
 operator|&&
+operator|(
+name|len
+operator|==
+literal|3
+operator|||
 name|ngx_path_separator
 argument_list|(
 name|p
@@ -6192,6 +6201,7 @@ index|[
 literal|2
 index|]
 argument_list|)
+operator|)
 condition|)
 block|{
 goto|goto
@@ -6900,7 +6910,7 @@ decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
-DECL|enum|__anon2b51a82e0603
+DECL|enum|__anon28e8669c0603
 enum|enum
 block|{
 DECL|enumerator|sw_chunk_start
