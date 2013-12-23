@@ -54,7 +54,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon2a8c1c880108
+DECL|struct|__anon27cb62da0108
 typedef|typedef
 struct|struct
 block|{
@@ -81,7 +81,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a8c1c880208
+DECL|struct|__anon27cb62da0208
 typedef|typedef
 struct|struct
 block|{
@@ -2668,7 +2668,7 @@ name|p
 expr_stmt|;
 name|flags
 operator|=
-literal|0
+name|NGX_HTTP_LOG_UNSAFE
 expr_stmt|;
 if|if
 condition|(
