@@ -8652,7 +8652,6 @@ name|u
 parameter_list|)
 block|{
 name|ngx_str_t
-modifier|*
 name|uri
 decl_stmt|,
 name|args
@@ -8861,7 +8860,6 @@ block|}
 block|}
 name|uri
 operator|=
-operator|&
 name|u
 operator|->
 name|headers_in
@@ -8886,6 +8884,7 @@ name|ngx_http_parse_unsafe_uri
 argument_list|(
 name|r
 argument_list|,
+operator|&
 name|uri
 argument_list|,
 operator|&
@@ -8929,6 +8928,7 @@ name|ngx_http_internal_redirect
 argument_list|(
 name|r
 argument_list|,
+operator|&
 name|uri
 argument_list|,
 operator|&
