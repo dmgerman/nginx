@@ -481,7 +481,7 @@ DECL|member|blocked
 name|unsigned
 name|blocked
 range|:
-literal|2
+literal|1
 decl_stmt|;
 DECL|member|waiting
 name|unsigned
@@ -550,6 +550,12 @@ decl_stmt|;
 DECL|member|handled
 name|unsigned
 name|handled
+range|:
+literal|1
+decl_stmt|;
+DECL|member|blocked
+name|unsigned
+name|blocked
 range|:
 literal|1
 decl_stmt|;

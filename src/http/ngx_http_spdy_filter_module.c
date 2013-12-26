@@ -3723,6 +3723,12 @@ modifier|*
 name|stream
 parameter_list|)
 block|{
+name|stream
+operator|->
+name|blocked
+operator|=
+literal|1
+expr_stmt|;
 if|if
 condition|(
 name|ngx_http_spdy_send_output_queue
@@ -3745,6 +3751,12 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|stream
+operator|->
+name|blocked
+operator|=
+literal|0
+expr_stmt|;
 if|if
 condition|(
 name|stream
@@ -4290,19 +4302,14 @@ condition|(
 name|stream
 operator|->
 name|handled
+operator|||
+name|stream
+operator|->
+name|blocked
 condition|)
 block|{
 return|return;
 block|}
-if|if
-condition|(
-name|sc
-operator|->
-name|blocked
-operator|==
-literal|2
-condition|)
-block|{
 name|stream
 operator|->
 name|handled
@@ -4323,7 +4330,6 @@ name|last_stream
 operator|=
 name|stream
 expr_stmt|;
-block|}
 block|}
 end_function
 
