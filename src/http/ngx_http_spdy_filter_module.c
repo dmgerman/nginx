@@ -151,9 +151,6 @@ parameter_list|,
 name|size_t
 name|len
 parameter_list|,
-name|ngx_uint_t
-name|flags
-parameter_list|,
 name|ngx_chain_t
 modifier|*
 name|first
@@ -3266,10 +3263,6 @@ name|size_t
 operator|)
 name|size
 argument_list|,
-name|b
-operator|->
-name|last_buf
-argument_list|,
 name|out
 argument_list|,
 name|cl
@@ -3324,7 +3317,7 @@ begin_function
 specifier|static
 name|ngx_http_spdy_out_frame_t
 modifier|*
-DECL|function|ngx_http_spdy_filter_get_data_frame (ngx_http_spdy_stream_t * stream,size_t len,ngx_uint_t fin,ngx_chain_t * first,ngx_chain_t * last)
+DECL|function|ngx_http_spdy_filter_get_data_frame (ngx_http_spdy_stream_t * stream,size_t len,ngx_chain_t * first,ngx_chain_t * last)
 name|ngx_http_spdy_filter_get_data_frame
 parameter_list|(
 name|ngx_http_spdy_stream_t
@@ -3333,9 +3326,6 @@ name|stream
 parameter_list|,
 name|size_t
 name|len
-parameter_list|,
-name|ngx_uint_t
-name|fin
 parameter_list|,
 name|ngx_chain_t
 modifier|*
@@ -3415,6 +3405,18 @@ name|NULL
 return|;
 block|}
 block|}
+name|flags
+operator|=
+name|last
+operator|->
+name|buf
+operator|->
+name|last_buf
+condition|?
+name|NGX_SPDY_FLAG_FIN
+else|:
+literal|0
+expr_stmt|;
 name|ngx_log_debug4
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
@@ -3429,7 +3431,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"spdy:%ui create DATA frame %p: len:%uz fin:%ui"
+literal|"spdy:%ui create DATA frame %p: len:%uz flags:%ui"
 argument_list|,
 name|stream
 operator|->
@@ -3439,24 +3441,16 @@ name|frame
 argument_list|,
 name|len
 argument_list|,
-name|fin
+name|flags
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
 name|len
 operator|||
-name|fin
+name|flags
 condition|)
 block|{
-name|flags
-operator|=
-name|fin
-condition|?
-name|NGX_SPDY_FLAG_FIN
-else|:
-literal|0
-expr_stmt|;
 name|cl
 operator|=
 name|ngx_chain_get_free_buf
@@ -3682,7 +3676,11 @@ name|frame
 operator|->
 name|fin
 operator|=
-name|fin
+name|last
+operator|->
+name|buf
+operator|->
+name|last_buf
 expr_stmt|;
 return|return
 name|frame
