@@ -156,7 +156,7 @@ value|0x08
 end_define
 
 begin_typedef
-DECL|struct|__anon293d83990108
+DECL|struct|__anon278f66570108
 typedef|typedef
 struct|struct
 block|{
@@ -228,7 +228,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293d83990208
+DECL|struct|__anon278f66570208
 typedef|typedef
 struct|struct
 block|{
@@ -2509,6 +2509,19 @@ operator|.
 name|status
 operator|=
 name|NGX_HTTP_OK
+expr_stmt|;
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_type_len
+operator|=
+sizeof|sizeof
+argument_list|(
+literal|"application/json"
+argument_list|)
+operator|-
+literal|1
 expr_stmt|;
 name|ngx_str_set
 argument_list|(

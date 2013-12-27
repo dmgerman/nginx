@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c9a9d340108
+DECL|struct|__anon28ff7ae80108
 typedef|typedef
 struct|struct
 block|{
@@ -75,7 +75,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c9a9d340208
+DECL|struct|__anon28ff7ae80208
 typedef|typedef
 struct|struct
 block|{
@@ -868,6 +868,14 @@ name|content_type
 argument_list|,
 literal|"text/html"
 argument_list|)
+expr_stmt|;
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_type_lowcase
+operator|=
+name|NULL
 expr_stmt|;
 name|rc
 operator|=
