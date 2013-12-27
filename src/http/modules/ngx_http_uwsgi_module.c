@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27b945940108
+DECL|struct|__anon286fe8da0108
 typedef|typedef
 struct|struct
 block|{
@@ -9127,7 +9127,6 @@ literal|1
 index|]
 argument_list|)
 expr_stmt|;
-empty_stmt|;
 name|sc
 operator|.
 name|complete_lengths
