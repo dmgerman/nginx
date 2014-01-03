@@ -16083,6 +16083,14 @@ operator|->
 name|valid_sec
 operator|!=
 literal|0
+operator|&&
+name|u
+operator|->
+name|headers_in
+operator|.
+name|x_accel_expires
+operator|!=
+name|NULL
 condition|)
 block|{
 return|return
