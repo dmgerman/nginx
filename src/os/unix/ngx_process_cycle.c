@@ -4471,6 +4471,18 @@ literal|"sigprocmask() failed"
 argument_list|)
 expr_stmt|;
 block|}
+name|srandom
+argument_list|(
+operator|(
+name|ngx_pid
+operator|<<
+literal|16
+operator|)
+operator|^
+name|ngx_time
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|/*      * disable deleting previous events for the listening sockets because      * in the worker processes there are no events at all at this point      */
 name|ls
 operator|=

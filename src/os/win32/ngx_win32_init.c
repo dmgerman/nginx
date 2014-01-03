@@ -99,7 +99,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2a0646450108
+DECL|struct|__anon28dc2c3e0108
 typedef|typedef
 struct|struct
 block|{
@@ -914,6 +914,12 @@ expr_stmt|;
 block|}
 name|srand
 argument_list|(
+operator|(
+name|ngx_pid
+operator|<<
+literal|16
+operator|)
+operator|^
 operator|(
 name|unsigned
 operator|)
