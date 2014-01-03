@@ -291,7 +291,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2ae5fafb0103
+DECL|enum|__anon2c92fe780103
 typedef|typedef
 enum|enum
 block|{
@@ -318,7 +318,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2ae5fafb0203
+DECL|enum|__anon2c92fe780203
 typedef|typedef
 enum|enum
 block|{
@@ -339,7 +339,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2ae5fafb0303
+DECL|enum|__anon2c92fe780303
 typedef|typedef
 enum|enum
 block|{
@@ -591,6 +591,12 @@ name|unsigned
 name|aio_sendfile
 range|:
 literal|1
+decl_stmt|;
+DECL|member|busy_count
+name|unsigned
+name|busy_count
+range|:
+literal|2
 decl_stmt|;
 DECL|member|busy_sendfile
 name|ngx_buf_t
