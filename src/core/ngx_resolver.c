@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon297a01ee0108
+DECL|struct|__anon2c3647780108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297a01ee0208
+DECL|struct|__anon2c3647780208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297a01ee0308
+DECL|struct|__anon2c3647780308
 typedef|typedef
 struct|struct
 block|{
@@ -1929,6 +1929,42 @@ name|ctx
 operator|->
 name|resolver
 expr_stmt|;
+if|if
+condition|(
+name|ctx
+operator|->
+name|name
+operator|.
+name|len
+operator|>
+literal|0
+operator|&&
+name|ctx
+operator|->
+name|name
+operator|.
+name|data
+index|[
+name|ctx
+operator|->
+name|name
+operator|.
+name|len
+operator|-
+literal|1
+index|]
+operator|==
+literal|'.'
+condition|)
+block|{
+name|ctx
+operator|->
+name|name
+operator|.
+name|len
+operator|--
+expr_stmt|;
+block|}
 name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_CORE
