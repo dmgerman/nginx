@@ -540,6 +540,11 @@ name|ngx_chain_t
 modifier|*
 name|free_data_headers
 decl_stmt|;
+DECL|member|free_bufs
+name|ngx_chain_t
+modifier|*
+name|free_bufs
+decl_stmt|;
 DECL|member|priority
 name|unsigned
 name|priority
