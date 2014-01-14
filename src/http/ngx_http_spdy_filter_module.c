@@ -3207,6 +3207,17 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+if|#
+directive|if
+operator|(
+name|NGX_SUPPRESS_WARN
+operator|)
+name|cl
+operator|=
+name|NULL
+expr_stmt|;
+endif|#
+directive|endif
 name|slcf
 operator|=
 name|ngx_http_get_module_loc_conf
