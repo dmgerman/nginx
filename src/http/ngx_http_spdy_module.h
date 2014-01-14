@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27b735b30108
+DECL|struct|__anon2b418ca50108
 typedef|typedef
 struct|struct
 block|{
@@ -55,7 +55,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b735b30208
+DECL|struct|__anon2b418ca50208
 typedef|typedef
 struct|struct
 block|{
@@ -86,6 +86,21 @@ decl_stmt|;
 DECL|typedef|ngx_http_spdy_srv_conf_t
 block|}
 name|ngx_http_spdy_srv_conf_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2b418ca50308
+typedef|typedef
+struct|struct
+block|{
+DECL|member|chunk_size
+name|size_t
+name|chunk_size
+decl_stmt|;
+DECL|typedef|ngx_http_spdy_loc_conf_t
+block|}
+name|ngx_http_spdy_loc_conf_t
 typedef|;
 end_typedef
 
