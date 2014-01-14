@@ -318,7 +318,7 @@ value|0x01
 end_define
 
 begin_typedef
-DECL|struct|__anon2c2c4f730108
+DECL|struct|__anon28ef53500108
 typedef|typedef
 struct|struct
 block|{
@@ -2492,7 +2492,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"spdy frame out: %p sid:%ui prio:%ui bl:%ui size:%uz"
+literal|"spdy frame out: %p sid:%ui prio:%ui bl:%d size:%uz"
 argument_list|,
 name|out
 argument_list|,
@@ -2683,7 +2683,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"spdy frame sent: %p sid:%ui bl:%ui size:%uz"
+literal|"spdy frame sent: %p sid:%ui bl:%d size:%uz"
 argument_list|,
 name|out
 argument_list|,
@@ -3211,7 +3211,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"spdy process frame head:%08Xd f:%ui l:%ui"
+literal|"spdy process frame head:%08XD f:%Xd l:%uz"
 argument_list|,
 name|head
 argument_list|,
@@ -6578,7 +6578,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"spdy state buffer overflow: "
-literal|"%i bytes required"
+literal|"%z bytes required"
 argument_list|,
 name|end
 operator|-
@@ -7423,7 +7423,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"requested control frame is too big: %z"
+literal|"requested control frame is too big: %uz"
 argument_list|,
 name|size
 argument_list|)
@@ -8214,7 +8214,7 @@ name|ngx_http_core_srv_conf_t
 modifier|*
 name|cscf
 decl_stmt|;
-DECL|enum|__anon2c2c4f730203
+DECL|enum|__anon28ef53500203
 enum|enum
 block|{
 DECL|enumerator|sw_name_len
@@ -8825,7 +8825,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"spdy large header alloc: %p %uz"
+literal|"spdy large header alloc: %p %z"
 argument_list|,
 name|buf
 operator|->
@@ -9271,7 +9271,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2c2c4f730308
+DECL|struct|__anon28ef53500308
 specifier|static
 specifier|const
 struct|struct
