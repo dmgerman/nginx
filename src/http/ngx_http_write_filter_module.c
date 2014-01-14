@@ -797,6 +797,15 @@ name|buffered
 operator|&
 name|NGX_LOWLEVEL_BUFFERED
 operator|)
+operator|&&
+operator|!
+operator|(
+name|last
+operator|&&
+name|c
+operator|->
+name|need_last_buf
+operator|)
 condition|)
 block|{
 if|if

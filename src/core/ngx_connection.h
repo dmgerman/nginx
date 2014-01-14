@@ -291,7 +291,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2c92fe780103
+DECL|enum|__anon2ac3a06a0103
 typedef|typedef
 enum|enum
 block|{
@@ -318,7 +318,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c92fe780203
+DECL|enum|__anon2ac3a06a0203
 typedef|typedef
 enum|enum
 block|{
@@ -339,7 +339,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c92fe780303
+DECL|enum|__anon2ac3a06a0303
 typedef|typedef
 enum|enum
 block|{
@@ -373,6 +373,14 @@ define|#
 directive|define
 name|NGX_SSL_BUFFERED
 value|0x01
+end_define
+
+begin_define
+DECL|macro|NGX_SPDY_BUFFERED
+define|#
+directive|define
+name|NGX_SPDY_BUFFERED
+value|0x02
 end_define
 
 begin_struct
@@ -568,6 +576,12 @@ range|:
 literal|2
 decl_stmt|;
 comment|/* ngx_connection_tcp_nopush_e */
+DECL|member|need_last_buf
+name|unsigned
+name|need_last_buf
+range|:
+literal|1
+decl_stmt|;
 if|#
 directive|if
 operator|(
