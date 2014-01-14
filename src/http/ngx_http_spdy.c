@@ -318,7 +318,7 @@ value|0x01
 end_define
 
 begin_typedef
-DECL|struct|__anon2b3157ae0108
+DECL|struct|__anon2c032b270108
 typedef|typedef
 struct|struct
 block|{
@@ -8214,7 +8214,7 @@ name|ngx_http_core_srv_conf_t
 modifier|*
 name|cscf
 decl_stmt|;
-DECL|enum|__anon2b3157ae0203
+DECL|enum|__anon2c032b270203
 enum|enum
 block|{
 DECL|enumerator|sw_name_len
@@ -9271,7 +9271,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2b3157ae0308
+DECL|struct|__anon2c032b270308
 specifier|static
 specifier|const
 struct|struct
@@ -11135,7 +11135,7 @@ name|stream
 operator|->
 name|connection
 expr_stmt|;
-name|ngx_log_debug2
+name|ngx_log_debug3
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
@@ -11147,17 +11147,46 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"spdy close stream %ui, processing %ui"
+literal|"spdy close stream %ui, queued %ui, processing %ui"
 argument_list|,
 name|stream
 operator|->
 name|id
+argument_list|,
+name|stream
+operator|->
+name|queued
 argument_list|,
 name|sc
 operator|->
 name|processing
 argument_list|)
 expr_stmt|;
+name|fc
+operator|=
+name|stream
+operator|->
+name|request
+operator|->
+name|connection
+expr_stmt|;
+if|if
+condition|(
+name|stream
+operator|->
+name|queued
+condition|)
+block|{
+name|fc
+operator|->
+name|write
+operator|->
+name|handler
+operator|=
+name|ngx_http_spdy_close_stream_handler
+expr_stmt|;
+return|return;
+block|}
 if|if
 condition|(
 operator|!
@@ -11313,14 +11342,6 @@ operator|->
 name|index
 expr_stmt|;
 block|}
-name|fc
-operator|=
-name|stream
-operator|->
-name|request
-operator|->
-name|connection
-expr_stmt|;
 name|ngx_http_free_request
 argument_list|(
 name|stream
@@ -12004,14 +12025,6 @@ operator|->
 name|queued
 condition|)
 block|{
-name|r
-operator|->
-name|blocked
-operator|-=
-name|stream
-operator|->
-name|queued
-expr_stmt|;
 name|stream
 operator|->
 name|queued
