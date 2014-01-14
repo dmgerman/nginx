@@ -483,13 +483,12 @@ name|blocked
 range|:
 literal|1
 decl_stmt|;
-DECL|member|waiting
+DECL|member|incomplete
 name|unsigned
-name|waiting
+name|incomplete
 range|:
 literal|1
 decl_stmt|;
-comment|/* FIXME better name */
 block|}
 struct|;
 end_struct
