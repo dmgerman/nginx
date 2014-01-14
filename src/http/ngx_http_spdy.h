@@ -527,9 +527,9 @@ DECL|member|header_buffers
 name|ngx_uint_t
 name|header_buffers
 decl_stmt|;
-DECL|member|waiting
+DECL|member|queued
 name|ngx_uint_t
-name|waiting
+name|queued
 decl_stmt|;
 DECL|member|free_frames
 name|ngx_http_spdy_out_frame_t

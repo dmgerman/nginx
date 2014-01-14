@@ -2932,7 +2932,7 @@ name|stream
 expr_stmt|;
 name|stream
 operator|->
-name|waiting
+name|queued
 operator|=
 literal|1
 expr_stmt|;
@@ -3050,7 +3050,7 @@ if|if
 condition|(
 name|stream
 operator|->
-name|waiting
+name|queued
 condition|)
 block|{
 return|return
@@ -3290,7 +3290,7 @@ argument_list|)
 expr_stmt|;
 name|stream
 operator|->
-name|waiting
+name|queued
 operator|++
 expr_stmt|;
 name|r
@@ -3742,7 +3742,7 @@ if|if
 condition|(
 name|stream
 operator|->
-name|waiting
+name|queued
 condition|)
 block|{
 name|fc
@@ -4236,7 +4236,7 @@ name|frame
 expr_stmt|;
 name|stream
 operator|->
-name|waiting
+name|queued
 operator|--
 expr_stmt|;
 block|}
@@ -4347,7 +4347,7 @@ if|if
 condition|(
 name|stream
 operator|->
-name|waiting
+name|queued
 operator|==
 literal|0
 condition|)
@@ -4405,7 +4405,7 @@ condition|)
 block|{
 name|stream
 operator|->
-name|waiting
+name|queued
 operator|--
 expr_stmt|;
 name|r
