@@ -3056,6 +3056,14 @@ operator|->
 name|queued
 condition|)
 block|{
+name|fc
+operator|->
+name|write
+operator|->
+name|delayed
+operator|=
+literal|1
+expr_stmt|;
 return|return
 name|NGX_AGAIN
 return|;
