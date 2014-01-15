@@ -164,10 +164,10 @@ name|ngx_buf_t
 modifier|*
 name|buf
 parameter_list|,
-name|size_t
+name|off_t
 name|offset
 parameter_list|,
-name|size_t
+name|off_t
 name|size
 parameter_list|)
 function_decl|;
@@ -3357,6 +3357,9 @@ name|next
 expr_stmt|;
 name|rest
 operator|-=
+operator|(
+name|size_t
+operator|)
 name|size
 expr_stmt|;
 name|in
@@ -3532,6 +3535,9 @@ condition|)
 block|{
 name|frame_size
 operator|=
+operator|(
+name|size_t
+operator|)
 name|limit
 expr_stmt|;
 block|}
@@ -3612,7 +3618,7 @@ begin_function
 specifier|static
 name|ngx_chain_t
 modifier|*
-DECL|function|ngx_http_spdy_filter_get_shadow (ngx_http_spdy_stream_t * stream,ngx_buf_t * buf,size_t offset,size_t size)
+DECL|function|ngx_http_spdy_filter_get_shadow (ngx_http_spdy_stream_t * stream,ngx_buf_t * buf,off_t offset,off_t size)
 name|ngx_http_spdy_filter_get_shadow
 parameter_list|(
 name|ngx_http_spdy_stream_t
@@ -3623,10 +3629,10 @@ name|ngx_buf_t
 modifier|*
 name|buf
 parameter_list|,
-name|size_t
+name|off_t
 name|offset
 parameter_list|,
-name|size_t
+name|off_t
 name|size
 parameter_list|)
 block|{
