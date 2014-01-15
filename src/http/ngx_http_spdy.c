@@ -318,7 +318,7 @@ value|0x01
 end_define
 
 begin_typedef
-DECL|struct|__anon2c032b270108
+DECL|struct|__anon2a1ca7620108
 typedef|typedef
 struct|struct
 block|{
@@ -7041,17 +7041,17 @@ name|handler
 operator|=
 name|ngx_http_spdy_settings_frame_handler
 expr_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG
-operator|)
 name|frame
 operator|->
 name|stream
 operator|=
 name|NULL
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_DEBUG
+operator|)
 name|frame
 operator|->
 name|size
@@ -7390,6 +7390,12 @@ name|handler
 operator|=
 name|ngx_http_spdy_ctl_frame_handler
 expr_stmt|;
+name|frame
+operator|->
+name|stream
+operator|=
+name|NULL
+expr_stmt|;
 block|}
 name|frame
 operator|->
@@ -7432,12 +7438,6 @@ return|return
 name|NULL
 return|;
 block|}
-name|frame
-operator|->
-name|stream
-operator|=
-name|NULL
-expr_stmt|;
 name|frame
 operator|->
 name|size
@@ -8214,7 +8214,7 @@ name|ngx_http_core_srv_conf_t
 modifier|*
 name|cscf
 decl_stmt|;
-DECL|enum|__anon2c032b270203
+DECL|enum|__anon2a1ca7620203
 enum|enum
 block|{
 DECL|enumerator|sw_name_len
@@ -9271,7 +9271,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2c032b270308
+DECL|struct|__anon2a1ca7620308
 specifier|static
 specifier|const
 struct|struct
