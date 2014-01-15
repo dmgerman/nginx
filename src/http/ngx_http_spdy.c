@@ -318,7 +318,7 @@ value|0x01
 end_define
 
 begin_typedef
-DECL|struct|__anon27d6a5c80108
+DECL|struct|__anon28b114650108
 typedef|typedef
 struct|struct
 block|{
@@ -2080,6 +2080,29 @@ argument_list|(
 name|sc
 argument_list|,
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+if|if
+condition|(
+name|sc
+operator|->
+name|last_out
+operator|&&
+name|ngx_http_spdy_send_output_queue
+argument_list|(
+name|sc
+argument_list|)
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+name|ngx_http_spdy_finalize_connection
+argument_list|(
+name|sc
+argument_list|,
+name|NGX_HTTP_CLIENT_CLOSED_REQUEST
 argument_list|)
 expr_stmt|;
 return|return;
@@ -8208,7 +8231,7 @@ name|ngx_http_core_srv_conf_t
 modifier|*
 name|cscf
 decl_stmt|;
-DECL|enum|__anon27d6a5c80203
+DECL|enum|__anon28b114650203
 enum|enum
 block|{
 DECL|enumerator|sw_name_len
@@ -9265,7 +9288,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon27d6a5c80308
+DECL|struct|__anon28b114650308
 specifier|static
 specifier|const
 struct|struct
