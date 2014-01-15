@@ -318,7 +318,7 @@ value|0x01
 end_define
 
 begin_typedef
-DECL|struct|__anon2a1ca7620108
+DECL|struct|__anon27d6a5c80108
 typedef|typedef
 struct|struct
 block|{
@@ -6901,10 +6901,6 @@ name|ngx_buf_t
 modifier|*
 name|buf
 decl_stmt|;
-name|ngx_pool_t
-modifier|*
-name|pool
-decl_stmt|;
 name|ngx_chain_t
 modifier|*
 name|cl
@@ -6932,18 +6928,12 @@ argument_list|,
 literal|"spdy create SETTINGS frame"
 argument_list|)
 expr_stmt|;
-name|pool
-operator|=
-name|sc
-operator|->
-name|connection
-operator|->
-name|pool
-expr_stmt|;
 name|frame
 operator|=
 name|ngx_palloc
 argument_list|(
+name|sc
+operator|->
 name|pool
 argument_list|,
 sizeof|sizeof
@@ -6967,6 +6957,8 @@ name|cl
 operator|=
 name|ngx_alloc_chain_link
 argument_list|(
+name|sc
+operator|->
 name|pool
 argument_list|)
 expr_stmt|;
@@ -6985,6 +6977,8 @@ name|buf
 operator|=
 name|ngx_create_temp_buf
 argument_list|(
+name|sc
+operator|->
 name|pool
 argument_list|,
 name|NGX_SPDY_FRAME_HEADER_SIZE
@@ -8214,7 +8208,7 @@ name|ngx_http_core_srv_conf_t
 modifier|*
 name|cscf
 decl_stmt|;
-DECL|enum|__anon2a1ca7620203
+DECL|enum|__anon27d6a5c80203
 enum|enum
 block|{
 DECL|enumerator|sw_name_len
@@ -9271,7 +9265,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2a1ca7620308
+DECL|struct|__anon27d6a5c80308
 specifier|static
 specifier|const
 struct|struct
