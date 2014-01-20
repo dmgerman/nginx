@@ -451,10 +451,9 @@ name|ngx_http_spdy_out_frame_t
 modifier|*
 name|last_out
 decl_stmt|;
-DECL|member|last_stream
-name|ngx_http_spdy_stream_t
-modifier|*
-name|last_stream
+DECL|member|posted
+name|ngx_queue_t
+name|posted
 decl_stmt|;
 DECL|member|stream
 name|ngx_http_spdy_stream_t
@@ -517,11 +516,6 @@ name|ngx_http_spdy_stream_t
 modifier|*
 name|index
 decl_stmt|;
-DECL|member|next
-name|ngx_http_spdy_stream_t
-modifier|*
-name|next
-decl_stmt|;
 DECL|member|header_buffers
 name|ngx_uint_t
 name|header_buffers
@@ -544,6 +538,10 @@ DECL|member|free_bufs
 name|ngx_chain_t
 modifier|*
 name|free_bufs
+decl_stmt|;
+DECL|member|queue
+name|ngx_queue_t
+name|queue
 decl_stmt|;
 DECL|member|priority
 name|unsigned
