@@ -318,7 +318,7 @@ value|0x01
 end_define
 
 begin_typedef
-DECL|struct|__anon29fe733c0108
+DECL|struct|__anon29a2af740108
 typedef|typedef
 struct|struct
 block|{
@@ -4142,7 +4142,7 @@ return|;
 block|}
 name|sc
 operator|->
-name|headers
+name|entries
 operator|=
 name|ngx_spdy_frame_parse_uint16
 argument_list|(
@@ -4169,11 +4169,11 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"spdy headers count: %ui"
+literal|"spdy HEADERS block consists of %ui entries"
 argument_list|,
 name|sc
 operator|->
-name|headers
+name|entries
 argument_list|)
 expr_stmt|;
 if|if
@@ -4193,7 +4193,7 @@ name|pool
 argument_list|,
 name|sc
 operator|->
-name|headers
+name|entries
 operator|+
 literal|3
 argument_list|,
@@ -4278,7 +4278,7 @@ while|while
 condition|(
 name|sc
 operator|->
-name|headers
+name|entries
 condition|)
 block|{
 name|rc
@@ -4298,7 +4298,7 @@ name|NGX_DONE
 case|:
 name|sc
 operator|->
-name|headers
+name|entries
 operator|--
 expr_stmt|;
 case|case
@@ -6262,7 +6262,7 @@ if|if
 condition|(
 name|sc
 operator|->
-name|headers
+name|entries
 operator|==
 literal|0
 condition|)
@@ -6291,7 +6291,7 @@ return|;
 block|}
 name|sc
 operator|->
-name|headers
+name|entries
 operator|=
 name|ngx_spdy_frame_parse_uint32
 argument_list|(
@@ -6316,7 +6316,7 @@ name|length
 operator|<
 name|sc
 operator|->
-name|headers
+name|entries
 operator|*
 name|NGX_SPDY_SETTINGS_PAIR_SIZE
 condition|)
@@ -6345,7 +6345,7 @@ literal|"spdy SETTINGS frame consists of %ui entries"
 argument_list|,
 name|sc
 operator|->
-name|headers
+name|entries
 argument_list|)
 expr_stmt|;
 block|}
@@ -6353,7 +6353,7 @@ while|while
 condition|(
 name|sc
 operator|->
-name|headers
+name|entries
 condition|)
 block|{
 if|if
@@ -6380,7 +6380,7 @@ return|;
 block|}
 name|sc
 operator|->
-name|headers
+name|entries
 operator|--
 expr_stmt|;
 if|if
@@ -8231,7 +8231,7 @@ name|ngx_http_core_srv_conf_t
 modifier|*
 name|cscf
 decl_stmt|;
-DECL|enum|__anon29fe733c0203
+DECL|enum|__anon29a2af740203
 enum|enum
 block|{
 DECL|enumerator|sw_name_len
@@ -9288,7 +9288,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon29fe733c0308
+DECL|struct|__anon29a2af740308
 specifier|static
 specifier|const
 struct|struct
