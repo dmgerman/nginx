@@ -2716,6 +2716,10 @@ name|header_size
 operator|=
 name|len
 expr_stmt|;
+name|len
+operator|-=
+name|NGX_SPDY_FRAME_HEADER_SIZE
+expr_stmt|;
 if|if
 condition|(
 name|r
@@ -2738,8 +2742,6 @@ argument_list|,
 name|NGX_SPDY_FLAG_FIN
 argument_list|,
 name|len
-operator|-
-name|NGX_SPDY_FRAME_HEADER_SIZE
 argument_list|)
 expr_stmt|;
 block|}
@@ -2754,8 +2756,6 @@ argument_list|,
 literal|0
 argument_list|,
 name|len
-operator|-
-name|NGX_SPDY_FRAME_HEADER_SIZE
 argument_list|)
 expr_stmt|;
 block|}
@@ -2854,7 +2854,7 @@ name|stream
 expr_stmt|;
 name|frame
 operator|->
-name|size
+name|length
 operator|=
 name|len
 expr_stmt|;
@@ -2894,7 +2894,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"spdy:%ui create SYN_REPLY frame %p: size:%uz"
+literal|"spdy:%ui create SYN_REPLY frame %p: len:%uz"
 argument_list|,
 name|stream
 operator|->
@@ -2904,7 +2904,7 @@ name|frame
 argument_list|,
 name|frame
 operator|->
-name|size
+name|length
 argument_list|)
 expr_stmt|;
 name|ngx_http_spdy_queue_blocked_frame
@@ -4087,10 +4087,8 @@ name|stream
 expr_stmt|;
 name|frame
 operator|->
-name|size
+name|length
 operator|=
-name|NGX_SPDY_FRAME_HEADER_SIZE
-operator|+
 name|len
 expr_stmt|;
 name|frame
@@ -4730,9 +4728,11 @@ name|connection
 operator|->
 name|sent
 operator|+=
+name|NGX_SPDY_FRAME_HEADER_SIZE
+operator|+
 name|frame
 operator|->
-name|size
+name|length
 expr_stmt|;
 if|if
 condition|(

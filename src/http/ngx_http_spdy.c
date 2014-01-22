@@ -318,7 +318,7 @@ value|0x01
 end_define
 
 begin_typedef
-DECL|struct|__anon28c8f5920108
+DECL|struct|__anon28786f920108
 typedef|typedef
 struct|struct
 block|{
@@ -2502,7 +2502,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"spdy frame out: %p sid:%ui prio:%ui bl:%d size:%uz"
+literal|"spdy frame out: %p sid:%ui prio:%ui bl:%d len:%uz"
 argument_list|,
 name|out
 argument_list|,
@@ -2528,7 +2528,7 @@ name|blocked
 argument_list|,
 name|out
 operator|->
-name|size
+name|length
 argument_list|)
 expr_stmt|;
 block|}
@@ -2697,7 +2697,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"spdy frame sent: %p sid:%ui bl:%d size:%uz"
+literal|"spdy frame sent: %p sid:%ui bl:%d len:%uz"
 argument_list|,
 name|out
 argument_list|,
@@ -2719,7 +2719,7 @@ name|blocked
 argument_list|,
 name|out
 operator|->
-name|size
+name|length
 argument_list|)
 expr_stmt|;
 block|}
@@ -6740,10 +6740,8 @@ name|NGX_DEBUG
 operator|)
 name|frame
 operator|->
-name|size
+name|length
 operator|=
-name|NGX_SPDY_FRAME_HEADER_SIZE
-operator|+
 name|NGX_SPDY_SETTINGS_NUM_SIZE
 operator|+
 name|NGX_SPDY_SETTINGS_PAIR_SIZE
@@ -6915,7 +6913,7 @@ begin_function
 specifier|static
 name|ngx_http_spdy_out_frame_t
 modifier|*
-DECL|function|ngx_http_spdy_get_ctl_frame (ngx_http_spdy_connection_t * sc,size_t size,ngx_uint_t priority)
+DECL|function|ngx_http_spdy_get_ctl_frame (ngx_http_spdy_connection_t * sc,size_t length,ngx_uint_t priority)
 name|ngx_http_spdy_get_ctl_frame
 parameter_list|(
 name|ngx_http_spdy_connection_t
@@ -6923,7 +6921,7 @@ modifier|*
 name|sc
 parameter_list|,
 name|size_t
-name|size
+name|length
 parameter_list|,
 name|ngx_uint_t
 name|priority
@@ -7088,7 +7086,7 @@ name|NGX_DEBUG
 operator|)
 if|if
 condition|(
-name|size
+name|length
 operator|>
 name|NGX_SPDY_CTL_FRAME_BUFFER_SIZE
 operator|-
@@ -7109,7 +7107,7 @@ literal|0
 argument_list|,
 literal|"requested control frame is too big: %uz"
 argument_list|,
-name|size
+name|length
 argument_list|)
 expr_stmt|;
 return|return
@@ -7118,9 +7116,9 @@ return|;
 block|}
 name|frame
 operator|->
-name|size
+name|length
 operator|=
-name|size
+name|length
 expr_stmt|;
 endif|#
 directive|endif
@@ -7892,7 +7890,7 @@ name|ngx_http_core_srv_conf_t
 modifier|*
 name|cscf
 decl_stmt|;
-DECL|enum|__anon28c8f5920203
+DECL|enum|__anon28786f920203
 enum|enum
 block|{
 DECL|enumerator|sw_name_len
@@ -8949,7 +8947,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon28c8f5920308
+DECL|struct|__anon28786f920308
 specifier|static
 specifier|const
 struct|struct

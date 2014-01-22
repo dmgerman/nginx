@@ -626,9 +626,9 @@ name|ngx_http_spdy_stream_t
 modifier|*
 name|stream
 decl_stmt|;
-DECL|member|size
+DECL|member|length
 name|size_t
-name|size
+name|length
 decl_stmt|;
 DECL|member|priority
 name|ngx_uint_t
