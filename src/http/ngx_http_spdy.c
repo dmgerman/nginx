@@ -318,7 +318,7 @@ value|0x01
 end_define
 
 begin_typedef
-DECL|struct|__anon28b114650108
+DECL|struct|__anon29fe733c0108
 typedef|typedef
 struct|struct
 block|{
@@ -8231,7 +8231,7 @@ name|ngx_http_core_srv_conf_t
 modifier|*
 name|cscf
 decl_stmt|;
-DECL|enum|__anon28b114650203
+DECL|enum|__anon29fe733c0203
 enum|enum
 block|{
 DECL|enumerator|sw_name_len
@@ -9288,7 +9288,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon28b114650308
+DECL|struct|__anon29fe733c0308
 specifier|static
 specifier|const
 struct|struct
@@ -11241,6 +11241,22 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
+block|}
+if|if
+condition|(
+name|sc
+operator|->
+name|stream
+operator|==
+name|stream
+condition|)
+block|{
+name|sc
+operator|->
+name|stream
+operator|=
+name|NULL
+expr_stmt|;
 block|}
 if|if
 condition|(
