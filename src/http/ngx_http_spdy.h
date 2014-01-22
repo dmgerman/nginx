@@ -621,11 +621,6 @@ modifier|*
 name|frame
 parameter_list|)
 function_decl|;
-DECL|member|free
-name|ngx_http_spdy_out_frame_t
-modifier|*
-name|free
-decl_stmt|;
 DECL|member|stream
 name|ngx_http_spdy_stream_t
 modifier|*

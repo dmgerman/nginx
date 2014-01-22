@@ -2848,12 +2848,6 @@ name|ngx_http_spdy_syn_frame_handler
 expr_stmt|;
 name|frame
 operator|->
-name|free
-operator|=
-name|NULL
-expr_stmt|;
-name|frame
-operator|->
 name|stream
 operator|=
 name|stream
@@ -3819,7 +3813,7 @@ name|free_frames
 operator|=
 name|frame
 operator|->
-name|free
+name|next
 expr_stmt|;
 block|}
 else|else
@@ -4084,12 +4078,6 @@ operator|->
 name|handler
 operator|=
 name|ngx_http_spdy_data_frame_handler
-expr_stmt|;
-name|frame
-operator|->
-name|free
-operator|=
-name|NULL
 expr_stmt|;
 name|frame
 operator|->
@@ -4762,7 +4750,7 @@ expr_stmt|;
 block|}
 name|frame
 operator|->
-name|free
+name|next
 operator|=
 name|stream
 operator|->
