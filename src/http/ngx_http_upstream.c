@@ -11341,27 +11341,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|c
-operator|->
-name|read
-operator|->
-name|ready
-operator|||
-name|r
-operator|->
-name|header_in
-operator|->
-name|pos
-operator|!=
-name|r
-operator|->
-name|header_in
-operator|->
-name|last
-condition|)
-block|{
 name|ngx_http_upstream_process_upgraded
 argument_list|(
 name|r
@@ -11371,7 +11350,6 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 end_function
 
