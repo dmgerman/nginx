@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ae009300108
+DECL|struct|__anon2c2bd47f0108
 typedef|typedef
 struct|struct
 block|{
@@ -10535,6 +10535,23 @@ operator|->
 name|connection
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|sess
+operator|==
+name|NULL
+condition|)
+block|{
+name|s
+operator|->
+name|len
+operator|=
+literal|0
+expr_stmt|;
+return|return
+name|NGX_OK
+return|;
+block|}
 name|buf
 operator|=
 name|sess
