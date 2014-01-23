@@ -22,11 +22,11 @@ file|<ngx_http.h>
 end_include
 
 begin_comment
-comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF  * ... header ...  * "Content-Type: image/jpeg" CRLF  * "Content-Length: SIZE" CRLF  * "Content-Range: bytes START-END/SIZE" CRLF  * CRLF  * ... data ...  *  *  * the mutlipart format:  *  * "HTTP/1.0 206 Partial Content" CRLF  * ... header ...  * "Content-Type: multipart/byteranges; boundary=0123456789" CRLF  * CRLF  * CRLF  * "--0123456789" CRLF  * "Content-Type: image/jpeg" CRLF  * "Content-Range: bytes START0-END0/SIZE" CRLF  * CRLF  * ... data ...  * CRLF  * "--0123456789" CRLF  * "Content-Type: image/jpeg" CRLF  * "Content-Range: bytes START1-END1/SIZE" CRLF  * CRLF  * ... data ...  * CRLF  * "--0123456789--" CRLF  */
+comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF  * ... header ...  * "Content-Type: image/jpeg" CRLF  * "Content-Length: SIZE" CRLF  * "Content-Range: bytes START-END/SIZE" CRLF  * CRLF  * ... data ...  *  *  * the multipart format:  *  * "HTTP/1.0 206 Partial Content" CRLF  * ... header ...  * "Content-Type: multipart/byteranges; boundary=0123456789" CRLF  * CRLF  * CRLF  * "--0123456789" CRLF  * "Content-Type: image/jpeg" CRLF  * "Content-Range: bytes START0-END0/SIZE" CRLF  * CRLF  * ... data ...  * CRLF  * "--0123456789" CRLF  * "Content-Type: image/jpeg" CRLF  * "Content-Range: bytes START1-END1/SIZE" CRLF  * CRLF  * ... data ...  * CRLF  * "--0123456789--" CRLF  */
 end_comment
 
 begin_typedef
-DECL|struct|__anon289a59620108
+DECL|struct|__anon2b9494a40108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289a59620208
+DECL|struct|__anon2b9494a40208
 typedef|typedef
 struct|struct
 block|{
