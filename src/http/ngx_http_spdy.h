@@ -48,12 +48,6 @@ name|NGX_SPDY_VERSION
 value|2
 end_define
 
-begin_ifdef
-ifdef|#
-directive|ifdef
-name|TLSEXT_TYPE_next_proto_neg
-end_ifdef
-
 begin_define
 DECL|macro|NGX_SPDY_NPN_ADVERTISE
 define|#
@@ -69,11 +63,6 @@ directive|define
 name|NGX_SPDY_NPN_NEGOTIATED
 value|"spdy/2"
 end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
 
 begin_define
 DECL|macro|NGX_SPDY_STATE_BUFFER_SIZE

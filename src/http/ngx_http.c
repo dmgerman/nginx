@@ -5752,6 +5752,12 @@ operator|(
 name|NGX_HTTP_SPDY
 operator|&&
 name|NGX_HTTP_SSL
+expr|\
+operator|&&
+operator|!
+name|defined
+name|TLSEXT_TYPE_application_layer_protocol_negotiation
+expr|\
 operator|&&
 operator|!
 name|defined
@@ -5776,8 +5782,8 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"nginx was built without OpenSSL NPN support, "
-literal|"SPDY is not enabled for %s"
+literal|"nginx was built without OpenSSL ALPN or NPN "
+literal|"support, SPDY is not enabled for %s"
 argument_list|,
 name|lsopt
 operator|->
