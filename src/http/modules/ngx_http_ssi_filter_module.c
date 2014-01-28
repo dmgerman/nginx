@@ -54,7 +54,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2b330afe0108
+DECL|struct|__anon28a3f56a0108
 typedef|typedef
 struct|struct
 block|{
@@ -98,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b330afe0208
+DECL|struct|__anon28a3f56a0208
 typedef|typedef
 struct|struct
 block|{
@@ -121,7 +121,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b330afe0308
+DECL|struct|__anon28a3f56a0308
 typedef|typedef
 struct|struct
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b330afe0403
+DECL|enum|__anon28a3f56a0403
 typedef|typedef
 enum|enum
 block|{
@@ -990,6 +990,19 @@ init|=
 name|ngx_string
 argument_list|(
 literal|"(none)"
+argument_list|)
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_http_ssi_timefmt
+specifier|static
+name|ngx_str_t
+name|ngx_http_ssi_timefmt
+init|=
+name|ngx_string
+argument_list|(
+literal|"%A, %d-%b-%Y %H:%M:%S %Z"
 argument_list|)
 decl_stmt|;
 end_decl_stmt
@@ -1864,15 +1877,11 @@ name|r
 operator|->
 name|pool
 expr_stmt|;
-name|ngx_str_set
-argument_list|(
-operator|&
 name|ctx
 operator|->
 name|timefmt
-argument_list|,
-literal|"%A, %d-%b-%Y %H:%M:%S %Z"
-argument_list|)
+operator|=
+name|ngx_http_ssi_timefmt
 expr_stmt|;
 name|ngx_str_set
 argument_list|(
@@ -12070,6 +12079,10 @@ name|ngx_time_t
 modifier|*
 name|tp
 decl_stmt|;
+name|ngx_str_t
+modifier|*
+name|timefmt
+decl_stmt|;
 name|struct
 name|tm
 name|tm
@@ -12112,17 +12125,22 @@ argument_list|,
 name|ngx_http_ssi_filter_module
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
+name|timefmt
+operator|=
 name|ctx
-operator|==
-name|NULL
-operator|||
-operator|(
+condition|?
+operator|&
 name|ctx
 operator|->
 name|timefmt
-operator|.
+else|:
+operator|&
+name|ngx_http_ssi_timefmt
+expr_stmt|;
+if|if
+condition|(
+name|timefmt
+operator|->
 name|len
 operator|==
 sizeof|sizeof
@@ -12132,10 +12150,8 @@ argument_list|)
 operator|-
 literal|1
 operator|&&
-name|ctx
-operator|->
 name|timefmt
-operator|.
+operator|->
 name|data
 index|[
 literal|0
@@ -12143,17 +12159,14 @@ index|]
 operator|==
 literal|'%'
 operator|&&
-name|ctx
-operator|->
 name|timefmt
-operator|.
+operator|->
 name|data
 index|[
 literal|1
 index|]
 operator|==
 literal|'s'
-operator|)
 condition|)
 block|{
 name|v
@@ -12250,10 +12263,8 @@ operator|(
 name|char
 operator|*
 operator|)
-name|ctx
-operator|->
 name|timefmt
-operator|.
+operator|->
 name|data
 argument_list|,
 operator|&
