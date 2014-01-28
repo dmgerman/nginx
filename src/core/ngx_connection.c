@@ -3250,21 +3250,10 @@ operator|.
 name|add_deferred
 condition|)
 block|{
+comment|/*                  * There is no way to find out how long a connection was                  * in queue (and a connection may bypass deferred queue at all                  * if syncookies were used), hence we use 1 second timeout                  * here.                  */
 name|value
 operator|=
-operator|(
-name|int
-operator|)
-operator|(
-name|ls
-index|[
-name|i
-index|]
-operator|.
-name|post_accept_timeout
-operator|/
-literal|1000
-operator|)
+literal|1
 expr_stmt|;
 block|}
 else|else
