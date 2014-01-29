@@ -238,7 +238,7 @@ value|NGX_HTTP_MP4_CO64_DATA
 end_define
 
 begin_typedef
-DECL|struct|__anon27d3aab40108
+DECL|struct|__anon2c071afc0108
 typedef|typedef
 struct|struct
 block|{
@@ -257,7 +257,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d3aab40208
+DECL|struct|__anon2c071afc0208
 typedef|typedef
 struct|struct
 block|{
@@ -289,7 +289,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d3aab40308
+DECL|struct|__anon2c071afc0308
 typedef|typedef
 struct|struct
 block|{
@@ -493,7 +493,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d3aab40408
+DECL|struct|__anon2c071afc0408
 typedef|typedef
 struct|struct
 block|{
@@ -635,7 +635,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d3aab40508
+DECL|struct|__anon2c071afc0508
 typedef|typedef
 struct|struct
 block|{
@@ -3798,7 +3798,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon27d3aab40608
+DECL|struct|__anon2c071afc0608
 typedef|typedef
 struct|struct
 block|{
@@ -3823,7 +3823,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d3aab40708
+DECL|struct|__anon2c071afc0708
 typedef|typedef
 struct|struct
 block|{
@@ -5492,7 +5492,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon27d3aab40808
+DECL|struct|__anon2c071afc0808
 typedef|typedef
 struct|struct
 block|{
@@ -5636,7 +5636,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d3aab40908
+DECL|struct|__anon2c071afc0908
 typedef|typedef
 struct|struct
 block|{
@@ -5805,6 +5805,8 @@ name|timescale
 decl_stmt|;
 name|uint64_t
 name|duration
+decl_stmt|,
+name|start_time
 decl_stmt|;
 name|ngx_buf_t
 modifier|*
@@ -6029,8 +6031,8 @@ operator|/
 name|timescale
 argument_list|)
 expr_stmt|;
-name|duration
-operator|-=
+name|start_time
+operator|=
 operator|(
 name|uint64_t
 operator|)
@@ -6041,6 +6043,44 @@ operator|*
 name|timescale
 operator|/
 literal|1000
+expr_stmt|;
+if|if
+condition|(
+name|duration
+operator|<
+name|start_time
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"\"%s\" mp4 start time exceeds file duration"
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|name
+operator|.
+name|data
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
+name|duration
+operator|-=
+name|start_time
 expr_stmt|;
 name|ngx_log_debug2
 argument_list|(
@@ -6498,7 +6538,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon27d3aab40a08
+DECL|struct|__anon2c071afc0a08
 typedef|typedef
 struct|struct
 block|{
@@ -6628,7 +6668,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d3aab40b08
+DECL|struct|__anon2c071afc0b08
 typedef|typedef
 struct|struct
 block|{
@@ -6780,6 +6820,8 @@ name|atom_size
 decl_stmt|;
 name|uint64_t
 name|duration
+decl_stmt|,
+name|start_time
 decl_stmt|;
 name|ngx_buf_t
 modifier|*
@@ -6984,8 +7026,8 @@ operator|->
 name|timescale
 argument_list|)
 expr_stmt|;
-name|duration
-operator|-=
+name|start_time
+operator|=
 operator|(
 name|uint64_t
 operator|)
@@ -6998,6 +7040,36 @@ operator|->
 name|timescale
 operator|/
 literal|1000
+expr_stmt|;
+if|if
+condition|(
+name|duration
+operator|<
+name|start_time
+condition|)
+block|{
+name|ngx_log_debug0
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"tkhd duration is less than start time"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_DECLINED
+return|;
+block|}
+name|duration
+operator|-=
+name|start_time
 expr_stmt|;
 name|ngx_log_debug2
 argument_list|(
@@ -7316,7 +7388,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon27d3aab40c08
+DECL|struct|__anon2c071afc0c08
 typedef|typedef
 struct|struct
 block|{
@@ -7397,7 +7469,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d3aab40d08
+DECL|struct|__anon2c071afc0d08
 typedef|typedef
 struct|struct
 block|{
@@ -7503,6 +7575,8 @@ name|timescale
 decl_stmt|;
 name|uint64_t
 name|duration
+decl_stmt|,
+name|start_time
 decl_stmt|;
 name|ngx_buf_t
 modifier|*
@@ -7725,8 +7799,8 @@ operator|/
 name|timescale
 argument_list|)
 expr_stmt|;
-name|duration
-operator|-=
+name|start_time
+operator|=
 operator|(
 name|uint64_t
 operator|)
@@ -7737,6 +7811,36 @@ operator|*
 name|timescale
 operator|/
 literal|1000
+expr_stmt|;
+if|if
+condition|(
+name|duration
+operator|<
+name|start_time
+condition|)
+block|{
+name|ngx_log_debug0
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"mdhd duration is less than start time"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_DECLINED
+return|;
+block|}
+name|duration
+operator|-=
+name|start_time
 expr_stmt|;
 name|ngx_log_debug2
 argument_list|(
@@ -8830,7 +8934,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon27d3aab40e08
+DECL|struct|__anon2c071afc0e08
 typedef|typedef
 struct|struct
 block|{
@@ -9124,7 +9228,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon27d3aab40f08
+DECL|struct|__anon2c071afc0f08
 typedef|typedef
 struct|struct
 block|{
@@ -9170,7 +9274,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d3aab41008
+DECL|struct|__anon2c071afc1008
 typedef|typedef
 struct|struct
 block|{
@@ -9917,7 +10021,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon27d3aab41108
+DECL|struct|__anon2c071afc1108
 typedef|typedef
 struct|struct
 block|{
@@ -10570,7 +10674,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon27d3aab41208
+DECL|struct|__anon2c071afc1208
 typedef|typedef
 struct|struct
 block|{
@@ -10616,7 +10720,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d3aab41308
+DECL|struct|__anon2c071afc1308
 typedef|typedef
 struct|struct
 block|{
@@ -11248,7 +11352,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon27d3aab41408
+DECL|struct|__anon2c071afc1408
 typedef|typedef
 struct|struct
 block|{
@@ -12352,7 +12456,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon27d3aab41508
+DECL|struct|__anon2c071afc1508
 typedef|typedef
 struct|struct
 block|{
@@ -13021,7 +13125,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon27d3aab41608
+DECL|struct|__anon2c071afc1608
 typedef|typedef
 struct|struct
 block|{
@@ -13752,7 +13856,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon27d3aab41708
+DECL|struct|__anon2c071afc1708
 typedef|typedef
 struct|struct
 block|{
