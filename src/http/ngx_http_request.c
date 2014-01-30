@@ -3144,10 +3144,6 @@ argument_list|(
 name|NGX_SPDY_NPN_NEGOTIATED
 argument_list|)
 decl_stmt|;
-name|len
-operator|=
-literal|0
-expr_stmt|;
 ifdef|#
 directive|ifdef
 name|TLSEXT_TYPE_application_layer_protocol_negotiation
@@ -3166,8 +3162,6 @@ operator|&
 name|len
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 ifdef|#
 directive|ifdef
 name|TLSEXT_TYPE_next_proto_neg
@@ -3194,6 +3188,26 @@ name|len
 argument_list|)
 expr_stmt|;
 block|}
+endif|#
+directive|endif
+else|#
+directive|else
+comment|/* TLSEXT_TYPE_next_proto_neg */
+name|SSL_get0_next_proto_negotiated
+argument_list|(
+name|c
+operator|->
+name|ssl
+operator|->
+name|connection
+argument_list|,
+operator|&
+name|data
+argument_list|,
+operator|&
+name|len
+argument_list|)
+expr_stmt|;
 endif|#
 directive|endif
 if|if
@@ -8296,7 +8310,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon2c1cca840103
+DECL|enum|__anon29d98aff0103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
