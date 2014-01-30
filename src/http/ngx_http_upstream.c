@@ -3137,7 +3137,7 @@ operator|->
 name|port
 operator|)
 operator|&&
-name|ngx_memcmp
+name|ngx_strncasecmp
 argument_list|(
 name|uscf
 operator|->
