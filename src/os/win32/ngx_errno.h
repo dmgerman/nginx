@@ -187,6 +187,14 @@ value|WSAEINPROGRESS
 end_define
 
 begin_define
+DECL|macro|NGX_ENOPROTOOPT
+define|#
+directive|define
+name|NGX_ENOPROTOOPT
+value|WSAENOPROTOOPT
+end_define
+
+begin_define
 DECL|macro|NGX_EOPNOTSUPP
 define|#
 directive|define
