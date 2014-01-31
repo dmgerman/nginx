@@ -811,6 +811,11 @@ name|v
 operator|->
 name|len
 operator|=
+sizeof|sizeof
+argument_list|(
+literal|"3.1"
+argument_list|)
+operator|-
 literal|1
 expr_stmt|;
 name|v
@@ -839,7 +844,7 @@ operator|(
 name|u_char
 operator|*
 operator|)
-literal|"2"
+literal|"3.1"
 expr_stmt|;
 return|return
 name|NGX_OK

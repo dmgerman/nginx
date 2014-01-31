@@ -45,7 +45,7 @@ DECL|macro|NGX_SPDY_VERSION
 define|#
 directive|define
 name|NGX_SPDY_VERSION
-value|2
+value|3
 end_define
 
 begin_define
@@ -53,7 +53,7 @@ DECL|macro|NGX_SPDY_NPN_ADVERTISE
 define|#
 directive|define
 name|NGX_SPDY_NPN_ADVERTISE
-value|"\x06spdy/2"
+value|"\x08spdy/3.1"
 end_define
 
 begin_define
@@ -61,7 +61,7 @@ DECL|macro|NGX_SPDY_NPN_NEGOTIATED
 define|#
 directive|define
 name|NGX_SPDY_NPN_NEGOTIATED
-value|"spdy/2"
+value|"spdy/3.1"
 end_define
 
 begin_define
@@ -113,14 +113,6 @@ value|4
 end_define
 
 begin_define
-DECL|macro|NGX_SPDY_NOOP
-define|#
-directive|define
-name|NGX_SPDY_NOOP
-value|5
-end_define
-
-begin_define
 DECL|macro|NGX_SPDY_PING
 define|#
 directive|define
@@ -145,6 +137,14 @@ value|8
 end_define
 
 begin_define
+DECL|macro|NGX_SPDY_WINDOW_UPDATE
+define|#
+directive|define
+name|NGX_SPDY_WINDOW_UPDATE
+value|9
+end_define
+
+begin_define
 DECL|macro|NGX_SPDY_FRAME_HEADER_SIZE
 define|#
 directive|define
@@ -161,6 +161,14 @@ value|4
 end_define
 
 begin_define
+DECL|macro|NGX_SPDY_DELTA_SIZE
+define|#
+directive|define
+name|NGX_SPDY_DELTA_SIZE
+value|4
+end_define
+
+begin_define
 DECL|macro|NGX_SPDY_SYN_STREAM_SIZE
 define|#
 directive|define
@@ -173,7 +181,7 @@ DECL|macro|NGX_SPDY_SYN_REPLY_SIZE
 define|#
 directive|define
 name|NGX_SPDY_SYN_REPLY_SIZE
-value|6
+value|4
 end_define
 
 begin_define
@@ -197,7 +205,15 @@ DECL|macro|NGX_SPDY_GOAWAY_SIZE
 define|#
 directive|define
 name|NGX_SPDY_GOAWAY_SIZE
-value|4
+value|8
+end_define
+
+begin_define
+DECL|macro|NGX_SPDY_WINDOW_UPDATE_SIZE
+define|#
+directive|define
+name|NGX_SPDY_WINDOW_UPDATE_SIZE
+value|8
 end_define
 
 begin_define
@@ -205,7 +221,7 @@ DECL|macro|NGX_SPDY_NV_NUM_SIZE
 define|#
 directive|define
 name|NGX_SPDY_NV_NUM_SIZE
-value|2
+value|4
 end_define
 
 begin_define
@@ -213,7 +229,7 @@ DECL|macro|NGX_SPDY_NV_NLEN_SIZE
 define|#
 directive|define
 name|NGX_SPDY_NV_NLEN_SIZE
-value|2
+value|4
 end_define
 
 begin_define
@@ -221,7 +237,7 @@ DECL|macro|NGX_SPDY_NV_VLEN_SIZE
 define|#
 directive|define
 name|NGX_SPDY_NV_VLEN_SIZE
-value|2
+value|4
 end_define
 
 begin_define
@@ -233,10 +249,10 @@ value|4
 end_define
 
 begin_define
-DECL|macro|NGX_SPDY_SETTINGS_IDF_SIZE
+DECL|macro|NGX_SPDY_SETTINGS_FID_SIZE
 define|#
 directive|define
-name|NGX_SPDY_SETTINGS_IDF_SIZE
+name|NGX_SPDY_SETTINGS_FID_SIZE
 value|4
 end_define
 
@@ -254,7 +270,7 @@ define|#
 directive|define
 name|NGX_SPDY_SETTINGS_PAIR_SIZE
 define|\
-value|(NGX_SPDY_SETTINGS_IDF_SIZE + NGX_SPDY_SETTINGS_VAL_SIZE)
+value|(NGX_SPDY_SETTINGS_FID_SIZE + NGX_SPDY_SETTINGS_VAL_SIZE)
 end_define
 
 begin_define
@@ -270,7 +286,7 @@ DECL|macro|NGX_SPDY_LOWEST_PRIORITY
 define|#
 directive|define
 name|NGX_SPDY_LOWEST_PRIORITY
-value|3
+value|7
 end_define
 
 begin_define
@@ -390,6 +406,22 @@ decl_stmt|;
 DECL|member|processing
 name|ngx_uint_t
 name|processing
+decl_stmt|;
+DECL|member|send_window
+name|size_t
+name|send_window
+decl_stmt|;
+DECL|member|recv_window
+name|size_t
+name|recv_window
+decl_stmt|;
+DECL|member|init_window
+name|size_t
+name|init_window
+decl_stmt|;
+DECL|member|waiting
+name|ngx_queue_t
+name|waiting
 decl_stmt|;
 DECL|member|buffer
 name|u_char
@@ -513,6 +545,15 @@ DECL|member|queued
 name|ngx_uint_t
 name|queued
 decl_stmt|;
+comment|/*      * A change to SETTINGS_INITIAL_WINDOW_SIZE could cause the      * send_window to become negative, hence it's signed.      */
+DECL|member|send_window
+name|ssize_t
+name|send_window
+decl_stmt|;
+DECL|member|recv_window
+name|size_t
+name|recv_window
+decl_stmt|;
 DECL|member|free_frames
 name|ngx_http_spdy_out_frame_t
 modifier|*
@@ -536,7 +577,7 @@ DECL|member|priority
 name|unsigned
 name|priority
 range|:
-literal|2
+literal|3
 decl_stmt|;
 DECL|member|handled
 name|unsigned
@@ -547,6 +588,12 @@ decl_stmt|;
 DECL|member|blocked
 name|unsigned
 name|blocked
+range|:
+literal|1
+decl_stmt|;
+DECL|member|exhausted
+name|unsigned
+name|exhausted
 range|:
 literal|1
 decl_stmt|;
@@ -977,10 +1024,34 @@ value|ngx_spdy_frame_aligned_write_uint32(p, (f)<< 24 | (l))
 end_define
 
 begin_define
+DECL|macro|ngx_spdy_frame_write_flags_and_id (p,f,i)
+define|#
+directive|define
+name|ngx_spdy_frame_write_flags_and_id
+parameter_list|(
+name|p
+parameter_list|,
+name|f
+parameter_list|,
+name|i
+parameter_list|)
+define|\
+value|ngx_spdy_frame_aligned_write_uint32(p, (f)<< 24 | (i))
+end_define
+
+begin_define
 DECL|macro|ngx_spdy_frame_write_sid
 define|#
 directive|define
 name|ngx_spdy_frame_write_sid
+value|ngx_spdy_frame_aligned_write_uint32
+end_define
+
+begin_define
+DECL|macro|ngx_spdy_frame_write_window
+define|#
+directive|define
+name|ngx_spdy_frame_write_window
 value|ngx_spdy_frame_aligned_write_uint32
 end_define
 
