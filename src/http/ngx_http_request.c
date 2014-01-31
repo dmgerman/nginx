@@ -8310,7 +8310,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon29d98aff0103
+DECL|enum|__anon2b94581c0103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -8600,6 +8600,17 @@ name|ngx_http_core_srv_conf_t
 modifier|*
 name|cscf
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_SUPPRESS_WARN
+operator|)
+name|cscf
+operator|=
+name|NULL
+expr_stmt|;
+endif|#
+directive|endif
 name|hc
 operator|=
 name|r
