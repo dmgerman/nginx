@@ -4943,7 +4943,7 @@ condition|)
 block|{
 name|err
 operator|=
-name|ngx_errno
+name|ngx_socket_errno
 expr_stmt|;
 block|}
 if|if
@@ -8597,7 +8597,7 @@ condition|)
 block|{
 name|err
 operator|=
-name|ngx_errno
+name|ngx_socket_errno
 expr_stmt|;
 block|}
 if|if

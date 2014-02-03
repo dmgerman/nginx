@@ -8310,7 +8310,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon2b94581c0103
+DECL|enum|__anon299e37860103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -11633,7 +11633,7 @@ condition|)
 block|{
 name|err
 operator|=
-name|ngx_errno
+name|ngx_socket_errno
 expr_stmt|;
 block|}
 goto|goto

@@ -1081,7 +1081,7 @@ condition|)
 block|{
 name|err
 operator|=
-name|ngx_errno
+name|ngx_socket_errno
 expr_stmt|;
 if|if
 condition|(
@@ -1245,7 +1245,7 @@ condition|)
 block|{
 name|err
 operator|=
-name|ngx_errno
+name|ngx_socket_errno
 expr_stmt|;
 if|if
 condition|(
@@ -3051,7 +3051,7 @@ name|cycle
 operator|->
 name|log
 argument_list|,
-name|ngx_errno
+name|ngx_socket_errno
 argument_list|,
 literal|"setsockopt(SO_ACCEPTFILTER, NULL) "
 literal|"for %V failed, ignored"
@@ -3203,7 +3203,7 @@ name|cycle
 operator|->
 name|log
 argument_list|,
-name|ngx_errno
+name|ngx_socket_errno
 argument_list|,
 literal|"setsockopt(SO_ACCEPTFILTER, \"%s\") "
 literal|"for %V failed, ignored"
@@ -3317,7 +3317,7 @@ name|cycle
 operator|->
 name|log
 argument_list|,
-name|ngx_errno
+name|ngx_socket_errno
 argument_list|,
 literal|"setsockopt(TCP_DEFER_ACCEPT, %d) for %V failed, "
 literal|"ignored"

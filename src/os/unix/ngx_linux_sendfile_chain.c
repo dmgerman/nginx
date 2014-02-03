@@ -616,7 +616,7 @@ condition|)
 block|{
 name|err
 operator|=
-name|ngx_errno
+name|ngx_socket_errno
 expr_stmt|;
 comment|/*                      * there is a tiny chance to be interrupted, however,                      * we continue a processing with the TCP_NODELAY                      * and without the TCP_CORK                      */
 if|if
@@ -692,7 +692,7 @@ condition|)
 block|{
 name|err
 operator|=
-name|ngx_errno
+name|ngx_socket_errno
 expr_stmt|;
 comment|/*                      * there is a tiny chance to be interrupted, however,                      * we continue a processing without the TCP_CORK                      */
 if|if
