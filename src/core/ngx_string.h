@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon290755ee0108
+DECL|struct|__anon2a4710e80108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290755ee0208
+DECL|struct|__anon2a4710e80208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290755ee0308
+DECL|struct|__anon2a4710e80308
 typedef|typedef
 struct|struct
 block|{
@@ -1070,6 +1070,21 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
+name|void
+name|ngx_encode_base64url
+parameter_list|(
+name|ngx_str_t
+modifier|*
+name|dst
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|src
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
 name|ngx_int_t
 name|ngx_decode_base64
 parameter_list|(
@@ -1285,7 +1300,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon290755ee0408
+DECL|struct|__anon2a4710e80408
 typedef|typedef
 struct|struct
 block|{
