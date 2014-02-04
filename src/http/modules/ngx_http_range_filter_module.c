@@ -26,7 +26,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon2b9494a40108
+DECL|struct|__anon2a1165120108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b9494a40208
+DECL|struct|__anon2a1165120208
 typedef|typedef
 struct|struct
 block|{
@@ -1665,6 +1665,20 @@ name|r
 operator|->
 name|headers_out
 operator|.
+name|content_type_len
+operator|==
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_type
+operator|.
+name|len
+operator|&&
+name|r
+operator|->
+name|headers_out
+operator|.
 name|charset
 operator|.
 name|len
@@ -1732,6 +1746,20 @@ name|r
 operator|->
 name|headers_out
 operator|.
+name|content_type_len
+operator|==
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_type
+operator|.
+name|len
+operator|&&
+name|r
+operator|->
+name|headers_out
+operator|.
 name|charset
 operator|.
 name|len
@@ -1780,16 +1808,6 @@ operator|->
 name|boundary_header
 operator|.
 name|data
-expr_stmt|;
-name|r
-operator|->
-name|headers_out
-operator|.
-name|charset
-operator|.
-name|len
-operator|=
-literal|0
 expr_stmt|;
 block|}
 if|else if
@@ -1966,6 +1984,16 @@ operator|.
 name|content_type
 operator|.
 name|len
+expr_stmt|;
+name|r
+operator|->
+name|headers_out
+operator|.
+name|charset
+operator|.
+name|len
+operator|=
+literal|0
 expr_stmt|;
 comment|/* the size of the last boundary CRLF "--0123456789--" CRLF */
 name|len
