@@ -4416,13 +4416,14 @@ argument_list|,
 name|queue
 argument_list|)
 expr_stmt|;
+comment|/*          * NB: higher values represent lower priorities.          */
 if|if
 condition|(
-name|s
+name|stream
 operator|->
 name|priority
 operator|>=
-name|stream
+name|s
 operator|->
 name|priority
 condition|)

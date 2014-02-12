@@ -728,6 +728,7 @@ operator|->
 name|next
 control|)
 block|{
+comment|/*          * NB: higher values represent lower priorities.          */
 if|if
 condition|(
 name|frame
