@@ -99,7 +99,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon28dc2c3e0108
+DECL|struct|__anon2a8f532f0108
 typedef|typedef
 struct|struct
 block|{
@@ -292,6 +292,19 @@ argument_list|(
 name|OSVERSIONINFOEX
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|_MSC_VER
+pragma|#
+directive|pragma
+name|warning
+name|(
+name|disable
+name|:
+name|4996
+name|)
+endif|#
+directive|endif
 name|osviex
 operator|=
 name|GetVersionEx
@@ -351,6 +364,19 @@ name|NGX_ERROR
 return|;
 block|}
 block|}
+ifdef|#
+directive|ifdef
+name|_MSC_VER
+pragma|#
+directive|pragma
+name|warning
+name|(
+name|default
+name|:
+name|4996
+name|)
+endif|#
+directive|endif
 comment|/*      *  Windows 3.1 Win32s   0xxxxx      *      *  Windows 95           140000      *  Windows 98           141000      *  Windows ME           149000      *  Windows NT 3.51      235100      *  Windows NT 4.0       240000      *  Windows NT 4.0 SP5   240050      *  Windows 2000         250000      *  Windows XP           250100      *  Windows 2003         250200      *  Windows Vista/2008   260000      *      *  Windows CE x.x       3xxxxx      */
 name|ngx_win32_version
 operator|=
