@@ -11331,6 +11331,16 @@ operator|.
 name|last
 condition|)
 block|{
+name|ngx_post_event
+argument_list|(
+name|c
+operator|->
+name|read
+argument_list|,
+operator|&
+name|ngx_posted_events
+argument_list|)
+expr_stmt|;
 name|ngx_http_upstream_process_upgraded
 argument_list|(
 name|r
@@ -11340,6 +11350,7 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 name|ngx_http_upstream_process_upgraded
 argument_list|(
