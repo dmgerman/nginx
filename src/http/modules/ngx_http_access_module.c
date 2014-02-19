@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29b420610108
+DECL|struct|__anon277791670108
 typedef|typedef
 struct|struct
 block|{
@@ -54,7 +54,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon29b420610208
+DECL|struct|__anon277791670208
 typedef|typedef
 struct|struct
 block|{
@@ -93,7 +93,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon29b420610308
+DECL|struct|__anon277791670308
 typedef|typedef
 struct|struct
 block|{
@@ -114,7 +114,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29b420610408
+DECL|struct|__anon277791670408
 typedef|typedef
 struct|struct
 block|{
@@ -1149,6 +1149,12 @@ name|i
 operator|++
 control|)
 block|{
+comment|/* TODO: check path */
+if|if
+condition|(
+literal|1
+condition|)
+block|{
 return|return
 name|ngx_http_access_found
 argument_list|(
@@ -1162,6 +1168,7 @@ operator|.
 name|deny
 argument_list|)
 return|;
+block|}
 block|}
 return|return
 name|NGX_DECLINED
