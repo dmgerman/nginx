@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2c3647780108
+DECL|struct|__anon2ad0de660108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3647780208
+DECL|struct|__anon2ad0de660208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3647780308
+DECL|struct|__anon2ad0de660308
 typedef|typedef
 struct|struct
 block|{
@@ -13256,41 +13256,9 @@ name|ngx_nonblocking_n
 literal|" failed"
 argument_list|)
 expr_stmt|;
-name|ngx_free_connection
-argument_list|(
-name|c
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|ngx_close_socket
-argument_list|(
-name|s
-argument_list|)
-operator|==
-operator|-
-literal|1
-condition|)
-block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_ALERT
-argument_list|,
-operator|&
-name|uc
-operator|->
-name|log
-argument_list|,
-name|ngx_socket_errno
-argument_list|,
-name|ngx_close_socket_n
-literal|" failed"
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|NGX_ERROR
-return|;
+goto|goto
+name|failed
+goto|;
 block|}
 name|rev
 operator|=
@@ -13446,9 +13414,9 @@ argument_list|,
 literal|"connect() failed"
 argument_list|)
 expr_stmt|;
-return|return
-name|NGX_ERROR
-return|;
+goto|goto
+name|failed
+goto|;
 block|}
 comment|/* UDP sockets are always ready to write */
 name|wev
@@ -13491,9 +13459,9 @@ operator|!=
 name|NGX_OK
 condition|)
 block|{
-return|return
-name|NGX_ERROR
-return|;
+goto|goto
+name|failed
+goto|;
 block|}
 block|}
 else|else
@@ -13509,13 +13477,29 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
-return|return
-name|NGX_ERROR
-return|;
+goto|goto
+name|failed
+goto|;
 block|}
 block|}
 return|return
 name|NGX_OK
+return|;
+name|failed
+label|:
+name|ngx_close_connection
+argument_list|(
+name|c
+argument_list|)
+expr_stmt|;
+name|uc
+operator|->
+name|connection
+operator|=
+name|NULL
+expr_stmt|;
+return|return
+name|NGX_ERROR
 return|;
 block|}
 end_function
