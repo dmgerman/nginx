@@ -3556,7 +3556,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"%V_buffer_size %uz is not enough for cache key, "
-literal|"it should increased at least to %uz"
+literal|"it should be increased to at least %uz"
 argument_list|,
 operator|&
 name|u
