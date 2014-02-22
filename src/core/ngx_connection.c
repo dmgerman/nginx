@@ -578,7 +578,7 @@ name|NGX_INET6_ADDRSTRLEN
 operator|+
 sizeof|sizeof
 argument_list|(
-literal|":65535"
+literal|"[]:65535"
 argument_list|)
 operator|-
 literal|1
