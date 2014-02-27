@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b76ec1a0108
+DECL|struct|__anon2acf2cf50108
 typedef|typedef
 struct|struct
 block|{
@@ -11104,6 +11104,45 @@ literal|0
 argument_list|,
 literal|"rewrite or internal redirection cycle "
 literal|"while redirect to named location \"%V\""
+argument_list|,
+name|name
+argument_list|)
+expr_stmt|;
+name|ngx_http_finalize_request
+argument_list|(
+name|r
+argument_list|,
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_DONE
+return|;
+block|}
+if|if
+condition|(
+name|r
+operator|->
+name|uri
+operator|.
+name|len
+operator|==
+literal|0
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"empty URI in redirect to named location \"%V\""
 argument_list|,
 name|name
 argument_list|)
