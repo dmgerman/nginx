@@ -3918,13 +3918,13 @@ operator|&&
 name|clcf
 operator|->
 name|client_max_body_size
-operator|<
+operator|-
 name|r
 operator|->
 name|headers_in
 operator|.
 name|content_length_n
-operator|+
+operator|<
 name|rb
 operator|->
 name|chunked
@@ -3945,14 +3945,14 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"client intended to send too large chunked "
-literal|"body: %O bytes"
+literal|"body: %O+%O bytes"
 argument_list|,
 name|r
 operator|->
 name|headers_in
 operator|.
 name|content_length_n
-operator|+
+argument_list|,
 name|rb
 operator|->
 name|chunked
