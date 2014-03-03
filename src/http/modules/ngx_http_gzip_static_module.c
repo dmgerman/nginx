@@ -46,7 +46,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2c14f3040108
+DECL|struct|__anon29587b0f0108
 typedef|typedef
 struct|struct
 block|{
@@ -182,7 +182,7 @@ name|NGX_HTTP_SRV_CONF
 operator||
 name|NGX_HTTP_LOC_CONF
 operator||
-name|NGX_CONF_FLAG
+name|NGX_CONF_TAKE1
 block|,
 name|ngx_conf_set_enum_slot
 block|,
