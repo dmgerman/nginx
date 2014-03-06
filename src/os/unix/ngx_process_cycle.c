@@ -4882,7 +4882,14 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"open socket #%d left in connection %ui"
+literal|"*%uA open socket #%d left in connection %ui"
+argument_list|,
+name|c
+index|[
+name|i
+index|]
+operator|.
+name|number
 argument_list|,
 name|c
 index|[
