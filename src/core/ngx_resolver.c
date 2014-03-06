@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2ad0de660108
+DECL|struct|__anon2c27552b0108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad0de660208
+DECL|struct|__anon2c27552b0208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad0de660308
+DECL|struct|__anon2c27552b0308
 typedef|typedef
 struct|struct
 block|{
@@ -13362,7 +13362,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"connect to %V, fd:%d #%d"
+literal|"connect to %V, fd:%d #%uA"
 argument_list|,
 operator|&
 name|uc

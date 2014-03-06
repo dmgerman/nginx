@@ -1462,7 +1462,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"*%d accept: %V fd:%d"
+literal|"*%uA accept: %V fd:%d"
 argument_list|,
 name|c
 operator|->

@@ -479,7 +479,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"*%ui client %V connected to %V"
+literal|"*%uA client %V connected to %V"
 argument_list|,
 name|c
 operator|->

@@ -526,7 +526,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"connect to %V, fd:%d #%d"
+literal|"connect to %V, fd:%d #%uA"
 argument_list|,
 name|pc
 operator|->
