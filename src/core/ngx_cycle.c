@@ -2433,7 +2433,7 @@ name|sockaddr
 argument_list|,
 name|ls
 index|[
-name|n
+name|i
 index|]
 operator|.
 name|socklen
@@ -2484,14 +2484,14 @@ if|if
 condition|(
 name|ls
 index|[
-name|n
+name|i
 index|]
 operator|.
 name|backlog
 operator|!=
 name|nls
 index|[
-name|i
+name|n
 index|]
 operator|.
 name|backlog
@@ -2643,7 +2643,7 @@ if|if
 condition|(
 name|ls
 index|[
-name|n
+name|i
 index|]
 operator|.
 name|deferred_accept
