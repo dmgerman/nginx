@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b3bbb720108
+DECL|struct|__anon2c6b67f30108
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b3bbb720203
+DECL|enum|__anon2c6b67f30203
 typedef|typedef
 enum|enum
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3bbb720308
+DECL|struct|__anon2c6b67f30308
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3bbb720408
+DECL|struct|__anon2c6b67f30408
 typedef|typedef
 struct|struct
 block|{
@@ -320,7 +320,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2b3bbb720508
+DECL|struct|__anon2c6b67f30508
 typedef|typedef
 struct|struct
 block|{
@@ -363,7 +363,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3bbb720608
+DECL|struct|__anon2c6b67f30608
 typedef|typedef
 struct|struct
 block|{
@@ -393,7 +393,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3bbb720708
+DECL|struct|__anon2c6b67f30708
 typedef|typedef
 struct|struct
 block|{
@@ -420,7 +420,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3bbb720808
+DECL|struct|__anon2c6b67f30808
 typedef|typedef
 struct|struct
 block|{
@@ -5747,6 +5747,22 @@ name|large_stderr
 operator|=
 literal|0
 expr_stmt|;
+if|if
+condition|(
+name|f
+operator|->
+name|split_parts
+condition|)
+block|{
+name|f
+operator|->
+name|split_parts
+operator|->
+name|nelts
+operator|=
+literal|0
+expr_stmt|;
+block|}
 name|r
 operator|->
 name|state
@@ -7018,6 +7034,33 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|rc
+operator|!=
+name|NGX_OK
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"invalid header after joining "
+literal|"FastCGI records"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
 name|h
 operator|->
 name|key
