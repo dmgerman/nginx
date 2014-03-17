@@ -237,11 +237,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2931794a0108
+DECL|struct|__anon2967aee80108
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon2931794a020a
+DECL|union|__anon2967aee8020a
 union|union
 block|{
 DECL|member|sockaddr
@@ -365,6 +365,12 @@ name|so_keepalive
 range|:
 literal|2
 decl_stmt|;
+DECL|member|proxy_protocol
+name|unsigned
+name|proxy_protocol
+range|:
+literal|1
+decl_stmt|;
 DECL|member|backlog
 name|int
 name|backlog
@@ -463,7 +469,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2931794a0303
+DECL|enum|__anon2967aee80303
 typedef|typedef
 enum|enum
 block|{
@@ -558,7 +564,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2931794a0408
+DECL|struct|__anon2967aee80408
 typedef|typedef
 struct|struct
 block|{
@@ -582,7 +588,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2931794a0508
+DECL|struct|__anon2967aee80508
 typedef|typedef
 struct|struct
 block|{
@@ -597,7 +603,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2931794a0608
+DECL|struct|__anon2967aee80608
 typedef|typedef
 struct|struct
 block|{
@@ -674,7 +680,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2931794a0708
+DECL|struct|__anon2967aee80708
 typedef|typedef
 struct|struct
 block|{
@@ -761,7 +767,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2931794a0808
+DECL|struct|__anon2967aee80808
 typedef|typedef
 struct|struct
 block|{
@@ -794,7 +800,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2931794a0908
+DECL|struct|__anon2967aee80908
 typedef|typedef
 struct|struct
 block|{
@@ -859,12 +865,18 @@ literal|1
 decl_stmt|;
 endif|#
 directive|endif
+DECL|member|proxy_protocol
+name|unsigned
+name|proxy_protocol
+range|:
+literal|1
+decl_stmt|;
 block|}
 struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2931794a0a08
+DECL|struct|__anon2967aee80a08
 typedef|typedef
 struct|struct
 block|{
@@ -891,7 +903,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2931794a0b08
+DECL|struct|__anon2967aee80b08
 typedef|typedef
 struct|struct
 block|{
@@ -916,7 +928,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2931794a0c08
+DECL|struct|__anon2967aee80c08
 typedef|typedef
 struct|struct
 block|{
@@ -937,7 +949,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2931794a0d08
+DECL|struct|__anon2967aee80d08
 typedef|typedef
 struct|struct
 block|{
@@ -961,7 +973,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2931794a0e08
+DECL|struct|__anon2967aee80e08
 typedef|typedef
 struct|struct
 block|{
@@ -1017,7 +1029,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2931794a0f08
+DECL|struct|__anon2967aee80f08
 typedef|typedef
 struct|struct
 block|{
@@ -1044,7 +1056,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2931794a1008
+DECL|struct|__anon2967aee81008
 typedef|typedef
 struct|struct
 block|{
@@ -1579,7 +1591,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2931794a1108
+DECL|struct|__anon2967aee81108
 typedef|typedef
 struct|struct
 block|{
