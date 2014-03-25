@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon295d9f780108
+DECL|struct|__anon29e1295f0108
 typedef|typedef
 struct|struct
 block|{
@@ -14737,7 +14737,7 @@ name|cmcf
 operator|->
 name|variables_hash_max_size
 argument_list|,
-literal|512
+literal|1024
 argument_list|)
 expr_stmt|;
 name|ngx_conf_init_uint_value
