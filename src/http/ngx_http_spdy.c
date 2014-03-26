@@ -417,7 +417,7 @@ value|NGX_SPDY_MAX_WINDOW
 end_define
 
 begin_typedef
-DECL|struct|__anon2afae7690108
+DECL|struct|__anon2a2e22470108
 typedef|typedef
 struct|struct
 block|{
@@ -7231,6 +7231,43 @@ operator|<
 name|NGX_SPDY_NV_NUM_SIZE
 condition|)
 block|{
+if|if
+condition|(
+name|complete
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"client sent SYN_STREAM frame "
+literal|"with invalid HEADERS block"
+argument_list|)
+expr_stmt|;
+name|ngx_http_spdy_close_stream
+argument_list|(
+name|sc
+operator|->
+name|stream
+argument_list|,
+name|NGX_HTTP_BAD_REQUEST
+argument_list|)
+expr_stmt|;
+return|return
+name|ngx_http_spdy_state_protocol_error
+argument_list|(
+name|sc
+argument_list|)
+return|;
+block|}
 return|return
 name|ngx_http_spdy_state_save
 argument_list|(
@@ -12358,7 +12395,7 @@ name|ngx_http_core_srv_conf_t
 modifier|*
 name|cscf
 decl_stmt|;
-DECL|enum|__anon2afae7690203
+DECL|enum|__anon2a2e22470203
 enum|enum
 block|{
 DECL|enumerator|sw_name_len
@@ -13409,7 +13446,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2afae7690308
+DECL|struct|__anon2a2e22470308
 specifier|static
 specifier|const
 struct|struct
