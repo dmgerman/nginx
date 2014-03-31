@@ -1046,7 +1046,7 @@ operator|=
 name|start
 init|;
 name|size
-operator|<
+operator|<=
 name|hinit
 operator|->
 name|max_size
