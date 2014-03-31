@@ -4094,6 +4094,8 @@ condition|(
 name|ngx_terminate
 operator|||
 name|ngx_quit
+operator|||
+name|ngx_exiting
 condition|)
 block|{
 name|ngx_log_error
@@ -4126,6 +4128,8 @@ condition|(
 name|ngx_terminate
 operator|||
 name|ngx_quit
+operator|||
+name|ngx_exiting
 condition|)
 block|{
 name|ngx_log_error
@@ -4401,6 +4405,8 @@ condition|(
 name|ngx_terminate
 operator|||
 name|ngx_quit
+operator|||
+name|ngx_exiting
 condition|)
 block|{
 break|break;
