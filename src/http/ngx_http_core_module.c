@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29e1295f0108
+DECL|struct|__anon2bc985fc0108
 typedef|typedef
 struct|struct
 block|{
@@ -15923,7 +15923,7 @@ name|prev
 operator|->
 name|types_hash_bucket_size
 argument_list|,
-name|ngx_cacheline_size
+literal|64
 argument_list|)
 expr_stmt|;
 name|conf
