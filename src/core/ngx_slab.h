@@ -60,7 +60,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29c64c360108
+DECL|struct|__anon2c704e830108
 typedef|typedef
 struct|struct
 block|{
@@ -107,6 +107,12 @@ decl_stmt|;
 DECL|member|zero
 name|u_char
 name|zero
+decl_stmt|;
+DECL|member|log_nomem
+name|unsigned
+name|log_nomem
+range|:
+literal|1
 decl_stmt|;
 DECL|member|data
 name|void

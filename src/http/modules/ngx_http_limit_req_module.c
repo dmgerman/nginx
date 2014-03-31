@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2aef522e0108
+DECL|struct|__anon2adeda660108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aef522e0208
+DECL|struct|__anon2adeda660208
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aef522e0308
+DECL|struct|__anon2adeda660308
 typedef|typedef
 struct|struct
 block|{
@@ -131,7 +131,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aef522e0408
+DECL|struct|__anon2adeda660408
 typedef|typedef
 struct|struct
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aef522e0508
+DECL|struct|__anon2adeda660508
 typedef|typedef
 struct|struct
 block|{
@@ -1878,6 +1878,25 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|ngx_cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"could not allocate node%s"
+argument_list|,
+name|ctx
+operator|->
+name|shpool
+operator|->
+name|log_ctx
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
@@ -2802,6 +2821,14 @@ name|shm
 operator|.
 name|name
 argument_list|)
+expr_stmt|;
+name|ctx
+operator|->
+name|shpool
+operator|->
+name|log_nomem
+operator|=
+literal|0
 expr_stmt|;
 return|return
 name|NGX_OK

@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29a86d6d0108
+DECL|struct|__anon28c1db9f0108
 typedef|typedef
 struct|struct
 block|{
@@ -7709,6 +7709,12 @@ operator|.
 name|name
 argument_list|)
 expr_stmt|;
+name|shpool
+operator|->
+name|log_nomem
+operator|=
+literal|0
+expr_stmt|;
 return|return
 name|NGX_OK
 return|;
@@ -8237,7 +8243,11 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"could not add new SSL session to the session cache"
+literal|"could not allocate new session%s"
+argument_list|,
+name|shpool
+operator|->
+name|log_ctx
 argument_list|)
 expr_stmt|;
 return|return

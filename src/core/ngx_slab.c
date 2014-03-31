@@ -675,6 +675,12 @@ expr_stmt|;
 block|}
 name|pool
 operator|->
+name|log_nomem
+operator|=
+literal|1
+expr_stmt|;
+name|pool
+operator|->
 name|log_ctx
 operator|=
 operator|&
@@ -3270,6 +3276,13 @@ name|page
 return|;
 block|}
 block|}
+if|if
+condition|(
+name|pool
+operator|->
+name|log_nomem
+condition|)
+block|{
 name|ngx_slab_error
 argument_list|(
 name|pool
@@ -3279,6 +3292,7 @@ argument_list|,
 literal|"ngx_slab_alloc() failed: no memory"
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|NULL
 return|;
