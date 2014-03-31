@@ -246,7 +246,7 @@ value|NGX_HTTP_MP4_CO64_DATA
 end_define
 
 begin_typedef
-DECL|struct|__anon29134b820108
+DECL|struct|__anon2c2def290108
 typedef|typedef
 struct|struct
 block|{
@@ -265,7 +265,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29134b820208
+DECL|struct|__anon2c2def290208
 typedef|typedef
 struct|struct
 block|{
@@ -297,7 +297,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29134b820308
+DECL|struct|__anon2c2def290308
 typedef|typedef
 struct|struct
 block|{
@@ -529,7 +529,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29134b820408
+DECL|struct|__anon2c2def290408
 typedef|typedef
 struct|struct
 block|{
@@ -675,7 +675,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29134b820508
+DECL|struct|__anon2c2def290508
 typedef|typedef
 struct|struct
 block|{
@@ -4073,7 +4073,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29134b820608
+DECL|struct|__anon2c2def290608
 typedef|typedef
 struct|struct
 block|{
@@ -4098,7 +4098,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29134b820708
+DECL|struct|__anon2c2def290708
 typedef|typedef
 struct|struct
 block|{
@@ -5780,7 +5780,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29134b820808
+DECL|struct|__anon2c2def290808
 typedef|typedef
 struct|struct
 block|{
@@ -5924,7 +5924,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29134b820908
+DECL|struct|__anon2c2def290908
 typedef|typedef
 struct|struct
 block|{
@@ -6861,7 +6861,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29134b820a08
+DECL|struct|__anon2c2def290a08
 typedef|typedef
 struct|struct
 block|{
@@ -6991,7 +6991,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29134b820b08
+DECL|struct|__anon2c2def290b08
 typedef|typedef
 struct|struct
 block|{
@@ -7748,7 +7748,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29134b820c08
+DECL|struct|__anon2c2def290c08
 typedef|typedef
 struct|struct
 block|{
@@ -7829,7 +7829,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29134b820d08
+DECL|struct|__anon2c2def290d08
 typedef|typedef
 struct|struct
 block|{
@@ -9329,7 +9329,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29134b820e08
+DECL|struct|__anon2c2def290e08
 typedef|typedef
 struct|struct
 block|{
@@ -9623,7 +9623,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29134b820f08
+DECL|struct|__anon2c2def290f08
 typedef|typedef
 struct|struct
 block|{
@@ -9669,7 +9669,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29134b821008
+DECL|struct|__anon2c2def291008
 typedef|typedef
 struct|struct
 block|{
@@ -10130,6 +10130,25 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"time-to-sample entries:%uD"
+argument_list|,
+name|trak
+operator|->
+name|time_to_sample_entries
+argument_list|)
+expr_stmt|;
 name|atom_size
 operator|=
 sizeof|sizeof
@@ -10257,6 +10276,23 @@ name|mp4
 operator|->
 name|start
 expr_stmt|;
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"mp4 stts crop start_time:%ui"
+argument_list|,
+name|start_sec
+argument_list|)
+expr_stmt|;
 block|}
 if|else if
 condition|(
@@ -10270,6 +10306,23 @@ operator|=
 name|mp4
 operator|->
 name|length
+expr_stmt|;
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"mp4 stts crop end_time:%ui"
+argument_list|,
+name|start_sec
+argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -10301,23 +10354,6 @@ operator|->
 name|timescale
 operator|/
 literal|1000
-expr_stmt|;
-name|ngx_log_debug1
-argument_list|(
-name|NGX_LOG_DEBUG_HTTP
-argument_list|,
-name|mp4
-operator|->
-name|file
-operator|.
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"time-to-sample start_time:%uL"
-argument_list|,
-name|start_time
-argument_list|)
 expr_stmt|;
 name|entries
 operator|=
@@ -10374,7 +10410,7 @@ operator|->
 name|duration
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug2
+name|ngx_log_debug3
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
@@ -10386,7 +10422,9 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"count:%uD, duration:%uD"
+literal|"time:%uL, count:%uD, duration:%uD"
+argument_list|,
+name|start_time
 argument_list|,
 name|count
 argument_list|,
@@ -10460,7 +10498,13 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"start time is out mp4 stts samples in \"%s\""
+literal|"%s time is out mp4 stts samples in \"%s\""
+argument_list|,
+name|start
+condition|?
+literal|"start"
+else|:
+literal|"end"
 argument_list|,
 name|mp4
 operator|->
@@ -10476,25 +10520,6 @@ name|NGX_ERROR
 return|;
 name|found
 label|:
-name|ngx_log_debug2
-argument_list|(
-name|NGX_LOG_DEBUG_HTTP
-argument_list|,
-name|mp4
-operator|->
-name|file
-operator|.
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"start_sample:%ui, new count:%uD"
-argument_list|,
-name|start_sample
-argument_list|,
-name|count
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|start
@@ -10532,6 +10557,29 @@ operator|->
 name|start_sample
 operator|=
 name|start_sample
+expr_stmt|;
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"start_sample:%ui, new count:%uD"
+argument_list|,
+name|trak
+operator|->
+name|start_sample
+argument_list|,
+name|count
+operator|-
+name|rest
+argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -10577,6 +10625,27 @@ name|start_sample
 operator|+
 name|start_sample
 expr_stmt|;
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"end_sample:%ui, new count:%uD"
+argument_list|,
+name|trak
+operator|->
+name|end_sample
+argument_list|,
+name|rest
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|NGX_OK
@@ -10585,7 +10654,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29134b821108
+DECL|struct|__anon2c2def291108
 typedef|typedef
 struct|struct
 block|{
@@ -11037,6 +11106,25 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"sync sample entries:%uD"
+argument_list|,
+name|trak
+operator|->
+name|sync_samples_entries
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|trak
@@ -11234,6 +11322,23 @@ name|start_sample
 operator|+
 literal|1
 expr_stmt|;
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"mp4 stss crop start_sample:%uD"
+argument_list|,
+name|start_sample
+argument_list|)
+expr_stmt|;
 block|}
 if|else if
 condition|(
@@ -11249,6 +11354,23 @@ operator|->
 name|end_sample
 operator|+
 literal|1
+expr_stmt|;
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"mp4 stss crop end_sample:%uD"
+argument_list|,
+name|start_sample
+argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -11306,7 +11428,7 @@ argument_list|(
 name|entry
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug2
+name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
@@ -11318,9 +11440,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"start:%uD, sync:%uD"
-argument_list|,
-name|start_sample
+literal|"sync:%uD"
 argument_list|,
 name|sample
 argument_list|)
@@ -11355,7 +11475,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"start sample is out of mp4 stss atom"
+literal|"sample is out of mp4 stss atom"
 argument_list|)
 expr_stmt|;
 name|found
@@ -11405,7 +11525,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29134b821208
+DECL|struct|__anon2c2def291208
 typedef|typedef
 struct|struct
 block|{
@@ -11451,7 +11571,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29134b821308
+DECL|struct|__anon2c2def291308
 typedef|typedef
 struct|struct
 block|{
@@ -11869,6 +11989,25 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"composition offset entries:%uD"
+argument_list|,
+name|trak
+operator|->
+name|composition_offset_entries
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|trak
@@ -12023,6 +12162,23 @@ name|start_sample
 operator|+
 literal|1
 expr_stmt|;
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"mp4 ctts crop start_sample:%uD"
+argument_list|,
+name|start_sample
+argument_list|)
+expr_stmt|;
 block|}
 if|else if
 condition|(
@@ -12042,6 +12198,23 @@ operator|->
 name|start_sample
 operator|+
 literal|1
+expr_stmt|;
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"mp4 ctts crop end_sample:%uD"
+argument_list|,
+name|start_sample
+argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -12113,7 +12286,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"start:%uD, count:%uD, offset:%uD"
+literal|"sample:%uD, count:%uD, offset:%uD"
 argument_list|,
 name|start_sample
 argument_list|,
@@ -12251,7 +12424,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29134b821408
+DECL|struct|__anon2c2def291408
 typedef|typedef
 struct|struct
 block|{
@@ -12779,6 +12952,25 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"sample-to-chunk entries:%uD"
+argument_list|,
+name|trak
+operator|->
+name|sample_to_chunk_entries
+argument_list|)
+expr_stmt|;
 name|entry
 operator|=
 operator|(
@@ -12982,6 +13174,23 @@ name|trak
 operator|->
 name|start_sample
 expr_stmt|;
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"mp4 stsc crop start_sample:%uD"
+argument_list|,
+name|start_sample
+argument_list|)
+expr_stmt|;
 block|}
 if|else if
 condition|(
@@ -13004,6 +13213,10 @@ name|trak
 operator|->
 name|start_sample
 operator|)
+expr_stmt|;
+name|samples
+operator|=
+literal|0
 expr_stmt|;
 name|data
 operator|=
@@ -13064,7 +13277,12 @@ name|samples
 argument_list|)
 expr_stmt|;
 block|}
-name|ngx_log_debug1
+name|start_sample
+operator|-=
+name|samples
+expr_stmt|;
+block|}
+name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
@@ -13076,16 +13294,13 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"mp4 stsc using %uD start samples"
+literal|"mp4 stsc crop end_sample:%uD, ext_samples:%uD"
+argument_list|,
+name|start_sample
 argument_list|,
 name|samples
 argument_list|)
 expr_stmt|;
-name|start_sample
-operator|-=
-name|samples
-expr_stmt|;
-block|}
 block|}
 else|else
 block|{
@@ -13186,7 +13401,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"start_sample:%uD, chunk:%uD, chunks:%uD, "
+literal|"sample:%uD, chunk:%uD, chunks:%uD, "
 literal|"samples:%uD, id:%uD"
 argument_list|,
 name|start_sample
@@ -13280,7 +13495,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"start_sample:%uD, chunk:%uD, chunks:%uD, samples:%uD"
+literal|"sample:%uD, chunk:%uD, chunks:%uD, samples:%uD"
 argument_list|,
 name|start_sample
 argument_list|,
@@ -13322,7 +13537,13 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"start time is out mp4 stsc chunks in \"%s\""
+literal|"%s time is out mp4 stsc chunks in \"%s\""
+argument_list|,
+name|start
+condition|?
+literal|"start"
+else|:
+literal|"end"
 argument_list|,
 name|mp4
 operator|->
@@ -13397,25 +13618,6 @@ name|start_sample
 operator|%
 name|samples
 expr_stmt|;
-name|ngx_log_debug2
-argument_list|(
-name|NGX_LOG_DEBUG_HTTP
-argument_list|,
-name|mp4
-operator|->
-name|file
-operator|.
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"start chunk:%ui, samples:%uD"
-argument_list|,
-name|target_chunk
-argument_list|,
-name|chunk_samples
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|start
@@ -13465,6 +13667,29 @@ expr_stmt|;
 name|samples
 operator|-=
 name|chunk_samples
+expr_stmt|;
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"start_chunk:%ui, start_chunk_samples:%ui"
+argument_list|,
+name|trak
+operator|->
+name|start_chunk
+argument_list|,
+name|trak
+operator|->
+name|start_chunk_samples
+argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -13566,6 +13791,29 @@ operator|=
 name|chunk
 operator|+
 literal|1
+expr_stmt|;
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"end_chunk:%ui, end_chunk_samples:%ui"
+argument_list|,
+name|trak
+operator|->
+name|end_chunk
+argument_list|,
+name|trak
+operator|->
+name|end_chunk_samples
+argument_list|)
 expr_stmt|;
 block|}
 if|if
@@ -13805,7 +14053,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29134b821508
+DECL|struct|__anon2c2def291508
 typedef|typedef
 struct|struct
 block|{
@@ -14610,7 +14858,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29134b821608
+DECL|struct|__anon2c2def291608
 typedef|typedef
 struct|struct
 block|{
@@ -15152,7 +15400,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"start chunk offset:%uD"
+literal|"start chunk offset:%O"
 argument_list|,
 name|trak
 operator|->
@@ -15505,7 +15753,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon29134b821708
+DECL|struct|__anon2c2def291708
 typedef|typedef
 struct|struct
 block|{
@@ -16047,7 +16295,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"start chunk offset:%uL"
+literal|"start chunk offset:%O"
 argument_list|,
 name|trak
 operator|->
