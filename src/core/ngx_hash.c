@@ -1165,7 +1165,7 @@ continue|continue;
 block|}
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_EMERG
+name|NGX_LOG_WARN
 argument_list|,
 name|hinit
 operator|->
@@ -1175,8 +1175,9 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"could not build the %s, you should increase "
-literal|"either %s_max_size: %i or %s_bucket_size: %i"
+literal|"could not build optimal %s, you should increase "
+literal|"either %s_max_size: %i or %s_bucket_size: %i; "
+literal|"ignoring %s_bucket_size"
 argument_list|,
 name|hinit
 operator|->
@@ -1197,16 +1198,12 @@ argument_list|,
 name|hinit
 operator|->
 name|bucket_size
+argument_list|,
+name|hinit
+operator|->
+name|name
 argument_list|)
 expr_stmt|;
-name|ngx_free
-argument_list|(
-name|test
-argument_list|)
-expr_stmt|;
-return|return
-name|NGX_ERROR
-return|;
 name|found
 label|:
 for|for
