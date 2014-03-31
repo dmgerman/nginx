@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4311b20108
+DECL|struct|__anon2c5104ca0108
 typedef|typedef
 struct|struct
 block|{
@@ -88,7 +88,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4311b20208
+DECL|struct|__anon2c5104ca0208
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a4311b20308
+DECL|struct|__anon2c5104ca0308
 typedef|typedef
 struct|struct
 block|{
@@ -181,6 +181,12 @@ directive|ifdef
 name|__CYGWIN__
 end_ifdef
 
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|NGX_HAVE_CASELESS_FILESYSTEM
+end_ifndef
+
 begin_define
 DECL|macro|NGX_HAVE_CASELESS_FILESYSTEM
 define|#
@@ -188,6 +194,11 @@ directive|define
 name|NGX_HAVE_CASELESS_FILESYSTEM
 value|1
 end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_define
 DECL|macro|ngx_open_file (name,mode,create,access)
