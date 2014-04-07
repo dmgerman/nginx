@@ -193,7 +193,7 @@ parameter_list|(
 name|h
 parameter_list|)
 define|\
-value|(((h)& 0xffffff00) == ngx_spdy_ctl_frame_head(0))
+value|(((h)& 0xffff0000) == ngx_spdy_ctl_frame_head(0))
 end_define
 
 begin_define
@@ -216,7 +216,7 @@ name|ngx_spdy_ctl_frame_type
 parameter_list|(
 name|h
 parameter_list|)
-value|((h)& 0x000000ff)
+value|((h)& 0x0000ffff)
 end_define
 
 begin_define
@@ -417,7 +417,7 @@ value|NGX_SPDY_MAX_WINDOW
 end_define
 
 begin_typedef
-DECL|struct|__anon2925f98c0108
+DECL|struct|__anon2b31db6a0108
 typedef|typedef
 struct|struct
 block|{
@@ -6258,6 +6258,9 @@ name|head
 decl_stmt|,
 name|flen
 decl_stmt|;
+name|ngx_uint_t
+name|type
+decl_stmt|;
 if|if
 condition|(
 name|end
@@ -6359,12 +6362,16 @@ name|head
 argument_list|)
 condition|)
 block|{
-switch|switch
-condition|(
+name|type
+operator|=
 name|ngx_spdy_ctl_frame_type
 argument_list|(
 name|head
 argument_list|)
+expr_stmt|;
+switch|switch
+condition|(
+name|type
 condition|)
 block|{
 case|case
@@ -6465,7 +6472,23 @@ name|end
 argument_list|)
 return|;
 default|default:
-comment|/* TODO logging */
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|sc
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"spdy control frame with unknown type %ui"
+argument_list|,
+name|type
+argument_list|)
+expr_stmt|;
 return|return
 name|ngx_http_spdy_state_skip
 argument_list|(
@@ -12427,7 +12450,7 @@ name|ngx_http_core_srv_conf_t
 modifier|*
 name|cscf
 decl_stmt|;
-DECL|enum|__anon2925f98c0203
+DECL|enum|__anon2b31db6a0203
 enum|enum
 block|{
 DECL|enumerator|sw_name_len
@@ -13478,7 +13501,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2925f98c0308
+DECL|struct|__anon2b31db6a0308
 specifier|static
 specifier|const
 struct|struct
