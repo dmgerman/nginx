@@ -417,7 +417,7 @@ value|NGX_SPDY_MAX_WINDOW
 end_define
 
 begin_typedef
-DECL|struct|__anon2baa6e460108
+DECL|struct|__anon2925f98c0108
 typedef|typedef
 struct|struct
 block|{
@@ -9078,9 +9078,6 @@ decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
-name|ngx_uint_t
-name|complete
-decl_stmt|;
 name|ngx_temp_file_t
 modifier|*
 name|tf
@@ -9169,7 +9166,7 @@ expr_stmt|;
 if|if
 condition|(
 name|size
-operator|>=
+operator|>
 name|sc
 operator|->
 name|length
@@ -9180,17 +9177,6 @@ operator|=
 name|sc
 operator|->
 name|length
-expr_stmt|;
-name|complete
-operator|=
-literal|1
-expr_stmt|;
-block|}
-else|else
-block|{
-name|complete
-operator|=
-literal|0
 expr_stmt|;
 block|}
 name|r
@@ -9457,8 +9443,9 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-operator|!
-name|complete
+name|sc
+operator|->
+name|length
 condition|)
 block|{
 return|return
@@ -12440,7 +12427,7 @@ name|ngx_http_core_srv_conf_t
 modifier|*
 name|cscf
 decl_stmt|;
-DECL|enum|__anon2baa6e460203
+DECL|enum|__anon2925f98c0203
 enum|enum
 block|{
 DECL|enumerator|sw_name_len
@@ -13491,7 +13478,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2baa6e460308
+DECL|struct|__anon2925f98c0308
 specifier|static
 specifier|const
 struct|struct
