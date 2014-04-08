@@ -417,7 +417,7 @@ value|NGX_SPDY_MAX_WINDOW
 end_define
 
 begin_typedef
-DECL|struct|__anon2b31db6a0108
+DECL|struct|__anon2af2cf970108
 typedef|typedef
 struct|struct
 block|{
@@ -8784,10 +8784,6 @@ argument_list|,
 literal|"client violated connection flow control: length of "
 literal|"received DATA frame %uz, while available window %uz"
 argument_list|,
-name|stream
-operator|->
-name|id
-argument_list|,
 name|sc
 operator|->
 name|length
@@ -12450,7 +12446,7 @@ name|ngx_http_core_srv_conf_t
 modifier|*
 name|cscf
 decl_stmt|;
-DECL|enum|__anon2b31db6a0203
+DECL|enum|__anon2af2cf970203
 enum|enum
 block|{
 DECL|enumerator|sw_name_len
@@ -13501,7 +13497,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2b31db6a0308
+DECL|struct|__anon2af2cf970308
 specifier|static
 specifier|const
 struct|struct
