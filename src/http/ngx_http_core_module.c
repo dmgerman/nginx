@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bc985fc0108
+DECL|struct|__anon28efcb2a0108
 typedef|typedef
 struct|struct
 block|{
@@ -9998,6 +9998,7 @@ block|}
 end_function
 
 begin_function
+specifier|static
 name|ngx_uint_t
 DECL|function|ngx_http_gzip_quantity (u_char * p,u_char * last)
 name|ngx_http_gzip_quantity
