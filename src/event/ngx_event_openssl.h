@@ -89,7 +89,7 @@ value|SSL
 end_define
 
 begin_typedef
-DECL|struct|__anon292cd2f00108
+DECL|struct|__anon2a9d08990108
 typedef|typedef
 struct|struct
 block|{
@@ -114,7 +114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292cd2f00208
+DECL|struct|__anon2a9d08990208
 typedef|typedef
 struct|struct
 block|{
@@ -296,7 +296,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon292cd2f00308
+DECL|struct|__anon2a9d08990308
 typedef|typedef
 struct|struct
 block|{
@@ -325,7 +325,7 @@ name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon292cd2f00408
+DECL|struct|__anon2a9d08990408
 typedef|typedef
 struct|struct
 block|{
@@ -866,6 +866,25 @@ end_function_decl
 begin_function_decl
 name|ngx_int_t
 name|ngx_ssl_get_session_reused
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|,
+name|ngx_pool_t
+modifier|*
+name|pool
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|s
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_ssl_get_server_name
 parameter_list|(
 name|ngx_connection_t
 modifier|*
