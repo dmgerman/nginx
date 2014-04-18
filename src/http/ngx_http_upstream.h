@@ -245,7 +245,7 @@ value|0x00000100
 end_define
 
 begin_typedef
-DECL|struct|__anon2c96d6eb0108
+DECL|struct|__anon298dc2db0108
 typedef|typedef
 struct|struct
 block|{
@@ -285,7 +285,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c96d6eb0208
+DECL|struct|__anon298dc2db0208
 typedef|typedef
 struct|struct
 block|{
@@ -354,7 +354,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c96d6eb0308
+DECL|struct|__anon298dc2db0308
 typedef|typedef
 struct|struct
 block|{
@@ -378,7 +378,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c96d6eb0408
+DECL|struct|__anon298dc2db0408
 typedef|typedef
 struct|struct
 block|{
@@ -525,7 +525,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c96d6eb0508
+DECL|struct|__anon298dc2db0508
 typedef|typedef
 struct|struct
 block|{
@@ -546,7 +546,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c96d6eb0608
+DECL|struct|__anon298dc2db0608
 typedef|typedef
 struct|struct
 block|{
@@ -760,6 +760,15 @@ DECL|member|ssl_session_reuse
 name|ngx_flag_t
 name|ssl_session_reuse
 decl_stmt|;
+DECL|member|ssl_name
+name|ngx_http_complex_value_t
+modifier|*
+name|ssl_name
+decl_stmt|;
+DECL|member|ssl_server_name
+name|ngx_flag_t
+name|ssl_server_name
+decl_stmt|;
 endif|#
 directive|endif
 DECL|member|module
@@ -773,7 +782,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c96d6eb0708
+DECL|struct|__anon298dc2db0708
 typedef|typedef
 struct|struct
 block|{
@@ -809,7 +818,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c96d6eb0808
+DECL|struct|__anon298dc2db0808
 typedef|typedef
 struct|struct
 block|{
@@ -944,7 +953,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c96d6eb0908
+DECL|struct|__anon298dc2db0908
 typedef|typedef
 struct|struct
 block|{
@@ -1257,6 +1266,17 @@ DECL|member|uri
 name|ngx_str_t
 name|uri
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_SSL
+operator|)
+DECL|member|ssl_name
+name|ngx_str_t
+name|ssl_name
+decl_stmt|;
+endif|#
+directive|endif
 DECL|member|cleanup
 name|ngx_http_cleanup_pt
 modifier|*
@@ -1334,7 +1354,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c96d6eb0a08
+DECL|struct|__anon298dc2db0a08
 typedef|typedef
 struct|struct
 block|{
@@ -1353,7 +1373,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c96d6eb0b08
+DECL|struct|__anon298dc2db0b08
 typedef|typedef
 struct|struct
 block|{
