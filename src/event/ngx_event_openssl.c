@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b8c82040108
+DECL|struct|__anon27c217380108
 typedef|typedef
 struct|struct
 block|{
@@ -10076,7 +10076,7 @@ block|{
 comment|/* encrypt session ticket */
 name|ngx_log_debug3
 argument_list|(
-name|NGX_LOG_DEBUG_HTTP
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
 name|c
 operator|->
@@ -10222,7 +10222,7 @@ block|}
 block|}
 name|ngx_log_debug2
 argument_list|(
-name|NGX_LOG_DEBUG_HTTP
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
 name|c
 operator|->
@@ -10253,7 +10253,7 @@ name|found
 label|:
 name|ngx_log_debug3
 argument_list|(
-name|NGX_LOG_DEBUG_HTTP
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
 name|c
 operator|->
