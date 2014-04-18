@@ -245,7 +245,7 @@ value|0x00000100
 end_define
 
 begin_typedef
-DECL|struct|__anon298dc2db0108
+DECL|struct|__anon2a3cadcd0108
 typedef|typedef
 struct|struct
 block|{
@@ -285,7 +285,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298dc2db0208
+DECL|struct|__anon2a3cadcd0208
 typedef|typedef
 struct|struct
 block|{
@@ -354,7 +354,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298dc2db0308
+DECL|struct|__anon2a3cadcd0308
 typedef|typedef
 struct|struct
 block|{
@@ -378,7 +378,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298dc2db0408
+DECL|struct|__anon2a3cadcd0408
 typedef|typedef
 struct|struct
 block|{
@@ -525,7 +525,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon298dc2db0508
+DECL|struct|__anon2a3cadcd0508
 typedef|typedef
 struct|struct
 block|{
@@ -546,7 +546,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298dc2db0608
+DECL|struct|__anon2a3cadcd0608
 typedef|typedef
 struct|struct
 block|{
@@ -769,6 +769,10 @@ DECL|member|ssl_server_name
 name|ngx_flag_t
 name|ssl_server_name
 decl_stmt|;
+DECL|member|ssl_verify
+name|ngx_flag_t
+name|ssl_verify
+decl_stmt|;
 endif|#
 directive|endif
 DECL|member|module
@@ -782,7 +786,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298dc2db0708
+DECL|struct|__anon2a3cadcd0708
 typedef|typedef
 struct|struct
 block|{
@@ -818,7 +822,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298dc2db0808
+DECL|struct|__anon2a3cadcd0808
 typedef|typedef
 struct|struct
 block|{
@@ -953,7 +957,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298dc2db0908
+DECL|struct|__anon2a3cadcd0908
 typedef|typedef
 struct|struct
 block|{
@@ -1354,7 +1358,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon298dc2db0a08
+DECL|struct|__anon2a3cadcd0a08
 typedef|typedef
 struct|struct
 block|{
@@ -1373,7 +1377,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298dc2db0b08
+DECL|struct|__anon2a3cadcd0b08
 typedef|typedef
 struct|struct
 block|{

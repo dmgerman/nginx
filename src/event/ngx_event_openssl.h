@@ -89,7 +89,7 @@ value|SSL
 end_define
 
 begin_typedef
-DECL|struct|__anon2a9d08990108
+DECL|struct|__anon2983560a0108
 typedef|typedef
 struct|struct
 block|{
@@ -114,7 +114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a9d08990208
+DECL|struct|__anon2983560a0208
 typedef|typedef
 struct|struct
 block|{
@@ -296,7 +296,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a9d08990308
+DECL|struct|__anon2983560a0308
 typedef|typedef
 struct|struct
 block|{
@@ -325,7 +325,7 @@ name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon2a9d08990408
+DECL|struct|__anon2983560a0408
 typedef|typedef
 struct|struct
 block|{
@@ -805,6 +805,21 @@ parameter_list|)
 define|\
 value|(n == X509_V_ERR_DEPTH_ZERO_SELF_SIGNED_CERT                              \      || n == X509_V_ERR_SELF_SIGNED_CERT_IN_CHAIN                             \      || n == X509_V_ERR_UNABLE_TO_GET_ISSUER_CERT_LOCALLY                     \      || n == X509_V_ERR_CERT_UNTRUSTED                                        \      || n == X509_V_ERR_UNABLE_TO_VERIFY_LEAF_SIGNATURE)
 end_define
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_ssl_check_host
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|name
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_function_decl
 name|ngx_int_t
