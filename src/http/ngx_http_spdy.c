@@ -417,7 +417,7 @@ value|NGX_SPDY_MAX_WINDOW
 end_define
 
 begin_typedef
-DECL|struct|__anon27c2df6d0108
+DECL|struct|__anon29d86d9c0108
 typedef|typedef
 struct|struct
 block|{
@@ -8462,9 +8462,9 @@ operator|==
 name|NULL
 condition|)
 block|{
-name|ngx_log_error
+name|ngx_log_debug0
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_DEBUG_HTTP
 argument_list|,
 name|sc
 operator|->
@@ -8474,35 +8474,9 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"client sent WINDOW_UPDATE frame "
-literal|"for unknown stream %ui"
-argument_list|,
-name|sid
+literal|"unknown spdy stream"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|ngx_http_spdy_send_rst_stream
-argument_list|(
-name|sc
-argument_list|,
-name|sid
-argument_list|,
-name|NGX_SPDY_INVALID_STREAM
-argument_list|,
-name|NGX_SPDY_LOWEST_PRIORITY
-argument_list|)
-operator|==
-name|NGX_ERROR
-condition|)
-block|{
-return|return
-name|ngx_http_spdy_state_internal_error
-argument_list|(
-name|sc
-argument_list|)
-return|;
-block|}
 return|return
 name|ngx_http_spdy_state_complete
 argument_list|(
@@ -12522,7 +12496,7 @@ name|ngx_http_core_srv_conf_t
 modifier|*
 name|cscf
 decl_stmt|;
-DECL|enum|__anon27c2df6d0203
+DECL|enum|__anon29d86d9c0203
 enum|enum
 block|{
 DECL|enumerator|sw_name_len
@@ -13573,7 +13547,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon27c2df6d0308
+DECL|struct|__anon29d86d9c0308
 specifier|static
 specifier|const
 struct|struct
