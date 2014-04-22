@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bd5923d0108
+DECL|struct|__anon28e790a10108
 typedef|typedef
 struct|struct
 block|{
@@ -11022,6 +11022,17 @@ argument_list|,
 literal|'.'
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|s
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
 name|slen
 operator|=
 name|end
