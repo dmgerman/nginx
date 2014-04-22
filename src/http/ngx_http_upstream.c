@@ -6678,7 +6678,7 @@ block|}
 comment|/*      * SSL_set_tlsext_host_name() needs a null-terminated string,      * hence we explicitly null-terminate name here      */
 name|p
 operator|=
-name|ngx_palloc
+name|ngx_pnalloc
 argument_list|(
 name|r
 operator|->
