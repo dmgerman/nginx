@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28e790a10108
+DECL|struct|__anon29bc7fa90108
 typedef|typedef
 struct|struct
 block|{
@@ -10500,6 +10500,19 @@ name|OPENSSL_VERSION_NUMBER
 operator|>=
 literal|0x10002001L
 comment|/* X509_check_host() is only available in OpenSSL 1.0.2+ */
+if|if
+condition|(
+name|name
+operator|->
+name|len
+operator|==
+literal|0
+condition|)
+block|{
+goto|goto
+name|failed
+goto|;
+block|}
 if|if
 condition|(
 name|X509_check_host
