@@ -245,7 +245,7 @@ value|0x00000100
 end_define
 
 begin_typedef
-DECL|struct|__anon2a3cadcd0108
+DECL|struct|__anon2a3112b70108
 typedef|typedef
 struct|struct
 block|{
@@ -285,7 +285,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3cadcd0208
+DECL|struct|__anon2a3112b70208
 typedef|typedef
 struct|struct
 block|{
@@ -354,7 +354,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3cadcd0308
+DECL|struct|__anon2a3112b70308
 typedef|typedef
 struct|struct
 block|{
@@ -378,7 +378,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3cadcd0408
+DECL|struct|__anon2a3112b70408
 typedef|typedef
 struct|struct
 block|{
@@ -525,7 +525,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a3cadcd0508
+DECL|struct|__anon2a3112b70508
 typedef|typedef
 struct|struct
 block|{
@@ -546,7 +546,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3cadcd0608
+DECL|struct|__anon2a3112b70608
 typedef|typedef
 struct|struct
 block|{
@@ -786,7 +786,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3cadcd0708
+DECL|struct|__anon2a3112b70708
 typedef|typedef
 struct|struct
 block|{
@@ -822,7 +822,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3cadcd0808
+DECL|struct|__anon2a3112b70808
 typedef|typedef
 struct|struct
 block|{
@@ -938,6 +938,10 @@ DECL|member|cache_control
 name|ngx_array_t
 name|cache_control
 decl_stmt|;
+DECL|member|cookies
+name|ngx_array_t
+name|cookies
+decl_stmt|;
 DECL|member|connection_close
 name|unsigned
 name|connection_close
@@ -957,7 +961,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3cadcd0908
+DECL|struct|__anon2a3112b70908
 typedef|typedef
 struct|struct
 block|{
@@ -1358,7 +1362,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a3cadcd0a08
+DECL|struct|__anon2a3112b70a08
 typedef|typedef
 struct|struct
 block|{
@@ -1377,7 +1381,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3cadcd0b08
+DECL|struct|__anon2a3112b70b08
 typedef|typedef
 struct|struct
 block|{
@@ -1398,6 +1402,24 @@ block|}
 name|ngx_http_upstream_param_t
 typedef|;
 end_typedef
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_http_upstream_cookie_variable
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
+name|ngx_http_variable_value_t
+modifier|*
+name|v
+parameter_list|,
+name|uintptr_t
+name|data
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_function_decl
 name|ngx_int_t

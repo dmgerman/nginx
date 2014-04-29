@@ -325,7 +325,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2923da600108
+DECL|struct|__anon28fd88120108
 typedef|typedef
 struct|struct
 block|{
@@ -584,6 +584,25 @@ end_function_decl
 begin_function_decl
 name|ngx_int_t
 name|ngx_http_parse_multi_header_lines
+parameter_list|(
+name|ngx_array_t
+modifier|*
+name|headers
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|name
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|value
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_http_parse_set_cookie_lines
 parameter_list|(
 name|ngx_array_t
 modifier|*
