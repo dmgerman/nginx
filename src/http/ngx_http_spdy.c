@@ -417,7 +417,7 @@ value|NGX_SPDY_MAX_WINDOW
 end_define
 
 begin_typedef
-DECL|struct|__anon27d354b30108
+DECL|struct|__anon2b8095d00108
 typedef|typedef
 struct|struct
 block|{
@@ -5170,7 +5170,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"client closed prematurely connection"
+literal|"client prematurely closed connection"
 argument_list|)
 expr_stmt|;
 block|}
@@ -5497,7 +5497,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"spdy run stream %ui"
+literal|"run spdy stream %ui"
 argument_list|,
 name|stream
 operator|->
@@ -6355,7 +6355,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"spdy process frame head:%08XD f:%Xd l:%uz"
+literal|"process spdy frame head:%08XD f:%Xd l:%uz"
 argument_list|,
 name|head
 argument_list|,
@@ -6404,6 +6404,21 @@ return|;
 case|case
 name|NGX_SPDY_SYN_REPLY
 case|:
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|sc
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"client sent unexpected SYN_REPLY frame"
+argument_list|)
+expr_stmt|;
 return|return
 name|ngx_http_spdy_state_protocol_error
 argument_list|(
@@ -6466,6 +6481,21 @@ comment|/* TODO */
 case|case
 name|NGX_SPDY_HEADERS
 case|:
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|sc
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"client sent unexpected HEADERS frame"
+argument_list|)
+expr_stmt|;
 return|return
 name|ngx_http_spdy_state_protocol_error
 argument_list|(
@@ -6545,10 +6575,9 @@ name|end
 argument_list|)
 return|;
 block|}
-comment|/* TODO version& type check */
-name|ngx_log_debug0
+name|ngx_log_error
 argument_list|(
-name|NGX_LOG_DEBUG_HTTP
+name|NGX_LOG_INFO
 argument_list|,
 name|sc
 operator|->
@@ -6558,7 +6587,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"spdy unknown frame"
+literal|"client sent invalid frame"
 argument_list|)
 expr_stmt|;
 return|return
@@ -6634,7 +6663,25 @@ operator|<=
 name|NGX_SPDY_SYN_STREAM_SIZE
 condition|)
 block|{
-comment|/* TODO logging */
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|sc
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"client sent SYN_STREAM frame with incorrect length %uz"
+argument_list|,
+name|sc
+operator|->
+name|length
+argument_list|)
+expr_stmt|;
 return|return
 name|ngx_http_spdy_state_protocol_error
 argument_list|(
@@ -6805,7 +6852,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"spdy concurrent streams exceeded %ui"
+literal|"concurrent streams exceeded %ui"
 argument_list|,
 name|sc
 operator|->
@@ -7033,7 +7080,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"spdy process HEADERS %uz of %uz"
+literal|"process spdy header block %uz of %uz"
 argument_list|,
 name|size
 argument_list|,
@@ -7423,7 +7470,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"spdy HEADERS block consists of %ui entries"
+literal|"spdy header block has %ui entries"
 argument_list|,
 name|sc
 operator|->
@@ -7581,7 +7628,6 @@ operator|==
 name|NGX_DECLINED
 condition|)
 block|{
-comment|/* TODO logging */
 name|ngx_http_finalize_request
 argument_list|(
 name|r
@@ -7733,7 +7779,6 @@ condition|(
 name|complete
 condition|)
 block|{
-comment|/* TODO: improve error message */
 name|ngx_log_debug0
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
@@ -7746,7 +7791,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"spdy again while last chunk"
+literal|"premature end of spdy header block"
 argument_list|)
 expr_stmt|;
 return|return
@@ -7775,22 +7820,6 @@ return|;
 case|case
 name|NGX_HTTP_PARSE_INVALID_HEADER
 case|:
-comment|/* TODO: improve error message */
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_INFO
-argument_list|,
-name|r
-operator|->
-name|connection
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"client sent invalid header line"
-argument_list|)
-expr_stmt|;
 name|ngx_http_finalize_request
 argument_list|(
 name|r
@@ -8056,6 +8085,27 @@ name|ngx_http_spdy_state_headers_skip
 argument_list|)
 return|;
 block|}
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|sc
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"spdy header block skip %uz of %uz"
+argument_list|,
+name|size
+argument_list|,
+name|sc
+operator|->
+name|length
+argument_list|)
+expr_stmt|;
 name|sc
 operator|->
 name|zstream_in
@@ -8504,7 +8554,7 @@ literal|0
 argument_list|,
 literal|"client violated flow control for stream %ui: "
 literal|"received WINDOW_UPDATE frame with delta %uz "
-literal|"that is not allowed for window %z"
+literal|"not allowed for window %z"
 argument_list|,
 name|sid
 argument_list|,
@@ -8631,7 +8681,7 @@ literal|0
 argument_list|,
 literal|"client violated connection flow control: "
 literal|"received WINDOW_UPDATE frame with delta %uz "
-literal|"that is not allowed for window %uz"
+literal|"not allowed for window %uz"
 argument_list|,
 name|delta
 argument_list|,
@@ -8811,8 +8861,8 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"client violated connection flow control: length of "
-literal|"received DATA frame %uz, while available window %uz"
+literal|"client violated connection flow control: "
+literal|"received DATA frame length %uz, available window %uz"
 argument_list|,
 name|sc
 operator|->
@@ -8894,6 +8944,21 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|ngx_log_debug0
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|sc
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"unknown spdy stream"
+argument_list|)
+expr_stmt|;
 return|return
 name|ngx_http_spdy_state_skip
 argument_list|(
@@ -8928,8 +8993,8 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"client violated flow control for stream %ui: length of "
-literal|"received DATA frame %uz, while available window %uz"
+literal|"client violated flow control for stream %ui: "
+literal|"received DATA frame length %uz, available window %uz"
 argument_list|,
 name|stream
 operator|->
@@ -9048,7 +9113,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"client sent DATA frame for half closed stream %ui"
+literal|"client sent DATA frame for half-closed stream %ui"
 argument_list|,
 name|stream
 operator|->
@@ -9200,7 +9265,25 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
-comment|/* TODO log and accounting */
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|sc
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"skipping spdy DATA frame, reason: %d"
+argument_list|,
+name|stream
+operator|->
+name|skip_data
+argument_list|)
+expr_stmt|;
 return|return
 name|ngx_http_spdy_state_skip
 argument_list|(
@@ -9324,7 +9407,22 @@ operator|->
 name|rest
 condition|)
 block|{
-comment|/* TODO logging */
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"client intended to send body data "
+literal|"larger than declared"
+argument_list|)
+expr_stmt|;
 name|stream
 operator|->
 name|skip_data
@@ -9373,8 +9471,8 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"client intended to send too large chunked "
-literal|"body: %O bytes"
+literal|"client intended to send "
+literal|"too large chunked body: %O bytes"
 argument_list|,
 name|rb
 operator|->
@@ -9579,7 +9677,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"client prematurely closed stream: "
-literal|"%O of %O bytes of request body received"
+literal|"only %O out of %O bytes of request body received"
 argument_list|,
 name|rb
 operator|->
@@ -9911,7 +10009,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"unknown stream, probably it has been closed already"
+literal|"unknown spdy stream"
 argument_list|)
 expr_stmt|;
 return|return
@@ -9988,7 +10086,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"client terminated stream %ui because of internal error"
+literal|"client terminated stream %ui due to internal error"
 argument_list|,
 name|sid
 argument_list|)
@@ -10103,7 +10201,25 @@ operator|!=
 name|NGX_SPDY_PING_SIZE
 condition|)
 block|{
-comment|/* TODO logging */
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|sc
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"client sent PING frame with incorrect length %uz"
+argument_list|,
+name|sc
+operator|->
+name|length
+argument_list|)
+expr_stmt|;
 return|return
 name|ngx_http_spdy_state_protocol_error
 argument_list|(
@@ -10255,6 +10371,27 @@ name|end
 operator|-
 name|pos
 expr_stmt|;
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|sc
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"spdy frame skip %uz of %uz"
+argument_list|,
+name|size
+argument_list|,
+name|sc
+operator|->
+name|length
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|size
@@ -10388,7 +10525,30 @@ operator|*
 name|NGX_SPDY_SETTINGS_PAIR_SIZE
 condition|)
 block|{
-comment|/* TODO logging */
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|sc
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"client sent SETTINGS frame with incorrect "
+literal|"length %uz or number of entries %ui"
+argument_list|,
+name|sc
+operator|->
+name|length
+argument_list|,
+name|sc
+operator|->
+name|entries
+argument_list|)
+expr_stmt|;
 return|return
 name|ngx_http_spdy_state_protocol_error
 argument_list|(
@@ -10408,7 +10568,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"spdy SETTINGS frame consists of %ui entries"
+literal|"spdy SETTINGS frame has %ui entries"
 argument_list|,
 name|sc
 operator|->
@@ -10625,6 +10785,25 @@ modifier|*
 name|end
 parameter_list|)
 block|{
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|sc
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"spdy frame complete pos:%p end:%p"
+argument_list|,
+name|pos
+argument_list|,
+name|end
+argument_list|)
+expr_stmt|;
 name|sc
 operator|->
 name|handler
@@ -10669,6 +10848,27 @@ block|{
 name|size_t
 name|size
 decl_stmt|;
+name|ngx_log_debug3
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|sc
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"spdy frame state save pos:%p end:%p handler:%p"
+argument_list|,
+name|pos
+argument_list|,
+name|end
+argument_list|,
+name|handler
+argument_list|)
+expr_stmt|;
 name|size
 operator|=
 name|end
@@ -10694,8 +10894,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"spdy state buffer overflow: "
-literal|"%uz bytes required"
+literal|"state buffer overflow: %uz bytes required"
 argument_list|,
 name|size
 argument_list|)
@@ -10990,7 +11189,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"spdy write WINDOW_UPDATE sid:%ui delta:%ui"
+literal|"spdy send WINDOW_UPDATE sid:%ui delta:%ui"
 argument_list|,
 name|sid
 argument_list|,
@@ -11147,7 +11346,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"spdy write RST_STREAM sid:%ui st:%ui"
+literal|"spdy send RST_STREAM sid:%ui st:%ui"
 argument_list|,
 name|sid
 argument_list|,
@@ -11254,7 +11453,7 @@ literal|0
 end_if
 
 begin_endif
-unit|static ngx_int_t ngx_http_spdy_send_goaway(ngx_http_spdy_connection_t *sc) {     u_char                     *p;     ngx_buf_t                  *buf;     ngx_http_spdy_out_frame_t  *frame;      ngx_log_debug1(NGX_LOG_DEBUG_HTTP, sc->connection->log, 0,                    "spdy create GOAWAY sid:%ui", sc->last_sid);      frame = ngx_http_spdy_get_ctl_frame(sc, NGX_SPDY_GOAWAY_SIZE,                                         NGX_SPDY_HIGHEST_PRIORITY);     if (frame == NULL) {         return NGX_ERROR;     }      buf = frame->first->buf;      p = buf->pos;      p = ngx_spdy_frame_write_head(p, NGX_SPDY_GOAWAY);     p = ngx_spdy_frame_write_flags_and_len(p, 0, NGX_SPDY_GOAWAY_SIZE);      p = ngx_spdy_frame_write_sid(p, sc->last_sid);      buf->last = p;      ngx_http_spdy_queue_frame(sc, frame);      return NGX_OK; }
+unit|static ngx_int_t ngx_http_spdy_send_goaway(ngx_http_spdy_connection_t *sc) {     u_char                     *p;     ngx_buf_t                  *buf;     ngx_http_spdy_out_frame_t  *frame;      ngx_log_debug1(NGX_LOG_DEBUG_HTTP, sc->connection->log, 0,                    "spdy send GOAWAY sid:%ui", sc->last_sid);      frame = ngx_http_spdy_get_ctl_frame(sc, NGX_SPDY_GOAWAY_SIZE,                                         NGX_SPDY_HIGHEST_PRIORITY);     if (frame == NULL) {         return NGX_ERROR;     }      buf = frame->first->buf;      p = buf->pos;      p = ngx_spdy_frame_write_head(p, NGX_SPDY_GOAWAY);     p = ngx_spdy_frame_write_flags_and_len(p, 0, NGX_SPDY_GOAWAY_SIZE);      p = ngx_spdy_frame_write_sid(p, sc->last_sid);      buf->last = p;      ngx_http_spdy_queue_frame(sc, frame);      return NGX_OK; }
 endif|#
 directive|endif
 end_endif
@@ -11302,7 +11501,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"spdy create SETTINGS frame"
+literal|"spdy send SETTINGS frame"
 argument_list|)
 expr_stmt|;
 name|frame
@@ -11816,7 +12015,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"requested control frame is too big: %uz"
+literal|"requested control frame is too large: %uz"
 argument_list|,
 name|length
 argument_list|)
@@ -12613,7 +12812,7 @@ name|ngx_http_core_srv_conf_t
 modifier|*
 name|cscf
 decl_stmt|;
-DECL|enum|__anon27d354b30203
+DECL|enum|__anon2b8095d00203
 enum|enum
 block|{
 DECL|enumerator|sw_name_len
@@ -12868,6 +13067,29 @@ case|:
 case|case
 literal|':'
 case|:
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"client sent invalid header name: \"%*s\""
+argument_list|,
+name|r
+operator|->
+name|lowcase_index
+argument_list|,
+name|r
+operator|->
+name|header_name_start
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_HTTP_PARSE_INVALID_HEADER
 return|;
@@ -13034,6 +13256,52 @@ operator|==
 name|LF
 condition|)
 block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"client sent header \"%*s\" with "
+literal|"invalid value: \"%*s\\%c...\""
+argument_list|,
+name|r
+operator|->
+name|header_name_end
+operator|-
+name|r
+operator|->
+name|header_name_start
+argument_list|,
+name|r
+operator|->
+name|header_name_start
+argument_list|,
+name|p
+operator|-
+name|r
+operator|->
+name|header_start
+argument_list|,
+name|r
+operator|->
+name|header_start
+argument_list|,
+name|ch
+operator|==
+name|CR
+condition|?
+literal|'r'
+else|:
+literal|'n'
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_HTTP_PARSE_INVALID_HEADER
 return|;
@@ -13103,6 +13371,9 @@ name|old
 decl_stmt|,
 modifier|*
 name|new
+decl_stmt|,
+modifier|*
+name|p
 decl_stmt|;
 name|size_t
 name|rest
@@ -13165,6 +13436,21 @@ operator|.
 name|num
 condition|)
 block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"client sent too large request"
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_DECLINED
 return|;
@@ -13183,6 +13469,7 @@ name|header_in
 operator|->
 name|pos
 expr_stmt|;
+comment|/*      * equality is prohibited since one more byte is needed      * for null-termination      */
 if|if
 condition|(
 name|rest
@@ -13194,6 +13481,73 @@ operator|.
 name|size
 condition|)
 block|{
+name|p
+operator|=
+name|r
+operator|->
+name|header_in
+operator|->
+name|pos
+expr_stmt|;
+if|if
+condition|(
+name|rest
+operator|>
+name|NGX_MAX_ERROR_STR
+operator|-
+literal|300
+condition|)
+block|{
+name|rest
+operator|=
+name|NGX_MAX_ERROR_STR
+operator|-
+literal|300
+expr_stmt|;
+name|p
+index|[
+name|rest
+operator|++
+index|]
+operator|=
+literal|'.'
+expr_stmt|;
+name|p
+index|[
+name|rest
+operator|++
+index|]
+operator|=
+literal|'.'
+expr_stmt|;
+name|p
+index|[
+name|rest
+operator|++
+index|]
+operator|=
+literal|'.'
+expr_stmt|;
+block|}
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"client sent too long header name or value: \"%*s\""
+argument_list|,
+name|rest
+argument_list|,
+name|p
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_DECLINED
 return|;
@@ -13236,7 +13590,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"spdy large header alloc: %p %z"
+literal|"spdy large header alloc: %p %uz"
 argument_list|,
 name|buf
 operator|->
@@ -13472,6 +13826,33 @@ name|r
 argument_list|)
 return|;
 block|}
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"client sent invalid header name: \":%*s\""
+argument_list|,
+name|r
+operator|->
+name|header_end
+operator|-
+name|r
+operator|->
+name|header_name_start
+argument_list|,
+name|r
+operator|->
+name|header_name_start
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_HTTP_PARSE_INVALID_HEADER
 return|;
@@ -13655,7 +14036,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon27d354b30308
+DECL|struct|__anon2b8095d00308
 specifier|static
 specifier|const
 struct|struct
@@ -13814,6 +14195,21 @@ operator|.
 name|len
 condition|)
 block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"client sent duplicate :method header"
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_HTTP_PARSE_INVALID_HEADER
 return|;
@@ -13984,7 +14380,12 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"client sent invalid method"
+literal|"client sent invalid method: \"%V\""
+argument_list|,
+operator|&
+name|r
+operator|->
+name|method_name
 argument_list|)
 expr_stmt|;
 return|return
@@ -14025,6 +14426,21 @@ operator|->
 name|schema_start
 condition|)
 block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"client sent duplicate :schema header"
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_HTTP_PARSE_INVALID_HEADER
 return|;
@@ -14075,6 +14491,21 @@ operator|.
 name|host
 condition|)
 block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"client sent duplicate :host header"
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_HTTP_PARSE_INVALID_HEADER
 return|;
@@ -14202,6 +14633,21 @@ operator|.
 name|len
 condition|)
 block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"client sent duplicate :path header"
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_HTTP_PARSE_INVALID_HEADER
 return|;
@@ -14232,6 +14678,33 @@ operator|!=
 name|NGX_OK
 condition|)
 block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"client sent invalid URI: \"%*s\""
+argument_list|,
+name|r
+operator|->
+name|uri_end
+operator|-
+name|r
+operator|->
+name|uri_start
+argument_list|,
+name|r
+operator|->
+name|uri_start
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_HTTP_PARSE_INVALID_HEADER
 return|;
@@ -14283,6 +14756,21 @@ operator|.
 name|len
 condition|)
 block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"client sent duplicate :version header"
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_HTTP_PARSE_INVALID_HEADER
 return|;
@@ -14322,9 +14810,9 @@ argument_list|)
 operator|)
 condition|)
 block|{
-return|return
-name|NGX_HTTP_PARSE_INVALID_HEADER
-return|;
+goto|goto
+name|invalid
+goto|;
 block|}
 name|ch
 operator|=
@@ -14346,9 +14834,9 @@ argument_list|>
 literal|'9'
 condition|)
 block|{
-return|return
-name|NGX_HTTP_PARSE_INVALID_HEADER
-return|;
+goto|goto
+name|invalid
+goto|;
 block|}
 name|r
 operator|->
@@ -14401,9 +14889,9 @@ argument_list|>
 literal|'9'
 condition|)
 block|{
-return|return
-name|NGX_HTTP_PARSE_INVALID_HEADER
-return|;
+goto|goto
+name|invalid
+goto|;
 block|}
 name|r
 operator|->
@@ -14428,9 +14916,9 @@ operator|!=
 literal|'.'
 condition|)
 block|{
-return|return
-name|NGX_HTTP_PARSE_INVALID_HEADER
-return|;
+goto|goto
+name|invalid
+goto|;
 block|}
 name|ch
 operator|=
@@ -14452,9 +14940,9 @@ argument_list|>
 literal|'9'
 condition|)
 block|{
-return|return
-name|NGX_HTTP_PARSE_INVALID_HEADER
-return|;
+goto|goto
+name|invalid
+goto|;
 block|}
 name|r
 operator|->
@@ -14496,9 +14984,9 @@ argument_list|>
 literal|'9'
 condition|)
 block|{
-return|return
-name|NGX_HTTP_PARSE_INVALID_HEADER
-return|;
+goto|goto
+name|invalid
+goto|;
 block|}
 name|r
 operator|->
@@ -14555,6 +15043,38 @@ name|http_minor
 expr_stmt|;
 return|return
 name|NGX_OK
+return|;
+name|invalid
+label|:
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"client sent invalid http version: \"%*s\""
+argument_list|,
+name|r
+operator|->
+name|header_end
+operator|-
+name|r
+operator|->
+name|header_start
+argument_list|,
+name|r
+operator|->
+name|header_start
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_HTTP_PARSE_INVALID_HEADER
 return|;
 block|}
 end_function
@@ -14980,7 +15500,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http header: \"%V: %V\""
+literal|"spdy http header: \"%V: %V\""
 argument_list|,
 operator|&
 name|h
@@ -16024,7 +16544,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"spdy fake read event was activated"
+literal|"fake read event was activated"
 argument_list|)
 expr_stmt|;
 block|}
@@ -16083,7 +16603,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"spdy fake write event was activated"
+literal|"fake write event was activated"
 argument_list|)
 expr_stmt|;
 block|}

@@ -2576,7 +2576,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"spdy deflate() failed: %d"
+literal|"deflate() failed: %d"
 argument_list|,
 name|rc
 argument_list|)
