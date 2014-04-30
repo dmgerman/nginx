@@ -374,7 +374,7 @@ name|prev
 decl_stmt|,
 name|conf_file
 decl_stmt|;
-DECL|enum|__anon29c51b6b0103
+DECL|enum|__anon29e0ee980103
 enum|enum
 block|{
 DECL|enumerator|parse_file
@@ -960,9 +960,10 @@ operator|->
 name|data
 argument_list|)
 expr_stmt|;
-return|return
-name|NGX_CONF_ERROR
-return|;
+name|rc
+operator|=
+name|NGX_ERROR
+expr_stmt|;
 block|}
 name|cf
 operator|->
