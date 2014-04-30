@@ -417,7 +417,7 @@ value|NGX_SPDY_MAX_WINDOW
 end_define
 
 begin_typedef
-DECL|struct|__anon28b495ce0108
+DECL|struct|__anon2891cd580108
 typedef|typedef
 struct|struct
 block|{
@@ -7137,15 +7137,6 @@ argument_list|,
 name|z
 argument_list|)
 expr_stmt|;
-name|ngx_http_spdy_close_stream
-argument_list|(
-name|sc
-operator|->
-name|stream
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
 return|return
 name|ngx_http_spdy_state_protocol_error
 argument_list|(
@@ -7213,15 +7204,6 @@ argument_list|,
 literal|"spdy inflate() failed: %d"
 argument_list|,
 name|z
-argument_list|)
-expr_stmt|;
-name|ngx_http_spdy_close_stream
-argument_list|(
-name|sc
-operator|->
-name|stream
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 return|return
@@ -7349,15 +7331,6 @@ literal|0
 argument_list|,
 literal|"client sent SYN_STREAM frame "
 literal|"with invalid HEADERS block"
-argument_list|)
-expr_stmt|;
-name|ngx_http_spdy_close_stream
-argument_list|(
-name|sc
-operator|->
-name|stream
-argument_list|,
-name|NGX_HTTP_BAD_REQUEST
 argument_list|)
 expr_stmt|;
 return|return
@@ -7690,15 +7663,6 @@ argument_list|,
 name|z
 argument_list|)
 expr_stmt|;
-name|ngx_http_spdy_close_stream
-argument_list|(
-name|sc
-operator|->
-name|stream
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
 return|return
 name|ngx_http_spdy_state_protocol_error
 argument_list|(
@@ -7757,15 +7721,6 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"spdy again while last chunk"
-argument_list|)
-expr_stmt|;
-name|ngx_http_spdy_close_stream
-argument_list|(
-name|sc
-operator|->
-name|stream
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 return|return
@@ -7840,15 +7795,6 @@ argument_list|,
 literal|"client sent invalid HEADERS spdy frame"
 argument_list|)
 expr_stmt|;
-name|ngx_http_spdy_close_stream
-argument_list|(
-name|sc
-operator|->
-name|stream
-argument_list|,
-name|NGX_HTTP_BAD_REQUEST
-argument_list|)
-expr_stmt|;
 return|return
 name|ngx_http_spdy_state_protocol_error
 argument_list|(
@@ -7891,15 +7837,6 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"client sent invalid HEADERS spdy frame"
-argument_list|)
-expr_stmt|;
-name|ngx_http_spdy_close_stream
-argument_list|(
-name|sc
-operator|->
-name|stream
-argument_list|,
-name|NGX_HTTP_BAD_REQUEST
 argument_list|)
 expr_stmt|;
 return|return
@@ -7967,15 +7904,6 @@ literal|0
 argument_list|,
 literal|"client sent SYN_STREAM frame "
 literal|"with invalid HEADERS block"
-argument_list|)
-expr_stmt|;
-name|ngx_http_spdy_close_stream
-argument_list|(
-name|sc
-operator|->
-name|stream
-argument_list|,
-name|NGX_HTTP_BAD_REQUEST
 argument_list|)
 expr_stmt|;
 return|return
@@ -10645,6 +10573,12 @@ name|handler
 operator|=
 name|ngx_http_spdy_state_head
 expr_stmt|;
+name|sc
+operator|->
+name|stream
+operator|=
+name|NULL
+expr_stmt|;
 return|return
 name|pos
 return|;
@@ -10777,7 +10711,23 @@ argument_list|,
 literal|"spdy state protocol error"
 argument_list|)
 expr_stmt|;
-comment|/* TODO */
+if|if
+condition|(
+name|sc
+operator|->
+name|stream
+condition|)
+block|{
+name|ngx_http_spdy_close_stream
+argument_list|(
+name|sc
+operator|->
+name|stream
+argument_list|,
+name|NGX_HTTP_BAD_REQUEST
+argument_list|)
+expr_stmt|;
+block|}
 name|ngx_http_spdy_finalize_connection
 argument_list|(
 name|sc
@@ -12496,7 +12446,7 @@ name|ngx_http_core_srv_conf_t
 modifier|*
 name|cscf
 decl_stmt|;
-DECL|enum|__anon28b495ce0203
+DECL|enum|__anon2891cd580203
 enum|enum
 block|{
 DECL|enumerator|sw_name_len
@@ -13547,7 +13497,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon28b495ce0308
+DECL|struct|__anon2891cd580308
 specifier|static
 specifier|const
 struct|struct
