@@ -5296,6 +5296,7 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
+continue|continue;
 block|}
 if|if
 condition|(
@@ -5392,6 +5393,7 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
+continue|continue;
 block|}
 block|}
 if|if
@@ -5508,6 +5510,7 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
+continue|continue;
 block|}
 block|}
 block|}
