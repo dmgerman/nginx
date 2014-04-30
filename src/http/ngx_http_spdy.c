@@ -417,7 +417,7 @@ value|NGX_SPDY_MAX_WINDOW
 end_define
 
 begin_typedef
-DECL|struct|__anon2be6879d0108
+DECL|struct|__anon29ff8c310108
 typedef|typedef
 struct|struct
 block|{
@@ -10799,6 +10799,38 @@ argument_list|,
 name|end
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|pos
+operator|>
+name|end
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|sc
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"receive buffer overrun"
+argument_list|)
+expr_stmt|;
+name|ngx_debug_point
+argument_list|()
+expr_stmt|;
+return|return
+name|ngx_http_spdy_state_internal_error
+argument_list|(
+name|sc
+argument_list|)
+return|;
+block|}
 name|sc
 operator|->
 name|handler
@@ -12810,7 +12842,7 @@ name|ngx_http_core_srv_conf_t
 modifier|*
 name|cscf
 decl_stmt|;
-DECL|enum|__anon2be6879d0203
+DECL|enum|__anon29ff8c310203
 enum|enum
 block|{
 DECL|enumerator|sw_name_len
@@ -14034,7 +14066,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2be6879d0308
+DECL|struct|__anon29ff8c310308
 specifier|static
 specifier|const
 struct|struct
