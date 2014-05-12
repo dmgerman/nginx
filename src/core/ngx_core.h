@@ -469,6 +469,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_syslog.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_proxy_protocol.h>
 end_include
 

@@ -701,7 +701,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon2988dc4c0103
+DECL|enum|__anon2ad02c720103
 typedef|typedef
 enum|enum
 block|{
@@ -740,7 +740,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2988dc4c0208
+DECL|struct|__anon2ad02c720208
 typedef|typedef
 struct|struct
 block|{
@@ -763,7 +763,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2988dc4c0308
+DECL|struct|__anon2ad02c720308
 typedef|typedef
 struct|struct
 block|{
@@ -782,7 +782,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2988dc4c0408
+DECL|struct|__anon2ad02c720408
 typedef|typedef
 struct|struct
 block|{
@@ -1044,7 +1044,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2988dc4c0508
+DECL|struct|__anon2ad02c720508
 typedef|typedef
 struct|struct
 block|{
@@ -1185,7 +1185,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2988dc4c0608
+DECL|struct|__anon2ad02c720608
 typedef|typedef
 struct|struct
 block|{
@@ -1243,7 +1243,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2988dc4c0708
+DECL|struct|__anon2ad02c720708
 typedef|typedef
 struct|struct
 block|{
@@ -1401,7 +1401,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2988dc4c0808
+DECL|struct|__anon2ad02c720808
 typedef|typedef
 struct|struct
 block|{
@@ -2266,7 +2266,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2988dc4c0908
+DECL|struct|__anon2ad02c720908
 typedef|typedef
 struct|struct
 block|{
@@ -2318,7 +2318,7 @@ parameter_list|,
 name|l
 parameter_list|)
 define|\                                                                               \
-value|c->log->file = l->file;                                                   \     c->log->next = l->next;                                                   \     if (!(c->log->log_level& NGX_LOG_DEBUG_CONNECTION)) {                    \         c->log->log_level = l->log_level;                                     \     }
+value|c->log->file = l->file;                                                   \     c->log->next = l->next;                                                   \     c->log->writer = l->writer;                                               \     c->log->wdata = l->wdata;                                                 \     if (!(c->log->log_level& NGX_LOG_DEBUG_CONNECTION)) {                    \         c->log->log_level = l->log_level;                                     \     }
 end_define
 
 begin_endif

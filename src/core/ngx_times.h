@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bd1578c0108
+DECL|struct|__anon2b4257530108
 typedef|typedef
 struct|struct
 block|{
@@ -196,6 +196,14 @@ specifier|extern
 specifier|volatile
 name|ngx_str_t
 name|ngx_cached_http_log_iso8601
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+specifier|volatile
+name|ngx_str_t
+name|ngx_cached_syslog_time
 decl_stmt|;
 end_decl_stmt
 
