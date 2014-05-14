@@ -477,7 +477,7 @@ DECL|macro|LF
 define|#
 directive|define
 name|LF
-value|(u_char) 10
+value|(u_char) '\n'
 end_define
 
 begin_define
@@ -485,7 +485,7 @@ DECL|macro|CR
 define|#
 directive|define
 name|CR
-value|(u_char) 13
+value|(u_char) '\r'
 end_define
 
 begin_define
@@ -493,7 +493,7 @@ DECL|macro|CRLF
 define|#
 directive|define
 name|CRLF
-value|"\x0d\x0a"
+value|"\r\n"
 end_define
 
 begin_define
