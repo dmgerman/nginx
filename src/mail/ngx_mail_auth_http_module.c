@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2af699cb0108
+DECL|struct|__anon28a65d8e0108
 typedef|typedef
 struct|struct
 block|{
@@ -1543,7 +1543,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon2af699cb0203
+DECL|enum|__anon28a65d8e0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -4146,7 +4146,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2af699cb0303
+DECL|enum|__anon28a65d8e0303
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6022,7 +6022,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"mail auth http header:\n\"%V\""
+literal|"mail auth http header:%N\"%V\""
 argument_list|,
 operator|&
 name|l
