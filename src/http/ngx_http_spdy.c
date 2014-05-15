@@ -417,7 +417,7 @@ value|NGX_SPDY_MAX_WINDOW
 end_define
 
 begin_typedef
-DECL|struct|__anon29918bdf0108
+DECL|struct|__anon27d354b30108
 typedef|typedef
 struct|struct
 block|{
@@ -4566,30 +4566,14 @@ name|sc
 operator|->
 name|handler
 operator|=
-name|ngx_http_spdy_state_head
-expr_stmt|;
-if|if
-condition|(
 name|hc
 operator|->
 name|proxy_protocol
-condition|)
-block|{
-name|c
-operator|->
-name|log
-operator|->
-name|action
-operator|=
-literal|"reading PROXY protocol"
-expr_stmt|;
-name|sc
-operator|->
-name|handler
-operator|=
+condition|?
 name|ngx_http_spdy_proxy_protocol
+else|:
+name|ngx_http_spdy_state_head
 expr_stmt|;
-block|}
 name|sc
 operator|->
 name|zstream_in
@@ -6199,6 +6183,24 @@ modifier|*
 name|end
 parameter_list|)
 block|{
+name|ngx_log_t
+modifier|*
+name|log
+decl_stmt|;
+name|log
+operator|=
+name|sc
+operator|->
+name|connection
+operator|->
+name|log
+expr_stmt|;
+name|log
+operator|->
+name|action
+operator|=
+literal|"reading PROXY protocol"
+expr_stmt|;
 name|pos
 operator|=
 name|ngx_proxy_protocol_parse
@@ -6211,6 +6213,12 @@ name|pos
 argument_list|,
 name|end
 argument_list|)
+expr_stmt|;
+name|log
+operator|->
+name|action
+operator|=
+literal|"processing SPDY"
 expr_stmt|;
 if|if
 condition|(
@@ -6226,16 +6234,6 @@ name|sc
 argument_list|)
 return|;
 block|}
-name|sc
-operator|->
-name|connection
-operator|->
-name|log
-operator|->
-name|action
-operator|=
-literal|"processing SPDY"
-expr_stmt|;
 return|return
 name|ngx_http_spdy_state_complete
 argument_list|(
@@ -12615,7 +12613,7 @@ name|ngx_http_core_srv_conf_t
 modifier|*
 name|cscf
 decl_stmt|;
-DECL|enum|__anon29918bdf0203
+DECL|enum|__anon27d354b30203
 enum|enum
 block|{
 DECL|enumerator|sw_name_len
@@ -13657,7 +13655,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon29918bdf0308
+DECL|struct|__anon27d354b30308
 specifier|static
 specifier|const
 struct|struct
