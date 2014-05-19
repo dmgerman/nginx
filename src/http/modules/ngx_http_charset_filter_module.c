@@ -66,7 +66,7 @@ value|(sizeof("&#1114111;") - 1)
 end_define
 
 begin_typedef
-DECL|struct|__anon2bc99f740108
+DECL|struct|__anon293bf6e00108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc99f740208
+DECL|struct|__anon293bf6e00208
 typedef|typedef
 struct|struct
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc99f740308
+DECL|struct|__anon293bf6e00308
 typedef|typedef
 struct|struct
 block|{
@@ -147,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc99f740408
+DECL|struct|__anon293bf6e00408
 typedef|typedef
 struct|struct
 block|{
@@ -173,7 +173,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc99f740508
+DECL|struct|__anon293bf6e00508
 typedef|typedef
 struct|struct
 block|{
@@ -205,7 +205,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc99f740608
+DECL|struct|__anon293bf6e00608
 typedef|typedef
 struct|struct
 block|{
@@ -273,7 +273,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc99f740708
+DECL|struct|__anon293bf6e00708
 typedef|typedef
 struct|struct
 block|{
@@ -1132,6 +1132,69 @@ name|r
 argument_list|)
 return|;
 block|}
+if|if
+condition|(
+name|source_charset
+operator|==
+name|charset
+condition|)
+block|{
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_type
+operator|.
+name|len
+operator|=
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_type_len
+expr_stmt|;
+name|ngx_http_set_charset
+argument_list|(
+name|r
+argument_list|,
+operator|&
+name|dst
+argument_list|)
+expr_stmt|;
+return|return
+name|ngx_http_next_header_filter
+argument_list|(
+name|r
+argument_list|)
+return|;
+block|}
+comment|/* source_charset != charset */
+if|if
+condition|(
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_encoding
+operator|&&
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_encoding
+operator|->
+name|value
+operator|.
+name|len
+condition|)
+block|{
+return|return
+name|ngx_http_next_header_filter
+argument_list|(
+name|r
+argument_list|)
+return|;
+block|}
 name|mcf
 operator|=
 name|ngx_http_get_module_main_conf
@@ -1151,11 +1214,6 @@ name|elts
 expr_stmt|;
 if|if
 condition|(
-name|source_charset
-operator|!=
-name|charset
-operator|&&
-operator|(
 name|charsets
 index|[
 name|source_charset
@@ -1176,7 +1234,6 @@ name|charset
 index|]
 operator|==
 name|NULL
-operator|)
 condition|)
 block|{
 goto|goto
@@ -1205,13 +1262,6 @@ operator|&
 name|dst
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|source_charset
-operator|!=
-name|charset
-condition|)
-block|{
 return|return
 name|ngx_http_charset_ctx
 argument_list|(
@@ -1222,13 +1272,6 @@ argument_list|,
 name|charset
 argument_list|,
 name|source_charset
-argument_list|)
-return|;
-block|}
-return|return
-name|ngx_http_next_header_filter
-argument_list|(
-name|r
 argument_list|)
 return|;
 name|no_charset_map
@@ -1297,34 +1340,6 @@ name|ngx_http_charset_main_conf_t
 modifier|*
 name|mcf
 decl_stmt|;
-if|if
-condition|(
-operator|!
-name|r
-operator|->
-name|ignore_content_encoding
-operator|&&
-name|r
-operator|->
-name|headers_out
-operator|.
-name|content_encoding
-operator|&&
-name|r
-operator|->
-name|headers_out
-operator|.
-name|content_encoding
-operator|->
-name|value
-operator|.
-name|len
-condition|)
-block|{
-return|return
-name|NGX_DECLINED
-return|;
-block|}
 if|if
 condition|(
 name|r

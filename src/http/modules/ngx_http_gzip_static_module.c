@@ -46,7 +46,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon29587b0f0108
+DECL|struct|__anon2bcea0660108
 typedef|typedef
 struct|struct
 block|{
@@ -963,12 +963,6 @@ operator|.
 name|content_encoding
 operator|=
 name|h
-expr_stmt|;
-name|r
-operator|->
-name|ignore_content_encoding
-operator|=
-literal|1
 expr_stmt|;
 comment|/* we need to allocate all before the header would be sent */
 name|b
