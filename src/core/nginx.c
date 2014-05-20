@@ -903,7 +903,7 @@ block|{
 name|ngx_write_stderr
 argument_list|(
 literal|"nginx version: "
-argument|NGINX_VER NGX_LINEFEED
+argument|NGINX_VER_BUILD NGX_LINEFEED
 argument_list|)
 empty_stmt|;
 if|if

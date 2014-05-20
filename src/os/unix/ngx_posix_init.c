@@ -266,7 +266,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-name|NGINX_VER
+name|NGINX_VER_BUILD
 argument_list|)
 expr_stmt|;
 ifdef|#

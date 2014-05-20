@@ -99,7 +99,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2a8f532f0108
+DECL|struct|__anon28e2a51a0108
 typedef|typedef
 struct|struct
 block|{
@@ -981,7 +981,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-name|NGINX_VER
+name|NGINX_VER_BUILD
 argument_list|)
 expr_stmt|;
 if|if

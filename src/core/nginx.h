@@ -40,6 +40,38 @@ name|NGINX_VER
 value|"nginx/" NGINX_VERSION
 end_define
 
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|NGX_BUILD
+end_ifdef
+
+begin_define
+DECL|macro|NGINX_VER_BUILD
+define|#
+directive|define
+name|NGINX_VER_BUILD
+value|NGINX_VER " (" NGX_BUILD ")"
+end_define
+
+begin_else
+else|#
+directive|else
+end_else
+
+begin_define
+DECL|macro|NGINX_VER_BUILD
+define|#
+directive|define
+name|NGINX_VER_BUILD
+value|NGINX_VER
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_define
 DECL|macro|NGINX_VAR
 define|#
