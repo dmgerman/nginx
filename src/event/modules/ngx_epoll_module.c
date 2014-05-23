@@ -417,7 +417,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c5a75180108
+DECL|struct|__anon27c0deb80108
 typedef|typedef
 struct|struct
 block|{
@@ -853,7 +853,7 @@ operator|)
 end_if
 
 begin_comment
-comment|/*  * We call io_setup(), io_destroy() io_submit(), and io_getevents() directly  * as syscalls instead of libaio usage, because the library header file  * supports eventfd() since 0.3.107 version only.  *  * Also we do not use eventfd() in glibc, because glibc supports it  * since 2.8 version and glibc maps two syscalls eventfd() and eventfd2()  * into single eventfd() function with different number of parameters.  */
+comment|/*  * We call io_setup(), io_destroy() io_submit(), and io_getevents() directly  * as syscalls instead of libaio usage, because the library header file  * supports eventfd() since 0.3.107 version only.  */
 end_comment
 
 begin_function
@@ -971,6 +971,22 @@ name|struct
 name|epoll_event
 name|ee
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_SYS_EVENTFD_H
+operator|)
+name|ngx_eventfd
+operator|=
+name|eventfd
+argument_list|(
+literal|0
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|ngx_eventfd
 operator|=
 name|syscall
@@ -980,6 +996,8 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|ngx_eventfd

@@ -453,6 +453,25 @@ name|NGX_HAVE_FILE_AIO
 operator|)
 end_if
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_SYS_EVENTFD_H
+operator|)
+end_if
+
+begin_include
+include|#
+directive|include
+file|<sys/eventfd.h>
+end_include
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_include
 include|#
 directive|include
