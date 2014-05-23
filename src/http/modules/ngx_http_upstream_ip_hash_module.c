@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c0365d00108
+DECL|struct|__anon2b1f48a30108
 typedef|typedef
 struct|struct
 block|{
@@ -905,7 +905,7 @@ operator|++
 name|iphp
 operator|->
 name|tries
-operator|>=
+operator|>
 literal|20
 condition|)
 block|{
