@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c5472c70108
+DECL|struct|__anon28f6c93a0108
 typedef|typedef
 struct|struct
 block|{
@@ -58,7 +58,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c5472c70203
+DECL|enum|__anon28f6c93a0203
 typedef|typedef
 enum|enum
 block|{
@@ -76,7 +76,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5472c70308
+DECL|struct|__anon28f6c93a0308
 typedef|typedef
 struct|struct
 block|{
@@ -1325,6 +1325,12 @@ literal|0
 expr_stmt|;
 name|b
 operator|->
+name|last_in_chain
+operator|=
+literal|0
+expr_stmt|;
+name|b
+operator|->
 name|recycled
 operator|=
 literal|0
@@ -1676,15 +1682,23 @@ if|if
 condition|(
 name|ctx
 operator|->
-name|buf
-operator|->
-name|last_buf
-operator|&&
-name|ctx
-operator|->
 name|looked
 operator|.
 name|len
+operator|&&
+operator|(
+name|ctx
+operator|->
+name|buf
+operator|->
+name|last_buf
+operator|||
+name|ctx
+operator|->
+name|buf
+operator|->
+name|last_in_chain
+operator|)
 condition|)
 block|{
 name|cl
@@ -1797,6 +1811,12 @@ name|buf
 operator|->
 name|flush
 operator|||
+name|ctx
+operator|->
+name|buf
+operator|->
+name|sync
+operator|||
 name|ngx_buf_in_memory
 argument_list|(
 name|ctx
@@ -1885,6 +1905,16 @@ operator|->
 name|buf
 operator|->
 name|last_buf
+expr_stmt|;
+name|b
+operator|->
+name|last_in_chain
+operator|=
+name|ctx
+operator|->
+name|buf
+operator|->
+name|last_in_chain
 expr_stmt|;
 name|b
 operator|->
