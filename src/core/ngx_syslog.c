@@ -1483,6 +1483,17 @@ name|fd
 operator|=
 name|fd
 expr_stmt|;
+comment|/* UDP sockets are always ready to write */
+name|peer
+operator|->
+name|conn
+operator|.
+name|write
+operator|->
+name|ready
+operator|=
+literal|1
+expr_stmt|;
 return|return
 name|NGX_OK
 return|;
