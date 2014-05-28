@@ -16,14 +16,6 @@ directive|define
 name|_NGX_DARWIN_CONFIG_H_INCLUDED_
 end_define
 
-begin_define
-DECL|macro|MAC_OS_X_VERSION_MIN_REQUIRED
-define|#
-directive|define
-name|MAC_OS_X_VERSION_MIN_REQUIRED
-value|MAC_OS_X_VERSION_10_0
-end_define
-
 begin_include
 include|#
 directive|include
