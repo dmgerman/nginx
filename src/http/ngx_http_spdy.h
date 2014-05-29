@@ -960,7 +960,7 @@ parameter_list|,
 name|s
 parameter_list|)
 define|\
-value|((p)[0] = (u_char) (s)>> 8, (p)[1] = (u_char) (s), (p) + sizeof(uint16_t))
+value|((p)[0] = (u_char) ((s)>> 8),                                            \      (p)[1] = (u_char)  (s),                                                  \      (p) + sizeof(uint16_t))
 end_define
 
 begin_define
@@ -974,7 +974,7 @@ parameter_list|,
 name|s
 parameter_list|)
 define|\
-value|((p)[0] = (u_char) (s)>> 24,                                             \     (p)[1] = (u_char) (s)>> 16,                                              \     (p)[2] = (u_char) (s)>> 8,                                               \     (p)[3] = (u_char) (s), (p) + sizeof(uint32_t))
+value|((p)[0] = (u_char) ((s)>> 24),                                           \      (p)[1] = (u_char) ((s)>> 16),                                           \      (p)[2] = (u_char) ((s)>> 8),                                            \      (p)[3] = (u_char)  (s),                                                  \      (p) + sizeof(uint32_t))
 end_define
 
 begin_endif
