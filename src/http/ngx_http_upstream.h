@@ -245,7 +245,7 @@ value|0x00000100
 end_define
 
 begin_typedef
-DECL|struct|__anon2a3112b70108
+DECL|struct|__anon2b0f16840108
 typedef|typedef
 struct|struct
 block|{
@@ -285,7 +285,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3112b70208
+DECL|struct|__anon2b0f16840208
 typedef|typedef
 struct|struct
 block|{
@@ -354,7 +354,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3112b70308
+DECL|struct|__anon2b0f16840308
 typedef|typedef
 struct|struct
 block|{
@@ -378,10 +378,14 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3112b70408
+DECL|struct|__anon2b0f16840408
 typedef|typedef
 struct|struct
 block|{
+DECL|member|name
+name|ngx_str_t
+name|name
+decl_stmt|;
 DECL|member|addrs
 name|ngx_addr_t
 modifier|*
@@ -525,7 +529,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a3112b70508
+DECL|struct|__anon2b0f16840508
 typedef|typedef
 struct|struct
 block|{
@@ -546,7 +550,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3112b70608
+DECL|struct|__anon2b0f16840608
 typedef|typedef
 struct|struct
 block|{
@@ -786,7 +790,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3112b70708
+DECL|struct|__anon2b0f16840708
 typedef|typedef
 struct|struct
 block|{
@@ -822,7 +826,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3112b70808
+DECL|struct|__anon2b0f16840808
 typedef|typedef
 struct|struct
 block|{
@@ -961,7 +965,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3112b70908
+DECL|struct|__anon2b0f16840908
 typedef|typedef
 struct|struct
 block|{
@@ -1362,7 +1366,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a3112b70a08
+DECL|struct|__anon2b0f16840a08
 typedef|typedef
 struct|struct
 block|{
@@ -1381,7 +1385,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3112b70b08
+DECL|struct|__anon2b0f16840b08
 typedef|typedef
 struct|struct
 block|{

@@ -21691,6 +21691,14 @@ goto|;
 block|}
 name|us
 operator|->
+name|name
+operator|=
+name|u
+operator|.
+name|url
+expr_stmt|;
+name|us
+operator|->
 name|addrs
 operator|=
 name|u
