@@ -60,7 +60,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c704e830108
+DECL|struct|__anon29f326e80108
 typedef|typedef
 struct|struct
 block|{
@@ -80,6 +80,11 @@ DECL|member|pages
 name|ngx_slab_page_t
 modifier|*
 name|pages
+decl_stmt|;
+DECL|member|last
+name|ngx_slab_page_t
+modifier|*
+name|last
 decl_stmt|;
 DECL|member|free
 name|ngx_slab_page_t
