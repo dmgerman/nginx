@@ -119,7 +119,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2aa8b33d0108
+DECL|struct|__anon2c29c0070108
 typedef|typedef
 struct|struct
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa8b33d0208
+DECL|struct|__anon2c29c0070208
 typedef|typedef
 struct|struct
 block|{
@@ -166,7 +166,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa8b33d0308
+DECL|struct|__anon2c29c0070308
 typedef|typedef
 struct|struct
 block|{
@@ -205,7 +205,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa8b33d0408
+DECL|struct|__anon2c29c0070408
 typedef|typedef
 struct|struct
 block|{
@@ -226,7 +226,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa8b33d0508
+DECL|struct|__anon2c29c0070508
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +270,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa8b33d0608
+DECL|struct|__anon2c29c0070608
 typedef|typedef
 struct|struct
 block|{
@@ -305,7 +305,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa8b33d0708
+DECL|struct|__anon2c29c0070708
 typedef|typedef
 struct|struct
 block|{
@@ -5035,6 +5035,16 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
+name|ngx_memzero
+argument_list|(
+name|log
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|ngx_http_log_t
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|log
 operator|->
 name|file
@@ -5062,30 +5072,6 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
-name|log
-operator|->
-name|script
-operator|=
-name|NULL
-expr_stmt|;
-name|log
-operator|->
-name|disk_full_time
-operator|=
-literal|0
-expr_stmt|;
-name|log
-operator|->
-name|error_log_time
-operator|=
-literal|0
-expr_stmt|;
-name|log
-operator|->
-name|syslog_peer
-operator|=
-name|NULL
-expr_stmt|;
 name|lmcf
 operator|=
 name|ngx_http_conf_get_module_main_conf
