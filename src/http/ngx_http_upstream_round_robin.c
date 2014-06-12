@@ -109,6 +109,10 @@ name|ngx_http_upstream_server_t
 modifier|*
 name|server
 decl_stmt|;
+name|ngx_http_upstream_rr_peer_t
+modifier|*
+name|peer
+decl_stmt|;
 name|ngx_http_upstream_rr_peers_t
 modifier|*
 name|peers
@@ -321,6 +325,12 @@ name|n
 operator|=
 literal|0
 expr_stmt|;
+name|peer
+operator|=
+name|peers
+operator|->
+name|peer
+expr_stmt|;
 for|for
 control|(
 name|i
@@ -370,8 +380,6 @@ name|j
 operator|++
 control|)
 block|{
-name|peers
-operator|->
 name|peer
 index|[
 name|n
@@ -391,8 +399,6 @@ index|]
 operator|.
 name|sockaddr
 expr_stmt|;
-name|peers
-operator|->
 name|peer
 index|[
 name|n
@@ -412,8 +418,6 @@ index|]
 operator|.
 name|socklen
 expr_stmt|;
-name|peers
-operator|->
 name|peer
 index|[
 name|n
@@ -433,8 +437,6 @@ index|]
 operator|.
 name|name
 expr_stmt|;
-name|peers
-operator|->
 name|peer
 index|[
 name|n
@@ -449,8 +451,6 @@ index|]
 operator|.
 name|weight
 expr_stmt|;
-name|peers
-operator|->
 name|peer
 index|[
 name|n
@@ -465,8 +465,6 @@ index|]
 operator|.
 name|weight
 expr_stmt|;
-name|peers
-operator|->
 name|peer
 index|[
 name|n
@@ -476,8 +474,6 @@ name|current_weight
 operator|=
 literal|0
 expr_stmt|;
-name|peers
-operator|->
 name|peer
 index|[
 name|n
@@ -492,8 +488,6 @@ index|]
 operator|.
 name|max_fails
 expr_stmt|;
-name|peers
-operator|->
 name|peer
 index|[
 name|n
@@ -508,8 +502,6 @@ index|]
 operator|.
 name|fail_timeout
 expr_stmt|;
-name|peers
-operator|->
 name|peer
 index|[
 name|n
@@ -524,8 +516,6 @@ index|]
 operator|.
 name|down
 expr_stmt|;
-name|peers
-operator|->
 name|peer
 index|[
 name|n
@@ -713,6 +703,12 @@ name|n
 operator|=
 literal|0
 expr_stmt|;
+name|peer
+operator|=
+name|backup
+operator|->
+name|peer
+expr_stmt|;
 for|for
 control|(
 name|i
@@ -763,8 +759,6 @@ name|j
 operator|++
 control|)
 block|{
-name|backup
-operator|->
 name|peer
 index|[
 name|n
@@ -784,8 +778,6 @@ index|]
 operator|.
 name|sockaddr
 expr_stmt|;
-name|backup
-operator|->
 name|peer
 index|[
 name|n
@@ -805,8 +797,6 @@ index|]
 operator|.
 name|socklen
 expr_stmt|;
-name|backup
-operator|->
 name|peer
 index|[
 name|n
@@ -826,8 +816,6 @@ index|]
 operator|.
 name|name
 expr_stmt|;
-name|backup
-operator|->
 name|peer
 index|[
 name|n
@@ -842,8 +830,6 @@ index|]
 operator|.
 name|weight
 expr_stmt|;
-name|backup
-operator|->
 name|peer
 index|[
 name|n
@@ -858,8 +844,6 @@ index|]
 operator|.
 name|weight
 expr_stmt|;
-name|backup
-operator|->
 name|peer
 index|[
 name|n
@@ -869,8 +853,6 @@ name|current_weight
 operator|=
 literal|0
 expr_stmt|;
-name|backup
-operator|->
 name|peer
 index|[
 name|n
@@ -885,8 +867,6 @@ index|]
 operator|.
 name|max_fails
 expr_stmt|;
-name|backup
-operator|->
 name|peer
 index|[
 name|n
@@ -901,8 +881,6 @@ index|]
 operator|.
 name|fail_timeout
 expr_stmt|;
-name|backup
-operator|->
 name|peer
 index|[
 name|n
@@ -917,8 +895,6 @@ index|]
 operator|.
 name|down
 expr_stmt|;
-name|backup
-operator|->
 name|peer
 index|[
 name|n
@@ -1151,6 +1127,12 @@ name|us
 operator|->
 name|host
 expr_stmt|;
+name|peer
+operator|=
+name|peers
+operator|->
+name|peer
+expr_stmt|;
 for|for
 control|(
 name|i
@@ -1167,8 +1149,6 @@ name|i
 operator|++
 control|)
 block|{
-name|peers
-operator|->
 name|peer
 index|[
 name|i
@@ -1185,8 +1165,6 @@ index|]
 operator|.
 name|sockaddr
 expr_stmt|;
-name|peers
-operator|->
 name|peer
 index|[
 name|i
@@ -1203,8 +1181,6 @@ index|]
 operator|.
 name|socklen
 expr_stmt|;
-name|peers
-operator|->
 name|peer
 index|[
 name|i
@@ -1221,8 +1197,6 @@ index|]
 operator|.
 name|name
 expr_stmt|;
-name|peers
-operator|->
 name|peer
 index|[
 name|i
@@ -1232,8 +1206,6 @@ name|weight
 operator|=
 literal|1
 expr_stmt|;
-name|peers
-operator|->
 name|peer
 index|[
 name|i
@@ -1243,8 +1215,6 @@ name|effective_weight
 operator|=
 literal|1
 expr_stmt|;
-name|peers
-operator|->
 name|peer
 index|[
 name|i
@@ -1254,8 +1224,6 @@ name|current_weight
 operator|=
 literal|0
 expr_stmt|;
-name|peers
-operator|->
 name|peer
 index|[
 name|i
@@ -1265,8 +1233,6 @@ name|max_fails
 operator|=
 literal|1
 expr_stmt|;
-name|peers
-operator|->
 name|peer
 index|[
 name|i
@@ -1609,6 +1575,10 @@ name|sockaddr
 modifier|*
 name|sockaddr
 decl_stmt|;
+name|ngx_http_upstream_rr_peer_t
+modifier|*
+name|peer
+decl_stmt|;
 name|ngx_http_upstream_rr_peers_t
 modifier|*
 name|peers
@@ -1737,6 +1707,12 @@ name|ur
 operator|->
 name|host
 expr_stmt|;
+name|peer
+operator|=
+name|peers
+operator|->
+name|peer
+expr_stmt|;
 if|if
 condition|(
 name|ur
@@ -1744,8 +1720,6 @@ operator|->
 name|sockaddr
 condition|)
 block|{
-name|peers
-operator|->
 name|peer
 index|[
 literal|0
@@ -1757,8 +1731,6 @@ name|ur
 operator|->
 name|sockaddr
 expr_stmt|;
-name|peers
-operator|->
 name|peer
 index|[
 literal|0
@@ -1770,8 +1742,6 @@ name|ur
 operator|->
 name|socklen
 expr_stmt|;
-name|peers
-operator|->
 name|peer
 index|[
 literal|0
@@ -1783,8 +1753,6 @@ name|ur
 operator|->
 name|host
 expr_stmt|;
-name|peers
-operator|->
 name|peer
 index|[
 literal|0
@@ -1794,8 +1762,6 @@ name|weight
 operator|=
 literal|1
 expr_stmt|;
-name|peers
-operator|->
 name|peer
 index|[
 literal|0
@@ -1805,8 +1771,6 @@ name|effective_weight
 operator|=
 literal|1
 expr_stmt|;
-name|peers
-operator|->
 name|peer
 index|[
 literal|0
@@ -1816,8 +1780,6 @@ name|current_weight
 operator|=
 literal|0
 expr_stmt|;
-name|peers
-operator|->
 name|peer
 index|[
 literal|0
@@ -1827,8 +1789,6 @@ name|max_fails
 operator|=
 literal|1
 expr_stmt|;
-name|peers
-operator|->
 name|peer
 index|[
 literal|0
@@ -2000,8 +1960,6 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-name|peers
-operator|->
 name|peer
 index|[
 name|i
@@ -2011,8 +1969,6 @@ name|sockaddr
 operator|=
 name|sockaddr
 expr_stmt|;
-name|peers
-operator|->
 name|peer
 index|[
 name|i
@@ -2022,8 +1978,6 @@ name|socklen
 operator|=
 name|socklen
 expr_stmt|;
-name|peers
-operator|->
 name|peer
 index|[
 name|i
@@ -2035,8 +1989,6 @@ name|len
 operator|=
 name|len
 expr_stmt|;
-name|peers
-operator|->
 name|peer
 index|[
 name|i
@@ -2048,8 +2000,6 @@ name|data
 operator|=
 name|p
 expr_stmt|;
-name|peers
-operator|->
 name|peer
 index|[
 name|i
@@ -2059,8 +2009,6 @@ name|weight
 operator|=
 literal|1
 expr_stmt|;
-name|peers
-operator|->
 name|peer
 index|[
 name|i
@@ -2070,8 +2018,6 @@ name|effective_weight
 operator|=
 literal|1
 expr_stmt|;
-name|peers
-operator|->
 name|peer
 index|[
 name|i
@@ -2081,8 +2027,6 @@ name|current_weight
 operator|=
 literal|0
 expr_stmt|;
-name|peers
-operator|->
 name|peer
 index|[
 name|i
@@ -2092,8 +2036,6 @@ name|max_fails
 operator|=
 literal|1
 expr_stmt|;
-name|peers
-operator|->
 name|peer
 index|[
 name|i
@@ -2333,7 +2275,6 @@ operator|->
 name|tries
 argument_list|)
 expr_stmt|;
-comment|/* ngx_lock_mutex(rrp->peers->mutex); */
 name|pc
 operator|->
 name|cached
@@ -2346,10 +2287,15 @@ name|connection
 operator|=
 name|NULL
 expr_stmt|;
-if|if
-condition|(
+name|peers
+operator|=
 name|rrp
 operator|->
+name|peers
+expr_stmt|;
+comment|/* ngx_lock_mutex(peers->mutex); */
+if|if
+condition|(
 name|peers
 operator|->
 name|single
@@ -2358,8 +2304,6 @@ block|{
 name|peer
 operator|=
 operator|&
-name|rrp
-operator|->
 name|peers
 operator|->
 name|peer
@@ -2447,7 +2391,7 @@ name|peer
 operator|->
 name|name
 expr_stmt|;
-comment|/* ngx_unlock_mutex(rrp->peers->mutex); */
+comment|/* ngx_unlock_mutex(peers->mutex); */
 if|if
 condition|(
 name|pc
@@ -2456,8 +2400,6 @@ name|tries
 operator|==
 literal|1
 operator|&&
-name|rrp
-operator|->
 name|peers
 operator|->
 name|next
@@ -2467,8 +2409,6 @@ name|pc
 operator|->
 name|tries
 operator|+=
-name|rrp
-operator|->
 name|peers
 operator|->
 name|next
@@ -2481,12 +2421,6 @@ name|NGX_OK
 return|;
 name|failed
 label|:
-name|peers
-operator|=
-name|rrp
-operator|->
-name|peers
-expr_stmt|;
 if|if
 condition|(
 name|peers
