@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bf9f0210108
+DECL|struct|__anon2b2050420108
 typedef|typedef
 struct|struct
 block|{
@@ -106,6 +106,11 @@ decl_stmt|;
 DECL|member|ciphers
 name|ngx_str_t
 name|ciphers
+decl_stmt|;
+DECL|member|passwords
+name|ngx_array_t
+modifier|*
+name|passwords
 decl_stmt|;
 DECL|member|shm_zone
 name|ngx_shm_zone_t
