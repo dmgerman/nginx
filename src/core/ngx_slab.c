@@ -807,7 +807,7 @@ decl_stmt|;
 if|if
 condition|(
 name|size
-operator|>=
+operator|>
 name|ngx_slab_max_size
 condition|)
 block|{
