@@ -1051,7 +1051,7 @@ name|trailer
 operator|.
 name|nelts
 expr_stmt|;
-comment|/*              * the "nbytes bug" of the old sendfile() syscall:              * http://www.freebsd.org/cgi/query-pr.cgi?pr=33771              */
+comment|/*              * the "nbytes bug" of the old sendfile() syscall:              * http://bugs.freebsd.org/33771              */
 if|if
 condition|(
 operator|!
