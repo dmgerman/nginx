@@ -106,8 +106,16 @@ name|NGX_HTTP_CACHE_KEY_LEN
 value|16
 end_define
 
+begin_define
+DECL|macro|NGX_HTTP_CACHE_VERSION
+define|#
+directive|define
+name|NGX_HTTP_CACHE_VERSION
+value|1
+end_define
+
 begin_typedef
-DECL|struct|__anon2ad012dc0108
+DECL|struct|__anon290c3ed40108
 typedef|typedef
 struct|struct
 block|{
@@ -126,7 +134,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad012dc0208
+DECL|struct|__anon290c3ed40208
 typedef|typedef
 struct|struct
 block|{
@@ -355,10 +363,14 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2ad012dc0308
+DECL|struct|__anon290c3ed40308
 typedef|typedef
 struct|struct
 block|{
+DECL|member|version
+name|ngx_uint_t
+name|version
+decl_stmt|;
 DECL|member|valid_sec
 name|time_t
 name|valid_sec
@@ -394,7 +406,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad012dc0408
+DECL|struct|__anon290c3ed40408
 typedef|typedef
 struct|struct
 block|{
