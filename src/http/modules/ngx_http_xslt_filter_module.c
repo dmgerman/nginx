@@ -102,7 +102,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2be528260108
+DECL|struct|__anon28e26a540108
 typedef|typedef
 struct|struct
 block|{
@@ -123,7 +123,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be528260208
+DECL|struct|__anon28e26a540208
 typedef|typedef
 struct|struct
 block|{
@@ -144,7 +144,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be528260308
+DECL|struct|__anon28e26a540308
 typedef|typedef
 struct|struct
 block|{
@@ -169,7 +169,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be528260408
+DECL|struct|__anon28e26a540408
 typedef|typedef
 struct|struct
 block|{
@@ -189,7 +189,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be528260508
+DECL|struct|__anon28e26a540508
 typedef|typedef
 struct|struct
 block|{
@@ -228,7 +228,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be528260608
+DECL|struct|__anon28e26a540608
 typedef|typedef
 struct|struct
 block|{
@@ -1464,11 +1464,6 @@ operator|=
 name|NULL
 expr_stmt|;
 block|}
-name|ngx_http_clear_etag
-argument_list|(
-name|r
-argument_list|)
-expr_stmt|;
 name|conf
 operator|=
 name|ngx_http_get_module_loc_conf
@@ -1487,6 +1482,19 @@ name|last_modified
 condition|)
 block|{
 name|ngx_http_clear_last_modified
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
+name|ngx_http_clear_etag
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|ngx_http_weak_etag
 argument_list|(
 name|r
 argument_list|)

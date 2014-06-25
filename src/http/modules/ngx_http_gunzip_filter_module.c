@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bca87f60108
+DECL|struct|__anon2b68eb810108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bca87f60208
+DECL|struct|__anon2b68eb810208
 typedef|typedef
 struct|struct
 block|{
@@ -669,7 +669,7 @@ argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
-name|ngx_http_clear_etag
+name|ngx_http_weak_etag
 argument_list|(
 name|r
 argument_list|)

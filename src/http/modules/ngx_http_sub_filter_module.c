@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28f6c93a0108
+DECL|struct|__anon2c1bba2d0108
 typedef|typedef
 struct|struct
 block|{
@@ -58,7 +58,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28f6c93a0203
+DECL|enum|__anon2c1bba2d0203
 typedef|typedef
 enum|enum
 block|{
@@ -76,7 +76,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f6c93a0308
+DECL|struct|__anon2c1bba2d0308
 typedef|typedef
 struct|struct
 block|{
@@ -679,11 +679,6 @@ argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
-name|ngx_http_clear_etag
-argument_list|(
-name|r
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -693,6 +688,19 @@ name|last_modified
 condition|)
 block|{
 name|ngx_http_clear_last_modified
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
+name|ngx_http_clear_etag
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|ngx_http_weak_etag
 argument_list|(
 name|r
 argument_list|)

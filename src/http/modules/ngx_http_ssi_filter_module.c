@@ -54,7 +54,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon28a3f56a0108
+DECL|struct|__anon29a2ba630108
 typedef|typedef
 struct|struct
 block|{
@@ -98,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a3f56a0208
+DECL|struct|__anon29a2ba630208
 typedef|typedef
 struct|struct
 block|{
@@ -121,7 +121,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a3f56a0308
+DECL|struct|__anon29a2ba630308
 typedef|typedef
 struct|struct
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28a3f56a0403
+DECL|enum|__anon29a2ba630403
 typedef|typedef
 enum|enum
 block|{
@@ -1918,11 +1918,6 @@ argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
-name|ngx_http_clear_etag
-argument_list|(
-name|r
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -1932,6 +1927,19 @@ name|last_modified
 condition|)
 block|{
 name|ngx_http_clear_last_modified
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
+name|ngx_http_clear_etag
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|ngx_http_weak_etag
 argument_list|(
 name|r
 argument_list|)

@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon298b219f0108
+DECL|struct|__anon2b44f91b0108
 typedef|typedef
 struct|struct
 block|{
@@ -50,7 +50,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298b219f0208
+DECL|struct|__anon2b44f91b0208
 typedef|typedef
 struct|struct
 block|{
@@ -449,7 +449,7 @@ argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
-name|ngx_http_clear_etag
+name|ngx_http_weak_etag
 argument_list|(
 name|r
 argument_list|)
