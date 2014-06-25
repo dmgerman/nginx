@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27828d490108
+DECL|struct|__anon2bb9e5c90108
 typedef|typedef
 struct|struct
 block|{
@@ -1645,7 +1645,7 @@ argument_list|)
 block|,
 name|ngx_string
 argument_list|(
-literal|""
+literal|"$upstream_cache_etag"
 argument_list|)
 block|}
 block|,

@@ -69,7 +69,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon29afd44f010a
+DECL|union|__anon28d8b332010a
 union|union
 block|{
 DECL|member|complex
@@ -101,7 +101,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29afd44f0208
+DECL|struct|__anon28d8b3320208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29afd44f0308
+DECL|struct|__anon28d8b3320308
 typedef|typedef
 struct|struct
 block|{
@@ -284,7 +284,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29afd44f0408
+DECL|struct|__anon28d8b3320408
 typedef|typedef
 struct|struct
 block|{
@@ -3161,7 +3161,7 @@ argument_list|)
 block|,
 name|ngx_string
 argument_list|(
-literal|""
+literal|"$upstream_cache_etag"
 argument_list|)
 block|}
 block|,
