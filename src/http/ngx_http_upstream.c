@@ -10958,15 +10958,6 @@ name|cacheable
 operator|=
 literal|0
 expr_stmt|;
-name|r
-operator|->
-name|headers_out
-operator|.
-name|last_modified_time
-operator|=
-operator|-
-literal|1
-expr_stmt|;
 block|}
 block|}
 name|ngx_log_debug1
