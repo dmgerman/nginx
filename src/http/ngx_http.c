@@ -3206,7 +3206,6 @@ sizeof|sizeof
 argument_list|(
 name|ngx_http_core_loc_conf_t
 operator|*
-operator|*
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3310,7 +3309,6 @@ operator|*
 sizeof|sizeof
 argument_list|(
 name|ngx_http_core_loc_conf_t
-operator|*
 operator|*
 argument_list|)
 argument_list|)
