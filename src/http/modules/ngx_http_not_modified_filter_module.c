@@ -459,7 +459,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http iums:%d lm:%d"
+literal|"http iums:%T lm:%T"
 argument_list|,
 name|iums
 argument_list|,
@@ -568,7 +568,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http ims:%d lm:%d"
+literal|"http ims:%T lm:%T"
 argument_list|,
 name|ims
 argument_list|,
