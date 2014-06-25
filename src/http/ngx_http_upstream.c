@@ -9807,6 +9807,15 @@ name|headers_in
 operator|.
 name|content_length_n
 expr_stmt|;
+name|r
+operator|->
+name|disable_not_modified
+operator|=
+operator|!
+name|u
+operator|->
+name|cacheable
+expr_stmt|;
 name|u
 operator|->
 name|length
