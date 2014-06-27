@@ -6176,7 +6176,7 @@ name|u_char
 name|hex
 index|[]
 init|=
-literal|"0123456789abcdef"
+literal|"0123456789ABCDEF"
 decl_stmt|;
 comment|/* " ", "#", "%", "?", %00-%1F, %7F-%FF */
 specifier|static
@@ -6596,7 +6596,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon2c812b520103
+DECL|enum|__anon27ece6890103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
