@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2b08ffe70108
+DECL|struct|__anon293d1d910108
 typedef|typedef
 struct|struct
 block|{
@@ -4949,13 +4949,9 @@ operator|==
 literal|0
 condition|)
 block|{
-name|ngx_log_error
+name|ngx_connection_error
 argument_list|(
-name|NGX_LOG_INFO
-argument_list|,
 name|c
-operator|->
-name|log
 argument_list|,
 name|err
 argument_list|,
