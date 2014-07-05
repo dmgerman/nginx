@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b9679ec0108
+DECL|struct|__anon28801c090108
 typedef|typedef
 struct|struct
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b9679ec0208
+DECL|struct|__anon28801c090208
 typedef|typedef
 struct|struct
 block|{
@@ -128,7 +128,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b9679ec0308
+DECL|struct|__anon28801c090308
 typedef|typedef
 struct|struct
 block|{
@@ -894,16 +894,16 @@ name|ngx_read_dir_n
 value|"FindNextFile()"
 end_define
 
-begin_define
-DECL|macro|ngx_close_dir (d)
-define|#
-directive|define
+begin_function_decl
+name|ngx_int_t
 name|ngx_close_dir
 parameter_list|(
-name|d
+name|ngx_dir_t
+modifier|*
+name|dir
 parameter_list|)
-value|FindClose((d)->dir)
-end_define
+function_decl|;
+end_function_decl
 
 begin_define
 DECL|macro|ngx_close_dir_n
