@@ -3173,7 +3173,7 @@ argument_list|,
 name|ssl_session
 argument_list|)
 expr_stmt|;
-name|ngx_log_debug2
+name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
@@ -3183,17 +3183,9 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"set session: %p:%d"
+literal|"set session: %p"
 argument_list|,
 name|ssl_session
-argument_list|,
-name|ssl_session
-condition|?
-name|ssl_session
-operator|->
-name|references
-else|:
-literal|0
 argument_list|)
 expr_stmt|;
 comment|/* ngx_unlock_mutex(rrp->peers->mutex); */
@@ -3252,7 +3244,7 @@ condition|)
 block|{
 return|return;
 block|}
-name|ngx_log_debug2
+name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
@@ -3262,13 +3254,9 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"save session: %p:%d"
+literal|"save session: %p"
 argument_list|,
 name|ssl_session
-argument_list|,
-name|ssl_session
-operator|->
-name|references
 argument_list|)
 expr_stmt|;
 name|peer
@@ -3305,7 +3293,7 @@ condition|(
 name|old_ssl_session
 condition|)
 block|{
-name|ngx_log_debug2
+name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
@@ -3315,13 +3303,9 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"old session: %p:%d"
+literal|"old session: %p"
 argument_list|,
 name|old_ssl_session
-argument_list|,
-name|old_ssl_session
-operator|->
-name|references
 argument_list|)
 expr_stmt|;
 comment|/* TODO: may block */
