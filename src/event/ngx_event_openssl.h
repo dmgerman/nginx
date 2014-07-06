@@ -43,7 +43,25 @@ end_include
 begin_include
 include|#
 directive|include
+file|<openssl/bn.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<openssl/conf.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<openssl/crypto.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<openssl/dh.h>
 end_include
 
 begin_include
@@ -62,6 +80,30 @@ begin_include
 include|#
 directive|include
 file|<openssl/ocsp.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<openssl/rand.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<openssl/rsa.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<openssl/x509.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<openssl/x509v3.h>
 end_include
 
 begin_define
@@ -89,7 +131,7 @@ value|SSL
 end_define
 
 begin_typedef
-DECL|struct|__anon2910b20e0108
+DECL|struct|__anon290be0940108
 typedef|typedef
 struct|struct
 block|{
@@ -114,7 +156,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2910b20e0208
+DECL|struct|__anon290be0940208
 typedef|typedef
 struct|struct
 block|{
@@ -296,7 +338,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2910b20e0308
+DECL|struct|__anon290be0940308
 typedef|typedef
 struct|struct
 block|{
@@ -325,7 +367,7 @@ name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon2910b20e0408
+DECL|struct|__anon290be0940408
 typedef|typedef
 struct|struct
 block|{
