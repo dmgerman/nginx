@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2a2e46d50108
+DECL|struct|__anon28a619d20108
 typedef|typedef
 struct|struct
 block|{
@@ -11105,7 +11105,7 @@ argument_list|,
 name|NULL
 argument_list|)
 expr_stmt|;
-name|memcpy
+name|ngx_memcpy
 argument_list|(
 name|name
 argument_list|,
