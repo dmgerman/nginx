@@ -58,7 +58,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2892f16d0108
+DECL|struct|__anon2baa797c0108
 typedef|typedef
 struct|struct
 block|{
@@ -119,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2892f16d0208
+DECL|struct|__anon2baa797c0208
 typedef|typedef
 struct|struct
 block|{
