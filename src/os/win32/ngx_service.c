@@ -42,8 +42,8 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_service (ngx_log_t * log)
 name|ngx_int_t
+DECL|function|ngx_service (ngx_log_t * log)
 name|ngx_service
 parameter_list|(
 name|ngx_log_t
@@ -85,8 +85,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|service_main (u_int argc,char ** argv)
 name|void
+DECL|function|service_main (u_int argc,char ** argv)
 name|service_main
 parameter_list|(
 name|u_int
@@ -258,8 +258,8 @@ block|}
 end_function
 
 begin_function
-DECL|function|service_handler (u_int control,u_int type,void * data,void * ctx)
 name|u_int
+DECL|function|service_handler (u_int control,u_int type,void * data,void * ctx)
 name|service_handler
 parameter_list|(
 name|u_int
