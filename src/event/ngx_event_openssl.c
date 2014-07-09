@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon28a619d20108
+DECL|struct|__anon2b9f8cf20108
 typedef|typedef
 struct|struct
 block|{
@@ -369,7 +369,7 @@ if|#
 directive|if
 name|OPENSSL_VERSION_NUMBER
 operator|<
-literal|0x10002001L
+literal|0x10002002L
 end_if
 
 begin_function_decl
@@ -11415,7 +11415,7 @@ if|#
 directive|if
 name|OPENSSL_VERSION_NUMBER
 operator|>=
-literal|0x10002001L
+literal|0x10002002L
 comment|/* X509_check_host() is only available in OpenSSL 1.0.2+ */
 if|if
 condition|(
@@ -11436,6 +11436,10 @@ name|X509_check_host
 argument_list|(
 name|cert
 argument_list|,
+operator|(
+name|char
+operator|*
+operator|)
 name|name
 operator|->
 name|data
@@ -11445,6 +11449,8 @@ operator|->
 name|len
 argument_list|,
 literal|0
+argument_list|,
+name|NULL
 argument_list|)
 operator|!=
 literal|1
@@ -11825,7 +11831,7 @@ if|#
 directive|if
 name|OPENSSL_VERSION_NUMBER
 operator|<
-literal|0x10002001L
+literal|0x10002002L
 end_if
 
 begin_function
