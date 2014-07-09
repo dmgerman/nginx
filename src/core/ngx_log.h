@@ -1436,7 +1436,7 @@ name|ngx_stderr
 argument_list|,
 name|text
 argument_list|,
-name|strlen
+name|ngx_strlen
 argument_list|(
 name|text
 argument_list|)
