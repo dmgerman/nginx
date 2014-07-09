@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2c27552b0108
+DECL|struct|__anon274cd3a50108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c27552b0208
+DECL|struct|__anon274cd3a50208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c27552b0308
+DECL|struct|__anon274cd3a50308
 typedef|typedef
 struct|struct
 block|{
@@ -11937,17 +11937,10 @@ operator|-
 literal|1
 condition|)
 block|{
+name|ngx_str_null
+argument_list|(
 name|name
-operator|->
-name|len
-operator|=
-literal|0
-expr_stmt|;
-name|name
-operator|->
-name|data
-operator|=
-name|NULL
+argument_list|)
 expr_stmt|;
 return|return
 name|NGX_OK
