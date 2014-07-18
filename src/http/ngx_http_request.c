@@ -4697,6 +4697,14 @@ operator|!=
 name|NGX_OK
 condition|)
 block|{
+name|r
+operator|->
+name|uri
+operator|.
+name|len
+operator|=
+literal|0
+expr_stmt|;
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_INFO
@@ -8566,7 +8574,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon2987f3b20103
+DECL|enum|__anon2bae26f00103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
