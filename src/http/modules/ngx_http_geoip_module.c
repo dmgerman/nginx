@@ -58,7 +58,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2baa797c0108
+DECL|struct|__anon27677dad0108
 typedef|typedef
 struct|struct
 block|{
@@ -119,7 +119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baa797c0208
+DECL|struct|__anon27677dad0208
 typedef|typedef
 struct|struct
 block|{
@@ -2413,6 +2413,24 @@ name|v
 operator|->
 name|data
 expr_stmt|;
+name|v
+operator|->
+name|valid
+operator|=
+literal|1
+expr_stmt|;
+name|v
+operator|->
+name|no_cacheable
+operator|=
+literal|0
+expr_stmt|;
+name|v
+operator|->
+name|not_found
+operator|=
+literal|0
+expr_stmt|;
 name|GeoIPRecord_delete
 argument_list|(
 name|gr
@@ -2539,6 +2557,24 @@ operator|-
 name|v
 operator|->
 name|data
+expr_stmt|;
+name|v
+operator|->
+name|valid
+operator|=
+literal|1
+expr_stmt|;
+name|v
+operator|->
+name|no_cacheable
+operator|=
+literal|0
+expr_stmt|;
+name|v
+operator|->
+name|not_found
+operator|=
+literal|0
 expr_stmt|;
 name|GeoIPRecord_delete
 argument_list|(
