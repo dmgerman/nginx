@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon291c16680108
+DECL|struct|__anon29e199030108
 typedef|typedef
 struct|struct
 block|{
@@ -13605,6 +13605,9 @@ modifier|*
 name|conf
 parameter_list|)
 block|{
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_ENGINE
 name|ngx_openssl_conf_t
 modifier|*
 name|oscf
@@ -13739,6 +13742,13 @@ expr_stmt|;
 return|return
 name|NGX_CONF_OK
 return|;
+else|#
+directive|else
+return|return
+literal|"is not supported"
+return|;
+endif|#
+directive|endif
 block|}
 end_function
 
@@ -13756,9 +13766,14 @@ block|{
 name|EVP_cleanup
 argument_list|()
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_ENGINE
 name|ENGINE_cleanup
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 block|}
 end_function
 

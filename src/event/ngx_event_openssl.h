@@ -64,11 +64,22 @@ directive|include
 file|<openssl/dh.h>
 end_include
 
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_ENGINE
+end_ifndef
+
 begin_include
 include|#
 directive|include
 file|<openssl/engine.h>
 end_include
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_include
 include|#
@@ -76,11 +87,22 @@ directive|include
 file|<openssl/evp.h>
 end_include
 
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|OPENSSL_NO_OCSP
+end_ifndef
+
 begin_include
 include|#
 directive|include
 file|<openssl/ocsp.h>
 end_include
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_include
 include|#
@@ -131,7 +153,7 @@ value|SSL
 end_define
 
 begin_typedef
-DECL|struct|__anon290be0940108
+DECL|struct|__anon2c6463e00108
 typedef|typedef
 struct|struct
 block|{
@@ -156,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290be0940208
+DECL|struct|__anon2c6463e00208
 typedef|typedef
 struct|struct
 block|{
@@ -338,7 +360,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon290be0940308
+DECL|struct|__anon2c6463e00308
 typedef|typedef
 struct|struct
 block|{
@@ -367,7 +389,7 @@ name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon290be0940408
+DECL|struct|__anon2c6463e00408
 typedef|typedef
 struct|struct
 block|{

@@ -27,14 +27,21 @@ directive|include
 file|<ngx_event_connect.h>
 end_include
 
-begin_ifdef
-ifdef|#
-directive|ifdef
+begin_if
+if|#
+directive|if
+operator|(
+operator|!
+name|defined
+name|OPENSSL_NO_OCSP
+operator|&&
+name|defined
 name|SSL_CTRL_SET_TLSEXT_STATUS_REQ_CB
-end_ifdef
+operator|)
+end_if
 
 begin_typedef
-DECL|struct|__anon290d3b380108
+DECL|struct|__anon28b7dafc0108
 typedef|typedef
 struct|struct
 block|{
@@ -5397,7 +5404,7 @@ name|ngx_buf_t
 modifier|*
 name|b
 decl_stmt|;
-DECL|enum|__anon290d3b380203
+DECL|enum|__anon28b7dafc0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6193,7 +6200,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon290d3b380303
+DECL|enum|__anon28b7dafc0303
 enum|enum
 block|{
 DECL|enumerator|sw_start
