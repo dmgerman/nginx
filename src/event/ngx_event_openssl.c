@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2b9f8cf20108
+DECL|struct|__anon291c16680108
 typedef|typedef
 struct|struct
 block|{
@@ -2536,7 +2536,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"verify:%d, error:%d, depth:%d, "
-literal|"subject:\"%s\",issuer: \"%s\""
+literal|"subject:\"%s\", issuer:\"%s\""
 argument_list|,
 name|ok
 argument_list|,
