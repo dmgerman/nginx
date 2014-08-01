@@ -24,6 +24,18 @@ end_include
 begin_function_decl
 specifier|static
 name|ngx_int_t
+name|ngx_http_stub_status_handler
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
+name|ngx_int_t
 name|ngx_http_stub_status_variable
 parameter_list|(
 name|ngx_http_request_t
@@ -56,7 +68,7 @@ begin_function_decl
 specifier|static
 name|char
 modifier|*
-name|ngx_http_set_status
+name|ngx_http_set_stub_status
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -93,7 +105,7 @@ name|NGX_HTTP_LOC_CONF
 operator||
 name|NGX_CONF_FLAG
 block|,
-name|ngx_http_set_status
+name|ngx_http_set_stub_status
 block|,
 literal|0
 block|,
@@ -279,10 +291,10 @@ decl_stmt|;
 end_decl_stmt
 
 begin_function
-DECL|function|ngx_http_status_handler (ngx_http_request_t * r)
 specifier|static
 name|ngx_int_t
-name|ngx_http_status_handler
+DECL|function|ngx_http_stub_status_handler (ngx_http_request_t * r)
+name|ngx_http_stub_status_handler
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
@@ -912,11 +924,11 @@ block|}
 end_function
 
 begin_function
-DECL|function|ngx_http_set_status (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
 specifier|static
 name|char
 modifier|*
-name|ngx_http_set_status
+DECL|function|ngx_http_set_stub_status (ngx_conf_t * cf,ngx_command_t * cmd,void * conf)
+name|ngx_http_set_stub_status
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -948,7 +960,7 @@ name|clcf
 operator|->
 name|handler
 operator|=
-name|ngx_http_status_handler
+name|ngx_http_stub_status_handler
 expr_stmt|;
 return|return
 name|NGX_CONF_OK
