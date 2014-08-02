@@ -2766,7 +2766,7 @@ decl_stmt|;
 name|ngx_err_t
 name|err
 decl_stmt|;
-DECL|enum|__anon2936a8ab0103
+DECL|enum|__anon2b7023e30103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -3448,7 +3448,7 @@ operator|>
 literal|0x10ffff
 condition|)
 block|{
-name|free
+name|ngx_free
 argument_list|(
 name|utf16
 argument_list|)
