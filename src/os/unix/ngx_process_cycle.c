@@ -713,6 +713,20 @@ argument_list|,
 name|size
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|title
+operator|==
+name|NULL
+condition|)
+block|{
+comment|/* fatal */
+name|exit
+argument_list|(
+literal|2
+argument_list|)
+expr_stmt|;
+block|}
 name|p
 operator|=
 name|ngx_cpymem
