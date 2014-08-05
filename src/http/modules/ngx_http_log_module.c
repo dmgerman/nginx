@@ -119,7 +119,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c29c0070108
+DECL|struct|__anon29acc8080108
 typedef|typedef
 struct|struct
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c29c0070208
+DECL|struct|__anon29acc8080208
 typedef|typedef
 struct|struct
 block|{
@@ -166,7 +166,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c29c0070308
+DECL|struct|__anon29acc8080308
 typedef|typedef
 struct|struct
 block|{
@@ -205,7 +205,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c29c0070408
+DECL|struct|__anon29acc8080408
 typedef|typedef
 struct|struct
 block|{
@@ -226,7 +226,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c29c0070508
+DECL|struct|__anon29acc8080508
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +270,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c29c0070608
+DECL|struct|__anon29acc8080608
 typedef|typedef
 struct|struct
 block|{
@@ -305,7 +305,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c29c0070708
+DECL|struct|__anon29acc8080708
 typedef|typedef
 struct|struct
 block|{
@@ -5751,51 +5751,6 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
-if|if
-condition|(
-name|log
-operator|->
-name|syslog_peer
-operator|!=
-name|NULL
-condition|)
-block|{
-if|if
-condition|(
-name|cf
-operator|->
-name|args
-operator|->
-name|nelts
-operator|>
-literal|3
-condition|)
-block|{
-name|ngx_conf_log_error
-argument_list|(
-name|NGX_LOG_EMERG
-argument_list|,
-name|cf
-argument_list|,
-literal|0
-argument_list|,
-literal|"parameter \"%V\" is not supported by syslog"
-argument_list|,
-operator|&
-name|value
-index|[
-literal|3
-index|]
-argument_list|)
-expr_stmt|;
-return|return
-name|NGX_CONF_ERROR
-return|;
-block|}
-return|return
-name|NGX_CONF_OK
-return|;
-block|}
 name|size
 operator|=
 literal|0
@@ -6291,6 +6246,28 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"buffered logs cannot have variables in name"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
+if|if
+condition|(
+name|log
+operator|->
+name|syslog_peer
+condition|)
+block|{
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"logs to syslog cannot be buffered"
 argument_list|)
 expr_stmt|;
 return|return
