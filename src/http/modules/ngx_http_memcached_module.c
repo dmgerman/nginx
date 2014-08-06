@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b04df220108
+DECL|struct|__anon277a26e30108
 typedef|typedef
 struct|struct
 block|{
@@ -45,7 +45,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b04df220208
+DECL|struct|__anon277a26e30208
 typedef|typedef
 struct|struct
 block|{
@@ -1735,8 +1735,7 @@ name|headers_in
 operator|.
 name|content_length_n
 operator|==
-operator|-
-literal|1
+name|NGX_ERROR
 condition|)
 block|{
 name|ngx_log_error
