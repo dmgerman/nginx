@@ -132,7 +132,7 @@ end_decl_stmt
 begin_decl_stmt
 DECL|variable|nevents
 specifier|static
-name|ngx_int_t
+name|ngx_uint_t
 name|nevents
 decl_stmt|;
 end_decl_stmt
@@ -803,9 +803,6 @@ name|ev
 operator|->
 name|index
 operator|<
-operator|(
-name|ngx_uint_t
-operator|)
 name|nevents
 condition|)
 block|{
@@ -888,9 +885,6 @@ name|read
 operator|->
 name|index
 operator|==
-operator|(
-name|ngx_uint_t
-operator|)
 name|nevents
 condition|)
 block|{
@@ -913,9 +907,6 @@ name|write
 operator|->
 name|index
 operator|==
-operator|(
-name|ngx_uint_t
-operator|)
 name|nevents
 condition|)
 block|{
@@ -1006,11 +997,11 @@ name|ngx_err_t
 name|err
 decl_stmt|;
 name|ngx_int_t
-name|i
-decl_stmt|,
 name|nready
 decl_stmt|;
 name|ngx_uint_t
+name|i
+decl_stmt|,
 name|found
 decl_stmt|,
 name|level
