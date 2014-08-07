@@ -965,7 +965,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"change max_fd: %d"
+literal|"change max_fd: %i"
 argument_list|,
 name|max_fd
 argument_list|)
@@ -1046,7 +1046,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"max_fd: %d"
+literal|"max_fd: %i"
 argument_list|,
 name|max_fd
 argument_list|)

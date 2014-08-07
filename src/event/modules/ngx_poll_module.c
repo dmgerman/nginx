@@ -1059,7 +1059,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"poll: %d: fd:%d ev:%04Xd"
+literal|"poll: %ui: fd:%d ev:%04Xd"
 argument_list|,
 name|i
 argument_list|,
@@ -1150,7 +1150,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"poll ready %d of %d"
+literal|"poll ready %d of %ui"
 argument_list|,
 name|ready
 argument_list|,
@@ -1293,7 +1293,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"poll: %d: fd:%d ev:%04Xd rev:%04Xd"
+literal|"poll: %ui: fd:%d ev:%04Xd rev:%04Xd"
 argument_list|,
 name|i
 argument_list|,
@@ -1331,7 +1331,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"poll: %d: fd:%d ev:%04Xd rev:%04Xd"
+literal|"poll: %ui: fd:%d ev:%04Xd rev:%04Xd"
 argument_list|,
 name|i
 argument_list|,
