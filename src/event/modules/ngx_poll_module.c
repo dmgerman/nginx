@@ -996,9 +996,6 @@ decl_stmt|;
 name|ngx_err_t
 name|err
 decl_stmt|;
-name|ngx_int_t
-name|nready
-decl_stmt|;
 name|ngx_uint_t
 name|i
 decl_stmt|,
@@ -1250,10 +1247,6 @@ name|ngx_mutex_lock
 argument_list|(
 name|ngx_posted_events_mutex
 argument_list|)
-expr_stmt|;
-name|nready
-operator|=
-literal|0
 expr_stmt|;
 for|for
 control|(
@@ -1738,7 +1731,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|nready
+name|NGX_OK
 return|;
 block|}
 end_function
