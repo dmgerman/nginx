@@ -231,14 +231,6 @@ init|;
 condition|;
 control|)
 block|{
-name|file
-operator|=
-name|NULL
-expr_stmt|;
-name|file_size
-operator|=
-literal|0
-expr_stmt|;
 name|eintr
 operator|=
 literal|0
@@ -324,12 +316,6 @@ name|send
 operator|+=
 name|file_size
 expr_stmt|;
-block|}
-if|if
-condition|(
-name|file
-condition|)
-block|{
 comment|/* create the trailer iovec and coalesce the neighbouring bufs */
 name|cl
 operator|=
@@ -366,12 +352,6 @@ name|trailer
 operator|.
 name|size
 expr_stmt|;
-block|}
-if|if
-condition|(
-name|file
-condition|)
-block|{
 if|if
 condition|(
 name|ngx_freebsd_use_tcp_nopush

@@ -219,14 +219,6 @@ init|;
 condition|;
 control|)
 block|{
-name|file
-operator|=
-name|NULL
-expr_stmt|;
-name|file_size
-operator|=
-literal|0
-expr_stmt|;
 name|eintr
 operator|=
 literal|0
@@ -309,11 +301,8 @@ name|send
 operator|+=
 name|file_size
 expr_stmt|;
-block|}
 if|if
 condition|(
-name|file
-operator|&&
 name|header
 operator|.
 name|count
@@ -321,7 +310,7 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|/* create the trailer iovec and coalesce the neighbouring bufs */
+comment|/*                  * create the trailer iovec and coalesce the neighbouring bufs                  */
 name|cl
 operator|=
 name|ngx_output_chain_to_iovec
@@ -358,11 +347,6 @@ operator|.
 name|size
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|file
-condition|)
-block|{
 comment|/*              * sendfile() returns EINVAL if sf_hdtr's count is 0,              * but corresponding pointer is not NULL              */
 name|hdtr
 operator|.
