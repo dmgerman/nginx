@@ -193,7 +193,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bb4f88e0108
+DECL|struct|__anon2bbaba730108
 typedef|typedef
 struct|struct
 block|{
@@ -387,7 +387,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bb4f88e0208
+DECL|struct|__anon2bbaba730208
 typedef|typedef
 struct|struct
 block|{
@@ -659,6 +659,21 @@ name|out
 parameter_list|,
 name|ngx_buf_tag_t
 name|tag
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|off_t
+name|ngx_chain_coalesce_file
+parameter_list|(
+name|ngx_chain_t
+modifier|*
+modifier|*
+name|in
+parameter_list|,
+name|off_t
+name|limit
 parameter_list|)
 function_decl|;
 end_function_decl
