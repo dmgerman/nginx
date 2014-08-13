@@ -459,7 +459,7 @@ name|sent
 operator|+=
 name|sent
 expr_stmt|;
-name|cl
+name|in
 operator|=
 name|ngx_handle_sent_chain
 argument_list|(
@@ -484,7 +484,7 @@ operator|=
 literal|0
 expr_stmt|;
 return|return
-name|cl
+name|in
 return|;
 block|}
 if|if
@@ -493,19 +493,15 @@ name|send
 operator|>=
 name|limit
 operator|||
-name|cl
+name|in
 operator|==
 name|NULL
 condition|)
 block|{
 return|return
-name|cl
+name|in
 return|;
 block|}
-name|in
-operator|=
-name|cl
-expr_stmt|;
 block|}
 block|}
 end_function
@@ -1127,7 +1123,7 @@ name|sent
 operator|+=
 name|sent
 expr_stmt|;
-name|cl
+name|in
 operator|=
 name|ngx_handle_sent_chain
 argument_list|(
@@ -1138,7 +1134,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|cl
+name|in
 condition|)
 block|{
 name|wev
@@ -1158,7 +1154,7 @@ literal|1
 expr_stmt|;
 block|}
 return|return
-name|cl
+name|in
 return|;
 block|}
 end_function
