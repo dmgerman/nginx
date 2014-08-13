@@ -3676,6 +3676,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|ngx_event_cancel_timers
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|ngx_event_timer_rbtree
