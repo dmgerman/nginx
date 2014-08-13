@@ -130,7 +130,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c51c1e10108
+DECL|struct|__anon277c1c120108
 typedef|typedef
 struct|struct
 block|{
@@ -451,7 +451,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c51c1e10208
+DECL|struct|__anon277c1c120208
 typedef|typedef
 struct|struct
 block|{
@@ -498,6 +498,21 @@ parameter_list|,
 name|ngx_log_t
 modifier|*
 name|log
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ssize_t
+name|ngx_writev
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|,
+name|ngx_iovec_t
+modifier|*
+name|vec
 parameter_list|)
 function_decl|;
 end_function_decl
