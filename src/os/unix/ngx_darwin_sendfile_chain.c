@@ -1171,11 +1171,11 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"writev: %d of %uz"
+literal|"writev: %d of %O"
 argument_list|,
 name|rc
 argument_list|,
-name|send
+name|header_size
 argument_list|)
 expr_stmt|;
 if|if
