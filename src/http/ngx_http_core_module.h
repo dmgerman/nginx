@@ -237,11 +237,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c87d9a10108
+DECL|struct|__anon288f696b0108
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon2c87d9a1020a
+DECL|union|__anon288f696b020a
 union|union
 block|{
 DECL|member|sockaddr
@@ -469,7 +469,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c87d9a10303
+DECL|enum|__anon288f696b0303
 typedef|typedef
 enum|enum
 block|{
@@ -564,7 +564,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c87d9a10408
+DECL|struct|__anon288f696b0408
 typedef|typedef
 struct|struct
 block|{
@@ -588,7 +588,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c87d9a10508
+DECL|struct|__anon288f696b0508
 typedef|typedef
 struct|struct
 block|{
@@ -603,7 +603,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c87d9a10608
+DECL|struct|__anon288f696b0608
 typedef|typedef
 struct|struct
 block|{
@@ -680,7 +680,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c87d9a10708
+DECL|struct|__anon288f696b0708
 typedef|typedef
 struct|struct
 block|{
@@ -767,7 +767,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2c87d9a10808
+DECL|struct|__anon288f696b0808
 typedef|typedef
 struct|struct
 block|{
@@ -800,7 +800,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c87d9a10908
+DECL|struct|__anon288f696b0908
 typedef|typedef
 struct|struct
 block|{
@@ -876,7 +876,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c87d9a10a08
+DECL|struct|__anon288f696b0a08
 typedef|typedef
 struct|struct
 block|{
@@ -903,7 +903,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2c87d9a10b08
+DECL|struct|__anon288f696b0b08
 typedef|typedef
 struct|struct
 block|{
@@ -928,7 +928,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c87d9a10c08
+DECL|struct|__anon288f696b0c08
 typedef|typedef
 struct|struct
 block|{
@@ -949,7 +949,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c87d9a10d08
+DECL|struct|__anon288f696b0d08
 typedef|typedef
 struct|struct
 block|{
@@ -973,7 +973,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c87d9a10e08
+DECL|struct|__anon288f696b0e08
 typedef|typedef
 struct|struct
 block|{
@@ -1029,7 +1029,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c87d9a10f08
+DECL|struct|__anon288f696b0f08
 typedef|typedef
 struct|struct
 block|{
@@ -1056,7 +1056,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c87d9a11008
+DECL|struct|__anon288f696b1008
 typedef|typedef
 struct|struct
 block|{
@@ -1591,7 +1591,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c87d9a11108
+DECL|struct|__anon288f696b1108
 typedef|typedef
 struct|struct
 block|{
@@ -2185,58 +2185,17 @@ define|\                                                                        
 value|r->headers_out.content_length_n = -1;                                     \     if (r->headers_out.content_length) {                                      \         r->headers_out.content_length->hash = 0;                              \         r->headers_out.content_length = NULL;                                 \     }
 end_define
 
-begin_expr_stmt
-unit|\
+begin_define
 DECL|macro|ngx_http_clear_accept_ranges (r)
-operator|#
-name|define
+define|#
+directive|define
 name|ngx_http_clear_accept_ranges
-argument_list|(
-argument|r
-argument_list|)
-expr|\                                                                               \
+parameter_list|(
 name|r
-operator|->
-name|allow_ranges
-operator|=
-literal|0
-expr_stmt|;
-end_expr_stmt
-
-begin_if_stmt
-unit|\
-if|if
-condition|(
-name|r
-operator|->
-name|headers_out
-operator|.
-name|accept_ranges
-condition|)
-block|{
-block_content|\
-name|r
-operator|->
-name|headers_out
-operator|.
-name|accept_ranges
-operator|->
-name|hash
-operator|=
-literal|0
-expr_stmt|;
-block_content|\
-name|r
-operator|->
-name|headers_out
-operator|.
-name|accept_ranges
-operator|=
-name|NULL
-expr_stmt|;
-block_content|\
-block|}
-end_if_stmt
+parameter_list|)
+define|\                                                                               \
+value|r->allow_ranges = 0;                                                      \     if (r->headers_out.accept_ranges) {                                       \         r->headers_out.accept_ranges->hash = 0;                               \         r->headers_out.accept_ranges = NULL;                                  \     }
+end_define
 
 begin_define
 DECL|macro|ngx_http_clear_last_modified (r)
