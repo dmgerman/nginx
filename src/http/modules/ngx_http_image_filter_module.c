@@ -156,7 +156,7 @@ value|0x08
 end_define
 
 begin_typedef
-DECL|struct|__anon278f66570108
+DECL|struct|__anon2a9f1e250108
 typedef|typedef
 struct|struct
 block|{
@@ -228,7 +228,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278f66570208
+DECL|struct|__anon2a9f1e250208
 typedef|typedef
 struct|struct
 block|{
@@ -4565,6 +4565,11 @@ argument_list|(
 name|r
 argument_list|,
 name|b
+argument_list|)
+expr_stmt|;
+name|ngx_http_weak_etag
+argument_list|(
+name|r
 argument_list|)
 expr_stmt|;
 return|return
