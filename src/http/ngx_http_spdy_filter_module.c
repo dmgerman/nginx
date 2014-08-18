@@ -5080,6 +5080,7 @@ name|connection
 operator|->
 name|write
 expr_stmt|;
+comment|/*      * This timer can only be set if the stream was delayed because of rate      * limit.  In that case the event should be triggered by the timer.      */
 if|if
 condition|(
 operator|!
