@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2c50a23f0108
+DECL|struct|__anon2abc86200108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c50a23f0208
+DECL|struct|__anon2abc86200208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c50a23f0308
+DECL|struct|__anon2abc86200308
 typedef|typedef
 struct|struct
 block|{
@@ -2155,12 +2155,6 @@ operator|->
 name|state
 operator|==
 name|NGX_AGAIN
-operator|||
-name|ctx
-operator|->
-name|state
-operator|==
-name|NGX_RESOLVE_TIMEDOUT
 condition|)
 block|{
 name|hash
@@ -3288,7 +3282,7 @@ name|event
 operator|->
 name|data
 operator|=
-name|ctx
+name|rn
 expr_stmt|;
 name|ctx
 operator|->
@@ -4095,7 +4089,7 @@ name|event
 operator|->
 name|data
 operator|=
-name|ctx
+name|rn
 expr_stmt|;
 name|ctx
 operator|->
@@ -4460,12 +4454,6 @@ operator|->
 name|state
 operator|==
 name|NGX_AGAIN
-operator|||
-name|ctx
-operator|->
-name|state
-operator|==
-name|NGX_RESOLVE_TIMEDOUT
 condition|)
 block|{
 switch|switch
@@ -12171,18 +12159,45 @@ block|{
 name|ngx_resolver_ctx_t
 modifier|*
 name|ctx
+decl_stmt|,
+modifier|*
+name|next
 decl_stmt|;
-name|ctx
+name|ngx_resolver_node_t
+modifier|*
+name|rn
+decl_stmt|;
+name|rn
 operator|=
 name|ev
 operator|->
 name|data
 expr_stmt|;
 name|ctx
+operator|=
+name|rn
+operator|->
+name|waiting
+expr_stmt|;
+name|rn
+operator|->
+name|waiting
+operator|=
+name|NULL
+expr_stmt|;
+do|do
+block|{
+name|ctx
 operator|->
 name|state
 operator|=
 name|NGX_RESOLVE_TIMEDOUT
+expr_stmt|;
+name|next
+operator|=
+name|ctx
+operator|->
+name|next
 expr_stmt|;
 name|ctx
 operator|->
@@ -12191,6 +12206,16 @@ argument_list|(
 name|ctx
 argument_list|)
 expr_stmt|;
+name|ctx
+operator|=
+name|next
+expr_stmt|;
+block|}
+do|while
+condition|(
+name|ctx
+condition|)
+do|;
 block|}
 end_function
 
