@@ -211,7 +211,7 @@ argument_list|)
 block|,
 name|NGX_MAIL_SRV_CONF
 operator||
-name|NGX_CONF_TAKE12
+name|NGX_CONF_1MORE
 block|,
 name|ngx_mail_core_listen
 block|,
