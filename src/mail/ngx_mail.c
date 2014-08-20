@@ -515,7 +515,7 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
-comment|/*      * create the main_conf's, the null srv_conf's, and the null loc_conf's      * of the all mail modules      */
+comment|/*      * create the main_conf's and the null srv_conf's of the all mail modules      */
 for|for
 control|(
 name|m
