@@ -211,7 +211,7 @@ argument_list|,
 name|sentinel
 argument_list|)
 expr_stmt|;
-comment|/* node->key<= ngx_current_time */
+comment|/* node->key> ngx_current_time */
 if|if
 condition|(
 operator|(
@@ -224,10 +224,12 @@ name|key
 operator|-
 name|ngx_current_msec
 operator|)
-operator|<=
+operator|>
 literal|0
 condition|)
 block|{
+return|return;
+block|}
 name|ev
 operator|=
 operator|(
@@ -336,9 +338,6 @@ argument_list|(
 name|ev
 argument_list|)
 expr_stmt|;
-continue|continue;
-block|}
-break|break;
 block|}
 block|}
 end_function
