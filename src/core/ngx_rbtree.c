@@ -65,10 +65,9 @@ end_function_decl
 
 begin_function
 name|void
-DECL|function|ngx_rbtree_insert (ngx_thread_volatile ngx_rbtree_t * tree,ngx_rbtree_node_t * node)
+DECL|function|ngx_rbtree_insert (ngx_rbtree_t * tree,ngx_rbtree_node_t * node)
 name|ngx_rbtree_insert
 parameter_list|(
-name|ngx_thread_volatile
 name|ngx_rbtree_t
 modifier|*
 name|tree
@@ -624,10 +623,9 @@ end_function
 
 begin_function
 name|void
-DECL|function|ngx_rbtree_delete (ngx_thread_volatile ngx_rbtree_t * tree,ngx_rbtree_node_t * node)
+DECL|function|ngx_rbtree_delete (ngx_rbtree_t * tree,ngx_rbtree_node_t * node)
 name|ngx_rbtree_delete
 parameter_list|(
-name|ngx_thread_volatile
 name|ngx_rbtree_t
 modifier|*
 name|tree

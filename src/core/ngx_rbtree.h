@@ -165,7 +165,6 @@ begin_function_decl
 name|void
 name|ngx_rbtree_insert
 parameter_list|(
-name|ngx_thread_volatile
 name|ngx_rbtree_t
 modifier|*
 name|tree
@@ -181,7 +180,6 @@ begin_function_decl
 name|void
 name|ngx_rbtree_delete
 parameter_list|(
-name|ngx_thread_volatile
 name|ngx_rbtree_t
 modifier|*
 name|tree

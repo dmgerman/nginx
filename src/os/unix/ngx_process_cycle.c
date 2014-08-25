@@ -5568,11 +5568,6 @@ argument_list|(
 name|cycle
 argument_list|)
 expr_stmt|;
-name|ngx_mutex_destroy
-argument_list|(
-name|ngx_event_timer_mutex
-argument_list|)
-expr_stmt|;
 return|return;
 block|}
 name|ngx_sched_yield
