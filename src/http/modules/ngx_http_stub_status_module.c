@@ -103,7 +103,9 @@ name|NGX_HTTP_SRV_CONF
 operator||
 name|NGX_HTTP_LOC_CONF
 operator||
-name|NGX_CONF_FLAG
+name|NGX_CONF_NOARGS
+operator||
+name|NGX_CONF_TAKE1
 block|,
 name|ngx_http_set_stub_status
 block|,
