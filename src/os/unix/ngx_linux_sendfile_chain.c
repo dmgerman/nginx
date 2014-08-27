@@ -1192,6 +1192,10 @@ condition|(
 name|eintr
 condition|)
 block|{
+name|send
+operator|=
+name|prev_send
+expr_stmt|;
 continue|continue;
 block|}
 if|if
