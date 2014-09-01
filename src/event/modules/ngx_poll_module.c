@@ -1006,8 +1006,8 @@ decl_stmt|;
 name|ngx_event_t
 modifier|*
 name|ev
-decl_stmt|,
-modifier|*
+decl_stmt|;
+name|ngx_queue_t
 modifier|*
 name|queue
 decl_stmt|;

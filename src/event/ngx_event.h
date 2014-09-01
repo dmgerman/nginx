@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon29bd317f0108
+DECL|struct|__anon2b75179f0108
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29bd317f0208
+DECL|struct|__anon2b75179f0208
 typedef|typedef
 struct|struct
 block|{
@@ -203,6 +203,12 @@ name|pending_eof
 range|:
 literal|1
 decl_stmt|;
+DECL|member|posted
+name|unsigned
+name|posted
+range|:
+literal|1
+decl_stmt|;
 if|#
 directive|if
 operator|(
@@ -301,6 +307,11 @@ DECL|member|timer
 name|ngx_rbtree_node_t
 name|timer
 decl_stmt|;
+comment|/* the posted queue */
+DECL|member|queue
+name|ngx_queue_t
+name|queue
+decl_stmt|;
 DECL|member|closed
 name|unsigned
 name|closed
@@ -319,18 +330,6 @@ name|unsigned
 name|resolver
 range|:
 literal|1
-decl_stmt|;
-comment|/* the links of the posted queue */
-DECL|member|next
-name|ngx_event_t
-modifier|*
-name|next
-decl_stmt|;
-DECL|member|prev
-name|ngx_event_t
-modifier|*
-modifier|*
-name|prev
 decl_stmt|;
 if|#
 directive|if
@@ -449,7 +448,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29bd317f0308
+DECL|struct|__anon2b75179f0308
 typedef|typedef
 struct|struct
 block|{
@@ -1397,7 +1396,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon29bd317f0408
+DECL|struct|__anon2b75179f0408
 typedef|typedef
 struct|struct
 block|{
@@ -1444,7 +1443,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29bd317f0508
+DECL|struct|__anon2b75179f0508
 typedef|typedef
 struct|struct
 block|{

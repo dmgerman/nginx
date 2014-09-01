@@ -993,11 +993,6 @@ argument_list|,
 name|delta
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|ngx_posted_accept_events
-condition|)
-block|{
 name|ngx_event_process_posted
 argument_list|(
 name|cycle
@@ -1006,7 +1001,6 @@ operator|&
 name|ngx_posted_accept_events
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|ngx_accept_mutex_held
@@ -1028,26 +1022,6 @@ name|ngx_event_expire_timers
 argument_list|()
 expr_stmt|;
 block|}
-name|ngx_log_debug1
-argument_list|(
-name|NGX_LOG_DEBUG_EVENT
-argument_list|,
-name|cycle
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"posted events %p"
-argument_list|,
-name|ngx_posted_events
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|ngx_posted_events
-condition|)
-block|{
 name|ngx_event_process_posted
 argument_list|(
 name|cycle
@@ -1056,7 +1030,6 @@ operator|&
 name|ngx_posted_events
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 end_function
 
@@ -2369,6 +2342,18 @@ literal|0
 expr_stmt|;
 endif|#
 directive|endif
+name|ngx_queue_init
+argument_list|(
+operator|&
+name|ngx_posted_accept_events
+argument_list|)
+expr_stmt|;
+name|ngx_queue_init
+argument_list|(
+operator|&
+name|ngx_posted_events
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|ngx_event_timer_init

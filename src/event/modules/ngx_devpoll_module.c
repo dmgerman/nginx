@@ -86,7 +86,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2ad5f6e70108
+DECL|struct|__anon29edb5590108
 typedef|typedef
 struct|struct
 block|{
@@ -1408,8 +1408,8 @@ name|rev
 decl_stmt|,
 modifier|*
 name|wev
-decl_stmt|,
-modifier|*
+decl_stmt|;
+name|ngx_queue_t
 modifier|*
 name|queue
 decl_stmt|;

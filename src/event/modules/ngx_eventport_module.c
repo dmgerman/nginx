@@ -161,7 +161,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2c1c60830108
+DECL|struct|__anon2b1f6ed90108
 typedef|typedef
 struct|struct
 block|{
@@ -562,7 +562,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c1c60830208
+DECL|struct|__anon2b1f6ed90208
 typedef|typedef
 struct|struct
 block|{
@@ -1787,8 +1787,8 @@ name|rev
 decl_stmt|,
 modifier|*
 name|wev
-decl_stmt|,
-modifier|*
+decl_stmt|;
+name|ngx_queue_t
 modifier|*
 name|queue
 decl_stmt|;

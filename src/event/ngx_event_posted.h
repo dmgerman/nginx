@@ -35,17 +35,17 @@ file|<ngx_event.h>
 end_include
 
 begin_define
-DECL|macro|ngx_post_event (ev,queue)
+DECL|macro|ngx_post_event (ev,q)
 define|#
 directive|define
 name|ngx_post_event
 parameter_list|(
 name|ev
 parameter_list|,
-name|queue
+name|q
 parameter_list|)
 define|\                                                                               \
-value|if (ev->prev == NULL) {                                                   \         ev->next = *queue;                                                    \         ev->prev = queue;                                                     \         *queue = ev;                                                          \                                                                               \         if (ev->next) {                                                       \             ev->next->prev =&ev->next;                                       \         }                                                                     \                                                                               \         ngx_log_debug1(NGX_LOG_DEBUG_CORE, ev->log, 0, "post event %p", ev);  \                                                                               \     } else  {                                                                 \         ngx_log_debug1(NGX_LOG_DEBUG_CORE, ev->log, 0,                        \                        "update posted event %p", ev);                         \     }
+value|if (!ev->posted) {                                                        \         ev->posted = 1;                                                       \         ngx_queue_insert_tail(q,&ev->queue);                                 \                                                                               \         ngx_log_debug1(NGX_LOG_DEBUG_CORE, ev->log, 0, "post event %p", ev);  \                                                                               \     } else  {                                                                 \         ngx_log_debug1(NGX_LOG_DEBUG_CORE, ev->log, 0,                        \                        "update posted event %p", ev);                         \     }
 end_define
 
 begin_define
@@ -57,7 +57,7 @@ parameter_list|(
 name|ev
 parameter_list|)
 define|\                                                                               \
-value|*(ev->prev) = ev->next;                                                   \                                                                               \     if (ev->next) {                                                           \         ev->next->prev = ev->prev;                                            \     }                                                                         \                                                                               \     ev->prev = NULL;                                                          \     ngx_log_debug1(NGX_LOG_DEBUG_CORE, ev->log, 0,                            \                    "delete posted event %p", ev);
+value|ev->posted = 0;                                                           \     ngx_queue_remove(&ev->queue);                                             \                                                                               \     ngx_log_debug1(NGX_LOG_DEBUG_CORE, ev->log, 0,                            \                    "delete posted event %p", ev);
 end_define
 
 begin_function_decl
@@ -68,8 +68,7 @@ name|ngx_cycle_t
 modifier|*
 name|cycle
 parameter_list|,
-name|ngx_event_t
-modifier|*
+name|ngx_queue_t
 modifier|*
 name|posted
 parameter_list|)
@@ -78,16 +77,14 @@ end_function_decl
 
 begin_decl_stmt
 specifier|extern
-name|ngx_event_t
-modifier|*
+name|ngx_queue_t
 name|ngx_posted_accept_events
 decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
-name|ngx_event_t
-modifier|*
+name|ngx_queue_t
 name|ngx_posted_events
 decl_stmt|;
 end_decl_stmt

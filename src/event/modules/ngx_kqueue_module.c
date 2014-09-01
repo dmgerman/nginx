@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon292452be0108
+DECL|struct|__anon290a37980108
 typedef|typedef
 struct|struct
 block|{
@@ -1817,8 +1817,8 @@ decl_stmt|;
 name|ngx_event_t
 modifier|*
 name|ev
-decl_stmt|,
-modifier|*
+decl_stmt|;
+name|ngx_queue_t
 modifier|*
 name|queue
 decl_stmt|;

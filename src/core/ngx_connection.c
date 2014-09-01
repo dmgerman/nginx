@@ -4194,7 +4194,7 @@ name|c
 operator|->
 name|read
 operator|->
-name|prev
+name|posted
 condition|)
 block|{
 name|ngx_delete_posted_event
@@ -4211,7 +4211,7 @@ name|c
 operator|->
 name|write
 operator|->
-name|prev
+name|posted
 condition|)
 block|{
 name|ngx_delete_posted_event
