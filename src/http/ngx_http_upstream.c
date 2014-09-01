@@ -21582,7 +21582,7 @@ operator|)
 condition|)
 block|{
 goto|goto
-name|invalid
+name|not_supported
 goto|;
 block|}
 name|weight
@@ -21659,7 +21659,7 @@ operator|)
 condition|)
 block|{
 goto|goto
-name|invalid
+name|not_supported
 goto|;
 block|}
 name|max_fails
@@ -21732,7 +21732,7 @@ operator|)
 condition|)
 block|{
 goto|goto
-name|invalid
+name|not_supported
 goto|;
 block|}
 name|s
@@ -21819,7 +21819,7 @@ operator|)
 condition|)
 block|{
 goto|goto
-name|invalid
+name|not_supported
 goto|;
 block|}
 name|us
@@ -21860,7 +21860,7 @@ operator|)
 condition|)
 block|{
 goto|goto
-name|invalid
+name|not_supported
 goto|;
 block|}
 name|us
@@ -22004,6 +22004,28 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"invalid parameter \"%V\""
+argument_list|,
+operator|&
+name|value
+index|[
+name|i
+index|]
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CONF_ERROR
+return|;
+name|not_supported
+label|:
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"balancing method does not support parameter \"%V\""
 argument_list|,
 operator|&
 name|value
