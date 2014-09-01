@@ -1096,14 +1096,14 @@ if|if
 condition|(
 name|peer
 operator|->
-name|processing
+name|busy
 condition|)
 block|{
 return|return;
 block|}
 name|peer
 operator|->
-name|processing
+name|busy
 operator|=
 literal|1
 expr_stmt|;
@@ -1179,7 +1179,7 @@ argument_list|)
 expr_stmt|;
 name|peer
 operator|->
-name|processing
+name|busy
 operator|=
 literal|0
 expr_stmt|;
@@ -1233,6 +1233,17 @@ name|NGX_ERROR
 return|;
 block|}
 block|}
+comment|/* log syslog socket events with valid log */
+name|peer
+operator|->
+name|conn
+operator|.
+name|log
+operator|=
+name|ngx_cycle
+operator|->
+name|log
+expr_stmt|;
 if|if
 condition|(
 name|ngx_send
@@ -1309,15 +1320,6 @@ name|write
 operator|=
 operator|&
 name|ngx_syslog_dummy_event
-expr_stmt|;
-name|peer
-operator|->
-name|conn
-operator|.
-name|log
-operator|=
-operator|&
-name|ngx_syslog_dummy_log
 expr_stmt|;
 name|ngx_syslog_dummy_event
 operator|.
@@ -1548,6 +1550,13 @@ name|peer
 init|=
 name|data
 decl_stmt|;
+comment|/* prevents further use of this peer */
+name|peer
+operator|->
+name|busy
+operator|=
+literal|1
+expr_stmt|;
 if|if
 condition|(
 name|ngx_close_socket
