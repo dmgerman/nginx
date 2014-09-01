@@ -439,6 +439,12 @@ return|return;
 block|}
 name|s
 operator|->
+name|signature
+operator|=
+name|NGX_MAIL_MODULE
+expr_stmt|;
+name|s
+operator|->
 name|main_conf
 operator|=
 name|addr_conf
