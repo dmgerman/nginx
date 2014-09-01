@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon28ef71850108
+DECL|struct|__anon29bd317f0108
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28ef71850208
+DECL|struct|__anon29bd317f0208
 typedef|typedef
 struct|struct
 block|{
@@ -205,20 +205,6 @@ literal|1
 decl_stmt|;
 if|#
 directive|if
-operator|!
-operator|(
-name|NGX_THREADS
-operator|)
-DECL|member|posted_ready
-name|unsigned
-name|posted_ready
-range|:
-literal|1
-decl_stmt|;
-endif|#
-directive|endif
-if|#
-directive|if
 operator|(
 name|NGX_WIN32
 operator|)
@@ -334,82 +320,6 @@ name|resolver
 range|:
 literal|1
 decl_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_THREADS
-operator|)
-DECL|member|locked
-name|unsigned
-name|locked
-range|:
-literal|1
-decl_stmt|;
-DECL|member|posted_ready
-name|unsigned
-name|posted_ready
-range|:
-literal|1
-decl_stmt|;
-DECL|member|posted_timedout
-name|unsigned
-name|posted_timedout
-range|:
-literal|1
-decl_stmt|;
-DECL|member|posted_eof
-name|unsigned
-name|posted_eof
-range|:
-literal|1
-decl_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_HAVE_KQUEUE
-operator|)
-comment|/* the pending errno reported by kqueue */
-DECL|member|posted_errno
-name|int
-name|posted_errno
-decl_stmt|;
-endif|#
-directive|endif
-if|#
-directive|if
-operator|(
-name|NGX_HAVE_KQUEUE
-operator|)
-operator|||
-operator|(
-name|NGX_HAVE_IOCP
-operator|)
-DECL|member|posted_available
-name|int
-name|posted_available
-decl_stmt|;
-else|#
-directive|else
-DECL|member|posted_available
-name|unsigned
-name|posted_available
-range|:
-literal|1
-decl_stmt|;
-endif|#
-directive|endif
-DECL|member|lock
-name|ngx_atomic_t
-modifier|*
-name|lock
-decl_stmt|;
-DECL|member|own_lock
-name|ngx_atomic_t
-modifier|*
-name|own_lock
-decl_stmt|;
-endif|#
-directive|endif
 comment|/* the links of the posted queue */
 DECL|member|next
 name|ngx_event_t
@@ -539,7 +449,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28ef71850308
+DECL|struct|__anon29bd317f0308
 typedef|typedef
 struct|struct
 block|{
@@ -1487,7 +1397,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon28ef71850408
+DECL|struct|__anon29bd317f0408
 typedef|typedef
 struct|struct
 block|{
@@ -1534,7 +1444,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ef71850508
+DECL|struct|__anon29bd317f0508
 typedef|typedef
 struct|struct
 block|{
@@ -1724,14 +1634,6 @@ define|#
 directive|define
 name|NGX_POST_EVENTS
 value|2
-end_define
-
-begin_define
-DECL|macro|NGX_POST_THREAD_EVENTS
-define|#
-directive|define
-name|NGX_POST_THREAD_EVENTS
-value|4
 end_define
 
 begin_decl_stmt

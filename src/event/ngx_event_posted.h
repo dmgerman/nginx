@@ -34,41 +34,6 @@ directive|include
 file|<ngx_event.h>
 end_include
 
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_THREADS
-operator|)
-end_if
-
-begin_decl_stmt
-specifier|extern
-name|ngx_mutex_t
-modifier|*
-name|ngx_posted_events_mutex
-decl_stmt|;
-end_decl_stmt
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_define
-DECL|macro|ngx_locked_post_event (ev,queue)
-define|#
-directive|define
-name|ngx_locked_post_event
-parameter_list|(
-name|ev
-parameter_list|,
-name|queue
-parameter_list|)
-define|\                                                                               \
-value|if (ev->prev == NULL) {                                                   \         ev->next = (ngx_event_t *) *queue;                                    \         ev->prev = (ngx_event_t **) queue;                                    \         *queue = ev;                                                          \                                                                               \         if (ev->next) {                                                       \             ev->next->prev =&ev->next;                                       \         }                                                                     \                                                                               \         ngx_log_debug1(NGX_LOG_DEBUG_CORE, ev->log, 0, "post event %p", ev);  \                                                                               \     } else  {                                                                 \         ngx_log_debug1(NGX_LOG_DEBUG_CORE, ev->log, 0,                        \                        "update posted event %p", ev);                         \     }
-end_define
-
 begin_define
 DECL|macro|ngx_post_event (ev,queue)
 define|#
@@ -80,7 +45,7 @@ parameter_list|,
 name|queue
 parameter_list|)
 define|\                                                                               \
-value|ngx_mutex_lock(ngx_posted_events_mutex);                                  \     ngx_locked_post_event(ev, queue);                                         \     ngx_mutex_unlock(ngx_posted_events_mutex);
+value|if (ev->prev == NULL) {                                                   \         ev->next = *queue;                                                    \         ev->prev = queue;                                                     \         *queue = ev;                                                          \                                                                               \         if (ev->next) {                                                       \             ev->next->prev =&ev->next;                                       \         }                                                                     \                                                                               \         ngx_log_debug1(NGX_LOG_DEBUG_CORE, ev->log, 0, "post event %p", ev);  \                                                                               \     } else  {                                                                 \         ngx_log_debug1(NGX_LOG_DEBUG_CORE, ev->log, 0,                        \                        "update posted event %p", ev);                         \     }
 end_define
 
 begin_define
@@ -103,7 +68,6 @@ name|ngx_cycle_t
 modifier|*
 name|cycle
 parameter_list|,
-name|ngx_thread_volatile
 name|ngx_event_t
 modifier|*
 modifier|*
@@ -112,44 +76,8 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
-begin_function_decl
-name|void
-name|ngx_wakeup_worker_thread
-parameter_list|(
-name|ngx_cycle_t
-modifier|*
-name|cycle
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_THREADS
-operator|)
-end_if
-
-begin_function_decl
-name|ngx_int_t
-name|ngx_event_thread_process_posted
-parameter_list|(
-name|ngx_cycle_t
-modifier|*
-name|cycle
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
 begin_decl_stmt
 specifier|extern
-name|ngx_thread_volatile
 name|ngx_event_t
 modifier|*
 name|ngx_posted_accept_events
@@ -158,7 +86,6 @@ end_decl_stmt
 
 begin_decl_stmt
 specifier|extern
-name|ngx_thread_volatile
 name|ngx_event_t
 modifier|*
 name|ngx_posted_events

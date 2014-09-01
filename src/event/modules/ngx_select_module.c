@@ -1292,11 +1292,6 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-name|ngx_mutex_lock
-argument_list|(
-name|ngx_posted_events_mutex
-argument_list|)
-expr_stmt|;
 name|nready
 operator|=
 literal|0
@@ -1426,12 +1421,6 @@ literal|1
 expr_stmt|;
 name|queue
 operator|=
-operator|(
-name|ngx_event_t
-operator|*
-operator|*
-operator|)
-operator|(
 name|ev
 operator|->
 name|accept
@@ -1441,9 +1430,8 @@ name|ngx_posted_accept_events
 else|:
 operator|&
 name|ngx_posted_events
-operator|)
 expr_stmt|;
-name|ngx_locked_post_event
+name|ngx_post_event
 argument_list|(
 name|ev
 argument_list|,
@@ -1455,11 +1443,6 @@ operator|++
 expr_stmt|;
 block|}
 block|}
-name|ngx_mutex_unlock
-argument_list|(
-name|ngx_posted_events_mutex
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|ready

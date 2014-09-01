@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2abc86200108
+DECL|struct|__anon27b759c50108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2abc86200208
+DECL|struct|__anon27b759c50208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2abc86200308
+DECL|struct|__anon27b759c50308
 typedef|typedef
 struct|struct
 block|{
@@ -13396,50 +13396,6 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_THREADS
-operator|)
-comment|/* TODO: lock event when call completion handler */
-name|rev
-operator|->
-name|lock
-operator|=
-operator|&
-name|c
-operator|->
-name|lock
-expr_stmt|;
-name|wev
-operator|->
-name|lock
-operator|=
-operator|&
-name|c
-operator|->
-name|lock
-expr_stmt|;
-name|rev
-operator|->
-name|own_lock
-operator|=
-operator|&
-name|c
-operator|->
-name|lock
-expr_stmt|;
-name|wev
-operator|->
-name|own_lock
-operator|=
-operator|&
-name|c
-operator|->
-name|lock
-expr_stmt|;
-endif|#
-directive|endif
 name|ngx_log_debug3
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
