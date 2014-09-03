@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2918e2a20108
+DECL|struct|__anon279d30730108
 typedef|typedef
 struct|struct
 block|{
@@ -991,6 +991,9 @@ operator|=
 name|NGX_SSL_BUFSIZE
 expr_stmt|;
 comment|/* client side options */
+ifdef|#
+directive|ifdef
+name|SSL_OP_MICROSOFT_SESS_ID_BUG
 name|SSL_CTX_set_options
 argument_list|(
 name|ssl
@@ -1000,6 +1003,11 @@ argument_list|,
 name|SSL_OP_MICROSOFT_SESS_ID_BUG
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|SSL_OP_NETSCAPE_CHALLENGE_BUG
 name|SSL_CTX_set_options
 argument_list|(
 name|ssl
@@ -1009,7 +1017,12 @@ argument_list|,
 name|SSL_OP_NETSCAPE_CHALLENGE_BUG
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 comment|/* server side options */
+ifdef|#
+directive|ifdef
+name|SSL_OP_SSLREF2_REUSE_CERT_TYPE_BUG
 name|SSL_CTX_set_options
 argument_list|(
 name|ssl
@@ -1019,6 +1032,11 @@ argument_list|,
 name|SSL_OP_SSLREF2_REUSE_CERT_TYPE_BUG
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|SSL_OP_MICROSOFT_BIG_SSLV3_BUFFER
 name|SSL_CTX_set_options
 argument_list|(
 name|ssl
@@ -1028,6 +1046,8 @@ argument_list|,
 name|SSL_OP_MICROSOFT_BIG_SSLV3_BUFFER
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 ifdef|#
 directive|ifdef
 name|SSL_OP_MSIE_SSLV2_RSA_PADDING
@@ -1057,6 +1077,9 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
+ifdef|#
+directive|ifdef
+name|SSL_OP_TLS_D5_BUG
 name|SSL_CTX_set_options
 argument_list|(
 name|ssl
@@ -1066,6 +1089,11 @@ argument_list|,
 name|SSL_OP_TLS_D5_BUG
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|SSL_OP_TLS_BLOCK_PADDING_BUG
 name|SSL_CTX_set_options
 argument_list|(
 name|ssl
@@ -1075,6 +1103,11 @@ argument_list|,
 name|SSL_OP_TLS_BLOCK_PADDING_BUG
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS
 name|SSL_CTX_set_options
 argument_list|(
 name|ssl
@@ -1084,6 +1117,8 @@ argument_list|,
 name|SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|SSL_CTX_set_options
 argument_list|(
 name|ssl
