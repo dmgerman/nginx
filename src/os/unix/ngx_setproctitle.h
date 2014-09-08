@@ -36,6 +36,7 @@ name|ngx_init_setproctitle
 parameter_list|(
 name|log
 parameter_list|)
+value|NGX_OK
 end_define
 
 begin_define
@@ -175,6 +176,7 @@ name|ngx_init_setproctitle
 parameter_list|(
 name|log
 parameter_list|)
+value|NGX_OK
 end_define
 
 begin_define
