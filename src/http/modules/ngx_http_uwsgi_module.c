@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29e5d5aa0108
+DECL|struct|__anon2c7ba23d0108
 typedef|typedef
 struct|struct
 block|{
@@ -7174,6 +7174,37 @@ operator|=
 name|prev
 operator|->
 name|cache_key
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|conf
+operator|->
+name|upstream
+operator|.
+name|cache
+operator|&&
+name|conf
+operator|->
+name|cache_key
+operator|.
+name|value
+operator|.
+name|data
+operator|==
+name|NULL
+condition|)
+block|{
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_WARN
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"no \"uwsgi_cache_key\" for \"uwsgi_cache\""
+argument_list|)
 expr_stmt|;
 block|}
 name|ngx_conf_merge_value

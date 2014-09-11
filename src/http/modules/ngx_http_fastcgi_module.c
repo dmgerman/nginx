@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b2f33520108
+DECL|struct|__anon2920f3060108
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b2f33520203
+DECL|enum|__anon2920f3060203
 typedef|typedef
 enum|enum
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2f33520308
+DECL|struct|__anon2920f3060308
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2f33520408
+DECL|struct|__anon2920f3060408
 typedef|typedef
 struct|struct
 block|{
@@ -320,7 +320,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2b2f33520508
+DECL|struct|__anon2920f3060508
 typedef|typedef
 struct|struct
 block|{
@@ -363,7 +363,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2f33520608
+DECL|struct|__anon2920f3060608
 typedef|typedef
 struct|struct
 block|{
@@ -393,7 +393,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2f33520708
+DECL|struct|__anon2920f3060708
 typedef|typedef
 struct|struct
 block|{
@@ -420,7 +420,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2f33520808
+DECL|struct|__anon2920f3060808
 typedef|typedef
 struct|struct
 block|{
@@ -11704,6 +11704,37 @@ operator|=
 name|prev
 operator|->
 name|cache_key
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|conf
+operator|->
+name|upstream
+operator|.
+name|cache
+operator|&&
+name|conf
+operator|->
+name|cache_key
+operator|.
+name|value
+operator|.
+name|data
+operator|==
+name|NULL
+condition|)
+block|{
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_WARN
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"no \"fastcgi_cache_key\" for \"fastcgi_cache\""
+argument_list|)
 expr_stmt|;
 block|}
 name|ngx_conf_merge_value
