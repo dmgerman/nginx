@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2920f3060108
+DECL|struct|__anon28fe14110108
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2920f3060203
+DECL|enum|__anon28fe14110203
 typedef|typedef
 enum|enum
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2920f3060308
+DECL|struct|__anon28fe14110308
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2920f3060408
+DECL|struct|__anon28fe14110408
 typedef|typedef
 struct|struct
 block|{
@@ -320,7 +320,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2920f3060508
+DECL|struct|__anon28fe14110508
 typedef|typedef
 struct|struct
 block|{
@@ -363,7 +363,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2920f3060608
+DECL|struct|__anon28fe14110608
 typedef|typedef
 struct|struct
 block|{
@@ -393,7 +393,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2920f3060708
+DECL|struct|__anon28fe14110708
 typedef|typedef
 struct|struct
 block|{
@@ -420,7 +420,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2920f3060808
+DECL|struct|__anon28fe14110808
 typedef|typedef
 struct|struct
 block|{
@@ -1970,6 +1970,66 @@ argument_list|)
 block|,
 operator|&
 name|ngx_http_fastcgi_next_upstream_masks
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"fastcgi_next_upstream_tries"
+argument_list|)
+block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
+name|NGX_HTTP_SRV_CONF
+operator||
+name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_CONF_TAKE1
+block|,
+name|ngx_conf_set_num_slot
+block|,
+name|NGX_HTTP_LOC_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+name|ngx_http_fastcgi_loc_conf_t
+argument_list|,
+name|upstream
+operator|.
+name|next_upstream_tries
+argument_list|)
+block|,
+name|NULL
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"fastcgi_next_upstream_timeout"
+argument_list|)
+block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
+name|NGX_HTTP_SRV_CONF
+operator||
+name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_CONF_TAKE1
+block|,
+name|ngx_conf_set_msec_slot
+block|,
+name|NGX_HTTP_LOC_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+name|ngx_http_fastcgi_loc_conf_t
+argument_list|,
+name|upstream
+operator|.
+name|next_upstream_timeout
+argument_list|)
+block|,
+name|NULL
 block|}
 block|,
 block|{
@@ -10466,6 +10526,14 @@ name|conf
 operator|->
 name|upstream
 operator|.
+name|next_upstream_tries
+operator|=
+name|NGX_CONF_UNSET_UINT
+expr_stmt|;
+name|conf
+operator|->
+name|upstream
+operator|.
 name|buffering
 operator|=
 name|NGX_CONF_UNSET
@@ -10507,6 +10575,14 @@ operator|->
 name|upstream
 operator|.
 name|read_timeout
+operator|=
+name|NGX_CONF_UNSET_MSEC
+expr_stmt|;
+name|conf
+operator|->
+name|upstream
+operator|.
+name|next_upstream_timeout
 operator|=
 name|NGX_CONF_UNSET_MSEC
 expr_stmt|;
@@ -10832,6 +10908,23 @@ argument_list|,
 literal|0600
 argument_list|)
 expr_stmt|;
+name|ngx_conf_merge_uint_value
+argument_list|(
+name|conf
+operator|->
+name|upstream
+operator|.
+name|next_upstream_tries
+argument_list|,
+name|prev
+operator|->
+name|upstream
+operator|.
+name|next_upstream_tries
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
 name|ngx_conf_merge_value
 argument_list|(
 name|conf
@@ -10932,6 +11025,23 @@ operator|.
 name|read_timeout
 argument_list|,
 literal|60000
+argument_list|)
+expr_stmt|;
+name|ngx_conf_merge_msec_value
+argument_list|(
+name|conf
+operator|->
+name|upstream
+operator|.
+name|next_upstream_timeout
+argument_list|,
+name|prev
+operator|->
+name|upstream
+operator|.
+name|next_upstream_timeout
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_size_value

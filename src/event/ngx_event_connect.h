@@ -192,6 +192,10 @@ DECL|member|tries
 name|ngx_uint_t
 name|tries
 decl_stmt|;
+DECL|member|start_time
+name|ngx_msec_t
+name|start_time
+decl_stmt|;
 DECL|member|get
 name|ngx_event_get_peer_pt
 name|get
