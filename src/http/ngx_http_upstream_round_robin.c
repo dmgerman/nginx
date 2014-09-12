@@ -21,6 +21,17 @@ directive|include
 file|<ngx_http.h>
 end_include
 
+begin_define
+DECL|macro|ngx_http_upstream_tries (p)
+define|#
+directive|define
+name|ngx_http_upstream_tries
+parameter_list|(
+name|p
+parameter_list|)
+value|((p)->number                               \                                     + ((p)->next ? (p)->next->number : 0))
+end_define
+
 begin_function_decl
 specifier|static
 name|ngx_http_upstream_rr_peer_t
@@ -1502,11 +1513,12 @@ name|peer
 operator|.
 name|tries
 operator|=
+name|ngx_http_upstream_tries
+argument_list|(
 name|rrp
 operator|->
 name|peers
-operator|->
-name|number
+argument_list|)
 expr_stmt|;
 if|#
 directive|if
@@ -2183,11 +2195,12 @@ name|peer
 operator|.
 name|tries
 operator|=
+name|ngx_http_upstream_tries
+argument_list|(
 name|rrp
 operator|->
 name|peers
-operator|->
-name|number
+argument_list|)
 expr_stmt|;
 if|#
 directive|if
@@ -2392,30 +2405,6 @@ operator|->
 name|name
 expr_stmt|;
 comment|/* ngx_unlock_mutex(peers->mutex); */
-if|if
-condition|(
-name|pc
-operator|->
-name|tries
-operator|==
-literal|1
-operator|&&
-name|peers
-operator|->
-name|next
-condition|)
-block|{
-name|pc
-operator|->
-name|tries
-operator|+=
-name|peers
-operator|->
-name|next
-operator|->
-name|number
-expr_stmt|;
-block|}
 return|return
 name|NGX_OK
 return|;
@@ -2449,16 +2438,6 @@ operator|=
 name|peers
 operator|->
 name|next
-expr_stmt|;
-name|pc
-operator|->
-name|tries
-operator|=
-name|rrp
-operator|->
-name|peers
-operator|->
-name|number
 expr_stmt|;
 name|n
 operator|=
