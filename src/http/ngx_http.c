@@ -8967,7 +8967,9 @@ name|i
 index|]
 argument_list|)
 expr_stmt|;
-continue|continue;
+goto|goto
+name|next
+goto|;
 block|}
 block|}
 name|type
@@ -9014,6 +9016,9 @@ operator|*
 operator|)
 literal|4
 expr_stmt|;
+name|next
+label|:
+continue|continue;
 block|}
 return|return
 name|NGX_CONF_OK
