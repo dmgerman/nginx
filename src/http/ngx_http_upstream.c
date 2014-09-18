@@ -6956,6 +6956,9 @@ modifier|*
 name|u
 parameter_list|)
 block|{
+name|off_t
+name|file_pos
+decl_stmt|;
 name|ngx_chain_t
 modifier|*
 name|cl
@@ -7041,6 +7044,10 @@ name|NGX_ERROR
 return|;
 block|}
 comment|/* reinit the request chain */
+name|file_pos
+operator|=
+literal|0
+expr_stmt|;
 for|for
 control|(
 name|cl
@@ -7070,14 +7077,33 @@ name|buf
 operator|->
 name|start
 expr_stmt|;
+comment|/* there is at most one file */
+if|if
+condition|(
+name|cl
+operator|->
+name|buf
+operator|->
+name|in_file
+condition|)
+block|{
 name|cl
 operator|->
 name|buf
 operator|->
 name|file_pos
 operator|=
-literal|0
+name|file_pos
 expr_stmt|;
+name|file_pos
+operator|=
+name|cl
+operator|->
+name|buf
+operator|->
+name|file_last
+expr_stmt|;
+block|}
 block|}
 comment|/* reinit the subrequest's ngx_output_chain() context */
 if|if
