@@ -383,12 +383,6 @@ operator|->
 name|iov_len
 argument_list|)
 expr_stmt|;
-name|rev
-operator|=
-name|c
-operator|->
-name|read
-expr_stmt|;
 do|do
 block|{
 name|n
