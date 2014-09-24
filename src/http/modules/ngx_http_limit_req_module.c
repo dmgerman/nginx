@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bf6985e0108
+DECL|struct|__anon28d25d0a0108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf6985e0208
+DECL|struct|__anon28d25d0a0208
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf6985e0308
+DECL|struct|__anon28d25d0a0308
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf6985e0408
+DECL|struct|__anon28d25d0a0408
 typedef|typedef
 struct|struct
 block|{
@@ -153,7 +153,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf6985e0508
+DECL|struct|__anon28d25d0a0508
 typedef|typedef
 struct|struct
 block|{
@@ -203,12 +203,9 @@ parameter_list|,
 name|ngx_uint_t
 name|hash
 parameter_list|,
-name|u_char
+name|ngx_str_t
 modifier|*
-name|data
-parameter_list|,
-name|size_t
-name|len
+name|key
 parameter_list|,
 name|ngx_uint_t
 modifier|*
@@ -834,13 +831,8 @@ name|limit
 argument_list|,
 name|hash
 argument_list|,
+operator|&
 name|key
-operator|.
-name|data
-argument_list|,
-name|key
-operator|.
-name|len
 argument_list|,
 operator|&
 name|excess
@@ -1471,7 +1463,7 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_http_limit_req_lookup (ngx_http_limit_req_limit_t * limit,ngx_uint_t hash,u_char * data,size_t len,ngx_uint_t * ep,ngx_uint_t account)
+DECL|function|ngx_http_limit_req_lookup (ngx_http_limit_req_limit_t * limit,ngx_uint_t hash,ngx_str_t * key,ngx_uint_t * ep,ngx_uint_t account)
 name|ngx_http_limit_req_lookup
 parameter_list|(
 name|ngx_http_limit_req_limit_t
@@ -1481,12 +1473,9 @@ parameter_list|,
 name|ngx_uint_t
 name|hash
 parameter_list|,
-name|u_char
+name|ngx_str_t
 modifier|*
-name|data
-parameter_list|,
-name|size_t
-name|len
+name|key
 parameter_list|,
 name|ngx_uint_t
 modifier|*
@@ -1636,12 +1625,16 @@ name|rc
 operator|=
 name|ngx_memn2cmp
 argument_list|(
+name|key
+operator|->
 name|data
 argument_list|,
 name|lr
 operator|->
 name|data
 argument_list|,
+name|key
+operator|->
 name|len
 argument_list|,
 operator|(
@@ -1821,6 +1814,8 @@ argument_list|,
 name|data
 argument_list|)
 operator|+
+name|key
+operator|->
 name|len
 expr_stmt|;
 name|ngx_http_limit_req_expire
@@ -1921,6 +1916,8 @@ operator|=
 operator|(
 name|u_short
 operator|)
+name|key
+operator|->
 name|len
 expr_stmt|;
 name|lr
@@ -1935,8 +1932,12 @@ name|lr
 operator|->
 name|data
 argument_list|,
+name|key
+operator|->
 name|data
 argument_list|,
+name|key
+operator|->
 name|len
 argument_list|)
 expr_stmt|;
