@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a166c020108
+DECL|struct|__anon2b7890a50108
 typedef|typedef
 struct|struct
 block|{
@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a166c020208
+DECL|struct|__anon2b7890a50208
 typedef|typedef
 struct|struct
 block|{
@@ -102,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a166c020308
+DECL|struct|__anon2b7890a50308
 typedef|typedef
 struct|struct
 block|{
@@ -1014,6 +1014,12 @@ expr_stmt|;
 name|c
 operator|->
 name|idle
+operator|=
+literal|0
+expr_stmt|;
+name|c
+operator|->
+name|sent
 operator|=
 literal|0
 expr_stmt|;
