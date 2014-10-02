@@ -1163,6 +1163,9 @@ name|next
 label|:
 continue|continue;
 block|}
+name|size
+operator|--
+expr_stmt|;
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_WARN
