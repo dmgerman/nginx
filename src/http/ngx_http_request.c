@@ -5386,30 +5386,6 @@ name|NGX_MAX_ERROR_STR
 operator|-
 literal|300
 expr_stmt|;
-name|p
-index|[
-name|len
-operator|++
-index|]
-operator|=
-literal|'.'
-expr_stmt|;
-name|p
-index|[
-name|len
-operator|++
-index|]
-operator|=
-literal|'.'
-expr_stmt|;
-name|p
-index|[
-name|len
-operator|++
-index|]
-operator|=
-literal|'.'
-expr_stmt|;
 block|}
 name|ngx_log_error
 argument_list|(
@@ -5421,7 +5397,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"client sent too long header line: \"%*s\""
+literal|"client sent too long header line: \"%*s...\""
 argument_list|,
 name|len
 argument_list|,
@@ -8574,7 +8550,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon2a30ad960103
+DECL|enum|__anon2bf145920103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
