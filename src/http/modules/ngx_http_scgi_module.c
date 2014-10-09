@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b4ca5bd0108
+DECL|struct|__anon27b7e9680108
 typedef|typedef
 struct|struct
 block|{
@@ -56,7 +56,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4ca5bd0208
+DECL|struct|__anon27b7e9680208
 typedef|typedef
 struct|struct
 block|{
@@ -5579,8 +5579,8 @@ operator|->
 name|upstream
 operator|.
 name|store
-operator|!=
-literal|0
+operator|==
+name|NGX_CONF_UNSET
 condition|)
 block|{
 name|ngx_conf_merge_value
