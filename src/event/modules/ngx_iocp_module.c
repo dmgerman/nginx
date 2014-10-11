@@ -888,7 +888,7 @@ operator|&
 name|bytes
 argument_list|,
 operator|(
-name|LPDWORD
+name|PULONG_PTR
 operator|)
 operator|&
 name|key
