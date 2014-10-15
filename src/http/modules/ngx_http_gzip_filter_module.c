@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2afb19de0108
+DECL|struct|__anon289c89560108
 typedef|typedef
 struct|struct
 block|{
@@ -80,7 +80,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2afb19de0208
+DECL|struct|__anon289c89560208
 typedef|typedef
 struct|struct
 block|{
@@ -1378,6 +1378,9 @@ block|{
 name|int
 name|rc
 decl_stmt|;
+name|ngx_uint_t
+name|flush
+decl_stmt|;
 name|ngx_chain_t
 modifier|*
 name|cl
@@ -1556,10 +1559,6 @@ condition|(
 name|ctx
 operator|->
 name|nomem
-operator|||
-name|in
-operator|==
-name|NULL
 condition|)
 block|{
 comment|/* flush busy buffers */
@@ -1613,6 +1612,23 @@ name|ctx
 operator|->
 name|nomem
 operator|=
+literal|0
+expr_stmt|;
+name|flush
+operator|=
+literal|0
+expr_stmt|;
+block|}
+else|else
+block|{
+name|flush
+operator|=
+name|ctx
+operator|->
+name|busy
+condition|?
+literal|1
+else|:
 literal|0
 expr_stmt|;
 block|}
@@ -1725,6 +1741,9 @@ operator|->
 name|out
 operator|==
 name|NULL
+operator|&&
+operator|!
+name|flush
 condition|)
 block|{
 name|ngx_http_gzip_filter_free_copy_buf
@@ -1838,6 +1857,10 @@ expr_stmt|;
 name|ctx
 operator|->
 name|nomem
+operator|=
+literal|0
+expr_stmt|;
+name|flush
 operator|=
 literal|0
 expr_stmt|;
