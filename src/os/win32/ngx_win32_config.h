@@ -143,8 +143,27 @@ end_comment
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|__GNUC__
+name|__MINGW64_VERSION_MAJOR
 end_ifdef
+
+begin_comment
+comment|/* GCC MinGW-w64 supports _FILE_OFFSET_BITS */
+end_comment
+
+begin_define
+DECL|macro|_FILE_OFFSET_BITS
+define|#
+directive|define
+name|_FILE_OFFSET_BITS
+value|64
+end_define
+
+begin_elif
+elif|#
+directive|elif
+name|defined
+name|__GNUC__
+end_elif
 
 begin_comment
 comment|/* GCC MinGW's stdio.h includes sys/types.h */
@@ -179,6 +198,23 @@ include|#
 directive|include
 file|<stdarg.h>
 end_include
+
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|__MINGW64_VERSION_MAJOR
+end_ifdef
+
+begin_include
+include|#
+directive|include
+file|<stdint.h>
+end_include
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_include
 include|#
@@ -580,11 +616,21 @@ name|uint64_t
 typedef|;
 end_typedef
 
-begin_ifndef
-ifndef|#
-directive|ifndef
+begin_if
+if|#
+directive|if
+operator|!
+name|defined
+argument_list|(
 name|__WATCOMC__
-end_ifndef
+argument_list|)
+operator|&&
+operator|!
+name|defined
+argument_list|(
+name|__MINGW64_VERSION_MAJOR
+argument_list|)
+end_if
 
 begin_typedef
 DECL|typedef|intptr_t
@@ -607,6 +653,12 @@ endif|#
 directive|endif
 end_endif
 
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|__MINGW64_VERSION_MAJOR
+end_ifndef
+
 begin_comment
 comment|/* Windows defines off_t as long, which is 32-bit */
 end_comment
@@ -625,6 +677,11 @@ define|#
 directive|define
 name|_OFF_T_DEFINED
 end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_ifdef
 ifdef|#
@@ -699,6 +756,12 @@ endif|#
 directive|endif
 end_endif
 
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|__MINGW64_VERSION_MAJOR
+end_ifndef
+
 begin_typedef
 DECL|typedef|ssize_t
 typedef|typedef
@@ -706,6 +769,11 @@ name|int
 name|ssize_t
 typedef|;
 end_typedef
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_typedef
 DECL|typedef|in_addr_t
@@ -730,6 +798,57 @@ name|int
 name|sig_atomic_t
 typedef|;
 end_typedef
+
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|_WIN64
+end_ifdef
+
+begin_define
+DECL|macro|NGX_PTR_SIZE
+define|#
+directive|define
+name|NGX_PTR_SIZE
+value|8
+end_define
+
+begin_define
+DECL|macro|NGX_SIZE_T_LEN
+define|#
+directive|define
+name|NGX_SIZE_T_LEN
+value|(sizeof("-9223372036854775808") - 1)
+end_define
+
+begin_define
+DECL|macro|NGX_MAX_SIZE_T_VALUE
+define|#
+directive|define
+name|NGX_MAX_SIZE_T_VALUE
+value|9223372036854775807
+end_define
+
+begin_define
+DECL|macro|NGX_TIME_T_LEN
+define|#
+directive|define
+name|NGX_TIME_T_LEN
+value|(sizeof("-9223372036854775808") - 1)
+end_define
+
+begin_define
+DECL|macro|NGX_TIME_T_SIZE
+define|#
+directive|define
+name|NGX_TIME_T_SIZE
+value|8
+end_define
+
+begin_else
+else|#
+directive|else
+end_else
 
 begin_define
 DECL|macro|NGX_PTR_SIZE
@@ -770,6 +889,11 @@ directive|define
 name|NGX_TIME_T_SIZE
 value|4
 end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_define
 DECL|macro|NGX_OFF_T_LEN
