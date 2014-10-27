@@ -131,7 +131,7 @@ value|3
 end_define
 
 begin_typedef
-DECL|struct|__anon2ba6030b0108
+DECL|struct|__anon2c3739490108
 typedef|typedef
 struct|struct
 block|{
@@ -150,7 +150,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ba6030b0208
+DECL|struct|__anon2c3739490208
 typedef|typedef
 struct|struct
 block|{
@@ -389,12 +389,18 @@ name|temp_file
 range|:
 literal|1
 decl_stmt|;
+DECL|member|reading
+name|unsigned
+name|reading
+range|:
+literal|1
+decl_stmt|;
 block|}
 struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2ba6030b0308
+DECL|struct|__anon2c3739490308
 typedef|typedef
 struct|struct
 block|{
@@ -466,7 +472,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ba6030b0408
+DECL|struct|__anon2c3739490408
 typedef|typedef
 struct|struct
 block|{
