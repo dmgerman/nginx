@@ -131,7 +131,7 @@ value|3
 end_define
 
 begin_typedef
-DECL|struct|__anon2c3739490108
+DECL|struct|__anon29cc13990108
 typedef|typedef
 struct|struct
 block|{
@@ -150,7 +150,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3739490208
+DECL|struct|__anon29cc13990208
 typedef|typedef
 struct|struct
 block|{
@@ -266,6 +266,12 @@ name|key
 index|[
 name|NGX_HTTP_CACHE_KEY_LEN
 index|]
+decl_stmt|;
+DECL|member|main
+name|u_char
+decl|main[
+name|NGX_HTTP_CACHE_KEY_LEN
+decl|]
 decl_stmt|;
 DECL|member|uniq
 name|ngx_file_uniq_t
@@ -395,12 +401,18 @@ name|reading
 range|:
 literal|1
 decl_stmt|;
+DECL|member|secondary
+name|unsigned
+name|secondary
+range|:
+literal|1
+decl_stmt|;
 block|}
 struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c3739490308
+DECL|struct|__anon29cc13990308
 typedef|typedef
 struct|struct
 block|{
@@ -472,7 +484,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3739490408
+DECL|struct|__anon29cc13990408
 typedef|typedef
 struct|struct
 block|{
