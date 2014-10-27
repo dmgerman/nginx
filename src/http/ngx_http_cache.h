@@ -115,15 +115,23 @@ value|42
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_CACHE_VARY_LEN
+define|#
+directive|define
+name|NGX_HTTP_CACHE_VARY_LEN
+value|42
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_CACHE_VERSION
 define|#
 directive|define
 name|NGX_HTTP_CACHE_VERSION
-value|2
+value|3
 end_define
 
 begin_typedef
-DECL|struct|__anon2b20a5fc0108
+DECL|struct|__anon2ba6030b0108
 typedef|typedef
 struct|struct
 block|{
@@ -142,7 +150,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b20a5fc0208
+DECL|struct|__anon2ba6030b0208
 typedef|typedef
 struct|struct
 block|{
@@ -279,6 +287,17 @@ DECL|member|etag
 name|ngx_str_t
 name|etag
 decl_stmt|;
+DECL|member|vary
+name|ngx_str_t
+name|vary
+decl_stmt|;
+DECL|member|variant
+name|u_char
+name|variant
+index|[
+name|NGX_HTTP_CACHE_KEY_LEN
+index|]
+decl_stmt|;
 DECL|member|header_start
 name|size_t
 name|header_start
@@ -375,7 +394,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b20a5fc0308
+DECL|struct|__anon2ba6030b0308
 typedef|typedef
 struct|struct
 block|{
@@ -422,6 +441,24 @@ index|[
 name|NGX_HTTP_CACHE_ETAG_LEN
 index|]
 decl_stmt|;
+DECL|member|vary_len
+name|u_char
+name|vary_len
+decl_stmt|;
+DECL|member|vary
+name|u_char
+name|vary
+index|[
+name|NGX_HTTP_CACHE_VARY_LEN
+index|]
+decl_stmt|;
+DECL|member|variant
+name|u_char
+name|variant
+index|[
+name|NGX_HTTP_CACHE_KEY_LEN
+index|]
+decl_stmt|;
 DECL|typedef|ngx_http_file_cache_header_t
 block|}
 name|ngx_http_file_cache_header_t
@@ -429,7 +466,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b20a5fc0408
+DECL|struct|__anon2ba6030b0408
 typedef|typedef
 struct|struct
 block|{
