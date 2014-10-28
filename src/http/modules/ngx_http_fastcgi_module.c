@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b85bc430108
+DECL|struct|__anon2b3fa6b60108
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b85bc430203
+DECL|enum|__anon2b3fa6b60203
 typedef|typedef
 enum|enum
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b85bc430308
+DECL|struct|__anon2b3fa6b60308
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b85bc430408
+DECL|struct|__anon2b3fa6b60408
 typedef|typedef
 struct|struct
 block|{
@@ -320,7 +320,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2b85bc430508
+DECL|struct|__anon2b3fa6b60508
 typedef|typedef
 struct|struct
 block|{
@@ -363,7 +363,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b85bc430608
+DECL|struct|__anon2b3fa6b60608
 typedef|typedef
 struct|struct
 block|{
@@ -393,7 +393,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b85bc430708
+DECL|struct|__anon2b3fa6b60708
 typedef|typedef
 struct|struct
 block|{
@@ -420,7 +420,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b85bc430808
+DECL|struct|__anon2b3fa6b60808
 typedef|typedef
 struct|struct
 block|{
@@ -1531,6 +1531,36 @@ argument_list|,
 name|upstream
 operator|.
 name|force_ranges
+argument_list|)
+block|,
+name|NULL
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"fastcgi_limit_rate"
+argument_list|)
+block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
+name|NGX_HTTP_SRV_CONF
+operator||
+name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_CONF_TAKE1
+block|,
+name|ngx_conf_set_size_slot
+block|,
+name|NGX_HTTP_LOC_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+name|ngx_http_fastcgi_loc_conf_t
+argument_list|,
+name|upstream
+operator|.
+name|limit_rate
 argument_list|)
 block|,
 name|NULL
@@ -10650,6 +10680,14 @@ name|conf
 operator|->
 name|upstream
 operator|.
+name|limit_rate
+operator|=
+name|NGX_CONF_UNSET_SIZE
+expr_stmt|;
+name|conf
+operator|->
+name|upstream
+operator|.
 name|busy_buffers_size_conf
 operator|=
 name|NGX_CONF_UNSET_SIZE
@@ -11140,6 +11178,23 @@ operator|(
 name|size_t
 operator|)
 name|ngx_pagesize
+argument_list|)
+expr_stmt|;
+name|ngx_conf_merge_size_value
+argument_list|(
+name|conf
+operator|->
+name|upstream
+operator|.
+name|limit_rate
+argument_list|,
+name|prev
+operator|->
+name|upstream
+operator|.
+name|limit_rate
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_bufs_value

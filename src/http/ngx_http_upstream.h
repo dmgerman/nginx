@@ -253,7 +253,7 @@ value|0x00000200
 end_define
 
 begin_typedef
-DECL|struct|__anon2c7778350108
+DECL|struct|__anon27f0b00f0108
 typedef|typedef
 struct|struct
 block|{
@@ -293,7 +293,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7778350208
+DECL|struct|__anon27f0b00f0208
 typedef|typedef
 struct|struct
 block|{
@@ -362,7 +362,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7778350308
+DECL|struct|__anon27f0b00f0308
 typedef|typedef
 struct|struct
 block|{
@@ -386,7 +386,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7778350408
+DECL|struct|__anon27f0b00f0408
 typedef|typedef
 struct|struct
 block|{
@@ -537,7 +537,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c7778350508
+DECL|struct|__anon27f0b00f0508
 typedef|typedef
 struct|struct
 block|{
@@ -558,7 +558,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7778350608
+DECL|struct|__anon27f0b00f0608
 typedef|typedef
 struct|struct
 block|{
@@ -594,6 +594,10 @@ decl_stmt|;
 DECL|member|buffer_size
 name|size_t
 name|buffer_size
+decl_stmt|;
+DECL|member|limit_rate
+name|size_t
+name|limit_rate
 decl_stmt|;
 DECL|member|busy_buffers_size
 name|size_t
@@ -810,7 +814,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7778350708
+DECL|struct|__anon27f0b00f0708
 typedef|typedef
 struct|struct
 block|{
@@ -846,7 +850,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7778350808
+DECL|struct|__anon27f0b00f0808
 typedef|typedef
 struct|struct
 block|{
@@ -994,7 +998,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7778350908
+DECL|struct|__anon27f0b00f0908
 typedef|typedef
 struct|struct
 block|{
@@ -1395,7 +1399,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c7778350a08
+DECL|struct|__anon27f0b00f0a08
 typedef|typedef
 struct|struct
 block|{
@@ -1414,7 +1418,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7778350b08
+DECL|struct|__anon27f0b00f0b08
 typedef|typedef
 struct|struct
 block|{

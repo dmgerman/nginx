@@ -282,6 +282,14 @@ name|ngx_buf_t
 modifier|*
 name|buf_to_file
 decl_stmt|;
+DECL|member|limit_rate
+name|size_t
+name|limit_rate
+decl_stmt|;
+DECL|member|start_sec
+name|time_t
+name|start_sec
+decl_stmt|;
 DECL|member|temp_file
 name|ngx_temp_file_t
 modifier|*
