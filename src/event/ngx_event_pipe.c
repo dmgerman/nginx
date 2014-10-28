@@ -1071,6 +1071,8 @@ operator|->
 name|upstream
 argument_list|,
 name|chain
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|ngx_log_debug1

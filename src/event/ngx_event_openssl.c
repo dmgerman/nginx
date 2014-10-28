@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon28c116020108
+DECL|struct|__anon291a2e0f0108
 typedef|typedef
 struct|struct
 block|{
@@ -5166,7 +5166,7 @@ end_function
 
 begin_function
 name|ssize_t
-DECL|function|ngx_ssl_recv_chain (ngx_connection_t * c,ngx_chain_t * cl)
+DECL|function|ngx_ssl_recv_chain (ngx_connection_t * c,ngx_chain_t * cl,off_t limit)
 name|ngx_ssl_recv_chain
 parameter_list|(
 name|ngx_connection_t
@@ -5176,6 +5176,9 @@ parameter_list|,
 name|ngx_chain_t
 modifier|*
 name|cl
+parameter_list|,
+name|off_t
+name|limit
 parameter_list|)
 block|{
 name|u_char
@@ -5186,6 +5189,8 @@ name|ssize_t
 name|n
 decl_stmt|,
 name|bytes
+decl_stmt|,
+name|size
 decl_stmt|;
 name|ngx_buf_t
 modifier|*
@@ -5213,6 +5218,52 @@ init|;
 condition|;
 control|)
 block|{
+name|size
+operator|=
+name|b
+operator|->
+name|end
+operator|-
+name|last
+expr_stmt|;
+if|if
+condition|(
+name|limit
+condition|)
+block|{
+if|if
+condition|(
+name|bytes
+operator|>=
+name|limit
+condition|)
+block|{
+return|return
+name|bytes
+return|;
+block|}
+if|if
+condition|(
+name|bytes
+operator|+
+name|size
+operator|>
+name|limit
+condition|)
+block|{
+name|size
+operator|=
+operator|(
+name|ssize_t
+operator|)
+operator|(
+name|limit
+operator|-
+name|bytes
+operator|)
+expr_stmt|;
+block|}
+block|}
 name|n
 operator|=
 name|ngx_ssl_recv
@@ -5221,11 +5272,7 @@ name|c
 argument_list|,
 name|last
 argument_list|,
-name|b
-operator|->
-name|end
-operator|-
-name|last
+name|size
 argument_list|)
 expr_stmt|;
 if|if

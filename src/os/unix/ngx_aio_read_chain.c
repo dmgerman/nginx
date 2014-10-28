@@ -23,7 +23,7 @@ end_include
 
 begin_function
 name|ssize_t
-DECL|function|ngx_aio_read_chain (ngx_connection_t * c,ngx_chain_t * cl)
+DECL|function|ngx_aio_read_chain (ngx_connection_t * c,ngx_chain_t * cl,off_t limit)
 name|ngx_aio_read_chain
 parameter_list|(
 name|ngx_connection_t
@@ -33,6 +33,9 @@ parameter_list|,
 name|ngx_chain_t
 modifier|*
 name|cl
+parameter_list|,
+name|off_t
+name|limit
 parameter_list|)
 block|{
 name|int

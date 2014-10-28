@@ -75,6 +75,9 @@ parameter_list|,
 name|ngx_chain_t
 modifier|*
 name|in
+parameter_list|,
+name|off_t
+name|limit
 parameter_list|)
 function_decl|;
 end_typedef
@@ -127,7 +130,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29136ded0108
+DECL|struct|__anon2acd75a50108
 typedef|typedef
 struct|struct
 block|{
@@ -284,6 +287,9 @@ parameter_list|,
 name|ngx_chain_t
 modifier|*
 name|chain
+parameter_list|,
+name|off_t
+name|limit
 parameter_list|)
 function_decl|;
 end_function_decl
