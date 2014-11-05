@@ -4882,10 +4882,6 @@ name|value
 operator|.
 name|data
 expr_stmt|;
-name|start
-operator|=
-name|p
-expr_stmt|;
 name|last
 operator|=
 name|p
