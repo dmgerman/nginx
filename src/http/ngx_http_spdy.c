@@ -417,7 +417,7 @@ value|NGX_SPDY_MAX_WINDOW
 end_define
 
 begin_typedef
-DECL|struct|__anon2c0390c70108
+DECL|struct|__anon2c4c9e720108
 typedef|typedef
 struct|struct
 block|{
@@ -12842,7 +12842,7 @@ name|ngx_http_core_srv_conf_t
 modifier|*
 name|cscf
 decl_stmt|;
-DECL|enum|__anon2c0390c70203
+DECL|enum|__anon2c4c9e720203
 enum|enum
 block|{
 DECL|enumerator|sw_name_len
@@ -13540,30 +13540,6 @@ name|NGX_MAX_ERROR_STR
 operator|-
 literal|300
 expr_stmt|;
-name|p
-index|[
-name|rest
-operator|++
-index|]
-operator|=
-literal|'.'
-expr_stmt|;
-name|p
-index|[
-name|rest
-operator|++
-index|]
-operator|=
-literal|'.'
-expr_stmt|;
-name|p
-index|[
-name|rest
-operator|++
-index|]
-operator|=
-literal|'.'
-expr_stmt|;
 block|}
 name|ngx_log_error
 argument_list|(
@@ -13577,7 +13553,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"client sent too long header name or value: \"%*s\""
+literal|"client sent too long header name or value: \"%*s...\""
 argument_list|,
 name|rest
 argument_list|,
@@ -14072,7 +14048,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2c0390c70308
+DECL|struct|__anon2c4c9e720308
 specifier|static
 specifier|const
 struct|struct
