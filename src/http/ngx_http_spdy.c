@@ -417,7 +417,7 @@ value|NGX_SPDY_MAX_WINDOW
 end_define
 
 begin_typedef
-DECL|struct|__anon2934bcf20108
+DECL|struct|__anon29c429ef0108
 typedef|typedef
 struct|struct
 block|{
@@ -12924,7 +12924,7 @@ name|ngx_http_core_srv_conf_t
 modifier|*
 name|cscf
 decl_stmt|;
-DECL|enum|__anon2934bcf20203
+DECL|enum|__anon29c429ef0203
 enum|enum
 block|{
 DECL|enumerator|sw_name_len
@@ -13587,16 +13587,18 @@ name|header_in
 operator|->
 name|pos
 expr_stmt|;
-comment|/*      * equality is prohibited since one more byte is needed      * for null-termination      */
+comment|/*      * One more byte is needed for null-termination      * and another one for further progress.      */
 if|if
 condition|(
 name|rest
-operator|>=
+operator|>
 name|cscf
 operator|->
 name|large_client_header_buffers
 operator|.
 name|size
+operator|-
+literal|2
 condition|)
 block|{
 name|p
@@ -14130,7 +14132,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2934bcf20308
+DECL|struct|__anon29c429ef0308
 specifier|static
 specifier|const
 struct|struct
