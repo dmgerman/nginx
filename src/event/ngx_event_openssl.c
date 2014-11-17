@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon29e597950108
+DECL|struct|__anon2a2b374a0108
 typedef|typedef
 struct|struct
 block|{
@@ -7835,6 +7835,16 @@ name|n
 operator|==
 name|SSL_R_SCSV_RECEIVED_WHEN_RENEGOTIATING
 comment|/*  345 */
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|SSL_R_INAPPROPRIATE_FALLBACK
+operator|||
+name|n
+operator|==
+name|SSL_R_INAPPROPRIATE_FALLBACK
+comment|/*  373 */
 endif|#
 directive|endif
 operator|||
