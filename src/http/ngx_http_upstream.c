@@ -3911,6 +3911,16 @@ name|conf
 operator|->
 name|cache_lock_timeout
 expr_stmt|;
+name|c
+operator|->
+name|lock_age
+operator|=
+name|u
+operator|->
+name|conf
+operator|->
+name|cache_lock_age
+expr_stmt|;
 name|u
 operator|->
 name|cache_status

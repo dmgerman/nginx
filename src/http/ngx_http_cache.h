@@ -131,7 +131,7 @@ value|3
 end_define
 
 begin_typedef
-DECL|struct|__anon29cc13990108
+DECL|struct|__anon2b2775e40108
 typedef|typedef
 struct|struct
 block|{
@@ -150,7 +150,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29cc13990208
+DECL|struct|__anon2b2775e40208
 typedef|typedef
 struct|struct
 block|{
@@ -236,6 +236,10 @@ decl_stmt|;
 DECL|member|fs_size
 name|off_t
 name|fs_size
+decl_stmt|;
+DECL|member|lock_time
+name|ngx_msec_t
+name|lock_time
 decl_stmt|;
 DECL|typedef|ngx_http_file_cache_node_t
 block|}
@@ -351,6 +355,14 @@ DECL|member|lock_timeout
 name|ngx_msec_t
 name|lock_timeout
 decl_stmt|;
+DECL|member|lock_age
+name|ngx_msec_t
+name|lock_age
+decl_stmt|;
+DECL|member|lock_time
+name|ngx_msec_t
+name|lock_time
+decl_stmt|;
 DECL|member|wait_time
 name|ngx_msec_t
 name|wait_time
@@ -412,7 +424,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29cc13990308
+DECL|struct|__anon2b2775e40308
 typedef|typedef
 struct|struct
 block|{
@@ -484,7 +496,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29cc13990408
+DECL|struct|__anon2b2775e40408
 typedef|typedef
 struct|struct
 block|{
