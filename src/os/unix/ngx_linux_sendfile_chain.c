@@ -52,8 +52,6 @@ name|limit
 parameter_list|)
 block|{
 name|int
-name|rc
-decl_stmt|,
 name|tcp_nodelay
 decl_stmt|;
 name|off_t
@@ -533,7 +531,7 @@ argument_list|,
 name|file_size
 argument_list|)
 expr_stmt|;
-name|rc
+name|n
 operator|=
 name|sendfile
 argument_list|(
@@ -555,7 +553,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|rc
+name|n
 operator|==
 operator|-
 literal|1
@@ -618,11 +616,11 @@ expr_stmt|;
 block|}
 name|sent
 operator|=
-name|rc
+name|n
 operator|>
 literal|0
 condition|?
-name|rc
+name|n
 else|:
 literal|0
 expr_stmt|;
@@ -636,9 +634,9 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"sendfile: %d, @%O %O:%uz"
+literal|"sendfile: %z, @%O %O:%uz"
 argument_list|,
-name|rc
+name|n
 argument_list|,
 name|file
 operator|->
