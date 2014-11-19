@@ -768,8 +768,8 @@ end_function
 begin_function
 name|ngx_chain_t
 modifier|*
-DECL|function|ngx_handle_sent_chain (ngx_chain_t * in,off_t sent)
-name|ngx_handle_sent_chain
+DECL|function|ngx_chain_update_sent (ngx_chain_t * in,off_t sent)
+name|ngx_chain_update_sent
 parameter_list|(
 name|ngx_chain_t
 modifier|*

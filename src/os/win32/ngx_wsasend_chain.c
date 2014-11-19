@@ -466,7 +466,7 @@ name|sent
 expr_stmt|;
 name|in
 operator|=
-name|ngx_handle_sent_chain
+name|ngx_chain_update_sent
 argument_list|(
 name|in
 argument_list|,
@@ -1135,7 +1135,7 @@ name|sent
 expr_stmt|;
 name|in
 operator|=
-name|ngx_handle_sent_chain
+name|ngx_chain_update_sent
 argument_list|(
 name|in
 argument_list|,
