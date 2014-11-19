@@ -69,7 +69,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon2c0d093b010a
+DECL|union|__anon2c3e30db010a
 union|union
 block|{
 DECL|member|complex
@@ -101,7 +101,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c0d093b0208
+DECL|struct|__anon2c3e30db0208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0d093b0308
+DECL|struct|__anon2c3e30db0308
 typedef|typedef
 struct|struct
 block|{
@@ -162,7 +162,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0d093b0408
+DECL|struct|__anon2c3e30db0408
 typedef|typedef
 struct|struct
 block|{
@@ -175,15 +175,19 @@ name|ngx_array_t
 modifier|*
 name|body_flushes
 decl_stmt|;
-DECL|member|body_set_len
+DECL|member|body_lengths
 name|ngx_array_t
 modifier|*
-name|body_set_len
+name|body_lengths
 decl_stmt|;
-DECL|member|body_set
+DECL|member|body_values
 name|ngx_array_t
 modifier|*
-name|body_set
+name|body_values
+decl_stmt|;
+DECL|member|body_source
+name|ngx_str_t
+name|body_source
 decl_stmt|;
 DECL|member|headers
 name|ngx_http_proxy_headers_t
@@ -229,10 +233,6 @@ DECL|member|cookie_paths
 name|ngx_array_t
 modifier|*
 name|cookie_paths
-decl_stmt|;
-DECL|member|body_source
-name|ngx_str_t
-name|body_source
 decl_stmt|;
 DECL|member|method
 name|ngx_str_t
@@ -328,7 +328,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0d093b0508
+DECL|struct|__anon2c3e30db0508
 typedef|typedef
 struct|struct
 block|{
@@ -5608,7 +5608,7 @@ if|if
 condition|(
 name|plcf
 operator|->
-name|body_set_len
+name|body_lengths
 condition|)
 block|{
 name|le
@@ -5617,7 +5617,7 @@ name|ip
 operator|=
 name|plcf
 operator|->
-name|body_set_len
+name|body_lengths
 operator|->
 name|elts
 expr_stmt|;
@@ -6768,7 +6768,7 @@ if|if
 condition|(
 name|plcf
 operator|->
-name|body_set
+name|body_values
 condition|)
 block|{
 name|e
@@ -6777,7 +6777,7 @@ name|ip
 operator|=
 name|plcf
 operator|->
-name|body_set
+name|body_values
 operator|->
 name|elts
 expr_stmt|;
@@ -6868,7 +6868,7 @@ if|if
 condition|(
 name|plcf
 operator|->
-name|body_set
+name|body_values
 operator|==
 name|NULL
 operator|&&
@@ -12022,7 +12022,7 @@ return|return
 name|NULL
 return|;
 block|}
-comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.bufs.num = 0;      *     conf->upstream.ignore_headers = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.cache_use_stale = 0;      *     conf->upstream.cache_methods = 0;      *     conf->upstream.temp_path = NULL;      *     conf->upstream.hide_headers_hash = { NULL, 0 };      *     conf->upstream.uri = { 0, NULL };      *     conf->upstream.location = NULL;      *     conf->upstream.store_lengths = NULL;      *     conf->upstream.store_values = NULL;      *     conf->upstream.ssl_name = NULL;      *      *     conf->method = { 0, NULL };      *     conf->headers_source = NULL;      *     conf->headers.lengths = NULL;      *     conf->headers.values = NULL;      *     conf->headers.hash = { NULL, 0 };      *     conf->headers_cache.lengths = NULL;      *     conf->headers_cache.values = NULL;      *     conf->headers_cache.hash = { NULL, 0 };      *     conf->body_set_len = NULL;      *     conf->body_set = NULL;      *     conf->body_source = { 0, NULL };      *     conf->redirects = NULL;      *     conf->ssl = 0;      *     conf->ssl_protocols = 0;      *     conf->ssl_ciphers = { 0, NULL };      *     conf->ssl_trusted_certificate = { 0, NULL };      *     conf->ssl_crl = { 0, NULL };      *     conf->ssl_certificate = { 0, NULL };      *     conf->ssl_certificate_key = { 0, NULL };      */
+comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.bufs.num = 0;      *     conf->upstream.ignore_headers = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.cache_use_stale = 0;      *     conf->upstream.cache_methods = 0;      *     conf->upstream.temp_path = NULL;      *     conf->upstream.hide_headers_hash = { NULL, 0 };      *     conf->upstream.uri = { 0, NULL };      *     conf->upstream.location = NULL;      *     conf->upstream.store_lengths = NULL;      *     conf->upstream.store_values = NULL;      *     conf->upstream.ssl_name = NULL;      *      *     conf->method = { 0, NULL };      *     conf->headers_source = NULL;      *     conf->headers.lengths = NULL;      *     conf->headers.values = NULL;      *     conf->headers.hash = { NULL, 0 };      *     conf->headers_cache.lengths = NULL;      *     conf->headers_cache.values = NULL;      *     conf->headers_cache.hash = { NULL, 0 };      *     conf->body_lengths = NULL;      *     conf->body_values = NULL;      *     conf->body_source = { 0, NULL };      *     conf->redirects = NULL;      *     conf->ssl = 0;      *     conf->ssl_protocols = 0;      *     conf->ssl_ciphers = { 0, NULL };      *     conf->ssl_trusted_certificate = { 0, NULL };      *     conf->ssl_crl = { 0, NULL };      *     conf->ssl_certificate = { 0, NULL };      *     conf->ssl_certificate_key = { 0, NULL };      */
 name|conf
 operator|->
 name|upstream
@@ -14447,19 +14447,19 @@ name|body_source
 expr_stmt|;
 name|conf
 operator|->
-name|body_set_len
+name|body_lengths
 operator|=
 name|prev
 operator|->
-name|body_set_len
+name|body_lengths
 expr_stmt|;
 name|conf
 operator|->
-name|body_set
+name|body_values
 operator|=
 name|prev
 operator|->
-name|body_set
+name|body_values
 expr_stmt|;
 block|}
 if|if
@@ -14472,7 +14472,7 @@ name|data
 operator|&&
 name|conf
 operator|->
-name|body_set_len
+name|body_lengths
 operator|==
 name|NULL
 condition|)
@@ -14519,7 +14519,7 @@ operator|=
 operator|&
 name|conf
 operator|->
-name|body_set_len
+name|body_lengths
 expr_stmt|;
 name|sc
 operator|.
@@ -14528,7 +14528,7 @@ operator|=
 operator|&
 name|conf
 operator|->
-name|body_set
+name|body_values
 expr_stmt|;
 name|sc
 operator|.
