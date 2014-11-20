@@ -906,6 +906,10 @@ operator|&&
 name|c
 operator|<
 literal|'a'
+operator|&&
+name|c
+operator|!=
+literal|'_'
 operator|)
 operator|||
 name|c
@@ -922,7 +926,8 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"syslog \"tag\" only allows "
-literal|"alphanumeric characters"
+literal|"alphanumeric characters "
+literal|"and underscore"
 argument_list|)
 expr_stmt|;
 return|return
