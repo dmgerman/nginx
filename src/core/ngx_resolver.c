@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon29903a490108
+DECL|struct|__anon29884db50108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29903a490208
+DECL|struct|__anon29884db50208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29903a490308
+DECL|struct|__anon29884db50308
 typedef|typedef
 struct|struct
 block|{
@@ -156,6 +156,18 @@ block|}
 name|ngx_resolver_an_t
 typedef|;
 end_typedef
+
+begin_define
+DECL|macro|ngx_resolver_node (n)
+define|#
+directive|define
+name|ngx_resolver_node
+parameter_list|(
+name|n
+parameter_list|)
+define|\
+value|(ngx_resolver_node_t *)                                                  \         ((u_char *) (n) - offsetof(ngx_resolver_node_t, node))
+end_define
 
 begin_function_decl
 name|ngx_int_t
@@ -1622,10 +1634,8 @@ condition|)
 block|{
 name|rn
 operator|=
-operator|(
-name|ngx_resolver_node_t
-operator|*
-operator|)
+name|ngx_resolver_node
+argument_list|(
 name|ngx_rbtree_min
 argument_list|(
 name|tree
@@ -1635,6 +1645,7 @@ argument_list|,
 name|tree
 operator|->
 name|sentinel
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|ngx_queue_remove
@@ -3294,7 +3305,7 @@ name|r
 operator|->
 name|log
 expr_stmt|;
-name|ctx
+name|rn
 operator|->
 name|ident
 operator|=
@@ -4101,7 +4112,7 @@ name|r
 operator|->
 name|log
 expr_stmt|;
-name|ctx
+name|rn
 operator|->
 name|ident
 operator|=
@@ -10015,11 +10026,10 @@ block|}
 comment|/* hash == node->key */
 name|rn
 operator|=
-operator|(
-name|ngx_resolver_node_t
-operator|*
-operator|)
+name|ngx_resolver_node
+argument_list|(
 name|node
+argument_list|)
 expr_stmt|;
 name|rc
 operator|=
@@ -10158,11 +10168,10 @@ continue|continue;
 block|}
 comment|/* addr == node->key */
 return|return
-operator|(
-name|ngx_resolver_node_t
-operator|*
-operator|)
+name|ngx_resolver_node
+argument_list|(
 name|node
+argument_list|)
 return|;
 block|}
 comment|/* not found */
@@ -10274,11 +10283,10 @@ block|}
 comment|/* hash == node->key */
 name|rn
 operator|=
-operator|(
-name|ngx_resolver_node_t
-operator|*
-operator|)
+name|ngx_resolver_node
+argument_list|(
 name|node
+argument_list|)
 expr_stmt|;
 name|rc
 operator|=
@@ -10414,19 +10422,17 @@ block|{
 comment|/* node->key == temp->key */
 name|rn
 operator|=
-operator|(
-name|ngx_resolver_node_t
-operator|*
-operator|)
+name|ngx_resolver_node
+argument_list|(
 name|node
+argument_list|)
 expr_stmt|;
 name|rn_temp
 operator|=
-operator|(
-name|ngx_resolver_node_t
-operator|*
-operator|)
+name|ngx_resolver_node
+argument_list|(
 name|temp
+argument_list|)
 expr_stmt|;
 name|p
 operator|=
@@ -10599,19 +10605,17 @@ block|{
 comment|/* node->key == temp->key */
 name|rn
 operator|=
-operator|(
-name|ngx_resolver_node_t
-operator|*
-operator|)
+name|ngx_resolver_node
+argument_list|(
 name|node
+argument_list|)
 expr_stmt|;
 name|rn_temp
 operator|=
-operator|(
-name|ngx_resolver_node_t
-operator|*
-operator|)
+name|ngx_resolver_node
+argument_list|(
 name|temp
+argument_list|)
 expr_stmt|;
 name|p
 operator|=
