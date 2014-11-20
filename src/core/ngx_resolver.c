@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon27b759c50108
+DECL|struct|__anon29903a490108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b759c50208
+DECL|struct|__anon29903a490208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b759c50308
+DECL|struct|__anon29903a490308
 typedef|typedef
 struct|struct
 block|{
@@ -7047,13 +7047,6 @@ operator|->
 name|node
 argument_list|)
 expr_stmt|;
-name|ngx_resolver_free_node
-argument_list|(
-name|r
-argument_list|,
-name|rn
-argument_list|)
-expr_stmt|;
 comment|/* unlock name mutex */
 while|while
 condition|(
@@ -7084,6 +7077,13 @@ name|ctx
 argument_list|)
 expr_stmt|;
 block|}
+name|ngx_resolver_free_node
+argument_list|(
+name|r
+argument_list|,
+name|rn
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 name|i
@@ -9371,13 +9371,6 @@ operator|->
 name|node
 argument_list|)
 expr_stmt|;
-name|ngx_resolver_free_node
-argument_list|(
-name|r
-argument_list|,
-name|rn
-argument_list|)
-expr_stmt|;
 comment|/* unlock addr mutex */
 while|while
 condition|(
@@ -9408,6 +9401,13 @@ name|ctx
 argument_list|)
 expr_stmt|;
 block|}
+name|ngx_resolver_free_node
+argument_list|(
+name|r
+argument_list|,
+name|rn
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 name|i
