@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29c651910108
+DECL|struct|__anon2ac655bf0108
 typedef|typedef
 struct|struct
 block|{
@@ -8432,6 +8432,17 @@ modifier|*
 name|r
 parameter_list|)
 block|{
+if|if
+condition|(
+name|r
+operator|->
+name|post_action
+condition|)
+block|{
+return|return
+name|NGX_OK
+return|;
+block|}
 if|if
 condition|(
 name|r
