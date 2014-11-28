@@ -412,7 +412,7 @@ name|md5
 decl_stmt|,
 name|ctx1
 decl_stmt|;
-comment|/* Apache's apr1 crypt is Paul-Henning Kamp's md5 crypt with $apr1$ magic */
+comment|/* Apache's apr1 crypt is Poul-Henning Kamp's md5 crypt with $apr1$ magic */
 name|keylen
 operator|=
 name|ngx_strlen
