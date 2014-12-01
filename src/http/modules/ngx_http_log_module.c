@@ -119,7 +119,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2ae93cef0108
+DECL|struct|__anon278683d00108
 typedef|typedef
 struct|struct
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae93cef0208
+DECL|struct|__anon278683d00208
 typedef|typedef
 struct|struct
 block|{
@@ -166,7 +166,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae93cef0308
+DECL|struct|__anon278683d00308
 typedef|typedef
 struct|struct
 block|{
@@ -205,7 +205,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae93cef0408
+DECL|struct|__anon278683d00408
 typedef|typedef
 struct|struct
 block|{
@@ -226,7 +226,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae93cef0508
+DECL|struct|__anon278683d00508
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +270,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae93cef0608
+DECL|struct|__anon278683d00608
 typedef|typedef
 struct|struct
 block|{
@@ -305,7 +305,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae93cef0708
+DECL|struct|__anon278683d00708
 typedef|typedef
 struct|struct
 block|{
@@ -908,10 +908,6 @@ literal|"log_format"
 argument_list|)
 block|,
 name|NGX_HTTP_MAIN_CONF
-operator||
-name|NGX_HTTP_SRV_CONF
-operator||
-name|NGX_HTTP_LOC_CONF
 operator||
 name|NGX_CONF_2MORE
 block|,
@@ -6661,28 +6657,6 @@ name|ngx_http_log_fmt_t
 modifier|*
 name|fmt
 decl_stmt|;
-if|if
-condition|(
-name|cf
-operator|->
-name|cmd_type
-operator|!=
-name|NGX_HTTP_MAIN_CONF
-condition|)
-block|{
-name|ngx_conf_log_error
-argument_list|(
-name|NGX_LOG_WARN
-argument_list|,
-name|cf
-argument_list|,
-literal|0
-argument_list|,
-literal|"the \"log_format\" directive may be used "
-literal|"only on \"http\" level"
-argument_list|)
-expr_stmt|;
-block|}
 name|value
 operator|=
 name|cf
