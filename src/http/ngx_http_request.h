@@ -701,7 +701,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon2b870eed0103
+DECL|enum|__anon297f976f0103
 typedef|typedef
 enum|enum
 block|{
@@ -740,7 +740,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b870eed0208
+DECL|struct|__anon297f976f0208
 typedef|typedef
 struct|struct
 block|{
@@ -763,7 +763,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b870eed0308
+DECL|struct|__anon297f976f0308
 typedef|typedef
 struct|struct
 block|{
@@ -782,7 +782,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b870eed0408
+DECL|struct|__anon297f976f0408
 typedef|typedef
 struct|struct
 block|{
@@ -1044,7 +1044,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b870eed0508
+DECL|struct|__anon297f976f0508
 typedef|typedef
 struct|struct
 block|{
@@ -1185,7 +1185,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b870eed0608
+DECL|struct|__anon297f976f0608
 typedef|typedef
 struct|struct
 block|{
@@ -1243,7 +1243,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b870eed0708
+DECL|struct|__anon297f976f0708
 typedef|typedef
 struct|struct
 block|{
@@ -1401,7 +1401,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b870eed0808
+DECL|struct|__anon297f976f0808
 typedef|typedef
 struct|struct
 block|{
@@ -2272,7 +2272,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b870eed0908
+DECL|struct|__anon297f976f0908
 typedef|typedef
 struct|struct
 block|{
@@ -2325,6 +2325,20 @@ name|l
 parameter_list|)
 define|\                                                                               \
 value|c->log->file = l->file;                                                   \     c->log->next = l->next;                                                   \     c->log->writer = l->writer;                                               \     c->log->wdata = l->wdata;                                                 \     if (!(c->log->log_level& NGX_LOG_DEBUG_CONNECTION)) {                    \         c->log->log_level = l->log_level;                                     \     }
+end_define
+
+begin_define
+DECL|macro|ngx_http_set_log_request (log,r)
+define|#
+directive|define
+name|ngx_http_set_log_request
+parameter_list|(
+name|log
+parameter_list|,
+name|r
+parameter_list|)
+define|\
+value|((ngx_http_log_ctx_t *) log->data)->current_request = r
 end_define
 
 begin_endif
