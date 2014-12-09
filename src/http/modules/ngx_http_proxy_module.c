@@ -69,7 +69,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon29aacf42010a
+DECL|union|__anon2a520cc5010a
 union|union
 block|{
 DECL|member|complex
@@ -101,7 +101,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29aacf420208
+DECL|struct|__anon2a520cc50208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29aacf420308
+DECL|struct|__anon2a520cc50308
 typedef|typedef
 struct|struct
 block|{
@@ -162,7 +162,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29aacf420408
+DECL|struct|__anon2a520cc50408
 typedef|typedef
 struct|struct
 block|{
@@ -328,7 +328,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29aacf420508
+DECL|struct|__anon2a520cc50508
 typedef|typedef
 struct|struct
 block|{
@@ -14346,6 +14346,14 @@ name|upstream
 expr_stmt|;
 name|conf
 operator|->
+name|location
+operator|=
+name|prev
+operator|->
+name|location
+expr_stmt|;
+name|conf
+operator|->
 name|vars
 operator|=
 name|prev
@@ -14418,14 +14426,6 @@ operator|->
 name|handler
 operator|=
 name|ngx_http_proxy_handler
-expr_stmt|;
-name|conf
-operator|->
-name|location
-operator|=
-name|prev
-operator|->
-name|location
 expr_stmt|;
 block|}
 if|if
