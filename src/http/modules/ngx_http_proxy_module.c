@@ -69,7 +69,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon2c51479b010a
+DECL|union|__anon29aacf42010a
 union|union
 block|{
 DECL|member|complex
@@ -101,7 +101,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c51479b0208
+DECL|struct|__anon29aacf420208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c51479b0308
+DECL|struct|__anon29aacf420308
 typedef|typedef
 struct|struct
 block|{
@@ -162,7 +162,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c51479b0408
+DECL|struct|__anon29aacf420408
 typedef|typedef
 struct|struct
 block|{
@@ -328,7 +328,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c51479b0508
+DECL|struct|__anon29aacf420508
 typedef|typedef
 struct|struct
 block|{
@@ -14302,8 +14302,21 @@ return|return
 name|NGX_CONF_ERROR
 return|;
 block|}
+name|clcf
+operator|=
+name|ngx_http_conf_get_module_loc_conf
+argument_list|(
+name|cf
+argument_list|,
+name|ngx_http_core_module
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
+name|clcf
+operator|->
+name|noname
+operator|&&
 name|conf
 operator|->
 name|upstream
@@ -14377,6 +14390,17 @@ directive|endif
 block|}
 if|if
 condition|(
+name|clcf
+operator|->
+name|lmt_excpt
+operator|&&
+name|clcf
+operator|->
+name|handler
+operator|==
+name|NULL
+operator|&&
+operator|(
 name|conf
 operator|->
 name|upstream
@@ -14386,28 +14410,7 @@ operator|||
 name|conf
 operator|->
 name|proxy_lengths
-condition|)
-block|{
-name|clcf
-operator|=
-name|ngx_http_conf_get_module_loc_conf
-argument_list|(
-name|cf
-argument_list|,
-name|ngx_http_core_module
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|clcf
-operator|->
-name|handler
-operator|==
-name|NULL
-operator|&&
-name|clcf
-operator|->
-name|lmt_excpt
+operator|)
 condition|)
 block|{
 name|clcf
@@ -14424,7 +14427,6 @@ name|prev
 operator|->
 name|location
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
