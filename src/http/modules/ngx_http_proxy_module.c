@@ -69,7 +69,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon2c3e30db010a
+DECL|union|__anon2b576b20010a
 union|union
 block|{
 DECL|member|complex
@@ -101,7 +101,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c3e30db0208
+DECL|struct|__anon2b576b200208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3e30db0308
+DECL|struct|__anon2b576b200308
 typedef|typedef
 struct|struct
 block|{
@@ -162,7 +162,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3e30db0408
+DECL|struct|__anon2b576b200408
 typedef|typedef
 struct|struct
 block|{
@@ -328,7 +328,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3e30db0508
+DECL|struct|__anon2b576b200508
 typedef|typedef
 struct|struct
 block|{
@@ -3233,6 +3233,18 @@ block|,
 block|{
 name|ngx_string
 argument_list|(
+literal|"TE"
+argument_list|)
+block|,
+name|ngx_string
+argument_list|(
+literal|""
+argument_list|)
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
 literal|"Transfer-Encoding"
 argument_list|)
 block|,
@@ -3389,6 +3401,18 @@ block|,
 name|ngx_string
 argument_list|(
 literal|"$proxy_internal_body_length"
+argument_list|)
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"TE"
+argument_list|)
+block|,
+name|ngx_string
+argument_list|(
+literal|""
 argument_list|)
 block|}
 block|,
