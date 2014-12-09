@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a9d4e4d0108
+DECL|struct|__anon27a03b020108
 typedef|typedef
 struct|struct
 block|{
@@ -56,7 +56,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a9d4e4d0208
+DECL|struct|__anon27a03b020208
 typedef|typedef
 struct|struct
 block|{
@@ -6809,6 +6809,12 @@ operator|.
 name|upstream
 operator|==
 name|NULL
+operator|&&
+name|conf
+operator|->
+name|scgi_lengths
+operator|==
+name|NULL
 condition|)
 block|{
 name|conf
@@ -6823,16 +6829,6 @@ name|upstream
 operator|.
 name|upstream
 expr_stmt|;
-block|}
-if|if
-condition|(
-name|conf
-operator|->
-name|scgi_lengths
-operator|==
-name|NULL
-condition|)
-block|{
 name|conf
 operator|->
 name|scgi_lengths
