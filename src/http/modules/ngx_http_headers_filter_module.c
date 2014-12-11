@@ -55,7 +55,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f4e8960108
+DECL|struct|__anon2b31e9aa0108
 typedef|typedef
 struct|struct
 block|{
@@ -108,7 +108,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon29f4e8960203
+DECL|enum|__anon2b31e9aa0203
 typedef|typedef
 enum|enum
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f4e8960308
+DECL|struct|__anon2b31e9aa0308
 typedef|typedef
 struct|struct
 block|{
@@ -842,7 +842,7 @@ name|i
 decl_stmt|;
 name|ngx_table_elt_t
 modifier|*
-name|expires
+name|e
 decl_stmt|,
 modifier|*
 name|cc
@@ -851,7 +851,22 @@ modifier|*
 modifier|*
 name|ccp
 decl_stmt|;
+name|ngx_http_expires_t
 name|expires
+decl_stmt|;
+name|expires
+operator|=
+name|conf
+operator|->
+name|expires
+expr_stmt|;
+name|expires_time
+operator|=
+name|conf
+operator|->
+name|expires_time
+expr_stmt|;
+name|e
 operator|=
 name|r
 operator|->
@@ -861,12 +876,12 @@ name|expires
 expr_stmt|;
 if|if
 condition|(
-name|expires
+name|e
 operator|==
 name|NULL
 condition|)
 block|{
-name|expires
+name|e
 operator|=
 name|ngx_list_push
 argument_list|(
@@ -880,7 +895,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|expires
+name|e
 operator|==
 name|NULL
 condition|)
@@ -895,9 +910,9 @@ name|headers_out
 operator|.
 name|expires
 operator|=
-name|expires
+name|e
 expr_stmt|;
-name|expires
+name|e
 operator|->
 name|hash
 operator|=
@@ -906,7 +921,7 @@ expr_stmt|;
 name|ngx_str_set
 argument_list|(
 operator|&
-name|expires
+name|e
 operator|->
 name|key
 argument_list|,
@@ -921,7 +936,7 @@ argument_list|(
 literal|"Mon, 28 Sep 1970 06:00:00 GMT"
 argument_list|)
 expr_stmt|;
-name|expires
+name|e
 operator|->
 name|value
 operator|.
@@ -1089,14 +1104,12 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|conf
-operator|->
 name|expires
 operator|==
 name|NGX_HTTP_EXPIRES_EPOCH
 condition|)
 block|{
-name|expires
+name|e
 operator|->
 name|value
 operator|.
@@ -1124,14 +1137,12 @@ return|;
 block|}
 if|if
 condition|(
-name|conf
-operator|->
 name|expires
 operator|==
 name|NGX_HTTP_EXPIRES_MAX
 condition|)
 block|{
-name|expires
+name|e
 operator|->
 name|value
 operator|.
@@ -1158,7 +1169,7 @@ return|return
 name|NGX_OK
 return|;
 block|}
-name|expires
+name|e
 operator|->
 name|value
 operator|.
@@ -1175,7 +1186,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|expires
+name|e
 operator|->
 name|value
 operator|.
@@ -1190,14 +1201,10 @@ return|;
 block|}
 if|if
 condition|(
-name|conf
-operator|->
 name|expires_time
 operator|==
 literal|0
 operator|&&
-name|conf
-operator|->
 name|expires
 operator|!=
 name|NGX_HTTP_EXPIRES_DAILY
@@ -1205,7 +1212,7 @@ condition|)
 block|{
 name|ngx_memcpy
 argument_list|(
-name|expires
+name|e
 operator|->
 name|value
 operator|.
@@ -1243,8 +1250,6 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|conf
-operator|->
 name|expires
 operator|==
 name|NGX_HTTP_EXPIRES_DAILY
@@ -1254,8 +1259,6 @@ name|expires_time
 operator|=
 name|ngx_next_time
 argument_list|(
-name|conf
-operator|->
 name|expires_time
 argument_list|)
 expr_stmt|;
@@ -1268,8 +1271,6 @@ expr_stmt|;
 block|}
 if|else if
 condition|(
-name|conf
-operator|->
 name|expires
 operator|==
 name|NGX_HTTP_EXPIRES_ACCESS
@@ -1284,34 +1285,24 @@ operator|-
 literal|1
 condition|)
 block|{
-name|expires_time
-operator|=
-name|now
-operator|+
-name|conf
-operator|->
-name|expires_time
-expr_stmt|;
 name|max_age
 operator|=
-name|conf
-operator|->
 name|expires_time
+expr_stmt|;
+name|expires_time
+operator|+=
+name|now
 expr_stmt|;
 block|}
 else|else
 block|{
 name|expires_time
-operator|=
+operator|+=
 name|r
 operator|->
 name|headers_out
 operator|.
 name|last_modified_time
-operator|+
-name|conf
-operator|->
-name|expires_time
 expr_stmt|;
 name|max_age
 operator|=
@@ -1322,7 +1313,7 @@ expr_stmt|;
 block|}
 name|ngx_http_time
 argument_list|(
-name|expires
+name|e
 operator|->
 name|value
 operator|.
