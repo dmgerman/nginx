@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2a2019070108
+DECL|struct|__anon2c7fdeab0108
 typedef|typedef
 struct|struct
 block|{
@@ -5009,6 +5009,9 @@ name|send_chain
 operator|=
 name|ngx_ssl_send_chain
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|SSL3_FLAGS_NO_RENEGOTIATE_CIPHERS
 comment|/* initial handshake done, disable renegotiation (CVE-2009-3555) */
 if|if
 condition|(
@@ -5034,6 +5037,8 @@ operator||=
 name|SSL3_FLAGS_NO_RENEGOTIATE_CIPHERS
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 return|return
 name|NGX_OK
 return|;
