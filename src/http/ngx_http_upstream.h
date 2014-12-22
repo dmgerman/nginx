@@ -253,7 +253,7 @@ value|0x00000200
 end_define
 
 begin_typedef
-DECL|struct|__anon2ac75d270108
+DECL|struct|__anon2c652f3a0108
 typedef|typedef
 struct|struct
 block|{
@@ -293,7 +293,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac75d270208
+DECL|struct|__anon2c652f3a0208
 typedef|typedef
 struct|struct
 block|{
@@ -362,7 +362,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac75d270308
+DECL|struct|__anon2c652f3a0308
 typedef|typedef
 struct|struct
 block|{
@@ -386,7 +386,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac75d270408
+DECL|struct|__anon2c652f3a0408
 typedef|typedef
 struct|struct
 block|{
@@ -537,7 +537,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2ac75d270508
+DECL|struct|__anon2c652f3a0508
 typedef|typedef
 struct|struct
 block|{
@@ -558,7 +558,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac75d270608
+DECL|struct|__anon2c652f3a0608
 typedef|typedef
 struct|struct
 block|{
@@ -705,6 +705,11 @@ name|ngx_shm_zone_t
 modifier|*
 name|cache_zone
 decl_stmt|;
+DECL|member|cache_value
+name|ngx_http_complex_value_t
+modifier|*
+name|cache_value
+decl_stmt|;
 DECL|member|cache_min_uses
 name|ngx_uint_t
 name|cache_min_uses
@@ -831,7 +836,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac75d270708
+DECL|struct|__anon2c652f3a0708
 typedef|typedef
 struct|struct
 block|{
@@ -867,7 +872,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac75d270808
+DECL|struct|__anon2c652f3a0808
 typedef|typedef
 struct|struct
 block|{
@@ -1015,7 +1020,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac75d270908
+DECL|struct|__anon2c652f3a0908
 typedef|typedef
 struct|struct
 block|{
@@ -1122,6 +1127,18 @@ name|ngx_http_upstream_conf_t
 modifier|*
 name|conf
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_CACHE
+operator|)
+DECL|member|caches
+name|ngx_array_t
+modifier|*
+name|caches
+decl_stmt|;
+endif|#
+directive|endif
 DECL|member|headers_in
 name|ngx_http_upstream_headers_in_t
 name|headers_in
@@ -1416,7 +1433,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2ac75d270a08
+DECL|struct|__anon2c652f3a0a08
 typedef|typedef
 struct|struct
 block|{
@@ -1435,7 +1452,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac75d270b08
+DECL|struct|__anon2c652f3a0b08
 typedef|typedef
 struct|struct
 block|{
