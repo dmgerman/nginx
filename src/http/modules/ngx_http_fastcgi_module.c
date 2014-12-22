@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2981d4800108
+DECL|struct|__anon2c15ba480108
 typedef|typedef
 struct|struct
 block|{
@@ -56,7 +56,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2981d4800208
+DECL|struct|__anon2c15ba480208
 typedef|typedef
 struct|struct
 block|{
@@ -141,7 +141,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2981d4800303
+DECL|enum|__anon2c15ba480303
 typedef|typedef
 enum|enum
 block|{
@@ -183,7 +183,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2981d4800408
+DECL|struct|__anon2c15ba480408
 typedef|typedef
 struct|struct
 block|{
@@ -204,7 +204,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2981d4800508
+DECL|struct|__anon2c15ba480508
 typedef|typedef
 struct|struct
 block|{
@@ -346,7 +346,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2981d4800608
+DECL|struct|__anon2c15ba480608
 typedef|typedef
 struct|struct
 block|{
@@ -389,7 +389,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2981d4800708
+DECL|struct|__anon2c15ba480708
 typedef|typedef
 struct|struct
 block|{
@@ -419,7 +419,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2981d4800808
+DECL|struct|__anon2c15ba480808
 typedef|typedef
 struct|struct
 block|{
@@ -446,7 +446,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2981d4800908
+DECL|struct|__anon2c15ba480908
 typedef|typedef
 struct|struct
 block|{
@@ -11017,6 +11017,61 @@ name|ngx_http_core_loc_conf_t
 modifier|*
 name|clcf
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_CACHE
+operator|)
+if|if
+condition|(
+name|conf
+operator|->
+name|upstream
+operator|.
+name|store
+operator|>
+literal|0
+condition|)
+block|{
+name|conf
+operator|->
+name|upstream
+operator|.
+name|cache
+operator|=
+name|NULL
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|conf
+operator|->
+name|upstream
+operator|.
+name|cache
+operator|!=
+name|NGX_CONF_UNSET_PTR
+operator|&&
+name|conf
+operator|->
+name|upstream
+operator|.
+name|cache
+operator|!=
+name|NULL
+condition|)
+block|{
+name|conf
+operator|->
+name|upstream
+operator|.
+name|store
+operator|=
+literal|0
+expr_stmt|;
+block|}
+endif|#
+directive|endif
 if|if
 condition|(
 name|conf

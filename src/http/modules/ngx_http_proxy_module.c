@@ -69,7 +69,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon27c92317010a
+DECL|union|__anon28da5c37010a
 union|union
 block|{
 DECL|member|complex
@@ -101,7 +101,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27c923170208
+DECL|struct|__anon28da5c370208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c923170308
+DECL|struct|__anon28da5c370308
 typedef|typedef
 struct|struct
 block|{
@@ -162,7 +162,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c923170408
+DECL|struct|__anon28da5c370408
 typedef|typedef
 struct|struct
 block|{
@@ -328,7 +328,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c923170508
+DECL|struct|__anon28da5c370508
 typedef|typedef
 struct|struct
 block|{
@@ -12472,6 +12472,61 @@ decl_stmt|;
 name|ngx_http_script_compile_t
 name|sc
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_CACHE
+operator|)
+if|if
+condition|(
+name|conf
+operator|->
+name|upstream
+operator|.
+name|store
+operator|>
+literal|0
+condition|)
+block|{
+name|conf
+operator|->
+name|upstream
+operator|.
+name|cache
+operator|=
+name|NULL
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|conf
+operator|->
+name|upstream
+operator|.
+name|cache
+operator|!=
+name|NGX_CONF_UNSET_PTR
+operator|&&
+name|conf
+operator|->
+name|upstream
+operator|.
+name|cache
+operator|!=
+name|NULL
+condition|)
+block|{
+name|conf
+operator|->
+name|upstream
+operator|.
+name|store
+operator|=
+literal|0
+expr_stmt|;
+block|}
+endif|#
+directive|endif
 if|if
 condition|(
 name|conf
