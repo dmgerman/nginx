@@ -69,7 +69,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon27704230010a
+DECL|union|__anon27c92317010a
 union|union
 block|{
 DECL|member|complex
@@ -101,7 +101,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon277042300208
+DECL|struct|__anon27c923170208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277042300308
+DECL|struct|__anon27c923170308
 typedef|typedef
 struct|struct
 block|{
@@ -162,7 +162,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277042300408
+DECL|struct|__anon27c923170408
 typedef|typedef
 struct|struct
 block|{
@@ -328,7 +328,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277042300508
+DECL|struct|__anon27c923170508
 typedef|typedef
 struct|struct
 block|{
@@ -12500,17 +12500,6 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|conf
-operator|->
-name|upstream
-operator|.
-name|store_lengths
-operator|==
-name|NULL
-condition|)
-block|{
 name|conf
 operator|->
 name|upstream
@@ -12535,7 +12524,6 @@ name|upstream
 operator|.
 name|store_values
 expr_stmt|;
-block|}
 block|}
 name|ngx_conf_merge_uint_value
 argument_list|(
@@ -18329,12 +18317,6 @@ operator|.
 name|store
 operator|!=
 name|NGX_CONF_UNSET
-operator|||
-name|plcf
-operator|->
-name|upstream
-operator|.
-name|store_lengths
 condition|)
 block|{
 return|return
@@ -18408,6 +18390,14 @@ return|;
 block|}
 endif|#
 directive|endif
+name|plcf
+operator|->
+name|upstream
+operator|.
+name|store
+operator|=
+literal|1
+expr_stmt|;
 if|if
 condition|(
 name|ngx_strcmp
@@ -18425,14 +18415,6 @@ operator|==
 literal|0
 condition|)
 block|{
-name|plcf
-operator|->
-name|upstream
-operator|.
-name|store
-operator|=
-literal|1
-expr_stmt|;
 return|return
 name|NGX_CONF_OK
 return|;
@@ -18640,12 +18622,6 @@ operator|.
 name|store
 operator|>
 literal|0
-operator|||
-name|plcf
-operator|->
-name|upstream
-operator|.
-name|store_lengths
 condition|)
 block|{
 return|return

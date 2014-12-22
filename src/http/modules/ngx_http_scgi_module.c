@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27b7e9680108
+DECL|struct|__anon29ae26840108
 typedef|typedef
 struct|struct
 block|{
@@ -56,7 +56,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b7e9680208
+DECL|struct|__anon29ae26840208
 typedef|typedef
 struct|struct
 block|{
@@ -5600,17 +5600,6 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|conf
-operator|->
-name|upstream
-operator|.
-name|store_lengths
-operator|==
-name|NULL
-condition|)
-block|{
 name|conf
 operator|->
 name|upstream
@@ -5635,7 +5624,6 @@ name|upstream
 operator|.
 name|store_values
 expr_stmt|;
-block|}
 block|}
 name|ngx_conf_merge_uint_value
 argument_list|(
@@ -8367,12 +8355,6 @@ operator|.
 name|store
 operator|!=
 name|NGX_CONF_UNSET
-operator|||
-name|scf
-operator|->
-name|upstream
-operator|.
-name|store_lengths
 condition|)
 block|{
 return|return
@@ -8446,6 +8428,14 @@ return|;
 block|}
 endif|#
 directive|endif
+name|scf
+operator|->
+name|upstream
+operator|.
+name|store
+operator|=
+literal|1
+expr_stmt|;
 if|if
 condition|(
 name|ngx_strcmp
@@ -8463,14 +8453,6 @@ operator|==
 literal|0
 condition|)
 block|{
-name|scf
-operator|->
-name|upstream
-operator|.
-name|store
-operator|=
-literal|1
-expr_stmt|;
 return|return
 name|NGX_CONF_OK
 return|;
@@ -8678,12 +8660,6 @@ operator|.
 name|store
 operator|>
 literal|0
-operator|||
-name|scf
-operator|->
-name|upstream
-operator|.
-name|store_lengths
 condition|)
 block|{
 return|return
