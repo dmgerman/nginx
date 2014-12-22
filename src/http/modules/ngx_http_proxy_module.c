@@ -69,7 +69,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon28da5c37010a
+DECL|union|__anon28c11098010a
 union|union
 block|{
 DECL|member|complex
@@ -101,7 +101,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28da5c370208
+DECL|struct|__anon28c110980208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28da5c370308
+DECL|struct|__anon28c110980308
 typedef|typedef
 struct|struct
 block|{
@@ -162,7 +162,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28da5c370408
+DECL|struct|__anon28c110980408
 typedef|typedef
 struct|struct
 block|{
@@ -328,7 +328,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28da5c370508
+DECL|struct|__anon28c110980508
 typedef|typedef
 struct|struct
 block|{
@@ -12046,7 +12046,7 @@ return|return
 name|NULL
 return|;
 block|}
-comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.bufs.num = 0;      *     conf->upstream.ignore_headers = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.cache_use_stale = 0;      *     conf->upstream.cache_methods = 0;      *     conf->upstream.temp_path = NULL;      *     conf->upstream.hide_headers_hash = { NULL, 0 };      *     conf->upstream.uri = { 0, NULL };      *     conf->upstream.location = NULL;      *     conf->upstream.store_lengths = NULL;      *     conf->upstream.store_values = NULL;      *     conf->upstream.ssl_name = NULL;      *      *     conf->method = { 0, NULL };      *     conf->headers_source = NULL;      *     conf->headers.lengths = NULL;      *     conf->headers.values = NULL;      *     conf->headers.hash = { NULL, 0 };      *     conf->headers_cache.lengths = NULL;      *     conf->headers_cache.values = NULL;      *     conf->headers_cache.hash = { NULL, 0 };      *     conf->body_lengths = NULL;      *     conf->body_values = NULL;      *     conf->body_source = { 0, NULL };      *     conf->redirects = NULL;      *     conf->ssl = 0;      *     conf->ssl_protocols = 0;      *     conf->ssl_ciphers = { 0, NULL };      *     conf->ssl_trusted_certificate = { 0, NULL };      *     conf->ssl_crl = { 0, NULL };      *     conf->ssl_certificate = { 0, NULL };      *     conf->ssl_certificate_key = { 0, NULL };      */
+comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.bufs.num = 0;      *     conf->upstream.ignore_headers = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.cache_zone = NULL;      *     conf->upstream.cache_use_stale = 0;      *     conf->upstream.cache_methods = 0;      *     conf->upstream.temp_path = NULL;      *     conf->upstream.hide_headers_hash = { NULL, 0 };      *     conf->upstream.uri = { 0, NULL };      *     conf->upstream.location = NULL;      *     conf->upstream.store_lengths = NULL;      *     conf->upstream.store_values = NULL;      *     conf->upstream.ssl_name = NULL;      *      *     conf->method = { 0, NULL };      *     conf->headers_source = NULL;      *     conf->headers.lengths = NULL;      *     conf->headers.values = NULL;      *     conf->headers.hash = { NULL, 0 };      *     conf->headers_cache.lengths = NULL;      *     conf->headers_cache.values = NULL;      *     conf->headers_cache.hash = { NULL, 0 };      *     conf->body_lengths = NULL;      *     conf->body_values = NULL;      *     conf->body_source = { 0, NULL };      *     conf->redirects = NULL;      *     conf->ssl = 0;      *     conf->ssl_protocols = 0;      *     conf->ssl_ciphers = { 0, NULL };      *     conf->ssl_trusted_certificate = { 0, NULL };      *     conf->ssl_crl = { 0, NULL };      *     conf->ssl_certificate = { 0, NULL };      *     conf->ssl_certificate_key = { 0, NULL };      */
 name|conf
 operator|->
 name|upstream
@@ -12210,7 +12210,7 @@ name|upstream
 operator|.
 name|cache
 operator|=
-name|NGX_CONF_UNSET_PTR
+name|NGX_CONF_UNSET
 expr_stmt|;
 name|conf
 operator|->
@@ -12494,7 +12494,7 @@ name|upstream
 operator|.
 name|cache
 operator|=
-name|NULL
+literal|0
 expr_stmt|;
 block|}
 if|if
@@ -12504,16 +12504,8 @@ operator|->
 name|upstream
 operator|.
 name|cache
-operator|!=
-name|NGX_CONF_UNSET_PTR
-operator|&&
-name|conf
-operator|->
-name|upstream
-operator|.
-name|cache
-operator|!=
-name|NULL
+operator|>
+literal|0
 condition|)
 block|{
 name|conf
@@ -13282,7 +13274,18 @@ directive|if
 operator|(
 name|NGX_HTTP_CACHE
 operator|)
-name|ngx_conf_merge_ptr_value
+if|if
+condition|(
+name|conf
+operator|->
+name|upstream
+operator|.
+name|cache
+operator|==
+name|NGX_CONF_UNSET
+condition|)
+block|{
+name|ngx_conf_merge_value
 argument_list|(
 name|conf
 operator|->
@@ -13296,22 +13299,35 @@ name|upstream
 operator|.
 name|cache
 argument_list|,
-name|NULL
+literal|0
 argument_list|)
 expr_stmt|;
+name|conf
+operator|->
+name|upstream
+operator|.
+name|cache_zone
+operator|=
+name|prev
+operator|->
+name|upstream
+operator|.
+name|cache_zone
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|conf
 operator|->
 name|upstream
 operator|.
-name|cache
+name|cache_zone
 operator|&&
 name|conf
 operator|->
 name|upstream
 operator|.
-name|cache
+name|cache_zone
 operator|->
 name|data
 operator|==
@@ -13328,7 +13344,7 @@ name|conf
 operator|->
 name|upstream
 operator|.
-name|cache
+name|cache_zone
 expr_stmt|;
 name|ngx_conf_log_error
 argument_list|(
@@ -18427,16 +18443,8 @@ operator|->
 name|upstream
 operator|.
 name|cache
-operator|!=
-name|NGX_CONF_UNSET_PTR
-operator|&&
-name|plcf
-operator|->
-name|upstream
-operator|.
-name|cache
-operator|!=
-name|NULL
+operator|>
+literal|0
 condition|)
 block|{
 return|return
@@ -18632,7 +18640,7 @@ name|upstream
 operator|.
 name|cache
 operator|!=
-name|NGX_CONF_UNSET_PTR
+name|NGX_CONF_UNSET
 condition|)
 block|{
 return|return
@@ -18662,7 +18670,7 @@ name|upstream
 operator|.
 name|cache
 operator|=
-name|NULL
+literal|0
 expr_stmt|;
 return|return
 name|NGX_CONF_OK
@@ -18689,6 +18697,14 @@ name|upstream
 operator|.
 name|cache
 operator|=
+literal|1
+expr_stmt|;
+name|plcf
+operator|->
+name|upstream
+operator|.
+name|cache_zone
+operator|=
 name|ngx_shared_memory_add
 argument_list|(
 name|cf
@@ -18711,7 +18727,7 @@ name|plcf
 operator|->
 name|upstream
 operator|.
-name|cache
+name|cache_zone
 operator|==
 name|NULL
 condition|)

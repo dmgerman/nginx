@@ -253,7 +253,7 @@ value|0x00000200
 end_define
 
 begin_typedef
-DECL|struct|__anon29afd1230108
+DECL|struct|__anon2ac75d270108
 typedef|typedef
 struct|struct
 block|{
@@ -293,7 +293,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29afd1230208
+DECL|struct|__anon2ac75d270208
 typedef|typedef
 struct|struct
 block|{
@@ -362,7 +362,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29afd1230308
+DECL|struct|__anon2ac75d270308
 typedef|typedef
 struct|struct
 block|{
@@ -386,7 +386,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29afd1230408
+DECL|struct|__anon2ac75d270408
 typedef|typedef
 struct|struct
 block|{
@@ -537,7 +537,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29afd1230508
+DECL|struct|__anon2ac75d270508
 typedef|typedef
 struct|struct
 block|{
@@ -558,7 +558,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29afd1230608
+DECL|struct|__anon2ac75d270608
 typedef|typedef
 struct|struct
 block|{
@@ -700,10 +700,10 @@ directive|if
 operator|(
 name|NGX_HTTP_CACHE
 operator|)
-DECL|member|cache
+DECL|member|cache_zone
 name|ngx_shm_zone_t
 modifier|*
-name|cache
+name|cache_zone
 decl_stmt|;
 DECL|member|cache_min_uses
 name|ngx_uint_t
@@ -760,6 +760,19 @@ name|ngx_array_t
 modifier|*
 name|store_values
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_CACHE
+operator|)
+DECL|member|cache
+name|signed
+name|cache
+range|:
+literal|2
+decl_stmt|;
+endif|#
+directive|endif
 DECL|member|store
 name|signed
 name|store
@@ -818,7 +831,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29afd1230708
+DECL|struct|__anon2ac75d270708
 typedef|typedef
 struct|struct
 block|{
@@ -854,7 +867,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29afd1230808
+DECL|struct|__anon2ac75d270808
 typedef|typedef
 struct|struct
 block|{
@@ -1002,7 +1015,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29afd1230908
+DECL|struct|__anon2ac75d270908
 typedef|typedef
 struct|struct
 block|{
@@ -1403,7 +1416,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29afd1230a08
+DECL|struct|__anon2ac75d270a08
 typedef|typedef
 struct|struct
 block|{
@@ -1422,7 +1435,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29afd1230b08
+DECL|struct|__anon2ac75d270b08
 typedef|typedef
 struct|struct
 block|{

@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c15ba480108
+DECL|struct|__anon2be83b3d0108
 typedef|typedef
 struct|struct
 block|{
@@ -56,7 +56,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c15ba480208
+DECL|struct|__anon2be83b3d0208
 typedef|typedef
 struct|struct
 block|{
@@ -141,7 +141,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c15ba480303
+DECL|enum|__anon2be83b3d0303
 typedef|typedef
 enum|enum
 block|{
@@ -183,7 +183,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c15ba480408
+DECL|struct|__anon2be83b3d0408
 typedef|typedef
 struct|struct
 block|{
@@ -204,7 +204,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c15ba480508
+DECL|struct|__anon2be83b3d0508
 typedef|typedef
 struct|struct
 block|{
@@ -346,7 +346,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2c15ba480608
+DECL|struct|__anon2be83b3d0608
 typedef|typedef
 struct|struct
 block|{
@@ -389,7 +389,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c15ba480708
+DECL|struct|__anon2be83b3d0708
 typedef|typedef
 struct|struct
 block|{
@@ -419,7 +419,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c15ba480808
+DECL|struct|__anon2be83b3d0808
 typedef|typedef
 struct|struct
 block|{
@@ -446,7 +446,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c15ba480908
+DECL|struct|__anon2be83b3d0908
 typedef|typedef
 struct|struct
 block|{
@@ -10669,7 +10669,7 @@ return|return
 name|NULL
 return|;
 block|}
-comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.bufs.num = 0;      *     conf->upstream.ignore_headers = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.cache_use_stale = 0;      *     conf->upstream.cache_methods = 0;      *     conf->upstream.temp_path = NULL;      *     conf->upstream.hide_headers_hash = { NULL, 0 };      *     conf->upstream.uri = { 0, NULL };      *     conf->upstream.location = NULL;      *     conf->upstream.store_lengths = NULL;      *     conf->upstream.store_values = NULL;      *      *     conf->index.len = { 0, NULL };      */
+comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.bufs.num = 0;      *     conf->upstream.ignore_headers = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.cache_zone = NULL;      *     conf->upstream.cache_use_stale = 0;      *     conf->upstream.cache_methods = 0;      *     conf->upstream.temp_path = NULL;      *     conf->upstream.hide_headers_hash = { NULL, 0 };      *     conf->upstream.uri = { 0, NULL };      *     conf->upstream.location = NULL;      *     conf->upstream.store_lengths = NULL;      *     conf->upstream.store_values = NULL;      *      *     conf->index.len = { 0, NULL };      */
 name|conf
 operator|->
 name|upstream
@@ -10833,7 +10833,7 @@ name|upstream
 operator|.
 name|cache
 operator|=
-name|NGX_CONF_UNSET_PTR
+name|NGX_CONF_UNSET
 expr_stmt|;
 name|conf
 operator|->
@@ -11039,7 +11039,7 @@ name|upstream
 operator|.
 name|cache
 operator|=
-name|NULL
+literal|0
 expr_stmt|;
 block|}
 if|if
@@ -11049,16 +11049,8 @@ operator|->
 name|upstream
 operator|.
 name|cache
-operator|!=
-name|NGX_CONF_UNSET_PTR
-operator|&&
-name|conf
-operator|->
-name|upstream
-operator|.
-name|cache
-operator|!=
-name|NULL
+operator|>
+literal|0
 condition|)
 block|{
 name|conf
@@ -11827,7 +11819,18 @@ directive|if
 operator|(
 name|NGX_HTTP_CACHE
 operator|)
-name|ngx_conf_merge_ptr_value
+if|if
+condition|(
+name|conf
+operator|->
+name|upstream
+operator|.
+name|cache
+operator|==
+name|NGX_CONF_UNSET
+condition|)
+block|{
+name|ngx_conf_merge_value
 argument_list|(
 name|conf
 operator|->
@@ -11841,22 +11844,35 @@ name|upstream
 operator|.
 name|cache
 argument_list|,
-name|NULL
+literal|0
 argument_list|)
 expr_stmt|;
+name|conf
+operator|->
+name|upstream
+operator|.
+name|cache_zone
+operator|=
+name|prev
+operator|->
+name|upstream
+operator|.
+name|cache_zone
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|conf
 operator|->
 name|upstream
 operator|.
-name|cache
+name|cache_zone
 operator|&&
 name|conf
 operator|->
 name|upstream
 operator|.
-name|cache
+name|cache_zone
 operator|->
 name|data
 operator|==
@@ -11873,7 +11889,7 @@ name|conf
 operator|->
 name|upstream
 operator|.
-name|cache
+name|cache_zone
 expr_stmt|;
 name|ngx_conf_log_error
 argument_list|(
@@ -14836,16 +14852,8 @@ operator|->
 name|upstream
 operator|.
 name|cache
-operator|!=
-name|NGX_CONF_UNSET_PTR
-operator|&&
-name|flcf
-operator|->
-name|upstream
-operator|.
-name|cache
-operator|!=
-name|NULL
+operator|>
+literal|0
 condition|)
 block|{
 return|return
@@ -15041,7 +15049,7 @@ name|upstream
 operator|.
 name|cache
 operator|!=
-name|NGX_CONF_UNSET_PTR
+name|NGX_CONF_UNSET
 condition|)
 block|{
 return|return
@@ -15071,7 +15079,7 @@ name|upstream
 operator|.
 name|cache
 operator|=
-name|NULL
+literal|0
 expr_stmt|;
 return|return
 name|NGX_CONF_OK
@@ -15098,6 +15106,14 @@ name|upstream
 operator|.
 name|cache
 operator|=
+literal|1
+expr_stmt|;
+name|flcf
+operator|->
+name|upstream
+operator|.
+name|cache_zone
+operator|=
 name|ngx_shared_memory_add
 argument_list|(
 name|cf
@@ -15120,7 +15136,7 @@ name|flcf
 operator|->
 name|upstream
 operator|.
-name|cache
+name|cache_zone
 operator|==
 name|NULL
 condition|)

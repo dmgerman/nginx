@@ -3879,7 +3879,7 @@ name|u
 operator|->
 name|conf
 operator|->
-name|cache
+name|cache_zone
 operator|->
 name|data
 expr_stmt|;
@@ -11157,7 +11157,7 @@ name|u
 operator|->
 name|conf
 operator|->
-name|cache
+name|cache_zone
 operator|->
 name|data
 expr_stmt|;
@@ -24146,7 +24146,7 @@ name|conf
 operator|->
 name|cache
 operator|==
-name|NULL
+literal|0
 operator|)
 operator|==
 operator|(
@@ -24154,7 +24154,7 @@ name|prev
 operator|->
 name|cache
 operator|==
-name|NULL
+literal|0
 operator|)
 operator|)
 endif|#
