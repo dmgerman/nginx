@@ -131,7 +131,7 @@ value|3
 end_define
 
 begin_typedef
-DECL|struct|__anon275990440108
+DECL|struct|__anon2a29ee360108
 typedef|typedef
 struct|struct
 block|{
@@ -150,7 +150,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275990440208
+DECL|struct|__anon2a29ee360208
 typedef|typedef
 struct|struct
 block|{
@@ -424,7 +424,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon275990440308
+DECL|struct|__anon2a29ee360308
 typedef|typedef
 struct|struct
 block|{
@@ -496,7 +496,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275990440408
+DECL|struct|__anon2a29ee360408
 typedef|typedef
 struct|struct
 block|{
@@ -587,6 +587,11 @@ name|ngx_shm_zone_t
 modifier|*
 name|shm_zone
 decl_stmt|;
+DECL|member|use_temp_path
+name|ngx_uint_t
+name|use_temp_path
+decl_stmt|;
+comment|/* unsigned use_temp_path:1 */
 block|}
 struct|;
 end_struct
