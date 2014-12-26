@@ -131,7 +131,7 @@ value|3
 end_define
 
 begin_typedef
-DECL|struct|__anon2b2775e40108
+DECL|struct|__anon275990440108
 typedef|typedef
 struct|struct
 block|{
@@ -150,7 +150,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2775e40208
+DECL|struct|__anon275990440208
 typedef|typedef
 struct|struct
 block|{
@@ -424,7 +424,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b2775e40308
+DECL|struct|__anon275990440308
 typedef|typedef
 struct|struct
 block|{
@@ -496,7 +496,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2775e40408
+DECL|struct|__anon275990440408
 typedef|typedef
 struct|struct
 block|{
@@ -636,7 +636,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|void
+name|ngx_int_t
 name|ngx_http_file_cache_set_header
 parameter_list|(
 name|ngx_http_request_t
