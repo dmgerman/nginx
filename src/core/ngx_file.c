@@ -410,12 +410,8 @@ expr_stmt|;
 if|if
 condition|(
 name|rc
-operator|==
-name|NGX_ERROR
-operator|||
-name|rc
-operator|==
-name|NGX_AGAIN
+operator|!=
+name|NGX_OK
 condition|)
 block|{
 return|return
