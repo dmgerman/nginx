@@ -260,6 +260,10 @@ DECL|member|connection
 name|ngx_atomic_uint_t
 name|connection
 decl_stmt|;
+DECL|member|disk_full_time
+name|time_t
+name|disk_full_time
+decl_stmt|;
 DECL|member|handler
 name|ngx_log_handler_pt
 name|handler
