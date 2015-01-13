@@ -350,6 +350,15 @@ operator|.
 name|size
 expr_stmt|;
 block|}
+else|else
+block|{
+name|trailer
+operator|.
+name|count
+operator|=
+literal|0
+expr_stmt|;
+block|}
 comment|/*              * sendfile() returns EINVAL if sf_hdtr's count is 0,              * but corresponding pointer is not NULL              */
 name|hdtr
 operator|.
