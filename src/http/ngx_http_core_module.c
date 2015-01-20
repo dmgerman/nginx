@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ac655bf0108
+DECL|struct|__anon2ae72eac0108
 typedef|typedef
 struct|struct
 block|{
@@ -5827,8 +5827,7 @@ condition|(
 name|of
 operator|.
 name|is_dir
-operator|&&
-operator|!
+operator|!=
 name|test_dir
 condition|)
 block|{
