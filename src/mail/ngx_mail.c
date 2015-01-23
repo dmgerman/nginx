@@ -404,7 +404,7 @@ name|conf
 operator|=
 name|ctx
 expr_stmt|;
-comment|/* count the number of the http modules and set up their indices */
+comment|/* count the number of the mail modules and set up their indices */
 name|ngx_mail_max_module
 operator|=
 literal|0
