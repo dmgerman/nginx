@@ -177,6 +177,18 @@ operator|->
 name|busy
 operator|==
 name|NULL
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_FILE_AIO
+operator|)
+operator|&&
+operator|!
+name|ctx
+operator|->
+name|aio
+endif|#
+directive|endif
 condition|)
 block|{
 comment|/*          * the short path for the case when the ctx->in and ctx->busy chains          * are empty, the incoming chain is empty too or has the single buf          * that does not require the copy          */
