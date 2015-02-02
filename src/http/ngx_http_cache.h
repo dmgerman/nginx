@@ -131,7 +131,7 @@ value|3
 end_define
 
 begin_typedef
-DECL|struct|__anon2a29ee360108
+DECL|struct|__anon29ecac400108
 typedef|typedef
 struct|struct
 block|{
@@ -150,7 +150,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a29ee360208
+DECL|struct|__anon29ecac400208
 typedef|typedef
 struct|struct
 block|{
@@ -424,7 +424,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a29ee360308
+DECL|struct|__anon29ecac400308
 typedef|typedef
 struct|struct
 block|{
@@ -496,7 +496,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a29ee360408
+DECL|struct|__anon29ecac400408
 typedef|typedef
 struct|struct
 block|{
@@ -550,6 +550,11 @@ name|ngx_path_t
 modifier|*
 name|path
 decl_stmt|;
+DECL|member|temp_path
+name|ngx_path_t
+modifier|*
+name|temp_path
+decl_stmt|;
 DECL|member|max_size
 name|off_t
 name|max_size
@@ -587,11 +592,6 @@ name|ngx_shm_zone_t
 modifier|*
 name|shm_zone
 decl_stmt|;
-DECL|member|use_temp_path
-name|ngx_uint_t
-name|use_temp_path
-decl_stmt|;
-comment|/* unsigned use_temp_path:1 */
 block|}
 struct|;
 end_struct
