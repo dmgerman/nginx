@@ -983,7 +983,7 @@ if|if
 condition|(
 name|err
 operator|==
-name|NGX_EACCESS
+name|NGX_EACCES
 condition|)
 block|{
 return|return
