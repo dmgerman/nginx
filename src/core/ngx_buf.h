@@ -193,7 +193,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c5de0a80108
+DECL|struct|__anon2b19aead0108
 typedef|typedef
 struct|struct
 block|{
@@ -353,7 +353,7 @@ decl_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_HAVE_FILE_AIO
+name|NGX_HAVE_AIO_SENDFILE
 operator|)
 DECL|member|aio_preload
 name|ssize_t
@@ -406,7 +406,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c5de0a80208
+DECL|struct|__anon2b19aead0208
 typedef|typedef
 struct|struct
 block|{
