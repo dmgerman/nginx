@@ -193,7 +193,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bbaba730108
+DECL|struct|__anon2c5de0a80108
 typedef|typedef
 struct|struct
 block|{
@@ -350,6 +350,25 @@ DECL|member|aio_handler
 name|ngx_output_chain_aio_pt
 name|aio_handler
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_FILE_AIO
+operator|)
+DECL|member|aio_preload
+name|ssize_t
+function_decl|(
+modifier|*
+name|aio_preload
+function_decl|)
+parameter_list|(
+name|ngx_buf_t
+modifier|*
+name|file
+parameter_list|)
+function_decl|;
+endif|#
+directive|endif
 endif|#
 directive|endif
 DECL|member|alignment
@@ -387,7 +406,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bbaba730208
+DECL|struct|__anon2c5de0a80208
 typedef|typedef
 struct|struct
 block|{

@@ -291,7 +291,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2c2fcd110103
+DECL|enum|__anon2ae8d3d00103
 typedef|typedef
 enum|enum
 block|{
@@ -318,7 +318,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c2fcd110203
+DECL|enum|__anon2ae8d3d00203
 typedef|typedef
 enum|enum
 block|{
@@ -339,7 +339,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c2fcd110303
+DECL|enum|__anon2ae8d3d00303
 typedef|typedef
 enum|enum
 block|{
@@ -604,22 +604,11 @@ directive|if
 operator|(
 name|NGX_HAVE_AIO_SENDFILE
 operator|)
-DECL|member|aio_sendfile
-name|unsigned
-name|aio_sendfile
-range|:
-literal|1
-decl_stmt|;
 DECL|member|busy_count
 name|unsigned
 name|busy_count
 range|:
 literal|2
-decl_stmt|;
-DECL|member|busy_sendfile
-name|ngx_buf_t
-modifier|*
-name|busy_sendfile
 decl_stmt|;
 endif|#
 directive|endif

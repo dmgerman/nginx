@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5104ca0108
+DECL|struct|__anon27dbdb820108
 typedef|typedef
 struct|struct
 block|{
@@ -88,7 +88,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5104ca0208
+DECL|struct|__anon27dbdb820208
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5104ca0308
+DECL|struct|__anon27dbdb820308
 typedef|typedef
 struct|struct
 block|{
@@ -1889,6 +1889,21 @@ operator|(
 name|NGX_HAVE_FILE_AIO
 operator|)
 end_if
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_file_aio_init
+parameter_list|(
+name|ngx_file_t
+modifier|*
+name|file
+parameter_list|,
+name|ngx_pool_t
+modifier|*
+name|pool
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_function_decl
 name|ssize_t

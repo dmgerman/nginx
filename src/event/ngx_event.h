@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon28ef9c230108
+DECL|struct|__anon2890dc1f0108
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28ef9c230208
+DECL|struct|__anon2890dc1f0208
 typedef|typedef
 struct|struct
 block|{
@@ -385,6 +385,25 @@ name|ngx_file_t
 modifier|*
 name|file
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_AIO_SENDFILE
+operator|)
+DECL|member|preload_handler
+name|ssize_t
+function_decl|(
+modifier|*
+name|preload_handler
+function_decl|)
+parameter_list|(
+name|ngx_buf_t
+modifier|*
+name|file
+parameter_list|)
+function_decl|;
+endif|#
+directive|endif
 DECL|member|fd
 name|ngx_fd_t
 name|fd
@@ -425,17 +444,6 @@ name|nbytes
 decl_stmt|;
 endif|#
 directive|endif
-if|#
-directive|if
-operator|(
-name|NGX_HAVE_AIO_SENDFILE
-operator|)
-DECL|member|last_offset
-name|off_t
-name|last_offset
-decl_stmt|;
-endif|#
-directive|endif
 DECL|member|aiocb
 name|ngx_aiocb_t
 name|aiocb
@@ -454,7 +462,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28ef9c230308
+DECL|struct|__anon2890dc1f0308
 typedef|typedef
 struct|struct
 block|{
@@ -1402,7 +1410,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon28ef9c230408
+DECL|struct|__anon2890dc1f0408
 typedef|typedef
 struct|struct
 block|{
@@ -1449,7 +1457,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ef9c230508
+DECL|struct|__anon2890dc1f0508
 typedef|typedef
 struct|struct
 block|{
