@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2c7fdeab0108
+DECL|struct|__anon29c4accb0108
 typedef|typedef
 struct|struct
 block|{
@@ -6385,12 +6385,6 @@ name|pos
 operator|+=
 name|n
 expr_stmt|;
-name|c
-operator|->
-name|sent
-operator|+=
-name|n
-expr_stmt|;
 if|if
 condition|(
 name|in
@@ -6872,12 +6866,6 @@ name|pos
 operator|+=
 name|n
 expr_stmt|;
-name|c
-operator|->
-name|sent
-operator|+=
-name|n
-expr_stmt|;
 if|if
 condition|(
 name|n
@@ -7111,6 +7099,12 @@ name|ngx_posted_events
 argument_list|)
 expr_stmt|;
 block|}
+name|c
+operator|->
+name|sent
+operator|+=
+name|n
+expr_stmt|;
 return|return
 name|n
 return|;
