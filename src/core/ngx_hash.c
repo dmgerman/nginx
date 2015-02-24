@@ -1164,7 +1164,10 @@ label|:
 continue|continue;
 block|}
 name|size
-operator|--
+operator|=
+name|hinit
+operator|->
+name|max_size
 expr_stmt|;
 name|ngx_log_error
 argument_list|(
