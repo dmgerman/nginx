@@ -187,6 +187,18 @@ block|,
 name|ngx_string
 argument_list|(
 literal|"451 4.3.2 Internal server error"
+name|CRLF
+argument_list|)
+block|,
+name|ngx_string
+argument_list|(
+literal|"421 4.7.1 SSL certificate error"
+name|CRLF
+argument_list|)
+block|,
+name|ngx_string
+argument_list|(
+literal|"421 4.7.1 No required SSL certificate"
 argument|CRLF
 argument_list|)
 block|}

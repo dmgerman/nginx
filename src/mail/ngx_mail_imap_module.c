@@ -206,6 +206,18 @@ block|,
 name|ngx_string
 argument_list|(
 literal|"* BAD internal server error"
+name|CRLF
+argument_list|)
+block|,
+name|ngx_string
+argument_list|(
+literal|"* BYE SSL certificate error"
+name|CRLF
+argument_list|)
+block|,
+name|ngx_string
+argument_list|(
+literal|"* BYE No required SSL certificate"
 argument|CRLF
 argument_list|)
 block|}

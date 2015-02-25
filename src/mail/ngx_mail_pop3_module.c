@@ -216,6 +216,18 @@ block|,
 name|ngx_string
 argument_list|(
 literal|"-ERR internal server error"
+name|CRLF
+argument_list|)
+block|,
+name|ngx_string
+argument_list|(
+literal|"-ERR SSL certificate error"
+name|CRLF
+argument_list|)
+block|,
+name|ngx_string
+argument_list|(
+literal|"-ERR No required SSL certificate"
 argument|CRLF
 argument_list|)
 block|}

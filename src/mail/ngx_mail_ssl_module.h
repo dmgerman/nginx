@@ -59,7 +59,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon296b482d0108
+DECL|struct|__anon2ab1e9510108
 typedef|typedef
 struct|struct
 block|{
@@ -82,6 +82,14 @@ decl_stmt|;
 DECL|member|protocols
 name|ngx_uint_t
 name|protocols
+decl_stmt|;
+DECL|member|verify
+name|ngx_uint_t
+name|verify
+decl_stmt|;
+DECL|member|verify_depth
+name|ngx_uint_t
+name|verify_depth
 decl_stmt|;
 DECL|member|builtin_session_cache
 name|ssize_t
@@ -106,6 +114,18 @@ decl_stmt|;
 DECL|member|ecdh_curve
 name|ngx_str_t
 name|ecdh_curve
+decl_stmt|;
+DECL|member|client_certificate
+name|ngx_str_t
+name|client_certificate
+decl_stmt|;
+DECL|member|trusted_certificate
+name|ngx_str_t
+name|trusted_certificate
+decl_stmt|;
+DECL|member|crl
+name|ngx_str_t
+name|crl
 decl_stmt|;
 DECL|member|ciphers
 name|ngx_str_t
