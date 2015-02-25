@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2966df8c0108
+DECL|struct|__anon28ade73f0108
 typedef|typedef
 struct|struct
 block|{
@@ -1543,7 +1543,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon2966df8c0203
+DECL|enum|__anon28ade73f0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -4146,7 +4146,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2966df8c0303
+DECL|enum|__anon28ade73f0303
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -5151,6 +5151,21 @@ name|CRLF
 argument_list|)
 operator|-
 literal|1
+if|#
+directive|if
+operator|(
+name|NGX_MAIL_SSL
+operator|)
+operator|+
+sizeof|sizeof
+argument_list|(
+literal|"Auth-SSL: on"
+name|CRLF
+argument_list|)
+operator|-
+literal|1
+endif|#
+directive|endif
 operator|+
 name|ahcf
 operator|->
@@ -5952,6 +5967,45 @@ operator|=
 name|LF
 expr_stmt|;
 block|}
+if|#
+directive|if
+operator|(
+name|NGX_MAIL_SSL
+operator|)
+if|if
+condition|(
+name|s
+operator|->
+name|connection
+operator|->
+name|ssl
+condition|)
+block|{
+name|b
+operator|->
+name|last
+operator|=
+name|ngx_cpymem
+argument_list|(
+name|b
+operator|->
+name|last
+argument_list|,
+literal|"Auth-SSL: on"
+name|CRLF
+argument_list|,
+sizeof|sizeof
+argument_list|(
+literal|"Auth-SSL: on"
+name|CRLF
+argument_list|)
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+endif|#
+directive|endif
 if|if
 condition|(
 name|ahcf
