@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28a65d8e0108
+DECL|struct|__anon2966df8c0108
 typedef|typedef
 struct|struct
 block|{
@@ -1543,7 +1543,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon28a65d8e0203
+DECL|enum|__anon2966df8c0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -4146,7 +4146,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon28a65d8e0303
+DECL|enum|__anon2966df8c0303
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -5107,6 +5107,13 @@ name|len
 operator|+
 sizeof|sizeof
 argument_list|(
+name|CRLF
+argument_list|)
+operator|-
+literal|1
+operator|+
+sizeof|sizeof
+argument_list|(
 literal|"Auth-SMTP-From: "
 argument_list|)
 operator|-
@@ -5120,6 +5127,13 @@ name|len
 operator|+
 sizeof|sizeof
 argument_list|(
+name|CRLF
+argument_list|)
+operator|-
+literal|1
+operator|+
+sizeof|sizeof
+argument_list|(
 literal|"Auth-SMTP-To: "
 argument_list|)
 operator|-
@@ -5130,6 +5144,13 @@ operator|->
 name|smtp_to
 operator|.
 name|len
+operator|+
+sizeof|sizeof
+argument_list|(
+name|CRLF
+argument_list|)
+operator|-
+literal|1
 operator|+
 name|ahcf
 operator|->
