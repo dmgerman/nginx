@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b45a9c40108
+DECL|struct|__anon2a557dd90108
 typedef|typedef
 struct|struct
 block|{
@@ -1573,7 +1573,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon2b45a9c40203
+DECL|enum|__anon2a557dd90203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -4176,7 +4176,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2b45a9c40303
+DECL|enum|__anon2a557dd90303
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -4894,6 +4894,10 @@ name|ngx_connection_t
 modifier|*
 name|c
 decl_stmt|;
+name|ngx_mail_ssl_conf_t
+modifier|*
+name|sslcf
+decl_stmt|;
 endif|#
 directive|endif
 name|ngx_mail_core_srv_conf_t
@@ -4955,11 +4959,24 @@ name|s
 operator|->
 name|connection
 expr_stmt|;
+name|sslcf
+operator|=
+name|ngx_mail_get_module_srv_conf
+argument_list|(
+name|s
+argument_list|,
+name|ngx_mail_ssl_module
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|c
 operator|->
 name|ssl
+operator|&&
+name|sslcf
+operator|->
+name|verify
 condition|)
 block|{
 comment|/* certificate details */
@@ -6378,6 +6395,13 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|verify
+operator|.
+name|len
+condition|)
+block|{
 name|b
 operator|->
 name|last
@@ -6433,6 +6457,7 @@ operator|++
 operator|=
 name|LF
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|subject
