@@ -16555,8 +16555,20 @@ condition|(
 name|u
 operator|->
 name|cleanup
+operator|==
+name|NULL
 condition|)
 block|{
+comment|/* the request was already finalized */
+name|ngx_http_finalize_request
+argument_list|(
+name|r
+argument_list|,
+name|NGX_DONE
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 operator|*
 name|u
 operator|->
@@ -16570,7 +16582,6 @@ name|cleanup
 operator|=
 name|NULL
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|u
