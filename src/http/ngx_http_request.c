@@ -2967,6 +2967,12 @@ operator|==
 name|NGX_EAGAIN
 condition|)
 block|{
+name|rev
+operator|->
+name|ready
+operator|=
+literal|0
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -8550,7 +8556,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon2925273f0103
+DECL|enum|__anon27add0350103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
