@@ -1071,13 +1071,6 @@ name|fd
 operator|=
 name|NGX_INVALID_FILE
 expr_stmt|;
-name|c
-operator|->
-name|last_modified
-operator|=
-operator|-
-literal|1
-expr_stmt|;
 return|return
 name|NGX_OK
 return|;
