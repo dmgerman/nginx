@@ -576,6 +576,10 @@ parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
+parameter_list|,
+name|ngx_http_upstream_t
+modifier|*
+name|u
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -14863,6 +14867,8 @@ block|}
 name|ngx_http_upstream_process_request
 argument_list|(
 name|r
+argument_list|,
+name|u
 argument_list|)
 expr_stmt|;
 block|}
@@ -15119,6 +15125,8 @@ block|}
 name|ngx_http_upstream_process_request
 argument_list|(
 name|r
+argument_list|,
+name|u
 argument_list|)
 expr_stmt|;
 block|}
@@ -15127,12 +15135,16 @@ end_function
 begin_function
 specifier|static
 name|void
-DECL|function|ngx_http_upstream_process_request (ngx_http_request_t * r)
+DECL|function|ngx_http_upstream_process_request (ngx_http_request_t * r,ngx_http_upstream_t * u)
 name|ngx_http_upstream_process_request
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
+parameter_list|,
+name|ngx_http_upstream_t
+modifier|*
+name|u
 parameter_list|)
 block|{
 name|ngx_temp_file_t
@@ -15143,16 +15155,6 @@ name|ngx_event_pipe_t
 modifier|*
 name|p
 decl_stmt|;
-name|ngx_http_upstream_t
-modifier|*
-name|u
-decl_stmt|;
-name|u
-operator|=
-name|r
-operator|->
-name|upstream
-expr_stmt|;
 name|p
 operator|=
 name|u
