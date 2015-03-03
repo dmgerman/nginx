@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2890dc1f0108
+DECL|struct|__anon2791febd0108
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2890dc1f0208
+DECL|struct|__anon2791febd0208
 typedef|typedef
 struct|struct
 block|{
@@ -417,23 +417,18 @@ DECL|member|res
 name|int64_t
 name|res
 decl_stmt|;
+endif|#
+directive|endif
 if|#
 directive|if
+operator|!
+operator|(
+name|NGX_HAVE_EVENTFD
+operator|)
+operator|||
 operator|(
 name|NGX_TEST_BUILD_EPOLL
 operator|)
-DECL|member|err
-name|ngx_err_t
-name|err
-decl_stmt|;
-DECL|member|nbytes
-name|size_t
-name|nbytes
-decl_stmt|;
-endif|#
-directive|endif
-else|#
-directive|else
 DECL|member|err
 name|ngx_err_t
 name|err
@@ -462,7 +457,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2890dc1f0308
+DECL|struct|__anon2791febd0308
 typedef|typedef
 struct|struct
 block|{
@@ -1410,7 +1405,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2890dc1f0408
+DECL|struct|__anon2791febd0408
 typedef|typedef
 struct|struct
 block|{
@@ -1457,7 +1452,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2890dc1f0508
+DECL|struct|__anon2791febd0508
 typedef|typedef
 struct|struct
 block|{
