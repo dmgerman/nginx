@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b7890a50108
+DECL|struct|__anon2746624a0108
 typedef|typedef
 struct|struct
 block|{
@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7890a50208
+DECL|struct|__anon2746624a0208
 typedef|typedef
 struct|struct
 block|{
@@ -102,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7890a50308
+DECL|struct|__anon2746624a0308
 typedef|typedef
 struct|struct
 block|{
@@ -1619,7 +1619,12 @@ operator|==
 name|NGX_EAGAIN
 condition|)
 block|{
-comment|/* stale event */
+name|ev
+operator|->
+name|ready
+operator|=
+literal|0
+expr_stmt|;
 if|if
 condition|(
 name|ngx_handle_read_event
