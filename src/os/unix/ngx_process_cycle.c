@@ -174,7 +174,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|NGX_THREADS
+name|NGX_OLD_THREADS
 operator|)
 end_if
 
@@ -384,7 +384,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|NGX_THREADS
+name|NGX_OLD_THREADS
 operator|)
 end_if
 
@@ -3469,7 +3469,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_THREADS
+name|NGX_OLD_THREADS
 operator|)
 block|{
 name|ngx_int_t
@@ -4769,7 +4769,7 @@ decl_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_THREADS
+name|NGX_OLD_THREADS
 operator|)
 name|ngx_terminate
 operator|=
@@ -5420,7 +5420,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|NGX_THREADS
+name|NGX_OLD_THREADS
 operator|)
 end_if
 

@@ -103,7 +103,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28b0c93c0108
+DECL|struct|__anon2af71ce00108
 typedef|typedef
 struct|struct
 block|{
@@ -150,7 +150,7 @@ decl_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_THREADS
+name|NGX_OLD_THREADS
 operator|)
 DECL|member|mutex
 name|ngx_mutex_t

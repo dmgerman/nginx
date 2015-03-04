@@ -1761,7 +1761,7 @@ block|}
 if|#
 directive|if
 operator|(
-name|NGX_THREADS
+name|NGX_OLD_THREADS
 operator|)
 name|ngx_log_error
 argument_list|(

@@ -128,7 +128,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|NGX_THREADS
+name|NGX_OLD_THREADS
 operator|)
 end_if
 

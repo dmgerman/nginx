@@ -952,10 +952,10 @@ value|1
 end_define
 
 begin_define
-DECL|macro|NGX_THREADS
+DECL|macro|NGX_OLD_THREADS
 define|#
 directive|define
-name|NGX_THREADS
+name|NGX_OLD_THREADS
 value|1
 end_define
 

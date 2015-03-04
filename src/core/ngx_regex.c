@@ -16,7 +16,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a908bf70108
+DECL|struct|__anon28b36ad80108
 typedef|typedef
 struct|struct
 block|{
@@ -311,7 +311,7 @@ block|{
 if|#
 directive|if
 operator|(
-name|NGX_THREADS
+name|NGX_OLD_THREADS
 operator|)
 name|ngx_core_tls_t
 modifier|*
@@ -359,7 +359,7 @@ block|{
 if|#
 directive|if
 operator|(
-name|NGX_THREADS
+name|NGX_OLD_THREADS
 operator|)
 name|ngx_core_tls_t
 modifier|*
@@ -1036,7 +1036,7 @@ decl_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_THREADS
+name|NGX_OLD_THREADS
 operator|)
 name|ngx_core_tls_t
 modifier|*

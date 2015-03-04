@@ -243,7 +243,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c4fd1bb0108
+DECL|struct|__anon2bc04c900108
 typedef|typedef
 struct|struct
 block|{
@@ -334,7 +334,7 @@ decl_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_THREADS
+name|NGX_OLD_THREADS
 operator|)
 DECL|member|worker_threads
 name|ngx_int_t
@@ -352,8 +352,16 @@ name|ngx_core_conf_t
 typedef|;
 end_typedef
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_OLD_THREADS
+operator|)
+end_if
+
 begin_typedef
-DECL|struct|__anon2c4fd1bb0208
+DECL|struct|__anon2bc04c900208
 typedef|typedef
 struct|struct
 block|{
@@ -368,6 +376,11 @@ block|}
 name|ngx_core_tls_t
 typedef|;
 end_typedef
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_define
 DECL|macro|ngx_is_init_cycle (cycle)
@@ -555,7 +568,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|NGX_THREADS
+name|NGX_OLD_THREADS
 operator|)
 end_if
 

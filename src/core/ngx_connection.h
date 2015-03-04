@@ -291,7 +291,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2ae8d3d00103
+DECL|enum|__anon290e7a990103
 typedef|typedef
 enum|enum
 block|{
@@ -318,7 +318,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2ae8d3d00203
+DECL|enum|__anon290e7a990203
 typedef|typedef
 enum|enum
 block|{
@@ -339,7 +339,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2ae8d3d00303
+DECL|enum|__anon290e7a990303
 typedef|typedef
 enum|enum
 block|{
@@ -615,7 +615,7 @@ directive|endif
 if|#
 directive|if
 operator|(
-name|NGX_THREADS
+name|NGX_OLD_THREADS
 operator|)
 DECL|member|lock
 name|ngx_atomic_t

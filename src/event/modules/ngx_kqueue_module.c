@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon290a37980108
+DECL|struct|__anon27aa3d140108
 typedef|typedef
 struct|struct
 block|{
@@ -262,7 +262,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|NGX_THREADS
+name|NGX_OLD_THREADS
 operator|)
 end_if
 
@@ -542,7 +542,7 @@ block|}
 if|#
 directive|if
 operator|(
-name|NGX_THREADS
+name|NGX_OLD_THREADS
 operator|)
 name|list_mutex
 operator|=
@@ -1017,7 +1017,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_THREADS
+name|NGX_OLD_THREADS
 operator|)
 name|ngx_mutex_destroy
 argument_list|(

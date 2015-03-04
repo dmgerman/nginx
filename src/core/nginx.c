@@ -630,7 +630,7 @@ block|,
 if|#
 directive|if
 operator|(
-name|NGX_THREADS
+name|NGX_OLD_THREADS
 operator|)
 block|{
 name|ngx_string
@@ -3892,7 +3892,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_THREADS
+name|NGX_OLD_THREADS
 operator|)
 name|ccf
 operator|->
@@ -4059,7 +4059,7 @@ directive|endif
 if|#
 directive|if
 operator|(
-name|NGX_THREADS
+name|NGX_OLD_THREADS
 operator|)
 name|ngx_conf_init_value
 argument_list|(

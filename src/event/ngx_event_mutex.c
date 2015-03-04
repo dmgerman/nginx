@@ -106,7 +106,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_THREADS0
+name|NGX_OLD_THREADS0
 operator|)
 name|ev
 operator|->

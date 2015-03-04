@@ -32,7 +32,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|NGX_THREADS
+name|NGX_OLD_THREADS
 operator|)
 end_if
 
@@ -197,7 +197,7 @@ value|0
 end_define
 
 begin_typedef
-DECL|struct|__anon296c6a500108
+DECL|struct|__anon2b1cef9f0108
 typedef|typedef
 struct|struct
 block|{
@@ -217,7 +217,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296c6a500208
+DECL|struct|__anon2b1cef9f0208
 typedef|typedef
 struct|struct
 block|{
@@ -322,7 +322,7 @@ value|volatile
 end_define
 
 begin_typedef
-DECL|struct|__anon296c6a500308
+DECL|struct|__anon2b1cef9f0308
 typedef|typedef
 struct|struct
 block|{
@@ -532,7 +532,7 @@ directive|else
 end_else
 
 begin_comment
-comment|/* !NGX_THREADS */
+comment|/* !NGX_OLD_THREADS */
 end_comment
 
 begin_define

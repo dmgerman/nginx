@@ -224,7 +224,7 @@ decl_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_THREADS
+name|NGX_OLD_THREADS
 operator|&&
 name|NGX_NONREENTRANT_CRYPT
 operator|)
@@ -297,7 +297,7 @@ block|{
 if|#
 directive|if
 operator|(
-name|NGX_THREADS
+name|NGX_OLD_THREADS
 operator|&&
 name|NGX_NONREENTRANT_CRYPT
 operator|)
@@ -325,7 +325,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_THREADS
+name|NGX_OLD_THREADS
 operator|&&
 name|NGX_NONREENTRANT_CRYPT
 operator|)
@@ -347,7 +347,7 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_THREADS
+name|NGX_OLD_THREADS
 operator|&&
 name|NGX_NONREENTRANT_CRYPT
 operator|)

@@ -4175,7 +4175,7 @@ block|}
 if|#
 directive|if
 operator|(
-name|NGX_THREADS
+name|NGX_OLD_THREADS
 operator|)
 comment|/*      * we have to clean the connection information before the closing      * because another thread may reopen the same file descriptor      * before we clean the connection      */
 name|ngx_unlock

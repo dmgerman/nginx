@@ -227,7 +227,7 @@ directive|endif
 if|#
 directive|if
 operator|(
-name|NGX_THREADS
+name|NGX_OLD_THREADS
 operator|)
 DECL|member|lock
 name|ngx_atomic_t
