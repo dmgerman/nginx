@@ -701,7 +701,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon28919c7f0103
+DECL|enum|__anon288d0b000103
 typedef|typedef
 enum|enum
 block|{
@@ -740,7 +740,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28919c7f0208
+DECL|struct|__anon288d0b000208
 typedef|typedef
 struct|struct
 block|{
@@ -763,7 +763,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28919c7f0308
+DECL|struct|__anon288d0b000308
 typedef|typedef
 struct|struct
 block|{
@@ -782,7 +782,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28919c7f0408
+DECL|struct|__anon288d0b000408
 typedef|typedef
 struct|struct
 block|{
@@ -1044,7 +1044,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28919c7f0508
+DECL|struct|__anon288d0b000508
 typedef|typedef
 struct|struct
 block|{
@@ -1185,7 +1185,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28919c7f0608
+DECL|struct|__anon288d0b000608
 typedef|typedef
 struct|struct
 block|{
@@ -1243,7 +1243,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28919c7f0708
+DECL|struct|__anon288d0b000708
 typedef|typedef
 struct|struct
 block|{
@@ -1401,7 +1401,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28919c7f0808
+DECL|struct|__anon288d0b000808
 typedef|typedef
 struct|struct
 block|{
@@ -2272,7 +2272,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28919c7f0908
+DECL|struct|__anon288d0b000908
 typedef|typedef
 struct|struct
 block|{
@@ -2285,6 +2285,17 @@ block|}
 name|ngx_http_ephemeral_t
 typedef|;
 end_typedef
+
+begin_define
+DECL|macro|ngx_http_ephemeral (r)
+define|#
+directive|define
+name|ngx_http_ephemeral
+parameter_list|(
+name|r
+parameter_list|)
+value|(void *) (&r->uri_start)
+end_define
 
 begin_decl_stmt
 specifier|extern

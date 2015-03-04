@@ -325,7 +325,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28fd88120108
+DECL|struct|__anon29bf2d020108
 typedef|typedef
 struct|struct
 block|{
@@ -821,17 +821,6 @@ name|r
 parameter_list|)
 function_decl|;
 end_function_decl
-
-begin_define
-DECL|macro|ngx_http_ephemeral (r)
-define|#
-directive|define
-name|ngx_http_ephemeral
-parameter_list|(
-name|r
-parameter_list|)
-value|(void *) (&r->uri_start)
-end_define
 
 begin_define
 DECL|macro|NGX_HTTP_LAST
