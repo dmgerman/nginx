@@ -161,7 +161,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2b1f6ed90108
+DECL|struct|__anon2954c67b0108
 typedef|typedef
 struct|struct
 block|{
@@ -562,7 +562,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b1f6ed90208
+DECL|struct|__anon2954c67b0208
 typedef|typedef
 struct|struct
 block|{
@@ -2476,7 +2476,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"unexpected even_port object %d"
+literal|"unexpected eventport object %d"
 argument_list|,
 name|event_list
 index|[
