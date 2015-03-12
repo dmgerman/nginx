@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ae72eac0108
+DECL|struct|__anon2a30f73e0108
 typedef|typedef
 struct|struct
 block|{
@@ -889,7 +889,7 @@ argument_list|(
 literal|"sendfile"
 argument_list|)
 block|,
-name|NGX_HTTP_AIO_SENDFILE
+name|NGX_HTTP_AIO_ON
 block|}
 block|,
 endif|#
