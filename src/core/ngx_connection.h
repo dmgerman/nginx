@@ -291,7 +291,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon290e7a990103
+DECL|enum|__anon2b5b5bfd0103
 typedef|typedef
 enum|enum
 block|{
@@ -318,7 +318,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon290e7a990203
+DECL|enum|__anon2b5b5bfd0203
 typedef|typedef
 enum|enum
 block|{
@@ -339,7 +339,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon290e7a990303
+DECL|enum|__anon2b5b5bfd0303
 typedef|typedef
 enum|enum
 block|{
@@ -609,6 +609,18 @@ name|unsigned
 name|busy_count
 range|:
 literal|2
+decl_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
+operator|(
+name|NGX_THREADS
+operator|)
+DECL|member|sendfile_task
+name|ngx_thread_task_t
+modifier|*
+name|sendfile_task
 decl_stmt|;
 endif|#
 directive|endif
