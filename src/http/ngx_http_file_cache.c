@@ -3163,10 +3163,11 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
 name|clcf
 operator|->
 name|aio
+operator|!=
+name|NGX_HTTP_AIO_ON
 condition|)
 block|{
 goto|goto

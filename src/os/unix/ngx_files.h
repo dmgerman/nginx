@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27dbdb820108
+DECL|struct|__anon276ee5cb0108
 typedef|typedef
 struct|struct
 block|{
@@ -88,7 +88,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27dbdb820208
+DECL|struct|__anon276ee5cb0208
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27dbdb820308
+DECL|struct|__anon276ee5cb0308
 typedef|typedef
 struct|struct
 block|{
@@ -1936,6 +1936,49 @@ name|ngx_uint_t
 name|ngx_file_aio
 decl_stmt|;
 end_decl_stmt
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_THREADS
+operator|)
+end_if
+
+begin_function_decl
+name|ssize_t
+name|ngx_thread_read
+parameter_list|(
+name|ngx_thread_task_t
+modifier|*
+modifier|*
+name|taskp
+parameter_list|,
+name|ngx_file_t
+modifier|*
+name|file
+parameter_list|,
+name|u_char
+modifier|*
+name|buf
+parameter_list|,
+name|size_t
+name|size
+parameter_list|,
+name|off_t
+name|offset
+parameter_list|,
+name|ngx_pool_t
+modifier|*
+name|pool
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_endif
 endif|#

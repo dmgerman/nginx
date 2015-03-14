@@ -193,7 +193,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b19aead0108
+DECL|struct|__anon2c4568ae0108
 typedef|typedef
 struct|struct
 block|{
@@ -339,6 +339,8 @@ if|#
 directive|if
 operator|(
 name|NGX_HAVE_FILE_AIO
+operator|||
+name|NGX_THREADS
 operator|)
 DECL|member|aio
 name|unsigned
@@ -346,6 +348,13 @@ name|aio
 range|:
 literal|1
 decl_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_FILE_AIO
+operator|)
 DECL|member|aio_handler
 name|ngx_output_chain_aio_pt
 name|aio_handler
@@ -369,6 +378,34 @@ parameter_list|)
 function_decl|;
 endif|#
 directive|endif
+endif|#
+directive|endif
+if|#
+directive|if
+operator|(
+name|NGX_THREADS
+operator|)
+DECL|member|thread_handler
+name|ngx_int_t
+function_decl|(
+modifier|*
+name|thread_handler
+function_decl|)
+parameter_list|(
+name|ngx_thread_task_t
+modifier|*
+name|task
+parameter_list|,
+name|ngx_file_t
+modifier|*
+name|file
+parameter_list|)
+function_decl|;
+DECL|member|thread_task
+name|ngx_thread_task_t
+modifier|*
+name|thread_task
+decl_stmt|;
 endif|#
 directive|endif
 DECL|member|alignment
@@ -406,7 +443,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b19aead0208
+DECL|struct|__anon2c4568ae0208
 typedef|typedef
 struct|struct
 block|{

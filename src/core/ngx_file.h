@@ -61,6 +61,34 @@ decl_stmt|;
 if|#
 directive|if
 operator|(
+name|NGX_THREADS
+operator|)
+DECL|member|thread_handler
+name|ngx_int_t
+function_decl|(
+modifier|*
+name|thread_handler
+function_decl|)
+parameter_list|(
+name|ngx_thread_task_t
+modifier|*
+name|task
+parameter_list|,
+name|ngx_file_t
+modifier|*
+name|file
+parameter_list|)
+function_decl|;
+DECL|member|thread_ctx
+name|void
+modifier|*
+name|thread_ctx
+decl_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
+operator|(
 name|NGX_HAVE_FILE_AIO
 operator|)
 DECL|member|aio
@@ -127,7 +155,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d578230108
+DECL|struct|__anon2770a0b00108
 typedef|typedef
 struct|struct
 block|{
@@ -175,7 +203,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d578230208
+DECL|struct|__anon2770a0b00208
 typedef|typedef
 struct|struct
 block|{
@@ -197,7 +225,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d578230308
+DECL|struct|__anon2770a0b00308
 typedef|typedef
 struct|struct
 block|{
@@ -253,7 +281,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d578230408
+DECL|struct|__anon2770a0b00408
 typedef|typedef
 struct|struct
 block|{
@@ -297,7 +325,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d578230508
+DECL|struct|__anon2770a0b00508
 typedef|typedef
 struct|struct
 block|{

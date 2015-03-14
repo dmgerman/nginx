@@ -34,6 +34,25 @@ directive|include
 file|<ngx_http.h>
 end_include
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_THREADS
+operator|)
+end_if
+
+begin_include
+include|#
+directive|include
+file|<ngx_thread_pool.h>
+end_include
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_define
 DECL|macro|NGX_HTTP_GZIP_PROXIED_OFF
 define|#
@@ -120,6 +139,14 @@ define|#
 directive|define
 name|NGX_HTTP_AIO_ON
 value|1
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_AIO_THREADS
+define|#
+directive|define
+name|NGX_HTTP_AIO_THREADS
+value|2
 end_define
 
 begin_define
@@ -229,11 +256,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28906a490108
+DECL|struct|__anon29e61f630108
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon28906a49020a
+DECL|union|__anon29e61f63020a
 union|union
 block|{
 DECL|member|sockaddr
@@ -461,7 +488,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28906a490303
+DECL|enum|__anon29e61f630303
 typedef|typedef
 enum|enum
 block|{
@@ -556,7 +583,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28906a490408
+DECL|struct|__anon29e61f630408
 typedef|typedef
 struct|struct
 block|{
@@ -580,7 +607,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28906a490508
+DECL|struct|__anon29e61f630508
 typedef|typedef
 struct|struct
 block|{
@@ -595,7 +622,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28906a490608
+DECL|struct|__anon29e61f630608
 typedef|typedef
 struct|struct
 block|{
@@ -672,7 +699,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28906a490708
+DECL|struct|__anon29e61f630708
 typedef|typedef
 struct|struct
 block|{
@@ -759,7 +786,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon28906a490808
+DECL|struct|__anon29e61f630808
 typedef|typedef
 struct|struct
 block|{
@@ -792,7 +819,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28906a490908
+DECL|struct|__anon29e61f630908
 typedef|typedef
 struct|struct
 block|{
@@ -868,7 +895,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28906a490a08
+DECL|struct|__anon29e61f630a08
 typedef|typedef
 struct|struct
 block|{
@@ -895,7 +922,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon28906a490b08
+DECL|struct|__anon29e61f630b08
 typedef|typedef
 struct|struct
 block|{
@@ -920,7 +947,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28906a490c08
+DECL|struct|__anon29e61f630c08
 typedef|typedef
 struct|struct
 block|{
@@ -941,7 +968,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28906a490d08
+DECL|struct|__anon29e61f630d08
 typedef|typedef
 struct|struct
 block|{
@@ -965,7 +992,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28906a490e08
+DECL|struct|__anon29e61f630e08
 typedef|typedef
 struct|struct
 block|{
@@ -1021,7 +1048,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28906a490f08
+DECL|struct|__anon29e61f630f08
 typedef|typedef
 struct|struct
 block|{
@@ -1048,7 +1075,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28906a491008
+DECL|struct|__anon29e61f631008
 typedef|typedef
 struct|struct
 block|{
@@ -1494,6 +1521,23 @@ directive|endif
 if|#
 directive|if
 operator|(
+name|NGX_THREADS
+operator|)
+DECL|member|thread_pool
+name|ngx_thread_pool_t
+modifier|*
+name|thread_pool
+decl_stmt|;
+DECL|member|thread_pool_value
+name|ngx_http_complex_value_t
+modifier|*
+name|thread_pool_value
+decl_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
+operator|(
 name|NGX_HAVE_OPENAT
 operator|)
 DECL|member|disable_symlinks
@@ -1576,7 +1620,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28906a491108
+DECL|struct|__anon29e61f631108
 typedef|typedef
 struct|struct
 block|{
