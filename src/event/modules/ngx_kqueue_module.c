@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27aa3d140108
+DECL|struct|__anon29d7e09a0108
 typedef|typedef
 struct|struct
 block|{
@@ -397,6 +397,9 @@ comment|/* add an connection */
 name|NULL
 block|,
 comment|/* delete an connection */
+name|NULL
+block|,
+comment|/* trigger a notify */
 name|ngx_kqueue_process_changes
 block|,
 comment|/* process the changes */

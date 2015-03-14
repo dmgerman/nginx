@@ -194,6 +194,9 @@ block|,
 comment|/* delete an connection */
 name|NULL
 block|,
+comment|/* trigger a notify */
+name|NULL
+block|,
 comment|/* process the changes */
 name|ngx_aio_process_events
 block|,

@@ -86,7 +86,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29edb5590108
+DECL|struct|__anon2c860efa0108
 typedef|typedef
 struct|struct
 block|{
@@ -390,6 +390,9 @@ comment|/* add an connection */
 name|NULL
 block|,
 comment|/* delete an connection */
+name|NULL
+block|,
+comment|/* trigger a notify */
 name|NULL
 block|,
 comment|/* process the changes */

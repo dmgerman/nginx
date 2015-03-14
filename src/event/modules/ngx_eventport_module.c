@@ -161,7 +161,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2954c67b0108
+DECL|struct|__anon2c3fa4120108
 typedef|typedef
 struct|struct
 block|{
@@ -562,7 +562,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2954c67b0208
+DECL|struct|__anon2c3fa4120208
 typedef|typedef
 struct|struct
 block|{
@@ -813,6 +813,9 @@ comment|/* add an connection */
 name|NULL
 block|,
 comment|/* delete an connection */
+name|NULL
+block|,
+comment|/* trigger a notify */
 name|NULL
 block|,
 comment|/* process the changes */

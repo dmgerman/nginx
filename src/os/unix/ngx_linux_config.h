@@ -449,14 +449,6 @@ begin_if
 if|#
 directive|if
 operator|(
-name|NGX_HAVE_FILE_AIO
-operator|)
-end_if
-
-begin_if
-if|#
-directive|if
-operator|(
 name|NGX_HAVE_SYS_EVENTFD_H
 operator|)
 end_if
@@ -477,6 +469,14 @@ include|#
 directive|include
 file|<sys/syscall.h>
 end_include
+
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_FILE_AIO
+operator|)
+end_if
 
 begin_include
 include|#

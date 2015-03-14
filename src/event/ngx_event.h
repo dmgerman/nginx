@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2791febd0108
+DECL|struct|__anon28fe931c0108
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2791febd0208
+DECL|struct|__anon28fe931c0208
 typedef|typedef
 struct|struct
 block|{
@@ -457,7 +457,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2791febd0308
+DECL|struct|__anon28fe931c0308
 typedef|typedef
 struct|struct
 block|{
@@ -558,6 +558,17 @@ name|c
 parameter_list|,
 name|ngx_uint_t
 name|flags
+parameter_list|)
+function_decl|;
+DECL|member|notify
+name|ngx_int_t
+function_decl|(
+modifier|*
+name|notify
+function_decl|)
+parameter_list|(
+name|ngx_event_handler_pt
+name|handler
 parameter_list|)
 function_decl|;
 DECL|member|process_changes
@@ -1321,6 +1332,14 @@ value|ngx_event_actions.del_conn
 end_define
 
 begin_define
+DECL|macro|ngx_notify
+define|#
+directive|define
+name|ngx_notify
+value|ngx_event_actions.notify
+end_define
+
+begin_define
 DECL|macro|ngx_add_timer
 define|#
 directive|define
@@ -1405,7 +1424,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2791febd0408
+DECL|struct|__anon28fe931c0408
 typedef|typedef
 struct|struct
 block|{
@@ -1452,7 +1471,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2791febd0508
+DECL|struct|__anon28fe931c0508
 typedef|typedef
 struct|struct
 block|{

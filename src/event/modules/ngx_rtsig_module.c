@@ -190,7 +190,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c74eb330108
+DECL|struct|__anon2ab065680108
 typedef|typedef
 struct|struct
 block|{
@@ -566,6 +566,9 @@ comment|/* add an connection */
 name|ngx_rtsig_del_connection
 block|,
 comment|/* delete an connection */
+name|NULL
+block|,
+comment|/* trigger a notify */
 name|NULL
 block|,
 comment|/* process the changes */
