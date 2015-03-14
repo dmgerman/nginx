@@ -161,7 +161,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2c3fa4120108
+DECL|struct|__anon28b484aa0108
 typedef|typedef
 struct|struct
 block|{
@@ -434,6 +434,46 @@ end_function
 
 begin_function_decl
 name|int
+name|port_send
+parameter_list|(
+name|int
+name|port
+parameter_list|,
+name|int
+name|events
+parameter_list|,
+name|void
+modifier|*
+name|user
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function
+DECL|function|port_send (int port,int events,void * user)
+name|int
+name|port_send
+parameter_list|(
+name|int
+name|port
+parameter_list|,
+name|int
+name|events
+parameter_list|,
+name|void
+modifier|*
+name|user
+parameter_list|)
+block|{
+return|return
+operator|-
+literal|1
+return|;
+block|}
+end_function
+
+begin_function_decl
+name|int
 name|timer_create
 parameter_list|(
 name|clockid_t
@@ -562,7 +602,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c3fa4120208
+DECL|struct|__anon28b484aa0208
 typedef|typedef
 struct|struct
 block|{
@@ -635,6 +675,17 @@ name|event
 parameter_list|,
 name|ngx_uint_t
 name|flags
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
+name|ngx_int_t
+name|ngx_eventport_notify
+parameter_list|(
+name|ngx_event_handler_pt
+name|handler
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -730,6 +781,14 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|notify_event
+specifier|static
+name|ngx_event_t
+name|notify_event
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|eventport_name
 specifier|static
 name|ngx_str_t
@@ -813,7 +872,7 @@ comment|/* add an connection */
 name|NULL
 block|,
 comment|/* delete an connection */
-name|NULL
+name|ngx_eventport_notify
 block|,
 comment|/* trigger a notify */
 name|NULL
@@ -955,6 +1014,20 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|notify_event
+operator|.
+name|active
+operator|=
+literal|1
+expr_stmt|;
+name|notify_event
+operator|.
+name|log
+operator|=
+name|cycle
+operator|->
+name|log
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -1747,6 +1820,60 @@ block|}
 end_function
 
 begin_function
+specifier|static
+name|ngx_int_t
+DECL|function|ngx_eventport_notify (ngx_event_handler_pt handler)
+name|ngx_eventport_notify
+parameter_list|(
+name|ngx_event_handler_pt
+name|handler
+parameter_list|)
+block|{
+name|notify_event
+operator|.
+name|handler
+operator|=
+name|handler
+expr_stmt|;
+if|if
+condition|(
+name|port_send
+argument_list|(
+name|ep
+argument_list|,
+literal|0
+argument_list|,
+operator|&
+name|notify_event
+argument_list|)
+operator|!=
+literal|0
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|notify_event
+operator|.
+name|log
+argument_list|,
+name|ngx_errno
+argument_list|,
+literal|"port_send() failed"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
+return|return
+name|NGX_OK
+return|;
+block|}
+end_function
+
+begin_function
 name|ngx_int_t
 DECL|function|ngx_eventport_process_events (ngx_cycle_t * cycle,ngx_msec_t timer,ngx_uint_t flags)
 name|ngx_eventport_process_events
@@ -2467,6 +2594,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+continue|continue;
+case|case
+name|PORT_SOURCE_USER
+case|:
+name|ev
+operator|->
+name|handler
+argument_list|(
+name|ev
+argument_list|)
+expr_stmt|;
 continue|continue;
 default|default:
 name|ngx_log_error
