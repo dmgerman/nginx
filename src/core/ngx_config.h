@@ -365,6 +365,14 @@ name|NGX_INT_T_LEN
 value|NGX_INT32_LEN
 end_define
 
+begin_define
+DECL|macro|NGX_MAX_INT_T_VALUE
+define|#
+directive|define
+name|NGX_MAX_INT_T_VALUE
+value|2147483647
+end_define
+
 begin_else
 else|#
 directive|else
@@ -376,6 +384,14 @@ define|#
 directive|define
 name|NGX_INT_T_LEN
 value|NGX_INT64_LEN
+end_define
+
+begin_define
+DECL|macro|NGX_MAX_INT_T_VALUE
+define|#
+directive|define
+name|NGX_MAX_INT_T_VALUE
+value|9223372036854775807
 end_define
 
 begin_endif
