@@ -22,7 +22,7 @@ file|<ngx_thread_pool.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27a7f4c00108
+DECL|struct|__anon28b4bd740108
 typedef|typedef
 struct|struct
 block|{
@@ -37,7 +37,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a7f4c00208
+DECL|struct|__anon28b4bd740208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ name|ngx_thread_pool_queue_t
 name|queue
 decl_stmt|;
 DECL|member|waiting
-name|ngx_uint_t
+name|ngx_int_t
 name|waiting
 decl_stmt|;
 DECL|member|cond
@@ -98,7 +98,7 @@ name|ngx_uint_t
 name|threads
 decl_stmt|;
 DECL|member|max_queue
-name|ngx_uint_t
+name|ngx_int_t
 name|max_queue
 decl_stmt|;
 DECL|member|file
@@ -901,7 +901,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"thread pool \"%V\" queue overflow: %ui tasks waiting"
+literal|"thread pool \"%V\" queue overflow: %i tasks waiting"
 argument_list|,
 operator|&
 name|tp
@@ -1199,13 +1199,21 @@ return|return
 name|NULL
 return|;
 block|}
+comment|/* the number may become negative */
+name|tp
+operator|->
+name|waiting
+operator|--
+expr_stmt|;
 while|while
 condition|(
 name|tp
 operator|->
-name|waiting
+name|queue
+operator|.
+name|first
 operator|==
-literal|0
+name|NULL
 condition|)
 block|{
 if|if
@@ -1254,11 +1262,6 @@ name|NULL
 return|;
 block|}
 block|}
-name|tp
-operator|->
-name|waiting
-operator|--
-expr_stmt|;
 name|task
 operator|=
 name|tp
@@ -2109,9 +2112,6 @@ name|tp
 operator|->
 name|max_queue
 operator|==
-operator|(
-name|ngx_uint_t
-operator|)
 name|NGX_ERROR
 condition|)
 block|{
