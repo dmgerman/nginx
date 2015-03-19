@@ -22,7 +22,7 @@ file|<ngx_thread_pool.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon289c6fab0108
+DECL|struct|__anon27a7f4c00108
 typedef|typedef
 struct|struct
 block|{
@@ -37,17 +37,13 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289c6fab0208
+DECL|struct|__anon27a7f4c00208
 typedef|typedef
 struct|struct
 block|{
 DECL|member|mtx
 name|ngx_thread_mutex_t
 name|mtx
-decl_stmt|;
-DECL|member|count
-name|ngx_uint_t
-name|count
 decl_stmt|;
 DECL|member|first
 name|ngx_thread_task_t
@@ -71,13 +67,17 @@ DECL|struct|ngx_thread_pool_s
 struct|struct
 name|ngx_thread_pool_s
 block|{
-DECL|member|cond
-name|ngx_thread_cond_t
-name|cond
-decl_stmt|;
 DECL|member|queue
 name|ngx_thread_pool_queue_t
 name|queue
+decl_stmt|;
+DECL|member|waiting
+name|ngx_uint_t
+name|waiting
+decl_stmt|;
+DECL|member|cond
+name|ngx_thread_cond_t
+name|cond
 decl_stmt|;
 DECL|member|log
 name|ngx_log_t
@@ -638,12 +638,6 @@ parameter_list|)
 block|{
 name|queue
 operator|->
-name|count
-operator|=
-literal|0
-expr_stmt|;
-name|queue
-operator|->
 name|first
 operator|=
 name|NULL
@@ -873,9 +867,7 @@ if|if
 condition|(
 name|tp
 operator|->
-name|queue
-operator|.
-name|count
+name|waiting
 operator|>=
 name|tp
 operator|->
@@ -918,9 +910,7 @@ name|name
 argument_list|,
 name|tp
 operator|->
-name|queue
-operator|.
-name|count
+name|waiting
 argument_list|)
 expr_stmt|;
 return|return
@@ -1008,9 +998,7 @@ name|next
 expr_stmt|;
 name|tp
 operator|->
-name|queue
-operator|.
-name|count
+name|waiting
 operator|++
 expr_stmt|;
 operator|(
@@ -1215,9 +1203,7 @@ while|while
 condition|(
 name|tp
 operator|->
-name|queue
-operator|.
-name|count
+name|waiting
 operator|==
 literal|0
 condition|)
@@ -1270,9 +1256,7 @@ block|}
 block|}
 name|tp
 operator|->
-name|queue
-operator|.
-name|count
+name|waiting
 operator|--
 expr_stmt|;
 name|task
