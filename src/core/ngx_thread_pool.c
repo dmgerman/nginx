@@ -22,7 +22,7 @@ file|<ngx_thread_pool.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28b4bd740108
+DECL|struct|__anon297bfdc00108
 typedef|typedef
 struct|struct
 block|{
@@ -37,7 +37,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b4bd740208
+DECL|struct|__anon297bfdc00208
 typedef|typedef
 struct|struct
 block|{
@@ -680,17 +680,17 @@ modifier|*
 name|log
 parameter_list|)
 block|{
+if|#
+directive|if
+literal|0
+block_content|return ngx_thread_mutex_destroy(&queue->mtx, log);
+else|#
+directive|else
 return|return
-name|ngx_thread_mutex_destroy
-argument_list|(
-operator|&
-name|queue
-operator|->
-name|mtx
-argument_list|,
-name|log
-argument_list|)
+name|NGX_OK
 return|;
+endif|#
+directive|endif
 block|}
 end_function
 
@@ -706,21 +706,12 @@ name|tp
 parameter_list|)
 block|{
 comment|/* TODO: exit threads */
-operator|(
-name|void
-operator|)
-name|ngx_thread_cond_destroy
-argument_list|(
-operator|&
-name|tp
-operator|->
-name|cond
-argument_list|,
-name|tp
-operator|->
-name|log
-argument_list|)
-expr_stmt|;
+if|#
+directive|if
+literal|0
+block_content|(void) ngx_thread_cond_destroy(&tp->cond, tp->log);
+endif|#
+directive|endif
 operator|(
 name|void
 operator|)
