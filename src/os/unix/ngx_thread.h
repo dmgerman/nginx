@@ -44,29 +44,6 @@ name|NGX_MAX_THREADS
 value|128
 end_define
 
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_USE_RFORK
-operator|)
-end_if
-
-begin_include
-include|#
-directive|include
-file|<ngx_freebsd_rfork_thread.h>
-end_include
-
-begin_else
-else|#
-directive|else
-end_else
-
-begin_comment
-comment|/* use pthreads */
-end_comment
-
 begin_include
 include|#
 directive|include
@@ -197,7 +174,7 @@ value|0
 end_define
 
 begin_typedef
-DECL|struct|__anon2ade0f820108
+DECL|struct|__anon28a269f90108
 typedef|typedef
 struct|struct
 block|{
@@ -217,7 +194,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ade0f820208
+DECL|struct|__anon28a269f90208
 typedef|typedef
 struct|struct
 block|{
@@ -308,11 +285,6 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
-begin_endif
-endif|#
-directive|endif
-end_endif
-
 begin_define
 DECL|macro|ngx_thread_volatile
 define|#
@@ -322,7 +294,7 @@ value|volatile
 end_define
 
 begin_typedef
-DECL|struct|__anon2ade0f820308
+DECL|struct|__anon28a269f90308
 typedef|typedef
 struct|struct
 block|{
