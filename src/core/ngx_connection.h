@@ -291,7 +291,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2b5b5bfd0103
+DECL|enum|__anon2a2a2ea50103
 typedef|typedef
 enum|enum
 block|{
@@ -318,7 +318,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b5b5bfd0203
+DECL|enum|__anon2a2a2ea50203
 typedef|typedef
 enum|enum
 block|{
@@ -339,7 +339,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b5b5bfd0303
+DECL|enum|__anon2a2a2ea50303
 typedef|typedef
 enum|enum
 block|{
@@ -621,17 +621,6 @@ DECL|member|sendfile_task
 name|ngx_thread_task_t
 modifier|*
 name|sendfile_task
-decl_stmt|;
-endif|#
-directive|endif
-if|#
-directive|if
-operator|(
-name|NGX_OLD_THREADS
-operator|)
-DECL|member|lock
-name|ngx_atomic_t
-name|lock
 decl_stmt|;
 endif|#
 directive|endif

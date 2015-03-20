@@ -4172,22 +4172,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-if|#
-directive|if
-operator|(
-name|NGX_OLD_THREADS
-operator|)
-comment|/*      * we have to clean the connection information before the closing      * because another thread may reopen the same file descriptor      * before we clean the connection      */
-name|ngx_unlock
-argument_list|(
-operator|&
-name|c
-operator|->
-name|lock
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 name|c
