@@ -161,7 +161,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon28b484aa0108
+DECL|struct|__anon2bd1bd820108
 typedef|typedef
 struct|struct
 block|{
@@ -602,7 +602,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28b484aa0208
+DECL|struct|__anon2bd1bd820208
 typedef|typedef
 struct|struct
 block|{
@@ -875,9 +875,6 @@ comment|/* delete an connection */
 name|ngx_eventport_notify
 block|,
 comment|/* trigger a notify */
-name|NULL
-block|,
-comment|/* process the changes */
 name|ngx_eventport_process_events
 block|,
 comment|/* process the events */

@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon28fe931c0108
+DECL|struct|__anon2be164aa0108
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28fe931c0208
+DECL|struct|__anon2be164aa0208
 typedef|typedef
 struct|struct
 block|{
@@ -457,7 +457,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28fe931c0308
+DECL|struct|__anon2be164aa0308
 typedef|typedef
 struct|struct
 block|{
@@ -569,21 +569,6 @@ function_decl|)
 parameter_list|(
 name|ngx_event_handler_pt
 name|handler
-parameter_list|)
-function_decl|;
-DECL|member|process_changes
-name|ngx_int_t
-function_decl|(
-modifier|*
-name|process_changes
-function_decl|)
-parameter_list|(
-name|ngx_cycle_t
-modifier|*
-name|cycle
-parameter_list|,
-name|ngx_uint_t
-name|nowait
 parameter_list|)
 function_decl|;
 DECL|member|process_events
@@ -1276,14 +1261,6 @@ directive|endif
 end_endif
 
 begin_define
-DECL|macro|ngx_process_changes
-define|#
-directive|define
-name|ngx_process_changes
-value|ngx_event_actions.process_changes
-end_define
-
-begin_define
 DECL|macro|ngx_process_events
 define|#
 directive|define
@@ -1424,7 +1401,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon28fe931c0408
+DECL|struct|__anon2be164aa0408
 typedef|typedef
 struct|struct
 block|{
@@ -1471,7 +1448,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28fe931c0508
+DECL|struct|__anon2be164aa0508
 typedef|typedef
 struct|struct
 block|{

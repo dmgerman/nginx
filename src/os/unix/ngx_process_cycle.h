@@ -109,7 +109,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2951cca80108
+DECL|struct|__anon27ddc4760108
 typedef|typedef
 struct|struct
 block|{
@@ -186,13 +186,6 @@ begin_decl_stmt
 specifier|extern
 name|ngx_uint_t
 name|ngx_daemonized
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-specifier|extern
-name|ngx_uint_t
-name|ngx_threaded
 decl_stmt|;
 end_decl_stmt
 

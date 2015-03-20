@@ -434,7 +434,7 @@ comment|/* NGX_TEST_BUILD_EPOLL */
 end_comment
 
 begin_typedef
-DECL|struct|__anon28c199f90108
+DECL|struct|__anon2ac2588f0108
 typedef|typedef
 struct|struct
 block|{
@@ -916,9 +916,6 @@ block|,
 comment|/* trigger a notify */
 endif|#
 directive|endif
-name|NULL
-block|,
-comment|/* process the changes */
 name|ngx_epoll_process_events
 block|,
 comment|/* process the events */
