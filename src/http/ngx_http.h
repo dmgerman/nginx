@@ -194,12 +194,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<ngx_http_busy_lock.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<ngx_http_core_module.h>
 end_include
 
@@ -325,7 +319,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29bf2d020108
+DECL|struct|__anon2c167dde0108
 typedef|typedef
 struct|struct
 block|{

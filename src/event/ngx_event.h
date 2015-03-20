@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2be164aa0108
+DECL|struct|__anon2c6119540108
 typedef|typedef
 struct|struct
 block|{
@@ -72,31 +72,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-
-begin_typedef
-DECL|struct|__anon2be164aa0208
-typedef|typedef
-struct|struct
-block|{
-DECL|member|lock
-name|ngx_uint_t
-name|lock
-decl_stmt|;
-DECL|member|events
-name|ngx_event_t
-modifier|*
-name|events
-decl_stmt|;
-DECL|member|last
-name|ngx_event_t
-modifier|*
-name|last
-decl_stmt|;
-DECL|typedef|ngx_event_mutex_t
-block|}
-name|ngx_event_mutex_t
-typedef|;
-end_typedef
 
 begin_struct
 DECL|struct|ngx_event_s
@@ -457,7 +432,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2be164aa0308
+DECL|struct|__anon2c6119540208
 typedef|typedef
 struct|struct
 block|{
@@ -1401,7 +1376,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2be164aa0408
+DECL|struct|__anon2c6119540308
 typedef|typedef
 struct|struct
 block|{
@@ -1448,7 +1423,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be164aa0508
+DECL|struct|__anon2c6119540408
 typedef|typedef
 struct|struct
 block|{
@@ -1858,12 +1833,6 @@ begin_include
 include|#
 directive|include
 file|<ngx_event_posted.h>
-end_include
-
-begin_include
-include|#
-directive|include
-file|<ngx_event_busy_lock.h>
 end_include
 
 begin_if
