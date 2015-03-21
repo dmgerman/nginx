@@ -412,6 +412,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_rwlock.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_shmtx.h>
 end_include
 
