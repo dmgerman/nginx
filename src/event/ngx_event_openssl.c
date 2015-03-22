@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon29c4accb0108
+DECL|struct|__anon286f8c5c0108
 typedef|typedef
 struct|struct
 block|{
@@ -1144,6 +1144,25 @@ argument_list|,
 name|SSL_OP_SINGLE_DH_USE
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|SSL_CTRL_CLEAR_OPTIONS
+comment|/* only in 0.9.8m+ */
+name|SSL_CTX_clear_options
+argument_list|(
+name|ssl
+operator|->
+name|ctx
+argument_list|,
+name|SSL_OP_NO_SSLv2
+operator||
+name|SSL_OP_NO_SSLv3
+operator||
+name|SSL_OP_NO_TLSv1
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 operator|!
@@ -1207,6 +1226,15 @@ block|}
 ifdef|#
 directive|ifdef
 name|SSL_OP_NO_TLSv1_1
+name|SSL_CTX_clear_options
+argument_list|(
+name|ssl
+operator|->
+name|ctx
+argument_list|,
+name|SSL_OP_NO_TLSv1_1
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -1232,6 +1260,15 @@ directive|endif
 ifdef|#
 directive|ifdef
 name|SSL_OP_NO_TLSv1_2
+name|SSL_CTX_clear_options
+argument_list|(
+name|ssl
+operator|->
+name|ctx
+argument_list|,
+name|SSL_OP_NO_TLSv1_2
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
