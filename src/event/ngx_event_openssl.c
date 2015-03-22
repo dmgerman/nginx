@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon286f8c5c0108
+DECL|struct|__anon289ea1a80108
 typedef|typedef
 struct|struct
 block|{
@@ -1315,6 +1315,20 @@ operator|->
 name|ctx
 argument_list|,
 name|SSL_MODE_RELEASE_BUFFERS
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|SSL_MODE_NO_AUTO_CHAIN
+name|SSL_CTX_set_mode
+argument_list|(
+name|ssl
+operator|->
+name|ctx
+argument_list|,
+name|SSL_MODE_NO_AUTO_CHAIN
 argument_list|)
 expr_stmt|;
 endif|#
