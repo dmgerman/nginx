@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bb090640108
+DECL|struct|__anon2b9a74750108
 typedef|typedef
 struct|struct
 block|{
@@ -97,6 +97,18 @@ begin_function_decl
 specifier|static
 name|ngx_int_t
 name|ngx_http_core_preconfiguration
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
+name|ngx_int_t
+name|ngx_http_core_postconfiguration
 parameter_list|(
 name|ngx_conf_t
 modifier|*
@@ -3454,7 +3466,7 @@ block|{
 name|ngx_http_core_preconfiguration
 block|,
 comment|/* preconfiguration */
-name|NULL
+name|ngx_http_core_postconfiguration
 block|,
 comment|/* postconfiguration */
 name|ngx_http_core_create_main_conf
@@ -14689,6 +14701,27 @@ name|ngx_http_variables_add_core_vars
 argument_list|(
 name|cf
 argument_list|)
+return|;
+block|}
+end_function
+
+begin_function
+specifier|static
+name|ngx_int_t
+DECL|function|ngx_http_core_postconfiguration (ngx_conf_t * cf)
+name|ngx_http_core_postconfiguration
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|)
+block|{
+name|ngx_http_top_request_body_filter
+operator|=
+name|ngx_http_request_body_save_filter
+expr_stmt|;
+return|return
+name|NGX_OK
 return|;
 block|}
 end_function

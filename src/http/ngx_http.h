@@ -319,7 +319,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c167dde0108
+DECL|struct|__anon2af325f80108
 typedef|typedef
 struct|struct
 block|{
@@ -1109,6 +1109,13 @@ begin_decl_stmt
 specifier|extern
 name|ngx_http_output_body_filter_pt
 name|ngx_http_top_body_filter
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_http_request_body_filter_pt
+name|ngx_http_top_request_body_filter
 decl_stmt|;
 end_decl_stmt
 

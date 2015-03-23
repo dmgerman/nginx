@@ -145,22 +145,6 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
-begin_function_decl
-specifier|static
-name|ngx_int_t
-name|ngx_http_request_body_save_filter
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|,
-name|ngx_chain_t
-modifier|*
-name|in
-parameter_list|)
-function_decl|;
-end_function_decl
-
 begin_function
 name|ngx_int_t
 DECL|function|ngx_http_read_client_request_body (ngx_http_request_t * r,ngx_http_client_body_handler_pt post_handler)
@@ -3598,7 +3582,7 @@ expr_stmt|;
 block|}
 name|rc
 operator|=
-name|ngx_http_request_body_save_filter
+name|ngx_http_top_request_body_filter
 argument_list|(
 name|r
 argument_list|,
@@ -4286,7 +4270,7 @@ block|}
 block|}
 name|rc
 operator|=
-name|ngx_http_request_body_save_filter
+name|ngx_http_top_request_body_filter
 argument_list|(
 name|r
 argument_list|,
@@ -4326,7 +4310,6 @@ block|}
 end_function
 
 begin_function
-specifier|static
 name|ngx_int_t
 DECL|function|ngx_http_request_body_save_filter (ngx_http_request_t * r,ngx_chain_t * in)
 name|ngx_http_request_body_save_filter
