@@ -3820,7 +3820,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"http body chunked buf "
-literal|"t:%d f:%d %p, pos %p, size: %z file: %O, size: %z"
+literal|"t:%d f:%d %p, pos %p, size: %z file: %O, size: %O"
 argument_list|,
 name|cl
 operator|->
@@ -4414,7 +4414,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"http body old buf t:%d f:%d %p, pos %p, size: %z "
-literal|"file: %O, size: %z"
+literal|"file: %O, size: %O"
 argument_list|,
 name|cl
 operator|->
@@ -4500,7 +4500,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"http body new buf t:%d f:%d %p, pos %p, size: %z "
-literal|"file: %O, size: %z"
+literal|"file: %O, size: %O"
 argument_list|,
 name|cl
 operator|->

@@ -243,7 +243,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"write old buf t:%d f:%d %p, pos %p, size: %z "
-literal|"file: %O, size: %z"
+literal|"file: %O, size: %O"
 argument_list|,
 name|cl
 operator|->
@@ -525,7 +525,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"write new buf t:%d f:%d %p, pos %p, size: %z "
-literal|"file: %O, size: %z"
+literal|"file: %O, size: %O"
 argument_list|,
 name|cl
 operator|->

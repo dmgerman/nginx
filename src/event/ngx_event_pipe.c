@@ -1550,7 +1550,7 @@ literal|0
 argument_list|,
 literal|"pipe buf busy s:%d t:%d f:%d "
 literal|"%p, pos %p, size: %z "
-literal|"file: %O, size: %z"
+literal|"file: %O, size: %O"
 argument_list|,
 operator|(
 name|cl
@@ -1649,7 +1649,7 @@ literal|0
 argument_list|,
 literal|"pipe buf out  s:%d t:%d f:%d "
 literal|"%p, pos %p, size: %z "
-literal|"file: %O, size: %z"
+literal|"file: %O, size: %O"
 argument_list|,
 operator|(
 name|cl
@@ -1748,7 +1748,7 @@ literal|0
 argument_list|,
 literal|"pipe buf in   s:%d t:%d f:%d "
 literal|"%p, pos %p, size: %z "
-literal|"file: %O, size: %z"
+literal|"file: %O, size: %O"
 argument_list|,
 operator|(
 name|cl
@@ -1847,7 +1847,7 @@ literal|0
 argument_list|,
 literal|"pipe buf free s:%d t:%d f:%d "
 literal|"%p, pos %p, size: %z "
-literal|"file: %O, size: %z"
+literal|"file: %O, size: %O"
 argument_list|,
 operator|(
 name|cl
