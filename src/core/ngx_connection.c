@@ -3762,7 +3762,6 @@ return|return
 name|NULL
 return|;
 block|}
-comment|/* ngx_mutex_lock */
 name|c
 operator|=
 name|ngx_cycle
@@ -3808,7 +3807,6 @@ operator|->
 name|connection_n
 argument_list|)
 expr_stmt|;
-comment|/* ngx_mutex_unlock */
 return|return
 name|NULL
 return|;
@@ -3826,7 +3824,6 @@ operator|->
 name|free_connection_n
 operator|--
 expr_stmt|;
-comment|/* ngx_mutex_unlock */
 if|if
 condition|(
 name|ngx_cycle
@@ -3976,7 +3973,6 @@ modifier|*
 name|c
 parameter_list|)
 block|{
-comment|/* ngx_mutex_lock */
 name|c
 operator|->
 name|data
@@ -3996,7 +3992,6 @@ operator|->
 name|free_connection_n
 operator|++
 expr_stmt|;
-comment|/* ngx_mutex_unlock */
 if|if
 condition|(
 name|ngx_cycle
