@@ -22,7 +22,7 @@ file|<ngx_thread_pool.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon275526e30108
+DECL|struct|__anon28ec8e2f0108
 typedef|typedef
 struct|struct
 block|{
@@ -37,7 +37,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275526e30208
+DECL|struct|__anon28ec8e2f0208
 typedef|typedef
 struct|struct
 block|{
@@ -95,11 +95,6 @@ DECL|member|log
 name|ngx_log_t
 modifier|*
 name|log
-decl_stmt|;
-DECL|member|pool
-name|ngx_pool_t
-modifier|*
-name|pool
 decl_stmt|;
 DECL|member|name
 name|ngx_str_t
@@ -509,12 +504,6 @@ operator|->
 name|log
 operator|=
 name|log
-expr_stmt|;
-name|tp
-operator|->
-name|pool
-operator|=
-name|pool
 expr_stmt|;
 name|err
 operator|=
