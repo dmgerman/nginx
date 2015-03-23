@@ -5517,6 +5517,26 @@ if|else if
 condition|(
 name|r
 operator|->
+name|reading_body
+condition|)
+block|{
+name|v
+operator|->
+name|not_found
+operator|=
+literal|1
+expr_stmt|;
+name|v
+operator|->
+name|no_cacheable
+operator|=
+literal|1
+expr_stmt|;
+block|}
+if|else if
+condition|(
+name|r
+operator|->
 name|headers_in
 operator|.
 name|content_length_n

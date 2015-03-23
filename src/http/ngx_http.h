@@ -319,7 +319,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2af325f80108
+DECL|struct|__anon2bd382590108
 typedef|typedef
 struct|struct
 block|{
@@ -856,6 +856,17 @@ name|r
 parameter_list|,
 name|ngx_http_client_body_handler_pt
 name|post_handler
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_http_read_unbuffered_request_body
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
 parameter_list|)
 function_decl|;
 end_function_decl
