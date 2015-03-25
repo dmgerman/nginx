@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b0b5ea70108
+DECL|struct|__anon2c886aeb0108
 typedef|typedef
 struct|struct
 block|{
@@ -85,7 +85,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon2b0b5ea7020a
+DECL|union|__anon2c886aeb020a
 union|union
 block|{
 DECL|member|complex
@@ -117,7 +117,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b0b5ea70308
+DECL|struct|__anon2c886aeb0308
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0b5ea70408
+DECL|struct|__anon2c886aeb0408
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0b5ea70508
+DECL|struct|__anon2c886aeb0508
 typedef|typedef
 struct|struct
 block|{
@@ -344,7 +344,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0b5ea70608
+DECL|struct|__anon2c886aeb0608
 typedef|typedef
 struct|struct
 block|{
@@ -7471,6 +7471,10 @@ decl_stmt|,
 modifier|*
 modifier|*
 name|ll
+decl_stmt|,
+modifier|*
+modifier|*
+name|fl
 decl_stmt|;
 name|ngx_http_proxy_ctx_t
 modifier|*
@@ -7625,6 +7629,10 @@ expr_stmt|;
 name|cl
 operator|=
 name|in
+expr_stmt|;
+name|fl
+operator|=
+name|ll
 expr_stmt|;
 for|for
 control|(
@@ -7895,9 +7903,11 @@ name|tl
 operator|->
 name|next
 operator|=
-name|out
+operator|*
+name|fl
 expr_stmt|;
-name|out
+operator|*
+name|fl
 operator|=
 name|tl
 expr_stmt|;
