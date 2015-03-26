@@ -109,13 +109,6 @@ end_decl_stmt
 begin_decl_stmt
 specifier|extern
 name|ngx_uint_t
-name|ngx_threaded
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-specifier|extern
-name|ngx_uint_t
 name|ngx_exiting
 decl_stmt|;
 end_decl_stmt

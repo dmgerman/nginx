@@ -248,13 +248,6 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_threaded
-name|ngx_uint_t
-name|ngx_threaded
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
 DECL|variable|ngx_inherited
 name|ngx_uint_t
 name|ngx_inherited
