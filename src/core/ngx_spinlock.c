@@ -136,7 +136,7 @@ directive|else
 if|#
 directive|if
 operator|(
-name|NGX_OLD_THREADS
+name|NGX_THREADS
 operator|)
 error|#
 directive|error
