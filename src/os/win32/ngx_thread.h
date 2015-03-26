@@ -75,23 +75,6 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
-begin_function_decl
-name|ngx_int_t
-name|ngx_init_threads
-parameter_list|(
-name|int
-name|n
-parameter_list|,
-name|size_t
-name|size
-parameter_list|,
-name|ngx_cycle_t
-modifier|*
-name|cycle
-parameter_list|)
-function_decl|;
-end_function_decl
-
 begin_define
 DECL|macro|ngx_log_tid
 define|#
@@ -107,13 +90,6 @@ directive|define
 name|NGX_TID_T_FMT
 value|"%ud"
 end_define
-
-begin_decl_stmt
-specifier|extern
-name|ngx_int_t
-name|ngx_threads_n
-decl_stmt|;
-end_decl_stmt
 
 begin_endif
 endif|#

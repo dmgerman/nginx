@@ -15,21 +15,6 @@ directive|include
 file|<ngx_core.h>
 end_include
 
-begin_decl_stmt
-DECL|variable|ngx_threads_n
-name|ngx_int_t
-name|ngx_threads_n
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
-DECL|variable|stack_size
-specifier|static
-name|size_t
-name|stack_size
-decl_stmt|;
-end_decl_stmt
-
 begin_function
 name|ngx_err_t
 DECL|function|ngx_create_thread (ngx_tid_t * tid,ngx_thread_value_t (__stdcall * func)(void * arg),void * arg,ngx_log_t * log)
@@ -73,7 +58,7 @@ name|CreateThread
 argument_list|(
 name|NULL
 argument_list|,
-name|stack_size
+literal|0
 argument_list|,
 name|func
 argument_list|,
@@ -128,32 +113,6 @@ argument_list|)
 expr_stmt|;
 return|return
 name|err
-return|;
-block|}
-end_function
-
-begin_function
-name|ngx_int_t
-DECL|function|ngx_init_threads (int n,size_t size,ngx_cycle_t * cycle)
-name|ngx_init_threads
-parameter_list|(
-name|int
-name|n
-parameter_list|,
-name|size_t
-name|size
-parameter_list|,
-name|ngx_cycle_t
-modifier|*
-name|cycle
-parameter_list|)
-block|{
-name|stack_size
-operator|=
-name|size
-expr_stmt|;
-return|return
-name|NGX_OK
 return|;
 block|}
 end_function
