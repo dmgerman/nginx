@@ -124,26 +124,6 @@ name|ngx_quiet_mode
 decl_stmt|;
 end_decl_stmt
 
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_OLD_THREADS
-operator|)
-end_if
-
-begin_decl_stmt
-DECL|variable|ngx_core_tls_key
-name|ngx_tls_key_t
-name|ngx_core_tls_key
-decl_stmt|;
-end_decl_stmt
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
 begin_comment
 comment|/* STUB NAME */
 end_comment

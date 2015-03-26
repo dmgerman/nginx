@@ -1205,9 +1205,6 @@ modifier|*
 name|cycle
 parameter_list|)
 block|{
-name|ngx_err_t
-name|err
-decl_stmt|;
 name|ngx_core_conf_t
 modifier|*
 name|ccf
@@ -1243,42 +1240,6 @@ operator|!=
 name|NGX_OK
 condition|)
 block|{
-comment|/* fatal */
-name|exit
-argument_list|(
-literal|2
-argument_list|)
-expr_stmt|;
-block|}
-name|err
-operator|=
-name|ngx_thread_key_create
-argument_list|(
-operator|&
-name|ngx_core_tls_key
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|err
-operator|!=
-literal|0
-condition|)
-block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_ALERT
-argument_list|,
-name|cycle
-operator|->
-name|log
-argument_list|,
-name|err
-argument_list|,
-name|ngx_thread_key_create_n
-literal|" failed"
-argument_list|)
-expr_stmt|;
 comment|/* fatal */
 name|exit
 argument_list|(

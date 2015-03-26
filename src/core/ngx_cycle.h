@@ -248,7 +248,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a335a450108
+DECL|struct|__anon28ec03e50108
 typedef|typedef
 struct|struct
 block|{
@@ -356,36 +356,6 @@ block|}
 name|ngx_core_conf_t
 typedef|;
 end_typedef
-
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_OLD_THREADS
-operator|)
-end_if
-
-begin_typedef
-DECL|struct|__anon2a335a450208
-typedef|typedef
-struct|struct
-block|{
-DECL|member|pool
-name|ngx_pool_t
-modifier|*
-name|pool
-decl_stmt|;
-comment|/* pcre's malloc() pool */
-DECL|typedef|ngx_core_tls_t
-block|}
-name|ngx_core_tls_t
-typedef|;
-end_typedef
-
-begin_endif
-endif|#
-directive|endif
-end_endif
 
 begin_define
 DECL|macro|ngx_is_init_cycle (cycle)
@@ -568,26 +538,6 @@ name|ngx_uint_t
 name|ngx_quiet_mode
 decl_stmt|;
 end_decl_stmt
-
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_OLD_THREADS
-operator|)
-end_if
-
-begin_decl_stmt
-specifier|extern
-name|ngx_tls_key_t
-name|ngx_core_tls_key
-decl_stmt|;
-end_decl_stmt
-
-begin_endif
-endif|#
-directive|endif
-end_endif
 
 begin_endif
 endif|#
