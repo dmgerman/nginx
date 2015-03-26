@@ -874,8 +874,9 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_OLD_THREADS
+name|NGX_WIN32
 operator|)
+comment|/* handle signals from master in case of network inactivity */
 if|if
 condition|(
 name|timer

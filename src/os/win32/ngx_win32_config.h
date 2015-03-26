@@ -952,14 +952,6 @@ value|1
 end_define
 
 begin_define
-DECL|macro|NGX_OLD_THREADS
-define|#
-directive|define
-name|NGX_OLD_THREADS
-value|1
-end_define
-
-begin_define
 DECL|macro|NGX_WIN_NT
 define|#
 directive|define
