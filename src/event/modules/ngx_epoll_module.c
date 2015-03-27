@@ -434,7 +434,7 @@ comment|/* NGX_TEST_BUILD_EPOLL */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2ac2588f0108
+DECL|struct|__anon2c73c6580108
 typedef|typedef
 struct|struct
 block|{
@@ -2906,6 +2906,12 @@ name|inc
 init|=
 literal|1
 decl_stmt|;
+name|notify_event
+operator|.
+name|data
+operator|=
+name|handler
+expr_stmt|;
 if|if
 condition|(
 operator|(
@@ -2949,12 +2955,6 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-name|notify_event
-operator|.
-name|data
-operator|=
-name|handler
-expr_stmt|;
 return|return
 name|NGX_OK
 return|;
