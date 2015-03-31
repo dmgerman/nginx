@@ -55,7 +55,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b535f8c0108
+DECL|struct|__anon2940c5270108
 typedef|typedef
 struct|struct
 block|{
@@ -108,7 +108,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2b535f8c0203
+DECL|enum|__anon2940c5270203
 typedef|typedef
 enum|enum
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b535f8c0308
+DECL|struct|__anon2940c5270308
 typedef|typedef
 struct|struct
 block|{
@@ -1660,6 +1660,10 @@ if|if
 condition|(
 name|value
 operator|->
+name|len
+operator|&&
+name|value
+operator|->
 name|data
 index|[
 literal|0
@@ -1709,6 +1713,10 @@ if|else if
 condition|(
 name|value
 operator|->
+name|len
+operator|&&
+name|value
+operator|->
 name|data
 index|[
 literal|0
@@ -1734,6 +1742,10 @@ expr_stmt|;
 block|}
 if|else if
 condition|(
+name|value
+operator|->
+name|len
+operator|&&
 name|value
 operator|->
 name|data

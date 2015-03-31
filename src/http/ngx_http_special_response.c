@@ -1688,6 +1688,10 @@ if|if
 condition|(
 name|uri
 operator|.
+name|len
+operator|&&
+name|uri
+operator|.
 name|data
 index|[
 literal|0
@@ -1763,6 +1767,10 @@ return|;
 block|}
 if|if
 condition|(
+name|uri
+operator|.
+name|len
+operator|&&
 name|uri
 operator|.
 name|data
