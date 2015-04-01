@@ -131,7 +131,7 @@ value|3
 end_define
 
 begin_typedef
-DECL|struct|__anon29ecac400108
+DECL|struct|__anon2b0eba6a0108
 typedef|typedef
 struct|struct
 block|{
@@ -150,7 +150,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ecac400208
+DECL|struct|__anon2b0eba6a0208
 typedef|typedef
 struct|struct
 block|{
@@ -351,6 +351,18 @@ name|ngx_http_file_cache_node_t
 modifier|*
 name|node
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_THREADS
+operator|)
+DECL|member|thread_task
+name|ngx_thread_task_t
+modifier|*
+name|thread_task
+decl_stmt|;
+endif|#
+directive|endif
 DECL|member|lock_timeout
 name|ngx_msec_t
 name|lock_timeout
@@ -424,7 +436,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29ecac400308
+DECL|struct|__anon2b0eba6a0308
 typedef|typedef
 struct|struct
 block|{
@@ -496,7 +508,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ecac400408
+DECL|struct|__anon2b0eba6a0408
 typedef|typedef
 struct|struct
 block|{
