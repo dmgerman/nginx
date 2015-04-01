@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon28b7dafc0108
+DECL|struct|__anon2b17a3d90108
 typedef|typedef
 struct|struct
 block|{
@@ -1427,6 +1427,11 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"X509_STORE_CTX_init() failed"
+argument_list|)
+expr_stmt|;
+name|X509_STORE_CTX_free
+argument_list|(
+name|store_ctx
 argument_list|)
 expr_stmt|;
 return|return
@@ -4796,6 +4801,11 @@ argument_list|,
 literal|"OCSP_request_add0_id() failed"
 argument_list|)
 expr_stmt|;
+name|OCSP_CERTID_free
+argument_list|(
+name|id
+argument_list|)
+expr_stmt|;
 goto|goto
 name|failed
 goto|;
@@ -5404,7 +5414,7 @@ name|ngx_buf_t
 modifier|*
 name|b
 decl_stmt|;
-DECL|enum|__anon28b7dafc0203
+DECL|enum|__anon2b17a3d90203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6200,7 +6210,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon28b7dafc0303
+DECL|enum|__anon2b17a3d90303
 enum|enum
 block|{
 DECL|enumerator|sw_start
