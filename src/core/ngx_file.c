@@ -1600,6 +1600,21 @@ operator|+
 literal|1
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|path
+operator|->
+name|len
+operator|>
+literal|10
+operator|+
+name|i
+condition|)
+block|{
+return|return
+literal|"invalid value"
+return|;
+block|}
 operator|*
 name|slot
 operator|=
