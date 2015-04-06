@@ -891,7 +891,7 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-name|rc
+name|n
 operator|=
 name|aio
 operator|->
@@ -902,7 +902,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|rc
+name|n
 operator|>
 literal|0
 condition|)
