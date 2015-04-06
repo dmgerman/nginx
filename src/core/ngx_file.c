@@ -1496,7 +1496,7 @@ name|NGX_OK
 condition|)
 block|{
 return|return
-name|NULL
+name|NGX_CONF_ERROR
 return|;
 block|}
 name|path
