@@ -35,9 +35,18 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29fe840b0108
+DECL|typedef|ngx_http_upstream_rr_peer_t
 typedef|typedef
+name|struct
+name|ngx_http_upstream_rr_peer_s
+name|ngx_http_upstream_rr_peer_t
+typedef|;
+end_typedef
+
+begin_struct
+DECL|struct|ngx_http_upstream_rr_peer_s
 struct|struct
+name|ngx_http_upstream_rr_peer_s
 block|{
 DECL|member|sockaddr
 name|struct
@@ -111,11 +120,14 @@ decl_stmt|;
 comment|/* local to a process */
 endif|#
 directive|endif
-DECL|typedef|ngx_http_upstream_rr_peer_t
-block|}
+DECL|member|next
 name|ngx_http_upstream_rr_peer_t
-typedef|;
-end_typedef
+modifier|*
+name|next
+decl_stmt|;
+block|}
+struct|;
+end_struct
 
 begin_typedef
 DECL|typedef|ngx_http_upstream_rr_peers_t
@@ -163,17 +175,15 @@ name|next
 decl_stmt|;
 DECL|member|peer
 name|ngx_http_upstream_rr_peer_t
+modifier|*
 name|peer
-index|[
-literal|1
-index|]
 decl_stmt|;
 block|}
 struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29fe840b0208
+DECL|struct|__anon2c91e7140108
 typedef|typedef
 struct|struct
 block|{
@@ -183,7 +193,8 @@ modifier|*
 name|peers
 decl_stmt|;
 DECL|member|current
-name|ngx_uint_t
+name|ngx_http_upstream_rr_peer_t
+modifier|*
 name|current
 decl_stmt|;
 DECL|member|tried
