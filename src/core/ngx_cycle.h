@@ -115,6 +115,11 @@ name|void
 modifier|*
 name|tag
 decl_stmt|;
+DECL|member|noreuse
+name|ngx_uint_t
+name|noreuse
+decl_stmt|;
+comment|/* unsigned  noreuse:1; */
 block|}
 struct|;
 end_struct
@@ -243,7 +248,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bc04c900108
+DECL|struct|__anon2a335a450108
 typedef|typedef
 struct|struct
 block|{
@@ -361,7 +366,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2bc04c900208
+DECL|struct|__anon2a335a450208
 typedef|typedef
 struct|struct
 block|{

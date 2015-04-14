@@ -113,11 +113,14 @@ operator|(
 name|NGX_HTTP_SSL
 operator|)
 DECL|member|ssl_session
-name|ngx_ssl_session_t
+name|void
 modifier|*
 name|ssl_session
 decl_stmt|;
-comment|/* local to a process */
+DECL|member|ssl_session_len
+name|int
+name|ssl_session_len
+decl_stmt|;
 endif|#
 directive|endif
 DECL|member|next
@@ -125,6 +128,17 @@ name|ngx_http_upstream_rr_peer_t
 modifier|*
 name|next
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_UPSTREAM_ZONE
+operator|)
+DECL|member|lock
+name|ngx_atomic_t
+name|lock
+decl_stmt|;
+endif|#
+directive|endif
 block|}
 struct|;
 end_struct
@@ -147,6 +161,22 @@ DECL|member|number
 name|ngx_uint_t
 name|number
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_UPSTREAM_ZONE
+operator|)
+DECL|member|shpool
+name|ngx_slab_pool_t
+modifier|*
+name|shpool
+decl_stmt|;
+DECL|member|rwlock
+name|ngx_atomic_t
+name|rwlock
+decl_stmt|;
+endif|#
+directive|endif
 DECL|member|total_weight
 name|ngx_uint_t
 name|total_weight
@@ -181,6 +211,83 @@ decl_stmt|;
 block|}
 struct|;
 end_struct
+
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_UPSTREAM_ZONE
+operator|)
+end_if
+
+begin_define
+DECL|macro|ngx_http_upstream_rr_peers_rlock (peers)
+define|#
+directive|define
+name|ngx_http_upstream_rr_peers_rlock
+parameter_list|(
+name|peers
+parameter_list|)
+define|\                                                                               \
+value|if (peers->shpool) {                                                      \         ngx_rwlock_rlock(&peers->rwlock);                                     \     }
+end_define
+
+begin_define
+DECL|macro|ngx_http_upstream_rr_peers_wlock (peers)
+define|#
+directive|define
+name|ngx_http_upstream_rr_peers_wlock
+parameter_list|(
+name|peers
+parameter_list|)
+define|\                                                                               \
+value|if (peers->shpool) {                                                      \         ngx_rwlock_wlock(&peers->rwlock);                                     \     }
+end_define
+
+begin_define
+DECL|macro|ngx_http_upstream_rr_peers_unlock (peers)
+define|#
+directive|define
+name|ngx_http_upstream_rr_peers_unlock
+parameter_list|(
+name|peers
+parameter_list|)
+define|\                                                                               \
+value|if (peers->shpool) {                                                      \         ngx_rwlock_unlock(&peers->rwlock);                                    \     }
+end_define
+
+begin_define
+DECL|macro|ngx_http_upstream_rr_peer_lock (peers,peer)
+define|#
+directive|define
+name|ngx_http_upstream_rr_peer_lock
+parameter_list|(
+name|peers
+parameter_list|,
+name|peer
+parameter_list|)
+define|\                                                                               \
+value|if (peers->shpool) {                                                      \         ngx_rwlock_wlock(&peer->lock);                                        \     }
+end_define
+
+begin_define
+DECL|macro|ngx_http_upstream_rr_peer_unlock (peers,peer)
+define|#
+directive|define
+name|ngx_http_upstream_rr_peer_unlock
+parameter_list|(
+name|peers
+parameter_list|,
+name|peer
+parameter_list|)
+define|\                                                                               \
+value|if (peers->shpool) {                                                      \         ngx_rwlock_unlock(&peer->lock);                                       \     }
+end_define
+
+begin_else
+else|#
+directive|else
+end_else
 
 begin_define
 DECL|macro|ngx_http_upstream_rr_peers_rlock (peers)
@@ -236,8 +343,13 @@ name|peer
 parameter_list|)
 end_define
 
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_typedef
-DECL|struct|__anon2b533f1c0108
+DECL|struct|__anon2b0825080108
 typedef|typedef
 struct|struct
 block|{

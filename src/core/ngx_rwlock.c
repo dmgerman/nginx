@@ -333,6 +333,30 @@ block|}
 block|}
 end_function
 
+begin_else
+else|#
+directive|else
+end_else
+
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_UPSTREAM_ZONE
+operator|)
+end_if
+
+begin_error
+error|#
+directive|error
+error|ngx_atomic_cmp_set() is not defined!
+end_error
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_endif
 endif|#
 directive|endif

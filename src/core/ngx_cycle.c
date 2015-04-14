@@ -2168,6 +2168,14 @@ operator|.
 name|shm
 operator|.
 name|size
+operator|&&
+operator|!
+name|shm_zone
+index|[
+name|i
+index|]
+operator|.
+name|noreuse
 condition|)
 block|{
 name|shm_zone
@@ -5973,6 +5981,12 @@ operator|->
 name|tag
 operator|=
 name|tag
+expr_stmt|;
+name|shm_zone
+operator|->
+name|noreuse
+operator|=
+literal|0
 expr_stmt|;
 return|return
 name|shm_zone
