@@ -182,8 +182,62 @@ block|}
 struct|;
 end_struct
 
+begin_define
+DECL|macro|ngx_http_upstream_rr_peers_rlock (peers)
+define|#
+directive|define
+name|ngx_http_upstream_rr_peers_rlock
+parameter_list|(
+name|peers
+parameter_list|)
+end_define
+
+begin_define
+DECL|macro|ngx_http_upstream_rr_peers_wlock (peers)
+define|#
+directive|define
+name|ngx_http_upstream_rr_peers_wlock
+parameter_list|(
+name|peers
+parameter_list|)
+end_define
+
+begin_define
+DECL|macro|ngx_http_upstream_rr_peers_unlock (peers)
+define|#
+directive|define
+name|ngx_http_upstream_rr_peers_unlock
+parameter_list|(
+name|peers
+parameter_list|)
+end_define
+
+begin_define
+DECL|macro|ngx_http_upstream_rr_peer_lock (peers,peer)
+define|#
+directive|define
+name|ngx_http_upstream_rr_peer_lock
+parameter_list|(
+name|peers
+parameter_list|,
+name|peer
+parameter_list|)
+end_define
+
+begin_define
+DECL|macro|ngx_http_upstream_rr_peer_unlock (peers,peer)
+define|#
+directive|define
+name|ngx_http_upstream_rr_peer_unlock
+parameter_list|(
+name|peers
+parameter_list|,
+name|peer
+parameter_list|)
+end_define
+
 begin_typedef
-DECL|struct|__anon2c91e7140108
+DECL|struct|__anon2b533f1c0108
 typedef|typedef
 struct|struct
 block|{

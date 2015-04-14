@@ -2464,7 +2464,11 @@ name|rrp
 operator|->
 name|peers
 expr_stmt|;
-comment|/* ngx_lock_mutex(peers->mutex); */
+name|ngx_http_upstream_rr_peers_wlock
+argument_list|(
+name|peers
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|peers
@@ -2567,7 +2571,11 @@ operator|->
 name|conns
 operator|++
 expr_stmt|;
-comment|/* ngx_unlock_mutex(peers->mutex); */
+name|ngx_http_upstream_rr_peers_unlock
+argument_list|(
+name|peers
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_OK
 return|;
@@ -2580,7 +2588,6 @@ operator|->
 name|next
 condition|)
 block|{
-comment|/* ngx_unlock_mutex(peers->mutex); */
 name|ngx_log_debug0
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
@@ -2656,6 +2663,11 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+name|ngx_http_upstream_rr_peers_unlock
+argument_list|(
+name|peers
+argument_list|)
+expr_stmt|;
 name|rc
 operator|=
 name|ngx_http_upstream_get_round_robin_peer
@@ -2676,7 +2688,11 @@ return|return
 name|rc
 return|;
 block|}
-comment|/* ngx_lock_mutex(peers->mutex); */
+name|ngx_http_upstream_rr_peers_wlock
+argument_list|(
+name|peers
+argument_list|)
+expr_stmt|;
 block|}
 comment|/* all peers failed, mark them as live for quick recovery */
 for|for
@@ -2703,7 +2719,11 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-comment|/* ngx_unlock_mutex(peers->mutex); */
+name|ngx_http_upstream_rr_peers_unlock
+argument_list|(
+name|peers
+argument_list|)
+expr_stmt|;
 name|pc
 operator|->
 name|name
@@ -3107,6 +3127,22 @@ literal|0
 expr_stmt|;
 return|return;
 block|}
+name|ngx_http_upstream_rr_peers_rlock
+argument_list|(
+name|rrp
+operator|->
+name|peers
+argument_list|)
+expr_stmt|;
+name|ngx_http_upstream_rr_peer_lock
+argument_list|(
+name|rrp
+operator|->
+name|peers
+argument_list|,
+name|peer
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|state
@@ -3119,7 +3155,6 @@ operator|=
 name|ngx_time
 argument_list|()
 expr_stmt|;
-comment|/* ngx_lock_mutex(rrp->peers->mutex); */
 name|peer
 operator|->
 name|fails
@@ -3192,7 +3227,6 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-comment|/* ngx_unlock_mutex(rrp->peers->mutex); */
 block|}
 else|else
 block|{
@@ -3221,6 +3255,22 @@ operator|->
 name|conns
 operator|--
 expr_stmt|;
+name|ngx_http_upstream_rr_peer_unlock
+argument_list|(
+name|rrp
+operator|->
+name|peers
+argument_list|,
+name|peer
+argument_list|)
+expr_stmt|;
+name|ngx_http_upstream_rr_peers_unlock
+argument_list|(
+name|rrp
+operator|->
+name|peers
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|pc
@@ -3234,7 +3284,6 @@ name|tries
 operator|--
 expr_stmt|;
 block|}
-comment|/* ngx_unlock_mutex(rrp->peers->mutex); */
 block|}
 end_function
 
@@ -3283,8 +3332,6 @@ name|rrp
 operator|->
 name|current
 expr_stmt|;
-comment|/* TODO: threads only mutex */
-comment|/* ngx_lock_mutex(rrp->peers->mutex); */
 name|ssl_session
 operator|=
 name|peer
@@ -3317,7 +3364,6 @@ argument_list|,
 name|ssl_session
 argument_list|)
 expr_stmt|;
-comment|/* ngx_unlock_mutex(rrp->peers->mutex); */
 return|return
 name|rc
 return|;
@@ -3394,8 +3440,6 @@ name|rrp
 operator|->
 name|current
 expr_stmt|;
-comment|/* TODO: threads only mutex */
-comment|/* ngx_lock_mutex(rrp->peers->mutex); */
 name|old_ssl_session
 operator|=
 name|peer
@@ -3408,7 +3452,6 @@ name|ssl_session
 operator|=
 name|ssl_session
 expr_stmt|;
-comment|/* ngx_unlock_mutex(rrp->peers->mutex); */
 if|if
 condition|(
 name|old_ssl_session

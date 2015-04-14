@@ -414,6 +414,11 @@ name|rrp
 operator|->
 name|peers
 expr_stmt|;
+name|ngx_http_upstream_rr_peers_wlock
+argument_list|(
+name|peers
+argument_list|)
+expr_stmt|;
 name|best
 operator|=
 name|NULL
@@ -925,6 +930,11 @@ index|]
 operator||=
 name|m
 expr_stmt|;
+name|ngx_http_upstream_rr_peers_unlock
+argument_list|(
+name|peers
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_OK
 return|;
@@ -1012,6 +1022,11 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+name|ngx_http_upstream_rr_peers_unlock
+argument_list|(
+name|peers
+argument_list|)
+expr_stmt|;
 name|rc
 operator|=
 name|ngx_http_upstream_get_least_conn_peer
@@ -1032,6 +1047,11 @@ return|return
 name|rc
 return|;
 block|}
+name|ngx_http_upstream_rr_peers_wlock
+argument_list|(
+name|peers
+argument_list|)
+expr_stmt|;
 block|}
 comment|/* all peers failed, mark them as live for quick recovery */
 for|for
@@ -1058,6 +1078,11 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+name|ngx_http_upstream_rr_peers_unlock
+argument_list|(
+name|peers
+argument_list|)
+expr_stmt|;
 name|pc
 operator|->
 name|name

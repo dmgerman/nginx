@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b29b2f20108
+DECL|struct|__anon29fbab660108
 typedef|typedef
 struct|struct
 block|{
@@ -570,6 +570,15 @@ name|tries
 argument_list|)
 expr_stmt|;
 comment|/* TODO: cached */
+name|ngx_http_upstream_rr_peers_wlock
+argument_list|(
+name|iphp
+operator|->
+name|rrp
+operator|.
+name|peers
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|iphp
@@ -587,6 +596,15 @@ operator|->
 name|single
 condition|)
 block|{
+name|ngx_http_upstream_rr_peers_unlock
+argument_list|(
+name|iphp
+operator|->
+name|rrp
+operator|.
+name|peers
+argument_list|)
+expr_stmt|;
 return|return
 name|iphp
 operator|->
@@ -852,7 +870,6 @@ argument_list|,
 name|m
 argument_list|)
 expr_stmt|;
-comment|/* ngx_lock_mutex(iphp->rrp.peers->mutex); */
 if|if
 condition|(
 name|peer
@@ -907,7 +924,6 @@ index|]
 operator||=
 name|m
 expr_stmt|;
-comment|/* ngx_unlock_mutex(iphp->rrp.peers->mutex); */
 name|pc
 operator|->
 name|tries
@@ -925,6 +941,15 @@ operator|>
 literal|20
 condition|)
 block|{
+name|ngx_http_upstream_rr_peers_unlock
+argument_list|(
+name|iphp
+operator|->
+name|rrp
+operator|.
+name|peers
+argument_list|)
+expr_stmt|;
 return|return
 name|iphp
 operator|->
@@ -998,7 +1023,15 @@ operator|=
 name|now
 expr_stmt|;
 block|}
-comment|/* ngx_unlock_mutex(iphp->rrp.peers->mutex); */
+name|ngx_http_upstream_rr_peers_unlock
+argument_list|(
+name|iphp
+operator|->
+name|rrp
+operator|.
+name|peers
+argument_list|)
+expr_stmt|;
 name|iphp
 operator|->
 name|rrp
