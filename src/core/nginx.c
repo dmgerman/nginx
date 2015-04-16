@@ -960,13 +960,15 @@ condition|(
 name|ngx_show_configure
 condition|)
 block|{
-name|ngx_write_stderr
-argument_list|(
 ifdef|#
 directive|ifdef
 name|NGX_COMPILER
+name|ngx_write_stderr
+argument_list|(
 literal|"built by "
 argument|NGX_COMPILER NGX_LINEFEED
+argument_list|)
+empty_stmt|;
 endif|#
 directive|endif
 if|#
@@ -974,19 +976,72 @@ directive|if
 operator|(
 name|NGX_SSL
 operator|)
+if|if
+condition|(
+name|SSLeay
+argument_list|()
+operator|==
+name|SSLEAY_VERSION_NUMBER
+condition|)
+block|{
+name|ngx_write_stderr
+argument_list|(
+literal|"built with "
+argument|OPENSSL_VERSION_TEXT                                  NGX_LINEFEED
+argument_list|)
+empty_stmt|;
+block|}
+else|else
+block|{
+name|ngx_write_stderr
+argument_list|(
+literal|"built with "
+name|OPENSSL_VERSION_TEXT
+literal|" (running with "
+argument_list|)
+expr_stmt|;
+name|ngx_write_stderr
+argument_list|(
+operator|(
+name|char
+operator|*
+operator|)
+name|SSLeay_version
+argument_list|(
+name|SSLEAY_VERSION
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|ngx_write_stderr
+argument_list|(
+literal|")"
+name|NGX_LINEFEED
+argument_list|)
+expr_stmt|;
+block|}
 ifdef|#
 directive|ifdef
 name|SSL_CTRL_SET_TLSEXT_HOSTNAME
+name|ngx_write_stderr
+argument_list|(
 literal|"TLS SNI support enabled"
-argument|NGX_LINEFEED
+name|NGX_LINEFEED
+argument_list|)
+expr_stmt|;
 else|#
 directive|else
+name|ngx_write_stderr
+argument_list|(
 literal|"TLS SNI support disabled"
-argument|NGX_LINEFEED
+name|NGX_LINEFEED
+argument_list|)
+expr_stmt|;
 endif|#
 directive|endif
 endif|#
 directive|endif
+name|ngx_write_stderr
+argument_list|(
 literal|"configure arguments:"
 argument|NGX_CONFIGURE NGX_LINEFEED
 argument_list|)
