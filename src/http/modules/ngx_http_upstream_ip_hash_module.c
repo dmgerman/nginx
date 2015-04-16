@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29fbab660108
+DECL|struct|__anon28d5e8080108
 typedef|typedef
 struct|struct
 block|{
@@ -878,7 +878,7 @@ name|down
 condition|)
 block|{
 goto|goto
-name|next_try
+name|next
 goto|;
 block|}
 if|if
@@ -907,28 +907,10 @@ name|fail_timeout
 condition|)
 block|{
 goto|goto
-name|next_try
+name|next
 goto|;
 block|}
 break|break;
-name|next_try
-label|:
-name|iphp
-operator|->
-name|rrp
-operator|.
-name|tried
-index|[
-name|n
-index|]
-operator||=
-name|m
-expr_stmt|;
-name|pc
-operator|->
-name|tries
-operator|--
-expr_stmt|;
 name|next
 label|:
 if|if
