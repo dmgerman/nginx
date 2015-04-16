@@ -16,6 +16,12 @@ directive|define
 name|_NGX_CORE_H_INCLUDED_
 end_define
 
+begin_include
+include|#
+directive|include
+file|<ngx_config.h>
+end_include
+
 begin_typedef
 DECL|typedef|ngx_module_t
 typedef|typedef
