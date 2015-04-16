@@ -1006,6 +1006,9 @@ operator|(
 name|char
 operator|*
 operator|)
+operator|(
+name|uintptr_t
+operator|)
 name|SSLeay_version
 argument_list|(
 name|SSLEAY_VERSION
