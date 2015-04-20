@@ -156,6 +156,14 @@ name|NGX_LOG_DEBUG_MYSQL
 value|0x400
 end_define
 
+begin_define
+DECL|macro|NGX_LOG_DEBUG_STREAM
+define|#
+directive|define
+name|NGX_LOG_DEBUG_STREAM
+value|0x800
+end_define
+
 begin_comment
 comment|/*  * do not forget to update debug_levels[] in src/core/ngx_log.c  * after the adding a new debug level  */
 end_comment
@@ -173,7 +181,7 @@ DECL|macro|NGX_LOG_DEBUG_LAST
 define|#
 directive|define
 name|NGX_LOG_DEBUG_LAST
-value|NGX_LOG_DEBUG_MYSQL
+value|NGX_LOG_DEBUG_STREAM
 end_define
 
 begin_define
