@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon29884db50108
+DECL|struct|__anon2966dd950108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29884db50208
+DECL|struct|__anon2966dd950208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29884db50308
+DECL|struct|__anon2966dd950308
 typedef|typedef
 struct|struct
 block|{
@@ -13440,7 +13440,7 @@ operator|->
 name|socklen
 argument_list|)
 expr_stmt|;
-comment|/* TODO: aio, iocp */
+comment|/* TODO: iocp */
 if|if
 condition|(
 name|rc

@@ -12922,7 +12922,7 @@ if|if
 condition|(
 name|ngx_event_flags
 operator|&
-name|NGX_USE_AIO_EVENT
+name|NGX_USE_IOCP_EVENT
 condition|)
 block|{
 comment|/* the posted aio operation may corrupt a shadow buffer */

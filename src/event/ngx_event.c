@@ -1256,7 +1256,7 @@ name|NGX_OK
 return|;
 block|}
 block|}
-comment|/* aio, iocp, rtsig */
+comment|/* iocp, rtsig */
 return|return
 name|NGX_OK
 return|;
@@ -1514,7 +1514,7 @@ name|NGX_OK
 return|;
 block|}
 block|}
-comment|/* aio, iocp, rtsig */
+comment|/* iocp, rtsig */
 return|return
 name|NGX_OK
 return|;

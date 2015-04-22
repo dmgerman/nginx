@@ -386,8 +386,6 @@ if|#
 directive|if
 operator|(
 name|NGX_HAVE_FILE_AIO
-operator|||
-name|NGX_HAVE_AIO
 operator|)
 end_if
 

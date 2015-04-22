@@ -1690,7 +1690,7 @@ operator|!
 operator|(
 name|ngx_event_flags
 operator|&
-name|NGX_USE_AIO_EVENT
+name|NGX_USE_IOCP_EVENT
 operator|)
 condition|)
 block|{

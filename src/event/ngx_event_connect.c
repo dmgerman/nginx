@@ -672,7 +672,7 @@ if|if
 condition|(
 name|ngx_event_flags
 operator|&
-name|NGX_USE_AIO_EVENT
+name|NGX_USE_IOCP_EVENT
 condition|)
 block|{
 name|ngx_log_debug1
@@ -690,7 +690,6 @@ argument_list|,
 name|rc
 argument_list|)
 expr_stmt|;
-comment|/* aio, iocp */
 if|if
 condition|(
 name|ngx_blocking

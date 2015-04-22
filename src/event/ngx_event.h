@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2c6119540108
+DECL|struct|__anon295a05060108
 typedef|typedef
 struct|struct
 block|{
@@ -247,26 +247,12 @@ decl_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_HAVE_AIO
-operator|)
-if|#
-directive|if
-operator|(
 name|NGX_HAVE_IOCP
 operator|)
 DECL|member|ovlp
 name|ngx_event_ovlp_t
 name|ovlp
 decl_stmt|;
-else|#
-directive|else
-DECL|member|aiocb
-name|struct
-name|aiocb
-name|aiocb
-decl_stmt|;
-endif|#
-directive|endif
 endif|#
 directive|endif
 DECL|member|index
@@ -432,7 +418,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c6119540208
+DECL|struct|__anon295a05060208
 typedef|typedef
 struct|struct
 block|{
@@ -701,7 +687,7 @@ value|0x00000080
 end_define
 
 begin_comment
-comment|/*  * No need to add or delete the event filters: overlapped, aio_read,  * aioread, io_submit.  */
+comment|/*  * Obsolete.  */
 end_comment
 
 begin_define
@@ -713,7 +699,7 @@ value|0x00000100
 end_define
 
 begin_comment
-comment|/*  * Need to add socket or handle only once: i/o completion port.  * It also requires NGX_HAVE_AIO and NGX_USE_AIO_EVENT to be set.  */
+comment|/*  * Need to add socket or handle only once: i/o completion port.  */
 end_comment
 
 begin_define
@@ -1376,7 +1362,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2c6119540308
+DECL|struct|__anon295a05060308
 typedef|typedef
 struct|struct
 block|{
@@ -1423,7 +1409,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6119540408
+DECL|struct|__anon295a05060408
 typedef|typedef
 struct|struct
 block|{

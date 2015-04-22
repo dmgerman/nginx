@@ -737,7 +737,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-comment|/* set a blocking mode for aio and non-blocking mode for others */
+comment|/* set a blocking mode for iocp and non-blocking mode for others */
 if|if
 condition|(
 name|ngx_inherited_nonblocking
@@ -747,7 +747,7 @@ if|if
 condition|(
 name|ngx_event_flags
 operator|&
-name|NGX_USE_AIO_EVENT
+name|NGX_USE_IOCP_EVENT
 condition|)
 block|{
 if|if
@@ -793,7 +793,7 @@ operator|(
 name|ngx_event_flags
 operator|&
 operator|(
-name|NGX_USE_AIO_EVENT
+name|NGX_USE_IOCP_EVENT
 operator||
 name|NGX_USE_RTSIG_EVENT
 operator|)
@@ -981,13 +981,12 @@ condition|(
 name|ngx_event_flags
 operator|&
 operator|(
-name|NGX_USE_AIO_EVENT
+name|NGX_USE_IOCP_EVENT
 operator||
 name|NGX_USE_RTSIG_EVENT
 operator|)
 condition|)
 block|{
-comment|/* rtsig, aio, iocp */
 name|rev
 operator|->
 name|ready
