@@ -38,7 +38,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277adc8c0108
+DECL|struct|__anon2999e78b0108
 typedef|typedef
 struct|struct
 block|{
@@ -3262,6 +3262,9 @@ name|ngx_buf_t
 modifier|*
 name|b
 decl_stmt|;
+name|ngx_uint_t
+name|flags
+decl_stmt|;
 name|ngx_connection_t
 modifier|*
 name|c
@@ -3686,6 +3689,18 @@ return|return
 name|NGX_DONE
 return|;
 block|}
+name|flags
+operator|=
+name|src
+operator|->
+name|read
+operator|->
+name|eof
+condition|?
+name|NGX_CLOSE_EVENT
+else|:
+literal|0
+expr_stmt|;
 if|if
 condition|(
 name|ngx_handle_read_event
@@ -3694,7 +3709,7 @@ name|src
 operator|->
 name|read
 argument_list|,
-literal|0
+name|flags
 argument_list|)
 operator|!=
 name|NGX_OK
