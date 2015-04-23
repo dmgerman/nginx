@@ -248,7 +248,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28ce62f20108
+DECL|struct|__anon2b01e6f30108
 typedef|typedef
 struct|struct
 block|{
@@ -275,10 +275,6 @@ decl_stmt|;
 DECL|member|rlimit_nofile
 name|ngx_int_t
 name|rlimit_nofile
-decl_stmt|;
-DECL|member|rlimit_sigpending
-name|ngx_int_t
-name|rlimit_sigpending
 decl_stmt|;
 DECL|member|rlimit_core
 name|off_t
