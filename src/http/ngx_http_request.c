@@ -1665,7 +1665,7 @@ operator|->
 name|ready
 condition|)
 block|{
-comment|/* the deferred accept(), rtsig, iocp */
+comment|/* the deferred accept(), iocp */
 if|if
 condition|(
 name|ngx_use_accept_mutex
@@ -8556,7 +8556,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon2b7a38570103
+DECL|enum|__anon2b787b940103
 enum|enum
 block|{
 DECL|enumerator|sw_usual

@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2966dd950108
+DECL|struct|__anon2c1d16000108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2966dd950208
+DECL|struct|__anon2c1d16000208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2966dd950308
+DECL|struct|__anon2c1d16000308
 typedef|typedef
 struct|struct
 block|{
@@ -13474,11 +13474,6 @@ name|ready
 operator|=
 literal|1
 expr_stmt|;
-if|if
-condition|(
-name|ngx_add_event
-condition|)
-block|{
 name|event
 operator|=
 operator|(
@@ -13511,25 +13506,6 @@ block|{
 goto|goto
 name|failed
 goto|;
-block|}
-block|}
-else|else
-block|{
-comment|/* rtsig */
-if|if
-condition|(
-name|ngx_add_conn
-argument_list|(
-name|c
-argument_list|)
-operator|==
-name|NGX_ERROR
-condition|)
-block|{
-goto|goto
-name|failed
-goto|;
-block|}
 block|}
 return|return
 name|NGX_OK

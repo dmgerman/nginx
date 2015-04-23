@@ -3464,21 +3464,6 @@ if|if
 condition|(
 name|ngx_event_flags
 operator|&
-name|NGX_USE_RTSIG_EVENT
-condition|)
-block|{
-name|ngx_del_conn
-argument_list|(
-name|c
-argument_list|,
-name|NGX_CLOSE_EVENT
-argument_list|)
-expr_stmt|;
-block|}
-if|else if
-condition|(
-name|ngx_event_flags
-operator|&
 name|NGX_USE_EPOLL_EVENT
 condition|)
 block|{

@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon295a05060108
+DECL|struct|__anon2b5fdff30108
 typedef|typedef
 struct|struct
 block|{
@@ -95,7 +95,7 @@ name|accept
 range|:
 literal|1
 decl_stmt|;
-comment|/* used to detect the stale events in kqueue, rtsig, and epoll */
+comment|/* used to detect the stale events in kqueue and epoll */
 DECL|member|instance
 name|unsigned
 name|instance
@@ -418,7 +418,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon295a05060208
+DECL|struct|__anon2b5fdff30208
 typedef|typedef
 struct|struct
 block|{
@@ -651,7 +651,7 @@ value|0x00000010
 end_define
 
 begin_comment
-comment|/*  * The event filter requires to do i/o operation until EAGAIN: epoll, rtsig.  */
+comment|/*  * The event filter requires to do i/o operation until EAGAIN: epoll.  */
 end_comment
 
 begin_define
@@ -675,7 +675,7 @@ value|0x00000040
 end_define
 
 begin_comment
-comment|/*  * No need to add or delete the event filters: rtsig.  */
+comment|/*  * Obsolete.  */
 end_comment
 
 begin_define
@@ -711,7 +711,7 @@ value|0x00000200
 end_define
 
 begin_comment
-comment|/*  * The event filter has no opaque data and requires file descriptors table:  * poll, /dev/poll, rtsig.  */
+comment|/*  * The event filter has no opaque data and requires file descriptors table:  * poll, /dev/poll.  */
 end_comment
 
 begin_define
@@ -759,7 +759,7 @@ value|0x00002000
 end_define
 
 begin_comment
-comment|/*  * The event filter is deleted just before the closing file.  * Has no meaning for select and poll.  * kqueue, epoll, rtsig, eventport:  allows to avoid explicit delete,  *                                   because filter automatically is deleted  *                                   on file close,  *  * /dev/poll:                        we need to flush POLLREMOVE event  *                                   before closing file.  */
+comment|/*  * The event filter is deleted just before the closing file.  * Has no meaning for select and poll.  * kqueue, epoll, eventport:         allows to avoid explicit delete,  *                                   because filter automatically is deleted  *                                   on file close,  *  * /dev/poll:                        we need to flush POLLREMOVE event  *                                   before closing file.  */
 end_comment
 
 begin_define
@@ -1362,7 +1362,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon295a05060308
+DECL|struct|__anon2b5fdff30308
 typedef|typedef
 struct|struct
 block|{
@@ -1409,7 +1409,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295a05060408
+DECL|struct|__anon2b5fdff30408
 typedef|typedef
 struct|struct
 block|{
