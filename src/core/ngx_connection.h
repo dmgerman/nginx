@@ -291,7 +291,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2a2a2ea50103
+DECL|enum|__anon2b6e0ee20103
 typedef|typedef
 enum|enum
 block|{
@@ -318,7 +318,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a2a2ea50203
+DECL|enum|__anon2b6e0ee20203
 typedef|typedef
 enum|enum
 block|{
@@ -339,7 +339,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a2a2ea50303
+DECL|enum|__anon2b6e0ee20303
 typedef|typedef
 enum|enum
 block|{
@@ -627,6 +627,20 @@ directive|endif
 block|}
 struct|;
 end_struct
+
+begin_define
+DECL|macro|ngx_set_connection_log (c,l)
+define|#
+directive|define
+name|ngx_set_connection_log
+parameter_list|(
+name|c
+parameter_list|,
+name|l
+parameter_list|)
+define|\                                                                              \
+value|c->log->file = l->file;                                                  \     c->log->next = l->next;                                                  \     c->log->writer = l->writer;                                              \     c->log->wdata = l->wdata;                                                \     if (!(c->log->log_level& NGX_LOG_DEBUG_CONNECTION)) {                   \         c->log->log_level = l->log_level;                                    \     }
+end_define
 
 begin_function_decl
 name|ngx_listening_t

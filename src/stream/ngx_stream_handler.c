@@ -504,7 +504,7 @@ argument_list|,
 name|ngx_stream_core_module
 argument_list|)
 expr_stmt|;
-name|ngx_stream_set_connection_log
+name|ngx_set_connection_log
 argument_list|(
 name|c
 argument_list|,

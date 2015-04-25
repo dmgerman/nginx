@@ -2435,7 +2435,7 @@ argument_list|,
 name|ngx_http_core_module
 argument_list|)
 expr_stmt|;
-name|ngx_http_set_connection_log
+name|ngx_set_connection_log
 argument_list|(
 name|r
 operator|->
@@ -3816,7 +3816,7 @@ argument_list|,
 name|ngx_http_core_module
 argument_list|)
 expr_stmt|;
-name|ngx_http_set_connection_log
+name|ngx_set_connection_log
 argument_list|(
 name|c
 argument_list|,
@@ -8556,7 +8556,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon2b787b940103
+DECL|enum|__anon275dae8d0103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -9124,7 +9124,7 @@ argument_list|,
 name|ngx_http_core_module
 argument_list|)
 expr_stmt|;
-name|ngx_http_set_connection_log
+name|ngx_set_connection_log
 argument_list|(
 name|r
 operator|->

@@ -69,7 +69,7 @@ file|<ngx_stream_upstream_round_robin.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b53de9a0108
+DECL|struct|__anon2b17e3640108
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b53de9a0208
+DECL|struct|__anon2b17e3640208
 typedef|typedef
 struct|struct
 block|{
@@ -186,7 +186,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b53de9a0308
+DECL|struct|__anon2b17e3640308
 typedef|typedef
 struct|struct
 block|{
@@ -218,7 +218,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b53de9a0408
+DECL|struct|__anon2b17e3640408
 typedef|typedef
 struct|struct
 block|{
@@ -245,7 +245,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2b53de9a0508
+DECL|struct|__anon2b17e3640508
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +270,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b53de9a0608
+DECL|struct|__anon2b17e3640608
 typedef|typedef
 struct|struct
 block|{
@@ -291,7 +291,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b53de9a0708
+DECL|struct|__anon2b17e3640708
 typedef|typedef
 struct|struct
 block|{
@@ -315,7 +315,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b53de9a0808
+DECL|struct|__anon2b17e3640808
 typedef|typedef
 struct|struct
 block|{
@@ -407,7 +407,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b53de9a0908
+DECL|struct|__anon2b17e3640908
 typedef|typedef
 struct|struct
 block|{
@@ -444,7 +444,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b53de9a0a08
+DECL|struct|__anon2b17e3640a08
 typedef|typedef
 struct|struct
 block|{
@@ -528,7 +528,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b53de9a0b08
+DECL|struct|__anon2b17e3640b08
 typedef|typedef
 struct|struct
 block|{
@@ -764,20 +764,6 @@ name|module
 parameter_list|)
 define|\
 value|(cycle->conf_ctx[ngx_stream_module.index] ?                                \         ((ngx_stream_conf_ctx_t *) cycle->conf_ctx[ngx_stream_module.index])   \             ->main_conf[module.ctx_index]:                                     \         NULL)
-end_define
-
-begin_define
-DECL|macro|ngx_stream_set_connection_log (c,l)
-define|#
-directive|define
-name|ngx_stream_set_connection_log
-parameter_list|(
-name|c
-parameter_list|,
-name|l
-parameter_list|)
-define|\                                                                                \
-value|c->log->file = l->file;                                                    \     c->log->next = l->next;                                                    \     c->log->writer = l->writer;                                                \     c->log->wdata = l->wdata;                                                  \     if (!(c->log->log_level& NGX_LOG_DEBUG_CONNECTION)) {                     \         c->log->log_level = l->log_level;                                      \     }
 end_define
 
 begin_function_decl

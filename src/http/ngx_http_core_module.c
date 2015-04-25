@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b9a74750108
+DECL|struct|__anon2c48e4190108
 typedef|typedef
 struct|struct
 block|{
@@ -6242,7 +6242,7 @@ operator|->
 expr|main
 condition|)
 block|{
-name|ngx_http_set_connection_log
+name|ngx_set_connection_log
 argument_list|(
 name|r
 operator|->

@@ -701,7 +701,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon298c883a0103
+DECL|enum|__anon29e0a8980103
 typedef|typedef
 enum|enum
 block|{
@@ -740,7 +740,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298c883a0208
+DECL|struct|__anon29e0a8980208
 typedef|typedef
 struct|struct
 block|{
@@ -763,7 +763,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298c883a0308
+DECL|struct|__anon29e0a8980308
 typedef|typedef
 struct|struct
 block|{
@@ -782,7 +782,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298c883a0408
+DECL|struct|__anon29e0a8980408
 typedef|typedef
 struct|struct
 block|{
@@ -1044,7 +1044,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298c883a0508
+DECL|struct|__anon29e0a8980508
 typedef|typedef
 struct|struct
 block|{
@@ -1185,7 +1185,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298c883a0608
+DECL|struct|__anon29e0a8980608
 typedef|typedef
 struct|struct
 block|{
@@ -1243,7 +1243,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298c883a0708
+DECL|struct|__anon29e0a8980708
 typedef|typedef
 struct|struct
 block|{
@@ -1401,7 +1401,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298c883a0808
+DECL|struct|__anon29e0a8980808
 typedef|typedef
 struct|struct
 block|{
@@ -2284,7 +2284,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon298c883a0908
+DECL|struct|__anon29e0a8980908
 typedef|typedef
 struct|struct
 block|{
@@ -2324,20 +2324,6 @@ name|ngx_http_headers_out
 index|[]
 decl_stmt|;
 end_decl_stmt
-
-begin_define
-DECL|macro|ngx_http_set_connection_log (c,l)
-define|#
-directive|define
-name|ngx_http_set_connection_log
-parameter_list|(
-name|c
-parameter_list|,
-name|l
-parameter_list|)
-define|\                                                                               \
-value|c->log->file = l->file;                                                   \     c->log->next = l->next;                                                   \     c->log->writer = l->writer;                                               \     c->log->wdata = l->wdata;                                                 \     if (!(c->log->log_level& NGX_LOG_DEBUG_CONNECTION)) {                    \         c->log->log_level = l->log_level;                                     \     }
-end_define
 
 begin_define
 DECL|macro|ngx_http_set_log_request (log,r)
