@@ -1888,6 +1888,8 @@ sizeof|sizeof
 argument_list|(
 literal|"nginx_shared_zone"
 argument_list|)
+operator|-
+literal|1
 expr_stmt|;
 name|shm
 operator|.
