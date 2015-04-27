@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27722ed70108
+DECL|struct|__anon28bd65e50108
 typedef|typedef
 struct|struct
 block|{
@@ -78,6 +78,21 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
+name|ngx_int_t
+name|ngx_shm_remap
+parameter_list|(
+name|ngx_shm_t
+modifier|*
+name|shm
+parameter_list|,
+name|u_char
+modifier|*
+name|addr
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
 name|void
 name|ngx_shm_free
 parameter_list|(
@@ -87,6 +102,13 @@ name|shm
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_decl_stmt
+specifier|extern
+name|ngx_uint_t
+name|ngx_allocation_granularity
+decl_stmt|;
+end_decl_stmt
 
 begin_endif
 endif|#

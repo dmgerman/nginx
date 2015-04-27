@@ -99,7 +99,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon28e2a51a0108
+DECL|struct|__anon2798eca40108
 typedef|typedef
 struct|struct
 block|{
@@ -427,6 +427,12 @@ operator|=
 name|si
 operator|.
 name|dwPageSize
+expr_stmt|;
+name|ngx_allocation_granularity
+operator|=
+name|si
+operator|.
+name|dwAllocationGranularity
 expr_stmt|;
 name|ngx_ncpu
 operator|=
