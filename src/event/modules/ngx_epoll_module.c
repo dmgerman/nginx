@@ -434,7 +434,7 @@ comment|/* NGX_TEST_BUILD_EPOLL */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2c73c6580108
+DECL|struct|__anon29b0c7120108
 typedef|typedef
 struct|struct
 block|{
@@ -1501,9 +1501,14 @@ operator|!=
 name|NGX_OK
 condition|)
 block|{
-return|return
-name|NGX_ERROR
-return|;
+name|ngx_epoll_module_ctx
+operator|.
+name|actions
+operator|.
+name|notify
+operator|=
+name|NULL
+expr_stmt|;
 block|}
 endif|#
 directive|endif
