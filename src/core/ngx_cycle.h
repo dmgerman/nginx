@@ -183,6 +183,10 @@ DECL|member|paths
 name|ngx_array_t
 name|paths
 decl_stmt|;
+DECL|member|config_dump
+name|ngx_array_t
+name|config_dump
+decl_stmt|;
 DECL|member|open_files
 name|ngx_list_t
 name|open_files
@@ -248,7 +252,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b01e6f30108
+DECL|struct|__anon2c27eaed0108
 typedef|typedef
 struct|struct
 block|{
@@ -510,6 +514,13 @@ begin_decl_stmt
 specifier|extern
 name|ngx_uint_t
 name|ngx_test_config
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_uint_t
+name|ngx_dump_config
 decl_stmt|;
 end_decl_stmt
 
