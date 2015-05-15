@@ -253,7 +253,7 @@ value|0x00000200
 end_define
 
 begin_typedef
-DECL|struct|__anon28ebe3c40108
+DECL|struct|__anon2bf03d610108
 typedef|typedef
 struct|struct
 block|{
@@ -272,6 +272,10 @@ decl_stmt|;
 DECL|member|response_time
 name|ngx_msec_t
 name|response_time
+decl_stmt|;
+DECL|member|connect_time
+name|ngx_msec_t
+name|connect_time
 decl_stmt|;
 DECL|member|header_time
 name|ngx_msec_t
@@ -293,7 +297,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ebe3c40208
+DECL|struct|__anon2bf03d610208
 typedef|typedef
 struct|struct
 block|{
@@ -362,7 +366,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ebe3c40308
+DECL|struct|__anon2bf03d610308
 typedef|typedef
 struct|struct
 block|{
@@ -386,7 +390,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ebe3c40408
+DECL|struct|__anon2bf03d610408
 typedef|typedef
 struct|struct
 block|{
@@ -549,7 +553,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28ebe3c40508
+DECL|struct|__anon2bf03d610508
 typedef|typedef
 struct|struct
 block|{
@@ -570,7 +574,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ebe3c40608
+DECL|struct|__anon2bf03d610608
 typedef|typedef
 struct|struct
 block|{
@@ -852,7 +856,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ebe3c40708
+DECL|struct|__anon2bf03d610708
 typedef|typedef
 struct|struct
 block|{
@@ -888,7 +892,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ebe3c40808
+DECL|struct|__anon2bf03d610808
 typedef|typedef
 struct|struct
 block|{
@@ -1036,7 +1040,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ebe3c40908
+DECL|struct|__anon2bf03d610908
 typedef|typedef
 struct|struct
 block|{
@@ -1449,7 +1453,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28ebe3c40a08
+DECL|struct|__anon2bf03d610a08
 typedef|typedef
 struct|struct
 block|{
@@ -1468,7 +1472,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ebe3c40b08
+DECL|struct|__anon2bf03d610b08
 typedef|typedef
 struct|struct
 block|{
