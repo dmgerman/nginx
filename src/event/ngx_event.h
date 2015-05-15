@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2b5fdff30108
+DECL|struct|__anon2abb6caf0108
 typedef|typedef
 struct|struct
 block|{
@@ -184,6 +184,31 @@ name|posted
 range|:
 literal|1
 decl_stmt|;
+DECL|member|closed
+name|unsigned
+name|closed
+range|:
+literal|1
+decl_stmt|;
+comment|/* to test on worker exit */
+DECL|member|channel
+name|unsigned
+name|channel
+range|:
+literal|1
+decl_stmt|;
+DECL|member|resolver
+name|unsigned
+name|resolver
+range|:
+literal|1
+decl_stmt|;
+DECL|member|cancelable
+name|unsigned
+name|cancelable
+range|:
+literal|1
+decl_stmt|;
 if|#
 directive|if
 operator|(
@@ -272,31 +297,6 @@ comment|/* the posted queue */
 DECL|member|queue
 name|ngx_queue_t
 name|queue
-decl_stmt|;
-DECL|member|closed
-name|unsigned
-name|closed
-range|:
-literal|1
-decl_stmt|;
-comment|/* to test on worker exit */
-DECL|member|channel
-name|unsigned
-name|channel
-range|:
-literal|1
-decl_stmt|;
-DECL|member|resolver
-name|unsigned
-name|resolver
-range|:
-literal|1
-decl_stmt|;
-DECL|member|cancelable
-name|unsigned
-name|cancelable
-range|:
-literal|1
 decl_stmt|;
 if|#
 directive|if
@@ -418,7 +418,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b5fdff30208
+DECL|struct|__anon2abb6caf0208
 typedef|typedef
 struct|struct
 block|{
@@ -1362,7 +1362,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2b5fdff30308
+DECL|struct|__anon2abb6caf0308
 typedef|typedef
 struct|struct
 block|{
@@ -1409,7 +1409,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5fdff30408
+DECL|struct|__anon2abb6caf0408
 typedef|typedef
 struct|struct
 block|{
