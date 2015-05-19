@@ -112,7 +112,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon28a183240108
+DECL|struct|__anon2badc3ef0108
 typedef|typedef
 struct|struct
 block|{
@@ -2497,7 +2497,7 @@ return|;
 block|}
 name|buf
 operator|=
-name|ngx_palloc
+name|ngx_pcalloc
 argument_list|(
 name|cf
 operator|->
