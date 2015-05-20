@@ -144,6 +144,10 @@ name|ngx_connection_t
 modifier|*
 name|connection
 decl_stmt|;
+DECL|member|worker
+name|ngx_uint_t
+name|worker
+decl_stmt|;
 DECL|member|open
 name|unsigned
 name|open
@@ -223,6 +227,25 @@ literal|1
 decl_stmt|;
 endif|#
 directive|endif
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_REUSEPORT
+operator|)
+DECL|member|reuseport
+name|unsigned
+name|reuseport
+range|:
+literal|1
+decl_stmt|;
+DECL|member|add_reuseport
+name|unsigned
+name|add_reuseport
+range|:
+literal|1
+decl_stmt|;
+endif|#
+directive|endif
 DECL|member|keepalive
 name|unsigned
 name|keepalive
@@ -291,7 +314,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2b6e0ee20103
+DECL|enum|__anon289c67c40103
 typedef|typedef
 enum|enum
 block|{
@@ -318,7 +341,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b6e0ee20203
+DECL|enum|__anon289c67c40203
 typedef|typedef
 enum|enum
 block|{
@@ -339,7 +362,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b6e0ee20303
+DECL|enum|__anon289c67c40303
 typedef|typedef
 enum|enum
 block|{
@@ -657,6 +680,21 @@ name|sockaddr
 parameter_list|,
 name|socklen_t
 name|socklen
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_clone_listening
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_listening_t
+modifier|*
+name|ls
 parameter_list|)
 function_decl|;
 end_function_decl

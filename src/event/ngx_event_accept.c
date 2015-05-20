@@ -41,6 +41,9 @@ parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
+parameter_list|,
+name|ngx_uint_t
+name|all
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -484,6 +487,8 @@ name|ngx_cycle_t
 operator|*
 operator|)
 name|ngx_cycle
+argument_list|,
+literal|1
 argument_list|)
 operator|!=
 name|NGX_OK
@@ -1630,6 +1635,8 @@ condition|(
 name|ngx_disable_accept_events
 argument_list|(
 name|cycle
+argument_list|,
+literal|0
 argument_list|)
 operator|==
 name|NGX_ERROR
@@ -1710,6 +1717,10 @@ expr_stmt|;
 if|if
 condition|(
 name|c
+operator|==
+name|NULL
+operator|||
+name|c
 operator|->
 name|read
 operator|->
@@ -1748,12 +1759,15 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_disable_accept_events (ngx_cycle_t * cycle)
+DECL|function|ngx_disable_accept_events (ngx_cycle_t * cycle,ngx_uint_t all)
 name|ngx_disable_accept_events
 parameter_list|(
 name|ngx_cycle_t
 modifier|*
 name|cycle
+parameter_list|,
+name|ngx_uint_t
+name|all
 parameter_list|)
 block|{
 name|ngx_uint_t
@@ -1804,6 +1818,10 @@ name|connection
 expr_stmt|;
 if|if
 condition|(
+name|c
+operator|==
+name|NULL
+operator|||
 operator|!
 name|c
 operator|->
@@ -1814,6 +1832,29 @@ condition|)
 block|{
 continue|continue;
 block|}
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_REUSEPORT
+operator|)
+comment|/*          * do not disable accept on worker's own sockets          * when disabling accept events due to accept mutex          */
+if|if
+condition|(
+name|ls
+index|[
+name|i
+index|]
+operator|.
+name|reuseport
+operator|&&
+operator|!
+name|all
+condition|)
+block|{
+continue|continue;
+block|}
+endif|#
+directive|endif
 if|if
 condition|(
 name|ngx_del_event
