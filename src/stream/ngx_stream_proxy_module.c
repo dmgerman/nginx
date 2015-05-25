@@ -38,7 +38,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2999e78b0108
+DECL|struct|__anon28af347f0108
 typedef|typedef
 struct|struct
 block|{
@@ -4628,8 +4628,6 @@ name|ssl_protocols
 argument_list|,
 operator|(
 name|NGX_CONF_BITMASK_SET
-operator||
-name|NGX_SSL_SSLv3
 operator||
 name|NGX_SSL_TLSv1
 operator||

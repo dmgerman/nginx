@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2adf076d0108
+DECL|struct|__anon2c6d0ecb0108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2adf076d0208
+DECL|struct|__anon2c6d0ecb0208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2adf076d0308
+DECL|struct|__anon2c6d0ecb0308
 typedef|typedef
 struct|struct
 block|{
@@ -8128,8 +8128,6 @@ name|ssl_protocols
 argument_list|,
 operator|(
 name|NGX_CONF_BITMASK_SET
-operator||
-name|NGX_SSL_SSLv3
 operator||
 name|NGX_SSL_TLSv1
 operator||

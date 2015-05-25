@@ -1108,8 +1108,6 @@ argument_list|,
 operator|(
 name|NGX_CONF_BITMASK_SET
 operator||
-name|NGX_SSL_SSLv3
-operator||
 name|NGX_SSL_TLSv1
 operator||
 name|NGX_SSL_TLSv1_1

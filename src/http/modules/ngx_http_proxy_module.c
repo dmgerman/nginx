@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c886aeb0108
+DECL|struct|__anon287bfe2a0108
 typedef|typedef
 struct|struct
 block|{
@@ -85,7 +85,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon2c886aeb020a
+DECL|union|__anon287bfe2a020a
 union|union
 block|{
 DECL|member|complex
@@ -117,7 +117,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c886aeb0308
+DECL|struct|__anon287bfe2a0308
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c886aeb0408
+DECL|struct|__anon287bfe2a0408
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c886aeb0508
+DECL|struct|__anon287bfe2a0508
 typedef|typedef
 struct|struct
 block|{
@@ -344,7 +344,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c886aeb0608
+DECL|struct|__anon287bfe2a0608
 typedef|typedef
 struct|struct
 block|{
@@ -15025,8 +15025,6 @@ name|ssl_protocols
 argument_list|,
 operator|(
 name|NGX_CONF_BITMASK_SET
-operator||
-name|NGX_SSL_SSLv3
 operator||
 name|NGX_SSL_TLSv1
 operator||
