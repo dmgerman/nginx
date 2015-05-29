@@ -477,7 +477,7 @@ directive|else
 end_else
 
 begin_comment
-comment|/* NO VARIADIC MACROS */
+comment|/* no variadic macros */
 end_comment
 
 begin_define
@@ -566,7 +566,7 @@ directive|endif
 end_endif
 
 begin_comment
-comment|/* VARIADIC MACROS */
+comment|/* variadic macros */
 end_comment
 
 begin_comment
@@ -829,7 +829,7 @@ directive|else
 end_else
 
 begin_comment
-comment|/* NO VARIADIC MACROS */
+comment|/* no variadic macros */
 end_comment
 
 begin_define
@@ -1077,7 +1077,7 @@ directive|else
 end_else
 
 begin_comment
-comment|/* NO NGX_DEBUG */
+comment|/* !NGX_DEBUG */
 end_comment
 
 begin_define
