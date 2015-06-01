@@ -374,7 +374,7 @@ name|prev
 decl_stmt|,
 name|conf_file
 decl_stmt|;
-DECL|enum|__anon29c132420103
+DECL|enum|__anon2ae746650103
 enum|enum
 block|{
 DECL|enumerator|parse_file
@@ -2575,6 +2575,8 @@ argument_list|,
 name|b
 operator|->
 name|pos
+operator|-
+literal|1
 operator|-
 name|start
 operator|+
