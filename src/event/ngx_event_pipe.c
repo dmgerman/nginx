@@ -101,11 +101,11 @@ name|ngx_int_t
 name|do_write
 parameter_list|)
 block|{
-name|u_int
-name|flags
-decl_stmt|;
 name|ngx_int_t
 name|rc
+decl_stmt|;
+name|ngx_uint_t
+name|flags
 decl_stmt|;
 name|ngx_event_t
 modifier|*
