@@ -69,7 +69,7 @@ file|<ngx_stream_upstream_round_robin.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29619e780108
+DECL|struct|__anon2acb44b80108
 typedef|typedef
 struct|struct
 block|{
@@ -92,11 +92,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29619e780208
+DECL|struct|__anon2acb44b80208
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon29619e78030a
+DECL|union|__anon2acb44b8030a
 union|union
 block|{
 DECL|member|sockaddr
@@ -244,7 +244,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29619e780408
+DECL|struct|__anon2acb44b80408
 typedef|typedef
 struct|struct
 block|{
@@ -276,7 +276,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29619e780508
+DECL|struct|__anon2acb44b80508
 typedef|typedef
 struct|struct
 block|{
@@ -303,7 +303,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon29619e780608
+DECL|struct|__anon2acb44b80608
 typedef|typedef
 struct|struct
 block|{
@@ -328,7 +328,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29619e780708
+DECL|struct|__anon2acb44b80708
 typedef|typedef
 struct|struct
 block|{
@@ -349,7 +349,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29619e780808
+DECL|struct|__anon2acb44b80808
 typedef|typedef
 struct|struct
 block|{
@@ -373,7 +373,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29619e780908
+DECL|struct|__anon2acb44b80908
 typedef|typedef
 struct|struct
 block|{
@@ -388,7 +388,23 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29619e780a08
+DECL|typedef|ngx_stream_access_pt
+typedef|typedef
+name|ngx_int_t
+function_decl|(
+modifier|*
+name|ngx_stream_access_pt
+function_decl|)
+parameter_list|(
+name|ngx_stream_session_t
+modifier|*
+name|s
+parameter_list|)
+function_decl|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2acb44b80a08
 typedef|typedef
 struct|struct
 block|{
@@ -402,6 +418,10 @@ name|ngx_array_t
 name|listen
 decl_stmt|;
 comment|/* ngx_stream_listen_t */
+DECL|member|access_handler
+name|ngx_stream_access_pt
+name|access_handler
+decl_stmt|;
 DECL|typedef|ngx_stream_core_main_conf_t
 block|}
 name|ngx_stream_core_main_conf_t
@@ -425,7 +445,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29619e780b08
+DECL|struct|__anon2acb44b80b08
 typedef|typedef
 struct|struct
 block|{
@@ -509,7 +529,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29619e780c08
+DECL|struct|__anon2acb44b80c08
 typedef|typedef
 struct|struct
 block|{
