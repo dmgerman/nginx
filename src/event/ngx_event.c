@@ -3770,9 +3770,11 @@ name|rv
 operator|!=
 name|NGX_CONF_OK
 condition|)
+block|{
 return|return
 name|rv
 return|;
+block|}
 for|for
 control|(
 name|i
