@@ -69,7 +69,7 @@ file|<ngx_stream_upstream_round_robin.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ae8f2790108
+DECL|struct|__anon2c10ffb80108
 typedef|typedef
 struct|struct
 block|{
@@ -92,11 +92,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae8f2790208
+DECL|struct|__anon2c10ffb80208
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon2ae8f279030a
+DECL|union|__anon2c10ffb8030a
 union|union
 block|{
 DECL|member|sockaddr
@@ -233,6 +233,10 @@ name|tcp_keepcnt
 decl_stmt|;
 endif|#
 directive|endif
+DECL|member|backlog
+name|int
+name|backlog
+decl_stmt|;
 DECL|typedef|ngx_stream_listen_t
 block|}
 name|ngx_stream_listen_t
@@ -240,7 +244,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae8f2790408
+DECL|struct|__anon2c10ffb80408
 typedef|typedef
 struct|struct
 block|{
@@ -272,7 +276,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae8f2790508
+DECL|struct|__anon2c10ffb80508
 typedef|typedef
 struct|struct
 block|{
@@ -299,7 +303,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2ae8f2790608
+DECL|struct|__anon2c10ffb80608
 typedef|typedef
 struct|struct
 block|{
@@ -324,7 +328,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2ae8f2790708
+DECL|struct|__anon2c10ffb80708
 typedef|typedef
 struct|struct
 block|{
@@ -345,7 +349,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae8f2790808
+DECL|struct|__anon2c10ffb80808
 typedef|typedef
 struct|struct
 block|{
@@ -369,7 +373,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae8f2790908
+DECL|struct|__anon2c10ffb80908
 typedef|typedef
 struct|struct
 block|{
@@ -384,7 +388,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae8f2790a08
+DECL|struct|__anon2c10ffb80a08
 typedef|typedef
 struct|struct
 block|{
@@ -421,7 +425,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae8f2790b08
+DECL|struct|__anon2c10ffb80b08
 typedef|typedef
 struct|struct
 block|{
@@ -505,7 +509,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2ae8f2790c08
+DECL|struct|__anon2c10ffb80c08
 typedef|typedef
 struct|struct
 block|{
