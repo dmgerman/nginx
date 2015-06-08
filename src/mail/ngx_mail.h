@@ -60,7 +60,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2ac66ce70108
+DECL|struct|__anon292246d30108
 typedef|typedef
 struct|struct
 block|{
@@ -83,17 +83,58 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac66ce70208
+DECL|struct|__anon292246d30208
 typedef|typedef
 struct|struct
 block|{
+DECL|union|__anon292246d3030a
+union|union
+block|{
 DECL|member|sockaddr
-name|u_char
+name|struct
 name|sockaddr
+name|sockaddr
+decl_stmt|;
+DECL|member|sockaddr_in
+name|struct
+name|sockaddr_in
+name|sockaddr_in
+decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_INET6
+operator|)
+DECL|member|sockaddr_in6
+name|struct
+name|sockaddr_in6
+name|sockaddr_in6
+decl_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_UNIX_DOMAIN
+operator|)
+DECL|member|sockaddr_un
+name|struct
+name|sockaddr_un
+name|sockaddr_un
+decl_stmt|;
+endif|#
+directive|endif
+DECL|member|sockaddr_data
+name|u_char
+name|sockaddr_data
 index|[
 name|NGX_SOCKADDRLEN
 index|]
 decl_stmt|;
+DECL|member|u
+block|}
+name|u
+union|;
 DECL|member|socklen
 name|socklen_t
 name|socklen
@@ -177,7 +218,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac66ce70308
+DECL|struct|__anon292246d30408
 typedef|typedef
 struct|struct
 block|{
@@ -209,7 +250,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac66ce70408
+DECL|struct|__anon292246d30508
 typedef|typedef
 struct|struct
 block|{
@@ -236,7 +277,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2ac66ce70508
+DECL|struct|__anon292246d30608
 typedef|typedef
 struct|struct
 block|{
@@ -261,7 +302,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2ac66ce70608
+DECL|struct|__anon292246d30708
 typedef|typedef
 struct|struct
 block|{
@@ -282,7 +323,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac66ce70708
+DECL|struct|__anon292246d30808
 typedef|typedef
 struct|struct
 block|{
@@ -306,91 +347,14 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac66ce70808
+DECL|struct|__anon292246d30908
 typedef|typedef
 struct|struct
 block|{
-DECL|member|sockaddr
-name|struct
-name|sockaddr
-modifier|*
-name|sockaddr
+DECL|member|opt
+name|ngx_mail_listen_t
+name|opt
 decl_stmt|;
-DECL|member|socklen
-name|socklen_t
-name|socklen
-decl_stmt|;
-DECL|member|ctx
-name|ngx_mail_conf_ctx_t
-modifier|*
-name|ctx
-decl_stmt|;
-DECL|member|bind
-name|unsigned
-name|bind
-range|:
-literal|1
-decl_stmt|;
-DECL|member|wildcard
-name|unsigned
-name|wildcard
-range|:
-literal|1
-decl_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_MAIL_SSL
-operator|)
-DECL|member|ssl
-name|unsigned
-name|ssl
-range|:
-literal|1
-decl_stmt|;
-endif|#
-directive|endif
-if|#
-directive|if
-operator|(
-name|NGX_HAVE_INET6
-operator|&&
-name|defined
-name|IPV6_V6ONLY
-operator|)
-DECL|member|ipv6only
-name|unsigned
-name|ipv6only
-range|:
-literal|1
-decl_stmt|;
-endif|#
-directive|endif
-DECL|member|so_keepalive
-name|unsigned
-name|so_keepalive
-range|:
-literal|2
-decl_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_HAVE_KEEPALIVE_TUNABLE
-operator|)
-DECL|member|tcp_keepidle
-name|int
-name|tcp_keepidle
-decl_stmt|;
-DECL|member|tcp_keepintvl
-name|int
-name|tcp_keepintvl
-decl_stmt|;
-DECL|member|tcp_keepcnt
-name|int
-name|tcp_keepcnt
-decl_stmt|;
-endif|#
-directive|endif
 DECL|typedef|ngx_mail_conf_addr_t
 block|}
 name|ngx_mail_conf_addr_t
@@ -398,7 +362,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac66ce70908
+DECL|struct|__anon292246d30a08
 typedef|typedef
 struct|struct
 block|{
@@ -452,7 +416,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac66ce70a08
+DECL|struct|__anon292246d30b08
 typedef|typedef
 struct|struct
 block|{
@@ -505,7 +469,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2ac66ce70b03
+DECL|enum|__anon292246d30c03
 typedef|typedef
 enum|enum
 block|{
@@ -538,7 +502,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2ac66ce70c03
+DECL|enum|__anon292246d30d03
 typedef|typedef
 enum|enum
 block|{
@@ -574,7 +538,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2ac66ce70d03
+DECL|enum|__anon292246d30e03
 typedef|typedef
 enum|enum
 block|{
@@ -625,7 +589,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac66ce70e08
+DECL|struct|__anon292246d30f08
 typedef|typedef
 struct|struct
 block|{
@@ -645,7 +609,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac66ce70f08
+DECL|struct|__anon292246d31008
 typedef|typedef
 struct|struct
 block|{
@@ -852,7 +816,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ac66ce71008
+DECL|struct|__anon292246d31108
 typedef|typedef
 struct|struct
 block|{
@@ -1369,7 +1333,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2ac66ce71108
+DECL|struct|__anon292246d31208
 typedef|typedef
 struct|struct
 block|{
