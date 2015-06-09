@@ -38,7 +38,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28af347f0108
+DECL|struct|__anon27e77cd30108
 typedef|typedef
 struct|struct
 block|{
@@ -1060,6 +1060,9 @@ name|ngx_stream_module_t
 name|ngx_stream_proxy_module_ctx
 init|=
 block|{
+name|NULL
+block|,
+comment|/* postconfiguration */
 name|NULL
 block|,
 comment|/* create main configuration */

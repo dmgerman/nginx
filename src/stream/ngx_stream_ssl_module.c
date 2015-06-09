@@ -526,6 +526,9 @@ init|=
 block|{
 name|NULL
 block|,
+comment|/* postconfiguration */
+name|NULL
+block|,
 comment|/* create main configuration */
 name|NULL
 block|,

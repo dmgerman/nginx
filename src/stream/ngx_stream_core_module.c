@@ -212,6 +212,9 @@ name|ngx_stream_module_t
 name|ngx_stream_core_module_ctx
 init|=
 block|{
+name|NULL
+block|,
+comment|/* postconfiguration */
 name|ngx_stream_core_create_main_conf
 block|,
 comment|/* create main configuration */

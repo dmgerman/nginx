@@ -69,7 +69,7 @@ file|<ngx_stream_upstream_round_robin.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c10ffb80108
+DECL|struct|__anon29619e780108
 typedef|typedef
 struct|struct
 block|{
@@ -92,11 +92,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c10ffb80208
+DECL|struct|__anon29619e780208
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon2c10ffb8030a
+DECL|union|__anon29619e78030a
 union|union
 block|{
 DECL|member|sockaddr
@@ -244,7 +244,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c10ffb80408
+DECL|struct|__anon29619e780408
 typedef|typedef
 struct|struct
 block|{
@@ -276,7 +276,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c10ffb80508
+DECL|struct|__anon29619e780508
 typedef|typedef
 struct|struct
 block|{
@@ -303,7 +303,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2c10ffb80608
+DECL|struct|__anon29619e780608
 typedef|typedef
 struct|struct
 block|{
@@ -328,7 +328,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c10ffb80708
+DECL|struct|__anon29619e780708
 typedef|typedef
 struct|struct
 block|{
@@ -349,7 +349,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c10ffb80808
+DECL|struct|__anon29619e780808
 typedef|typedef
 struct|struct
 block|{
@@ -373,7 +373,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c10ffb80908
+DECL|struct|__anon29619e780908
 typedef|typedef
 struct|struct
 block|{
@@ -388,7 +388,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c10ffb80a08
+DECL|struct|__anon29619e780a08
 typedef|typedef
 struct|struct
 block|{
@@ -425,7 +425,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c10ffb80b08
+DECL|struct|__anon29619e780b08
 typedef|typedef
 struct|struct
 block|{
@@ -509,10 +509,22 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c10ffb80c08
+DECL|struct|__anon29619e780c08
 typedef|typedef
 struct|struct
 block|{
+DECL|member|postconfiguration
+name|ngx_int_t
+function_decl|(
+modifier|*
+name|postconfiguration
+function_decl|)
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|)
+function_decl|;
 DECL|member|create_main_conf
 name|void
 modifier|*
