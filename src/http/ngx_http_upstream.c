@@ -16456,7 +16456,7 @@ condition|)
 block|{
 name|lm
 operator|=
-name|ngx_http_parse_time
+name|ngx_parse_http_time
 argument_list|(
 name|u
 operator|->
@@ -18132,7 +18132,7 @@ name|headers_in
 operator|.
 name|last_modified_time
 operator|=
-name|ngx_http_parse_time
+name|ngx_parse_http_time
 argument_list|(
 name|h
 operator|->
@@ -18824,7 +18824,7 @@ return|;
 block|}
 name|expires
 operator|=
-name|ngx_http_parse_time
+name|ngx_parse_http_time
 argument_list|(
 name|h
 operator|->

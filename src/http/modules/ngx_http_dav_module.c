@@ -54,7 +54,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon299b03bb0108
+DECL|struct|__anon2acc13d90108
 typedef|typedef
 struct|struct
 block|{
@@ -81,7 +81,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299b03bb0208
+DECL|struct|__anon2acc13d90208
 typedef|typedef
 struct|struct
 block|{
@@ -1138,7 +1138,7 @@ condition|)
 block|{
 name|date
 operator|=
-name|ngx_http_parse_time
+name|ngx_parse_http_time
 argument_list|(
 name|r
 operator|->

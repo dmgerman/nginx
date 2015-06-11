@@ -319,7 +319,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29434b520108
+DECL|struct|__anon29aa91b70108
 typedef|typedef
 struct|struct
 block|{
@@ -921,20 +921,6 @@ parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-name|time_t
-name|ngx_http_parse_time
-parameter_list|(
-name|u_char
-modifier|*
-name|value
-parameter_list|,
-name|size_t
-name|len
 parameter_list|)
 function_decl|;
 end_function_decl

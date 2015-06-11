@@ -55,7 +55,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2940c5270108
+DECL|struct|__anon2aba5a240108
 typedef|typedef
 struct|struct
 block|{
@@ -108,7 +108,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2940c5270203
+DECL|enum|__anon2aba5a240203
 typedef|typedef
 enum|enum
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2940c5270308
+DECL|struct|__anon2aba5a240308
 typedef|typedef
 struct|struct
 block|{
@@ -2152,7 +2152,7 @@ operator|->
 name|len
 operator|)
 condition|?
-name|ngx_http_parse_time
+name|ngx_parse_http_time
 argument_list|(
 name|value
 operator|->

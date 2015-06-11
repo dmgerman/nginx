@@ -445,7 +445,7 @@ return|;
 block|}
 name|iums
 operator|=
-name|ngx_http_parse_time
+name|ngx_parse_http_time
 argument_list|(
 name|r
 operator|->
@@ -573,7 +573,7 @@ return|;
 block|}
 name|ims
 operator|=
-name|ngx_http_parse_time
+name|ngx_parse_http_time
 argument_list|(
 name|r
 operator|->

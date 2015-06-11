@@ -15,12 +15,6 @@ directive|include
 file|<ngx_core.h>
 end_include
 
-begin_include
-include|#
-directive|include
-file|<ngx_http.h>
-end_include
-
 begin_decl_stmt
 DECL|variable|mday
 specifier|static
@@ -58,8 +52,8 @@ end_decl_stmt
 
 begin_function
 name|time_t
-DECL|function|ngx_http_parse_time (u_char * value,size_t len)
-name|ngx_http_parse_time
+DECL|function|ngx_parse_http_time (u_char * value,size_t len)
+name|ngx_parse_http_time
 parameter_list|(
 name|u_char
 modifier|*
@@ -93,7 +87,7 @@ decl_stmt|;
 name|uint64_t
 name|time
 decl_stmt|;
-DECL|enum|__anon296762b20103
+DECL|enum|__anon276779ab0103
 enum|enum
 block|{
 DECL|enumerator|no

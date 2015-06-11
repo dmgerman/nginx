@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon291b2e800108
+DECL|struct|__anon2bba8d7f0108
 typedef|typedef
 struct|struct
 block|{
@@ -9471,7 +9471,7 @@ return|;
 block|}
 name|expires
 operator|=
-name|ngx_http_parse_time
+name|ngx_parse_http_time
 argument_list|(
 name|e
 operator|->
@@ -9512,7 +9512,7 @@ condition|)
 block|{
 name|date
 operator|=
-name|ngx_http_parse_time
+name|ngx_parse_http_time
 argument_list|(
 name|d
 operator|->
