@@ -175,6 +175,11 @@ DECL|member|rwlock
 name|ngx_atomic_t
 name|rwlock
 decl_stmt|;
+DECL|member|zone_next
+name|ngx_http_upstream_rr_peers_t
+modifier|*
+name|zone_next
+decl_stmt|;
 endif|#
 directive|endif
 DECL|member|total_weight
@@ -349,7 +354,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b0825080108
+DECL|struct|__anon2b0d8b880108
 typedef|typedef
 struct|struct
 block|{
