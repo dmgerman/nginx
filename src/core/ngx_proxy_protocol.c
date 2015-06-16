@@ -18,8 +18,8 @@ end_include
 begin_function
 name|u_char
 modifier|*
-DECL|function|ngx_proxy_protocol_parse (ngx_connection_t * c,u_char * buf,u_char * last)
-name|ngx_proxy_protocol_parse
+DECL|function|ngx_proxy_protocol_read (ngx_connection_t * c,u_char * buf,u_char * last)
+name|ngx_proxy_protocol_read
 parameter_list|(
 name|ngx_connection_t
 modifier|*

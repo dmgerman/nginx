@@ -417,7 +417,7 @@ value|NGX_SPDY_MAX_WINDOW
 end_define
 
 begin_typedef
-DECL|struct|__anon2c7803dd0108
+DECL|struct|__anon28b959440108
 typedef|typedef
 struct|struct
 block|{
@@ -6366,7 +6366,7 @@ literal|"reading PROXY protocol"
 expr_stmt|;
 name|pos
 operator|=
-name|ngx_proxy_protocol_parse
+name|ngx_proxy_protocol_read
 argument_list|(
 name|sc
 operator|->
@@ -13087,7 +13087,7 @@ name|ngx_http_core_srv_conf_t
 modifier|*
 name|cscf
 decl_stmt|;
-DECL|enum|__anon2c7803dd0203
+DECL|enum|__anon28b959440203
 enum|enum
 block|{
 DECL|enumerator|sw_name_len
@@ -14295,7 +14295,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2c7803dd0308
+DECL|struct|__anon28b959440308
 specifier|static
 specifier|const
 struct|struct

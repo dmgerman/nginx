@@ -39,7 +39,7 @@ end_define
 begin_function_decl
 name|u_char
 modifier|*
-name|ngx_proxy_protocol_parse
+name|ngx_proxy_protocol_read
 parameter_list|(
 name|ngx_connection_t
 modifier|*

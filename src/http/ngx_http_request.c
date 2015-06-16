@@ -2116,7 +2116,7 @@ literal|0
 expr_stmt|;
 name|p
 operator|=
-name|ngx_proxy_protocol_parse
+name|ngx_proxy_protocol_read
 argument_list|(
 name|c
 argument_list|,
@@ -3051,7 +3051,7 @@ literal|0
 expr_stmt|;
 name|p
 operator|=
-name|ngx_proxy_protocol_parse
+name|ngx_proxy_protocol_read
 argument_list|(
 name|c
 argument_list|,
@@ -8556,7 +8556,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon275dae8d0103
+DECL|enum|__anon27caeaa50103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
