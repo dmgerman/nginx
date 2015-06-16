@@ -1457,6 +1457,36 @@ expr_stmt|;
 block|}
 end_function
 
+begin_function
+specifier|static
+name|ngx_inline
+name|void
+DECL|function|ngx_write_stdout (char * text)
+name|ngx_write_stdout
+parameter_list|(
+name|char
+modifier|*
+name|text
+parameter_list|)
+block|{
+operator|(
+name|void
+operator|)
+name|ngx_write_fd
+argument_list|(
+name|ngx_stdout
+argument_list|,
+name|text
+argument_list|,
+name|ngx_strlen
+argument_list|(
+name|text
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+
 begin_decl_stmt
 specifier|extern
 name|ngx_module_t

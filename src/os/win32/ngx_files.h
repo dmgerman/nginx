@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28801c090108
+DECL|struct|__anon2a1880be0108
 typedef|typedef
 struct|struct
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28801c090208
+DECL|struct|__anon2a1880be0208
 typedef|typedef
 struct|struct
 block|{
@@ -128,7 +128,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28801c090308
+DECL|struct|__anon2a1880be0308
 typedef|typedef
 struct|struct
 block|{
@@ -1301,6 +1301,14 @@ name|name
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_define
+DECL|macro|ngx_stdout
+define|#
+directive|define
+name|ngx_stdout
+value|GetStdHandle(STD_OUTPUT_HANDLE)
+end_define
 
 begin_define
 DECL|macro|ngx_stderr

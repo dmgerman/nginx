@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276ee5cb0108
+DECL|struct|__anon277b5fc70108
 typedef|typedef
 struct|struct
 block|{
@@ -88,7 +88,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276ee5cb0208
+DECL|struct|__anon277b5fc70208
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276ee5cb0308
+DECL|struct|__anon277b5fc70308
 typedef|typedef
 struct|struct
 block|{
@@ -1854,6 +1854,14 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_define
+DECL|macro|ngx_stdout
+define|#
+directive|define
+name|ngx_stdout
+value|STDOUT_FILENO
+end_define
 
 begin_define
 DECL|macro|ngx_stderr
