@@ -677,6 +677,21 @@ name|ngx_http_core_main_conf_t
 modifier|*
 name|cmcf
 decl_stmt|;
+if|if
+condition|(
+operator|*
+operator|(
+name|ngx_http_conf_ctx_t
+operator|*
+operator|*
+operator|)
+name|conf
+condition|)
+block|{
+return|return
+literal|"is duplicate"
+return|;
+block|}
 comment|/* the main http context */
 name|ctx
 operator|=

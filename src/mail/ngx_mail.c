@@ -320,6 +320,21 @@ name|ngx_mail_core_main_conf_t
 modifier|*
 name|cmcf
 decl_stmt|;
+if|if
+condition|(
+operator|*
+operator|(
+name|ngx_mail_conf_ctx_t
+operator|*
+operator|*
+operator|)
+name|conf
+condition|)
+block|{
+return|return
+literal|"is duplicate"
+return|;
+block|}
 comment|/* the main mail context */
 name|ctx
 operator|=

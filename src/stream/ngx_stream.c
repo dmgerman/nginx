@@ -320,6 +320,21 @@ name|ngx_stream_core_main_conf_t
 modifier|*
 name|cmcf
 decl_stmt|;
+if|if
+condition|(
+operator|*
+operator|(
+name|ngx_stream_conf_ctx_t
+operator|*
+operator|*
+operator|)
+name|conf
+condition|)
+block|{
+return|return
+literal|"is duplicate"
+return|;
+block|}
 comment|/* the main stream context */
 name|ctx
 operator|=
