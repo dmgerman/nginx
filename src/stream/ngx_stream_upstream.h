@@ -89,7 +89,7 @@ value|0x0020
 end_define
 
 begin_typedef
-DECL|struct|__anon2b27ba480108
+DECL|struct|__anon280272e70108
 typedef|typedef
 struct|struct
 block|{
@@ -154,7 +154,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b27ba480208
+DECL|struct|__anon280272e70208
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b27ba480308
+DECL|struct|__anon280272e70308
 typedef|typedef
 struct|struct
 block|{
@@ -289,7 +289,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b27ba480408
+DECL|struct|__anon280272e70408
 typedef|typedef
 struct|struct
 block|{
@@ -320,6 +320,11 @@ name|ssl_name
 decl_stmt|;
 endif|#
 directive|endif
+DECL|member|proxy_protocol
+name|ngx_uint_t
+name|proxy_protocol
+decl_stmt|;
+comment|/* unsigned  proxy_protocol:1; */
 DECL|typedef|ngx_stream_upstream_t
 block|}
 name|ngx_stream_upstream_t

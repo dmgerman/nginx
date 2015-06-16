@@ -56,6 +56,26 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_function_decl
+name|u_char
+modifier|*
+name|ngx_proxy_protocol_write
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|,
+name|u_char
+modifier|*
+name|buf
+parameter_list|,
+name|u_char
+modifier|*
+name|last
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_endif
 endif|#
 directive|endif
