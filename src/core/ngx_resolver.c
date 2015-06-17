@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2c1d16000108
+DECL|struct|__anon299223740108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1d16000208
+DECL|struct|__anon299223740208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1d16000308
+DECL|struct|__anon299223740308
 typedef|typedef
 struct|struct
 block|{
@@ -320,6 +320,18 @@ parameter_list|,
 name|ngx_queue_t
 modifier|*
 name|queue
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
+name|ngx_uint_t
+name|ngx_resolver_resend_empty
+parameter_list|(
+name|ngx_resolver_t
+modifier|*
+name|r
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -2318,6 +2330,28 @@ name|ctx
 argument_list|)
 expr_stmt|;
 comment|/* unlock alloc mutex */
+if|if
+condition|(
+name|r
+operator|->
+name|event
+operator|->
+name|timer_set
+operator|&&
+name|ngx_resolver_resend_empty
+argument_list|(
+name|r
+argument_list|)
+condition|)
+block|{
+name|ngx_del_timer
+argument_list|(
+name|r
+operator|->
+name|event
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_function
 
@@ -4718,6 +4752,28 @@ name|ctx
 argument_list|)
 expr_stmt|;
 comment|/* unlock alloc mutex */
+if|if
+condition|(
+name|r
+operator|->
+name|event
+operator|->
+name|timer_set
+operator|&&
+name|ngx_resolver_resend_empty
+argument_list|(
+name|r
+argument_list|)
+condition|)
+block|{
+name|ngx_del_timer
+argument_list|(
+name|r
+operator|->
+name|event
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_function
 
@@ -5570,6 +5626,52 @@ name|rn
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+end_function
+
+begin_function
+specifier|static
+name|ngx_uint_t
+DECL|function|ngx_resolver_resend_empty (ngx_resolver_t * r)
+name|ngx_resolver_resend_empty
+parameter_list|(
+name|ngx_resolver_t
+modifier|*
+name|r
+parameter_list|)
+block|{
+return|return
+name|ngx_queue_empty
+argument_list|(
+operator|&
+name|r
+operator|->
+name|name_resend_queue
+argument_list|)
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_INET6
+operator|)
+operator|&&
+name|ngx_queue_empty
+argument_list|(
+operator|&
+name|r
+operator|->
+name|addr6_resend_queue
+argument_list|)
+endif|#
+directive|endif
+operator|&&
+name|ngx_queue_empty
+argument_list|(
+operator|&
+name|r
+operator|->
+name|addr_resend_queue
+argument_list|)
+return|;
 block|}
 end_function
 
