@@ -89,7 +89,7 @@ value|0x0020
 end_define
 
 begin_typedef
-DECL|struct|__anon280272e70108
+DECL|struct|__anon27cb00bf0108
 typedef|typedef
 struct|struct
 block|{
@@ -154,7 +154,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon280272e70208
+DECL|struct|__anon27cb00bf0208
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon280272e70308
+DECL|struct|__anon27cb00bf0308
 typedef|typedef
 struct|struct
 block|{
@@ -289,7 +289,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon280272e70408
+DECL|struct|__anon27cb00bf0408
 typedef|typedef
 struct|struct
 block|{
@@ -308,6 +308,10 @@ decl_stmt|;
 DECL|member|received
 name|off_t
 name|received
+decl_stmt|;
+DECL|member|start_sec
+name|time_t
+name|start_sec
 decl_stmt|;
 if|#
 directive|if
