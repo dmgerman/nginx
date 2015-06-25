@@ -38,7 +38,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b4c4580108
+DECL|struct|__anon2a283dde0108
 typedef|typedef
 struct|struct
 block|{
@@ -2212,6 +2212,12 @@ name|last
 operator|=
 name|p
 expr_stmt|;
+name|u
+operator|->
+name|connected
+operator|=
+literal|1
+expr_stmt|;
 name|pc
 operator|->
 name|read
@@ -3508,9 +3514,7 @@ if|if
 condition|(
 name|u
 operator|->
-name|upstream_buf
-operator|.
-name|start
+name|connected
 condition|)
 block|{
 name|pc
@@ -3630,13 +3634,10 @@ if|if
 condition|(
 name|from_upstream
 operator|&&
+operator|!
 name|u
 operator|->
-name|upstream_buf
-operator|.
-name|start
-operator|==
-name|NULL
+name|connected
 condition|)
 block|{
 return|return;
@@ -3986,9 +3987,7 @@ name|pc
 operator|=
 name|u
 operator|->
-name|upstream_buf
-operator|.
-name|start
+name|connected
 condition|?
 name|u
 operator|->
