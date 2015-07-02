@@ -38,7 +38,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb81a550108
+DECL|struct|__anon2af954db0108
 typedef|typedef
 struct|struct
 block|{
@@ -4280,11 +4280,11 @@ break|break;
 block|}
 if|if
 condition|(
+operator|(
+name|off_t
+operator|)
 name|size
 operator|>
-operator|(
-name|size_t
-operator|)
 name|limit
 condition|)
 block|{
