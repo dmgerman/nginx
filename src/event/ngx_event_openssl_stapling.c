@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon289170460108
+DECL|struct|__anon27693c130108
 typedef|typedef
 struct|struct
 block|{
@@ -1134,6 +1134,12 @@ operator|.
 name|len
 operator|=
 name|len
+expr_stmt|;
+name|staple
+operator|->
+name|valid
+operator|=
+name|NGX_MAX_TIME_T_VALUE
 expr_stmt|;
 return|return
 name|NGX_OK
@@ -5605,7 +5611,7 @@ name|ngx_buf_t
 modifier|*
 name|b
 decl_stmt|;
-DECL|enum|__anon289170460203
+DECL|enum|__anon27693c130203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6401,7 +6407,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon289170460303
+DECL|enum|__anon27693c130303
 enum|enum
 block|{
 DECL|enumerator|sw_start
