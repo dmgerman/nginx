@@ -23,6 +23,14 @@ end_include
 
 begin_function_decl
 specifier|static
+name|void
+name|ngx_show_version_info
+parameter_list|()
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
 name|ngx_int_t
 name|ngx_add_inherited_sockets
 parameter_list|(
@@ -823,158 +831,9 @@ condition|(
 name|ngx_show_version
 condition|)
 block|{
-name|ngx_write_stderr
-argument_list|(
-literal|"nginx version: "
-argument|NGINX_VER_BUILD NGX_LINEFEED
-argument_list|)
-empty_stmt|;
-if|if
-condition|(
-name|ngx_show_help
-condition|)
-block|{
-name|ngx_write_stderr
-argument_list|(
-literal|"Usage: nginx [-?hvVtTq] [-s signal] [-c filename] "
-literal|"[-p prefix] [-g directives]"
-argument|NGX_LINEFEED                              NGX_LINEFEED
-literal|"Options:"
-argument|NGX_LINEFEED
-literal|"  -?,-h         : this help"
-argument|NGX_LINEFEED
-literal|"  -v            : show version and exit"
-argument|NGX_LINEFEED
-literal|"  -V            : show version and configure options then exit"
-argument|NGX_LINEFEED
-literal|"  -t            : test configuration and exit"
-argument|NGX_LINEFEED
-literal|"  -T            : test configuration, dump it and exit"
-argument|NGX_LINEFEED
-literal|"  -q            : suppress non-error messages "
-literal|"during configuration testing"
-argument|NGX_LINEFEED
-literal|"  -s signal     : send signal to a master process: "
-literal|"stop, quit, reopen, reload"
-argument|NGX_LINEFEED
-ifdef|#
-directive|ifdef
-name|NGX_PREFIX
-literal|"  -p prefix     : set prefix path (default: "
-argument|NGX_PREFIX
-literal|")"
-argument|NGX_LINEFEED
-else|#
-directive|else
-literal|"  -p prefix     : set prefix path (default: NONE)"
-argument|NGX_LINEFEED
-endif|#
-directive|endif
-literal|"  -c filename   : set configuration file (default: "
-argument|NGX_CONF_PATH
-literal|")"
-argument|NGX_LINEFEED
-literal|"  -g directives : set global directives out of configuration "
-literal|"file"
-argument|NGX_LINEFEED NGX_LINEFEED
-argument_list|)
-empty_stmt|;
-block|}
-if|if
-condition|(
-name|ngx_show_configure
-condition|)
-block|{
-ifdef|#
-directive|ifdef
-name|NGX_COMPILER
-name|ngx_write_stderr
-argument_list|(
-literal|"built by "
-argument|NGX_COMPILER NGX_LINEFEED
-argument_list|)
-empty_stmt|;
-endif|#
-directive|endif
-if|#
-directive|if
-operator|(
-name|NGX_SSL
-operator|)
-if|if
-condition|(
-name|SSLeay
+name|ngx_show_version_info
 argument_list|()
-operator|==
-name|SSLEAY_VERSION_NUMBER
-condition|)
-block|{
-name|ngx_write_stderr
-argument_list|(
-literal|"built with "
-argument|OPENSSL_VERSION_TEXT                                  NGX_LINEFEED
-argument_list|)
-empty_stmt|;
-block|}
-else|else
-block|{
-name|ngx_write_stderr
-argument_list|(
-literal|"built with "
-name|OPENSSL_VERSION_TEXT
-literal|" (running with "
-argument_list|)
 expr_stmt|;
-name|ngx_write_stderr
-argument_list|(
-operator|(
-name|char
-operator|*
-operator|)
-operator|(
-name|uintptr_t
-operator|)
-name|SSLeay_version
-argument_list|(
-name|SSLEAY_VERSION
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|ngx_write_stderr
-argument_list|(
-literal|")"
-name|NGX_LINEFEED
-argument_list|)
-expr_stmt|;
-block|}
-ifdef|#
-directive|ifdef
-name|SSL_CTRL_SET_TLSEXT_HOSTNAME
-name|ngx_write_stderr
-argument_list|(
-literal|"TLS SNI support enabled"
-name|NGX_LINEFEED
-argument_list|)
-expr_stmt|;
-else|#
-directive|else
-name|ngx_write_stderr
-argument_list|(
-literal|"TLS SNI support disabled"
-name|NGX_LINEFEED
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-endif|#
-directive|endif
-name|ngx_write_stderr
-argument_list|(
-literal|"configure arguments:"
-argument|NGX_CONFIGURE NGX_LINEFEED
-argument_list|)
-empty_stmt|;
-block|}
 if|if
 condition|(
 operator|!
@@ -1590,6 +1449,168 @@ block|}
 return|return
 literal|0
 return|;
+block|}
+end_function
+
+begin_function
+specifier|static
+name|void
+DECL|function|ngx_show_version_info ()
+name|ngx_show_version_info
+parameter_list|()
+block|{
+name|ngx_write_stderr
+argument_list|(
+literal|"nginx version: "
+argument|NGINX_VER_BUILD NGX_LINEFEED
+argument_list|)
+empty_stmt|;
+if|if
+condition|(
+name|ngx_show_help
+condition|)
+block|{
+name|ngx_write_stderr
+argument_list|(
+literal|"Usage: nginx [-?hvVtTq] [-s signal] [-c filename] "
+literal|"[-p prefix] [-g directives]"
+argument|NGX_LINEFEED                          NGX_LINEFEED
+literal|"Options:"
+argument|NGX_LINEFEED
+literal|"  -?,-h         : this help"
+argument|NGX_LINEFEED
+literal|"  -v            : show version and exit"
+argument|NGX_LINEFEED
+literal|"  -V            : show version and configure options then exit"
+argument|NGX_LINEFEED
+literal|"  -t            : test configuration and exit"
+argument|NGX_LINEFEED
+literal|"  -T            : test configuration, dump it and exit"
+argument|NGX_LINEFEED
+literal|"  -q            : suppress non-error messages "
+literal|"during configuration testing"
+argument|NGX_LINEFEED
+literal|"  -s signal     : send signal to a master process: "
+literal|"stop, quit, reopen, reload"
+argument|NGX_LINEFEED
+ifdef|#
+directive|ifdef
+name|NGX_PREFIX
+literal|"  -p prefix     : set prefix path (default: "
+argument|NGX_PREFIX
+literal|")"
+argument|NGX_LINEFEED
+else|#
+directive|else
+literal|"  -p prefix     : set prefix path (default: NONE)"
+argument|NGX_LINEFEED
+endif|#
+directive|endif
+literal|"  -c filename   : set configuration file (default: "
+argument|NGX_CONF_PATH
+literal|")"
+argument|NGX_LINEFEED
+literal|"  -g directives : set global directives out of configuration "
+literal|"file"
+argument|NGX_LINEFEED NGX_LINEFEED
+argument_list|)
+empty_stmt|;
+block|}
+if|if
+condition|(
+name|ngx_show_configure
+condition|)
+block|{
+ifdef|#
+directive|ifdef
+name|NGX_COMPILER
+name|ngx_write_stderr
+argument_list|(
+literal|"built by "
+argument|NGX_COMPILER NGX_LINEFEED
+argument_list|)
+empty_stmt|;
+endif|#
+directive|endif
+if|#
+directive|if
+operator|(
+name|NGX_SSL
+operator|)
+if|if
+condition|(
+name|SSLeay
+argument_list|()
+operator|==
+name|SSLEAY_VERSION_NUMBER
+condition|)
+block|{
+name|ngx_write_stderr
+argument_list|(
+literal|"built with "
+argument|OPENSSL_VERSION_TEXT NGX_LINEFEED
+argument_list|)
+empty_stmt|;
+block|}
+else|else
+block|{
+name|ngx_write_stderr
+argument_list|(
+literal|"built with "
+name|OPENSSL_VERSION_TEXT
+literal|" (running with "
+argument_list|)
+expr_stmt|;
+name|ngx_write_stderr
+argument_list|(
+operator|(
+name|char
+operator|*
+operator|)
+operator|(
+name|uintptr_t
+operator|)
+name|SSLeay_version
+argument_list|(
+name|SSLEAY_VERSION
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|ngx_write_stderr
+argument_list|(
+literal|")"
+name|NGX_LINEFEED
+argument_list|)
+expr_stmt|;
+block|}
+ifdef|#
+directive|ifdef
+name|SSL_CTRL_SET_TLSEXT_HOSTNAME
+name|ngx_write_stderr
+argument_list|(
+literal|"TLS SNI support enabled"
+name|NGX_LINEFEED
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
+name|ngx_write_stderr
+argument_list|(
+literal|"TLS SNI support disabled"
+name|NGX_LINEFEED
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+endif|#
+directive|endif
+name|ngx_write_stderr
+argument_list|(
+literal|"configure arguments:"
+argument|NGX_CONFIGURE NGX_LINEFEED
+argument_list|)
+empty_stmt|;
+block|}
 block|}
 end_function
 
