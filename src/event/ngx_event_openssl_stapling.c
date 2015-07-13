@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon27693c130108
+DECL|struct|__anon2a2156020108
 typedef|typedef
 struct|struct
 block|{
@@ -2834,6 +2834,11 @@ goto|goto
 name|error
 goto|;
 block|}
+if|if
+condition|(
+name|nextupdate
+condition|)
+block|{
 name|valid
 operator|=
 name|ngx_ssl_stapling_time
@@ -2867,6 +2872,14 @@ expr_stmt|;
 goto|goto
 name|error
 goto|;
+block|}
+block|}
+else|else
+block|{
+name|valid
+operator|=
+name|NGX_MAX_TIME_T_VALUE
+expr_stmt|;
 block|}
 name|OCSP_CERTID_free
 argument_list|(
@@ -5611,7 +5624,7 @@ name|ngx_buf_t
 modifier|*
 name|b
 decl_stmt|;
-DECL|enum|__anon27693c130203
+DECL|enum|__anon2a2156020203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6407,7 +6420,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon27693c130303
+DECL|enum|__anon2a2156020303
 enum|enum
 block|{
 DECL|enumerator|sw_start
