@@ -38,7 +38,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af954db0108
+DECL|struct|__anon28ca38fd0108
 typedef|typedef
 struct|struct
 block|{
@@ -58,17 +58,17 @@ DECL|member|downstream_buf_size
 name|size_t
 name|downstream_buf_size
 decl_stmt|;
-DECL|member|downstream_limit_rate
+DECL|member|upload_rate
 name|size_t
-name|downstream_limit_rate
+name|upload_rate
 decl_stmt|;
 DECL|member|upstream_buf_size
 name|size_t
 name|upstream_buf_size
 decl_stmt|;
-DECL|member|upstream_limit_rate
+DECL|member|download_rate
 name|size_t
-name|upstream_limit_rate
+name|download_rate
 decl_stmt|;
 DECL|member|next_upstream_tries
 name|ngx_uint_t
@@ -692,7 +692,7 @@ block|,
 block|{
 name|ngx_string
 argument_list|(
-literal|"proxy_downstream_limit_rate"
+literal|"proxy_upload_rate"
 argument_list|)
 block|,
 name|NGX_STREAM_MAIN_CONF
@@ -709,7 +709,7 @@ name|offsetof
 argument_list|(
 name|ngx_stream_proxy_srv_conf_t
 argument_list|,
-name|downstream_limit_rate
+name|upload_rate
 argument_list|)
 block|,
 name|NULL
@@ -744,7 +744,7 @@ block|,
 block|{
 name|ngx_string
 argument_list|(
-literal|"proxy_upstream_limit_rate"
+literal|"proxy_download_rate"
 argument_list|)
 block|,
 name|NGX_STREAM_MAIN_CONF
@@ -761,7 +761,7 @@ name|offsetof
 argument_list|(
 name|ngx_stream_proxy_srv_conf_t
 argument_list|,
-name|upstream_limit_rate
+name|download_rate
 argument_list|)
 block|,
 name|NULL
@@ -4030,7 +4030,7 @@ name|limit_rate
 operator|=
 name|pscf
 operator|->
-name|upstream_limit_rate
+name|download_rate
 expr_stmt|;
 name|received
 operator|=
@@ -4061,7 +4061,7 @@ name|limit_rate
 operator|=
 name|pscf
 operator|->
-name|downstream_limit_rate
+name|upload_rate
 expr_stmt|;
 name|received
 operator|=
@@ -5258,7 +5258,7 @@ name|NGX_CONF_UNSET_SIZE
 expr_stmt|;
 name|conf
 operator|->
-name|downstream_limit_rate
+name|upload_rate
 operator|=
 name|NGX_CONF_UNSET_SIZE
 expr_stmt|;
@@ -5270,7 +5270,7 @@ name|NGX_CONF_UNSET_SIZE
 expr_stmt|;
 name|conf
 operator|->
-name|upstream_limit_rate
+name|download_rate
 operator|=
 name|NGX_CONF_UNSET_SIZE
 expr_stmt|;
@@ -5437,11 +5437,11 @@ name|ngx_conf_merge_size_value
 argument_list|(
 name|conf
 operator|->
-name|downstream_limit_rate
+name|upload_rate
 argument_list|,
 name|prev
 operator|->
-name|downstream_limit_rate
+name|upload_rate
 argument_list|,
 literal|0
 argument_list|)
@@ -5463,11 +5463,11 @@ name|ngx_conf_merge_size_value
 argument_list|(
 name|conf
 operator|->
-name|upstream_limit_rate
+name|download_rate
 argument_list|,
 name|prev
 operator|->
-name|upstream_limit_rate
+name|download_rate
 argument_list|,
 literal|0
 argument_list|)
