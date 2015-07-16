@@ -630,6 +630,10 @@ name|ngx_stream_upstream_rr_peers_t
 operator|*
 operator|*
 operator|)
+operator|(
+name|void
+operator|*
+operator|)
 operator|&
 name|shpool
 operator|->
