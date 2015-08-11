@@ -314,7 +314,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon289c67c40103
+DECL|enum|__anon27edff7c0103
 typedef|typedef
 enum|enum
 block|{
@@ -341,7 +341,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon289c67c40203
+DECL|enum|__anon27edff7c0203
 typedef|typedef
 enum|enum
 block|{
@@ -362,7 +362,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon289c67c40303
+DECL|enum|__anon27edff7c0303
 typedef|typedef
 enum|enum
 block|{
@@ -750,6 +750,17 @@ parameter_list|(
 name|ngx_connection_t
 modifier|*
 name|c
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_close_idle_connections
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
 parameter_list|)
 function_decl|;
 end_function_decl

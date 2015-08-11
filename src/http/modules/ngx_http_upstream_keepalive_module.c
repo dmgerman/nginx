@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bc411070108
+DECL|struct|__anon2b66e05c0108
 typedef|typedef
 struct|struct
 block|{
@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc411070208
+DECL|struct|__anon2b66e05c0208
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc411070308
+DECL|struct|__anon2b66e05c0308
 typedef|typedef
 struct|struct
 block|{
@@ -1206,6 +1206,17 @@ operator|!
 name|u
 operator|->
 name|keepalive
+condition|)
+block|{
+goto|goto
+name|invalid
+goto|;
+block|}
+if|if
+condition|(
+name|ngx_terminate
+operator|||
+name|ngx_exiting
 condition|)
 block|{
 goto|goto
