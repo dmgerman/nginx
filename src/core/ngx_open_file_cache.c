@@ -651,7 +651,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"%ui items still leave in open file cache"
+literal|"%ui items still left in open file cache"
 argument_list|,
 name|cache
 operator|->
