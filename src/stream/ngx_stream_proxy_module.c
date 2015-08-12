@@ -38,7 +38,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298afeed0108
+DECL|struct|__anon2ad83fbb0108
 typedef|typedef
 struct|struct
 block|{
