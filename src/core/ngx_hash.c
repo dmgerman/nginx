@@ -921,7 +921,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"could not build the %s, you should "
+literal|"could not build %s, you should "
 literal|"increase %s_bucket_size: %i"
 argument_list|,
 name|hinit
