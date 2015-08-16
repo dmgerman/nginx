@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bba8d7f0108
+DECL|struct|__anon27daf8ad0108
 typedef|typedef
 struct|struct
 block|{
@@ -5294,6 +5294,10 @@ expr_stmt|;
 if|if
 condition|(
 name|alias
+operator|&&
+name|alias
+operator|!=
+name|NGX_MAX_SIZE_T_VALUE
 operator|&&
 name|ngx_strncmp
 argument_list|(
