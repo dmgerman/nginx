@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27daf8ad0108
+DECL|struct|__anon2bc367480108
 typedef|typedef
 struct|struct
 block|{
@@ -5303,9 +5303,9 @@ name|ngx_strncmp
 argument_list|(
 name|name
 argument_list|,
-name|clcf
+name|r
 operator|->
-name|name
+name|uri
 operator|.
 name|data
 argument_list|,
@@ -5714,6 +5714,14 @@ block|}
 block|}
 else|else
 block|{
+name|name
+operator|=
+name|r
+operator|->
+name|uri
+operator|.
+name|data
+expr_stmt|;
 name|r
 operator|->
 name|uri
@@ -5777,11 +5785,7 @@ name|uri
 operator|.
 name|data
 argument_list|,
-name|clcf
-operator|->
 name|name
-operator|.
-name|data
 argument_list|,
 name|alias
 argument_list|)
@@ -5790,7 +5794,9 @@ name|ngx_memcpy
 argument_list|(
 name|p
 argument_list|,
-name|name
+name|path
+operator|.
+name|data
 argument_list|,
 name|path
 operator|.
