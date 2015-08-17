@@ -1599,11 +1599,6 @@ operator|&&
 name|defined
 name|IPV6_V6ONLY
 operator|)
-name|struct
-name|sockaddr
-modifier|*
-name|sa
-decl_stmt|;
 name|u_char
 name|buf
 index|[

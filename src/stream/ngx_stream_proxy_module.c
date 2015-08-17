@@ -38,7 +38,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad83fbb0108
+DECL|struct|__anon2b5673470108
 typedef|typedef
 struct|struct
 block|{
@@ -2211,7 +2211,7 @@ name|NGX_LOG_INFO
 condition|)
 block|{
 name|ngx_str_t
-name|s
+name|str
 decl_stmt|;
 name|u_char
 name|addr
@@ -2219,13 +2219,13 @@ index|[
 name|NGX_SOCKADDR_STRLEN
 index|]
 decl_stmt|;
-name|s
+name|str
 operator|.
 name|len
 operator|=
 name|NGX_SOCKADDR_STRLEN
 expr_stmt|;
-name|s
+name|str
 operator|.
 name|data
 operator|=
@@ -2238,7 +2238,7 @@ argument_list|(
 name|pc
 argument_list|,
 operator|&
-name|s
+name|str
 argument_list|,
 literal|1
 argument_list|)
@@ -2275,7 +2275,7 @@ argument_list|,
 literal|"proxy %V connected to %V"
 argument_list|,
 operator|&
-name|s
+name|str
 argument_list|,
 name|u
 operator|->

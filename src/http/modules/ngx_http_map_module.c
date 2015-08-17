@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bb1a8460108
+DECL|struct|__anon2a8f4bea0108
 typedef|typedef
 struct|struct
 block|{
@@ -41,7 +41,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb1a8460208
+DECL|struct|__anon2a8f4bea0208
 typedef|typedef
 struct|struct
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb1a8460308
+DECL|struct|__anon2a8f4bea0308
 typedef|typedef
 struct|struct
 block|{
@@ -1617,7 +1617,7 @@ name|conf
 parameter_list|)
 block|{
 name|ngx_int_t
-name|rc
+name|rv
 decl_stmt|,
 name|index
 decl_stmt|;
@@ -2500,7 +2500,7 @@ name|data
 operator|++
 expr_stmt|;
 block|}
-name|rc
+name|rv
 operator|=
 name|ngx_hash_add_key
 argument_list|(
@@ -2530,7 +2530,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|rc
+name|rv
 operator|==
 name|NGX_OK
 condition|)
@@ -2541,7 +2541,7 @@ return|;
 block|}
 if|if
 condition|(
-name|rc
+name|rv
 operator|==
 name|NGX_DECLINED
 condition|)
@@ -2566,7 +2566,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|rc
+name|rv
 operator|==
 name|NGX_BUSY
 condition|)

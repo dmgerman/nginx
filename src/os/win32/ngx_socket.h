@@ -65,7 +65,7 @@ parameter_list|,
 name|proto
 parameter_list|)
 define|\
-value|WSASocket(af, type, proto, NULL, 0, WSA_FLAG_OVERLAPPED)
+value|WSASocketW(af, type, proto, NULL, 0, WSA_FLAG_OVERLAPPED)
 end_define
 
 begin_define
@@ -73,7 +73,7 @@ DECL|macro|ngx_socket_n
 define|#
 directive|define
 name|ngx_socket_n
-value|"WSASocket()"
+value|"WSASocketW()"
 end_define
 
 begin_function_decl
@@ -511,10 +511,10 @@ DECL|member|cLength
 name|ULONG
 name|cLength
 decl_stmt|;
-DECL|union|__anon2be39796010a
+DECL|union|__anon29eb1228010a
 union|union
 block|{
-DECL|struct|__anon2be397960208
+DECL|struct|__anon29eb12280208
 struct|struct
 block|{
 DECL|member|nFileOffset
