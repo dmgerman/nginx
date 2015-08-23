@@ -8556,7 +8556,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon27caeaa50103
+DECL|enum|__anon2b4eaeb20103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -10171,13 +10171,6 @@ expr|main
 operator|->
 name|count
 operator|--
-expr_stmt|;
-name|r
-operator|->
-expr|main
-operator|->
-name|subrequests
-operator|++
 expr_stmt|;
 if|if
 condition|(
