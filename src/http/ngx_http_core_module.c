@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2966e5360108
+DECL|struct|__anon2b84ba940108
 typedef|typedef
 struct|struct
 block|{
@@ -10254,6 +10254,42 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"subrequests cycle while processing \"%V\""
+argument_list|,
+name|uri
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
+comment|/*      * 1000 is reserved for other purposes.      */
+if|if
+condition|(
+name|r
+operator|->
+expr|main
+operator|->
+name|count
+operator|>=
+literal|65535
+operator|-
+literal|1000
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_CRIT
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"request reference counter overflow "
+literal|"while processing \"%V\""
 argument_list|,
 name|uri
 argument_list|)
