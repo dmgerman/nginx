@@ -300,7 +300,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon27e5e2460108
+DECL|struct|__anon2c753a5a0108
 typedef|typedef
 struct|struct
 block|{
@@ -1496,9 +1496,9 @@ condition|)
 block|{
 name|ngx_log_debug0
 argument_list|(
-name|NGX_LOG_DEBUG_EVENT
+name|NGX_LOG_DEBUG_CORE
 argument_list|,
-name|c
+name|file
 operator|->
 name|log
 argument_list|,
