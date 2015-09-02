@@ -300,7 +300,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon274f89a80108
+DECL|struct|__anon27e5e2460108
 typedef|typedef
 struct|struct
 block|{
@@ -1109,6 +1109,9 @@ name|total
 decl_stmt|,
 name|n
 decl_stmt|;
+name|ngx_err_t
+name|err
+decl_stmt|;
 name|ngx_array_t
 name|vec
 decl_stmt|;
@@ -1453,6 +1456,8 @@ operator|=
 name|offset
 expr_stmt|;
 block|}
+name|eintr
+label|:
 name|n
 operator|=
 name|writev
@@ -1478,6 +1483,34 @@ operator|-
 literal|1
 condition|)
 block|{
+name|err
+operator|=
+name|ngx_errno
+expr_stmt|;
+if|if
+condition|(
+name|err
+operator|==
+name|NGX_EINTR
+condition|)
+block|{
+name|ngx_log_debug0
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+name|err
+argument_list|,
+literal|"writev() was interrupted"
+argument_list|)
+expr_stmt|;
+goto|goto
+name|eintr
+goto|;
+block|}
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_CRIT
@@ -1486,7 +1519,7 @@ name|file
 operator|->
 name|log
 argument_list|,
-name|ngx_errno
+name|err
 argument_list|,
 literal|"writev() \"%s\" failed"
 argument_list|,
