@@ -1456,7 +1456,7 @@ directive|endif
 if|#
 directive|if
 operator|(
-name|NGX_HTTP_SPDY
+name|NGX_HTTP_V2
 operator|)
 name|ngx_http_connection_t
 modifier|*
@@ -1467,7 +1467,7 @@ directive|endif
 if|#
 directive|if
 operator|(
-name|NGX_HTTP_SPDY
+name|NGX_HTTP_V2
 operator|||
 name|NGX_DEBUG
 operator|)
@@ -1541,7 +1541,7 @@ directive|endif
 if|#
 directive|if
 operator|(
-name|NGX_HTTP_SPDY
+name|NGX_HTTP_V2
 operator|)
 name|hc
 operator|=
@@ -1555,7 +1555,7 @@ name|hc
 operator|->
 name|addr_conf
 operator|->
-name|spdy
+name|http2
 condition|)
 block|{
 name|srv
@@ -1565,14 +1565,14 @@ name|unsigned
 name|char
 operator|*
 operator|)
-name|NGX_SPDY_NPN_ADVERTISE
+name|NGX_HTTP_V2_ALPN_ADVERTISE
 name|NGX_HTTP_NPN_ADVERTISE
 expr_stmt|;
 name|srvlen
 operator|=
 expr|sizeof
 operator|(
-name|NGX_SPDY_NPN_ADVERTISE
+name|NGX_HTTP_V2_ALPN_ADVERTISE
 name|NGX_HTTP_NPN_ADVERTISE
 operator|)
 operator|-
@@ -1698,7 +1698,7 @@ block|{
 if|#
 directive|if
 operator|(
-name|NGX_HTTP_SPDY
+name|NGX_HTTP_V2
 operator|||
 name|NGX_DEBUG
 operator|)
@@ -1731,7 +1731,7 @@ directive|endif
 if|#
 directive|if
 operator|(
-name|NGX_HTTP_SPDY
+name|NGX_HTTP_V2
 operator|)
 block|{
 name|ngx_http_connection_t
@@ -1750,7 +1750,7 @@ name|hc
 operator|->
 name|addr_conf
 operator|->
-name|spdy
+name|http2
 condition|)
 block|{
 operator|*
@@ -1761,7 +1761,7 @@ name|unsigned
 name|char
 operator|*
 operator|)
-name|NGX_SPDY_NPN_ADVERTISE
+name|NGX_HTTP_V2_NPN_ADVERTISE
 name|NGX_HTTP_NPN_ADVERTISE
 expr_stmt|;
 operator|*
@@ -1769,7 +1769,7 @@ name|outlen
 operator|=
 expr|sizeof
 operator|(
-name|NGX_SPDY_NPN_ADVERTISE
+name|NGX_HTTP_V2_NPN_ADVERTISE
 name|NGX_HTTP_NPN_ADVERTISE
 operator|)
 operator|-

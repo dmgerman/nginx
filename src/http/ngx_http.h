@@ -86,16 +86,16 @@ begin_if
 if|#
 directive|if
 operator|(
-name|NGX_HTTP_SPDY
+name|NGX_HTTP_V2
 operator|)
 end_if
 
 begin_typedef
-DECL|typedef|ngx_http_spdy_stream_t
+DECL|typedef|ngx_http_v2_stream_t
 typedef|typedef
 name|struct
-name|ngx_http_spdy_stream_s
-name|ngx_http_spdy_stream_t
+name|ngx_http_v2_stream_s
+name|ngx_http_v2_stream_t
 typedef|;
 end_typedef
 
@@ -201,14 +201,14 @@ begin_if
 if|#
 directive|if
 operator|(
-name|NGX_HTTP_SPDY
+name|NGX_HTTP_V2
 operator|)
 end_if
 
 begin_include
 include|#
 directive|include
-file|<ngx_http_spdy.h>
+file|<ngx_http_v2.h>
 end_include
 
 begin_endif
@@ -319,7 +319,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29aa91b70108
+DECL|struct|__anon277e2ead0108
 typedef|typedef
 struct|struct
 block|{

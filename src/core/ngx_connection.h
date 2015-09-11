@@ -314,7 +314,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon27edff7c0103
+DECL|enum|__anon2948c6830103
 typedef|typedef
 enum|enum
 block|{
@@ -341,7 +341,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27edff7c0203
+DECL|enum|__anon2948c6830203
 typedef|typedef
 enum|enum
 block|{
@@ -362,7 +362,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27edff7c0303
+DECL|enum|__anon2948c6830303
 typedef|typedef
 enum|enum
 block|{
@@ -399,10 +399,10 @@ value|0x01
 end_define
 
 begin_define
-DECL|macro|NGX_SPDY_BUFFERED
+DECL|macro|NGX_HTTP_V2_BUFFERED
 define|#
 directive|define
-name|NGX_SPDY_BUFFERED
+name|NGX_HTTP_V2_BUFFERED
 value|0x02
 end_define
 

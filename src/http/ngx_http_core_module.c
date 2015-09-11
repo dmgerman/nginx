@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon292c6dcb0108
+DECL|struct|__anon2b1252470108
 typedef|typedef
 struct|struct
 block|{
@@ -9253,30 +9253,6 @@ return|return
 name|NGX_DECLINED
 return|;
 block|}
-if|#
-directive|if
-operator|(
-name|NGX_HTTP_SPDY
-operator|)
-if|if
-condition|(
-name|r
-operator|->
-name|spdy_stream
-condition|)
-block|{
-name|r
-operator|->
-name|gzip_ok
-operator|=
-literal|1
-expr_stmt|;
-return|return
-name|NGX_OK
-return|;
-block|}
-endif|#
-directive|endif
 name|ae
 operator|=
 name|r
@@ -10484,15 +10460,15 @@ expr_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_HTTP_SPDY
+name|NGX_HTTP_V2
 operator|)
 name|sr
 operator|->
-name|spdy_stream
+name|stream
 operator|=
 name|r
 operator|->
-name|spdy_stream
+name|stream
 expr_stmt|;
 endif|#
 directive|endif
@@ -18611,7 +18587,7 @@ index|]
 operator|.
 name|data
 argument_list|,
-literal|"spdy"
+literal|"http2"
 argument_list|)
 operator|==
 literal|0
@@ -18620,11 +18596,11 @@ block|{
 if|#
 directive|if
 operator|(
-name|NGX_HTTP_SPDY
+name|NGX_HTTP_V2
 operator|)
 name|lsopt
 operator|.
-name|spdy
+name|http2
 operator|=
 literal|1
 expr_stmt|;
@@ -18639,8 +18615,8 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"the \"spdy\" parameter requires "
-literal|"ngx_http_spdy_module"
+literal|"the \"http2\" parameter requires "
+literal|"ngx_http_v2_module"
 argument_list|)
 expr_stmt|;
 return|return
@@ -18648,6 +18624,38 @@ name|NGX_CONF_ERROR
 return|;
 endif|#
 directive|endif
+block|}
+if|if
+condition|(
+name|ngx_strcmp
+argument_list|(
+name|value
+index|[
+name|n
+index|]
+operator|.
+name|data
+argument_list|,
+literal|"spdy"
+argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_WARN
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"invalid parameter \"spdy\": "
+literal|"ngx_http_spdy_module was superseded "
+literal|"by ngx_http_v2_module"
+argument_list|)
+expr_stmt|;
+continue|continue;
 block|}
 if|if
 condition|(

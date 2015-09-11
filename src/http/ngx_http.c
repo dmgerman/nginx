@@ -5266,10 +5266,10 @@ directive|endif
 if|#
 directive|if
 operator|(
-name|NGX_HTTP_SPDY
+name|NGX_HTTP_V2
 operator|)
 name|ngx_uint_t
-name|spdy
+name|http2
 decl_stmt|;
 endif|#
 directive|endif
@@ -5501,13 +5501,13 @@ directive|endif
 if|#
 directive|if
 operator|(
-name|NGX_HTTP_SPDY
+name|NGX_HTTP_V2
 operator|)
-name|spdy
+name|http2
 operator|=
 name|lsopt
 operator|->
-name|spdy
+name|http2
 operator|||
 name|addr
 index|[
@@ -5516,7 +5516,7 @@ index|]
 operator|.
 name|opt
 operator|.
-name|spdy
+name|http2
 expr_stmt|;
 endif|#
 directive|endif
@@ -5668,7 +5668,7 @@ directive|endif
 if|#
 directive|if
 operator|(
-name|NGX_HTTP_SPDY
+name|NGX_HTTP_V2
 operator|)
 name|addr
 index|[
@@ -5677,9 +5677,9 @@ index|]
 operator|.
 name|opt
 operator|.
-name|spdy
+name|http2
 operator|=
-name|spdy
+name|http2
 expr_stmt|;
 endif|#
 directive|endif
@@ -5777,7 +5777,7 @@ block|}
 if|#
 directive|if
 operator|(
-name|NGX_HTTP_SPDY
+name|NGX_HTTP_V2
 operator|&&
 name|NGX_HTTP_SSL
 expr|\
@@ -5795,7 +5795,7 @@ if|if
 condition|(
 name|lsopt
 operator|->
-name|spdy
+name|http2
 operator|&&
 name|lsopt
 operator|->
@@ -5810,8 +5810,8 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"nginx was built without OpenSSL ALPN or NPN "
-literal|"support, SPDY is not enabled for %s"
+literal|"nginx was built with OpenSSL that lacks ALPN "
+literal|"and NPN support, HTTP/2 is not enabled for %s"
 argument_list|,
 name|lsopt
 operator|->
@@ -8036,7 +8036,7 @@ directive|endif
 if|#
 directive|if
 operator|(
-name|NGX_HTTP_SPDY
+name|NGX_HTTP_V2
 operator|)
 name|addrs
 index|[
@@ -8045,7 +8045,7 @@ index|]
 operator|.
 name|conf
 operator|.
-name|spdy
+name|http2
 operator|=
 name|addr
 index|[
@@ -8054,7 +8054,7 @@ index|]
 operator|.
 name|opt
 operator|.
-name|spdy
+name|http2
 expr_stmt|;
 endif|#
 directive|endif
@@ -8434,7 +8434,7 @@ directive|endif
 if|#
 directive|if
 operator|(
-name|NGX_HTTP_SPDY
+name|NGX_HTTP_V2
 operator|)
 name|addrs6
 index|[
@@ -8443,7 +8443,7 @@ index|]
 operator|.
 name|conf
 operator|.
-name|spdy
+name|http2
 operator|=
 name|addr
 index|[
@@ -8452,7 +8452,7 @@ index|]
 operator|.
 name|opt
 operator|.
-name|spdy
+name|http2
 expr_stmt|;
 endif|#
 directive|endif
