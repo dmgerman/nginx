@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bce8a340108
+DECL|struct|__anon2a311fda0108
 typedef|typedef
 struct|struct
 block|{
@@ -2757,13 +2757,11 @@ name|ctx
 expr_stmt|;
 if|if
 condition|(
-name|pclcf
+name|cf
 operator|->
-name|name
-operator|.
-name|len
+name|cmd_type
 operator|==
-literal|0
+name|NGX_HTTP_SRV_CONF
 condition|)
 block|{
 name|if_code

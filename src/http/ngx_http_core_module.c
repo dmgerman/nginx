@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b84ba940108
+DECL|struct|__anon292c6dcb0108
 typedef|typedef
 struct|struct
 block|{
@@ -13735,11 +13735,11 @@ index|]
 expr_stmt|;
 if|if
 condition|(
-name|pclcf
+name|cf
 operator|->
-name|name
-operator|.
-name|len
+name|cmd_type
+operator|==
+name|NGX_HTTP_LOC_CONF
 condition|)
 block|{
 comment|/* nested location */
