@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c1320470108
+DECL|struct|__anon29e860440108
 typedef|typedef
 struct|struct
 block|{
@@ -1354,7 +1354,7 @@ name|prev
 operator|->
 name|bufs
 argument_list|,
-literal|1
+literal|2
 argument_list|,
 literal|32768
 argument_list|)
