@@ -7020,6 +7020,28 @@ name|field_rest
 operator|-=
 name|size
 expr_stmt|;
+if|if
+condition|(
+name|h2c
+operator|->
+name|state
+operator|.
+name|field_rest
+condition|)
+block|{
+return|return
+name|ngx_http_v2_state_save
+argument_list|(
+name|h2c
+argument_list|,
+name|end
+argument_list|,
+name|end
+argument_list|,
+name|ngx_http_v2_state_field_skip
+argument_list|)
+return|;
+block|}
 return|return
 name|ngx_http_v2_state_process_header
 argument_list|(
@@ -13923,7 +13945,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2794516b0108
+DECL|struct|__anon29b0fef90108
 specifier|static
 specifier|const
 struct|struct
