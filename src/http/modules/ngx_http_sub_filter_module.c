@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bf571b60108
+DECL|struct|__anon28bf161c0108
 typedef|typedef
 struct|struct
 block|{
@@ -41,7 +41,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf571b60208
+DECL|struct|__anon28bf161c0208
 typedef|typedef
 struct|struct
 block|{
@@ -61,7 +61,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf571b60308
+DECL|struct|__anon28bf161c0308
 typedef|typedef
 struct|struct
 block|{
@@ -94,7 +94,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf571b60408
+DECL|struct|__anon28bf161c0408
 typedef|typedef
 struct|struct
 block|{
@@ -142,7 +142,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf571b60508
+DECL|struct|__anon28bf161c0508
 typedef|typedef
 struct|struct
 block|{
@@ -3912,13 +3912,23 @@ operator|->
 name|tables
 expr_stmt|;
 block|}
-if|else if
+if|if
 condition|(
+name|conf
+operator|->
+name|pairs
+operator|&&
 name|conf
 operator|->
 name|dynamic
 operator|==
 literal|0
+operator|&&
+name|conf
+operator|->
+name|tables
+operator|==
+name|NULL
 condition|)
 block|{
 name|pairs
