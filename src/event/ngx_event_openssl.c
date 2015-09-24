@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon289ea1a80108
+DECL|struct|__anon29fe339e0108
 typedef|typedef
 struct|struct
 block|{
@@ -5060,6 +5060,11 @@ name|send_chain
 operator|=
 name|ngx_ssl_send_chain
 expr_stmt|;
+if|#
+directive|if
+name|OPENSSL_VERSION_NUMBER
+operator|<
+literal|0x10100000L
 ifdef|#
 directive|ifdef
 name|SSL3_FLAGS_NO_RENEGOTIATE_CIPHERS
@@ -5088,6 +5093,8 @@ operator||=
 name|SSL3_FLAGS_NO_RENEGOTIATE_CIPHERS
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 endif|#
 directive|endif
 return|return
@@ -11873,7 +11880,7 @@ else|:
 literal|"new"
 argument_list|)
 expr_stmt|;
-name|RAND_pseudo_bytes
+name|RAND_bytes
 argument_list|(
 name|iv
 argument_list|,
