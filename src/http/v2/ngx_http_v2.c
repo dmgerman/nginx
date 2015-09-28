@@ -12852,6 +12852,16 @@ return|return
 name|NULL
 return|;
 block|}
+name|ngx_str_set
+argument_list|(
+operator|&
+name|r
+operator|->
+name|http_protocol
+argument_list|,
+literal|"HTTP/2.0"
+argument_list|)
+expr_stmt|;
 name|r
 operator|->
 name|http_version
@@ -14268,7 +14278,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon299ec0230108
+DECL|struct|__anon2aa88a700108
 specifier|static
 specifier|const
 struct|struct
