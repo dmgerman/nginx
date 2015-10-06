@@ -38,7 +38,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5673470108
+DECL|struct|__anon2b791c900108
 typedef|typedef
 struct|struct
 block|{
@@ -3137,6 +3137,23 @@ operator|->
 name|peer
 operator|.
 name|data
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|pc
+operator|->
+name|write
+operator|->
+name|timer_set
+condition|)
+block|{
+name|ngx_del_timer
+argument_list|(
+name|pc
+operator|->
+name|write
 argument_list|)
 expr_stmt|;
 block|}
