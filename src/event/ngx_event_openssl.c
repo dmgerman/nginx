@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon29fe339e0108
+DECL|struct|__anon2762e1b90108
 typedef|typedef
 struct|struct
 block|{
@@ -8597,7 +8597,11 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"%s)"
+literal|"%*s)"
+argument_list|,
+name|p
+operator|-
+name|errstr
 argument_list|,
 name|errstr
 argument_list|)
