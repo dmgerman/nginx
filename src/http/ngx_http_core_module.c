@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b1252470108
+DECL|struct|__anon27cb25bc0108
 typedef|typedef
 struct|struct
 block|{
@@ -20002,6 +20002,14 @@ if|if
 condition|(
 operator|!
 name|alias
+operator|&&
+name|clcf
+operator|->
+name|root
+operator|.
+name|len
+operator|>
+literal|0
 operator|&&
 name|clcf
 operator|->
