@@ -4778,10 +4778,6 @@ return|;
 block|}
 name|value
 operator|=
-operator|(
-name|ngx_str_t
-operator|*
-operator|)
 name|cf
 operator|->
 name|args
@@ -5660,10 +5656,6 @@ return|;
 block|}
 name|value
 operator|=
-operator|(
-name|ngx_str_t
-operator|*
-operator|)
 name|cf
 operator|->
 name|args
