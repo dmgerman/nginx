@@ -153,7 +153,7 @@ value|SSL
 end_define
 
 begin_typedef
-DECL|struct|__anon298096790108
+DECL|struct|__anon28d3f8320108
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298096790208
+DECL|struct|__anon28d3f8320208
 typedef|typedef
 struct|struct
 block|{
@@ -186,6 +186,11 @@ DECL|member|connection
 name|ngx_ssl_conn_t
 modifier|*
 name|connection
+decl_stmt|;
+DECL|member|session_ctx
+name|SSL_CTX
+modifier|*
+name|session_ctx
 decl_stmt|;
 DECL|member|last
 name|ngx_int_t
@@ -360,7 +365,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon298096790308
+DECL|struct|__anon28d3f8320308
 typedef|typedef
 struct|struct
 block|{
@@ -389,7 +394,7 @@ name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon298096790408
+DECL|struct|__anon28d3f8320408
 typedef|typedef
 struct|struct
 block|{
