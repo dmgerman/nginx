@@ -6009,7 +6009,7 @@ name|prefix
 operator|=
 name|ngx_http_v2_prefix
 argument_list|(
-literal|3
+literal|4
 argument_list|)
 expr_stmt|;
 block|}
@@ -14278,7 +14278,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2aa88a700108
+DECL|struct|__anon277a398b0108
 specifier|static
 specifier|const
 struct|struct
