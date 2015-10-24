@@ -343,6 +343,8 @@ if|#
 directive|if
 operator|(
 name|NGX_HTTP_UPSTREAM_ZONE
+operator|||
+name|NGX_STREAM_UPSTREAM_ZONE
 operator|)
 end_if
 
