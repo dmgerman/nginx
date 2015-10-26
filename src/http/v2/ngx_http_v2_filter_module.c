@@ -995,6 +995,8 @@ condition|)
 block|{
 name|len
 operator|+=
+literal|1
+operator|+
 name|NGX_HTTP_V2_INT_OCTETS
 operator|+
 name|r
