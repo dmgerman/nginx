@@ -79,7 +79,8 @@ DECL|macro|NGX_HTTP_V2_MAX_FIELD
 define|#
 directive|define
 name|NGX_HTTP_V2_MAX_FIELD
-value|((1<< NGX_HTTP_V2_INT_OCTETS * 7) - 1)
+define|\
+value|(127 + (1<< (NGX_HTTP_V2_INT_OCTETS - 1) * 7) - 1)
 end_define
 
 begin_define
@@ -303,7 +304,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c39a37d0108
+DECL|struct|__anon2a1fb3e70108
 typedef|typedef
 struct|struct
 block|{
@@ -322,7 +323,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c39a37d0208
+DECL|struct|__anon2a1fb3e70208
 typedef|typedef
 struct|struct
 block|{
@@ -431,7 +432,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c39a37d0308
+DECL|struct|__anon2a1fb3e70308
 typedef|typedef
 struct|struct
 block|{
