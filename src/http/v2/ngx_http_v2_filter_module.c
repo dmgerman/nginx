@@ -33,6 +33,10 @@ directive|include
 file|<ngx_http_v2_module.h>
 end_include
 
+begin_comment
+comment|/*  * This returns precise number of octets for values in range 0..253  * and estimate number for the rest, but not smaller than required.  */
+end_comment
+
 begin_define
 DECL|macro|ngx_http_v2_integer_octets (v)
 define|#
@@ -41,7 +45,7 @@ name|ngx_http_v2_integer_octets
 parameter_list|(
 name|v
 parameter_list|)
-value|(((v) + 127) / 128)
+value|(1 + (v) / 127)
 end_define
 
 begin_define
