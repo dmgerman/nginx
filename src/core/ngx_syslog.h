@@ -17,7 +17,7 @@ name|_NGX_SYSLOG_H_INCLUDED_
 end_define
 
 begin_typedef
-DECL|struct|__anon2c6776820108
+DECL|struct|__anon2b3b11eb0108
 typedef|typedef
 struct|struct
 block|{
@@ -47,10 +47,17 @@ name|ngx_connection_t
 name|conn
 decl_stmt|;
 DECL|member|busy
-name|ngx_uint_t
+name|unsigned
 name|busy
+range|:
+literal|1
 decl_stmt|;
-comment|/* unsigned busy:1; */
+DECL|member|nohostname
+name|unsigned
+name|nohostname
+range|:
+literal|1
+decl_stmt|;
 DECL|typedef|ngx_syslog_peer_t
 block|}
 name|ngx_syslog_peer_t
