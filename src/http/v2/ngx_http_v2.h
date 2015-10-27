@@ -304,7 +304,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1fb3e70108
+DECL|struct|__anon2c5c06f00108
 typedef|typedef
 struct|struct
 block|{
@@ -323,7 +323,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1fb3e70208
+DECL|struct|__anon2c5c06f00208
 typedef|typedef
 struct|struct
 block|{
@@ -378,10 +378,6 @@ DECL|member|header_limit
 name|size_t
 name|header_limit
 decl_stmt|;
-DECL|member|field_limit
-name|size_t
-name|field_limit
-decl_stmt|;
 DECL|member|field_state
 name|u_char
 name|field_state
@@ -432,7 +428,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1fb3e70308
+DECL|struct|__anon2c5c06f00308
 typedef|typedef
 struct|struct
 block|{
