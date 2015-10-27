@@ -8047,7 +8047,7 @@ name|name
 operator|.
 name|data
 expr_stmt|;
-comment|/* TODO Optimization: precalculate hash and hadnler for indexed headers. */
+comment|/* TODO Optimization: precalculate hash and handler for indexed headers. */
 name|h
 operator|->
 name|hash
@@ -8811,7 +8811,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"client sent PRIORITY frame for stream %ui "
-literal|"with incorrect dependancy"
+literal|"with incorrect dependency"
 argument_list|,
 name|h2c
 operator|->
@@ -14297,7 +14297,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2be5bc7f0108
+DECL|struct|__anon2a3107290108
 specifier|static
 specifier|const
 struct|struct
