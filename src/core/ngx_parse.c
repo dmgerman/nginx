@@ -356,7 +356,7 @@ decl_stmt|;
 name|ngx_uint_t
 name|valid
 decl_stmt|;
-DECL|enum|__anon29d9cf590103
+DECL|enum|__anon2c8aca760103
 enum|enum
 block|{
 DECL|enumerator|st_start
@@ -718,6 +718,10 @@ literal|'m'
 case|:
 if|if
 condition|(
+name|p
+operator|<
+name|last
+operator|&&
 operator|*
 name|p
 operator|==
