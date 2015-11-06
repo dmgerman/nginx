@@ -3870,13 +3870,11 @@ return|;
 block|}
 if|if
 condition|(
-operator|(
 name|r
 operator|->
 name|method
-operator|&
+operator|==
 name|NGX_HTTP_HEAD
-operator|)
 operator|&&
 name|u
 operator|->

@@ -797,7 +797,7 @@ condition|(
 name|r
 operator|->
 name|method
-operator|&
+operator|==
 name|NGX_HTTP_POST
 condition|)
 block|{

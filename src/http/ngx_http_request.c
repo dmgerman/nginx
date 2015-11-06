@@ -7954,7 +7954,7 @@ condition|(
 name|r
 operator|->
 name|method
-operator|&
+operator|==
 name|NGX_HTTP_TRACE
 condition|)
 block|{
@@ -8563,7 +8563,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon28e908e10103
+DECL|enum|__anon2bc440fc0103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
