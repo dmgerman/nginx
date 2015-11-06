@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c7e25930108
+DECL|struct|__anon2b02817e0108
 typedef|typedef
 struct|struct
 block|{
@@ -85,7 +85,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon2c7e2593020a
+DECL|union|__anon2b02817e020a
 union|union
 block|{
 DECL|member|complex
@@ -117,7 +117,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c7e25930308
+DECL|struct|__anon2b02817e0308
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7e25930408
+DECL|struct|__anon2b02817e0408
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7e25930508
+DECL|struct|__anon2b02817e0508
 typedef|typedef
 struct|struct
 block|{
@@ -344,7 +344,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c7e25930608
+DECL|struct|__anon2b02817e0608
 typedef|typedef
 struct|struct
 block|{
@@ -5538,11 +5538,6 @@ name|u
 operator|->
 name|method
 expr_stmt|;
-name|method
-operator|.
-name|len
-operator|++
-expr_stmt|;
 block|}
 if|else if
 condition|(
@@ -5568,11 +5563,6 @@ name|r
 operator|->
 name|method_name
 expr_stmt|;
-name|method
-operator|.
-name|len
-operator|++
-expr_stmt|;
 block|}
 name|ctx
 operator|=
@@ -5589,7 +5579,7 @@ name|method
 operator|.
 name|len
 operator|==
-literal|5
+literal|4
 operator|&&
 name|ngx_strncasecmp
 argument_list|(
@@ -5601,9 +5591,9 @@ operator|(
 name|u_char
 operator|*
 operator|)
-literal|"HEAD "
+literal|"HEAD"
 argument_list|,
-literal|5
+literal|4
 argument_list|)
 operator|==
 literal|0
@@ -5621,6 +5611,8 @@ operator|=
 name|method
 operator|.
 name|len
+operator|+
+literal|1
 operator|+
 sizeof|sizeof
 argument_list|(
@@ -6278,6 +6270,14 @@ name|method
 operator|.
 name|len
 argument_list|)
+expr_stmt|;
+operator|*
+name|b
+operator|->
+name|last
+operator|++
+operator|=
+literal|' '
 expr_stmt|;
 name|u
 operator|->
@@ -14946,55 +14946,6 @@ argument_list|,
 literal|""
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|conf
-operator|->
-name|method
-operator|.
-name|len
-operator|&&
-name|conf
-operator|->
-name|method
-operator|.
-name|data
-index|[
-name|conf
-operator|->
-name|method
-operator|.
-name|len
-operator|-
-literal|1
-index|]
-operator|!=
-literal|' '
-condition|)
-block|{
-name|conf
-operator|->
-name|method
-operator|.
-name|data
-index|[
-name|conf
-operator|->
-name|method
-operator|.
-name|len
-index|]
-operator|=
-literal|' '
-expr_stmt|;
-name|conf
-operator|->
-name|method
-operator|.
-name|len
-operator|++
-expr_stmt|;
-block|}
 name|ngx_conf_merge_value
 argument_list|(
 name|conf
