@@ -13624,6 +13624,12 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|r
+operator|->
+name|invalid_header
+operator|=
+literal|0
+expr_stmt|;
 name|cscf
 operator|=
 name|ngx_http_get_module_srv_conf
@@ -14268,7 +14274,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2797be1c0108
+DECL|struct|__anon29a0000d0108
 specifier|static
 specifier|const
 struct|struct
