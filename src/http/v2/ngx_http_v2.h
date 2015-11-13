@@ -304,7 +304,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5c06f00108
+DECL|struct|__anon2b739bc60108
 typedef|typedef
 struct|struct
 block|{
@@ -323,7 +323,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5c06f00208
+DECL|struct|__anon2b739bc60208
 typedef|typedef
 struct|struct
 block|{
@@ -428,7 +428,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5c06f00308
+DECL|struct|__anon2b739bc60308
 typedef|typedef
 struct|struct
 block|{
@@ -677,10 +677,10 @@ name|ngx_http_v2_out_frame_t
 modifier|*
 name|free_frames
 decl_stmt|;
-DECL|member|free_data_headers
+DECL|member|free_frame_headers
 name|ngx_chain_t
 modifier|*
-name|free_data_headers
+name|free_frame_headers
 decl_stmt|;
 DECL|member|free_bufs
 name|ngx_chain_t
