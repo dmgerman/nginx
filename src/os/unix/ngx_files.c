@@ -300,7 +300,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2b644ced0108
+DECL|struct|__anon2bf6587e0108
 typedef|typedef
 struct|struct
 block|{
@@ -731,6 +731,9 @@ name|n
 decl_stmt|,
 name|written
 decl_stmt|;
+name|ngx_err_t
+name|err
+decl_stmt|;
 name|ngx_log_debug4
 argument_list|(
 name|NGX_LOG_DEBUG_CORE
@@ -794,6 +797,32 @@ operator|-
 literal|1
 condition|)
 block|{
+name|err
+operator|=
+name|ngx_errno
+expr_stmt|;
+if|if
+condition|(
+name|err
+operator|==
+name|NGX_EINTR
+condition|)
+block|{
+name|ngx_log_debug0
+argument_list|(
+name|NGX_LOG_DEBUG_CORE
+argument_list|,
+name|file
+operator|->
+name|log
+argument_list|,
+name|err
+argument_list|,
+literal|"pwrite() was interrupted"
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_CRIT
@@ -802,7 +831,7 @@ name|file
 operator|->
 name|log
 argument_list|,
-name|ngx_errno
+name|err
 argument_list|,
 literal|"pwrite() \"%s\" failed"
 argument_list|,
@@ -937,6 +966,32 @@ operator|-
 literal|1
 condition|)
 block|{
+name|err
+operator|=
+name|ngx_errno
+expr_stmt|;
+if|if
+condition|(
+name|err
+operator|==
+name|NGX_EINTR
+condition|)
+block|{
+name|ngx_log_debug0
+argument_list|(
+name|NGX_LOG_DEBUG_CORE
+argument_list|,
+name|file
+operator|->
+name|log
+argument_list|,
+name|err
+argument_list|,
+literal|"write() was interrupted"
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_CRIT
@@ -945,7 +1000,7 @@ name|file
 operator|->
 name|log
 argument_list|,
-name|ngx_errno
+name|err
 argument_list|,
 literal|"write() \"%s\" failed"
 argument_list|,
