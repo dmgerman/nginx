@@ -300,7 +300,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2c753a5a0108
+DECL|struct|__anon2b644ced0108
 typedef|typedef
 struct|struct
 block|{
@@ -960,6 +960,12 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|file
+operator|->
+name|sys_offset
+operator|+=
+name|n
+expr_stmt|;
 name|file
 operator|->
 name|offset
