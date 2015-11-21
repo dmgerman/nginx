@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon290054570108
+DECL|struct|__anon2b3de84e0108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290054570208
+DECL|struct|__anon2b3de84e0208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290054570308
+DECL|struct|__anon2b3de84e0308
 typedef|typedef
 struct|struct
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon290054570403
+DECL|enum|__anon2b3de84e0403
 typedef|typedef
 enum|enum
 block|{
@@ -199,7 +199,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290054570508
+DECL|struct|__anon2b3de84e0508
 typedef|typedef
 struct|struct
 block|{
@@ -220,7 +220,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290054570608
+DECL|struct|__anon2b3de84e0608
 typedef|typedef
 struct|struct
 block|{
@@ -378,7 +378,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon290054570708
+DECL|struct|__anon2b3de84e0708
 typedef|typedef
 struct|struct
 block|{
@@ -421,7 +421,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290054570808
+DECL|struct|__anon2b3de84e0808
 typedef|typedef
 struct|struct
 block|{
@@ -451,7 +451,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290054570908
+DECL|struct|__anon2b3de84e0908
 typedef|typedef
 struct|struct
 block|{
@@ -478,7 +478,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290054570a08
+DECL|struct|__anon2b3de84e0a08
 typedef|typedef
 struct|struct
 block|{
@@ -3400,27 +3400,27 @@ name|url
 operator|.
 name|host
 expr_stmt|;
-name|u
-operator|->
-name|resolved
-operator|->
-name|port
-operator|=
-name|url
-operator|.
-name|port
-expr_stmt|;
-name|u
-operator|->
-name|resolved
-operator|->
-name|no_port
-operator|=
-name|url
-operator|.
-name|no_port
-expr_stmt|;
 block|}
+name|u
+operator|->
+name|resolved
+operator|->
+name|port
+operator|=
+name|url
+operator|.
+name|port
+expr_stmt|;
+name|u
+operator|->
+name|resolved
+operator|->
+name|no_port
+operator|=
+name|url
+operator|.
+name|no_port
+expr_stmt|;
 return|return
 name|NGX_OK
 return|;

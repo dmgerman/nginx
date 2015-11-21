@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c6d0ecb0108
+DECL|struct|__anon2b5b5e440108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6d0ecb0208
+DECL|struct|__anon2b5b5e440208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6d0ecb0308
+DECL|struct|__anon2b5b5e440308
 typedef|typedef
 struct|struct
 block|{
@@ -3393,27 +3393,27 @@ name|url
 operator|.
 name|host
 expr_stmt|;
-name|u
-operator|->
-name|resolved
-operator|->
-name|port
-operator|=
-name|url
-operator|.
-name|port
-expr_stmt|;
-name|u
-operator|->
-name|resolved
-operator|->
-name|no_port
-operator|=
-name|url
-operator|.
-name|no_port
-expr_stmt|;
 block|}
+name|u
+operator|->
+name|resolved
+operator|->
+name|port
+operator|=
+name|url
+operator|.
+name|port
+expr_stmt|;
+name|u
+operator|->
+name|resolved
+operator|->
+name|no_port
+operator|=
+name|url
+operator|.
+name|no_port
+expr_stmt|;
 return|return
 name|NGX_OK
 return|;
