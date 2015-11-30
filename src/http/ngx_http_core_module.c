@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon278654620108
+DECL|struct|__anon2be3c7540108
 typedef|typedef
 struct|struct
 block|{
@@ -3413,7 +3413,7 @@ operator|(
 name|u_char
 operator|*
 operator|)
-literal|"GET "
+literal|"GET"
 block|}
 decl_stmt|;
 end_decl_stmt

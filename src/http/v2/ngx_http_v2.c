@@ -14274,7 +14274,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon29a0000d0108
+DECL|struct|__anon2b0dde690108
 specifier|static
 specifier|const
 struct|struct
@@ -15162,19 +15162,6 @@ argument_list|(
 name|ending
 argument_list|)
 argument_list|)
-expr_stmt|;
-comment|/* some modules expect the space character after method name */
-name|r
-operator|->
-name|method_name
-operator|.
-name|data
-operator|=
-name|r
-operator|->
-name|request_line
-operator|.
-name|data
 expr_stmt|;
 name|ngx_log_debug1
 argument_list|(
