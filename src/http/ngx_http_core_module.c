@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2be3c7540108
+DECL|struct|__anon2b2625560108
 typedef|typedef
 struct|struct
 block|{
@@ -14988,9 +14988,13 @@ name|prev
 operator|->
 name|connection_pool_size
 argument_list|,
-name|NGX_PTR_SIZE
-operator|*
 literal|64
+operator|*
+sizeof|sizeof
+argument_list|(
+name|void
+operator|*
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_size_value

@@ -1535,9 +1535,13 @@ literal|'0'
 expr_stmt|;
 name|width
 operator|=
-name|NGX_PTR_SIZE
-operator|*
 literal|2
+operator|*
+sizeof|sizeof
+argument_list|(
+name|void
+operator|*
+argument_list|)
 expr_stmt|;
 break|break;
 case|case
@@ -6758,7 +6762,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon2b2a42880103
+DECL|enum|__anon2b9f3f8d0103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
