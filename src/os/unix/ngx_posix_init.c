@@ -210,7 +210,7 @@ name|log
 argument_list|,
 name|errno
 argument_list|,
-literal|"getrlimit(RLIMIT_NOFILE) failed)"
+literal|"getrlimit(RLIMIT_NOFILE) failed"
 argument_list|)
 expr_stmt|;
 return|return
