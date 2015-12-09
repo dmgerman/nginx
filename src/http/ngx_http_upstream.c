@@ -3325,6 +3325,16 @@ operator|->
 name|port
 operator|==
 literal|0
+operator|&&
+name|u
+operator|->
+name|resolved
+operator|->
+name|sockaddr
+operator|->
+name|sa_family
+operator|!=
+name|AF_UNIX
 condition|)
 block|{
 name|ngx_log_error
