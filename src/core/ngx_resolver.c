@@ -46,7 +46,7 @@ value|8192
 end_define
 
 begin_typedef
-DECL|struct|__anon2a321bb40108
+DECL|struct|__anon2c41220c0108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a321bb40208
+DECL|struct|__anon2c41220c0208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a321bb40308
+DECL|struct|__anon2c41220c0308
 typedef|typedef
 struct|struct
 block|{
@@ -7960,7 +7960,7 @@ end_function
 begin_function
 specifier|static
 name|void
-DECL|function|ngx_resolver_process_a (ngx_resolver_t * r,u_char * buf,size_t last,ngx_uint_t ident,ngx_uint_t code,ngx_uint_t qtype,ngx_uint_t nan,ngx_uint_t trunc,ngx_uint_t ans)
+DECL|function|ngx_resolver_process_a (ngx_resolver_t * r,u_char * buf,size_t n,ngx_uint_t ident,ngx_uint_t code,ngx_uint_t qtype,ngx_uint_t nan,ngx_uint_t trunc,ngx_uint_t ans)
 name|ngx_resolver_process_a
 parameter_list|(
 name|ngx_resolver_t
@@ -7972,7 +7972,7 @@ modifier|*
 name|buf
 parameter_list|,
 name|size_t
-name|last
+name|n
 parameter_list|,
 name|ngx_uint_t
 name|ident
@@ -8034,7 +8034,7 @@ name|a
 decl_stmt|,
 name|i
 decl_stmt|,
-name|n
+name|j
 decl_stmt|,
 name|start
 decl_stmt|;
@@ -8089,7 +8089,7 @@ argument_list|)
 argument_list|,
 name|buf
 operator|+
-name|last
+name|n
 argument_list|)
 operator|!=
 name|NGX_OK
@@ -8905,7 +8905,7 @@ while|while
 condition|(
 name|i
 operator|<
-name|last
+name|n
 condition|)
 block|{
 if|if
@@ -8986,7 +8986,7 @@ argument_list|(
 name|ngx_resolver_an_t
 argument_list|)
 operator|>=
-name|last
+name|n
 condition|)
 block|{
 goto|goto
@@ -9198,7 +9198,7 @@ name|i
 operator|+
 literal|4
 operator|>
-name|last
+name|n
 condition|)
 block|{
 goto|goto
@@ -9253,7 +9253,7 @@ name|i
 operator|+
 literal|16
 operator|>
-name|last
+name|n
 condition|)
 block|{
 goto|goto
@@ -9512,7 +9512,7 @@ expr_stmt|;
 endif|#
 directive|endif
 block|}
-name|n
+name|j
 operator|=
 literal|0
 expr_stmt|;
@@ -9637,7 +9637,7 @@ condition|)
 block|{
 name|addr
 index|[
-name|n
+name|j
 index|]
 operator|=
 name|htonl
@@ -9686,7 +9686,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|++
-name|n
+name|j
 operator|==
 name|naddrs
 condition|)
@@ -9734,7 +9734,7 @@ name|ngx_memcpy
 argument_list|(
 name|addr6
 index|[
-name|n
+name|j
 index|]
 operator|.
 name|s6_addr
@@ -9751,7 +9751,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|++
-name|n
+name|j
 operator|==
 name|naddrs
 condition|)
@@ -10264,7 +10264,7 @@ name|cname
 argument_list|,
 name|buf
 operator|+
-name|last
+name|n
 argument_list|)
 operator|!=
 name|NGX_OK
