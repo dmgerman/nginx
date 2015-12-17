@@ -253,7 +253,7 @@ value|0x00000200
 end_define
 
 begin_typedef
-DECL|struct|__anon2a2cc2f70108
+DECL|struct|__anon2ad74fef0108
 typedef|typedef
 struct|struct
 block|{
@@ -297,7 +297,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2cc2f70208
+DECL|struct|__anon2ad74fef0208
 typedef|typedef
 struct|struct
 block|{
@@ -366,7 +366,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2cc2f70308
+DECL|struct|__anon2ad74fef0308
 typedef|typedef
 struct|struct
 block|{
@@ -390,7 +390,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2cc2f70408
+DECL|struct|__anon2ad74fef0408
 typedef|typedef
 struct|struct
 block|{
@@ -553,7 +553,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a2cc2f70508
+DECL|struct|__anon2ad74fef0508
 typedef|typedef
 struct|struct
 block|{
@@ -574,7 +574,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2cc2f70608
+DECL|struct|__anon2ad74fef0608
 typedef|typedef
 struct|struct
 block|{
@@ -860,7 +860,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2cc2f70708
+DECL|struct|__anon2ad74fef0708
 typedef|typedef
 struct|struct
 block|{
@@ -896,7 +896,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2cc2f70808
+DECL|struct|__anon2ad74fef0808
 typedef|typedef
 struct|struct
 block|{
@@ -1044,7 +1044,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2cc2f70908
+DECL|struct|__anon2ad74fef0908
 typedef|typedef
 struct|struct
 block|{
@@ -1446,6 +1446,12 @@ name|request_sent
 range|:
 literal|1
 decl_stmt|;
+DECL|member|request_body_sent
+name|unsigned
+name|request_body_sent
+range|:
+literal|1
+decl_stmt|;
 DECL|member|header_sent
 name|unsigned
 name|header_sent
@@ -1457,7 +1463,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a2cc2f70a08
+DECL|struct|__anon2ad74fef0a08
 typedef|typedef
 struct|struct
 block|{
@@ -1476,7 +1482,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2cc2f70b08
+DECL|struct|__anon2ad74fef0b08
 typedef|typedef
 struct|struct
 block|{

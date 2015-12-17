@@ -6586,6 +6586,12 @@ name|request_sent
 operator|=
 literal|0
 expr_stmt|;
+name|u
+operator|->
+name|request_body_sent
+operator|=
+literal|0
+expr_stmt|;
 if|if
 condition|(
 name|rc
@@ -8191,6 +8197,12 @@ block|}
 return|return;
 block|}
 comment|/* rc == NGX_OK */
+name|u
+operator|->
+name|request_body_sent
+operator|=
+literal|1
+expr_stmt|;
 if|if
 condition|(
 name|c
