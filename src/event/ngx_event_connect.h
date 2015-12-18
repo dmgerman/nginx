@@ -248,6 +248,19 @@ name|cached
 range|:
 literal|1
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_TRANSPARENT_PROXY
+operator|)
+DECL|member|transparent
+name|unsigned
+name|transparent
+range|:
+literal|1
+decl_stmt|;
+endif|#
+directive|endif
 comment|/* ngx_connection_log_error_e */
 DECL|member|log_error
 name|unsigned

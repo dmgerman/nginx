@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a2dd7660108
+DECL|struct|__anon2bc3f0510108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2dd7660208
+DECL|struct|__anon2bc3f0510208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2dd7660308
+DECL|struct|__anon2bc3f0510308
 typedef|typedef
 struct|struct
 block|{
@@ -951,7 +951,7 @@ name|NGX_HTTP_SRV_CONF
 operator||
 name|NGX_HTTP_LOC_CONF
 operator||
-name|NGX_CONF_TAKE1
+name|NGX_CONF_TAKE12
 block|,
 name|ngx_http_upstream_bind_set_slot
 block|,
