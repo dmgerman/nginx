@@ -10936,6 +10936,12 @@ name|method
 operator|=
 name|NGX_HTTP_GET
 expr_stmt|;
+name|r
+operator|->
+name|method_name
+operator|=
+name|ngx_http_core_get_method
+expr_stmt|;
 block|}
 name|ngx_http_internal_redirect
 argument_list|(
