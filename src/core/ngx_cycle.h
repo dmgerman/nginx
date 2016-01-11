@@ -252,7 +252,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c27eaed0108
+DECL|struct|__anon2b7b5fc60108
 typedef|typedef
 struct|struct
 block|{
@@ -287,6 +287,10 @@ decl_stmt|;
 DECL|member|priority
 name|int
 name|priority
+decl_stmt|;
+DECL|member|cpu_affinity_auto
+name|ngx_uint_t
+name|cpu_affinity_auto
 decl_stmt|;
 DECL|member|cpu_affinity_n
 name|ngx_uint_t
