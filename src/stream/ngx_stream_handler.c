@@ -196,7 +196,7 @@ operator|>
 literal|1
 condition|)
 block|{
-comment|/*          * There are several addresses on this port and one of them          * is the "*:port" wildcard so getsockname() is needed to determine          * the server address.          *          * AcceptEx() already gave this address.          */
+comment|/*          * There are several addresses on this port and one of them          * is the "*:port" wildcard so getsockname() is needed to determine          * the server address.          *          * AcceptEx() and recvmsg() already gave this address.          */
 if|if
 condition|(
 name|ngx_connection_local_sockaddr
@@ -685,6 +685,12 @@ block|}
 block|}
 if|if
 condition|(
+name|c
+operator|->
+name|type
+operator|==
+name|SOCK_STREAM
+operator|&&
 name|cscf
 operator|->
 name|tcp_nodelay

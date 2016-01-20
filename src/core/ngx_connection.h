@@ -211,6 +211,12 @@ name|addr_ntop
 range|:
 literal|1
 decl_stmt|;
+DECL|member|wildcard
+name|unsigned
+name|wildcard
+range|:
+literal|1
+decl_stmt|;
 if|#
 directive|if
 operator|(
@@ -314,7 +320,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2948c6830103
+DECL|enum|__anon28b505190103
 typedef|typedef
 enum|enum
 block|{
@@ -341,7 +347,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2948c6830203
+DECL|enum|__anon28b505190203
 typedef|typedef
 enum|enum
 block|{
@@ -362,7 +368,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2948c6830303
+DECL|enum|__anon28b505190303
 typedef|typedef
 enum|enum
 block|{
@@ -464,6 +470,10 @@ DECL|member|pool
 name|ngx_pool_t
 modifier|*
 name|pool
+decl_stmt|;
+DECL|member|type
+name|int
+name|type
 decl_stmt|;
 DECL|member|sockaddr
 name|struct
@@ -574,6 +584,12 @@ decl_stmt|;
 DECL|member|close
 name|unsigned
 name|close
+range|:
+literal|1
+decl_stmt|;
+DECL|member|shared
+name|unsigned
+name|shared
 range|:
 literal|1
 decl_stmt|;

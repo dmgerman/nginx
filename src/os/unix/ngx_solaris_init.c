@@ -60,6 +60,8 @@ name|ngx_udp_unix_recv
 block|,
 name|ngx_unix_send
 block|,
+name|ngx_udp_unix_send
+block|,
 if|#
 directive|if
 operator|(

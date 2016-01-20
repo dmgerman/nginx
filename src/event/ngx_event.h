@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2abb6caf0108
+DECL|struct|__anon2b6927850108
 typedef|typedef
 struct|struct
 block|{
@@ -418,7 +418,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2abb6caf0208
+DECL|struct|__anon2b6927850208
 typedef|typedef
 struct|struct
 block|{
@@ -1341,6 +1341,14 @@ value|ngx_io.send_chain
 end_define
 
 begin_define
+DECL|macro|ngx_udp_send
+define|#
+directive|define
+name|ngx_udp_send
+value|ngx_io.udp_send
+end_define
+
+begin_define
 DECL|macro|NGX_EVENT_MODULE
 define|#
 directive|define
@@ -1362,7 +1370,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2abb6caf0308
+DECL|struct|__anon2b6927850308
 typedef|typedef
 struct|struct
 block|{
@@ -1409,7 +1417,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2abb6caf0408
+DECL|struct|__anon2b6927850408
 typedef|typedef
 struct|struct
 block|{
@@ -1653,6 +1661,31 @@ name|ev
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_if
+if|#
+directive|if
+operator|!
+operator|(
+name|NGX_WIN32
+operator|)
+end_if
+
+begin_function_decl
+name|void
+name|ngx_event_recvmsg
+parameter_list|(
+name|ngx_event_t
+modifier|*
+name|ev
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_function_decl
 name|ngx_int_t

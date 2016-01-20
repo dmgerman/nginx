@@ -229,6 +229,10 @@ name|ngx_addr_t
 modifier|*
 name|local
 decl_stmt|;
+DECL|member|type
+name|int
+name|type
+decl_stmt|;
 DECL|member|rcvbuf
 name|int
 name|rcvbuf
