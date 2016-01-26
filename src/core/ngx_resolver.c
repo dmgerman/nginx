@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon299223740108
+DECL|struct|__anon28ca15a10108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299223740208
+DECL|struct|__anon28ca15a10208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299223740308
+DECL|struct|__anon28ca15a10308
 typedef|typedef
 struct|struct
 block|{
@@ -6012,7 +6012,7 @@ name|r
 operator|->
 name|name_resend_queue
 argument_list|)
-operator|||
+operator|&&
 name|times
 operator|++
 operator|<
