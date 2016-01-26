@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2c78f2010108
+DECL|struct|__anon2c3cfb9a0108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c78f2010208
+DECL|struct|__anon2c3cfb9a0208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c78f2010308
+DECL|struct|__anon2c3cfb9a0308
 typedef|typedef
 struct|struct
 block|{
@@ -2392,6 +2392,9 @@ decl_stmt|;
 name|ngx_resolver_ctx_t
 modifier|*
 name|next
+decl_stmt|,
+modifier|*
+name|last
 decl_stmt|;
 name|ngx_resolver_node_t
 modifier|*
@@ -2454,6 +2457,24 @@ condition|(
 name|rn
 condition|)
 block|{
+comment|/* ctx can be a list after NGX_RESOLVE_CNAME */
+for|for
+control|(
+name|last
+operator|=
+name|ctx
+init|;
+name|last
+operator|->
+name|next
+condition|;
+name|last
+operator|=
+name|last
+operator|->
+name|next
+control|)
+empty_stmt|;
 if|if
 condition|(
 name|rn
@@ -2604,7 +2625,7 @@ name|NGX_ERROR
 return|;
 block|}
 block|}
-name|ctx
+name|last
 operator|->
 name|next
 operator|=
@@ -2816,7 +2837,7 @@ name|ctx
 argument_list|)
 return|;
 block|}
-name|ctx
+name|last
 operator|->
 name|next
 operator|=
@@ -2954,7 +2975,7 @@ name|timeout
 argument_list|)
 expr_stmt|;
 block|}
-name|ctx
+name|last
 operator|->
 name|next
 operator|=
@@ -3298,11 +3319,19 @@ argument_list|,
 name|rn
 argument_list|)
 expr_stmt|;
+do|do
+block|{
 name|ctx
 operator|->
 name|state
 operator|=
 name|NGX_RESOLVE_NXDOMAIN
+expr_stmt|;
+name|next
+operator|=
+name|ctx
+operator|->
+name|next
 expr_stmt|;
 name|ctx
 operator|->
@@ -3311,6 +3340,16 @@ argument_list|(
 name|ctx
 argument_list|)
 expr_stmt|;
+name|ctx
+operator|=
+name|next
+expr_stmt|;
+block|}
+do|while
+condition|(
+name|ctx
+condition|)
+do|;
 return|return
 name|NGX_OK
 return|;
