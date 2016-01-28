@@ -162,7 +162,7 @@ value|50
 end_define
 
 begin_typedef
-DECL|struct|__anon2aea653f0108
+DECL|struct|__anon29316ded0108
 typedef|typedef
 struct|struct
 block|{
@@ -221,7 +221,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aea653f0208
+DECL|struct|__anon29316ded0208
 typedef|typedef
 struct|struct
 block|{
@@ -277,7 +277,7 @@ name|query6
 decl_stmt|;
 endif|#
 directive|endif
-DECL|union|__anon2aea653f030a
+DECL|union|__anon29316ded030a
 union|union
 block|{
 DECL|member|addr
@@ -315,7 +315,7 @@ directive|if
 operator|(
 name|NGX_HAVE_INET6
 operator|)
-DECL|union|__anon2aea653f040a
+DECL|union|__anon29316ded040a
 union|union
 block|{
 DECL|member|addr6
@@ -363,7 +363,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aea653f0508
+DECL|struct|__anon29316ded0508
 typedef|typedef
 struct|struct
 block|{
@@ -494,10 +494,10 @@ name|ngx_resolver_t
 modifier|*
 name|resolver
 decl_stmt|;
-DECL|member|udp_connection
-name|ngx_udp_connection_t
+DECL|member|node
+name|ngx_resolver_node_t
 modifier|*
-name|udp_connection
+name|node
 decl_stmt|;
 comment|/* event ident must be after 3 pointers as in ngx_connection_t */
 DECL|member|ident
@@ -556,11 +556,6 @@ DECL|member|event
 name|ngx_event_t
 modifier|*
 name|event
-decl_stmt|;
-DECL|member|node
-name|ngx_resolver_node_t
-modifier|*
-name|node
 decl_stmt|;
 block|}
 struct|;
