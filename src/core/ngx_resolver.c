@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon28c210c00108
+DECL|struct|__anon2c4136110108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c210c00208
+DECL|struct|__anon2c4136110208
 typedef|typedef
 struct|struct
 block|{
@@ -116,7 +116,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c210c00308
+DECL|struct|__anon2c4136110308
 typedef|typedef
 struct|struct
 block|{
@@ -173,9 +173,9 @@ begin_function_decl
 name|ngx_int_t
 name|ngx_udp_connect
 parameter_list|(
-name|ngx_udp_connection_t
+name|ngx_resolver_connection_t
 modifier|*
-name|uc
+name|rec
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -768,9 +768,9 @@ name|ngx_pool_cleanup_t
 modifier|*
 name|cln
 decl_stmt|;
-name|ngx_udp_connection_t
+name|ngx_resolver_connection_t
 modifier|*
-name|uc
+name|rec
 decl_stmt|;
 name|cln
 operator|=
@@ -1049,7 +1049,7 @@ argument_list|(
 operator|&
 name|r
 operator|->
-name|udp_connections
+name|connections
 argument_list|,
 name|cf
 operator|->
@@ -1059,7 +1059,7 @@ name|n
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|ngx_udp_connection_t
+name|ngx_resolver_connection_t
 argument_list|)
 argument_list|)
 operator|!=
@@ -1357,14 +1357,14 @@ return|return
 name|NULL
 return|;
 block|}
-name|uc
+name|rec
 operator|=
 name|ngx_array_push_n
 argument_list|(
 operator|&
 name|r
 operator|->
-name|udp_connections
+name|connections
 argument_list|,
 name|u
 operator|.
@@ -1373,7 +1373,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|uc
+name|rec
 operator|==
 name|NULL
 condition|)
@@ -1384,7 +1384,7 @@ return|;
 block|}
 name|ngx_memzero
 argument_list|(
-name|uc
+name|rec
 argument_list|,
 name|u
 operator|.
@@ -1392,7 +1392,7 @@ name|naddrs
 operator|*
 sizeof|sizeof
 argument_list|(
-name|ngx_udp_connection_t
+name|ngx_resolver_connection_t
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1412,7 +1412,7 @@ name|j
 operator|++
 control|)
 block|{
-name|uc
+name|rec
 index|[
 name|j
 index|]
@@ -1428,7 +1428,7 @@ index|]
 operator|.
 name|sockaddr
 expr_stmt|;
-name|uc
+name|rec
 index|[
 name|j
 index|]
@@ -1444,7 +1444,7 @@ index|]
 operator|.
 name|socklen
 expr_stmt|;
-name|uc
+name|rec
 index|[
 name|j
 index|]
@@ -1488,9 +1488,9 @@ decl_stmt|;
 name|ngx_uint_t
 name|i
 decl_stmt|;
-name|ngx_udp_connection_t
+name|ngx_resolver_connection_t
 modifier|*
-name|uc
+name|rec
 decl_stmt|;
 if|if
 condition|(
@@ -1562,11 +1562,11 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
-name|uc
+name|rec
 operator|=
 name|r
 operator|->
-name|udp_connections
+name|connections
 operator|.
 name|elts
 expr_stmt|;
@@ -1580,7 +1580,7 @@ name|i
 operator|<
 name|r
 operator|->
-name|udp_connections
+name|connections
 operator|.
 name|nelts
 condition|;
@@ -1590,22 +1590,22 @@ control|)
 block|{
 if|if
 condition|(
-name|uc
+name|rec
 index|[
 name|i
 index|]
 operator|.
-name|connection
+name|udp
 condition|)
 block|{
 name|ngx_close_connection
 argument_list|(
-name|uc
+name|rec
 index|[
 name|i
 index|]
 operator|.
-name|connection
+name|udp
 argument_list|)
 expr_stmt|;
 block|}
@@ -1900,7 +1900,7 @@ if|if
 condition|(
 name|r
 operator|->
-name|udp_connections
+name|connections
 operator|.
 name|nelts
 operator|==
@@ -5072,22 +5072,22 @@ block|{
 name|ssize_t
 name|n
 decl_stmt|;
-name|ngx_udp_connection_t
+name|ngx_resolver_connection_t
 modifier|*
-name|uc
+name|rec
 decl_stmt|;
-name|uc
+name|rec
 operator|=
 name|r
 operator|->
-name|udp_connections
+name|connections
 operator|.
 name|elts
 expr_stmt|;
-name|uc
+name|rec
 operator|=
 operator|&
-name|uc
+name|rec
 index|[
 name|r
 operator|->
@@ -5103,7 +5103,7 @@ name|last_connection
 operator|==
 name|r
 operator|->
-name|udp_connections
+name|connections
 operator|.
 name|nelts
 condition|)
@@ -5117,14 +5117,14 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|uc
+name|rec
 operator|->
-name|connection
+name|udp
 operator|==
 name|NULL
 condition|)
 block|{
-name|uc
+name|rec
 operator|->
 name|log
 operator|=
@@ -5133,7 +5133,7 @@ name|r
 operator|->
 name|log
 expr_stmt|;
-name|uc
+name|rec
 operator|->
 name|log
 operator|.
@@ -5141,15 +5141,15 @@ name|handler
 operator|=
 name|ngx_resolver_log_error
 expr_stmt|;
-name|uc
+name|rec
 operator|->
 name|log
 operator|.
 name|data
 operator|=
-name|uc
+name|rec
 expr_stmt|;
-name|uc
+name|rec
 operator|->
 name|log
 operator|.
@@ -5161,7 +5161,7 @@ if|if
 condition|(
 name|ngx_udp_connect
 argument_list|(
-name|uc
+name|rec
 argument_list|)
 operator|!=
 name|NGX_OK
@@ -5171,17 +5171,17 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-name|uc
+name|rec
 operator|->
-name|connection
+name|udp
 operator|->
 name|data
 operator|=
 name|r
 expr_stmt|;
-name|uc
+name|rec
 operator|->
-name|connection
+name|udp
 operator|->
 name|read
 operator|->
@@ -5189,9 +5189,9 @@ name|handler
 operator|=
 name|ngx_resolver_read_response
 expr_stmt|;
-name|uc
+name|rec
 operator|->
-name|connection
+name|udp
 operator|->
 name|read
 operator|->
@@ -5217,9 +5217,9 @@ name|n
 operator|=
 name|ngx_send
 argument_list|(
-name|uc
+name|rec
 operator|->
-name|connection
+name|udp
 argument_list|,
 name|rn
 operator|->
@@ -5262,7 +5262,7 @@ argument_list|(
 name|NGX_LOG_CRIT
 argument_list|,
 operator|&
-name|uc
+name|rec
 operator|->
 name|log
 argument_list|,
@@ -5302,9 +5302,9 @@ name|n
 operator|=
 name|ngx_send
 argument_list|(
-name|uc
+name|rec
 operator|->
-name|connection
+name|udp
 argument_list|,
 name|rn
 operator|->
@@ -5347,7 +5347,7 @@ argument_list|(
 name|NGX_LOG_CRIT
 argument_list|,
 operator|&
-name|uc
+name|rec
 operator|->
 name|log
 argument_list|,
@@ -13317,9 +13317,9 @@ name|u_char
 modifier|*
 name|p
 decl_stmt|;
-name|ngx_udp_connection_t
+name|ngx_resolver_connection_t
 modifier|*
-name|uc
+name|rec
 decl_stmt|;
 name|p
 operator|=
@@ -13354,7 +13354,7 @@ operator|-
 name|buf
 expr_stmt|;
 block|}
-name|uc
+name|rec
 operator|=
 name|log
 operator|->
@@ -13362,7 +13362,7 @@ name|data
 expr_stmt|;
 if|if
 condition|(
-name|uc
+name|rec
 condition|)
 block|{
 name|p
@@ -13376,7 +13376,7 @@ argument_list|,
 literal|", resolver: %V"
 argument_list|,
 operator|&
-name|uc
+name|rec
 operator|->
 name|server
 argument_list|)
@@ -13390,12 +13390,12 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_udp_connect (ngx_udp_connection_t * uc)
+DECL|function|ngx_udp_connect (ngx_resolver_connection_t * rec)
 name|ngx_udp_connect
 parameter_list|(
-name|ngx_udp_connection_t
+name|ngx_resolver_connection_t
 modifier|*
-name|uc
+name|rec
 parameter_list|)
 block|{
 name|int
@@ -13422,7 +13422,7 @@ name|s
 operator|=
 name|ngx_socket
 argument_list|(
-name|uc
+name|rec
 operator|->
 name|sockaddr
 operator|->
@@ -13438,7 +13438,7 @@ argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
 operator|&
-name|uc
+name|rec
 operator|->
 name|log
 argument_list|,
@@ -13465,7 +13465,7 @@ argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
 operator|&
-name|uc
+name|rec
 operator|->
 name|log
 argument_list|,
@@ -13486,7 +13486,7 @@ argument_list|(
 name|s
 argument_list|,
 operator|&
-name|uc
+name|rec
 operator|->
 name|log
 argument_list|)
@@ -13514,7 +13514,7 @@ argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
 operator|&
-name|uc
+name|rec
 operator|->
 name|log
 argument_list|,
@@ -13545,7 +13545,7 @@ argument_list|(
 name|NGX_LOG_ALERT
 argument_list|,
 operator|&
-name|uc
+name|rec
 operator|->
 name|log
 argument_list|,
@@ -13576,7 +13576,7 @@ operator|->
 name|log
 operator|=
 operator|&
-name|uc
+name|rec
 operator|->
 name|log
 expr_stmt|;
@@ -13585,13 +13585,13 @@ operator|->
 name|log
 operator|=
 operator|&
-name|uc
+name|rec
 operator|->
 name|log
 expr_stmt|;
-name|uc
+name|rec
 operator|->
-name|connection
+name|udp
 operator|=
 name|c
 expr_stmt|;
@@ -13611,7 +13611,7 @@ argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
 operator|&
-name|uc
+name|rec
 operator|->
 name|log
 argument_list|,
@@ -13620,7 +13620,7 @@ argument_list|,
 literal|"connect to %V, fd:%d #%uA"
 argument_list|,
 operator|&
-name|uc
+name|rec
 operator|->
 name|server
 argument_list|,
@@ -13637,11 +13637,11 @@ name|connect
 argument_list|(
 name|s
 argument_list|,
-name|uc
+name|rec
 operator|->
 name|sockaddr
 argument_list|,
-name|uc
+name|rec
 operator|->
 name|socklen
 argument_list|)
@@ -13660,7 +13660,7 @@ argument_list|(
 name|NGX_LOG_CRIT
 argument_list|,
 operator|&
-name|uc
+name|rec
 operator|->
 name|log
 argument_list|,
@@ -13723,9 +13723,9 @@ argument_list|(
 name|c
 argument_list|)
 expr_stmt|;
-name|uc
+name|rec
 operator|->
-name|connection
+name|udp
 operator|=
 name|NULL
 expr_stmt|;

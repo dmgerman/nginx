@@ -162,14 +162,14 @@ value|50
 end_define
 
 begin_typedef
-DECL|struct|__anon29316ded0108
+DECL|struct|__anon27d4f3bd0108
 typedef|typedef
 struct|struct
 block|{
-DECL|member|connection
+DECL|member|udp
 name|ngx_connection_t
 modifier|*
-name|connection
+name|udp
 decl_stmt|;
 DECL|member|sockaddr
 name|struct
@@ -189,9 +189,9 @@ DECL|member|log
 name|ngx_log_t
 name|log
 decl_stmt|;
-DECL|typedef|ngx_udp_connection_t
+DECL|typedef|ngx_resolver_connection_t
 block|}
-name|ngx_udp_connection_t
+name|ngx_resolver_connection_t
 typedef|;
 end_typedef
 
@@ -221,7 +221,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29316ded0208
+DECL|struct|__anon27d4f3bd0208
 typedef|typedef
 struct|struct
 block|{
@@ -277,7 +277,7 @@ name|query6
 decl_stmt|;
 endif|#
 directive|endif
-DECL|union|__anon29316ded030a
+DECL|union|__anon27d4f3bd030a
 union|union
 block|{
 DECL|member|addr
@@ -315,7 +315,7 @@ directive|if
 operator|(
 name|NGX_HAVE_INET6
 operator|)
-DECL|union|__anon29316ded040a
+DECL|union|__anon27d4f3bd040a
 union|union
 block|{
 DECL|member|addr6
@@ -363,7 +363,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29316ded0508
+DECL|struct|__anon27d4f3bd0508
 typedef|typedef
 struct|struct
 block|{
@@ -389,9 +389,9 @@ name|ngx_int_t
 name|ident
 decl_stmt|;
 comment|/* simple round robin DNS peers balancer */
-DECL|member|udp_connections
+DECL|member|connections
 name|ngx_array_t
-name|udp_connections
+name|connections
 decl_stmt|;
 DECL|member|last_connection
 name|ngx_uint_t
