@@ -162,7 +162,16 @@ value|50
 end_define
 
 begin_typedef
-DECL|struct|__anon27b2b4c70108
+DECL|typedef|ngx_resolver_t
+typedef|typedef
+name|struct
+name|ngx_resolver_s
+name|ngx_resolver_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2b306d590108
 typedef|typedef
 struct|struct
 block|{
@@ -170,6 +179,11 @@ DECL|member|udp
 name|ngx_connection_t
 modifier|*
 name|udp
+decl_stmt|;
+DECL|member|tcp
+name|ngx_connection_t
+modifier|*
+name|tcp
 decl_stmt|;
 DECL|member|sockaddr
 name|struct
@@ -188,6 +202,21 @@ decl_stmt|;
 DECL|member|log
 name|ngx_log_t
 name|log
+decl_stmt|;
+DECL|member|read_buf
+name|ngx_buf_t
+modifier|*
+name|read_buf
+decl_stmt|;
+DECL|member|write_buf
+name|ngx_buf_t
+modifier|*
+name|write_buf
+decl_stmt|;
+DECL|member|resolver
+name|ngx_resolver_t
+modifier|*
+name|resolver
 decl_stmt|;
 DECL|typedef|ngx_resolver_connection_t
 block|}
@@ -221,7 +250,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b2b4c70208
+DECL|struct|__anon2b306d590208
 typedef|typedef
 struct|struct
 block|{
@@ -277,7 +306,7 @@ name|query6
 decl_stmt|;
 endif|#
 directive|endif
-DECL|union|__anon27b2b4c7030a
+DECL|union|__anon2b306d59030a
 union|union
 block|{
 DECL|member|addr
@@ -315,7 +344,7 @@ directive|if
 operator|(
 name|NGX_HAVE_INET6
 operator|)
-DECL|union|__anon27b2b4c7040a
+DECL|union|__anon2b306d59040a
 union|union
 block|{
 DECL|member|addr6
@@ -351,6 +380,25 @@ DECL|member|ttl
 name|uint32_t
 name|ttl
 decl_stmt|;
+DECL|member|tcp
+name|unsigned
+name|tcp
+range|:
+literal|1
+decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_INET6
+operator|)
+DECL|member|tcp6
+name|unsigned
+name|tcp6
+range|:
+literal|1
+decl_stmt|;
+endif|#
+directive|endif
 DECL|member|last_connection
 name|ngx_uint_t
 name|last_connection
@@ -366,10 +414,10 @@ name|ngx_resolver_node_t
 typedef|;
 end_typedef
 
-begin_typedef
-DECL|struct|__anon27b2b4c70508
-typedef|typedef
+begin_struct
+DECL|struct|ngx_resolver_s
 struct|struct
+name|ngx_resolver_s
 block|{
 comment|/* has to be pointer because of "incomplete type" */
 DECL|member|event
@@ -465,6 +513,10 @@ DECL|member|resend_timeout
 name|time_t
 name|resend_timeout
 decl_stmt|;
+DECL|member|tcp_timeout
+name|time_t
+name|tcp_timeout
+decl_stmt|;
 DECL|member|expire
 name|time_t
 name|expire
@@ -477,11 +529,9 @@ DECL|member|log_level
 name|ngx_uint_t
 name|log_level
 decl_stmt|;
-DECL|typedef|ngx_resolver_t
 block|}
-name|ngx_resolver_t
-typedef|;
-end_typedef
+struct|;
+end_struct
 
 begin_struct
 DECL|struct|ngx_resolver_ctx_s
