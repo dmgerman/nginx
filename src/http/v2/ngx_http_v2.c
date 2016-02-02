@@ -1713,10 +1713,7 @@ name|c
 operator|->
 name|pool
 argument_list|,
-sizeof|sizeof
-argument_list|(
-name|ngx_pool_cleanup_file_t
-argument_list|)
+literal|0
 argument_list|)
 expr_stmt|;
 if|if
@@ -14274,7 +14271,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2b0dde690108
+DECL|struct|__anon27cae2bb0108
 specifier|static
 specifier|const
 struct|struct
