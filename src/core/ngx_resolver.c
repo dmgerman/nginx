@@ -46,7 +46,7 @@ value|8192
 end_define
 
 begin_typedef
-DECL|struct|__anon2ad4a2ea0108
+DECL|struct|__anon2bc9bd7a0108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad4a2ea0208
+DECL|struct|__anon2bc9bd7a0208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad4a2ea0308
+DECL|struct|__anon2bc9bd7a0308
 typedef|typedef
 struct|struct
 block|{
@@ -5736,6 +5736,13 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|ngx_resolver_free
+argument_list|(
+name|r
+argument_list|,
+name|b
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
@@ -5829,6 +5836,13 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|ngx_resolver_free
+argument_list|(
+name|r
+argument_list|,
+name|b
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
