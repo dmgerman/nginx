@@ -304,7 +304,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b739bc60108
+DECL|struct|__anon28edf11d0108
 typedef|typedef
 struct|struct
 block|{
@@ -323,7 +323,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b739bc60208
+DECL|struct|__anon28edf11d0208
 typedef|typedef
 struct|struct
 block|{
@@ -428,7 +428,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b739bc60308
+DECL|struct|__anon28edf11d0308
 typedef|typedef
 struct|struct
 block|{
@@ -654,10 +654,6 @@ DECL|member|node
 name|ngx_http_v2_node_t
 modifier|*
 name|node
-decl_stmt|;
-DECL|member|header_buffers
-name|ngx_uint_t
-name|header_buffers
 decl_stmt|;
 DECL|member|queued
 name|ngx_uint_t
