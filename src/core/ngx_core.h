@@ -309,6 +309,12 @@ end_include
 begin_include
 include|#
 directive|include
+file|<ngx_dlopen.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_parse.h>
 end_include
 

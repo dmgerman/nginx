@@ -288,6 +288,12 @@ end_comment
 begin_include
 include|#
 directive|include
+file|<dlfcn.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_auto_config.h>
 end_include
 

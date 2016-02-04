@@ -236,6 +236,12 @@ directive|include
 file|<xlocale.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<dlfcn.h>
+end_include
+
 begin_ifndef
 ifndef|#
 directive|ifndef
