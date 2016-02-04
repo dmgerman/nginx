@@ -927,6 +927,7 @@ name|len
 operator|+=
 literal|1
 operator|+
+operator|(
 name|clcf
 operator|->
 name|server_tokens
@@ -940,6 +941,7 @@ name|ngx_http_v2_literal_size
 argument_list|(
 literal|"nginx"
 argument_list|)
+operator|)
 expr_stmt|;
 block|}
 if|if
