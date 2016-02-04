@@ -177,6 +177,15 @@ modifier|*
 modifier|*
 name|modules
 decl_stmt|;
+DECL|member|modules_n
+name|ngx_uint_t
+name|modules_n
+decl_stmt|;
+DECL|member|modules_used
+name|ngx_uint_t
+name|modules_used
+decl_stmt|;
+comment|/* unsigned  modules_used:1; */
 DECL|member|reusable_connections_queue
 name|ngx_queue_t
 name|reusable_connections_queue
@@ -258,7 +267,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bd413040108
+DECL|struct|__anon277a87030108
 typedef|typedef
 struct|struct
 block|{
