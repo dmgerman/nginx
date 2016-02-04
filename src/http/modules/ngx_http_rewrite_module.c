@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a311fda0108
+DECL|struct|__anon2b71ea880108
 typedef|typedef
 struct|struct
 block|{
@@ -2529,7 +2529,11 @@ name|i
 operator|=
 literal|0
 init|;
-name|ngx_modules
+name|cf
+operator|->
+name|cycle
+operator|->
+name|modules
 index|[
 name|i
 index|]
@@ -2540,7 +2544,11 @@ control|)
 block|{
 if|if
 condition|(
-name|ngx_modules
+name|cf
+operator|->
+name|cycle
+operator|->
+name|modules
 index|[
 name|i
 index|]
@@ -2554,7 +2562,11 @@ continue|continue;
 block|}
 name|module
 operator|=
-name|ngx_modules
+name|cf
+operator|->
+name|cycle
+operator|->
+name|modules
 index|[
 name|i
 index|]
@@ -2592,7 +2604,11 @@ name|ctx
 operator|->
 name|loc_conf
 index|[
-name|ngx_modules
+name|cf
+operator|->
+name|cycle
+operator|->
+name|modules
 index|[
 name|i
 index|]

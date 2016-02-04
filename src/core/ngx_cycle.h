@@ -171,6 +171,12 @@ DECL|member|free_connection_n
 name|ngx_uint_t
 name|free_connection_n
 decl_stmt|;
+DECL|member|modules
+name|ngx_module_t
+modifier|*
+modifier|*
+name|modules
+decl_stmt|;
 DECL|member|reusable_connections_queue
 name|ngx_queue_t
 name|reusable_connections_queue
@@ -252,7 +258,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b7b5fc60108
+DECL|struct|__anon2bd413040108
 typedef|typedef
 struct|struct
 block|{

@@ -86,7 +86,9 @@ name|i
 operator|=
 literal|0
 init|;
-name|ngx_modules
+name|cycle
+operator|->
+name|modules
 index|[
 name|i
 index|]
@@ -97,7 +99,9 @@ control|)
 block|{
 if|if
 condition|(
-name|ngx_modules
+name|cycle
+operator|->
+name|modules
 index|[
 name|i
 index|]
@@ -107,7 +111,9 @@ condition|)
 block|{
 if|if
 condition|(
-name|ngx_modules
+name|cycle
+operator|->
+name|modules
 index|[
 name|i
 index|]
@@ -161,7 +167,9 @@ name|i
 operator|=
 literal|0
 init|;
-name|ngx_modules
+name|cycle
+operator|->
+name|modules
 index|[
 name|i
 index|]
@@ -172,7 +180,9 @@ control|)
 block|{
 if|if
 condition|(
-name|ngx_modules
+name|cycle
+operator|->
+name|modules
 index|[
 name|i
 index|]
@@ -184,7 +194,9 @@ condition|)
 block|{
 continue|continue;
 block|}
-name|ngx_modules
+name|cycle
+operator|->
+name|modules
 index|[
 name|i
 index|]
