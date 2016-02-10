@@ -1239,6 +1239,7 @@ name|ngx_uint_t
 name|version
 decl_stmt|;
 DECL|member|signature
+specifier|const
 name|char
 modifier|*
 name|signature
@@ -1378,7 +1379,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b1332db0108
+DECL|struct|__anon2acb88ec0108
 typedef|typedef
 struct|struct
 block|{
