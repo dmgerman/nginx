@@ -22,23 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|typedef|ngx_stream_proxy_handler_pt
-typedef|typedef
-name|void
-function_decl|(
-modifier|*
-name|ngx_stream_proxy_handler_pt
-function_decl|)
-parameter_list|(
-name|ngx_stream_session_t
-modifier|*
-name|s
-parameter_list|)
-function_decl|;
-end_typedef
-
-begin_typedef
-DECL|struct|__anon2b791c900108
+DECL|struct|__anon29ead7b00108
 typedef|typedef
 struct|struct
 block|{
