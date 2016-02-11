@@ -608,6 +608,9 @@ name|module
 operator|->
 name|version
 argument_list|,
+operator|(
+name|ngx_uint_t
+operator|)
 name|nginx_version
 argument_list|)
 expr_stmt|;
