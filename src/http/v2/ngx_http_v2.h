@@ -304,7 +304,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28edf11d0108
+DECL|struct|__anon27eadfbf0108
 typedef|typedef
 struct|struct
 block|{
@@ -323,7 +323,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28edf11d0208
+DECL|struct|__anon27eadfbf0208
 typedef|typedef
 struct|struct
 block|{
@@ -428,7 +428,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28edf11d0308
+DECL|struct|__anon27eadfbf0308
 typedef|typedef
 struct|struct
 block|{
@@ -1154,6 +1154,27 @@ parameter_list|,
 name|ngx_log_t
 modifier|*
 name|log
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|size_t
+name|ngx_http_v2_huff_encode
+parameter_list|(
+name|u_char
+modifier|*
+name|src
+parameter_list|,
+name|size_t
+name|len
+parameter_list|,
+name|u_char
+modifier|*
+name|dst
+parameter_list|,
+name|ngx_uint_t
+name|lower
 parameter_list|)
 function_decl|;
 end_function_decl
