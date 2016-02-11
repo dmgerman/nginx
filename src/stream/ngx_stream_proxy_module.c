@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29ead7b00108
+DECL|struct|__anon2969c9ce0108
 typedef|typedef
 struct|struct
 block|{
@@ -1806,15 +1806,6 @@ argument_list|,
 name|rc
 argument_list|)
 expr_stmt|;
-name|pscf
-operator|=
-name|ngx_stream_get_module_srv_conf
-argument_list|(
-name|s
-argument_list|,
-name|ngx_stream_proxy_module
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|rc
@@ -1954,6 +1945,15 @@ operator|->
 name|handler
 operator|=
 name|ngx_stream_proxy_connect_handler
+expr_stmt|;
+name|pscf
+operator|=
+name|ngx_stream_get_module_srv_conf
+argument_list|(
+name|s
+argument_list|,
+name|ngx_stream_proxy_module
+argument_list|)
 expr_stmt|;
 name|ngx_add_timer
 argument_list|(
