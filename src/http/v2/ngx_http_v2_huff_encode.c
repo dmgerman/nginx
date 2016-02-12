@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon274dd70f0108
+DECL|struct|__anon28d486f40108
 typedef|typedef
 struct|struct
 block|{
@@ -3457,6 +3457,17 @@ else|:
 literal|0
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|pending
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+name|hlen
+return|;
+block|}
 name|buf
 operator||=
 operator|(
@@ -3502,10 +3513,7 @@ literal|8
 operator|-
 name|pending
 expr_stmt|;
-while|while
-condition|(
-name|pending
-condition|)
+do|do
 block|{
 name|pending
 operator|-=
@@ -3527,6 +3535,11 @@ name|pending
 operator|)
 expr_stmt|;
 block|}
+do|while
+condition|(
+name|pending
+condition|)
+do|;
 return|return
 name|hlen
 return|;
