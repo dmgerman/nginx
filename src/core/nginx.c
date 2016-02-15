@@ -1865,6 +1865,31 @@ name|s
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|v
+operator|!=
+name|p
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"invalid socket number \"%s\" in "
+name|NGINX_VAR
+literal|" environment variable, ignoring"
+argument_list|,
+name|v
+argument_list|)
+expr_stmt|;
+block|}
 name|ngx_inherited
 operator|=
 literal|1
