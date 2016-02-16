@@ -1860,9 +1860,7 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_CRIT
 argument_list|,
-name|r
-operator|->
-name|connection
+name|fc
 operator|->
 name|log
 argument_list|,
@@ -1901,9 +1899,7 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_CRIT
 argument_list|,
-name|r
-operator|->
-name|connection
+name|fc
 operator|->
 name|log
 argument_list|,
