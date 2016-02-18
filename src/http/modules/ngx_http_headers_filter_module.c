@@ -55,7 +55,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aba5a240108
+DECL|struct|__anon27dedd7d0108
 typedef|typedef
 struct|struct
 block|{
@@ -108,7 +108,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2aba5a240203
+DECL|enum|__anon27dedd7d0203
 typedef|typedef
 enum|enum
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aba5a240308
+DECL|struct|__anon27dedd7d0308
 typedef|typedef
 struct|struct
 block|{
@@ -3011,10 +3011,9 @@ name|ngx_http_complex_value_t
 argument_list|)
 argument_list|)
 expr_stmt|;
-return|return
-name|NGX_CONF_OK
-return|;
 block|}
+else|else
+block|{
 name|ngx_memzero
 argument_list|(
 operator|&
@@ -3065,6 +3064,7 @@ block|{
 return|return
 name|NGX_CONF_ERROR
 return|;
+block|}
 block|}
 if|if
 condition|(
