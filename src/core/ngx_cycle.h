@@ -267,7 +267,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon277a87030108
+DECL|struct|__anon27e80d3a0108
 typedef|typedef
 struct|struct
 block|{
@@ -312,7 +312,7 @@ name|ngx_uint_t
 name|cpu_affinity_n
 decl_stmt|;
 DECL|member|cpu_affinity
-name|uint64_t
+name|ngx_cpuset_t
 modifier|*
 name|cpu_affinity
 decl_stmt|;
@@ -474,7 +474,8 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|uint64_t
+name|ngx_cpuset_t
+modifier|*
 name|ngx_get_cpu_affinity
 parameter_list|(
 name|ngx_uint_t

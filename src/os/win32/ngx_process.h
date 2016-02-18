@@ -58,7 +58,15 @@ value|(sizeof("ngx_cache_manager_mutex_") + NGX_INT32_LEN)
 end_define
 
 begin_typedef
-DECL|struct|__anon2aabf4470108
+DECL|typedef|ngx_cpuset_t
+typedef|typedef
+name|uint64_t
+name|ngx_cpuset_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2ad8d5800108
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +135,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aabf4470208
+DECL|struct|__anon2ad8d5800208
 typedef|typedef
 struct|struct
 block|{
