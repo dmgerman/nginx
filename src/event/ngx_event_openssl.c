@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2bc036850108
+DECL|struct|__anon28d08f1a0108
 typedef|typedef
 struct|struct
 block|{
@@ -7617,7 +7617,7 @@ name|sslerr
 operator|=
 literal|0
 expr_stmt|;
-comment|/* SSL_shutdown() never returns -1, on error it returns 0 */
+comment|/* before 0.9.8m SSL_shutdown() returned 0 instead of -1 on errors */
 if|if
 condition|(
 name|n
