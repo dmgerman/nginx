@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon28d08f1a0108
+DECL|struct|__anon2941aa110108
 typedef|typedef
 struct|struct
 block|{
@@ -7475,6 +7475,38 @@ decl_stmt|;
 name|ngx_err_t
 name|err
 decl_stmt|;
+if|if
+condition|(
+name|SSL_in_init
+argument_list|(
+name|c
+operator|->
+name|ssl
+operator|->
+name|connection
+argument_list|)
+condition|)
+block|{
+comment|/*          * OpenSSL 1.0.2f complains if SSL_shutdown() is called during          * an SSL handshake, while previous versions always return 0.          * Avoid calling SSL_shutdown() if handshake wasn't completed.          */
+name|SSL_free
+argument_list|(
+name|c
+operator|->
+name|ssl
+operator|->
+name|connection
+argument_list|)
+expr_stmt|;
+name|c
+operator|->
+name|ssl
+operator|=
+name|NULL
+expr_stmt|;
+return|return
+name|NGX_OK
+return|;
+block|}
 if|if
 condition|(
 name|c
