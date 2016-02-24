@@ -5900,7 +5900,7 @@ block|{
 comment|/* a header line parsing is still not complete */
 continue|continue;
 block|}
-comment|/* rc == NGX_HTTP_PARSE_INVALID_HEADER: "\r" is not followed by "\n" */
+comment|/* rc == NGX_HTTP_PARSE_INVALID_HEADER */
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_INFO
@@ -5911,19 +5911,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"client sent invalid header line: \"%*s\\r...\""
-argument_list|,
-name|r
-operator|->
-name|header_end
-operator|-
-name|r
-operator|->
-name|header_name_start
-argument_list|,
-name|r
-operator|->
-name|header_name_start
+literal|"client sent invalid header line"
 argument_list|)
 expr_stmt|;
 name|ngx_http_finalize_request
@@ -8576,7 +8564,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon28f2fe730103
+DECL|enum|__anon288e40b10103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
