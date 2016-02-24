@@ -304,7 +304,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27eadfbf0108
+DECL|struct|__anon27d49ce30108
 typedef|typedef
 struct|struct
 block|{
@@ -323,7 +323,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27eadfbf0208
+DECL|struct|__anon27d49ce30208
 typedef|typedef
 struct|struct
 block|{
@@ -348,6 +348,12 @@ decl_stmt|;
 DECL|member|incomplete
 name|unsigned
 name|incomplete
+range|:
+literal|1
+decl_stmt|;
+DECL|member|keep_pool
+name|unsigned
+name|keep_pool
 range|:
 literal|1
 decl_stmt|;
@@ -428,7 +434,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27eadfbf0308
+DECL|struct|__anon27d49ce30308
 typedef|typedef
 struct|struct
 block|{
@@ -695,6 +701,11 @@ decl_stmt|;
 DECL|member|header_limit
 name|size_t
 name|header_limit
+decl_stmt|;
+DECL|member|pool
+name|ngx_pool_t
+modifier|*
+name|pool
 decl_stmt|;
 DECL|member|handled
 name|unsigned
