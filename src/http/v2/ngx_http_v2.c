@@ -14376,7 +14376,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2b09a24c0108
+DECL|struct|__anon2c4ca15a0108
 specifier|static
 specifier|const
 struct|struct
@@ -16670,6 +16670,26 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
+block|}
+if|if
+condition|(
+name|h2c
+operator|->
+name|state
+operator|.
+name|stream
+operator|==
+name|stream
+condition|)
+block|{
+name|h2c
+operator|->
+name|state
+operator|.
+name|stream
+operator|=
+name|NULL
+expr_stmt|;
 block|}
 name|node
 operator|->
