@@ -77,10 +77,6 @@ block|{
 name|ngx_uint_t
 name|i
 decl_stmt|;
-name|ngx_max_module
-operator|=
-literal|0
-expr_stmt|;
 for|for
 control|(
 name|i
