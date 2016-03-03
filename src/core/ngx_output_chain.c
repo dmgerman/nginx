@@ -2319,12 +2319,6 @@ operator|==
 name|NGX_AGAIN
 condition|)
 block|{
-name|ctx
-operator|->
-name|aio
-operator|=
-literal|1
-expr_stmt|;
 return|return
 name|NGX_AGAIN
 return|;
