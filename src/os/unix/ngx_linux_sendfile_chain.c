@@ -1034,7 +1034,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon29d871a20108
+DECL|struct|__anon299d9f6e0108
 typedef|typedef
 struct|struct
 block|{
@@ -1262,6 +1262,31 @@ condition|?
 name|NGX_DONE
 else|:
 name|NGX_AGAIN
+return|;
+block|}
+if|if
+condition|(
+name|task
+operator|->
+name|event
+operator|.
+name|active
+operator|&&
+name|ctx
+operator|->
+name|file
+operator|==
+name|file
+condition|)
+block|{
+comment|/*          * tolerate duplicate calls; they can happen due to subrequests          * or multiple calls of the next body filter from a filter          */
+operator|*
+name|sent
+operator|=
+literal|0
+expr_stmt|;
+return|return
+name|NGX_OK
 return|;
 block|}
 name|ctx
