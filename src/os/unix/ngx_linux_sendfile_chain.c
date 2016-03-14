@@ -1034,7 +1034,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon299d9f6e0108
+DECL|struct|__anon298b06430108
 typedef|typedef
 struct|struct
 block|{
@@ -1212,12 +1212,24 @@ condition|(
 name|ctx
 operator|->
 name|err
-operator|&&
+operator|==
+name|NGX_EAGAIN
+condition|)
+block|{
+operator|*
+name|sent
+operator|=
+literal|0
+expr_stmt|;
+return|return
+name|NGX_AGAIN
+return|;
+block|}
+if|if
+condition|(
 name|ctx
 operator|->
 name|err
-operator|!=
-name|NGX_EAGAIN
 condition|)
 block|{
 name|wev
