@@ -86,7 +86,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b80c4210108
+DECL|struct|__anon2c35260b0108
 typedef|typedef
 struct|struct
 block|{
@@ -1788,7 +1788,6 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"unexpected event %04Xd for closed and removed socket %d, "
-argument_list|,
 literal|"ioctl(DP_ISPOLLED) returned rc:%d, fd:%d, event %04Xd"
 argument_list|,
 name|revents
