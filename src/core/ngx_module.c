@@ -70,9 +70,11 @@ end_decl_stmt
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_preinit_modules ()
+DECL|function|ngx_preinit_modules (void)
 name|ngx_preinit_modules
-parameter_list|()
+parameter_list|(
+name|void
+parameter_list|)
 block|{
 name|ngx_uint_t
 name|i

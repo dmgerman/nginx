@@ -1379,7 +1379,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2acb88ec0108
+DECL|struct|__anon2c789f400108
 typedef|typedef
 struct|struct
 block|{
@@ -1426,7 +1426,9 @@ end_typedef
 begin_function_decl
 name|ngx_int_t
 name|ngx_preinit_modules
-parameter_list|()
+parameter_list|(
+name|void
+parameter_list|)
 function_decl|;
 end_function_decl
 
