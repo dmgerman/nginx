@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2969c9ce0108
+DECL|struct|__anon2b26a8480108
 typedef|typedef
 struct|struct
 block|{
@@ -244,7 +244,7 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|ngx_int_t
+name|void
 name|ngx_stream_proxy_process
 parameter_list|(
 name|ngx_stream_session_t
@@ -1710,19 +1710,23 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|ngx_stream_proxy_process
-argument_list|(
-name|s
-argument_list|,
-literal|0
-argument_list|,
-literal|0
-argument_list|)
-operator|!=
-name|NGX_OK
+name|c
+operator|->
+name|read
+operator|->
+name|ready
 condition|)
 block|{
-return|return;
+name|ngx_post_event
+argument_list|(
+name|c
+operator|->
+name|read
+argument_list|,
+operator|&
+name|ngx_posted_events
+argument_list|)
+expr_stmt|;
 block|}
 name|ngx_stream_proxy_connect
 argument_list|(
@@ -2375,19 +2379,23 @@ name|ngx_stream_proxy_upstream_handler
 expr_stmt|;
 if|if
 condition|(
-name|ngx_stream_proxy_process
-argument_list|(
-name|s
-argument_list|,
-literal|1
-argument_list|,
-literal|0
-argument_list|)
-operator|!=
-name|NGX_OK
+name|pc
+operator|->
+name|read
+operator|->
+name|ready
 condition|)
 block|{
-return|return;
+name|ngx_post_event
+argument_list|(
+name|pc
+operator|->
+name|read
+argument_list|,
+operator|&
+name|ngx_posted_events
+argument_list|)
+expr_stmt|;
 block|}
 name|ngx_stream_proxy_process
 argument_list|(
@@ -4064,7 +4072,7 @@ end_function
 
 begin_function
 specifier|static
-name|ngx_int_t
+name|void
 DECL|function|ngx_stream_proxy_process (ngx_stream_session_t * s,ngx_uint_t from_upstream,ngx_uint_t do_write)
 name|ngx_stream_proxy_process
 parameter_list|(
@@ -4290,9 +4298,7 @@ argument_list|,
 name|NGX_DECLINED
 argument_list|)
 expr_stmt|;
-return|return
-name|NGX_ERROR
-return|;
+return|return;
 block|}
 if|if
 condition|(
@@ -4669,9 +4675,7 @@ argument_list|,
 name|NGX_OK
 argument_list|)
 expr_stmt|;
-return|return
-name|NGX_DONE
-return|;
+return|return;
 block|}
 name|flags
 operator|=
@@ -4706,9 +4710,7 @@ argument_list|,
 name|NGX_ERROR
 argument_list|)
 expr_stmt|;
-return|return
-name|NGX_ERROR
-return|;
+return|return;
 block|}
 if|if
 condition|(
@@ -4736,9 +4738,7 @@ argument_list|,
 name|NGX_ERROR
 argument_list|)
 expr_stmt|;
-return|return
-name|NGX_ERROR
-return|;
+return|return;
 block|}
 if|if
 condition|(
@@ -4787,9 +4787,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-return|return
-name|NGX_OK
-return|;
 block|}
 end_function
 
