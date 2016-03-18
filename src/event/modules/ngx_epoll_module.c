@@ -434,7 +434,7 @@ comment|/* NGX_TEST_BUILD_EPOLL */
 end_comment
 
 begin_typedef
-DECL|struct|__anon29b0c7120108
+DECL|struct|__anon2b937acc0108
 typedef|typedef
 struct|struct
 block|{
@@ -3504,6 +3504,19 @@ name|ready
 operator|=
 literal|1
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_THREADS
+operator|)
+name|wev
+operator|->
+name|complete
+operator|=
+literal|1
+expr_stmt|;
+endif|#
+directive|endif
 if|if
 condition|(
 name|flags
