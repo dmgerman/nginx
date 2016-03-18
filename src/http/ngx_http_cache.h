@@ -131,7 +131,7 @@ value|3
 end_define
 
 begin_typedef
-DECL|struct|__anon289fcbba0108
+DECL|struct|__anon28cc1d310108
 typedef|typedef
 struct|struct
 block|{
@@ -150,7 +150,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289fcbba0208
+DECL|struct|__anon28cc1d310208
 typedef|typedef
 struct|struct
 block|{
@@ -436,7 +436,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon289fcbba0308
+DECL|struct|__anon28cc1d310308
 typedef|typedef
 struct|struct
 block|{
@@ -508,7 +508,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289fcbba0408
+DECL|struct|__anon28cc1d310408
 typedef|typedef
 struct|struct
 block|{
@@ -535,6 +535,14 @@ decl_stmt|;
 DECL|member|size
 name|off_t
 name|size
+decl_stmt|;
+DECL|member|count
+name|ngx_uint_t
+name|count
+decl_stmt|;
+DECL|member|watermark
+name|ngx_uint_t
+name|watermark
 decl_stmt|;
 DECL|typedef|ngx_http_file_cache_sh_t
 block|}
