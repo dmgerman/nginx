@@ -25,7 +25,9 @@ begin_function_decl
 specifier|static
 name|void
 name|ngx_show_version_info
-parameter_list|()
+parameter_list|(
+name|void
+parameter_list|)
 function_decl|;
 end_function_decl
 
@@ -1497,9 +1499,11 @@ end_function
 begin_function
 specifier|static
 name|void
-DECL|function|ngx_show_version_info ()
+DECL|function|ngx_show_version_info (void)
 name|ngx_show_version_info
-parameter_list|()
+parameter_list|(
+name|void
+parameter_list|)
 block|{
 name|ngx_write_stderr
 argument_list|(
