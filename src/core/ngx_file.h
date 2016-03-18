@@ -84,6 +84,11 @@ name|void
 modifier|*
 name|thread_ctx
 decl_stmt|;
+DECL|member|thread_task
+name|ngx_thread_task_t
+modifier|*
+name|thread_task
+decl_stmt|;
 endif|#
 directive|endif
 if|#
@@ -155,7 +160,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2770a0b00108
+DECL|struct|__anon27eebc4e0108
 typedef|typedef
 struct|struct
 block|{
@@ -203,7 +208,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2770a0b00208
+DECL|struct|__anon27eebc4e0208
 typedef|typedef
 struct|struct
 block|{
@@ -225,7 +230,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2770a0b00308
+DECL|struct|__anon27eebc4e0308
 typedef|typedef
 struct|struct
 block|{
@@ -281,7 +286,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2770a0b00408
+DECL|struct|__anon27eebc4e0408
 typedef|typedef
 struct|struct
 block|{
@@ -325,7 +330,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2770a0b00508
+DECL|struct|__anon27eebc4e0508
 typedef|typedef
 struct|struct
 block|{

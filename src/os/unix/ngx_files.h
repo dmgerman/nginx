@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277b5fc70108
+DECL|struct|__anon2a3083750108
 typedef|typedef
 struct|struct
 block|{
@@ -88,7 +88,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277b5fc70208
+DECL|struct|__anon2a3083750208
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277b5fc70308
+DECL|struct|__anon2a3083750308
 typedef|typedef
 struct|struct
 block|{
@@ -1962,11 +1962,6 @@ begin_function_decl
 name|ssize_t
 name|ngx_thread_read
 parameter_list|(
-name|ngx_thread_task_t
-modifier|*
-modifier|*
-name|taskp
-parameter_list|,
 name|ngx_file_t
 modifier|*
 name|file

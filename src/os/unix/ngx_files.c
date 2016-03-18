@@ -336,7 +336,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2aef93170108
+DECL|struct|__anon2b5e93a40108
 typedef|typedef
 struct|struct
 block|{
@@ -373,14 +373,9 @@ end_typedef
 
 begin_function
 name|ssize_t
-DECL|function|ngx_thread_read (ngx_thread_task_t ** taskp,ngx_file_t * file,u_char * buf,size_t size,off_t offset,ngx_pool_t * pool)
+DECL|function|ngx_thread_read (ngx_file_t * file,u_char * buf,size_t size,off_t offset,ngx_pool_t * pool)
 name|ngx_thread_read
 parameter_list|(
-name|ngx_thread_task_t
-modifier|*
-modifier|*
-name|taskp
-parameter_list|,
 name|ngx_file_t
 modifier|*
 name|file
@@ -433,8 +428,9 @@ argument_list|)
 expr_stmt|;
 name|task
 operator|=
-operator|*
-name|taskp
+name|file
+operator|->
+name|thread_task
 expr_stmt|;
 if|if
 condition|(
@@ -472,8 +468,9 @@ name|handler
 operator|=
 name|ngx_thread_read_handler
 expr_stmt|;
-operator|*
-name|taskp
+name|file
+operator|->
+name|thread_task
 operator|=
 name|task
 expr_stmt|;
