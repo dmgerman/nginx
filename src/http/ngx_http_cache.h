@@ -131,7 +131,7 @@ value|3
 end_define
 
 begin_typedef
-DECL|struct|__anon2b0eba6a0108
+DECL|struct|__anon289fcbba0108
 typedef|typedef
 struct|struct
 block|{
@@ -150,7 +150,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0eba6a0208
+DECL|struct|__anon289fcbba0208
 typedef|typedef
 struct|struct
 block|{
@@ -436,7 +436,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b0eba6a0308
+DECL|struct|__anon289fcbba0308
 typedef|typedef
 struct|struct
 block|{
@@ -508,7 +508,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0eba6a0408
+DECL|struct|__anon289fcbba0408
 typedef|typedef
 struct|struct
 block|{
@@ -578,6 +578,10 @@ decl_stmt|;
 DECL|member|inactive
 name|time_t
 name|inactive
+decl_stmt|;
+DECL|member|fail_time
+name|time_t
+name|fail_time
 decl_stmt|;
 DECL|member|files
 name|ngx_uint_t
