@@ -160,7 +160,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27eebc4e0108
+DECL|struct|__anon28feef350108
 typedef|typedef
 struct|struct
 block|{
@@ -208,7 +208,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27eebc4e0208
+DECL|struct|__anon28feef350208
 typedef|typedef
 struct|struct
 block|{
@@ -230,7 +230,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27eebc4e0308
+DECL|struct|__anon28feef350308
 typedef|typedef
 struct|struct
 block|{
@@ -279,6 +279,12 @@ name|clean
 range|:
 literal|1
 decl_stmt|;
+DECL|member|thread_write
+name|unsigned
+name|thread_write
+range|:
+literal|1
+decl_stmt|;
 DECL|typedef|ngx_temp_file_t
 block|}
 name|ngx_temp_file_t
@@ -286,7 +292,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27eebc4e0408
+DECL|struct|__anon28feef350408
 typedef|typedef
 struct|struct
 block|{
@@ -330,7 +336,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27eebc4e0508
+DECL|struct|__anon28feef350508
 typedef|typedef
 struct|struct
 block|{

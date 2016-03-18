@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3083750108
+DECL|struct|__anon294fd6a40108
 typedef|typedef
 struct|struct
 block|{
@@ -88,7 +88,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3083750208
+DECL|struct|__anon294fd6a40208
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3083750308
+DECL|struct|__anon294fd6a40308
 typedef|typedef
 struct|struct
 block|{
@@ -1972,6 +1972,28 @@ name|buf
 parameter_list|,
 name|size_t
 name|size
+parameter_list|,
+name|off_t
+name|offset
+parameter_list|,
+name|ngx_pool_t
+modifier|*
+name|pool
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ssize_t
+name|ngx_thread_write_chain_to_file
+parameter_list|(
+name|ngx_file_t
+modifier|*
+name|file
+parameter_list|,
+name|ngx_chain_t
+modifier|*
+name|cl
 parameter_list|,
 name|off_t
 name|offset
