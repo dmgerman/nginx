@@ -552,11 +552,21 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"*%uA client %*s connected to %V"
+literal|"*%uA %sclient %*s connected to %V"
 argument_list|,
 name|c
 operator|->
 name|number
+argument_list|,
+name|c
+operator|->
+name|type
+operator|==
+name|SOCK_DGRAM
+condition|?
+literal|"udp "
+else|:
+literal|""
 argument_list|,
 name|len
 argument_list|,
@@ -1289,7 +1299,19 @@ name|buf
 argument_list|,
 name|len
 argument_list|,
-literal|", client: %V, server: %V"
+literal|", %sclient: %V, server: %V"
+argument_list|,
+name|s
+operator|->
+name|connection
+operator|->
+name|type
+operator|==
+name|SOCK_DGRAM
+condition|?
+literal|"udp "
+else|:
+literal|""
 argument_list|,
 operator|&
 name|s

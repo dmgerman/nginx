@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon276c97d90108
+DECL|struct|__anon2ae05d6a0108
 typedef|typedef
 struct|struct
 block|{
@@ -2328,7 +2328,17 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"proxy %V connected to %V"
+literal|"%sproxy %V connected to %V"
+argument_list|,
+name|pc
+operator|->
+name|type
+operator|==
+name|SOCK_DGRAM
+condition|?
+literal|"udp "
+else|:
+literal|""
 argument_list|,
 operator|&
 name|str
@@ -4998,9 +5008,19 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"%s disconnected"
+literal|"%s%s disconnected"
 literal|", bytes from/to client:%O/%O"
 literal|", bytes from/to upstream:%O/%O"
+argument_list|,
+name|src
+operator|->
+name|type
+operator|==
+name|SOCK_DGRAM
+condition|?
+literal|"udp "
+else|:
+literal|""
 argument_list|,
 name|from_upstream
 condition|?
