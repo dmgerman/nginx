@@ -33,6 +33,12 @@ begin_comment
 comment|/* Solaris declarations */
 end_comment
 
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|POLLREMOVE
+end_ifndef
+
 begin_define
 DECL|macro|POLLREMOVE
 define|#
@@ -40,6 +46,11 @@ directive|define
 name|POLLREMOVE
 value|0x0800
 end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_define
 DECL|macro|DP_POLL
@@ -86,7 +97,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c35260b0108
+DECL|struct|__anon2bca2dd00108
 typedef|typedef
 struct|struct
 block|{
