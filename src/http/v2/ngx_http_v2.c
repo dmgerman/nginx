@@ -11772,7 +11772,7 @@ name|ngx_http_v2_out_frame_t
 modifier|*
 name|frame
 decl_stmt|;
-name|ngx_log_debug0
+name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
@@ -11784,7 +11784,9 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http2 send SETTINGS frame"
+literal|"http2 send SETTINGS frame ack:%ui"
+argument_list|,
+name|ack
 argument_list|)
 expr_stmt|;
 name|frame
@@ -12174,6 +12176,25 @@ name|ngx_http_v2_out_frame_t
 modifier|*
 name|frame
 decl_stmt|;
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|h2c
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http2 send WINDOW_UPDATE frame sid:%ui, window:%uz"
+argument_list|,
+name|sid
+argument_list|,
+name|window
+argument_list|)
+expr_stmt|;
 name|frame
 operator|=
 name|ngx_http_v2_get_frame
@@ -12259,6 +12280,25 @@ name|ngx_http_v2_out_frame_t
 modifier|*
 name|frame
 decl_stmt|;
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|h2c
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http2 send RST_STREAM frame sid:%ui, status:%uz"
+argument_list|,
+name|sid
+argument_list|,
+name|status
+argument_list|)
+expr_stmt|;
 name|frame
 operator|=
 name|ngx_http_v2_get_frame
@@ -12341,6 +12381,23 @@ name|ngx_http_v2_out_frame_t
 modifier|*
 name|frame
 decl_stmt|;
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|h2c
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http2 send GOAWAY frame, status:%uz"
+argument_list|,
+name|status
+argument_list|)
+expr_stmt|;
 name|frame
 operator|=
 name|ngx_http_v2_get_frame
@@ -14586,7 +14643,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon27707bda0108
+DECL|struct|__anon28b94f470108
 specifier|static
 specifier|const
 struct|struct
