@@ -1137,6 +1137,13 @@ name|tokens
 operator|.
 name|len
 operator|==
+literal|0
+operator|||
+operator|(
+name|tokens
+operator|.
+name|len
+operator|==
 literal|3
 operator|&&
 name|ngx_strncmp
@@ -1151,6 +1158,7 @@ literal|3
 argument_list|)
 operator|==
 literal|0
+operator|)
 condition|)
 block|{
 name|server_tokens
@@ -1175,12 +1183,7 @@ literal|"nginx"
 argument_list|)
 expr_stmt|;
 block|}
-if|else if
-condition|(
-name|tokens
-operator|.
-name|len
-condition|)
+else|else
 block|{
 name|server_tokens
 operator|=
@@ -2271,10 +2274,6 @@ operator|.
 name|server
 operator|==
 name|NULL
-operator|&&
-name|tokens
-operator|.
-name|len
 condition|)
 block|{
 name|ngx_log_debug1

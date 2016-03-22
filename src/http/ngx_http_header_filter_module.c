@@ -1207,6 +1207,13 @@ name|tokens
 operator|.
 name|len
 operator|==
+literal|0
+operator|||
+operator|(
+name|tokens
+operator|.
+name|len
+operator|==
 literal|3
 operator|&&
 name|ngx_strncmp
@@ -1221,6 +1228,7 @@ literal|3
 argument_list|)
 operator|==
 literal|0
+operator|)
 condition|)
 block|{
 name|ngx_str_set
@@ -1232,12 +1240,7 @@ name|ngx_http_server_string
 argument_list|)
 expr_stmt|;
 block|}
-if|else if
-condition|(
-name|tokens
-operator|.
-name|len
-condition|)
+else|else
 block|{
 name|ngx_str_set
 argument_list|(
@@ -2091,10 +2094,6 @@ operator|.
 name|server
 operator|==
 name|NULL
-operator|&&
-name|tokens
-operator|.
-name|len
 condition|)
 block|{
 name|b

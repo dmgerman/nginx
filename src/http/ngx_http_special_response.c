@@ -109,20 +109,6 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_http_error_no_tail
-specifier|static
-name|u_char
-name|ngx_http_error_no_tail
-index|[]
-init|=
-literal|"</body>"
-name|CRLF
-literal|"</html>"
-name|CRLF
-decl_stmt|;
-end_decl_stmt
-
-begin_decl_stmt
 DECL|variable|ngx_http_msie_padding
 specifier|static
 name|u_char
@@ -2038,6 +2024,13 @@ name|tokens
 operator|.
 name|len
 operator|==
+literal|0
+operator|||
+operator|(
+name|tokens
+operator|.
+name|len
+operator|==
 literal|3
 operator|&&
 name|ngx_strncmp
@@ -2052,6 +2045,7 @@ literal|3
 argument_list|)
 operator|==
 literal|0
+operator|)
 condition|)
 block|{
 name|ngx_str_set
@@ -2063,22 +2057,6 @@ name|ngx_http_error_tail
 argument_list|)
 expr_stmt|;
 block|}
-if|else if
-condition|(
-name|tokens
-operator|.
-name|len
-condition|)
-block|{
-name|ngx_str_set
-argument_list|(
-operator|&
-name|tail
-argument_list|,
-name|ngx_http_error_full_tail
-argument_list|)
-expr_stmt|;
-block|}
 else|else
 block|{
 name|ngx_str_set
@@ -2086,7 +2064,7 @@ argument_list|(
 operator|&
 name|tail
 argument_list|,
-name|ngx_http_error_no_tail
+name|ngx_http_error_full_tail
 argument_list|)
 expr_stmt|;
 block|}
