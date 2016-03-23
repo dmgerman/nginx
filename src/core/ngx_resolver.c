@@ -46,7 +46,7 @@ value|8192
 end_define
 
 begin_typedef
-DECL|struct|__anon2bd27ed10108
+DECL|struct|__anon295053030108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd27ed10208
+DECL|struct|__anon295053030208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd27ed10308
+DECL|struct|__anon295053030308
 typedef|typedef
 struct|struct
 block|{
@@ -3123,6 +3123,10 @@ operator|->
 name|event
 operator|==
 name|NULL
+operator|&&
+name|ctx
+operator|->
+name|timeout
 condition|)
 block|{
 name|ctx
@@ -3689,6 +3693,10 @@ operator|->
 name|event
 operator|==
 name|NULL
+operator|&&
+name|ctx
+operator|->
+name|timeout
 condition|)
 block|{
 name|ctx
@@ -4301,6 +4309,19 @@ operator|->
 name|waiting
 condition|)
 block|{
+if|if
+condition|(
+name|ctx
+operator|->
+name|event
+operator|==
+name|NULL
+operator|&&
+name|ctx
+operator|->
+name|timeout
+condition|)
+block|{
 name|ctx
 operator|->
 name|event
@@ -4372,6 +4393,7 @@ operator|->
 name|timeout
 argument_list|)
 expr_stmt|;
+block|}
 name|ctx
 operator|->
 name|next
@@ -4649,6 +4671,19 @@ goto|goto
 name|failed
 goto|;
 block|}
+if|if
+condition|(
+name|ctx
+operator|->
+name|event
+operator|==
+name|NULL
+operator|&&
+name|ctx
+operator|->
+name|timeout
+condition|)
+block|{
 name|ctx
 operator|->
 name|event
@@ -4720,6 +4755,7 @@ operator|->
 name|timeout
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|ngx_queue_empty
