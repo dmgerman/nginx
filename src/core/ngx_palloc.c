@@ -606,6 +606,12 @@ name|size_t
 name|size
 parameter_list|)
 block|{
+if|#
+directive|if
+operator|!
+operator|(
+name|NGX_DEBUG_PALLOC
+operator|)
 if|if
 condition|(
 name|size
@@ -626,6 +632,8 @@ literal|1
 argument_list|)
 return|;
 block|}
+endif|#
+directive|endif
 return|return
 name|ngx_palloc_large
 argument_list|(
@@ -651,6 +659,12 @@ name|size_t
 name|size
 parameter_list|)
 block|{
+if|#
+directive|if
+operator|!
+operator|(
+name|NGX_DEBUG_PALLOC
+operator|)
 if|if
 condition|(
 name|size
@@ -671,6 +685,8 @@ literal|0
 argument_list|)
 return|;
 block|}
+endif|#
+directive|endif
 return|return
 name|ngx_palloc_large
 argument_list|(
