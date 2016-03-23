@@ -171,7 +171,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b306d590108
+DECL|struct|__anon2baa27300108
 typedef|typedef
 struct|struct
 block|{
@@ -250,7 +250,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b306d590208
+DECL|struct|__anon2baa27300208
 typedef|typedef
 struct|struct
 block|{
@@ -306,7 +306,7 @@ name|query6
 decl_stmt|;
 endif|#
 directive|endif
-DECL|union|__anon2b306d59030a
+DECL|union|__anon2baa2730030a
 union|union
 block|{
 DECL|member|addr
@@ -344,7 +344,7 @@ directive|if
 operator|(
 name|NGX_HAVE_INET6
 operator|)
-DECL|union|__anon2b306d59040a
+DECL|union|__anon2baa2730040a
 union|union
 block|{
 DECL|member|addr6
@@ -565,6 +565,10 @@ decl_stmt|;
 DECL|member|name
 name|ngx_str_t
 name|name
+decl_stmt|;
+DECL|member|valid
+name|time_t
+name|valid
 decl_stmt|;
 DECL|member|naddrs
 name|ngx_uint_t
