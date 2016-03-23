@@ -46,7 +46,7 @@ value|8192
 end_define
 
 begin_typedef
-DECL|struct|__anon2c64fb670108
+DECL|struct|__anon29471d800108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c64fb670208
+DECL|struct|__anon29471d800208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c64fb670308
+DECL|struct|__anon29471d800308
 typedef|typedef
 struct|struct
 block|{
@@ -12423,6 +12423,9 @@ name|rn
 operator|->
 name|nsrvs
 operator|=
+operator|(
+name|u_short
+operator|)
 name|nsrvs
 expr_stmt|;
 name|j
@@ -18962,11 +18965,10 @@ modifier|*
 name|ctx
 parameter_list|)
 block|{
-name|u_short
-name|nsrvs
-decl_stmt|;
 name|ngx_uint_t
 name|naddrs
+decl_stmt|,
+name|nsrvs
 decl_stmt|,
 name|nw
 decl_stmt|,
