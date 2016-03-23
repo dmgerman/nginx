@@ -10229,13 +10229,6 @@ name|log_ctx
 argument_list|)
 expr_stmt|;
 block|}
-name|cache
-operator|->
-name|sh
-operator|->
-name|count
-operator|++
-expr_stmt|;
 name|ngx_shmtx_unlock
 argument_list|(
 operator|&
@@ -10250,6 +10243,13 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|cache
+operator|->
+name|sh
+operator|->
+name|count
+operator|++
+expr_stmt|;
 name|ngx_memcpy
 argument_list|(
 operator|(
