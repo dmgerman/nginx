@@ -1091,7 +1091,7 @@ block|}
 block|}
 name|large
 operator|=
-name|ngx_palloc
+name|ngx_palloc_small
 argument_list|(
 name|pool
 argument_list|,
@@ -1099,6 +1099,8 @@ sizeof|sizeof
 argument_list|(
 name|ngx_pool_large_t
 argument_list|)
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 if|if
@@ -1194,7 +1196,7 @@ return|;
 block|}
 name|large
 operator|=
-name|ngx_palloc
+name|ngx_palloc_small
 argument_list|(
 name|pool
 argument_list|,
@@ -1202,6 +1204,8 @@ sizeof|sizeof
 argument_list|(
 name|ngx_pool_large_t
 argument_list|)
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 if|if
