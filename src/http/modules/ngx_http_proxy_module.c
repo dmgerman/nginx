@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b02817e0108
+DECL|struct|__anon29b033620108
 typedef|typedef
 struct|struct
 block|{
@@ -85,7 +85,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon2b02817e020a
+DECL|union|__anon29b03362020a
 union|union
 block|{
 DECL|member|complex
@@ -117,7 +117,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b02817e0308
+DECL|struct|__anon29b033620308
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b02817e0408
+DECL|struct|__anon29b033620408
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b02817e0508
+DECL|struct|__anon29b033620508
 typedef|typedef
 struct|struct
 block|{
@@ -344,7 +344,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b02817e0608
+DECL|struct|__anon29b033620608
 typedef|typedef
 struct|struct
 block|{
@@ -1199,6 +1199,15 @@ literal|"invalid_header"
 argument_list|)
 block|,
 name|NGX_HTTP_UPSTREAM_FT_INVALID_HEADER
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"non_idempotent"
+argument_list|)
+block|,
+name|NGX_HTTP_UPSTREAM_FT_NON_IDEMPOTENT
 block|}
 block|,
 block|{

@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b5b5e440108
+DECL|struct|__anon2a2dd7660108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5b5e440208
+DECL|struct|__anon2a2dd7660208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5b5e440308
+DECL|struct|__anon2a2dd7660308
 typedef|typedef
 struct|struct
 block|{
@@ -553,6 +553,15 @@ literal|"invalid_header"
 argument_list|)
 block|,
 name|NGX_HTTP_UPSTREAM_FT_INVALID_HEADER
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"non_idempotent"
+argument_list|)
+block|,
+name|NGX_HTTP_UPSTREAM_FT_NON_IDEMPOTENT
 block|}
 block|,
 block|{

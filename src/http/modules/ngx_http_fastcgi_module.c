@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b3de84e0108
+DECL|struct|__anon28d11d790108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3de84e0208
+DECL|struct|__anon28d11d790208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3de84e0308
+DECL|struct|__anon28d11d790308
 typedef|typedef
 struct|struct
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b3de84e0403
+DECL|enum|__anon28d11d790403
 typedef|typedef
 enum|enum
 block|{
@@ -199,7 +199,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3de84e0508
+DECL|struct|__anon28d11d790508
 typedef|typedef
 struct|struct
 block|{
@@ -220,7 +220,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3de84e0608
+DECL|struct|__anon28d11d790608
 typedef|typedef
 struct|struct
 block|{
@@ -378,7 +378,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2b3de84e0708
+DECL|struct|__anon28d11d790708
 typedef|typedef
 struct|struct
 block|{
@@ -421,7 +421,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3de84e0808
+DECL|struct|__anon28d11d790808
 typedef|typedef
 struct|struct
 block|{
@@ -451,7 +451,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3de84e0908
+DECL|struct|__anon28d11d790908
 typedef|typedef
 struct|struct
 block|{
@@ -478,7 +478,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3de84e0a08
+DECL|struct|__anon28d11d790a08
 typedef|typedef
 struct|struct
 block|{
@@ -1001,6 +1001,15 @@ literal|"invalid_header"
 argument_list|)
 block|,
 name|NGX_HTTP_UPSTREAM_FT_INVALID_HEADER
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"non_idempotent"
+argument_list|)
+block|,
+name|NGX_HTTP_UPSTREAM_FT_NON_IDEMPOTENT
 block|}
 block|,
 block|{
