@@ -17418,24 +17418,8 @@ operator|&&
 name|ft_type
 operator|==
 name|NGX_HTTP_UPSTREAM_FT_ERROR
-operator|&&
-operator|(
-operator|!
-name|u
-operator|->
-name|request_sent
-operator|||
-operator|!
-name|r
-operator|->
-name|request_body_no_buffering
-operator|)
 condition|)
 block|{
-name|status
-operator|=
-literal|0
-expr_stmt|;
 comment|/* TODO: inform balancer instead */
 name|u
 operator|->
@@ -17445,8 +17429,6 @@ name|tries
 operator|++
 expr_stmt|;
 block|}
-else|else
-block|{
 switch|switch
 condition|(
 name|ft_type
@@ -17484,13 +17466,12 @@ operator|=
 name|NGX_HTTP_NOT_FOUND
 expr_stmt|;
 break|break;
-comment|/*          * NGX_HTTP_UPSTREAM_FT_BUSY_LOCK and NGX_HTTP_UPSTREAM_FT_MAX_WAITING          * never reach here          */
+comment|/*      * NGX_HTTP_UPSTREAM_FT_BUSY_LOCK and NGX_HTTP_UPSTREAM_FT_MAX_WAITING      * never reach here      */
 default|default:
 name|status
 operator|=
 name|NGX_HTTP_BAD_GATEWAY
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
@@ -17512,11 +17493,6 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-if|if
-condition|(
-name|status
-condition|)
-block|{
 name|u
 operator|->
 name|state
@@ -17661,7 +17637,6 @@ name|status
 argument_list|)
 expr_stmt|;
 return|return;
-block|}
 block|}
 if|if
 condition|(
