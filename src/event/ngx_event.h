@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2b6927850108
+DECL|struct|__anon27f8cfd10108
 typedef|typedef
 struct|struct
 block|{
@@ -418,7 +418,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b6927850208
+DECL|struct|__anon27f8cfd10208
 typedef|typedef
 struct|struct
 block|{
@@ -967,8 +967,21 @@ elif|#
 directive|elif
 operator|(
 name|NGX_HAVE_DEVPOLL
+operator|&&
+operator|!
+operator|(
+name|NGX_TEST_BUILD_DEVPOLL
+operator|)
+operator|)
+expr|\
 operator|||
+operator|(
 name|NGX_HAVE_EVENTPORT
+operator|&&
+operator|!
+operator|(
+name|NGX_TEST_BUILD_EVENTPORT
+operator|)
 operator|)
 end_elif
 
@@ -1009,6 +1022,11 @@ elif|#
 directive|elif
 operator|(
 name|NGX_HAVE_EPOLL
+operator|)
+operator|&&
+operator|!
+operator|(
+name|NGX_TEST_BUILD_EPOLL
 operator|)
 end_elif
 
@@ -1370,7 +1388,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2b6927850308
+DECL|struct|__anon27f8cfd10308
 typedef|typedef
 struct|struct
 block|{
@@ -1417,7 +1435,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b6927850408
+DECL|struct|__anon27f8cfd10408
 typedef|typedef
 struct|struct
 block|{

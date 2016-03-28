@@ -632,6 +632,11 @@ directive|if
 operator|(
 name|NGX_HAVE_DEVPOLL
 operator|)
+operator|&&
+operator|!
+operator|(
+name|NGX_TEST_BUILD_DEVPOLL
+operator|)
 end_if
 
 begin_include
