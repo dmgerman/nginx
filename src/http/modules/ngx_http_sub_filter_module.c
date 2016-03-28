@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28bf161c0108
+DECL|struct|__anon28ca92050108
 typedef|typedef
 struct|struct
 block|{
@@ -41,7 +41,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28bf161c0208
+DECL|struct|__anon28ca92050208
 typedef|typedef
 struct|struct
 block|{
@@ -61,7 +61,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28bf161c0308
+DECL|struct|__anon28ca92050308
 typedef|typedef
 struct|struct
 block|{
@@ -94,7 +94,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28bf161c0408
+DECL|struct|__anon28ca92050408
 typedef|typedef
 struct|struct
 block|{
@@ -142,7 +142,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28bf161c0508
+DECL|struct|__anon28ca92050508
 typedef|typedef
 struct|struct
 block|{
@@ -929,7 +929,7 @@ name|ctx
 operator|->
 name|matches
 operator|=
-name|ngx_pnalloc
+name|ngx_palloc
 argument_list|(
 name|r
 operator|->
@@ -974,7 +974,7 @@ name|ctx
 operator|->
 name|tables
 operator|=
-name|ngx_pnalloc
+name|ngx_palloc
 argument_list|(
 name|r
 operator|->
@@ -3949,7 +3949,7 @@ name|nelts
 expr_stmt|;
 name|matches
 operator|=
-name|ngx_pnalloc
+name|ngx_palloc
 argument_list|(
 name|cf
 operator|->
@@ -4024,7 +4024,7 @@ name|conf
 operator|->
 name|matches
 operator|=
-name|ngx_pnalloc
+name|ngx_palloc
 argument_list|(
 name|cf
 operator|->
