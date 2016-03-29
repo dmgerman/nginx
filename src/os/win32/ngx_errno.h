@@ -134,16 +134,12 @@ name|NGX_EEXIST_FILE
 value|ERROR_FILE_EXISTS
 end_define
 
-begin_comment
-comment|/*  * could not found cross volume directory move error code,  * so use ERROR_WRONG_DISK as stub one  */
-end_comment
-
 begin_define
 DECL|macro|NGX_EXDEV
 define|#
 directive|define
 name|NGX_EXDEV
-value|ERROR_WRONG_DISK
+value|ERROR_NOT_SAME_DEVICE
 end_define
 
 begin_define
