@@ -117,6 +117,14 @@ value|EEXIST
 end_define
 
 begin_define
+DECL|macro|NGX_EEXIST_FILE
+define|#
+directive|define
+name|NGX_EEXIST_FILE
+value|EEXIST
+end_define
+
+begin_define
 DECL|macro|NGX_EXDEV
 define|#
 directive|define

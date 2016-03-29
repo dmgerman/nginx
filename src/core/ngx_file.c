@@ -835,7 +835,7 @@ if|if
 condition|(
 name|err
 operator|==
-name|NGX_EEXIST
+name|NGX_EEXIST_FILE
 condition|)
 block|{
 name|n
@@ -3218,6 +3218,10 @@ condition|(
 name|err
 operator|==
 name|NGX_EEXIST
+operator|||
+name|err
+operator|==
+name|NGX_EEXIST_FILE
 condition|)
 block|{
 name|err

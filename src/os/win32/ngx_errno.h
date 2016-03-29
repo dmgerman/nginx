@@ -115,7 +115,7 @@ value|ERROR_ACCESS_DENIED
 end_define
 
 begin_comment
-comment|/* it's seems that ERROR_FILE_EXISTS is not appropriate error code */
+comment|/*  * there are two EEXIST error codes:  * ERROR_FILE_EXISTS used by CreateFile(CREATE_NEW),  * and ERROR_ALREADY_EXISTS used by CreateDirectory();  * MoveFile() uses both  */
 end_comment
 
 begin_define
@@ -124,6 +124,14 @@ define|#
 directive|define
 name|NGX_EEXIST
 value|ERROR_ALREADY_EXISTS
+end_define
+
+begin_define
+DECL|macro|NGX_EEXIST_FILE
+define|#
+directive|define
+name|NGX_EEXIST_FILE
+value|ERROR_FILE_EXISTS
 end_define
 
 begin_comment
