@@ -46,7 +46,7 @@ value|8192
 end_define
 
 begin_typedef
-DECL|struct|__anon29471d800108
+DECL|struct|__anon2a3e776f0108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29471d800208
+DECL|struct|__anon2a3e776f0208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29471d800308
+DECL|struct|__anon2a3e776f0308
 typedef|typedef
 struct|struct
 block|{
@@ -8787,6 +8787,9 @@ argument_list|)
 argument_list|,
 name|ident
 argument_list|,
+operator|(
+name|size_t
+operator|)
 name|rn
 operator|->
 name|nlen

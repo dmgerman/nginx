@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bf9f6260108
+DECL|struct|__anon2c421dee0108
 typedef|typedef
 struct|struct
 block|{
@@ -6740,6 +6740,9 @@ literal|0
 argument_list|,
 literal|"test location: \"%*s\""
 argument_list|,
+operator|(
+name|size_t
+operator|)
 name|node
 operator|->
 name|len

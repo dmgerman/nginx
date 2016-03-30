@@ -1521,6 +1521,9 @@ literal|0
 argument_list|,
 literal|"SSL ALPN supported by client: %*s"
 argument_list|,
+operator|(
+name|size_t
+operator|)
 name|in
 index|[
 name|i
@@ -1644,6 +1647,9 @@ literal|0
 argument_list|,
 literal|"SSL ALPN selected: %*s"
 argument_list|,
+operator|(
+name|size_t
+operator|)
 operator|*
 name|outlen
 argument_list|,

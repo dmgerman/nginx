@@ -8943,6 +8943,9 @@ literal|0
 argument_list|,
 literal|"ignore long locked inactive cache entry %*s, count:%d"
 argument_list|,
+operator|(
+name|size_t
+operator|)
 literal|2
 operator|*
 name|NGX_HTTP_CACHE_KEY_LEN

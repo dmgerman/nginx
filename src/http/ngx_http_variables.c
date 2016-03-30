@@ -11498,7 +11498,7 @@ name|variables
 operator|.
 name|elts
 expr_stmt|;
-name|ngx_log_debug3
+name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
@@ -11510,7 +11510,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http regex set $%V to \"%*s\""
+literal|"http regex set $%V to \"%v\""
 argument_list|,
 operator|&
 name|v
@@ -11521,12 +11521,6 @@ operator|.
 name|name
 argument_list|,
 name|vv
-operator|->
-name|len
-argument_list|,
-name|vv
-operator|->
-name|data
 argument_list|)
 expr_stmt|;
 block|}
