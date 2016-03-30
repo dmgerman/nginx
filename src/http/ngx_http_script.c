@@ -6945,6 +6945,10 @@ literal|0
 argument_list|,
 literal|"http script file op %p \"%V\""
 argument_list|,
+operator|(
+name|void
+operator|*
+operator|)
 name|code
 operator|->
 name|op

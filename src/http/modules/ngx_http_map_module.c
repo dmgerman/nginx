@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a8f4bea0108
+DECL|struct|__anon2b5f52b40108
 typedef|typedef
 struct|struct
 block|{
@@ -41,7 +41,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a8f4bea0208
+DECL|struct|__anon2b5f52b40208
 typedef|typedef
 struct|struct
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a8f4bea0308
+DECL|struct|__anon2b5f52b40308
 typedef|typedef
 struct|struct
 block|{
@@ -544,7 +544,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http map: \"%v\" \"%v\""
+literal|"http map: \"%V\" \"%v\""
 argument_list|,
 operator|&
 name|val

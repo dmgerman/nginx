@@ -352,7 +352,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2bd274ee0108
+DECL|struct|__anon293584620108
 typedef|typedef
 struct|struct
 block|{
@@ -750,7 +750,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"pread: %z (err: %i) of %uz @%O"
+literal|"pread: %z (err: %d) of %uz @%O"
 argument_list|,
 name|n
 argument_list|,

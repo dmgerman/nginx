@@ -54,7 +54,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon29a2ba630108
+DECL|struct|__anon2bd159a00108
 typedef|typedef
 struct|struct
 block|{
@@ -98,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a2ba630208
+DECL|struct|__anon2bd159a00208
 typedef|typedef
 struct|struct
 block|{
@@ -121,7 +121,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a2ba630308
+DECL|struct|__anon2bd159a00308
 typedef|typedef
 struct|struct
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29a2ba630403
+DECL|enum|__anon2bd159a00403
 typedef|typedef
 enum|enum
 block|{
@@ -2389,7 +2389,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"saved: %d state: %d"
+literal|"saved: %uz state: %ui"
 argument_list|,
 name|ctx
 operator|->
@@ -2421,7 +2421,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"parse: %d, looked: %d %p-%p"
+literal|"parse: %i, looked: %uz %p-%p"
 argument_list|,
 name|rc
 argument_list|,
@@ -2479,7 +2479,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"saved: %d"
+literal|"saved: %uz"
 argument_list|,
 name|ctx
 operator|->
@@ -8402,7 +8402,7 @@ argument_list|,
 literal|0
 argument_list|,
 name|ngx_regex_exec_n
-literal|" failed: %i on \"%V\" using \"%V\""
+literal|" failed: %d on \"%V\" using \"%V\""
 argument_list|,
 name|rc
 argument_list|,

@@ -286,7 +286,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"aio complete:%d @%O:%z %V"
+literal|"aio complete:%d @%O:%uz %V"
 argument_list|,
 name|ev
 operator|->

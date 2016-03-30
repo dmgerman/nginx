@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27d6e6090108
+DECL|struct|__anon27a4f3460108
 typedef|typedef
 struct|struct
 block|{
@@ -1573,7 +1573,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon27d6e6090203
+DECL|enum|__anon27a4f3460203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1802,7 +1802,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"auth http server&V sent invalid response"
+literal|"auth http server %V sent invalid response"
 argument_list|,
 name|ctx
 operator|->
@@ -4176,7 +4176,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon27d6e6090303
+DECL|enum|__anon27a4f3460303
 enum|enum
 block|{
 DECL|enumerator|sw_start

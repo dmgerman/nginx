@@ -1994,7 +1994,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"counter: %p, %d"
+literal|"counter: %p, %uA"
 argument_list|,
 name|ngx_connection_counter
 argument_list|,

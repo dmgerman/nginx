@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c896a890108
+DECL|struct|__anon2bd6f7350108
 typedef|typedef
 struct|struct
 block|{
@@ -45,7 +45,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c896a890208
+DECL|struct|__anon2bd6f7350208
 typedef|typedef
 struct|struct
 block|{
@@ -2335,7 +2335,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"memcached filter bytes:%z size:%z length:%z rest:%z"
+literal|"memcached filter bytes:%z size:%z length:%O rest:%z"
 argument_list|,
 name|bytes
 argument_list|,

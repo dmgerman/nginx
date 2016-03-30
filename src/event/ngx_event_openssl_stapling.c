@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2a2156020108
+DECL|struct|__anon2ad48c7e0108
 typedef|typedef
 struct|struct
 block|{
@@ -5206,6 +5206,9 @@ name|base64
 operator|.
 name|len
 argument_list|,
+operator|(
+name|int
+operator|)
 name|escape
 argument_list|)
 expr_stmt|;
@@ -5624,7 +5627,7 @@ name|ngx_buf_t
 modifier|*
 name|b
 decl_stmt|;
-DECL|enum|__anon2a2156020203
+DECL|enum|__anon2ad48c7e0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6420,7 +6423,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2a2156020303
+DECL|enum|__anon2ad48c7e0303
 enum|enum
 block|{
 DECL|enumerator|sw_start

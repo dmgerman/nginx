@@ -129,7 +129,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"send: fd:%d %d of %d"
+literal|"send: fd:%d %z of %uz"
 argument_list|,
 name|c
 operator|->

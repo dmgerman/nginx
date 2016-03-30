@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon298703e90108
+DECL|struct|__anon2b20993c0108
 typedef|typedef
 struct|struct
 block|{
@@ -6778,7 +6778,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"SSL buf copy: %d"
+literal|"SSL buf copy: %z"
 argument_list|,
 name|size
 argument_list|)
@@ -7057,7 +7057,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"SSL to write: %d"
+literal|"SSL to write: %uz"
 argument_list|,
 name|size
 argument_list|)

@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b5c84260108
+DECL|struct|__anon2a10b6a70108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5c84260208
+DECL|struct|__anon2a10b6a70208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5c84260308
+DECL|struct|__anon2a10b6a70308
 typedef|typedef
 struct|struct
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b5c84260403
+DECL|enum|__anon2a10b6a70403
 typedef|typedef
 enum|enum
 block|{
@@ -199,7 +199,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5c84260508
+DECL|struct|__anon2a10b6a70508
 typedef|typedef
 struct|struct
 block|{
@@ -220,7 +220,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5c84260608
+DECL|struct|__anon2a10b6a70608
 typedef|typedef
 struct|struct
 block|{
@@ -378,7 +378,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2b5c84260708
+DECL|struct|__anon2a10b6a70708
 typedef|typedef
 struct|struct
 block|{
@@ -421,7 +421,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5c84260808
+DECL|struct|__anon2a10b6a70808
 typedef|typedef
 struct|struct
 block|{
@@ -451,7 +451,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5c84260908
+DECL|struct|__anon2a10b6a70908
 typedef|typedef
 struct|struct
 block|{
@@ -478,7 +478,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5c84260a08
+DECL|struct|__anon2a10b6a70a08
 typedef|typedef
 struct|struct
 block|{
@@ -7747,7 +7747,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"upstream sent unexpected FastCGI record: %d"
+literal|"upstream sent unexpected FastCGI record: %ui"
 argument_list|,
 name|f
 operator|->
@@ -8557,7 +8557,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http fastcgi parser: %d"
+literal|"http fastcgi parser: %i"
 argument_list|,
 name|rc
 argument_list|)
@@ -11534,7 +11534,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http fastcgi in memory %p-%p %uz"
+literal|"http fastcgi in memory %p-%p %O"
 argument_list|,
 name|cl
 operator|->

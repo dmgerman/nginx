@@ -755,7 +755,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http write filter: l:%d f:%d s:%O"
+literal|"http write filter: l:%ui f:%ui s:%O"
 argument_list|,
 name|last
 argument_list|,

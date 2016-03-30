@@ -200,7 +200,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"recv: fd:%d %d of %d"
+literal|"recv: fd:%d %z of %uz"
 argument_list|,
 name|c
 operator|->
@@ -497,7 +497,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"recv: fd:%d %d of %d"
+literal|"recv: fd:%d %z of %uz"
 argument_list|,
 name|c
 operator|->

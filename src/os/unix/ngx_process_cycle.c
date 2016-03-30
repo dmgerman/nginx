@@ -807,7 +807,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"termination cycle: %d"
+literal|"termination cycle: %M"
 argument_list|,
 name|delay
 argument_list|)
@@ -2104,7 +2104,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"pass channel s:%d pid:%P fd:%d to s:%i pid:%P fd:%d"
+literal|"pass channel s:%i pid:%P fd:%d to s:%i pid:%P fd:%d"
 argument_list|,
 name|ch
 operator|->
@@ -2299,7 +2299,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"child: %d %P e:%d t:%d d:%d r:%d j:%d"
+literal|"child: %i %P e:%d t:%d d:%d r:%d j:%d"
 argument_list|,
 name|i
 argument_list|,
@@ -2668,7 +2668,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"child: %d %P e:%d t:%d d:%d r:%d j:%d"
+literal|"child: %i %P e:%d t:%d d:%d r:%d j:%d"
 argument_list|,
 name|i
 argument_list|,
@@ -4838,7 +4838,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"channel command: %d"
+literal|"channel command: %ui"
 argument_list|,
 name|ch
 operator|.

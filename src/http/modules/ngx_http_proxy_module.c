@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29b033620108
+DECL|struct|__anon28d12a0b0108
 typedef|typedef
 struct|struct
 block|{
@@ -85,7 +85,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon29b03362020a
+DECL|union|__anon28d12a0b020a
 union|union
 block|{
 DECL|member|complex
@@ -117,7 +117,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29b033620308
+DECL|struct|__anon28d12a0b0308
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b033620408
+DECL|struct|__anon28d12a0b0408
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b033620508
+DECL|struct|__anon28d12a0b0508
 typedef|typedef
 struct|struct
 block|{
@@ -344,7 +344,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b033620608
+DECL|struct|__anon28d12a0b0608
 typedef|typedef
 struct|struct
 block|{
@@ -7691,7 +7691,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"proxy output chunk: %d"
+literal|"proxy output chunk: %O"
 argument_list|,
 name|ngx_buf_size
 argument_list|(
@@ -9408,7 +9408,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http proxy filter init s:%d h:%d c:%d l:%O"
+literal|"http proxy filter init s:%ui h:%d c:%d l:%O"
 argument_list|,
 name|u
 operator|->
@@ -10310,7 +10310,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http proxy chunked state %d, length %d"
+literal|"http proxy chunked state %ui, length %O"
 argument_list|,
 name|ctx
 operator|->
@@ -11062,7 +11062,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http proxy in memory %p-%p %uz"
+literal|"http proxy in memory %p-%p %O"
 argument_list|,
 name|cl
 operator|->

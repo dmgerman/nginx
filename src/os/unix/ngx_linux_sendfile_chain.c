@@ -1071,7 +1071,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2b9c4c950108
+DECL|struct|__anon2a3968e00108
 typedef|typedef
 struct|struct
 block|{
@@ -1573,7 +1573,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"sendfile: %z (err: %i) of %uz @%O"
+literal|"sendfile: %z (err: %d) of %uz @%O"
 argument_list|,
 name|n
 argument_list|,

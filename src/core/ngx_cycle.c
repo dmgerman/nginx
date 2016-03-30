@@ -6332,7 +6332,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"live fd:%d"
+literal|"live fd:%ui"
 argument_list|,
 name|n
 argument_list|)
@@ -6359,7 +6359,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"clean old cycle: %d"
+literal|"clean old cycle: %ui"
 argument_list|,
 name|i
 argument_list|)
@@ -6390,7 +6390,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"old cycles status: %d"
+literal|"old cycles status: %ui"
 argument_list|,
 name|live
 argument_list|)

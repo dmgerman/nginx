@@ -395,7 +395,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"readv: %d, last:%d"
+literal|"readv: %ui, last:%uz"
 argument_list|,
 name|vec
 operator|.

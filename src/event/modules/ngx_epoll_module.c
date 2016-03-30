@@ -434,7 +434,7 @@ comment|/* NGX_TEST_BUILD_EPOLL */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2b937acc0108
+DECL|struct|__anon2b2f156f0108
 typedef|typedef
 struct|struct
 block|{
@@ -3746,7 +3746,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"io_getevents: %l"
+literal|"io_getevents: %d"
 argument_list|,
 name|events
 argument_list|)

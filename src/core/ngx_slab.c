@@ -2009,6 +2009,10 @@ literal|0
 argument_list|,
 literal|"slab alloc: %p"
 argument_list|,
+operator|(
+name|void
+operator|*
+operator|)
 name|p
 argument_list|)
 expr_stmt|;

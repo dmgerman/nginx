@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b430f7c0108
+DECL|struct|__anon2b01f2740108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b430f7c0208
+DECL|struct|__anon2b01f2740208
 typedef|typedef
 struct|struct
 block|{
@@ -73,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b430f7c0308
+DECL|struct|__anon2b01f2740308
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b430f7c0408
+DECL|struct|__anon2b01f2740408
 typedef|typedef
 struct|struct
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b430f7c0508
+DECL|struct|__anon2b01f2740508
 typedef|typedef
 struct|struct
 block|{
@@ -953,7 +953,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"limit conn: %08XD %d"
+literal|"limit conn: %08Xi %d"
 argument_list|,
 name|node
 operator|->
@@ -1468,7 +1468,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"limit conn cleanup: %08XD %d"
+literal|"limit conn cleanup: %08Xi %d"
 argument_list|,
 name|node
 operator|->

@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2946c52a0108
+DECL|struct|__anon29ae824d0108
 typedef|typedef
 struct|struct
 block|{
@@ -42,7 +42,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2946c52a0208
+DECL|struct|__anon29ae824d0208
 typedef|typedef
 struct|struct
 block|{
@@ -66,7 +66,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2946c52a0308
+DECL|struct|__anon29ae824d0308
 typedef|typedef
 struct|struct
 block|{
@@ -643,7 +643,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"auth request unexpected status: %d"
+literal|"auth request unexpected status: %ui"
 argument_list|,
 name|ctx
 operator|->
@@ -837,7 +837,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"auth request done s:%d"
+literal|"auth request done s:%ui"
 argument_list|,
 name|r
 operator|->

@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2887a3c20108
+DECL|struct|__anon2bd125e60108
 typedef|typedef
 struct|struct
 block|{
@@ -4479,7 +4479,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"mail proxy handler: %d, #%d> #%d"
+literal|"mail proxy handler: %ui, #%d> #%d"
 argument_list|,
 name|do_write
 argument_list|,

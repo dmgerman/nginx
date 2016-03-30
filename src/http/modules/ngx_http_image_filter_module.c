@@ -156,7 +156,7 @@ value|0x08
 end_define
 
 begin_typedef
-DECL|struct|__anon27ef28d80108
+DECL|struct|__anon2b1e12150108
 typedef|typedef
 struct|struct
 block|{
@@ -228,7 +228,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ef28d80208
+DECL|struct|__anon2b1e12150208
 typedef|typedef
 struct|struct
 block|{
@@ -3262,8 +3262,14 @@ literal|0
 argument_list|,
 literal|"image size: %d x %d"
 argument_list|,
+operator|(
+name|int
+operator|)
 name|width
 argument_list|,
+operator|(
+name|int
+operator|)
 name|height
 argument_list|)
 expr_stmt|;

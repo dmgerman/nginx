@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon289c89560108
+DECL|struct|__anon2a8e25da0108
 typedef|typedef
 struct|struct
 block|{
@@ -80,7 +80,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289c89560208
+DECL|struct|__anon2a8e25da0208
 typedef|typedef
 struct|struct
 block|{
@@ -4374,7 +4374,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"gzip alloc: n:%ud s:%ud a:%ud p:%p"
+literal|"gzip alloc: n:%ud s:%ud a:%ui p:%p"
 argument_list|,
 name|items
 argument_list|,
@@ -4403,7 +4403,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"gzip filter failed to use preallocated memory: %ud of %ud"
+literal|"gzip filter failed to use preallocated memory: %ud of %ui"
 argument_list|,
 name|items
 operator|*

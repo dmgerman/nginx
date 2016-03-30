@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a11230b0108
+DECL|struct|__anon2a43f0ce0108
 typedef|typedef
 struct|struct
 block|{
@@ -436,7 +436,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http chunk: %d"
+literal|"http chunk: %O"
 argument_list|,
 name|ngx_buf_size
 argument_list|(

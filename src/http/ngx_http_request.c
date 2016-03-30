@@ -2947,7 +2947,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http recv(): %d"
+literal|"http recv(): %z"
 argument_list|,
 name|n
 argument_list|)
@@ -6524,7 +6524,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http large header copy: %d"
+literal|"http large header copy: %uz"
 argument_list|,
 name|r
 operator|->
@@ -8564,7 +8564,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon297da9490103
+DECL|enum|__anon2a8bfa6a0103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -9839,7 +9839,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http finalize request: %d, \"%V?%V\" a:%d, c:%d"
+literal|"http finalize request: %i, \"%V?%V\" a:%d, c:%d"
 argument_list|,
 name|rc
 argument_list|,
@@ -12541,7 +12541,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"hc free: %p %d"
+literal|"hc free: %p %i"
 argument_list|,
 name|hc
 operator|->
@@ -12618,7 +12618,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"hc busy: %p %d"
+literal|"hc busy: %p %i"
 argument_list|,
 name|hc
 operator|->
@@ -13755,7 +13755,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"lingering read: %d"
+literal|"lingering read: %z"
 argument_list|,
 name|n
 argument_list|)

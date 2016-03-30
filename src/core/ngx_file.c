@@ -3892,7 +3892,7 @@ argument_list|,
 literal|0
 argument_list|,
 name|ngx_read_fd_n
-literal|" has read only %z of %uz from %s"
+literal|" has read only %z of %O from %s"
 argument_list|,
 name|n
 argument_list|,
@@ -3965,7 +3965,7 @@ argument_list|,
 literal|0
 argument_list|,
 name|ngx_write_fd_n
-literal|" has written only %z of %uz to %s"
+literal|" has written only %z of %O to %s"
 argument_list|,
 name|n
 argument_list|,

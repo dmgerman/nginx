@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c53f1ba0108
+DECL|struct|__anon27425cb50108
 typedef|typedef
 struct|struct
 block|{
@@ -795,10 +795,13 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"get ip hash peer, hash: %ui %04XA"
+literal|"get ip hash peer, hash: %ui %04XL"
 argument_list|,
 name|p
 argument_list|,
+operator|(
+name|uint64_t
+operator|)
 name|m
 argument_list|)
 expr_stmt|;

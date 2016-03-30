@@ -10123,7 +10123,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http2 PING frame, flags: %ui"
+literal|"http2 PING frame, flags: %ud"
 argument_list|,
 name|h2c
 operator|->
@@ -14643,7 +14643,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon28b94f470108
+DECL|struct|__anon29e1237a0108
 specifier|static
 specifier|const
 struct|struct
