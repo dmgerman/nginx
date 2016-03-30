@@ -30,7 +30,7 @@ value|((void *) 4)
 end_define
 
 begin_typedef
-DECL|struct|__anon275f921a0108
+DECL|struct|__anon2b1c75720108
 typedef|typedef
 struct|struct
 block|{

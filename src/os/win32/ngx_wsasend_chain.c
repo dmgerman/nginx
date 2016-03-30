@@ -978,7 +978,7 @@ operator|&
 name|NGX_USE_IOCP_EVENT
 condition|)
 block|{
-comment|/*               * if a socket was bound with I/O completion port then               * GetQueuedCompletionStatus() would anyway return its status               * despite that WSASend() was already complete               */
+comment|/*              * if a socket was bound with I/O completion port then              * GetQueuedCompletionStatus() would anyway return its status              * despite that WSASend() was already complete              */
 name|wev
 operator|->
 name|active

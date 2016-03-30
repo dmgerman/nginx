@@ -611,7 +611,7 @@ block|}
 if|#
 directive|if
 literal|0
-block_content|for (i = 0; i< file->name.len; i++) {          file->name.data[i] = 'X';     }
+block_content|for (i = 0; i< file->name.len; i++) {         file->name.data[i] = 'X';     }
 endif|#
 directive|endif
 name|ngx_memcpy

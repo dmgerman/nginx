@@ -87,7 +87,7 @@ decl_stmt|;
 name|uint64_t
 name|time
 decl_stmt|;
-DECL|enum|__anon276779ab0103
+DECL|enum|__anon2a2041bf0103
 enum|enum
 block|{
 DECL|enumerator|no

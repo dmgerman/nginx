@@ -320,7 +320,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon28b505190103
+DECL|enum|__anon294861f40103
 typedef|typedef
 enum|enum
 block|{
@@ -347,7 +347,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28b505190203
+DECL|enum|__anon294861f40203
 typedef|typedef
 enum|enum
 block|{
@@ -368,7 +368,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28b505190303
+DECL|enum|__anon294861f40303
 typedef|typedef
 enum|enum
 block|{

@@ -35,7 +35,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29eaddc50108
+DECL|struct|__anon289eb95e0108
 typedef|typedef
 struct|struct
 block|{

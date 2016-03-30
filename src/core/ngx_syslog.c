@@ -27,9 +27,9 @@ define|#
 directive|define
 name|NGX_SYSLOG_MAX_STR
 define|\
-value|NGX_MAX_ERROR_STR + sizeof("<255>Jan 01 00:00:00 ") - 1                  \      + (NGX_MAXHOSTNAMELEN - 1) + 1
+value|NGX_MAX_ERROR_STR + sizeof("<255>Jan 01 00:00:00 ") - 1                   \     + (NGX_MAXHOSTNAMELEN - 1) + 1
 comment|/* space */
-value|\      + 32
+value|\     + 32
 comment|/* tag */
 value|+ 2
 end_define

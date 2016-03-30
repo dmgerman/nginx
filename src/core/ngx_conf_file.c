@@ -388,7 +388,7 @@ name|ngx_conf_dump_t
 modifier|*
 name|cd
 decl_stmt|;
-DECL|enum|__anon2ad513200103
+DECL|enum|__anon2b8911320103
 enum|enum
 block|{
 DECL|enumerator|parse_file

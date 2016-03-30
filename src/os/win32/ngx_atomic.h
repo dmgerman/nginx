@@ -112,7 +112,7 @@ parameter_list|,
 name|set
 parameter_list|)
 define|\
-value|((ngx_atomic_uint_t) InterlockedCompareExchange((long *) lock, set, old) \                           == old)
+value|((ngx_atomic_uint_t) InterlockedCompareExchange((long *) lock, set, old)  \                          == old)
 end_define
 
 begin_else
@@ -137,7 +137,7 @@ parameter_list|,
 name|set
 parameter_list|)
 define|\
-value|(InterlockedCompareExchange((void **) lock, (void *) set, (void *) old)  \       == (void *) old)
+value|(InterlockedCompareExchange((void **) lock, (void *) set, (void *) old)   \      == (void *) old)
 end_define
 
 begin_endif

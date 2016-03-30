@@ -26,7 +26,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon291bbee90108
+DECL|struct|__anon27a68c9b0108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291bbee90208
+DECL|struct|__anon27a68c9b0208
 typedef|typedef
 struct|struct
 block|{

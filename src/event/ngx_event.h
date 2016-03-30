@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon27f8cfd10108
+DECL|struct|__anon2919eb190108
 typedef|typedef
 struct|struct
 block|{
@@ -418,7 +418,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon27f8cfd10208
+DECL|struct|__anon2919eb190208
 typedef|typedef
 struct|struct
 block|{
@@ -1388,7 +1388,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon27f8cfd10308
+DECL|struct|__anon2919eb190308
 typedef|typedef
 struct|struct
 block|{
@@ -1435,7 +1435,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27f8cfd10408
+DECL|struct|__anon2919eb190408
 typedef|typedef
 struct|struct
 block|{
