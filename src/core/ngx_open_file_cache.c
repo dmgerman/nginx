@@ -2397,7 +2397,7 @@ argument_list|,
 name|ngx_errno
 argument_list|,
 name|ngx_close_file_n
-literal|" \"%V\" failed"
+literal|" \"%s\" failed"
 argument_list|,
 name|name
 argument_list|)

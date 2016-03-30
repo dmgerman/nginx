@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b0f1cd70108
+DECL|struct|__anon275a5b360108
 typedef|typedef
 struct|struct
 block|{
@@ -1029,7 +1029,7 @@ argument_list|,
 name|ngx_errno
 argument_list|,
 name|ngx_close_dir_n
-literal|" \"%s\" failed"
+literal|" \"%V\" failed"
 argument_list|,
 operator|&
 name|path
