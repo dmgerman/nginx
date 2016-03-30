@@ -731,7 +731,7 @@ name|ngx_sprintf
 argument_list|(
 name|p2
 argument_list|,
-literal|"%02d/%s/%d:%02d:%02d:%02d %c%02d%02d"
+literal|"%02d/%s/%d:%02d:%02d:%02d %c%02i%02i"
 argument_list|,
 name|tm
 operator|.
@@ -809,7 +809,7 @@ name|ngx_sprintf
 argument_list|(
 name|p3
 argument_list|,
-literal|"%4d-%02d-%02dT%02d:%02d:%02d%c%02d:%02d"
+literal|"%4d-%02d-%02dT%02d:%02d:%02d%c%02i:%02i"
 argument_list|,
 name|tm
 operator|.
