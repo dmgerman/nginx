@@ -161,7 +161,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2c08fd2e0108
+DECL|struct|__anon28c9ce3c0108
 typedef|typedef
 struct|struct
 block|{
@@ -225,12 +225,14 @@ if|#
 directive|if
 operator|(
 name|__FreeBSD__
-operator|)
 operator|&&
-operator|(
 name|__FreeBSD_version
 operator|<
 literal|700005
+operator|)
+operator|||
+operator|(
+name|NGX_DARWIN
 operator|)
 end_if
 
@@ -606,7 +608,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c08fd2e0208
+DECL|struct|__anon28c9ce3c0208
 typedef|typedef
 struct|struct
 block|{
