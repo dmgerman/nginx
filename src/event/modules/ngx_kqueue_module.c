@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b9ccd1c0108
+DECL|struct|__anon27989aef0108
 typedef|typedef
 struct|struct
 block|{
@@ -2219,6 +2219,9 @@ name|data
 argument_list|,
 literal|"kevent() error on %d filter:%d flags:%04Xd"
 argument_list|,
+operator|(
+name|int
+operator|)
 name|event_list
 index|[
 name|i
@@ -2565,15 +2568,8 @@ modifier|*
 name|kev
 parameter_list|)
 block|{
-name|ngx_log_debug6
-argument_list|(
-name|NGX_LOG_DEBUG_EVENT
-argument_list|,
-name|log
-argument_list|,
-literal|0
-argument_list|,
-operator|(
+if|if
+condition|(
 name|kev
 operator|->
 name|ident
@@ -2589,12 +2585,22 @@ name|unsigned
 operator|)
 operator|-
 literal|1
-operator|)
-condition|?
-literal|"kevent: %p: ft:%d fl:%04Xd ff:%08Xd d:%d ud:%p"
-else|:
-literal|"kevent: %d: ft:%d fl:%04Xd ff:%08Xd d:%d ud:%p"
+condition|)
+block|{
+name|ngx_log_debug6
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"kevent: %p: ft:%d fl:%04Xd ff:%08Xd d:%d ud:%p"
+argument_list|,
+operator|(
+name|void
+operator|*
+operator|)
 name|kev
 operator|->
 name|ident
@@ -2611,6 +2617,9 @@ name|kev
 operator|->
 name|fflags
 argument_list|,
+operator|(
+name|int
+operator|)
 name|kev
 operator|->
 name|data
@@ -2620,6 +2629,51 @@ operator|->
 name|udata
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|ngx_log_debug6
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"kevent: %d: ft:%d fl:%04Xd ff:%08Xd d:%d ud:%p"
+argument_list|,
+operator|(
+name|int
+operator|)
+name|kev
+operator|->
+name|ident
+argument_list|,
+name|kev
+operator|->
+name|filter
+argument_list|,
+name|kev
+operator|->
+name|flags
+argument_list|,
+name|kev
+operator|->
+name|fflags
+argument_list|,
+operator|(
+name|int
+operator|)
+name|kev
+operator|->
+name|data
+argument_list|,
+name|kev
+operator|->
+name|udata
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_function
 

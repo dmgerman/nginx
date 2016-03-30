@@ -161,7 +161,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon28c9ce3c0108
+DECL|struct|__anon28ad51e60108
 typedef|typedef
 struct|struct
 block|{
@@ -608,7 +608,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28c9ce3c0208
+DECL|struct|__anon28ad51e60208
 typedef|typedef
 struct|struct
 block|{
@@ -2269,6 +2269,9 @@ literal|0
 argument_list|,
 literal|"eventport: fd:%d, ev:%04Xd"
 argument_list|,
+operator|(
+name|int
+operator|)
 name|event_list
 index|[
 name|i
@@ -2304,6 +2307,9 @@ literal|0
 argument_list|,
 literal|"port_getn() error fd:%d ev:%04Xd"
 argument_list|,
+operator|(
+name|int
+operator|)
 name|event_list
 index|[
 name|i
@@ -2345,6 +2351,9 @@ literal|0
 argument_list|,
 literal|"strange port_getn() events fd:%d ev:%04Xd"
 argument_list|,
+operator|(
+name|int
+operator|)
 name|event_list
 index|[
 name|i
@@ -2622,6 +2631,9 @@ literal|0
 argument_list|,
 literal|"unexpected eventport object %d"
 argument_list|,
+operator|(
+name|int
+operator|)
 name|event_list
 index|[
 name|i
