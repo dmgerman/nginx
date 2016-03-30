@@ -335,7 +335,7 @@ index|]
 operator|.
 name|term_event
 argument_list|,
-literal|"ngx_%s_term_%ul%Z"
+literal|"ngx_%s_term_%P%Z"
 argument_list|,
 name|name
 argument_list|,
@@ -351,7 +351,7 @@ index|]
 operator|.
 name|quit_event
 argument_list|,
-literal|"ngx_%s_quit_%ul%Z"
+literal|"ngx_%s_quit_%P%Z"
 argument_list|,
 name|name
 argument_list|,
@@ -367,7 +367,7 @@ index|]
 operator|.
 name|reopen_event
 argument_list|,
-literal|"ngx_%s_reopen_%ul%Z"
+literal|"ngx_%s_reopen_%P%Z"
 argument_list|,
 name|name
 argument_list|,

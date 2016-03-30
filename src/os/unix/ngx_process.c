@@ -28,7 +28,7 @@ file|<ngx_channel.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon276116810108
+DECL|struct|__anon28e3dd000108
 typedef|typedef
 struct|struct
 block|{
@@ -2519,6 +2519,9 @@ name|ngx_errno
 argument_list|,
 literal|"kill(%P, %d) failed"
 argument_list|,
+operator|(
+name|ngx_pid_t
+operator|)
 name|pid
 argument_list|,
 name|sig

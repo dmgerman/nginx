@@ -2632,7 +2632,7 @@ operator|*
 operator|)
 name|wtevn
 argument_list|,
-literal|"ngx_worker_term_%ul%Z"
+literal|"ngx_worker_term_%P%Z"
 argument_list|,
 name|ngx_pid
 argument_list|)
@@ -2688,7 +2688,7 @@ operator|*
 operator|)
 name|wqevn
 argument_list|,
-literal|"ngx_worker_quit_%ul%Z"
+literal|"ngx_worker_quit_%P%Z"
 argument_list|,
 name|ngx_pid
 argument_list|)
@@ -2744,7 +2744,7 @@ operator|*
 operator|)
 name|wroevn
 argument_list|,
-literal|"ngx_worker_reopen_%ul%Z"
+literal|"ngx_worker_reopen_%P%Z"
 argument_list|,
 name|ngx_pid
 argument_list|)
@@ -4388,10 +4388,13 @@ operator|*
 operator|)
 name|evn
 argument_list|,
-literal|"Global\\ngx_%s_%ul%Z"
+literal|"Global\\ngx_%s_%P%Z"
 argument_list|,
 name|sig
 argument_list|,
+operator|(
+name|ngx_pid_t
+operator|)
 name|pid
 argument_list|)
 expr_stmt|;
