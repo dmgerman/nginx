@@ -112,7 +112,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon28ff0c6e0108
+DECL|struct|__anon28acd4e50108
 typedef|typedef
 struct|struct
 block|{
@@ -340,8 +340,6 @@ block|,
 literal|"debug_http"
 block|,
 literal|"debug_mail"
-block|,
-literal|"debug_mysql"
 block|,
 literal|"debug_stream"
 block|}

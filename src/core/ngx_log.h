@@ -149,19 +149,11 @@ value|0x200
 end_define
 
 begin_define
-DECL|macro|NGX_LOG_DEBUG_MYSQL
-define|#
-directive|define
-name|NGX_LOG_DEBUG_MYSQL
-value|0x400
-end_define
-
-begin_define
 DECL|macro|NGX_LOG_DEBUG_STREAM
 define|#
 directive|define
 name|NGX_LOG_DEBUG_STREAM
-value|0x800
+value|0x400
 end_define
 
 begin_comment
