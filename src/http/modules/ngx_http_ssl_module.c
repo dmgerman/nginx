@@ -3117,9 +3117,17 @@ name|SSL_OP_CIPHER_SERVER_PREFERENCE
 argument_list|)
 expr_stmt|;
 block|}
-ifndef|#
-directive|ifndef
+if|#
+directive|if
+operator|(
+name|OPENSSL_VERSION_NUMBER
+operator|<
+literal|0x10100001L
+operator|&&
+operator|!
+name|defined
 name|LIBRESSL_VERSION_NUMBER
+operator|)
 comment|/* a temporary 512-bit RSA key is required for export versions of MSIE */
 name|SSL_CTX_set_tmp_rsa_callback
 argument_list|(

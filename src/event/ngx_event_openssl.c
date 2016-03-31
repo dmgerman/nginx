@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon29bd07d70108
+DECL|struct|__anon2791c6ea0108
 typedef|typedef
 struct|struct
 block|{
@@ -3146,9 +3146,17 @@ return|return
 name|NULL
 return|;
 block|}
-ifndef|#
-directive|ifndef
+if|#
+directive|if
+operator|(
+name|OPENSSL_VERSION_NUMBER
+operator|<
+literal|0x10100003L
+operator|&&
+operator|!
+name|defined
 name|OPENSSL_NO_DEPRECATED
+operator|)
 if|if
 condition|(
 name|key
