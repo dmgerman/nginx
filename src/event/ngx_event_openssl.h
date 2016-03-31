@@ -168,6 +168,44 @@ endif|#
 directive|endif
 end_endif
 
+begin_if
+if|#
+directive|if
+operator|(
+name|OPENSSL_VERSION_NUMBER
+operator|>=
+literal|0x10100001L
+operator|)
+end_if
+
+begin_define
+DECL|macro|ngx_ssl_version ()
+define|#
+directive|define
+name|ngx_ssl_version
+parameter_list|()
+value|OpenSSL_version(OPENSSL_VERSION)
+end_define
+
+begin_else
+else|#
+directive|else
+end_else
+
+begin_define
+DECL|macro|ngx_ssl_version ()
+define|#
+directive|define
+name|ngx_ssl_version
+parameter_list|()
+value|SSLeay_version(SSLEAY_VERSION)
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_define
 DECL|macro|ngx_ssl_session_t
 define|#
@@ -185,7 +223,7 @@ value|SSL
 end_define
 
 begin_typedef
-DECL|struct|__anon2b9728120108
+DECL|struct|__anon27821b9d0108
 typedef|typedef
 struct|struct
 block|{
@@ -210,7 +248,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b9728120208
+DECL|struct|__anon27821b9d0208
 typedef|typedef
 struct|struct
 block|{
@@ -397,7 +435,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b9728120308
+DECL|struct|__anon27821b9d0308
 typedef|typedef
 struct|struct
 block|{
@@ -426,7 +464,7 @@ name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon2b9728120408
+DECL|struct|__anon27821b9d0408
 typedef|typedef
 struct|struct
 block|{
