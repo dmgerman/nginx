@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2a2c8d450108
+DECL|struct|__anon2c2567d40108
 typedef|typedef
 struct|struct
 block|{
@@ -267,6 +267,14 @@ name|ngx_ssl_conn_t
 modifier|*
 name|ssl_conn
 parameter_list|,
+if|#
+directive|if
+name|OPENSSL_VERSION_NUMBER
+operator|>=
+literal|0x10100003L
+specifier|const
+endif|#
+directive|endif
 name|u_char
 modifier|*
 name|id
@@ -10052,13 +10060,21 @@ begin_function
 specifier|static
 name|ngx_ssl_session_t
 modifier|*
-DECL|function|ngx_ssl_get_cached_session (ngx_ssl_conn_t * ssl_conn,u_char * id,int len,int * copy)
+DECL|function|ngx_ssl_get_cached_session (ngx_ssl_conn_t * ssl_conn,const u_char * id,int len,int * copy)
 name|ngx_ssl_get_cached_session
 parameter_list|(
 name|ngx_ssl_conn_t
 modifier|*
 name|ssl_conn
 parameter_list|,
+if|#
+directive|if
+name|OPENSSL_VERSION_NUMBER
+operator|>=
+literal|0x10100003L
+specifier|const
+endif|#
+directive|endif
 name|u_char
 modifier|*
 name|id
@@ -10130,6 +10146,13 @@ name|hash
 operator|=
 name|ngx_crc32_short
 argument_list|(
+operator|(
+name|u_char
+operator|*
+operator|)
+operator|(
+name|uintptr_t
+operator|)
 name|id
 argument_list|,
 operator|(
@@ -10280,6 +10303,13 @@ name|rc
 operator|=
 name|ngx_memn2cmp
 argument_list|(
+operator|(
+name|u_char
+operator|*
+operator|)
+operator|(
+name|uintptr_t
+operator|)
 name|id
 argument_list|,
 name|sess_id
