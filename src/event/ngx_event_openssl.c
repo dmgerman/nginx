@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2791c6ea0108
+DECL|struct|__anon2acba6af0108
 typedef|typedef
 struct|struct
 block|{
@@ -8943,6 +8943,7 @@ modifier|*
 name|name
 decl_stmt|;
 name|EVP_MD_CTX
+modifier|*
 name|md
 decl_stmt|;
 name|unsigned
@@ -8963,17 +8964,26 @@ name|EVP_MAX_MD_SIZE
 index|]
 decl_stmt|;
 comment|/*      * Session ID context is set based on the string provided,      * the server certificate, and the client CA list.      */
-name|EVP_MD_CTX_init
-argument_list|(
-operator|&
 name|md
-argument_list|)
+operator|=
+name|EVP_MD_CTX_create
+argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|md
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
 if|if
 condition|(
 name|EVP_DigestInit_ex
 argument_list|(
-operator|&
 name|md
 argument_list|,
 name|EVP_sha1
@@ -9006,7 +9016,6 @@ if|if
 condition|(
 name|EVP_DigestUpdate
 argument_list|(
-operator|&
 name|md
 argument_list|,
 name|sess_ctx
@@ -9088,7 +9097,6 @@ if|if
 condition|(
 name|EVP_DigestUpdate
 argument_list|(
-operator|&
 name|md
 argument_list|,
 name|buf
@@ -9201,7 +9209,6 @@ if|if
 condition|(
 name|EVP_DigestUpdate
 argument_list|(
-operator|&
 name|md
 argument_list|,
 name|buf
@@ -9235,7 +9242,6 @@ if|if
 condition|(
 name|EVP_DigestFinal_ex
 argument_list|(
-operator|&
 name|md
 argument_list|,
 name|buf
@@ -9264,9 +9270,8 @@ goto|goto
 name|failed
 goto|;
 block|}
-name|EVP_MD_CTX_cleanup
+name|EVP_MD_CTX_destroy
 argument_list|(
-operator|&
 name|md
 argument_list|)
 expr_stmt|;
@@ -9308,9 +9313,8 @@ name|NGX_OK
 return|;
 name|failed
 label|:
-name|EVP_MD_CTX_cleanup
+name|EVP_MD_CTX_destroy
 argument_list|(
-operator|&
 name|md
 argument_list|)
 expr_stmt|;
