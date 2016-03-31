@@ -136,6 +136,38 @@ name|NGX_SSL_NAME
 value|"OpenSSL"
 end_define
 
+begin_if
+if|#
+directive|if
+operator|(
+name|defined
+name|LIBRESSL_VERSION_NUMBER
+operator|&&
+name|OPENSSL_VERSION_NUMBER
+operator|==
+literal|0x20000000L
+operator|)
+end_if
+
+begin_undef
+undef|#
+directive|undef
+name|OPENSSL_VERSION_NUMBER
+end_undef
+
+begin_define
+DECL|macro|OPENSSL_VERSION_NUMBER
+define|#
+directive|define
+name|OPENSSL_VERSION_NUMBER
+value|0x1000107fL
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_define
 DECL|macro|ngx_ssl_session_t
 define|#
@@ -153,7 +185,7 @@ value|SSL
 end_define
 
 begin_typedef
-DECL|struct|__anon28d3f8320108
+DECL|struct|__anon2b9728120108
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +210,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28d3f8320208
+DECL|struct|__anon2b9728120208
 typedef|typedef
 struct|struct
 block|{
@@ -365,7 +397,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28d3f8320308
+DECL|struct|__anon2b9728120308
 typedef|typedef
 struct|struct
 block|{
@@ -394,7 +426,7 @@ name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon28d3f8320408
+DECL|struct|__anon2b9728120408
 typedef|typedef
 struct|struct
 block|{
