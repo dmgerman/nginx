@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2ad48c7e0108
+DECL|struct|__anon29a04bac0108
 typedef|typedef
 struct|struct
 block|{
@@ -1316,6 +1316,18 @@ operator|==
 name|X509_V_OK
 condition|)
 block|{
+if|#
+directive|if
+name|OPENSSL_VERSION_NUMBER
+operator|>=
+literal|0x10100001L
+name|X509_up_ref
+argument_list|(
+name|issuer
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 name|CRYPTO_add
 argument_list|(
 operator|&
@@ -1328,6 +1340,8 @@ argument_list|,
 name|CRYPTO_LOCK_X509
 argument_list|)
 expr_stmt|;
+endif|#
+directive|endif
 name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
@@ -5627,7 +5641,7 @@ name|ngx_buf_t
 modifier|*
 name|b
 decl_stmt|;
-DECL|enum|__anon2ad48c7e0203
+DECL|enum|__anon29a04bac0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6423,7 +6437,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2ad48c7e0303
+DECL|enum|__anon29a04bac0303
 enum|enum
 block|{
 DECL|enumerator|sw_start
