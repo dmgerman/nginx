@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2c2567d40108
+DECL|struct|__anon29bd07d70108
 typedef|typedef
 struct|struct
 block|{
@@ -612,6 +612,20 @@ modifier|*
 name|log
 parameter_list|)
 block|{
+if|#
+directive|if
+name|OPENSSL_VERSION_NUMBER
+operator|>=
+literal|0x10100003L
+name|OPENSSL_init_ssl
+argument_list|(
+name|OPENSSL_INIT_LOAD_CONFIG
+argument_list|,
+name|NULL
+argument_list|)
+expr_stmt|;
+else|#
+directive|else
 ifndef|#
 directive|ifndef
 name|OPENSSL_IS_BORINGSSL
@@ -631,6 +645,8 @@ expr_stmt|;
 name|OpenSSL_add_all_algorithms
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 if|#
 directive|if
 name|OPENSSL_VERSION_NUMBER
@@ -14639,6 +14655,11 @@ modifier|*
 name|cycle
 parameter_list|)
 block|{
+if|#
+directive|if
+name|OPENSSL_VERSION_NUMBER
+operator|<
+literal|0x10100003L
 name|EVP_cleanup
 argument_list|()
 expr_stmt|;
@@ -14648,6 +14669,8 @@ name|OPENSSL_NO_ENGINE
 name|ENGINE_cleanup
 argument_list|()
 expr_stmt|;
+endif|#
+directive|endif
 endif|#
 directive|endif
 block|}
