@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon28af1ab50108
+DECL|struct|__anon2a2c8d450108
 typedef|typedef
 struct|struct
 block|{
@@ -8200,6 +8200,9 @@ name|n
 operator|==
 literal|1000
 comment|/* SSL_R_SSLV3_ALERT_CLOSE_NOTIFY */
+ifdef|#
+directive|ifdef
+name|SSL_R_SSLV3_ALERT_UNEXPECTED_MESSAGE
 operator|||
 name|n
 operator|==
@@ -8314,8 +8317,10 @@ operator|||
 name|n
 operator|==
 name|SSL_R_TLSV1_ALERT_NO_RENEGOTIATION
-condition|)
 comment|/* 1100 */
+endif|#
+directive|endif
+condition|)
 block|{
 switch|switch
 condition|(
