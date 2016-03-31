@@ -4353,7 +4353,7 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_os_signal_process (ngx_cycle_t * cycle,char * sig,ngx_int_t pid)
+DECL|function|ngx_os_signal_process (ngx_cycle_t * cycle,char * sig,ngx_pid_t pid)
 name|ngx_os_signal_process
 parameter_list|(
 name|ngx_cycle_t
@@ -4364,7 +4364,7 @@ name|char
 modifier|*
 name|sig
 parameter_list|,
-name|ngx_int_t
+name|ngx_pid_t
 name|pid
 parameter_list|)
 block|{
@@ -4392,9 +4392,6 @@ literal|"Global\\ngx_%s_%P%Z"
 argument_list|,
 name|sig
 argument_list|,
-operator|(
-name|ngx_pid_t
-operator|)
 name|pid
 argument_list|)
 expr_stmt|;

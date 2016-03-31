@@ -130,7 +130,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2acd75a50108
+DECL|struct|__anon27c28cef0108
 typedef|typedef
 struct|struct
 block|{
@@ -198,7 +198,7 @@ name|char
 modifier|*
 name|sig
 parameter_list|,
-name|ngx_int_t
+name|ngx_pid_t
 name|pid
 parameter_list|)
 function_decl|;

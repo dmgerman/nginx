@@ -28,7 +28,7 @@ file|<ngx_channel.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28e3dd000108
+DECL|struct|__anon29ff1cde0108
 typedef|typedef
 struct|struct
 block|{
@@ -2439,7 +2439,7 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_os_signal_process (ngx_cycle_t * cycle,char * name,ngx_int_t pid)
+DECL|function|ngx_os_signal_process (ngx_cycle_t * cycle,char * name,ngx_pid_t pid)
 name|ngx_os_signal_process
 parameter_list|(
 name|ngx_cycle_t
@@ -2450,7 +2450,7 @@ name|char
 modifier|*
 name|name
 parameter_list|,
-name|ngx_int_t
+name|ngx_pid_t
 name|pid
 parameter_list|)
 block|{
@@ -2519,9 +2519,6 @@ name|ngx_errno
 argument_list|,
 literal|"kill(%P, %d) failed"
 argument_list|,
-operator|(
-name|ngx_pid_t
-operator|)
 name|pid
 argument_list|,
 name|sig

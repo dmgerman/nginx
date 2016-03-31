@@ -4764,7 +4764,7 @@ block|{
 name|ssize_t
 name|n
 decl_stmt|;
-name|ngx_int_t
+name|ngx_pid_t
 name|pid
 decl_stmt|;
 name|ngx_file_t
@@ -4987,6 +4987,9 @@ if|if
 condition|(
 name|pid
 operator|==
+operator|(
+name|ngx_pid_t
+operator|)
 name|NGX_ERROR
 condition|)
 block|{
