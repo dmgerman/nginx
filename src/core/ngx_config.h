@@ -548,37 +548,6 @@ endif|#
 directive|endif
 end_endif
 
-begin_if
-if|#
-directive|if
-operator|(
-operator|(
-name|__GNU__
-operator|==
-literal|2
-operator|)
-operator|&&
-operator|(
-name|__GNUC_MINOR__
-operator|<
-literal|8
-operator|)
-operator|)
-end_if
-
-begin_define
-DECL|macro|NGX_MAX_UINT32_VALUE
-define|#
-directive|define
-name|NGX_MAX_UINT32_VALUE
-value|(uint32_t) 0xffffffffLL
-end_define
-
-begin_else
-else|#
-directive|else
-end_else
-
 begin_define
 DECL|macro|NGX_MAX_UINT32_VALUE
 define|#
@@ -586,11 +555,6 @@ directive|define
 name|NGX_MAX_UINT32_VALUE
 value|(uint32_t) 0xffffffff
 end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
 
 begin_define
 DECL|macro|NGX_MAX_INT32_VALUE
