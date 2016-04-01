@@ -709,7 +709,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon2c6576590103
+DECL|enum|__anon2965c9d60103
 typedef|typedef
 enum|enum
 block|{
@@ -748,7 +748,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6576590208
+DECL|struct|__anon2965c9d60208
 typedef|typedef
 struct|struct
 block|{
@@ -771,7 +771,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6576590308
+DECL|struct|__anon2965c9d60308
 typedef|typedef
 struct|struct
 block|{
@@ -790,7 +790,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6576590408
+DECL|struct|__anon2965c9d60408
 typedef|typedef
 struct|struct
 block|{
@@ -1052,7 +1052,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6576590508
+DECL|struct|__anon2965c9d60508
 typedef|typedef
 struct|struct
 block|{
@@ -1197,7 +1197,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6576590608
+DECL|struct|__anon2965c9d60608
 typedef|typedef
 struct|struct
 block|{
@@ -1220,6 +1220,17 @@ DECL|member|rest
 name|off_t
 name|rest
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_V2
+operator|)
+DECL|member|received
+name|off_t
+name|received
+decl_stmt|;
+endif|#
+directive|endif
 DECL|member|free
 name|ngx_chain_t
 modifier|*
@@ -1255,7 +1266,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6576590708
+DECL|struct|__anon2965c9d60708
 typedef|typedef
 struct|struct
 block|{
@@ -1413,7 +1424,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6576590808
+DECL|struct|__anon2965c9d60808
 typedef|typedef
 struct|struct
 block|{
@@ -2302,7 +2313,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c6576590908
+DECL|struct|__anon2965c9d60908
 typedef|typedef
 struct|struct
 block|{

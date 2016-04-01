@@ -84,30 +84,6 @@ value|(127 + (1<< (NGX_HTTP_V2_INT_OCTETS - 1) * 7) - 1)
 end_define
 
 begin_define
-DECL|macro|NGX_HTTP_V2_DATA_DISCARD
-define|#
-directive|define
-name|NGX_HTTP_V2_DATA_DISCARD
-value|1
-end_define
-
-begin_define
-DECL|macro|NGX_HTTP_V2_DATA_ERROR
-define|#
-directive|define
-name|NGX_HTTP_V2_DATA_ERROR
-value|2
-end_define
-
-begin_define
-DECL|macro|NGX_HTTP_V2_DATA_INTERNAL_ERROR
-define|#
-directive|define
-name|NGX_HTTP_V2_DATA_INTERNAL_ERROR
-value|3
-end_define
-
-begin_define
 DECL|macro|NGX_HTTP_V2_FRAME_HEADER_SIZE
 define|#
 directive|define
@@ -304,7 +280,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ba6e26d0108
+DECL|struct|__anon2acf28920108
 typedef|typedef
 struct|struct
 block|{
@@ -323,7 +299,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ba6e26d0208
+DECL|struct|__anon2acf28920208
 typedef|typedef
 struct|struct
 block|{
@@ -434,7 +410,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ba6e26d0308
+DECL|struct|__anon2acf28920308
 typedef|typedef
 struct|struct
 block|{
@@ -743,11 +719,17 @@ name|rst_sent
 range|:
 literal|1
 decl_stmt|;
+DECL|member|no_flow_control
+name|unsigned
+name|no_flow_control
+range|:
+literal|1
+decl_stmt|;
 DECL|member|skip_data
 name|unsigned
 name|skip_data
 range|:
-literal|2
+literal|1
 decl_stmt|;
 block|}
 struct|;
