@@ -304,7 +304,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d49ce30108
+DECL|struct|__anon2ba6e26d0108
 typedef|typedef
 struct|struct
 block|{
@@ -323,7 +323,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d49ce30208
+DECL|struct|__anon2ba6e26d0208
 typedef|typedef
 struct|struct
 block|{
@@ -434,7 +434,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d49ce30308
+DECL|struct|__anon2ba6e26d0308
 typedef|typedef
 struct|struct
 block|{
@@ -734,6 +734,12 @@ decl_stmt|;
 DECL|member|out_closed
 name|unsigned
 name|out_closed
+range|:
+literal|1
+decl_stmt|;
+DECL|member|rst_sent
+name|unsigned
+name|rst_sent
 range|:
 literal|1
 decl_stmt|;
