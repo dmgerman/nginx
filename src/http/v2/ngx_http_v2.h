@@ -280,7 +280,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2acf28920108
+DECL|struct|__anon27c5912e0108
 typedef|typedef
 struct|struct
 block|{
@@ -299,7 +299,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2acf28920208
+DECL|struct|__anon27c5912e0208
 typedef|typedef
 struct|struct
 block|{
@@ -410,7 +410,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2acf28920308
+DECL|struct|__anon27c5912e0308
 typedef|typedef
 struct|struct
 block|{
@@ -1052,6 +1052,17 @@ name|r
 parameter_list|,
 name|ngx_http_client_body_handler_pt
 name|post_handler
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_http_v2_read_unbuffered_request_body
+parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
 parameter_list|)
 function_decl|;
 end_function_decl
