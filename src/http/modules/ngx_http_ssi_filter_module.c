@@ -54,7 +54,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2bd159a00108
+DECL|struct|__anon29aeaaa30108
 typedef|typedef
 struct|struct
 block|{
@@ -98,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd159a00208
+DECL|struct|__anon29aeaaa30208
 typedef|typedef
 struct|struct
 block|{
@@ -121,7 +121,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd159a00308
+DECL|struct|__anon29aeaaa30308
 typedef|typedef
 struct|struct
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2bd159a00403
+DECL|enum|__anon29aeaaa30403
 typedef|typedef
 enum|enum
 block|{
@@ -8865,7 +8865,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"inlcusion may be either virtual=\"%V\" or file=\"%V\""
+literal|"inclusion may be either virtual=\"%V\" or file=\"%V\""
 argument_list|,
 name|uri
 argument_list|,

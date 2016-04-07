@@ -898,7 +898,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"AcceptEx() %V falied"
+literal|"AcceptEx() %V failed"
 argument_list|,
 operator|&
 name|ls

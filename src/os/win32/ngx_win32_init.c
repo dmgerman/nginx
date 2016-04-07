@@ -99,7 +99,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2798eca40108
+DECL|struct|__anon2a2c3e000108
 typedef|typedef
 struct|struct
 block|{
@@ -556,7 +556,7 @@ argument_list|,
 name|ngx_socket_errno
 argument_list|,
 name|ngx_socket_n
-literal|" falied"
+literal|" failed"
 argument_list|)
 expr_stmt|;
 return|return
