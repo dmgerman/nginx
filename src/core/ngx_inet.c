@@ -1437,7 +1437,7 @@ name|ngx_sprintf
 argument_list|(
 name|dst
 argument_list|,
-literal|"%uxd"
+literal|"%xd"
 argument_list|,
 name|p
 index|[

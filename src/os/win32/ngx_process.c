@@ -688,7 +688,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"%s process %P exited with code %Xul"
+literal|"%s process %P exited with code %Xl"
 argument_list|,
 name|name
 argument_list|,

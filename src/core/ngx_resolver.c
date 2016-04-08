@@ -46,7 +46,7 @@ value|8192
 end_define
 
 begin_typedef
-DECL|struct|__anon2a3e776f0108
+DECL|struct|__anon278444260108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3e776f0208
+DECL|struct|__anon278444260208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3e776f0308
+DECL|struct|__anon278444260308
 typedef|typedef
 struct|struct
 block|{
@@ -8196,7 +8196,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"resolver DNS response %ui fl:%04Xui %ui/%ui/%ud/%ud"
+literal|"resolver DNS response %ui fl:%04Xi %ui/%ui/%ud/%ud"
 argument_list|,
 name|ident
 argument_list|,
@@ -8261,7 +8261,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"invalid %s DNS response %ui fl:%04Xui"
+literal|"invalid %s DNS response %ui fl:%04Xi"
 argument_list|,
 name|tcp
 condition|?
