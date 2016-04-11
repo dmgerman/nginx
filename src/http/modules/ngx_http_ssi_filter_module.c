@@ -54,7 +54,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon29aeaaa30108
+DECL|struct|__anon2a293d600108
 typedef|typedef
 struct|struct
 block|{
@@ -98,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29aeaaa30208
+DECL|struct|__anon2a293d600208
 typedef|typedef
 struct|struct
 block|{
@@ -121,7 +121,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29aeaaa30308
+DECL|struct|__anon2a293d600308
 typedef|typedef
 struct|struct
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29aeaaa30403
+DECL|enum|__anon2a293d600403
 typedef|typedef
 enum|enum
 block|{
@@ -11263,7 +11263,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"evaluted left: \"%V\""
+literal|"evaluated left: \"%V\""
 argument_list|,
 operator|&
 name|left
@@ -11541,7 +11541,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"evaluted right: \"%V\""
+literal|"evaluated right: \"%V\""
 argument_list|,
 operator|&
 name|right
