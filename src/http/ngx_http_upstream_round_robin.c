@@ -3415,14 +3415,7 @@ operator|)
 name|int
 name|len
 decl_stmt|;
-if|#
-directive|if
-name|OPENSSL_VERSION_NUMBER
-operator|>=
-literal|0x0090707fL
 specifier|const
-endif|#
-directive|endif
 name|u_char
 modifier|*
 name|p

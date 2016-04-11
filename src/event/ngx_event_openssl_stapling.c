@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2c4a09b70108
+DECL|struct|__anon2c972a920108
 typedef|typedef
 struct|struct
 block|{
@@ -2605,18 +2605,6 @@ modifier|*
 name|ctx
 parameter_list|)
 block|{
-if|#
-directive|if
-name|OPENSSL_VERSION_NUMBER
-operator|>=
-literal|0x0090707fL
-specifier|const
-endif|#
-directive|endif
-name|u_char
-modifier|*
-name|p
-decl_stmt|;
 name|int
 name|n
 decl_stmt|;
@@ -2634,6 +2622,11 @@ decl_stmt|;
 name|X509_STORE
 modifier|*
 name|store
+decl_stmt|;
+specifier|const
+name|u_char
+modifier|*
+name|p
 decl_stmt|;
 name|STACK_OF
 argument_list|(
@@ -5858,7 +5851,7 @@ name|ngx_buf_t
 modifier|*
 name|b
 decl_stmt|;
-DECL|enum|__anon2c4a09b70203
+DECL|enum|__anon2c972a920203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6684,7 +6677,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2c4a09b70303
+DECL|enum|__anon2c972a920303
 enum|enum
 block|{
 DECL|enumerator|sw_start
