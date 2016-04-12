@@ -16,7 +16,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b25b32e0108
+DECL|struct|__anon28c3bee80108
 typedef|typedef
 struct|struct
 block|{
@@ -174,7 +174,7 @@ name|NGX_MAIN_CONF
 operator||
 name|NGX_DIRECT_CONF
 operator||
-name|NGX_CONF_TAKE1
+name|NGX_CONF_FLAG
 block|,
 name|ngx_conf_set_flag_slot
 block|,
