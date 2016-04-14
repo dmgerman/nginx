@@ -5283,6 +5283,33 @@ goto|goto
 name|rst_stream
 goto|;
 block|}
+if|if
+condition|(
+operator|!
+name|h2c
+operator|->
+name|settings_ack
+operator|&&
+operator|!
+operator|(
+name|h2c
+operator|->
+name|state
+operator|.
+name|flags
+operator|&
+name|NGX_HTTP_V2_END_STREAM_FLAG
+operator|)
+condition|)
+block|{
+name|status
+operator|=
+name|NGX_HTTP_V2_REFUSED_STREAM
+expr_stmt|;
+goto|goto
+name|rst_stream
+goto|;
+block|}
 name|node
 operator|=
 name|ngx_http_v2_get_node_by_id
@@ -9134,7 +9161,12 @@ name|NGX_HTTP_V2_SIZE_ERROR
 argument_list|)
 return|;
 block|}
-comment|/* TODO settings acknowledged */
+name|h2c
+operator|->
+name|settings_ack
+operator|=
+literal|1
+expr_stmt|;
 return|return
 name|ngx_http_v2_state_complete
 argument_list|(
@@ -14101,7 +14133,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2c3504680108
+DECL|struct|__anon2a3122800108
 specifier|static
 specifier|const
 struct|struct
