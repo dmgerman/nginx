@@ -14133,7 +14133,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2a3122800108
+DECL|struct|__anon2b20bef70108
 specifier|static
 specifier|const
 struct|struct
@@ -17522,9 +17522,22 @@ operator|->
 name|in_closed
 condition|)
 block|{
+if|#
+directive|if
+literal|0
+block_content|if (ngx_http_v2_send_rst_stream(h2c, node->id, NGX_HTTP_V2_NO_ERROR)                 != NGX_OK)             {                 h2c->connection->error = 1;             }
+else|#
+directive|else
+comment|/*              * At the time of writing at least the latest versions of Chrome              * do not properly handle RST_STREAM with NO_ERROR status.              *              * See: https://bugs.chromium.org/p/chromium/issues/detail?id=603182              *              * As a workaround, the stream window is maximized before closing              * the stream.  This allows a client to send up to 2 GB of data              * before getting blocked on flow control.              */
 if|if
 condition|(
-name|ngx_http_v2_send_rst_stream
+name|stream
+operator|->
+name|recv_window
+operator|<
+name|NGX_HTTP_V2_MAX_WINDOW
+operator|&&
+name|ngx_http_v2_send_window_update
 argument_list|(
 name|h2c
 argument_list|,
@@ -17532,7 +17545,11 @@ name|node
 operator|->
 name|id
 argument_list|,
-name|NGX_HTTP_V2_NO_ERROR
+name|NGX_HTTP_V2_MAX_WINDOW
+operator|-
+name|stream
+operator|->
+name|recv_window
 argument_list|)
 operator|!=
 name|NGX_OK
@@ -17547,6 +17564,8 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 block|}
 block|}
 if|if
