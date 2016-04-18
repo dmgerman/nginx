@@ -5302,6 +5302,22 @@ name|NGX_HTTP_V2_END_STREAM_FLAG
 operator|)
 condition|)
 block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|h2c
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"client sent stream with data "
+literal|"before settings were acknowledged"
+argument_list|)
+expr_stmt|;
 name|status
 operator|=
 name|NGX_HTTP_V2_REFUSED_STREAM
@@ -14133,7 +14149,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2b20bef70108
+DECL|struct|__anon27bbb8510108
 specifier|static
 specifier|const
 struct|struct
