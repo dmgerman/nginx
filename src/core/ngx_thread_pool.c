@@ -22,7 +22,7 @@ file|<ngx_thread_pool.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon293359ac0108
+DECL|struct|__anon29b016250108
 typedef|typedef
 struct|struct
 block|{
@@ -37,7 +37,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293359ac0208
+DECL|struct|__anon29b016250208
 typedef|typedef
 struct|struct
 block|{
@@ -1459,6 +1459,9 @@ name|task
 operator|->
 name|next
 expr_stmt|;
+name|ngx_memory_barrier
+argument_list|()
+expr_stmt|;
 name|ngx_unlock
 argument_list|(
 operator|&
@@ -1539,6 +1542,9 @@ operator|&
 name|ngx_thread_pool_done
 operator|.
 name|first
+expr_stmt|;
+name|ngx_memory_barrier
+argument_list|()
 expr_stmt|;
 name|ngx_unlock
 argument_list|(
