@@ -14149,7 +14149,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon27bbb8510108
+DECL|struct|__anon29e4ce6e0108
 specifier|static
 specifier|const
 struct|struct
@@ -15984,17 +15984,16 @@ return|;
 block|}
 if|if
 condition|(
+name|len
+condition|)
+block|{
+if|if
+condition|(
 name|r
 operator|->
 name|request_body_no_buffering
 condition|)
 block|{
-name|stream
-operator|->
-name|no_flow_control
-operator|=
-literal|0
-expr_stmt|;
 name|stream
 operator|->
 name|recv_window
@@ -16045,6 +16044,7 @@ block|{
 return|return
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
+block|}
 block|}
 name|ngx_add_timer
 argument_list|(
