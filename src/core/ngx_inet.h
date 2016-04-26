@@ -127,7 +127,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2bbdb0800108
+DECL|struct|__anon2b637ae80108
 typedef|typedef
 struct|struct
 block|{
@@ -154,7 +154,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2bbdb0800208
+DECL|struct|__anon2b637ae80208
 typedef|typedef
 struct|struct
 block|{
@@ -180,7 +180,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2bbdb0800308
+DECL|struct|__anon2b637ae80308
 typedef|typedef
 struct|struct
 block|{
@@ -188,7 +188,7 @@ DECL|member|family
 name|ngx_uint_t
 name|family
 decl_stmt|;
-DECL|union|__anon2bbdb080040a
+DECL|union|__anon2b637ae8040a
 union|union
 block|{
 DECL|member|in
@@ -217,7 +217,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bbdb0800508
+DECL|struct|__anon2b637ae80508
 typedef|typedef
 struct|struct
 block|{
@@ -242,7 +242,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bbdb0800608
+DECL|struct|__anon2b637ae80608
 typedef|typedef
 struct|struct
 block|{
@@ -292,13 +292,6 @@ name|no_resolve
 range|:
 literal|1
 decl_stmt|;
-DECL|member|one_addr
-name|unsigned
-name|one_addr
-range|:
-literal|1
-decl_stmt|;
-comment|/* compatibility */
 DECL|member|no_port
 name|unsigned
 name|no_port
