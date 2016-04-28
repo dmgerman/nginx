@@ -929,12 +929,6 @@ name|ls
 operator|->
 name|socklen
 expr_stmt|;
-name|c
-operator|->
-name|unexpected_eof
-operator|=
-literal|1
-expr_stmt|;
 if|#
 directive|if
 operator|(

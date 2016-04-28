@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c421dee0108
+DECL|struct|__anon28fe1cee0108
 typedef|typedef
 struct|struct
 block|{
@@ -3469,14 +3469,6 @@ operator|->
 name|action
 operator|=
 name|NULL
-expr_stmt|;
-name|r
-operator|->
-name|connection
-operator|->
-name|unexpected_eof
-operator|=
-literal|0
 expr_stmt|;
 if|if
 condition|(

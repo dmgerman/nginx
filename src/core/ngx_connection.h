@@ -320,7 +320,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon294861f40103
+DECL|enum|__anon2bbeb8190103
 typedef|typedef
 enum|enum
 block|{
@@ -347,7 +347,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon294861f40203
+DECL|enum|__anon2bbeb8190203
 typedef|typedef
 enum|enum
 block|{
@@ -368,7 +368,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon294861f40303
+DECL|enum|__anon2bbeb8190303
 typedef|typedef
 enum|enum
 block|{
@@ -545,12 +545,6 @@ range|:
 literal|3
 decl_stmt|;
 comment|/* ngx_connection_log_error_e */
-DECL|member|unexpected_eof
-name|unsigned
-name|unexpected_eof
-range|:
-literal|1
-decl_stmt|;
 DECL|member|timedout
 name|unsigned
 name|timedout
