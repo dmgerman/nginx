@@ -3780,13 +3780,6 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-if|if
-condition|(
-name|last
-operator|-
-name|p
-condition|)
-block|{
 name|port
 operator|=
 name|p
@@ -3983,7 +3976,6 @@ operator|->
 name|default_port
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|len
 operator|=
