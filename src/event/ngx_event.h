@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2919eb190108
+DECL|struct|__anon2b89d52e0108
 typedef|typedef
 struct|struct
 block|{
@@ -241,7 +241,7 @@ name|kq_errno
 decl_stmt|;
 endif|#
 directive|endif
-comment|/*      * kqueue only:      *   accept:     number of sockets that wait to be accepted      *   read:       bytes to read when event is ready      *               or lowat when event is set with NGX_LOWAT_EVENT flag      *   write:      available space in buffer when event is ready      *               or lowat when event is set with NGX_LOWAT_EVENT flag      *      * iocp: TODO      *      * otherwise:      *   accept:     1 if accept many, 0 otherwise      */
+comment|/*      * kqueue only:      *   accept:     number of sockets that wait to be accepted      *   read:       bytes to read when event is ready      *               or lowat when event is set with NGX_LOWAT_EVENT flag      *   write:      available space in buffer when event is ready      *               or lowat when event is set with NGX_LOWAT_EVENT flag      *      * epoll with EPOLLRDHUP:      *   accept:     1 if accept many, 0 otherwise      *   read:       1 if there can be data to read, 0 otherwise      *      * iocp: TODO      *      * otherwise:      *   accept:     1 if accept many, 0 otherwise      */
 if|#
 directive|if
 operator|(
@@ -418,7 +418,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2919eb190208
+DECL|struct|__anon2b89d52e0208
 typedef|typedef
 struct|struct
 block|{
@@ -589,6 +589,26 @@ name|ngx_event_actions_t
 name|ngx_event_actions
 decl_stmt|;
 end_decl_stmt
+
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_EPOLLRDHUP
+operator|)
+end_if
+
+begin_decl_stmt
+specifier|extern
+name|ngx_uint_t
+name|ngx_use_epoll_rdhup
+decl_stmt|;
+end_decl_stmt
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_comment
 comment|/*  * The event filter requires to read/write the whole data:  * select, poll, /dev/poll, kqueue, epoll.  */
@@ -1388,7 +1408,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2919eb190308
+DECL|struct|__anon2b89d52e0308
 typedef|typedef
 struct|struct
 block|{
@@ -1435,7 +1455,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2919eb190408
+DECL|struct|__anon2b89d52e0408
 typedef|typedef
 struct|struct
 block|{
