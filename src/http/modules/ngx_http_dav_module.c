@@ -54,7 +54,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon29e371dc0108
+DECL|struct|__anon2c61f16e0108
 typedef|typedef
 struct|struct
 block|{
@@ -81,7 +81,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e371dc0208
+DECL|struct|__anon2c61f16e0208
 typedef|typedef
 struct|struct
 block|{
@@ -748,6 +748,34 @@ argument_list|)
 expr_stmt|;
 return|return
 name|NGX_HTTP_CONFLICT
+return|;
+block|}
+if|if
+condition|(
+name|r
+operator|->
+name|headers_in
+operator|.
+name|content_range
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"PUT with range is unsupported"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_HTTP_NOT_IMPLEMENTED
 return|;
 block|}
 name|r
