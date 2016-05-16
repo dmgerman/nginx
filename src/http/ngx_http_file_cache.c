@@ -6798,6 +6798,14 @@ name|c
 operator|->
 name|node
 operator|->
+name|error
+operator|=
+literal|0
+expr_stmt|;
+name|c
+operator|->
+name|node
+operator|->
 name|uniq
 operator|=
 name|uniq
