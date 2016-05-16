@@ -434,7 +434,7 @@ comment|/* NGX_TEST_BUILD_EPOLL */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2b2cd7850108
+DECL|struct|__anon29d8fb080108
 typedef|typedef
 struct|struct
 block|{
@@ -4207,9 +4207,9 @@ name|cycle
 operator|->
 name|log
 argument_list|,
-name|ngx_errno
+name|NGX_ETIMEDOUT
 argument_list|,
-literal|"epoll_wait() timedout"
+literal|"epoll_wait() timed out"
 argument_list|)
 expr_stmt|;
 block|}
