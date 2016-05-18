@@ -434,7 +434,7 @@ comment|/* NGX_TEST_BUILD_EPOLL */
 end_comment
 
 begin_typedef
-DECL|struct|__anon28ef0c640108
+DECL|struct|__anon2980f2060108
 typedef|typedef
 struct|struct
 block|{
@@ -2025,8 +2025,6 @@ name|cycle
 parameter_list|)
 block|{
 name|int
-name|epfd
-decl_stmt|,
 name|s
 index|[
 literal|2
@@ -2038,36 +2036,6 @@ name|struct
 name|epoll_event
 name|ee
 decl_stmt|;
-name|epfd
-operator|=
-name|epoll_create
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|epfd
-operator|==
-operator|-
-literal|1
-condition|)
-block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_ALERT
-argument_list|,
-name|cycle
-operator|->
-name|log
-argument_list|,
-name|ngx_errno
-argument_list|,
-literal|"epoll_create() failed"
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
 if|if
 condition|(
 name|socketpair
@@ -2114,7 +2082,7 @@ if|if
 condition|(
 name|epoll_ctl
 argument_list|(
-name|epfd
+name|ep
 argument_list|,
 name|EPOLL_CTL_ADD
 argument_list|,
@@ -2179,7 +2147,7 @@ name|events
 operator|=
 name|epoll_wait
 argument_list|(
-name|epfd
+name|ep
 argument_list|,
 operator|&
 name|ee
@@ -2221,14 +2189,6 @@ name|s
 index|[
 literal|0
 index|]
-argument_list|)
-expr_stmt|;
-operator|(
-name|void
-operator|)
-name|close
-argument_list|(
-name|epfd
 argument_list|)
 expr_stmt|;
 if|if
