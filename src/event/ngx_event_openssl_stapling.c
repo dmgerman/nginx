@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2abf4e6d0108
+DECL|struct|__anon280028290108
 typedef|typedef
 struct|struct
 block|{
@@ -1337,11 +1337,25 @@ name|staple
 operator|->
 name|cert
 expr_stmt|;
-if|#
-directive|if
-name|OPENSSL_VERSION_NUMBER
-operator|>=
-literal|0x10001000L
+ifdef|#
+directive|ifdef
+name|SSL_CTRL_SELECT_CURRENT_CERT
+comment|/* OpenSSL 1.0.2+ */
+name|SSL_CTX_select_current_cert
+argument_list|(
+name|ssl
+operator|->
+name|ctx
+argument_list|,
+name|cert
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|SSL_CTRL_GET_EXTRA_CHAIN_CERTS
+comment|/* OpenSSL 1.0.1+ */
 name|SSL_CTX_get_extra_chain_certs
 argument_list|(
 name|ssl
@@ -2775,11 +2789,27 @@ goto|goto
 name|error
 goto|;
 block|}
-if|#
-directive|if
-name|OPENSSL_VERSION_NUMBER
-operator|>=
-literal|0x10001000L
+ifdef|#
+directive|ifdef
+name|SSL_CTRL_SELECT_CURRENT_CERT
+comment|/* OpenSSL 1.0.2+ */
+name|SSL_CTX_select_current_cert
+argument_list|(
+name|staple
+operator|->
+name|ssl_ctx
+argument_list|,
+name|ctx
+operator|->
+name|cert
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|SSL_CTRL_GET_EXTRA_CHAIN_CERTS
+comment|/* OpenSSL 1.0.1+ */
 name|SSL_CTX_get_extra_chain_certs
 argument_list|(
 name|staple
@@ -5778,7 +5808,7 @@ name|ngx_buf_t
 modifier|*
 name|b
 decl_stmt|;
-DECL|enum|__anon2abf4e6d0203
+DECL|enum|__anon280028290203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6574,7 +6604,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2abf4e6d0303
+DECL|enum|__anon280028290303
 enum|enum
 block|{
 DECL|enumerator|sw_start
