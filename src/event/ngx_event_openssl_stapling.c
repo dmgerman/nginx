@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon29c22a090108
+DECL|struct|__anon2abf4e6d0108
 typedef|typedef
 struct|struct
 block|{
@@ -650,6 +650,8 @@ name|X509
 modifier|*
 name|cert
 decl_stmt|;
+for|for
+control|(
 name|cert
 operator|=
 name|SSL_CTX_get_ex_data
@@ -660,7 +662,19 @@ name|ctx
 argument_list|,
 name|ngx_ssl_certificate_index
 argument_list|)
-expr_stmt|;
+init|;
+name|cert
+condition|;
+name|cert
+operator|=
+name|X509_get_ex_data
+argument_list|(
+name|cert
+argument_list|,
+name|ngx_ssl_next_certificate_index
+argument_list|)
+control|)
+block|{
 if|if
 condition|(
 name|ngx_ssl_stapling_certificate
@@ -684,6 +698,7 @@ block|{
 return|return
 name|NGX_ERROR
 return|;
+block|}
 block|}
 name|SSL_CTX_set_tlsext_status_cb
 argument_list|(
@@ -2104,6 +2119,8 @@ name|ngx_ssl_stapling_t
 modifier|*
 name|staple
 decl_stmt|;
+for|for
+control|(
 name|cert
 operator|=
 name|SSL_CTX_get_ex_data
@@ -2114,7 +2131,19 @@ name|ctx
 argument_list|,
 name|ngx_ssl_certificate_index
 argument_list|)
-expr_stmt|;
+init|;
+name|cert
+condition|;
+name|cert
+operator|=
+name|X509_get_ex_data
+argument_list|(
+name|cert
+argument_list|,
+name|ngx_ssl_next_certificate_index
+argument_list|)
+control|)
+block|{
 name|staple
 operator|=
 name|X509_get_ex_data
@@ -2136,6 +2165,7 @@ name|resolver_timeout
 operator|=
 name|resolver_timeout
 expr_stmt|;
+block|}
 return|return
 name|NGX_OK
 return|;
@@ -5748,7 +5778,7 @@ name|ngx_buf_t
 modifier|*
 name|b
 decl_stmt|;
-DECL|enum|__anon29c22a090203
+DECL|enum|__anon2abf4e6d0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6544,7 +6574,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon29c22a090303
+DECL|enum|__anon2abf4e6d0303
 enum|enum
 block|{
 DECL|enumerator|sw_start
