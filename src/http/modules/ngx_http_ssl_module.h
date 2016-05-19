@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b2050420108
+DECL|struct|__anon2aea93620108
 typedef|typedef
 struct|struct
 block|{
@@ -75,13 +75,15 @@ DECL|member|session_timeout
 name|time_t
 name|session_timeout
 decl_stmt|;
-DECL|member|certificate
-name|ngx_str_t
-name|certificate
+DECL|member|certificates
+name|ngx_array_t
+modifier|*
+name|certificates
 decl_stmt|;
-DECL|member|certificate_key
-name|ngx_str_t
-name|certificate_key
+DECL|member|certificate_keys
+name|ngx_array_t
+modifier|*
+name|certificate_keys
 decl_stmt|;
 DECL|member|dhparam
 name|ngx_str_t
