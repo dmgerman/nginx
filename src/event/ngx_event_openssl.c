@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2bd8eaec0108
+DECL|struct|__anon28e83b150108
 typedef|typedef
 struct|struct
 block|{
@@ -4681,7 +4681,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"Unknown curve name \"%s\""
+literal|"OBJ_sn2nid(\"%s\") failed: unknown curve"
 argument_list|,
 name|name
 operator|->
@@ -4716,7 +4716,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"Unable to create curve \"%s\""
+literal|"EC_KEY_new_by_curve_name(\"%s\") failed"
 argument_list|,
 name|name
 operator|->
