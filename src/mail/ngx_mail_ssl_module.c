@@ -34,7 +34,7 @@ DECL|macro|NGX_DEFAULT_ECDH_CURVE
 define|#
 directive|define
 name|NGX_DEFAULT_ECDH_CURVE
-value|"prime256v1"
+value|"auto"
 end_define
 
 begin_function_decl
