@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2acba6af0108
+DECL|struct|__anon2c1576fb0108
 typedef|typedef
 struct|struct
 block|{
@@ -891,7 +891,7 @@ return|;
 block|}
 name|ngx_ssl_stapling_index
 operator|=
-name|SSL_CTX_get_ex_new_index
+name|X509_get_ex_new_index
 argument_list|(
 literal|0
 argument_list|,
@@ -920,7 +920,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"SSL_CTX_get_ex_new_index() failed"
+literal|"X509_get_ex_new_index() failed"
 argument_list|)
 expr_stmt|;
 return|return
