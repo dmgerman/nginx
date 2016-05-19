@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon28e83b150108
+DECL|struct|__anon297698170108
 typedef|typedef
 struct|struct
 block|{
@@ -4649,13 +4649,12 @@ name|EC_KEY
 modifier|*
 name|ecdh
 decl_stmt|;
-comment|/*      * Elliptic-Curve Diffie-Hellman parameters are either "named curves"      * from RFC 4492 section 5.1.1, or explicitly described curves over      * binary fields. OpenSSL only supports the "named curves", which provide      * maximum interoperability.      */
+comment|/*      * Elliptic-Curve Diffie-Hellman parameters are either "named curves"      * from RFC 4492 section 5.1.1, or explicitly described curves over      * binary fields.  OpenSSL only supports the "named curves", which provide      * maximum interoperability.      */
 name|nid
 operator|=
 name|OBJ_sn2nid
 argument_list|(
 operator|(
-specifier|const
 name|char
 operator|*
 operator|)
@@ -9038,7 +9037,7 @@ operator|==
 name|NGX_SSL_NONE_SCACHE
 condition|)
 block|{
-comment|/*          * If the server explicitly says that it does not support          * session reuse (see SSL_SESS_CACHE_OFF above), then          * Outlook Express fails to upload a sent email to          * the Sent Items folder on the IMAP server via a separate IMAP          * connection in the background. Therefore we have a special          * mode (SSL_SESS_CACHE_SERVER|SSL_SESS_CACHE_NO_INTERNAL_STORE)          * where the server pretends that it supports session reuse,          * but it does not actually store any session.          */
+comment|/*          * If the server explicitly says that it does not support          * session reuse (see SSL_SESS_CACHE_OFF above), then          * Outlook Express fails to upload a sent email to          * the Sent Items folder on the IMAP server via a separate IMAP          * connection in the background.  Therefore we have a special          * mode (SSL_SESS_CACHE_SERVER|SSL_SESS_CACHE_NO_INTERNAL_STORE)          * where the server pretends that it supports session reuse,          * but it does not actually store any session.          */
 name|SSL_CTX_set_session_cache_mode
 argument_list|(
 name|ssl
@@ -14888,7 +14887,6 @@ operator|=
 name|ENGINE_by_id
 argument_list|(
 operator|(
-specifier|const
 name|char
 operator|*
 operator|)
