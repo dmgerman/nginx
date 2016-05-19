@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon29a04bac0108
+DECL|struct|__anon29570c9e0108
 typedef|typedef
 struct|struct
 block|{
@@ -284,6 +284,10 @@ name|ngx_ssl_t
 modifier|*
 name|ssl
 parameter_list|,
+name|ngx_ssl_stapling_t
+modifier|*
+name|staple
+parameter_list|,
 name|ngx_str_t
 modifier|*
 name|file
@@ -303,6 +307,10 @@ parameter_list|,
 name|ngx_ssl_t
 modifier|*
 name|ssl
+parameter_list|,
+name|ngx_ssl_stapling_t
+modifier|*
+name|staple
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -319,6 +327,10 @@ parameter_list|,
 name|ngx_ssl_t
 modifier|*
 name|ssl
+parameter_list|,
+name|ngx_ssl_stapling_t
+modifier|*
+name|staple
 parameter_list|,
 name|ngx_str_t
 modifier|*
@@ -742,6 +754,8 @@ name|cf
 argument_list|,
 name|ssl
 argument_list|,
+name|staple
+argument_list|,
 name|file
 argument_list|)
 operator|!=
@@ -763,6 +777,8 @@ argument_list|(
 name|cf
 argument_list|,
 name|ssl
+argument_list|,
+name|staple
 argument_list|)
 expr_stmt|;
 if|if
@@ -794,6 +810,8 @@ argument_list|(
 name|cf
 argument_list|,
 name|ssl
+argument_list|,
+name|staple
 argument_list|,
 name|responder
 argument_list|)
@@ -849,7 +867,7 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_ssl_stapling_file (ngx_conf_t * cf,ngx_ssl_t * ssl,ngx_str_t * file)
+DECL|function|ngx_ssl_stapling_file (ngx_conf_t * cf,ngx_ssl_t * ssl,ngx_ssl_stapling_t * staple,ngx_str_t * file)
 name|ngx_ssl_stapling_file
 parameter_list|(
 name|ngx_conf_t
@@ -859,6 +877,10 @@ parameter_list|,
 name|ngx_ssl_t
 modifier|*
 name|ssl
+parameter_list|,
+name|ngx_ssl_stapling_t
+modifier|*
+name|staple
 parameter_list|,
 name|ngx_str_t
 modifier|*
@@ -883,21 +905,6 @@ name|OCSP_RESPONSE
 modifier|*
 name|response
 decl_stmt|;
-name|ngx_ssl_stapling_t
-modifier|*
-name|staple
-decl_stmt|;
-name|staple
-operator|=
-name|SSL_CTX_get_ex_data
-argument_list|(
-name|ssl
-operator|->
-name|ctx
-argument_list|,
-name|ngx_ssl_stapling_index
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|ngx_conf_full_name
@@ -1165,7 +1172,7 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_ssl_stapling_issuer (ngx_conf_t * cf,ngx_ssl_t * ssl)
+DECL|function|ngx_ssl_stapling_issuer (ngx_conf_t * cf,ngx_ssl_t * ssl,ngx_ssl_stapling_t * staple)
 name|ngx_ssl_stapling_issuer
 parameter_list|(
 name|ngx_conf_t
@@ -1175,6 +1182,10 @@ parameter_list|,
 name|ngx_ssl_t
 modifier|*
 name|ssl
+parameter_list|,
+name|ngx_ssl_stapling_t
+modifier|*
+name|staple
 parameter_list|)
 block|{
 name|int
@@ -1205,21 +1216,6 @@ name|X509
 argument_list|)
 operator|*
 name|chain
-expr_stmt|;
-name|ngx_ssl_stapling_t
-modifier|*
-name|staple
-decl_stmt|;
-name|staple
-operator|=
-name|SSL_CTX_get_ex_data
-argument_list|(
-name|ssl
-operator|->
-name|ctx
-argument_list|,
-name|ngx_ssl_stapling_index
-argument_list|)
 expr_stmt|;
 name|cert
 operator|=
@@ -1586,7 +1582,7 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_ssl_stapling_responder (ngx_conf_t * cf,ngx_ssl_t * ssl,ngx_str_t * responder)
+DECL|function|ngx_ssl_stapling_responder (ngx_conf_t * cf,ngx_ssl_t * ssl,ngx_ssl_stapling_t * staple,ngx_str_t * responder)
 name|ngx_ssl_stapling_responder
 parameter_list|(
 name|ngx_conf_t
@@ -1596,6 +1592,10 @@ parameter_list|,
 name|ngx_ssl_t
 modifier|*
 name|ssl
+parameter_list|,
+name|ngx_ssl_stapling_t
+modifier|*
+name|staple
 parameter_list|,
 name|ngx_str_t
 modifier|*
@@ -1609,27 +1609,12 @@ name|char
 modifier|*
 name|s
 decl_stmt|;
-name|ngx_ssl_stapling_t
-modifier|*
-name|staple
-decl_stmt|;
 name|STACK_OF
 argument_list|(
 name|OPENSSL_STRING
 argument_list|)
 operator|*
 name|aia
-expr_stmt|;
-name|staple
-operator|=
-name|SSL_CTX_get_ex_data
-argument_list|(
-name|ssl
-operator|->
-name|ctx
-argument_list|,
-name|ngx_ssl_stapling_index
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -5641,7 +5626,7 @@ name|ngx_buf_t
 modifier|*
 name|b
 decl_stmt|;
-DECL|enum|__anon29a04bac0203
+DECL|enum|__anon29570c9e0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6437,7 +6422,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon29a04bac0303
+DECL|enum|__anon29570c9e0303
 enum|enum
 block|{
 DECL|enumerator|sw_start
