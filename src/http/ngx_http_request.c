@@ -8580,7 +8580,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon278e30770103
+DECL|enum|__anon27d6f9e80103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -9098,7 +9098,7 @@ name|ngx_http_finalize_request
 argument_list|(
 name|r
 argument_list|,
-name|NGX_HTTP_BAD_REQUEST
+name|NGX_HTTP_MISDIRECTED_REQUEST
 argument_list|)
 expr_stmt|;
 return|return

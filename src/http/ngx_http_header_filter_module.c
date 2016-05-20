@@ -332,16 +332,23 @@ argument_list|(
 literal|"416 Requested Range Not Satisfiable"
 argument_list|)
 block|,
-comment|/* ngx_null_string, */
+name|ngx_null_string
+block|,
 comment|/* "417 Expectation Failed" */
-comment|/* ngx_null_string, */
+name|ngx_null_string
+block|,
 comment|/* "418 unused" */
-comment|/* ngx_null_string, */
+name|ngx_null_string
+block|,
 comment|/* "419 unused" */
-comment|/* ngx_null_string, */
+name|ngx_null_string
+block|,
 comment|/* "420 unused" */
-comment|/* ngx_null_string, */
-comment|/* "421 unused" */
+name|ngx_string
+argument_list|(
+literal|"421 Misdirected Request"
+argument_list|)
+block|,
 comment|/* ngx_null_string, */
 comment|/* "422 Unprocessable Entity" */
 comment|/* ngx_null_string, */
@@ -352,7 +359,7 @@ DECL|macro|NGX_HTTP_LAST_4XX
 define|#
 directive|define
 name|NGX_HTTP_LAST_4XX
-value|417
+value|422
 DECL|macro|NGX_HTTP_OFF_5XX
 define|#
 directive|define

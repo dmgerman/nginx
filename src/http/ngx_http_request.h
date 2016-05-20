@@ -536,6 +536,14 @@ name|NGX_HTTP_RANGE_NOT_SATISFIABLE
 value|416
 end_define
 
+begin_define
+DECL|macro|NGX_HTTP_MISDIRECTED_REQUEST
+define|#
+directive|define
+name|NGX_HTTP_MISDIRECTED_REQUEST
+value|421
+end_define
+
 begin_comment
 comment|/* Our own HTTP codes */
 end_comment
@@ -709,7 +717,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon28f57afc0103
+DECL|enum|__anon29b3664c0103
 typedef|typedef
 enum|enum
 block|{
@@ -748,7 +756,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f57afc0208
+DECL|struct|__anon29b3664c0208
 typedef|typedef
 struct|struct
 block|{
@@ -771,7 +779,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f57afc0308
+DECL|struct|__anon29b3664c0308
 typedef|typedef
 struct|struct
 block|{
@@ -790,7 +798,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f57afc0408
+DECL|struct|__anon29b3664c0408
 typedef|typedef
 struct|struct
 block|{
@@ -1057,7 +1065,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f57afc0508
+DECL|struct|__anon29b3664c0508
 typedef|typedef
 struct|struct
 block|{
@@ -1202,7 +1210,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f57afc0608
+DECL|struct|__anon29b3664c0608
 typedef|typedef
 struct|struct
 block|{
@@ -1271,7 +1279,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f57afc0708
+DECL|struct|__anon29b3664c0708
 typedef|typedef
 struct|struct
 block|{
@@ -1429,7 +1437,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f57afc0808
+DECL|struct|__anon29b3664c0808
 typedef|typedef
 struct|struct
 block|{
@@ -2318,7 +2326,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28f57afc0908
+DECL|struct|__anon29b3664c0908
 typedef|typedef
 struct|struct
 block|{

@@ -514,6 +514,24 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_http_error_421_page
+specifier|static
+name|char
+name|ngx_http_error_421_page
+index|[]
+init|=
+literal|"<html>"
+name|CRLF
+literal|"<head><title>421 Misdirected Request</title></head>"
+name|CRLF
+literal|"<body bgcolor=\"white\">"
+name|CRLF
+literal|"<center><h1>421 Misdirected Request</h1></center>"
+name|CRLF
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_http_error_494_page
 specifier|static
 name|char
@@ -846,11 +864,28 @@ argument_list|(
 name|ngx_http_error_416_page
 argument_list|)
 block|,
+name|ngx_null_string
+block|,
+comment|/* 417 */
+name|ngx_null_string
+block|,
+comment|/* 418 */
+name|ngx_null_string
+block|,
+comment|/* 419 */
+name|ngx_null_string
+block|,
+comment|/* 420 */
+name|ngx_string
+argument_list|(
+name|ngx_http_error_421_page
+argument_list|)
+block|,
 DECL|macro|NGX_HTTP_LAST_4XX
 define|#
 directive|define
 name|NGX_HTTP_LAST_4XX
-value|417
+value|422
 DECL|macro|NGX_HTTP_OFF_5XX
 define|#
 directive|define
