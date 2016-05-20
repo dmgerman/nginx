@@ -41,14 +41,15 @@ end_function_decl
 begin_function
 name|ngx_listening_t
 modifier|*
-DECL|function|ngx_create_listening (ngx_conf_t * cf,void * sockaddr,socklen_t socklen)
+DECL|function|ngx_create_listening (ngx_conf_t * cf,struct sockaddr * sockaddr,socklen_t socklen)
 name|ngx_create_listening
 parameter_list|(
 name|ngx_conf_t
 modifier|*
 name|cf
 parameter_list|,
-name|void
+name|struct
+name|sockaddr
 modifier|*
 name|sockaddr
 parameter_list|,

@@ -320,7 +320,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2bbeb8190103
+DECL|enum|__anon290c24a60103
 typedef|typedef
 enum|enum
 block|{
@@ -347,7 +347,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2bbeb8190203
+DECL|enum|__anon290c24a60203
 typedef|typedef
 enum|enum
 block|{
@@ -368,7 +368,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2bbeb8190303
+DECL|enum|__anon290c24a60303
 typedef|typedef
 enum|enum
 block|{
@@ -684,7 +684,8 @@ name|ngx_conf_t
 modifier|*
 name|cf
 parameter_list|,
-name|void
+name|struct
+name|sockaddr
 modifier|*
 name|sockaddr
 parameter_list|,
