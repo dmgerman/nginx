@@ -69,7 +69,7 @@ file|<ngx_stream_upstream_round_robin.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2894b9e70108
+DECL|struct|__anon278563b70108
 typedef|typedef
 struct|struct
 block|{
@@ -92,11 +92,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2894b9e70208
+DECL|struct|__anon278563b70208
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon2894b9e7030a
+DECL|union|__anon278563b7030a
 union|union
 block|{
 DECL|member|sockaddr
@@ -133,13 +133,6 @@ name|sockaddr_un
 decl_stmt|;
 endif|#
 directive|endif
-DECL|member|sockaddr_data
-name|u_char
-name|sockaddr_data
-index|[
-name|NGX_SOCKADDRLEN
-index|]
-decl_stmt|;
 DECL|member|u
 block|}
 name|u
@@ -248,7 +241,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2894b9e70408
+DECL|struct|__anon278563b70408
 typedef|typedef
 struct|struct
 block|{
@@ -280,7 +273,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2894b9e70508
+DECL|struct|__anon278563b70508
 typedef|typedef
 struct|struct
 block|{
@@ -307,7 +300,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2894b9e70608
+DECL|struct|__anon278563b70608
 typedef|typedef
 struct|struct
 block|{
@@ -332,7 +325,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2894b9e70708
+DECL|struct|__anon278563b70708
 typedef|typedef
 struct|struct
 block|{
@@ -353,7 +346,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2894b9e70808
+DECL|struct|__anon278563b70808
 typedef|typedef
 struct|struct
 block|{
@@ -381,7 +374,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2894b9e70908
+DECL|struct|__anon278563b70908
 typedef|typedef
 struct|struct
 block|{
@@ -412,7 +405,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2894b9e70a08
+DECL|struct|__anon278563b70a08
 typedef|typedef
 struct|struct
 block|{
@@ -457,7 +450,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2894b9e70b08
+DECL|struct|__anon278563b70b08
 typedef|typedef
 struct|struct
 block|{
@@ -545,7 +538,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2894b9e70c08
+DECL|struct|__anon278563b70c08
 typedef|typedef
 struct|struct
 block|{
