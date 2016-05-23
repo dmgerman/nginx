@@ -1408,6 +1408,7 @@ name|u
 operator|.
 name|sockaddr
 argument_list|,
+operator|&
 name|u
 operator|.
 name|sockaddr

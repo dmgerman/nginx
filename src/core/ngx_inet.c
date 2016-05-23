@@ -3366,6 +3366,7 @@ name|ngx_memcpy
 argument_list|(
 name|sin
 argument_list|,
+operator|&
 name|u
 operator|->
 name|sockaddr
@@ -3542,6 +3543,7 @@ name|socklen
 expr_stmt|;
 name|ngx_memcpy
 argument_list|(
+operator|&
 name|u
 operator|->
 name|sockaddr
@@ -4133,6 +4135,7 @@ name|ngx_memcpy
 argument_list|(
 name|sin6
 argument_list|,
+operator|&
 name|u
 operator|->
 name|sockaddr

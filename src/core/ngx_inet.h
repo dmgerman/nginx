@@ -28,10 +28,6 @@ directive|include
 file|<ngx_core.h>
 end_include
 
-begin_comment
-comment|/*  * TODO: autoconfigure NGX_SOCKADDRLEN and NGX_SOCKADDR_STRLEN as  *       sizeof(struct sockaddr_storage)  *       sizeof(struct sockaddr_un)  *       sizeof(struct sockaddr_in6)  *       sizeof(struct sockaddr_in)  */
-end_comment
-
 begin_define
 DECL|macro|NGX_INET_ADDRSTRLEN
 define|#
@@ -74,6 +70,22 @@ name|NGX_SOCKADDR_STRLEN
 value|(sizeof("unix:") - 1 + NGX_UNIX_ADDRSTRLEN)
 end_define
 
+begin_elif
+elif|#
+directive|elif
+operator|(
+name|NGX_HAVE_INET6
+operator|)
+end_elif
+
+begin_define
+DECL|macro|NGX_SOCKADDR_STRLEN
+define|#
+directive|define
+name|NGX_SOCKADDR_STRLEN
+value|(NGX_INET6_ADDRSTRLEN + sizeof("[]:65535") - 1)
+end_define
+
 begin_else
 else|#
 directive|else
@@ -84,7 +96,7 @@ DECL|macro|NGX_SOCKADDR_STRLEN
 define|#
 directive|define
 name|NGX_SOCKADDR_STRLEN
-value|(NGX_INET6_ADDRSTRLEN + sizeof("[]:65535") - 1)
+value|(NGX_INET_ADDRSTRLEN + sizeof(":65535") - 1)
 end_define
 
 begin_endif
@@ -92,42 +104,65 @@ endif|#
 directive|endif
 end_endif
 
-begin_if
+begin_comment
+comment|/* compatibility */
+end_comment
+
+begin_define
+DECL|macro|NGX_SOCKADDRLEN
+define|#
+directive|define
+name|NGX_SOCKADDRLEN
+value|sizeof(ngx_sockaddr_t)
+end_define
+
+begin_typedef
+DECL|union|__anon2a347537010a
+typedef|typedef
+union|union
+block|{
+DECL|member|sockaddr
+name|struct
+name|sockaddr
+name|sockaddr
+decl_stmt|;
+DECL|member|sockaddr_in
+name|struct
+name|sockaddr_in
+name|sockaddr_in
+decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_INET6
+operator|)
+DECL|member|sockaddr_in6
+name|struct
+name|sockaddr_in6
+name|sockaddr_in6
+decl_stmt|;
+endif|#
+directive|endif
 if|#
 directive|if
 operator|(
 name|NGX_HAVE_UNIX_DOMAIN
 operator|)
-end_if
-
-begin_define
-DECL|macro|NGX_SOCKADDRLEN
-define|#
-directive|define
-name|NGX_SOCKADDRLEN
-value|sizeof(struct sockaddr_un)
-end_define
-
-begin_else
-else|#
-directive|else
-end_else
-
-begin_define
-DECL|macro|NGX_SOCKADDRLEN
-define|#
-directive|define
-name|NGX_SOCKADDRLEN
-value|512
-end_define
-
-begin_endif
+DECL|member|sockaddr_un
+name|struct
+name|sockaddr_un
+name|sockaddr_un
+decl_stmt|;
 endif|#
 directive|endif
-end_endif
+DECL|typedef|ngx_sockaddr_t
+block|}
+name|ngx_sockaddr_t
+typedef|;
+end_typedef
 
 begin_typedef
-DECL|struct|__anon2b637ae80108
+DECL|struct|__anon2a3475370208
 typedef|typedef
 struct|struct
 block|{
@@ -154,7 +189,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2b637ae80208
+DECL|struct|__anon2a3475370308
 typedef|typedef
 struct|struct
 block|{
@@ -180,7 +215,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b637ae80308
+DECL|struct|__anon2a3475370408
 typedef|typedef
 struct|struct
 block|{
@@ -188,7 +223,7 @@ DECL|member|family
 name|ngx_uint_t
 name|family
 decl_stmt|;
-DECL|union|__anon2b637ae8040a
+DECL|union|__anon2a347537050a
 union|union
 block|{
 DECL|member|in
@@ -217,7 +252,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b637ae80508
+DECL|struct|__anon2a3475370608
 typedef|typedef
 struct|struct
 block|{
@@ -242,7 +277,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b637ae80608
+DECL|struct|__anon2a3475370708
 typedef|typedef
 struct|struct
 block|{
@@ -309,11 +344,8 @@ name|socklen_t
 name|socklen
 decl_stmt|;
 DECL|member|sockaddr
-name|u_char
+name|ngx_sockaddr_t
 name|sockaddr
-index|[
-name|NGX_SOCKADDRLEN
-index|]
 decl_stmt|;
 DECL|member|addrs
 name|ngx_addr_t

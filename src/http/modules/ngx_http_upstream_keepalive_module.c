@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29fc6cd80108
+DECL|struct|__anon2a2339020108
 typedef|typedef
 struct|struct
 block|{
@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fc6cd80208
+DECL|struct|__anon2a2339020208
 typedef|typedef
 struct|struct
 block|{
@@ -76,11 +76,8 @@ name|socklen_t
 name|socklen
 decl_stmt|;
 DECL|member|sockaddr
-name|u_char
+name|ngx_sockaddr_t
 name|sockaddr
-index|[
-name|NGX_SOCKADDRLEN
-index|]
 decl_stmt|;
 DECL|typedef|ngx_http_upstream_keepalive_cache_t
 block|}
@@ -89,7 +86,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fc6cd80308
+DECL|struct|__anon2a2339020308
 typedef|typedef
 struct|struct
 block|{
