@@ -54,7 +54,7 @@ value|3
 end_define
 
 begin_typedef
-DECL|struct|__anon2bf3cbd80108
+DECL|struct|__anon2a5216130108
 typedef|typedef
 struct|struct
 block|{
@@ -87,7 +87,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf3cbd80208
+DECL|struct|__anon2a5216130208
 typedef|typedef
 struct|struct
 block|{
@@ -1556,6 +1556,19 @@ name|ngx_str_t
 modifier|*
 name|value
 decl_stmt|;
+if|if
+condition|(
+name|rlcf
+operator|->
+name|type
+operator|!=
+name|NGX_CONF_UNSET_UINT
+condition|)
+block|{
+return|return
+literal|"is duplicate"
+return|;
+block|}
 name|value
 operator|=
 name|cf
