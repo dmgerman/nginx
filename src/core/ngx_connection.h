@@ -320,7 +320,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon290c24a60103
+DECL|enum|__anon28b16a0a0103
 typedef|typedef
 enum|enum
 block|{
@@ -347,7 +347,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon290c24a60203
+DECL|enum|__anon28b16a0a0203
 typedef|typedef
 enum|enum
 block|{
@@ -368,7 +368,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon290c24a60303
+DECL|enum|__anon28b16a0a0303
 typedef|typedef
 enum|enum
 block|{
@@ -492,6 +492,10 @@ decl_stmt|;
 DECL|member|proxy_protocol_addr
 name|ngx_str_t
 name|proxy_protocol_addr
+decl_stmt|;
+DECL|member|proxy_protocol_port
+name|in_port_t
+name|proxy_protocol_port
 decl_stmt|;
 if|#
 directive|if
