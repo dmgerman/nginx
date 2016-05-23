@@ -117,7 +117,7 @@ value|sizeof(ngx_sockaddr_t)
 end_define
 
 begin_typedef
-DECL|union|__anon2a347537010a
+DECL|union|__anon27ddff9c010a
 typedef|typedef
 union|union
 block|{
@@ -162,7 +162,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3475370208
+DECL|struct|__anon27ddff9c0208
 typedef|typedef
 struct|struct
 block|{
@@ -189,7 +189,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2a3475370308
+DECL|struct|__anon27ddff9c0308
 typedef|typedef
 struct|struct
 block|{
@@ -215,7 +215,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2a3475370408
+DECL|struct|__anon27ddff9c0408
 typedef|typedef
 struct|struct
 block|{
@@ -223,7 +223,7 @@ DECL|member|family
 name|ngx_uint_t
 name|family
 decl_stmt|;
-DECL|union|__anon2a347537050a
+DECL|union|__anon27ddff9c050a
 union|union
 block|{
 DECL|member|in
@@ -252,7 +252,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3475370608
+DECL|struct|__anon27ddff9c0608
 typedef|typedef
 struct|struct
 block|{
@@ -277,7 +277,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3475370708
+DECL|struct|__anon27ddff9c0708
 typedef|typedef
 struct|struct
 block|{
@@ -494,6 +494,28 @@ end_function_decl
 begin_function_decl
 name|ngx_int_t
 name|ngx_parse_addr
+parameter_list|(
+name|ngx_pool_t
+modifier|*
+name|pool
+parameter_list|,
+name|ngx_addr_t
+modifier|*
+name|addr
+parameter_list|,
+name|u_char
+modifier|*
+name|text
+parameter_list|,
+name|size_t
+name|len
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_parse_addr_port
 parameter_list|(
 name|ngx_pool_t
 modifier|*

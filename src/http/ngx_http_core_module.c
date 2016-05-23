@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28b506440108
+DECL|struct|__anon2c3053de0108
 typedef|typedef
 struct|struct
 block|{
@@ -12373,7 +12373,7 @@ block|}
 block|}
 if|if
 condition|(
-name|ngx_parse_addr
+name|ngx_parse_addr_port
 argument_list|(
 name|r
 operator|->
