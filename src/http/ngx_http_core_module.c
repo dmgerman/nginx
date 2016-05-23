@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon277e9d650108
+DECL|struct|__anon28b506440108
 typedef|typedef
 struct|struct
 block|{
@@ -12892,7 +12892,7 @@ operator|=
 operator|&
 name|lsopt
 operator|.
-name|u
+name|sockaddr
 operator|.
 name|sockaddr_in
 expr_stmt|;
@@ -13018,7 +13018,7 @@ argument_list|(
 operator|&
 name|lsopt
 operator|.
-name|u
+name|sockaddr
 operator|.
 name|sockaddr
 argument_list|,
@@ -17539,7 +17539,7 @@ argument_list|(
 operator|&
 name|lsopt
 operator|.
-name|u
+name|sockaddr
 operator|.
 name|sockaddr
 argument_list|,
@@ -17641,7 +17641,7 @@ argument_list|(
 operator|&
 name|lsopt
 operator|.
-name|u
+name|sockaddr
 operator|.
 name|sockaddr
 argument_list|,
@@ -18408,7 +18408,7 @@ operator|=
 operator|&
 name|lsopt
 operator|.
-name|u
+name|sockaddr
 operator|.
 name|sockaddr
 expr_stmt|;

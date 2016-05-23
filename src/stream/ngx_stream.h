@@ -69,7 +69,7 @@ file|<ngx_stream_upstream_round_robin.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bca47800108
+DECL|struct|__anon2a574cf20108
 typedef|typedef
 struct|struct
 block|{
@@ -92,13 +92,13 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bca47800208
+DECL|struct|__anon2a574cf20208
 typedef|typedef
 struct|struct
 block|{
-DECL|member|u
+DECL|member|sockaddr
 name|ngx_sockaddr_t
-name|u
+name|sockaddr
 decl_stmt|;
 DECL|member|socklen
 name|socklen_t
@@ -204,7 +204,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bca47800308
+DECL|struct|__anon2a574cf20308
 typedef|typedef
 struct|struct
 block|{
@@ -236,7 +236,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bca47800408
+DECL|struct|__anon2a574cf20408
 typedef|typedef
 struct|struct
 block|{
@@ -263,7 +263,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2bca47800508
+DECL|struct|__anon2a574cf20508
 typedef|typedef
 struct|struct
 block|{
@@ -288,7 +288,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2bca47800608
+DECL|struct|__anon2a574cf20608
 typedef|typedef
 struct|struct
 block|{
@@ -309,7 +309,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bca47800708
+DECL|struct|__anon2a574cf20708
 typedef|typedef
 struct|struct
 block|{
@@ -337,7 +337,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bca47800808
+DECL|struct|__anon2a574cf20808
 typedef|typedef
 struct|struct
 block|{
@@ -368,7 +368,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bca47800908
+DECL|struct|__anon2a574cf20908
 typedef|typedef
 struct|struct
 block|{
@@ -413,7 +413,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bca47800a08
+DECL|struct|__anon2a574cf20a08
 typedef|typedef
 struct|struct
 block|{
@@ -501,7 +501,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bca47800b08
+DECL|struct|__anon2a574cf20b08
 typedef|typedef
 struct|struct
 block|{

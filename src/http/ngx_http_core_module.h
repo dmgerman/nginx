@@ -256,13 +256,13 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ddc6e50108
+DECL|struct|__anon29b1ea3e0108
 typedef|typedef
 struct|struct
 block|{
-DECL|member|u
+DECL|member|sockaddr
 name|ngx_sockaddr_t
-name|u
+name|sockaddr
 decl_stmt|;
 DECL|member|socklen
 name|socklen_t
@@ -457,7 +457,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27ddc6e50203
+DECL|enum|__anon29b1ea3e0203
 typedef|typedef
 enum|enum
 block|{
@@ -552,7 +552,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27ddc6e50308
+DECL|struct|__anon29b1ea3e0308
 typedef|typedef
 struct|struct
 block|{
@@ -576,7 +576,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ddc6e50408
+DECL|struct|__anon29b1ea3e0408
 typedef|typedef
 struct|struct
 block|{
@@ -591,7 +591,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ddc6e50508
+DECL|struct|__anon29b1ea3e0508
 typedef|typedef
 struct|struct
 block|{
@@ -668,7 +668,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ddc6e50608
+DECL|struct|__anon29b1ea3e0608
 typedef|typedef
 struct|struct
 block|{
@@ -755,7 +755,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon27ddc6e50708
+DECL|struct|__anon29b1ea3e0708
 typedef|typedef
 struct|struct
 block|{
@@ -788,7 +788,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ddc6e50808
+DECL|struct|__anon29b1ea3e0808
 typedef|typedef
 struct|struct
 block|{
@@ -864,7 +864,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27ddc6e50908
+DECL|struct|__anon29b1ea3e0908
 typedef|typedef
 struct|struct
 block|{
@@ -891,7 +891,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon27ddc6e50a08
+DECL|struct|__anon29b1ea3e0a08
 typedef|typedef
 struct|struct
 block|{
@@ -916,7 +916,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon27ddc6e50b08
+DECL|struct|__anon29b1ea3e0b08
 typedef|typedef
 struct|struct
 block|{
@@ -937,7 +937,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ddc6e50c08
+DECL|struct|__anon29b1ea3e0c08
 typedef|typedef
 struct|struct
 block|{
@@ -961,7 +961,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ddc6e50d08
+DECL|struct|__anon29b1ea3e0d08
 typedef|typedef
 struct|struct
 block|{
@@ -1017,7 +1017,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ddc6e50e08
+DECL|struct|__anon29b1ea3e0e08
 typedef|typedef
 struct|struct
 block|{
@@ -1044,7 +1044,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ddc6e50f08
+DECL|struct|__anon29b1ea3e0f08
 typedef|typedef
 struct|struct
 block|{
@@ -1594,7 +1594,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27ddc6e51008
+DECL|struct|__anon29b1ea3e1008
 typedef|typedef
 struct|struct
 block|{

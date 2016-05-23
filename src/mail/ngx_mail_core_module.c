@@ -1315,7 +1315,7 @@ index|[
 name|i
 index|]
 operator|.
-name|u
+name|sockaddr
 operator|.
 name|sockaddr
 argument_list|,
@@ -1404,7 +1404,7 @@ argument_list|(
 operator|&
 name|ls
 operator|->
-name|u
+name|sockaddr
 operator|.
 name|sockaddr
 argument_list|,
@@ -1753,7 +1753,7 @@ if|if
 condition|(
 name|ls
 operator|->
-name|u
+name|sockaddr
 operator|.
 name|sockaddr
 operator|.
@@ -1862,7 +1862,7 @@ argument_list|(
 operator|&
 name|ls
 operator|->
-name|u
+name|sockaddr
 operator|.
 name|sockaddr
 argument_list|,

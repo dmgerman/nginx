@@ -5018,7 +5018,7 @@ operator|=
 operator|&
 name|lsopt
 operator|->
-name|u
+name|sockaddr
 operator|.
 name|sockaddr
 expr_stmt|;
@@ -5042,7 +5042,7 @@ operator|=
 operator|&
 name|lsopt
 operator|->
-name|u
+name|sockaddr
 operator|.
 name|sockaddr_in6
 expr_stmt|;
@@ -5077,7 +5077,7 @@ operator|=
 operator|&
 name|lsopt
 operator|->
-name|u
+name|sockaddr
 operator|.
 name|sockaddr_in
 expr_stmt|;
@@ -5304,7 +5304,7 @@ argument_list|(
 operator|&
 name|lsopt
 operator|->
-name|u
+name|sockaddr
 operator|.
 name|sockaddr
 argument_list|,
@@ -5320,7 +5320,7 @@ index|]
 operator|.
 name|opt
 operator|.
-name|u
+name|sockaddr
 operator|.
 name|sockaddr
 argument_list|,
@@ -7439,7 +7439,7 @@ name|addr
 operator|->
 name|opt
 operator|.
-name|u
+name|sockaddr
 operator|.
 name|sockaddr
 argument_list|,
@@ -7890,7 +7890,7 @@ index|]
 operator|.
 name|opt
 operator|.
-name|u
+name|sockaddr
 operator|.
 name|sockaddr_in
 expr_stmt|;
@@ -8290,7 +8290,7 @@ index|]
 operator|.
 name|opt
 operator|.
-name|u
+name|sockaddr
 operator|.
 name|sockaddr_in6
 expr_stmt|;
