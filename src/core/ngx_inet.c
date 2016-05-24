@@ -2518,6 +2518,9 @@ name|sin6_port
 operator|=
 name|htons
 argument_list|(
+operator|(
+name|in_port_t
+operator|)
 name|port
 argument_list|)
 expr_stmt|;
@@ -2543,6 +2546,9 @@ name|sin_port
 operator|=
 name|htons
 argument_list|(
+operator|(
+name|in_port_t
+operator|)
 name|port
 argument_list|)
 expr_stmt|;
