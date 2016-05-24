@@ -227,6 +227,22 @@ name|NGX_HTTP_V2_PRIORITY_FLAG
 value|0x20
 end_define
 
+begin_define
+DECL|macro|NGX_HTTP_V2_MAX_WINDOW
+define|#
+directive|define
+name|NGX_HTTP_V2_MAX_WINDOW
+value|((1U<< 31) - 1)
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_V2_DEFAULT_WINDOW
+define|#
+directive|define
+name|NGX_HTTP_V2_DEFAULT_WINDOW
+value|65535
+end_define
+
 begin_typedef
 DECL|typedef|ngx_http_v2_connection_t
 typedef|typedef
@@ -280,7 +296,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2bfc7e0108
+DECL|struct|__anon27cd04700108
 typedef|typedef
 struct|struct
 block|{
@@ -299,7 +315,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2bfc7e0208
+DECL|struct|__anon27cd04700208
 typedef|typedef
 struct|struct
 block|{
@@ -410,7 +426,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2bfc7e0308
+DECL|struct|__anon27cd04700308
 typedef|typedef
 struct|struct
 block|{
@@ -655,6 +671,11 @@ decl_stmt|;
 DECL|member|recv_window
 name|size_t
 name|recv_window
+decl_stmt|;
+DECL|member|preread
+name|ngx_buf_t
+modifier|*
+name|preread
 decl_stmt|;
 DECL|member|free_frames
 name|ngx_http_v2_out_frame_t
