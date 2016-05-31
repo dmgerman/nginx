@@ -352,7 +352,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon293584620108
+DECL|struct|__anon2a97ced00108
 typedef|typedef
 struct|struct
 block|{
@@ -1484,6 +1484,18 @@ operator|->
 name|next
 control|)
 block|{
+if|if
+condition|(
+name|ngx_buf_special
+argument_list|(
+name|cl
+operator|->
+name|buf
+argument_list|)
+condition|)
+block|{
+continue|continue;
+block|}
 name|size
 operator|=
 name|cl
