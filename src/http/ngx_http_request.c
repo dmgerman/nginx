@@ -8580,7 +8580,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon27d6f9e80103
+DECL|enum|__anon27a624b30103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -9091,7 +9091,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"client attempted to request the server name "
-literal|"different from that one was negotiated"
+literal|"different from the one that was negotiated"
 argument_list|)
 expr_stmt|;
 name|ngx_http_finalize_request
