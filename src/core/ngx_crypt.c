@@ -27,24 +27,11 @@ directive|include
 file|<ngx_md5.h>
 end_include
 
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_HAVE_SHA1
-operator|)
-end_if
-
 begin_include
 include|#
 directive|include
 file|<ngx_sha1.h>
 end_include
-
-begin_endif
-endif|#
-directive|endif
-end_endif
 
 begin_if
 if|#
@@ -104,14 +91,6 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_HAVE_SHA1
-operator|)
-end_if
-
 begin_function_decl
 specifier|static
 name|ngx_int_t
@@ -161,11 +140,6 @@ name|encrypted
 parameter_list|)
 function_decl|;
 end_function_decl
-
-begin_endif
-endif|#
-directive|endif
-end_endif
 
 begin_function_decl
 specifier|static
@@ -272,11 +246,6 @@ argument_list|,
 name|encrypted
 argument_list|)
 return|;
-if|#
-directive|if
-operator|(
-name|NGX_HAVE_SHA1
-operator|)
 block|}
 if|else if
 condition|(
@@ -341,8 +310,6 @@ argument_list|,
 name|encrypted
 argument_list|)
 return|;
-endif|#
-directive|endif
 block|}
 comment|/* fallback to libc crypt() */
 return|return
@@ -1189,14 +1156,6 @@ return|;
 block|}
 end_function
 
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_HAVE_SHA1
-operator|)
-end_if
-
 begin_function
 specifier|static
 name|ngx_int_t
@@ -1632,15 +1591,6 @@ name|NGX_OK
 return|;
 block|}
 end_function
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_comment
-comment|/* NGX_HAVE_SHA1 */
-end_comment
 
 begin_endif
 endif|#
