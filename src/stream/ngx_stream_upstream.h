@@ -89,7 +89,7 @@ value|0x0020
 end_define
 
 begin_typedef
-DECL|struct|__anon2b7018370108
+DECL|struct|__anon2a3147910108
 typedef|typedef
 struct|struct
 block|{
@@ -154,7 +154,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7018370208
+DECL|struct|__anon2a3147910208
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b7018370308
+DECL|struct|__anon2a3147910308
 typedef|typedef
 struct|struct
 block|{
@@ -289,7 +289,55 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b7018370408
+DECL|struct|__anon2a3147910408
+typedef|typedef
+struct|struct
+block|{
+DECL|member|host
+name|ngx_str_t
+name|host
+decl_stmt|;
+DECL|member|port
+name|in_port_t
+name|port
+decl_stmt|;
+DECL|member|no_port
+name|ngx_uint_t
+name|no_port
+decl_stmt|;
+comment|/* unsigned no_port:1 */
+DECL|member|naddrs
+name|ngx_uint_t
+name|naddrs
+decl_stmt|;
+DECL|member|addrs
+name|ngx_resolver_addr_t
+modifier|*
+name|addrs
+decl_stmt|;
+DECL|member|sockaddr
+name|struct
+name|sockaddr
+modifier|*
+name|sockaddr
+decl_stmt|;
+DECL|member|socklen
+name|socklen_t
+name|socklen
+decl_stmt|;
+DECL|member|ctx
+name|ngx_resolver_ctx_t
+modifier|*
+name|ctx
+decl_stmt|;
+DECL|typedef|ngx_stream_upstream_resolved_t
+block|}
+name|ngx_stream_upstream_resolved_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon2a3147910508
 typedef|typedef
 struct|struct
 block|{
@@ -328,6 +376,11 @@ name|ssl_name
 decl_stmt|;
 endif|#
 directive|endif
+DECL|member|resolved
+name|ngx_stream_upstream_resolved_t
+modifier|*
+name|resolved
+decl_stmt|;
 DECL|member|connected
 name|unsigned
 name|connected

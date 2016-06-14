@@ -354,7 +354,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b78e4a50108
+DECL|struct|__anon28e9e79a0108
 typedef|typedef
 struct|struct
 block|{
@@ -409,6 +409,21 @@ parameter_list|,
 name|ngx_stream_upstream_srv_conf_t
 modifier|*
 name|us
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_stream_upstream_create_round_robin_peer
+parameter_list|(
+name|ngx_stream_session_t
+modifier|*
+name|s
+parameter_list|,
+name|ngx_stream_upstream_resolved_t
+modifier|*
+name|ur
 parameter_list|)
 function_decl|;
 end_function_decl
