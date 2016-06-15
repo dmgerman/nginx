@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bc3f0510108
+DECL|struct|__anon28da93770108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc3f0510208
+DECL|struct|__anon28da93770208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bc3f0510308
+DECL|struct|__anon28da93770308
 typedef|typedef
 struct|struct
 block|{
@@ -10981,49 +10981,27 @@ block|}
 block|}
 if|if
 condition|(
-name|SSL_CTX_set_cipher_list
+name|ngx_ssl_ciphers
 argument_list|(
+name|cf
+argument_list|,
 name|uwcf
 operator|->
 name|upstream
 operator|.
 name|ssl
-operator|->
-name|ctx
-argument_list|,
-operator|(
-specifier|const
-name|char
-operator|*
-operator|)
-name|uwcf
-operator|->
-name|ssl_ciphers
-operator|.
-name|data
-argument_list|)
-operator|==
-literal|0
-condition|)
-block|{
-name|ngx_ssl_error
-argument_list|(
-name|NGX_LOG_EMERG
-argument_list|,
-name|cf
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"SSL_CTX_set_cipher_list(\"%V\") failed"
 argument_list|,
 operator|&
 name|uwcf
 operator|->
 name|ssl_ciphers
+argument_list|,
+literal|0
 argument_list|)
-expr_stmt|;
+operator|!=
+name|NGX_OK
+condition|)
+block|{
 return|return
 name|NGX_ERROR
 return|;

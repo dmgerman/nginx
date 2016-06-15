@@ -223,7 +223,7 @@ value|SSL
 end_define
 
 begin_typedef
-DECL|struct|__anon2a22dd800108
+DECL|struct|__anon2c0a37c70108
 typedef|typedef
 struct|struct
 block|{
@@ -248,7 +248,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a22dd800208
+DECL|struct|__anon2c0a37c70208
 typedef|typedef
 struct|struct
 block|{
@@ -435,7 +435,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a22dd800308
+DECL|struct|__anon2c0a37c70308
 typedef|typedef
 struct|struct
 block|{
@@ -464,7 +464,7 @@ name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon2a22dd800408
+DECL|struct|__anon2c0a37c70408
 typedef|typedef
 struct|struct
 block|{
@@ -643,6 +643,28 @@ parameter_list|,
 name|ngx_array_t
 modifier|*
 name|passwords
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_ssl_ciphers
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_ssl_t
+modifier|*
+name|ssl
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|ciphers
+parameter_list|,
+name|ngx_uint_t
+name|prefer_server_ciphers
 parameter_list|)
 function_decl|;
 end_function_decl

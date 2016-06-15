@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27a91e730108
+DECL|struct|__anon28b5ab650108
 typedef|typedef
 struct|struct
 block|{
@@ -85,7 +85,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon27a91e73020a
+DECL|union|__anon28b5ab65020a
 union|union
 block|{
 DECL|member|complex
@@ -117,7 +117,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27a91e730308
+DECL|struct|__anon28b5ab650308
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a91e730408
+DECL|struct|__anon28b5ab650408
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a91e730508
+DECL|struct|__anon28b5ab650508
 typedef|typedef
 struct|struct
 block|{
@@ -344,7 +344,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a91e730608
+DECL|struct|__anon28b5ab650608
 typedef|typedef
 struct|struct
 block|{
@@ -20644,49 +20644,27 @@ block|}
 block|}
 if|if
 condition|(
-name|SSL_CTX_set_cipher_list
+name|ngx_ssl_ciphers
 argument_list|(
+name|cf
+argument_list|,
 name|plcf
 operator|->
 name|upstream
 operator|.
 name|ssl
-operator|->
-name|ctx
-argument_list|,
-operator|(
-specifier|const
-name|char
-operator|*
-operator|)
-name|plcf
-operator|->
-name|ssl_ciphers
-operator|.
-name|data
-argument_list|)
-operator|==
-literal|0
-condition|)
-block|{
-name|ngx_ssl_error
-argument_list|(
-name|NGX_LOG_EMERG
-argument_list|,
-name|cf
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"SSL_CTX_set_cipher_list(\"%V\") failed"
 argument_list|,
 operator|&
 name|plcf
 operator|->
 name|ssl_ciphers
+argument_list|,
+literal|0
 argument_list|)
-expr_stmt|;
+operator|!=
+name|NGX_OK
+condition|)
+block|{
 return|return
 name|NGX_ERROR
 return|;
