@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2876f5b50108
+DECL|struct|__anon275f9fbd0108
 typedef|typedef
 struct|struct
 block|{
@@ -42,7 +42,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2876f5b50208
+DECL|struct|__anon275f9fbd0208
 typedef|typedef
 struct|struct
 block|{
@@ -64,7 +64,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2876f5b50308
+DECL|struct|__anon275f9fbd0308
 typedef|typedef
 struct|struct
 block|{
@@ -80,7 +80,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2876f5b50408
+DECL|struct|__anon275f9fbd0408
 typedef|typedef
 struct|struct
 block|{
@@ -323,6 +323,9 @@ name|ngx_stream_module_t
 name|ngx_stream_upstream_hash_module_ctx
 init|=
 block|{
+name|NULL
+block|,
+comment|/* preconfiguration */
 name|NULL
 block|,
 comment|/* postconfiguration */
@@ -1159,7 +1162,7 @@ name|ngx_stream_upstream_hash_srv_conf_t
 modifier|*
 name|hcf
 decl_stmt|;
-DECL|union|__anon2876f5b5050a
+DECL|union|__anon275f9fbd050a
 union|union
 block|{
 DECL|member|value

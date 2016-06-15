@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a3dbd8f0108
+DECL|struct|__anon2b75208e0108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3dbd8f0208
+DECL|struct|__anon2b75208e0208
 typedef|typedef
 struct|struct
 block|{
@@ -73,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3dbd8f0308
+DECL|struct|__anon2b75208e0308
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3dbd8f0408
+DECL|struct|__anon2b75208e0408
 typedef|typedef
 struct|struct
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3dbd8f0508
+DECL|struct|__anon2b75208e0508
 typedef|typedef
 struct|struct
 block|{
@@ -400,6 +400,9 @@ name|ngx_stream_module_t
 name|ngx_stream_limit_conn_module_ctx
 init|=
 block|{
+name|NULL
+block|,
+comment|/* preconfiguration */
 name|ngx_stream_limit_conn_init
 block|,
 comment|/* postconfiguration */

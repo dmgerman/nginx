@@ -69,7 +69,7 @@ file|<ngx_stream_upstream_round_robin.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a574cf20108
+DECL|struct|__anon2b263ef50108
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a574cf20208
+DECL|struct|__anon2b263ef50208
 typedef|typedef
 struct|struct
 block|{
@@ -204,7 +204,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a574cf20308
+DECL|struct|__anon2b263ef50308
 typedef|typedef
 struct|struct
 block|{
@@ -236,7 +236,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a574cf20408
+DECL|struct|__anon2b263ef50408
 typedef|typedef
 struct|struct
 block|{
@@ -263,7 +263,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2a574cf20508
+DECL|struct|__anon2b263ef50508
 typedef|typedef
 struct|struct
 block|{
@@ -288,7 +288,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2a574cf20608
+DECL|struct|__anon2b263ef50608
 typedef|typedef
 struct|struct
 block|{
@@ -309,7 +309,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a574cf20708
+DECL|struct|__anon2b263ef50708
 typedef|typedef
 struct|struct
 block|{
@@ -337,7 +337,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a574cf20808
+DECL|struct|__anon2b263ef50808
 typedef|typedef
 struct|struct
 block|{
@@ -368,7 +368,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a574cf20908
+DECL|struct|__anon2b263ef50908
 typedef|typedef
 struct|struct
 block|{
@@ -413,7 +413,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a574cf20a08
+DECL|struct|__anon2b263ef50a08
 typedef|typedef
 struct|struct
 block|{
@@ -501,10 +501,22 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a574cf20b08
+DECL|struct|__anon2b263ef50b08
 typedef|typedef
 struct|struct
 block|{
+DECL|member|preconfiguration
+name|ngx_int_t
+function_decl|(
+modifier|*
+name|preconfiguration
+function_decl|)
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|)
+function_decl|;
 DECL|member|postconfiguration
 name|ngx_int_t
 function_decl|(

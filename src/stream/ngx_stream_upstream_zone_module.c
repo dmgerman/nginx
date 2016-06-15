@@ -116,6 +116,9 @@ init|=
 block|{
 name|NULL
 block|,
+comment|/* preconfiguration */
+name|NULL
+block|,
 comment|/* postconfiguration */
 name|NULL
 block|,

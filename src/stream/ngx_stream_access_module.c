@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a09bde60108
+DECL|struct|__anon29440f0b0108
 typedef|typedef
 struct|struct
 block|{
@@ -54,7 +54,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2a09bde60208
+DECL|struct|__anon29440f0b0208
 typedef|typedef
 struct|struct
 block|{
@@ -93,7 +93,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2a09bde60308
+DECL|struct|__anon29440f0b0308
 typedef|typedef
 struct|struct
 block|{
@@ -114,7 +114,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2a09bde60408
+DECL|struct|__anon29440f0b0408
 typedef|typedef
 struct|struct
 block|{
@@ -393,6 +393,9 @@ name|ngx_stream_module_t
 name|ngx_stream_access_module_ctx
 init|=
 block|{
+name|NULL
+block|,
+comment|/* preconfiguration */
 name|ngx_stream_access_init
 block|,
 comment|/* postconfiguration */

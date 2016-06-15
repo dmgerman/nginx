@@ -240,6 +240,9 @@ init|=
 block|{
 name|NULL
 block|,
+comment|/* preconfiguration */
+name|NULL
+block|,
 comment|/* postconfiguration */
 name|ngx_stream_core_create_main_conf
 block|,

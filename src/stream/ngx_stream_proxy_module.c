@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon290a43060108
+DECL|struct|__anon2a1801540108
 typedef|typedef
 struct|struct
 block|{
@@ -57,7 +57,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290a43060208
+DECL|struct|__anon2a1801540208
 typedef|typedef
 struct|struct
 block|{
@@ -1349,6 +1349,9 @@ name|ngx_stream_module_t
 name|ngx_stream_proxy_module_ctx
 init|=
 block|{
+name|NULL
+block|,
+comment|/* preconfiguration */
 name|NULL
 block|,
 comment|/* postconfiguration */
