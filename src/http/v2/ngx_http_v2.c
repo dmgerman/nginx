@@ -14277,7 +14277,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2b95f3860108
+DECL|struct|__anon291339050108
 specifier|static
 specifier|const
 struct|struct
@@ -17869,6 +17869,14 @@ operator|->
 name|handler
 operator|=
 name|ngx_http_v2_close_stream_handler
+expr_stmt|;
+name|fc
+operator|->
+name|read
+operator|->
+name|handler
+operator|=
+name|ngx_http_empty_handler
 expr_stmt|;
 return|return;
 block|}
