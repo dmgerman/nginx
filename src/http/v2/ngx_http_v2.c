@@ -14277,7 +14277,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2b9750370108
+DECL|struct|__anon2a300ad70108
 specifier|static
 specifier|const
 struct|struct
@@ -18684,27 +18684,6 @@ name|error
 operator|=
 literal|1
 expr_stmt|;
-if|if
-condition|(
-name|h2c
-operator|->
-name|state
-operator|.
-name|stream
-condition|)
-block|{
-name|ngx_http_v2_close_stream
-argument_list|(
-name|h2c
-operator|->
-name|state
-operator|.
-name|stream
-argument_list|,
-name|NGX_HTTP_BAD_REQUEST
-argument_list|)
-expr_stmt|;
-block|}
 if|if
 condition|(
 operator|!
