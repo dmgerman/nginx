@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28b022eb0108
+DECL|struct|__anon2c8071680108
 typedef|typedef
 struct|struct
 block|{
@@ -37,12 +37,19 @@ operator|(
 name|NGX_HAVE_TRANSPARENT_PROXY
 operator|)
 DECL|member|transparent
-name|ngx_uint_t
+name|unsigned
 name|transparent
+range|:
+literal|1
 decl_stmt|;
-comment|/* unsigned  transparent:1; */
 endif|#
 directive|endif
+DECL|member|no_port
+name|unsigned
+name|no_port
+range|:
+literal|1
+decl_stmt|;
 DECL|typedef|ngx_stream_upstream_local_t
 block|}
 name|ngx_stream_upstream_local_t
@@ -50,7 +57,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b022eb0208
+DECL|struct|__anon2c8071680208
 typedef|typedef
 struct|struct
 block|{
@@ -1939,7 +1946,7 @@ return|return
 name|NGX_OK
 return|;
 block|}
-comment|/* $remote_addr */
+comment|/* $remote_addr, $remote_addr:$remote_port, [$remote_addr]:$remote_port */
 name|c
 operator|=
 name|s
@@ -1979,6 +1986,13 @@ name|c
 operator|->
 name|socklen
 expr_stmt|;
+if|if
+condition|(
+name|local
+operator|->
+name|no_port
+condition|)
+block|{
 name|addr
 operator|->
 name|sockaddr
@@ -2031,6 +2045,18 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|addr
+operator|->
+name|sockaddr
+operator|=
+name|c
+operator|->
+name|sockaddr
+expr_stmt|;
+block|}
 name|addr
 operator|->
 name|name
@@ -7144,6 +7170,44 @@ operator|.
 name|data
 argument_list|,
 literal|"$remote_addr"
+argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+name|local
+operator|->
+name|no_port
+operator|=
+literal|1
+expr_stmt|;
+block|}
+if|else if
+condition|(
+name|ngx_strcmp
+argument_list|(
+name|value
+index|[
+literal|1
+index|]
+operator|.
+name|data
+argument_list|,
+literal|"$remote_addr:$remote_port"
+argument_list|)
+operator|!=
+literal|0
+operator|&&
+name|ngx_strcmp
+argument_list|(
+name|value
+index|[
+literal|1
+index|]
+operator|.
+name|data
+argument_list|,
+literal|"[$remote_addr]:$remote_port"
 argument_list|)
 operator|!=
 literal|0
