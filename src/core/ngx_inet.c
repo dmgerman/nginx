@@ -2473,6 +2473,9 @@ name|addr
 operator|->
 name|sockaddr
 argument_list|,
+operator|(
+name|in_port_t
+operator|)
 name|port
 argument_list|)
 expr_stmt|;
