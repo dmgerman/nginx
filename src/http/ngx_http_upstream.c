@@ -25424,7 +25424,7 @@ return|;
 block|}
 name|rc
 operator|=
-name|ngx_parse_addr
+name|ngx_parse_addr_port
 argument_list|(
 name|cf
 operator|->
@@ -25731,7 +25731,7 @@ return|;
 block|}
 name|rc
 operator|=
-name|ngx_parse_addr
+name|ngx_parse_addr_port
 argument_list|(
 name|r
 operator|->

@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b8b2f810108
+DECL|struct|__anon28b022eb0108
 typedef|typedef
 struct|struct
 block|{
@@ -50,7 +50,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8b2f810208
+DECL|struct|__anon28b022eb0208
 typedef|typedef
 struct|struct
 block|{
@@ -7180,7 +7180,7 @@ return|;
 block|}
 name|rc
 operator|=
-name|ngx_parse_addr
+name|ngx_parse_addr_port
 argument_list|(
 name|cf
 operator|->
