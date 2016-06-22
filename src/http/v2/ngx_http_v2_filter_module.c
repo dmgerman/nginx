@@ -4808,10 +4808,11 @@ name|buf
 expr_stmt|;
 if|if
 condition|(
-operator|!
 name|buf
 operator|->
 name|start
+operator|==
+name|NULL
 condition|)
 block|{
 name|buf
