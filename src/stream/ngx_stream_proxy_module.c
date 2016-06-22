@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c05c96c0108
+DECL|struct|__anon290a43060108
 typedef|typedef
 struct|struct
 block|{
@@ -57,7 +57,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c05c96c0208
+DECL|struct|__anon290a43060208
 typedef|typedef
 struct|struct
 block|{
