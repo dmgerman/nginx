@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c8071680108
+DECL|struct|__anon2c05c96c0108
 typedef|typedef
 struct|struct
 block|{
@@ -57,7 +57,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c8071680208
+DECL|struct|__anon2c05c96c0208
 typedef|typedef
 struct|struct
 block|{
@@ -7129,7 +7129,7 @@ return|;
 block|}
 name|local
 operator|=
-name|ngx_palloc
+name|ngx_pcalloc
 argument_list|(
 name|cf
 operator|->
