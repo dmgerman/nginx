@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2b89d52e0108
+DECL|struct|__anon2bd4ca520108
 typedef|typedef
 struct|struct
 block|{
@@ -209,20 +209,6 @@ name|cancelable
 range|:
 literal|1
 decl_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_WIN32
-operator|)
-comment|/* setsockopt(SO_UPDATE_ACCEPT_CONTEXT) was successful */
-DECL|member|accept_context_updated
-name|unsigned
-name|accept_context_updated
-range|:
-literal|1
-decl_stmt|;
-endif|#
-directive|endif
 if|#
 directive|if
 operator|(
@@ -418,7 +404,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b89d52e0208
+DECL|struct|__anon2bd4ca520208
 typedef|typedef
 struct|struct
 block|{
@@ -1408,7 +1394,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2b89d52e0308
+DECL|struct|__anon2bd4ca520308
 typedef|typedef
 struct|struct
 block|{
@@ -1455,7 +1441,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b89d52e0408
+DECL|struct|__anon2bd4ca520408
 typedef|typedef
 struct|struct
 block|{

@@ -320,7 +320,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon28b16a0a0103
+DECL|enum|__anon2bc9a3ef0103
 typedef|typedef
 enum|enum
 block|{
@@ -347,7 +347,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28b16a0a0203
+DECL|enum|__anon2bc9a3ef0203
 typedef|typedef
 enum|enum
 block|{
@@ -368,7 +368,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28b16a0a0303
+DECL|enum|__anon2bc9a3ef0303
 typedef|typedef
 enum|enum
 block|{
@@ -623,19 +623,6 @@ name|need_last_buf
 range|:
 literal|1
 decl_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_HAVE_IOCP
-operator|)
-DECL|member|accept_context_updated
-name|unsigned
-name|accept_context_updated
-range|:
-literal|1
-decl_stmt|;
-endif|#
-directive|endif
 if|#
 directive|if
 operator|(

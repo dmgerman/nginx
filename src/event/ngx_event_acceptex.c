@@ -171,15 +171,8 @@ operator|->
 name|addr_text
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|c
-operator|->
-name|accept_context_updated
-operator|=
-literal|1
-expr_stmt|;
+comment|/* TODO: close socket */
+return|return;
 block|}
 name|ngx_getacceptexsockaddrs
 argument_list|(
