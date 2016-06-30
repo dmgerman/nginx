@@ -1,6 +1,6 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_comment
-comment|/*  * An internal implementation, based on Alexander Peslyak's  * public domain implementation:  * http://openwall.info/wiki/people/solar/software/public-domain-source-code/md5  * It is not expected to be optimal and is used only  * if no MD5 implementation was found in system.  */
+comment|/*  * An internal implementation, based on Alexander Peslyak's  * public domain implementation:  * http://openwall.info/wiki/people/solar/software/public-domain-source-code/md5  */
 end_comment
 
 begin_include
@@ -20,15 +20,6 @@ include|#
 directive|include
 file|<ngx_md5.h>
 end_include
-
-begin_if
-if|#
-directive|if
-operator|!
-operator|(
-name|NGX_HAVE_MD5
-operator|)
-end_if
 
 begin_function_decl
 specifier|static
@@ -2523,11 +2514,6 @@ name|p
 return|;
 block|}
 end_function
-
-begin_endif
-endif|#
-directive|endif
-end_endif
 
 end_unit
 

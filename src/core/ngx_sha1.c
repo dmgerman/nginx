@@ -1,6 +1,6 @@
 begin_unit|revision:1.0.0;language:C;cregit-version:0.0.1
 begin_comment
-comment|/*  * Copyright (C) Maxim Dounin  * Copyright (C) Nginx, Inc.  *  * An internal SHA1 implementation.  * It is not expected to be optimal and is used only  * if no SHA1 implementation was found in system.  */
+comment|/*  * Copyright (C) Maxim Dounin  * Copyright (C) Nginx, Inc.  *  * An internal SHA1 implementation.  */
 end_comment
 
 begin_include
@@ -20,15 +20,6 @@ include|#
 directive|include
 file|<ngx_sha1.h>
 end_include
-
-begin_if
-if|#
-directive|if
-operator|!
-operator|(
-name|NGX_HAVE_SHA1
-operator|)
-end_if
 
 begin_function_decl
 specifier|static
@@ -2977,11 +2968,6 @@ name|p
 return|;
 block|}
 end_function
-
-begin_endif
-endif|#
-directive|endif
-end_endif
 
 end_unit
 
