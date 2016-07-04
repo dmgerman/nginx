@@ -59,6 +59,18 @@ end_typedef
 begin_include
 include|#
 directive|include
+file|<ngx_stream_variables.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_stream_script.h>
+end_include
+
+begin_include
+include|#
+directive|include
 file|<ngx_stream_upstream.h>
 end_include
 
@@ -69,7 +81,7 @@ file|<ngx_stream_upstream_round_robin.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b263ef50108
+DECL|struct|__anon29b5e3270108
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +104,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b263ef50208
+DECL|struct|__anon29b5e3270208
 typedef|typedef
 struct|struct
 block|{
@@ -204,7 +216,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b263ef50308
+DECL|struct|__anon29b5e3270308
 typedef|typedef
 struct|struct
 block|{
@@ -236,7 +248,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b263ef50408
+DECL|struct|__anon29b5e3270408
 typedef|typedef
 struct|struct
 block|{
@@ -263,7 +275,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2b263ef50508
+DECL|struct|__anon29b5e3270508
 typedef|typedef
 struct|struct
 block|{
@@ -288,7 +300,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b263ef50608
+DECL|struct|__anon29b5e3270608
 typedef|typedef
 struct|struct
 block|{
@@ -309,7 +321,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b263ef50708
+DECL|struct|__anon29b5e3270708
 typedef|typedef
 struct|struct
 block|{
@@ -337,7 +349,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b263ef50808
+DECL|struct|__anon29b5e3270808
 typedef|typedef
 struct|struct
 block|{
@@ -368,7 +380,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b263ef50908
+DECL|struct|__anon29b5e3270908
 typedef|typedef
 struct|struct
 block|{
@@ -389,6 +401,32 @@ decl_stmt|;
 DECL|member|access_handler
 name|ngx_stream_access_pt
 name|access_handler
+decl_stmt|;
+DECL|member|variables_hash
+name|ngx_hash_t
+name|variables_hash
+decl_stmt|;
+DECL|member|variables
+name|ngx_array_t
+name|variables
+decl_stmt|;
+comment|/* ngx_stream_variable_t */
+DECL|member|ncaptures
+name|ngx_uint_t
+name|ncaptures
+decl_stmt|;
+DECL|member|variables_hash_max_size
+name|ngx_uint_t
+name|variables_hash_max_size
+decl_stmt|;
+DECL|member|variables_hash_bucket_size
+name|ngx_uint_t
+name|variables_hash_bucket_size
+decl_stmt|;
+DECL|member|variables_keys
+name|ngx_hash_keys_arrays_t
+modifier|*
+name|variables_keys
 decl_stmt|;
 DECL|typedef|ngx_stream_core_main_conf_t
 block|}
@@ -413,7 +451,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b263ef50a08
+DECL|struct|__anon29b5e3270a08
 typedef|typedef
 struct|struct
 block|{
@@ -435,14 +473,14 @@ DECL|member|line
 name|ngx_int_t
 name|line
 decl_stmt|;
+DECL|member|tcp_nodelay
+name|ngx_flag_t
+name|tcp_nodelay
+decl_stmt|;
 DECL|member|error_log
 name|ngx_log_t
 modifier|*
 name|error_log
-decl_stmt|;
-DECL|member|tcp_nodelay
-name|ngx_flag_t
-name|tcp_nodelay
 decl_stmt|;
 DECL|typedef|ngx_stream_core_srv_conf_t
 block|}
@@ -496,12 +534,38 @@ name|ngx_stream_upstream_t
 modifier|*
 name|upstream
 decl_stmt|;
+DECL|member|variables
+name|ngx_stream_variable_value_t
+modifier|*
+name|variables
+decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_PCRE
+operator|)
+DECL|member|ncaptures
+name|ngx_uint_t
+name|ncaptures
+decl_stmt|;
+DECL|member|captures
+name|int
+modifier|*
+name|captures
+decl_stmt|;
+DECL|member|captures_data
+name|u_char
+modifier|*
+name|captures_data
+decl_stmt|;
+endif|#
+directive|endif
 block|}
 struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b263ef50b08
+DECL|struct|__anon29b5e3270b08
 typedef|typedef
 struct|struct
 block|{
