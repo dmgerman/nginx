@@ -160,7 +160,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28feef350108
+DECL|struct|__anon298ab4300108
 typedef|typedef
 struct|struct
 block|{
@@ -176,7 +176,7 @@ DECL|member|level
 name|size_t
 name|level
 index|[
-literal|3
+name|NGX_MAX_PATH_LEVEL
 index|]
 decl_stmt|;
 DECL|member|manager
@@ -208,7 +208,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28feef350208
+DECL|struct|__anon298ab4300208
 typedef|typedef
 struct|struct
 block|{
@@ -220,7 +220,7 @@ DECL|member|level
 name|size_t
 name|level
 index|[
-literal|3
+name|NGX_MAX_PATH_LEVEL
 index|]
 decl_stmt|;
 DECL|typedef|ngx_path_init_t
@@ -230,7 +230,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28feef350308
+DECL|struct|__anon298ab4300308
 typedef|typedef
 struct|struct
 block|{
@@ -292,7 +292,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28feef350408
+DECL|struct|__anon298ab4300408
 typedef|typedef
 struct|struct
 block|{
@@ -336,7 +336,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28feef350508
+DECL|struct|__anon298ab4300508
 typedef|typedef
 struct|struct
 block|{

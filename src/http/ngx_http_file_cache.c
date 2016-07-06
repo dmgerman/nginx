@@ -672,7 +672,7 @@ literal|0
 init|;
 name|n
 operator|<
-literal|3
+name|NGX_MAX_PATH_LEVEL
 condition|;
 name|n
 operator|++
@@ -10949,7 +10949,7 @@ literal|0
 init|;
 name|n
 operator|<
-literal|3
+name|NGX_MAX_PATH_LEVEL
 operator|&&
 name|p
 operator|<
@@ -11023,10 +11023,12 @@ literal|':'
 operator|&&
 name|n
 operator|<
-literal|2
+name|NGX_MAX_PATH_LEVEL
+operator|-
+literal|1
 operator|&&
 name|p
-operator|!=
+operator|<
 name|last
 condition|)
 block|{
@@ -11050,7 +11052,7 @@ name|len
 operator|<
 literal|10
 operator|+
-literal|3
+name|NGX_MAX_PATH_LEVEL
 condition|)
 block|{
 continue|continue;
@@ -12014,7 +12016,7 @@ name|path
 operator|->
 name|level
 argument_list|,
-literal|3
+name|NGX_MAX_PATH_LEVEL
 operator|*
 sizeof|sizeof
 argument_list|(
