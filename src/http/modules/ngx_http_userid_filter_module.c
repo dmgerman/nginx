@@ -66,7 +66,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon277175ed0108
+DECL|struct|__anon275fa3350108
 typedef|typedef
 struct|struct
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon277175ed0208
+DECL|struct|__anon275fa3350208
 typedef|typedef
 struct|struct
 block|{
@@ -3971,6 +3971,9 @@ name|start_value
 operator|=
 operator|(
 operator|(
+operator|(
+name|uint32_t
+operator|)
 name|tp
 operator|.
 name|tv_usec

@@ -6613,7 +6613,7 @@ literal|5
 index|]
 operator|&
 operator|(
-literal|1
+literal|1U
 operator|<<
 operator|(
 operator|*
@@ -6658,7 +6658,7 @@ literal|5
 index|]
 operator|&
 operator|(
-literal|1
+literal|1U
 operator|<<
 operator|(
 operator|*
@@ -6762,7 +6762,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon2b9f3f8d0103
+DECL|enum|__anon2c2d63d00103
 enum|enum
 block|{
 DECL|enumerator|sw_usual

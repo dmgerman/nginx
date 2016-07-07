@@ -119,7 +119,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon278683d00108
+DECL|struct|__anon279131c40108
 typedef|typedef
 struct|struct
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278683d00208
+DECL|struct|__anon279131c40208
 typedef|typedef
 struct|struct
 block|{
@@ -166,7 +166,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278683d00308
+DECL|struct|__anon279131c40308
 typedef|typedef
 struct|struct
 block|{
@@ -205,7 +205,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278683d00408
+DECL|struct|__anon279131c40408
 typedef|typedef
 struct|struct
 block|{
@@ -226,7 +226,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278683d00508
+DECL|struct|__anon279131c40508
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +270,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278683d00608
+DECL|struct|__anon279131c40608
 typedef|typedef
 struct|struct
 block|{
@@ -305,7 +305,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278683d00708
+DECL|struct|__anon279131c40708
 typedef|typedef
 struct|struct
 block|{
@@ -4556,7 +4556,7 @@ literal|5
 index|]
 operator|&
 operator|(
-literal|1
+literal|1U
 operator|<<
 operator|(
 operator|*
@@ -4601,7 +4601,7 @@ literal|5
 index|]
 operator|&
 operator|(
-literal|1
+literal|1U
 operator|<<
 operator|(
 operator|*

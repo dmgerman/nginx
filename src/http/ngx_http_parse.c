@@ -508,7 +508,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon2bbc0a0c0103
+DECL|enum|__anon2a0fb2ea0103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1764,7 +1764,7 @@ literal|5
 index|]
 operator|&
 operator|(
-literal|1
+literal|1U
 operator|<<
 operator|(
 name|ch
@@ -1968,7 +1968,7 @@ literal|5
 index|]
 operator|&
 operator|(
-literal|1
+literal|1U
 operator|<<
 operator|(
 name|ch
@@ -2260,7 +2260,7 @@ literal|5
 index|]
 operator|&
 operator|(
-literal|1
+literal|1U
 operator|<<
 operator|(
 name|ch
@@ -2893,7 +2893,7 @@ name|hash
 decl_stmt|,
 name|i
 decl_stmt|;
-DECL|enum|__anon2bbc0a0c0203
+DECL|enum|__anon2a0fb2ea0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -3705,7 +3705,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon2bbc0a0c0303
+DECL|enum|__anon2a0fb2ea0303
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -3789,7 +3789,7 @@ literal|5
 index|]
 operator|&
 operator|(
-literal|1
+literal|1U
 operator|<<
 operator|(
 name|ch
@@ -3949,7 +3949,7 @@ literal|5
 index|]
 operator|&
 operator|(
-literal|1
+literal|1U
 operator|<<
 operator|(
 name|ch
@@ -4121,7 +4121,7 @@ literal|5
 index|]
 operator|&
 operator|(
-literal|1
+literal|1U
 operator|<<
 operator|(
 name|ch
@@ -4194,7 +4194,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2bbc0a0c0403
+DECL|enum|__anon2a0fb2ea0403
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -4321,7 +4321,7 @@ literal|5
 index|]
 operator|&
 operator|(
-literal|1
+literal|1U
 operator|<<
 operator|(
 name|ch
@@ -4579,7 +4579,7 @@ literal|5
 index|]
 operator|&
 operator|(
-literal|1
+literal|1U
 operator|<<
 operator|(
 name|ch
@@ -4726,7 +4726,7 @@ literal|5
 index|]
 operator|&
 operator|(
-literal|1
+literal|1U
 operator|<<
 operator|(
 name|ch
@@ -4866,7 +4866,7 @@ literal|5
 index|]
 operator|&
 operator|(
-literal|1
+literal|1U
 operator|<<
 operator|(
 name|ch
@@ -5469,7 +5469,7 @@ name|u_char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2bbc0a0c0503
+DECL|enum|__anon2a0fb2ea0503
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6230,7 +6230,7 @@ literal|5
 index|]
 operator|&
 operator|(
-literal|1
+literal|1U
 operator|<<
 operator|(
 name|ch
@@ -7519,7 +7519,7 @@ decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
-DECL|enum|__anon2bbc0a0c0603
+DECL|enum|__anon2a0fb2ea0603
 enum|enum
 block|{
 DECL|enumerator|sw_chunk_start
