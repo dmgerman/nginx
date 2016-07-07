@@ -296,7 +296,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27cd04700108
+DECL|struct|__anon2ad63c350108
 typedef|typedef
 struct|struct
 block|{
@@ -315,7 +315,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27cd04700208
+DECL|struct|__anon2ad63c350208
 typedef|typedef
 struct|struct
 block|{
@@ -426,7 +426,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27cd04700308
+DECL|struct|__anon2ad63c350308
 typedef|typedef
 struct|struct
 block|{
@@ -1282,7 +1282,7 @@ parameter_list|(
 name|p
 parameter_list|)
 define|\
-value|((p)[0]<< 24 | (p)[1]<< 16 | (p)[2]<< 8 | (p)[3])
+value|((uint32_t) (p)[0]<< 24 | (p)[1]<< 16 | (p)[2]<< 8 | (p)[3])
 end_define
 
 begin_endif
