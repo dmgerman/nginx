@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28a447de0108
+DECL|struct|__anon2c40fe260108
 typedef|typedef
 struct|struct
 block|{
@@ -41,7 +41,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a447de0208
+DECL|struct|__anon2c40fe260208
 typedef|typedef
 struct|struct
 block|{
@@ -87,7 +87,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a447de0308
+DECL|struct|__anon2c40fe260308
 typedef|typedef
 struct|struct
 block|{
@@ -294,7 +294,6 @@ name|NULL
 block|,
 comment|/* create server configuration */
 name|NULL
-block|,
 comment|/* merge server configuration */
 block|}
 decl_stmt|;

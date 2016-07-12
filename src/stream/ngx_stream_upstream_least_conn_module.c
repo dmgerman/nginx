@@ -129,7 +129,6 @@ name|NULL
 block|,
 comment|/* create server configuration */
 name|NULL
-block|,
 comment|/* merge server configuration */
 block|}
 decl_stmt|;

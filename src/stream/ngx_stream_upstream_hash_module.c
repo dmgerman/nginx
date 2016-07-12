@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27e7dc430108
+DECL|struct|__anon2c14e5a00108
 typedef|typedef
 struct|struct
 block|{
@@ -42,7 +42,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e7dc430208
+DECL|struct|__anon2c14e5a00208
 typedef|typedef
 struct|struct
 block|{
@@ -64,7 +64,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e7dc430308
+DECL|struct|__anon2c14e5a00308
 typedef|typedef
 struct|struct
 block|{
@@ -84,7 +84,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e7dc430408
+DECL|struct|__anon2c14e5a00408
 typedef|typedef
 struct|struct
 block|{
@@ -343,7 +343,6 @@ name|ngx_stream_upstream_hash_create_conf
 block|,
 comment|/* create server configuration */
 name|NULL
-block|,
 comment|/* merge server configuration */
 block|}
 decl_stmt|;
@@ -1180,7 +1179,7 @@ name|ngx_stream_upstream_hash_srv_conf_t
 modifier|*
 name|hcf
 decl_stmt|;
-DECL|union|__anon27e7dc43050a
+DECL|union|__anon2c14e5a0050a
 union|union
 block|{
 DECL|member|value

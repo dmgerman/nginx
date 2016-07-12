@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b9f7f070108
+DECL|struct|__anon27d3a3930108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b9f7f070208
+DECL|struct|__anon27d3a3930208
 typedef|typedef
 struct|struct
 block|{
@@ -73,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b9f7f070308
+DECL|struct|__anon27d3a3930308
 typedef|typedef
 struct|struct
 block|{
@@ -93,7 +93,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b9f7f070408
+DECL|struct|__anon27d3a3930408
 typedef|typedef
 struct|struct
 block|{
@@ -113,7 +113,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b9f7f070508
+DECL|struct|__anon27d3a3930508
 typedef|typedef
 struct|struct
 block|{
@@ -420,7 +420,6 @@ name|ngx_stream_limit_conn_create_conf
 block|,
 comment|/* create server configuration */
 name|ngx_stream_limit_conn_merge_conf
-block|,
 comment|/* merge server configuration */
 block|}
 decl_stmt|;

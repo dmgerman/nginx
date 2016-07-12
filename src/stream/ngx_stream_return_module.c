@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a3efb520108
+DECL|struct|__anon2bdce4ce0108
 typedef|typedef
 struct|struct
 block|{
@@ -37,7 +37,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3efb520208
+DECL|struct|__anon2bdce4ce0208
 typedef|typedef
 struct|struct
 block|{
@@ -164,7 +164,6 @@ name|ngx_stream_return_create_srv_conf
 block|,
 comment|/* create server configuration */
 name|NULL
-block|,
 comment|/* merge server configuration */
 block|}
 decl_stmt|;
