@@ -122,6 +122,14 @@ value|0x2000
 end_define
 
 begin_define
+DECL|macro|EPOLLEXCLUSIVE
+define|#
+directive|define
+name|EPOLLEXCLUSIVE
+value|0x10000000
+end_define
+
+begin_define
 DECL|macro|EPOLLONESHOT
 define|#
 directive|define
@@ -434,7 +442,7 @@ comment|/* NGX_TEST_BUILD_EPOLL */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2ae683b30108
+DECL|struct|__anon2b5ed8a10108
 typedef|typedef
 struct|struct
 block|{
@@ -2630,6 +2638,28 @@ operator|=
 name|EPOLL_CTL_ADD
 expr_stmt|;
 block|}
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_EPOLLEXCLUSIVE
+operator|&&
+name|NGX_HAVE_EPOLLRDHUP
+operator|)
+if|if
+condition|(
+name|flags
+operator|&
+name|NGX_EXCLUSIVE_EVENT
+condition|)
+block|{
+name|events
+operator|&=
+operator|~
+name|EPOLLRDHUP
+expr_stmt|;
+block|}
+endif|#
+directive|endif
 name|ee
 operator|.
 name|events

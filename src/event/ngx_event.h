@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2bd4ca520108
+DECL|struct|__anon2bf7b3260108
 typedef|typedef
 struct|struct
 block|{
@@ -404,7 +404,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2bd4ca520208
+DECL|struct|__anon2bf7b3260208
 typedef|typedef
 struct|struct
 block|{
@@ -1094,6 +1094,27 @@ endif|#
 directive|endif
 end_endif
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_EPOLLEXCLUSIVE
+operator|)
+end_if
+
+begin_define
+DECL|macro|NGX_EXCLUSIVE_EVENT
+define|#
+directive|define
+name|NGX_EXCLUSIVE_EVENT
+value|EPOLLEXCLUSIVE
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_elif
 elif|#
 directive|elif
@@ -1214,6 +1235,27 @@ define|#
 directive|define
 name|NGX_IOCP_CONNECT
 value|2
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_TEST_BUILD_EPOLL
+operator|)
+end_if
+
+begin_define
+DECL|macro|NGX_EXCLUSIVE_EVENT
+define|#
+directive|define
+name|NGX_EXCLUSIVE_EVENT
+value|0
 end_define
 
 begin_endif
@@ -1394,7 +1436,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2bd4ca520308
+DECL|struct|__anon2bf7b3260308
 typedef|typedef
 struct|struct
 block|{
@@ -1441,7 +1483,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd4ca520408
+DECL|struct|__anon2bf7b3260408
 typedef|typedef
 struct|struct
 block|{
