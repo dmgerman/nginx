@@ -5270,7 +5270,7 @@ name|ecf
 operator|->
 name|accept_mutex
 argument_list|,
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 name|ngx_conf_init_msec_value
