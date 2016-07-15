@@ -58,6 +58,22 @@ value|0x004
 end_define
 
 begin_define
+DECL|macro|EPOLLERR
+define|#
+directive|define
+name|EPOLLERR
+value|0x008
+end_define
+
+begin_define
+DECL|macro|EPOLLHUP
+define|#
+directive|define
+name|EPOLLHUP
+value|0x010
+end_define
+
+begin_define
 DECL|macro|EPOLLRDNORM
 define|#
 directive|define
@@ -98,22 +114,6 @@ value|0x400
 end_define
 
 begin_define
-DECL|macro|EPOLLERR
-define|#
-directive|define
-name|EPOLLERR
-value|0x008
-end_define
-
-begin_define
-DECL|macro|EPOLLHUP
-define|#
-directive|define
-name|EPOLLHUP
-value|0x010
-end_define
-
-begin_define
 DECL|macro|EPOLLRDHUP
 define|#
 directive|define
@@ -122,19 +122,19 @@ value|0x2000
 end_define
 
 begin_define
-DECL|macro|EPOLLET
-define|#
-directive|define
-name|EPOLLET
-value|0x80000000
-end_define
-
-begin_define
 DECL|macro|EPOLLONESHOT
 define|#
 directive|define
 name|EPOLLONESHOT
 value|0x40000000
+end_define
+
+begin_define
+DECL|macro|EPOLLET
+define|#
+directive|define
+name|EPOLLET
+value|0x80000000
 end_define
 
 begin_define
@@ -434,7 +434,7 @@ comment|/* NGX_TEST_BUILD_EPOLL */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2ac235db0108
+DECL|struct|__anon2ae683b30108
 typedef|typedef
 struct|struct
 block|{
