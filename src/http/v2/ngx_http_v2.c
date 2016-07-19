@@ -2937,7 +2937,10 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|cl
+operator|!
+name|wev
+operator|->
+name|ready
 condition|)
 block|{
 name|ngx_add_timer
@@ -14313,7 +14316,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon296341830108
+DECL|struct|__anon2a0c90ef0108
 specifier|static
 specifier|const
 struct|struct
