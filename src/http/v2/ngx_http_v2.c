@@ -3184,9 +3184,11 @@ operator|||
 name|ngx_exiting
 condition|)
 block|{
-name|ngx_http_close_connection
+name|ngx_http_v2_finalize_connection
 argument_list|(
-name|c
+name|h2c
+argument_list|,
+name|NGX_HTTP_V2_NO_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -14277,7 +14279,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon291339050108
+DECL|struct|__anon29bc1d880108
 specifier|static
 specifier|const
 struct|struct
