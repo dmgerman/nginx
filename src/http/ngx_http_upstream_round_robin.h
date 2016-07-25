@@ -123,11 +123,6 @@ name|ssl_session_len
 decl_stmt|;
 endif|#
 directive|endif
-DECL|member|next
-name|ngx_http_upstream_rr_peer_t
-modifier|*
-name|next
-decl_stmt|;
 if|#
 directive|if
 operator|(
@@ -139,6 +134,11 @@ name|lock
 decl_stmt|;
 endif|#
 directive|endif
+DECL|member|next
+name|ngx_http_upstream_rr_peer_t
+modifier|*
+name|next
+decl_stmt|;
 block|}
 struct|;
 end_struct
@@ -354,7 +354,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b0d8b880108
+DECL|struct|__anon28af85a10108
 typedef|typedef
 struct|struct
 block|{
