@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29b5b1890108
+DECL|struct|__anon2a29fb990108
 typedef|typedef
 struct|struct
 block|{
@@ -55,7 +55,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b5b1890208
+DECL|struct|__anon2a29fb990208
 typedef|typedef
 struct|struct
 block|{
@@ -2311,7 +2311,7 @@ block|}
 if|#
 directive|if
 operator|(
-name|NGX_HTTP_SSL
+name|NGX_STREAM_SSL
 operator|)
 name|u
 operator|->
@@ -4860,7 +4860,7 @@ name|resolved
 expr_stmt|;
 name|ngx_log_debug0
 argument_list|(
-name|NGX_LOG_DEBUG_HTTP
+name|NGX_LOG_DEBUG_STREAM
 argument_list|,
 name|s
 operator|->
