@@ -3604,6 +3604,10 @@ decl_stmt|;
 name|ngx_int_t
 name|n
 decl_stmt|;
+name|ngx_time_t
+modifier|*
+name|tp
+decl_stmt|;
 name|ngx_uint_t
 name|i
 decl_stmt|;
@@ -4118,6 +4122,11 @@ literal|"sigprocmask() failed"
 argument_list|)
 expr_stmt|;
 block|}
+name|tp
+operator|=
+name|ngx_timeofday
+argument_list|()
+expr_stmt|;
 name|srandom
 argument_list|(
 operator|(
@@ -4129,8 +4138,13 @@ operator|<<
 literal|16
 operator|)
 operator|^
-name|ngx_time
-argument_list|()
+name|tp
+operator|->
+name|sec
+operator|^
+name|tp
+operator|->
+name|msec
 argument_list|)
 expr_stmt|;
 comment|/*      * disable deleting previous events for the listening sockets because      * in the worker processes there are no events at all at this point      */

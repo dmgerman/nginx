@@ -99,7 +99,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2a2c3e000108
+DECL|struct|__anon27a51b5c0108
 typedef|typedef
 struct|struct
 block|{
@@ -264,6 +264,10 @@ name|wsd
 decl_stmt|;
 name|ngx_err_t
 name|err
+decl_stmt|;
+name|ngx_time_t
+modifier|*
+name|tp
 decl_stmt|;
 name|ngx_uint_t
 name|n
@@ -944,6 +948,11 @@ name|ngx_pid
 argument_list|)
 expr_stmt|;
 block|}
+name|tp
+operator|=
+name|ngx_timeofday
+argument_list|()
+expr_stmt|;
 name|srand
 argument_list|(
 operator|(
@@ -955,8 +964,13 @@ operator|^
 operator|(
 name|unsigned
 operator|)
-name|ngx_time
-argument_list|()
+name|tp
+operator|->
+name|sec
+operator|^
+name|tp
+operator|->
+name|msec
 argument_list|)
 expr_stmt|;
 return|return
