@@ -4121,6 +4121,9 @@ block|}
 name|srandom
 argument_list|(
 operator|(
+operator|(
+name|unsigned
+operator|)
 name|ngx_pid
 operator|<<
 literal|16
