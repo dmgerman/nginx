@@ -54,7 +54,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2a293d600108
+DECL|struct|__anon29a3c94e0108
 typedef|typedef
 struct|struct
 block|{
@@ -98,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a293d600208
+DECL|struct|__anon29a3c94e0208
 typedef|typedef
 struct|struct
 block|{
@@ -121,7 +121,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a293d600308
+DECL|struct|__anon29a3c94e0308
 typedef|typedef
 struct|struct
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a293d600403
+DECL|enum|__anon29a3c94e0403
 typedef|typedef
 enum|enum
 block|{
@@ -12079,13 +12079,12 @@ name|uintptr_t
 name|gmt
 parameter_list|)
 block|{
+name|time_t
+name|now
+decl_stmt|;
 name|ngx_http_ssi_ctx_t
 modifier|*
 name|ctx
-decl_stmt|;
-name|ngx_time_t
-modifier|*
-name|tp
 decl_stmt|;
 name|ngx_str_t
 modifier|*
@@ -12119,9 +12118,9 @@ name|not_found
 operator|=
 literal|0
 expr_stmt|;
-name|tp
+name|now
 operator|=
-name|ngx_timeofday
+name|ngx_time
 argument_list|()
 expr_stmt|;
 name|ctx
@@ -12215,9 +12214,7 @@ name|data
 argument_list|,
 literal|"%T"
 argument_list|,
-name|tp
-operator|->
-name|sec
+name|now
 argument_list|)
 operator|-
 name|v
@@ -12235,9 +12232,7 @@ condition|)
 block|{
 name|ngx_libc_gmtime
 argument_list|(
-name|tp
-operator|->
-name|sec
+name|now
 argument_list|,
 operator|&
 name|tm
@@ -12248,9 +12243,7 @@ else|else
 block|{
 name|ngx_libc_localtime
 argument_list|(
-name|tp
-operator|->
-name|sec
+name|now
 argument_list|,
 operator|&
 name|tm

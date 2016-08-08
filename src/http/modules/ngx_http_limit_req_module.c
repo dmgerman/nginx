@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a1d6b7c0108
+DECL|struct|__anon2ad151d60108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1d6b7c0208
+DECL|struct|__anon2ad151d60208
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1d6b7c0308
+DECL|struct|__anon2ad151d60308
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1d6b7c0408
+DECL|struct|__anon2ad151d60408
 typedef|typedef
 struct|struct
 block|{
@@ -153,7 +153,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1d6b7c0508
+DECL|struct|__anon2ad151d60508
 typedef|typedef
 struct|struct
 block|{
@@ -1493,10 +1493,6 @@ name|rc
 decl_stmt|,
 name|excess
 decl_stmt|;
-name|ngx_time_t
-modifier|*
-name|tp
-decl_stmt|;
 name|ngx_msec_t
 name|now
 decl_stmt|;
@@ -1518,27 +1514,9 @@ name|ngx_http_limit_req_node_t
 modifier|*
 name|lr
 decl_stmt|;
-name|tp
-operator|=
-name|ngx_timeofday
-argument_list|()
-expr_stmt|;
 name|now
 operator|=
-operator|(
-name|ngx_msec_t
-operator|)
-operator|(
-name|tp
-operator|->
-name|sec
-operator|*
-literal|1000
-operator|+
-name|tp
-operator|->
-name|msec
-operator|)
+name|ngx_current_msec
 expr_stmt|;
 name|ctx
 operator|=
@@ -2039,10 +2017,6 @@ block|{
 name|ngx_int_t
 name|excess
 decl_stmt|;
-name|ngx_time_t
-modifier|*
-name|tp
-decl_stmt|;
 name|ngx_msec_t
 name|now
 decl_stmt|,
@@ -2151,27 +2125,9 @@ operator|->
 name|mutex
 argument_list|)
 expr_stmt|;
-name|tp
-operator|=
-name|ngx_timeofday
-argument_list|()
-expr_stmt|;
 name|now
 operator|=
-operator|(
-name|ngx_msec_t
-operator|)
-operator|(
-name|tp
-operator|->
-name|sec
-operator|*
-literal|1000
-operator|+
-name|tp
-operator|->
-name|msec
-operator|)
+name|ngx_current_msec
 expr_stmt|;
 name|ms
 operator|=
@@ -2322,10 +2278,6 @@ block|{
 name|ngx_int_t
 name|excess
 decl_stmt|;
-name|ngx_time_t
-modifier|*
-name|tp
-decl_stmt|;
 name|ngx_msec_t
 name|now
 decl_stmt|;
@@ -2344,27 +2296,9 @@ name|ngx_http_limit_req_node_t
 modifier|*
 name|lr
 decl_stmt|;
-name|tp
-operator|=
-name|ngx_timeofday
-argument_list|()
-expr_stmt|;
 name|now
 operator|=
-operator|(
-name|ngx_msec_t
-operator|)
-operator|(
-name|tp
-operator|->
-name|sec
-operator|*
-literal|1000
-operator|+
-name|tp
-operator|->
-name|msec
-operator|)
+name|ngx_current_msec
 expr_stmt|;
 comment|/*      * n == 1 deletes one or two zero rate entries      * n == 0 deletes oldest entry by force      *        and one or two zero rate entries      */
 while|while
