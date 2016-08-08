@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon27e03edb0108
+DECL|struct|__anon297d6f3d0108
 typedef|typedef
 struct|struct
 block|{
@@ -8220,11 +8220,16 @@ name|n
 operator|==
 name|SSL_R_LENGTH_MISMATCH
 comment|/*  159 */
+ifdef|#
+directive|ifdef
+name|SSL_R_NO_CIPHERS_PASSED
 operator|||
 name|n
 operator|==
 name|SSL_R_NO_CIPHERS_PASSED
 comment|/*  182 */
+endif|#
+directive|endif
 operator|||
 name|n
 operator|==
