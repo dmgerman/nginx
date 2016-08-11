@@ -80,8 +80,48 @@ directive|include
 file|<ngx_stream_upstream_round_robin.h>
 end_include
 
+begin_define
+DECL|macro|NGX_STREAM_OK
+define|#
+directive|define
+name|NGX_STREAM_OK
+value|200
+end_define
+
+begin_define
+DECL|macro|NGX_STREAM_FORBIDDEN
+define|#
+directive|define
+name|NGX_STREAM_FORBIDDEN
+value|403
+end_define
+
+begin_define
+DECL|macro|NGX_STREAM_INTERNAL_SERVER_ERROR
+define|#
+directive|define
+name|NGX_STREAM_INTERNAL_SERVER_ERROR
+value|500
+end_define
+
+begin_define
+DECL|macro|NGX_STREAM_BAD_GATEWAY
+define|#
+directive|define
+name|NGX_STREAM_BAD_GATEWAY
+value|502
+end_define
+
+begin_define
+DECL|macro|NGX_STREAM_SERVICE_UNAVAILABLE
+define|#
+directive|define
+name|NGX_STREAM_SERVICE_UNAVAILABLE
+value|503
+end_define
+
 begin_typedef
-DECL|struct|__anon2a2381e70108
+DECL|struct|__anon27d31da60108
 typedef|typedef
 struct|struct
 block|{
@@ -104,7 +144,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2381e70208
+DECL|struct|__anon27d31da60208
 typedef|typedef
 struct|struct
 block|{
@@ -216,7 +256,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2381e70308
+DECL|struct|__anon27d31da60308
 typedef|typedef
 struct|struct
 block|{
@@ -248,7 +288,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2381e70408
+DECL|struct|__anon27d31da60408
 typedef|typedef
 struct|struct
 block|{
@@ -275,7 +315,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2a2381e70508
+DECL|struct|__anon27d31da60508
 typedef|typedef
 struct|struct
 block|{
@@ -300,7 +340,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2a2381e70608
+DECL|struct|__anon27d31da60608
 typedef|typedef
 struct|struct
 block|{
@@ -321,7 +361,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2381e70708
+DECL|struct|__anon27d31da60708
 typedef|typedef
 struct|struct
 block|{
@@ -349,7 +389,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2381e70808
+DECL|struct|__anon27d31da60808
 typedef|typedef
 struct|struct
 block|{
@@ -380,7 +420,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2381e70908
+DECL|struct|__anon27d31da60908
 typedef|typedef
 struct|struct
 block|{
@@ -451,7 +491,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2381e70a08
+DECL|struct|__anon27d31da60a08
 typedef|typedef
 struct|struct
 block|{
@@ -582,12 +622,16 @@ name|captures_data
 decl_stmt|;
 endif|#
 directive|endif
+DECL|member|status
+name|ngx_uint_t
+name|status
+decl_stmt|;
 block|}
 struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a2381e70b08
+DECL|struct|__anon27d31da60b08
 typedef|typedef
 struct|struct
 block|{
@@ -862,11 +906,14 @@ end_function_decl
 
 begin_function_decl
 name|void
-name|ngx_stream_close_connection
+name|ngx_stream_finalize_session
 parameter_list|(
-name|ngx_connection_t
+name|ngx_stream_session_t
 modifier|*
-name|c
+name|s
+parameter_list|,
+name|ngx_uint_t
+name|rc
 parameter_list|)
 function_decl|;
 end_function_decl

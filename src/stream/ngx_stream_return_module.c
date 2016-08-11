@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bdce4ce0108
+DECL|struct|__anon29d06c530108
 typedef|typedef
 struct|struct
 block|{
@@ -37,7 +37,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bdce4ce0208
+DECL|struct|__anon29d06c530208
 typedef|typedef
 struct|struct
 block|{
@@ -280,9 +280,11 @@ operator|!=
 name|NGX_OK
 condition|)
 block|{
-name|ngx_stream_close_connection
+name|ngx_stream_finalize_session
 argument_list|(
-name|c
+name|s
+argument_list|,
+name|NGX_STREAM_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -312,9 +314,11 @@ operator|==
 literal|0
 condition|)
 block|{
-name|ngx_stream_close_connection
+name|ngx_stream_finalize_session
 argument_list|(
-name|c
+name|s
+argument_list|,
+name|NGX_STREAM_OK
 argument_list|)
 expr_stmt|;
 return|return;
@@ -340,9 +344,11 @@ operator|==
 name|NULL
 condition|)
 block|{
-name|ngx_stream_close_connection
+name|ngx_stream_finalize_session
 argument_list|(
-name|c
+name|s
+argument_list|,
+name|NGX_STREAM_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -456,9 +462,11 @@ argument_list|,
 literal|"connection timed out"
 argument_list|)
 expr_stmt|;
-name|ngx_stream_close_connection
+name|ngx_stream_finalize_session
 argument_list|(
-name|c
+name|s
+argument_list|,
+name|NGX_STREAM_OK
 argument_list|)
 expr_stmt|;
 return|return;
@@ -514,9 +522,11 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
-name|ngx_stream_close_connection
+name|ngx_stream_finalize_session
 argument_list|(
-name|c
+name|s
+argument_list|,
+name|NGX_STREAM_OK
 argument_list|)
 expr_stmt|;
 return|return;
@@ -545,9 +555,11 @@ operator|->
 name|last
 condition|)
 block|{
-name|ngx_stream_close_connection
+name|ngx_stream_finalize_session
 argument_list|(
-name|c
+name|s
+argument_list|,
+name|NGX_STREAM_OK
 argument_list|)
 expr_stmt|;
 return|return;
@@ -566,9 +578,11 @@ operator|!=
 name|NGX_OK
 condition|)
 block|{
-name|ngx_stream_close_connection
+name|ngx_stream_finalize_session
 argument_list|(
-name|c
+name|s
+argument_list|,
+name|NGX_STREAM_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 return|return;

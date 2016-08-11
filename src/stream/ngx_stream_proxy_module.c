@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a29fb990108
+DECL|struct|__anon2a34f2bf0108
 typedef|typedef
 struct|struct
 block|{
@@ -55,7 +55,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a29fb990208
+DECL|struct|__anon2a34f2bf0208
 typedef|typedef
 struct|struct
 block|{
@@ -372,7 +372,7 @@ name|ngx_stream_session_t
 modifier|*
 name|s
 parameter_list|,
-name|ngx_int_t
+name|ngx_uint_t
 name|rc
 parameter_list|)
 function_decl|;
@@ -1555,7 +1555,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_ERROR
+name|NGX_STREAM_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1610,7 +1610,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_ERROR
+name|NGX_STREAM_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1689,7 +1689,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_ERROR
+name|NGX_STREAM_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1800,7 +1800,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_ERROR
+name|NGX_STREAM_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1864,7 +1864,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_ERROR
+name|NGX_STREAM_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1963,7 +1963,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_ERROR
+name|NGX_STREAM_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1986,7 +1986,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_ERROR
+name|NGX_STREAM_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -2133,7 +2133,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_ERROR
+name|NGX_STREAM_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -2177,7 +2177,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_ERROR
+name|NGX_STREAM_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -2208,7 +2208,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_ERROR
+name|NGX_STREAM_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -2270,7 +2270,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_ERROR
+name|NGX_STREAM_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -2303,7 +2303,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_ERROR
+name|NGX_STREAM_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -2343,7 +2343,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_ERROR
+name|NGX_STREAM_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -2975,7 +2975,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_ERROR
+name|NGX_STREAM_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -3004,7 +3004,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_DECLINED
+name|NGX_STREAM_BAD_GATEWAY
 argument_list|)
 expr_stmt|;
 return|return;
@@ -3501,7 +3501,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_ERROR
+name|NGX_STREAM_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -3748,7 +3748,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_ERROR
+name|NGX_STREAM_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 return|return
@@ -3813,7 +3813,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_ERROR
+name|NGX_STREAM_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 return|return
@@ -3863,7 +3863,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_DECLINED
+name|NGX_STREAM_OK
 argument_list|)
 expr_stmt|;
 return|return
@@ -3895,7 +3895,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_DECLINED
+name|NGX_STREAM_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 return|return
@@ -4072,7 +4072,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_ERROR
+name|NGX_STREAM_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -4102,7 +4102,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_ERROR
+name|NGX_STREAM_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -4142,7 +4142,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_ERROR
+name|NGX_STREAM_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -4915,7 +4915,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_ERROR
+name|NGX_STREAM_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -5045,7 +5045,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_ERROR
+name|NGX_STREAM_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -5262,7 +5262,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_ERROR
+name|NGX_STREAM_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -5383,7 +5383,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_DECLINED
+name|NGX_STREAM_OK
 argument_list|)
 expr_stmt|;
 return|return;
@@ -5425,7 +5425,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_ERROR
+name|NGX_STREAM_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 block|}
@@ -5855,7 +5855,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_OK
+name|NGX_STREAM_OK
 argument_list|)
 expr_stmt|;
 return|return;
@@ -6030,7 +6030,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_DECLINED
+name|NGX_STREAM_OK
 argument_list|)
 expr_stmt|;
 return|return;
@@ -6474,7 +6474,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_OK
+name|NGX_STREAM_OK
 argument_list|)
 expr_stmt|;
 return|return;
@@ -6514,7 +6514,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_ERROR
+name|NGX_STREAM_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -6547,7 +6547,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_ERROR
+name|NGX_STREAM_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
@@ -6736,7 +6736,7 @@ name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
 argument_list|,
-name|NGX_DECLINED
+name|NGX_STREAM_BAD_GATEWAY
 argument_list|)
 expr_stmt|;
 return|return;
@@ -6837,14 +6837,14 @@ end_function
 begin_function
 specifier|static
 name|void
-DECL|function|ngx_stream_proxy_finalize (ngx_stream_session_t * s,ngx_int_t rc)
+DECL|function|ngx_stream_proxy_finalize (ngx_stream_session_t * s,ngx_uint_t rc)
 name|ngx_stream_proxy_finalize
 parameter_list|(
 name|ngx_stream_session_t
 modifier|*
 name|s
 parameter_list|,
-name|ngx_int_t
+name|ngx_uint_t
 name|rc
 parameter_list|)
 block|{
@@ -7044,11 +7044,11 @@ expr_stmt|;
 block|}
 name|noupstream
 label|:
-name|ngx_stream_close_connection
+name|ngx_stream_finalize_session
 argument_list|(
 name|s
-operator|->
-name|connection
+argument_list|,
+name|rc
 argument_list|)
 expr_stmt|;
 block|}
