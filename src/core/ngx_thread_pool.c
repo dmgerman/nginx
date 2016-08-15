@@ -22,7 +22,7 @@ file|<ngx_thread_pool.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29b016250108
+DECL|struct|__anon2a2026070108
 typedef|typedef
 struct|struct
 block|{
@@ -37,7 +37,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b016250208
+DECL|struct|__anon2a2026070208
 typedef|typedef
 struct|struct
 block|{
@@ -543,6 +543,36 @@ argument_list|,
 name|err
 argument_list|,
 literal|"pthread_attr_init() failed"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
+name|err
+operator|=
+name|pthread_attr_setdetachstate
+argument_list|(
+operator|&
+name|attr
+argument_list|,
+name|PTHREAD_CREATE_DETACHED
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|err
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|log
+argument_list|,
+name|err
+argument_list|,
+literal|"pthread_attr_setdetachstate() failed"
 argument_list|)
 expr_stmt|;
 return|return
