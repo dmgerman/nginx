@@ -81,7 +81,7 @@ file|<ngx_stream_upstream_round_robin.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon278eac630108
+DECL|struct|__anon27b22e860108
 typedef|typedef
 struct|struct
 block|{
@@ -104,7 +104,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278eac630208
+DECL|struct|__anon27b22e860208
 typedef|typedef
 struct|struct
 block|{
@@ -216,7 +216,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278eac630308
+DECL|struct|__anon27b22e860308
 typedef|typedef
 struct|struct
 block|{
@@ -248,7 +248,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278eac630408
+DECL|struct|__anon27b22e860408
 typedef|typedef
 struct|struct
 block|{
@@ -275,7 +275,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon278eac630508
+DECL|struct|__anon27b22e860508
 typedef|typedef
 struct|struct
 block|{
@@ -300,7 +300,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon278eac630608
+DECL|struct|__anon27b22e860608
 typedef|typedef
 struct|struct
 block|{
@@ -321,7 +321,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278eac630708
+DECL|struct|__anon27b22e860708
 typedef|typedef
 struct|struct
 block|{
@@ -349,7 +349,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278eac630808
+DECL|struct|__anon27b22e860808
 typedef|typedef
 struct|struct
 block|{
@@ -380,7 +380,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278eac630908
+DECL|struct|__anon27b22e860908
 typedef|typedef
 struct|struct
 block|{
@@ -451,7 +451,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278eac630a08
+DECL|struct|__anon27b22e860a08
 typedef|typedef
 struct|struct
 block|{
@@ -491,6 +491,11 @@ name|ngx_resolver_t
 modifier|*
 name|resolver
 decl_stmt|;
+DECL|member|listen
+name|ngx_uint_t
+name|listen
+decl_stmt|;
+comment|/* unsigned  listen:1; */
 DECL|typedef|ngx_stream_core_srv_conf_t
 block|}
 name|ngx_stream_core_srv_conf_t
@@ -574,7 +579,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon278eac630b08
+DECL|struct|__anon27b22e860b08
 typedef|typedef
 struct|struct
 block|{
