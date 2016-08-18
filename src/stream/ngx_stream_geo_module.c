@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27b15a800108
+DECL|struct|__anon27dcd0850108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b15a800208
+DECL|struct|__anon27dcd0850208
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b15a800308
+DECL|struct|__anon27dcd0850308
 typedef|typedef
 struct|struct
 block|{
@@ -96,7 +96,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b15a800408
+DECL|struct|__anon27dcd0850408
 typedef|typedef
 struct|struct
 block|{
@@ -120,7 +120,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b15a800508
+DECL|struct|__anon27dcd0850508
 typedef|typedef
 struct|struct
 block|{
@@ -220,11 +220,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b15a800608
+DECL|struct|__anon27dcd0850608
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon27b15a80070a
+DECL|union|__anon27dcd085070a
 union|union
 block|{
 DECL|member|trees
@@ -653,7 +653,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon27b15a800808
+DECL|struct|__anon27dcd0850808
 typedef|typedef
 struct|struct
 block|{
@@ -1994,7 +1994,12 @@ condition|(
 name|a
 operator|==
 name|NULL
-operator|||
+condition|)
+block|{
+continue|continue;
+block|}
+if|if
+condition|(
 name|a
 operator|->
 name|nelts
@@ -2002,6 +2007,17 @@ operator|==
 literal|0
 condition|)
 block|{
+name|ctx
+operator|.
+name|high
+operator|.
+name|low
+index|[
+name|i
+index|]
+operator|=
+name|NULL
+expr_stmt|;
 continue|continue;
 block|}
 name|len
