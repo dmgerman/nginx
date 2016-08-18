@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon297d6f3d0108
+DECL|struct|__anon2931ca840108
 typedef|typedef
 struct|struct
 block|{
@@ -633,16 +633,11 @@ argument_list|)
 expr_stmt|;
 else|#
 directive|else
-ifndef|#
-directive|ifndef
-name|OPENSSL_IS_BORINGSSL
 name|OPENSSL_config
 argument_list|(
 name|NULL
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 name|SSL_library_init
 argument_list|()
 expr_stmt|;
