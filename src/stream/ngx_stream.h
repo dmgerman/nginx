@@ -81,7 +81,7 @@ file|<ngx_stream_upstream_round_robin.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b5219bc0108
+DECL|struct|__anon278eac630108
 typedef|typedef
 struct|struct
 block|{
@@ -104,7 +104,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5219bc0208
+DECL|struct|__anon278eac630208
 typedef|typedef
 struct|struct
 block|{
@@ -216,7 +216,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5219bc0308
+DECL|struct|__anon278eac630308
 typedef|typedef
 struct|struct
 block|{
@@ -248,7 +248,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5219bc0408
+DECL|struct|__anon278eac630408
 typedef|typedef
 struct|struct
 block|{
@@ -275,7 +275,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2b5219bc0508
+DECL|struct|__anon278eac630508
 typedef|typedef
 struct|struct
 block|{
@@ -300,7 +300,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b5219bc0608
+DECL|struct|__anon278eac630608
 typedef|typedef
 struct|struct
 block|{
@@ -321,7 +321,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5219bc0708
+DECL|struct|__anon278eac630708
 typedef|typedef
 struct|struct
 block|{
@@ -349,7 +349,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5219bc0808
+DECL|struct|__anon278eac630808
 typedef|typedef
 struct|struct
 block|{
@@ -380,7 +380,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5219bc0908
+DECL|struct|__anon278eac630908
 typedef|typedef
 struct|struct
 block|{
@@ -451,7 +451,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5219bc0a08
+DECL|struct|__anon278eac630a08
 typedef|typedef
 struct|struct
 block|{
@@ -470,7 +470,7 @@ modifier|*
 name|file_name
 decl_stmt|;
 DECL|member|line
-name|ngx_int_t
+name|ngx_uint_t
 name|line
 decl_stmt|;
 DECL|member|tcp_nodelay
@@ -574,7 +574,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b5219bc0b08
+DECL|struct|__anon278eac630b08
 typedef|typedef
 struct|struct
 block|{
