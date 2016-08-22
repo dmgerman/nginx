@@ -401,6 +401,8 @@ name|ngx_inet_get_port
 argument_list|(
 name|pc
 operator|->
+name|local
+operator|->
 name|sockaddr
 argument_list|)
 expr_stmt|;
