@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2931ca840108
+DECL|struct|__anon273b492d0108
 typedef|typedef
 struct|struct
 block|{
@@ -12147,7 +12147,7 @@ literal|16
 argument_list|)
 expr_stmt|;
 return|return
-literal|0
+literal|1
 return|;
 block|}
 else|else
