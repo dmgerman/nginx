@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c51260b0108
+DECL|struct|__anon2b1993b10108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c51260b0208
+DECL|struct|__anon2b1993b10208
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c51260b0308
+DECL|struct|__anon2b1993b10308
 typedef|typedef
 struct|struct
 block|{
@@ -96,7 +96,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c51260b0408
+DECL|struct|__anon2b1993b10408
 typedef|typedef
 struct|struct
 block|{
@@ -120,7 +120,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c51260b0508
+DECL|struct|__anon2b1993b10508
 typedef|typedef
 struct|struct
 block|{
@@ -231,11 +231,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c51260b0608
+DECL|struct|__anon2b1993b10608
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon2c51260b070a
+DECL|union|__anon2b1993b1070a
 union|union
 block|{
 DECL|member|trees
@@ -722,7 +722,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2c51260b0808
+DECL|struct|__anon2b1993b10808
 typedef|typedef
 struct|struct
 block|{
@@ -4411,7 +4411,44 @@ name|NGX_CONF_ERROR
 return|;
 block|}
 name|range
+operator|=
+name|a
 operator|->
+name|elts
+expr_stmt|;
+name|ngx_memmove
+argument_list|(
+operator|&
+name|range
+index|[
+literal|1
+index|]
+argument_list|,
+operator|&
+name|range
+index|[
+literal|0
+index|]
+argument_list|,
+operator|(
+name|a
+operator|->
+name|nelts
+operator|-
+literal|1
+operator|)
+operator|*
+sizeof|sizeof
+argument_list|(
+name|ngx_http_geo_range_t
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|range
+index|[
+literal|0
+index|]
+operator|.
 name|start
 operator|=
 operator|(
@@ -4420,7 +4457,10 @@ operator|)
 name|s
 expr_stmt|;
 name|range
-operator|->
+index|[
+literal|0
+index|]
+operator|.
 name|end
 operator|=
 operator|(
@@ -4429,7 +4469,10 @@ operator|)
 name|e
 expr_stmt|;
 name|range
-operator|->
+index|[
+literal|0
+index|]
+operator|.
 name|value
 operator|=
 name|ctx
