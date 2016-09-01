@@ -54,7 +54,7 @@ value|3
 end_define
 
 begin_typedef
-DECL|struct|__anon29658ead0108
+DECL|struct|__anon2b84a9b40108
 typedef|typedef
 struct|struct
 block|{
@@ -87,7 +87,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29658ead0208
+DECL|struct|__anon2b84a9b40208
 typedef|typedef
 struct|struct
 block|{
@@ -1036,15 +1036,6 @@ name|cln
 operator|->
 name|data
 expr_stmt|;
-name|ngx_http_set_ctx
-argument_list|(
-name|r
-argument_list|,
-name|ctx
-argument_list|,
-name|ngx_http_realip_module
-argument_list|)
-expr_stmt|;
 name|c
 operator|=
 name|r
@@ -1117,6 +1108,15 @@ operator|->
 name|handler
 operator|=
 name|ngx_http_realip_cleanup
+expr_stmt|;
+name|ngx_http_set_ctx
+argument_list|(
+name|r
+argument_list|,
+name|ctx
+argument_list|,
+name|ngx_http_realip_module
+argument_list|)
 expr_stmt|;
 name|ctx
 operator|->
