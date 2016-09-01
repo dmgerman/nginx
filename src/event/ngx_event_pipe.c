@@ -1217,9 +1217,7 @@ name|upstream_error
 operator|=
 literal|1
 expr_stmt|;
-return|return
-name|NGX_ERROR
-return|;
+break|break;
 block|}
 if|if
 condition|(
