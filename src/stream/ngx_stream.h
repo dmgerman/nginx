@@ -121,7 +121,7 @@ value|503
 end_define
 
 begin_typedef
-DECL|struct|__anon27d31da60108
+DECL|struct|__anon27d92ca10108
 typedef|typedef
 struct|struct
 block|{
@@ -144,7 +144,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d31da60208
+DECL|struct|__anon27d92ca10208
 typedef|typedef
 struct|struct
 block|{
@@ -256,7 +256,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d31da60308
+DECL|struct|__anon27d92ca10308
 typedef|typedef
 struct|struct
 block|{
@@ -288,7 +288,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d31da60408
+DECL|struct|__anon27d92ca10408
 typedef|typedef
 struct|struct
 block|{
@@ -315,7 +315,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon27d31da60508
+DECL|struct|__anon27d92ca10508
 typedef|typedef
 struct|struct
 block|{
@@ -340,7 +340,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon27d31da60608
+DECL|struct|__anon27d92ca10608
 typedef|typedef
 struct|struct
 block|{
@@ -361,7 +361,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d31da60708
+DECL|struct|__anon27d92ca10708
 typedef|typedef
 struct|struct
 block|{
@@ -389,7 +389,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d31da60808
+DECL|struct|__anon27d92ca10808
 typedef|typedef
 struct|struct
 block|{
@@ -420,7 +420,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d31da60908
+DECL|struct|__anon27d92ca10908
 typedef|typedef
 struct|struct
 block|{
@@ -491,7 +491,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d31da60a08
+DECL|struct|__anon27d92ca10a08
 typedef|typedef
 struct|struct
 block|{
@@ -596,6 +596,12 @@ name|ngx_stream_upstream_t
 modifier|*
 name|upstream
 decl_stmt|;
+DECL|member|upstream_states
+name|ngx_array_t
+modifier|*
+name|upstream_states
+decl_stmt|;
+comment|/* of ngx_stream_upstream_state_t */
 DECL|member|variables
 name|ngx_stream_variable_value_t
 modifier|*
@@ -631,7 +637,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27d31da60b08
+DECL|struct|__anon27d92ca10b08
 typedef|typedef
 struct|struct
 block|{

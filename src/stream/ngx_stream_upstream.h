@@ -89,7 +89,7 @@ value|0x0020
 end_define
 
 begin_typedef
-DECL|struct|__anon2a3147910108
+DECL|struct|__anon29e36d4c0108
 typedef|typedef
 struct|struct
 block|{
@@ -154,7 +154,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3147910208
+DECL|struct|__anon29e36d4c0208
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3147910308
+DECL|struct|__anon29e36d4c0308
 typedef|typedef
 struct|struct
 block|{
@@ -289,7 +289,23 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a3147910408
+DECL|struct|__anon29e36d4c0408
+typedef|typedef
+struct|struct
+block|{
+DECL|member|peer
+name|ngx_str_t
+modifier|*
+name|peer
+decl_stmt|;
+DECL|typedef|ngx_stream_upstream_state_t
+block|}
+name|ngx_stream_upstream_state_t
+typedef|;
+end_typedef
+
+begin_typedef
+DECL|struct|__anon29e36d4c0508
 typedef|typedef
 struct|struct
 block|{
@@ -337,7 +353,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3147910508
+DECL|struct|__anon29e36d4c0608
 typedef|typedef
 struct|struct
 block|{
@@ -380,6 +396,11 @@ DECL|member|resolved
 name|ngx_stream_upstream_resolved_t
 modifier|*
 name|resolved
+decl_stmt|;
+DECL|member|state
+name|ngx_stream_upstream_state_t
+modifier|*
+name|state
 decl_stmt|;
 DECL|member|connected
 name|unsigned
