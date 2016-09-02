@@ -89,7 +89,7 @@ value|0x0020
 end_define
 
 begin_typedef
-DECL|struct|__anon29e36d4c0108
+DECL|struct|__anon277b8d6e0108
 typedef|typedef
 struct|struct
 block|{
@@ -154,7 +154,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e36d4c0208
+DECL|struct|__anon277b8d6e0208
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e36d4c0308
+DECL|struct|__anon277b8d6e0308
 typedef|typedef
 struct|struct
 block|{
@@ -289,10 +289,18 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29e36d4c0408
+DECL|struct|__anon277b8d6e0408
 typedef|typedef
 struct|struct
 block|{
+DECL|member|bytes_sent
+name|off_t
+name|bytes_sent
+decl_stmt|;
+DECL|member|bytes_received
+name|off_t
+name|bytes_received
+decl_stmt|;
 DECL|member|peer
 name|ngx_str_t
 modifier|*
@@ -305,7 +313,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e36d4c0508
+DECL|struct|__anon277b8d6e0508
 typedef|typedef
 struct|struct
 block|{
@@ -353,7 +361,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e36d4c0608
+DECL|struct|__anon277b8d6e0608
 typedef|typedef
 struct|struct
 block|{
