@@ -35,7 +35,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2be460da0108
+DECL|struct|__anon2be51edd0108
 typedef|typedef
 struct|struct
 block|{
@@ -86,7 +86,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be460da0208
+DECL|struct|__anon2be51edd0208
 typedef|typedef
 struct|struct
 block|{
@@ -172,7 +172,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be460da0308
+DECL|struct|__anon2be51edd0308
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +202,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be460da0408
+DECL|struct|__anon2be51edd0408
 typedef|typedef
 struct|struct
 block|{
@@ -278,7 +278,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be460da0508
+DECL|struct|__anon2be51edd0508
 typedef|typedef
 struct|struct
 block|{
@@ -297,7 +297,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be460da0608
+DECL|struct|__anon2be51edd0608
 typedef|typedef
 struct|struct
 block|{
@@ -316,7 +316,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be460da0708
+DECL|struct|__anon2be51edd0708
 typedef|typedef
 struct|struct
 block|{
@@ -335,7 +335,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be460da0808
+DECL|struct|__anon2be51edd0808
 typedef|typedef
 struct|struct
 block|{
@@ -436,6 +436,48 @@ parameter_list|(
 name|ngx_stream_script_compile_t
 modifier|*
 name|sc
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|u_char
+modifier|*
+name|ngx_stream_script_run
+parameter_list|(
+name|ngx_stream_session_t
+modifier|*
+name|s
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|value
+parameter_list|,
+name|void
+modifier|*
+name|code_lengths
+parameter_list|,
+name|size_t
+name|reserved
+parameter_list|,
+name|void
+modifier|*
+name|code_values
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_stream_script_flush_no_cacheable_variables
+parameter_list|(
+name|ngx_stream_session_t
+modifier|*
+name|s
+parameter_list|,
+name|ngx_array_t
+modifier|*
+name|indices
 parameter_list|)
 function_decl|;
 end_function_decl

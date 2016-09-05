@@ -121,7 +121,7 @@ value|503
 end_define
 
 begin_typedef
-DECL|struct|__anon27d92ca10108
+DECL|struct|__anon2b0796b90108
 typedef|typedef
 struct|struct
 block|{
@@ -144,7 +144,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d92ca10208
+DECL|struct|__anon2b0796b90208
 typedef|typedef
 struct|struct
 block|{
@@ -256,7 +256,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d92ca10308
+DECL|struct|__anon2b0796b90308
 typedef|typedef
 struct|struct
 block|{
@@ -288,7 +288,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d92ca10408
+DECL|struct|__anon2b0796b90408
 typedef|typedef
 struct|struct
 block|{
@@ -315,7 +315,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon27d92ca10508
+DECL|struct|__anon2b0796b90508
 typedef|typedef
 struct|struct
 block|{
@@ -340,7 +340,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon27d92ca10608
+DECL|struct|__anon2b0796b90608
 typedef|typedef
 struct|struct
 block|{
@@ -361,7 +361,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d92ca10708
+DECL|struct|__anon2b0796b90708
 typedef|typedef
 struct|struct
 block|{
@@ -389,7 +389,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d92ca10808
+DECL|struct|__anon2b0796b90808
 typedef|typedef
 struct|struct
 block|{
@@ -420,7 +420,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d92ca10908
+DECL|struct|__anon2b0796b90908
 typedef|typedef
 struct|struct
 block|{
@@ -441,6 +441,10 @@ decl_stmt|;
 DECL|member|access_handler
 name|ngx_stream_access_pt
 name|access_handler
+decl_stmt|;
+DECL|member|access_log_handler
+name|ngx_stream_access_pt
+name|access_log_handler
 decl_stmt|;
 DECL|member|variables_hash
 name|ngx_hash_t
@@ -491,7 +495,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d92ca10a08
+DECL|struct|__anon2b0796b90a08
 typedef|typedef
 struct|struct
 block|{
@@ -637,7 +641,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27d92ca10b08
+DECL|struct|__anon2b0796b90b08
 typedef|typedef
 struct|struct
 block|{
