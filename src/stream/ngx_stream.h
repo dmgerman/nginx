@@ -89,6 +89,14 @@ value|200
 end_define
 
 begin_define
+DECL|macro|NGX_STREAM_BAD_REQUEST
+define|#
+directive|define
+name|NGX_STREAM_BAD_REQUEST
+value|400
+end_define
+
+begin_define
 DECL|macro|NGX_STREAM_FORBIDDEN
 define|#
 directive|define
@@ -121,7 +129,7 @@ value|503
 end_define
 
 begin_typedef
-DECL|struct|__anon2b3a22e10108
+DECL|struct|__anon293742570108
 typedef|typedef
 struct|struct
 block|{
@@ -144,7 +152,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3a22e10208
+DECL|struct|__anon293742570208
 typedef|typedef
 struct|struct
 block|{
@@ -222,6 +230,12 @@ name|so_keepalive
 range|:
 literal|2
 decl_stmt|;
+DECL|member|proxy_protocol
+name|unsigned
+name|proxy_protocol
+range|:
+literal|1
+decl_stmt|;
 if|#
 directive|if
 operator|(
@@ -256,7 +270,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3a22e10308
+DECL|struct|__anon293742570308
 typedef|typedef
 struct|struct
 block|{
@@ -275,12 +289,19 @@ operator|(
 name|NGX_STREAM_SSL
 operator|)
 DECL|member|ssl
-name|ngx_uint_t
+name|unsigned
 name|ssl
+range|:
+literal|1
 decl_stmt|;
-comment|/* unsigned   ssl:1; */
 endif|#
 directive|endif
+DECL|member|proxy_protocol
+name|unsigned
+name|proxy_protocol
+range|:
+literal|1
+decl_stmt|;
 DECL|typedef|ngx_stream_addr_conf_t
 block|}
 name|ngx_stream_addr_conf_t
@@ -288,7 +309,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3a22e10408
+DECL|struct|__anon293742570408
 typedef|typedef
 struct|struct
 block|{
@@ -315,7 +336,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2b3a22e10508
+DECL|struct|__anon293742570508
 typedef|typedef
 struct|struct
 block|{
@@ -340,7 +361,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b3a22e10608
+DECL|struct|__anon293742570608
 typedef|typedef
 struct|struct
 block|{
@@ -361,7 +382,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3a22e10708
+DECL|struct|__anon293742570708
 typedef|typedef
 struct|struct
 block|{
@@ -389,7 +410,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3a22e10808
+DECL|struct|__anon293742570808
 typedef|typedef
 struct|struct
 block|{
@@ -420,7 +441,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3a22e10908
+DECL|struct|__anon293742570908
 typedef|typedef
 struct|struct
 block|{
@@ -495,7 +516,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b3a22e10a08
+DECL|struct|__anon293742570a08
 typedef|typedef
 struct|struct
 block|{
@@ -534,6 +555,10 @@ DECL|member|resolver
 name|ngx_resolver_t
 modifier|*
 name|resolver
+decl_stmt|;
+DECL|member|proxy_protocol_timeout
+name|ngx_msec_t
+name|proxy_protocol_timeout
 decl_stmt|;
 DECL|member|listen
 name|ngx_uint_t
@@ -653,7 +678,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b3a22e10b08
+DECL|struct|__anon293742570b08
 typedef|typedef
 struct|struct
 block|{
