@@ -121,7 +121,7 @@ value|503
 end_define
 
 begin_typedef
-DECL|struct|__anon2b0796b90108
+DECL|struct|__anon2b3a22e10108
 typedef|typedef
 struct|struct
 block|{
@@ -144,7 +144,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0796b90208
+DECL|struct|__anon2b3a22e10208
 typedef|typedef
 struct|struct
 block|{
@@ -256,7 +256,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0796b90308
+DECL|struct|__anon2b3a22e10308
 typedef|typedef
 struct|struct
 block|{
@@ -288,7 +288,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0796b90408
+DECL|struct|__anon2b3a22e10408
 typedef|typedef
 struct|struct
 block|{
@@ -315,7 +315,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2b0796b90508
+DECL|struct|__anon2b3a22e10508
 typedef|typedef
 struct|struct
 block|{
@@ -340,7 +340,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b0796b90608
+DECL|struct|__anon2b3a22e10608
 typedef|typedef
 struct|struct
 block|{
@@ -361,7 +361,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0796b90708
+DECL|struct|__anon2b3a22e10708
 typedef|typedef
 struct|struct
 block|{
@@ -389,7 +389,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0796b90808
+DECL|struct|__anon2b3a22e10808
 typedef|typedef
 struct|struct
 block|{
@@ -420,7 +420,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0796b90908
+DECL|struct|__anon2b3a22e10908
 typedef|typedef
 struct|struct
 block|{
@@ -495,7 +495,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0796b90a08
+DECL|struct|__anon2b3a22e10a08
 typedef|typedef
 struct|struct
 block|{
@@ -636,12 +636,24 @@ DECL|member|status
 name|ngx_uint_t
 name|status
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_STREAM_SSL
+operator|)
+DECL|member|ssl
+name|ngx_uint_t
+name|ssl
+decl_stmt|;
+comment|/* unsigned  ssl:1; */
+endif|#
+directive|endif
 block|}
 struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b0796b90b08
+DECL|struct|__anon2b3a22e10b08
 typedef|typedef
 struct|struct
 block|{
