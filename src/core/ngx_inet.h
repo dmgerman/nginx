@@ -117,7 +117,7 @@ value|sizeof(ngx_sockaddr_t)
 end_define
 
 begin_typedef
-DECL|union|__anon28d9595a010a
+DECL|union|__anon28c9b83e010a
 typedef|typedef
 union|union
 block|{
@@ -162,7 +162,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28d9595a0208
+DECL|struct|__anon28c9b83e0208
 typedef|typedef
 struct|struct
 block|{
@@ -189,7 +189,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon28d9595a0308
+DECL|struct|__anon28c9b83e0308
 typedef|typedef
 struct|struct
 block|{
@@ -215,7 +215,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28d9595a0408
+DECL|struct|__anon28c9b83e0408
 typedef|typedef
 struct|struct
 block|{
@@ -223,7 +223,7 @@ DECL|member|family
 name|ngx_uint_t
 name|family
 decl_stmt|;
-DECL|union|__anon28d9595a050a
+DECL|union|__anon28c9b83e050a
 union|union
 block|{
 DECL|member|in
@@ -252,7 +252,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28d9595a0608
+DECL|struct|__anon28c9b83e0608
 typedef|typedef
 struct|struct
 block|{
@@ -277,7 +277,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28d9595a0708
+DECL|struct|__anon28c9b83e0708
 typedef|typedef
 struct|struct
 block|{
@@ -487,6 +487,22 @@ parameter_list|,
 name|ngx_cidr_t
 modifier|*
 name|cidr
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_cidr_match
+parameter_list|(
+name|struct
+name|sockaddr
+modifier|*
+name|sa
+parameter_list|,
+name|ngx_array_t
+modifier|*
+name|cidrs
 parameter_list|)
 function_decl|;
 end_function_decl
