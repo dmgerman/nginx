@@ -965,7 +965,7 @@ name|prev
 operator|->
 name|proxy_protocol_timeout
 argument_list|,
-literal|5000
+literal|30000
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_value
