@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon28ff3b2c0108
+DECL|struct|__anon2ae814970108
 typedef|typedef
 struct|struct
 block|{
@@ -1720,6 +1720,9 @@ name|char
 modifier|*
 name|s
 decl_stmt|;
+name|ngx_str_t
+name|rsp
+decl_stmt|;
 name|STACK_OF
 argument_list|(
 name|OPENSSL_STRING
@@ -1828,6 +1831,11 @@ return|return
 name|NGX_DECLINED
 return|;
 block|}
+name|responder
+operator|=
+operator|&
+name|rsp
+expr_stmt|;
 name|responder
 operator|->
 name|len
@@ -5758,7 +5766,7 @@ name|ngx_buf_t
 modifier|*
 name|b
 decl_stmt|;
-DECL|enum|__anon28ff3b2c0203
+DECL|enum|__anon2ae814970203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6554,7 +6562,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon28ff3b2c0303
+DECL|enum|__anon2ae814970303
 enum|enum
 block|{
 DECL|enumerator|sw_start
