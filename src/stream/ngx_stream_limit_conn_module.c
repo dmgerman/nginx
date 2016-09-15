@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27d3a3930108
+DECL|struct|__anon2b9b791e0108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d3a3930208
+DECL|struct|__anon2b9b791e0208
 typedef|typedef
 struct|struct
 block|{
@@ -73,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d3a3930308
+DECL|struct|__anon2b9b791e0308
 typedef|typedef
 struct|struct
 block|{
@@ -93,7 +93,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d3a3930408
+DECL|struct|__anon2b9b791e0408
 typedef|typedef
 struct|struct
 block|{
@@ -113,7 +113,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d3a3930508
+DECL|struct|__anon2b9b791e0508
 typedef|typedef
 struct|struct
 block|{
@@ -753,7 +753,7 @@ name|pool
 argument_list|)
 expr_stmt|;
 return|return
-name|NGX_ABORT
+name|NGX_STREAM_SERVICE_UNAVAILABLE
 return|;
 block|}
 name|lc
@@ -892,7 +892,7 @@ name|pool
 argument_list|)
 expr_stmt|;
 return|return
-name|NGX_ABORT
+name|NGX_STREAM_SERVICE_UNAVAILABLE
 return|;
 block|}
 name|lc
@@ -2741,6 +2741,10 @@ modifier|*
 name|cf
 parameter_list|)
 block|{
+name|ngx_stream_handler_pt
+modifier|*
+name|h
+decl_stmt|;
 name|ngx_stream_core_main_conf_t
 modifier|*
 name|cmcf
@@ -2754,9 +2758,34 @@ argument_list|,
 name|ngx_stream_core_module
 argument_list|)
 expr_stmt|;
+name|h
+operator|=
+name|ngx_array_push
+argument_list|(
+operator|&
 name|cmcf
 operator|->
-name|limit_conn_handler
+name|phases
+index|[
+name|NGX_STREAM_PREACCESS_PHASE
+index|]
+operator|.
+name|handlers
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|h
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+operator|*
+name|h
 operator|=
 name|ngx_stream_limit_conn_handler
 expr_stmt|;

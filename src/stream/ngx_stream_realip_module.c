@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b2e5b990108
+DECL|struct|__anon29c40f010108
 typedef|typedef
 struct|struct
 block|{
@@ -39,7 +39,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b2e5b990208
+DECL|struct|__anon29c40f010208
 typedef|typedef
 struct|struct
 block|{
@@ -1122,6 +1122,10 @@ modifier|*
 name|cf
 parameter_list|)
 block|{
+name|ngx_stream_handler_pt
+modifier|*
+name|h
+decl_stmt|;
 name|ngx_stream_core_main_conf_t
 modifier|*
 name|cmcf
@@ -1135,9 +1139,34 @@ argument_list|,
 name|ngx_stream_core_module
 argument_list|)
 expr_stmt|;
+name|h
+operator|=
+name|ngx_array_push
+argument_list|(
+operator|&
 name|cmcf
 operator|->
-name|realip_handler
+name|phases
+index|[
+name|NGX_STREAM_POST_ACCEPT_PHASE
+index|]
+operator|.
+name|handlers
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|h
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+operator|*
+name|h
 operator|=
 name|ngx_stream_realip_handler
 expr_stmt|;

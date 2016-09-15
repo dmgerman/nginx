@@ -119,7 +119,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon299ec9b60108
+DECL|struct|__anon2a347f6b0108
 typedef|typedef
 struct|struct
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299ec9b60208
+DECL|struct|__anon2a347f6b0208
 typedef|typedef
 struct|struct
 block|{
@@ -161,7 +161,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299ec9b60308
+DECL|struct|__anon2a347f6b0308
 typedef|typedef
 struct|struct
 block|{
@@ -200,7 +200,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299ec9b60408
+DECL|struct|__anon2a347f6b0408
 typedef|typedef
 struct|struct
 block|{
@@ -221,7 +221,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299ec9b60508
+DECL|struct|__anon2a347f6b0508
 typedef|typedef
 struct|struct
 block|{
@@ -265,7 +265,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299ec9b60608
+DECL|struct|__anon2a347f6b0608
 typedef|typedef
 struct|struct
 block|{
@@ -300,7 +300,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299ec9b60708
+DECL|struct|__anon2a347f6b0708
 typedef|typedef
 struct|struct
 block|{
@@ -6612,6 +6612,10 @@ modifier|*
 name|cf
 parameter_list|)
 block|{
+name|ngx_stream_handler_pt
+modifier|*
+name|h
+decl_stmt|;
 name|ngx_stream_core_main_conf_t
 modifier|*
 name|cmcf
@@ -6625,9 +6629,34 @@ argument_list|,
 name|ngx_stream_core_module
 argument_list|)
 expr_stmt|;
+name|h
+operator|=
+name|ngx_array_push
+argument_list|(
+operator|&
 name|cmcf
 operator|->
-name|access_log_handler
+name|phases
+index|[
+name|NGX_STREAM_LOG_PHASE
+index|]
+operator|.
+name|handlers
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|h
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+operator|*
+name|h
 operator|=
 name|ngx_stream_log_handler
 expr_stmt|;
