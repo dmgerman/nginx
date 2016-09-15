@@ -129,7 +129,7 @@ value|503
 end_define
 
 begin_typedef
-DECL|struct|__anon28b6a54a0108
+DECL|struct|__anon2c7e93970108
 typedef|typedef
 struct|struct
 block|{
@@ -152,7 +152,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b6a54a0208
+DECL|struct|__anon2c7e93970208
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +270,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b6a54a0308
+DECL|struct|__anon2c7e93970308
 typedef|typedef
 struct|struct
 block|{
@@ -309,7 +309,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b6a54a0408
+DECL|struct|__anon2c7e93970408
 typedef|typedef
 struct|struct
 block|{
@@ -336,7 +336,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon28b6a54a0508
+DECL|struct|__anon2c7e93970508
 typedef|typedef
 struct|struct
 block|{
@@ -361,7 +361,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28b6a54a0608
+DECL|struct|__anon2c7e93970608
 typedef|typedef
 struct|struct
 block|{
@@ -382,7 +382,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b6a54a0708
+DECL|struct|__anon2c7e93970708
 typedef|typedef
 struct|struct
 block|{
@@ -410,7 +410,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b6a54a0808
+DECL|struct|__anon2c7e93970808
 typedef|typedef
 struct|struct
 block|{
@@ -425,7 +425,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28b6a54a0903
+DECL|enum|__anon2c7e93970903
 typedef|typedef
 enum|enum
 block|{
@@ -450,6 +450,9 @@ name|NGX_STREAM_SSL_PHASE
 block|,
 endif|#
 directive|endif
+DECL|enumerator|NGX_STREAM_PREREAD_PHASE
+name|NGX_STREAM_PREREAD_PHASE
+block|,
 DECL|enumerator|NGX_STREAM_CONTENT_PHASE
 name|NGX_STREAM_CONTENT_PHASE
 block|,
@@ -544,7 +547,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28b6a54a0a08
+DECL|struct|__anon2c7e93970a08
 typedef|typedef
 struct|struct
 block|{
@@ -560,7 +563,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b6a54a0b08
+DECL|struct|__anon2c7e93970b08
 typedef|typedef
 struct|struct
 block|{
@@ -575,7 +578,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b6a54a0c08
+DECL|struct|__anon2c7e93970c08
 typedef|typedef
 struct|struct
 block|{
@@ -635,7 +638,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b6a54a0d08
+DECL|struct|__anon2c7e93970d08
 typedef|typedef
 struct|struct
 block|{
@@ -660,6 +663,14 @@ decl_stmt|;
 DECL|member|tcp_nodelay
 name|ngx_flag_t
 name|tcp_nodelay
+decl_stmt|;
+DECL|member|preread_buffer_size
+name|size_t
+name|preread_buffer_size
+decl_stmt|;
+DECL|member|preread_timeout
+name|ngx_msec_t
+name|preread_timeout
 decl_stmt|;
 DECL|member|error_log
 name|ngx_log_t
@@ -801,7 +812,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28b6a54a0e08
+DECL|struct|__anon2c7e93970e08
 typedef|typedef
 struct|struct
 block|{
@@ -1085,6 +1096,21 @@ end_function_decl
 begin_function_decl
 name|ngx_int_t
 name|ngx_stream_core_generic_phase
+parameter_list|(
+name|ngx_stream_session_t
+modifier|*
+name|s
+parameter_list|,
+name|ngx_stream_phase_handler_t
+modifier|*
+name|ph
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_stream_core_preread_phase
 parameter_list|(
 name|ngx_stream_session_t
 modifier|*
