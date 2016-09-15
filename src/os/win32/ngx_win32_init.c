@@ -91,6 +91,10 @@ name|ngx_udp_wsarecv
 block|,
 name|ngx_wsasend
 block|,
+name|NULL
+block|,
+name|NULL
+block|,
 name|ngx_wsasend_chain
 block|,
 literal|0
@@ -99,7 +103,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon27a51b5c0108
+DECL|struct|__anon2ae459b50108
 typedef|typedef
 struct|struct
 block|{

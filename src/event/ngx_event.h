@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2bf7b3260108
+DECL|struct|__anon29aef9330108
 typedef|typedef
 struct|struct
 block|{
@@ -404,7 +404,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2bf7b3260208
+DECL|struct|__anon29aef9330208
 typedef|typedef
 struct|struct
 block|{
@@ -1415,6 +1415,14 @@ value|ngx_io.udp_send
 end_define
 
 begin_define
+DECL|macro|ngx_udp_send_chain
+define|#
+directive|define
+name|ngx_udp_send_chain
+value|ngx_io.udp_send_chain
+end_define
+
+begin_define
 DECL|macro|NGX_EVENT_MODULE
 define|#
 directive|define
@@ -1436,7 +1444,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2bf7b3260308
+DECL|struct|__anon29aef9330308
 typedef|typedef
 struct|struct
 block|{
@@ -1483,7 +1491,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf7b3260408
+DECL|struct|__anon29aef9330408
 typedef|typedef
 struct|struct
 block|{

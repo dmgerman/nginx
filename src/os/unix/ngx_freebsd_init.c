@@ -116,6 +116,8 @@ name|ngx_unix_send
 block|,
 name|ngx_udp_unix_send
 block|,
+name|ngx_udp_unix_sendmsg_chain
+block|,
 if|#
 directive|if
 operator|(
@@ -136,7 +138,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2c860f780108
+DECL|struct|__anon29b3d9b70108
 typedef|typedef
 struct|struct
 block|{

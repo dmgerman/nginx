@@ -52,6 +52,8 @@ name|ngx_unix_send
 block|,
 name|ngx_udp_unix_send
 block|,
+name|ngx_udp_unix_sendmsg_chain
+block|,
 if|#
 directive|if
 operator|(

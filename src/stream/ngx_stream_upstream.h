@@ -89,7 +89,7 @@ value|0x0020
 end_define
 
 begin_typedef
-DECL|struct|__anon2c2518fd0108
+DECL|struct|__anon2a2eede80108
 typedef|typedef
 struct|struct
 block|{
@@ -154,7 +154,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2518fd0208
+DECL|struct|__anon2a2eede80208
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2518fd0308
+DECL|struct|__anon2a2eede80308
 typedef|typedef
 struct|struct
 block|{
@@ -289,7 +289,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c2518fd0408
+DECL|struct|__anon2a2eede80408
 typedef|typedef
 struct|struct
 block|{
@@ -325,7 +325,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2518fd0508
+DECL|struct|__anon2a2eede80508
 typedef|typedef
 struct|struct
 block|{
@@ -373,7 +373,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2518fd0608
+DECL|struct|__anon2a2eede80608
 typedef|typedef
 struct|struct
 block|{
@@ -388,6 +388,31 @@ decl_stmt|;
 DECL|member|upstream_buf
 name|ngx_buf_t
 name|upstream_buf
+decl_stmt|;
+DECL|member|free
+name|ngx_chain_t
+modifier|*
+name|free
+decl_stmt|;
+DECL|member|upstream_out
+name|ngx_chain_t
+modifier|*
+name|upstream_out
+decl_stmt|;
+DECL|member|upstream_busy
+name|ngx_chain_t
+modifier|*
+name|upstream_busy
+decl_stmt|;
+DECL|member|downstream_out
+name|ngx_chain_t
+modifier|*
+name|downstream_out
+decl_stmt|;
+DECL|member|downstream_busy
+name|ngx_chain_t
+modifier|*
+name|downstream_busy
 decl_stmt|;
 DECL|member|received
 name|off_t

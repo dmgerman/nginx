@@ -130,7 +130,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab03be20108
+DECL|struct|__anon2b6684760108
 typedef|typedef
 struct|struct
 block|{
@@ -153,6 +153,10 @@ decl_stmt|;
 DECL|member|udp_send
 name|ngx_send_pt
 name|udp_send
+decl_stmt|;
+DECL|member|udp_send_chain
+name|ngx_send_chain_pt
+name|udp_send_chain
 decl_stmt|;
 DECL|member|send_chain
 name|ngx_send_chain_pt
@@ -350,6 +354,25 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_function_decl
+name|ngx_chain_t
+modifier|*
+name|ngx_udp_unix_sendmsg_chain
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|,
+name|ngx_chain_t
+modifier|*
+name|in
+parameter_list|,
+name|off_t
+name|limit
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_if
 if|#
 directive|if
@@ -387,7 +410,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2ab03be20208
+DECL|struct|__anon2b6684760208
 typedef|typedef
 struct|struct
 block|{

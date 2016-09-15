@@ -164,6 +164,13 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_stream_top_filter
+name|ngx_stream_filter_pt
+name|ngx_stream_top_filter
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_stream_commands
 specifier|static
 name|ngx_command_t

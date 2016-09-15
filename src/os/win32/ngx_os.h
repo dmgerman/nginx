@@ -130,7 +130,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c28cef0108
+DECL|struct|__anon2b9f3a4e0108
 typedef|typedef
 struct|struct
 block|{
@@ -149,6 +149,14 @@ decl_stmt|;
 DECL|member|send
 name|ngx_send_pt
 name|send
+decl_stmt|;
+DECL|member|udp_send
+name|ngx_send_pt
+name|udp_send
+decl_stmt|;
+DECL|member|udp_send_chain
+name|ngx_send_chain_pt
+name|udp_send_chain
 decl_stmt|;
 DECL|member|send_chain
 name|ngx_send_chain_pt

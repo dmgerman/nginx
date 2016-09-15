@@ -73,6 +73,8 @@ name|ngx_unix_send
 block|,
 name|ngx_udp_unix_send
 block|,
+name|ngx_udp_unix_sendmsg_chain
+block|,
 name|ngx_writev_chain
 block|,
 literal|0

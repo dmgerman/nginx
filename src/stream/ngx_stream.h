@@ -129,7 +129,7 @@ value|503
 end_define
 
 begin_typedef
-DECL|struct|__anon2bb7bb520108
+DECL|struct|__anon28c8c1240108
 typedef|typedef
 struct|struct
 block|{
@@ -152,7 +152,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb7bb520208
+DECL|struct|__anon28c8c1240208
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +270,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb7bb520308
+DECL|struct|__anon28c8c1240308
 typedef|typedef
 struct|struct
 block|{
@@ -309,7 +309,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb7bb520408
+DECL|struct|__anon28c8c1240408
 typedef|typedef
 struct|struct
 block|{
@@ -336,7 +336,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2bb7bb520508
+DECL|struct|__anon28c8c1240508
 typedef|typedef
 struct|struct
 block|{
@@ -361,7 +361,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2bb7bb520608
+DECL|struct|__anon28c8c1240608
 typedef|typedef
 struct|struct
 block|{
@@ -382,7 +382,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb7bb520708
+DECL|struct|__anon28c8c1240708
 typedef|typedef
 struct|struct
 block|{
@@ -410,7 +410,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb7bb520808
+DECL|struct|__anon28c8c1240808
 typedef|typedef
 struct|struct
 block|{
@@ -441,7 +441,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb7bb520908
+DECL|struct|__anon28c8c1240908
 typedef|typedef
 struct|struct
 block|{
@@ -520,7 +520,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb7bb520a08
+DECL|struct|__anon28c8c1240a08
 typedef|typedef
 struct|struct
 block|{
@@ -682,7 +682,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bb7bb520b08
+DECL|struct|__anon28c8c1240b08
 typedef|typedef
 struct|struct
 block|{
@@ -944,6 +944,14 @@ define|\
 value|(cycle->conf_ctx[ngx_stream_module.index] ?                                \         ((ngx_stream_conf_ctx_t *) cycle->conf_ctx[ngx_stream_module.index])   \             ->main_conf[module.ctx_index]:                                     \         NULL)
 end_define
 
+begin_define
+DECL|macro|NGX_STREAM_WRITE_BUFFERED
+define|#
+directive|define
+name|NGX_STREAM_WRITE_BUFFERED
+value|0x10
+end_define
+
 begin_function_decl
 name|void
 name|ngx_stream_init_connection
@@ -987,6 +995,36 @@ begin_decl_stmt
 specifier|extern
 name|ngx_module_t
 name|ngx_stream_core_module
+decl_stmt|;
+end_decl_stmt
+
+begin_typedef
+DECL|typedef|ngx_stream_filter_pt
+typedef|typedef
+name|ngx_int_t
+function_decl|(
+modifier|*
+name|ngx_stream_filter_pt
+function_decl|)
+parameter_list|(
+name|ngx_stream_session_t
+modifier|*
+name|s
+parameter_list|,
+name|ngx_chain_t
+modifier|*
+name|chain
+parameter_list|,
+name|ngx_uint_t
+name|from_upstream
+parameter_list|)
+function_decl|;
+end_typedef
+
+begin_decl_stmt
+specifier|extern
+name|ngx_stream_filter_pt
+name|ngx_stream_top_filter
 decl_stmt|;
 end_decl_stmt
 

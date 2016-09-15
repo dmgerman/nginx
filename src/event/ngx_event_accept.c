@@ -2016,6 +2016,12 @@ name|ngx_udp_send
 expr_stmt|;
 name|c
 operator|->
+name|send_chain
+operator|=
+name|ngx_udp_send_chain
+expr_stmt|;
+name|c
+operator|->
 name|log
 operator|=
 name|log
