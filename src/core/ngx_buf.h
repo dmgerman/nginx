@@ -193,7 +193,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c4568ae0108
+DECL|struct|__anon29b743c90108
 typedef|typedef
 struct|struct
 block|{
@@ -310,19 +310,12 @@ name|directio
 range|:
 literal|1
 decl_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_HAVE_ALIGNED_DIRECTIO
-operator|)
 DECL|member|unaligned
 name|unsigned
 name|unaligned
 range|:
 literal|1
 decl_stmt|;
-endif|#
-directive|endif
 DECL|member|need_in_memory
 name|unsigned
 name|need_in_memory
@@ -443,7 +436,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c4568ae0208
+DECL|struct|__anon29b743c90208
 typedef|typedef
 struct|struct
 block|{

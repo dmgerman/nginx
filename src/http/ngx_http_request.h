@@ -717,7 +717,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon29b3664c0103
+DECL|enum|__anon2c6f68390103
 typedef|typedef
 enum|enum
 block|{
@@ -756,7 +756,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b3664c0208
+DECL|struct|__anon2c6f68390208
 typedef|typedef
 struct|struct
 block|{
@@ -779,7 +779,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b3664c0308
+DECL|struct|__anon2c6f68390308
 typedef|typedef
 struct|struct
 block|{
@@ -798,7 +798,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b3664c0408
+DECL|struct|__anon2c6f68390408
 typedef|typedef
 struct|struct
 block|{
@@ -1065,7 +1065,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b3664c0508
+DECL|struct|__anon2c6f68390508
 typedef|typedef
 struct|struct
 block|{
@@ -1210,7 +1210,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b3664c0608
+DECL|struct|__anon2c6f68390608
 typedef|typedef
 struct|struct
 block|{
@@ -1279,7 +1279,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b3664c0708
+DECL|struct|__anon2c6f68390708
 typedef|typedef
 struct|struct
 block|{
@@ -1297,9 +1297,6 @@ if|#
 directive|if
 operator|(
 name|NGX_HTTP_SSL
-operator|&&
-name|defined
-name|SSL_CTRL_SET_TLSEXT_HOSTNAME
 operator|)
 DECL|member|ssl_servername
 name|ngx_str_t
@@ -1437,7 +1434,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b3664c0808
+DECL|struct|__anon2c6f68390808
 typedef|typedef
 struct|struct
 block|{
@@ -2184,11 +2181,6 @@ name|disable_not_modified
 range|:
 literal|1
 decl_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_STAT_STUB
-operator|)
 DECL|member|stat_reading
 name|unsigned
 name|stat_reading
@@ -2201,8 +2193,6 @@ name|stat_writing
 range|:
 literal|1
 decl_stmt|;
-endif|#
-directive|endif
 comment|/* used to parse HTTP headers */
 DECL|member|state
 name|ngx_uint_t
@@ -2326,7 +2316,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29b3664c0908
+DECL|struct|__anon2c6f68390908
 typedef|typedef
 struct|struct
 block|{
