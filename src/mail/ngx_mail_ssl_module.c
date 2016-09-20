@@ -2060,7 +2060,7 @@ condition|)
 block|{
 name|ngx_conf_log_error
 argument_list|(
-name|NGX_LOG_WARN
+name|NGX_LOG_EMERG
 argument_list|,
 name|cf
 argument_list|,
@@ -2175,7 +2175,7 @@ condition|)
 block|{
 name|ngx_conf_log_error
 argument_list|(
-name|NGX_LOG_WARN
+name|NGX_LOG_EMERG
 argument_list|,
 name|cf
 argument_list|,

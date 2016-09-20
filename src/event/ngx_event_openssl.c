@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon275bcf770108
+DECL|struct|__anon2950a3870108
 typedef|typedef
 struct|struct
 block|{
@@ -14909,7 +14909,7 @@ condition|)
 block|{
 name|ngx_ssl_error
 argument_list|(
-name|NGX_LOG_WARN
+name|NGX_LOG_EMERG
 argument_list|,
 name|cf
 operator|->
@@ -14944,7 +14944,7 @@ condition|)
 block|{
 name|ngx_ssl_error
 argument_list|(
-name|NGX_LOG_WARN
+name|NGX_LOG_EMERG
 argument_list|,
 name|cf
 operator|->
