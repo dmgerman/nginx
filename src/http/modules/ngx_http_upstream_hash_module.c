@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a3cba8d0108
+DECL|struct|__anon291413b70108
 typedef|typedef
 struct|struct
 block|{
@@ -42,7 +42,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3cba8d0208
+DECL|struct|__anon291413b70208
 typedef|typedef
 struct|struct
 block|{
@@ -64,7 +64,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3cba8d0308
+DECL|struct|__anon291413b70308
 typedef|typedef
 struct|struct
 block|{
@@ -84,7 +84,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3cba8d0408
+DECL|struct|__anon291413b70408
 typedef|typedef
 struct|struct
 block|{
@@ -1189,7 +1189,7 @@ name|ngx_http_upstream_hash_srv_conf_t
 modifier|*
 name|hcf
 decl_stmt|;
-DECL|union|__anon2a3cba8d050a
+DECL|union|__anon291413b7050a
 union|union
 block|{
 DECL|member|value
