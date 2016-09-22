@@ -3803,6 +3803,12 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|u
+operator|->
+name|upstream
+operator|=
+name|uscf
+expr_stmt|;
 if|#
 directive|if
 operator|(

@@ -261,7 +261,7 @@ value|0x00000200
 end_define
 
 begin_typedef
-DECL|struct|__anon28f6bbf60108
+DECL|struct|__anon27facfc70108
 typedef|typedef
 struct|struct
 block|{
@@ -309,7 +309,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f6bbf60208
+DECL|struct|__anon27facfc70208
 typedef|typedef
 struct|struct
 block|{
@@ -378,7 +378,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f6bbf60308
+DECL|struct|__anon27facfc70308
 typedef|typedef
 struct|struct
 block|{
@@ -402,7 +402,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f6bbf60408
+DECL|struct|__anon27facfc70408
 typedef|typedef
 struct|struct
 block|{
@@ -565,7 +565,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28f6bbf60508
+DECL|struct|__anon27facfc70508
 typedef|typedef
 struct|struct
 block|{
@@ -598,7 +598,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f6bbf60608
+DECL|struct|__anon27facfc70608
 typedef|typedef
 struct|struct
 block|{
@@ -884,7 +884,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f6bbf60708
+DECL|struct|__anon27facfc70708
 typedef|typedef
 struct|struct
 block|{
@@ -920,7 +920,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f6bbf60808
+DECL|struct|__anon27facfc70808
 typedef|typedef
 struct|struct
 block|{
@@ -1068,7 +1068,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f6bbf60908
+DECL|struct|__anon27facfc70908
 typedef|typedef
 struct|struct
 block|{
@@ -1174,6 +1174,11 @@ DECL|member|conf
 name|ngx_http_upstream_conf_t
 modifier|*
 name|conf
+decl_stmt|;
+DECL|member|upstream
+name|ngx_http_upstream_srv_conf_t
+modifier|*
+name|upstream
 decl_stmt|;
 if|#
 directive|if
@@ -1487,7 +1492,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28f6bbf60a08
+DECL|struct|__anon27facfc70a08
 typedef|typedef
 struct|struct
 block|{
@@ -1506,7 +1511,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f6bbf60b08
+DECL|struct|__anon27facfc70b08
 typedef|typedef
 struct|struct
 block|{

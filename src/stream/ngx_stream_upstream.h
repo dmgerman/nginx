@@ -89,7 +89,7 @@ value|0x0020
 end_define
 
 begin_typedef
-DECL|struct|__anon2a2eede80108
+DECL|struct|__anon29e2c25c0108
 typedef|typedef
 struct|struct
 block|{
@@ -154,7 +154,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2eede80208
+DECL|struct|__anon29e2c25c0208
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2eede80308
+DECL|struct|__anon29e2c25c0308
 typedef|typedef
 struct|struct
 block|{
@@ -289,7 +289,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a2eede80408
+DECL|struct|__anon29e2c25c0408
 typedef|typedef
 struct|struct
 block|{
@@ -325,7 +325,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2eede80508
+DECL|struct|__anon29e2c25c0508
 typedef|typedef
 struct|struct
 block|{
@@ -373,7 +373,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2eede80608
+DECL|struct|__anon29e2c25c0608
 typedef|typedef
 struct|struct
 block|{
@@ -437,6 +437,11 @@ name|ssl_name
 decl_stmt|;
 endif|#
 directive|endif
+DECL|member|upstream
+name|ngx_stream_upstream_srv_conf_t
+modifier|*
+name|upstream
+decl_stmt|;
 DECL|member|resolved
 name|ngx_stream_upstream_resolved_t
 modifier|*

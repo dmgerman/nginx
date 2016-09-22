@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27700fc70108
+DECL|struct|__anon2a2167ab0108
 typedef|typedef
 struct|struct
 block|{
@@ -55,7 +55,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27700fc70208
+DECL|struct|__anon2a2167ab0208
 typedef|typedef
 struct|struct
 block|{
@@ -2246,6 +2246,12 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|u
+operator|->
+name|upstream
+operator|=
+name|uscf
+expr_stmt|;
 if|#
 directive|if
 operator|(
