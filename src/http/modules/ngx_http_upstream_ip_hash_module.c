@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27425cb50108
+DECL|struct|__anon299c85490108
 typedef|typedef
 struct|struct
 block|{
@@ -845,6 +845,25 @@ goto|goto
 name|next
 goto|;
 block|}
+if|if
+condition|(
+name|peer
+operator|->
+name|max_conns
+operator|&&
+name|peer
+operator|->
+name|conns
+operator|>=
+name|peer
+operator|->
+name|max_conns
+condition|)
+block|{
+goto|goto
+name|next
+goto|;
+block|}
 break|break;
 name|next
 label|:
@@ -1041,6 +1060,8 @@ operator|=
 name|NGX_HTTP_UPSTREAM_CREATE
 operator||
 name|NGX_HTTP_UPSTREAM_WEIGHT
+operator||
+name|NGX_HTTP_UPSTREAM_MAX_CONNS
 operator||
 name|NGX_HTTP_UPSTREAM_MAX_FAILS
 operator||

@@ -82,6 +82,10 @@ DECL|member|conns
 name|ngx_uint_t
 name|conns
 decl_stmt|;
+DECL|member|max_conns
+name|ngx_uint_t
+name|max_conns
+decl_stmt|;
 DECL|member|fails
 name|ngx_uint_t
 name|fails
@@ -354,7 +358,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b7408560108
+DECL|struct|__anon2bd437120108
 typedef|typedef
 struct|struct
 block|{

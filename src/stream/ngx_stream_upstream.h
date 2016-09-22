@@ -88,8 +88,16 @@ name|NGX_STREAM_UPSTREAM_BACKUP
 value|0x0020
 end_define
 
+begin_define
+DECL|macro|NGX_STREAM_UPSTREAM_MAX_CONNS
+define|#
+directive|define
+name|NGX_STREAM_UPSTREAM_MAX_CONNS
+value|0x0100
+end_define
+
 begin_typedef
-DECL|struct|__anon29e2c25c0108
+DECL|struct|__anon2992d4a50108
 typedef|typedef
 struct|struct
 block|{
@@ -154,7 +162,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e2c25c0208
+DECL|struct|__anon2992d4a50208
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +186,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e2c25c0308
+DECL|struct|__anon2992d4a50308
 typedef|typedef
 struct|struct
 block|{
@@ -198,6 +206,10 @@ decl_stmt|;
 DECL|member|weight
 name|ngx_uint_t
 name|weight
+decl_stmt|;
+DECL|member|max_conns
+name|ngx_uint_t
+name|max_conns
 decl_stmt|;
 DECL|member|max_fails
 name|ngx_uint_t
@@ -289,7 +301,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29e2c25c0408
+DECL|struct|__anon2992d4a50408
 typedef|typedef
 struct|struct
 block|{
@@ -325,7 +337,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e2c25c0508
+DECL|struct|__anon2992d4a50508
 typedef|typedef
 struct|struct
 block|{
@@ -373,7 +385,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e2c25c0608
+DECL|struct|__anon2992d4a50608
 typedef|typedef
 struct|struct
 block|{

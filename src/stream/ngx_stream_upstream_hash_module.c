@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28eed0020108
+DECL|struct|__anon296f1aca0108
 typedef|typedef
 struct|struct
 block|{
@@ -42,7 +42,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28eed0020208
+DECL|struct|__anon296f1aca0208
 typedef|typedef
 struct|struct
 block|{
@@ -64,7 +64,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28eed0020308
+DECL|struct|__anon296f1aca0308
 typedef|typedef
 struct|struct
 block|{
@@ -84,7 +84,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28eed0020408
+DECL|struct|__anon296f1aca0408
 typedef|typedef
 struct|struct
 block|{
@@ -995,6 +995,25 @@ goto|goto
 name|next
 goto|;
 block|}
+if|if
+condition|(
+name|peer
+operator|->
+name|max_conns
+operator|&&
+name|peer
+operator|->
+name|conns
+operator|>=
+name|peer
+operator|->
+name|max_conns
+condition|)
+block|{
+goto|goto
+name|next
+goto|;
+block|}
 break|break;
 name|next
 label|:
@@ -1179,7 +1198,7 @@ name|ngx_stream_upstream_hash_srv_conf_t
 modifier|*
 name|hcf
 decl_stmt|;
-DECL|union|__anon28eed002050a
+DECL|union|__anon296f1aca050a
 union|union
 block|{
 DECL|member|value
@@ -2419,6 +2438,23 @@ condition|)
 block|{
 continue|continue;
 block|}
+if|if
+condition|(
+name|peer
+operator|->
+name|max_conns
+operator|&&
+name|peer
+operator|->
+name|conns
+operator|>=
+name|peer
+operator|->
+name|max_conns
+condition|)
+block|{
+continue|continue;
+block|}
 name|peer
 operator|->
 name|current_weight
@@ -2836,6 +2872,8 @@ operator|=
 name|NGX_STREAM_UPSTREAM_CREATE
 operator||
 name|NGX_STREAM_UPSTREAM_WEIGHT
+operator||
+name|NGX_STREAM_UPSTREAM_MAX_CONNS
 operator||
 name|NGX_STREAM_UPSTREAM_MAX_FAILS
 operator||

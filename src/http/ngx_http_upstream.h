@@ -261,7 +261,7 @@ value|0x00000200
 end_define
 
 begin_typedef
-DECL|struct|__anon27facfc70108
+DECL|struct|__anon288836880108
 typedef|typedef
 struct|struct
 block|{
@@ -309,7 +309,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27facfc70208
+DECL|struct|__anon288836880208
 typedef|typedef
 struct|struct
 block|{
@@ -378,7 +378,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27facfc70308
+DECL|struct|__anon288836880308
 typedef|typedef
 struct|struct
 block|{
@@ -402,7 +402,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27facfc70408
+DECL|struct|__anon288836880408
 typedef|typedef
 struct|struct
 block|{
@@ -422,6 +422,10 @@ decl_stmt|;
 DECL|member|weight
 name|ngx_uint_t
 name|weight
+decl_stmt|;
+DECL|member|max_conns
+name|ngx_uint_t
+name|max_conns
 decl_stmt|;
 DECL|member|max_fails
 name|ngx_uint_t
@@ -497,6 +501,14 @@ name|NGX_HTTP_UPSTREAM_BACKUP
 value|0x0020
 end_define
 
+begin_define
+DECL|macro|NGX_HTTP_UPSTREAM_MAX_CONNS
+define|#
+directive|define
+name|NGX_HTTP_UPSTREAM_MAX_CONNS
+value|0x0100
+end_define
+
 begin_struct
 DECL|struct|ngx_http_upstream_srv_conf_s
 struct|struct
@@ -565,7 +577,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27facfc70508
+DECL|struct|__anon288836880508
 typedef|typedef
 struct|struct
 block|{
@@ -598,7 +610,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27facfc70608
+DECL|struct|__anon288836880608
 typedef|typedef
 struct|struct
 block|{
@@ -884,7 +896,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27facfc70708
+DECL|struct|__anon288836880708
 typedef|typedef
 struct|struct
 block|{
@@ -920,7 +932,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27facfc70808
+DECL|struct|__anon288836880808
 typedef|typedef
 struct|struct
 block|{
@@ -1068,7 +1080,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27facfc70908
+DECL|struct|__anon288836880908
 typedef|typedef
 struct|struct
 block|{
@@ -1492,7 +1504,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27facfc70a08
+DECL|struct|__anon288836880a08
 typedef|typedef
 struct|struct
 block|{
@@ -1511,7 +1523,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27facfc70b08
+DECL|struct|__anon288836880b08
 typedef|typedef
 struct|struct
 block|{
