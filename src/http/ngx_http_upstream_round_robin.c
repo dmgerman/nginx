@@ -1508,6 +1508,12 @@ name|current
 operator|=
 name|NULL
 expr_stmt|;
+name|rrp
+operator|->
+name|config
+operator|=
+literal|0
+expr_stmt|;
 name|n
 operator|=
 name|rrp
@@ -2235,6 +2241,12 @@ operator|->
 name|current
 operator|=
 name|NULL
+expr_stmt|;
+name|rrp
+operator|->
+name|config
+operator|=
+literal|0
 expr_stmt|;
 if|if
 condition|(

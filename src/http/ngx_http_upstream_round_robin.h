@@ -366,10 +366,14 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2be4817b0108
+DECL|struct|__anon2be729da0108
 typedef|typedef
 struct|struct
 block|{
+DECL|member|config
+name|ngx_uint_t
+name|config
+decl_stmt|;
 DECL|member|peers
 name|ngx_http_upstream_rr_peers_t
 modifier|*
