@@ -261,7 +261,7 @@ value|0x00000200
 end_define
 
 begin_typedef
-DECL|struct|__anon28d3506e0108
+DECL|struct|__anon2bd093630108
 typedef|typedef
 struct|struct
 block|{
@@ -309,7 +309,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28d3506e0208
+DECL|struct|__anon2bd093630208
 typedef|typedef
 struct|struct
 block|{
@@ -378,7 +378,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28d3506e0308
+DECL|struct|__anon2bd093630308
 typedef|typedef
 struct|struct
 block|{
@@ -402,7 +402,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28d3506e0408
+DECL|struct|__anon2bd093630408
 typedef|typedef
 struct|struct
 block|{
@@ -581,7 +581,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28d3506e0508
+DECL|struct|__anon2bd093630508
 typedef|typedef
 struct|struct
 block|{
@@ -614,7 +614,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28d3506e0608
+DECL|struct|__anon2bd093630608
 typedef|typedef
 struct|struct
 block|{
@@ -812,6 +812,11 @@ name|ngx_array_t
 modifier|*
 name|cache_bypass
 decl_stmt|;
+DECL|member|cache_purge
+name|ngx_array_t
+modifier|*
+name|cache_purge
+decl_stmt|;
 DECL|member|no_cache
 name|ngx_array_t
 modifier|*
@@ -900,7 +905,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28d3506e0708
+DECL|struct|__anon2bd093630708
 typedef|typedef
 struct|struct
 block|{
@@ -936,7 +941,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28d3506e0808
+DECL|struct|__anon2bd093630808
 typedef|typedef
 struct|struct
 block|{
@@ -1084,7 +1089,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28d3506e0908
+DECL|struct|__anon2bd093630908
 typedef|typedef
 struct|struct
 block|{
@@ -1508,7 +1513,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28d3506e0a08
+DECL|struct|__anon2bd093630a08
 typedef|typedef
 struct|struct
 block|{
@@ -1527,7 +1532,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28d3506e0b08
+DECL|struct|__anon2bd093630b08
 typedef|typedef
 struct|struct
 block|{

@@ -131,7 +131,7 @@ value|3
 end_define
 
 begin_typedef
-DECL|struct|__anon28cc1d310108
+DECL|struct|__anon2bacf27d0108
 typedef|typedef
 struct|struct
 block|{
@@ -150,7 +150,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28cc1d310208
+DECL|struct|__anon2bacf27d0208
 typedef|typedef
 struct|struct
 block|{
@@ -216,7 +216,13 @@ name|deleting
 range|:
 literal|1
 decl_stmt|;
-comment|/* 11 unused bits */
+DECL|member|purged
+name|unsigned
+name|purged
+range|:
+literal|1
+decl_stmt|;
+comment|/* 10 unused bits */
 DECL|member|uniq
 name|ngx_file_uniq_t
 name|uniq
@@ -336,6 +342,10 @@ DECL|member|valid_msec
 name|ngx_uint_t
 name|valid_msec
 decl_stmt|;
+DECL|member|vary_tag
+name|ngx_uint_t
+name|vary_tag
+decl_stmt|;
 DECL|member|buf
 name|ngx_buf_t
 modifier|*
@@ -419,6 +429,12 @@ name|temp_file
 range|:
 literal|1
 decl_stmt|;
+DECL|member|purged
+name|unsigned
+name|purged
+range|:
+literal|1
+decl_stmt|;
 DECL|member|reading
 name|unsigned
 name|reading
@@ -436,7 +452,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28cc1d310308
+DECL|struct|__anon2bacf27d0308
 typedef|typedef
 struct|struct
 block|{
@@ -508,7 +524,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28cc1d310408
+DECL|struct|__anon2bacf27d0408
 typedef|typedef
 struct|struct
 block|{

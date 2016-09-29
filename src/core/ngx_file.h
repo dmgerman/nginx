@@ -144,6 +144,22 @@ function_decl|;
 end_typedef
 
 begin_typedef
+DECL|typedef|ngx_path_purger_pt
+typedef|typedef
+name|ngx_msec_t
+function_decl|(
+modifier|*
+name|ngx_path_purger_pt
+function_decl|)
+parameter_list|(
+name|void
+modifier|*
+name|data
+parameter_list|)
+function_decl|;
+end_typedef
+
+begin_typedef
 DECL|typedef|ngx_path_loader_pt
 typedef|typedef
 name|void
@@ -160,7 +176,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298ab4300108
+DECL|struct|__anon2a99c4df0108
 typedef|typedef
 struct|struct
 block|{
@@ -182,6 +198,10 @@ decl_stmt|;
 DECL|member|manager
 name|ngx_path_manager_pt
 name|manager
+decl_stmt|;
+DECL|member|purger
+name|ngx_path_purger_pt
+name|purger
 decl_stmt|;
 DECL|member|loader
 name|ngx_path_loader_pt
@@ -208,7 +228,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298ab4300208
+DECL|struct|__anon2a99c4df0208
 typedef|typedef
 struct|struct
 block|{
@@ -230,7 +250,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298ab4300308
+DECL|struct|__anon2a99c4df0308
 typedef|typedef
 struct|struct
 block|{
@@ -292,7 +312,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298ab4300408
+DECL|struct|__anon2a99c4df0408
 typedef|typedef
 struct|struct
 block|{
@@ -336,7 +356,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298ab4300508
+DECL|struct|__anon2a99c4df0508
 typedef|typedef
 struct|struct
 block|{
