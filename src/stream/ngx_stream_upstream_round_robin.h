@@ -118,7 +118,6 @@ DECL|member|down
 name|ngx_uint_t
 name|down
 decl_stmt|;
-comment|/* unsigned  down:1; */
 if|#
 directive|if
 operator|(
@@ -366,7 +365,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2981c8e80108
+DECL|struct|__anon278f2ab90108
 typedef|typedef
 struct|struct
 block|{
