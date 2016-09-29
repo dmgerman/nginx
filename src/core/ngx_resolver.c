@@ -46,7 +46,7 @@ value|8192
 end_define
 
 begin_typedef
-DECL|struct|__anon2b98f79e0108
+DECL|struct|__anon27b6adf00108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b98f79e0208
+DECL|struct|__anon27b6adf00208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b98f79e0308
+DECL|struct|__anon27b6adf00308
 typedef|typedef
 struct|struct
 block|{
@@ -13590,6 +13590,14 @@ operator|->
 name|ctx
 operator|=
 name|NULL
+expr_stmt|;
+name|srv
+operator|->
+name|state
+operator|=
+name|cctx
+operator|->
+name|state
 expr_stmt|;
 if|if
 condition|(
