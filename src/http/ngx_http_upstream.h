@@ -261,7 +261,7 @@ value|0x00000200
 end_define
 
 begin_typedef
-DECL|struct|__anon2bd093630108
+DECL|struct|__anon2c3c62ce0108
 typedef|typedef
 struct|struct
 block|{
@@ -309,7 +309,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd093630208
+DECL|struct|__anon2c3c62ce0208
 typedef|typedef
 struct|struct
 block|{
@@ -378,7 +378,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd093630308
+DECL|struct|__anon2c3c62ce0308
 typedef|typedef
 struct|struct
 block|{
@@ -402,7 +402,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd093630408
+DECL|struct|__anon2c3c62ce0408
 typedef|typedef
 struct|struct
 block|{
@@ -451,6 +451,11 @@ name|backup
 range|:
 literal|1
 decl_stmt|;
+name|NGX_COMPAT_BEGIN
+argument_list|(
+literal|6
+argument_list|)
+name|NGX_COMPAT_END
 DECL|typedef|ngx_http_upstream_server_t
 block|}
 name|ngx_http_upstream_server_t
@@ -581,7 +586,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bd093630508
+DECL|struct|__anon2c3c62ce0508
 typedef|typedef
 struct|struct
 block|{
@@ -614,7 +619,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd093630608
+DECL|struct|__anon2c3c62ce0608
 typedef|typedef
 struct|struct
 block|{
@@ -898,6 +903,11 @@ DECL|member|module
 name|ngx_str_t
 name|module
 decl_stmt|;
+name|NGX_COMPAT_BEGIN
+argument_list|(
+literal|2
+argument_list|)
+name|NGX_COMPAT_END
 DECL|typedef|ngx_http_upstream_conf_t
 block|}
 name|ngx_http_upstream_conf_t
@@ -905,7 +915,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd093630708
+DECL|struct|__anon2c3c62ce0708
 typedef|typedef
 struct|struct
 block|{
@@ -941,7 +951,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd093630808
+DECL|struct|__anon2c3c62ce0808
 typedef|typedef
 struct|struct
 block|{
@@ -1089,7 +1099,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd093630908
+DECL|struct|__anon2c3c62ce0908
 typedef|typedef
 struct|struct
 block|{
@@ -1508,12 +1518,17 @@ name|header_sent
 range|:
 literal|1
 decl_stmt|;
+name|NGX_COMPAT_BEGIN
+argument_list|(
+literal|1
+argument_list|)
+name|NGX_COMPAT_END
 block|}
 struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bd093630a08
+DECL|struct|__anon2c3c62ce0a08
 typedef|typedef
 struct|struct
 block|{
@@ -1532,7 +1547,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bd093630b08
+DECL|struct|__anon2c3c62ce0b08
 typedef|typedef
 struct|struct
 block|{

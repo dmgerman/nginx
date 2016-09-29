@@ -564,6 +564,59 @@ name|NGX_MAX_INT32_VALUE
 value|(uint32_t) 0x7fffffff
 end_define
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_COMPAT
+operator|)
+end_if
+
+begin_define
+DECL|macro|NGX_COMPAT_BEGIN (slots)
+define|#
+directive|define
+name|NGX_COMPAT_BEGIN
+parameter_list|(
+name|slots
+parameter_list|)
+value|uint64_t spare[slots];
+end_define
+
+begin_define
+DECL|macro|NGX_COMPAT_END
+define|#
+directive|define
+name|NGX_COMPAT_END
+end_define
+
+begin_else
+else|#
+directive|else
+end_else
+
+begin_define
+DECL|macro|NGX_COMPAT_BEGIN (slots)
+define|#
+directive|define
+name|NGX_COMPAT_BEGIN
+parameter_list|(
+name|slots
+parameter_list|)
+end_define
+
+begin_define
+DECL|macro|NGX_COMPAT_END
+define|#
+directive|define
+name|NGX_COMPAT_END
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_endif
 endif|#
 directive|endif

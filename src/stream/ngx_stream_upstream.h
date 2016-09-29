@@ -97,7 +97,7 @@ value|0x0100
 end_define
 
 begin_typedef
-DECL|struct|__anon27bb33190108
+DECL|struct|__anon293e461a0108
 typedef|typedef
 struct|struct
 block|{
@@ -162,7 +162,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27bb33190208
+DECL|struct|__anon293e461a0208
 typedef|typedef
 struct|struct
 block|{
@@ -186,7 +186,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27bb33190308
+DECL|struct|__anon293e461a0308
 typedef|typedef
 struct|struct
 block|{
@@ -235,6 +235,11 @@ name|backup
 range|:
 literal|1
 decl_stmt|;
+name|NGX_COMPAT_BEGIN
+argument_list|(
+literal|4
+argument_list|)
+name|NGX_COMPAT_END
 DECL|typedef|ngx_stream_upstream_server_t
 block|}
 name|ngx_stream_upstream_server_t
@@ -305,7 +310,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27bb33190408
+DECL|struct|__anon293e461a0408
 typedef|typedef
 struct|struct
 block|{
@@ -341,7 +346,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27bb33190508
+DECL|struct|__anon293e461a0508
 typedef|typedef
 struct|struct
 block|{
@@ -389,7 +394,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27bb33190608
+DECL|struct|__anon293e461a0608
 typedef|typedef
 struct|struct
 block|{

@@ -150,6 +150,11 @@ name|ngx_stream_upstream_rr_peer_t
 modifier|*
 name|next
 decl_stmt|;
+name|NGX_COMPAT_BEGIN
+argument_list|(
+literal|25
+argument_list|)
+name|NGX_COMPAT_END
 block|}
 struct|;
 end_struct
@@ -365,7 +370,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon278f2ab90108
+DECL|struct|__anon2c62c6e20108
 typedef|typedef
 struct|struct
 block|{

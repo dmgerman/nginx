@@ -288,6 +288,11 @@ name|log_error
 range|:
 literal|2
 decl_stmt|;
+name|NGX_COMPAT_BEGIN
+argument_list|(
+literal|2
+argument_list|)
+name|NGX_COMPAT_END
 block|}
 struct|;
 end_struct
