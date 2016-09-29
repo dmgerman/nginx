@@ -106,6 +106,14 @@ DECL|member|fail_timeout
 name|time_t
 name|fail_timeout
 decl_stmt|;
+DECL|member|slow_start
+name|ngx_msec_t
+name|slow_start
+decl_stmt|;
+DECL|member|start_time
+name|ngx_msec_t
+name|start_time
+decl_stmt|;
 DECL|member|down
 name|ngx_uint_t
 name|down
@@ -358,7 +366,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon27f796000108
+DECL|struct|__anon2be4817b0108
 typedef|typedef
 struct|struct
 block|{

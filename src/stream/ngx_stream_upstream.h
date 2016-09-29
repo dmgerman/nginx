@@ -97,7 +97,7 @@ value|0x0100
 end_define
 
 begin_typedef
-DECL|struct|__anon2992d4a50108
+DECL|struct|__anon27bb33190108
 typedef|typedef
 struct|struct
 block|{
@@ -162,7 +162,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2992d4a50208
+DECL|struct|__anon27bb33190208
 typedef|typedef
 struct|struct
 block|{
@@ -186,7 +186,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2992d4a50308
+DECL|struct|__anon27bb33190308
 typedef|typedef
 struct|struct
 block|{
@@ -218,6 +218,10 @@ decl_stmt|;
 DECL|member|fail_timeout
 name|time_t
 name|fail_timeout
+decl_stmt|;
+DECL|member|slow_start
+name|ngx_msec_t
+name|slow_start
 decl_stmt|;
 DECL|member|down
 name|unsigned
@@ -301,7 +305,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2992d4a50408
+DECL|struct|__anon27bb33190408
 typedef|typedef
 struct|struct
 block|{
@@ -337,7 +341,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2992d4a50508
+DECL|struct|__anon27bb33190508
 typedef|typedef
 struct|struct
 block|{
@@ -385,7 +389,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2992d4a50608
+DECL|struct|__anon27bb33190608
 typedef|typedef
 struct|struct
 block|{

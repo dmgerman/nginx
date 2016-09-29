@@ -261,7 +261,7 @@ value|0x00000200
 end_define
 
 begin_typedef
-DECL|struct|__anon288836880108
+DECL|struct|__anon28d3506e0108
 typedef|typedef
 struct|struct
 block|{
@@ -309,7 +309,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288836880208
+DECL|struct|__anon28d3506e0208
 typedef|typedef
 struct|struct
 block|{
@@ -378,7 +378,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288836880308
+DECL|struct|__anon28d3506e0308
 typedef|typedef
 struct|struct
 block|{
@@ -402,7 +402,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288836880408
+DECL|struct|__anon28d3506e0408
 typedef|typedef
 struct|struct
 block|{
@@ -434,6 +434,10 @@ decl_stmt|;
 DECL|member|fail_timeout
 name|time_t
 name|fail_timeout
+decl_stmt|;
+DECL|member|slow_start
+name|ngx_msec_t
+name|slow_start
 decl_stmt|;
 DECL|member|down
 name|unsigned
@@ -577,7 +581,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon288836880508
+DECL|struct|__anon28d3506e0508
 typedef|typedef
 struct|struct
 block|{
@@ -610,7 +614,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288836880608
+DECL|struct|__anon28d3506e0608
 typedef|typedef
 struct|struct
 block|{
@@ -896,7 +900,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288836880708
+DECL|struct|__anon28d3506e0708
 typedef|typedef
 struct|struct
 block|{
@@ -932,7 +936,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288836880808
+DECL|struct|__anon28d3506e0808
 typedef|typedef
 struct|struct
 block|{
@@ -1080,7 +1084,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288836880908
+DECL|struct|__anon28d3506e0908
 typedef|typedef
 struct|struct
 block|{
@@ -1504,7 +1508,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon288836880a08
+DECL|struct|__anon28d3506e0a08
 typedef|typedef
 struct|struct
 block|{
@@ -1523,7 +1527,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon288836880b08
+DECL|struct|__anon28d3506e0b08
 typedef|typedef
 struct|struct
 block|{
