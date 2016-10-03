@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b44f91b0108
+DECL|struct|__anon29666a500108
 typedef|typedef
 struct|struct
 block|{
@@ -50,7 +50,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b44f91b0208
+DECL|struct|__anon29666a500208
 typedef|typedef
 struct|struct
 block|{
@@ -671,6 +671,14 @@ operator|->
 name|last_buf
 operator|=
 literal|0
+expr_stmt|;
+name|cl
+operator|->
+name|buf
+operator|->
+name|last_in_chain
+operator|=
+literal|1
 expr_stmt|;
 name|cl
 operator|->
