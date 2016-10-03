@@ -230,11 +230,6 @@ literal|1
 decl_stmt|;
 endif|#
 directive|endif
-if|#
-directive|if
-operator|(
-name|NGX_HAVE_REUSEPORT
-operator|)
 DECL|member|reuseport
 name|unsigned
 name|reuseport
@@ -247,8 +242,6 @@ name|add_reuseport
 range|:
 literal|1
 decl_stmt|;
-endif|#
-directive|endif
 DECL|member|keepalive
 name|unsigned
 name|keepalive
@@ -317,7 +310,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2c4d681a0103
+DECL|enum|__anon2c5a707d0103
 typedef|typedef
 enum|enum
 block|{
@@ -344,7 +337,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c4d681a0203
+DECL|enum|__anon2c5a707d0203
 typedef|typedef
 enum|enum
 block|{
@@ -365,7 +358,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c4d681a0303
+DECL|enum|__anon2c5a707d0303
 typedef|typedef
 enum|enum
 block|{
