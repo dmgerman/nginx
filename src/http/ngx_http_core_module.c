@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2afb9a4f0108
+DECL|struct|__anon298fa2900108
 typedef|typedef
 struct|struct
 block|{
@@ -17294,9 +17294,6 @@ if|#
 directive|if
 operator|(
 name|NGX_HAVE_INET6
-operator|&&
-name|defined
-name|IPV6_V6ONLY
 operator|)
 name|lsopt
 operator|.

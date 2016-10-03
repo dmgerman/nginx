@@ -221,9 +221,6 @@ if|#
 directive|if
 operator|(
 name|NGX_HAVE_INET6
-operator|&&
-name|defined
-name|IPV6_V6ONLY
 operator|)
 DECL|member|ipv6only
 name|unsigned
@@ -320,7 +317,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2bc9a3ef0103
+DECL|enum|__anon2c4d681a0103
 typedef|typedef
 enum|enum
 block|{
@@ -347,7 +344,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2bc9a3ef0203
+DECL|enum|__anon2c4d681a0203
 typedef|typedef
 enum|enum
 block|{
@@ -368,7 +365,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2bc9a3ef0303
+DECL|enum|__anon2c4d681a0303
 typedef|typedef
 enum|enum
 block|{

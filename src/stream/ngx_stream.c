@@ -2272,9 +2272,6 @@ if|#
 directive|if
 operator|(
 name|NGX_HAVE_INET6
-operator|&&
-name|defined
-name|IPV6_V6ONLY
 operator|)
 name|ls
 operator|->
