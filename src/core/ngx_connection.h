@@ -248,11 +248,6 @@ name|keepalive
 range|:
 literal|2
 decl_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_HAVE_DEFERRED_ACCEPT
-operator|)
 DECL|member|deferred_accept
 name|unsigned
 name|deferred_accept
@@ -271,16 +266,19 @@ name|add_deferred
 range|:
 literal|1
 decl_stmt|;
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_DEFERRED_ACCEPT
+operator|&&
+name|defined
 name|SO_ACCEPTFILTER
+operator|)
 DECL|member|accept_filter
 name|char
 modifier|*
 name|accept_filter
 decl_stmt|;
-endif|#
-directive|endif
 endif|#
 directive|endif
 if|#
@@ -310,7 +308,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2c5a707d0103
+DECL|enum|__anon2b79a1a40103
 typedef|typedef
 enum|enum
 block|{
@@ -337,7 +335,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c5a707d0203
+DECL|enum|__anon2b79a1a40203
 typedef|typedef
 enum|enum
 block|{
@@ -358,7 +356,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c5a707d0303
+DECL|enum|__anon2b79a1a40303
 typedef|typedef
 enum|enum
 block|{
