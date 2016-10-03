@@ -824,14 +824,6 @@ endif|#
 directive|endif
 end_endif
 
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_HTTP_V2
-operator|)
-end_if
-
 begin_define
 DECL|macro|NGX_MODULE_SIGNATURE_25
 define|#
@@ -839,24 +831,6 @@ directive|define
 name|NGX_MODULE_SIGNATURE_25
 value|"1"
 end_define
-
-begin_else
-else|#
-directive|else
-end_else
-
-begin_define
-DECL|macro|NGX_MODULE_SIGNATURE_25
-define|#
-directive|define
-name|NGX_MODULE_SIGNATURE_25
-value|"0"
-end_define
-
-begin_endif
-endif|#
-directive|endif
-end_endif
 
 begin_if
 if|#
@@ -1335,7 +1309,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27d71df70108
+DECL|struct|__anon2b66d0660108
 typedef|typedef
 struct|struct
 block|{

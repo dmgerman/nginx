@@ -82,14 +82,6 @@ name|ngx_http_chunked_t
 typedef|;
 end_typedef
 
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_HTTP_V2
-operator|)
-end_if
-
 begin_typedef
 DECL|typedef|ngx_http_v2_stream_t
 typedef|typedef
@@ -98,11 +90,6 @@ name|ngx_http_v2_stream_s
 name|ngx_http_v2_stream_t
 typedef|;
 end_typedef
-
-begin_endif
-endif|#
-directive|endif
-end_endif
 
 begin_typedef
 DECL|typedef|ngx_http_header_handler_pt
@@ -319,7 +306,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon277e2ead0108
+DECL|struct|__anon29b734430108
 typedef|typedef
 struct|struct
 block|{
