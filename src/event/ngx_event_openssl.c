@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2950a3870108
+DECL|struct|__anon28a706ee0108
 typedef|typedef
 struct|struct
 block|{
@@ -388,13 +388,11 @@ endif|#
 directive|endif
 end_endif
 
-begin_if
-if|#
-directive|if
-name|OPENSSL_VERSION_NUMBER
-operator|<
-literal|0x10002002L
-end_if
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|X509_CHECK_FLAG_ALWAYS_CHECK_SUBJECT
+end_ifndef
 
 begin_function_decl
 specifier|static
@@ -12648,11 +12646,9 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-if|#
-directive|if
-name|OPENSSL_VERSION_NUMBER
-operator|>=
-literal|0x10002002L
+ifdef|#
+directive|ifdef
+name|X509_CHECK_FLAG_ALWAYS_CHECK_SUBJECT
 comment|/* X509_check_host() is only available in OpenSSL 1.0.2+ */
 if|if
 condition|(
@@ -13063,13 +13059,11 @@ return|;
 block|}
 end_function
 
-begin_if
-if|#
-directive|if
-name|OPENSSL_VERSION_NUMBER
-operator|<
-literal|0x10002002L
-end_if
+begin_ifndef
+ifndef|#
+directive|ifndef
+name|X509_CHECK_FLAG_ALWAYS_CHECK_SUBJECT
+end_ifndef
 
 begin_function
 specifier|static
