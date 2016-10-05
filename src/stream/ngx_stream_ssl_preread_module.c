@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b5ed6eb0108
+DECL|struct|__anon2b9c40400108
 typedef|typedef
 struct|struct
 block|{
@@ -37,7 +37,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5ed6eb0208
+DECL|struct|__anon2b9c40400208
 typedef|typedef
 struct|struct
 block|{
@@ -728,7 +728,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2b5ed6eb0303
+DECL|enum|__anon2b9c40400303
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -1319,14 +1319,6 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-name|ctx
-operator|->
-name|host
-operator|.
-name|len
-operator|=
-name|size
-expr_stmt|;
 name|dst
 operator|=
 name|ctx
@@ -1339,6 +1331,26 @@ break|break;
 case|case
 name|sw_sni_host
 case|:
+name|ctx
+operator|->
+name|host
+operator|.
+name|len
+operator|=
+operator|(
+name|p
+index|[
+literal|1
+index|]
+operator|<<
+literal|8
+operator|)
+operator|+
+name|p
+index|[
+literal|2
+index|]
+expr_stmt|;
 name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_STREAM
