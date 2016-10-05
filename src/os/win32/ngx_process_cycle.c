@@ -4055,13 +4055,13 @@ block|{
 name|u_long
 name|ev
 decl_stmt|;
-name|time_t
+name|ngx_uint_t
+name|i
+decl_stmt|;
+name|ngx_msec_t
 name|next
 decl_stmt|,
 name|n
-decl_stmt|;
-name|ngx_uint_t
-name|i
 decl_stmt|;
 name|ngx_path_t
 modifier|*
@@ -4073,6 +4073,8 @@ operator|=
 literal|60
 operator|*
 literal|60
+operator|*
+literal|1000
 expr_stmt|;
 name|path
 operator|=
@@ -4166,8 +4168,6 @@ operator|(
 name|u_long
 operator|)
 name|next
-operator|*
-literal|1000
 argument_list|)
 expr_stmt|;
 if|if

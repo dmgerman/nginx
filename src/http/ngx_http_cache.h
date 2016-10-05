@@ -131,7 +131,7 @@ value|3
 end_define
 
 begin_typedef
-DECL|struct|__anon2bacf27d0108
+DECL|struct|__anon2792ad100108
 typedef|typedef
 struct|struct
 block|{
@@ -150,7 +150,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bacf27d0208
+DECL|struct|__anon2792ad100208
 typedef|typedef
 struct|struct
 block|{
@@ -452,7 +452,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bacf27d0308
+DECL|struct|__anon2792ad100308
 typedef|typedef
 struct|struct
 block|{
@@ -524,7 +524,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bacf27d0408
+DECL|struct|__anon2792ad100408
 typedef|typedef
 struct|struct
 block|{
@@ -626,6 +626,18 @@ decl_stmt|;
 DECL|member|loader_threshold
 name|ngx_msec_t
 name|loader_threshold
+decl_stmt|;
+DECL|member|manager_files
+name|ngx_uint_t
+name|manager_files
+decl_stmt|;
+DECL|member|manager_sleep
+name|ngx_msec_t
+name|manager_sleep
+decl_stmt|;
+DECL|member|manager_threshold
+name|ngx_msec_t
+name|manager_threshold
 decl_stmt|;
 DECL|member|shm_zone
 name|ngx_shm_zone_t

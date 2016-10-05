@@ -130,7 +130,7 @@ end_define
 begin_typedef
 DECL|typedef|ngx_path_manager_pt
 typedef|typedef
-name|time_t
+name|ngx_msec_t
 function_decl|(
 modifier|*
 name|ngx_path_manager_pt
@@ -176,7 +176,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a99c4df0108
+DECL|struct|__anon294b3b320108
 typedef|typedef
 struct|struct
 block|{
@@ -228,7 +228,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a99c4df0208
+DECL|struct|__anon294b3b320208
 typedef|typedef
 struct|struct
 block|{
@@ -250,7 +250,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a99c4df0308
+DECL|struct|__anon294b3b320308
 typedef|typedef
 struct|struct
 block|{
@@ -312,7 +312,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a99c4df0408
+DECL|struct|__anon294b3b320408
 typedef|typedef
 struct|struct
 block|{
@@ -356,7 +356,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a99c4df0508
+DECL|struct|__anon294b3b320508
 typedef|typedef
 struct|struct
 block|{
