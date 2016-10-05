@@ -5198,12 +5198,11 @@ operator|=
 name|NGX_LOG_CRIT
 expr_stmt|;
 block|}
-comment|/* we use ngx_cycle->log because c->log was in c->pool */
 name|ngx_log_error
 argument_list|(
 name|level
 argument_list|,
-name|ngx_cycle
+name|c
 operator|->
 name|log
 argument_list|,
