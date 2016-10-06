@@ -54,7 +54,7 @@ value|3
 end_define
 
 begin_typedef
-DECL|struct|__anon2b84a9b40108
+DECL|struct|__anon2bb6c3c70108
 typedef|typedef
 struct|struct
 block|{
@@ -87,7 +87,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b84a9b40208
+DECL|struct|__anon2bb6c3c70208
 typedef|typedef
 struct|struct
 block|{
@@ -585,24 +585,6 @@ name|ngx_http_realip_loc_conf_t
 modifier|*
 name|rlcf
 decl_stmt|;
-name|ctx
-operator|=
-name|ngx_http_get_module_ctx
-argument_list|(
-name|r
-argument_list|,
-name|ngx_http_realip_module
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|ctx
-condition|)
-block|{
-return|return
-name|NGX_DECLINED
-return|;
-block|}
 name|rlcf
 operator|=
 name|ngx_http_get_module_loc_conf
@@ -619,6 +601,22 @@ operator|->
 name|from
 operator|==
 name|NULL
+condition|)
+block|{
+return|return
+name|NGX_DECLINED
+return|;
+block|}
+name|ctx
+operator|=
+name|ngx_http_realip_get_module_ctx
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|ctx
 condition|)
 block|{
 return|return
