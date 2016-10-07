@@ -1916,6 +1916,8 @@ name|shift
 decl_stmt|,
 modifier|*
 name|access
+decl_stmt|,
+name|user
 decl_stmt|;
 name|access
 operator|=
@@ -1953,6 +1955,10 @@ name|elts
 expr_stmt|;
 operator|*
 name|access
+operator|=
+literal|0
+expr_stmt|;
+name|user
 operator|=
 literal|0600
 expr_stmt|;
@@ -2014,6 +2020,10 @@ literal|"user:"
 argument_list|)
 operator|-
 literal|1
+expr_stmt|;
+name|user
+operator|=
+literal|0
 expr_stmt|;
 block|}
 if|else if
@@ -2136,6 +2146,11 @@ operator|<<
 name|shift
 expr_stmt|;
 block|}
+operator|*
+name|access
+operator||=
+name|user
+expr_stmt|;
 return|return
 name|NGX_CONF_OK
 return|;
