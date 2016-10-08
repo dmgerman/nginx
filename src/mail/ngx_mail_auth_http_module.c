@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a10087b0108
+DECL|struct|__anon2b2bff3f0108
 typedef|typedef
 struct|struct
 block|{
@@ -624,6 +624,11 @@ block|,
 name|ngx_string
 argument_list|(
 literal|"cram-md5"
+argument_list|)
+block|,
+name|ngx_string
+argument_list|(
+literal|"external"
 argument_list|)
 block|,
 name|ngx_string
@@ -1573,7 +1578,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon2a10087b0203
+DECL|enum|__anon2b2bff3f0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -4101,7 +4106,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2a10087b0303
+DECL|enum|__anon2b2bff3f0303
 enum|enum
 block|{
 DECL|enumerator|sw_start

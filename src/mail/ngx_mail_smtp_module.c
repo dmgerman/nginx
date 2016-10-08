@@ -105,6 +105,15 @@ block|,
 block|{
 name|ngx_string
 argument_list|(
+literal|"external"
+argument_list|)
+block|,
+name|NGX_MAIL_AUTH_EXTERNAL_ENABLED
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
 literal|"none"
 argument_list|)
 block|,
@@ -144,6 +153,11 @@ comment|/* APOP */
 name|ngx_string
 argument_list|(
 literal|"CRAM-MD5"
+argument_list|)
+block|,
+name|ngx_string
+argument_list|(
+literal|"EXTERNAL"
 argument_list|)
 block|,
 name|ngx_null_string
@@ -926,7 +940,7 @@ literal|0
 init|;
 name|m
 operator|<=
-name|NGX_MAIL_AUTH_CRAM_MD5_ENABLED
+name|NGX_MAIL_AUTH_EXTERNAL_ENABLED
 condition|;
 name|m
 operator|<<=
@@ -1234,7 +1248,7 @@ literal|0
 init|;
 name|m
 operator|<=
-name|NGX_MAIL_AUTH_CRAM_MD5_ENABLED
+name|NGX_MAIL_AUTH_EXTERNAL_ENABLED
 condition|;
 name|m
 operator|<<=
