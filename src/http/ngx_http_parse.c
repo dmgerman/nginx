@@ -508,7 +508,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon2a0fb2ea0103
+DECL|enum|__anon296b06760103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -668,6 +668,10 @@ operator|&&
 name|ch
 operator|!=
 literal|'_'
+operator|&&
+name|ch
+operator|!=
+literal|'-'
 condition|)
 block|{
 return|return
@@ -1171,6 +1175,10 @@ operator|&&
 name|ch
 operator|!=
 literal|'_'
+operator|&&
+name|ch
+operator|!=
+literal|'-'
 condition|)
 block|{
 return|return
@@ -2893,7 +2901,7 @@ name|hash
 decl_stmt|,
 name|i
 decl_stmt|;
-DECL|enum|__anon2a0fb2ea0203
+DECL|enum|__anon296b06760203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -3705,7 +3713,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon2a0fb2ea0303
+DECL|enum|__anon296b06760303
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -4194,7 +4202,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2a0fb2ea0403
+DECL|enum|__anon296b06760403
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -5469,7 +5477,7 @@ name|u_char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2a0fb2ea0503
+DECL|enum|__anon296b06760503
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -7519,7 +7527,7 @@ decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
-DECL|enum|__anon2a0fb2ea0603
+DECL|enum|__anon296b06760603
 enum|enum
 block|{
 DECL|enumerator|sw_chunk_start
