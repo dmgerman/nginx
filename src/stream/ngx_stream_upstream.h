@@ -97,7 +97,7 @@ value|0x0100
 end_define
 
 begin_typedef
-DECL|struct|__anon293e461a0108
+DECL|struct|__anon28c72d1f0108
 typedef|typedef
 struct|struct
 block|{
@@ -162,7 +162,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293e461a0208
+DECL|struct|__anon28c72d1f0208
 typedef|typedef
 struct|struct
 block|{
@@ -186,7 +186,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293e461a0308
+DECL|struct|__anon28c72d1f0308
 typedef|typedef
 struct|struct
 block|{
@@ -310,7 +310,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon293e461a0408
+DECL|struct|__anon28c72d1f0408
 typedef|typedef
 struct|struct
 block|{
@@ -346,7 +346,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293e461a0508
+DECL|struct|__anon28c72d1f0508
 typedef|typedef
 struct|struct
 block|{
@@ -394,7 +394,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293e461a0608
+DECL|struct|__anon28c72d1f0608
 typedef|typedef
 struct|struct
 block|{
@@ -447,17 +447,10 @@ DECL|member|responses
 name|ngx_uint_t
 name|responses
 decl_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_STREAM_SSL
-operator|)
 DECL|member|ssl_name
 name|ngx_str_t
 name|ssl_name
 decl_stmt|;
-endif|#
-directive|endif
 DECL|member|upstream
 name|ngx_stream_upstream_srv_conf_t
 modifier|*

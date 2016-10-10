@@ -1295,11 +1295,6 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-if|#
-directive|if
-operator|(
-name|NGX_STREAM_SSL
-operator|)
 if|if
 condition|(
 name|ngx_array_init
@@ -1333,8 +1328,6 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-endif|#
-directive|endif
 if|if
 condition|(
 name|ngx_array_init

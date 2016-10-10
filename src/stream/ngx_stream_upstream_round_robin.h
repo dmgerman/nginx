@@ -118,11 +118,6 @@ DECL|member|down
 name|ngx_uint_t
 name|down
 decl_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_STREAM_SSL
-operator|)
 DECL|member|ssl_session
 name|void
 modifier|*
@@ -132,8 +127,6 @@ DECL|member|ssl_session_len
 name|int
 name|ssl_session_len
 decl_stmt|;
-endif|#
-directive|endif
 if|#
 directive|if
 operator|(
@@ -370,7 +363,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c62c6e20108
+DECL|struct|__anon2b3f631d0108
 typedef|typedef
 struct|struct
 block|{

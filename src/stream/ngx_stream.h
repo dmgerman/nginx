@@ -129,7 +129,7 @@ value|503
 end_define
 
 begin_typedef
-DECL|struct|__anon2b5449340108
+DECL|struct|__anon28f82b250108
 typedef|typedef
 struct|struct
 block|{
@@ -152,7 +152,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5449340208
+DECL|struct|__anon28f82b250208
 typedef|typedef
 struct|struct
 block|{
@@ -182,19 +182,12 @@ name|wildcard
 range|:
 literal|1
 decl_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_STREAM_SSL
-operator|)
 DECL|member|ssl
 name|unsigned
 name|ssl
 range|:
 literal|1
 decl_stmt|;
-endif|#
-directive|endif
 if|#
 directive|if
 operator|(
@@ -260,7 +253,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5449340308
+DECL|struct|__anon28f82b250308
 typedef|typedef
 struct|struct
 block|{
@@ -273,19 +266,12 @@ DECL|member|addr_text
 name|ngx_str_t
 name|addr_text
 decl_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_STREAM_SSL
-operator|)
 DECL|member|ssl
 name|unsigned
 name|ssl
 range|:
 literal|1
 decl_stmt|;
-endif|#
-directive|endif
 DECL|member|proxy_protocol
 name|unsigned
 name|proxy_protocol
@@ -299,7 +285,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5449340408
+DECL|struct|__anon28f82b250408
 typedef|typedef
 struct|struct
 block|{
@@ -326,7 +312,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2b5449340508
+DECL|struct|__anon28f82b250508
 typedef|typedef
 struct|struct
 block|{
@@ -351,7 +337,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b5449340608
+DECL|struct|__anon28f82b250608
 typedef|typedef
 struct|struct
 block|{
@@ -372,7 +358,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5449340708
+DECL|struct|__anon28f82b250708
 typedef|typedef
 struct|struct
 block|{
@@ -400,7 +386,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5449340808
+DECL|struct|__anon28f82b250808
 typedef|typedef
 struct|struct
 block|{
@@ -415,7 +401,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b5449340903
+DECL|enum|__anon28f82b250903
 typedef|typedef
 enum|enum
 block|{
@@ -430,16 +416,9 @@ block|,
 DECL|enumerator|NGX_STREAM_ACCESS_PHASE
 name|NGX_STREAM_ACCESS_PHASE
 block|,
-if|#
-directive|if
-operator|(
-name|NGX_STREAM_SSL
-operator|)
 DECL|enumerator|NGX_STREAM_SSL_PHASE
 name|NGX_STREAM_SSL_PHASE
 block|,
-endif|#
-directive|endif
 DECL|enumerator|NGX_STREAM_PREREAD_PHASE
 name|NGX_STREAM_PREREAD_PHASE
 block|,
@@ -537,7 +516,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b5449340a08
+DECL|struct|__anon28f82b250a08
 typedef|typedef
 struct|struct
 block|{
@@ -553,7 +532,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5449340b08
+DECL|struct|__anon28f82b250b08
 typedef|typedef
 struct|struct
 block|{
@@ -568,7 +547,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5449340c08
+DECL|struct|__anon28f82b250c08
 typedef|typedef
 struct|struct
 block|{
@@ -628,7 +607,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5449340d08
+DECL|struct|__anon28f82b250d08
 typedef|typedef
 struct|struct
 block|{
@@ -785,19 +764,12 @@ DECL|member|status
 name|ngx_uint_t
 name|status
 decl_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_STREAM_SSL
-operator|)
 DECL|member|ssl
 name|unsigned
 name|ssl
 range|:
 literal|1
 decl_stmt|;
-endif|#
-directive|endif
 DECL|member|stat_processing
 name|unsigned
 name|stat_processing
@@ -815,7 +787,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b5449340e08
+DECL|struct|__anon28f82b250e08
 typedef|typedef
 struct|struct
 block|{
