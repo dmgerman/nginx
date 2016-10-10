@@ -717,6 +717,8 @@ if|#
 directive|if
 operator|(
 name|NGX_HTTP_SSL
+operator|||
+name|NGX_COMPAT
 operator|)
 end_if
 
@@ -1231,7 +1233,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2be594820108
+DECL|struct|__anon28b8eaf90108
 typedef|typedef
 struct|struct
 block|{

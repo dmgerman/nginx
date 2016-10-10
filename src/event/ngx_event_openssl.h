@@ -222,10 +222,10 @@ name|ngx_ssl_conn_t
 value|SSL
 end_define
 
-begin_typedef
-DECL|struct|__anon2c0a37c70108
-typedef|typedef
+begin_struct
+DECL|struct|ngx_ssl_s
 struct|struct
+name|ngx_ssl_s
 block|{
 DECL|member|ctx
 name|SSL_CTX
@@ -241,16 +241,14 @@ DECL|member|buffer_size
 name|size_t
 name|buffer_size
 decl_stmt|;
-DECL|typedef|ngx_ssl_t
 block|}
-name|ngx_ssl_t
-typedef|;
-end_typedef
+struct|;
+end_struct
 
-begin_typedef
-DECL|struct|__anon2c0a37c70208
-typedef|typedef
+begin_struct
+DECL|struct|ngx_ssl_connection_s
 struct|struct
+name|ngx_ssl_connection_s
 block|{
 DECL|member|connection
 name|ngx_ssl_conn_t
@@ -323,11 +321,9 @@ name|handshake_buffer_set
 range|:
 literal|1
 decl_stmt|;
-DECL|typedef|ngx_ssl_connection_t
 block|}
-name|ngx_ssl_connection_t
-typedef|;
-end_typedef
+struct|;
+end_struct
 
 begin_define
 DECL|macro|NGX_SSL_NO_SCACHE
@@ -435,7 +431,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c0a37c70308
+DECL|struct|__anon2ad6a57e0108
 typedef|typedef
 struct|struct
 block|{
@@ -464,7 +460,7 @@ name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon2c0a37c70408
+DECL|struct|__anon2ad6a57e0208
 typedef|typedef
 struct|struct
 block|{

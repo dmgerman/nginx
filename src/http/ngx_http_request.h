@@ -717,7 +717,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon2c5bb00d0103
+DECL|enum|__anon2a421de90103
 typedef|typedef
 enum|enum
 block|{
@@ -756,7 +756,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5bb00d0208
+DECL|struct|__anon2a421de90208
 typedef|typedef
 struct|struct
 block|{
@@ -779,7 +779,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5bb00d0308
+DECL|struct|__anon2a421de90308
 typedef|typedef
 struct|struct
 block|{
@@ -798,7 +798,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5bb00d0408
+DECL|struct|__anon2a421de90408
 typedef|typedef
 struct|struct
 block|{
@@ -1065,7 +1065,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5bb00d0508
+DECL|struct|__anon2a421de90508
 typedef|typedef
 struct|struct
 block|{
@@ -1210,7 +1210,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5bb00d0608
+DECL|struct|__anon2a421de90608
 typedef|typedef
 struct|struct
 block|{
@@ -1272,7 +1272,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5bb00d0708
+DECL|struct|__anon2a421de90708
 typedef|typedef
 struct|struct
 block|{
@@ -1290,6 +1290,8 @@ if|#
 directive|if
 operator|(
 name|NGX_HTTP_SSL
+operator|||
+name|NGX_COMPAT
 operator|)
 DECL|member|ssl_servername
 name|ngx_str_t
@@ -1330,19 +1332,12 @@ DECL|member|nfree
 name|ngx_int_t
 name|nfree
 decl_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_HTTP_SSL
-operator|)
 DECL|member|ssl
 name|unsigned
 name|ssl
 range|:
 literal|1
 decl_stmt|;
-endif|#
-directive|endif
 DECL|member|proxy_protocol
 name|unsigned
 name|proxy_protocol
@@ -1427,7 +1422,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5bb00d0808
+DECL|struct|__anon2a421de90808
 typedef|typedef
 struct|struct
 block|{
@@ -2314,7 +2309,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c5bb00d0908
+DECL|struct|__anon2a421de90908
 typedef|typedef
 struct|struct
 block|{

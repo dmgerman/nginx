@@ -122,6 +122,8 @@ if|#
 directive|if
 operator|(
 name|NGX_HTTP_SSL
+operator|||
+name|NGX_COMPAT
 operator|)
 DECL|member|ssl_session
 name|void
@@ -370,7 +372,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2ae7ddbb0108
+DECL|struct|__anon28fd79140108
 typedef|typedef
 struct|struct
 block|{

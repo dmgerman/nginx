@@ -133,14 +133,6 @@ parameter_list|)
 function_decl|;
 end_typedef
 
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_SSL
-operator|)
-end_if
-
 begin_typedef
 DECL|typedef|ngx_event_set_peer_session_pt
 typedef|typedef
@@ -180,11 +172,6 @@ name|data
 parameter_list|)
 function_decl|;
 end_typedef
-
-begin_endif
-endif|#
-directive|endif
-end_endif
 
 begin_struct
 DECL|struct|ngx_peer_connection_s
@@ -240,6 +227,8 @@ if|#
 directive|if
 operator|(
 name|NGX_SSL
+operator|||
+name|NGX_COMPAT
 operator|)
 DECL|member|set_session
 name|ngx_event_set_peer_session_pt

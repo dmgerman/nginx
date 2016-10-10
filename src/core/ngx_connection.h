@@ -308,7 +308,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2b9851b20103
+DECL|enum|__anon2b417ad00103
 typedef|typedef
 enum|enum
 block|{
@@ -335,7 +335,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b9851b20203
+DECL|enum|__anon2b417ad00203
 typedef|typedef
 enum|enum
 block|{
@@ -356,7 +356,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b9851b20303
+DECL|enum|__anon2b417ad00303
 typedef|typedef
 enum|enum
 block|{
@@ -489,6 +489,8 @@ if|#
 directive|if
 operator|(
 name|NGX_SSL
+operator|||
+name|NGX_COMPAT
 operator|)
 DECL|member|ssl
 name|ngx_ssl_connection_t
