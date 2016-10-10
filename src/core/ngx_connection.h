@@ -308,7 +308,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon28ec96c20103
+DECL|enum|__anon2b9851b20103
 typedef|typedef
 enum|enum
 block|{
@@ -335,7 +335,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28ec96c20203
+DECL|enum|__anon2b9851b20203
 typedef|typedef
 enum|enum
 block|{
@@ -356,7 +356,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28ec96c20303
+DECL|enum|__anon2b9851b20303
 typedef|typedef
 enum|enum
 block|{
@@ -615,6 +615,8 @@ if|#
 directive|if
 operator|(
 name|NGX_HAVE_AIO_SENDFILE
+operator|||
+name|NGX_COMPAT
 operator|)
 DECL|member|busy_count
 name|unsigned

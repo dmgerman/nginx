@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon29aef9330108
+DECL|struct|__anon2a31348b0108
 typedef|typedef
 struct|struct
 block|{
@@ -336,6 +336,8 @@ if|#
 directive|if
 operator|(
 name|NGX_HAVE_AIO_SENDFILE
+operator|||
+name|NGX_COMPAT
 operator|)
 DECL|member|preload_handler
 name|ssize_t
@@ -404,7 +406,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29aef9330208
+DECL|struct|__anon2a31348b0208
 typedef|typedef
 struct|struct
 block|{
@@ -1444,7 +1446,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon29aef9330308
+DECL|struct|__anon2a31348b0308
 typedef|typedef
 struct|struct
 block|{
@@ -1491,7 +1493,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29aef9330408
+DECL|struct|__anon2a31348b0408
 typedef|typedef
 struct|struct
 block|{

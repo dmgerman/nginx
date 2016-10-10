@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon298fa2900108
+DECL|struct|__anon279f41b60108
 typedef|typedef
 struct|struct
 block|{
@@ -16312,13 +16312,6 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_HAVE_FILE_AIO
-operator|||
-name|NGX_THREADS
-operator|)
 name|ngx_conf_merge_value
 argument_list|(
 name|conf
@@ -16345,8 +16338,6 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-endif|#
-directive|endif
 if|#
 directive|if
 operator|(

@@ -97,6 +97,8 @@ if|#
 directive|if
 operator|(
 name|NGX_HAVE_FILE_AIO
+operator|||
+name|NGX_COMPAT
 operator|)
 DECL|member|aio
 name|ngx_event_aio_t
@@ -178,7 +180,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1e9ad60108
+DECL|struct|__anon2758c3410108
 typedef|typedef
 struct|struct
 block|{
@@ -230,7 +232,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1e9ad60208
+DECL|struct|__anon2758c3410208
 typedef|typedef
 struct|struct
 block|{
@@ -252,7 +254,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1e9ad60308
+DECL|struct|__anon2758c3410308
 typedef|typedef
 struct|struct
 block|{
@@ -314,7 +316,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1e9ad60408
+DECL|struct|__anon2758c3410408
 typedef|typedef
 struct|struct
 block|{
@@ -358,7 +360,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1e9ad60508
+DECL|struct|__anon2758c3410508
 typedef|typedef
 struct|struct
 block|{
