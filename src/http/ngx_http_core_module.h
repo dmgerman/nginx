@@ -48,6 +48,23 @@ directive|include
 file|<ngx_thread_pool.h>
 end_include
 
+begin_elif
+elif|#
+directive|elif
+operator|(
+name|NGX_COMPAT
+operator|)
+end_elif
+
+begin_typedef
+DECL|typedef|ngx_thread_pool_t
+typedef|typedef
+name|struct
+name|ngx_thread_pool_s
+name|ngx_thread_pool_t
+typedef|;
+end_typedef
+
 begin_endif
 endif|#
 directive|endif
@@ -256,7 +273,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28832af30108
+DECL|struct|__anon28cb229d0108
 typedef|typedef
 struct|struct
 block|{
@@ -432,7 +449,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28832af30203
+DECL|enum|__anon28cb229d0203
 typedef|typedef
 enum|enum
 block|{
@@ -527,7 +544,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28832af30308
+DECL|struct|__anon28cb229d0308
 typedef|typedef
 struct|struct
 block|{
@@ -551,7 +568,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28832af30408
+DECL|struct|__anon28cb229d0408
 typedef|typedef
 struct|struct
 block|{
@@ -566,7 +583,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28832af30508
+DECL|struct|__anon28cb229d0508
 typedef|typedef
 struct|struct
 block|{
@@ -643,7 +660,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28832af30608
+DECL|struct|__anon28cb229d0608
 typedef|typedef
 struct|struct
 block|{
@@ -730,7 +747,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon28832af30708
+DECL|struct|__anon28cb229d0708
 typedef|typedef
 struct|struct
 block|{
@@ -763,7 +780,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28832af30808
+DECL|struct|__anon28cb229d0808
 typedef|typedef
 struct|struct
 block|{
@@ -832,7 +849,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28832af30908
+DECL|struct|__anon28cb229d0908
 typedef|typedef
 struct|struct
 block|{
@@ -859,7 +876,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon28832af30a08
+DECL|struct|__anon28cb229d0a08
 typedef|typedef
 struct|struct
 block|{
@@ -884,7 +901,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28832af30b08
+DECL|struct|__anon28cb229d0b08
 typedef|typedef
 struct|struct
 block|{
@@ -905,7 +922,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28832af30c08
+DECL|struct|__anon28cb229d0c08
 typedef|typedef
 struct|struct
 block|{
@@ -929,7 +946,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28832af30d08
+DECL|struct|__anon28cb229d0d08
 typedef|typedef
 struct|struct
 block|{
@@ -985,7 +1002,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28832af30e08
+DECL|struct|__anon28cb229d0e08
 typedef|typedef
 struct|struct
 block|{
@@ -1012,7 +1029,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28832af30f08
+DECL|struct|__anon28cb229d0f08
 typedef|typedef
 struct|struct
 block|{
@@ -1457,6 +1474,8 @@ if|#
 directive|if
 operator|(
 name|NGX_THREADS
+operator|||
+name|NGX_COMPAT
 operator|)
 DECL|member|thread_pool
 name|ngx_thread_pool_t
@@ -1555,7 +1574,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28832af31008
+DECL|struct|__anon28cb229d1008
 typedef|typedef
 struct|struct
 block|{

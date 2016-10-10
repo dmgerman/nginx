@@ -643,6 +643,8 @@ if|#
 directive|if
 operator|(
 name|NGX_THREADS
+operator|||
+name|NGX_COMPAT
 operator|)
 end_if
 
@@ -1225,7 +1227,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b88d1780108
+DECL|struct|__anon2767d69b0108
 typedef|typedef
 struct|struct
 block|{

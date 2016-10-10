@@ -131,7 +131,7 @@ value|3
 end_define
 
 begin_typedef
-DECL|struct|__anon2792ad100108
+DECL|struct|__anon29b04b3e0108
 typedef|typedef
 struct|struct
 block|{
@@ -150,7 +150,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2792ad100208
+DECL|struct|__anon29b04b3e0208
 typedef|typedef
 struct|struct
 block|{
@@ -365,6 +365,8 @@ if|#
 directive|if
 operator|(
 name|NGX_THREADS
+operator|||
+name|NGX_COMPAT
 operator|)
 DECL|member|thread_task
 name|ngx_thread_task_t
@@ -452,7 +454,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2792ad100308
+DECL|struct|__anon29b04b3e0308
 typedef|typedef
 struct|struct
 block|{
@@ -524,7 +526,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2792ad100408
+DECL|struct|__anon29b04b3e0408
 typedef|typedef
 struct|struct
 block|{

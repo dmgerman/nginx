@@ -157,6 +157,8 @@ if|#
 directive|if
 operator|(
 name|NGX_THREADS
+operator|||
+name|NGX_COMPAT
 operator|)
 DECL|member|thread_handler
 name|ngx_int_t

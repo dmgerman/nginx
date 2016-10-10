@@ -62,6 +62,8 @@ if|#
 directive|if
 operator|(
 name|NGX_THREADS
+operator|||
+name|NGX_COMPAT
 operator|)
 DECL|member|thread_handler
 name|ngx_int_t
@@ -176,7 +178,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294b3b320108
+DECL|struct|__anon2b1e9ad60108
 typedef|typedef
 struct|struct
 block|{
@@ -228,7 +230,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294b3b320208
+DECL|struct|__anon2b1e9ad60208
 typedef|typedef
 struct|struct
 block|{
@@ -250,7 +252,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294b3b320308
+DECL|struct|__anon2b1e9ad60308
 typedef|typedef
 struct|struct
 block|{
@@ -312,7 +314,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294b3b320408
+DECL|struct|__anon2b1e9ad60408
 typedef|typedef
 struct|struct
 block|{
@@ -356,7 +358,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294b3b320508
+DECL|struct|__anon2b1e9ad60508
 typedef|typedef
 struct|struct
 block|{

@@ -193,7 +193,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29b743c90108
+DECL|struct|__anon29574d770108
 typedef|typedef
 struct|struct
 block|{
@@ -328,21 +328,12 @@ name|need_in_temp
 range|:
 literal|1
 decl_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_HAVE_FILE_AIO
-operator|||
-name|NGX_THREADS
-operator|)
 DECL|member|aio
 name|unsigned
 name|aio
 range|:
 literal|1
 decl_stmt|;
-endif|#
-directive|endif
 if|#
 directive|if
 operator|(
@@ -377,6 +368,8 @@ if|#
 directive|if
 operator|(
 name|NGX_THREADS
+operator|||
+name|NGX_COMPAT
 operator|)
 DECL|member|thread_handler
 name|ngx_int_t
@@ -436,7 +429,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29b743c90208
+DECL|struct|__anon29574d770208
 typedef|typedef
 struct|struct
 block|{

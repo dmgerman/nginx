@@ -130,14 +130,6 @@ name|ngx_connection_t
 typedef|;
 end_typedef
 
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_THREADS
-operator|)
-end_if
-
 begin_typedef
 DECL|typedef|ngx_thread_task_t
 typedef|typedef
@@ -146,11 +138,6 @@ name|ngx_thread_task_s
 name|ngx_thread_task_t
 typedef|;
 end_typedef
-
-begin_endif
-endif|#
-directive|endif
-end_endif
 
 begin_typedef
 DECL|typedef|ngx_event_handler_pt
