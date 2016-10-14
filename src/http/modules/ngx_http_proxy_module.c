@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28b5ab650108
+DECL|struct|__anon294525c00108
 typedef|typedef
 struct|struct
 block|{
@@ -85,7 +85,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon28b5ab65020a
+DECL|union|__anon294525c0020a
 union|union
 block|{
 DECL|member|complex
@@ -117,7 +117,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28b5ab650308
+DECL|struct|__anon294525c00308
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b5ab650408
+DECL|struct|__anon294525c00408
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b5ab650508
+DECL|struct|__anon294525c00508
 typedef|typedef
 struct|struct
 block|{
@@ -344,7 +344,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b5ab650608
+DECL|struct|__anon294525c00608
 typedef|typedef
 struct|struct
 block|{
@@ -16142,47 +16142,6 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-if|if
-condition|(
-name|conf
-operator|->
-name|headers_source
-operator|==
-name|NULL
-condition|)
-block|{
-name|conf
-operator|->
-name|headers_source
-operator|=
-name|ngx_array_create
-argument_list|(
-name|cf
-operator|->
-name|pool
-argument_list|,
-literal|4
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|ngx_keyval_t
-argument_list|)
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|conf
-operator|->
-name|headers_source
-operator|==
-name|NULL
-condition|)
-block|{
-return|return
-name|NGX_ERROR
-return|;
-block|}
-block|}
 name|headers
 operator|->
 name|lengths
@@ -16239,6 +16198,13 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+if|if
+condition|(
+name|conf
+operator|->
+name|headers_source
+condition|)
+block|{
 name|src
 operator|=
 name|conf
@@ -16292,6 +16258,7 @@ index|[
 name|i
 index|]
 expr_stmt|;
+block|}
 block|}
 name|h
 operator|=
