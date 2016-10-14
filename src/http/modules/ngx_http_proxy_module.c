@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon294525c00108
+DECL|struct|__anon2ac7763e0108
 typedef|typedef
 struct|struct
 block|{
@@ -85,7 +85,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon294525c0020a
+DECL|union|__anon2ac7763e020a
 union|union
 block|{
 DECL|member|complex
@@ -117,7 +117,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon294525c00308
+DECL|struct|__anon2ac7763e0308
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294525c00408
+DECL|struct|__anon2ac7763e0408
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294525c00508
+DECL|struct|__anon2ac7763e0508
 typedef|typedef
 struct|struct
 block|{
@@ -344,7 +344,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294525c00608
+DECL|struct|__anon2ac7763e0608
 typedef|typedef
 struct|struct
 block|{
@@ -16005,6 +16005,52 @@ block|}
 block|}
 endif|#
 directive|endif
+comment|/*      * special handling to preserve conf->headers in the "http" section      * to inherit it to all servers      */
+if|if
+condition|(
+name|prev
+operator|->
+name|headers
+operator|.
+name|hash
+operator|.
+name|buckets
+operator|==
+name|NULL
+operator|&&
+name|conf
+operator|->
+name|headers_source
+operator|==
+name|prev
+operator|->
+name|headers_source
+condition|)
+block|{
+name|prev
+operator|->
+name|headers
+operator|=
+name|conf
+operator|->
+name|headers
+expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_CACHE
+operator|)
+name|prev
+operator|->
+name|headers_cache
+operator|=
+name|conf
+operator|->
+name|headers_cache
+expr_stmt|;
+endif|#
+directive|endif
+block|}
 return|return
 name|NGX_CONF_OK
 return|;

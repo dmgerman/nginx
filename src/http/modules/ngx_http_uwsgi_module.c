@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28da93770108
+DECL|struct|__anon2abd059f0108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28da93770208
+DECL|struct|__anon2abd059f0208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28da93770308
+DECL|struct|__anon2abd059f0308
 typedef|typedef
 struct|struct
 block|{
@@ -8630,6 +8630,52 @@ block|}
 block|}
 endif|#
 directive|endif
+comment|/*      * special handling to preserve conf->params in the "http" section      * to inherit it to all servers      */
+if|if
+condition|(
+name|prev
+operator|->
+name|params
+operator|.
+name|hash
+operator|.
+name|buckets
+operator|==
+name|NULL
+operator|&&
+name|conf
+operator|->
+name|params_source
+operator|==
+name|prev
+operator|->
+name|params_source
+condition|)
+block|{
+name|prev
+operator|->
+name|params
+operator|=
+name|conf
+operator|->
+name|params
+expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_CACHE
+operator|)
+name|prev
+operator|->
+name|params_cache
+operator|=
+name|conf
+operator|->
+name|params_cache
+expr_stmt|;
+endif|#
+directive|endif
+block|}
 return|return
 name|NGX_CONF_OK
 return|;

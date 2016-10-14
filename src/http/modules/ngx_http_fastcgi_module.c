@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28a269a20108
+DECL|struct|__anon2b86cabb0108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a269a20208
+DECL|struct|__anon2b86cabb0208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a269a20308
+DECL|struct|__anon2b86cabb0308
 typedef|typedef
 struct|struct
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28a269a20403
+DECL|enum|__anon2b86cabb0403
 typedef|typedef
 enum|enum
 block|{
@@ -199,7 +199,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a269a20508
+DECL|struct|__anon2b86cabb0508
 typedef|typedef
 struct|struct
 block|{
@@ -220,7 +220,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a269a20608
+DECL|struct|__anon2b86cabb0608
 typedef|typedef
 struct|struct
 block|{
@@ -378,7 +378,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon28a269a20708
+DECL|struct|__anon2b86cabb0708
 typedef|typedef
 struct|struct
 block|{
@@ -421,7 +421,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a269a20808
+DECL|struct|__anon2b86cabb0808
 typedef|typedef
 struct|struct
 block|{
@@ -451,7 +451,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a269a20908
+DECL|struct|__anon2b86cabb0908
 typedef|typedef
 struct|struct
 block|{
@@ -478,7 +478,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a269a20a08
+DECL|struct|__anon2b86cabb0a08
 typedef|typedef
 struct|struct
 block|{
@@ -14245,6 +14245,52 @@ block|}
 block|}
 endif|#
 directive|endif
+comment|/*      * special handling to preserve conf->params in the "http" section      * to inherit it to all servers      */
+if|if
+condition|(
+name|prev
+operator|->
+name|params
+operator|.
+name|hash
+operator|.
+name|buckets
+operator|==
+name|NULL
+operator|&&
+name|conf
+operator|->
+name|params_source
+operator|==
+name|prev
+operator|->
+name|params_source
+condition|)
+block|{
+name|prev
+operator|->
+name|params
+operator|=
+name|conf
+operator|->
+name|params
+expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HTTP_CACHE
+operator|)
+name|prev
+operator|->
+name|params_cache
+operator|=
+name|conf
+operator|->
+name|params_cache
+expr_stmt|;
+endif|#
+directive|endif
+block|}
 return|return
 name|NGX_CONF_OK
 return|;
