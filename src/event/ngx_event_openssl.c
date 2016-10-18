@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon28a706ee0108
+DECL|struct|__anon2a1e71800108
 typedef|typedef
 struct|struct
 block|{
@@ -8672,11 +8672,14 @@ condition|)
 block|{
 break|break;
 block|}
+comment|/* ERR_error_string_n() requires at least one byte */
 if|if
 condition|(
 name|p
 operator|>=
 name|last
+operator|-
+literal|1
 condition|)
 block|{
 goto|goto
