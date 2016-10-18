@@ -202,6 +202,14 @@ DECL|member|config_dump
 name|ngx_array_t
 name|config_dump
 decl_stmt|;
+DECL|member|config_dump_rbtree
+name|ngx_rbtree_t
+name|config_dump_rbtree
+decl_stmt|;
+DECL|member|config_dump_sentinel
+name|ngx_rbtree_node_t
+name|config_dump_sentinel
+decl_stmt|;
 DECL|member|open_files
 name|ngx_list_t
 name|open_files
@@ -267,7 +275,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon298c5f750108
+DECL|struct|__anon299d1a0d0108
 typedef|typedef
 struct|struct
 block|{
