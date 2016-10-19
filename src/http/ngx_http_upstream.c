@@ -7643,6 +7643,10 @@ name|ssl
 operator|->
 name|connection
 argument_list|,
+operator|(
+name|char
+operator|*
+operator|)
 name|name
 operator|.
 name|data

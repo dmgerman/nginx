@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a2167ab0108
+DECL|struct|__anon2c028b140108
 typedef|typedef
 struct|struct
 block|{
@@ -55,7 +55,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2167ab0208
+DECL|struct|__anon2c028b140208
 typedef|typedef
 struct|struct
 block|{
@@ -5108,6 +5108,10 @@ name|ssl
 operator|->
 name|connection
 argument_list|,
+operator|(
+name|char
+operator|*
+operator|)
 name|name
 operator|.
 name|data
