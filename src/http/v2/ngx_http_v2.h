@@ -296,7 +296,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad63c350108
+DECL|struct|__anon2913512b0108
 typedef|typedef
 struct|struct
 block|{
@@ -315,7 +315,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad63c350208
+DECL|struct|__anon2913512b0208
 typedef|typedef
 struct|struct
 block|{
@@ -426,7 +426,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad63c350308
+DECL|struct|__anon2913512b0308
 typedef|typedef
 struct|struct
 block|{
@@ -580,6 +580,12 @@ decl_stmt|;
 DECL|member|blocked
 name|unsigned
 name|blocked
+range|:
+literal|1
+decl_stmt|;
+DECL|member|goaway
+name|unsigned
+name|goaway
 range|:
 literal|1
 decl_stmt|;
