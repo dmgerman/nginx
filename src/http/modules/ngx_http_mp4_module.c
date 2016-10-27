@@ -246,7 +246,7 @@ value|NGX_HTTP_MP4_CO64_DATA
 end_define
 
 begin_typedef
-DECL|struct|__anon2a9730c80108
+DECL|struct|__anon28835cd10108
 typedef|typedef
 struct|struct
 block|{
@@ -265,7 +265,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a9730c80208
+DECL|struct|__anon28835cd10208
 typedef|typedef
 struct|struct
 block|{
@@ -297,7 +297,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a9730c80308
+DECL|struct|__anon28835cd10308
 typedef|typedef
 struct|struct
 block|{
@@ -529,7 +529,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a9730c80408
+DECL|struct|__anon28835cd10408
 typedef|typedef
 struct|struct
 block|{
@@ -675,7 +675,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a9730c80508
+DECL|struct|__anon28835cd10508
 typedef|typedef
 struct|struct
 block|{
@@ -844,6 +844,24 @@ parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
+name|ngx_int_t
+name|ngx_http_mp4_atofp
+parameter_list|(
+name|u_char
+modifier|*
+name|line
+parameter_list|,
+name|size_t
+name|n
+parameter_list|,
+name|size_t
+name|point
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -2512,47 +2530,22 @@ operator|==
 name|NGX_OK
 condition|)
 block|{
-comment|/*              * A Flash player may send start value with a lot of digits              * after dot so strtod() is used instead of atofp().  NaNs and              * infinities become negative numbers after (int) conversion.              */
-name|ngx_set_errno
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
+comment|/*              * A Flash player may send start value with a lot of digits              * after dot so a custom function is used instead of ngx_atofp().              */
 name|start
 operator|=
-operator|(
-name|int
-operator|)
-operator|(
-name|strtod
+name|ngx_http_mp4_atofp
 argument_list|(
-operator|(
-name|char
-operator|*
-operator|)
 name|value
 operator|.
 name|data
 argument_list|,
-name|NULL
+name|value
+operator|.
+name|len
+argument_list|,
+literal|3
 argument_list|)
-operator|*
-literal|1000
-operator|)
 expr_stmt|;
-if|if
-condition|(
-name|ngx_errno
-operator|!=
-literal|0
-condition|)
-block|{
-name|start
-operator|=
-operator|-
-literal|1
-expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
@@ -2575,46 +2568,21 @@ operator|==
 name|NGX_OK
 condition|)
 block|{
-name|ngx_set_errno
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
 name|end
 operator|=
-operator|(
-name|int
-operator|)
-operator|(
-name|strtod
+name|ngx_http_mp4_atofp
 argument_list|(
-operator|(
-name|char
-operator|*
-operator|)
 name|value
 operator|.
 name|data
 argument_list|,
-name|NULL
+name|value
+operator|.
+name|len
+argument_list|,
+literal|3
 argument_list|)
-operator|*
-literal|1000
-operator|)
 expr_stmt|;
-if|if
-condition|(
-name|ngx_errno
-operator|!=
-literal|0
-condition|)
-block|{
-name|end
-operator|=
-operator|-
-literal|1
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|end
@@ -3163,6 +3131,195 @@ argument_list|,
 operator|&
 name|out
 argument_list|)
+return|;
+block|}
+end_function
+
+begin_function
+specifier|static
+name|ngx_int_t
+DECL|function|ngx_http_mp4_atofp (u_char * line,size_t n,size_t point)
+name|ngx_http_mp4_atofp
+parameter_list|(
+name|u_char
+modifier|*
+name|line
+parameter_list|,
+name|size_t
+name|n
+parameter_list|,
+name|size_t
+name|point
+parameter_list|)
+block|{
+name|ngx_int_t
+name|value
+decl_stmt|,
+name|cutoff
+decl_stmt|,
+name|cutlim
+decl_stmt|;
+name|ngx_uint_t
+name|dot
+decl_stmt|;
+comment|/* same as ngx_atofp(), but allows additional digits */
+if|if
+condition|(
+name|n
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+name|cutoff
+operator|=
+name|NGX_MAX_INT_T_VALUE
+operator|/
+literal|10
+expr_stmt|;
+name|cutlim
+operator|=
+name|NGX_MAX_INT_T_VALUE
+operator|%
+literal|10
+expr_stmt|;
+name|dot
+operator|=
+literal|0
+expr_stmt|;
+for|for
+control|(
+name|value
+operator|=
+literal|0
+init|;
+name|n
+operator|--
+condition|;
+name|line
+operator|++
+control|)
+block|{
+if|if
+condition|(
+operator|*
+name|line
+operator|==
+literal|'.'
+condition|)
+block|{
+if|if
+condition|(
+name|dot
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+name|dot
+operator|=
+literal|1
+expr_stmt|;
+continue|continue;
+block|}
+if|if
+condition|(
+operator|*
+name|line
+argument_list|<
+literal|'0'
+operator|||
+operator|*
+name|line
+argument_list|>
+literal|'9'
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+if|if
+condition|(
+name|point
+operator|==
+literal|0
+condition|)
+block|{
+continue|continue;
+block|}
+if|if
+condition|(
+name|value
+operator|>=
+name|cutoff
+operator|&&
+operator|(
+name|value
+operator|>
+name|cutoff
+operator|||
+operator|*
+name|line
+operator|-
+literal|'0'
+operator|>
+name|cutlim
+operator|)
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+name|value
+operator|=
+name|value
+operator|*
+literal|10
+operator|+
+operator|(
+operator|*
+name|line
+operator|-
+literal|'0'
+operator|)
+expr_stmt|;
+name|point
+operator|-=
+name|dot
+expr_stmt|;
+block|}
+while|while
+condition|(
+name|point
+operator|--
+condition|)
+block|{
+if|if
+condition|(
+name|value
+operator|>
+name|cutoff
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+name|value
+operator|=
+name|value
+operator|*
+literal|10
+expr_stmt|;
+block|}
+return|return
+name|value
 return|;
 block|}
 end_function
@@ -4073,7 +4230,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon2a9730c80608
+DECL|struct|__anon28835cd10608
 typedef|typedef
 struct|struct
 block|{
@@ -4098,7 +4255,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a9730c80708
+DECL|struct|__anon28835cd10708
 typedef|typedef
 struct|struct
 block|{
@@ -5797,7 +5954,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon2a9730c80808
+DECL|struct|__anon28835cd10808
 typedef|typedef
 struct|struct
 block|{
@@ -5941,7 +6098,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a9730c80908
+DECL|struct|__anon28835cd10908
 typedef|typedef
 struct|struct
 block|{
@@ -6878,7 +7035,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon2a9730c80a08
+DECL|struct|__anon28835cd10a08
 typedef|typedef
 struct|struct
 block|{
@@ -7008,7 +7165,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a9730c80b08
+DECL|struct|__anon28835cd10b08
 typedef|typedef
 struct|struct
 block|{
@@ -7765,7 +7922,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon2a9730c80c08
+DECL|struct|__anon28835cd10c08
 typedef|typedef
 struct|struct
 block|{
@@ -7846,7 +8003,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a9730c80d08
+DECL|struct|__anon28835cd10d08
 typedef|typedef
 struct|struct
 block|{
@@ -9346,7 +9503,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon2a9730c80e08
+DECL|struct|__anon28835cd10e08
 typedef|typedef
 struct|struct
 block|{
@@ -9643,7 +9800,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon2a9730c80f08
+DECL|struct|__anon28835cd10f08
 typedef|typedef
 struct|struct
 block|{
@@ -9689,7 +9846,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a9730c81008
+DECL|struct|__anon28835cd11008
 typedef|typedef
 struct|struct
 block|{
@@ -10709,7 +10866,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon2a9730c81108
+DECL|struct|__anon28835cd11108
 typedef|typedef
 struct|struct
 block|{
@@ -11580,7 +11737,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon2a9730c81208
+DECL|struct|__anon28835cd11208
 typedef|typedef
 struct|struct
 block|{
@@ -11626,7 +11783,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a9730c81308
+DECL|struct|__anon28835cd11308
 typedef|typedef
 struct|struct
 block|{
@@ -12479,7 +12636,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon2a9730c81408
+DECL|struct|__anon28835cd11408
 typedef|typedef
 struct|struct
 block|{
@@ -14108,7 +14265,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon2a9730c81508
+DECL|struct|__anon28835cd11508
 typedef|typedef
 struct|struct
 block|{
@@ -14913,7 +15070,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon2a9730c81608
+DECL|struct|__anon28835cd11608
 typedef|typedef
 struct|struct
 block|{
@@ -15808,7 +15965,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon2a9730c81708
+DECL|struct|__anon28835cd11708
 typedef|typedef
 struct|struct
 block|{
