@@ -12158,7 +12158,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http2 send RST_STREAM frame sid:%ui, status:%uz"
+literal|"http2 send RST_STREAM frame sid:%ui, status:%ui"
 argument_list|,
 name|sid
 argument_list|,
@@ -12247,7 +12247,7 @@ name|ngx_http_v2_out_frame_t
 modifier|*
 name|frame
 decl_stmt|;
-name|ngx_log_debug1
+name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
@@ -12259,7 +12259,11 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http2 send GOAWAY frame, status:%uz"
+literal|"http2 send GOAWAY frame: last sid %ui, error %ui"
+argument_list|,
+name|h2c
+operator|->
+name|last_sid
 argument_list|,
 name|status
 argument_list|)
@@ -14524,7 +14528,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon28a793fc0108
+DECL|struct|__anon27c45af00108
 specifier|static
 specifier|const
 struct|struct
