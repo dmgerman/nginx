@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2782aa340108
+DECL|struct|__anon2991254e0108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2782aa340208
+DECL|struct|__anon2991254e0208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2782aa340308
+DECL|struct|__anon2991254e0308
 typedef|typedef
 struct|struct
 block|{
@@ -2471,15 +2471,6 @@ condition|(
 name|url
 operator|.
 name|addrs
-operator|&&
-name|url
-operator|.
-name|addrs
-index|[
-literal|0
-index|]
-operator|.
-name|sockaddr
 condition|)
 block|{
 name|u

@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b86cabb0108
+DECL|struct|__anon2c2786b40108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b86cabb0208
+DECL|struct|__anon2c2786b40208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b86cabb0308
+DECL|struct|__anon2c2786b40308
 typedef|typedef
 struct|struct
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b86cabb0403
+DECL|enum|__anon2c2786b40403
 typedef|typedef
 enum|enum
 block|{
@@ -199,7 +199,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b86cabb0508
+DECL|struct|__anon2c2786b40508
 typedef|typedef
 struct|struct
 block|{
@@ -220,7 +220,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b86cabb0608
+DECL|struct|__anon2c2786b40608
 typedef|typedef
 struct|struct
 block|{
@@ -378,7 +378,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2b86cabb0708
+DECL|struct|__anon2c2786b40708
 typedef|typedef
 struct|struct
 block|{
@@ -421,7 +421,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b86cabb0808
+DECL|struct|__anon2c2786b40808
 typedef|typedef
 struct|struct
 block|{
@@ -451,7 +451,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b86cabb0908
+DECL|struct|__anon2c2786b40908
 typedef|typedef
 struct|struct
 block|{
@@ -478,7 +478,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b86cabb0a08
+DECL|struct|__anon2c2786b40a08
 typedef|typedef
 struct|struct
 block|{
@@ -3332,15 +3332,6 @@ condition|(
 name|url
 operator|.
 name|addrs
-operator|&&
-name|url
-operator|.
-name|addrs
-index|[
-literal|0
-index|]
-operator|.
-name|sockaddr
 condition|)
 block|{
 name|u

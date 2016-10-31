@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c028b140108
+DECL|struct|__anon28a61d650108
 typedef|typedef
 struct|struct
 block|{
@@ -55,7 +55,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c028b140208
+DECL|struct|__anon28a61d650208
 typedef|typedef
 struct|struct
 block|{
@@ -2500,15 +2500,6 @@ condition|(
 name|url
 operator|.
 name|addrs
-operator|&&
-name|url
-operator|.
-name|addrs
-index|[
-literal|0
-index|]
-operator|.
-name|sockaddr
 condition|)
 block|{
 name|u
