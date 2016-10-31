@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2be387280108
+DECL|struct|__anon2b0a74700108
 typedef|typedef
 struct|struct
 block|{
@@ -85,7 +85,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon2be38728020a
+DECL|union|__anon2b0a7470020a
 union|union
 block|{
 DECL|member|complex
@@ -117,7 +117,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2be387280308
+DECL|struct|__anon2b0a74700308
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be387280408
+DECL|struct|__anon2b0a74700408
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be387280508
+DECL|struct|__anon2b0a74700508
 typedef|typedef
 struct|struct
 block|{
@@ -345,7 +345,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be387280608
+DECL|struct|__anon2b0a74700608
 typedef|typedef
 struct|struct
 block|{
@@ -4793,15 +4793,7 @@ name|u
 operator|->
 name|resolved
 operator|->
-name|naddrs
-operator|=
-literal|1
-expr_stmt|;
-name|u
-operator|->
-name|resolved
-operator|->
-name|host
+name|name
 operator|=
 name|url
 operator|.
@@ -4812,9 +4804,15 @@ index|]
 operator|.
 name|name
 expr_stmt|;
+name|u
+operator|->
+name|resolved
+operator|->
+name|naddrs
+operator|=
+literal|1
+expr_stmt|;
 block|}
-else|else
-block|{
 name|u
 operator|->
 name|resolved
@@ -4825,7 +4823,6 @@ name|url
 operator|.
 name|host
 expr_stmt|;
-block|}
 name|u
 operator|->
 name|resolved

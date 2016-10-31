@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c2786b40108
+DECL|struct|__anon2a36a4e80108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2786b40208
+DECL|struct|__anon2a36a4e80208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2786b40308
+DECL|struct|__anon2a36a4e80308
 typedef|typedef
 struct|struct
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c2786b40403
+DECL|enum|__anon2a36a4e80403
 typedef|typedef
 enum|enum
 block|{
@@ -199,7 +199,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2786b40508
+DECL|struct|__anon2a36a4e80508
 typedef|typedef
 struct|struct
 block|{
@@ -220,7 +220,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2786b40608
+DECL|struct|__anon2a36a4e80608
 typedef|typedef
 struct|struct
 block|{
@@ -378,7 +378,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2c2786b40708
+DECL|struct|__anon2a36a4e80708
 typedef|typedef
 struct|struct
 block|{
@@ -421,7 +421,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2786b40808
+DECL|struct|__anon2a36a4e80808
 typedef|typedef
 struct|struct
 block|{
@@ -451,7 +451,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2786b40908
+DECL|struct|__anon2a36a4e80908
 typedef|typedef
 struct|struct
 block|{
@@ -478,7 +478,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2786b40a08
+DECL|struct|__anon2a36a4e80a08
 typedef|typedef
 struct|struct
 block|{
@@ -3368,15 +3368,7 @@ name|u
 operator|->
 name|resolved
 operator|->
-name|naddrs
-operator|=
-literal|1
-expr_stmt|;
-name|u
-operator|->
-name|resolved
-operator|->
-name|host
+name|name
 operator|=
 name|url
 operator|.
@@ -3387,9 +3379,15 @@ index|]
 operator|.
 name|name
 expr_stmt|;
+name|u
+operator|->
+name|resolved
+operator|->
+name|naddrs
+operator|=
+literal|1
+expr_stmt|;
 block|}
-else|else
-block|{
 name|u
 operator|->
 name|resolved
@@ -3400,7 +3398,6 @@ name|url
 operator|.
 name|host
 expr_stmt|;
-block|}
 name|u
 operator|->
 name|resolved

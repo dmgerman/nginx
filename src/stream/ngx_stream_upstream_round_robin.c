@@ -1974,7 +1974,7 @@ name|name
 operator|=
 name|ur
 operator|->
-name|host
+name|name
 expr_stmt|;
 name|peer
 index|[

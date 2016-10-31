@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28a61d650108
+DECL|struct|__anon2bc301cb0108
 typedef|typedef
 struct|struct
 block|{
@@ -55,7 +55,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a61d650208
+DECL|struct|__anon2bc301cb0208
 typedef|typedef
 struct|struct
 block|{
@@ -2536,15 +2536,7 @@ name|u
 operator|->
 name|resolved
 operator|->
-name|naddrs
-operator|=
-literal|1
-expr_stmt|;
-name|u
-operator|->
-name|resolved
-operator|->
-name|host
+name|name
 operator|=
 name|url
 operator|.
@@ -2555,9 +2547,15 @@ index|]
 operator|.
 name|name
 expr_stmt|;
+name|u
+operator|->
+name|resolved
+operator|->
+name|naddrs
+operator|=
+literal|1
+expr_stmt|;
 block|}
-else|else
-block|{
 name|u
 operator|->
 name|resolved
@@ -2568,7 +2566,6 @@ name|url
 operator|.
 name|host
 expr_stmt|;
-block|}
 name|u
 operator|->
 name|resolved
