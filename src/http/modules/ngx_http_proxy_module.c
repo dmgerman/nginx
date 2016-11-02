@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b0a74700108
+DECL|struct|__anon2ae633d20108
 typedef|typedef
 struct|struct
 block|{
@@ -85,7 +85,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon2b0a7470020a
+DECL|union|__anon2ae633d2020a
 union|union
 block|{
 DECL|member|complex
@@ -117,7 +117,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b0a74700308
+DECL|struct|__anon2ae633d20308
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0a74700408
+DECL|struct|__anon2ae633d20408
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0a74700508
+DECL|struct|__anon2ae633d20508
 typedef|typedef
 struct|struct
 block|{
@@ -345,7 +345,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0a74700608
+DECL|struct|__anon2ae633d20608
 typedef|typedef
 struct|struct
 block|{
@@ -2374,6 +2374,36 @@ argument_list|,
 name|upstream
 operator|.
 name|cache_min_uses
+argument_list|)
+block|,
+name|NULL
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"proxy_cache_max_range_offset"
+argument_list|)
+block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
+name|NGX_HTTP_SRV_CONF
+operator||
+name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_CONF_TAKE1
+block|,
+name|ngx_conf_set_off_slot
+block|,
+name|NGX_HTTP_LOC_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+name|ngx_http_proxy_loc_conf_t
+argument_list|,
+name|upstream
+operator|.
+name|cache_max_range_offset
 argument_list|)
 block|,
 name|NULL
@@ -13489,6 +13519,14 @@ name|conf
 operator|->
 name|upstream
 operator|.
+name|cache_max_range_offset
+operator|=
+name|NGX_CONF_UNSET
+expr_stmt|;
+name|conf
+operator|->
+name|upstream
+operator|.
 name|cache_bypass
 operator|=
 name|NGX_CONF_UNSET_PTR
@@ -14685,6 +14723,23 @@ operator|.
 name|cache_min_uses
 argument_list|,
 literal|1
+argument_list|)
+expr_stmt|;
+name|ngx_conf_merge_off_value
+argument_list|(
+name|conf
+operator|->
+name|upstream
+operator|.
+name|cache_max_range_offset
+argument_list|,
+name|prev
+operator|->
+name|upstream
+operator|.
+name|cache_max_range_offset
+argument_list|,
+name|NGX_MAX_OFF_T_VALUE
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_bitmask_value
