@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon279f41b60108
+DECL|struct|__anon2b8cd2670108
 typedef|typedef
 struct|struct
 block|{
@@ -21792,8 +21792,6 @@ name|overwrite
 operator|=
 name|NGX_HTTP_BAD_REQUEST
 expr_stmt|;
-default|default:
-break|break;
 block|}
 block|}
 name|err

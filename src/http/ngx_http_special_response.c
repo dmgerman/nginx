@@ -1373,7 +1373,6 @@ name|err_status
 operator|=
 name|NGX_HTTP_BAD_REQUEST
 expr_stmt|;
-break|break;
 block|}
 block|}
 else|else
