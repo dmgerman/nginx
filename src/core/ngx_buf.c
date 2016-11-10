@@ -619,6 +619,12 @@ decl_stmt|;
 if|if
 condition|(
 operator|*
+name|out
+condition|)
+block|{
+if|if
+condition|(
+operator|*
 name|busy
 operator|==
 name|NULL
@@ -666,6 +672,7 @@ name|out
 operator|=
 name|NULL
 expr_stmt|;
+block|}
 while|while
 condition|(
 operator|*
