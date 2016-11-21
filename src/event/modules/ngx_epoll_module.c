@@ -442,7 +442,7 @@ comment|/* NGX_TEST_BUILD_EPOLL */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2b5ed8a10108
+DECL|struct|__anon2768b6c40108
 typedef|typedef
 struct|struct
 block|{
@@ -3734,39 +3734,7 @@ argument_list|,
 name|revents
 argument_list|)
 expr_stmt|;
-block|}
-if|#
-directive|if
-literal|0
-block_content|if (revents& ~(EPOLLIN|EPOLLOUT|EPOLLERR|EPOLLHUP)) {             ngx_log_error(NGX_LOG_ALERT, cycle->log, 0,                           "strange epoll_wait() events fd:%d ev:%04XD",                           c->fd, revents);         }
-endif|#
-directive|endif
-if|if
-condition|(
-operator|(
-name|revents
-operator|&
-operator|(
-name|EPOLLERR
-operator||
-name|EPOLLHUP
-operator|)
-operator|)
-operator|&&
-operator|(
-name|revents
-operator|&
-operator|(
-name|EPOLLIN
-operator||
-name|EPOLLOUT
-operator|)
-operator|)
-operator|==
-literal|0
-condition|)
-block|{
-comment|/*              * if the error events were returned without EPOLLIN or EPOLLOUT,              * then add these flags to handle the events at least in one              * active handler              */
+comment|/*              * if the error events were returned, add EPOLLIN and EPOLLOUT              * to handle the events at least in one active handler              */
 name|revents
 operator||=
 name|EPOLLIN
@@ -3774,6 +3742,12 @@ operator||
 name|EPOLLOUT
 expr_stmt|;
 block|}
+if|#
+directive|if
+literal|0
+block_content|if (revents& ~(EPOLLIN|EPOLLOUT|EPOLLERR|EPOLLHUP)) {             ngx_log_error(NGX_LOG_ALERT, cycle->log, 0,                           "strange epoll_wait() events fd:%d ev:%04XD",                           c->fd, revents);         }
+endif|#
+directive|endif
 if|if
 condition|(
 operator|(

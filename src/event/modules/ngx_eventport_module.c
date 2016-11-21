@@ -161,7 +161,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon28ad51e60108
+DECL|struct|__anon2b4b14f90108
 typedef|typedef
 struct|struct
 block|{
@@ -608,7 +608,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28ad51e60208
+DECL|struct|__anon2b4b14f90208
 typedef|typedef
 struct|struct
 block|{
@@ -2367,7 +2367,6 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-operator|(
 name|revents
 operator|&
 operator|(
@@ -2377,22 +2376,9 @@ name|POLLHUP
 operator||
 name|POLLNVAL
 operator|)
-operator|)
-operator|&&
-operator|(
-name|revents
-operator|&
-operator|(
-name|POLLIN
-operator||
-name|POLLOUT
-operator|)
-operator|)
-operator|==
-literal|0
 condition|)
 block|{
-comment|/*                  * if the error events were returned without POLLIN or POLLOUT,                  * then add these flags to handle the events at least in one                  * active handler                  */
+comment|/*                  * if the error events were returned, add POLLIN and POLLOUT                  * to handle the events at least in one active handler                  */
 name|revents
 operator||=
 name|POLLIN
