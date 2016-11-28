@@ -296,7 +296,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2913512b0108
+DECL|struct|__anon275d48ae0108
 typedef|typedef
 struct|struct
 block|{
@@ -315,7 +315,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2913512b0208
+DECL|struct|__anon275d48ae0208
 typedef|typedef
 struct|struct
 block|{
@@ -426,7 +426,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2913512b0308
+DECL|struct|__anon275d48ae0308
 typedef|typedef
 struct|struct
 block|{
@@ -548,10 +548,6 @@ DECL|member|last_out
 name|ngx_http_v2_out_frame_t
 modifier|*
 name|last_out
-decl_stmt|;
-DECL|member|posted
-name|ngx_queue_t
-name|posted
 decl_stmt|;
 DECL|member|dependencies
 name|ngx_queue_t
@@ -716,9 +712,9 @@ name|ngx_pool_t
 modifier|*
 name|pool
 decl_stmt|;
-DECL|member|handled
+DECL|member|waiting
 name|unsigned
-name|handled
+name|waiting
 range|:
 literal|1
 decl_stmt|;
