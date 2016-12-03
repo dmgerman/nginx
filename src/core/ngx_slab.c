@@ -3004,9 +3004,12 @@ goto|;
 block|}
 if|if
 condition|(
+operator|!
+operator|(
 name|slab
-operator|==
-name|NGX_SLAB_PAGE_FREE
+operator|&
+name|NGX_SLAB_PAGE_START
+operator|)
 condition|)
 block|{
 name|ngx_slab_error
