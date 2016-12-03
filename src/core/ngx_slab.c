@@ -931,12 +931,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|size
-operator|=
-name|pool
-operator|->
-name|min_size
-expr_stmt|;
 name|shift
 operator|=
 name|pool
