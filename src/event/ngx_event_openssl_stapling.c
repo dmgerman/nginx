@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2ae814970108
+DECL|struct|__anon2933e2920108
 typedef|typedef
 struct|struct
 block|{
@@ -187,7 +187,7 @@ function_decl|)
 parameter_list|(
 name|ngx_ssl_ocsp_ctx_t
 modifier|*
-name|r
+name|ctx
 parameter_list|)
 function_decl|;
 DECL|member|data
@@ -218,7 +218,7 @@ function_decl|)
 parameter_list|(
 name|ngx_ssl_ocsp_ctx_t
 modifier|*
-name|r
+name|ctx
 parameter_list|)
 function_decl|;
 DECL|member|state
@@ -1713,15 +1713,15 @@ modifier|*
 name|responder
 parameter_list|)
 block|{
-name|ngx_url_t
-name|u
-decl_stmt|;
 name|char
 modifier|*
 name|s
 decl_stmt|;
 name|ngx_str_t
 name|rsp
+decl_stmt|;
+name|ngx_url_t
+name|u
 decl_stmt|;
 name|STACK_OF
 argument_list|(
@@ -3305,6 +3305,10 @@ modifier|*
 name|asn1time
 parameter_list|)
 block|{
+name|BIO
+modifier|*
+name|bio
+decl_stmt|;
 name|u_char
 modifier|*
 name|value
@@ -3314,10 +3318,6 @@ name|len
 decl_stmt|;
 name|time_t
 name|time
-decl_stmt|;
-name|BIO
-modifier|*
-name|bio
 decl_stmt|;
 comment|/*      * OpenSSL doesn't provide a way to convert ASN1_GENERALIZEDTIME      * into time_t.  To do this, we use ASN1_GENERALIZEDTIME_print(),      * which uses the "MMM DD HH:MM:SS YYYY [GMT]" format (e.g.,      * "Feb  3 00:55:52 2015 GMT"), and parse the result.      */
 name|bio
@@ -4743,13 +4743,13 @@ decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
-name|ngx_ssl_ocsp_ctx_t
-modifier|*
-name|ctx
-decl_stmt|;
 name|ngx_connection_t
 modifier|*
 name|c
+decl_stmt|;
+name|ngx_ssl_ocsp_ctx_t
+modifier|*
+name|ctx
 decl_stmt|;
 name|c
 operator|=
@@ -5766,7 +5766,7 @@ name|ngx_buf_t
 modifier|*
 name|b
 decl_stmt|;
-DECL|enum|__anon2ae814970203
+DECL|enum|__anon2933e2920203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6562,7 +6562,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2ae814970303
+DECL|enum|__anon2933e2920303
 enum|enum
 block|{
 DECL|enumerator|sw_start
