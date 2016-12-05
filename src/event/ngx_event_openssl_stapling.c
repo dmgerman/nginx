@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2a433e7a0108
+DECL|struct|__anon2b0d2de90108
 typedef|typedef
 struct|struct
 block|{
@@ -93,6 +93,11 @@ DECL|member|issuer
 name|X509
 modifier|*
 name|issuer
+decl_stmt|;
+DECL|member|name
+name|u_char
+modifier|*
+name|name
 decl_stmt|;
 DECL|member|valid
 name|time_t
@@ -872,6 +877,19 @@ name|cert
 operator|=
 name|cert
 expr_stmt|;
+name|staple
+operator|->
+name|name
+operator|=
+name|X509_get_ex_data
+argument_list|(
+name|staple
+operator|->
+name|cert
+argument_list|,
+name|ngx_ssl_certificate_name_index
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|file
@@ -1646,7 +1664,12 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"\"ssl_stapling\" ignored, issuer certificate not found"
+literal|"\"ssl_stapling\" ignored, "
+literal|"issuer certificate not found for certificate \"%s\""
+argument_list|,
+name|staple
+operator|->
+name|name
 argument_list|)
 expr_stmt|;
 name|X509_STORE_CTX_free
@@ -1767,7 +1790,11 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"\"ssl_stapling\" ignored, "
-literal|"no OCSP responder URL in the certificate"
+literal|"no OCSP responder URL in the certificate \"%s\""
+argument_list|,
+name|staple
+operator|->
+name|name
 argument_list|)
 expr_stmt|;
 return|return
@@ -1819,7 +1846,11 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"\"ssl_stapling\" ignored, "
-literal|"no OCSP responder URL in the certificate"
+literal|"no OCSP responder URL in the certificate \"%s\""
+argument_list|,
+name|staple
+operator|->
+name|name
 argument_list|)
 expr_stmt|;
 name|X509_email_free
@@ -1987,12 +2018,17 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"\"ssl_stapling\" ignored, "
-literal|"invalid URL prefix in OCSP responder \"%V\""
+literal|"invalid URL prefix in OCSP responder \"%V\" "
+literal|"in the certificate \"%s\""
 argument_list|,
 operator|&
 name|u
 operator|.
 name|url
+argument_list|,
+name|staple
+operator|->
+name|name
 argument_list|)
 expr_stmt|;
 return|return
@@ -2032,7 +2068,8 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"\"ssl_stapling\" ignored, "
-literal|"%s in OCSP responder \"%V\""
+literal|"%s in OCSP responder \"%V\" "
+literal|"in the certificate \"%s\""
 argument_list|,
 name|u
 operator|.
@@ -2042,6 +2079,10 @@ operator|&
 name|u
 operator|.
 name|url
+argument_list|,
+name|staple
+operator|->
+name|name
 argument_list|)
 expr_stmt|;
 return|return
@@ -5789,7 +5830,7 @@ name|ngx_buf_t
 modifier|*
 name|b
 decl_stmt|;
-DECL|enum|__anon2a433e7a0203
+DECL|enum|__anon2b0d2de90203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6613,7 +6654,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2a433e7a0303
+DECL|enum|__anon2b0d2de90303
 enum|enum
 block|{
 DECL|enumerator|sw_start

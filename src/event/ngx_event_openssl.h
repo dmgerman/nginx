@@ -431,7 +431,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c81ff7c0108
+DECL|struct|__anon2778c7580108
 typedef|typedef
 struct|struct
 block|{
@@ -460,7 +460,7 @@ name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon2c81ff7c0208
+DECL|struct|__anon2778c7580208
 typedef|typedef
 struct|struct
 block|{
@@ -1471,6 +1471,13 @@ begin_decl_stmt
 specifier|extern
 name|int
 name|ngx_ssl_next_certificate_index
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|int
+name|ngx_ssl_certificate_name_index
 decl_stmt|;
 end_decl_stmt
 
