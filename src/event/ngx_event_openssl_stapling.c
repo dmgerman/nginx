@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2933e2920108
+DECL|struct|__anon2a433e7a0108
 typedef|typedef
 struct|struct
 block|{
@@ -5692,12 +5692,35 @@ operator|==
 name|NGX_OK
 condition|)
 block|{
-if|#
-directive|if
+name|ngx_log_debug3
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|ctx
+operator|->
+name|log
+argument_list|,
 literal|0
-block_content|ngx_log_debug2(NGX_LOG_DEBUG_EVENT, ctx->log, 0,                        "ssl ocsp status line \"%*s\"",                        ctx->response->pos - ctx->response->start,                        ctx->response->start);
-endif|#
-directive|endif
+argument_list|,
+literal|"ssl ocsp status %ui \"%*s\""
+argument_list|,
+name|ctx
+operator|->
+name|code
+argument_list|,
+name|ctx
+operator|->
+name|header_end
+operator|-
+name|ctx
+operator|->
+name|header_start
+argument_list|,
+name|ctx
+operator|->
+name|header_start
+argument_list|)
+expr_stmt|;
 name|ctx
 operator|->
 name|process
@@ -5766,7 +5789,7 @@ name|ngx_buf_t
 modifier|*
 name|b
 decl_stmt|;
-DECL|enum|__anon2933e2920203
+DECL|enum|__anon2a433e7a0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6146,6 +6169,14 @@ name|state
 operator|=
 name|sw_space_after_status
 expr_stmt|;
+name|ctx
+operator|->
+name|header_start
+operator|=
+name|p
+operator|-
+literal|2
+expr_stmt|;
 block|}
 break|break;
 comment|/* space or end of line */
@@ -6185,6 +6216,12 @@ break|break;
 case|case
 name|LF
 case|:
+name|ctx
+operator|->
+name|header_end
+operator|=
+name|p
+expr_stmt|;
 goto|goto
 name|done
 goto|;
@@ -6214,6 +6251,12 @@ break|break;
 case|case
 name|LF
 case|:
+name|ctx
+operator|->
+name|header_end
+operator|=
+name|p
+expr_stmt|;
 goto|goto
 name|done
 goto|;
@@ -6231,6 +6274,14 @@ block|{
 case|case
 name|LF
 case|:
+name|ctx
+operator|->
+name|header_end
+operator|=
+name|p
+operator|-
+literal|1
+expr_stmt|;
 goto|goto
 name|done
 goto|;
@@ -6562,7 +6613,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2933e2920303
+DECL|enum|__anon2a433e7a0303
 enum|enum
 block|{
 DECL|enumerator|sw_start
