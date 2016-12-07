@@ -166,10 +166,6 @@ name|char
 modifier|*
 modifier|*
 name|senv
-decl_stmt|,
-modifier|*
-modifier|*
-name|env
 decl_stmt|;
 name|ngx_uint_t
 name|i
@@ -3658,15 +3654,6 @@ name|old_cycle
 argument_list|)
 condition|)
 block|{
-comment|/*          * perl_destruct() frees environ, if it is not the same as it was at          * perl_construct() time, therefore we save the previous cycle          * environment before ngx_conf_parse() where it will be changed.          */
-name|env
-operator|=
-name|environ
-expr_stmt|;
-name|environ
-operator|=
-name|senv
-expr_stmt|;
 name|ngx_destroy_pool
 argument_list|(
 name|old_cycle
@@ -3679,10 +3666,6 @@ operator|->
 name|old_cycle
 operator|=
 name|NULL
-expr_stmt|;
-name|environ
-operator|=
-name|env
 expr_stmt|;
 return|return
 name|cycle
