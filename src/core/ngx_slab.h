@@ -60,7 +60,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2879d0830108
+DECL|struct|__anon29eca30e0108
 typedef|typedef
 struct|struct
 block|{
@@ -87,7 +87,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2879d0830208
+DECL|struct|__anon29eca30e0208
 typedef|typedef
 struct|struct
 block|{
@@ -121,6 +121,10 @@ DECL|member|stats
 name|ngx_slab_stat_t
 modifier|*
 name|stats
+decl_stmt|;
+DECL|member|pfree
+name|ngx_uint_t
+name|pfree
 decl_stmt|;
 DECL|member|start
 name|u_char
