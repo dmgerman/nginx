@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon295814e20108
+DECL|struct|__anon298618860108
 typedef|typedef
 struct|struct
 block|{
@@ -59,7 +59,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295814e20208
+DECL|struct|__anon298618860208
 typedef|typedef
 struct|struct
 block|{
@@ -79,7 +79,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295814e20308
+DECL|struct|__anon298618860308
 typedef|typedef
 struct|struct
 block|{
@@ -927,6 +927,13 @@ operator|->
 name|perl
 argument_list|)
 expr_stmt|;
+name|PERL_SET_INTERP
+argument_list|(
+name|pmcf
+operator|->
+name|perl
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|ctx
@@ -1389,6 +1396,13 @@ operator|->
 name|perl
 argument_list|)
 expr_stmt|;
+name|PERL_SET_INTERP
+argument_list|(
+name|pmcf
+operator|->
+name|perl
+argument_list|)
+expr_stmt|;
 name|rc
 operator|=
 name|ngx_http_perl_call_handler
@@ -1661,6 +1675,13 @@ name|perl
 argument_list|)
 expr_stmt|;
 name|PERL_SET_CONTEXT
+argument_list|(
+name|pmcf
+operator|->
+name|perl
+argument_list|)
+expr_stmt|;
+name|PERL_SET_INTERP
 argument_list|(
 name|pmcf
 operator|->
@@ -2345,6 +2366,11 @@ name|perl
 argument_list|)
 expr_stmt|;
 name|PERL_SET_CONTEXT
+argument_list|(
+name|perl
+argument_list|)
+expr_stmt|;
+name|PERL_SET_INTERP
 argument_list|(
 name|perl
 argument_list|)
@@ -3469,6 +3495,11 @@ argument_list|(
 name|perl
 argument_list|)
 expr_stmt|;
+name|PERL_SET_INTERP
+argument_list|(
+name|perl
+argument_list|)
+expr_stmt|;
 operator|(
 name|void
 operator|)
@@ -3854,6 +3885,13 @@ operator|->
 name|perl
 argument_list|)
 expr_stmt|;
+name|PERL_SET_INTERP
+argument_list|(
+name|pmcf
+operator|->
+name|perl
+argument_list|)
+expr_stmt|;
 name|ngx_http_perl_eval_anon_sub
 argument_list|(
 name|aTHX_
@@ -4190,6 +4228,13 @@ operator|->
 name|perl
 argument_list|)
 expr_stmt|;
+name|PERL_SET_INTERP
+argument_list|(
+name|pmcf
+operator|->
+name|perl
+argument_list|)
+expr_stmt|;
 name|ngx_http_perl_eval_anon_sub
 argument_list|(
 name|aTHX_
@@ -4330,6 +4375,13 @@ name|perl
 argument_list|)
 expr_stmt|;
 name|PERL_SET_CONTEXT
+argument_list|(
+name|pmcf
+operator|->
+name|perl
+argument_list|)
+expr_stmt|;
+name|PERL_SET_INTERP
 argument_list|(
 name|pmcf
 operator|->
