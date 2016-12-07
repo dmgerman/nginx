@@ -566,6 +566,15 @@ argument_list|(
 name|ngx_slab_page_t
 argument_list|)
 expr_stmt|;
+name|size
+operator|-=
+name|n
+operator|*
+sizeof|sizeof
+argument_list|(
+name|ngx_slab_page_t
+argument_list|)
+expr_stmt|;
 name|pages
 operator|=
 operator|(
