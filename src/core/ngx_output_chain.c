@@ -1967,7 +1967,7 @@ operator|=
 name|ctx
 operator|->
 name|sendfile
-operator|&
+operator|&&
 operator|!
 name|ctx
 operator|->
