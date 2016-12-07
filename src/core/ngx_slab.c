@@ -524,6 +524,7 @@ name|i
 operator|++
 control|)
 block|{
+comment|/* only "next" is used in list head */
 name|slots
 index|[
 name|i
@@ -613,11 +614,12 @@ name|pool
 operator|->
 name|pages
 expr_stmt|;
+comment|/* only "next" is used in list head */
 name|pool
 operator|->
 name|free
 operator|.
-name|prev
+name|slab
 operator|=
 literal|0
 expr_stmt|;
@@ -628,6 +630,14 @@ operator|.
 name|next
 operator|=
 name|page
+expr_stmt|;
+name|pool
+operator|->
+name|free
+operator|.
+name|prev
+operator|=
+literal|0
 expr_stmt|;
 name|page
 operator|->
