@@ -1651,6 +1651,7 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
+comment|/* "n" elements for bitmap, plus one requested */
 name|bitmap
 index|[
 literal|0
