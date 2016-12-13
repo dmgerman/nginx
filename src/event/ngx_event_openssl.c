@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2b0e8d7d0108
+DECL|struct|__anon29f463f90108
 typedef|typedef
 struct|struct
 block|{
@@ -16675,6 +16675,11 @@ name|BIO_get_mem_data
 argument_list|(
 name|bio
 argument_list|,
+operator|(
+name|char
+operator|*
+operator|*
+operator|)
 operator|&
 name|value
 argument_list|)
