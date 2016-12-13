@@ -2096,16 +2096,18 @@ literal|0
 expr_stmt|;
 name|n
 operator|=
+literal|1
+comment|/* find config phase */
+operator|+
 name|use_rewrite
+comment|/* post rewrite phase */
 operator|+
 name|use_access
+comment|/* post access phase */
 operator|+
 name|cmcf
 operator|->
 name|try_files
-operator|+
-literal|1
-comment|/* find config phase */
 expr_stmt|;
 for|for
 control|(
