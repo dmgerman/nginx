@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon27cae8400108
+DECL|struct|__anon2b1e678c0108
 typedef|typedef
 struct|struct
 block|{
@@ -3363,7 +3363,7 @@ name|BIO
 modifier|*
 name|bio
 decl_stmt|;
-name|u_char
+name|char
 modifier|*
 name|value
 decl_stmt|;
@@ -3421,11 +3421,6 @@ name|BIO_get_mem_data
 argument_list|(
 name|bio
 argument_list|,
-operator|(
-name|char
-operator|*
-operator|*
-operator|)
 operator|&
 name|value
 argument_list|)
@@ -3434,6 +3429,10 @@ name|time
 operator|=
 name|ngx_parse_http_time
 argument_list|(
+operator|(
+name|u_char
+operator|*
+operator|)
 name|value
 argument_list|,
 name|len
@@ -5848,7 +5847,7 @@ name|ngx_buf_t
 modifier|*
 name|b
 decl_stmt|;
-DECL|enum|__anon27cae8400203
+DECL|enum|__anon2b1e678c0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6672,7 +6671,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon27cae8400303
+DECL|enum|__anon2b1e678c0303
 enum|enum
 block|{
 DECL|enumerator|sw_start
