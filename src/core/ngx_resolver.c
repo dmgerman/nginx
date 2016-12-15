@@ -46,7 +46,7 @@ value|8192
 end_define
 
 begin_typedef
-DECL|struct|__anon27b6adf00108
+DECL|struct|__anon29fd17eb0108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b6adf00208
+DECL|struct|__anon29fd17eb0208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b6adf00308
+DECL|struct|__anon29fd17eb0308
 typedef|typedef
 struct|struct
 block|{
@@ -1849,6 +1849,23 @@ operator|->
 name|event
 condition|)
 block|{
+if|if
+condition|(
+name|r
+operator|->
+name|event
+operator|->
+name|timer_set
+condition|)
+block|{
+name|ngx_del_timer
+argument_list|(
+name|r
+operator|->
+name|event
+argument_list|)
+expr_stmt|;
+block|}
 name|ngx_free
 argument_list|(
 name|r
