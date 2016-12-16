@@ -46,7 +46,7 @@ value|8192
 end_define
 
 begin_typedef
-DECL|struct|__anon27c2611a0108
+DECL|struct|__anon2a2a88470108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c2611a0208
+DECL|struct|__anon2a2a88470208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c2611a0308
+DECL|struct|__anon2a2a88470308
 typedef|typedef
 struct|struct
 block|{
@@ -13269,6 +13269,27 @@ name|rn
 operator|->
 name|nsrvs
 expr_stmt|;
+if|if
+condition|(
+name|ctx
+operator|->
+name|event
+operator|&&
+name|ctx
+operator|->
+name|event
+operator|->
+name|timer_set
+condition|)
+block|{
+name|ngx_del_timer
+argument_list|(
+name|ctx
+operator|->
+name|event
+argument_list|)
+expr_stmt|;
+block|}
 for|for
 control|(
 name|i
@@ -13443,7 +13464,9 @@ name|cctx
 operator|->
 name|timeout
 operator|=
-literal|0
+name|ctx
+operator|->
+name|timeout
 expr_stmt|;
 name|srvs
 index|[
