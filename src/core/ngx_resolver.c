@@ -46,7 +46,7 @@ value|8192
 end_define
 
 begin_typedef
-DECL|struct|__anon2af3e8ee0108
+DECL|struct|__anon27ceb2a60108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af3e8ee0208
+DECL|struct|__anon27ceb2a60208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af3e8ee0308
+DECL|struct|__anon27ceb2a60308
 typedef|typedef
 struct|struct
 block|{
@@ -7432,6 +7432,14 @@ operator|&
 name|r
 operator|->
 name|name_resend_queue
+argument_list|)
+operator|&&
+name|ngx_queue_empty
+argument_list|(
+operator|&
+name|r
+operator|->
+name|srv_resend_queue
 argument_list|)
 if|#
 directive|if
