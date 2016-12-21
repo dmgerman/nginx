@@ -1241,6 +1241,10 @@ literal|0
 index|]
 operator|==
 literal|'/'
+operator|&&
+name|clcf
+operator|->
+name|absolute_redirect
 condition|)
 block|{
 if|if
