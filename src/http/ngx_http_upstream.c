@@ -21480,7 +21480,7 @@ operator|=
 name|ho
 expr_stmt|;
 block|}
-comment|/*      * we do not set r->headers_out.location here to avoid the handling      * the local redirects without a host name by ngx_http_header_filter()      */
+comment|/*      * we do not set r->headers_out.location here to avoid handling      * relative redirects in ngx_http_header_filter()      */
 return|return
 name|NGX_OK
 return|;

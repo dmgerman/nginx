@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28c7640d0108
+DECL|struct|__anon294eb8be0108
 typedef|typedef
 struct|struct
 block|{
@@ -4219,7 +4219,30 @@ return|return
 name|NGX_OK
 return|;
 block|}
-comment|/*          * we do not need to set the r->headers_out.location->hash and          * r->headers_out.location->key fields          */
+name|r
+operator|->
+name|headers_out
+operator|.
+name|location
+operator|->
+name|hash
+operator|=
+literal|1
+expr_stmt|;
+name|ngx_str_set
+argument_list|(
+operator|&
+name|r
+operator|->
+name|headers_out
+operator|.
+name|location
+operator|->
+name|key
+argument_list|,
+literal|"Location"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|r

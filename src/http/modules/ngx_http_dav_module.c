@@ -54,7 +54,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon2c61f16e0108
+DECL|struct|__anon2b57a6a90108
 typedef|typedef
 struct|struct
 block|{
@@ -81,7 +81,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c61f16e0208
+DECL|struct|__anon2b57a6a90208
 typedef|typedef
 struct|struct
 block|{
@@ -4894,16 +4894,14 @@ name|headers_out
 operator|.
 name|location
 operator|=
-name|ngx_palloc
+name|ngx_list_push
 argument_list|(
+operator|&
 name|r
 operator|->
-name|pool
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|ngx_table_elt_t
-argument_list|)
+name|headers_out
+operator|.
+name|headers
 argument_list|)
 expr_stmt|;
 if|if
@@ -5001,7 +4999,30 @@ name|len
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*      * we do not need to set the r->headers_out.location->hash and      * r->headers_out.location->key fields      */
+name|r
+operator|->
+name|headers_out
+operator|.
+name|location
+operator|->
+name|hash
+operator|=
+literal|1
+expr_stmt|;
+name|ngx_str_set
+argument_list|(
+operator|&
+name|r
+operator|->
+name|headers_out
+operator|.
+name|location
+operator|->
+name|key
+argument_list|,
+literal|"Location"
+argument_list|)
+expr_stmt|;
 name|r
 operator|->
 name|headers_out
