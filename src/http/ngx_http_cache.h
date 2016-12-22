@@ -127,11 +127,11 @@ DECL|macro|NGX_HTTP_CACHE_VERSION
 define|#
 directive|define
 name|NGX_HTTP_CACHE_VERSION
-value|3
+value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon27c9c9830108
+DECL|struct|__anon2b6992f50108
 typedef|typedef
 struct|struct
 block|{
@@ -150,7 +150,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c9c9830208
+DECL|struct|__anon2b6992f50208
 typedef|typedef
 struct|struct
 block|{
@@ -290,6 +290,14 @@ decl_stmt|;
 DECL|member|valid_sec
 name|time_t
 name|valid_sec
+decl_stmt|;
+DECL|member|updating_sec
+name|time_t
+name|updating_sec
+decl_stmt|;
+DECL|member|error_sec
+name|time_t
+name|error_sec
 decl_stmt|;
 DECL|member|last_modified
 name|time_t
@@ -449,12 +457,24 @@ name|secondary
 range|:
 literal|1
 decl_stmt|;
+DECL|member|stale_updating
+name|unsigned
+name|stale_updating
+range|:
+literal|1
+decl_stmt|;
+DECL|member|stale_error
+name|unsigned
+name|stale_error
+range|:
+literal|1
+decl_stmt|;
 block|}
 struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27c9c9830308
+DECL|struct|__anon2b6992f50308
 typedef|typedef
 struct|struct
 block|{
@@ -465,6 +485,14 @@ decl_stmt|;
 DECL|member|valid_sec
 name|time_t
 name|valid_sec
+decl_stmt|;
+DECL|member|updating_sec
+name|time_t
+name|updating_sec
+decl_stmt|;
+DECL|member|error_sec
+name|time_t
+name|error_sec
 decl_stmt|;
 DECL|member|last_modified
 name|time_t
@@ -526,7 +554,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c9c9830408
+DECL|struct|__anon2b6992f50408
 typedef|typedef
 struct|struct
 block|{
