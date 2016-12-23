@@ -431,7 +431,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a475f440108
+DECL|struct|__anon296b24a00108
 typedef|typedef
 struct|struct
 block|{
@@ -460,20 +460,17 @@ name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon2a475f440208
+DECL|struct|__anon296b24a00208
 typedef|typedef
 struct|struct
 block|{
+DECL|member|size
+name|size_t
+name|size
+decl_stmt|;
 DECL|member|name
 name|u_char
 name|name
-index|[
-literal|16
-index|]
-decl_stmt|;
-DECL|member|aes_key
-name|u_char
-name|aes_key
 index|[
 literal|16
 index|]
@@ -482,7 +479,14 @@ DECL|member|hmac_key
 name|u_char
 name|hmac_key
 index|[
-literal|16
+literal|32
+index|]
+decl_stmt|;
+DECL|member|aes_key
+name|u_char
+name|aes_key
+index|[
+literal|32
 index|]
 decl_stmt|;
 DECL|typedef|ngx_ssl_session_ticket_key_t
