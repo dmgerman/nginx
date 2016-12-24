@@ -651,17 +651,7 @@ end_typedef
 begin_if
 if|#
 directive|if
-operator|!
-name|defined
-argument_list|(
-name|__WATCOMC__
-argument_list|)
-operator|&&
-operator|!
-name|defined
-argument_list|(
-name|__MINGW64_VERSION_MAJOR
-argument_list|)
+name|__BORLANDC__
 end_if
 
 begin_typedef
