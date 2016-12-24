@@ -362,6 +362,21 @@ name|)
 end_pragma
 
 begin_comment
+comment|/* 'function' : different 'const' qualifiers */
+end_comment
+
+begin_pragma
+pragma|#
+directive|pragma
+name|warning
+name|(
+name|disable
+name|:
+name|4090
+name|)
+end_pragma
+
+begin_comment
 comment|/* unreferenced formal parameter */
 end_comment
 
