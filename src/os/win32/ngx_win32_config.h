@@ -475,6 +475,18 @@ name|-
 name|8057
 end_pragma
 
+begin_comment
+comment|/* suspicious pointer arithmetic */
+end_comment
+
+begin_pragma
+pragma|#
+directive|pragma
+name|warn
+name|-
+name|8072
+end_pragma
+
 begin_endif
 endif|#
 directive|endif

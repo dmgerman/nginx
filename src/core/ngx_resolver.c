@@ -46,7 +46,7 @@ value|8192
 end_define
 
 begin_typedef
-DECL|struct|__anon2a2a88470108
+DECL|struct|__anon2c630a180108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2a88470208
+DECL|struct|__anon2c630a180208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2a88470308
+DECL|struct|__anon2c630a180308
 typedef|typedef
 struct|struct
 block|{
@@ -4060,6 +4060,9 @@ literal|0
 init|;
 name|i
 operator|<
+operator|(
+name|ngx_uint_t
+operator|)
 name|rn
 operator|->
 name|nsrvs
@@ -13298,6 +13301,9 @@ literal|0
 init|;
 name|i
 operator|<
+operator|(
+name|ngx_uint_t
+operator|)
 name|rn
 operator|->
 name|nsrvs
@@ -18231,6 +18237,9 @@ literal|0
 init|;
 name|i
 operator|<
+operator|(
+name|ngx_uint_t
+operator|)
 name|rn
 operator|->
 name|nsrvs
@@ -18759,6 +18768,9 @@ if|if
 condition|(
 name|j
 operator|==
+operator|(
+name|ngx_uint_t
+operator|)
 name|rn
 operator|->
 name|naddrs
@@ -18775,6 +18787,9 @@ condition|(
 operator|++
 name|i
 operator|<
+operator|(
+name|ngx_uint_t
+operator|)
 name|rn
 operator|->
 name|naddrs

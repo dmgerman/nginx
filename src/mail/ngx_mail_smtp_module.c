@@ -1385,9 +1385,7 @@ operator|.
 name|len
 argument_list|)
 expr_stmt|;
-name|p
-operator|=
-name|ngx_cpymem
+name|ngx_memcpy
 argument_list|(
 name|p
 argument_list|,

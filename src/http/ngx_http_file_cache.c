@@ -2730,6 +2730,9 @@ name|c
 operator|->
 name|crc32
 operator|||
+operator|(
+name|size_t
+operator|)
 name|h
 operator|->
 name|header_start
@@ -7240,6 +7243,9 @@ name|c
 operator|->
 name|crc32
 operator|||
+operator|(
+name|size_t
+operator|)
 name|h
 operator|.
 name|header_start
@@ -7248,6 +7254,9 @@ name|c
 operator|->
 name|header_start
 operator|||
+operator|(
+name|size_t
+operator|)
 name|h
 operator|.
 name|body_start
