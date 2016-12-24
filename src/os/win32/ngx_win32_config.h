@@ -201,6 +201,13 @@ directive|define
 name|_OFF_T_
 end_define
 
+begin_define
+DECL|macro|__have_typedef_off_t
+define|#
+directive|define
+name|__have_typedef_off_t
+end_define
+
 begin_endif
 endif|#
 directive|endif
