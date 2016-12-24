@@ -234,7 +234,7 @@ end_include
 begin_ifdef
 ifdef|#
 directive|ifdef
-name|__MINGW64_VERSION_MAJOR
+name|__GNUC__
 end_ifdef
 
 begin_include
