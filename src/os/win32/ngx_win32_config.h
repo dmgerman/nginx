@@ -781,7 +781,7 @@ end_endif
 begin_ifndef
 ifndef|#
 directive|ifndef
-name|__MINGW64_VERSION_MAJOR
+name|__GNUC__
 end_ifndef
 
 begin_typedef
