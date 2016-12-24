@@ -1717,6 +1717,9 @@ operator|->
 name|captures_mask
 operator|&
 operator|(
+operator|(
+name|ngx_uint_t
+operator|)
 literal|1
 operator|<<
 name|n
@@ -1734,6 +1737,9 @@ name|sc
 operator|->
 name|captures_mask
 operator||=
+operator|(
+name|ngx_uint_t
+operator|)
 literal|1
 operator|<<
 name|n

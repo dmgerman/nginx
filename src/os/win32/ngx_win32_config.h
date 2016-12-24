@@ -392,6 +392,36 @@ name|)
 end_pragma
 
 begin_comment
+comment|/* conversion from 'type1' to 'type2', possible loss of data */
+end_comment
+
+begin_pragma
+pragma|#
+directive|pragma
+name|warning
+name|(
+name|disable
+name|:
+name|4244
+name|)
+end_pragma
+
+begin_comment
+comment|/* conversion from 'size_t' to 'type', possible loss of data */
+end_comment
+
+begin_pragma
+pragma|#
+directive|pragma
+name|warning
+name|(
+name|disable
+name|:
+name|4267
+name|)
+end_pragma
+
+begin_comment
 comment|/* array is too small to include a terminating null character */
 end_comment
 
@@ -796,6 +826,25 @@ directive|ifndef
 name|__GNUC__
 end_ifndef
 
+begin_ifdef
+ifdef|#
+directive|ifdef
+name|_WIN64
+end_ifdef
+
+begin_typedef
+DECL|typedef|ssize_t
+typedef|typedef
+name|__int64
+name|ssize_t
+typedef|;
+end_typedef
+
+begin_else
+else|#
+directive|else
+end_else
+
 begin_typedef
 DECL|typedef|ssize_t
 typedef|typedef
@@ -803,6 +852,11 @@ name|int
 name|ssize_t
 typedef|;
 end_typedef
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_endif
 endif|#

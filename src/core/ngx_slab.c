@@ -466,6 +466,9 @@ name|pool
 operator|->
 name|min_size
 operator|=
+operator|(
+name|size_t
+operator|)
 literal|1
 operator|<<
 name|pool
@@ -2299,6 +2302,9 @@ name|NGX_SLAB_SHIFT_MASK
 expr_stmt|;
 name|size
 operator|=
+operator|(
+name|size_t
+operator|)
 literal|1
 operator|<<
 name|shift
@@ -2802,6 +2808,9 @@ name|NGX_SLAB_SHIFT_MASK
 expr_stmt|;
 name|size
 operator|=
+operator|(
+name|size_t
+operator|)
 literal|1
 operator|<<
 name|shift

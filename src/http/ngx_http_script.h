@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2baa37ed0108
+DECL|struct|__anon2ba482690108
 typedef|typedef
 struct|struct
 block|{
@@ -114,7 +114,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baa37ed0208
+DECL|struct|__anon2ba482690208
 typedef|typedef
 struct|struct
 block|{
@@ -222,7 +222,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baa37ed0308
+DECL|struct|__anon2ba482690308
 typedef|typedef
 struct|struct
 block|{
@@ -252,7 +252,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baa37ed0408
+DECL|struct|__anon2ba482690408
 typedef|typedef
 struct|struct
 block|{
@@ -328,7 +328,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baa37ed0508
+DECL|struct|__anon2ba482690508
 typedef|typedef
 struct|struct
 block|{
@@ -347,7 +347,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baa37ed0608
+DECL|struct|__anon2ba482690608
 typedef|typedef
 struct|struct
 block|{
@@ -366,7 +366,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baa37ed0708
+DECL|struct|__anon2ba482690708
 typedef|typedef
 struct|struct
 block|{
@@ -389,7 +389,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baa37ed0808
+DECL|struct|__anon2ba482690808
 typedef|typedef
 struct|struct
 block|{
@@ -416,7 +416,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2baa37ed0908
+DECL|struct|__anon2ba482690908
 typedef|typedef
 struct|struct
 block|{
@@ -447,44 +447,44 @@ name|uintptr_t
 name|next
 decl_stmt|;
 DECL|member|test
-name|uintptr_t
+name|unsigned
 name|test
 range|:
 literal|1
 decl_stmt|;
 DECL|member|negative_test
-name|uintptr_t
+name|unsigned
 name|negative_test
 range|:
 literal|1
 decl_stmt|;
 DECL|member|uri
-name|uintptr_t
+name|unsigned
 name|uri
 range|:
 literal|1
 decl_stmt|;
 DECL|member|args
-name|uintptr_t
+name|unsigned
 name|args
 range|:
 literal|1
 decl_stmt|;
 comment|/* add the r->args to the new arguments */
 DECL|member|add_args
-name|uintptr_t
+name|unsigned
 name|add_args
 range|:
 literal|1
 decl_stmt|;
 DECL|member|redirect
-name|uintptr_t
+name|unsigned
 name|redirect
 range|:
 literal|1
 decl_stmt|;
 DECL|member|break_cycle
-name|uintptr_t
+name|unsigned
 name|break_cycle
 range|:
 literal|1
@@ -500,7 +500,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baa37ed0a08
+DECL|struct|__anon2ba482690a08
 typedef|typedef
 struct|struct
 block|{
@@ -509,26 +509,26 @@ name|ngx_http_script_code_pt
 name|code
 decl_stmt|;
 DECL|member|uri
-name|uintptr_t
+name|unsigned
 name|uri
 range|:
 literal|1
 decl_stmt|;
 DECL|member|args
-name|uintptr_t
+name|unsigned
 name|args
 range|:
 literal|1
 decl_stmt|;
 comment|/* add the r->args to the new arguments */
 DECL|member|add_args
-name|uintptr_t
+name|unsigned
 name|add_args
 range|:
 literal|1
 decl_stmt|;
 DECL|member|redirect
-name|uintptr_t
+name|unsigned
 name|redirect
 range|:
 literal|1
@@ -545,7 +545,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2baa37ed0b08
+DECL|struct|__anon2ba482690b08
 typedef|typedef
 struct|struct
 block|{
@@ -564,7 +564,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baa37ed0c08
+DECL|struct|__anon2ba482690c08
 typedef|typedef
 struct|struct
 block|{
@@ -587,7 +587,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2baa37ed0d03
+DECL|enum|__anon2ba482690d03
 typedef|typedef
 enum|enum
 block|{
@@ -623,7 +623,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baa37ed0e08
+DECL|struct|__anon2ba482690e08
 typedef|typedef
 struct|struct
 block|{
@@ -642,7 +642,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baa37ed0f08
+DECL|struct|__anon2ba482690f08
 typedef|typedef
 struct|struct
 block|{
@@ -667,7 +667,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baa37ed1008
+DECL|struct|__anon2ba482691008
 typedef|typedef
 struct|struct
 block|{
@@ -687,7 +687,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baa37ed1108
+DECL|struct|__anon2ba482691108
 typedef|typedef
 struct|struct
 block|{
