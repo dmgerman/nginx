@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2acfb92c0108
+DECL|struct|__anon294b63ae0108
 typedef|typedef
 struct|struct
 block|{
@@ -55,7 +55,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2acfb92c0208
+DECL|struct|__anon294b63ae0208
 typedef|typedef
 struct|struct
 block|{
@@ -3533,6 +3533,36 @@ name|state
 operator|->
 name|response_time
 expr_stmt|;
+if|if
+condition|(
+name|u
+operator|->
+name|peer
+operator|.
+name|notify
+condition|)
+block|{
+name|u
+operator|->
+name|peer
+operator|.
+name|notify
+argument_list|(
+operator|&
+name|u
+operator|->
+name|peer
+argument_list|,
+name|u
+operator|->
+name|peer
+operator|.
+name|data
+argument_list|,
+name|NGX_STREAM_UPSTREAM_NOTIFY_CONNECT
+argument_list|)
+expr_stmt|;
+block|}
 name|c
 operator|->
 name|log

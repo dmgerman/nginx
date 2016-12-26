@@ -96,8 +96,16 @@ name|NGX_STREAM_UPSTREAM_MAX_CONNS
 value|0x0100
 end_define
 
+begin_define
+DECL|macro|NGX_STREAM_UPSTREAM_NOTIFY_CONNECT
+define|#
+directive|define
+name|NGX_STREAM_UPSTREAM_NOTIFY_CONNECT
+value|0x1
+end_define
+
 begin_typedef
-DECL|struct|__anon2be15fac0108
+DECL|struct|__anon28f065440108
 typedef|typedef
 struct|struct
 block|{
@@ -162,7 +170,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be15fac0208
+DECL|struct|__anon28f065440208
 typedef|typedef
 struct|struct
 block|{
@@ -186,7 +194,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be15fac0308
+DECL|struct|__anon28f065440308
 typedef|typedef
 struct|struct
 block|{
@@ -310,7 +318,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2be15fac0408
+DECL|struct|__anon28f065440408
 typedef|typedef
 struct|struct
 block|{
@@ -346,7 +354,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be15fac0508
+DECL|struct|__anon28f065440508
 typedef|typedef
 struct|struct
 block|{
@@ -398,7 +406,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be15fac0608
+DECL|struct|__anon28f065440608
 typedef|typedef
 struct|struct
 block|{
