@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon294b63ae0108
+DECL|struct|__anon27d909810108
 typedef|typedef
 struct|struct
 block|{
@@ -55,7 +55,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294b63ae0208
+DECL|struct|__anon27d909810208
 typedef|typedef
 struct|struct
 block|{
@@ -6521,6 +6521,13 @@ operator|->
 name|read
 operator|->
 name|delayed
+operator|&&
+operator|!
+name|src
+operator|->
+name|read
+operator|->
+name|error
 condition|)
 block|{
 if|if
