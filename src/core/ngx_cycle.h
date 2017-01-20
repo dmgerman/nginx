@@ -190,6 +190,10 @@ DECL|member|reusable_connections_queue
 name|ngx_queue_t
 name|reusable_connections_queue
 decl_stmt|;
+DECL|member|reusable_connections_n
+name|ngx_uint_t
+name|reusable_connections_n
+decl_stmt|;
 DECL|member|listening
 name|ngx_array_t
 name|listening
@@ -275,7 +279,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon299d1a0d0108
+DECL|struct|__anon2770582d0108
 typedef|typedef
 struct|struct
 block|{
