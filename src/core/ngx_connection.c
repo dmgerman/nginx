@@ -33,7 +33,9 @@ specifier|static
 name|void
 name|ngx_drain_connections
 parameter_list|(
-name|void
+name|ngx_cycle_t
+modifier|*
+name|cycle
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -4624,7 +4626,13 @@ name|NULL
 condition|)
 block|{
 name|ngx_drain_connections
-argument_list|()
+argument_list|(
+operator|(
+name|ngx_cycle_t
+operator|*
+operator|)
+name|ngx_cycle
+argument_list|)
 expr_stmt|;
 name|c
 operator|=
@@ -5333,10 +5341,12 @@ end_function
 begin_function
 specifier|static
 name|void
-DECL|function|ngx_drain_connections (void)
+DECL|function|ngx_drain_connections (ngx_cycle_t * cycle)
 name|ngx_drain_connections
 parameter_list|(
-name|void
+name|ngx_cycle_t
+modifier|*
+name|cycle
 parameter_list|)
 block|{
 name|ngx_int_t
@@ -5369,7 +5379,7 @@ condition|(
 name|ngx_queue_empty
 argument_list|(
 operator|&
-name|ngx_cycle
+name|cycle
 operator|->
 name|reusable_connections_queue
 argument_list|)
@@ -5382,7 +5392,7 @@ operator|=
 name|ngx_queue_last
 argument_list|(
 operator|&
-name|ngx_cycle
+name|cycle
 operator|->
 name|reusable_connections_queue
 argument_list|)
