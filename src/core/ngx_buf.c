@@ -900,6 +900,11 @@ operator|->
 name|file_pos
 expr_stmt|;
 block|}
+name|total
+operator|+=
+name|size
+expr_stmt|;
+break|break;
 block|}
 name|total
 operator|+=

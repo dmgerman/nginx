@@ -361,7 +361,14 @@ name|send
 operator|+=
 name|file_size
 expr_stmt|;
-comment|/* create the trailer iovec and coalesce the neighbouring bufs */
+if|if
+condition|(
+name|send
+operator|<
+name|limit
+condition|)
+block|{
+comment|/*                  * create the trailer iovec and coalesce the neighbouring bufs                  */
 name|cl
 operator|=
 name|ngx_output_chain_to_iovec
@@ -397,6 +404,16 @@ name|trailer
 operator|.
 name|size
 expr_stmt|;
+block|}
+else|else
+block|{
+name|trailer
+operator|.
+name|count
+operator|=
+literal|0
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|ngx_freebsd_use_tcp_nopush

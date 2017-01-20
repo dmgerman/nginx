@@ -311,6 +311,10 @@ operator|.
 name|count
 operator|==
 literal|0
+operator|&&
+name|send
+operator|<
+name|limit
 condition|)
 block|{
 comment|/*                  * create the trailer iovec and coalesce the neighbouring bufs                  */
