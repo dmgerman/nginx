@@ -261,7 +261,7 @@ value|0x00000200
 end_define
 
 begin_typedef
-DECL|struct|__anon276590840108
+DECL|struct|__anon275040bc0108
 typedef|typedef
 struct|struct
 block|{
@@ -309,7 +309,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276590840208
+DECL|struct|__anon275040bc0208
 typedef|typedef
 struct|struct
 block|{
@@ -378,7 +378,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276590840308
+DECL|struct|__anon275040bc0308
 typedef|typedef
 struct|struct
 block|{
@@ -402,7 +402,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276590840408
+DECL|struct|__anon275040bc0408
 typedef|typedef
 struct|struct
 block|{
@@ -582,7 +582,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon276590840508
+DECL|struct|__anon275040bc0508
 typedef|typedef
 struct|struct
 block|{
@@ -615,7 +615,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276590840608
+DECL|struct|__anon275040bc0608
 typedef|typedef
 struct|struct
 block|{
@@ -635,10 +635,6 @@ decl_stmt|;
 DECL|member|read_timeout
 name|ngx_msec_t
 name|read_timeout
-decl_stmt|;
-DECL|member|timeout
-name|ngx_msec_t
-name|timeout
 decl_stmt|;
 DECL|member|next_upstream_timeout
 name|ngx_msec_t
@@ -917,7 +913,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276590840708
+DECL|struct|__anon275040bc0708
 typedef|typedef
 struct|struct
 block|{
@@ -953,7 +949,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276590840808
+DECL|struct|__anon275040bc0808
 typedef|typedef
 struct|struct
 block|{
@@ -1101,7 +1097,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276590840908
+DECL|struct|__anon275040bc0908
 typedef|typedef
 struct|struct
 block|{
@@ -1531,7 +1527,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon276590840a08
+DECL|struct|__anon275040bc0a08
 typedef|typedef
 struct|struct
 block|{
@@ -1550,7 +1546,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276590840b08
+DECL|struct|__anon275040bc0b08
 typedef|typedef
 struct|struct
 block|{
