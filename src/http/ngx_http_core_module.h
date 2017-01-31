@@ -254,6 +254,30 @@ name|NGX_HTTP_KEEPALIVE_DISABLE_SAFARI
 value|0x0008
 end_define
 
+begin_define
+DECL|macro|NGX_HTTP_SERVER_TOKENS_OFF
+define|#
+directive|define
+name|NGX_HTTP_SERVER_TOKENS_OFF
+value|0
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_SERVER_TOKENS_ON
+define|#
+directive|define
+name|NGX_HTTP_SERVER_TOKENS_ON
+value|1
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_SERVER_TOKENS_BUILD
+define|#
+directive|define
+name|NGX_HTTP_SERVER_TOKENS_BUILD
+value|2
+end_define
+
 begin_typedef
 DECL|typedef|ngx_http_location_tree_node_t
 typedef|typedef
@@ -273,7 +297,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b5dffd0108
+DECL|struct|__anon2b15ca580108
 typedef|typedef
 struct|struct
 block|{
@@ -442,7 +466,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29b5dffd0203
+DECL|enum|__anon2b15ca580203
 typedef|typedef
 enum|enum
 block|{
@@ -537,7 +561,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29b5dffd0308
+DECL|struct|__anon2b15ca580308
 typedef|typedef
 struct|struct
 block|{
@@ -561,7 +585,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b5dffd0408
+DECL|struct|__anon2b15ca580408
 typedef|typedef
 struct|struct
 block|{
@@ -576,7 +600,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b5dffd0508
+DECL|struct|__anon2b15ca580508
 typedef|typedef
 struct|struct
 block|{
@@ -653,7 +677,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b5dffd0608
+DECL|struct|__anon2b15ca580608
 typedef|typedef
 struct|struct
 block|{
@@ -740,7 +764,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon29b5dffd0708
+DECL|struct|__anon2b15ca580708
 typedef|typedef
 struct|struct
 block|{
@@ -773,7 +797,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b5dffd0808
+DECL|struct|__anon2b15ca580808
 typedef|typedef
 struct|struct
 block|{
@@ -835,7 +859,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29b5dffd0908
+DECL|struct|__anon2b15ca580908
 typedef|typedef
 struct|struct
 block|{
@@ -862,7 +886,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon29b5dffd0a08
+DECL|struct|__anon2b15ca580a08
 typedef|typedef
 struct|struct
 block|{
@@ -887,7 +911,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29b5dffd0b08
+DECL|struct|__anon2b15ca580b08
 typedef|typedef
 struct|struct
 block|{
@@ -908,7 +932,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b5dffd0c08
+DECL|struct|__anon2b15ca580c08
 typedef|typedef
 struct|struct
 block|{
@@ -932,7 +956,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b5dffd0d08
+DECL|struct|__anon2b15ca580d08
 typedef|typedef
 struct|struct
 block|{
@@ -988,7 +1012,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b5dffd0e08
+DECL|struct|__anon2b15ca580e08
 typedef|typedef
 struct|struct
 block|{
@@ -1015,7 +1039,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b5dffd0f08
+DECL|struct|__anon2b15ca580f08
 typedef|typedef
 struct|struct
 block|{
@@ -1412,7 +1436,7 @@ name|recursive_error_pages
 decl_stmt|;
 comment|/* recursive_error_pages */
 DECL|member|server_tokens
-name|ngx_flag_t
+name|ngx_uint_t
 name|server_tokens
 decl_stmt|;
 comment|/* server_tokens */
@@ -1565,7 +1589,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29b5dffd1008
+DECL|struct|__anon2b15ca581008
 typedef|typedef
 struct|struct
 block|{
