@@ -140,6 +140,22 @@ name|NGX_STREAM_VAR_NOHASH
 value|8
 end_define
 
+begin_define
+DECL|macro|NGX_STREAM_VAR_WEAK
+define|#
+directive|define
+name|NGX_STREAM_VAR_WEAK
+value|16
+end_define
+
+begin_define
+DECL|macro|NGX_STREAM_VAR_PREFIX
+define|#
+directive|define
+name|NGX_STREAM_VAR_PREFIX
+value|32
+end_define
+
 begin_struct
 DECL|struct|ngx_stream_variable_s
 struct|struct
@@ -266,7 +282,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon278b64340108
+DECL|struct|__anon2af19f7d0108
 typedef|typedef
 struct|struct
 block|{
@@ -285,7 +301,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278b64340208
+DECL|struct|__anon2af19f7d0208
 typedef|typedef
 struct|struct
 block|{
@@ -318,7 +334,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278b64340308
+DECL|struct|__anon2af19f7d0308
 typedef|typedef
 struct|struct
 block|{
@@ -379,7 +395,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon278b64340408
+DECL|struct|__anon2af19f7d0408
 typedef|typedef
 struct|struct
 block|{

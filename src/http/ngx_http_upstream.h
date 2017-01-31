@@ -261,7 +261,7 @@ value|0x00000200
 end_define
 
 begin_typedef
-DECL|struct|__anon293e43fe0108
+DECL|struct|__anon27e66b690108
 typedef|typedef
 struct|struct
 block|{
@@ -301,7 +301,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293e43fe0208
+DECL|struct|__anon27e66b690208
 typedef|typedef
 struct|struct
 block|{
@@ -370,7 +370,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293e43fe0308
+DECL|struct|__anon27e66b690308
 typedef|typedef
 struct|struct
 block|{
@@ -394,7 +394,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293e43fe0408
+DECL|struct|__anon27e66b690408
 typedef|typedef
 struct|struct
 block|{
@@ -574,7 +574,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon293e43fe0508
+DECL|struct|__anon27e66b690508
 typedef|typedef
 struct|struct
 block|{
@@ -607,7 +607,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293e43fe0608
+DECL|struct|__anon27e66b690608
 typedef|typedef
 struct|struct
 block|{
@@ -905,7 +905,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293e43fe0708
+DECL|struct|__anon27e66b690708
 typedef|typedef
 struct|struct
 block|{
@@ -941,7 +941,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293e43fe0808
+DECL|struct|__anon27e66b690808
 typedef|typedef
 struct|struct
 block|{
@@ -1089,7 +1089,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293e43fe0908
+DECL|struct|__anon27e66b690908
 typedef|typedef
 struct|struct
 block|{
@@ -1519,7 +1519,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon293e43fe0a08
+DECL|struct|__anon27e66b690a08
 typedef|typedef
 struct|struct
 block|{
@@ -1538,7 +1538,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293e43fe0b08
+DECL|struct|__anon27e66b690b08
 typedef|typedef
 struct|struct
 block|{
@@ -1559,42 +1559,6 @@ block|}
 name|ngx_http_upstream_param_t
 typedef|;
 end_typedef
-
-begin_function_decl
-name|ngx_int_t
-name|ngx_http_upstream_cookie_variable
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|,
-name|ngx_http_variable_value_t
-modifier|*
-name|v
-parameter_list|,
-name|uintptr_t
-name|data
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-name|ngx_int_t
-name|ngx_http_upstream_header_variable
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|,
-name|ngx_http_variable_value_t
-modifier|*
-name|v
-parameter_list|,
-name|uintptr_t
-name|data
-parameter_list|)
-function_decl|;
-end_function_decl
 
 begin_function_decl
 name|ngx_int_t

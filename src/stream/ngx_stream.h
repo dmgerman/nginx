@@ -129,7 +129,7 @@ value|503
 end_define
 
 begin_typedef
-DECL|struct|__anon28f82b250108
+DECL|struct|__anon2c63a0c40108
 typedef|typedef
 struct|struct
 block|{
@@ -152,7 +152,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f82b250208
+DECL|struct|__anon2c63a0c40208
 typedef|typedef
 struct|struct
 block|{
@@ -253,7 +253,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f82b250308
+DECL|struct|__anon2c63a0c40308
 typedef|typedef
 struct|struct
 block|{
@@ -285,7 +285,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f82b250408
+DECL|struct|__anon2c63a0c40408
 typedef|typedef
 struct|struct
 block|{
@@ -312,7 +312,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon28f82b250508
+DECL|struct|__anon2c63a0c40508
 typedef|typedef
 struct|struct
 block|{
@@ -337,7 +337,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28f82b250608
+DECL|struct|__anon2c63a0c40608
 typedef|typedef
 struct|struct
 block|{
@@ -358,7 +358,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f82b250708
+DECL|struct|__anon2c63a0c40708
 typedef|typedef
 struct|struct
 block|{
@@ -386,7 +386,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f82b250808
+DECL|struct|__anon2c63a0c40808
 typedef|typedef
 struct|struct
 block|{
@@ -401,7 +401,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28f82b250903
+DECL|enum|__anon2c63a0c40903
 typedef|typedef
 enum|enum
 block|{
@@ -516,7 +516,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28f82b250a08
+DECL|struct|__anon2c63a0c40a08
 typedef|typedef
 struct|struct
 block|{
@@ -532,7 +532,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f82b250b08
+DECL|struct|__anon2c63a0c40b08
 typedef|typedef
 struct|struct
 block|{
@@ -547,7 +547,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f82b250c08
+DECL|struct|__anon2c63a0c40c08
 typedef|typedef
 struct|struct
 block|{
@@ -572,6 +572,11 @@ decl_stmt|;
 DECL|member|variables
 name|ngx_array_t
 name|variables
+decl_stmt|;
+comment|/* ngx_stream_variable_t */
+DECL|member|prefix_variables
+name|ngx_array_t
+name|prefix_variables
 decl_stmt|;
 comment|/* ngx_stream_variable_t */
 DECL|member|ncaptures
@@ -607,7 +612,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f82b250d08
+DECL|struct|__anon2c63a0c40d08
 typedef|typedef
 struct|struct
 block|{
@@ -787,7 +792,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28f82b250e08
+DECL|struct|__anon2c63a0c40e08
 typedef|typedef
 struct|struct
 block|{

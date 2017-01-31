@@ -140,6 +140,22 @@ name|NGX_HTTP_VAR_NOHASH
 value|8
 end_define
 
+begin_define
+DECL|macro|NGX_HTTP_VAR_WEAK
+define|#
+directive|define
+name|NGX_HTTP_VAR_WEAK
+value|16
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_VAR_PREFIX
+define|#
+directive|define
+name|NGX_HTTP_VAR_PREFIX
+value|32
+end_define
+
 begin_struct
 DECL|struct|ngx_http_variable_s
 struct|struct
@@ -288,7 +304,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2c4eaf360108
+DECL|struct|__anon29854f620108
 typedef|typedef
 struct|struct
 block|{
@@ -307,7 +323,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4eaf360208
+DECL|struct|__anon29854f620208
 typedef|typedef
 struct|struct
 block|{
@@ -340,7 +356,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4eaf360308
+DECL|struct|__anon29854f620308
 typedef|typedef
 struct|struct
 block|{
@@ -401,7 +417,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c4eaf360408
+DECL|struct|__anon29854f620408
 typedef|typedef
 struct|struct
 block|{
