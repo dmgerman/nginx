@@ -3872,6 +3872,16 @@ argument_list|,
 name|ngx_http_ssl_module
 argument_list|)
 expr_stmt|;
+name|c
+operator|->
+name|ssl
+operator|->
+name|buffer_size
+operator|=
+name|sscf
+operator|->
+name|buffer_size
+expr_stmt|;
 if|if
 condition|(
 name|sscf
@@ -8580,7 +8590,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon27a624b30103
+DECL|enum|__anon277d30f00103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
