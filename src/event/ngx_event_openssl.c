@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2c3b4aa80108
+DECL|struct|__anon294045890108
 typedef|typedef
 struct|struct
 block|{
@@ -649,12 +649,36 @@ directive|if
 name|OPENSSL_VERSION_NUMBER
 operator|>=
 literal|0x10100003L
+if|if
+condition|(
 name|OPENSSL_init_ssl
 argument_list|(
 name|OPENSSL_INIT_LOAD_CONFIG
 argument_list|,
 name|NULL
 argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+name|ngx_ssl_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"OPENSSL_init_ssl() failed"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
+comment|/*      * OPENSSL_init_ssl() may leave errors in the error queue      * while returning success      */
+name|ERR_clear_error
+argument_list|()
 expr_stmt|;
 else|#
 directive|else
