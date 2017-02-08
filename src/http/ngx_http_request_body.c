@@ -3261,6 +3261,14 @@ name|NGX_OK
 return|;
 block|}
 comment|/* we assume that such small packet should be send successfully */
+name|r
+operator|->
+name|connection
+operator|->
+name|error
+operator|=
+literal|1
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
