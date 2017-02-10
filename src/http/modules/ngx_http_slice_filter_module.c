@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b6576c60108
+DECL|struct|__anon2abfe07d0108
 typedef|typedef
 struct|struct
 block|{
@@ -37,7 +37,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b6576c60208
+DECL|struct|__anon2abfe07d0208
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b6576c60308
+DECL|struct|__anon2abfe07d0308
 typedef|typedef
 struct|struct
 block|{
@@ -1137,7 +1137,7 @@ name|sr
 argument_list|,
 name|NULL
 argument_list|,
-literal|0
+name|NGX_HTTP_SUBREQUEST_CLONE
 argument_list|)
 operator|!=
 name|NGX_OK
