@@ -8318,6 +8318,11 @@ condition|(
 name|c
 operator|->
 name|updating
+operator|&&
+operator|!
+name|c
+operator|->
+name|background
 condition|)
 block|{
 name|ngx_log_error

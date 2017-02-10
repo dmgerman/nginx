@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bb767760108
+DECL|struct|__anon29fbfb040108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb767760208
+DECL|struct|__anon29fbfb040208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb767760308
+DECL|struct|__anon29fbfb040308
 typedef|typedef
 struct|struct
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2bb767760403
+DECL|enum|__anon29fbfb040403
 typedef|typedef
 enum|enum
 block|{
@@ -199,7 +199,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb767760508
+DECL|struct|__anon29fbfb040508
 typedef|typedef
 struct|struct
 block|{
@@ -220,7 +220,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb767760608
+DECL|struct|__anon29fbfb040608
 typedef|typedef
 struct|struct
 block|{
@@ -378,7 +378,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2bb767760708
+DECL|struct|__anon29fbfb040708
 typedef|typedef
 struct|struct
 block|{
@@ -421,7 +421,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb767760808
+DECL|struct|__anon29fbfb040808
 typedef|typedef
 struct|struct
 block|{
@@ -451,7 +451,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb767760908
+DECL|struct|__anon29fbfb040908
 typedef|typedef
 struct|struct
 block|{
@@ -478,7 +478,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb767760a08
+DECL|struct|__anon29fbfb040a08
 typedef|typedef
 struct|struct
 block|{
@@ -2099,6 +2099,36 @@ argument_list|,
 name|upstream
 operator|.
 name|cache_revalidate
+argument_list|)
+block|,
+name|NULL
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"fastcgi_cache_background_update"
+argument_list|)
+block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
+name|NGX_HTTP_SRV_CONF
+operator||
+name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_CONF_FLAG
+block|,
+name|ngx_conf_set_flag_slot
+block|,
+name|NGX_HTTP_LOC_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+name|ngx_http_fastcgi_loc_conf_t
+argument_list|,
+name|upstream
+operator|.
+name|cache_background_update
 argument_list|)
 block|,
 name|NULL
@@ -12562,6 +12592,14 @@ name|cache_revalidate
 operator|=
 name|NGX_CONF_UNSET
 expr_stmt|;
+name|conf
+operator|->
+name|upstream
+operator|.
+name|cache_background_update
+operator|=
+name|NGX_CONF_UNSET
+expr_stmt|;
 endif|#
 directive|endif
 name|conf
@@ -13904,6 +13942,23 @@ operator|->
 name|upstream
 operator|.
 name|cache_revalidate
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+name|ngx_conf_merge_value
+argument_list|(
+name|conf
+operator|->
+name|upstream
+operator|.
+name|cache_background_update
+argument_list|,
+name|prev
+operator|->
+name|upstream
+operator|.
+name|cache_background_update
 argument_list|,
 literal|0
 argument_list|)

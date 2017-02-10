@@ -131,7 +131,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2b6992f50108
+DECL|struct|__anon2901fdcb0108
 typedef|typedef
 struct|struct
 block|{
@@ -150,7 +150,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b6992f50208
+DECL|struct|__anon2901fdcb0208
 typedef|typedef
 struct|struct
 block|{
@@ -457,6 +457,12 @@ name|secondary
 range|:
 literal|1
 decl_stmt|;
+DECL|member|background
+name|unsigned
+name|background
+range|:
+literal|1
+decl_stmt|;
 DECL|member|stale_updating
 name|unsigned
 name|stale_updating
@@ -474,7 +480,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b6992f50308
+DECL|struct|__anon2901fdcb0308
 typedef|typedef
 struct|struct
 block|{
@@ -554,7 +560,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b6992f50408
+DECL|struct|__anon2901fdcb0408
 typedef|typedef
 struct|struct
 block|{
