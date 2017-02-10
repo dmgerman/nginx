@@ -19236,6 +19236,12 @@ operator|.
 name|pos
 expr_stmt|;
 block|}
+name|r
+operator|->
+name|read_event_handler
+operator|=
+name|ngx_http_block_reading
+expr_stmt|;
 if|if
 condition|(
 name|rc
