@@ -111,7 +111,7 @@ DECL|macro|NGX_HTTP_CACHE_ETAG_LEN
 define|#
 directive|define
 name|NGX_HTTP_CACHE_ETAG_LEN
-value|42
+value|128
 end_define
 
 begin_define
@@ -119,7 +119,7 @@ DECL|macro|NGX_HTTP_CACHE_VARY_LEN
 define|#
 directive|define
 name|NGX_HTTP_CACHE_VARY_LEN
-value|42
+value|128
 end_define
 
 begin_define
@@ -127,11 +127,11 @@ DECL|macro|NGX_HTTP_CACHE_VERSION
 define|#
 directive|define
 name|NGX_HTTP_CACHE_VERSION
-value|4
+value|5
 end_define
 
 begin_typedef
-DECL|struct|__anon2901fdcb0108
+DECL|struct|__anon2c1b233e0108
 typedef|typedef
 struct|struct
 block|{
@@ -150,7 +150,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2901fdcb0208
+DECL|struct|__anon2c1b233e0208
 typedef|typedef
 struct|struct
 block|{
@@ -480,7 +480,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2901fdcb0308
+DECL|struct|__anon2c1b233e0308
 typedef|typedef
 struct|struct
 block|{
@@ -560,7 +560,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2901fdcb0408
+DECL|struct|__anon2c1b233e0408
 typedef|typedef
 struct|struct
 block|{
