@@ -1523,6 +1523,7 @@ end_endif
 
 begin_decl_stmt
 DECL|variable|ngx_http_upstream_headers_in
+specifier|static
 name|ngx_http_upstream_header_t
 name|ngx_http_upstream_headers_in
 index|[]

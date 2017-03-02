@@ -442,7 +442,7 @@ comment|/* NGX_TEST_BUILD_EPOLL */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2768b6c40108
+DECL|struct|__anon2abc8f650108
 typedef|typedef
 struct|struct
 block|{
@@ -922,6 +922,7 @@ end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_epoll_module_ctx
+specifier|static
 name|ngx_event_module_t
 name|ngx_epoll_module_ctx
 init|=

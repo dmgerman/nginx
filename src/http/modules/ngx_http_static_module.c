@@ -47,6 +47,7 @@ end_function_decl
 
 begin_decl_stmt
 DECL|variable|ngx_http_static_module_ctx
+specifier|static
 name|ngx_http_module_t
 name|ngx_http_static_module_ctx
 init|=

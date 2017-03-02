@@ -22,7 +22,7 @@ file|<ngx_event.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27989aef0108
+DECL|struct|__anon276adf630108
 typedef|typedef
 struct|struct
 block|{
@@ -380,6 +380,7 @@ end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_kqueue_module_ctx
+specifier|static
 name|ngx_event_module_t
 name|ngx_kqueue_module_ctx
 init|=

@@ -161,7 +161,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2b4b14f90108
+DECL|struct|__anon29ced5be0108
 typedef|typedef
 struct|struct
 block|{
@@ -608,7 +608,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b4b14f90208
+DECL|struct|__anon29ced5be0208
 typedef|typedef
 struct|struct
 block|{
@@ -846,6 +846,7 @@ end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_eventport_module_ctx
+specifier|static
 name|ngx_event_module_t
 name|ngx_eventport_module_ctx
 init|=

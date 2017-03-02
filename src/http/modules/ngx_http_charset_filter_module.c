@@ -66,7 +66,7 @@ value|(sizeof("&#1114111;") - 1)
 end_define
 
 begin_typedef
-DECL|struct|__anon293bf6e00108
+DECL|struct|__anon2948aa350108
 typedef|typedef
 struct|struct
 block|{
@@ -99,7 +99,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293bf6e00208
+DECL|struct|__anon2948aa350208
 typedef|typedef
 struct|struct
 block|{
@@ -118,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293bf6e00308
+DECL|struct|__anon2948aa350308
 typedef|typedef
 struct|struct
 block|{
@@ -147,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293bf6e00408
+DECL|struct|__anon2948aa350408
 typedef|typedef
 struct|struct
 block|{
@@ -173,7 +173,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293bf6e00508
+DECL|struct|__anon2948aa350508
 typedef|typedef
 struct|struct
 block|{
@@ -205,7 +205,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293bf6e00608
+DECL|struct|__anon2948aa350608
 typedef|typedef
 struct|struct
 block|{
@@ -273,7 +273,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon293bf6e00708
+DECL|struct|__anon2948aa350708
 typedef|typedef
 struct|struct
 block|{
@@ -635,6 +635,7 @@ end_function_decl
 
 begin_decl_stmt
 DECL|variable|ngx_http_charset_default_types
+specifier|static
 name|ngx_str_t
 name|ngx_http_charset_default_types
 index|[]

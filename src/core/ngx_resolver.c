@@ -46,7 +46,7 @@ value|8192
 end_define
 
 begin_typedef
-DECL|struct|__anon2c630a180108
+DECL|struct|__anon28e6db670108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c630a180208
+DECL|struct|__anon28e6db670208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c630a180308
+DECL|struct|__anon28e6db670308
 typedef|typedef
 struct|struct
 block|{
@@ -186,6 +186,7 @@ value|(ngx_resolver_node_t *)                                                  \
 end_define
 
 begin_function_decl
+specifier|static
 name|ngx_int_t
 name|ngx_udp_connect
 parameter_list|(
@@ -197,6 +198,7 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
+specifier|static
 name|ngx_int_t
 name|ngx_tcp_connect
 parameter_list|(
@@ -19618,6 +19620,7 @@ block|}
 end_function
 
 begin_function
+specifier|static
 name|ngx_int_t
 DECL|function|ngx_udp_connect (ngx_resolver_connection_t * rec)
 name|ngx_udp_connect
@@ -19965,6 +19968,7 @@ block|}
 end_function
 
 begin_function
+specifier|static
 name|ngx_int_t
 DECL|function|ngx_tcp_connect (ngx_resolver_connection_t * rec)
 name|ngx_tcp_connect

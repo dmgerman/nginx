@@ -102,7 +102,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28e26a540108
+DECL|struct|__anon296a099b0108
 typedef|typedef
 struct|struct
 block|{
@@ -123,7 +123,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e26a540208
+DECL|struct|__anon296a099b0208
 typedef|typedef
 struct|struct
 block|{
@@ -144,7 +144,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e26a540308
+DECL|struct|__anon296a099b0308
 typedef|typedef
 struct|struct
 block|{
@@ -169,7 +169,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e26a540408
+DECL|struct|__anon296a099b0408
 typedef|typedef
 struct|struct
 block|{
@@ -189,7 +189,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e26a540508
+DECL|struct|__anon296a099b0508
 typedef|typedef
 struct|struct
 block|{
@@ -228,7 +228,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e26a540608
+DECL|struct|__anon296a099b0608
 typedef|typedef
 struct|struct
 block|{
@@ -599,6 +599,7 @@ end_function_decl
 
 begin_decl_stmt
 DECL|variable|ngx_http_xslt_default_types
+specifier|static
 name|ngx_str_t
 name|ngx_http_xslt_default_types
 index|[]

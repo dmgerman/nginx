@@ -46,7 +46,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2bcea0660108
+DECL|struct|__anon29fe81660108
 typedef|typedef
 struct|struct
 block|{
@@ -206,6 +206,7 @@ end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_http_gzip_static_module_ctx
+specifier|static
 name|ngx_http_module_t
 name|ngx_http_gzip_static_module_ctx
 init|=

@@ -337,6 +337,7 @@ end_if
 
 begin_decl_stmt
 DECL|variable|ngx_stat_accepted0
+specifier|static
 name|ngx_atomic_t
 name|ngx_stat_accepted0
 decl_stmt|;
@@ -355,6 +356,7 @@ end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_stat_handled0
+specifier|static
 name|ngx_atomic_t
 name|ngx_stat_handled0
 decl_stmt|;
@@ -373,6 +375,7 @@ end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_stat_requests0
+specifier|static
 name|ngx_atomic_t
 name|ngx_stat_requests0
 decl_stmt|;
@@ -391,6 +394,7 @@ end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_stat_active0
+specifier|static
 name|ngx_atomic_t
 name|ngx_stat_active0
 decl_stmt|;
@@ -409,6 +413,7 @@ end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_stat_reading0
+specifier|static
 name|ngx_atomic_t
 name|ngx_stat_reading0
 decl_stmt|;
@@ -427,6 +432,7 @@ end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_stat_writing0
+specifier|static
 name|ngx_atomic_t
 name|ngx_stat_writing0
 decl_stmt|;
@@ -445,6 +451,7 @@ end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_stat_waiting0
+specifier|static
 name|ngx_atomic_t
 name|ngx_stat_waiting0
 decl_stmt|;
@@ -720,6 +727,7 @@ end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_event_core_module_ctx
+specifier|static
 name|ngx_event_module_t
 name|ngx_event_core_module_ctx
 init|=

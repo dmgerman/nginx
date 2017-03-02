@@ -97,7 +97,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c6ad6690108
+DECL|struct|__anon28efbeaa0108
 typedef|typedef
 struct|struct
 block|{
@@ -369,6 +369,7 @@ end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_devpoll_module_ctx
+specifier|static
 name|ngx_event_module_t
 name|ngx_devpoll_module_ctx
 init|=

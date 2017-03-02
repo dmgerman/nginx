@@ -152,6 +152,7 @@ end_decl_stmt
 
 begin_decl_stmt
 DECL|variable|ngx_poll_module_ctx
+specifier|static
 name|ngx_event_module_t
 name|ngx_poll_module_ctx
 init|=
