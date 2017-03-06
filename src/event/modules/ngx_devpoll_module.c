@@ -97,7 +97,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28efbeaa0108
+DECL|struct|__anon27e554080108
 typedef|typedef
 struct|struct
 block|{
@@ -1375,6 +1375,7 @@ block|}
 end_function
 
 begin_function
+specifier|static
 name|ngx_int_t
 DECL|function|ngx_devpoll_process_events (ngx_cycle_t * cycle,ngx_msec_t timer,ngx_uint_t flags)
 name|ngx_devpoll_process_events

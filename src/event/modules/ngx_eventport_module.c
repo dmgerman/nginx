@@ -161,7 +161,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon29ced5be0108
+DECL|struct|__anon2ba5935d0108
 typedef|typedef
 struct|struct
 block|{
@@ -608,7 +608,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29ced5be0208
+DECL|struct|__anon2ba5935d0208
 typedef|typedef
 struct|struct
 block|{
@@ -1878,6 +1878,7 @@ block|}
 end_function
 
 begin_function
+specifier|static
 name|ngx_int_t
 DECL|function|ngx_eventport_process_events (ngx_cycle_t * cycle,ngx_msec_t timer,ngx_uint_t flags)
 name|ngx_eventport_process_events

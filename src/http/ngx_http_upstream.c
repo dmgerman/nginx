@@ -24122,6 +24122,7 @@ operator|)
 end_if
 
 begin_function
+specifier|static
 name|ngx_int_t
 DECL|function|ngx_http_upstream_cache_status (ngx_http_request_t * r,ngx_http_variable_value_t * v,uintptr_t data)
 name|ngx_http_upstream_cache_status
