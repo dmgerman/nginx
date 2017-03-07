@@ -80,8 +80,8 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
-name|void
-name|ngx_event_cancel_timers
+name|ngx_int_t
+name|ngx_event_no_timers_left
 parameter_list|(
 name|void
 parameter_list|)
