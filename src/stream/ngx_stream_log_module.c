@@ -119,7 +119,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2901e1b20108
+DECL|struct|__anon2b534a010108
 typedef|typedef
 struct|struct
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2901e1b20208
+DECL|struct|__anon2b534a010208
 typedef|typedef
 struct|struct
 block|{
@@ -161,7 +161,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2901e1b20308
+DECL|struct|__anon2b534a010308
 typedef|typedef
 struct|struct
 block|{
@@ -200,7 +200,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2901e1b20408
+DECL|struct|__anon2b534a010408
 typedef|typedef
 struct|struct
 block|{
@@ -221,7 +221,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2901e1b20508
+DECL|struct|__anon2b534a010508
 typedef|typedef
 struct|struct
 block|{
@@ -265,7 +265,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2901e1b20608
+DECL|struct|__anon2b534a010608
 typedef|typedef
 struct|struct
 block|{
@@ -300,7 +300,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2901e1b20708
+DECL|struct|__anon2b534a010708
 typedef|typedef
 struct|struct
 block|{
@@ -2967,14 +2967,6 @@ modifier|*
 name|ev
 parameter_list|)
 block|{
-name|ngx_open_file_t
-modifier|*
-name|file
-decl_stmt|;
-name|ngx_stream_log_buf_t
-modifier|*
-name|buffer
-decl_stmt|;
 name|ngx_log_debug0
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
@@ -2988,13 +2980,6 @@ argument_list|,
 literal|"stream log buffer flush handler"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|ev
-operator|->
-name|timedout
-condition|)
-block|{
 name|ngx_stream_log_flush
 argument_list|(
 name|ev
@@ -3005,27 +2990,6 @@ name|ev
 operator|->
 name|log
 argument_list|)
-expr_stmt|;
-return|return;
-block|}
-comment|/* cancel the flush timer for graceful shutdown */
-name|file
-operator|=
-name|ev
-operator|->
-name|data
-expr_stmt|;
-name|buffer
-operator|=
-name|file
-operator|->
-name|data
-expr_stmt|;
-name|buffer
-operator|->
-name|event
-operator|=
-name|NULL
 expr_stmt|;
 block|}
 end_function

@@ -119,7 +119,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c2e941a0108
+DECL|struct|__anon2784a44a0108
 typedef|typedef
 struct|struct
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2e941a0208
+DECL|struct|__anon2784a44a0208
 typedef|typedef
 struct|struct
 block|{
@@ -166,7 +166,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2e941a0308
+DECL|struct|__anon2784a44a0308
 typedef|typedef
 struct|struct
 block|{
@@ -205,7 +205,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2e941a0408
+DECL|struct|__anon2784a44a0408
 typedef|typedef
 struct|struct
 block|{
@@ -226,7 +226,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2e941a0508
+DECL|struct|__anon2784a44a0508
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +270,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2e941a0608
+DECL|struct|__anon2784a44a0608
 typedef|typedef
 struct|struct
 block|{
@@ -305,7 +305,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2e941a0708
+DECL|struct|__anon2784a44a0708
 typedef|typedef
 struct|struct
 block|{
@@ -3579,14 +3579,6 @@ modifier|*
 name|ev
 parameter_list|)
 block|{
-name|ngx_open_file_t
-modifier|*
-name|file
-decl_stmt|;
-name|ngx_http_log_buf_t
-modifier|*
-name|buffer
-decl_stmt|;
 name|ngx_log_debug0
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
@@ -3600,13 +3592,6 @@ argument_list|,
 literal|"http log buffer flush handler"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|ev
-operator|->
-name|timedout
-condition|)
-block|{
 name|ngx_http_log_flush
 argument_list|(
 name|ev
@@ -3617,27 +3602,6 @@ name|ev
 operator|->
 name|log
 argument_list|)
-expr_stmt|;
-return|return;
-block|}
-comment|/* cancel the flush timer for graceful shutdown */
-name|file
-operator|=
-name|ev
-operator|->
-name|data
-expr_stmt|;
-name|buffer
-operator|=
-name|file
-operator|->
-name|data
-expr_stmt|;
-name|buffer
-operator|->
-name|event
-operator|=
-name|NULL
 expr_stmt|;
 block|}
 end_function
