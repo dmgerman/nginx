@@ -229,6 +229,22 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_function_decl
+name|ngx_rbtree_node_t
+modifier|*
+name|ngx_rbtree_next
+parameter_list|(
+name|ngx_rbtree_t
+modifier|*
+name|tree
+parameter_list|,
+name|ngx_rbtree_node_t
+modifier|*
+name|node
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_define
 DECL|macro|ngx_rbt_red (node)
 define|#
