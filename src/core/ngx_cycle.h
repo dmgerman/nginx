@@ -279,7 +279,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2770582d0108
+DECL|struct|__anon2af56ab60108
 typedef|typedef
 struct|struct
 block|{
@@ -294,6 +294,10 @@ decl_stmt|;
 DECL|member|timer_resolution
 name|ngx_msec_t
 name|timer_resolution
+decl_stmt|;
+DECL|member|shutdown_timeout
+name|ngx_msec_t
+name|shutdown_timeout
 decl_stmt|;
 DECL|member|worker_processes
 name|ngx_int_t
@@ -515,6 +519,17 @@ parameter_list|,
 name|void
 modifier|*
 name|tag
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|void
+name|ngx_set_shutdown_timer
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
 parameter_list|)
 function_decl|;
 end_function_decl

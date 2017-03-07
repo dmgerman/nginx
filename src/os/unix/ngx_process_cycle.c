@@ -3531,6 +3531,11 @@ name|ngx_exiting
 operator|=
 literal|1
 expr_stmt|;
+name|ngx_set_shutdown_timer
+argument_list|(
+name|cycle
+argument_list|)
+expr_stmt|;
 name|ngx_close_listening_sockets
 argument_list|(
 name|cycle
