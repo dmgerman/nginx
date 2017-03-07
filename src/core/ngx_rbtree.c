@@ -91,11 +91,6 @@ decl_stmt|;
 comment|/* a binary tree insert */
 name|root
 operator|=
-operator|(
-name|ngx_rbtree_node_t
-operator|*
-operator|*
-operator|)
 operator|&
 name|tree
 operator|->
@@ -658,11 +653,6 @@ decl_stmt|;
 comment|/* a binary tree delete */
 name|root
 operator|=
-operator|(
-name|ngx_rbtree_node_t
-operator|*
-operator|*
-operator|)
 operator|&
 name|tree
 operator|->
