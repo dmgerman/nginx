@@ -725,7 +725,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon2780b9fa0103
+DECL|enum|__anon2901bb980103
 typedef|typedef
 enum|enum
 block|{
@@ -764,7 +764,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2780b9fa0208
+DECL|struct|__anon2901bb980208
 typedef|typedef
 struct|struct
 block|{
@@ -787,7 +787,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2780b9fa0308
+DECL|struct|__anon2901bb980308
 typedef|typedef
 struct|struct
 block|{
@@ -806,7 +806,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2780b9fa0408
+DECL|struct|__anon2901bb980408
 typedef|typedef
 struct|struct
 block|{
@@ -1073,7 +1073,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2780b9fa0508
+DECL|struct|__anon2901bb980508
 typedef|typedef
 struct|struct
 block|{
@@ -1218,7 +1218,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2780b9fa0608
+DECL|struct|__anon2901bb980608
 typedef|typedef
 struct|struct
 block|{
@@ -1280,7 +1280,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2780b9fa0708
+DECL|struct|__anon2901bb980708
 typedef|typedef
 struct|struct
 block|{
@@ -1321,8 +1321,7 @@ directive|endif
 endif|#
 directive|endif
 DECL|member|busy
-name|ngx_buf_t
-modifier|*
+name|ngx_chain_t
 modifier|*
 name|busy
 decl_stmt|;
@@ -1331,14 +1330,9 @@ name|ngx_int_t
 name|nbusy
 decl_stmt|;
 DECL|member|free
-name|ngx_buf_t
-modifier|*
+name|ngx_chain_t
 modifier|*
 name|free
-decl_stmt|;
-DECL|member|nfree
-name|ngx_int_t
-name|nfree
 decl_stmt|;
 DECL|member|ssl
 name|unsigned
@@ -1430,7 +1424,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2780b9fa0808
+DECL|struct|__anon2901bb980808
 typedef|typedef
 struct|struct
 block|{
@@ -2323,7 +2317,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2780b9fa0908
+DECL|struct|__anon2901bb980908
 typedef|typedef
 struct|struct
 block|{
