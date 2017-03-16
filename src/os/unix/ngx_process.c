@@ -28,7 +28,7 @@ file|<ngx_channel.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29ff1cde0108
+DECL|struct|__anon2c70fd400108
 typedef|typedef
 struct|struct
 block|{
@@ -1477,6 +1477,7 @@ block|}
 end_function
 
 begin_function
+specifier|static
 name|void
 DECL|function|ngx_signal_handler (int signo)
 name|ngx_signal_handler
