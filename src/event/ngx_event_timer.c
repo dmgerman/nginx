@@ -211,7 +211,7 @@ argument_list|,
 name|sentinel
 argument_list|)
 expr_stmt|;
-comment|/* node->key> ngx_current_time */
+comment|/* node->key> ngx_current_msec */
 if|if
 condition|(
 operator|(
