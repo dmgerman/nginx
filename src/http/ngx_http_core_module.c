@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bbae5650108
+DECL|struct|__anon294e8b250108
 typedef|typedef
 struct|struct
 block|{
@@ -19729,25 +19729,10 @@ operator|==
 name|alias
 condition|)
 block|{
-name|ngx_conf_log_error
-argument_list|(
-name|NGX_LOG_EMERG
-argument_list|,
-name|cf
-argument_list|,
-literal|0
-argument_list|,
-literal|"\"%V\" directive is duplicate"
-argument_list|,
-operator|&
-name|cmd
-operator|->
-name|name
-argument_list|)
-expr_stmt|;
+return|return
+literal|"is duplicate"
+return|;
 block|}
-else|else
-block|{
 name|ngx_conf_log_error
 argument_list|(
 name|NGX_LOG_EMERG
@@ -19773,7 +19758,6 @@ else|:
 literal|"root"
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|NGX_CONF_ERROR
 return|;
