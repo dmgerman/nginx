@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bbe76b50108
+DECL|struct|__anon2bbae5650108
 typedef|typedef
 struct|struct
 block|{
@@ -20417,7 +20417,7 @@ name|limit_except
 condition|)
 block|{
 return|return
-literal|"duplicate"
+literal|"is duplicate"
 return|;
 block|}
 name|pclcf

@@ -1113,7 +1113,7 @@ name|NULL
 condition|)
 block|{
 return|return
-literal|"duplicate"
+literal|"is duplicate"
 return|;
 block|}
 operator|*
