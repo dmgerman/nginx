@@ -125,11 +125,19 @@ value|0x00000200
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_UPSTREAM_FT_HTTP_429
+define|#
+directive|define
+name|NGX_HTTP_UPSTREAM_FT_HTTP_429
+value|0x00000400
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_UPSTREAM_FT_UPDATING
 define|#
 directive|define
 name|NGX_HTTP_UPSTREAM_FT_UPDATING
-value|0x00000400
+value|0x00000800
 end_define
 
 begin_define
@@ -137,7 +145,7 @@ DECL|macro|NGX_HTTP_UPSTREAM_FT_BUSY_LOCK
 define|#
 directive|define
 name|NGX_HTTP_UPSTREAM_FT_BUSY_LOCK
-value|0x00000800
+value|0x00001000
 end_define
 
 begin_define
@@ -145,7 +153,7 @@ DECL|macro|NGX_HTTP_UPSTREAM_FT_MAX_WAITING
 define|#
 directive|define
 name|NGX_HTTP_UPSTREAM_FT_MAX_WAITING
-value|0x00001000
+value|0x00002000
 end_define
 
 begin_define
@@ -153,7 +161,7 @@ DECL|macro|NGX_HTTP_UPSTREAM_FT_NON_IDEMPOTENT
 define|#
 directive|define
 name|NGX_HTTP_UPSTREAM_FT_NON_IDEMPOTENT
-value|0x00002000
+value|0x00004000
 end_define
 
 begin_define
@@ -177,7 +185,7 @@ DECL|macro|NGX_HTTP_UPSTREAM_FT_STATUS
 define|#
 directive|define
 name|NGX_HTTP_UPSTREAM_FT_STATUS
-value|(NGX_HTTP_UPSTREAM_FT_HTTP_500  \                                              |NGX_HTTP_UPSTREAM_FT_HTTP_502  \                                              |NGX_HTTP_UPSTREAM_FT_HTTP_503  \                                              |NGX_HTTP_UPSTREAM_FT_HTTP_504  \                                              |NGX_HTTP_UPSTREAM_FT_HTTP_403  \                                              |NGX_HTTP_UPSTREAM_FT_HTTP_404)
+value|(NGX_HTTP_UPSTREAM_FT_HTTP_500  \                                              |NGX_HTTP_UPSTREAM_FT_HTTP_502  \                                              |NGX_HTTP_UPSTREAM_FT_HTTP_503  \                                              |NGX_HTTP_UPSTREAM_FT_HTTP_504  \                                              |NGX_HTTP_UPSTREAM_FT_HTTP_403  \                                              |NGX_HTTP_UPSTREAM_FT_HTTP_404  \                                              |NGX_HTTP_UPSTREAM_FT_HTTP_429)
 end_define
 
 begin_define
@@ -261,7 +269,7 @@ value|0x00000200
 end_define
 
 begin_typedef
-DECL|struct|__anon2bcbfb100108
+DECL|struct|__anon2a1642500108
 typedef|typedef
 struct|struct
 block|{
@@ -301,7 +309,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bcbfb100208
+DECL|struct|__anon2a1642500208
 typedef|typedef
 struct|struct
 block|{
@@ -370,7 +378,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bcbfb100308
+DECL|struct|__anon2a1642500308
 typedef|typedef
 struct|struct
 block|{
@@ -394,7 +402,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bcbfb100408
+DECL|struct|__anon2a1642500408
 typedef|typedef
 struct|struct
 block|{
@@ -574,7 +582,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bcbfb100508
+DECL|struct|__anon2a1642500508
 typedef|typedef
 struct|struct
 block|{
@@ -607,7 +615,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bcbfb100608
+DECL|struct|__anon2a1642500608
 typedef|typedef
 struct|struct
 block|{
@@ -909,7 +917,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bcbfb100708
+DECL|struct|__anon2a1642500708
 typedef|typedef
 struct|struct
 block|{
@@ -945,7 +953,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bcbfb100808
+DECL|struct|__anon2a1642500808
 typedef|typedef
 struct|struct
 block|{
@@ -1093,7 +1101,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bcbfb100908
+DECL|struct|__anon2a1642500908
 typedef|typedef
 struct|struct
 block|{
@@ -1523,7 +1531,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bcbfb100a08
+DECL|struct|__anon2a1642500a08
 typedef|typedef
 struct|struct
 block|{
@@ -1542,7 +1550,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bcbfb100b08
+DECL|struct|__anon2a1642500b08
 typedef|typedef
 struct|struct
 block|{

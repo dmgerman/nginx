@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bdc27270108
+DECL|struct|__anon2c80ca7c0108
 typedef|typedef
 struct|struct
 block|{
@@ -85,7 +85,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon2bdc2727020a
+DECL|union|__anon2c80ca7c020a
 union|union
 block|{
 DECL|member|complex
@@ -117,7 +117,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bdc27270308
+DECL|struct|__anon2c80ca7c0308
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bdc27270408
+DECL|struct|__anon2c80ca7c0408
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bdc27270508
+DECL|struct|__anon2c80ca7c0508
 typedef|typedef
 struct|struct
 block|{
@@ -345,7 +345,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bdc27270608
+DECL|struct|__anon2c80ca7c0608
 typedef|typedef
 struct|struct
 block|{
@@ -1263,6 +1263,15 @@ literal|"http_404"
 argument_list|)
 block|,
 name|NGX_HTTP_UPSTREAM_FT_HTTP_404
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"http_429"
+argument_list|)
+block|,
+name|NGX_HTTP_UPSTREAM_FT_HTTP_429
 block|}
 block|,
 block|{

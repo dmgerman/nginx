@@ -2522,6 +2522,12 @@ name|NGX_HTTP_UPSTREAM_FT_HTTP_404
 block|}
 block|,
 block|{
+literal|429
+block|,
+name|NGX_HTTP_UPSTREAM_FT_HTTP_429
+block|}
+block|,
+block|{
 literal|0
 block|,
 literal|0
@@ -18127,6 +18133,14 @@ case|:
 name|status
 operator|=
 name|NGX_HTTP_NOT_FOUND
+expr_stmt|;
+break|break;
+case|case
+name|NGX_HTTP_UPSTREAM_FT_HTTP_429
+case|:
+name|status
+operator|=
+name|NGX_HTTP_TOO_MANY_REQUESTS
 expr_stmt|;
 break|break;
 comment|/*      * NGX_HTTP_UPSTREAM_FT_BUSY_LOCK and NGX_HTTP_UPSTREAM_FT_MAX_WAITING      * never reach here      */

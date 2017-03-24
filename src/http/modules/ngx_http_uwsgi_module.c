@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b778e080108
+DECL|struct|__anon28ef65840108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b778e080208
+DECL|struct|__anon28ef65840208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b778e080308
+DECL|struct|__anon28ef65840308
 typedef|typedef
 struct|struct
 block|{
@@ -598,6 +598,15 @@ literal|"http_404"
 argument_list|)
 block|,
 name|NGX_HTTP_UPSTREAM_FT_HTTP_404
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"http_429"
+argument_list|)
+block|,
+name|NGX_HTTP_UPSTREAM_FT_HTTP_429
 block|}
 block|,
 block|{
