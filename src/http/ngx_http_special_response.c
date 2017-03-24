@@ -550,6 +550,24 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_http_error_429_page
+specifier|static
+name|char
+name|ngx_http_error_429_page
+index|[]
+init|=
+literal|"<html>"
+name|CRLF
+literal|"<head><title>429 Too Many Requests</title></head>"
+name|CRLF
+literal|"<body bgcolor=\"white\">"
+name|CRLF
+literal|"<center><h1>429 Too Many Requests</h1></center>"
+name|CRLF
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_http_error_494_page
 specifier|static
 name|char
@@ -899,11 +917,37 @@ argument_list|(
 name|ngx_http_error_421_page
 argument_list|)
 block|,
+name|ngx_null_string
+block|,
+comment|/* 422 */
+name|ngx_null_string
+block|,
+comment|/* 423 */
+name|ngx_null_string
+block|,
+comment|/* 424 */
+name|ngx_null_string
+block|,
+comment|/* 425 */
+name|ngx_null_string
+block|,
+comment|/* 426 */
+name|ngx_null_string
+block|,
+comment|/* 427 */
+name|ngx_null_string
+block|,
+comment|/* 428 */
+name|ngx_string
+argument_list|(
+name|ngx_http_error_429_page
+argument_list|)
+block|,
 DECL|macro|NGX_HTTP_LAST_4XX
 define|#
 directive|define
 name|NGX_HTTP_LAST_4XX
-value|422
+value|430
 DECL|macro|NGX_HTTP_OFF_5XX
 define|#
 directive|define

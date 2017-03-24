@@ -362,17 +362,37 @@ argument_list|(
 literal|"421 Misdirected Request"
 argument_list|)
 block|,
-comment|/* ngx_null_string, */
+name|ngx_null_string
+block|,
 comment|/* "422 Unprocessable Entity" */
-comment|/* ngx_null_string, */
+name|ngx_null_string
+block|,
 comment|/* "423 Locked" */
-comment|/* ngx_null_string, */
+name|ngx_null_string
+block|,
 comment|/* "424 Failed Dependency" */
+name|ngx_null_string
+block|,
+comment|/* "425 unused" */
+name|ngx_null_string
+block|,
+comment|/* "426 Upgrade Required" */
+name|ngx_null_string
+block|,
+comment|/* "427 unused" */
+name|ngx_null_string
+block|,
+comment|/* "428 Precondition Required" */
+name|ngx_string
+argument_list|(
+literal|"429 Too Many Requests"
+argument_list|)
+block|,
 DECL|macro|NGX_HTTP_LAST_4XX
 define|#
 directive|define
 name|NGX_HTTP_LAST_4XX
-value|422
+value|430
 DECL|macro|NGX_HTTP_OFF_5XX
 define|#
 directive|define
