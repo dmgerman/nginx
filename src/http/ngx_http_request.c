@@ -8588,7 +8588,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon28f81d970103
+DECL|enum|__anon2a401e7b0103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -12333,6 +12333,12 @@ operator|->
 name|buf
 operator|=
 name|b
+expr_stmt|;
+name|cl
+operator|->
+name|next
+operator|=
+name|NULL
 expr_stmt|;
 name|hc
 operator|->
