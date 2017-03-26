@@ -4078,7 +4078,7 @@ name|ngx_http_v2_connection_error
 argument_list|(
 name|h2c
 argument_list|,
-name|NGX_HTTP_V2_SIZE_ERROR
+name|NGX_HTTP_V2_PROTOCOL_ERROR
 argument_list|)
 return|;
 block|}
@@ -5153,7 +5153,7 @@ name|ngx_http_v2_connection_error
 argument_list|(
 name|h2c
 argument_list|,
-name|NGX_HTTP_V2_SIZE_ERROR
+name|NGX_HTTP_V2_PROTOCOL_ERROR
 argument_list|)
 return|;
 block|}
@@ -14393,7 +14393,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon288e1ae90108
+DECL|struct|__anon28835ea00108
 specifier|static
 specifier|const
 struct|struct
