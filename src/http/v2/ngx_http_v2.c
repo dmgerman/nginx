@@ -3940,6 +3940,9 @@ modifier|*
 name|end
 parameter_list|)
 block|{
+name|size_t
+name|size
+decl_stmt|;
 name|ngx_http_v2_node_t
 modifier|*
 name|node
@@ -3948,6 +3951,14 @@ name|ngx_http_v2_stream_t
 modifier|*
 name|stream
 decl_stmt|;
+name|size
+operator|=
+name|h2c
+operator|->
+name|state
+operator|.
+name|length
+expr_stmt|;
 if|if
 condition|(
 name|h2c
@@ -4027,13 +4038,6 @@ operator|*
 name|pos
 operator|++
 expr_stmt|;
-name|h2c
-operator|->
-name|state
-operator|.
-name|length
-operator|--
-expr_stmt|;
 if|if
 condition|(
 name|h2c
@@ -4041,12 +4045,8 @@ operator|->
 name|state
 operator|.
 name|padding
-operator|>
-name|h2c
-operator|->
-name|state
-operator|.
-name|length
+operator|>=
+name|size
 condition|)
 block|{
 name|ngx_log_error
@@ -4064,11 +4064,7 @@ argument_list|,
 literal|"client sent padded DATA frame "
 literal|"with incorrect length: %uz, padding: %uz"
 argument_list|,
-name|h2c
-operator|->
-name|state
-operator|.
-name|length
+name|size
 argument_list|,
 name|h2c
 operator|->
@@ -4092,6 +4088,8 @@ name|state
 operator|.
 name|length
 operator|-=
+literal|1
+operator|+
 name|h2c
 operator|->
 name|state
@@ -4116,11 +4114,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|h2c
-operator|->
-name|state
-operator|.
-name|length
+name|size
 operator|>
 name|h2c
 operator|->
@@ -4142,11 +4136,7 @@ argument_list|,
 literal|"client violated connection flow control: "
 literal|"received DATA frame length %uz, available window %uz"
 argument_list|,
-name|h2c
-operator|->
-name|state
-operator|.
-name|length
+name|size
 argument_list|,
 name|h2c
 operator|->
@@ -4166,11 +4156,7 @@ name|h2c
 operator|->
 name|recv_window
 operator|-=
-name|h2c
-operator|->
-name|state
-operator|.
-name|length
+name|size
 expr_stmt|;
 if|if
 condition|(
@@ -4279,11 +4265,7 @@ name|stream
 expr_stmt|;
 if|if
 condition|(
-name|h2c
-operator|->
-name|state
-operator|.
-name|length
+name|size
 operator|>
 name|stream
 operator|->
@@ -4309,11 +4291,7 @@ name|node
 operator|->
 name|id
 argument_list|,
-name|h2c
-operator|->
-name|state
-operator|.
-name|length
+name|size
 argument_list|,
 name|stream
 operator|->
@@ -4358,11 +4336,7 @@ name|stream
 operator|->
 name|recv_window
 operator|-=
-name|h2c
-operator|->
-name|state
-operator|.
-name|length
+name|size
 expr_stmt|;
 if|if
 condition|(
@@ -14419,7 +14393,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2c4e2fee0108
+DECL|struct|__anon288e1ae90108
 specifier|static
 specifier|const
 struct|struct
