@@ -296,7 +296,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275d48ae0108
+DECL|struct|__anon27a8dffc0108
 typedef|typedef
 struct|struct
 block|{
@@ -315,7 +315,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275d48ae0208
+DECL|struct|__anon27a8dffc0208
 typedef|typedef
 struct|struct
 block|{
@@ -426,7 +426,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275d48ae0308
+DECL|struct|__anon27a8dffc0308
 typedef|typedef
 struct|struct
 block|{

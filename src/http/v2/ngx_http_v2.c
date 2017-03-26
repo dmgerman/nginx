@@ -14193,7 +14193,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"client sent unknown pseudo header \"%V\""
+literal|"client sent unknown pseudo-header \":%V\""
 argument_list|,
 operator|&
 name|header
@@ -14393,7 +14393,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon289b99d90108
+DECL|struct|__anon2a40adda0108
 specifier|static
 specifier|const
 struct|struct
@@ -14838,7 +14838,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"client sent duplicate :schema header"
+literal|"client sent duplicate :scheme header"
 argument_list|)
 expr_stmt|;
 return|return
@@ -14868,7 +14868,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"client sent empty :schema header"
+literal|"client sent empty :scheme header"
 argument_list|)
 expr_stmt|;
 return|return
