@@ -3800,6 +3800,12 @@ condition|(
 name|rest
 condition|)
 block|{
+name|frame
+operator|->
+name|length
+operator|+=
+name|NGX_HTTP_V2_FRAME_HEADER_SIZE
+expr_stmt|;
 name|type
 operator|=
 name|NGX_HTTP_V2_CONTINUATION_FRAME
