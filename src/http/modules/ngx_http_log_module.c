@@ -119,7 +119,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2784a44a0108
+DECL|struct|__anon27c297420108
 typedef|typedef
 struct|struct
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2784a44a0208
+DECL|struct|__anon27c297420208
 typedef|typedef
 struct|struct
 block|{
@@ -166,7 +166,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2784a44a0308
+DECL|struct|__anon27c297420308
 typedef|typedef
 struct|struct
 block|{
@@ -205,7 +205,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2784a44a0408
+DECL|struct|__anon27c297420408
 typedef|typedef
 struct|struct
 block|{
@@ -226,7 +226,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2784a44a0508
+DECL|struct|__anon27c297420508
 typedef|typedef
 struct|struct
 block|{
@@ -270,7 +270,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2784a44a0608
+DECL|struct|__anon27c297420608
 typedef|typedef
 struct|struct
 block|{
@@ -305,7 +305,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2784a44a0708
+DECL|struct|__anon27c297420708
 typedef|typedef
 struct|struct
 block|{
@@ -2741,6 +2741,20 @@ operator|!=
 name|NGX_OK
 condition|)
 block|{
+if|if
+condition|(
+name|of
+operator|.
+name|err
+operator|==
+literal|0
+condition|)
+block|{
+comment|/* simulate successful logging */
+return|return
+name|len
+return|;
+block|}
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_CRIT

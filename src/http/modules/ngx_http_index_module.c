@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27e9c16a0108
+DECL|struct|__anon29ea84f60108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27e9c16a0208
+DECL|struct|__anon29ea84f60208
 typedef|typedef
 struct|struct
 block|{
@@ -979,6 +979,19 @@ operator|!=
 name|NGX_OK
 condition|)
 block|{
+if|if
+condition|(
+name|of
+operator|.
+name|err
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
+return|;
+block|}
 name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
@@ -1004,19 +1017,6 @@ operator|.
 name|data
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|of
-operator|.
-name|err
-operator|==
-literal|0
-condition|)
-block|{
-return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
-return|;
-block|}
 if|#
 directive|if
 operator|(
