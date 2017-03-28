@@ -16565,6 +16565,28 @@ name|aio
 operator|=
 literal|0
 expr_stmt|;
+if|if
+condition|(
+name|r
+operator|->
+name|done
+condition|)
+block|{
+comment|/*          * trigger connection event handler if the subrequest was          * already finalized; this can happen if the handler is used          * for sendfile() in threads          */
+name|c
+operator|->
+name|write
+operator|->
+name|handler
+argument_list|(
+name|c
+operator|->
+name|write
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|r
 operator|->
 name|write_event_handler
@@ -16577,6 +16599,7 @@ argument_list|(
 name|c
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_function
 
