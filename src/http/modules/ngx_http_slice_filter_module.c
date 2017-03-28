@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2abfe07d0108
+DECL|struct|__anon2ad5330a0108
 typedef|typedef
 struct|struct
 block|{
@@ -37,7 +37,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2abfe07d0208
+DECL|struct|__anon2ad5330a0208
 typedef|typedef
 struct|struct
 block|{
@@ -62,6 +62,11 @@ name|ngx_uint_t
 name|last
 decl_stmt|;
 comment|/* unsigned  last:1; */
+DECL|member|sr
+name|ngx_http_request_t
+modifier|*
+name|sr
+decl_stmt|;
 DECL|typedef|ngx_http_slice_ctx_t
 block|}
 name|ngx_http_slice_ctx_t
@@ -69,7 +74,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2abfe07d0308
+DECL|struct|__anon2ad5330a0308
 typedef|typedef
 struct|struct
 block|{
@@ -950,10 +955,6 @@ name|ngx_chain_t
 modifier|*
 name|cl
 decl_stmt|;
-name|ngx_http_request_t
-modifier|*
-name|sr
-decl_stmt|;
 name|ngx_http_slice_ctx_t
 modifier|*
 name|ctx
@@ -1078,6 +1079,24 @@ if|if
 condition|(
 name|ctx
 operator|->
+name|sr
+operator|&&
+operator|!
+name|ctx
+operator|->
+name|sr
+operator|->
+name|done
+condition|)
+block|{
+return|return
+name|rc
+return|;
+block|}
+if|if
+condition|(
+name|ctx
+operator|->
 name|start
 operator|>=
 name|ctx
@@ -1133,6 +1152,8 @@ operator|->
 name|args
 argument_list|,
 operator|&
+name|ctx
+operator|->
 name|sr
 argument_list|,
 name|NULL
@@ -1149,6 +1170,8 @@ return|;
 block|}
 name|ngx_http_set_ctx
 argument_list|(
+name|ctx
+operator|->
 name|sr
 argument_list|,
 name|ctx
