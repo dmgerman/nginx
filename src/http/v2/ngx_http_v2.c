@@ -14393,7 +14393,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon28835ea00108
+DECL|struct|__anon2926bf7c0108
 specifier|static
 specifier|const
 struct|struct
@@ -19004,6 +19004,18 @@ operator|=
 name|fc
 operator|->
 name|write
+expr_stmt|;
+name|ev
+operator|->
+name|active
+operator|=
+literal|0
+expr_stmt|;
+name|ev
+operator|->
+name|ready
+operator|=
+literal|1
 expr_stmt|;
 block|}
 else|else
