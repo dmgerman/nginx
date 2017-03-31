@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ad5330a0108
+DECL|struct|__anon2b8d12c70108
 typedef|typedef
 struct|struct
 block|{
@@ -37,7 +37,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad5330a0208
+DECL|struct|__anon2b8d12c70208
 typedef|typedef
 struct|struct
 block|{
@@ -58,10 +58,17 @@ name|ngx_str_t
 name|etag
 decl_stmt|;
 DECL|member|last
-name|ngx_uint_t
+name|unsigned
 name|last
+range|:
+literal|1
 decl_stmt|;
-comment|/* unsigned  last:1; */
+DECL|member|active
+name|unsigned
+name|active
+range|:
+literal|1
+decl_stmt|;
 DECL|member|sr
 name|ngx_http_request_t
 modifier|*
@@ -74,7 +81,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad5330a0308
+DECL|struct|__anon2b8d12c70308
 typedef|typedef
 struct|struct
 block|{
@@ -753,6 +760,12 @@ name|start
 operator|=
 name|end
 expr_stmt|;
+name|ctx
+operator|->
+name|active
+operator|=
+literal|1
+expr_stmt|;
 name|r
 operator|->
 name|headers_out
@@ -1095,6 +1108,33 @@ return|;
 block|}
 if|if
 condition|(
+operator|!
+name|ctx
+operator|->
+name|active
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"missing slice response"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
+if|if
+condition|(
 name|ctx
 operator|->
 name|start
@@ -1227,6 +1267,12 @@ operator|->
 name|range
 operator|.
 name|data
+expr_stmt|;
+name|ctx
+operator|->
+name|active
+operator|=
+literal|0
 expr_stmt|;
 name|ngx_log_debug1
 argument_list|(
