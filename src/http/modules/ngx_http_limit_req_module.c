@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon290b1cb40108
+DECL|struct|__anon27c371d30108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290b1cb40208
+DECL|struct|__anon27c371d30208
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290b1cb40308
+DECL|struct|__anon27c371d30308
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290b1cb40408
+DECL|struct|__anon27c371d30408
 typedef|typedef
 struct|struct
 block|{
@@ -153,7 +153,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon290b1cb40508
+DECL|struct|__anon27c371d30508
 typedef|typedef
 struct|struct
 block|{
@@ -1211,11 +1211,6 @@ condition|(
 name|wev
 operator|->
 name|delayed
-operator|&&
-operator|!
-name|wev
-operator|->
-name|timedout
 condition|)
 block|{
 if|if
@@ -1240,18 +1235,6 @@ expr_stmt|;
 block|}
 return|return;
 block|}
-name|wev
-operator|->
-name|delayed
-operator|=
-literal|0
-expr_stmt|;
-name|wev
-operator|->
-name|timedout
-operator|=
-literal|0
-expr_stmt|;
 if|if
 condition|(
 name|ngx_handle_read_event

@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2914de330108
+DECL|struct|__anon2c9bd34e0108
 typedef|typedef
 struct|struct
 block|{
@@ -59,7 +59,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2914de330208
+DECL|struct|__anon2c9bd34e0208
 typedef|typedef
 struct|struct
 block|{
@@ -79,7 +79,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2914de330308
+DECL|struct|__anon2c9bd34e0308
 typedef|typedef
 struct|struct
 block|{
@@ -1220,11 +1220,6 @@ condition|(
 name|wev
 operator|->
 name|delayed
-operator|&&
-operator|!
-name|wev
-operator|->
-name|timedout
 condition|)
 block|{
 if|if
@@ -1249,18 +1244,6 @@ expr_stmt|;
 block|}
 return|return;
 block|}
-name|wev
-operator|->
-name|delayed
-operator|=
-literal|0
-expr_stmt|;
-name|wev
-operator|->
-name|timedout
-operator|=
-literal|0
-expr_stmt|;
 name|ngx_http_perl_handle_request
 argument_list|(
 name|r
