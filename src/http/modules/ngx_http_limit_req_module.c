@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ad151d60108
+DECL|struct|__anon290b1cb40108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad151d60208
+DECL|struct|__anon290b1cb40208
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad151d60308
+DECL|struct|__anon290b1cb40308
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad151d60408
+DECL|struct|__anon290b1cb40408
 typedef|typedef
 struct|struct
 block|{
@@ -153,7 +153,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad151d60508
+DECL|struct|__anon290b1cb40508
 typedef|typedef
 struct|struct
 block|{
@@ -1141,6 +1141,16 @@ name|write_event_handler
 operator|=
 name|ngx_http_limit_req_delay
 expr_stmt|;
+name|r
+operator|->
+name|connection
+operator|->
+name|write
+operator|->
+name|delayed
+operator|=
+literal|1
+expr_stmt|;
 name|ngx_add_timer
 argument_list|(
 name|r
@@ -1198,6 +1208,10 @@ name|write
 expr_stmt|;
 if|if
 condition|(
+name|wev
+operator|->
+name|delayed
+operator|&&
 operator|!
 name|wev
 operator|->
@@ -1226,6 +1240,12 @@ expr_stmt|;
 block|}
 return|return;
 block|}
+name|wev
+operator|->
+name|delayed
+operator|=
+literal|0
+expr_stmt|;
 name|wev
 operator|->
 name|timedout
