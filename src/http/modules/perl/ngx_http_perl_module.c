@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon298618860108
+DECL|struct|__anon2914de330108
 typedef|typedef
 struct|struct
 block|{
@@ -59,7 +59,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298618860208
+DECL|struct|__anon2914de330208
 typedef|typedef
 struct|struct
 block|{
@@ -79,7 +79,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298618860308
+DECL|struct|__anon2914de330308
 typedef|typedef
 struct|struct
 block|{
@@ -1219,22 +1219,14 @@ if|if
 condition|(
 name|wev
 operator|->
-name|timedout
-condition|)
-block|{
+name|delayed
+operator|&&
+operator|!
 name|wev
 operator|->
 name|timedout
-operator|=
-literal|0
-expr_stmt|;
-name|ngx_http_perl_handle_request
-argument_list|(
-name|r
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
+condition|)
+block|{
 if|if
 condition|(
 name|ngx_handle_write_event
@@ -1255,6 +1247,25 @@ name|NGX_HTTP_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 block|}
+return|return;
+block|}
+name|wev
+operator|->
+name|delayed
+operator|=
+literal|0
+expr_stmt|;
+name|wev
+operator|->
+name|timedout
+operator|=
+literal|0
+expr_stmt|;
+name|ngx_http_perl_handle_request
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 
