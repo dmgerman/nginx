@@ -8588,7 +8588,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon2bf4928f0103
+DECL|enum|__anon294710f60103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -11227,7 +11227,7 @@ modifier|*
 name|r
 parameter_list|)
 block|{
-name|int
+name|ngx_int_t
 name|rc
 decl_stmt|;
 name|ngx_event_t
@@ -11408,7 +11408,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http writer output filter: %d, \"%V?%V\""
+literal|"http writer output filter: %i, \"%V?%V\""
 argument_list|,
 name|rc
 argument_list|,
