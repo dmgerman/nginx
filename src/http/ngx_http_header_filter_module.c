@@ -252,11 +252,16 @@ argument_list|(
 literal|"307 Temporary Redirect"
 argument_list|)
 block|,
+name|ngx_string
+argument_list|(
+literal|"308 Permanent Redirect"
+argument_list|)
+block|,
 DECL|macro|NGX_HTTP_LAST_3XX
 define|#
 directive|define
 name|NGX_HTTP_LAST_3XX
-value|308
+value|309
 DECL|macro|NGX_HTTP_OFF_4XX
 define|#
 directive|define

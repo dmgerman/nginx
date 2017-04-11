@@ -55,7 +55,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27dedd7d0108
+DECL|struct|__anon2c5a89790108
 typedef|typedef
 struct|struct
 block|{
@@ -108,7 +108,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon27dedd7d0203
+DECL|enum|__anon2c5a89790203
 typedef|typedef
 enum|enum
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27dedd7d0308
+DECL|struct|__anon2c5a89790308
 typedef|typedef
 struct|struct
 block|{
@@ -688,6 +688,9 @@ name|NGX_HTTP_NOT_MODIFIED
 case|:
 case|case
 name|NGX_HTTP_TEMPORARY_REDIRECT
+case|:
+case|case
+name|NGX_HTTP_PERMANENT_REDIRECT
 case|:
 name|safe_status
 operator|=
