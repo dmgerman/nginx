@@ -102,7 +102,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon296a099b0108
+DECL|struct|__anon276cfc640108
 typedef|typedef
 struct|struct
 block|{
@@ -123,7 +123,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296a099b0208
+DECL|struct|__anon276cfc640208
 typedef|typedef
 struct|struct
 block|{
@@ -144,7 +144,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296a099b0308
+DECL|struct|__anon276cfc640308
 typedef|typedef
 struct|struct
 block|{
@@ -169,7 +169,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296a099b0408
+DECL|struct|__anon276cfc640408
 typedef|typedef
 struct|struct
 block|{
@@ -189,7 +189,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296a099b0508
+DECL|struct|__anon276cfc640508
 typedef|typedef
 struct|struct
 block|{
@@ -228,7 +228,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296a099b0608
+DECL|struct|__anon276cfc640608
 typedef|typedef
 struct|struct
 block|{
@@ -2645,16 +2645,11 @@ return|;
 block|}
 name|b
 operator|=
-name|ngx_pcalloc
+name|ngx_calloc_buf
 argument_list|(
 name|r
 operator|->
 name|pool
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|ngx_buf_t
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if

@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bc0626f0108
+DECL|struct|__anon28a183ad0108
 typedef|typedef
 struct|struct
 block|{
@@ -8266,16 +8266,11 @@ return|;
 block|}
 name|b
 operator|=
-name|ngx_pcalloc
+name|ngx_calloc_buf
 argument_list|(
 name|r
 operator|->
 name|pool
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|ngx_buf_t
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if

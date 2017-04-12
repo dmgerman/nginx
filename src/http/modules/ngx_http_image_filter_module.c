@@ -164,7 +164,7 @@ value|0x08
 end_define
 
 begin_typedef
-DECL|struct|__anon29e85d630108
+DECL|struct|__anon2883267f0108
 typedef|typedef
 struct|struct
 block|{
@@ -245,7 +245,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e85d630208
+DECL|struct|__anon2883267f0208
 typedef|typedef
 struct|struct
 block|{
@@ -2592,16 +2592,11 @@ name|b
 decl_stmt|;
 name|b
 operator|=
-name|ngx_pcalloc
+name|ngx_calloc_buf
 argument_list|(
 name|r
 operator|->
 name|pool
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|ngx_buf_t
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -2832,16 +2827,11 @@ name|b
 decl_stmt|;
 name|b
 operator|=
-name|ngx_pcalloc
+name|ngx_calloc_buf
 argument_list|(
 name|r
 operator|->
 name|pool
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|ngx_buf_t
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -4898,16 +4888,11 @@ return|;
 block|}
 name|b
 operator|=
-name|ngx_pcalloc
+name|ngx_calloc_buf
 argument_list|(
 name|r
 operator|->
 name|pool
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|ngx_buf_t
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if

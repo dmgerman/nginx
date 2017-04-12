@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27dd84640108
+DECL|struct|__anon2b8880810108
 typedef|typedef
 struct|struct
 block|{
@@ -80,7 +80,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27dd84640208
+DECL|struct|__anon2b8880810208
 typedef|typedef
 struct|struct
 block|{
@@ -2615,16 +2615,11 @@ block|}
 decl_stmt|;
 name|b
 operator|=
-name|ngx_pcalloc
+name|ngx_calloc_buf
 argument_list|(
 name|r
 operator|->
 name|pool
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|ngx_buf_t
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if

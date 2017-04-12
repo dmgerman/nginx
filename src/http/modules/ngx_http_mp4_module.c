@@ -246,7 +246,7 @@ value|NGX_HTTP_MP4_CO64_DATA
 end_define
 
 begin_typedef
-DECL|struct|__anon298054ad0108
+DECL|struct|__anon298785600108
 typedef|typedef
 struct|struct
 block|{
@@ -265,7 +265,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298054ad0208
+DECL|struct|__anon298785600208
 typedef|typedef
 struct|struct
 block|{
@@ -297,7 +297,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298054ad0308
+DECL|struct|__anon298785600308
 typedef|typedef
 struct|struct
 block|{
@@ -529,7 +529,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298054ad0408
+DECL|struct|__anon298785600408
 typedef|typedef
 struct|struct
 block|{
@@ -675,7 +675,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298054ad0508
+DECL|struct|__anon298785600508
 typedef|typedef
 struct|struct
 block|{
@@ -2932,16 +2932,11 @@ condition|)
 block|{
 name|b
 operator|=
-name|ngx_pcalloc
+name|ngx_calloc_buf
 argument_list|(
 name|r
 operator|->
 name|pool
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|ngx_buf_t
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -4230,7 +4225,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon298054ad0608
+DECL|struct|__anon298785600608
 typedef|typedef
 struct|struct
 block|{
@@ -4255,7 +4250,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298054ad0708
+DECL|struct|__anon298785600708
 typedef|typedef
 struct|struct
 block|{
@@ -5959,7 +5954,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon298054ad0808
+DECL|struct|__anon298785600808
 typedef|typedef
 struct|struct
 block|{
@@ -6103,7 +6098,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298054ad0908
+DECL|struct|__anon298785600908
 typedef|typedef
 struct|struct
 block|{
@@ -7040,7 +7035,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon298054ad0a08
+DECL|struct|__anon298785600a08
 typedef|typedef
 struct|struct
 block|{
@@ -7170,7 +7165,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298054ad0b08
+DECL|struct|__anon298785600b08
 typedef|typedef
 struct|struct
 block|{
@@ -7927,7 +7922,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon298054ad0c08
+DECL|struct|__anon298785600c08
 typedef|typedef
 struct|struct
 block|{
@@ -8008,7 +8003,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298054ad0d08
+DECL|struct|__anon298785600d08
 typedef|typedef
 struct|struct
 block|{
@@ -9508,7 +9503,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon298054ad0e08
+DECL|struct|__anon298785600e08
 typedef|typedef
 struct|struct
 block|{
@@ -9805,7 +9800,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon298054ad0f08
+DECL|struct|__anon298785600f08
 typedef|typedef
 struct|struct
 block|{
@@ -9851,7 +9846,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298054ad1008
+DECL|struct|__anon298785601008
 typedef|typedef
 struct|struct
 block|{
@@ -10871,7 +10866,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon298054ad1108
+DECL|struct|__anon298785601108
 typedef|typedef
 struct|struct
 block|{
@@ -11742,7 +11737,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon298054ad1208
+DECL|struct|__anon298785601208
 typedef|typedef
 struct|struct
 block|{
@@ -11788,7 +11783,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298054ad1308
+DECL|struct|__anon298785601308
 typedef|typedef
 struct|struct
 block|{
@@ -12641,7 +12636,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon298054ad1408
+DECL|struct|__anon298785601408
 typedef|typedef
 struct|struct
 block|{
@@ -14270,7 +14265,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon298054ad1508
+DECL|struct|__anon298785601508
 typedef|typedef
 struct|struct
 block|{
@@ -15075,7 +15070,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon298054ad1608
+DECL|struct|__anon298785601608
 typedef|typedef
 struct|struct
 block|{
@@ -15970,7 +15965,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon298054ad1708
+DECL|struct|__anon298785601708
 typedef|typedef
 struct|struct
 block|{
