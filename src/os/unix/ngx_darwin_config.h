@@ -16,6 +16,18 @@ directive|define
 name|_NGX_DARWIN_CONFIG_H_INCLUDED_
 end_define
 
+begin_define
+DECL|macro|__APPLE_USE_RFC_3542
+define|#
+directive|define
+name|__APPLE_USE_RFC_3542
+end_define
+
+begin_comment
+DECL|macro|__APPLE_USE_RFC_3542
+comment|/* IPV6_PKTINFO */
+end_comment
+
 begin_include
 include|#
 directive|include
