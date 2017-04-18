@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2c1820c50108
+DECL|struct|__anon29e743500108
 typedef|typedef
 struct|struct
 block|{
@@ -4530,9 +4530,15 @@ ifndef|#
 directive|ifndef
 name|OPENSSL_NO_ECDH
 comment|/*      * Elliptic-Curve Diffie-Hellman parameters are either "named curves"      * from RFC 4492 section 5.1.1, or explicitly described curves over      * binary fields.  OpenSSL only supports the "named curves", which provide      * maximum interoperability.      */
-ifdef|#
-directive|ifdef
+if|#
+directive|if
+operator|(
+name|defined
+name|SSL_CTX_set1_curves_list
+operator|||
+name|defined
 name|SSL_CTRL_SET_CURVES_LIST
+operator|)
 comment|/*      * OpenSSL 1.0.2+ allows configuring a curve list instead of a single      * curve previously supported.  By default an internal list is used,      * with prime256v1 being preferred by server in OpenSSL 1.0.2b+      * and X25519 in OpenSSL 1.1.0+.      *      * By default a curve preferred by the client will be used for      * key exchange.  The SSL_OP_CIPHER_SERVER_PREFERENCE option can      * be used to prefer server curves instead, similar to what it      * does for ciphers.      */
 name|SSL_CTX_set_options
 argument_list|(
