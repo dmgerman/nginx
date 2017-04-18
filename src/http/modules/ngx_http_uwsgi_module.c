@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28ef65840108
+DECL|struct|__anon27ebfeb50108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ef65840208
+DECL|struct|__anon27ebfeb50208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ef65840308
+DECL|struct|__anon27ebfeb50308
 typedef|typedef
 struct|struct
 block|{
@@ -695,6 +695,15 @@ literal|"TLSv1.2"
 argument_list|)
 block|,
 name|NGX_SSL_TLSv1_2
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"TLSv1.3"
+argument_list|)
+block|,
+name|NGX_SSL_TLSv1_3
 block|}
 block|,
 block|{

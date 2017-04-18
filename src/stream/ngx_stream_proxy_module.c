@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27d909810108
+DECL|struct|__anon2ae2737a0108
 typedef|typedef
 struct|struct
 block|{
@@ -55,7 +55,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27d909810208
+DECL|struct|__anon2ae2737a0208
 typedef|typedef
 struct|struct
 block|{
@@ -618,6 +618,15 @@ literal|"TLSv1.2"
 argument_list|)
 block|,
 name|NGX_SSL_TLSv1_2
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"TLSv1.3"
+argument_list|)
+block|,
+name|NGX_SSL_TLSv1_3
 block|}
 block|,
 block|{

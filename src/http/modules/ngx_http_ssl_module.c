@@ -370,6 +370,15 @@ name|NGX_SSL_TLSv1_2
 block|}
 block|,
 block|{
+name|ngx_string
+argument_list|(
+literal|"TLSv1.3"
+argument_list|)
+block|,
+name|NGX_SSL_TLSv1_3
+block|}
+block|,
+block|{
 name|ngx_null_string
 block|,
 literal|0

@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c80ca7c0108
+DECL|struct|__anon2b5d841b0108
 typedef|typedef
 struct|struct
 block|{
@@ -85,7 +85,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon2c80ca7c020a
+DECL|union|__anon2b5d841b020a
 union|union
 block|{
 DECL|member|complex
@@ -117,7 +117,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c80ca7c0308
+DECL|struct|__anon2b5d841b0308
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c80ca7c0408
+DECL|struct|__anon2b5d841b0408
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c80ca7c0508
+DECL|struct|__anon2b5d841b0508
 typedef|typedef
 struct|struct
 block|{
@@ -345,7 +345,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c80ca7c0608
+DECL|struct|__anon2b5d841b0608
 typedef|typedef
 struct|struct
 block|{
@@ -1360,6 +1360,15 @@ literal|"TLSv1.2"
 argument_list|)
 block|,
 name|NGX_SSL_TLSv1_2
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"TLSv1.3"
+argument_list|)
+block|,
+name|NGX_SSL_TLSv1_3
 block|}
 block|,
 block|{
