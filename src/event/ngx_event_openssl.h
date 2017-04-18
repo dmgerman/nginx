@@ -222,6 +222,32 @@ name|ngx_ssl_conn_t
 value|SSL
 end_define
 
+begin_if
+if|#
+directive|if
+operator|(
+name|OPENSSL_VERSION_NUMBER
+operator|<
+literal|0x10002000L
+operator|)
+end_if
+
+begin_define
+DECL|macro|SSL_is_server (s)
+define|#
+directive|define
+name|SSL_is_server
+parameter_list|(
+name|s
+parameter_list|)
+value|(s)->server
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_struct
 DECL|struct|ngx_ssl_s
 struct|struct
@@ -431,7 +457,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a3d80850108
+DECL|struct|__anon27ca91e20108
 typedef|typedef
 struct|struct
 block|{
@@ -460,7 +486,7 @@ name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon2a3d80850208
+DECL|struct|__anon27ca91e20208
 typedef|typedef
 struct|struct
 block|{

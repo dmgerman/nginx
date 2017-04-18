@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2b62e7ba0108
+DECL|struct|__anon2c1820c50108
 typedef|typedef
 struct|struct
 block|{
@@ -3517,9 +3517,20 @@ name|c
 decl_stmt|;
 if|if
 condition|(
+operator|(
 name|where
 operator|&
 name|SSL_CB_HANDSHAKE_START
+operator|)
+operator|&&
+name|SSL_is_server
+argument_list|(
+operator|(
+name|ngx_ssl_conn_t
+operator|*
+operator|)
+name|ssl_conn
+argument_list|)
 condition|)
 block|{
 name|c
