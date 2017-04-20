@@ -663,6 +663,11 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|ngx_http_clear_location
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;

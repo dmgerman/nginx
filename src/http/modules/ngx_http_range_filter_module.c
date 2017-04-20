@@ -26,7 +26,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon2972efd30108
+DECL|struct|__anon27612bc10108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2972efd30208
+DECL|struct|__anon27612bc10208
 typedef|typedef
 struct|struct
 block|{
@@ -1644,6 +1644,20 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|content_range
+operator|->
+name|hash
+operator|=
+literal|0
+expr_stmt|;
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_range
+operator|=
+name|NULL
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
@@ -2465,6 +2479,20 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|content_range
+operator|->
+name|hash
+operator|=
+literal|0
+expr_stmt|;
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_range
+operator|=
+name|NULL
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;

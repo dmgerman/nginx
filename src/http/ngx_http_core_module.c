@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon291ae81f0108
+DECL|struct|__anon2c9755e20108
 typedef|typedef
 struct|struct
 block|{
@@ -4348,6 +4348,11 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|ngx_http_clear_location
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
 name|ngx_http_finalize_request
 argument_list|(
 name|r

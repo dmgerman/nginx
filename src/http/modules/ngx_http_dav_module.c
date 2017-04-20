@@ -54,7 +54,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon2b57a6a90108
+DECL|struct|__anon2ae8e06a0108
 typedef|typedef
 struct|struct
 block|{
@@ -81,7 +81,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b57a6a90208
+DECL|struct|__anon2ae8e06a0208
 typedef|typedef
 struct|struct
 block|{
@@ -4977,6 +4977,11 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|ngx_http_clear_location
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;

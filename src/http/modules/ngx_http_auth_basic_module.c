@@ -36,7 +36,7 @@ value|2048
 end_define
 
 begin_typedef
-DECL|struct|__anon2c1ad8fe0108
+DECL|struct|__anon2c15fec10108
 typedef|typedef
 struct|struct
 block|{
@@ -51,7 +51,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1ad8fe0208
+DECL|struct|__anon2c15fec10208
 typedef|typedef
 struct|struct
 block|{
@@ -413,7 +413,7 @@ index|[
 name|NGX_HTTP_AUTH_BUF_SIZE
 index|]
 decl_stmt|;
-DECL|enum|__anon2c1ad8fe0303
+DECL|enum|__anon2c15fec10303
 enum|enum
 block|{
 DECL|enumerator|sw_login
@@ -1527,6 +1527,24 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|r
+operator|->
+name|headers_out
+operator|.
+name|www_authenticate
+operator|->
+name|hash
+operator|=
+literal|0
+expr_stmt|;
+name|r
+operator|->
+name|headers_out
+operator|.
+name|www_authenticate
+operator|=
+name|NULL
+expr_stmt|;
 return|return
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
