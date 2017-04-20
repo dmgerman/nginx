@@ -46,7 +46,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon28b950bf0108
+DECL|struct|__anon2bbd17df0108
 typedef|typedef
 struct|struct
 block|{
@@ -928,7 +928,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_ERROR
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
 block|}
 name|h
