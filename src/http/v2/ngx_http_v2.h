@@ -296,7 +296,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a8dffc0108
+DECL|struct|__anon2760c1b00108
 typedef|typedef
 struct|struct
 block|{
@@ -315,7 +315,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a8dffc0208
+DECL|struct|__anon2760c1b00208
 typedef|typedef
 struct|struct
 block|{
@@ -426,7 +426,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a8dffc0308
+DECL|struct|__anon2760c1b00308
 typedef|typedef
 struct|struct
 block|{
@@ -1078,9 +1078,6 @@ parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
-parameter_list|,
-name|ngx_http_client_body_handler_pt
-name|post_handler
 parameter_list|)
 function_decl|;
 end_function_decl

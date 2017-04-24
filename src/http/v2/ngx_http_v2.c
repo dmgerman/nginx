@@ -14549,7 +14549,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon27e96df90108
+DECL|struct|__anon2778324c0108
 specifier|static
 specifier|const
 struct|struct
@@ -16120,15 +16120,12 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_http_v2_read_request_body (ngx_http_request_t * r,ngx_http_client_body_handler_pt post_handler)
+DECL|function|ngx_http_v2_read_request_body (ngx_http_request_t * r)
 name|ngx_http_v2_read_request_body
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
-parameter_list|,
-name|ngx_http_client_body_handler_pt
-name|post_handler
 parameter_list|)
 block|{
 name|off_t
@@ -16170,6 +16167,12 @@ name|r
 operator|->
 name|stream
 expr_stmt|;
+name|rb
+operator|=
+name|r
+operator|->
+name|request_body
+expr_stmt|;
 if|if
 condition|(
 name|stream
@@ -16183,6 +16186,8 @@ name|request_body_no_buffering
 operator|=
 literal|0
 expr_stmt|;
+name|rb
+operator|->
 name|post_handler
 argument_list|(
 name|r
@@ -16192,50 +16197,6 @@ return|return
 name|NGX_OK
 return|;
 block|}
-name|rb
-operator|=
-name|ngx_pcalloc
-argument_list|(
-name|r
-operator|->
-name|pool
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|ngx_http_request_body_t
-argument_list|)
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|rb
-operator|==
-name|NULL
-condition|)
-block|{
-return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
-return|;
-block|}
-comment|/*      * set by ngx_pcalloc():      *      *     rb->bufs = NULL;      *     rb->buf = NULL;      *     rb->received = 0;      *     rb->free = NULL;      *     rb->busy = NULL;      */
-name|rb
-operator|->
-name|rest
-operator|=
-literal|1
-expr_stmt|;
-name|rb
-operator|->
-name|post_handler
-operator|=
-name|post_handler
-expr_stmt|;
-name|r
-operator|->
-name|request_body
-operator|=
-name|rb
-expr_stmt|;
 name|h2scf
 operator|=
 name|ngx_http_get_module_srv_conf
@@ -16450,6 +16411,12 @@ return|return
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
 block|}
+name|rb
+operator|->
+name|rest
+operator|=
+literal|1
+expr_stmt|;
 name|buf
 operator|=
 name|stream
