@@ -428,9 +428,11 @@ argument_list|(
 literal|"504 Gateway Time-out"
 argument_list|)
 block|,
-name|ngx_null_string
+name|ngx_string
+argument_list|(
+literal|"505 HTTP Version Not Supported"
+argument_list|)
 block|,
-comment|/* "505 HTTP Version Not Supported" */
 name|ngx_null_string
 block|,
 comment|/* "506 Variant Also Negotiates" */

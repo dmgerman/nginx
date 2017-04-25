@@ -532,6 +532,9 @@ block|,
 comment|/* NGX_HTTP_PARSE_INVALID_REQUEST */
 literal|"client sent invalid request"
 block|,
+comment|/* NGX_HTTP_PARSE_INVALID_VERSION */
+literal|"client sent invalid version"
+block|,
 comment|/* NGX_HTTP_PARSE_INVALID_09_METHOD */
 literal|"client sent invalid method in HTTP/0.9 request"
 block|}
@@ -4506,6 +4509,23 @@ name|NGX_HTTP_CLIENT_ERROR
 index|]
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|rc
+operator|==
+name|NGX_HTTP_PARSE_INVALID_VERSION
+condition|)
+block|{
+name|ngx_http_finalize_request
+argument_list|(
+name|r
+argument_list|,
+name|NGX_HTTP_VERSION_NOT_SUPPORTED
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|ngx_http_finalize_request
 argument_list|(
 name|r
@@ -4513,6 +4533,7 @@ argument_list|,
 name|NGX_HTTP_BAD_REQUEST
 argument_list|)
 expr_stmt|;
+block|}
 return|return;
 block|}
 comment|/* NGX_AGAIN: a request line parsing is still incomplete */
@@ -8588,7 +8609,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon294710f60103
+DECL|enum|__anon27ddcc220103
 enum|enum
 block|{
 DECL|enumerator|sw_usual

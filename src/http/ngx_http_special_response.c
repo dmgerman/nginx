@@ -756,6 +756,24 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_http_error_505_page
+specifier|static
+name|char
+name|ngx_http_error_505_page
+index|[]
+init|=
+literal|"<html>"
+name|CRLF
+literal|"<head><title>505 HTTP Version Not Supported</title></head>"
+name|CRLF
+literal|"<body bgcolor=\"white\">"
+name|CRLF
+literal|"<center><h1>505 HTTP Version Not Supported</h1></center>"
+name|CRLF
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_http_error_507_page
 specifier|static
 name|char
@@ -1034,9 +1052,11 @@ argument_list|(
 name|ngx_http_error_504_page
 argument_list|)
 block|,
-name|ngx_null_string
+name|ngx_string
+argument_list|(
+name|ngx_http_error_505_page
+argument_list|)
 block|,
-comment|/* 505 */
 name|ngx_null_string
 block|,
 comment|/* 506 */
