@@ -128,6 +128,7 @@ index|]
 operator|<<
 literal|16
 expr_stmt|;
+comment|/* fall through */
 case|case
 literal|2
 case|:
@@ -140,6 +141,7 @@ index|]
 operator|<<
 literal|8
 expr_stmt|;
+comment|/* fall through */
 case|case
 literal|1
 case|:

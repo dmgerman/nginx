@@ -28,7 +28,7 @@ file|<ngx_channel.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27d538c00108
+DECL|struct|__anon27e44e280108
 typedef|typedef
 struct|struct
 block|{
@@ -1783,6 +1783,7 @@ name|ngx_debug_quit
 operator|=
 literal|1
 expr_stmt|;
+comment|/* fall through */
 case|case
 name|ngx_signal_value
 argument_list|(
