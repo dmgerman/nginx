@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon29e743500108
+DECL|struct|__anon2bb03b940108
 typedef|typedef
 struct|struct
 block|{
@@ -5397,6 +5397,15 @@ operator|->
 name|connection
 operator|->
 name|s3
+operator|&&
+name|SSL_is_server
+argument_list|(
+name|c
+operator|->
+name|ssl
+operator|->
+name|connection
+argument_list|)
 condition|)
 block|{
 name|c
