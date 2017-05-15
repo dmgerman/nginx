@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon277791670108
+DECL|struct|__anon29c12ded0108
 typedef|typedef
 struct|struct
 block|{
@@ -54,7 +54,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon277791670208
+DECL|struct|__anon29c12ded0208
 typedef|typedef
 struct|struct
 block|{
@@ -93,7 +93,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon277791670308
+DECL|struct|__anon29c12ded0308
 typedef|typedef
 struct|struct
 block|{
@@ -114,7 +114,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon277791670408
+DECL|struct|__anon29c12ded0408
 typedef|typedef
 struct|struct
 block|{
@@ -1313,6 +1313,10 @@ name|rule_un
 decl_stmt|;
 endif|#
 directive|endif
+name|all
+operator|=
+literal|0
+expr_stmt|;
 name|ngx_memzero
 argument_list|(
 operator|&
@@ -1332,9 +1336,8 @@ name|args
 operator|->
 name|elts
 expr_stmt|;
-name|all
-operator|=
-operator|(
+if|if
+condition|(
 name|value
 index|[
 literal|1
@@ -1357,20 +1360,19 @@ literal|"all"
 argument_list|)
 operator|==
 literal|0
-operator|)
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|all
 condition|)
 block|{
+name|all
+operator|=
+literal|1
+expr_stmt|;
 if|#
 directive|if
 operator|(
 name|NGX_HAVE_UNIX_DOMAIN
 operator|)
-if|if
+block|}
+if|else if
 condition|(
 name|value
 index|[
@@ -1402,10 +1404,8 @@ name|family
 operator|=
 name|AF_UNIX
 expr_stmt|;
-name|rc
-operator|=
-name|NGX_OK
-expr_stmt|;
+endif|#
+directive|endif
 block|}
 else|else
 block|{
@@ -1423,25 +1423,6 @@ operator|&
 name|cidr
 argument_list|)
 expr_stmt|;
-block|}
-else|#
-directive|else
-name|rc
-operator|=
-name|ngx_ptocidr
-argument_list|(
-operator|&
-name|value
-index|[
-literal|1
-index|]
-argument_list|,
-operator|&
-name|cidr
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 name|rc
