@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon292fe4de0108
+DECL|struct|__anon29224bd70108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292fe4de0208
+DECL|struct|__anon29224bd70208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292fe4de0308
+DECL|struct|__anon29224bd70308
 typedef|typedef
 struct|struct
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon292fe4de0403
+DECL|enum|__anon29224bd70403
 typedef|typedef
 enum|enum
 block|{
@@ -199,7 +199,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292fe4de0508
+DECL|struct|__anon29224bd70508
 typedef|typedef
 struct|struct
 block|{
@@ -220,7 +220,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292fe4de0608
+DECL|struct|__anon29224bd70608
 typedef|typedef
 struct|struct
 block|{
@@ -378,7 +378,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon292fe4de0708
+DECL|struct|__anon29224bd70708
 typedef|typedef
 struct|struct
 block|{
@@ -421,7 +421,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292fe4de0808
+DECL|struct|__anon29224bd70808
 typedef|typedef
 struct|struct
 block|{
@@ -451,7 +451,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292fe4de0908
+DECL|struct|__anon29224bd70908
 typedef|typedef
 struct|struct
 block|{
@@ -478,7 +478,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon292fe4de0a08
+DECL|struct|__anon29224bd70a08
 typedef|typedef
 struct|struct
 block|{
@@ -8761,6 +8761,12 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|h
+operator|->
+name|hash
+operator|=
+literal|0
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
@@ -8883,6 +8889,12 @@ argument_list|,
 literal|"invalid header after joining "
 literal|"FastCGI records"
 argument_list|)
+expr_stmt|;
+name|h
+operator|->
+name|hash
+operator|=
+literal|0
 expr_stmt|;
 return|return
 name|NGX_ERROR
@@ -9073,6 +9085,12 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|h
+operator|->
+name|hash
+operator|=
+literal|0
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;

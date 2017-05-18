@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b5d841b0108
+DECL|struct|__anon28d726530108
 typedef|typedef
 struct|struct
 block|{
@@ -85,7 +85,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon2b5d841b020a
+DECL|union|__anon28d72653020a
 union|union
 block|{
 DECL|member|complex
@@ -117,7 +117,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b5d841b0308
+DECL|struct|__anon28d726530308
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5d841b0408
+DECL|struct|__anon28d726530408
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5d841b0508
+DECL|struct|__anon28d726530508
 typedef|typedef
 struct|struct
 block|{
@@ -345,7 +345,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5d841b0608
+DECL|struct|__anon28d726530608
 typedef|typedef
 struct|struct
 block|{
@@ -8809,6 +8809,12 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|h
+operator|->
+name|hash
+operator|=
+literal|0
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
