@@ -1018,6 +1018,8 @@ if|#
 directive|if
 operator|(
 name|NGX_HAVE_KQUEUE
+operator|||
+name|NGX_HAVE_EPOLLRDHUP
 operator|)
 name|rev
 operator|->
