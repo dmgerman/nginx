@@ -4416,7 +4416,7 @@ operator|&&
 operator|!
 name|r
 operator|->
-name|cache_updater
+name|background
 operator|&&
 name|u
 operator|->
@@ -4469,7 +4469,7 @@ operator|&&
 operator|!
 name|r
 operator|->
-name|cache_updater
+name|background
 condition|)
 block|{
 name|u
@@ -5160,6 +5160,8 @@ argument_list|,
 name|NULL
 argument_list|,
 name|NGX_HTTP_SUBREQUEST_CLONE
+operator||
+name|NGX_HTTP_SUBREQUEST_BACKGROUND
 argument_list|)
 operator|!=
 name|NGX_OK
@@ -5172,12 +5174,6 @@ block|}
 name|sr
 operator|->
 name|header_only
-operator|=
-literal|1
-expr_stmt|;
-name|sr
-operator|->
-name|cache_updater
 operator|=
 literal|1
 expr_stmt|;
