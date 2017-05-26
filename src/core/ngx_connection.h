@@ -308,7 +308,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2b417ad00103
+DECL|enum|__anon2c5ccb620103
 typedef|typedef
 enum|enum
 block|{
@@ -335,7 +335,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b417ad00203
+DECL|enum|__anon2c5ccb620203
 typedef|typedef
 enum|enum
 block|{
@@ -356,7 +356,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b417ad00303
+DECL|enum|__anon2c5ccb620303
 typedef|typedef
 enum|enum
 block|{
@@ -775,6 +775,17 @@ name|s
 parameter_list|,
 name|ngx_uint_t
 name|port
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_tcp_nodelay
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
 parameter_list|)
 function_decl|;
 end_function_decl
