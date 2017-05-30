@@ -7597,6 +7597,31 @@ operator|==
 name|NGX_OK
 condition|)
 block|{
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http2 pseudo-header: \":%V: %V\""
+argument_list|,
+operator|&
+name|header
+operator|->
+name|name
+argument_list|,
+operator|&
+name|header
+operator|->
+name|value
+argument_list|)
+expr_stmt|;
 return|return
 name|ngx_http_v2_state_header_complete
 argument_list|(
@@ -7774,17 +7799,9 @@ name|NGX_HTTP_V2_INTERNAL_ERROR
 argument_list|)
 return|;
 block|}
-return|return
-name|ngx_http_v2_state_header_complete
-argument_list|(
-name|h2c
-argument_list|,
-name|pos
-argument_list|,
-name|end
-argument_list|)
-return|;
 block|}
+else|else
+block|{
 name|h
 operator|=
 name|ngx_list_push
@@ -7837,7 +7854,7 @@ name|name
 operator|.
 name|data
 expr_stmt|;
-comment|/* TODO Optimization: precalculate hash and handler for indexed headers. */
+comment|/*          * TODO Optimization: precalculate hash          * and handler for indexed headers.          */
 name|h
 operator|->
 name|hash
@@ -7948,6 +7965,7 @@ goto|goto
 name|error
 goto|;
 block|}
+block|}
 name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
@@ -7963,12 +7981,12 @@ argument_list|,
 literal|"http2 http header: \"%V: %V\""
 argument_list|,
 operator|&
-name|h
+name|header
 operator|->
-name|key
+name|name
 argument_list|,
 operator|&
-name|h
+name|header
 operator|->
 name|value
 argument_list|)
@@ -14471,7 +14489,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2bf54a6d0108
+DECL|struct|__anon293654fd0108
 specifier|static
 specifier|const
 struct|struct
