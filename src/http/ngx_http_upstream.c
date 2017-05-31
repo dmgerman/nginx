@@ -12006,7 +12006,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http upstream process body on memory"
+literal|"http upstream process body in memory"
 argument_list|)
 expr_stmt|;
 if|if
