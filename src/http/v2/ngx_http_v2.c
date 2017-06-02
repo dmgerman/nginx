@@ -9398,13 +9398,6 @@ name|NGX_HTTP_V2_SIZE_ERROR
 argument_list|)
 return|;
 block|}
-name|ngx_http_v2_send_settings
-argument_list|(
-name|h2c
-argument_list|,
-literal|1
-argument_list|)
-expr_stmt|;
 return|return
 name|ngx_http_v2_state_settings_params
 argument_list|(
@@ -9620,6 +9613,13 @@ operator|+=
 name|NGX_HTTP_V2_SETTINGS_PARAM_SIZE
 expr_stmt|;
 block|}
+name|ngx_http_v2_send_settings
+argument_list|(
+name|h2c
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|window_delta
@@ -14506,7 +14506,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon297e36c10108
+DECL|struct|__anon2926c8340108
 specifier|static
 specifier|const
 struct|struct
