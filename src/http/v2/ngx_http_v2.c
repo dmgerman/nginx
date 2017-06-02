@@ -148,6 +148,14 @@ comment|/* frame sizes */
 end_comment
 
 begin_define
+DECL|macro|NGX_HTTP_V2_SETTINGS_ACK_SIZE
+define|#
+directive|define
+name|NGX_HTTP_V2_SETTINGS_ACK_SIZE
+value|0
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_V2_RST_STREAM_SIZE
 define|#
 directive|define
@@ -1034,9 +1042,6 @@ parameter_list|(
 name|ngx_http_v2_connection_t
 modifier|*
 name|h2c
-parameter_list|,
-name|ngx_uint_t
-name|ack
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -1821,8 +1826,6 @@ condition|(
 name|ngx_http_v2_send_settings
 argument_list|(
 name|h2c
-argument_list|,
-literal|0
 argument_list|)
 operator|==
 name|NGX_ERROR
@@ -9439,6 +9442,10 @@ name|id
 decl_stmt|,
 name|value
 decl_stmt|;
+name|ngx_http_v2_out_frame_t
+modifier|*
+name|frame
+decl_stmt|;
 name|window_delta
 operator|=
 literal|0
@@ -9613,11 +9620,42 @@ operator|+=
 name|NGX_HTTP_V2_SETTINGS_PARAM_SIZE
 expr_stmt|;
 block|}
-name|ngx_http_v2_send_settings
+name|frame
+operator|=
+name|ngx_http_v2_get_frame
 argument_list|(
 name|h2c
 argument_list|,
-literal|1
+name|NGX_HTTP_V2_SETTINGS_ACK_SIZE
+argument_list|,
+name|NGX_HTTP_V2_SETTINGS_FRAME
+argument_list|,
+name|NGX_HTTP_V2_ACK_FLAG
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|frame
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|ngx_http_v2_connection_error
+argument_list|(
+name|h2c
+argument_list|,
+name|NGX_HTTP_V2_INTERNAL_ERROR
+argument_list|)
+return|;
+block|}
+name|ngx_http_v2_queue_blocked_frame
+argument_list|(
+name|h2c
+argument_list|,
+name|frame
 argument_list|)
 expr_stmt|;
 if|if
@@ -11584,15 +11622,12 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_http_v2_send_settings (ngx_http_v2_connection_t * h2c,ngx_uint_t ack)
+DECL|function|ngx_http_v2_send_settings (ngx_http_v2_connection_t * h2c)
 name|ngx_http_v2_send_settings
 parameter_list|(
 name|ngx_http_v2_connection_t
 modifier|*
 name|h2c
-parameter_list|,
-name|ngx_uint_t
-name|ack
 parameter_list|)
 block|{
 name|size_t
@@ -11614,7 +11649,7 @@ name|ngx_http_v2_out_frame_t
 modifier|*
 name|frame
 decl_stmt|;
-name|ngx_log_debug1
+name|ngx_log_debug0
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
@@ -11626,9 +11661,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http2 send SETTINGS frame ack:%ui"
-argument_list|,
-name|ack
+literal|"http2 send SETTINGS frame"
 argument_list|)
 expr_stmt|;
 name|frame
@@ -11678,21 +11711,7 @@ return|;
 block|}
 name|len
 operator|=
-name|ack
-condition|?
-literal|0
-else|:
-operator|(
-sizeof|sizeof
-argument_list|(
-name|uint16_t
-argument_list|)
-operator|+
-sizeof|sizeof
-argument_list|(
-name|uint32_t
-argument_list|)
-operator|)
+name|NGX_HTTP_V2_SETTINGS_PARAM_SIZE
 operator|*
 literal|3
 expr_stmt|;
@@ -11802,10 +11821,6 @@ operator|->
 name|last
 operator|++
 operator|=
-name|ack
-condition|?
-name|NGX_HTTP_V2_ACK_FLAG
-else|:
 name|NGX_HTTP_V2_NO_FLAG
 expr_stmt|;
 name|buf
@@ -11821,12 +11836,6 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|ack
-condition|)
-block|{
 name|h2scf
 operator|=
 name|ngx_http_get_module_srv_conf
@@ -11922,7 +11931,6 @@ argument_list|,
 name|NGX_HTTP_V2_MAX_FRAME_SIZE
 argument_list|)
 expr_stmt|;
-block|}
 name|ngx_http_v2_queue_blocked_frame
 argument_list|(
 name|h2c
@@ -14506,7 +14514,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2926c8340108
+DECL|struct|__anon2b532bea0108
 specifier|static
 specifier|const
 struct|struct
