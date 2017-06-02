@@ -9651,7 +9651,7 @@ name|NGX_HTTP_V2_INTERNAL_ERROR
 argument_list|)
 return|;
 block|}
-name|ngx_http_v2_queue_blocked_frame
+name|ngx_http_v2_queue_ordered_frame
 argument_list|(
 name|h2c
 argument_list|,
@@ -14514,7 +14514,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2b532bea0108
+DECL|struct|__anon2bb6b8ed0108
 specifier|static
 specifier|const
 struct|struct

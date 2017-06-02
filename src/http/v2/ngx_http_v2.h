@@ -296,7 +296,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2760c1b00108
+DECL|struct|__anon29900f5f0108
 typedef|typedef
 struct|struct
 block|{
@@ -315,7 +315,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2760c1b00208
+DECL|struct|__anon29900f5f0208
 typedef|typedef
 struct|struct
 block|{
@@ -426,7 +426,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2760c1b00308
+DECL|struct|__anon29900f5f0308
 typedef|typedef
 struct|struct
 block|{
@@ -1045,6 +1045,39 @@ name|out
 expr_stmt|;
 operator|*
 name|out
+operator|=
+name|frame
+expr_stmt|;
+block|}
+end_function
+
+begin_function
+specifier|static
+name|ngx_inline
+name|void
+DECL|function|ngx_http_v2_queue_ordered_frame (ngx_http_v2_connection_t * h2c,ngx_http_v2_out_frame_t * frame)
+name|ngx_http_v2_queue_ordered_frame
+parameter_list|(
+name|ngx_http_v2_connection_t
+modifier|*
+name|h2c
+parameter_list|,
+name|ngx_http_v2_out_frame_t
+modifier|*
+name|frame
+parameter_list|)
+block|{
+name|frame
+operator|->
+name|next
+operator|=
+name|h2c
+operator|->
+name|last_out
+expr_stmt|;
+name|h2c
+operator|->
+name|last_out
 operator|=
 name|frame
 expr_stmt|;
