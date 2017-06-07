@@ -54,7 +54,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon29a3c94e0108
+DECL|struct|__anon2c50236c0108
 typedef|typedef
 struct|struct
 block|{
@@ -98,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a3c94e0208
+DECL|struct|__anon2c50236c0208
 typedef|typedef
 struct|struct
 block|{
@@ -121,7 +121,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a3c94e0308
+DECL|struct|__anon2c50236c0308
 typedef|typedef
 struct|struct
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29a3c94e0403
+DECL|enum|__anon2c50236c0403
 typedef|typedef
 enum|enum
 block|{
@@ -10630,7 +10630,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_HTTP_SSI_ERROR
+name|NGX_ERROR
 return|;
 block|}
 name|ngx_cpystrn
