@@ -66,7 +66,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon275fa3350108
+DECL|struct|__anon27dc97010108
 typedef|typedef
 struct|struct
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon275fa3350208
+DECL|struct|__anon27dc97010208
 typedef|typedef
 struct|struct
 block|{
@@ -2191,6 +2191,21 @@ argument_list|,
 name|ngx_http_userid_reset_index
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|vv
+operator|==
+name|NULL
+operator|||
+name|vv
+operator|->
+name|not_found
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
 if|if
 condition|(
 name|vv
