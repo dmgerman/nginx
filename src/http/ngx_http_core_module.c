@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27de4f080108
+DECL|struct|__anon2b6e74a70108
 typedef|typedef
 struct|struct
 block|{
@@ -5905,6 +5905,14 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|r
+operator|->
+name|uri
+operator|.
+name|len
+operator|=
+literal|0
+expr_stmt|;
 name|ngx_http_finalize_request
 argument_list|(
 name|r
