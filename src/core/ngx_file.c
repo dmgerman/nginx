@@ -2752,11 +2752,6 @@ if|if
 condition|(
 name|ngx_file_info
 argument_list|(
-operator|(
-specifier|const
-name|char
-operator|*
-operator|)
 name|path
 index|[
 name|i
