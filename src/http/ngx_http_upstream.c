@@ -5396,6 +5396,9 @@ modifier|*
 name|ctx
 parameter_list|)
 block|{
+name|ngx_uint_t
+name|run_posted
+decl_stmt|;
 name|ngx_connection_t
 modifier|*
 name|c
@@ -5412,6 +5415,12 @@ name|ngx_http_upstream_resolved_t
 modifier|*
 name|ur
 decl_stmt|;
+name|run_posted
+operator|=
+name|ctx
+operator|->
+name|async
+expr_stmt|;
 name|r
 operator|=
 name|ctx
@@ -5715,11 +5724,17 @@ argument_list|)
 expr_stmt|;
 name|failed
 label|:
+if|if
+condition|(
+name|run_posted
+condition|)
+block|{
 name|ngx_http_run_posted_requests
 argument_list|(
 name|c
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 end_function
 
