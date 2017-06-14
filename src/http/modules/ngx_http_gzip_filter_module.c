@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b8880810108
+DECL|struct|__anon2c5117b80108
 typedef|typedef
 struct|struct
 block|{
@@ -80,7 +80,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8880810208
+DECL|struct|__anon2c5117b80208
 typedef|typedef
 struct|struct
 block|{
@@ -4621,24 +4621,6 @@ name|ngx_http_gzip_ctx_t
 modifier|*
 name|ctx
 decl_stmt|;
-name|v
-operator|->
-name|valid
-operator|=
-literal|1
-expr_stmt|;
-name|v
-operator|->
-name|no_cacheable
-operator|=
-literal|0
-expr_stmt|;
-name|v
-operator|->
-name|not_found
-operator|=
-literal|0
-expr_stmt|;
 name|ctx
 operator|=
 name|ngx_http_get_module_ctx
@@ -4671,6 +4653,24 @@ return|return
 name|NGX_OK
 return|;
 block|}
+name|v
+operator|->
+name|valid
+operator|=
+literal|1
+expr_stmt|;
+name|v
+operator|->
+name|no_cacheable
+operator|=
+literal|0
+expr_stmt|;
+name|v
+operator|->
+name|not_found
+operator|=
+literal|0
+expr_stmt|;
 name|v
 operator|->
 name|data
