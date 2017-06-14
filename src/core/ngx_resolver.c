@@ -46,7 +46,7 @@ value|8192
 end_define
 
 begin_typedef
-DECL|struct|__anon29a4981b0108
+DECL|struct|__anon2940ba380108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a4981b0208
+DECL|struct|__anon2940ba380208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29a4981b0308
+DECL|struct|__anon2940ba380308
 typedef|typedef
 struct|struct
 block|{
@@ -3892,6 +3892,12 @@ name|state
 operator|=
 name|NGX_AGAIN
 expr_stmt|;
+name|ctx
+operator|->
+name|async
+operator|=
+literal|1
+expr_stmt|;
 do|do
 block|{
 name|ctx
@@ -4624,6 +4630,12 @@ name|state
 operator|=
 name|NGX_AGAIN
 expr_stmt|;
+name|ctx
+operator|->
+name|async
+operator|=
+literal|1
+expr_stmt|;
 do|do
 block|{
 name|ctx
@@ -5176,6 +5188,12 @@ name|NGX_AGAIN
 expr_stmt|;
 name|ctx
 operator|->
+name|async
+operator|=
+literal|1
+expr_stmt|;
+name|ctx
+operator|->
 name|node
 operator|=
 name|rn
@@ -5618,6 +5636,12 @@ operator|->
 name|state
 operator|=
 name|NGX_AGAIN
+expr_stmt|;
+name|ctx
+operator|->
+name|async
+operator|=
+literal|1
 expr_stmt|;
 name|ctx
 operator|->
@@ -13659,6 +13683,14 @@ name|ctx
 operator|->
 name|count
 operator|--
+expr_stmt|;
+name|ctx
+operator|->
+name|async
+operator||=
+name|cctx
+operator|->
+name|async
 expr_stmt|;
 name|srv
 operator|->
