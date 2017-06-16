@@ -61,6 +61,17 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_function_decl
+name|void
+name|ngx_rwlock_downgrade
+parameter_list|(
+name|ngx_atomic_t
+modifier|*
+name|lock
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_endif
 endif|#
 directive|endif

@@ -340,6 +340,33 @@ block|}
 block|}
 end_function
 
+begin_function
+name|void
+DECL|function|ngx_rwlock_downgrade (ngx_atomic_t * lock)
+name|ngx_rwlock_downgrade
+parameter_list|(
+name|ngx_atomic_t
+modifier|*
+name|lock
+parameter_list|)
+block|{
+if|if
+condition|(
+operator|*
+name|lock
+operator|==
+name|NGX_RWLOCK_WLOCK
+condition|)
+block|{
+operator|*
+name|lock
+operator|=
+literal|1
+expr_stmt|;
+block|}
+block|}
+end_function
+
 begin_else
 else|#
 directive|else
