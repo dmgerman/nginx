@@ -46,7 +46,7 @@ value|8192
 end_define
 
 begin_typedef
-DECL|struct|__anon28e6db670108
+DECL|struct|__anon29a4981b0108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e6db670208
+DECL|struct|__anon29a4981b0208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e6db670308
+DECL|struct|__anon29a4981b0308
 typedef|typedef
 struct|struct
 block|{
@@ -2559,9 +2559,9 @@ operator|==
 name|NULL
 condition|)
 block|{
-return|return
-name|NGX_ERROR
-return|;
+goto|goto
+name|failed
+goto|;
 block|}
 if|if
 condition|(
@@ -2698,6 +2698,8 @@ name|event
 argument_list|)
 expr_stmt|;
 block|}
+name|failed
+label|:
 name|ngx_resolver_free
 argument_list|(
 name|r
