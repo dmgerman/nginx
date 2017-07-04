@@ -46,7 +46,7 @@ value|8192
 end_define
 
 begin_typedef
-DECL|struct|__anon29ce334f0108
+DECL|struct|__anon2a165f2f0108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ce334f0208
+DECL|struct|__anon2a165f2f0208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ce334f0308
+DECL|struct|__anon2a165f2f0308
 typedef|typedef
 struct|struct
 block|{
@@ -1282,6 +1282,14 @@ operator|->
 name|cycle
 operator|->
 name|new_log
+expr_stmt|;
+name|r
+operator|->
+name|event
+operator|->
+name|cancelable
+operator|=
+literal|1
 expr_stmt|;
 name|r
 operator|->
@@ -17848,6 +17856,16 @@ operator|=
 name|r
 operator|->
 name|log
+expr_stmt|;
+name|ctx
+operator|->
+name|event
+operator|->
+name|cancelable
+operator|=
+name|ctx
+operator|->
+name|cancelable
 expr_stmt|;
 name|ctx
 operator|->

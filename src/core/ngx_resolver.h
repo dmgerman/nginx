@@ -179,7 +179,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baa8f4a0108
+DECL|struct|__anon286d28100108
 typedef|typedef
 struct|struct
 block|{
@@ -258,7 +258,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baa8f4a0208
+DECL|struct|__anon286d28100208
 typedef|typedef
 struct|struct
 block|{
@@ -291,7 +291,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baa8f4a0308
+DECL|struct|__anon286d28100308
 typedef|typedef
 struct|struct
 block|{
@@ -318,7 +318,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baa8f4a0408
+DECL|struct|__anon286d28100408
 typedef|typedef
 struct|struct
 block|{
@@ -363,7 +363,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2baa8f4a0508
+DECL|struct|__anon286d28100508
 typedef|typedef
 struct|struct
 block|{
@@ -419,7 +419,7 @@ name|query6
 decl_stmt|;
 endif|#
 directive|endif
-DECL|union|__anon2baa8f4a060a
+DECL|union|__anon286d2810060a
 union|union
 block|{
 DECL|member|addr
@@ -466,7 +466,7 @@ directive|if
 operator|(
 name|NGX_HAVE_INET6
 operator|)
-DECL|union|__anon2baa8f4a070a
+DECL|union|__anon286d2810070a
 union|union
 block|{
 DECL|member|addr6
@@ -765,6 +765,12 @@ decl_stmt|;
 DECL|member|async
 name|unsigned
 name|async
+range|:
+literal|1
+decl_stmt|;
+DECL|member|cancelable
+name|unsigned
+name|cancelable
 range|:
 literal|1
 decl_stmt|;
