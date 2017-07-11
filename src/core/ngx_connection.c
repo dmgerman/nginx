@@ -2063,7 +2063,7 @@ name|log
 argument_list|,
 name|ngx_socket_errno
 argument_list|,
-literal|"setsockopt(SO_REUSEPORT) %V failed, ignored"
+literal|"setsockopt(SO_REUSEPORT) %V failed"
 argument_list|,
 operator|&
 name|ls
