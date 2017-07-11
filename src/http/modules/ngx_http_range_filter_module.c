@@ -26,7 +26,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon2c4b62ca0108
+DECL|struct|__anon2b9b87500108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4b62ca0208
+DECL|struct|__anon2b9b87500208
 typedef|typedef
 struct|struct
 block|{
@@ -1460,6 +1460,23 @@ name|end
 operator|=
 name|end
 expr_stmt|;
+if|if
+condition|(
+name|size
+operator|>
+name|NGX_MAX_OFF_T_VALUE
+operator|-
+operator|(
+name|end
+operator|-
+name|start
+operator|)
+condition|)
+block|{
+return|return
+name|NGX_HTTP_RANGE_NOT_SATISFIABLE
+return|;
+block|}
 name|size
 operator|+=
 name|end
