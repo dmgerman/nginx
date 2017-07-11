@@ -2015,6 +2015,9 @@ name|i
 index|]
 operator|.
 name|reuseport
+operator|&&
+operator|!
+name|ngx_test_config
 condition|)
 block|{
 name|int
