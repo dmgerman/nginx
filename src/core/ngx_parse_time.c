@@ -87,7 +87,7 @@ decl_stmt|;
 name|uint64_t
 name|time
 decl_stmt|;
-DECL|enum|__anon2a2041bf0103
+DECL|enum|__anon2b6283c50103
 enum|enum
 block|{
 DECL|enumerator|no
@@ -261,6 +261,7 @@ operator|)
 operator|*
 literal|10
 operator|+
+operator|(
 operator|*
 operator|(
 name|p
@@ -269,6 +270,7 @@ literal|1
 operator|)
 operator|-
 literal|'0'
+operator|)
 expr_stmt|;
 name|p
 operator|+=
@@ -593,6 +595,7 @@ operator|)
 operator|*
 literal|10
 operator|+
+operator|(
 operator|*
 operator|(
 name|p
@@ -601,6 +604,7 @@ literal|3
 operator|)
 operator|-
 literal|'0'
+operator|)
 expr_stmt|;
 name|p
 operator|+=
@@ -660,6 +664,7 @@ operator|)
 operator|*
 literal|10
 operator|+
+operator|(
 operator|*
 operator|(
 name|p
@@ -668,6 +673,7 @@ literal|1
 operator|)
 operator|-
 literal|'0'
+operator|)
 expr_stmt|;
 name|year
 operator|+=
@@ -761,11 +767,13 @@ name|day
 operator|*
 literal|10
 operator|+
+operator|(
 operator|*
 name|p
 operator|++
 operator|-
 literal|'0'
+operator|)
 expr_stmt|;
 block|}
 if|if
@@ -841,6 +849,7 @@ operator|)
 operator|*
 literal|10
 operator|+
+operator|(
 operator|*
 operator|(
 name|p
@@ -849,6 +858,7 @@ literal|1
 operator|)
 operator|-
 literal|'0'
+operator|)
 expr_stmt|;
 name|p
 operator|+=
@@ -913,6 +923,7 @@ operator|)
 operator|*
 literal|10
 operator|+
+operator|(
 operator|*
 operator|(
 name|p
@@ -921,6 +932,7 @@ literal|1
 operator|)
 operator|-
 literal|'0'
+operator|)
 expr_stmt|;
 name|p
 operator|+=
@@ -985,6 +997,7 @@ operator|)
 operator|*
 literal|10
 operator|+
+operator|(
 operator|*
 operator|(
 name|p
@@ -993,6 +1006,7 @@ literal|1
 operator|)
 operator|-
 literal|'0'
+operator|)
 expr_stmt|;
 if|if
 condition|(
@@ -1126,6 +1140,7 @@ operator|)
 operator|*
 literal|10
 operator|+
+operator|(
 operator|*
 operator|(
 name|p
@@ -1134,6 +1149,7 @@ literal|3
 operator|)
 operator|-
 literal|'0'
+operator|)
 expr_stmt|;
 block|}
 if|if

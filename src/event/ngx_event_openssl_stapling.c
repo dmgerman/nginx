@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2b1e678c0108
+DECL|struct|__anon2c3617010108
 typedef|typedef
 struct|struct
 block|{
@@ -5847,7 +5847,7 @@ name|ngx_buf_t
 modifier|*
 name|b
 decl_stmt|;
-DECL|enum|__anon2b1e678c0203
+DECL|enum|__anon2c3617010203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6209,9 +6209,11 @@ name|code
 operator|*
 literal|10
 operator|+
+operator|(
 name|ch
 operator|-
 literal|'0'
+operator|)
 expr_stmt|;
 if|if
 condition|(
@@ -6671,7 +6673,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2b1e678c0303
+DECL|enum|__anon2c3617010303
 enum|enum
 block|{
 DECL|enumerator|sw_start
