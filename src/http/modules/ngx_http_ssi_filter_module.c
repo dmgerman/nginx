@@ -54,7 +54,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2c50236c0108
+DECL|struct|__anon2798960a0108
 typedef|typedef
 struct|struct
 block|{
@@ -98,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c50236c0208
+DECL|struct|__anon2798960a0208
 typedef|typedef
 struct|struct
 block|{
@@ -121,7 +121,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c50236c0308
+DECL|struct|__anon2798960a0308
 typedef|typedef
 struct|struct
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c50236c0403
+DECL|enum|__anon2798960a0403
 typedef|typedef
 enum|enum
 block|{
@@ -1917,6 +1917,12 @@ name|ngx_http_clear_accept_ranges
 argument_list|(
 name|r
 argument_list|)
+expr_stmt|;
+name|r
+operator|->
+name|preserve_body
+operator|=
+literal|1
 expr_stmt|;
 if|if
 condition|(
