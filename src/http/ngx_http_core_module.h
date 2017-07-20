@@ -297,7 +297,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2bcb800108
+DECL|struct|__anon27d8933a0108
 typedef|typedef
 struct|struct
 block|{
@@ -466,7 +466,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c2bcb800203
+DECL|enum|__anon27d8933a0203
 typedef|typedef
 enum|enum
 block|{
@@ -496,8 +496,8 @@ block|,
 DECL|enumerator|NGX_HTTP_POST_ACCESS_PHASE
 name|NGX_HTTP_POST_ACCESS_PHASE
 block|,
-DECL|enumerator|NGX_HTTP_TRY_FILES_PHASE
-name|NGX_HTTP_TRY_FILES_PHASE
+DECL|enumerator|NGX_HTTP_PRECONTENT_PHASE
+name|NGX_HTTP_PRECONTENT_PHASE
 block|,
 DECL|enumerator|NGX_HTTP_CONTENT_PHASE
 name|NGX_HTTP_CONTENT_PHASE
@@ -561,7 +561,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c2bcb800308
+DECL|struct|__anon27d8933a0308
 typedef|typedef
 struct|struct
 block|{
@@ -585,7 +585,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2bcb800408
+DECL|struct|__anon27d8933a0408
 typedef|typedef
 struct|struct
 block|{
@@ -600,7 +600,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2bcb800508
+DECL|struct|__anon27d8933a0508
 typedef|typedef
 struct|struct
 block|{
@@ -661,11 +661,6 @@ name|ngx_array_t
 modifier|*
 name|ports
 decl_stmt|;
-DECL|member|try_files
-name|ngx_uint_t
-name|try_files
-decl_stmt|;
-comment|/* unsigned  try_files:1 */
 DECL|member|phases
 name|ngx_http_phase_t
 name|phases
@@ -682,7 +677,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2bcb800608
+DECL|struct|__anon27d8933a0608
 typedef|typedef
 struct|struct
 block|{
@@ -769,7 +764,7 @@ comment|/* list of structures to find core_srv_conf quickly at run time */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2c2bcb800708
+DECL|struct|__anon27d8933a0708
 typedef|typedef
 struct|struct
 block|{
@@ -802,7 +797,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2bcb800808
+DECL|struct|__anon27d8933a0808
 typedef|typedef
 struct|struct
 block|{
@@ -864,7 +859,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c2bcb800908
+DECL|struct|__anon27d8933a0908
 typedef|typedef
 struct|struct
 block|{
@@ -891,7 +886,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2c2bcb800a08
+DECL|struct|__anon27d8933a0a08
 typedef|typedef
 struct|struct
 block|{
@@ -916,7 +911,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c2bcb800b08
+DECL|struct|__anon27d8933a0b08
 typedef|typedef
 struct|struct
 block|{
@@ -937,7 +932,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2bcb800c08
+DECL|struct|__anon27d8933a0c08
 typedef|typedef
 struct|struct
 block|{
@@ -961,7 +956,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2bcb800d08
+DECL|struct|__anon27d8933a0d08
 typedef|typedef
 struct|struct
 block|{
@@ -1017,7 +1012,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c2bcb800e08
+DECL|struct|__anon27d8933a0e08
 typedef|typedef
 struct|struct
 block|{
@@ -1040,43 +1035,6 @@ decl_stmt|;
 DECL|typedef|ngx_http_err_page_t
 block|}
 name|ngx_http_err_page_t
-typedef|;
-end_typedef
-
-begin_typedef
-DECL|struct|__anon2c2bcb800f08
-typedef|typedef
-struct|struct
-block|{
-DECL|member|lengths
-name|ngx_array_t
-modifier|*
-name|lengths
-decl_stmt|;
-DECL|member|values
-name|ngx_array_t
-modifier|*
-name|values
-decl_stmt|;
-DECL|member|name
-name|ngx_str_t
-name|name
-decl_stmt|;
-DECL|member|code
-name|unsigned
-name|code
-range|:
-literal|10
-decl_stmt|;
-DECL|member|test_dir
-name|unsigned
-name|test_dir
-range|:
-literal|1
-decl_stmt|;
-DECL|typedef|ngx_http_try_file_t
-block|}
-name|ngx_http_try_file_t
 typedef|;
 end_typedef
 
@@ -1532,12 +1490,6 @@ modifier|*
 name|error_pages
 decl_stmt|;
 comment|/* error_page */
-DECL|member|try_files
-name|ngx_http_try_file_t
-modifier|*
-name|try_files
-decl_stmt|;
-comment|/* try_files */
 DECL|member|client_body_temp_path
 name|ngx_path_t
 modifier|*
@@ -1594,7 +1546,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c2bcb801008
+DECL|struct|__anon27d8933a0f08
 typedef|typedef
 struct|struct
 block|{
@@ -1774,21 +1726,6 @@ end_function_decl
 begin_function_decl
 name|ngx_int_t
 name|ngx_http_core_post_access_phase
-parameter_list|(
-name|ngx_http_request_t
-modifier|*
-name|r
-parameter_list|,
-name|ngx_http_phase_handler_t
-modifier|*
-name|ph
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-name|ngx_int_t
-name|ngx_http_core_try_files_phase
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
