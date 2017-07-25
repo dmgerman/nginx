@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2bb03b940108
+DECL|struct|__anon278e35450108
 typedef|typedef
 struct|struct
 block|{
@@ -12860,7 +12860,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"\"ssl_session_ticket_keys\" ignored, not supported"
+literal|"\"ssl_session_ticket_key\" ignored, not supported"
 argument_list|)
 expr_stmt|;
 block|}
