@@ -835,6 +835,14 @@ operator|.
 name|data
 argument_list|)
 expr_stmt|;
+name|cache
+operator|->
+name|max_size
+operator|/=
+name|cache
+operator|->
+name|bsize
+expr_stmt|;
 return|return
 name|NGX_OK
 return|;
