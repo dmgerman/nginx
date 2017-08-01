@@ -54,7 +54,7 @@ value|3
 end_define
 
 begin_typedef
-DECL|struct|__anon2993e7580108
+DECL|struct|__anon2aeefd390108
 typedef|typedef
 struct|struct
 block|{
@@ -87,7 +87,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2993e7580208
+DECL|struct|__anon2aeefd390208
 typedef|typedef
 struct|struct
 block|{
@@ -514,19 +514,7 @@ block|,
 literal|0
 block|}
 block|,
-block|{
-name|ngx_null_string
-block|,
-name|NULL
-block|,
-name|NULL
-block|,
-literal|0
-block|,
-literal|0
-block|,
-literal|0
-block|}
+name|ngx_http_null_variable
 block|}
 decl_stmt|;
 end_decl_stmt

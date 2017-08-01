@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29fa07e60108
+DECL|struct|__anon27df9d600108
 typedef|typedef
 struct|struct
 block|{
@@ -39,7 +39,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29fa07e60208
+DECL|struct|__anon27df9d600208
 typedef|typedef
 struct|struct
 block|{
@@ -356,19 +356,7 @@ block|,
 literal|0
 block|}
 block|,
-block|{
-name|ngx_null_string
-block|,
-name|NULL
-block|,
-name|NULL
-block|,
-literal|0
-block|,
-literal|0
-block|,
-literal|0
-block|}
+name|ngx_stream_null_variable
 block|}
 decl_stmt|;
 end_decl_stmt

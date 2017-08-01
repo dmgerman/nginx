@@ -190,6 +190,14 @@ block|}
 struct|;
 end_struct
 
+begin_define
+DECL|macro|ngx_http_null_variable
+define|#
+directive|define
+name|ngx_http_null_variable
+value|{ ngx_null_string, NULL, NULL, 0, 0, 0 }
+end_define
+
 begin_function_decl
 name|ngx_http_variable_t
 modifier|*
@@ -304,7 +312,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon29854f620108
+DECL|struct|__anon2a51d5390108
 typedef|typedef
 struct|struct
 block|{
@@ -323,7 +331,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29854f620208
+DECL|struct|__anon2a51d5390208
 typedef|typedef
 struct|struct
 block|{
@@ -356,7 +364,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29854f620308
+DECL|struct|__anon2a51d5390308
 typedef|typedef
 struct|struct
 block|{
@@ -417,7 +425,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon29854f620408
+DECL|struct|__anon2a51d5390408
 typedef|typedef
 struct|struct
 block|{

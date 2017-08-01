@@ -54,7 +54,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2798960a0108
+DECL|struct|__anon2965274b0108
 typedef|typedef
 struct|struct
 block|{
@@ -98,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2798960a0208
+DECL|struct|__anon2965274b0208
 typedef|typedef
 struct|struct
 block|{
@@ -121,7 +121,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2798960a0308
+DECL|struct|__anon2965274b0308
 typedef|typedef
 struct|struct
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2798960a0403
+DECL|enum|__anon2965274b0403
 typedef|typedef
 enum|enum
 block|{
@@ -1695,19 +1695,7 @@ block|,
 literal|0
 block|}
 block|,
-block|{
-name|ngx_null_string
-block|,
-name|NULL
-block|,
-name|NULL
-block|,
-literal|0
-block|,
-literal|0
-block|,
-literal|0
-block|}
+name|ngx_http_null_variable
 block|}
 decl_stmt|;
 end_decl_stmt

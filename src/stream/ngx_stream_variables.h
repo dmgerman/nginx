@@ -190,6 +190,14 @@ block|}
 struct|;
 end_struct
 
+begin_define
+DECL|macro|ngx_stream_null_variable
+define|#
+directive|define
+name|ngx_stream_null_variable
+value|{ ngx_null_string, NULL, NULL, 0, 0, 0 }
+end_define
+
 begin_function_decl
 name|ngx_stream_variable_t
 modifier|*
@@ -282,7 +290,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2af19f7d0108
+DECL|struct|__anon27de3e540108
 typedef|typedef
 struct|struct
 block|{
@@ -301,7 +309,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af19f7d0208
+DECL|struct|__anon27de3e540208
 typedef|typedef
 struct|struct
 block|{
@@ -334,7 +342,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af19f7d0308
+DECL|struct|__anon27de3e540308
 typedef|typedef
 struct|struct
 block|{
@@ -395,7 +403,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2af19f7d0408
+DECL|struct|__anon27de3e540408
 typedef|typedef
 struct|struct
 block|{
