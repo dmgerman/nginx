@@ -60,7 +60,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29eca30e0108
+DECL|struct|__anon27b7e33d0108
 typedef|typedef
 struct|struct
 block|{
@@ -87,7 +87,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29eca30e0208
+DECL|struct|__anon27b7e33d0208
 typedef|typedef
 struct|struct
 block|{
@@ -170,6 +170,15 @@ block|}
 name|ngx_slab_pool_t
 typedef|;
 end_typedef
+
+begin_function_decl
+name|void
+name|ngx_slab_sizes_init
+parameter_list|(
+name|void
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_function_decl
 name|void

@@ -1108,6 +1108,10 @@ return|return
 literal|1
 return|;
 block|}
+comment|/*      * ngx_slab_sizes_init() requires ngx_pagesize set in ngx_os_init()      */
+name|ngx_slab_sizes_init
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|ngx_add_inherited_sockets
