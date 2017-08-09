@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2c3afb6c0108
+DECL|struct|__anon29d948a60108
 typedef|typedef
 struct|struct
 block|{
@@ -11727,7 +11727,7 @@ name|data
 argument_list|,
 name|NGX_FILE_RDONLY
 argument_list|,
-literal|0
+name|NGX_FILE_OPEN
 argument_list|,
 literal|0
 argument_list|)

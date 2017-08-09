@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ad8b3da0108
+DECL|struct|__anon2b0cdde80108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad8b3da0208
+DECL|struct|__anon2b0cdde80208
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad8b3da0308
+DECL|struct|__anon2b0cdde80308
 typedef|typedef
 struct|struct
 block|{
@@ -96,7 +96,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad8b3da0408
+DECL|struct|__anon2b0cdde80408
 typedef|typedef
 struct|struct
 block|{
@@ -120,7 +120,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad8b3da0508
+DECL|struct|__anon2b0cdde80508
 typedef|typedef
 struct|struct
 block|{
@@ -220,11 +220,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad8b3da0608
+DECL|struct|__anon2b0cdde80608
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon2ad8b3da070a
+DECL|union|__anon2b0cdde8070a
 union|union
 block|{
 DECL|member|trees
@@ -653,7 +653,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2ad8b3da0808
+DECL|struct|__anon2b0cdde80808
 typedef|typedef
 struct|struct
 block|{
@@ -6191,7 +6191,7 @@ name|data
 argument_list|,
 name|NGX_FILE_RDONLY
 argument_list|,
-literal|0
+name|NGX_FILE_OPEN
 argument_list|,
 literal|0
 argument_list|)
