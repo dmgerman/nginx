@@ -352,7 +352,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2a97ced00108
+DECL|struct|__anon27e59c770108
 typedef|typedef
 struct|struct
 block|{
