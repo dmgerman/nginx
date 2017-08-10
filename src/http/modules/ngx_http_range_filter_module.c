@@ -26,7 +26,7 @@ comment|/*  * the single part format:  *  * "HTTP/1.0 206 Partial Content" CRLF 
 end_comment
 
 begin_typedef
-DECL|struct|__anon2969ad940108
+DECL|struct|__anon2b4a37120108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2969ad940208
+DECL|struct|__anon2b4a37120208
 typedef|typedef
 struct|struct
 block|{
@@ -1826,8 +1826,11 @@ modifier|*
 name|ctx
 parameter_list|)
 block|{
-name|size_t
+name|off_t
 name|len
+decl_stmt|;
+name|size_t
+name|size
 decl_stmt|;
 name|ngx_uint_t
 name|i
@@ -1839,7 +1842,7 @@ decl_stmt|;
 name|ngx_atomic_uint_t
 name|boundary
 decl_stmt|;
-name|len
+name|size
 operator|=
 sizeof|sizeof
 argument_list|(
@@ -1900,7 +1903,7 @@ operator|.
 name|len
 condition|)
 block|{
-name|len
+name|size
 operator|+=
 sizeof|sizeof
 argument_list|(
@@ -1930,7 +1933,7 @@ name|r
 operator|->
 name|pool
 argument_list|,
-name|len
+name|size
 argument_list|)
 expr_stmt|;
 if|if
@@ -2351,9 +2354,6 @@ name|content_range
 operator|.
 name|len
 operator|+
-operator|(
-name|size_t
-operator|)
 operator|(
 name|range
 index|[
