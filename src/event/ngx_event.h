@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2a31348b0108
+DECL|struct|__anon2795067a0108
 typedef|typedef
 struct|struct
 block|{
@@ -332,6 +332,10 @@ name|ngx_file_t
 modifier|*
 name|file
 decl_stmt|;
+DECL|member|fd
+name|ngx_fd_t
+name|fd
+decl_stmt|;
 if|#
 directive|if
 operator|(
@@ -353,10 +357,6 @@ parameter_list|)
 function_decl|;
 endif|#
 directive|endif
-DECL|member|fd
-name|ngx_fd_t
-name|fd
-decl_stmt|;
 if|#
 directive|if
 operator|(
@@ -406,7 +406,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2a31348b0208
+DECL|struct|__anon2795067a0208
 typedef|typedef
 struct|struct
 block|{
@@ -1446,7 +1446,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2a31348b0308
+DECL|struct|__anon2795067a0308
 typedef|typedef
 struct|struct
 block|{
@@ -1493,7 +1493,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a31348b0408
+DECL|struct|__anon2795067a0408
 typedef|typedef
 struct|struct
 block|{
