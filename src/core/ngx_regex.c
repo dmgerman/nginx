@@ -16,7 +16,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28c3bee80108
+DECL|struct|__anon28feac5e0108
 typedef|typedef
 struct|struct
 block|{
