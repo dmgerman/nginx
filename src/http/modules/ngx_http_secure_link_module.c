@@ -28,7 +28,7 @@ file|<ngx_md5.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b8390e70108
+DECL|struct|__anon28eadbac0108
 typedef|typedef
 struct|struct
 block|{
@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8390e70208
+DECL|struct|__anon28eadbac0208
 typedef|typedef
 struct|struct
 block|{
@@ -403,7 +403,7 @@ decl_stmt|;
 name|u_char
 name|hash_buf
 index|[
-literal|16
+literal|18
 index|]
 decl_stmt|,
 name|md5_buf
@@ -631,12 +631,6 @@ goto|goto
 name|not_found
 goto|;
 block|}
-name|hash
-operator|.
-name|len
-operator|=
-literal|16
-expr_stmt|;
 name|hash
 operator|.
 name|data
