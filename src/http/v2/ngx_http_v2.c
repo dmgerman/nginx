@@ -1702,6 +1702,12 @@ name|frame_size
 operator|=
 name|NGX_HTTP_V2_DEFAULT_FRAME_SIZE
 expr_stmt|;
+name|h2c
+operator|->
+name|table_update
+operator|=
+literal|1
+expr_stmt|;
 name|h2scf
 operator|=
 name|ngx_http_get_module_srv_conf
@@ -14514,7 +14520,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2952806d0108
+DECL|struct|__anon2be1c48d0108
 specifier|static
 specifier|const
 struct|struct
