@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28ca95d40108
+DECL|struct|__anon2a1b424a0108
 typedef|typedef
 struct|struct
 block|{
@@ -55,7 +55,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28ca95d40208
+DECL|struct|__anon2a1b424a0208
 typedef|typedef
 struct|struct
 block|{
@@ -7182,21 +7182,11 @@ name|connection
 expr_stmt|;
 if|if
 condition|(
-name|u
-operator|->
-name|upstream_out
-operator|||
-name|u
-operator|->
-name|upstream_busy
-operator|||
-operator|(
 name|pc
 operator|&&
 name|pc
 operator|->
 name|buffered
-operator|)
 condition|)
 block|{
 name|ngx_log_error
@@ -7211,7 +7201,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"pending buffers on next upstream"
+literal|"buffered data on next upstream"
 argument_list|)
 expr_stmt|;
 name|ngx_stream_proxy_finalize
@@ -7222,6 +7212,24 @@ name|NGX_STREAM_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
 return|return;
+block|}
+if|if
+condition|(
+name|s
+operator|->
+name|connection
+operator|->
+name|type
+operator|==
+name|SOCK_DGRAM
+condition|)
+block|{
+name|u
+operator|->
+name|upstream_out
+operator|=
+name|NULL
+expr_stmt|;
 block|}
 if|if
 condition|(
