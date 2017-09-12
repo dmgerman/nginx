@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a1b424a0108
+DECL|struct|__anon28a399e60108
 typedef|typedef
 struct|struct
 block|{
@@ -55,7 +55,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1b424a0208
+DECL|struct|__anon28a399e60208
 typedef|typedef
 struct|struct
 block|{
@@ -5689,6 +5689,15 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|ngx_connection_error
+argument_list|(
+name|pc
+argument_list|,
+name|NGX_ETIMEDOUT
+argument_list|,
+literal|"upstream timed out"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|u
@@ -5706,6 +5715,8 @@ expr_stmt|;
 return|return;
 block|}
 block|}
+else|else
+block|{
 name|ngx_connection_error
 argument_list|(
 name|c
@@ -5715,6 +5726,7 @@ argument_list|,
 literal|"connection timed out"
 argument_list|)
 expr_stmt|;
+block|}
 name|ngx_stream_proxy_finalize
 argument_list|(
 name|s
