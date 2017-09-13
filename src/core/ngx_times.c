@@ -1466,7 +1466,7 @@ name|n
 operator|%
 literal|60
 expr_stmt|;
-comment|/*      * the algorithm based on Gauss' formula,      * see src/http/ngx_http_parse_time.c      */
+comment|/*      * the algorithm based on Gauss' formula,      * see src/core/ngx_parse_time.c      */
 comment|/* days since March 1, 1 BC */
 name|days
 operator|=
