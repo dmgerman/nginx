@@ -87,7 +87,7 @@ decl_stmt|;
 name|uint64_t
 name|time
 decl_stmt|;
-DECL|enum|__anon2b6283c50103
+DECL|enum|__anon29528b090103
 enum|enum
 block|{
 DECL|enumerator|no
@@ -185,6 +185,7 @@ condition|;
 name|p
 operator|++
 control|)
+block|{
 if|if
 condition|(
 operator|*
@@ -194,6 +195,7 @@ literal|' '
 condition|)
 block|{
 break|break;
+block|}
 block|}
 if|if
 condition|(
