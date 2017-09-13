@@ -1438,6 +1438,23 @@ name|t
 operator|%
 literal|86400
 expr_stmt|;
+comment|/*      * no more than 4 year digits supported,      * truncate to December 31, 9999, 23:59:59      */
+if|if
+condition|(
+name|days
+operator|>
+literal|2932896
+condition|)
+block|{
+name|days
+operator|=
+literal|2932896
+expr_stmt|;
+name|sec
+operator|=
+literal|86399
+expr_stmt|;
+block|}
 comment|/* January 1, 1970 was Thursday */
 name|wday
 operator|=
