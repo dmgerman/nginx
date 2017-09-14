@@ -865,9 +865,9 @@ literal|"http2 get indexed %s: %ui"
 argument_list|,
 name|name_only
 condition|?
-literal|"header"
+literal|"name"
 else|:
-literal|"header name"
+literal|"header"
 argument_list|,
 name|index
 argument_list|)
