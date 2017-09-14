@@ -1323,7 +1323,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http2 add header to hpack table: \"%V: %V\""
+literal|"http2 table add: \"%V: %V\""
 argument_list|,
 operator|&
 name|header
@@ -2070,7 +2070,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http2 hpack table account: %uz free:%uz"
+literal|"http2 table account: %uz free:%uz"
 argument_list|,
 name|size
 argument_list|,

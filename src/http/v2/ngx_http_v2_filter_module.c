@@ -6052,7 +6052,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http2:%ui available windows: conn:%uz stream:%z"
+literal|"http2:%ui windows: conn:%uz stream:%z"
 argument_list|,
 name|stream
 operator|->

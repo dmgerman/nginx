@@ -3777,7 +3777,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"process http2 frame type:%ui f:%Xd l:%uz sid:%ui"
+literal|"http2 frame type:%ui f:%Xd l:%uz sid:%ui"
 argument_list|,
 name|type
 argument_list|,
@@ -6389,7 +6389,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http2 hpack %s string length: %i"
+literal|"http2 %s string, len:%i"
 argument_list|,
 name|huff
 condition|?
@@ -7618,7 +7618,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http2 pseudo-header: \":%V: %V\""
+literal|"http2 header: \":%V: %V\""
 argument_list|,
 operator|&
 name|header
@@ -7987,7 +7987,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http2 http header: \"%V: %V\""
+literal|"http2 header: \"%V: %V\""
 argument_list|,
 operator|&
 name|header
@@ -14520,7 +14520,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2b318e7d0108
+DECL|struct|__anon28da7c420108
 specifier|static
 specifier|const
 struct|struct
@@ -15502,7 +15502,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http2 http request line: \"%V\""
+literal|"http2 request line: \"%V\""
 argument_list|,
 operator|&
 name|r
