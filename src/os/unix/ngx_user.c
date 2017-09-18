@@ -15,10 +15,6 @@ directive|include
 file|<ngx_core.h>
 end_include
 
-begin_comment
-comment|/*  * Solaris has thread-safe crypt()  * Linux has crypt_r(); "struct crypt_data" is more than 128K  * FreeBSD needs the mutex to protect crypt()  *  * TODO:  *     ngx_crypt_init() to init mutex  */
-end_comment
-
 begin_if
 if|#
 directive|if
