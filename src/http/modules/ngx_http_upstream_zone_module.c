@@ -1186,7 +1186,10 @@ name|ngx_slab_calloc_locked
 argument_list|(
 name|pool
 argument_list|,
-name|NGX_SOCKADDRLEN
+sizeof|sizeof
+argument_list|(
+name|ngx_sockaddr_t
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
