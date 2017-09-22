@@ -105,7 +105,7 @@ value|0x1
 end_define
 
 begin_typedef
-DECL|struct|__anon28f065440108
+DECL|struct|__anon279c7b140108
 typedef|typedef
 struct|struct
 block|{
@@ -170,7 +170,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f065440208
+DECL|struct|__anon279c7b140208
 typedef|typedef
 struct|struct
 block|{
@@ -194,7 +194,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f065440308
+DECL|struct|__anon279c7b140308
 typedef|typedef
 struct|struct
 block|{
@@ -232,10 +232,8 @@ name|ngx_msec_t
 name|slow_start
 decl_stmt|;
 DECL|member|down
-name|unsigned
+name|ngx_uint_t
 name|down
-range|:
-literal|1
 decl_stmt|;
 DECL|member|backup
 name|unsigned
@@ -318,7 +316,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28f065440408
+DECL|struct|__anon279c7b140408
 typedef|typedef
 struct|struct
 block|{
@@ -354,7 +352,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f065440508
+DECL|struct|__anon279c7b140508
 typedef|typedef
 struct|struct
 block|{
@@ -406,7 +404,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28f065440608
+DECL|struct|__anon279c7b140608
 typedef|typedef
 struct|struct
 block|{
