@@ -51,7 +51,7 @@ define|#
 directive|define
 name|NGX_UNIX_ADDRSTRLEN
 define|\
-value|(sizeof(struct sockaddr_un) - offsetof(struct sockaddr_un, sun_path))
+value|(sizeof("unix:") - 1 +                                                   \      sizeof(struct sockaddr_un) - offsetof(struct sockaddr_un, sun_path))
 end_define
 
 begin_if
@@ -67,7 +67,7 @@ DECL|macro|NGX_SOCKADDR_STRLEN
 define|#
 directive|define
 name|NGX_SOCKADDR_STRLEN
-value|(sizeof("unix:") - 1 + NGX_UNIX_ADDRSTRLEN)
+value|NGX_UNIX_ADDRSTRLEN
 end_define
 
 begin_elif
@@ -117,7 +117,7 @@ value|sizeof(ngx_sockaddr_t)
 end_define
 
 begin_typedef
-DECL|union|__anon28c9b83e010a
+DECL|union|__anon28fa4304010a
 typedef|typedef
 union|union
 block|{
@@ -162,7 +162,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c9b83e0208
+DECL|struct|__anon28fa43040208
 typedef|typedef
 struct|struct
 block|{
@@ -189,7 +189,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon28c9b83e0308
+DECL|struct|__anon28fa43040308
 typedef|typedef
 struct|struct
 block|{
@@ -215,7 +215,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28c9b83e0408
+DECL|struct|__anon28fa43040408
 typedef|typedef
 struct|struct
 block|{
@@ -223,7 +223,7 @@ DECL|member|family
 name|ngx_uint_t
 name|family
 decl_stmt|;
-DECL|union|__anon28c9b83e050a
+DECL|union|__anon28fa4304050a
 union|union
 block|{
 DECL|member|in
@@ -252,7 +252,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c9b83e0608
+DECL|struct|__anon28fa43040608
 typedef|typedef
 struct|struct
 block|{
@@ -277,7 +277,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c9b83e0708
+DECL|struct|__anon28fa43040708
 typedef|typedef
 struct|struct
 block|{
