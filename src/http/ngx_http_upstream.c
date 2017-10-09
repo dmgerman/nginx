@@ -3124,6 +3124,12 @@ name|cache_status
 operator|=
 name|NGX_HTTP_CACHE_MISS
 expr_stmt|;
+name|u
+operator|->
+name|request_sent
+operator|=
+literal|1
+expr_stmt|;
 block|}
 if|if
 condition|(
