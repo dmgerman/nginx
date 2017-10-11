@@ -87,6 +87,12 @@ directive|include
 file|<openssl/evp.h>
 end_include
 
+begin_include
+include|#
+directive|include
+file|<openssl/hmac.h>
+end_include
+
 begin_ifndef
 ifndef|#
 directive|ifndef
@@ -457,7 +463,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2883aeab0108
+DECL|struct|__anon28d8a0180108
 typedef|typedef
 struct|struct
 block|{
@@ -486,7 +492,7 @@ name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon2883aeab0208
+DECL|struct|__anon28d8a0180208
 typedef|typedef
 struct|struct
 block|{
