@@ -18000,6 +18000,9 @@ block|{
 case|case
 name|NGX_HTTP_UPSTREAM_FT_TIMEOUT
 case|:
+case|case
+name|NGX_HTTP_UPSTREAM_FT_HTTP_504
+case|:
 name|status
 operator|=
 name|NGX_HTTP_GATEWAY_TIME_OUT
@@ -18011,6 +18014,14 @@ case|:
 name|status
 operator|=
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
+expr_stmt|;
+break|break;
+case|case
+name|NGX_HTTP_UPSTREAM_FT_HTTP_503
+case|:
+name|status
+operator|=
+name|NGX_HTTP_SERVICE_UNAVAILABLE
 expr_stmt|;
 break|break;
 case|case
