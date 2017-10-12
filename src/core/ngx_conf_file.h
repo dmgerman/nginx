@@ -428,7 +428,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29d70ebc0108
+DECL|struct|__anon2ac625a70108
 typedef|typedef
 struct|struct
 block|{
@@ -457,7 +457,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d70ebc0208
+DECL|struct|__anon2ac625a70208
 typedef|typedef
 struct|struct
 block|{
@@ -559,7 +559,7 @@ name|ngx_conf_handler_pt
 name|handler
 decl_stmt|;
 DECL|member|handler_conf
-name|char
+name|void
 modifier|*
 name|handler_conf
 decl_stmt|;
@@ -593,7 +593,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d70ebc0308
+DECL|struct|__anon2ac625a70308
 typedef|typedef
 struct|struct
 block|{
@@ -608,7 +608,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d70ebc0408
+DECL|struct|__anon2ac625a70408
 typedef|typedef
 struct|struct
 block|{
@@ -633,7 +633,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d70ebc0508
+DECL|struct|__anon2ac625a70508
 typedef|typedef
 struct|struct
 block|{
@@ -656,7 +656,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d70ebc0608
+DECL|struct|__anon2ac625a70608
 typedef|typedef
 struct|struct
 block|{
@@ -683,7 +683,7 @@ value|1
 end_define
 
 begin_typedef
-DECL|struct|__anon29d70ebc0708
+DECL|struct|__anon2ac625a70708
 typedef|typedef
 struct|struct
 block|{
