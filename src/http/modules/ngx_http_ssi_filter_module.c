@@ -54,7 +54,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2965274b0108
+DECL|struct|__anon2bbf9c9a0108
 typedef|typedef
 struct|struct
 block|{
@@ -98,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2965274b0208
+DECL|struct|__anon2bbf9c9a0208
 typedef|typedef
 struct|struct
 block|{
@@ -121,7 +121,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2965274b0308
+DECL|struct|__anon2bbf9c9a0308
 typedef|typedef
 struct|struct
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2965274b0403
+DECL|enum|__anon2bbf9c9a0403
 typedef|typedef
 enum|enum
 block|{
@@ -7132,9 +7132,6 @@ decl_stmt|,
 modifier|*
 name|val
 decl_stmt|;
-name|ngx_int_t
-name|key
-decl_stmt|;
 name|ngx_uint_t
 name|i
 decl_stmt|,
@@ -7143,6 +7140,8 @@ decl_stmt|,
 name|bracket
 decl_stmt|,
 name|quoted
+decl_stmt|,
+name|key
 decl_stmt|;
 name|ngx_array_t
 name|lengths
@@ -8218,9 +8217,6 @@ decl_stmt|;
 name|size_t
 name|size
 decl_stmt|;
-name|ngx_int_t
-name|key
-decl_stmt|;
 name|ngx_str_t
 modifier|*
 name|vv
@@ -8233,6 +8229,8 @@ name|ngx_uint_t
 name|i
 decl_stmt|,
 name|n
+decl_stmt|,
+name|key
 decl_stmt|;
 name|ngx_http_ssi_ctx_t
 modifier|*
@@ -8741,8 +8739,6 @@ parameter_list|)
 block|{
 name|ngx_int_t
 name|rc
-decl_stmt|,
-name|key
 decl_stmt|;
 name|ngx_str_t
 modifier|*
@@ -8770,6 +8766,8 @@ name|ngx_uint_t
 name|flags
 decl_stmt|,
 name|i
+decl_stmt|,
+name|key
 decl_stmt|;
 name|ngx_chain_t
 modifier|*
@@ -9962,9 +9960,6 @@ decl_stmt|;
 name|uintptr_t
 name|len
 decl_stmt|;
-name|ngx_int_t
-name|key
-decl_stmt|;
 name|ngx_buf_t
 modifier|*
 name|b
@@ -9980,6 +9975,9 @@ modifier|*
 name|enc
 decl_stmt|,
 name|text
+decl_stmt|;
+name|ngx_uint_t
+name|key
 decl_stmt|;
 name|ngx_chain_t
 modifier|*
@@ -10694,8 +10692,6 @@ name|params
 parameter_list|)
 block|{
 name|ngx_int_t
-name|key
-decl_stmt|,
 name|rc
 decl_stmt|;
 name|ngx_str_t
@@ -10707,6 +10703,9 @@ name|value
 decl_stmt|,
 modifier|*
 name|vv
+decl_stmt|;
+name|ngx_uint_t
+name|key
 decl_stmt|;
 name|ngx_http_ssi_var_t
 modifier|*
