@@ -102,7 +102,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon276cfc640108
+DECL|struct|__anon2967d02b0108
 typedef|typedef
 struct|struct
 block|{
@@ -123,7 +123,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276cfc640208
+DECL|struct|__anon2967d02b0208
 typedef|typedef
 struct|struct
 block|{
@@ -144,7 +144,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276cfc640308
+DECL|struct|__anon2967d02b0308
 typedef|typedef
 struct|struct
 block|{
@@ -169,7 +169,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276cfc640408
+DECL|struct|__anon2967d02b0408
 typedef|typedef
 struct|struct
 block|{
@@ -189,7 +189,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276cfc640508
+DECL|struct|__anon2967d02b0508
 typedef|typedef
 struct|struct
 block|{
@@ -228,7 +228,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon276cfc640608
+DECL|struct|__anon2967d02b0608
 typedef|typedef
 struct|struct
 block|{
@@ -3104,17 +3104,72 @@ expr_stmt|;
 continue|continue;
 block|}
 comment|/*          * parse param1=value1:param2=value2 syntax as used by parameters          * specified in xslt_stylesheet directives          */
+if|if
+condition|(
+name|param
+index|[
+name|i
+index|]
+operator|.
+name|value
+operator|.
+name|lengths
+condition|)
+block|{
 name|p
 operator|=
 name|string
 operator|.
 name|data
 expr_stmt|;
-name|last
+block|}
+else|else
+block|{
+name|p
 operator|=
+name|ngx_pnalloc
+argument_list|(
+name|r
+operator|->
+name|pool
+argument_list|,
+name|string
+operator|.
+name|len
+operator|+
+literal|1
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|p
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+name|ngx_memcpy
+argument_list|(
+name|p
+argument_list|,
 name|string
 operator|.
 name|data
+argument_list|,
+name|string
+operator|.
+name|len
+operator|+
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+name|last
+operator|=
+name|p
 operator|+
 name|string
 operator|.
