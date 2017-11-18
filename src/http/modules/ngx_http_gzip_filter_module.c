@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c5117b80108
+DECL|struct|__anon2bac6f740108
 typedef|typedef
 struct|struct
 block|{
@@ -80,7 +80,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5117b80208
+DECL|struct|__anon2bac6f740208
 typedef|typedef
 struct|struct
 block|{
@@ -189,6 +189,12 @@ decl_stmt|;
 DECL|member|buffering
 name|unsigned
 name|buffering
+range|:
+literal|1
+decl_stmt|;
+DECL|member|intel
+name|unsigned
+name|intel
 range|:
 literal|1
 decl_stmt|;
@@ -995,6 +1001,14 @@ DECL|variable|ngx_http_next_body_filter
 specifier|static
 name|ngx_http_output_body_filter_pt
 name|ngx_http_next_body_filter
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_http_gzip_assume_intel
+specifier|static
+name|ngx_uint_t
+name|ngx_http_gzip_assume_intel
 decl_stmt|;
 end_decl_stmt
 
@@ -2038,6 +2052,12 @@ operator|=
 name|memlevel
 expr_stmt|;
 comment|/*      * We preallocate a memory for zlib in one buffer (200K-400K), this      * decreases a number of malloc() and free() calls and also probably      * decreases a number of syscalls (sbrk()/mmap() and so on).      * Besides we free the memory as soon as a gzipping will complete      * and do not wait while a whole response will be sent to a client.      *      * 8K is for zlib deflate_state, it takes      *  *) 5816 bytes on i386 and sparc64 (32-bit mode)      *  *) 5920 bytes on amd64 and sparc64      */
+if|if
+condition|(
+operator|!
+name|ngx_http_gzip_assume_intel
+condition|)
+block|{
 name|ctx
 operator|->
 name|allocated
@@ -2064,6 +2084,79 @@ literal|9
 operator|)
 operator|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|/*          * A zlib variant from Intel, https://github.com/jtkukunas/zlib.          * It can force window bits to 13 for fast compression level,          * on processors with SSE 4.2 it uses 64K hash instead of scaling          * it from the specified memory level, and also introduces          * 16-byte padding in one out of the two window-sized buffers.          */
+if|if
+condition|(
+name|conf
+operator|->
+name|level
+operator|==
+literal|1
+condition|)
+block|{
+name|wbits
+operator|=
+name|ngx_max
+argument_list|(
+name|wbits
+argument_list|,
+literal|13
+argument_list|)
+expr_stmt|;
+block|}
+name|ctx
+operator|->
+name|allocated
+operator|=
+literal|8192
+operator|+
+literal|16
+operator|+
+operator|(
+literal|1
+operator|<<
+operator|(
+name|wbits
+operator|+
+literal|2
+operator|)
+operator|)
+operator|+
+operator|(
+literal|1
+operator|<<
+operator|(
+name|ngx_max
+argument_list|(
+name|memlevel
+argument_list|,
+literal|8
+argument_list|)
+operator|+
+literal|8
+operator|)
+operator|)
+operator|+
+operator|(
+literal|1
+operator|<<
+operator|(
+name|memlevel
+operator|+
+literal|8
+operator|)
+operator|)
+expr_stmt|;
+name|ctx
+operator|->
+name|intel
+operator|=
+literal|1
+expr_stmt|;
+block|}
 block|}
 end_function
 
@@ -4342,6 +4435,10 @@ name|size
 expr_stmt|;
 if|if
 condition|(
+name|items
+operator|==
+literal|1
+operator|&&
 name|alloc
 operator|%
 literal|512
@@ -4415,6 +4512,13 @@ return|return
 name|p
 return|;
 block|}
+if|if
+condition|(
+name|ctx
+operator|->
+name|intel
+condition|)
+block|{
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ALERT
@@ -4429,7 +4533,8 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"gzip filter failed to use preallocated memory: %ud of %ui"
+literal|"gzip filter failed to use preallocated memory: "
+literal|"%ud of %ui"
 argument_list|,
 name|items
 operator|*
@@ -4440,6 +4545,14 @@ operator|->
 name|allocated
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|ngx_http_gzip_assume_intel
+operator|=
+literal|1
+expr_stmt|;
+block|}
 name|p
 operator|=
 name|ngx_palloc
