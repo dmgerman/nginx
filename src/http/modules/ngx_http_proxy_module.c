@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a1885f30108
+DECL|struct|__anon2b1b4a880108
 typedef|typedef
 struct|struct
 block|{
@@ -85,7 +85,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon2a1885f3020a
+DECL|union|__anon2b1b4a88020a
 union|union
 block|{
 DECL|member|complex
@@ -117,7 +117,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a1885f30308
+DECL|struct|__anon2b1b4a880308
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1885f30408
+DECL|struct|__anon2b1b4a880408
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1885f30508
+DECL|struct|__anon2b1b4a880508
 typedef|typedef
 struct|struct
 block|{
@@ -345,7 +345,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1885f30608
+DECL|struct|__anon2b1b4a880608
 typedef|typedef
 struct|struct
 block|{
@@ -5141,12 +5141,6 @@ operator|&&
 name|r
 operator|->
 name|valid_unparsed_uri
-operator|&&
-name|r
-operator|==
-name|r
-operator|->
-expr|main
 condition|)
 block|{
 operator|*
@@ -5762,12 +5756,6 @@ operator|&&
 name|r
 operator|->
 name|valid_unparsed_uri
-operator|&&
-name|r
-operator|==
-name|r
-operator|->
-expr|main
 condition|)
 block|{
 name|unparsed_uri
