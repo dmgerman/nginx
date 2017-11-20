@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28fa28620108
+DECL|struct|__anon29138d430108
 typedef|typedef
 struct|struct
 block|{
@@ -9966,6 +9966,14 @@ operator|=
 name|r
 operator|->
 name|valid_location
+expr_stmt|;
+name|sr
+operator|->
+name|valid_unparsed_uri
+operator|=
+name|r
+operator|->
+name|valid_unparsed_uri
 expr_stmt|;
 name|sr
 operator|->
