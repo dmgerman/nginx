@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28a399e60108
+DECL|struct|__anon29bf8c9d0108
 typedef|typedef
 struct|struct
 block|{
@@ -55,7 +55,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a399e60208
+DECL|struct|__anon29bf8c9d0208
 typedef|typedef
 struct|struct
 block|{
@@ -5525,6 +5525,35 @@ name|s
 operator|->
 name|upstream
 expr_stmt|;
+if|if
+condition|(
+name|c
+operator|->
+name|close
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"shutdown timeout"
+argument_list|)
+expr_stmt|;
+name|ngx_stream_proxy_finalize
+argument_list|(
+name|s
+argument_list|,
+name|NGX_STREAM_OK
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|c
 operator|=
 name|s

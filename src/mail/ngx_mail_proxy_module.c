@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bd125e60108
+DECL|struct|__anon29090b390108
 typedef|typedef
 struct|struct
 block|{
@@ -4254,6 +4254,10 @@ condition|(
 name|ev
 operator|->
 name|timedout
+operator|||
+name|c
+operator|->
+name|close
 condition|)
 block|{
 name|c
@@ -4265,6 +4269,27 @@ operator|=
 literal|"proxying"
 expr_stmt|;
 if|if
+condition|(
+name|c
+operator|->
+name|close
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"shutdown timeout"
+argument_list|)
+expr_stmt|;
+block|}
+if|else if
 condition|(
 name|c
 operator|==
