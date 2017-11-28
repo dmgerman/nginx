@@ -41,6 +41,15 @@ value|GetCurrentProcessId
 end_define
 
 begin_define
+DECL|macro|ngx_getppid ()
+define|#
+directive|define
+name|ngx_getppid
+parameter_list|()
+value|0
+end_define
+
+begin_define
 DECL|macro|ngx_log_pid
 define|#
 directive|define
@@ -66,7 +75,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad8d5800108
+DECL|struct|__anon2c4ec9960108
 typedef|typedef
 struct|struct
 block|{
@@ -135,7 +144,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad8d5800208
+DECL|struct|__anon2c4ec9960208
 typedef|typedef
 struct|struct
 block|{
@@ -298,6 +307,13 @@ begin_decl_stmt
 specifier|extern
 name|ngx_pid_t
 name|ngx_pid
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_pid_t
+name|ngx_parent
 decl_stmt|;
 end_decl_stmt
 

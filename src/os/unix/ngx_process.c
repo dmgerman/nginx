@@ -28,7 +28,7 @@ file|<ngx_channel.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27e44e280108
+DECL|struct|__anon2c86d6270108
 typedef|typedef
 struct|struct
 block|{
@@ -981,6 +981,10 @@ return|;
 case|case
 literal|0
 case|:
+name|ngx_parent
+operator|=
+name|ngx_pid
+expr_stmt|;
 name|ngx_pid
 operator|=
 name|ngx_getpid
@@ -1698,17 +1702,17 @@ argument_list|)
 case|:
 if|if
 condition|(
-name|getppid
+name|ngx_getppid
 argument_list|()
-operator|>
-literal|1
+operator|==
+name|ngx_parent
 operator|||
 name|ngx_new_binary
 operator|>
 literal|0
 condition|)
 block|{
-comment|/*                  * Ignore the signal in the new binary if its parent is                  * not the init process, i.e. the old binary's process                  * is still running.  Or ignore the signal in the old binary's                  * process if the new binary's process is already running.                  */
+comment|/*                  * Ignore the signal in the new binary if its parent is                  * not changed, i.e. the old binary's process is still                  * running.  Or ignore the signal in the old binary's                  * process if the new binary's process is already running.                  */
 name|action
 operator|=
 literal|", ignoring"

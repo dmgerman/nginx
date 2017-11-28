@@ -969,6 +969,11 @@ operator|=
 name|ngx_getpid
 argument_list|()
 expr_stmt|;
+name|ngx_parent
+operator|=
+name|ngx_getppid
+argument_list|()
+expr_stmt|;
 name|log
 operator|=
 name|ngx_log_init

@@ -63,6 +63,10 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
+name|ngx_parent
+operator|=
+name|ngx_pid
+expr_stmt|;
 name|ngx_pid
 operator|=
 name|ngx_getpid

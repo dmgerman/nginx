@@ -232,6 +232,13 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_parent
+name|ngx_pid_t
+name|ngx_parent
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_reap
 name|sig_atomic_t
 name|ngx_reap
