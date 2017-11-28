@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a2339020108
+DECL|struct|__anon2c3ee3600108
 typedef|typedef
 struct|struct
 block|{
@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2339020208
+DECL|struct|__anon2c3ee3600208
 typedef|typedef
 struct|struct
 block|{
@@ -86,7 +86,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2339020308
+DECL|struct|__anon2c3ee3600308
 typedef|typedef
 struct|struct
 block|{
@@ -1378,6 +1378,14 @@ operator|->
 name|timer_set
 condition|)
 block|{
+name|c
+operator|->
+name|read
+operator|->
+name|delayed
+operator|=
+literal|0
+expr_stmt|;
 name|ngx_del_timer
 argument_list|(
 name|c
