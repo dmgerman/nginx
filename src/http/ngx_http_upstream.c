@@ -15593,6 +15593,10 @@ operator|||
 name|u
 operator|->
 name|busy_bufs
+operator|||
+name|downstream
+operator|->
+name|buffered
 condition|)
 block|{
 name|rc
