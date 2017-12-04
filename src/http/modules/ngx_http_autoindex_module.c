@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2778a14f0108
+DECL|struct|__anon2c08de8b0108
 typedef|typedef
 struct|struct
 block|{
@@ -81,7 +81,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2778a14f0208
+DECL|struct|__anon2c08de8b0208
 typedef|typedef
 struct|struct
 block|{
@@ -697,6 +697,24 @@ condition|)
 block|{
 return|return
 name|NGX_DECLINED
+return|;
+block|}
+name|rc
+operator|=
+name|ngx_http_discard_request_body
+argument_list|(
+name|r
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|rc
+operator|!=
+name|NGX_OK
+condition|)
+block|{
+return|return
+name|rc
 return|;
 block|}
 comment|/* NGX_DIR_MASK_LEN is lesser than NGX_HTTP_AUTOINDEX_PREALLOCATE */
