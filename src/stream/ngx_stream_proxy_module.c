@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29bf8c9d0108
+DECL|struct|__anon2c3f7a680108
 typedef|typedef
 struct|struct
 block|{
@@ -55,7 +55,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29bf8c9d0208
+DECL|struct|__anon2c3f7a680208
 typedef|typedef
 struct|struct
 block|{
@@ -9342,6 +9342,33 @@ directive|if
 operator|(
 name|NGX_HAVE_TRANSPARENT_PROXY
 operator|)
+name|ngx_core_conf_t
+modifier|*
+name|ccf
+decl_stmt|;
+name|ccf
+operator|=
+operator|(
+name|ngx_core_conf_t
+operator|*
+operator|)
+name|ngx_get_conf
+argument_list|(
+name|cf
+operator|->
+name|cycle
+operator|->
+name|conf_ctx
+argument_list|,
+name|ngx_core_module
+argument_list|)
+expr_stmt|;
+name|ccf
+operator|->
+name|transparent
+operator|=
+literal|1
+expr_stmt|;
 name|local
 operator|->
 name|transparent

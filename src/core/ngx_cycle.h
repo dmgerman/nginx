@@ -279,7 +279,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2af56ab60108
+DECL|struct|__anon2793a1fe0108
 typedef|typedef
 struct|struct
 block|{
@@ -371,6 +371,11 @@ modifier|*
 modifier|*
 name|environment
 decl_stmt|;
+DECL|member|transparent
+name|ngx_uint_t
+name|transparent
+decl_stmt|;
+comment|/* unsigned  transparent:1; */
 DECL|typedef|ngx_core_conf_t
 block|}
 name|ngx_core_conf_t

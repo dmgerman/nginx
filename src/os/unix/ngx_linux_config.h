@@ -479,6 +479,25 @@ endif|#
 directive|endif
 end_endif
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_CAPABILITIES
+operator|)
+end_if
+
+begin_include
+include|#
+directive|include
+file|<sys/capability.h>
+end_include
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_define
 DECL|macro|NGX_LISTEN_BACKLOG
 define|#
