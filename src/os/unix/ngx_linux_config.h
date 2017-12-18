@@ -490,7 +490,7 @@ end_if
 begin_include
 include|#
 directive|include
-file|<sys/capability.h>
+file|<linux/capability.h>
 end_include
 
 begin_endif

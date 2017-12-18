@@ -4098,8 +4098,10 @@ name|effective
 expr_stmt|;
 if|if
 condition|(
-name|capset
+name|syscall
 argument_list|(
+name|SYS_capset
+argument_list|,
 operator|&
 name|header
 argument_list|,
