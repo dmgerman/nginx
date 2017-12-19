@@ -4077,7 +4077,7 @@ name|header
 operator|.
 name|version
 operator|=
-name|_LINUX_CAPABILITY_VERSION_3
+name|_LINUX_CAPABILITY_VERSION_1
 expr_stmt|;
 name|data
 operator|.
