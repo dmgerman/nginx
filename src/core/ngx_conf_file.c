@@ -655,7 +655,7 @@ name|prev
 decl_stmt|,
 name|conf_file
 decl_stmt|;
-DECL|enum|__anon29c7691e0103
+DECL|enum|__anon29a2a6350103
 enum|enum
 block|{
 DECL|enumerator|parse_file
@@ -2776,6 +2776,18 @@ name|start
 operator|++
 expr_stmt|;
 name|s_quoted
+operator|=
+literal|1
+expr_stmt|;
+name|last_space
+operator|=
+literal|0
+expr_stmt|;
+continue|continue;
+case|case
+literal|'$'
+case|:
+name|variable
 operator|=
 literal|1
 expr_stmt|;
