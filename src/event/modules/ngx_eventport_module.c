@@ -76,6 +76,23 @@ name|timer_t
 typedef|;
 end_typedef
 
+begin_elif
+elif|#
+directive|elif
+operator|(
+name|NGX_DARWIN
+operator|)
+end_elif
+
+begin_typedef
+DECL|typedef|timer_t
+typedef|typedef
+name|void
+modifier|*
+name|timer_t
+typedef|;
+end_typedef
+
 begin_endif
 endif|#
 directive|endif
@@ -161,7 +178,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2ba5935d0108
+DECL|struct|__anon2bdf8a660108
 typedef|typedef
 struct|struct
 block|{
@@ -608,7 +625,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2ba5935d0208
+DECL|struct|__anon2bdf8a660208
 typedef|typedef
 struct|struct
 block|{
