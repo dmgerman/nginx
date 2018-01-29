@@ -9563,12 +9563,6 @@ name|h2c
 operator|->
 name|init_window
 expr_stmt|;
-name|h2c
-operator|->
-name|init_window
-operator|=
-name|value
-expr_stmt|;
 break|break;
 case|case
 name|NGX_HTTP_V2_MAX_FRAME_SIZE_SETTING
@@ -9669,6 +9663,12 @@ condition|(
 name|window_delta
 condition|)
 block|{
+name|h2c
+operator|->
+name|init_window
+operator|+=
+name|window_delta
+expr_stmt|;
 if|if
 condition|(
 name|ngx_http_v2_adjust_windows
@@ -14520,7 +14520,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon28918fda0108
+DECL|struct|__anon2c7344050108
 specifier|static
 specifier|const
 struct|struct
