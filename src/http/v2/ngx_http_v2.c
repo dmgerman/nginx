@@ -1489,23 +1489,33 @@ init|=
 block|{
 name|ngx_http_v2_state_data
 block|,
+comment|/* NGX_HTTP_V2_DATA_FRAME */
 name|ngx_http_v2_state_headers
 block|,
+comment|/* NGX_HTTP_V2_HEADERS_FRAME */
 name|ngx_http_v2_state_priority
 block|,
+comment|/* NGX_HTTP_V2_PRIORITY_FRAME */
 name|ngx_http_v2_state_rst_stream
 block|,
+comment|/* NGX_HTTP_V2_RST_STREAM_FRAME */
 name|ngx_http_v2_state_settings
 block|,
+comment|/* NGX_HTTP_V2_SETTINGS_FRAME */
 name|ngx_http_v2_state_push_promise
 block|,
+comment|/* NGX_HTTP_V2_PUSH_PROMISE_FRAME */
 name|ngx_http_v2_state_ping
 block|,
+comment|/* NGX_HTTP_V2_PING_FRAME */
 name|ngx_http_v2_state_goaway
 block|,
+comment|/* NGX_HTTP_V2_GOAWAY_FRAME */
 name|ngx_http_v2_state_window_update
 block|,
+comment|/* NGX_HTTP_V2_WINDOW_UPDATE_FRAME */
 name|ngx_http_v2_state_continuation
+comment|/* NGX_HTTP_V2_CONTINUATION_FRAME */
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -5111,7 +5121,7 @@ literal|0
 expr_stmt|;
 name|weight
 operator|=
-literal|16
+name|NGX_HTTP_V2_DEFAULT_WEIGHT
 expr_stmt|;
 if|if
 condition|(
@@ -5168,7 +5178,8 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http2 HEADERS frame sid:%ui on %ui excl:%ui weight:%ui"
+literal|"http2 HEADERS frame sid:%ui "
+literal|"depends on %ui excl:%ui weight:%ui"
 argument_list|,
 name|h2c
 operator|->
@@ -8640,7 +8651,8 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http2 PRIORITY frame sid:%ui on %ui excl:%ui weight:%ui"
+literal|"http2 PRIORITY frame sid:%ui "
+literal|"depends on %ui excl:%ui weight:%ui"
 argument_list|,
 name|h2c
 operator|->
@@ -9511,6 +9523,25 @@ name|pos
 index|[
 literal|2
 index|]
+argument_list|)
+expr_stmt|;
+name|ngx_log_debug2
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|h2c
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http2 setting %ui:%ui"
+argument_list|,
+name|id
+argument_list|,
+name|value
 argument_list|)
 expr_stmt|;
 switch|switch
@@ -14520,7 +14551,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2c7344050108
+DECL|struct|__anon2af723340108
 specifier|static
 specifier|const
 struct|struct
@@ -15329,7 +15360,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"client sent no :schema header"
+literal|"client sent no :scheme header"
 argument_list|)
 expr_stmt|;
 block|}

@@ -243,6 +243,14 @@ name|NGX_HTTP_V2_DEFAULT_WINDOW
 value|65535
 end_define
 
+begin_define
+DECL|macro|NGX_HTTP_V2_DEFAULT_WEIGHT
+define|#
+directive|define
+name|NGX_HTTP_V2_DEFAULT_WEIGHT
+value|16
+end_define
+
 begin_typedef
 DECL|typedef|ngx_http_v2_connection_t
 typedef|typedef
@@ -296,7 +304,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b2cf710108
+DECL|struct|__anon2762563f0108
 typedef|typedef
 struct|struct
 block|{
@@ -315,7 +323,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b2cf710208
+DECL|struct|__anon2762563f0208
 typedef|typedef
 struct|struct
 block|{
@@ -426,7 +434,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b2cf710308
+DECL|struct|__anon2762563f0308
 typedef|typedef
 struct|struct
 block|{
@@ -1097,15 +1105,6 @@ parameter_list|(
 name|ngx_event_t
 modifier|*
 name|rev
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-name|void
-name|ngx_http_v2_request_headers_init
-parameter_list|(
-name|void
 parameter_list|)
 function_decl|;
 end_function_decl
