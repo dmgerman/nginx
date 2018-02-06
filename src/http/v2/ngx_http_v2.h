@@ -304,7 +304,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2762563f0108
+DECL|struct|__anon2c28b4090108
 typedef|typedef
 struct|struct
 block|{
@@ -323,7 +323,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2762563f0208
+DECL|struct|__anon2c28b4090208
 typedef|typedef
 struct|struct
 block|{
@@ -434,7 +434,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2762563f0308
+DECL|struct|__anon2c28b4090308
 typedef|typedef
 struct|struct
 block|{
@@ -716,10 +716,6 @@ DECL|member|cookies
 name|ngx_array_t
 modifier|*
 name|cookies
-decl_stmt|;
-DECL|member|header_limit
-name|size_t
-name|header_limit
 decl_stmt|;
 DECL|member|pool
 name|ngx_pool_t
