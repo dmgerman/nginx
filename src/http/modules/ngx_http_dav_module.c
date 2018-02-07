@@ -54,7 +54,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon2ae8e06a0108
+DECL|struct|__anon2b5cf4590108
 typedef|typedef
 struct|struct
 block|{
@@ -81,7 +81,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae8e06a0208
+DECL|struct|__anon2b5cf4590208
 typedef|typedef
 struct|struct
 block|{
@@ -919,7 +919,34 @@ operator|->
 name|request_body
 operator|==
 name|NULL
-operator|||
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"PUT request body is unavailable"
+argument_list|)
+expr_stmt|;
+name|ngx_http_finalize_request
+argument_list|(
+name|r
+argument_list|,
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+if|if
+condition|(
 name|r
 operator|->
 name|request_body
@@ -929,6 +956,21 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"PUT request body must be in a file"
+argument_list|)
+expr_stmt|;
 name|ngx_http_finalize_request
 argument_list|(
 name|r
