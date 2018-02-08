@@ -1195,9 +1195,9 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|ngx_http_v2_header_t
+name|ngx_str_t
 modifier|*
-name|header
+name|value
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -1211,9 +1211,9 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|ngx_http_v2_header_t
+name|ngx_str_t
 modifier|*
-name|header
+name|value
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -1227,9 +1227,9 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|ngx_http_v2_header_t
+name|ngx_str_t
 modifier|*
-name|header
+name|value
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -1243,9 +1243,9 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|ngx_http_v2_header_t
+name|ngx_str_t
 modifier|*
-name|header
+name|value
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -14209,7 +14209,10 @@ name|ngx_http_v2_parse_path
 argument_list|(
 name|r
 argument_list|,
+operator|&
 name|header
+operator|->
+name|value
 argument_list|)
 return|;
 block|}
@@ -14245,7 +14248,10 @@ name|ngx_http_v2_parse_method
 argument_list|(
 name|r
 argument_list|,
+operator|&
 name|header
+operator|->
+name|value
 argument_list|)
 return|;
 block|}
@@ -14277,7 +14283,10 @@ name|ngx_http_v2_parse_scheme
 argument_list|(
 name|r
 argument_list|,
+operator|&
 name|header
+operator|->
+name|value
 argument_list|)
 return|;
 block|}
@@ -14313,7 +14322,10 @@ name|ngx_http_v2_parse_authority
 argument_list|(
 name|r
 argument_list|,
+operator|&
 name|header
+operator|->
+name|value
 argument_list|)
 return|;
 block|}
@@ -14348,16 +14360,16 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_http_v2_parse_path (ngx_http_request_t * r,ngx_http_v2_header_t * header)
+DECL|function|ngx_http_v2_parse_path (ngx_http_request_t * r,ngx_str_t * value)
 name|ngx_http_v2_parse_path
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|ngx_http_v2_header_t
+name|ngx_str_t
 modifier|*
-name|header
+name|value
 parameter_list|)
 block|{
 if|if
@@ -14390,10 +14402,8 @@ return|;
 block|}
 if|if
 condition|(
-name|header
-operator|->
 name|value
-operator|.
+operator|->
 name|len
 operator|==
 literal|0
@@ -14422,26 +14432,20 @@ name|r
 operator|->
 name|uri_start
 operator|=
-name|header
-operator|->
 name|value
-operator|.
+operator|->
 name|data
 expr_stmt|;
 name|r
 operator|->
 name|uri_end
 operator|=
-name|header
-operator|->
 name|value
-operator|.
+operator|->
 name|data
 operator|+
-name|header
-operator|->
 name|value
-operator|.
+operator|->
 name|len
 expr_stmt|;
 if|if
@@ -14468,9 +14472,6 @@ literal|0
 argument_list|,
 literal|"client sent invalid :path header: \"%V\""
 argument_list|,
-operator|&
-name|header
-operator|->
 name|value
 argument_list|)
 expr_stmt|;
@@ -14502,16 +14503,16 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_http_v2_parse_method (ngx_http_request_t * r,ngx_http_v2_header_t * header)
+DECL|function|ngx_http_v2_parse_method (ngx_http_request_t * r,ngx_str_t * value)
 name|ngx_http_v2_parse_method
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|ngx_http_v2_header_t
+name|ngx_str_t
 modifier|*
-name|header
+name|value
 parameter_list|)
 block|{
 name|size_t
@@ -14531,7 +14532,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2a2a7f2c0108
+DECL|struct|__anon2a080d520108
 specifier|static
 specifier|const
 struct|struct
@@ -14711,10 +14712,8 @@ return|;
 block|}
 if|if
 condition|(
-name|header
-operator|->
 name|value
-operator|.
+operator|->
 name|len
 operator|==
 literal|0
@@ -14745,10 +14744,8 @@ name|method_name
 operator|.
 name|len
 operator|=
-name|header
-operator|->
 name|value
-operator|.
+operator|->
 name|len
 expr_stmt|;
 name|r
@@ -14757,10 +14754,8 @@ name|method_name
 operator|.
 name|data
 operator|=
-name|header
-operator|->
 name|value
-operator|.
+operator|->
 name|data
 expr_stmt|;
 name|len
@@ -14945,16 +14940,16 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_http_v2_parse_scheme (ngx_http_request_t * r,ngx_http_v2_header_t * header)
+DECL|function|ngx_http_v2_parse_scheme (ngx_http_request_t * r,ngx_str_t * value)
 name|ngx_http_v2_parse_scheme
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|ngx_http_v2_header_t
+name|ngx_str_t
 modifier|*
-name|header
+name|value
 parameter_list|)
 block|{
 if|if
@@ -14985,10 +14980,8 @@ return|;
 block|}
 if|if
 condition|(
-name|header
-operator|->
 name|value
-operator|.
+operator|->
 name|len
 operator|==
 literal|0
@@ -15017,26 +15010,20 @@ name|r
 operator|->
 name|schema_start
 operator|=
-name|header
-operator|->
 name|value
-operator|.
+operator|->
 name|data
 expr_stmt|;
 name|r
 operator|->
 name|schema_end
 operator|=
-name|header
-operator|->
 name|value
-operator|.
+operator|->
 name|data
 operator|+
-name|header
-operator|->
 name|value
-operator|.
+operator|->
 name|len
 expr_stmt|;
 return|return
@@ -15048,16 +15035,16 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_http_v2_parse_authority (ngx_http_request_t * r,ngx_http_v2_header_t * header)
+DECL|function|ngx_http_v2_parse_authority (ngx_http_request_t * r,ngx_str_t * value)
 name|ngx_http_v2_parse_authority
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|ngx_http_v2_header_t
+name|ngx_str_t
 modifier|*
-name|header
+name|value
 parameter_list|)
 block|{
 name|ngx_table_elt_t
@@ -15145,10 +15132,8 @@ name|value
 operator|.
 name|len
 operator|=
-name|header
-operator|->
 name|value
-operator|.
+operator|->
 name|len
 expr_stmt|;
 name|h
@@ -15157,10 +15142,8 @@ name|value
 operator|.
 name|data
 operator|=
-name|header
-operator|->
 name|value
-operator|.
+operator|->
 name|data
 expr_stmt|;
 name|h
