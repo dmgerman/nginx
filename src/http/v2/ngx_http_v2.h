@@ -84,6 +84,14 @@ value|(127 + (1<< (NGX_HTTP_V2_INT_OCTETS - 1) * 7) - 1)
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_V2_STREAM_ID_SIZE
+define|#
+directive|define
+name|NGX_HTTP_V2_STREAM_ID_SIZE
+value|4
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_V2_FRAME_HEADER_SIZE
 define|#
 directive|define
@@ -304,7 +312,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c28b4090108
+DECL|struct|__anon2ab03ac30108
 typedef|typedef
 struct|struct
 block|{
@@ -323,7 +331,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c28b4090208
+DECL|struct|__anon2ab03ac30208
 typedef|typedef
 struct|struct
 block|{
@@ -434,7 +442,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c28b4090308
+DECL|struct|__anon2ab03ac30308
 typedef|typedef
 struct|struct
 block|{
@@ -503,6 +511,14 @@ DECL|member|processing
 name|ngx_uint_t
 name|processing
 decl_stmt|;
+DECL|member|pushing
+name|ngx_uint_t
+name|pushing
+decl_stmt|;
+DECL|member|concurrent_pushes
+name|ngx_uint_t
+name|concurrent_pushes
+decl_stmt|;
 DECL|member|send_window
 name|size_t
 name|send_window
@@ -569,6 +585,10 @@ DECL|member|last_sid
 name|ngx_uint_t
 name|last_sid
 decl_stmt|;
+DECL|member|last_push
+name|ngx_uint_t
+name|last_push
+decl_stmt|;
 DECL|member|closed_nodes
 name|unsigned
 name|closed_nodes
@@ -596,6 +616,12 @@ decl_stmt|;
 DECL|member|goaway
 name|unsigned
 name|goaway
+range|:
+literal|1
+decl_stmt|;
+DECL|member|push_disabled
+name|unsigned
+name|push_disabled
 range|:
 literal|1
 decl_stmt|;
@@ -1123,6 +1149,31 @@ parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_http_v2_push_stream
+parameter_list|(
+name|ngx_http_v2_connection_t
+modifier|*
+name|h2c
+parameter_list|,
+name|ngx_uint_t
+name|depend
+parameter_list|,
+name|size_t
+name|request_length
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|path
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|authority
 parameter_list|)
 function_decl|;
 end_function_decl

@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28cae38c0108
+DECL|struct|__anon28c936a00108
 typedef|typedef
 struct|struct
 block|{
@@ -55,7 +55,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28cae38c0208
+DECL|struct|__anon28c936a00208
 typedef|typedef
 struct|struct
 block|{
@@ -66,6 +66,10 @@ decl_stmt|;
 DECL|member|concurrent_streams
 name|ngx_uint_t
 name|concurrent_streams
+decl_stmt|;
+DECL|member|concurrent_pushes
+name|ngx_uint_t
+name|concurrent_pushes
 decl_stmt|;
 DECL|member|max_requests
 name|ngx_uint_t
@@ -102,13 +106,26 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28cae38c0308
+DECL|struct|__anon28c936a00308
 typedef|typedef
 struct|struct
 block|{
 DECL|member|chunk_size
 name|size_t
 name|chunk_size
+decl_stmt|;
+DECL|member|push_preload
+name|ngx_flag_t
+name|push_preload
+decl_stmt|;
+DECL|member|push
+name|ngx_flag_t
+name|push
+decl_stmt|;
+DECL|member|pushes
+name|ngx_array_t
+modifier|*
+name|pushes
 decl_stmt|;
 DECL|typedef|ngx_http_v2_loc_conf_t
 block|}
