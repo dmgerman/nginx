@@ -115,6 +115,11 @@ name|void
 modifier|*
 name|tag
 decl_stmt|;
+DECL|member|sync
+name|void
+modifier|*
+name|sync
+decl_stmt|;
 DECL|member|noreuse
 name|ngx_uint_t
 name|noreuse
@@ -279,7 +284,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2793a1fe0108
+DECL|struct|__anon297517d00108
 typedef|typedef
 struct|struct
 block|{
