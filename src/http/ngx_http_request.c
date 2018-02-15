@@ -808,6 +808,8 @@ if|#
 directive|if
 operator|(
 name|NGX_HTTP_GZIP
+operator|||
+name|NGX_HTTP_HEADERS
 operator|)
 block|{
 name|ngx_string
@@ -8682,7 +8684,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon28dd3f6e0103
+DECL|enum|__anon2c5c90310103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
