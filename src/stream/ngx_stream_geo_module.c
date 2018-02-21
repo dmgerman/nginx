@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b0cdde80108
+DECL|struct|__anon2c65cc080108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0cdde80208
+DECL|struct|__anon2c65cc080208
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0cdde80308
+DECL|struct|__anon2c65cc080308
 typedef|typedef
 struct|struct
 block|{
@@ -96,7 +96,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0cdde80408
+DECL|struct|__anon2c65cc080408
 typedef|typedef
 struct|struct
 block|{
@@ -120,7 +120,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0cdde80508
+DECL|struct|__anon2c65cc080508
 typedef|typedef
 struct|struct
 block|{
@@ -220,11 +220,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0cdde80608
+DECL|struct|__anon2c65cc080608
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon2b0cdde8070a
+DECL|union|__anon2c65cc08070a
 union|union
 block|{
 DECL|member|trees
@@ -653,7 +653,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2b0cdde80808
+DECL|struct|__anon2c65cc080808
 typedef|typedef
 struct|struct
 block|{
@@ -1840,6 +1840,11 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|ngx_destroy_pool
+argument_list|(
+name|pool
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_CONF_ERROR
 return|;
@@ -2069,9 +2074,9 @@ operator|==
 name|NULL
 condition|)
 block|{
-return|return
-name|NGX_CONF_ERROR
-return|;
+goto|goto
+name|failed
+goto|;
 block|}
 name|ngx_memcpy
 argument_list|(
@@ -2200,18 +2205,6 @@ name|uintptr_t
 operator|)
 name|geo
 expr_stmt|;
-name|ngx_destroy_pool
-argument_list|(
-name|ctx
-operator|.
-name|temp_pool
-argument_list|)
-expr_stmt|;
-name|ngx_destroy_pool
-argument_list|(
-name|pool
-argument_list|)
-expr_stmt|;
 block|}
 else|else
 block|{
@@ -2247,9 +2240,9 @@ operator|==
 name|NULL
 condition|)
 block|{
-return|return
-name|NGX_CONF_ERROR
-return|;
+goto|goto
+name|failed
+goto|;
 block|}
 block|}
 name|geo
@@ -2301,9 +2294,9 @@ operator|==
 name|NULL
 condition|)
 block|{
-return|return
-name|NGX_CONF_ERROR
-return|;
+goto|goto
+name|failed
+goto|;
 block|}
 block|}
 name|geo
@@ -2335,18 +2328,6 @@ name|uintptr_t
 operator|)
 name|geo
 expr_stmt|;
-name|ngx_destroy_pool
-argument_list|(
-name|ctx
-operator|.
-name|temp_pool
-argument_list|)
-expr_stmt|;
-name|ngx_destroy_pool
-argument_list|(
-name|pool
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|ngx_radix32tree_insert
@@ -2369,9 +2350,9 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
-return|return
-name|NGX_CONF_ERROR
-return|;
+goto|goto
+name|failed
+goto|;
 block|}
 comment|/* NGX_BUSY is okay (default was set explicitly) */
 if|#
@@ -2405,15 +2386,44 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
-return|return
-name|NGX_CONF_ERROR
-return|;
+goto|goto
+name|failed
+goto|;
 block|}
 endif|#
 directive|endif
 block|}
+name|ngx_destroy_pool
+argument_list|(
+name|ctx
+operator|.
+name|temp_pool
+argument_list|)
+expr_stmt|;
+name|ngx_destroy_pool
+argument_list|(
+name|pool
+argument_list|)
+expr_stmt|;
 return|return
 name|rv
+return|;
+name|failed
+label|:
+name|ngx_destroy_pool
+argument_list|(
+name|ctx
+operator|.
+name|temp_pool
+argument_list|)
+expr_stmt|;
+name|ngx_destroy_pool
+argument_list|(
+name|pool
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CONF_ERROR
 return|;
 block|}
 end_function
