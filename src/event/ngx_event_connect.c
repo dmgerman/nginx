@@ -1483,6 +1483,25 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+else|#
+directive|else
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|pc
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"could not enable transparent proxying for IPv6 "
+literal|"on this platform"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
 endif|#
 directive|endif
 break|break;
