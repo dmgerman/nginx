@@ -36,7 +36,7 @@ value|2048
 end_define
 
 begin_typedef
-DECL|struct|__anon276126da0108
+DECL|struct|__anon2c881a9b0108
 typedef|typedef
 struct|struct
 block|{
@@ -390,7 +390,7 @@ index|[
 name|NGX_HTTP_AUTH_BUF_SIZE
 index|]
 decl_stmt|;
-DECL|enum|__anon276126da0203
+DECL|enum|__anon2c881a9b0203
 enum|enum
 block|{
 DECL|enumerator|sw_login
@@ -1096,7 +1096,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"user \"%V\" was not found in \"%V\""
+literal|"user \"%V\" was not found in \"%s\""
 argument_list|,
 operator|&
 name|r
@@ -1105,8 +1105,9 @@ name|headers_in
 operator|.
 name|user
 argument_list|,
-operator|&
 name|user_file
+operator|.
+name|data
 argument_list|)
 expr_stmt|;
 return|return
