@@ -54,7 +54,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2bbf9c9a0108
+DECL|struct|__anon2bcbaea00108
 typedef|typedef
 struct|struct
 block|{
@@ -98,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bbf9c9a0208
+DECL|struct|__anon2bcbaea00208
 typedef|typedef
 struct|struct
 block|{
@@ -121,7 +121,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bbf9c9a0308
+DECL|struct|__anon2bcbaea00308
 typedef|typedef
 struct|struct
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2bbf9c9a0403
+DECL|enum|__anon2bcbaea00403
 typedef|typedef
 enum|enum
 block|{
@@ -9891,7 +9891,21 @@ if|if
 condition|(
 name|r
 operator|->
-name|upstream
+name|headers_out
+operator|.
+name|status
+operator|<
+name|NGX_HTTP_SPECIAL_RESPONSE
+operator|&&
+name|r
+operator|->
+name|out
+operator|&&
+name|r
+operator|->
+name|out
+operator|->
+name|buf
 condition|)
 block|{
 name|value
@@ -9900,18 +9914,18 @@ name|len
 operator|=
 name|r
 operator|->
-name|upstream
+name|out
 operator|->
-name|buffer
-operator|.
+name|buf
+operator|->
 name|last
 operator|-
 name|r
 operator|->
-name|upstream
+name|out
 operator|->
-name|buffer
-operator|.
+name|buf
+operator|->
 name|pos
 expr_stmt|;
 name|value
@@ -9920,10 +9934,10 @@ name|data
 operator|=
 name|r
 operator|->
-name|upstream
+name|out
 operator|->
-name|buffer
-operator|.
+name|buf
+operator|->
 name|pos
 expr_stmt|;
 block|}
