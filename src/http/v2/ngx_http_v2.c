@@ -28,7 +28,7 @@ file|<ngx_http_v2_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b3edd770108
+DECL|struct|__anon2be1e2a30108
 typedef|typedef
 struct|struct
 block|{
@@ -3993,9 +3993,9 @@ operator|>=
 name|NGX_HTTP_V2_FRAME_STATES
 condition|)
 block|{
-name|ngx_log_debug1
+name|ngx_log_error
 argument_list|(
-name|NGX_LOG_DEBUG_HTTP
+name|NGX_LOG_INFO
 argument_list|,
 name|h2c
 operator|->
@@ -4005,7 +4005,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http2 frame with unknown type %ui"
+literal|"client sent frame with unknown type %ui"
 argument_list|,
 name|type
 argument_list|)
@@ -15491,7 +15491,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2b3edd770208
+DECL|struct|__anon2be1e2a30208
 specifier|static
 specifier|const
 struct|struct
