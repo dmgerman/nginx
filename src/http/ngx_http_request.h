@@ -765,7 +765,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon2c5b51810103
+DECL|enum|__anon2b0f61980103
 typedef|typedef
 enum|enum
 block|{
@@ -804,7 +804,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5b51810208
+DECL|struct|__anon2b0f61980208
 typedef|typedef
 struct|struct
 block|{
@@ -827,7 +827,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5b51810308
+DECL|struct|__anon2b0f61980308
 typedef|typedef
 struct|struct
 block|{
@@ -846,7 +846,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5b51810408
+DECL|struct|__anon2b0f61980408
 typedef|typedef
 struct|struct
 block|{
@@ -923,6 +923,11 @@ DECL|member|transfer_encoding
 name|ngx_table_elt_t
 modifier|*
 name|transfer_encoding
+decl_stmt|;
+DECL|member|te
+name|ngx_table_elt_t
+modifier|*
+name|te
 decl_stmt|;
 DECL|member|expect
 name|ngx_table_elt_t
@@ -1115,7 +1120,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5b51810508
+DECL|struct|__anon2b0f61980508
 typedef|typedef
 struct|struct
 block|{
@@ -1268,7 +1273,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5b51810608
+DECL|struct|__anon2b0f61980608
 typedef|typedef
 struct|struct
 block|{
@@ -1330,7 +1335,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5b51810708
+DECL|struct|__anon2b0f61980708
 typedef|typedef
 struct|struct
 block|{
@@ -1474,7 +1479,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c5b51810808
+DECL|struct|__anon2b0f61980808
 typedef|typedef
 struct|struct
 block|{
@@ -2379,7 +2384,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c5b51810908
+DECL|struct|__anon2b0f61980908
 typedef|typedef
 struct|struct
 block|{
