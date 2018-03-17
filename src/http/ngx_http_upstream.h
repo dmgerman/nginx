@@ -269,7 +269,7 @@ value|0x00000200
 end_define
 
 begin_typedef
-DECL|struct|__anon2c188f0c0108
+DECL|struct|__anon291b76b60108
 typedef|typedef
 struct|struct
 block|{
@@ -313,7 +313,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c188f0c0208
+DECL|struct|__anon291b76b60208
 typedef|typedef
 struct|struct
 block|{
@@ -382,7 +382,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c188f0c0308
+DECL|struct|__anon291b76b60308
 typedef|typedef
 struct|struct
 block|{
@@ -406,7 +406,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c188f0c0408
+DECL|struct|__anon291b76b60408
 typedef|typedef
 struct|struct
 block|{
@@ -584,7 +584,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c188f0c0508
+DECL|struct|__anon291b76b60508
 typedef|typedef
 struct|struct
 block|{
@@ -617,7 +617,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c188f0c0608
+DECL|struct|__anon291b76b60608
 typedef|typedef
 struct|struct
 block|{
@@ -878,6 +878,12 @@ name|pass_trailers
 range|:
 literal|1
 decl_stmt|;
+DECL|member|preserve_output
+name|unsigned
+name|preserve_output
+range|:
+literal|1
+decl_stmt|;
 if|#
 directive|if
 operator|(
@@ -925,7 +931,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c188f0c0708
+DECL|struct|__anon291b76b60708
 typedef|typedef
 struct|struct
 block|{
@@ -961,7 +967,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c188f0c0808
+DECL|struct|__anon291b76b60808
 typedef|typedef
 struct|struct
 block|{
@@ -1113,7 +1119,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c188f0c0908
+DECL|struct|__anon291b76b60908
 typedef|typedef
 struct|struct
 block|{
@@ -1549,7 +1555,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c188f0c0a08
+DECL|struct|__anon291b76b60a08
 typedef|typedef
 struct|struct
 block|{
@@ -1568,7 +1574,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c188f0c0b08
+DECL|struct|__anon291b76b60b08
 typedef|typedef
 struct|struct
 block|{
