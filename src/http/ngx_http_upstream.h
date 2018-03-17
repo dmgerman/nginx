@@ -269,7 +269,7 @@ value|0x00000200
 end_define
 
 begin_typedef
-DECL|struct|__anon2b71bb8f0108
+DECL|struct|__anon2c2cf8ca0108
 typedef|typedef
 struct|struct
 block|{
@@ -313,7 +313,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b71bb8f0208
+DECL|struct|__anon2c2cf8ca0208
 typedef|typedef
 struct|struct
 block|{
@@ -382,7 +382,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b71bb8f0308
+DECL|struct|__anon2c2cf8ca0308
 typedef|typedef
 struct|struct
 block|{
@@ -406,7 +406,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b71bb8f0408
+DECL|struct|__anon2c2cf8ca0408
 typedef|typedef
 struct|struct
 block|{
@@ -584,7 +584,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b71bb8f0508
+DECL|struct|__anon2c2cf8ca0508
 typedef|typedef
 struct|struct
 block|{
@@ -617,7 +617,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b71bb8f0608
+DECL|struct|__anon2c2cf8ca0608
 typedef|typedef
 struct|struct
 block|{
@@ -872,6 +872,12 @@ name|change_buffering
 range|:
 literal|1
 decl_stmt|;
+DECL|member|pass_trailers
+name|unsigned
+name|pass_trailers
+range|:
+literal|1
+decl_stmt|;
 if|#
 directive|if
 operator|(
@@ -919,7 +925,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b71bb8f0708
+DECL|struct|__anon2c2cf8ca0708
 typedef|typedef
 struct|struct
 block|{
@@ -955,13 +961,17 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b71bb8f0808
+DECL|struct|__anon2c2cf8ca0808
 typedef|typedef
 struct|struct
 block|{
 DECL|member|headers
 name|ngx_list_t
 name|headers
+decl_stmt|;
+DECL|member|trailers
+name|ngx_list_t
+name|trailers
 decl_stmt|;
 DECL|member|status_n
 name|ngx_uint_t
@@ -1103,7 +1113,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b71bb8f0908
+DECL|struct|__anon2c2cf8ca0908
 typedef|typedef
 struct|struct
 block|{
@@ -1533,7 +1543,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b71bb8f0a08
+DECL|struct|__anon2c2cf8ca0a08
 typedef|typedef
 struct|struct
 block|{
@@ -1552,7 +1562,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b71bb8f0b08
+DECL|struct|__anon2c2cf8ca0b08
 typedef|typedef
 struct|struct
 block|{
