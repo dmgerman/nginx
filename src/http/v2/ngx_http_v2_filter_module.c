@@ -69,7 +69,7 @@ value|(ngx_http_v2_out_frame_t *) -1
 end_define
 
 begin_typedef
-DECL|struct|__anon275e4e200108
+DECL|struct|__anon28d0738e0108
 typedef|typedef
 struct|struct
 block|{
@@ -614,6 +614,8 @@ name|ngx_uint_t
 name|i
 decl_stmt|,
 name|port
+decl_stmt|,
+name|fin
 decl_stmt|;
 name|ngx_list_part_t
 modifier|*
@@ -3173,6 +3175,27 @@ name|tmp
 argument_list|)
 expr_stmt|;
 block|}
+name|fin
+operator|=
+name|r
+operator|->
+name|header_only
+operator|||
+operator|(
+name|r
+operator|->
+name|headers_out
+operator|.
+name|content_length_n
+operator|==
+literal|0
+operator|&&
+operator|!
+name|r
+operator|->
+name|expect_trailers
+operator|)
+expr_stmt|;
 name|frame
 operator|=
 name|ngx_http_v2_create_headers_frame
@@ -3183,9 +3206,7 @@ name|start
 argument_list|,
 name|pos
 argument_list|,
-name|r
-operator|->
-name|header_only
+name|fin
 argument_list|)
 expr_stmt|;
 if|if
@@ -6787,6 +6808,10 @@ condition|(
 name|in
 operator|==
 name|NULL
+operator|||
+name|stream
+operator|->
+name|out_closed
 condition|)
 block|{
 if|if
