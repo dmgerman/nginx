@@ -28,7 +28,7 @@ file|<ngx_http_v2_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2be1e2a30108
+DECL|struct|__anon27398f9a0108
 typedef|typedef
 struct|struct
 block|{
@@ -281,14 +281,6 @@ define|#
 directive|define
 name|NGX_HTTP_V2_FRAME_BUFFER_SIZE
 value|24
-end_define
-
-begin_define
-DECL|macro|NGX_HTTP_V2_DEFAULT_FRAME_SIZE
-define|#
-directive|define
-name|NGX_HTTP_V2_DEFAULT_FRAME_SIZE
-value|(1<< 14)
 end_define
 
 begin_define
@@ -15491,7 +15483,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2be1e2a30208
+DECL|struct|__anon27398f9a0208
 specifier|static
 specifier|const
 struct|struct

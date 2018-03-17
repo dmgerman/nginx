@@ -797,6 +797,54 @@ value|(sizeof(ngx_http_v2_static_table)                                         
 end_define
 
 begin_function
+name|ngx_str_t
+modifier|*
+DECL|function|ngx_http_v2_get_static_name (ngx_uint_t index)
+name|ngx_http_v2_get_static_name
+parameter_list|(
+name|ngx_uint_t
+name|index
+parameter_list|)
+block|{
+return|return
+operator|&
+name|ngx_http_v2_static_table
+index|[
+name|index
+operator|-
+literal|1
+index|]
+operator|.
+name|name
+return|;
+block|}
+end_function
+
+begin_function
+name|ngx_str_t
+modifier|*
+DECL|function|ngx_http_v2_get_static_value (ngx_uint_t index)
+name|ngx_http_v2_get_static_value
+parameter_list|(
+name|ngx_uint_t
+name|index
+parameter_list|)
+block|{
+return|return
+operator|&
+name|ngx_http_v2_static_table
+index|[
+name|index
+operator|-
+literal|1
+index|]
+operator|.
+name|value
+return|;
+block|}
+end_function
+
+begin_function
 name|ngx_int_t
 DECL|function|ngx_http_v2_get_indexed_header (ngx_http_v2_connection_t * h2c,ngx_uint_t index,ngx_uint_t name_only)
 name|ngx_http_v2_get_indexed_header
