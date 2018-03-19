@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b1411760108
+DECL|struct|__anon2892b0d30108
 typedef|typedef
 struct|struct
 block|{
@@ -85,7 +85,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon2b141176020a
+DECL|union|__anon2892b0d3020a
 union|union
 block|{
 DECL|member|complex
@@ -117,7 +117,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b1411760308
+DECL|struct|__anon2892b0d30308
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1411760408
+DECL|struct|__anon2892b0d30408
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1411760508
+DECL|struct|__anon2892b0d30508
 typedef|typedef
 struct|struct
 block|{
@@ -345,7 +345,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1411760608
+DECL|struct|__anon2892b0d30608
 typedef|typedef
 struct|struct
 block|{
@@ -13319,7 +13319,7 @@ return|return
 name|NULL
 return|;
 block|}
-comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.bufs.num = 0;      *     conf->upstream.ignore_headers = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.cache_zone = NULL;      *     conf->upstream.cache_use_stale = 0;      *     conf->upstream.cache_methods = 0;      *     conf->upstream.temp_path = NULL;      *     conf->upstream.hide_headers_hash = { NULL, 0 };      *     conf->upstream.uri = { 0, NULL };      *     conf->upstream.location = NULL;      *     conf->upstream.store_lengths = NULL;      *     conf->upstream.store_values = NULL;      *     conf->upstream.ssl_name = NULL;      *      *     conf->method = NULL;      *     conf->headers_source = NULL;      *     conf->headers.lengths = NULL;      *     conf->headers.values = NULL;      *     conf->headers.hash = { NULL, 0 };      *     conf->headers_cache.lengths = NULL;      *     conf->headers_cache.values = NULL;      *     conf->headers_cache.hash = { NULL, 0 };      *     conf->body_lengths = NULL;      *     conf->body_values = NULL;      *     conf->body_source = { 0, NULL };      *     conf->redirects = NULL;      *     conf->ssl = 0;      *     conf->ssl_protocols = 0;      *     conf->ssl_ciphers = { 0, NULL };      *     conf->ssl_trusted_certificate = { 0, NULL };      *     conf->ssl_crl = { 0, NULL };      *     conf->ssl_certificate = { 0, NULL };      *     conf->ssl_certificate_key = { 0, NULL };      */
+comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.bufs.num = 0;      *     conf->upstream.ignore_headers = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.cache_zone = NULL;      *     conf->upstream.cache_use_stale = 0;      *     conf->upstream.cache_methods = 0;      *     conf->upstream.temp_path = NULL;      *     conf->upstream.hide_headers_hash = { NULL, 0 };      *     conf->upstream.store_lengths = NULL;      *     conf->upstream.store_values = NULL;      *     conf->upstream.ssl_name = NULL;      *      *     conf->method = NULL;      *     conf->location = NULL;      *     conf->url = { 0, NULL };      *     conf->headers_source = NULL;      *     conf->headers.lengths = NULL;      *     conf->headers.values = NULL;      *     conf->headers.hash = { NULL, 0 };      *     conf->headers_cache.lengths = NULL;      *     conf->headers_cache.values = NULL;      *     conf->headers_cache.hash = { NULL, 0 };      *     conf->body_lengths = NULL;      *     conf->body_values = NULL;      *     conf->body_source = { 0, NULL };      *     conf->redirects = NULL;      *     conf->ssl = 0;      *     conf->ssl_protocols = 0;      *     conf->ssl_ciphers = { 0, NULL };      *     conf->ssl_trusted_certificate = { 0, NULL };      *     conf->ssl_crl = { 0, NULL };      *     conf->ssl_certificate = { 0, NULL };      *     conf->ssl_certificate_key = { 0, NULL };      */
 name|conf
 operator|->
 name|upstream

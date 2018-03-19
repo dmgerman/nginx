@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon295206320108
+DECL|struct|__anon2a27d8550108
 typedef|typedef
 struct|struct
 block|{
@@ -45,7 +45,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295206320208
+DECL|struct|__anon2a27d8550208
 typedef|typedef
 struct|struct
 block|{
@@ -2618,7 +2618,7 @@ return|return
 name|NULL
 return|;
 block|}
-comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.bufs.num = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.temp_path = NULL;      *     conf->upstream.uri = { 0, NULL };      *     conf->upstream.location = NULL;      */
+comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.bufs.num = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.temp_path = NULL;      */
 name|conf
 operator|->
 name|upstream
