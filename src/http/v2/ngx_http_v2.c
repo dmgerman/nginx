@@ -28,7 +28,7 @@ file|<ngx_http_v2_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27398f9a0108
+DECL|struct|__anon2be389ee0108
 typedef|typedef
 struct|struct
 block|{
@@ -9592,6 +9592,21 @@ name|NGX_HTTP_V2_SIZE_ERROR
 argument_list|)
 return|;
 block|}
+name|ngx_log_debug0
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|h2c
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http2 SETTINGS frame"
+argument_list|)
+expr_stmt|;
 return|return
 name|ngx_http_v2_state_settings_params
 argument_list|(
@@ -10124,7 +10139,7 @@ name|ngx_http_v2_state_ping
 argument_list|)
 return|;
 block|}
-name|ngx_log_debug1
+name|ngx_log_debug0
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
@@ -10136,13 +10151,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http2 PING frame, flags: %ud"
-argument_list|,
-name|h2c
-operator|->
-name|state
-operator|.
-name|flags
+literal|"http2 PING frame"
 argument_list|)
 expr_stmt|;
 if|if
@@ -15483,7 +15492,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon27398f9a0208
+DECL|struct|__anon2be389ee0208
 specifier|static
 specifier|const
 struct|struct

@@ -69,7 +69,7 @@ value|(ngx_http_v2_out_frame_t *) -1
 end_define
 
 begin_typedef
-DECL|struct|__anon28d0738e0108
+DECL|struct|__anon2aeafd900108
 typedef|typedef
 struct|struct
 block|{
@@ -5558,7 +5558,7 @@ name|last
 operator|=
 name|cl
 expr_stmt|;
-name|ngx_log_debug3
+name|ngx_log_debug4
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
@@ -5570,7 +5570,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"http2:%ui create HEADERS frame %p: len:%uz"
+literal|"http2:%ui create HEADERS frame %p: len:%uz fin:%ui"
 argument_list|,
 name|stream
 operator|->
@@ -5583,6 +5583,8 @@ argument_list|,
 name|frame
 operator|->
 name|length
+argument_list|,
+name|fin
 argument_list|)
 expr_stmt|;
 return|return
