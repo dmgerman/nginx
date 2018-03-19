@@ -9088,7 +9088,8 @@ operator|->
 name|fd
 argument_list|)
 operator|==
-name|NGX_ERROR
+operator|-
+literal|1
 condition|)
 block|{
 name|ngx_log_error

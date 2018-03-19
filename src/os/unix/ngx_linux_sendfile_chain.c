@@ -432,7 +432,8 @@ operator|->
 name|fd
 argument_list|)
 operator|==
-name|NGX_ERROR
+operator|-
+literal|1
 condition|)
 block|{
 name|err
@@ -998,7 +999,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon290a5d320108
+DECL|struct|__anon2c33064c0108
 typedef|typedef
 struct|struct
 block|{
