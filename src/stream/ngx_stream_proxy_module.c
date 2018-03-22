@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c3f7a680108
+DECL|struct|__anon29f355410108
 typedef|typedef
 struct|struct
 block|{
@@ -55,7 +55,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3f7a680208
+DECL|struct|__anon29f355410208
 typedef|typedef
 struct|struct
 block|{
@@ -3507,14 +3507,6 @@ name|NGX_STREAM_UPSTREAM_NOTIFY_CONNECT
 argument_list|)
 expr_stmt|;
 block|}
-name|c
-operator|->
-name|log
-operator|->
-name|action
-operator|=
-literal|"proxying connection"
-expr_stmt|;
 if|if
 condition|(
 name|u
@@ -6101,6 +6093,13 @@ name|ngx_uint_t
 name|do_write
 parameter_list|)
 block|{
+name|char
+modifier|*
+name|recv_action
+decl_stmt|,
+modifier|*
+name|send_action
+decl_stmt|;
 name|off_t
 modifier|*
 name|received
@@ -6312,6 +6311,14 @@ name|u
 operator|->
 name|downstream_busy
 expr_stmt|;
+name|recv_action
+operator|=
+literal|"proxying and reading from upstream"
+expr_stmt|;
+name|send_action
+operator|=
+literal|"proxying and sending to client"
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -6357,6 +6364,14 @@ name|u
 operator|->
 name|upstream_busy
 expr_stmt|;
+name|recv_action
+operator|=
+literal|"proxying and reading from client"
+expr_stmt|;
+name|send_action
+operator|=
+literal|"proxying and sending to upstream"
+expr_stmt|;
 block|}
 for|for
 control|(
@@ -6384,6 +6399,14 @@ operator|->
 name|buffered
 condition|)
 block|{
+name|c
+operator|->
+name|log
+operator|->
+name|action
+operator|=
+name|send_action
+expr_stmt|;
 name|rc
 operator|=
 name|ngx_stream_top_filter
@@ -6602,6 +6625,14 @@ name|limit
 expr_stmt|;
 block|}
 block|}
+name|c
+operator|->
+name|log
+operator|->
+name|action
+operator|=
+name|recv_action
+expr_stmt|;
 name|n
 operator|=
 name|src
@@ -6935,6 +6966,14 @@ block|}
 block|}
 break|break;
 block|}
+name|c
+operator|->
+name|log
+operator|->
+name|action
+operator|=
+literal|"proxying connection"
+expr_stmt|;
 if|if
 condition|(
 name|src
