@@ -4039,7 +4039,7 @@ name|len
 operator|=
 name|p
 operator|-
-name|ngx_cycle
+name|cycle
 operator|->
 name|conf_file
 operator|.
@@ -4053,7 +4053,7 @@ name|conf_prefix
 operator|.
 name|data
 operator|=
-name|ngx_cycle
+name|cycle
 operator|->
 name|conf_file
 operator|.
