@@ -71,12 +71,11 @@ name|ngx_pp_v2_get_u16
 parameter_list|(
 name|p
 parameter_list|)
-define|\
-value|( ((uint16_t) ((u_char *) (p))[0]<< 8)                                   \     + (           ((u_char *) (p))[1]) )
+value|((p)[0]<< 8 | (p)[1])
 end_define
 
 begin_typedef
-DECL|struct|__anon27ec3d550108
+DECL|struct|__anon2b854b1e0108
 typedef|typedef
 struct|struct
 block|{
@@ -91,9 +90,9 @@ DECL|member|ver_cmd
 name|u_char
 name|ver_cmd
 decl_stmt|;
-DECL|member|fam_transp
+DECL|member|family_transport
 name|u_char
-name|fam_transp
+name|family_transport
 decl_stmt|;
 DECL|member|len
 name|u_char
@@ -109,7 +108,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ec3d550208
+DECL|struct|__anon2b854b1e0208
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +147,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ec3d550308
+DECL|struct|__anon2b854b1e0308
 typedef|typedef
 struct|struct
 block|{
@@ -187,7 +186,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|union|__anon27ec3d55040a
+DECL|union|__anon2b854b1e040a
 typedef|typedef
 union|union
 block|{
@@ -237,19 +236,19 @@ name|NGX_PP_V2_SIGLEN
 index|]
 init|=
 block|{
-literal|0x0D
+literal|0x0d
 block|,
-literal|0x0A
+literal|0x0a
 block|,
-literal|0x0D
+literal|0x0d
 block|,
-literal|0x0A
+literal|0x0a
 block|,
 literal|0x00
 block|,
-literal|0x0D
+literal|0x0d
 block|,
-literal|0x0A
+literal|0x0a
 block|,
 literal|0x51
 block|,
@@ -259,7 +258,7 @@ literal|0x49
 block|,
 literal|0x54
 block|,
-literal|0x0A
+literal|0x0a
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -715,14 +714,16 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"PROXY protocol address: %V %i"
+literal|"PROXY protocol address: %V %d"
 argument_list|,
 operator|&
 name|c
 operator|->
 name|proxy_protocol_addr
 argument_list|,
-name|n
+name|c
+operator|->
+name|proxy_protocol_port
 argument_list|)
 expr_stmt|;
 name|skip
@@ -1166,7 +1167,7 @@ name|hdr
 operator|->
 name|ver_cmd
 operator|&
-literal|0x0F
+literal|0x0f
 expr_stmt|;
 if|if
 condition|(
@@ -1185,7 +1186,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"PROXY protocol v2 unsupported cmd 0x%xi"
+literal|"PROXY protocol v2 unsupported command 0x%xi"
 argument_list|,
 name|cmd
 argument_list|)
@@ -1198,9 +1199,9 @@ name|transport
 operator|=
 name|hdr
 operator|->
-name|fam_transp
+name|family_transport
 operator|&
-literal|0x0F
+literal|0x0f
 expr_stmt|;
 if|if
 condition|(
@@ -1232,7 +1233,7 @@ name|family
 operator|=
 name|hdr
 operator|->
-name|fam_transp
+name|family_transport
 operator|>>
 literal|4
 expr_stmt|;
@@ -1460,8 +1461,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"PROXY_protocol v2 unsupported address family "
-literal|"0x%xi"
+literal|"PROXY protocol v2 unsupported address family 0x%xi"
 argument_list|,
 name|family
 argument_list|)
@@ -1548,13 +1548,10 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"PROXY protocol v2 address: %V %i"
+literal|"PROXY protocol v2 address: %V %d"
 argument_list|,
 name|name
 argument_list|,
-operator|(
-name|ngx_int_t
-operator|)
 name|c
 operator|->
 name|proxy_protocol_port
