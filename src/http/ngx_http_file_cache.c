@@ -12770,12 +12770,13 @@ name|ngx_str_t
 modifier|*
 name|value
 decl_stmt|;
+name|ngx_int_t
+name|status
+decl_stmt|;
 name|ngx_uint_t
 name|i
 decl_stmt|,
 name|n
-decl_stmt|,
-name|status
 decl_stmt|;
 name|ngx_array_t
 modifier|*
