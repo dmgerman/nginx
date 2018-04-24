@@ -1456,7 +1456,7 @@ literal|0
 argument_list|,
 literal|"no \"ssl_certificate_key\" is defined "
 literal|"for certificate \"%V\" and "
-literal|"the \"ssl\" directive in %s:%ui"
+literal|"the \"%s\" directive in %s:%ui"
 argument_list|,
 operator|(
 operator|(
@@ -1477,6 +1477,8 @@ operator|->
 name|nelts
 operator|-
 literal|1
+argument_list|,
+name|mode
 argument_list|,
 name|conf
 operator|->
