@@ -35,7 +35,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a0819980108
+DECL|struct|__anon29505d840108
 typedef|typedef
 struct|struct
 block|{
@@ -50,6 +50,10 @@ decl_stmt|;
 DECL|member|ssl
 name|ngx_ssl_t
 name|ssl
+decl_stmt|;
+DECL|member|listen
+name|ngx_uint_t
+name|listen
 decl_stmt|;
 DECL|member|protocols
 name|ngx_uint_t
@@ -123,6 +127,15 @@ DECL|member|session_ticket_keys
 name|ngx_array_t
 modifier|*
 name|session_ticket_keys
+decl_stmt|;
+DECL|member|file
+name|u_char
+modifier|*
+name|file
+decl_stmt|;
+DECL|member|line
+name|ngx_uint_t
+name|line
 decl_stmt|;
 DECL|typedef|ngx_stream_ssl_conf_t
 block|}

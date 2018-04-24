@@ -59,7 +59,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon28f026e70108
+DECL|struct|__anon2961c1030108
 typedef|typedef
 struct|struct
 block|{
@@ -78,6 +78,10 @@ decl_stmt|;
 DECL|member|starttls
 name|ngx_uint_t
 name|starttls
+decl_stmt|;
+DECL|member|listen
+name|ngx_uint_t
+name|listen
 decl_stmt|;
 DECL|member|protocols
 name|ngx_uint_t

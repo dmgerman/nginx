@@ -1367,35 +1367,6 @@ name|action
 operator|=
 literal|"SSL handshaking"
 expr_stmt|;
-if|if
-condition|(
-name|sslcf
-operator|->
-name|ssl
-operator|.
-name|ctx
-operator|==
-name|NULL
-condition|)
-block|{
-name|ngx_log_error
-argument_list|(
-name|NGX_LOG_ERR
-argument_list|,
-name|c
-operator|->
-name|log
-argument_list|,
-literal|0
-argument_list|,
-literal|"no \"ssl_certificate\" is defined "
-literal|"in server listening on SSL port"
-argument_list|)
-expr_stmt|;
-return|return
-name|NGX_ERROR
-return|;
-block|}
 name|rv
 operator|=
 name|ngx_stream_ssl_init_connection
@@ -2159,7 +2130,7 @@ return|return
 name|NULL
 return|;
 block|}
-comment|/*      * set by ngx_pcalloc():      *      *     scf->protocols = 0;      *     scf->dhparam = { 0, NULL };      *     scf->ecdh_curve = { 0, NULL };      *     scf->client_certificate = { 0, NULL };      *     scf->trusted_certificate = { 0, NULL };      *     scf->crl = { 0, NULL };      *     scf->ciphers = { 0, NULL };      *     scf->shm_zone = NULL;      */
+comment|/*      * set by ngx_pcalloc():      *      *     scf->listen = 0;      *     scf->protocols = 0;      *     scf->dhparam = { 0, NULL };      *     scf->ecdh_curve = { 0, NULL };      *     scf->client_certificate = { 0, NULL };      *     scf->trusted_certificate = { 0, NULL };      *     scf->crl = { 0, NULL };      *     scf->ciphers = { 0, NULL };      *     scf->shm_zone = NULL;      */
 name|scf
 operator|->
 name|handshake_timeout
@@ -2483,11 +2454,10 @@ name|log
 expr_stmt|;
 if|if
 condition|(
+operator|!
 name|conf
 operator|->
-name|certificates
-operator|==
-name|NULL
+name|listen
 condition|)
 block|{
 return|return
@@ -2498,10 +2468,74 @@ if|if
 condition|(
 name|conf
 operator|->
+name|certificates
+operator|==
+name|NULL
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"no \"ssl_certificate\" is defined for "
+literal|"the \"listen ... ssl\" directive in %s:%ui"
+argument_list|,
+name|conf
+operator|->
+name|file
+argument_list|,
+name|conf
+operator|->
+name|line
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
+if|if
+condition|(
+name|conf
+operator|->
 name|certificate_keys
 operator|==
 name|NULL
-operator|||
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"no \"ssl_certificate_key\" is defined for "
+literal|"the \"listen ... ssl\" directive in %s:%ui"
+argument_list|,
+name|conf
+operator|->
+name|file
+argument_list|,
+name|conf
+operator|->
+name|line
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
+if|if
+condition|(
 name|conf
 operator|->
 name|certificate_keys
@@ -2526,7 +2560,8 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"no \"ssl_certificate_key\" is defined "
-literal|"for certificate \"%V\""
+literal|"for certificate \"%V\" and "
+literal|"the \"listen ... ssl\" directive in %s:%ui"
 argument_list|,
 operator|(
 operator|(
@@ -2547,6 +2582,14 @@ operator|->
 name|nelts
 operator|-
 literal|1
+argument_list|,
+name|conf
+operator|->
+name|file
+argument_list|,
+name|conf
+operator|->
+name|line
 argument_list|)
 expr_stmt|;
 return|return
