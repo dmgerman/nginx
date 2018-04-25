@@ -441,6 +441,22 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_http_ssl_deprecated
+specifier|static
+name|ngx_conf_deprecated_t
+name|ngx_http_ssl_deprecated
+init|=
+block|{
+name|ngx_conf_deprecated
+block|,
+literal|"ssl"
+block|,
+literal|"listen ... ssl"
+block|}
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_http_ssl_commands
 specifier|static
 name|ngx_command_t
@@ -471,7 +487,8 @@ argument_list|,
 name|enable
 argument_list|)
 block|,
-name|NULL
+operator|&
+name|ngx_http_ssl_deprecated
 block|}
 block|,
 block|{
