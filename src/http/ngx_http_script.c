@@ -3239,6 +3239,10 @@ operator|=
 operator|(
 name|ngx_http_script_code_pt
 operator|)
+operator|(
+name|void
+operator|*
+operator|)
 name|ngx_http_script_copy_len_code
 expr_stmt|;
 name|code
@@ -3645,6 +3649,10 @@ name|code
 operator|=
 operator|(
 name|ngx_http_script_code_pt
+operator|)
+operator|(
+name|void
+operator|*
 operator|)
 name|ngx_http_script_copy_var_len_code
 expr_stmt|;
@@ -5591,6 +5599,10 @@ operator|=
 operator|(
 name|ngx_http_script_code_pt
 operator|)
+operator|(
+name|void
+operator|*
+operator|)
 name|ngx_http_script_copy_capture_len_code
 expr_stmt|;
 name|code
@@ -6113,6 +6125,10 @@ name|code
 operator|=
 operator|(
 name|ngx_http_script_code_pt
+operator|)
+operator|(
+name|void
+operator|*
 operator|)
 name|ngx_http_script_full_name_len_code
 expr_stmt|;

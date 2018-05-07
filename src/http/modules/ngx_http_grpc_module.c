@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ab1cd620108
+DECL|struct|__anon2961b2ea0108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab1cd620208
+DECL|struct|__anon2961b2ea0208
 typedef|typedef
 struct|struct
 block|{
@@ -128,7 +128,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2ab1cd620303
+DECL|enum|__anon2961b2ea0303
 typedef|typedef
 enum|enum
 block|{
@@ -173,7 +173,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab1cd620408
+DECL|struct|__anon2961b2ea0408
 typedef|typedef
 struct|struct
 block|{
@@ -200,7 +200,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab1cd620508
+DECL|struct|__anon2961b2ea0508
 typedef|typedef
 struct|struct
 block|{
@@ -379,7 +379,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab1cd620608
+DECL|struct|__anon2961b2ea0608
 typedef|typedef
 struct|struct
 block|{
@@ -10415,7 +10415,7 @@ decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
-DECL|enum|__anon2ab1cd620703
+DECL|enum|__anon2961b2ea0703
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -11112,7 +11112,7 @@ name|index
 decl_stmt|,
 name|size_update
 decl_stmt|;
-DECL|enum|__anon2ab1cd620803
+DECL|enum|__anon2961b2ea0803
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -13195,7 +13195,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon2ab1cd620903
+DECL|enum|__anon2961b2ea0903
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -13486,7 +13486,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon2ab1cd620a03
+DECL|enum|__anon2961b2ea0a03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -13903,7 +13903,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon2ab1cd620b03
+DECL|enum|__anon2961b2ea0b03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -14302,7 +14302,7 @@ decl_stmt|;
 name|ssize_t
 name|window_update
 decl_stmt|;
-DECL|enum|__anon2ab1cd620c03
+DECL|enum|__anon2961b2ea0c03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -14867,7 +14867,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon2ab1cd620d03
+DECL|enum|__anon2961b2ea0d03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -18363,6 +18363,10 @@ name|code
 operator|=
 operator|(
 name|ngx_http_script_code_pt
+operator|)
+operator|(
+name|void
+operator|*
 operator|)
 name|ngx_http_script_copy_len_code
 expr_stmt|;
