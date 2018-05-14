@@ -17,15 +17,10 @@ name|_NGX_SYSLOG_H_INCLUDED_
 end_define
 
 begin_typedef
-DECL|struct|__anon2b3b11eb0108
+DECL|struct|__anon27ba74da0108
 typedef|typedef
 struct|struct
 block|{
-DECL|member|pool
-name|ngx_pool_t
-modifier|*
-name|pool
-decl_stmt|;
 DECL|member|facility
 name|ngx_uint_t
 name|facility
