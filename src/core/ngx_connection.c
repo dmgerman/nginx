@@ -1335,6 +1335,10 @@ operator|&&
 name|err
 operator|!=
 name|NGX_ENOPROTOOPT
+operator|&&
+name|err
+operator|!=
+name|NGX_EINVAL
 condition|)
 block|{
 name|ngx_log_error
