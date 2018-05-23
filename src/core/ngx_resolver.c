@@ -46,7 +46,7 @@ value|8192
 end_define
 
 begin_typedef
-DECL|struct|__anon29e322640108
+DECL|struct|__anon2785ffa20108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e322640208
+DECL|struct|__anon2785ffa20208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29e322640308
+DECL|struct|__anon2785ffa20308
 typedef|typedef
 struct|struct
 block|{
@@ -6279,9 +6279,9 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
-return|return
-name|NGX_ERROR
-return|;
+goto|goto
+name|failed
+goto|;
 block|}
 if|if
 condition|(
@@ -6310,12 +6310,30 @@ argument_list|,
 literal|"send() incomplete"
 argument_list|)
 expr_stmt|;
-return|return
-name|NGX_ERROR
-return|;
+goto|goto
+name|failed
+goto|;
 block|}
 return|return
 name|NGX_OK
+return|;
+name|failed
+label|:
+name|ngx_close_connection
+argument_list|(
+name|rec
+operator|->
+name|udp
+argument_list|)
+expr_stmt|;
+name|rec
+operator|->
+name|udp
+operator|=
+name|NULL
+expr_stmt|;
+return|return
+name|NGX_ERROR
 return|;
 block|}
 end_function
