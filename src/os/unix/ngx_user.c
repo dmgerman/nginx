@@ -71,25 +71,6 @@ name|initialized
 operator|=
 literal|0
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|__GLIBC__
-comment|/* work around the glibc bug */
-name|cd
-operator|.
-name|current_salt
-index|[
-literal|0
-index|]
-operator|=
-operator|~
-name|salt
-index|[
-literal|0
-index|]
-expr_stmt|;
-endif|#
-directive|endif
 name|value
 operator|=
 name|crypt_r
