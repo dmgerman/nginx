@@ -38,7 +38,7 @@ operator|&
 name|ft
 argument_list|)
 expr_stmt|;
-comment|/*      * A file time is a 64-bit value that represents the number      * of 100-nanosecond intervals that have elapsed since      * January 1, 1601 12:00 A.M. UTC.      *      * Between January 1, 1970 (Epoch) and January 1, 1601 there were      * 134744 days,      * 11644473600 seconds or      * 11644473600,000,000,0 100-nanosecond intervals.      *      * See also MSKB Q167296.      */
+comment|/*      * A file time is a 64-bit value that represents the number      * of 100-nanosecond intervals that have elapsed since      * January 1, 1601 12:00 A.M. UTC.      *      * Between January 1, 1970 (Epoch) and January 1, 1601 there were      * 134774 days,      * 11644473600 seconds or      * 11644473600,000,000,0 100-nanosecond intervals.      *      * See also MSKB Q167296.      */
 name|intervals
 operator|=
 operator|(
