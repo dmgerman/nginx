@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b4257530108
+DECL|struct|__anon2c5463ee0108
 typedef|typedef
 struct|struct
 block|{
@@ -208,7 +208,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_comment
-comment|/*  * milliseconds elapsed since epoch and truncated to ngx_msec_t,  * used in event timers  */
+comment|/*  * milliseconds elapsed since some unspecified point in the past  * and truncated to ngx_msec_t, used in event timers  */
 end_comment
 
 begin_decl_stmt
