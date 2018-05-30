@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27c371d30108
+DECL|struct|__anon28a507ee0108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c371d30208
+DECL|struct|__anon28a507ee0208
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c371d30308
+DECL|struct|__anon28a507ee0308
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c371d30408
+DECL|struct|__anon28a507ee0408
 typedef|typedef
 struct|struct
 block|{
@@ -153,7 +153,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27c371d30508
+DECL|struct|__anon28a507ee0508
 typedef|typedef
 struct|struct
 block|{
@@ -1669,6 +1669,31 @@ operator|->
 name|last
 operator|)
 expr_stmt|;
+if|if
+condition|(
+name|ms
+operator|<
+operator|-
+literal|60000
+condition|)
+block|{
+name|ms
+operator|=
+literal|1
+expr_stmt|;
+block|}
+if|else if
+condition|(
+name|ms
+operator|<
+literal|0
+condition|)
+block|{
+name|ms
+operator|=
+literal|0
+expr_stmt|;
+block|}
 name|excess
 operator|=
 name|lr
@@ -1679,10 +1704,7 @@ name|ctx
 operator|->
 name|rate
 operator|*
-name|ngx_abs
-argument_list|(
 name|ms
-argument_list|)
 operator|/
 literal|1000
 operator|+
@@ -1732,12 +1754,18 @@ name|excess
 operator|=
 name|excess
 expr_stmt|;
+if|if
+condition|(
+name|ms
+condition|)
+block|{
 name|lr
 operator|->
 name|last
 operator|=
 name|now
 expr_stmt|;
+block|}
 return|return
 name|NGX_OK
 return|;
@@ -2145,6 +2173,31 @@ operator|->
 name|last
 operator|)
 expr_stmt|;
+if|if
+condition|(
+name|ms
+operator|<
+operator|-
+literal|60000
+condition|)
+block|{
+name|ms
+operator|=
+literal|1
+expr_stmt|;
+block|}
+if|else if
+condition|(
+name|ms
+operator|<
+literal|0
+condition|)
+block|{
+name|ms
+operator|=
+literal|0
+expr_stmt|;
+block|}
 name|excess
 operator|=
 name|lr
@@ -2155,10 +2208,7 @@ name|ctx
 operator|->
 name|rate
 operator|*
-name|ngx_abs
-argument_list|(
 name|ms
-argument_list|)
 operator|/
 literal|1000
 operator|+
@@ -2176,12 +2226,18 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|ms
+condition|)
+block|{
 name|lr
 operator|->
 name|last
 operator|=
 name|now
 expr_stmt|;
+block|}
 name|lr
 operator|->
 name|excess
