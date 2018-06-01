@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2795067a0108
+DECL|struct|__anon2910663b0108
 typedef|typedef
 struct|struct
 block|{
@@ -406,7 +406,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2795067a0208
+DECL|struct|__anon2910663b0208
 typedef|typedef
 struct|struct
 block|{
@@ -1446,7 +1446,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2795067a0308
+DECL|struct|__anon2910663b0308
 typedef|typedef
 struct|struct
 block|{
@@ -1493,7 +1493,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2795067a0408
+DECL|struct|__anon2910663b0408
 typedef|typedef
 struct|struct
 block|{
@@ -1775,6 +1775,17 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
+name|ngx_int_t
+name|ngx_enable_accept_events
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
 name|u_char
 modifier|*
 name|ngx_accept_log_error
@@ -1792,6 +1803,34 @@ name|len
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_DEBUG
+operator|)
+end_if
+
+begin_function_decl
+name|void
+name|ngx_debug_accepted_connection
+parameter_list|(
+name|ngx_event_conf_t
+modifier|*
+name|ecf
+parameter_list|,
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_function_decl
 name|void
