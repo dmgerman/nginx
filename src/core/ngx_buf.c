@@ -442,6 +442,11 @@ operator|==
 name|NULL
 condition|)
 block|{
+operator|*
+name|ll
+operator|=
+name|NULL
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
