@@ -144,6 +144,14 @@ name|ngx_connection_t
 modifier|*
 name|connection
 decl_stmt|;
+DECL|member|rbtree
+name|ngx_rbtree_t
+name|rbtree
+decl_stmt|;
+DECL|member|sentinel
+name|ngx_rbtree_node_t
+name|sentinel
+decl_stmt|;
 DECL|member|worker
 name|ngx_uint_t
 name|worker
@@ -308,7 +316,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2c5ccb620103
+DECL|enum|__anon29d94b9c0103
 typedef|typedef
 enum|enum
 block|{
@@ -335,7 +343,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c5ccb620203
+DECL|enum|__anon29d94b9c0203
 typedef|typedef
 enum|enum
 block|{
@@ -356,7 +364,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2c5ccb620303
+DECL|enum|__anon29d94b9c0303
 typedef|typedef
 enum|enum
 block|{
@@ -499,6 +507,11 @@ name|ssl
 decl_stmt|;
 endif|#
 directive|endif
+DECL|member|udp
+name|ngx_udp_connection_t
+modifier|*
+name|udp
+decl_stmt|;
 DECL|member|local_sockaddr
 name|struct
 name|sockaddr

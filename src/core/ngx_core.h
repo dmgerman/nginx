@@ -158,6 +158,15 @@ typedef|;
 end_typedef
 
 begin_typedef
+DECL|typedef|ngx_udp_connection_t
+typedef|typedef
+name|struct
+name|ngx_udp_connection_s
+name|ngx_udp_connection_t
+typedef|;
+end_typedef
+
+begin_typedef
 DECL|typedef|ngx_event_handler_pt
 typedef|typedef
 name|void
