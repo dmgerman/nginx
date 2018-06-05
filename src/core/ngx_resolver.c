@@ -46,7 +46,7 @@ value|8192
 end_define
 
 begin_typedef
-DECL|struct|__anon2785ffa20108
+DECL|struct|__anon27c6a3cd0108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2785ffa20208
+DECL|struct|__anon27c6a3cd0208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2785ffa20308
+DECL|struct|__anon27c6a3cd0308
 typedef|typedef
 struct|struct
 block|{
@@ -19657,7 +19657,7 @@ argument_list|,
 name|ngx_socket_errno
 argument_list|,
 name|ngx_close_socket_n
-literal|"failed"
+literal|" failed"
 argument_list|)
 expr_stmt|;
 block|}
@@ -20011,7 +20011,7 @@ argument_list|,
 name|ngx_socket_errno
 argument_list|,
 name|ngx_close_socket_n
-literal|"failed"
+literal|" failed"
 argument_list|)
 expr_stmt|;
 block|}
