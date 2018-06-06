@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2c1e758d0108
+DECL|struct|__anon2b89bf490108
 typedef|typedef
 struct|struct
 block|{
@@ -222,21 +222,6 @@ parameter_list|,
 name|ngx_str_t
 modifier|*
 name|sess_ctx
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-name|ngx_int_t
-name|ngx_ssl_session_cache_init
-parameter_list|(
-name|ngx_shm_zone_t
-modifier|*
-name|shm_zone
-parameter_list|,
-name|void
-modifier|*
-name|data
 parameter_list|)
 function_decl|;
 end_function_decl
