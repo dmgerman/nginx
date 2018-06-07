@@ -4325,10 +4325,6 @@ if|if
 condition|(
 name|r
 operator|->
-name|host_start
-operator|&&
-name|r
-operator|->
 name|host_end
 condition|)
 block|{
@@ -8662,7 +8658,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon2bf7e6a20103
+DECL|enum|__anon276f73250103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
