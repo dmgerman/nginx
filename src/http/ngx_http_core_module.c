@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b93d9e00108
+DECL|struct|__anon292c3fef0108
 typedef|typedef
 struct|struct
 block|{
@@ -9733,6 +9733,14 @@ operator|=
 name|r
 operator|->
 name|http_protocol
+expr_stmt|;
+name|sr
+operator|->
+name|schema
+operator|=
+name|r
+operator|->
+name|schema
 expr_stmt|;
 name|ngx_http_set_exten
 argument_list|(
