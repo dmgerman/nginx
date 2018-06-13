@@ -12711,6 +12711,13 @@ operator|!
 name|r
 operator|->
 name|preserve_body
+operator|&&
+operator|!
+name|u
+operator|->
+name|conf
+operator|->
+name|preserve_output
 condition|)
 block|{
 name|ngx_pool_run_cleanup_file
