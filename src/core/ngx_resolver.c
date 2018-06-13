@@ -46,7 +46,7 @@ value|8192
 end_define
 
 begin_typedef
-DECL|struct|__anon2bef956e0108
+DECL|struct|__anon29f4b0370108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bef956e0208
+DECL|struct|__anon29f4b0370208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bef956e0308
+DECL|struct|__anon29f4b0370308
 typedef|typedef
 struct|struct
 block|{
@@ -1772,6 +1772,34 @@ operator|=
 name|r
 expr_stmt|;
 block|}
+block|}
+if|if
+condition|(
+name|n
+operator|&&
+name|r
+operator|->
+name|connections
+operator|.
+name|nelts
+operator|==
+literal|0
+condition|)
+block|{
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"no name servers defined"
+argument_list|)
+expr_stmt|;
+return|return
+name|NULL
+return|;
 block|}
 return|return
 name|r
