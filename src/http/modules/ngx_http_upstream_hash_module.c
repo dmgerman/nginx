@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2aa960f50108
+DECL|struct|__anon2891a5da0108
 typedef|typedef
 struct|struct
 block|{
@@ -42,7 +42,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa960f50208
+DECL|struct|__anon2891a5da0208
 typedef|typedef
 struct|struct
 block|{
@@ -64,7 +64,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa960f50308
+DECL|struct|__anon2891a5da0308
 typedef|typedef
 struct|struct
 block|{
@@ -84,7 +84,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa960f50408
+DECL|struct|__anon2891a5da0408
 typedef|typedef
 struct|struct
 block|{
@@ -687,7 +687,7 @@ operator|->
 name|tries
 argument_list|)
 expr_stmt|;
-name|ngx_http_upstream_rr_peers_wlock
+name|ngx_http_upstream_rr_peers_rlock
 argument_list|(
 name|hp
 operator|->
@@ -946,6 +946,17 @@ goto|goto
 name|next
 goto|;
 block|}
+name|ngx_http_upstream_rr_peer_lock
+argument_list|(
+name|hp
+operator|->
+name|rrp
+operator|.
+name|peers
+argument_list|,
+name|peer
+argument_list|)
+expr_stmt|;
 name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
@@ -972,6 +983,17 @@ operator|->
 name|down
 condition|)
 block|{
+name|ngx_http_upstream_rr_peer_unlock
+argument_list|(
+name|hp
+operator|->
+name|rrp
+operator|.
+name|peers
+argument_list|,
+name|peer
+argument_list|)
+expr_stmt|;
 goto|goto
 name|next
 goto|;
@@ -1001,6 +1023,17 @@ operator|->
 name|fail_timeout
 condition|)
 block|{
+name|ngx_http_upstream_rr_peer_unlock
+argument_list|(
+name|hp
+operator|->
+name|rrp
+operator|.
+name|peers
+argument_list|,
+name|peer
+argument_list|)
+expr_stmt|;
 goto|goto
 name|next
 goto|;
@@ -1020,6 +1053,17 @@ operator|->
 name|max_conns
 condition|)
 block|{
+name|ngx_http_upstream_rr_peer_unlock
+argument_list|(
+name|hp
+operator|->
+name|rrp
+operator|.
+name|peers
+argument_list|,
+name|peer
+argument_list|)
+expr_stmt|;
 goto|goto
 name|next
 goto|;
@@ -1119,6 +1163,17 @@ operator|=
 name|now
 expr_stmt|;
 block|}
+name|ngx_http_upstream_rr_peer_unlock
+argument_list|(
+name|hp
+operator|->
+name|rrp
+operator|.
+name|peers
+argument_list|,
+name|peer
+argument_list|)
+expr_stmt|;
 name|ngx_http_upstream_rr_peers_unlock
 argument_list|(
 name|hp
@@ -1208,7 +1263,7 @@ name|ngx_http_upstream_hash_srv_conf_t
 modifier|*
 name|hcf
 decl_stmt|;
-DECL|union|__anon2aa960f5050a
+DECL|union|__anon2891a5da050a
 union|union
 block|{
 DECL|member|value
