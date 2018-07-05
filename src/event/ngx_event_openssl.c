@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2b89bf490108
+DECL|struct|__anon2ae443600108
 typedef|typedef
 struct|struct
 block|{
@@ -8385,6 +8385,16 @@ name|n
 operator|==
 name|SSL_R_EXCESSIVE_MESSAGE_SIZE
 comment|/*  152 */
+operator|||
+name|n
+operator|==
+name|SSL_R_HTTPS_PROXY_REQUEST
+comment|/*  155 */
+operator|||
+name|n
+operator|==
+name|SSL_R_HTTP_REQUEST
+comment|/*  156 */
 operator|||
 name|n
 operator|==
