@@ -8690,7 +8690,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon29b2cf220103
+DECL|enum|__anon27ed60ee0103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -10197,6 +10197,12 @@ operator|==
 name|NGX_HTTP_CLOSE
 condition|)
 block|{
+name|c
+operator|->
+name|timedout
+operator|=
+literal|1
+expr_stmt|;
 name|ngx_http_terminate_request
 argument_list|(
 name|r
