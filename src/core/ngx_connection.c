@@ -379,12 +379,12 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_clone_listening (ngx_conf_t * cf,ngx_listening_t * ls)
+DECL|function|ngx_clone_listening (ngx_cycle_t * cycle,ngx_listening_t * ls)
 name|ngx_clone_listening
 parameter_list|(
-name|ngx_conf_t
+name|ngx_cycle_t
 modifier|*
-name|cf
+name|cycle
 parameter_list|,
 name|ngx_listening_t
 modifier|*
@@ -412,6 +412,12 @@ operator|!
 name|ls
 operator|->
 name|reuseport
+operator|||
+name|ls
+operator|->
+name|worker
+operator|!=
+literal|0
 condition|)
 block|{
 return|return
@@ -431,8 +437,6 @@ operator|*
 operator|)
 name|ngx_get_conf
 argument_list|(
-name|cf
-operator|->
 name|cycle
 operator|->
 name|conf_ctx
@@ -462,8 +466,6 @@ operator|=
 name|ngx_array_push
 argument_list|(
 operator|&
-name|cf
-operator|->
 name|cycle
 operator|->
 name|listening

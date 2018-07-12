@@ -316,7 +316,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon29d94b9c0103
+DECL|enum|__anon299124fa0103
 typedef|typedef
 enum|enum
 block|{
@@ -343,7 +343,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29d94b9c0203
+DECL|enum|__anon299124fa0203
 typedef|typedef
 enum|enum
 block|{
@@ -364,7 +364,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29d94b9c0303
+DECL|enum|__anon299124fa0303
 typedef|typedef
 enum|enum
 block|{
@@ -697,9 +697,9 @@ begin_function_decl
 name|ngx_int_t
 name|ngx_clone_listening
 parameter_list|(
-name|ngx_conf_t
+name|ngx_cycle_t
 modifier|*
-name|cf
+name|cycle
 parameter_list|,
 name|ngx_listening_t
 modifier|*
