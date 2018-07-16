@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon299f95030108
+DECL|struct|__anon29abebe10108
 typedef|typedef
 struct|struct
 block|{
@@ -4926,6 +4926,20 @@ operator|->
 name|connection
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|SSL_OP_NO_RENEGOTIATION
+name|SSL_set_options
+argument_list|(
+name|sc
+operator|->
+name|connection
+argument_list|,
+name|SSL_OP_NO_RENEGOTIATION
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 if|if
 condition|(
