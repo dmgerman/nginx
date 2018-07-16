@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon27a91bd80108
+DECL|struct|__anon299f95030108
 typedef|typedef
 struct|struct
 block|{
@@ -1308,9 +1308,11 @@ argument_list|,
 name|SSL_OP_SINGLE_DH_USE
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|SSL_CTRL_CLEAR_OPTIONS
+if|#
+directive|if
+name|OPENSSL_VERSION_NUMBER
+operator|>=
+literal|0x009080dfL
 comment|/* only in 0.9.8m+ */
 name|SSL_CTX_clear_options
 argument_list|(

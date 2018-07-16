@@ -3995,9 +3995,11 @@ name|ctx
 argument_list|)
 argument_list|)
 expr_stmt|;
-ifdef|#
-directive|ifdef
-name|SSL_CTRL_CLEAR_OPTIONS
+if|#
+directive|if
+name|OPENSSL_VERSION_NUMBER
+operator|>=
+literal|0x009080dfL
 comment|/* only in 0.9.8m+ */
 name|SSL_clear_options
 argument_list|(
@@ -8690,7 +8692,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon27ed60ee0103
+DECL|enum|__anon2b4d600a0103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
