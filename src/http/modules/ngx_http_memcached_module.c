@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a27d8550108
+DECL|struct|__anon2a187d330108
 typedef|typedef
 struct|struct
 block|{
@@ -45,7 +45,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a27d8550208
+DECL|struct|__anon2a187d330208
 typedef|typedef
 struct|struct
 block|{
@@ -3192,6 +3192,12 @@ name|ngx_http_memcached_handler
 expr_stmt|;
 if|if
 condition|(
+name|clcf
+operator|->
+name|name
+operator|.
+name|len
+operator|&&
 name|clcf
 operator|->
 name|name
