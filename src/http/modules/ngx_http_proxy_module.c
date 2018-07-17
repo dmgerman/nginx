@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon289e3d100108
+DECL|struct|__anon2af962250108
 typedef|typedef
 struct|struct
 block|{
@@ -85,7 +85,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon289e3d10020a
+DECL|union|__anon2af96225020a
 union|union
 block|{
 DECL|member|complex
@@ -117,7 +117,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon289e3d100308
+DECL|struct|__anon2af962250308
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289e3d100408
+DECL|struct|__anon2af962250408
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289e3d100508
+DECL|struct|__anon2af962250508
 typedef|typedef
 struct|struct
 block|{
@@ -345,7 +345,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon289e3d100608
+DECL|struct|__anon2af962250608
 typedef|typedef
 struct|struct
 block|{
@@ -20377,6 +20377,32 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+block|}
+if|if
+condition|(
+name|ngx_ssl_client_session_cache
+argument_list|(
+name|cf
+argument_list|,
+name|plcf
+operator|->
+name|upstream
+operator|.
+name|ssl
+argument_list|,
+name|plcf
+operator|->
+name|upstream
+operator|.
+name|ssl_session_reuse
+argument_list|)
+operator|!=
+name|NGX_OK
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
 block|}
 return|return
 name|NGX_OK

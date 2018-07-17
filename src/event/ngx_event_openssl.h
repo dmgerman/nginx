@@ -309,6 +309,15 @@ DECL|member|handler
 name|ngx_connection_handler_pt
 name|handler
 decl_stmt|;
+DECL|member|session
+name|ngx_ssl_session_t
+modifier|*
+name|session
+decl_stmt|;
+DECL|member|save_session
+name|ngx_connection_handler_pt
+name|save_session
+decl_stmt|;
 DECL|member|saved_read_handler
 name|ngx_event_handler_pt
 name|saved_read_handler
@@ -463,7 +472,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28d8a0180108
+DECL|struct|__anon2744b9ca0108
 typedef|typedef
 struct|struct
 block|{
@@ -492,7 +501,7 @@ name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon28d8a0180208
+DECL|struct|__anon2744b9ca0208
 typedef|typedef
 struct|struct
 block|{
@@ -894,6 +903,24 @@ end_function_decl
 
 begin_function_decl
 name|ngx_int_t
+name|ngx_ssl_client_session_cache
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_ssl_t
+modifier|*
+name|ssl
+parameter_list|,
+name|ngx_uint_t
+name|enable
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
 name|ngx_ssl_session_cache
 parameter_list|(
 name|ngx_ssl_t
@@ -999,16 +1026,29 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
-begin_define
-DECL|macro|ngx_ssl_get_session (c)
-define|#
-directive|define
+begin_function_decl
+name|ngx_ssl_session_t
+modifier|*
 name|ngx_ssl_get_session
 parameter_list|(
+name|ngx_connection_t
+modifier|*
 name|c
 parameter_list|)
-value|SSL_get1_session(c->ssl->connection)
-end_define
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_ssl_session_t
+modifier|*
+name|ngx_ssl_get0_session
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_define
 DECL|macro|ngx_ssl_free_session

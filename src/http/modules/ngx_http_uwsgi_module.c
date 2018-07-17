@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ab1724a0108
+DECL|struct|__anon28ef8f7c0108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab1724a0208
+DECL|struct|__anon28ef8f7c0208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab1724a0308
+DECL|struct|__anon28ef8f7c0308
 typedef|typedef
 struct|struct
 block|{
@@ -11273,6 +11273,32 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+block|}
+if|if
+condition|(
+name|ngx_ssl_client_session_cache
+argument_list|(
+name|cf
+argument_list|,
+name|uwcf
+operator|->
+name|upstream
+operator|.
+name|ssl
+argument_list|,
+name|uwcf
+operator|->
+name|upstream
+operator|.
+name|ssl_session_reuse
+argument_list|)
+operator|!=
+name|NGX_OK
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
 block|}
 return|return
 name|NGX_OK

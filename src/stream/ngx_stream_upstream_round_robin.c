@@ -3860,13 +3860,9 @@ condition|)
 block|{
 name|ssl_session
 operator|=
-name|SSL_get0_session
+name|ngx_ssl_get0_session
 argument_list|(
 name|pc
-operator|->
-name|connection
-operator|->
-name|ssl
 operator|->
 name|connection
 argument_list|)
