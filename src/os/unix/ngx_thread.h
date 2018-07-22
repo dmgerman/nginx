@@ -251,7 +251,7 @@ DECL|macro|NGX_TID_T_FMT
 define|#
 directive|define
 name|NGX_TID_T_FMT
-value|"%uA"
+value|"%uL"
 end_define
 
 begin_else
@@ -272,7 +272,7 @@ DECL|macro|NGX_TID_T_FMT
 define|#
 directive|define
 name|NGX_TID_T_FMT
-value|"%uA"
+value|"%uL"
 end_define
 
 begin_endif
