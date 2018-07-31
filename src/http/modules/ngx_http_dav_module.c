@@ -54,7 +54,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon2b5cf4590108
+DECL|struct|__anon27dfd8b20108
 typedef|typedef
 struct|struct
 block|{
@@ -81,7 +81,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b5cf4590208
+DECL|struct|__anon27dfd8b20208
 typedef|typedef
 struct|struct
 block|{
@@ -3845,9 +3845,11 @@ name|cf
 operator|.
 name|access
 operator|=
-name|dlcf
-operator|->
-name|access
+name|ngx_file_access
+argument_list|(
+operator|&
+name|fi
+argument_list|)
 expr_stmt|;
 name|cf
 operator|.
