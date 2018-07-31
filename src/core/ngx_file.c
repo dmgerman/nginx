@@ -3785,7 +3785,7 @@ name|to
 argument_list|,
 name|NGX_FILE_WRONLY
 argument_list|,
-name|NGX_FILE_CREATE_OR_OPEN
+name|NGX_FILE_TRUNCATE
 argument_list|,
 name|cf
 operator|->
