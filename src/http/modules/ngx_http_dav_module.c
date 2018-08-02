@@ -54,7 +54,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon27dfd8b20108
+DECL|struct|__anon2c37e6920108
 typedef|typedef
 struct|struct
 block|{
@@ -81,7 +81,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27dfd8b20208
+DECL|struct|__anon2c37e6920208
 typedef|typedef
 struct|struct
 block|{
@@ -3816,15 +3816,6 @@ return|return
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
 block|}
-name|dlcf
-operator|=
-name|ngx_http_get_module_loc_conf
-argument_list|(
-name|r
-argument_list|,
-name|ngx_http_dav_module
-argument_list|)
-expr_stmt|;
 name|cf
 operator|.
 name|size
