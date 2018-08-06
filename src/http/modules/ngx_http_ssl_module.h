@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2aea93620108
+DECL|struct|__anon2c0357350108
 typedef|typedef
 struct|struct
 block|{
@@ -50,6 +50,10 @@ decl_stmt|;
 DECL|member|prefer_server_ciphers
 name|ngx_flag_t
 name|prefer_server_ciphers
+decl_stmt|;
+DECL|member|early_data
+name|ngx_flag_t
+name|early_data
 decl_stmt|;
 DECL|member|protocols
 name|ngx_uint_t

@@ -472,7 +472,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2744b9ca0108
+DECL|struct|__anon28fac15b0108
 typedef|typedef
 struct|struct
 block|{
@@ -501,7 +501,7 @@ name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon2744b9ca0208
+DECL|struct|__anon28fac15b0208
 typedef|typedef
 struct|struct
 block|{
@@ -903,6 +903,24 @@ end_function_decl
 
 begin_function_decl
 name|ngx_int_t
+name|ngx_ssl_early_data
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_ssl_t
+modifier|*
+name|ssl
+parameter_list|,
+name|ngx_uint_t
+name|enable
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
 name|ngx_ssl_client_session_cache
 parameter_list|(
 name|ngx_conf_t
@@ -1207,6 +1225,25 @@ end_function_decl
 begin_function_decl
 name|ngx_int_t
 name|ngx_ssl_get_session_reused
+parameter_list|(
+name|ngx_connection_t
+modifier|*
+name|c
+parameter_list|,
+name|ngx_pool_t
+modifier|*
+name|pool
+parameter_list|,
+name|ngx_str_t
+modifier|*
+name|s
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_ssl_get_early_data
 parameter_list|(
 name|ngx_connection_t
 modifier|*
