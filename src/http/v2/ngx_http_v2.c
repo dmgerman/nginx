@@ -28,7 +28,7 @@ file|<ngx_http_v2_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27f29c960108
+DECL|struct|__anon2bfee1210108
 typedef|typedef
 struct|struct
 block|{
@@ -1859,12 +1859,6 @@ operator|->
 name|frame_size
 operator|=
 name|NGX_HTTP_V2_DEFAULT_FRAME_SIZE
-expr_stmt|;
-name|h2c
-operator|->
-name|table_update
-operator|=
-literal|1
 expr_stmt|;
 name|h2scf
 operator|=
@@ -9910,6 +9904,16 @@ name|concurrent_pushes
 argument_list|)
 expr_stmt|;
 break|break;
+case|case
+name|NGX_HTTP_V2_HEADER_TABLE_SIZE_SETTING
+case|:
+name|h2c
+operator|->
+name|table_update
+operator|=
+literal|1
+expr_stmt|;
+break|break;
 default|default:
 break|break;
 block|}
@@ -15491,7 +15495,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon27f29c960208
+DECL|struct|__anon2bfee1210208
 specifier|static
 specifier|const
 struct|struct
