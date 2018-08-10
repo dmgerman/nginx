@@ -161,6 +161,29 @@ directive|undef
 name|OPENSSL_VERSION_NUMBER
 end_undef
 
+begin_if
+if|#
+directive|if
+operator|(
+name|LIBRESSL_VERSION_NUMBER
+operator|>=
+literal|0x2080000fL
+operator|)
+end_if
+
+begin_define
+DECL|macro|OPENSSL_VERSION_NUMBER
+define|#
+directive|define
+name|OPENSSL_VERSION_NUMBER
+value|0x1010000fL
+end_define
+
+begin_else
+else|#
+directive|else
+end_else
+
 begin_define
 DECL|macro|OPENSSL_VERSION_NUMBER
 define|#
@@ -168,6 +191,11 @@ directive|define
 name|OPENSSL_VERSION_NUMBER
 value|0x1000107fL
 end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_endif
 endif|#
@@ -472,7 +500,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28fac15b0108
+DECL|struct|__anon2968e9d60108
 typedef|typedef
 struct|struct
 block|{
@@ -501,7 +529,7 @@ name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon28fac15b0208
+DECL|struct|__anon2968e9d60208
 typedef|typedef
 struct|struct
 block|{
