@@ -7045,6 +7045,11 @@ name|connection
 expr_stmt|;
 name|c
 operator|->
+name|requests
+operator|++
+expr_stmt|;
+name|c
+operator|->
 name|data
 operator|=
 name|r
