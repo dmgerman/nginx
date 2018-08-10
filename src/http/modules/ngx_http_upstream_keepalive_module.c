@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c3ee3600108
+DECL|struct|__anon2766c8d30108
 typedef|typedef
 struct|struct
 block|{
@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3ee3600208
+DECL|struct|__anon2766c8d30208
 typedef|typedef
 struct|struct
 block|{
@@ -86,7 +86,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c3ee3600308
+DECL|struct|__anon2766c8d30308
 typedef|typedef
 struct|struct
 block|{
@@ -2050,6 +2050,7 @@ name|max_cached
 operator|=
 name|n
 expr_stmt|;
+comment|/* init upstream handler */
 name|uscf
 operator|=
 name|ngx_http_conf_get_module_srv_conf
