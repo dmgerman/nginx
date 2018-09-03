@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28b3ec620108
+DECL|struct|__anon2a32db000108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b3ec620208
+DECL|struct|__anon2a32db000208
 typedef|typedef
 struct|struct
 block|{
@@ -128,7 +128,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28b3ec620303
+DECL|enum|__anon2a32db000303
 typedef|typedef
 enum|enum
 block|{
@@ -173,7 +173,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b3ec620408
+DECL|struct|__anon2a32db000408
 typedef|typedef
 struct|struct
 block|{
@@ -200,7 +200,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b3ec620508
+DECL|struct|__anon2a32db000508
 typedef|typedef
 struct|struct
 block|{
@@ -349,6 +349,12 @@ name|output_closed
 range|:
 literal|1
 decl_stmt|;
+DECL|member|output_blocked
+name|unsigned
+name|output_blocked
+range|:
+literal|1
+decl_stmt|;
 DECL|member|parsing_headers
 name|unsigned
 name|parsing_headers
@@ -385,7 +391,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b3ec620608
+DECL|struct|__anon2a32db000608
 typedef|typedef
 struct|struct
 block|{
@@ -5206,6 +5212,12 @@ literal|0
 expr_stmt|;
 name|ctx
 operator|->
+name|output_blocked
+operator|=
+literal|0
+expr_stmt|;
+name|ctx
+operator|->
 name|parsing_headers
 operator|=
 literal|0
@@ -6862,6 +6874,29 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|rc
+operator|==
+name|NGX_AGAIN
+condition|)
+block|{
+name|ctx
+operator|->
+name|output_blocked
+operator|=
+literal|1
+expr_stmt|;
+block|}
+else|else
+block|{
+name|ctx
+operator|->
+name|output_blocked
+operator|=
+literal|0
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|ctx
 operator|->
 name|done
@@ -6897,6 +6932,11 @@ operator|&&
 name|ctx
 operator|->
 name|output_closed
+operator|&&
+operator|!
+name|ctx
+operator|->
+name|output_blocked
 operator|&&
 name|ctx
 operator|->
@@ -8251,6 +8291,11 @@ name|ctx
 operator|->
 name|output_closed
 operator|&&
+operator|!
+name|ctx
+operator|->
+name|output_blocked
+operator|&&
 name|b
 operator|->
 name|last
@@ -8595,6 +8640,11 @@ operator|&&
 name|ctx
 operator|->
 name|output_closed
+operator|&&
+operator|!
+name|ctx
+operator|->
+name|output_blocked
 operator|&&
 name|ctx
 operator|->
@@ -10502,7 +10552,7 @@ decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
-DECL|enum|__anon28b3ec620703
+DECL|enum|__anon2a32db000703
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -11199,7 +11249,7 @@ name|index
 decl_stmt|,
 name|size_update
 decl_stmt|;
-DECL|enum|__anon28b3ec620803
+DECL|enum|__anon2a32db000803
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -13282,7 +13332,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon28b3ec620903
+DECL|enum|__anon2a32db000903
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -13573,7 +13623,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon28b3ec620a03
+DECL|enum|__anon2a32db000a03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -13990,7 +14040,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon28b3ec620b03
+DECL|enum|__anon2a32db000b03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -14389,7 +14439,7 @@ decl_stmt|;
 name|ssize_t
 name|window_update
 decl_stmt|;
-DECL|enum|__anon28b3ec620c03
+DECL|enum|__anon2a32db000c03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -14954,7 +15004,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon28b3ec620d03
+DECL|enum|__anon2a32db000d03
 enum|enum
 block|{
 DECL|enumerator|sw_start
