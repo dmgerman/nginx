@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon291f80ca0108
+DECL|struct|__anon28c014e80108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291f80ca0208
+DECL|struct|__anon28c014e80208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon291f80ca0308
+DECL|struct|__anon28c014e80308
 typedef|typedef
 struct|struct
 block|{
@@ -4260,6 +4260,34 @@ comment|/* allow custom uwsgi packet */
 block_content|if (len> 0&& len< 2) {         ngx_log_error(NGX_LOG_ALERT, r->connection->log, 0,                       "uwsgi request is too little: %uz", len);         return NGX_ERROR;     }
 endif|#
 directive|endif
+if|if
+condition|(
+name|len
+operator|>
+literal|65535
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"uwsgi request is too big: %uz"
+argument_list|,
+name|len
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
 name|b
 operator|=
 name|ngx_create_temp_buf
