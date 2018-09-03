@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b8c63d00108
+DECL|struct|__anon291f80ca0108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8c63d00208
+DECL|struct|__anon291f80ca0208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8c63d00308
+DECL|struct|__anon291f80ca0308
 typedef|typedef
 struct|struct
 block|{
@@ -4257,7 +4257,7 @@ if|#
 directive|if
 literal|0
 comment|/* allow custom uwsgi packet */
-block_content|if (len> 0&& len< 2) {         ngx_log_error (NGX_LOG_ALERT, r->connection->log, 0,                        "uwsgi request is too little: %uz", len);         return NGX_ERROR;     }
+block_content|if (len> 0&& len< 2) {         ngx_log_error(NGX_LOG_ALERT, r->connection->log, 0,                       "uwsgi request is too little: %uz", len);         return NGX_ERROR;     }
 endif|#
 directive|endif
 name|b
