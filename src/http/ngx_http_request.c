@@ -8692,7 +8692,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon2b4d600a0103
+DECL|enum|__anon29db65b20103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -13920,6 +13920,15 @@ argument_list|,
 name|n
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|n
+operator|==
+name|NGX_AGAIN
+condition|)
+block|{
+break|break;
+block|}
 if|if
 condition|(
 name|n
