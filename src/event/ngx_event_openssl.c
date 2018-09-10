@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2b7606440108
+DECL|struct|__anon2beb2b090108
 typedef|typedef
 struct|struct
 block|{
@@ -6793,9 +6793,9 @@ operator|==
 name|SSL_ERROR_WANT_WRITE
 condition|)
 block|{
-name|ngx_log_error
+name|ngx_log_debug0
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
 name|c
 operator|->
@@ -6803,7 +6803,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"peer started SSL renegotiation"
+literal|"SSL_read: want write"
 argument_list|)
 expr_stmt|;
 name|c
@@ -6951,6 +6951,19 @@ operator|=
 name|wev
 operator|->
 name|data
+expr_stmt|;
+name|ngx_log_debug0
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"SSL write handler"
+argument_list|)
 expr_stmt|;
 name|c
 operator|->
@@ -7881,9 +7894,9 @@ operator|==
 name|SSL_ERROR_WANT_READ
 condition|)
 block|{
-name|ngx_log_error
+name|ngx_log_debug0
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_DEBUG_EVENT
 argument_list|,
 name|c
 operator|->
@@ -7891,7 +7904,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"peer started SSL renegotiation"
+literal|"SSL_write: want read"
 argument_list|)
 expr_stmt|;
 name|c
@@ -8018,6 +8031,19 @@ operator|=
 name|rev
 operator|->
 name|data
+expr_stmt|;
+name|ngx_log_debug0
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"SSL read handler"
+argument_list|)
 expr_stmt|;
 name|c
 operator|->
