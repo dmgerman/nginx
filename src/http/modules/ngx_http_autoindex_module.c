@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c08de8b0108
+DECL|struct|__anon28c1964b0108
 typedef|typedef
 struct|struct
 block|{
@@ -81,7 +81,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c08de8b0208
+DECL|struct|__anon28c1964b0208
 typedef|typedef
 struct|struct
 block|{
@@ -1913,7 +1913,7 @@ index|[]
 init|=
 literal|"</title></head>"
 name|CRLF
-literal|"<body bgcolor=\"white\">"
+literal|"<body>"
 name|CRLF
 literal|"<h1>Index of "
 decl_stmt|;
