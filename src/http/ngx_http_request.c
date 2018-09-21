@@ -4179,7 +4179,7 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
-return|return;
+break|break;
 block|}
 block|}
 name|rc
@@ -4321,7 +4321,7 @@ operator|!=
 name|NGX_OK
 condition|)
 block|{
-return|return;
+break|break;
 block|}
 if|if
 condition|(
@@ -4423,7 +4423,7 @@ argument_list|,
 name|NGX_HTTP_BAD_REQUEST
 argument_list|)
 expr_stmt|;
-return|return;
+break|break;
 block|}
 if|if
 condition|(
@@ -4439,7 +4439,7 @@ argument_list|,
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
-return|return;
+break|break;
 block|}
 if|if
 condition|(
@@ -4454,7 +4454,7 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
-return|return;
+break|break;
 block|}
 name|r
 operator|->
@@ -4501,14 +4501,14 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
-return|return;
+break|break;
 block|}
 name|ngx_http_process_request
 argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
-return|return;
+break|break;
 block|}
 if|if
 condition|(
@@ -4543,7 +4543,7 @@ argument_list|,
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
-return|return;
+break|break;
 block|}
 name|c
 operator|->
@@ -4564,7 +4564,7 @@ argument_list|(
 name|rev
 argument_list|)
 expr_stmt|;
-return|return;
+break|break;
 block|}
 if|if
 condition|(
@@ -4617,7 +4617,7 @@ name|NGX_HTTP_BAD_REQUEST
 argument_list|)
 expr_stmt|;
 block|}
-return|return;
+break|break;
 block|}
 comment|/* NGX_AGAIN: a request line parsing is still incomplete */
 if|if
@@ -4658,7 +4658,7 @@ argument_list|,
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
-return|return;
+break|break;
 block|}
 if|if
 condition|(
@@ -4713,10 +4713,15 @@ argument_list|,
 name|NGX_HTTP_REQUEST_URI_TOO_LARGE
 argument_list|)
 expr_stmt|;
-return|return;
+break|break;
 block|}
 block|}
 block|}
+name|ngx_http_run_posted_requests
+argument_list|(
+name|c
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 
@@ -5466,7 +5471,7 @@ argument_list|,
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
-return|return;
+break|break;
 block|}
 if|if
 condition|(
@@ -5514,7 +5519,7 @@ argument_list|,
 name|NGX_HTTP_REQUEST_HEADER_TOO_LARGE
 argument_list|)
 expr_stmt|;
-return|return;
+break|break;
 block|}
 name|len
 operator|=
@@ -5568,7 +5573,7 @@ argument_list|,
 name|NGX_HTTP_REQUEST_HEADER_TOO_LARGE
 argument_list|)
 expr_stmt|;
-return|return;
+break|break;
 block|}
 block|}
 name|n
@@ -5589,7 +5594,7 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
-return|return;
+break|break;
 block|}
 block|}
 comment|/* the host header could change the server configuration context */
@@ -5704,7 +5709,7 @@ argument_list|,
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
-return|return;
+break|break;
 block|}
 name|h
 operator|->
@@ -5825,7 +5830,7 @@ argument_list|,
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 argument_list|)
 expr_stmt|;
-return|return;
+break|break;
 block|}
 if|if
 condition|(
@@ -5924,7 +5929,7 @@ operator|!=
 name|NGX_OK
 condition|)
 block|{
-return|return;
+break|break;
 block|}
 name|ngx_log_debug2
 argument_list|(
@@ -6010,14 +6015,14 @@ operator|!=
 name|NGX_OK
 condition|)
 block|{
-return|return;
+break|break;
 block|}
 name|ngx_http_process_request
 argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
-return|return;
+break|break;
 block|}
 if|if
 condition|(
@@ -6050,8 +6055,13 @@ argument_list|,
 name|NGX_HTTP_BAD_REQUEST
 argument_list|)
 expr_stmt|;
-return|return;
+break|break;
 block|}
+name|ngx_http_run_posted_requests
+argument_list|(
+name|c
+argument_list|)
+expr_stmt|;
 block|}
 end_function
 
@@ -8653,11 +8663,6 @@ argument_list|(
 name|r
 argument_list|)
 expr_stmt|;
-name|ngx_http_run_posted_requests
-argument_list|(
-name|c
-argument_list|)
-expr_stmt|;
 block|}
 end_function
 
@@ -8692,7 +8697,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon29db65b20103
+DECL|enum|__anon27b1aa160103
 enum|enum
 block|{
 DECL|enumerator|sw_usual

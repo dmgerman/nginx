@@ -28,7 +28,7 @@ file|<ngx_http_v2_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bfee1210108
+DECL|struct|__anon28b316f40108
 typedef|typedef
 struct|struct
 block|{
@@ -12522,6 +12522,11 @@ name|NGX_ABORT
 condition|)
 block|{
 comment|/* header handler has already finalized request */
+name|ngx_http_run_posted_requests
+argument_list|(
+name|fc
+argument_list|)
+expr_stmt|;
 return|return
 name|NULL
 return|;
@@ -12538,6 +12543,11 @@ argument_list|(
 name|r
 argument_list|,
 name|NGX_HTTP_BAD_REQUEST
+argument_list|)
+expr_stmt|;
+name|ngx_http_run_posted_requests
+argument_list|(
+name|fc
 argument_list|)
 expr_stmt|;
 return|return
@@ -15495,7 +15505,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2bfee1210208
+DECL|struct|__anon28b316f40208
 specifier|static
 specifier|const
 struct|struct
@@ -17174,6 +17184,16 @@ modifier|*
 name|r
 parameter_list|)
 block|{
+name|ngx_connection_t
+modifier|*
+name|fc
+decl_stmt|;
+name|fc
+operator|=
+name|r
+operator|->
+name|connection
+expr_stmt|;
 if|if
 condition|(
 name|ngx_http_v2_construct_request_line
@@ -17184,7 +17204,9 @@ operator|!=
 name|NGX_OK
 condition|)
 block|{
-return|return;
+goto|goto
+name|failed
+goto|;
 block|}
 if|if
 condition|(
@@ -17196,7 +17218,9 @@ operator|!=
 name|NGX_OK
 condition|)
 block|{
-return|return;
+goto|goto
+name|failed
+goto|;
 block|}
 name|r
 operator|->
@@ -17214,7 +17238,9 @@ operator|!=
 name|NGX_OK
 condition|)
 block|{
-return|return;
+goto|goto
+name|failed
+goto|;
 block|}
 if|if
 condition|(
@@ -17263,7 +17289,9 @@ argument_list|,
 name|NGX_HTTP_BAD_REQUEST
 argument_list|)
 expr_stmt|;
-return|return;
+goto|goto
+name|failed
+goto|;
 block|}
 if|if
 condition|(
@@ -17296,6 +17324,13 @@ block|}
 name|ngx_http_process_request
 argument_list|(
 name|r
+argument_list|)
+expr_stmt|;
+name|failed
+label|:
+name|ngx_http_run_posted_requests
+argument_list|(
+name|fc
 argument_list|)
 expr_stmt|;
 block|}
