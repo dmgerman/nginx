@@ -354,6 +354,10 @@ DECL|member|saved_write_handler
 name|ngx_event_handler_pt
 name|saved_write_handler
 decl_stmt|;
+DECL|member|early_buf
+name|u_char
+name|early_buf
+decl_stmt|;
 DECL|member|handshaked
 name|unsigned
 name|handshaked
@@ -387,6 +391,24 @@ decl_stmt|;
 DECL|member|handshake_buffer_set
 name|unsigned
 name|handshake_buffer_set
+range|:
+literal|1
+decl_stmt|;
+DECL|member|try_early_data
+name|unsigned
+name|try_early_data
+range|:
+literal|1
+decl_stmt|;
+DECL|member|in_early
+name|unsigned
+name|in_early
+range|:
+literal|1
+decl_stmt|;
+DECL|member|early_preread
+name|unsigned
+name|early_preread
 range|:
 literal|1
 decl_stmt|;
@@ -500,7 +522,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2968e9d60108
+DECL|struct|__anon2a1bc98b0108
 typedef|typedef
 struct|struct
 block|{
@@ -529,7 +551,7 @@ name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon2968e9d60208
+DECL|struct|__anon2a1bc98b0208
 typedef|typedef
 struct|struct
 block|{
