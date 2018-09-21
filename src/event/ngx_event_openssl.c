@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2c6114510108
+DECL|struct|__anon2c305e200108
 typedef|typedef
 struct|struct
 block|{
@@ -3541,6 +3541,9 @@ name|ngx_connection_t
 modifier|*
 name|c
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|SSL_OP_NO_RENEGOTIATION
 if|if
 condition|(
 operator|(
@@ -3602,6 +3605,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+endif|#
+directive|endif
 if|if
 condition|(
 operator|(
@@ -5699,6 +5704,9 @@ name|send_chain
 operator|=
 name|ngx_ssl_send_chain
 expr_stmt|;
+ifndef|#
+directive|ifndef
+name|SSL_OP_NO_RENEGOTIATION
 if|#
 directive|if
 name|OPENSSL_VERSION_NUMBER
@@ -5741,6 +5749,8 @@ operator||=
 name|SSL3_FLAGS_NO_RENEGOTIATE_CIPHERS
 expr_stmt|;
 block|}
+endif|#
+directive|endif
 endif|#
 directive|endif
 endif|#
@@ -6584,6 +6594,9 @@ decl_stmt|;
 name|ngx_err_t
 name|err
 decl_stmt|;
+ifndef|#
+directive|ifndef
+name|SSL_OP_NO_RENEGOTIATION
 if|if
 condition|(
 name|c
@@ -6650,6 +6663,8 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+endif|#
+directive|endif
 if|if
 condition|(
 name|n
