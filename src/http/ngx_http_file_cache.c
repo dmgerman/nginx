@@ -13035,8 +13035,12 @@ expr_stmt|;
 if|if
 condition|(
 name|status
-operator|<
+argument_list|<
 literal|100
+operator|||
+name|status
+argument_list|>
+literal|599
 condition|)
 block|{
 name|ngx_conf_log_error
