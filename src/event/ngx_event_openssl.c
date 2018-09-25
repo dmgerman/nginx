@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon298f45b50108
+DECL|struct|__anon2c295e8b0108
 typedef|typedef
 struct|struct
 block|{
@@ -12601,6 +12601,9 @@ name|u_char
 modifier|*
 name|p
 decl_stmt|;
+name|size_t
+name|slen
+decl_stmt|;
 name|uint32_t
 name|hash
 decl_stmt|;
@@ -12848,6 +12851,12 @@ name|ngx_time
 argument_list|()
 condition|)
 block|{
+name|slen
+operator|=
+name|sess_id
+operator|->
+name|len
+expr_stmt|;
 name|ngx_memcpy
 argument_list|(
 name|buf
@@ -12856,9 +12865,7 @@ name|sess_id
 operator|->
 name|session
 argument_list|,
-name|sess_id
-operator|->
-name|len
+name|slen
 argument_list|)
 expr_stmt|;
 name|ngx_shmtx_unlock
@@ -12882,9 +12889,7 @@ argument_list|,
 operator|&
 name|p
 argument_list|,
-name|sess_id
-operator|->
-name|len
+name|slen
 argument_list|)
 expr_stmt|;
 return|return
