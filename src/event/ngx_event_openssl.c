@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2b309e2c0108
+DECL|struct|__anon298f45b50108
 typedef|typedef
 struct|struct
 block|{
@@ -10483,6 +10483,16 @@ name|SSL_R_NO_SUITABLE_KEY_SHARE
 comment|/*  101 */
 endif|#
 directive|endif
+ifdef|#
+directive|ifdef
+name|SSL_R_NO_SUITABLE_SIGNATURE_ALGORITHM
+operator|||
+name|n
+operator|==
+name|SSL_R_NO_SUITABLE_SIGNATURE_ALGORITHM
+comment|/*  118 */
+endif|#
+directive|endif
 operator|||
 name|n
 operator|==
@@ -10578,6 +10588,16 @@ name|n
 operator|==
 name|SSL_R_UNKNOWN_PROTOCOL
 comment|/*  252 */
+ifdef|#
+directive|ifdef
+name|SSL_R_NO_COMMON_SIGNATURE_ALGORITHMS
+operator|||
+name|n
+operator|==
+name|SSL_R_NO_COMMON_SIGNATURE_ALGORITHMS
+comment|/*  253 */
+endif|#
+directive|endif
 operator|||
 name|n
 operator|==
