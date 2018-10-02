@@ -3743,7 +3743,7 @@ name|c
 operator|->
 name|ssl
 operator|->
-name|renegotiation
+name|handshaked
 condition|)
 block|{
 return|return
@@ -4037,6 +4037,18 @@ name|ctx
 argument_list|)
 argument_list|)
 expr_stmt|;
+ifdef|#
+directive|ifdef
+name|SSL_OP_NO_RENEGOTIATION
+name|SSL_set_options
+argument_list|(
+name|ssl_conn
+argument_list|,
+name|SSL_OP_NO_RENEGOTIATION
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 block|}
 return|return
 name|SSL_TLSEXT_ERR_OK
@@ -8697,7 +8709,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon27b1aa160103
+DECL|enum|__anon2992863f0103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
