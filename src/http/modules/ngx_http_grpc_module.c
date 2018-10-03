@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a32db000108
+DECL|struct|__anon28b7bd1c0108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a32db000208
+DECL|struct|__anon28b7bd1c0208
 typedef|typedef
 struct|struct
 block|{
@@ -128,7 +128,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a32db000303
+DECL|enum|__anon28b7bd1c0303
 typedef|typedef
 enum|enum
 block|{
@@ -173,7 +173,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a32db000408
+DECL|struct|__anon28b7bd1c0408
 typedef|typedef
 struct|struct
 block|{
@@ -200,7 +200,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a32db000508
+DECL|struct|__anon28b7bd1c0508
 typedef|typedef
 struct|struct
 block|{
@@ -391,7 +391,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a32db000608
+DECL|struct|__anon28b7bd1c0608
 typedef|typedef
 struct|struct
 block|{
@@ -1268,6 +1268,36 @@ argument_list|,
 name|upstream
 operator|.
 name|local
+argument_list|)
+block|,
+name|NULL
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"grpc_socket_keepalive"
+argument_list|)
+block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
+name|NGX_HTTP_SRV_CONF
+operator||
+name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_CONF_FLAG
+block|,
+name|ngx_conf_set_flag_slot
+block|,
+name|NGX_HTTP_LOC_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+name|ngx_http_grpc_loc_conf_t
+argument_list|,
+name|upstream
+operator|.
+name|socket_keepalive
 argument_list|)
 block|,
 name|NULL
@@ -10552,7 +10582,7 @@ decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
-DECL|enum|__anon2a32db000703
+DECL|enum|__anon28b7bd1c0703
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -11249,7 +11279,7 @@ name|index
 decl_stmt|,
 name|size_update
 decl_stmt|;
-DECL|enum|__anon2a32db000803
+DECL|enum|__anon28b7bd1c0803
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -13332,7 +13362,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon2a32db000903
+DECL|enum|__anon28b7bd1c0903
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -13623,7 +13653,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon2a32db000a03
+DECL|enum|__anon28b7bd1c0a03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -14040,7 +14070,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon2a32db000b03
+DECL|enum|__anon28b7bd1c0b03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -14439,7 +14469,7 @@ decl_stmt|;
 name|ssize_t
 name|window_update
 decl_stmt|;
-DECL|enum|__anon2a32db000c03
+DECL|enum|__anon28b7bd1c0c03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -15004,7 +15034,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon2a32db000d03
+DECL|enum|__anon28b7bd1c0d03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -17053,6 +17083,14 @@ name|conf
 operator|->
 name|upstream
 operator|.
+name|socket_keepalive
+operator|=
+name|NGX_CONF_UNSET
+expr_stmt|;
+name|conf
+operator|->
+name|upstream
+operator|.
 name|next_upstream_tries
 operator|=
 name|NGX_CONF_UNSET_UINT
@@ -17346,6 +17384,23 @@ operator|.
 name|local
 argument_list|,
 name|NULL
+argument_list|)
+expr_stmt|;
+name|ngx_conf_merge_value
+argument_list|(
+name|conf
+operator|->
+name|upstream
+operator|.
+name|socket_keepalive
+argument_list|,
+name|prev
+operator|->
+name|upstream
+operator|.
+name|socket_keepalive
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_uint_value
