@@ -11747,8 +11747,15 @@ expr_stmt|;
 if|if
 condition|(
 name|size
-operator|>
-literal|8191
+operator|>=
+operator|(
+name|ssize_t
+operator|)
+operator|(
+literal|2
+operator|*
+name|ngx_pagesize
+operator|)
 condition|)
 block|{
 continue|continue;
