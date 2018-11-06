@@ -28,7 +28,7 @@ file|<ngx_http_v2_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28b316f40108
+DECL|struct|__anon28baa10f0108
 typedef|typedef
 struct|struct
 block|{
@@ -3382,6 +3382,12 @@ operator|->
 name|free_frames
 operator|=
 name|NULL
+expr_stmt|;
+name|h2c
+operator|->
+name|frames
+operator|=
+literal|0
 expr_stmt|;
 name|h2c
 operator|->
@@ -13387,7 +13393,14 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-else|else
+if|else if
+condition|(
+name|h2c
+operator|->
+name|frames
+operator|<
+literal|10000
+condition|)
 block|{
 name|pool
 operator|=
@@ -13498,6 +13511,40 @@ name|handler
 operator|=
 name|ngx_http_v2_frame_handler
 expr_stmt|;
+name|h2c
+operator|->
+name|frames
+operator|++
+expr_stmt|;
+block|}
+else|else
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_INFO
+argument_list|,
+name|h2c
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http2 flood detected"
+argument_list|)
+expr_stmt|;
+name|h2c
+operator|->
+name|connection
+operator|->
+name|error
+operator|=
+literal|1
+expr_stmt|;
+return|return
+name|NULL
+return|;
 block|}
 if|#
 directive|if
@@ -15505,7 +15552,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon28b316f40208
+DECL|struct|__anon28baa10f0208
 specifier|static
 specifier|const
 struct|struct
