@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28b7bd1c0108
+DECL|struct|__anon2b7167fc0108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b7bd1c0208
+DECL|struct|__anon2b7167fc0208
 typedef|typedef
 struct|struct
 block|{
@@ -128,7 +128,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28b7bd1c0303
+DECL|enum|__anon2b7167fc0303
 typedef|typedef
 enum|enum
 block|{
@@ -173,7 +173,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b7bd1c0408
+DECL|struct|__anon2b7167fc0408
 typedef|typedef
 struct|struct
 block|{
@@ -200,7 +200,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b7bd1c0508
+DECL|struct|__anon2b7167fc0508
 typedef|typedef
 struct|struct
 block|{
@@ -244,6 +244,14 @@ decl_stmt|;
 DECL|member|id
 name|ngx_uint_t
 name|id
+decl_stmt|;
+DECL|member|pings
+name|ngx_uint_t
+name|pings
+decl_stmt|;
+DECL|member|settings
+name|ngx_uint_t
+name|settings
 decl_stmt|;
 DECL|member|send_window
 name|ssize_t
@@ -391,7 +399,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b7bd1c0608
+DECL|struct|__anon2b7167fc0608
 typedef|typedef
 struct|struct
 block|{
@@ -10582,7 +10590,7 @@ decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
-DECL|enum|__anon28b7bd1c0703
+DECL|enum|__anon2b7167fc0703
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -11279,7 +11287,7 @@ name|index
 decl_stmt|,
 name|size_update
 decl_stmt|;
-DECL|enum|__anon28b7bd1c0803
+DECL|enum|__anon2b7167fc0803
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -13362,7 +13370,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon28b7bd1c0903
+DECL|enum|__anon2b7167fc0903
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -13653,7 +13661,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon28b7bd1c0a03
+DECL|enum|__anon2b7167fc0a03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -14070,7 +14078,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon28b7bd1c0b03
+DECL|enum|__anon2b7167fc0b03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -14469,7 +14477,7 @@ decl_stmt|;
 name|ssize_t
 name|window_update
 decl_stmt|;
-DECL|enum|__anon28b7bd1c0c03
+DECL|enum|__anon2b7167fc0c03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -14675,6 +14683,41 @@ argument_list|,
 name|ctx
 operator|->
 name|rest
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
+if|if
+condition|(
+name|ctx
+operator|->
+name|free
+operator|==
+name|NULL
+operator|&&
+name|ctx
+operator|->
+name|settings
+operator|++
+operator|>
+literal|1000
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"upstream sent too many settings frames"
 argument_list|)
 expr_stmt|;
 return|return
@@ -15034,7 +15077,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon28b7bd1c0d03
+DECL|enum|__anon2b7167fc0d03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -15202,6 +15245,41 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"upstream sent ping frame with ack flag"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
+if|if
+condition|(
+name|ctx
+operator|->
+name|free
+operator|==
+name|NULL
+operator|&&
+name|ctx
+operator|->
+name|pings
+operator|++
+operator|>
+literal|1000
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"upstream sent too many ping frames"
 argument_list|)
 expr_stmt|;
 return|return
