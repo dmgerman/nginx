@@ -1132,6 +1132,13 @@ argument_list|(
 name|rev
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|c
+operator|->
+name|udp
+condition|)
+block|{
 name|c
 operator|->
 name|udp
@@ -1140,6 +1147,7 @@ name|buffer
 operator|=
 name|NULL
 expr_stmt|;
+block|}
 name|rev
 operator|->
 name|ready
@@ -2414,6 +2422,12 @@ name|udp
 operator|->
 name|node
 argument_list|)
+expr_stmt|;
+name|c
+operator|->
+name|udp
+operator|=
+name|NULL
 expr_stmt|;
 block|}
 end_function
