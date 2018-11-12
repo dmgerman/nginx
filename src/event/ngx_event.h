@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2c281fb60108
+DECL|struct|__anon28e954d80108
 typedef|typedef
 struct|struct
 block|{
@@ -406,7 +406,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c281fb60208
+DECL|struct|__anon28e954d80208
 typedef|typedef
 struct|struct
 block|{
@@ -1446,7 +1446,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2c281fb60308
+DECL|struct|__anon28e954d80308
 typedef|typedef
 struct|struct
 block|{
@@ -1493,7 +1493,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c281fb60408
+DECL|struct|__anon28e954d80408
 typedef|typedef
 struct|struct
 block|{
@@ -1781,6 +1781,17 @@ begin_endif
 endif|#
 directive|endif
 end_endif
+
+begin_function_decl
+name|void
+name|ngx_delete_udp_connection
+parameter_list|(
+name|void
+modifier|*
+name|data
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_function_decl
 name|ngx_int_t

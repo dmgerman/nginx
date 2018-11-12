@@ -98,18 +98,6 @@ end_function_decl
 
 begin_function_decl
 specifier|static
-name|void
-name|ngx_delete_udp_connection
-parameter_list|(
-name|void
-modifier|*
-name|data
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-specifier|static
 name|ngx_connection_t
 modifier|*
 name|ngx_lookup_udp_connection
@@ -2390,7 +2378,6 @@ block|}
 end_function
 
 begin_function
-specifier|static
 name|void
 DECL|function|ngx_delete_udp_connection (void * data)
 name|ngx_delete_udp_connection
@@ -2406,6 +2393,17 @@ name|c
 init|=
 name|data
 decl_stmt|;
+if|if
+condition|(
+name|c
+operator|->
+name|udp
+operator|==
+name|NULL
+condition|)
+block|{
+return|return;
+block|}
 name|ngx_rbtree_delete
 argument_list|(
 operator|&
@@ -2751,6 +2749,25 @@ block|}
 return|return
 name|NULL
 return|;
+block|}
+end_function
+
+begin_else
+else|#
+directive|else
+end_else
+
+begin_function
+name|void
+DECL|function|ngx_delete_udp_connection (void * data)
+name|ngx_delete_udp_connection
+parameter_list|(
+name|void
+modifier|*
+name|data
+parameter_list|)
+block|{
+return|return;
 block|}
 end_function
 
