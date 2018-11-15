@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2c0a0fd00108
+DECL|struct|__anon276d1fa10108
 typedef|typedef
 struct|struct
 block|{
@@ -4426,7 +4426,7 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
-name|ngx_memzero
+name|ngx_explicit_memzero
 argument_list|(
 name|buf
 argument_list|,
@@ -4485,7 +4485,7 @@ name|i
 operator|++
 control|)
 block|{
-name|ngx_memzero
+name|ngx_explicit_memzero
 argument_list|(
 name|pwd
 index|[

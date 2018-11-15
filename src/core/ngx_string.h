@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2945749f0108
+DECL|struct|__anon2804140a0108
 typedef|typedef
 struct|struct
 block|{
@@ -49,7 +49,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2945749f0208
+DECL|struct|__anon2804140a0208
 typedef|typedef
 struct|struct
 block|{
@@ -68,7 +68,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2945749f0308
+DECL|struct|__anon2804140a0308
 typedef|typedef
 struct|struct
 block|{
@@ -360,6 +360,20 @@ name|n
 parameter_list|)
 value|(void) memset(buf, c, n)
 end_define
+
+begin_function_decl
+name|void
+name|ngx_explicit_memzero
+parameter_list|(
+name|void
+modifier|*
+name|buf
+parameter_list|,
+name|size_t
+name|n
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_if
 if|#
@@ -1332,7 +1346,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon2945749f0408
+DECL|struct|__anon2804140a0408
 typedef|typedef
 struct|struct
 block|{
