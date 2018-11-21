@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28a0bed60108
+DECL|struct|__anon2a11a5060108
 typedef|typedef
 struct|struct
 block|{
@@ -55,7 +55,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a0bed60208
+DECL|struct|__anon2a11a5060208
 typedef|typedef
 struct|struct
 block|{
@@ -3019,9 +3019,7 @@ name|ngx_current_msec
 operator|-
 name|u
 operator|->
-name|state
-operator|->
-name|response_time
+name|start_time
 expr_stmt|;
 block|}
 name|u
@@ -3067,6 +3065,12 @@ argument_list|)
 expr_stmt|;
 name|u
 operator|->
+name|start_time
+operator|=
+name|ngx_current_msec
+expr_stmt|;
+name|u
+operator|->
 name|state
 operator|->
 name|connect_time
@@ -3095,7 +3099,11 @@ name|state
 operator|->
 name|response_time
 operator|=
-name|ngx_current_msec
+operator|(
+name|ngx_msec_t
+operator|)
+operator|-
+literal|1
 expr_stmt|;
 name|rc
 operator|=
@@ -3572,9 +3580,7 @@ name|ngx_current_msec
 operator|-
 name|u
 operator|->
-name|state
-operator|->
-name|response_time
+name|start_time
 expr_stmt|;
 if|if
 condition|(
@@ -6895,9 +6901,7 @@ name|ngx_current_msec
 operator|-
 name|u
 operator|->
-name|state
-operator|->
-name|response_time
+name|start_time
 expr_stmt|;
 block|}
 block|}
@@ -7968,6 +7972,21 @@ operator|->
 name|state
 condition|)
 block|{
+if|if
+condition|(
+name|u
+operator|->
+name|state
+operator|->
+name|response_time
+operator|==
+operator|(
+name|ngx_msec_t
+operator|)
+operator|-
+literal|1
+condition|)
+block|{
 name|u
 operator|->
 name|state
@@ -7978,10 +7997,9 @@ name|ngx_current_msec
 operator|-
 name|u
 operator|->
-name|state
-operator|->
-name|response_time
+name|start_time
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|pc
