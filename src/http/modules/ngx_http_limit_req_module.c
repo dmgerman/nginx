@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28a507ee0108
+DECL|struct|__anon2a2c58fb0108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a507ee0208
+DECL|struct|__anon2a2c58fb0208
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a507ee0308
+DECL|struct|__anon2a2c58fb0308
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a507ee0408
+DECL|struct|__anon2a2c58fb0408
 typedef|typedef
 struct|struct
 block|{
@@ -153,7 +153,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a507ee0508
+DECL|struct|__anon2a2c58fb0508
 typedef|typedef
 struct|struct
 block|{
@@ -3887,7 +3887,7 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"invalid burst rate \"%V\""
+literal|"invalid burst value \"%V\""
 argument_list|,
 operator|&
 name|value
