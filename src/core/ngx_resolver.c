@@ -46,7 +46,7 @@ value|8192
 end_define
 
 begin_typedef
-DECL|struct|__anon2be603700108
+DECL|struct|__anon2a44fd770108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be603700208
+DECL|struct|__anon2a44fd770208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be603700308
+DECL|struct|__anon2a44fd770308
 typedef|typedef
 struct|struct
 block|{
@@ -19026,8 +19026,48 @@ name|ctx
 operator|->
 name|state
 operator|=
+name|srvs
+index|[
+literal|0
+index|]
+operator|.
+name|state
+expr_stmt|;
+for|for
+control|(
+name|i
+operator|=
+literal|0
+init|;
+name|i
+operator|<
+name|nsrvs
+condition|;
+name|i
+operator|++
+control|)
+block|{
+if|if
+condition|(
+name|srvs
+index|[
+name|i
+index|]
+operator|.
+name|state
+operator|==
+name|NGX_RESOLVE_NXDOMAIN
+condition|)
+block|{
+name|ctx
+operator|->
+name|state
+operator|=
 name|NGX_RESOLVE_NXDOMAIN
 expr_stmt|;
+break|break;
+block|}
+block|}
 name|ctx
 operator|->
 name|valid
