@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29ed22220108
+DECL|struct|__anon2a38e8f30108
 typedef|typedef
 struct|struct
 block|{
@@ -46,7 +46,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ed22220208
+DECL|struct|__anon2a38e8f30208
 typedef|typedef
 struct|struct
 block|{
@@ -74,7 +74,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ed22220308
+DECL|struct|__anon2a38e8f30308
 typedef|typedef
 struct|struct
 block|{
@@ -96,7 +96,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ed22220408
+DECL|struct|__anon2a38e8f30408
 typedef|typedef
 struct|struct
 block|{
@@ -120,7 +120,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ed22220508
+DECL|struct|__anon2a38e8f30508
 typedef|typedef
 struct|struct
 block|{
@@ -220,11 +220,11 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ed22220608
+DECL|struct|__anon2a38e8f30608
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon29ed2222070a
+DECL|union|__anon2a38e8f3070a
 union|union
 block|{
 DECL|member|trees
@@ -653,7 +653,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon29ed22220808
+DECL|struct|__anon2a38e8f30808
 typedef|typedef
 struct|struct
 block|{
@@ -949,6 +949,36 @@ block|}
 break|break;
 endif|#
 directive|endif
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_UNIX_DOMAIN
+operator|)
+case|case
+name|AF_UNIX
+case|:
+name|vv
+operator|=
+operator|(
+name|ngx_stream_variable_value_t
+operator|*
+operator|)
+name|ngx_radix32tree_find
+argument_list|(
+name|ctx
+operator|->
+name|u
+operator|.
+name|trees
+operator|.
+name|tree
+argument_list|,
+name|INADDR_NONE
+argument_list|)
+expr_stmt|;
+break|break;
+endif|#
+directive|endif
 default|default:
 comment|/* AF_INET */
 name|sin
@@ -1203,6 +1233,21 @@ operator|=
 name|INADDR_NONE
 expr_stmt|;
 block|}
+break|break;
+endif|#
+directive|endif
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_UNIX_DOMAIN
+operator|)
+case|case
+name|AF_UNIX
+case|:
+name|inaddr
+operator|=
+name|INADDR_NONE
+expr_stmt|;
 break|break;
 endif|#
 directive|endif
