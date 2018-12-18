@@ -412,6 +412,12 @@ name|early_preread
 range|:
 literal|1
 decl_stmt|;
+DECL|member|write_blocked
+name|unsigned
+name|write_blocked
+range|:
+literal|1
+decl_stmt|;
 block|}
 struct|;
 end_struct
@@ -522,7 +528,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a1bc98b0108
+DECL|struct|__anon2932327d0108
 typedef|typedef
 struct|struct
 block|{
@@ -551,7 +557,7 @@ name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon2a1bc98b0208
+DECL|struct|__anon2932327d0208
 typedef|typedef
 struct|struct
 block|{
