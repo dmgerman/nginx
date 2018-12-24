@@ -66,7 +66,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon27dc97010108
+DECL|struct|__anon29e8ddc00108
 typedef|typedef
 struct|struct
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27dc97010208
+DECL|struct|__anon29e8ddc00208
 typedef|typedef
 struct|struct
 block|{
@@ -2626,6 +2626,26 @@ name|s6_addr
 index|[
 literal|15
 index|]
+expr_stmt|;
+break|break;
+endif|#
+directive|endif
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_UNIX_DOMAIN
+operator|)
+case|case
+name|AF_UNIX
+case|:
+name|ctx
+operator|->
+name|uid_set
+index|[
+literal|0
+index|]
+operator|=
+literal|0
 expr_stmt|;
 break|break;
 endif|#
