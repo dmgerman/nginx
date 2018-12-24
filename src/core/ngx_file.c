@@ -4531,8 +4531,6 @@ condition|(
 name|file
 operator|.
 name|len
-operator|+
-name|NGX_DIR_MASK_LEN
 operator|>
 name|buf
 operator|.
@@ -4565,8 +4563,6 @@ operator|+
 literal|1
 operator|+
 name|len
-operator|+
-name|NGX_DIR_MASK_LEN
 expr_stmt|;
 name|buf
 operator|.

@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294fd6a40108
+DECL|struct|__anon2945f6e70108
 typedef|typedef
 struct|struct
 block|{
@@ -88,7 +88,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294fd6a40208
+DECL|struct|__anon2945f6e70208
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon294fd6a40308
+DECL|struct|__anon2945f6e70308
 typedef|typedef
 struct|struct
 block|{
@@ -1060,14 +1060,6 @@ begin_endif
 endif|#
 directive|endif
 end_endif
-
-begin_define
-DECL|macro|NGX_DIR_MASK_LEN
-define|#
-directive|define
-name|NGX_DIR_MASK_LEN
-value|0
-end_define
 
 begin_function_decl
 name|ngx_int_t

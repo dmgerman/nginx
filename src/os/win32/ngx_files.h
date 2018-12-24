@@ -53,7 +53,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1880be0108
+DECL|struct|__anon2946efd20108
 typedef|typedef
 struct|struct
 block|{
@@ -91,7 +91,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1880be0208
+DECL|struct|__anon2946efd20208
 typedef|typedef
 struct|struct
 block|{
@@ -128,7 +128,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a1880be0308
+DECL|struct|__anon2946efd20308
 typedef|typedef
 struct|struct
 block|{
@@ -834,22 +834,6 @@ define|#
 directive|define
 name|NGX_MAX_PATH
 value|MAX_PATH
-end_define
-
-begin_define
-DECL|macro|NGX_DIR_MASK
-define|#
-directive|define
-name|NGX_DIR_MASK
-value|(u_char *) "/*"
-end_define
-
-begin_define
-DECL|macro|NGX_DIR_MASK_LEN
-define|#
-directive|define
-name|NGX_DIR_MASK_LEN
-value|2
 end_define
 
 begin_function_decl

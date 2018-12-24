@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon275a5b360108
+DECL|struct|__anon29d409920108
 typedef|typedef
 struct|struct
 block|{
@@ -353,7 +353,7 @@ name|NGX_HAVE_D_TYPE
 operator|)
 name|len
 operator|=
-name|NGX_DIR_MASK_LEN
+literal|0
 expr_stmt|;
 else|#
 directive|else

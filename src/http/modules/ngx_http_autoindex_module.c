@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28c1964b0108
+DECL|struct|__anon2c4b215b0108
 typedef|typedef
 struct|struct
 block|{
@@ -81,7 +81,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c1964b0208
+DECL|struct|__anon2c4b215b0208
 typedef|typedef
 struct|struct
 block|{
@@ -717,7 +717,6 @@ return|return
 name|rc
 return|;
 block|}
-comment|/* NGX_DIR_MASK_LEN is lesser than NGX_HTTP_AUTOINDEX_PREALLOCATE */
 name|last
 operator|=
 name|ngx_http_map_uri_to_path
