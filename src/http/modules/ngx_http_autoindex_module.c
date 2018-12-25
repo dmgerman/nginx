@@ -34,7 +34,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c4b215b0108
+DECL|struct|__anon28c6771d0108
 typedef|typedef
 struct|struct
 block|{
@@ -81,7 +81,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c4b215b0208
+DECL|struct|__anon28c6771d0208
 typedef|typedef
 struct|struct
 block|{
@@ -1865,6 +1865,8 @@ decl_stmt|;
 name|size_t
 name|len
 decl_stmt|,
+name|entry_len
+decl_stmt|,
 name|char_len
 decl_stmt|,
 name|escape_html
@@ -2223,8 +2225,8 @@ operator|.
 name|len
 expr_stmt|;
 block|}
-name|len
-operator|+=
+name|entry_len
+operator|=
 sizeof|sizeof
 argument_list|(
 literal|"<a href=\""
@@ -2308,6 +2310,23 @@ literal|20
 comment|/* the file size */
 operator|+
 literal|2
+expr_stmt|;
+if|if
+condition|(
+name|len
+operator|>
+name|NGX_MAX_SIZE_T_VALUE
+operator|-
+name|entry_len
+condition|)
+block|{
+return|return
+name|NULL
+return|;
+block|}
+name|len
+operator|+=
+name|entry_len
 expr_stmt|;
 block|}
 name|b
@@ -3538,6 +3557,8 @@ parameter_list|)
 block|{
 name|size_t
 name|len
+decl_stmt|,
+name|entry_len
 decl_stmt|;
 name|ngx_buf_t
 modifier|*
@@ -3635,8 +3656,8 @@ operator|.
 name|len
 argument_list|)
 expr_stmt|;
-name|len
-operator|+=
+name|entry_len
+operator|=
 sizeof|sizeof
 argument_list|(
 literal|"{  },"
@@ -3692,7 +3713,7 @@ operator|.
 name|file
 condition|)
 block|{
-name|len
+name|entry_len
 operator|+=
 sizeof|sizeof
 argument_list|(
@@ -3704,6 +3725,23 @@ operator|+
 name|NGX_OFF_T_LEN
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|len
+operator|>
+name|NGX_MAX_SIZE_T_VALUE
+operator|-
+name|entry_len
+condition|)
+block|{
+return|return
+name|NULL
+return|;
+block|}
+name|len
+operator|+=
+name|entry_len
+expr_stmt|;
 block|}
 name|b
 operator|=
@@ -4401,6 +4439,8 @@ parameter_list|)
 block|{
 name|size_t
 name|len
+decl_stmt|,
+name|entry_len
 decl_stmt|;
 name|ngx_tm_t
 name|tm
@@ -4505,8 +4545,8 @@ operator|.
 name|len
 argument_list|)
 expr_stmt|;
-name|len
-operator|+=
+name|entry_len
+operator|=
 sizeof|sizeof
 argument_list|(
 literal|"<directory></directory>"
@@ -4548,7 +4588,7 @@ operator|.
 name|file
 condition|)
 block|{
-name|len
+name|entry_len
 operator|+=
 sizeof|sizeof
 argument_list|(
@@ -4560,6 +4600,23 @@ operator|+
 name|NGX_OFF_T_LEN
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|len
+operator|>
+name|NGX_MAX_SIZE_T_VALUE
+operator|-
+name|entry_len
+condition|)
+block|{
+return|return
+name|NULL
+return|;
+block|}
+name|len
+operator|+=
+name|entry_len
+expr_stmt|;
 block|}
 name|b
 operator|=
