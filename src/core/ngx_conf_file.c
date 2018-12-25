@@ -655,7 +655,7 @@ name|prev
 decl_stmt|,
 name|conf_file
 decl_stmt|;
-DECL|enum|__anon27a74e1f0103
+DECL|enum|__anon29ea7eaa0103
 enum|enum
 block|{
 DECL|enumerator|parse_file
@@ -1190,6 +1190,8 @@ argument_list|,
 name|cf
 argument_list|,
 literal|0
+argument_list|,
+literal|"%s"
 argument_list|,
 name|rv
 argument_list|)
