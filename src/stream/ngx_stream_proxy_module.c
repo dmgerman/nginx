@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c8f2bd10108
+DECL|struct|__anon2be5b2ad0108
 typedef|typedef
 struct|struct
 block|{
@@ -55,7 +55,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c8f2bd10208
+DECL|struct|__anon2be5b2ad0208
 typedef|typedef
 struct|struct
 block|{
@@ -6751,6 +6751,12 @@ break|break;
 block|}
 if|if
 condition|(
+name|c
+operator|->
+name|type
+operator|==
+name|SOCK_STREAM
+operator|&&
 operator|(
 name|off_t
 operator|)
