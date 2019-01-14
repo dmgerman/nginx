@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a11a5060108
+DECL|struct|__anon2c8f2bd10108
 typedef|typedef
 struct|struct
 block|{
@@ -55,7 +55,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a11a5060208
+DECL|struct|__anon2c8f2bd10208
 typedef|typedef
 struct|struct
 block|{
@@ -7092,11 +7092,6 @@ literal|0
 expr_stmt|;
 if|if
 condition|(
-operator|!
-name|src
-operator|->
-name|shared
-operator|&&
 name|ngx_handle_read_event
 argument_list|(
 name|src
@@ -7125,11 +7120,6 @@ condition|)
 block|{
 if|if
 condition|(
-operator|!
-name|dst
-operator|->
-name|shared
-operator|&&
 name|ngx_handle_write_event
 argument_list|(
 name|dst
