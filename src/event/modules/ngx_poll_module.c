@@ -342,8 +342,8 @@ name|event_list
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|ngx_event_t
-operator|*
+expr|struct
+name|pollfd
 argument_list|)
 operator|*
 name|nevents
