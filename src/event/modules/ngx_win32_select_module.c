@@ -164,6 +164,14 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|work_except_fd_set
+specifier|static
+name|fd_set
+name|work_except_fd_set
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|max_read
 specifier|static
 name|ngx_uint_t
@@ -1079,6 +1087,10 @@ name|work_write_fd_set
 operator|=
 name|master_write_fd_set
 expr_stmt|;
+name|work_except_fd_set
+operator|=
+name|master_write_fd_set
+expr_stmt|;
 if|if
 condition|(
 name|max_read
@@ -1098,7 +1110,8 @@ argument_list|,
 operator|&
 name|work_write_fd_set
 argument_list|,
-name|NULL
+operator|&
+name|work_except_fd_set
 argument_list|,
 name|tp
 argument_list|)
@@ -1282,8 +1295,7 @@ argument_list|)
 condition|)
 block|{
 name|found
-operator|=
-literal|1
+operator|++
 expr_stmt|;
 name|ngx_log_debug1
 argument_list|(
@@ -1296,6 +1308,40 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"select write %d"
+argument_list|,
+name|c
+operator|->
+name|fd
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|FD_ISSET
+argument_list|(
+name|c
+operator|->
+name|fd
+argument_list|,
+operator|&
+name|work_except_fd_set
+argument_list|)
+condition|)
+block|{
+name|found
+operator|++
+expr_stmt|;
+name|ngx_log_debug1
+argument_list|(
+name|NGX_LOG_DEBUG_EVENT
+argument_list|,
+name|cycle
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"select except %d"
 argument_list|,
 name|c
 operator|->
@@ -1320,8 +1366,7 @@ argument_list|)
 condition|)
 block|{
 name|found
-operator|=
-literal|1
+operator|++
 expr_stmt|;
 name|ngx_log_debug1
 argument_list|(
@@ -1373,7 +1418,8 @@ name|queue
 argument_list|)
 expr_stmt|;
 name|nready
-operator|++
+operator|+=
+name|found
 expr_stmt|;
 block|}
 block|}
