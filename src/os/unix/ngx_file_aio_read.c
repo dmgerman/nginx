@@ -441,7 +441,7 @@ name|aio_sigevent
 operator|.
 name|sigev_value
 operator|.
-name|sigval_ptr
+name|sival_ptr
 operator|=
 name|ev
 expr_stmt|;
