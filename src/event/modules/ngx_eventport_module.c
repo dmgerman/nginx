@@ -178,7 +178,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2bdf8a660108
+DECL|struct|__anon2882b5370108
 typedef|typedef
 struct|struct
 block|{
@@ -625,7 +625,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2bdf8a660208
+DECL|struct|__anon2882b5370208
 typedef|typedef
 struct|struct
 block|{
@@ -1144,12 +1144,6 @@ name|sigev_notify
 operator|=
 name|SIGEV_PORT
 expr_stmt|;
-if|#
-directive|if
-operator|!
-operator|(
-name|NGX_TEST_BUILD_EVENTPORT
-operator|)
 name|sev
 operator|.
 name|sigev_value
@@ -1159,8 +1153,6 @@ operator|=
 operator|&
 name|pn
 expr_stmt|;
-endif|#
-directive|endif
 if|if
 condition|(
 name|timer_create
