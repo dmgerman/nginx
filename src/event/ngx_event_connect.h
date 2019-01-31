@@ -276,6 +276,12 @@ name|so_keepalive
 range|:
 literal|1
 decl_stmt|;
+DECL|member|down
+name|unsigned
+name|down
+range|:
+literal|1
+decl_stmt|;
 comment|/* ngx_connection_log_error_e */
 DECL|member|log_error
 name|unsigned
