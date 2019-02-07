@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2c52d05f0108
+DECL|struct|__anon2b2728d90108
 typedef|typedef
 struct|struct
 block|{
@@ -11842,7 +11842,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"EVP_DigestUpdate() failed"
+literal|"EVP_DigestFinal_ex() failed"
 argument_list|)
 expr_stmt|;
 goto|goto
