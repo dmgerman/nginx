@@ -4309,7 +4309,7 @@ operator|->
 name|header_start
 operator|+
 literal|256
-operator|>=
+operator|>
 name|u
 operator|->
 name|conf
