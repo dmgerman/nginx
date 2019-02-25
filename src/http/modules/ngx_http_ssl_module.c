@@ -3273,7 +3273,7 @@ name|ctx
 argument_list|,
 name|ngx_http_ssl_certificate
 argument_list|,
-name|NULL
+name|conf
 argument_list|)
 expr_stmt|;
 else|#

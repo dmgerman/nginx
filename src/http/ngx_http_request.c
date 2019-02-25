@@ -4207,12 +4207,7 @@ literal|1
 expr_stmt|;
 name|sscf
 operator|=
-name|ngx_http_get_module_srv_conf
-argument_list|(
-name|r
-argument_list|,
-name|ngx_http_ssl_module
-argument_list|)
+name|arg
 expr_stmt|;
 name|nelts
 operator|=
@@ -9051,7 +9046,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon2c7eacea0103
+DECL|enum|__anon2933c1800103
 enum|enum
 block|{
 DECL|enumerator|sw_usual

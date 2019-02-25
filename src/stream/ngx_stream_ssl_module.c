@@ -1881,12 +1881,7 @@ name|data
 expr_stmt|;
 name|sslcf
 operator|=
-name|ngx_stream_get_module_srv_conf
-argument_list|(
-name|s
-argument_list|,
-name|ngx_stream_ssl_module
-argument_list|)
+name|arg
 expr_stmt|;
 name|nelts
 operator|=
@@ -2978,7 +2973,7 @@ name|ctx
 argument_list|,
 name|ngx_stream_ssl_certificate
 argument_list|,
-name|NULL
+name|conf
 argument_list|)
 expr_stmt|;
 else|#
