@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2b2728d90108
+DECL|struct|__anon28f9fbff0108
 typedef|typedef
 struct|struct
 block|{
@@ -11080,6 +11080,12 @@ argument_list|(
 name|args
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|ERR_peek_error
+argument_list|()
+condition|)
+block|{
 name|p
 operator|=
 name|ngx_cpystrn
@@ -11225,6 +11231,21 @@ name|ERR_get_error
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|p
+operator|<
+name|last
+condition|)
+block|{
+operator|*
+name|p
+operator|++
+operator|=
+literal|')'
+expr_stmt|;
+block|}
+block|}
 name|ngx_log_error
 argument_list|(
 name|level
@@ -11233,7 +11254,7 @@ name|log
 argument_list|,
 name|err
 argument_list|,
-literal|"%*s)"
+literal|"%*s"
 argument_list|,
 name|p
 operator|-
