@@ -8709,7 +8709,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon2992863f0103
+DECL|enum|__anon2bb923440103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
