@@ -3587,6 +3587,10 @@ name|ngx_http_ssl_sess_id_ctx
 argument_list|,
 name|conf
 operator|->
+name|certificates
+argument_list|,
+name|conf
+operator|->
 name|builtin_session_cache
 argument_list|,
 name|conf

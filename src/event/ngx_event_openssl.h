@@ -528,7 +528,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2ab4d41f0108
+DECL|struct|__anon2b66d00e0108
 typedef|typedef
 struct|struct
 block|{
@@ -557,7 +557,7 @@ name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon2ab4d41f0208
+DECL|struct|__anon2b66d00e0208
 typedef|typedef
 struct|struct
 block|{
@@ -1047,6 +1047,10 @@ parameter_list|,
 name|ngx_str_t
 modifier|*
 name|sess_ctx
+parameter_list|,
+name|ngx_array_t
+modifier|*
+name|certificates
 parameter_list|,
 name|ssize_t
 name|builtin_session_cache

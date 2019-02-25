@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2b3674c70108
+DECL|struct|__anon28d9d8f40108
 typedef|typedef
 struct|struct
 block|{
@@ -402,6 +402,10 @@ parameter_list|,
 name|ngx_str_t
 modifier|*
 name|sess_ctx
+parameter_list|,
+name|ngx_array_t
+modifier|*
+name|certificates
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -12163,7 +12167,7 @@ end_function
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_ssl_session_cache (ngx_ssl_t * ssl,ngx_str_t * sess_ctx,ssize_t builtin_session_cache,ngx_shm_zone_t * shm_zone,time_t timeout)
+DECL|function|ngx_ssl_session_cache (ngx_ssl_t * ssl,ngx_str_t * sess_ctx,ngx_array_t * certificates,ssize_t builtin_session_cache,ngx_shm_zone_t * shm_zone,time_t timeout)
 name|ngx_ssl_session_cache
 parameter_list|(
 name|ngx_ssl_t
@@ -12173,6 +12177,10 @@ parameter_list|,
 name|ngx_str_t
 modifier|*
 name|sess_ctx
+parameter_list|,
+name|ngx_array_t
+modifier|*
+name|certificates
 parameter_list|,
 name|ssize_t
 name|builtin_session_cache
@@ -12207,6 +12215,8 @@ argument_list|(
 name|ssl
 argument_list|,
 name|sess_ctx
+argument_list|,
+name|certificates
 argument_list|)
 operator|!=
 name|NGX_OK
@@ -12397,7 +12407,7 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_ssl_session_id_context (ngx_ssl_t * ssl,ngx_str_t * sess_ctx)
+DECL|function|ngx_ssl_session_id_context (ngx_ssl_t * ssl,ngx_str_t * sess_ctx,ngx_array_t * certificates)
 name|ngx_ssl_session_id_context
 parameter_list|(
 name|ngx_ssl_t
@@ -12407,6 +12417,10 @@ parameter_list|,
 name|ngx_str_t
 modifier|*
 name|sess_ctx
+parameter_list|,
+name|ngx_array_t
+modifier|*
+name|certificates
 parameter_list|)
 block|{
 name|int
@@ -12421,6 +12435,13 @@ decl_stmt|;
 name|X509_NAME
 modifier|*
 name|name
+decl_stmt|;
+name|ngx_str_t
+modifier|*
+name|certs
+decl_stmt|;
+name|ngx_uint_t
+name|k
 decl_stmt|;
 name|EVP_MD_CTX
 modifier|*
@@ -12617,6 +12638,86 @@ expr_stmt|;
 goto|goto
 name|failed
 goto|;
+block|}
+block|}
+if|if
+condition|(
+name|SSL_CTX_get_ex_data
+argument_list|(
+name|ssl
+operator|->
+name|ctx
+argument_list|,
+name|ngx_ssl_certificate_index
+argument_list|)
+operator|==
+name|NULL
+condition|)
+block|{
+comment|/*          * If certificates are loaded dynamically, we use certificate          * names as specified in the configuration (with variables).          */
+name|certs
+operator|=
+name|certificates
+operator|->
+name|elts
+expr_stmt|;
+for|for
+control|(
+name|k
+operator|=
+literal|0
+init|;
+name|k
+operator|<
+name|certificates
+operator|->
+name|nelts
+condition|;
+name|k
+operator|++
+control|)
+block|{
+if|if
+condition|(
+name|EVP_DigestUpdate
+argument_list|(
+name|md
+argument_list|,
+name|certs
+index|[
+name|k
+index|]
+operator|.
+name|data
+argument_list|,
+name|certs
+index|[
+name|k
+index|]
+operator|.
+name|len
+argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+name|ngx_ssl_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|ssl
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"EVP_DigestUpdate() failed"
+argument_list|)
+expr_stmt|;
+goto|goto
+name|failed
+goto|;
+block|}
 block|}
 block|}
 name|list
