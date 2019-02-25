@@ -35,7 +35,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29505d840108
+DECL|struct|__anon2c5375700108
 typedef|typedef
 struct|struct
 block|{
@@ -84,6 +84,16 @@ DECL|member|certificate_keys
 name|ngx_array_t
 modifier|*
 name|certificate_keys
+decl_stmt|;
+DECL|member|certificate_values
+name|ngx_array_t
+modifier|*
+name|certificate_values
+decl_stmt|;
+DECL|member|certificate_key_values
+name|ngx_array_t
+modifier|*
+name|certificate_key_values
 decl_stmt|;
 DECL|member|dhparam
 name|ngx_str_t
