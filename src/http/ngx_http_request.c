@@ -4348,7 +4348,9 @@ argument_list|,
 operator|&
 name|key
 argument_list|,
-name|NULL
+name|sscf
+operator|->
+name|passwords
 argument_list|)
 operator|!=
 name|NGX_OK
@@ -9049,7 +9051,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon2c7c867c0103
+DECL|enum|__anon2c7eacea0103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
