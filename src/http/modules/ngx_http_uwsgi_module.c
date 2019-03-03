@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29b6c8fb0108
+DECL|struct|__anon27f96aca0108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b6c8fb0208
+DECL|struct|__anon27f96aca0208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b6c8fb0308
+DECL|struct|__anon27f96aca0308
 typedef|typedef
 struct|struct
 block|{
@@ -11146,6 +11146,15 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|ngx_ssl_cleanup_ctx
+argument_list|(
+name|uwcf
+operator|->
+name|upstream
+operator|.
+name|ssl
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;

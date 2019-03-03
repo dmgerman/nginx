@@ -2982,6 +2982,14 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|ngx_ssl_cleanup_ctx
+argument_list|(
+operator|&
+name|conf
+operator|->
+name|ssl
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_CONF_ERROR
 return|;

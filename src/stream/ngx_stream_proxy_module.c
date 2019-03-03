@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2be5b2ad0108
+DECL|struct|__anon2c042e2d0108
 typedef|typedef
 struct|struct
 block|{
@@ -55,7 +55,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be5b2ad0208
+DECL|struct|__anon2c042e2d0208
 typedef|typedef
 struct|struct
 block|{
@@ -9007,6 +9007,13 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|ngx_ssl_cleanup_ctx
+argument_list|(
+name|pscf
+operator|->
+name|ssl
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
