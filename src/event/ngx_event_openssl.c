@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2aff60a10108
+DECL|struct|__anon292137850108
 typedef|typedef
 struct|struct
 block|{
@@ -1757,6 +1757,20 @@ operator|->
 name|ctx
 argument_list|,
 name|SSL_OP_NO_ANTI_REPLAY
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|SSL_OP_NO_CLIENT_RENEGOTIATION
+name|SSL_CTX_set_options
+argument_list|(
+name|ssl
+operator|->
+name|ctx
+argument_list|,
+name|SSL_OP_NO_CLIENT_RENEGOTIATION
 argument_list|)
 expr_stmt|;
 endif|#
