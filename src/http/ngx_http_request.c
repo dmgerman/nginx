@@ -3778,7 +3778,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|SSL_TLSEXT_ERR_NOACK
+name|SSL_TLSEXT_ERR_OK
 return|;
 block|}
 name|c
@@ -3798,7 +3798,7 @@ name|handshaked
 condition|)
 block|{
 return|return
-name|SSL_TLSEXT_ERR_NOACK
+name|SSL_TLSEXT_ERR_OK
 return|;
 block|}
 name|ngx_log_debug1
@@ -3835,7 +3835,7 @@ literal|0
 condition|)
 block|{
 return|return
-name|SSL_TLSEXT_ERR_NOACK
+name|SSL_TLSEXT_ERR_OK
 return|;
 block|}
 name|host
@@ -3866,7 +3866,7 @@ name|NGX_OK
 condition|)
 block|{
 return|return
-name|SSL_TLSEXT_ERR_NOACK
+name|SSL_TLSEXT_ERR_OK
 return|;
 block|}
 name|hc
@@ -3900,7 +3900,7 @@ name|NGX_OK
 condition|)
 block|{
 return|return
-name|SSL_TLSEXT_ERR_NOACK
+name|SSL_TLSEXT_ERR_OK
 return|;
 block|}
 name|hc
@@ -3929,7 +3929,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|SSL_TLSEXT_ERR_NOACK
+name|SSL_TLSEXT_ERR_OK
 return|;
 block|}
 operator|*
@@ -9046,7 +9046,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon2933c1800103
+DECL|enum|__anon29cd77610103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
