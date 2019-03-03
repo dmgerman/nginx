@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon28d9d8f40108
+DECL|struct|__anon2aff60a10108
 typedef|typedef
 struct|struct
 block|{
@@ -11554,12 +11554,32 @@ name|SSL_R_RECORD_LENGTH_MISMATCH
 comment|/*  213 */
 ifdef|#
 directive|ifdef
+name|SSL_R_CLIENTHELLO_TLSEXT
+operator|||
+name|n
+operator|==
+name|SSL_R_CLIENTHELLO_TLSEXT
+comment|/*  226 */
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
 name|SSL_R_PARSE_TLSEXT
 operator|||
 name|n
 operator|==
 name|SSL_R_PARSE_TLSEXT
 comment|/*  227 */
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|SSL_R_CALLBACK_FAILED
+operator|||
+name|n
+operator|==
+name|SSL_R_CALLBACK_FAILED
+comment|/*  234 */
 endif|#
 directive|endif
 operator|||
