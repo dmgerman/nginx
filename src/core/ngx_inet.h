@@ -117,7 +117,7 @@ value|sizeof(ngx_sockaddr_t)
 end_define
 
 begin_typedef
-DECL|union|__anon2b31ca57010a
+DECL|union|__anon279d6a9c010a
 typedef|typedef
 union|union
 block|{
@@ -162,7 +162,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b31ca570208
+DECL|struct|__anon279d6a9c0208
 typedef|typedef
 struct|struct
 block|{
@@ -189,7 +189,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2b31ca570308
+DECL|struct|__anon279d6a9c0308
 typedef|typedef
 struct|struct
 block|{
@@ -215,7 +215,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b31ca570408
+DECL|struct|__anon279d6a9c0408
 typedef|typedef
 struct|struct
 block|{
@@ -223,7 +223,7 @@ DECL|member|family
 name|ngx_uint_t
 name|family
 decl_stmt|;
-DECL|union|__anon2b31ca57050a
+DECL|union|__anon279d6a9c050a
 union|union
 block|{
 DECL|member|in
@@ -252,7 +252,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b31ca570608
+DECL|struct|__anon279d6a9c0608
 typedef|typedef
 struct|struct
 block|{
@@ -277,7 +277,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b31ca570708
+DECL|struct|__anon279d6a9c0708
 typedef|typedef
 struct|struct
 block|{
@@ -304,6 +304,10 @@ decl_stmt|;
 DECL|member|default_port
 name|in_port_t
 name|default_port
+decl_stmt|;
+DECL|member|last_port
+name|in_port_t
+name|last_port
 decl_stmt|;
 DECL|member|family
 name|int
