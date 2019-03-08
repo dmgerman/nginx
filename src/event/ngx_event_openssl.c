@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon292137850108
+DECL|struct|__anon2ab523560108
 typedef|typedef
 struct|struct
 block|{
@@ -3137,10 +3137,6 @@ decl_stmt|;
 name|ENGINE
 modifier|*
 name|engine
-decl_stmt|;
-name|EVP_PKEY
-modifier|*
-name|pkey
 decl_stmt|;
 name|p
 operator|=
