@@ -5005,11 +5005,8 @@ block|}
 block|}
 name|sa
 operator|=
-operator|&
 name|lsopt
 operator|->
-name|sockaddr
-operator|.
 name|sockaddr
 expr_stmt|;
 name|p
@@ -5231,26 +5228,20 @@ if|if
 condition|(
 name|ngx_cmp_sockaddr
 argument_list|(
-operator|&
 name|lsopt
 operator|->
-name|sockaddr
-operator|.
 name|sockaddr
 argument_list|,
 name|lsopt
 operator|->
 name|socklen
 argument_list|,
-operator|&
 name|addr
 index|[
 name|i
 index|]
 operator|.
 name|opt
-operator|.
-name|sockaddr
 operator|.
 name|sockaddr
 argument_list|,
@@ -5392,8 +5383,9 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"duplicate listen options for %s"
+literal|"duplicate listen options for %V"
 argument_list|,
+operator|&
 name|addr
 index|[
 name|i
@@ -5401,7 +5393,7 @@ index|]
 operator|.
 name|opt
 operator|.
-name|addr
+name|addr_text
 argument_list|)
 expr_stmt|;
 return|return
@@ -5440,8 +5432,9 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"a duplicate default server for %s"
+literal|"a duplicate default server for %V"
 argument_list|,
+operator|&
 name|addr
 index|[
 name|i
@@ -5449,7 +5442,7 @@ index|]
 operator|.
 name|opt
 operator|.
-name|addr
+name|addr_text
 argument_list|)
 expr_stmt|;
 return|return
@@ -5656,11 +5649,12 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"nginx was built with OpenSSL that lacks ALPN "
-literal|"and NPN support, HTTP/2 is not enabled for %s"
+literal|"and NPN support, HTTP/2 is not enabled for %V"
 argument_list|,
+operator|&
 name|lsopt
 operator|->
-name|addr
+name|addr_text
 argument_list|)
 expr_stmt|;
 block|}
@@ -5886,13 +5880,14 @@ name|cf
 argument_list|,
 literal|0
 argument_list|,
-literal|"a duplicate listen %s"
+literal|"a duplicate listen %V"
 argument_list|,
+operator|&
 name|addr
 operator|->
 name|opt
 operator|.
-name|addr
+name|addr_text
 argument_list|)
 expr_stmt|;
 return|return
@@ -6396,7 +6391,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"invalid server name or wildcard \"%V\" on %s"
+literal|"invalid server name or wildcard \"%V\" on %V"
 argument_list|,
 operator|&
 name|name
@@ -6406,11 +6401,12 @@ index|]
 operator|.
 name|name
 argument_list|,
+operator|&
 name|addr
 operator|->
 name|opt
 operator|.
-name|addr
+name|addr_text
 argument_list|)
 expr_stmt|;
 return|return
@@ -6434,7 +6430,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"conflicting server name \"%V\" on %s, ignored"
+literal|"conflicting server name \"%V\" on %V, ignored"
 argument_list|,
 operator|&
 name|name
@@ -6444,11 +6440,12 @@ index|]
 operator|.
 name|name
 argument_list|,
+operator|&
 name|addr
 operator|->
 name|opt
 operator|.
-name|addr
+name|addr_text
 argument_list|)
 expr_stmt|;
 block|}
@@ -7348,12 +7345,9 @@ name|ngx_create_listening
 argument_list|(
 name|cf
 argument_list|,
-operator|&
 name|addr
 operator|->
 name|opt
-operator|.
-name|sockaddr
 operator|.
 name|sockaddr
 argument_list|,
@@ -7793,7 +7787,11 @@ control|)
 block|{
 name|sin
 operator|=
-operator|&
+operator|(
+expr|struct
+name|sockaddr_in
+operator|*
+operator|)
 name|addr
 index|[
 name|i
@@ -7802,8 +7800,6 @@ operator|.
 name|opt
 operator|.
 name|sockaddr
-operator|.
-name|sockaddr_in
 expr_stmt|;
 name|addrs
 index|[
@@ -8193,7 +8189,11 @@ control|)
 block|{
 name|sin6
 operator|=
-operator|&
+operator|(
+expr|struct
+name|sockaddr_in6
+operator|*
+operator|)
 name|addr
 index|[
 name|i
@@ -8202,8 +8202,6 @@ operator|.
 name|opt
 operator|.
 name|sockaddr
-operator|.
-name|sockaddr_in6
 expr_stmt|;
 name|addrs6
 index|[
