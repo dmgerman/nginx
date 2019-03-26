@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon28ee35960108
+DECL|struct|__anon28a775d80108
 typedef|typedef
 struct|struct
 block|{
@@ -18897,6 +18897,11 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|X509_free
+argument_list|(
+name|cert
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
@@ -19096,6 +19101,11 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|X509_free
+argument_list|(
+name|cert
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
