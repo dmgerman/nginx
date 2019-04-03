@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2c3617010108
+DECL|struct|__anon27d52eff0108
 typedef|typedef
 struct|struct
 block|{
@@ -1074,7 +1074,7 @@ name|file
 operator|->
 name|data
 argument_list|,
-literal|"r"
+literal|"rb"
 argument_list|)
 expr_stmt|;
 if|if
@@ -5847,7 +5847,7 @@ name|ngx_buf_t
 modifier|*
 name|b
 decl_stmt|;
-DECL|enum|__anon2c3617010203
+DECL|enum|__anon27d52eff0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6673,7 +6673,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2c3617010303
+DECL|enum|__anon27d52eff0303
 enum|enum
 block|{
 DECL|enumerator|sw_start
