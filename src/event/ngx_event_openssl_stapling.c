@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon27d52eff0108
+DECL|struct|__anon2c4a09b70108
 typedef|typedef
 struct|struct
 block|{
@@ -2305,6 +2305,17 @@ argument_list|(
 name|ssl_conn
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|cert
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|rc
+return|;
+block|}
 name|staple
 operator|=
 name|X509_get_ex_data
@@ -5847,7 +5858,7 @@ name|ngx_buf_t
 modifier|*
 name|b
 decl_stmt|;
-DECL|enum|__anon27d52eff0203
+DECL|enum|__anon2c4a09b70203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -6673,7 +6684,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon27d52eff0303
+DECL|enum|__anon2c4a09b70303
 enum|enum
 block|{
 DECL|enumerator|sw_start
