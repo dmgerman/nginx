@@ -6213,7 +6213,9 @@ argument_list|(
 operator|&
 name|p
 argument_list|,
-name|n
+name|last
+operator|-
+name|p
 argument_list|)
 operator|>
 literal|0x10ffff
@@ -6817,7 +6819,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon2b5688be0103
+DECL|enum|__anon275a14c10103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
