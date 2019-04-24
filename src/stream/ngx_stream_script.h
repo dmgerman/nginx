@@ -35,7 +35,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2be51edd0108
+DECL|struct|__anon28b1fad50108
 typedef|typedef
 struct|struct
 block|{
@@ -86,7 +86,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be51edd0208
+DECL|struct|__anon28b1fad50208
 typedef|typedef
 struct|struct
 block|{
@@ -172,7 +172,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be51edd0308
+DECL|struct|__anon28b1fad50308
 typedef|typedef
 struct|struct
 block|{
@@ -195,6 +195,17 @@ name|void
 modifier|*
 name|values
 decl_stmt|;
+DECL|union|__anon28b1fad5040a
+union|union
+block|{
+DECL|member|size
+name|size_t
+name|size
+decl_stmt|;
+DECL|member|u
+block|}
+name|u
+union|;
 DECL|typedef|ngx_stream_complex_value_t
 block|}
 name|ngx_stream_complex_value_t
@@ -202,7 +213,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be51edd0408
+DECL|struct|__anon28b1fad50508
 typedef|typedef
 struct|struct
 block|{
@@ -278,7 +289,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be51edd0508
+DECL|struct|__anon28b1fad50608
 typedef|typedef
 struct|struct
 block|{
@@ -297,7 +308,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be51edd0608
+DECL|struct|__anon28b1fad50708
 typedef|typedef
 struct|struct
 block|{
@@ -316,7 +327,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be51edd0708
+DECL|struct|__anon28b1fad50808
 typedef|typedef
 struct|struct
 block|{
@@ -335,7 +346,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be51edd0808
+DECL|struct|__anon28b1fad50908
 typedef|typedef
 struct|struct
 block|{
@@ -388,6 +399,24 @@ function_decl|;
 end_function_decl
 
 begin_function_decl
+name|size_t
+name|ngx_stream_complex_value_size
+parameter_list|(
+name|ngx_stream_session_t
+modifier|*
+name|s
+parameter_list|,
+name|ngx_stream_complex_value_t
+modifier|*
+name|val
+parameter_list|,
+name|size_t
+name|default_value
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
 name|ngx_int_t
 name|ngx_stream_compile_complex_value
 parameter_list|(
@@ -402,6 +431,26 @@ begin_function_decl
 name|char
 modifier|*
 name|ngx_stream_set_complex_value_slot
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_command_t
+modifier|*
+name|cmd
+parameter_list|,
+name|void
+modifier|*
+name|conf
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|char
+modifier|*
+name|ngx_stream_set_complex_value_size_slot
 parameter_list|(
 name|ngx_conf_t
 modifier|*
