@@ -105,7 +105,7 @@ value|0x1
 end_define
 
 begin_typedef
-DECL|struct|__anon2759987a0108
+DECL|struct|__anon29b4c0560108
 typedef|typedef
 struct|struct
 block|{
@@ -170,7 +170,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2759987a0208
+DECL|struct|__anon29b4c0560208
 typedef|typedef
 struct|struct
 block|{
@@ -194,7 +194,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2759987a0308
+DECL|struct|__anon29b4c0560308
 typedef|typedef
 struct|struct
 block|{
@@ -316,7 +316,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2759987a0408
+DECL|struct|__anon29b4c0560408
 typedef|typedef
 struct|struct
 block|{
@@ -352,7 +352,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2759987a0508
+DECL|struct|__anon29b4c0560508
 typedef|typedef
 struct|struct
 block|{
@@ -404,7 +404,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2759987a0608
+DECL|struct|__anon29b4c0560608
 typedef|typedef
 struct|struct
 block|{
@@ -464,6 +464,14 @@ decl_stmt|;
 DECL|member|start_time
 name|ngx_msec_t
 name|start_time
+decl_stmt|;
+DECL|member|upload_rate
+name|size_t
+name|upload_rate
+decl_stmt|;
+DECL|member|download_rate
+name|size_t
+name|download_rate
 decl_stmt|;
 DECL|member|ssl_name
 name|ngx_str_t
