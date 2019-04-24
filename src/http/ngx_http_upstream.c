@@ -13037,6 +13037,12 @@ name|limit_rate
 operator|=
 literal|0
 expr_stmt|;
+name|r
+operator|->
+name|limit_rate_set
+operator|=
+literal|1
+expr_stmt|;
 if|if
 condition|(
 name|u
@@ -20945,6 +20951,12 @@ operator|(
 name|size_t
 operator|)
 name|n
+expr_stmt|;
+name|r
+operator|->
+name|limit_rate_set
+operator|=
+literal|1
 expr_stmt|;
 block|}
 return|return
