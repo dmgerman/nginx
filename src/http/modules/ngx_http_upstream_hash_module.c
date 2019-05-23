@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2891a5da0108
+DECL|struct|__anon2b26612b0108
 typedef|typedef
 struct|struct
 block|{
@@ -42,7 +42,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2891a5da0208
+DECL|struct|__anon2b26612b0208
 typedef|typedef
 struct|struct
 block|{
@@ -64,7 +64,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2891a5da0308
+DECL|struct|__anon2b26612b0308
 typedef|typedef
 struct|struct
 block|{
@@ -84,7 +84,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2891a5da0408
+DECL|struct|__anon2b26612b0408
 typedef|typedef
 struct|struct
 block|{
@@ -711,6 +711,14 @@ operator|.
 name|peers
 operator|->
 name|single
+operator|||
+name|hp
+operator|->
+name|key
+operator|.
+name|len
+operator|==
+literal|0
 condition|)
 block|{
 name|ngx_http_upstream_rr_peers_unlock
@@ -1263,7 +1271,7 @@ name|ngx_http_upstream_hash_srv_conf_t
 modifier|*
 name|hcf
 decl_stmt|;
-DECL|union|__anon2891a5da050a
+DECL|union|__anon2b26612b050a
 union|union
 block|{
 DECL|member|value
@@ -2288,6 +2296,14 @@ operator|.
 name|peers
 operator|->
 name|single
+operator|||
+name|hp
+operator|->
+name|key
+operator|.
+name|len
+operator|==
+literal|0
 condition|)
 block|{
 name|ngx_http_upstream_rr_peers_unlock
