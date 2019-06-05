@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a57fafb0108
+DECL|struct|__anon2936b1390108
 typedef|typedef
 struct|struct
 block|{
@@ -69,7 +69,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a57fafb0208
+DECL|struct|__anon2936b1390208
 typedef|typedef
 struct|struct
 block|{
@@ -92,7 +92,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a57fafb0308
+DECL|struct|__anon2936b1390308
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a57fafb0408
+DECL|struct|__anon2936b1390408
 typedef|typedef
 struct|struct
 block|{
@@ -152,7 +152,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a57fafb0508
+DECL|struct|__anon2936b1390508
 typedef|typedef
 struct|struct
 block|{
@@ -171,6 +171,10 @@ decl_stmt|;
 DECL|member|status_code
 name|ngx_uint_t
 name|status_code
+decl_stmt|;
+DECL|member|dry_run
+name|ngx_flag_t
+name|dry_run
 decl_stmt|;
 DECL|typedef|ngx_http_limit_req_conf_t
 block|}
@@ -518,6 +522,34 @@ argument_list|)
 block|,
 operator|&
 name|ngx_http_limit_req_status_bounds
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"limit_req_dry_run"
+argument_list|)
+block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
+name|NGX_HTTP_SRV_CONF
+operator||
+name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_CONF_FLAG
+block|,
+name|ngx_conf_set_flag_slot
+block|,
+name|NGX_HTTP_LOC_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+name|ngx_http_limit_req_conf_t
+argument_list|,
+name|dry_run
+argument_list|)
+block|,
+name|NULL
 block|}
 block|,
 name|ngx_null_command
@@ -947,7 +979,15 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"limiting requests, excess: %ui.%03ui by zone \"%V\""
+literal|"limiting requests%s, excess: %ui.%03ui by zone \"%V\""
+argument_list|,
+name|lrcf
+operator|->
+name|dry_run
+condition|?
+literal|", dry run"
+else|:
+literal|""
 argument_list|,
 name|excess
 operator|/
@@ -1030,6 +1070,17 @@ operator|=
 name|NULL
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|lrcf
+operator|->
+name|dry_run
+condition|)
+block|{
+return|return
+name|NGX_DECLINED
+return|;
+block|}
 return|return
 name|lrcf
 operator|->
@@ -1088,7 +1139,15 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"delaying request, excess: %ui.%03ui, by zone \"%V\""
+literal|"delaying request%s, excess: %ui.%03ui, by zone \"%V\""
+argument_list|,
+name|lrcf
+operator|->
+name|dry_run
+condition|?
+literal|", dry run"
+else|:
+literal|""
 argument_list|,
 name|excess
 operator|/
@@ -1108,6 +1167,17 @@ operator|.
 name|name
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|lrcf
+operator|->
+name|dry_run
+condition|)
+block|{
+return|return
+name|NGX_DECLINED
+return|;
+block|}
 if|if
 condition|(
 name|ngx_handle_read_event
@@ -2934,6 +3004,12 @@ name|status_code
 operator|=
 name|NGX_CONF_UNSET_UINT
 expr_stmt|;
+name|conf
+operator|->
+name|dry_run
+operator|=
+name|NGX_CONF_UNSET
+expr_stmt|;
 return|return
 name|conf
 return|;
@@ -3036,6 +3112,19 @@ operator|->
 name|status_code
 argument_list|,
 name|NGX_HTTP_SERVICE_UNAVAILABLE
+argument_list|)
+expr_stmt|;
+name|ngx_conf_merge_value
+argument_list|(
+name|conf
+operator|->
+name|dry_run
+argument_list|,
+name|prev
+operator|->
+name|dry_run
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 return|return
