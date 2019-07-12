@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2aa7a0ac0108
+DECL|struct|__anon29e09af60108
 typedef|typedef
 struct|struct
 block|{
@@ -59,7 +59,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa7a0ac0208
+DECL|struct|__anon29e09af60208
 typedef|typedef
 struct|struct
 block|{
@@ -79,7 +79,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aa7a0ac0308
+DECL|struct|__anon29e09af60308
 typedef|typedef
 struct|struct
 block|{
@@ -192,6 +192,10 @@ name|pTHX_
 name|ngx_http_request_t
 modifier|*
 name|r
+parameter_list|,
+name|ngx_http_perl_ctx_t
+modifier|*
+name|ctx
 parameter_list|,
 name|HV
 modifier|*
@@ -902,6 +906,12 @@ argument_list|,
 name|ngx_http_perl_module
 argument_list|)
 expr_stmt|;
+name|ctx
+operator|->
+name|request
+operator|=
+name|r
+expr_stmt|;
 block|}
 name|pmcf
 operator|=
@@ -991,6 +1001,8 @@ operator|=
 name|ngx_http_perl_call_handler
 argument_list|(
 argument|aTHX_ r
+argument_list|,
+argument|ctx
 argument_list|,
 argument|pmcf->nginx
 argument_list|,
@@ -1343,6 +1355,12 @@ argument_list|,
 name|ngx_http_perl_module
 argument_list|)
 expr_stmt|;
+name|ctx
+operator|->
+name|request
+operator|=
+name|r
+expr_stmt|;
 block|}
 name|pmcf
 operator|=
@@ -1386,6 +1404,8 @@ operator|=
 name|ngx_http_perl_call_handler
 argument_list|(
 argument|aTHX_ r
+argument_list|,
+argument|ctx
 argument_list|,
 argument|pmcf->nginx
 argument_list|,
@@ -1610,6 +1630,12 @@ argument_list|,
 name|ngx_http_perl_module
 argument_list|)
 expr_stmt|;
+name|ctx
+operator|->
+name|request
+operator|=
+name|r
+expr_stmt|;
 block|}
 name|pmcf
 operator|=
@@ -1831,6 +1857,8 @@ operator|=
 name|ngx_http_perl_call_handler
 argument_list|(
 argument|aTHX_ r
+argument_list|,
+argument|ctx
 argument_list|,
 argument|pmcf->nginx
 argument_list|,
@@ -2816,13 +2844,17 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_http_perl_call_handler (pTHX_ ngx_http_request_t * r,HV * nginx,SV * sub,SV ** args,ngx_str_t * handler,ngx_str_t * rv)
+DECL|function|ngx_http_perl_call_handler (pTHX_ ngx_http_request_t * r,ngx_http_perl_ctx_t * ctx,HV * nginx,SV * sub,SV ** args,ngx_str_t * handler,ngx_str_t * rv)
 name|ngx_http_perl_call_handler
 parameter_list|(
 name|pTHX_
 name|ngx_http_request_t
 modifier|*
 name|r
+parameter_list|,
+name|ngx_http_perl_ctx_t
+modifier|*
+name|ctx
 parameter_list|,
 name|HV
 modifier|*
@@ -2902,7 +2934,7 @@ name|newSViv
 argument_list|(
 name|PTR2IV
 argument_list|(
-name|r
+name|ctx
 argument_list|)
 argument_list|)
 argument_list|)

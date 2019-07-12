@@ -62,10 +62,15 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299063a30108
+DECL|struct|__anon28b430870108
 typedef|typedef
 struct|struct
 block|{
+DECL|member|request
+name|ngx_http_request_t
+modifier|*
+name|request
+decl_stmt|;
 DECL|member|filename
 name|ngx_str_t
 name|filename
@@ -113,7 +118,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299063a30208
+DECL|struct|__anon28b430870208
 typedef|typedef
 struct|struct
 block|{
