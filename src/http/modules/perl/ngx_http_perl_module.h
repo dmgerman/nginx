@@ -62,7 +62,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b430870108
+DECL|struct|__anon2974ec1f0108
 typedef|typedef
 struct|struct
 block|{
@@ -88,11 +88,22 @@ name|SV
 modifier|*
 name|next
 decl_stmt|;
-DECL|member|done
-name|ngx_uint_t
-name|done
+DECL|member|status
+name|ngx_int_t
+name|status
 decl_stmt|;
-comment|/* unsigned  done:1; */
+DECL|member|done
+name|unsigned
+name|done
+range|:
+literal|1
+decl_stmt|;
+DECL|member|error
+name|unsigned
+name|error
+range|:
+literal|1
+decl_stmt|;
 DECL|member|variables
 name|ngx_array_t
 modifier|*
@@ -118,7 +129,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b430870208
+DECL|struct|__anon2974ec1f0208
 typedef|typedef
 struct|struct
 block|{
