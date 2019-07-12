@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29d3b7fa0108
+DECL|struct|__anon2bdb0dc50108
 typedef|typedef
 struct|struct
 block|{
@@ -59,7 +59,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d3b7fa0208
+DECL|struct|__anon2bdb0dc50208
 typedef|typedef
 struct|struct
 block|{
@@ -79,7 +79,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d3b7fa0308
+DECL|struct|__anon2bdb0dc50308
 typedef|typedef
 struct|struct
 block|{
@@ -1298,6 +1298,9 @@ decl_stmt|;
 name|ngx_str_t
 name|value
 decl_stmt|;
+name|ngx_uint_t
+name|saved
+decl_stmt|;
 name|ngx_http_perl_ctx_t
 modifier|*
 name|ctx
@@ -1378,6 +1381,18 @@ operator|=
 name|r
 expr_stmt|;
 block|}
+name|saved
+operator|=
+name|ctx
+operator|->
+name|variable
+expr_stmt|;
+name|ctx
+operator|->
+name|variable
+operator|=
+literal|1
+expr_stmt|;
 name|pmcf
 operator|=
 name|ngx_http_get_module_main_conf
@@ -1486,6 +1501,12 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
+name|ctx
+operator|->
+name|variable
+operator|=
+name|saved
+expr_stmt|;
 name|ctx
 operator|->
 name|filename

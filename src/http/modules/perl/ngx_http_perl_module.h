@@ -62,7 +62,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2974ec1f0108
+DECL|struct|__anon29663dbb0108
 typedef|typedef
 struct|struct
 block|{
@@ -104,6 +104,12 @@ name|error
 range|:
 literal|1
 decl_stmt|;
+DECL|member|variable
+name|unsigned
+name|variable
+range|:
+literal|1
+decl_stmt|;
 DECL|member|variables
 name|ngx_array_t
 modifier|*
@@ -129,7 +135,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2974ec1f0208
+DECL|struct|__anon29663dbb0208
 typedef|typedef
 struct|struct
 block|{
