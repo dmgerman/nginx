@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bdb0dc50108
+DECL|struct|__anon292fb8420108
 typedef|typedef
 struct|struct
 block|{
@@ -59,7 +59,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bdb0dc50208
+DECL|struct|__anon292fb8420208
 typedef|typedef
 struct|struct
 block|{
@@ -79,7 +79,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bdb0dc50308
+DECL|struct|__anon292fb8420308
 typedef|typedef
 struct|struct
 block|{
@@ -3280,6 +3280,14 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|ctx
+operator|->
+name|redirect_uri
+operator|.
+name|len
+operator|=
+literal|0
+expr_stmt|;
 return|return
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
