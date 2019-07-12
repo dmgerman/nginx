@@ -62,7 +62,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bccbbbf0108
+DECL|struct|__anon27a75dcb0108
 typedef|typedef
 struct|struct
 block|{
@@ -78,10 +78,6 @@ decl_stmt|;
 DECL|member|redirect_uri
 name|ngx_str_t
 name|redirect_uri
-decl_stmt|;
-DECL|member|redirect_args
-name|ngx_str_t
-name|redirect_args
 decl_stmt|;
 DECL|member|next
 name|SV
@@ -141,7 +137,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bccbbbf0208
+DECL|struct|__anon27a75dcb0208
 typedef|typedef
 struct|struct
 block|{

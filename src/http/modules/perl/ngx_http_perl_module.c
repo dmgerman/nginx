@@ -28,7 +28,7 @@ file|<ngx_http_perl_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c0840050108
+DECL|struct|__anon2c83af280108
 typedef|typedef
 struct|struct
 block|{
@@ -59,7 +59,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0840050208
+DECL|struct|__anon2c83af280208
 typedef|typedef
 struct|struct
 block|{
@@ -79,7 +79,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0840050308
+DECL|struct|__anon2c83af280308
 typedef|typedef
 struct|struct
 block|{
@@ -824,6 +824,9 @@ decl_stmt|,
 modifier|*
 name|handler
 decl_stmt|;
+name|ngx_uint_t
+name|flags
+decl_stmt|;
 name|ngx_http_perl_ctx_t
 modifier|*
 name|ctx
@@ -1060,12 +1063,6 @@ name|ctx
 operator|->
 name|redirect_uri
 expr_stmt|;
-name|args
-operator|=
-name|ctx
-operator|->
-name|redirect_args
-expr_stmt|;
 block|}
 else|else
 block|{
@@ -1135,6 +1132,44 @@ operator|.
 name|len
 condition|)
 block|{
+name|ngx_str_null
+argument_list|(
+operator|&
+name|args
+argument_list|)
+expr_stmt|;
+name|flags
+operator|=
+name|NGX_HTTP_LOG_UNSAFE
+expr_stmt|;
+if|if
+condition|(
+name|ngx_http_parse_unsafe_uri
+argument_list|(
+name|r
+argument_list|,
+operator|&
+name|uri
+argument_list|,
+operator|&
+name|args
+argument_list|,
+operator|&
+name|flags
+argument_list|)
+operator|!=
+name|NGX_OK
+condition|)
+block|{
+name|ngx_http_finalize_request
+argument_list|(
+name|r
+argument_list|,
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|ngx_http_internal_redirect
 argument_list|(
 name|r
