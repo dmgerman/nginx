@@ -102,7 +102,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2967d02b0108
+DECL|struct|__anon2c0f75d50108
 typedef|typedef
 struct|struct
 block|{
@@ -123,7 +123,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2967d02b0208
+DECL|struct|__anon2c0f75d50208
 typedef|typedef
 struct|struct
 block|{
@@ -144,7 +144,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2967d02b0308
+DECL|struct|__anon2c0f75d50308
 typedef|typedef
 struct|struct
 block|{
@@ -169,7 +169,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2967d02b0408
+DECL|struct|__anon2c0f75d50408
 typedef|typedef
 struct|struct
 block|{
@@ -189,7 +189,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2967d02b0508
+DECL|struct|__anon2c0f75d50508
 typedef|typedef
 struct|struct
 block|{
@@ -228,7 +228,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2967d02b0608
+DECL|struct|__anon2c0f75d50608
 typedef|typedef
 struct|struct
 block|{
@@ -2851,9 +2851,6 @@ modifier|*
 name|p
 decl_stmt|,
 modifier|*
-name|last
-decl_stmt|,
-modifier|*
 name|value
 decl_stmt|,
 modifier|*
@@ -3167,14 +3164,6 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-name|last
-operator|=
-name|p
-operator|+
-name|string
-operator|.
-name|len
-expr_stmt|;
 while|while
 condition|(
 name|p
@@ -3316,9 +3305,10 @@ else|else
 block|{
 name|len
 operator|=
-name|last
-operator|-
+name|ngx_strlen
+argument_list|(
 name|value
+argument_list|)
 expr_stmt|;
 block|}
 name|ngx_log_debug1
