@@ -69,7 +69,7 @@ value|(ngx_http_v2_out_frame_t *) -1
 end_define
 
 begin_typedef
-DECL|struct|__anon27ee04c40108
+DECL|struct|__anon274d90470108
 typedef|typedef
 struct|struct
 block|{
@@ -6892,6 +6892,28 @@ operator|->
 name|out_closed
 condition|)
 block|{
+if|if
+condition|(
+name|size
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|fc
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"output on closed stream"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CHAIN_ERROR
+return|;
+block|}
 if|if
 condition|(
 name|stream
