@@ -54,7 +54,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2bcbaea00108
+DECL|struct|__anon293796c60108
 typedef|typedef
 struct|struct
 block|{
@@ -98,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bcbaea00208
+DECL|struct|__anon293796c60208
 typedef|typedef
 struct|struct
 block|{
@@ -121,7 +121,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bcbaea00308
+DECL|struct|__anon293796c60308
 typedef|typedef
 struct|struct
 block|{
@@ -145,7 +145,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2bcbaea00403
+DECL|enum|__anon293796c60403
 typedef|typedef
 enum|enum
 block|{
@@ -5676,26 +5676,6 @@ name|state
 operator|=
 name|ssi_error_end0_state
 expr_stmt|;
-name|ctx
-operator|->
-name|param
-operator|->
-name|key
-operator|.
-name|data
-index|[
-name|ctx
-operator|->
-name|param
-operator|->
-name|key
-operator|.
-name|len
-operator|++
-index|]
-operator|=
-name|ch
-expr_stmt|;
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ERR
@@ -5708,7 +5688,8 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"invalid \"%V\" parameter in \"%V\" SSI command"
+literal|"unexpected \"-\" symbol after \"%V\" "
+literal|"parameter in \"%V\" SSI command"
 argument_list|,
 operator|&
 name|ctx
