@@ -1412,6 +1412,11 @@ operator|->
 name|max_size
 argument_list|)
 expr_stmt|;
+name|ngx_free
+argument_list|(
+name|test
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
