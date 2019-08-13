@@ -320,7 +320,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b86b770108
+DECL|struct|__anon2b80712d0108
 typedef|typedef
 struct|struct
 block|{
@@ -339,7 +339,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b86b770208
+DECL|struct|__anon2b80712d0208
 typedef|typedef
 struct|struct
 block|{
@@ -450,7 +450,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b86b770308
+DECL|struct|__anon2b80712d0308
 typedef|typedef
 struct|struct
 block|{
@@ -526,6 +526,10 @@ decl_stmt|;
 DECL|member|idle
 name|ngx_uint_t
 name|idle
+decl_stmt|;
+DECL|member|priority_limit
+name|ngx_uint_t
+name|priority_limit
 decl_stmt|;
 DECL|member|pushing
 name|ngx_uint_t
