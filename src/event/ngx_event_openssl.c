@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2902e98f0108
+DECL|struct|__anon297db7e90108
 typedef|typedef
 struct|struct
 block|{
@@ -11503,6 +11503,17 @@ condition|(
 name|err
 operator|==
 name|NGX_ECONNRESET
+if|#
+directive|if
+operator|(
+name|NGX_WIN32
+operator|)
+operator|||
+name|err
+operator|==
+name|NGX_ECONNABORTED
+endif|#
+directive|endif
 operator|||
 name|err
 operator|==
