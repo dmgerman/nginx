@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29310b8c0108
+DECL|struct|__anon29ac52be0108
 typedef|typedef
 struct|struct
 block|{
@@ -6976,18 +6976,22 @@ decl_stmt|;
 name|ngx_chain_t
 name|out
 decl_stmt|;
-if|if
-condition|(
+name|rc
+operator|=
 name|ngx_http_discard_request_body
 argument_list|(
 name|r
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|rc
 operator|!=
 name|NGX_OK
 condition|)
 block|{
 return|return
-name|NGX_HTTP_INTERNAL_SERVER_ERROR
+name|rc
 return|;
 block|}
 name|r
