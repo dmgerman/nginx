@@ -3414,7 +3414,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"no ssl_client_certificate for ssl_client_verify"
+literal|"no ssl_client_certificate for ssl_verify_client"
 argument_list|)
 expr_stmt|;
 return|return
