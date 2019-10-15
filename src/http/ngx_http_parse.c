@@ -508,7 +508,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon2c7fb51b0103
+DECL|enum|__anon29aacf9f0103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2945,7 +2945,7 @@ name|hash
 decl_stmt|,
 name|i
 decl_stmt|;
-DECL|enum|__anon2c7fb51b0203
+DECL|enum|__anon29aacf9f0203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -3163,6 +3163,14 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|hash
+operator|=
+literal|0
+expr_stmt|;
+name|i
+operator|=
+literal|0
+expr_stmt|;
 name|r
 operator|->
 name|invalid_header
@@ -3183,6 +3191,14 @@ return|return
 name|NGX_HTTP_PARSE_INVALID_HEADER
 return|;
 block|}
+name|hash
+operator|=
+literal|0
+expr_stmt|;
+name|i
+operator|=
+literal|0
+expr_stmt|;
 name|r
 operator|->
 name|invalid_header
@@ -3757,7 +3773,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon2c7fb51b0303
+DECL|enum|__anon29aacf9f0303
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -4246,7 +4262,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon2c7fb51b0403
+DECL|enum|__anon29aacf9f0403
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -5626,7 +5642,7 @@ name|u_char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2c7fb51b0503
+DECL|enum|__anon29aacf9f0503
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -7682,7 +7698,7 @@ decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
-DECL|enum|__anon2c7fb51b0603
+DECL|enum|__anon29aacf9f0603
 enum|enum
 block|{
 DECL|enumerator|sw_chunk_start
