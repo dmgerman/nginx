@@ -29,6 +29,13 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_posted_next_events
+name|ngx_queue_t
+name|ngx_posted_next_events
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_posted_events
 name|ngx_queue_t
 name|ngx_posted_events
