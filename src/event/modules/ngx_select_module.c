@@ -1420,6 +1420,13 @@ name|ready
 operator|=
 literal|1
 expr_stmt|;
+name|ev
+operator|->
+name|available
+operator|=
+operator|-
+literal|1
+expr_stmt|;
 name|queue
 operator|=
 name|ev

@@ -178,7 +178,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2882b5370108
+DECL|struct|__anon2aaf45e70108
 typedef|typedef
 struct|struct
 block|{
@@ -625,7 +625,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2882b5370208
+DECL|struct|__anon2aaf45e70208
 typedef|typedef
 struct|struct
 block|{
@@ -2438,6 +2438,13 @@ name|rev
 operator|->
 name|ready
 operator|=
+literal|1
+expr_stmt|;
+name|rev
+operator|->
+name|available
+operator|=
+operator|-
 literal|1
 expr_stmt|;
 if|if

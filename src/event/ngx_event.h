@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon28e954d80108
+DECL|struct|__anon274782740108
 typedef|typedef
 struct|struct
 block|{
@@ -227,30 +227,11 @@ name|kq_errno
 decl_stmt|;
 endif|#
 directive|endif
-comment|/*      * kqueue only:      *   accept:     number of sockets that wait to be accepted      *   read:       bytes to read when event is ready      *               or lowat when event is set with NGX_LOWAT_EVENT flag      *   write:      available space in buffer when event is ready      *               or lowat when event is set with NGX_LOWAT_EVENT flag      *      * epoll with EPOLLRDHUP:      *   accept:     1 if accept many, 0 otherwise      *   read:       1 if there can be data to read, 0 otherwise      *      * iocp: TODO      *      * otherwise:      *   accept:     1 if accept many, 0 otherwise      */
-if|#
-directive|if
-operator|(
-name|NGX_HAVE_KQUEUE
-operator|)
-operator|||
-operator|(
-name|NGX_HAVE_IOCP
-operator|)
+comment|/*      * kqueue only:      *   accept:     number of sockets that wait to be accepted      *   read:       bytes to read when event is ready      *               or lowat when event is set with NGX_LOWAT_EVENT flag      *   write:      available space in buffer when event is ready      *               or lowat when event is set with NGX_LOWAT_EVENT flag      *      * iocp: TODO      *      * otherwise:      *   accept:     1 if accept many, 0 otherwise      *   read:       bytes to read when event is ready, -1 if not known      */
 DECL|member|available
 name|int
 name|available
 decl_stmt|;
-else|#
-directive|else
-DECL|member|available
-name|unsigned
-name|available
-range|:
-literal|1
-decl_stmt|;
-endif|#
-directive|endif
 DECL|member|handler
 name|ngx_event_handler_pt
 name|handler
@@ -406,7 +387,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon28e954d80208
+DECL|struct|__anon274782740208
 typedef|typedef
 struct|struct
 block|{
@@ -1446,7 +1427,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon28e954d80308
+DECL|struct|__anon274782740308
 typedef|typedef
 struct|struct
 block|{
@@ -1493,7 +1474,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28e954d80408
+DECL|struct|__anon274782740408
 typedef|typedef
 struct|struct
 block|{

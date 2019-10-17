@@ -97,7 +97,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon27e554080108
+DECL|struct|__anon2bb63a390108
 typedef|typedef
 struct|struct
 block|{
@@ -2059,6 +2059,13 @@ name|rev
 operator|->
 name|ready
 operator|=
+literal|1
+expr_stmt|;
+name|rev
+operator|->
+name|available
+operator|=
+operator|-
 literal|1
 expr_stmt|;
 if|if

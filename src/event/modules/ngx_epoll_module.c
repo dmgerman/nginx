@@ -442,7 +442,7 @@ comment|/* NGX_TEST_BUILD_EPOLL */
 end_comment
 
 begin_typedef
-DECL|struct|__anon2abc8f650108
+DECL|struct|__anon2b6d949f0108
 typedef|typedef
 struct|struct
 block|{
@@ -3781,18 +3781,19 @@ operator|=
 literal|1
 expr_stmt|;
 block|}
-name|rev
-operator|->
-name|available
-operator|=
-literal|1
-expr_stmt|;
 endif|#
 directive|endif
 name|rev
 operator|->
 name|ready
 operator|=
+literal|1
+expr_stmt|;
+name|rev
+operator|->
+name|available
+operator|=
+operator|-
 literal|1
 expr_stmt|;
 if|if

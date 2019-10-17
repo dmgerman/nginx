@@ -146,6 +146,40 @@ endif|#
 directive|endif
 end_endif
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_FIONREAD
+operator|)
+end_if
+
+begin_define
+DECL|macro|ngx_socket_nread (s,n)
+define|#
+directive|define
+name|ngx_socket_nread
+parameter_list|(
+name|s
+parameter_list|,
+name|n
+parameter_list|)
+value|ioctl(s, FIONREAD, n)
+end_define
+
+begin_define
+DECL|macro|ngx_socket_nread_n
+define|#
+directive|define
+name|ngx_socket_nread_n
+value|"ioctl(FIONREAD)"
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_function_decl
 name|int
 name|ngx_tcp_nopush
