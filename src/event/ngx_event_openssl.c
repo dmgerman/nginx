@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon297db7e90108
+DECL|struct|__anon2759f3f70108
 typedef|typedef
 struct|struct
 block|{
@@ -7969,6 +7969,20 @@ name|bytes
 operator|+=
 name|n
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|c
+operator|->
+name|read
+operator|->
+name|ready
+condition|)
+block|{
+return|return
+name|bytes
+return|;
+block|}
 if|if
 condition|(
 name|last
