@@ -103,7 +103,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2acac3cf0108
+DECL|struct|__anon2c2d8dfe0108
 typedef|typedef
 struct|struct
 block|{
@@ -958,6 +958,10 @@ name|WSAPoll
 operator|=
 operator|(
 name|ngx_wsapoll_pt
+operator|)
+operator|(
+name|void
+operator|*
 operator|)
 name|GetProcAddress
 argument_list|(
