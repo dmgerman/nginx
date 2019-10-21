@@ -87,11 +87,6 @@ operator|==
 literal|0
 operator|&&
 name|lang
-operator|&&
-name|GetLastError
-argument_list|()
-operator|==
-name|ERROR_RESOURCE_LANG_NOT_FOUND
 condition|)
 block|{
 comment|/*          * Try to use English messages first and fallback to a language,          * based on locale: non-English Windows have no English messages          * at all.  This way allows to use English messages at least on          * Windows with MUI.          */
