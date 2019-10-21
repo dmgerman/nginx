@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27df9d600108
+DECL|struct|__anon2a465c6b0108
 typedef|typedef
 struct|struct
 block|{
@@ -39,7 +39,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27df9d600208
+DECL|struct|__anon2a465c6b0208
 typedef|typedef
 struct|struct
 block|{
@@ -415,11 +415,9 @@ if|if
 condition|(
 name|c
 operator|->
-name|proxy_protocol_addr
-operator|.
-name|len
+name|proxy_protocol
 operator|==
-literal|0
+name|NULL
 condition|)
 block|{
 return|return
@@ -459,13 +457,17 @@ name|addr
 argument_list|,
 name|c
 operator|->
-name|proxy_protocol_addr
+name|proxy_protocol
+operator|->
+name|src_addr
 operator|.
 name|data
 argument_list|,
 name|c
 operator|->
-name|proxy_protocol_addr
+name|proxy_protocol
+operator|->
+name|src_addr
 operator|.
 name|len
 argument_list|)
@@ -485,7 +487,9 @@ name|sockaddr
 argument_list|,
 name|c
 operator|->
-name|proxy_protocol_port
+name|proxy_protocol
+operator|->
+name|src_port
 argument_list|)
 expr_stmt|;
 return|return

@@ -149,6 +149,15 @@ typedef|;
 end_typedef
 
 begin_typedef
+DECL|typedef|ngx_proxy_protocol_t
+typedef|typedef
+name|struct
+name|ngx_proxy_protocol_s
+name|ngx_proxy_protocol_t
+typedef|;
+end_typedef
+
+begin_typedef
 DECL|typedef|ngx_ssl_connection_t
 typedef|typedef
 name|struct

@@ -36,6 +36,23 @@ name|NGX_PROXY_PROTOCOL_MAX_HEADER
 value|107
 end_define
 
+begin_struct
+DECL|struct|ngx_proxy_protocol_s
+struct|struct
+name|ngx_proxy_protocol_s
+block|{
+DECL|member|src_addr
+name|ngx_str_t
+name|src_addr
+decl_stmt|;
+DECL|member|src_port
+name|in_port_t
+name|src_port
+decl_stmt|;
+block|}
+struct|;
+end_struct
+
 begin_function_decl
 name|u_char
 modifier|*

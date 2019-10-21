@@ -54,7 +54,7 @@ value|3
 end_define
 
 begin_typedef
-DECL|struct|__anon2aeefd390108
+DECL|struct|__anon2be00eaa0108
 typedef|typedef
 struct|struct
 block|{
@@ -87,7 +87,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aeefd390208
+DECL|struct|__anon2be00eaa0208
 typedef|typedef
 struct|struct
 block|{
@@ -685,6 +685,21 @@ break|break;
 case|case
 name|NGX_HTTP_REALIP_PROXY
 case|:
+if|if
+condition|(
+name|r
+operator|->
+name|connection
+operator|->
+name|proxy_protocol
+operator|==
+name|NULL
+condition|)
+block|{
+return|return
+name|NGX_DECLINED
+return|;
+block|}
 name|value
 operator|=
 operator|&
@@ -692,21 +707,10 @@ name|r
 operator|->
 name|connection
 operator|->
-name|proxy_protocol_addr
-expr_stmt|;
-if|if
-condition|(
-name|value
+name|proxy_protocol
 operator|->
-name|len
-operator|==
-literal|0
-condition|)
-block|{
-return|return
-name|NGX_DECLINED
-return|;
-block|}
+name|src_addr
+expr_stmt|;
 name|xfwd
 operator|=
 name|NULL
@@ -931,7 +935,9 @@ name|sockaddr
 argument_list|,
 name|c
 operator|->
-name|proxy_protocol_port
+name|proxy_protocol
+operator|->
+name|src_port
 argument_list|)
 expr_stmt|;
 block|}
