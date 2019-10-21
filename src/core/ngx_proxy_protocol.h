@@ -45,9 +45,17 @@ DECL|member|src_addr
 name|ngx_str_t
 name|src_addr
 decl_stmt|;
+DECL|member|dst_addr
+name|ngx_str_t
+name|dst_addr
+decl_stmt|;
 DECL|member|src_port
 name|in_port_t
 name|src_port
+decl_stmt|;
+DECL|member|dst_port
+name|in_port_t
+name|dst_port
 decl_stmt|;
 block|}
 struct|;
