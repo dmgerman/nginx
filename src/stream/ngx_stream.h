@@ -129,7 +129,7 @@ value|503
 end_define
 
 begin_typedef
-DECL|struct|__anon2951898b0108
+DECL|struct|__anon2b042f0a0108
 typedef|typedef
 struct|struct
 block|{
@@ -152,7 +152,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2951898b0208
+DECL|struct|__anon2b042f0a0208
 typedef|typedef
 struct|struct
 block|{
@@ -267,7 +267,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2951898b0308
+DECL|struct|__anon2b042f0a0308
 typedef|typedef
 struct|struct
 block|{
@@ -299,7 +299,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2951898b0408
+DECL|struct|__anon2b042f0a0408
 typedef|typedef
 struct|struct
 block|{
@@ -326,7 +326,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2951898b0508
+DECL|struct|__anon2b042f0a0508
 typedef|typedef
 struct|struct
 block|{
@@ -351,7 +351,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2951898b0608
+DECL|struct|__anon2b042f0a0608
 typedef|typedef
 struct|struct
 block|{
@@ -372,7 +372,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2951898b0708
+DECL|struct|__anon2b042f0a0708
 typedef|typedef
 struct|struct
 block|{
@@ -400,7 +400,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2951898b0808
+DECL|struct|__anon2b042f0a0808
 typedef|typedef
 struct|struct
 block|{
@@ -415,7 +415,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2951898b0903
+DECL|enum|__anon2b042f0a0903
 typedef|typedef
 enum|enum
 block|{
@@ -530,7 +530,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2951898b0a08
+DECL|struct|__anon2b042f0a0a08
 typedef|typedef
 struct|struct
 block|{
@@ -546,7 +546,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2951898b0b08
+DECL|struct|__anon2b042f0a0b08
 typedef|typedef
 struct|struct
 block|{
@@ -561,7 +561,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2951898b0c08
+DECL|struct|__anon2b042f0a0c08
 typedef|typedef
 struct|struct
 block|{
@@ -626,7 +626,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2951898b0d08
+DECL|struct|__anon2b042f0a0d08
 typedef|typedef
 struct|struct
 block|{
@@ -801,12 +801,18 @@ name|health_check
 range|:
 literal|1
 decl_stmt|;
+DECL|member|limit_conn_status
+name|unsigned
+name|limit_conn_status
+range|:
+literal|2
+decl_stmt|;
 block|}
 struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2951898b0e08
+DECL|struct|__anon2b042f0a0e08
 typedef|typedef
 struct|struct
 block|{
