@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29d5faa10108
+DECL|struct|__anon276a3b490108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d5faa10208
+DECL|struct|__anon276a3b490208
 typedef|typedef
 struct|struct
 block|{
@@ -73,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d5faa10308
+DECL|struct|__anon276a3b490308
 typedef|typedef
 struct|struct
 block|{
@@ -93,7 +93,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d5faa10408
+DECL|struct|__anon276a3b490408
 typedef|typedef
 struct|struct
 block|{
@@ -113,7 +113,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29d5faa10508
+DECL|struct|__anon276a3b490508
 typedef|typedef
 struct|struct
 block|{
@@ -128,6 +128,10 @@ decl_stmt|;
 DECL|member|status_code
 name|ngx_uint_t
 name|status_code
+decl_stmt|;
+DECL|member|dry_run
+name|ngx_flag_t
+name|dry_run
 decl_stmt|;
 DECL|typedef|ngx_http_limit_conn_conf_t
 block|}
@@ -443,6 +447,34 @@ argument_list|)
 block|,
 operator|&
 name|ngx_http_limit_conn_status_bounds
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"limit_conn_dry_run"
+argument_list|)
+block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
+name|NGX_HTTP_SRV_CONF
+operator||
+name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_CONF_FLAG
+block|,
+name|ngx_conf_set_flag_slot
+block|,
+name|NGX_HTTP_LOC_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+name|ngx_http_limit_conn_conf_t
+argument_list|,
+name|dry_run
+argument_list|)
+block|,
+name|NULL
 block|}
 block|,
 name|ngx_null_command
@@ -830,6 +862,17 @@ operator|->
 name|pool
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|lccf
+operator|->
+name|dry_run
+condition|)
+block|{
+return|return
+name|NGX_DECLINED
+return|;
+block|}
 return|return
 name|lccf
 operator|->
@@ -947,7 +990,15 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"limiting connections by zone \"%V\""
+literal|"limiting connections%s by zone \"%V\""
+argument_list|,
+name|lccf
+operator|->
+name|dry_run
+condition|?
+literal|", dry run,"
+else|:
+literal|""
 argument_list|,
 operator|&
 name|limits
@@ -969,6 +1020,17 @@ operator|->
 name|pool
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|lccf
+operator|->
+name|dry_run
+condition|)
+block|{
+return|return
+name|NGX_DECLINED
+return|;
+block|}
 return|return
 name|lccf
 operator|->
@@ -1980,6 +2042,12 @@ name|status_code
 operator|=
 name|NGX_CONF_UNSET_UINT
 expr_stmt|;
+name|conf
+operator|->
+name|dry_run
+operator|=
+name|NGX_CONF_UNSET
+expr_stmt|;
 return|return
 name|conf
 return|;
@@ -2062,6 +2130,19 @@ operator|->
 name|status_code
 argument_list|,
 name|NGX_HTTP_SERVICE_UNAVAILABLE
+argument_list|)
+expr_stmt|;
+name|ngx_conf_merge_value
+argument_list|(
+name|conf
+operator|->
+name|dry_run
+argument_list|,
+name|prev
+operator|->
+name|dry_run
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 return|return

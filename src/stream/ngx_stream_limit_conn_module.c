@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b9b791e0108
+DECL|struct|__anon288163c00108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b9b791e0208
+DECL|struct|__anon288163c00208
 typedef|typedef
 struct|struct
 block|{
@@ -73,7 +73,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b9b791e0308
+DECL|struct|__anon288163c00308
 typedef|typedef
 struct|struct
 block|{
@@ -93,7 +93,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b9b791e0408
+DECL|struct|__anon288163c00408
 typedef|typedef
 struct|struct
 block|{
@@ -113,7 +113,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b9b791e0508
+DECL|struct|__anon288163c00508
 typedef|typedef
 struct|struct
 block|{
@@ -124,6 +124,10 @@ decl_stmt|;
 DECL|member|log_level
 name|ngx_uint_t
 name|log_level
+decl_stmt|;
+DECL|member|dry_run
+name|ngx_flag_t
+name|dry_run
 decl_stmt|;
 DECL|typedef|ngx_stream_limit_conn_conf_t
 block|}
@@ -390,6 +394,32 @@ argument_list|)
 block|,
 operator|&
 name|ngx_stream_limit_conn_log_levels
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"limit_conn_dry_run"
+argument_list|)
+block|,
+name|NGX_STREAM_MAIN_CONF
+operator||
+name|NGX_STREAM_SRV_CONF
+operator||
+name|NGX_CONF_FLAG
+block|,
+name|ngx_conf_set_flag_slot
+block|,
+name|NGX_STREAM_SRV_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+name|ngx_stream_limit_conn_conf_t
+argument_list|,
+name|dry_run
+argument_list|)
+block|,
+name|NULL
 block|}
 block|,
 name|ngx_null_command
@@ -752,6 +782,17 @@ operator|->
 name|pool
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|lccf
+operator|->
+name|dry_run
+condition|)
+block|{
+return|return
+name|NGX_DECLINED
+return|;
+block|}
 return|return
 name|NGX_STREAM_SERVICE_UNAVAILABLE
 return|;
@@ -867,7 +908,15 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"limiting connections by zone \"%V\""
+literal|"limiting connections%s by zone \"%V\""
+argument_list|,
+name|lccf
+operator|->
+name|dry_run
+condition|?
+literal|", dry run,"
+else|:
+literal|""
 argument_list|,
 operator|&
 name|limits
@@ -891,6 +940,17 @@ operator|->
 name|pool
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|lccf
+operator|->
+name|dry_run
+condition|)
+block|{
+return|return
+name|NGX_DECLINED
+return|;
+block|}
 return|return
 name|NGX_STREAM_SERVICE_UNAVAILABLE
 return|;
@@ -1896,6 +1956,12 @@ name|log_level
 operator|=
 name|NGX_CONF_UNSET_UINT
 expr_stmt|;
+name|conf
+operator|->
+name|dry_run
+operator|=
+name|NGX_CONF_UNSET
+expr_stmt|;
 return|return
 name|conf
 return|;
@@ -1965,6 +2031,19 @@ operator|->
 name|log_level
 argument_list|,
 name|NGX_LOG_ERR
+argument_list|)
+expr_stmt|;
+name|ngx_conf_merge_value
+argument_list|(
+name|conf
+operator|->
+name|dry_run
+argument_list|,
+name|prev
+operator|->
+name|dry_run
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 return|return
