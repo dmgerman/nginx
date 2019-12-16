@@ -54,7 +54,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon2c37e6920108
+DECL|struct|__anon27a6f4fd0108
 typedef|typedef
 struct|struct
 block|{
@@ -81,7 +81,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c37e6920208
+DECL|struct|__anon27a6f4fd0208
 typedef|typedef
 struct|struct
 block|{
@@ -2249,13 +2249,6 @@ operator|)
 operator|=
 literal|'\0'
 expr_stmt|;
-name|r
-operator|->
-name|uri
-operator|.
-name|len
-operator|--
-expr_stmt|;
 name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
@@ -2294,6 +2287,15 @@ operator|!=
 name|NGX_FILE_ERROR
 condition|)
 block|{
+operator|*
+operator|(
+name|p
+operator|-
+literal|1
+operator|)
+operator|=
+literal|'/'
+expr_stmt|;
 if|if
 condition|(
 name|ngx_http_dav_location
