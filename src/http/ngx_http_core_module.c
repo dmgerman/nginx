@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29ac52be0108
+DECL|struct|__anon2b922fd20108
 typedef|typedef
 struct|struct
 block|{
@@ -7809,7 +7809,7 @@ block|}
 block|}
 name|last
 operator|=
-name|ngx_cpystrn
+name|ngx_copy
 argument_list|(
 name|last
 argument_list|,
@@ -7828,9 +7828,12 @@ operator|.
 name|len
 operator|-
 name|alias
-operator|+
-literal|1
 argument_list|)
+expr_stmt|;
+operator|*
+name|last
+operator|=
+literal|'\0'
 expr_stmt|;
 return|return
 name|last
