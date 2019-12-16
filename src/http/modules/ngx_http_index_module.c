@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29ea84f60108
+DECL|struct|__anon29989d980108
 typedef|typedef
 struct|struct
 block|{
@@ -47,7 +47,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29ea84f60208
+DECL|struct|__anon29989d980208
 typedef|typedef
 struct|struct
 block|{
@@ -664,7 +664,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_ERROR
+name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
 block|}
 name|allocated
