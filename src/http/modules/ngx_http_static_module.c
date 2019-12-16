@@ -590,12 +590,6 @@ name|clcf
 operator|->
 name|alias
 operator|&&
-name|clcf
-operator|->
-name|root_lengths
-operator|==
-name|NULL
-operator|&&
 name|r
 operator|->
 name|args
@@ -611,11 +605,7 @@ name|path
 operator|.
 name|data
 operator|+
-name|clcf
-operator|->
 name|root
-operator|.
-name|len
 expr_stmt|;
 operator|*
 name|last
