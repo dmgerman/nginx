@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29ec70680108
+DECL|struct|__anon28a243490108
 typedef|typedef
 struct|struct
 block|{
@@ -1291,6 +1291,33 @@ name|args
 operator|->
 name|elts
 expr_stmt|;
+if|if
+condition|(
+name|value
+index|[
+literal|2
+index|]
+operator|.
+name|len
+operator|==
+literal|0
+condition|)
+block|{
+name|ngx_conf_log_error
+argument_list|(
+name|NGX_LOG_EMERG
+argument_list|,
+name|cf
+argument_list|,
+literal|0
+argument_list|,
+literal|"empty replacement"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_CONF_ERROR
+return|;
+block|}
 name|ngx_memzero
 argument_list|(
 operator|&
