@@ -54,7 +54,7 @@ value|-1
 end_define
 
 begin_typedef
-DECL|struct|__anon2911a4930108
+DECL|struct|__anon2ad038720108
 typedef|typedef
 struct|struct
 block|{
@@ -81,7 +81,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2911a4930208
+DECL|struct|__anon2ad038720208
 typedef|typedef
 struct|struct
 block|{
@@ -1392,6 +1392,12 @@ operator|.
 name|content_length_n
 operator|>
 literal|0
+operator|||
+name|r
+operator|->
+name|headers_in
+operator|.
+name|chunked
 condition|)
 block|{
 name|ngx_log_error
@@ -2146,6 +2152,12 @@ operator|.
 name|content_length_n
 operator|>
 literal|0
+operator|||
+name|r
+operator|->
+name|headers_in
+operator|.
+name|chunked
 condition|)
 block|{
 name|ngx_log_error
@@ -2409,8 +2421,29 @@ operator|.
 name|content_length_n
 operator|>
 literal|0
+operator|||
+name|r
+operator|->
+name|headers_in
+operator|.
+name|chunked
 condition|)
 block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"COPY and MOVE with body are unsupported"
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_HTTP_UNSUPPORTED_MEDIA_TYPE
 return|;
