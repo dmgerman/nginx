@@ -75,6 +75,21 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_function_decl
+name|void
+name|ngx_event_process_posted_next
+parameter_list|(
+name|ngx_cycle_t
+modifier|*
+name|cycle
+parameter_list|,
+name|ngx_queue_t
+modifier|*
+name|posted
+parameter_list|)
+function_decl|;
+end_function_decl
+
 begin_decl_stmt
 specifier|extern
 name|ngx_queue_t

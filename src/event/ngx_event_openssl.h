@@ -354,10 +354,6 @@ DECL|member|saved_write_handler
 name|ngx_event_handler_pt
 name|saved_write_handler
 decl_stmt|;
-DECL|member|next_read_handler
-name|ngx_event_handler_pt
-name|next_read_handler
-decl_stmt|;
 DECL|member|early_buf
 name|u_char
 name|early_buf
@@ -532,7 +528,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bf7cdd20108
+DECL|struct|__anon2b66d00e0108
 typedef|typedef
 struct|struct
 block|{
@@ -561,7 +557,7 @@ name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon2bf7cdd20208
+DECL|struct|__anon2b66d00e0208
 typedef|typedef
 struct|struct
 block|{
