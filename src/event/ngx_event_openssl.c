@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2ae552800108
+DECL|struct|__anon2a0b9c360108
 typedef|typedef
 struct|struct
 block|{
@@ -8311,6 +8311,23 @@ name|ready
 operator|=
 literal|0
 expr_stmt|;
+if|if
+condition|(
+name|c
+operator|->
+name|read
+operator|->
+name|posted
+condition|)
+block|{
+name|ngx_delete_posted_event
+argument_list|(
+name|c
+operator|->
+name|read
+argument_list|)
+expr_stmt|;
+block|}
 name|ngx_post_event
 argument_list|(
 name|c

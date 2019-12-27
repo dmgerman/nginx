@@ -949,6 +949,11 @@ name|ngx_posted_next_events
 argument_list|)
 condition|)
 block|{
+name|ngx_event_move_posted_next
+argument_list|(
+name|cycle
+argument_list|)
+expr_stmt|;
 name|timer
 operator|=
 literal|0
@@ -1026,14 +1031,6 @@ name|cycle
 argument_list|,
 operator|&
 name|ngx_posted_events
-argument_list|)
-expr_stmt|;
-name|ngx_event_process_posted_next
-argument_list|(
-name|cycle
-argument_list|,
-operator|&
-name|ngx_posted_next_events
 argument_list|)
 expr_stmt|;
 block|}
