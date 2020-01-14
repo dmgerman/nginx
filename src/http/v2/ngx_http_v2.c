@@ -28,7 +28,7 @@ file|<ngx_http_v2_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bac6d700108
+DECL|struct|__anon2ac5994d0108
 typedef|typedef
 struct|struct
 block|{
@@ -11661,17 +11661,6 @@ argument_list|,
 literal|"http2 state connection error"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|err
-operator|==
-name|NGX_HTTP_V2_INTERNAL_ERROR
-condition|)
-block|{
-name|ngx_debug_point
-argument_list|()
-expr_stmt|;
-block|}
 name|ngx_http_v2_finalize_connection
 argument_list|(
 name|h2c
@@ -15542,7 +15531,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2bac6d700208
+DECL|struct|__anon2ac5994d0208
 specifier|static
 specifier|const
 struct|struct
