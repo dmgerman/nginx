@@ -782,7 +782,7 @@ argument_list|,
 name|transfer_encoding
 argument_list|)
 block|,
-name|ngx_http_process_header_line
+name|ngx_http_process_unique_header_line
 block|}
 block|,
 block|{
@@ -9099,7 +9099,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon27ba11e30103
+DECL|enum|__anon27dbc1490103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
