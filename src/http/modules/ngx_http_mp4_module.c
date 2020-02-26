@@ -246,7 +246,7 @@ value|NGX_HTTP_MP4_CO64_DATA
 end_define
 
 begin_typedef
-DECL|struct|__anon28831b2c0108
+DECL|struct|__anon2ab072100108
 typedef|typedef
 struct|struct
 block|{
@@ -265,7 +265,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28831b2c0208
+DECL|struct|__anon2ab072100208
 typedef|typedef
 struct|struct
 block|{
@@ -297,7 +297,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28831b2c0308
+DECL|struct|__anon2ab072100308
 typedef|typedef
 struct|struct
 block|{
@@ -529,7 +529,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28831b2c0408
+DECL|struct|__anon2ab072100408
 typedef|typedef
 struct|struct
 block|{
@@ -675,7 +675,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28831b2c0508
+DECL|struct|__anon2ab072100508
 typedef|typedef
 struct|struct
 block|{
@@ -4225,7 +4225,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon28831b2c0608
+DECL|struct|__anon2ab072100608
 typedef|typedef
 struct|struct
 block|{
@@ -4250,7 +4250,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28831b2c0708
+DECL|struct|__anon2ab072100708
 typedef|typedef
 struct|struct
 block|{
@@ -5993,7 +5993,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon28831b2c0808
+DECL|struct|__anon2ab072100808
 typedef|typedef
 struct|struct
 block|{
@@ -6137,7 +6137,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28831b2c0908
+DECL|struct|__anon2ab072100908
 typedef|typedef
 struct|struct
 block|{
@@ -7074,7 +7074,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon28831b2c0a08
+DECL|struct|__anon2ab072100a08
 typedef|typedef
 struct|struct
 block|{
@@ -7204,7 +7204,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28831b2c0b08
+DECL|struct|__anon2ab072100b08
 typedef|typedef
 struct|struct
 block|{
@@ -7961,7 +7961,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon28831b2c0c08
+DECL|struct|__anon2ab072100c08
 typedef|typedef
 struct|struct
 block|{
@@ -8042,7 +8042,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28831b2c0d08
+DECL|struct|__anon2ab072100d08
 typedef|typedef
 struct|struct
 block|{
@@ -9542,7 +9542,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon28831b2c0e08
+DECL|struct|__anon2ab072100e08
 typedef|typedef
 struct|struct
 block|{
@@ -9839,7 +9839,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon28831b2c0f08
+DECL|struct|__anon2ab072100f08
 typedef|typedef
 struct|struct
 block|{
@@ -9885,7 +9885,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28831b2c1008
+DECL|struct|__anon2ab072101008
 typedef|typedef
 struct|struct
 block|{
@@ -10905,7 +10905,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon28831b2c1108
+DECL|struct|__anon2ab072101108
 typedef|typedef
 struct|struct
 block|{
@@ -11776,7 +11776,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon28831b2c1208
+DECL|struct|__anon2ab072101208
 typedef|typedef
 struct|struct
 block|{
@@ -11822,7 +11822,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28831b2c1308
+DECL|struct|__anon2ab072101308
 typedef|typedef
 struct|struct
 block|{
@@ -12675,7 +12675,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon28831b2c1408
+DECL|struct|__anon2ab072101408
 typedef|typedef
 struct|struct
 block|{
@@ -14304,7 +14304,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon28831b2c1508
+DECL|struct|__anon2ab072101508
 typedef|typedef
 struct|struct
 block|{
@@ -14911,6 +14911,47 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|trak
+operator|->
+name|start_chunk_samples_size
+operator|>
+operator|(
+name|uint64_t
+operator|)
+name|mp4
+operator|->
+name|end
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"too large mp4 start samples size in \"%s\""
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|name
+operator|.
+name|data
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
+if|if
+condition|(
 name|mp4
 operator|->
 name|length
@@ -15038,6 +15079,47 @@ operator|->
 name|end_chunk_samples_size
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|trak
+operator|->
+name|end_chunk_samples_size
+operator|>
+operator|(
+name|uint64_t
+operator|)
+name|mp4
+operator|->
+name|end
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"too large mp4 end samples size in \"%s\""
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|name
+operator|.
+name|data
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
 block|}
 name|atom_size
 operator|=
@@ -15109,7 +15191,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon28831b2c1608
+DECL|struct|__anon2ab072101608
 typedef|typedef
 struct|struct
 block|{
@@ -15486,6 +15568,11 @@ decl_stmt|;
 name|uint32_t
 name|entries
 decl_stmt|;
+name|uint64_t
+name|chunk_offset
+decl_stmt|,
+name|samples_size
+decl_stmt|;
 name|ngx_buf_t
 modifier|*
 name|atom
@@ -15609,9 +15696,7 @@ argument_list|(
 name|uint32_t
 argument_list|)
 expr_stmt|;
-name|trak
-operator|->
-name|start_offset
+name|chunk_offset
 operator|=
 name|ngx_mp4_get_32value
 argument_list|(
@@ -15620,13 +15705,66 @@ operator|->
 name|pos
 argument_list|)
 expr_stmt|;
-name|trak
-operator|->
-name|start_offset
-operator|+=
+name|samples_size
+operator|=
 name|trak
 operator|->
 name|start_chunk_samples_size
+expr_stmt|;
+if|if
+condition|(
+name|chunk_offset
+operator|>
+operator|(
+name|uint64_t
+operator|)
+name|mp4
+operator|->
+name|end
+operator|-
+name|samples_size
+operator|||
+name|chunk_offset
+operator|+
+name|samples_size
+operator|>
+name|NGX_MAX_UINT32_VALUE
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"too large chunk offset in \"%s\""
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|name
+operator|.
+name|data
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
+name|trak
+operator|->
+name|start_offset
+operator|=
+name|chunk_offset
+operator|+
+name|samples_size
 expr_stmt|;
 name|ngx_mp4_set_32value
 argument_list|(
@@ -15733,9 +15871,7 @@ condition|(
 name|entries
 condition|)
 block|{
-name|trak
-operator|->
-name|end_offset
+name|chunk_offset
 operator|=
 name|ngx_mp4_get_32value
 argument_list|(
@@ -15749,13 +15885,66 @@ name|uint32_t
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|trak
-operator|->
-name|end_offset
-operator|+=
+name|samples_size
+operator|=
 name|trak
 operator|->
 name|end_chunk_samples_size
+expr_stmt|;
+if|if
+condition|(
+name|chunk_offset
+operator|>
+operator|(
+name|uint64_t
+operator|)
+name|mp4
+operator|->
+name|end
+operator|-
+name|samples_size
+operator|||
+name|chunk_offset
+operator|+
+name|samples_size
+operator|>
+name|NGX_MAX_UINT32_VALUE
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"too large chunk offset in \"%s\""
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|name
+operator|.
+name|data
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
+name|trak
+operator|->
+name|end_offset
+operator|=
+name|chunk_offset
+operator|+
+name|samples_size
 expr_stmt|;
 name|ngx_log_debug1
 argument_list|(
@@ -16004,7 +16193,7 @@ block|}
 end_function
 
 begin_typedef
-DECL|struct|__anon28831b2c1708
+DECL|struct|__anon2ab072101708
 typedef|typedef
 struct|struct
 block|{
@@ -16380,6 +16569,10 @@ name|atom_size
 decl_stmt|;
 name|uint64_t
 name|entries
+decl_stmt|,
+name|chunk_offset
+decl_stmt|,
+name|samples_size
 decl_stmt|;
 name|ngx_buf_t
 modifier|*
@@ -16504,9 +16697,7 @@ argument_list|(
 name|uint64_t
 argument_list|)
 expr_stmt|;
-name|trak
-operator|->
-name|start_offset
+name|chunk_offset
 operator|=
 name|ngx_mp4_get_64value
 argument_list|(
@@ -16515,13 +16706,60 @@ operator|->
 name|pos
 argument_list|)
 expr_stmt|;
-name|trak
-operator|->
-name|start_offset
-operator|+=
+name|samples_size
+operator|=
 name|trak
 operator|->
 name|start_chunk_samples_size
+expr_stmt|;
+if|if
+condition|(
+name|chunk_offset
+operator|>
+operator|(
+name|uint64_t
+operator|)
+name|mp4
+operator|->
+name|end
+operator|-
+name|samples_size
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"too large chunk offset in \"%s\""
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|name
+operator|.
+name|data
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
+name|trak
+operator|->
+name|start_offset
+operator|=
+name|chunk_offset
+operator|+
+name|samples_size
 expr_stmt|;
 name|ngx_mp4_set_64value
 argument_list|(
@@ -16628,9 +16866,7 @@ condition|(
 name|entries
 condition|)
 block|{
-name|trak
-operator|->
-name|end_offset
+name|chunk_offset
 operator|=
 name|ngx_mp4_get_64value
 argument_list|(
@@ -16644,13 +16880,60 @@ name|uint64_t
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|trak
-operator|->
-name|end_offset
-operator|+=
+name|samples_size
+operator|=
 name|trak
 operator|->
 name|end_chunk_samples_size
+expr_stmt|;
+if|if
+condition|(
+name|chunk_offset
+operator|>
+operator|(
+name|uint64_t
+operator|)
+name|mp4
+operator|->
+name|end
+operator|-
+name|samples_size
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"too large chunk offset in \"%s\""
+argument_list|,
+name|mp4
+operator|->
+name|file
+operator|.
+name|name
+operator|.
+name|data
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
+name|trak
+operator|->
+name|end_offset
+operator|=
+name|chunk_offset
+operator|+
+name|samples_size
 expr_stmt|;
 name|ngx_log_debug1
 argument_list|(
