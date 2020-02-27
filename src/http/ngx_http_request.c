@@ -3350,6 +3350,13 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|ngx_reusable_connection
+argument_list|(
+name|c
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
 name|rc
 operator|=
 name|ngx_ssl_handshake
@@ -3384,13 +3391,6 @@ name|post_accept_timeout
 argument_list|)
 expr_stmt|;
 block|}
-name|ngx_reusable_connection
-argument_list|(
-name|c
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
 name|c
 operator|->
 name|ssl
@@ -9115,7 +9115,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon2b6eb5a00103
+DECL|enum|__anon2c071fb70103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
