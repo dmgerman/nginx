@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon277fd0170108
+DECL|struct|__anon29910c480108
 typedef|typedef
 struct|struct
 block|{
@@ -21138,6 +21138,9 @@ name|NGX_HTTPS_CERT_ERROR
 case|:
 case|case
 name|NGX_HTTPS_NO_CERT
+case|:
+case|case
+name|NGX_HTTP_REQUEST_HEADER_TOO_LARGE
 case|:
 name|err
 operator|->
