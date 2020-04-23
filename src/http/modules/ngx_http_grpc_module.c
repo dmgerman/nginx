@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon299b0e2d0108
+DECL|struct|__anon297d1a8c0108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299b0e2d0208
+DECL|struct|__anon297d1a8c0208
 typedef|typedef
 struct|struct
 block|{
@@ -138,7 +138,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon299b0e2d0303
+DECL|enum|__anon297d1a8c0303
 typedef|typedef
 enum|enum
 block|{
@@ -183,7 +183,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299b0e2d0408
+DECL|struct|__anon297d1a8c0408
 typedef|typedef
 struct|struct
 block|{
@@ -210,7 +210,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299b0e2d0508
+DECL|struct|__anon297d1a8c0508
 typedef|typedef
 struct|struct
 block|{
@@ -397,6 +397,12 @@ name|status
 range|:
 literal|1
 decl_stmt|;
+DECL|member|rst
+name|unsigned
+name|rst
+range|:
+literal|1
+decl_stmt|;
 DECL|member|request
 name|ngx_http_request_t
 modifier|*
@@ -413,7 +419,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon299b0e2d0608
+DECL|struct|__anon297d1a8c0608
 typedef|typedef
 struct|struct
 block|{
@@ -5869,6 +5875,12 @@ literal|0
 expr_stmt|;
 name|ctx
 operator|->
+name|rst
+operator|=
+literal|0
+expr_stmt|;
+name|ctx
+operator|->
 name|connection
 operator|=
 name|NULL
@@ -9599,6 +9611,12 @@ operator|&&
 name|ctx
 operator|->
 name|done
+operator|&&
+name|ctx
+operator|->
+name|type
+operator|!=
+name|NGX_HTTP_V2_RST_STREAM_FRAME
 condition|)
 block|{
 name|ngx_log_error
@@ -9763,6 +9781,18 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+if|if
+condition|(
+name|ctx
+operator|->
+name|error
+operator|||
+operator|!
+name|ctx
+operator|->
+name|done
+condition|)
+block|{
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ERR
@@ -9785,6 +9815,43 @@ expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
+block|}
+if|if
+condition|(
+name|ctx
+operator|->
+name|rst
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ERR
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"upstream sent frame for closed stream %ui"
+argument_list|,
+name|ctx
+operator|->
+name|stream_id
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
+name|ctx
+operator|->
+name|rst
+operator|=
+literal|1
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -11179,7 +11246,7 @@ decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
-DECL|enum|__anon299b0e2d0703
+DECL|enum|__anon297d1a8c0703
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -11876,7 +11943,7 @@ name|index
 decl_stmt|,
 name|size_update
 decl_stmt|;
-DECL|enum|__anon299b0e2d0803
+DECL|enum|__anon297d1a8c0803
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -13959,7 +14026,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon299b0e2d0903
+DECL|enum|__anon297d1a8c0903
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -14250,7 +14317,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon299b0e2d0a03
+DECL|enum|__anon297d1a8c0a03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -14667,7 +14734,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon299b0e2d0b03
+DECL|enum|__anon297d1a8c0b03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -15066,7 +15133,7 @@ decl_stmt|;
 name|ssize_t
 name|window_update
 decl_stmt|;
-DECL|enum|__anon299b0e2d0c03
+DECL|enum|__anon297d1a8c0c03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -15666,7 +15733,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon299b0e2d0d03
+DECL|enum|__anon297d1a8c0d03
 enum|enum
 block|{
 DECL|enumerator|sw_start
