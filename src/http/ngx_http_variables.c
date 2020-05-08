@@ -5684,6 +5684,10 @@ literal|1
 expr_stmt|;
 if|if
 condition|(
+name|len
+operator|==
+literal|0
+operator|||
 name|ngx_http_arg
 argument_list|(
 name|r
