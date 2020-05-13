@@ -11000,6 +11000,7 @@ return|;
 block|}
 endif|#
 directive|endif
+break|break;
 block|}
 if|#
 directive|if
