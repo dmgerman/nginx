@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c4b9d7b0108
+DECL|struct|__anon29b632f50108
 typedef|typedef
 struct|struct
 block|{
@@ -149,6 +149,11 @@ decl_stmt|;
 DECL|member|ocsp_responder
 name|ngx_str_t
 name|ocsp_responder
+decl_stmt|;
+DECL|member|ocsp_cache_zone
+name|ngx_shm_zone_t
+modifier|*
+name|ocsp_cache_zone
 decl_stmt|;
 DECL|member|stapling
 name|ngx_flag_t

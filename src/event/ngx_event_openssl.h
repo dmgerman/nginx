@@ -548,7 +548,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bbfde5a0108
+DECL|struct|__anon2ae614df0108
 typedef|typedef
 struct|struct
 block|{
@@ -577,7 +577,7 @@ name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon2bbfde5a0208
+DECL|struct|__anon2ae614df0208
 typedef|typedef
 struct|struct
 block|{
@@ -950,6 +950,10 @@ name|responder
 parameter_list|,
 name|ngx_uint_t
 name|depth
+parameter_list|,
+name|ngx_shm_zone_t
+modifier|*
+name|shm_zone
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -1011,6 +1015,21 @@ parameter_list|(
 name|ngx_connection_t
 modifier|*
 name|c
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_ssl_ocsp_cache_init
+parameter_list|(
+name|ngx_shm_zone_t
+modifier|*
+name|shm_zone
+parameter_list|,
+name|void
+modifier|*
+name|data
 parameter_list|)
 function_decl|;
 end_function_decl
