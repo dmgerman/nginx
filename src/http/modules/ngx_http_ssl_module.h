@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27a73b260108
+DECL|struct|__anon2c4b9d7b0108
 typedef|typedef
 struct|struct
 block|{
@@ -141,6 +141,14 @@ DECL|member|session_ticket_keys
 name|ngx_array_t
 modifier|*
 name|session_ticket_keys
+decl_stmt|;
+DECL|member|ocsp
+name|ngx_uint_t
+name|ocsp
+decl_stmt|;
+DECL|member|ocsp_responder
+name|ngx_str_t
+name|ocsp_responder
 decl_stmt|;
 DECL|member|stapling
 name|ngx_flag_t
