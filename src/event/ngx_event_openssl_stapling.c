@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2bfa128d0108
+DECL|struct|__anon2959181e0108
 typedef|typedef
 struct|struct
 block|{
@@ -137,7 +137,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bfa128d0208
+DECL|struct|__anon2959181e0208
 typedef|typedef
 struct|struct
 block|{
@@ -187,7 +187,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bfa128d0308
+DECL|struct|__anon2959181e0308
 typedef|typedef
 struct|struct
 block|{
@@ -210,7 +210,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bfa128d0408
+DECL|struct|__anon2959181e0408
 typedef|typedef
 struct|struct
 block|{
@@ -4168,7 +4168,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"ssl ocsp validate, certs:%i"
+literal|"ssl ocsp validate, certs:%d"
 argument_list|,
 name|sk_X509_num
 argument_list|(
@@ -7946,7 +7946,7 @@ name|ngx_buf_t
 modifier|*
 name|b
 decl_stmt|;
-DECL|enum|__anon2bfa128d0503
+DECL|enum|__anon2959181e0503
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -8772,7 +8772,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2bfa128d0603
+DECL|enum|__anon2959181e0603
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -10985,7 +10985,10 @@ literal|0
 argument_list|,
 literal|"ssl ocsp key %*s"
 argument_list|,
-literal|120
+sizeof|sizeof
+argument_list|(
+name|buf
+argument_list|)
 argument_list|,
 name|buf
 argument_list|)
