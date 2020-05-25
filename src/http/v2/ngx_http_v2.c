@@ -28,7 +28,7 @@ file|<ngx_http_v2_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2909fa6d0108
+DECL|struct|__anon2c7e24f90108
 typedef|typedef
 struct|struct
 block|{
@@ -3719,9 +3719,9 @@ operator|!=
 literal|0
 condition|)
 block|{
-name|ngx_log_debug2
+name|ngx_log_error
 argument_list|(
-name|NGX_LOG_DEBUG_HTTP
+name|NGX_LOG_INFO
 argument_list|,
 name|h2c
 operator|->
@@ -3731,16 +3731,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"invalid http2 connection preface \"%*s\""
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|preface
-argument_list|)
-operator|-
-literal|1
-argument_list|,
-name|pos
+literal|"invalid connection preface"
 argument_list|)
 expr_stmt|;
 return|return
@@ -3851,9 +3842,9 @@ operator|!=
 literal|0
 condition|)
 block|{
-name|ngx_log_debug2
+name|ngx_log_error
 argument_list|(
-name|NGX_LOG_DEBUG_HTTP
+name|NGX_LOG_INFO
 argument_list|,
 name|h2c
 operator|->
@@ -3863,16 +3854,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"invalid http2 connection preface \"%*s\""
-argument_list|,
-sizeof|sizeof
-argument_list|(
-name|preface
-argument_list|)
-operator|-
-literal|1
-argument_list|,
-name|pos
+literal|"invalid connection preface"
 argument_list|)
 expr_stmt|;
 return|return
@@ -15553,7 +15535,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2909fa6d0208
+DECL|struct|__anon2c7e24f90208
 specifier|static
 specifier|const
 struct|struct
