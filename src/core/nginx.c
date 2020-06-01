@@ -1917,6 +1917,12 @@ name|ngx_socket_t
 operator|)
 name|s
 expr_stmt|;
+name|ls
+operator|->
+name|inherited
+operator|=
+literal|1
+expr_stmt|;
 block|}
 block|}
 if|if
