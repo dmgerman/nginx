@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon27c9807e0108
+DECL|struct|__anon2bb4aeb80108
 typedef|typedef
 struct|struct
 block|{
@@ -4052,6 +4052,17 @@ name|ngx_int_t
 name|depth
 parameter_list|)
 block|{
+name|SSL_CTX_set_verify
+argument_list|(
+name|ssl
+operator|->
+name|ctx
+argument_list|,
+name|SSL_VERIFY_PEER
+argument_list|,
+name|ngx_ssl_verify_callback
+argument_list|)
+expr_stmt|;
 name|SSL_CTX_set_verify_depth
 argument_list|(
 name|ssl
