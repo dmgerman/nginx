@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bace2a40108
+DECL|struct|__anon2791d8b10108
 typedef|typedef
 struct|struct
 block|{
@@ -55,7 +55,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bace2a40208
+DECL|struct|__anon2791d8b10208
 typedef|typedef
 struct|struct
 block|{
@@ -3702,7 +3702,7 @@ operator|->
 name|buffer
 operator|->
 name|pos
-operator|<
+operator|<=
 name|c
 operator|->
 name|buffer
@@ -3786,6 +3786,30 @@ name|ngx_buf_tag_t
 operator|)
 operator|&
 name|ngx_stream_proxy_module
+expr_stmt|;
+name|cl
+operator|->
+name|buf
+operator|->
+name|temporary
+operator|=
+operator|(
+name|cl
+operator|->
+name|buf
+operator|->
+name|pos
+operator|==
+name|cl
+operator|->
+name|buf
+operator|->
+name|last
+operator|)
+condition|?
+literal|0
+else|:
+literal|1
 expr_stmt|;
 name|cl
 operator|->
