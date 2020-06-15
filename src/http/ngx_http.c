@@ -6370,9 +6370,9 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
-return|return
-name|NGX_ERROR
-return|;
+goto|goto
+name|failed
+goto|;
 block|}
 if|if
 condition|(
@@ -6409,9 +6409,9 @@ operator|.
 name|addr_text
 argument_list|)
 expr_stmt|;
-return|return
-name|NGX_ERROR
-return|;
+goto|goto
+name|failed
+goto|;
 block|}
 if|if
 condition|(
