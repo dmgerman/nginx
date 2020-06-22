@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2945f6e70108
+DECL|struct|__anon2a3a6f320108
 typedef|typedef
 struct|struct
 block|{
@@ -88,7 +88,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2945f6e70208
+DECL|struct|__anon2a3a6f320208
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2945f6e70308
+DECL|struct|__anon2a3a6f320308
 typedef|typedef
 struct|struct
 block|{
@@ -918,7 +918,8 @@ name|ngx_file_fs_size
 parameter_list|(
 name|sb
 parameter_list|)
-value|ngx_max((sb)->st_size, (sb)->st_blocks * 512)
+define|\
+value|(((sb)->st_blocks * 512> (sb)->st_size                                  \&& (sb)->st_blocks * 512< (sb)->st_size + 8 * (sb)->st_blksize)        \      ? (sb)->st_blocks * 512 : (sb)->st_size)
 end_define
 
 begin_define
