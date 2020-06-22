@@ -54,7 +54,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3a6f320108
+DECL|struct|__anon28ef580c0108
 typedef|typedef
 struct|struct
 block|{
@@ -88,7 +88,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3a6f320208
+DECL|struct|__anon28ef580c0208
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a3a6f320308
+DECL|struct|__anon28ef580c0308
 typedef|typedef
 struct|struct
 block|{
@@ -1765,6 +1765,17 @@ end_endif
 begin_function_decl
 name|size_t
 name|ngx_fs_bsize
+parameter_list|(
+name|u_char
+modifier|*
+name|name
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|off_t
+name|ngx_fs_available
 parameter_list|(
 name|u_char
 modifier|*
