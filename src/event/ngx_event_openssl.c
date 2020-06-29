@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2bb4aeb80108
+DECL|struct|__anon274d48590108
 typedef|typedef
 struct|struct
 block|{
@@ -4058,7 +4058,12 @@ name|ssl
 operator|->
 name|ctx
 argument_list|,
-name|SSL_VERIFY_PEER
+name|SSL_CTX_get_verify_mode
+argument_list|(
+name|ssl
+operator|->
+name|ctx
+argument_list|)
 argument_list|,
 name|ngx_ssl_verify_callback
 argument_list|)
