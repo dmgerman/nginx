@@ -8557,6 +8557,12 @@ name|upgrade
 operator|=
 literal|0
 expr_stmt|;
+name|u
+operator|->
+name|error
+operator|=
+literal|0
+expr_stmt|;
 name|ngx_memzero
 argument_list|(
 operator|&
@@ -15985,6 +15991,10 @@ condition|(
 name|upstream
 operator|->
 name|read
+operator|->
+name|error
+operator|||
+name|u
 operator|->
 name|error
 condition|)
