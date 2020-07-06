@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bb65d250108
+DECL|struct|__anon2b4adf450108
 typedef|typedef
 struct|struct
 block|{
@@ -85,7 +85,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon2bb65d25020a
+DECL|union|__anon2b4adf45020a
 union|union
 block|{
 DECL|member|complex
@@ -117,7 +117,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2bb65d250308
+DECL|struct|__anon2b4adf450308
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb65d250408
+DECL|struct|__anon2b4adf450408
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb65d250508
+DECL|struct|__anon2b4adf450508
 typedef|typedef
 struct|struct
 block|{
@@ -345,7 +345,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bb65d250608
+DECL|struct|__anon2b4adf450608
 typedef|typedef
 struct|struct
 block|{
@@ -10685,9 +10685,7 @@ name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ERR
 argument_list|,
-name|r
-operator|->
-name|connection
+name|p
 operator|->
 name|log
 argument_list|,
@@ -10704,9 +10702,7 @@ name|ngx_log_debug2
 argument_list|(
 name|NGX_LOG_DEBUG_HTTP
 argument_list|,
-name|r
-operator|->
-name|connection
+name|p
 operator|->
 name|log
 argument_list|,
