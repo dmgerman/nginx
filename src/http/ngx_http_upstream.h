@@ -269,7 +269,7 @@ value|0x00000200
 end_define
 
 begin_typedef
-DECL|struct|__anon2ad651940108
+DECL|struct|__anon2ba446b20108
 typedef|typedef
 struct|struct
 block|{
@@ -317,7 +317,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad651940208
+DECL|struct|__anon2ba446b20208
 typedef|typedef
 struct|struct
 block|{
@@ -386,7 +386,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad651940308
+DECL|struct|__anon2ba446b20308
 typedef|typedef
 struct|struct
 block|{
@@ -410,7 +410,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad651940408
+DECL|struct|__anon2ba446b20408
 typedef|typedef
 struct|struct
 block|{
@@ -588,7 +588,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2ad651940508
+DECL|struct|__anon2ba446b20508
 typedef|typedef
 struct|struct
 block|{
@@ -621,7 +621,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad651940608
+DECL|struct|__anon2ba446b20608
 typedef|typedef
 struct|struct
 block|{
@@ -939,7 +939,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad651940708
+DECL|struct|__anon2ba446b20708
 typedef|typedef
 struct|struct
 block|{
@@ -975,7 +975,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad651940808
+DECL|struct|__anon2ba446b20808
 typedef|typedef
 struct|struct
 block|{
@@ -1127,7 +1127,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad651940908
+DECL|struct|__anon2ba446b20908
 typedef|typedef
 struct|struct
 block|{
@@ -1563,7 +1563,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2ad651940a08
+DECL|struct|__anon2ba446b20a08
 typedef|typedef
 struct|struct
 block|{
@@ -1582,7 +1582,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad651940b08
+DECL|struct|__anon2ba446b20b08
 typedef|typedef
 struct|struct
 block|{
@@ -1622,6 +1622,31 @@ parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_http_upstream_non_buffered_filter_init
+parameter_list|(
+name|void
+modifier|*
+name|data
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_http_upstream_non_buffered_filter
+parameter_list|(
+name|void
+modifier|*
+name|data
+parameter_list|,
+name|ssize_t
+name|bytes
 parameter_list|)
 function_decl|;
 end_function_decl

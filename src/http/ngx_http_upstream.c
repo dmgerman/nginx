@@ -579,33 +579,6 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
-begin_function_decl
-specifier|static
-name|ngx_int_t
-name|ngx_http_upstream_non_buffered_filter_init
-parameter_list|(
-name|void
-modifier|*
-name|data
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-specifier|static
-name|ngx_int_t
-name|ngx_http_upstream_non_buffered_filter
-parameter_list|(
-name|void
-modifier|*
-name|data
-parameter_list|,
-name|ssize_t
-name|bytes
-parameter_list|)
-function_decl|;
-end_function_decl
-
 begin_if
 if|#
 directive|if
@@ -16343,7 +16316,6 @@ block|}
 end_function
 
 begin_function
-specifier|static
 name|ngx_int_t
 DECL|function|ngx_http_upstream_non_buffered_filter_init (void * data)
 name|ngx_http_upstream_non_buffered_filter_init
@@ -16360,7 +16332,6 @@ block|}
 end_function
 
 begin_function
-specifier|static
 name|ngx_int_t
 DECL|function|ngx_http_upstream_non_buffered_filter (void * data,ssize_t bytes)
 name|ngx_http_upstream_non_buffered_filter
@@ -16534,6 +16505,57 @@ operator|-
 literal|1
 condition|)
 block|{
+return|return
+name|NGX_OK
+return|;
+block|}
+if|if
+condition|(
+name|bytes
+operator|>
+name|u
+operator|->
+name|length
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_WARN
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"upstream sent more data than specified in "
+literal|"\"Content-Length\" header"
+argument_list|)
+expr_stmt|;
+name|cl
+operator|->
+name|buf
+operator|->
+name|last
+operator|=
+name|cl
+operator|->
+name|buf
+operator|->
+name|pos
+operator|+
+name|u
+operator|->
+name|length
+expr_stmt|;
+name|u
+operator|->
+name|length
+operator|=
+literal|0
+expr_stmt|;
 return|return
 name|NGX_OK
 return|;
