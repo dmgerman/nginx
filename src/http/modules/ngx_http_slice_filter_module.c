@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c1b8d1c0108
+DECL|struct|__anon2afc4dac0108
 typedef|typedef
 struct|struct
 block|{
@@ -37,7 +37,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1b8d1c0208
+DECL|struct|__anon2afc4dac0208
 typedef|typedef
 struct|struct
 block|{
@@ -81,7 +81,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c1b8d1c0308
+DECL|struct|__anon2afc4dac0308
 typedef|typedef
 struct|struct
 block|{
@@ -822,6 +822,34 @@ name|content_range
 operator|=
 name|NULL
 expr_stmt|;
+if|if
+condition|(
+name|r
+operator|->
+name|headers_out
+operator|.
+name|accept_ranges
+condition|)
+block|{
+name|r
+operator|->
+name|headers_out
+operator|.
+name|accept_ranges
+operator|->
+name|hash
+operator|=
+literal|0
+expr_stmt|;
+name|r
+operator|->
+name|headers_out
+operator|.
+name|accept_ranges
+operator|=
+name|NULL
+expr_stmt|;
+block|}
 name|r
 operator|->
 name|allow_ranges
