@@ -4762,6 +4762,9 @@ block|{
 name|size_t
 name|len
 decl_stmt|;
+name|ngx_int_t
+name|rc
+decl_stmt|;
 name|ngx_uint_t
 name|create
 decl_stmt|;
@@ -4869,6 +4872,10 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+name|rc
+operator|=
+name|NGX_OK
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -4909,9 +4916,10 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
-return|return
+name|rc
+operator|=
 name|NGX_ERROR
-return|;
+expr_stmt|;
 block|}
 block|}
 if|if
@@ -4946,7 +4954,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|NGX_OK
+name|rc
 return|;
 block|}
 end_function
