@@ -102,7 +102,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c0f75d50108
+DECL|struct|__anon298ae9700108
 typedef|typedef
 struct|struct
 block|{
@@ -123,7 +123,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0f75d50208
+DECL|struct|__anon298ae9700208
 typedef|typedef
 struct|struct
 block|{
@@ -144,7 +144,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0f75d50308
+DECL|struct|__anon298ae9700308
 typedef|typedef
 struct|struct
 block|{
@@ -169,7 +169,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0f75d50408
+DECL|struct|__anon298ae9700408
 typedef|typedef
 struct|struct
 block|{
@@ -189,7 +189,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0f75d50508
+DECL|struct|__anon298ae9700508
 typedef|typedef
 struct|struct
 block|{
@@ -228,7 +228,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c0f75d50608
+DECL|struct|__anon298ae9700608
 typedef|typedef
 struct|struct
 block|{
@@ -1025,6 +1025,12 @@ operator|->
 name|main_filter_need_in_memory
 operator|=
 literal|1
+expr_stmt|;
+name|r
+operator|->
+name|allow_ranges
+operator|=
+literal|0
 expr_stmt|;
 return|return
 name|NGX_OK
