@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2bcfc59e0108
+DECL|struct|__anon2ba8193a0108
 typedef|typedef
 struct|struct
 block|{
@@ -137,7 +137,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bcfc59e0208
+DECL|struct|__anon2ba8193a0208
 typedef|typedef
 struct|struct
 block|{
@@ -187,7 +187,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bcfc59e0308
+DECL|struct|__anon2ba8193a0308
 typedef|typedef
 struct|struct
 block|{
@@ -210,7 +210,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bcfc59e0408
+DECL|struct|__anon2ba8193a0408
 typedef|typedef
 struct|struct
 block|{
@@ -3870,6 +3870,11 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|X509_free
+argument_list|(
+name|cert
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
@@ -3951,6 +3956,11 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|X509_free
+argument_list|(
+name|cert
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
@@ -3994,6 +4004,11 @@ argument_list|,
 literal|"SSL_CTX_get_cert_store() failed"
 argument_list|)
 expr_stmt|;
+name|X509_free
+argument_list|(
+name|cert
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
@@ -4021,6 +4036,11 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"X509_STORE_CTX_new() failed"
+argument_list|)
+expr_stmt|;
+name|X509_free
+argument_list|(
+name|cert
 argument_list|)
 expr_stmt|;
 return|return
@@ -4072,6 +4092,11 @@ argument_list|(
 name|store_ctx
 argument_list|)
 expr_stmt|;
+name|X509_free
+argument_list|(
+name|cert
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
@@ -4106,6 +4131,11 @@ expr_stmt|;
 name|X509_STORE_CTX_free
 argument_list|(
 name|store_ctx
+argument_list|)
+expr_stmt|;
+name|X509_free
+argument_list|(
+name|cert
 argument_list|)
 expr_stmt|;
 return|return
@@ -4148,6 +4178,11 @@ argument_list|(
 name|store_ctx
 argument_list|)
 expr_stmt|;
+name|X509_free
+argument_list|(
+name|cert
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
@@ -4158,6 +4193,11 @@ name|store_ctx
 argument_list|)
 expr_stmt|;
 block|}
+name|X509_free
+argument_list|(
+name|cert
+argument_list|)
+expr_stmt|;
 name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
@@ -7947,7 +7987,7 @@ name|ngx_buf_t
 modifier|*
 name|b
 decl_stmt|;
-DECL|enum|__anon2bcfc59e0503
+DECL|enum|__anon2ba8193a0503
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -8773,7 +8813,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2bcfc59e0603
+DECL|enum|__anon2ba8193a0603
 enum|enum
 block|{
 DECL|enumerator|sw_start
