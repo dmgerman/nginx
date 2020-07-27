@@ -193,7 +193,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28fad75f0108
+DECL|struct|__anon2ad04dd00108
 typedef|typedef
 struct|struct
 block|{
@@ -420,7 +420,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28fad75f0208
+DECL|struct|__anon2ad04dd00208
 typedef|typedef
 struct|struct
 block|{
@@ -471,7 +471,7 @@ name|ngx_buf_in_memory
 parameter_list|(
 name|b
 parameter_list|)
-value|(b->temporary || b->memory || b->mmap)
+value|((b)->temporary || (b)->memory || (b)->mmap)
 end_define
 
 begin_define
@@ -482,7 +482,7 @@ name|ngx_buf_in_memory_only
 parameter_list|(
 name|b
 parameter_list|)
-value|(ngx_buf_in_memory(b)&& !b->in_file)
+value|(ngx_buf_in_memory(b)&& !(b)->in_file)
 end_define
 
 begin_define
@@ -494,7 +494,7 @@ parameter_list|(
 name|b
 parameter_list|)
 define|\
-value|((b->flush || b->last_buf || b->sync)                                    \&& !ngx_buf_in_memory(b)&& !b->in_file)
+value|(((b)->flush || (b)->last_buf || (b)->sync)                              \&& !ngx_buf_in_memory(b)&& !(b)->in_file)
 end_define
 
 begin_define
@@ -506,7 +506,7 @@ parameter_list|(
 name|b
 parameter_list|)
 define|\
-value|(b->sync                                                                 \&& !ngx_buf_in_memory(b)&& !b->in_file&& !b->flush&& !b->last_buf)
+value|((b)->sync&& !ngx_buf_in_memory(b)                                      \&& !(b)->in_file&& !(b)->flush&& !(b)->last_buf)
 end_define
 
 begin_define
@@ -518,7 +518,7 @@ parameter_list|(
 name|b
 parameter_list|)
 define|\
-value|(ngx_buf_in_memory(b) ? (off_t) (b->last - b->pos):                      \                             (b->file_last - b->file_pos))
+value|(ngx_buf_in_memory(b) ? (off_t) ((b)->last - (b)->pos):                  \                             ((b)->file_last - (b)->file_pos))
 end_define
 
 begin_function_decl
@@ -597,7 +597,7 @@ parameter_list|,
 name|cl
 parameter_list|)
 define|\
-value|cl->next = pool->chain;                                                  \     pool->chain = cl
+value|(cl)->next = (pool)->chain;                                              \     (pool)->chain = (cl)
 end_define
 
 begin_function_decl
