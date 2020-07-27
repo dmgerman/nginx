@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b1f91950108
+DECL|struct|__anon2a20ac380108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1f91950208
+DECL|struct|__anon2a20ac380208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1f91950308
+DECL|struct|__anon2a20ac380308
 typedef|typedef
 struct|struct
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b1f91950403
+DECL|enum|__anon2a20ac380403
 typedef|typedef
 enum|enum
 block|{
@@ -199,7 +199,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1f91950508
+DECL|struct|__anon2a20ac380508
 typedef|typedef
 struct|struct
 block|{
@@ -220,7 +220,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1f91950608
+DECL|struct|__anon2a20ac380608
 typedef|typedef
 struct|struct
 block|{
@@ -388,7 +388,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2b1f91950708
+DECL|struct|__anon2a20ac380708
 typedef|typedef
 struct|struct
 block|{
@@ -431,7 +431,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1f91950808
+DECL|struct|__anon2a20ac380808
 typedef|typedef
 struct|struct
 block|{
@@ -461,7 +461,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1f91950908
+DECL|struct|__anon2a20ac380908
 typedef|typedef
 struct|struct
 block|{
@@ -488,7 +488,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b1f91950a08
+DECL|struct|__anon2a20ac380a08
 typedef|typedef
 struct|struct
 block|{
@@ -10673,6 +10673,60 @@ condition|)
 block|{
 break|break;
 block|}
+if|if
+condition|(
+name|f
+operator|->
+name|rest
+operator|==
+operator|-
+literal|2
+condition|)
+block|{
+name|f
+operator|->
+name|rest
+operator|=
+name|r
+operator|->
+name|upstream
+operator|->
+name|headers_in
+operator|.
+name|content_length_n
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|f
+operator|->
+name|rest
+operator|==
+literal|0
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_WARN
+argument_list|,
+name|p
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"upstream sent more data than specified in "
+literal|"\"Content-Length\" header"
+argument_list|)
+expr_stmt|;
+name|p
+operator|->
+name|upstream_done
+operator|=
+literal|1
+expr_stmt|;
+break|break;
+block|}
 name|cl
 operator|=
 name|ngx_chain_get_free_buf
@@ -10907,30 +10961,7 @@ condition|(
 name|f
 operator|->
 name|rest
-operator|==
-operator|-
-literal|2
-condition|)
-block|{
-name|f
-operator|->
-name|rest
-operator|=
-name|r
-operator|->
-name|upstream
-operator|->
-name|headers_in
-operator|.
-name|content_length_n
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|f
-operator|->
-name|rest
-operator|>=
+operator|>
 literal|0
 condition|)
 block|{
@@ -11770,6 +11801,39 @@ condition|)
 block|{
 break|break;
 block|}
+if|if
+condition|(
+name|f
+operator|->
+name|rest
+operator|==
+literal|0
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_WARN
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"upstream sent more data than specified in "
+literal|"\"Content-Length\" header"
+argument_list|)
+expr_stmt|;
+name|u
+operator|->
+name|length
+operator|=
+literal|0
+expr_stmt|;
+break|break;
+block|}
 name|cl
 operator|=
 name|ngx_chain_get_free_buf
@@ -11936,7 +12000,7 @@ condition|(
 name|f
 operator|->
 name|rest
-operator|>=
+operator|>
 literal|0
 condition|)
 block|{
