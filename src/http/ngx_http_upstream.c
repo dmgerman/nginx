@@ -10874,7 +10874,6 @@ operator|==
 name|NGX_HTTP_CACHE_EXPIRED
 operator|&&
 operator|(
-operator|(
 name|u
 operator|->
 name|conf
@@ -10884,13 +10883,6 @@ operator|&
 name|un
 operator|->
 name|mask
-operator|)
-operator|||
-name|r
-operator|->
-name|cache
-operator|->
-name|stale_error
 operator|)
 condition|)
 block|{
