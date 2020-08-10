@@ -199,6 +199,10 @@ DECL|member|reusable_connections_n
 name|ngx_uint_t
 name|reusable_connections_n
 decl_stmt|;
+DECL|member|connections_reuse_time
+name|time_t
+name|connections_reuse_time
+decl_stmt|;
 DECL|member|listening
 name|ngx_array_t
 name|listening
@@ -284,7 +288,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon297517d00108
+DECL|struct|__anon2a533ce30108
 typedef|typedef
 struct|struct
 block|{
