@@ -4166,6 +4166,11 @@ condition|(
 name|fcn
 operator|->
 name|body_start
+operator|&&
+operator|!
+name|c
+operator|->
+name|update_variant
 condition|)
 block|{
 name|c
@@ -6522,6 +6527,12 @@ operator|.
 name|len
 operator|=
 literal|0
+expr_stmt|;
+name|c
+operator|->
+name|update_variant
+operator|=
+literal|1
 expr_stmt|;
 name|ngx_memcpy
 argument_list|(
