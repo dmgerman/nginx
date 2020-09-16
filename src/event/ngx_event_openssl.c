@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon28e2c2d10108
+DECL|struct|__anon295248320108
 typedef|typedef
 struct|struct
 block|{
@@ -11420,6 +11420,10 @@ operator|||
 name|c
 operator|->
 name|error
+operator|||
+name|c
+operator|->
+name|buffered
 condition|)
 block|{
 name|mode
