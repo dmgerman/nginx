@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon28eae8120108
+DECL|struct|__anon28e2c2d10108
 typedef|typedef
 struct|struct
 block|{
@@ -11416,6 +11416,10 @@ condition|(
 name|c
 operator|->
 name|timedout
+operator|||
+name|c
+operator|->
+name|error
 condition|)
 block|{
 name|mode
