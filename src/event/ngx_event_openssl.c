@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2a5814900108
+DECL|struct|__anon2ba4e84d0108
 typedef|typedef
 struct|struct
 block|{
@@ -10510,6 +10510,19 @@ argument_list|,
 name|n
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|sslerr
+operator|==
+name|SSL_ERROR_ZERO_RETURN
+condition|)
+block|{
+comment|/*          * OpenSSL 1.1.1 fails to return SSL_ERROR_SYSCALL if an error          * happens during SSL_write() after close_notify alert from the          * peer, and returns SSL_ERROR_ZERO_RETURN instead,          * https://git.openssl.org/?p=openssl.git;a=commitdiff;h=8051ab2          */
+name|sslerr
+operator|=
+name|SSL_ERROR_SYSCALL
+expr_stmt|;
+block|}
 name|err
 operator|=
 operator|(
