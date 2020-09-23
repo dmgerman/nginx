@@ -28,7 +28,7 @@ file|<ngx_http_v2_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c3d89da0108
+DECL|struct|__anon275b9b9c0108
 typedef|typedef
 struct|struct
 block|{
@@ -5173,6 +5173,10 @@ decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
+name|ngx_connection_t
+modifier|*
+name|fc
+decl_stmt|;
 name|ngx_http_request_t
 modifier|*
 name|r
@@ -5249,6 +5253,12 @@ operator|=
 name|stream
 operator|->
 name|request
+expr_stmt|;
+name|fc
+operator|=
+name|r
+operator|->
+name|connection
 expr_stmt|;
 if|if
 condition|(
@@ -5419,6 +5429,11 @@ name|rc
 argument_list|)
 expr_stmt|;
 block|}
+name|ngx_http_run_posted_requests
+argument_list|(
+name|fc
+argument_list|)
+expr_stmt|;
 block|}
 if|else if
 condition|(
@@ -16181,7 +16196,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2c3d89da0208
+DECL|struct|__anon275b9b9c0208
 specifier|static
 specifier|const
 struct|struct
