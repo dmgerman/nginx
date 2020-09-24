@@ -4050,6 +4050,8 @@ operator|.
 name|ctx
 condition|)
 block|{
+if|if
+condition|(
 name|SSL_set_SSL_CTX
 argument_list|(
 name|ssl_conn
@@ -4060,7 +4062,19 @@ name|ssl
 operator|.
 name|ctx
 argument_list|)
+operator|==
+name|NULL
+condition|)
+block|{
+operator|*
+name|ad
+operator|=
+name|SSL_AD_INTERNAL_ERROR
 expr_stmt|;
+return|return
+name|SSL_TLSEXT_ERR_ALERT_FATAL
+return|;
+block|}
 comment|/*          * SSL_set_SSL_CTX() only changes certs as of 1.0.0d          * adjust other things we care about          */
 name|SSL_set_verify
 argument_list|(
@@ -9215,7 +9229,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon2779e6710103
+DECL|enum|__anon2c719a0a0103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
