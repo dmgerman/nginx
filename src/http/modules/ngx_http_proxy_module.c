@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2be1d4310108
+DECL|struct|__anon293437370108
 typedef|typedef
 struct|struct
 block|{
@@ -59,9 +59,9 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|ngx_table_elt_t
+name|ngx_str_t
 modifier|*
-name|h
+name|value
 parameter_list|,
 name|size_t
 name|prefix
@@ -85,7 +85,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon2be1d431020a
+DECL|union|__anon29343737020a
 union|union
 block|{
 DECL|member|complex
@@ -117,7 +117,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2be1d4310308
+DECL|struct|__anon293437370308
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be1d4310408
+DECL|struct|__anon293437370408
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be1d4310508
+DECL|struct|__anon293437370508
 typedef|typedef
 struct|struct
 block|{
@@ -345,7 +345,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be1d4310608
+DECL|struct|__anon293437370608
 typedef|typedef
 struct|struct
 block|{
@@ -772,9 +772,9 @@ name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|ngx_table_elt_t
+name|ngx_str_t
 modifier|*
-name|h
+name|value
 parameter_list|,
 name|size_t
 name|prefix
@@ -12331,7 +12331,10 @@ name|handler
 argument_list|(
 name|r
 argument_list|,
+operator|&
 name|h
+operator|->
+name|value
 argument_list|,
 name|prefix
 argument_list|,
@@ -12719,7 +12722,10 @@ name|handler
 argument_list|(
 name|r
 argument_list|,
+operator|&
 name|h
+operator|->
+name|value
 argument_list|,
 name|prefix
 argument_list|,
@@ -12753,16 +12759,16 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_http_proxy_rewrite_complex_handler (ngx_http_request_t * r,ngx_table_elt_t * h,size_t prefix,size_t len,ngx_http_proxy_rewrite_t * pr)
+DECL|function|ngx_http_proxy_rewrite_complex_handler (ngx_http_request_t * r,ngx_str_t * value,size_t prefix,size_t len,ngx_http_proxy_rewrite_t * pr)
 name|ngx_http_proxy_rewrite_complex_handler
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|ngx_table_elt_t
+name|ngx_str_t
 modifier|*
-name|h
+name|value
 parameter_list|,
 name|size_t
 name|prefix
@@ -12814,10 +12820,8 @@ name|len
 operator|||
 name|ngx_rstrncmp
 argument_list|(
-name|h
-operator|->
 name|value
-operator|.
+operator|->
 name|data
 operator|+
 name|prefix
@@ -12865,7 +12869,7 @@ name|ngx_http_proxy_rewrite
 argument_list|(
 name|r
 argument_list|,
-name|h
+name|value
 argument_list|,
 name|prefix
 argument_list|,
@@ -12891,16 +12895,16 @@ end_if
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_http_proxy_rewrite_regex_handler (ngx_http_request_t * r,ngx_table_elt_t * h,size_t prefix,size_t len,ngx_http_proxy_rewrite_t * pr)
+DECL|function|ngx_http_proxy_rewrite_regex_handler (ngx_http_request_t * r,ngx_str_t * value,size_t prefix,size_t len,ngx_http_proxy_rewrite_t * pr)
 name|ngx_http_proxy_rewrite_regex_handler
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|ngx_table_elt_t
+name|ngx_str_t
 modifier|*
-name|h
+name|value
 parameter_list|,
 name|size_t
 name|prefix
@@ -12928,10 +12932,8 @@ name|pattern
 operator|.
 name|data
 operator|=
-name|h
-operator|->
 name|value
-operator|.
+operator|->
 name|data
 operator|+
 name|prefix
@@ -12981,37 +12983,12 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-if|if
-condition|(
-name|prefix
-operator|==
-literal|0
-operator|&&
-name|h
-operator|->
-name|value
-operator|.
-name|len
-operator|==
-name|len
-condition|)
-block|{
-name|h
-operator|->
-name|value
-operator|=
-name|replacement
-expr_stmt|;
-return|return
-name|NGX_OK
-return|;
-block|}
 return|return
 name|ngx_http_proxy_rewrite
 argument_list|(
 name|r
 argument_list|,
-name|h
+name|value
 argument_list|,
 name|prefix
 argument_list|,
@@ -13032,16 +13009,16 @@ end_endif
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_http_proxy_rewrite_domain_handler (ngx_http_request_t * r,ngx_table_elt_t * h,size_t prefix,size_t len,ngx_http_proxy_rewrite_t * pr)
+DECL|function|ngx_http_proxy_rewrite_domain_handler (ngx_http_request_t * r,ngx_str_t * value,size_t prefix,size_t len,ngx_http_proxy_rewrite_t * pr)
 name|ngx_http_proxy_rewrite_domain_handler
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|ngx_table_elt_t
+name|ngx_str_t
 modifier|*
-name|h
+name|value
 parameter_list|,
 name|size_t
 name|prefix
@@ -13089,10 +13066,8 @@ return|;
 block|}
 name|p
 operator|=
-name|h
-operator|->
 name|value
-operator|.
+operator|->
 name|data
 operator|+
 name|prefix
@@ -13170,7 +13145,7 @@ name|ngx_http_proxy_rewrite
 argument_list|(
 name|r
 argument_list|,
-name|h
+name|value
 argument_list|,
 name|prefix
 argument_list|,
@@ -13186,16 +13161,16 @@ end_function
 begin_function
 specifier|static
 name|ngx_int_t
-DECL|function|ngx_http_proxy_rewrite (ngx_http_request_t * r,ngx_table_elt_t * h,size_t prefix,size_t len,ngx_str_t * replacement)
+DECL|function|ngx_http_proxy_rewrite (ngx_http_request_t * r,ngx_str_t * value,size_t prefix,size_t len,ngx_str_t * replacement)
 name|ngx_http_proxy_rewrite
 parameter_list|(
 name|ngx_http_request_t
 modifier|*
 name|r
 parameter_list|,
-name|ngx_table_elt_t
+name|ngx_str_t
 modifier|*
-name|h
+name|value
 parameter_list|,
 name|size_t
 name|prefix
@@ -13218,16 +13193,33 @@ decl_stmt|;
 name|size_t
 name|new_len
 decl_stmt|;
+if|if
+condition|(
+name|len
+operator|==
+name|value
+operator|->
+name|len
+condition|)
+block|{
+operator|*
+name|value
+operator|=
+operator|*
+name|replacement
+expr_stmt|;
+return|return
+name|NGX_OK
+return|;
+block|}
 name|new_len
 operator|=
 name|replacement
 operator|->
 name|len
 operator|+
-name|h
-operator|->
 name|value
-operator|.
+operator|->
 name|len
 operator|-
 name|len
@@ -13271,10 +13263,8 @@ name|ngx_copy
 argument_list|(
 name|data
 argument_list|,
-name|h
-operator|->
 name|value
-operator|.
+operator|->
 name|data
 argument_list|,
 name|prefix
@@ -13299,20 +13289,16 @@ name|ngx_memcpy
 argument_list|(
 name|p
 argument_list|,
-name|h
-operator|->
 name|value
-operator|.
+operator|->
 name|data
 operator|+
 name|prefix
 operator|+
 name|len
 argument_list|,
-name|h
-operator|->
 name|value
-operator|.
+operator|->
 name|len
 operator|-
 name|len
@@ -13322,10 +13308,8 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
-name|h
-operator|->
 name|value
-operator|.
+operator|->
 name|data
 operator|=
 name|data
@@ -13337,10 +13321,8 @@ name|p
 operator|=
 name|ngx_copy
 argument_list|(
-name|h
-operator|->
 name|value
-operator|.
+operator|->
 name|data
 operator|+
 name|prefix
@@ -13358,20 +13340,16 @@ name|ngx_memmove
 argument_list|(
 name|p
 argument_list|,
-name|h
-operator|->
 name|value
-operator|.
+operator|->
 name|data
 operator|+
 name|prefix
 operator|+
 name|len
 argument_list|,
-name|h
-operator|->
 name|value
-operator|.
+operator|->
 name|len
 operator|-
 name|len
@@ -13382,10 +13360,8 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-name|h
-operator|->
 name|value
-operator|.
+operator|->
 name|len
 operator|=
 name|new_len
