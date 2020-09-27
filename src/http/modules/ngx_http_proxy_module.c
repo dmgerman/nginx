@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b4adf450108
+DECL|struct|__anon2be1d4310108
 typedef|typedef
 struct|struct
 block|{
@@ -85,7 +85,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon2b4adf45020a
+DECL|union|__anon2be1d431020a
 union|union
 block|{
 DECL|member|complex
@@ -117,7 +117,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b4adf450308
+DECL|struct|__anon2be1d4310308
 typedef|typedef
 struct|struct
 block|{
@@ -148,7 +148,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4adf450408
+DECL|struct|__anon2be1d4310408
 typedef|typedef
 struct|struct
 block|{
@@ -178,7 +178,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4adf450508
+DECL|struct|__anon2be1d4310508
 typedef|typedef
 struct|struct
 block|{
@@ -345,7 +345,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4adf450608
+DECL|struct|__anon2be1d4310608
 typedef|typedef
 struct|struct
 block|{
@@ -17891,7 +17891,7 @@ literal|0
 condition|)
 block|{
 return|return
-name|NGX_CONF_OK
+literal|"is duplicate"
 return|;
 block|}
 name|plcf
@@ -17936,61 +17936,22 @@ operator|==
 literal|0
 condition|)
 block|{
-name|plcf
-operator|->
-name|redirect
-operator|=
-literal|0
-expr_stmt|;
-name|plcf
-operator|->
-name|redirects
-operator|=
-name|NULL
-expr_stmt|;
-return|return
-name|NGX_CONF_OK
-return|;
-block|}
 if|if
 condition|(
-name|ngx_strcmp
-argument_list|(
-name|value
-index|[
-literal|1
-index|]
-operator|.
-name|data
-argument_list|,
-literal|"false"
-argument_list|)
-operator|==
-literal|0
+name|plcf
+operator|->
+name|redirects
 condition|)
 block|{
-name|ngx_conf_log_error
-argument_list|(
-name|NGX_LOG_ERR
-argument_list|,
-name|cf
-argument_list|,
-literal|0
-argument_list|,
-literal|"invalid parameter \"false\", use \"off\" instead"
-argument_list|)
-expr_stmt|;
+return|return
+literal|"is duplicate"
+return|;
+block|}
 name|plcf
 operator|->
 name|redirect
 operator|=
 literal|0
-expr_stmt|;
-name|plcf
-operator|->
-name|redirects
-operator|=
-name|NULL
 expr_stmt|;
 return|return
 name|NGX_CONF_OK
@@ -18098,6 +18059,14 @@ return|;
 block|}
 if|if
 condition|(
+name|cf
+operator|->
+name|args
+operator|->
+name|nelts
+operator|==
+literal|2
+operator|&&
 name|ngx_strcmp
 argument_list|(
 name|value
@@ -18620,7 +18589,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_OK
+literal|"is duplicate"
 return|;
 block|}
 name|value
@@ -18659,6 +18628,19 @@ operator|==
 literal|0
 condition|)
 block|{
+if|if
+condition|(
+name|plcf
+operator|->
+name|cookie_domains
+operator|!=
+name|NGX_CONF_UNSET_PTR
+condition|)
+block|{
+return|return
+literal|"is duplicate"
+return|;
+block|}
 name|plcf
 operator|->
 name|cookie_domains
@@ -19037,7 +19019,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_OK
+literal|"is duplicate"
 return|;
 block|}
 name|value
@@ -19076,6 +19058,19 @@ operator|==
 literal|0
 condition|)
 block|{
+if|if
+condition|(
+name|plcf
+operator|->
+name|cookie_paths
+operator|!=
+name|NGX_CONF_UNSET_PTR
+condition|)
+block|{
+return|return
+literal|"is duplicate"
+return|;
+block|}
 name|plcf
 operator|->
 name|cookie_paths
