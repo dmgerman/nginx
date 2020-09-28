@@ -46,7 +46,7 @@ value|8192
 end_define
 
 begin_typedef
-DECL|struct|__anon28fe8d7e0108
+DECL|struct|__anon28a6eefb0108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28fe8d7e0208
+DECL|struct|__anon28a6eefb0208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28fe8d7e0308
+DECL|struct|__anon28a6eefb0308
 typedef|typedef
 struct|struct
 block|{
@@ -8944,7 +8944,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"unexpected response for %V"
+literal|"unexpected DNS response for %V"
 argument_list|,
 operator|&
 name|name
@@ -9007,7 +9007,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"unexpected response for %V"
+literal|"unexpected DNS response for %V"
 argument_list|,
 operator|&
 name|name
@@ -9104,7 +9104,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"unexpected response for %V"
+literal|"unexpected DNS response for %V"
 argument_list|,
 operator|&
 name|name
@@ -9185,7 +9185,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"wrong ident %ui response for %V, expect %ui"
+literal|"wrong ident %ui in DNS response for %V, expect %ui"
 argument_list|,
 name|ident
 argument_list|,
@@ -9915,7 +9915,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"unexpected RR class %ui"
+literal|"unexpected RR class %ui in DNS response"
 argument_list|,
 name|class
 argument_list|)
@@ -10100,7 +10100,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"unexpected RR type %ui"
+literal|"unexpected RR type %ui in DNS response"
 argument_list|,
 name|type
 argument_list|)
@@ -11545,7 +11545,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"unexpected response for %V"
+literal|"unexpected DNS response for %V"
 argument_list|,
 operator|&
 name|name
@@ -11625,7 +11625,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"wrong ident %ui response for %V, expect %ui"
+literal|"wrong ident %ui in DNS response for %V, expect %ui"
 argument_list|,
 name|ident
 argument_list|,
@@ -12137,7 +12137,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"unexpected RR class %ui"
+literal|"unexpected RR class %ui in DNS response"
 argument_list|,
 name|class
 argument_list|)
@@ -12265,7 +12265,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"unexpected RR type %ui"
+literal|"unexpected RR type %ui in DNS response"
 argument_list|,
 name|type
 argument_list|)
@@ -14306,7 +14306,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"unexpected response for %V"
+literal|"unexpected DNS response for %V"
 argument_list|,
 operator|&
 name|name
@@ -14364,7 +14364,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"wrong ident %ui response for %V, expect %ui"
+literal|"wrong ident %ui in DNS response for %V, expect %ui"
 argument_list|,
 name|ident
 argument_list|,
@@ -14739,7 +14739,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"unexpected RR class %ui"
+literal|"unexpected RR class %ui in DNS response"
 argument_list|,
 name|class
 argument_list|)
@@ -14814,7 +14814,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"unexpected RR type %ui"
+literal|"unexpected RR type %ui in DNS response"
 argument_list|,
 name|type
 argument_list|)
@@ -17663,7 +17663,7 @@ condition|)
 block|{
 name|err
 operator|=
-literal|"name is out of response"
+literal|"name is out of DNS response"
 expr_stmt|;
 goto|goto
 name|invalid
@@ -17672,7 +17672,7 @@ block|}
 block|}
 name|err
 operator|=
-literal|"compression pointers loop"
+literal|"compression pointers loop in DNS response"
 expr_stmt|;
 name|invalid
 label|:
