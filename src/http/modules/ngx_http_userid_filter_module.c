@@ -54,11 +54,19 @@ value|3
 end_define
 
 begin_define
+DECL|macro|NGX_HTTP_USERID_COOKIE_OFF
+define|#
+directive|define
+name|NGX_HTTP_USERID_COOKIE_OFF
+value|0x0002
+end_define
+
+begin_define
 DECL|macro|NGX_HTTP_USERID_COOKIE_SECURE
 define|#
 directive|define
 name|NGX_HTTP_USERID_COOKIE_SECURE
-value|0x0001
+value|0x0004
 end_define
 
 begin_define
@@ -66,7 +74,7 @@ DECL|macro|NGX_HTTP_USERID_COOKIE_HTTPONLY
 define|#
 directive|define
 name|NGX_HTTP_USERID_COOKIE_HTTPONLY
-value|0x0002
+value|0x0008
 end_define
 
 begin_define
@@ -74,7 +82,7 @@ DECL|macro|NGX_HTTP_USERID_COOKIE_SAMESITE
 define|#
 directive|define
 name|NGX_HTTP_USERID_COOKIE_SAMESITE
-value|0x0004
+value|0x0010
 end_define
 
 begin_define
@@ -82,7 +90,7 @@ DECL|macro|NGX_HTTP_USERID_COOKIE_SAMESITE_STRICT
 define|#
 directive|define
 name|NGX_HTTP_USERID_COOKIE_SAMESITE_STRICT
-value|0x0008
+value|0x0020
 end_define
 
 begin_define
@@ -90,7 +98,7 @@ DECL|macro|NGX_HTTP_USERID_COOKIE_SAMESITE_LAX
 define|#
 directive|define
 name|NGX_HTTP_USERID_COOKIE_SAMESITE_LAX
-value|0x0010
+value|0x0040
 end_define
 
 begin_define
@@ -98,7 +106,7 @@ DECL|macro|NGX_HTTP_USERID_COOKIE_SAMESITE_NONE
 define|#
 directive|define
 name|NGX_HTTP_USERID_COOKIE_SAMESITE_NONE
-value|0x0020
+value|0x0080
 end_define
 
 begin_comment
@@ -114,7 +122,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon278fb7b20108
+DECL|struct|__anon2b4e4cf00108
 typedef|typedef
 struct|struct
 block|{
@@ -161,7 +169,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon278fb7b20208
+DECL|struct|__anon2b4e4cf00208
 typedef|typedef
 struct|struct
 block|{
@@ -557,6 +565,15 @@ name|ngx_http_userid_flags
 index|[]
 init|=
 block|{
+block|{
+name|ngx_string
+argument_list|(
+literal|"off"
+argument_list|)
+block|,
+name|NGX_HTTP_USERID_COOKIE_OFF
+block|}
+block|,
 block|{
 name|ngx_string
 argument_list|(
@@ -3549,7 +3566,11 @@ name|prev
 operator|->
 name|flags
 argument_list|,
+operator|(
 name|NGX_CONF_BITMASK_SET
+operator||
+name|NGX_HTTP_USERID_COOKIE_OFF
+operator|)
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_str_value
