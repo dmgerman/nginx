@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2badb7150108
+DECL|struct|__anon2ba8d24b0108
 typedef|typedef
 struct|struct
 block|{
@@ -7491,6 +7491,31 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
+if|if
+condition|(
+name|c
+operator|->
+name|ssl
+operator|->
+name|handshake_rejected
+condition|)
+block|{
+name|ngx_connection_error
+argument_list|(
+name|c
+argument_list|,
+name|err
+argument_list|,
+literal|"handshake rejected"
+argument_list|)
+expr_stmt|;
+name|ERR_clear_error
+argument_list|()
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
 name|c
 operator|->
 name|read
@@ -13580,6 +13605,10 @@ argument_list|,
 name|ngx_ssl_certificate_index
 argument_list|)
 operator|==
+name|NULL
+operator|&&
+name|certificates
+operator|!=
 name|NULL
 condition|)
 block|{

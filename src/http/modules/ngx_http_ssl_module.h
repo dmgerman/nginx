@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c4a11f10108
+DECL|struct|__anon2b3d52280108
 typedef|typedef
 struct|struct
 block|{
@@ -54,6 +54,10 @@ decl_stmt|;
 DECL|member|early_data
 name|ngx_flag_t
 name|early_data
+decl_stmt|;
+DECL|member|reject_handshake
+name|ngx_flag_t
+name|reject_handshake
 decl_stmt|;
 DECL|member|protocols
 name|ngx_uint_t

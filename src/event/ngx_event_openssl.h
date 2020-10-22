@@ -378,6 +378,12 @@ name|handshaked
 range|:
 literal|1
 decl_stmt|;
+DECL|member|handshake_rejected
+name|unsigned
+name|handshake_rejected
+range|:
+literal|1
+decl_stmt|;
 DECL|member|renegotiation
 name|unsigned
 name|renegotiation
@@ -548,7 +554,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28dd44780108
+DECL|struct|__anon27de24ba0108
 typedef|typedef
 struct|struct
 block|{
@@ -577,7 +583,7 @@ name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon28dd44780208
+DECL|struct|__anon27de24ba0208
 typedef|typedef
 struct|struct
 block|{
