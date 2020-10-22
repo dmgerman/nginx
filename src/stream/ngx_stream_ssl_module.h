@@ -35,7 +35,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c5375700108
+DECL|struct|__anon29a399d60108
 typedef|typedef
 struct|struct
 block|{
@@ -123,6 +123,11 @@ DECL|member|passwords
 name|ngx_array_t
 modifier|*
 name|passwords
+decl_stmt|;
+DECL|member|conf_commands
+name|ngx_array_t
+modifier|*
+name|conf_commands
 decl_stmt|;
 DECL|member|shm_zone
 name|ngx_shm_zone_t
