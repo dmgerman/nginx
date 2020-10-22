@@ -110,7 +110,7 @@ value|0x0400
 end_define
 
 begin_typedef
-DECL|struct|__anon2ab0b36e0108
+DECL|struct|__anon2999e62b0108
 typedef|typedef
 struct|struct
 block|{
@@ -173,7 +173,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon2ab0b36e020a
+DECL|union|__anon2999e62b020a
 union|union
 block|{
 DECL|member|complex
@@ -205,11 +205,11 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2ab0b36e0308
+DECL|struct|__anon2999e62b0308
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon2ab0b36e040a
+DECL|union|__anon2999e62b040a
 union|union
 block|{
 DECL|member|complex
@@ -247,7 +247,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab0b36e0508
+DECL|struct|__anon2999e62b0508
 typedef|typedef
 struct|struct
 block|{
@@ -278,7 +278,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab0b36e0608
+DECL|struct|__anon2999e62b0608
 typedef|typedef
 struct|struct
 block|{
@@ -308,7 +308,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab0b36e0708
+DECL|struct|__anon2999e62b0708
 typedef|typedef
 struct|struct
 block|{
@@ -480,7 +480,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ab0b36e0808
+DECL|struct|__anon2999e62b0808
 typedef|typedef
 struct|struct
 block|{
@@ -15355,7 +15355,7 @@ return|return
 name|NULL
 return|;
 block|}
-comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.bufs.num = 0;      *     conf->upstream.ignore_headers = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.cache_zone = NULL;      *     conf->upstream.cache_use_stale = 0;      *     conf->upstream.cache_methods = 0;      *     conf->upstream.temp_path = NULL;      *     conf->upstream.hide_headers_hash = { NULL, 0 };      *     conf->upstream.store_lengths = NULL;      *     conf->upstream.store_values = NULL;      *     conf->upstream.ssl_name = NULL;      *      *     conf->method = NULL;      *     conf->location = NULL;      *     conf->url = { 0, NULL };      *     conf->headers_source = NULL;      *     conf->headers.lengths = NULL;      *     conf->headers.values = NULL;      *     conf->headers.hash = { NULL, 0 };      *     conf->headers_cache.lengths = NULL;      *     conf->headers_cache.values = NULL;      *     conf->headers_cache.hash = { NULL, 0 };      *     conf->body_lengths = NULL;      *     conf->body_values = NULL;      *     conf->body_source = { 0, NULL };      *     conf->redirects = NULL;      *     conf->ssl = 0;      *     conf->ssl_protocols = 0;      *     conf->ssl_ciphers = { 0, NULL };      *     conf->ssl_trusted_certificate = { 0, NULL };      *     conf->ssl_crl = { 0, NULL };      *     conf->ssl_certificate = { 0, NULL };      *     conf->ssl_certificate_key = { 0, NULL };      */
+comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.bufs.num = 0;      *     conf->upstream.ignore_headers = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.cache_zone = NULL;      *     conf->upstream.cache_use_stale = 0;      *     conf->upstream.cache_methods = 0;      *     conf->upstream.temp_path = NULL;      *     conf->upstream.hide_headers_hash = { NULL, 0 };      *     conf->upstream.store_lengths = NULL;      *     conf->upstream.store_values = NULL;      *     conf->upstream.ssl_name = NULL;      *      *     conf->method = NULL;      *     conf->location = NULL;      *     conf->url = { 0, NULL };      *     conf->headers.lengths = NULL;      *     conf->headers.values = NULL;      *     conf->headers.hash = { NULL, 0 };      *     conf->headers_cache.lengths = NULL;      *     conf->headers_cache.values = NULL;      *     conf->headers_cache.hash = { NULL, 0 };      *     conf->body_lengths = NULL;      *     conf->body_values = NULL;      *     conf->body_source = { 0, NULL };      *     conf->redirects = NULL;      *     conf->ssl = 0;      *     conf->ssl_protocols = 0;      *     conf->ssl_ciphers = { 0, NULL };      *     conf->ssl_trusted_certificate = { 0, NULL };      *     conf->ssl_crl = { 0, NULL };      *     conf->ssl_certificate = { 0, NULL };      *     conf->ssl_certificate_key = { 0, NULL };      */
 name|conf
 operator|->
 name|upstream
@@ -15702,6 +15702,12 @@ operator|.
 name|cyclic_temp_file
 operator|=
 literal|0
+expr_stmt|;
+name|conf
+operator|->
+name|headers_source
+operator|=
+name|NGX_CONF_UNSET_PTR
 expr_stmt|;
 name|conf
 operator|->
@@ -18046,13 +18052,28 @@ name|NGX_CONF_ERROR
 return|;
 block|}
 block|}
+name|ngx_conf_merge_ptr_value
+argument_list|(
+name|conf
+operator|->
+name|headers_source
+argument_list|,
+name|prev
+operator|->
+name|headers_source
+argument_list|,
+name|NULL
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|conf
 operator|->
 name|headers_source
 operator|==
-name|NULL
+name|prev
+operator|->
+name|headers_source
 condition|)
 block|{
 name|conf
@@ -18078,14 +18099,6 @@ name|headers_cache
 expr_stmt|;
 endif|#
 directive|endif
-name|conf
-operator|->
-name|headers_source
-operator|=
-name|prev
-operator|->
-name|headers_source
-expr_stmt|;
 block|}
 name|rc
 operator|=

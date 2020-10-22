@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a9a91320108
+DECL|struct|__anon28c8c32c0108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a9a91320208
+DECL|struct|__anon28c8c32c0208
 typedef|typedef
 struct|struct
 block|{
@@ -138,7 +138,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a9a91320303
+DECL|enum|__anon28c8c32c0303
 typedef|typedef
 enum|enum
 block|{
@@ -183,7 +183,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a9a91320408
+DECL|struct|__anon28c8c32c0408
 typedef|typedef
 struct|struct
 block|{
@@ -210,7 +210,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a9a91320508
+DECL|struct|__anon28c8c32c0508
 typedef|typedef
 struct|struct
 block|{
@@ -423,7 +423,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a9a91320608
+DECL|struct|__anon28c8c32c0608
 typedef|typedef
 struct|struct
 block|{
@@ -11413,7 +11413,7 @@ decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
-DECL|enum|__anon2a9a91320703
+DECL|enum|__anon28c8c32c0703
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -12110,7 +12110,7 @@ name|index
 decl_stmt|,
 name|size_update
 decl_stmt|;
-DECL|enum|__anon2a9a91320803
+DECL|enum|__anon28c8c32c0803
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -14193,7 +14193,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon2a9a91320903
+DECL|enum|__anon28c8c32c0903
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -14484,7 +14484,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon2a9a91320a03
+DECL|enum|__anon28c8c32c0a03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -14901,7 +14901,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon2a9a91320b03
+DECL|enum|__anon28c8c32c0b03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -15300,7 +15300,7 @@ decl_stmt|;
 name|ssize_t
 name|window_update
 decl_stmt|;
-DECL|enum|__anon2a9a91320c03
+DECL|enum|__anon28c8c32c0c03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -15900,7 +15900,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon2a9a91320d03
+DECL|enum|__anon28c8c32c0d03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -17971,7 +17971,7 @@ return|return
 name|NULL
 return|;
 block|}
-comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.ignore_headers = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.hide_headers_hash = { NULL, 0 };      *     conf->upstream.ssl_name = NULL;      *      *     conf->headers_source = NULL;      *     conf->headers.lengths = NULL;      *     conf->headers.values = NULL;      *     conf->headers.hash = { NULL, 0 };      *     conf->host = { 0, NULL };      *     conf->host_set = 0;      *     conf->ssl = 0;      *     conf->ssl_protocols = 0;      *     conf->ssl_ciphers = { 0, NULL };      *     conf->ssl_trusted_certificate = { 0, NULL };      *     conf->ssl_crl = { 0, NULL };      *     conf->ssl_certificate = { 0, NULL };      *     conf->ssl_certificate_key = { 0, NULL };      */
+comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.ignore_headers = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.hide_headers_hash = { NULL, 0 };      *     conf->upstream.ssl_name = NULL;      *      *     conf->headers.lengths = NULL;      *     conf->headers.values = NULL;      *     conf->headers.hash = { NULL, 0 };      *     conf->host = { 0, NULL };      *     conf->host_set = 0;      *     conf->ssl = 0;      *     conf->ssl_protocols = 0;      *     conf->ssl_ciphers = { 0, NULL };      *     conf->ssl_trusted_certificate = { 0, NULL };      *     conf->ssl_crl = { 0, NULL };      *     conf->ssl_certificate = { 0, NULL };      *     conf->ssl_certificate_key = { 0, NULL };      */
 name|conf
 operator|->
 name|upstream
@@ -18209,6 +18209,12 @@ operator|.
 name|preserve_output
 operator|=
 literal|1
+expr_stmt|;
+name|conf
+operator|->
+name|headers_source
+operator|=
+name|NGX_CONF_UNSET_PTR
 expr_stmt|;
 name|ngx_str_set
 argument_list|(
@@ -18872,13 +18878,28 @@ operator|=
 name|ngx_http_grpc_handler
 expr_stmt|;
 block|}
+name|ngx_conf_merge_ptr_value
+argument_list|(
+name|conf
+operator|->
+name|headers_source
+argument_list|,
+name|prev
+operator|->
+name|headers_source
+argument_list|,
+name|NULL
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|conf
 operator|->
 name|headers_source
 operator|==
-name|NULL
+name|prev
+operator|->
+name|headers_source
 condition|)
 block|{
 name|conf
@@ -18888,14 +18909,6 @@ operator|=
 name|prev
 operator|->
 name|headers
-expr_stmt|;
-name|conf
-operator|->
-name|headers_source
-operator|=
-name|prev
-operator|->
-name|headers_source
 expr_stmt|;
 name|conf
 operator|->

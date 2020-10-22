@@ -655,7 +655,7 @@ name|prev
 decl_stmt|,
 name|conf_file
 decl_stmt|;
-DECL|enum|__anon29ea7eaa0103
+DECL|enum|__anon2af9e7830103
 enum|enum
 block|{
 DECL|enumerator|parse_file
@@ -4611,6 +4611,11 @@ operator|)
 expr_stmt|;
 if|if
 condition|(
+operator|*
+name|a
+operator|==
+name|NGX_CONF_UNSET_PTR
+operator|||
 operator|*
 name|a
 operator|==
