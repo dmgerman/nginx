@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28c8c32c0108
+DECL|struct|__anon2743590b0108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c8c32c0208
+DECL|struct|__anon2743590b0208
 typedef|typedef
 struct|struct
 block|{
@@ -129,6 +129,11 @@ name|ngx_array_t
 modifier|*
 name|ssl_passwords
 decl_stmt|;
+DECL|member|ssl_conf_commands
+name|ngx_array_t
+modifier|*
+name|ssl_conf_commands
+decl_stmt|;
 endif|#
 directive|endif
 DECL|typedef|ngx_http_grpc_loc_conf_t
@@ -138,7 +143,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28c8c32c0303
+DECL|enum|__anon2743590b0303
 typedef|typedef
 enum|enum
 block|{
@@ -183,7 +188,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c8c32c0408
+DECL|struct|__anon2743590b0408
 typedef|typedef
 struct|struct
 block|{
@@ -210,7 +215,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c8c32c0508
+DECL|struct|__anon2743590b0508
 typedef|typedef
 struct|struct
 block|{
@@ -423,7 +428,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c8c32c0608
+DECL|struct|__anon2743590b0608
 typedef|typedef
 struct|struct
 block|{
@@ -1038,6 +1043,27 @@ end_function_decl
 
 begin_function_decl
 specifier|static
+name|char
+modifier|*
+name|ngx_http_grpc_ssl_conf_command_check
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|void
+modifier|*
+name|post
+parameter_list|,
+name|void
+modifier|*
+name|data
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
 name|ngx_int_t
 name|ngx_http_grpc_set_ssl
 parameter_list|(
@@ -1257,6 +1283,18 @@ name|ngx_null_string
 block|,
 literal|0
 block|}
+block|}
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_http_grpc_ssl_conf_command_post
+specifier|static
+name|ngx_conf_post_t
+name|ngx_http_grpc_ssl_conf_command_post
+init|=
+block|{
+name|ngx_http_grpc_ssl_conf_command_check
 block|}
 decl_stmt|;
 end_decl_stmt
@@ -2058,6 +2096,35 @@ block|,
 literal|0
 block|,
 name|NULL
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
+literal|"grpc_ssl_conf_command"
+argument_list|)
+block|,
+name|NGX_HTTP_MAIN_CONF
+operator||
+name|NGX_HTTP_SRV_CONF
+operator||
+name|NGX_HTTP_LOC_CONF
+operator||
+name|NGX_CONF_TAKE2
+block|,
+name|ngx_conf_set_keyval_slot
+block|,
+name|NGX_HTTP_LOC_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+name|ngx_http_grpc_loc_conf_t
+argument_list|,
+name|ssl_conf_commands
+argument_list|)
+block|,
+operator|&
+name|ngx_http_grpc_ssl_conf_command_post
 block|}
 block|,
 endif|#
@@ -11413,7 +11480,7 @@ decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
-DECL|enum|__anon28c8c32c0703
+DECL|enum|__anon2743590b0703
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -12110,7 +12177,7 @@ name|index
 decl_stmt|,
 name|size_update
 decl_stmt|;
-DECL|enum|__anon28c8c32c0803
+DECL|enum|__anon2743590b0803
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -14193,7 +14260,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon28c8c32c0903
+DECL|enum|__anon2743590b0903
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -14484,7 +14551,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon28c8c32c0a03
+DECL|enum|__anon2743590b0a03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -14901,7 +14968,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon28c8c32c0b03
+DECL|enum|__anon2743590b0b03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -15300,7 +15367,7 @@ decl_stmt|;
 name|ssize_t
 name|window_update
 decl_stmt|;
-DECL|enum|__anon28c8c32c0c03
+DECL|enum|__anon2743590b0c03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -15900,7 +15967,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon28c8c32c0d03
+DECL|enum|__anon2743590b0d03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -18101,6 +18168,12 @@ name|ssl_passwords
 operator|=
 name|NGX_CONF_UNSET_PTR
 expr_stmt|;
+name|conf
+operator|->
+name|ssl_conf_commands
+operator|=
+name|NGX_CONF_UNSET_PTR
+expr_stmt|;
 endif|#
 directive|endif
 comment|/* the hardcoded values */
@@ -18682,6 +18755,19 @@ argument_list|,
 name|prev
 operator|->
 name|ssl_passwords
+argument_list|,
+name|NULL
+argument_list|)
+expr_stmt|;
+name|ngx_conf_merge_ptr_value
+argument_list|(
+name|conf
+operator|->
+name|ssl_conf_commands
+argument_list|,
+name|prev
+operator|->
+name|ssl_conf_commands
 argument_list|,
 name|NULL
 argument_list|)
@@ -20445,6 +20531,40 @@ end_function
 
 begin_function
 specifier|static
+name|char
+modifier|*
+DECL|function|ngx_http_grpc_ssl_conf_command_check (ngx_conf_t * cf,void * post,void * data)
+name|ngx_http_grpc_ssl_conf_command_check
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|void
+modifier|*
+name|post
+parameter_list|,
+name|void
+modifier|*
+name|data
+parameter_list|)
+block|{
+ifndef|#
+directive|ifndef
+name|SSL_CONF_FLAG_FILE
+return|return
+literal|"is not supported on this platform"
+return|;
+endif|#
+directive|endif
+return|return
+name|NGX_CONF_OK
+return|;
+block|}
+end_function
+
+begin_function
+specifier|static
 name|ngx_int_t
 DECL|function|ngx_http_grpc_set_ssl (ngx_conf_t * cf,ngx_http_grpc_loc_conf_t * glcf)
 name|ngx_http_grpc_set_ssl
@@ -20847,6 +20967,30 @@ return|;
 block|}
 endif|#
 directive|endif
+if|if
+condition|(
+name|ngx_ssl_conf_commands
+argument_list|(
+name|cf
+argument_list|,
+name|glcf
+operator|->
+name|upstream
+operator|.
+name|ssl
+argument_list|,
+name|glcf
+operator|->
+name|ssl_conf_commands
+argument_list|)
+operator|!=
+name|NGX_OK
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
 return|return
 name|NGX_OK
 return|;
