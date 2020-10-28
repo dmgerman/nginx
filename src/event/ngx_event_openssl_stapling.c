@@ -41,7 +41,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2ba8193a0108
+DECL|struct|__anon2b9f4e9f0108
 typedef|typedef
 struct|struct
 block|{
@@ -137,7 +137,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ba8193a0208
+DECL|struct|__anon2b9f4e9f0208
 typedef|typedef
 struct|struct
 block|{
@@ -187,7 +187,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ba8193a0308
+DECL|struct|__anon2b9f4e9f0308
 typedef|typedef
 struct|struct
 block|{
@@ -210,7 +210,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ba8193a0408
+DECL|struct|__anon2b9f4e9f0408
 typedef|typedef
 struct|struct
 block|{
@@ -7987,7 +7987,7 @@ name|ngx_buf_t
 modifier|*
 name|b
 decl_stmt|;
-DECL|enum|__anon2ba8193a0503
+DECL|enum|__anon2b9f4e9f0503
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -8813,7 +8813,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon2ba8193a0603
+DECL|enum|__anon2b9f4e9f0603
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -10985,36 +10985,7 @@ operator|->
 name|length
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG
-operator|)
-block|{
-name|u_char
-name|buf
-index|[
-literal|120
-index|]
-decl_stmt|;
-name|ngx_hex_dump
-argument_list|(
-name|buf
-argument_list|,
-name|ctx
-operator|->
-name|key
-operator|.
-name|data
-argument_list|,
-name|ctx
-operator|->
-name|key
-operator|.
-name|len
-argument_list|)
-expr_stmt|;
-name|ngx_log_debug2
+name|ngx_log_debug1
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
 argument_list|,
@@ -11024,19 +10995,14 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"ssl ocsp key %*s"
+literal|"ssl ocsp key %xV"
 argument_list|,
-sizeof|sizeof
-argument_list|(
-name|buf
-argument_list|)
-argument_list|,
-name|buf
+operator|&
+name|ctx
+operator|->
+name|key
 argument_list|)
 expr_stmt|;
-block|}
-endif|#
-directive|endif
 return|return
 name|NGX_OK
 return|;

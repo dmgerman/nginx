@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2ba8d24b0108
+DECL|struct|__anon2bc133110108
 typedef|typedef
 struct|struct
 block|{
@@ -16482,19 +16482,6 @@ name|EVP_CIPHER
 modifier|*
 name|cipher
 decl_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_DEBUG
-operator|)
-name|u_char
-name|buf
-index|[
-literal|32
-index|]
-decl_stmt|;
-endif|#
-directive|endif
 name|c
 operator|=
 name|ngx_ssl_get_connection
@@ -16572,11 +16559,12 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"ssl session ticket encrypt, key: \"%*s\" (%s session)"
+literal|"ssl session ticket encrypt, key: \"%*xs\" (%s session)"
 argument_list|,
-name|ngx_hex_dump
-argument_list|(
-name|buf
+operator|(
+name|size_t
+operator|)
+literal|16
 argument_list|,
 name|key
 index|[
@@ -16584,13 +16572,6 @@ literal|0
 index|]
 operator|.
 name|name
-argument_list|,
-literal|16
-argument_list|)
-operator|-
-name|buf
-argument_list|,
-name|buf
 argument_list|,
 name|SSL_session_reused
 argument_list|(
@@ -16849,20 +16830,14 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"ssl session ticket decrypt, key: \"%*s\" not found"
+literal|"ssl session ticket decrypt, key: \"%*xs\" not found"
 argument_list|,
-name|ngx_hex_dump
-argument_list|(
-name|buf
+operator|(
+name|size_t
+operator|)
+literal|16
 argument_list|,
 name|name
-argument_list|,
-literal|16
-argument_list|)
-operator|-
-name|buf
-argument_list|,
-name|buf
 argument_list|)
 expr_stmt|;
 return|return
@@ -16880,11 +16855,12 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"ssl session ticket decrypt, key: \"%*s\"%s"
+literal|"ssl session ticket decrypt, key: \"%*xs\"%s"
 argument_list|,
-name|ngx_hex_dump
-argument_list|(
-name|buf
+operator|(
+name|size_t
+operator|)
+literal|16
 argument_list|,
 name|key
 index|[
@@ -16892,13 +16868,6 @@ name|i
 index|]
 operator|.
 name|name
-argument_list|,
-literal|16
-argument_list|)
-operator|-
-name|buf
-argument_list|,
-name|buf
 argument_list|,
 operator|(
 name|i
