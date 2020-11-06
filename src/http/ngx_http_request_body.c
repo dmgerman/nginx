@@ -2713,6 +2713,12 @@ name|lingering_close
 operator|=
 literal|0
 expr_stmt|;
+name|r
+operator|->
+name|lingering_time
+operator|=
+literal|0
+expr_stmt|;
 name|ngx_http_finalize_request
 argument_list|(
 name|r
