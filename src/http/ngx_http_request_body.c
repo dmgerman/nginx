@@ -1202,6 +1202,19 @@ return|return
 name|NGX_AGAIN
 return|;
 block|}
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"busy buffers after request body flush"
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
