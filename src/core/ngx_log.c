@@ -112,7 +112,7 @@ function_decl|;
 end_function_decl
 
 begin_typedef
-DECL|struct|__anon28acd4e50108
+DECL|struct|__anon2b3e39440108
 typedef|typedef
 struct|struct
 block|{
@@ -1309,12 +1309,16 @@ end_function
 begin_function
 name|ngx_log_t
 modifier|*
-DECL|function|ngx_log_init (u_char * prefix)
+DECL|function|ngx_log_init (u_char * prefix,u_char * error_log)
 name|ngx_log_init
 parameter_list|(
 name|u_char
 modifier|*
 name|prefix
+parameter_list|,
+name|u_char
+modifier|*
+name|error_log
 parameter_list|)
 block|{
 name|u_char
@@ -1342,7 +1346,14 @@ name|log_level
 operator|=
 name|NGX_LOG_NOTICE
 expr_stmt|;
-name|name
+if|if
+condition|(
+name|error_log
+operator|==
+name|NULL
+condition|)
+block|{
+name|error_log
 operator|=
 operator|(
 name|u_char
@@ -1350,7 +1361,11 @@ operator|*
 operator|)
 name|NGX_ERROR_LOG_PATH
 expr_stmt|;
-comment|/*      * we use ngx_strlen() here since BCC warns about      * condition is always false and unreachable code      */
+block|}
+name|name
+operator|=
+name|error_log
+expr_stmt|;
 name|nlen
 operator|=
 name|ngx_strlen
@@ -1514,11 +1529,7 @@ name|ngx_cpystrn
 argument_list|(
 name|p
 argument_list|,
-operator|(
-name|u_char
-operator|*
-operator|)
-name|NGX_ERROR_LOG_PATH
+name|error_log
 argument_list|,
 name|nlen
 operator|+
@@ -1620,15 +1631,6 @@ name|ngx_log_t
 modifier|*
 name|log
 decl_stmt|;
-specifier|static
-name|ngx_str_t
-name|error_log
-init|=
-name|ngx_string
-argument_list|(
-name|NGX_ERROR_LOG_PATH
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
 name|ngx_log_get_file_log
@@ -1710,6 +1712,8 @@ argument_list|(
 name|cycle
 argument_list|,
 operator|&
+name|cycle
+operator|->
 name|error_log
 argument_list|)
 expr_stmt|;

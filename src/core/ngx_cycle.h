@@ -275,6 +275,10 @@ DECL|member|prefix
 name|ngx_str_t
 name|prefix
 decl_stmt|;
+DECL|member|error_log
+name|ngx_str_t
+name|error_log
+decl_stmt|;
 DECL|member|lock_file
 name|ngx_str_t
 name|lock_file
@@ -288,7 +292,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a533ce30108
+DECL|struct|__anon288187680108
 typedef|typedef
 struct|struct
 block|{

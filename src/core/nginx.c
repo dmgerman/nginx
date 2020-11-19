@@ -818,6 +818,15 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
+DECL|variable|ngx_error_log
+specifier|static
+name|u_char
+modifier|*
+name|ngx_error_log
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
 DECL|variable|ngx_conf_file
 specifier|static
 name|u_char
@@ -979,6 +988,8 @@ operator|=
 name|ngx_log_init
 argument_list|(
 name|ngx_prefix
+argument_list|,
+name|ngx_error_log
 argument_list|)
 expr_stmt|;
 if|if
@@ -1565,9 +1576,10 @@ condition|)
 block|{
 name|ngx_write_stderr
 argument_list|(
-literal|"Usage: nginx [-?hvVtTq] [-s signal] [-c filename] "
-literal|"[-p prefix] [-g directives]"
-argument|NGX_LINEFEED                          NGX_LINEFEED
+literal|"Usage: nginx [-?hvVtTq] [-s signal] [-p prefix]"
+argument|NGX_LINEFEED
+literal|"             [-e filename] [-c filename] [-g directives]"
+argument|NGX_LINEFEED NGX_LINEFEED
 literal|"Options:"
 argument|NGX_LINEFEED
 literal|"  -?,-h         : this help"
@@ -1596,6 +1608,19 @@ argument|NGX_LINEFEED
 else|#
 directive|else
 literal|"  -p prefix     : set prefix path (default: NONE)"
+argument|NGX_LINEFEED
+endif|#
+directive|endif
+literal|"  -e filename   : set error log file (default: "
+ifdef|#
+directive|ifdef
+name|NGX_ERROR_LOG_STDERR
+literal|"stderr)"
+argument|NGX_LINEFEED
+else|#
+directive|else
+argument|NGX_ERROR_LOG_PATH
+literal|")"
 argument|NGX_LINEFEED
 endif|#
 directive|endif
@@ -3235,6 +3260,78 @@ return|return
 name|NGX_ERROR
 return|;
 case|case
+literal|'e'
+case|:
+if|if
+condition|(
+operator|*
+name|p
+condition|)
+block|{
+name|ngx_error_log
+operator|=
+name|p
+expr_stmt|;
+block|}
+if|else if
+condition|(
+name|argv
+index|[
+operator|++
+name|i
+index|]
+condition|)
+block|{
+name|ngx_error_log
+operator|=
+operator|(
+name|u_char
+operator|*
+operator|)
+name|argv
+index|[
+name|i
+index|]
+expr_stmt|;
+block|}
+else|else
+block|{
+name|ngx_log_stderr
+argument_list|(
+literal|0
+argument_list|,
+literal|"option \"-e\" requires file name"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_ERROR
+return|;
+block|}
+if|if
+condition|(
+name|ngx_strcmp
+argument_list|(
+name|ngx_error_log
+argument_list|,
+literal|"stderr"
+argument_list|)
+operator|==
+literal|0
+condition|)
+block|{
+name|ngx_error_log
+operator|=
+operator|(
+name|u_char
+operator|*
+operator|)
+literal|""
+expr_stmt|;
+block|}
+goto|goto
+name|next
+goto|;
+case|case
 literal|'c'
 case|:
 if|if
@@ -4067,6 +4164,44 @@ name|data
 expr_stmt|;
 break|break;
 block|}
+block|}
+if|if
+condition|(
+name|ngx_error_log
+condition|)
+block|{
+name|cycle
+operator|->
+name|error_log
+operator|.
+name|len
+operator|=
+name|ngx_strlen
+argument_list|(
+name|ngx_error_log
+argument_list|)
+expr_stmt|;
+name|cycle
+operator|->
+name|error_log
+operator|.
+name|data
+operator|=
+name|ngx_error_log
+expr_stmt|;
+block|}
+else|else
+block|{
+name|ngx_str_set
+argument_list|(
+operator|&
+name|cycle
+operator|->
+name|error_log
+argument_list|,
+name|NGX_ERROR_LOG_PATH
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(

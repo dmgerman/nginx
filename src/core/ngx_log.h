@@ -1305,6 +1305,10 @@ parameter_list|(
 name|u_char
 modifier|*
 name|prefix
+parameter_list|,
+name|u_char
+modifier|*
+name|error_log
 parameter_list|)
 function_decl|;
 end_function_decl
