@@ -195,6 +195,10 @@ DECL|member|total_weight
 name|ngx_uint_t
 name|total_weight
 decl_stmt|;
+DECL|member|tries
+name|ngx_uint_t
+name|tries
+decl_stmt|;
 DECL|member|single
 name|unsigned
 name|single
@@ -363,7 +367,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b3f631d0108
+DECL|struct|__anon298e67e30108
 typedef|typedef
 struct|struct
 block|{
