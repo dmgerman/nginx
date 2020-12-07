@@ -28,7 +28,7 @@ file|<ngx_http_v2_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28f43bb00108
+DECL|struct|__anon2b6921980108
 typedef|typedef
 struct|struct
 block|{
@@ -3726,12 +3726,6 @@ name|ngx_http_v2_lingering_close
 expr_stmt|;
 return|return;
 block|}
-name|c
-operator|->
-name|recv
-operator|=
-name|ngx_recv
-expr_stmt|;
 block|}
 endif|#
 directive|endif
@@ -16268,7 +16262,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon28f43bb00208
+DECL|struct|__anon2b6921980208
 specifier|static
 specifier|const
 struct|struct

@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2bc133110108
+DECL|struct|__anon28c98aba0108
 typedef|typedef
 struct|struct
 block|{
@@ -11772,6 +11772,12 @@ name|ssl
 operator|=
 name|NULL
 expr_stmt|;
+name|c
+operator|->
+name|recv
+operator|=
+name|ngx_recv
+expr_stmt|;
 return|return
 name|NGX_OK
 return|;
@@ -11955,6 +11961,12 @@ name|ssl
 operator|=
 name|NULL
 expr_stmt|;
+name|c
+operator|->
+name|recv
+operator|=
+name|ngx_recv
+expr_stmt|;
 return|return
 name|NGX_OK
 return|;
@@ -12132,6 +12144,12 @@ name|ssl
 operator|=
 name|NULL
 expr_stmt|;
+name|c
+operator|->
+name|recv
+operator|=
+name|ngx_recv
+expr_stmt|;
 return|return
 name|NGX_OK
 return|;
@@ -12173,6 +12191,12 @@ operator|->
 name|ssl
 operator|=
 name|NULL
+expr_stmt|;
+name|c
+operator|->
+name|recv
+operator|=
+name|ngx_recv
 expr_stmt|;
 return|return
 name|NGX_ERROR

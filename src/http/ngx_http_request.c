@@ -9269,7 +9269,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon2bbc9b050103
+DECL|enum|__anon2b95f3570103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -14208,12 +14208,6 @@ name|ngx_http_set_lingering_close
 expr_stmt|;
 return|return;
 block|}
-name|c
-operator|->
-name|recv
-operator|=
-name|ngx_recv
-expr_stmt|;
 block|}
 endif|#
 directive|endif
