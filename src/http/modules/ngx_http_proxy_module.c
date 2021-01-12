@@ -110,7 +110,7 @@ value|0x0400
 end_define
 
 begin_typedef
-DECL|struct|__anon2999ab5f0108
+DECL|struct|__anon2a33e2680108
 typedef|typedef
 struct|struct
 block|{
@@ -173,7 +173,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon2999ab5f020a
+DECL|union|__anon2a33e268020a
 union|union
 block|{
 DECL|member|complex
@@ -205,11 +205,11 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2999ab5f0308
+DECL|struct|__anon2a33e2680308
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon2999ab5f040a
+DECL|union|__anon2a33e268040a
 union|union
 block|{
 DECL|member|complex
@@ -247,7 +247,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2999ab5f0508
+DECL|struct|__anon2a33e2680508
 typedef|typedef
 struct|struct
 block|{
@@ -278,7 +278,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2999ab5f0608
+DECL|struct|__anon2a33e2680608
 typedef|typedef
 struct|struct
 block|{
@@ -308,7 +308,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2999ab5f0708
+DECL|struct|__anon2a33e2680708
 typedef|typedef
 struct|struct
 block|{
@@ -485,7 +485,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2999ab5f0808
+DECL|struct|__anon2a33e2680808
 typedef|typedef
 struct|struct
 block|{
@@ -11251,6 +11251,35 @@ name|r
 operator|->
 name|upstream
 expr_stmt|;
+if|if
+condition|(
+name|u
+operator|->
+name|length
+operator|==
+literal|0
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_WARN
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"upstream sent more data than specified in "
+literal|"\"Content-Length\" header"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_OK
+return|;
+block|}
 for|for
 control|(
 name|cl

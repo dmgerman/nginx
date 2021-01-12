@@ -16374,6 +16374,35 @@ name|r
 operator|->
 name|upstream
 expr_stmt|;
+if|if
+condition|(
+name|u
+operator|->
+name|length
+operator|==
+literal|0
+condition|)
+block|{
+name|ngx_log_error
+argument_list|(
+name|NGX_LOG_WARN
+argument_list|,
+name|r
+operator|->
+name|connection
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"upstream sent more data than specified in "
+literal|"\"Content-Length\" header"
+argument_list|)
+expr_stmt|;
+return|return
+name|NGX_OK
+return|;
+block|}
 for|for
 control|(
 name|cl
