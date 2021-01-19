@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b98fed50108
+DECL|struct|__anon2771354b0108
 typedef|typedef
 struct|struct
 block|{
@@ -7463,13 +7463,6 @@ block|}
 if|if
 condition|(
 name|r
-operator|->
-name|method
-operator|==
-name|NGX_HTTP_HEAD
-operator|||
-operator|(
-name|r
 operator|!=
 name|r
 operator|->
@@ -7480,7 +7473,6 @@ operator|.
 name|len
 operator|==
 literal|0
-operator|)
 condition|)
 block|{
 return|return
