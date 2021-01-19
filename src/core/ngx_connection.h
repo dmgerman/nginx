@@ -129,11 +129,6 @@ DECL|member|post_accept_buffer_size
 name|size_t
 name|post_accept_buffer_size
 decl_stmt|;
-comment|/* should be here because of the deferred accept */
-DECL|member|post_accept_timeout
-name|ngx_msec_t
-name|post_accept_timeout
-decl_stmt|;
 DECL|member|previous
 name|ngx_listening_t
 modifier|*
@@ -316,7 +311,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon27931f240103
+DECL|enum|__anon2b38c8640103
 typedef|typedef
 enum|enum
 block|{
@@ -343,7 +338,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27931f240203
+DECL|enum|__anon2b38c8640203
 typedef|typedef
 enum|enum
 block|{
@@ -364,7 +359,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27931f240303
+DECL|enum|__anon2b38c8640303
 typedef|typedef
 enum|enum
 block|{

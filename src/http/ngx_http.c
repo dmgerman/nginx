@@ -7395,14 +7395,6 @@ name|cscf
 operator|->
 name|connection_pool_size
 expr_stmt|;
-name|ls
-operator|->
-name|post_accept_timeout
-operator|=
-name|cscf
-operator|->
-name|client_header_timeout
-expr_stmt|;
 name|clcf
 operator|=
 name|cscf
