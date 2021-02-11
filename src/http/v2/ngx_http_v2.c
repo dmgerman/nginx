@@ -28,7 +28,7 @@ file|<ngx_http_v2_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29ee1f710108
+DECL|struct|__anon28c3efe50108
 typedef|typedef
 struct|struct
 block|{
@@ -2134,6 +2134,13 @@ operator|->
 name|idle
 operator|=
 literal|1
+expr_stmt|;
+name|ngx_reusable_connection
+argument_list|(
+name|c
+argument_list|,
+literal|0
+argument_list|)
 expr_stmt|;
 name|ngx_http_v2_read_handler
 argument_list|(
@@ -16310,7 +16317,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon29ee1f710208
+DECL|struct|__anon28c3efe50208
 specifier|static
 specifier|const
 struct|struct
