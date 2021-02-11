@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2771354b0108
+DECL|struct|__anon2af5ca600108
 typedef|typedef
 struct|struct
 block|{
@@ -17977,38 +17977,6 @@ name|NGX_CONF_ERROR
 return|;
 endif|#
 directive|endif
-block|}
-if|if
-condition|(
-name|ngx_strcmp
-argument_list|(
-name|value
-index|[
-name|n
-index|]
-operator|.
-name|data
-argument_list|,
-literal|"spdy"
-argument_list|)
-operator|==
-literal|0
-condition|)
-block|{
-name|ngx_conf_log_error
-argument_list|(
-name|NGX_LOG_WARN
-argument_list|,
-name|cf
-argument_list|,
-literal|0
-argument_list|,
-literal|"invalid parameter \"spdy\": "
-literal|"ngx_http_spdy_module was superseded "
-literal|"by ngx_http_v2_module"
-argument_list|)
-expr_stmt|;
-continue|continue;
 block|}
 if|if
 condition|(
