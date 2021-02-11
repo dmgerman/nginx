@@ -28,7 +28,7 @@ file|<ngx_http_v2_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28efe3a50108
+DECL|struct|__anon27ecc1ba0108
 typedef|typedef
 struct|struct
 block|{
@@ -5786,6 +5786,10 @@ name|ngx_http_v2_srv_conf_t
 modifier|*
 name|h2scf
 decl_stmt|;
+name|ngx_http_core_srv_conf_t
+modifier|*
+name|cscf
+decl_stmt|;
 name|ngx_http_core_loc_conf_t
 modifier|*
 name|clcf
@@ -6292,6 +6296,37 @@ name|NGX_HTTP_V2_INTERNAL_ERROR
 argument_list|)
 return|;
 block|}
+name|cscf
+operator|=
+name|ngx_http_get_module_srv_conf
+argument_list|(
+name|h2c
+operator|->
+name|http_connection
+operator|->
+name|conf_ctx
+argument_list|,
+name|ngx_http_core_module
+argument_list|)
+expr_stmt|;
+name|h2c
+operator|->
+name|state
+operator|.
+name|header_limit
+operator|=
+name|cscf
+operator|->
+name|large_client_header_buffers
+operator|.
+name|size
+operator|*
+name|cscf
+operator|->
+name|large_client_header_buffers
+operator|.
+name|num
+expr_stmt|;
 name|h2scf
 operator|=
 name|ngx_http_get_module_srv_conf
@@ -6304,16 +6339,6 @@ name|conf_ctx
 argument_list|,
 name|ngx_http_v2_module
 argument_list|)
-expr_stmt|;
-name|h2c
-operator|->
-name|state
-operator|.
-name|header_limit
-operator|=
-name|h2scf
-operator|->
-name|max_header_size
 expr_stmt|;
 if|if
 condition|(
@@ -7153,9 +7178,9 @@ decl_stmt|;
 name|ngx_uint_t
 name|huff
 decl_stmt|;
-name|ngx_http_v2_srv_conf_t
+name|ngx_http_core_srv_conf_t
 modifier|*
-name|h2scf
+name|cscf
 decl_stmt|;
 if|if
 condition|(
@@ -7378,7 +7403,7 @@ argument_list|,
 name|len
 argument_list|)
 expr_stmt|;
-name|h2scf
+name|cscf
 operator|=
 name|ngx_http_get_module_srv_conf
 argument_list|(
@@ -7388,7 +7413,7 @@ name|http_connection
 operator|->
 name|conf_ctx
 argument_list|,
-name|ngx_http_v2_module
+name|ngx_http_core_module
 argument_list|)
 expr_stmt|;
 if|if
@@ -7398,9 +7423,11 @@ name|size_t
 operator|)
 name|len
 operator|>
-name|h2scf
+name|cscf
 operator|->
-name|max_field_size
+name|large_client_header_buffers
+operator|.
+name|size
 condition|)
 block|{
 name|ngx_log_error
@@ -7415,7 +7442,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"client exceeded http2_max_field_size limit"
+literal|"client sent too large header field"
 argument_list|)
 expr_stmt|;
 return|return
@@ -8454,7 +8481,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"client exceeded http2_max_header_size limit"
+literal|"client sent too large header"
 argument_list|)
 expr_stmt|;
 return|return
@@ -16346,7 +16373,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon28efe3a50208
+DECL|struct|__anon27ecc1ba0208
 specifier|static
 specifier|const
 struct|struct
