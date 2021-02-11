@@ -28,7 +28,7 @@ file|<ngx_http_v2_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon296123820108
+DECL|struct|__anon2ac6685b0108
 typedef|typedef
 struct|struct
 block|{
@@ -3839,6 +3839,19 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|c
+operator|->
+name|close
+operator|=
+literal|0
+expr_stmt|;
+name|ngx_reusable_connection
+argument_list|(
+name|c
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
 name|ngx_add_timer
 argument_list|(
 name|rev
@@ -3929,6 +3942,10 @@ condition|(
 name|rev
 operator|->
 name|timedout
+operator|||
+name|c
+operator|->
+name|close
 condition|)
 block|{
 name|ngx_http_close_connection
@@ -16271,7 +16288,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon296123820208
+DECL|struct|__anon2ac6685b0208
 specifier|static
 specifier|const
 struct|struct
