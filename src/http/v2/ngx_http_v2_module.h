@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon297ae3840108
+DECL|struct|__anon2c654d000108
 typedef|typedef
 struct|struct
 block|{
@@ -55,7 +55,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297ae3840208
+DECL|struct|__anon2c654d000208
 typedef|typedef
 struct|struct
 block|{
@@ -70,10 +70,6 @@ decl_stmt|;
 DECL|member|concurrent_pushes
 name|ngx_uint_t
 name|concurrent_pushes
-decl_stmt|;
-DECL|member|max_requests
-name|ngx_uint_t
-name|max_requests
 decl_stmt|;
 DECL|member|max_field_size
 name|size_t
@@ -91,10 +87,6 @@ DECL|member|streams_index_mask
 name|ngx_uint_t
 name|streams_index_mask
 decl_stmt|;
-DECL|member|idle_timeout
-name|ngx_msec_t
-name|idle_timeout
-decl_stmt|;
 DECL|typedef|ngx_http_v2_srv_conf_t
 block|}
 name|ngx_http_v2_srv_conf_t
@@ -102,7 +94,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297ae3840308
+DECL|struct|__anon2c654d000308
 typedef|typedef
 struct|struct
 block|{
