@@ -28,7 +28,7 @@ file|<ngx_http_v2_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ac6685b0108
+DECL|struct|__anon29ee1f710108
 typedef|typedef
 struct|struct
 block|{
@@ -2273,6 +2273,28 @@ condition|(
 operator|!
 name|h2c
 operator|->
+name|processing
+operator|&&
+operator|!
+name|h2c
+operator|->
+name|pushing
+condition|)
+block|{
+name|ngx_http_v2_finalize_connection
+argument_list|(
+name|h2c
+argument_list|,
+name|NGX_HTTP_V2_NO_ERROR
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+if|if
+condition|(
+operator|!
+name|h2c
+operator|->
 name|goaway
 condition|)
 block|{
@@ -3438,6 +3460,13 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|ngx_reusable_connection
+argument_list|(
+name|c
+argument_list|,
+literal|1
+argument_list|)
+expr_stmt|;
 name|h2scf
 operator|=
 name|ngx_http_get_module_srv_conf
@@ -3529,13 +3558,6 @@ operator|->
 name|destroyed
 operator|=
 literal|1
-expr_stmt|;
-name|ngx_reusable_connection
-argument_list|(
-name|c
-argument_list|,
-literal|1
-argument_list|)
 expr_stmt|;
 name|c
 operator|->
@@ -16288,7 +16310,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2ac6685b0208
+DECL|struct|__anon29ee1f710208
 specifier|static
 specifier|const
 struct|struct
