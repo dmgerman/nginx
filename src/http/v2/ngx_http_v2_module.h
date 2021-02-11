@@ -35,7 +35,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28c936a00108
+DECL|struct|__anon297ae3840108
 typedef|typedef
 struct|struct
 block|{
@@ -55,7 +55,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c936a00208
+DECL|struct|__anon297ae3840208
 typedef|typedef
 struct|struct
 block|{
@@ -91,10 +91,6 @@ DECL|member|streams_index_mask
 name|ngx_uint_t
 name|streams_index_mask
 decl_stmt|;
-DECL|member|recv_timeout
-name|ngx_msec_t
-name|recv_timeout
-decl_stmt|;
 DECL|member|idle_timeout
 name|ngx_msec_t
 name|idle_timeout
@@ -106,7 +102,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28c936a00308
+DECL|struct|__anon297ae3840308
 typedef|typedef
 struct|struct
 block|{
