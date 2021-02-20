@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon27c6812e0108
+DECL|struct|__anon279e30900108
 typedef|typedef
 struct|struct
 block|{
@@ -612,6 +612,10 @@ directive|endif
 name|ASN1_TIME
 modifier|*
 name|asn1time
+parameter_list|,
+name|ngx_log_t
+modifier|*
+name|log
 parameter_list|)
 function_decl|;
 end_function_decl
@@ -19701,6 +19705,19 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|ngx_ssl_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"BIO_new() failed"
+argument_list|)
+expr_stmt|;
 name|X509_free
 argument_list|(
 name|cert
@@ -19726,6 +19743,19 @@ operator|<
 literal|0
 condition|)
 block|{
+name|ngx_ssl_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"X509_NAME_print_ex() failed"
+argument_list|)
+expr_stmt|;
 goto|goto
 name|failed
 goto|;
@@ -19905,6 +19935,19 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|ngx_ssl_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"BIO_new() failed"
+argument_list|)
+expr_stmt|;
 name|X509_free
 argument_list|(
 name|cert
@@ -19930,6 +19973,19 @@ operator|<
 literal|0
 condition|)
 block|{
+name|ngx_ssl_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"X509_NAME_print_ex() failed"
+argument_list|)
+expr_stmt|;
 goto|goto
 name|failed
 goto|;
@@ -20501,6 +20557,19 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|ngx_ssl_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"BIO_new() failed"
+argument_list|)
+expr_stmt|;
 name|X509_free
 argument_list|(
 name|cert
@@ -20671,6 +20740,19 @@ name|len
 argument_list|)
 condition|)
 block|{
+name|ngx_ssl_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"X509_digest() failed"
+argument_list|)
+expr_stmt|;
 name|X509_free
 argument_list|(
 name|cert
@@ -20989,6 +21071,19 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|ngx_ssl_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"BIO_new() failed"
+argument_list|)
+expr_stmt|;
 name|X509_free
 argument_list|(
 name|cert
@@ -21173,6 +21268,19 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|ngx_ssl_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|c
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"BIO_new() failed"
+argument_list|)
+expr_stmt|;
 name|X509_free
 argument_list|(
 name|cert
@@ -21353,6 +21461,10 @@ name|X509_get0_notAfter
 argument_list|(
 name|cert
 argument_list|)
+argument_list|,
+name|c
+operator|->
+name|log
 argument_list|)
 expr_stmt|;
 else|#
@@ -21365,6 +21477,10 @@ name|X509_get_notAfter
 argument_list|(
 name|cert
 argument_list|)
+argument_list|,
+name|c
+operator|->
+name|log
 argument_list|)
 expr_stmt|;
 endif|#
@@ -21486,7 +21602,7 @@ end_function
 begin_function
 specifier|static
 name|time_t
-DECL|function|ngx_ssl_parse_time (const ASN1_TIME * asn1time)
+DECL|function|ngx_ssl_parse_time (const ASN1_TIME * asn1time,ngx_log_t * log)
 name|ngx_ssl_parse_time
 parameter_list|(
 if|#
@@ -21500,6 +21616,10 @@ directive|endif
 name|ASN1_TIME
 modifier|*
 name|asn1time
+parameter_list|,
+name|ngx_log_t
+modifier|*
+name|log
 parameter_list|)
 block|{
 name|BIO
@@ -21532,6 +21652,17 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|ngx_ssl_error
+argument_list|(
+name|NGX_LOG_ALERT
+argument_list|,
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"BIO_new() failed"
+argument_list|)
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
