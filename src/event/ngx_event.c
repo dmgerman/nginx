@@ -1229,7 +1229,6 @@ name|rev
 operator|->
 name|oneshot
 operator|&&
-operator|!
 name|rev
 operator|->
 name|ready
