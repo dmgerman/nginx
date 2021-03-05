@@ -1422,6 +1422,14 @@ name|c
 operator|->
 name|data
 expr_stmt|;
+name|c
+operator|->
+name|log
+operator|->
+name|action
+operator|=
+literal|"sending client greeting line"
+expr_stmt|;
 name|cscf
 operator|=
 name|ngx_mail_get_module_srv_conf
