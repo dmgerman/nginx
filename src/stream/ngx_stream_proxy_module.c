@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c6c59e50108
+DECL|struct|__anon275872840108
 typedef|typedef
 struct|struct
 block|{
@@ -55,7 +55,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c6c59e50208
+DECL|struct|__anon275872840208
 typedef|typedef
 struct|struct
 block|{
@@ -4525,11 +4525,13 @@ name|SSL_CONF_FLAG_FILE
 return|return
 literal|"is not supported on this platform"
 return|;
-endif|#
-directive|endif
+else|#
+directive|else
 return|return
 name|NGX_CONF_OK
 return|;
+endif|#
+directive|endif
 block|}
 end_function
 

@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2aaa5f110108
+DECL|struct|__anon2912c7d70108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aaa5f110208
+DECL|struct|__anon2912c7d70208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2aaa5f110308
+DECL|struct|__anon2912c7d70308
 typedef|typedef
 struct|struct
 block|{
@@ -11333,11 +11333,13 @@ name|SSL_CONF_FLAG_FILE
 return|return
 literal|"is not supported on this platform"
 return|;
-endif|#
-directive|endif
+else|#
+directive|else
 return|return
 name|NGX_CONF_OK
 return|;
+endif|#
+directive|endif
 block|}
 end_function
 

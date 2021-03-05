@@ -4581,11 +4581,13 @@ name|SSL_CONF_FLAG_FILE
 return|return
 literal|"is not supported on this platform"
 return|;
-endif|#
-directive|endif
+else|#
+directive|else
 return|return
 name|NGX_CONF_OK
 return|;
+endif|#
+directive|endif
 block|}
 end_function
 

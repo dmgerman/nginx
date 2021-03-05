@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27daa0de0108
+DECL|struct|__anon292dc2860108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27daa0de0208
+DECL|struct|__anon292dc2860208
 typedef|typedef
 struct|struct
 block|{
@@ -143,7 +143,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon27daa0de0303
+DECL|enum|__anon292dc2860303
 typedef|typedef
 enum|enum
 block|{
@@ -188,7 +188,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27daa0de0408
+DECL|struct|__anon292dc2860408
 typedef|typedef
 struct|struct
 block|{
@@ -215,7 +215,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27daa0de0508
+DECL|struct|__anon292dc2860508
 typedef|typedef
 struct|struct
 block|{
@@ -428,7 +428,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27daa0de0608
+DECL|struct|__anon292dc2860608
 typedef|typedef
 struct|struct
 block|{
@@ -11394,7 +11394,7 @@ decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
-DECL|enum|__anon27daa0de0703
+DECL|enum|__anon292dc2860703
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -12091,7 +12091,7 @@ name|index
 decl_stmt|,
 name|size_update
 decl_stmt|;
-DECL|enum|__anon27daa0de0803
+DECL|enum|__anon292dc2860803
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -14174,7 +14174,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon27daa0de0903
+DECL|enum|__anon292dc2860903
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -14465,7 +14465,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon27daa0de0a03
+DECL|enum|__anon292dc2860a03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -14882,7 +14882,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon27daa0de0b03
+DECL|enum|__anon292dc2860b03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -15281,7 +15281,7 @@ decl_stmt|;
 name|ssize_t
 name|window_update
 decl_stmt|;
-DECL|enum|__anon27daa0de0c03
+DECL|enum|__anon292dc2860c03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -15881,7 +15881,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon27daa0de0d03
+DECL|enum|__anon292dc2860d03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -20469,11 +20469,13 @@ name|SSL_CONF_FLAG_FILE
 return|return
 literal|"is not supported on this platform"
 return|;
-endif|#
-directive|endif
+else|#
+directive|else
 return|return
 name|NGX_CONF_OK
 return|;
+endif|#
+directive|endif
 block|}
 end_function
 

@@ -110,7 +110,7 @@ value|0x0400
 end_define
 
 begin_typedef
-DECL|struct|__anon29df873e0108
+DECL|struct|__anon2b8d80be0108
 typedef|typedef
 struct|struct
 block|{
@@ -173,7 +173,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon29df873e020a
+DECL|union|__anon2b8d80be020a
 union|union
 block|{
 DECL|member|complex
@@ -205,11 +205,11 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29df873e0308
+DECL|struct|__anon2b8d80be0308
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon29df873e040a
+DECL|union|__anon2b8d80be040a
 union|union
 block|{
 DECL|member|complex
@@ -247,7 +247,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29df873e0508
+DECL|struct|__anon2b8d80be0508
 typedef|typedef
 struct|struct
 block|{
@@ -278,7 +278,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29df873e0608
+DECL|struct|__anon2b8d80be0608
 typedef|typedef
 struct|struct
 block|{
@@ -308,7 +308,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29df873e0708
+DECL|struct|__anon2b8d80be0708
 typedef|typedef
 struct|struct
 block|{
@@ -485,7 +485,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29df873e0808
+DECL|struct|__anon2b8d80be0808
 typedef|typedef
 struct|struct
 block|{
@@ -23051,11 +23051,13 @@ name|SSL_CONF_FLAG_FILE
 return|return
 literal|"is not supported on this platform"
 return|;
-endif|#
-directive|endif
+else|#
+directive|else
 return|return
 name|NGX_CONF_OK
 return|;
+endif|#
+directive|endif
 block|}
 end_function
 
