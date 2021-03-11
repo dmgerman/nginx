@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon279fc2d20108
+DECL|struct|__anon2922bde70108
 typedef|typedef
 struct|struct
 block|{
@@ -1578,7 +1578,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon279fc2d20203
+DECL|enum|__anon2922bde70203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -4106,7 +4106,7 @@ decl_stmt|,
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon279fc2d20303
+DECL|enum|__anon2922bde70303
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -4800,6 +4800,10 @@ name|login
 decl_stmt|,
 name|passwd
 decl_stmt|;
+name|ngx_connection_t
+modifier|*
+name|c
+decl_stmt|;
 if|#
 directive|if
 operator|(
@@ -4819,10 +4823,6 @@ decl_stmt|,
 name|raw_cert
 decl_stmt|,
 name|cert
-decl_stmt|;
-name|ngx_connection_t
-modifier|*
-name|c
 decl_stmt|;
 name|ngx_mail_ssl_conf_t
 modifier|*
@@ -4878,17 +4878,17 @@ return|return
 name|NULL
 return|;
 block|}
-if|#
-directive|if
-operator|(
-name|NGX_MAIL_SSL
-operator|)
 name|c
 operator|=
 name|s
 operator|->
 name|connection
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_MAIL_SSL
+operator|)
 name|sslcf
 operator|=
 name|ngx_mail_get_module_srv_conf
