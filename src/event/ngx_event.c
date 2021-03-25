@@ -1016,15 +1016,9 @@ name|ngx_accept_mutex
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|delta
-condition|)
-block|{
 name|ngx_event_expire_timers
 argument_list|()
 expr_stmt|;
-block|}
 name|ngx_event_process_posted
 argument_list|(
 name|cycle
