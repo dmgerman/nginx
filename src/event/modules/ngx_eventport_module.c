@@ -178,7 +178,7 @@ value|4
 end_define
 
 begin_typedef
-DECL|struct|__anon2aaf45e70108
+DECL|struct|__anon294721360108
 typedef|typedef
 struct|struct
 block|{
@@ -625,7 +625,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2aaf45e70208
+DECL|struct|__anon294721360208
 typedef|typedef
 struct|struct
 block|{
@@ -1760,7 +1760,12 @@ name|NGX_ERROR
 return|;
 block|}
 block|}
-else|else
+if|else if
+condition|(
+name|ev
+operator|->
+name|active
+condition|)
 block|{
 name|ngx_log_debug1
 argument_list|(
