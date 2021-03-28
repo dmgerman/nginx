@@ -46,7 +46,7 @@ value|8192
 end_define
 
 begin_typedef
-DECL|struct|__anon28a6eefb0108
+DECL|struct|__anon2a28d7aa0108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a6eefb0208
+DECL|struct|__anon2a28d7aa0208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28a6eefb0308
+DECL|struct|__anon2a28d7aa0308
 typedef|typedef
 struct|struct
 block|{
@@ -7395,11 +7395,22 @@ expr_stmt|;
 if|if
 condition|(
 name|n
-operator|<
-literal|0
+operator|==
+name|NGX_AGAIN
 condition|)
 block|{
-return|return;
+break|break;
+block|}
+if|if
+condition|(
+name|n
+operator|==
+name|NGX_ERROR
+condition|)
+block|{
+goto|goto
+name|failed
+goto|;
 block|}
 name|ngx_resolver_process_response
 argument_list|(
@@ -7422,6 +7433,38 @@ operator|->
 name|ready
 condition|)
 do|;
+if|if
+condition|(
+name|ngx_handle_read_event
+argument_list|(
+name|rev
+argument_list|,
+literal|0
+argument_list|)
+operator|!=
+name|NGX_OK
+condition|)
+block|{
+goto|goto
+name|failed
+goto|;
+block|}
+return|return;
+name|failed
+label|:
+name|ngx_close_connection
+argument_list|(
+name|rec
+operator|->
+name|udp
+argument_list|)
+expr_stmt|;
+name|rec
+operator|->
+name|udp
+operator|=
+name|NULL
+expr_stmt|;
 block|}
 end_function
 
