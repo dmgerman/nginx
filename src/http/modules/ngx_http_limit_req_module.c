@@ -62,7 +62,7 @@ value|5
 end_define
 
 begin_typedef
-DECL|struct|__anon298e1e4b0108
+DECL|struct|__anon2ab459aa0108
 typedef|typedef
 struct|struct
 block|{
@@ -109,7 +109,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298e1e4b0208
+DECL|struct|__anon2ab459aa0208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298e1e4b0308
+DECL|struct|__anon2ab459aa0308
 typedef|typedef
 struct|struct
 block|{
@@ -167,7 +167,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298e1e4b0408
+DECL|struct|__anon2ab459aa0408
 typedef|typedef
 struct|struct
 block|{
@@ -192,7 +192,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon298e1e4b0508
+DECL|struct|__anon2ab459aa0508
 typedef|typedef
 struct|struct
 block|{
@@ -1316,6 +1316,32 @@ name|NGX_HTTP_LIMIT_REQ_DELAYED
 expr_stmt|;
 if|if
 condition|(
+name|r
+operator|->
+name|connection
+operator|->
+name|read
+operator|->
+name|ready
+condition|)
+block|{
+name|ngx_post_event
+argument_list|(
+name|r
+operator|->
+name|connection
+operator|->
+name|read
+argument_list|,
+operator|&
+name|ngx_posted_events
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+if|if
+condition|(
 name|ngx_handle_read_event
 argument_list|(
 name|r
@@ -1333,6 +1359,7 @@ block|{
 return|return
 name|NGX_HTTP_INTERNAL_SERVER_ERROR
 return|;
+block|}
 block|}
 name|r
 operator|->
