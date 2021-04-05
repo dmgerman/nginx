@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b9c0f160108
+DECL|struct|__anon2ad6de940108
 typedef|typedef
 struct|struct
 block|{
@@ -80,7 +80,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b9c0f160208
+DECL|struct|__anon2ad6de940208
 typedef|typedef
 struct|struct
 block|{
@@ -189,6 +189,12 @@ decl_stmt|;
 DECL|member|intel
 name|unsigned
 name|intel
+range|:
+literal|1
+decl_stmt|;
+DECL|member|zlib_ng
+name|unsigned
+name|zlib_ng
 range|:
 literal|1
 decl_stmt|;
@@ -919,6 +925,14 @@ DECL|variable|ngx_http_gzip_assume_intel
 specifier|static
 name|ngx_uint_t
 name|ngx_http_gzip_assume_intel
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+DECL|variable|ngx_http_gzip_assume_zlib_ng
+specifier|static
+name|ngx_uint_t
+name|ngx_http_gzip_assume_zlib_ng
 decl_stmt|;
 end_decl_stmt
 
@@ -1970,7 +1984,11 @@ operator|)
 operator|)
 expr_stmt|;
 block|}
-else|else
+if|else if
+condition|(
+operator|!
+name|ngx_http_gzip_assume_zlib_ng
+condition|)
 block|{
 comment|/*          * A zlib variant from Intel, https://github.com/jtkukunas/zlib.          * It can force window bits to 13 for fast compression level,          * on processors with SSE 4.2 it uses 64K hash instead of scaling          * it from the specified memory level, and also introduces          * 16-byte padding in one out of the two window-sized buffers.          */
 if|if
@@ -2038,6 +2056,65 @@ expr_stmt|;
 name|ctx
 operator|->
 name|intel
+operator|=
+literal|1
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|/*          * Another zlib variant, https://github.com/zlib-ng/zlib-ng.          * Similar to Intel's variant, though uses 128K hash.          */
+if|if
+condition|(
+name|conf
+operator|->
+name|level
+operator|==
+literal|1
+condition|)
+block|{
+name|wbits
+operator|=
+name|ngx_max
+argument_list|(
+name|wbits
+argument_list|,
+literal|13
+argument_list|)
+expr_stmt|;
+block|}
+name|ctx
+operator|->
+name|allocated
+operator|=
+literal|8192
+operator|+
+literal|16
+operator|+
+operator|(
+literal|1
+operator|<<
+operator|(
+name|wbits
+operator|+
+literal|2
+operator|)
+operator|)
+operator|+
+literal|131072
+operator|+
+operator|(
+literal|1
+operator|<<
+operator|(
+name|memlevel
+operator|+
+literal|8
+operator|)
+operator|)
+expr_stmt|;
+name|ctx
+operator|->
+name|zlib_ng
 operator|=
 literal|1
 expr_stmt|;
@@ -3903,7 +3980,7 @@ if|if
 condition|(
 name|ctx
 operator|->
-name|intel
+name|zlib_ng
 condition|)
 block|{
 name|ngx_log_error
@@ -3931,6 +4008,18 @@ name|ctx
 operator|->
 name|allocated
 argument_list|)
+expr_stmt|;
+block|}
+if|else if
+condition|(
+name|ctx
+operator|->
+name|intel
+condition|)
+block|{
+name|ngx_http_gzip_assume_zlib_ng
+operator|=
+literal|1
 expr_stmt|;
 block|}
 else|else
