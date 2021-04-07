@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27dfab310108
+DECL|struct|__anon2781757b0108
 typedef|typedef
 struct|struct
 block|{
@@ -65,7 +65,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27dfab310208
+DECL|struct|__anon2781757b0208
 typedef|typedef
 struct|struct
 block|{
@@ -98,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27dfab310308
+DECL|struct|__anon2781757b0308
 typedef|typedef
 struct|struct
 block|{
@@ -566,7 +566,7 @@ name|kcf
 operator|->
 name|requests
 argument_list|,
-literal|100
+literal|1000
 argument_list|)
 expr_stmt|;
 if|if
