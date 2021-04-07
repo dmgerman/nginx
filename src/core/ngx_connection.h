@@ -311,7 +311,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon2b38c8640103
+DECL|enum|__anon28a13efd0103
 typedef|typedef
 enum|enum
 block|{
@@ -338,7 +338,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b38c8640203
+DECL|enum|__anon28a13efd0203
 typedef|typedef
 enum|enum
 block|{
@@ -359,7 +359,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b38c8640303
+DECL|enum|__anon28a13efd0303
 typedef|typedef
 enum|enum
 block|{
@@ -526,6 +526,10 @@ decl_stmt|;
 DECL|member|number
 name|ngx_atomic_uint_t
 name|number
+decl_stmt|;
+DECL|member|start_time
+name|ngx_msec_t
+name|start_time
 decl_stmt|;
 DECL|member|requests
 name|ngx_uint_t

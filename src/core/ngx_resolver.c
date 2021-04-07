@@ -46,7 +46,7 @@ value|8192
 end_define
 
 begin_typedef
-DECL|struct|__anon2a28d7aa0108
+DECL|struct|__anon2be40e560108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a28d7aa0208
+DECL|struct|__anon2be40e560208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a28d7aa0308
+DECL|struct|__anon2be40e560308
 typedef|typedef
 struct|struct
 block|{
@@ -19900,6 +19900,12 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
+name|c
+operator|->
+name|start_time
+operator|=
+name|ngx_current_msec
+expr_stmt|;
 name|ngx_log_debug3
 argument_list|(
 name|NGX_LOG_DEBUG_EVENT
@@ -20253,6 +20259,12 @@ name|ngx_connection_counter
 argument_list|,
 literal|1
 argument_list|)
+expr_stmt|;
+name|c
+operator|->
+name|start_time
+operator|=
+name|ngx_current_msec
 expr_stmt|;
 if|if
 condition|(

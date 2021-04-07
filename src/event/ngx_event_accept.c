@@ -1034,6 +1034,12 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
+name|c
+operator|->
+name|start_time
+operator|=
+name|ngx_current_msec
+expr_stmt|;
 if|#
 directive|if
 operator|(

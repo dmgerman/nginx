@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b890e3b0108
+DECL|struct|__anon27dfab310108
 typedef|typedef
 struct|struct
 block|{
@@ -33,6 +33,10 @@ decl_stmt|;
 DECL|member|requests
 name|ngx_uint_t
 name|requests
+decl_stmt|;
+DECL|member|time
+name|ngx_msec_t
+name|time
 decl_stmt|;
 DECL|member|timeout
 name|ngx_msec_t
@@ -61,7 +65,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b890e3b0208
+DECL|struct|__anon27dfab310208
 typedef|typedef
 struct|struct
 block|{
@@ -94,7 +98,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b890e3b0308
+DECL|struct|__anon27dfab310308
 typedef|typedef
 struct|struct
 block|{
@@ -338,6 +342,30 @@ block|,
 block|{
 name|ngx_string
 argument_list|(
+literal|"keepalive_time"
+argument_list|)
+block|,
+name|NGX_HTTP_UPS_CONF
+operator||
+name|NGX_CONF_TAKE1
+block|,
+name|ngx_conf_set_msec_slot
+block|,
+name|NGX_HTTP_SRV_CONF_OFFSET
+block|,
+name|offsetof
+argument_list|(
+name|ngx_http_upstream_keepalive_srv_conf_t
+argument_list|,
+name|time
+argument_list|)
+block|,
+name|NULL
+block|}
+block|,
+block|{
+name|ngx_string
+argument_list|(
 literal|"keepalive_timeout"
 argument_list|)
 block|,
@@ -512,6 +540,15 @@ argument_list|(
 name|us
 argument_list|,
 name|ngx_http_upstream_keepalive_module
+argument_list|)
+expr_stmt|;
+name|ngx_conf_init_msec_value
+argument_list|(
+name|kcf
+operator|->
+name|time
+argument_list|,
+literal|3600000
 argument_list|)
 expr_stmt|;
 name|ngx_conf_init_msec_value
@@ -1313,6 +1350,25 @@ goto|;
 block|}
 if|if
 condition|(
+name|ngx_current_msec
+operator|-
+name|c
+operator|->
+name|start_time
+operator|>
+name|kp
+operator|->
+name|conf
+operator|->
+name|time
+condition|)
+block|{
+goto|goto
+name|invalid
+goto|;
+block|}
+if|if
+condition|(
 operator|!
 name|u
 operator|->
@@ -2041,6 +2097,12 @@ name|NULL
 return|;
 block|}
 comment|/*      * set by ngx_pcalloc():      *      *     conf->original_init_upstream = NULL;      *     conf->original_init_peer = NULL;      *     conf->max_cached = 0;      */
+name|conf
+operator|->
+name|time
+operator|=
+name|NGX_CONF_UNSET_MSEC
+expr_stmt|;
 name|conf
 operator|->
 name|timeout
