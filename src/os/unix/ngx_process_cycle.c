@@ -1827,6 +1827,17 @@ decl_stmt|;
 name|ngx_channel_t
 name|ch
 decl_stmt|;
+name|ngx_memzero
+argument_list|(
+operator|&
+name|ch
+argument_list|,
+sizeof|sizeof
+argument_list|(
+name|ngx_channel_t
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|ch
 operator|.
 name|command
