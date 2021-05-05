@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2912c7d70108
+DECL|struct|__anon2773510b0108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2912c7d70208
+DECL|struct|__anon2773510b0208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2912c7d70308
+DECL|struct|__anon2773510b0308
 typedef|typedef
 struct|struct
 block|{
@@ -7135,6 +7135,14 @@ name|conf
 operator|->
 name|upstream
 operator|.
+name|ssl_name
+operator|=
+name|NGX_CONF_UNSET_PTR
+expr_stmt|;
+name|conf
+operator|->
+name|upstream
+operator|.
 name|ssl_server_name
 operator|=
 name|NGX_CONF_UNSET
@@ -8618,30 +8626,23 @@ argument_list|,
 literal|"DEFAULT"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
+name|ngx_conf_merge_ptr_value
+argument_list|(
 name|conf
 operator|->
 name|upstream
 operator|.
 name|ssl_name
-operator|==
-name|NULL
-condition|)
-block|{
-name|conf
-operator|->
-name|upstream
-operator|.
-name|ssl_name
-operator|=
+argument_list|,
 name|prev
 operator|->
 name|upstream
 operator|.
 name|ssl_name
+argument_list|,
+name|NULL
+argument_list|)
 expr_stmt|;
-block|}
 name|ngx_conf_merge_value
 argument_list|(
 name|conf

@@ -1215,6 +1215,11 @@ condition|(
 operator|*
 name|cv
 operator|!=
+name|NGX_CONF_UNSET_PTR
+operator|&&
+operator|*
+name|cv
+operator|!=
 name|NULL
 condition|)
 block|{

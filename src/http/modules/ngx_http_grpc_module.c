@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bf4fe370108
+DECL|struct|__anon2c4d51ec0108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf4fe370208
+DECL|struct|__anon2c4d51ec0208
 typedef|typedef
 struct|struct
 block|{
@@ -143,7 +143,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2bf4fe370303
+DECL|enum|__anon2c4d51ec0303
 typedef|typedef
 enum|enum
 block|{
@@ -188,7 +188,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf4fe370408
+DECL|struct|__anon2c4d51ec0408
 typedef|typedef
 struct|struct
 block|{
@@ -215,7 +215,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf4fe370508
+DECL|struct|__anon2c4d51ec0508
 typedef|typedef
 struct|struct
 block|{
@@ -428,7 +428,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf4fe370608
+DECL|struct|__anon2c4d51ec0608
 typedef|typedef
 struct|struct
 block|{
@@ -11457,7 +11457,7 @@ decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
-DECL|enum|__anon2bf4fe370703
+DECL|enum|__anon2c4d51ec0703
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -12154,7 +12154,7 @@ name|index
 decl_stmt|,
 name|size_update
 decl_stmt|;
-DECL|enum|__anon2bf4fe370803
+DECL|enum|__anon2c4d51ec0803
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -14237,7 +14237,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon2bf4fe370903
+DECL|enum|__anon2c4d51ec0903
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -14528,7 +14528,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon2bf4fe370a03
+DECL|enum|__anon2c4d51ec0a03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -14945,7 +14945,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon2bf4fe370b03
+DECL|enum|__anon2c4d51ec0b03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -15344,7 +15344,7 @@ decl_stmt|;
 name|ssize_t
 name|window_update
 decl_stmt|;
-DECL|enum|__anon2bf4fe370c03
+DECL|enum|__anon2c4d51ec0c03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -15944,7 +15944,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon2bf4fe370d03
+DECL|enum|__anon2c4d51ec0d03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -18015,7 +18015,7 @@ return|return
 name|NULL
 return|;
 block|}
-comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.ignore_headers = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.hide_headers_hash = { NULL, 0 };      *     conf->upstream.ssl_name = NULL;      *      *     conf->headers.lengths = NULL;      *     conf->headers.values = NULL;      *     conf->headers.hash = { NULL, 0 };      *     conf->host = { 0, NULL };      *     conf->host_set = 0;      *     conf->ssl = 0;      *     conf->ssl_protocols = 0;      *     conf->ssl_ciphers = { 0, NULL };      *     conf->ssl_trusted_certificate = { 0, NULL };      *     conf->ssl_crl = { 0, NULL };      *     conf->ssl_certificate = { 0, NULL };      *     conf->ssl_certificate_key = { 0, NULL };      */
+comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.ignore_headers = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.hide_headers_hash = { NULL, 0 };      *      *     conf->headers.lengths = NULL;      *     conf->headers.values = NULL;      *     conf->headers.hash = { NULL, 0 };      *     conf->host = { 0, NULL };      *     conf->host_set = 0;      *     conf->ssl = 0;      *     conf->ssl_protocols = 0;      *     conf->ssl_ciphers = { 0, NULL };      *     conf->ssl_trusted_certificate = { 0, NULL };      *     conf->ssl_crl = { 0, NULL };      *     conf->ssl_certificate = { 0, NULL };      *     conf->ssl_certificate_key = { 0, NULL };      */
 name|conf
 operator|->
 name|upstream
@@ -18116,6 +18116,14 @@ operator|.
 name|ssl_session_reuse
 operator|=
 name|NGX_CONF_UNSET
+expr_stmt|;
+name|conf
+operator|->
+name|upstream
+operator|.
+name|ssl_name
+operator|=
+name|NGX_CONF_UNSET_PTR
 expr_stmt|;
 name|conf
 operator|->
@@ -18600,30 +18608,23 @@ argument_list|,
 literal|"DEFAULT"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
+name|ngx_conf_merge_ptr_value
+argument_list|(
 name|conf
 operator|->
 name|upstream
 operator|.
 name|ssl_name
-operator|==
-name|NULL
-condition|)
-block|{
-name|conf
-operator|->
-name|upstream
-operator|.
-name|ssl_name
-operator|=
+argument_list|,
 name|prev
 operator|->
 name|upstream
 operator|.
 name|ssl_name
+argument_list|,
+name|NULL
+argument_list|)
 expr_stmt|;
-block|}
 name|ngx_conf_merge_value
 argument_list|(
 name|conf

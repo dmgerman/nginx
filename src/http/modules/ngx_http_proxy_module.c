@@ -110,7 +110,7 @@ value|0x0400
 end_define
 
 begin_typedef
-DECL|struct|__anon2b8d80be0108
+DECL|struct|__anon2ad74c700108
 typedef|typedef
 struct|struct
 block|{
@@ -173,7 +173,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon2b8d80be020a
+DECL|union|__anon2ad74c70020a
 union|union
 block|{
 DECL|member|complex
@@ -205,11 +205,11 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b8d80be0308
+DECL|struct|__anon2ad74c700308
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon2b8d80be040a
+DECL|union|__anon2ad74c70040a
 union|union
 block|{
 DECL|member|complex
@@ -247,7 +247,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8d80be0508
+DECL|struct|__anon2ad74c700508
 typedef|typedef
 struct|struct
 block|{
@@ -278,7 +278,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8d80be0608
+DECL|struct|__anon2ad74c700608
 typedef|typedef
 struct|struct
 block|{
@@ -308,7 +308,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8d80be0708
+DECL|struct|__anon2ad74c700708
 typedef|typedef
 struct|struct
 block|{
@@ -485,7 +485,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b8d80be0808
+DECL|struct|__anon2ad74c700808
 typedef|typedef
 struct|struct
 block|{
@@ -15670,7 +15670,7 @@ return|return
 name|NULL
 return|;
 block|}
-comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.bufs.num = 0;      *     conf->upstream.ignore_headers = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.cache_zone = NULL;      *     conf->upstream.cache_use_stale = 0;      *     conf->upstream.cache_methods = 0;      *     conf->upstream.temp_path = NULL;      *     conf->upstream.hide_headers_hash = { NULL, 0 };      *     conf->upstream.store_lengths = NULL;      *     conf->upstream.store_values = NULL;      *     conf->upstream.ssl_name = NULL;      *      *     conf->method = NULL;      *     conf->location = NULL;      *     conf->url = { 0, NULL };      *     conf->headers.lengths = NULL;      *     conf->headers.values = NULL;      *     conf->headers.hash = { NULL, 0 };      *     conf->headers_cache.lengths = NULL;      *     conf->headers_cache.values = NULL;      *     conf->headers_cache.hash = { NULL, 0 };      *     conf->body_lengths = NULL;      *     conf->body_values = NULL;      *     conf->body_source = { 0, NULL };      *     conf->redirects = NULL;      *     conf->ssl = 0;      *     conf->ssl_protocols = 0;      *     conf->ssl_ciphers = { 0, NULL };      *     conf->ssl_trusted_certificate = { 0, NULL };      *     conf->ssl_crl = { 0, NULL };      *     conf->ssl_certificate = { 0, NULL };      *     conf->ssl_certificate_key = { 0, NULL };      */
+comment|/*      * set by ngx_pcalloc():      *      *     conf->upstream.bufs.num = 0;      *     conf->upstream.ignore_headers = 0;      *     conf->upstream.next_upstream = 0;      *     conf->upstream.cache_zone = NULL;      *     conf->upstream.cache_use_stale = 0;      *     conf->upstream.cache_methods = 0;      *     conf->upstream.temp_path = NULL;      *     conf->upstream.hide_headers_hash = { NULL, 0 };      *     conf->upstream.store_lengths = NULL;      *     conf->upstream.store_values = NULL;      *      *     conf->location = NULL;      *     conf->url = { 0, NULL };      *     conf->headers.lengths = NULL;      *     conf->headers.values = NULL;      *     conf->headers.hash = { NULL, 0 };      *     conf->headers_cache.lengths = NULL;      *     conf->headers_cache.values = NULL;      *     conf->headers_cache.hash = { NULL, 0 };      *     conf->body_lengths = NULL;      *     conf->body_values = NULL;      *     conf->body_source = { 0, NULL };      *     conf->redirects = NULL;      *     conf->ssl = 0;      *     conf->ssl_protocols = 0;      *     conf->ssl_ciphers = { 0, NULL };      *     conf->ssl_trusted_certificate = { 0, NULL };      *     conf->ssl_crl = { 0, NULL };      *     conf->ssl_certificate = { 0, NULL };      *     conf->ssl_certificate_key = { 0, NULL };      */
 name|conf
 operator|->
 name|upstream
@@ -15983,6 +15983,14 @@ name|conf
 operator|->
 name|upstream
 operator|.
+name|ssl_name
+operator|=
+name|NGX_CONF_UNSET_PTR
+expr_stmt|;
+name|conf
+operator|->
+name|upstream
+operator|.
 name|ssl_server_name
 operator|=
 name|NGX_CONF_UNSET
@@ -16026,7 +16034,21 @@ literal|0
 expr_stmt|;
 name|conf
 operator|->
+name|upstream
+operator|.
+name|change_buffering
+operator|=
+literal|1
+expr_stmt|;
+name|conf
+operator|->
 name|headers_source
+operator|=
+name|NGX_CONF_UNSET_PTR
+expr_stmt|;
+name|conf
+operator|->
+name|method
 operator|=
 name|NGX_CONF_UNSET_PTR
 expr_stmt|;
@@ -16035,14 +16057,6 @@ operator|->
 name|redirect
 operator|=
 name|NGX_CONF_UNSET
-expr_stmt|;
-name|conf
-operator|->
-name|upstream
-operator|.
-name|change_buffering
-operator|=
-literal|1
 expr_stmt|;
 name|conf
 operator|->
@@ -17404,24 +17418,6 @@ argument_list|)
 expr_stmt|;
 endif|#
 directive|endif
-if|if
-condition|(
-name|conf
-operator|->
-name|method
-operator|==
-name|NULL
-condition|)
-block|{
-name|conf
-operator|->
-name|method
-operator|=
-name|prev
-operator|->
-name|method
-expr_stmt|;
-block|}
 name|ngx_conf_merge_value
 argument_list|(
 name|conf
@@ -17529,30 +17525,23 @@ argument_list|,
 literal|"DEFAULT"
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
+name|ngx_conf_merge_ptr_value
+argument_list|(
 name|conf
 operator|->
 name|upstream
 operator|.
 name|ssl_name
-operator|==
-name|NULL
-condition|)
-block|{
-name|conf
-operator|->
-name|upstream
-operator|.
-name|ssl_name
-operator|=
+argument_list|,
 name|prev
 operator|->
 name|upstream
 operator|.
 name|ssl_name
+argument_list|,
+name|NULL
+argument_list|)
 expr_stmt|;
-block|}
 name|ngx_conf_merge_value
 argument_list|(
 name|conf
@@ -17700,6 +17689,19 @@ return|;
 block|}
 endif|#
 directive|endif
+name|ngx_conf_merge_ptr_value
+argument_list|(
+name|conf
+operator|->
+name|method
+argument_list|,
+name|prev
+operator|->
+name|method
+argument_list|,
+name|NULL
+argument_list|)
+expr_stmt|;
 name|ngx_conf_merge_value
 argument_list|(
 name|conf
