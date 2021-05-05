@@ -35,7 +35,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28b1fad50108
+DECL|struct|__anon27dd24ae0108
 typedef|typedef
 struct|struct
 block|{
@@ -86,7 +86,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b1fad50208
+DECL|struct|__anon27dd24ae0208
 typedef|typedef
 struct|struct
 block|{
@@ -172,7 +172,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b1fad50308
+DECL|struct|__anon27dd24ae0308
 typedef|typedef
 struct|struct
 block|{
@@ -195,7 +195,7 @@ name|void
 modifier|*
 name|values
 decl_stmt|;
-DECL|union|__anon28b1fad5040a
+DECL|union|__anon27dd24ae040a
 union|union
 block|{
 DECL|member|size
@@ -213,7 +213,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b1fad50508
+DECL|struct|__anon27dd24ae0508
 typedef|typedef
 struct|struct
 block|{
@@ -289,7 +289,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b1fad50608
+DECL|struct|__anon27dd24ae0608
 typedef|typedef
 struct|struct
 block|{
@@ -308,7 +308,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b1fad50708
+DECL|struct|__anon27dd24ae0708
 typedef|typedef
 struct|struct
 block|{
@@ -327,7 +327,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b1fad50808
+DECL|struct|__anon27dd24ae0808
 typedef|typedef
 struct|struct
 block|{
@@ -346,7 +346,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon28b1fad50908
+DECL|struct|__anon27dd24ae0908
 typedef|typedef
 struct|struct
 block|{
@@ -431,6 +431,26 @@ begin_function_decl
 name|char
 modifier|*
 name|ngx_stream_set_complex_value_slot
+parameter_list|(
+name|ngx_conf_t
+modifier|*
+name|cf
+parameter_list|,
+name|ngx_command_t
+modifier|*
+name|cmd
+parameter_list|,
+name|void
+modifier|*
+name|conf
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|char
+modifier|*
+name|ngx_stream_set_complex_value_zero_slot
 parameter_list|(
 name|ngx_conf_t
 modifier|*
