@@ -76,7 +76,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon2a0e9c190103
+DECL|enum|__anon2ae760300103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -843,7 +843,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon2a0e9c190203
+DECL|enum|__anon2ae760300203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2776,7 +2776,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon2a0e9c190303
+DECL|enum|__anon2ae760300303
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -3776,13 +3776,7 @@ expr_stmt|;
 comment|/* skip invalid command till LF */
 for|for
 control|(
-name|p
-operator|=
-name|s
-operator|->
-name|buffer
-operator|->
-name|pos
+comment|/* void */
 init|;
 name|p
 operator|<
