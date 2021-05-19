@@ -76,7 +76,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon2c6df6b00103
+DECL|enum|__anon2afcb2710103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -943,7 +943,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon2c6df6b00203
+DECL|enum|__anon2afcb2710203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2823,7 +2823,19 @@ name|sw_start
 expr_stmt|;
 name|s
 operator|->
+name|arg_start
+operator|=
+name|NULL
+expr_stmt|;
+name|s
+operator|->
 name|quoted
+operator|=
+literal|0
+expr_stmt|;
+name|s
+operator|->
+name|backslash
 operator|=
 literal|0
 expr_stmt|;
@@ -2876,7 +2888,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon2c6df6b00303
+DECL|enum|__anon2afcb2710303
 enum|enum
 block|{
 DECL|enumerator|sw_start
