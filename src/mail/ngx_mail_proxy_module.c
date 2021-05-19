@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27b60dfb0108
+DECL|struct|__anon2c7f47a50108
 typedef|typedef
 struct|struct
 block|{
@@ -1523,6 +1523,32 @@ argument_list|,
 literal|"client logged in"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|s
+operator|->
+name|buffer
+operator|->
+name|pos
+operator|<
+name|s
+operator|->
+name|buffer
+operator|->
+name|last
+condition|)
+block|{
+name|ngx_post_event
+argument_list|(
+name|c
+operator|->
+name|write
+argument_list|,
+operator|&
+name|ngx_posted_events
+argument_list|)
+expr_stmt|;
+block|}
 name|ngx_mail_proxy_handler
 argument_list|(
 name|s
