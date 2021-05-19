@@ -76,7 +76,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon29eac24e0103
+DECL|enum|__anon2a0e9c190103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -843,7 +843,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon29eac24e0203
+DECL|enum|__anon2a0e9c190203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2776,7 +2776,7 @@ name|ngx_str_t
 modifier|*
 name|arg
 decl_stmt|;
-DECL|enum|__anon29eac24e0303
+DECL|enum|__anon2a0e9c190303
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -3810,10 +3810,19 @@ name|state
 operator|=
 name|sw_start
 expr_stmt|;
+name|s
+operator|->
+name|buffer
+operator|->
+name|pos
+operator|=
 name|p
-operator|++
+operator|+
+literal|1
 expr_stmt|;
-break|break;
+return|return
+name|NGX_MAIL_PARSE_INVALID_COMMAND
+return|;
 block|}
 block|}
 name|s
@@ -3825,7 +3834,7 @@ operator|=
 name|p
 expr_stmt|;
 return|return
-name|NGX_MAIL_PARSE_INVALID_COMMAND
+name|NGX_AGAIN
 return|;
 block|}
 end_function
