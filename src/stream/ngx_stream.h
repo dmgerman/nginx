@@ -129,7 +129,7 @@ value|503
 end_define
 
 begin_typedef
-DECL|struct|__anon2b042f0a0108
+DECL|struct|__anon29f9c3110108
 typedef|typedef
 struct|struct
 block|{
@@ -152,7 +152,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b042f0a0208
+DECL|struct|__anon29f9c3110208
 typedef|typedef
 struct|struct
 block|{
@@ -256,6 +256,17 @@ DECL|member|sndbuf
 name|int
 name|sndbuf
 decl_stmt|;
+if|#
+directive|if
+operator|(
+name|NGX_HAVE_TCP_FASTOPEN
+operator|)
+DECL|member|fastopen
+name|int
+name|fastopen
+decl_stmt|;
+endif|#
+directive|endif
 DECL|member|type
 name|int
 name|type
@@ -267,7 +278,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b042f0a0308
+DECL|struct|__anon29f9c3110308
 typedef|typedef
 struct|struct
 block|{
@@ -299,7 +310,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b042f0a0408
+DECL|struct|__anon29f9c3110408
 typedef|typedef
 struct|struct
 block|{
@@ -326,7 +337,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2b042f0a0508
+DECL|struct|__anon29f9c3110508
 typedef|typedef
 struct|struct
 block|{
@@ -351,7 +362,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2b042f0a0608
+DECL|struct|__anon29f9c3110608
 typedef|typedef
 struct|struct
 block|{
@@ -372,7 +383,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b042f0a0708
+DECL|struct|__anon29f9c3110708
 typedef|typedef
 struct|struct
 block|{
@@ -400,7 +411,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b042f0a0808
+DECL|struct|__anon29f9c3110808
 typedef|typedef
 struct|struct
 block|{
@@ -415,7 +426,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2b042f0a0903
+DECL|enum|__anon29f9c3110903
 typedef|typedef
 enum|enum
 block|{
@@ -530,7 +541,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b042f0a0a08
+DECL|struct|__anon29f9c3110a08
 typedef|typedef
 struct|struct
 block|{
@@ -546,7 +557,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b042f0a0b08
+DECL|struct|__anon29f9c3110b08
 typedef|typedef
 struct|struct
 block|{
@@ -561,7 +572,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b042f0a0c08
+DECL|struct|__anon29f9c3110c08
 typedef|typedef
 struct|struct
 block|{
@@ -626,7 +637,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b042f0a0d08
+DECL|struct|__anon29f9c3110d08
 typedef|typedef
 struct|struct
 block|{
@@ -812,7 +823,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b042f0a0e08
+DECL|struct|__anon29f9c3110e08
 typedef|typedef
 struct|struct
 block|{
