@@ -4505,6 +4505,14 @@ argument_list|)
 expr_stmt|;
 name|c
 operator|->
+name|log
+operator|->
+name|action
+operator|=
+literal|"SSL handshaking"
+expr_stmt|;
+name|c
+operator|->
 name|destroyed
 operator|=
 literal|0
@@ -4520,6 +4528,14 @@ name|r
 argument_list|,
 literal|0
 argument_list|)
+expr_stmt|;
+name|c
+operator|->
+name|log
+operator|->
+name|action
+operator|=
+literal|"SSL handshaking"
 expr_stmt|;
 name|c
 operator|->
@@ -9325,7 +9341,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon296d69d10103
+DECL|enum|__anon2c91a7960103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
