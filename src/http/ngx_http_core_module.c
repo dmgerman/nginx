@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon298830ca0108
+DECL|struct|__anon29ca37800108
 typedef|typedef
 struct|struct
 block|{
@@ -4375,7 +4375,7 @@ name|value
 operator|=
 name|clcf
 operator|->
-name|name
+name|escaped_name
 expr_stmt|;
 block|}
 else|else
@@ -4384,7 +4384,7 @@ name|len
 operator|=
 name|clcf
 operator|->
-name|name
+name|escaped_name
 operator|.
 name|len
 operator|+
@@ -4462,13 +4462,13 @@ name|p
 argument_list|,
 name|clcf
 operator|->
-name|name
+name|escaped_name
 operator|.
 name|data
 argument_list|,
 name|clcf
 operator|->
-name|name
+name|escaped_name
 operator|.
 name|len
 argument_list|)
@@ -14786,7 +14786,7 @@ return|return
 name|NULL
 return|;
 block|}
-comment|/*      * set by ngx_pcalloc():      *      *     clcf->root = { 0, NULL };      *     clcf->limit_except = 0;      *     clcf->post_action = { 0, NULL };      *     clcf->types = NULL;      *     clcf->default_type = { 0, NULL };      *     clcf->error_log = NULL;      *     clcf->error_pages = NULL;      *     clcf->client_body_path = NULL;      *     clcf->regex = NULL;      *     clcf->exact_match = 0;      *     clcf->auto_redirect = 0;      *     clcf->alias = 0;      *     clcf->gzip_proxied = 0;      *     clcf->keepalive_disable = 0;      */
+comment|/*      * set by ngx_pcalloc():      *      *     clcf->escaped_name = { 0, NULL };      *     clcf->root = { 0, NULL };      *     clcf->limit_except = 0;      *     clcf->post_action = { 0, NULL };      *     clcf->types = NULL;      *     clcf->default_type = { 0, NULL };      *     clcf->error_log = NULL;      *     clcf->error_pages = NULL;      *     clcf->client_body_path = NULL;      *     clcf->regex = NULL;      *     clcf->exact_match = 0;      *     clcf->auto_redirect = 0;      *     clcf->alias = 0;      *     clcf->gzip_proxied = 0;      *     clcf->keepalive_disable = 0;      */
 name|clcf
 operator|->
 name|client_max_body_size
