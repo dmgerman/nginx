@@ -46,7 +46,7 @@ value|8192
 end_define
 
 begin_typedef
-DECL|struct|__anon2803e93e0108
+DECL|struct|__anon2ba3f4440108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2803e93e0208
+DECL|struct|__anon2ba3f4440208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2803e93e0308
+DECL|struct|__anon2ba3f4440308
 typedef|typedef
 struct|struct
 block|{
@@ -17656,6 +17656,21 @@ operator|&
 literal|0xc0
 condition|)
 block|{
+if|if
+condition|(
+name|p
+operator|>=
+name|last
+condition|)
+block|{
+name|err
+operator|=
+literal|"name is out of DNS response"
+expr_stmt|;
+goto|goto
+name|invalid
+goto|;
+block|}
 name|n
 operator|=
 operator|(
