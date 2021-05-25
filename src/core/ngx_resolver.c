@@ -46,7 +46,7 @@ value|8192
 end_define
 
 begin_typedef
-DECL|struct|__anon2997c8600108
+DECL|struct|__anon2b44c3d80108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2997c8600208
+DECL|struct|__anon2b44c3d80208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2997c8600308
+DECL|struct|__anon2b44c3d80308
 typedef|typedef
 struct|struct
 block|{
@@ -8420,6 +8420,24 @@ operator|)
 name|n
 condition|)
 block|{
+if|if
+condition|(
+name|buf
+index|[
+name|i
+index|]
+operator|&
+literal|0xc0
+condition|)
+block|{
+name|err
+operator|=
+literal|"unexpected compression pointer in DNS response"
+expr_stmt|;
+goto|goto
+name|done
+goto|;
+block|}
 if|if
 condition|(
 name|buf
