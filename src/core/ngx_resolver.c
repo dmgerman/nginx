@@ -46,7 +46,7 @@ value|8192
 end_define
 
 begin_typedef
-DECL|struct|__anon2b093c300108
+DECL|struct|__anon2997c8600108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b093c300208
+DECL|struct|__anon2997c8600208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b093c300308
+DECL|struct|__anon2997c8600308
 typedef|typedef
 struct|struct
 block|{
@@ -17600,7 +17600,7 @@ decl_stmt|,
 modifier|*
 name|dst
 decl_stmt|;
-name|ssize_t
+name|size_t
 name|len
 decl_stmt|;
 name|ngx_uint_t
@@ -17614,8 +17614,7 @@ name|src
 expr_stmt|;
 name|len
 operator|=
-operator|-
-literal|1
+literal|0
 expr_stmt|;
 comment|/*      * compression pointers allow to create endless loop, so we set limit;      * 128 pointers should be enough to store 255-byte name      */
 for|for
@@ -17788,8 +17787,7 @@ if|if
 condition|(
 name|len
 operator|==
-operator|-
-literal|1
+literal|0
 condition|)
 block|{
 name|ngx_str_null
@@ -17855,6 +17853,8 @@ operator|-
 name|name
 operator|->
 name|data
+operator|-
+literal|1
 expr_stmt|;
 return|return
 name|NGX_OK
@@ -17893,22 +17893,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-if|if
-condition|(
-name|dst
-operator|!=
-name|name
-operator|->
-name|data
-condition|)
-block|{
-operator|*
-name|dst
-operator|++
-operator|=
-literal|'.'
-expr_stmt|;
-block|}
 name|ngx_strlow
 argument_list|(
 name|dst
@@ -17925,6 +17909,12 @@ expr_stmt|;
 name|src
 operator|+=
 name|n
+expr_stmt|;
+operator|*
+name|dst
+operator|++
+operator|=
+literal|'.'
 expr_stmt|;
 block|}
 block|}
