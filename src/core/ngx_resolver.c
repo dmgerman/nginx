@@ -46,7 +46,7 @@ value|8192
 end_define
 
 begin_typedef
-DECL|struct|__anon2ba3f4440108
+DECL|struct|__anon2a4576dc0108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ba3f4440208
+DECL|struct|__anon2a4576dc0208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ba3f4440308
+DECL|struct|__anon2a4576dc0308
 typedef|typedef
 struct|struct
 block|{
@@ -17656,6 +17656,25 @@ operator|&
 literal|0xc0
 condition|)
 block|{
+if|if
+condition|(
+operator|(
+name|n
+operator|&
+literal|0xc0
+operator|)
+operator|!=
+literal|0xc0
+condition|)
+block|{
+name|err
+operator|=
+literal|"invalid label type in DNS response"
+expr_stmt|;
+goto|goto
+name|invalid
+goto|;
+block|}
 if|if
 condition|(
 name|p
