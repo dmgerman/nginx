@@ -46,7 +46,7 @@ value|8192
 end_define
 
 begin_typedef
-DECL|struct|__anon2be40e560108
+DECL|struct|__anon2803e93e0108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be40e560208
+DECL|struct|__anon2803e93e0208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be40e560308
+DECL|struct|__anon2803e93e0308
 typedef|typedef
 struct|struct
 block|{
@@ -17844,6 +17844,22 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|dst
+operator|!=
+name|name
+operator|->
+name|data
+condition|)
+block|{
+operator|*
+name|dst
+operator|++
+operator|=
+literal|'.'
+expr_stmt|;
+block|}
 name|ngx_strlow
 argument_list|(
 name|dst
@@ -17867,20 +17883,6 @@ operator|*
 name|src
 operator|++
 expr_stmt|;
-if|if
-condition|(
-name|n
-operator|!=
-literal|0
-condition|)
-block|{
-operator|*
-name|dst
-operator|++
-operator|=
-literal|'.'
-expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
