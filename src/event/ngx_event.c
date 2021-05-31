@@ -1626,6 +1626,12 @@ directive|if
 operator|(
 name|NGX_HAVE_REUSEPORT
 operator|)
+if|if
+condition|(
+operator|!
+name|ngx_test_config
+condition|)
+block|{
 name|ls
 operator|=
 name|cycle
@@ -1703,6 +1709,7 @@ name|listening
 operator|.
 name|elts
 expr_stmt|;
+block|}
 block|}
 endif|#
 directive|endif
