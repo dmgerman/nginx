@@ -408,6 +408,12 @@ name|no_send_shutdown
 range|:
 literal|1
 decl_stmt|;
+DECL|member|shutdown_without_free
+name|unsigned
+name|shutdown_without_free
+range|:
+literal|1
+decl_stmt|;
 DECL|member|handshake_buffer_set
 name|unsigned
 name|handshake_buffer_set
@@ -554,7 +560,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27de24ba0108
+DECL|struct|__anon28d4d1080108
 typedef|typedef
 struct|struct
 block|{
@@ -583,7 +589,7 @@ name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon27de24ba0208
+DECL|struct|__anon28d4d1080208
 typedef|typedef
 struct|struct
 block|{

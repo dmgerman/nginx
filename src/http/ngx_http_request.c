@@ -9341,7 +9341,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon2c91a7960103
+DECL|enum|__anon2a10dcf90103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -14242,6 +14242,14 @@ block|{
 name|ngx_int_t
 name|rc
 decl_stmt|;
+name|c
+operator|->
+name|ssl
+operator|->
+name|shutdown_without_free
+operator|=
+literal|1
+expr_stmt|;
 name|rc
 operator|=
 name|ngx_ssl_shutdown
