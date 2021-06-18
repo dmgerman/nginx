@@ -103,7 +103,7 @@ decl_stmt|;
 end_decl_stmt
 
 begin_typedef
-DECL|struct|__anon2c2d8dfe0108
+DECL|struct|__anon27549b070108
 typedef|typedef
 struct|struct
 block|{
@@ -1145,7 +1145,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"OS: %ud build:%ud, \"%s\", suite:%Xd, type:%ud"
+literal|"OS: %ui build:%ud, \"%s\", suite:%Xd, type:%ud"
 argument_list|,
 name|ngx_win32_version
 argument_list|,
@@ -1187,7 +1187,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"OS: %u build:%ud.%ud.%ud, \"%s\""
+literal|"OS: %ui build:%ud.%ud.%ud, \"%s\""
 argument_list|,
 name|ngx_win32_version
 argument_list|,
@@ -1230,7 +1230,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"OS: %ud build:%ud, \"%s\""
+literal|"OS: %ui build:%ud, \"%s\""
 argument_list|,
 name|ngx_win32_version
 argument_list|,
