@@ -46,7 +46,7 @@ value|8192
 end_define
 
 begin_typedef
-DECL|struct|__anon2b44c3d80108
+DECL|struct|__anon2ae4065e0108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b44c3d80208
+DECL|struct|__anon2ae4065e0208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b44c3d80308
+DECL|struct|__anon2ae4065e0308
 typedef|typedef
 struct|struct
 block|{
@@ -181,8 +181,7 @@ name|ngx_resolver_node
 parameter_list|(
 name|n
 parameter_list|)
-define|\
-value|(ngx_resolver_node_t *)                                                  \         ((u_char *) (n) - offsetof(ngx_resolver_node_t, node))
+value|ngx_rbtree_data(n, ngx_resolver_node_t, node)
 end_define
 
 begin_function_decl

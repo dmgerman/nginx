@@ -161,6 +161,22 @@ define|\
 value|ngx_rbtree_sentinel_init(s);                                              \     (tree)->root = s;                                                         \     (tree)->sentinel = s;                                                     \     (tree)->insert = i
 end_define
 
+begin_define
+DECL|macro|ngx_rbtree_data (node,type,link)
+define|#
+directive|define
+name|ngx_rbtree_data
+parameter_list|(
+name|node
+parameter_list|,
+name|type
+parameter_list|,
+name|link
+parameter_list|)
+define|\
+value|(type *) ((u_char *) (node) - offsetof(type, link))
+end_define
+
 begin_function_decl
 name|void
 name|ngx_rbtree_insert
