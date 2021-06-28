@@ -6694,7 +6694,7 @@ literal|0xffffffff
 comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
 block|}
 decl_stmt|;
-comment|/* " ", "#", "%", "&", "+", "?", %00-%1F, %7F-%FF */
+comment|/* " ", "#", "%", "&", "+", ";", "?", %00-%1F, %7F-%FF */
 specifier|static
 name|uint32_t
 name|args
@@ -7077,7 +7077,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon2ac614a00103
+DECL|enum|__anon2aa72dc90103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
