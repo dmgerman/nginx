@@ -97,7 +97,7 @@ DECL|macro|NGX_HTTP_UNKNOWN
 define|#
 directive|define
 name|NGX_HTTP_UNKNOWN
-value|0x0001
+value|0x00000001
 end_define
 
 begin_define
@@ -105,7 +105,7 @@ DECL|macro|NGX_HTTP_GET
 define|#
 directive|define
 name|NGX_HTTP_GET
-value|0x0002
+value|0x00000002
 end_define
 
 begin_define
@@ -113,7 +113,7 @@ DECL|macro|NGX_HTTP_HEAD
 define|#
 directive|define
 name|NGX_HTTP_HEAD
-value|0x0004
+value|0x00000004
 end_define
 
 begin_define
@@ -121,7 +121,7 @@ DECL|macro|NGX_HTTP_POST
 define|#
 directive|define
 name|NGX_HTTP_POST
-value|0x0008
+value|0x00000008
 end_define
 
 begin_define
@@ -129,7 +129,7 @@ DECL|macro|NGX_HTTP_PUT
 define|#
 directive|define
 name|NGX_HTTP_PUT
-value|0x0010
+value|0x00000010
 end_define
 
 begin_define
@@ -137,7 +137,7 @@ DECL|macro|NGX_HTTP_DELETE
 define|#
 directive|define
 name|NGX_HTTP_DELETE
-value|0x0020
+value|0x00000020
 end_define
 
 begin_define
@@ -145,7 +145,7 @@ DECL|macro|NGX_HTTP_MKCOL
 define|#
 directive|define
 name|NGX_HTTP_MKCOL
-value|0x0040
+value|0x00000040
 end_define
 
 begin_define
@@ -153,7 +153,7 @@ DECL|macro|NGX_HTTP_COPY
 define|#
 directive|define
 name|NGX_HTTP_COPY
-value|0x0080
+value|0x00000080
 end_define
 
 begin_define
@@ -161,7 +161,7 @@ DECL|macro|NGX_HTTP_MOVE
 define|#
 directive|define
 name|NGX_HTTP_MOVE
-value|0x0100
+value|0x00000100
 end_define
 
 begin_define
@@ -169,7 +169,7 @@ DECL|macro|NGX_HTTP_OPTIONS
 define|#
 directive|define
 name|NGX_HTTP_OPTIONS
-value|0x0200
+value|0x00000200
 end_define
 
 begin_define
@@ -177,7 +177,7 @@ DECL|macro|NGX_HTTP_PROPFIND
 define|#
 directive|define
 name|NGX_HTTP_PROPFIND
-value|0x0400
+value|0x00000400
 end_define
 
 begin_define
@@ -185,7 +185,7 @@ DECL|macro|NGX_HTTP_PROPPATCH
 define|#
 directive|define
 name|NGX_HTTP_PROPPATCH
-value|0x0800
+value|0x00000800
 end_define
 
 begin_define
@@ -193,7 +193,7 @@ DECL|macro|NGX_HTTP_LOCK
 define|#
 directive|define
 name|NGX_HTTP_LOCK
-value|0x1000
+value|0x00001000
 end_define
 
 begin_define
@@ -201,7 +201,7 @@ DECL|macro|NGX_HTTP_UNLOCK
 define|#
 directive|define
 name|NGX_HTTP_UNLOCK
-value|0x2000
+value|0x00002000
 end_define
 
 begin_define
@@ -209,7 +209,7 @@ DECL|macro|NGX_HTTP_PATCH
 define|#
 directive|define
 name|NGX_HTTP_PATCH
-value|0x4000
+value|0x00004000
 end_define
 
 begin_define
@@ -217,7 +217,15 @@ DECL|macro|NGX_HTTP_TRACE
 define|#
 directive|define
 name|NGX_HTTP_TRACE
-value|0x8000
+value|0x00008000
+end_define
+
+begin_define
+DECL|macro|NGX_HTTP_CONNECT
+define|#
+directive|define
+name|NGX_HTTP_CONNECT
+value|0x00010000
 end_define
 
 begin_define
@@ -765,7 +773,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon2af4ece90103
+DECL|enum|__anon29c91bf10103
 typedef|typedef
 enum|enum
 block|{
@@ -804,7 +812,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af4ece90208
+DECL|struct|__anon29c91bf10208
 typedef|typedef
 struct|struct
 block|{
@@ -827,7 +835,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af4ece90308
+DECL|struct|__anon29c91bf10308
 typedef|typedef
 struct|struct
 block|{
@@ -846,7 +854,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af4ece90408
+DECL|struct|__anon29c91bf10408
 typedef|typedef
 struct|struct
 block|{
@@ -1120,7 +1128,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af4ece90508
+DECL|struct|__anon29c91bf10508
 typedef|typedef
 struct|struct
 block|{
@@ -1273,7 +1281,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af4ece90608
+DECL|struct|__anon29c91bf10608
 typedef|typedef
 struct|struct
 block|{
@@ -1335,7 +1343,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af4ece90708
+DECL|struct|__anon29c91bf10708
 typedef|typedef
 struct|struct
 block|{
@@ -1479,7 +1487,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2af4ece90808
+DECL|struct|__anon29c91bf10808
 typedef|typedef
 struct|struct
 block|{
@@ -2420,7 +2428,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2af4ece90908
+DECL|struct|__anon29c91bf10908
 typedef|typedef
 struct|struct
 block|{

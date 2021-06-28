@@ -28,7 +28,7 @@ file|<ngx_http_v2_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a300ffb0108
+DECL|struct|__anon2b25b6850108
 typedef|typedef
 struct|struct
 block|{
@@ -16412,7 +16412,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2a300ffb0208
+DECL|struct|__anon2b25b6850208
 specifier|static
 specifier|const
 struct|struct
@@ -16556,6 +16556,14 @@ block|,
 literal|"TRACE"
 block|,
 name|NGX_HTTP_TRACE
+block|}
+block|,
+block|{
+literal|7
+block|,
+literal|"CONNECT"
+block|,
+name|NGX_HTTP_CONNECT
 block|}
 block|}
 struct|,
