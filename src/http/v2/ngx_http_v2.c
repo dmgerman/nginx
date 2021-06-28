@@ -28,7 +28,7 @@ file|<ngx_http_v2_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b25b6850108
+DECL|struct|__anon2bc91f6d0108
 typedef|typedef
 struct|struct
 block|{
@@ -15882,16 +15882,12 @@ block|}
 if|if
 condition|(
 name|ch
-operator|==
-literal|'\0'
+operator|<=
+literal|0x20
 operator|||
 name|ch
 operator|==
-name|LF
-operator|||
-name|ch
-operator|==
-name|CR
+literal|0x7f
 operator|||
 name|ch
 operator|==
@@ -16412,7 +16408,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2b25b6850208
+DECL|struct|__anon2bc91f6d0208
 specifier|static
 specifier|const
 struct|struct
