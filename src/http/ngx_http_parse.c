@@ -29,9 +29,9 @@ name|usual
 index|[]
 init|=
 block|{
-literal|0xffffdbfe
+literal|0x00000000
 block|,
-comment|/* 1111 1111 1111 1111  1101 1011 1111 1110 */
+comment|/* 0000 0000 0000 0000  0000 0000 0000 0000 */
 comment|/* ?>=< ;:98 7654 3210  /.-, +*)( '&%$ #"!  */
 literal|0x7fff37d6
 block|,
@@ -53,9 +53,9 @@ comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
 endif|#
 directive|endif
 comment|/*  ~}| {zyx wvut srqp  onml kjih gfed cba` */
-literal|0xffffffff
+literal|0x7fffffff
 block|,
-comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
+comment|/* 0111 1111 1111 1111  1111 1111 1111 1111 */
 literal|0xffffffff
 block|,
 comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
@@ -508,7 +508,7 @@ decl_stmt|,
 modifier|*
 name|m
 decl_stmt|;
-DECL|enum|__anon298125640103
+DECL|enum|__anon2b25dc890103
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -2001,13 +2001,22 @@ operator|=
 literal|1
 expr_stmt|;
 break|break;
-case|case
-literal|'\0'
-case|:
+default|default:
+if|if
+condition|(
+name|ch
+operator|<
+literal|0x20
+operator|||
+name|ch
+operator|==
+literal|0x7f
+condition|)
+block|{
 return|return
 name|NGX_HTTP_PARSE_INVALID_REQUEST
 return|;
-default|default:
+block|}
 name|state
 operator|=
 name|sw_check_uri
@@ -2227,12 +2236,23 @@ operator|=
 literal|1
 expr_stmt|;
 break|break;
-case|case
-literal|'\0'
-case|:
+default|default:
+if|if
+condition|(
+name|ch
+operator|<
+literal|0x20
+operator|||
+name|ch
+operator|==
+literal|0x7f
+condition|)
+block|{
 return|return
 name|NGX_HTTP_PARSE_INVALID_REQUEST
 return|;
+block|}
+break|break;
 block|}
 break|break;
 comment|/* URI */
@@ -2328,12 +2348,23 @@ operator|=
 literal|1
 expr_stmt|;
 break|break;
-case|case
-literal|'\0'
-case|:
+default|default:
+if|if
+condition|(
+name|ch
+operator|<
+literal|0x20
+operator|||
+name|ch
+operator|==
+literal|0x7f
+condition|)
+block|{
 return|return
 name|NGX_HTTP_PARSE_INVALID_REQUEST
 return|;
+block|}
+break|break;
 block|}
 break|break;
 comment|/* space+ after URI */
@@ -2888,7 +2919,7 @@ name|hash
 decl_stmt|,
 name|i
 decl_stmt|;
-DECL|enum|__anon298125640203
+DECL|enum|__anon2b25dc890203
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -3716,7 +3747,7 @@ name|p
 decl_stmt|,
 name|ch
 decl_stmt|;
-DECL|enum|__anon298125640303
+DECL|enum|__anon2b25dc890303
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -3822,12 +3853,6 @@ name|ch
 condition|)
 block|{
 case|case
-literal|' '
-case|:
-return|return
-name|NGX_ERROR
-return|;
-case|case
 literal|'.'
 case|:
 name|r
@@ -3931,6 +3956,21 @@ literal|1
 expr_stmt|;
 break|break;
 default|default:
+if|if
+condition|(
+name|ch
+operator|<=
+literal|0x20
+operator|||
+name|ch
+operator|==
+literal|0x7f
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
 name|state
 operator|=
 name|sw_check_uri
@@ -4023,12 +4063,6 @@ operator|+
 literal|1
 expr_stmt|;
 break|break;
-case|case
-literal|' '
-case|:
-return|return
-name|NGX_ERROR
-return|;
 if|#
 directive|if
 operator|(
@@ -4104,6 +4138,23 @@ operator|=
 literal|1
 expr_stmt|;
 break|break;
+default|default:
+if|if
+condition|(
+name|ch
+operator|<=
+literal|0x20
+operator|||
+name|ch
+operator|==
+literal|0x7f
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+break|break;
 block|}
 break|break;
 comment|/* URI */
@@ -4138,12 +4189,6 @@ name|ch
 condition|)
 block|{
 case|case
-literal|' '
-case|:
-return|return
-name|NGX_ERROR
-return|;
-case|case
 literal|'#'
 case|:
 name|r
@@ -4152,6 +4197,23 @@ name|complex_uri
 operator|=
 literal|1
 expr_stmt|;
+break|break;
+default|default:
+if|if
+condition|(
+name|ch
+operator|<=
+literal|0x20
+operator|||
+name|ch
+operator|==
+literal|0x7f
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
 break|break;
 block|}
 break|break;
@@ -4189,7 +4251,7 @@ decl_stmt|,
 modifier|*
 name|u
 decl_stmt|;
-DECL|enum|__anon298125640403
+DECL|enum|__anon2b25dc890403
 enum|enum
 block|{
 DECL|enumerator|sw_usual
@@ -5583,7 +5645,7 @@ name|u_char
 modifier|*
 name|p
 decl_stmt|;
-DECL|enum|__anon298125640503
+DECL|enum|__anon2b25dc890503
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -7639,7 +7701,7 @@ decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
-DECL|enum|__anon298125640603
+DECL|enum|__anon2b25dc890603
 enum|enum
 block|{
 DECL|enumerator|sw_chunk_start
