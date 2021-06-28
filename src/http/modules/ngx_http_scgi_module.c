@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29741fc40108
+DECL|struct|__anon2b455c670108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29741fc40208
+DECL|struct|__anon2b455c670208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29741fc40308
+DECL|struct|__anon2b455c670308
 typedef|typedef
 struct|struct
 block|{
@@ -5381,10 +5381,10 @@ return|return
 name|NGX_AGAIN
 return|;
 block|}
-comment|/* there was error while a header line parsing */
+comment|/* rc == NGX_HTTP_PARSE_INVALID_HEADER */
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_ERR
+name|NGX_LOG_INFO
 argument_list|,
 name|r
 operator|->
@@ -5394,7 +5394,24 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"upstream sent invalid header"
+literal|"upstream sent invalid header: \"%*s\\x%02xd...\""
+argument_list|,
+name|r
+operator|->
+name|header_end
+operator|-
+name|r
+operator|->
+name|header_name_start
+argument_list|,
+name|r
+operator|->
+name|header_name_start
+argument_list|,
+operator|*
+name|r
+operator|->
+name|header_end
 argument_list|)
 expr_stmt|;
 return|return

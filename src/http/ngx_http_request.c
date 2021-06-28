@@ -6567,7 +6567,24 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"client sent invalid header line"
+literal|"client sent invalid header line: \"%*s\\x%02xd...\""
+argument_list|,
+name|r
+operator|->
+name|header_end
+operator|-
+name|r
+operator|->
+name|header_name_start
+argument_list|,
+name|r
+operator|->
+name|header_name_start
+argument_list|,
+operator|*
+name|r
+operator|->
+name|header_end
 argument_list|)
 expr_stmt|;
 name|ngx_http_finalize_request
@@ -9390,7 +9407,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon291f05b70103
+DECL|enum|__anon29a42fd40103
 enum|enum
 block|{
 DECL|enumerator|sw_usual

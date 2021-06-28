@@ -110,7 +110,7 @@ value|0x0400
 end_define
 
 begin_typedef
-DECL|struct|__anon297f831a0108
+DECL|struct|__anon2a2c15010108
 typedef|typedef
 struct|struct
 block|{
@@ -173,7 +173,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon297f831a020a
+DECL|union|__anon2a2c1501020a
 union|union
 block|{
 DECL|member|complex
@@ -205,11 +205,11 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon297f831a0308
+DECL|struct|__anon2a2c15010308
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon297f831a040a
+DECL|union|__anon2a2c1501040a
 union|union
 block|{
 DECL|member|complex
@@ -247,7 +247,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297f831a0508
+DECL|struct|__anon2a2c15010508
 typedef|typedef
 struct|struct
 block|{
@@ -278,7 +278,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297f831a0608
+DECL|struct|__anon2a2c15010608
 typedef|typedef
 struct|struct
 block|{
@@ -308,7 +308,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297f831a0708
+DECL|struct|__anon2a2c15010708
 typedef|typedef
 struct|struct
 block|{
@@ -472,7 +472,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon297f831a0808
+DECL|struct|__anon2a2c15010808
 typedef|typedef
 struct|struct
 block|{
@@ -9951,10 +9951,10 @@ return|return
 name|NGX_AGAIN
 return|;
 block|}
-comment|/* there was error while a header line parsing */
+comment|/* rc == NGX_HTTP_PARSE_INVALID_HEADER */
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_ERR
+name|NGX_LOG_INFO
 argument_list|,
 name|r
 operator|->
@@ -9964,7 +9964,24 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"upstream sent invalid header"
+literal|"upstream sent invalid header: \"%*s\\x%02xd...\""
+argument_list|,
+name|r
+operator|->
+name|header_end
+operator|-
+name|r
+operator|->
+name|header_name_start
+argument_list|,
+name|r
+operator|->
+name|header_name_start
+argument_list|,
+operator|*
+name|r
+operator|->
+name|header_end
 argument_list|)
 expr_stmt|;
 return|return

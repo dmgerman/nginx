@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a20ac380108
+DECL|struct|__anon295abb960108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a20ac380208
+DECL|struct|__anon295abb960208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a20ac380308
+DECL|struct|__anon295abb960308
 typedef|typedef
 struct|struct
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon2a20ac380403
+DECL|enum|__anon295abb960403
 typedef|typedef
 enum|enum
 block|{
@@ -199,7 +199,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a20ac380508
+DECL|struct|__anon295abb960508
 typedef|typedef
 struct|struct
 block|{
@@ -220,7 +220,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a20ac380608
+DECL|struct|__anon295abb960608
 typedef|typedef
 struct|struct
 block|{
@@ -388,7 +388,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon2a20ac380708
+DECL|struct|__anon295abb960708
 typedef|typedef
 struct|struct
 block|{
@@ -431,7 +431,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a20ac380808
+DECL|struct|__anon295abb960808
 typedef|typedef
 struct|struct
 block|{
@@ -461,7 +461,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a20ac380908
+DECL|struct|__anon295abb960908
 typedef|typedef
 struct|struct
 block|{
@@ -488,7 +488,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a20ac380a08
+DECL|struct|__anon295abb960a08
 typedef|typedef
 struct|struct
 block|{
@@ -9575,10 +9575,10 @@ expr_stmt|;
 block|}
 break|break;
 block|}
-comment|/* there was error while a header line parsing */
+comment|/* rc == NGX_HTTP_PARSE_INVALID_HEADER */
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_ERR
+name|NGX_LOG_INFO
 argument_list|,
 name|r
 operator|->
@@ -9588,7 +9588,24 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"upstream sent invalid header"
+literal|"upstream sent invalid header: \"%*s\\x%02xd...\""
+argument_list|,
+name|r
+operator|->
+name|header_end
+operator|-
+name|r
+operator|->
+name|header_name_start
+argument_list|,
+name|r
+operator|->
+name|header_name_start
+argument_list|,
+operator|*
+name|r
+operator|->
+name|header_end
 argument_list|)
 expr_stmt|;
 return|return
