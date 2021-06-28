@@ -6659,7 +6659,8 @@ index|[]
 init|=
 literal|"0123456789ABCDEF"
 decl_stmt|;
-comment|/* " ", "#", "%", "?", %00-%1F, %7F-%FF */
+comment|/*      * Per RFC 3986 only the following chars are allowed in URIs unescaped:      *      * unreserved    = ALPHA / DIGIT / "-" / "." / "_" / "~"      * gen-delims    = ":" / "/" / "?" / "#" / "[" / "]" / "@"      * sub-delims    = "!" / "$" / "&" / "'" / "(" / ")"      *               / "*" / "+" / "," / ";" / "="      *      * And "%" can appear as a part of escaping itself.  The following      * characters are not allowed and need to be escaped: %00-%1F, %7F-%FF,      * " ", """, "<", ">", "\", "^", "`", "{", "|", "}".      */
+comment|/* " ", "#", "%", "?", not allowed */
 specifier|static
 name|uint32_t
 name|uri
@@ -6670,17 +6671,17 @@ literal|0xffffffff
 block|,
 comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
 comment|/* ?>=< ;:98 7654 3210  /.-, +*)( '&%$ #"!  */
-literal|0x80000029
+literal|0xd000002d
 block|,
-comment|/* 1000 0000 0000 0000  0000 0000 0010 1001 */
+comment|/* 1101 0000 0000 0000  0000 0000 0010 1101 */
 comment|/* _^]\ [ZYX WVUT SRQP  ONML KJIH GFED CBA@ */
-literal|0x00000000
+literal|0x50000000
 block|,
-comment|/* 0000 0000 0000 0000  0000 0000 0000 0000 */
+comment|/* 0101 0000 0000 0000  0000 0000 0000 0000 */
 comment|/*  ~}| {zyx wvut srqp  onml kjih gfed cba` */
-literal|0x80000000
+literal|0xb8000001
 block|,
-comment|/* 1000 0000 0000 0000  0000 0000 0000 0000 */
+comment|/* 1011 1000 0000 0000  0000 0000 0000 0001 */
 literal|0xffffffff
 block|,
 comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
@@ -6694,7 +6695,7 @@ literal|0xffffffff
 comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
 block|}
 decl_stmt|;
-comment|/* " ", "#", "%", "&", "+", ";", "?", %00-%1F, %7F-%FF */
+comment|/* " ", "#", "%", "&", "+", ";", "?", not allowed */
 specifier|static
 name|uint32_t
 name|args
@@ -6705,17 +6706,17 @@ literal|0xffffffff
 block|,
 comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
 comment|/* ?>=< ;:98 7654 3210  /.-, +*)( '&%$ #"!  */
-literal|0x88000869
+literal|0xd800086d
 block|,
-comment|/* 1000 1000 0000 0000  0000 1000 0110 1001 */
+comment|/* 1101 1000 0000 0000  0000 1000 0110 1101 */
 comment|/* _^]\ [ZYX WVUT SRQP  ONML KJIH GFED CBA@ */
-literal|0x00000000
+literal|0x50000000
 block|,
-comment|/* 0000 0000 0000 0000  0000 0000 0000 0000 */
+comment|/* 0101 0000 0000 0000  0000 0000 0000 0000 */
 comment|/*  ~}| {zyx wvut srqp  onml kjih gfed cba` */
-literal|0x80000000
+literal|0xb8000001
 block|,
-comment|/* 1000 0000 0000 0000  0000 0000 0000 0000 */
+comment|/* 1011 1000 0000 0000  0000 0000 0000 0001 */
 literal|0xffffffff
 block|,
 comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
@@ -6764,7 +6765,7 @@ literal|0xffffffff
 comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
 block|}
 decl_stmt|;
-comment|/* " ", "#", """, "%", "'", %00-%1F, %7F-%FF */
+comment|/* " ", "#", """, "%", "'", not allowed */
 specifier|static
 name|uint32_t
 name|html
@@ -6775,17 +6776,17 @@ literal|0xffffffff
 block|,
 comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
 comment|/* ?>=< ;:98 7654 3210  /.-, +*)( '&%$ #"!  */
-literal|0x000000ad
+literal|0x500000ad
 block|,
-comment|/* 0000 0000 0000 0000  0000 0000 1010 1101 */
+comment|/* 0101 0000 0000 0000  0000 0000 1010 1101 */
 comment|/* _^]\ [ZYX WVUT SRQP  ONML KJIH GFED CBA@ */
-literal|0x00000000
+literal|0x50000000
 block|,
-comment|/* 0000 0000 0000 0000  0000 0000 0000 0000 */
+comment|/* 0101 0000 0000 0000  0000 0000 0000 0000 */
 comment|/*  ~}| {zyx wvut srqp  onml kjih gfed cba` */
-literal|0x80000000
+literal|0xb8000001
 block|,
-comment|/* 1000 0000 0000 0000  0000 0000 0000 0000 */
+comment|/* 1011 1000 0000 0000  0000 0000 0000 0001 */
 literal|0xffffffff
 block|,
 comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
@@ -6799,7 +6800,7 @@ literal|0xffffffff
 comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
 block|}
 decl_stmt|;
-comment|/* " ", """, "'", %00-%1F, %7F-%FF */
+comment|/* " ", """, "'", not allowed */
 specifier|static
 name|uint32_t
 name|refresh
@@ -6810,17 +6811,17 @@ literal|0xffffffff
 block|,
 comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
 comment|/* ?>=< ;:98 7654 3210  /.-, +*)( '&%$ #"!  */
-literal|0x00000085
+literal|0x50000085
 block|,
-comment|/* 0000 0000 0000 0000  0000 0000 1000 0101 */
+comment|/* 0101 0000 0000 0000  0000 0000 1000 0101 */
 comment|/* _^]\ [ZYX WVUT SRQP  ONML KJIH GFED CBA@ */
-literal|0x00000000
+literal|0x50000000
 block|,
-comment|/* 0000 0000 0000 0000  0000 0000 0000 0000 */
+comment|/* 0101 0000 0000 0000  0000 0000 0000 0000 */
 comment|/*  ~}| {zyx wvut srqp  onml kjih gfed cba` */
-literal|0x80000000
+literal|0xd8000001
 block|,
-comment|/* 1000 0000 0000 0000  0000 0000 0000 0000 */
+comment|/* 1011 1000 0000 0000  0000 0000 0000 0001 */
 literal|0xffffffff
 block|,
 comment|/* 1111 1111 1111 1111  1111 1111 1111 1111 */
@@ -7077,7 +7078,7 @@ name|c
 decl_stmt|,
 name|decoded
 decl_stmt|;
-DECL|enum|__anon2aa72dc90103
+DECL|enum|__anon289f45650103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
