@@ -5455,15 +5455,9 @@ name|r
 operator|->
 name|valid_unparsed_uri
 operator|=
-operator|(
-name|r
-operator|->
-name|space_in_uri
-operator|||
 name|r
 operator|->
 name|empty_path_in_uri
-operator|)
 condition|?
 literal|0
 else|:
@@ -9396,7 +9390,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon2877067c0103
+DECL|enum|__anon291f05b70103
 enum|enum
 block|{
 DECL|enumerator|sw_usual

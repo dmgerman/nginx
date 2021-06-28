@@ -110,7 +110,7 @@ value|0x0400
 end_define
 
 begin_typedef
-DECL|struct|__anon27b2a9200108
+DECL|struct|__anon297f831a0108
 typedef|typedef
 struct|struct
 block|{
@@ -173,7 +173,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon27b2a920020a
+DECL|union|__anon297f831a020a
 union|union
 block|{
 DECL|member|complex
@@ -205,11 +205,11 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon27b2a9200308
+DECL|struct|__anon297f831a0308
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon27b2a920040a
+DECL|union|__anon297f831a040a
 union|union
 block|{
 DECL|member|complex
@@ -247,7 +247,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b2a9200508
+DECL|struct|__anon297f831a0508
 typedef|typedef
 struct|struct
 block|{
@@ -278,7 +278,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b2a9200608
+DECL|struct|__anon297f831a0608
 typedef|typedef
 struct|struct
 block|{
@@ -308,7 +308,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b2a9200708
+DECL|struct|__anon297f831a0708
 typedef|typedef
 struct|struct
 block|{
@@ -472,7 +472,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27b2a9200808
+DECL|struct|__anon297f831a0808
 typedef|typedef
 struct|struct
 block|{
@@ -5634,10 +5634,6 @@ name|quoted_uri
 operator|||
 name|r
 operator|->
-name|space_in_uri
-operator|||
-name|r
-operator|->
 name|internal
 condition|)
 block|{
@@ -6246,10 +6242,6 @@ condition|(
 name|r
 operator|->
 name|quoted_uri
-operator|||
-name|r
-operator|->
-name|space_in_uri
 operator|||
 name|r
 operator|->
