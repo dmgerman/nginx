@@ -374,8 +374,10 @@ condition|(
 name|vec
 operator|.
 name|nelts
-operator|>=
-name|IOV_MAX
+operator|==
+name|vec
+operator|.
+name|nalloc
 condition|)
 block|{
 break|break;
