@@ -26,7 +26,7 @@ DECL|macro|NGX_WSABUFS
 define|#
 directive|define
 name|NGX_WSABUFS
-value|8
+value|64
 end_define
 
 begin_function
@@ -217,6 +217,19 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|vec
+operator|.
+name|nelts
+operator|==
+name|vec
+operator|.
+name|nalloc
+condition|)
+block|{
+break|break;
+block|}
 name|wsabuf
 operator|=
 name|ngx_array_push
