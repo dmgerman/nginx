@@ -282,6 +282,36 @@ endif|#
 directive|endif
 end_endif
 
+begin_if
+if|#
+directive|if
+operator|(
+name|OPENSSL_VERSION_NUMBER
+operator|>=
+literal|0x30000000L
+operator|&&
+operator|!
+name|defined
+name|SSL_get_peer_certificate
+operator|)
+end_if
+
+begin_define
+DECL|macro|SSL_get_peer_certificate (s)
+define|#
+directive|define
+name|SSL_get_peer_certificate
+parameter_list|(
+name|s
+parameter_list|)
+value|SSL_get1_peer_certificate(s)
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_typedef
 DECL|typedef|ngx_ssl_ocsp_t
 typedef|typedef
@@ -560,7 +590,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2accea1c0108
+DECL|struct|__anon298854e60108
 typedef|typedef
 struct|struct
 block|{
@@ -589,7 +619,7 @@ name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon2accea1c0208
+DECL|struct|__anon298854e60208
 typedef|typedef
 struct|struct
 block|{
