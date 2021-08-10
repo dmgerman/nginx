@@ -312,6 +312,38 @@ endif|#
 directive|endif
 end_endif
 
+begin_if
+if|#
+directive|if
+operator|(
+name|OPENSSL_VERSION_NUMBER
+operator|<
+literal|0x30000000L
+operator|&&
+operator|!
+name|defined
+name|ERR_peek_error_data
+operator|)
+end_if
+
+begin_define
+DECL|macro|ERR_peek_error_data (d,f)
+define|#
+directive|define
+name|ERR_peek_error_data
+parameter_list|(
+name|d
+parameter_list|,
+name|f
+parameter_list|)
+value|ERR_peek_error_line_data(NULL, NULL, d, f)
+end_define
+
+begin_endif
+endif|#
+directive|endif
+end_endif
+
 begin_typedef
 DECL|typedef|ngx_ssl_ocsp_t
 typedef|typedef
@@ -590,7 +622,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon298854e60108
+DECL|struct|__anon2ac162490108
 typedef|typedef
 struct|struct
 block|{
@@ -619,7 +651,7 @@ name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon298854e60208
+DECL|struct|__anon2ac162490208
 typedef|typedef
 struct|struct
 block|{

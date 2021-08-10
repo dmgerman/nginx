@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2c09f9870108
+DECL|struct|__anon2bc212c00108
 typedef|typedef
 struct|struct
 block|{
@@ -13251,12 +13251,8 @@ control|)
 block|{
 name|n
 operator|=
-name|ERR_peek_error_line_data
+name|ERR_peek_error_data
 argument_list|(
-name|NULL
-argument_list|,
-name|NULL
-argument_list|,
 operator|&
 name|data
 argument_list|,
