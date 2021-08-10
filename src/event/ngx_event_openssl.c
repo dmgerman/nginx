@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon28f2eb350108
+DECL|struct|__anon2c13db800108
 typedef|typedef
 struct|struct
 block|{
@@ -1462,21 +1462,6 @@ operator|->
 name|ctx
 argument_list|,
 name|SSL_OP_MICROSOFT_BIG_SSLV3_BUFFER
-argument_list|)
-expr_stmt|;
-endif|#
-directive|endif
-ifdef|#
-directive|ifdef
-name|SSL_OP_MSIE_SSLV2_RSA_PADDING
-comment|/* this option allow a potential SSL 2.0 rollback (CAN-2005-2969) */
-name|SSL_CTX_set_options
-argument_list|(
-name|ssl
-operator|->
-name|ctx
-argument_list|,
-name|SSL_OP_MSIE_SSLV2_RSA_PADDING
 argument_list|)
 expr_stmt|;
 endif|#
