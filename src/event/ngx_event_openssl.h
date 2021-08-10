@@ -28,6 +28,13 @@ directive|include
 file|<ngx_core.h>
 end_include
 
+begin_define
+DECL|macro|OPENSSL_SUPPRESS_DEPRECATED
+define|#
+directive|define
+name|OPENSSL_SUPPRESS_DEPRECATED
+end_define
+
 begin_include
 include|#
 directive|include
@@ -622,7 +629,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2ac162490108
+DECL|struct|__anon2c1296100108
 typedef|typedef
 struct|struct
 block|{
@@ -651,7 +658,7 @@ name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon2ac162490208
+DECL|struct|__anon2c1296100208
 typedef|typedef
 struct|struct
 block|{
