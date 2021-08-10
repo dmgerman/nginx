@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2c4a8ecd0108
+DECL|struct|__anon274d65380108
 typedef|typedef
 struct|struct
 block|{
@@ -4794,6 +4794,20 @@ block|}
 block|}
 end_function
 
+begin_if
+if|#
+directive|if
+operator|(
+name|OPENSSL_VERSION_NUMBER
+operator|<
+literal|0x10100001L
+operator|&&
+operator|!
+name|defined
+name|LIBRESSL_VERSION_NUMBER
+operator|)
+end_if
+
 begin_function
 name|RSA
 modifier|*
@@ -4827,17 +4841,9 @@ return|return
 name|NULL
 return|;
 block|}
-if|#
-directive|if
-operator|(
-name|OPENSSL_VERSION_NUMBER
-operator|<
-literal|0x10100003L
-operator|&&
-operator|!
-name|defined
+ifndef|#
+directive|ifndef
 name|OPENSSL_NO_DEPRECATED
-operator|)
 if|if
 condition|(
 name|key
@@ -4866,6 +4872,11 @@ name|key
 return|;
 block|}
 end_function
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_function
 name|ngx_array_t

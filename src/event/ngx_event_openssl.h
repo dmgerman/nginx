@@ -560,7 +560,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28d4d1080108
+DECL|struct|__anon2accea1c0108
 typedef|typedef
 struct|struct
 block|{
@@ -589,7 +589,7 @@ name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon28d4d1080208
+DECL|struct|__anon2accea1c0208
 typedef|typedef
 struct|struct
 block|{
@@ -1046,6 +1046,20 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_if
+if|#
+directive|if
+operator|(
+name|OPENSSL_VERSION_NUMBER
+operator|<
+literal|0x10100001L
+operator|&&
+operator|!
+name|defined
+name|LIBRESSL_VERSION_NUMBER
+operator|)
+end_if
+
 begin_function_decl
 name|RSA
 modifier|*
@@ -1063,6 +1077,11 @@ name|key_length
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_endif
+endif|#
+directive|endif
+end_endif
 
 begin_function_decl
 name|ngx_array_t
