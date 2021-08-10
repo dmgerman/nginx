@@ -126,12 +126,6 @@ end_include
 begin_include
 include|#
 directive|include
-file|<openssl/rsa.h>
-end_include
-
-begin_include
-include|#
-directive|include
 file|<openssl/x509.h>
 end_include
 
@@ -629,7 +623,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c1296100108
+DECL|struct|__anon2a0dc18a0108
 typedef|typedef
 struct|struct
 block|{
@@ -658,7 +652,7 @@ name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon2c1296100208
+DECL|struct|__anon2a0dc18a0208
 typedef|typedef
 struct|struct
 block|{
@@ -1114,43 +1108,6 @@ name|data
 parameter_list|)
 function_decl|;
 end_function_decl
-
-begin_if
-if|#
-directive|if
-operator|(
-name|OPENSSL_VERSION_NUMBER
-operator|<
-literal|0x10100001L
-operator|&&
-operator|!
-name|defined
-name|LIBRESSL_VERSION_NUMBER
-operator|)
-end_if
-
-begin_function_decl
-name|RSA
-modifier|*
-name|ngx_ssl_rsa512_key_callback
-parameter_list|(
-name|ngx_ssl_conn_t
-modifier|*
-name|ssl_conn
-parameter_list|,
-name|int
-name|is_export
-parameter_list|,
-name|int
-name|key_length
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_endif
-endif|#
-directive|endif
-end_endif
 
 begin_function_decl
 name|ngx_array_t
