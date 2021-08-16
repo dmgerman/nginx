@@ -110,7 +110,7 @@ value|0x0400
 end_define
 
 begin_typedef
-DECL|struct|__anon2a2c15010108
+DECL|struct|__anon28a3bd0e0108
 typedef|typedef
 struct|struct
 block|{
@@ -173,7 +173,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon2a2c1501020a
+DECL|union|__anon28a3bd0e020a
 union|union
 block|{
 DECL|member|complex
@@ -205,11 +205,11 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2a2c15010308
+DECL|struct|__anon28a3bd0e0308
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon2a2c1501040a
+DECL|union|__anon28a3bd0e040a
 union|union
 block|{
 DECL|member|complex
@@ -247,7 +247,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2c15010508
+DECL|struct|__anon28a3bd0e0508
 typedef|typedef
 struct|struct
 block|{
@@ -278,7 +278,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2c15010608
+DECL|struct|__anon28a3bd0e0608
 typedef|typedef
 struct|struct
 block|{
@@ -308,7 +308,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2c15010708
+DECL|struct|__anon28a3bd0e0708
 typedef|typedef
 struct|struct
 block|{
@@ -472,7 +472,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2c15010808
+DECL|struct|__anon28a3bd0e0808
 typedef|typedef
 struct|struct
 block|{
@@ -23236,6 +23236,33 @@ name|ssl
 expr_stmt|;
 if|if
 condition|(
+name|ngx_ssl_ciphers
+argument_list|(
+name|cf
+argument_list|,
+name|plcf
+operator|->
+name|upstream
+operator|.
+name|ssl
+argument_list|,
+operator|&
+name|plcf
+operator|->
+name|ssl_ciphers
+argument_list|,
+literal|0
+argument_list|)
+operator|!=
+name|NGX_OK
+condition|)
+block|{
+return|return
+name|NGX_ERROR
+return|;
+block|}
+if|if
+condition|(
 name|plcf
 operator|->
 name|upstream
@@ -23380,33 +23407,6 @@ name|NGX_ERROR
 return|;
 block|}
 block|}
-block|}
-if|if
-condition|(
-name|ngx_ssl_ciphers
-argument_list|(
-name|cf
-argument_list|,
-name|plcf
-operator|->
-name|upstream
-operator|.
-name|ssl
-argument_list|,
-operator|&
-name|plcf
-operator|->
-name|ssl_ciphers
-argument_list|,
-literal|0
-argument_list|)
-operator|!=
-name|NGX_OK
-condition|)
-block|{
-return|return
-name|NGX_ERROR
-return|;
 block|}
 if|if
 condition|(
