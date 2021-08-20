@@ -9484,6 +9484,26 @@ operator|=
 name|NGX_TCP_NOPUSH_UNSET
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|c
+operator|->
+name|read
+operator|->
+name|ready
+condition|)
+block|{
+name|ngx_post_event
+argument_list|(
+name|c
+operator|->
+name|read
+argument_list|,
+operator|&
+name|ngx_posted_events
+argument_list|)
+expr_stmt|;
+block|}
 return|return;
 block|}
 comment|/* rc == NGX_OK */
