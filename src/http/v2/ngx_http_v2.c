@@ -28,7 +28,7 @@ file|<ngx_http_v2_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bc91f6d0108
+DECL|struct|__anon2963e1360108
 typedef|typedef
 struct|struct
 block|{
@@ -16408,7 +16408,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2bc91f6d0208
+DECL|struct|__anon2963e1360208
 specifier|static
 specifier|const
 struct|struct
@@ -18940,6 +18940,19 @@ name|rb
 operator|->
 name|buf
 expr_stmt|;
+name|ngx_log_debug0
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|fc
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http2 process request body"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|size
@@ -19809,6 +19822,19 @@ operator|=
 name|r
 operator|->
 name|connection
+expr_stmt|;
+name|ngx_log_debug0
+argument_list|(
+name|NGX_LOG_DEBUG_HTTP
+argument_list|,
+name|fc
+operator|->
+name|log
+argument_list|,
+literal|0
+argument_list|,
+literal|"http2 read unbuffered request body"
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
