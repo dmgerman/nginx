@@ -773,7 +773,7 @@ value|0x04
 end_define
 
 begin_typedef
-DECL|enum|__anon29c231090103
+DECL|enum|__anon278d18810103
 typedef|typedef
 enum|enum
 block|{
@@ -812,7 +812,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c231090208
+DECL|struct|__anon278d18810208
 typedef|typedef
 struct|struct
 block|{
@@ -835,7 +835,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c231090308
+DECL|struct|__anon278d18810308
 typedef|typedef
 struct|struct
 block|{
@@ -854,7 +854,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c231090408
+DECL|struct|__anon278d18810408
 typedef|typedef
 struct|struct
 block|{
@@ -1128,7 +1128,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c231090508
+DECL|struct|__anon278d18810508
 typedef|typedef
 struct|struct
 block|{
@@ -1281,7 +1281,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c231090608
+DECL|struct|__anon278d18810608
 typedef|typedef
 struct|struct
 block|{
@@ -1327,6 +1327,18 @@ DECL|member|post_handler
 name|ngx_http_client_body_handler_pt
 name|post_handler
 decl_stmt|;
+DECL|member|filter_need_buffering
+name|unsigned
+name|filter_need_buffering
+range|:
+literal|1
+decl_stmt|;
+DECL|member|last_sent
+name|unsigned
+name|last_sent
+range|:
+literal|1
+decl_stmt|;
 DECL|member|last_saved
 name|unsigned
 name|last_saved
@@ -1349,7 +1361,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c231090708
+DECL|struct|__anon278d18810708
 typedef|typedef
 struct|struct
 block|{
@@ -1493,7 +1505,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c231090808
+DECL|struct|__anon278d18810808
 typedef|typedef
 struct|struct
 block|{
@@ -2427,7 +2439,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29c231090908
+DECL|struct|__anon278d18810908
 typedef|typedef
 struct|struct
 block|{
