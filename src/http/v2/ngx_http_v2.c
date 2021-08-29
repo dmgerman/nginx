@@ -28,7 +28,7 @@ file|<ngx_http_v2_module.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2bcdafb80108
+DECL|struct|__anon2ac0e0a20108
 typedef|typedef
 struct|struct
 block|{
@@ -16408,7 +16408,7 @@ modifier|*
 name|m
 decl_stmt|;
 comment|/*      * This array takes less than 256 sequential bytes,      * and if typical CPU cache line size is 64 bytes,      * it is prefetched for 4 load operations.      */
-DECL|struct|__anon2bcdafb80208
+DECL|struct|__anon2ac0e0a20208
 specifier|static
 specifier|const
 struct|struct
@@ -18458,11 +18458,6 @@ condition|(
 name|r
 operator|->
 name|request_body_no_buffering
-operator|&&
-operator|!
-name|stream
-operator|->
-name|in_closed
 condition|)
 block|{
 comment|/*          * We need a room to store data up to the stream's initial window size,          * at least until this window will be exhausted.          */
