@@ -284,7 +284,7 @@ goto|goto
 name|done
 goto|;
 block|}
-comment|/*      * set by ngx_pcalloc():      *      *     rb->bufs = NULL;      *     rb->buf = NULL;      *     rb->free = NULL;      *     rb->busy = NULL;      *     rb->chunked = NULL;      */
+comment|/*      * set by ngx_pcalloc():      *      *     rb->temp_file = NULL;      *     rb->bufs = NULL;      *     rb->buf = NULL;      *     rb->free = NULL;      *     rb->busy = NULL;      *     rb->chunked = NULL;      *     rb->received = 0;      */
 name|rb
 operator|->
 name|rest
