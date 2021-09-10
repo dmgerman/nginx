@@ -5389,6 +5389,10 @@ if|if
 condition|(
 name|rb
 operator|->
+name|bufs
+operator|&&
+name|rb
+operator|->
 name|buf
 operator|&&
 name|rb
