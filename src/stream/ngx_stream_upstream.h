@@ -105,7 +105,7 @@ value|0x1
 end_define
 
 begin_typedef
-DECL|struct|__anon29b4c0560108
+DECL|struct|__anon29fa98590108
 typedef|typedef
 struct|struct
 block|{
@@ -170,7 +170,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b4c0560208
+DECL|struct|__anon29fa98590208
 typedef|typedef
 struct|struct
 block|{
@@ -194,7 +194,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b4c0560308
+DECL|struct|__anon29fa98590308
 typedef|typedef
 struct|struct
 block|{
@@ -316,7 +316,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29b4c0560408
+DECL|struct|__anon29fa98590408
 typedef|typedef
 struct|struct
 block|{
@@ -352,7 +352,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b4c0560508
+DECL|struct|__anon29fa98590508
 typedef|typedef
 struct|struct
 block|{
@@ -404,7 +404,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29b4c0560608
+DECL|struct|__anon29fa98590608
 typedef|typedef
 struct|struct
 block|{
@@ -501,6 +501,12 @@ decl_stmt|;
 DECL|member|proxy_protocol
 name|unsigned
 name|proxy_protocol
+range|:
+literal|1
+decl_stmt|;
+DECL|member|half_closed
+name|unsigned
+name|half_closed
 range|:
 literal|1
 decl_stmt|;
