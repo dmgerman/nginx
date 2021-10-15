@@ -5793,11 +5793,6 @@ operator|&&
 operator|!
 name|defined
 name|TLSEXT_TYPE_application_layer_protocol_negotiation
-expr|\
-operator|&&
-operator|!
-name|defined
-name|TLSEXT_TYPE_next_proto_neg
 operator|)
 if|if
 condition|(
@@ -5819,7 +5814,7 @@ argument_list|,
 literal|0
 argument_list|,
 literal|"nginx was built with OpenSSL that lacks ALPN "
-literal|"and NPN support, HTTP/2 is not enabled for %V"
+literal|"support, HTTP/2 is not enabled for %V"
 argument_list|,
 operator|&
 name|lsopt

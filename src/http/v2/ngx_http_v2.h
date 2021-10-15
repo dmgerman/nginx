@@ -35,19 +35,11 @@ file|<ngx_http.h>
 end_include
 
 begin_define
-DECL|macro|NGX_HTTP_V2_ALPN_ADVERTISE
+DECL|macro|NGX_HTTP_V2_ALPN_PROTO
 define|#
 directive|define
-name|NGX_HTTP_V2_ALPN_ADVERTISE
+name|NGX_HTTP_V2_ALPN_PROTO
 value|"\x02h2"
-end_define
-
-begin_define
-DECL|macro|NGX_HTTP_V2_NPN_ADVERTISE
-define|#
-directive|define
-name|NGX_HTTP_V2_NPN_ADVERTISE
-value|NGX_HTTP_V2_ALPN_ADVERTISE
 end_define
 
 begin_define
@@ -320,7 +312,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2943f8bf0108
+DECL|struct|__anon2a3317e50108
 typedef|typedef
 struct|struct
 block|{
@@ -339,7 +331,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2943f8bf0208
+DECL|struct|__anon2a3317e50208
 typedef|typedef
 struct|struct
 block|{
@@ -450,7 +442,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2943f8bf0308
+DECL|struct|__anon2a3317e50308
 typedef|typedef
 struct|struct
 block|{
