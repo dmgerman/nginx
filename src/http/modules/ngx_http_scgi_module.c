@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b455c670108
+DECL|struct|__anon2b3337950108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b455c670208
+DECL|struct|__anon2b3337950208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b455c670308
+DECL|struct|__anon2b3337950308
 typedef|typedef
 struct|struct
 block|{
@@ -5384,7 +5384,7 @@ block|}
 comment|/* rc == NGX_HTTP_PARSE_INVALID_HEADER */
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_ERR
 argument_list|,
 name|r
 operator|->

@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon295abb960108
+DECL|struct|__anon290c574e0108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295abb960208
+DECL|struct|__anon290c574e0208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295abb960308
+DECL|struct|__anon290c574e0308
 typedef|typedef
 struct|struct
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon295abb960403
+DECL|enum|__anon290c574e0403
 typedef|typedef
 enum|enum
 block|{
@@ -199,7 +199,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295abb960508
+DECL|struct|__anon290c574e0508
 typedef|typedef
 struct|struct
 block|{
@@ -220,7 +220,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295abb960608
+DECL|struct|__anon290c574e0608
 typedef|typedef
 struct|struct
 block|{
@@ -388,7 +388,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon295abb960708
+DECL|struct|__anon290c574e0708
 typedef|typedef
 struct|struct
 block|{
@@ -431,7 +431,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295abb960808
+DECL|struct|__anon290c574e0808
 typedef|typedef
 struct|struct
 block|{
@@ -461,7 +461,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295abb960908
+DECL|struct|__anon290c574e0908
 typedef|typedef
 struct|struct
 block|{
@@ -488,7 +488,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295abb960a08
+DECL|struct|__anon290c574e0a08
 typedef|typedef
 struct|struct
 block|{
@@ -9578,7 +9578,7 @@ block|}
 comment|/* rc == NGX_HTTP_PARSE_INVALID_HEADER */
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_ERR
 argument_list|,
 name|r
 operator|->

@@ -110,7 +110,7 @@ value|0x0400
 end_define
 
 begin_typedef
-DECL|struct|__anon2c22911f0108
+DECL|struct|__anon29563d900108
 typedef|typedef
 struct|struct
 block|{
@@ -173,7 +173,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon2c22911f020a
+DECL|union|__anon29563d90020a
 union|union
 block|{
 DECL|member|complex
@@ -205,11 +205,11 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c22911f0308
+DECL|struct|__anon29563d900308
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon2c22911f040a
+DECL|union|__anon29563d90040a
 union|union
 block|{
 DECL|member|complex
@@ -247,7 +247,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c22911f0508
+DECL|struct|__anon29563d900508
 typedef|typedef
 struct|struct
 block|{
@@ -278,7 +278,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c22911f0608
+DECL|struct|__anon29563d900608
 typedef|typedef
 struct|struct
 block|{
@@ -308,7 +308,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c22911f0708
+DECL|struct|__anon29563d900708
 typedef|typedef
 struct|struct
 block|{
@@ -472,7 +472,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c22911f0808
+DECL|struct|__anon29563d900808
 typedef|typedef
 struct|struct
 block|{
@@ -9954,7 +9954,7 @@ block|}
 comment|/* rc == NGX_HTTP_PARSE_INVALID_HEADER */
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_INFO
+name|NGX_LOG_ERR
 argument_list|,
 name|r
 operator|->
