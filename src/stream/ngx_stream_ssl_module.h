@@ -35,7 +35,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29a399d60108
+DECL|struct|__anon2af741750108
 typedef|typedef
 struct|struct
 block|{
@@ -114,6 +114,10 @@ decl_stmt|;
 DECL|member|crl
 name|ngx_str_t
 name|crl
+decl_stmt|;
+DECL|member|alpn
+name|ngx_str_t
+name|alpn
 decl_stmt|;
 DECL|member|ciphers
 name|ngx_str_t

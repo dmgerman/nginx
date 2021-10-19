@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon29d9c2ee0108
+DECL|struct|__anon2b2b4e670108
 typedef|typedef
 struct|struct
 block|{
@@ -12693,6 +12693,16 @@ name|n
 operator|==
 name|SSL_R_CALLBACK_FAILED
 comment|/*  234 */
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|SSL_R_NO_APPLICATION_PROTOCOL
+operator|||
+name|n
+operator|==
+name|SSL_R_NO_APPLICATION_PROTOCOL
+comment|/*  235 */
 endif|#
 directive|endif
 operator|||
