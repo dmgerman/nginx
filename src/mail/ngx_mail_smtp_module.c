@@ -178,6 +178,11 @@ argument_list|(
 literal|"smtp"
 argument_list|)
 block|,
+name|ngx_string
+argument_list|(
+literal|"\x04smtp"
+argument_list|)
+block|,
 block|{
 literal|25
 block|,

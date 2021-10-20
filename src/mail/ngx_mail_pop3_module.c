@@ -197,6 +197,11 @@ argument_list|(
 literal|"pop3"
 argument_list|)
 block|,
+name|ngx_string
+argument_list|(
+literal|"\x04pop3"
+argument_list|)
+block|,
 block|{
 literal|110
 block|,

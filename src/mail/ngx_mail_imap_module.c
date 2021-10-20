@@ -197,6 +197,11 @@ argument_list|(
 literal|"imap"
 argument_list|)
 block|,
+name|ngx_string
+argument_list|(
+literal|"\x04imap"
+argument_list|)
+block|,
 block|{
 literal|143
 block|,
