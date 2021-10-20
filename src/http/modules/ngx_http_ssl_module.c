@@ -62,11 +62,11 @@ value|"auto"
 end_define
 
 begin_define
-DECL|macro|NGX_HTTP_ALPN_PROTO
+DECL|macro|NGX_HTTP_ALPN_PROTOS
 define|#
 directive|define
-name|NGX_HTTP_ALPN_PROTO
-value|"\x08http/1.1"
+name|NGX_HTTP_ALPN_PROTOS
+value|"\x08http/1.1\x08http/1.0\x08http/0.9"
 end_define
 
 begin_ifdef
@@ -2013,14 +2013,14 @@ name|char
 operator|*
 operator|)
 name|NGX_HTTP_V2_ALPN_PROTO
-name|NGX_HTTP_ALPN_PROTO
+name|NGX_HTTP_ALPN_PROTOS
 expr_stmt|;
 name|srvlen
 operator|=
 expr|sizeof
 operator|(
 name|NGX_HTTP_V2_ALPN_PROTO
-name|NGX_HTTP_ALPN_PROTO
+name|NGX_HTTP_ALPN_PROTOS
 operator|)
 operator|-
 literal|1
@@ -2037,13 +2037,13 @@ name|unsigned
 name|char
 operator|*
 operator|)
-name|NGX_HTTP_ALPN_PROTO
+name|NGX_HTTP_ALPN_PROTOS
 expr_stmt|;
 name|srvlen
 operator|=
 sizeof|sizeof
 argument_list|(
-name|NGX_HTTP_ALPN_PROTO
+name|NGX_HTTP_ALPN_PROTOS
 argument_list|)
 operator|-
 literal|1
@@ -2076,7 +2076,7 @@ name|OPENSSL_NPN_NEGOTIATED
 condition|)
 block|{
 return|return
-name|SSL_TLSEXT_ERR_NOACK
+name|SSL_TLSEXT_ERR_ALERT_FATAL
 return|;
 block|}
 name|ngx_log_debug2
