@@ -459,6 +459,12 @@ name|buffer
 range|:
 literal|1
 decl_stmt|;
+DECL|member|sendfile
+name|unsigned
+name|sendfile
+range|:
+literal|1
+decl_stmt|;
 DECL|member|no_wait_shutdown
 name|unsigned
 name|no_wait_shutdown
@@ -623,7 +629,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2760cab50108
+DECL|struct|__anon29daf6b40108
 typedef|typedef
 struct|struct
 block|{
@@ -652,7 +658,7 @@ name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon2760cab50208
+DECL|struct|__anon29daf6b40208
 typedef|typedef
 struct|struct
 block|{

@@ -2752,6 +2752,13 @@ condition|(
 name|c
 operator|->
 name|ssl
+operator|&&
+operator|!
+name|c
+operator|->
+name|ssl
+operator|->
+name|sendfile
 condition|)
 block|{
 name|r
@@ -9386,7 +9393,7 @@ name|dot_pos
 decl_stmt|,
 name|host_len
 decl_stmt|;
-DECL|enum|__anon2b0189b00103
+DECL|enum|__anon29133f580103
 enum|enum
 block|{
 DECL|enumerator|sw_usual
