@@ -108,6 +108,7 @@ name|SSL_CTRL_SET_TLSEXT_HOSTNAME
 end_ifdef
 
 begin_function_decl
+specifier|static
 name|int
 name|ngx_stream_ssl_servername
 parameter_list|(
@@ -2012,6 +2013,7 @@ name|SSL_CTRL_SET_TLSEXT_HOSTNAME
 end_ifdef
 
 begin_function
+specifier|static
 name|int
 DECL|function|ngx_stream_ssl_servername (ngx_ssl_conn_t * ssl_conn,int * ad,void * arg)
 name|ngx_stream_ssl_servername
@@ -2237,6 +2239,7 @@ name|SSL_R_CERT_CB_ERROR
 end_ifdef
 
 begin_function
+specifier|static
 name|int
 DECL|function|ngx_stream_ssl_certificate (ngx_ssl_conn_t * ssl_conn,void * arg)
 name|ngx_stream_ssl_certificate

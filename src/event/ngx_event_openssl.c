@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2b2b4e670108
+DECL|struct|__anon2bc267a10108
 typedef|typedef
 struct|struct
 block|{
@@ -11306,6 +11306,7 @@ name|SSL_READ_EARLY_DATA_SUCCESS
 end_ifdef
 
 begin_function
+specifier|static
 name|ssize_t
 DECL|function|ngx_ssl_write_early (ngx_connection_t * c,u_char * data,size_t size)
 name|ngx_ssl_write_early
