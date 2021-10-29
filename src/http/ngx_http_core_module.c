@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29ca37800108
+DECL|struct|__anon28c00a670108
 typedef|typedef
 struct|struct
 block|{
@@ -16071,7 +16071,11 @@ name|prev
 operator|->
 name|sendfile_max_chunk
 argument_list|,
-literal|0
+literal|2
+operator|*
+literal|1024
+operator|*
+literal|1024
 argument_list|)
 expr_stmt|;
 name|ngx_conf_merge_size_value
