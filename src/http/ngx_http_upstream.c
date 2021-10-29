@@ -6877,6 +6877,10 @@ name|ngx_connection_t
 modifier|*
 name|c
 decl_stmt|;
+name|ngx_http_core_loc_conf_t
+modifier|*
+name|clcf
+decl_stmt|;
 name|r
 operator|->
 name|connection
@@ -7285,6 +7289,15 @@ operator|->
 name|log
 expr_stmt|;
 comment|/* init or reinit the ngx_output_chain() and ngx_chain_writer() contexts */
+name|clcf
+operator|=
+name|ngx_http_get_module_loc_conf
+argument_list|(
+name|r
+argument_list|,
+name|ngx_http_core_module
+argument_list|)
+expr_stmt|;
 name|u
 operator|->
 name|writer
@@ -7320,7 +7333,9 @@ name|writer
 operator|.
 name|limit
 operator|=
-literal|0
+name|clcf
+operator|->
+name|sendfile_max_chunk
 expr_stmt|;
 if|if
 condition|(
