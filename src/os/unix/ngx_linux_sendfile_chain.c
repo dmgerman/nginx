@@ -115,7 +115,7 @@ directive|endif
 end_endif
 
 begin_comment
-comment|/*  * On Linux up to 2.4.21 sendfile() (syscall #187) works with 32-bit  * offsets only, and the including<sys/sendfile.h> breaks the compiling,  * if off_t is 64 bit wide.  So we use own sendfile() definition, where offset  * parameter is int32_t, and use sendfile() for the file parts below 2G only,  * see src/os/unix/ngx_linux_config.h  *  * Linux 2.4.21 has the new sendfile64() syscall #239.  *  * On Linux up to 2.6.16 sendfile() does not allow to pass the count parameter  * more than 2G-1 bytes even on 64-bit platforms: it returns EINVAL,  * so we limit it to 2G-1 bytes.  */
+comment|/*  * On Linux up to 2.4.21 sendfile() (syscall #187) works with 32-bit  * offsets only, and the including<sys/sendfile.h> breaks the compiling,  * if off_t is 64 bit wide.  So we use own sendfile() definition, where offset  * parameter is int32_t, and use sendfile() for the file parts below 2G only,  * see src/os/unix/ngx_linux_config.h  *  * Linux 2.4.21 has the new sendfile64() syscall #239.  *  * On Linux up to 2.6.16 sendfile() does not allow to pass the count parameter  * more than 2G-1 bytes even on 64-bit platforms: it returns EINVAL,  * so we limit it to 2G-1 bytes.  *  * On Linux 2.6.16 and later, sendfile() silently limits the count parameter  * to 2G minus the page size, even on 64-bit platforms.  */
 end_comment
 
 begin_define
@@ -696,7 +696,6 @@ name|prev_send
 operator|+
 name|sent
 expr_stmt|;
-continue|continue;
 block|}
 if|if
 condition|(
@@ -999,7 +998,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2c33064c0108
+DECL|struct|__anon2b0d167e0108
 typedef|typedef
 struct|struct
 block|{
