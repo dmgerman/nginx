@@ -998,7 +998,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2b0d167e0108
+DECL|struct|__anon28b03e5a0108
 typedef|typedef
 struct|struct
 block|{
@@ -1260,26 +1260,6 @@ return|return
 name|ctx
 operator|->
 name|sent
-return|;
-block|}
-if|if
-condition|(
-name|task
-operator|->
-name|event
-operator|.
-name|active
-operator|&&
-name|ctx
-operator|->
-name|file
-operator|==
-name|file
-condition|)
-block|{
-comment|/*          * tolerate duplicate calls; they can happen due to subrequests          * or multiple calls of the next body filter from a filter          */
-return|return
-name|NGX_DONE
 return|;
 block|}
 name|ctx
