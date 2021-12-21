@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29295cf70108
+DECL|struct|__anon2bf9d7ce0108
 typedef|typedef
 struct|struct
 block|{
@@ -52,7 +52,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29295cf70208
+DECL|struct|__anon2bf9d7ce0208
 typedef|typedef
 struct|struct
 block|{
@@ -130,7 +130,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29295cf70303
+DECL|enum|__anon2bf9d7ce0303
 typedef|typedef
 enum|enum
 block|{
@@ -175,7 +175,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29295cf70408
+DECL|struct|__anon2bf9d7ce0408
 typedef|typedef
 struct|struct
 block|{
@@ -202,7 +202,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29295cf70508
+DECL|struct|__anon2bf9d7ce0508
 typedef|typedef
 struct|struct
 block|{
@@ -421,7 +421,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29295cf70608
+DECL|struct|__anon2bf9d7ce0608
 typedef|typedef
 struct|struct
 block|{
@@ -11488,7 +11488,7 @@ decl_stmt|;
 name|ngx_int_t
 name|rc
 decl_stmt|;
-DECL|enum|__anon29295cf70703
+DECL|enum|__anon2bf9d7ce0703
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -12185,7 +12185,7 @@ name|index
 decl_stmt|,
 name|size_update
 decl_stmt|;
-DECL|enum|__anon29295cf70803
+DECL|enum|__anon2bf9d7ce0803
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -13220,7 +13220,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|ngx_http_v2_huff_decode
+name|ngx_http_huff_decode
 argument_list|(
 operator|&
 name|ctx
@@ -13699,7 +13699,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|ngx_http_v2_huff_decode
+name|ngx_http_huff_decode
 argument_list|(
 operator|&
 name|ctx
@@ -14264,7 +14264,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon29295cf70903
+DECL|enum|__anon2bf9d7ce0903
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -14561,7 +14561,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon29295cf70a03
+DECL|enum|__anon2bf9d7ce0a03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -14978,7 +14978,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon29295cf70b03
+DECL|enum|__anon2bf9d7ce0b03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -15377,7 +15377,7 @@ decl_stmt|;
 name|ssize_t
 name|window_update
 decl_stmt|;
-DECL|enum|__anon29295cf70c03
+DECL|enum|__anon2bf9d7ce0c03
 enum|enum
 block|{
 DECL|enumerator|sw_start
@@ -15977,7 +15977,7 @@ decl_stmt|,
 modifier|*
 name|last
 decl_stmt|;
-DECL|enum|__anon29295cf70d03
+DECL|enum|__anon2bf9d7ce0d03
 enum|enum
 block|{
 DECL|enumerator|sw_start

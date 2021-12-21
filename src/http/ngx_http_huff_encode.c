@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28d486f40108
+DECL|struct|__anon2b75cce70108
 typedef|typedef
 struct|struct
 block|{
@@ -34,17 +34,17 @@ DECL|member|len
 name|uint32_t
 name|len
 decl_stmt|;
-DECL|typedef|ngx_http_v2_huff_encode_code_t
+DECL|typedef|ngx_http_huff_encode_code_t
 block|}
-name|ngx_http_v2_huff_encode_code_t
+name|ngx_http_huff_encode_code_t
 typedef|;
 end_typedef
 
 begin_decl_stmt
-DECL|variable|ngx_http_v2_huff_encode_table
+DECL|variable|ngx_http_huff_encode_table
 specifier|static
-name|ngx_http_v2_huff_encode_code_t
-name|ngx_http_v2_huff_encode_table
+name|ngx_http_huff_encode_code_t
+name|ngx_http_huff_encode_table
 index|[
 literal|256
 index|]
@@ -1594,10 +1594,10 @@ comment|/* same as above, but embeds lowercase transformation */
 end_comment
 
 begin_decl_stmt
-DECL|variable|ngx_http_v2_huff_encode_table_lc
+DECL|variable|ngx_http_huff_encode_table_lc
 specifier|static
-name|ngx_http_v2_huff_encode_code_t
-name|ngx_http_v2_huff_encode_table_lc
+name|ngx_http_huff_encode_code_t
+name|ngx_http_huff_encode_table_lc
 index|[
 literal|256
 index|]
@@ -3169,10 +3169,10 @@ operator|)
 end_if
 
 begin_define
-DECL|macro|ngx_http_v2_huff_encode_buf (dst,buf)
+DECL|macro|ngx_http_huff_encode_buf (dst,buf)
 define|#
 directive|define
-name|ngx_http_v2_huff_encode_buf
+name|ngx_http_huff_encode_buf
 parameter_list|(
 name|dst
 parameter_list|,
@@ -3188,10 +3188,10 @@ directive|else
 end_else
 
 begin_define
-DECL|macro|ngx_http_v2_huff_encode_buf (dst,buf)
+DECL|macro|ngx_http_huff_encode_buf (dst,buf)
 define|#
 directive|define
-name|ngx_http_v2_huff_encode_buf
+name|ngx_http_huff_encode_buf
 parameter_list|(
 name|dst
 parameter_list|,
@@ -3216,10 +3216,10 @@ comment|/* !NGX_HAVE_LITTLE_ENDIAN */
 end_comment
 
 begin_define
-DECL|macro|ngx_http_v2_huff_encode_buf (dst,buf)
+DECL|macro|ngx_http_huff_encode_buf (dst,buf)
 define|#
 directive|define
-name|ngx_http_v2_huff_encode_buf
+name|ngx_http_huff_encode_buf
 parameter_list|(
 name|dst
 parameter_list|,
@@ -3244,10 +3244,10 @@ comment|/* NGX_PTR_SIZE == 4 */
 end_comment
 
 begin_define
-DECL|macro|ngx_http_v2_huff_encode_buf (dst,buf)
+DECL|macro|ngx_http_huff_encode_buf (dst,buf)
 define|#
 directive|define
-name|ngx_http_v2_huff_encode_buf
+name|ngx_http_huff_encode_buf
 parameter_list|(
 name|dst
 parameter_list|,
@@ -3264,8 +3264,8 @@ end_endif
 
 begin_function
 name|size_t
-DECL|function|ngx_http_v2_huff_encode (u_char * src,size_t len,u_char * dst,ngx_uint_t lower)
-name|ngx_http_v2_huff_encode
+DECL|function|ngx_http_huff_encode (u_char * src,size_t len,u_char * dst,ngx_uint_t lower)
+name|ngx_http_huff_encode
 parameter_list|(
 name|u_char
 modifier|*
@@ -3296,7 +3296,7 @@ name|pending
 decl_stmt|,
 name|code
 decl_stmt|;
-name|ngx_http_v2_huff_encode_code_t
+name|ngx_http_huff_encode_code_t
 modifier|*
 name|table
 decl_stmt|,
@@ -3307,9 +3307,9 @@ name|table
 operator|=
 name|lower
 condition|?
-name|ngx_http_v2_huff_encode_table_lc
+name|ngx_http_huff_encode_table_lc
 else|:
-name|ngx_http_v2_huff_encode_table
+name|ngx_http_huff_encode_table
 expr_stmt|;
 name|hlen
 operator|=
@@ -3419,7 +3419,7 @@ name|code
 operator|>>
 name|pending
 expr_stmt|;
-name|ngx_http_v2_huff_encode_buf
+name|ngx_http_huff_encode_buf
 argument_list|(
 operator|&
 name|dst

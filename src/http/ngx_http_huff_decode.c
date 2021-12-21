@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon294788830108
+DECL|struct|__anon2baf87210108
 typedef|typedef
 struct|struct
 block|{
@@ -42,9 +42,9 @@ DECL|member|ending
 name|u_char
 name|ending
 decl_stmt|;
-DECL|typedef|ngx_http_v2_huff_decode_code_t
+DECL|typedef|ngx_http_huff_decode_code_t
 block|}
-name|ngx_http_v2_huff_decode_code_t
+name|ngx_http_huff_decode_code_t
 typedef|;
 end_typedef
 
@@ -52,7 +52,7 @@ begin_function_decl
 specifier|static
 name|ngx_inline
 name|ngx_int_t
-name|ngx_http_v2_huff_decode_bits
+name|ngx_http_huff_decode_bits
 parameter_list|(
 name|u_char
 modifier|*
@@ -74,10 +74,10 @@ function_decl|;
 end_function_decl
 
 begin_decl_stmt
-DECL|variable|ngx_http_v2_huff_decode_codes
+DECL|variable|ngx_http_huff_decode_codes
 specifier|static
-name|ngx_http_v2_huff_decode_code_t
-name|ngx_http_v2_huff_decode_codes
+name|ngx_http_huff_decode_code_t
+name|ngx_http_huff_decode_codes
 index|[
 literal|256
 index|]
@@ -41615,8 +41615,8 @@ end_decl_stmt
 
 begin_function
 name|ngx_int_t
-DECL|function|ngx_http_v2_huff_decode (u_char * state,u_char * src,size_t len,u_char ** dst,ngx_uint_t last,ngx_log_t * log)
-name|ngx_http_v2_huff_decode
+DECL|function|ngx_http_huff_decode (u_char * state,u_char * src,size_t len,u_char ** dst,ngx_uint_t last,ngx_log_t * log)
+name|ngx_http_huff_decode
 parameter_list|(
 name|u_char
 modifier|*
@@ -41679,7 +41679,7 @@ operator|++
 expr_stmt|;
 if|if
 condition|(
-name|ngx_http_v2_huff_decode_bits
+name|ngx_http_huff_decode_bits
 argument_list|(
 name|state
 argument_list|,
@@ -41721,7 +41721,7 @@ return|;
 block|}
 if|if
 condition|(
-name|ngx_http_v2_huff_decode_bits
+name|ngx_http_huff_decode_bits
 argument_list|(
 name|state
 argument_list|,
@@ -41807,8 +41807,8 @@ begin_function
 specifier|static
 name|ngx_inline
 name|ngx_int_t
-DECL|function|ngx_http_v2_huff_decode_bits (u_char * state,u_char * ending,ngx_uint_t bits,u_char ** dst)
-name|ngx_http_v2_huff_decode_bits
+DECL|function|ngx_http_huff_decode_bits (u_char * state,u_char * ending,ngx_uint_t bits,u_char ** dst)
+name|ngx_http_huff_decode_bits
 parameter_list|(
 name|u_char
 modifier|*
@@ -41827,12 +41827,12 @@ modifier|*
 name|dst
 parameter_list|)
 block|{
-name|ngx_http_v2_huff_decode_code_t
+name|ngx_http_huff_decode_code_t
 name|code
 decl_stmt|;
 name|code
 operator|=
-name|ngx_http_v2_huff_decode_codes
+name|ngx_http_huff_decode_codes
 index|[
 operator|*
 name|state

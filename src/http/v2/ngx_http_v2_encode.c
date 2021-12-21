@@ -70,7 +70,7 @@ name|hlen
 decl_stmt|;
 name|hlen
 operator|=
-name|ngx_http_v2_huff_encode
+name|ngx_http_huff_encode
 argument_list|(
 name|src
 argument_list|,
