@@ -96,7 +96,7 @@ comment|/* -1 */
 end_comment
 
 begin_typedef
-DECL|struct|__anon274bc3ea0108
+DECL|struct|__anon2c7dda150108
 typedef|typedef
 struct|struct
 block|{
@@ -129,8 +129,16 @@ name|NGX_REGEX_CASELESS
 value|0x00000001
 end_define
 
+begin_define
+DECL|macro|NGX_REGEX_MULTILINE
+define|#
+directive|define
+name|NGX_REGEX_MULTILINE
+value|0x00000002
+end_define
+
 begin_typedef
-DECL|struct|__anon274bc3ea0208
+DECL|struct|__anon2c7dda150208
 typedef|typedef
 struct|struct
 block|{
@@ -180,7 +188,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon274bc3ea0308
+DECL|struct|__anon2c7dda150308
 typedef|typedef
 struct|struct
 block|{
