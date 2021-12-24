@@ -63,14 +63,6 @@ DECL|macro|NGX_REGEX_NO_MATCHED
 comment|/* -1 */
 end_comment
 
-begin_define
-DECL|macro|NGX_REGEX_CASELESS
-define|#
-directive|define
-name|NGX_REGEX_CASELESS
-value|PCRE2_CASELESS
-end_define
-
 begin_typedef
 DECL|typedef|ngx_regex_t
 typedef|typedef
@@ -103,16 +95,8 @@ DECL|macro|NGX_REGEX_NO_MATCHED
 comment|/* -1 */
 end_comment
 
-begin_define
-DECL|macro|NGX_REGEX_CASELESS
-define|#
-directive|define
-name|NGX_REGEX_CASELESS
-value|PCRE_CASELESS
-end_define
-
 begin_typedef
-DECL|struct|__anon2bdfe8480108
+DECL|struct|__anon274bc3ea0108
 typedef|typedef
 struct|struct
 block|{
@@ -137,8 +121,16 @@ endif|#
 directive|endif
 end_endif
 
+begin_define
+DECL|macro|NGX_REGEX_CASELESS
+define|#
+directive|define
+name|NGX_REGEX_CASELESS
+value|0x00000001
+end_define
+
 begin_typedef
-DECL|struct|__anon2bdfe8480208
+DECL|struct|__anon274bc3ea0208
 typedef|typedef
 struct|struct
 block|{
@@ -152,7 +144,7 @@ modifier|*
 name|pool
 decl_stmt|;
 DECL|member|options
-name|ngx_int_t
+name|ngx_uint_t
 name|options
 decl_stmt|;
 DECL|member|regex
@@ -188,7 +180,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bdfe8480308
+DECL|struct|__anon274bc3ea0308
 typedef|typedef
 struct|struct
 block|{
@@ -228,14 +220,6 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
-begin_if
-if|#
-directive|if
-operator|(
-name|NGX_PCRE2
-operator|)
-end_if
-
 begin_function_decl
 name|ngx_int_t
 name|ngx_regex_exec
@@ -258,6 +242,14 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
+begin_if
+if|#
+directive|if
+operator|(
+name|NGX_PCRE2
+operator|)
+end_if
+
 begin_define
 DECL|macro|ngx_regex_exec_n
 define|#
@@ -270,24 +262,6 @@ begin_else
 else|#
 directive|else
 end_else
-
-begin_define
-DECL|macro|ngx_regex_exec (re,s,captures,size)
-define|#
-directive|define
-name|ngx_regex_exec
-parameter_list|(
-name|re
-parameter_list|,
-name|s
-parameter_list|,
-name|captures
-parameter_list|,
-name|size
-parameter_list|)
-define|\
-value|pcre_exec(re->code, re->extra, (const char *) (s)->data, (s)->len, 0, 0, \               captures, size)
-end_define
 
 begin_define
 DECL|macro|ngx_regex_exec_n
