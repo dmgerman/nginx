@@ -16,7 +16,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2c1c1c200108
+DECL|struct|__anon2bee640a0108
 typedef|typedef
 struct|struct
 block|{
@@ -34,6 +34,30 @@ block|}
 name|ngx_regex_conf_t
 typedef|;
 end_typedef
+
+begin_function_decl
+specifier|static
+name|ngx_inline
+name|void
+name|ngx_regex_malloc_init
+parameter_list|(
+name|ngx_pool_t
+modifier|*
+name|pool
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+specifier|static
+name|ngx_inline
+name|void
+name|ngx_regex_malloc_done
+parameter_list|(
+name|void
+parameter_list|)
+function_decl|;
+end_function_decl
 
 begin_function_decl
 specifier|static
@@ -252,20 +276,20 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_pcre_pool
+DECL|variable|ngx_regex_pool
 specifier|static
 name|ngx_pool_t
 modifier|*
-name|ngx_pcre_pool
+name|ngx_regex_pool
 decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_pcre_studies
+DECL|variable|ngx_regex_studies
 specifier|static
 name|ngx_list_t
 modifier|*
-name|ngx_pcre_studies
+name|ngx_regex_studies
 decl_stmt|;
 end_decl_stmt
 
@@ -300,7 +324,7 @@ modifier|*
 name|pool
 parameter_list|)
 block|{
-name|ngx_pcre_pool
+name|ngx_regex_pool
 operator|=
 name|pool
 expr_stmt|;
@@ -317,7 +341,7 @@ parameter_list|(
 name|void
 parameter_list|)
 block|{
-name|ngx_pcre_pool
+name|ngx_regex_pool
 operator|=
 name|NULL
 expr_stmt|;
@@ -547,7 +571,7 @@ expr_stmt|;
 comment|/* do not study at runtime */
 if|if
 condition|(
-name|ngx_pcre_studies
+name|ngx_regex_studies
 operator|!=
 name|NULL
 condition|)
@@ -556,7 +580,7 @@ name|elt
 operator|=
 name|ngx_list_push
 argument_list|(
-name|ngx_pcre_studies
+name|ngx_regex_studies
 argument_list|)
 expr_stmt|;
 if|if
@@ -959,23 +983,15 @@ name|size_t
 name|size
 parameter_list|)
 block|{
-name|ngx_pool_t
-modifier|*
-name|pool
-decl_stmt|;
-name|pool
-operator|=
-name|ngx_pcre_pool
-expr_stmt|;
 if|if
 condition|(
-name|pool
+name|ngx_regex_pool
 condition|)
 block|{
 return|return
 name|ngx_palloc
 argument_list|(
-name|pool
+name|ngx_regex_pool
 argument_list|,
 name|size
 argument_list|)
@@ -1131,8 +1147,8 @@ block|}
 block|}
 endif|#
 directive|endif
-comment|/*      * On configuration parsing errors ngx_regex_module_init() will not      * be called.  Make sure ngx_pcre_studies is properly cleared anyway.      */
-name|ngx_pcre_studies
+comment|/*      * On configuration parsing errors ngx_regex_module_init() will not      * be called.  Make sure ngx_regex_studies is properly cleared anyway.      */
+name|ngx_regex_studies
 operator|=
 name|NULL
 expr_stmt|;
@@ -1426,7 +1442,7 @@ block|}
 name|ngx_regex_malloc_done
 argument_list|()
 expr_stmt|;
-name|ngx_pcre_studies
+name|ngx_regex_studies
 operator|=
 name|NULL
 expr_stmt|;
@@ -1552,7 +1568,7 @@ return|return
 name|NULL
 return|;
 block|}
-name|ngx_pcre_studies
+name|ngx_regex_studies
 operator|=
 name|rcf
 operator|->
