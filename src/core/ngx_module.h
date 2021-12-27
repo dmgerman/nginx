@@ -159,7 +159,7 @@ begin_if
 if|#
 directive|if
 operator|(
-name|NGX_HAVE_AIO_SENDFILE
+name|NGX_HAVE_SENDFILE_NODISKIO
 operator|||
 name|NGX_COMPAT
 operator|)
@@ -1233,7 +1233,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon28b8eaf90108
+DECL|struct|__anon2911c2fa0108
 typedef|typedef
 struct|struct
 block|{

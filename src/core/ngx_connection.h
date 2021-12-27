@@ -311,7 +311,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon28a13efd0103
+DECL|enum|__anon28b4bc510103
 typedef|typedef
 enum|enum
 block|{
@@ -338,7 +338,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28a13efd0203
+DECL|enum|__anon28b4bc510203
 typedef|typedef
 enum|enum
 block|{
@@ -359,7 +359,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28a13efd0303
+DECL|enum|__anon28b4bc510303
 typedef|typedef
 enum|enum
 block|{
@@ -625,7 +625,7 @@ decl_stmt|;
 if|#
 directive|if
 operator|(
-name|NGX_HAVE_AIO_SENDFILE
+name|NGX_HAVE_SENDFILE_NODISKIO
 operator|||
 name|NGX_COMPAT
 operator|)
