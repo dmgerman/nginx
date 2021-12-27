@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2b79a1100108
+DECL|struct|__anon2a3401690108
 typedef|typedef
 struct|struct
 block|{
@@ -12085,6 +12085,20 @@ name|SF_NODISKIO
 else|:
 literal|0
 expr_stmt|;
+if|if
+condition|(
+name|file
+operator|->
+name|file
+operator|->
+name|directio
+condition|)
+block|{
+name|flags
+operator||=
+name|SF_NOCACHE
+expr_stmt|;
+block|}
 else|#
 directive|else
 name|flags
