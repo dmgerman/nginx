@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2bf58ad30108
+DECL|struct|__anon2c9c13f10108
 typedef|typedef
 struct|struct
 block|{
@@ -366,7 +366,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2bf58ad30208
+DECL|struct|__anon2c9c13f10208
 typedef|typedef
 struct|struct
 block|{
@@ -1406,7 +1406,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2bf58ad30308
+DECL|struct|__anon2c9c13f10308
 typedef|typedef
 struct|struct
 block|{
@@ -1453,7 +1453,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2bf58ad30408
+DECL|struct|__anon2c9c13f10408
 typedef|typedef
 struct|struct
 block|{
@@ -1557,6 +1557,13 @@ begin_decl_stmt
 specifier|extern
 name|ngx_int_t
 name|ngx_accept_disabled
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+specifier|extern
+name|ngx_uint_t
+name|ngx_use_exclusive_accept
 decl_stmt|;
 end_decl_stmt
 

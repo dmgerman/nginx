@@ -327,6 +327,13 @@ name|ngx_accept_disabled
 decl_stmt|;
 end_decl_stmt
 
+begin_decl_stmt
+DECL|variable|ngx_use_exclusive_accept
+name|ngx_uint_t
+name|ngx_use_exclusive_accept
+decl_stmt|;
+end_decl_stmt
+
 begin_if
 if|#
 directive|if
@@ -2475,6 +2482,10 @@ literal|0
 expr_stmt|;
 endif|#
 directive|endif
+name|ngx_use_exclusive_accept
+operator|=
+literal|0
+expr_stmt|;
 name|ngx_queue_init
 argument_list|(
 operator|&
@@ -3590,6 +3601,10 @@ operator|>
 literal|1
 condition|)
 block|{
+name|ngx_use_exclusive_accept
+operator|=
+literal|1
+expr_stmt|;
 if|if
 condition|(
 name|ngx_add_event
