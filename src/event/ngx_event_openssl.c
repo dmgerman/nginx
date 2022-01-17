@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2a3401690108
+DECL|struct|__anon2b7727710108
 typedef|typedef
 struct|struct
 block|{
@@ -5901,6 +5901,20 @@ operator|->
 name|data
 argument_list|)
 expr_stmt|;
+if|#
+directive|if
+operator|(
+name|OPENSSL_VERSION_NUMBER
+operator|>=
+literal|0x3000001fL
+operator|)
+name|EVP_PKEY_free
+argument_list|(
+name|dh
+argument_list|)
+expr_stmt|;
+endif|#
+directive|endif
 name|BIO_free
 argument_list|(
 name|bio
