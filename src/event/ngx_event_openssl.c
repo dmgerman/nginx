@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2b7727710108
+DECL|struct|__anon2b30bbdd0108
 typedef|typedef
 struct|struct
 block|{
@@ -18089,17 +18089,40 @@ operator|-
 literal|1
 return|;
 block|}
-return|return
-operator|(
-name|i
+comment|/* renew if TLSv1.3 */
+ifdef|#
+directive|ifdef
+name|TLS1_3_VERSION
+if|if
+condition|(
+name|SSL_version
+argument_list|(
+name|ssl_conn
+argument_list|)
 operator|==
-literal|0
-operator|)
-condition|?
-literal|1
-else|:
+name|TLS1_3_VERSION
+condition|)
+block|{
+return|return
 literal|2
-comment|/* renew */
+return|;
+block|}
+endif|#
+directive|endif
+comment|/* renew if non-default key */
+if|if
+condition|(
+name|i
+operator|!=
+literal|0
+condition|)
+block|{
+return|return
+literal|2
+return|;
+block|}
+return|return
+literal|1
 return|;
 block|}
 block|}
