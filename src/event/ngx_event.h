@@ -45,7 +45,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2c9c13f10108
+DECL|struct|__anon29f947df0108
 typedef|typedef
 struct|struct
 block|{
@@ -366,7 +366,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2c9c13f10208
+DECL|struct|__anon29f947df0208
 typedef|typedef
 struct|struct
 block|{
@@ -1406,7 +1406,7 @@ value|0x02000000
 end_define
 
 begin_typedef
-DECL|struct|__anon2c9c13f10308
+DECL|struct|__anon29f947df0308
 typedef|typedef
 struct|struct
 block|{
@@ -1453,7 +1453,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c9c13f10408
+DECL|struct|__anon29f947df0408
 typedef|typedef
 struct|struct
 block|{
@@ -1705,61 +1705,6 @@ parameter_list|)
 function_decl|;
 end_function_decl
 
-begin_if
-if|#
-directive|if
-operator|!
-operator|(
-name|NGX_WIN32
-operator|)
-end_if
-
-begin_function_decl
-name|void
-name|ngx_event_recvmsg
-parameter_list|(
-name|ngx_event_t
-modifier|*
-name|ev
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_function_decl
-name|void
-name|ngx_udp_rbtree_insert_value
-parameter_list|(
-name|ngx_rbtree_node_t
-modifier|*
-name|temp
-parameter_list|,
-name|ngx_rbtree_node_t
-modifier|*
-name|node
-parameter_list|,
-name|ngx_rbtree_node_t
-modifier|*
-name|sentinel
-parameter_list|)
-function_decl|;
-end_function_decl
-
-begin_endif
-endif|#
-directive|endif
-end_endif
-
-begin_function_decl
-name|void
-name|ngx_delete_udp_connection
-parameter_list|(
-name|void
-modifier|*
-name|data
-parameter_list|)
-function_decl|;
-end_function_decl
-
 begin_function_decl
 name|ngx_int_t
 name|ngx_trylock_accept_mutex
@@ -1964,6 +1909,12 @@ begin_include
 include|#
 directive|include
 file|<ngx_event_posted.h>
+end_include
+
+begin_include
+include|#
+directive|include
+file|<ngx_event_udp.h>
 end_include
 
 begin_if
