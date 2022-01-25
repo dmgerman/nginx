@@ -86,7 +86,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|union|__anon2a0924d6010a
+DECL|union|__anon2c522737010a
 typedef|typedef
 union|union
 block|{
@@ -139,6 +139,23 @@ end_typedef
 begin_function_decl
 name|size_t
 name|ngx_set_srcaddr_cmsg
+parameter_list|(
+name|struct
+name|cmsghdr
+modifier|*
+name|cmsg
+parameter_list|,
+name|struct
+name|sockaddr
+modifier|*
+name|local_sockaddr
+parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+name|ngx_int_t
+name|ngx_get_srcaddr_cmsg
 parameter_list|(
 name|struct
 name|cmsghdr
