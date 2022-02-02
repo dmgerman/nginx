@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27ce9bc70108
+DECL|struct|__anon2be6d6080108
 typedef|typedef
 struct|struct
 block|{
@@ -1068,13 +1068,11 @@ operator|)
 operator|&&
 operator|!
 operator|(
+name|flush
+operator|&&
 name|c
 operator|->
-name|type
-operator|==
-name|SOCK_DGRAM
-operator|&&
-name|flush
+name|need_flush_buf
 operator|)
 condition|)
 block|{

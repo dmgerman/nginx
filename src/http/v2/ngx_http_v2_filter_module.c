@@ -69,7 +69,7 @@ value|(ngx_http_v2_out_frame_t *) -1
 end_define
 
 begin_typedef
-DECL|struct|__anon2b8d66200108
+DECL|struct|__anon2b0697970108
 typedef|typedef
 struct|struct
 block|{
@@ -3273,6 +3273,12 @@ expr_stmt|;
 name|fc
 operator|->
 name|need_last_buf
+operator|=
+literal|1
+expr_stmt|;
+name|fc
+operator|->
+name|need_flush_buf
 operator|=
 literal|1
 expr_stmt|;
@@ -8502,6 +8508,18 @@ modifier|*
 name|stream
 parameter_list|)
 block|{
+name|ngx_connection_t
+modifier|*
+name|c
+decl_stmt|;
+name|c
+operator|=
+name|stream
+operator|->
+name|connection
+operator|->
+name|connection
+expr_stmt|;
 if|if
 condition|(
 name|stream
@@ -8509,6 +8527,11 @@ operator|->
 name|queued
 operator|==
 literal|0
+operator|&&
+operator|!
+name|c
+operator|->
+name|buffered
 condition|)
 block|{
 name|fc

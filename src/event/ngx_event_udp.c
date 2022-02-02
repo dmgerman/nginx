@@ -1083,6 +1083,12 @@ name|ngx_udp_send_chain
 expr_stmt|;
 name|c
 operator|->
+name|need_flush_buf
+operator|=
+literal|1
+expr_stmt|;
+name|c
+operator|->
 name|log
 operator|=
 name|log

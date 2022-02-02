@@ -311,7 +311,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon28b4bc510103
+DECL|enum|__anon2a28bd3a0103
 typedef|typedef
 enum|enum
 block|{
@@ -338,7 +338,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28b4bc510203
+DECL|enum|__anon2a28bd3a0203
 typedef|typedef
 enum|enum
 block|{
@@ -359,7 +359,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon28b4bc510303
+DECL|enum|__anon2a28bd3a0303
 typedef|typedef
 enum|enum
 block|{
@@ -619,6 +619,12 @@ comment|/* ngx_connection_tcp_nopush_e */
 DECL|member|need_last_buf
 name|unsigned
 name|need_last_buf
+range|:
+literal|1
+decl_stmt|;
+DECL|member|need_flush_buf
+name|unsigned
+name|need_flush_buf
 range|:
 literal|1
 decl_stmt|;

@@ -1004,6 +1004,15 @@ name|c
 operator|->
 name|need_last_buf
 operator|)
+operator|&&
+operator|!
+operator|(
+name|flush
+operator|&&
+name|c
+operator|->
+name|need_flush_buf
+operator|)
 condition|)
 block|{
 if|if
