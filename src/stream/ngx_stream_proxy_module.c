@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2ae58e2d0108
+DECL|struct|__anon28cb9f660108
 typedef|typedef
 struct|struct
 block|{
@@ -55,7 +55,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae58e2d0208
+DECL|struct|__anon28cb9f660208
 typedef|typedef
 struct|struct
 block|{
@@ -7451,7 +7451,12 @@ name|buf
 operator|->
 name|flush
 operator|=
-literal|1
+operator|!
+name|src
+operator|->
+name|read
+operator|->
+name|eof
 expr_stmt|;
 operator|(
 operator|*
