@@ -179,9 +179,13 @@ name|NGX_HAVE_EPOLLRDHUP
 operator|)
 if|if
 condition|(
+operator|(
 name|ngx_event_flags
 operator|&
 name|NGX_USE_EPOLL_EVENT
+operator|)
+operator|&&
+name|ngx_use_epoll_rdhup
 condition|)
 block|{
 name|ngx_log_debug2
