@@ -269,7 +269,7 @@ value|0x00000200
 end_define
 
 begin_typedef
-DECL|struct|__anon2c80f0240108
+DECL|struct|__anon27a3dee40108
 typedef|typedef
 struct|struct
 block|{
@@ -317,7 +317,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c80f0240208
+DECL|struct|__anon27a3dee40208
 typedef|typedef
 struct|struct
 block|{
@@ -386,7 +386,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c80f0240308
+DECL|struct|__anon27a3dee40308
 typedef|typedef
 struct|struct
 block|{
@@ -410,7 +410,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c80f0240408
+DECL|struct|__anon27a3dee40408
 typedef|typedef
 struct|struct
 block|{
@@ -588,7 +588,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c80f0240508
+DECL|struct|__anon27a3dee40508
 typedef|typedef
 struct|struct
 block|{
@@ -621,7 +621,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c80f0240608
+DECL|struct|__anon27a3dee40608
 typedef|typedef
 struct|struct
 block|{
@@ -954,7 +954,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c80f0240708
+DECL|struct|__anon27a3dee40708
 typedef|typedef
 struct|struct
 block|{
@@ -990,7 +990,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c80f0240808
+DECL|struct|__anon27a3dee40808
 typedef|typedef
 struct|struct
 block|{
@@ -1095,18 +1095,6 @@ name|ngx_table_elt_t
 modifier|*
 name|vary
 decl_stmt|;
-if|#
-directive|if
-operator|(
-name|NGX_HTTP_GZIP
-operator|)
-DECL|member|content_encoding
-name|ngx_table_elt_t
-modifier|*
-name|content_encoding
-decl_stmt|;
-endif|#
-directive|endif
 DECL|member|cache_control
 name|ngx_table_elt_t
 modifier|*
@@ -1144,7 +1132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c80f0240908
+DECL|struct|__anon27a3dee40908
 typedef|typedef
 struct|struct
 block|{
@@ -1586,7 +1574,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2c80f0240a08
+DECL|struct|__anon27a3dee40a08
 typedef|typedef
 struct|struct
 block|{
@@ -1605,7 +1593,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c80f0240b08
+DECL|struct|__anon27a3dee40b08
 typedef|typedef
 struct|struct
 block|{
