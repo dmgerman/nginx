@@ -1849,14 +1849,9 @@ argument_list|(
 literal|"Accept-Ranges"
 argument_list|)
 block|,
-name|ngx_http_upstream_process_header_line
+name|ngx_http_upstream_ignore_header_line
 block|,
-name|offsetof
-argument_list|(
-name|ngx_http_upstream_headers_in_t
-argument_list|,
-name|accept_ranges
-argument_list|)
+literal|0
 block|,
 name|ngx_http_upstream_copy_allow_ranges
 block|,
