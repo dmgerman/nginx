@@ -122,7 +122,7 @@ value|2145916555
 end_define
 
 begin_typedef
-DECL|struct|__anon2b4e4cf00108
+DECL|struct|__anon29a27a720108
 typedef|typedef
 struct|struct
 block|{
@@ -169,7 +169,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b4e4cf00208
+DECL|struct|__anon29a27a720208
 typedef|typedef
 struct|struct
 block|{
@@ -1435,9 +1435,6 @@ modifier|*
 name|conf
 parameter_list|)
 block|{
-name|ngx_int_t
-name|n
-decl_stmt|;
 name|ngx_str_t
 name|src
 decl_stmt|,
@@ -1445,8 +1442,7 @@ name|dst
 decl_stmt|;
 name|ngx_table_elt_t
 modifier|*
-modifier|*
-name|cookies
+name|cookie
 decl_stmt|;
 name|ngx_http_userid_ctx_t
 modifier|*
@@ -1512,16 +1508,17 @@ name|ngx_http_userid_filter_module
 argument_list|)
 expr_stmt|;
 block|}
-name|n
+name|cookie
 operator|=
 name|ngx_http_parse_multi_header_lines
 argument_list|(
-operator|&
+name|r
+argument_list|,
 name|r
 operator|->
 name|headers_in
 operator|.
-name|cookies
+name|cookie
 argument_list|,
 operator|&
 name|conf
@@ -1536,9 +1533,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|n
+name|cookie
 operator|==
-name|NGX_DECLINED
+name|NULL
 condition|)
 block|{
 return|return
@@ -1576,16 +1573,6 @@ operator|<
 literal|22
 condition|)
 block|{
-name|cookies
-operator|=
-name|r
-operator|->
-name|headers_in
-operator|.
-name|cookies
-operator|.
-name|elts
-expr_stmt|;
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ERR
@@ -1601,10 +1588,7 @@ argument_list|,
 literal|"client sent too short userid cookie \"%V\""
 argument_list|,
 operator|&
-name|cookies
-index|[
-name|n
-index|]
+name|cookie
 operator|->
 name|value
 argument_list|)
@@ -1652,16 +1636,6 @@ operator|==
 name|NGX_ERROR
 condition|)
 block|{
-name|cookies
-operator|=
-name|r
-operator|->
-name|headers_in
-operator|.
-name|cookies
-operator|.
-name|elts
-expr_stmt|;
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ERR
@@ -1677,10 +1651,7 @@ argument_list|,
 literal|"client sent invalid userid cookie \"%V\""
 argument_list|,
 operator|&
-name|cookies
-index|[
-name|n
-index|]
+name|cookie
 operator|->
 name|value
 argument_list|)

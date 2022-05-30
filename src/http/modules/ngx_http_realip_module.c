@@ -54,7 +54,7 @@ value|3
 end_define
 
 begin_typedef
-DECL|struct|__anon2be00eaa0108
+DECL|struct|__anon29555db40108
 typedef|typedef
 struct|struct
 block|{
@@ -87,7 +87,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2be00eaa0208
+DECL|struct|__anon29555db40208
 typedef|typedef
 struct|struct
 block|{
@@ -549,10 +549,6 @@ decl_stmt|;
 name|ngx_addr_t
 name|addr
 decl_stmt|;
-name|ngx_array_t
-modifier|*
-name|xfwd
-decl_stmt|;
 name|ngx_list_part_t
 modifier|*
 name|part
@@ -560,6 +556,9 @@ decl_stmt|;
 name|ngx_table_elt_t
 modifier|*
 name|header
+decl_stmt|,
+modifier|*
+name|xfwd
 decl_stmt|;
 name|ngx_connection_t
 modifier|*
@@ -657,7 +656,6 @@ name|NGX_HTTP_REALIP_XFWD
 case|:
 name|xfwd
 operator|=
-operator|&
 name|r
 operator|->
 name|headers_in
@@ -667,8 +665,6 @@ expr_stmt|;
 if|if
 condition|(
 name|xfwd
-operator|->
-name|elts
 operator|==
 name|NULL
 condition|)
