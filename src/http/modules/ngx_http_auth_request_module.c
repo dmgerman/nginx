@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon295bd7000108
+DECL|struct|__anon28bd54a80108
 typedef|typedef
 struct|struct
 block|{
@@ -42,7 +42,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295bd7000208
+DECL|struct|__anon28bd54a80208
 typedef|typedef
 struct|struct
 block|{
@@ -66,7 +66,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon295bd7000308
+DECL|struct|__anon28bd54a80308
 typedef|typedef
 struct|struct
 block|{
@@ -400,6 +400,10 @@ name|h
 decl_stmt|,
 modifier|*
 name|ho
+decl_stmt|,
+modifier|*
+modifier|*
+name|ph
 decl_stmt|;
 name|ngx_http_request_t
 modifier|*
@@ -563,7 +567,16 @@ operator|.
 name|www_authenticate
 expr_stmt|;
 block|}
-if|if
+name|ph
+operator|=
+operator|&
+name|r
+operator|->
+name|headers_out
+operator|.
+name|www_authenticate
+expr_stmt|;
+while|while
 condition|(
 name|h
 condition|)
@@ -603,13 +616,23 @@ name|next
 operator|=
 name|NULL
 expr_stmt|;
-name|r
-operator|->
-name|headers_out
-operator|.
-name|www_authenticate
+operator|*
+name|ph
 operator|=
 name|ho
+expr_stmt|;
+name|ph
+operator|=
+operator|&
+name|ho
+operator|->
+name|next
+expr_stmt|;
+name|h
+operator|=
+name|h
+operator|->
+name|next
 expr_stmt|;
 block|}
 return|return
