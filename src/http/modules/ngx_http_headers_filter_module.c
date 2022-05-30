@@ -55,7 +55,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c6f2220108
+DECL|struct|__anon28e501800108
 typedef|typedef
 struct|struct
 block|{
@@ -108,7 +108,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|enum|__anon29c6f2220203
+DECL|enum|__anon28e501800203
 typedef|typedef
 enum|enum
 block|{
@@ -139,7 +139,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c6f2220308
+DECL|struct|__anon28e501800308
 typedef|typedef
 struct|struct
 block|{
@@ -1539,6 +1539,12 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|e
+operator|->
+name|hash
+operator|=
+literal|0
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
@@ -1708,6 +1714,18 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|e
+operator|->
+name|hash
+operator|=
+literal|0
+expr_stmt|;
+name|cc
+operator|->
+name|hash
+operator|=
+literal|0
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
@@ -1895,6 +1913,12 @@ operator|==
 name|NULL
 condition|)
 block|{
+name|cc
+operator|->
+name|hash
+operator|=
+literal|0
+expr_stmt|;
 return|return
 name|NGX_ERROR
 return|;
