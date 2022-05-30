@@ -29,7 +29,7 @@ file|<ngx_core.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2a2a70120108
+DECL|struct|__anon2c0b74750108
 typedef|typedef
 struct|struct
 block|{
@@ -56,7 +56,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2a70120208
+DECL|struct|__anon2c0b74750208
 typedef|typedef
 struct|struct
 block|{
@@ -77,7 +77,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2a70120308
+DECL|struct|__anon2c0b74750308
 typedef|typedef
 struct|struct
 block|{
@@ -97,7 +97,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2a70120408
+DECL|struct|__anon2c0b74750408
 typedef|typedef
 struct|struct
 block|{
@@ -140,7 +140,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2a70120508
+DECL|struct|__anon2c0b74750508
 typedef|typedef
 struct|struct
 block|{
@@ -165,7 +165,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2a70120608
+DECL|struct|__anon2c0b74750608
 typedef|typedef
 struct|struct
 block|{
@@ -256,7 +256,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2a2a70120708
+DECL|struct|__anon2c0b74750708
 typedef|typedef
 struct|struct
 block|{
@@ -308,9 +308,18 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a2a70120808
+DECL|typedef|ngx_table_elt_t
 typedef|typedef
+name|struct
+name|ngx_table_elt_s
+name|ngx_table_elt_t
+typedef|;
+end_typedef
+
+begin_struct
+DECL|struct|ngx_table_elt_s
 struct|struct
+name|ngx_table_elt_s
 block|{
 DECL|member|hash
 name|ngx_uint_t
@@ -329,11 +338,14 @@ name|u_char
 modifier|*
 name|lowcase_key
 decl_stmt|;
-DECL|typedef|ngx_table_elt_t
-block|}
+DECL|member|next
 name|ngx_table_elt_t
-typedef|;
-end_typedef
+modifier|*
+name|next
+decl_stmt|;
+block|}
+struct|;
+end_struct
 
 begin_function_decl
 name|void
