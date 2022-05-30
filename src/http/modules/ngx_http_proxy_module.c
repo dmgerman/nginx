@@ -110,7 +110,7 @@ value|0x0400
 end_define
 
 begin_typedef
-DECL|struct|__anon2b504e2c0108
+DECL|struct|__anon2b0d74330108
 typedef|typedef
 struct|struct
 block|{
@@ -173,7 +173,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon2b504e2c020a
+DECL|union|__anon2b0d7433020a
 union|union
 block|{
 DECL|member|complex
@@ -205,11 +205,11 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b504e2c0308
+DECL|struct|__anon2b0d74330308
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon2b504e2c040a
+DECL|union|__anon2b0d7433040a
 union|union
 block|{
 DECL|member|complex
@@ -247,7 +247,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b504e2c0508
+DECL|struct|__anon2b0d74330508
 typedef|typedef
 struct|struct
 block|{
@@ -278,7 +278,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b504e2c0608
+DECL|struct|__anon2b0d74330608
 typedef|typedef
 struct|struct
 block|{
@@ -308,7 +308,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b504e2c0708
+DECL|struct|__anon2b0d74330708
 typedef|typedef
 struct|struct
 block|{
@@ -472,7 +472,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b504e2c0808
+DECL|struct|__anon2b0d74330808
 typedef|typedef
 struct|struct
 block|{
@@ -9725,6 +9725,12 @@ operator|*
 operator|)
 literal|"server"
 expr_stmt|;
+name|h
+operator|->
+name|next
+operator|=
+name|NULL
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -9812,6 +9818,12 @@ name|u_char
 operator|*
 operator|)
 literal|"date"
+expr_stmt|;
+name|h
+operator|->
+name|next
+operator|=
+name|NULL
 expr_stmt|;
 block|}
 comment|/* clear content length if response is chunked */
