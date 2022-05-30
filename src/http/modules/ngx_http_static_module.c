@@ -807,6 +807,16 @@ name|hash
 operator|=
 literal|1
 expr_stmt|;
+name|r
+operator|->
+name|headers_out
+operator|.
+name|location
+operator|->
+name|next
+operator|=
+name|NULL
+expr_stmt|;
 name|ngx_str_set
 argument_list|(
 operator|&

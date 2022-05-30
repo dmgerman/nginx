@@ -46,7 +46,7 @@ value|2
 end_define
 
 begin_typedef
-DECL|struct|__anon2bbd17df0108
+DECL|struct|__anon2b3b0f1e0108
 typedef|typedef
 struct|struct
 block|{
@@ -936,6 +936,12 @@ operator|->
 name|hash
 operator|=
 literal|1
+expr_stmt|;
+name|h
+operator|->
+name|next
+operator|=
+name|NULL
 expr_stmt|;
 name|ngx_str_set
 argument_list|(

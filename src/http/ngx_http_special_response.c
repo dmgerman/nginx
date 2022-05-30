@@ -2035,6 +2035,12 @@ name|hash
 operator|=
 literal|1
 expr_stmt|;
+name|location
+operator|->
+name|next
+operator|=
+name|NULL
+expr_stmt|;
 name|ngx_str_set
 argument_list|(
 operator|&

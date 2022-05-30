@@ -28,7 +28,7 @@ file|<zlib.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27a30a1b0108
+DECL|struct|__anon2c37b9940108
 typedef|typedef
 struct|struct
 block|{
@@ -80,7 +80,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27a30a1b0208
+DECL|struct|__anon2c37b9940208
 typedef|typedef
 struct|struct
 block|{
@@ -1225,6 +1225,12 @@ operator|->
 name|hash
 operator|=
 literal|1
+expr_stmt|;
+name|h
+operator|->
+name|next
+operator|=
+name|NULL
 expr_stmt|;
 name|ngx_str_set
 argument_list|(
