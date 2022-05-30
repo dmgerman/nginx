@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29f16a110108
+DECL|struct|__anon28f6cb210108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f16a110208
+DECL|struct|__anon28f6cb210208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f16a110308
+DECL|struct|__anon28f6cb210308
 typedef|typedef
 struct|struct
 block|{
@@ -157,7 +157,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|enum|__anon29f16a110403
+DECL|enum|__anon28f6cb210403
 typedef|typedef
 enum|enum
 block|{
@@ -199,7 +199,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f16a110508
+DECL|struct|__anon28f6cb210508
 typedef|typedef
 struct|struct
 block|{
@@ -220,7 +220,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f16a110608
+DECL|struct|__anon28f6cb210608
 typedef|typedef
 struct|struct
 block|{
@@ -388,7 +388,7 @@ value|8
 end_define
 
 begin_typedef
-DECL|struct|__anon29f16a110708
+DECL|struct|__anon28f6cb210708
 typedef|typedef
 struct|struct
 block|{
@@ -431,7 +431,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f16a110808
+DECL|struct|__anon28f6cb210808
 typedef|typedef
 struct|struct
 block|{
@@ -461,7 +461,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f16a110908
+DECL|struct|__anon28f6cb210908
 typedef|typedef
 struct|struct
 block|{
@@ -488,7 +488,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29f16a110a08
+DECL|struct|__anon28f6cb210a08
 typedef|typedef
 struct|struct
 block|{
@@ -9578,7 +9578,10 @@ expr_stmt|;
 if|if
 condition|(
 name|hh
-operator|&&
+condition|)
+block|{
+name|rc
+operator|=
 name|hh
 operator|->
 name|handler
@@ -9591,13 +9594,18 @@ name|hh
 operator|->
 name|offset
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|rc
 operator|!=
 name|NGX_OK
 condition|)
 block|{
 return|return
-name|NGX_ERROR
+name|rc
 return|;
+block|}
 block|}
 name|ngx_log_debug2
 argument_list|(
