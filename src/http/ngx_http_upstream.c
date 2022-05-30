@@ -24550,6 +24550,8 @@ block|}
 return|return
 name|ngx_http_variable_unknown_header
 argument_list|(
+name|r
+argument_list|,
 name|v
 argument_list|,
 operator|(
@@ -24620,6 +24622,8 @@ block|}
 return|return
 name|ngx_http_variable_unknown_header
 argument_list|(
+name|r
+argument_list|,
 name|v
 argument_list|,
 operator|(

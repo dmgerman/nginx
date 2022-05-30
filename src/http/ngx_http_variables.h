@@ -285,6 +285,10 @@ begin_function_decl
 name|ngx_int_t
 name|ngx_http_variable_unknown_header
 parameter_list|(
+name|ngx_http_request_t
+modifier|*
+name|r
+parameter_list|,
 name|ngx_http_variable_value_t
 modifier|*
 name|v
@@ -312,7 +316,7 @@ operator|)
 end_if
 
 begin_typedef
-DECL|struct|__anon2a51d5390108
+DECL|struct|__anon295992c10108
 typedef|typedef
 struct|struct
 block|{
@@ -331,7 +335,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a51d5390208
+DECL|struct|__anon295992c10208
 typedef|typedef
 struct|struct
 block|{
@@ -364,7 +368,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a51d5390308
+DECL|struct|__anon295992c10308
 typedef|typedef
 struct|struct
 block|{
@@ -425,7 +429,7 @@ directive|endif
 end_endif
 
 begin_typedef
-DECL|struct|__anon2a51d5390408
+DECL|struct|__anon295992c10408
 typedef|typedef
 struct|struct
 block|{
