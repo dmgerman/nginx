@@ -46,7 +46,7 @@ value|8192
 end_define
 
 begin_typedef
-DECL|struct|__anon2ae4065e0108
+DECL|struct|__anon27a5d5880108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae4065e0208
+DECL|struct|__anon27a5d5880208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ae4065e0308
+DECL|struct|__anon27a5d5880308
 typedef|typedef
 struct|struct
 block|{
@@ -6689,6 +6689,16 @@ operator|->
 name|handler
 operator|=
 name|ngx_resolver_tcp_write
+expr_stmt|;
+name|rec
+operator|->
+name|tcp
+operator|->
+name|write
+operator|->
+name|cancelable
+operator|=
+literal|1
 expr_stmt|;
 name|rec
 operator|->
