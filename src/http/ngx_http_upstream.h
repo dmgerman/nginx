@@ -269,7 +269,7 @@ value|0x00000200
 end_define
 
 begin_typedef
-DECL|struct|__anon2935b9cd0108
+DECL|struct|__anon2ac0aca30108
 typedef|typedef
 struct|struct
 block|{
@@ -317,7 +317,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2935b9cd0208
+DECL|struct|__anon2ac0aca30208
 typedef|typedef
 struct|struct
 block|{
@@ -386,7 +386,7 @@ function_decl|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2935b9cd0308
+DECL|struct|__anon2ac0aca30308
 typedef|typedef
 struct|struct
 block|{
@@ -410,7 +410,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2935b9cd0408
+DECL|struct|__anon2ac0aca30408
 typedef|typedef
 struct|struct
 block|{
@@ -588,7 +588,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2935b9cd0508
+DECL|struct|__anon2ac0aca30508
 typedef|typedef
 struct|struct
 block|{
@@ -621,7 +621,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2935b9cd0608
+DECL|struct|__anon2ac0aca30608
 typedef|typedef
 struct|struct
 block|{
@@ -954,7 +954,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2935b9cd0708
+DECL|struct|__anon2ac0aca30708
 typedef|typedef
 struct|struct
 block|{
@@ -990,7 +990,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2935b9cd0808
+DECL|struct|__anon2ac0aca30808
 typedef|typedef
 struct|struct
 block|{
@@ -1125,6 +1125,18 @@ name|chunked
 range|:
 literal|1
 decl_stmt|;
+DECL|member|no_cache
+name|unsigned
+name|no_cache
+range|:
+literal|1
+decl_stmt|;
+DECL|member|expired
+name|unsigned
+name|expired
+range|:
+literal|1
+decl_stmt|;
 DECL|typedef|ngx_http_upstream_headers_in_t
 block|}
 name|ngx_http_upstream_headers_in_t
@@ -1132,7 +1144,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2935b9cd0908
+DECL|struct|__anon2ac0aca30908
 typedef|typedef
 struct|struct
 block|{
@@ -1574,7 +1586,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2935b9cd0a08
+DECL|struct|__anon2ac0aca30a08
 typedef|typedef
 struct|struct
 block|{
@@ -1593,7 +1605,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2935b9cd0b08
+DECL|struct|__anon2ac0aca30b08
 typedef|typedef
 struct|struct
 block|{
