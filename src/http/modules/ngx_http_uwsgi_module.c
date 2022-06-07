@@ -22,7 +22,7 @@ file|<ngx_http.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon29c5d54a0108
+DECL|struct|__anon27d83b340108
 typedef|typedef
 struct|struct
 block|{
@@ -38,7 +38,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c5d54a0208
+DECL|struct|__anon27d83b340208
 typedef|typedef
 struct|struct
 block|{
@@ -72,7 +72,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon29c5d54a0308
+DECL|struct|__anon27d83b340308
 typedef|typedef
 struct|struct
 block|{
@@ -11832,6 +11832,16 @@ operator|->
 name|upstream
 operator|.
 name|ssl_certificate
+operator|&&
+name|uwcf
+operator|->
+name|upstream
+operator|.
+name|ssl_certificate
+operator|->
+name|value
+operator|.
+name|len
 condition|)
 block|{
 if|if

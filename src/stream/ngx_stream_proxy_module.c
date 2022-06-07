@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon2b0697ff0108
+DECL|struct|__anon2ae58e2d0108
 typedef|typedef
 struct|struct
 block|{
@@ -55,7 +55,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b0697ff0208
+DECL|struct|__anon2ae58e2d0208
 typedef|typedef
 struct|struct
 block|{
@@ -4691,6 +4691,14 @@ condition|(
 name|pscf
 operator|->
 name|ssl_certificate
+operator|&&
+name|pscf
+operator|->
+name|ssl_certificate
+operator|->
+name|value
+operator|.
+name|len
 operator|&&
 operator|(
 name|pscf
@@ -9654,6 +9662,14 @@ condition|(
 name|pscf
 operator|->
 name|ssl_certificate
+operator|&&
+name|pscf
+operator|->
+name|ssl_certificate
+operator|->
+name|value
+operator|.
+name|len
 condition|)
 block|{
 if|if

@@ -7706,6 +7706,16 @@ name|conf
 operator|->
 name|ssl_certificate
 operator|&&
+name|u
+operator|->
+name|conf
+operator|->
+name|ssl_certificate
+operator|->
+name|value
+operator|.
+name|len
+operator|&&
 operator|(
 name|u
 operator|->

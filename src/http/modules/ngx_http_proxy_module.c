@@ -110,7 +110,7 @@ value|0x0400
 end_define
 
 begin_typedef
-DECL|struct|__anon2b42dbd00108
+DECL|struct|__anon2a3507a70108
 typedef|typedef
 struct|struct
 block|{
@@ -173,7 +173,7 @@ DECL|member|handler
 name|ngx_http_proxy_rewrite_pt
 name|handler
 decl_stmt|;
-DECL|union|__anon2b42dbd0020a
+DECL|union|__anon2a3507a7020a
 union|union
 block|{
 DECL|member|complex
@@ -205,11 +205,11 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b42dbd00308
+DECL|struct|__anon2a3507a70308
 typedef|typedef
 struct|struct
 block|{
-DECL|union|__anon2b42dbd0040a
+DECL|union|__anon2a3507a7040a
 union|union
 block|{
 DECL|member|complex
@@ -247,7 +247,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b42dbd00508
+DECL|struct|__anon2a3507a70508
 typedef|typedef
 struct|struct
 block|{
@@ -278,7 +278,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b42dbd00608
+DECL|struct|__anon2a3507a70608
 typedef|typedef
 struct|struct
 block|{
@@ -308,7 +308,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b42dbd00708
+DECL|struct|__anon2a3507a70708
 typedef|typedef
 struct|struct
 block|{
@@ -472,7 +472,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b42dbd00808
+DECL|struct|__anon2a3507a70808
 typedef|typedef
 struct|struct
 block|{
@@ -23272,6 +23272,16 @@ operator|->
 name|upstream
 operator|.
 name|ssl_certificate
+operator|&&
+name|plcf
+operator|->
+name|upstream
+operator|.
+name|ssl_certificate
+operator|->
+name|value
+operator|.
+name|len
 condition|)
 block|{
 if|if
