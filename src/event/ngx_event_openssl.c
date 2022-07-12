@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon27cd32f00108
+DECL|struct|__anon2ae931000108
 typedef|typedef
 struct|struct
 block|{
@@ -13473,6 +13473,26 @@ endif|#
 directive|endif
 ifdef|#
 directive|ifdef
+name|SSL_R_BAD_KEY_SHARE
+operator|||
+name|n
+operator|==
+name|SSL_R_BAD_KEY_SHARE
+comment|/*  108 */
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|SSL_R_BAD_EXTENSION
+operator|||
+name|n
+operator|==
+name|SSL_R_BAD_EXTENSION
+comment|/*  110 */
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
 name|SSL_R_NO_SUITABLE_SIGNATURE_ALGORITHM
 operator|||
 name|n
@@ -13531,6 +13551,16 @@ name|n
 operator|==
 name|SSL_R_NO_CIPHERS_SPECIFIED
 comment|/*  183 */
+ifdef|#
+directive|ifdef
+name|SSL_R_BAD_CIPHER
+operator|||
+name|n
+operator|==
+name|SSL_R_BAD_CIPHER
+comment|/*  186 */
+endif|#
+directive|endif
 operator|||
 name|n
 operator|==
@@ -13659,6 +13689,16 @@ name|n
 operator|==
 name|SSL_R_APPLICATION_DATA_ON_SHUTDOWN
 comment|/*  291 */
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|SSL_R_BAD_ECPOINT
+operator|||
+name|n
+operator|==
+name|SSL_R_BAD_ECPOINT
+comment|/*  306 */
 endif|#
 directive|endif
 ifdef|#
