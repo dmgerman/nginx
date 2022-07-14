@@ -46,7 +46,7 @@ value|8192
 end_define
 
 begin_typedef
-DECL|struct|__anon296a2fc50108
+DECL|struct|__anon2af5eb7c0108
 typedef|typedef
 struct|struct
 block|{
@@ -105,7 +105,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296a2fc50208
+DECL|struct|__anon2af5eb7c0208
 typedef|typedef
 struct|struct
 block|{
@@ -132,7 +132,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon296a2fc50308
+DECL|struct|__anon2af5eb7c0308
 typedef|typedef
 struct|struct
 block|{
@@ -16413,20 +16413,12 @@ name|u_short
 operator|)
 name|len
 expr_stmt|;
-if|if
-condition|(
-name|r
-operator|->
-name|ipv4
-condition|)
-block|{
 name|rn
 operator|->
 name|query
 operator|=
 name|p
 expr_stmt|;
-block|}
 if|#
 directive|if
 operator|(
