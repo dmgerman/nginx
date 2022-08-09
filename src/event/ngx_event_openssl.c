@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2ae931000108
+DECL|struct|__anon28dcdf0a0108
 typedef|typedef
 struct|struct
 block|{
@@ -13769,6 +13769,16 @@ name|n
 operator|==
 name|SSL_R_VERSION_TOO_LOW
 comment|/*  396 */
+endif|#
+directive|endif
+ifdef|#
+directive|ifdef
+name|SSL_R_BAD_RECORD_TYPE
+operator|||
+name|n
+operator|==
+name|SSL_R_BAD_RECORD_TYPE
+comment|/*  443 */
 endif|#
 directive|endif
 operator|||
