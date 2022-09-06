@@ -447,6 +447,21 @@ name|4295
 name|)
 end_pragma
 
+begin_comment
+comment|/* conversion from 'type1' to 'type2' of greater size */
+end_comment
+
+begin_pragma
+pragma|#
+directive|pragma
+name|warning
+name|(
+name|disable
+name|:
+name|4306
+name|)
+end_pragma
+
 begin_endif
 endif|#
 directive|endif
