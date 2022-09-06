@@ -328,10 +328,6 @@ name|)
 end_pragma
 
 begin_comment
-comment|/* disable some "-W4" level warnings */
-end_comment
-
-begin_comment
 comment|/* 'type cast': from function pointer to data pointer */
 end_comment
 
