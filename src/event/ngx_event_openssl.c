@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon28dcdf0a0108
+DECL|struct|__anon2c8aa8240108
 typedef|typedef
 struct|struct
 block|{
@@ -5979,8 +5979,8 @@ argument_list|,
 name|SSL_OP_SINGLE_ECDH_USE
 argument_list|)
 expr_stmt|;
-if|#
-directive|if
+ifdef|#
+directive|ifdef
 name|SSL_CTRL_SET_ECDH_AUTO
 comment|/* not needed in OpenSSL 1.1.0+ */
 name|SSL_CTX_set_ecdh_auto
