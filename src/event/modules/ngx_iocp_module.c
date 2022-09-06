@@ -816,8 +816,8 @@ end_function
 
 begin_function
 specifier|static
-DECL|function|ngx_iocp_process_events (ngx_cycle_t * cycle,ngx_msec_t timer,ngx_uint_t flags)
 name|ngx_int_t
+DECL|function|ngx_iocp_process_events (ngx_cycle_t * cycle,ngx_msec_t timer,ngx_uint_t flags)
 name|ngx_iocp_process_events
 parameter_list|(
 name|ngx_cycle_t
@@ -1260,7 +1260,7 @@ name|NULL
 condition|)
 block|{
 return|return
-name|NGX_CONF_ERROR
+name|NULL
 return|;
 block|}
 name|cf
