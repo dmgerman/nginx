@@ -39,7 +39,8 @@ name|ngx_proxy_protocol_parse_uint16
 parameter_list|(
 name|p
 parameter_list|)
-value|((p)[0]<< 8 | (p)[1])
+define|\
+value|( ((uint16_t) (p)[0]<< 8)                                                \     + (           (p)[1]) )
 end_define
 
 begin_define
@@ -55,7 +56,7 @@ value|( ((uint32_t) (p)[0]<< 24)                                               \
 end_define
 
 begin_typedef
-DECL|struct|__anon2a20bacd0108
+DECL|struct|__anon27ed05a80108
 typedef|typedef
 struct|struct
 block|{
@@ -88,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a20bacd0208
+DECL|struct|__anon27ed05a80208
 typedef|typedef
 struct|struct
 block|{
@@ -127,7 +128,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a20bacd0308
+DECL|struct|__anon27ed05a80308
 typedef|typedef
 struct|struct
 block|{
@@ -166,7 +167,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a20bacd0408
+DECL|struct|__anon27ed05a80408
 typedef|typedef
 struct|struct
 block|{
@@ -188,7 +189,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a20bacd0508
+DECL|struct|__anon27ed05a80508
 typedef|typedef
 struct|struct
 block|{
@@ -210,7 +211,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2a20bacd0608
+DECL|struct|__anon27ed05a80608
 typedef|typedef
 struct|struct
 block|{
