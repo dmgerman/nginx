@@ -43,7 +43,7 @@ value|((p)[0]<< 8 | (p)[1])
 end_define
 
 begin_typedef
-DECL|struct|__anon2c8b3c3d0108
+DECL|struct|__anon2796dd6d0108
 typedef|typedef
 struct|struct
 block|{
@@ -76,7 +76,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c8b3c3d0208
+DECL|struct|__anon2796dd6d0208
 typedef|typedef
 struct|struct
 block|{
@@ -115,7 +115,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2c8b3c3d0308
+DECL|struct|__anon2796dd6d0308
 typedef|typedef
 struct|struct
 block|{
@@ -665,6 +665,36 @@ block|}
 block|}
 name|invalid
 label|:
+for|for
+control|(
+name|p
+operator|=
+name|buf
+init|;
+name|p
+operator|<
+name|last
+condition|;
+name|p
+operator|++
+control|)
+block|{
+if|if
+condition|(
+operator|*
+name|p
+operator|==
+name|CR
+operator|||
+operator|*
+name|p
+operator|==
+name|LF
+condition|)
+block|{
+break|break;
+block|}
+block|}
 name|ngx_log_error
 argument_list|(
 name|NGX_LOG_ERR
@@ -681,7 +711,7 @@ operator|(
 name|size_t
 operator|)
 operator|(
-name|last
+name|p
 operator|-
 name|buf
 operator|)
