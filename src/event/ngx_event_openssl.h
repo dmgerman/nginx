@@ -628,7 +628,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2b9b6dcf0108
+DECL|struct|__anon2ad5b2dc0108
 typedef|typedef
 struct|struct
 block|{
@@ -676,7 +676,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2b9b6dcf0208
+DECL|struct|__anon2ad5b2dc0208
 typedef|typedef
 struct|struct
 block|{
@@ -696,7 +696,7 @@ DECL|member|ticket_keys
 name|ngx_ssl_ticket_key_t
 name|ticket_keys
 index|[
-literal|2
+literal|3
 index|]
 decl_stmt|;
 DECL|member|fail_time
