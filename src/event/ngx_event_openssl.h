@@ -628,7 +628,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon29f6c5fe0108
+DECL|struct|__anon2c512cb40108
 typedef|typedef
 struct|struct
 block|{
@@ -661,7 +661,7 @@ name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon29f6c5fe0208
+DECL|struct|__anon2c512cb40208
 typedef|typedef
 struct|struct
 block|{
