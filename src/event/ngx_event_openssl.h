@@ -489,6 +489,12 @@ name|handshake_buffer_set
 range|:
 literal|1
 decl_stmt|;
+DECL|member|session_timeout_set
+name|unsigned
+name|session_timeout_set
+range|:
+literal|1
+decl_stmt|;
 DECL|member|try_early_data
 name|unsigned
 name|try_early_data
@@ -628,7 +634,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2ad5b2dc0108
+DECL|struct|__anon2c2bd3c60108
 typedef|typedef
 struct|struct
 block|{
@@ -676,7 +682,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon2ad5b2dc0208
+DECL|struct|__anon2c2bd3c60208
 typedef|typedef
 struct|struct
 block|{
