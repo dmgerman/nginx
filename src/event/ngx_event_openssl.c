@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2af3d54a0108
+DECL|struct|__anon29297ef50108
 typedef|typedef
 struct|struct
 block|{
@@ -541,7 +541,7 @@ end_ifdef
 begin_function_decl
 specifier|static
 name|int
-name|ngx_ssl_session_ticket_key_callback
+name|ngx_ssl_ticket_key_callback
 parameter_list|(
 name|ngx_ssl_conn_t
 modifier|*
@@ -574,7 +574,7 @@ end_function_decl
 begin_function_decl
 specifier|static
 name|void
-name|ngx_ssl_session_ticket_keys_cleanup
+name|ngx_ssl_ticket_keys_cleanup
 parameter_list|(
 name|void
 modifier|*
@@ -804,9 +804,9 @@ decl_stmt|;
 end_decl_stmt
 
 begin_decl_stmt
-DECL|variable|ngx_ssl_session_ticket_keys_index
+DECL|variable|ngx_ssl_ticket_keys_index
 name|int
-name|ngx_ssl_session_ticket_keys_index
+name|ngx_ssl_ticket_keys_index
 decl_stmt|;
 end_decl_stmt
 
@@ -1068,7 +1068,7 @@ return|return
 name|NGX_ERROR
 return|;
 block|}
-name|ngx_ssl_session_ticket_keys_index
+name|ngx_ssl_ticket_keys_index
 operator|=
 name|SSL_CTX_get_ex_new_index
 argument_list|(
@@ -1085,7 +1085,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|ngx_ssl_session_ticket_keys_index
+name|ngx_ssl_ticket_keys_index
 operator|==
 operator|-
 literal|1
@@ -17041,7 +17041,7 @@ name|cln
 operator|->
 name|handler
 operator|=
-name|ngx_ssl_session_ticket_keys_cleanup
+name|ngx_ssl_ticket_keys_cleanup
 expr_stmt|;
 name|cln
 operator|->
@@ -17489,7 +17489,7 @@ name|ssl
 operator|->
 name|ctx
 argument_list|,
-name|ngx_ssl_session_ticket_keys_index
+name|ngx_ssl_ticket_keys_index
 argument_list|,
 name|keys
 argument_list|)
@@ -17522,7 +17522,7 @@ name|ssl
 operator|->
 name|ctx
 argument_list|,
-name|ngx_ssl_session_ticket_key_callback
+name|ngx_ssl_ticket_key_callback
 argument_list|)
 operator|==
 literal|0
@@ -17599,8 +17599,8 @@ end_function
 begin_function
 specifier|static
 name|int
-DECL|function|ngx_ssl_session_ticket_key_callback (ngx_ssl_conn_t * ssl_conn,unsigned char * name,unsigned char * iv,EVP_CIPHER_CTX * ectx,HMAC_CTX * hctx,int enc)
-name|ngx_ssl_session_ticket_key_callback
+DECL|function|ngx_ssl_ticket_key_callback (ngx_ssl_conn_t * ssl_conn,unsigned char * name,unsigned char * iv,EVP_CIPHER_CTX * ectx,HMAC_CTX * hctx,int enc)
+name|ngx_ssl_ticket_key_callback
 parameter_list|(
 name|ngx_ssl_conn_t
 modifier|*
@@ -17698,7 +17698,7 @@ name|SSL_CTX_get_ex_data
 argument_list|(
 name|ssl_ctx
 argument_list|,
-name|ngx_ssl_session_ticket_keys_index
+name|ngx_ssl_ticket_keys_index
 argument_list|)
 expr_stmt|;
 if|if
@@ -18243,8 +18243,8 @@ end_function
 begin_function
 specifier|static
 name|void
-DECL|function|ngx_ssl_session_ticket_keys_cleanup (void * data)
-name|ngx_ssl_session_ticket_keys_cleanup
+DECL|function|ngx_ssl_ticket_keys_cleanup (void * data)
+name|ngx_ssl_ticket_keys_cleanup
 parameter_list|(
 name|void
 modifier|*
