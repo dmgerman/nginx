@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon292b19f60108
+DECL|struct|__anon2b42c2ad0108
 typedef|typedef
 struct|struct
 block|{
@@ -15166,6 +15166,12 @@ operator|->
 name|expire_queue
 argument_list|)
 expr_stmt|;
+name|cache
+operator|->
+name|fail_time
+operator|=
+literal|0
+expr_stmt|;
 name|len
 operator|=
 sizeof|sizeof
@@ -15782,9 +15788,26 @@ operator|->
 name|mutex
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|cache
+operator|->
+name|fail_time
+operator|!=
+name|ngx_time
+argument_list|()
+condition|)
+block|{
+name|cache
+operator|->
+name|fail_time
+operator|=
+name|ngx_time
+argument_list|()
+expr_stmt|;
 name|ngx_log_error
 argument_list|(
-name|NGX_LOG_ALERT
+name|NGX_LOG_WARN
 argument_list|,
 name|c
 operator|->
@@ -15799,6 +15822,7 @@ operator|->
 name|log_ctx
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 literal|0
 return|;

@@ -629,7 +629,7 @@ struct|;
 end_struct
 
 begin_typedef
-DECL|struct|__anon2af169eb0108
+DECL|struct|__anon2c4d56270108
 typedef|typedef
 struct|struct
 block|{
@@ -645,6 +645,10 @@ DECL|member|expire_queue
 name|ngx_queue_t
 name|expire_queue
 decl_stmt|;
+DECL|member|fail_time
+name|time_t
+name|fail_time
+decl_stmt|;
 DECL|typedef|ngx_ssl_session_cache_t
 block|}
 name|ngx_ssl_session_cache_t
@@ -658,7 +662,7 @@ name|SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB
 end_ifdef
 
 begin_typedef
-DECL|struct|__anon2af169eb0208
+DECL|struct|__anon2c4d56270208
 typedef|typedef
 struct|struct
 block|{
