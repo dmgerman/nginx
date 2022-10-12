@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon29297ef50108
+DECL|struct|__anon293ee4fa0108
 typedef|typedef
 struct|struct
 block|{
@@ -17737,7 +17737,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"ssl session ticket encrypt, key: \"%*xs\" (%s session)"
+literal|"ssl ticket encrypt, key: \"%*xs\" (%s session)"
 argument_list|,
 operator|(
 name|size_t
@@ -18008,7 +18008,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"ssl session ticket decrypt, key: \"%*xs\" not found"
+literal|"ssl ticket decrypt, key: \"%*xs\" not found"
 argument_list|,
 operator|(
 name|size_t
@@ -18033,7 +18033,7 @@ name|log
 argument_list|,
 literal|0
 argument_list|,
-literal|"ssl session ticket decrypt, key: \"%*xs\"%s"
+literal|"ssl ticket decrypt, key: \"%*xs\"%s"
 argument_list|,
 operator|(
 name|size_t
