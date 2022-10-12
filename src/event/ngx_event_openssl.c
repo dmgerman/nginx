@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2c412d310108
+DECL|struct|__anon2af3d54a0108
 typedef|typedef
 struct|struct
 block|{
@@ -16971,7 +16971,7 @@ name|ngx_pool_cleanup_t
 modifier|*
 name|cln
 decl_stmt|;
-name|ngx_ssl_session_ticket_key_t
+name|ngx_ssl_ticket_key_t
 modifier|*
 name|key
 decl_stmt|;
@@ -17000,7 +17000,7 @@ name|nelts
 argument_list|,
 sizeof|sizeof
 argument_list|(
-name|ngx_ssl_session_ticket_key_t
+name|ngx_ssl_ticket_key_t
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -17646,7 +17646,7 @@ name|ngx_connection_t
 modifier|*
 name|c
 decl_stmt|;
-name|ngx_ssl_session_ticket_key_t
+name|ngx_ssl_ticket_key_t
 modifier|*
 name|key
 decl_stmt|;
@@ -18269,7 +18269,7 @@ name|nelts
 operator|*
 sizeof|sizeof
 argument_list|(
-name|ngx_ssl_session_ticket_key_t
+name|ngx_ssl_ticket_key_t
 argument_list|)
 argument_list|)
 expr_stmt|;
