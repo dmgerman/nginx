@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2b42c2ad0108
+DECL|struct|__anon2c64a9e10108
 typedef|typedef
 struct|struct
 block|{
@@ -15240,7 +15240,7 @@ block|}
 end_function
 
 begin_comment
-comment|/*  * The length of the session id is 16 bytes for SSLv2 sessions and  * between 1 and 32 bytes for SSLv3/TLSv1, typically 32 bytes.  * It seems that the typical length of the external ASN1 representation  * of a session is 118 or 119 bytes for SSLv3/TSLv1.  *  * Thus on 32-bit platforms we allocate separately an rbtree node,  * a session id, and an ASN1 representation, they take accordingly  * 64, 32, and 128 bytes.  *  * On 64-bit platforms we allocate separately an rbtree node + session_id,  * and an ASN1 representation, they take accordingly 128 and 128 bytes.  *  * OpenSSL's i2d_SSL_SESSION() and d2i_SSL_SESSION are slow,  * so they are outside the code locked by shared pool mutex  */
+comment|/*  * The length of the session id is 16 bytes for SSLv2 sessions and  * between 1 and 32 bytes for SSLv3 and TLS, typically 32 bytes.  * Typical length of the external ASN1 representation of a session  * is about 150 bytes plus SNI server name.  *  * On 32-bit platforms we allocate separately an rbtree node,  * a session id, and an ASN1 representation, they take accordingly  * 64, 32, and 256 bytes.  *  * On 64-bit platforms we allocate separately an rbtree node + session_id,  * and an ASN1 representation, they take accordingly 128 and 256 bytes.  *  * OpenSSL's i2d_SSL_SESSION() and d2i_SSL_SESSION are slow,  * so they are outside the code locked by shared pool mutex  */
 end_comment
 
 begin_function
