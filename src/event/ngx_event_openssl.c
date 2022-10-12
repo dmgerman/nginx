@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2b1f37df0108
+DECL|struct|__anon292b19f60108
 typedef|typedef
 struct|struct
 block|{
@@ -15305,6 +15305,37 @@ index|[
 name|NGX_SSL_MAX_SESSION_SIZE
 index|]
 decl_stmt|;
+ifdef|#
+directive|ifdef
+name|TLS1_3_VERSION
+comment|/*      * OpenSSL tries to save TLSv1.3 sessions into session cache      * even when using tickets for stateless session resumption,      * "because some applications just want to know about the creation      * of a session"; do not cache such sessions      */
+if|if
+condition|(
+name|SSL_version
+argument_list|(
+name|ssl_conn
+argument_list|)
+operator|==
+name|TLS1_3_VERSION
+operator|&&
+operator|(
+name|SSL_get_options
+argument_list|(
+name|ssl_conn
+argument_list|)
+operator|&
+name|SSL_OP_NO_TICKET
+operator|)
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+literal|0
+return|;
+block|}
+endif|#
+directive|endif
 name|len
 operator|=
 name|i2d_SSL_SESSION
