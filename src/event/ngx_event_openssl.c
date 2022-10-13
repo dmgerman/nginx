@@ -30,7 +30,7 @@ value|4096
 end_define
 
 begin_typedef
-DECL|struct|__anon2ad5260a0108
+DECL|struct|__anon2c862e980108
 typedef|typedef
 struct|struct
 block|{
@@ -15565,9 +15565,6 @@ if|if
 condition|(
 name|len
 operator|>
-operator|(
-name|int
-operator|)
 name|NGX_SSL_MAX_SESSION_SIZE
 condition|)
 block|{
