@@ -3026,6 +3026,15 @@ condition|(
 name|len
 operator|==
 literal|0
+operator|||
+name|j
+operator|==
+name|value
+index|[
+name|i
+index|]
+operator|.
+name|len
 condition|)
 block|{
 goto|goto
