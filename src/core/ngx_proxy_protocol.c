@@ -56,7 +56,7 @@ value|( ((uint32_t) (p)[0]<< 24)                                               \
 end_define
 
 begin_typedef
-DECL|struct|__anon27ed05a80108
+DECL|struct|__anon2beed8f40108
 typedef|typedef
 struct|struct
 block|{
@@ -89,7 +89,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ed05a80208
+DECL|struct|__anon2beed8f40208
 typedef|typedef
 struct|struct
 block|{
@@ -128,7 +128,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ed05a80308
+DECL|struct|__anon2beed8f40308
 typedef|typedef
 struct|struct
 block|{
@@ -167,7 +167,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ed05a80408
+DECL|struct|__anon2beed8f40408
 typedef|typedef
 struct|struct
 block|{
@@ -189,7 +189,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ed05a80508
+DECL|struct|__anon2beed8f40508
 typedef|typedef
 struct|struct
 block|{
@@ -211,7 +211,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ed05a80608
+DECL|struct|__anon2beed8f40608
 typedef|typedef
 struct|struct
 block|{
@@ -1262,7 +1262,7 @@ name|last
 operator|-
 name|buf
 operator|<
-name|NGX_PROXY_PROTOCOL_MAX_HEADER
+name|NGX_PROXY_PROTOCOL_V1_MAX_HEADER
 condition|)
 block|{
 return|return

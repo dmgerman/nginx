@@ -29,11 +29,19 @@ file|<ngx_core.h>
 end_include
 
 begin_define
+DECL|macro|NGX_PROXY_PROTOCOL_V1_MAX_HEADER
+define|#
+directive|define
+name|NGX_PROXY_PROTOCOL_V1_MAX_HEADER
+value|107
+end_define
+
+begin_define
 DECL|macro|NGX_PROXY_PROTOCOL_MAX_HEADER
 define|#
 directive|define
 name|NGX_PROXY_PROTOCOL_MAX_HEADER
-value|107
+value|4096
 end_define
 
 begin_struct

@@ -22,7 +22,7 @@ file|<ngx_stream.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon27ce89510108
+DECL|struct|__anon2c67601c0108
 typedef|typedef
 struct|struct
 block|{
@@ -55,7 +55,7 @@ typedef|;
 end_typedef
 
 begin_typedef
-DECL|struct|__anon27ce89510208
+DECL|struct|__anon2c67601c0208
 typedef|typedef
 struct|struct
 block|{
@@ -4021,7 +4021,7 @@ name|c
 operator|->
 name|pool
 argument_list|,
-name|NGX_PROXY_PROTOCOL_MAX_HEADER
+name|NGX_PROXY_PROTOCOL_V1_MAX_HEADER
 argument_list|)
 expr_stmt|;
 if|if
@@ -4058,7 +4058,7 @@ name|p
 argument_list|,
 name|p
 operator|+
-name|NGX_PROXY_PROTOCOL_MAX_HEADER
+name|NGX_PROXY_PROTOCOL_V1_MAX_HEADER
 argument_list|)
 expr_stmt|;
 if|if
@@ -4272,7 +4272,7 @@ decl_stmt|;
 name|u_char
 name|buf
 index|[
-name|NGX_PROXY_PROTOCOL_MAX_HEADER
+name|NGX_PROXY_PROTOCOL_V1_MAX_HEADER
 index|]
 decl_stmt|;
 name|c
@@ -4304,7 +4304,7 @@ name|buf
 argument_list|,
 name|buf
 operator|+
-name|NGX_PROXY_PROTOCOL_MAX_HEADER
+name|NGX_PROXY_PROTOCOL_V1_MAX_HEADER
 argument_list|)
 expr_stmt|;
 if|if

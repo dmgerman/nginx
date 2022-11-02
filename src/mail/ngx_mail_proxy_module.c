@@ -34,7 +34,7 @@ file|<ngx_mail.h>
 end_include
 
 begin_typedef
-DECL|struct|__anon28894bab0108
+DECL|struct|__anon2b2914450108
 typedef|typedef
 struct|struct
 block|{
@@ -4293,7 +4293,7 @@ decl_stmt|;
 name|u_char
 name|buf
 index|[
-name|NGX_PROXY_PROTOCOL_MAX_HEADER
+name|NGX_PROXY_PROTOCOL_V1_MAX_HEADER
 index|]
 decl_stmt|;
 name|s
@@ -4333,7 +4333,7 @@ name|buf
 argument_list|,
 name|buf
 operator|+
-name|NGX_PROXY_PROTOCOL_MAX_HEADER
+name|NGX_PROXY_PROTOCOL_V1_MAX_HEADER
 argument_list|)
 expr_stmt|;
 if|if
